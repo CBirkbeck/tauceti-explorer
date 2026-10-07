@@ -1180,7 +1180,10 @@ theorem OrdinaryGl2EulerFactor.refinement (p : ℝ) (hp : 0 < p)
       (1-χp*(p : ℂ)^j/α)*
       (1-χinvp*(εp*(p : ℂ)^(k+1)/α)/(p : ℂ)^(j+1)) := by sorry
 
-/-- Analytic-to-finite scalar comparison once algebraicity and the period are supplied. -/
+/-- Scalar part of the GL₂/ℚ normalization interface after ModularSymbols L1 supplies
+    its actual critical-value theorem and nonzero period. The general GL₂/F BSW
+    theorem belongs to AutomorphicPadicLFunctions L1 in its checked range; this
+    scalar identity supplies no algebraicity or general-rank Rankin theorem. -/
 theorem CriticalValuePeriodInterface (completed finite gamma period : ℂ)
     (hgamma : gamma ≠ 0) (hperiod : period ≠ 0) (h : completed = gamma*finite) :
     completed/(gamma*period) = finite/period := by sorry
@@ -1524,14 +1527,31 @@ TauCeti.AutomorphicLFunctions.AL4.LocalParameterComparison
   For GL_n standard factors and GL_n×GL_m tensor factors, whenever the supplier supplies the local Langlands correspondence with L/ε compatibility, the analytic factors from AL.2/AL.3 equal the Weil–Deligne factors. At an unramified place this reduces to P=det(1−T Fr). For a general L-group r, ramified factors require an actual parameter and are not defined from a spherical class.
 
 AutomorphicLFunctionsAndLocalFactors:AL.3/global-whittaker-factorization
-Unavailable full input: SR.1/SR.5 generic Whittaker/derivative and AF.1/AF.3 global quotient carriers; FA.5/GS.6 cohomological comparison or rational-structure input for the specified theorem.
+Unavailable full input: actual AF.3 smooth cusp space, AA.2 compact unipotent/automorphic quotient integrals, AF.2 restricted tensor realization and continuous local Whittaker uniqueness. Fourier reconstruction precedes global genericity, factorization and ordinary multiplicity one; no AF.3 genericity theorem is assumed.
 TauCeti.AutomorphicLFunctions.AL3.GlobalWhittakerFactorization
-  For a cuspidal π of GL_n(𝔸), W_φ(g)=∫_{N(K)\N(𝔸)}φ(ug)ψ_N(u)^(−1)du. With quotient volume1, local uniqueness and a fixed restricted tensor realization, a factorizable φ has W_φ=∏_v W_v; almost all W_v are normalized spherical. General archimedean vectors require continuous extension from dense tensors.
+For a cuspidal π of GL_n(𝔸_K), Fourier reconstruction makes φ↦W_φ an injective Whittaker realization; hence π and every local component are generic. With quotient volume 1, continuous local Whittaker uniqueness and a fixed Flath restricted tensor realization, a factorizable φ has W_φ=∏_v W_v, after fixing one global scalar; almost all W_v are normalized spherical. At infinite places extend continuously from dense tensors. An arbitrary global cusp vector or distribution is not asserted decomposable.
+Hypotheses: π is an irreducible cuspidal automorphic representation with AF.2 Flath factorization. Its global genericity is proved from gln-fourier-expansion, not requested from AF.3. At infinite places use the continuous Whittaker functional on the smooth moderate-growth globalization; uniqueness of arbitrary algebraic functionals on the Harish–Chandra module is not the theorem. The function-field spherical specialization is Yu §5.3.1.
+TauCeti.AutomorphicLFunctions.AL3.GlobalWhittakerFactorization.generic: Every irreducible cuspidal π and its local components possess a nonzero Whittaker functional for the fixed nontrivial character.
+TauCeti.AutomorphicLFunctions.AL3.GlobalWhittakerFactorization.pure_tensor: A pure tensor has the product Whittaker function with the fixed global scalar and almost-all spherical normalization.
 
 AutomorphicLFunctionsAndLocalFactors:AL.3/gln-fourier-expansion
-Unavailable full input: SR.1/SR.5 generic Whittaker/derivative and AF.1/AF.3 global quotient carriers; FA.5/GS.6 cohomological comparison or rational-structure input for the specified theorem.
+Unavailable full input: actual AF.3 smooth cusp space, AA.2 compact unipotent/automorphic quotient integrals, AF.2 restricted tensor realization and continuous local Whittaker uniqueness. Fourier reconstruction precedes global genericity, factorization and ordinary multiplicity one; no AF.3 genericity theorem is assumed.
 TauCeti.AutomorphicLFunctions.AL3.GlnFourierExpansion
-  For a smooth cuspidal φ of GL_n(𝔸), n≥2, φ(g)=Σ_{γ∈N_{n−1}(K)\GL_{n−1}(K)}W_φ(diag(γ,1)g), with locally uniform absolute convergence in the smooth cuspidal setting. The vanished constant terms are essential; this is not an expansion for arbitrary automorphic functions.
+For a smooth cuspidal φ of GL_n(𝔸_K), n≥2, define W_φ(g)=∫_{N_n(K)\N_n(𝔸_K)}φ(ug)ψ_N(u)⁻¹du, with quotient volume 1. Then φ(g)=Σ_{γ∈N_{n−1}(K)\GL_{n−1}(K)}W_φ(diag(γ,1)g), with locally uniform absolute convergence in the smooth cuspidal setting. In particular φ↦W_φ is injective and equivariant. Global genericity and factorization are subsequent consequences, not hypotheses of this expansion.
+Hypotheses: K is a number field in Cogdell Lecture 4; use a nontrivial global additive character and AF.3 smooth cuspidality/rapid decay. The same successive compact-unipotent Fourier argument gives the function-field version used in Yu §5.3.1; that source invokes Fourier reconstruction before factorization. At infinite places use smooth moderate-growth globalizations and the derivative estimates needed for the stated convergence. A vanishing cuspidal constant term is essential.
+TauCeti.AutomorphicLFunctions.AL3.GlnFourierExpansion.injective: W_φ=W_φ′ implies φ=φ′ for smooth cusp forms with the fixed character and measure.
+TauCeti.AutomorphicLFunctions.AL3.GlnFourierExpansion.equivariant: W_{R(h)φ}(g)=W_φ(gh).
+
+AutomorphicLFunctionsAndLocalFactors:AL.3/global-multiplicity-one
+TauCeti.AutomorphicLFunctions.AL3.GlobalMultiplicityOne
+For an irreducible admissible smooth representation π of GL_n(𝔸_K), K a number field, its multiplicity in the smooth cuspidal spectrum with fixed central character is at most one. If π is cuspidal, the multiplicity is one: any two nonzero equivariant embeddings into that cusp space differ by a nonzero scalar and have the same image. This is the ordinary multiplicity theorem; it assumes the same global representation, rather than cofinite local agreement.
+Hypotheses: n≥1; K a number field; characteristic-zero complex automorphic forms. Work with the unitary central-character Hilbert realization or an explicitly fixed norm twist. Use continuous equivariant embeddings and continuous Whittaker functionals on the smooth moderate-growth globalizations at infinity. Multiplicity in the Hilbert spectrum is compared through the existing AS.4/AF.3 realization, not a freely chosen numerical function.
+TauCeti.AutomorphicLFunctions.AL3.GlobalMultiplicityOne.embeddings: Two nonzero equivariant embeddings of π into the fixed smooth cusp space differ by c∈ℂ×.
+TauCeti.AutomorphicLFunctions.AL3.GlobalMultiplicityOne.same_image: The ranges of those two embeddings coincide.
+TauCeti.AutomorphicLFunctions.AL3.GlobalMultiplicityOne.rescaling: For c≠0, i and c·i have the same image and the same cuspidal constituent.
+TauCeti.AutomorphicLFunctions.AL3.GlobalMultiplicityOne.level_dimension: Even when dim π^K=2, the contribution at level K has dimension 2 while the global automorphic multiplicity is 1.
+TauCeti.AutomorphicLFunctions.AL3.GlobalMultiplicityOne.no_occurrence: If there is no nonzero cusp embedding, the multiplicity is 0, consistent with the at-most-one assertion.
+Unavailable full input: the actual cusp embedding/Hom space and its smooth/Hilbert multiplicity comparison. No arbitrary multiplicity function is used.
 
 AutomorphicLFunctionsAndLocalFactors:AL.3/mirabolic-eisenstein-series
 Unavailable full input: SR.1/SR.5 generic Whittaker/derivative and AF.1/AF.3 global quotient carriers; FA.5/GS.6 cohomological comparison or rational-structure input for the specified theorem.
@@ -1550,9 +1570,10 @@ TauCeti.AutomorphicLFunctions.AL3.MirabolicEisensteinFunctionalEquation
   E(g,s,Φ,η)=E(t(g^(−1)),1−s,Φ̂,η^(−1)) meromorphically. If η=|·|^(−inσ), the only possible simple poles are s=iσ and1+iσ. For η=1 and κ=vol(K×\𝔸¹) with Tate measures, the zero-mode terms are −κ|det g|^sΦ(0)/(ns)+κ|det g|^(s−1)Φ̂(0)/(n(s−1)); otherwise the norm-one character integral vanishes.
 
 AutomorphicLFunctionsAndLocalFactors:AL.3/global-rs-unfolding
-Unavailable full input: SR.1/SR.5 generic Whittaker/derivative and AF.1/AF.3 global quotient carriers; FA.5/GS.6 cohomological comparison or rational-structure input for the specified theorem.
+Unavailable full input: actual AF.3 smooth cusp space, AA.2 compact unipotent/automorphic quotient integrals, AF.2 restricted tensor realization and continuous local Whittaker uniqueness. Fourier reconstruction precedes global genericity, factorization and ordinary multiplicity one; no AF.3 genericity theorem is assumed.
 TauCeti.AutomorphicLFunctions.AL3.GlobalRsUnfolding
-  For unitary cuspidal π_n,π_m and pure tensors, the unequal-rank projected cusp integral and the equal-rank integral ∫_{Z_n(𝔸)GL_n(K)\GL_n(𝔸)}φ(g)φ′(g)E(g,s,Φ,ω_πω_π′)dg unfold to ∏_v Ψ_v(s). For n>m project φ along the unipotent radical of (m+1,1,…,1), with factor |det|^(−(n−m−1)/2), then integrate against φ′|det|^(s−1/2).
+For unitary cuspidal π_n,π_m and pure tensors, the unequal-rank projected cusp integral and the equal-rank integral ∫_{Z_n(𝔸)GL_n(K)\GL_n(𝔸)}φ(g)φ′(g)E(g,s,Φ,ω_πω_π′)dg unfold to ∏_v Ψ_v(s). For n>m project φ along the unipotent radical of (m+1,1,…,1), with factor |det|^(−(n−m−1)/2), then integrate against φ′|det|^(s−1/2).
+Hypotheses: Initially Re(s)≫0; global character product trivial on K×. Adjacent rank needs no preliminary projection.
 
 AutomorphicLFunctionsAndLocalFactors:AL.3/rs-global-poles
 Unavailable full input: SR.1/SR.5 generic Whittaker/derivative and AF.1/AF.3 global quotient carriers; FA.5/GS.6 cohomological comparison or rational-structure input for the specified theorem.
@@ -1575,9 +1596,10 @@ TauCeti.AutomorphicLFunctions.AL2.JacquetShalikaSatakeBound
   For an irreducible unitary generic unramified representation of GL_n(F), every unitary-normalized Satake root satisfies q^(−1/2)<|α_i|<q^(1/2). Hence a unitary global cusp form has these bounds at all unramified places. This does not assert temperedness over a number field.
 
 AutomorphicLFunctionsAndLocalFactors:AL.3/strong-multiplicity-one
-Unavailable full input: SR.1/SR.5 generic Whittaker/derivative and AF.1/AF.3 global quotient carriers; FA.5/GS.6 cohomological comparison or rational-structure input for the specified theorem.
+Unavailable full input: actual AF.3 smooth cusp space, AA.2 compact unipotent/automorphic quotient integrals, AF.2 restricted tensor realization and continuous local Whittaker uniqueness. Fourier reconstruction precedes global genericity, factorization and ordinary multiplicity one; no AF.3 genericity theorem is assumed.
 TauCeti.AutomorphicLFunctions.AL3.StrongMultiplicityOne
-  If cuspidal π₁,π₂ of GL_n(𝔸_K) have isomorphic local components at all finite places outside a finite set, then π₁≅π₂ globally, including every omitted finite and infinite place; with the AF global multiplicity-one theorem their cusp realizations coincide.
+If cuspidal π₁,π₂ of GL_n(𝔸_K) have isomorphic local components at all finite places outside a finite set, then π₁≅π₂ globally, including every omitted finite and infinite place; with AL.3/global-multiplicity-one their cusp realizations coincide.
+Hypotheses: Unitarize the central characters consistently; every excluded finite and archimedean local factor is nonzero and finite at s=1, by the local unitary bounds and gamma calculation. Agreement at infinity is a conclusion.
 
 AutomorphicLFunctionsAndLocalFactors:AL.3/isobaric-strong-multiplicity-one
 Unavailable full input: SR.1/SR.5 generic Whittaker/derivative and AF.1/AF.3 global quotient carriers; FA.5/GS.6 cohomological comparison or rational-structure input for the specified theorem.
@@ -1754,9 +1776,10 @@ TauCeti.AutomorphicLFunctions.AL1.QuadraticOrbitalTateComparison
   For the quadratic idele-class character η in Zhang, the zero-orbit integrals are Orb(0+,Φ,s)=Λ(s,η)∏_v Z_v(s,η,Φ_v(·,0))/L_v(s,η) and Orb(0−,Φ,s)=Λ(−s,η)∏_v Z_v(−s,η,Φ_v(0,·))/L_v(−s,η). Each normalized local integral is entire and equals1 at unramified standard data.
 
 AutomorphicLFunctionsAndLocalFactors:AL.3/rational-period-comparison
-Unavailable full input: SR.1/SR.5 generic Whittaker/derivative and AF.1/AF.3 global quotient carriers; FA.5/GS.6 cohomological comparison or rational-structure input for the specified theorem.
+Unavailable full input: actual AF.4 finite-part rational models and local cohomological lines, ALS.5 Betti/de Rham/cuspidal comparisons, and AL’s G12 Whittaker rational structure/comparison and Gauss-twisting maps. The GL₂/ℚ modular-symbol supplier does not supply this general-rank theorem; use the proposed late comparison suffix.
 TauCeti.AutomorphicLFunctions.AL3.RationalPeriodComparison
-  Given the supplier Whittaker and cohomological E-rational structures for a cohomological cuspidal Π and a permissible real-place signature ε, and a fixed nonzero infinity cohomology vector defining F_Π^ε, normalize F_Π^ε by p^ε(Π)^(−1) to preserve those structures. The period is in C×/E×. Scaling the infinity vector by c scales the comparison and period by c; changing rational bases changes a representative by E×. Twisting by algebraic ξ changes the period class by G(ξ_f)^(n(n−1)/2) with the signature ε·ε_ξ.
+Given the supplier Whittaker and cohomological E-rational structures for a cohomological cuspidal Π and a permissible real-place signature ε, and a fixed nonzero infinity cohomology vector defining F_Π^ε, normalize F_Π^ε by p^ε(Π)^(−1) to preserve those structures. The period is in C×/E×. Scaling the infinity vector by c scales the comparison and period by c; changing rational bases changes a representative by E×. Twisting by algebraic ξ changes the period class by G(ξ_f)^(n(n−1)/2) with the signature ε·ε_ξ.
+Hypotheses: Use Raghuram §2.5.2: Π∈Coh(G_n,μ∨) is regular algebraic cuspidal over a number field with the stated strongly pure weight. The permissible signature ε cuts out the one-dimensional bottom-degree archimedean cohomology line. E contains Q(μ) and Q(Π_f); for the twist comparison enlarge E to contain the character rationality field as well. The finite Whittaker and Betti/cohomological E-structures, their comparison map and the Gauss-period twisting theorem must actually be supplied. Their construction/comparison is an AL proof obligation in G12, using AF.4 finite-part rationality and the precise ALS.5 Betti comparisons; neither AF.4 nor GL₂/ℚ modular symbols exports this general period theorem. This conditional comparison proves no critical-value algebraicity theorem. Under σ∈Aut(ℂ), use the corrected signature convention of Raghuram §2.5.2.5, not an undefined σ ε.
 
 AutomorphicLFunctionsAndLocalFactors:AL.5/ordinary-gl2-euler-factor
 Unavailable full input: ModularSymbols L1/L2 character/refinement dictionary, the continued automorphic family, and its meromorphic/gamma comparison output.
@@ -1812,4 +1835,15 @@ No arbitrary Type or Prop proxy is a signature for these theorems. G16 also
 retains the original opposite-mirabolic and spectral-inversion proof interiors.
 The source is Cogdell's public survey, sections 2-3, Theorems 3.1 and 3.3;
 Gelbart-Jacquet's highly ramified T-twist variant remains separate.
+-/
+
+/-
+Named converse tests omitted with the same G16 analytic carriers:
+TauCeti.AutomorphicLFunctions.AL3.gln_converse_full_rank.rank_two: At n=2 the entire twisting family is all idele-class quasicharacters, with completed dual entireness, vertical-strip bounds and the matching functional equation.
+TauCeti.AutomorphicLFunctions.AL3.gln_converse_full_rank.rank_three: At n=3 the full-rank theorem requires both GL₁ and GL₂ cuspidal twists; dropping rank two is the separately proved reduced-rank theorem.
+TauCeti.AutomorphicLFunctions.AL3.gln_converse_full_rank.unchecked_pole: A twist with an uncancelled pole violates niceness and cannot be passed to this converse theorem.
+TauCeti.AutomorphicLFunctions.AL3.gln_converse_reduced_rank.rank_three_empty_set: At n=3 and S=∅ all GL₁ twists satisfying niceness give cuspidal automorphy.
+TauCeti.AutomorphicLFunctions.AL3.gln_converse_reduced_rank.nonempty_exceptional_set: Twists unramified at nonempty finite S give an automorphic representation matching outside S; neither cuspidality nor equality at S follows from this contract.
+TauCeti.AutomorphicLFunctions.AL3.gln_converse_reduced_rank.rank_two_excluded: n=2 is outside the hypotheses, so an empty range 1≤m≤0 yields no GL₂ theorem.
+TauCeti.AutomorphicLFunctions.AL3.gln_converse_reduced_rank.highly_ramified_family: Characters unramified at S are not the highly ramified T-family of Gelbart–Jacquet §9.2; that variant remains a separate proof obligation.
 -/

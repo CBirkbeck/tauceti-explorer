@@ -325,6 +325,18 @@
       "readSections": [
         "Introduction, pp. 11–12 (Artin representations and the Langlands–Tunnell theorem; mod ℓ representations); §3.1, Theorem 3.3 and Remarks 3.4–3.6, pp. 87–88; §3.2, Conjecture 3.7 to Theorem 3.14 with the sketch of proof, pp. 88–90"
       ]
+    },
+    {
+      "id": "cogdell-fields",
+      "title": "Lectures on L-functions, converse theorems, and functoriality for GL(n)",
+      "authors": "James W. Cogdell",
+      "edition": "Author Fields Institute lecture notes, 2004",
+      "url": "https://people.math.osu.edu/cogdell.1/fields-www.pdf",
+      "sha256": "2c5ec050a6db216dcd2104b7fe266ddc03e4db7c7d300239e60d6ee9c40618a7",
+      "accessDate": "2026-10-07",
+      "readSections": [
+        "Lecture 4 §§1–3, printed pp.29–34; Lecture 9 §§2–4 and §7, printed pp.71–72 and 74–75. The partial-versus-completed pole comparison uses pp.74–75."
+      ]
     }
   ],
   "nodes": [
@@ -2091,6 +2103,7 @@
       ],
       "proofSteps": [
         "Import AL.3/gln-converse-reduced-rank at n=3 and AL.3/rs-global-poles. This node compares their GL₃ applications; it does not prove generic converse theory again. The highly ramified T-twist variant remains an acquisition gap.",
+        "For the partial Rankin–Selberg pole comparison, use the unitary local convergence bounds at every omitted finite and archimedean place: those local factors are nonzero and finite at s=1. Only then does the completed pole criterion imply the partial one. This is the finite-product argument of Cogdell, Theorem 9.3, pp.74–75.",
         "Route the GL₃ converse theorem (JPSS 1979 (13.6); Cogdell Theorem 3.3) and the Jacquet–Shalika Rankin–Selberg pole and nonvanishing results to the single AL extension after AL.3. These generic proofs stay in the recorded gap until that supplier is written.",
         "In the tetrahedral application, take π¹ to be the cubic induction of the V₄ character (cubic-character-induction) and π² to be Ad(π_ps(ρ)) (adjoint-lift). At places inert in E the Rankin–Selberg factors agree because both depend only on cubes of Satake classes (Langlands (3.1)–(3.2)), so (ii) gives π¹≅π² without comparing the Satake classes themselves."
       ],
@@ -2103,7 +2116,8 @@
         "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-global-poles",
         "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-boundary-nonvanishing",
         "GL2AutomorphicRepresentationsAndTransfer:R17.4/adjoint-lift",
-        "GL2AutomorphicRepresentationsAndTransfer:R17.4/cubic-character-induction"
+        "GL2AutomorphicRepresentationsAndTransfer:R17.4/cubic-character-induction",
+        "AutomorphicLFunctionsAndLocalFactors:AL.2/jacquet-shalika-satake-bound"
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Automorphic/GL2/Transfer",
@@ -2133,6 +2147,12 @@
           "locator": "§3(i), DMA text p. 18 (PDF p. 21), with (3.1)–(3.2)",
           "excerpt": "It is to be expected that π 1 and π2 are equivalent, and this can indeed be established, using a criterion of Jacquet–Shalika ([15]).",
           "match": "Exact for (ii): Langlands checks L(s,π¹_v×π̃¹_v)=L(s,π²_v×π̃¹_v) for almost all v and concludes π¹≅π² by the Jacquet–Shalika criterion ([15], C. R. 284 (1977)). Superscripts are flattened in the text layer."
+        },
+        {
+          "sourceId": "cogdell-fields",
+          "locator": "Lecture 9 §7, Theorem 9.3 proof, printed pp.74–75 (PDF pp.78–79)",
+          "excerpt": "no zeros or poles",
+          "match": "Omitted unitary finite and archimedean local Rankin–Selberg factors must be nonzero and finite at 1 to transfer the completed pole criterion to L^S."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4730,7 +4750,7 @@
         "GL2AutomorphicRepresentationsAndTransfer:R17.4/gl3-recognition",
         "GL2AutomorphicRepresentationsAndTransfer:R17.4/nonnormal-cubic-base-change"
       ],
-      "detail": "AL.3/gln-converse-full-rank and AL.3/gln-converse-reduced-rank now give the single generic owner contracts; G16 in that packet retains the original proof interiors and native signature carriers. R17.4a uses the reduced-rank node at n=3; R16.5 uses the full-rank node at n=2 with separately checked twist, growth, pole and archimedean hypotheses. Gelbart–Jacquet §9.2’s highly ramified T-twist variant still needs its original source and proof decomposition. The existing AL.3/rs-global-poles and rs-boundary-nonvanishing supply the generic analytic contracts for the unitary cuspidal GL₃ comparison. No GL₃ isobaric strong multiplicity-one theorem is inferred. The proposed AL.3b prefix must precede both GL₂ consumers without importing them."
+      "detail": "AL.3/gln-converse-full-rank and AL.3/gln-converse-reduced-rank now give the single generic owner contracts; G16 in that packet retains the original proof interiors and native signature carriers. R17.4a uses the reduced-rank node at n=3; R16.5 uses the full-rank node at n=2 with separately checked twist, growth, pole and archimedean hypotheses. Gelbart–Jacquet §9.2’s highly ramified T-twist variant still needs its original source and proof decomposition. The existing AL.3/rs-global-poles and rs-boundary-nonvanishing supply the generic analytic contracts for the unitary cuspidal GL₃ comparison. No GL₃ isobaric strong multiplicity-one theorem is inferred. The proposed AL.3b prefix must precede both GL₂ consumers without importing them. The highly ramified T-statement was reread in GJ78 §9.1–§9.2, printed pp.531–534, and is not supplied by twists unramified at S. The partial Rankin–Selberg pole comparison also imports the unitary omitted-local-factor regularity, including infinity, from AL.2/jacquet-shalika-satake-bound and the associated local convergence theory."
     },
     {
       "title": "Original JPSS nonnormal cubic transfer proof",
@@ -4778,6 +4798,34 @@
         "GL2AutomorphicRepresentationsAndTransfer:R17.4/gl3-recognition"
       ],
       "detail": "TauCeti.GL2Transfer.gl3_recognition is omitted from the suggested file until AL supplies the actual global admissible/cuspidal representation, completed twist, epsilon and Rankin–Selberg pole carriers. The old arbitrary-type equality from local data did not state either analytic recognition or the cuspidal pole criterion. A comment naming the exact missing signature does not count as that signature."
+    },
+    {
+      "title": "Source-specific automorphic transfer signature omissions",
+      "neededBy": [
+        "GL2AutomorphicRepresentationsAndTransfer:R17.3/global-jl",
+        "GL2AutomorphicRepresentationsAndTransfer:R17.4/adjoint-lift",
+        "GL2AutomorphicRepresentationsAndTransfer:R17.4/nonnormal-cubic-base-change",
+        "GL2AutomorphicRepresentationsAndTransfer:R17.3/norm-exception",
+        "GL2AutomorphicRepresentationsAndTransfer:R17.3/split-hecke",
+        "GL2AutomorphicRepresentationsAndTransfer:R17.3/local-factors",
+        "GL2AutomorphicRepresentationsAndTransfer:R17.3/strong-multiplicity-one",
+        "GL2AutomorphicRepresentationsAndTransfer:R17.3/multiplicity-one",
+        "GL2AutomorphicRepresentationsAndTransfer:R17.3/coefficient-conjugation",
+        "GL2AutomorphicRepresentationsAndTransfer:R17.3/rational-models",
+        "GL2AutomorphicRepresentationsAndTransfer:R17.3/definite-infinity",
+        "GL2AutomorphicRepresentationsAndTransfer:R17.3/indefinite-parity",
+        "GL2AutomorphicRepresentationsAndTransfer:R17.3/invariant-exchange",
+        "GL2AutomorphicRepresentationsAndTransfer:R17.3/supercuspidal-globalization",
+        "GL2AutomorphicRepresentationsAndTransfer:R17.4/cubic-character-induction",
+        "GL2AutomorphicRepresentationsAndTransfer:R17.5/dihedral-artin",
+        "GL2AutomorphicRepresentationsAndTransfer:R17.5/tetrahedral-artin",
+        "GL2AutomorphicRepresentationsAndTransfer:R17.5/octahedral-artin",
+        "GL2AutomorphicRepresentationsAndTransfer:R17.5/solvable-artin",
+        "GL2AutomorphicRepresentationsAndTransfer:R17.5/q-weight-one",
+        "GL2AutomorphicRepresentationsAndTransfer:R17.5/tr-weight-one",
+        "GL2AutomorphicRepresentationsAndTransfer:R17.5/residual-lt-application"
+      ],
+      "detail": "The assigned global JL, adjoint, weak nonnormal cubic, cubic character induction, Artin and weight-one interfaces require the actual number-field, local/global automorphic, central-character, coefficient-model, completed L/epsilon and Galois comparison carriers. The suggested file records each omitted declaration/API/test and its full source contract under §13, rather than asserting equivalences of arbitrary types or equality for unrelated functions. Concrete Satake matrix formulas and the numeric parity theorem remain typed fragments. These omissions do not discharge the original source-proof gaps. The inherited cyclic/solvable base-change and quadratic-induction prototypes remain a distinct repair obligation: their arbitrary types/functions cannot meet the intended source hypotheses merely through comments."
     }
   ],
   "title": "Modular forms — Hecke theory, newforms, and L-functions, Part II: GL₂ automorphic representations and transfer",
@@ -5147,296 +5195,304 @@
     }
   ],
   "review": {
-    "status": "accepted",
-    "reviewer": "independent-review-REV-GL2AutomorphicRepresentationsAndTransfer--R17.3",
-    "date": "2026-10-06",
-    "notes": "Independent review by Claude (session claude-QIk6wX) of the Codex planning pass (codex-CcaPB4, PR #6723). All 15 cited sources were downloaded and their SHA-256 values matched; Rogawski–Tunnell 1983 was read through the GDZ OCR. Five public sources were added: Deligne–Serre 1974, Tunnell 1981, JPSS 1979 II, Tunnell 1978 and Darmon–Diamond–Taylor. Every node was checked against its source by stage-group checkers and merged by the reviewer. Systemic correction: 54 of the 55 excerpts were one- or two-word placeholders, and every match and hypotheses field was the same boilerplate sentence. Every node now has literal excerpts verified against the source text, a specific match and its actual hypotheses. Mathematical corrections include: the global JL domain (false for split D) restated on the discrete spectrum; Pan's weight convention; the cyclic base change statement made non-circular (local-compatibility owns the parameter restriction); the cuspidality criterion sourced to AC89 Thm 4.2(a),(b); tower independence and solvable descent marked as the packet's own arguments; Tunnell's octahedral argument (read: no GL₃ comparison beyond JPSS); Rohrlich–Tunnell's lemma, cases and theorem copied exactly; Wiese's Lemmas 2–3 and Theorem 9; BCGP's [Ser77, Thm 4] identified as Tate's theorem. Structure: R17.6/extraordinary-cubic-compatibility was removed because it duplicated AutomorphicGaloisRepresentations R19.2/carayol-cubic-base-change-of-extraordinary, which the accepted RT-AREA-langlands-2/4 fix assigns to R19.2. The link R17.6 → R19.2 was replaced by R17.5 → R19.2. Three R17.5 nodes were added: Tunnell's globalisation, prescribed-local induction (Carayol 11.2) and the octahedral mod-3 application, a required check that no node had realised. The R17.4a proposal now matches the accepted RT-AREA-automorphic-1/1 fix (AL.3, AL.3b, MP.5). Exact supplier nodes from the AF, AGR and R15 packets replace stage citations where they match, and the pinned TauCeti.simple_indFDRep_ofLinearCharacter_iff replaces InductionRestriction Layer 4. Requests were rebuilt from the prerequisites. The gaps were narrowed to exact inputs: one closed, one non-mathematical gap dropped and one added (the all-place upgrade of Artin automorphy). Ten source issues were added and E1 confirmed. Baseline: all eight declarations were read at the pins. The suggested file was revised: unramifiedBaseChange is now defined as A ^ f, every test evaluates a packet declaration, statable conditions were restored on Field.absoluteGaloisGroup, and Mackey is stated on Mathlib's Representation.ind. It elaborates with lean-check, with placeholder warnings only. The reader document is not a deliverable of this review and must be regenerated from this packet.",
-    "checked": [
-      {
-        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.3/coefficient-conjugation",
-        "verdict": "corrected",
-        "note": "Pan §5.5.5 only says JL identifies the T_S-spectrum on quaternionic forms with classical Hecke systems (consumer); it says nothing on Aut(C) or rationality fields. Statement made precise (cohomological, permuted weights, Aut(C)-equivariance of JL_v); added global-jl, R17.1."
-      },
-      {
-        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.3/definite-infinity",
-        "verdict": "corrected",
-        "note": "Pan misquoted: for χ=(−k,0) the forms are A_{(k,0)}, valued in W^{(k,0)} (highest weight (k,0), dual of the (0,−k) rep), not W^{(−k,0)}. σ_{k+2,1}, the t-twist and the k=0 split A^c⊕A^1 (spectrum σ_{2,1}∪σ_0) checked. Def 5.4.11 is on p. 71."
-      },
-      {
-        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.3/global-jl",
-        "verdict": "corrected",
-        "note": "Domain was false for split D (Eisenstein constituents are automorphic, not norm-factoring, not cuspidal). Restated on BR10's discrete series with unitary ω; local condition = square-integrable at S, as in JL70 Thm 16.1. JL70 16.1 is only sketched there."
-      },
-      {
-        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.3/indefinite-parity",
-        "verdict": "corrected",
-        "note": "CDN20 §5.2.1 checked: B̌ split at ∞₀, compact mod centre at the other real places, ramified at 𝔭; E arbitrary totally real (no even-degree condition), no parity stated. The parity (finite ramification ≡ d−1 mod 2) is right; it comes from CFT Layer 14. CDN20 is a consumer setting."
-      },
-      {
-        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.3/invariant-exchange",
-        "verdict": "corrected",
-        "note": "CDN23 §4.1 checked: F=Q_p, p>2; E totally real of even degree, p totally split (Prop 4.5); D⁰ ramified exactly at real places; D swaps invariants at {𝔭,∞₀}. N (in 2Np) is the product of orders of finite groups, not a level. CDN23 uses Scholze's functor, not global JL: setting only."
-      },
-      {
-        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.3/local-factors",
-        "verdict": "corrected",
-        "note": "JL70 locator right (printed p. 247, PDF 253): JL70 characterises π_v by equality of L(s,ω_v⊗·), the contragredients' L, and ε(s,ω_v⊗·,ψ_v) for all quasi-characters ω_v. Added the ε normalization (sign h_v = −1 at v ∈ S, cancelling globally). Prerequisites fixed: R17.1, R16.5 for AL.3."
-      },
-      {
-        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.3/multiplicity-one",
-        "verdict": "corrected",
-        "note": "BR10 Thm 1.4(b) and 18.1(b), 1st sentence: every discrete series of GL_n(D)(A) has multiplicity 1; n=1, d=2 gives D×. JL70 only has finite multiplicity (Lemma 14.1). Proof needs GL₂ multiplicity one: R16.4 added. 'Non-norm irreducible' made 'discrete series'."
-      },
-      {
-        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.3/norm-exception",
-        "verdict": "corrected",
-        "note": "JL70 locator right (printed p. 247). Statement made precise: real ramified places give twisted weight-2 discrete series; JL70 only shows the formal transfer acts on no subspace of A (open whether it is a constituent); BR10 sends χ∘Nrd to residual χ∘det. Added R16.4."
-      },
-      {
-        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.3/rational-models",
-        "verdict": "corrected",
-        "note": "CDN20 §5.2.1 is a consumer: it needs Π̌ defined over its p-adic coefficient field L (via C ≅ Q̄_p); fn 21 allows extending L for globalization, not because of a descent obstruction. Statement made precise (L-models at split places, no models from rationality alone); added split-hecke."
-      },
-      {
-        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.3/split-hecke",
-        "verdict": "corrected",
-        "note": "CDN23 is only a consumer: one T^univ_S = O[T_v,S_v] acts on definite and Shimura-curve sides via (4.6), with char. poly X²−T_vX+N(v)S_v (§4.1.4, p. 41, not §4.1.3). Made b_v = q_v s_v explicit; locator fixed."
-      },
-      {
-        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.3/strong-multiplicity-one",
-        "verdict": "corrected",
-        "note": "BR10 Thm 1.4(c) and 18.1(b), 2nd sentence (pp. 6, 44) give SMO for discrete series of GL_n(D); n=1, d=2 is D×. Stated for discrete series (false for split D otherwise). JL70 has no SMO for D×. CDN20 Prop 5.2 is a consumer."
-      },
-      {
-        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.3/supercuspidal-globalization",
-        "verdict": "corrected",
-        "note": "Fn 21 checked: to globalize (Clozel [9]) the central character must be adjusted, so everything may be twisted by a character (changing ϖ) and L (a finite extension of Q_p) replaced by a finite extension. Statement now twists τ itself, names σ₂ and B; dropped unsourced 'prescribed tame data'."
-      },
-      {
-        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.4/adjoint-lift",
-        "verdict": "corrected",
-        "note": "Read GJ78 Intro, Def. 3.1.3, §3.6–3.7, Thm 8.1, Thm 9.3, Rem. 9.9. Introduction is printed pp. 471–473. Statement now says the local lift is GJ78's twisted-factor lift and that LLC/adjoint identification and Thm 8.1 holomorphy are extra inputs. G7 exists."
-      },
-      {
-        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.4/cubic-character-induction",
-        "verdict": "corrected",
-        "note": "AC89 Thm 6.2 is a.e. only (Def. 6.1); its cuspidality dichotomy is Lemmas 6.3–6.4/Cor. 6.5, pp. 217–218. Added JPSS 1979 II Thm (14.2), which gives the cuspidal case at every place. Removed GL₂ cyclic base change; added Hecke L-function and Mackey inputs."
-      },
-      {
-        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.4/cuspidality",
-        "verdict": "corrected",
-        "note": "Langlands Lemma 11.7 (p.151; number correct) is only the self-twist criterion π≅ω⊗π ⇔ ℓ=2 and π induced from E; its proof for ℓ=2 is omitted. The exact BC criterion is AC89 Ch.3 Thm 4.2(a),(b). Proof steps fixed (Thm 3.1→4.2; 11.6(a)→11.3(a)); 'the nontrivial generator' corrected."
-      },
-      {
-        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.4/cyclic-base-change",
-        "verdict": "corrected",
-        "note": "Langlands §2 (A),(B),(E), §8, §11 and AC89 Ch.3 Thms 4.2, 5.1 checked. All-place LLC restriction is not in these theorems and depends on local-compatibility, so the statement now gives the local-lift form and points there; API _local adjusted. Odd-ℓ cuspidality test verified."
-      },
-      {
-        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.4/cyclic-descent",
-        "verdict": "corrected",
-        "note": "Checked Langlands §2 (B),(C) (p.14) and Lemma 11.6(b) (p.151); AC89 Thm 4.2(d) agrees for GL(n). Statement correct. 'trace/converse argument' changed to the twisted trace formula, since no converse theorem is used. Real excerpts and hypotheses added."
-      },
-      {
-        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.4/cyclic-descent-fibers",
-        "verdict": "corrected",
-        "note": "Checked Langlands Lemma 11.6(a),(b) (pp.150–151) and (C) (p.14); AC89 Thm 4.2(d),(e) agree. Both fibre claims are correct. 11.6(a) gives uniqueness among all automorphic π, and the statement now says so. Real excerpts and hypotheses added."
-      },
-      {
-        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.4/gl3-recognition",
-        "verdict": "corrected",
-        "note": "The old statement was a plan, not a theorem. Restated as (i) the GL₃ converse theorem with GL₁ twists (Cogdell Thm 3.3, n=3) and (ii) the Jacquet–Shalika Rankin–Selberg pole criterion that Langlands §3 uses. GL₃ isobaric SMO is not used in the tetrahedral case."
-      },
-      {
-        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.4/isobaric-fibers",
-        "verdict": "corrected",
-        "note": "Checked Langlands (C), first sentence (p.14: independent twists μ₁, ν₁), and the §11 verification of (A),(B) (p.151). Statement correct. Added: the exchanged case needs ℓ=2; comparing unordered pairs needs isobaric strong multiplicity one, so R16.4 added. Real excerpts and hypotheses."
-      },
-      {
-        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.4/local-compatibility",
-        "verdict": "corrected",
-        "note": "AC89 Thm 5.1 gives only a local Shintani lift at every place, not LLC restriction. Sources added for the restriction: Langlands §2(e), L7.6 (special), L11.8 (tetrahedral) and Carayol §12.2.2 (extraordinary, degree ≤3). The octahedral p=2, ℓ≥5 case is recorded as an R16.3 input."
-      },
-      {
-        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.4/nonnormal-cubic-base-change",
-        "verdict": "corrected",
-        "note": "Tunnell 1981 states the JPSS theorem weakly (cuspidal input, almost all places) and gives no proof. Carayol 12.2.1(b) states it at every place against the JPSS local lift. Input fixed to cuspidal (isobaric case elementary). Locator fixed: 12.2.1 is p. 457; the citation is [J.P.S.S.]."
-      },
-      {
-        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.4/prescribed-local-base-change",
-        "verdict": "corrected",
-        "note": "Carayol §12.3.1–12.3.2 (printed pp.458–459) is a consumer: he picks quadratic or cubic L/F split at a discrete-series place so the lift keeps that component. His octahedral cubic L/F is non-Galois (JPSS), outside this node. Split-place identity: Langlands §8. Real excerpts added."
-      },
-      {
-        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.4/solvable-base-change",
-        "verdict": "corrected",
-        "note": "No GL₂ source states solvable base change; the closest passage is AC89 Ch.3 §7 (p.222): repeated tower base change, determined by almost-all Hecke eigenvalues. Proof step 3 made non-circular (direct R16.4 argument); added prerequisites unramified-base-change, local-compatibility."
-      },
-      {
-        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.4/solvable-descent",
-        "verdict": "corrected",
-        "note": "No source treats descent along a solvable tower; the node iterates cyclic descent (packet's own argument). Cited AC89 Ch.3 Thm 3.1 (fibres), Thm 4.2(f) and Langlands (B). Statement made precise (chain condition; invariance alone not claimed). Added prerequisite solvable-base-change."
-      },
-      {
-        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.4/tower-independence",
-        "verdict": "corrected",
-        "note": "Langlands has no tower-independence statement; his p.151 passage (and AC89 Prop 4.4(i)) is about the generator σ in one step. The node is the packet's own argument; cited AC89 §7 p.222 and Langlands Lemma 3.1. Statement: strong multiplicity one alone gives the isomorphism."
-      },
-      {
-        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.4/unramified-base-change",
-        "verdict": "corrected",
-        "note": "Checked the power rule against AC89 Ch.3 (1.1)/Def. 1.1 and Langlands §2 criterion (i); normalisation-independent. Tests verified: diag(4,9), trace 13, det 36; diag(64,729). Real excerpts, hypotheses; uses-locator Def. 6.1 corrected to Def. 1.1."
-      },
-      {
-        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.5/dihedral-artin",
-        "verdict": "corrected",
-        "note": "The locator '§3 discussion preceding Theorem 3.3, pp. 15–18' is wrong: §3 sets dihedral ρ aside (p. 16), and the dihedral statement is Langlands Introduction p. 4 (DMA text). Added JL70 Prop. 12.1 (p. 206) as the proof source. Statement checked; it is true as stated."
-      },
-      {
-        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.5/finite-hecke-extension",
-        "verdict": "corrected",
-        "note": "Checked Patrikis Lemma 2.3.6 (printed p. 30) and proof (pp. 30–31). Finite-order clause matches; the Grunwald–Wang case affects only uniqueness, not which choice extends. Proof rewritten to Patrikis's duality/infinity-type argument; necessity is ours."
-      },
-      {
-        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.5/finite-projective-lift",
-        "verdict": "corrected",
-        "note": "Checked Patrikis Prop. 2.1.4, its proof and Remark 2.1.5 (printed p. 19). They are ℓ-adic with central-torus kernel; the node specialises to GL₂→PGL₂ for finite-image r over C. Fixed the finite-image argument (finite μ_M, not compactness). Oddness is routine linear algebra."
-      },
-      {
-        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.5/octahedral-artin",
-        "verdict": "corrected",
-        "note": "Read Tunnell 1981 in full. His comparison uses no GL₃ analytics: JPSS weak cubic base change, quadratic descent fibres over M/K, and a Satake comparison (no order-6 elements in S₄). Result is a.e. only. gl3-recognition removed; cyclic-descent, cuspidality and R16.4 added."
-      },
-      {
-        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.5/octahedral-mod-three-application",
-        "verdict": "added",
-        "note": "Added by the review."
-      },
-      {
-        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.5/odd-residual-lift",
-        "verdict": "corrected",
-        "note": "BCGP Prop. 10.1.3 proof (printed p. 474) cites only the classification [SD73] and Tate's theorem via [Ser77, Thm 4] (= Tate's H² vanishing), not a separate Serre lifting result. Thm 10.2.6's proof does not contain the step. Fixed attribution, locator, proof steps."
-      },
-      {
-        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.5/prescribed-local-induction",
-        "verdict": "added",
-        "note": "Added by the review."
-      },
-      {
-        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.5/q-weight-one",
-        "verdict": "corrected",
-        "note": "RT97 §2 only uses the dictionary in the dihedral case. Added the classical source, Deligne–Serre Thm 4.10 (Weil–Langlands, printed p. 516; fetched from Numdam), and Langlands80 §3 for the archimedean criterion. The statement matches DS 4.10 and 4.4–4.6."
-      },
-      {
-        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.5/quadratic-induction",
-        "verdict": "corrected",
-        "note": "JL70 §12 Prop. 12.1 (p. 206) is the classical all-place source (cuspidal iff θ does not factor through the norm; π(Ind χ)=π(χ) locally). Made it primary and kept AC89 Thm 6.2 (n=1, ℓ=2; a.e. only) as an alternative. Added the GL₂ converse theorem and Hecke L-function prerequisites."
-      },
-      {
-        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.5/residual-lt-application",
-        "verdict": "corrected",
-        "note": "BCGP Prop. 10.1.3 (pp. 473–475) applies Langlands–Tunnell to the lift over the totally real quadratic E; Thm 10.2.6 (pp. 480–481) uses it only via 10.1.3(1) with image GL₂(F₃). Localized the claim and added solvable-artin as prerequisite. Register entries E147, E148, E150 are relevant."
-      },
-      {
-        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.5/solvable-artin",
-        "verdict": "corrected",
-        "note": "RT83 states Langlands–Tunnell as the 'strong Artin conjecture' (cuspidal π(σ), L(s,π(σ))=L(s,σ)) in §4, pp. 40–41, not in the Introduction. The all-place/ε clause needs Langlands §3's equivalence (proof sketched). Added Tunnell and Langlands sources; weight-one consequence is RT83 p. 40."
-      },
-      {
-        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.5/tate-vanishing",
-        "verdict": "corrected",
-        "note": "Checked Patrikis Theorem 2.1.1 (printed p. 17) and proof (pp. 17–18). Statement exact. Proof outline made precise (reduction to μ_p⊂F, connecting map onto Br(F)[p], local surjectivity, Lemma 2.3.6). Added local CFT prerequisites."
-      },
-      {
-        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.5/tetrahedral-artin",
-        "verdict": "corrected",
-        "note": "Langlands Thm 3.3 (DMA p. 19) holds for every number field and records only entireness; the proof gives π_ps(ρ)=π(ρ) a.e. It uses the Jacquet–Shalika pole criterion (no GL₃ SMO) and an order-6 argument. The all-place clause rests on the §3 p. 15 equivalence, whose proof is only sketched."
-      },
-      {
-        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.5/tr-weight-one",
-        "verdict": "corrected",
-        "note": "Checked RT83 Introduction (p. 1) and §1 (p. 4, against the page image). RT define π₁ as unitarily induced from (a b;0 d)↦sign(a), and weight k as π_v≅π_k at all real places (parallel). The node's direction is the archimedean parameter computation, not an RT83 theorem."
-      },
-      {
-        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.5/tunnell-primitive-globalization",
-        "verdict": "added",
-        "note": "Added by the review."
-      },
-      {
-        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.6/compatible-base-change",
-        "verdict": "corrected",
-        "note": "Checked Langlands §2: unramified local lifting π(µ∘N,ν∘N) gives the Frobenius power formula; base change has the Weil-group restriction as analogue ((A)–(E) remark, (G)). Locator pp. 6–12 is wrong for the archive text (§2 is text pp. 9–14); §11 verification is text p. 151. AC89 (1.1) added."
-      },
-      {
-        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.6/compatible-descent",
-        "verdict": "corrected",
-        "note": "AC89 Thm 4.2(d) (p.202), not 5.1, gives descent of σ-stable cuspidal Π with fibre π⊗η^i; Thm 3.1 (p.201) gives the fibre. Added semisimplicity, absolute irreducibility for the Galois-side twist, and propagation from one λ. BCGP Lemma 8.3.2 is the consumer pattern."
-      },
-      {
-        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.6/determinant-untwist",
-        "verdict": "corrected",
-        "note": "Mathematics checked (odd-order det, unique square root, SL2(F̄2)→PGL2 injective). Packet's own argument; cited Wiese p.131 square root and RT/Wiese scope passages. Added linear-dihedral iff det=1 and ξ unramified at 2."
-      },
-      {
-        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.6/disjoint-irreducibility",
-        "verdict": "corrected",
-        "note": "Mathematics checked: G_E→Gal(M/F) is onto when E∩M=F, so a line stable under r̄|G_E is stable under r̄. Wiese §5/Lemma 11 is about levels of eigenforms, not restriction: wrong locator. No packet source states the lemma; supporting passages (counterexample, dihedral form) only."
-      },
-      {
-        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.6/potential-modularity-interface",
-        "verdict": "corrected",
-        "note": "AC89 Ch.3 §§4–5 (Thm 4.2 weak lifting incl. (d) descent, Thm 5.1 strong lifting) checked. Corrected the claim that Galois descent gives no evidence of automorphic descent: if Π matches ρ|G_E with ρ on G_F, strong multiplicity one makes Π invariant, so only the twist choice remains. R16.4 added."
-      },
-      {
-        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.6/quadratic-restriction",
-        "verdict": "corrected",
-        "note": "Mackey check: for K⊄E, r|G_E=Ind_{G_EK}^{G_E}θ, irreducible iff θ≠θ^σ on G_EK; for E⊇K it is θ⊕θ^σ. Tau Ceti's Layer 4 Mackey criterion requires |G| invertible, so the residual char-2 case needs the direct index-two argument. Wiese Lemma 11 is irrelevant: locator fixed."
-      },
-      {
-        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.6/qualitative-residual-modularity",
-        "verdict": "corrected",
-        "note": "Checked against Wiese: dihedral definition p.123, Lemma 3 p.127, proof of Theorem 1 p.131 (Lemma 3 lift + Weil–Langlands weight-one newform). Weight one and uncontrolled level now stated. R15.5 and R15.6 prerequisite ids exist and supply what is used."
-      },
-      {
-        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.6/rohrlich-tunnell",
-        "verdict": "corrected",
-        "note": "Theorem and proof checked against RT pp.306–308: hypotheses (linear-dihedral, D odd or 8|D), conclusion f∈Prim_k(N), k by ν; fixed the garbled acceptance item; case (iii) left open per Remark 3; added dihedral-artin and quadratic-induction."
-      },
-      {
-        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.6/rt-technical-lemma",
-        "verdict": "corrected",
-        "note": "Lemma copied exactly from RT §1 p.302 (χ²=1, exact level N, trivial character, k=2/4) and proof pp.302–306 checked case by case; 'essential' overclaim removed; added conductor-divides-level, Galois-rep and newform/Atkin–Lehner suppliers."
-      },
-      {
-        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.6/serre-odd-trick",
-        "verdict": "corrected",
-        "note": "Checked against RT §2 D>0 proof (pp.307–308) and Remark 1: fixed the slip that 𝔯 itself has a mixed-signature generator (it is 𝔯^n, n odd); added nebentypus, r≡3 mod 4, the full ray-class construction; added L-function, Chebotarev and Hecke-character suppliers."
-      },
-      {
-        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.6/solvable-dihedral",
-        "verdict": "corrected",
-        "note": "Checked against R01.4 classification in char 2 (PGL2=SL2 over F̄2), RT §2 Jordan-form remark and Wiese intro. Added why A4/S4/Klein/Borel cases are excluded; real excerpts; removed irrelevant Wiese §5 locator."
-      },
-      {
-        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.6/teichmuller-conductor",
-        "verdict": "corrected",
-        "note": "Copied RT's case list exactly (printed '±5'; only D≡5 mod 8 occurs, 2 inert) and checked ν, the conductor formula and the 1-eigenspace argument incl. subgroups. E1 misprint confirmed. Removed unused determinant-untwist prerequisite."
-      },
-      {
-        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.6/unramified-katz",
-        "verdict": "corrected",
-        "note": "Checked Wiese Theorem 9 (printed p.130, not 129–130), its proof pp.130–131, Prop.7/Cor.8 and the Q(√229) remarks. Level Γ₁(N(r̄)), character det r̄ and weight one are confirmed. 'Exact odd conductor' replaced by the level statement; pigeonhole step added; R15.2 request verified."
-      },
-      {
-        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.6/weight-two-witness",
-        "verdict": "corrected",
-        "note": "Supported by Wiese Introduction p.124 (one Hasse factor gives weight 2, then classicality) and the Lemma 11 proof p.132; the 'Theorem 9 proof' locator is removed. Classicality needs N≥5, which holds here. R15.3/R15.5/R15.6 ids exist; R15.2 base-change node added."
-      },
-      {
-        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.6/wiese-odd-lift",
-        "verdict": "corrected",
-        "note": "Read all of Wiese04. Statement now copies Lemmas 2–3 (Z[ζ_m] coefficients, P|2, conductor N vs Nℓ, trace-zero primes, Lemma 3 without conductor control). Proof step 3 uses a σ-stable modulus: Wiese's 4Df does not force χ(σΛ)=1 (new source issue)."
-      }
-    ]
-  }
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-FIX-RT-AREA-automorphic-1~3",
+    "date": "2026-10-07",
+    "notes": "Independent scoped review of RT-AREA-automorphic-1/1,/11,/12, following REV-FIX-RT-AREA-automorphic-1~2 and the archived REV-GL2AutomorphicRepresentationsAndTransfer--R17.3. Corrected the finite-and-infinite omitted-local-factor regularity needed by the GL3 partial-pole comparison; retained the full/reduced converse and S/T distinctions and exact JL/weight-one suppliers. Replaced the assigned false arbitrary-type JL/adjoint/cubic/Artin signatures by precise source-interface omissions, preserving concrete matrix/parity fragments. Whole-packet acceptance is withheld because untouched cyclicBaseChange admits Unit to Empty and cyclicBaseChange_galois quantifies an arbitrary fixed-point-free action; analogous solvable/quadratic-induction failures and the contradictory reader disclaimer remain. Original converse/cubic/Tunnell proof interiors remain qualified gaps, not newly verified proofs. No fresh all-node/baseline audit or Lean compilation is claimed. See the review report for each finding, source versions and exact remaining reader work."
+  },
+  "reviewHistory": [
+    {
+      "status": "accepted",
+      "reviewer": "independent-review-REV-GL2AutomorphicRepresentationsAndTransfer--R17.3",
+      "date": "2026-10-06",
+      "notes": "Independent review by Claude (session claude-QIk6wX) of the Codex planning pass (codex-CcaPB4, PR #6723). All 15 cited sources were downloaded and their SHA-256 values matched; Rogawski–Tunnell 1983 was read through the GDZ OCR. Five public sources were added: Deligne–Serre 1974, Tunnell 1981, JPSS 1979 II, Tunnell 1978 and Darmon–Diamond–Taylor. Every node was checked against its source by stage-group checkers and merged by the reviewer. Systemic correction: 54 of the 55 excerpts were one- or two-word placeholders, and every match and hypotheses field was the same boilerplate sentence. Every node now has literal excerpts verified against the source text, a specific match and its actual hypotheses. Mathematical corrections include: the global JL domain (false for split D) restated on the discrete spectrum; Pan's weight convention; the cyclic base change statement made non-circular (local-compatibility owns the parameter restriction); the cuspidality criterion sourced to AC89 Thm 4.2(a),(b); tower independence and solvable descent marked as the packet's own arguments; Tunnell's octahedral argument (read: no GL₃ comparison beyond JPSS); Rohrlich–Tunnell's lemma, cases and theorem copied exactly; Wiese's Lemmas 2–3 and Theorem 9; BCGP's [Ser77, Thm 4] identified as Tate's theorem. Structure: R17.6/extraordinary-cubic-compatibility was removed because it duplicated AutomorphicGaloisRepresentations R19.2/carayol-cubic-base-change-of-extraordinary, which the accepted RT-AREA-langlands-2/4 fix assigns to R19.2. The link R17.6 → R19.2 was replaced by R17.5 → R19.2. Three R17.5 nodes were added: Tunnell's globalisation, prescribed-local induction (Carayol 11.2) and the octahedral mod-3 application, a required check that no node had realised. The R17.4a proposal now matches the accepted RT-AREA-automorphic-1/1 fix (AL.3, AL.3b, MP.5). Exact supplier nodes from the AF, AGR and R15 packets replace stage citations where they match, and the pinned TauCeti.simple_indFDRep_ofLinearCharacter_iff replaces InductionRestriction Layer 4. Requests were rebuilt from the prerequisites. The gaps were narrowed to exact inputs: one closed, one non-mathematical gap dropped and one added (the all-place upgrade of Artin automorphy). Ten source issues were added and E1 confirmed. Baseline: all eight declarations were read at the pins. The suggested file was revised: unramifiedBaseChange is now defined as A ^ f, every test evaluates a packet declaration, statable conditions were restored on Field.absoluteGaloisGroup, and Mackey is stated on Mathlib's Representation.ind. It elaborates with lean-check, with placeholder warnings only. The reader document is not a deliverable of this review and must be regenerated from this packet.",
+      "checked": [
+        {
+          "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.3/coefficient-conjugation",
+          "verdict": "corrected",
+          "note": "Pan §5.5.5 only says JL identifies the T_S-spectrum on quaternionic forms with classical Hecke systems (consumer); it says nothing on Aut(C) or rationality fields. Statement made precise (cohomological, permuted weights, Aut(C)-equivariance of JL_v); added global-jl, R17.1."
+        },
+        {
+          "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.3/definite-infinity",
+          "verdict": "corrected",
+          "note": "Pan misquoted: for χ=(−k,0) the forms are A_{(k,0)}, valued in W^{(k,0)} (highest weight (k,0), dual of the (0,−k) rep), not W^{(−k,0)}. σ_{k+2,1}, the t-twist and the k=0 split A^c⊕A^1 (spectrum σ_{2,1}∪σ_0) checked. Def 5.4.11 is on p. 71."
+        },
+        {
+          "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.3/global-jl",
+          "verdict": "corrected",
+          "note": "Domain was false for split D (Eisenstein constituents are automorphic, not norm-factoring, not cuspidal). Restated on BR10's discrete series with unitary ω; local condition = square-integrable at S, as in JL70 Thm 16.1. JL70 16.1 is only sketched there."
+        },
+        {
+          "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.3/indefinite-parity",
+          "verdict": "corrected",
+          "note": "CDN20 §5.2.1 checked: B̌ split at ∞₀, compact mod centre at the other real places, ramified at 𝔭; E arbitrary totally real (no even-degree condition), no parity stated. The parity (finite ramification ≡ d−1 mod 2) is right; it comes from CFT Layer 14. CDN20 is a consumer setting."
+        },
+        {
+          "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.3/invariant-exchange",
+          "verdict": "corrected",
+          "note": "CDN23 §4.1 checked: F=Q_p, p>2; E totally real of even degree, p totally split (Prop 4.5); D⁰ ramified exactly at real places; D swaps invariants at {𝔭,∞₀}. N (in 2Np) is the product of orders of finite groups, not a level. CDN23 uses Scholze's functor, not global JL: setting only."
+        },
+        {
+          "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.3/local-factors",
+          "verdict": "corrected",
+          "note": "JL70 locator right (printed p. 247, PDF 253): JL70 characterises π_v by equality of L(s,ω_v⊗·), the contragredients' L, and ε(s,ω_v⊗·,ψ_v) for all quasi-characters ω_v. Added the ε normalization (sign h_v = −1 at v ∈ S, cancelling globally). Prerequisites fixed: R17.1, R16.5 for AL.3."
+        },
+        {
+          "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.3/multiplicity-one",
+          "verdict": "corrected",
+          "note": "BR10 Thm 1.4(b) and 18.1(b), 1st sentence: every discrete series of GL_n(D)(A) has multiplicity 1; n=1, d=2 gives D×. JL70 only has finite multiplicity (Lemma 14.1). Proof needs GL₂ multiplicity one: R16.4 added. 'Non-norm irreducible' made 'discrete series'."
+        },
+        {
+          "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.3/norm-exception",
+          "verdict": "corrected",
+          "note": "JL70 locator right (printed p. 247). Statement made precise: real ramified places give twisted weight-2 discrete series; JL70 only shows the formal transfer acts on no subspace of A (open whether it is a constituent); BR10 sends χ∘Nrd to residual χ∘det. Added R16.4."
+        },
+        {
+          "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.3/rational-models",
+          "verdict": "corrected",
+          "note": "CDN20 §5.2.1 is a consumer: it needs Π̌ defined over its p-adic coefficient field L (via C ≅ Q̄_p); fn 21 allows extending L for globalization, not because of a descent obstruction. Statement made precise (L-models at split places, no models from rationality alone); added split-hecke."
+        },
+        {
+          "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.3/split-hecke",
+          "verdict": "corrected",
+          "note": "CDN23 is only a consumer: one T^univ_S = O[T_v,S_v] acts on definite and Shimura-curve sides via (4.6), with char. poly X²−T_vX+N(v)S_v (§4.1.4, p. 41, not §4.1.3). Made b_v = q_v s_v explicit; locator fixed."
+        },
+        {
+          "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.3/strong-multiplicity-one",
+          "verdict": "corrected",
+          "note": "BR10 Thm 1.4(c) and 18.1(b), 2nd sentence (pp. 6, 44) give SMO for discrete series of GL_n(D); n=1, d=2 is D×. Stated for discrete series (false for split D otherwise). JL70 has no SMO for D×. CDN20 Prop 5.2 is a consumer."
+        },
+        {
+          "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.3/supercuspidal-globalization",
+          "verdict": "corrected",
+          "note": "Fn 21 checked: to globalize (Clozel [9]) the central character must be adjusted, so everything may be twisted by a character (changing ϖ) and L (a finite extension of Q_p) replaced by a finite extension. Statement now twists τ itself, names σ₂ and B; dropped unsourced 'prescribed tame data'."
+        },
+        {
+          "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.4/adjoint-lift",
+          "verdict": "corrected",
+          "note": "Read GJ78 Intro, Def. 3.1.3, §3.6–3.7, Thm 8.1, Thm 9.3, Rem. 9.9. Introduction is printed pp. 471–473. Statement now says the local lift is GJ78's twisted-factor lift and that LLC/adjoint identification and Thm 8.1 holomorphy are extra inputs. G7 exists."
+        },
+        {
+          "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.4/cubic-character-induction",
+          "verdict": "corrected",
+          "note": "AC89 Thm 6.2 is a.e. only (Def. 6.1); its cuspidality dichotomy is Lemmas 6.3–6.4/Cor. 6.5, pp. 217–218. Added JPSS 1979 II Thm (14.2), which gives the cuspidal case at every place. Removed GL₂ cyclic base change; added Hecke L-function and Mackey inputs."
+        },
+        {
+          "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.4/cuspidality",
+          "verdict": "corrected",
+          "note": "Langlands Lemma 11.7 (p.151; number correct) is only the self-twist criterion π≅ω⊗π ⇔ ℓ=2 and π induced from E; its proof for ℓ=2 is omitted. The exact BC criterion is AC89 Ch.3 Thm 4.2(a),(b). Proof steps fixed (Thm 3.1→4.2; 11.6(a)→11.3(a)); 'the nontrivial generator' corrected."
+        },
+        {
+          "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.4/cyclic-base-change",
+          "verdict": "corrected",
+          "note": "Langlands §2 (A),(B),(E), §8, §11 and AC89 Ch.3 Thms 4.2, 5.1 checked. All-place LLC restriction is not in these theorems and depends on local-compatibility, so the statement now gives the local-lift form and points there; API _local adjusted. Odd-ℓ cuspidality test verified."
+        },
+        {
+          "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.4/cyclic-descent",
+          "verdict": "corrected",
+          "note": "Checked Langlands §2 (B),(C) (p.14) and Lemma 11.6(b) (p.151); AC89 Thm 4.2(d) agrees for GL(n). Statement correct. 'trace/converse argument' changed to the twisted trace formula, since no converse theorem is used. Real excerpts and hypotheses added."
+        },
+        {
+          "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.4/cyclic-descent-fibers",
+          "verdict": "corrected",
+          "note": "Checked Langlands Lemma 11.6(a),(b) (pp.150–151) and (C) (p.14); AC89 Thm 4.2(d),(e) agree. Both fibre claims are correct. 11.6(a) gives uniqueness among all automorphic π, and the statement now says so. Real excerpts and hypotheses added."
+        },
+        {
+          "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.4/gl3-recognition",
+          "verdict": "corrected",
+          "note": "The old statement was a plan, not a theorem. Restated as (i) the GL₃ converse theorem with GL₁ twists (Cogdell Thm 3.3, n=3) and (ii) the Jacquet–Shalika Rankin–Selberg pole criterion that Langlands §3 uses. GL₃ isobaric SMO is not used in the tetrahedral case."
+        },
+        {
+          "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.4/isobaric-fibers",
+          "verdict": "corrected",
+          "note": "Checked Langlands (C), first sentence (p.14: independent twists μ₁, ν₁), and the §11 verification of (A),(B) (p.151). Statement correct. Added: the exchanged case needs ℓ=2; comparing unordered pairs needs isobaric strong multiplicity one, so R16.4 added. Real excerpts and hypotheses."
+        },
+        {
+          "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.4/local-compatibility",
+          "verdict": "corrected",
+          "note": "AC89 Thm 5.1 gives only a local Shintani lift at every place, not LLC restriction. Sources added for the restriction: Langlands §2(e), L7.6 (special), L11.8 (tetrahedral) and Carayol §12.2.2 (extraordinary, degree ≤3). The octahedral p=2, ℓ≥5 case is recorded as an R16.3 input."
+        },
+        {
+          "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.4/nonnormal-cubic-base-change",
+          "verdict": "corrected",
+          "note": "Tunnell 1981 states the JPSS theorem weakly (cuspidal input, almost all places) and gives no proof. Carayol 12.2.1(b) states it at every place against the JPSS local lift. Input fixed to cuspidal (isobaric case elementary). Locator fixed: 12.2.1 is p. 457; the citation is [J.P.S.S.]."
+        },
+        {
+          "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.4/prescribed-local-base-change",
+          "verdict": "corrected",
+          "note": "Carayol §12.3.1–12.3.2 (printed pp.458–459) is a consumer: he picks quadratic or cubic L/F split at a discrete-series place so the lift keeps that component. His octahedral cubic L/F is non-Galois (JPSS), outside this node. Split-place identity: Langlands §8. Real excerpts added."
+        },
+        {
+          "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.4/solvable-base-change",
+          "verdict": "corrected",
+          "note": "No GL₂ source states solvable base change; the closest passage is AC89 Ch.3 §7 (p.222): repeated tower base change, determined by almost-all Hecke eigenvalues. Proof step 3 made non-circular (direct R16.4 argument); added prerequisites unramified-base-change, local-compatibility."
+        },
+        {
+          "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.4/solvable-descent",
+          "verdict": "corrected",
+          "note": "No source treats descent along a solvable tower; the node iterates cyclic descent (packet's own argument). Cited AC89 Ch.3 Thm 3.1 (fibres), Thm 4.2(f) and Langlands (B). Statement made precise (chain condition; invariance alone not claimed). Added prerequisite solvable-base-change."
+        },
+        {
+          "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.4/tower-independence",
+          "verdict": "corrected",
+          "note": "Langlands has no tower-independence statement; his p.151 passage (and AC89 Prop 4.4(i)) is about the generator σ in one step. The node is the packet's own argument; cited AC89 §7 p.222 and Langlands Lemma 3.1. Statement: strong multiplicity one alone gives the isomorphism."
+        },
+        {
+          "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.4/unramified-base-change",
+          "verdict": "corrected",
+          "note": "Checked the power rule against AC89 Ch.3 (1.1)/Def. 1.1 and Langlands §2 criterion (i); normalisation-independent. Tests verified: diag(4,9), trace 13, det 36; diag(64,729). Real excerpts, hypotheses; uses-locator Def. 6.1 corrected to Def. 1.1."
+        },
+        {
+          "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.5/dihedral-artin",
+          "verdict": "corrected",
+          "note": "The locator '§3 discussion preceding Theorem 3.3, pp. 15–18' is wrong: §3 sets dihedral ρ aside (p. 16), and the dihedral statement is Langlands Introduction p. 4 (DMA text). Added JL70 Prop. 12.1 (p. 206) as the proof source. Statement checked; it is true as stated."
+        },
+        {
+          "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.5/finite-hecke-extension",
+          "verdict": "corrected",
+          "note": "Checked Patrikis Lemma 2.3.6 (printed p. 30) and proof (pp. 30–31). Finite-order clause matches; the Grunwald–Wang case affects only uniqueness, not which choice extends. Proof rewritten to Patrikis's duality/infinity-type argument; necessity is ours."
+        },
+        {
+          "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.5/finite-projective-lift",
+          "verdict": "corrected",
+          "note": "Checked Patrikis Prop. 2.1.4, its proof and Remark 2.1.5 (printed p. 19). They are ℓ-adic with central-torus kernel; the node specialises to GL₂→PGL₂ for finite-image r over C. Fixed the finite-image argument (finite μ_M, not compactness). Oddness is routine linear algebra."
+        },
+        {
+          "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.5/octahedral-artin",
+          "verdict": "corrected",
+          "note": "Read Tunnell 1981 in full. His comparison uses no GL₃ analytics: JPSS weak cubic base change, quadratic descent fibres over M/K, and a Satake comparison (no order-6 elements in S₄). Result is a.e. only. gl3-recognition removed; cyclic-descent, cuspidality and R16.4 added."
+        },
+        {
+          "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.5/octahedral-mod-three-application",
+          "verdict": "added",
+          "note": "Added by the review."
+        },
+        {
+          "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.5/odd-residual-lift",
+          "verdict": "corrected",
+          "note": "BCGP Prop. 10.1.3 proof (printed p. 474) cites only the classification [SD73] and Tate's theorem via [Ser77, Thm 4] (= Tate's H² vanishing), not a separate Serre lifting result. Thm 10.2.6's proof does not contain the step. Fixed attribution, locator, proof steps."
+        },
+        {
+          "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.5/prescribed-local-induction",
+          "verdict": "added",
+          "note": "Added by the review."
+        },
+        {
+          "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.5/q-weight-one",
+          "verdict": "corrected",
+          "note": "RT97 §2 only uses the dictionary in the dihedral case. Added the classical source, Deligne–Serre Thm 4.10 (Weil–Langlands, printed p. 516; fetched from Numdam), and Langlands80 §3 for the archimedean criterion. The statement matches DS 4.10 and 4.4–4.6."
+        },
+        {
+          "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.5/quadratic-induction",
+          "verdict": "corrected",
+          "note": "JL70 §12 Prop. 12.1 (p. 206) is the classical all-place source (cuspidal iff θ does not factor through the norm; π(Ind χ)=π(χ) locally). Made it primary and kept AC89 Thm 6.2 (n=1, ℓ=2; a.e. only) as an alternative. Added the GL₂ converse theorem and Hecke L-function prerequisites."
+        },
+        {
+          "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.5/residual-lt-application",
+          "verdict": "corrected",
+          "note": "BCGP Prop. 10.1.3 (pp. 473–475) applies Langlands–Tunnell to the lift over the totally real quadratic E; Thm 10.2.6 (pp. 480–481) uses it only via 10.1.3(1) with image GL₂(F₃). Localized the claim and added solvable-artin as prerequisite. Register entries E147, E148, E150 are relevant."
+        },
+        {
+          "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.5/solvable-artin",
+          "verdict": "corrected",
+          "note": "RT83 states Langlands–Tunnell as the 'strong Artin conjecture' (cuspidal π(σ), L(s,π(σ))=L(s,σ)) in §4, pp. 40–41, not in the Introduction. The all-place/ε clause needs Langlands §3's equivalence (proof sketched). Added Tunnell and Langlands sources; weight-one consequence is RT83 p. 40."
+        },
+        {
+          "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.5/tate-vanishing",
+          "verdict": "corrected",
+          "note": "Checked Patrikis Theorem 2.1.1 (printed p. 17) and proof (pp. 17–18). Statement exact. Proof outline made precise (reduction to μ_p⊂F, connecting map onto Br(F)[p], local surjectivity, Lemma 2.3.6). Added local CFT prerequisites."
+        },
+        {
+          "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.5/tetrahedral-artin",
+          "verdict": "corrected",
+          "note": "Langlands Thm 3.3 (DMA p. 19) holds for every number field and records only entireness; the proof gives π_ps(ρ)=π(ρ) a.e. It uses the Jacquet–Shalika pole criterion (no GL₃ SMO) and an order-6 argument. The all-place clause rests on the §3 p. 15 equivalence, whose proof is only sketched."
+        },
+        {
+          "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.5/tr-weight-one",
+          "verdict": "corrected",
+          "note": "Checked RT83 Introduction (p. 1) and §1 (p. 4, against the page image). RT define π₁ as unitarily induced from (a b;0 d)↦sign(a), and weight k as π_v≅π_k at all real places (parallel). The node's direction is the archimedean parameter computation, not an RT83 theorem."
+        },
+        {
+          "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.5/tunnell-primitive-globalization",
+          "verdict": "added",
+          "note": "Added by the review."
+        },
+        {
+          "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.6/compatible-base-change",
+          "verdict": "corrected",
+          "note": "Checked Langlands §2: unramified local lifting π(µ∘N,ν∘N) gives the Frobenius power formula; base change has the Weil-group restriction as analogue ((A)–(E) remark, (G)). Locator pp. 6–12 is wrong for the archive text (§2 is text pp. 9–14); §11 verification is text p. 151. AC89 (1.1) added."
+        },
+        {
+          "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.6/compatible-descent",
+          "verdict": "corrected",
+          "note": "AC89 Thm 4.2(d) (p.202), not 5.1, gives descent of σ-stable cuspidal Π with fibre π⊗η^i; Thm 3.1 (p.201) gives the fibre. Added semisimplicity, absolute irreducibility for the Galois-side twist, and propagation from one λ. BCGP Lemma 8.3.2 is the consumer pattern."
+        },
+        {
+          "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.6/determinant-untwist",
+          "verdict": "corrected",
+          "note": "Mathematics checked (odd-order det, unique square root, SL2(F̄2)→PGL2 injective). Packet's own argument; cited Wiese p.131 square root and RT/Wiese scope passages. Added linear-dihedral iff det=1 and ξ unramified at 2."
+        },
+        {
+          "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.6/disjoint-irreducibility",
+          "verdict": "corrected",
+          "note": "Mathematics checked: G_E→Gal(M/F) is onto when E∩M=F, so a line stable under r̄|G_E is stable under r̄. Wiese §5/Lemma 11 is about levels of eigenforms, not restriction: wrong locator. No packet source states the lemma; supporting passages (counterexample, dihedral form) only."
+        },
+        {
+          "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.6/potential-modularity-interface",
+          "verdict": "corrected",
+          "note": "AC89 Ch.3 §§4–5 (Thm 4.2 weak lifting incl. (d) descent, Thm 5.1 strong lifting) checked. Corrected the claim that Galois descent gives no evidence of automorphic descent: if Π matches ρ|G_E with ρ on G_F, strong multiplicity one makes Π invariant, so only the twist choice remains. R16.4 added."
+        },
+        {
+          "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.6/quadratic-restriction",
+          "verdict": "corrected",
+          "note": "Mackey check: for K⊄E, r|G_E=Ind_{G_EK}^{G_E}θ, irreducible iff θ≠θ^σ on G_EK; for E⊇K it is θ⊕θ^σ. Tau Ceti's Layer 4 Mackey criterion requires |G| invertible, so the residual char-2 case needs the direct index-two argument. Wiese Lemma 11 is irrelevant: locator fixed."
+        },
+        {
+          "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.6/qualitative-residual-modularity",
+          "verdict": "corrected",
+          "note": "Checked against Wiese: dihedral definition p.123, Lemma 3 p.127, proof of Theorem 1 p.131 (Lemma 3 lift + Weil–Langlands weight-one newform). Weight one and uncontrolled level now stated. R15.5 and R15.6 prerequisite ids exist and supply what is used."
+        },
+        {
+          "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.6/rohrlich-tunnell",
+          "verdict": "corrected",
+          "note": "Theorem and proof checked against RT pp.306–308: hypotheses (linear-dihedral, D odd or 8|D), conclusion f∈Prim_k(N), k by ν; fixed the garbled acceptance item; case (iii) left open per Remark 3; added dihedral-artin and quadratic-induction."
+        },
+        {
+          "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.6/rt-technical-lemma",
+          "verdict": "corrected",
+          "note": "Lemma copied exactly from RT §1 p.302 (χ²=1, exact level N, trivial character, k=2/4) and proof pp.302–306 checked case by case; 'essential' overclaim removed; added conductor-divides-level, Galois-rep and newform/Atkin–Lehner suppliers."
+        },
+        {
+          "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.6/serre-odd-trick",
+          "verdict": "corrected",
+          "note": "Checked against RT §2 D>0 proof (pp.307–308) and Remark 1: fixed the slip that 𝔯 itself has a mixed-signature generator (it is 𝔯^n, n odd); added nebentypus, r≡3 mod 4, the full ray-class construction; added L-function, Chebotarev and Hecke-character suppliers."
+        },
+        {
+          "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.6/solvable-dihedral",
+          "verdict": "corrected",
+          "note": "Checked against R01.4 classification in char 2 (PGL2=SL2 over F̄2), RT §2 Jordan-form remark and Wiese intro. Added why A4/S4/Klein/Borel cases are excluded; real excerpts; removed irrelevant Wiese §5 locator."
+        },
+        {
+          "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.6/teichmuller-conductor",
+          "verdict": "corrected",
+          "note": "Copied RT's case list exactly (printed '±5'; only D≡5 mod 8 occurs, 2 inert) and checked ν, the conductor formula and the 1-eigenspace argument incl. subgroups. E1 misprint confirmed. Removed unused determinant-untwist prerequisite."
+        },
+        {
+          "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.6/unramified-katz",
+          "verdict": "corrected",
+          "note": "Checked Wiese Theorem 9 (printed p.130, not 129–130), its proof pp.130–131, Prop.7/Cor.8 and the Q(√229) remarks. Level Γ₁(N(r̄)), character det r̄ and weight one are confirmed. 'Exact odd conductor' replaced by the level statement; pigeonhole step added; R15.2 request verified."
+        },
+        {
+          "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.6/weight-two-witness",
+          "verdict": "corrected",
+          "note": "Supported by Wiese Introduction p.124 (one Hasse factor gives weight 2, then classicality) and the Lemma 11 proof p.132; the 'Theorem 9 proof' locator is removed. Classicality needs N≥5, which holds here. R15.3/R15.5/R15.6 ids exist; R15.2 base-change node added."
+        },
+        {
+          "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.6/wiese-odd-lift",
+          "verdict": "corrected",
+          "note": "Read all of Wiese04. Statement now copies Lemmas 2–3 (Z[ζ_m] coefficients, P|2, conductor N vs Nℓ, trace-zero primes, Lemma 3 without conductor control). Proof step 3 uses a σ-stable modulus: Wiese's 4Df does not force χ(σΛ)=1 (new source issue)."
+        }
+      ]
+    }
+  ]
 }

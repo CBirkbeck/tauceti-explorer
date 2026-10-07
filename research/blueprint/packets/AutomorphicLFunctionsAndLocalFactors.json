@@ -4874,9 +4874,9 @@
       ],
       "title": "The critical-value and period interface",
       "kind": "comparison",
-      "statement": "For a GL₂/F cohomological cuspidal representation with supplied period line and critical-value algebraicity theorem, pass the completed analytic value to the normalized finite value by dividing the nonzero archimedean gamma value and the supplied period. This interface respects the chosen embedding, character conductor, parity and motivic/unitary shift. It proves no new algebraicity theorem and constructs no p-adic measure.",
+      "statement": "For a GL₂/ℚ cohomological cuspidal representation in ModularSymbolsPadicLFunctions:L1’s range, with its supplied period line and critical-value algebraicity theorem, pass the completed analytic value to the normalized finite value by dividing the nonzero archimedean gamma value and the supplied period. This interface respects the chosen embedding, character conductor, parity and motivic/unitary shift. It proves no new algebraicity theorem and constructs no p-adic measure.",
       "hypotheses": [
-        "Period chosen nonzero; critical point avoids poles of both gamma factors; algebraicity supplied by ModularSymbols/PS/AF owner."
+        "Period chosen nonzero; critical point avoids poles of both gamma factors. ModularSymbolsPadicLFunctions:L1 supplies the GL₂/ℚ algebraicity theorem, including its parity, primitive-character and Gauss-sum conventions. General GL₂/F BSW algebraicity belongs to AutomorphicPadicLFunctions:L1 in its checked range; it is not supplied by the ℚ theorem, and the wider extension remains G12."
       ],
       "proofSteps": [
         "Use AL.2/AL.3 completion and local factor identities.",
@@ -4959,21 +4959,23 @@
       ],
       "title": "Global Whittaker factorization",
       "kind": "theorem",
-      "statement": "For a cuspidal π of GL_n(𝔸), W_φ(g)=∫_{N(K)\\N(𝔸)}φ(ug)ψ_N(u)^(−1)du. With quotient volume1, local uniqueness and a fixed restricted tensor realization, a factorizable φ has W_φ=∏_v W_v; almost all W_v are normalized spherical. General archimedean vectors require continuous extension from dense tensors.",
+      "statement": "For a cuspidal π of GL_n(𝔸_K), Fourier reconstruction makes φ↦W_φ an injective Whittaker realization; hence π and every local component are generic. With quotient volume 1, continuous local Whittaker uniqueness and a fixed Flath restricted tensor realization, a factorizable φ has W_φ=∏_v W_v, after fixing one global scalar; almost all W_v are normalized spherical. At infinite places extend continuously from dense tensors. An arbitrary global cusp vector or distribution is not asserted decomposable.",
       "hypotheses": [
-        "The irreducible π is globally generic; its arithmetic restricted tensor decomposition is AF.2’s Flath-factorization output. At infinity use completed smooth globalizations and continuous extension, recorded in G1; global genericity is an explicit requested AF.3 theorem."
+        "π is an irreducible cuspidal automorphic representation with AF.2 Flath factorization. Its global genericity is proved from gln-fourier-expansion, not requested from AF.3.",
+        "At infinite places use the continuous Whittaker functional on the smooth moderate-growth globalization; uniqueness of arbitrary algebraic functionals on the Harish–Chandra module is not the theorem. The function-field spherical specialization is Yu §5.3.1."
       ],
       "proofSteps": [
-        "Compactness of the unipotent quotient gives the coefficient integral.",
-        "Import Flath factorization; successive local Whittaker uniqueness identifies the tensor functional up to one scalar.",
-        "Fix that scalar using a nonzero pure tensor and normalized spherical components."
+        "Use gln-fourier-expansion to prove W_φ≠0 for φ≠0. Translating such a vector gives a nonzero global coefficient functional at the identity.",
+        "Use Flath factorization and local continuous Whittaker uniqueness to obtain global uniqueness and genericity of every local component.",
+        "Fix a nonzero pure tensor to normalize the product functional, with spherical normalization almost everywhere. Evaluate its translates to get the product formula; extend at infinity by continuity."
       ],
       "prerequisites": [
         "AutomorphicLFunctionsAndLocalFactors:AL.3/whittaker-model",
         "AutomorphicFormsOnReductiveGroups:AF.3/cusp-form",
         "AdelicAlgebraicGroups:AA.2/quotient-measure",
         "AutomorphicFormsOnReductiveGroups:AF.2/flath-factorization",
-        "AutomorphicFormsOnReductiveGroups:AF.3/unipotent-quotient-compact"
+        "AutomorphicFormsOnReductiveGroups:AF.3/unipotent-quotient-compact",
+        "AutomorphicLFunctionsAndLocalFactors:AL.3/gln-fourier-expansion"
       ],
       "acceptance": [
         "At an unramified place with conductor-zero character the normalized spherical factor has W_v(1)=1.",
@@ -4986,13 +4988,31 @@
       },
       "sources": [
         {
+          "sourceId": "CogdellFields",
+          "locator": "Lecture 4 §2, Theorem 4.1 and Corollaries 4.1.1–4.1.3, printed pp.31–33 (PDF pp.35–37)",
+          "excerpt": "local components",
+          "match": "Global uniqueness, local/global genericity and the product formula follow from Fourier reconstruction, Flath factorization and continuous local uniqueness."
+        },
+        {
           "sourceId": "Yu2023",
-          "locator": "§5.3.1 pp.36–38",
-          "excerpt": "produit des fonctions",
-          "match": "The named construction/result in this passage; all normalizations in the statement are explicit."
+          "locator": "§5.3.1 pp.36–38, equation (5.3.1)",
+          "excerpt": "produit des fonctions de Whittaker locales",
+          "match": "Function-field spherical specialization, with the global scalar and conductor-shifted local normalization retained."
         }
       ],
-      "implementationStatus": "unchecked"
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.AutomorphicLFunctions.AL3.GlobalWhittakerFactorization.generic",
+          "role": "characterisation",
+          "statement": "Every irreducible cuspidal π and its local components possess a nonzero Whittaker functional for the fixed nontrivial character."
+        },
+        {
+          "name": "TauCeti.AutomorphicLFunctions.AL3.GlobalWhittakerFactorization.pure_tensor",
+          "role": "compatibility",
+          "statement": "A pure tensor has the product Whittaker function with the fixed global scalar and almost-all spherical normalization."
+        }
+      ]
     },
     {
       "id": "AutomorphicLFunctionsAndLocalFactors:AL.3/gln-fourier-expansion",
@@ -5002,19 +5022,22 @@
       ],
       "title": "The GL(n) cuspidal Fourier expansion",
       "kind": "theorem",
-      "statement": "For a smooth cuspidal φ of GL_n(𝔸), n≥2, φ(g)=Σ_{γ∈N_{n−1}(K)\\GL_{n−1}(K)}W_φ(diag(γ,1)g), with locally uniform absolute convergence in the smooth cuspidal setting. The vanished constant terms are essential; this is not an expansion for arbitrary automorphic functions.",
+      "statement": "For a smooth cuspidal φ of GL_n(𝔸_K), n≥2, define W_φ(g)=∫_{N_n(K)\\N_n(𝔸_K)}φ(ug)ψ_N(u)⁻¹du, with quotient volume 1. Then φ(g)=Σ_{γ∈N_{n−1}(K)\\GL_{n−1}(K)}W_φ(diag(γ,1)g), with locally uniform absolute convergence in the smooth cuspidal setting. In particular φ↦W_φ is injective and equivariant. Global genericity and factorization are subsequent consequences, not hypotheses of this expansion.",
       "hypotheses": [
-        "Use AF.3 rapid decay and the global nontrivial additive character."
+        "K is a number field in Cogdell Lecture 4; use a nontrivial global additive character and AF.3 smooth cuspidality/rapid decay. The same successive compact-unipotent Fourier argument gives the function-field version used in Yu §5.3.1; that source invokes Fourier reconstruction before factorization.",
+        "At infinite places use smooth moderate-growth globalizations and the derivative estimates needed for the stated convergence. A vanishing cuspidal constant term is essential."
       ],
       "proofSteps": [
-        "Expand successively along the last-row unipotent subgroups by AL.0 Poisson/Fourier inversion on compact adelic quotients.",
-        "Cuspidality kills the trivial character at each step.",
-        "Identify nonzero character orbits and their stabilizers; AF.3 decay justifies regrouping."
+        "Define the Whittaker coefficient directly on the compact unipotent quotient, without first assuming global genericity or a factorization theorem.",
+        "Expand along the last upper-unipotent column, then repeat in smaller rank. Compact adelic additive Fourier duality identifies the character orbits; cuspidality kills the zero orbit at each step.",
+        "Identify the nonzero orbit stabilizers with the relevant mirabolic groups and regroup the Fourier sums using smooth cuspidal decay. Fourier reconstruction proves injectivity; right translation proves equivariance."
       ],
       "prerequisites": [
-        "AutomorphicLFunctionsAndLocalFactors:AL.3/global-whittaker-factorization",
         "AutomorphicLFunctionsAndLocalFactors:AL.0/adelic-poisson-summation",
-        "AutomorphicFormsOnReductiveGroups:AF.3/cusp-form-rapid-decay"
+        "AutomorphicFormsOnReductiveGroups:AF.3/cusp-form",
+        "AutomorphicFormsOnReductiveGroups:AF.3/cusp-form-rapid-decay",
+        "AutomorphicFormsOnReductiveGroups:AF.3/unipotent-quotient-compact",
+        "AdelicAlgebraicGroups:AA.2/quotient-measure"
       ],
       "acceptance": [
         "For n=2 this is the usual nonconstant Fourier expansion on the GL₁ quotient.",
@@ -5028,12 +5051,30 @@
       "sources": [
         {
           "sourceId": "CogdellFields",
-          "locator": "Lecture4, Fourier expansion",
-          "excerpt": "Fourier expansion",
-          "match": "The named construction/result in this passage; all normalizations in the statement are explicit."
+          "locator": "Lecture 4 §1–§2, printed pp.29–31 (PDF pp.33–35)",
+          "excerpt": "last column of N",
+          "match": "Fourier reconstruction is proved before local/global uniqueness and factorization. Page 31 deduces injectivity from reconstruction."
+        },
+        {
+          "sourceId": "Yu2023",
+          "locator": "§5.3.1, Lemma 5.3.3 proof, p.36",
+          "excerpt": "Une fonction cuspidale peut être retrouvée par ses coefficients de Fourier",
+          "match": "The function-field consumer explicitly uses Fourier reconstruction before the global Whittaker product."
         }
       ],
-      "implementationStatus": "unchecked"
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.AutomorphicLFunctions.AL3.GlnFourierExpansion.injective",
+          "role": "extensionality",
+          "statement": "W_φ=W_φ′ implies φ=φ′ for smooth cusp forms with the fixed character and measure."
+        },
+        {
+          "name": "TauCeti.AutomorphicLFunctions.AL3.GlnFourierExpansion.equivariant",
+          "role": "compatibility",
+          "statement": "W_{R(h)φ}(g)=W_φ(gh)."
+        }
+      ]
     },
     {
       "id": "AutomorphicLFunctionsAndLocalFactors:AL.3/mirabolic-eisenstein-series",
@@ -5184,7 +5225,8 @@
         "AutomorphicLFunctionsAndLocalFactors:AL.3/mirabolic-eisenstein-series",
         "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-local-integrals",
         "AutomorphicFormsOnReductiveGroups:AF.3/cusp-form-rapid-decay",
-        "AdelicAlgebraicGroups:AA.2/automorphic-quotient-measure"
+        "AdelicAlgebraicGroups:AA.2/automorphic-quotient-measure",
+        "AutomorphicLFunctionsAndLocalFactors:AL.3/global-whittaker-factorization"
       ],
       "acceptance": [
         "For n=m the Schwartz function remains in the unfolded local factors.",
@@ -5388,19 +5430,19 @@
       ],
       "title": "The analytic proof of strong multiplicity one",
       "kind": "theorem",
-      "statement": "If cuspidal π₁,π₂ of GL_n(𝔸_K) have isomorphic local components at all finite places outside a finite set, then π₁≅π₂ globally, including every omitted finite and infinite place; with the AF global multiplicity-one theorem their cusp realizations coincide.",
+      "statement": "If cuspidal π₁,π₂ of GL_n(𝔸_K) have isomorphic local components at all finite places outside a finite set, then π₁≅π₂ globally, including every omitted finite and infinite place; with AL.3/global-multiplicity-one their cusp realizations coincide.",
       "hypotheses": [
         "Unitarize the central characters consistently; every excluded finite and archimedean local factor is nonzero and finite at s=1, by the local unitary bounds and gamma calculation. Agreement at infinity is a conclusion."
       ],
       "proofSteps": [
         "Use the local unitary convergence bounds and gamma-factor nonvanishing to compare poles of full and partial self-pair products at1.",
         "Almost-everywhere equality identifies the partial cross-pair with the partial self-pair.",
-        "Apply the RS pole criterion; global multiplicity one is a separate AF supplier."
+        "Apply the RS pole criterion; AL.3/global-multiplicity-one identifies the cusp realizations after global isomorphism."
       ],
       "prerequisites": [
         "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-global-poles",
         "AutomorphicLFunctionsAndLocalFactors:AL.2/jacquet-shalika-satake-bound",
-        "AutomorphicFormsOnReductiveGroups:AF.3"
+        "AutomorphicLFunctionsAndLocalFactors:AL.3/global-multiplicity-one"
       ],
       "acceptance": [
         "The self-pair partial product has a simple pole at1 while the unrelated pair has none; deleting finitely many places preserves that distinction.",
@@ -7681,16 +7723,24 @@
       "kind": "comparison",
       "statement": "Given the supplier Whittaker and cohomological E-rational structures for a cohomological cuspidal Π and a permissible real-place signature ε, and a fixed nonzero infinity cohomology vector defining F_Π^ε, normalize F_Π^ε by p^ε(Π)^(−1) to preserve those structures. The period is in C×/E×. Scaling the infinity vector by c scales the comparison and period by c; changing rational bases changes a representative by E×. Twisting by algebraic ξ changes the period class by G(ξ_f)^(n(n−1)/2) with the signature ε·ε_ξ.",
       "hypotheses": [
-        "This comparison is conditional on actual supplied rational structures and twisting theorem, not a new construction of automorphic cohomology or a proof of algebraicity. Under σ∈Aut(C), keep the permissible signature action specified by the supplier; do not use an undefined σ ε."
+        "Use Raghuram §2.5.2: Π∈Coh(G_n,μ∨) is regular algebraic cuspidal over a number field with the stated strongly pure weight. The permissible signature ε cuts out the one-dimensional bottom-degree archimedean cohomology line. E contains Q(μ) and Q(Π_f); for the twist comparison enlarge E to contain the character rationality field as well.",
+        "The finite Whittaker and Betti/cohomological E-structures, their comparison map and the Gauss-period twisting theorem must actually be supplied. Their construction/comparison is an AL proof obligation in G12, using AF.4 finite-part rationality and the precise ALS.5 Betti comparisons; neither AF.4 nor GL₂/ℚ modular symbols exports this general period theorem.",
+        "This conditional comparison proves no critical-value algebraicity theorem. Under σ∈Aut(ℂ), use the corrected signature convention of Raghuram §2.5.2.5, not an undefined σ ε."
       ],
       "proofSteps": [
-        "Use the supplier normalized comparison map and its Aut(C)-equivariance.",
-        "Apply scalar changes to the fixed infinity vector and rational bases.",
-        "Import the supplier Gauss-period twisting law (2.39) and use it to translate the normalized analytic RS value."
+        "Construct the finite Whittaker rational structure using its normalized newvectors and semilinear Galois action, and compare it with the AF.4 finite-part E-model; the construction proof referred to Raghuram–Shahidi §3.2 remains G12.",
+        "Use ALS.5 de Rham/automorphic comparison and its cuspidal summand to transport the geometric E-structure to the bottom-degree cohomological realization. Fix the nonzero vector in the permissible one-dimensional infinity line.",
+        "For these actual irreducible E-structures, compare them up to homothety: p^ε(Π)⁻¹F_Π^ε preserves E-structures. Compute the scaling under a changed infinity vector and rational bases.",
+        "Prove the normalized twisting comparison (Raghuram (2.39), referring to Raghuram–Shahidi Theorem 4.1), retaining the Gauss exponent n(n−1)/2 and the corrected signature. This proof and its required comparison maps remain explicit G12 work; they are not imported from the GL₂/ℚ L1 theorem."
       ],
       "prerequisites": [
         "AutomorphicLFunctionsAndLocalFactors:AL.3/whittaker-model",
-        "AutomorphicLFunctionsAndLocalFactors:AL.1/local-gauss-sum"
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/local-gauss-sum",
+        "AutomorphicFormsOnReductiveGroups:AF.4/clozel-rationality",
+        "AutomorphicFormsOnReductiveGroups:AF.4/cohomological-representation",
+        "ArithmeticLocallySymmetricSpaces:ALS.5/de-rham-comparison",
+        "ArithmeticLocallySymmetricSpaces:ALS.5/automorphic-comparison",
+        "ArithmeticLocallySymmetricSpaces:ALS.5/cuspidal-cohomology"
       ],
       "acceptance": [
         "Rescaling the infinity generator by c rescales the period by c, while an E-rational basis change alters its class only by E×.",
@@ -7933,7 +7983,24 @@
       "library": {
         "module": "TauCeti/Automorphic/LFunctions/Converse",
         "namespace": "TauCeti.AutomorphicLFunctions.AL3"
-      }
+      },
+      "tests": [
+        {
+          "name": "TauCeti.AutomorphicLFunctions.AL3.gln_converse_full_rank.rank_two",
+          "kind": "compatibility",
+          "statement": "At n=2 the entire twisting family is all idele-class quasicharacters, with completed dual entireness, vertical-strip bounds and the matching functional equation."
+        },
+        {
+          "name": "TauCeti.AutomorphicLFunctions.AL3.gln_converse_full_rank.rank_three",
+          "kind": "characterisation",
+          "statement": "At n=3 the full-rank theorem requires both GL₁ and GL₂ cuspidal twists; dropping rank two is the separately proved reduced-rank theorem."
+        },
+        {
+          "name": "TauCeti.AutomorphicLFunctions.AL3.gln_converse_full_rank.unchecked_pole",
+          "kind": "non-example",
+          "statement": "A twist with an uncancelled pole violates niceness and cannot be passed to this converse theorem."
+        }
+      ]
     },
     {
       "id": "AutomorphicLFunctionsAndLocalFactors:AL.3/gln-converse-reduced-rank",
@@ -7974,7 +8041,111 @@
       "library": {
         "module": "TauCeti/Automorphic/LFunctions/Converse",
         "namespace": "TauCeti.AutomorphicLFunctions.AL3"
-      }
+      },
+      "tests": [
+        {
+          "name": "TauCeti.AutomorphicLFunctions.AL3.gln_converse_reduced_rank.rank_three_empty_set",
+          "kind": "compatibility",
+          "statement": "At n=3 and S=∅ all GL₁ twists satisfying niceness give cuspidal automorphy."
+        },
+        {
+          "name": "TauCeti.AutomorphicLFunctions.AL3.gln_converse_reduced_rank.nonempty_exceptional_set",
+          "kind": "non-example",
+          "statement": "Twists unramified at nonempty finite S give an automorphic representation matching outside S; neither cuspidality nor equality at S follows from this contract."
+        },
+        {
+          "name": "TauCeti.AutomorphicLFunctions.AL3.gln_converse_reduced_rank.rank_two_excluded",
+          "kind": "degenerate",
+          "statement": "n=2 is outside the hypotheses, so an empty range 1≤m≤0 yields no GL₂ theorem."
+        },
+        {
+          "name": "TauCeti.AutomorphicLFunctions.AL3.gln_converse_reduced_rank.highly_ramified_family",
+          "kind": "non-example",
+          "statement": "Characters unramified at S are not the highly ramified T-family of Gelbart–Jacquet §9.2; that variant remains a separate proof obligation."
+        }
+      ]
+    },
+    {
+      "id": "AutomorphicLFunctionsAndLocalFactors:AL.3/global-multiplicity-one",
+      "parentStageId": "AutomorphicLFunctionsAndLocalFactors:AL.3",
+      "realises": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.3"
+      ],
+      "title": "Ordinary global multiplicity one for GL(n)",
+      "kind": "theorem",
+      "statement": "For an irreducible admissible smooth representation π of GL_n(𝔸_K), K a number field, its multiplicity in the smooth cuspidal spectrum with fixed central character is at most one. If π is cuspidal, the multiplicity is one: any two nonzero equivariant embeddings into that cusp space differ by a nonzero scalar and have the same image. This is the ordinary multiplicity theorem; it assumes the same global representation, rather than cofinite local agreement.",
+      "hypotheses": [
+        "n≥1; K a number field; characteristic-zero complex automorphic forms. Work with the unitary central-character Hilbert realization or an explicitly fixed norm twist.",
+        "Use continuous equivariant embeddings and continuous Whittaker functionals on the smooth moderate-growth globalizations at infinity. Multiplicity in the Hilbert spectrum is compared through the existing AS.4/AF.3 realization, not a freely chosen numerical function."
+      ],
+      "proofSteps": [
+        "For two cuspidal embeddings i₁,i₂, compose with evaluation at the identity of their Whittaker coefficients. Fourier reconstruction implies both functionals are nonzero.",
+        "Flath factorization and continuous local Whittaker uniqueness make the two global functionals proportional by a scalar c≠0.",
+        "Apply the same equality to every translate π(g)v, then reconstruct the cusp forms by their Fourier expansions: i₁(v)=c·i₂(v) for every v. Thus the two images agree and the embedding space has dimension at most one; a cuspidal occurrence gives equality. For n=1, evaluation at the identity directly determines a function with its fixed character."
+      ],
+      "prerequisites": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.3/gln-fourier-expansion",
+        "AutomorphicLFunctionsAndLocalFactors:AL.3/global-whittaker-factorization",
+        "AutomorphicFormsOnReductiveGroups:AF.3/cuspidal-automorphic-representation"
+      ],
+      "acceptance": [
+        "Rescaling an embedding by c≠0 gives the same cuspidal subrepresentation.",
+        "A two-dimensional space of level invariants does not change the global multiplicity from one.",
+        "Without a cuspidal occurrence the multiplicity may be zero; no occurrence is asserted for every admissible representation."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/AutomorphicLFunctions/AL3",
+        "namespace": "TauCeti.AutomorphicLFunctions.AL3",
+        "declaration": "TauCeti.AutomorphicLFunctions.AL3.GlobalMultiplicityOne"
+      },
+      "sources": [
+        {
+          "sourceId": "CogdellFields",
+          "locator": "Lecture 4 §3, Theorem 4.2 and proof, printed pp.33–34 (PDF pp.37–38)",
+          "excerpt": "multiplicity m(π)",
+          "match": "The source proves the embedding comparison from Fourier reconstruction and uniqueness of the global Whittaker functional; this is distinct from strong multiplicity one."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "GL2AutomorphicRepresentationsAndTransfer:R16.4/global-multiplicity-one",
+          "how": "Specialize the general theorem to GL₂ using the existing smooth/Hilbert multiplicity comparison."
+        },
+        {
+          "where": "AutomorphicLFunctionsAndLocalFactors:AL.3/strong-multiplicity-one",
+          "how": "After the pole argument proves global isomorphism, identify the two cusp realizations."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.AutomorphicLFunctions.AL3.GlobalMultiplicityOne.embeddings",
+          "role": "characterisation",
+          "statement": "Two nonzero equivariant embeddings of π into the fixed smooth cusp space differ by c∈ℂ×."
+        },
+        {
+          "name": "TauCeti.AutomorphicLFunctions.AL3.GlobalMultiplicityOne.same_image",
+          "role": "compatibility",
+          "statement": "The ranges of those two embeddings coincide."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.AutomorphicLFunctions.AL3.GlobalMultiplicityOne.rescaling",
+          "kind": "compatibility",
+          "statement": "For c≠0, i and c·i have the same image and the same cuspidal constituent."
+        },
+        {
+          "name": "TauCeti.AutomorphicLFunctions.AL3.GlobalMultiplicityOne.level_dimension",
+          "kind": "non-example",
+          "statement": "Even when dim π^K=2, the contribution at level K has dimension 2 while the global automorphic multiplicity is 1."
+        },
+        {
+          "name": "TauCeti.AutomorphicLFunctions.AL3.GlobalMultiplicityOne.no_occurrence",
+          "kind": "degenerate",
+          "statement": "If there is no nonzero cusp embedding, the multiplicity is 0, consistent with the at-most-one assertion."
+        }
+      ]
     }
   ],
   "requests": [
@@ -8113,7 +8284,7 @@
     },
     {
       "supplier": "AutomorphicFormsOnReductiveGroups:AF.3",
-      "need": "Supply the cuspidal automorphic carrier, rapid decay on Siegel sets with all derivatives, multiplicity one and global genericity in the admitted GL_n cases. AL owns Fourier expansion/unfolding and analytic estimates using that decay.",
+      "need": "Supply the actual cuspidal automorphic carrier and rapid decay on Siegel sets with all derivatives. AL owns the GL_n Fourier expansion, its injectivity/global-genericity consequences, Whittaker factorization, ordinary multiplicity one and the subsequent integral unfolding. AF.3 supplies neither global genericity nor multiplicity one as a prerequisite for those arguments.",
       "neededBy": [
         "AutomorphicLFunctionsAndLocalFactors:AL.2/global-godement-jacquet",
         "AutomorphicLFunctionsAndLocalFactors:AL.3/global-whittaker-factorization",
@@ -8209,11 +8380,10 @@
     },
     {
       "supplier": "ModularSymbolsPadicLFunctions:L1",
-      "need": "Supply actual critical-value rational structures, period lines/signatures and the primitive character versus inverse-character/Gauss-sum dictionary in the GL₂/Q scope. AL.5 only compares analytic normalizations. The higher-rank cohomological comparison in AL.3 is conditional on a supplied structure/twisting theorem; avoid an AF.4→AL.3→AF.4 cycle.",
+      "need": "Supply the critical-value period line/signature and primitive-character versus inverse-character/Gauss-sum dictionary in the GL₂/ℚ scope. AL.5 only compares analytic normalizations. This supplier does not cover general GL₂/F or higher-rank Whittaker/cohomological periods.",
       "neededBy": [
         "AutomorphicLFunctionsAndLocalFactors:AL.5/critical-value-period-interface",
-        "AutomorphicLFunctionsAndLocalFactors:AL.5/ordinary-gl2-euler-factor",
-        "AutomorphicLFunctionsAndLocalFactors:AL.3/rational-period-comparison"
+        "AutomorphicLFunctionsAndLocalFactors:AL.5/ordinary-gl2-euler-factor"
       ]
     },
     {
@@ -8265,6 +8435,27 @@
       "need": "Supply archimedean continuous diagonal GL_m period multiplicity one for the admitted Casselman–Wallach models; this is separate from archimedean LLC and Whittaker uniqueness.",
       "neededBy": [
         "AutomorphicLFunctionsAndLocalFactors:AL.3/normalized-rs-period"
+      ]
+    },
+    {
+      "supplier": "AutomorphicFormsOnReductiveGroups:AF.4/clozel-rationality",
+      "need": "Supply the regular algebraic cuspidal GL_n finite-part rationality field and model. AL constructs its Whittaker rational structure and comparison period; the AF theorem is not a period or Gauss-twisting theorem.",
+      "neededBy": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.3/rational-period-comparison"
+      ]
+    },
+    {
+      "supplier": "AutomorphicFormsOnReductiveGroups:AF.4/cohomological-representation",
+      "need": "Supply the exact algebraic coefficient and dual convention, bottom-degree archimedean cohomology and permissible signature line for the regular algebraic GL_n representation.",
+      "neededBy": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.3/rational-period-comparison"
+      ]
+    },
+    {
+      "supplier": "ArithmeticLocallySymmetricSpaces:ALS.5",
+      "need": "Use the existing de-rham-comparison, automorphic-comparison and cuspidal-cohomology nodes, with neat level, A∞-balanced coefficients, Hecke/level compatibility and rational Betti local systems, to transport the geometric rational structure. Any rational comparison not already in those signatures is requested explicitly; neither Franke nor this request assumes the AL period conclusion.",
+      "neededBy": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.3/rational-period-comparison"
       ]
     }
   ],
@@ -8445,7 +8636,7 @@
         "AutomorphicLFunctionsAndLocalFactors:AL.5/critical-value-period-interface",
         "AutomorphicLFunctionsAndLocalFactors:AL.5/ordinary-gl2-euler-factor"
       ],
-      "detail": "Raghuram §2.5.2 comparison and twist formula were read, but the construction proof of the Whittaker/cohomological rational structures is not read. The AL.3 theorem is conditional on those structures, not a new algebraicity theorem or an AF.4 dependency cycle. For GL₂/Q import ModularSymbols L1/L2: match χ versus χ−1, Gauss sum, period sign and primitive versus p-level L-series before using the two Euler factors. For general GL₂/F or higher-rank families a proved supplier algebraicity theorem must be named separately."
+      "detail": "Raghuram §2.5.2 and its corrected signature/twist formula were reread. The original Raghuram–Shahidi §3.2–§3.3 and Theorem 4.1 proof interiors, semilinear Whittaker rational structure, rational Betti comparison maps and normalized Gauss-twist diagram remain AL work. AF.4 supplies finite-part rationality/local cohomological inputs; ALS.5 supplies the geometric/cohomological comparisons, subject to the explicit rational refinement request. ModularSymbols L1/L2 supplies only GL₂/ℚ critical-value algebraicity and the primitive versus p-level character/Gauss/period dictionary. General GL₂/F BSW algebraicity belongs to AutomorphicPadicLFunctions:L1 in its actual range; no general-rank Rankin algebraicity or automorphic p-adic Rankin family has been credited. The late period comparison must be separated from the analytic AL.3 prefix used by AF/AS/ALS to avoid a stage-level cycle."
     },
     {
       "title": "G13: finite-place parameter compatibility",
@@ -8471,7 +8662,7 @@
         "AutomorphicLFunctionsAndLocalFactors:AL.3/normalized-rs-period",
         "AutomorphicLFunctionsAndLocalFactors:AL.3/global-whittaker-factorization"
       ],
-      "detail": "AA.0/local-normalized-haar supplies additive Haar, not Haar on GL_n; request the multiplicative normalization and comparison explicitly. SR.4 parameter data does not itself prove Borel13.2’s uniform arbitrary-r Satake-weight bound. Local diagonal GL_m period multiplicity one is distinct from Whittaker uniqueness; request the finite SR.5 and archimedean AF.1 outputs. Global genericity is an AF.3 requested theorem, while Flath is AF.2. None of these extensions is claimed implemented or already present as the cited fine-node theorem."
+      "detail": "AA.0/local-normalized-haar supplies additive Haar, not Haar on GL_n; request the multiplicative normalization and comparison explicitly. SR.4 parameter data does not itself prove Borel13.2’s uniform arbitrary-r Satake-weight bound. Local diagonal GL_m period multiplicity one is distinct from Whittaker uniqueness; request the finite SR.5 and archimedean AF.1 outputs. AL.3 derives global genericity, continuous Whittaker factorization and ordinary multiplicity one from its Fourier reconstruction; AF.3 supplies the cusp/rapid-decay carrier and AF.2 supplies Flath. None of these extensions is claimed implemented or already present as the cited fine-node theorem."
     },
     {
       "title": "G16: generic converse proof interiors and native signatures",
@@ -8852,6 +9043,17 @@
       ],
       "detail": "RT-AREA-automorphic-1/1: generic converse theory has a single analytic owner; the GL₃ theorem cannot supply the rank-two theorem by specializing n.",
       "proposal": "Extract an AL.3b converse prefix containing AL.3/gln-converse-full-rank and AL.3/gln-converse-reduced-rank after their independent local/integral and spectral-inversion suppliers and before R16.5 and R17.4a. Until integration, these nodes realise AL.3. The prefix imports neither GL₂ consumer. R16.5 compares its separately checked n=2 full-twist theorem with the full-rank node; R17.4a uses the n=3 reduced-rank node and the existing AL.3 pole criterion. Keep the highly ramified T-twist variant and original proof decomposition open in G16."
+    },
+    {
+      "action": "split",
+      "roadmaps": [
+        "AutomorphicLFunctionsAndLocalFactors",
+        "AutomorphicPadicLFunctions",
+        "AutomorphicFormsOnReductiveGroups",
+        "ArithmeticLocallySymmetricSpaces"
+      ],
+      "detail": "RT-AREA-automorphic-1/13: distinguish analytic normalization, rational comparison periods and separately proved critical-value algebraicity.",
+      "proposal": "Keep AL.2/AL.3 Whittaker and zeta-integral theory before AutomorphicPadicLFunctions:L1 and request that explicit consumer edge in BP-AutomorphicPadicLFunctions (outside this patch). ModularSymbolsPadicLFunctions:L1 owns GL₂/ℚ critical-value algebraicity; AutomorphicPadicLFunctions:L1 owns the BSW number-field theorem in its checked range. AL.5/critical-value-period-interface currently specializes the ℚ input and proves only scalar normalization. General-rank Rankin algebraicity and p-adic Rankin families remain unassigned proof/scope gaps. Extract AL.3/rational-period-comparison into a late comparison suffix after AF.4 finite-part rationality and ALS.5 comparison, without allowing the early analytic prefix to depend on that suffix. Any AL.5 Euler-factor input to AutomorphicPadicLFunctions:L1 must use an independent analytic prefix; do not introduce a full AL.5↔L1 cycle through the algebraicity-dependent suffix. Current node IDs remain until maintainer integration."
     }
   ],
   "audit": {
@@ -9200,610 +9402,618 @@
   ],
   "review": {
     "status": "needs_changes",
-    "reviewer": "independent-review-REV-AutomorphicLFunctionsAndLocalFactors",
+    "reviewer": "independent-review-REV-FIX-RT-AREA-automorphic-1~3",
     "date": "2026-10-07",
-    "notes": "Completed independent review of all120 nodes, all68 pinned baseline statements, source locators/excerpts, APIs/tests/planets, ownership and assigned red-team findings. Clear packet and suggested-file errors corrected; all six sourceIssues confirmed. The reader, outside this issue’s edit scope, still asserts arbitrary-entire-multiple realization, measure-independence of z/L and algebraic spanning, and retains the dependency/supplier mismatches. These unresolved packet/reader contradictions require a scoped revision before acceptance. Honest G1–G15 refinements alone are not grounds for this verdict. See reviews/REV-AutomorphicLFunctionsAndLocalFactors.md.",
-    "checked": [
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/pairing-annihilator",
-        "verdict": "verified",
-        "note": "Checked against Tate1950 §2.5, physical p.24, printed (2.17), compact-subgroup Fourier calculation. Hypotheses/conventions and target-level proof outline agree; API and discriminating test requirements checked."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/mem-pairing-annihilator",
-        "verdict": "corrected",
-        "note": "Replaced the one-character Tate excerpt with its actual lattice-character sentence and identified the generic bilinear formulation as a routine extension."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/closed-annihilator",
-        "verdict": "corrected",
-        "note": "Replaced the one-character Tate excerpt with its actual lattice-character sentence and identified the generic bilinear formulation as a routine extension."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/open-annihilator",
-        "verdict": "verified",
-        "note": "Checked against Kudla2004 p.115, local constancy and compact support; p.122, Fourier transforms. Hypotheses/conventions and target-level proof outline agree; direct input scope checked."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/vanishing-from-period",
-        "verdict": "corrected",
-        "note": "Replaced the one-character Tate excerpt with its actual lattice-character sentence and identified the generic bilinear formulation as a routine extension."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/fourier-support",
-        "verdict": "corrected",
-        "note": "Replaced the one-character Tate excerpt with its actual lattice-character sentence and identified the generic bilinear formulation as a routine extension."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/indicator-transform",
-        "verdict": "verified",
-        "note": "Checked against Tate1950 §2.5, physical p.24, printed (2.17), compact-subgroup Fourier calculation. Hypotheses/conventions and target-level proof outline agree; direct input scope checked."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/coset-transform",
-        "verdict": "corrected",
-        "note": "Replaced the one-character Tate excerpt with its actual lattice-character sentence and identified the generic bilinear formulation as a routine extension."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/modulation",
-        "verdict": "corrected",
-        "note": "Replaced the one-character Tate excerpt with its actual lattice-character sentence and identified the generic bilinear formulation as a routine extension."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/frequency-periods",
-        "verdict": "corrected",
-        "note": "Replaced the one-character Tate excerpt with its actual lattice-character sentence and identified the generic bilinear formulation as a routine extension."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/locally-constant-transform",
-        "verdict": "verified",
-        "note": "Checked against Kudla2004 p.122, Fourier transforms of Schwartz–Bruhat functions. Hypotheses/conventions and target-level proof outline agree; direct input scope checked."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/compact-support-transform",
-        "verdict": "verified",
-        "note": "Checked against Kudla2004 p.122, Fourier transforms of Schwartz–Bruhat functions. Hypotheses/conventions and target-level proof outline agree; direct input scope checked."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/indicator-inversion",
-        "verdict": "verified",
-        "note": "Checked against Kudla2004 p.122, self-dual measure and Fourier inversion. Hypotheses/conventions and target-level proof outline agree; direct input scope checked."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/local-schwartz-bruhat-space",
-        "verdict": "verified",
-        "note": "Checked against Kudla2004 §3, printed p. 115 (physical p. 7). Hypotheses/conventions and target-level proof outline agree; API and discriminating test requirements checked. Recorded G1 remain proof/supplier refinements, not implementation claims."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/local-fourier-inversion",
-        "verdict": "corrected",
-        "note": "Added finite inversion, self-dual Haar, local topological duality and archimedean comparison as direct inputs; the finite proof no longer depends back on this result."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/adelic-schwartz-bruhat-space",
-        "verdict": "corrected",
-        "note": "Corrected the Tate p.49 class-definition excerpt; retained completed archimedean tensor/density and finite standard-tail conditions. Recorded G1 remain proof/supplier refinements, not implementation claims."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/adelic-poisson-summation",
-        "verdict": "verified",
-        "note": "Checked against Tate1950 §4.2, physical pp. 40–43, Lemmas 4.2.1–4.2.4 and Theorem 4.2.1; Kudla2004 §4, printed p. 128 (physical p. 20). Hypotheses/conventions and target-level proof outline agree; direct input scope checked."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/point-supported-distributions",
-        "verdict": "verified",
-        "note": "Checked against Kudla2004 §3, Lemma 3.3 (ii)–(iii) and footnote 8, printed pp. 116–117 (physical pp. 8–9). Hypotheses/conventions and target-level proof outline agree; direct input scope checked. Recorded G3 remain proof/supplier refinements, not implementation claims."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/local-quasicharacter-conductor",
-        "verdict": "verified",
-        "note": "Checked against Kudla2004 §3, \"The ramified local theory\", printed p. 120 (physical p. 12); Kudla2004 §3, \"The archimedean case\", printed p. 121 (physical p. 13). Hypotheses/conventions and target-level proof outline agree; API and discriminating test requirements checked."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/local-zeta-integral",
-        "verdict": "corrected",
-        "note": "Corrected measure scaling and added its API/regression: doubling multiplicative Haar doubles z/L; epsilon/gamma ratios alone cancel the common scalar."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/eigendistribution-space",
-        "verdict": "verified",
-        "note": "Checked against Kudla2004 §3, Definition 3.1, printed p. 115 (physical p. 7). Hypotheses/conventions and target-level proof outline agree; API and discriminating test requirements checked."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/restriction-to-punctured-line",
-        "verdict": "verified",
-        "note": "Checked against Kudla2004 §3, Lemma 3.2, printed p. 116 (physical p. 8). Hypotheses/conventions and target-level proof outline agree; direct input scope checked."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/eigendistributions-supported-at-zero",
-        "verdict": "verified",
-        "note": "Checked against Kudla2004 §3, Lemma 3.3, printed pp. 116–117 (physical pp. 8–9). Hypotheses/conventions and target-level proof outline agree; direct input scope checked. Recorded G3 remain proof/supplier refinements, not implementation claims."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/unramified-local-theory",
-        "verdict": "corrected",
-        "note": "Corrected the shared multiplicative-measure convention: z/L scales; epsilon and gamma ratios cancel only a common multiplicative scaling with fixed additive Fourier measure."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/invariant-distributions-exceptional-case",
-        "verdict": "verified",
-        "note": "Checked against Kudla2004 §3, Example, printed pp. 119–120 (physical pp. 11–12), (3.10)–(3.14). Hypotheses/conventions and target-level proof outline agree; direct input scope checked."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/ramified-local-theory",
-        "verdict": "corrected",
-        "note": "Corrected the shared multiplicative-measure convention: z/L scales; epsilon and gamma ratios cancel only a common multiplicative scaling with fixed additive Fourier measure."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/archimedean-local-theory",
-        "verdict": "corrected",
-        "note": "Corrected multiplicative-measure scaling and general-input convergence thresholds; removed the circular local-functional-equation proof route. Taylor continuation and the corrected residue orders remain the primary argument."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/local-uniqueness-theorem",
-        "verdict": "verified",
-        "note": "Checked against Kudla2004 §3, Theorem 3.4, printed p. 117 (physical p. 9); Kudla2004 §3, printed p. 120 (physical p. 12). Hypotheses/conventions and target-level proof outline agree; direct input scope checked."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/fourier-transform-eigendistribution",
-        "verdict": "verified",
-        "note": "Checked against Kudla2004 §3, Lemma 3.6, printed p. 122 (physical p. 14). Hypotheses/conventions and target-level proof outline agree; direct input scope checked."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/local-epsilon-gamma-factors",
-        "verdict": "corrected",
-        "note": "Corrected multiplicative-measure scaling and expanded Tate’s locator to pp.18–19, where the functional-equation excerpt actually occurs."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/local-functional-equation",
-        "verdict": "verified",
-        "note": "Checked against Kudla2004 §3, Corollary 3.7 and (3.24)–(3.25), printed p. 123 (physical p. 15); Tate1950 §2.4, Lemma 2.4.2 and Theorem 2.4.1, physical pp. 17–19. Hypotheses/conventions and target-level proof outline agree; direct input scope checked."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/local-gauss-sum",
-        "verdict": "verified",
-        "note": "Checked against Kudla2004 §3, Proposition 3.8(ii) and (3.31)–(3.32), printed pp. 124–125 (physical pp. 16–17); Tate1950 §2.5, \"k 𝔭-adic\", physical pp. 24–26. Hypotheses/conventions and target-level proof outline agree; API and discriminating test requirements checked."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/explicit-epsilon-factors",
-        "verdict": "verified",
-        "note": "Checked against Kudla2004 §3, Proposition 3.8 and its proof, printed pp. 124–125 (physical pp. 16–17); Tate1950 §2.5, physical pp. 20–27. Hypotheses/conventions and target-level proof outline agree; direct input scope checked."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/global-eigendistributions",
-        "verdict": "verified",
-        "note": "Checked against Kudla2004 §4, Lemma 4.1 and Theorem 4.2, printed p. 126 (physical p. 18); Kudla2004 §4, printed p. 126 (physical p. 18). Hypotheses/conventions and target-level proof outline agree; direct input scope checked."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/global-zeta-integral",
-        "verdict": "corrected",
-        "note": "Replaced algebraic spanning by dense tensors plus continuity/domination; synchronized local measure normalization and corrected the Tate p.49 excerpt."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/completed-hecke-l-function",
-        "verdict": "corrected",
-        "note": "Specified which standard vectors make Λ equal the global integral: unit-volume measure, or compensating vector scaling under Tate’s measure."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/idele-class-volume",
-        "verdict": "verified",
-        "note": "Checked against Tate1950 §4.3, Lemma 4.3.1, Definition 4.3.2, Theorem 4.3.2 and Corollary 4.3.1, physical pp. 44–48; Tate1950 §4.4, Main Theorem 4.4.1, physical p. 50. Hypotheses/conventions and target-level proof outline agree; direct input scope checked."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/tate-lemma-a",
-        "verdict": "verified",
-        "note": "Checked against Tate1950 §4.4, Lemma A, physical pp. 50–51. Hypotheses/conventions and target-level proof outline agree; direct input scope checked."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/tate-lemma-b",
-        "verdict": "corrected",
-        "note": "Corrected Tate’s literal factor-group excerpt; retained compact norm-one quotient and explicit nontrivial-character cancellation."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/tate-global-functional-equation",
-        "verdict": "verified",
-        "note": "Checked against Tate1950 §4.4, Main Theorem 4.4.1 and its proof, physical pp. 50–52; Kudla2004 §4, Theorem 4.3, printed p. 128 (physical p. 20). Hypotheses/conventions and target-level proof outline agree; direct input scope checked."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/global-epsilon-factor",
-        "verdict": "verified",
-        "note": "Checked against Kudla2004 §4, (4.6)–(4.7), printed p. 128 (physical p. 20); Kudla2004 §4, printed p. 128 (physical p. 20). Hypotheses/conventions and target-level proof outline agree; API and discriminating test requirements checked."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/hecke-l-functional-equation",
-        "verdict": "verified",
-        "note": "Checked against Kudla2004 §4, Corollary 4.4 and (4.8)–(4.9), printed p. 128 (physical p. 20); Tate1950 §4.5, physical pp. 53–59. Hypotheses/conventions and target-level proof outline agree; direct input scope checked."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/bessel-k",
-        "verdict": "verified",
-        "note": "Checked against Zhang2021 §12.4, p.942, definition preceding Lemma12.3. Hypotheses/conventions and target-level proof outline agree; API and discriminating test requirements checked."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/bessel-half-order-derivative",
-        "verdict": "verified",
-        "note": "Checked against Zhang2021 §12.4, p.943, last display in proof of Lemma12.3. Hypotheses/conventions and target-level proof outline agree; direct input scope checked. Recorded G4 remain proof/supplier refinements, not implementation claims."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.2/godement-jacquet-integral",
-        "verdict": "corrected",
-        "note": "Corrected Humphries’ formula locator to §2.3.2 (2.3); replaced the additive-Haar fine-node near miss by an exact multiplicative GL_n Haar request; strengthened the rank-two example. Recorded G1, G15 remain proof/supplier refinements, not implementation claims."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.2/godement-jacquet-convergence",
-        "verdict": "corrected",
-        "note": "Corrected the source locator from the Rankin–Selberg formula (2.1) to the Godement–Jacquet formula (2.3). Recorded G5 remain proof/supplier refinements, not implementation claims."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.2/standard-local-l-factor",
-        "verdict": "corrected",
-        "note": "Removed the h⇒h constant-term signature; stated the genuine unramified polynomial normalization and explicitly omitted the unavailable general GJ-generator construction theorem. Recorded G5 remain proof/supplier refinements, not implementation claims."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.2/godement-jacquet-functional-equation",
-        "verdict": "verified",
-        "note": "Checked against HumphriesArch §2.4.4 (2.15). Hypotheses/conventions and target-level proof outline agree; direct input scope checked. Recorded G5 remain proof/supplier refinements, not implementation claims."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.2/godement-jacquet-newform-test",
-        "verdict": "verified",
-        "note": "Checked against HumphriesGJ Theorem1.2, §§4–5. Hypotheses/conventions and target-level proof outline agree; direct input scope checked."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.2/global-godement-jacquet",
-        "verdict": "corrected",
-        "note": "Corrected Borel’s literal excerpt while retaining the GL_n standard-factor restriction; Borel’s general conjectural r assertions are not imported as theorems. Recorded G5 remain proof/supplier refinements, not implementation claims."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/whittaker-model",
-        "verdict": "corrected",
-        "note": "Strengthened rank-one and opposite-character examples to use the actual supplied representation action and whittakerFunction; scalar identities alone did not test the interface. Recorded G1 remain proof/supplier refinements, not implementation claims."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/whittaker-compact-parameter-estimates",
-        "verdict": "verified",
-        "note": "Checked against JacquetArch §3 Lemma3.12 and Proposition3.2. Hypotheses/conventions and target-level proof outline agree; direct input scope checked. Recorded G7 remain proof/supplier refinements, not implementation claims."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-local-integrals",
-        "verdict": "verified",
-        "note": "Checked against CogdellFields Lecture6 §1, Lecture8 §1. Hypotheses/conventions and target-level proof outline agree; API and discriminating test requirements checked."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-local-convergence",
-        "verdict": "verified",
-        "note": "Checked against JacquetArch Theorems2.1–2.3; §§3–5. Hypotheses/conventions and target-level proof outline agree; direct input scope checked."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-local-factor",
-        "verdict": "corrected",
-        "note": "Strengthened the two-by-one example to evaluate RsLocalFactor with tensor Satake roots10 and15, rather than merely compare two polynomials. Recorded G6, G7 remain proof/supplier refinements, not implementation claims."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-local-functional-equation",
-        "verdict": "verified",
-        "note": "Checked against CogdellFields Lecture6 §2, Lecture8 §1. Hypotheses/conventions and target-level proof outline agree; direct input scope checked. Recorded G6 remain proof/supplier refinements, not implementation claims."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-archimedean-realization",
-        "verdict": "corrected",
-        "note": "Restored Jacquet’s polynomial-cleared vertical-strip boundedness, ordered exponents and equal-rank finite-sum formulation; retained irreducibility/rank restrictions and G7 proof refinement. Recorded G7 remain proof/supplier refinements, not implementation claims."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-unramified-test",
-        "verdict": "verified",
-        "note": "Checked against HumphriesGJ §3 Theorems3.7,3.9 and formula(3.10). Hypotheses/conventions and target-level proof outline agree; direct input scope checked. Recorded G6 remain proof/supplier refinements, not implementation claims."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.4/l-group-local-factor",
-        "verdict": "corrected",
-        "note": "Corrected the Borel excerpt, removed a duplicate charpolyRev prerequisite and made the tensor-versus-product example evaluate the actual matrix factor."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.4/partial-l-product-convergence",
-        "verdict": "corrected",
-        "note": "Added SR.4 with an explicit request for Borel’s uniform unitarizable Satake-weight estimate; a Satake carrier does not itself prove this bound. Recorded G15 remain proof/supplier refinements, not implementation claims."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.4/local-parameter-comparison",
-        "verdict": "corrected",
-        "note": "Corrected fields sources. Checked source hypotheses and direct proof inputs. Recorded G13 remain proof/supplier refinements, not implementation claims."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.5/finite-euler-correction",
-        "verdict": "corrected",
-        "note": "Strengthened simple/double exceptional-zero examples to use FiniteEulerCorrection on one/two places, including its second derivative."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.5/critical-value-period-interface",
-        "verdict": "verified",
-        "note": "Checked against RodriguesJacintoWilliams2025 AppendixB TheoremB.1 pp.207–209. Hypotheses/conventions and target-level proof outline agree; direct input scope checked. Recorded G12 remain proof/supplier refinements, not implementation claims."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.5/central-sign-vanishing",
-        "verdict": "verified",
-        "note": "Checked against CogdellFields Lecture9 §4. Hypotheses/conventions and target-level proof outline agree; direct input scope checked."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/global-whittaker-factorization",
-        "verdict": "corrected",
-        "note": "Imported AF.2 Flath factorization and AF.3 compact unipotent quotient; completed archimedean extension and global genericity remain explicit requested inputs. Recorded G15 remain proof/supplier refinements, not implementation claims."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/gln-fourier-expansion",
-        "verdict": "verified",
-        "note": "Checked against CogdellFields Lecture4, Fourier expansion. Hypotheses/conventions and target-level proof outline agree; direct input scope checked."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/mirabolic-eisenstein-series",
-        "verdict": "verified",
-        "note": "Checked against CogdellIntegrals §1.1.3, pp.4–5. Hypotheses/conventions and target-level proof outline agree; API and discriminating test requirements checked."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/mirabolic-eisenstein-functional-equation",
-        "verdict": "corrected",
-        "note": "Extended the locator to pp.4–5 so the literal Poisson-summation excerpt is in the cited passage."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/global-rs-unfolding",
-        "verdict": "verified",
-        "note": "Checked against CogdellIntegrals §1.1.2–§1.1.3 pp.3–5. Hypotheses/conventions and target-level proof outline agree; direct input scope checked."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-global-poles",
-        "verdict": "verified",
-        "note": "Checked against CogdellFields Lecture9 §3, pp.71–72. Hypotheses/conventions and target-level proof outline agree; direct input scope checked."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-global-functional-equation",
-        "verdict": "verified",
-        "note": "Checked against CogdellFields Lecture9 §4, p.72. Hypotheses/conventions and target-level proof outline agree; direct input scope checked."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-vertical-strip-bounds",
-        "verdict": "verified",
-        "note": "Checked against CogdellFields Lecture9 §5, pp.72–73. Hypotheses/conventions and target-level proof outline agree; direct input scope checked. Recorded G8 remain proof/supplier refinements, not implementation claims."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.2/jacquet-shalika-satake-bound",
-        "verdict": "verified",
-        "note": "Checked against CogdellFields Corollary7.1.2 and proof, pp.58–59. Hypotheses/conventions and target-level proof outline agree; direct input scope checked. Recorded G9 remain proof/supplier refinements, not implementation claims."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/strong-multiplicity-one",
-        "verdict": "verified",
-        "note": "Checked against CogdellFields Theorem9.3 and proof, pp.74–75. Hypotheses/conventions and target-level proof outline agree; direct input scope checked."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/isobaric-strong-multiplicity-one",
-        "verdict": "verified",
-        "note": "Checked against CogdellFields Theorem9.4, pp.75–76. Hypotheses/conventions and target-level proof outline agree; direct input scope checked. Recorded G9 remain proof/supplier refinements, not implementation claims."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/ramakrishnan-degree-one",
-        "verdict": "verified",
-        "note": "Checked against Ramakrishnan2018 TheoremA, pp.1–2; proof strategy pp.2–4. Hypotheses/conventions and target-level proof outline agree; direct input scope checked. Recorded G9 remain proof/supplier refinements, not implementation claims."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/normalized-rs-period",
-        "verdict": "corrected",
-        "note": "Added finite/archimedean diagonal-period multiplicity-one suppliers, distinct from Whittaker uniqueness; removed unrelated scalar convergence tests and named their unavailable full signatures. Recorded G15 remain proof/supplier refinements, not implementation claims."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/global-central-period",
-        "verdict": "verified",
-        "note": "Checked against Leslie2025 Proposition8.3 and Corollary8.4 pp.59–60. Hypotheses/conventions and target-level proof outline agree; direct input scope checked."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/standard-additive-character",
-        "verdict": "corrected",
-        "note": "Added completion/adele and LocalFieldsRamification trace-different inputs with an exact trace-compatibility request; arithmetic trace data are not supplied by AddChar composition."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/fractional-ideal-annihilator",
-        "verdict": "corrected",
-        "note": "Located the actual Tate trace-dual lemma on physical p.10 and imported LocalFieldsRamification Layer3’s inverse-different contract. Recorded G2 remain proof/supplier refinements, not implementation claims."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/self-dual-haar",
-        "verdict": "corrected",
-        "note": "Strengthened the scaled-character example to compare actual native measures with q^(−1/2), rather than only scalar square roots. Recorded G2 remain proof/supplier refinements, not implementation claims."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/finite-schwartz-period-level",
-        "verdict": "verified",
-        "note": "Checked against Kudla2004 §3, p.115, finite Schwartz description. Hypotheses/conventions and target-level proof outline agree; direct input scope checked."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/finite-fourier-inversion",
-        "verdict": "corrected",
-        "note": "Removed the dependency back to local inversion; use finite period-level decomposition and coset calculations with explicit integrability."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/schwartz-parameter-domination",
-        "verdict": "verified",
-        "note": "Checked against JacquetArch §2 analytic families and §3 compact-parameter estimates. Hypotheses/conventions and target-level proof outline agree; direct input scope checked."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/canonical-archimedean-factor",
-        "verdict": "verified",
-        "note": "Checked against HumphriesArch §2.4.2–2.4.3 (2.7), (2.10), (2.13). Hypotheses/conventions and target-level proof outline agree; API and discriminating test requirements checked."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/cm-quadratic-completion",
-        "verdict": "corrected",
-        "note": "Replaced the nonexistent literal order-one quote with the physical p.9 passage; distinguished general Hecke growth from the CM root-number-one Dedekind-quotient argument."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/cm-logarithmic-gamma-correction",
-        "verdict": "verified",
-        "note": "Checked against YuanZhang2018 §7.1 p.590, displayed gamma correction. Hypotheses/conventions and target-level proof outline agree; direct input scope checked."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/function-field-rs-euler-product",
-        "verdict": "verified",
-        "note": "Checked against Yu2023 §5.1.2 p.30, §6.1. Hypotheses/conventions and target-level proof outline agree; API and discriminating test requirements checked."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/function-field-cuspidal-polynomial",
-        "verdict": "corrected",
-        "note": "Added FA.5’s requested tensor-cohomology extension and the unitary degree-twist reduction needed to reach GS.6’s finite-order-central-character scope. Recorded G11 remain proof/supplier refinements, not implementation claims."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/function-field-self-pair-reflection",
-        "verdict": "corrected",
-        "note": "Added the separate FA.5 cohomological degree/duality input; GS.6’s correspondence/purity statements alone do not provide the alternating pairing. Recorded G11 remain proof/supplier refinements, not implementation claims."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/residual-rs-product",
-        "verdict": "verified",
-        "note": "Checked against Yu2023 Lemma6.1.3, pp.43–44. Hypotheses/conventions and target-level proof outline agree; direct input scope checked. Recorded G9 remain proof/supplier refinements, not implementation claims."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/residual-rs-telescoping",
-        "verdict": "verified",
-        "note": "Checked against Yu2023 (6.1.5), p.44. Hypotheses/conventions and target-level proof outline agree; direct input scope checked."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/open-disc-zero-pole-index",
-        "verdict": "corrected",
-        "note": "Added the actual native MeromorphicOn.divisor comparison on the finite union of polynomial roots; removed its unjustified unavailable-carrier omission."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/residual-rs-index",
-        "verdict": "verified",
-        "note": "Checked against Yu2023 Corollary6.1.2 and proof pp.43–44. Hypotheses/conventions and target-level proof outline agree; direct input scope checked. Recorded G11 remain proof/supplier refinements, not implementation claims."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-normalizing-scalar",
-        "verdict": "corrected",
-        "note": "Replaced the nonexistent Yu excerpt and made the pole example evaluate the actual numerator/denominator pair at a genuine pole."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/self-pair-normalizer-reflection",
-        "verdict": "verified",
-        "note": "Checked against Yu2023 (6.2.5)–(6.2.6), p.46. Hypotheses/conventions and target-level proof outline agree; direct input scope checked."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/whittaker-conductor-shift",
-        "verdict": "verified",
-        "note": "Checked against Yu2023 Lemma5.3.3 proof pp.37–38. Hypotheses/conventions and target-level proof outline agree; direct input scope checked."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/bessel-laplace-mellin",
-        "verdict": "corrected",
-        "note": "Located the unnumbered integral in the proof of Gross–Zagier IV(6.2), printed p.299/physical p.76; distinguished the integer source parameter from routine positive rescaling."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/partial-fourier-transform",
-        "verdict": "corrected",
-        "note": "Replaced the broken literal phrase with Zhang’s second-coordinate description and tightened the passage to §11.1 p.933."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.2/godement-jacquet-spherical-test",
-        "verdict": "verified",
-        "note": "Checked against HumphriesGJ §1 (1.1), discussion preceding Theorem1.2. Hypotheses/conventions and target-level proof outline agree; direct input scope checked. Recorded G5 remain proof/supplier refinements, not implementation claims."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.2/unitary-self-dual-real-factors",
-        "verdict": "verified",
-        "note": "Checked against YunZhang2017 Appendix B LemmaB.3 and proof pp.904–905. Hypotheses/conventions and target-level proof outline agree; direct input scope checked."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.2/standard-order-one",
-        "verdict": "verified",
-        "note": "Checked against YunZhang2017 TheoremB.2 proof p.904; RemarkB.4 p.905. Hypotheses/conventions and target-level proof outline agree; direct input scope checked. Recorded G8 remain proof/supplier refinements, not implementation claims."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.2/standard-superpositivity",
-        "verdict": "corrected",
-        "note": "Made the general Hadamard theorem an explicit requested AnalyticNumberTheory extension: current AN.2 is PNT. Retained corrected order≤1, RH and non-polynomial strict-propagation hypotheses. Recorded G11, G14 remain proof/supplier refinements, not implementation claims."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.2/trivial-function-field-pole-clearer",
-        "verdict": "verified",
-        "note": "Checked against YunZhang2017 RemarkB.5 p.906, corrected PAPER-YUN-ZHANG-17/E17. Hypotheses/conventions and target-level proof outline agree; direct input scope checked."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.2/maass-standard-l-function",
-        "verdict": "corrected",
-        "note": "Replaced AF.0 by the actual AF.3/maass-cusp-forms supplier, retaining its parity/Hecke/2√y normalization."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.2/maass-standard-functional-equation",
-        "verdict": "verified",
-        "note": "Checked against DukeImamogluToth2016 §5.2 p.963 (5.9). Hypotheses/conventions and target-level proof outline agree; direct input scope checked."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/maass-norm-comparison",
-        "verdict": "corrected",
-        "note": "Added the actual AF.3 Maass supplier alongside analytic unfolding; the source normalization ρ(1)=1 remains explicit."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-boundary-nonvanishing",
-        "verdict": "verified",
-        "note": "Checked against Sarnak2004 §1 p.3 (5), discussion of Shahidi. Hypotheses/conventions and target-level proof outline agree; direct input scope checked. Recorded G10 remain proof/supplier refinements, not implementation claims."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/motivic-unitary-shift",
-        "verdict": "verified",
-        "note": "Checked against Liu2022 §1.1 pp.109–112, Rankin–Selberg motive normalization. Hypotheses/conventions and target-level proof outline agree; direct input scope checked. Recorded G13 remain proof/supplier refinements, not implementation claims."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.4/satake-factor-operations",
-        "verdict": "verified",
-        "note": "Checked against Borel1979 §13.1 pp.49–50, local representation factor. Hypotheses/conventions and target-level proof outline agree; direct input scope checked."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.4/exterior-power-transfer-comparison",
-        "verdict": "corrected",
-        "note": "Moved the conditional Borel lifting comparison to §16.1 p.55 and added BCGP §1.8.25; no arbitrary exterior-power transfer existence is asserted."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.5/euler-correction-leading-term",
-        "verdict": "verified",
-        "note": "Checked against CogdellFields Lecture9 finite-factor identities; analytic consequence. Hypotheses/conventions and target-level proof outline agree; direct input scope checked."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/additive-duality-map",
-        "verdict": "verified",
-        "note": "Checked against Tate1950 §2.2 local self-duality. Hypotheses/conventions and target-level proof outline agree; API and discriminating test requirements checked."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/local-additive-self-duality",
-        "verdict": "corrected",
-        "note": "Restricted the claim to number-field completions and used Tate’s actual character-group excerpt; positive-characteristic arithmetic remains a separate FA.2 input. Recorded G2 remain proof/supplier refinements, not implementation claims."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/archimedean-fourier-comparison",
-        "verdict": "verified",
-        "note": "Checked against Kudla2004 §3 archimedean Fourier normalization. Hypotheses/conventions and target-level proof outline agree; direct input scope checked."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/quadratic-orbital-tate-comparison",
-        "verdict": "verified",
-        "note": "Checked against Zhang2021 §12.5 pp.946–947 (12.15)–(12.19). Hypotheses/conventions and target-level proof outline agree; direct input scope checked."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/rational-period-comparison",
-        "verdict": "verified",
-        "note": "Checked against Raghuram2016 §2.5.2 pp.24–25 (2.37)–(2.39). Hypotheses/conventions and target-level proof outline agree; direct input scope checked. Recorded G12 remain proof/supplier refinements, not implementation claims."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.5/ordinary-gl2-euler-factor",
-        "verdict": "verified",
-        "note": "Checked against RodriguesJacintoWilliams2025 Appendix B TheoremB.1 p.208, with supplier newform comparison. Hypotheses/conventions and target-level proof outline agree; API and discriminating test requirements checked. Recorded G12 remain proof/supplier refinements, not implementation claims."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.5/local-conductor-test-vector-comparison",
-        "verdict": "verified",
-        "note": "Checked against AtobeKondoYasuda2022 Introduction pp.2–3 epsilon conductor; generic-newform application. Hypotheses/conventions and target-level proof outline agree; direct input scope checked. Recorded G13 remain proof/supplier refinements, not implementation claims."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.2/archimedean-standard-epsilon",
-        "verdict": "corrected",
-        "note": "Used the actual Chenevier–Taïbi additivity passage, retaining the positive-character sign conversion and Weil-constituent formulas."
-      }
-    ]
-  }
+    "notes": "Independent scoped review of RT-AREA-automorphic-1/1,/8,/9,/10,/13,/14, following REV-FIX-RT-AREA-automorphic-1~2 and the archived REV-AutomorphicLFunctionsAndLocalFactors. Corrected the Fourier reconstruction to genericity/factorization to ordinary multiplicity-one order; added AL.3/global-multiplicity-one with source, prerequisites, API and discriminating tests; removed the nonexistent AF global-genericity/multiplicity supplier. Added full/reduced converse tests, distinguished S-unramified from T-highly-ramified twisting, and corrected GL2/Q critical-value scope and the general rational-period ownership/suppliers with a late-suffix proposal. The reader still falsely allows every entire multiple and claims measure cancellation for z/L, and retains obsolete Fourier/period edges. The previous algebraic-spanning reader error has already been cured and is not an outstanding blocker. Original converse/period proof leaves and source-specific signature omissions remain honest gaps. No new baseline declaration reference; no all-baseline recheck or compilation claim."
+  },
+  "reviewHistory": [
+    {
+      "status": "needs_changes",
+      "reviewer": "independent-review-REV-AutomorphicLFunctionsAndLocalFactors",
+      "date": "2026-10-07",
+      "notes": "Completed independent review of all120 nodes, all68 pinned baseline statements, source locators/excerpts, APIs/tests/planets, ownership and assigned red-team findings. Clear packet and suggested-file errors corrected; all six sourceIssues confirmed. The reader, outside this issue’s edit scope, still asserts arbitrary-entire-multiple realization, measure-independence of z/L and algebraic spanning, and retains the dependency/supplier mismatches. These unresolved packet/reader contradictions require a scoped revision before acceptance. Honest G1–G15 refinements alone are not grounds for this verdict. See reviews/REV-AutomorphicLFunctionsAndLocalFactors.md.",
+      "checked": [
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/pairing-annihilator",
+          "verdict": "verified",
+          "note": "Checked against Tate1950 §2.5, physical p.24, printed (2.17), compact-subgroup Fourier calculation. Hypotheses/conventions and target-level proof outline agree; API and discriminating test requirements checked."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/mem-pairing-annihilator",
+          "verdict": "corrected",
+          "note": "Replaced the one-character Tate excerpt with its actual lattice-character sentence and identified the generic bilinear formulation as a routine extension."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/closed-annihilator",
+          "verdict": "corrected",
+          "note": "Replaced the one-character Tate excerpt with its actual lattice-character sentence and identified the generic bilinear formulation as a routine extension."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/open-annihilator",
+          "verdict": "verified",
+          "note": "Checked against Kudla2004 p.115, local constancy and compact support; p.122, Fourier transforms. Hypotheses/conventions and target-level proof outline agree; direct input scope checked."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/vanishing-from-period",
+          "verdict": "corrected",
+          "note": "Replaced the one-character Tate excerpt with its actual lattice-character sentence and identified the generic bilinear formulation as a routine extension."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/fourier-support",
+          "verdict": "corrected",
+          "note": "Replaced the one-character Tate excerpt with its actual lattice-character sentence and identified the generic bilinear formulation as a routine extension."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/indicator-transform",
+          "verdict": "verified",
+          "note": "Checked against Tate1950 §2.5, physical p.24, printed (2.17), compact-subgroup Fourier calculation. Hypotheses/conventions and target-level proof outline agree; direct input scope checked."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/coset-transform",
+          "verdict": "corrected",
+          "note": "Replaced the one-character Tate excerpt with its actual lattice-character sentence and identified the generic bilinear formulation as a routine extension."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/modulation",
+          "verdict": "corrected",
+          "note": "Replaced the one-character Tate excerpt with its actual lattice-character sentence and identified the generic bilinear formulation as a routine extension."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/frequency-periods",
+          "verdict": "corrected",
+          "note": "Replaced the one-character Tate excerpt with its actual lattice-character sentence and identified the generic bilinear formulation as a routine extension."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/locally-constant-transform",
+          "verdict": "verified",
+          "note": "Checked against Kudla2004 p.122, Fourier transforms of Schwartz–Bruhat functions. Hypotheses/conventions and target-level proof outline agree; direct input scope checked."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/compact-support-transform",
+          "verdict": "verified",
+          "note": "Checked against Kudla2004 p.122, Fourier transforms of Schwartz–Bruhat functions. Hypotheses/conventions and target-level proof outline agree; direct input scope checked."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/indicator-inversion",
+          "verdict": "verified",
+          "note": "Checked against Kudla2004 p.122, self-dual measure and Fourier inversion. Hypotheses/conventions and target-level proof outline agree; direct input scope checked."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/local-schwartz-bruhat-space",
+          "verdict": "verified",
+          "note": "Checked against Kudla2004 §3, printed p. 115 (physical p. 7). Hypotheses/conventions and target-level proof outline agree; API and discriminating test requirements checked. Recorded G1 remain proof/supplier refinements, not implementation claims."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/local-fourier-inversion",
+          "verdict": "corrected",
+          "note": "Added finite inversion, self-dual Haar, local topological duality and archimedean comparison as direct inputs; the finite proof no longer depends back on this result."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/adelic-schwartz-bruhat-space",
+          "verdict": "corrected",
+          "note": "Corrected the Tate p.49 class-definition excerpt; retained completed archimedean tensor/density and finite standard-tail conditions. Recorded G1 remain proof/supplier refinements, not implementation claims."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/adelic-poisson-summation",
+          "verdict": "verified",
+          "note": "Checked against Tate1950 §4.2, physical pp. 40–43, Lemmas 4.2.1–4.2.4 and Theorem 4.2.1; Kudla2004 §4, printed p. 128 (physical p. 20). Hypotheses/conventions and target-level proof outline agree; direct input scope checked."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/point-supported-distributions",
+          "verdict": "verified",
+          "note": "Checked against Kudla2004 §3, Lemma 3.3 (ii)–(iii) and footnote 8, printed pp. 116–117 (physical pp. 8–9). Hypotheses/conventions and target-level proof outline agree; direct input scope checked. Recorded G3 remain proof/supplier refinements, not implementation claims."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/local-quasicharacter-conductor",
+          "verdict": "verified",
+          "note": "Checked against Kudla2004 §3, \"The ramified local theory\", printed p. 120 (physical p. 12); Kudla2004 §3, \"The archimedean case\", printed p. 121 (physical p. 13). Hypotheses/conventions and target-level proof outline agree; API and discriminating test requirements checked."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/local-zeta-integral",
+          "verdict": "corrected",
+          "note": "Corrected measure scaling and added its API/regression: doubling multiplicative Haar doubles z/L; epsilon/gamma ratios alone cancel the common scalar."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/eigendistribution-space",
+          "verdict": "verified",
+          "note": "Checked against Kudla2004 §3, Definition 3.1, printed p. 115 (physical p. 7). Hypotheses/conventions and target-level proof outline agree; API and discriminating test requirements checked."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/restriction-to-punctured-line",
+          "verdict": "verified",
+          "note": "Checked against Kudla2004 §3, Lemma 3.2, printed p. 116 (physical p. 8). Hypotheses/conventions and target-level proof outline agree; direct input scope checked."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/eigendistributions-supported-at-zero",
+          "verdict": "verified",
+          "note": "Checked against Kudla2004 §3, Lemma 3.3, printed pp. 116–117 (physical pp. 8–9). Hypotheses/conventions and target-level proof outline agree; direct input scope checked. Recorded G3 remain proof/supplier refinements, not implementation claims."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/unramified-local-theory",
+          "verdict": "corrected",
+          "note": "Corrected the shared multiplicative-measure convention: z/L scales; epsilon and gamma ratios cancel only a common multiplicative scaling with fixed additive Fourier measure."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/invariant-distributions-exceptional-case",
+          "verdict": "verified",
+          "note": "Checked against Kudla2004 §3, Example, printed pp. 119–120 (physical pp. 11–12), (3.10)–(3.14). Hypotheses/conventions and target-level proof outline agree; direct input scope checked."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/ramified-local-theory",
+          "verdict": "corrected",
+          "note": "Corrected the shared multiplicative-measure convention: z/L scales; epsilon and gamma ratios cancel only a common multiplicative scaling with fixed additive Fourier measure."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/archimedean-local-theory",
+          "verdict": "corrected",
+          "note": "Corrected multiplicative-measure scaling and general-input convergence thresholds; removed the circular local-functional-equation proof route. Taylor continuation and the corrected residue orders remain the primary argument."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/local-uniqueness-theorem",
+          "verdict": "verified",
+          "note": "Checked against Kudla2004 §3, Theorem 3.4, printed p. 117 (physical p. 9); Kudla2004 §3, printed p. 120 (physical p. 12). Hypotheses/conventions and target-level proof outline agree; direct input scope checked."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/fourier-transform-eigendistribution",
+          "verdict": "verified",
+          "note": "Checked against Kudla2004 §3, Lemma 3.6, printed p. 122 (physical p. 14). Hypotheses/conventions and target-level proof outline agree; direct input scope checked."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/local-epsilon-gamma-factors",
+          "verdict": "corrected",
+          "note": "Corrected multiplicative-measure scaling and expanded Tate’s locator to pp.18–19, where the functional-equation excerpt actually occurs."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/local-functional-equation",
+          "verdict": "verified",
+          "note": "Checked against Kudla2004 §3, Corollary 3.7 and (3.24)–(3.25), printed p. 123 (physical p. 15); Tate1950 §2.4, Lemma 2.4.2 and Theorem 2.4.1, physical pp. 17–19. Hypotheses/conventions and target-level proof outline agree; direct input scope checked."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/local-gauss-sum",
+          "verdict": "verified",
+          "note": "Checked against Kudla2004 §3, Proposition 3.8(ii) and (3.31)–(3.32), printed pp. 124–125 (physical pp. 16–17); Tate1950 §2.5, \"k 𝔭-adic\", physical pp. 24–26. Hypotheses/conventions and target-level proof outline agree; API and discriminating test requirements checked."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/explicit-epsilon-factors",
+          "verdict": "verified",
+          "note": "Checked against Kudla2004 §3, Proposition 3.8 and its proof, printed pp. 124–125 (physical pp. 16–17); Tate1950 §2.5, physical pp. 20–27. Hypotheses/conventions and target-level proof outline agree; direct input scope checked."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/global-eigendistributions",
+          "verdict": "verified",
+          "note": "Checked against Kudla2004 §4, Lemma 4.1 and Theorem 4.2, printed p. 126 (physical p. 18); Kudla2004 §4, printed p. 126 (physical p. 18). Hypotheses/conventions and target-level proof outline agree; direct input scope checked."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/global-zeta-integral",
+          "verdict": "corrected",
+          "note": "Replaced algebraic spanning by dense tensors plus continuity/domination; synchronized local measure normalization and corrected the Tate p.49 excerpt."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/completed-hecke-l-function",
+          "verdict": "corrected",
+          "note": "Specified which standard vectors make Λ equal the global integral: unit-volume measure, or compensating vector scaling under Tate’s measure."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/idele-class-volume",
+          "verdict": "verified",
+          "note": "Checked against Tate1950 §4.3, Lemma 4.3.1, Definition 4.3.2, Theorem 4.3.2 and Corollary 4.3.1, physical pp. 44–48; Tate1950 §4.4, Main Theorem 4.4.1, physical p. 50. Hypotheses/conventions and target-level proof outline agree; direct input scope checked."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/tate-lemma-a",
+          "verdict": "verified",
+          "note": "Checked against Tate1950 §4.4, Lemma A, physical pp. 50–51. Hypotheses/conventions and target-level proof outline agree; direct input scope checked."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/tate-lemma-b",
+          "verdict": "corrected",
+          "note": "Corrected Tate’s literal factor-group excerpt; retained compact norm-one quotient and explicit nontrivial-character cancellation."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/tate-global-functional-equation",
+          "verdict": "verified",
+          "note": "Checked against Tate1950 §4.4, Main Theorem 4.4.1 and its proof, physical pp. 50–52; Kudla2004 §4, Theorem 4.3, printed p. 128 (physical p. 20). Hypotheses/conventions and target-level proof outline agree; direct input scope checked."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/global-epsilon-factor",
+          "verdict": "verified",
+          "note": "Checked against Kudla2004 §4, (4.6)–(4.7), printed p. 128 (physical p. 20); Kudla2004 §4, printed p. 128 (physical p. 20). Hypotheses/conventions and target-level proof outline agree; API and discriminating test requirements checked."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/hecke-l-functional-equation",
+          "verdict": "verified",
+          "note": "Checked against Kudla2004 §4, Corollary 4.4 and (4.8)–(4.9), printed p. 128 (physical p. 20); Tate1950 §4.5, physical pp. 53–59. Hypotheses/conventions and target-level proof outline agree; direct input scope checked."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/bessel-k",
+          "verdict": "verified",
+          "note": "Checked against Zhang2021 §12.4, p.942, definition preceding Lemma12.3. Hypotheses/conventions and target-level proof outline agree; API and discriminating test requirements checked."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/bessel-half-order-derivative",
+          "verdict": "verified",
+          "note": "Checked against Zhang2021 §12.4, p.943, last display in proof of Lemma12.3. Hypotheses/conventions and target-level proof outline agree; direct input scope checked. Recorded G4 remain proof/supplier refinements, not implementation claims."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.2/godement-jacquet-integral",
+          "verdict": "corrected",
+          "note": "Corrected Humphries’ formula locator to §2.3.2 (2.3); replaced the additive-Haar fine-node near miss by an exact multiplicative GL_n Haar request; strengthened the rank-two example. Recorded G1, G15 remain proof/supplier refinements, not implementation claims."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.2/godement-jacquet-convergence",
+          "verdict": "corrected",
+          "note": "Corrected the source locator from the Rankin–Selberg formula (2.1) to the Godement–Jacquet formula (2.3). Recorded G5 remain proof/supplier refinements, not implementation claims."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.2/standard-local-l-factor",
+          "verdict": "corrected",
+          "note": "Removed the h⇒h constant-term signature; stated the genuine unramified polynomial normalization and explicitly omitted the unavailable general GJ-generator construction theorem. Recorded G5 remain proof/supplier refinements, not implementation claims."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.2/godement-jacquet-functional-equation",
+          "verdict": "verified",
+          "note": "Checked against HumphriesArch §2.4.4 (2.15). Hypotheses/conventions and target-level proof outline agree; direct input scope checked. Recorded G5 remain proof/supplier refinements, not implementation claims."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.2/godement-jacquet-newform-test",
+          "verdict": "verified",
+          "note": "Checked against HumphriesGJ Theorem1.2, §§4–5. Hypotheses/conventions and target-level proof outline agree; direct input scope checked."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.2/global-godement-jacquet",
+          "verdict": "corrected",
+          "note": "Corrected Borel’s literal excerpt while retaining the GL_n standard-factor restriction; Borel’s general conjectural r assertions are not imported as theorems. Recorded G5 remain proof/supplier refinements, not implementation claims."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/whittaker-model",
+          "verdict": "corrected",
+          "note": "Strengthened rank-one and opposite-character examples to use the actual supplied representation action and whittakerFunction; scalar identities alone did not test the interface. Recorded G1 remain proof/supplier refinements, not implementation claims."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/whittaker-compact-parameter-estimates",
+          "verdict": "verified",
+          "note": "Checked against JacquetArch §3 Lemma3.12 and Proposition3.2. Hypotheses/conventions and target-level proof outline agree; direct input scope checked. Recorded G7 remain proof/supplier refinements, not implementation claims."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-local-integrals",
+          "verdict": "verified",
+          "note": "Checked against CogdellFields Lecture6 §1, Lecture8 §1. Hypotheses/conventions and target-level proof outline agree; API and discriminating test requirements checked."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-local-convergence",
+          "verdict": "verified",
+          "note": "Checked against JacquetArch Theorems2.1–2.3; §§3–5. Hypotheses/conventions and target-level proof outline agree; direct input scope checked."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-local-factor",
+          "verdict": "corrected",
+          "note": "Strengthened the two-by-one example to evaluate RsLocalFactor with tensor Satake roots10 and15, rather than merely compare two polynomials. Recorded G6, G7 remain proof/supplier refinements, not implementation claims."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-local-functional-equation",
+          "verdict": "verified",
+          "note": "Checked against CogdellFields Lecture6 §2, Lecture8 §1. Hypotheses/conventions and target-level proof outline agree; direct input scope checked. Recorded G6 remain proof/supplier refinements, not implementation claims."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-archimedean-realization",
+          "verdict": "corrected",
+          "note": "Restored Jacquet’s polynomial-cleared vertical-strip boundedness, ordered exponents and equal-rank finite-sum formulation; retained irreducibility/rank restrictions and G7 proof refinement. Recorded G7 remain proof/supplier refinements, not implementation claims."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-unramified-test",
+          "verdict": "verified",
+          "note": "Checked against HumphriesGJ §3 Theorems3.7,3.9 and formula(3.10). Hypotheses/conventions and target-level proof outline agree; direct input scope checked. Recorded G6 remain proof/supplier refinements, not implementation claims."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.4/l-group-local-factor",
+          "verdict": "corrected",
+          "note": "Corrected the Borel excerpt, removed a duplicate charpolyRev prerequisite and made the tensor-versus-product example evaluate the actual matrix factor."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.4/partial-l-product-convergence",
+          "verdict": "corrected",
+          "note": "Added SR.4 with an explicit request for Borel’s uniform unitarizable Satake-weight estimate; a Satake carrier does not itself prove this bound. Recorded G15 remain proof/supplier refinements, not implementation claims."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.4/local-parameter-comparison",
+          "verdict": "corrected",
+          "note": "Corrected fields sources. Checked source hypotheses and direct proof inputs. Recorded G13 remain proof/supplier refinements, not implementation claims."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.5/finite-euler-correction",
+          "verdict": "corrected",
+          "note": "Strengthened simple/double exceptional-zero examples to use FiniteEulerCorrection on one/two places, including its second derivative."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.5/critical-value-period-interface",
+          "verdict": "verified",
+          "note": "Checked against RodriguesJacintoWilliams2025 AppendixB TheoremB.1 pp.207–209. Hypotheses/conventions and target-level proof outline agree; direct input scope checked. Recorded G12 remain proof/supplier refinements, not implementation claims."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.5/central-sign-vanishing",
+          "verdict": "verified",
+          "note": "Checked against CogdellFields Lecture9 §4. Hypotheses/conventions and target-level proof outline agree; direct input scope checked."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/global-whittaker-factorization",
+          "verdict": "corrected",
+          "note": "Imported AF.2 Flath factorization and AF.3 compact unipotent quotient; completed archimedean extension and global genericity remain explicit requested inputs. Recorded G15 remain proof/supplier refinements, not implementation claims."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/gln-fourier-expansion",
+          "verdict": "verified",
+          "note": "Checked against CogdellFields Lecture4, Fourier expansion. Hypotheses/conventions and target-level proof outline agree; direct input scope checked."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/mirabolic-eisenstein-series",
+          "verdict": "verified",
+          "note": "Checked against CogdellIntegrals §1.1.3, pp.4–5. Hypotheses/conventions and target-level proof outline agree; API and discriminating test requirements checked."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/mirabolic-eisenstein-functional-equation",
+          "verdict": "corrected",
+          "note": "Extended the locator to pp.4–5 so the literal Poisson-summation excerpt is in the cited passage."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/global-rs-unfolding",
+          "verdict": "verified",
+          "note": "Checked against CogdellIntegrals §1.1.2–§1.1.3 pp.3–5. Hypotheses/conventions and target-level proof outline agree; direct input scope checked."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-global-poles",
+          "verdict": "verified",
+          "note": "Checked against CogdellFields Lecture9 §3, pp.71–72. Hypotheses/conventions and target-level proof outline agree; direct input scope checked."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-global-functional-equation",
+          "verdict": "verified",
+          "note": "Checked against CogdellFields Lecture9 §4, p.72. Hypotheses/conventions and target-level proof outline agree; direct input scope checked."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-vertical-strip-bounds",
+          "verdict": "verified",
+          "note": "Checked against CogdellFields Lecture9 §5, pp.72–73. Hypotheses/conventions and target-level proof outline agree; direct input scope checked. Recorded G8 remain proof/supplier refinements, not implementation claims."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.2/jacquet-shalika-satake-bound",
+          "verdict": "verified",
+          "note": "Checked against CogdellFields Corollary7.1.2 and proof, pp.58–59. Hypotheses/conventions and target-level proof outline agree; direct input scope checked. Recorded G9 remain proof/supplier refinements, not implementation claims."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/strong-multiplicity-one",
+          "verdict": "verified",
+          "note": "Checked against CogdellFields Theorem9.3 and proof, pp.74–75. Hypotheses/conventions and target-level proof outline agree; direct input scope checked."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/isobaric-strong-multiplicity-one",
+          "verdict": "verified",
+          "note": "Checked against CogdellFields Theorem9.4, pp.75–76. Hypotheses/conventions and target-level proof outline agree; direct input scope checked. Recorded G9 remain proof/supplier refinements, not implementation claims."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/ramakrishnan-degree-one",
+          "verdict": "verified",
+          "note": "Checked against Ramakrishnan2018 TheoremA, pp.1–2; proof strategy pp.2–4. Hypotheses/conventions and target-level proof outline agree; direct input scope checked. Recorded G9 remain proof/supplier refinements, not implementation claims."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/normalized-rs-period",
+          "verdict": "corrected",
+          "note": "Added finite/archimedean diagonal-period multiplicity-one suppliers, distinct from Whittaker uniqueness; removed unrelated scalar convergence tests and named their unavailable full signatures. Recorded G15 remain proof/supplier refinements, not implementation claims."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/global-central-period",
+          "verdict": "verified",
+          "note": "Checked against Leslie2025 Proposition8.3 and Corollary8.4 pp.59–60. Hypotheses/conventions and target-level proof outline agree; direct input scope checked."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/standard-additive-character",
+          "verdict": "corrected",
+          "note": "Added completion/adele and LocalFieldsRamification trace-different inputs with an exact trace-compatibility request; arithmetic trace data are not supplied by AddChar composition."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/fractional-ideal-annihilator",
+          "verdict": "corrected",
+          "note": "Located the actual Tate trace-dual lemma on physical p.10 and imported LocalFieldsRamification Layer3’s inverse-different contract. Recorded G2 remain proof/supplier refinements, not implementation claims."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/self-dual-haar",
+          "verdict": "corrected",
+          "note": "Strengthened the scaled-character example to compare actual native measures with q^(−1/2), rather than only scalar square roots. Recorded G2 remain proof/supplier refinements, not implementation claims."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/finite-schwartz-period-level",
+          "verdict": "verified",
+          "note": "Checked against Kudla2004 §3, p.115, finite Schwartz description. Hypotheses/conventions and target-level proof outline agree; direct input scope checked."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/finite-fourier-inversion",
+          "verdict": "corrected",
+          "note": "Removed the dependency back to local inversion; use finite period-level decomposition and coset calculations with explicit integrability."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/schwartz-parameter-domination",
+          "verdict": "verified",
+          "note": "Checked against JacquetArch §2 analytic families and §3 compact-parameter estimates. Hypotheses/conventions and target-level proof outline agree; direct input scope checked."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/canonical-archimedean-factor",
+          "verdict": "verified",
+          "note": "Checked against HumphriesArch §2.4.2–2.4.3 (2.7), (2.10), (2.13). Hypotheses/conventions and target-level proof outline agree; API and discriminating test requirements checked."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/cm-quadratic-completion",
+          "verdict": "corrected",
+          "note": "Replaced the nonexistent literal order-one quote with the physical p.9 passage; distinguished general Hecke growth from the CM root-number-one Dedekind-quotient argument."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/cm-logarithmic-gamma-correction",
+          "verdict": "verified",
+          "note": "Checked against YuanZhang2018 §7.1 p.590, displayed gamma correction. Hypotheses/conventions and target-level proof outline agree; direct input scope checked."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/function-field-rs-euler-product",
+          "verdict": "verified",
+          "note": "Checked against Yu2023 §5.1.2 p.30, §6.1. Hypotheses/conventions and target-level proof outline agree; API and discriminating test requirements checked."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/function-field-cuspidal-polynomial",
+          "verdict": "corrected",
+          "note": "Added FA.5’s requested tensor-cohomology extension and the unitary degree-twist reduction needed to reach GS.6’s finite-order-central-character scope. Recorded G11 remain proof/supplier refinements, not implementation claims."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/function-field-self-pair-reflection",
+          "verdict": "corrected",
+          "note": "Added the separate FA.5 cohomological degree/duality input; GS.6’s correspondence/purity statements alone do not provide the alternating pairing. Recorded G11 remain proof/supplier refinements, not implementation claims."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/residual-rs-product",
+          "verdict": "verified",
+          "note": "Checked against Yu2023 Lemma6.1.3, pp.43–44. Hypotheses/conventions and target-level proof outline agree; direct input scope checked. Recorded G9 remain proof/supplier refinements, not implementation claims."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/residual-rs-telescoping",
+          "verdict": "verified",
+          "note": "Checked against Yu2023 (6.1.5), p.44. Hypotheses/conventions and target-level proof outline agree; direct input scope checked."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/open-disc-zero-pole-index",
+          "verdict": "corrected",
+          "note": "Added the actual native MeromorphicOn.divisor comparison on the finite union of polynomial roots; removed its unjustified unavailable-carrier omission."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/residual-rs-index",
+          "verdict": "verified",
+          "note": "Checked against Yu2023 Corollary6.1.2 and proof pp.43–44. Hypotheses/conventions and target-level proof outline agree; direct input scope checked. Recorded G11 remain proof/supplier refinements, not implementation claims."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-normalizing-scalar",
+          "verdict": "corrected",
+          "note": "Replaced the nonexistent Yu excerpt and made the pole example evaluate the actual numerator/denominator pair at a genuine pole."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/self-pair-normalizer-reflection",
+          "verdict": "verified",
+          "note": "Checked against Yu2023 (6.2.5)–(6.2.6), p.46. Hypotheses/conventions and target-level proof outline agree; direct input scope checked."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/whittaker-conductor-shift",
+          "verdict": "verified",
+          "note": "Checked against Yu2023 Lemma5.3.3 proof pp.37–38. Hypotheses/conventions and target-level proof outline agree; direct input scope checked."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/bessel-laplace-mellin",
+          "verdict": "corrected",
+          "note": "Located the unnumbered integral in the proof of Gross–Zagier IV(6.2), printed p.299/physical p.76; distinguished the integer source parameter from routine positive rescaling."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/partial-fourier-transform",
+          "verdict": "corrected",
+          "note": "Replaced the broken literal phrase with Zhang’s second-coordinate description and tightened the passage to §11.1 p.933."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.2/godement-jacquet-spherical-test",
+          "verdict": "verified",
+          "note": "Checked against HumphriesGJ §1 (1.1), discussion preceding Theorem1.2. Hypotheses/conventions and target-level proof outline agree; direct input scope checked. Recorded G5 remain proof/supplier refinements, not implementation claims."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.2/unitary-self-dual-real-factors",
+          "verdict": "verified",
+          "note": "Checked against YunZhang2017 Appendix B LemmaB.3 and proof pp.904–905. Hypotheses/conventions and target-level proof outline agree; direct input scope checked."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.2/standard-order-one",
+          "verdict": "verified",
+          "note": "Checked against YunZhang2017 TheoremB.2 proof p.904; RemarkB.4 p.905. Hypotheses/conventions and target-level proof outline agree; direct input scope checked. Recorded G8 remain proof/supplier refinements, not implementation claims."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.2/standard-superpositivity",
+          "verdict": "corrected",
+          "note": "Made the general Hadamard theorem an explicit requested AnalyticNumberTheory extension: current AN.2 is PNT. Retained corrected order≤1, RH and non-polynomial strict-propagation hypotheses. Recorded G11, G14 remain proof/supplier refinements, not implementation claims."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.2/trivial-function-field-pole-clearer",
+          "verdict": "verified",
+          "note": "Checked against YunZhang2017 RemarkB.5 p.906, corrected PAPER-YUN-ZHANG-17/E17. Hypotheses/conventions and target-level proof outline agree; direct input scope checked."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.2/maass-standard-l-function",
+          "verdict": "corrected",
+          "note": "Replaced AF.0 by the actual AF.3/maass-cusp-forms supplier, retaining its parity/Hecke/2√y normalization."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.2/maass-standard-functional-equation",
+          "verdict": "verified",
+          "note": "Checked against DukeImamogluToth2016 §5.2 p.963 (5.9). Hypotheses/conventions and target-level proof outline agree; direct input scope checked."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/maass-norm-comparison",
+          "verdict": "corrected",
+          "note": "Added the actual AF.3 Maass supplier alongside analytic unfolding; the source normalization ρ(1)=1 remains explicit."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-boundary-nonvanishing",
+          "verdict": "verified",
+          "note": "Checked against Sarnak2004 §1 p.3 (5), discussion of Shahidi. Hypotheses/conventions and target-level proof outline agree; direct input scope checked. Recorded G10 remain proof/supplier refinements, not implementation claims."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/motivic-unitary-shift",
+          "verdict": "verified",
+          "note": "Checked against Liu2022 §1.1 pp.109–112, Rankin–Selberg motive normalization. Hypotheses/conventions and target-level proof outline agree; direct input scope checked. Recorded G13 remain proof/supplier refinements, not implementation claims."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.4/satake-factor-operations",
+          "verdict": "verified",
+          "note": "Checked against Borel1979 §13.1 pp.49–50, local representation factor. Hypotheses/conventions and target-level proof outline agree; direct input scope checked."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.4/exterior-power-transfer-comparison",
+          "verdict": "corrected",
+          "note": "Moved the conditional Borel lifting comparison to §16.1 p.55 and added BCGP §1.8.25; no arbitrary exterior-power transfer existence is asserted."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.5/euler-correction-leading-term",
+          "verdict": "verified",
+          "note": "Checked against CogdellFields Lecture9 finite-factor identities; analytic consequence. Hypotheses/conventions and target-level proof outline agree; direct input scope checked."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/additive-duality-map",
+          "verdict": "verified",
+          "note": "Checked against Tate1950 §2.2 local self-duality. Hypotheses/conventions and target-level proof outline agree; API and discriminating test requirements checked."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/local-additive-self-duality",
+          "verdict": "corrected",
+          "note": "Restricted the claim to number-field completions and used Tate’s actual character-group excerpt; positive-characteristic arithmetic remains a separate FA.2 input. Recorded G2 remain proof/supplier refinements, not implementation claims."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/archimedean-fourier-comparison",
+          "verdict": "verified",
+          "note": "Checked against Kudla2004 §3 archimedean Fourier normalization. Hypotheses/conventions and target-level proof outline agree; direct input scope checked."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/quadratic-orbital-tate-comparison",
+          "verdict": "verified",
+          "note": "Checked against Zhang2021 §12.5 pp.946–947 (12.15)–(12.19). Hypotheses/conventions and target-level proof outline agree; direct input scope checked."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/rational-period-comparison",
+          "verdict": "verified",
+          "note": "Checked against Raghuram2016 §2.5.2 pp.24–25 (2.37)–(2.39). Hypotheses/conventions and target-level proof outline agree; direct input scope checked. Recorded G12 remain proof/supplier refinements, not implementation claims."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.5/ordinary-gl2-euler-factor",
+          "verdict": "verified",
+          "note": "Checked against RodriguesJacintoWilliams2025 Appendix B TheoremB.1 p.208, with supplier newform comparison. Hypotheses/conventions and target-level proof outline agree; API and discriminating test requirements checked. Recorded G12 remain proof/supplier refinements, not implementation claims."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.5/local-conductor-test-vector-comparison",
+          "verdict": "verified",
+          "note": "Checked against AtobeKondoYasuda2022 Introduction pp.2–3 epsilon conductor; generic-newform application. Hypotheses/conventions and target-level proof outline agree; direct input scope checked. Recorded G13 remain proof/supplier refinements, not implementation claims."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.2/archimedean-standard-epsilon",
+          "verdict": "corrected",
+          "note": "Used the actual Chenevier–Taïbi additivity passage, retaining the positive-character sign conversion and Weil-constituent formulas."
+        }
+      ]
+    }
+  ]
 }
