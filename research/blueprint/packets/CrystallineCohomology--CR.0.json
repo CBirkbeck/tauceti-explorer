@@ -1438,7 +1438,6 @@
         {
           "sourceId": "stacks-dpa",
           "locator": "Lemma 23.2.4 (tag 07GP), statement, hypothesis (a); Definition 23.2.1 (tag 07GL), axioms (1), (3), (4)",
-          "excerpt": "(1), (3), and (4) of Definition \\ref{definition-divided-powers} hold for all $x, y \\in I$, and",
           "match": "The node packages hypothesis (a) of the lemma: maps γₙ:I→I satisfying axioms (1), (3) and (4) of Definition 23.2.1. Beyond the source it sets δ₀=1 on I and extends every δₙ by zero outside I, as Mathlib's DividedPowers does."
         }
       ],
@@ -1488,7 +1487,6 @@
         {
           "sourceId": "stacks-dpa",
           "locator": "Lemma 23.2.4 (tag 07GP), proof, paragraph \"Proof of (2) for x + y\"",
-          "excerpt": "we see that we have to prove that given $a + b = n + m$ we have $$ \\sum\\nolimits_{i + k = a,\\ j + l = b,\\ i + j = n,\\ k + l = m} \\frac{(i + k)!}{i!k!}\\frac{(j + l)!}{j!l!} = \\frac{(n + m)!}{n!m!}. $$",
           "match": "The node is this step of the proof. The source verifies the displayed coefficient identity by a computation in ℚ[x,y]; the node proves it as Vandermonde's identity of natural numbers."
         }
       ],
@@ -1540,7 +1538,6 @@
         {
           "sourceId": "stacks-dpa",
           "locator": "Lemma 23.2.4 (tag 07GP), proof, paragraph \"Proof of (5) for x + y\"",
-          "excerpt": "Proof of (5) for $x + y$ given that (1) -- (4) hold and that (5) holds for $x$ and $y$. We will again reduce the proof to an equality of rational numbers.",
           "match": "The node is this step of the proof, with the same reduction to an identity of universal integer coefficients checked in ℚ[x,y]. The source's coefficient (nm)!/(n!(m!)ⁿ) in axiom (5) is Mathlib's uniformBell."
         }
       ],
@@ -1638,7 +1635,6 @@
         {
           "sourceId": "stacks-dpa",
           "locator": "Lemma 23.2.4 (tag 07GP), statement",
-          "excerpt": "\\item[(b)] properties (2) and (5) hold for $x$ in some set of generators of $I$ as an ideal. \\end{enumerate} Then $\\gamma$ is a divided power structure on $I$.",
           "match": "The node is the lemma: maps satisfying (1), (3), (4) on I and (2), (5) on a set of ideal generators form a divided power structure. The source's maps γₙ:I→I, n≥1, are here maps A→A that vanish outside I, with δ₀=1 on I."
         }
       ],
@@ -1724,7 +1720,6 @@
         {
           "sourceId": "stacks-dpa",
           "locator": "Lemma 23.2.5 (tag 07GQ), proof, second paragraph, the display defining ε_n",
-          "excerpt": "Let $z \\in I + J$. Write $z = x + y$ with $x \\in I$ and $y \\in J$. Then we set $$ \\epsilon_n(z) = \\sum \\gamma_i(x)\\delta_{n - i}(y) $$ for all $n \\geq 1$.",
           "match": "The node names the right-hand side of this display, Σγᵢ(x)δ_{n−i}(y), as a function of n≥0 and of an arbitrary pair (x,y); the source uses it only for x∈I, y∈J and n≥1."
         }
       ],
@@ -1776,7 +1771,6 @@
         {
           "sourceId": "stacks-dpa",
           "locator": "Lemma 23.2.5 (tag 07GQ), proof, second paragraph, the well-definedness computation",
-          "excerpt": "To see that this is well defined, suppose that $z = x' + y'$ is another representation with $x' \\in I$ and $y' \\in J$. Then $w = x - x' = y' - y \\in I \\cap J$.",
           "match": "The node is the well-definedness computation of the proof, stated for all n≥0."
         }
       ],
@@ -1858,7 +1852,6 @@
         {
           "sourceId": "stacks-dpa",
           "locator": "Lemma 23.2.5 (tag 07GQ), proof, from \"Hence, we have defined maps\" to the verification of properties (1), (3) and (4)",
-          "excerpt": "Hence, we have defined maps $\\epsilon_n : I + J \\to I + J$ for all $n \\geq 1$",
           "match": "The node is the family of maps ε_n:I+J→I+J of the proof together with its properties (1), (3), (4), as an additive candidate. Beyond the source it sets δ₀=1 on I+J and the value 0 outside I+J."
         }
       ],
@@ -1907,7 +1900,6 @@
         {
           "sourceId": "stacks-dpa",
           "locator": "Lemma 23.2.5 (tag 07GQ), proof, the sentence after the well-definedness computation",
-          "excerpt": "it is easy to see that $\\epsilon_n \\mid_{I} = \\gamma_n$ and $\\epsilon_n \\mid_{J} = \\delta_n$.",
           "match": "The node is this sentence, for all n≥0 (the source has n≥1)."
         }
       ],
@@ -2002,7 +1994,6 @@
         {
           "sourceId": "stacks-dpa",
           "locator": "Lemma 23.2.5 (tag 07GQ), statement, part (2)",
-          "excerpt": "\\item if $\\gamma$ and $\\delta$ agree on $I \\cap J$ then they are the restriction of a unique divided power structure $\\epsilon$ on $I + J$.",
           "match": "The node is part (2) of the lemma, with the explicit formula of its proof for the operation at x+y."
         }
       ],
@@ -2055,7 +2046,6 @@
         {
           "sourceId": "stacks-dpa",
           "locator": "Lemma 23.2.5 (tag 07GQ), statement, part (2), and last paragraph of the proof",
-          "excerpt": "The existence of a divided power structure $\\epsilon$ on $I+J$ whose restrictions to $I$ and $J$ are $\\gamma$ and $\\delta$ is thus proven; its uniqueness is rather clear.",
           "match": "The source states existence and uniqueness when γ and δ agree on I∩J. The converse in part (2) of the node, that existence forces agreement on I∩J, is not in the source; it holds because such a structure equals both γ and δ on I∩J."
         }
       ],
@@ -2104,7 +2094,6 @@
         {
           "sourceId": "stacks-dpa",
           "locator": "Lemma 23.2.5 (tag 07GQ), statement, parts (1) and (2); combined in this way in the proof of Lemma 23.5.1 (tag 07H5)",
-          "excerpt": "\\item $\\gamma$ and $\\delta$ agree on $IJ$,",
           "match": "Part (1) gives agreement of any two structures on IJ; when I∩J=IJ, part (2) therefore applies to any two structures. The source makes this combination in the proof of Lemma 23.5.1, not as a separate statement."
         }
       ],
@@ -2155,7 +2144,6 @@
         {
           "sourceId": "stacks-dpa",
           "locator": "Lemma 23.4.2 (tag 07H1), statement, first assertion, and first paragraph of the proof",
-          "excerpt": "If $\\gamma$ extends to $B$ then it extends uniquely.",
           "match": "The node is this assertion; by Definition 23.4.1 'γ extends to B' means that there is a divided power structure on IB for which A→B is a homomorphism of divided power rings."
         }
       ],
@@ -2204,7 +2192,6 @@
         {
           "sourceId": "stacks-dpa",
           "locator": "Lemma 23.4.2 (tag 07H1), proof, second paragraph, the well-definedness computation for I=(x)",
-          "excerpt": "This is well defined: if $b'x = bx$, i.e., $(b - b')x = 0$ then",
           "match": "The node is this computation: bⁿ−(b′)ⁿ is a multiple of b−b′, and γₙ(x) is a multiple of x for n≥1. The node includes n=0, where both sides are 1."
         }
       ],
@@ -2294,7 +2281,6 @@
         {
           "sourceId": "stacks-dpa",
           "locator": "Lemma 23.4.2 (tag 07H1), statement, condition (2), and proof, second paragraph",
-          "excerpt": "If $I = (x)$ then we define $\\bar\\gamma_n(bx) = b^n\\gamma_n(x)$.",
           "match": "The node is case (2) of the lemma with the formula of its proof, and the uniqueness assertion of the lemma. The source calls axioms (1), (2), (3), (5) obvious; the node's proofSteps verify the iteration identity (5) explicitly."
         }
       ],
@@ -2382,7 +2368,6 @@
         {
           "sourceId": "stacks-dpa",
           "locator": "Lemma 23.4.2 (tag 07H1), proof, flat case, first display",
-          "excerpt": "$$ \\bar\\gamma_n(\\sum b_ix_i) = \\sum b_1^{e_1} \\ldots b_r^{e_r} \\gamma_{e_1}(x_1) \\ldots \\gamma_{e_r}(x_r) $$ where the sum is over $e_1 + \\ldots + e_r = n$",
           "match": "The node names the right-hand side of this display as a function of n, of b₁,…,bᵣ∈B and of arbitrary x₁,…,xᵣ∈A; the source uses it for xᵢ∈I, where it is the only possible value of an extension at Σbᵢxᵢ."
         }
       ],
@@ -2435,7 +2420,6 @@
         {
           "sourceId": "stacks-dpa",
           "locator": "Lemma 23.4.2 (tag 07H1), proof, flat case, the claim introduced by \"Next suppose that\"",
-          "excerpt": "Next suppose that we have $c_1, \\ldots, c_s \\in B$ and $a_{ij} \\in A$ such that $b_i = \\sum a_{ij}c_j$. Setting $y_j = \\sum a_{ij}x_i$ we claim that",
           "match": "The node is the claimed equality. The source proves it by comparing universal coefficients in ℚ[x₁,…,xᵣ,c₁,…,cₛ,aᵢⱼ]; the node's proof compares the coefficients directly, as products of multinomial coefficients."
         }
       ],
@@ -2485,7 +2469,6 @@
         {
           "sourceId": "stacks-dpa",
           "locator": "Lemma 23.4.2 (tag 07H1), proof, flat case, footnote",
-          "excerpt": "Thus, Algebra, Lemma \\ref{algebra-lemma-flat-eq} (applied to the $x_i$ and $x'_{i'}$ taking the place of the $f_i$, and the $b_i$ and $b'_{i'}$ taking the role of the $x_i$) yields the existence of the $c_1, \\ldots, c_s \\in B$ and $a_{ij}, a'_{i'j} \\in A$ as required.",
           "match": "The node follows the footnote: the equational criterion of flatness, applied to the relation Σxᵢbᵢ−Σx′ᵢ′b′ᵢ′=0, gives the common elements cⱼ and the matrices. The main text of the proof uses Lazard's theorem instead."
         }
       ],
@@ -2567,7 +2550,6 @@
         {
           "sourceId": "stacks-dpa",
           "locator": "Lemma 23.4.2 (tag 07H1), proof, flat case, last paragraph",
-          "excerpt": "Hence the procedure above gives a well defined map $\\bar\\gamma_n$ on $IB$. By construction $\\bar\\gamma$ satisfies conditions (1), (3), and (4).",
           "match": "The node is the well-defined map γ̄ₙ on IB of the proof with its properties (1), (3), (4), as an additive candidate. Beyond the source it sets δ₀=1 on IB and the value 0 outside IB."
         }
       ],
@@ -2617,7 +2599,6 @@
         {
           "sourceId": "stacks-dpa",
           "locator": "Lemma 23.4.2 (tag 07H1), proof, flat case, last paragraph",
-          "excerpt": "Moreover, for $x \\in I$ we have $\\bar\\gamma_n(x) = \\gamma_n(x)$.",
           "match": "The node is this sentence, together with the consequence the source draws from it in the next sentence: axioms (2) and (5) hold on the generators f(I) of IB."
         }
       ],
@@ -2733,7 +2714,6 @@
         {
           "sourceId": "stacks-dpa",
           "locator": "Lemma 23.4.2 (tag 07H1), statement, condition (3), and proof, flat case",
-          "excerpt": "Hence it follows from Lemma \\ref{lemma-check-on-generators} that $\\bar\\gamma$ is a divided power structure on $IB$.",
           "match": "The node is case (3) of the lemma together with its uniqueness assertion; the formula Eₙ(b,x) is the first display of the flat case of the proof."
         }
       ],
@@ -2785,7 +2765,6 @@
         {
           "sourceId": "stacks-dpa",
           "locator": "Definition 23.4.1 (tag 07H0), applied to the extension of Lemma 23.4.2 (tag 07H1), condition (3)",
-          "excerpt": "$(A, I, \\gamma) \\to (B, IB, \\bar\\gamma)$ is a homomorphism of divided power rings.",
           "match": "By Definition 23.4.1, 'γ extends to B' means that A→B is a homomorphism of divided power rings for the structure on IB; the node states this for the flat extension."
         }
       ],
@@ -2844,7 +2823,6 @@
         {
           "sourceId": "stacks-dpa",
           "locator": "Lemma 23.4.2 (tag 07H1), statement, condition (3)",
-          "excerpt": "\\item $A \\to B$ is flat. \\end{enumerate} Then $\\gamma$ extends to $B$.",
           "match": "The source gives the extension along a flat ring map, here A→S⁻¹A. The formula γₙ(x/s)=γₙ(x)/sⁿ is not stated in the source; it follows from homogeneity and from A→S⁻¹A being a homomorphism of divided power rings."
         }
       ],
@@ -2878,7 +2856,6 @@
         {
           "sourceId": "blm-derhamwitt",
           "locator": "§2.1, Definition 2.1.1, Construction 2.1.3 with footnote 1, Remark 2.1.4; pp.13–14 in arXiv v3 and in the published version",
-          "excerpt": "A Dieudonné complex is a triple (M∗,d,F), where (M∗,d) is a cochain complex of abelian groups and F∶M∗ → M∗ is a map of graded abelian groups which satisfies the identity dF(x) = pF(dx).",
           "match": "Definition 2.1.1 gives the definition and the morphisms; Construction 2.1.3 gives η_pM inside M[p^{-1}] \"for each integer n\"; Remark 2.1.4 gives the correspondence between F and α_F. The node adds only that η_pM is the principal décalage complex of AInfCohomology:AI.1 for (Z,p)."
         }
       ],
@@ -2997,7 +2974,6 @@
         {
           "sourceId": "blm-derhamwitt",
           "locator": "§2.2, Definition 2.2.1 and Remark 2.2.2; p.14 in arXiv v3 and in the published version",
-          "excerpt": "We will say that (M∗,d,F) is saturated if the following pair of conditions is satisfied: (i) The graded abelian group M∗ is p-torsion-free. (ii) For each integer n, the map F induces an isomorphism of abelian groups",
           "match": "Definition 2.2.1 is the node's definition (the display after (ii) is M^n→{x∈M^n : dx∈pM^(n+1)}); Remark 2.2.2 is the equivalence with α_F being an isomorphism, stated there, as here, for termwise p-torsion-free M."
         }
       ],
@@ -3095,7 +3071,6 @@
         {
           "sourceId": "blm-derhamwitt",
           "locator": "§2.2, Remark 2.2.3 and Proposition 2.2.4 with proof, identities (4)–(6); arXiv v3 p.14; published p.14 (statement) and p.15 (proof)",
-          "excerpt": "Let (M∗,d,F) be a saturated Dieudonné complex. Then the Verschiebung V ∶M∗ → M∗ is an injective map which satisfies the identities",
           "match": "Remark 2.2.3 defines Vx as the unique element with F(Vx)=px; Proposition 2.2.4 states injectivity and (4) F∘V=V∘F=p, (5) F∘d∘V=d, (6) p(d∘V)=V∘d, the node's FV=VF=p, FdV=d, Vd=p dV. Nothing is added."
         }
       ],
@@ -3189,7 +3164,6 @@
         {
           "sourceId": "blm-derhamwitt",
           "locator": "§2.2, Proposition 2.2.5 with proof and Remark 2.2.6; p.15 in arXiv v3 and in the published version",
-          "excerpt": "Let (M∗,d,F) be a saturated Dieudonné complex and let r ≥ 0 be an integer. Then the map Fr induces an isomorphism of graded abelian groups",
           "match": "Proposition 2.2.5 (the display is M^*→{x∈M^* : dx∈p^rM^(*+1)}) is the first sentence of the node and Remark 2.2.6 the consequence for cocycles; the proof steps are the source's induction on r."
         }
       ],
@@ -3240,7 +3214,6 @@
         {
           "sourceId": "blm-derhamwitt",
           "locator": "§2.3, definition of a saturation with display (7), Proposition 2.3.1 with proof and display (8), Corollary 2.3.2; arXiv v3 p.15; published pp.15–16",
-          "excerpt": "Replacing M∗ by the quotient M∗/T∗, we can reduce to the case where M∗ is p-torsion-free. In this case, Remark 2.2.2 and the fact that ηp commutes with filtered colimits implies that the direct limit of the sequence",
           "match": "The node takes the universal property (7), the reduction to M/T, the sequence (8) and the adjunction of Corollary 2.3.2. The source's proof is this one sentence; the checks behind the reduction to M/T and the verification of the universal property stage by stage are the node's."
         }
       ],
@@ -3350,7 +3323,6 @@
         {
           "sourceId": "blm-derhamwitt",
           "locator": "§2.4, Definition 2.4.1, Theorem 2.4.2 (Cartier Criterion), Construction 2.4.4, Proposition 2.4.5, Corollary 2.4.6 and proof of Theorem 2.4.2; arXiv v3 pp.16–18; published pp.17–19",
-          "excerpt": "Theorem 2.4.2 (Cartier Criterion). Let M∗ be a Dieudonné complex which is of Cartier type. Then the canonical map M∗ → Sat(M∗) induces a",
           "match": "The sentence continues \"quasi-isomorphism of cochain complexes M^*/pM^*→Sat(M^*)/pSat(M^*)\". The statement is Theorem 2.4.2 with the two conditions of Definition 2.4.1 written out; steps 1–4 are Proposition 2.4.5, Corollary 2.4.6 and the source's proof; step 5 is implicit in the source."
         }
       ],
@@ -3407,7 +3379,6 @@
         {
           "sourceId": "blm-derhamwitt",
           "locator": "§2.5, Construction 2.5.1 (Completion), Remarks 2.5.2 and 2.5.3; arXiv v3 pp.19–20; published p.19 (2.5.1, 2.5.2) and p.20 (2.5.3)",
-          "excerpt": "We let W(M)∗ denote the inverse limit of the tower of cochain complexes",
           "match": "Construction 2.5.1 gives W_r(M), Res and W(M); Remark 2.5.2 gives F:W_r→W_(r−1) (written in the node as W_(r+1)→W_r), V:W_r→W_(r+1) and the Dieudonné structure on W(M); Remark 2.5.3 gives functoriality and ρ_M. Nothing is added."
         }
       ],
@@ -3525,7 +3496,6 @@
         {
           "sourceId": "stacks-dpa",
           "locator": "Section 23.5 (tag 07H4), opening paragraph, before Lemma 23.5.1",
-          "excerpt": "There is an canonical $A$-algebra map $A\\langle x_1, \\ldots, x_t \\rangle \\to A$ sending $x_i^{[n]}$ to zero for $n > 0$.",
           "match": "The source defines this map for the free divided power polynomial algebra A⟨x₁,…,x_t⟩. The node defines it for Γ_R(M) of an arbitrary module, by the weak universal property of Γ_R(M); nothing about a monomial basis is taken from the source."
         }
       ],
@@ -3634,7 +3604,6 @@
         {
           "sourceId": "stacks-dpa",
           "locator": "Section 23.5 (tag 07H4), opening paragraph, before Lemma 23.5.1",
-          "excerpt": "The kernel of this map is denoted $A\\langle x_1, \\ldots, x_t \\rangle_{+}$.",
           "match": "The source names the kernel of the augmentation of A⟨x₁,…,x_t⟩; the node makes the same definition for Γ_R(M) of an arbitrary module."
         }
       ],
@@ -3729,7 +3698,6 @@
         {
           "sourceId": "stacks-dpa",
           "locator": "Lemma 23.5.1 (tag 07H5), proof, second paragraph",
-          "excerpt": "Let $A\\langle x \\rangle_{+}$ be the ideal generated by $x, x^{[2]}, x^{[3]}, \\ldots$.",
           "match": "The source asserts, for one divided power variable, that the kernel of the augmentation is the ideal generated by the x^[n], n≥1. The node is the step that proves this for Γ_R(M): every element differs from its scalar part by an element of the ideal generated by the dp(n,m) with n>0."
         }
       ],
@@ -3772,7 +3740,6 @@
         {
           "sourceId": "stacks-dpa",
           "locator": "Lemma 23.5.1 (tag 07H5), proof, second paragraph",
-          "excerpt": "Let $A\\langle x \\rangle_{+}$ be the ideal generated by $x, x^{[2]}, x^{[3]}, \\ldots$.",
           "match": "The source describes A⟨x⟩₊ as the ideal generated by x, x^[2], x^[3], …, without proof; the node proves the same description of Γ_R(M)₊ for an arbitrary module."
         }
       ],
@@ -3813,7 +3780,6 @@
         {
           "sourceId": "stacks-dpa",
           "locator": "Section 23.5 (tag 07H4), opening paragraph, before Lemma 23.5.1",
-          "excerpt": "There is an canonical $A$-algebra map $A\\langle x_1, \\ldots, x_t \\rangle \\to A$ sending $x_i^{[n]}$ to zero for $n > 0$. The kernel of this map is denoted $A\\langle x_1, \\ldots, x_t \\rangle_{+}$.",
           "match": "Not stated in the source: the source defines the augmentation of A⟨x₁,…,x_t⟩ and its kernel. The splitting into scalars and kernel is the general fact about an algebra with an augmentation, written here for Γ_R(M)."
         }
       ],
@@ -3895,7 +3861,6 @@
         {
           "sourceId": "stacks-dpa",
           "locator": "Lemma 23.5.1 (tag 07H5), proof, second paragraph, displayed equality",
-          "excerpt": "$$ IA\\langle x \\rangle \\cap A\\langle x \\rangle_{+} = IA\\langle x \\rangle \\cdot A\\langle x \\rangle_{+} $$",
           "match": "The source asserts this equality for A⟨x⟩ without proof. The node is the step that proves the inclusion of the intersection in the product for Γ_R(M): an element of IΓ differs from its scalar part by an element of IΓ·Γ_R(M)₊."
         }
       ],
@@ -3940,7 +3905,6 @@
         {
           "sourceId": "stacks-dpa",
           "locator": "Lemma 23.5.1 (tag 07H5), proof, second paragraph, displayed equality",
-          "excerpt": "Note that $J = IA\\langle x \\rangle + A\\langle x \\rangle_{+}$ and that $$ IA\\langle x \\rangle \\cap A\\langle x \\rangle_{+} = IA\\langle x \\rangle \\cdot A\\langle x \\rangle_{+} $$",
           "match": "The node is the displayed equality of the proof, for Γ_R(M) of an arbitrary module and an arbitrary ideal I of R; the source states it for A⟨x⟩ without proof."
         }
       ],
@@ -3981,7 +3945,6 @@
         {
           "sourceId": "stacks-dpa",
           "locator": "Lemma 23.5.1 (tag 07H5), proof, second paragraph",
-          "excerpt": "Let $A\\langle x \\rangle_{+}$ be the ideal generated by $x, x^{[2]}, x^{[3]}, \\ldots$.",
           "match": "Not in the source. The source lists every x^[n], n≥1, among the generators of A⟨x⟩₊; this node is the packet's own example, over F₂, of an algebra map that kills x=x^[1] and not x^[2], used to show that the generator x alone does not suffice."
         }
       ],
@@ -4032,7 +3995,6 @@
         {
           "sourceId": "stacks-dpa",
           "locator": "Lemma 23.5.1 (tag 07H5), proof, second paragraph",
-          "excerpt": "Let $A\\langle x \\rangle_{+}$ be the ideal generated by $x, x^{[2]}, x^{[3]}, \\ldots$.",
           "match": "Not in the source. The source's generating set of A⟨x⟩₊ contains every x^[n], n≥1; this node is the packet's own example showing that over F₂ the element x^[2] is not in the ideal generated by x."
         }
       ],
@@ -4104,7 +4066,6 @@
         {
           "sourceId": "blm-derhamwitt",
           "locator": "§2.1, Definition 2.1.1; p.13 in arXiv v3 and in the published version",
-          "excerpt": "F∶M∗ → M∗ is a map of graded abelian groups which satisfies the identity dF(x) = pF(dx).",
           "match": "The relation is the defining identity of Definition 2.1.1. The complex there is graded by all integers, so no restriction on the degree is made."
         }
       ],
@@ -4151,7 +4112,6 @@
         {
           "sourceId": "blm-derhamwitt",
           "locator": "§2.2, Definition 2.2.1(i); p.14 in arXiv v3 and in the published version",
-          "excerpt": "(i) The graded abelian group M∗ is p-torsion-free.",
           "match": "Condition (i) of the definition of a saturated Dieudonné complex, restated as injectivity of multiplication by p on each M^n."
         }
       ],
@@ -4198,7 +4158,6 @@
         {
           "sourceId": "blm-derhamwitt",
           "locator": "§2.2, Remark 2.2.3, first sentence (a consequence of Definition 2.2.1(ii)); p.14 in arXiv v3 and in the published version",
-          "excerpt": "Let (M∗,d,F) be a saturated Dieudonné complex. Then the map F∶M∗ → M∗ is injective.",
           "match": "The first assertion of Remark 2.2.3; it holds because condition (ii) makes F an isomorphism of M^n onto a subgroup of M^n."
         }
       ],
@@ -4245,7 +4204,6 @@
         {
           "sourceId": "blm-derhamwitt",
           "locator": "§2.2, Definition 2.2.1(ii) with its display; p.14 in arXiv v3 and in the published version",
-          "excerpt": "(ii) For each integer n, the map F induces an isomorphism of abelian groups",
           "match": "Condition (ii): F induces an isomorphism M^n→{x∈M^n : dx∈pM^(n+1)} (the display that follows the excerpt); the node states the resulting image of F."
         }
       ],
@@ -4292,7 +4250,6 @@
         {
           "sourceId": "blm-derhamwitt",
           "locator": "§2.2, Remark 2.2.3; p.14 in arXiv v3 and in the published version",
-          "excerpt": "It follows that for each element x ∈ Mn, there exists a unique element V x ∈ Mn satisfying F(V x) = px.",
           "match": "The defining property of the Verschiebung; the first half of identity (4) of Proposition 2.2.4."
         }
       ],
@@ -4341,7 +4298,6 @@
         {
           "sourceId": "blm-derhamwitt",
           "locator": "§2.2, Proposition 2.2.4, identity (4), and its proof; arXiv v3 p.14; published p.14 (statement) and p.15 (proof)",
-          "excerpt": "Precomposing with F, we obtain F ○ V ○ F = pF. Since F is injective, it follows that V ○ F = p(id).",
           "match": "The second half of identity (4), with the source's proof: precompose FV=p with F and cancel the injective F."
         }
       ],
@@ -4389,7 +4345,6 @@
         {
           "sourceId": "blm-derhamwitt",
           "locator": "§2.2, Proposition 2.2.4, identity (6), and the last sentence of its proof; arXiv v3 p.14; published p.14 (statement) and p.15 (proof)",
-          "excerpt": "Postcomposition with V then yields the identity V ○d = V ○F ○d○V = p(d○V ).",
           "match": "Identity (6), p(d∘V)=V∘d, with the source's proof from identity (5) and VF=p. The remark that V is not a cochain map is the node's."
         }
       ],
@@ -4438,7 +4393,6 @@
         {
           "sourceId": "blm-derhamwitt",
           "locator": "§2.2, Proposition 2.2.4, identity (5), and its proof; arXiv v3 p.14; published p.14 (statement) and p.15 (proof)",
-          "excerpt": "We have pd = (d○F ○V ) = p(F ○d○V ), so that d = F ○d○V .",
           "match": "Identity (5), F∘d∘V=d, with the source's proof: pd=dFV=pFdV and M is p-torsion-free."
         }
       ],
@@ -4550,7 +4504,6 @@
         {
           "sourceId": "blm-derhamwitt",
           "locator": "§2.1, Definition 2.1.1, second paragraph (the category DC); p.13 in arXiv v3 and in the published version",
-          "excerpt": "a morphism from (M∗,d,F) to (M′∗,d′,F′) in DC is a map of graded abelian groups f∶M∗ → M′∗ satisfying d′f(x) = f(dx) and F′f(x) = f(Fx) for each x ∈ M∗.",
           "match": "The source's definition of a morphism in DC; the node phrases \"map of graded abelian groups commuting with d\" as a cochain map."
         }
       ],
@@ -4599,7 +4552,6 @@
         {
           "sourceId": "blm-derhamwitt",
           "locator": "§2.2, Remark 2.2.3 (uniqueness of Vx), p.14 in arXiv v3 and in the published version; used without statement in Remark 2.5.3 (arXiv v3 pp.19–20; published p.20)",
-          "excerpt": "It follows that for each element x ∈ Mn, there exists a unique element V x ∈ Mn satisfying F(V x) = px.",
           "match": "The source does not state that morphisms commute with V; Remark 2.5.3 relies on it for the \"tautological maps\". The node proves it from this uniqueness: F(f(Vx))=f(F(Vx))=p·f(x)=F(V(fx)) and F is injective."
         }
       ],
@@ -4691,7 +4643,6 @@
         {
           "sourceId": "blm-derhamwitt",
           "locator": "§2.5, Construction 2.5.1, the subcomplex im(V^r)+im(dV^r); p.19 in arXiv v3 and in the published version",
-          "excerpt": "For each integer r ≥ 0, we let Wr(M)∗ denote the quotient of M∗ by the subcomplex im(V r) + im(dV r), where V is the Verschiebung map of Remark 2.2.3.",
           "match": "N_r^n is the degree-n part of the subcomplex im(V^r)+im(dV^r) of Construction 2.5.1; the name N_r and the degreewise description are the node's."
         }
       ],
@@ -4739,7 +4690,6 @@
         {
           "sourceId": "blm-derhamwitt",
           "locator": "§2.5, Construction 2.5.1, the subcomplex im(V^r)+im(dV^r); p.19 in arXiv v3 and in the published version",
-          "excerpt": "For each integer r ≥ 0, we let Wr(M)∗ denote the quotient of M∗ by the subcomplex im(V r) + im(dV r), where V is the Verschiebung map of Remark 2.2.3.",
           "match": "Unfolds the sum of the two images in degree n; the source uses this description without stating it (for instance at the start of the proof of Lemma 2.6.4)."
         }
       ],
@@ -4786,7 +4736,6 @@
         {
           "sourceId": "blm-derhamwitt",
           "locator": "§2.5, Construction 2.5.1, the case r=0 (the displayed tower ends with W_0(M)^*=0); p.19 in arXiv v3 and in the published version",
-          "excerpt": "For each integer r ≥ 0, we let Wr(M)∗ denote the quotient of M∗ by the subcomplex im(V r) + im(dV r), where V is the Verschiebung map of Remark 2.2.3.",
           "match": "For r=0 the subcomplex is all of M because V^0 is the identity; the source records this as W_0(M)^*=0 at the end of the displayed tower."
         }
       ],
@@ -4835,7 +4784,6 @@
         {
           "sourceId": "blm-derhamwitt",
           "locator": "§2.5, Construction 2.5.1, the natural quotient maps Res; p.19 in arXiv v3 and in the published version",
-          "excerpt": "We denote the natural quotient maps Wr+1(M)∗ → Wr(M)∗ by Res∶Wr+1(M)∗ → Wr(M)∗.",
           "match": "The source's \"natural quotient maps\" presuppose that the (r+1)-st subcomplex lies in the r-th; the node states the inclusion N_s⊆N_r for all r≤s."
         }
       ],
@@ -4883,7 +4831,6 @@
         {
           "sourceId": "blm-derhamwitt",
           "locator": "§2.5, Construction 2.5.1 (\"the subcomplex im(V^r)+im(dV^r)\"); p.19 in arXiv v3 and in the published version",
-          "excerpt": "For each integer r ≥ 0, we let Wr(M)∗ denote the quotient of M∗ by the subcomplex im(V r) + im(dV r), where V is the Verschiebung map of Remark 2.2.3.",
           "match": "The source calls im(V^r)+im(dV^r) a subcomplex without comment; the node states and proves the stability under d that this means."
         }
       ],
@@ -4933,7 +4880,6 @@
         {
           "sourceId": "blm-derhamwitt",
           "locator": "§2.5, Remark 2.5.2, first paragraph; p.19 in arXiv v3 and in the published version",
-          "excerpt": "we deduce that the Frobenius map F∶M∗ → M∗ carries im(V r) + im(dV r) into im(V r−1) + im(dV r−1).",
           "match": "The source's statement with r+1 in place of r, and its proof from F∘d∘V=d and F∘V=p."
         }
       ],
@@ -4981,7 +4927,6 @@
         {
           "sourceId": "blm-derhamwitt",
           "locator": "§2.5, Remark 2.5.2, second paragraph; p.19 in arXiv v3 and in the published version",
-          "excerpt": "Similarly, the identity V ○d = p(d○V ) implies that V carries im(V r)+im(dV r) into im(V r+1)+im(dV r+1)",
           "match": "Exactly the source's statement and proof."
         }
       ],
@@ -5076,7 +5021,6 @@
         {
           "sourceId": "blm-derhamwitt",
           "locator": "§2.5, Construction 2.5.1; p.19 in arXiv v3 and in the published version",
-          "excerpt": "For each integer r ≥ 0, we let Wr(M)∗ denote the quotient of M∗ by the subcomplex im(V r) + im(dV r), where V is the Verschiebung map of Remark 2.2.3.",
           "match": "W_r(M) is the source's quotient complex; the node spells out the degree-n group M^n/N_r^n and the induced differential, and warns that W_r here is not the ring of truncated Witt vectors."
         }
       ],
@@ -5122,7 +5066,6 @@
         {
           "sourceId": "blm-derhamwitt",
           "locator": "§2.5, Construction 2.5.1; p.19 in arXiv v3 and in the published version",
-          "excerpt": "For each integer r ≥ 0, we let Wr(M)∗ denote the quotient of M∗ by the subcomplex im(V r) + im(dV r), where V is the Verschiebung map of Remark 2.2.3.",
           "match": "Surjectivity of M^n→W_r(M)^n is immediate from the construction as a quotient; the source uses it without statement (\"Choose an element x∈M^* representing x̄\", proof of Proposition 2.6.2)."
         }
       ],
@@ -5170,7 +5113,6 @@
         {
           "sourceId": "blm-derhamwitt",
           "locator": "§2.5, Construction 2.5.1; p.19 in arXiv v3 and in the published version",
-          "excerpt": "For each integer r ≥ 0, we let Wr(M)∗ denote the quotient of M∗ by the subcomplex im(V r) + im(dV r), where V is the Verschiebung map of Remark 2.2.3.",
           "match": "The kernel of M^n→W_r(M)^n is N_r^n by construction; the source uses this in Lemma 2.6.4 (\"the image of x vanishes in W_r(M)^*\")."
         }
       ],
@@ -5217,7 +5159,6 @@
         {
           "sourceId": "blm-derhamwitt",
           "locator": "§2.5, Construction 2.5.1; p.19 in arXiv v3 and in the published version",
-          "excerpt": "For each integer r ≥ 0, we let Wr(M)∗ denote the quotient of M∗ by the subcomplex im(V r) + im(dV r), where V is the Verschiebung map of Remark 2.2.3.",
           "match": "The differential of the quotient complex is induced by d; this is what \"the quotient of M^* by the subcomplex\" means, and it is not stated separately in the source."
         }
       ],
@@ -5301,7 +5242,6 @@
         {
           "sourceId": "blm-derhamwitt",
           "locator": "§2.5, Construction 2.5.1 and the displayed tower M^*→⋯→W_1(M)^*→W_0(M)^* after Remark 2.5.3; arXiv v3 pp.19–20; published pp.19–20",
-          "excerpt": "For every saturated Dieudonné complex M∗, the tower of cochain complexes",
           "match": "The quotient maps M→W_r(M) are the first arrows of the displayed tower; the node records that they are cochain maps, surjective in each degree, with kernel N_r."
         }
       ],
@@ -5384,7 +5324,6 @@
         {
           "sourceId": "blm-derhamwitt",
           "locator": "§2.5, Construction 2.5.1, the maps Res; p.19 in arXiv v3 and in the published version",
-          "excerpt": "We denote the natural quotient maps Wr+1(M)∗ → Wr(M)∗ by Res∶Wr+1(M)∗ → Wr(M)∗.",
           "match": "R_r is the source's Res:W_(r+1)(M)→W_r(M), with the same direction and indices as R in Definition 2.6.1."
         }
       ],
@@ -5430,7 +5369,6 @@
         {
           "sourceId": "blm-derhamwitt",
           "locator": "§2.5, Construction 2.5.1, the maps Res; p.19 in arXiv v3 and in the published version",
-          "excerpt": "We denote the natural quotient maps Wr+1(M)∗ → Wr(M)∗ by Res∶Wr+1(M)∗ → Wr(M)∗.",
           "match": "Res is the \"natural quotient map\", so it is the identity on representatives; the formula is not written in the source."
         }
       ],
@@ -5516,7 +5454,6 @@
         {
           "sourceId": "blm-derhamwitt",
           "locator": "§2.5, Remark 2.5.2, first paragraph and diagram, p.19 in arXiv v3 and in the published version; indexing as in §2.6, Definition 2.6.1, p.21 in both",
-          "excerpt": "It follows that there is a unique map of graded abelian groups F∶Wr(M)∗ → Wr−1(M)∗ for which the diagram",
           "match": "The source's F:W_r(M)→W_(r−1)(M), indexed in the node as F_r:W_(r+1)(M)→W_r(M) as in Definition 2.6.1. The relations d∘F=p·F∘d and R∘F=F∘R of the API are axioms (3) and (4) of that definition, which the proof of Proposition 2.6.2 calls clear."
         }
       ],
@@ -5563,7 +5500,6 @@
         {
           "sourceId": "blm-derhamwitt",
           "locator": "§2.5, Remark 2.5.2, first paragraph and diagram; p.19 in arXiv v3 and in the published version",
-          "excerpt": "It follows that there is a unique map of graded abelian groups F∶Wr(M)∗ → Wr−1(M)∗ for which the diagram",
           "match": "The formula is the commutativity of the source's square: F on the quotients is induced by F on representatives."
         }
       ],
@@ -5649,7 +5585,6 @@
         {
           "sourceId": "blm-derhamwitt",
           "locator": "§2.5, Remark 2.5.2, second paragraph and diagram, p.19 in arXiv v3 and in the published version; §2.6, Definition 2.6.1, p.21 in both",
-          "excerpt": "so that there is a unique map V ∶Wr(M)∗ → Wr+1(M)∗ for which the diagram",
           "match": "The source's V:W_r(M)→W_(r+1)(M). The relation V∘d=p·d∘V and the compatibility with R of the API follow on representatives; the latter is axiom (4) of Definition 2.6.1."
         }
       ],
@@ -5695,7 +5630,6 @@
         {
           "sourceId": "blm-derhamwitt",
           "locator": "§2.5, Remark 2.5.2, second paragraph and diagram; p.19 in arXiv v3 and in the published version",
-          "excerpt": "so that there is a unique map V ∶Wr(M)∗ → Wr+1(M)∗ for which the diagram",
           "match": "The formula is the commutativity of the source's square: V on the quotients is induced by V on representatives."
         }
       ],
@@ -5745,7 +5679,6 @@
         {
           "sourceId": "blm-derhamwitt",
           "locator": "§2.6, Definition 2.6.1(5), p.21 in arXiv v3 and in the published version; proof of Proposition 2.6.2, first sentences, p.22 in both",
-          "excerpt": "It is clear that this system satisfies axioms (1) through (5) and (8) of Definition 2.6.1.",
           "match": "Axiom (5), first equality, for the tower W_r(M): F(V(x))=px for x∈W_r(M). The source calls it clear; the node gives the one-line proof on representatives."
         }
       ],
@@ -5795,7 +5728,6 @@
         {
           "sourceId": "blm-derhamwitt",
           "locator": "§2.6, Definition 2.6.1(5), p.21 in arXiv v3 and in the published version; proof of Proposition 2.6.2, first sentences, p.22 in both",
-          "excerpt": "It is clear that this system satisfies axioms (1) through (5) and (8) of Definition 2.6.1.",
           "match": "Axiom (5), second equality, V(F(x))=px, stated in the node on W_(r+1)(M) because its F_r starts there. The consequence p·W_1(M)=0 is the node's."
         }
       ],
@@ -5844,7 +5776,6 @@
         {
           "sourceId": "blm-derhamwitt",
           "locator": "§2.6, Lemma 2.6.3 with proof; arXiv v3 p.21; published p.22",
-          "excerpt": "Let M∗ be a saturated Dieudonné complex and let x ∈ M∗ satisfy d(V rx) ∈ pM∗+1. Then x ∈ im(F).",
           "match": "Exactly Lemma 2.6.3 (d(V^r x)∈pM^(*+1) implies x∈im(F)), with the source's proof dx=F^r d(V^r x)."
         }
       ],
@@ -5891,7 +5822,6 @@
         {
           "sourceId": "blm-derhamwitt",
           "locator": "§2.6, proof of Proposition 2.6.2, verification of axiom (7), first half; p.22 in arXiv v3 and in the published version",
-          "excerpt": "We first note that if x belongs to im(V r)+im(dV r), then px belongs to",
           "match": "The source's observation that p(im V^r+im dV^r) lies in im V^(r+1)+im dV^(r+1), which it derives from pV^r=V^(r+1)F in the display that follows."
         }
       ],
@@ -5943,7 +5873,6 @@
         {
           "sourceId": "blm-derhamwitt",
           "locator": "§2.6, Lemma 2.6.4 with proof; p.22 in arXiv v3 and in the published version",
-          "excerpt": "If the image of px vanishes in Wr+1(M)∗, then the image of x vanishes in Wr(M)∗.",
           "match": "Lemma 2.6.4, restated with the subgroups N_r; the three proof steps are the source's proof."
         }
       ],
@@ -5994,7 +5923,6 @@
         {
           "sourceId": "blm-derhamwitt",
           "locator": "§2.6, Definition 2.6.1(7), p.21 in arXiv v3 and in the published version; proof of Proposition 2.6.2, verification of (7), p.22 in both",
-          "excerpt": "It follows that the kernel of the restriction map Res∶Wr+1(M)∗ → Wr(M)∗ is contained in (Wr+1(M)∗)[p]. The reverse inclusion follows from Lemma 2.6.4.",
           "match": "Axiom (7) for the tower W_r(M): the kernel of Res:W_(r+1)(M)→W_r(M) is the p-torsion W_(r+1)(M)[p], with the source's two inclusions."
         }
       ],
@@ -6051,7 +5979,6 @@
         {
           "sourceId": "blm-derhamwitt",
           "locator": "§2.6, Definition 2.6.1(6), p.21 in arXiv v3 and in the published version; proof of Proposition 2.6.2, verification of (6), p.22 in both",
-          "excerpt": "To verify (6), suppose that we are given an element x ∈ Wr(M)∗ such that dx is divisible by p.",
           "match": "Axiom (6) for the tower W_r(M), with the source's proof. The case r=0, which the source does not separate (its formula uses V^(r−1)), is trivial because W_0(M)=0."
         }
       ],
@@ -6099,7 +6026,6 @@
         {
           "sourceId": "blm-derhamwitt",
           "locator": "§2.8, proof of Corollary 2.8.2, last sentence; arXiv v3 p.27; published p.27. A consequence of axioms (1) and (7) of Definition 2.6.1 (proof of Proposition 2.6.2, p.22 in both versions)",
-          "excerpt": "where Wr(M)n is annihilated by pr.",
           "match": "The source uses \"W_r(M)^n is annihilated by p^r\" without proof in the proof of Corollary 2.8.2; the node proves it by r applications of p·N_r⊆N_(r+1)."
         }
       ],
@@ -6210,7 +6136,6 @@
         {
           "sourceId": "blm-derhamwitt",
           "locator": "§2.5, Remark 2.5.3; arXiv v3 pp.19–20; published p.20",
-          "excerpt": "if f∶M∗ → N∗ is a morphism of saturated Dieudonné complexes, then f induces a morphism W(f)∶W(M)∗ → W(N)∗, given by the inverse limit of the tautological maps",
           "match": "W_r(f) is the source's \"tautological map\" M/(im V^r+im dV^r)→N/(im V^r+im dV^r); the node adds that it is a cochain map, compatible with Res, F and V and functorial in f."
         }
       ],
@@ -6267,7 +6192,6 @@
         {
           "sourceId": "stacks-crys",
           "locator": "Section 60.6 (07HQ), unnumbered paragraph between Lemma 60.6.2 (07HS) and Lemma 60.6.3 (07HT)",
-          "excerpt": "I^{[n]} = \\text{ideal generated by } \\gamma_{e_1}(x_1) \\ldots \\gamma_{e_t}(x_t) \\text{ with }\\sum e_j \\geq n\\text{ and }x_j \\in I.",
           "match": "The source defines I^[n] by exactly these generators, notes Iⁿ⊆I^[n] and I^[1]=I, and adds 'Sometimes we also set I^[0] = A'; the node makes n=0 part of the same formula by allowing the empty product."
         }
       ],
@@ -6368,7 +6292,6 @@
         {
           "sourceId": "stacks-crys",
           "locator": "Section 60.6 (07HQ), unnumbered paragraph between Lemma 60.6.2 (07HS) and Lemma 60.6.3 (07HT)",
-          "excerpt": "Sometimes we also set $I^{[0]} = A$.",
           "match": "The source sets I^[0]=A by convention; with the empty product allowed this is a consequence of the definition."
         }
       ],
@@ -6409,7 +6332,6 @@
         {
           "sourceId": "stacks-crys",
           "locator": "Section 60.6 (07HQ), unnumbered paragraph between Lemma 60.6.2 (07HS) and Lemma 60.6.3 (07HT)",
-          "excerpt": "Of course we have $I^n \\subset I^{[n]}$. Note that $I^{[1]} = I$.",
           "match": "The source notes I^[1]=I; the node proves it from the definition."
         }
       ],
@@ -6448,7 +6370,6 @@
         {
           "sourceId": "stacks-crys",
           "locator": "Section 60.6 (07HQ), unnumbered paragraph between Lemma 60.6.2 (07HS) and Lemma 60.6.3 (07HT)",
-          "excerpt": "I^{[n]} = \\text{ideal generated by } \\gamma_{e_1}(x_1) \\ldots \\gamma_{e_t}(x_t) \\text{ with }\\sum e_j \\geq n\\text{ and }x_j \\in I.",
           "match": "The source gives only the definition of I^[n]; the statement is a routine consequence, proved in proofSteps."
         }
       ],
@@ -6490,7 +6411,6 @@
         {
           "sourceId": "stacks-crys",
           "locator": "Section 60.6 (07HQ), unnumbered paragraph between Lemma 60.6.2 (07HS) and Lemma 60.6.3 (07HT)",
-          "excerpt": "I^{[n]} = \\text{ideal generated by } \\gamma_{e_1}(x_1) \\ldots \\gamma_{e_t}(x_t) \\text{ with }\\sum e_j \\geq n\\text{ and }x_j \\in I.",
           "match": "The source gives only the definition of I^[n]; the statement is a routine consequence, proved in proofSteps."
         }
       ],
@@ -6530,7 +6450,6 @@
         {
           "sourceId": "stacks-crys",
           "locator": "Section 60.6 (07HQ), unnumbered paragraph between Lemma 60.6.2 (07HS) and Lemma 60.6.3 (07HT)",
-          "excerpt": "Of course we have $I^n \\subset I^{[n]}$. Note that $I^{[1]} = I$.",
           "match": "The source notes Iⁿ⊆I^[n]; the node proves it by induction from the zeroth and first steps and multiplicativity."
         }
       ],
@@ -6574,7 +6493,6 @@
         {
           "sourceId": "stacks-crys",
           "locator": "Section 60.6 (07HQ), unnumbered paragraph between Lemma 60.6.2 (07HS) and Lemma 60.6.3 (07HT)",
-          "excerpt": "I^{[n]} = \\text{ideal generated by } \\gamma_{e_1}(x_1) \\ldots \\gamma_{e_t}(x_t) \\text{ with }\\sum e_j \\geq n\\text{ and }x_j \\in I.",
           "match": "The source gives only the definition of I^[n]; the statement is a routine consequence, proved in proofSteps."
         }
       ],
@@ -6621,7 +6539,6 @@
         {
           "sourceId": "stacks-crys",
           "locator": "Section 60.6 (07HQ), unnumbered paragraph between Lemma 60.6.2 (07HS) and Lemma 60.6.3 (07HT)",
-          "excerpt": "I^{[n]} = \\text{ideal generated by } \\gamma_{e_1}(x_1) \\ldots \\gamma_{e_t}(x_t) \\text{ with }\\sum e_j \\geq n\\text{ and }x_j \\in I.",
           "match": "The source gives only the definition of I^[n]; the statement is a routine consequence, proved in proofSteps."
         }
       ],
@@ -6666,7 +6583,6 @@
         {
           "sourceId": "stacks-crys",
           "locator": "Section 60.6 (07HQ), unnumbered paragraph between Lemma 60.6.2 (07HS) and Lemma 60.6.3 (07HT)",
-          "excerpt": "I^{[n]} = \\text{ideal generated by } \\gamma_{e_1}(x_1) \\ldots \\gamma_{e_t}(x_t) \\text{ with }\\sum e_j \\geq n\\text{ and }x_j \\in I.",
           "match": "The source gives only the definition of I^[n]; the comparison with ordinary powers over a ℚ-algebra is proved in proofSteps from DividedPowers.RatAlgebra.dpow_eq_inv_fact_smul."
         }
       ],
@@ -6714,7 +6630,6 @@
         {
           "sourceId": "stacks-dpa",
           "locator": "Section 23.5 (07H4), Lemma 23.5.1 (07H5) with proof and Remark 23.5.2 (07H6)",
-          "excerpt": "There exists a unique divided power structure $\\delta$ on $$ J = IA\\langle x_1, \\ldots, x_t \\rangle + A\\langle x_1, \\ldots, x_t \\rangle_{+} $$ such that \\begin{enumerate} \\item $\\delta_n(x_i) = x_i^{[n]}$, and",
           "match": "The source constructs the divided powers on the augmentation ideal of A⟨x₁,…,x_t⟩ (by the remark, for any set of variables), that is for free M, and proves the universal property there. The statement for an arbitrary module M and the uniqueness clause go beyond the source; they are obtained in proofSteps by descent along a free presentation."
         }
       ],
@@ -6825,7 +6740,6 @@
         {
           "sourceId": "stacks-dpa",
           "locator": "Section 23.5 (07H4): Lemma 23.5.1 (07H5) with proof, Remark 23.5.2 (07H6)",
-          "excerpt": "\\item $\\delta_n(x_i) = x_i^{[n]}$, and \\item $(A, I, \\gamma) \\to (A\\langle x_1, \\ldots, x_t \\rangle, J, \\delta)$ is a homomorphism of divided power rings.",
           "match": "Clauses (2) and (3) are the lemma (existence, uniqueness, universal property), with the remark for an arbitrary set of variables. The source defines A⟨x⟩ as the free module on the divided monomials; the node takes Γ_A(A^(W)) of Mathlib, so clause (1) (the divided monomials form a basis) is proved in proofSteps."
         }
       ],
@@ -6940,7 +6854,6 @@
         {
           "sourceId": "stacks-crys",
           "locator": "Section 60.2 (07H7): Lemma 60.2.1 (07H8), Definition 60.2.2 (07H9) and the properties listed after it; presentation: Lemma 60.2.4 (07HC)",
-          "excerpt": "Let $J \\subset B$ be an ideal with $IB \\subset J$. There exists a homomorphism of divided power rings $$ (A, I, \\gamma) \\longrightarrow (D, \\bar J, \\bar \\gamma) $$ such that",
           "match": "The statement is Lemma 60.2.1 with Definition 60.2.2 and the properties listed after it (B→D→B/J, J̄ the kernel). The source proves existence by a representability lemma (Divided Power Algebra, Lemma 23.3.3); the node constructs D as a quotient of Γ_B(J) and proves the universal property directly. The presentation of Lemma 60.2.4, valid when the base divided powers live on an ideal of B itself, is the API item PDEnvelope.presentation."
         }
       ],
@@ -7062,13 +6975,11 @@
         {
           "sourceId": "stacks-crys",
           "locator": "Section 60.2 (07H7), Lemma 60.2.3 (tag 07HB) with proof",
-          "excerpt": "Then $D_{B, \\gamma}(J) = (D'/K', \\bar J'/K', \\bar\\gamma)$ where $K'$ is the ideal generated by the elements $\\bar\\gamma_n(k)$ for $n \\geq 1$ and $k \\in K$.",
           "match": "Part (1) is the lemma; the sentence about nested kernels is the lemma applied twice. Parts (2) and (3) are not stated as results in the source: (2) is used in the paragraph before Lemma 60.2.4, (3) is proved in proofSteps from the universal properties."
         },
         {
           "sourceId": "stacks-crys",
           "locator": "Section 60.2, paragraph between Lemma 60.2.3 (07HB) and Lemma 60.2.4 (07HC)",
-          "excerpt": "Note that $\\gamma$ extends to a divided power structure $\\gamma'$ on $IP$ by Divided Power Algebra, Lemma \\ref{dpa-lemma-gamma-extends}. Hence $D_{P, \\gamma}(J') = D_{P, \\gamma'}(J')$",
           "match": "The source uses part (2) for a polynomial algebra P over A, where γ extends by flatness, without proof."
         }
       ],
@@ -7117,13 +7028,11 @@
         {
           "sourceId": "stacks-crys",
           "locator": "Section 60.2 (07H7), Lemma 60.2.6 (tag 07HD) with proof",
-          "excerpt": "Assume that \\begin{enumerate} \\item $B/IB \\to B'/IB'$ is flat, and \\item $\\text{Tor}_1^B(B', B/IB) = 0$. \\end{enumerate} Then for any ideal $IB \\subset J \\subset B$ the canonical map $$ D_B(J) \\otimes_B B' \\longrightarrow D_{B'}(JB') $$ is an isomorphism.",
           "match": "Part (1) is this lemma with its two hypotheses."
         },
         {
           "sourceId": "stacks-crys",
           "locator": "Section 60.2, Lemma 60.2.7 (tag 07HE) with proof",
-          "excerpt": "Assume \\begin{enumerate} \\item $B/I \\to B'/I'$ is flat, and \\item $J' = JB' + I'$. \\end{enumerate} Then the canonical map $$ D_{B, \\gamma}(J) \\otimes_B B' \\longrightarrow D_{B', \\gamma'}(J') $$ is an isomorphism.",
           "match": "Part (2) is this lemma with its two hypotheses."
         }
       ],
@@ -7168,7 +7077,6 @@
         {
           "sourceId": "stacks-crys",
           "locator": "Section 60.2 (07H7), the paragraph before Lemma 60.2.6 (07HD), and Lemma 60.2.6",
-          "excerpt": "It in particular says that taking the divided power envelope commutes with localization.",
           "match": "The source states that the envelope commutes with localization as a consequence of Lemma 60.2.6. The formula for the divided powers on the localization and the statement over a localized base are added and proved in proofSteps."
         }
       ],
@@ -7215,7 +7123,6 @@
         {
           "sourceId": "stacks-crys",
           "locator": "Section 60.6 (07HQ), unnumbered paragraph between Lemma 60.6.2 (07HS) and Lemma 60.6.3 (07HT)",
-          "excerpt": "I^{[n]} = \\text{ideal generated by } \\gamma_{e_1}(x_1) \\ldots \\gamma_{e_t}(x_t) \\text{ with }\\sum e_j \\geq n\\text{ and }x_j \\in I.",
           "match": "The source gives only the definition of I^[n]. That I^[n] is stable under the γ_m, with the bound γ_m(I^[n])⊆I^[mn], is not stated there and is proved in proofSteps from the axioms."
         }
       ],
@@ -7265,13 +7172,11 @@
         {
           "sourceId": "stacks-crys",
           "locator": "Section 60.5 (07HL): Definition 60.5.2 (07HM) and the sentence after it; Section 60.7 (07I1): the observation before Situation 60.7.5 (07MF)",
-          "excerpt": "Note that for a divided power thickening $(B, J, \\delta)$ as above the ideal $J$ is locally nilpotent, see Divided Power Algebra, Lemma \\ref{dpa-lemma-nil}.",
           "match": "The source uses only 'locally nilpotent' (every element nilpotent) and deduces it for the divided power ideal of a thickening in which p is nilpotent. PD-nilpotence (I^[n]=0) is not defined in the Stacks chapters; the node adds it and compares it with the ordinary notions."
         },
         {
           "sourceId": "stacks-dpa",
           "locator": "Section 23.2, Lemma 23.2.6 (tag 07GR) with proof",
-          "excerpt": "Assume $p$ is nilpotent in $A/I$. Then $I$ is locally nilpotent if and only if $p$ is nilpotent in $A$.",
           "match": "The last sentence of the statement is this lemma."
         }
       ],
@@ -7385,19 +7290,16 @@
         {
           "sourceId": "bhatt-pd",
           "locator": "Section 3.3, Lemma 3.37 with proof, p.16",
-          "excerpt": "Let A → B = A/I be a quotient map of Fp-algebras. Assume that I is generated by a regular sequence f1,...,fr of length r. Then one has",
           "match": "Part (1) is this lemma: (c) is the module decomposition established in its proof and (d) is the content of 'where all tensor products are derived' (the proof shows that the derived tensor product is discrete). The proof also contains the Koszul computation used for part (0)."
         },
         {
           "sourceId": "bhatt-pd",
           "locator": "Section 3.3, Lemma 3.38: statement p.16, proof p.17",
-          "excerpt": "Then the pd-envelope DA (I) (compatible with divided powers on p) is Z/pn -flat, and its formation commutes with reduction modulo p",
           "match": "Part (2). The source's 'pd-envelope D_A(I) (compatible with divided powers on p)' is D_(A,γ)(I+pA) in the convention of this roadmap. The source states flatness and the reduction modulo p and asserts the presentation by reference to the proof of Lemma 3.37."
         },
         {
           "sourceId": "stacks-crys",
           "locator": "Section 60.24, Remark 60.24.9 (tag 07MU), hint",
-          "excerpt": "The divided power envelope of $I'A'[x_1, \\ldots, x_n] + (f'_1, \\ldots, f'_c)$ in $A'[x_1, \\ldots, x_n]$ relative to $\\gamma'$ is $$ D' = A'[x_1, \\ldots, x_n]\\langle \\xi_1, \\ldots, \\xi_c \\rangle/(\\xi_i - f'_i) $$ see Lemma \\ref{lemma-describe-divided-power-envelope}.",
           "match": "Part (0) is asserted there, for a polynomial algebra over a divided power ring and a sequence that is Koszul-regular modulo the divided power ideal, inside a hint and with a reference to Lemma 60.2.4 only; the derivation from that lemma is in proofSteps."
         }
       ],
@@ -7446,13 +7348,11 @@
         {
           "sourceId": "stacks-crys",
           "locator": "Section 60.5 (07HL): Remark 60.5.4 (07KH) and Lemma 60.5.5 (07KG) with proof",
-          "excerpt": "Let $(D^\\wedge, J^\\wedge, \\bar\\gamma^\\wedge)$ be the $p$-adic completion of $D$, see Divided Power Algebra, Lemma \\ref{dpa-lemma-extend-to-completion}.",
           "match": "The source applies Lemma 23.4.5 to an envelope D_(P,γ)(J) with p nilpotent in P/J and lists the properties of the completion; the API items completedEnvelope_mod_pow and completedEnvelope_eq_limit are parts (2) and (4) of Lemma 60.5.5. The sentences on derived completion are not in this source."
         },
         {
           "sourceId": "stacks-dpa",
           "locator": "Section 23.4, Lemma 23.4.5 (tag 07KD) with proof",
-          "excerpt": "\\item each $\\gamma_n$ is continuous for the $p$-adic topology and extends to $\\gamma_n^\\wedge : I^\\wedge \\to I^\\wedge$ defining a divided power structure on $I^\\wedge$.",
           "match": "Parts (1)–(3) of the statement are this lemma, with its hypothesis 'p is nilpotent in A/I' and, for the last part, 'A is a ℤ_(p)-algebra'."
         }
       ],
@@ -7568,13 +7468,11 @@
         {
           "sourceId": "bhatt-pd",
           "locator": "Section 9, Proposition 9.9 (statement), p.35",
-          "excerpt": "Proposition 9.9. The ring Acrys can be identified with the p-adic completion of the pd-envelope DAinf (ker(θ)).",
           "match": "For R the p-adic completion of the ring of integers of an algebraic closure of a p-adic field, the source identifies its ring A_crys, defined there by derived de Rham cohomology (Definition 9.7), with the p-adic completion of the divided power envelope of ker θ. The node takes the completed envelope as the definition, for any p-adically complete R; the derived de Rham description is DerivedDeRhamCohomology:DD.4/acris-derived-description."
         },
         {
           "sourceId": "bms1",
           "locator": "Section 3.3, Definition 3.22(i), p.27",
-          "excerpt": "This is the universal p-adically complete PD thickening (compatible with the PD structure on Zp) of O, or equivalently of O/p.",
           "match": "For O the ring of integers of a perfectoid field of characteristic 0 containing all p-power roots of unity, the source defines A_crys as the p-adic completion of the A_inf-subalgebra of A_inf[1/p] generated by the ξ^m/m! and states this universal property: clause (c) and the API item fontaineEnvelope_initial for R=O."
         }
       ],
@@ -7690,7 +7588,6 @@
         {
           "sourceId": "stacks-crys",
           "locator": "§60.7, Definitions 60.7.1–60.7.3 and observation (1) before Situation 60.7.5",
-          "excerpt": "A {\\it divided power scheme} is a triple $(S, \\mathcal{I}, \\gamma)$ where $S$ is a scheme, $\\mathcal{I}$ is a quasi-coherent sheaf of ideals, and $\\gamma$ is a divided power structure on $\\mathcal{I}$.",
           "match": "Definitions 60.7.1–60.7.3 give PD structures on sheaves of ideals, PD schemes with their morphisms, and PD thickenings; the last sentence of the node is observation (1) before Situation 60.7.5, which rests on Divided Power Algebra Lemma 23.2.6. The node states nothing beyond these."
         }
       ],
@@ -7786,7 +7683,6 @@
         {
           "sourceId": "stacks-crys",
           "locator": "Situation 60.7.5; §60.8, Definitions 60.8.1 and 60.8.4, Lemmas 60.8.2–60.8.3; §60.9, Definition 60.9.1",
-          "excerpt": "The {\\it big crystalline site} of $X$ over $(S, \\mathcal{I}, \\gamma)$, is the category $\\text{CRIS}(X/S)$ endowed with the Zariski topology.",
           "match": "Objects, morphisms and Zariski coverings are Definitions 60.8.1 and 60.8.4 in Situation 60.7.5, and the small site is Definition 60.9.1. The node states nothing beyond the source; the proof of Lemma 60.8.2 is omitted there."
         }
       ],
@@ -7895,7 +7791,6 @@
         {
           "sourceId": "stacks-crys",
           "locator": "§60.8, Remark 60.8.5; §60.9, Lemma 60.9.2, Remarks 60.9.3–60.9.4, Lemma 60.9.5",
-          "excerpt": "There are morphisms of topoi $$ (X/S)_{\\text{cris}} \\xrightarrow{i} (X/S)_{\\text{CRIS}} \\xrightarrow{\\pi} (X/S)_{\\text{cris}} $$ whose composition is the identity and of which the first is induced by the inclusion functor. Moreover, $\\pi_* = i^{-1}$.",
           "match": "Remark 60.8.5 gives f_CRIS, Lemma 60.9.2 gives i and π with π∘i=id and π_*=i⁻¹ (its proof is complete only when X and S are affine), Remark 60.9.3 defines f_cris, Remark 60.9.4 gives u and Lemma 60.9.5 the localisation. The node states nothing beyond these."
         }
       ],
@@ -7977,7 +7872,6 @@
         {
           "sourceId": "stacks-crys",
           "locator": "§60.10 (Sheaves on the crystalline site): the restriction F_T, the comparison maps c_f, the structure sheaf O_{X/S}, and the sequence 0→J_{X/S}→O_{X/S}→underline(G_a)→0",
-          "excerpt": "There is a surjective map of sheaves $\\mathcal{O}_{X/S} \\to \\underline{\\mathbf{G}_a}$ defined by the canonical maps $\\Gamma(T, \\mathcal{O}_T) \\to \\Gamma(U, \\mathcal{O}_U)$ for objects $(U, T, \\delta)$. The kernel of this map is denoted $\\mathcal{J}_{X/S}$, hence a short exact sequence",
           "match": "§60.10 defines O_{X/S}, the sheaf (U,T,δ)↦Γ(U,O_U), the kernel J_{X/S} and its PD structure, exactly as in the node (which writes O_crys, O_X^cris, J_crys). The PD powers of J_crys in the API are not in §60.10."
         }
       ],
@@ -8081,13 +7975,11 @@
         {
           "sourceId": "stacks-crys",
           "locator": "§60.11, Definition 60.11.1, Lemma 60.11.2 and Definition 60.11.3",
-          "excerpt": "We say $\\mathcal{F}$ is a {\\it crystal in $\\mathcal{O}_{X/S}$-modules} if all the comparison maps (\\ref{equation-comparison-modules}) are isomorphisms.",
           "match": "Definition 60.11.1(3) is the crystal condition, Lemma 60.11.2 the equivalence with quasi-coherent modules on the ringed site, Definition 60.11.3 the quasi-coherent and finite locally free variants. Crystals of finite type, tensor products, duals and the exact structure are not in §60.11; they follow from §60.10 as in the proof steps."
         },
         {
           "sourceId": "eg",
           "locator": "§2.6, p. 14 of the author-hosted manuscript (definition of Crys(Z/W_n))",
-          "excerpt": "One defines the category Crys(Z/Wn) of crystals as the category of sheaves of O-modules F on Z/Wn, of finite type",
           "match": "Esnault–Groechenig work with crystals whose underlying O-modules are of finite type; this is the source of the finite-type variant in the node."
         }
       ],
@@ -8196,13 +8088,11 @@
         {
           "sourceId": "eg",
           "locator": "§2.6, pp. 14–15 of the author-hosted manuscript (Crys(Z/W_n), Crys(Z/W), Isoc(Z/W)); Introduction, p. 3 (Frobenius structure) and Remark 1.7",
-          "excerpt": "Its Q-linearization Isoc(Z/W) = Crys(Z/W)Q is the category of isocrystals",
           "match": "Esnault–Groechenig define Crys(Z/W_n) and Crys(Z/W) with O-modules of finite type on the small crystalline sites (the site of Z/W as the union of those of Z/W_n) and Isoc(Z/W) as the ℚ-linearization; a Frobenius structure is an isomorphism (F^*)^fE≅E for some f≥1. The remark on finite locally free crystals and the notion with f=1 are the node's."
         },
         {
           "sourceId": "stacks-crys",
           "locator": "§60.26 (tag 07N0), Situation 60.26.1, Definition 60.26.2 and Remark 60.26.3",
-          "excerpt": "An $F$-crystal is called {\\it nondegenerate} if there exists an integer $i \\geq 0$ a map $V : \\mathcal{E} \\to (F_X)_{\\text{cris}}^*\\mathcal{E}$ such that $V \\circ F_{\\mathcal{E}} = p^i \\text{id}$.",
           "match": "Situation 60.26.1 and Definition 60.26.2 are taken as they stand; the two-sided inverse for bounded rank is Remark 60.26.3 (in which det(M) is a misprint for det(K))."
         }
       ],
@@ -8307,7 +8197,6 @@
         {
           "sourceId": "stacks-crys",
           "locator": "§60.17, the rings D(n) before Lemma 60.17.1, Lemmas 60.17.1–60.17.2, and the proof of Lemma 60.17.3",
-          "excerpt": "As in the last paragraph of the proof of Lemma \\ref{lemma-automatic-connection} we see that $$ q_{02}^*c = q_{12}^*c \\circ q_{01}^*c. $$",
           "match": "Stacks has no named definition of a stratification: the node packages the isomorphism c on D(1) and its cocycle identity on D(2) from the proof of Lemma 60.17.3, with the rings D(n) of §60.17 and Lemmas 60.17.1–60.17.2."
         }
       ],
@@ -8401,13 +8290,11 @@
         {
           "sourceId": "stacks-crys",
           "locator": "§60.6, Definition 60.6.1, Lemma 60.6.2 and Remark 60.6.7 (Lemmas 60.6.3 and 60.6.10 for the API)",
-          "excerpt": "Note that $\\Omega_{B/A, \\delta}$ is the quotient of $\\Omega_{B/A}$ by the $B$-submodule generated by the elements $\\text{d}\\delta_n(x) - \\delta_{n - 1}(x)\\text{d}x$ for $x \\in J$.",
           "match": "Definition 60.6.1 and Remark 60.6.7 give PD derivations, Ω_{B/A,δ} as this quotient of Ω_{B/A}, and the PD de Rham complex; the remark refers to an Algebra lemma for the descent of d, which the proof steps verify directly. The universal property in all degrees is not in Stacks."
         },
         {
           "sourceId": "lz-relative",
           "locator": "§1.1, Definition 1.1 (p. 11) and the paragraph after Lemma 1.2 (p. 13)",
-          "excerpt": "The B-module Ω̆1 B/A is obtained as the factor module of Ω1 B/A by the submodule generated by all elements d(γn(b)) − γn−1(b)d(b).",
           "match": "Langer–Zink define pd-derivations and the same quotient, and state that its exterior algebra is the universal pd-differential graded algebra. As printed, with graded commutativity only (relations (1.4)), that universal property fails when 2 is not invertible; the node requires ω²=0 in odd degree."
         }
       ],
@@ -8517,7 +8404,6 @@
         {
           "sourceId": "stacks-crys",
           "locator": "§60.6, Lemma 60.6.6 (tag 07HW), first proof, and Lemma 60.6.10; §60.3, Lemma 60.3.1",
-          "excerpt": "Let $D_{B, \\gamma}(J) = (D, \\bar J, \\bar \\gamma)$ be the divided power envelope. Then we have $$ \\Omega_{D/A, \\bar\\gamma} = \\Omega_{B/A} \\otimes_B D $$",
           "match": "Lemma 60.6.6 is the degree-one statement, with no flatness or smoothness hypothesis, and Lemma 60.6.10 the completed form. The statement for exterior powers and the local freeness for smooth P are immediate consequences added by the node."
         }
       ],
@@ -8565,13 +8451,11 @@
         {
           "sourceId": "stacks-crys",
           "locator": "§60.17, conditions (1)–(4) before Lemma 60.17.3; Lemma 60.17.5 and its footnote for a smooth P′",
-          "excerpt": "$\\nabla$ is {\\it topologically quasi-nilpotent}: If we write $\\nabla(m) = \\sum \\theta_i(m)\\text{d}x_i$ for some operators $\\theta_i : M \\to M$, then for any $m \\in M$ there are only finitely many pairs $(i, k)$ such that $\\theta_i^k(m) \\not \\in pM$.",
           "match": "Conditions (1)–(4) of §60.17 are taken as they stand for a polynomial P; for a smooth P′ Stacks defines the condition only by transport along b:D′→D (proof of Lemma 60.17.5). The finiteness modulo pᵉ of the θ_K(m) is used in the proof of Proposition 60.17.4 and is proved in the node's steps."
         },
         {
           "sourceId": "eg",
           "locator": "§2.6, p. 15 of the author-hosted manuscript, the paragraph before Theorem 2.19",
-          "excerpt": "By [BO78, Exercise 4.14], (En,∇n) is quasi-nilpotent if and only (E1,∇1) = (En,∇n) ⊗Wn k is.",
           "match": "Esnault–Groechenig use quasi-nilpotence of finite-type connections on a smooth W_n-lift in Berthelot's sense (not acquired) and refer to this Stacks condition for the definition; the node takes nothing else from the passage. The reduction modulo p is stated in CR.1/finite-witt-evaluation."
         }
       ],
@@ -8665,13 +8549,11 @@
         {
           "sourceId": "stacks-crys",
           "locator": "§60.17, Lemma 60.17.3, Proposition 60.17.4 and Lemma 60.17.5 (Remark 60.17.6 for the formally smooth case, without proof)",
-          "excerpt": "(\\ref{item-integrable}), and (\\ref{item-topologically-quasi-nilpotent})} \\end{matrix} $$ of Lemma \\ref{lemma-crystals-on-affine} is an equivalence of categories.",
           "match": "Parts (1)–(3) are Lemma 60.17.3, Proposition 60.17.4 and Lemma 60.17.5. The source omits several verifications in the proofs of 60.17.4 and 60.17.5 and gives the formally smooth case only as Remark 60.17.6. The node states nothing beyond these results."
         },
         {
           "sourceId": "stacks-crys",
           "locator": "§60.17, proof of Lemma 60.17.3 (definition of ξ_i and the expansion of c)",
-          "excerpt": "Write $\\xi_i = x_i \\otimes 1 - 1 \\otimes x_i$. Using (\\ref{equation-structure-Dn}) we can write uniquely $$ c(m \\otimes 1) = \\sum\\nolimits_K \\theta_K(m) \\otimes \\prod \\xi_i^{[k_i]} $$",
           "match": "This fixes the sign convention of the Taylor formula: c goes from the p₀-pullback to the p₁-pullback and ξ_i=x_i⊗1−1⊗x_i."
         }
       ],
@@ -8724,13 +8606,11 @@
         {
           "sourceId": "eg",
           "locator": "§2.6, p. 15 of the author-hosted manuscript: the paragraph before Theorem 2.19 and the paragraph before Corollary 2.20",
-          "excerpt": "the category Crys(Z/Wn) is equivalent to MIC(Zn)qn, where MIC(Zn) is the category of modules (En,∇n) of finite type with an integrable connection",
           "match": "Esnault–Groechenig state (1)–(3), with references to Berthelot (LNM 407, II 4.3.10 and IV 1.6.5), Berthelot–Ogus (Exercise 4.14) and Berthelot–Messing (1.3.3) and prove only the induction step of (2). The node defines quasi-nilpotence through Stacks Lemma 60.17.5, for which (1) and (2) follow from Stacks; the sentence on finite locally free objects is the node's."
         },
         {
           "sourceId": "stacks-crys",
           "locator": "§60.17, Lemma 60.17.5; §60.24, Remark 60.24.11(1)–(2)",
-          "excerpt": "In particular, the equivalence of categories of Proposition \\ref{proposition-crystals-on-affine} also holds for the corresponding functor towards pairs over $D'$.",
           "match": "Lemma 60.17.5 is the affine form of (1) for the smooth lift; Remark 60.24.11(1)–(2) gives the object (Z,Z_n,γ) and the connection on the restriction to it."
         }
       ],
@@ -8774,13 +8654,11 @@
         {
           "sourceId": "stacks-crys",
           "locator": "§60.24, Remark 60.24.10 (Rlim; a remark with a hint of proof); see also §60.9, Remarks 60.9.4 and 60.9.6",
-          "excerpt": "Then $\\text{Cris}(X/S_e)$ is a full subcategory of $\\text{Cris}(X/S)$ and we denote $\\mathcal{F}_e$ the restriction of $\\mathcal{F}$ to $\\text{Cris}(X/S_e)$. Then $$ R\\Gamma(\\text{Cris}(X/S), \\mathcal{F}) = R\\lim_e R\\Gamma(\\text{Cris}(X/S_e), \\mathcal{F}_e) $$",
           "match": "Stacks takes crystalline cohomology to be the cohomology of the site Cris(X/S) in Situation 60.7.5; the limit formula is Remark 60.24.10, stated there with a hint of proof only. The target D(X_Zar,f⁻¹O_S) of Ru_{X/S,*} is made explicit by the node."
         },
         {
           "sourceId": "stacks-crys",
           "locator": "§60.9, Remark 60.9.4 (Comparison with Zariski site)",
-          "excerpt": "Hence we obtain a morphism of topoi $$ u_{X/S} : (X/S)_{\\text{cris}} \\longrightarrow \\Sh(X_{Zar}) $$ relating the small crystalline topos of $X/S$ with the small Zariski topos of $X$.",
           "match": "u_{X/S} is a morphism of topoi, not of ringed topoi; this is why Ru_{X/S,*} lands in complexes of f⁻¹O_S-modules."
         }
       ],
@@ -8875,7 +8753,6 @@
         {
           "sourceId": "stacks-crys",
           "locator": "§60.20, Lemma 60.20.1; §60.2, Lemma 60.2.5; §60.5, Lemma 60.5.6; §60.17, Lemma 60.17.2; §60.21, Proposition 60.21.1 (the lemmas used in the proof; the chapter contains no linearization functor)",
-          "excerpt": "For any $A$-module $M$ the complex $$ 0 \\to M \\to M \\otimes_A P \\to M \\otimes_A \\Omega^1_{P/A, \\delta} \\to M \\otimes_A \\Omega^2_{P/A, \\delta} \\to \\ldots $$ is exact.",
           "match": "The cited Stacks sections do not contain the linearization functor or its acyclicity. They supply the lemmas from which the node's statements are proved in the affine case with polynomial P: Lemma 60.2.5 for D_T, Proposition 60.21.1 and Lemma 60.17.2 for (2), Lemma 60.20.1 (quoted) for (3). The classical source is Berthelot–Ogus, Notes on Crystalline Cohomology, §6."
         }
       ],
@@ -8973,7 +8850,6 @@
         {
           "sourceId": "stacks-crys",
           "locator": "§60.20, Lemmas 60.20.1 and 60.20.2; §60.25, Lemma 60.25.1 and Example 60.25.2",
-          "excerpt": "Let $M$ be a $B$-module endowed with an integrable connection $\\nabla : M \\to M \\otimes_B \\Omega^1_{B/A, \\delta}$. Then the map of de Rham complexes $$ M \\otimes_B \\Omega^*_{B/A, \\delta} \\longrightarrow M \\otimes_P \\Omega^*_{P/A, \\delta} $$ is a quasi-isomorphism.",
           "match": "Lemma 60.20.1 is (1) and its completed form, Lemma 60.20.2 is (2) and its completed form (its display has ⊗_P where ⊗_B is meant, and 'integral connection' is a misprint for integrable), and Example 60.25.2 with Lemma 60.25.1 is (4). The node states nothing beyond them."
         }
       ],
@@ -9032,13 +8908,11 @@
         {
           "sourceId": "stacks-crys",
           "locator": "§60.21, Propositions 60.21.1 and 60.21.3, Lemmas 60.21.2 and 60.21.4; §60.23, Proposition 60.23.1 and the map displayed after Remark 60.23.2; §60.24, Remark 60.24.11 (hint) for part (6)",
-          "excerpt": "Let $(M, \\nabla)$ be the corresponding module with connection over $D$, see Proposition \\ref{proposition-crystals-on-affine}. Then the complex $$ M \\otimes^\\wedge_D \\Omega^*_D $$ computes $R\\Gamma(\\text{Cris}(X/S), \\mathcal{F})$.",
           "match": "Parts (1)–(4) are Proposition 60.21.1, Lemma 60.21.2, Proposition 60.21.3 and Lemma 60.21.4; part (5) is Proposition 60.23.1 with the map displayed after Remark 60.23.2. Part (6), for a closed embedding into a smooth S-scheme, is not stated in Stacks: it is obtained from (4) and (5) as in the hint to Remark 60.24.11, which treats a smooth lift."
         },
         {
           "sourceId": "illusie-drw",
           "locator": "Part 0, §3.2 (Calcul de la cohomologie cristalline): 3.2.1–3.2.3, Théorème 3.2.4 ((3.2.4.1), (3.2.4.2)) and 3.2.5, printed pp. 536–539",
-          "excerpt": "ce qui ramène au cas où X est lisse sur S. L'énoncé n'est alors qu'un cas particulier de [4], V 2.3.2.",
           "match": "Part (6), as a recall of Berthelot's theorem: for p locally nilpotent on S, X an S-scheme to which γ extends (in particular X over S₀=V(I)), i:X→Y a closed S-immersion into a smooth S-scheme with PD envelope Ȳ, and E a crystal of O_(X/S)-modules, Ru_(X/S*)E≅E_Ȳ⊗_(O_Y)Ω^*_(Y/S) canonically in D(X,f⁻¹O_S), multiplicatively for E=O_(X/S) and independently of the embedding. The recall gives no proof beyond the reduction in the excerpt (Berthelot's book, IV 1.3.2 and V 2.3.2) and does not say that the isomorphism is induced by the map of part (5)."
         }
       ],
@@ -9090,7 +8964,6 @@
         {
           "sourceId": "stacks-crys",
           "locator": "§60.21, proof of Lemma 60.21.4 and proof of Proposition 60.21.3; §60.17, Lemma 60.17.1; §60.2, Lemma 60.2.5",
-          "excerpt": "In fact, we claim that for any divided power $A$-algebra homomorphism $\\rho : D \\to D$ compatible with the augmentation to $C$ the induced map $M \\otimes^\\wedge_D \\Omega^*_D \\to M \\otimes^\\wedge_{D, \\rho} \\Omega^*_D$ is a quasi-isomorphism.",
           "match": "Parts (1)–(3) are steps of the proofs of Lemma 60.21.4 and Proposition 60.21.3. Parts (4) and (5), on two polynomial presentations and their product, are not stated in Stacks; they follow from Lemma 60.2.5, Lemma 60.20.2 and (3)."
         }
       ],
@@ -9135,13 +9008,11 @@
         {
           "sourceId": "stacks-crys",
           "locator": "§60.24, Remark 60.24.11 (Comparison; a remark with a hint of proof)",
-          "excerpt": "we have $$ R\\Gamma(\\text{Cris}(X/S), \\mathcal{F}) = R\\Gamma(Y, \\mathcal{F}_Y \\otimes_{\\mathcal{O}_Y} \\Omega^\\bullet_{Y/S}) $$ in $D(A)$.",
           "match": "Part (1) is Remark 60.24.11, which Stacks states with a hint of proof only. The filtration Filʳ on the de Rham complex of an envelope and parts (2)–(3) are not in Stacks; they are verified directly from d(γ_n(x))=γ_{n−1}(x)dx. No comparison of Filʳ with crystalline cohomology is stated here or in Stacks."
         },
         {
           "sourceId": "stacks-crys",
           "locator": "§60.6, the definition of I^{[n]} before Lemma 60.6.3",
-          "excerpt": "I^{[n]} = \\text{ideal generated by } \\gamma_{e_1}(x_1) \\ldots \\gamma_{e_t}(x_t) \\text{ with }\\sum e_j \\geq n\\text{ and }x_j \\in I.",
           "match": "The PD powers used to define Filʳ; Stacks defines the ideals and no filtration on a de Rham complex."
         }
       ],
@@ -9194,13 +9065,11 @@
         {
           "sourceId": "stacks-crys",
           "locator": "§60.24, Remark 60.24.14 (Complete comparison; a remark with a hint of proof), with Remarks 60.24.10 and 60.24.11",
-          "excerpt": "Let $Y$ be a proper smooth scheme over $S$ and set $X = Y \\times_S S_0$. Let $\\mathcal{F}$ be a finite type crystal in quasi-coherent $\\mathcal{O}_{X/S}$-modules.",
           "match": "Part (1) is Remark 60.24.14, which Stacks gives with a hint only and with '(insert future reference here)' for the existence of F_Y; the algebraization of the connection is not discussed there. Parts (2) and (3) are not in Stacks."
         },
         {
           "sourceId": "eg",
           "locator": "§7, p. 36 of the author-hosted manuscript (the sentence before Definition 7.2); used again in the proof of Proposition 7.4(2), p. 37",
-          "excerpt": "and this last group is equal to crystalline cohomology over Q̄p of the isocrystal F (see Corollary 1.5)",
           "match": "Esnault–Groechenig use, without proof, that H¹ of the de Rham complex of End⁰(E,∇) on the generic fibre of a smooth projective lift equals the rational crystalline H¹ of the corresponding isocrystal; this is the case of (2) and (3) that the node records. The definition of End⁰ as the kernel of the trace and the statement on O_crys⊕End⁰(E)→End(E) are not in that passage."
         }
       ],
@@ -9248,7 +9117,6 @@
         {
           "sourceId": "stacks-crys",
           "locator": "§60.24, Remark 60.24.4 (tag 07MN), Alternating Čech complex; notation from Remark 60.24.3 (tag 07MM)",
-          "excerpt": "R\\Gamma(\\text{Cris}(X/S), \\mathcal{F}) = \\text{Tot}(M^{\\bullet, \\bullet})",
           "match": "The node is the remark for a base in which p is nilpotent, where the p-adic completions of the source do nothing. The source states it as a remark with a hint of proof only; the hint cites the general fact about alternating Čech complexes as a future reference."
         }
       ],
@@ -9300,13 +9168,11 @@
         {
           "sourceId": "stacks-crys",
           "locator": "§60.24, Remark 60.24.8 (tag 07MS), Base change map, and Remark 60.24.9 (tag 07MU), Base change isomorphism, conditions (1)–(7) and the hints",
-          "excerpt": "The map (\\ref{equation-base-change-map}) is an isomorphism provided",
           "match": "Parts (1) and (2) are the two remarks, with the same seven conditions; the source gives them with hints of proof only. Part (3) is deduced here from (2) and from the description of p-adic crystalline cohomology as a derived limit; the source does not state it."
         },
         {
           "sourceId": "stacks-sites-cohomology",
           "locator": "Cohomology on Sites, Remark 07A7 (base change map for a commutative square of ringed topoi)",
-          "excerpt": "Then there exists a canonical base change map",
           "match": "The base-change map Lg^*Rf_*K→Rf′_*L(g′)^*K of a commutative square of ringed topoi, which part (1) composes with Lf_crys^*E′→f_crys^*E′."
         }
       ],
@@ -9372,13 +9238,11 @@
         {
           "sourceId": "stacks-crys",
           "locator": "§60.24, Remark 60.24.12 (tag 07MX), Perfectness, and Remark 60.24.13 (tag 07MY), Complete perfectness; Remark 60.24.10 (tag 07MV) for the derived limit",
-          "excerpt": "Then $R\\Gamma(\\text{Cris}(X/S), \\mathcal{F})$ is a perfect object of $D(A)$.",
           "match": "Parts (1) and (2) are the two remarks with the extra hypothesis that A is Noetherian, under which the hint of Remark 60.24.12 is complete; both are stated in the source with hints only. The amplitude bound of (3), the reductions modulo p^e and part (4) are deduced here."
         },
         {
           "sourceId": "bo-correction",
           "locator": "p. 1: the opening paragraph and the replacement text for (B2.1); pp. 1–2: (B2.1a) and its proof",
-          "excerpt": "However, [BO] only uses the weaker version (B2.1) below, which takes place in the derived category and holds for any D",
           "match": "Used for the tower of the K_e: a replacement by complexes of projective modules with surjective transition maps exists as an isomorphism in the derived category of inverse systems; a surjective quasi-isomorphism onto the original tower requires its transition maps to be surjective."
         }
       ],
@@ -9431,13 +9295,11 @@
         {
           "sourceId": "stacks-crys",
           "locator": "§60.23, Proposition 60.23.1 (tag 07LM) and the restriction map (60.23.2.1); §60.21, Proposition 60.21.3 (tag 07LG)",
-          "excerpt": "while not a quasi-isomorphism, becomes a quasi-isomorphism after applying $Ru_{X/S, *}$.",
           "match": "The source has no cup product. It supplies the de Rham resolution of a crystal and its restriction to a thickening, on which the product is the wedge product. The cup product itself is the general one of a ringed topos (Stacks, Cohomology on Sites, Section 'Cup product', tag 0FPJ), the second source of this node."
         },
         {
           "sourceId": "stacks-sites-cohomology",
           "locator": "Cohomology on Sites, Section \"Cup product\" (tag 0FPJ); Lemmas 0FPL (associativity), 0FPM (commutativity) and 0H9A (base change)",
-          "excerpt": "The (global) cup product in this setting is a map",
           "match": "The cup product of a ringed topos, from which (1) starts, with the associativity, graded commutativity and compatibility with base-change squares used in (2) and (3). The crystalline topos is not mentioned there; the specialisation, the unit and the external product (4) are the node's."
         }
       ],
@@ -9564,13 +9426,11 @@
         {
           "sourceId": "stacks-crys",
           "locator": "§60.24, Remark 60.24.9 (tag 07MU), Base change isomorphism, and Remark 60.24.12 (tag 07MX), Perfectness",
-          "excerpt": "Then $R\\Gamma(\\text{Cris}(X/S), \\mathcal{F})$ is a perfect object of $D(A)$.",
           "match": "The source has no Künneth formula. It supplies base change and perfectness (as remarks with hints), by which the statement is reduced to the Künneth formula for de Rham cohomology with coefficients; the statement of the node is deduced here."
         },
         {
           "sourceId": "stacks-derham",
           "locator": "de Rham Cohomology, Section \"Künneth formula\" (tag 0FM9), Lemma 0FMB",
-          "excerpt": "Assume $X$ and $Y$ are smooth, quasi-compact, with affine diagonal over",
           "match": "The Künneth isomorphism for de Rham cohomology with trivial coefficients over an affine base, proved from the Künneth formula for coherent cohomology; the node uses it for the reductions modulo p. Crystalline cohomology, coefficients and the Frobenius compatibility are not in this source."
         }
       ],
@@ -9623,7 +9483,6 @@
         {
           "sourceId": "stacks-crys",
           "locator": "§60.26, Situation 60.26.1 (tag 07N2), Definition 60.26.2 (tag 07N3), and the first paragraph of the proof of Theorem 60.26.4 (tag 07N5)",
-          "excerpt": "The map of the theorem is the composition of the three maps",
           "match": "The node takes the situation, the definition of an F-crystal and of nondegeneracy, and the factorisation of the Frobenius map into base change, pullback along the relative Frobenius and the map of the F-crystal. Semilinearity, functoriality, multiplicativity and the description on a lift carrying a lift of Frobenius are standard consequences stated here; the source does not state them."
         }
       ],
@@ -9750,7 +9609,6 @@
         {
           "sourceId": "bms1",
           "locator": "§2.2, Lemma 2.12 and its proof, pp. 17–18",
-          "excerpt": "is an isomorphism for j < d−iL −1, and injective with torsion-free cokernel for j = d−iL −1.",
           "match": "The node is the lemma with its hypotheses and its range. In the proof the displayed exact sequence for j>1 on p. 18 is misprinted; the proof steps use the corrected sequence."
         }
       ],
@@ -9808,13 +9666,11 @@
         {
           "sourceId": "bms1",
           "locator": "§2.2, pp. 15–17: Lemmas 2.5, 2.7 and 2.9 (the construction), Theorem 2.10 (p. 16) and its proof (pp. 16–17)",
-          "excerpt": "Theorem 2.10. The above construction gives a smooth projective (relative) surface H over",
           "match": "Part (d) is Theorem 2.10 together with the equality H¹_crys(H_k/W(k))=0 obtained in its proof. Parts (a)–(c) are the other acceptance examples of the stage; they are standard computations and are not in this source."
         },
         {
           "sourceId": "stacks-derham",
           "locator": "de Rham Cohomology, Lemmas 0FMI and 0FMJ (Hodge and de Rham cohomology of projective space)",
-          "excerpt": "with basis element $c_1^{dR}(\\mathcal{O}(1))^i$.",
           "match": "For a ring A the de Rham cohomology of P^n_A is free with basis the powers of c₁^dR(O(1)); part (a) is deduced from it for A=W_n(k) through the comparison with de Rham cohomology of the lift P^n over W_n(k)."
         }
       ],
@@ -9865,7 +9721,6 @@
         {
           "sourceId": "stacks-crys",
           "locator": "§60.25 (tag 07PZ): Lemma 60.25.1 (tag 07Q7), Lemma 60.25.3 (tag 07N1), Lemma 60.25.4 (tag 07Q9), Lemma 60.25.5 (tag 07QA), Lemma 60.25.6 (tag 07QB)",
-          "excerpt": "has kernel and cokernel annihilated by $q^{i + 1}$.",
           "match": "The statement is Lemmas 60.25.4, 60.25.5 and 60.25.6 with their hypotheses and exponents. The proof steps add two facts which the source's deductions use without saying so: for one cover the cone is annihilated by p and has no cohomology in degree −1, because the comparison map is injective, e∘c=p exactly and the homotopy vanishes on its image."
         }
       ],
@@ -9912,7 +9767,6 @@
         {
           "sourceId": "stacks-crys",
           "locator": "§60.26, Theorem 60.26.4 (tag 07N5) and its proof; Definition 60.26.2 (tag 07N3); Remark 60.26.3 (tag 07N4)",
-          "excerpt": "becomes an isomorphism after inverting $p$.",
           "match": "The statement is the theorem with its hypotheses. The proof in the source cites Remarks 60.24.9 and 60.24.13, which are stated there with hints only; here they are CR.3/derived-base-change and CR.3/proper-perfectness."
         }
       ],
@@ -9974,7 +9828,6 @@
         {
           "sourceId": "ekedahl",
           "locator": "Chapter I, pp. 192–198: I.2 with (2.7) and (2.11); Lemmas 3.2, 3.3, 3.4; Theorem 4.1; I.5",
-          "excerpt": "defined and the crystalline trace map of Berthelot ([15]). It will not be used anywhere",
           "match": "The node takes the construction of the trace W_nΩ^N→f_n^!W_n[−N] ((2.11)), its normalisation Tr ω=1 on projective space (Lemma 3.2), that it is an isomorphism (Theorem 4.1), and the induced trace on H^(2N)(X/W_n) with its reduction modulo p (I.5). The sign ε_d relating ω to the d-th power of the hyperplane class, and the limit over n, are added here. The agreement with Berthelot's trace, sketched in I.5 from results of LNM 407 VI–VII, is not part of the node."
         }
       ],
@@ -10086,13 +9939,11 @@
         {
           "sourceId": "ekedahl",
           "locator": "Introduction, p. 186 (the crystalline duality formula); I.5, p. 198; II, Theorem 2.2 (p. 199) and Corollary 2.2.23 (p. 203)",
-          "excerpt": "exactly as Berthelot does, prove the duality theorem for",
           "match": "The source states the crystalline duality formula with trivial coefficients (p. 186) and says in I.5 that duality for RΓ(X/W_n) follows from Tr_n/p=Tr_1 and de Rham duality; Theorem II.2.2 and Corollary II.2.2.23 prove the finer duality of the sheaves W_nΩ^i and of Hodge–Witt cohomology. Coefficients in a finite locally free crystal and the passage to the limit over n are deduced here by the same reduction modulo p; they are not in the source."
         },
         {
           "sourceId": "stacks-derham",
           "locator": "de Rham Cohomology, Proposition 0FW7 (Poincaré duality), with Lemmas 0FW5 and 0FW6",
-          "excerpt": "Let $k$ be a field. Let $X$ be a nonempty smooth proper scheme over $k$ equidimensional of dimension $d$. There exists a $k$-linear map",
           "match": "Poincaré duality for de Rham cohomology with trivial coefficients over a field, to which the proof reduces the statement modulo p. Coefficients, the integral statement and the torsion pairing are not in this source."
         }
       ],
@@ -10140,13 +9991,11 @@
         {
           "sourceId": "ekedahl",
           "locator": "Introduction, p. 186: the crystalline duality formula RHom_W(RΓ(X/W),W)[−2N]≅RΓ(X/W); I.5, p. 198, for the characterisation of a trace by local residues",
-          "excerpt": "This should be compared with the crystalline duality formula",
           "match": "The source gives the duality through which the Gysin map is defined as a transpose. It does not construct Gysin maps; the projection formula and functoriality are formal consequences of the definition (proved from the same definition in Stacks, Weil Cohomology Theories, Lemma 0FGT)."
         },
         {
           "sourceId": "stacks-weil",
           "locator": "Weil Cohomology Theories, Lemma 0FGT (pushforward defined by Poincaré duality)",
-          "excerpt": "$f_*(f^*b \\cup a) = b \\cup f_*a$. If $g : Y \\to Z$ is a second morphism",
           "match": "The formal argument for (2) and (3): for a pushforward defined as the transpose of pullback under a perfect pairing, the projection formula and functoriality follow from the adjunction formula. The source works with vector spaces over a field of characteristic 0; the node applies the same argument in D(W)."
         }
       ],
@@ -10255,13 +10104,11 @@
         {
           "sourceId": "ekedahl",
           "locator": "Introduction, p. 186: the crystalline duality formula",
-          "excerpt": "This should be compared with the crystalline duality formula",
           "match": "The source states the duality from which the node is deduced; it does not mention the diagonal. The formula for the class of the diagonal and its sign are those of Stacks, Weil Cohomology Theories, Lemma 0FGZ, the second source of this node."
         },
         {
           "sourceId": "stacks-weil",
           "locator": "Weil Cohomology Theories, Lemma 0FGZ (class of the diagonal), and Lemma 0FH0",
-          "excerpt": "Then $\\int_X e_{i, j} \\cup e'_{2d - i, j'} = (-1)^i\\delta_{jj'}$.",
           "match": "The formula of part (4) with its sign, in the setting of a Weil cohomology theory with coefficients in a field; the node states it for free crystalline cohomology groups over W, where the same computation applies."
         }
       ],
@@ -10368,13 +10215,11 @@
         {
           "sourceId": "blm-derhamwitt",
           "locator": "§2.6 (Propositions 2.6.2, 2.6.5), §2.7 (Proposition 2.7.1, Corollary 2.7.4, Proposition 2.7.5, Corollary 2.7.6, Proposition 2.7.7, Corollary 2.7.8), §2.8 (Proposition 2.8.1, Corollaries 2.8.2, 2.8.3), pp.21–27",
-          "excerpt": "Proposition 2.7.7. Let M∗ and N∗ be saturated Dieudonné complexes, where N∗ is strict. Then composition with the map ρM induces a bijection",
           "match": "The node collects these results; each clause about W(M) is one of them, with the printed hypothesis that M is saturated."
         },
         {
           "sourceId": "blm-derhamwitt",
           "locator": "§2.4 Definition 2.4.1 and §2.8 Corollary 2.8.5, pp.16–17 and 27",
-          "excerpt": "Corollary 2.8.5. Let M∗ be a Dieudonné complex of Cartier type, and suppose that each of the abelian groups Mn is p-adically complete. Then the canonical map u∶M∗ → W Sat(M∗) is a quasi-isomorphism.",
           "match": "The last sentence of the node. The derived-completion clause for Cartier type without completeness is the composite of Theorem 2.4.2 and Corollary 2.8.2 and is not a numbered result of the source."
         }
       ],
@@ -10427,7 +10272,6 @@
         {
           "sourceId": "blm-derhamwitt",
           "locator": "§3.1 (conditions (a)–(c), Remark 3.1.1, Definition 3.1.2, Remarks 3.1.5–3.1.7), §3.2 (Propositions 3.2.1, 3.2.3), §3.4 (Definition 3.4.1, Propositions 3.4.2, 3.4.3), §3.5 (Proposition 3.5.1, Corollary 3.5.2, Propositions 3.5.5, 3.5.8, Definition 3.5.6), pp.29–38",
-          "excerpt": "Definition 3.1.2. A Dieudonné algebra is a triple (A∗,d,F), where (A∗,d) is a commutative differential graded algebra and F∶A∗ → A∗ is a homomorphism of graded rings satisfying the following additional conditions:",
           "match": "Definition 3.1.2 with conditions (i)–(iii), and condition (b) of §3.1 (x²=0 for odd x); the projection formula and the ideal im V^r+im dV^r are Proposition 3.5.1. The node states nothing beyond these results."
         }
       ],
@@ -10547,13 +10391,11 @@
         {
           "sourceId": "blm-derhamwitt",
           "locator": "§3.6 (Lemma 3.6.1, Propositions 3.6.2, 3.6.3, Lemma 3.6.4), §4.1 (Definition 4.1.1, Warning 4.1.3, Proposition 4.1.4, Corollary 4.1.5), §4.2 (Proposition 4.2.1, Corollary 4.2.3), pp.38–45",
-          "excerpt": "We will say that f exhibits A∗ as a saturated de Rham–Witt complex of R if it satisfies the following universal property: for every strict Dieudonné algebra B∗, composition with f induces a bijection",
           "match": "Definition, existence (Proposition 4.1.4, by the construction W Sat Ω^*_(W(R)) for reduced R), the degree-zero description and the map μ are as printed."
         },
         {
           "sourceId": "blm-derhamwitt",
           "locator": "§6.1 Proposition 6.1.2, §6.2 Proposition 6.2.1, §6.3 Proposition 6.3.1, §6.5 Proposition 6.5.1, pp.70–74",
-          "excerpt": "Let R ⊆ Fp[t] be the subring generated by t2 and t3. Then the inclusion R ↪ Fp[t] induces an isomorphism of saturated de Rham–Witt complexes",
           "match": "The cusp isomorphism and the seminormality of A⁰/VA⁰ for strict A. The identification of S_R with the seminormalisation of R (Theorem 6.5.3) is the separate node CR.4/saturated-seminormalisation."
         }
       ],
@@ -10680,13 +10522,11 @@
         {
           "sourceId": "lz-relative",
           "locator": "§1.2, Definition 1.4, consequences (1.16)–(1.22) and Lemma 1.5, printed pp.17–20",
-          "excerpt": "Definition 1.4 An F − V procomplex over the R-algebra S is a projective system {Pn} of differential graded Wn(S)/Wn(R)-algebras Pn for n ≥ 1:",
           "match": "Langer–Zink's definition (base R, algebra S) with the relations FV=p, FdV=d, Fd[x]=[x^(p−1)]d[x], V(ωFη)=(Vω)η, and the derived relations. The node adds BMS1's strict commutativity and explicit restriction maps. The manuscript prints FdVω=ω for FdVω=dω in (1.27) (packet source issue CrystallineCohomology/E506) and W(S) for W_n(S) in Definition 1.4 (i)."
         },
         {
           "sourceId": "bms1",
           "locator": "§10.2, Definition 10.5 and Remark 10.6, p.81",
-          "excerpt": "Definition 10.5. Let B be an A-algebra. An F-V -procomplex for B/A consists of the following data",
           "match": "The data (i)–(v) and the identities for an arbitrary Z_(p)-algebra A; BMS1's 'commutative differential graded algebra' includes x²=0 for odd x (used on p.88). The node follows this convention."
         }
       ],
@@ -10804,13 +10644,11 @@
         {
           "sourceId": "lz-relative",
           "locator": "§1.1, Proposition 1.3 and (1.14)–(1.15), printed pp.14–17; §1.3, construction (1.26)–(1.31) and Proposition 1.6, printed pp.21–23",
-          "excerpt": "Proposition 1.6 Let {Pn} be a F-V -procomplex such that Pn is a differential graded Wn(S)/Wn(R)-algebra. Then there is a unique morphism",
           "match": "Construction and universal property as printed (base R, algebra S, no hypothesis beyond R being a Z_(p)-algebra). In (1.27) and on p.23 the manuscript prints FdVω=ω for FdVω=dω (packet source issue CrystallineCohomology/E506). The universal property without restriction maps is not stated in the source; it is read off from the induction."
         },
         {
           "sourceId": "bms1",
           "locator": "§10.2, Theorem 10.7, p.82",
-          "excerpt": "Theorem 10.7 ([51]). There is an initial object",
           "match": "Existence of the initial F–V procomplex for a map of Z_(p)-algebras, quoted from Langer–Zink with BMS1's definition."
         }
       ],
@@ -10929,19 +10767,16 @@
         {
           "sourceId": "lz-relative",
           "locator": "§2.2 (weights, definitions of t and u, basic Witt differentials (2.11)–(2.17), Propositions 2.5, 2.6, Lemma 2.7), printed pp.37–42; §2.3 Theorem 2.8, p.43; §2.5 Proposition 2.17 with proof and Corollary 2.18, pp.55–57",
-          "excerpt": "Proposition 2.17 Assume that R is a Z(p)-algebra. Then any element ω of WnΩR[T1,...,Td] may be written as a finite sum",
           "match": "Proposition 2.17 is the finite-level statement (existence and uniqueness for every Z_(p)-algebra R, by reduction to p-torsion-free rings) and Theorem 2.8 the statement for the limit; the three cases of the basic forms are (2.15)–(2.17). Theorem 2.8 is printed without hypothesis, under the standing hypothesis of §2.2 that R is a Z_(p)-algebra; only Corollary 2.18 and the first half of the proof of Proposition 2.17 assume R p-torsion-free. In the proof of Proposition 2.5 the manuscript prints an extra factor dVω₀ (packet source issue CrystallineCohomology/E507)."
         },
         {
           "sourceId": "lz-relative",
           "locator": "§2.2 Proposition 2.3 and Corollary 2.4, printed pp.37–38; §2.3 Lemmas 2.9, 2.10, Proposition 2.11 and Lemma 2.12 with proofs, Corollary 2.13, pp.43–49",
-          "excerpt": "Lemma 2.12 Any element in WΩ· R[T1,...,Td]/R is a convergent sum of basic Witt differentials.",
           "match": "Existence of the expansion (proof steps 1, 3 and 4). §2.3 proves Theorem 2.8 'without the uniqueness assertion': the products of display (2.24) are sums of basic Witt differentials, first for integral weights (Lemmas 2.9, 2.10, Proposition 2.11), then in general by induction on the degree (Lemma 2.12). The node's finite-level existence is deduced from it in the first lines of the proof of Proposition 2.17."
         },
         {
           "sourceId": "lz-relative",
           "locator": "§2.1 Proposition 2.1 with proof (Lemma 2.2), printed pp.32–37; §2.4 Lemma 2.14, Proposition 2.15 with proof and Proposition 2.16 with proof, pp.49–54",
-          "excerpt": "To prove the “linear independence” of basic Witt differentials, i.e. the uniqueness assertion in theorem 2.8 we will now introduce the phantom components for the de Rham-Witt complex.",
           "match": "Uniqueness (proof steps 5 and 6): the maps ω_m and their relations with F, V and d (Lemma 2.14, Proposition 2.15, for every Z_(p)-algebra R and every R-algebra S), their values on basic Witt differentials (Proposition 2.16) and the basis of p-basic elements of the de Rham complex of R[X] (Proposition 2.1). §2.1 opens with 'Let R be a Zp-algebra'; the proof of Proposition 2.1 uses only that integers prime to p are units, and Proposition 2.17 applies it to Z_(p)-algebras."
         }
       ],
@@ -10996,31 +10831,26 @@
         {
           "sourceId": "lz-relative",
           "locator": "§1.4, Propositions 1.7, 1.8, the Remarks after them and Proposition 1.9, printed pp.23–27",
-          "excerpt": "The differential on the right hand side of (1.33) does not induce 1 ⊗ d on the left hand side.",
           "match": "Langer–Zink prove the étale base change under the hypothesis 'S is F-finite or p is nilpotent in S' (Proposition 1.7), which is needed only for W_n(S)→W_n(S′) to be étale; the remark quoted gives the Frobenius-twisted linear form used in (2)."
         },
         {
           "sourceId": "bms1",
           "locator": "§10.1 Theorem 10.4 with proof and §10.3 Lemma 10.8 with proof, pp.81–82",
-          "excerpt": "Thus, one can either reduce the general case to the F-finite case by Noetherian approximation, or observe that by Theorem 10.4, the argument of [51] works in general.",
           "match": "Lemma 10.8 is statement (1) for every map A→R of Z_(p)-algebras, deduced from Langer–Zink's proof and Theorem 10.4. In the proof 'If p is nilpotent in S or S is F-finite' should read R (register entry PAPER-BHATT-MORROW-SCHOLZE-18/E9)."
         },
         {
           "sourceId": "blm-derhamwitt",
           "locator": "§5.1 Propositions 5.1.4, 5.1.5, Corollary 5.1.6, pp.55–57; §5.2 Theorem 5.2.2, Remark 5.2.3, Proposition 5.2.4, pp.57–59; §5.3 Definitions 5.3.1, 5.3.3, Proposition 5.3.2, Theorem 5.3.4, Corollary 5.3.5 with proof, Theorem 5.3.7 with proof, pp.59–61",
-          "excerpt": "Corollary 5.3.5. Let R → S be an étale map of Fp-algebras. Then the map WΩ∗ R → WΩ∗ S of strict Dieudonné complexes is V -adically étale.",
           "match": "Statement (3) and the saturated part of (4): Proposition 5.1.5 and Corollary 5.1.6 give the localisation, the remark after Proposition 5.1.4 that A[s⁻¹] is usually not strict, Corollary 5.3.5 the displayed isomorphism for an étale map of F_p-algebras, Theorems 5.2.2 and 5.3.7 the Zariski and étale sheaf properties, Remark 5.2.3 quasi-coherence over W_r(O_X), and Proposition 5.2.4 the vanishing of Zariski cohomology on affines. All are stated for F_p-algebras and F_p-schemes with no further hypothesis."
         },
         {
           "sourceId": "blm-derhamwitt",
           "locator": "§5.4 Theorem 5.4.1 with its proof for F_p-algebras, Remark 5.4.2, Definitions 5.4.3, 5.4.4, 5.4.8, Proposition 5.4.7, Corollary 5.4.9, Remark 5.4.10, pp.61–64",
-          "excerpt": "Theorem 5.4.1. Let f∶A → B be an étale morphism of commutative rings. Then, for every integer n ≥ 0, the induced map Wn(A) → Wn(B) is also étale.",
           "match": "Proof step 5. The theorem is stated for arbitrary commutative rings, but the source proves it only for F_p-algebras (pp.62–63) and refers to Langer–Zink, van der Kallen and Borger for the general case. The node uses it from this source only for étale maps of F_p-algebras, in statement (3) and the saturated part of (4); statements (1), (2) and the first sentence of (4) rest on BMS1 Theorem 10.4. In Definition 5.4.8 the printed 'f(x)' should read f(m)."
         },
         {
           "sourceId": "blm-derhamwitt",
           "locator": "§5.5 Proposition 5.5.1 with proof, Lemma 5.5.2, Example 5.5.3 and the proof of Theorem 5.3.4, pp.65–68; the results on strict Dieudonné towers it uses: §2.6 Definition 2.6.1, Propositions 2.6.2, 2.6.5, pp.21–23, and §2.9 Proposition 2.9.1, Corollary 2.9.3, pp.27–28",
-          "excerpt": "Proposition 5.5.1. Let A∗ be a strict Dieudonné algebra, let B∗ be a strict Dieudonné algebra which is V -adically étale over A∗, and let C∗ be another strict Dieudonné algebra over A∗.",
           "match": "Proof steps 6 and 7: the proof of Theorem 5.3.4, on which Corollary 5.3.5 rests. The V-adically étale strict Dieudonné algebra is the limit of the tower 𝒲_n(A)^*⊗_(W_n(R))W_n(S). The printed proof says that R and F extend to maps of commutative differential graded algebras, which is true for R only (F satisfies dF=pFd), and it ends with the tower axioms; that 𝒲_n of the limit is the n-th term of the tower is Proposition 2.9.1, which the proof does not cite."
         }
       ],
@@ -11071,19 +10901,16 @@
         {
           "sourceId": "bms1",
           "locator": "§10.1 Lemma 10.3 with proof, pp.80–81; §3.1 Lemma 3.2(ii) with proof, pp.19–20",
-          "excerpt": "Lemma 10.3. Let A be a ring. The following chains of ideals are intertwined:",
           "match": "Statement (b) with the three printed inclusions; the proof uses [p]²∈pW_r(A) and p^rW_r(A)⊂W_r(pA) from Lemma 3.2(ii) and the last inclusion from Lemma 10.1."
         },
         {
           "sourceId": "bms1",
           "locator": "§10.1 Lemma 10.1 with proof, p.80",
-          "excerpt": "Lemma 10.1. Suppose that I is a finitely generated ideal of a ring A, and let Σ ⊂ I be a finite set of generators. Then the following five chains of ideals of Wr(A) are all intertwined:",
           "match": "Statement (a) with the printed containments; the source notes that the inclusions not involving Σ do not require finite generation."
         },
         {
           "sourceId": "bms1",
           "locator": "§10.3 Lemma 10.9 with proof and Corollary 10.10, pp.82–83",
-          "excerpt": "Lemma 10.9 (Quotients). Let A → R be a morphism of Z(p)-algebras, and I ⊂ R an ideal.",
           "match": "Statements (c) and (d). For the stability of the ideal under R, F, V the source refers to Geisser–Hesselholt (Lemma 2.4) for the detailed manipulations."
         }
       ],
@@ -11126,7 +10953,6 @@
         {
           "sourceId": "bms1",
           "locator": "§10.3, Corollary 10.10, Definition 10.11 and the two sentences after it, p.83",
-          "excerpt": "Definition 10.11. The continuous de Rham–Witt complex of a morphism A → R of",
           "match": "The two inverse limits and the remark that the result is again an F–V procomplex for R/A are as printed; the map from the algebraic complex is the node's consequence of initiality."
         }
       ],
@@ -11217,7 +11043,6 @@
         {
           "sourceId": "bms1",
           "locator": "§10.4: weights, the partitions P_a, Cases 1–3, Theorem 10.12 with proof, the integral part, Theorem 10.13 with proof, pp.83–85",
-          "excerpt": "In other words, the integral part is the image of the canonical map of differential graded Wr(A)-algebras",
           "match": "Theorems 10.12 and 10.13 for Laurent polynomial algebras over an arbitrary Z_(p)-algebra, with the three kinds of block; the image of τ and the acyclicity of the complement are in the proof of 10.13. As printed, Case 1 has V^(−v(a|I₀)) where V^(u(a|I₀)) is meant and Case 2 an undefined index ρ (register entry PAPER-BHATT-MORROW-SCHOLZE-18/E10); the node describes the blocks through u(a) and is unaffected."
         }
       ],
@@ -11261,7 +11086,6 @@
         {
           "sourceId": "bms1",
           "locator": "§10.5, Proposition 10.14 with proof, p.85; inputs: §3 Lemma 3.13 (p.24), Remark 3.19 (p.26), §10.1 Theorem 10.4 (p.81)",
-          "excerpt": "be a homomorphism of perfectoid rings, and R a smooth A-algebra, with base change",
           "match": "Proposition 10.14 (i) and (ii) with the printed hypotheses; the proof route (Laurent chart, Theorem 10.12, Lemma 3.13, Remark 3.19, Theorem 10.4) is the source's."
         }
       ],
@@ -11318,43 +11142,36 @@
         {
           "sourceId": "blm-derhamwitt",
           "locator": "§3.3 (Remark 3.3.3, Proposition 3.3.4, Example 3.3.5, Theorem 3.3.6, Corollary 3.3.8), pp.34–35; §4.3 (Theorem 4.3.1, Proposition 4.3.3, Corollary 4.3.5), pp.46–48; §4.4 (Proposition 4.4.10, Corollary 4.4.11, Theorem 4.4.12 with proof), pp.51–53",
-          "excerpt": "Theorem 4.4.12. Let R be a regular Noetherian Fp-algebra. Then the map γ∶WΩ∗ R → W Ω∗ R of Corollary 4.4.11 is an isomorphism.",
           "match": "Statement (1) for the classical complex of BLM Definition 4.4.6. The compatibility of γ with F and the comparison with the Langer–Zink complex are not in the source; the first is in its proof for smooth R, the second is proof step 7."
         },
         {
           "sourceId": "shiho",
           "locator": "§2, Theorem 2.1 (Popescu) and Theorem 2.2 (Grothendieck's limit theorem), p.572",
-          "excerpt": "Theorem 2.1 (Popescu). Any regular local ring R of characteristic p can be written as a filtering inductive limit",
           "match": "Shiho states Popescu's theorem for regular local rings of characteristic p, without proof; BLM use it for regular Noetherian F_p-algebras with a reference to the Stacks project. The node uses the statement and does not prove it."
         },
         {
           "sourceId": "blm-derhamwitt",
           "locator": "§4.2, Corollary 4.2.3 and Theorem 4.2.4, p.45",
-          "excerpt": "Theorem 4.2.4. Let R be a commutative ring which is p-torsion-free, and let ϕ∶R → R be a ring homomorphism satisfying ϕ(x) ≡ xp (mod p).",
           "match": "Statement (3), with the printed hypothesis that R/pR is smooth over a perfect ring of characteristic p; no completeness or smoothness of R itself is assumed."
         },
         {
           "sourceId": "blm-derhamwitt",
           "locator": "§4.3, Proposition 4.3.2 with proof, pp.46–47",
-          "excerpt": "Proposition 4.3.2. Let k be a perfect Fp-algebra and let R be a smooth algebra over k. Then the map ν∶Ω∗ R → W1 Ω∗ R is an isomorphism.",
           "match": "Statement (2): over a perfect ring only the comparison of W_1 with the de Rham complex is proved, not the comparison with the classical complex at all levels."
         },
         {
           "sourceId": "illusie-drw",
           "locator": "Part I, §3 (X smooth over a perfect scheme): Proposition 3.2 (p. 568), Proposition 3.31 (p. 582) with its proof and Remarque 3.32 (p. 583)",
-          "excerpt": "PROPOSITION 3.31. - Avec la notation (3.1.2), on a, pour tout",
           "match": "Proof step 6 (iii): Fil^n WΩ^*_X=V^n WΩ^*_X+dV^n WΩ^(*−1)_X for the kernel Fil^n of WΩ^*_X→W_nΩ^*_X, X smooth over a perfect scheme. Proposition 3.2, which BLM cite for this, is the corresponding statement for W_rΩ^*_X with r finite, and by Remarque 3.32 the limit is not formal (dV^n WΩ^(i−1)_X is not closed in general)."
         },
         {
           "sourceId": "illusie-drw",
           "locator": "Part I, §3: Corollaire 3.6 (p. 570), Proposition 3.21 and Remarques 3.21.1, formula (3.21.1.5) (p. 579)",
-          "excerpt": "Il s'agit, en un sens, d'une variante universelle de (02.3.13).",
           "match": "Proof step 6 (ii): for X smooth over a perfect scheme, p, F and V are injective on WΩ^i_X (3.6), and d⁻¹(p^n WΩ^(i+1)_X)=F^n WΩ^i_X for all n≥0 ((3.21.1.5), the display just before the excerpt); with n=1 these are the two conditions for WΩ^*_X to be saturated. BLM cite only Remark I.3.21.1."
         },
         {
           "sourceId": "illusie-drw",
           "locator": "Part I, §2 E: Théorème 2.17, Proposition 2.18 and 2.19 ((2.19.1)–(2.19.6)), printed pp. 562–565; Part 0, (1.4.8), printed p. 511",
-          "excerpt": "se prolonge de manière unique en un homomorphisme de systèmes projectifs d'algèbres graduées",
           "match": "Proof step 6 (i): F exists on W_•Ω^* for every F_p-algebra (2.17), with FV=VF=p, dF=pFd, FdV=d (2.18), and gives the endomorphism F of WΩ^* with the same identities (2.19); F(x)=x^p+p·α(x) on W(A) is (0.1.4.8). No smoothness is needed for this part."
         }
       ],
@@ -11409,25 +11226,21 @@
         {
           "sourceId": "lz-relative",
           "locator": "§3.1 (Theorem 3.1, Proposition 3.2, Definition 3.3, Proposition 3.4), §3.2 ((3.4)–(3.7)), §3.3 Theorem 3.5 with proof, printed pp.67–75; §3.5 Theorem 3.8 and Lemma 3.9, printed pp.82–90",
-          "excerpt": "Theorem 3.5 Let R be a ring such that p is nilpotent in R. Let X be a smooth scheme over R. Then the canonical homomorphism (3.4):",
           "match": "Statement (a) is Theorem 3.5 (R the base, with p nilpotent; 'This isomorphism is functorial in X'), statement (b) is Theorem 3.8 ('for any crystal E of flat modules', E quasi-coherent). Three cross-references in this chapter are misprinted ((3.2) for (3.4); §1.2 for §3.2 twice)."
         },
         {
           "sourceId": "blm-derhamwitt",
           "locator": "§10.1, Theorem 10.1.1 (quoted from Illusie, Théorème II.1.4) and Theorem 10.1.2, p.128",
-          "excerpt": "Theorem 10.1.1 (The de Rham–Witt to crystalline comparison). Let k be a perfect field and let X be a smooth k-scheme. Then there is a canonical isomorphism of cohomology rings",
           "match": "BLM's statement for the classical (equivalently saturated) complex of a smooth scheme over a perfect field, on cohomology rings, with crystalline cohomology relative to (Z_p,(p)). BLM attribute it to Illusie, Théorème II.1.4, which is the finite-level statement for sheaves, over W_n(S), for X smooth of finite type over a perfect scheme (see the Illusie source of this node). The node's statement (c) is for the Langer–Zink complex and is derived from (a)."
         },
         {
           "sourceId": "bo-correction",
           "locator": "both pages: the replacement text for assertion (B2.1) of Appendix B of Berthelot–Ogus and the new statement (B2.1a) with its proof",
-          "excerpt": "Assertion (B2.1) of Appendix B to [BO] is incorrect as stated: a necessary condition for its conclusion to hold is that the transition maps",
           "match": "The erratum replaces (B2.1) by an isomorphism in the derived category of towers and proves a surjective quasi-isomorphism only for towers with surjective transition maps; used in proof step 4 only."
         },
         {
           "sourceId": "illusie-drw",
           "locator": "Part II, introduction (p. 598) and §1: 1.1 ((1.1.1)), Proposition 1.2 (a)–(c) ((1.2.1)–(1.2.4)), 1.3 ((1.3.1)–(1.3.3)), Théorème 1.4 with its proof, printed pp. 600–607; Proposition 2.1 (a), Théorème 2.7 and Scholie 2.8, printed pp. 607–611",
-          "excerpt": "les flèches (1.1.1), (1.3.1), (1.3.2) et (1.3.3) sont des isomorphismes.",
           "match": "Illusie's comparison for his (classical) complex: for S a perfect scheme of characteristic p and X smooth of finite type over S, the arrow Ru_(X/W_n*)O_(X/W_n)→W_nΩ^*_X of D(X_Zar,f⁻¹W_n(O_S)) is an isomorphism for every n≥1 (Théorème 1.4), multiplicative, functorial, compatible with Frobenius and with the transition maps (Proposition 1.2). Illusie states no isomorphism of sheaves over W: for X proper and smooth over a perfect field he sets RΓ(X/W)=RΓ(X,WΩ^*_X) (Scholie 2.8). Part (c) is for the Langer–Zink complex and passes to the limit in proof step 4; that lim=Rlim on affine opens is Illusie's remark on p. 608."
         }
       ],
@@ -11474,25 +11287,21 @@
         {
           "sourceId": "lz-relative",
           "locator": "§3.3, diagrams (3.15)–(3.18) and Proposition 3.6 with (3.19)–(3.20), printed pp.75–77",
-          "excerpt": "Proposition 3.6 Let X be a smooth scheme over S = SpecR. The comparison isomorphism of theorem 3.5 respects the absolute Frobenius",
           "match": "The definition 𝐅=p^iF on W_nΩ^i, the crystalline absolute Frobenius and their compatibility are as printed (R the base, p nilpotent in R as in Theorem 3.5)."
         },
         {
           "sourceId": "bms2",
           "locator": "§8.1, paragraph after Definition 8.1 (before Lemma 8.2), p.266",
-          "excerpt": "one sees immediately that the restriction of the absolute Frobenius",
           "match": "BMS2 use the same convention φ=p^jF in degree j on WΩ^*_A for A smooth over a perfect field."
         },
         {
           "sourceId": "illusie-drw",
           "locator": "Part I, introduction (p. 542); §2 E: Proposition 2.18 ((2.18.2), (2.18.7)) and 2.19 (the sentence after (2.19.6)), printed pp. 564–565",
-          "excerpt": "En particulier, l'endomorphisme de Frobenius absolu de X induit un endomorphisme de",
           "match": "For every F_p-scheme X: dF=pFd ((2.18.2)), the endomorphism 𝐅 of W_nΩ^*_X induced by F on W_n(O_X) satisfies R∘𝐅=p^i·F:W_nΩ^i_X→W_(n−1)Ω^i_X ((2.18.7)), and in the limit 𝐅=p^i·F on WΩ^i_X (2.19; announced in the excerpt, which continues 'dont on vérifie qu'il est donné par p^i F en degré i'). Illusie's finite-level 𝐅 is an endomorphism of W_nΩ^*_X; the node's 𝐅:W_r→W_(r−1) (Langer–Zink) is its composite with restriction."
         },
         {
           "sourceId": "illusie-drw",
           "locator": "Part II: Proposition 1.2 (b), square (1.2.3), printed p. 603; Scholie 2.8, (2.8.4), printed pp. 610–611",
-          "excerpt": "L'action de F donne l'opération de Frobenius sur la cohomologie cristalline",
           "match": "The last sentence of the statement, for Illusie's complex: the comparison isomorphism is compatible with Frobenius at each finite level ((1.2.3), X smooth of finite type over a perfect scheme), and for X proper and smooth over a perfect field 𝐅=p^i·F on WΩ^*_X induces the Frobenius of RΓ(X/W) ((2.8.4), the excerpt). The statement for the sheaf Ru_*O_(X/W(k)) is obtained in the node through CR.4/crystalline-comparison (c)."
         }
       ],
@@ -11546,7 +11355,6 @@
         {
           "sourceId": "blm-derhamwitt",
           "locator": "§7.1 Proposition 7.1.16; §7.2 Corollary 7.2.2, Proposition 7.2.4; §7.3 Definition 7.3.1, Theorem 7.3.4 with proof, Proposition 7.3.6; §7.4 Definition 7.4.3, Theorem 7.4.7, Corollary 7.4.8; §7.5 Proposition 7.5.3, Corollary 7.5.4, Lemma 7.5.6 and the proof of Theorem 7.4.7, pp.85–94",
-          "excerpt": "Theorem 7.3.4. The map DCsat → D(Z)Lηp constructed above restricts to an equivalence of categories",
           "match": "Theorem 7.3.4 (ordinary categories) and Theorem 7.4.7 with Corollary 7.4.8 (∞-categories), for p-complete objects. Two misprints in the proofs of Propositions 7.2.4 and 7.5.3 are packet source issues CrystallineCohomology/E508 and E509."
         }
       ],
@@ -11596,19 +11404,16 @@
         {
           "sourceId": "ekedahl",
           "locator": "§0 (Definitions and preliminaries), sentence after Lemma 0.8, printed p.191",
-          "excerpt": "We will by the catch phrase \"survie du coeur\" refer to the fact ([10, II: Thm. 3.4]) that if X is proper then in the first spectral sequence",
           "match": "The source only recalls the spectral sequence E₁^(i,j)=H^j(X,WΩ^i)⇒H^*(X/W) for proper X, with a citation of Illusie–Raynaud. The slope bound and the degeneration after ⊗K are not in this source; they are Illusie 1979, II, Théorème 3.2 and Corollaire 3.5 (the Illusie sources of this node)."
         },
         {
           "sourceId": "illusie-drw",
           "locator": "Part II, §3 A: 3.1 ((3.1.1)–(3.1.6)), Théorème 3.2 with its proof, Corollaire 3.3, 3.4, Corollaire 3.5 ((3.5.4)), printed pp. 614–616",
-          "excerpt": "THÉORÈME 3.2. — La suite spectrale (3.1.1) dégénère modulo torsion",
           "match": "The spectral sequence, the action of 𝐅=p^i·F on the i-th column, d_r⊗K=0 for r≥1, the slope interval [i,i+1) and the identification (3.5.4) of H^(*−i)(X,WΩ^i_X)⊗K with the part of H^*(X/W)⊗K of slopes in [i,i+1), for X proper and smooth over a perfect field; Illusie takes H^*(X/W)=lim_n H^*(X/W_n) (Scholie II.2.8). The finite-level spectral sequence of the last sentence is not stated in the paper; it follows from Théorème II.1.4."
         },
         {
           "sourceId": "illusie-drw",
           "locator": "Part II, §2: standing hypotheses and Proposition 2.1 (p. 607), Corollaire 2.5 (p. 609), Théorème 2.7 and Scholie 2.8 (pp. 610–611), Remarque 2.12 and Théorème 2.13 (pp. 612–613)",
-          "excerpt": "THÉORÈME 2.13 (cf. [12], III 2.2). — Quels que soient i,j, le sous-module de p-torsion",
           "match": "The finiteness used in proof step 3, for X proper and smooth over a perfect field: the p-torsion of H^j(X,WΩ^i_X) is killed by a power of p and the quotient is a free W-module of finite type (2.13), and H^j(X,WΩ^i_X) is separated and complete for the V-adic topology (2.5)."
         }
       ],
@@ -11659,13 +11464,11 @@
         {
           "sourceId": "bms2",
           "locator": "§8.1, Definition 8.1, the definition of φ_i after it, Proposition 8.5 with proof and the definition of the filtration on Ru_*O^crys after it, pp.265–268",
-          "excerpt": "This defines a descending, complete multiplicative N-indexed filtration on",
           "match": "Definition 8.1 and Proposition 8.5 for WΩ^*_A, A smooth over a perfect field; the node states the construction for every saturated Dieudonné complex (BLM) and specialises to this case."
         },
         {
           "sourceId": "blm-derhamwitt",
           "locator": "§8.1 Construction 8.1.1, Remark 8.1.2, Example 8.1.3; §8.2 Proposition 8.2.1 with proof, pp.100–102",
-          "excerpt": "Construction 8.1.1 (The Nygaard filtration). For every pair of integers i and k, we define",
           "match": "The construction, the description N^kM=α_F⁻¹(p^kM∩η_pM), the graded pieces and the completeness criterion for an arbitrary saturated Dieudonné complex. Multiplicativity for Dieudonné algebras is not stated there; it is checked in proof step 4."
         }
       ],
@@ -11781,13 +11584,11 @@
         {
           "sourceId": "bms2",
           "locator": "§8.1, Lemma 8.2 and Lemma 8.3 with proofs, pp.266–267; §8.1.2, Proposition 8.7 with proof, pp.269–270",
-          "excerpt": "can be recovered from the Nygaard filtration; we begin with the conjugate filtration:",
           "match": "Lemma 8.2 (graded pieces and the canonical truncation), Lemma 8.3 (the cofiber sequence with the stupid truncation) and Proposition 8.7 (smooth lift with a Frobenius lift) are as printed; BMS2 add that they expect the filtration in degrees ≥p not to be obtainable without the choice of a Frobenius lift, which the node does not assert."
         },
         {
           "sourceId": "blm-derhamwitt",
           "locator": "§8.2 Proposition 8.2.1(3),(4); §8.3 Proposition 8.3.3, Corollaries 8.3.4, 8.3.5, Example 8.3.6, pp.101–104",
-          "excerpt": "Proposition 8.2.1. Let M∗ be a saturated Dieudonné complex and let k be an integer. Then:",
           "match": "The graded pieces for any saturated Dieudonné complex, and the filtered quasi-isomorphism for a Cartier-type lift with Frobenius (BLM Example 8.3.6), which is statement (3) in BLM's setting."
         }
       ],
@@ -11832,31 +11633,26 @@
         {
           "sourceId": "shiho",
           "locator": "§2, Definition 2.6, p.575",
-          "excerpt": "Definition 2.6. Let X be a scheme over Fp and let i,m ∈ N. Then we define the logarithmic Hodge-Witt sheaf",
           "match": "Shiho defines the sheaf for every F_p-scheme, as the image of the symbol map in sheaves on X_et (stated in the parenthesis after the display); the node restricts to regular X, where it is used."
         },
         {
           "sourceId": "cmm",
           "locator": "§5.3, Definitions 5.25 and 5.26, p.43",
-          "excerpt": "Definition 5.25 (Logarithmic de Rham–Witt groups). Let R be an Fp-algebra. We recall the de Rham-Witt complex",
           "match": "The same construction for rings: CMM form the image Zariski-locally and state, citing Morrow, that forming it étale-locally gives the same group of sections; the node uses the étale image and does not assert that comparison."
         },
         {
           "sourceId": "bms2",
           "locator": "§8.1, paragraph before Proposition 8.4, p.267",
-          "excerpt": "the pro-étale subsheaf given by the image of the map of pro-étale sheaves",
           "match": "Definition of W_rΩ^i_(X,log) as a pro-étale subsheaf and of WΩ^i_(X,log) as the limit over r, for X smooth over a perfect field."
         },
         {
           "sourceId": "illusie-drw",
           "locator": "Part I, §5, 5.7, definition (5.7.1), printed pp. 596–597; the map dlog in 3.23, (3.23.1), printed p. 580",
-          "excerpt": "engendré localement, pour la topologie étale sur X, par les sections de la forme",
           "match": "Illusie's definition, for X smooth over a perfect scheme of characteristic p, i≥1 and n≥1: the abelian subsheaf of W_nΩ^i_X generated locally for the étale topology by the forms dlog[x₁]⋯dlog[x_i], x_j∈O_X^×, with dlog[x]=d[x]/[x] ((3.23.1)); it is 0 for n≤0. The node takes the same étale-local image for regular X and for q=0 (Shiho); the limit over r on the pro-étale site is not in Illusie."
         },
         {
           "sourceId": "illusie-drw",
           "locator": "Part 0, §2.4: 2.4.1 ((2.4.1.1)–(2.4.1.3)), Théorème 2.4.2 (Bloch) and the sentence after it, printed pp. 527–528",
-          "excerpt": "engendré localement (pour la topologie étale) par les différentielles logarithmiques, i.e. les sections de la forme",
           "match": "Length one: for X smooth over an F_p-scheme S and i≥1, the étale sheaf generated by the forms dlog x₁⋯dlog x_i is the kernel ν(i) of W^*−C on closed i-forms; Illusie adds that he does not know whether it is generated Zariski-locally when i≥2. This supports forming the image on the étale site and the third acceptance item (a logarithmic form is closed and fixed by C)."
         }
       ],
@@ -11941,31 +11737,26 @@
         {
           "sourceId": "shiho",
           "locator": "§2, Proposition 2.3, Lemma 2.7, Proposition 2.8, Corollary 2.9, Proposition 2.12 and Corollary 2.13, pp.573–577",
-          "excerpt": "Proposition 2.8. Let X be a regular scheme over Fp and let i,m ∈ N. Then we have the exact sequence",
           "match": "Statements (1)–(3) are Proposition 2.8 (with Lemma 2.7), Corollary 2.9, Proposition 2.12 and Corollary 2.13 with the printed indices. Shiho proves them by reduction to smooth schemes and quotes the smooth cases."
         },
         {
           "sourceId": "cmm",
           "locator": "§5.3, the sequence recalled before Lemma 5.31 and the two diagrams in its proof, pp.44–45",
-          "excerpt": "is an exact sequence of pro sheaves on Xét [45, §I.5.7].",
           "match": "CMM recall the pro-sequences for smooth varieties over a perfect field and their extension to regular F_p-schemes by Shiho (Corollary 2.13). In the second diagram of the proof the exponent of R is printed r−s for s−r (register entry PAPER-CLAUSEN-MATHEW-MORROW-21/E4)."
         },
         {
           "sourceId": "bms2",
           "locator": "§8.1, last paragraph of the proof of Proposition 8.4, p.268",
-          "excerpt": "we recall that the sequence of pro-sheaves on",
           "match": "BMS2 quote the pro-sequence (2) from Illusie I.5.7.2 for smooth schemes over a perfect field and use it to prove their Proposition 8.4, which is stated by PrismaticCohomology:PR.4/log-forms-divided-frobenius, not by this node. The boundary case of that proof is misprinted ('i = n − 1' for n = i − 1): register entry PAPER-BHATT-MORROW-SCHOLZE-19/E7."
         },
         {
           "sourceId": "illusie-drw",
           "locator": "Part I, §5, 5.7: Théorème 5.7.2 ((5.7.2.1)), Lemme 5.7.3, formula (5.7.4), printed p. 597; Corollaire 5.7.5, printed p. 598",
-          "excerpt": "topologie étale sur X, on a une suite exacte de pro-faisceaux",
           "match": "Statement (2) for X smooth over a perfect scheme of characteristic p and q≥1 (there '1' is the canonical projection, so 1−F is R−F:W_(n+1)Ω^i_X→W_nΩ^i_X); Lemme 5.7.3 with n=0 is statement (1) for r=1, and Corollaire 5.7.5 is the pro-form of (3). Illusie does not state the finite-level sequences (1) for r≥2 and (3); proof steps 2 and 4 derive them in the smooth case from the kernel estimate (5.7.4)."
         },
         {
           "sourceId": "illusie-drw",
           "locator": "Part I, §3: Proposition 3.2 (p. 568), Proposition 3.3 ((3.3.1)) and Proposition 3.4 (p. 569), Proposition 3.26 (p. 581), Proposition 3.28 and Corollaire 3.29 (p. 582)",
-          "excerpt": "(où 1 désigne la projection canonique) est surjective pour la topologie étale.",
           "match": "For X smooth over a perfect scheme: the map F:W_nΩ^i_X→W_nΩ^i_X/dV^(n−1)Ω^(i−1)_X of statement (1), equal to C⁻¹ for n=1 (3.3, from 3.2), and the étale surjectivity of 1−F:W_(n+1)Ω^i_X→W_nΩ^i_X (3.26, the excerpt). Also used in the proof steps: the injection W_nΩ^*_X→W_(n+1)Ω^*_X induced by p, with ker(p^i)=Fil^(n+1−i) on W_(n+1)Ω^*_X (3.4), and the case q=0 of (1) and (2) (3.28, (3.29.1))."
         }
       ],
@@ -12021,7 +11812,6 @@
         {
           "sourceId": "dl",
           "locator": "Appendix B.1 (embedding systems and admissible embedding systems, pp.80–81) and B.2, from 'From now on, we assume that (X,L) is strictly semistable' to (B.5), pp.81–82",
-          "excerpt": "It is well-known that the above objects do not depend on the choice of the embedding system for (X,L)/W[t]◦.",
           "match": "The PD-envelope complexes, their identification with the Hyodo–Kato complexes Wω_X and Wω̃_X (stated as well known), the triangle (B.4) and the equivalences (B.5) are as printed; the source gives no proof of the independence statements."
         }
       ],
@@ -12110,13 +11900,11 @@
         {
           "sourceId": "dl",
           "locator": "Appendix B.1, Definition B.1, Remark B.2 and Lemma B.3 with proof, p.80; B.2, the definitions of ω_(U,X), ω̃_(U,X) (p.81) and (B.6)–(B.9), p.83",
-          "excerpt": "under which (B.1) is equivalent to (B.4). On the other hand, by Lemma B.3, we have a natural map",
           "match": "The maps (B.6) and (B.9), with their sources and targets, and the remark that they are only maps (Remark B.2) are as printed."
         },
         {
           "sourceId": "dl",
           "locator": "Appendix B.2, diagrams (B.7), (B.8) and (B.10), p.83",
-          "excerpt": "in which the upper horizontal arrow is induced by the one in [65, Proposition 8.10].",
           "match": "(B.10) is displayed as a diagram that (B.6) and (B.9) fit into; its upper arrow is induced by Sato's map and its lower arrow is the horizontal arrow of (B.8). The source does not prove its commutativity and the node records the condition under which it holds."
         }
       ],
@@ -12287,7 +12075,6 @@
         {
           "sourceId": "stacks-dpa",
           "locator": "Example 23.2.3 (tag 07GN)",
-          "excerpt": "Let $A$ be a ring such that every integer $n$ not divisible by $p$ is invertible, i.e., $A$ is a $\\mathbf{Z}_{(p)}$-algebra. Then $I = pA$ has a canonical divided power structure. Namely, given $x = pa \\in I$ we set $$ \\gamma_n(x) = \\frac{p^n}{n!} a^n $$",
           "match": "The node is this example. It follows the second route the example gives (the definition works for ℤ₍p₎, and the result then follows from Lemma 23.4.2), using case (2) of that lemma, the principal case, which needs no flatness; the example does not say which case it means. The functoriality and the comparison with ℤ_p are not in the source; they follow from uniqueness."
         }
       ],
@@ -12322,7 +12109,6 @@
         {
           "sourceId": "stacks-crys",
           "locator": "Section 60.2 (07H7), Lemma 60.2.5 (tag 07KE) with proof",
-          "excerpt": "Let $B$ be an $A$-algebra and $IB \\subset J \\subset B$ an ideal. Let $x_i$ be a set of variables. Then $$ D_{B[x_i], \\gamma}(JB[x_i] + (x_i)) = D_{B, \\gamma}(J) \\langle x_i \\rangle $$",
           "match": "The statement is the lemma. The proof steps are the second proof indicated in the source, from the universal properties of the divided power polynomial algebra and of the envelope."
         }
       ],
@@ -12367,7 +12153,6 @@
         {
           "sourceId": "stacks-crys",
           "locator": "Section 60.3, Lemma 60.3.1 (tag 07HH) with proof",
-          "excerpt": "Let $B = A \\oplus M$ as an $A$-algebra where $M$ is an ideal of square zero and set $J = I \\oplus M$. Set $$ \\delta_n(x + z) = \\gamma_n(x) + \\gamma_{n - 1}(x)z $$ for $x \\in I$ and $z \\in M$. Then $\\delta$ is a divided power structure and",
           "match": "The statement is the lemma; the proof steps follow its direct verification of the axioms. The API items on the projection and on derivations are immediate from the formula and are how Lemmas 60.6.3 and 60.6.6 use the lemma."
         }
       ],
@@ -12472,7 +12257,6 @@
         {
           "sourceId": "stacks-crys",
           "locator": "Section 60.4 (07HJ), Definition 60.4.1 (tag 07HK) and the last paragraph of the section",
-          "excerpt": "We say {\\it $\\delta$ is compatible with $\\gamma$} if there exists a divided power structure $\\bar\\gamma$ on $J + IB$ such that $$ (A, I, \\gamma) \\to (B, J + IB, \\bar \\gamma)\\quad\\text{and}\\quad (B, J, \\delta) \\to (B, J + IB, \\bar \\gamma) $$ are homomorphisms of divided power rings.",
           "match": "The statement is the definition. The first acceptance item is the last sentence of the section ('compatibility is equivalent to the condition that (A, I, γ) → (B, J, δ) is a homomorphism of divided power rings' when IB⊆J); uniqueness of γ̄ and the criteria in the API are added and proved in proofSteps."
         }
       ],
@@ -12580,7 +12364,6 @@
         {
           "sourceId": "stacks-crys",
           "locator": "Section 60.3, Lemma 60.3.2 (tag 07HI) with proof",
-          "excerpt": "Let $q : M \\times M \\to N$ be an $A$-bilinear map. Let $B = A \\oplus M \\oplus N$ as an $A$-algebra with multiplication",
           "match": "The statement is Lemma 60.3.2; the reduction to the torsion-free ring ℤ⟨s,s′⟩ is the proof printed there. The check that B is a commutative ring is not printed."
         }
       ],
@@ -12620,7 +12403,6 @@
         {
           "sourceId": "stacks-dpa",
           "locator": "§23.3, Lemma 23.3.4 and Remarks 23.3.5–23.3.6",
-          "excerpt": "be a pushout in the category of divided power rings (pushouts exist by Lemma \\ref{lemma-colimits}). Then \\begin{enumerate} \\item $B''/J'' = B/J \\otimes_{A/I} B'/J'$, \\item the map $\\varphi : B \\otimes_A B' \\to B''$ is surjective, and",
           "match": "The node is Lemma 23.3.4 restricted to pushouts together with the three properties of Remark 23.3.5 and the warning of Remark 23.3.6; nothing is added."
         }
       ],
@@ -12670,7 +12452,6 @@
         {
           "sourceId": "stacks-crys",
           "locator": "§60.6, Remarks 60.6.8–60.6.9; §60.12, Definition 60.12.1 and Lemmas 60.12.2–60.12.4; §60.14; §60.15, Lemma 60.15.1",
-          "excerpt": "A {\\it connection} is an additive map $$ \\nabla : M \\longrightarrow M \\otimes_B \\Omega $$ such that $\\nabla(bm) = b \\nabla(m) + m \\otimes \\text{d}b$ for $b \\in B$ and $m \\in M$.",
           "match": "Remarks 60.6.8–60.6.9 give connections, their extension to M⊗Ωⁱ, integrability, the de Rham complex and base change for a quotient Ω of Ω_{B/A} satisfying the hypothesis of an Algebra lemma on de Rham complexes (the node states the hypothesis directly and proves its sufficient condition). §§60.12, 60.14 and 60.15 give Ω_{X/S}, connections on O_{X/S}-modules and the connection of a crystal; the proofs of Lemmas 60.12.2 and 60.12.3 are omitted in the source. Tensor products and duals of connections (API) are not in the source."
         }
       ],
@@ -12876,19 +12657,16 @@
         {
           "sourceId": "stacks-crys",
           "locator": "§60.10 (tag 07IN), Sheaves on the crystalline site: the kernel J_{X/S} of O_{X/S}→O_X and its divided powers",
-          "excerpt": "Note that $\\mathcal{J}_{X/S}$ comes equipped with a canonical divided power structure.",
           "match": "The source supplies the divided power ideal sheaf on which the logarithm is defined. The unit sequence, the logarithm and the Chern class are not in this source; they are in Gros, II.5.1 (after Berthelot–Illusie)."
         },
         {
           "sourceId": "gros-chern",
           "locator": "Chapitre II, §5.1, printed p. 24 (PDF page 25): (5.1.7)–(5.1.9); p. 25: (5.1.11)–(5.1.13)",
-          "excerpt": "la première classe de Chern d'un faisceau inversible telle qu'elle",
           "match": "The source recalls the crystalline first Chern class of Berthelot–Illusie: the exact sequence 0→1+J_(X/W_n)→O^*_(X/W_n)→O_X^*→0 of (5.1.8), the logarithm 1+J_(X/W_n)→J_(X/W_n) and c₁:O_X^*→J_(X/W_n)[1] of (5.1.9), and realises it on the multiplicative de Rham complex of a lift. The node states this for a general PD base on which p is locally nilpotent; the source treats W_n(k) and X smooth over k."
         },
         {
           "sourceId": "stacks-derham",
           "locator": "de Rham Cohomology, Section \"First Chern class in de Rham cohomology\" (tag 0FLE); Lemma 0FMJ (de Rham cohomology of projective space)",
-          "excerpt": "The image of the isomorphism class of the invertible module $\\mathcal{L}$ is denoted $c^{dR}_1(\\mathcal{L}) \\in H^2_{dR}(X/S)$.",
           "match": "The de Rham first Chern class defined through dlog, with which part (4) compares the crystalline class on a smooth lift, and the computation for projective space used in the tests."
         }
       ],
@@ -12993,13 +12771,11 @@
         {
           "sourceId": "blm-derhamwitt",
           "locator": "§2.5, Definition 2.5.4; p.20 in arXiv v3 and in the published version",
-          "excerpt": "We will say that M∗ is strict if it is saturated and the map ρM∶M∗ → W(M)∗ is an isomorphism. We let DCstr denote the full subcategory of DC spanned by the strict Dieudonné complexes.",
           "match": "The definition and DC_str are Definition 2.5.4. The degreewise form and the description by separatedness and completeness for the filtration N_r are the node's; that W(M) is strict (Corollary 2.7.6) is in CR.4/strict-completion."
         },
         {
           "sourceId": "blm-derhamwitt",
           "locator": "§2.5, Example 2.5.6; p.20 in arXiv v3 and in the published version",
-          "excerpt": "If these conditions are satisfied, then M∗ is strict if and only if A is p-adically complete: that is, if and only if the canonical map",
           "match": "The degree-zero example behind IsStrict.degreeZero_iff and the four tests: \"these conditions\" are that A is p-torsion-free and F is an automorphism, and the canonical map is A→lim A/p^rA."
         }
       ],
@@ -13066,13 +12842,11 @@
         {
           "sourceId": "blm-derhamwitt",
           "locator": "§2.7, Proposition 2.7.1 with proof, Corollaries 2.7.2 and 2.7.4, Remark 2.7.3; p.23 in arXiv v3 and in the published version",
-          "excerpt": "Let M∗ be a saturated Dieudonné complex and let r be a nonnegative integer. Then the map Fr∶M∗ → M∗ induces an isomorphism of graded abelian groups",
           "match": "Statement (1) is Proposition 2.7.1 (the isomorphism is W_r(M)^*→H^*(M^*/p^rM^*)); steps 1–3 are the source's proof. Naturality in M is not stated there; the source uses it in the proof of Corollary 2.7.4."
         },
         {
           "sourceId": "blm-derhamwitt",
           "locator": "§2.7, Corollary 2.7.2 (arXiv v3 pp.23–24; published p.24) and Remark 2.7.3 (p.24 in both versions)",
-          "excerpt": "Then the quotient map u∶M∗/pM∗ → W1(M)∗ is a quasi-isomorphism of cochain complexes.",
           "match": "Statement (2) for r=1 is Corollary 2.7.2 and for general r is Remark 2.7.3. Steps 4–5 are the direct argument of Remark 2.7.3; the source proves Corollary 2.7.2 instead from Proposition 2.4.5 and the isomorphism α_F."
         }
       ],
@@ -13125,7 +12899,6 @@
         {
           "sourceId": "lz-relative",
           "locator": "§1.1, paragraph after the proof of Lemma 1.2, printed p.13",
-          "excerpt": "commutative R-algebra S. The Witt vectors of any length Wm(S) have a divided power structure on the ideal",
           "match": "The source states the formula γ_n(Vξ)=(p^(n−1)/n!)·V(ξ^n) on V W_(m−1)(S) for an algebra S over a Z_(p)-algebra, with a reference to Grothendieck (Groupes de Barsotti–Tate et cristaux de Dieudonné, p.76) and without proof; the proof steps, uniqueness, functoriality and the examples are added by the node."
         }
       ],
@@ -13245,25 +13018,21 @@
         {
           "sourceId": "blm-derhamwitt",
           "locator": "§4.4, Definition 4.4.1, Remark 4.4.3, Proposition 4.4.4 with its proof sketch, Remark 4.4.5, Definition 4.4.6, Remark 4.4.7, Warning 4.4.8, Remark 4.4.9, pp.48–51",
-          "excerpt": "Definition 4.4.6. Let R be a commutative Fp-algebra and let {WrΩ∗ R}r≥0 denote an initial object of the category of VPCR.",
           "match": "The axioms (a)–(e), the initial object and the four properties are as printed. The source gives the existence only as a proof sketch and says of W_r(R)≅W_rΩ⁰_R that 'it is not difficult to see'; the second proof step supplies the argument. Functoriality in R and the map to the Langer–Zink complex are not stated in the source."
         },
         {
           "sourceId": "lz-relative",
           "locator": "Introduction, PDF p.4",
-          "excerpt": "If R is a perfect ring of characteristic p our complex agrees with Illusie’s complex.",
           "match": "Langer–Zink assert the agreement of their relative complex over a perfect base with Illusie's complex, without proof. Proof steps 4 and 6 prove it over F_p, for every F_p-algebra R, from Illusie I.2.17 and I.2.18."
         },
         {
           "sourceId": "illusie-drw",
           "locator": "Part I, §1: Définition 1.1 ((V1)–(V3)), Théorème 1.3 ((1.3.1)), Définition 1.4, Proposition 1.5 ((1.5.2)), Proposition 1.6, printed pp. 543–545; 1.10 (p. 547); 1.15 (p. 550)",
-          "excerpt": "DÉFINITION 1.1. — Soit X un topos. On appelle V-pro-complexe de DR sur X la donnée d'un",
           "match": "Illusie's original definition, on any topos; it differs from axioms (a)–(e): (V1) requires M⁰_n=W_n(M⁰_1) with the usual restriction and Verschiebung (there is no map β), and (V3) imposes (e) only for x of degree 0, the general case being (1.5.2) for the universal object. W_•Ω^*_A is the value at A of the left adjoint of M_•↦M⁰_1 (Théorème 1.3, which also gives Ω^*_(W_n(A))→W_nΩ^*_A surjective and Ω^*_A≅W_1Ω^*_A); Proposition 1.6 is the acceptance item on perfect rings. That the node's initial object has Illusie's universal property is proof step 5."
         },
         {
           "sourceId": "illusie-drw",
           "locator": "Part I, §2 E: Théorème 2.17, Proposition 2.18 ((2.18.1)–(2.18.6)), printed pp. 562–564",
-          "excerpt": "se prolonge de manière unique en un homomorphisme de systèmes projectifs d'algèbres graduées",
           "match": "For every F_p-algebra R (Illusie: every topos ringed in F_p-algebras): the maps F:W_(r+1)Ω^*_R→W_rΩ^*_R of graded rings extending F on Witt vectors, with F(d[x])=[x]^(p−1)d[x] and FdV=d (2.17), FV=VF=p, dF=pFd and x·V(y)=V(F(x)·y) (2.18). Proof step 6 uses them to make the classical complex an F–V procomplex for R/F_p and to invert the map to the Langer–Zink complex."
         }
       ],
@@ -13377,7 +13146,6 @@
         {
           "sourceId": "blm-derhamwitt",
           "locator": "§6.5, Proposition 6.5.1, Corollary 6.5.2, Theorem 6.5.3, Remark 6.5.4, pp.74–75; §6.6 (Notation 6.6.1 to the proof of Theorem 6.5.3), pp.76–78",
-          "excerpt": "Theorem 6.5.3. Let R be a commutative Fp-algebra. Then the unit map R → W Ω0 R /V W Ω0 R exhibits W Ω0 R /V W Ω0 R as a seminormalization of R.",
           "match": "The statement is Theorem 6.5.3 with the consequences drawn in Corollary 6.5.2 and Remark 6.5.4; the proof steps follow §6.6."
         }
       ],
@@ -13512,25 +13280,21 @@
         {
           "sourceId": "blm-derhamwitt",
           "locator": "§2.6, Definition 2.6.1, p.21",
-          "excerpt": "(1) The cochain complex X∗ 0 vanishes. (2) The map R∶X∗ r+1 → X∗ r is surjective for each r ≥ 0. (3) The operator F∶X∗ r+1 → X∗ r satisfies dF = pFd for each r ≥ 0. (4) The operators F, R, and V commute with each other.",
           "match": "The definition, the eight axioms and the category TD are Definition 2.6.1, transcribed axiom by axiom with the printed indexing; the hypotheses spell out which composites axiom (4) concerns. The source does not list Vd=p·dV or FdV=d among the axioms; the API item relations derives them."
         },
         {
           "sourceId": "blm-derhamwitt",
           "locator": "§2.6, Proposition 2.6.2 with proof (Lemmas 2.6.3, 2.6.4), pp.21–22, and Proposition 2.6.5 with proof, pp.22–23",
-          "excerpt": "Let F∶X∗ → X∗ denote the map of graded abelian groups given by the inverse limit of the Frobenius operators F∶X∗ r+1 → X∗ r . Then (X∗,F) is a saturated Dieudonné complex.",
           "match": "Statement (a) is Proposition 2.6.2 and the first assertion of (b) is Proposition 2.6.5. That the Verschiebung of the limit is the limit of the maps V is not stated there; it is proved in the second proof step and is used silently in the proof of Proposition 2.9.1."
         },
         {
           "sourceId": "blm-derhamwitt",
           "locator": "§2.9, Proposition 2.9.1 with proof and Corollaries 2.9.2, 2.9.3, 2.9.4 with proofs, pp.27–28",
-          "excerpt": "Corollary 2.9.4. The composite functor DCstr ↪ DC → TD sending a strict Dieudonné complex M∗ to the strict Dieudonné tower {Wr(M)∗}r≥0 is an equivalence of categories, with inverse equivalence given by",
           "match": "The remaining assertions of (b) are Proposition 2.9.1 and Corollaries 2.9.2, 2.9.3, and (c) is Corollary 2.9.4. The source proves Corollary 2.9.3 from Corollary 2.7.6; the fourth proof step gives the direct argument. In 'DC_str ↪ DC → TD' the second functor is defined on saturated complexes only."
         },
         {
           "sourceId": "blm-derhamwitt",
           "locator": "§2.5, Example 2.5.7 (Free Strict Dieudonné Complexes), pp.20–21",
-          "excerpt": "Moreover, the strict Dieudonné complex M∗ is freely generated by x ∈ M0 in the following sense: for any strict Dieudonné complex N∗, evaluation on x induces a bijection",
           "match": "The example behind the third acceptance item and test_tower_free. The source gives M⁰, M¹, d and the rules FdV=d, FV=p; the quotients W_r(M) and the verification of the axioms are computed by the node."
         }
       ],

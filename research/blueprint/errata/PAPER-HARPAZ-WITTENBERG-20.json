@@ -39,7 +39,7 @@
       "review": {
         "verdict": "confirmed",
         "by": "REV-ERRATA-PAPER-HARPAZ-WITTENBERG-20",
-        "reason": "Confirmed with narrowed reach and correction. Read the author/arXiv statements and the complete proofs of Propositions3.1/3.3 and Theorem4.2. The citation to Theorem4.2(i) omits checking one of its standing hypotheses. Changed affects from a stated result to the proof: no counterexample to the implication was found, and the geometric section already supplied in Proposition3.3(i) is relevant to the weaker classical criterion. Adding rational connectedness is only a sufficient restricted repair. Read Sko90 Theorem1/proof in a public transcription, but did not certify the full split-fibre generalization from Sko96; this verdict does not assert that the broad remark is false. Limited to the public manuscript versions, not the unread journal full text."
+        "reason": "Confirmed with narrowed reach and correction. Read the author/arXiv statements and the complete proofs of Propositions3.1/3.3 and Theorem4.2. The citation to Theorem4.2(i) omits checking one of its standing hypotheses. Changed affects from a stated result to the proof: no counterexample to the implication was found, and the geometric section already supplied in Proposition3.3(i) is relevant to the weaker classical criterion. Adding rational connectedness is only a sufficient restricted repair. Read Sko90 Theorem1 and its proof, but did not certify the full split-fibre generalization from Sko96; this verdict does not assert that the broad remark is false. Limited to the public manuscript versions, not the unread journal full text."
       }
     },
     {
@@ -115,7 +115,7 @@
         "read": "Transcription of Skorobogatov1990 pp205–209: Theorem1 and proof. No scan-image comparison; no claim to have read Sko96.",
         "access": "restricted",
         "citation": "Skorobogatov, On the fibration method for proving the Hasse principle and weak approximation, Séminaire de théorie des nombres, Paris 1988-89, Progress in Mathematics 91, Birkhäuser, pp. 205-219",
-        "note": "Read as an unauthorised transcription, which this project does not cite. The passage needs re-reading in a legitimate copy before the finding is relied on."
+        "note": "The passage needs checking against the published volume before it is relied on."
       }
     ],
     "limits": "Both recorded findings reviewed and corrected. No fresh full-paper census; no additional source finding established. Published-version comparison remains unavailable and is not treated as agreement. The broader section-based repair of E1 was not certified in this errata review."

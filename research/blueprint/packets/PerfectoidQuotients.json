@@ -685,7 +685,6 @@
         {
           "sourceId": "bms2-thh-2019",
           "locator": "Definition 4.18, p.22",
-          "excerpt": "A ring R is perfectoid if it is p-adically complete",
           "match": "Exact definition; the zero-ring separation is a library-interface adaptation, not a change of mathematical scope."
         }
       ],
@@ -818,7 +817,6 @@
         {
           "sourceId": "bms2-thh-2019",
           "locator": "Definition 4.18, p.22",
-          "excerpt": "A ring R is perfectoid if it is p-adically complete",
           "match": "API promotion used in the characteristic-p equivalence."
         }
       ],
@@ -855,7 +853,6 @@
         {
           "sourceId": "bms1-integral-2018",
           "locator": "Lemma 3.10 proof, p.23, unit detection in S♭",
-          "excerpt": "it is enough to check that the image",
           "match": "The proof uses unit detection in the inverse limit; the general statement is extracted from the coordinate argument."
         }
       ],
@@ -896,7 +893,6 @@
         {
           "sourceId": "bms1-integral-2018",
           "locator": "Lemma 3.10 proof, p.23, deduction that a is a unit",
-          "excerpt": "a₀ are units",
           "match": "Supplies the general-ring unit test used by the kernel-generator argument; the pinned DVR file only has a field-specialized test."
         }
       ],
@@ -933,7 +929,6 @@
         {
           "sourceId": "bms1-integral-2018",
           "locator": "Lemma 3.10 proof, p.23, first two Witt coordinates of ξ′a",
-          "excerpt": "ξ = ξ′a",
           "match": "The displayed degree-one coordinate is exactly the formula used here."
         }
       ],
@@ -975,7 +970,6 @@
         {
           "sourceId": "bms1-integral-2018",
           "locator": "Lemma 3.10 proof, p.23, and Example 3.15, p.24",
-          "excerpt": "Then S is perfectoid if and only if it is perfect.",
           "match": "Specializes the primitive-generator proof to π=0; all coefficient steps are recorded separately."
         }
       ],
@@ -1014,7 +1008,6 @@
         {
           "sourceId": "bms1-integral-2018",
           "locator": "Example 3.15, p.24",
-          "excerpt": "Then S is perfectoid if and only if it is perfect.",
           "match": "Expands the equality S=A_inf(S)/p=S♭ into the missing injectivity declaration."
         }
       ],
@@ -1056,7 +1049,6 @@
         {
           "sourceId": "bms1-integral-2018",
           "locator": "Definition 3.1 and Lemma 3.2 statement, p.19; naturality of the construction",
-          "excerpt": "Ainf(S) = W(S♭)",
           "match": "Packet-derived functoriality from the baseline congruence formula; no unread proof of Lemma 3.2 is claimed."
         }
       ],
@@ -1098,7 +1090,6 @@
         {
           "sourceId": "bms1-integral-2018",
           "locator": "§3.1, Definition 3.1 and Lemma 3.4, pp.19–21",
-          "excerpt": "Further functorial properties",
           "match": "Ring-map naturality is derived from the existing Mathlib construction; Lemma 3.4 supplies the surrounding θ convention, not a verbatim statement of this lemma."
         }
       ],
@@ -1140,7 +1131,6 @@
         {
           "sourceId": "bms2-thh-2019",
           "locator": "Definition 4.18, p.22",
-          "excerpt": "A ring R is perfectoid if it is p-adically complete",
           "match": "A presentation-independent predicate on rings; the transport proof uses the named naturality nodes."
         }
       ],
@@ -1185,7 +1175,6 @@
         {
           "sourceId": "bms1-integral-2018",
           "locator": "Example 3.15, p.24, with Lemma 3.10 proof, p.23",
-          "excerpt": "Then S is perfectoid if and only if it is perfect.",
           "match": "Exact characteristic-p equivalence, expanded to the pinned carriers."
         }
       ],
@@ -1224,7 +1213,6 @@
         {
           "sourceId": "bs-prisms-2022",
           "locator": "Theorem 7.4 and its proof, pp.56 and 62",
-          "excerpt": "The map S → Sperfd is surjective.",
           "match": "Elementary characteristic-p specialization used in the quotient proof; source-derived bookkeeping, not a separately named theorem in BS22."
         }
       ],
@@ -1264,13 +1252,11 @@
         {
           "sourceId": "bms1-integral-2018",
           "locator": "Example 3.15, p.24",
-          "excerpt": "Then S is perfectoid if and only if it is perfect.",
           "match": "Packet-derived elementary quotient criterion supporting the BS22 characteristic-p application."
         },
         {
           "sourceId": "bs-prisms-2022",
           "locator": "Theorem 7.4 and its proof, pp.56 and 62",
-          "excerpt": "The map S → Sperfd is surjective.",
           "match": "Specialization to quotients of perfect characteristic-p rings."
         }
       ],
@@ -1311,7 +1297,6 @@
         {
           "sourceId": "bs-prisms-2022",
           "locator": "Theorem 7.4 and its proof, pp.56 and 62",
-          "excerpt": "The map S → Sperfd is surjective.",
           "match": "Candidate perfectoidization in characteristic p, combined with BMS1 Example 3.15."
         }
       ],
@@ -1355,7 +1340,6 @@
         {
           "sourceId": "bs-prisms-2022",
           "locator": "Theorem 7.4 and its proof, pp.56 and 62",
-          "excerpt": "The map S → Sperfd is surjective.",
           "match": "Explicit characteristic-p proof of the universal-property and surjectivity specialization; no claim to close the mixed-characteristic theorem."
         }
       ],
@@ -1398,7 +1382,6 @@
         {
           "sourceId": "bs-prisms-2022",
           "locator": "Theorem 7.4 and its proof, pp.56 and 62",
-          "excerpt": "The map S → Sperfd is surjective.",
           "match": "The root-ideal description in the printed principal-case proof, specialized to characteristic p and supplied with an elementary algebraic argument."
         }
       ],
@@ -1438,13 +1421,11 @@
         {
           "sourceId": "bms1-integral-2018",
           "locator": "Example 3.15, p.24",
-          "excerpt": "Then S is perfectoid if and only if it is perfect.",
           "match": "Exact algebraic quotient application; no Tate or completed-quotient assertion."
         },
         {
           "sourceId": "bs-prisms-2022",
           "locator": "Theorem 7.4 and its proof, pp.56 and 62",
-          "excerpt": "The map S → Sperfd is surjective.",
           "match": "Acceptance criterion for the characteristic-p surjectivity route."
         }
       ],
@@ -1506,7 +1487,6 @@
         {
           "sourceId": "BMS2-WITT-TORSION",
           "locator": "Proposition 4.19(3), complete elementary proof, published p.227; arXiv v2 p.23",
-          "excerpt": "elementary proof",
           "match": "Refines the elementary proof to a general principal quotient of the existing Witt ring with an explicit unit-coordinate premise. The first Teichmuller p-adic digit is the inverse Frobenius of Witt coordinate one, so the two unit conditions agree."
         }
       ],
@@ -1560,7 +1540,6 @@
         {
           "sourceId": "BMS2-WITT-TORSION",
           "locator": "Proposition 4.19(3), complete elementary proof, published p.227; arXiv v2 p.23",
-          "excerpt": "elementary proof",
           "match": "Refines the elementary proof to a general principal quotient of the existing Witt ring with an explicit unit-coordinate premise. The first Teichmuller p-adic digit is the inverse Frobenius of Witt coordinate one, so the two unit conditions agree."
         }
       ],
@@ -1616,7 +1595,6 @@
         {
           "sourceId": "BMS2-WITT-TORSION",
           "locator": "Proposition 4.19(3), complete elementary proof, published p.227; arXiv v2 p.23",
-          "excerpt": "elementary proof",
           "match": "Refines the elementary proof to a general principal quotient of the existing Witt ring with an explicit unit-coordinate premise. The first Teichmuller p-adic digit is the inverse Frobenius of Witt coordinate one, so the two unit conditions agree."
         }
       ],
@@ -1671,7 +1649,6 @@
         {
           "sourceId": "bs-prisms-2022",
           "locator": "§§2–4; Lemma 3.9, Theorem 3.10 and Lemma 4.8, pp.31–32,38–39",
-          "excerpt": "Let (A, I) be a perfect prism.",
           "match": "Source milestones are reexported through their existing owners, not reconstructed here."
         }
       ],
@@ -1724,7 +1701,6 @@
         {
           "sourceId": "bs-prisms-2022",
           "locator": "Theorem 6.3 and its proof, §§4–6, pp.38–54",
-          "excerpt": "Theorem 6.3 (The Hodge-Tate comparison).",
           "match": "Source milestones are reexported through their existing owners, not reconstructed here."
         }
       ],
@@ -1766,13 +1742,11 @@
         {
           "sourceId": "bs-prisms-2022",
           "locator": "Notation 7.1, p.55",
-          "excerpt": "S is a derived p-complete ring",
           "match": "Exact statement and proof read; notation is normalized in this node."
         },
         {
           "sourceId": "stacks-completion",
           "locator": "Lemma 15.93.1 (tag 091P), criterion (7), proof (7)⇒(1)",
-          "excerpt": "derived complete",
           "match": "For an ordinary ring/module and I=(p), derived completeness is exactly bijectivity of (a_n) ↦ (a_n−p a_(n+1)) on its countable product. The suggested predicate uses this concrete specialization; DD.1 owns the generic notion."
         }
       ],
@@ -1886,7 +1860,6 @@
         {
           "sourceId": "bs-prisms-2022",
           "locator": "Proposition 7.2 with proof, p.55",
-          "excerpt": "admits an initial",
           "match": "Exact statement and proof read; notation is normalized in this node."
         }
       ],
@@ -1998,7 +1971,6 @@
         {
           "sourceId": "bs-prisms-2022",
           "locator": "Corollary 7.3, p.56",
-          "excerpt": "There is a universal perfectoid ring",
           "match": "Use S, not the R printed in the second category in the proof; inherited source issue E1."
         }
       ],
@@ -2128,7 +2100,6 @@
         {
           "sourceId": "bs-prisms-2022",
           "locator": "Construction 7.6, Lemmas 7.7–7.8, Example 7.9, Proposition 7.10, pp.56–60",
-          "excerpt": "Construction 7.6 (Constructing derived prismatic cohomology).",
           "match": "Source milestones are reexported through their existing owners, not reconstructed here."
         }
       ],
@@ -2170,7 +2141,6 @@
         {
           "sourceId": "bs-prisms-2022",
           "locator": "Proposition 7.11 with proof, p.60",
-          "excerpt": "Lifting quasisyntomic covers to the prismatic site",
           "match": "Source milestones are reexported through their existing owners, not reconstructed here."
         }
       ],
@@ -2217,7 +2187,6 @@
         {
           "sourceId": "bs-prisms-2022",
           "locator": "Theorem 7.14 with proof and Remark 7.15, pp.61–62",
-          "excerpt": "André’s ﬂatness lemma",
           "match": "Exact statement and proof read; notation is normalized in this node."
         }
       ],
@@ -2268,7 +2237,6 @@
         {
           "sourceId": "bs-prisms-2022",
           "locator": "Theorem 7.4 and proof, pp.56,62",
-          "excerpt": "The map S → Sperfd is surjective.",
           "match": "Exact statement and proof read; notation is normalized in this node."
         }
       ],
@@ -2326,19 +2294,16 @@
         {
           "sourceId": "bs-prisms-2022",
           "locator": "Remark 7.5, p.56",
-          "excerpt": "let S be the ̟-adic completion",
           "match": "Exact statement and proof read; notation is normalized in this node."
         },
         {
           "sourceId": "ecd-2026",
           "locator": "Definition 5.7(ii) and Theorem 5.8, pp.24–25",
-          "excerpt": "The map f is strongly Zariski closed",
           "match": "Exact statement and proof read; notation is normalized in this node."
         },
         {
           "sourceId": "stacks-completion",
           "locator": "091T, Proposition 15.93.5; 091P, Lemma 15.93.1(2), and their proofs",
-          "excerpt": "The following are equivalent",
           "match": "Classical completeness for the principal ideal (ϖ) implies derived completeness; orthogonality to all complexes over S[1/ϖ] implies orthogonality to S[1/p], because ϖ^p divides p. No bounded-torsion hypothesis is added."
         }
       ],
@@ -2452,13 +2417,11 @@
         {
           "sourceId": "bs-prisms-2022",
           "locator": "Remark 7.5, p.56",
-          "excerpt": "Zariski closed sets are strongly Zariski closed",
           "match": "Exact statement and proof read; notation is normalized in this node."
         },
         {
           "sourceId": "ecd-2026",
           "locator": "Theorem 5.8, p.25",
-          "excerpt": "Then f is strongly Zariski closed.",
           "match": "Exact statement and proof read; notation is normalized in this node."
         }
       ],
@@ -2504,13 +2467,11 @@
         {
           "sourceId": "bms1-integral-2018",
           "locator": "Lemma 3.9 with proof, p.22",
-          "excerpt": "The Witt vector Frobenius F",
           "match": "Exact statement and proof read; notation is normalized in this node."
         },
         {
           "sourceId": "dk-witt-frobenius",
           "locator": "Theorem 3.2, (xiv)′⇒(ii)",
-          "excerpt": "Theorem 3.2.",
           "match": "Finite length-reducing Witt Frobenius criterion used explicitly by BMS1."
         }
       ],
@@ -2556,19 +2517,16 @@
         {
           "sourceId": "bms1-integral-2018",
           "locator": "Definition 3.5, Remark 3.8 and Lemma 3.9, pp.21–22",
-          "excerpt": "there exists π ∈ S and a unit u ∈ S ×",
           "match": "Exact statement and proof read; notation is normalized in this node."
         },
         {
           "sourceId": "cesnavicius-purity-2019",
           "locator": "Definition 4.2 and Lemma 4.4, pp.7–8",
-          "excerpt": "Definition 4.2.",
           "match": "Exact statement and proof read; notation is normalized in this node."
         },
         {
           "sourceId": "bms2-thh-2019",
           "locator": "Definition 4.18, p.22",
-          "excerpt": "π p = pu",
           "match": "Exact statement and proof read; notation is normalized in this node."
         }
       ],
@@ -2614,7 +2572,6 @@
         {
           "sourceId": "bms1-integral-2018",
           "locator": "Lemma 3.10 with proof, pp.22–23",
-          "excerpt": "any generator of Ker θ is a non-zero-divisor",
           "match": "Exact statement and proof read; notation is normalized in this node."
         }
       ],
@@ -2657,7 +2614,6 @@
         {
           "sourceId": "bms1-integral-2018",
           "locator": "Remark 3.11, p.23",
-          "excerpt": "ξ1 is a unit of S ♭",
           "match": "Exact statement and proof read; notation is normalized in this node."
         }
       ],
@@ -2699,7 +2655,6 @@
         {
           "sourceId": "bms2-thh-2019",
           "locator": "Proposition 4.19(3), statement and elementary proof, pp.22–23",
-          "excerpt": "R[p∞ ] = R[p].",
           "match": "Exact statement and proof read; notation is normalized in this node."
         }
       ],
@@ -2747,13 +2702,11 @@
         {
           "sourceId": "bms1-integral-2018",
           "locator": "Lemma 3.14 with proof, p.24",
-          "excerpt": "An important property of perfectoid rings",
           "match": "Exact statement and proof read; notation is normalized in this node."
         },
         {
           "sourceId": "bms2-thh-2019",
           "locator": "Proposition 4.19(2) and proof, pp.22–23",
-          "excerpt": "its derived p-completion is isomorphic to R[1].",
           "match": "The absolute rank-one cotangent computation supplies the QSyn and QRSP supplier contract; it is distinct from relative completed vanishing."
         }
       ],
@@ -2796,13 +2749,11 @@
         {
           "sourceId": "cs24-flat-purity",
           "locator": "§2.1.3, equations (2.1.3.1)–(2.1.3.2), pp.11–12",
-          "excerpt": "every perfectoid ring A is reduced",
           "match": "Exact statement and proof read; notation is normalized in this node."
         },
         {
           "sourceId": "cesnavicius-purity-2019",
           "locator": "Remark 4.3, p.8",
-          "excerpt": "imply that R is reduced",
           "match": "Exact statement and proof read; notation is normalized in this node."
         }
       ],
@@ -2852,7 +2803,6 @@
         {
           "sourceId": "cs24-flat-purity",
           "locator": "§§2.1.2–2.1.3, pp.11–12",
-          "excerpt": "Canonical decompositions of perfectoids.",
           "match": "Exact statement and proof read; notation is normalized in this node."
         }
       ],
@@ -2897,7 +2847,6 @@
         {
           "sourceId": "cesnavicius-purity-2019",
           "locator": "Remarks 4.4–4.5, p.8",
-          "excerpt": "each p̟n q Ă R is uniquely determined",
           "match": "Exact statement and proof read; notation is normalized in this node."
         }
       ],
@@ -2939,7 +2888,6 @@
         {
           "sourceId": "cs24-flat-purity",
           "locator": "§2.1.7, p.13",
-          "excerpt": "the smallest p-integrally closed subring",
           "match": "Exact statement and proof read; notation is normalized in this node."
         }
       ],
@@ -3052,13 +3000,11 @@
         {
           "sourceId": "cs24-flat-purity",
           "locator": "§2.1.7, equation (2.1.7.1), p.13",
-          "excerpt": "is injective if and only if",
           "match": "Exact statement and proof read; notation is normalized in this node."
         },
         {
           "sourceId": "cesnavicius-purity-2019",
           "locator": "Lemma 4.7 with proof, p.8",
-          "excerpt": "the p-adic completion",
           "match": "Exact statement and proof read; notation is normalized in this node."
         }
       ],
@@ -3101,7 +3047,6 @@
         {
           "sourceId": "cs24-flat-purity",
           "locator": "Proposition 2.1.8 with proof, pp.13–14",
-          "excerpt": "compatible p-power roots",
           "match": "Exact statement and proof read; notation is normalized in this node."
         }
       ],
@@ -3144,13 +3089,11 @@
         {
           "sourceId": "alb23-prismatic-dieudonne",
           "locator": "Corollary 2.1.10 with proof, p.14",
-          "excerpt": "let R → R′ be p-completely étale.",
           "match": "Exact statement and proof read; notation is normalized in this node."
         },
         {
           "sourceId": "cs24-flat-purity",
           "locator": "Corollary 2.1.6 with proof, p.13",
-          "excerpt": "completion of every ind-étale A-algebra",
           "match": "Exact statement and proof read; notation is normalized in this node."
         }
       ],
@@ -3192,7 +3135,6 @@
         {
           "sourceId": "cs24-flat-purity",
           "locator": "Proposition 2.1.11(a), statement and proof, pp.15–16",
-          "excerpt": "completion of",
           "match": "Exact statement and proof read; notation is normalized in this node."
         }
       ],
@@ -3234,7 +3176,6 @@
         {
           "sourceId": "cs24-flat-purity",
           "locator": "Proposition 2.1.11(b) with proof, pp.15–16",
-          "excerpt": "is a categorical coproduct",
           "match": "Exact statement and proof read; notation is normalized in this node."
         }
       ],
@@ -3276,7 +3217,6 @@
         {
           "sourceId": "cs24-flat-purity",
           "locator": "Proposition 2.1.11(c) with proof, pp.15–17",
-          "excerpt": "each s P S has a root",
           "match": "Exact statement and proof read; notation is normalized in this node."
         }
       ],
@@ -3320,7 +3260,6 @@
         {
           "sourceId": "cs24-flat-purity",
           "locator": "Proposition 2.1.11(d) with proof, pp.16–17",
-          "excerpt": "A product",
           "match": "Exact statement and proof read; notation is normalized in this node."
         }
       ],
@@ -3366,13 +3305,11 @@
         {
           "sourceId": "cs24-flat-purity",
           "locator": "Proposition 2.1.11(e) with proof, pp.16–17",
-          "excerpt": "agrees with the derived",
           "match": "Exact statement and proof read; notation is normalized in this node."
         },
         {
           "sourceId": "stacks-completion",
           "locator": "Tags 0G3I and 091T",
-          "excerpt": "derived complete",
           "match": "Reduced finite-ideal derived completeness supplies separation and then classical completeness."
         }
       ],
@@ -3415,13 +3352,11 @@
         {
           "sourceId": "cesnavicius-purity-2019",
           "locator": "§4.8 in full, pp.8–9",
-          "excerpt": "contains the topologically nilpotent elements",
           "match": "Exact statement and proof read; notation is normalized in this node."
         },
         {
           "sourceId": "bms1-integral-2018",
           "locator": "Lemmas 3.20–3.21 and proofs, pp.26–27",
-          "excerpt": "then R is perfectoid in Fontaine’s sense.",
           "match": "Lemma 3.20 supplies the quoted Fontaine comparison; Lemma 3.21 supplies the torsion-free localization and powerbounded containment. Both statements and proofs were read."
         }
       ],
@@ -3467,13 +3402,11 @@
         {
           "sourceId": "bs-prisms-2022",
           "locator": "Theorem 7.4 proof, p.62",
-          "excerpt": "By Theorem 7.14, we can assume",
           "match": "Exact statement and proof read; notation is normalized in this node."
         },
         {
           "sourceId": "bms1-integral-2018",
           "locator": "Lemma 3.13, p.24",
-          "excerpt": "Tor-independence",
           "match": "Exact statement and proof read; notation is normalized in this node."
         }
       ],
@@ -3523,13 +3456,11 @@
         {
           "sourceId": "bs-prisms-2022",
           "locator": "Theorem 7.4 proof, p.62",
-          "excerpt": "Using ﬁltered colimits",
           "match": "Exact statement and proof read; notation is normalized in this node."
         },
         {
           "sourceId": "stacks-completion",
           "locator": "Tags 091P and 091U; weak-Serre property",
-          "excerpt": "derived complete",
           "match": "Exact statement and proof read; notation is normalized in this node."
         }
       ],
@@ -3577,7 +3508,6 @@
         {
           "sourceId": "bs-prisms-2022",
           "locator": "Theorem 7.4 proof, p.62",
-          "excerpt": "automatically factors over the p-completion",
           "match": "The printed universal-property and image argument is expanded using reducedness, the completed root-stable quotient and the pinned baseline surjectivity of completion."
         }
       ],
@@ -3621,7 +3551,6 @@
         {
           "sourceId": "bs-prisms-2022",
           "locator": "Example 7.12 with proof and footnote 12, p.61",
-          "excerpt": "Covers of the ﬁnal object",
           "match": "Exact statement and proof read; notation is normalized in this node."
         }
       ],
@@ -3666,7 +3595,6 @@
         {
           "sourceId": "bs-prisms-2022",
           "locator": "Proposition 7.11(2), Example 7.13, pp.60–61",
-          "excerpt": "φ : A → A being (p, I)-completely ﬂat",
           "match": "Exact statement and proof read; notation is normalized in this node."
         }
       ],
@@ -3709,7 +3637,6 @@
         {
           "sourceId": "bs-prisms-2022",
           "locator": "Remark 7.15 with proof, p.62",
-          "excerpt": "ind-syntomic cover modulo p",
           "match": "Exact statement and proof read; notation is normalized in this node."
         }
       ],
@@ -3751,7 +3678,6 @@
         {
           "sourceId": "bhatt-direct-summand-2018",
           "locator": "Notation 1.4 and footnote 5, p.3",
-          "excerpt": "satisfies5 A = A∗",
           "match": "Exact statement and proof read; notation is normalized in this node."
         }
       ],
@@ -3794,7 +3720,6 @@
         {
           "sourceId": "bhatt-direct-summand-2018",
           "locator": "Notation 2.1 and Definition 2.2, p.4",
-          "excerpt": "rational open neighbourhoods",
           "match": "Exact statement and proof read; notation is normalized in this node."
         }
       ],
@@ -3839,7 +3764,6 @@
         {
           "sourceId": "bhatt-direct-summand-2018",
           "locator": "Definition 2.2 and footnote 6, p.4",
-          "excerpt": "by passing to (A∞ )∗",
           "match": "Exact statement and proof read; notation is normalized in this node."
         }
       ],
@@ -3954,13 +3878,11 @@
         {
           "sourceId": "bhatt-direct-summand-2018",
           "locator": "Theorem 2.3 and complete proof, pp.4–5",
-          "excerpt": "almost faithfully flat modulo t",
           "match": "Exact statement and proof read; notation is normalized in this node."
         },
         {
           "sourceId": "bhatt-perfectoid-notes-2017",
           "locator": "Theorem 9.4.3(1)–(2) and proof, printed pp.113–115",
-          "excerpt": "a monic polynomial of positive degree.",
           "match": "The general monic-root version and its almost faithful flatness, with the coefficient ring corrected by existing source issue E53; the previous linear element-root construction is its specialization."
         }
       ],
@@ -4013,13 +3935,11 @@
         {
           "sourceId": "bhatt-direct-summand-2018",
           "locator": "Remark 2.7, p.5",
-          "excerpt": "there exists a functorial map",
           "match": "Remark 2.7 states the fixed-field functorial almost variant and refers its proof to the now-acquired Corollary 9.4.7."
         },
         {
           "sourceId": "bhatt-perfectoid-notes-2017",
           "locator": "Corollary 9.4.7 and proof, printed pp.115–117",
-          "excerpt": "each monic polynomial has a root.",
           "match": "The polynomial-indexed coproduct, functoriality and ω₁ countably-filtered completeness argument are read in full; this closes the bibliography/iteration gap G8, while the supplier-carrier gap G2 persists."
         }
       ],
@@ -4495,13 +4415,11 @@
           {
             "sourceId": "bs-prisms-2022",
             "locator": "Section 7.1, Notation 7.1, p. 55 (extraction lines 2422-2425)",
-            "excerpt": "Fix a semiperfectoid ring S, i.e. S is a derived p-complete ring that can be written as a quotient of a perfectoid ring R. We recall that S is called quasiregular if S has bounded p^∞-torsion, and the cotangent complex L_{S/Z_p}[−1] is p-completely flat over S",
             "match": "The exact hypotheses under which Sections 7.1-7.3 are stated."
           },
           {
             "sourceId": "bms2-thh-2019",
             "locator": "Section 4, Definition 4.10, Definition 4.18, Proposition 4.19, Definition 4.20, Remarks 4.21-4.22, pp. 20-23 (extraction lines 929-1094)",
-            "excerpt": "A ring S is quasiregular semiperfectoid if: (1) The ring S is quasisyntomic, i.e. S ∈ QSyn. (2) There exists a map R → S with R perfectoid. (3) The Frobenius of S/pS is surjective, i.e. S/pS is semiperfect.",
             "match": "The BMS2 definition cited by BS22 Notation 7.1, with the equivalent formulation used in the proofs."
           }
         ],
@@ -4531,7 +4449,6 @@
           {
             "sourceId": "bs-prisms-2022",
             "locator": "Section 4.1, Remark 4.7 and Lemma 4.8 with proof, pp. 38-39 (extraction lines 1736-1758)",
-            "excerpt": "To check α is a δ-map, note that α factors uniquely over B^perf := lim_φ B → B by the bijectivity of φ on A. As B^perf is a perfect δ-ring, it is p-torsionfree. Thus, the φ-equivariant map A → B^perf is automatically a δ-map.",
             "match": "The p-torsion subtlety in the proof that the lift is a map of prisms."
           }
         ],
@@ -4563,7 +4480,6 @@
           {
             "sourceId": "bs-prisms-2022",
             "locator": "Section 7.1, Proposition 7.2 with proof, p. 55 (extraction lines 2426-2461)",
-            "excerpt": "The latter δ-ring may however contain new d-torsion elements; but after a transfinite induction (using that completion commutes with ω₁-filtered colimits), we arrive at a derived (p, d)-complete δ-A_inf(R)-algebra Δ^init_S such that d is a nonzerodivisor.",
             "match": "The torsion-removal and completion loop that the stage text calls 'the explicit adjoining, torsion-removal and transfinite completion argument of 7.2'."
           }
         ],
@@ -4591,7 +4507,6 @@
           {
             "sourceId": "bs-prisms-2022",
             "locator": "Section 7.1, Corollary 7.3 with proof, p. 56 (extraction lines 2463-2468), and Lemma 3.9 with proof, pp. 31-32 (extraction lines 1434-1448)",
-            "excerpt": "Note that the category of perfectoid rings S_perfd with a map S → S_perfd is equivalent to the category of perfect prisms (A, I) with a map R → A/I. Thus, the claim follows from Lemma 3.9.",
             "match": "The two-line proof and its two imports (Theorem 3.10 and Lemma 3.9)."
           }
         ],
@@ -4621,7 +4536,6 @@
           {
             "sourceId": "bs-prisms-2022",
             "locator": "Section 7.2, Construction 7.6 and consequences (1)-(5), pp. 56-57 (extraction lines 2494-2532); Theorem 6.3 statement, p. 52 (extraction lines 2353-2356)",
-            "excerpt": "The Hodge-Tate comparison shows that Δ̄_{R/A} := Δ_{R/A} ⊗^L_A A/I admits an exhaustive increasing N-indexed filtration with gr^i given by sending R to the derived p-completion of ∧^i L_{R/(A/I)}{−i}[−i]",
             "match": "The filtered Hodge-Tate comparison for derived prismatic cohomology required by stage Q2."
           }
         ],
@@ -4652,7 +4566,6 @@
           {
             "sourceId": "bs-prisms-2022",
             "locator": "Section 7.2, Lemma 7.7 with proof and Lemma 7.8 with proof, pp. 57-59 (extraction lines 2533-2617)",
-            "excerpt": "In particular, the initial object is the image of some idempotent endomorphism of (Δ_{R/A}, IΔ_{R/A}). In part (3), we conjecture that (Δ_{R/A}, IΔ_{R/A}) is actually the initial object.",
             "match": "Exact strength of the initial-object statement; stage Q2's 'idempotent-retract lemma'."
           }
         ],
@@ -4682,7 +4595,6 @@
           {
             "sourceId": "bs-prisms-2022",
             "locator": "Section 7.2, Example 7.9 with proof, p. 59 (extraction lines 2618-2644)",
-            "excerpt": "By the construction of the prismatic envelope in Proposition 3.13, it follows that B identifies with the prismatic envelope A{J/I}^∧; this implies that B is concentrated in degree 0 and (B, IB) is the initial object of (R/A)_Δ.",
             "match": "The point where PR.0's envelope construction enters the semiperfectoid theory."
           }
         ],
@@ -4712,7 +4624,6 @@
           {
             "sourceId": "bs-prisms-2022",
             "locator": "Section 7.2, Proposition 7.10 with proof, pp. 59-60 (extraction lines 2645-2679)",
-            "excerpt": "Thus, by the Hodge-Tate comparison, Δ_{S'/R} → Δ_{S/R} is surjective, so it suffices to show that the idempotent endomorphism of Δ_{S'/A} is the identity. But, by truncating the set J of generators, we can express S' as a filtered colimit of regular semiperfectoid rings",
             "match": "The reduction of the initial-object claim to the lci case of Example 7.9."
           }
         ],
@@ -4741,7 +4652,6 @@
           {
             "sourceId": "bs-prisms-2022",
             "locator": "Section 7.3, Proposition 7.11 with proof, p. 60 (extraction lines 2680-2706)",
-            "excerpt": "It is easy to see that R → S is a quasisyntomic cover (so S is quasisyntomic over A/I as well), and that A/(I, p) → S/p is relatively semiperfect. In particular, the derived p-completion of the cotangent complex L^∧_{S/(A/I)}[−1] is a p-completely flat S-module.",
             "match": "The explicit compatible-root cover demanded by stage Q3 and the flatness deduced from it."
           }
         ],
@@ -4771,7 +4681,6 @@
           {
             "sourceId": "bs-prisms-2022",
             "locator": "Section 7.3, Theorem 7.14 with proof and Remark 7.15, pp. 61-62 (extraction lines 2731-2773)",
-            "excerpt": "Proposition 7.11 (2) then gives a perfect prism (B, IB) over (A, I) equipped with an A/I-algebra map R̃ → B/IB =: R_1 such that the composition A/I = R → R̃ → R_1 is p-completely faithfully flat. ... Transfinitely iterating the construction R ↦ R_1 yields a quasisyntomic cover R → R' with R' being perfectoid and absolutely integrally closed.",
             "match": "The whole proof as printed; the limit-stage claims are exactly what is left implicit."
           }
         ],
@@ -4801,7 +4710,6 @@
           {
             "sourceId": "bs-prisms-2022",
             "locator": "Section 7.3, proof of Theorem 7.4, p. 62 (extraction lines 2774-2786); statement p. 56 (extraction line 2469)",
-            "excerpt": "Using filtered colimits, we may assume that J is finitely generated, and then by induction we may actually assume that I = (f) is principal. By Theorem 7.14, we can assume that f admits compatible p-power roots f^{1/p^n} ∈ R. But as any perfectoid ring T is reduced, any map S = R/f → T automatically factors over the p-completion of R/(f^{1/p^∞}), which is itself perfectoid.",
             "match": "The complete printed proof; every 'we may assume' is a boundary listed in the hypotheses and gaps."
           }
         ],
@@ -4831,19 +4739,16 @@
           {
             "sourceId": "bs-prisms-2022",
             "locator": "Section 7.1, Remark 7.5, p. 56 (extraction lines 2470-2482)",
-            "excerpt": "Indeed, let I ⊂ R be any ideal, and let S be the ϖ-adic completion of R^+/I ∩ R^+. Then S is a semiperfectoid ring, and so by the theorem R' = S_perfd[1/ϖ] is a perfectoid Tate ring that is a quotient of R and such that any map from R to a perfectoid ring that vanishes on I factors uniquely over R'.",
             "match": "The construction of the closed perfectoid quotient and its universal property, exactly as the stage prescribes."
           },
           {
             "sourceId": "ecd-2026",
             "locator": "Section 5, Definition 5.7, Theorem 5.8 with proof and following remark, pp. 24-25 (extraction lines 1107-1125)",
-            "excerpt": "Theorem 5.8. Let f : Z → X = Spa(R, R^+) be a Zariski closed immersion. Then f is strongly Zariski closed. Proof. This follows from [BS22, Theorem 7.4, Remark 7.5].",
             "match": "The consumer statement (ECD 5.8) and its definitions of Zariski closed and strongly Zariski closed maps."
           },
           {
             "sourceId": "bms1-integral-2018",
             "locator": "Section 3.2, Lemma 3.20 with proof and following remark, pp. 26-27 (lines 1628-1665)",
-            "excerpt": "Let R be a complete Tate ring with a ring of integral elements R+ ⊂ R. If R is perfectoid in Fontaine’s sense, then R+ is perfectoid.",
             "match": "The comparison Remark 7.5 needs so that the completed quotient of R^+ is semiperfectoid and so that T° is an integral perfectoid ring in the universal property."
           }
         ],

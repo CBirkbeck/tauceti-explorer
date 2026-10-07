@@ -666,7 +666,6 @@
     {
      "sourceId": "sch15",
      "locator": "§3.1, Definition 3.1.1 and the sentences after it, p. 971",
-     "excerpt": "We note that our definition of Γ0(p^m) is slightly nonstandard in that we put the extra condition det γ ≡ 1 mod p^m.",
      "match": "The three level groups and the nonstandard similitude condition, corrected to c(γ) ≡ 1 (PerfectoidShimuraVarieties/E1)."
     }
    ],
@@ -793,19 +792,16 @@
     {
      "sourceId": "milne",
      "locator": "§5, 'Passage to the limit', Theorem 5.28 and Remark 5.29, pp. 64–65",
-     "excerpt": "For varying K, the S_K form a variety (scheme) with a right action of G(A_f) in the sense of Deligne 1979, 2.7.1.",
      "match": "Remark 5.29: the inverse system, the right action T(gh) = T(h) ∘ T(g), and S_K = S_{K'}/(K/K') for K' normal in K."
     },
     {
      "sourceId": "hj25",
      "locator": "§5.3, conventions at the start of the subsection, p. 35",
-     "excerpt": "Note that since Sh∗K (G, X) is normal, the map π0 ShK (G, X) → π0 Sh∗K (G, X) is a homeomorphism.",
      "match": "The minimally compactified tower over C and the component comparison used later."
     },
     {
      "sourceId": "sch15",
      "locator": "§3.1, the paragraph before Definition 3.1.1, p. 971",
-     "excerpt": "which is the moduli space of principally polarized g-dimensional abelian varieties with level-K^p-structure and level-K_p-structure",
      "match": "The Siegel instance of the tower."
     }
    ],
@@ -920,13 +916,11 @@
     {
      "sourceId": "milne",
      "locator": "§5, 'Passage to the limit', Theorem 5.28 and Remark 5.29, pp. 64–65",
-     "excerpt": "For varying K, the S_K form a variety (scheme) with a right action of G(A_f) in the sense of Deligne 1979, 2.7.1.",
      "match": "Remark 5.29: the inverse system, the right action T(gh) = T(h) ∘ T(g), and S_K = S_{K'}/(K/K') for K' normal in K."
     },
     {
      "sourceId": "milne",
      "locator": "§5, the paragraph before Definition 5.14, p. 58",
-     "excerpt": "Note that this is a right action: T(gh) = T(h) ∘ T(g).",
      "match": "The right-action convention."
     }
    ],
@@ -1070,13 +1064,11 @@
     {
      "sourceId": "ecd",
      "locator": "§11, Lemma 11.22, p. 63",
-     "excerpt": "Let Yi , i ∈ I, be a cofiltered inverse system of diamonds with qcqs transition maps.",
      "match": "Limits of (locally) spatial diamonds along qcqs maps are (locally) spatial with |Y| = lim |Y_i|."
     },
     {
      "sourceId": "hj25",
      "locator": "§1.3, Theorem 1.5, p. 4",
-     "excerpt": "as diamonds over Spd C. Moreover, the boundary of",
      "match": "The representability theorem is stated as an isomorphism with this diamond limit."
     }
    ],
@@ -1199,7 +1191,6 @@
     {
      "sourceId": "sw13",
      "locator": "§2.4, Definition 2.4.1 and Proposition 2.4.5, pp. 19–21",
-     "excerpt": "In particular, if Y is a perfectoid space over Spa(K, OK ) with a compatible system of maps Y → Xi , then Y factors over X uniquely, making X unique up to unique isomorphism.",
      "match": "Uniqueness and the universal property of a perfectoid tilde-limit."
     }
    ],
@@ -1264,13 +1255,11 @@
     {
      "sourceId": "milne",
      "locator": "§5, 'Passage to the limit', the paragraph before Theorem 5.28 and Theorem 5.28, p. 65",
-     "excerpt": "Let K be a compact open subgroup of G(A_f), and let Z(Q)− be the closure of Z(Q) in Z(A_f).",
      "match": "The closure of the rational centre is what the limit of the tower sees; the p-level kernel is computed from it."
     },
     {
      "sourceId": "milne",
      "locator": "§5, 'Passage to the limit', Theorem 5.28 and Remark 5.29, pp. 64–65",
-     "excerpt": "For varying K, the S_K form a variety (scheme) with a right action of G(A_f) in the sense of Deligne 1979, 2.7.1.",
      "match": "Remark 5.29: the inverse system, the right action T(gh) = T(h) ∘ T(g), and S_K = S_{K'}/(K/K') for K' normal in K."
     }
    ],
@@ -1325,13 +1314,11 @@
     {
      "sourceId": "milne",
      "locator": "§5, Theorem 5.17, p. 59",
-     "excerpt": "Moreover, T(Q)†\\T(A_f)/ν(K) is finite, and the connected component over [1] is canonically isomorphic to Γ\\X+ for some congruence subgroup Γ of Gder(Q) containing K ∩ Gder(Q).",
      "match": "π₀ at finite level and the neutral component."
     },
     {
      "sourceId": "hj25",
      "locator": "§5.3, conventions, p. 35",
-     "excerpt": "Note that since Sh∗K (G, X) is normal, the map π0 ShK (G, X) → π0 Sh∗K (G, X) is a homeomorphism.",
      "match": "Components of the minimal compactification."
     }
    ],
@@ -1456,25 +1443,21 @@
     {
      "sourceId": "milne",
      "locator": "§5, Lemma 5.13, p. 57",
-     "excerpt": "When we endow X with its usual topology and G(A_f) with its adèlic topology (equivalently, the discrete topology), this becomes a homeomorphism.",
      "match": "Decomposition of Sh_K into the quotients Γ_g\\X⁺."
     },
     {
      "sourceId": "hj25",
      "locator": "§5.3, Proposition 5.16 and the sentence after it, p. 36",
-     "excerpt": "We say the Shimura datum (G, X) satisfies Property P if either of these equivalent conditions holds.",
      "match": "Property P is formulated for the full and the neutral component towers."
     },
     {
      "sourceId": "hj25",
      "locator": "§5.3, proof of Proposition 5.16, (2) implies (1), p. 36",
-     "excerpt": "Then Kp acts with finitely many open orbits on the profinite set",
      "match": "Finitely many K_p-orbits on π₀; the same paragraph identifies each component with a neutral component tower at a conjugate tame level gK^pg⁻¹, g ∈ G(𝔸_f^p)."
     },
     {
      "sourceId": "hj25",
      "locator": "§5.3, the sentence after Definition 5.17, p. 36",
-     "excerpt": "In this statement, recall our notational convention that Γ ∩ Kp is shorthand for Γ ∩ (G(Apf )Kp )",
      "match": "The intersection Γ ∩ K_p of the connected towers, read with Γ ⊆ G(ℚ)_+ (PerfectoidShimuraVarieties/E16)."
     }
    ],
@@ -1588,19 +1571,16 @@
     {
      "sourceId": "bhw",
      "locator": "§8, Proposition 8.4, p. 32",
-     "excerpt": "Proposition 8.4. [AIP16a, Lem. 8.1]. This action of OF×,+ on X factors through the finite",
      "match": "The unit quotient Δ(N) at tame level."
     },
     {
      "sourceId": "bhw",
      "locator": "§8.2.4, Lemma 8.16(1), p. 35",
-     "excerpt": "The map β2 : XΓ(pn ) → XG,Γ(pn ) is a torsor for ∆(pn N ) := OF×,+ /(1 + pn N OF )×2 .",
      "match": "The level-dependent groups Δ(pⁿN) of the hybrid tower."
     },
     {
      "sourceId": "bhw",
      "locator": "§8.2, p. 33",
-     "excerpt": "OF×,+ no longer admits a polarisation action on XΓ∗ (pn ) , due",
      "match": "The G*-tower at full level carries no polarization action."
     }
    ],
@@ -1699,7 +1679,6 @@
     {
      "sourceId": "bp21",
      "locator": "§4.4.38, p. 77",
-     "excerpt": "Shimura varieties. For the moment, let (G, X) be an arbitrary Shimura datum",
      "match": "The general-datum tower taken in diamonds."
     }
    ],
@@ -1830,13 +1809,11 @@
     {
      "sourceId": "bp26",
      "locator": "§3.3, p. 34",
-     "excerpt": "Note that the same cone decomposition is used at each",
      "match": "The toroidal tower with the same cone decomposition at every level."
     },
     {
      "sourceId": "ps16",
      "locator": "Appendice A, Remarque A.13, PDF p. 27",
-     "excerpt": "mais nous ne savons pas si c’est un isomorphisme",
      "match": "The comparison that Pilloni–Stroh leave open concerns the generic fibre of the limit of formal toroidal models, not the limit of the rigid toroidal compactifications."
     }
    ],
@@ -1968,13 +1945,11 @@
     {
      "sourceId": "sch15",
      "locator": "§3.1, pp. 970–971, and §3.2.2, Definition 3.2.12 and Lemma 3.2.13, pp. 983–984",
-     "excerpt": "The point of our definition is to make clear that X∗(ε) is independent of the choice of the local lift.",
      "match": "Hasse domains and the setting of §3."
     },
     {
      "sourceId": "sch15",
      "locator": "§3.2.2, p. 983",
-     "excerpt": "using the tautological element",
      "match": "𝒳*_{K_p} is the base change along ℚ(ζ_{pᵐ}) → ℚ_p^cycl matching the tautological ζ_{pᵐ} with the similitude root."
     }
    ],
@@ -2044,25 +2019,21 @@
     {
      "sourceId": "sch15",
      "locator": "§3.2.2, p. 983",
-     "excerpt": "As in the inverse limit over m, the difference goes away, we will forget about this difference.",
      "match": "The fixed-similitude spaces over ℚ_p^cycl and the spaces over ℚ_p have the same inverse limit; (ii) makes this precise."
     },
     {
      "sourceId": "sch15",
      "locator": "§3.2.2, footnote 10, p. 983",
-     "excerpt": "A better solution would be to associate the spaces over Qcycl p with Kp ∩Sp2g (Qp ) instead.",
      "match": "The ℚ_p^cycl-spaces see only the similitude-1 part; (iii) identifies the K′_p ∩ ker c torsor."
     },
     {
      "sourceId": "sch15",
      "locator": "§3.1, footnote 7, p. 971",
-     "excerpt": "Of course, the action does not preserve the structure morphism",
      "match": "The GSp_2g(ℚ_p)-action is semilinear over ℚ_p^cycl, through u(γ)."
     },
     {
      "sourceId": "sch15",
      "locator": "§4.1, proof of Theorem 4.1.1, p. 1019",
-     "excerpt": "Sp2g by tensoring with C over Qcycl p , and passing to a connected component.",
      "match": "The passage from Scholze's Siegel space to the tower over C."
     }
    ],
@@ -2097,7 +2068,6 @@
     {
      "sourceId": "sch15",
      "locator": "§3.2.2, Lemma 3.2.14, pp. 984–985",
-     "excerpt": "There is a natural commutative diagram",
      "match": "Statement of Lemma 3.2.14."
     }
    ],
@@ -2133,13 +2103,11 @@
     {
      "sourceId": "sch15",
      "locator": "§3.2.4, Lemma 3.2.21 and Corollary 3.2.22 with proofs, pp. 991–994",
-     "excerpt": "We need Tate’s normalized traces to relate the situation at Γ0(p∞)-level to the situation at some finite Γ0(pm)-level.",
      "match": "Purpose of §3.2.4."
     },
     {
      "sourceId": "sch15",
      "locator": "§3.2.4, proof of Corollary 3.2.22(ii), p. 994",
-     "excerpt": "where P1 , . . . , Pn ∈ p1−2ε Rε hX1 , . . . , Xn i.",
      "match": "The coefficient bound p^{1−2ε}, not p^{1−ε}."
     }
    ],
@@ -2185,13 +2153,11 @@
     {
      "sourceId": "sch15",
      "locator": "§3.2.2, Theorem 3.2.15(i) and its proof, pp. 985–987",
-     "excerpt": "Moreover, by definition of C, these maps reduce to the relative Frobenius maps modulo p1−ε .",
      "match": "Part (i) and the reduction to relative Frobenius."
     },
     {
      "sourceId": "sch15",
      "locator": "§3.2.2, proof of Theorem 3.2.15(i), p. 986",
-     "excerpt": "Uniqueness is immediate from uniqueness of the canonical subgroup.",
      "match": "Uniqueness of the diagram."
     }
    ],
@@ -2231,19 +2197,16 @@
     {
      "sourceId": "sch15",
      "locator": "§3.2.2, Theorem 3.2.15(ii) and its proof, pp. 985–987",
-     "excerpt": "Both vertical maps are finite étale of degree pg(g+1)/2 (using that m ≥ 1).",
      "match": "The degree comparison that makes the square cartesian."
     },
     {
      "sourceId": "sch15",
      "locator": "§3.2.2, proof of Theorem 3.2.15(ii), pp. 987–988",
-     "excerpt": "Essentially the same argument proves that the maps to",
      "match": "The extension to the minimal compactification for g ≥ 2."
     },
     {
      "sourceId": "heuer20",
      "locator": "§2.5, Proposition 2.22 and its proof, p. 14",
-     "excerpt": "Since the canonical subgroup of the Tate curve is given by",
      "match": "The anticanonical cusp charts at Γ₀(pⁿ)-level, used for g = 1."
     }
    ],
@@ -2280,13 +2243,11 @@
     {
      "sourceId": "sch15",
      "locator": "§3.2.2, Theorem 3.2.15(iii) and Remark 3.2.16, p. 986",
-     "excerpt": "The letter ‘a’ stands for anticanonical, indicating that D is a complement of the (weak) canonical subgroup C.",
      "match": "Remark 3.2.16 names the anticanonical locus."
     },
     {
      "sourceId": "sch15",
      "locator": "§3.2.2, proof of Theorem 3.2.15(iii), p. 987",
-     "excerpt": "The same argument works in part (iii) as soon as we have checked that",
      "match": "Open immersion plus degree count, after checking the image lies in the anticanonical locus."
     }
    ],
@@ -2401,7 +2362,6 @@
     {
      "sourceId": "sch15",
      "locator": "§3.2.2, the paragraphs after Theorem 3.2.15 and Lemma 3.2.17, p. 988",
-     "excerpt": "Moreover, we have integral models for the first tower, such that the transition maps identify with the relative Frobenius maps modulo p1−ε .",
      "match": "The anticanonical tower and its integral Frobenius models."
     }
    ],
@@ -2441,13 +2401,11 @@
     {
      "sourceId": "sch15",
      "locator": "§3.2.3, Definition 3.2.18 and Corollary 3.2.19 with proof, pp. 989–990",
-     "excerpt": "From [52, Th. 5.2], it follows that R∞[p−1] and S∞[t−1] are tilts, as desired.",
      "match": "The final step identifying the tilt."
     },
     {
      "sourceId": "sch15",
      "locator": "§3.2.3, Corollary 3.2.19, p. 989",
-     "excerpt": "There are unique perfectoid spaces",
      "match": "Statement of Corollary 3.2.19."
     }
    ],
@@ -2485,7 +2443,6 @@
     {
      "sourceId": "sch15",
      "locator": "§3.2.3, Corollary 3.2.20 with proof, p. 990",
-     "excerpt": "It suffices to check the same assertions for the tilts in characteristic p (cf. Lemma 2.2.7).",
      "match": "First step of the proof."
     }
    ],
@@ -2592,7 +2549,6 @@
     {
      "sourceId": "sch15",
      "locator": "§3.2.4, Corollary 3.2.23, p. 994",
-     "excerpt": "called Tate’s normalized trace.",
      "match": "Names the extension constructed in Corollary 3.2.23."
     }
    ],
@@ -2631,7 +2587,6 @@
     {
      "sourceId": "sch15",
      "locator": "§3.2.5, introduction and Lemma 3.2.24 with proof, pp. 995–997",
-     "excerpt": "This follows from a combination of the earlier version of Hartog (which is a statement at finite level) with Tate’s normalized traces.",
      "match": "Proof strategy of Lemma 3.2.24."
     }
    ],
@@ -2667,7 +2622,6 @@
     {
      "sourceId": "sch15",
      "locator": "§3.2.5, the paragraphs before Lemma 3.2.25 and Lemmas 3.2.25–3.2.26, pp. 997–998",
-     "excerpt": "Our strategy is to first guess what the tilt of the space is and then prove that our guess is correct.",
      "match": "The untilting strategy that these lemmas start."
     }
    ],
@@ -2706,13 +2660,11 @@
     {
      "sourceId": "sch15",
      "locator": "§3.2.5, proof of Lemma 3.2.27, p. 999",
-     "excerpt": "Observe that X ∗ ⊗Z(p) Fp admits a resolution of singularities, given by the toroidal compactification",
      "match": "Where resolution of singularities enters."
     },
     {
      "sourceId": "sch15",
      "locator": "§2.3.3, after Definition 2.3.8, p. 967",
-     "excerpt": "In the application, X will be an open subset of the minimal compactification, Z will be the boundary, and U the locus of good reduction.",
      "match": "The intended triple."
     }
    ],
@@ -2751,7 +2703,6 @@
     {
      "sourceId": "sch15",
      "locator": "§3.2.5, Lemmas 3.2.29–3.2.32 with proofs, pp. 999–1000",
-     "excerpt": "In characteristic p, one can build a candidate by taking the perfection of the normalization.",
      "match": "The candidate tilt."
     }
    ],
@@ -2793,13 +2744,11 @@
     {
      "sourceId": "sch15",
      "locator": "§3.2.5, Propositions 3.2.33–3.2.34 with proofs, pp. 1000–1001",
-     "excerpt": "Passing to the inverse limit over m and using Lemma 2.3.11, we get the",
      "match": "Statements of Propositions 3.2.33–3.2.34."
     },
     {
      "sourceId": "heuer20",
      "locator": "§2.6, Lemma 2.23 with proof, pp. 14–15",
-     "excerpt": "Galois torsors for the groups Z/pn Z and Z/pn+1 Z, it suffices to produce a section",
      "match": "Finite étaleness of the Γ₁/Γ₀ cover over the cusps at finite level, used for g = 1."
     }
    ],
@@ -2842,13 +2791,11 @@
     {
      "sourceId": "sch15",
      "locator": "§3.2.5, after Theorem 3.2.36, p. 1002",
-     "excerpt": "Summarizing our efforts so far, we have proved that a strict (and explicit) neighborhood of the ordinary locus in the minimal compactification becomes affinoid perfectoid in the inverse limit and that Riemann’s Hebbarkeitssatz holds true with respect to the boundary.",
      "match": "The source's summary of Theorem 3.2.36."
     },
     {
      "sourceId": "heuer20",
      "locator": "§2.7, Lemma 2.25 and Proposition 2.26, pp. 15–16",
-     "excerpt": "All in all, we get the following description of Tate curve parameter spaces at finite level",
      "match": "The finite-level cusp charts at Γ(pᵐ)-level used for g = 1."
     }
    ],
@@ -2958,13 +2905,11 @@
     {
      "sourceId": "sch15",
      "locator": "§3.3.1, Remark 3.3.3 and Lemma 3.3.4 with proof, pp. 1004–1006",
-     "excerpt": "Note that the direct limit on the right-hand side is not filtered; however, any point comes from a unique minimal (K, K + ).",
      "match": "Points of the inverse limit."
     },
     {
      "sourceId": "sch15",
      "locator": "§3.3.1, Lemma 3.3.4, p. 1004",
-     "excerpt": "There is a GSp2g (Qp )-equivariant continuous map",
      "match": "Statement of Lemma 3.3.4."
     }
    ],
@@ -3002,13 +2947,11 @@
     {
      "sourceId": "sch15",
      "locator": "§3.3.2, Lemma 3.3.14 with proof, pp. 1010–1011",
-     "excerpt": "Because the displayed triple is good, any open and",
      "match": "Goodness of Theorem 3.2.36 enters Lemma 3.3.14."
     },
     {
      "sourceId": "sch15",
      "locator": "§3.3.1, Lemma 3.3.6 with proof and Remark 3.3.7, pp. 1006–1007",
-     "excerpt": "Here is a more direct argument for the final step, not referring to [55], which was suggested by the referee.",
      "match": "Remark 3.3.7 avoids the classification theorem."
     }
    ],
@@ -3047,13 +2990,11 @@
     {
      "sourceId": "sch15",
      "locator": "§3.3.1, proof of Lemma 3.3.8, p. 1008",
-     "excerpt": "We argue by induction on g. For g = 0, there is nothing to show.",
      "match": "The induction on g through the Raynaud extension."
     },
     {
      "sourceId": "sch15",
      "locator": "§3.3.1, Lemmas 3.3.8–3.3.11 with proofs, pp. 1008–1009",
-     "excerpt": "This is one of the technical key results of this paper and is ultimately the reason that it was enough to understand some strict neighborhood of the anticanonical tower.",
      "match": "Author's comment on Lemma 3.3.8."
     }
    ],
@@ -3101,13 +3042,11 @@
     {
      "sourceId": "sch15",
      "locator": "§3.3.2, Corollary 3.3.12 with proof, p. 1009",
-     "excerpt": "Choose any 0 < ε < 1/2, and use Lemma 3.3.11 and Theorem 3.2.36.",
      "match": "Proof of Corollary 3.3.12."
     },
     {
      "sourceId": "sch15",
      "locator": "§3.3.1, after Definition 3.3.5, p. 1006",
-     "excerpt": "Also, the condition of being affinoid perfectoid is stable under the action of GSp2g (Qp ).",
      "match": "Equivariance of the affinoid perfectoid condition."
     }
    ],
@@ -3226,13 +3165,11 @@
     {
      "sourceId": "sch15",
      "locator": "§3.3.2, Corollary 3.3.13, Lemmas 3.3.14–3.3.16 and Corollary 3.3.17 with proofs, pp. 1009–1012",
-     "excerpt": "by the goodness part of Theorem 3.2.36. This proves extension of πHT , as desired.",
      "match": "The boundedness-plus-goodness step extending π_HT."
     },
     {
      "sourceId": "sch15",
      "locator": "§3.3.2, proof of Corollary 3.3.13, p. 1009",
-     "excerpt": "Uniqueness is clear. For existence, we argue as in the proof of Lemma 3.3.4",
      "match": "Proof of Corollary 3.3.13."
     }
    ],
@@ -3278,25 +3215,21 @@
     {
      "sourceId": "sch15",
      "locator": "§3.3.3, proof of Theorem 3.3.18(i), p. 1014",
-     "excerpt": "Let γ ∈ GSp2g (Qp ) be the diagonal element (p, . . . , p, 1, . . . , 1).",
      "match": "The contraction into the anticanonical chart."
     },
     {
      "sourceId": "sch15",
      "locator": "§3.3.3, Lemmas 3.3.19–3.3.20 with proof, p. 1013",
-     "excerpt": "The second lemma follows from the first and the proof of Lemma 3.3.14.",
      "match": "The compactified versions of Lemmas 3.3.6 and 3.3.14."
     },
     {
      "sourceId": "sch15",
      "locator": "§3.3.3, Theorem 3.3.18 (existence, (i), (ii)) with proof, pp. 1012–1014",
-     "excerpt": "By [54, Prop. 2.22(ii)], the properties are stable under passage to rational subsets",
      "match": "The step from the anticanonical chart to rational subsets."
     },
     {
      "sourceId": "sch15",
      "locator": "§3.1, Theorem 3.1.2 and footnote 7, pp. 971–972",
-     "excerpt": "Of course, the action does not preserve the structure morphism to Spa(Qcycl p , Zcycl p )",
      "match": "The GSp_2g(ℚ_p)-action is semilinear over ℚ_p^cycl."
     }
    ],
@@ -3344,25 +3277,21 @@
     {
      "sourceId": "ps16",
      "locator": "Introduction, Théorème 0.4, PDF p. 2",
-     "excerpt": "Alors il existe un espace perfectoide X (p∞ )tor−mod ∼ limn X (pn )tor .",
      "match": "Statement of Théorème 0.4."
     },
     {
      "sourceId": "ps16",
      "locator": "Appendice A, Corollaire A.19, PDF p. 30",
-     "excerpt": "L’espace X (p∞ )tor−mod est perfectoı̈de.",
      "match": "Conclusion of the appendix."
     },
     {
      "sourceId": "ps16",
      "locator": "Appendice A, opening paragraph, PDF p. 21",
-     "excerpt": "nous faisons comme si K = GSp2g",
      "match": "The appendix takes the tame level to be GSp_2g(∏_{q≠p} ℤ_q)."
     },
     {
      "sourceId": "bp26",
      "locator": "§3.3, p. 34",
-     "excerpt": "Note that the same cone decomposition is used at each",
      "match": "The toroidal perfectoid Siegel space with fixed Σ used by Boxer–Pilloni."
     }
    ],
@@ -3466,13 +3395,11 @@
     {
      "sourceId": "sch15",
      "locator": "§3.1, Theorem 3.1.2(i), p. 971",
-     "excerpt": "Fix any K p ⊂ GSp2g (Apf ) contained in the level-N -con- gruence subgroup for some N ≥ 3 prime to p.",
      "match": "The tame level hypothesis that makes the K-action free."
     },
     {
      "sourceId": "sch15",
      "locator": "§3.1, footnote 7, p. 971",
-     "excerpt": "Of course, the action does not preserve the structure morphism",
      "match": "Elements with c ≠ 1 act semilinearly over ℚ_p^cycl, so only K¹ acts by deck transformations."
     }
    ],
@@ -3515,19 +3442,16 @@
     {
      "sourceId": "heuer20",
      "locator": "§1.1, Theorem 1.1, and §3, Lemma 3.4, Proposition 3.8, Theorems 3.17 and 3.22, Proposition 3.20, pp. 2–25",
-     "excerpt": "and has an open neighbourhood given by a Tate curve parameter space",
      "match": "The boundary of the perfectoid modular curve over a cusp and its Tate-curve neighbourhood."
     },
     {
      "sourceId": "heuer20",
      "locator": "§2.2, Definition 2.7, p. 8, and §2.7, p. 15",
-     "excerpt": "Here the inverse is necessary to indeed obtain a left action",
      "match": "Heuer's classical levels and his left action through γ^∨."
     },
     {
      "sourceId": "heuer20",
      "locator": "§1.1, p. 1",
-     "excerpt": "Due to assumptions on the codimension of the boundary to be ≥ 2, these tools do not apply in the elliptic case.",
      "match": "Why the elliptic cusps need a separate construction."
     }
    ],
@@ -3644,13 +3568,11 @@
     {
      "sourceId": "sch15",
      "locator": "§4.1, first paragraphs and footnote 15, p. 1018",
-     "excerpt": "We fix such an embedding; all constructions to follow will depend (at least a priori) on this choice.",
      "match": "Dependence on the embedding."
     },
     {
      "sourceId": "cs17",
      "locator": "§2.1, Example 2.1.1 and the following paragraph, p. 11",
-     "excerpt": "such that there is a closed embedding of the corresponding Shimura varieties over",
      "match": "Closed embedding over the reflex field after shrinking the Siegel level."
     }
    ],
@@ -3763,13 +3685,11 @@
     {
      "sourceId": "sch15",
      "locator": "§4.1, second and third paragraphs and footnote 16, p. 1018",
-     "excerpt": "it is not known to the author whether the analogous result holds true for the minimal compactification",
      "match": "The closed-embedding statement is known only for the open varieties, which forces the image compactification."
     },
     {
      "sourceId": "hj25",
      "locator": "§5.2, remark after Proposition 5.14, p. 34",
-     "excerpt": "result for the genuine minimal compactification relies crucially on the perfectoidization theorem of",
      "match": "The genuine and ad hoc compactifications are different objects."
     }
    ],
@@ -3811,13 +3731,11 @@
     {
      "sourceId": "cs17",
      "locator": "§2.1, Theorem 2.1.2 and footnote 8, pp. 11–12",
-     "excerpt": "The setup is slightly different, but the proof works verbatim.",
      "match": "Caraiani–Scholze import Scholze's Theorem 4.1.1 into the Deligne setup."
     },
     {
      "sourceId": "cs17",
      "locator": "§2.1, Theorem 2.1.2, p. 12",
-     "excerpt": "following is part of Theorem IV.1.1 of [Sch15b].",
      "match": "The open tower statement."
     }
    ],
@@ -3859,13 +3777,11 @@
     {
      "sourceId": "sch15",
      "locator": "§4.1, Theorem 4.1.1 (existence, (i), (ii)) and its proof, pp. 1018–1020",
-     "excerpt": "First, observe that Theorem 3.3.18 implies the theorem in case G = Sp2g by tensoring with C over Qcycl p , and passing to a connected component.",
      "match": "First step of the proof."
     },
     {
      "sourceId": "sch15",
      "locator": "§4.1, proof of Theorem 4.1.1, p. 1020",
-     "excerpt": "part (ii) follows from Lemma 2.2.9. All other properties are deduced directly via pullback from G′.",
      "match": "The boundary statement by pullback."
     }
    ],
@@ -3902,7 +3818,6 @@
     {
      "sourceId": "hj25",
      "locator": "§5.2, proof of Proposition 5.14, p. 34",
-     "excerpt": "However, this last condition can easily be removed using [Han16, Theorem 1.4], noting in particular that",
      "match": "Removal of Scholze's tame level condition."
     }
    ],
@@ -3952,13 +3867,11 @@
     {
      "sourceId": "hj25",
      "locator": "§5.2, Proposition 5.14 with proof, pp. 34–35",
-     "excerpt": "good tower (over Ep ) in the sense of Definition 5.12.",
      "match": "Conclusion (e) of Proposition 5.14."
     },
     {
      "sourceId": "bp21",
      "locator": "§4.4.27, p. 74",
-     "excerpt": "It is not known whether",
      "match": "Boxer–Pilloni: the tilde-limit property of the genuine minimal tower is open (the sentence continues with the formula)."
     }
    ],
@@ -3993,7 +3906,6 @@
     {
      "sourceId": "hj25",
      "locator": "§5.2, Corollary 5.15 with proof, p. 35",
-     "excerpt": "H ∩ (G(Apf )Kp ). We hope this doesn’t cause any confusion.",
      "match": "The convention H ∩ K_p used in Corollary 5.15 and §5.3."
     }
    ],
@@ -4028,7 +3940,6 @@
     {
      "sourceId": "hj25",
      "locator": "§5.3, conventions, p. 35",
-     "excerpt": "Now, fix once and for all an isomorphism C ≃ Cp (for simplicity), and let C/Cp be a complete",
      "match": "§5.3 works over C, while Corollary 5.15 is over E_𝔭."
     }
    ],
@@ -4065,7 +3976,6 @@
     {
      "sourceId": "bp21",
      "locator": "§4.4.27, p. 74",
-     "excerpt": "inverse limit is taken in the category of diamonds) by [BS19], thm. 1.16. We",
      "match": "Boxer–Pilloni construct the genuine tower as a diamond limit and map it to the image-compactified one."
     }
    ],
@@ -4101,7 +4011,6 @@
     {
      "sourceId": "cs17",
      "locator": "§2.1, Theorem 2.1.3(1), p. 12",
-     "excerpt": "is independent of the choice of embedding of Shimura data.",
      "match": "Caraiani–Scholze prove independence for the period map; the towers are independent by construction."
     }
    ],
@@ -4224,19 +4133,16 @@
     {
      "sourceId": "bp21",
      "locator": "§4.4.10, Remark 4.4.11, p. 66",
-     "excerpt": "We are forced to use x−1 above because F LG,µ = Pµ \\G.",
      "match": "The right-action convention."
     },
     {
      "sourceId": "bp26",
      "locator": "§3.1, p. 33",
-     "excerpt": "We let Pµstd = P std be the stabilizer of ⟨e1 , · · · , eg ⟩ and we let Pµ = P be the opposite parabolic,",
      "match": "The pinned Siegel cocharacter µ(z) = diag(Id_g, zId_g) and P_µ = Stab⟨e_{g+1}, …, e_{2g}⟩."
     },
     {
      "sourceId": "bp26",
      "locator": "§3.3, Remark 3.3.1, p. 35",
-     "excerpt": "The map πHT is indeed G(Qp )-equivariant",
      "match": "The Siegel right-equivariance computation."
     }
    ],
@@ -4272,13 +4178,11 @@
     {
      "sourceId": "sch15",
      "locator": "§3.3.3, Theorem 3.3.18(iii)–(iv) with proof, pp. 1012–1014",
-     "excerpt": "It suffices to check on geometric points outside the boundary; cf. proof of uniqueness in Corollary 3.3.17.",
      "match": "Proof of (iv)."
     },
     {
      "sourceId": "bp26",
      "locator": "§3.3, Remark 3.3.1, p. 35",
-     "excerpt": "(A, Ψ ◦ f ) and g(Ψ ◦ f ) = f −1 g(Ψ), so πHT ((A, Ψ ◦ f )) = πHT ((A, Ψ))f .",
      "match": "The right-equivariance computation."
     }
    ],
@@ -4322,19 +4226,16 @@
     {
      "sourceId": "sch15",
      "locator": "§3.3.3, proof of Theorem 3.3.18(vi), p. 1014",
-     "excerpt": "This follows from Proposition 3.3.1 and [30, Th. II.1.1]. These results show that, in fact, one map is defined integrally and",
      "match": "The integral bound from Proposition 3.3.1 and Fargues' theorem ([30] = Fargues–Genestier–Lafforgue)."
     },
     {
      "sourceId": "sch15",
      "locator": "§3.3.3, Theorem 3.3.18(v)–(vi) with proof, pp. 1013–1015",
-     "excerpt": "Here is an alternative argument to get the desired boundedness. Argue by induction on g.",
      "match": "Alternative to the Fargues input, covering p = 2."
     },
     {
      "sourceId": "sch15",
      "locator": "§3.3, p. 1003",
-     "excerpt": "As we are always working over Qcycl p , we can ignore all Tate twists in the following.",
      "match": "Scholze's suppression of Tate twists."
     }
    ],
@@ -4461,31 +4362,26 @@
     {
      "sourceId": "bhw",
      "locator": "§2.2, Lemma 2.4, p. 8",
-     "excerpt": "Lemma 2.4. The action of Γ0 (p) fixes Br (Zp : 1) ⊆ P1 . In terms of the parameter z, we have",
      "match": "The g = 1 model of the stable domain and automorphy factor."
     },
     {
      "sourceId": "bhw",
      "locator": "§2.2, Definition 2.2, p. 8",
-     "excerpt": "let Br (U : 1) ⊆ P1 be the subspace defined as the union of all closed balls of radius r",
      "match": "The g = 1 stable domain: the distance-to-ℤ_p neighbourhood, not a disc."
     },
     {
      "sourceId": "bhw",
      "locator": "§3.3, Lemma 3.19 and its proof, p. 13",
-     "excerpt": "which shows that γ ∗ s = (cz + d)s as desired.",
      "match": "The g = 1 frame transformation."
     },
     {
      "sourceId": "sch15",
      "locator": "§3.3, p. 1008",
-     "excerpt": "For any subset J ⊂ {1, . . . , 2g}",
      "match": "Scholze's Plücker charts Fl_J; the chart J = {g+1, …, 2g} is described on the same page."
     },
     {
      "sourceId": "bp26",
      "locator": "§3.3, p. 35",
-     "excerpt": "0 → LieA (1) → Tp (A) ⊗Zp C → ωAt → 0.",
      "match": "The Hodge–Tate quotient is ω_{A^t}, untwisted."
     }
    ],
@@ -4531,13 +4427,11 @@
     {
      "sourceId": "cs17",
      "locator": "§2.1, Theorem 2.1.3(1), p. 12",
-     "excerpt": "is independent of the choice of embedding of Shimura data.",
      "match": "Factorisation and embedding independence."
     },
     {
      "sourceId": "cs17",
      "locator": "§2.3, after Lemma 2.3.7, p. 21",
-     "excerpt": "Therefore, the Hodge-Tate period map for SK p factors through this canonical map",
      "match": "The factorisation step."
     }
    ],
@@ -4581,19 +4475,16 @@
     {
      "sourceId": "cs17",
      "locator": "§2.1, Theorem 2.1.3(2), p. 12",
-     "excerpt": "The isomorphism is independent of the choice of Siegel embedding, and",
      "match": "Statement of Theorem 2.1.3(2)."
     },
     {
      "sourceId": "bpa",
      "locator": "§4.4.23, p. 74",
-     "excerpt": "2.3.9, there is a canonical identification of torsors MdR and Man",
      "match": "The twisted identification in the authors' manuscript."
     },
     {
      "sourceId": "bpa",
      "locator": "§4.4, Remark 4.4.12, p. 69",
-     "excerpt": "Remark 4.4.12. Here is a more down-to-earth way of explaining the compatibility of",
      "match": "The sign of the twist on vector bundles: (π_HT^{tor})^*V_{κ,FL}(−⟨µ, κ⟩) = π^*_{K_p}V_{K^pK_p,κ,Σ}."
     }
    ],
@@ -4634,13 +4525,11 @@
     {
      "sourceId": "cs17",
      "locator": "§2.3, Lemma 2.3.7 and the construction of π_HT, pp. 20–21",
-     "excerpt": "given by the trivialization of the p-adic Tate module of the universal abelian variety",
      "match": "The construction that makes the map functorial."
     },
     {
      "sourceId": "cs17",
      "locator": "§2.3, proof of Lemma 2.3.7, p. 20",
-     "excerpt": "idempotent e ∈ V ⊗ , with p-adic realization ep ∈ Vp⊗ . The tensor ep defines an",
      "match": "The idempotent argument, applied here to V₂∘f inside V₁^⊗."
     }
    ],
@@ -4693,19 +4582,16 @@
     {
      "sourceId": "bp21",
      "locator": "§4.4.27, p. 74",
-     "excerpt": "Let us call these cone decompositions perfect cone decompositions",
      "match": "Perfect cone decompositions."
     },
     {
      "sourceId": "bpa",
      "locator": "§4.4.25, p. 75",
-     "excerpt": "By [Lan22] thm. 2.2, for a cofinal subset of cone decompositions Σ, we have",
      "match": "The citation of Lan's closed-immersion theorem ([Lan22] = Lan, Math. Res. Lett. 29 (2022))."
     },
     {
      "sourceId": "sch15",
      "locator": "§4.1, footnote 16, p. 1018",
-     "excerpt": "Hodge-Tate period map defined below factors over F`G . We do not address this question",
      "match": "Scholze leaves the factorisation through the Hodge-type flag variety open; it is supplied by the Zariski-closure argument."
     }
    ],
@@ -4744,25 +4630,21 @@
     {
      "sourceId": "ps16",
      "locator": "§1.19, Théorème 1.22 and Remarques 1.23–1.26, PDF pp. 8–10",
-     "excerpt": "Corollaire 1.16. — Le faisceau",
      "match": "The modified sheaf and the Hodge–Tate classes descend; Théorème 1.22 follows."
     },
     {
      "sourceId": "ps16",
      "locator": "§1.19, Remarque 1.26, PDF p. 10",
-     "excerpt": "points ordinaires et des points non ordinaires",
      "match": "The contraction identifies ordinary with non-ordinary points; the t_j are base-point free (Remarque 1.25)."
     },
     {
      "sourceId": "pil20",
      "locator": "§12.9.1, p. 81",
-     "excerpt": "In [63] section 1.8 we have introduced a formal scheme",
      "match": "Pilloni's restatement (its locator '[71], p. 72' is an arXiv page of Scholze; the Annals pages are 1029–1030)."
     },
     {
      "sourceId": "bcgp21",
      "locator": "§6.2.1, arXiv pp. 144–145",
-     "excerpt": "is an integer N such that for all n ≥ N, there is a normal admissible formal scheme",
      "match": "The Hilbert–Siegel form."
     }
    ],
@@ -4804,13 +4686,11 @@
     {
      "sourceId": "bhw",
      "locator": "§3.3, formula (3.2), Lemma 3.17, Definition 3.18, Lemma 3.19, Proposition 3.21, Remark 3.23, pp. 12–14",
-     "excerpt": "In summary, in the complex case one trivialises ωE whereas in the p-adic case it is ωE ∨ ,",
      "match": "BHW's comparison with the complex case."
     },
     {
      "sourceId": "pan22",
      "locator": "§3.1.1, sequence (3.1.1), p. 17",
-     "excerpt": "universal p-adic Tate module corresponds to the representation V (1), where (1) denotes the",
      "match": "Pan's twist normalisation."
     }
    ],
@@ -4845,13 +4725,11 @@
     {
      "sourceId": "pan22",
      "locator": "§4.2.3, sequences (4.2.1)–(4.2.3), p. 38",
-     "excerpt": "make everything Hecke-equivariant. It follows from the construction in [Pan22, 4.1.3] that",
      "match": "The Hecke-equivariant correction."
     },
     {
      "sourceId": "pan22",
      "locator": "§4.2.3, p. 38",
-     "excerpt": "not depend on the choice of the trivializations of ∧2 D and Qp (1).",
      "match": "Independence of the trivialisations."
     }
    ],
@@ -4896,13 +4774,11 @@
     {
      "sourceId": "bhw",
      "locator": "§5.3, p. 23",
-     "excerpt": "functor that sends any L-algebra R to the set P1 (R ⊗Z OF ). This is the flag variety of G∗ . By",
      "match": "The Hilbert flag variety."
     },
     {
      "sourceId": "bhw",
      "locator": "§5.4, Remark 5.21, p. 25",
-     "excerpt": "However, we caution that for general L, the morphism z admits no such canonical interpretation.",
      "match": "Components only after splitting."
     }
    ],
@@ -4936,13 +4812,11 @@
     {
      "sourceId": "pan22",
      "locator": "§3.2.1, pp. 18–19",
-     "excerpt": "affinoid subsets B of Fℓ stable under finite intersections such that for any U ∈ B,",
      "match": "The basis used by Pan."
     },
     {
      "sourceId": "sch15",
      "locator": "§3.1, Theorem 3.1.2(iii), p. 972",
-     "excerpt": "There is a basis of open affinoid subsets",
      "match": "Scholze's formulation of the affinoid basis."
     }
    ],
@@ -5053,13 +4927,11 @@
     {
      "sourceId": "hj25",
      "locator": "§5.3, Proposition 5.16 and Definition 5.17, p. 36",
-     "excerpt": "We say the Shimura datum (G, X) satisfies Property P if either of these equivalent conditions",
      "match": "Definition of Property 𝒫."
     },
     {
      "sourceId": "hj25",
      "locator": "§5.3, Definition 5.17, p. 36",
-     "excerpt": "arithmetic subgroup Γ ⊆ Gad (Q)+ , the diamond",
      "match": "The connected version."
     }
    ],
@@ -5098,13 +4970,11 @@
     {
      "sourceId": "hj25",
      "locator": "§5.3, Proposition 5.16 with proof, pp. 35–36",
-     "excerpt": "has a natural Kp -action. Then Kp acts with finitely many open orbits on the profinite set",
      "match": "The orbit finiteness used with Lemma 5.1."
     },
     {
      "sourceId": "hj25",
      "locator": "§5.3, proof of Proposition 5.16, p. 36",
-     "excerpt": "U ∩ XK∗ (G, X)0 is affinoid perfectoid. Varying U then gives the result.",
      "match": "The (1 ⇒ 2) step through cofiltered limits of affinoid perfectoids."
     }
    ],
@@ -5143,13 +5013,11 @@
     {
      "sourceId": "hj25",
      "locator": "§5.3, Proposition 5.18 with proof, p. 36",
-     "excerpt": "Kp , the result now follows from Lemma 5.9.",
      "match": "The final step of Proposition 5.18."
     },
     {
      "sourceId": "hj25",
      "locator": "§5.3, proof of Proposition 5.18, connected case, p. 36",
-     "excerpt": "and Γ ⊆ G(Q)+ is an arithmetic subgroup, then XΓ,∞ (G, X + ) = Xπ(Γ),∞ (Gad , X + ) and the",
      "match": "The equality asserted in the connected case, replaced here by the finite-map argument."
     }
    ],
@@ -5197,13 +5065,11 @@
     {
      "sourceId": "hj25",
      "locator": "§5.3, Proposition 5.19 with proof (congruence case), pp. 36–37",
-     "excerpt": "where the map at every level n is finite. By Corollary 5.15, the target of this map is a good tower.",
      "match": "The first comparison of the proof."
     },
     {
      "sourceId": "hj25",
      "locator": "§5.3, proof of Proposition 5.19 (arithmetic case), pp. 37–38",
-     "excerpt": "the proof when Γ is a congruence subgroup.",
      "match": "The reduction of the arithmetic case to the congruence case."
     }
    ],
@@ -5247,13 +5113,11 @@
     {
      "sourceId": "hj25",
      "locator": "§5.3, Theorem 5.20 with proof, p. 38",
-     "excerpt": "then Proposition 5.18 implies that (G, X) satisfies property P, as desired.",
      "match": "Final step of Theorem 5.20."
     },
     {
      "sourceId": "hj25",
      "locator": "§1.3, the paragraph after Theorem 1.5, p. 5",
-     "excerpt": "during the revision process we decided to remove this material, since it relied on an unpublished",
      "match": "The Hodge–Tate period map was removed from the revised version."
     }
    ],
@@ -5291,13 +5155,11 @@
     {
      "sourceId": "hj25",
      "locator": "§1.3, Theorem 1.5, p. 4",
-     "excerpt": "as diamonds over Spd C. Moreover, the boundary of",
      "match": "Theorem 1.5 asserts the Zariski closed boundary (the sentence continues with the formula)."
     },
     {
      "sourceId": "hj25",
      "locator": "§5.3, proof of Corollary 5.21, p. 38",
-     "excerpt": "Zariski closed by [BS19, Remark 7.5].",
      "match": "Strong Zariski closedness of the boundary from Bhatt–Scholze."
     }
    ],
@@ -5336,13 +5198,11 @@
     {
      "sourceId": "hj25",
      "locator": "§1.3, Theorem 1.5, p. 4",
-     "excerpt": "Theorem 1.5. Let (G, X) be a Shimura datum of pre-abelian type, with reflex field E. Fix a",
      "match": "Opening of Theorem 1.5."
     },
     {
      "sourceId": "hj25",
      "locator": "§5.3, conventions, p. 35",
-     "excerpt": "where the inverse limit is taken in the category of diamonds over Spd C.",
      "match": "§5.3 works over C with complex varieties."
     }
    ],
@@ -5389,19 +5249,16 @@
     {
      "sourceId": "bhw",
      "locator": "§2.1, p. 7",
-     "excerpt": "1-1 correspondence with isomorphism classes of triples (E, µ, α), where E is an elliptic curve",
      "match": "Points of the perfectoid modular curve."
     },
     {
      "sourceId": "bhw",
      "locator": "§2.1, display (2.1), pp. 7–8",
-     "excerpt": "We have an action of GL2(Zp) on XΓ(p∞) given by",
      "match": "The GL_2(ℤ_p)-action through γ^∨."
     },
     {
      "sourceId": "heuer20",
      "locator": "§2.1, p. 6",
-     "excerpt": "Let XR be the modular curve of some rigidifying level Γ(N ) ⊆ Γ ⊆ GL2 (Z/N Z)",
      "match": "Heuer works at rigidifying tame levels; Γ₁(N) is rigidifying only for N ≥ 4."
     }
    ],
@@ -5436,13 +5293,11 @@
     {
      "sourceId": "heuer20",
      "locator": "§3.4, Proposition 3.19 and Theorem 3.22, pp. 23–25",
-     "excerpt": "Over any cusp x of X∗, the Γ0(p)-action on X∗Γ(p∞)(ǫ)a restricts to an action on",
      "match": "The Γ₀(p)-action on the Tate parameter spaces at infinite level."
     },
     {
      "sourceId": "bhw",
      "locator": "§3.1, proof of Proposition 3.8, pp. 10–11",
-     "excerpt": "For this we can use Tate curve parameter discs as discussed in [Heua]",
      "match": "BHW's use of the cusp charts."
     }
    ],
@@ -5479,13 +5334,11 @@
     {
      "sourceId": "bhw",
      "locator": "§2.2, Lemma 2.4 and Proposition 2.6, pp. 8–9",
-     "excerpt": "Away from the cusps, this is a special case of Prop. 5.18 below",
      "match": "BHW's derivation, corrected to T4's bounds."
     },
     {
      "sourceId": "bhw",
      "locator": "§2.2, p. 8",
-     "excerpt": "which by contrast is sent by πHT to neighbourhoods of points of the form (b : 1) for b ∈ Zp .",
      "match": "Anticanonical locus near the rational points (b : 1)."
     }
    ],
@@ -5612,13 +5465,11 @@
     {
      "sourceId": "bhw",
      "locator": "§8.2, (8.1), p. 33",
-     "excerpt": "introduce an intermediate space XΓ(pn ) → X , relatively representing a choice of Γ(pn )-level",
      "match": "The intermediate space."
     },
     {
      "sourceId": "bhw",
      "locator": "§8.2.1, Definition 8.8, p. 34",
-     "excerpt": "Definition 8.8. The level structure (LS) action of G(Z/pn Z) = GL2 (OF /pn OF ) on XΓ(pn ) is",
      "match": "The level-structure action."
     }
    ],
@@ -5655,13 +5506,11 @@
     {
      "sourceId": "bhw",
      "locator": "§8.4.2, Lemma 8.25, p. 39",
-     "excerpt": "Lemma 8.25. The anti-diagonal action of Op× restricts to a Zp×-torsor",
      "match": "The ℤ_p^×-torsor X_{Γ*(p^∞)} × 𝒪_p^× → X_{Γ(p^∞)}."
     },
     {
      "sourceId": "bhw",
      "locator": "§8.2.3, Corollary 8.11, p. 35",
-     "excerpt": "is then a (Z/pn Z)× -torsor for the antidiagonal action and induces an isomorphism",
      "match": "The finite-level statement."
     }
    ],
@@ -5771,13 +5620,11 @@
     {
      "sourceId": "bhw",
      "locator": "§8.4.2, Lemma 8.26, p. 39",
-     "excerpt": "Lemma 8.26. For any (γ, x) ∈ E(p), the following diagram commutes:",
      "match": "The transformation law."
     },
     {
      "sourceId": "bhw",
      "locator": "§8.2.2, after (8.2), p. 34",
-     "excerpt": "replacing λ → η ◦ λ multiplies (8.2) by η −1 due to the λ−1 appearing.",
      "match": "Dependence on the polarization."
     }
    ],
@@ -5823,13 +5670,11 @@
     {
      "sourceId": "bhw",
      "locator": "§8.4, Proposition 8.21, pp. 37–38",
-     "excerpt": "profinite group ∆(p∞ N ) = limn ∆(pn N ).",
      "match": "The full-tower torsor."
     },
     {
      "sourceId": "bhw",
      "locator": "§8.4, Proposition 8.21(4), p. 38",
-     "excerpt": "When restricted to connected components of the identity, it is a finite",
      "match": "The finite torsor on identity components."
     }
    ],
@@ -5867,13 +5712,11 @@
     {
      "sourceId": "bhw",
      "locator": "§8.4.1, Lemma 8.24 and diagram (8.7), p. 39",
-     "excerpt": "torsor for the group PΓ0 (pn ) := limm PΓ0 (pn , pm ).",
      "match": "The PΓ₀(pⁿ)-torsor."
     },
     {
      "sourceId": "bhw",
      "locator": "§8.3, Definition 8.17, p. 36",
-     "excerpt": "Let Zn := (1 + N OF )× /(1 + pn N OF )× , embedded diagonally into Γ0 (pm , pn ).",
      "match": "The central subgroup uses all units ≡ 1 mod N."
     }
    ],
@@ -5963,7 +5806,6 @@
     {
      "sourceId": "bhw",
      "locator": "§8.4.1, Lemmas 8.22–8.23, pp. 38–39",
-     "excerpt": "Thus the G(Qp )-action extends the G(Zp )-action defined earlier.",
      "match": "Extension of the action."
     }
    ],
@@ -6007,19 +5849,16 @@
     {
      "sourceId": "bhw",
      "locator": "§8.5, Lemma 8.28, pp. 39–40",
-     "excerpt": "Lemma 8.28. There exist Hodge–Tate period maps making the following diagram commute:",
      "match": "The period maps on the three towers."
     },
     {
      "sourceId": "bhw",
      "locator": "§5.3, Proposition 5.18, p. 24",
-     "excerpt": "Proposition 5.18. Let 1 > r ≥ 0. Then for any m ∈ Z≥1 with 1/pm ≤ r and any 0 ≤ ǫ ≤",
      "match": "The image bounds."
     },
     {
      "sourceId": "bhw",
      "locator": "§5.3, proof of Proposition 5.18, p. 24",
-     "excerpt": "Via α, it thus gives a point (a : b) ∈ P1 (Op ⊗Zp",
      "match": "The proof uses 𝒪_p ⊗ 𝒪_C ≅ 𝒪_C^Σ, valid for p unramified in F."
     }
    ],
@@ -6056,7 +5895,6 @@
     {
      "sourceId": "bhw",
      "locator": "§5.1.1, Remark 5.5, p. 19",
-     "excerpt": "Remark 5.5. Our definition of level structures at p is slightly non-standard",
      "match": "Level structures on A^∨ versus A."
     }
    ],
@@ -6095,7 +5933,6 @@
     {
      "sourceId": "bp21",
      "locator": "§4.6.1, pp. 87–88",
-     "excerpt": "gS̃ .g. This action does not aﬀect the construction of the torsor PHT",
      "match": "Boxer–Pilloni's description on perfectoid test objects (the sentence continues with the superscript an)."
     }
    ],
@@ -6143,13 +5980,11 @@
     {
      "sourceId": "bp21",
      "locator": "§4.4.38–4.4.40, pp. 77–78",
-     "excerpt": "consequence of [DLLZ19], thm. 5.3.1.",
      "match": "Theorem 4.4.40 is deduced from the logarithmic Riemann–Hilbert comparison."
     },
     {
      "sourceId": "bpa",
      "locator": "§4.4.40, Theorem 4.4.40, p. 80",
-     "excerpt": "SK p K ,Σ , up to a cyclotomic twist by µ.",
      "match": "The twisted torsor identification in the authors' manuscript."
     }
    ],
@@ -6189,13 +6024,11 @@
     {
      "sourceId": "bp21",
      "locator": "§4.6.18, Proposition 4.6.19 and Lemma 4.6.20, pp. 94–96",
-     "excerpt": "which by deﬁnition is locally represented by t. We also deduce a map of étale right",
      "match": "The torsor map attached to t."
     },
     {
      "sourceId": "bpa",
      "locator": "§4.6.18, Proposition 4.6.19 and its proof, pp. 97–98",
-     "excerpt": "where the bottom map is x1 g 7→ x2 g = x1 tg. We now get by pushforward to G an a",
      "match": "The relation x₂ = x₁t between the local sections; the revised manuscript states the torsor map for M^{an}_dR."
     }
    ],
@@ -6292,7 +6125,6 @@
     {
      "sourceId": "bp21",
      "locator": "§4.4.41 and Proposition 4.4.42, pp. 78–80",
-     "excerpt": "(1) The morphism S(H, XH )K ′ → S(S, XS )K is finite étale.",
      "match": "Proposition 4.4.42(1)."
     }
    ],
@@ -6327,13 +6159,11 @@
     {
      "sourceId": "bp21",
      "locator": "§4.4.42, paragraph before Theorem 4.4.43, p. 80",
-     "excerpt": "is an H1 ×H2 H3 torsor.",
      "match": "The fibre-product torsor (with the misprinted index)."
     },
     {
      "sourceId": "bp21",
      "locator": "Principle 4.4.44, p. 82",
-     "excerpt": "using the identity MµcB1 = MµcG1 ×Mµab,c T c .",
      "match": "The extension principle."
     }
    ],
@@ -6373,13 +6203,11 @@
     {
      "sourceId": "bp21",
      "locator": "Theorem 4.4.43, §4.4.48 and Lemma 4.4.52, pp. 80–85",
-     "excerpt": "is exact and equals 1 → ∆ → A (B1 ) → A (G) → 1.",
      "match": "The descent group Δ."
     },
     {
      "sourceId": "bp21",
      "locator": "§4.4.48, p. 83",
-     "excerpt": "its minimal compactiﬁcation have the same connected components, and group ac-",
      "match": "Components of the minimal compactification."
     }
    ],
@@ -6423,19 +6251,16 @@
     {
      "sourceId": "bp21",
      "locator": "§4.4.1, Lemma 4.4.6, p. 64",
-     "excerpt": "such that X ∼ limi Xi then for all e ∈ Π, there is a perfectoid space Xe ∼ limi Xi,e .",
      "match": "Connected components of tilde-limits."
     },
     {
      "sourceId": "bp21",
      "locator": "§4.4.1, Lemma 4.4.7 with proof, pp. 64–65",
-     "excerpt": "categorial quotient Y = X /G is representable by a perfectoid space, and Y ∼ limi Yi .",
      "match": "Finite quotients of tilde-limits."
     },
     {
      "sourceId": "bp21",
      "locator": "§4.4.48, proof of Lemma 4.4.50, p. 84",
-     "excerpt": "product of a perfectoid space with a proﬁnite set. Checking that S ⋆ (B1 , XB1 )K p ∼",
      "match": "The induction from neutral components, left as an exercise in the source."
     }
    ],
@@ -6483,13 +6308,11 @@
     {
      "sourceId": "bp21",
      "locator": "Theorem 4.4.45, Lemmas 4.4.50–4.4.52 and Proposition 4.4.53, pp. 82–85",
-     "excerpt": "Proposition 4.4.53. Let (G, X) be an abelian type Shimura datum as above.",
      "match": "Proposition 4.4.53."
     },
     {
      "sourceId": "bp21",
      "locator": "§4.4.40, p. 78",
-     "excerpt": "Hodge-Tate period map. For this reason, we restrict to abelian type Shimura data",
      "match": "Why the minimal period map is proved only for abelian type."
     }
    ],
@@ -6525,7 +6348,6 @@
     {
      "sourceId": "bp21",
      "locator": "Theorem 4.4.43(5) and Remark 4.6.6, pp. 81, 89–90",
-     "excerpt": "structure on the torsors MandR or MHT .",
      "match": "The abelian/Hodge formulas for M_HT."
     }
    ],
@@ -6562,7 +6384,6 @@
     {
      "sourceId": "bp21",
      "locator": "Theorem 4.4.45, p. 82",
-     "excerpt": "limK S tor,♦ (G, X)K,Σ → S ⋆ (G, X) → F LG,µ is the map πHT",
      "match": "The asserted compatibility (the sentence continues with 'tor of Theorem 4.4.40')."
     }
    ],
@@ -6598,19 +6419,16 @@
     {
      "sourceId": "bp21",
      "locator": "§4.6, Proposition 4.6.3 and Remark 4.6.5, pp. 88–89",
-     "excerpt": "(it is crucial here that k ∈ Kp ⊆ G(OF )) and the corresponding reduction of the",
      "match": "The K_p-invariance that makes the integral reduction descend."
     },
     {
      "sourceId": "bpa",
      "locator": "§4.6.2, proof of Proposition 4.6.3, p. 91",
-     "excerpt": "We first explain how to define the torsor MHT = MdR ×µ,Zp Zp (1) over S (in a",
      "match": "The revised manuscript defines the twisted torsor over perfectoid test objects and untwists before descending."
     },
     {
      "sourceId": "bpa",
      "locator": "§4.6.2, Remark 4.6.4, pp. 90–91",
-     "excerpt": "is integral if it is in the span of the image of the integral Tate module for the",
      "match": "The integral structure is the Hodge–Tate one."
     }
    ],
@@ -6651,13 +6469,11 @@
     {
      "sourceId": "bpa",
      "locator": "§4.6, Proposition 4.6.12 and its proof, pp. 94–95",
-     "excerpt": "that this torsor is Kp -invariant. If the field F is large enough so that the composite",
      "match": "The cyclotomic containment hypothesis in the revised manuscript."
     },
     {
      "sourceId": "bp21",
      "locator": "§4.6.8, Proposition 4.6.9 and Example 4.6.10, pp. 90–91",
-     "excerpt": "Kp,1,µ is the image of B(Zp ) in T (Qp2 ) × GL2 (Qp2 ).",
      "match": "Example 4.6.10."
     }
    ],

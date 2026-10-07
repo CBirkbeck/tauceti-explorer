@@ -238,13 +238,11 @@
         {
           "sourceId": "Mathlib.pinned",
           "locator": "DirectSum/Basic.lean, documentation of toAddMonoid",
-          "excerpt": "induced by a family `φ` of homomorphisms `β i → γ`.",
           "match": "The dependent direct-sum universal property supplies the assembly; the weights and arithmetic instantiation are this packet’s construction."
         },
         {
           "sourceId": "Weibel.V.read",
           "locator": "V.4.3, printed p. 34",
-          "excerpt": "This applies to finitely generated torsion modules over Dedekind domains and curves",
           "match": "Motivates the residue-summand indexing; the weighted pullback formula is derived in the next node, not quoted as a theorem from this passage."
         }
       ],
@@ -392,25 +390,21 @@
         {
           "sourceId": "Weibel.V.read",
           "locator": "V.1.8, printed p. 9, proof",
-          "excerpt": "Apply the Additivity Theorem 1.2",
           "match": "This supplies the sum-of-quotient-functors step; the arithmetic coefficient filtration and its exactness are derived explicitly above."
         },
         {
           "sourceId": "Weibel.V.read",
           "locator": "V.4.2.1, printed p. 34",
-          "excerpt": "Note that the Admissible Filtrations Proposition 1.8 does not apply",
           "match": "The source warns against using the nonexact quotient functor on arbitrary artinian modules. Our functors have a semisimple source and fixed coefficients, avoiding that error."
         },
         {
           "sourceId": "Weibel.V.read",
           "locator": "V.4.3, printed p. 34",
-          "excerpt": "every object has finite length",
           "match": "Supplies the torsion-category dévissage into residue-field summands."
         },
         {
           "sourceId": "Mathlib.pinned",
           "locator": "Mathlib/NumberTheory/RamificationInertia/Basic.lean, quotientRangePowQuotSuccInclusionEquiv (line 425) and quotientToQuotientRangePowQuotSuccAux (line 329)",
-          "excerpt": "≃ₗ[R ⧸ p] S ⧸ P",
           "match": "The pinned coefficient-layer equivalence is over the base residue field. Its chosen-multiplication formula supplies B-linearity as well, which is necessary for the natural isomorphism of torsion-category quotient functors. The older primed index is explicitly converted; deprecation does not make the pinned declaration absent."
         }
       ],
@@ -461,13 +455,11 @@
         {
           "sourceId": "Weibel.V.read",
           "locator": "V.5.1, printed pp. 35–37",
-          "excerpt": "is a homotopy fibration sequence.",
           "match": "The functorial localisation theorem is imported from its exact node; the compatible tensor diagram and its ramified residue identification are our deduction."
         },
         {
           "sourceId": "Weibel.V.read",
           "locator": "V.6.6, printed p. 41",
-          "excerpt": "Here p runs over the nonzero prime ideals of R",
           "match": "Identifies the imported Dedekind sequence. V.6.6.3–6.6.4 describe transfer in the opposite direction, and are not misquoted as stating this pullback theorem."
         }
       ],
@@ -525,25 +517,21 @@
         {
           "sourceId": "Weibel.V.read",
           "locator": "V.6.6.1, printed p. 41",
-          "excerpt": "∂{π, u} = [ū]",
           "match": "Pins the right-linear boundary normalization, as in the imported T.3 comparison; the e-th-power identity is derived, not a new tame-symbol definition."
         },
         {
           "sourceId": "Weibel.V.read",
           "locator": "V.6.6.3–6.6.4, printed p. 42",
-          "excerpt": "exact functors M(R′ ) → M(R) and M(F ′ ) → M(F ) inducing the transfer maps",
           "match": "Distinguishes the already supplied covariant transfer from our contravariant restriction."
         },
         {
           "sourceId": "Mathlib.pinned",
           "locator": "Mathlib/NumberTheory/RamificationInertia/Valuation.lean, HeightOneSpectrum.valuation_liesOver (line 57)",
-          "excerpt": "v.valuation K x ^ v.asIdeal.ramificationIdx' w.asIdeal =",
           "match": "The actual declaration is a multiplicative valuation-power identity under compatible fraction-field scalar towers and torsion-freeness. Taking normalized additive orders gives v_q=e v_p."
         },
         {
           "sourceId": "Mathlib.pinned",
           "locator": "Mathlib/RingTheory/RamificationInertia/Ramification.lean, Ideal.ramificationIdx'_eq_ramificationIdx (line 156)",
-          "excerpt": "p.ramificationIdx' q = q.ramificationIdx R",
           "match": "For nonzero p, q lying over p and torsion-free Dedekind B, this converts the exponent in the valuation declaration to the unprimed length convention used throughout this packet."
         }
       ],
@@ -594,13 +582,11 @@
         {
           "sourceId": "TauCeti.pinned",
           "locator": "SInteger/Spectrum.lean, overview",
-          "excerpt": "the height-one primes of `𝒪_S` are exactly the height-one primes of `R` **not** in `S`",
           "match": "Existing prime and valuation correspondences give the arithmetic indexing; this application imports them rather than defining another S-integer carrier."
         },
         {
           "sourceId": "Weibel.V.read",
           "locator": "V.6.6.3, printed p. 42",
-          "excerpt": "with R′ finitely generated as an R-module",
           "match": "Explains why the full-inverse-image S-integer theorem must provide finiteness; the contravariant compatibility is deduced here, while transfer is imported."
         }
       ],

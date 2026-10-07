@@ -4084,13 +4084,13 @@ FS VI.1.13 is now a distinct named lemma target with its exact universal propert
 
 ## Source corrections and their recorded verification
 
-The source ledger contains 23 findings. The 22 inherited records retain their provenance, exact source/version scope and historical independent review. Any additional revision finding is identified separately and awaits independent review. A gap or omitted proof argument is recorded as such; it is not automatically a counterexample to the source theorem.
+The source ledger contains 23 findings. E1–E22 retain their identities, mathematical content, provenance, exact source/version scope and historical independent reviews. Their source-assertion descriptions are presented in our own words under the updated PROTOCOL§5/§18. The additional revision finding E23 awaits independent review. A gap or omitted proof argument is recorded as such; it is not automatically a counterexample to the source theorem.
 
 ### GeometricSatakeAndFusion/E1 — misprint
 
 **Locator:** p412, coweight order
 
-**Printed fragment:** positive roots
+**Source assertion:** The coweight dominance relation is described using positive roots.
 
 **Correction:** Use positive coroots in the coweight dominance order.
 
@@ -4110,7 +4110,7 @@ The source ledger contains 23 findings. The 22 inherited records retain their pr
 
 **Source:** Zhu17
 
-**Fragment scope:** Short printed fragment or displayed mathematical expression; the correction and reason describe its context.
+**Statement format:** The source assertion is described in the worker’s own words; mathematical symbols and formulas are retained where needed to identify the issue. The correction and reason are mathematical analysis, not quoted source prose.
 
 **Historical independent review:** verdict: confirmed; reason: Coweight dominance is an order in X_*(T), hence positive coroots; printed p.412 uses roots.; by: REV-GeometricSatakeAndFusion--GS0
 
@@ -4118,11 +4118,11 @@ The source ledger contains 23 findings. The 22 inherited records retain their pr
 
 **Locator:** p. 424, proof of Lemma 1.17, definition of X(R′)
 
-**Printed fragment:** Inv(𝓕_i ⇢ 𝓕_{i+1}) = μ_i^*
+**Source assertion:** Inv(𝓕_i ⇢ 𝓕_{i+1}) = μ_i^*
 
 **Correction:** Inv(𝓕_i ⇢ 𝓕_{i−1}) = μ_{N+1−i}^* for i = 1, …, N, with maps oriented 𝓕_N ⇢ ⋯ ⇢ 𝓕_0 as in the quasi-isogeny 𝓕_N ⇢ 𝓕_0 used next. Equivalently, keeping the displayed orientation, Inv(𝓕_{i−1} ⇢ 𝓕_i) = μ_{N+1−i}.
 
-**Reason or counterexample:** (Gr_{μ•})_R consists of chains 𝓔 = 𝓔_N ⇢ 𝓔_{N−1} ⇢ ⋯ ⇢ 𝓔_0 with Inv(β_i) = μ_i. Building it from 𝓕_0 = 𝓔 gives 𝓕_i = 𝓔_{N−i}. Then 𝓕_{i−1} ⇢ 𝓕_i is β_{N+1−i}, of position μ_{N+1−i}, and its inverse has position μ_{N+1−i}^*. The printed condition indexes by μ_i (μ_0 is undefined for i = 0, and the order is not reversed) and attaches the star to the displayed direction 𝓕_i ⇢ 𝓕_{i+1}. That is wrong even when all μ_i are equal: for μ_i = ω_1 the displayed map has position ω_1, not ω_1^*. The rest of the argument (the quasi-isogeny 𝓕_N ⇢ 𝓕_0 = 𝓔 ⇢ 𝓔_0 and the closed locus X_{ω_0}) goes through with the correction. The ledger's 'printed' field was a paraphrase; the quotation above is exact. The same text is in v2 and v3.
+**Reason or counterexample:** (Gr_{μ•})_R consists of chains 𝓔 = 𝓔_N ⇢ 𝓔_{N−1} ⇢ ⋯ ⇢ 𝓔_0 with Inv(β_i) = μ_i. Building it from 𝓕_0 = 𝓔 gives 𝓕_i = 𝓔_{N−i}. Then 𝓕_{i−1} ⇢ 𝓕_i is β_{N+1−i}, of position μ_{N+1−i}, and its inverse has position μ_{N+1−i}^*. The printed condition indexes by μ_i (μ_0 is undefined for i = 0, and the order is not reversed) and attaches the star to the displayed direction 𝓕_i ⇢ 𝓕_{i+1}. That is wrong even when all μ_i are equal: for μ_i = ω_1 the displayed map has position ω_1, not ω_1^*. The rest of the argument (the quasi-isogeny 𝓕_N ⇢ 𝓕_0 = 𝓔 ⇢ 𝓔_0 and the closed locus X_{ω_0}) goes through with the correction. The erroneous chain condition is recorded above as a mathematical formula. The same text is in v2 and v3.
 
 **Effect:** nothing
 
@@ -4138,7 +4138,7 @@ The source ledger contains 23 findings. The 22 inherited records retain their pr
 
 **Source:** Zhu17
 
-**Fragment scope:** Short printed fragment or displayed mathematical expression; the correction and reason describe its context.
+**Statement format:** The source assertion is described in the worker’s own words; mathematical symbols and formulas are retained where needed to identify the issue. The correction and reason are mathematical analysis, not quoted source prose.
 
 **Historical independent review:** verdict: confirmed; reason: The displayed chain orientation and reversed sequence require F_i→F_{i−1} with μ*_{N+1−i}; checked the p.424 construction.; by: REV-GeometricSatakeAndFusion--GS0
 
@@ -4146,7 +4146,7 @@ The source ledger contains 23 findings. The 22 inherited records retain their pr
 
 **Locator:** p488, determinant unit inB.11
 
-**Printed fragment:** p²[λ]
+**Source assertion:** p²[λ]
 
 **Correction:** Use p²[λ]⁻¹.
 
@@ -4166,7 +4166,7 @@ The source ledger contains 23 findings. The 22 inherited records retain their pr
 
 **Source:** Zhu17
 
-**Fragment scope:** Short printed fragment or displayed mathematical expression; the correction and reason describe its context.
+**Statement format:** The source assertion is described in the worker’s own words; mathematical symbols and formulas are retained where needed to identify the issue. The correction and reason are mathematical analysis, not quoted source prose.
 
 **Historical independent review:** verdict: confirmed; reason: The determinant equation forces det X=p²[λ]⁻¹, agreeing with the corrected rank-two factorization.; by: REV-GeometricSatakeAndFusion--GS0
 
@@ -4174,7 +4174,7 @@ The source ledger contains 23 findings. The 22 inherited records retain their pr
 
 **Locator:** p. 488, proof of the claim in Lemma B.11 (display defining g̃)
 
-**Printed fragment:** g̃ := X̃Ã^{−1} = p^{−2}X̃Ã^*
+**Source assertion:** g̃ := X̃Ã^{−1} = p^{−2}X̃Ã^*
 
 **Correction:** g̃ := Ã^{−1}X̃ = p^{−2}Ã^*X̃ ∈ LGL_2. Then X̃ = Ãg̃, and g = (g̃ mod p³) satisfies X = Ag.
 
@@ -4194,7 +4194,7 @@ The source ledger contains 23 findings. The 22 inherited records retain their pr
 
 **Source:** Zhu17
 
-**Fragment scope:** Short printed fragment or displayed mathematical expression; the correction and reason describe its context.
+**Statement format:** The source assertion is described in the worker’s own words; mathematical symbols and formulas are retained where needed to identify the issue. The correction and reason are mathematical analysis, not quoted source prose.
 
 **Historical independent review:** verdict: confirmed; reason: For X=Ag the right factor is A⁻¹X. The 2×2 adjugate of X* A proves integrality in the corrected order and its determinant is a unit.; by: REV-GeometricSatakeAndFusion--GS0
 
@@ -4202,11 +4202,11 @@ The source ledger contains 23 findings. The 22 inherited records retain their pr
 
 **Locator:** p. 482, Appendix B opening paragraph (not p. 484)
 
-**Printed fragment:** Proofs are generally omitted in this section.
+**Source assertion:** The appendix opens with a notice that many of its assertions will not be accompanied by proofs.
 
-**Correction:** Stated without proof: Prop. B.1, Lemma B.9, and the final paragraph of B.3 (Conjecture I for GL_2, N = 2). Prop. B.2 has a one-sentence justification. It also needs \tilde L_det to be trivial on the fibres of π, which follows from base-point-freeness and the second part of Prop. B.1. Lemma B.4, Lemma B.7 and Prop. B.8 ('Details are left to readers') have only sketches. Also unproved: the claims on p. 485 (that M_{N,h} is an irreducible component of the RZ-type space) and p. 486 (\mathring M_{N,h} ≃ Gr′_N), and the claim in Remark B.6. Lemmas B.10 and B.11 are proved in full on pp. 487–488, apart from the misprints E32 and E33; the appeal to Lemma 1.10 for surjectivity goes through. Bhatt–Scholze prove Conjectures I–II. The main results of §§1–3 do not depend on Appendix B.
+**Correction:** Stated without proof: Prop. B.1, Lemma B.9, and the final paragraph of B.3 (Conjecture I for GL_2, N = 2). Prop. B.2 has a one-sentence justification. It also needs \tilde L_det to be trivial on the fibres of π, which follows from base-point-freeness and the second part of Prop. B.1. Lemma B.4, Lemma B.7 and Prop. B.8 provide sketches whose further details are assigned to the reader. Also unproved: the claims on p. 485 (that M_{N,h} is an irreducible component of the RZ-type space) and p. 486 (\mathring M_{N,h} ≃ Gr′_N), and the claim in Remark B.6. Lemmas B.10 and B.11 are proved in full on pp. 487–488, apart from the misprints E32 and E33; the appeal to Lemma 1.10 for surjectivity goes through. Bhatt–Scholze prove Conjectures I–II. The main results of §§1–3 do not depend on Appendix B.
 
-**Reason or counterexample:** The quoted sentence is on p. 482. The existing correction wrongly lists B.10 and B.11 as unproved. Specific points: Prop. B.2's sentence ('the pushforward of \tilde L_det gives L_det') also needs \tilde L_det trivial on the fibres of π. That follows from base-point-freeness together with Prop. B.1's second part (degree 0 on fibre curves) and π_*O = O (Lemma A.21). The hint for B.4 also needs the fibres of V_{N,h} → \overline{Gr}_N to have constant dimension; this holds, since the stabilizer {γ: Aγ = A} has dimension nN everywhere. The main theorems do not depend on Appendix B. Remarks 1.15 and 1.16 point to B.3 and B.8, but they are remarks.
+**Reason or counterexample:** The appendix-wide notice about omitted proofs occurs on p. 482. The existing correction wrongly lists B.10 and B.11 as unproved. Specific points: Prop. B.2 proposes to construct L_det by pushing forward \tilde L_det; this also requires \tilde L_det to be trivial on the fibres of π. That follows from base-point-freeness together with Prop. B.1's second part (degree 0 on fibre curves) and π_*O = O (Lemma A.21). The hint for B.4 also needs the fibres of V_{N,h} → \overline{Gr}_N to have constant dimension; this holds, since the stabilizer {γ: Aγ = A} has dimension nN everywhere. The main theorems do not depend on Appendix B. Remarks 1.15 and 1.16 point to B.3 and B.8, but they are remarks.
 
 **Effect:** a stated result
 
@@ -4218,7 +4218,7 @@ The source ledger contains 23 findings. The 22 inherited records retain their pr
 
 **Source:** Zhu17
 
-**Fragment scope:** Short printed fragment or displayed mathematical expression; the correction and reason describe its context.
+**Statement format:** The source assertion is described in the worker’s own words; mathematical symbols and formulas are retained where needed to identify the issue. The correction and reason are mathematical analysis, not quoted source prose.
 
 **Historical independent review:** verdict: confirmed; reason: Appendix opening is p.482; B.1/B.9 are announced and several other results sketched, whereas B.10/B.11 have proofs. The qualified correction accurately separates these.; by: REV-GeometricSatakeAndFusion--GS0
 
@@ -4228,7 +4228,7 @@ The source ledger contains 23 findings. The 22 inherited records retain their pr
 
 **Locator:** p. 425, proof of Lemma 1.18 (positive dimension of fibres); also p. 425, proof of Lemma 1.18 (last paragraph)
 
-**Printed fragment:** some i; dim_k(Λ_λ ∩ p^iΛ_0/Λ_λ ∩ p^{i+1}Λ_0) > 1
+**Source assertion:** The fibre argument asserts that dim_k(Λ_λ ∩ p^iΛ_0/Λ_λ ∩ p^{i+1}Λ_0) > 1 for a suitable index i.
 
 **Correction:** Replace ∩ by +: for λ < Nω_1, dim_k((Λ_λ + p^iΛ_0)/(Λ_λ + p^{i+1}Λ_0)) > 1 for some i (e.g. i = 0). Every hyperplane 𝓔_1 ⊂ Λ_0 containing Λ_λ + pΛ_0 extends to a point of π^{−1}(p^λ), so the fibre surjects onto ℙ^{d−1,p^{−∞}} with d = #{j : l_j ≥ 1} ≥ 2. Also: Replace ∩ by + in both places: dim_k (Λ_λ + p^iΛ_0)/(Λ_λ + p^{i+1}Λ_0) > 1 (this holds at i = 0 when λ < Nω_1), and lines L in this space give the lattices Λ_λ + p^{i+1}Λ_0 + L̃, which extend to full chains. Equivalently, dim (p^{-1}Λ_λ ∩ Λ_0)/Λ_λ = #{j : m_j ≥ 1} ≥ 2, the fibre of π_2 from the preceding paragraph.
 
@@ -4244,7 +4244,7 @@ The source ledger contains 23 findings. The 22 inherited records retain their pr
 
 **Source:** Zhu17
 
-**Fragment scope:** Short printed fragment or displayed mathematical expression; the correction and reason describe its context.
+**Statement format:** The source assertion is described in the worker’s own words; mathematical symbols and formulas are retained where needed to identify the issue. The correction and reason are mathematical analysis, not quoted source prose.
 
 **Historical independent review:** verdict: confirmed; reason: The displayed intersection quotients sit inside the final lattice and cannot parametrize the chain. The sum quotients have dimension #{j:l_j≥i+1}, giving the needed lower-stratum fibre.; by: REV-GeometricSatakeAndFusion--GS0
 
@@ -4254,7 +4254,7 @@ The source ledger contains 23 findings. The 22 inherited records retain their pr
 
 **Locator:** p. 433, Proposition 2.5 (second sentence)
 
-**Printed fragment:** overline(S_λ ∩ Gr_{≤μ}) = ⋃_{λ′≤λ} S_{λ′} ∩ Gr_{≤μ}
+**Source assertion:** overline(S_λ ∩ Gr_{≤μ}) = ⋃_{λ′≤λ} S_{λ′} ∩ Gr_{≤μ}
 
 **Correction:** Replace the second sentence by S̄_λ ∩ Gr_{≤μ} = ∪_{λ′≤λ}(S_{λ′} ∩ Gr_{≤μ}), which follows from the first. Or restrict to λ a weight of V_μ (equivalently S_λ ∩ Gr_{≤μ} ≠ ∅) and supply a proof of closure(S_λ ∩ Gr_{≤μ}) = S̄_λ ∩ Gr_{≤μ}.
 
@@ -4270,7 +4270,7 @@ The source ledger contains 23 findings. The 22 inherited records retain their pr
 
 **Source:** Zhu17
 
-**Fragment scope:** Short printed fragment or displayed mathematical expression; the correction and reason describe its context.
+**Statement format:** The source assertion is described in the worker’s own words; mathematical symbols and formulas are retained where needed to identify the issue. The correction and reason are mathematical analysis, not quoted source prose.
 
 **Historical independent review:** verdict: confirmed; reason: Visually checked the published p.433 display: the overline covers the intersection. The empty GL₂ example makes the asserted closure equality false; closure of S_λ intersected with the bound is the safe replacement.; by: REV-GeometricSatakeAndFusion--GS0
 
@@ -4280,7 +4280,7 @@ The source ledger contains 23 findings. The 22 inherited records retain their pr
 
 **Locator:** p. 434, Corollary 2.8; p. 439, Corollary 2.14
 
-**Printed fragment:** equidimensional; dim(S_λ ∩ Gr_{≤μ}) = (ρ, λ + μ)
+**Source assertion:** The intersection is assigned a common component dimension without a nonemptiness qualification: dim(S_λ ∩ Gr_{≤μ}) = (ρ, λ + μ).
 
 **Correction:** Add 'if nonempty, i.e. if λ is a weight of V_μ' to the dimension clause of Cor. 2.8, and 'if nonempty, i.e. if each λ_i is a weight of V_{μ_i}' to Cor. 2.14.
 
@@ -4296,7 +4296,7 @@ The source ledger contains 23 findings. The 22 inherited records retain their pr
 
 **Source:** Zhu17
 
-**Fragment scope:** Short printed fragment or displayed mathematical expression; the correction and reason describe its context.
+**Statement format:** The source assertion is described in the worker’s own words; mathematical symbols and formulas are retained where needed to identify the issue. The correction and reason are mathematical analysis, not quoted source prose.
 
 **Historical independent review:** verdict: confirmed; reason: An empty intersection has no asserted nonnegative equidimension. The dimension equality needs nonemptiness; the zero component count remains valid.; by: REV-GeometricSatakeAndFusion--GS0
 
@@ -4306,9 +4306,9 @@ The source ledger contains 23 findings. The 22 inherited records retain their pr
 
 **Locator:** p. 435, Corollary 2.9
 
-**Printed fragment:** cycle classes; H^i_c(S_λ, IC_μ)
+**Source assertion:** The cycle-class basis is assigned to H^i_c(S_λ, IC_μ), with the index i left unspecified.
 
-**Correction:** …form a basis of H_c^{(2ρ,λ)}(S_λ, IC_μ) = CT_λ(IC_μ).
+**Correction:** The relevant cycle classes give a basis for H_c^{(2ρ,λ)}(S_λ, IC_μ) = CT_λ(IC_μ).
 
 **Reason or counterexample:** The index i is free. The cycle classes live in degree (2ρ,λ), which by Proposition 2.7 is the only nonzero degree.
 
@@ -4322,7 +4322,7 @@ The source ledger contains 23 findings. The 22 inherited records retain their pr
 
 **Source:** Zhu17
 
-**Fragment scope:** Short printed fragment or displayed mathematical expression; the correction and reason describe its context.
+**Statement format:** The source assertion is described in the worker’s own words; mathematical symbols and formulas are retained where needed to identify the issue. The correction and reason are mathematical analysis, not quoted source prose.
 
 **Historical independent review:** verdict: confirmed; reason: The basis occurs only in degree ⟨2ρ,λ⟩ by 2.7; the unbound index i in 2.9 is a misprint.; by: REV-GeometricSatakeAndFusion--GS0
 
@@ -4332,7 +4332,7 @@ The source ledger contains 23 findings. The 22 inherited records retain their pr
 
 **Locator:** p. 436, proof of Corollary 2.10
 
-**Printed fragment:** Fil′_{<λ}H^*(A) = Im(H^*_{S⁻_{<λ}}(A) → H^*(A)); H^* = ⊕_λ H_c^*(S_λ, −)
+**Source assertion:** Fil′_{<λ}H^*(A) = Im(H^*_{S⁻_{<λ}}(A) → H^*(A)); H^* = ⊕_λ H_c^*(S_λ, −)
 
 **Correction:** Use Im(H^*_{S̄^-_λ}(A) → H^*(A)), as in [MV07, Th. 3.6]. Fix k = (2ρ,λ). Parity and degree give H^k_{S̄^-_λ}(A) = H^k_{S^-_λ}(A) and H^k(S̄_λ,A) = H^k_c(S_λ,A). The composite H^k_{S̄^-_λ}(A) → H^k(A) → H^k(S̄_{λ′},A) is the isomorphism of (2.2.10) (hyperbolic localization at ϖ^λ) for λ′ = λ. It is zero for λ′ ≠ λ of the same degree, since a nonempty closed G_m-stable S̄^-_λ ∩ S̄_{λ′} contains some ϖ^η with λ ≤ η ≤ λ′. Hence H^k(A) = ⊕_{(2ρ,λ)=k} Im(H^k_{S̄^-_λ}(A) → H^k(A)), which gives H^* ≅ ⊕_λ H^*_c(S_λ,−).
 
@@ -4348,7 +4348,7 @@ The source ledger contains 23 findings. The 22 inherited records retain their pr
 
 **Source:** Zhu17
 
-**Fragment scope:** Short printed fragment or displayed mathematical expression; the correction and reason describe its context.
+**Statement format:** The source assertion is described in the worker’s own words; mathematical symbols and formulas are retained where needed to identify the issue. The correction and reason are mathematical analysis, not quoted source prose.
 
 **Historical independent review:** verdict: confirmed; reason: The printed opposite filtration contains higher weights rather than the complementary λ-piece. The GL₂ minuscule point-support example confirms the proof error; use support in the opposite orbit closure.; by: REV-GeometricSatakeAndFusion--GS0
 
@@ -4358,11 +4358,11 @@ The source ledger contains 23 findings. The 22 inherited records retain their pr
 
 **Locator:** p. 437, item (2) before Lemma 2.12
 
-**Printed fragment:** a maximal parahoric
+**Source assertion:** The assertion makes Q_{1/2} maximal among parahoric subgroups.
 
 **Correction:** Delete item (2), or state: Q_{1/2} is the parahoric of −θ/2, whose reductive quotient contains the SL_2 of the affine roots ±(θ^∨+1). It is maximal unless the simple factor containing θ is of type A_n with n ≥ 2.
 
-**Reason or counterexample:** Q_{1/2} is the parahoric of −θ/2 (v2: 'the point −μ/2 is a vertex'). The affine roots vanishing there are ±(θ^∨ + 1) and the roots orthogonal to θ. These have full rank only if the roots orthogonal to the highest root have rank r − 1, which fails in type A_n, n ≥ 2, where they have rank n − 2. For SL_3, θ = (1,0,−1) pairs to 1 or 2 with every positive root. So −θ/2 lies on the single wall θ^∨ + 1 = 0, inside an edge, and Q_{1/2} is properly contained in the parahorics of the edge's two vertices. Type A is covered by the paper: θ ∈ M (p. 439) and Lemma 2.11 includes it. The claim is not used in any proof.
+**Reason or counterexample:** Q_{1/2} is the parahoric of −θ/2 (the v2 discussion identifies −μ/2 as a vertex). The affine roots vanishing there are ±(θ^∨ + 1) and the roots orthogonal to θ. These have full rank only if the roots orthogonal to the highest root have rank r − 1, which fails in type A_n, n ≥ 2, where they have rank n − 2. For SL_3, θ = (1,0,−1) pairs to 1 or 2 with every positive root. So −θ/2 lies on the single wall θ^∨ + 1 = 0, inside an edge, and Q_{1/2} is properly contained in the parahorics of the edge's two vertices. Type A is covered by the paper: θ ∈ M (p. 439) and Lemma 2.11 includes it. The claim is not used in any proof.
 
 **Effect:** nothing
 
@@ -4374,7 +4374,7 @@ The source ledger contains 23 findings. The 22 inherited records retain their pr
 
 **Source:** Zhu17
 
-**Fragment scope:** Short printed fragment or displayed mathematical expression; the correction and reason describe its context.
+**Statement format:** The source assertion is described in the worker’s own words; mathematical symbols and formulas are retained where needed to identify the issue. The correction and reason are mathematical analysis, not quoted source prose.
 
 **Historical independent review:** verdict: confirmed; reason: In type A₂ the point −θ/2 lies in an edge rather than a vertex, so its parahoric is not maximal. The statement is unused in the needed proof.; by: REV-GeometricSatakeAndFusion--GS0
 
@@ -4384,7 +4384,7 @@ The source ledger contains 23 findings. The 22 inherited records retain their pr
 
 **Locator:** p. 439, proof of Lemma 2.11 (μ = θ): display for π^{-1}(S_0 ∩ Gr_{≤μ}) and (2.2.13)
 
-**Printed fragment:** RΓ_c(π⁻¹(S_0 ∩ Gr_{≤μ}), Q̄_ℓ[d]) = RΓ_c(⋃_{wμ<0} ŪwP̄_μ/P̄_μ, Q̄_ℓ[d − 2])
+**Source assertion:** RΓ_c(π⁻¹(S_0 ∩ Gr_{≤μ}), Q̄_ℓ[d]) = RΓ_c(⋃_{wμ<0} ŪwP̄_μ/P̄_μ, Q̄_ℓ[d − 2])
 
 **Correction:** With Y = ∪_{wμ<0} ŪwP̄_μ/P̄_μ, π^{-1}(S_0 ∩ Gr_{≤μ}) = [φ^{-1}(Y) \ π^{-1}(∪_{wμ<0} S_{wμ} ∩ Gr_{≤μ})] ⊔ [π^{-1}(Gr_0) ∩ φ^{-1}(Ḡ/P̄_μ − Y)], where π^{-1}(Gr_0) ≅ Ḡ/P̄_μ is the section at infinity. So (2.2.13) should read RΓ_c(π^{-1}(S_0 ∩ Gr_{≤μ}), Q̄_ℓ[d]) = RΓ_c(Y, Q̄_ℓ[d−2]) ⊕ RΓ_c(Ḡ/P̄_μ − Y, Q̄_ℓ[d]); the sequence splits since all terms are in even degrees. Comparison with (2.2.12) then gives H^i(𝒞) = H^i_c(π^{-1}(S_0 ∩ Gr_{≤μ}), Q̄_ℓ[d]) for i ≠ 0 and H^0_c(S_0, IC_μ) ≅ Q̄_ℓ^{|Δ_θ|}.
 
@@ -4400,7 +4400,7 @@ The source ledger contains 23 findings. The 22 inherited records retain their pr
 
 **Source:** Zhu17
 
-**Fragment scope:** Short printed fragment or displayed mathematical expression; the correction and reason describe its context.
+**Statement format:** The source assertion is described in the worker’s own words; mathematical symbols and formulas are retained where needed to identify the issue. The correction and reason are mathematical analysis, not quoted source prose.
 
 **Historical independent review:** verdict: confirmed; reason: The infinity section contributes the omitted cohomology. The SL₃ flag resolution yields zero-weight multiplicity two; retain the excision sequence and avoid a claimed canonical splitting.; by: REV-GeometricSatakeAndFusion--GS0
 
@@ -4410,7 +4410,7 @@ The source ledger contains 23 findings. The 22 inherited records retain their pr
 
 **Locator:** A.3.5, last paragraph, p. 482
 
-**Printed fragment:** pro-unipotent pro-algebraic group
+**Source assertion:** The independence-of-kernel construction allows a pro-algebraic kernel J₁ assumed pro-unipotent, without separately requiring connectedness.
 
 **Correction:** Require J_1 to be connected (as for the congruence subgroups L^+G^{(h)} used in the paper). Two admissible choices J_1, J_1' are then compared through the connected, normal, pro-unipotent subgroup J_1J_1' (or through J_1 ∩ J_1'), applying (A.3.4) to the connected groups J_1J_1'/J_1 and J_1J_1'/J_1', and (A.3.6) for cohomology.
 
@@ -4426,7 +4426,7 @@ The source ledger contains 23 findings. The 22 inherited records retain their pr
 
 **Source:** Zhu17
 
-**Fragment scope:** Short printed fragment or displayed mathematical expression; the correction and reason describe its context.
+**Statement format:** The source assertion is described in the worker’s own words; mathematical symbols and formulas are retained where needed to identify the issue. The correction and reason are mathematical analysis, not quoted source prose.
 
 **Historical independent review:** verdict: confirmed; reason: Confirmed as a missing convention: under the broad convention allowing disconnected unipotent groups, the constant group F_p gives inequivalent representation categories. Require connected congruence kernels, or define pro-unipotent with connected quotients. This is not an error if connectedness is already built into that term.; by: REV-GeometricSatakeAndFusion--GS0
 
@@ -4436,11 +4436,11 @@ The source ledger contains 23 findings. The 22 inherited records retain their pr
 
 **Locator:** arXivv3 Lemmas7.7–7.8 pp28–29; Definition7.10 convention
 
-**Printed fragment:** projective dimension 1
+**Source assertion:** The isogeny cokernel is assigned projective dimension equal to 1.
 
 **Correction:** Use projective dimension at most one, or separately exclude Q=0 when claiming equality one.
 
-**Reason or counterexample:** The identity isogeny has cokernel zero and the zero R-module is projective; its projective dimension is not exactly one under the usual conventions. (cc-442dc5) Reclassified to affect nothing: 'projective dimension 1' is used as 'at most one' throughout Lemmas 7.7–7.8 and Definition 7.10, and the zero module causes no problem in the determinant construction.
+**Reason or counterexample:** The identity isogeny has cokernel zero and the zero R-module is projective; its projective dimension is not exactly one under the usual conventions. (cc-442dc5) Reclassified to affect nothing: the dimension-one wording has the intended meaning of a bound ≤1 throughout Lemmas 7.7–7.8 and Definition 7.10, and the zero module causes no problem in the determinant construction.
 
 **Effect:** nothing
 
@@ -4454,7 +4454,7 @@ The source ledger contains 23 findings. The 22 inherited records retain their pr
 
 **Source:** BS17-witt-grassmannian
 
-**Fragment scope:** Short printed fragment or displayed mathematical expression; the correction and reason describe its context.
+**Statement format:** The source assertion is described in the worker’s own words; mathematical symbols and formulas are retained where needed to identify the issue. The correction and reason are mathematical analysis, not quoted source prose.
 
 **Version scope:** Final arXiv v3 only; publisher refused the PDF. This is not a verified finding against the published version.
 
@@ -4466,11 +4466,11 @@ The source ledger contains 23 findings. The 22 inherited records retain their pr
 
 **Locator:** arXiv v3, Lemma 7.9, p. 29
 
-**Printed fragment:** Spec(R)_{≤λ} ⊂ {x ∈ Spec(R) | λ(Q ⊗ W(k(x))) ≤ λ}
+**Source assertion:** Spec(R)_{≤λ} ⊂ {x ∈ Spec(R) | λ(Q ⊗ W(k(x))) ≤ λ}
 
 **Correction:** Spec(R)_{≤λ} := {x ∈ Spec(R) | λ(Q ⊗ W(k(x))) ≤ λ} is a closed subset of Spec(R).
 
-**Reason or counterexample:** The display defines the locus, and the proof on p. 32 shows that this whole set is closed (it is the image of Dem_λ(Q)). With '⊂' the statement would say nothing about which subset. The verdict is 'revised' only because the recorded 'printed' text paraphrased the display; the substance of E12 stands. Present in v1 and v2.
+**Reason or counterexample:** The display defines the locus, and the proof on p. 32 shows that this whole set is closed (it is the image of Dem_λ(Q)). With '⊂' the statement would say nothing about which subset. The earlier revision concerned how the display was recorded, not the mathematical diagnosis in the inherited E12 finding. Present in v1 and v2.
 
 **Effect:** nothing
 
@@ -4482,7 +4482,7 @@ The source ledger contains 23 findings. The 22 inherited records retain their pr
 
 **Source:** BS17-witt-grassmannian
 
-**Fragment scope:** Short printed fragment or displayed mathematical expression; the correction and reason describe its context.
+**Statement format:** The source assertion is described in the worker’s own words; mathematical symbols and formulas are retained where needed to identify the issue. The correction and reason are mathematical analysis, not quoted source prose.
 
 **Version scope:** Final arXiv v3 only; publisher refused the PDF. This is not a verified finding against the published version.
 
@@ -4494,7 +4494,7 @@ The source ledger contains 23 findings. The 22 inherited records retain their pr
 
 **Locator:** p. 35, proof of Theorem 8.3, second paragraph
 
-**Printed fragment:** By induction; L|⋃_{μ<λ}Gr_{≤μ}
+**Source assertion:** Induction is invoked for the ampleness of L|⋃_{μ<λ}Gr_{≤μ} before representability of that union has been established.
 
 **Correction:** Before invoking Keel, show that Y = ∪_{μ<λ}Gr_{≤μ} is the perfection of a proper algebraic space. Here Y is the image sheaf of ⊔_{μ<λ}Gr_{≤μ}, equivalently the closed complement of Gr_λ. The map ⊔Gr_{≤μ} → Y is a v-cover. Its equivalence relation is given by the closed intersections Gr_{≤μ} ×_{Gr_{≤λ}} Gr_{≤μ'}. So Y is the iterated pushout of the Gr_{≤μ} along these intersections. Affine-locally this pushout is A1 ×_{A12} A2, which is perfect and satisfies A1 ⊗_A A2 = A12. On finite-type models the pushout is a proper algebraic space by [Ar70, 6.1]. Next, every subvariety of Y lies in some Gr_{≤μ}, where L is ample, so E(L|_Y) = ∅. Keel's Lemma 1.8, applied inductively over the pieces, then makes L|_Y semiample. Its morphism contracts no curve, hence is finite, so L|_Y is ample. Alternatively, cite Zhu's Theorem 8.2, which makes Y a closed subspace of a proper perfect algebraic space; but then the proof is no longer independent of Zhu as claimed (p. 32).
 
@@ -4510,7 +4510,7 @@ The source ledger contains 23 findings. The 22 inherited records retain their pr
 
 **Source:** BS17-witt-grassmannian
 
-**Fragment scope:** Short printed fragment or displayed mathematical expression; the correction and reason describe its context.
+**Statement format:** The source assertion is described in the worker’s own words; mathematical symbols and formulas are retained where needed to identify the issue. The correction and reason are mathematical analysis, not quoted source prose.
 
 **Version scope:** Final arXiv v3 only; publisher refused the PDF. This is not a verified finding against the published version.
 
@@ -4522,11 +4522,11 @@ The source ledger contains 23 findings. The 22 inherited records retain their pr
 
 **Locator:** p. 37, the sentence introducing Kottwitz' map and Proposition 9.7 ([Zhu14, Proposition 1.21])
 
-**Printed fragment:** π₁(G)_{Gal_K}
+**Source assertion:** π₁(G)_{Gal_K}
 
 **Correction:** Add the hypothesis 'k algebraically closed' (as in [Zhu14, §1.5.2]); then Gal_K is the inertia group. For a general perfect k: Kottwitz's map is κ: LG(k̄) = G(W_{O_K}(k̄)[1/p]) → π1(G)_{I_K}, where I_K ⊂ Gal_K is the inertia subgroup. It induces Gal(k̄/k)-equivariant bijections π0(LG_{k̄}) ≅ π0(Gr_{𝒢,k̄}) ≅ π1(G)_{I_K}. The connected components over k are the Gal(k̄/k)-orbits on π1(G)_{I_K}.
 
-**Reason or counterexample:** §9 fixes only a perfect residue field k, but Zhu states Prop. 1.21 in a subsection (§1.5.2 of arXiv v1/v2, §1.4.2 of v3) that opens 'We assume that k is algebraically closed'. Kottwitz's map for the field W_{O_K}(k̄)[1/p] = K̆ lands in the inertia coinvariants π1(G)_{I_K}, not in π1(G)_{Gal_K}. Counterexample for finite k: let K'/K be unramified quadratic with residue field k', T = Res_{K'/K} G_m, and 𝒢 = Res_{O_K'/O_K} G_m its connected Néron model (parahoric). Then Gr_𝒢 = Res_{k'/k}(Z), whose geometric components form Z² with Frobenius swapping the factors, while π1(T)_{Gal_K} = Z²/(e1−e2) = Z. Neither the k-components (Frobenius orbits, e.g. {(0,0)} and {(1,−1),(−1,1)} both lying over 0) nor the geometric components (Z²) are in bijection with Z. Defence: for k algebraically closed, the case of Zhu's source, the statement is correct. The only subsequent use, in the proof of Proposition 10.3 for SL_n where π1 = 0, is unaffected. The same text appears in v1 and v2.
+**Reason or counterexample:** §9 fixes only a perfect residue field k, but Zhu states Prop. 1.21 in a subsection (§1.5.2 of arXiv v1/v2, §1.4.2 of v3) whose standing hypotheses require algebraically closed k. Kottwitz's map for the field W_{O_K}(k̄)[1/p] = K̆ lands in the inertia coinvariants π1(G)_{I_K}, not in π1(G)_{Gal_K}. Counterexample for finite k: let K'/K be unramified quadratic with residue field k', T = Res_{K'/K} G_m, and 𝒢 = Res_{O_K'/O_K} G_m its connected Néron model (parahoric). Then Gr_𝒢 = Res_{k'/k}(Z), whose geometric components form Z² with Frobenius swapping the factors, while π1(T)_{Gal_K} = Z²/(e1−e2) = Z. Neither the k-components (Frobenius orbits, e.g. {(0,0)} and {(1,−1),(−1,1)} both lying over 0) nor the geometric components (Z²) are in bijection with Z. Defence: for k algebraically closed, the case of Zhu's source, the statement is correct. The only subsequent use, in the proof of Proposition 10.3 for SL_n where π1 = 0, is unaffected. The same text appears in v1 and v2.
 
 **Effect:** a stated result
 
@@ -4538,7 +4538,7 @@ The source ledger contains 23 findings. The 22 inherited records retain their pr
 
 **Source:** BS17-witt-grassmannian
 
-**Fragment scope:** Short printed fragment or displayed mathematical expression; the correction and reason describe its context.
+**Statement format:** The source assertion is described in the worker’s own words; mathematical symbols and formulas are retained where needed to identify the issue. The correction and reason are mathematical analysis, not quoted source prose.
 
 **Version scope:** Final arXiv v3 only; publisher refused the PDF. This is not a verified finding against the published version.
 
@@ -4550,7 +4550,7 @@ The source ledger contains 23 findings. The 22 inherited records retain their pr
 
 **Locator:** p. 37, Proposition 10.1 (second assertion) and its proof
 
-**Printed fragment:** L = det̃_R(p^a W_{O_K}(R)^n/M)
+**Source assertion:** L = det̃_R(p^a W_{O_K}(R)^n/M)
 
 **Correction:** Add the argument. Choose a W(k)-basis of O_K, so that W_{O_K}(R)^n = W(R)^{ne}. On a bounded piece X ⊂ Gr_{SL_n} (proper by Corollary 9.6), for a ≪ 0 the map M ↦ p^{-a}M ⊂ W(R)^{ne} sends X into some Gr_{≤λ} for GL_{ne}. The cokernel is Q = W(R)^{ne}/p^{-a}M ≅ p^aW_{O_K}(R)^n/M, killed by a bounded power of p, of constant length −ane. This map is proper and injective on points, hence finite (pass to finite-type models). By definition of det̃ on K(W_{O_K}(R) on R), L|_X is the pullback of the Theorem 8.3 bundle det̃(Q). So L|_X is ample by Theorem 8.3.
 
@@ -4566,7 +4566,7 @@ The source ledger contains 23 findings. The 22 inherited records retain their pr
 
 **Source:** BS17-witt-grassmannian
 
-**Fragment scope:** Short printed fragment or displayed mathematical expression; the correction and reason describe its context.
+**Statement format:** The source assertion is described in the worker’s own words; mathematical symbols and formulas are retained where needed to identify the issue. The correction and reason are mathematical analysis, not quoted source prose.
 
 **Version scope:** Final arXiv v3 only; publisher refused the PDF. This is not a verified finding against the published version.
 
@@ -4578,7 +4578,7 @@ The source ledger contains 23 findings. The 22 inherited records retain their pr
 
 **Locator:** p. 37, last paragraph (after Proposition 10.1)
 
-**Printed fragment:** det_R(p^a W_{O_K}(R)^n/gW_{O_K}(R)^n)
+**Source assertion:** det_R(p^a W_{O_K}(R)^n/gW_{O_K}(R)^n)
 
 **Correction:** det̃_R(p^aW_{O_K}(R)^n/gW_{O_K}(R)^n) (up to the canonically trivial factor det̃_R(p^aW_{O_K}(R)^n/W_{O_K}(R)^n)^{-1})
 
@@ -4594,7 +4594,7 @@ The source ledger contains 23 findings. The 22 inherited records retain their pr
 
 **Source:** BS17-witt-grassmannian
 
-**Fragment scope:** Short printed fragment or displayed mathematical expression; the correction and reason describe its context.
+**Statement format:** The source assertion is described in the worker’s own words; mathematical symbols and formulas are retained where needed to identify the issue. The correction and reason are mathematical analysis, not quoted source prose.
 
 **Version scope:** Final arXiv v3 only; publisher refused the PDF. This is not a verified finding against the published version.
 
@@ -4608,7 +4608,7 @@ The source ledger contains 23 findings. The 22 inherited records retain their pr
 
 **Locator:** A.3.1, p.478
 
-**Printed fragment:** Q_ℓ[2 dim X](dim X)
+**Source assertion:** Q_ℓ[2 dim X](dim X)
 
 **Correction:** Use the perverse shift [dim X] for IC on a smooth dense open; specify any Tate normalization separately.
 
@@ -4632,7 +4632,7 @@ The source ledger contains 23 findings. The 22 inherited records retain their pr
 
 **Locator:** A.3.3, pp.479–480
 
-**Printed fragment:** compatible with c_{X′} and c_{X″}
+**Source assertion:** Comparison between finite models is asserted to preserve the class normalizations c_{X′} and c_{X″}.
 
 **Correction:** Fix the finite model and account for the purely inseparable degree in trace/fundamental-class comparisons.
 
@@ -4656,7 +4656,7 @@ The source ledger contains 23 findings. The 22 inherited records retain their pr
 
 **Locator:** Corollary VI.3.8, p.207
 
-**Printed fragment:** equidimensional of dimension
+**Source assertion:** The semi-infinite intersection is assigned the stated common component dimension without a nonemptiness qualification.
 
 **Correction:** Qualify the intersection dimension equality by nonemptiness, as also required for Zhu Corollary2.8.
 
@@ -4680,7 +4680,7 @@ The source ledger contains 23 findings. The 22 inherited records retain their pr
 
 **Locator:** Proof of Corollary 2.9, p.436 (PDF page34), final displayed comparison in the first paragraph
 
-**Printed fragment:** H_c^{⟨2ρ,λ⟩}(S_λ,IC_μ) ≃ H_c^{⟨2ρ,λ⟩}(S_λ∩Gr_μ,Q̄_ℓ)
+**Source assertion:** H_c^{⟨2ρ,λ⟩}(S_λ,IC_μ) ≃ H_c^{⟨2ρ,λ⟩}(S_λ∩Gr_μ,Q̄_ℓ)
 
 **Correction:** Write d_μ=⟨2ρ,μ⟩ and r=⟨2ρ,λ⟩. With IC_μ|Gr_μ=Q̄_ℓ[d_μ] before any Tate normalization, the right-hand side is H_c^{r+d_μ}(S_λ∩Gr_μ,Q̄_ℓ), namely unshifted degree ⟨2ρ,μ+λ⟩. If IC carries a Tate normalization, put that twist on the constant sheaf separately; it does not change the cohomological shift.
 
@@ -4694,7 +4694,7 @@ The source ledger contains 23 findings. The 22 inherited records retain their pr
 
 **Version scope:** Established against the published Annals 185(2017) PDF only, exact SHA256 5d50b415048f3a5ad14bccf1c8da83fc5a680fcf13b60911ca269daa474431a7. This record does not assert that the same error occurs in an unread author-preprint edition.
 
-**Fragment scope:** The displayed mathematical expression is transcribed from the printed page; the reason and correction are the revision worker’s analysis.
+**Statement format:** The source assertion is described in the worker’s own words; mathematical symbols and formulas are retained where needed to identify the issue. The correction and reason are mathematical analysis, not quoted source prose.
 
 **Added by:** BP-GeometricSatakeAndFusion--GS0~2
 
@@ -4979,4 +4979,4 @@ remains a follow-up task once the required environment and interfaces exist.
 
 ## Revision record
 
-job: BP-GeometricSatakeAndFusion--GS0~2; issue: 7303; date: 2026-10-07; agent: ChatGPT GPT-6 Astra Pro; session: gpt6astra-e19d65722997; inputCommit: 4689b245047bbf5817d9304ec7fff6b98f19ab31; preserved: All 59 inherited node IDs and their relative order, the historical top-level review, and all E1–E22 source-issue records including their reviews.; newTargets: GeometricSatakeAndFusion:GS0:loop-geometry/etale-over-divisor; GeometricSatakeAndFusion:GS1/lattice-relative-position-semicontinuity; GeometricSatakeAndFusion:GS1/length-semicontinuity; changes: Synchronized the entire reader with the packet, including hypotheses, proof steps, dependencies, API, tests, coverage, baseline, requests, gaps and source findings.; Corrected the Witt right-factor lift claim and distinguished the full-lift unit determinant from the truncated Teichmüller equation; added a finite stabilizer regression.; Made the inherited perfect-complex/nonprojective-cohomology regression a named packet/reader test.; Corrected precise source scopes, labels and source attachments; supplied the actual ULA diagonal-duality proof and finite-filtration parity degeneration.; Imported existing VS1 hyperbolic and relative-ULA calculus nodes directly; narrowed the request to bounded Artin Hecke-chart transport and filtered ordinary-cohomology continuity.; Recorded new published-source finding E23 with its IC-shift correction, minuscule counterexample, exact version and bounded correction search.; Updated the nine rank-two route explanations to agree with the chosen-factor integrality proof and the remaining typed quotient/open-chart obligations.; validationLimit: No existing pinned build or full declaration index is available. No Lean compilation, library build, cache setup or LSP was performed. Prior projection checks remain historical.; correctedRouteReasons: PAPER-ZHU-17/B16; PAPER-ZHU-17/B17; PAPER-ZHU-17/B18; PAPER-ZHU-17/B19; PAPER-ZHU-17/B20; PAPER-ZHU-17/V23-witt-description; PAPER-ZHU-17/functor-W-decomposable; PAPER-ZHU-17/W-tilde-decomposition-claim; PAPER-ZHU-17/cone-chart-action-map-iso
+job: BP-GeometricSatakeAndFusion--GS0~2; issue: 7303; date: 2026-10-07; agent: ChatGPT GPT-6 Astra Pro; session: gpt6astra-e19d65722997; inputCommit: 4689b245047bbf5817d9304ec7fff6b98f19ab31; preserved: All 59 inherited node IDs and their relative order, the historical top-level review, E1–E22 identities and mathematical corrections, and every historical source review. Source assertion descriptions are paraphrased to follow the superseding source-presentation rule adopted in main22f67751dcda86cd61c81a2213b5557123eab845.; newTargets: GeometricSatakeAndFusion:GS0:loop-geometry/etale-over-divisor; GeometricSatakeAndFusion:GS1/lattice-relative-position-semicontinuity; GeometricSatakeAndFusion:GS1/length-semicontinuity; changes: Synchronized the entire reader with the packet, including hypotheses, proof steps, dependencies, API, tests, coverage, baseline, requests, gaps and source findings.; Corrected the Witt right-factor lift claim and distinguished the full-lift unit determinant from the truncated Teichmüller equation; added a finite stabilizer regression.; Made the inherited perfect-complex/nonprojective-cohomology regression a named packet/reader test.; Corrected precise source scopes, labels and source attachments; supplied the actual ULA diagonal-duality proof and finite-filtration parity degeneration.; Imported existing VS1 hyperbolic and relative-ULA calculus nodes directly; narrowed the request to bounded Artin Hecke-chart transport and filtered ordinary-cohomology continuity.; Recorded new published-source finding E23 with its IC-shift correction, minuscule counterexample, exact version and bounded correction search.; Updated the nine rank-two route explanations to agree with the chosen-factor integrality proof and the remaining typed quotient/open-chart obligations.; validationLimit: No existing pinned build or full declaration index is available. No Lean compilation, library build, cache setup or LSP was performed. Prior projection checks remain historical.; correctedRouteReasons: PAPER-ZHU-17/B16; PAPER-ZHU-17/B17; PAPER-ZHU-17/B18; PAPER-ZHU-17/B19; PAPER-ZHU-17/B20; PAPER-ZHU-17/V23-witt-description; PAPER-ZHU-17/functor-W-decomposable; PAPER-ZHU-17/W-tilde-decomposition-claim; PAPER-ZHU-17/cone-chart-action-map-iso; concurrentProtocolUpdate: commit: 22f67751dcda86cd61c81a2213b5557123eab845; date: 2026-10-07; scope: PROTOCOL§5/§18 now require statements in our own words, no excerpt fields or copied source prose; incorrect formulas may be recorded as mathematics. The concurrent GS0 packet change only deleted excerpts. This revision adopts that change and paraphrases source-assertion descriptions while preserving mathematical content, IDs and historical reviews.; removedSourceFields: 130; paraphrasedSourceFields: 39; sourceIssuesWithPresentationChanges: GeometricSatakeAndFusion/E1; GeometricSatakeAndFusion/E5; GeometricSatakeAndFusion/E6; GeometricSatakeAndFusion/E8; GeometricSatakeAndFusion/E9; GeometricSatakeAndFusion/E11; GeometricSatakeAndFusion/E13; GeometricSatakeAndFusion/E14; GeometricSatakeAndFusion/E16; GeometricSatakeAndFusion/E21; GeometricSatakeAndFusion/E22; GeometricSatakeAndFusion/E2; GeometricSatakeAndFusion/E15; GeometricSatakeAndFusion/E17; GeometricSatakeAndFusion/E3; GeometricSatakeAndFusion/E4; GeometricSatakeAndFusion/E7; GeometricSatakeAndFusion/E10; GeometricSatakeAndFusion/E12; GeometricSatakeAndFusion/E18; GeometricSatakeAndFusion/E19; GeometricSatakeAndFusion/E23

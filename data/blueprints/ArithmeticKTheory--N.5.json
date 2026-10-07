@@ -140,7 +140,6 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "IV.2.5 and Exercise IV.2.6, printed pp. 280, 284; VI.8.2 proof, printed p. 513 (combined PDF pp. 288, 292, 521)",
-          "excerpt": "Universal Coefficient Theorem",
           "match": "The coefficient exact sequence and its use on a ring of ℓ-integers; use the corrected residue ring recorded in ArithmeticKTheory/E17."
         }
       ],
@@ -185,13 +184,11 @@
         {
           "sourceId": "RognesWeibel.2000",
           "locator": "§1, paragraph following Example 1.6, printed p. 8",
-          "excerpt": "edge map",
           "match": "Explicit factorisation through the Bockstein and restriction to an algebraic closure, at ℓ = 2."
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "VI.1.6–1.7.1, printed pp. 467–468; VI.8.2–8.3, printed pp. 513–514 (PDF pp. 475–476, 521–522)",
-          "excerpt": "Proposition 1.7.1.",
           "match": "Suslin equivariance and the cohomological-dimension-two descent argument for each prime."
         }
       ],
@@ -237,7 +234,6 @@
         {
           "sourceId": "RognesWeibel.2000",
           "locator": "Proof of Theorem 6.7, final paragraph, printed p. 33",
-          "excerpt": "all nontrivial extensions",
           "match": "The source observes the common abstract isomorphism type; the presented relation identifies the particular diagonal class detected at every real place."
         }
       ],
@@ -286,13 +282,11 @@
         {
           "sourceId": "RognesWeibel.2000",
           "locator": "Theorem 6.7, printed pp. 32–33 (final proof paragraph p. 33); Theorem 6.9, pp. 33–34",
-          "excerpt": "Theorem 6.9.",
           "match": "Real-place maps identify the extension, not merely its cardinality; the all-coordinate diagonal statement follows by applying the proof to every real embedding."
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "VI.3.1 and Table 3.1.1, printed p. 475; VI.9.4 proof, printed pp. 519–520 (PDF pp. 483, 527–528)",
-          "excerpt": "Theorem 3.1.",
           "match": "Real-to-complex torsion map and the nontrivial extension detected at each real place."
         }
       ],
@@ -342,7 +336,6 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "VI.9.4–9.5, printed pp. 519–521 (PDF pp. 527–529); VI.2.6, printed p. 474 (PDF p. 482)",
-          "excerpt": "Theorem 9.4.",
           "match": "Even coefficient rows and the integral mod-eight consequences, retaining the maps and correcting the two-primary w convention in ArithmeticKTheory/E20."
         }
       ],
@@ -396,13 +389,11 @@
         {
           "sourceId": "Weibel.HandbookI5.2005",
           "locator": "§5.4, printed pp. 153–154; §5.7, Theorem 73, printed pp. 167–169",
-          "excerpt": "edge map",
           "match": "The first étale Chern class is defined by the comparison followed by the étale spectral-sequence edge; coefficient compatibility is an explicit supplier interface."
         },
         {
           "sourceId": "RognesWeibel.2000",
           "locator": "§1, paragraph after Example 1.6, printed p. 8",
-          "excerpt": "e-invariant",
           "match": "The degree-zero coefficient edge factors through torsion; the connecting-square formula is its coefficient-compatible degree-one consequence."
         }
       ],

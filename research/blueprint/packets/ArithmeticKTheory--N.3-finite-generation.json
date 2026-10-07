@@ -173,13 +173,11 @@
         {
           "sourceId": "Kahn.2014",
           "locator": "Corollary 2.3.7, p.12; §§4.3.1–4.3.4, pp.17–18",
-          "excerpt": "the mapping cone of",
           "match": "The reduced coefficient complex and mapping-cone shift identify relative homology, including rank one."
         },
         {
           "sourceId": "Quillen.1973",
           "locator": "Theorem 3, printed p.181, PDF p.189",
-          "excerpt": "THEOREM 3",
           "match": "The exact sequence is the relative sequence with the stated shift."
         }
       ],
@@ -222,7 +220,6 @@
         {
           "sourceId": "Quillen.1973",
           "locator": "Corollary (Stability), printed p.182, PDF p.190",
-          "excerpt": "COROLLARY (\"Stability\")",
           "match": "The printed bounds are n≥i for surjectivity and n≥i+1 for injectivity."
         }
       ],
@@ -275,13 +272,11 @@
         {
           "sourceId": "Quillen.1973",
           "locator": "Proof of Theorem 1, printed pp.184–185, PDF pp.192–193",
-          "excerpt": "Fixing",
           "match": "Induction over finite rank and degreewise stabilization yield integral finite generation."
         },
         {
           "sourceId": "Weibel.IV",
           "locator": "IV.6.8–6.9, PDF p.59, book p.325",
-          "excerpt": "Pic(R) is finite",
           "match": "The criterion requires finite Pic and integral Steinberg-coefficient homology."
         }
       ],
@@ -329,13 +324,11 @@
         {
           "sourceId": "Quillen.1973",
           "locator": "End of proof of Theorem 1, printed p.185, PDF p.193",
-          "excerpt": "homotopy associative and commutative H-space",
           "match": "Quillen passes from finite integral homology to homotopy using the H-space structure."
         },
         {
           "sourceId": "Serre.1951",
           "locator": "III §1 Proposition 1 (pp.465–466); IV §3 Proposition 3 (p.479), IV §6 Proposition 9 (p.483); V §§1–2 Proposition 1 and Variantes (pp.489–491)",
-          "excerpt": "X est simple en toute dimension",
           "match": "The simple-space variant is stated after the proof; for the needed H-space case IV.3 supplies homotopically trivial deck transformations, so the cover/loop induction in V.1–2 extends to the first cover as well. Footnote 6 permits the singular-complex formulation."
         }
       ],
@@ -393,7 +386,6 @@
         {
           "sourceId": "Quillen.1973",
           "locator": "§1 Remark (2), printed pp.179–180, PDF pp.187–188",
-          "excerpt": "finite cokernel",
           "match": "The finite-field localization calculation gives finite defects in n>1 and even-degree injectivity."
         }
       ],

@@ -253,7 +253,6 @@
         {
           "sourceId": "Su84",
           "locator": "Corollary1.8, p191",
-          "excerpt": "Пусть F — произвольное поле",
           "match": "The printed formula is read with the standing infinite-field convention in the introduction."
         }
       ],
@@ -293,7 +292,6 @@
         {
           "sourceId": "Su84",
           "locator": "Theorem1.9 and proof, p191",
-          "excerpt": "является гомологическим изоморфизмом.",
           "match": "The source requires all diagonal matrices; its proof only uses the central scalars, yielding the stated refinement."
         }
       ],
@@ -333,7 +331,6 @@
         {
           "sourceId": "Su84",
           "locator": "§2 definitions, Lemmas2.1–2.2, pp191–192",
-          "excerpt": "Следующее утверждение является частным случаем",
           "match": "The source shifts the augmented complex so the empty tuple has degree0."
         }
       ],
@@ -453,7 +450,6 @@
         {
           "sourceId": "Su84",
           "locator": "Lemmas2.1–2.2, pp191–192",
-          "excerpt": "ациклично.",
           "match": "Vector general position, distinct from the parent’s projective general-position complex."
         }
       ],
@@ -496,7 +492,6 @@
         {
           "sourceId": "Su84",
           "locator": "§2.3–2.5, pp192–195",
-          "excerpt": "Обозначим",
           "match": "Top frame homology coinvariants and the associative direct-sum product."
         }
       ],
@@ -620,7 +615,6 @@
         {
           "sourceId": "Su84",
           "locator": "§2.6 and Lemma2.6.1, p195",
-          "excerpt": "итерированный связывающий гомоморфизм",
           "match": "The connecting homomorphism and its stabilization/product identities."
         }
       ],
@@ -718,7 +712,6 @@
         {
           "sourceId": "Su84",
           "locator": "2.7.4, 3.3.1–3.3.5, pp196–198",
-          "excerpt": "является тождественным отображением.",
           "match": "Splitting, decomposability and the commuting degree-two class; displayed formulas transcribed from the scan."
         }
       ],
@@ -765,7 +758,6 @@
         {
           "sourceId": "Su84",
           "locator": "§3.1–3.2 and Theorem3.4(a–d), pp196–198",
-          "excerpt": "равны нулю.",
           "match": "The degeneration, e-injectivity, finite-step stability and Milnor quotient are proved together; formulas read visually."
         }
       ],
@@ -806,7 +798,6 @@
         {
           "sourceId": "Su84",
           "locator": "2.7.1–2.7.4 and Theorem3.4(d), pp195–198",
-          "excerpt": "является тождественным отображением",
           "match": "The retraction composite is the identity, fixing the normalization without a factorial."
         }
       ],
@@ -900,7 +891,6 @@
         {
           "sourceId": "Su91",
           "locator": "Lemma2.2, p221",
-          "excerpt": "Lemma 2.2.",
           "match": "Field naturality is an algebraic consequence of the printed orbit normalization and face formula, not an additional claim quoted from Suslin."
         }
       ],
@@ -939,7 +929,6 @@
         {
           "sourceId": "Su84",
           "locator": "Corollary2.7.4, p196",
-          "excerpt": "является тождественным отображением",
           "match": "The section/retraction identity precedes Theorem3.4."
         }
       ],
@@ -980,7 +969,6 @@
         {
           "sourceId": "Su84",
           "locator": "Theorem3.4(d), p198",
-          "excerpt": "является изоморфизмом.",
           "match": "The displayed map is transcribed; its n=3 consequence gives torus generation."
         }
       ],
@@ -1027,13 +1015,11 @@
         {
           "sourceId": "KVI",
           "locator": "Definition2.1 p6; Lemma5.19 p34",
-          "excerpt": "We shall call e the e-invariant.",
           "match": "The declared domain is torsion. The construction applies e after passage to the closure and the torsion identification."
         },
         {
           "sourceId": "Su91",
           "locator": "Lemma5.7, p236",
-          "excerpt": "Lemma 5.7.",
           "match": "The closure reduction uses injectivity of Tor on roots of unity."
         }
       ],
@@ -1127,13 +1113,11 @@
         {
           "sourceId": "Su91",
           "locator": "Lemma5.7 proof, p236",
-          "excerpt": "Lemma 5.7.",
           "match": "The minus sign follows from the two inverse characters; formula visually checked."
         },
         {
           "sourceId": "KV",
           "locator": "Exercise11.5, p89",
-          "excerpt": "is an isomorphism",
           "match": "The exercise’s conclusion is used with the corrected sign in its hint."
         }
       ],
@@ -1179,13 +1163,11 @@
         {
           "sourceId": "KVI",
           "locator": "Lemma5.19 proof and diagram, p34",
-          "excerpt": "Lemma 5.19.",
           "match": "The square and e=−c₂ normalization are read in this proof. Its modulus scope is narrowed to the sufficient odd-or-8-divisible range supported by the cited general product rule; the mod4 cross-reference gap is recorded separately."
         },
         {
           "sourceId": "KV",
           "locator": "Finite coefficients 11.3.2, p82",
-          "excerpt": "if m is odd or if 8|m",
           "match": "This is the explicit scope of the finite-coefficient Chern product rule, distinguishing it from the wider cyclic evaluation."
         }
       ],
@@ -1224,13 +1206,11 @@
         {
           "sourceId": "Su91",
           "locator": "Lemma5.7 and Lemma5.8, pp236–237",
-          "excerpt": "is injective",
           "match": "First ordinary Tor is detected; the enhanced-Tor extension is then treated separately."
         },
         {
           "sourceId": "KVI",
           "locator": "Lemma5.19, p34",
-          "excerpt": "If F is algebraically closed it is an isomorphism.",
           "match": "The detector in this packet spells out its torsion domain and normalization."
         }
       ],

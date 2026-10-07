@@ -2752,7 +2752,6 @@
         {
           "sourceId": "Couveignes2020",
           "locator": "§3, printed p.493 (physical PDF p.7), Gram/covolume calculation",
-          "excerpt": "the square of the volume",
           "match": "Literal phrase checked in the motivating passage. The node is a worker-derived auxiliary consequence with its stated additional hypotheses; its proof is supplied by the listed pinned/library or preceding-node inputs, not claimed verbatim as a theorem of this article."
         }
       ],
@@ -2826,7 +2825,6 @@
         {
           "sourceId": "Couveignes2020",
           "locator": "§3, printed p.494 (physical PDF p.8), Gram/covolume calculation",
-          "excerpt": "product of the diagonal terms",
           "match": "Literal phrase checked in the motivating passage. The node is a worker-derived auxiliary consequence with its stated additional hypotheses; its proof is supplied by the listed pinned/library or preceding-node inputs, not claimed verbatim as a theorem of this article."
         }
       ],
@@ -2901,7 +2899,6 @@
         {
           "sourceId": "Couveignes2020",
           "locator": "§3, printed p.494 (physical PDF p.8), Gram/covolume calculation",
-          "excerpt": "product of the diagonal terms",
           "match": "Literal phrase checked in the motivating passage. The node is a worker-derived auxiliary consequence with its stated additional hypotheses; its proof is supplied by the listed pinned/library or preceding-node inputs, not claimed verbatim as a theorem of this article."
         }
       ],
@@ -2973,7 +2970,6 @@
         {
           "sourceId": "Couveignes2020",
           "locator": "§3, printed p.494 (physical PDF p.8), Gram/covolume calculation",
-          "excerpt": "product of the diagonal terms",
           "match": "Literal phrase checked in the motivating passage. The node is a worker-derived auxiliary consequence with its stated additional hypotheses; its proof is supplied by the listed pinned/library or preceding-node inputs, not claimed verbatim as a theorem of this article."
         }
       ],
@@ -3051,7 +3047,6 @@
         {
           "sourceId": "Couveignes2020",
           "locator": "§3, printed p.493 (physical PDF p.7), Gram/covolume calculation",
-          "excerpt": "the square of the volume",
           "match": "Literal phrase checked in the motivating passage. The node is a worker-derived auxiliary consequence with its stated additional hypotheses; its proof is supplied by the listed pinned/library or preceding-node inputs, not claimed verbatim as a theorem of this article."
         }
       ],
@@ -3120,7 +3115,6 @@
         {
           "sourceId": "Couveignes2020",
           "locator": "§3, printed p.494 (physical PDF p.8), ordered norms and intrinsic closed-ball volume",
-          "excerpt": "non-decreasing",
           "match": "Literal phrase checked in the motivating passage. The node is a worker-derived auxiliary consequence with its stated additional hypotheses; its proof is supplied by the listed pinned/library or preceding-node inputs, not claimed verbatim as a theorem of this article."
         }
       ],
@@ -3192,7 +3186,6 @@
         {
           "sourceId": "Couveignes2020",
           "locator": "§3, printed p.494 (physical PDF p.8), ordered norms and intrinsic closed-ball volume",
-          "excerpt": "non-decreasing",
           "match": "Literal phrase checked in the motivating passage. The node is a worker-derived auxiliary consequence with its stated additional hypotheses; its proof is supplied by the listed pinned/library or preceding-node inputs, not claimed verbatim as a theorem of this article."
         }
       ],
@@ -3268,7 +3261,6 @@
         {
           "sourceId": "Couveignes2020",
           "locator": "§3, printed p.494 (physical PDF p.8), ordered norms and intrinsic closed-ball volume",
-          "excerpt": "volume of the sphere",
           "match": "Literal phrase checked in the motivating passage. The node is a worker-derived auxiliary consequence with its stated additional hypotheses; its proof is supplied by the listed pinned/library or preceding-node inputs, not claimed verbatim as a theorem of this article."
         }
       ],
@@ -3339,7 +3331,6 @@
         {
           "sourceId": "Couveignes2020",
           "locator": "§3, printed p.494 (physical PDF p.8), ordered norms and intrinsic closed-ball volume",
-          "excerpt": "volume of the sphere",
           "match": "Literal phrase checked in the motivating passage. The node is a worker-derived auxiliary consequence with its stated additional hypotheses; its proof is supplied by the listed pinned/library or preceding-node inputs, not claimed verbatim as a theorem of this article."
         }
       ],
@@ -3411,7 +3402,6 @@
         {
           "sourceId": "Couveignes2020",
           "locator": "§3, printed p.494 (physical PDF p.8), ordered norms and intrinsic closed-ball volume",
-          "excerpt": "volume of the sphere",
           "match": "Literal phrase checked in the motivating passage. The node is a worker-derived auxiliary consequence with its stated additional hypotheses; its proof is supplied by the listed pinned/library or preceding-node inputs, not claimed verbatim as a theorem of this article."
         }
       ],
@@ -3493,7 +3483,6 @@
         {
           "sourceId": "HoreshKarasik2023",
           "locator": "Proposition B.4, published p.1290, basis-completion step.",
-          "excerpt": "by primitiveness",
           "match": "Expands the source's primitive basis completion into a pinned Smith-normal-form argument."
         }
       ],
@@ -3569,7 +3558,6 @@
         {
           "sourceId": "HoreshKarasik2023",
           "locator": "Proposition B.4, published p.1290, projected last block; Appendix introduction pp.1284–1285.",
-          "excerpt": "projection",
           "match": "Makes projection discreteness and fullness explicit instead of inferring them from an unproved quotient-lattice claim."
         }
       ],
@@ -3645,7 +3633,6 @@
         {
           "sourceId": "HoreshKarasik2023",
           "locator": "Proposition B.4, published p.1290, block-triangular determinant proof.",
-          "excerpt": "covolumes",
           "match": "Extracts the measure-free determinant step, with signs and empty blocks explicit."
         }
       ],
@@ -3720,7 +3707,6 @@
         {
           "sourceId": "HoreshKarasik2023",
           "locator": "Corollary A.3, published p.1285, reciprocal Gram determinants; proof of A.1, p.1284, biorthogonality.",
-          "excerpt": "A.3",
           "match": "Provides exactly the scalar determinant identity needed for reciprocal covolume, through the existing dual-basis API."
         }
       ],
@@ -3792,7 +3778,6 @@
         {
           "sourceId": "HoreshKarasik2023",
           "locator": "Proposition B.5, published p.1291, corrected pairing proof.",
-          "excerpt": "⟨x, z⟩",
           "match": "Generalizes the published standard-lattice identity correctly by retaining the ambient dual."
         }
       ],
@@ -3871,7 +3856,6 @@
         {
           "sourceId": "HoreshKarasik2023",
           "locator": "Corollary A.2, p.1285, and Proposition B.5, p.1291.",
-          "excerpt": "A.2",
           "match": "Combines existing dual-basis fullness with the missing projection/intersection bridge."
         }
       ],
@@ -3948,7 +3932,6 @@
         {
           "sourceId": "HoreshKarasik2023",
           "locator": "Proposition B.4, published p.1290.",
-          "excerpt": "covol(Λπ,Δ )",
           "match": "Supplies the intrinsic metric quotient-volume formula, with the source's determinant-sign choice made explicit."
         }
       ],
@@ -4032,7 +4015,6 @@
         {
           "sourceId": "HoreshKarasik2023",
           "locator": "Corollary A.3, published p.1285.",
-          "excerpt": "covol(Λ)−1",
           "match": "Adds the Euclidean volume consequence, not a replacement for the built algebraic dual or double-dual theorem."
         }
       ],
@@ -4114,7 +4096,6 @@
         {
           "sourceId": "HoreshKarasik2023",
           "locator": "Corollary B.6, published p.1291; Couveignes2020 p.493 uses its standard-lattice case.",
-          "excerpt": "covol(Λ⟂ )",
           "match": "Closes the fourth routed Couveignes input and states the reusable self-dual ambient generalization as an explicit worker deduction."
         }
       ],
@@ -4236,7 +4217,6 @@
         {
           "sourceId": "EvertseGeometry",
           "locator": "§2.3, Lemma 2.8, printed pp.23–24 (physical pp.13–14)",
-          "excerpt": "successive minima",
           "match": "The precise source argument is expanded into the listed native-library steps. Core attainment is also valid without symmetry: this is an explicitly stated worker generalization of the same proof, not a claim that the source states it."
         }
       ],
@@ -4339,7 +4319,6 @@
         {
           "sourceId": "EvertseGeometry",
           "locator": "§2.3, Lemma 2.8, printed pp.23–24 (physical pp.13–14)",
-          "excerpt": "successive minima",
           "match": "The precise source argument is expanded into the listed native-library steps. Core attainment is also valid without symmetry: this is an explicitly stated worker generalization of the same proof, not a claim that the source states it."
         }
       ],
@@ -4397,7 +4376,6 @@
         {
           "sourceId": "EvertseGeometry",
           "locator": "§2.3, Lemma 2.8, printed pp.23–24 (physical pp.13–14)",
-          "excerpt": "successive minima",
           "match": "The precise source argument is expanded into the listed native-library steps. Core attainment is also valid without symmetry: this is an explicitly stated worker generalization of the same proof, not a claim that the source states it."
         }
       ],
@@ -4453,7 +4431,6 @@
         {
           "sourceId": "EvertseGeometry",
           "locator": "§2.3, Lemma 2.8, printed pp.23–24 (physical pp.13–14)",
-          "excerpt": "successive minima",
           "match": "The precise source argument is expanded into the listed native-library steps. Core attainment is also valid without symmetry: this is an explicitly stated worker generalization of the same proof, not a claim that the source states it."
         }
       ],
@@ -4509,7 +4486,6 @@
         {
           "sourceId": "EvertseGeometry",
           "locator": "§2.3, Lemma 2.8, printed pp.23–24 (physical pp.13–14)",
-          "excerpt": "successive minima",
           "match": "The precise source argument is expanded into the listed native-library steps. Core attainment is also valid without symmetry: this is an explicitly stated worker generalization of the same proof, not a claim that the source states it."
         }
       ],
@@ -4560,7 +4536,6 @@
         {
           "sourceId": "EvertseGeometry",
           "locator": "§2.3, Lemma 2.8, printed pp.23–24 (physical pp.13–14)",
-          "excerpt": "successive minima",
           "match": "The precise source argument is expanded into the listed native-library steps. Core attainment is also valid without symmetry: this is an explicitly stated worker generalization of the same proof, not a claim that the source states it."
         }
       ],
@@ -4610,7 +4585,6 @@
         {
           "sourceId": "EvertseGeometry",
           "locator": "§2.3, Lemma 2.8, printed pp.23–24 (physical pp.13–14)",
-          "excerpt": "successive minima",
           "match": "The precise source argument is expanded into the listed native-library steps. Core attainment is also valid without symmetry: this is an explicitly stated worker generalization of the same proof, not a claim that the source states it."
         }
       ],
@@ -4669,7 +4643,6 @@
         {
           "sourceId": "EvertseGeometry",
           "locator": "§2.3, Lemma 2.8, printed pp.23–24 (physical pp.13–14)",
-          "excerpt": "successive minima",
           "match": "The precise source argument is expanded into the listed native-library steps. Core attainment is also valid without symmetry: this is an explicitly stated worker generalization of the same proof, not a claim that the source states it."
         }
       ],
@@ -4727,7 +4700,6 @@
         {
           "sourceId": "EvertseGeometry",
           "locator": "§2.3, Lemma 2.8, printed pp.23–24 (physical pp.13–14)",
-          "excerpt": "successive minima",
           "match": "The precise source argument is expanded into the listed native-library steps. Core attainment is also valid without symmetry: this is an explicitly stated worker generalization of the same proof, not a claim that the source states it."
         }
       ],
@@ -4782,7 +4754,6 @@
         {
           "sourceId": "EvertseGeometry",
           "locator": "§2.3, Lemma 2.8, printed pp.23–24 (physical pp.13–14)",
-          "excerpt": "successive minima",
           "match": "The precise source argument is expanded into the listed native-library steps. Core attainment is also valid without symmetry: this is an explicitly stated worker generalization of the same proof, not a claim that the source states it."
         }
       ],
@@ -4834,7 +4805,6 @@
         {
           "sourceId": "EvertseGeometry",
           "locator": "§2.3, Lemma 2.8, printed pp.23–24 (physical pp.13–14)",
-          "excerpt": "successive minima",
           "match": "The precise source argument is expanded into the listed native-library steps. Core attainment is also valid without symmetry: this is an explicitly stated worker generalization of the same proof, not a claim that the source states it."
         }
       ],
@@ -4887,7 +4857,6 @@
         {
           "sourceId": "EvertseGeometry",
           "locator": "§2.3, Lemma 2.8, printed pp.23–24 (physical pp.13–14)",
-          "excerpt": "successive minima",
           "match": "The precise source argument is expanded into the listed native-library steps. Core attainment is also valid without symmetry: this is an explicitly stated worker generalization of the same proof, not a claim that the source states it."
         }
       ],
@@ -4941,7 +4910,6 @@
         {
           "sourceId": "EvertseGeometry",
           "locator": "§2.3, change-of-coordinates remark after Theorem 2.9, printed pp.24–25 (physical pp.14–15); corrected nonsingularity hypothesis in sourceIssue E11.",
-          "excerpt": "invariant under linear transformations",
           "match": "The source intends a nonsingular linear change. The packet explicitly requires a linear equivalence and transports both lattice and body; it does not adopt the unrestricted printed formulation. Rank invariance follows from the pinned LinearEquiv.finrank_eq."
         }
       ],
@@ -4994,7 +4962,6 @@
         {
           "sourceId": "EvertseGeometry",
           "locator": "§2.3, definition and Lemma 2.8, pp.23–24; Henk p.2 before Theorem 1.2",
-          "excerpt": "successive minima",
           "match": "The precise source argument is expanded into the listed native-library steps. Core attainment is also valid without symmetry: this is an explicitly stated worker generalization of the same proof, not a claim that the source states it."
         }
       ],
@@ -5053,7 +5020,6 @@
         {
           "sourceId": "EvertseGeometry",
           "locator": "§2.3, proof of the lower bound in Theorem 2.9, printed p.27 (physical p.17)",
-          "excerpt": "octahedron",
           "match": "The cited proof or example is decomposed into the listed declarations, importing the pinned native volume and covolume identities. Exercise 2.9 is proved by the stated coordinate-rank argument. Intrinsic spaces and dimension zero are explicit worker extensions."
         }
       ],
@@ -5110,7 +5076,6 @@
         {
           "sourceId": "EvertseGeometry",
           "locator": "§2.3, Lemma 2.10 and lower-bound proof, printed pp.26–27 (physical pp.16–17)",
-          "excerpt": "symmetric about 0",
           "match": "The cited proof or example is decomposed into the listed declarations, importing the pinned native volume and covolume identities. Exercise 2.9 is proved by the stated coordinate-rank argument. Intrinsic spaces and dimension zero are explicit worker extensions."
         }
       ],
@@ -5168,7 +5133,6 @@
         {
           "sourceId": "EvertseGeometry",
           "locator": "§2.3, lower-bound proof, printed p.27 (physical p.17)",
-          "excerpt": "sublattice",
           "match": "The cited proof or example is decomposed into the listed declarations, importing the pinned native volume and covolume identities. Exercise 2.9 is proved by the stated coordinate-rank argument. Intrinsic spaces and dimension zero are explicit worker extensions."
         }
       ],
@@ -5229,7 +5193,6 @@
         {
           "sourceId": "EvertseGeometry",
           "locator": "§2.3, Theorem 2.9 and its complete lower-bound proof, printed pp.24,26–27",
-          "excerpt": "lower bound",
           "match": "The cited proof or example is decomposed into the listed declarations, importing the pinned native volume and covolume identities. Exercise 2.9 is proved by the stated coordinate-rank argument. Intrinsic spaces and dimension zero are explicit worker extensions."
         }
       ],
@@ -5287,7 +5250,6 @@
         {
           "sourceId": "EvertseGeometry",
           "locator": "§2.3, Example 2, printed pp.25–26 (physical pp.15–16)",
-          "excerpt": "Example 2",
           "match": "The cited proof or example is decomposed into the listed declarations, importing the pinned native volume and covolume identities. Exercise 2.9 is proved by the stated coordinate-rank argument. Intrinsic spaces and dimension zero are explicit worker extensions."
         }
       ],
@@ -5344,7 +5306,6 @@
         {
           "sourceId": "EvertseGeometry",
           "locator": "§2.3, Example 3 and Exercise 2.9, printed p.26 (physical p.16)",
-          "excerpt": "Exercise 2.9",
           "match": "The cited proof or example is decomposed into the listed declarations, importing the pinned native volume and covolume identities. Exercise 2.9 is proved by the stated coordinate-rank argument. Intrinsic spaces and dimension zero are explicit worker extensions."
         }
       ],
@@ -5400,7 +5361,6 @@
         {
           "sourceId": "EvertseGeometry",
           "locator": "§2.2, Corollary 2.6, printed p.20 (physical p.10)",
-          "excerpt": "Corollary 2.6",
           "match": "Exact source theorem, with a determinant/closed-box volume helper. The source pushes the lattice forward; this equivalent worker proof pulls the box back and imports the pinned compact first theorem."
         }
       ],
@@ -5458,7 +5418,6 @@
         {
           "sourceId": "EvertseGeometry",
           "locator": "§2.2, Corollary 2.6 and complete proof, printed p.20 (physical p.10)",
-          "excerpt": "Corollary 2.6",
           "match": "Exact source theorem, with a determinant/closed-box volume helper. The source pushes the lattice forward; this equivalent worker proof pulls the box back and imports the pinned compact first theorem."
         }
       ],
@@ -5531,7 +5490,6 @@
         {
           "sourceId": "Henk2002",
           "locator": "§2, Lemma 2.1 proof, p.4",
-          "excerpt": "Lemma 2.1",
           "match": "Worker's additive-group formulation of the source's coset-fiber difference injection, proved with the read native quotient and finite-cardinality APIs; not a newly defined carrier."
         }
       ],
@@ -5605,7 +5563,6 @@
         {
           "sourceId": "Henk2002",
           "locator": "§2, Lemma 2.1 and its complete proof, p.4",
-          "excerpt": "Lemma 2.1",
           "match": "Exact counting inequality in relative-index form; the source determinant ratio is already baseline. The normed-space formulation and explicit finite-index hypothesis are justified by the supplied difference proof."
         }
       ],
@@ -5680,7 +5637,6 @@
         {
           "sourceId": "Henk2002",
           "locator": "§2, p.4, inequality (1.3) deduction after Lemma 2.1",
-          "excerpt": "Lemma 2.1",
           "match": "Finite-set separation wrapper for the source's q^n index step. The exact index is already AddSubgroup.index_range_nsmul and is imported; native quotient and residue carriers are not replanned."
         }
       ],
@@ -5743,7 +5699,6 @@
         {
           "sourceId": "Henk2002",
           "locator": "§2, p.4, inequality (1.3) deduction after Lemma 2.1",
-          "excerpt": "Lemma 2.1",
           "match": "Source's qL avoidance argument, expressed using the already planned closed-dilate first-minimum characterization; symmetry is explicitly unnecessary for this intermediate implication."
         }
       ],
@@ -5824,7 +5779,6 @@
         {
           "sourceId": "Henk2002",
           "locator": "p.2, inequality (1.3); §2 p.4, its complete deduction after Lemma 2.1",
-          "excerpt": "Lemma 2.1",
           "match": "Exact first-minimum lattice-point bound. The source floor convention is retained per E9; the finite-set wrapper imports the already-built q^d index."
         }
       ],
@@ -5896,7 +5850,6 @@
         {
           "sourceId": "Henk2002",
           "locator": "p.3, simultaneous integral-basis statement before (2.1)",
-          "excerpt": "successive minima",
           "match": "Worker decomposition of the source's basis-completion step, preserving a prescribed basis rather than choosing an unrelated one."
         }
       ],
@@ -5967,7 +5920,6 @@
         {
           "sourceId": "Henk2002",
           "locator": "p.3, prefix-span equality and (2.1)",
-          "excerpt": "successive minima",
           "match": "Supplies the entire integral rational-flag step without creating a new flag carrier."
         }
       ],
@@ -6034,7 +5986,6 @@
         {
           "sourceId": "Henk2002",
           "locator": "pp.3–4, (2.1)–(2.3)",
-          "excerpt": "successive minima",
           "match": "Transfers the already planned attained-minimum flag, without pretending the minimum vectors themselves form an integral basis."
         }
       ],
@@ -6094,7 +6045,6 @@
         {
           "sourceId": "Henk2002",
           "locator": "p.4, two-case construction after (2.4)",
-          "excerpt": "successive minima",
           "match": "Exact source arithmetic step."
         }
       ],
@@ -6158,7 +6108,6 @@
         {
           "sourceId": "Henk2002",
           "locator": "p.4, (2.4) and backward induction",
-          "excerpt": "successive minima",
           "match": "Source's compatible factor choices with the final factor and empty case explicit."
         }
       ],
@@ -6221,7 +6170,6 @@
         {
           "sourceId": "Henk2002",
           "locator": "pp.4–5, (2.4)–(2.5)",
-          "excerpt": "successive minima",
           "match": "Tracks the precise exponent and strict sign."
         }
       ],
@@ -6284,7 +6232,6 @@
         {
           "sourceId": "Henk2002",
           "locator": "pp.4–5, lattice generated by n_i e_i",
-          "excerpt": "successive minima",
           "match": "Coordinate interface for the source's native diagonal span, not a replacement carrier."
         }
       ],
@@ -6351,7 +6298,6 @@
         {
           "sourceId": "Henk2002",
           "locator": "p.4, determinant ratio of the diagonal sublattice",
-          "excerpt": "successive minima",
           "match": "Specialization of existing index formulas through the diagonal-span coordinate interface."
         }
       ],
@@ -6422,7 +6368,6 @@
         {
           "sourceId": "Henk2002",
           "locator": "p.5, largest nonzero coordinate argument after (2.5)",
-          "excerpt": "successive minima",
           "match": "Supplies the source's avoidance argument in the original lattice basis, without a separate normalization carrier."
         }
       ],
@@ -6499,7 +6444,6 @@
         {
           "sourceId": "Henk2002",
           "locator": "pp.3–5, Theorem 1.5 and (2.1)–(2.5)",
-          "excerpt": "successive minima",
           "match": "Assembles the proved source bound from the decomposed flag, rounding, native index and avoidance interfaces."
         }
       ],
@@ -6574,7 +6518,6 @@
         {
           "sourceId": "Henk2002",
           "locator": "p.5 (3.2), and p.6 the two volume factorizations after (3.4)",
-          "excerpt": "successive minima",
           "match": "Supplies the measure-theoretic additivity required for lattice translates whose closed boundaries can touch."
         }
       ],
@@ -6630,7 +6573,6 @@
         {
           "sourceId": "Henk2002",
           "locator": "p.6, the section inclusion between (3.6) and the successive integrations",
-          "excerpt": "successive minima",
           "match": "Keeps section formation and the finite translation family compatible; no measure of a chosen center is involved."
         }
       ],
@@ -6704,7 +6646,6 @@
         {
           "sourceId": "Henk2002",
           "locator": "p.6, pointwise t(x) inclusion immediately after (3.6)",
-          "excerpt": "successive minima",
           "match": "Makes the source's elementary fiber enlargement explicit, including empty sections and the required translating vector."
         }
       ],
@@ -6764,7 +6705,6 @@
         {
           "sourceId": "Henk2002",
           "locator": "p.6, the inequality between section-volume integrals",
-          "excerpt": "successive minima",
           "match": "Separates translation invariance from the subsequent Tonelli argument."
         }
       ],
@@ -6827,7 +6767,6 @@
         {
           "sourceId": "Henk2002",
           "locator": "p.6 (3.6) and the three-line successive-integration argument ending on p.7",
-          "excerpt": "successive minima",
           "match": "Proves the exact finite-union volume comparison that underlies the source's consecutive-minimum ratio estimate."
         }
       ],
@@ -6889,7 +6828,6 @@
         {
           "sourceId": "Henk2002",
           "locator": "p.6, identity M_q^i+K_{i+1}=f₂(M_q^i+f₁(K_i))",
-          "excerpt": "successive minima",
           "match": "Exposes the precise order of the two native partial linear maps."
         }
       ],
@@ -6954,7 +6892,6 @@
         {
           "sourceId": "Henk2002",
           "locator": "p.6 (3.5), using the partial maps and (3.6)",
-          "excerpt": "successive minima",
           "match": "Supplies the analytic codimension factor; applying it to lattice boxes and successive minima remains a separate proof step."
         }
       ],
@@ -7018,7 +6955,6 @@
         {
           "sourceId": "Henk2002",
           "locator": "p.5, reduction to the standard lattice at the start of §3",
-          "excerpt": "successive minima",
           "match": "Worker-derived normalization adapter for Henk's simultaneous coordinate change. The gauge language is the pinned library's, not a quotation of the paper."
         }
       ],
@@ -7087,7 +7023,6 @@
         {
           "sourceId": "Henk2002",
           "locator": "p.6, the volume factorizations immediately after (3.4)",
-          "excerpt": "successive minima",
           "match": "Worker-expanded null-overlap step needed because the paper's row blocks are generally nonconvex finite unions."
         }
       ],
@@ -7160,7 +7095,6 @@
         {
           "sourceId": "Henk2002",
           "locator": "p.6, the two factorizations following (3.4)",
-          "excerpt": "successive minima",
           "match": "Declares precisely the clustered additivity used in Henk's proof, preserving within-row overlaps and allowing touching cross-row boundaries."
         }
       ],
@@ -7231,7 +7165,6 @@
         {
           "sourceId": "Henk2002",
           "locator": "pp.5–6, (3.2) and (3.4), using the strict flag from (2.3)",
-          "excerpt": "successive minima",
           "match": "Expands Henk's nonintersection argument using the stronger inherited strict-sublevel flag, which also handles repeated minima."
         }
       ],
@@ -7301,7 +7234,6 @@
         {
           "sourceId": "Henk2002",
           "locator": "p.6, the two displayed volume factorizations after (3.4)",
-          "excerpt": "successive minima",
           "match": "Uses native finite intervals and exact coordinate splitting to make Henk's row multiplicity explicit."
         }
       ],
@@ -7372,7 +7304,6 @@
         {
           "sourceId": "Henk2002",
           "locator": "p.6, (3.5) and the coordinate maps f₁,f₂",
-          "excerpt": "successive minima",
           "match": "Native coordinate adapter for the previously planned product-Haar theorem; neither coordinate volume nor change-of-variables infrastructure is replanned."
         }
       ],
@@ -7445,7 +7376,6 @@
         {
           "sourceId": "Henk2002",
           "locator": "pp.5–6, (3.3)–(3.5)",
-          "excerpt": "successive minima",
           "match": "Supplies Henk's consecutive-minimum ratio after substituting s=λ_i, t=λ_{i+1}, k=i+1 in zero-based indexing; the more general threshold formulation isolates the exact flag assumption."
         }
       ],
@@ -7517,7 +7447,6 @@
         {
           "sourceId": "Henk2002",
           "locator": "p.5, (3.2)",
-          "excerpt": "successive minima",
           "match": "Exact starting value for the volume recurrence; the cardinality and scalar-volume laws are already built."
         }
       ],
@@ -7587,7 +7516,6 @@
         {
           "sourceId": "Henk2002",
           "locator": "p.5, (3.1)",
-          "excerpt": "successive minima",
           "match": "Expands Henk's boundedness constant into a native coordinate enclosure uniform over all q."
         }
       ],
@@ -7658,7 +7586,6 @@
         {
           "sourceId": "Henk2002",
           "locator": "p.7, the final product expansion",
-          "excerpt": "successive minima",
           "match": "Worker-expanded finite algebra behind Henk's cancellation of successive-minimum ratios."
         }
       ],
@@ -7723,7 +7650,6 @@
         {
           "sourceId": "Henk2002",
           "locator": "p.7, the chain of inequalities after (3.6)",
-          "excerpt": "successive minima",
           "match": "Isolates the finite recurrence before applying the enclosing box and the limit."
         }
       ],
@@ -7789,7 +7715,6 @@
         {
           "sourceId": "Henk2002",
           "locator": "p.7, the last display and its conclusion for all q",
-          "excerpt": "successive minima",
           "match": "Expands the last limiting step without importing a stronger lattice-counting estimate."
         }
       ],
@@ -7870,7 +7795,6 @@
         {
           "sourceId": "Henk2002",
           "locator": "§3, pp.5–7, (3.1)–(3.6) and final display",
-          "excerpt": "successive minima",
           "match": "Complete declaration-sized coordinate proof of Henk's upper bound; the strict flag is supplied separately and need not be renamed as minima."
         }
       ],
@@ -7959,7 +7883,6 @@
         {
           "sourceId": "Henk2002",
           "locator": "p.2 Theorem 1.3 and complete §3 proof, pp.5–7",
-          "excerpt": "successive minima",
           "match": "Combines the full coordinate upper proof with the native integral-basis covolume normalization. Along with the inherited lower theorem and attained witnesses, this supplies the generic two-sided product contract, not the consumer's arithmetic metric or algorithmic reductions."
         }
       ],
@@ -8050,7 +7973,6 @@
         {
           "sourceId": "Voight2026",
           "locator": "§9.3 Definition 9.3.1 and §9.7 Definitions 9.7.1–9.7.8, printed pp.137,144–145",
-          "excerpt": "9.7.3.",
           "match": "The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan."
         }
       ],
@@ -8133,7 +8055,6 @@
         {
           "sourceId": "Voight2026",
           "locator": "§9.4, (9.4.1)–(9.4.5), printed pp.139–140",
-          "excerpt": "9.4.1",
           "match": "The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan."
         }
       ],
@@ -8190,7 +8111,6 @@
         {
           "sourceId": "Voight2026",
           "locator": "Lemma 9.4.6 and Corollary 9.4.7, printed p.140",
-          "excerpt": "9.4.6.",
           "match": "The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan."
         }
       ],
@@ -8249,7 +8169,6 @@
         {
           "sourceId": "Voight2026",
           "locator": "§9.5 (9.5.1)–(9.5.4), Lemma 9.5.3 and full proof, printed pp.142–143",
-          "excerpt": "9.5.3.",
           "match": "The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan."
         }
       ],
@@ -8340,7 +8259,6 @@
         {
           "sourceId": "Voight2026",
           "locator": "Definition 9.7.13, printed p.146; completion comparison §9.5",
-          "excerpt": "9.7.13.",
           "match": "The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan."
         }
       ],
@@ -8426,7 +8344,6 @@
         {
           "sourceId": "Voight2026",
           "locator": "§9.7 genus convention; worker extension to the spin-cover target, with missing source classification stated explicitly",
-          "excerpt": "9.7.13.",
           "match": "The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan."
         }
       ],
@@ -8516,7 +8433,6 @@
         {
           "sourceId": "LiZhangDensity",
           "locator": "§1.7, physical p.8; §3 hypotheses, physical p.15",
-          "excerpt": "1.7.",
           "match": "The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan."
         }
       ],
@@ -8606,7 +8522,6 @@
         {
           "sourceId": "LiZhangDensity",
           "locator": "§1.7, physical pp.8–9",
-          "excerpt": "L∨",
           "match": "The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan."
         }
       ],
@@ -8697,7 +8612,6 @@
         {
           "sourceId": "LiZhangDensity",
           "locator": "§1.7, physical p.8",
-          "excerpt": "(a1, . . . , an)",
           "match": "The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan."
         }
       ],
@@ -8783,7 +8697,6 @@
         {
           "sourceId": "LLL1982",
           "locator": "§1, (1.2)–(1.3), physical p.2",
-          "excerpt": "(1.3)",
           "match": "The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan."
         }
       ],
@@ -8868,7 +8781,6 @@
         {
           "sourceId": "LLL1982",
           "locator": "§1, (1.4)–(1.5), physical pp.2–3",
-          "excerpt": "(1.5)",
           "match": "The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan."
         }
       ],
@@ -8956,7 +8868,6 @@
         {
           "sourceId": "LLL1982",
           "locator": "Algorithm (1.15), size reductions and adjacent swaps, physical pp.5–7; certificate format is a worker verification interface",
-          "excerpt": "(1.15)",
           "match": "The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan."
         }
       ],
@@ -9015,7 +8926,6 @@
         {
           "sourceId": "LLL1982",
           "locator": "Proof of Proposition 1.6, physical p.3",
-          "excerpt": "Proof of (1.6).",
           "match": "The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan."
         }
       ],
@@ -9074,7 +8984,6 @@
         {
           "sourceId": "LLL1982",
           "locator": "Proposition 1.11 and its proof, physical p.4",
-          "excerpt": "1.11.",
           "match": "The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan."
         }
       ],
@@ -9163,7 +9072,6 @@
         {
           "sourceId": "LLL1982",
           "locator": "(1.23)–(1.25), physical pp.7–8",
-          "excerpt": "(1.23)",
           "match": "The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan."
         }
       ],
@@ -9252,7 +9160,6 @@
         {
           "sourceId": "LLL1982",
           "locator": "Algorithm (1.15), updates (1.22), Figure 1, termination proof, physical pp.5–8",
-          "excerpt": "(1.22)",
           "match": "The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan."
         }
       ],
@@ -9315,7 +9222,6 @@
         {
           "sourceId": "LLL1982",
           "locator": "Proposition 1.11 plus exact shear/swap lattice preservation, physical pp.4–8",
-          "excerpt": "1.11.",
           "match": "The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan."
         }
       ],
@@ -9395,7 +9301,6 @@
         {
           "sourceId": "LiZhangDensity",
           "locator": "§3.1, definition of Rep_{M,L}, physical p.15",
-          "excerpt": "3.1.",
           "match": "The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan."
         }
       ],
@@ -9483,7 +9388,6 @@
         {
           "sourceId": "LiZhangDensity",
           "locator": "Proof of Theorem 3.5.1, physical p.18, finite hermitian isometries",
-          "excerpt": "3.5.1.",
           "match": "The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan."
         }
       ],
@@ -9547,7 +9451,6 @@
         {
           "sourceId": "LiZhangDensity",
           "locator": "Proof of Theorem 3.5.1, physical p.18",
-          "excerpt": "qn(2m−n)",
           "match": "The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan."
         }
       ],
@@ -9629,7 +9532,6 @@
         {
           "sourceId": "LiZhangDensity",
           "locator": "§3.1 local density definition, physical p.15",
-          "excerpt": "3.1.",
           "match": "The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan."
         }
       ],
@@ -9723,7 +9625,6 @@
         {
           "sourceId": "LiZhangDensity",
           "locator": "§§3.1–3.2, physical pp.15–16",
-          "excerpt": "Den(M, L)",
           "match": "The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan."
         }
       ],
@@ -9812,7 +9713,6 @@
         {
           "sourceId": "LiZhangDensity",
           "locator": "§3.2, physical p.16",
-          "excerpt": "Den(X, L)",
           "match": "The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan."
         }
       ],
@@ -9901,7 +9801,6 @@
         {
           "sourceId": "LiZhangDensity",
           "locator": "§3.5 before Theorem 3.5.1, physical p.17",
-          "excerpt": "m(a; X)",
           "match": "The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan."
         }
       ],
@@ -9969,7 +9868,6 @@
         {
           "sourceId": "LiZhangDensity",
           "locator": "Theorem 3.5.1 and proof, physical pp.17–18",
-          "excerpt": "3.5.1.",
           "match": "The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan."
         }
       ],
@@ -10030,7 +9928,6 @@
         {
           "sourceId": "LiZhangDensity",
           "locator": "§3.2 (3.2.0.2), physical p.16",
-          "excerpt": "(3.2.0.2)",
           "match": "The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan."
         }
       ],
@@ -10115,7 +10012,6 @@
         {
           "sourceId": "Schlichting2010",
           "locator": "Definition 2.1 and Definition 3.1, printed pp.109,113",
-          "excerpt": "3.1",
           "match": "The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan."
         }
       ],
@@ -10199,7 +10095,6 @@
         {
           "sourceId": "Schlichting2010",
           "locator": "Definition 2.1, Example 2.2 and §2.4, printed pp.109–110",
-          "excerpt": "2.1",
           "match": "The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan."
         }
       ],
@@ -10289,7 +10184,6 @@
         {
           "sourceId": "Schlichting2010",
           "locator": "Definition 2.4 and §3.1, printed pp.110,113",
-          "excerpt": "2.4",
           "match": "The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan."
         }
       ],
@@ -10370,7 +10264,6 @@
         {
           "sourceId": "Schlichting2010",
           "locator": "Definition 2.5, printed p.110",
-          "excerpt": "2.5",
           "match": "The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan."
         }
       ],
@@ -10452,7 +10345,6 @@
         {
           "sourceId": "Schlichting2010",
           "locator": "After Definition 2.5, printed p.110",
-          "excerpt": "H.L/",
           "match": "The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan."
         }
       ],
@@ -10534,7 +10426,6 @@
         {
           "sourceId": "Schlichting2010",
           "locator": "Lemma 2.6 and complete proof, printed pp.110–111",
-          "excerpt": "2.6",
           "match": "The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan."
         }
       ],
@@ -10627,7 +10518,6 @@
         {
           "sourceId": "Schlichting2010",
           "locator": "§2.2, printed p.111",
-          "excerpt": "GW0.E/",
           "match": "The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan."
         }
       ],
@@ -10722,7 +10612,6 @@
         {
           "sourceId": "Schlichting2010",
           "locator": "§2.2 and Lemma 2.8, printed pp.111–112",
-          "excerpt": "W0.E/",
           "match": "The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan."
         }
       ],
@@ -10788,7 +10677,6 @@
         {
           "sourceId": "Schlichting2010",
           "locator": "Lemma 2.8 and proof, printed p.112",
-          "excerpt": "2.8",
           "match": "The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan."
         }
       ],
@@ -10875,7 +10763,6 @@
         {
           "sourceId": "Schlichting2010",
           "locator": "Definition 4.1 and §4.1, printed pp.116–117",
-          "excerpt": "4.1",
           "match": "The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan."
         }
       ],
@@ -10959,7 +10846,6 @@
         {
           "sourceId": "Schlichting2010",
           "locator": "Definition 4.4 and Definition 4.12, printed pp.117–118,122",
-          "excerpt": "4.4",
           "match": "The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan."
         }
       ],
@@ -11019,7 +10905,6 @@
         {
           "sourceId": "Schlichting2010",
           "locator": "Proposition 4.11 and full proof, printed pp.121–122",
-          "excerpt": "4.11",
           "match": "The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan."
         }
       ],
@@ -11101,7 +10986,6 @@
         {
           "sourceId": "Voight2026",
           "locator": "§9.3–9.7 full lattice and quadratic-module conventions; worker extension to the staged quaternionic hermitian target",
-          "excerpt": "9.3.1.",
           "match": "The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan."
         }
       ],
@@ -11181,7 +11065,6 @@
         {
           "sourceId": "Voight2026",
           "locator": "Definition 9.8.1 and Example 9.8.2, printed p.147",
-          "excerpt": "9.8.1.",
           "match": "The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan."
         }
       ],
@@ -11239,7 +11122,6 @@
         {
           "sourceId": "Voight2026",
           "locator": "Proposition 9.8.4 and proof reference, printed pp.147–148",
-          "excerpt": "9.8.4.",
           "match": "The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan."
         }
       ],
@@ -11297,7 +11179,6 @@
         {
           "sourceId": "Voight2026",
           "locator": "Definition 9.7.13; worker proof from finite lattice points, not a claimed source proof of the general mass theorem",
-          "excerpt": "9.7.13.",
           "match": "The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan."
         }
       ],
@@ -11356,7 +11237,6 @@
         {
           "sourceId": "Voight2026",
           "locator": "Definition 9.7.13 and local-global finite-support lattice conventions, printed pp.141,146",
-          "excerpt": "9.7.13.",
           "match": "The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan."
         }
       ],
@@ -11442,7 +11322,6 @@
         {
           "sourceId": "Voight2026",
           "locator": "§9.7 genus class set; worker weighted measure interface for GN.3",
-          "excerpt": "9.7.13.",
           "match": "The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan."
         }
       ],
@@ -11513,7 +11392,6 @@
         {
           "sourceId": "Benoist2019",
           "locator": "Quotient/Haar convention on physical pp.5–7; worker adelic genus decomposition, not an attributed proof of a numerical Siegel mass formula",
-          "excerpt": "1.2.",
           "match": "The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan."
         }
       ],
@@ -11576,7 +11454,6 @@
         {
           "sourceId": "Duke1988",
           "locator": "Introduction theta/Weyl-sum correspondence, printed p.74; worker even-lattice specialization",
-          "excerpt": "a(n)",
           "match": "The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan."
         }
       ],
@@ -11642,7 +11519,6 @@
         {
           "sourceId": "BhargavaShankar2010",
           "locator": "Proposition 2.5, physical p.14; Davenport 1951 plus 1964 corrigendum identified separately",
-          "excerpt": "2.5",
           "match": "The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan."
         }
       ],
@@ -11704,7 +11580,6 @@
         {
           "sourceId": "Benoist2019",
           "locator": "Fact 3.3, physical p.20",
-          "excerpt": "3.3.",
           "match": "The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan."
         }
       ],
@@ -11762,7 +11637,6 @@
         {
           "sourceId": "MorrisArithmetic",
           "locator": "Moore-ergodicity conventions in the standing setting, §4.10 (not proof-read here); consequence derived from the preceding matrix-coefficient target",
-          "excerpt": "G/Γ",
           "match": "The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan."
         }
       ],
@@ -11820,7 +11694,6 @@
         {
           "sourceId": "Benoist2019",
           "locator": "Fact 3.4, physical p.20",
-          "excerpt": "3.4.",
           "match": "The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan."
         }
       ],
@@ -11879,7 +11752,6 @@
         {
           "sourceId": "MorrisArithmetic",
           "locator": "Theorem 20.1.3 and Remarks 20.1.4–20.1.5, printed pp.406–407; connected specialization",
-          "excerpt": "20.1.3",
           "match": "The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan."
         }
       ],
@@ -11941,7 +11813,6 @@
         {
           "sourceId": "MorrisArithmetic",
           "locator": "Theorem 20.3.4, printed p.413",
-          "excerpt": "20.3.4",
           "match": "The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan."
         }
       ],
@@ -12001,7 +11872,6 @@
         {
           "sourceId": "MorrisArithmetic",
           "locator": "Definition 20.3.2 and Theorem 20.3.3, printed pp.412–413",
-          "excerpt": "20.3.3",
           "match": "The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan."
         }
       ],
@@ -12066,7 +11936,6 @@
         {
           "sourceId": "MorrisArithmetic",
           "locator": "Corollary 20.2.5 and three-variable proof, printed pp.410–411",
-          "excerpt": "20.2.5",
           "match": "The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan."
         }
       ],
@@ -12128,7 +11997,6 @@
         {
           "sourceId": "Duke1988",
           "locator": "Introduction, printed p.74, before Theorem 1",
-          "excerpt": "Wu(n)",
           "match": "The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan."
         }
       ],
@@ -12207,7 +12075,6 @@
         {
           "sourceId": "Benoist2019",
           "locator": "Physical pp.5–7 quotient/lattice conventions; worker Euclidean packing/covering construction",
-          "excerpt": "1.3.",
           "match": "The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan."
         }
       ],
@@ -12291,7 +12158,6 @@
         {
           "sourceId": "Benoist2019",
           "locator": "Mahler statement physical p.7 motivates compactness; worker extension for the staged nonconvex star-body target",
-          "excerpt": "1.5.",
           "match": "The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan."
         }
       ],
@@ -12350,7 +12216,6 @@
         {
           "sourceId": "LLL1982",
           "locator": "Proposition 1.11 uses the same integral-coefficient norm floor; transference is a separate worker polar-pairing deduction, not an attributed LLL theorem",
-          "excerpt": "1.11.",
           "match": "The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan."
         }
       ],
@@ -12409,7 +12274,6 @@
         {
           "sourceId": "Benoist2019",
           "locator": "Fact 1.5, physical p.7",
-          "excerpt": "1.5.",
           "match": "The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan."
         }
       ],
@@ -12468,7 +12332,6 @@
         {
           "sourceId": "Benoist2019",
           "locator": "Physical pp.5–7 invariant lattice-space measure conventions; exact Siegel source remains a recorded acquisition gap",
-          "excerpt": "1.4.",
           "match": "The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan."
         }
       ],
@@ -12527,7 +12390,6 @@
         {
           "sourceId": "Benoist2019",
           "locator": "Covolume-one lattice convention physical p.6; mathematical constructor is imported from AlgebraicCodingTheory",
-          "excerpt": "1.4.",
           "match": "The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan."
         }
       ],
@@ -12585,7 +12447,6 @@
         {
           "sourceId": "CalmesIII",
           "locator": "Lemma 2.2.2 and proof, physical p.37",
-          "excerpt": "2.2.2.",
           "match": "The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan."
         }
       ],
@@ -12643,7 +12504,6 @@
         {
           "sourceId": "CalmesIII",
           "locator": "Theorem 2.2.4, Corollary 2.2.5 and Remark 2.2.6, physical pp.38–39",
-          "excerpt": "2.2.5.",
           "match": "The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan."
         }
       ],
@@ -12704,7 +12564,6 @@
         {
           "sourceId": "Schlichting2010",
           "locator": "§8.1, Theorem 8.2 and Remark 8.3, printed pp.140–141",
-          "excerpt": "8.2",
           "match": "The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan."
         }
       ],
@@ -12763,7 +12622,6 @@
         {
           "sourceId": "SchlichtingDerived",
           "locator": "Introduction, physical pp.2–4; Theorems 6.1–6.2 are announced here",
-          "excerpt": "GW [n]",
           "match": "The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan."
         }
       ],
@@ -12821,7 +12679,6 @@
         {
           "sourceId": "CalmesIII",
           "locator": "Theorem 3.1.7 and full proof, physical pp.51–52",
-          "excerpt": "3.1.7.",
           "match": "The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan."
         }
       ],
@@ -12880,7 +12737,6 @@
         {
           "sourceId": "CalmesIII",
           "locator": "Proposition 3.1.11 and proof, physical p.53",
-          "excerpt": "3.1.11.",
           "match": "The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan."
         }
       ],
@@ -12961,7 +12817,6 @@
         {
           "sourceId": "RegevTransference",
           "locator": "p.2, Definition 2 and Example 1",
-          "excerpt": "DEFINITION 2",
           "match": "The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan."
         }
       ],
@@ -13023,7 +12878,6 @@
         {
           "sourceId": "RegevTransference",
           "locator": "p.1, Theorem 1 and Remark 1, citing Banaszczyk 1993",
-          "excerpt": "REMARK 1",
           "match": "The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan."
         }
       ],
@@ -13086,7 +12940,6 @@
         {
           "sourceId": "RegevTransference",
           "locator": "p.2, Claim 3 and Theorem 4",
-          "excerpt": "THEOREM 4",
           "match": "The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan."
         }
       ],
@@ -13154,7 +13007,6 @@
         {
           "sourceId": "Kirschmer2013",
           "locator": "pp.3–4, Definition 3.1, Proposition 3.2 and Theorem 3.3",
-          "excerpt": "Theorem 3.3.",
           "match": "The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan."
         }
       ],
@@ -13232,7 +13084,6 @@
         {
           "sourceId": "Schlichting2010",
           "locator": "printed pp.121–122, Proposition 4.11 and Definition 4.12",
-          "excerpt": "4.12",
           "match": "The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan."
         }
       ],
@@ -13312,7 +13163,6 @@
         {
           "sourceId": "Schlichting2010",
           "locator": "printed pp.159–162, Lemma 9.5, Corollary 9.6, Definition 9.10",
-          "excerpt": "9.10",
           "match": "The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan."
         }
       ],
@@ -13369,7 +13219,6 @@
         {
           "sourceId": "Schlichting2010",
           "locator": "printed p.162, Theorem 9.11 and Remark 9.12",
-          "excerpt": "9.11",
           "match": "The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan."
         }
       ],
@@ -13450,7 +13299,6 @@
         {
           "sourceId": "Schlichting2010",
           "locator": "printed p.162, Remark 9.12",
-          "excerpt": "9.12",
           "match": "The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan."
         }
       ],
@@ -13508,7 +13356,6 @@
         {
           "sourceId": "MathlibPin",
           "locator": "CanonicalEmbedding/Basic.lean:213 and Discriminant/Basic.lean:134",
-          "excerpt": "covolume_idealLattice",
           "match": "The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan."
         }
       ],
@@ -13564,7 +13411,6 @@
         {
           "sourceId": "MathlibPin",
           "locator": "MeasureTheory/Group/GeometryOfNumbers.lean:52",
-          "excerpt": "exists_pair_mem_lattice_not_disjoint_vadd",
           "match": "The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan."
         }
       ],
@@ -13627,7 +13473,6 @@
         {
           "sourceId": "MathlibPin",
           "locator": "MeasureTheory/Group/GeometryOfNumbers.lean:65,91",
-          "excerpt": "Minkowski Convex Body Theorem",
           "match": "The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan."
         }
       ],
@@ -13685,7 +13530,6 @@
         {
           "sourceId": "MathlibPin",
           "locator": "NumberTheory/NumberField/ClassNumber.lean:59,77",
-          "excerpt": "exists_ideal_in_class_of_norm_le",
           "match": "The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan."
         }
       ],
@@ -13741,7 +13585,6 @@
         {
           "sourceId": "MathlibPin",
           "locator": "NumberTheory/NumberField/Units/DirichletTheorem.lean:457",
-          "excerpt": "finrank_modTorsion",
           "match": "The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan."
         }
       ],
@@ -13794,7 +13637,6 @@
         {
           "sourceId": "LiZhangDensity",
           "locator": "Li–Zhang §3.1, physical p.15, definition of the count; compact inverse-limit argument is a reviewer derivation.",
-          "excerpt": "3.1.",
           "match": "The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan."
         }
       ],
@@ -13840,7 +13682,6 @@
         {
           "sourceId": "Voight2026",
           "locator": "Lemma 9.4.6 and Corollary 9.4.7, printed p.140",
-          "excerpt": "9.4.6.",
           "match": "The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan."
         }
       ],
@@ -13887,7 +13728,6 @@
         {
           "sourceId": "Schlichting2010",
           "locator": "Lemma 2.6 and complete proof, printed pp.110–111",
-          "excerpt": "2.6",
           "match": "The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan."
         }
       ],
@@ -13933,7 +13773,6 @@
         {
           "sourceId": "Schlichting2010",
           "locator": "§2.2 and Lemma 2.8, printed pp.111–112",
-          "excerpt": "W0.E/",
           "match": "The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan."
         }
       ],
@@ -14014,7 +13853,6 @@
         {
           "sourceId": "Schlichting2010",
           "locator": "Lemma 2.8 and proof, printed p.112",
-          "excerpt": "2.8",
           "match": "The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan."
         }
       ],
@@ -14096,7 +13934,6 @@
         {
           "sourceId": "Schlichting2010",
           "locator": "Lemma 2.8 and proof, printed p.112",
-          "excerpt": "2.8",
           "match": "The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan."
         }
       ],
@@ -14144,7 +13981,6 @@
         {
           "sourceId": "Schlichting2010",
           "locator": "Lemma 2.8 and proof, printed p.112",
-          "excerpt": "2.8",
           "match": "The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan."
         }
       ],
@@ -14192,7 +14028,6 @@
         {
           "sourceId": "SchlichtingDerived",
           "locator": "SchlichtingDerived Theorem 6.1 and proof, physical pp.57–58; classical/stable model comparison remains a gap.",
-          "excerpt": "6.1",
           "match": "The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan."
         }
       ],
@@ -14273,7 +14108,6 @@
         {
           "sourceId": "Schlichting2010",
           "locator": "Schlichting2010 section 9.1 and Lemmas 9.2–9.4, printed pp.159–160 / physical pp.55–56.",
-          "excerpt": "9.2",
           "match": "The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan."
         }
       ],
@@ -14319,7 +14153,6 @@
         {
           "sourceId": "Schlichting2010",
           "locator": "printed pp.159–162, Lemma 9.5, Corollary 9.6, Definition 9.10",
-          "excerpt": "9.10",
           "match": "The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan."
         }
       ],
@@ -14364,7 +14197,6 @@
         {
           "sourceId": "Schlichting2010",
           "locator": "printed p.162, Theorem 9.11 and Remark 9.12",
-          "excerpt": "9.11",
           "match": "The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan."
         }
       ],
@@ -14411,7 +14243,6 @@
         {
           "sourceId": "Schlichting2010",
           "locator": "printed p.162, Remark 9.12",
-          "excerpt": "9.12",
           "match": "The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan."
         }
       ],

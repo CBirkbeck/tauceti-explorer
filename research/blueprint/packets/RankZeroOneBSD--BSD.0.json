@@ -776,13 +776,11 @@
     {
      "sourceId": "tauceti-entire",
      "locator": "TauCeti/NumberTheory/LSeries/EntireExtension.lean, docstring of HasEntireExtension",
-     "excerpt": "A coefficient sequence `a : ℕ → ℂ` *has an entire extension* if its abscissa of absolute convergence is finite — so the agreement region below is a genuine half-plane, not vacuously empty — and some entire `F : ℂ → ℂ` agrees with `LSeries a` on it.",
      "match": "The predicate whose unique witness is ellipticL."
     },
     {
      "sourceId": "jsw",
      "locator": "Conjecture 7.1.1(a), p. 41",
-     "excerpt": "The Hasse–Weil L-function L(E/F, s) has an analytic continuation to the entire complex plane and ords=1 L(E/F, s) = rkZ E(F );",
      "match": "The analytic object of the BSD statements is the continuation, not the Dirichlet series."
     }
    ],
@@ -929,19 +927,16 @@
     {
      "sourceId": "bfh90",
      "locator": "Introduction, p. 543",
-     "excerpt": "Λ(s, f) = (2π)^{−s}Γ(s)M^{s/2}L(s, f). It satisfies a functional equation Λ(s, f) = εΛ(k − s, f), where ε = ±1 is naturally called the sign in the functional equation.",
      "match": "The completed function and its sign, for k = 2 and M = N."
     },
     {
      "sourceId": "tauceti-modularforms-roadmap",
      "locator": "ModularForms README, Layer 6",
-     "excerpt": "The sign of the functional equation is `i^k·ε_N = (−1)^{k/2}·ε_N`, not `ε_N` alone",
      "match": "The relation w_E = −ε_N(F_E) for weight two."
     },
     {
      "sourceId": "gross-kolyvagin",
      "locator": "§5, after (5.2), p. 243 (read from the page image)",
-     "excerpt": "Then the L-function of E over Q satisfies a functional equation with sign = −ε.",
      "match": "The same relation, with ε the eigenvalue of the Fricke involution on f."
     }
    ],
@@ -1093,19 +1088,16 @@
     {
      "sourceId": "mathlib-order",
      "locator": "Mathlib/Analysis/Analytic/Order.lean, docstring of analyticOrderAt",
-     "excerpt": "The order is defined to be `∞` if `f` is identically 0 on a neighbourhood of `z₀`, and otherwise the unique `n` such that `f` can locally be written as `f z = (z - z₀) ^ n • g z`",
      "match": "The Mathlib notion applied to ellipticL E at s = 1."
     },
     {
      "sourceId": "jsw",
      "locator": "Conjecture 1.1.1(a), p. 1",
-     "excerpt": "The order of the zero at s = 1 of the Hasse–Weil L-function L(E, s) is equal to the rank r of the Mordell–Weil group E(Q).",
      "match": "Analytic rank is the order of the zero at s = 1."
     },
     {
      "sourceId": "tauceti-modularforms-roadmap",
      "locator": "ModularForms README, Layer 7",
-     "excerpt": "the analytic rank is the order of vanishing **of the entire continuation** at the central point",
      "match": "The same discipline for newforms; the two notions agree through the rational newform bridge."
     }
    ],
@@ -1247,7 +1239,6 @@
     {
      "sourceId": "bfh90",
      "locator": "Introduction, p. 543",
-     "excerpt": "Clearly the order of vanishing of L(s,f) at s = k/2 is even if the sign in the functional equation is positive, and odd if the sign in the functional equation is negative.",
      "match": "The parity relation, for k = 2."
     }
    ],
@@ -1296,7 +1287,6 @@
     {
      "sourceId": "bfh90",
      "locator": "Introduction, p. 543",
-     "excerpt": "If D is a fundamental discriminant, let χ_D be the Dirichlet character with conductor |D| defined in terms of the Kronecker symbol by χ_D(n) = (D/n). This is the quadratic character associated with the quadratic field Q(√D). It is known that χ_D(−1) = sgn(D).",
      "match": "The dictionary between D, χ_D and ℚ(√D)."
     }
    ],
@@ -1334,7 +1324,6 @@
     {
      "sourceId": "tauceti-twist",
      "locator": "TauCeti/AlgebraicGeometry/EllipticCurve/QuadraticTwist.lean, docstring of quadraticTwistOf",
-     "excerpt": "The quadratic twist of a Weierstrass curve `E` over `K` by parameters `t`, `n`",
      "match": "The characteristic-free twist used in both parts."
     }
    ],
@@ -1382,13 +1371,11 @@
     {
      "sourceId": "jsw",
      "locator": "Footnote 7, p. 42",
-     "excerpt": "If f is the newform associated with E, then the newform associated with E D is just the newform fK associated with the twist of f by the quadratic character χK of K.",
      "match": "Twisting E twists every Euler factor by χ_K."
     },
     {
      "sourceId": "skinner-zhang",
      "locator": "§9.1, Corollary 9.2 and proof, p. 29",
-     "excerpt": "Since AK ∼= A over K, there is nothing to prove if ℓ splits in K.",
      "match": "The local comparison at split primes; inert and ramified primes use the Galois description."
     }
    ],
@@ -1432,13 +1419,11 @@
     {
      "sourceId": "bfh90",
      "locator": "Introduction, p. 543",
-     "excerpt": "Let L(s,f,χ_D) = Σ χ_D(n)a(n)n^{−s}, and let Λ(s,f,χ_D) = (D²M)^{s/2}(2π)^{−s}Γ(s)L(s,f,χ_D).",
      "match": "The twisted L-series and its conductor D²M."
     },
     {
      "sourceId": "jsw",
      "locator": "Footnote 8, p. 43",
-     "excerpt": "If f is the newform associated with E, then the newform associated with E D is just the newform fK associated with the twist of f by the quadratic character of K.",
      "match": "The newform of the twist."
     }
    ],
@@ -1477,13 +1462,11 @@
     {
      "sourceId": "bfh90",
      "locator": "Introduction, p. 543",
-     "excerpt": "This has analytic continuation as a function of s, and, provided gcd(M, D) = 1, satisfies the functional equation Λ(s,f,χ_D) = εχ_D(−M)Λ(k − s,f,χ_D).",
      "match": "The twisted sign εχ_D(−M)."
     },
     {
      "sourceId": "bfh90",
      "locator": "Introduction, p. 543",
-     "excerpt": "Now suppose that every prime dividing M splits in Q(√D). In terms of the quadratic symbol, this implies that χ_D(M) = 1.",
      "match": "The Heegner-hypothesis specialisation."
     }
    ],
@@ -1528,13 +1511,11 @@
     {
      "sourceId": "jsw",
      "locator": "§7.4.1, p. 46",
-     "excerpt": "Here we have used that hzK′ , zK′ iN T = mK′ Reg(E/K′ ), Reg(E/K′ ) = Reg(E/Q) (as E D′ (Q) is finite), L′ (E/K′ ) = L′ (E, 1)L(E D′ , 1)",
      "match": "The factorisation L(E/K,s) = L(E,s)L(E^D,s) used at the centre."
     },
     {
      "sourceId": "mathlib-lfunction",
      "locator": "Mathlib/AlgebraicGeometry/EllipticCurve/LFunction.lean, docstring of LFunction",
-     "excerpt": "Then the L-function of `W` is the formal Dirichlet series defined as the product of `1 / fₚ(‖p‖⁻ˢ)` as `p` ranges over all prime ideals of the ring of integers of `K`.",
      "match": "The left-hand side over K."
     }
    ],
@@ -1576,13 +1557,11 @@
     {
      "sourceId": "jsw",
      "locator": "§7.4.1, p. 45",
-     "excerpt": "Note that the condition (d) means that ords=1 L(E/K′ , s) = 1.",
      "match": "Order one over K from rank one over ℚ and a nonvanishing twist."
     },
     {
      "sourceId": "jsw",
      "locator": "§7.4.1, p. 45",
-     "excerpt": "As w(E/Q) = −1 by hypothesis (this is a consequence of ords=1 L(E, s) being odd) and w(E/K′ ) = w(E/Q)w(E D′ /Q), we have w(E D′ ) = +1.",
      "match": "Signs multiply under the factorisation."
     }
    ],
@@ -1621,7 +1600,6 @@
     {
      "sourceId": "jsw",
      "locator": "§7.3.2, p. 44",
-     "excerpt": "If f ∈ S2 (Γ0 (N )) is the normalized cuspidal eigenform associated with E (that is, satisfying L(f, s) = L(E, s))",
      "match": "L(E,s) = L(F_E,s) with F_E of weight two and level N."
     }
    ],
@@ -1660,7 +1638,6 @@
     {
      "sourceId": "burungale-tian",
      "locator": "Footnote 2 to Theorem 1.2, p. 2",
-     "excerpt": "Note that ϵ(E (n) ) = +1 precisely when n ≡ 1, 2, 3 mod 8 [2].",
      "match": "The statement, cited from Birch–Stephens."
     }
    ],
@@ -1703,13 +1680,11 @@
     {
      "sourceId": "tauceti-twist",
      "locator": "TauCeti/AlgebraicGeometry/EllipticCurve/QuadraticTwist.lean, docstring of quadraticTwistPointEquiv_map_eq_quadraticCharacter_smul_map",
-     "excerpt": "For *every* `σ ∈ Aut(M/K)`, transporting the action of `σ` through `Eᴸ(M) ≅ E(M)` multiplies it by `χ(σ|_L) = ±1`, the quadratic character of `L/K`.",
      "match": "The twist points are the χ-eigenspace of E(K)."
     },
     {
      "sourceId": "jsw",
      "locator": "§7.4.1, p. 47",
-     "excerpt": "As X(E/K′ )[p∞ ] ∼= X(E/Q)[p∞ ] ⊕ X(E D′ /Q)[p∞ ], from the above lower bound",
      "match": "The eigenspace decomposition the maps realise, at odd p."
     }
    ],
@@ -1842,7 +1817,6 @@
     {
      "sourceId": "jsw",
      "locator": "§7.4.1, p. 46",
-     "excerpt": "Reg(E/K′ ) = Reg(E/Q) (as E D′ (Q) is finite)",
      "match": "The rank-zero twist case of the splitting, used with its regulator consequence."
     }
    ],
@@ -1890,7 +1864,6 @@
     {
      "sourceId": "jsw",
      "locator": "§7.4.1, p. 46",
-     "excerpt": "Here we have used that hzK′ , zK′ iN T = mK′ Reg(E/K′ ), Reg(E/K′ ) = Reg(E/Q) (as E D′ (Q) is finite)",
      "match": "JSW's comparison up to p-adic units; here the powers of 2 are kept."
     }
    ],
@@ -1926,7 +1899,6 @@
     {
      "sourceId": "jsw",
      "locator": "§7.4.1, p. 47",
-     "excerpt": "As X(E/K′ )[p∞ ] ∼= X(E/Q)[p∞ ] ⊕ X(E D′ /Q)[p∞ ]",
      "match": "The same odd-p eigenspace splitting, applied to torsion."
     }
    ],
@@ -1964,7 +1936,6 @@
     {
      "sourceId": "jsw",
      "locator": "§7.4.1, p. 47",
-     "excerpt": "As X(E/K′ )[p∞ ] ∼= X(E/Q)[p∞ ] ⊕ X(E D′ /Q)[p∞ ], from the above lower bound on ordp (#X(E/K′ )[p∞ ])",
      "match": "The odd-primary decomposition used in the rank-one p-part argument."
     }
    ],
@@ -2003,7 +1974,6 @@
     {
      "sourceId": "jsw",
      "locator": "§7.2, p. 42",
-     "excerpt": "To pass from the expected upper and lower bounds for #X(E/K)[p∞] for suitable imaginary quadratic fields K = √D (D < 0) to the expected upper or lower bound for #X(E/Q)[p∞]",
      "match": "The passage is made for odd p; at p = 2 only the bounded comparison here is available."
     }
    ],
@@ -2039,7 +2009,6 @@
     {
      "sourceId": "jsw",
      "locator": "§1.2, p. 1",
-     "excerpt": "In this case the work of Gross and Zagier [GZ86] and of Kolyvagin [Kol90, Kol91a, Kol91b] (see also [Gro91]) implies that rkZ E(Q) = 1 and #X(E/Q) < ∞.",
      "match": "Finiteness over ℚ is obtained from finiteness over an auxiliary K by this descent."
     }
    ],
@@ -2080,13 +2049,11 @@
     {
      "sourceId": "skinner-zhang",
      "locator": "§9.1, Corollary 9.2, p. 29",
-     "excerpt": "Let AK be the K-twist of A. Let ℓ be a rational prime.",
      "match": "The p-adic lengths t of the Tamagawa factors add over a quadratic base change."
     },
     {
      "sourceId": "jsw",
      "locator": "§7.3.1, (7.3.a), p. 43",
-     "excerpt": "We recall [SZ14, Cor.9.2.] that",
      "match": "The product form used by JSW."
     }
    ],
@@ -2131,13 +2098,11 @@
     {
      "sourceId": "jsw",
      "locator": "Conjecture 7.1.1, (7.1.b), p. 42",
-     "excerpt": "Here ω ∈ Ω1 (E/OF ) is any non-zero differential on the Néron model Ẽ of E over OF , and aω ⊂ F is the fractional ideal such that aω · ω = Ω1 (Ẽ/OF ).",
      "match": "The definition of Ω_{E/F}."
     },
     {
      "sourceId": "jsw",
      "locator": "§7.3.2, (7.3.e), p. 44",
-     "excerpt": "In particular, combining (7.3.b), (7.3.c), and (7.3.d) we find:",
      "match": "The odd-part period comparison."
     }
    ],
@@ -2249,7 +2214,6 @@
     {
      "sourceId": "jsw",
      "locator": "§7.1, p. 41",
-     "excerpt": "We will eventually deduce both the conjectured upper and lower bounds on #X(E/Q)[p∞ ] from corresponding upper and lower bounds for #X(E/K)[p∞ ] for suitable imaginary quadratic fields K.",
      "match": "The comparison principle."
     }
    ],
@@ -2288,13 +2252,11 @@
     {
      "sourceId": "jsw",
      "locator": "§7.4.1, p. 45",
-     "excerpt": "As (a), (b), and (c) impose only finitely many congruence conditions on the discriminant of K′",
      "match": "Local prescriptions are finitely many congruence conditions."
     },
     {
      "sourceId": "bfh90",
      "locator": "Introduction, p. 543",
-     "excerpt": "Now suppose that every prime dividing M splits in Q(√D). In terms of the quadratic symbol, this implies that χ_D(M) = 1.",
      "match": "The Heegner hypothesis as a Kronecker-symbol condition."
     }
    ],
@@ -2430,19 +2392,16 @@
     {
      "sourceId": "bfh90",
      "locator": "Introduction, p. 544",
-     "excerpt": "The method of the proof is that introduced in [3]. We consider a Dirichlet series in a new parameter u, whose D-th coefficient is L(s,f,χ_D), by applying a type of integral transform introduced (in a different context) by Novodvorsky [15] to an Eisenstein series of half-integral weight",
      "match": "The twist series whose polar behaviour is analysed."
     },
     {
      "sourceId": "bfh90",
      "locator": "Introduction, p. 544",
-     "excerpt": "We obtain our results by studying the poles in u of these Dirichlet series.",
      "match": "Nonvanishing from the polar term."
     },
     {
      "sourceId": "bfh90",
      "locator": "§9, printed pp.614–617, equations (9.4)–(9.10), Lemma 9.1",
-     "excerpt": "p(1/2,2) = q(1/2,2).",
      "match": "The derivative double-pole coefficient is −2q; the value branch uses a third representation and M₃(2)τ₂(2). Read directly from the scan."
     }
    ],
@@ -2481,13 +2440,11 @@
     {
      "sourceId": "bfh90",
      "locator": "Theorem, pp. 543–544",
-     "excerpt": "(i) There exists a quadratic field Q(√D) with D a fundamental discriminant, and εD < 0, such that every prime in S splits in Q(√D), and L(s,f,χ_D) has a simple zero at s = k/2.",
      "match": "Derivative branch."
     },
     {
      "sourceId": "bfh90",
      "locator": "Theorem, p. 544",
-     "excerpt": "(ii) There exists a quadratic field Q(√D) with D a fundamental discriminant, and εD > 0, such that every prime in S splits in Q(√D), and L(k/2,f,χ_D) ≠ 0.",
      "match": "Value branch."
     }
    ],
@@ -2528,7 +2485,6 @@
     {
      "sourceId": "jsw",
      "locator": "§7.4.1, p. 45",
-     "excerpt": "As (a), (b), and (c) impose only finitely many congruence conditions on the discriminant of K′ , it then follows from a result of Friedberg and Hoffstein [FH95, Thm. B] that K′ can be chosen so that (d) also holds.",
      "match": "The theorem as JSW use it."
     }
    ],
@@ -2570,7 +2526,6 @@
     {
      "sourceId": "bfh90",
      "locator": "Introduction, p. 544",
-     "excerpt": "It is explained in [4] that (i), combined with work of Kolyvagin [13] and of Gross and Zagier [7], implies that if E is a modular elliptic curve over Q such that L(1, E) ≠ 0, then the group of rational points of E, and also the Tate-Shafarevich group of E over Q, are finite.",
      "match": "The rank-zero use of the derivative branch."
     }
    ],
@@ -2611,13 +2566,11 @@
     {
      "sourceId": "jsw",
      "locator": "§7.4.2, p. 47",
-     "excerpt": "As with the choice of K′ above, the root number of the quadratic twist E D′′ is +1 and the result of Friedberg and Hoffstein ensures that K′′ can be chosen so that (d) also holds.",
      "match": "The second auxiliary field."
     },
     {
      "sourceId": "castella-erratum",
      "locator": "Theorem 1.1, p. 1",
-     "excerpt": "let K be an imaginary quadratic field such that there exists an ideal N ⊂ OK with OK /N ≃ Z/N Z and in which p = pp splits.",
      "match": "The field of Castella's Theorem 1.1."
     }
    ],
@@ -2658,13 +2611,11 @@
     {
      "sourceId": "gross-zagier-86",
      "locator": "Chapter V §2, Theorem (2.1), p. 311",
-     "excerpt": "(2.1) Theorem. L'(E/K, 1) = ‖ω‖² ĥ(P_K)/c² u_K² |D|^{1/2}.",
      "match": "The height formula; excerpt as verified by GZ.8."
     },
     {
      "sourceId": "jsw",
      "locator": "§7.4.1, p. 46",
-     "excerpt": "As Lp (f, 1) 6= 0 (also by Proposition 6.2.1), this implies that zK′ has infinite order (of course, this is also a consequence of the general Gross–Zagier formula for zK′ ).",
      "match": "Non-torsion of the Heegner point from the Gross–Zagier formula."
     }
    ],
@@ -2708,13 +2659,11 @@
     {
      "sourceId": "gross-kolyvagin",
      "locator": "§5, Proposition 5.3, p. 243 (read from the page image)",
-     "excerpt": "Proposition 5.3 We have y_n^τ = ε · y_n^{σ'} + (torsion) in E(K_n), for some σ' ∈ 𝒢_n.",
      "match": "Complex conjugation on the Heegner points, ε the Fricke eigenvalue; tracing to K gives σ(y_K) = ε y_K + torsion."
     },
     {
      "sourceId": "gross-kolyvagin",
      "locator": "§5, (5.2) and the sentence after it, p. 243",
-     "excerpt": "Then the L-function of E over Q satisfies a functional equation with sign = −ε.",
      "match": "So ε = −w_E."
     }
    ],
@@ -2759,13 +2708,11 @@
     {
      "sourceId": "jsw",
      "locator": "§1.2, p. 1",
-     "excerpt": "Suppose that ords=1 L(E/Q, s) = 1. In this case the work of Gross and Zagier [GZ86] and of Kolyvagin [Kol90, Kol91a, Kol91b] (see also [Gro91]) implies that rkZ E(Q) = 1 and",
      "match": "The theorem."
     },
     {
      "sourceId": "burungale-tian",
      "locator": "§1.0.1, p. 1",
-     "excerpt": "is a fundamental result towards the BSD conjecture due to Coates–Wiles [4], Gross–Zagier [7], Kolyvagin [15] and Rubin [16].",
      "match": "Attribution of ord ≤ 1 ⇒ rank = ord and finite Sha."
     }
    ],
@@ -2813,7 +2760,6 @@
     {
      "sourceId": "bfh90",
      "locator": "Introduction, p. 544",
-     "excerpt": "It is explained in [4] that (i), combined with work of Kolyvagin [13] and of Gross and Zagier [7], implies that if E is a modular elliptic curve over Q such that L(1, E) ≠ 0, then the group of rational points of E, and also the Tate-Shafarevich group of E over Q, are finite.",
      "match": "The route: a twist with a simple zero, Gross–Zagier over K and Kolyvagin."
     }
    ],
@@ -2860,13 +2806,11 @@
     {
      "sourceId": "kato",
      "locator": "Theorem 14.2(2), p. 235",
-     "excerpt": "Assume k is even. Let χ : Gal(K/Q) → C× be a character, and assume L(f, χ, k/2) ≠ 0. Then for any finite place λ of F and any Gal(Q̄/Q)-stable O_λ-lattice T of V_{F_λ}(f)(k/2), the \"χ-part\" Sel(K,T)^(χ) of Sel(K,T) is finite.",
      "match": "Finiteness of the Selmer group (transcribed from the Numdam scan, whose text layer is garbled)."
     },
     {
      "sourceId": "kato",
      "locator": "§14.1, p. 235",
-     "excerpt": "If A is an abelian variety over K, the usual Selmer group Sel(K, A) of A coincides with ⊕_p Sel(K, Tp(A)) where p ranges over all prime numbers.",
      "match": "Kato's Selmer groups recover the usual Selmer group."
     }
    ],
@@ -2905,7 +2849,6 @@
     {
      "sourceId": "jsw",
      "locator": "Theorem 7.2.1(i), p. 42",
-     "excerpt": "The inequality of part (i) of the theorem is a consequence of Kato’s groundbreaking work on an Euler system for elliptic curves (see [PR03, Thm.4.8]).",
      "match": "Attribution and scope of the bound."
     }
    ],
@@ -2939,7 +2882,6 @@
     {
      "sourceId": "burungale-tian",
      "locator": "§1.0.1, p. 1",
-     "excerpt": "ords=1 L(s, E/Q ) = r ≤ 1 =⇒ rankZ E(Q) = r, #X(E/Q ) < ∞",
      "match": "The combined theorem."
     }
    ],
@@ -2981,7 +2923,6 @@
     {
      "sourceId": "jsw",
      "locator": "§7.2, p. 42",
-     "excerpt": "The inequality of part (i) of the theorem is a consequence of Kato’s groundbreaking work on an Euler system for elliptic curves (see [PR03, Thm.4.8]).",
      "match": "The Kato route's p-adic bound."
     }
    ],
@@ -3025,13 +2966,11 @@
     {
      "sourceId": "jsw",
      "locator": "Theorem 7.2.1(i), p. 42",
-     "excerpt": "We therefore recall the known results about the p-part of the BSD formula for rank 0 curves.",
      "match": "The rank-zero quotient whose p-adic valuation is taken presupposes its rationality."
     },
     {
      "sourceId": "jsw",
      "locator": "§7.3.2, (7.3.b), p. 44",
-     "excerpt": "It is explained in [Ski14b, §3.3] (see also [GV00, Prop. 3.1]) that",
      "match": "The comparison of Ω_E with −2πiΩ_f^+ up to ℤ_(p)^×."
     }
    ],
@@ -3071,7 +3010,6 @@
     {
      "sourceId": "gross-zagier-86",
      "locator": "Chapter V §1, Corollary (1.1), pp. 308–309 (excerpt as verified by GZ.8)",
-     "excerpt": "(1.1) Corollary. Let f ∈ S₂(Γ₀(N)) be any newform and χ any character of Gal(H/K). Then L'(f, χ, 1) ≥ 0.",
      "match": "Sign of the derivative over K."
     }
    ],
@@ -3118,7 +3056,6 @@
     {
      "sourceId": "jsw",
      "locator": "§1.2, p. 2",
-     "excerpt": "(see [GZ86, Thm.7.3]), so the p-adic valuation of the left-hand side of (1.2.a) makes sense.",
      "match": "The statement, with its source."
     }
    ],
@@ -3161,13 +3098,11 @@
     {
      "sourceId": "gross-zagier-86",
      "locator": "Chapter V §2, (2.2) Conjecture, p. 311",
-     "excerpt": "If P_K has infinite order in E(K), then it generates a subgroup of finite index and this index equals c · m · u_K · |Ш_K|^{1/2}.",
      "match": "The index of ℤP_K in E(K)."
     },
     {
      "sourceId": "jsw",
      "locator": "§7.4.1, p. 46",
-     "excerpt": "Let mK′ = [E(K′ ) : Z · zK′ ]. This index is finite.",
      "match": "The index used in the p-part argument."
     }
    ],
@@ -3287,7 +3222,6 @@
     {
      "sourceId": "jsw",
      "locator": "§7.4.1, p. 46",
-     "excerpt": "Here we have used that hzK′ , zK′ iN T = mK′ Reg(E/K′ ), Reg(E/K′ ) = Reg(E/Q) (as E D′ (Q) is finite)",
      "match": "JSW's version up to p-adic units (their index enters squared in the height)."
     }
    ],
@@ -3333,25 +3267,21 @@
     {
      "sourceId": "gross-zagier-86",
      "locator": "Chapter V §2, (2.2) Conjecture, p. 311",
-     "excerpt": "If P_K has infinite order in E(K), then it generates a subgroup of finite index and this index equals c · m · u_K · |Ш_K|^{1/2}.",
      "match": "Conjecture (2.2)."
     },
     {
      "sourceId": "gross-zagier-86",
      "locator": "Chapter V §2, (2.3) Conjecture, p. 311",
-     "excerpt": "If E(K) has rank 1, then the integer c · m · u_K · |Ш_K|^{1/2} is divisible by t.",
      "match": "Conjecture (2.3), with t = |E(ℚ)_tors|."
     },
     {
      "sourceId": "gross-kolyvagin",
      "locator": "§1, Conjecture 1.2(2), p. 236 (read from the page image)",
-     "excerpt": "the Tate-Shafarevich group Ш(E/K) is finite; its order is given by #Ш(E/K) = (I_K/c·Π_{p|N} m_p)² where m_p = (E(Q_p) : E⁰(Q_p)).",
      "match": "Gross's form of the index formula."
     },
     {
      "sourceId": "gross-kolyvagin",
      "locator": "§1, Theorem 1.3(2), p. 236",
-     "excerpt": "the group Ш(E/K) is finite, of order dividing t_{E/K}·(I_K)².",
      "match": "Kolyvagin's one-sided bound."
     }
    ],
@@ -3397,13 +3327,11 @@
     {
      "sourceId": "pollack-weston",
      "locator": "§1, formula (1), p. 3",
-     "excerpt": "Using results of Ribet–Takahashi [28, 29] on degrees of modular parameterizations arising from Shimura curves, we establish that",
      "match": "The identity ord_p(η_f(N)/ξ_f(N⁺,N⁻)) = Σ_{q|N⁻} t_f(q)."
     },
     {
      "sourceId": "pollack-weston",
      "locator": "§6.1, end of the section",
-     "excerpt": "In the remainder of this section, we will reduce (12) to an equality involving degrees of modular parameterizations arising from Shimura curves which was established by Ribet and Takahashi [28, 29].",
      "match": "The proof route."
     }
    ],
@@ -3442,7 +3370,6 @@
     {
      "sourceId": "jsw",
      "locator": "§7.4.1, p. 46",
-     "excerpt": "In particular, as explained on the same page of loc. cit.,",
      "match": "The degree comparison as JSW use it, up to a unit in ℤ_p^×."
     }
    ],
@@ -3489,13 +3416,11 @@
     {
      "sourceId": "jsw",
      "locator": "Conjecture 1.1.1(b), (1.1.a), p. 1",
-     "excerpt": "We call the formula (1.1.a) in (b) the BSD formula for E.",
      "match": "The defect is the ratio of the two sides of (1.1.a)."
     },
     {
      "sourceId": "jsw",
      "locator": "§7, p. 41",
-     "excerpt": "the ratio of both sides of (1.1.a), when both are finite, is an invariant of the isogeny class of E (cf. [Tat66, Thm. 2.1])",
      "match": "The defect is the ratio and is isogeny invariant."
     }
    ],
@@ -3622,7 +3547,6 @@
     {
      "sourceId": "jsw",
      "locator": "§7, p. 41",
-     "excerpt": "Since Conjecture 1.1.1 is isogeny invariant – more precisely, the ratio of both sides of (1.1.a), when both are finite, is an invariant of the isogeny class of E (cf. [Tat66, Thm. 2.1])",
      "match": "Isogeny invariance of the ratio."
     }
    ],
@@ -3656,7 +3580,6 @@
     {
      "sourceId": "jsw",
      "locator": "§1.3, p. 2",
-     "excerpt": "Theorem 1.2.1 is proved in this paper by separately establishing the upper and lower bounds predicted by (1.1.a) for the order #X(E/Q)[p∞ ] of the p-primary part of the Tate–Shafarevich group.",
      "match": "The two-bound structure."
     }
    ],
@@ -3696,7 +3619,6 @@
     {
      "sourceId": "jsw",
      "locator": "§7.4.2, p. 47",
-     "excerpt": "From Theorem 4.4.1 we obtain ordp (#X(E/K′′ )[p∞ ]) ≤ 2 · ordp (mK′′ ).",
      "match": "The index bound as it is used."
     }
    ],
@@ -3741,13 +3663,11 @@
     {
      "sourceId": "skinner-mult",
      "locator": "§3.2, p. 20",
-     "excerpt": "To deduce the conclusions of Theorem B from this, we make a close study of SelQ∞ (f )[γ − 1] and S[γ − 1], following the methods of Greenberg [8].",
      "match": "Control at γ − 1."
     },
     {
      "sourceId": "skinner-mult",
      "locator": "§1, Theorem B (iii), p. 2",
-     "excerpt": "(iii) if p | N and ap = 1, then the L-invariant L(Vf ) ∈ L is nonzero.",
      "match": "The exceptional-zero hypothesis, satisfied for elliptic curves by Barré-Sirieix–Diaz–Gramain–Philibert."
     }
    ],
@@ -3794,13 +3714,11 @@
     {
      "sourceId": "skinner-mult",
      "locator": "§1, Theorem C, p. 3",
-     "excerpt": "Let E be an elliptic curve over Q with good ordinary or multiplicative reduction at a prime p ≥ 3. Suppose that (i) E[p] is an irreducible Gal(Q/Q)-representation; (ii) there exists a prime q ≠ p at which E has multiplicative reduction and E[p] is ramified.",
      "match": "The hypotheses."
     },
     {
      "sourceId": "jsw",
      "locator": "Theorem 7.2.1(ii), pp. 42–43",
-     "excerpt": "If E has good ordinary or multiplicative reduction at p and there exists a prime q of multiplicative reduction for E at which the representation ρE,p is ramified,",
      "match": "The same branch as JSW state it."
     }
    ],
@@ -3841,13 +3759,11 @@
     {
      "sourceId": "bstw",
      "locator": "Theorem 1.5, p. 3",
-     "excerpt": "If ords=1 L(s, E/Q ) = r ≤ 1, then the p-part of the BSD formula is true",
      "match": "The r = 0 case is used; the r = 1 case rests on the p-adic Gross–Zagier formula, which is not imported."
     },
     {
      "sourceId": "jsw",
      "locator": "Theorem 7.2.1(iii), p. 43",
-     "excerpt": "If E is semistable or a twist of a semistable elliptic curve by a quadratic character that is unramified at the primes dividing the conductor of the semistable curve and if E has supersingular reduction at p with ap (E) = 0, then",
      "match": "JSW's statement of the branch."
     }
    ],
@@ -3884,13 +3800,11 @@
     {
      "sourceId": "jsw",
      "locator": "§7.4, p. 45",
-     "excerpt": "If not, then Ribet’s level lowering theorem [Rib90, Thm.1.1] yields a cuspform g of weight 2 and level 1 with mod p residual representation isomorphic to ρ̄E,p",
      "match": "The argument."
     },
     {
      "sourceId": "jsw",
      "locator": "§7.4.1, p. 45",
-     "excerpt": "The condition (irredK ) is an easy consequence of the hypotheses that ρ̄E,p is irreducible and that ρ̄E,p is ramified at the prime q = q1 || N (see [Ski14a, Lem. 2.8.1]).",
      "match": "Irreducibility over K."
     }
    ],
@@ -3941,7 +3855,6 @@
     {
      "sourceId": "jsw",
      "locator": "§7.4.1, (7.4.d), p. 47",
-     "excerpt": "That is, we have proved the exact conjectured lower bound on #X(E/Q)[p∞ ].",
      "match": "The lower bound."
     }
    ],
@@ -3988,7 +3901,6 @@
     {
      "sourceId": "jsw",
      "locator": "§7.4.2, (7.4.e), p. 48",
-     "excerpt": "That is, we have proved the exact conjectured upper bound on #X(E/Q)[p∞ ].",
      "match": "The upper bound."
     }
    ],
@@ -4028,13 +3940,11 @@
     {
      "sourceId": "jsw",
      "locator": "Theorem 1.2.1, p. 2",
-     "excerpt": "Theorem 1.2.1 (p-part of the Birch and Swinnerton-Dyer formula). If p ≥ 5, then",
      "match": "The theorem (with the p = 3 clause that follows it)."
     },
     {
      "sourceId": "jsw",
      "locator": "§1.2, p. 2",
-     "excerpt": "If p = 3, then (1.2.a) holds provided ap (E) = 0 when E has supersingular reduction at p.",
      "match": "The p = 3 case."
     }
    ],
@@ -4082,13 +3992,11 @@
     {
      "sourceId": "castella-erratum",
      "locator": "Theorem A′, p. 1",
-     "excerpt": "Let E/Q be an elliptic curve of conductor N with multiplicative reduction at p > 3. Assume that E[p] is irreducible as a GQ -module, E has nonsplit multiplicative reduction at some prime q ≠ p where E[p] is ramified, and E(Qp )[p] = 0.",
      "match": "The hypotheses of the corrected theorem."
     },
     {
      "sourceId": "castella-erratum",
      "locator": "Remark after Theorem A′, pp. 1–2",
-     "excerpt": "but does not require the E to be semistable.",
      "match": "Additive primes allowed."
     }
    ],
@@ -4133,7 +4041,6 @@
     {
      "sourceId": "jsw",
      "locator": "§1.3, p. 3",
-     "excerpt": "we prove a control theorem, Theorem 3.3.1, that compares a specialization of a certain Λ-cotorsion Selmer group (here Λ = Zp [[Gal(K∞′ /K′ )]] is the Iwasawa algebra for the anticyclotomic Zp -extension K∞′ of K′ ) to a certain Zp -cotorsion Selmer group",
      "match": "The control theorem."
     }
    ],
@@ -4177,7 +4084,6 @@
     {
      "sourceId": "jsw",
      "locator": "§1.3, p. 3",
-     "excerpt": "Using an extension of the methods of [SU13], Wan [Wan13, Wan14a] has proved that this p-adic L-function divides the characteristic ideal of the Λ-cotorsion Selmer group up to a power of p",
      "match": "The divisibility and its integral ambiguity, removed in JSW §6."
     }
    ],
@@ -4224,13 +4130,11 @@
     {
      "sourceId": "bstw",
      "locator": "Theorem 1.14, printed p. 7",
-     "excerpt": "Let L be an imaginary quadratic field satisfying the conditions (1.3), (1.4) and (1.5). Then there exists a zeta element",
      "match": "The construction."
     },
     {
      "sourceId": "bstw",
      "locator": "Remark 1.15(ii), printed p. 7",
-     "excerpt": "Since the p-adic L-functions L·p (E/L ) and LGr p (E/L ) are non-zero, so is the zeta element",
      "match": "Nonvanishing."
     }
    ],
@@ -4347,7 +4251,6 @@
     {
      "sourceId": "bstw",
      "locator": "Theorem 1.14, printed p. 7",
-     "excerpt": "Col_v^•(loc_v Z^•)=L_p^•(E/L), Log_v̄^•(loc_v̄ Z^•)=L_p^Gr(E/L).",
      "match": "The two displayed laws, transcribed visually with the conjugate-prime bar restored; the OCR loses it."
     }
    ],
@@ -4394,13 +4297,11 @@
     {
      "sourceId": "bstw",
      "locator": "Theorem 1.3, p. 3",
-     "excerpt": "Let E/Q be a semistable elliptic curve, and p > 2 a supersingular prime. If p = 3, suppose that (1.7) holds. Then Kobayashi’s Conjecture 1.2 is true",
      "match": "The theorem."
     },
     {
      "sourceId": "bstw",
      "locator": "Theorem 1.3, p. 3",
-     "excerpt": "Moreover, the same holds for any quadratic twist E K := E ⊗ χK for χK the character associated to a quadratic field extension K/Q with discriminant coprime to N p and divisible only by primes of ordinary reduction for E.",
      "match": "The twist range."
     }
    ],
@@ -4441,7 +4342,6 @@
     {
      "sourceId": "bstw",
      "locator": "Theorem 1.5, p. 3",
-     "excerpt": "If ords=1 L(s, E/Q ) = r ≤ 1, then the p-part of the BSD formula is true",
      "match": "The r = 0 case."
     }
    ],
@@ -4483,13 +4383,11 @@
     {
      "sourceId": "castella-erratum",
      "locator": "Theorem 1.1, p. 1",
-     "excerpt": "Then ChΛ (Xac (E[p∞ ])) is Λ-torsion and ChΛ (Xac (E[p∞ ]))ΛR0 = (Lp (f )).",
      "match": "The conclusion."
     },
     {
      "sourceId": "castella-erratum",
      "locator": "§1, p. 1",
-     "excerpt": "Theorem 4.4 in [Cas18] should be replaced by Theorem 1.1 below, which we shall prove here without using [Cas18, Thm. 4.2] and allowing E to have primes of additive reduction.",
      "match": "The correction."
     }
    ],
@@ -4537,19 +4435,16 @@
     {
      "sourceId": "castella-erratum",
      "locator": "Theorem 2.3, p. 3",
-     "excerpt": "The key result we need is the following higher weight extension of [Cas18, Thm. 4.1].",
      "match": "Part (a)."
     },
     {
      "sourceId": "castella-erratum",
      "locator": "Lemma 2.1, p. 2",
-     "excerpt": "Suppose Σ contains all primes v ∤ p where Tg is ramified, ρ̄g |GK is irreducible, and H 0 (Kp , Ag [$]) = 0.",
      "match": "Part (b)."
     },
     {
      "sourceId": "castella-erratum",
      "locator": "Remark after Theorem A′, p. 2",
-     "excerpt": "On the other hand, the new hypothesis (2) will be forced on us to show that the Selmer groups SelΣ p (K∞ , Af ) behave well under congruences.",
      "match": "Why E(ℚ_p)[p] = 0 is needed."
     }
    ],
@@ -4589,7 +4484,6 @@
     {
      "sourceId": "bstw",
      "locator": "§9.3.2, Proposition9.18 and proof, printed pp.83–84",
-     "excerpt": "We present the ordinary case assuming the hypothesis (vanL), and leave the supersingular case to the interested reader.",
      "match": "The signed comparison is an owned proof obligation; the source does not print its full proof."
     }
    ],
@@ -4632,13 +4526,11 @@
     {
      "sourceId": "castella-erratum",
      "locator": "Proof of Theorem2.3, printed pp.3–4, equation(2.2)",
-     "excerpt": "the constants C1 and C2 defined as in [CGLS22, §3.3.1] can both be taken to be zero.",
      "match": "The integral extension is asserted here and must be justified for T_g."
     },
     {
      "sourceId": "cgs-v2",
      "locator": "§6 opening and Theorems6.1.1,6.5.1",
-     "excerpt": "Theorem 6.5.1.",
      "match": "The source restricts to an elliptic Tate module and states the characteristic bound over Λ[1/p]; it is background, not the desired higher-weight integral conclusion."
     }
    ],
@@ -4678,7 +4570,6 @@
     {
      "sourceId": "bstw",
      "locator": "Theorem1.5, printed p.4 (rank one), and §11",
-     "excerpt": "The proof of the r = 1 case is based on the p-adic Gross–Zagier formula [88].",
      "match": "Direct semistable rank-one supersingular endpoint, preserving the ordinary-support twist range."
     }
    ],

@@ -39,7 +39,7 @@
       "hypotheses": ["E is a real Hilbert space. The definition uses total derivatives; analytic uses carry explicit regularity hypotheses."],
       "proofSteps": ["Use the actual derivative and existing real inner product. No Jacobi equation or constancy is built into this definition.", "Its swap and diagonal identities follow from real inner-product symmetry."],
       "prerequisites": [], "acceptance": ["The sign gives W(sin,cos)=1."],
-      "sources": [{"sourceId": "BALLMANN-ENERGY", "locator": "Section 2 Jacobi equation, p.3; the Wronskian conservation law is derived here", "excerpt": "Jacobi", "match": "Explicit fixed-frame refinement. The intrinsic frame and variation bridges are separate RG.1 targets, not assumptions in a new object."}],
+      "sources": [{"sourceId": "BALLMANN-ENERGY", "locator": "Section 2 Jacobi equation, p.3; the Wronskian conservation law is derived here", "match": "Explicit fixed-frame refinement. The intrinsic frame and variation bridges are separate RG.1 targets, not assumptions in a new object."}],
       "uses": [{"where": "RiemannianGeometry:RG.1", "how": "Consumed only after constructing an orthonormal parallel-frame identification of actual fields along a geodesic."}],
       "api": [{"name": "TauCeti.RiemannianComparison.wronskian_apply", "role": "projection", "statement": "The value is the displayed difference."}, {"name": "TauCeti.RiemannianComparison.wronskian_swap", "role": "relation", "statement": "Exchanging the fields negates W."}, {"name": "TauCeti.RiemannianComparison.wronskian_self", "role": "simp", "statement": "W(J,J)=0."}],
       "tests": [{"name": "wronskian_linear_constant", "kind": "computation", "statement": "W(t v,w)=<v,w>."}, {"name": "wronskian_trigonometric", "kind": "computation", "statement": "W(sin,cos)=1."}, {"name": "wronskian_zero_field", "kind": "degenerate", "statement": "A zero second field gives zero."}],
@@ -49,7 +49,7 @@
       "id": "RiemannianGeometry:RG.0/wronskian-evaluation", "parentStageId": "RiemannianGeometry:RG.0", "realises": ["RiemannianGeometry:RG.0"], "title": "Evaluation of the Wronskian", "kind": "lemma", "leanDeclaration": "TauCeti.RiemannianComparison.wronskian_apply",
       "statement": "W(t)=<J'(t),L(t)>-<J(t),L'(t)>.", "hypotheses": ["E is a real Hilbert space and J,L are actual functions."],
       "proofSteps": ["Unfold the actual function."], "prerequisites": ["RiemannianGeometry:RG.0/wronskian"], "acceptance": ["No ODE premise is needed."],
-      "sources": [{"sourceId": "BALLMANN-ENERGY", "locator": "Section 2 Jacobi equation, p.3; evaluation of the defined paired-field expression", "excerpt": "Jacobi", "match": "An explicit fixed-frame definition and calculation, not a claim of a separately printed source lemma."}],
+      "sources": [{"sourceId": "BALLMANN-ENERGY", "locator": "Section 2 Jacobi equation, p.3; evaluation of the defined paired-field expression", "match": "An explicit fixed-frame definition and calculation, not a claim of a separately printed source lemma."}],
       "library": {"module": "TauCeti/Geometry/Manifold/Riemannian/Comparison/IndexForm", "namespace": "TauCeti.RiemannianComparison"}, "implementationStatus": "unchecked"
     },
     {
@@ -57,7 +57,7 @@
       "statement": "For C2 J,L at t, W'(t)=<J''(t),L(t)>-<J(t),L''(t)>.", "hypotheses": ["E is a real Hilbert space; both curves are C2 on a neighbourhood of t."],
       "proofSteps": ["Apply the inner-product derivative twice. The two terms <J',L'> cancel. C2 regularity supplies differentiability of the derivative curves."],
       "prerequisites": ["RiemannianGeometry:RG.0/wronskian-evaluation", "mathlib:HasDerivAt.inner", "mathlib:deriv_inner_apply"], "acceptance": ["Actual second derivatives are required; a formal jet is not substituted."],
-      "sources": [{"sourceId": "BALLMANN-ENERGY", "locator": "Section 2 Jacobi equation and the integration-by-parts calculation of Proposition 3.7, p.7", "excerpt": "index", "match": "The paired-field derivative calculation is supplied here from the actual inner-product derivative rule."}],
+      "sources": [{"sourceId": "BALLMANN-ENERGY", "locator": "Section 2 Jacobi equation and the integration-by-parts calculation of Proposition 3.7, p.7", "match": "The paired-field derivative calculation is supplied here from the actual inner-product derivative rule."}],
       "library": {"module": "TauCeti/Geometry/Manifold/Riemannian/Comparison/IndexForm", "namespace": "TauCeti.RiemannianComparison"}, "implementationStatus": "unchecked"
     },
     {
@@ -66,7 +66,7 @@
       "hypotheses": ["E is a real Hilbert space, a<=b, and J,L are C2 at each point of [a,b]. K is a function into continuous linear endomorphisms, symmetric at every point of this interval. Both displayed ODEs hold there."],
       "proofSteps": ["Substitute both equations into the derivative identity. Symmetry of K makes the two remaining terms cancel.", "The Wronskian is differentiable; its zero derivative is integrable. Apply the pinned FTC on [a,t] to each t in [a,b]. No ODE existence theorem is presumed."],
       "prerequisites": ["RiemannianGeometry:RG.0/wronskian-derivative", "mathlib:intervalIntegral.integral_deriv_eq_sub"], "acceptance": ["Different coefficients or a nonsymmetric coefficient do not give this conservation law."],
-      "sources": [{"sourceId": "BALLMANN-ENERGY", "locator": "Section 2 Jacobi equation, p.3; paired-solution conservation deduced from that equation", "excerpt": "Jacobi", "match": "Explicit fixed-frame deduction; the intrinsic frame and variation bridges remain RG.1 targets."}],
+      "sources": [{"sourceId": "BALLMANN-ENERGY", "locator": "Section 2 Jacobi equation, p.3; paired-solution conservation deduced from that equation", "match": "Explicit fixed-frame deduction; the intrinsic frame and variation bridges remain RG.1 targets."}],
       "library": {"module": "TauCeti/Geometry/Manifold/Riemannian/Comparison/IndexForm", "namespace": "TauCeti.RiemannianComparison"}, "implementationStatus": "unchecked"
     },
     {
@@ -75,7 +75,7 @@
       "hypotheses": ["E is a real Hilbert space; K is an actual function into continuous linear endomorphisms and V,W are actual fields. Analytic uses carry regularity and integrability; positivity requires ordered endpoints."],
       "proofSteps": ["Use actual derivatives, a continuous-linear-operator-valued coefficient and the existing integral. The displayed expression is the fixed-frame form, not a manifold Hessian by definition.", "Its geometric relation to half-energy is proved only after the intrinsic second-variation and parallel-frame bridge. Regularity/integrability precede analytic uses; divergent total integrals carry no geometric meaning."],
       "prerequisites": [], "acceptance": ["Reversing endpoints changes the sign. A constant field can have negative index for a positive potential."],
-      "sources": [{"sourceId": "BALLMANN-ENERGY", "locator": "Equation (5) and Proposition 3.7, printed p.7", "excerpt": "index", "match": "Explicit fixed-frame refinement. The intrinsic parallel-frame and variation bridges are separate RG.1 targets."}],
+      "sources": [{"sourceId": "BALLMANN-ENERGY", "locator": "Equation (5) and Proposition 3.7, printed p.7", "match": "Explicit fixed-frame refinement. The intrinsic parallel-frame and variation bridges are separate RG.1 targets."}],
       "uses": [{"where": "RiemannianGeometry:RG.1", "how": "Consumed only after constructing an orthonormal parallel-frame identification of actual fields along a geodesic."}],
       "api": [{"name": "TauCeti.RiemannianComparison.indexForm_apply", "role": "projection", "statement": "The value is the displayed integral."}, {"name": "TauCeti.RiemannianComparison.indexForm_same", "role": "simp", "statement": "Equal endpoints give zero."}, {"name": "TauCeti.RiemannianComparison.indexForm_reverse", "role": "relation", "statement": "Reversing endpoints negates the form."}, {"name": "TauCeti.RiemannianComparison.indexForm_add_left", "role": "compatibility", "statement": "The first slot is additive under the stated C1 and continuous-coefficient hypotheses."}, {"name": "TauCeti.RiemannianComparison.indexForm_smul_left", "role": "compatibility", "statement": "A constant real scalar factors out of the first slot."}, {"name": "TauCeti.RiemannianComparison.indexForm_symm", "role": "relation", "statement": "A pointwise symmetric coefficient gives a symmetric form."}],
       "tests": [{"name": "index_flat_linear", "kind": "computation", "statement": "For K=0 on [0,1], I(t v,t w)=<v,w>."}, {"name": "index_positive_potential_constant", "kind": "non-example", "statement": "For scalar K=1 and both fields 1 on [0,1], I=-1."}, {"name": "index_collapsed_interval", "kind": "degenerate", "statement": "Equal endpoints give zero."}, {"name": "index_reversed_interval", "kind": "non-example", "statement": "For K=0 and V=W=t, the integral from 1 to 0 is -1."}],
@@ -86,7 +86,7 @@
       "statement": "Continuous K and C1 fields on neighbourhoods of all points of [a,b] give an interval-integrable index density.", "hypotheses": ["E is a real Hilbert space, a<=b, K is continuous on [a,b], and V,W are C1 at each point of that interval."],
       "proofSteps": ["C1 gives continuous fields and continuous actual derivatives on the closed interval. Continuous operator evaluation and inner product make the density continuous.", "Apply compact-interval continuous integrability. This establishes the hypotheses used by subsequent integral arithmetic."],
       "prerequisites": ["RiemannianGeometry:RG.0/index-form", "mathlib:ContinuousOn.intervalIntegrable_of_Icc"], "acceptance": ["No smoothness of K beyond continuity is needed."],
-      "sources": [{"sourceId": "BALLMANN-ENERGY", "locator": "Equation (5) and Proposition 3.7, printed p.7", "excerpt": "index", "match": "Integrability of the actual density is proved explicitly using the pinned analytic theorem."}],
+      "sources": [{"sourceId": "BALLMANN-ENERGY", "locator": "Equation (5) and Proposition 3.7, printed p.7", "match": "Integrability of the actual density is proved explicitly using the pinned analytic theorem."}],
       "library": {"module": "TauCeti/Geometry/Manifold/Riemannian/Comparison/IndexForm", "namespace": "TauCeti.RiemannianComparison"}, "implementationStatus": "unchecked"
     },
     {
@@ -94,7 +94,7 @@
       "statement": "Under the stated regularity, I_K(U+V,W)=I_K(U,W)+I_K(V,W).", "hypotheses": ["E is a real Hilbert space, a<=b, K is continuous on [a,b], and U,V,W are C1 at every point of that interval."],
       "proofSteps": ["Differentiate the sum and expand the continuous linear operator and inner product.", "Use index-integrability for both densities and integral_sub applied to the negative second summand, equivalently integral addition."],
       "prerequisites": ["RiemannianGeometry:RG.0/index-integrability", "mathlib:intervalIntegral.integral_sub"], "acceptance": ["Linearity of total differentiation is not asserted for arbitrary nonsmooth fields."],
-      "sources": [{"sourceId": "BALLMANN-ENERGY", "locator": "Equation (5) and Proposition 3.7, printed p.7", "excerpt": "index", "match": "The bilinear law is expanded with the required integrability hypotheses."}],
+      "sources": [{"sourceId": "BALLMANN-ENERGY", "locator": "Equation (5) and Proposition 3.7, printed p.7", "match": "The bilinear law is expanded with the required integrability hypotheses."}],
       "library": {"module": "TauCeti/Geometry/Manifold/Riemannian/Comparison/IndexForm", "namespace": "TauCeti.RiemannianComparison"}, "implementationStatus": "unchecked"
     },
     {
@@ -102,7 +102,7 @@
       "statement": "Under the stated regularity, I_K(c V,W)=c I_K(V,W) for constant real c.", "hypotheses": ["E is a real Hilbert space, a<=b, K is continuous on [a,b], and V,W are C1 at every point of that interval."],
       "proofSteps": ["Differentiate constant scalar multiplication and expand both bilinear terms. Factor the scalar through the interval integral."],
       "prerequisites": ["RiemannianGeometry:RG.0/index-integrability", "mathlib:intervalIntegral.integral_smul"], "acceptance": ["The case c=0 is included."],
-      "sources": [{"sourceId": "BALLMANN-ENERGY", "locator": "Equation (5), printed p.7", "excerpt": "index", "match": "The real scaling identity uses the existing interval integral."}],
+      "sources": [{"sourceId": "BALLMANN-ENERGY", "locator": "Equation (5), printed p.7", "match": "The real scaling identity uses the existing interval integral."}],
       "library": {"module": "TauCeti/Geometry/Manifold/Riemannian/Comparison/IndexForm", "namespace": "TauCeti.RiemannianComparison"}, "implementationStatus": "unchecked"
     },
     {
@@ -110,7 +110,7 @@
       "statement": "If K(t) is symmetric on [a,b], then I_K(V,W)=I_K(W,V).", "hypotheses": ["E is a real Hilbert space, a<=b, and <K(t)u,v>=<u,K(t)v> for all t in [a,b] and u,v in E. Equality of densities needs no further differentiability premise."],
       "proofSteps": ["Use symmetry of the real inner product and <KV,W>=<V,KW> pointwise. The equal densities have equal integrals."],
       "prerequisites": ["RiemannianGeometry:RG.0/index-form"], "acceptance": ["Symmetry is a hypothesis on the actual K, not part of the definition."],
-      "sources": [{"sourceId": "BALLMANN-ENERGY", "locator": "Equation (5) and Proposition 3.7, printed p.7", "excerpt": "index", "match": "The fixed-frame coefficient symmetry gives the displayed density equality."}],
+      "sources": [{"sourceId": "BALLMANN-ENERGY", "locator": "Equation (5) and Proposition 3.7, printed p.7", "match": "The fixed-frame coefficient symmetry gives the displayed density equality."}],
       "library": {"module": "TauCeti/Geometry/Manifold/Riemannian/Comparison/IndexForm", "namespace": "TauCeti.RiemannianComparison"}, "implementationStatus": "unchecked"
     },
     {
@@ -118,7 +118,7 @@
       "statement": "For C2 V, C1 W and continuous K, I_K(V,W)=[<V',W>]_a^b-integral_a^b <V''+KV,W>.", "hypotheses": ["E is a real Hilbert space, a<=b, K is continuous on [a,b], V is C2 and W is C1 at every point of that interval."],
       "proofSteps": ["Differentiate <V',W> using the existing inner-product rule. Rearrangement of its two terms gives the identity of densities.", "All densities are continuous and integrable. Apply FTC to <V',W>, then integral subtraction. K need not be symmetric."],
       "prerequisites": ["RiemannianGeometry:RG.0/index-integrability", "mathlib:HasDerivAt.inner", "mathlib:deriv_inner_apply", "mathlib:intervalIntegral.integral_deriv_eq_sub", "mathlib:intervalIntegral.integral_sub"], "acceptance": ["The endpoint pairings are retained unless their actual values vanish."],
-      "sources": [{"sourceId": "BALLMANN-ENERGY", "locator": "Equation (5) and Proposition 3.7, printed p.7", "excerpt": "index", "match": "The fixed-frame integration-by-parts formula with all endpoint terms retained."}],
+      "sources": [{"sourceId": "BALLMANN-ENERGY", "locator": "Equation (5) and Proposition 3.7, printed p.7", "match": "The fixed-frame integration-by-parts formula with all endpoint terms retained."}],
       "planet": {"name": "Index Green identity"}, "library": {"module": "TauCeti/Geometry/Manifold/Riemannian/Comparison/IndexForm", "namespace": "TauCeti.RiemannianComparison"}, "implementationStatus": "unchecked"
     },
     {
@@ -127,7 +127,7 @@
       "hypotheses": ["E is a real Hilbert space, a<=c<=b, and K is continuous on [a,b]. U is C2 at each point of [a,c], V is C2 at each point of [c,b], W is C1 at each point of [a,b], and U(c)=V(c)."],
       "proofSteps": ["Apply the preceding Green identity separately on the two intervals.", "Collect the two evaluations at c. They are <U'(c),W(c)>-<V'(c),W(c)>, the negative right-minus-left derivative jump. Continuity makes this a genuine broken-field statement, although the algebraic identity itself needs only the common test value."],
       "prerequisites": ["RiemannianGeometry:RG.0/green-identity"], "acceptance": ["The tent field t on [0,1] and 2-t on [1,2] has jump -2. Omitting it gives a false identity against the constant test field."],
-      "sources": [{"sourceId": "BALLMANN-ENERGY", "locator": "Equation (5) and Proposition 3.7, printed p.7", "excerpt": "index", "match": "The explicit two-piece specialization retains the source jump sign; finite-partition gluing remains an intrinsic-stage obligation."}],
+      "sources": [{"sourceId": "BALLMANN-ENERGY", "locator": "Equation (5) and Proposition 3.7, printed p.7", "match": "The explicit two-piece specialization retains the source jump sign; finite-partition gluing remains an intrinsic-stage obligation."}],
       "library": {"module": "TauCeti/Geometry/Manifold/Riemannian/Comparison/IndexForm", "namespace": "TauCeti.RiemannianComparison"}, "implementationStatus": "unchecked"
     },
     {
@@ -135,7 +135,7 @@
       "statement": "If J''+KJ=0, then I_K(J,W)=[<J',W>]_a^b. In particular, a test field zero at both endpoints is annihilated.", "hypotheses": ["E is a real Hilbert space, a<=b, K is continuous on [a,b], J is C2 and W is C1 at every point of that interval, and the displayed ODE holds there."],
       "proofSteps": ["Substitute the actual Jacobi equation into Green's residual integral. The integrand is zero; the endpoints remain."],
       "prerequisites": ["RiemannianGeometry:RG.0/green-identity"], "acceptance": ["A Jacobi equation alone does not make the index zero for nonzero endpoint data."],
-      "sources": [{"sourceId": "BALLMANN-ENERGY", "locator": "Equation (5), Proposition 3.7 and Corollary 6.5", "excerpt": "index", "match": "The forward boundary-vanishing consequence is proved explicitly; the full annihilator characterization remains separate."}],
+      "sources": [{"sourceId": "BALLMANN-ENERGY", "locator": "Equation (5), Proposition 3.7 and Corollary 6.5", "match": "The forward boundary-vanishing consequence is proved explicitly; the full annihilator characterization remains separate."}],
       "library": {"module": "TauCeti/Geometry/Manifold/Riemannian/Comparison/IndexForm", "namespace": "TauCeti.RiemannianComparison"}, "implementationStatus": "unchecked"
     },
     {
@@ -143,7 +143,7 @@
       "statement": "If <K(t)v,v> <= 0 on [a,b], then I_K(V,V) >= integral_a^b ||V'||^2 >= 0.", "hypotheses": ["E is a real Hilbert space, a<=b, K is continuous on [a,b], V is C1 at each point of that interval, and the quadratic coefficient inequality holds for every v."],
       "proofSteps": ["Use <V',V'>=||V'||^2. The potential term enters with a minus sign and is nonnegative after negation.", "Both densities are continuous. Apply interval-integral monotonicity and nonnegativity with a<=b."],
       "prerequisites": ["RiemannianGeometry:RG.0/index-integrability", "mathlib:intervalIntegral.integral_mono_on", "mathlib:intervalIntegral.integral_nonneg"], "acceptance": ["This is a derivative-energy bound, not a lower bound by the position norm without a boundary/Poincare condition."],
-      "sources": [{"sourceId": "BALLMANN-ENERGY", "locator": "Equation (5) and Proposition 3.7, printed p.7", "excerpt": "index", "match": "Explicit nonpositive-coefficient consequence of the displayed fixed-frame integral."}],
+      "sources": [{"sourceId": "BALLMANN-ENERGY", "locator": "Equation (5) and Proposition 3.7, printed p.7", "match": "Explicit nonpositive-coefficient consequence of the displayed fixed-frame integral."}],
       "library": {"module": "TauCeti/Geometry/Manifold/Riemannian/Comparison/IndexForm", "namespace": "TauCeti.RiemannianComparison"}, "implementationStatus": "unchecked"
     },
     {
@@ -151,7 +151,7 @@
       "statement": "For a<b, continuous nonpositive K and a C1 field V with V(a)=0, equality I_K(V,V)=0 forces V(t)=0 for every t in [a,b].", "hypotheses": ["E is a real Hilbert space, V is C1 at every point of [a,b], and <K(t)v,v><=0 there for every v. The strict interval inequality and the anchoring condition are retained."],
       "proofSteps": ["The preceding bound and nonnegativity force the integral of ||V'||^2 to be zero.", "If the continuous squared derivative were positive anywhere on [a,b], the pinned strict-positivity theorem would make its integral positive. Thus V'=0 at every point.", "Use vector-valued FTC on [a,t] and V(a)=0. No a.e.-to-pointwise statement is assumed without the continuity step."],
       "prerequisites": ["RiemannianGeometry:RG.0/nonpositive-energy-bound", "mathlib:intervalIntegral.integral_pos", "mathlib:intervalIntegral.integral_nonneg", "mathlib:intervalIntegral.integral_deriv_eq_sub"], "acceptance": ["Without anchoring, a nonzero constant field for K=0 is a counterexample. The condition a<b excludes a collapsed interval."],
-      "sources": [{"sourceId": "BALLMANN-ENERGY", "locator": "Equation (5) and Proposition 3.7, printed p.7; zero-energy consequence derived here", "excerpt": "index", "match": "The fixed-model detection proof supplies its pointwise continuity step, not merely an almost-everywhere inference."}],
+      "sources": [{"sourceId": "BALLMANN-ENERGY", "locator": "Equation (5) and Proposition 3.7, printed p.7; zero-energy consequence derived here", "match": "The fixed-model detection proof supplies its pointwise continuity step, not merely an almost-everywhere inference."}],
       "library": {"module": "TauCeti/Geometry/Manifold/Riemannian/Comparison/IndexForm", "namespace": "TauCeti.RiemannianComparison"}, "implementationStatus": "unchecked"
     },
     {
@@ -159,7 +159,7 @@
       "statement": "A C2 solution of J''+KJ=0 for continuous nonpositive K that vanishes at both ends of a nondegenerate interval vanishes throughout that interval.", "hypotheses": ["E is a real Hilbert space, a<b, J is C2 at every point of [a,b], K is continuous there, and <K(t)v,v><=0 for every v. The ODE and J(a)=J(b)=0 hold."],
       "proofSteps": ["Apply the Jacobi boundary formula with W=J; its endpoints make the index zero.", "Apply the anchored zero-detection theorem. This proves the fixed-frame assertion without importing intrinsic conjugate-point theory."],
       "prerequisites": ["RiemannianGeometry:RG.0/jacobi-boundary", "RiemannianGeometry:RG.0/dirichlet-zero-detection"], "acceptance": ["For K=1, sin(t) on [0,pi] is a nonzero two-zero solution; the coefficient sign cannot be dropped."],
-      "sources": [{"sourceId": "BALLMANN-ENERGY", "locator": "Equation (5) and the Jacobi boundary consequence of Proposition 3.7", "excerpt": "index", "match": "Explicit fixed-frame deduction; the intrinsic absence-of-conjugate-points conclusion needs the RG.1 comparison."}],
+      "sources": [{"sourceId": "BALLMANN-ENERGY", "locator": "Equation (5) and the Jacobi boundary consequence of Proposition 3.7", "match": "Explicit fixed-frame deduction; the intrinsic absence-of-conjugate-points conclusion needs the RG.1 comparison."}],
       "planet": {"name": "Jacobi two-zero theorem"}, "library": {"module": "TauCeti/Geometry/Manifold/Riemannian/Comparison/IndexForm", "namespace": "TauCeti.RiemannianComparison"}, "implementationStatus": "unchecked"
     },
     {
@@ -167,7 +167,7 @@
       "statement": "If the actual C1 symmetric operator field S satisfies S'+S composed with S+K=0 at t, the index density equals <V'-SV,W'-SW> plus the derivative of <SV,W>.", "hypotheses": ["E is a real Hilbert space; S,V,W are C1 at t; S(t) is symmetric; the displayed operator identity holds at t. K is an actual operator-valued function."],
       "proofSteps": ["Differentiate the actual operator evaluation S(t)V(t) by the bounded bilinear rule and then its pairing with W.", "Expand <V'-SV,W'-SW>. Symmetry cancels the cross terms, and <SV,SW>=<S squared V,W>. The remaining S'+S squared term is -K by the equation."],
       "prerequisites": ["mathlib:ContinuousLinearMap.hasFDerivAt_of_bilinear", "mathlib:HasDerivAt.inner", "RiemannianGeometry:RG.0/index-form"], "acceptance": ["An algebraic square without the derivative of S is wrong when S varies."],
-      "sources": [{"sourceId": "BALLMANN-RICCATI", "locator": "Equation (26) and Lemma 3.3, printed p.6; the square-completion is proved here", "excerpt": "Jacobi", "match": "A deduction from the actual Riccati equation, not an assumed factorization or a claim of global solvability."}],
+      "sources": [{"sourceId": "BALLMANN-RICCATI", "locator": "Equation (26) and Lemma 3.3, printed p.6; the square-completion is proved here", "match": "A deduction from the actual Riccati equation, not an assumed factorization or a claim of global solvability."}],
       "library": {"module": "TauCeti/Geometry/Manifold/Riemannian/Comparison/IndexForm", "namespace": "TauCeti.RiemannianComparison"}, "implementationStatus": "unchecked"
     },
     {
@@ -175,7 +175,7 @@
       "statement": "On [a,b], I_K(V,W)=integral <V'-SV,W'-SW>+[<SV,W>]_a^b when the actual C1 symmetric S solves the Riccati equation throughout and K is continuous.", "hypotheses": ["E is a real Hilbert space, a<=b, K is continuous on [a,b], S,V,W are C1 at every point of that interval, S(t) is symmetric and S'+S squared+K=0 holds throughout."],
       "proofSteps": ["Integrate the preceding pointwise identity. C1 fields and S give continuous densities and derivative of the boundary pairing.", "Apply FTC to that pairing and integral arithmetic. No claim that S exists past a singular time is included."],
       "prerequisites": ["RiemannianGeometry:RG.0/riccati-integrand", "RiemannianGeometry:RG.0/index-integrability", "mathlib:ContinuousOn.intervalIntegrable_of_Icc", "mathlib:intervalIntegral.integral_deriv_eq_sub", "mathlib:intervalIntegral.integral_sub"], "acceptance": ["For scalar K=1, S=cot(t) is available only away from its poles."],
-      "sources": [{"sourceId": "BALLMANN-RICCATI", "locator": "Equation (26) and Lemma 3.3, printed p.6; integral deduction", "excerpt": "Jacobi", "match": "The integral identity and its endpoints are proved from the explicit differential equation."}],
+      "sources": [{"sourceId": "BALLMANN-RICCATI", "locator": "Equation (26) and Lemma 3.3, printed p.6; integral deduction", "match": "The integral identity and its endpoints are proved from the explicit differential equation."}],
       "planet": {"name": "Riccati factorization"}, "library": {"module": "TauCeti/Geometry/Manifold/Riemannian/Comparison/IndexForm", "namespace": "TauCeti.RiemannianComparison"}, "implementationStatus": "unchecked"
     },
     {
@@ -183,7 +183,7 @@
       "statement": "With the preceding hypotheses and V(a)=V(b)=0, I_K(V,V)=integral ||V'-SV||^2 >= 0.", "hypotheses": ["E is a real Hilbert space, a<=b, K is continuous, S and V are C1 at each point of [a,b], S is symmetric and satisfies S'+S squared+K=0 there, and V vanishes at both endpoints."],
       "proofSteps": ["Use the factorization with W=V. The endpoints vanish by the actual endpoint values.", "The remaining inner square is nonnegative and the interval is ordered. Apply the existing integral nonnegativity theorem."],
       "prerequisites": ["RiemannianGeometry:RG.0/riccati-factorization", "mathlib:intervalIntegral.integral_nonneg"], "acceptance": ["This does not construct S from a Jacobi tensor or establish absence of conjugate points without that separate argument."],
-      "sources": [{"sourceId": "BALLMANN-RICCATI", "locator": "Equation (26), p.6, combined with the index identity", "excerpt": "Jacobi", "match": "The nonnegative integral follows only on the stated regular Riccati interval."}],
+      "sources": [{"sourceId": "BALLMANN-RICCATI", "locator": "Equation (26), p.6, combined with the index identity", "match": "The nonnegative integral follows only on the stated regular Riccati interval."}],
       "library": {"module": "TauCeti/Geometry/Manifold/Riemannian/Comparison/IndexForm", "namespace": "TauCeti.RiemannianComparison"}, "implementationStatus": "unchecked"
     }
   ],

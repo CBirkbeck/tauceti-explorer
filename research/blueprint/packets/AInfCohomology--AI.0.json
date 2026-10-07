@@ -607,7 +607,6 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Definition 6.2 and Remark 6.3, printed p.49",
-          "excerpt": "Definition 6.2. Let C • ∈ K(OT ) be an I-torsion-free complex. Define a new (I-torsion-free)",
           "match": "This is the untwisted local submodule in Definition 6.2. The source does not require a generator in the global construction."
         }
       ],
@@ -689,7 +688,6 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Definition 6.2, differential diagram, printed p.49",
-          "excerpt": "Definition 6.2. Let C • ∈ K(OT ) be an I-torsion-free complex. Define a new (I-torsion-free)",
           "match": "An explicit affine implementation of the factored differential; division is by injective scalar multiplication, not by a field inverse."
         }
       ],
@@ -763,7 +761,6 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Definition 6.2, printed p.49",
-          "excerpt": "Definition 6.2. Let C • ∈ K(OT ) be an I-torsion-free complex. Define a new (I-torsion-free)",
           "match": "The commutative differential square in the chosen generator."
         }
       ],
@@ -799,7 +796,6 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Definition 6.2, printed p.49",
-          "excerpt": "Definition 6.2. Let C • ∈ K(OT ) be an I-torsion-free complex. Define a new (I-torsion-free)",
           "match": "Expanded verification that the displayed differential defines a complex."
         }
       ],
@@ -838,7 +834,6 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Remark 6.3, printed p.49",
-          "excerpt": "Remark 6.3. The definition is phrased to depend only on the ideal I, and not on a chosen",
           "match": "The selected generator trivializes I^⊗i; the omitted twist is restored by the stated localization isomorphism."
         }
       ],
@@ -924,7 +919,6 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Lemma 6.4 and Corollary 6.5, printed p.50",
-          "excerpt": "Lemma 6.4. Let C • ∈ K(OT ) be an I-torsion-free complex. Then there is a canonical isomor-",
           "match": "The source uses the functor on chain maps; the restriction and its square are made explicit here."
         }
       ],
@@ -999,7 +993,6 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Lemma 6.4, printed p.50",
-          "excerpt": "Lemma 6.4. Let C • ∈ K(OT ) be an I-torsion-free complex. Then there is a canonical isomor-",
           "match": "Component-level form of the induced map."
         }
       ],
@@ -1034,7 +1027,6 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Lemma 6.4, proof, printed p.50",
-          "excerpt": "Lemma 6.4. Let C • ∈ K(OT ) be an I-torsion-free complex. Then there is a canonical isomor-",
           "match": "Local cycle calculation; tensor twists are reinstated globally."
         }
       ],
@@ -1070,7 +1062,6 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Lemma 6.4, proof, printed p.50",
-          "excerpt": "Lemma 6.4. Let C • ∈ K(OT ) be an I-torsion-free complex. Then there is a canonical isomor-",
           "match": "Explicit boundary criterion underlying the cohomology quotient."
         }
       ],
@@ -1108,7 +1099,6 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Lemma 6.4, printed pp.49–50",
-          "excerpt": "Lemma 6.4. Let C • ∈ K(OT ) be an I-torsion-free complex. Then there is a canonical isomor-",
           "match": "The local degree twist has been trivialized by the fixed generator; the annihilator has exponent one."
         }
       ],
@@ -1149,7 +1139,6 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Definition 6.2 and Remark 6.3, printed p.49",
-          "excerpt": "Definition 6.2. Let C • ∈ K(OT ) be an I-torsion-free complex. Define a new (I-torsion-free)",
           "match": "The global definition and source convention are retained, not replaced by a principal-only object."
         }
       ],
@@ -1235,7 +1224,6 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Lemma 6.4, printed pp.49–50",
-          "excerpt": "Lemma 6.4. Let C • ∈ K(OT ) be an I-torsion-free complex. Then there is a canonical isomor-",
           "match": "Inherited global statement, with the annihilator and line twist explicitly restored."
         }
       ],
@@ -1272,7 +1260,6 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Lemma 6.4, final assertion, printed p.50",
-          "excerpt": "Lemma 6.4. Let C • ∈ K(OT ) be an I-torsion-free complex. Then there is a canonical isomor-",
           "match": "Split from the inherited cohomology node because it is the localization input."
         }
       ],
@@ -1313,7 +1300,6 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Lemma 6.1, Corollary 6.5 and Remark 6.6, printed pp.49–50",
-          "excerpt": "Corollary 6.5. The functor ηI from strongly K-flat complexes in K(OT ) to D(OT ) factors",
           "match": "The functor part is separated from the filtered-colimit and truncation exports below."
         }
       ],
@@ -1397,7 +1383,6 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Corollary 6.5, printed p.50",
-          "excerpt": "Corollary 6.5. The functor ηI from strongly K-flat complexes in K(OT ) to D(OT ) factors",
           "match": "Retains the filtered-colimit clause previously bundled into derived-decalage."
         }
       ],
@@ -1436,7 +1421,6 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Corollary 6.5, printed p.50",
-          "excerpt": "Corollary 6.5. The functor ηI from strongly K-flat complexes in K(OT ) to D(OT ) factors",
           "match": "Preserves the inherited truncation target without claiming that its full generic prototype has been supplied."
         }
       ],
@@ -1475,7 +1459,6 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Proposition 6.7, printed pp.50–51",
-          "excerpt": "Proposition 6.7. There is a natural lax symmetric monoidal structure on LηI : D(OT ) →",
           "match": "Expanded construction of the source lax-monoidal map, retaining the derived-source issue."
         }
       ],
@@ -1562,7 +1545,6 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Proposition 6.12, printed p.52",
-          "excerpt": "Proposition 6.12. If C ∈ D(OT ), construct a complex H • (C/I) with terms",
           "match": "This is the actual differential complex appearing on the right of the reduction comparison."
         }
       ],
@@ -1649,7 +1631,6 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Proposition 6.12 and proof, printed pp.52–53",
-          "excerpt": "Proposition 6.12. If C ∈ D(OT ), construct a complex H • (C/I) with terms",
           "match": "Inherited comparison with an explicit lifting proof; full declaration-level splitting of the general sheaf proof remains a gap."
         }
       ],
@@ -1696,7 +1677,6 @@
         {
           "sourceId": "bms1-v3",
           "locator": "§6.2 standing assumptions and Lemma 6.19, printed pp.53–55",
-          "excerpt": "Lemma 6.19. Let I ⊂ OT be an invertible ideal sheaf, and let C ∈ D(OT ) be derived J -complete.",
           "match": "All hypotheses suppressed by the local notation in the short source proof are restored."
         }
       ],
@@ -1741,7 +1721,6 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Lemma 6.20, first map, printed p.55",
-          "excerpt": "Lemma 6.20. Assume that I ⊂ OT is an invertible ideal sheaf which is locally free of rank 1.",
           "match": "Splits the original two-map node without discarding either export."
         }
       ],
@@ -1788,7 +1767,6 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Lemma 6.20, second map and last proof paragraph, printed p.55",
-          "excerpt": "Lemma 6.20. Assume that I ⊂ OT is an invertible ideal sheaf which is locally free of rank 1.",
           "match": "The pro-zero argument is made explicit; its generic enhanced realization is still a supplier request."
         }
       ],
@@ -1820,7 +1798,6 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Warning after Lemma 6.19, printed p.55; independent regression calculation in the companion roadmap AI.1 §7",
-          "excerpt": "not true in general",
           "match": "The source warns about unrelated completion. This particular module and proof are an independent worked test, not an example attributed to BMS."
         }
       ],
@@ -1859,7 +1836,6 @@
         {
           "sourceId": "bms1-v3",
           "locator": "After Lemma 6.19, printed p.55; affine completion framework in Stacks 091N",
-          "excerpt": "not true in general",
           "match": "The warning motivates this independently proved regression, not an example claimed to be printed in BMS. The proof uses the regular-principal derived-completion contract requested from DD.1."
         }
       ],
@@ -1892,7 +1868,6 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Warning after Lemma 6.19, printed p.55; independent regression calculation in companion roadmap AI.1 §7",
-          "excerpt": "not true in general",
           "match": "The explicit kernel is proved here, not quoted from the source."
         }
       ],
@@ -1932,7 +1907,6 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Warning after Lemma 6.19, printed p.55; independent regression calculation in companion roadmap AI.1 §7",
-          "excerpt": "not true in general",
           "match": "An explicit proof of the roadmap’s required countertest, separated from the positive same-ideal theorem."
         }
       ],
@@ -1972,8 +1946,7 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Example 3.16 and Proposition 3.17",
-          "match": "The displayed export uses this result or construction; the reader records its full hypotheses, normalization and supplier boundary.",
-          "excerpt": "Example 3.16 (Roots of unity). Suppose that S is a perfectoid ring which contains a compatible"
+          "match": "The displayed export uses this result or construction; the reader records its full hypotheses, normalization and supplier boundary."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2059,8 +2032,7 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Following Lemma 3.2; Lemma 3.3 and Lemma 3.4",
-          "match": "The displayed export uses this result or construction; the reader records its full hypotheses, normalization and supplier boundary.",
-          "excerpt": "Lemma 3.3. For any x ∈ S ♭ we have θr ([x]) = [x(0) ] ∈ Wr (S) and θer ([x]) = [x(r) ] for r ≥ 1."
+          "match": "The displayed export uses this result or construction; the reader records its full hypotheses, normalization and supplier boundary."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2135,8 +2107,7 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Lemmas 3.2–3.4 and 3.12–3.13",
-          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader.",
-          "excerpt": "Lemma 3.2. Let S be as above, i.e., a ring which is π-adically complete with respect to some"
+          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2232,8 +2203,7 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Lemmas 3.12–3.13",
-          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader.",
-          "excerpt": "Lemma 3.12. Suppose that S is a perfectoid ring, and let ξ ∈ Ainf (S) be any element generating"
+          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2318,8 +2288,7 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Lemma 3.23",
-          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader.",
-          "excerpt": "Lemma 3.23. The kernel of the natural map"
+          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2353,8 +2322,7 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Lemma 3.10, Proposition 3.17; Lemma 3.23 (regular-sequence argument)",
-          "match": "The displayed export uses this result or construction; the reader records its full hypotheses, normalization and supplier boundary.",
-          "excerpt": "Lemma 3.10. Let S be a ring which is π-adically complete with respect to some element π ∈ S"
+          "match": "The displayed export uses this result or construction; the reader records its full hypotheses, normalization and supplier boundary."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2387,8 +2355,7 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Introduction after the definition of xi; §4.2",
-          "match": "The displayed export uses this result or construction; the reader records its full hypotheses, normalization and supplier boundary.",
-          "excerpt": "n ≥ 1, inside Ainf [ p1 ]. Witt vector functoriality gives a natural map Ainf → W (k) that carries ξ"
+          "match": "The displayed export uses this result or construction; the reader records its full hypotheses, normalization and supplier boundary."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2467,8 +2434,7 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Lemma 3.13",
-          "match": "The displayed export uses this result or construction; the reader records its full hypotheses, normalization and supplier boundary.",
-          "excerpt": "Lemma 3.13. Let S → S ′ be a map between perfectoid rings. Then the canonical maps"
+          "match": "The displayed export uses this result or construction; the reader records its full hypotheses, normalization and supplier boundary."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2503,8 +2469,7 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Proposition 3.24",
-          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader.",
-          "excerpt": "Proposition 3.24. For any r ≥ 1, the ring Wr (O) is coherent."
+          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2539,7 +2504,6 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Lemma 3.25(i)",
-          "excerpt": "finitely presented as an R/I-module",
           "match": "The same finite-presentation criterion, with the finitely generated ideal hypothesis."
         }
       ],
@@ -2573,7 +2537,6 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Corollary 3.29",
-          "excerpt": "no non-zero elements",
           "match": "The corollary excludes Witt-almost-zero elements in every finitely presented module."
         }
       ],
@@ -2609,8 +2572,7 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Lemma 9.8",
-          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader.",
-          "excerpt": "Lemma 9.8. Let S be any ring. There are natural inclusions"
+          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2647,14 +2609,12 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Lemma 10.1 and Corollary 10.2",
-          "match": "The displayed export uses this result or construction; the reader records its full hypotheses, normalization and supplier boundary.",
-          "excerpt": "Corollary 10.2. If I ⊂ A is an ideal satisfying I = I 2 such that I can be written as an increasing"
+          "match": "The displayed export uses this result or construction; the reader records its full hypotheses, normalization and supplier boundary."
         },
         {
           "sourceId": "bms1-v3",
           "locator": "Corollary 3.18 and Remark 3.19",
-          "match": "The finite Witt annihilator and Verschiebung-image formulas are separate from the almost-ideal result of §10.",
-          "excerpt": "Corollary 3.18. Let S be a perfectoid ring which is flat over Zp and contains a compatible"
+          "match": "The finite Witt annihilator and Verschiebung-image formulas are separate from the almost-ideal result of §10."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2687,8 +2647,7 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Theorem 10.4",
-          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader.",
-          "excerpt": "Theorem 10.4. Let A → B be an étale morphism. Then Wr (A) → Wr (B) is also étale."
+          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2722,13 +2681,11 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Example 4.24 (intrinsic conormal-limit construction)",
-          "match": "The displayed export uses this result or construction; the reader records its full hypotheses, normalization and supplier boundary.",
-          "excerpt": "Example 4.24 (Tate twist). There is a Breuil–Kisin–Fargues module Ainf {1} given by"
+          "match": "The displayed export uses this result or construction; the reader records its full hypotheses, normalization and supplier boundary."
         },
         {
           "sourceId": "bms2",
           "locator": "Proposition 6.5 and Remark 6.6 (agreement of the intrinsic twists)",
-          "excerpt": "Remark 6.6. In this remark, we show that these Breuil-Kisin twists agree with those of [BMS18,",
           "match": "The conormal transition is p times the natural transition; this determines the divided maps in the p-torsion-free perfectoid setting."
         }
       ],
@@ -2824,8 +2781,7 @@
         {
           "sourceId": "zavyalov",
           "locator": "Theorem 3.3.3 and preceding §1 conventions",
-          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader.",
-          "excerpt": "Theorem 3.3.3. (Fontaine) The natural morphism dlog : OC (1) → OC {1} is injective with the"
+          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2863,8 +2819,7 @@
         {
           "sourceId": "zavyalov",
           "locator": "§1 twist conventions and Theorem 3.3.3 proof",
-          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader.",
-          "excerpt": "Theorem 3.3.3. (Fontaine) The natural morphism dlog : OC (1) → OC {1} is injective with the"
+          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2898,8 +2853,7 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Definition 3.22(i), with §12.1 coefficient applications",
-          "match": "The displayed export uses this result or construction; the reader records its full hypotheses, normalization and supplier boundary.",
-          "excerpt": "Definition 3.22. Consider the following rings associated with K."
+          "match": "The displayed export uses this result or construction; the reader records its full hypotheses, normalization and supplier boundary."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2935,8 +2889,7 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Definition 3.22(ii–iii); §4.3; SW §§11–14",
-          "match": "The displayed export uses this result or construction; the reader records its full hypotheses, normalization and supplier boundary.",
-          "excerpt": "Definition 3.22. Consider the following rings associated with K."
+          "match": "The displayed export uses this result or construction; the reader records its full hypotheses, normalization and supplier boundary."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2972,8 +2925,7 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Lemma 6.1",
-          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader.",
-          "excerpt": "Lemma 6.1. For every complex D• ∈ K(OT ), there is a strongly K-flat complex C • ∈ K(OT )"
+          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3006,8 +2958,7 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Proposition 6.8",
-          "match": "The displayed export uses this result or construction; the reader records its full hypotheses, normalization and supplier boundary.",
-          "excerpt": "Proposition 6.8. Assume that T is the punctual topos, and R = OT is a valuation ring. Let"
+          "match": "The displayed export uses this result or construction; the reader records its full hypotheses, normalization and supplier boundary."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3042,8 +2993,7 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Lemma 6.9, with repair of its printed intermediate quotient identity",
-          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader.",
-          "excerpt": "Lemma 6.9. For any integer m, is a natural transformation"
+          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3075,8 +3025,7 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Lemma 6.10",
-          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader.",
-          "excerpt": "Lemma 6.10. Let C ∈ D≥0 (OT ) such that H 0 (C)[I] = 0. Then there is a canonical map"
+          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3109,8 +3058,7 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Lemma 6.11",
-          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader.",
-          "excerpt": "Lemma 6.11. Let I, J ⊂ OT be two invertible ideal sheaves, with product I⊗OT J → I·J ⊂ OT ."
+          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3143,8 +3091,7 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Proposition 6.12 proof",
-          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader.",
-          "excerpt": "Proposition 6.12. If C ∈ D(OT ), construct a complex H • (C/I) with terms"
+          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3215,8 +3162,7 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Proposition 6.12 proof, injectivity argument",
-          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader.",
-          "excerpt": "Proposition 6.12. If C ∈ D(OT ), construct a complex H • (C/I) with terms"
+          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3248,8 +3194,7 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Proposition 6.12 proof, surjectivity argument",
-          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader.",
-          "excerpt": "Proposition 6.12. If C ∈ D(OT ), construct a complex H • (C/I) with terms"
+          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3283,7 +3228,6 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Lemma 6.14; Theorem 9.4(i)",
-          "excerpt": "flat map of ringed topoi",
           "match": "The generic flat result and the separately proved nonflat specialization."
         }
       ],
@@ -3319,7 +3263,6 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Lemma 6.17; Lemma 6.18",
-          "excerpt": "some n ≥ 0 independent of i",
           "match": "The uniform bound is essential in the completed direct-sum statement."
         }
       ],
@@ -3356,8 +3299,7 @@
         {
           "sourceId": "bms2",
           "locator": "Proposition 5.8; Remark 5.9; Corollary 5.10",
-          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader.",
-          "excerpt": "Proposition 5.8. Let R be a ring, and let I ⊂ R be an ideal defining a Cartier divisor. Fix"
+          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3396,8 +3338,7 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Definitions 7.1–7.2; Lemma 7.9",
-          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader.",
-          "excerpt": "Definition 7.1. Let M be an abelian group with commuting endomorphisms fi : M → M ,"
+          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3434,8 +3375,7 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Lemma 7.5, Remark 7.8, Lemma 7.10",
-          "match": "The displayed export uses this result or construction; the reader records its full hypotheses, normalization and supplier boundary.",
-          "excerpt": "Lemma 7.5. Let R be a (not necessarily commutative) A-algebra, for some commutative ring"
+          "match": "The displayed export uses this result or construction; the reader records its full hypotheses, normalization and supplier boundary."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3469,8 +3409,7 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Lemma 7.3 and its finite-reduction hypotheses",
-          "match": "The displayed export uses this result or construction; the reader records its full hypotheses, normalization and supplier boundary.",
-          "excerpt": "Lemma 7.3. Let Γdisc = di=1 Z be the free abelian group on generators γ1 , . . . , γd , and Γ ="
+          "match": "The displayed export uses this result or construction; the reader records its full hypotheses, normalization and supplier boundary."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3505,8 +3444,7 @@
         {
           "sourceId": "blm",
           "locator": "§§2.2–2.4, 7.2–7.4, 8.4",
-          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader.",
-          "excerpt": "Definition 2.2.1. Let (M ∗ , d, F ) be a Dieudonné complex. We will say that"
+          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3539,8 +3477,7 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Lemma 4.7",
-          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader.",
-          "excerpt": "Lemma 4.7. Any O♭ -submodule E of (K ♭ )d satisfies dimk (E ⊗ k) ≤ d."
+          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3572,8 +3509,7 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Lemma 4.8 (fractional-ideal correction PAPER-BHATT-MORROW-SCHOLZE-18/E2)",
-          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader.",
-          "excerpt": "Lemma 4.8. If D ⊂ (K ♭ )d is an O♭ -submodule with dimk (D ⊗ k) = d, then D is finite free of"
+          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3607,8 +3543,7 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Lemma 4.6",
-          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader.",
-          "excerpt": "Lemma 4.6. Let s ∈ Spec(Ainf ) denote the closed point, and let U := Spec Ainf \\ {s} be the"
+          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3644,8 +3579,7 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Lemma 4.9(i)",
-          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader.",
-          "excerpt": "Lemma 4.9. Let M be a finitely presented Ainf -module such that M [ p1 ] is finite free over Ainf [ p1 ]."
+          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3678,8 +3612,7 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Lemma 4.9(ii)",
-          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader.",
-          "excerpt": "Lemma 4.9. Let M be a finitely presented Ainf -module such that M [ p1 ] is finite free over Ainf [ p1 ]."
+          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3712,8 +3645,7 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Lemma 4.9(iii)",
-          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader.",
-          "excerpt": "Lemma 4.9. Let M be a finitely presented Ainf -module such that M [ p1 ] is finite free over Ainf [ p1 ]."
+          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3746,8 +3678,7 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Lemma 4.10; Corollary 4.12",
-          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader.",
-          "excerpt": "Lemma 4.10. Let M be a finitely generated p-torsion-free Ainf -module such that M [ p1 ] is finite"
+          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3782,8 +3713,7 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Proposition 4.13",
-          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader.",
-          "excerpt": "Proposition 4.13. Let M be a finitely presented Ainf -module such that M [ p1 ] is finite projective"
+          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3820,8 +3750,7 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Definition 4.22",
-          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader.",
-          "excerpt": "Definition 4.22. A Breuil–Kisin–Fargues module is a finitely presented Ainf -module M with an"
+          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3924,8 +3853,7 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Examples 4.23–4.24, Remark 4.25; discussion following Lemma 4.27",
-          "match": "The displayed export uses this result or construction; the reader records its full hypotheses, normalization and supplier boundary.",
-          "excerpt": "Remark 4.25. Assuming again that K contains the p-power roots of unity, there is a nonzero"
+          "match": "The displayed export uses this result or construction; the reader records its full hypotheses, normalization and supplier boundary."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3958,8 +3886,7 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Theorem 4.28; Scholze–Weinstein Theorems 12.4.6, 14.1.1",
-          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader.",
-          "excerpt": "Theorem 4.28 (Fargues). Assume that K = C is algebraically closed of characteristic 0. The"
+          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4053,8 +3980,7 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Lemmas 4.26–4.27",
-          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader.",
-          "excerpt": "Lemma 4.26. Let (M, ϕM ) be a Breuil–Kisin–Fargues module, where the base field K = C is"
+          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4138,8 +4064,7 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Remark 4.29, using Lemmas 3.23 and 4.26 (Theorem 4.28 is the statement only)",
-          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader.",
-          "excerpt": "Theorem 4.28 (Fargues). Assume that K = C is algebraically closed of characteristic 0. The"
+          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4178,8 +4103,7 @@
         {
           "sourceId": "sw20",
           "locator": "Theorem 11.4.5; Theorem 12.3.4, Proposition 12.3.5, Proposition 12.4.6, Theorems 13.2.1,13.4.1,14.1.1,14.2.1",
-          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader.",
-          "excerpt": "Theorem 11.4.5 (Fargues). The functor (M, ϕM ) 7→ (E, ϕE ) is an equivalence"
+          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4257,8 +4181,7 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Theorem 4.28; SW Theorem 14.1.1",
-          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader.",
-          "excerpt": "Theorem 4.28 (Fargues). Assume that K = C is algebraically closed of characteristic 0. The"
+          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4296,8 +4219,7 @@
         {
           "sourceId": "bms1-v3",
           "locator": "§4.4, Lemma 4.30, Proposition 4.32 and Proposition 4.34",
-          "match": "Section 4.4 gives the explicit crystalline lattice example and the corrected scalar map. General continuous action transport additionally needs the requested topology interface.",
-          "excerpt": "Proposition 4.32. The association M 7→ M ⊗S Ainf defines an exact tensor functor from"
+          "match": "Section 4.4 gives the explicit crystalline lattice example and the corrected scalar map. General continuous action transport additionally needs the requested topology interface."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4331,8 +4253,7 @@
         {
           "sourceId": "alb",
           "locator": "Definition 4.1.24; §4.3 perfectoid dictionary",
-          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader.",
-          "excerpt": "Definition 4.1.24. Let (A, I = (d)) be a prism. A Breuil-Kisin module (M, ϕM )"
+          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4366,8 +4287,7 @@
         {
           "sourceId": "alb",
           "locator": "Proposition 4.3.5 (preprint v4; published Proposition 4.47)",
-          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader.",
-          "excerpt": "Proposition 4.3.5. A prismatic Dieudonné module (M, ϕM ) over OC (i.e., a"
+          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4404,8 +4324,7 @@
         {
           "sourceId": "sch13",
           "locator": "Scholze 2013 Lemma 4.2; BMS1 §5; 2016 corrigendum",
-          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader.",
-          "excerpt": "Lemma 4.2. Let X be a locally noetherian adic space over Spa(Qp , Zp ), and let U ∈"
+          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4487,8 +4406,7 @@
         {
           "sourceId": "sch13",
           "locator": "Scholze 2013 Lemma 5.10 (numbered 5.11 in another version); BMS1 Lemma 5.6",
-          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader.",
-          "excerpt": "Lemma 5.10. Let K be a perfectoid field of characteristic 0 with an open and bounded"
+          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4567,8 +4485,7 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Definition 5.4, Remark 5.5, Lemma 5.6",
-          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader.",
-          "excerpt": "Definition 5.4. Consider the following sheaves on Xproét ."
+          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4659,8 +4576,7 @@
         {
           "sourceId": "sch13",
           "locator": "Scholze Theorem 6.5 and Corollary 6.6; BMS1 Lemma 5.6",
-          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader.",
-          "excerpt": "Theorem 6.5. Let X be a locally noetherian adic space over Spa(K, K + ). Assume that"
+          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4697,8 +4613,7 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Definition 9.1",
-          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader.",
-          "excerpt": "Definition 9.1. The complex AΩX ∈ D(XZar ) is given by"
+          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4794,8 +4709,7 @@
         {
           "sourceId": "bms1-v3",
           "locator": "§8.1; Definition 9.3 (framing and root tower)",
-          "match": "The displayed export uses this result or construction; the reader records its full hypotheses, normalization and supplier boundary.",
-          "excerpt": "Definition 9.3. Let R be a small formally smooth O-algebra, and let"
+          "match": "The displayed export uses this result or construction; the reader records its full hypotheses, normalization and supplier boundary."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4875,8 +4789,7 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Proposition 8.9; Lemma 8.10",
-          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader.",
-          "excerpt": "Proposition 8.9. For all i ≥ 0, the map"
+          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4911,8 +4824,7 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Lemma 9.7; Lemmas 9.8–9.9",
-          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader.",
-          "excerpt": "Lemma 9.7. Consider the Koszul complex"
+          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4944,8 +4856,7 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Lemma 8.11",
-          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader.",
-          "excerpt": "Lemma 8.11. Let A be a ring with an ideal I ⊂ A. Let f ∈ I be a non-zero-divisor."
+          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4978,8 +4889,7 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Lemma 9.12",
-          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader.",
-          "excerpt": "Lemma 9.12. Let f : C → D be a map of derived p-complete complexes in D(Ainf ), and assume"
+          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader."
         }
       ],
       "implementationStatus": "unchecked",
@@ -5015,8 +4925,7 @@
         {
           "sourceId": "bms1-v3",
           "locator": "§§8.2–8.3; Theorem 9.4(ii–iii), Lemma 9.13",
-          "match": "The displayed export uses this result or construction; the reader records its full hypotheses, normalization and supplier boundary.",
-          "excerpt": "Lemma 9.13. Let"
+          "match": "The displayed export uses this result or construction; the reader records its full hypotheses, normalization and supplier boundary."
         }
       ],
       "implementationStatus": "unchecked",
@@ -5051,8 +4960,7 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Example 7.7, Remark 7.8; §9 toric description",
-          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader.",
-          "excerpt": "Example 7.7 (The q-de Rham complex). Let A be a commutative ring with a unit q ∈ A× ,"
+          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader."
         }
       ],
       "implementationStatus": "unchecked",
@@ -5142,8 +5050,7 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Lemma 9.9; Lemmas 9.13–9.15; Theorem 9.4(iii)",
-          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader.",
-          "excerpt": "Lemma 9.9. Let R be as above, and let R → R′ be a formally étale map, i.e. R/pn → R′ /pn is"
+          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader."
         }
       ],
       "implementationStatus": "unchecked",
@@ -5179,8 +5086,7 @@
         {
           "sourceId": "bms1-v3",
           "locator": "§9 and §14, Theorem 1.10",
-          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader.",
-          "excerpt": "Theorem 1.10. Let X/O be as in Theorem 1.8. For the complex AΩX of sheaves of Ainf -"
+          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader."
         }
       ],
       "implementationStatus": "unchecked",
@@ -5214,8 +5120,7 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Remark 7.8 (E1=Lη_(q−1) E2 correction PAPER-BHATT-MORROW-SCHOLZE-18/E6)",
-          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader.",
-          "excerpt": "Remark 7.8. Take A = F2 [q ±1 ] in Example 7.7, and R = A[T ±1 ]. Set E2 := RΓ(Γdisc , R) and"
+          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader."
         }
       ],
       "implementationStatus": "unchecked",
@@ -5251,8 +5156,7 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Theorems 8.3,8.7 and 9.2(i)",
-          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader.",
-          "excerpt": "Theorem 8.3. There is a natural isomorphism"
+          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader."
         }
       ],
       "implementationStatus": "unchecked",
@@ -5289,8 +5193,7 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Remark 8.4; Proposition 8.15",
-          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader.",
-          "excerpt": "Remark 8.4. In Proposition 8.15, we also prove that the complex τ ≤1 Ω"
+          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader."
         }
       ],
       "implementationStatus": "unchecked",
@@ -5324,8 +5227,7 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Lemma 8.16",
-          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader.",
-          "excerpt": "Lemma 8.16. Let A be a ring with a non-zero-divisor f , and let α : C → D be a map in D(A)"
+          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader."
         }
       ],
       "implementationStatus": "unchecked",
@@ -5359,8 +5261,7 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Remark 8.4, following Theorem 8.3; cotangent identification Proposition 8.15",
-          "match": "The following paragraph identifies the Ext² class with the obstruction to lifting to A_inf/(tilde-xi²). Proposition 8.17 is instead the torus dlog computation used in proving Proposition 8.15.",
-          "excerpt": "Remark 8.4. In Proposition 8.15, we also prove that the complex τ ≤1"
+          "match": "The following paragraph identifies the Ext² class with the obstruction to lifting to A_inf/(tilde-xi²). Proposition 8.17 is instead the torus dlog computation used in proving Proposition 8.15."
         }
       ],
       "implementationStatus": "unchecked",
@@ -5396,8 +5297,7 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Proposition 8.14; Lemmas 9.16 and 9.18",
-          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader.",
-          "excerpt": "Proposition 8.14. Let R1 and R2 be two small formally smooth O-algebras, and let R ="
+          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader."
         }
       ],
       "implementationStatus": "unchecked",
@@ -5432,8 +5332,7 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Theorem 9.2(ii); Theorem 9.4(i–iii). Theorem 9.4(iv)/11.1 is exported separately by relative-witt-comparison.",
-          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader.",
-          "excerpt": "Theorem 9.2. The complex AΩX has the following properties."
+          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader."
         }
       ],
       "implementationStatus": "unchecked",
@@ -5471,8 +5370,7 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Proposition 11.2 and §11.1.1",
-          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader.",
-          "excerpt": "Proposition 11.2. The groups Wrn (D)pre , together with the F , R, V , d and multiplication maps,"
+          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader."
         }
       ],
       "implementationStatus": "unchecked",
@@ -5554,8 +5452,7 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Assumption 11.4; Proposition 11.5; Remark 11.6",
-          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader.",
-          "excerpt": "Assumption 11.4. For all r ≥ 1, n ≥ 0, the group Wrn (D) is p-torsion-free."
+          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader."
         }
       ],
       "implementationStatus": "unchecked",
@@ -5641,8 +5538,7 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Proposition 11.8; Lemmas 11.9,11.11,11.14,11.16; Corollary 11.12; Theorem 11.13",
-          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader.",
-          "excerpt": "Proposition 11.8. There is a natural injective quasi-isomorphism"
+          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader."
         }
       ],
       "implementationStatus": "unchecked",
@@ -5679,8 +5575,7 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Theorem 11.1; §11.3; Proposition 11.17",
-          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader.",
-          "excerpt": "Theorem 11.1. Let R be a small formally smooth O-algebra. Then for r ≥ 1, i ≥ 0, there is a"
+          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader."
         }
       ],
       "implementationStatus": "unchecked",
@@ -5718,8 +5613,7 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Theorem 1.10; §12 de Rham specialization",
-          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader.",
-          "excerpt": "Theorem 1.10. Let X/O be as in Theorem 1.8. For the complex AΩX of sheaves of Ainf -"
+          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader."
         }
       ],
       "implementationStatus": "unchecked",
@@ -5756,8 +5650,7 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Lemma 12.8(i–iii), using Lemma 12.2",
-          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader.",
-          "excerpt": "Lemma 12.8. Let Acrys ⊂ Acrys be the p-adic completion of the Ainf -subalgebra generated by"
+          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader."
         }
       ],
       "implementationStatus": "unchecked",
@@ -5792,8 +5685,7 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Lemma 12.8(iv–v); Lemmas 12.4,12.6 and Corollaries 12.5,12.7",
-          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader.",
-          "excerpt": "Lemma 12.4. One has an equality of endomorphisms of Acrys (R) ,"
+          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader."
         }
       ],
       "implementationStatus": "unchecked",
@@ -5825,8 +5717,7 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Lemma 12.2(iii), Lemma 12.8(i), and Corollary 12.7 (correction PAPER-BHATT-MORROW-SCHOLZE-18/E15)",
-          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader.",
-          "excerpt": "Corollary 12.7. Consider the Koszul complex"
+          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader."
         }
       ],
       "implementationStatus": "unchecked",
@@ -5863,8 +5754,7 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Lemmas 12.8; Proposition 12.9; Theorem 12.1",
-          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader.",
-          "excerpt": "Lemma 12.8. Let Acrys ⊂ Acrys be the p-adic completion of the Ainf -subalgebra generated by ξj!"
+          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader."
         }
       ],
       "implementationStatus": "unchecked",
@@ -5902,8 +5792,7 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Theorem 1.10; §12; §14",
-          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader.",
-          "excerpt": "Theorem 1.10. Let X/O be as in Theorem 1.8. For the complex AΩX of sheaves of Ainf -"
+          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader."
         }
       ],
       "implementationStatus": "unchecked",
@@ -5939,7 +5828,6 @@
         {
           "sourceId": "blm",
           "locator": "§§10.3–10.4; Theorems 10.2.1 and 10.4.4",
-          "excerpt": "Theorem 10.4.4. There is a natural isomorphism AΩsm,∗     sm,∗",
           "match": "The shared Bockstein and degree-zero universal maps determine the saturated realization."
         }
       ],
@@ -5975,8 +5863,7 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Theorem 1.10; §9, §14",
-          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader.",
-          "excerpt": "Theorem 1.10. Let X/O be as in Theorem 1.8. For the complex AΩX of sheaves of Ainf -"
+          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader."
         }
       ],
       "implementationStatus": "unchecked",
@@ -6012,8 +5899,7 @@
         {
           "sourceId": "bms1-v3",
           "locator": "§14, Theorem 1.8",
-          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader.",
-          "excerpt": "Theorem 1.8. Let X be a proper smooth formal scheme over O, where O is the ring of integers"
+          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader."
         }
       ],
       "implementationStatus": "unchecked",
@@ -6108,8 +5994,7 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Theorem 14.3(i)",
-          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader.",
-          "excerpt": "Theorem 14.3. Let X be a proper smooth formal scheme over O with generic fibre X. Then"
+          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader."
         }
       ],
       "implementationStatus": "unchecked",
@@ -6145,8 +6030,7 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Theorem 14.3",
-          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader.",
-          "excerpt": "Theorem 14.3. Let X be a proper smooth formal scheme over O with generic fibre X. Then"
+          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader."
         }
       ],
       "implementationStatus": "unchecked",
@@ -6180,8 +6064,7 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Theorems 14.1 and 14.3 (PAPER-BHATT-MORROW-SCHOLZE-18/E18)",
-          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader.",
-          "excerpt": "Theorem 14.1. There are canonical quasi-isomorphisms of complexes of sheaves on XZar (com-"
+          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader."
         }
       ],
       "implementationStatus": "unchecked",
@@ -6214,8 +6097,7 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Theorem 14.3",
-          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader.",
-          "excerpt": "Theorem 14.3. Let X be a proper smooth formal scheme over O with generic fibre X. Then"
+          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader."
         }
       ],
       "implementationStatus": "unchecked",
@@ -6249,8 +6131,7 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Theorem 5.7; Theorem 14.3",
-          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader.",
-          "excerpt": "Theorem 5.7 ([58, proof of Theorem 8.4]). Assume that C is algebraically closed, and X is a"
+          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader."
         }
       ],
       "implementationStatus": "unchecked",
@@ -6286,8 +6167,7 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Proposition 13.21; §14",
-          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader.",
-          "excerpt": "Proposition 13.21. Fix a section k → O/p. Then there is a canonical ϕ-equivariant isomor-"
+          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader."
         }
       ],
       "implementationStatus": "unchecked",
@@ -6319,8 +6199,7 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Lemma 4.14",
-          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader.",
-          "excerpt": "Lemma 4.14. Let M be a finitely presented Wn (O♭ )-module. Let Mη and Ms be the base change"
+          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader."
         }
       ],
       "implementationStatus": "unchecked",
@@ -6353,8 +6232,7 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Corollary 4.15",
-          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader.",
-          "excerpt": "Corollary 4.15. Let M be a finitely presented Ainf -module such that M [ p1 ] is free over Ainf [ p1 ]."
+          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader."
         }
       ],
       "implementationStatus": "unchecked",
@@ -6387,8 +6265,7 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Lemma 4.16",
-          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader.",
-          "excerpt": "Lemma 4.16. Let C ∈ D(Ainf ) such that H j (C)[ 1p ] is free for each j. Fix some index i. Then"
+          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader."
         }
       ],
       "implementationStatus": "unchecked",
@@ -6422,8 +6299,7 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Corollary 4.17",
-          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader.",
-          "excerpt": "Corollary 4.17. Let C ∈ D(Ainf ) be a perfect complex such that H j (C)[ p1 ] is free over Ainf [ p1 ]"
+          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader."
         }
       ],
       "implementationStatus": "unchecked",
@@ -6459,8 +6335,7 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Lemma 4.18",
-          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader.",
-          "excerpt": "Lemma 4.18. Let C ∈ D(Ainf ) be a perfect complex such that H j (C)[ 1p ] is free over Ainf [ p1 ] for"
+          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader."
         }
       ],
       "implementationStatus": "unchecked",
@@ -6494,8 +6369,7 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Lemma 4.19",
-          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader.",
-          "excerpt": "Lemma 4.19. Let M be a finitely presented Ainf -module. Let µ = [ǫ] − 1, with ǫ as in Exam-"
+          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader."
         }
       ],
       "implementationStatus": "unchecked",
@@ -6528,8 +6402,7 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Corollary 4.20",
-          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader.",
-          "excerpt": "Corollary 4.20. Let C ∈ D(Ainf ) be a perfect complex such that for all j ∈ Z, H j (C)[ pµ        ] is free"
+          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader."
         }
       ],
       "implementationStatus": "unchecked",
@@ -6565,8 +6438,7 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Theorem 14.3; §14",
-          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader.",
-          "excerpt": "Theorem 14.3. Let X be a proper smooth formal scheme over O with generic fibre X. Then"
+          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader."
         }
       ],
       "implementationStatus": "unchecked",
@@ -6605,8 +6477,7 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Theorems 1.1,1.8,14.5–14.6; §2",
-          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader.",
-          "excerpt": "Theorem 1.1. Let X be a proper smooth formal scheme over OK , where OK is the ring of"
+          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader."
         }
       ],
       "implementationStatus": "unchecked",
@@ -6637,8 +6508,7 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Lemma 3.25(ii)",
-          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader.",
-          "excerpt": "Lemma 3.25. Let R be a ring and I ⊂ R a finitely generated ideal."
+          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader."
         }
       ],
       "implementationStatus": "unchecked",
@@ -6670,8 +6540,7 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Lemma 3.26",
-          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader.",
-          "excerpt": "Lemma 3.26. Let S → R be a surjective map of rings with square-zero kernel I ⊂ S. Assume"
+          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader."
         }
       ],
       "implementationStatus": "unchecked",
@@ -6704,8 +6573,7 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Lemma 3.27",
-          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader.",
-          "excerpt": "Lemma 3.27. Let R be a ring, f ∈ R a non-zero-divisor. Assume that (R, f ) satisfy the Artin-"
+          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader."
         }
       ],
       "implementationStatus": "unchecked",
@@ -6737,8 +6605,7 @@
         {
           "sourceId": "bms1-v3",
           "locator": "Lemma 3.28",
-          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader.",
-          "excerpt": "Lemma 3.28. Let g : R → S be an injective map of rings, f ∈ R such that both R and S are"
+          "match": "The export is the indicated source construction/result, with the corrected conventions explained in the reader."
         }
       ],
       "implementationStatus": "unchecked",

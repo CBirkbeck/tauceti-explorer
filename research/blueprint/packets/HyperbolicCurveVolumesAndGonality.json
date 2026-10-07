@@ -210,7 +210,6 @@
         {
           "sourceId": "bt",
           "locator": "§1.3, pp.712–713",
-          "excerpt": "a(r) = 4π · sinh²(r/2).",
           "match": "The curvature −1 distance, density and area conventions; the new signatures expose the comparisons to the pinned libraries."
         }
       ],
@@ -303,7 +302,6 @@
         {
           "sourceId": "bt",
           "locator": "§1.3, pp.712–713",
-          "excerpt": "a(r) = 4π · sinh²(r/2).",
           "match": "The curvature −1 distance, density and area conventions; the new signatures expose the comparisons to the pinned libraries."
         }
       ],
@@ -337,7 +335,6 @@
         {
           "sourceId": "bt",
           "locator": "§1.3, pp.712–713",
-          "excerpt": "a(r) = 4π · sinh²(r/2).",
           "match": "The curvature −1 distance, density and area conventions; the new signatures expose the comparisons to the pinned libraries."
         }
       ],
@@ -415,7 +412,6 @@
         {
           "sourceId": "bt",
           "locator": "§1.3, pp.712–713",
-          "excerpt": "a(r) = 4π · sinh²(r/2).",
           "match": "The curvature −1 distance, density and area conventions; the new signatures expose the comparisons to the pinned libraries."
         }
       ],
@@ -503,7 +499,6 @@
         {
           "sourceId": "bt",
           "locator": "§1.3, pp.712–713",
-          "excerpt": "a(r) = 4π · sinh²(r/2).",
           "match": "The curvature −1 distance, density and area conventions; the new signatures expose the comparisons to the pinned libraries."
         }
       ],
@@ -583,7 +578,6 @@
         {
           "sourceId": "bt",
           "locator": "§1.3, pp.712–713",
-          "excerpt": "a(r) = 4π · sinh²(r/2).",
           "match": "The curvature −1 distance, density and area conventions; the new signatures expose the comparisons to the pinned libraries."
         }
       ],
@@ -667,7 +661,6 @@
         {
           "sourceId": "bt",
           "locator": "§1.3, pp.712–713",
-          "excerpt": "a(r) = 4π · sinh²(r/2).",
           "match": "The curvature −1 distance, density and area conventions; the new signatures expose the comparisons to the pinned libraries."
         }
       ],
@@ -703,7 +696,6 @@
         {
           "sourceId": "bt",
           "locator": "Remark 24, p.735",
-          "excerpt": "cosh(r/λ)",
           "match": "The curvature rescaling convention; length and area factors are derived explicitly, not suppressed."
         }
       ],
@@ -781,7 +773,6 @@
         {
           "sourceId": "bt",
           "locator": "§1.3, pp.712–713",
-          "excerpt": "a(r) = 4π · sinh²(r/2).",
           "match": "The curvature −1 distance, density and area conventions; the new signatures expose the comparisons to the pinned libraries."
         }
       ],
@@ -862,7 +853,6 @@
         {
           "sourceId": "bt",
           "locator": "Lemma 13 and Figure 2, pp.724–725",
-          "excerpt": "2 tanh⁻¹(√s)",
           "match": "The Euclidean lens enclosure and its hyperbolic radius, with s=tanh(R/2)."
         }
       ],
@@ -948,7 +938,6 @@
         {
           "sourceId": "bt",
           "locator": "Lemma 13 proof and Figure 2, pp.724–725",
-          "excerpt": "B(z, D + R) ∩ B(z′, D + R)",
           "match": "After moving the midpoint to zero and the endpoints to the real axis, the proof becomes the displayed Euclidean lens calculation."
         }
       ],
@@ -983,7 +972,6 @@
         {
           "sourceId": "bt",
           "locator": "§5.1, pp.732–733",
-          "excerpt": "χ = 4µ/(1+µ)²",
           "match": "The invariant distance potentials and their relation. Scalar identities here precede the current and plurisubharmonicity arguments."
         }
       ],
@@ -1070,7 +1058,6 @@
         {
           "sourceId": "bt",
           "locator": "§5.1, pp.732–733",
-          "excerpt": "χ = 4µ/(1+µ)²",
           "match": "The invariant distance potentials and their relation. Scalar identities here precede the current and plurisubharmonicity arguments."
         }
       ],
@@ -1156,7 +1143,6 @@
         {
           "sourceId": "bt",
           "locator": "§5.1, pp.732–733",
-          "excerpt": "χ = 4µ/(1+µ)²",
           "match": "The invariant distance potentials and their relation. Scalar identities here precede the current and plurisubharmonicity arguments."
         }
       ],
@@ -1190,7 +1176,6 @@
         {
           "sourceId": "erratum",
           "locator": "§3, Proposition 3.1 proof, pp.2–3",
-          "excerpt": "ψ(z, w) = tanh²(d_D(z, w̄)/2)",
           "match": "Conjugation changes the second coordinate; its graph is real analytic. The scalar potential precedes the positive-current computation."
         }
       ],
@@ -1270,7 +1255,6 @@
         {
           "sourceId": "erratum",
           "locator": "§3, Proposition 3.1 proof, pp.2–3",
-          "excerpt": "ψ(z, w) = tanh²(d_D(z, w̄)/2)",
           "match": "Conjugation changes the second coordinate; its graph is real analytic. The scalar potential precedes the positive-current computation."
         }
       ],
@@ -1304,7 +1288,6 @@
         {
           "sourceId": "bt",
           "locator": "§5.1, pp.732–733",
-          "excerpt": "χ = 4µ/(1+µ)²",
           "match": "The invariant distance potentials and their relation. Scalar identities here precede the current and plurisubharmonicity arguments."
         }
       ],
@@ -1382,7 +1365,6 @@
         {
           "sourceId": "bt",
           "locator": "Proposition 23 proof, p.735",
-          "excerpt": "g(log µ)",
           "match": "The logarithmic reparameterization and its boundary slope. The first current-display prefactors are corrected separately in sourceIssues."
         }
       ],
@@ -1459,7 +1441,6 @@
         {
           "sourceId": "erratum",
           "locator": "§3, Proposition 3.1 proof, pp.2–3",
-          "excerpt": "ψ(z, w) = tanh²(d_D(z, w̄)/2)",
           "match": "Conjugation changes the second coordinate; its graph is real analytic. The scalar potential precedes the positive-current computation."
         }
       ],
@@ -1537,7 +1518,6 @@
         {
           "sourceId": "erratum",
           "locator": "§3, Proposition 3.1 proof, pp.2–3",
-          "excerpt": "ψ(z, w) = tanh²(d_D(z, w̄)/2)",
           "match": "Conjugation changes the second coordinate; its graph is real analytic. The scalar potential precedes the positive-current computation."
         }
       ],
@@ -1618,7 +1598,6 @@
         {
           "sourceId": "bt",
           "locator": "§1.3, pp.712–713",
-          "excerpt": "a(r) = 4π · sinh²(r/2).",
           "match": "The curvature −1 distance, density and area conventions; the new signatures expose the comparisons to the pinned libraries."
         }
       ],
@@ -1705,7 +1684,6 @@
         {
           "sourceId": "bt",
           "locator": "§1.3, pp.712–713",
-          "excerpt": "a(r) = 4π · sinh²(r/2).",
           "match": "The curvature −1 distance, density and area conventions; the new signatures expose the comparisons to the pinned libraries."
         }
       ],
@@ -1795,7 +1773,6 @@
         {
           "sourceId": "bt",
           "locator": "Theorem 19 and equality discussion, p.732",
-          "excerpt": "a union of fibers",
           "match": "The point estimate is sharp on fibers. Here the equality is computed in the actual local parametrized integral."
         }
       ],
@@ -1836,7 +1813,6 @@
         {
           "sourceId": "bt",
           "locator": "Theorem 19 equality discussion, p.732",
-          "excerpt": "the graph of −z",
           "match": "The factor two is attained in the normalized anti-diagonal disc, where the sum form has twice the single-disc density."
         }
       ],
@@ -1876,7 +1852,6 @@
         {
           "sourceId": "bt",
           "locator": "§1.3, pp.712–713",
-          "excerpt": "a(r) = 4π · sinh²(r/2).",
           "match": "The curvature −1 distance, density and area conventions; the new signatures expose the comparisons to the pinned libraries."
         }
       ],

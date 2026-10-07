@@ -73,7 +73,7 @@ missing proof obligation in the corrected packet and suggested file.
 
 Independently read Bloch, *Higher Regulators, Algebraic K-Theory, and Zeta
 Functions of Elliptic Curves*, CRM 11 (2000), Lecture 10 §§10.2–10.3,
-through the [public digitization](https://www.scribd.com/document/750143417/CRM-Monograph-Series-11-Spencer-J-Bloch-Higher-Regulators-Algebraic-K-Theory-and-Zeta-Functions-of-Elliptic-Curves-AMS-2000).
+in [the book](https://bookstore.ams.org/crmm-11).
 Every node's locator and excerpt was checked. The exact equation anchor
 correction is recorded above. The supporting passages are:
 

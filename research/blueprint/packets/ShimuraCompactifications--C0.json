@@ -529,7 +529,6 @@
         {
           "sourceId": "LAN-2021",
           "locator": "6.1.2.1–6.1.2.6, especially the homogeneous quotient in Lemma 6.1.2.6",
-          "excerpt": "ideal",
           "match": "This is the general coefficient-algebra proof behind the source toric-stratum quotient, written in existing monoid-algebra vocabulary. The extension to an arbitrary face submonoid is proved here, not attributed to a separately numbered general theorem in Lan."
         }
       ],
@@ -631,7 +630,6 @@
         {
           "sourceId": "LAN-2021",
           "locator": "6.1.2.6, homogeneous components of the quotient",
-          "excerpt": "ideal",
           "match": "Makes the degreewise content of the source quotient explicit."
         }
       ],
@@ -670,7 +668,6 @@
         {
           "sourceId": "LAN-2021",
           "locator": "6.1.2.6, quotient algebra on the orthogonal characters",
-          "excerpt": "ideal",
           "match": "The retained homogeneous summands provide the explicit section in a trivialized chart."
         }
       ],
@@ -710,7 +707,6 @@
         {
           "sourceId": "LAN-2021",
           "locator": "6.1.2.6, displayed homogeneous ideal",
-          "excerpt": "ideal",
           "match": "Provides a coefficient-level proof and retains nilpotent coefficients under arbitrary base change."
         }
       ],
@@ -750,7 +746,6 @@
         {
           "sourceId": "LAN-2021",
           "locator": "6.1.2.6, quotient defining the closed stratum",
-          "excerpt": "ideal",
           "match": "Identifies the specified monomial quotient, using the existing generic first isomorphism theorem instead of replanning it."
         }
       ],
@@ -844,7 +839,6 @@
         {
           "sourceId": "LAN-2021",
           "locator": "6.1.2.1–6.1.2.6, homogeneous algebra construction",
-          "excerpt": "ideal",
           "match": "The arbitrary-ring naturality is a direct verification on the source homogeneous construction. It does not assert any tensor/inverse-limit interchange."
         }
       ],
@@ -888,7 +882,6 @@
         {
           "sourceId": "LAN-2021",
           "locator": "6.1.2.6, monomial description of the stratum ideal",
-          "excerpt": "ideal",
           "match": "This proves the needed coefficient-change property of the displayed ideal, rather than claiming it for all kernel or completion functors."
         }
       ],
@@ -935,13 +928,11 @@
         {
           "sourceId": "LAN-2021",
           "locator": "6.1.2.1, Remark 6.1.2.2, Definition 6.1.2.3, printed pp. 443–444",
-          "excerpt": "H-torsor",
           "match": "Keeps the actual multiplication isomorphisms and the relative Spec construction, with split-torus rather than unrestricted nonsmooth multiplicative-type hypotheses."
         },
         {
           "sourceId": "FARB-KISIN-WOLFSON-2024",
           "locator": "3.2.1; Proposition 3.2.7 proof, printed pp. 24–25",
-          "excerpt": "line bundles",
           "match": "Torus torsors and character-line compactifications over an abelian base; the generic torsor carrier is requested from SF.1."
         }
       ],
@@ -1063,7 +1054,6 @@
         {
           "sourceId": "LAN-2021",
           "locator": "Lemma 6.1.2.4 and Theorem 6.1.2.8(2)",
-          "excerpt": "canonical",
           "match": "The base-ring/torsor extension of the ordinary face-open theorem is proved by localization and descent, while the finite-complex subproblem stays with the anchor."
         }
       ],
@@ -1111,7 +1101,6 @@
         {
           "sourceId": "LAN-2021",
           "locator": "6.1.1.11 and Theorem 6.1.2.8(5)",
-          "excerpt": "smooth",
           "match": "Makes the ordinary integral-coordinate proof explicit under the free character lattice and regular-cone hypotheses."
         }
       ],
@@ -1162,7 +1151,6 @@
         {
           "sourceId": "LAN-2021",
           "locator": "Lemma 6.1.2.6 and Definition 6.1.2.7",
-          "excerpt": "stratum",
           "match": "Uses the homogeneous quotient formula for the relative base-change-compatible stratum. The comparison with the source reduction notation is kept under explicit reducedness hypotheses."
         }
       ],
@@ -1216,7 +1204,6 @@
         {
           "sourceId": "LAN-2021",
           "locator": "6.1.2.6–6.1.2.8 and the ordinary charts used in 6.3.2.5",
-          "excerpt": "stratum",
           "match": "The ideal and exact-open calculation is a direct algebraic refinement of the regular relative toric chart, and provides the concrete C0 input to the existing C5 nodes."
         }
       ],
@@ -1255,7 +1242,6 @@
         {
           "sourceId": "PINK-1990",
           "locator": "6.4–6.6, printed pp. 96–99",
-          "excerpt": "admissible",
           "match": "Arithmetic cone system, finiteness and restriction qualifications."
         }
       ],
@@ -1354,7 +1340,6 @@
         {
           "sourceId": "PINK-1990",
           "locator": "9.22–9.23, printed pp. 156–157",
-          "excerpt": "refinement",
           "match": "Finite family of compatible morphisms and common refinements."
         }
       ],
@@ -1440,13 +1425,11 @@
         {
           "sourceId": "PINK-1990",
           "locator": "9.18–9.23, printed pp. 153–157",
-          "excerpt": "projective",
           "match": "Existence proof and simultaneous compatibility."
         },
         {
           "sourceId": "LAN-2017",
           "locator": "Definitions 2.5, 2.7 and Proposition 2.8",
-          "excerpt": "polarization",
           "match": "Integral polarization and cusp compatibility."
         }
       ],
@@ -1495,7 +1478,6 @@
         {
           "sourceId": "LAN-2021",
           "locator": "6.1.1.7–6.1.2.8; ordinary character algebra construction",
-          "excerpt": "torus",
           "match": "Relative monoid charts specialize to the trivial torsor; universal coefficient extension is proved by the monomial basis."
         }
       ],
@@ -1602,7 +1584,6 @@
         {
           "sourceId": "PINK-1990",
           "locator": "6.25 and 6.27, printed pp. 113–115",
-          "excerpt": "complete",
           "match": "Arithmetic compatibility and compactness supply the additional quotient hypotheses."
         }
       ],
@@ -1648,7 +1629,6 @@
         {
           "sourceId": "PINK-1990",
           "locator": "2.1; 4.7–4.12, printed pp. 29–30 and 59–62",
-          "excerpt": "mixed Shimura",
           "match": "Boundary construction and axioms, with author-copy filtration misprint recorded in E1."
         }
       ],
@@ -1752,7 +1732,6 @@
         {
           "sourceId": "PINK-1990",
           "locator": "4.7–4.12, especially 4.12, printed pp. 59–62",
-          "excerpt": "filtration",
           "match": "Constructs boundary filtrations and proves Hodge-filtration agreement."
         }
       ],
@@ -1847,7 +1826,6 @@
         {
           "sourceId": "PINK-1990",
           "locator": "3.12–3.22; 6.1–6.7; 7.2–7.5",
-          "excerpt": "torsor",
           "match": "Central torus and abelian-torsor tower with finite homogeneous-cover and stabilizer qualifications."
         }
       ],
@@ -1937,7 +1915,6 @@
         {
           "sourceId": "PINK-1990",
           "locator": "6.10–6.12 and 7.2–7.5, printed pp. 100–102 and 118–120",
-          "excerpt": "equivalence",
           "match": "Actual label equivalence and stratum quotients."
         }
       ],
@@ -2037,7 +2014,6 @@
         {
           "sourceId": "PINK-1990",
           "locator": "6.18–6.21, printed pp. 105–109",
-          "excerpt": "finite",
           "match": "Effective finite-overlap argument; AMRT reduction proof remains a named source leaf."
         }
       ],
@@ -2084,7 +2060,6 @@
         {
           "sourceId": "PINK-1990",
           "locator": "4.15 and 4.22–4.25, printed pp. 63–64 and 68–69",
-          "excerpt": "cone",
           "match": "Positivity and rational closure, with pure/mixed lineality distinction."
         }
       ],
@@ -2132,7 +2107,6 @@
         {
           "sourceId": "PINK-1990",
           "locator": "6.6–6.17, especially the construction in 6.13 and elementary identifications in 6.14–6.17, printed pp. 98–105",
-          "excerpt": "torus",
           "match": "Partial torus embeddings and transition maps."
         }
       ],
@@ -2226,7 +2200,6 @@
         {
           "sourceId": "PINK-1990",
           "locator": "6.20–6.24, printed pp. 107–112",
-          "excerpt": "Hausdorff",
           "match": "Controlled neighbourhood quotient and closed graph; AMRT neighbourhood proof is a recorded source leaf."
         }
       ],
@@ -2271,7 +2244,6 @@
         {
           "sourceId": "PINK-1990",
           "locator": "6.10–6.12 and 6.24, printed pp. 100–102 and 112",
-          "excerpt": "quotient",
           "match": "Actual quotient/gluing construction."
         }
       ],
@@ -2372,7 +2344,6 @@
         {
           "sourceId": "PINK-1990",
           "locator": "6.7 and 6.24, printed pp. 98–99 and 112",
-          "excerpt": "normal",
           "match": "Normal finite quotient charts and their open dense interior."
         }
       ],
@@ -2416,7 +2387,6 @@
         {
           "sourceId": "PINK-1990",
           "locator": "6.27, printed pp. 114–115",
-          "excerpt": "compact",
           "match": "Compactness proof for complete admissible arithmetic cone systems."
         }
       ],
@@ -2464,7 +2434,6 @@
         {
           "sourceId": "PINK-1990",
           "locator": "6.26; 9.20–9.21, printed pp. 113–114 and 155–156",
-          "excerpt": "smooth",
           "match": "Local smoothness and extra refinement for no self-identification."
         }
       ],
@@ -2514,7 +2483,6 @@
         {
           "sourceId": "PINK-1990",
           "locator": "9.24; 12.4–12.5, printed pp. 157–158 and 197–198",
-          "excerpt": "algebraic",
           "match": "Scheme algebraization needs ample cover; algebraic spaces have the unconditional version."
         }
       ],
@@ -2561,7 +2529,6 @@
         {
           "sourceId": "PINK-1990",
           "locator": "6.21–6.24, printed pp. 109–112; 7.2–7.5, printed pp. 118–120",
-          "excerpt": "boundary",
           "match": "The toroidal-to-minimal map and actual quotient strata."
         }
       ],
@@ -2606,7 +2573,6 @@
         {
           "sourceId": "PINK-1990",
           "locator": "12.1–12.8, printed pp. 196–199",
-          "excerpt": "canonical",
           "match": "Construction and effectivity conditions; density proof is explicitly not claimed read."
         }
       ],
@@ -2704,7 +2670,6 @@
         {
           "sourceId": "PINK-1990",
           "locator": "12.4–12.5, printed pp. 197–198",
-          "excerpt": "model",
           "match": "General toroidal canonical descent with scheme/algebraic-space distinction."
         }
       ],
@@ -2753,13 +2718,11 @@
         {
           "sourceId": "PINK-1990",
           "locator": "6.25 and 9.22–9.23",
-          "excerpt": "morphism",
           "match": "Functorial compatible fan maps and refinements."
         },
         {
           "sourceId": "LAN-2021",
           "locator": "6.4.2.2–6.4.2.3; 7.1.1.4",
-          "excerpt": "refinement",
           "match": "Integral instantiation and proper chart maps."
         }
       ],
@@ -2851,7 +2814,6 @@
         {
           "sourceId": "PINK-1990",
           "locator": "6.25, printed pp. 113–114",
-          "excerpt": "functorial",
           "match": "Compatible fan maps, finite normal-level quotients and composition."
         }
       ],
@@ -2893,7 +2855,6 @@
         {
           "sourceId": "PINK-1990",
           "locator": "6.25 and 9.23",
-          "excerpt": "morphism",
           "match": "Compatible finite family of morphisms supplies the toroidal span."
         }
       ],
@@ -2980,7 +2941,6 @@
         {
           "sourceId": "PINK-1990",
           "locator": "9.22–9.23",
-          "excerpt": "refinement",
           "match": "Comparison through common compatible refinements."
         }
       ],
@@ -3023,19 +2983,16 @@
         {
           "sourceId": "LAN-2021",
           "locator": "7.1.1.4 and proof, printed pp. 532–533",
-          "excerpt": "isomorphism",
           "match": "Both degree-zero and higher assertions after coefficient base change."
         },
         {
           "sourceId": "LAN-2017",
           "locator": "Proposition 7.5, proof (7.13)–(7.14)",
-          "excerpt": "proper",
           "match": "Reduction to toric affine chart maps."
         },
         {
           "sourceId": "PILLONI-2020",
           "locator": "3.4, proof of Proposition 3.4.1, author-copy pp. 15–16",
-          "excerpt": "toroidal embeddings",
           "match": "Uses KKMS toric vanishing before the separately owned analytic comparison."
         }
       ],
@@ -3079,7 +3036,6 @@
         {
           "sourceId": "LAN-2017",
           "locator": "Proposition 7.5, (7.6) and proof",
-          "excerpt": "canonical",
           "match": "Degree-zero map and normal-level invariant statement."
         }
       ],
@@ -3121,7 +3077,6 @@
         {
           "sourceId": "LAN-2017",
           "locator": "Proposition 7.5, (7.8) and proof",
-          "excerpt": "proper",
           "match": "Positive-degree structure-sheaf vanishing on normalized integral toroidal models."
         }
       ],
@@ -3165,13 +3120,11 @@
         {
           "sourceId": "LAN-2017",
           "locator": "Proposition 7.5, (7.7),(7.9)",
-          "excerpt": "ideal",
           "match": "Derived boundary-ideal comparison."
         },
         {
           "sourceId": "PILLONI-2020",
           "locator": "5.3; Theorem 6.1.5.1(2), author-copy pp. 24 and 29",
-          "excerpt": "boundary",
           "match": "Use the corrected derived pushforward, not the printed pullback equality."
         }
       ],
@@ -3220,19 +3173,16 @@
         {
           "sourceId": "LAN-2021",
           "locator": "7.1.1.4–7.1.1.5, printed pp. 532–533",
-          "excerpt": "module",
           "match": "Arbitrary coefficient-module proof and canonical Hodge comparison."
         },
         {
           "sourceId": "CG-2020",
           "locator": "5.2, published pp. 821–822; A.3.2, pp. 886–888",
-          "excerpt": "cohomology",
           "match": "All-degree coherent coefficients including torsion."
         },
         {
           "sourceId": "PILLONI-2020",
           "locator": "5.3, author-copy p. 24",
-          "excerpt": "independent",
           "match": "Cuspidal coherent cohomology."
         }
       ],
@@ -3280,13 +3230,11 @@
         {
           "sourceId": "BP-2026",
           "locator": "3.4.15–3.4.16, author copy p. 39",
-          "excerpt": "cohomology",
           "match": "Partial Igusa refinement application of Lan 7.5."
         },
         {
           "sourceId": "PILLONI-2020",
           "locator": "3.4, author-copy pp. 15–16",
-          "excerpt": "formal",
           "match": "Completed coefficient application, with analytic comparison owned elsewhere."
         }
       ],
@@ -3327,7 +3275,6 @@
         {
           "sourceId": "PILLONI-2020",
           "locator": "13.2.1, author-copy p. 85",
-          "excerpt": "correspondence",
           "match": "Two compactified arrows with the corrected subgroup formula."
         }
       ],
@@ -3409,7 +3356,6 @@
         {
           "sourceId": "PILLONI-2020",
           "locator": "13.2.1, author-copy p. 85",
-          "excerpt": "quasi-isomorphism",
           "match": "Asserted acyclicity; supporting boundary proof is explicitly open."
         }
       ],
@@ -3458,7 +3404,6 @@
         {
           "sourceId": "PINK-1990",
           "locator": "6.25; 12.4–12.8",
-          "excerpt": "canonical",
           "match": "Functorial fan maps and toroidal canonical-model descent."
         }
       ],
@@ -3503,7 +3448,6 @@
         {
           "sourceId": "LAN-2021",
           "locator": "3.3.1.1–3.3.1.4, printed pp. 191–192",
-          "excerpt": "semi-abelian",
           "match": "Definition and constructible character data."
         }
       ],
@@ -3610,7 +3554,6 @@
         {
           "sourceId": "LAN-2021",
           "locator": "3.3.1.8–3.3.1.10, printed pp. 192–193",
-          "excerpt": "character",
           "match": "Character sheaf and torus-to-semi-abelian Hom comparison."
         }
       ],
@@ -3653,7 +3596,6 @@
         {
           "sourceId": "LAN-2021",
           "locator": "Proposition 3.1.5.1, printed p. 183; 4.2.1.7 and 4.2.1.13, printed pp. 210 and 213",
-          "excerpt": "push-out",
           "match": "Anti-equivalence and negative-character pushout; inverse-biextension convention for degeneration data."
         }
       ],
@@ -3696,7 +3638,6 @@
         {
           "sourceId": "LAN-2021",
           "locator": "Definition 4.4.6 and Remark 4.4.7, printed p. 251; 4.2.1.7 and 4.2.1.13–4.2.1.14, printed pp. 210 and 213–214",
-          "excerpt": "degeneration",
           "match": "The DD_pol tuple, its positivity, and its relation to the larger DD_ample tuple."
         }
       ],
@@ -3813,7 +3754,6 @@
         {
           "sourceId": "LAN-2021",
           "locator": "4.5.2.15–4.5.2.18, especially Corollary 4.5.2.16, printed pp. 273–275",
-          "excerpt": "algebraizes",
           "match": "Projective formal quotient and ample effectivity."
         }
       ],
@@ -3905,7 +3845,6 @@
         {
           "sourceId": "LAN-2021",
           "locator": "4.4.1–4.4.16, printed pp. 250–255",
-          "excerpt": "equivalence",
           "match": "Categories and equivalence theorem, with relative construction proof obligations."
         }
       ],
@@ -3953,7 +3892,6 @@
         {
           "sourceId": "LAN-2021",
           "locator": "6.2.5.25–6.2.5.28; 6.3.2.5",
-          "excerpt": "degeneration",
           "match": "Universal formal degeneration and its good algebraic-model comparison."
         }
       ],
@@ -4040,13 +3978,11 @@
         {
           "sourceId": "LAN-2021",
           "locator": "3.3.1.5, printed p. 192",
-          "excerpt": "extends",
           "match": "Quoted Faltings–Chai I.2.7 extension theorem."
         },
         {
           "sourceId": "BP-2026",
           "locator": "Lemma 4.2.2, printed p. 43",
-          "excerpt": "extends",
           "match": "Routed use of the extension theorem."
         }
       ],
@@ -4089,7 +4025,6 @@
         {
           "sourceId": "LAN-2021",
           "locator": "6.3.2.5–6.3.2.6, printed pp. 503–504",
-          "excerpt": "good algebraic model",
           "match": "PEL algebraizations carry the extended structures."
         }
       ],
@@ -4134,13 +4069,11 @@
         {
           "sourceId": "LAN-2021",
           "locator": "6.2.5; 6.4.1.1(5)",
-          "excerpt": "level",
           "match": "Degeneration level and formal boundary descriptions."
         },
         {
           "sourceId": "PILLONI-2020",
           "locator": "13.2.1, author-copy p. 85",
-          "excerpt": "subgroup",
           "match": "Routed correspondence uses the precise level subgroup formula."
         }
       ],
@@ -4182,7 +4115,6 @@
         {
           "sourceId": "BP-2026",
           "locator": "4.1.1 and Lemma 4.2.2, printed pp. 41 and 43",
-          "excerpt": "quasi-isogeny",
           "match": "Semi-abelian isogeny chain and unique extension; the further quasi-finite/flat boundary argument is a recorded proof obligation, not an assertion proved by Lemma 4.2.2 alone."
         }
       ],
@@ -4226,7 +4158,6 @@
         {
           "sourceId": "LAN-2021",
           "locator": "4.4 and 4.5, rank-one specialization",
-          "excerpt": "degenerating",
           "match": "Relative degeneration construction; exact dimension-one model is imported."
         }
       ],
@@ -4267,7 +4198,6 @@
         {
           "sourceId": "LAN-2021",
           "locator": "6.4.1.1(4), printed pp. 519–520",
-          "excerpt": "Kodaira",
           "match": "Logarithmic Kodaira–Spencer supplies the higher-dimensional comparison."
         }
       ],
@@ -4314,13 +4244,11 @@
         {
           "sourceId": "LAN-2021",
           "locator": "6.3.2.5–6.3.2.9, printed pp. 503–505",
-          "excerpt": "algebraic",
           "match": "Good algebraic-model definition and existence with two embeddings."
         },
         {
           "sourceId": "LAN-ERRATA",
           "locator": "Items 60–77, especially approximation and etaleness corrections",
-          "excerpt": "finite type",
           "match": "Retain the corrected approximation and descent hypotheses."
         }
       ],
@@ -4409,7 +4337,6 @@
         {
           "sourceId": "LAN-2021",
           "locator": "6.3.3.7–6.3.3.14, printed pp. 514–518",
-          "excerpt": "projections",
           "match": "Normalization of the interior relation, extended tautological isomorphism, etale projections and relation laws."
         }
       ],
@@ -4453,7 +4380,6 @@
         {
           "sourceId": "LAN-2021",
           "locator": "Definition 6.3.3.4; 6.3.3.15–6.3.3.16; Theorem 6.4.1.1, printed pp. 512–513 and 518–520",
-          "excerpt": "compactification",
           "match": "Ordinary smooth compatible fan quotient, neat algebraic-space case, and the universal structures."
         }
       ],
@@ -4558,7 +4484,6 @@
         {
           "sourceId": "LAN-2021",
           "locator": "6.4.1.1(5) and proof, printed pp. 519–523",
-          "excerpt": "completion",
           "match": "Exact completion neighbourhood and structural comparison."
         }
       ],
@@ -4603,7 +4528,6 @@
         {
           "sourceId": "LAN-2021",
           "locator": "Proposition 6.3.3.17 and the opening assertion of Theorem 6.4.1.1, printed pp. 518–519; (6), printed pp. 520–521",
-          "excerpt": "proper",
           "match": "Properness theorem, with the distinct all-traits cone extension criterion."
         }
       ],
@@ -4656,13 +4580,11 @@
         {
           "sourceId": "LAN-2021",
           "locator": "6.3.2.5(2), 6.3.3.14-6.3.3.16; 6.4.1.1(3), pp. 503, 517-520",
-          "excerpt": "smooth",
           "match": "Uses the ordinary relative charts and the specific neat fan hypotheses; the proof of the intersection conclusion is expanded here."
         },
         {
           "sourceId": "STACKS-NC",
           "locator": "41.21.2",
-          "excerpt": "regular",
           "match": "Only the absolute intersection criterion is compared; relative smoothness comes from the arithmetic-base charts."
         }
       ],
@@ -4710,7 +4632,6 @@
         {
           "sourceId": "LAN-2021",
           "locator": "6.3.2.5 and 6.4.1.1(2)-(3)",
-          "excerpt": "stratification",
           "match": "A deduction from the relative coordinate-orbit description, with the base change and density steps made explicit; not inferred from total open density alone."
         }
       ],
@@ -4761,7 +4682,6 @@
         {
           "sourceId": "LAN-2021",
           "locator": "6.3.2.16; 6.3.3.16; 6.4.1.1(2)-(3)",
-          "excerpt": "strata",
           "match": "Refines the source open-dense intersection assertion using its ordinary stratum-preserving charts. The exact-pattern and connected-component argument is this blueprint deduction; it needs the stated no-self-intersection and label-descent inputs."
         }
       ],
@@ -4810,7 +4730,6 @@
         {
           "sourceId": "LAN-2021",
           "locator": "6.3.3.17 and 6.4.1.1, combined with the preceding stratum identification",
-          "excerpt": "proper",
           "match": "Imports properness of the actual constructed toroidal model; it does not re-prove the valuative compactification construction in this checkpoint."
         }
       ],
@@ -4860,13 +4779,11 @@
         {
           "sourceId": "LAN-2021",
           "locator": "7.1.2.14(1), geometric component hypothesis, read with 6.4.1.1",
-          "excerpt": "irreducible component",
           "match": "Neat-level geometric input to the source expansion theorem, not a proof of its arbitrary-coefficient or non-neat cases."
         },
         {
           "sourceId": "STACKS-STEIN",
           "locator": "76.36.1, 76.36.4 and 76.36.9; also tag 0E0D",
-          "excerpt": "connected geometric fibres",
           "match": "Supplies Stein factorization; the smooth-closure detector is assigned once to SF.2 and applied here to the actual PEL stratum closures."
         }
       ],
@@ -4914,13 +4831,11 @@
         {
           "sourceId": "LAN-2021",
           "locator": "6.4.1.1 and non-neat finite-level descent",
-          "excerpt": "quotient",
           "match": "Source neat theorem plus specified quotient-stack extension."
         },
         {
           "sourceId": "STACKS-NC",
           "locator": "Lemma 41.21.6, tag 0CBN",
-          "excerpt": "normalization",
           "match": "Scheme branch-normalization lead, not a relative stack theorem."
         }
       ],
@@ -4964,7 +4879,6 @@
         {
           "sourceId": "LAN-2021",
           "locator": "6.4.1.1(4), printed pp. 519–520",
-          "excerpt": "Kodaira",
           "match": "PEL logarithmic comparison."
         }
       ],
@@ -5009,7 +4923,6 @@
         {
           "sourceId": "LAN-2021",
           "locator": "Proposition 7.2.1.1 and 7.2.1.2, printed pp. 540–541",
-          "excerpt": "generated",
           "match": "Semiampleness and degree-zero/isotriviality criterion."
         }
       ],
@@ -5055,7 +4968,6 @@
         {
           "sourceId": "LAN-2021",
           "locator": "Corollary 7.2.2.6; 7.2.3.1–7.2.3.3, printed pp. 544–546",
-          "excerpt": "finitely generated",
           "match": "Noetherian section-algebra argument and its compactification use."
         }
       ],
@@ -5100,7 +5012,6 @@
         {
           "sourceId": "LAN-2021",
           "locator": "7.2.3 construction preceding Lemma 7.2.3.1 and 7.2.3.1–7.2.3.9, printed pp. 544–548",
-          "excerpt": "Proj",
           "match": "Integral minimal construction, boundary images and independence."
         }
       ],
@@ -5201,13 +5112,11 @@
         {
           "sourceId": "LAN-2021",
           "locator": "7.2.3 construction preceding Lemma 7.2.3.1 and 7.2.3.1–7.2.3.4, printed pp. 544–546",
-          "excerpt": "finite",
           "match": "The finite Stein-factor map to projective space and pullback of its ample O(1); ampleness is a deduction from finiteness."
         },
         {
           "sourceId": "YUAN-2024",
           "locator": "3.4, end; arXiv v4 printed pp. 55–56",
-          "excerpt": "ample",
           "match": "Coarse Siegel minimal compactification and ample Hodge Q-line."
         }
       ],
@@ -5251,7 +5160,6 @@
         {
           "sourceId": "LAN-2021",
           "locator": "Corollary 7.2.3.10, printed p. 548",
-          "excerpt": "quasi-projective",
           "match": "Precise arithmetic moduli endpoint."
         }
       ],
@@ -5299,13 +5207,11 @@
         {
           "sourceId": "LAN-2017",
           "locator": "Theorem 6.1, printed pp. 22–24, as a comparison target with a DIFFERENT normalized-blowup construction",
-          "excerpt": "normal",
           "match": "Lan's projective model is not defined merely by finite normalization of a fixed good-level toroidal model; the comparison is an explicit gap."
         },
         {
           "sourceId": "BPS-2016",
           "locator": "5.1–5.2, printed pp. 1009–1010",
-          "excerpt": "normalisé",
           "match": "Routed normalization compactification, with moduli identification kept separate."
         }
       ],
@@ -5411,7 +5317,6 @@
         {
           "sourceId": "LAN-2017",
           "locator": "Theorem 6.1(3)–(4), printed pp. 22–23; Construction 4.5, printed p. 11",
-          "excerpt": "completion",
           "match": "Normal formal torus-torsor charts; finite normalization maps require the separate same-fan argument."
         }
       ],
@@ -5456,13 +5361,11 @@
         {
           "sourceId": "LAN-2017",
           "locator": "Definition 8.5, printed p. 34",
-          "excerpt": "formally canonical",
           "match": "Exact completed coefficient form and finite-filtration hypothesis."
         },
         {
           "sourceId": "BPS-2016",
           "locator": "5.1–5.2, printed pp. 1009–1010",
-          "excerpt": "faisceau",
           "match": "Routed automorphic extension on the normalization model."
         }
       ],
@@ -5506,19 +5409,16 @@
         {
           "sourceId": "LAN-2017",
           "locator": "Theorem 8.7 and Remarks 8.9–8.10, printed pp. 34–35",
-          "excerpt": "Koecher",
           "match": "Exact normalized-model theorem, exception and boundary of higher variants."
         },
         {
           "sourceId": "BPS-2016",
           "locator": "5.2, printed p. 1010",
-          "excerpt": "Köcher",
           "match": "Routed mod pi^n theorem for normalization model."
         },
         {
           "sourceId": "LAN-2017-ERRATA",
           "locator": "Item (3), p. 1",
-          "excerpt": "except",
           "match": "The explicit dimension-one/nonempty-boundary exception to Koecher, already retained in the node."
         }
       ],
@@ -5560,13 +5460,11 @@
         {
           "sourceId": "CG-2020",
           "locator": "5.2, published pp. 821–822",
-          "excerpt": "Koecher",
           "match": "H0 with arbitrary O-module coefficients."
         },
         {
           "sourceId": "LAN-2021",
           "locator": "7.1.1.4–7.1.1.5, printed pp. 532–533",
-          "excerpt": "module",
           "match": "Arbitrary coefficient-module reduction and fan independence."
         }
       ],
@@ -5609,7 +5507,6 @@
         {
           "sourceId": "PILLONI-2020",
           "locator": "11.1.1, author-copy p. 66",
-          "excerpt": "Koecher",
           "match": "Ordinary version asserted without a proof reference."
         }
       ],
@@ -5652,7 +5549,6 @@
         {
           "sourceId": "BCGP-2021",
           "locator": "arXiv:1812.09269v3, Section 8.2, printed/PDF p. 240; publisher pagination not collated",
-          "excerpt": "codimension",
           "match": "Minimal boundary codimension and normal formal geometry."
         }
       ],
@@ -5697,7 +5593,6 @@
         {
           "sourceId": "BCGP-2021",
           "locator": "arXiv:1812.09269v3, Section 8.2, printed/PDF p. 240; publisher pagination not collated",
-          "excerpt": "normal",
           "match": "Formal H0 extension on the specified normal model."
         }
       ],
@@ -5740,13 +5635,11 @@
         {
           "sourceId": "PILLONI-2012",
           "locator": "4.1.2, printed pp. 350–351",
-          "excerpt": "sous-groupe",
           "match": "The open subgroup extends as a finite flat group scheme; the text does not assert a boundary inclusion into the semi-abelian family."
         },
         {
           "sourceId": "CG-2020",
           "locator": "5.2, published p. 822",
-          "excerpt": "subgroup",
           "match": "The compactified cyclic level group used for the next finite-etale cover."
         }
       ],
@@ -5786,7 +5679,6 @@
         {
           "sourceId": "CG-2020",
           "locator": "5.2, published p. 822",
-          "excerpt": "Isom",
           "match": "Exact compactified generator-cover construction."
         }
       ],
@@ -5883,7 +5775,6 @@
         {
           "sourceId": "CG-2020",
           "locator": "5.3, published pp. 830–831",
-          "excerpt": "dual",
           "match": "Canonical/subcanonical duality bundle identity."
         }
       ],
@@ -5926,7 +5817,6 @@
         {
           "sourceId": "BCGP-2025",
           "locator": "Theorem 1.8.29 and beginning of proof, arXiv v1 p. 17",
-          "excerpt": "hyperspecial",
           "match": "Boundary geometry supplied here; nearby cycles and duality supplied by the cohomology owner."
         }
       ],
@@ -5970,7 +5860,6 @@
         {
           "sourceId": "BRESCIANI-2024",
           "locator": "Lemma 8 proof, published p. 138",
-          "excerpt": "Tate modules",
           "match": "Full Tate extension used by the generalized Jacobian consumer."
         }
       ],
@@ -6076,7 +5965,6 @@
         {
           "sourceId": "LAN-2017",
           "locator": "Construction 3.1, Definition 3.5 and Construction 3.12, printed pp. 7–9; Theorem 6.1, printed pp. 22–24",
-          "excerpt": "blowup",
           "match": "Normalized-blowup construction, local reflex base, projective compatible fan, and stabilized model theorem."
         }
       ],

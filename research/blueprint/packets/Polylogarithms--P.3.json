@@ -292,13 +292,11 @@
         {
           "sourceId": "G95",
           "locator": "p. 208 (1.16)–(1.17); p. 210 unnumbered specialization",
-          "excerpt": "R₃(a,b,c)",
           "match": "The coordinate form of the parent relation, including its constant terms."
         },
         {
           "sourceId": "Z03",
           "locator": "p. 2 formula (3), sixth cyclic argument",
-          "excerpt": "−(ca−a+1)",
           "match": "Its negative denominator confirms the minus sign in the corresponding trilogarithmic argument. No higher-Chow constructions are planned in P.3."
         }
       ],
@@ -390,7 +388,6 @@
         {
           "sourceId": "GR5",
           "locator": "§5.1 Lemmas 5.1–5.2, (109), Proposition 5.4 and (110)–(114)",
-          "excerpt": "Proposition 5.4.",
           "match": "The printed proof supplies the required vanishing in B₂⊗U."
         }
       ],
@@ -431,13 +428,11 @@
         {
           "sourceId": "G95",
           "locator": "§2.5 p. 255, generic-vector module and GL coinvariants; §2.6 pp. 257–259, symmetrized resolution",
-          "excerpt": "vectors in generic position",
           "match": "Vector configurations modulo simultaneous GL; symmetrized resolutions are in §2.6."
         },
         {
           "sourceId": "GR5",
           "locator": "§7.1 (129) p. 62",
-          "excerpt": "Cₘ(q)",
           "match": "The vector configuration module; individual scales are retained."
         }
       ],
@@ -549,13 +544,11 @@
         {
           "sourceId": "GR5",
           "locator": "§7.1 (129)–(130) pp. 62–63",
-          "excerpt": "BCₘ",
           "match": "The quotient and degree convention specialized to weight three."
         },
         {
           "sourceId": "G95",
           "locator": "§6 (6.2) pp. 295–296",
-          "excerpt": "(6.2)",
           "match": "The original weight-three configuration complex."
         }
       ],
@@ -650,7 +643,6 @@
         {
           "sourceId": "GR5",
           "locator": "GR §7.2 (135), (142)",
-          "excerpt": "r(1,2,3,4)",
           "match": "The convention in §7 is explicit and differs from the introduction."
         }
       ],
@@ -741,13 +733,11 @@
         {
           "sourceId": "G95",
           "locator": "p. 264 f₀^(3); (3.3)–(3.4) pp. 264–265",
-          "excerpt": "(3.3)",
           "match": "Alt₄ is −6 times the original f₀; hence corrected r₄ is 18 f₀."
         },
         {
           "sourceId": "GR5",
           "locator": "§7.2 (142) p. 65",
-          "excerpt": "2",
           "match": "The printed coefficient is refuted by E-P3-02; the corrected common coefficient is −3."
         }
       ],
@@ -839,13 +829,11 @@
         {
           "sourceId": "GR5",
           "locator": "§7.2 (142) p. 65",
-          "excerpt": "r₅(3)",
           "match": "The middle component with unnormalized alternation."
         },
         {
           "sourceId": "G95",
           "locator": "§3 Proposition 3.7 p. 266",
-          "excerpt": "Proposition 3.7.",
           "match": "The original volume-invariance argument uses the Bloch five-term relation."
         }
       ],
@@ -936,7 +924,6 @@
         {
           "sourceId": "GR5",
           "locator": "GR §7.2 (144), footnote 16; §7.3 Proposition 7.2",
-          "excerpt": "1/5",
           "match": "The printed positive 1/5 is refuted by E-P3-05. The magnitude alone is explained by footnote 16; its sign must also match (143)."
         }
       ],
@@ -1038,7 +1025,6 @@
         {
           "sourceId": "GR5",
           "locator": "GR Theorem 1.8 and §7.3 Proposition 7.2, Lemmas 7.3–7.4",
-          "excerpt": "Theorem 1.8.",
           "match": "A proof in the explicit B₃ presentation, not an appeal to the conjectural inductive comparison."
         }
       ],
@@ -1086,13 +1072,11 @@
         {
           "sourceId": "G95",
           "locator": "§6 Theorems 6.1 and 6.3 pp. 295–297",
-          "excerpt": "Theorem 6.1.",
           "match": "The original complex map and its projection identities."
         },
         {
           "sourceId": "GR5",
           "locator": "§7.2 (141)–(144) pp. 64–65",
-          "excerpt": "(143)",
           "match": "The common normalization must correct both r₄ and r₆; see E-P3-02 and E-P3-05."
         }
       ],
@@ -1139,7 +1123,6 @@
         {
           "sourceId": "G95",
           "locator": "Gon95 §2.6 Lemmas 2.12–2.16; §6 (6.4)–(6.8)",
-          "excerpt": "(6.8)",
           "match": "The construction on group homology precedes the restriction to rational K-theory."
         }
       ],
@@ -1233,7 +1216,6 @@
         {
           "sourceId": "G95",
           "locator": "Gon95 pp. 219–220 rank filtration; §6 pp. 297–298",
-          "excerpt": "GL₂(F)",
           "match": "The rank-two vanishing and the precise domain of the rank-graded comparison."
         }
       ],
@@ -1277,7 +1259,6 @@
         {
           "sourceId": "G95",
           "locator": "Gon95 p. 218 Milnor presentation, p. 220 Suslin remark",
-          "excerpt": "K₃^M(F)",
           "match": "The top-degree computation uses the algebraic presentation independently of Suslin’s Quillen comparison."
         }
       ],
@@ -1322,7 +1303,6 @@
         {
           "sourceId": "G95",
           "locator": "pp. 239–241 conditional complex transfer; top-degree Milnor comparison p. 220",
-          "excerpt": "Γ(F;3)",
           "match": "The unrestricted complex transfer is conditional there; top cohomology already has the supplier norm."
         }
       ],
@@ -1428,7 +1408,6 @@
         {
           "sourceId": "G95",
           "locator": "Gon95 p. 220 remark after Theorem 1.14, citing Suslin 1984",
-          "excerpt": "(n−1)!",
           "match": "This is the primary Goncharov statement of the Suslin input; access to Suslin’s own proof remains explicit."
         }
       ],
@@ -1473,7 +1452,6 @@
         {
           "sourceId": "G95",
           "locator": "p. 202 (1.3)–(1.4); p. 264 regulator descent",
-          "excerpt": "ℒ₃",
           "match": "The quotient functional and its archimedean pullback supplement the parent regulator-comparison target."
         }
       ],
@@ -1571,7 +1549,6 @@
         {
           "sourceId": "G95",
           "locator": "Gon95 Theorem 1.9, Proposition 1.11 and §9.1 Theorem 9.1",
-          "excerpt": "Theorem 9.1.",
           "match": "The nonzero continuous class and the two-dimensional measurable calculation are kept distinct."
         }
       ],
@@ -1615,7 +1592,6 @@
         {
           "sourceId": "G95",
           "locator": "Gon95 §9.2 pp. 310–311",
-          "excerpt": "higher differentials",
           "match": "The asserted cycle-lifting computation is isolated as a theorem with an explicit proof gap."
         }
       ],
@@ -1662,7 +1638,6 @@
         {
           "sourceId": "G95",
           "locator": "§9.2 p. 311 rational calibration",
-          "excerpt": "ζ_Q(3)",
           "match": "The rationality proof uses a nonzero rational cycle and a period comparison, not dimension alone."
         }
       ],
@@ -1705,7 +1680,6 @@
         {
           "sourceId": "G95",
           "locator": "Gon95 §9.2 p. 311, applied at all embeddings",
-          "excerpt": "Borel theorem",
           "match": "The sufficient regulator-image statement separates the determinant argument from a stronger motivic comparison conjecture."
         }
       ],
@@ -1757,7 +1731,6 @@
         {
           "sourceId": "G95",
           "locator": "Theorem 1.1 p. 198; §9.2 pp. 310–311",
-          "excerpt": "Theorem 1.1.",
           "match": "The published existence theorem and the stronger every-family consequence have separate dependency chains."
         }
       ],
@@ -1802,7 +1775,6 @@
         {
           "sourceId": "G95",
           "locator": "Gon95 p. 205 Theorem 1.3, p. 208 (1.16), p. 210 specialization; §10 Lemma 10.1",
-          "excerpt": "Theorem 1.3.",
           "match": "The stated source input is isolated with its precise proof obligations."
         }
       ],
@@ -1844,7 +1816,6 @@
         {
           "sourceId": "G95",
           "locator": "Gon95 pp. 239–241, Conjecture 1.39 and subsequent conditional transfer discussion",
-          "excerpt": "Γ(F;3)",
           "match": "The stated source input is isolated with its precise proof obligations."
         }
       ],
@@ -1885,13 +1856,11 @@
         {
           "sourceId": "G95",
           "locator": "Definition 1.5 and Lemma 1.7 pp. 211–214",
-          "excerpt": "Definition 1.5.",
           "match": "The geometric six-point quotient and skew symmetry."
         },
         {
           "sourceId": "GR5",
           "locator": "§7.3 (146)–(148) pp. 65–66",
-          "excerpt": "Relation R3",
           "match": "The rational intersection-relation formula adopted here."
         }
       ],
@@ -1984,13 +1953,11 @@
         {
           "sourceId": "G95",
           "locator": "Theorem A p. 293; construction pp. 286–287; Proposition 5.3 and Lemma 5.4 pp. 287–288",
-          "excerpt": "Theorem A.",
           "match": "The rational comparison and primary choice-independence argument were independently read."
         },
         {
           "sourceId": "GR5",
           "locator": "§7.3 Proposition 7.2 (149), Lemmas 7.3–7.4 pp. 67–68",
-          "excerpt": "canonical isomorphism",
           "match": "The skew-symmetrization is (3/2) Alt₆ of the raw ratio. This does not validate the sign of (144)."
         }
       ],
@@ -2032,7 +1999,6 @@
         {
           "sourceId": "G95",
           "locator": "Gon95 §7 pp. 298–303, (7.1)–(7.2), Lemmas 7.2–7.5, Corollary 7.6",
-          "excerpt": "Corollary 7.6.",
           "match": "The duality needed for the top projection identity, on actual vector configurations before projectivization."
         }
       ],
@@ -2118,7 +2084,6 @@
         {
           "sourceId": "G95",
           "locator": "Gon95 Theorem 8.1 and Lemma 8.2 pp. 304–308; Theorem 6.3 p. 297",
-          "excerpt": "Theorem 8.1.",
           "match": "The full source argument for top projection vanishing; its adapter to the common rational normalization is checked separately."
         }
       ],

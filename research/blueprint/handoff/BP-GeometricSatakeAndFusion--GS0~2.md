@@ -4,7 +4,7 @@ Agent: **ChatGPT GPT-6 Astra Pro**. Session: `gpt6astra-e19d65722997`. Date: **2
 
 ## Result and honest status
 
-The target-level revision is complete. The reader now agrees with the corrected packet, including all node hypotheses, proof routes, prerequisites, source qualifications, API entries, test contracts, prototype boundaries, coverage, requests, gaps and the full routed-source ledger. The 59 inherited node IDs and their relative order are preserved. The original independent review and the complete E1–E22 records, including their reviews, are unchanged. Their historical `needs_changes` status is intentionally retained for the next independent reviewer to replace; this revision does not review itself.
+The target-level revision is complete. The reader now agrees with the corrected packet, including all node hypotheses, proof routes, prerequisites, source qualifications, API entries, test contracts, prototype boundaries, coverage, requests, gaps and the full routed-source ledger. The 59 inherited node IDs and their relative order are preserved. The original independent review, E1–E22 identities and mathematical content, and every historical source review are unchanged. Source-assertion descriptions are paraphrased under the superseding presentation rule described below. Their historical `needs_changes` status is intentionally retained for the next independent reviewer to replace; this revision does not review itself.
 
 The packet contains **62 nodes: 21 constructions, 2 definitions, 27 theorems, 8 comparisons, 1 application and 3 lemmas; 73 API entries; 72 test contracts; 25 planets; 30 cited baseline declarations; 239 routed items; 23 source issues; 10 explicit gaps; and 23 supplier requests**. The stock checker reports 70 definition/construction tests; the total also includes two theorem regression tests. All 62 implementation statuses remain `unchecked`. All eight stages are `planned`; zero stages are `closed`. These are planning and contract counts, not implemented declarations or proved theorems.
 
@@ -194,7 +194,7 @@ Established against the published Annals 185(2017) PDF only, exact SHA256 5d50b4
 - 2026-10-07: opened author-submitted arXiv record https://arxiv.org/abs/1407.8519; it lists v3 dated 20 July 2016 and a correction to Theorem A.29, not to this cohomological-degree display. Only record/version metadata were read here, not the arXiv PDF.
 - 2026-10-07: opened institutional author repository https://authors.library.caltech.edu/records/tc3x3-jbc74; it links submitted 1407.8519v2.pdf and contains no correction notice for this display. Its attached PDF was not downloaded or compared.
 
-No author-endorsed correction was verified in that bounded search. E23 is this revision’s finding and awaits independent review. E1–E22 and every inherited review field are unchanged.
+No author-endorsed correction was verified in that bounded search. E23 is this revision’s finding and awaits independent review. E1–E22 retain their identities and mathematical content, and every inherited review field is unchanged; their source-assertion descriptions follow the updated presentation rule.
 
 ## Pinned baseline evidence
 
@@ -312,11 +312,19 @@ The 36 files in `research/blueprint/links/` were screened at the same commit. Al
 
 The three newly routed FS extraction entries were read from `research/blueprint/papers/PAPER-FARGUES-SCHOLZE-21.result.json`, blob `f9560dac32fe3b94678ad0c7d8604e7a07d5fe03`. The existing 236 route identities are preserved; three routes are added, and the nine B.11 reasons are corrected as described above.
 
+## Concurrent source-presentation update
+
+The maintainer committed `22f67751dcda86cd61c81a2213b5557123eab845` as this pull request opened. PROTOCOL§5/§18 now require source references and assertion descriptions in our own words, with theorem/section/page locators and no verbatim source prose. Incorrect formulas may still be recorded as mathematics. The old issue’s excerpt requirement is explicitly superseded by that standing rule.
+
+The concurrent GS0 packet change was checked against the original input and consists only of recursive excerpt-field deletion. The revision adopts that deletion and removes obsolete excerpt-role metadata (130 fields in total), paraphrases the identified source-assertion prose and associated presentation descriptions, and regenerates the reader’s source ledger and revision record. All 62 node contracts, APIs, tests, prerequisites, mathematical shared ledgers and the suggested file remain unchanged from the initial PR submission, apart from removal of source excerpt metadata. Every historical review object is preserved. This paragraph records the presentation-only exception to the earlier whole-record preservation claim.
+
+The updated repository checker, source-issue checks and full reader contract comparison pass with zero errors and warnings. This update performs no new mathematical/source audit or Lean compilation; the precise evidence and limits recorded above remain in force.
+
 ## Validation and limits
 
 - The repository’s `scripts/check_blueprint.py` validator was run on the revised packet with its normal `world()` context supplemented only by actual fetched roadmap/decomposition/packet records. It reports **zero errors and zero warnings**. A complete declaration index is not available; the 30 cited baseline statements were checked individually as recorded above.
 - The source-issue validator and `check_errata.versions_checked` pass for all eight recorded versions and 23 source issues. All eight source PDF hashes match the inherited versions.
-- The combined check verifies every inherited node ID and its relative order, the unchanged historical review, unchanged E1–E22 records, exact scope, unique node/route IDs, all-eight-planned coverage, all-unchecked implementation status, and the explicitly bounded changes to nine route reasons.
+- The combined check verifies every inherited node ID and its relative order, the unchanged historical review, E1–E22 identities and historical source reviews, exact scope, unique node/route IDs, all-eight-planned coverage, all-unchecked implementation status, and the explicitly bounded changes to nine route reasons.
 - Cross-file coverage checks pass for **207 distinct declaration/API/test names**. The suggested file has 133 actual named declarations after comments are removed; the three new geometric names have exact §13 omission blocks. All 72 packet test contracts have one labelled example in the suggested file. Name/text coverage is not elaboration.
 - Reader checks cover every node’s statement, hypotheses, proof steps, prerequisites, uses, sources and source-match qualifications, API statements, tests, acceptance and prototype notes, plus coverage, gaps, requests and all routed items. The packet and reader contain no Lean code or placeholder-proof tokens. A scoped final reader review checked the chart, admissible-locus and source-issue corrections and caught the nine route-reason updates.
 - Exact Python finite arithmetic checked A=3·Id and g=Id+9E₁₂ modulo 27: Ag=A, det(g)=1 and g≠Id, with compatible integer lifts differing by 27E₁₂. This is a finite counterexample check, not a geometric or Lean proof.

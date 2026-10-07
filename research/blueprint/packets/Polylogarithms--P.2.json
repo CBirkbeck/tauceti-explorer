@@ -221,7 +221,6 @@
         {
           "sourceId": "milnor1982",
           "locator": "Appendix, p.17, definition and Lemma 1",
-          "excerpt": "terms of the function",
           "match": "The precise integral normalization and elementary symmetries."
         }
       ],
@@ -334,7 +333,6 @@
         {
           "sourceId": "milnor1982",
           "locator": "Appendix, p.18, Fourier equation (2)",
-          "excerpt": "Fourier series",
           "match": "The series is twice Lambda; its uniformity follows from the p-series majorant."
         }
       ],
@@ -366,7 +364,6 @@
         {
           "sourceId": "milnor1982",
           "locator": "Appendix, Lemma 1, distribution identity with n=2",
-          "excerpt": "odd",
           "match": "The n=2 specialization used to evaluate the half-space sector integral."
         }
       ],
@@ -401,7 +398,6 @@
         {
           "sourceId": "zagier-dilog",
           "locator": "I.3, p.11, series immediately after equation (2)",
-          "excerpt": "unit circle",
           "match": "The circle series, including endpoints by continuity."
         }
       ],
@@ -435,7 +431,6 @@
         {
           "sourceId": "zagier-dilog",
           "locator": "I.3, p.11, unit-circle series",
-          "excerpt": "unit circle",
           "match": "The stated explicit tail is a proved consequence using the pinned p-series bound, not a quoted source bound."
         }
       ],
@@ -475,7 +470,6 @@
         {
           "sourceId": "zagier-dilog",
           "locator": "I.3, pp.10–11, equation (2)",
-          "excerpt": "Kummer",
           "match": "Precisely the three conjugate ratios; division by 2 is essential."
         }
       ],
@@ -513,7 +507,6 @@
         {
           "sourceId": "zagier-dilog",
           "locator": "I.3, equation (2), specialized to Q(i)",
-          "excerpt": "Kummer",
           "match": "The displayed rho arithmetic is the explicit rational specialization of the source ratios."
         }
       ],
@@ -608,7 +601,6 @@
         {
           "sourceId": "zagier-dilog",
           "locator": "I.3, equation (2), the three ratios",
-          "excerpt": "Kummer",
           "match": "This comparison promotes the construction’s compatibility API used in the error theorem."
         }
       ],
@@ -641,7 +633,6 @@
         {
           "sourceId": "zagier-dilog",
           "locator": "I.3, p.11, unit-circle Fourier series",
-          "excerpt": "unit circle",
           "match": "Finite exact sums of the same coefficients, with a rational coordinate recurrence."
         }
       ],
@@ -736,7 +727,6 @@
         {
           "sourceId": "zagier-dilog",
           "locator": "I.3, p.11, Fourier coefficients",
-          "excerpt": "unit circle",
           "match": "Promotes the rational finite-sum compatibility API needed by the error proof."
         }
       ],
@@ -769,7 +759,6 @@
         {
           "sourceId": "zagier-dilog",
           "locator": "I.3, equation (2) and following Fourier series",
-          "excerpt": "Kummer",
           "match": "Combines the source formulas with the proven uniform tail to specify an effective algorithm."
         }
       ],
@@ -877,7 +866,6 @@
         {
           "sourceId": "zagier-dilog",
           "locator": "I.3, equation (2) and p.11 series",
-          "excerpt": "Kummer",
           "match": "Error certification is a mathematical consequence of these identities and the pinned tail estimate, not a source claim of a fast algorithm."
         }
       ],
@@ -920,19 +908,16 @@
         {
           "sourceId": "milnor1982",
           "locator": "Appendix, Lemma 2 and complete proof, pp.18–20",
-          "excerpt": "dihedral angles",
           "match": "The independently calibrated half-space integral proves the volume normalization."
         },
         {
           "sourceId": "zagier-dilog",
           "locator": "I.4, pp.13–14, equations (5)–(8)",
-          "excerpt": "ideal tetrahedron",
           "match": "The complex shape/angle interpretation and orientation convention."
         },
         {
           "sourceId": "goncharov-jams",
           "locator": "Appendix 7.2, p.57, equation (100)",
-          "excerpt": "sense of distributions",
           "match": "Provides a second distributional route; its c3 derivation is not imported as a proved calibration. Independent review also found the factor-six error in the preceding Theorem 7.1 (source issue E24); Milnor supplies the volume scale."
         }
       ],
@@ -969,7 +954,6 @@
         {
           "sourceId": "goncharov-jams",
           "locator": "Section 5.5, equations (66)–(67), pp.38–39; Theorem 5.7 proof",
-          "excerpt": "direct computation",
           "match": "The literal elementary-matrix test is corrected by an exact six-permutation calculation; source issue E22."
         }
       ],

@@ -266,19 +266,16 @@
         {
           "sourceId": "bertolini-darmon-prasanna-generalized-heegner",
           "locator": "§1.4, p. 1051",
-          "excerpt": "Let A be a fixed elliptic curve",
           "match": "A over H with End_H(A) ≅ O_K."
         },
         {
           "sourceId": "bertolini-darmon-prasanna-generalized-heegner",
           "locator": "§1.4, (1.4.1), p. 1051",
-          "excerpt": "admits a canonical, functorial algebraic splitting",
           "match": "The algebraic splitting of H¹_dR(A/F)."
         },
         {
           "sourceId": "bertolini-darmon-prasanna-generalized-heegner",
           "locator": "§1.4, (1.4.2), p. 1052",
-          "excerpt": "denotes the algebraic cup product pairing on de Rham cohomology",
           "match": "⟨ω_A, η_A⟩ = 1."
         }
       ],
@@ -371,19 +368,16 @@
         {
           "sourceId": "bertolini-darmon-prasanna-generalized-heegner",
           "locator": "§1.4, (1.4.4), p. 1052",
-          "excerpt": "denote the associated idempotent in the rational group ring of",
           "match": "ε_A = (1/2^r r!) Σ j(ξ)ξ."
         },
         {
           "sourceId": "bertolini-darmon-prasanna-generalized-heegner",
           "locator": "§1.4, Lemma 1.8, p. 1052",
-          "excerpt": "The image of the projector",
           "match": "ε_A H^*(A^r) = Sym^r H¹(A), in degree r."
         },
         {
           "sourceId": "bertolini-darmon-prasanna-generalized-heegner",
           "locator": "§1.4, p. 1052",
-          "excerpt": "classes which are fixed by this action",
           "match": "Sym^r as the S_r-fixed tensors."
         }
       ],
@@ -423,7 +417,6 @@
         {
           "sourceId": "bertolini-darmon-prasanna-generalized-heegner",
           "locator": "§1.4, (1.4.6), p. 1053",
-          "excerpt": "form a basis of the vector space",
           "match": "ω^jη^{r−j} form a basis of Sym^r H¹_dR(A)."
         }
       ],
@@ -516,19 +509,16 @@
         {
           "sourceId": "bertolini-darmon-prasanna-generalized-heegner",
           "locator": "§2.2, p. 1060",
-          "excerpt": "Like the Kuga–Sato variety",
           "match": "X_r = W_r × A^r, fibred over C."
         },
         {
           "sourceId": "bertolini-darmon-prasanna-generalized-heegner",
           "locator": "§2.2, (2.2.1), p. 1061",
-          "excerpt": "give rise\nto commuting idempotents in the ring of correspondences on",
           "match": "ε_X = ε_W ε_A with commuting factors."
         },
         {
           "sourceId": "bertolini-darmon-prasanna-generalized-heegner",
           "locator": "§2.1, (2.1.2), p. 1057",
-          "excerpt": "defines a projector in the ring of rational correspondences on Wr",
           "match": "The projector ε_W."
         }
       ],
@@ -574,13 +564,11 @@
         {
           "sourceId": "bertolini-darmon-prasanna-generalized-heegner",
           "locator": "§2.2, Proposition 2.4, p. 1061",
-          "excerpt": "The image of the projector",
           "match": "ε_X H^*_dR(X_r) = H¹_par(C, L_r, ∇) ⊗ Sym^r H¹_dR(A)."
         },
         {
           "sourceId": "bertolini-darmon-prasanna-generalized-heegner",
           "locator": "§2.2, proof of Proposition 2.4, p. 1062",
-          "excerpt": "This follows directly from Lemmas 1.8 and 2.2 in light of the Künneth decomposition",
           "match": "Proof via Künneth."
         }
       ],
@@ -621,7 +609,6 @@
         {
           "sourceId": "bertolini-darmon-prasanna-generalized-heegner",
           "locator": "§2.2, Proposition 2.5, p. 1062",
-          "excerpt": "induces an identification",
           "match": "The wedge map identifies the cusp-form tensor with Fil^{m+1} of the projected middle cohomology."
         }
       ],
@@ -670,13 +657,11 @@
         {
           "sourceId": "bertolini-darmon-prasanna-generalized-heegner",
           "locator": "§2.2, (2.2.3), p. 1061",
-          "excerpt": "is equipped with the self-duality",
           "match": "The self-duality of L_{r,r} from Poincaré duality on the fibres."
         },
         {
           "sourceId": "bertolini-darmon-prasanna-generalized-heegner",
           "locator": "§3.4, (3.4.1)–(3.4.2), p.1070",
-          "excerpt": "are exact annihilators of each other",
           "match": "Projected Poincaré duality and the annihilator filtration, rather than Proposition 2.7 (homological triviality)."
         }
       ],
@@ -713,7 +698,6 @@
         {
           "sourceId": "castella-hsieh",
           "locator": "§4.2, pp.14–15",
-          "excerpt": "where T is the Galois stable OF -lattice in Vf (r) in [Nek92, §3], and S r−1 (A) is the GHK -module\n                                      S r−1 (A) := Sym2r−2 Tp (A)(1 − r)\nwith Tp",
           "match": "Names the lattice and the self-dual Vf(r) representation."
         }
       ],
@@ -798,7 +782,6 @@
         {
           "sourceId": "bertolini-darmon-prasanna-generalized-heegner",
           "locator": "§3.2, p.1067; appendix introduction, p.1139",
-          "excerpt": "The extension F is a finite unramified extension of Qp .\n(2)       The varieties C and Xr over F extend to smooth proper models C and Xr\n          over OF .\nIf ' bel",
           "match": "The finite unramified local comparison requires the smooth models."
         }
       ],
@@ -889,19 +872,16 @@
         {
           "sourceId": "bertolini-darmon-prasanna-generalized-heegner",
           "locator": "§1.4, Assumption 1.9, p. 1053",
-          "excerpt": "There is an ideal N of OK of norm N such that",
           "match": "The Heegner hypothesis."
         },
         {
           "sourceId": "bertolini-darmon-prasanna-generalized-heegner",
           "locator": "§1.4, p. 1053",
-          "excerpt": "is said to be of conductor c if",
           "match": "Conductor of a pair (φ, A′)."
         },
         {
           "sourceId": "bertolini-darmon-prasanna-generalized-heegner",
           "locator": "§1.4, p. 1054",
-          "excerpt": "is an isogeny whose kernel intersects",
           "match": "Isog^𝔑(A): kernel meets A[𝔑] trivially."
         }
       ],
@@ -991,13 +971,11 @@
         {
           "sourceId": "bertolini-darmon-prasanna-generalized-heegner",
           "locator": "§2.3, p. 1062",
-          "excerpt": "We associate to any",
           "match": "The cycle Υ_φ = Graph(φ)^r."
         },
         {
           "sourceId": "bertolini-darmon-prasanna-generalized-heegner",
           "locator": "§2.3, p. 1063",
-          "excerpt": "is supported on the fiber",
           "match": "Δ_φ = ε_X Υ_φ is supported on the fibre over P_{A′}, in CH^{r+1}(X_r)_ℚ."
         }
       ],
@@ -1040,7 +1018,6 @@
         {
           "sourceId": "bertolini-darmon-prasanna-generalized-heegner",
           "locator": "§2.3, Remark 2.6, p. 1063",
-          "excerpt": "defined over abelian extensions of K",
           "match": "Δ_φ is defined over H̃·H_c."
         }
       ],
@@ -1082,7 +1059,6 @@
         {
           "sourceId": "bertolini-darmon-prasanna-generalized-heegner",
           "locator": "§2.3, Proposition 2.7, p. 1063",
-          "excerpt": "is homologically trivial on",
           "match": "Δ_φ is homologically trivial."
         }
       ],
@@ -1175,19 +1151,16 @@
         {
           "sourceId": "bertolini-darmon-prasanna-generalized-heegner",
           "locator": "§3.1, p. 1065",
-          "excerpt": "Consider the following Gysin sequence in p-adic étale cohomology",
           "match": "The Gysin sequence (3.1.1)."
         },
         {
           "sourceId": "bertolini-darmon-prasanna-generalized-heegner",
           "locator": "§3.1, Definition 3.1, p. 1066",
-          "excerpt": "sends the class of the null-homologous codimension-.r C 1/ cycle",
           "match": "AJ^et_F as the class of the pulled-back extension."
         },
         {
           "sourceId": "bertolini-darmon-prasanna-generalized-heegner",
           "locator": "§3.1, Remark 3.2, p. 1067",
-          "excerpt": "It can be checked, following the argument that is explained in",
           "match": "Compatibility with the general definition."
         }
       ],
@@ -1229,13 +1202,11 @@
         {
           "sourceId": "bertolini-darmon-prasanna-generalized-heegner",
           "locator": "§3.3, p. 1068",
-          "excerpt": "Let H be a filtered Frobenius module of strictly negative weight",
           "match": "The setting of Proposition 3.5."
         },
         {
           "sourceId": "bertolini-darmon-prasanna-generalized-heegner",
           "locator": "§3.3, Proposition 3.5, p. 1069",
-          "excerpt": "yields an isomorphism",
           "match": "Ext_ffm(F, H) = H/Fil⁰H."
         }
       ],
@@ -1328,25 +1299,21 @@
         {
           "sourceId": "bertolini-darmon-prasanna-generalized-heegner",
           "locator": "§3.2, p. 1067",
-          "excerpt": "The extension F is a finite unramified extension of Qp .\n(2)       The varieties C and Xr over F extend to smooth proper models C and Xr\n          over OF .\nIf ' belongs to IsogN  ",
           "match": "Hypotheses on F."
         },
         {
           "sourceId": "bertolini-darmon-prasanna-generalized-heegner",
           "locator": "§3.2, Theorem 3.3, p. 1068",
-          "excerpt": "is crystalline, and there is a canon-",
           "match": "Faltings' crystalline comparison."
         },
         {
           "sourceId": "bertolini-darmon-prasanna-generalized-heegner",
           "locator": "§3.4, p. 1069",
-          "excerpt": "whose elements correspond to crystalline exten-",
           "match": "AJ^et lands in H¹_f = Ext_cris."
         },
         {
           "sourceId": "bertolini-darmon-prasanna-generalized-heegner",
           "locator": "§3.4, p. 1070",
-          "excerpt": "The p-adic Abel–Jacobi map, denoted AJF , is the diagonal map in the diagram",
           "match": "Definition of AJ_F."
         }
       ],
@@ -1385,7 +1352,6 @@
         {
           "sourceId": "castella-hsieh",
           "locator": "§4.2, (4.2), pp.14–15",
-          "excerpt": "where T is the Galois stable OF -lattice in Vf (r) in [Nek92, §3], and S r−1 (A) is the GHK -module\n                                      S r−1 (A) := Sym2r−2 Tp (A)(1 − r)\nwith Tp",
           "match": "Integral lattice, symmetric power and descent target are explicit."
         }
       ],
@@ -1427,7 +1393,6 @@
         {
           "sourceId": "castella-hsieh",
           "locator": "§4.4, (4.5)–(4.7), pp.17–18",
-          "excerpt": "4.4. Generalized Heegner classes (II). Let co be a positive integer with (co , pN ) = 1, and let\nχ : Gal(Kco p∞ /K) → OF× be a locally algebraic anticyclotomic character of infinit",
           "match": "The Weil restriction supplies a G_K action that A/H alone does not have."
         }
       ],
@@ -1515,7 +1480,6 @@
         {
           "sourceId": "bertolini-darmon-prasanna-generalized-heegner",
           "locator": "§3.5, Propositions 3.9–3.10, pp.1073–1074",
-          "excerpt": "PROPOSITION 3.10\n                   1\nFor all   1 ; 2 2 Hpar .C; Lr;r ; r/,\n\n                                         t\n                                         X\n                 ",
           "match": "The cup product is calculated as a sum of annular residues."
         }
       ],
@@ -1554,7 +1518,6 @@
         {
           "sourceId": "bertolini-darmon-prasanna-generalized-heegner",
           "locator": "§3.6, Lemma 3.14, Theorem 3.15 and Remarks 3.16–3.17, pp.1076–1078",
-          "excerpt": "THEOREM 3.15 ([C3, Theorem 10.1])\nLet ! be a global section of the sheaf ! r ˝ \u00061C over C . Choose a polynomial P\nsatisfying the properties of Lemma 3.14, and let d be its degree. There exists a locally\nanalytic section F! of Lr over C satisfying the following conditions:\n(1)    ",
           "match": "Choice independence and the weight-zero constant ambiguity are explicit."
         }
       ],
@@ -1641,7 +1604,6 @@
         {
           "sourceId": "bertolini-darmon-prasanna-generalized-heegner",
           "locator": "§3.7, Propositions 3.18, 3.21 and Lemma 3.22, pp.1078–1084",
-          "excerpt": "PROPOSITION 3.18\nLet \u0003' be a generalized Heegner cycle attached to an isogeny of ordinary pairs ' W\n",
           "match": "The residue computation evaluates AJ on the isogeny graph."
         }
       ],
@@ -1683,7 +1645,6 @@
         {
           "sourceId": "bertolini-darmon-prasanna-generalized-heegner",
           "locator": "§3.8, Proposition 3.24, (3.8.5)–(3.8.6), pp.1086–1088",
-          "excerpt": "PROPOSITION 3.24\nFor all .E; t / 2 C ord ,\n\n                                   Gj[ .E; t; !/ D j Š \u00021\u0002j f [ .E; t; !/:                               (3.8.5)\n                       ",
           "match": "States the factorial and negative Atkin–Serre power."
         }
       ],
@@ -1722,7 +1683,6 @@
         {
           "sourceId": "bertolini-darmon-prasanna-generalized-heegner",
           "locator": "§3.4, pp.1068–1070",
-          "excerpt": "3.4. The p-adic Abel–Jacobi map\nWe can now define the p-adic Abel–Jacobi map attached to the p-adic field F intro-\nduced in Section 3.2. By Theorem 3.1.1. of [Ne3] (see also [Ni]),",
           "match": "Identifies the realization to which a geometric syntomic regulator must compare."
         }
       ],
@@ -1760,7 +1720,6 @@
         {
           "sourceId": "castella-variation",
           "locator": "§6.2, proof of Theorem 6.5, p.28",
-          "excerpt": "BDP17, Prop. 4.1.2] (with r1 = 2rν −2, r2 = 0, and so u = rν −1)\nthe equality of classes (6.7) follows.                                   ",
           "match": "States the unit convention and invokes BDP17 for the comparison."
         }
       ],
@@ -1800,7 +1759,6 @@
         {
           "sourceId": "castella-hsieh",
           "locator": "§4.3, Proposition 4.4 and (4.3)–(4.4), pp.15–17",
-          "excerpt": "Proposition 4.4. Assume that p - c. If p = pp is split in K, then for all n > 1 we have\n                             Tp zf,cpn−1 = p2r−2 · zf,cpn−2 + corKcpn /Kcpn−1 (zf,cpn ),\nwhe",
           "match": "States the split recurrence for n>1 and the inert trace."
         }
       ],
@@ -1842,7 +1800,6 @@
         {
           "sourceId": "castella-hsieh",
           "locator": "§4.4, Lemma 4.6, p.18",
-          "excerpt": "Lemma 4.6. Let τ be the complex conjugation. Then\n                                    (zf,χ,c )τ = wf · χ(σN ) · (zf,χ−1 ,c )σN ,\nwhere wf ∈ {±1} is the Atkin–Lehner eigenvalue of ",
           "match": "States the character inversion and Artin coefficient."
         }
       ],
@@ -1884,7 +1841,6 @@
         {
           "sourceId": "castella-hsieh",
           "locator": "§4.4, Lemma 4.7, pp.18–19",
-          "excerpt": "Lemma 4.7. Let ` - cN DK be a prime inert in K. Let λ be a prime of Q above `, and let λc` and λc\nbe the primes of Kc` and Kc below λ. Denote by Kλc` and Kλc be the completions of ",
           "match": "The local restriction and Frobenius equality are stated exactly."
         }
       ],
@@ -1928,13 +1884,11 @@
         {
           "sourceId": "castella-hsieh",
           "locator": "§7.3, Lemma 7.5 and Proposition 7.6, p.31",
-          "excerpt": "Lemma 7.5. Suppose p > 2r − 1 and p - c. Let w be a place of Kc above p, and let Kc,w be the\ncompletion of Kc at w. If L0 /L/Kc,w are finite unramified extensions, then the corestr",
           "match": "The finite condition is propagated via the local coefficient quotient."
         },
         {
           "sourceId": "castella-hsieh-erratum",
           "locator": "Second correction, entire one-page erratum",
-          "excerpt": "Lemma 7.5: We have to assume further L/Qp to be unramified in\nthe proof in order to use Fontaine-Laffaille theory, and we do not know\nif Lemma 7.5 holds when L/Qp is ramified. This",
           "match": "Adds absolute unramifiedness and routes the replacement proof."
         }
       ],
@@ -1974,13 +1928,11 @@
         {
           "sourceId": "kobayashi-ota",
           "locator": "§4, Lemma 4.7 p.42; Lemma 4.10 pp.44–45; (4.47) p.44 and (4.49)–(4.50) p.45",
-          "excerpt": "Lemma 4.10. For c ∈ N , we have κP\n                                      c ∈ HF (c) (K, TP /Ic ), where\n                                           1\n                               ",
           "match": "The load-bearing local lifting and orthogonality proof was read in full."
         },
         {
           "sourceId": "castella-hsieh-erratum",
           "locator": "Second correction",
-          "excerpt": "The correct proof of Prop. 7.8 has been given in a work of\nKobayashi and Ota [KO20, Lemma 4.10]. The authors are very grateful\nto Shinichi Kobayashi for pointing this out.\n\n  Lemma",
           "match": "Routes the repaired argument to KO20 Lemma 4.10."
         }
       ],
@@ -2022,7 +1974,6 @@
         {
           "sourceId": "castella-hsieh",
           "locator": "§5.2, Definition 5.2, p.22",
-          "excerpt": "Definition 5.2. Let α be the p-adic unit root of X 2 − ap (f )X + p2r−1 . The α-stabilized Heegner class\nzf,a,α ∈ H 1 (Kc , T ⊗ S r−1 (A)) is given by\n                             ",
           "match": "The two formulas and u_c are explicit."
         }
       ],
@@ -2114,7 +2065,6 @@
         {
           "sourceId": "castella-hsieh",
           "locator": "§5.2, Lemma 5.3, p.22",
-          "excerpt": "Lemma 5.3. For all c ≥ 1, we have\n                                        corKcp /Kc (zf,cp,α ) = α · zf,c,α .\n\nProof.         This follows from a straightforward computation using",
           "match": "States the trace that needs the bottom-layer calculation."
         }
       ],
@@ -2155,7 +2105,6 @@
         {
           "sourceId": "castella-hsieh",
           "locator": "§5.2, following Lemma 5.3 and (5.8), pp.23–24",
-          "excerpt": "or zf,O c ,α\n                                                   . In view of Lemma 5.3, the classes α−n · zf,cp\n                                                                                              o\n            ",
           "match": "The norm-compatible class is the input to the big logarithm."
         }
       ],
@@ -2241,7 +2190,6 @@
         {
           "sourceId": "longo-vigni",
           "locator": "§4.1, Lemmas 4.1–4.2, pp.12–13",
-          "excerpt": "Lemma 4.2. For all m ≥ 2 there exist qm , rm ∈ Op [G(n)] with qm+1 ≡ ap qm (mod p), q2 = 1\nsuch that\n                              γm = qm Φ + p(m−1)k/2 rm .\nProof. The elements rm",
           "match": "Controls the remainder and q_m modulo p."
         }
       ],
@@ -2325,7 +2273,6 @@
         {
           "sourceId": "longo-vigni",
           "locator": "§4.1, Corollary 4.3, pp.12–13",
-          "excerpt": "Corollary 4.3. If M is a finitely generated Op [G(n)]-module then\n                                            \\\n                                     ΦM =        γm M.\n             ",
           "match": "Identifies ΦM with the intersection of γ_mM."
         }
       ],
@@ -2366,7 +2313,6 @@
         {
           "sourceId": "longo-vigni",
           "locator": "§4.2, Definition 4.4 and Proposition 4.5, pp.13–14",
-          "excerpt": "Proposition 4.5. There exists a family\n                          \b\n                            β[n] = (βm [n])m≥0 ∈ H∞ [n] n∈N\nsuch that β0 [n] = Φzn and\n                          ",
           "match": "Constructs the compatible β[n] and fixes its bottom value."
         }
       ],
@@ -2453,7 +2399,6 @@
         {
           "sourceId": "bertolini-darmon-prasanna-generalized-heegner",
           "locator": "§5.3, Assumption 5.12 and Theorem 5.13, pp.1137–1139",
-          "excerpt": "THEOREM 5.13\nSuppose that \u0005 2 †.1/\n                  cc .N/ is a character of infinity type .k \u0003 1 \u0003 j; 1 C j /, with\n0 \u0006 j \u0006 r . Then\n\n    Lp .f; \u0005/    \u0002                          ",
           "match": "The range, squared Euler polynomial and c^{-j}/j! weighted AJ sum are explicit."
         }
       ],
@@ -2494,7 +2439,6 @@
         {
           "sourceId": "bertolini-darmon-prasanna-generalized-heegner",
           "locator": "§1.4, (1.4.2) and (1.4.6), pp.1052–1053",
-          "excerpt": "denotes the algebraic cup product pairing on de Rham cohomology.\n    Let Sr denote the symmetric group on r letters. Multiplication by \u00031 on A,\ncombined with the natural permutatio",
           "match": "The normalization determines reciprocal scaling of η."
         }
       ],
@@ -2534,7 +2478,6 @@
         {
           "sourceId": "castella-hsieh",
           "locator": "§4.5, Theorem 4.9, pp.19–21",
-          "excerpt": "Theorem 4.9. Suppose p = pp splits in K. Let ψ be an anticyclotomic Hecke character of infinity type\n(r, −r) and conductor co OK with (co , N p) = 1. If φb ∈ Xp∞ is the p-adic avat",
           "match": "The ramified conductor, factorial and period/Tate factors are explicit."
         }
       ],
@@ -2576,7 +2519,6 @@
         {
           "sourceId": "castella-hsieh",
           "locator": "§5.1 and §5.3, Theorem 5.1, Lemma 5.5 and proof of Theorem 5.7, pp.21–25",
-          "excerpt": "Theorem 5.1. Let V be a crystalline F -representation of GL with non-negative Hodge–Tate weights,\nand assume that V has no quotient isomorphic to the trivial representation. Let F ",
           "match": "Supplies the relative regulator whose scalar normalization is used."
         }
       ],
@@ -2616,7 +2558,6 @@
         {
           "sourceId": "castella-hsieh",
           "locator": "§5.3, Theorem 5.7 and proof, pp.24–25",
-          "excerpt": "Theorem 5.7. Suppose p = pp splits in K. Let f ∈ S2r         (Γ0 (N )) with p - N be a p-ordinary newform,\nand let ψ be an anticyclotomic Hecke character of infinity type (r, −r) a",
           "match": "The linear reciprocity law retains −c₀^{r−1} and σ_{−1,p}."
         }
       ],
@@ -2658,7 +2599,6 @@
         {
           "sourceId": "castella-hsieh",
           "locator": "§5.3, Corollary 5.8, pp.25–26",
-          "excerpt": "Corollary 5.8. With notations and assumptions as in Theorem 5.7, let χ : Gal(Kco p∞ /K) → OF× be\na locally algebraic p-adic character of infinity type (j, −j) with j ≥ r and conduc",
           "match": "The squared exponential formula and the n=0/n>0 Euler factors are separate."
         }
       ],
@@ -2700,7 +2640,6 @@
         {
           "sourceId": "longo-vigni",
           "locator": "§2.2, Definition 2.1 and Remark 2.2, pp.4–5",
-          "excerpt": "Definition 2.1. The triple (f, K, p) is admissible if\n   (1) p ∈\n         / Ξ ∪ {ℓ prime : ℓ | hK };\n   (2) p does not ramify in F ;\n   (3) p splits in K;\n   (4) ap ∈ Op× .\nRemark ",
           "match": "The exceptional set and four clauses fix the application’s hypotheses."
         }
       ],
@@ -2792,7 +2731,6 @@
         {
           "sourceId": "longo-vigni",
           "locator": "§5.1, verification of (H.0)–(H.5), pp.18–19; Lemma 2.4, p.5",
-          "excerpt": "We note that hypotheses (H.0)–(H.5) and Assumption 3.2 in\n§3.1 are satisfied in this setting. First of all, th",
           "match": "The higher-weight application verifies generic Howard hypotheses at S_P."
         }
       ],
@@ -2833,7 +2771,6 @@
         {
           "sourceId": "longo-vigni",
           "locator": "§3.1, Assumption 3.2, pp.8–9",
-          "excerpt": "Assumption 3.2.     (1) The p-adic representation V is crystalline and for every prime v\n     of K above p its restriction to GQp is equipped with a filtration of GQp -modules\n    ",
           "match": "All local clauses are necessary in the theorem’s hypothesis package."
         }
       ],
@@ -2874,7 +2811,6 @@
         {
           "sourceId": "longo-vigni",
           "locator": "§3.1, Proposition 3.4, pp.10–11",
-          "excerpt": "Proposition 3.4. For all but finitely many prime ideals P of Λ the maps (10) and (11) have\nfinite kernel and cokernels that are bounded by a constant depending only on [SP : Λ/P].\n",
           "match": "Provides bounded control outside finitely many primes."
         }
       ],
@@ -2917,7 +2853,6 @@
         {
           "sourceId": "longo-vigni",
           "locator": "§4.3, Lemma 4.6 and Theorem 4.7, pp.14–16",
-          "excerpt": "Theorem 4.7. There exists a Kolyvagin system κHeeg ∈ KS(T, FΛ , L) such that the class\nκHeeg\n 1    ∈ HF1 Λ (K, T) is non-zero.\nProof. The classes κn , n ∈ N , almost form a Kolyvag",
           "match": "The corrected classes form the KS; nonzero leading term has a separate proof."
         }
       ],
@@ -3009,7 +2944,6 @@
         {
           "sourceId": "longo-vigni",
           "locator": "§3.1, Theorem 3.5, pp.11–12",
-          "excerpt": "Theorem 3.5. Let (T, FΛ , L) be a Selmer triple satisfying (H.1)–(H.5) and Assumption 3.2.\nSet X := HF1 Λ (K, A)∨ . Suppose that for some s ≥ 1 the Selmer triple (T, FΛ , Ls ) admits a\nKolyvagin system κ with κ1 6= 0. Then\n    (1) HF1 Λ (K, T) is a torsion-free Λ-module",
           "match": "States the rank, paired torsion structure and oriented divisibility."
         }
       ],
@@ -3051,7 +2985,6 @@
         {
           "sourceId": "castella-hsieh",
           "locator": "§3, Theorem 3.9 and proof, p.14; §6, Theorem 6.1(2), p.27",
-          "excerpt": "Theorem 3.9. Suppose (Nf , DK ) = 1. For all but finitely many φ ∈ Xp∞ , we have Lp,ψ (f )(φ) 6= 0.\nProof. Since f has conductor prime to DK , f can not be a CM form arising from K",
           "match": "The nonvanishing theorem has an explicit discriminant-level hypothesis."
         }
       ],
@@ -3097,7 +3030,6 @@
         {
           "sourceId": "castella-hsieh",
           "locator": "§6, Theorem 6.1(1), p.27; §7.3, Theorem 7.7, pp.31–32",
-          "excerpt": "Theorem 6.1. Suppose that \u000f(Vf,χ ) = −1. The following two statements hold.\n    (1) If zf,χ 6= 0, then Sel(K, Vf,χ ) = F · zf,χ .\n    (2) The classes zf,χφ are nonzero in H 1 (K, V",
           "match": "The nonzero-cycle implication is the critical-range Selmer statement."
         }
       ],
@@ -3141,7 +3073,6 @@
         {
           "sourceId": "castella-hsieh",
           "locator": "§6, Theorem 6.2 and proof, p.27; §7.3, Theorem 7.9, p.32",
-          "excerpt": "Theorem 6.2. If L(f, χ, r) 6= 0, then Sel(K, Vf,χ ) = {0}.\nProof. The nonvanishing of the central value L(f, χ, r) implies that \u000f(Vf,χ ) = +1, and hence χ\nhas infinity type (j, −j)",
           "match": "The ordinary central-value implication uses the specialized local class."
         }
       ],
@@ -3186,13 +3117,11 @@
         {
           "sourceId": "castella-hsieh",
           "locator": "§6, Theorem 6.3, p.27",
-          "excerpt": "Theorem 6.3. There exists a non-negative integer e such that the formula\n                                                      (1 − \u000f(Vf,χ ))\n                            dimF Sel(K",
           "match": "The revised author copy carries the corrected growth factor."
         },
         {
           "sourceId": "castella-hsieh-erratum",
           "locator": "First correction",
-          "excerpt": "Theorem 6.3: The statement should read\n                               (1 − \u000f(Vf,χ ))\n       dimF Sel(Kpn , Vf,χ ) =                · [Kpn : K] + e.\n                                ",
           "match": "The factor is (1−ε)/2."
         }
       ],
@@ -3236,7 +3165,6 @@
         {
           "sourceId": "castella-hsieh",
           "locator": "§6.4, Theorem 6.4 and proof, pp.27–28",
-          "excerpt": "Theorem 6.4. Suppose that f is ordinary at p. Then we have\n                              ords=r L(f, χ, s) ≡ dimF Sel(K, Vf,χ )      (mod 2).\n\n   3Here our convention is that p-adi",
           "match": "The proof invokes Nek07 and Nek09 for parity in a family."
         }
       ],
@@ -3281,7 +3209,6 @@
         {
           "sourceId": "longo-vigni",
           "locator": "§4.4, Definition 4.10 and Theorem 4.12, pp.16–18",
-          "excerpt": "Theorem 4.12. The Λ-module H∞ is free of rank 1, generated by κ̃",
           "match": "Gives freeness and generation, a stronger statement than nonvanishing."
         }
       ],
@@ -3322,7 +3249,6 @@
         {
           "sourceId": "longo-vigni",
           "locator": "Introduction Theorem 1.1 and §5.1, pp.2,18–19",
-          "excerpt": "Theorem 1.1. Suppose that (f, K, p) is an admissible triple. Then there exist a finitely\ngenerated torsion Λ-module M such that char(M ) = char(M )ι and a pseudo-isomorphism\n      ",
           "match": "The source distinguishes the proven divisibility from conjectural equality."
         }
       ],
@@ -3363,7 +3289,6 @@
         {
           "sourceId": "castella-variation",
           "locator": "§2.6, (2.8)–(2.10); §4.1 and §5.1, pp.9–10,18,21",
-          "excerpt": "Θ : GQ → Λwt,× by\n                                 Θ(σ) := ω i/2 (σ) · [hεcyc (σ)i1/2 ],\n    ",
           "match": "The family CM character and critical twist determine the regulator normalization."
         }
       ],
@@ -3453,7 +3378,6 @@
         {
           "sourceId": "castella-variation",
           "locator": "§4.2, Proposition 4.4, Definitions 4.5–4.6 and Proposition 4.8, pp.19–21",
-          "excerpt": "4.2. Howard’s big Heegner points. Fix a positive integer co prime to N p. For n ⩾ s, the\nCM points xco pn ∈ Ig(N )(C) constructed in §2.5 descend to points Pco pn ,s ∈ X",
           "match": "The point tower, horizontal and vertical normalization are described."
         }
       ],
@@ -3540,7 +3464,6 @@
         {
           "sourceId": "castella-variation",
           "locator": "§4.1, Theorem 4.3, p.19",
-          "excerpt": "Theorem 4.3. Assume that ρ̄f is irreducible and p-distinguished. Then the following hold:\n  (1) The module             \u0012                         \u0013\n                               T ",
           "match": "The exact representation and ordinary convention are stated."
         }
       ],
@@ -3581,7 +3504,6 @@
         {
           "sourceId": "castella-variation",
           "locator": "§2.7, Theorem 2.11 and Remark 2.12, pp.11–12",
-          "excerpt": "Theorem 2.11. Let ν ∈ XO (I) of weight (k, 1) with k ⩾ 1 be such that fν is classical, and\nlet φb be the p-adic avatar of an anticyclotomic Hecke character φ of K of infinity type ",
           "match": "The family interpolation and central normalization are explicit."
         }
       ],
@@ -3619,7 +3541,6 @@
         {
           "sourceId": "castella-variation",
           "locator": "§3.2, Theorem 3.4, pp.14–15",
-          "excerpt": "Theorem 3.4. Let T be a p-ordinary deformation, and define\n                           J := (Ψ(Frp ) − 1, γo − 1) ⊆ I,\nwhere Ψ : GQp → I is the unramified character by which GQp act",
           "match": "The map’s ideal domain, injectivity, interpolation and pseudo-null cokernel are the checkpoint."
         }
       ],
@@ -3657,7 +3578,6 @@
         {
           "sourceId": "castella-variation",
           "locator": "§3.3, Proposition 3.5 and Corollary 3.6, pp.15–16",
-          "excerpt": "Proposition 3.5. The module S∞ is free of rank 1 over Zp [[U ]], and it is identified with\n                          {g ∈ ObF∞ [[U ]] : g u = [u]g for all u ∈ U },\nwhere g u denotes the action of u on the coefficients O bF∞ and [u]g denotes the action of u via\nmultiplicatio",
           "match": "The infinite unramified coefficient module is part of the construction."
         }
       ],
@@ -3696,7 +3616,6 @@
         {
           "sourceId": "castella-variation",
           "locator": "§3.4, Theorem 3.7 and Corollary 3.9, pp.16–17",
-          "excerpt": "Theorem 3.7. Let T be a p-ordinary deformation, and set λ := Ψ(Frp ) − 1 ∈ I. Then there\nis an injective I[[G]]-linear map\n                         LG : HIw\n                       ",
           "match": "The localized ideal target and both specialization ranges are the checkpoint."
         }
       ],
@@ -3736,7 +3655,6 @@
         {
           "sourceId": "castella-variation",
           "locator": "§5.1, Lemma 5.1 and Proposition 5.2, pp.21–22",
-          "excerpt": "Proposition 5.2. Let K∞ /F be a Z×    p -extension contained in L∞ obtained by adjoining the\ntorsion points of a relative Lubin–Tate formal group over F/Qp , and let Γ = Gal(K∞ /F ",
           "match": "The localized scalar regulator uses a cohomological descent check."
         }
       ],
@@ -3777,7 +3695,6 @@
         {
           "sourceId": "castella-variation",
           "locator": "§5.2, Theorem 5.3, Proposition 5.4 and proof, pp.22–25",
-          "excerpt": "Theorem 5.3. The following equality holds in eIW [[Γ]]:\n                                                   e\n                                                    −1\n                ",
           "match": "The localized family reciprocity law uses the Artin sign translation."
         }
       ],
@@ -3821,7 +3738,6 @@
         {
           "sourceId": "castella-variation",
           "locator": "§6.1, Lemma 6.4, pp.26–27",
-          "excerpt": "Lemma 6.4. Assume that ρ̄f |GK is irreducible. Then for every place v of Hco above p the\nrestriction map\n                                                         1\n                ",
           "match": "Localization injectivity is a distinct ingredient in the global comparison."
         }
       ],
@@ -3863,7 +3779,6 @@
         {
           "sourceId": "castella-variation",
           "locator": "§6.2, Theorem 6.5 and proof, pp.27–28",
-          "excerpt": "Theorem 6.5. Assume that:\n      • k ≡ 2 (mod p − 1);\n      • ρ̄f is ramified at every prime q | (DK , N );\n      • ρ̄f p-distinguished;\n      • ρ̄f |GK is irreducible.\nThen for all",
           "match": "The first specialization and its stronger residual hypotheses are explicit."
         }
       ],
@@ -3908,7 +3823,6 @@
         {
           "sourceId": "castella-variation",
           "locator": "§6.2, Theorem 6.5, (6.7), pp.27–28",
-          "excerpt": "Theorem 6.5. Assume that:\n      • k ≡ 2 (mod p − 1);\n      • ρ̄f is ramified at every prime q | (DK , N );\n      • ρ̄f p-distinguished;\n      • ρ̄f |GK is irreducible.\nThen for all",
           "match": "Gives the full higher-weight Iwasawa class comparison, with c₀^{rν−1}."
         }
       ],

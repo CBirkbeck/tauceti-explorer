@@ -428,7 +428,6 @@
     {
      "sourceId": "STACKS",
      "locator": "Stacks Project, More on Algebra, Lemma 15.88.1 (tag 07KW)",
-     "excerpt": "The functor lim : Ab(N) → Ab has a right derived functor Rlim ... for any (An) in Ab(N) we have R^p lim An = 0 for p > 1, the object Rlim An of D(Ab) is represented by the complex ∏An → ∏An, (xn) ↦ (xn − f_{n+1}(x_{n+1})) sitting in degrees 0 and 1, if (An) is ML, then R^1 lim An = 0",
      "match": "The two-term complex computing Rlim."
     }
    ],
@@ -519,7 +518,6 @@
     {
      "sourceId": "STACKS",
      "locator": "Stacks Project, Algebra, Definition 10.86.1 (tag 0594)",
-     "excerpt": "Let (Ai, φji) be a directed inverse system of sets over I. Then we say (Ai, φji) is Mittag-Leffler if for each i ∈ I, the family φji(Aj) ⊂ Ai for j ≥ i stabilizes.",
      "match": "The definition."
     }
    ],
@@ -604,7 +602,6 @@
     {
      "sourceId": "STACKS",
      "locator": "Stacks Project, More on Algebra, Lemma 15.88.1 (tag 07KW)",
-     "excerpt": "The functor lim : Ab(N) → Ab has a right derived functor Rlim ... for any (An) in Ab(N) we have R^p lim An = 0 for p > 1, the object Rlim An of D(Ab) is represented by the complex ∏An → ∏An, (xn) ↦ (xn − f_{n+1}(x_{n+1})) sitting in degrees 0 and 1, if (An) is ML, then R^1 lim An = 0",
      "match": "'if (An) is ML, then R^1 lim An = 0'."
     }
    ],
@@ -639,13 +636,11 @@
     {
      "sourceId": "STACKS",
      "locator": "Stacks Project, More on Algebra, Lemma 15.88.1 (tag 07KW)",
-     "excerpt": "The functor lim : Ab(N) → Ab has a right derived functor Rlim ... for any (An) in Ab(N) we have R^p lim An = 0 for p > 1, the object Rlim An of D(Ab) is represented by the complex ∏An → ∏An, (xn) ↦ (xn − f_{n+1}(x_{n+1})) sitting in degrees 0 and 1, if (An) is ML, then R^1 lim An = 0",
      "match": "Rlim is computed by the two-term complex; the long exact sequence follows."
     },
     {
      "sourceId": "STACKS",
      "locator": "Stacks Project, Algebra, Lemma 10.86.4 (tag 0598)",
-     "excerpt": "Let 0 → Ai → Bi → Ci → 0 be an exact sequence of directed inverse systems of abelian groups over I. Suppose I is countable. If (Ai) is Mittag-Leffler, then 0 → lim Ai → lim Bi → lim Ci → 0 is exact.",
      "match": "The Mittag-Leffler special case."
     }
    ],
@@ -682,7 +677,6 @@
     {
      "sourceId": "STACKS",
      "locator": "Stacks Project, More on Algebra, Lemma 15.88.10 (tag 07KY), with Lemma 15.88.9 (tag 07KX)",
-     "excerpt": "the long exact cohomology sequence associated to the distinguished triangle breaks up into short exact sequences 0 → R^1 lim_n H^{p−1}(K_n) → H^p(Rlim K) → lim_n H^p(K_n) → 0",
      "match": "The short exact sequences."
     }
    ],
@@ -718,7 +712,6 @@
     {
      "sourceId": "RUBIN-ES",
      "locator": "Appendix B, §2, Proposition 2.3, printed p. 152 (PDF p. 162)",
-     "excerpt": "Proposition 2.3 ([T4] Corollary 2.2, [J] §2). Suppose i > 0 and T = lim← Tn where each Tn is a finite (discrete) G-module. If H^{i−1}(G, Tn) is finite for every n then Hi(G, T) = lim←n Hi(G, Tn).",
      "match": "Tate's inverse-limit statement relies on this surjectivity."
     }
    ],
@@ -755,7 +748,6 @@
     {
      "sourceId": "RUBIN-ES",
      "locator": "Appendix B, §2, Definition 2.1, printed pp. 151–152 (PDF pp. 161–162)",
-     "excerpt": "Following Tate [T4], we define the continuous cohomology groups Hi(G, T) as follows. Let Ci(G, T) = Maps(Gi, T). ... If 0 → T′ → T → T′′ → 0 is an exact sequence and if there is a continuous section (again a set map, not necessarily a homomorphism) from T′′ → T, then 0 → Ci(G, T′) → Ci(G, T) → Ci(G, T′′) → 0 is exact for every i and there is a long exact sequence",
      "match": "Continuous cochains Maps(Gⁱ, T)."
     }
    ],
@@ -791,7 +783,6 @@
     {
      "sourceId": "RUBIN-ES",
      "locator": "Appendix B, §2, Definition 2.1, printed pp. 151–152 (PDF pp. 161–162)",
-     "excerpt": "Following Tate [T4], we define the continuous cohomology groups Hi(G, T) as follows. Let Ci(G, T) = Maps(Gi, T). ... If 0 → T′ → T → T′′ → 0 is an exact sequence and if there is a continuous section (again a set map, not necessarily a homomorphism) from T′′ → T, then 0 → Ci(G, T′) → Ci(G, T) → Ci(G, T′′) → 0 is exact for every i and there is a long exact sequence",
      "match": "The inhomogeneous definition compared."
     }
    ],
@@ -831,7 +822,6 @@
     {
      "sourceId": "RUBIN-ES",
      "locator": "Appendix B, §2, Proposition 2.3, printed p. 152 (PDF p. 162)",
-     "excerpt": "Proposition 2.3 ([T4] Corollary 2.2, [J] §2). Suppose i > 0 and T = lim← Tn where each Tn is a finite (discrete) G-module. If H^{i−1}(G, Tn) is finite for every n then Hi(G, T) = lim←n Hi(G, Tn).",
      "match": "The statement (Tate, Corollary 2.2)."
     }
    ],
@@ -868,7 +858,6 @@
     {
      "sourceId": "RUBIN-ES",
      "locator": "Appendix B, §2, Remark 2.2, printed p. 152 (PDF p. 162)",
-     "excerpt": "Note that if T′′ is topologically discrete ... then there is always a continuous section T′′ → T. This is the case whenever T′ is open in T. Also, when T is a finitely generated Zp-module, or a finite-dimensional Qp-vector space, with the usual topology, there is a continuous section.",
      "match": "The cases."
     }
    ],
@@ -904,7 +893,6 @@
     {
      "sourceId": "RUBIN-ES",
      "locator": "Appendix B, §2, Definition 2.1, printed pp. 151–152 (PDF pp. 161–162)",
-     "excerpt": "Following Tate [T4], we define the continuous cohomology groups Hi(G, T) as follows. Let Ci(G, T) = Maps(Gi, T). ... If 0 → T′ → T → T′′ → 0 is an exact sequence and if there is a continuous section (again a set map, not necessarily a homomorphism) from T′′ → T, then 0 → Ci(G, T′) → Ci(G, T) → Ci(G, T′′) → 0 is exact for every i and there is a long exact sequence",
      "match": "The statement."
     }
    ],
@@ -937,7 +925,6 @@
     {
      "sourceId": "RUBIN-ES",
      "locator": "Appendix B, §2, Proposition 2.4, printed p. 152 (PDF p. 162)",
-     "excerpt": "Proposition 2.4 ([T4] Proposition 2.3). If T is a finitely-generated Zp-module, then for every i ≥ 0, Hi(G, T) has no divisible elements and the natural map Hi(G, T) ⊗ Qp → Hi(G, T ⊗ Qp) is an isomorphism.",
      "match": "Tate's rationalisation argument."
     }
    ],
@@ -974,7 +961,6 @@
     {
      "sourceId": "RUBIN-ES",
      "locator": "Appendix B, §2, Proposition 2.4, printed p. 152 (PDF p. 162)",
-     "excerpt": "Proposition 2.4 ([T4] Proposition 2.3). If T is a finitely-generated Zp-module, then for every i ≥ 0, Hi(G, T) has no divisible elements and the natural map Hi(G, T) ⊗ Qp → Hi(G, T ⊗ Qp) is an isomorphism.",
      "match": "The statement (Tate, Proposition 2.3)."
     }
    ],
@@ -1012,7 +998,6 @@
     {
      "sourceId": "RUBIN-ES",
      "locator": "Chapter I, §2, Example 2.1, printed p. 3 (PDF p. 13)",
-     "excerpt": "H1(K, µp∞) = K× ⊗ (Qp/Zp)",
      "match": "A discrete torsion coefficient computed by a colimit."
     }
    ],
@@ -1050,7 +1035,6 @@
     {
      "sourceId": "RUBIN-ES",
      "locator": "Chapter I, §2, Lemma 2.2(ii) and its proof, printed pp. 3–4 (PDF pp. 13–14)",
-     "excerpt": "(ii) The bottom row of (2) induces an exact sequence V^GK → W^GK → H1(K, T)tors → 0. ... the kernel of the natural map H1(K, T) → H1(K, V) is H1(K, T)tors.",
      "match": "The statement."
     }
    ],
@@ -1085,7 +1069,6 @@
     {
      "sourceId": "HARPAZ-WITTENBERG-23",
      "locator": "§5, Lemma 5.5, p. 19 (author final version; corrected in PAPER-HARPAZ-WITTENBERG-23/E10)",
-     "excerpt": "The set of homomorphisms C → B that are sections of κ is equipped with a natural action of Γ by conjugation and then forms a torsor under the Γ-module Hom(C, A). ... the boundary map Hm(Γ, C) → H^{m+1}(Γ, A) is given by cup product with [γ]",
      "match": "Hom(C, A) as the torsor's structure group, with the topology corrected."
     }
    ],
@@ -1169,7 +1152,6 @@
     {
      "sourceId": "HARPAZ-WITTENBERG-23",
      "locator": "§5, Lemma 5.5, p. 19 (author final version; corrected in PAPER-HARPAZ-WITTENBERG-23/E10)",
-     "excerpt": "The set of homomorphisms C → B that are sections of κ is equipped with a natural action of Γ by conjugation and then forms a torsor under the Γ-module Hom(C, A). ... the boundary map Hm(Γ, C) → H^{m+1}(Γ, A) is given by cup product with [γ]",
      "match": "The torsor, in corrected form."
     }
    ],
@@ -1260,7 +1242,6 @@
     {
      "sourceId": "HARPAZ-WITTENBERG-23",
      "locator": "§5, Lemma 5.5, p. 19 (author final version; corrected in PAPER-HARPAZ-WITTENBERG-23/E10)",
-     "excerpt": "The set of homomorphisms C → B that are sections of κ is equipped with a natural action of Γ by conjugation and then forms a torsor under the Γ-module Hom(C, A). ... the boundary map Hm(Γ, C) → H^{m+1}(Γ, A) is given by cup product with [γ]",
      "match": "The boundary formula, proved by cochains instead of Ext."
     }
    ],
@@ -1296,7 +1277,6 @@
     {
      "sourceId": "HARPAZ-WITTENBERG-23",
      "locator": "§5, Lemma 5.5, p. 19 (author final version; corrected in PAPER-HARPAZ-WITTENBERG-23/E10)",
-     "excerpt": "The set of homomorphisms C → B that are sections of κ is equipped with a natural action of Γ by conjugation and then forms a torsor under the Γ-module Hom(C, A). ... the boundary map Hm(Γ, C) → H^{m+1}(Γ, A) is given by cup product with [γ]",
      "match": "The printed lemma, valid for finitely generated C."
     }
    ],
@@ -1337,13 +1317,11 @@
     {
      "sourceId": "MILNE-ADT",
      "locator": "Chapter I, §4, opening paragraph, p. 48 (PDF p. 56)",
-     "excerpt": "We write K_S for the maximal subﬁeld of K^s that is ramiﬁed over K only at primes in S, and G_S for Gal(K_S/K).",
      "match": "The definition of K_S and G_S."
     },
     {
      "sourceId": "MILNE-ADT",
      "locator": "Chapter I, §4, definition of P, p. 48 (PDF p. 56)",
-     "excerpt": "Let P denote the set of prime numbers ℓ such that ℓ^∞ divides the degree of K_S over K.",
      "match": "The set P of primes, and the cyclotomic argument that it contains the units of R_{K,S}."
     }
    ],
@@ -1465,7 +1443,6 @@
     {
      "sourceId": "MILNE-ADT",
      "locator": "Chapter I, §4, proof of Lemma 4.9, p. 56 (PDF p. 64)",
-     "excerpt": "It is a well known consequence of Hermite’s theorem (see, for example, Serre 1964, pII-48) that there are only ﬁnitely many such extension ﬁelds",
      "match": "The finiteness statement used in Lemma 4.9, isolated as its own theorem."
     }
    ],
@@ -1504,7 +1481,6 @@
     {
      "sourceId": "MILNE-ADT",
      "locator": "Chapter I, §4, Lemma 4.9, p. 56 (PDF p. 64)",
-     "excerpt": "Assume that M is ﬁnite. Then the inverse image of every compact subset of P^1_S(K, M) under the map β^1_S(K, M) is ﬁnite",
      "match": "For S finite the whole of P¹_S(K, M) is compact (a finite product of finite groups), so Lemma 4.9 gives the finiteness of H¹; the proof here is its Hermite argument."
     }
    ],
@@ -1547,7 +1523,6 @@
     {
      "sourceId": "MILNE-ADT",
      "locator": "Chapter I, §4, statement of the main theorem, p. 55 (PDF p. 63)",
-     "excerpt": "The choice of the embedding K^s ↪ K^s_v determines maps G_v → G_K → G_S, and using these maps we obtain localization maps",
      "match": "The localisation maps; the source's modified groups at archimedean places and its unramified subgroups follow in the same paragraph (see ArithmeticGaloisDuality/E3)."
     }
    ],
@@ -1672,7 +1647,6 @@
     {
      "sourceId": "MILNE-ADT",
      "locator": "Chapter I, §4, Lemma 4.1, p. 49 (PDF p. 57)",
-     "excerpt": "where Id_{F,S} is the ideal class group of R_{F,S}. In particular, if S omits only ﬁnitely many primes",
      "match": "Lemma 4.1 and the notation J_{F,S}, E_{F,S}, C_{F,S}, U_{F,S} of p. 49."
     }
    ],
@@ -1787,13 +1761,11 @@
     {
      "sourceId": "MILNE-ADT",
      "locator": "Chapter I, §4, proof of Proposition 4.3, p. 50 (PDF p. 58)",
-     "excerpt": "The principal ideal theorem (Artin and Tate 1961, XIII 4) shows that V is zero.",
      "match": "Proposition 4.3, with Lemma 4.4 (p. 51) for the vanishing of H^r(G_S, U_S)."
     },
     {
      "sourceId": "MILNE-ADT",
      "locator": "Chapter I, §4, proof of Lemma 4.4, p. 51 (PDF p. 59)",
-     "excerpt": "because v is unramiﬁed in F (cf. Serre 1967a, Pptn 1), and this completes the proof",
      "match": "The cohomological triviality of the unramified local units."
     }
    ],
@@ -1827,7 +1799,6 @@
     {
      "sourceId": "MILNE-ADT",
      "locator": "Chapter I, §1, a generalization, p. 25 (PDF p. 33)",
-     "excerpt": "For any set P of rational prime numbers, we deﬁne a P-class formation to be a system",
      "match": "The definition, and the quotient construction stated after it."
     }
    ],
@@ -1929,7 +1900,6 @@
     {
      "sourceId": "MILNE-ADT",
      "locator": "Chapter I, §4, Proposition 4.2, p. 50 (PDF p. 58)",
-     "excerpt": "The pair (G_S, C_S) is a P-class formation",
      "match": "The statement and its proof from Proposition 4.3 and Lemma 4.4."
     }
    ],
@@ -1970,7 +1940,6 @@
     {
      "sourceId": "MILNE-ADT",
      "locator": "Chapter I, §4, Lemma 4.5, p. 51 (PDF p. 59)",
-     "excerpt": "It is divisible, and there is an exact sequence",
      "match": "Lemma 4.5 and its proof."
     }
    ],
@@ -2011,13 +1980,11 @@
     {
      "sourceId": "MILNE-ADT",
      "locator": "Chapter I, §4, proof of Lemma 4.12, p. 59 (PDF p. 67)",
-     "excerpt": "As E_S is divisible by all integers that are units in R_{K,S}, this is a special case of (0.8).",
      "match": "The divisibility of E_S."
     },
     {
      "sourceId": "MILNE-ADT",
      "locator": "Chapter I, §4, proof of Corollary 4.18, p. 63 (PDF p. 71)",
-     "excerpt": "here S denotes the set of primes of K_S lying over a prime of S",
      "match": "The sequence 0 → E_S → K_S^× → ⊕_{v∉S} ℤ → 0 used for H¹(G_S, E_S)."
     }
    ],
@@ -2064,7 +2031,6 @@
     {
      "sourceId": "MILNE-ADT",
      "locator": "Chapter I, §0, Example 0.8, p. 7 (PDF p. 15)",
-     "excerpt": "In particular, when we also have that N is divisible by all primes occurring as the order of an element of M",
      "match": "The reduction Ext^r_G(M, N) = H^r(G, Hom(M, N)); Remark 0.10 (p. 8) gives torsion and colimits, Remark 0.11 Shapiro."
     }
    ],
@@ -2185,7 +2151,6 @@
     {
      "sourceId": "MILNE-ADT",
      "locator": "Chapter I, §1, Theorem 1.13, p. 25 (PDF p. 33)",
-     "excerpt": "Let (G, C) be a P-class formation, let ℓ be a prime in P, and let M be a ﬁnitely generated G-module.",
      "match": "Theorem 1.13, the P-class-formation form of Theorem 1.8 (p. 21), with Lemmas 1.7 and 1.9."
     }
    ],
@@ -2226,7 +2191,6 @@
     {
      "sourceId": "MILNE-ADT",
      "locator": "Chapter I, §4, proof of Theorem 4.6, p. 53 (PDF p. 61)",
-     "excerpt": "Thus it follows from (1.13) that part (a) of the theorem is true for number ﬁelds",
      "match": "Theorem 4.6(a) and the surjectivity of α⁰ for finite M."
     }
    ],
@@ -2269,7 +2233,6 @@
     {
      "sourceId": "MILNE-ADT",
      "locator": "Chapter I, §4, before Theorem 4.10, p. 56 (PDF p. 64)",
-     "excerpt": "It is again a ﬁnite G_S-module, and if the order of M is a unit in R_{K,S}, then",
      "match": "The dual M^D and M^{DD} ≅ M."
     }
    ],
@@ -2377,7 +2340,6 @@
     {
      "sourceId": "MILNE-ADT",
      "locator": "Chapter I, §2, proof of Theorem 2.13, p. 35 (PDF p. 43)",
-     "excerpt": "As G has order 2, the ℓ-primary components for ℓ odd do not contribute to the cohomology groups.",
      "match": "Theorem 2.13(a), (c) for finite M."
     }
    ],
@@ -2415,13 +2377,11 @@
     {
      "sourceId": "MILNE-ADT",
      "locator": "Chapter I, §2, Theorem 2.6, p. 30 (PDF p. 38)",
-     "excerpt": "are the exact annihilators of each other in the cup-product pairing",
      "match": "Theorem 2.6 for finite M."
     },
     {
      "sourceId": "MILNE-ADT",
      "locator": "Chapter I, §2, proof of Theorem 2.6, p. 31 (PDF p. 39)",
-     "excerpt": "When M is ﬁnite, this result can also be proved by a counting argument; see Serre 1964, II 5.5.",
      "match": "The counting proof planned here."
     }
    ],
@@ -2459,13 +2419,11 @@
     {
      "sourceId": "MILNE-ADT",
      "locator": "Chapter I, §4, statement of the main theorem, p. 55 (PDF p. 63)",
-     "excerpt": "we deﬁne P^r_S(K, M) to be the restricted topological product of the H^r(K_v, M) relative to the subgroups H^r_un(K_v, M)",
      "match": "P^r_S, Lemma 4.8, and Ш^r_S (p. 56)."
     },
     {
      "sourceId": "HARPAZ-WITTENBERG-23",
      "locator": "§7, before Lemma 7.6, p. 28 (author final version)",
-     "excerpt": "Hence X1(Q, µ 4) = 0, from which it follows, by Poitou–Tate duality, that X2(Q, Z/4) = 0.",
      "match": "Ш over all places of ℚ, with the modified real terms of items 120–121 of the extraction."
     }
    ],
@@ -2584,7 +2542,6 @@
     {
      "sourceId": "MILNE-ADT",
      "locator": "Chapter I, §4, Lemma 4.9, p. 56 (PDF p. 64)",
-     "excerpt": "(in other words, the map is proper relative to the discrete topology on H^1(G_S, M))",
      "match": "Lemma 4.9 and its proof."
     }
    ],
@@ -2625,7 +2582,6 @@
     {
      "sourceId": "MILNE-ADT",
      "locator": "Chapter I, §4, before Theorem 4.10, p. 56 (PDF p. 64)",
-     "excerpt": "P^r_S(K, M) is the algebraic and topological dual of P^{2−r}_S(K, M^D). Therefore there are continuous maps",
      "match": "The duality of the restricted products and the maps γ^r."
     }
    ],
@@ -2665,13 +2621,11 @@
     {
      "sourceId": "MILNE-ADT",
      "locator": "Chapter I, §4, Lemmas 4.12 and 4.13, p. 59 (PDF p. 67)",
-     "excerpt": "In addition to the hypotheses of (4.12), assume either that M is ﬁnite or that S omits only ﬁnitely many primes.",
      "match": "Lemmas 4.12 and 4.13."
     },
     {
      "sourceId": "MILNE-ADT",
      "locator": "Chapter I, §4, Remark 4.14, p. 61 (PDF p. 69)",
-     "excerpt": "Without the additional hypotheses, (4.13) is false.",
      "match": "The counterexample, kept as an acceptance test."
     }
    ],
@@ -2719,25 +2673,21 @@
     {
      "sourceId": "MILNE-ADT",
      "locator": "Chapter I, §4, Theorem 4.10, p. 56 (PDF p. 64)",
-     "excerpt": "Let M be a ﬁnite G_S-module whose order is a unit in R_{K,S}.",
      "match": "Theorem 4.10 (a)–(c) and the exact sequence (p. 57)."
     },
     {
      "sourceId": "MILNE-ADT",
      "locator": "Chapter I, §4, end of the proof of Theorem 4.10, p. 62 (PDF p. 70)",
-     "excerpt": "An alternative approach is to note that the ﬁrst half of the sequence can be obtained as the algebraic and topological dual of the second half.",
      "match": "The route planned for the first three terms."
     },
     {
      "sourceId": "MILNE-ADT",
      "locator": "Chapter I, §4, an explicit description of the pairing, p. 65 (PDF p. 73)",
-     "excerpt": "It is easy to see that this element is independent of the choices made",
      "match": "The cochain formula for the pairing of Ш¹ and Ш²."
     },
     {
      "sourceId": "HARPAZ-WITTENBERG-23",
      "locator": "§7, proof of Lemma 7.7, p. 29 (author final version)",
-     "excerpt": "By global arithmetic duality it will suﬃce to show that the ma p",
      "match": "Items 120–121 of the extraction: the Ш pairing, natural in the coefficient module, used with the modified real terms."
     }
    ],
@@ -2776,7 +2726,6 @@
     {
      "sourceId": "MILNE-ADT",
      "locator": "Chapter I, §4, Corollary 4.15, p. 62 (PDF p. 70)",
-     "excerpt": "then the groups H^r(G_S, M) are ﬁnite for all r",
      "match": "Corollary 4.15."
     }
    ],
@@ -2813,7 +2762,6 @@
     {
      "sourceId": "MILNE-ADT",
      "locator": "Chapter I, §4, Theorem 4.10(c), p. 57 (PDF p. 65)",
-     "excerpt": "(c) For r ≥ 3, β^r is a bijection",
      "match": "Theorem 4.10(c), with the real places kept."
     }
    ],
@@ -2853,7 +2801,6 @@
     {
      "sourceId": "MILNE-ADT",
      "locator": "Chapter I, §4, Corollary 4.16, p. 62 (PDF p. 70)",
-     "excerpt": "Then, for any ﬁnite subset T of S omitting at least one ﬁnite prime of S, the map",
      "match": "Corollary 4.16 and its proof."
     }
    ],
@@ -2893,13 +2840,11 @@
     {
      "sourceId": "MILNE-ADT",
      "locator": "Chapter I, §4, Corollary 4.18, p. 63 (PDF p. 71)",
-     "excerpt": "For any prime ℓ that is a unit in R_S",
      "match": "Corollary 4.18."
     },
     {
      "sourceId": "HARPAZ-WITTENBERG-23",
      "locator": "§3, Remark 3.1, p. 9 (author final version)",
-     "excerpt": "as well as when H 3(k,k∗) = 0, which occurs for instance when k is a number ﬁeld",
      "match": "Item 154 of the extraction: the vanishing of H³(k, k̄^×), including fields with real places."
     }
    ],
@@ -2933,7 +2878,6 @@
     {
      "sourceId": "MILNE-ADT",
      "locator": "Chapter I, §2, proof of Lemma 2.10, p. 32 (PDF p. 40)",
-     "excerpt": "It follows from Serre 1967b, 16.1, Thm 33, that the same statement is then true for any ﬁeld F.",
      "match": "Brauer's theorem as the source uses it, cited to Serre's Linear representations."
     }
    ],
@@ -2971,7 +2915,6 @@
     {
      "sourceId": "MILNE-ADT",
      "locator": "Chapter I, §2, Lemma 2.10, p. 32 (PDF p. 40)",
-     "excerpt": "is generated by the images of the Ind^G_H as H runs over the set of cyclic subgroups of G of order prime to p.",
      "match": "Lemma 2.10 and its proof."
     }
    ],
@@ -3011,7 +2954,6 @@
     {
      "sourceId": "MILNE-ADT",
      "locator": "Chapter I, §5, Lemma 5.3, p. 69 (PDF p. 77)",
-     "excerpt": "The map φ from the category of ﬁnite G_S-modules to Q_{>0} is additive.",
      "match": "Lemma 5.3 and its proof."
     }
    ],
@@ -3057,13 +2999,11 @@
     {
      "sourceId": "MILNE-ADT",
      "locator": "Chapter I, §5, Theorem 5.1, p. 67 (PDF p. 75)",
-     "excerpt": "However, when K is a real number ﬁeld, the cohomology groups will in general be nonzero for an inﬁnite number of values of r",
      "match": "The definition of χ(G_S, M) with ordinary cohomology, and Theorem 5.1 with Remark 5.2."
     },
     {
      "sourceId": "MILNE-ADT",
      "locator": "Chapter I, §5, footnote 13, p. 67 (PDF p. 75)",
-     "excerpt": "(it is not the Tate cohomology)",
      "match": "The archimedean H⁰ in the formula is ordinary cohomology."
     }
    ],
@@ -3110,13 +3050,11 @@
     {
      "sourceId": "NSW-CNF",
      "locator": "Chapter II, §1, Proposition 2.1.1, printed p. 99 (PDF p. 113)",
-     "excerpt": "For any ﬁrst quadrant E_2-spectral sequence the sequence",
      "match": "The five-term sequence, with Lemma 2.1.2 and the convergence statement on the same page."
     },
     {
      "sourceId": "NSW-CNF",
      "locator": "Chapter II, §2, Lemma 2.2.4, printed p. 105 (PDF p. 119)",
-     "excerpt": "Assume that for each q ≥ 0 the horizontal complex A^{0q} → A^{1q} → A^{2q} → ··· is exact",
      "match": "The exact-rows lemma, used for the abutment of Hochschild–Serre."
     }
    ],
@@ -3244,13 +3182,11 @@
     {
      "sourceId": "NSW-CNF",
      "locator": "Chapter II, §4, Theorem 2.4.1, printed p. 111 (PDF p. 125)",
-     "excerpt": "Let G be a proﬁnite group, H a closed normal subgroup and A a G-module. Then there exists a ﬁrst quadrant spectral sequence",
      "match": "Theorem 2.4.1 and its proof (pp. 111–112)."
     },
     {
      "sourceId": "NSW-CNF",
      "locator": "Chapter II, §4, Exercises 1, 3, 5, printed p. 119 (PDF p. 133)",
-     "excerpt": "Show that in the Hochschild-Serre spectral sequence, the edge morphisms",
      "match": "The edge maps, the morphisms for restriction and corestriction, and the cup products."
     }
    ],
@@ -3373,7 +3309,6 @@
     {
      "sourceId": "NSW-CNF",
      "locator": "Chapter II, §4, Theorem 2.4.3, printed p. 113 (PDF p. 127)",
-     "excerpt": "is the transgression tg as deﬁned in (1.6.6).",
      "match": "Theorem 2.4.3; the five-term sequence and its extension are on p. 112."
     }
    ],
@@ -3416,7 +3351,6 @@
     {
      "sourceId": "NSW-CNF",
      "locator": "Chapter II, §4, Theorem 2.4.4, printed p. 114 (PDF p. 128)",
-     "excerpt": "are the same up to sign, i.e. d_2(x) = −u ∪ x.",
      "match": "Theorem 2.4.4, its proof (pp. 115–117) and the remark on closed H."
     }
    ],
@@ -3458,7 +3392,6 @@
     {
      "sourceId": "NSW-CNF",
      "locator": "Chapter II, §4, Theorem 2.4.6, printed p. 118 (PDF p. 132)",
-     "excerpt": "In case of a direct product, the Hochschild-Serre spectral sequence degenerates at E_2.",
      "match": "Corollary 2.4.2 (p. 112), Proposition 2.4.5, Theorem 2.4.6 and Exercise 4 (p. 119)."
     }
    ],
@@ -3499,7 +3432,6 @@
     {
      "sourceId": "NSW-CNF",
      "locator": "Chapter I, §5, Corollary 1.5.7, printed p. 51 (PDF p. 65)",
-     "excerpt": "If U is an open subgroup of G, then cor^U_G ◦ res^G_U = (G : U).",
      "match": "Corollary 1.5.7, with Proposition 1.6.2 (p. 60) for the vanishing."
     }
    ],
@@ -3542,7 +3474,6 @@
     {
      "sourceId": "RUBIN-ES",
      "locator": "Appendix B, §2, Proposition 2.5, printed p. 152 (PDF p. 162)",
-     "excerpt": "If T is discrete, or T is a ﬁnitely generated Zp-module, or T is a ﬁnite dimensional Qp-vector space, then there is a Hochschild-Serre exact sequence",
      "match": "Proposition B.2.5 and its proof."
     }
    ],
@@ -3590,13 +3521,11 @@
     {
      "sourceId": "DDT-FLT",
      "locator": "§2.3, Theorem 2.18, p. 61 (author PDF, revised 9 September 2007)",
-     "excerpt": "If L is a collection of local conditions for M then the Selmer group H^1_L(Q, M) is ﬁnite.",
      "match": "Theorem 2.18 and its proof (pp. 61–62)."
     },
     {
      "sourceId": "DDT-FLT",
      "locator": "§2.3, Theorem 2.19, p. 62 (author PDF, revised 9 September 2007)",
-     "excerpt": "We remark, but will not use elsewhere in this article, that the above argument works over any number ﬁeld:",
      "match": "Theorem 2.19, the statement over a number field (see ArithmeticGaloisDuality/E5)."
     }
    ],
@@ -3638,7 +3567,6 @@
     {
      "sourceId": "DDT-FLT",
      "locator": "§2.3, before Theorem 2.18, p. 61 (author PDF, revised 9 September 2007)",
-     "excerpt": "In the applications in this paper we shall apply the theorem where the various data have been chosen to make one of the Selmer groups trivial.",
      "match": "The use of Theorem 2.18 to compare Selmer groups."
     }
    ],
@@ -3674,7 +3602,6 @@
     {
      "sourceId": "DDT-FLT",
      "locator": "§2.8, Lemma 2.46, p. 81 (author PDF, revised 9 September 2007)",
-     "excerpt": "The ﬁrst part is a direct calculation using the fact that Frob_q acts semi-simply on ad^0 ρ̄ with eigenvalues x, 1, x^{−1} for some x ∈ k̄ \\ {0, 1}.",
      "match": "Lemma 2.46(a) and its proof."
     }
    ],
@@ -3713,7 +3640,6 @@
     {
      "sourceId": "DDT-FLT",
      "locator": "§2.8, Lemma 2.46(c), p. 81 (author PDF, revised 9 September 2007)",
-     "excerpt": "then #Q = dim_k H^1_∅(Q, ad^0 ρ̄(1)) and R_Q can be topologically generated as an O-algebra by #Q elements.",
      "match": "Lemma 2.46(c); the reduction in the proof of Theorem 2.49 (p. 83)."
     }
    ],
@@ -3754,7 +3680,6 @@
     {
      "sourceId": "DDT-FLT",
      "locator": "§2.8, Lemma 2.48, p. 82 (author PDF, revised 9 September 2007)",
-     "excerpt": "Let F be a ﬁnite ﬁeld of odd characteristic ℓ. If #F ≠ 5, then H^1(SL_2(F), End^0(F^2)) = 0.",
      "match": "Lemma 2.48 and its sketched proof."
     }
    ],
@@ -3793,13 +3718,11 @@
     {
      "sourceId": "DDT-FLT",
      "locator": "§2.8, proof of Theorem 2.49, p. 83 (author PDF, revised 9 September 2007)",
-     "excerpt": "Using the Chebotarev density theorem we see that it will do to ﬁnd σ ∈ G_Q such that",
      "match": "The reduction to σ and the cohomological argument (pp. 83–84)."
     },
     {
      "sourceId": "DDT-FLT",
      "locator": "§2.8, end of the proof of Theorem 2.49, p. 84 (author PDF, revised 9 September 2007)",
-     "excerpt": "Since ρ̄|G_L is absolutely irreducible, the cohomology group in equation (2.8.1) vanishes.",
      "match": "The vanishing of H¹(Gal(F_n/ℚ), ad⁰ρ̄(1))."
     }
    ],
@@ -3841,7 +3764,6 @@
     {
      "sourceId": "NEKOVAR-SC",
      "locator": "§5.1.3 and §5.2.1, (5.2.1.1)–(5.2.1.3), pp. 114–115 (Numdam; PDF 123–124)",
-     "excerpt": "local class field theory defines an isomorphism",
      "match": "5.1.3 and 5.2.1, read on the page images."
     }
    ],
@@ -3880,7 +3802,6 @@
     {
      "sourceId": "NEKOVAR-SC",
      "locator": "§5.2.2–5.2.3, pp. 115–116 (PDF 124–125)",
-     "excerpt": "We shall be interested only in the following two choices of J",
      "match": "5.2.2 (construction of α and α′, pairings (5.2.2.1)) and 5.2.3 (the choices of J), read on the page images."
     }
    ],
@@ -3974,7 +3895,6 @@
     {
      "sourceId": "NEKOVAR-SC",
      "locator": "§5.2.4–5.2.6 and 5.2.10, pp. 116–121 (PDF 125–130)",
-     "excerpt": "are related by the duality diagram",
      "match": "Proposition 5.2.4, Lemma 5.2.5, Theorem 5.2.6 and 5.2.10, read on the page images."
     }
    ],
@@ -4015,7 +3935,6 @@
     {
      "sourceId": "NEKOVAR-SC",
      "locator": "§5.2.7–5.2.9, pp. 119–121 (PDF 128–130)",
-     "excerpt": "Self-dual case",
      "match": "Proposition 5.2.7, Corollary 5.2.8 and 5.2.9."
     }
    ],
@@ -4055,7 +3974,6 @@
     {
      "sourceId": "NEKOVAR-SC",
      "locator": "§5.3.1–5.3.2, pp. 122–123 (PDF 131–132)",
-     "excerpt": "The complex of continuous cochains with compact support with values in M• is defined as",
      "match": "Definition 5.3.1.1, 5.3.1.2, 5.3.1.3 with (5.3.1.1)–(5.3.1.2), and Lemma 5.3.2, read on the page images."
     }
    ],
@@ -4162,7 +4080,6 @@
     {
      "sourceId": "NEKOVAR-SC",
      "locator": "§5.3.3, pp. 123–124 (PDF 132–133)",
-     "excerpt": "The second cup product",
      "match": "5.3.3.1–5.3.3.5, read on the page images."
     }
    ],
@@ -4250,7 +4167,6 @@
     {
      "sourceId": "NEKOVAR-SC",
      "locator": "§5.3.5–5.3.7, pp. 124–125 (PDF 133–134)",
-     "excerpt": "Tate's global Euler-Poincare characteristic formula",
      "match": "5.3.5 and Theorem 5.3.6."
     }
    ],
@@ -4289,7 +4205,6 @@
     {
      "sourceId": "NEKOVAR-SC",
      "locator": "§5.4.1, pp. 125–126 (PDF 134–135)",
-     "excerpt": "The sequence (5.3.1.2) together with 5.1.5 define an isomorphism",
      "match": "5.4.1 with (5.4.1.1)–(5.4.1.3), read on the page images."
     }
    ],
@@ -4331,7 +4246,6 @@
     {
      "sourceId": "NEKOVAR-SC",
      "locator": "§5.4.2–5.4.5, pp. 126–128 (PDF 135–137)",
-     "excerpt": "In this case the statement is a variant of the Poitou-Tate global duality theorem",
      "match": "5.4.2 (the maps and pairings), Propositions 5.4.3–5.4.4 and Theorem 5.4.5, read on the page images."
     }
    ],
@@ -4370,7 +4284,6 @@
     {
      "sourceId": "NEKOVAR-SC",
      "locator": "§5.6, Proposition 5.6.3, p. 130 (PDF 139)",
-     "excerpt": "remains valid if we replace R by",
      "match": "5.6.1–5.6.3."
     }
    ],
@@ -4408,7 +4321,6 @@
     {
      "sourceId": "NEKOVAR-SC",
      "locator": "§5.7.1–5.7.2, pp. 130–131 (PDF 139–140)",
-     "excerpt": "Assume that the condition (P) from 5.1 fails",
      "match": "5.7.1.1–5.7.1.7 and the beginning of 5.7.2, read on the page images."
     }
    ],

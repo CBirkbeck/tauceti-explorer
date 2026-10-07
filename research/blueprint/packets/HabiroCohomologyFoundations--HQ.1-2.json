@@ -138,19 +138,16 @@
         {
           "sourceId": "wagner-v2",
           "locator": "Theorem A.1(a), printed p.69",
-          "excerpt": "agrees with the usual de Rham complex functor",
           "match": "Input only. This descent theorem is a derived consequence proved by the six steps, not a theorem stated in Appendix A."
         },
         {
           "sourceId": "stacks-completion",
           "locator": "Definition 15.93.4, subsequent closure assertion; Lemma 15.93.20",
-          "excerpt": "homotopy limits",
           "match": "Completion closure and derived Nakayama are imported from DD.1."
         },
         {
           "sourceId": "stacks-etale",
           "locator": "Theorem 59.22.4, proof for affine U, and Lemma 59.22.1",
-          "excerpt": "faithfully flat",
           "match": "The Amitsur-row argument supplies ordinary de Rham descent through DD.2; the extension to the bounded complex is spelled out here."
         }
       ],
@@ -196,13 +193,11 @@
         {
           "sourceId": "wagner-v2",
           "locator": "Theorem A.1(d), printed p.69; proof printed p.75",
-          "excerpt": "underlying object",
           "match": "Input framed equivalences only. Čech coherence is a formal enhanced transport argument, explicitly not attributed to the source."
         },
         {
           "sourceId": "scholze",
           "locator": "Conjecture 7.5, printed p.16",
-          "excerpt": "independent of the choice",
           "match": "Identifies the separate, unproved connection-category statement that this comparison does not establish."
         }
       ],
@@ -245,13 +240,11 @@
         {
           "sourceId": "wagner-v2",
           "locator": "Theorem A.1(a), printed p.69",
-          "excerpt": "de Rham complex functor",
           "match": "Specifies the affine functor and reduction. The sheaf construction is this application of the imported basis-extension theorem."
         },
         {
           "sourceId": "stacks-etale",
           "locator": "Theorem 59.22.4, including the separated affine-cover proof",
-          "excerpt": "quasi-coherent",
           "match": "Each ordinary form sheaf is quasi-coherent; its bounded complex computes de Rham hypercohomology by the affine Čech argument."
         }
       ],
@@ -355,7 +348,6 @@
         {
           "sourceId": "scholze",
           "locator": "Definition 7.3 and its reference back to coordinate γ_i, printed p.15",
-          "excerpt": "q-Leibniz rule",
           "match": "Motivates the existing coordinate-scaling operators. The Laurent integer-lattice action is proved by the displayed character construction, not stated in this source."
         }
       ],
@@ -462,7 +454,6 @@
         {
           "sourceId": "dag-viii",
           "locator": "Section 2.7 opening, printed pp.69–70; Definition 2.7.8 and Remarks 2.7.10–12, printed pp.71–72; symmetric monoidal construction preceding Notation 2.7.27, printed p.75",
-          "excerpt": "up to coherent homotopy",
           "match": "Enhanced module and pullback convention. Applying them to the action gives this specialized category; generic homotopy fixed points are imported from E5."
         }
       ],
@@ -579,7 +570,6 @@
         {
           "sourceId": "dag-viii",
           "locator": "Proposition 2.7.6, Definition 2.7.8, Remark 2.7.10, Proposition 2.7.14 and Remark 2.7.15, printed pp.71–72; symmetric monoidal construction preceding Notation 2.7.27, printed p.75",
-          "excerpt": "sheafification",
           "match": "These general QCoh results imply the quotient comparison by the action-nerve argument above. Proposition 2.7.18 alone, for spectral Deligne–Mumford stacks, is not used as a substitute."
         }
       ],
@@ -625,13 +615,11 @@
         {
           "sourceId": "stacks-quotient",
           "locator": "Proposition 96.14.3 (tag 06WT), statement and groupoid cocycle proof",
-          "excerpt": "quotient stack",
           "match": "Ordinary QCoh/groupoid descent only; the derived step comes from the preceding theorem and imported LP1 interfaces."
         },
         {
           "sourceId": "dag-viii",
           "locator": "Definition 2.6.14 and Proposition 2.6.15, printed pp.66–68; Definition 2.7.8 and Remark 2.7.12, printed pp.71–72; Proposition 2.7.20(7), Example 2.7.23 and Remark 2.7.24, printed pp.73–74; Proposition 2.7.28 and Propositions 2.7.31–32, printed pp.75–76",
-          "excerpt": "equivalence",
           "match": "The cartesian-module description, base-change and fpqc locality, and perfect/dualizable and finite locally free criteria supply the local detection framework. The t-structure follows from the t-exact action limit, not from a pointwise coconnectivity assertion for arbitrary prestacks."
         }
       ],
