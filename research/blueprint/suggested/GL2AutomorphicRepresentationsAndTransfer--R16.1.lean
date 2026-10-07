@@ -69,6 +69,7 @@ def k1 (I : Ideal R) : Subgroup (GeneralLinearGroup (Fin 2) R) := by sorry
 lemma k1_mem (I : Ideal R) (g : GeneralLinearGroup (Fin 2) R) :
     g ∈ k1 I ↔ g.val 1 0 ∈ I ∧ g.val 1 1 - 1 ∈ I := by sorry
 lemma k1_le_k0 (I : Ideal R) : k1 I ≤ k0 I := by sorry
+lemma k1_mono {I J : Ideal R} (h : I ≤ J) : k1 I ≤ k1 J := by sorry
 lemma k1_top : k1 (⊤ : Ideal R) = ⊤ := by sorry
 lemma k1_scalar (I : Ideal R) (u : Rˣ) :
     GeneralLinearGroup.scalar (Fin 2) u ∈ k1 I ↔ (u : R) - 1 ∈ I := by sorry
@@ -111,8 +112,15 @@ theorem localClassification {P C S : Type*} (principal : C → C → P)
     (∃ a b, π = principal a b) ∨ (∃ a, π = special a) ∨
       (∃ a, π = detCharacter a) ∨ (∃ σ, π = supercuspidal σ) := by sorry
 
+-- Missing: ρ is irreducible admissible infinite-dimensional GL₂(F), F a
+-- nonarchimedean local field of characteristic zero, and K n = K₁(pⁿ).
+-- This existence assertion precedes the least-level definition; it does not
+-- assume a conductor or the subsequent Casselman dimension formula.
+theorem newvectorLevelExists (ρ : Representation ℂ G V) (K : ℕ → Subgroup G) :
+    ∃ n, ∃ v ∈ (Representation.invariants (ρ.comp (K n).subtype)), v ≠ 0 := by sorry
+
 /-- Algebraic least-level signature. In GL₂ the subgroups are K₁(pⁿ).
-The existence argument is the supplier newvector theorem. -/
+The preceding newvectorLevelExists supplies hex under its stated conditions. -/
 def conductorExponent (ρ : Representation ℂ G V) (K : ℕ → Subgroup G)
     (hex : ∃ n, ∃ v ∈ (Representation.invariants (ρ.comp (K n).subtype)), v ≠ 0) : ℕ := by sorry
 lemma conductor_min (ρ : Representation ℂ G V) (K : ℕ → Subgroup G)
@@ -143,10 +151,11 @@ example (ρ : Representation ℂ G V) (K : ℕ → Subgroup G)
     (hex : ∃ n, ∃ v ∈ (Representation.invariants (ρ.comp (K n).subtype)), v ≠ 0) :
     conductorExponent ρ K hex = 1 := by sorry
 -- TauCeti.GL2Blueprint.conductor_ramified_steinberg
--- Missing: ρ=St⊗χdet, K=K₁(pⁿ), a=a(χ)>0; the 1+a rule is false.
-example (ρ : Representation ℂ G V) (K : ℕ → Subgroup G) (a : ℕ) (ha : 0 < a)
+-- Missing: ρ=St⊗χdet, K=K₁(pⁿ), a=a(χ)≥2.
+-- At a=1 the two expressions coincide, so it cannot detect the wrong rule.
+example (ρ : Representation ℂ G V) (K : ℕ → Subgroup G) (a : ℕ) (ha : 2 ≤ a)
     (hex : ∃ n, ∃ v ∈ (Representation.invariants (ρ.comp (K n).subtype)), v ≠ 0) :
-    conductorExponent ρ K hex = 2 * a := by sorry
+    conductorExponent ρ K hex = 2 * a ∧ conductorExponent ρ K hex ≠ 1 + a := by sorry
 -- Missing: ρ is irreducible admissible infinite-dimensional GL₂(F), K=K₁(pⁿ).
 theorem casselmanNewvector (ρ : Representation ℂ G V) (K : ℕ → Subgroup G)
     (hex : ∃ n, ∃ v ∈ (Representation.invariants (ρ.comp (K n).subtype)), v ≠ 0) (n : ℕ) :
@@ -508,6 +517,8 @@ theorem normCharacterSteinberg {C DClass FClass : Type*}
     (special : C → FClass) (χ : C) : jl (normCharacter χ) = special χ := by sorry
 -- Missing: realLocalJL, coeff and D are the actual archimedean supplier maps;
 -- coeff(k,m)=Sym^{k−2}⊗det^m and D has the central-character norm twist.
+-- Use AF.1's archimedean character interfaces, requested through proposed AF.1b;
+-- ET.6's current finite-extension-of-Qp construction supplies no real-place theorem.
 theorem realQuaternionic {DClass FClass : Type*} (realLocalJL : DClass → FClass)
     (coeff : ℕ → ℤ → DClass) (D : ℕ → ℤ → FClass)
     (k : ℕ) (hk : 2 ≤ k) (m : ℤ) : realLocalJL (coeff k m) = D k m := by sorry
@@ -517,7 +528,8 @@ theorem wildDyadicTransfer {DClass FClass W : Type*} (jl : DClass → FClass)
     (recD : DClass → W) (recF : FClass → W) (ρ : DClass) :
     recF (jl ρ) = recD ρ := by sorry
 -- The actual parity calculation for swapping one ramified and one split place.
--- Upstream quaternion existence and the chosen splitting maps are not recreated.
+-- This assumes chosen global algebras and their ramification data. QFI Layer 6D
+-- supplies only local classification; global realization is a recorded R17.3 gap.
 theorem quaternionSwap {V : Type*} [DecidableEq V] (S : Finset V)
     (v τ : V) (hv : v ∉ S) (hτ : τ ∈ S) (hvt : v ≠ τ) :
     Even S.card → Even (insert v (S.erase τ)).card := by sorry
@@ -603,6 +615,7 @@ example {EFunctions FFunctions T : Type*} (φ : EFunctions)
     O_F (cyclicMatching EFunctions FFunctions φ) γ = 0 := by sorry
 -- Missing: these are the actual AS.6 terms of a common test function after the
 -- local trace substitution. The residual term is explicitly retained.
+-- Normalized intertwiners come from AS.2; AS.5 owns weighted cohomology.
 theorem spectralLedger (cusp residual continuous quaternionNorm quaternionOther : ℂ) :
     cusp + residual + continuous = quaternionNorm + quaternionOther := by sorry
 -- Missing: A is the integrated operator of f on Borel induction, with
