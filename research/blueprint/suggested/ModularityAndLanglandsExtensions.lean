@@ -50,8 +50,14 @@ automorphic L-functions and Galois representations attached to automorphic forms
 pinned libraries; other roadmaps own them (AutomorphicFormsOnReductiveGroups, AutomorphicLFunctions-
 AndLocalFactors, EndoscopicTransferAndUnitaryTraceComparison, AutomorphicGaloisRepresentationsPartII,
 PotentialAutomorphyInfrastructurePartII). They enter this file through the explicit supplier
-interface `TauCeti.Langlands.Context` below, each field naming its owner, so that this roadmap's own
-notions are honest definitions over them.
+interface `TauCeti.Langlands.Context` below, each field naming its owner, as proposed interfaces.
+Independent review REV-ModularityAndLanglandsExtensions (2026-10-07)
+found that several records admit incoherent data and that unnamed Prop fields hide essential
+hypotheses. The packet is needs_changes. Elaboration checks syntax only; uncorrected signatures
+below remain flagged sketches, not faithful theorem statements. In particular NT II Theorem 2.1,
+Mok's packet multiplicities, ACC infinity comparison and FS I.10.2 require the revisions recorded
+in the packet's per-node review. The incorrect p–r iff has been removed rather than retained
+behind an arbitrary auxiliary proposition.
 -/
 
 set_option autoImplicit false
@@ -196,9 +202,9 @@ structure GaloisData (F : Type) [Field F] [NumberField F] extends Langlands.Cont
   plusSign : PlusChar → (F →+* ℂ) → ℤˣ
   /-- `r_{ℓ,ι}(χ)|_{G_F}` for an algebraic `χ` of `F⁺` (owner: AG2.2). -/
   plusGal : PlusChar → GalRep 1
-  /-- The rational `ℓ`-adic Tate module `V_ℓ(E)` of an elliptic curve over `F`
-  (owner: AG2.0). -/
-  tateModule : WeierstrassCurve F → GalRep 2
+  /-- The cohomological realization `H¹_et(E, Q̄_ℓ)`, dual to the usual Tate module,
+  in the convention `HT(ε_ℓ) = -1` (owner: ArithmeticGaloisRepresentations/AG2.0). -/
+  ellipticH1Rep : WeierstrassCurve F → GalRep 2
   /-- `π` has complex multiplication (`π ≅ π ⊗ χ` for a non-trivial quadratic `χ`) (owner: AF.2). -/
   HasCM : ∀ {n : ℕ}, AutRep n → Prop
 
@@ -207,11 +213,15 @@ instance GaloisData.instSetoidGalRep (G : GaloisData F) (n : ℕ) : Setoid (G.Ga
   G.galSetoid n
 
 /-- `(π, χ)` is polarized (BLGGT v4 §1.1): `χ_v(−1)` is independent of `v | ∞`,
-`π^c ≅ π^∨ ⊗ (χ ∘ N_{F/F⁺} ∘ det)`, and `χ_v(−1) = (−1)^n` when `F` is imaginary. -/
+`π^c ≅ π^∨ ⊗ (χ ∘ N_{F/F⁺} ∘ det)`. For pure weight `w`, the imaginary-CM sign is
+`χ_v(−1) = (−1)^(n+w)` (reviewed AG2.0/E2), including the weight-zero special case. -/
 def IsPolarized (G : GaloisData F) {n : ℕ} (π : G.AutRep n) (χ : G.PlusChar) : Prop :=
   (∀ τ τ' : F →+* ℂ, G.plusSign χ τ = G.plusSign χ τ') ∧
   G.autConj π = G.twist (G.dual π) (G.normPlus χ) ∧
-  (NumberField.IsTotallyComplex F → ∀ τ : F →+* ℂ, G.plusSign χ τ = (-1) ^ n)
+  (NumberField.IsTotallyComplex F → ∃ w : ℤ,
+    (∀ (τ : F →+* ℂ) (i : Fin n),
+      G.autWeight π ((starRingEnd ℂ).comp τ) i + G.autWeight π τ i.rev = w) ∧
+    ∀ τ : F →+* ℂ, G.plusSign χ τ = (-1) ^ ((n : ℤ) + w))
 
 /-- The weight of `π` is dominant (`a_{τ,1} ≥ ⋯ ≥ a_{τ,n}`) and lies in `(ℤ^n)_w` for some `w`:
 `a_{τc,i} + a_{τ,n+1−i} = w`. -/
@@ -635,11 +645,13 @@ structure CompatibleSystemData (F : Type) [Field F] [NumberField F] extends Galo
 
 variable (S : CompatibleSystemData F)
 
-/-- `TauCeti.LanglandsRegister.partialL`: `L^T(R, s) = ∏_{v ∉ T} Q_v(q_v^{−s})^{−1}` (finite
+/-- `TauCeti.LanglandsRegister.partialL`: `L^T(R, s) = ∏_{v ∉ T} q_v^{n*s}/Q_v(q_v^s)` for monic characteristic polynomials
+`Q_v(X)=det(X−Frob_v)` (import of R24.5/system-l-functions) (finite
 places outside `T`); it converges for `Re s > 1 + w/2`. -/
 def partialL {n : ℕ} (R : S.System n) (T : Finset S.Place) (s : ℂ) : ℂ :=
   ∏' v : {v : S.Place // ¬ S.IsArchimedean v ∧ v ∉ T},
-    ((S.charPoly R v.1).eval ((S.residueCard v.1 : ℂ) ^ (-s)))⁻¹
+    ((S.residueCard v.1 : ℂ) ^ ((n : ℂ) * s)) /
+      (S.charPoly R v.1).eval ((S.residueCard v.1 : ℂ) ^ s)
 
 open Classical in
 /-- `TauCeti.LanglandsRegister.archimedeanFactor`: `L_v(R, s)` for `v | ∞`, with
@@ -668,7 +680,8 @@ converges (absolutely) for `Re s > 1 + w/2`. -/
 theorem partialL_converges {n : ℕ} (R : S.System n) (w : ℤ) (hR : S.IsPure R w)
     (T : Finset S.Place) (hT : S.exceptional R ⊆ T) (s : ℂ) (hs : 1 + (w : ℝ) / 2 < s.re) :
     Multipliable fun v : {v : S.Place // ¬ S.IsArchimedean v ∧ v ∉ T} =>
-      ((S.charPoly R v.1).eval ((S.residueCard v.1 : ℂ) ^ (-s)))⁻¹ := by
+      ((S.residueCard v.1 : ℂ) ^ ((n : ℂ) * s)) /
+      (S.charPoly R v.1).eval ((S.residueCard v.1 : ℂ) ^ s) := by
   sorry
 
 /-- `TauCeti.LanglandsRegister.archimedeanFactor_directSum`:
@@ -700,7 +713,7 @@ theorem archFactor_trivial_Q (S : CompatibleSystemData ℚ) (v : S.Place)
     (hσ : S.hodgeSign S.sysTrivial v = Finsupp.single 0 (1, 0))
     (hP : ∃ e : {w : S.Place // ¬ S.IsArchimedean w} ≃ Nat.Primes,
       ∀ w, S.residueCard w.1 = (e w : ℕ))
-    (hQ : ∀ w, ¬ S.IsArchimedean w → S.charPoly S.sysTrivial w = 1 - Polynomial.X)
+    (hQ : ∀ w, ¬ S.IsArchimedean w → S.charPoly S.sysTrivial w = Polynomial.X - 1)
     (hS : S.exceptional S.sysTrivial = ∅) (s : ℂ) (hs : 1 < s.re) :
     archimedeanFactor S S.sysTrivial v s = Complex.Gammaℝ s ∧
       completedL S S.sysTrivial s = Complex.Gammaℝ s * riemannZeta s := by
@@ -808,9 +821,9 @@ def irreducible (G : GaloisData F) : Prop :=
   ∀ {n : ℕ} (ρ : G.GalRep n), IsAutomorphicNT G ρ → G.GalIrreducible ρ
 
 /-- `TauCeti.LanglandsRegister.IsAutomorphicNT.ellipticCurve` (test, computation): for `E/ℚ` an
-elliptic curve, `V_ℓ(E)` is automorphic (BCDT), with `π` of weight 2. -/
+elliptic curve, `H¹_et(E, Q̄_ℓ)` is automorphic (BCDT), with `π` of weight 2. -/
 theorem ellipticCurve (G : GaloisData ℚ) (hnorm : PotentialAutomorphy.normalizationRegister G)
-    (E : WeierstrassCurve ℚ) [E.IsElliptic] : IsAutomorphicNT G (G.tateModule E) := by
+    (E : WeierstrassCurve ℚ) [E.IsElliptic] : IsAutomorphicNT G (G.ellipticH1Rep E) := by
   sorry
 
 /-- `TauCeti.LanglandsRegister.IsAutomorphicNT.character` (test, degenerate): for `n = 1`, `ρ` is
@@ -839,9 +852,9 @@ end IsAutomorphicNT
 /-- `TauCeti.LanglandsRegister.ntBridge` (ML.0/nt26-normalisation-bridge): Newton–Thorne's
 normalisations (geometric Frobenius, `HT(ε) = −1`, `WD(r_ι(π)|_{G_{F_v}})^{F-ss} ≅
 rec^T_{F_v}(ι^{−1}π_v) = rec_{F_v}(ι^{−1}π_v ⊗ |det|^{(1−n)/2})`) are BLGGT's
-(`normalizationRegister`), and the atlas's arithmetic-Frobenius attachment `rAtlas`
-(IntegralHeckeAndGaloisDeterminants IHG.3, AutomorphicGaloisRepresentations R19) is related by
-`ρ ↦ ρ^∨`, under which Hodge–Tate weights change sign. -/
+(`normalizationRegister`). The optional `rAtlas ≈ galDual (galOf π)` dictionary below
+is an additional realization hypothesis awaiting an exact IHG.3/R19 supplier. Changing Frobenius
+terminology alone does not imply it. Only an actual duality dictionary changes Hodge–Tate signs. -/
 def ntBridge (G : GaloisData F) (rAtlas : ∀ {n : ℕ}, G.AutRep n → G.GalRep n) : Prop :=
   PotentialAutomorphy.normalizationRegister G ∧
   (∀ {n : ℕ} (π : G.AutRep n), G.IsRegularAlgebraic π → G.IsCuspidal π →
@@ -1303,12 +1316,13 @@ structure ArtinData (K : Type) [Field K] [NumberField K] extends Langlands.Conte
 instance ArtinData.instSetoidArtinRep (A : ArtinData K) (n : ℕ) : Setoid (A.ArtinRep n) :=
   A.artinSetoid n
 
-/-- `rec(π_v) ≅ ρ|_{W_{K_v}}` for all but finitely many places `v`. -/
+/-- `rec(π_v) ≅ ρ|_{W_{K_v}}` for every place, including ramified and infinite ones. -/
 def Matches (A : ArtinData K) {n : ℕ} (π : A.AutRep n) (ρ : A.ArtinRep n) : Prop :=
-  {v : A.Place | A.localParam π v ≠ A.restrictTo ρ v}.Finite
+  ∀ v : A.Place, A.localParam π v = A.restrictTo ρ v
 
 /-- `TauCeti.WeightOne.IsAutomorphicArtin` (ML.1/strong-artin-conjecture): `ρ` has a cuspidal `π`
-with `rec(π_v) ≅ ρ|_{W_{K_v}}` for almost all `v` (Langlands' conjecture for `ρ`). -/
+with `rec(π_v) ≅ ρ|_{W_{K_v}}` for every `v` (strong Artin).
+Almost-everywhere equality alone does not imply entireness of the full Artin function. -/
 def IsAutomorphicArtin (A : ArtinData K) {n : ℕ} (ρ : A.ArtinRep n) : Prop :=
   ∃ π : A.AutRep n, A.IsCuspidal π ∧ Matches A π ρ
 
@@ -2241,6 +2255,14 @@ theorem wrongParity (G : ClassicalGroup D) (hG : G.family = .symplectic)
   · exact hχ h.1
   · exact absurd h.2 (by norm_num)
 
+/-- Review negative control: for orthogonal dual rank 3 and a single dimension-3 summand,
+the determinant-one relation kills the sign. An unrestricted sign-group formula would fail. -/
+theorem orthogonal_rank_three_component (G : ClassicalGroup D)
+    (hG : G.family = .orthogonal) (hN : G.N = 3) (μ : D.AutRep 3)
+    (ψ : GlobalParameter D G) (hψ : ψ.summands = {⟨3, μ, 1⟩}) :
+    ∀ s : ψ.componentGroup, s = 1 := by
+  sorry
+
 end GlobalParameter
 
 /-- `TauCeti.Arthur.localPacket` (ML.4/local-arthur-packets; Arthur, Theorem 1.5.1): at every
@@ -3116,21 +3138,18 @@ theorem descent_of_symplecticType (hTWFL : D.twistedWeightedFL) (G : Data D)
 
 end GSp4
 
-/-- `TauCeti.Arthur.exteriorSquare_nonvanishing` (Shahidi): for `Π` cuspidal on `GL_{2n}` and `ω`
-unitary, `L^S(s, Π, ∧² ⊗ ω)` is holomorphic and non-zero on `Re s = 1`, `s ≠ 1`, has at most a
-simple pole at `1` (otherwise a non-zero value), and the pole occurs iff `Π` is of symplectic type
+/-- `TauCeti.Arthur.exteriorSquare_nonvanishing` (Shahidi): for unitary cuspidal `Π` on
+`GL_{2n}` and unitary `ω`, at `s = 1` the function has a simple pole or a nonzero limit, and the pole occurs iff `Π` is of symplectic type
 with multiplier `ω⁻¹`; and for characters `ψ` with `Π ≇ Π ⊗ ψψ'⁻¹` (`ψ ≠ ψ'`, from the
 cuspidality of the base change `Π'`), at most one `L^S(s, Π, ∧² ⊗ ωψ)` has a pole at `1`. -/
 theorem exteriorSquare_nonvanishing (D : ArthurContext F) (n : ℕ) (Pgl : D.AutRep (2 * n))
-    (hcusp : D.IsCuspidal Pgl) (ω : D.AutRep 1) (hω : D.IsUnitary ω) (S : Finset D.Place)
+    (hcusp : D.IsCuspidal Pgl) (hunit : D.IsUnitary Pgl)
+    (ω : D.AutRep 1) (hω : D.IsUnitary ω) (S : Finset D.Place)
     (hS : IsUnramifiedOutside D.toContext Pgl S) :
-    (∀ s : ℂ, s.re = 1 → s ≠ 1 →
-      DifferentiableAt ℂ (D.twistedSquareL Pgl .ext2 ω S) s ∧
-        D.twistedSquareL Pgl .ext2 ω S s ≠ 0) ∧
     (HasSimplePoleAt (D.twistedSquareL Pgl .ext2 ω S) 1 ∨
       HasNonzeroLimitAt (D.twistedSquareL Pgl .ext2 ω S) 1) ∧
     (HasPoleAt (D.twistedSquareL Pgl .ext2 ω S) 1 ↔ GSp4.IsSymplecticTypeWith D Pgl ω⁻¹) ∧
-    ∀ chars : Finset (D.AutRep 1),
+    ∀ chars : Finset (D.AutRep 1), (∀ ψ ∈ chars, D.IsUnitary ψ) →
       (∀ ψ ∈ chars, ∀ ψ' ∈ chars, ψ ≠ ψ' → D.twist Pgl (ψ * ψ'⁻¹) ≠ Pgl) →
       Set.Subsingleton {ψ | ψ ∈ chars ∧ HasPoleAt (D.twistedSquareL Pgl .ext2 (ω * ψ) S) 1} := by
   sorry
@@ -5718,17 +5737,20 @@ theorem symPower_of_not_supercuspidal (π : (C.aut ⊥).AutRep 2)
     (hJ : ∀ (l : ℕ) (_ : Fact l.Prime), (S.jacquet π l).Nonempty) :
     (∀ n, 3 ≤ n → ∀ (p : ℕ) (_ : Fact p.Prime) (ι : Iota p), SymAutomorphic S π n p ι) ∧
     (∀ n, 3 ≤ n → Nonempty (SymPowerLift S π n)) ∧
-    ∀ E : WeierstrassCurve ℚ, E.IsElliptic → S.IsSemistable E → ∀ n : ℕ,
+    ∀ E : WeierstrassCurve ℚ, E.IsElliptic → S.IsSemistable E → ∀ n : ℕ, 0 < n →
       Differentiable ℂ (S.completedSymL E n) := by
   sorry
 
+-- REVIEW GAP: this sketch still omits PSL₂(F_{p^a}) ≤ P r̄(G_F) ≤ PGL₂(F_{p^a})
+-- with p^a > max(5, 2*n-1). The exact finite-field/projective-image supplier must be typed;
+-- an arbitrary Prop field is not a replacement for this mathematical condition.
 /-- `TauCeti.SymmetricPower.symPower_lifting` (ML.3/symmetric-power-automorphy-lifting, NT II
 Theorem 2.1): over totally real `F`, for regular algebraic cuspidal `π, π′` on `GL₂(𝔸_F)` with `π′` of
 weight 2, non-CM, `r_{π′,ı}|_{G_{F_v}}` non-ordinary for `v | p`, `r̄_{π′,ı} ≅ r̄_{π,ı}`, `π_v` a twist
 of Steinberg iff `π′_v` is (`v ∤ p`), and `Sym^{n-1} r_{π′,ı}` automorphic, `Sym^{n-1} r_{π,ı}` is
 automorphic (no irreducibility of `Sym^{n-1} r̄` and no bound `p > n` needed). -/
 theorem symPower_lifting {F : NF} [FiniteDimensional ℚ F] (hF : IsTotallyRealNF F) (n p : ℕ)
-    [Fact p.Prime] (ι : Iota p) (π π' : (C.aut F).AutRep 2)
+    [Fact p.Prime] (hn : 1 ≤ n) (ι : Iota p) (π π' : (C.aut F).AutRep 2)
     (hπ : (C.aut F).IsCuspidal π ∧ (C.aut F).IsRegularAlgebraic π)
     (hπ' : (C.aut F).IsCuspidal π' ∧ (C.aut F).IsRegularAlgebraic π' ∧ S.weight π' = 2 ∧
       ¬ S.IsCM π')
@@ -6524,36 +6546,12 @@ def G5Context.IsResAutomorphicMember {K : G5NF} {n : ℕ} (R : C.CompSys K n) (l
     (∀ v ∈ X₀, C.IsUnramifiedAutAt π v) ∧
     (C.reduce (C.galRep π l ι)).Iso (C.reduce (C.member R l ι))
 
-/-- The auxiliary hypotheses (1)–(8) of BCGNT Proposition 6.2.3 on `(R, E, Ψ, p, r)` (infinity type
-of `Ψ`, splitting and residual-image conditions at `p` and `r`), which the packet statement cites
-without stating (owner: this node's source extraction, corrections E26–E30). -/
-structure G5PRSwitchData (C : G5Context) where
-  /-- The conditions of BCGNT (1)–(8). -/
-  Holds : ∀ {F L : G5NF}, C.CompSys F 2 → C.CompSys L 1 → (p r : ℕ) → Prop
-
-/-- `TauCeti.PotentialAutomorphy.prSwitch` (ML.2/p-r-switch; BCGNT Proposition 6.2.3): `F` imaginary
-CM Galois over `ℚ` containing an imaginary quadratic `F₀`, `R` strongly irreducible very weakly
-compatible of rank 2 with `H_τ = {0, m}`, `det r_λ = ε^{−m}`, `X₀ ∩ S = ∅`, `E/ℚ` cyclic totally real
-of degree `m` disjoint from `F`, `Ψ` a Hecke character (system) of `L = EF` and the auxiliary
-conditions at `p, r`: then `Sym^{n−1}R ⊗ Ind_{G_L}^{G_F} Ψ` is automorphic of level prime to `X₀` at
-`p` iff it is at `r`.
--- NOTE: the packet does not define "automorphy at the prime p (weakly)"; the residual reading
--- `IsResAutomorphicMember` is used, and BCGNT's conditions (1)–(8) enter as `G5PRSwitchData`. -/
-theorem prSwitch (Aux : G5PRSwitchData C) (F F₀ E : G5NF) [FiniteDimensional ℚ F]
-    [FiniteDimensional ℚ E] (hF : IsCMField F) (hFgal : G5IsGaloisOver ⊥ F) (hF₀F : F₀ ≤ F)
-    (hF₀ : Module.finrank ℚ F₀ = 2 ∧ IsTotallyComplex F₀) (m n : ℕ) (hm : 2 ≤ m) (hn : 1 ≤ n)
-    (X₀ : Set (G5Place F)) (hX₀ : X₀.Finite) (R : C.CompSys F 2)
-    (hR : C.IsStronglyIrreducible R ∧ C.IsVeryWeaklyCompatible R ∧ C.HasHTZeroM R m)
-    (hdet : C.detCS R = C.cyclo F (-(m : ℤ))) (hX₀S : Disjoint X₀ (C.badSet R))
-    (hE : IsTotallyReal E ∧ G5IsGaloisOver ⊥ E ∧ IsCyclic (E ≃ₐ[ℚ] E) ∧
-      Module.finrank ℚ E = m ∧ G5LinDisjointOver ⊥ E F)
-    (Ψ : C.CompSys (E ⊔ F) 1) (p r : ℕ) [Fact p.Prime] [Fact r.Prime]
-    (ιp : PadicAlgCl p ≃+* ℂ) (ιr : PadicAlgCl r ≃+* ℂ) (haux : Aux.Holds R Ψ p r) :
-    C.IsResAutomorphicMember
-        (C.tensorCS (C.symCS n R) (C.indCS (le_sup_right : F ≤ E ⊔ F) Ψ)) p ιp X₀ ↔
-      C.IsResAutomorphicMember
-        (C.tensorCS (C.symCS n R) (C.indCS (le_sup_right : F ≤ E ⊔ F) Ψ)) r ιr X₀ := by
-  sorry
+/- REVIEW GAP (ML.2/p-r-switch): BCGNT Proposition 6.2.3 concludes that
+Sym^{n−1}R is weakly automorphic of level prime to X₀ under seventeen explicit conditions,
+with R_CM, R_aux and S_UA, residual isomorphisms and local connects relations. The former
+G5PRSwitchData.Holds and residual-characteristic iff did not state this theorem and are removed.
+The packet records the actual conditions and proof. Omit the suggested signature until those
+objects and the specialized Theorem 3.2.1 lifting/descent exports can be typed honestly. -/
 
 /-- `TauCeti.PotentialAutomorphy.weakAutomorphy_symPower`
 (ML.2/potential-weak-automorphy-symmetric-powers; BCGNT Theorem 6.2.4): `F` imaginary CM, `R` a
@@ -7055,14 +7053,15 @@ theorem bcgnt_theoremC (F : G5NF) [FiniteDimensional ℚ F] (hF : IsCMField F) (
 
 /-- `TauCeti.SymmetricPower.acc_purity` (ML.3/acc-purity-rank-two; ACC+ Corollary 7.1.13): `F` CM,
 `R` irreducible rank-2 very weakly compatible with `H_τ = {0, 1}`, `m ≥ 0`: (1) `R` is pure of weight
-`1`; (2) `L^S(ι Sym^m R, s)` continues meromorphically to `ℂ`, holomorphic and non-vanishing for
-`Re s ≥ m/2 + 1`; (3) `Λ(ι Sym^m R, s) = ε Λ((Sym^m R)^∨, 1 − s)`. -/
+`1`; (2) `L^S(ι Sym^m R, s)` continues meromorphically to `ℂ`; it is holomorphic and
+non-vanishing for `Re s ≥ m/2 + 1` only if `R` is strongly irreducible and `m > 0`; (3) `Λ(ι Sym^m R, s) = ε Λ((Sym^m R)^∨, 1 − s)`. -/
 theorem acc_purity (F : G5NF) [FiniteDimensional ℚ F] (hF : IsCMField F) (R : W.CompSys F 2)
     (hR : W.IsIrreducibleCS R ∧ W.IsVeryWeaklyCompatible R ∧ W.HasHTZeroM R 1) (m : ℕ) :
     W.IsPure R 1 ∧
       (∃ g : ℂ → ℂ, MeromorphicOn g Set.univ ∧
         (∀ s : ℂ, (m : ℝ) / 2 + 1 < s.re → g s = W.partialLCS (W.symCS (m + 1) R) s) ∧
-        ∀ s : ℂ, (m : ℝ) / 2 + 1 ≤ s.re → AnalyticAt ℂ g s ∧ g s ≠ 0) ∧
+        (W.IsStronglyIrreducible R → 0 < m →
+          ∀ s : ℂ, (m : ℝ) / 2 + 1 ≤ s.re → AnalyticAt ℂ g s ∧ g s ≠ 0)) ∧
       ∀ᶠ s in Filter.codiscrete ℂ, W.completedLCS (W.symCS (m + 1) R) s =
         W.epsilonCS (W.symCS (m + 1) R) s * W.completedLCS (W.dualCS (W.symCS (m + 1) R)) (1 - s) := by
   sorry
@@ -7079,7 +7078,7 @@ a finite set `𝓛` of good primes and `F^{avoid}/ℚ` finite, there are `F₂^{
 linearly disjoint from `F^{avoid}` and `F^{suffices}/ℚ` finite totally real Galois, unramified above
 `𝓛`, linearly disjoint from `F^{avoid}F₂^{avoid}`, such that for every finite totally real
 `F′ ⊇ F^{suffices}` linearly disjoint from `F₂^{avoid}` and `m ∈ 𝓜` there is a regular algebraic
-cuspidal polarizable `π` of `GL_{m+1}(𝔸_{F′})` of weight `0`, `ι`-ordinary and unramified above `𝓛`,
+cuspidal polarizable `π` of `GL_{m+1}(𝔸_{F′})` of weight `0`, unramified above `𝓛`,
 with `Sym^m r_{E,l}^∨|_{G_{F′}} ≅ r_{l,ι}(π)`.
 -- NOTE: the packet statement leaves the prime `l` and `ι` implicit; they are fixed parameters here. -/
 theorem acc_ellipticSymPowers (𝓜 : Finset ℕ) (h𝓜 : ∀ m ∈ 𝓜, 0 < m)
@@ -7093,7 +7092,7 @@ theorem acc_ellipticSymPowers (𝓜 : Finset ℕ) (h𝓜 : ∀ m ∈ 𝓜, 0 < m
       ∀ F' : G5NF, FiniteDimensional ℚ F' → IsTotallyReal F' → Fsuff ≤ F' →
         G5LinDisjointOver ⊥ F' F2av → ∀ m ∈ 𝓜,
         ∃ π : W.AutRep F' (m + 1), W.IsCuspidal π ∧ W.IsRegularAlgebraic π ∧ W.IsPolarizable π ∧
-          W.weight π = 0 ∧ (∀ v : G5Place F', G5Above v l → W.IsIotaOrdinaryAt π l ι v) ∧
+          W.weight π = 0 ∧
           (∀ p ∈ 𝓛, ∀ v : G5Place F', G5Above v p → W.IsUnramifiedAutAt π v) ∧
           G5IsoSymDual W m (G5Rep.res (bot_le : (⊥ : G5NF) ≤ F') (W.ellRep E l))
             (W.galRep π l ι) := by
