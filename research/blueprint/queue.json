@@ -22573,7 +22573,8 @@
    ],
    "avoidAccountOf": "BP-AutomorphicLFunctionsAndLocalFactors",
    "prompt": "research/blueprint/prompts/REV-AutomorphicLFunctionsAndLocalFactors.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #363"
   },
   {
    "id": "BP-AutomorphicPadicLFunctions",
@@ -26088,8 +26089,9 @@
    ],
    "avoidAccountOf": "BP-HilbertModularVarietiesAndShimuraCurves--H0",
    "prompt": "research/blueprint/prompts/REV-HilbertModularVarietiesAndShimuraCurves--H0.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #430"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #430",
+   "finishedAt": "2026-10-07T06:31:48Z"
   },
   {
    "id": "BP-HilbertModularVarietiesAndShimuraCurves--R18.2",
