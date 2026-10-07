@@ -55273,7 +55273,8 @@
     "FIX-RT-BP-ArithmeticKTheory--N.7~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-BP-ArithmeticKTheory--N.7~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5714"
   },
   {
    "id": "RT-BP-ClassicalSerreModularity--R27.3",
@@ -56521,8 +56522,9 @@
     "FIX-RT-BP-K2SymbolsBrauer--T.3~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-BP-K2SymbolsBrauer--T.3~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5722"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5722",
+   "finishedAt": "2026-10-07T13:27:57Z"
   },
   {
    "id": "RT-BP-NeronModelsAndSemistableAbelianVarieties",
