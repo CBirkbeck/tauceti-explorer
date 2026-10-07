@@ -1,7 +1,8 @@
 /-
-This file is not the roadmap and is not exhaustive. The corrected blueprint packet is the mathematical specification for this review.
-The reader document needs synchronization in the next authorized revision;
-see REV-GeometricSatakeAndFusion--GS0.md before treating its older text as definitive.
+This file is not the roadmap and is not exhaustive. The synchronized roadmap
+document GeometricSatakeAndFusion--GS0.md is definitive; its companion packet
+records the same mathematical contracts, APIs, tests and remaining obligations.
+This revision has not been compiled: no existing build at the pins is available.
 These statements suggest Lean forms so contributors and reviewers converge on
 names and signatures. They claim no implementation; implementationStatus is
 unchecked throughout. Proofs and unfinished constructions use `sorry`.
@@ -447,6 +448,33 @@ example (X : Type u) (O : Set (X × X)) : IsEmpty (flagIncidence X ∅ O) := by 
 /-- Unit test `incidence_no_unrestricted_middle` (non-example): For both diagonal relations, a middle flag different from x cannot occur. -/
 example (X : Type u) (p : flagIncidence X {p | p.1 = p.2} {p | p.1 = p.2}) : (flagIncidence_projection X {p | p.1 = p.2} {p | p.1 = p.2} p).1 = (flagIncidence_projection X {p | p.1 = p.2} {p | p.1 = p.2} p).2 := by sorry
 
+/-! GeometricSatakeAndFusion:GS1/length-semicontinuity
+Signature omitted under §13, reserved exact name:
+`TauCeti.Suggested.GeometricSatake.divisorLengthUpperSemicontinuous`.
+For the actual affinoid-perfectoid S and ordered O_E-untilts of FS VI.3.2,
+ξ=∏ ξ_i, B⁺=ξ-adic completion of W_{O_E}(R⁺)[1/[ϖ]], and the
+canonical fibre rings B_s⁺, any f∈B⁺ has open loci
+{s∈|S| | length_{B_s⁺}(B_s⁺/(f_s)) ≤ m} for every m:ℕ.
+The length takes values in ℕ∪{∞}. The geometric fibre rings are products
+of complete DVRs over distinct untilt supports, with repeated legs counted
+in ξ. A zero factor yields infinite length. The actual space, ring family,
+fibre maps, Cartier-residue loci and length carrier are not yet available.
+No theorem on an arbitrary function is substituted. -/
+
+/-! GeometricSatakeAndFusion:GS1/lattice-relative-position-semicontinuity
+Signature omitted under §13, reserved exact name:
+`TauCeti.Suggested.GeometricSatake.latticeRelativePositionUpperSemicontinuous`.
+In that same genuine completed Cartier family let L⊂B=B⁺[1/ξ] be a
+finitely generated B⁺-submodule with ξ^N B⁺⊂L⊂ξ^(−N)B⁺ for some N≥0.
+The fibre L_s means the image of L⊗B_s⁺ in B_s. For its total relative
+position strata S_m, each ⋃_{m′≥m} S_{m′} is closed, and S_m=|S|
+for one integer m implies L is finite projective of rank one over B⁺.
+The relative position agrees with length(B_s⁺/L_s) when L_s⊂B_s⁺.
+The geometric ring family, images, actual relative position and rank-one
+fibre-detection interface are not yet available, so the exact named target
+is omitted rather than assuming L projective or inventing a Prop field.
+This is local rank-one projectivity, not a chosen global generator. -/
+
 /-! GeometricSatakeAndFusion:GS1/semi-infinite-orbits-and-hyperbolic-localization
 For a parabolic P⁺⊂G with Levi M and opposite P⁻, Hck_{P±}→Hck_G and Hck_{P±}→Hck_M give CT_P=R(p⁺)_!(q⁺)*. On bounded monodromic objects it identifies with R(p⁻)_*R(q⁻)!. For a Borel the geometric strata are S_lam=L U·lam(ξ), and the union of strata with cocenter weight ν′≤ν is closed as in VI.3.1; for a Borel this is the coroot order on all coweights, without requiring dominance; the attracting and repelling decompositions come from a regular central cocharacter of M.
 Prototype boundary: The plus/minus comparison omits monodromicity and the geometric correspondence hypotheses. The functor type and plus composition are concrete; hyperbolic localization is imported from VS1. -/
@@ -642,14 +670,14 @@ example (lam μ : ℤ) : torusConvolutionLabels {lam} {μ} = {lam+μ} := by sorr
 /-- Unit test `convolution_twisted_diagram` (compatibility): The typed object formula keeps both a-star descent and b-star pushforward; substituting the external product alone does not satisfy it. -/
 example (D DP DC : Type u) [Category.{v} D] [Category.{v} DP] [Category.{v} DC] (box : D ⥤ D ⥤ DP) (astar : DP ⥤ DC) (bstar : DC ⥤ D) (A B : D) : ((heckeConvolution D DP DC box astar bstar).obj A).obj B = bstar.obj (astar.obj ((box.obj A).obj B)) := by sorry
 
-/-- API: Split kernel lifting in FS VI.7.10(ii), including preservation of its universal cone. -/
+/-- API: Split kernel lifting in FS VI.7.10, including preservation of its universal cone. -/
 theorem satakeFibre_kernel (R : Type u) [CommRing R] (S : Type u)
     [Category.{v} S] [Preadditive S] (H : ℤ → S ⥤ ModuleCat.{u} R)
     [∀ i : ℤ, (H i).Additive] (A B : S) (f : A ⟶ B)
     [IsSplitMono (kernel.ι ((satakeFibre R S H).map f))] :
     HasKernel f ∧ PreservesLimit (parallelPair f 0) (satakeFibre R S H) := by sorry
 
-/-- API: Split cokernel lifting in FS VI.7.10(iii), including preservation of its universal cocone. -/
+/-- API: Split cokernel lifting in FS VI.7.10, including preservation of its universal cocone. -/
 theorem satakeFibre_cokernel (R : Type u) [CommRing R] (S : Type u)
     [Category.{v} S] [Preadditive S] (H : ℤ → S ⥤ ModuleCat.{u} R)
     [∀ i : ℤ, (H i).Additive] (A B : S) (f : A ⟶ B)
@@ -670,8 +698,29 @@ For finite Galois E′/E splitting G, base change identifies loop spaces, torsor
 Prototype boundary: Only isomorphism detection is typed. Effective Galois descent and split orbit-bound data are omitted. -/
 theorem genericGaloisDescent (D Dsplit : Type u) [Category.{v} D] [Category.{v} Dsplit] (restriction : D ⥤ Dsplit) (A B : D) (f : A ⟶ B) [IsIso (restriction.map f)] : IsIso f := by sorry
 
+/-! GeometricSatakeAndFusion:GS0:loop-geometry/etale-over-divisor
+Planned declaration: TauCeti.Suggested.GeometricSatake.etaleOverDivisor.
+
+For S perfectoid over F_q, S → Div^d_𝒴, its effective Cartier divisor D_S,
+and a separated étale adic map D′ → D_S, there is a perfectoid S′ and a
+separated étale S′ → S representing T ↦ Hom_{D_S}(D_T, D′). Thus
+Hom_S(T, S′) ≃ Hom_{D_S}(D_T, D′), naturally in perfectoid T → S.
+Integral O_E-untilts, including special-characteristic legs, are allowed;
+repeated legs keep their Cartier multiplicities. No G or ℓ is required.
+
+PROTOCOL §13 omission: the named declaration above is intentionally omitted
+pending the actual perfectoid/adic category, Cartier-divisor pullback,
+separated-étale and representing-functor carriers. Its missing hypotheses
+and conclusion are precisely those in the preceding paragraphs. Neither a
+placeholder Prop nor an arbitrary equivalence between types is substituted.
+Mathematical checks: D′ = D_S represents S; D′ empty represents empty for
+d > 0 and S for d = 0; over a geometric base with r distinct support points,
+n labelled copies of D_S have n^r lifts, independent of multiplicities.
+Source: FS, Lemma VI.1.13, printed/PDF p. 196.
+-/
+
 /-! GeometricSatakeAndFusion:GS0:loop-geometry/smooth-scheme-loops
-For a smooth quasiprojective Z→O_E of relative dimension n, the functor of maps D_S→Z is representable in locally spatial diamonds, partially proper and ℓ-cohomologically smooth of dimension dn over Div^d_𝒴. Étale maps to Z give representable étale maps of these functors.
+For a smooth quasiprojective Z→O_E of relative dimension n, the functor of maps D_S→Z is representable in locally spatial diamonds, partially proper and ℓ-cohomologically smooth of dimension dn over Div^d_𝒴. Separated étale maps Z′→Z give representable separated étale maps T_{Z′}→T_Z; open immersions give open immersions.
 Prototype boundary: Only the degree-times-relative-dimension arithmetic is typed; representability, partial properness and ℓ-cohomological smoothness are missing supplier notions. -/
 theorem smoothSchemeLoopDimension (d n : ℕ) : d*n = n*d := by sorry
 
@@ -686,7 +735,7 @@ Prototype boundary: Only the GL₂ root-pairing core is typed; cell stabilizatio
 theorem schubertCellDimension (a b : ℤ) (h : b ≤ a) : 0 ≤ a-b := by sorry
 
 /-! GeometricSatakeAndFusion:GS0:Schubert-smoothness/truncation-of-the-loop-action
-If m>0 is at least every weight of μ on Lie G, then L⁺_mG acts trivially on Gr_{≤μ}. For ordered legs use the corresponding bound for the sum at each collision. The action and equivariant complexes on the bound therefore factor through L^{+,<m}G.
+If m>0 is at least every weight of μ on Lie G, then L⁺_mG acts trivially on Gr_{≤μ}. For ordered legs use the corresponding bound for the sum at each collision. Thus the action factors through L^{+,<m}G. The comparison of equivariant derived categories is the later GS1/prounipotent-equivariance theorem, with its filtered continuity and prime-to-p coefficient hypotheses.
 Prototype boundary: K must be the specified deep congruence subgroup on the specified bound; those absent geometric hypotheses are omitted. -/
 theorem boundedLoopActionTrivial (G X : Type u) [Group G] [MulAction G X] (K : Subgroup G) (x : X) (g : K) : (g : G) • x = x := by sorry
 
@@ -742,8 +791,16 @@ theorem integralParahoricProperBounds (X Y : Type u) [TopologicalSpace X] [Topol
 
 /-! GeometricSatakeAndFusion:GS0:Witt-geometry/rank-two-cone-chart
 For p>2, GL₂ and N=2, Gr̄₂ has an open chart equal to the perfection of Spec k[x,y,z]/(x²−yz), via A=((p+[x],−[y]),([z],p−[x])). Together with the open exact-type orbit it covers Gr̄₂. Its Demazure resolution is the perfection of P(O(1)⊕O(−1)). The open decomposition locus of W₃-matrices X with [λ]det X=p² is characterized by X=Ag with g∈GL₂(W₃); the representative A is unique.
-Prototype boundary: Only the closed-orbit equation is typed. The perfect cone open immersion and the corrected W₃ right-factor integrality are recorded separately as a gap. -/
+Prototype boundary: Only the closed-orbit equation and a finite-ring regression are typed. The perfect cone open immersion and the corrected truncated-Witt/jet-torsor interface remain a gap. The adjugate argument proves right-factor integrality; it does not make the factor unique or independent of the chosen lift. -/
 theorem rankTwoConeClosedOrbit (K : Type u) [CommRing K] : (0 : K)^2 - 0*0 = 0 := by sorry
+
+/-- Unit test `rank_two_right_factor_not_unique` (non-example): the truncated right
+factor has a stabilizer even at the closed orbit. This finite-ring calculation
+models W₃(F₃); it does not supply a Witt-ring comparison theorem or the cone chart. -/
+example :
+    let A : Matrix (Fin 2) (Fin 2) (ZMod 27) := !![3, 0; 0, 3]
+    let g : Matrix (Fin 2) (Fin 2) (ZMod 27) := !![1, 9; 0, 1]
+    A * g = A ∧ Matrix.det g = 1 ∧ g ≠ 1 := by sorry
 
 /-! GeometricSatakeAndFusion:GS0:Witt-geometry/sections-on-witt-bounds
 For the ample determinant line on Gr_SL_n, restriction of global sections to any proper closed bound is surjective, and the global section space is infinite dimensional whenever the Grassmannian has positive-dimensional bounds.
@@ -757,7 +814,7 @@ theorem flagConvolutionFibreBound (lu lv luv dimFibre : ℕ) : lu + lv ≤ 2*dim
 
 /-! GeometricSatakeAndFusion:GS1/semi-infinite-affineness
 On the Witt special fibre, S_λ∩Gr_{≤μ} is affine and perfectly finitely presented. It is the nonvanishing locus of a section of the ample determinant line on the closed weight-bound union. When nonempty, this bounded intersection is equidimensional of dimension ⟨ρ,μ+λ⟩; the same holds for its nonempty open intersection with the exact μ-cell. Neither dimension formula is asserted for an empty intersection.
-Prototype boundary: X must be the specified nonempty semi-infinite intersection on its pfp model. General perfect-space affineness requires the SF model interface. -/
+Prototype boundary: X must be the specified bounded semi-infinite intersection on its pfp model. Affineness also holds for the empty intersection; nonemptiness is required only for the dimension equality. General perfect-space affineness requires the SF model interface. -/
 theorem semiInfiniteBoundAffine (X : AlgebraicGeometry.Scheme.{u}) : AlgebraicGeometry.IsAffine X := by sorry
 
 /-! GeometricSatakeAndFusion:GS0:Witt-geometry/semi-infinite-intersections-and-MV-cycles
@@ -786,8 +843,9 @@ theorem ulaConstantTermPerfect (R : Type u) [CommRing R]
       (∃ a b : ℤ, ∀ i : ℤ, i < a ∨ b < i → IsZero (K.X i)) ∧
       (∀ i : ℤ, Module.Finite R (K.X i) ∧ Module.Projective R (K.X i)) := by sorry
 
-/-- Regression: The two-term perfect complex R --2--> R for R=ℤ/4 has
-cohomology R/(2), which is not projective. ULA does not imply projective cohomology. -/
+/-- Unit test `perfect_complex_cohomology_not_projective` (non-example):
+The two-term perfect complex R --2--> R for R=ℤ/4 has cohomology R/(2),
+which is not projective. ULA does not imply projective cohomology. -/
 example : ¬ Module.Projective (ZMod 4)
     ((ZMod 4) ⧸ Ideal.span ({2} : Set (ZMod 4))) := by sorry
 
