@@ -9383,3 +9383,15 @@ theorem jacobiIndexRaise_mem_weakly_holomorphic (k m : ℚ) (s : ℕ)
 
 end JacobiIndexRaisingContinuation
 end TauCeti.QSeries
+
+/-
+Finding /20 supplier status:
+MP.6's four adelic integral-index Jacobi nodes now exist, but the classical
+(a)-(e) contract is still requested. The eight MP.6 prerequisites remain
+until those exact outputs exist. The consumer-side half-lattice comparison
+mem_JacobiForm_iff_comp_two_mul and its odd theta instance above already
+have native classical signatures; supplier-side comparisons remain omitted.
+Fine I/J/Whittaker imports in MP.7 and AS remove unnecessary whole-QM.2
+imports, while the packet's structural proposal explicitly retains remaining
+K-function, theta-nonvanishing and Laplacian stage-boundary cycles.
+-/

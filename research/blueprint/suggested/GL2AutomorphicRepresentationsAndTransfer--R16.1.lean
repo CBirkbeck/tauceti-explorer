@@ -635,3 +635,14 @@ theorem weightOneClassicalComparison {NewformWeightOne AutoWeightOne : Type*} :
     Nonempty (NewformWeightOne ≃ AutoWeightOne) := by sorry
 
 end TauCeti.GL2Blueprint
+
+/-
+Supplier boundary for the converse and multiplicity interfaces:
+globalWhittakerExpansion imports AL.3/gln-fourier-expansion;
+strong multiplicity one imports AL.3/strong-multiplicity-one.
+gl2Converse compares the full GL1 twist family with
+AL.3/gln-converse-full-rank at n=2, retaining the R16.5 local growth,
+genericity, archimedean, dual entireness, strip and epsilon hypotheses.
+AL.3/gln-converse-reduced-rank has n>=3 and supplies no rank-two shortcut.
+These ownership annotations add no missing native carrier or proof.
+-/

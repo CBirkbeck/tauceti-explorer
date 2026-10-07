@@ -3240,3 +3240,13 @@ mathlib:CongruenceSubgroup.Gamma1; mathlib:UpperHalfPlane
 -/
 
 end TauCeti.LocallySymmetric
+
+/-
+ALS.4 supplier correction: AF.1a is the unique cochain owner.
+Nomizu-van Est needs absolute algebraic cochains over a characteristic-zero
+field E, with the lattice/rational representation and normalizer hypotheses.
+The boundary formula needs the AF.1a parabolic Kostant theorem with actual
+Levi representations. The existing complex-relative cochain node over C does
+not state these exact outputs; the AF.1a request and gap retain them.
+No integral or mod-p Kostant comparison is inferred.
+-/
