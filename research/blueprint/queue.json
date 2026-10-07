@@ -39610,7 +39610,8 @@
     "BP-KTheoryFiniteLocalFields~2"
    ],
    "prompt": "research/blueprint/prompts/REV-KTheoryFiniteLocalFields~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7068"
   },
   {
    "kind": "blueprint",
@@ -42322,8 +42323,9 @@
     "BP-HabiroCohomologyFoundations--HQ.1-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-HabiroCohomologyFoundations--HQ.1-2~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7055"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7055",
+   "finishedAt": "2026-10-07T18:11:46Z"
   },
   {
    "kind": "blueprint",
@@ -42347,7 +42349,8 @@
    ],
    "revisionOf": "BP-HabiroNumberFields--HB.2",
    "prompt": "research/blueprint/prompts/BP-HabiroNumberFields--HB.2~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6969"
   },
   {
    "priority": 2,
