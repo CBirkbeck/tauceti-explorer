@@ -16,6 +16,9 @@ The executable local prototypes take the group, inertia subgroup and Frobenius
  they are not arbitrary proposition fields. Eigenvalues are units in an actual
  algebraic closure, with multiplicity retained by Fin n. The register following
  the prototypes specifies every remaining definition, API, test and named theorem.
+ Independent review: this prose register does not meet section 13; revision must
+ add actual declaration/API/example signatures with unavailable conditions
+ honestly omitted, as recorded in the review report and packet gaps.
  It names the missing supplier types precisely; its entries are mathematical
  signatures, not elaborated declarations. Full dependent signatures require
  those types. In particular no fake automorphic representation or Hecke algebra
@@ -177,7 +180,13 @@ example {K : Type*} [Field K] (a : Kˣ) (q : K) :
 
 /-- Test TauCeti.AutomorphicGalois.strongGeneric_non_Qp: the arithmetic part
 of q=4 for an unramified quadratic extension of Q_2. -/
-example : (4 : ZMod 3) = 1 := by decide
+example : (4 : ZMod 3) = 1 ∧
+    ¬ IsStrongGenericEigenvalues (fun _ : Fin 2 => (1 : (ZMod 3)ˣ)) 4 := by
+  constructor
+  · decide
+  · intro h
+    have hh := h.2 (a₁ := 0) (a₂ := 1) rfl
+    exact (by decide : (0 : Fin 2) ≠ 1) hh
 
 /-- Test TauCeti.AutomorphicGalois.residualRep_diagonal_reduction and
 TauCeti.AutomorphicGalois.residualExport_diagonal_mod3: their matrix parts. -/
@@ -249,13 +258,13 @@ Missing full-signature inputs: AutomorphicGaloisRepresentationsPartII:AG2.1a/pol
 AutomorphicGaloisRepresentationsPartII:AG2.6/coefficient-hodge-comparison-through-families-and-descent
 Signature TauCeti.AutomorphicGalois.coefficientHodgeComparisonThroughDescent:
 For a conjugate-self-dual cohomological cuspidal Π over a CM field, the Chenevier–Harris construction passes de Rham, the prescribed regular Hodge multiset, crystallinity at spherical places and semistability at Iwahori places through their bounded family and cyclic patching. Theorem 2.3 varies weights at one chosen coefficient-prime place v_0 and establishes admissibility at the other coefficient-prime places. Theorem 3.2.3 removes this exclusion by solvable base change and descent, arranging at least two coefficient-prime places. A convergent sequence of de Rham representations with unbounded Hodge weights is not the statement.
-Missing full-signature inputs: AutomorphicGaloisRepresentationsPartII:AG2.6/geometric-coefficient-prime-comparison, AutomorphicGaloisRepresentationsPartII:AG2.3, LocallyAnalyticDistributions:L4/fredholm-determinant, LocallyAnalyticDistributions:L4/finite-slope-summands, LocallyAnalyticDistributions:L4/completed-base-change, PadicHodgeTheory:R06.2/de-rham-base-change, PadicHodgeTheory:R06.2/crystalline-semistable-base-change, EndoscopicTransferAndUnitaryTraceComparison:ET.7, PadicHodgeTheory:R06.2.
+Missing full-signature inputs: AutomorphicGaloisRepresentationsPartII:AG2.6/geometric-coefficient-prime-comparison, AutomorphicGaloisRepresentationsPartII:AG2.3, LocallyAnalyticDistributions:L4/fredholm-determinant, LocallyAnalyticDistributions:L4/finite-slope-summands, LocallyAnalyticDistributions:L4/completed-base-change, PadicHodgeTheory:R06.2/de-rham-base-change, PadicHodgeTheory:R06.2/crystalline-semistable-base-change, EndoscopicTransferAndUnitaryTraceComparison:ET.7a, PadicHodgeTheory:R06.2.
 -/
 
 /-
 AutomorphicGaloisRepresentationsPartII:AG2.6/polarized-branch-de-rham-and-crystalline
 Signature TauCeti.AutomorphicGalois.polarizedCoefficientPrimeAdmissibility:
-Let F be CM and (π,χ) regular algebraic cuspidal polarized of weight a. For every λ|ℓ and v|ℓ, r_{π,λ}|G_{F_v} is de Rham with HT_τ={a_{τ,i}+n−i}. If π_v is spherical it is crystalline; if π_v has Iwahori-fixed vectors it is semistable. In the Iwahori case BLGGT Theorem 2.1.1(4)(b) gives full Frobenius-semisimple WD comparison with rec(π_v|det|^{(1−n)/2}). The full comparison for general π_v is the separate Caraiani theorem below.
+Let F be CM and (π,χ) regular algebraic cuspidal polarized of weight a. For every λ|ℓ and v|ℓ, r_{π,λ}|G_{F_v} is de Rham with HT_τ={a_{τ,i}+n−i}. If π_v is spherical it is crystalline; if π_v has Iwahori-fixed vectors it is semistable. In the Iwahori case BLGGT Theorem 2.1.1(4) gives full Frobenius-semisimple WD comparison with rec(π_v|det|^{(1−n)/2}). The full comparison for general π_v is the separate Caraiani theorem below.
 Missing full-signature inputs: AutomorphicGaloisRepresentationsPartII:AG2.6/coefficient-hodge-comparison-through-families-and-descent, AutomorphicGaloisRepresentationsPartII:AG2.0/expected-hodge-tate-multiset, AutomorphicGaloisRepresentationsPartII:AG2.0/polarized-galois-representation, PadicHodgeTheory:R06.3/weil-deligne-parameter.
 -/
 
@@ -270,7 +279,7 @@ Missing full-signature inputs: AutomorphicGaloisRepresentationsPartII:AG2.6/geom
 AutomorphicGaloisRepresentationsPartII:AG2.6/full-polarized-comparison-at-the-coefficient-prime
 Signature TauCeti.AutomorphicGalois.fullPolarizedCoefficientPrimeComparison:
 For n≥2, a conjugate-self-dual cohomological cuspidal Π over CM F, any ℓ, ι and v|ℓ, WD(r_{Π,ℓ,ι}|G_{F_v})^{F-ss} ≅ ι⁻¹ rec(Π_v|det|^{(1−n)/2}) with monodromy. The algebraic-character twist of AG2.2 extends this to the stated polarized branch. The theorem has no Shin-regularity condition; it uses purity of the geometric summand, temperedness and the pure-parameter uniqueness theorem. Rank one is supplied by algebraic local class field theory.
-Missing full-signature inputs: AutomorphicGaloisRepresentationsPartII:AG2.6/polarized-branch-de-rham-and-crystalline, AutomorphicGaloisRepresentationsPartII:AG2.6/log-crystalline-purity-on-the-automorphic-summand, AutomorphicGaloisRepresentationsPartII:AG2.2, AutomorphicGaloisRepresentationsPartII:AG2.5/caraiani-upgrade-away-from-p-and-temperedness, AutomorphicGaloisRepresentationsPartII:AG2.5, EndoscopicTransferAndUnitaryTraceComparison:ET.7.
+Missing full-signature inputs: AutomorphicGaloisRepresentationsPartII:AG2.6/polarized-branch-de-rham-and-crystalline, AutomorphicGaloisRepresentationsPartII:AG2.6/log-crystalline-purity-on-the-automorphic-summand, AutomorphicGaloisRepresentationsPartII:AG2.2, AutomorphicGaloisRepresentationsPartII:AG2.5/caraiani-upgrade-away-from-p-and-temperedness, AutomorphicGaloisRepresentationsPartII:AG2.5, EndoscopicTransferAndUnitaryTraceComparison:ET.7a.
 -/
 
 /-
@@ -283,7 +292,7 @@ Missing full-signature inputs: AutomorphicGaloisRepresentationsPartII:AG2.0/galo
 /-
 AutomorphicGaloisRepresentationsPartII:AG2.6/nonselfdual-coefficient-prime-monodromy-bound
 Signature TauCeti.AutomorphicGalois.nonselfdualCoefficientPrimeMonodromyBound:
-Under the preceding theorem, WD(r_{π,ℓ,ι}|G_{F_v})^{F-ss} ≺ ι⁻¹rec^T(π_v). The order fixes the semisimplified Weil representation and compares, for each irreducible Weil representation up to unramified twist, the sums of the largest Jordan-block sizes: every first-i sum on the left is ≤ the corresponding sum on the right. It is Varma’s order of §8.2, used in AHTW Definition 6.0.2. Full equality of N is not asserted for a general nonselfdual ramified π_v.
+Under the preceding theorem, WD(r_{π,ℓ,ι}|G_{F_v})^{F-ss} ≺ ι⁻¹rec^T(π_v). Equality of the semisimplified Weil representations comes from the preceding comparison theorem, not from the definition of the order. The order compares, for each irreducible Weil representation up to unramified twist, the sums of the largest Jordan-block sizes: every first-i sum on the left is ≤ the corresponding sum on the right. It is Varma’s order of §8.2, used in AHTW Definition 6.0.2. Full equality of N is not asserted for a general nonselfdual ramified π_v.
 Missing full-signature inputs: AutomorphicGaloisRepresentationsPartII:AG2.6/all-cm-de-rham-and-semisimplified-coefficient-comparison, AutomorphicGaloisRepresentationsPartII:AG2.5/varma-semisimplified-comparison-and-monodromy-bound, AutomorphicGaloisRepresentationsPartII:AG2.5.
 -/
 
@@ -298,7 +307,7 @@ Missing full-signature inputs: AutomorphicGaloisRepresentationsPartII:AG2.6/all-
 AutomorphicGaloisRepresentationsPartII:AG2.6/totally-real-polarized-coefficient-prime-descent
 Signature TauCeti.AutomorphicGalois.totallyRealPolarizedCoefficientPrimeComparison:
 For a regular algebraic essentially self-dual cuspidal π over a totally real F, the attached BLGGT representation has the stated labelled Hodge weights, is de Rham, is crystalline at spherical coefficient-prime places and semistable at Iwahori places. Full coefficient-prime WD comparison is obtained from the polarized CM theorem by choosing a quadratic CM extension split at the target finite place, retaining cuspidality, matching the base-changed Galois representation, and comparing that unchanged local completion. This also covers the totally-real members used by Newton–Thorne; no unrestricted nonpolarized totally-real assertion is added.
-Missing full-signature inputs: AutomorphicGaloisRepresentationsPartII:AG2.0/galois-representation-attached-at-good-places, AutomorphicGaloisRepresentationsPartII:AG2.0/expected-hodge-tate-multiset, AutomorphicGaloisRepresentationsPartII:AG2.6/full-polarized-comparison-at-the-coefficient-prime, AutomorphicGaloisRepresentationsPartII:AG2.6/coefficient-hodge-comparison-through-families-and-descent, EndoscopicTransferAndUnitaryTraceComparison:ET.7.
+Missing full-signature inputs: AutomorphicGaloisRepresentationsPartII:AG2.0/galois-representation-attached-at-good-places, AutomorphicGaloisRepresentationsPartII:AG2.0/expected-hodge-tate-multiset, AutomorphicGaloisRepresentationsPartII:AG2.6/full-polarized-comparison-at-the-coefficient-prime, AutomorphicGaloisRepresentationsPartII:AG2.6/coefficient-hodge-comparison-through-families-and-descent, EndoscopicTransferAndUnitaryTraceComparison:ET.7a.
 -/
 
 /-
@@ -337,7 +346,7 @@ Missing full-signature inputs: AutomorphicGaloisRepresentationsPartII:AG2.6/coef
 /-
 AutomorphicGaloisRepresentationsPartII:AG2.6/strong-coefficient-field
 Signature TauCeti.AutomorphicGalois.IsStrongCoefficientField:
-For Π cuspidal conjugate-self-dual with archimedean principal series arg^{1−n},arg^{3−n},…,arg^{n−1} (Liu’s relevant specialization) and a number field E⊂C containing Q(Π), E is a strong coefficient field if for each finite λ of E there exists a continuous E_λ-linear ρ_{Π,λ} whose scalar extension to Q̄_ℓ is ρ_{Π,ι} for every ι inducing λ. Members are unique up to E_λ-conjugacy when descended by the semisimple realization theorem. This is a field of definition of the representations, stronger than the field of rationality of good polynomials. It includes a family of descended realizations, not canonical bases or canonical intertwiners.
+For Π regular cohomological cuspidal conjugate-self-dual (including Liu’s relevant specialization with archimedean principal series arg^{1−n},arg^{3−n},…,arg^{n−1}) and a number field E⊂C containing Q(Π), E is a strong coefficient field if for each finite λ of E there exists a continuous E_λ-linear ρ_{Π,λ} whose scalar extension to Q̄_ℓ is ρ_{Π,ι} for every ι inducing λ. Members are unique up to E_λ-conjugacy when descended by the semisimple realization theorem. This is a field of definition of the representations, stronger than the field of rationality of good polynomials. It includes a family of descended realizations, not canonical bases or canonical intertwiners. This generalizes Liu’s named definition beyond its relevant specialization, using the simultaneous realization condition justified by Chenevier–Harris Proposition 3.2.5; Liu’s conditional minimal-field assertion remains confined to his specialization and Hypothesis 3.2.10.
 API signatures (the executable algebraic parts, when present, are above):
 TauCeti.AutomorphicGalois.IsStrongCoefficientField : The preceding all-λ realization property.
 TauCeti.AutomorphicGalois.strongCoefficientField_member : Choose an E_λ-realization with its scalar-extension isomorphism.
@@ -578,7 +587,7 @@ Missing full-signature inputs: AutomorphicGaloisRepresentationsPartII:AG2.7/the-
 /-
 AutomorphicGaloisRepresentationsPartII:AG2.7/finite-exceptional-residual-genericity-for-relevant-pi
 Signature TauCeti.AutomorphicGalois.residualGenericityOutsideFiniteSet:
-For a relevant Π with a strong coefficient field E in Liu et al., choose the regular unramified place used in Chenevier–Harris’s argument, with distinct algebraic Satake roots α_i and α_i≠qα_j. After a finite extension of E containing these roots, exclude the finitely many coefficient places dividing denominators, roots, α_i−α_j or α_i−qα_j. Their reductions are distinct and nonratio. Liu Appendix D, Corollary D.1.4 then uses Chebotarev to obtain the required split generic place for the reduced Hecke eigencharacter outside this finite set. The cohomological concentration conclusion has its own F^+≠Q and level hypotheses and belongs to the Igusa/torsion consumer.
+For a relevant Π with a strong coefficient field E in Liu et al., choose the regular unramified place used in Chenevier–Harris’s argument, with distinct algebraic Satake roots α_i and α_i≠qα_j. After a finite extension of E containing these roots, exclude the finitely many coefficient places dividing denominators, roots, α_i−α_j or α_i−qα_j. Their reductions are distinct and nonratio. Liu Appendix D, Corollary D.1.4 then uses Chebotarev to obtain a place w split in F/F⁺ that is locally generic for the reduced Hecke eigencharacter outside this finite set. The cohomological concentration conclusion has its own F^+≠Q and level hypotheses and belongs to the Igusa/torsion consumer. This conclusion does not itself provide the completely split rational prime, generic at every v above it, required by the ACC+ global predicate; that stronger witness needs its separate Chebotarev hypotheses.
 Missing full-signature inputs: AutomorphicGaloisRepresentationsPartII:AG2.6/uniform-strong-realization-for-polarized-systems, AutomorphicGaloisRepresentationsPartII:AG2.7/residual-hecke-ideal-independence, AutomorphicGaloisRepresentationsPartII:AG2.7/strong-local-decomposed-genericity, ArithmeticGaloisRepresentations:R01.5.
 -/
 
@@ -632,7 +641,7 @@ Missing full-signature inputs: AutomorphicGaloisRepresentationsPartII:AG2.7/good
 /-
 AutomorphicGaloisRepresentationsPartII:AG2.7/unitary-discrete-parameter-export
 Signature TauCeti.AutomorphicGalois.UnitaryDiscreteExport:
-In the compact unitary setting of CS Corollary 5.5.5, export the semisimple representation r_{Π^S,ℓ}=⊕_{i=1}^2 r_i⊗ε_i attached to an endoscopic discrete parameter of ranks n_1+n_2=n, with each ε_i the algebraic character of |det|^{(n_i−n)/2}$(N_{F/K}det)^{ε(n−n_i)}, and ε(m)≡m mod 2. The polynomial at every v over q∈Spl_{F_0/Q} outside S∪{ℓ} is the explicit degree-n Hecke polynomial. Keep the constituent labels, algebraic twist maps, and the away-ℓ local comparison from Remark 5.5.6. This package need not be globally irreducible and carries no coefficient-prime comparison beyond what its constituents separately prove.
+In the compact unitary setting of CS Corollary 5.5.5, export the semisimple representation r_{Π^S,ℓ}=⊕_{i=1}^2 r_i⊗ε_i attached to an endoscopic discrete parameter of ranks n_1+n_2=n, with each ε_i the algebraic character of |det|^{(n_i−n)/2}$(N_{F/𝒦}det)^{ε(n−n_i)}, and ε(m)≡m mod 2. The polynomial at every v over q∈Spl_{𝒦/Q} outside S∪{ℓ} is the explicit degree-n Hecke polynomial. Keep the constituent labels, algebraic twist maps, and the away-ℓ local comparison from Remark 5.5.6. This package need not be globally irreducible and carries no coefficient-prime comparison beyond what its constituents separately prove. Here F=F⁺·𝒦 with 𝒦 the imaginary quadratic field of CS §5.1; the printed F₀ in Corollary 5.5.5 is the already confirmed E11 misprint, not another splitting field.
 API signatures (the executable algebraic parts, when present, are above):
 TauCeti.AutomorphicGalois.UnitaryDiscreteExport : Build the labelled direct sum with explicit algebraic character twists.
 TauCeti.AutomorphicGalois.unitaryDiscreteExport_constituent : Retrieve r_i, ε_i and its inclusion into the direct sum.
@@ -641,7 +650,7 @@ Test/example signatures:
 Test TauCeti.AutomorphicGalois.unitaryDiscreteExport_two_characters : For n_1=n_2=1, at good v with twisted values β_1,β_2 the polynomial is (X−β_1)(X−β_2).
 Test TauCeti.AutomorphicGalois.unitaryDiscreteExport_rank_additivity : The direct-sum dimension is n_1+n_2, with neither twist changing dimension.
 Test TauCeti.AutomorphicGalois.unitaryDiscreteExport_not_cuspidal_irreducibility : A two-character endoscopic sum cannot certify global irreducibility.
-Missing full-signature inputs: AutomorphicGaloisRepresentationsPartII:AG2.2, AutomorphicGaloisRepresentationsPartII:AG2.5, AutomorphicGaloisRepresentationsPartII:AG2.0/galois-character-of-an-algebraic-hecke-character, EndoscopicTransferAndUnitaryTraceComparison:ET.6, PotentialModularityAndCompatibleSystems:R24.5/linear-algebra-operations-on-systems.
+Missing full-signature inputs: AutomorphicGaloisRepresentationsPartII:AG2.2, AutomorphicGaloisRepresentationsPartII:AG2.5, AutomorphicGaloisRepresentationsPartII:AG2.0/galois-character-of-an-algebraic-hecke-character, EndoscopicTransferAndUnitaryTraceComparison:ET.7a, PotentialModularityAndCompatibleSystems:R24.5/linear-algebra-operations-on-systems.
 -/
 
 /-
