@@ -22681,8 +22681,9 @@
    ],
    "avoidAccountOf": "BP-AutomorphicSpectralTheory",
    "prompt": "research/blueprint/prompts/REV-AutomorphicSpectralTheory.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #365"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #365",
+   "finishedAt": "2026-10-07T10:33:06Z"
   },
   {
    "id": "BP-BunGAndNewtonStrata",
@@ -29502,8 +29503,9 @@
     "REV-RS-05"
    ],
    "prompt": "research/blueprint/prompts/BP-VStackSheavesAndLisseCategories.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #1001"
   },
   {
    "id": "REV-VStackSheavesAndLisseCategories",
