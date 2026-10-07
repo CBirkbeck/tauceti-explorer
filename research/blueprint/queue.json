@@ -37851,7 +37851,8 @@
     "BP-ArithmeticLocallySymmetricSpaces~2"
    ],
    "prompt": "research/blueprint/prompts/REV-ArithmeticLocallySymmetricSpaces~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6908"
   },
   {
    "kind": "blueprint",
@@ -39535,7 +39536,8 @@
     "BP-IntegralHeckeAndGaloisDeterminants~2"
    ],
    "prompt": "research/blueprint/prompts/REV-IntegralHeckeAndGaloisDeterminants~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6910"
   },
   {
    "kind": "blueprint",
@@ -41560,8 +41562,9 @@
     "BP-PotentialAutomorphyInfrastructure~2"
    ],
    "prompt": "research/blueprint/prompts/REV-PotentialAutomorphyInfrastructure~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6913"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6913",
+   "finishedAt": "2026-10-07T15:50:34Z"
   },
   {
    "kind": "blueprint",
@@ -41890,7 +41893,8 @@
     "BP-EffectiveDiophantineMethods~2"
    ],
    "prompt": "research/blueprint/prompts/REV-EffectiveDiophantineMethods~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6914"
   },
   {
    "kind": "blueprint",
