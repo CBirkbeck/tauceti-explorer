@@ -32584,8 +32584,9 @@
    ],
    "followUpOf": "DESIGN-HodgeStructuresPartII",
    "prompt": "research/blueprint/prompts/BP-HodgeStructuresPartII--H.1.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6938"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6938",
+   "finishedAt": "2026-10-07T18:18:42Z"
   },
   {
    "id": "REV-HodgeStructuresPartII--H.1",
@@ -70200,8 +70201,8 @@
     "FIX-RT-AREA-iwasawa-1~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-1~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6217"
+   "state": "pending",
+   "note": "released on GitHub issue #6217"
   },
   {
    "id": "RT-AREA-iwasawa-2",
