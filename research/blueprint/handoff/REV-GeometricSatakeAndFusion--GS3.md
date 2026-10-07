@@ -1,0 +1,11 @@
+# REV-GeometricSatakeAndFusion--GS3 handoff
+
+Completed independent review of issue #419 by Codex, session `codex-8h1blQ`, on 2026-10-07. This is a complete review submission, not a checkpoint. One issue was claimed and no second job was taken.
+
+Verdict: `needs_changes`. All 29 nodes, 23 exact-pin baselines, five primary sources, suppliers/requests, APIs/tests, six targets, sixteen planets, source issues and four handed red-team findings were checked. Clear fixes are in the packet and suggested Lean file; the report lists the evidence. No nodes were added. Final counts: 47 APIs, 27 tests, 16 requests, 10 gaps, 7 confirmed source issues (six reuse known atlas errata), 6 planned and 0 closed stages.
+
+Resume with the report's “Required reader correction”. The definitive reader was excluded from this review issue's deliverables, so it was left unchanged. Its lines 327 and 580 still identify the perfect-export essential image with the stable idempotent closure. FS IX.2 p321 proves an exact extension, not that equality. Synchronize both to the packet's containment statement, plus the collision pull-push construction, generator-map direction, restriction-functor uniqueness, canonical Frobenius descents, locators, finite-type reductivity request and integral-point supplier gap. The explicit carrier/supplier gaps are compatible with complete planning and must not be removed merely to claim closure.
+
+Checks: blueprint checker 0 errors/0 warnings; source-issue/source-version validators pass; API/test name coverage and internal prerequisite acyclicity pass; diff whitespace check passes. `lean-check research/blueprint/suggested/GeometricSatakeAndFusion--GS3.lean` failed at line 26 before declaration elaboration: the existing shared build lacks the compiled Tannaka GroupFunctor import. The file has NOT been successfully compiled. Memory was sufficient (107 GB available); no build/update/cache download or language server was run. Source statements were checked at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 independently of compiled-artifact availability.
+
+Public source URLs and full hashes remain in the packet; exact audit evidence remains in the review report. Scratch contains only reproducible reading extracts/notes and is deleted once the PR is open. No successor should depend on it.

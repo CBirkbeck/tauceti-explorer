@@ -181,19 +181,16 @@
         {
           "sourceId": "wagner-tex-v2",
           "locator": "Definition 3.2, pp. 20–21, final compatibility datum",
-          "excerpt": "Finally, we require that this diagram",
           "match": "Specifies the entire diagram to transport. The finite-projective extension is an argument proposed here, not a statement of Definition 3.2."
         },
         {
           "sourceId": "wagner-tex-v2",
           "locator": "Theorem A.1, p. 69, additional assertion",
-          "excerpt": "a canonical base change equivalence",
           "match": "Supplies completed smooth q-de Rham base change; the imported HQ.2 animation extends it. Neither A.1 nor Definition 3.2 states the new pair base-change theorem."
         },
         {
           "sourceId": "stacks-00NV",
           "locator": "Lemma 10.78.2, conditions (2)–(3) and first proof paragraph",
-          "excerpt": "M is a direct summand of a finite free",
           "match": "Algebraic reason for the finite-projective range; the enhanced exchange statement belongs to DD.1."
         }
       ],
@@ -313,7 +310,6 @@
         {
           "sourceId": "wagner-tex-v2",
           "locator": "Construction 3.38, pp. 42–44, final paragraph on p. 44",
-          "excerpt": "clearly functorial",
           "match": "Functoriality there is in the pair over a fixed base. This packet supplies a conditional argument for changing the base, by the displayed pullback, not a claimed quotation of a source theorem."
         }
       ],
@@ -378,13 +374,11 @@
         {
           "sourceId": "wagner-tex-v2",
           "locator": "Construction 3.45, p. 47, definition of the limit",
-          "excerpt": "Habiro--Hodge complex",
           "match": "Supplies the inverse-limit object; β is derived here by functoriality of the construction and the finite-projective comparison, not directly stated by 3.45."
         },
         {
           "sourceId": "wagner-tex-v2",
           "locator": "Theorem 3.11(b), p. 25, and proof of Lemma 3.46, p. 47",
-          "excerpt": "exhaustive ascending filtration",
           "match": "Pins the cyclotomic filtration to q-𝓗dg/(q^m−1). Respect the inherited shift erratum E401 by using gr of the animated stupid filtration, rather than applying a second shift."
         }
       ],

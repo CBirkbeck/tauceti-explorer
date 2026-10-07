@@ -207,13 +207,11 @@
         {
           "sourceId": "G94",
           "locator": "§1.4, Definition 1.10 and Lemma 1.11, manuscript p. 6",
-          "excerpt": "Lemma 1.11",
           "match": "Rational-curve model and the boundary-vanishing target; proof referred to G95."
         },
         {
           "sourceId": "G95",
           "locator": "§1.9, Lemma 1.16 and its proof, published pp. 221–222",
-          "excerpt": "LEMMA 1.16.",
           "match": "The specialization proof being refined, with its model difference and printed tensor defect retained explicitly."
         }
       ],
@@ -255,13 +253,11 @@
         {
           "sourceId": "G94",
           "locator": "§1.4 and §2.1, pp. 6, 10–11",
-          "excerpt": "δn",
           "match": "Combines the specified specialization with the explicit differentials of the general complex."
         },
         {
           "sourceId": "G95",
           "locator": "Lemma 1.16 proof, p. 222",
-          "excerpt": "homomorphism",
           "match": "The tensor correction is necessary for this construction."
         }
       ],
@@ -365,7 +361,6 @@
         {
           "sourceId": "G94",
           "locator": "Example 1.13, p. 7; Example 1.18, p. 10",
-          "excerpt": "Example 1.13",
           "match": "Inductive inversion argument and odd endpoint detected by ζ."
         }
       ],
@@ -405,7 +400,6 @@
         {
           "sourceId": "G94",
           "locator": "Theorem-motivation 1.15 and proof, pp. 7–9",
-          "excerpt": "constant",
           "match": "The varying-point sum that the analytic descent proof makes constant."
         }
       ],
@@ -515,13 +509,11 @@
         {
           "sourceId": "G94",
           "locator": "Theorem-motivation 1.15, (14), and r_n factorization, pp. 7–9",
-          "excerpt": "Theorem-motivation 1.15",
           "match": "Full differential/factorization/continuity descent proof."
         },
         {
           "sourceId": "G95",
           "locator": "Proposition 1.18 and Corollary 1.19, pp. 223–224",
-          "excerpt": "COROLLARY 1.19.",
           "match": "Published descent statement; its unified derivative display has the recorded coefficient-index and exponent misprints."
         }
       ],
@@ -570,13 +562,11 @@
         {
           "sourceId": "S91",
           "locator": "Corollary 5.6 and Remark 5.1, English translation p. 237; discussion p. 238",
-          "excerpt": "rationally invariant",
           "match": "Original rigidity statement and specialization discussion read."
         },
         {
           "sourceId": "GR5",
           "locator": "§1.2 p. 9, footnote 2",
-          "excerpt": "Corollary 5.6",
           "match": "Explicit identification of this precise input in the B₂ comparison."
         }
       ],
@@ -617,13 +607,11 @@
         {
           "sourceId": "Z90",
           "locator": "Introduction, regulator/period paragraph following (3), p. 393; §8 final Main Conjecture, p. 417",
-          "excerpt": "rational multiple",
           "match": "The numerical rational proportionality and its distinction from K-theoretic comparison."
         },
         {
           "sourceId": "G94",
           "locator": "§2.3 Remark 2.4 and Conjecture 2.5, pp. 13–14",
-          "excerpt": "Conjecture 2.5",
           "match": "Equivalent general-weight period form subject to positive determinant size."
         }
       ],
@@ -731,19 +719,16 @@
         {
           "sourceId": "Z90",
           "locator": "§8 final Main Conjecture, p. 417",
-          "excerpt": "Borel regulator",
           "match": "The final conjecture includes agreement of the polylogarithm and K-theory regulator."
         },
         {
           "sourceId": "G94",
           "locator": "§2.3 Remark 2.4, p. 13",
-          "excerpt": "Remark 2.4",
           "match": "Original normalization used for the positive-value formula."
         },
         {
           "sourceId": "GR5",
           "locator": "Theorem 1.3(iv), pp. 6–7",
-          "excerpt": "non-zero rational multiple",
           "match": "Weight-four comparison is a calibrated map, not a proved isomorphism."
         }
       ],
@@ -849,13 +834,11 @@
         {
           "sourceId": "Z90",
           "locator": "§8, pp. 416–417",
-          "excerpt": "MAIN CONJECTURE",
           "match": "Separates regulator lattice and motivic comparison."
         },
         {
           "sourceId": "GR5",
           "locator": "Theorem 1.2, its two assertions, p. 5",
-          "excerpt": "For any",
           "match": "Existence and all-family numerical forms."
         }
       ],
@@ -902,13 +885,11 @@
         {
           "sourceId": "Z90",
           "locator": "Introduction, regulator/period paragraph following (3), p. 393",
-          "excerpt": "π",
           "match": "Original parity, period and discriminant factor checked in the scan."
         },
         {
           "sourceId": "G94",
           "locator": "§2.3 Remark 2.4, p. 13",
-          "excerpt": "Remark 2.4",
           "match": "The positive-value period relation in the original regulator convention."
         }
       ],
@@ -952,7 +933,6 @@
         {
           "sourceId": "GR5",
           "locator": "§1.2, Theorem 1.14, (44), Corollary 1.15, pp. 15–16",
-          "excerpt": "quasi-isomorphism",
           "match": "The exact explicit complex used in the proof."
         }
       ],
@@ -1059,7 +1039,6 @@
         {
           "sourceId": "GR5",
           "locator": "§1.2, pp. 9, 12 and (44) p. 16",
-          "excerpt": "conjecture",
           "match": "Natural maps to the inductive presentations are stated; their higher bijectivity remains conjectural."
         }
       ],
@@ -1166,7 +1145,6 @@
         {
           "sourceId": "GR5",
           "locator": "§1.2 comparison discussion, pp. 9,12; complex (44), p. 16",
-          "excerpt": "conjecture",
           "match": "The square to which the elementary quotient obstruction is applied; this exact obstruction is a planning refinement, not named in the source."
         }
       ],
@@ -1278,7 +1256,6 @@
         {
           "sourceId": "GR5",
           "locator": "Theorems 1.13–1.14; (44); Theorem 1.3(iv); §8.2 (189)–(193); §9.3, pp. 15–16,6–7,76–78,94",
-          "excerpt": "period",
           "match": "Specified proof interfaces, including the lower-weight correction in the Hodge period."
         }
       ],
@@ -1322,7 +1299,6 @@
         {
           "sourceId": "GR5",
           "locator": "Theorem 1.2, its two assertions, p. 5; (44), p. 16; §9.3, p. 94",
-          "excerpt": "Theorem 1.2",
           "match": "Refines the published statement’s presentation boundary without claiming the missing lift proof."
         }
       ],
@@ -1363,13 +1339,11 @@
         {
           "sourceId": "Z90",
           "locator": "Introduction, regulator/period paragraph following (3), p. 393",
-          "excerpt": "rational multiple",
           "match": "Original rational factor survives empty determinant size."
         },
         {
           "sourceId": "GR5",
           "locator": "Theorem 1.2, first assertion, p. 5, inherited parent E2",
-          "excerpt": "Theorem 1.2.",
           "match": "Parent’s already recorded empty-case correction is reused, not reported as a new finding."
         }
       ],
@@ -1415,7 +1389,6 @@
         {
           "sourceId": "G95",
           "locator": "§1.14 (1.45)–(1.47), pp. 236–238; §1.15 (1.48) and Conjecture 1.39, pp. 239–240",
-          "excerpt": "Homotopy Invariance",
           "match": "Residue formulas and finite-place quotient map in the all-smooth-curve model. The rational-curve analogue here needs its own relation descent; no equivalence of the models is asserted."
         }
       ],
@@ -1519,13 +1492,11 @@
         {
           "sourceId": "G95",
           "locator": "Conjecture 1.39, p. 240; subsequent paragraph p. 241",
-          "excerpt": "quasi-isomorphism",
           "match": "Conjecture and conditional transfer application in Gon95’s all-smooth-curve model; the displayed rational-curve assertion is its analogue, not an established equivalent formulation."
         },
         {
           "sourceId": "G94",
           "locator": "Definition 1.19 and following comparison discussion, manuscript p. 10",
-          "excerpt": "Definition 1.19",
           "match": "Distinguishes the rational-curve groups from the all-smooth-curve groups and describes their comparison as conjectural."
         }
       ],

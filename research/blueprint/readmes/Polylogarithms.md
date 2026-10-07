@@ -1181,7 +1181,7 @@ For distinct points z_1, ..., z_4 of the complex projective line, the boundary o
 - ArithmeticQuantumTopology QT.5: imports this identity for the volume of a hyperbolic manifold through its Bloch class, rather than proving it again
 - P.2's Borel comparison: Bloch's route to the identification of the regulator goes through this volume computation; the route planned here goes through the cocycle
 
-**Depends on.** this roadmap: `P.1/bloch-wigner-five-term`, `P.1/bloch-wigner-positivity`, `P.2/lobachevsky-identity`; other roadmaps: `K3BlochGroups:V.4/cross-ratio`.
+**Depends on.** this roadmap: `P.1/bloch-wigner-five-term`, `P.1/bloch-wigner-positivity`, `P.2/lobachevsky-identity`; other roadmaps: `K3BlochGroups:V.4/cross-ratio`, `tauceti:TauCetiRoadmap/GeometricTopology#layer-7-riemannian-geometric-structures-and-volume`, `tauceti:TauCetiRoadmap/GeometricTopology#layer-8-thurston-geometries-and-the-jsj--geometric-decomposition`.
 
 **Sources.**
 

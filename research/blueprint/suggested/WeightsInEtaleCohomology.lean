@@ -211,9 +211,9 @@ example (w : ℤ) :
   sorry
 
 /-! R34.1 numerical cores. Continuous restriction/induction, sheaf equivalence and
-mixed complexes have no current-library geometric signature here: their requested
-suppliers are DWP.0/5/8, ArithmeticGaloisRepresentations R01.1/2 and
-SchemeAndStackFoundations SF.2. -/
+mixed complexes have no current-library geometric signature here. The packet imports
+existing DWP.0/5/7/8 and ArithmeticGaloisRepresentations R01.1/2 fine targets;
+the actual sheaf comparison remains a SchemeAndStackFoundations SF.2 request. -/
 theorem pureOutside_dual {G V P : Type*} [Group G] [AddCommGroup V] [Module ℂ V]
     [FiniteDimensional ℂ V] (ρ : Representation ℂ G V) (I : P → Subgroup G)
     (F : P → G) (q : P → ℕ) (T : Set P) (w : ℤ)
@@ -286,6 +286,8 @@ projector: LPV.0/1/2/7:semistable-curves, ModularCurvesPartII R13.5,
 HilbertModularVarietiesAndShimuraCurves R18.2 and CohomologyComparisons CP.4.
 Saito's V is finite over the completed maximal unramified extension of E_q;
 descent to finite local/residue fields with its Weil action is a separate gap.
+The trait comparison uses the actual compatible coefficient sheaves; the nodal
+special fibre and its dual graph are geometric, with their descended Weil action.
 No opaque `ProperModel` or `Comparison` proposition substitutes for these.
 The matrix fixes geometric-Frobenius monodromy normalization only. -/
 theorem nodal_monodromy_scaling (q : ℚ) (hq : q ≠ 0) :
@@ -300,11 +302,12 @@ finite-field pencil and original Q_l vanishing cohomology, its radical and pairi
 They must distinguish odd alternating from even symmetric degree and the zero quotient.
 A two-dimensional symplectic matrix alone does not witness open geometric monodromy. -/
 
-/-! R34.5: arithmetic realization signatures require AGR R19.1's parabolic premotive
-(not its weight-dependent aggregate), ModularCurvesPartII R14.3,
-GeneralizedHeegnerCycles GH.0 for the classical projector, HilbertModularVarietiesAndShimuraCurves
-R18.2 for Saito's Hilbert projector, and DWP.4/7/9 with DWP.0 degree/twist operations.
-These are geometric supplier requests; weight arithmetic below is only their numerical check. -/
+/-! R34.5: arithmetic realization signatures use AGR R19.1's parabolic premotive and
+Scholl-projector fine targets, with actual classical model/correspondence data from
+ModularCurvesPartII R14.3 and GeneralizedHeegnerCycles GH.0. Weight two uses the
+separate Jacobian comparison. HilbertModularVarietiesAndShimuraCurves R18.2 supplies
+Saito's Hilbert projector; DWP.4/7/9 supply the fine weight theorems. The packet retains
+the actual construction gaps; weight arithmetic below is only their numerical check. -/
 theorem parabolic_degree_weight (k : ℤ) : (k - 2) + 1 = k - 1 := by
   sorry
 
@@ -315,6 +318,9 @@ theorem hard_lefschetz_target_weight (d a : ℤ) : d + a - 2 * a = d - a := by
 polynomials and Saito's rank-two local comparison require AGR R19.1,
 PotentialModularityAndCompatibleSystems R24.5's fine carrier and predicate nodes,
 R34.3/5 and the imported PadicHodgeTheory R06.6 Hilbert theorem.
+The safe AGR coefficient-descent target is separate from the requested independent
+Eichler-congruence comparison. DFG uses the normalized character twist of M_g;
+its all-prime etale modules do not provide excluded-prime crystalline comparisons.
 AGR R19.3 consumes the fixed-source exports; it is not the generic system owner.
 Its projected degree/twist normalization belongs here. Equal root norms are not compatibility.
 The last statements isolate the triangle inequality, this logical separation, and

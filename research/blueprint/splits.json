@@ -1,0 +1,41 @@
+{
+ "purpose": "The orchestrator's decisions on the split proposals of combined Part II design jobs (PROTOCOL.md section 9). A design job given several Part II directions of one parent may plan one of them and propose the others as roadmaps of their own, in its packet's `restructure`. Each split listed here gives every roadmap in `roadmaps` a design job of its own, with the paper routes that name it (make_queue.paper_designs); the combined job keeps the rest. `after` lists the split-off roadmaps whose design a split-off design waits for, and `notes` adds to a split-off design's brief.",
+ "splits": [
+  {
+   "design": "DESIGN-EllipticCurveModularityPartII",
+   "parent": "EllipticCurveModularity",
+   "packet": "research/blueprint/packets/EllipticCurveModularityPartII.json",
+   "decided": "2026-10-07",
+   "roadmaps": [
+    "EllipticCurveModularityImaginaryQuadratic",
+    "EllipticCurveModularityPartIIGL2TypeAbelianVarieties",
+    "EllipticCurveModularityWild3Adic"
+   ],
+   "notes": {
+    "EllipticCurveModularityImaginaryQuadratic": "This is the main theorem of Caraiani and Newton. Two roadmaps are designed alongside it and supply its inputs: CrystallineLocalGlobalCompatibilityCM (P-ordinary degree shifting, crystalline local–global compatibility and Barsotti–Tate lifting, from the same paper) and EllipticCurveModularityPartIIGL2TypeAbelianVarieties (the Q-curve step). Import from them rather than planning those results here.",
+    "EllipticCurveModularityPartIIGL2TypeAbelianVarieties": "It supplies the Q-curve step of EllipticCurveModularityImaginaryQuadratic, designed alongside it.",
+    "EllipticCurveModularityWild3Adic": "EllipticCurveModularity keeps its own proof of the same endpoint; this roadmap records the wild 3-adic route as a distinct proof, and nothing in EllipticCurveModularity depends on it."
+   }
+  },
+  {
+   "design": "DESIGN-PotentialAutomorphyInfrastructurePartII",
+   "parent": "PotentialAutomorphyInfrastructure",
+   "packet": "research/blueprint/packets/PotentialAutomorphyInfrastructurePartII.json",
+   "decided": "2026-10-07",
+   "roadmaps": [
+    "CrystallineLocalGlobalCompatibilityCM",
+    "PotentialAutomorphyDworkMotivesPartII",
+    "AutomorphyLiftingBeyondTaylorWiles",
+    "WeightZeroCrystallineAutomorphyLifting"
+   ],
+   "after": {
+    "WeightZeroCrystallineAutomorphyLifting": ["CrystallineLocalGlobalCompatibilityCM"]
+   },
+   "notes": {
+    "CrystallineLocalGlobalCompatibilityCM": "It is the key new input of Caraiani and Newton. EllipticCurveModularityImaginaryQuadratic, designed alongside it from the same paper, builds on its lifting theorems.",
+    "PotentialAutomorphyDworkMotivesPartII": "It also owns the self-dual Dwork family and its monodromy, which PotentialAutomorphyInfrastructurePartII's PL.5/dwork-potential-ordinary-automorphy imports (a gap recorded in that packet).",
+    "WeightZeroCrystallineAutomorphyLifting": "CrystallineLocalGlobalCompatibilityCM is its prerequisite: build on that roadmap's design. The connects relation and potential diagonalizability it uses are owned by PotentialAutomorphyInfrastructurePartII (PL.1)."
+   }
+  }
+ ]
+}

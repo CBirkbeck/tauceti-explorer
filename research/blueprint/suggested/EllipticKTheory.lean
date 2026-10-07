@@ -1,54 +1,37 @@
 /-
-FIX-RT-AREA-ktheory-2~2, Codex — codex-rtOQ9t, 2026-09-30.
-Current revision is unchecked and NOT COMPILED. Any earlier compilation
-record below describes only that earlier revision and environment.
-
-E.5/harder-finiteness: not separately stated; needs the actual higher-K
-localization functor, N.3:finite-generation/proper-curve-finite-generation,
-T.2:symbols/milnor-global-positive-characteristic and M.5d Geisser–Levine.
-The existing K_finite_of_finite_field signature illustrates the geometrically
-integral proper-curve interface; its proof is still sorry and does not establish
-prime-to-characteristic order or the twisted Frobenius formulas.
-E.3 imports N.2 residue injectivity for every closed residue number field.
-E.7/E.8 arithmetic certificates require E.6 models and vertical residues.
--/
-/-
 This file is not the roadmap and is not exhaustive. The roadmap document
 `research/blueprint/readmes/EllipticKTheory.md` is definitive. These statements
 suggest Lean forms so that contributors and reviewers can converge on names and
-signatures. They claim no implementation.
+signatures. They claim no implementation; all nodes remain unchecked.
 
-BP-EllipticKTheory, revised by the independent review REV-EllipticKTheory:
-partial prototype, implementationStatus = unchecked.
 Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174;
 Tau Ceti f790474821cf4256814db967cb154e7af3d0c369.
-Synced with the reviewed packet (52 nodes) and elaborated with the Lean toolchain
-of Mathlib 082e2d3 against its prebuilt library: `sorry` is the only warning. The
-file imports only Mathlib; the Tau Ceti declarations the packet cites (places of a
-function field with their orders and residues, the degree-zero divisor classes of a
-Weierstrass function field, the function-field isogenies, the Euler characteristic)
-are named in comments and, where a statement needs them, stood in for by variables.
 
-Objects that another roadmap owns appear as `variable`s, never as invented
-definitions: the Weierstrass scheme with its charts and zero section (Tau Ceti
-ModularCurves layer 1A, imported by request); K-theory of schemes as one contravariant
-functor per degree (GeneralAlgebraicKTheory K.1 through SchemeKTheoryOperations S.2)
-with proper pushforward (S.2), the localisation boundary (S.3) and Adams operations
-(S.6); the Picard group of a scheme (JacobianChallenge layer A); the tame symbol and
-K_2 of a field (K2SymbolsBrauer T.2, T.3). Statements about them are forms, true only
-once the variables are instantiated by the suppliers. Nothing below encodes a missing
-theorem as an assumed structure field or as a placeholder `Prop`, and no statement is
-`True`: the structure fields of `RegularProperModel`, `SymbolCertificate` and
-`IntegralCertificate` are their actual conditions. `sorry` occurs only as the body of a
-declaration or as a proof obligation inside one, never in a statement.
+Supplier objects in the parent forms are variables: the scheme K-functor,
+proper pushforward, localization boundary, Picard group, Adams operations,
+and function-field places/residues. Admitted statements involving those forms
+are specifications only after instantiation with the actual supplier APIs and
+their laws; they are not claims about arbitrary functors or maps. The precise
+geometric hypotheses and definitive contracts are in the reader and packets.
 
-Unit tests are `example`s whose docstring begins "Test `<name>`" with the name the
-packet gives. An API item, test or node that cannot be stated honestly yet is a
-comment `-- <name>: not stated; needs <missing object>`. The main missing objects are
-the projective line and the isogeny [m] as schemes, K-theory with finite coefficients,
-motivic cohomology, K_2 of a function field with its tame symbols (K2SymbolsBrauer),
-and Tau Ceti's places and divisors of a Weierstrass function field (not imported).
+The E.5 continuation defines the twisted Frobenius subgroup on Mathlib's actual
+Weierstrass point type. Its q-power point action is the existing Point.map of
+FiniteField.frobeniusAlgHom. The E.6 continuation reuses the single parent
+RegularProperModel and genericInclusion, then imports the actual TauCeti.Model
+and arbitrary-ring scalar-extension APIs for its local comparison. The parent's
+pullback.fst is definitionally the pinned TauCeti.genericFiberι.
+
+Missing supplier types and geometric test instances are explicit named comments,
+not Prop-valued stand-ins or assumed conclusions. In particular genuine higher
+K-theory, finite/divisible coefficients, continuous cohomology, Tate modules,
+the elliptic scheme and local minimality are required to state the omitted
+contracts. The point-kernel order signature spells out q+1−#E(k).
+
+Elaboration checks signature syntax and the admitted forms, never the missing
+supplier-dependent targets or proofs. The handoff records the exact validation
+scope and any unavailable compiled dependencies.
 -/
+
 import Mathlib.AlgebraicGeometry.ProjectiveSpectrum.Proper
 import Mathlib.AlgebraicGeometry.Morphisms.Smooth
 import Mathlib.AlgebraicGeometry.Morphisms.Flat
@@ -65,6 +48,14 @@ import Mathlib.LinearAlgebra.TensorProduct.Basic
 import Mathlib.NumberTheory.NumberField.Basic
 import Mathlib.RingTheory.DedekindDomain.AdicValuation
 import Mathlib.RingTheory.RegularLocalRing.Defs
+import Mathlib.AlgebraicGeometry.EllipticCurve.Affine.Point
+import Mathlib.Algebra.Module.Torsion.Basic
+import Mathlib.FieldTheory.Finite.Basic
+import Mathlib.FieldTheory.IsAlgClosed.AlgebraicClosure
+import Mathlib.Data.ZMod.Basic
+import TauCeti.AlgebraicGeometry.Curves.StableReduction.Model.Basic
+import TauCeti.AlgebraicGeometry.Fibers
+import Mathlib.AlgebraicGeometry.Morphisms.Separated
 
 noncomputable section
 
@@ -407,6 +398,14 @@ theorem K_finite_of_finite_field {F : Type u} [Field F] [Finite F] (X : Scheme.{
     (n : ℕ) (hn : 1 ≤ n) :
     Finite (KG K n X) ∧ (n = 1 → Nonempty (KG K 1 X ≃+ Additive Fˣ × Additive Fˣ)) := by
   sorry
+
+-- Test harder_finiteness_1: not stated; needs the Laurent polynomial scheme and
+-- the genuine K₁/unit comparison to exhibit the infinite cyclic unit generated by t
+-- in F_q[t,t⁻¹]. This shows why the properness hypothesis is necessary.
+-- Test harder_finiteness_2: finite generation alone cannot exclude p-torsion
+-- (the additive group of ZMod p is a counterexample for prime p). The K-theoretic
+-- exclusion needs the requested Geisser–Levine and localization interfaces;
+-- no supplier-dependent K-theory test is stated here.
 
 end E5
 
@@ -902,4 +901,391 @@ example : (⟨0, -1, 1, 0, 0⟩ : WeierstrassCurve ℚ).Δ = -11 := by
     WeierstrassCurve.b₈]
   norm_num
 
+end TauCeti.EllipticK
+
+namespace TauCeti.EllipticK
+
+open WeierstrassCurve
+
+section Kernel
+
+variable {k L M : Type*} [Field k] [Fintype k] [DecidableEq k]
+  [Field L] [DecidableEq L] [Algebra k L]
+  [Field M] [DecidableEq M] [Algebra k M]
+
+/-- E.5/twisted-frobenius-kernel. The prime-to-characteristic torsion fixed by
+arithmetic Frobenius with an additional i-th twist. The definition also accepts
+field extensions that are not algebraically closed. -/
+def twistedFrobeniusKernel (W : WeierstrassCurve k) (L : Type*)
+    [Field L] [DecidableEq L] [Algebra k L] (p i : ℕ) [CharP k p] :
+    AddSubgroup (W.baseChange L).toAffine.Point where
+  carrier := {P | (∃ m : ℕ, 0 < m ∧ Nat.Coprime m p ∧ m • P = 0) ∧
+    Fintype.card k ^ i •
+      Affine.Point.map (W' := W) (FiniteField.frobeniusAlgHom k L) P = P}
+  zero_mem' := by sorry
+  add_mem' := by sorry
+  neg_mem' := by sorry
+
+/-- API: exact membership, including the prime-to-p annihilator. -/
+theorem mem_twistedFrobeniusKernel (W : WeierstrassCurve k) (p i : ℕ)
+    [CharP k p] (P : (W.baseChange L).toAffine.Point) :
+    P ∈ twistedFrobeniusKernel W L p i ↔
+      (∃ m : ℕ, 0 < m ∧ Nat.Coprime m p ∧ m • P = 0) ∧
+      Fintype.card k ^ i •
+        Affine.Point.map (W' := W) (FiniteField.frobeniusAlgHom k L) P = P := by
+  sorry
+
+/-- API: the origin uses annihilator one. -/
+theorem zero_mem_twistedFrobeniusKernel (W : WeierstrassCurve k) (p i : ℕ)
+    [CharP k p] : (0 : (W.baseChange L).toAffine.Point) ∈
+      twistedFrobeniusKernel W L p i := by
+  sorry
+
+/-- API: on rational prime-to-p torsion, the condition is (q^i−1)P=0.
+The equivalent form q^i P=P avoids truncated natural-number subtraction. -/
+theorem baseChange_mem_twistedFrobeniusKernel (W : WeierstrassCurve k)
+    (p i : ℕ) [CharP k p] (P : W.toAffine.Point)
+    (hP : ∃ m : ℕ, 0 < m ∧ Nat.Coprime m p ∧ m • P = 0) :
+    Affine.Point.baseChange (W' := W) k L P ∈
+      twistedFrobeniusKernel W L p i ↔ Fintype.card k ^ i • P = P := by
+  sorry
+
+/-- API: the existing field-extension point map preserves the subgroup.
+For an algebra equivalence, apply this in both directions to obtain an additive
+ equivalence; no new point map or Frobenius is defined. -/
+theorem map_twistedFrobeniusKernel (W : WeierstrassCurve k) (p i : ℕ)
+    [CharP k p] (f : L →ₐ[k] M) (P : (W.baseChange L).toAffine.Point)
+    (hP : P ∈ twistedFrobeniusKernel W L p i) :
+    Affine.Point.map (W' := W) f P ∈ twistedFrobeniusKernel W M p i := by
+  sorry
+
+/-- The field-isomorphism clause of the map API. The equivalence uses the
+existing point map, rather than choosing an unspecified group isomorphism. -/
+theorem equiv_twistedFrobeniusKernel (W : WeierstrassCurve k) (p i : ℕ)
+    [CharP k p] (f : L ≃ₐ[k] M) :
+    ∃ e : twistedFrobeniusKernel W L p i ≃+ twistedFrobeniusKernel W M p i,
+      ∀ P, (e P).val = Affine.Point.map (W' := W) f.toAlgHom P.val := by
+  sorry
+
+/-- API: coprime annihilators exclude characteristic-primary torsion. -/
+theorem p_torsion_not_mem_twistedFrobeniusKernel (W : WeierstrassCurve k)
+    (p i : ℕ) [CharP k p] (P : (W.baseChange L).toAffine.Point)
+    (hpP : p • P = 0) (hP : P ∈ twistedFrobeniusKernel W L p i) : P = 0 := by
+  sorry
+
+/-- E.5/elliptic-k-group-orders, the geometric point-kernel part.
+This is an honest point statement; its identification with #K_(2i)(E) needs
+positiveEvenGroups below. Finiteness is explicit so Nat.card cannot hide an
+infinite type behind its zero default. -/
+theorem twistedFrobeniusKernel_card (W : WeierstrassCurve k) [W.IsElliptic]
+    [IsAlgClosed L] (p i : ℕ) [CharP k p] (hi : 1 ≤ i) :
+    Finite (twistedFrobeniusKernel W L p i) ∧
+      (Nat.card (twistedFrobeniusKernel W L p i) : ℤ) =
+        1 - ((Nat.card k : ℤ) + 1 - (Nat.card W.toAffine.Point : ℤ)) * (Fintype.card k : ℤ) ^ i +
+          (Fintype.card k : ℤ) ^ (2 * i + 1) := by
+  sorry
+
+/-- Test EllipticK.test_twistedKernel_origin. -/
+example (W : WeierstrassCurve k) (p i : ℕ) [CharP k p] :
+    (0 : (W.baseChange L).toAffine.Point) ∈ twistedFrobeniusKernel W L p i := by
+  sorry
+
+end Kernel
+
+section ExplicitTests
+
+-- These are local notation for the displayed equations, not new public curve
+-- definitions. The geometric carrier is the actual AlgebraicClosure of ZMod.
+local notation "E3" => (⟨0, 0, 0, -1, 0⟩ : WeierstrassCurve (ZMod 3))
+local notation "E2ordinary" => (⟨1, 0, 0, 0, 1⟩ : WeierstrassCurve (ZMod 2))
+local notation "E2one" => (⟨0, 0, 1, 1, 1⟩ : WeierstrassCurve (ZMod 2))
+local notation "E2five" => (⟨0, 0, 1, 1, 0⟩ : WeierstrassCurve (ZMod 2))
+
+local instance : DecidableEq (AlgebraicClosure (ZMod 2)) := Classical.decEq _
+local instance : DecidableEq (AlgebraicClosure (ZMod 3)) := Classical.decEq _
+
+/-- Test EllipticK.test_twistedKernel_rational_two_torsion.
+The named point is nonzero of exact order two, and q−1=2. -/
+example : ∃ (h : (E3).toAffine.Nonsingular 0 0),
+    let P : (E3).toAffine.Point := Affine.Point.some 0 0 h
+    P ≠ 0 ∧ 2 • P = 0 ∧
+      Affine.Point.baseChange (W' := E3) (ZMod 3) (AlgebraicClosure (ZMod 3)) P ∈
+        twistedFrobeniusKernel E3 (AlgebraicClosure (ZMod 3)) 3 1 := by
+  sorry
+
+/-- Test EllipticK.test_twistedKernel_excludes_characteristic_torsion.
+The rational nonzero two-torsion point is Frobenius fixed but excluded from B_0.
+Using all torsion or all Frobenius-fixed points would fail this test. -/
+example : ∃ (h : (E2ordinary).toAffine.Nonsingular 0 1),
+    let P : (E2ordinary).toAffine.Point := Affine.Point.some 0 1 h
+    P ≠ 0 ∧ 2 • P = 0 ∧
+      Affine.Point.baseChange (W' := E2ordinary) (ZMod 2) (AlgebraicClosure (ZMod 2)) P ∉
+        twistedFrobeniusKernel E2ordinary (AlgebraicClosure (ZMod 2)) 2 0 := by
+  sorry
+
+/-- Test EllipticK.test_twistedKernel_F2_card_five.
+The geometric group is finite of order five in the first twist, and trivial
+without the twist. The finiteness assertions accompany both cardinalities. -/
+example : Finite (twistedFrobeniusKernel E2one (AlgebraicClosure (ZMod 2)) 2 1) ∧
+    Nat.card (twistedFrobeniusKernel E2one (AlgebraicClosure (ZMod 2)) 2 1) = 5 ∧
+    Finite (twistedFrobeniusKernel E2one (AlgebraicClosure (ZMod 2)) 2 0) ∧
+    Nat.card (twistedFrobeniusKernel E2one (AlgebraicClosure (ZMod 2)) 2 0) = 1 := by
+  sorry
+
+/-- Test EllipticK.test_twistedKernel_F2_trace_sign.
+Changing the trace from +2 to −2 changes the first-twist order from five to 13. -/
+example : Finite (twistedFrobeniusKernel E2five (AlgebraicClosure (ZMod 2)) 2 1) ∧
+    Nat.card (E2five).toAffine.Point = 5 ∧ ((Nat.card (ZMod 2) : ℤ) + 1 - (Nat.card (E2five).toAffine.Point : ℤ)) = -2 ∧
+    Nat.card (twistedFrobeniusKernel E2five (AlgebraicClosure (ZMod 2)) 2 1) = 13 := by
+  sorry
+
+end ExplicitTests
+
+/-! Named target signatures awaiting their actual suppliers.
+
+EllipticK.ellipticOperationComparisons (E.5/elliptic-operation-comparisons):
+  not stated. Needs the actual E.1 scheme model and S.2 higher-K comparison/maps.
+  Contract: Lf* and Rf* on the model of a nonzero isogeny agree on affine pieces
+  with extension and restriction of scalars in every degree.
+
+EllipticK.isogenyRankDeterminantAction (E.5/isogeny-rank-determinant-action):
+  not stated. Needs E.1 models, E.2 rank–Pic K₀ and S.2 projection formula.
+  Contract: f_*f*=[f_*O] multiplication, coordinates (d,0,P_f), and integral
+  degree multiplication on K₀ iff P_f=O. The parent proves the separable rational,
+  odd-[m] integral and degree-two counterexample clauses.
+
+EllipticK.projectiveLineComparison (E.5/projective-line-finite-field-comparison):
+  not stated. Needs S.5's actual projective line and K-functor.
+  Contract: inverse to (a,b)↦π*a+[O(-1)]π*b is (π_*x,σ*x−π_*x); finite-field
+  positive even groups vanish and odd groups have two finite-field summands.
+
+EllipticK.harderFinite (E.5/harder-elliptic-input-closure; E.5/harder-finiteness):
+  not stated. Needs actual higher K, function-field S-integer finite generation,
+  Bass–Tate higher Milnor vanishing/tame-kernel finiteness and Geisser–Levine.
+  Contract: for n≥1, Finite K_n(E) and gcd(#K_n(E),p)=1. The five-term
+  localization proof explicitly includes K_(n+1)(k(E)).
+  The all-degree parent E.4 coniveau interface and its K1/origin splitting are
+  direct inputs, in addition to the low-degree E.3 localization interface.
+
+EllipticK.geometricModules (E.5/geometric-elliptic-k-modules):
+  not stated. Needs genuine K/coefficient spectra, Tate/Galois modules and twists.
+  Contract: K_(2i−1)(Ebar)=D(i)² and K_(2i)(Ebar)=Ebar[prime-to-p torsion](i).
+  The divisible-coefficient degree 2i−1 instead uses elliptic twist i−1.
+  H.6 supplies the scheme-spectrum universal-coefficient sequence and its
+  compatible filtered colimit to divisible coefficients.
+
+EllipticK.cohomologyDescent (E.5/elliptic-cohomology-frobenius-descent):
+  not stated. Needs continuous cohomology, derived coefficient triangles and
+  H¹/Tate duality. Contract: for j≥2, H^r(E,Qℓ/Zℓ(j)) identifies with geometric
+  invariants and H^(r+1)(E,Zℓ(j)). No such rational invariants assertion is made
+  at j=0, where H¹(G,Qℓ)=Qℓ.
+
+EllipticK.positiveKDescent (E.5/finite-elliptic-k-descent):
+  not stated. Needs the actual base-change K map and equivariant filtration.
+  Contract: for n>0, K_n(E)→K_n(Ebar)^G is an isomorphism. Handle n=1 separately.
+  The degree-(n+1) coefficient comparison is imported from H.6; the K1 case
+  directly imports the parent E.4 constant-unit/origin splitting.
+
+EllipticK.positiveOddGroups (E.5/positive-odd-elliptic-k-groups):
+  not stated. Needs the actual K-functor. Contract: Nonempty of an additive
+  equivalence K_(2i−1)(E) ≃+ ZMod(q^i−1) × ZMod(q^i−1), i≥1;
+  K₁ uses Additive(kˣ) × Additive(kˣ). Cyclic generators are not canonical.
+
+EllipticK.positiveEvenGroups (E.5/positive-even-elliptic-k-groups):
+  not stated. Needs the actual K-functor and upstream Tℓ/Vℓ objects.
+  Contract: K_(2i)(E) ≃+ twistedFrobeniusKernel W kbar p i for i≥1, with
+  ℓ-primary part coker(1−q^iπ:TℓE→TℓE). The cokernel, rather than the zero
+  invariant subgroup of the lattice, is essential.
+
+EllipticK.groupOrders (E.5/elliptic-k-group-orders):
+  the point-kernel part is twistedFrobeniusKernel_card above; the K-group part
+  is not stated until the genuine positiveOddGroups/positiveEvenGroups exist.
+  Contract: odd order (q^i−1)², even order 1−a_q q^i+q^(2i+1), finite and prime
+  to p. No invariant factors are inferred from the determinant alone.
+-/
+
+end TauCeti.EllipticK
+
+namespace TauCeti.EllipticK
+
+open AlgebraicGeometry CategoryTheory
+
+
+variable (R : Type u) [CommRing R] [IsDedekindDomain R]
+
+variable {R} {E : Scheme.{u}} {toGen : E ⟶ Spec (.of (FractionRing R))}
+
+namespace RegularProperModel
+
+/-- E.6/minimal-arithmetic-model, API Hom: both compatibilities are actual
+scheme-morphism equalities, including the fixed generic-fibre marking. -/
+structure Hom (M N : RegularProperModel R E toGen) where
+  /-- API Hom.hom: the underlying morphism. -/
+  hom : M.X ⟶ N.X
+  overBase : hom ≫ N.toBase = M.toBase
+  genericFibre : M.genericInclusion ≫ hom = N.genericInclusion
+
+/-- API Hom.id. -/
+def Hom.id (M : RegularProperModel R E toGen) : Hom M M := by
+  sorry
+
+/-- API Hom.comp. -/
+def Hom.comp {M N P : RegularProperModel R E toGen} (f : Hom M N) (g : Hom N P) :
+    Hom M P := by
+  sorry
+
+/-- API Hom.id_hom: simplify the underlying identity map. -/
+@[simp]
+theorem Hom.id_hom (M : RegularProperModel R E toGen) :
+    (Hom.id M).hom = 𝟙 M.X := by
+  sorry
+
+/-- API Hom.comp_hom: simplify the underlying composite map. -/
+@[simp]
+theorem Hom.comp_hom {M N P : RegularProperModel R E toGen}
+    (f : Hom M N) (g : Hom N P) :
+    (Hom.comp f g).hom = f.hom ≫ g.hom := by
+  sorry
+
+/-- API category: marked models form a category, using the preceding operations. -/
+instance category : Category (RegularProperModel R E toGen) where
+  Hom := Hom
+  id := Hom.id
+  comp f g := Hom.comp f g
+  id_comp := by sorry
+  comp_id := by sorry
+  assoc := by sorry
+
+/-- API Hom.ext. -/
+theorem Hom.ext {M N : RegularProperModel R E toGen} {f g : Hom M N}
+    (h : f.hom = g.hom) : f = g := by
+  sorry
+
+/-- API Hom.subsingleton: regularity gives a reduced source, and flatness makes
+its generic fibre dense. Apply the baseline separated-target equality theorem. -/
+theorem Hom.subsingleton (M N : RegularProperModel R E toGen) :
+    Subsingleton (Hom M N) := by
+  sorry
+
+/-- E.6/minimal-arithmetic-model: outgoing relative minimality. -/
+def IsMinimal (M : RegularProperModel R E toGen) : Prop :=
+  ∀ (N : RegularProperModel R E toGen) (f : Hom M N), IsIso f.hom
+
+/-- API isMinimal_iff. -/
+theorem isMinimal_iff (M : RegularProperModel R E toGen) :
+    M.IsMinimal ↔ ∀ (N : RegularProperModel R E toGen) (f : Hom M N), IsIso f.hom := by
+  sorry
+
+/-- API IsMinimal.of_iso: transport along an identity-marked isomorphism. -/
+theorem IsMinimal.of_iso {M N : RegularProperModel R E toGen}
+    (hM : M.IsMinimal) (f : Hom M N) [IsIso f.hom] : N.IsMinimal := by
+  sorry
+
+section LocalComparison
+
+variable (M : RegularProperModel R E toGen)
+variable (v : IsDedekindDomain.HeightOneSpectrum R)
+variable (A : Type u) [CommRing A] [IsDomain A] [IsDiscreteValuationRing A]
+variable [Algebra R A] [hLoc : IsLocalization.AtPrime A v.asIdeal]
+variable [Algebra A (FractionRing R)] [IsFractionRing A (FractionRing R)]
+variable [hTower : IsScalarTower R A (FractionRing R)]
+
+include M v hLoc hTower
+
+/-- API toLocalModel: scalar extension to the specified local DVR and forgetting
+properness and regularity to the actual pinned TauCeti.Model. -/
+def toLocalModel : TauCeti.Model A (FractionRing R) E toGen := by
+  sorry
+
+/-- API toLocalModel_totalIso: comparison over the local base, so this is stronger
+than an unmarked isomorphism of total schemes. The constructed toLocalModel also
+uses the original marking via iterated scalar extension. -/
+def toLocalModel_totalIso :
+    { e : Over.mk (toLocalModel M v A).toBase ≅ TauCeti.genericFiber R A M.toBase //
+      ((Over.pullback (Spec.map (CommRingCat.ofHom
+        (algebraMap A (FractionRing R))))).mapIso e).hom.left ≫
+          (TauCeti.genericFiberTowerIso R A (FractionRing R) M.toBase).hom ≫
+            M.genericFibre.hom = (toLocalModel M v A).genericFiberIso.hom.left } := by
+  sorry
+
+/-- API toLocalModelHom: scalar extension of a marked model map, using the
+same inherited generic-fibre tower comparison as toLocalModel_totalIso. -/
+def toLocalModelHom {N : RegularProperModel R E toGen} (f : Hom M N) :
+    TauCeti.Model.Hom (toLocalModel M v A) (toLocalModel N v A) := by
+  sorry
+
+-- The local regularity/minimality assertions are not stated; they need the
+-- StableReduction layer 5 regular-model and minimality interface.
+
+end LocalComparison
+
+/-! Tests of minimal-arithmetic-model. Each comment identifies the full packet
+check. Where its geometric carrier is missing, the example is explicitly only
+an expressible part, rather than a replacement for the stated check. -/
+
+/-- Test smooth_37a1_minimal, expressible smooth-model implication.
+The explicit projective scheme y²z + yz² = x³ − xz² over Z[1/37] is not stated;
+it needs the E.1/ModularCurves scheme carrier. Its discriminant is 37 and the
+full test instantiates this example with its smooth relative-curve model. -/
+example (M : RegularProperModel R E toGen) [SmoothOfRelativeDimension 1 M.toBase] :
+    M.IsMinimal := by
+  sorry
+
+/-- Test nodal_37a1_minimal, expressible arithmetic witness from the parent
+regularity test. The full model's irreducible I₁ fibre at 37 has no exceptional
+curve, although it is singular. That assertion needs the projective Weierstrass
+scheme and the StableReduction fibre/minimality interface and is not stated. -/
+example : (18 : ℤ) ^ 2 + 18 - (5 ^ 3 - 5) = 222 ∧ ¬ (37 ^ 2 : ℤ) ∣ 222 := by
+  sorry
+
+/-- Test point_blowup_not_minimal, expressible defining obstruction.
+The explicit blowup of the preceding smooth model at a closed point over 2 is
+not stated; it needs StableReduction layer 4's scheme blowup and exceptional
+fibre. Its blowdown instantiates b, and P¹ as exceptional fibre proves hb. -/
+example {X M : RegularProperModel R E toGen} (b : Hom X M) (hb : ¬ IsIso b.hom) :
+    ¬ X.IsMinimal := by
+  sorry
+
+/-! Named arithmetic theorems -/
+
+-- exists_locallyMinimal_arithmetic_model (E.6/exists-locally-minimal-arithmetic-model):
+-- not stated; needs the E.1 elliptic scheme and StableReduction's exceptional-
+-- curve and local-minimality predicates, and scheme projectivity. Its exact
+-- arithmetic hypotheses and finite contraction proof are in the packet/reader.
+
+-- locallyMinimal_terminal (E.6/locally-minimal-terminal-model): not stated;
+-- needs the local relative-minimality predicate and the fixed elliptic generic
+-- scheme. The conclusion is that Hom X M has exactly one element for every X.
+
+-- isMinimal_iff_locallyMinimal (E.6/minimality-local-criterion): not stated;
+-- needs the same local predicate and the positive-genus curve interface.
+-- The categorical implication from the terminal property is expressible:
+/-- Generic marked-model part of minimality-local-criterion. -/
+theorem isMinimal_of_terminal (M : RegularProperModel R E toGen)
+    (h : ∀ X : RegularProperModel R E toGen, Nonempty (Unique (Hom X M))) : M.IsMinimal := by
+  sorry
+
+-- minimal_arithmetic_model_unique (E.6/unique-minimal-arithmetic-model):
+-- not stated with minimality hypotheses alone; needs the positive-genus
+-- elliptic curve and the existence/mapping theorems above. The final scheme
+-- isomorphism and its generic/base compatibilities are already expressible
+-- when the two model maps have been obtained:
+/-- Generic marked-model part of unique-minimal-arithmetic-model. -/
+def markedIsoOfHomBothWays {M N : RegularProperModel R E toGen}
+    (f : Hom M N) (g : Hom N M) :
+    { e : M.X ≅ N.X // e.hom = f.hom ∧ e.inv = g.hom ∧
+      e.hom ≫ N.toBase = M.toBase ∧ M.genericInclusion ≫ e.hom = N.genericInclusion } := by
+  sorry
+
+-- minimal_model_localisation (E.6/minimal-model-localisation): not stated;
+-- needs the planned S-integer model's open base-change carrier, the local-
+-- minimality criterion and the fixed elliptic generic curve. It asserts only
+-- inversion of primes in the same number field, with identity/composition
+-- coherence. It does not assert preservation under arbitrary ramified change.
+-- The open restriction uses ArithmeticKTheory:N.1/
+-- S-integers-localisation-of-torsion-class-group: for the finite new prime set,
+-- choose principal prime powers in O_F and invert their product a, obtaining
+-- O_{F,S′} = O_{F,S}[1/a] and hence the principal open D(a).
+
+end RegularProperModel
 end TauCeti.EllipticK

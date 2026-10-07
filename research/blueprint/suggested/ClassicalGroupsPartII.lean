@@ -30,10 +30,14 @@ This file is not the roadmap and is not exhaustive. The roadmap document
 `research/blueprint/readmes/ClassicalGroupsPartII.md` is definitive. These
 statements suggest Lean forms so that contributors and reviewers converge on
 names and signatures. Every new construction and proof is unchecked.
+The packet and REV-DESIGN-ClassicalGroupsPartII review record the independent
+review's contract corrections and source-issue checks.
 
 Baseline: TauCeti f790474821cf4256814db967cb154e7af3d0c369;
 Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174.
 Not compiled: no existing shared build was found at BOTH commits.
+The review's lean-check attempt stopped at a missing TauCeti import object,
+before elaborating these signatures; it does not establish compilation.
 
 The general similitude carrier belongs to ArithmeticStatistics:ST.5. The inline
 matrix subtype below specifies the points of its coordinate presentation; it
@@ -63,9 +67,9 @@ instance rankTwoPositive : Fact (0 < 2) := ⟨by sorry⟩
 
 abbrev Weight (g : ℕ) := ℤ × (Fin g → ℤ)
 
-def multiplierWeight (g : ℕ) : Weight g := by sorry
+def multiplierWeight (g : ℕ) : Weight g := (1, 0)
 
-def standardWeight {g : ℕ} (i : Fin g) : Weight g := by sorry
+def standardWeight {g : ℕ} (i : Fin g) : Weight g := (0, Pi.single i 1)
 
 def centralDegree (g : ℕ) : Weight g →+ ℤ := by sorry
 
@@ -235,6 +239,12 @@ def unitTensorCoordinates (M : RatRep K g) : (K ⊗[K] M) ≃ₗ[K] M := by sorr
 
 lemma standard_finrank : Module.finrank K (standard K g) = g + g := by sorry
 
+lemma standard_coaction (v : standard K g) :
+    TensorProduct.map (standardCoordinates K g).toLinearMap LinearMap.id
+      (TauCeti.Comodule.coact (R := K) (C := coordinateHopfAlgebra K g) v) =
+        ∑ a : Fin (g + g), (Pi.single a (1 : K)) ⊗ₜ[K]
+          (∑ b : Fin (g + g), standardCoordinates K g v b • matrixEntry K g a b) := by sorry
+
 lemma standard_point_action (f : coordinateHopfAlgebra K g →ₐ[K] K)
     (v : standard K g) :
     standardCoordinates K g
@@ -295,6 +305,12 @@ lemma primitiveInclusion_kernel (k : Fin (g+1)) (h₂ : 2 ≤ k.val) :
       (∃ w, primitiveInclusion k w = v) ↔ contraction k.val h₂ (by sorry) v = 0 := by sorry
 
 def alternatingForm : LinearMap.BilinForm K (standard K g) := by sorry
+
+lemma alternatingForm_coordinates (v w : standard K g) :
+    alternatingForm v w =
+      ∑ a : Fin (g + g), ∑ b : Fin (g + g),
+        standardCoordinates K g v a * TauCeti.JFin g K a b *
+          standardCoordinates K g w b := by sorry
 
 def wedgeTwo (v w : standard K g) : exteriorStandard K g 2 :=
   (exteriorCoordinates 2).symm (exteriorPower.ιMulti K 2 ![v,w])

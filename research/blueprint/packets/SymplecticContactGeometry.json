@@ -40,7 +40,7 @@
       "hypotheses":["V is a real vector space. Finite-dimensionality is not needed for the predicate."],
       "proofSteps":["Use the existing dual, kernel submodule, bilinear form and nondegeneracy predicates. Do not bundle a chosen solution to the Reeb equations.","In a smooth application the pair must be the actual values (alpha_x,(d alpha)_x). The predicate alone imposes no differential compatibility, smoothness or closedness."],
       "prerequisites":["mathlib:LinearMap.BilinForm.restrict"],"acceptance":["A nonzero covector with a degenerate horizontal two-form is rejected; nonzero alpha alone is not the contact condition."],
-      "sources":[{"sourceId":"CDS","locator":"10.1, Definitions 10.1-10.2 and Proposition 10.3, printed pp.57-58","excerpt":"contact","match":"Pointwise refinement of the source definition; this does not supply a smooth one-form or its exterior derivative."}],
+      "sources":[{"sourceId":"CDS","locator":"10.1, Definitions 10.1-10.2 and Proposition 10.3, printed pp.57-58","match":"Pointwise refinement of the source definition; this does not supply a smooth one-form or its exterior derivative."}],
       "uses":[{"where":"SymplecticContactGeometry:SC.1","how":"Instantiated at the actual smooth one-form and its exterior derivative on each tangent space."},{"where":"SymplecticContactGeometry:SC.0/reeb-existence-uniqueness","how":"Supplies the horizontal perfect pairing and a normalized transverse vector."}],
       "api":[{"name":"TauCeti.Contact.IsContactData.alpha_ne_zero","role":"projection","statement":"The given alpha is nonzero."},{"name":"TauCeti.Contact.IsContactData.beta_isAlt","role":"projection","statement":"The given beta is alternating."},{"name":"TauCeti.Contact.IsContactData.horizontal_nondegenerate","role":"projection","statement":"The restriction to ker(alpha) is nondegenerate."}],
       "tests":[{"name":"contact_one_dimensional","kind":"degenerate","statement":"On V=R, alpha=id and beta=0 satisfy the condition because the kernel is zero."},{"name":"contact_zero_covector_rejected","kind":"non-example","statement":"Alpha=0 is rejected for every beta, including on the zero space."},{"name":"contact_zero_twoform_rejected","kind":"non-example","statement":"On R times R^2, alpha=first projection and beta=0 fail the condition."}],
@@ -52,7 +52,7 @@
       "hypotheses":["V is a real vector space with the specified contact data."],
       "proofSteps":["Restrict the given bilinear form. Its alternation follows by evaluating on a horizontal vector twice, and its nondegeneracy is the contact hypothesis.","The constructor and its evaluation retain precisely the original restricted form. Proof witnesses do not change the resulting data."],
       "prerequisites":["SymplecticContactGeometry:SC.0/contact-linear-data","tauceti:TauCeti.SymplecticForm","mathlib:LinearMap.BilinForm.restrict"],"acceptance":["The underlying bilinear form is literally beta restricted to H."],
-      "sources":[{"sourceId":"CDS","locator":"11.1, horizontal nondegeneracy in the Reeb construction, p.63","excerpt":"Reeb","match":"Pointwise packaging in the existing carrier, not a second symplectic theory."}],
+      "sources":[{"sourceId":"CDS","locator":"11.1, horizontal nondegeneracy in the Reeb construction, p.63","match":"Pointwise packaging in the existing carrier, not a second symplectic theory."}],
       "uses":[{"where":"SymplecticContactGeometry:SC.0/reeb-existence-uniqueness","how":"Allows direct reuse of the existing finite-dimensional bilinear dual equivalence."},{"where":"SymplecticContactGeometry:SC.0/linear-symplectization","how":"The restriction of the enlarged form recovers this same form."}],
       "api":[{"name":"TauCeti.Contact.horizontal_apply","role":"projection","statement":"Horizontal pairing equals beta on the included vectors."},{"name":"TauCeti.Contact.horizontal_toBilinForm","role":"compatibility","statement":"The underlying form is beta.restrict(ker(alpha))."},{"name":"TauCeti.Contact.horizontal_proof_independent","role":"extensionality","statement":"Two proofs of the contact condition give the same packaged form."}],
       "tests":[{"name":"horizontal_model","kind":"compatibility","statement":"In R times a symplectic W, the horizontal pairing of (0,v),(0,w) is omega(v,w)."},{"name":"horizontal_diagonal","kind":"computation","statement":"The pairing of a horizontal vector with itself is zero."},{"name":"horizontal_zero_kernel","kind":"degenerate","statement":"For alpha=id on R the zero-dimensional horizontal pairing is zero."}],
@@ -64,7 +64,7 @@
       "hypotheses":["W is a real vector space with the given symplectic form."],
       "proofSteps":["The first projection is nonzero, as tested on (1,0). Its kernel consists exactly of pairs (0,v).","The given form pulls back along the second projection. Alternation and horizontal nondegeneracy follow from omega and the linear identification of W with that kernel."],
       "prerequisites":["SymplecticContactGeometry:SC.0/contact-linear-data","tauceti:TauCeti.SymplecticForm","tauceti:TauCeti.SymplecticForm.separatingLeft","mathlib:LinearMap.BilinForm.comp"],"acceptance":["This is a pointwise model. It does not identify the derivative of the globally constant one-form dt with a nonzero omega."],
-      "sources":[{"sourceId":"CDS","locator":"10.1, contact hyperplanes, pp.57-58; 11.1, p.63","excerpt":"contact","match":"Explicit linear model of the source pointwise condition, not a false global derivative identity."}],
+      "sources":[{"sourceId":"CDS","locator":"10.1, contact hyperplanes, pp.57-58; 11.1, p.63","match":"Explicit linear model of the source pointwise condition, not a false global derivative identity."}],
       "library":{"module":"TauCeti/Geometry/Contact/Linear","namespace":"TauCeti.Contact"},"implementationStatus":"unchecked"
     },
     {
@@ -73,7 +73,7 @@
       "hypotheses":["V is finite-dimensional over R. The restricted space is therefore finite-dimensional as well.","No Reeb vector is part of the input data."],
       "proofSteps":["Choose u with alpha(u)=1 by rescaling a vector on which the nonzero covector is nonzero.","On H=ker(alpha), apply the EXISTING BilinForm.toDual of beta restricted to H. Let z be its inverse applied to the covector w mapped to beta(u,w). Its evaluation theorem gives beta(z,w)=beta(u,w). There is no new generic duality or covector-solver node.","Put r=u-z. It is normalized and annihilates H. Every v can be written alpha(v)r+h with h in H; alternation gives beta(r,r)=0, hence r annihilates all V.","For two solutions the difference belongs to H and annihilates H. Horizontal nondegeneracy forces the difference to be zero."],
       "prerequisites":["SymplecticContactGeometry:SC.0/contact-linear-data","SymplecticContactGeometry:SC.0/horizontal-symplectic-form","mathlib:LinearMap.BilinForm.toDual","mathlib:LinearMap.BilinForm.apply_toDual_symm_apply","tauceti:TauCeti.SymplecticForm.separatingLeft"],"acceptance":["In the transverse-line model the solution is (1,0); changing alpha to twice itself changes the normalization."],
-      "sources":[{"sourceId":"CDS","locator":"11.1, Reeb equations and uniqueness, printed p.63","excerpt":"Reeb","match":"The inverse-dual construction expands the pointwise source argument on the verified carriers. It is not a smooth-field theorem."}],
+      "sources":[{"sourceId":"CDS","locator":"11.1, Reeb equations and uniqueness, printed p.63","match":"The inverse-dual construction expands the pointwise source argument on the verified carriers. It is not a smooth-field theorem."}],
       "library":{"module":"TauCeti/Geometry/Contact/Linear","namespace":"TauCeti.Contact"},"implementationStatus":"unchecked"
     },
     {
@@ -82,7 +82,7 @@
       "hypotheses":["V is finite-dimensional and carries the specified contact data."],
       "proofSteps":["Use the existence theorem and its uniqueness to define r. All normalized-kernel properties follow from that theorem; any construction choices disappear by uniqueness."],
       "prerequisites":["SymplecticContactGeometry:SC.0/reeb-existence-uniqueness"],"acceptance":["The value is nonzero because its alpha value is one."],
-      "sources":[{"sourceId":"CDS","locator":"11.1, Reeb equations, p.63","excerpt":"Reeb","match":"The selected vector is constructed from the proved pointwise existence theorem."}],
+      "sources":[{"sourceId":"CDS","locator":"11.1, Reeb equations, p.63","match":"The selected vector is constructed from the proved pointwise existence theorem."}],
       "uses":[{"where":"SymplecticContactGeometry:SC.0/horizontal-projection","how":"Determines the projection along the normalized transverse direction."},{"where":"SymplecticContactGeometry:SC.0/reeb-rescaling","how":"Specifies the change under an actual first-order rescaling."}],
       "api":[{"name":"TauCeti.Contact.reeb_spec","role":"characterisation","statement":"Alpha(r)=1 and beta(r,v)=0 for every v; promoted to a lemma node."},{"name":"TauCeti.Contact.reeb_unique","role":"universal-property","statement":"Every vector satisfying those two equations equals r; promoted to a lemma node."},{"name":"TauCeti.Contact.reeb_ne_zero","role":"relation","statement":"The Reeb vector is nonzero."}],
       "tests":[{"name":"reeb_model","kind":"computation","statement":"On the transverse-line model the Reeb vector is (1,0)."},{"name":"reeb_normalization_matters","kind":"computation","statement":"On R with alpha=2 id and beta=0 the Reeb vector is 1/2."},{"name":"reeb_negative_coorientation","kind":"computation","statement":"On R with alpha=-id and beta=0 the Reeb vector is -1."}],
@@ -93,7 +93,7 @@
       "statement":"The constructed r satisfies alpha(r)=1 and beta(r,v)=0 for all v.","hypotheses":["V is finite-dimensional; the contact pair is fixed."],
       "proofSteps":["Apply the specification of the chosen unique solution. This is the reeb_spec API, not another existence assumption."],
       "prerequisites":["SymplecticContactGeometry:SC.0/reeb-vector","SymplecticContactGeometry:SC.0/reeb-existence-uniqueness"],"acceptance":["The second equation is on all V, not just the horizontal subspace."],
-      "sources":[{"sourceId":"CDS","locator":"11.1, normalized kernel equations, p.63","excerpt":"Reeb","match":"Specification of the constructed pointwise vector."}],
+      "sources":[{"sourceId":"CDS","locator":"11.1, normalized kernel equations, p.63","match":"Specification of the constructed pointwise vector."}],
       "library":{"module":"TauCeti/Geometry/Contact/Linear","namespace":"TauCeti.Contact"},"implementationStatus":"unchecked"
     },
     {
@@ -101,7 +101,7 @@
       "statement":"A vector normalized by alpha and annihilating beta on all V equals the constructed Reeb vector.","hypotheses":["V is finite-dimensional; both normalization and annihilation are hypotheses."],
       "proofSteps":["Apply the uniqueness part of existsUnique_reeb to the candidate and the constructed solution."],
       "prerequisites":["SymplecticContactGeometry:SC.0/reeb-existence-uniqueness","SymplecticContactGeometry:SC.0/reeb-characterization"],"acceptance":["An unnormalized nonzero vector in the radical does not determine the Reeb vector."],
-      "sources":[{"sourceId":"CDS","locator":"11.1, uniqueness of the Reeb vector, p.63","excerpt":"Reeb","match":"Candidate-identification API for the preceding existence theorem."}],
+      "sources":[{"sourceId":"CDS","locator":"11.1, uniqueness of the Reeb vector, p.63","match":"Candidate-identification API for the preceding existence theorem."}],
       "library":{"module":"TauCeti/Geometry/Contact/Linear","namespace":"TauCeti.Contact"},"implementationStatus":"unchecked"
     },
     {
@@ -109,7 +109,7 @@
       "statement":"Construct the real-linear map P:V->ker(alpha), P(v)=v-alpha(v)r, where r is the proved normalized Reeb vector.","hypotheses":["V is finite-dimensional; the contact pair is fixed."],
       "proofSteps":["Normalization gives alpha(v-alpha(v)r)=0, so the value belongs to the actual kernel.","Linearity follows by expanding alpha on sums and scalar multiples. On the kernel P is identity; on r it is zero."],
       "prerequisites":["SymplecticContactGeometry:SC.0/reeb-characterization"],"acceptance":["P is a projection, not an arbitrary splitting chosen independently of beta."],
-      "sources":[{"sourceId":"CDS","locator":"11.1, normalized Reeb direction, p.63","excerpt":"Reeb","match":"Explicit pointwise splitting construction derived from normalization."}],
+      "sources":[{"sourceId":"CDS","locator":"11.1, normalized Reeb direction, p.63","match":"Explicit pointwise splitting construction derived from normalization."}],
       "uses":[{"where":"SymplecticContactGeometry:SC.0/reeb-splitting","how":"Gives the second coordinate of the canonical direct-product decomposition."},{"where":"SymplecticContactGeometry:SC.0/horizontal-form-recovery","how":"Compares the full form with its horizontal restriction."}],
       "api":[{"name":"TauCeti.Contact.horizontalProjection_coe","role":"projection","statement":"The included value is v-alpha(v)r; promoted to its own lemma."},{"name":"TauCeti.Contact.horizontalProjection_subtype","role":"simp","statement":"P is the identity on ker(alpha)."},{"name":"TauCeti.Contact.horizontalProjection_reeb","role":"simp","statement":"P(r)=0."}],
       "tests":[{"name":"projection_kills_reeb","kind":"computation","statement":"The Reeb vector has zero horizontal projection."},{"name":"projection_fixes_horizontal","kind":"compatibility","statement":"A vector of the actual kernel is fixed."},{"name":"projection_ignores_reeb_translation","kind":"compatibility","statement":"P(v+t r)=P(v) for every scalar t."}],
@@ -119,7 +119,7 @@
       "id":"SymplecticContactGeometry:SC.0/horizontal-projection-formula","parentStageId":"SymplecticContactGeometry:SC.0","realises":["SymplecticContactGeometry:SC.0"],"title":"Evaluation of horizontal projection","kind":"lemma","leanDeclaration":"TauCeti.Contact.horizontalProjection_coe",
       "statement":"The included horizontal projection is exactly v-alpha(v)r.","hypotheses":["V is finite-dimensional; the contact pair is fixed."],
       "proofSteps":["Unfold the constructed linear map and its subtype value."],"prerequisites":["SymplecticContactGeometry:SC.0/horizontal-projection"],"acceptance":["There is no choice of a complementary subspace in this formula."],
-      "sources":[{"sourceId":"CDS","locator":"11.1, normalized Reeb direction, p.63","excerpt":"Reeb","match":"Evaluation of the explicit projection derived from the Reeb equations."}],
+      "sources":[{"sourceId":"CDS","locator":"11.1, normalized Reeb direction, p.63","match":"Evaluation of the explicit projection derived from the Reeb equations."}],
       "library":{"module":"TauCeti/Geometry/Contact/Linear","namespace":"TauCeti.Contact"},"implementationStatus":"unchecked"
     },
     {
@@ -127,7 +127,7 @@
       "statement":"Construct a linear equivalence V with R times ker(alpha) sending v to (alpha(v),P(v)); its inverse sends (t,h) to t r+h.","hypotheses":["V is finite-dimensional; the contact pair is fixed."],
       "proofSteps":["Build the two displayed linear maps on existing product and kernel carriers.","Normalization gives alpha(t r+h)=t, while the projection formula gives P(t r+h)=h. The other composite is alpha(v)r+(v-alpha(v)r)=v."],
       "prerequisites":["SymplecticContactGeometry:SC.0/horizontal-projection-formula","SymplecticContactGeometry:SC.0/reeb-characterization"],"acceptance":["The scalar factor is the normalized Reeb coordinate, not just an unspecified complementary line."],
-      "sources":[{"sourceId":"CDS","locator":"11.1, Reeb and horizontal directions, p.63","excerpt":"Reeb","match":"Both maps and inverse identities are supplied as a pointwise refinement."}],
+      "sources":[{"sourceId":"CDS","locator":"11.1, Reeb and horizontal directions, p.63","match":"Both maps and inverse identities are supplied as a pointwise refinement."}],
       "uses":[{"where":"SymplecticContactGeometry:SC.1","how":"Provides the pointwise tangent splitting whose smooth bundle version must be proved."},{"where":"SymplecticContactGeometry:SC.0/linear-symplectization","how":"Explains the transverse symplectic two-plane without changing the form."}],
       "api":[{"name":"TauCeti.Contact.splitting_apply","role":"projection","statement":"The two coordinates are alpha(v) and P(v)."},{"name":"TauCeti.Contact.splitting_symm_apply","role":"constructor","statement":"The inverse on (t,h) is t r+h."},{"name":"TauCeti.Contact.splitting_reeb","role":"simp","statement":"The Reeb vector maps to (1,0)."}],
       "tests":[{"name":"splitting_reeb_axis","kind":"computation","statement":"The normalized Reeb vector gives (1,0)."},{"name":"splitting_horizontal_axis","kind":"compatibility","statement":"A horizontal vector h gives (0,h)."},{"name":"splitting_roundtrip","kind":"compatibility","statement":"The vector t r+h maps back to exactly (t,h)."}],
@@ -138,7 +138,7 @@
       "statement":"For all v,w, beta(P(v),P(w))=beta(v,w). Thus the original two-form is recovered from its horizontal part under the constructed splitting.","hypotheses":["V is finite-dimensional; the contact pair is fixed."],
       "proofSteps":["Expand both projected arguments. Terms with r in the first slot vanish by the Reeb equations; terms with r in the second vanish by the alternating skew identity."],
       "prerequisites":["SymplecticContactGeometry:SC.0/horizontal-projection-formula","SymplecticContactGeometry:SC.0/reeb-characterization","mathlib:LinearMap.BilinForm.IsAlt.neg_eq"],"acceptance":["The statement does not assert that a general alternating form vanishes on an arbitrarily chosen complement."],
-      "sources":[{"sourceId":"CDS","locator":"11.1, Reeb equations, p.63","excerpt":"Reeb","match":"The evaluation identity is proved by the displayed splitting and annihilation equations."}],
+      "sources":[{"sourceId":"CDS","locator":"11.1, Reeb equations, p.63","match":"The evaluation identity is proved by the displayed splitting and annihilation equations."}],
       "library":{"module":"TauCeti/Geometry/Contact/Linear","namespace":"TauCeti.Contact"},"implementationStatus":"unchecked"
     },
     {
@@ -147,7 +147,7 @@
       "hypotheses":["V is a real vector space with the given covector and bilinear form. The construction does not require c nonzero."],
       "proofSteps":["Use existing bilinear-form scalar multiplication, addition, subtraction and linMulLin. There is no new exterior-algebra carrier.","Evaluation is the displayed finite bilinear expression. Setting ell=0 gives c beta. Two successive first-order rescalings (c,ell),(d,m) give (dc,d ell+c m) by bilinear expansion."],
       "prerequisites":["mathlib:LinearMap.BilinForm.linMulLin","mathlib:LinearMap.BilinForm.linMulLin_apply"],"acceptance":["The construction is defined even at c=0, but the contact-preservation theorem must exclude that case."],
-      "sources":[{"sourceId":"GEIGES","locator":"2.1, Definition 2.8 and the contact-form rescaling convention","excerpt":"contact","match":"The first-order formula is an authored product-rule refinement; no printed Reeb rescaling theorem is attributed to this passage."}],
+      "sources":[{"sourceId":"GEIGES","locator":"2.1, Definition 2.8 and the contact-form rescaling convention","match":"The first-order formula is an authored product-rule refinement; no printed Reeb rescaling theorem is attributed to this passage."}],
       "uses":[{"where":"SymplecticContactGeometry:SC.0/reeb-rescaling","how":"Tracks the horizontal correction caused by a nonconstant conformal factor."},{"where":"SymplecticContactGeometry:SC.1","how":"Matches the actual derivative of a rescaled smooth one-form."}],
       "api":[{"name":"TauCeti.Contact.rescaledForm_apply","role":"simp","statement":"The value is c beta(v,w)+ell(v)alpha(w)-alpha(v)ell(w); promoted to a lemma node."},{"name":"TauCeti.Contact.rescaledForm_zero","role":"compatibility","statement":"At ell=0 the form is c beta."},{"name":"TauCeti.Contact.rescaledForm_comp","role":"functoriality","statement":"Successive factors c,d and differentials ell,m compose to factor dc and differential d ell+c m."}],
       "tests":[{"name":"rescaling_constant","kind":"computation","statement":"At factor 2 and zero differential the form is 2 beta."},{"name":"rescaling_gradient_term","kind":"non-example","statement":"At factor 1, pairing the old Reeb vector with a horizontal v gives -ell(v), which need not vanish."},{"name":"rescaling_product_rule","kind":"compatibility","statement":"Factors 2 then 3 give factor 6 and differential 3 ell+2 m."}],
@@ -158,7 +158,7 @@
       "statement":"The rescaled form evaluates as c beta(v,w)+ell(v)alpha(w)-alpha(v)ell(w).","hypotheses":["V is a real vector space; the form is the preceding constructed rescaledForm."],
       "proofSteps":["Apply linMulLin_apply to the two rank-one forms and expand their sum and scalar multiple."],
       "prerequisites":["SymplecticContactGeometry:SC.0/rescaled-exterior-data","mathlib:LinearMap.BilinForm.linMulLin_apply"],"acceptance":["The last term has a minus sign; reversing it destroys alternation."],
-      "sources":[{"sourceId":"GEIGES","locator":"2.1, contact rescaling; pointwise product-rule refinement","excerpt":"contact","match":"Explicit evaluation of the derivative-rescaling data."}],
+      "sources":[{"sourceId":"GEIGES","locator":"2.1, contact rescaling; pointwise product-rule refinement","match":"Explicit evaluation of the derivative-rescaling data."}],
       "library":{"module":"TauCeti/Geometry/Contact/Linear","namespace":"TauCeti.Contact"},"implementationStatus":"unchecked"
     },
     {
@@ -166,7 +166,7 @@
       "statement":"If (alpha,beta) is contact data and c is nonzero, then (c alpha,rescaledForm(alpha,beta,c,ell)) is contact data for every covector ell.","hypotheses":["V is a real vector space; c is nonzero. No finite-dimensional hypothesis is needed."],
       "proofSteps":["The kernels of alpha and c alpha are the same subspace; multiplication by c is invertible.","The rank-one correction vanishes on two horizontal arguments, so the restricted form is c times the original horizontal form. It remains nondegenerate. The whole new form is alternating by its evaluation formula."],
       "prerequisites":["SymplecticContactGeometry:SC.0/contact-linear-data","SymplecticContactGeometry:SC.0/rescaled-form-evaluation"],"acceptance":["Negative c is permitted algebraically. Preserving an already chosen smooth coorientation requires a positive factor.","At c=0 the new covector is zero and the condition fails."],
-      "sources":[{"sourceId":"GEIGES","locator":"2.1, Definition 2.8 and nonzero contact-form factors","excerpt":"contact","match":"The pointwise nondegeneracy proof retains the actual derivative correction."}],
+      "sources":[{"sourceId":"GEIGES","locator":"2.1, Definition 2.8 and nonzero contact-form factors","match":"The pointwise nondegeneracy proof retains the actual derivative correction."}],
       "library":{"module":"TauCeti/Geometry/Contact/Linear","namespace":"TauCeti.Contact"},"implementationStatus":"unchecked"
     },
     {
@@ -176,14 +176,14 @@
       "proofSteps":["The given inverse-dual evaluation proves the defining equation for Z; its value is uniquely specified.","The proposed vector r_prime has c alpha(r_prime)=1. For horizontal w, the rescaled-form expression is c^(-1)beta(Z,w)-c^(-1)ell(w)=0.","Every v is a multiple of r_prime plus a horizontal vector. The new form is alternating and hence also vanishes on (r_prime,r_prime). It follows that r_prime annihilates every vector.","Apply the proved uniqueness of the Reeb equations to the new contact data. No derivative of the factor is discarded."],
       "prerequisites":["SymplecticContactGeometry:SC.0/rescaling-contact-condition","SymplecticContactGeometry:SC.0/rescaled-form-evaluation","SymplecticContactGeometry:SC.0/reeb-characterization","SymplecticContactGeometry:SC.0/reeb-uniqueness","mathlib:LinearMap.BilinForm.toDual","mathlib:LinearMap.BilinForm.apply_toDual_symm_apply"],
       "acceptance":["For alpha=dz-p dq and f=exp(q), at q=p=0 the new Reeb vector is partial_z-partial_p, not the old Reeb divided by f.","When ell has nonzero horizontal restriction the correction can be nonzero even at c=1."],
-      "sources":[{"sourceId":"CDS","locator":"11.1, Reeb equations, p.63, with the contact rescaling convention of 10.1","excerpt":"Reeb","match":"The displayed first-order rescaling formula is derived here from the source Reeb equations and the ordinary product rule. It is not asserted to be a separately numbered source theorem."}],
+      "sources":[{"sourceId":"CDS","locator":"11.1, Reeb equations, p.63, with the contact rescaling convention of 10.1","match":"The displayed first-order rescaling formula is derived here from the source Reeb equations and the ordinary product rule. It is not asserted to be a separately numbered source theorem."}],
       "library":{"module":"TauCeti/Geometry/Contact/Linear","namespace":"TauCeti.Contact"},"implementationStatus":"unchecked"
     },
     {
       "id":"SymplecticContactGeometry:SC.0/constant-reeb-rescaling","parentStageId":"SymplecticContactGeometry:SC.0","realises":["SymplecticContactGeometry:SC.0"],"title":"Constant rescaling of the Reeb vector","kind":"lemma","leanDeclaration":"TauCeti.Contact.reeb_rescale_constant",
       "statement":"For nonzero c and ell=0 the Reeb vector of the rescaled pair is c^(-1)r.","hypotheses":["V is finite-dimensional and c is nonzero."],
       "proofSteps":["In the preceding formula the inverse linear equivalence sends the zero covector to zero."],"prerequisites":["SymplecticContactGeometry:SC.0/reeb-rescaling"],"acceptance":["On a real line the factor -1 reverses the normalized Reeb vector."],
-      "sources":[{"sourceId":"CDS","locator":"11.1, normalization of the Reeb field, p.63","excerpt":"Reeb","match":"Constant specialization of the derived rescaling formula."}],
+      "sources":[{"sourceId":"CDS","locator":"11.1, normalization of the Reeb field, p.63","match":"Constant specialization of the derived rescaling formula."}],
       "library":{"module":"TauCeti/Geometry/Contact/Linear","namespace":"TauCeti.Contact"},"implementationStatus":"unchecked"
     },
     {
@@ -192,7 +192,7 @@
       "hypotheses":["V is a real vector space with the given contact data. Finite-dimensionality is not needed for this construction."],
       "proofSteps":["Build the bilinear form with the existing pullback and linMulLin operations. Alternation follows by substitution.","If (s,v) annihilates all right arguments, test (1,0) to get alpha(v)=0. Testing (0,h) for horizontal h and using horizontal nondegeneracy gives v=0. Testing (0,w) with alpha(w)=1 then gives s=0.","The same separation on the other side follows from alternation. Package these proved properties in the existing symplectic-form carrier. The proof does not require finite-dimensionality or a Reeb vector."],
       "prerequisites":["SymplecticContactGeometry:SC.0/contact-linear-data","SymplecticContactGeometry:SC.0/horizontal-symplectic-form","tauceti:TauCeti.SymplecticForm","tauceti:TauCeti.SymplecticForm.separatingLeft","mathlib:LinearMap.BilinForm.comp","mathlib:LinearMap.BilinForm.linMulLin","mathlib:LinearMap.BilinForm.IsAlt.neg_eq"],"acceptance":["In dimension one this recovers the standard area pairing on a two-dimensional space."],
-      "sources":[{"sourceId":"CDS","locator":"11.2, Proposition 11.2, printed p.64","excerpt":"symplectization","match":"The source leaves the proposition proof as an exercise. The pointwise nondegeneracy proof above is supplied here; smoothness, exterior derivative and closedness remain SC.1 obligations."}],
+      "sources":[{"sourceId":"CDS","locator":"11.2, Proposition 11.2, printed p.64","match":"The source leaves the proposition proof as an exercise. The pointwise nondegeneracy proof above is supplied here; smoothness, exterior derivative and closedness remain SC.1 obligations."}],
       "uses":[{"where":"SymplecticContactGeometry:SC.1","how":"Supplies only the pointwise nondegeneracy of the actual form d(exp(t) alpha)."},{"where":"SymplecticContactGeometry:SC.2","how":"Provides the linear model for contact neighbourhood comparisons."}],
       "api":[{"name":"TauCeti.Contact.symplectization_apply","role":"simp","statement":"The pairing is beta(v,w)+s alpha(w)-t alpha(v); promoted to its own lemma."},{"name":"TauCeti.Contact.symplectization_horizontal","role":"compatibility","statement":"On horizontal pairs it equals the packaged horizontal symplectic form."},{"name":"TauCeti.Contact.symplectization_reeb_pair","role":"relation","statement":"When the Reeb vector is defined, Omega((1,0),(0,r))=1."}],
       "tests":[{"name":"symplectization_reeb_area","kind":"computation","statement":"Time direction followed by the normalized Reeb direction has area +1."},{"name":"symplectization_horizontal_area","kind":"compatibility","statement":"Horizontal pairs recover beta with no scaling or sign change."},{"name":"symplectization_orientation","kind":"non-example","statement":"Reversing time and Reeb directions gives -1, not +1."}],
@@ -203,7 +203,7 @@
       "statement":"Omega((s,v),(t,w))=beta(v,w)+s alpha(w)-t alpha(v) for the constructed symplectization form.","hypotheses":["V is a real vector space with the specified contact data."],
       "proofSteps":["Apply the existing bilinear pullback and product-of-covectors evaluation identities to the constructed form."],
       "prerequisites":["SymplecticContactGeometry:SC.0/linear-symplectization","mathlib:LinearMap.BilinForm.comp_apply","mathlib:LinearMap.BilinForm.linMulLin_apply"],"acceptance":["The sign agrees with dt wedge alpha."],
-      "sources":[{"sourceId":"CDS","locator":"11.2, Proposition 11.2, p.64","excerpt":"symplectization","match":"Evaluation of the explicit pointwise form; no smoothness assertion is inferred."}],
+      "sources":[{"sourceId":"CDS","locator":"11.2, Proposition 11.2, p.64","match":"Evaluation of the explicit pointwise form; no smoothness assertion is inferred."}],
       "library":{"module":"TauCeti/Geometry/Contact/Linear","namespace":"TauCeti.Contact"},"implementationStatus":"unchecked"
     },
     {
@@ -211,7 +211,7 @@
       "statement":"For a real linear equivalence e:V->W, pullback of contact data (alpha,beta) on W gives contact data (alpha composed with e, beta(e(-),e(-))) on V.","hypotheses":["V and W are real vector spaces; e is an actual linear equivalence."],
       "proofSteps":["Surjectivity of e preserves nonzeroness of alpha and alternation pulls back.","The restriction of e identifies the actual kernels. If a horizontal v annihilates all horizontal w in V, its image annihilates every horizontal vector in W by surjectivity of that restricted map. Nondegeneracy there gives e(v)=0, hence v=0. Alternation gives the right-sided condition."],
       "prerequisites":["SymplecticContactGeometry:SC.0/contact-linear-data","mathlib:LinearMap.BilinForm.comp","mathlib:LinearMap.BilinForm.comp_apply"],"acceptance":["An arbitrary linear map is not enough: a noninjective map can produce a degenerate horizontal pairing."],
-      "sources":[{"sourceId":"CDS","locator":"10.1, contact hyperplanes, pp.57-58; 11.1, p.63","excerpt":"contact","match":"The pointwise coordinate-change argument preserves actual kernels and forms."}],
+      "sources":[{"sourceId":"CDS","locator":"10.1, contact hyperplanes, pp.57-58; 11.1, p.63","match":"The pointwise coordinate-change argument preserves actual kernels and forms."}],
       "library":{"module":"TauCeti/Geometry/Contact/Linear","namespace":"TauCeti.Contact"},"implementationStatus":"unchecked"
     },
     {
@@ -219,7 +219,7 @@
       "statement":"For contact data on finite-dimensional W and a linear equivalence e:V->W with finite-dimensional V, the Reeb vector of the pulled-back pair is e^(-1) of the original Reeb vector.","hypotheses":["V and W are finite-dimensional real vector spaces."],
       "proofSteps":["Evaluate the pulled-back covector and two-form on e^(-1)(r). They give normalization one and annihilation of all vectors by the original Reeb equations.","Apply reeb_unique to the pulled-back contact data. This is naturality for actual equivalent linear coordinates, not a claim about an unverified smooth pullback."],
       "prerequisites":["SymplecticContactGeometry:SC.0/contact-linear-pullback","SymplecticContactGeometry:SC.0/reeb-characterization","SymplecticContactGeometry:SC.0/reeb-uniqueness","mathlib:LinearMap.BilinForm.comp_apply"],"acceptance":["The identity equivalence fixes the Reeb vector; compositions follow from the explicit inverse-map formula."],
-      "sources":[{"sourceId":"CDS","locator":"11.1, Reeb equations and uniqueness, p.63","excerpt":"Reeb","match":"Naturality is proved from the pointwise equations and their uniqueness, not imported as an unverified smooth theorem."}],
+      "sources":[{"sourceId":"CDS","locator":"11.1, Reeb equations and uniqueness, p.63","match":"Naturality is proved from the pointwise equations and their uniqueness, not imported as an unverified smooth theorem."}],
       "library":{"module":"TauCeti/Geometry/Contact/Linear","namespace":"TauCeti.Contact"},"implementationStatus":"unchecked"
     }
   ],

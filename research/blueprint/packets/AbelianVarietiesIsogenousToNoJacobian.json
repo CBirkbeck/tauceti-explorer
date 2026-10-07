@@ -207,7 +207,6 @@
         {
           "sourceId": "MZ20",
           "locator": "Published p.636; §1.1 pp.635–636 and §1.2 p.637",
-          "excerpt": "Torelli locus",
           "match": "Canonical polarized relative Jacobians, reduced closure in the open moduli space, and unpolarized isogenies are kept distinct. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
@@ -293,7 +292,6 @@
         {
           "sourceId": "MZ20",
           "locator": "Published p.637; §1.1 p.635; §1.2 p.637",
-          "excerpt": "3g − 3",
           "match": "Torelli dimension 3g−3 and the strict inequality for g≥4 agree with the introduction; image-dimension proof is gap 0. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
@@ -328,7 +326,6 @@
         {
           "sourceId": "MZ20",
           "locator": "Published p.642; §1.1 pp.635–636; §1.4 p.642",
-          "excerpt": "products",
           "match": "Compact-type component products are distinguished from generalized Jacobians with toric parts; degeneration proof is gap 0. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
@@ -367,7 +364,6 @@
         {
           "sourceId": "MZ20",
           "locator": "Published p.637; §1.1 p.635; §1.2 Corollary 1.2 p.637",
-          "excerpt": "Corollary 1.2",
           "match": "A proper hypersurface is chosen only for g≥4 and need not descend to Q. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
@@ -448,7 +444,6 @@
         {
           "sourceId": "MZ20",
           "locator": "Published p.653; §4 p.653; Igusa references pp.192–195",
-          "excerpt": "fundamental domain",
           "match": "The closed reduced Siegel domain keeps its real-part and determinant inequalities; the classical reduction proof is gap 1. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
@@ -543,7 +538,6 @@
         {
           "sourceId": "MZ20",
           "locator": "Published p.653; §4 (23)–(24) p.653",
-          "excerpt": "(23)",
           "match": "Both matrix comparisons and the ordered diagonal are retained with a dimension-dependent positive δ. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
@@ -581,7 +575,6 @@
         {
           "sourceId": "MZ20",
           "locator": "Published p.653; §4 p.653; §5.1 p.662",
-          "excerpt": "(24)",
           "match": "Block products preserve the diagonal matrix comparisons but not the ordered diagonal; this is a routine block specialization. This verifies the planned statement/source boundary, not formal proof closure. This is an explicit adapter or diagnostic motivated by the cited passage, not a theorem proved in that passage."
         }
       ],
@@ -617,7 +610,6 @@
         {
           "sourceId": "MZ20",
           "locator": "Published p.643; §2 Lemma 2.1 p.643",
-          "excerpt": "Lemma 2.1",
           "match": "The integer matrix determinant m and the bound 2m^(3/2) are the exact elliptic source statement. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
@@ -652,7 +644,6 @@
         {
           "sourceId": "MZ20",
           "locator": "Published p.644; §2 p.644; §5.1 Lemma 5.1(b) p.658",
-          "excerpt": "subgroup",
           "match": "The count is cumulative over subgroup orders ≤m, not just order m; its higher-dimensional proof remains gap 2. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
@@ -689,7 +680,6 @@
         {
           "sourceId": "MZ20",
           "locator": "Published p.644; §2 p.644",
-          "excerpt": "different isogeny classes",
           "match": "Added N≥2 so the logarithmic denominator is defined and the source box count has its intended range. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
@@ -726,7 +716,6 @@
         {
           "sourceId": "MZ20",
           "locator": "Published p.646; §3.2 Lemma 3.1 pp.646–647",
-          "excerpt": "Lemma 3.1",
           "match": "Added m≥1; resultant nonvanishing still requires modular irreducibility and the explicit nesting adapter in gap 4. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
@@ -815,7 +804,6 @@
         {
           "sourceId": "MZ20",
           "locator": "Published p.647; §3.2 Lemma 3.2 p.647; §3.1 p.645",
-          "excerpt": "Lemma 3.2",
           "match": "The corrected divisor reordering gives M² and the second-moment sum gives M³ log M for M≥2. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
@@ -853,7 +841,6 @@
         {
           "sourceId": "MZ20",
           "locator": "Published p.647; §3.2 Lemma 3.2 p.647",
-          "excerpt": "Lemma 3.2",
           "match": "Specified the fixed real-curve polynomial in the pair (c,c̄); the invertible real-grid substitution preserves nonzero elimination polynomials. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
@@ -891,7 +878,6 @@
         {
           "sourceId": "MZ20",
           "locator": "Published p.648; §3.2 Lemma 3.3 p.648",
-          "excerpt": "Lemma 3.3",
           "match": "Added sufficiently large N and floor((log N)^3)≥2 before invoking the small-isogeny lemma; the model field is a number field. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
@@ -929,7 +915,6 @@
         {
           "sourceId": "MZ20",
           "locator": "Published p.649; §3.2 (13)–(18) pp.649–650",
-          "excerpt": "(17)",
           "match": "Added the early definability supplier directly; the correspondence uses two matrices and both denominators, without a fixed determinant condition. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
@@ -1009,7 +994,6 @@
         {
           "sourceId": "MZ20",
           "locator": "Published p.650; §3.2 p.650",
-          "excerpt": "dimension zero",
           "match": "The empty algebraic part is claimed for the non-modular paired image, with vertical/horizontal components excluded, not for the matrix fibre. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
@@ -1046,7 +1030,6 @@
         {
           "sourceId": "MZ20",
           "locator": "Published p.650; §3.2 pp.649–650",
-          "excerpt": "cardinality",
           "match": "Embeddings fix the coefficient field, the projected orbit has size ≫D̃, and ε<2/21 makes the exponent strictly smaller than one. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
@@ -1082,7 +1065,6 @@
         {
           "sourceId": "MZ20",
           "locator": "Published p.648; §3.2 p.648",
-          "excerpt": "modular",
           "match": "Added the direct elliptic large-field/quantitative-estimate route; composing with conjugation reduces the modular case to the small-isogeny count. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
@@ -1121,7 +1103,6 @@
         {
           "sourceId": "MZ20",
           "locator": "Published p.640; §1.2 Theorem 1.7 p.640; §3.2 pp.646–651",
-          "excerpt": "Theorem 1.7",
           "match": "Added coefficient descent and its direct large-field input; algebraic target points, components and isolated points are treated before counting. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
@@ -1160,7 +1141,6 @@
         {
           "sourceId": "MZ20",
           "locator": "Published p.651; §3.3 p.651",
-          "excerpt": "obstacle",
           "match": "The single-offset obstruction retains ψ(m)≤d and a bound for each m; its branch-locus proof remains gap 6. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
@@ -1195,7 +1175,6 @@
         {
           "sourceId": "MZ20",
           "locator": "Published p.651; §3.3 p.651; verified source diagnostic E10",
-          "excerpt": "resultant",
           "match": "The simultaneous union bound is 2d^4+1. The sharper printed bound is an unresolved proof claim, not refuted by a union bound. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
@@ -1232,7 +1211,6 @@
         {
           "sourceId": "MZ20",
           "locator": "Published p.653; §4 (21)–(22) p.653 and discriminant display p.655; E1/E9",
-          "excerpt": "(22)",
           "match": "Specified principal polarization and a symplectic integral basis; the rational Gram is 2 Re of the complex expression, including the CM test. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
@@ -1267,7 +1245,6 @@
         {
           "sourceId": "MZ20",
           "locator": "Published p.654; §4 Lemma 4.1 pp.654–655",
-          "excerpt": "(25)",
           "match": "Expanded all domain hypotheses and the signed integral representation; the c bound follows from the positive trace term with corrected length. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
@@ -1302,7 +1279,6 @@
         {
           "sourceId": "MZ20",
           "locator": "Published p.654; §4 Lemma 4.1 p.654",
-          "excerpt": "(25)",
           "match": "Expanded all domain hypotheses; inverse-order reversal and the xc correction give the a bound. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
@@ -1337,7 +1313,6 @@
         {
           "sourceId": "MZ20",
           "locator": "Published p.654; §4 Lemma 4.1 pp.654–655",
-          "excerpt": "(25)",
           "match": "Expanded all domain hypotheses; the κτ identity and inverse imaginary matrix give the d bound. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
@@ -1372,7 +1347,6 @@
         {
           "sourceId": "MZ20",
           "locator": "Published p.654; §4 Lemma 4.1 pp.654–655",
-          "excerpt": "(25)",
           "match": "Expanded all domain hypotheses; the b−xd term and preceding bounds give the b bound. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
@@ -1407,7 +1381,6 @@
         {
           "sourceId": "MZ20",
           "locator": "Published p.655; §4 (26)–(28) pp.655–656",
-          "excerpt": "(26)",
           "match": "The off-diagonal extraction is Z-linear, has zero diagonal blocks, and uses the product polarization for its Rosati norm bound. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
@@ -1489,7 +1462,6 @@
         {
           "sourceId": "MZ20",
           "locator": "Published p.656; §4 (29) p.656",
-          "excerpt": "(29)",
           "match": "The lattice covolume is √D of the real rational Gram; independent minimum witnesses are not claimed to form a Z-basis. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
@@ -1527,7 +1499,6 @@
         {
           "sourceId": "MZ20",
           "locator": "Published p.655; §4 Lemma 4.2 and (30)–(31) pp.655–656",
-          "excerpt": "Lemma 4.2",
           "match": "The two maps are isogenies of unpolarized abelian varieties; the degree product is bounded using dimension 2g and length exponent 4g. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
@@ -1568,7 +1539,6 @@
         {
           "sourceId": "MZ20",
           "locator": "Published p.656; §4 Lemma 4.3 pp.656–657",
-          "excerpt": "Lemma 4.3",
           "match": "Specified the principally polarized period realization; only the lower imaginary comparisons are required and stable height uses max(1,h). This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
@@ -1608,7 +1578,6 @@
         {
           "sourceId": "MZ20",
           "locator": "Published p.661; §5.1 (39)–(42) p.661; E3/E7",
-          "excerpt": "(42)",
           "match": "The signed block determinant and period relation imply denominator invertibility; the native statement has no geometric placeholder hypotheses. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
@@ -1644,7 +1613,6 @@
         {
           "sourceId": "MZ20",
           "locator": "Published p.663; §5.1 pp.658 and 663",
-          "excerpt": "finite index",
           "match": "Finite field restrictions and commensurable lattices preserve openness, rather than equality of integral images. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
@@ -1679,7 +1647,6 @@
         {
           "sourceId": "MZ20",
           "locator": "Published p.658; §5.1 p.658; Cadoret [5] Theorem 1.2",
-          "excerpt": "Cadoret",
           "match": "Specified positive-dimensional principally polarized A for the GSp convention; Cadoret's original proof remains the precise gap 9 input. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
@@ -1719,7 +1686,6 @@
         {
           "sourceId": "MZ20",
           "locator": "Published p.663; §1.2 p.637; §5.1 pp.657,663; Pink [36] p.274",
-          "excerpt": "Hodge generic",
           "match": "The full Mumford–Tate group follows using the absolute-Hodge comparison leaf, not End=Z alone. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
@@ -1757,7 +1723,6 @@
         {
           "sourceId": "MZ20",
           "locator": "Published p.658; §5.1 Lemma 5.1(c) p.658; Serre [39] p.35",
-          "excerpt": "Serre",
           "match": "Specified the principally polarized GSp convention and geometric End; retained exactly odd g or g=2,6, excluding g=4. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
@@ -1798,7 +1763,6 @@
         {
           "sourceId": "MZ20",
           "locator": "Published p.659; §5.1 p.659; Deligne [10] Lemma 4.4.16",
-          "excerpt": "Deligne",
           "match": "The generic arithmetic family, geometric monodromy and cyclotomic similitude are separate parts of the open-image proof. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
@@ -1836,7 +1800,6 @@
         {
           "sourceId": "MZ20",
           "locator": "Published p.658; §5.1 p.658; Masser [23] main theorem",
-          "excerpt": "main theorem",
           "match": "Restricted to the fixed finite-cover/arithmetic parameter-family setup, geometric End, and N≥2; Masser's original specialization theorem remains gap 11. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
@@ -1875,7 +1838,6 @@
         {
           "sourceId": "MZ20",
           "locator": "Published p.659; §5.1 p.659",
-          "excerpt": "Frattini subgroup",
           "match": "An open Frattini subgroup reduces a compact p-adic image to a finite quotient; full specialization image is supplied through the thin-set route. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
@@ -1913,7 +1875,6 @@
         {
           "sourceId": "MZ20",
           "locator": "Published p.658; §5.1 (32) pp.658–659",
-          "excerpt": "(32)",
           "match": "The half-saving term remains in general dimension and is omitted only in the stated Serre range; excluded algebraic loci are counted separately. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
@@ -1949,7 +1910,6 @@
         {
           "sourceId": "MZ20",
           "locator": "Published p.647; §3.2 pp.646–647 and §5.1 p.661 (Galois conjugation setup)",
-          "excerpt": "absolutely irreducible",
           "match": "Specified a geometrically integral Q̄-defined ambient variety; descent contains the algebraic points rather than claiming that H itself descends. This verifies the planned statement/source boundary, not formal proof closure. This is an explicit adapter or diagnostic motivated by the cited passage, not a theorem proved in that passage."
         }
       ],
@@ -1986,7 +1946,6 @@
         {
           "sourceId": "MZ20",
           "locator": "Published p.658; §1.2 (1) p.638; Lemma 5.1(a) p.658",
-          "excerpt": "(a)",
           "match": "The degree bound is asserted on the common regular finite-fibre domain; coarse moduli versus model fields remain separate in gap 12. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
@@ -2023,7 +1982,6 @@
         {
           "sourceId": "MZ20",
           "locator": "Published p.663; §5.1 p.663 orbit-degree adapter; item /72",
-          "excerpt": "Galois conjugate",
           "match": "Fine level-three lifting bounds a model field over the moduli field; the fixed-pairing cyclotomic component or similitude level must be tracked. This verifies the planned statement/source boundary, not formal proof closure. This is an explicit adapter or diagnostic motivated by the cited passage, not a theorem proved in that passage."
         }
       ],
@@ -2061,7 +2019,6 @@
         {
           "sourceId": "MZ20",
           "locator": "Published p.658; §5.1 Lemma 5.1(b) p.658",
-          "excerpt": "isomorphic",
           "match": "Principal duality reverses an arbitrary isogeny with equal degree; it does not make the original map polarization-preserving. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
@@ -2100,7 +2057,6 @@
         {
           "sourceId": "MZ20",
           "locator": "Published p.658; §5.1 Lemma 5.1(b) p.658",
-          "excerpt": "hypersurface",
           "match": "Restricted the hypersurface estimate to geometric End=Z points, where a principal polarization is unique; subgroup counts alone still do not prove projective degree (gap 13). This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
@@ -2138,7 +2094,6 @@
         {
           "sourceId": "MZ20",
           "locator": "Published p.658; §5.1 Lemma 5.1 (32) pp.658–659",
-          "excerpt": "Lemma 5.1",
           "match": "Count nongeneric points first; only then apply the corrected small-isogeny estimate. The union and all source exponents remain unchanged. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
@@ -2178,7 +2133,6 @@
         {
           "sourceId": "MZ20",
           "locator": "Published p.660; §5.1 Lemma 5.2 (34)–(35) p.660",
-          "excerpt": "(34)",
           "match": "Stable Faltings height need not be nonnegative; the product Rosati discriminant bound remains a quantitative owner input with the fixed-family height adapter. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
@@ -2214,7 +2168,6 @@
         {
           "sourceId": "MZ20",
           "locator": "Published p.660; §5.1 Lemma 5.2 (33) p.660",
-          "excerpt": "(33)",
           "match": "The selected isogeny's degree has exponent 2gλ, with constants depending on the fixed arithmetic family. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
@@ -2249,7 +2202,6 @@
         {
           "sourceId": "MZ20",
           "locator": "Published p.660; §5.1 (36) p.660",
-          "excerpt": "(36)",
           "match": "The logarithmic threshold requires ν>2gλ and sufficiently large N; floor rounding is absorbed only in that range. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
@@ -2284,7 +2236,6 @@
         {
           "sourceId": "MZ20",
           "locator": "Published p.662; §5.1 pp.662–663",
-          "excerpt": "(45)",
           "match": "The positive coordinate blocks and the signed rational representation are explicitly converted; det(cτ+d)≠0 is part of the actual native set. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
@@ -2377,7 +2328,6 @@
         {
           "sourceId": "MZ20",
           "locator": "Published p.663; §5.1 pp.662–663",
-          "excerpt": "definable",
           "match": "Restricted uniformization and the algebraic inverse image are definable; the fractional-linear projection is semialgebraic on its denominator domain. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
@@ -2420,7 +2370,6 @@
         {
           "sourceId": "MZ20",
           "locator": "Published p.661; §5.1 (38)–(45) pp.661–662",
-          "excerpt": "(41)",
           "match": "The fixed coefficient/model fields are included in the orbit construction and the integral height has polynomial growth in D̃. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
@@ -2460,7 +2409,6 @@
         {
           "sourceId": "MZ20",
           "locator": "Published p.663; §5.1 p.663",
-          "excerpt": "weakly special",
           "match": "It is the connected projected block, not the entire matrix fibre, that must be a point; the weakly-special dichotomy is an explicit shared-source leaf. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
@@ -2498,7 +2446,6 @@
         {
           "sourceId": "MZ20",
           "locator": "Published p.663; §5.1 p.663",
-          "excerpt": "number of different",
           "match": "The bounded model/moduli degree adapter makes orbit cardinality comparable with D̃; ε<1/λ yields the bounded-degree conclusion. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
@@ -2539,7 +2486,6 @@
         {
           "sourceId": "MZ20",
           "locator": "Published p.638; §1.2 Theorem 1.3 p.638; §5.1 pp.658–663; §5.2 p.666",
-          "excerpt": "Theorem 1.3",
           "match": "The exceptional event is existential in each regular fibre; retained g≥2, γ<1/2 and the improved odd/2/6 range, with exact D bookkeeping. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
@@ -2578,7 +2524,6 @@
         {
           "sourceId": "MZ20",
           "locator": "Published p.665; §5.2 p.665",
-          "excerpt": "Fourier expansion",
           "match": "Fourier order uses discrete trace support, the half-integral convention and ord(0)=∞; the definition does not assume integral order. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
@@ -2670,7 +2615,6 @@
         {
           "sourceId": "MZ20",
           "locator": "Published p.665; §5.2 p.665",
-          "excerpt": "lexicographic",
           "match": "Cancellation cannot lower the minimum trace in a product; only superadditivity is used. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
@@ -2706,7 +2650,6 @@
         {
           "sourceId": "MZ20",
           "locator": "Published p.664; §5.2 Lemma 5.3 pp.664–665",
-          "excerpt": "Lemma 5.3",
           "match": "Normality, finite index, coset representatives and the left automorphy-factor convention are explicit; nonzero norms have weight nk. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
@@ -2793,7 +2736,6 @@
         {
           "sourceId": "MZ20",
           "locator": "Published p.665; §5.2 Lemma 5.4 proof p.665 and constant bound p.666",
-          "excerpt": "Theorem 7",
           "match": "The full-group bound and the gamma/Minkowski constants match the source, with g≥2 and nonnegative weight. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
@@ -2833,7 +2775,6 @@
         {
           "sourceId": "MZ20",
           "locator": "Published p.665; §5.2 Lemma 5.4 p.665",
-          "excerpt": "Lemma 5.4",
           "match": "Expanded g≥2, normal finite-index Λ, n=[Γ:Λ] and k≥0 so the finite-level bound is a complete standalone statement. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
@@ -2870,13 +2811,11 @@
         {
           "sourceId": "MZ20",
           "locator": "Published p.665; §5.2 pp.665–666",
-          "excerpt": "Γ(e, 2e)",
           "match": "Replaced the unspecified congruence conditions by an explicit matrix definition checked in BCCR17 §2; the row characteristic and even-level conventions are retained. This verifies the planned statement/source boundary, not formal proof closure."
         },
         {
           "sourceId": "BCCR17",
           "locator": "§2 p.3, Igusa subgroup definition preceding Definition 2.1",
-          "excerpt": "Igusa subgroup",
           "match": "The same principal-congruence and diagonal divisibility conditions, with the equivalent transposed-block formulation, are stated here. Only this definition is used."
         }
       ],
@@ -3003,7 +2942,6 @@
         {
           "sourceId": "MZ20",
           "locator": "Published p.665; §5.2 Lemma 5.5 p.665",
-          "excerpt": "linear combinations",
           "match": "The common multiplier is an explicit transformation-law proof obligation; individual squared transformations alone are not treated as sufficient. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
@@ -3038,7 +2976,6 @@
         {
           "sourceId": "MZ20",
           "locator": "Published p.666; §5.2 Lemma 5.5 proof pp.665–666",
-          "excerpt": "half-integral",
           "match": "Positive semidefiniteness bounds each off-diagonal entry by diagonal data; the Fourier lattice and real bound are retained without incorrect rounding. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
@@ -3075,7 +3012,6 @@
         {
           "sourceId": "MZ20",
           "locator": "Published p.665; §5.2 Lemma 5.5 (48) pp.665–666; E11",
-          "excerpt": "Lemma 5.5",
           "match": "The kernel annihilates coefficients with trace ≤W, giving strict order >W and resolving the equality case in E11. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
@@ -3110,7 +3046,6 @@
         {
           "sourceId": "MZ20",
           "locator": "Published p.666; §5.2 p.666",
-          "excerpt": "we must get",
           "match": "The strict order comparison forces the relation to vanish identically; converting squared coordinates doubles its homogeneous degree. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
@@ -3147,7 +3082,6 @@
         {
           "sourceId": "MZ20",
           "locator": "Published p.666; §5.2 pp.665–666",
-          "excerpt": "quasi-projective",
           "match": "The complex theta quotient and its Q coordinate model are separate from universal arithmetic full torsion; descent remains gap 18. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
@@ -3240,7 +3174,6 @@
         {
           "sourceId": "MZ20",
           "locator": "Published p.666; §5.2 p.666 degree-of-closure adapter; item /71",
-          "excerpt": "Zariski closure",
           "match": "Generic projection is birational to a hypersurface with preserved degree; this non-routine adapter is expressly gap 17, not an export of Hilbert projectivity alone. This verifies the planned statement/source boundary, not formal proof closure. This is an explicit adapter or diagnostic motivated by the cited passage, not a theorem proved in that passage."
         }
       ],
@@ -3278,7 +3211,6 @@
         {
           "sourceId": "MZ20",
           "locator": "Published p.666; §5.2 p.666",
-          "excerpt": "Minkowski",
           "match": "The intermediate numerical formula and final 2^(16g^4−1) bound are retained as a planned arithmetic inequality, with its all-g proof gap. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
@@ -3318,7 +3250,6 @@
         {
           "sourceId": "MZ20",
           "locator": "Published p.666; §5.2 p.666",
-          "excerpt": "defined over Q",
           "match": "The rational theta-ratio map is restricted to its regular nonempty domain; its arithmetic forgetful descent is a distinct obligation. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
@@ -3407,7 +3338,6 @@
         {
           "sourceId": "MZ20",
           "locator": "Published p.637; §1.2 Theorem 1.1 p.637; §5.1–5.2",
-          "excerpt": "Theorem 1.1",
           "match": "The main existence theorem keeps g≥2, Hodge genericity and model degree ≤2^(16g^4); neither supplementary gate is a prerequisite. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
@@ -3445,7 +3375,6 @@
         {
           "sourceId": "MZ20",
           "locator": "Published p.637; §1.2 Corollary 1.2 p.637",
-          "excerpt": "Corollary 1.2",
           "match": "The no-Jacobian consequence requires g≥4 and also excludes compact-type products through the Torelli closure. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
@@ -3487,7 +3416,6 @@
         {
           "sourceId": "MZ20",
           "locator": "Published p.666; §1.2 p.638 and §5.3 p.666",
-          "excerpt": "different isogeny classes",
           "match": "Added sufficiently large N and the common regular finite-multiplicity domain; a rational map may have no valid small-box candidates. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
@@ -3524,7 +3452,6 @@
         {
           "sourceId": "MZ20",
           "locator": "Published p.667; §5.3 (49) p.667",
-          "excerpt": "(49)",
           "match": "The reciprocal transformation has inverse ξ_j+1/(dn_j), stays near ξ for fixed large d, and uses Q(i), hence the factor two in the field bound. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
@@ -3561,7 +3488,6 @@
         {
           "sourceId": "MZ20",
           "locator": "Published p.667; §5.3 p.667",
-          "excerpt": "independent",
           "match": "Added the direct bad-box count and subtraction argument: choose 0<ε<γ so N^(G−ε) dominates discarded N^(G−γ) candidates. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
@@ -3597,7 +3523,6 @@
         {
           "sourceId": "MZ20",
           "locator": "Published p.638; §1.2 Corollary 1.4 p.638; §5.3 p.667",
-          "excerpt": "Corollary 1.4",
           "match": "Recursive choices in a countable Euclidean basis use finite-class avoidance and preserve the uniform model-field bound. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
@@ -3637,7 +3562,6 @@
         {
           "sourceId": "MZ20",
           "locator": "Published p.639; §1.2 Theorem 1.5 p.639; §5.1 p.657",
-          "excerpt": "Theorem 1.5",
           "match": "The unirational map is over Q and dominant; retained g=2,3,4,5 and improved γ<1 only for g=2,3,5. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
@@ -3675,7 +3599,6 @@
         {
           "sourceId": "MZ20",
           "locator": "Published p.640; §1.2 Corollary 1.6 p.640",
-          "excerpt": "Corollary 1.6",
           "match": "The rational fourfold consequence remains conditional on Q-unirationality, exactly as in the published source. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
@@ -3712,7 +3635,6 @@
         {
           "sourceId": "MZ20",
           "locator": "Published p.667; §5.4 p.667",
-          "excerpt": "CM",
           "match": "Corrected the uniformly bounded count to distinct CM moduli points; a parameter count needs an explicitly finite forgetful/regular-map domain and excludes exceptional fibres. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
@@ -3748,7 +3670,6 @@
         {
           "sourceId": "MZ20",
           "locator": "Published p.670; §5.4 p.670",
-          "excerpt": "weight 8",
           "match": "Restricted the low-genus identity to 1≤g≤3; the genus-four assertion is the reduced zero locus in A_4, with external Schottky proof gap 21. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
@@ -3785,7 +3706,6 @@
         {
           "sourceId": "MZ20",
           "locator": "Published p.670; §5.4 p.670",
-          "excerpt": "product",
           "match": "Block theta factorization uses normal convergence and the eighth/sixteenth power sums, with characteristics split by both blocks. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
@@ -3821,7 +3741,6 @@
         {
           "sourceId": "MZ20",
           "locator": "Published p.670; §5.4 p.670",
-          "excerpt": "closure",
           "match": "For genus splits 2+2 and 1+3 the low-genus identities force F_4=0; this gives Torelli closure membership, not a smooth-curve Jacobian. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
@@ -3857,7 +3776,6 @@
         {
           "sourceId": "MZ20",
           "locator": "Published p.652; §3.3 interpolation (19)–(20) p.652",
-          "excerpt": "(19)",
           "match": "The native total sum has a finite evaluation at each injective parameter; entire interpolation requires the displayed summable envelope. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
@@ -3949,7 +3867,6 @@
         {
           "sourceId": "MZ20",
           "locator": "Published p.652; §3.3 interpolation (19)–(20) p.652; §5.4 pp.668–669",
-          "excerpt": "(20)",
           "match": "Positive coefficient tolerances give locally uniform convergence; arbitrary values at accumulating parameters are not claimed interpolable. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
@@ -3985,7 +3902,6 @@
         {
           "sourceId": "MZ20",
           "locator": "Published p.652; §3.3 p.652",
-          "excerpt": "2079",
           "match": "Rational translation/scaling preserve isogeny and choose distinct imaginary parameters; the strip gives the displayed j bound. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
@@ -4023,7 +3939,6 @@
         {
           "sourceId": "MZ20",
           "locator": "Published p.652; §3.3 pp.651–652",
-          "excerpt": "bounded",
           "match": "The compact image is a real-analytic parametrized set meeting algebraic elliptic classes; neither embeddedness nor a global complex hypersurface is asserted. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
@@ -4106,7 +4021,6 @@
         {
           "sourceId": "MZ20",
           "locator": "Published p.668; §1.1 p.636; §5.4 pp.668–669",
-          "excerpt": "Sp2g(Q)",
           "match": "Rational symplectic density plus real transitivity supplies neighbourhood selection; the original density/isogeny proof remains gap 23. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
@@ -4151,7 +4065,6 @@
         {
           "sourceId": "MZ20",
           "locator": "Published p.668; §5.4 interpolation (50)–(60) pp.668–670",
-          "excerpt": "Cholesky factorization",
           "match": "Continuous native Cholesky and real symmetric interpolation give positivity for real parameters; the compact image is kept separate from the false global endpoint. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
@@ -4252,7 +4165,6 @@
         {
           "sourceId": "MZ20",
           "locator": "Published p.637; p.637 supplementary sentence and §5.2 p.666; /73 and E14",
-          "excerpt": "order 16",
           "match": "The arithmetic comparison cover specifies a universal polarized family, component field and level, but its target degree remains an unresolved gate. This verifies the planned statement/source boundary, not formal proof closure. This is an explicit adapter or diagnostic motivated by the cited passage, not a theorem proved in that passage."
         }
       ],
@@ -4334,7 +4246,6 @@
         {
           "sourceId": "MZ20",
           "locator": "Published p.637; p.637 supplementary claim; §5.2 p.666; E14",
-          "excerpt": "order 16",
           "match": "Added g≥1; perfect equivariant Weil pairing forces a primitive sixteenth root only in positive dimension. Dimension zero is a counterexample without that hypothesis. This verifies the planned statement/source boundary, not formal proof closure. This is an explicit adapter or diagnostic motivated by the cited passage, not a theorem proved in that passage."
         }
       ],
@@ -4371,7 +4282,6 @@
         {
           "sourceId": "MZ20",
           "locator": "Published p.638; §1.2 (1) p.638; §5.2 p.666; /73",
-          "excerpt": "(1)",
           "match": "All model, coefficient, cyclotomic and torsion degrees must be counted once; φ(16)=8 is an upper bound for only the cyclotomic step. This verifies the planned statement/source boundary, not formal proof closure. This is an explicit adapter or diagnostic motivated by the cited passage, not a theorem proved in that passage."
         }
       ],
@@ -4408,7 +4318,6 @@
         {
           "sourceId": "MZ20",
           "locator": "Published p.637; p.637 after Theorem 1.1; §5.2 closing paragraph p.666",
-          "excerpt": "order 16",
           "match": "The supplementary torsion target is explicitly unestablished and has no path into the main theorem. This verifies the planned statement/source boundary, not formal proof closure."
         }
       ],
@@ -4448,7 +4357,6 @@
         {
           "sourceId": "LeFourn19",
           "locator": "Definition–Proposition 6.4(a,b), printed p.181 (PDF p.24)",
-          "excerpt": "is of codimension g",
           "match": "Replaced the unsupported MZ attribution by Le Fourn Definition–Proposition 6.4(a,b), p.181: boundary codimension g in the normal projective Satake space."
         }
       ],
@@ -4485,13 +4393,11 @@
         {
           "sourceId": "DemaillyCADG",
           "locator": "Chapter II (8.7) p.118, proof pp.118–121; (8.10) p.121",
-          "excerpt": "Let X be a complex space",
           "match": "Replaced the diagnostic-only attribution by Demailly II(8.7),(8.10) and Le Fourn 6.4; the theorem permits a singular complex-space ambient and requires strict local dimension. The singular-space extension theorem is applicable; p=G−g≥0 and every local hypersurface dimension G−1 exceeds p."
         },
         {
           "sourceId": "LeFourn19",
           "locator": "Definition–Proposition 6.4(a,b), printed p.181 (PDF p.24)",
-          "excerpt": "projective algebraic variety",
           "match": "Provides the compact normal complex space, algebraic boundary of codimension g, and a projective embedding to which Chow applies."
         }
       ],
@@ -4530,7 +4436,6 @@
         {
           "sourceId": "MZ20",
           "locator": "Published p.669; §5.4 pp.668–670; /74 and E13",
-          "excerpt": "hypersurface",
           "match": "Combining algebraicity of a globally closed hypersurface with the main avoidance theorem rules out a class-covering global endpoint for g≥2. This verifies the planned statement/source boundary, not formal proof closure. This is an explicit adapter or diagnostic motivated by the cited passage, not a theorem proved in that passage."
         }
       ],
@@ -4565,7 +4470,6 @@
         {
           "sourceId": "MZ20",
           "locator": "Published p.670; §5.4 pp.669–670; /74",
-          "excerpt": "compact",
           "match": "The local specification states its actual open domain, relative closedness and compatible equations; it does not assert existence. This verifies the planned statement/source boundary, not formal proof closure. This is an explicit adapter or diagnostic motivated by the cited passage, not a theorem proved in that passage."
         }
       ],
@@ -4645,7 +4549,6 @@
         {
           "sourceId": "MZ20",
           "locator": "Published p.670; §5.4 pp.669–670; /74",
-          "excerpt": "compact",
           "match": "A local/germwise replacement remains a distinct unresolved construction. Compactness and multiplying equations on different domains do not establish it. This verifies the planned statement/source boundary, not formal proof closure. This is an explicit adapter or diagnostic motivated by the cited passage, not a theorem proved in that passage."
         }
       ],

@@ -119,7 +119,6 @@
     {
      "sourceId": "SGA1-XII",
      "locator": "1.1–1.2, PDF pp. 255–257 (modern pp. 239–241)",
-     "excerpt": "limites projectives finies",
      "match": "The construction uses closed quotients, affine opens and representing objects and proves compatibility with fibre products."
     }
    ],
@@ -202,7 +201,6 @@
     {
      "sourceId": "SGA1-XII",
      "locator": "1.1, PDF pp. 255–257",
-     "excerpt": "le morphisme ϕ est plat",
      "match": "Local comparison is stated for general locally finite-type schemes, including nonreduced quotients."
     }
    ],
@@ -235,7 +233,6 @@
     {
      "sourceId": "SGA1-XII",
      "locator": "1.3, PDF p. 257",
-     "excerpt": "F an",
      "match": "The source defines analytification of modules by inverse image and explains preservation of coherence."
     }
    ],
@@ -316,7 +313,6 @@
     {
      "sourceId": "SGA1-XII",
      "locator": "Proposition 1.3.1, PDF p. 257",
-     "excerpt": "exact, fidèle, conservatif",
      "match": "The proof uses the local maps and the Jacobson closed-point criterion."
     }
    ],
@@ -350,7 +346,6 @@
     {
      "sourceId": "SGA1-XII",
      "locator": "§4 before Theorem 4.2, PDF pp. 263–264",
-     "excerpt": "θp",
      "match": "The source defines the comparison before proving it is an isomorphism."
     }
    ],
@@ -435,7 +430,6 @@
     {
      "sourceId": "SGA1-XII",
      "locator": "Theorem 4.2, PDF pp. 264–265 (modern pp. 248–249)",
-     "excerpt": "f soit propre",
      "match": "The proof explicitly treats the projective case first and then the proper case via Chow and devissage."
     }
    ],
@@ -466,7 +460,6 @@
     {
      "sourceId": "SGA1-XII",
      "locator": "Theorem 4.4, full faithfulness, PDF p. 265",
-     "excerpt": "Hom",
      "match": "The proof reduces morphisms to global sections of coherent sheaf Hom."
     }
    ],
@@ -502,7 +495,6 @@
     {
      "sourceId": "SGA1-XII",
      "locator": "Theorem 4.4, statement and essential surjectivity, PDF pp. 265–266",
-     "excerpt": "équivalence de catégories",
      "match": "The proper extension uses Chow, induction and Ext; it does not assert projectivity of X."
     }
    ],
@@ -535,7 +527,6 @@
     {
      "sourceId": "SGA1-XII",
      "locator": "Corollary 4.5, PDF pp. 266–267",
-     "excerpt": "pleinement fidèle",
      "match": "The source corollary concerns the category of proper C-schemes. A separated nonproper target and relative/spaces versions require more proof."
     }
    ],
@@ -564,7 +555,6 @@
     {
      "sourceId": "CURVE-CONTRACT",
      "locator": "AlgebraicCurves README, Layer 12B–12C and Layer 6",
-     "excerpt": "holomorphy rings",
      "match": "Existing upstream owns the model and function-field dictionary. This interface imports them, instead of constructing a projective closure in C4."
     }
    ],
@@ -598,7 +588,6 @@
     {
      "sourceId": "SELLA",
      "locator": "Unnumbered theorem p. 2; Lemma 0.1; Step 1 pp. 6–8",
-     "excerpt": "semi-locally contractible",
      "match": "The source proves additive comparison for any abelian coefficient group. Product compatibility is a separate gap."
     }
    ],
@@ -631,7 +620,6 @@
     {
      "sourceId": "GROTH1966",
      "locator": "Theorem 1′ and the proper argument, p. 96, PDF p. 3",
-     "excerpt": "Theorem 1",
      "match": "The proper case uses GAGA and analytic Poincare; the nonproper theorem requires additional arguments outside this node."
     }
    ],

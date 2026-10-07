@@ -81,7 +81,7 @@
     },
     "SmoothRepresentationsOfLocalGroups:SR.5": {
       "action": "keep",
-      "reason": "Retain Helm-scoped ell-not-p derivatives, Whittaker/top derivatives, base change/exactness, co-Whittaker finiteness/admissibility/fiberwise genericity, uniqueness/dominance, integral center action and compactly induced generic projectives/interpolation. Arithmetic realization and archimedean Whittaker theory are separate consumers."
+      "reason": "Retain Helm-scoped ell-not-p derivatives, Whittaker/top derivatives, their permitted base change/exactness, co-Whittaker finiteness/admissibility/fiberwise genericity, uniqueness/dominance, integral center action and compactly induced generic projectives/interpolation. Export invariant-submodule restriction, the natural coefficient-change map (not an unconditional isomorphism), and source-qualified smooth duality to L3. R16.2 owns field-valued GL2 conductor/newvectors. The Fouquet-Wan GL2 minimal-lift essential-line application belongs to L3 downstream of both, under the verifier-approved alternative. General integral GL_n essential-vector theory belongs to the smooth-local family blueprint and requires a separately sourced contract; neither it nor arithmetic realization is supplied by derivative base change."
     },
     "SmoothRepresentationsOfLocalGroups:SR.6": {
       "action": "keep",
@@ -140,7 +140,7 @@
     },
     "GL2AutomorphicRepresentationsAndTransfer:R16.5": {
       "action": "narrow",
-      "keeps": "GL₂ global Whittaker expansion and comparison to the supplied integral models; the full converse theorem used in R17, with twisting family, pole exclusions, strip/growth and archimedean hypotheses; comparison of rational/cohomological normalization with the classical newform L-function.",
+      "keeps": "Specialize AL.3’s general cuspidal GL_n adelic Fourier-Whittaker expansion to n=2 and compare it with the supplied integral models and classical normalization, without reproving the expansion. Retain the full converse theorem used in R17, with twisting family, pole exclusions, strip/growth and archimedean hypotheses; comparison of rational/cohomological normalization with the classical newform L-function.",
       "suppliedBy": [
         "AutomorphicLFunctionsAndLocalFactors:AL.0",
         "AutomorphicLFunctionsAndLocalFactors:AL.1",
@@ -148,7 +148,7 @@
         "AutomorphicLFunctionsAndLocalFactors:AL.3",
         "tauceti:TauCetiRoadmap/ModularForms#layer-7-l-functions"
       ],
-      "reason": "General Fourier/Poisson, zeta integrals, factors, continuation and functional equations and the classical L-function are imported; the global expansion and converse theorem remain new."
+      "reason": "General Fourier/Poisson, zeta integrals, factors, continuation and functional equations and the classical L-function are imported. AL.3 owns the general cuspidal GL_n Fourier-Whittaker expansion and its convergence/interchange API. R16.5 retains its GL2 comparison/application and the distinct full converse theorem."
     },
     "GL2AutomorphicRepresentationsAndTransfer:R16.6": {
       "action": "narrow",
@@ -344,7 +344,7 @@
     {
       "source": "AutomorphicLFunctionsAndLocalFactors:AL.0",
       "target": "GL2AutomorphicRepresentationsAndTransfer:R16.5",
-      "reason": "Supply the imported portion: General Fourier/Poisson, zeta integrals, factors, continuation and functional equations and the classical L-function are imported; the global expansion and converse theorem remain new. Import the canonical owner of Fourier-Poisson analytic input for zeta integrals."
+      "reason": "Supply the imported portion: General Fourier/Poisson, zeta integrals, factors, continuation and functional equations and the classical L-function are imported. AL.3 owns the general cuspidal GL_n Fourier-Whittaker expansion and its convergence/interchange API. R16.5 retains its GL2 comparison/application and the distinct full converse theorem. Import the canonical owner of Fourier-Poisson analytic input for zeta integrals."
     },
     {
       "source": "AutomorphicLFunctionsAndLocalFactors:AL.0",
@@ -369,7 +369,7 @@
     {
       "source": "AutomorphicLFunctionsAndLocalFactors:AL.1",
       "target": "GL2AutomorphicRepresentationsAndTransfer:R16.5",
-      "reason": "Supply the imported portion: General Fourier/Poisson, zeta integrals, factors, continuation and functional equations and the classical L-function are imported; the global expansion and converse theorem remain new. Import the canonical owner of Tate local integrals and character factors."
+      "reason": "Supply the imported portion: General Fourier/Poisson, zeta integrals, factors, continuation and functional equations and the classical L-function are imported. AL.3 owns the general cuspidal GL_n Fourier-Whittaker expansion and its convergence/interchange API. R16.5 retains its GL2 comparison/application and the distinct full converse theorem. Import the canonical owner of Tate local integrals and character factors."
     },
     {
       "source": "AutomorphicLFunctionsAndLocalFactors:AL.1",
@@ -404,7 +404,7 @@
     {
       "source": "AutomorphicLFunctionsAndLocalFactors:AL.2",
       "target": "GL2AutomorphicRepresentationsAndTransfer:R16.5",
-      "reason": "Supply the imported portion: General Fourier/Poisson, zeta integrals, factors, continuation and functional equations and the classical L-function are imported; the global expansion and converse theorem remain new. Import the canonical owner of Godement-Jacquet standard zeta integrals and local/global factors."
+      "reason": "Supply the imported portion: General Fourier/Poisson, zeta integrals, factors, continuation and functional equations and the classical L-function are imported. AL.3 owns the general cuspidal GL_n Fourier-Whittaker expansion and its convergence/interchange API. R16.5 retains its GL2 comparison/application and the distinct full converse theorem. Import the canonical owner of Godement-Jacquet standard zeta integrals and local/global factors."
     },
     {
       "source": "AutomorphicLFunctionsAndLocalFactors:AL.2",
@@ -439,7 +439,7 @@
     {
       "source": "AutomorphicLFunctionsAndLocalFactors:AL.3",
       "target": "GL2AutomorphicRepresentationsAndTransfer:R16.5",
-      "reason": "Supply the imported portion: General Fourier/Poisson, zeta integrals, factors, continuation and functional equations and the classical L-function are imported; the global expansion and converse theorem remain new. Import the canonical owner of Rankin-Selberg integral/factor theory, including its archimedean part."
+      "reason": "Supply the imported portion: General Fourier/Poisson, zeta integrals, factors, continuation and functional equations and the classical L-function are imported. AL.3 owns the general cuspidal GL_n Fourier-Whittaker expansion and its convergence/interchange API. R16.5 retains its GL2 comparison/application and the distinct full converse theorem. Import the canonical owner of Rankin-Selberg integral/factor theory, including its archimedean part."
     },
     {
       "source": "AutomorphicLFunctionsAndLocalFactors:AL.3",
@@ -779,7 +779,7 @@
     {
       "source": "SmoothRepresentationsOfLocalGroups:SR.5",
       "target": "AutomorphicCongruences:L3",
-      "reason": "Local integral derivatives and co-Whittaker families; arithmetic realization remains the consumer. Import the canonical owner of Nonarchimedean derivatives, integral co-Whittaker families and their local center action."
+      "reason": "Import SR.5’s coefficient-scoped co-Whittaker carrier, admissibility, torsion-free/duality interfaces and derivative base change, plus the natural map V^U tensor_A B -> (V tensor_A B)^U. L3 owns the source-qualified Fouquet-Wan GL2 minimal-lift application proving conductor-level rank-one essential lines and specialization isomorphism using R16.2; derivative base change does not prove invariant base change. Reconcile FW v3’s printed coefficient setting before closing that application."
     },
     {
       "source": "SmoothRepresentationsOfLocalGroups:SR.5",
@@ -929,7 +929,7 @@
     {
       "source": "tauceti:TauCetiRoadmap/ModularForms#layer-7-l-functions",
       "target": "GL2AutomorphicRepresentationsAndTransfer:R16.5",
-      "reason": "Supply the imported portion: General Fourier/Poisson, zeta integrals, factors, continuation and functional equations and the classical L-function are imported; the global expansion and converse theorem remain new. Import the canonical owner of Classical newform L-function and its analytic theorem."
+      "reason": "Supply the imported portion: General Fourier/Poisson, zeta integrals, factors, continuation and functional equations and the classical L-function are imported. AL.3 owns the general cuspidal GL_n Fourier-Whittaker expansion and its convergence/interchange API. R16.5 retains its GL2 comparison/application and the distinct full converse theorem. Import the canonical owner of Classical newform L-function and its analytic theorem."
     },
     {
       "source": "tauceti:TauCetiRoadmap/ModularForms#layer-7-l-functions",
@@ -1070,6 +1070,16 @@
       "source": "GL2AutomorphicRepresentationsAndTransfer:R16.2",
       "target": "AutomorphicLFunctionsAndLocalFactors:AL.5",
       "reason": "AL.5's conductor, local test-vector and twist compatibilities for the GL₂ families use R16.2's local newvectors instead of rebuilding them."
+    },
+    {
+      "source": "GL2AutomorphicRepresentationsAndTransfer:R16.2",
+      "target": "AutomorphicCongruences:L3",
+      "reason": "Supply the field-valued generic GL2 conductor/newvector theorem, conductor-level K1 subgroup and smooth-contragredient normalization to L3’s Fouquet-Wan minimal-lift essential-line application. This makes the existing transitive import explicit; SR.5 remains a prerequisite of R16.2, never its consumer."
+    },
+    {
+      "source": "AutomorphicFormsOnReductiveGroups:AF.3",
+      "target": "AutomorphicLFunctionsAndLocalFactors:AL.3",
+      "reason": "Supply the cusp-form carrier via AF.2, vanishing of all proper-parabolic constant terms, compact unipotent quotient integration and rapid decay with central normalization. AL.3 uses them for its general GL_n mirabolic Fourier-Whittaker expansion and global unfolding; AF.3 does not duplicate that expansion."
     }
   ],
   "owners": [
@@ -1145,7 +1155,8 @@
         "GL2AutomorphicRepresentationsAndTransfer:R16.2",
         "AutomorphicCongruences:L3",
         "AutomorphicLFunctionsAndLocalFactors:AL.3"
-      ]
+      ],
+      "scope": "Local structural theory and the natural coefficient-change map on invariant submodules, with source-qualified admissibility/duality. Arbitrary invariants do not commute with base change. General integral GL_n essential-vector theory, if required beyond L3’s source-specific GL2 application, is a smooth-local family blueprint obligation with its own hypotheses and proof source, not a theorem inferred from the top derivative. See the fixes report for the exact handoff."
     },
     {
       "target": "Classical primitive/newform and conductor theory",
@@ -1389,24 +1400,155 @@
       "formerly": [
         "GL2AutomorphicRepresentationsAndTransfer:R16.4"
       ]
+    },
+    {
+      "target": "Fouquet-Wan GL2 minimal-lift essential-line compatibility for zeta specialization",
+      "owner": "AutomorphicCongruences:L3",
+      "formerly": [
+        "SmoothRepresentationsOfLocalGroups:SR.5",
+        "AutomorphicCongruences:L3"
+      ],
+      "scope": "Verifier-approved GL2 application only, downstream of SR.5 and R16.2, using R16.3’s Weil-Deligne/LLC normalization through existing prerequisites. The intended integral proof regime is a p-torsion-free complete Noetherian local W(k0)-domain A with finite residue field k0 of characteristic p, O the integers of a finite extension E/Q_p, and a continuous local W(k0)-compatible specialization lambda:A -> O. The representation rho:G_F -> GL2(A) is continuous for F/Q_ell finite, ell != p. This regime is a source-reconciliation obligation, not a theorem supplied by FW v3’s incompatible residual-characteristic-zero wording. Specify existence of the attached co-Whittaker models, the source’s semisimple Weil-Deligne convention, preservation of ranks of all powers of monodromy and the common conductor m. For U=K1(varpi^m) with last row (0,1) modulo varpi^m, prove model comparison, rank-one freeness of both essential lines and that the natural map pi(rho)^U tensor_A O -> pi(rho_lambda)^U is an isomorphism. Neither freeness nor that isomorphism is an input assumption or established here; invariant comparison requires its own proof. General GL_n integral theory stays with Smooth.",
+      "sources": [
+        {
+          "url": "https://arxiv.org/pdf/2107.13726v3",
+          "locator": "Appendix A, 6.1 and 6.2, Propositions 6.7-6.9, printed pp. 77-78",
+          "read": "2026-10-02"
+        },
+        {
+          "url": "https://math.uchicago.edu/~emerton/pdffiles/families.pdf",
+          "locator": "Theorem 1.2.1, Definition 4.5.9, Condition 6.1.1 and Theorems 6.2.1/6.2.5, pp. 3, 44-45, 49-51",
+          "read": "2026-10-02"
+        }
+      ],
+      "api": [
+        "Reuse Representation.invariants after restriction to U; the coefficient-change map sends v tensor b to v tensor b.",
+        "Compose that map with the invariant restriction of the model-specialization map; prove identity, composition and naturality for equivariant maps where the source hypotheses hold.",
+        "Prove finite generation, rank-one freeness and specialization bijectivity as separate obligations; compare smooth duals only with the required admissibility/coefficient hypotheses.",
+        "Use the resulting line comparison in L3’s zeta compatibility square; do not create another global zeta construction or a general GL_n family theorem here."
+      ],
+      "tests": [
+        {
+          "name": "essentialLine_specialization_id",
+          "kind": "compatibility",
+          "statement": "For identity specialization of an admissible minimal-lift GL2 model, the essential-line comparison is the identity after the tensor-unit identification."
+        },
+        {
+          "name": "essentialLine_unramified_level",
+          "kind": "computation",
+          "statement": "For an unramified generic principal-series family in the verified coefficient regime, m=0 and U=GL2(O_F); its essential line specializes to the spherical rank-one line."
+        },
+        {
+          "name": "essentialLine_steinberg_level",
+          "kind": "characterisation",
+          "statement": "For an unramified Steinberg twist with nonzero monodromy, the field-valued newvector first occurs at K1(varpi), not at GL2(O_F); conductor-level integral comparison uses m=1."
+        },
+        {
+          "name": "essentialLine_monodromy_drop_excluded",
+          "kind": "non-example",
+          "statement": "A specialization changing the monodromy ranks or conductor does not satisfy the minimal-lift theorem hypotheses and receives no specialization-isomorphism assertion."
+        }
+      ],
+      "blueprintHandoff": "AutomorphicCongruences L3 and SmoothRepresentationsOfLocalGroups SR.5: declaration-level decomposition, reconciled coefficient/source register, invariant-map and duality API, at least three tests per definition and matching suggested signatures. No packet for either owner exists at review base 85629d35ed9adf08fbd8297247d6e45a280910b2. The displayed integral regime still needs a covering proof/source; Emerton-Helm uniqueness and characteristic-zero-point comparison do not prove the integral essential-line statement."
+    },
+    {
+      "target": "General cuspidal GL_n adelic Fourier-Whittaker expansion and convergence for unfolding",
+      "owner": "AutomorphicLFunctionsAndLocalFactors:AL.3",
+      "formerly": [
+        "GL2AutomorphicRepresentationsAndTransfer:R16.5",
+        "AutomorphicLFunctionsAndLocalFactors:AL.3"
+      ],
+      "scope": "A lower declaration component of AL.3, before its global Rankin-Selberg unfolding. For n>=2 over a number field k, use complex-valued smooth vectors of uniform moderate growth in an irreducible unitary cuspidal automorphic representation, with unitary central character as in Cogdell; any extension by a determinant twist needs its compatibility proof. Fix a nontrivial continuous unitary additive character psi of A_k/k, put psi_N(u)=psi(sum_i u_(i,i+1)), and normalize compatible unipotent quotient Haar measures to volume one. Define W_phi(g)=integral_(N_n(k) backslash N_n(A_k)) phi(u g) psi_N(u)^(-1) du and prove phi(g)=sum_(gamma in N_(n-1)(k) backslash GL_(n-1)(k)) W_phi(diag(gamma,1) g), absolutely uniformly on compact subsets. Separately prove the gauge/dominating estimate for noncompact sum-integral interchange in Re(s) sufficiently large; continuation is a separate theorem. R16.5 imports the n=2 case and proves its integral/classical comparison.",
+      "sources": [
+        {
+          "url": "https://people.math.osu.edu/cogdell.1/pcmi-www.pdf",
+          "locator": "1.1, Theorem 1.1 and mirabolic induction, printed pp. 5-9 (PDF 9-13); 2.2.2/Theorem 2.1, printed pp. 20-21 (PDF 24-25)",
+          "read": "2026-10-02"
+        }
+      ],
+      "api": [
+        "Reuse AF.2/AF.3 cusp forms, AA.2 quotient measures and AL.0 additive characters/Fourier integration; construct the complex-linear Whittaker-coefficient map, W_phi(u g)=psi_N(u) W_phi(g), right-translation compatibility and linear measure-scaling. Reconstruction uses quotient volume one, not an arbitrary unnormalized Haar measure.",
+        "Define P_n as the stabilizer of the last row vector e_n, with abelian last-column subgroup Y_n={blockMatrix(I,y;0,1)} and P_n=GL_(n-1) semidirect Y_n, using imported matrix/subgroup APIs. Prove coset-representative independence and the induction/reconstruction formula; use last-column coordinates with this convention.",
+        "Export absolute convergence, uniform convergence on every compact set and a separately proved integrable majorant in the initial Rankin-Selberg half-plane.",
+        "Compare n=2 with the k^times Fourier expansion, with identical character and measures; R16.5 owns the further integral-model and classical-normalization comparison."
+      ],
+      "tests": [
+        {
+          "name": "globalWhittaker_rank_two",
+          "kind": "compatibility",
+          "statement": "For n=2, N_1(k) is trivial and the index is GL_1(k)=k^times; the general reconstruction becomes the GL2 Fourier-Whittaker sum used by R16.5."
+        },
+        {
+          "name": "globalWhittaker_translation",
+          "kind": "compatibility",
+          "statement": "W_(R(h)phi)(g)=W_phi(g h) for right translation R(h)phi(x)=phi(x h), with the same additive character and quotient measure."
+        },
+        {
+          "name": "globalWhittaker_zero",
+          "kind": "degenerate",
+          "statement": "The zero cusp form has zero Whittaker coefficient and zero reconstructed series."
+        },
+        {
+          "name": "globalWhittaker_rank_three_index",
+          "kind": "non-example",
+          "statement": "For n=3 the index is N_2(k) backslash GL_2(k), not k^times; a rank-two-only expansion cannot typecheck as the general theorem."
+        },
+        {
+          "name": "globalWhittaker_noncompact_interchange",
+          "kind": "characterisation",
+          "statement": "The unfolding sum-integral identity requires the separately established gauge/dominating estimate in Re(s) sufficiently large; the compact-uniform expansion theorem alone does not discharge that premise."
+        },
+        {
+          "name": "globalWhittaker_measure_scaling",
+          "kind": "computation",
+          "statement": "Replacing the coefficient quotient measure by twice that measure doubles W_phi and the reconstructed series. For a nonzero cusp form the unweighted identity with phi therefore requires the stated volume-one normalization."
+        },
+        {
+          "name": "globalWhittaker_cuspidality_required",
+          "kind": "non-example",
+          "statement": "For n=2 and the noncuspidal automorphic function phi=1, a nontrivial additive character gives W_phi=0 while phi=1. The nonconstant reconstruction is not asserted on the full automorphic-function carrier."
+        }
+      ],
+      "blueprintHandoff": "At review base 85629d35ed9adf08fbd8297247d6e45a280910b2 the AutomorphicLFunctionsAndLocalFactors packet is complete/planned, with an independent needs_changes review. Refine its existing AL.3/global-whittaker-factorization, AL.3/gln-fourier-expansion and AL.3/global-rs-unfolding nodes; do not add a duplicate expansion theorem. Expose the coefficient map and last-row-stabilizer/last-column mirabolic carriers with at least three tests per definition, and a separate noncompact gauge/majorant theorem before interchange, with matching reader and suggested signatures. Cogdell’s referenced gauge-proof interior remains unread. Keep Fourier reconstruction distinct from local-uniqueness tensor factorization, and fix the expansion node’s last-row-unipotent wording to this coordinate convention. That packet and its current review remain outside this issue’s edit allowlist; this acceptance certifies its owner, not its closure."
     }
   ],
   "review": {
     "status": "accepted",
-    "reviewer": "independent-review-REV-RS-21",
-    "date": "2026-09-29",
-    "notes": "Reviewed by Claude Code, session cc-39fac3, against origin/main 827fe453, with the atlas as scripts/build.py assembles it (2840 stages, 7806 edges). Both member documents, the ModularForms anchor (all 16 layers), every supplier stage named in a narrowing, and the consumers of every changed layer were read. So were the accepted RS-05, RS-06, RS-08, RS-12, RS-19, RS-24, RS-26 and RS-31 and the pending RS-04 and RS-11. The fifteen pinned-library declarations the report cites were read at Mathlib 082e2d3 and Tau Ceti f790474, and the report's seven file hashes match. The main decisions hold. SmoothRepresentations stays the general foundation, with the SR.0 alias/abelian/derived split consistent with RS-05. The GL2 roadmap becomes 'Modular forms — Hecke theory, newforms, and L-functions, Part II: GL₂ automorphic representations and transfer': the title is exact, it starts at the anchor's stated Layer 2 hand-off, and it re-plans nothing the anchor plans. Layers 4, 5, 7 and 8 are only compared, and R17.2's adelic trace formula is distinct from Layer 11's level-one route. It is a third sibling Part II beside RS-06's AlgebraicModularFormsAndSerreWeights and RS-08's ModularSymbolsPadicLFunctions; the one overlap with them, R17.6 against R15.3/R15.5/R15.6, is corrected. The original 161 links join existing stages (36 were already edges), and they, the 12 added links and the atlas edges are acyclic together.",
-    "corrections": [
-      "SmoothRepresentationsOfLocalGroups:SR.0:abelian-category: the profinite exhaustion is ProfiniteCohomology Layer 0 (the pinned iSup_fixedPoints_openNormal_eq_top is in Discrete.lean, whose header implements Layer 0), not Layer 1. Layer 0 is added to suppliedBy with a link, the keeps names Mathlib's CatCenter for the ordinary center, and the reason is corrected.",
-      "SmoothRepresentationsOfLocalGroups:SR.2: keep -> narrow. For an open subgroup, compact induction is Mathlib's algebraic induction (Rep.ind, Rep.indResAdjunction), and induction in stages is InductionRestriction Layer 0's transitivity, so SR.2 now cites that case and proves compatibility. suppliedBy, a link and an owner record are added.",
-      "SmoothRepresentationsOfLocalGroups:SR.4 keeps: the anchor supplies only the GL_n(Q_p) algebra; the general spherical algebra and Satake transform stay in SR.4, as accepted RS-24 records.",
-      "GL2AutomorphicRepresentationsAndTransfer:R16.1 keeps: 'adelic/Schwartz-Bruhat' -> 'restricted-product and quotient-measure'. R16.1 never planned Schwartz-Bruhat functions, and their owner is AL.0.",
-      "GL2AutomorphicRepresentationsAndTransfer:R16.4: ModularForms Layer 8G (conjugate newforms, rationality) is added to suppliedBy and keeps, with a link and an owner record.",
-      "GL2AutomorphicRepresentationsAndTransfer:R17.6: keep -> narrow. Residual modularity (R15.6), the Hasse-invariant weight change with p = 2 explicit (R15.3) and Deligne-Serre lifting with weight change (R15.5) belong to the sibling Part II AlgebraicModularFormsAndSerreWeights (accepted RS-06). Three supplier links and two owner records are added.",
-      "owners: the Fourier transform had two owners. The AA.2 record ('Schwartz-Bruhat carrier and Fourier transform') becomes AA.2's actual scope (quotient measures, central-character sections, L² spaces), and AL.0 owns Schwartz-Bruhat spaces, the Fourier transform and Poisson summation, formerly R16.1 and R16.5. The AA.0 record is narrowed to restricted products and Haar measures.",
-      "owners: the ModularForms Layer 2 record is narrowed to the GL_n(Q_p) hand-off, avoiding overlap with RS-24's SR.4 record. PadicLocalLanglandsForGL2Qp:R30.2 is added to the formerly of the smooth-carrier record (its smooth mod-p category, deferred by accepted RS-26). AutomorphicLFunctionsAndLocalFactors:AL.5 is added to the formerly of the local newvector record.",
-      "links: 12 added, all acyclic together with the other links and the atlas. They are ProfiniteCohomology L0 -> SR.0:abelian-category; InductionRestriction L0 -> SR.2; SR.1 -> AF.0 (a missed overlap: AF.0's finite-place test functions and finite Hecke action); InductionRestriction L7 -> ClassicalSerreModularity:R33.1 (a consumer added by a later blueprint); ModularForms L8G -> R16.4; R15.3, R15.5, R15.6 -> R17.6; R16.5 -> R17.5 and R16.6 -> R17.5; R16.4 -> R17.3; R16.2 -> AL.5.",
-      "links: reasons corrected for SR.0:derived-extension -> HS3 (not complex-valued), SR.0:abelian-category -> R30.2, and AA.0/AA.2 -> R16.1."
-    ]
+    "reviewer": "independent-review-REV-FIX-RT-RS-21",
+    "date": "2026-10-07",
+    "notes": "Independent review by Codex, session codex-0HK3IJ, of FIX-RT-RS-21 (codex-rtOQ9t), following accepted REV-RS-21 (cc-39fac3), preserved verbatim in reviewHistory. Both confirmed findings are corrected: L3 owns the source-qualified GL2 minimal-lift essential-line application downstream of SR.5/R16.2, and AL.3 owns general cuspidal GL_n Fourier-Whittaker reconstruction, imported by R16.5 without losing its full converse theorem. Freshly checked FW v3, Emerton-Helm and Cogdell passages, pinned invariant APIs, reviewed audit rows and supplier/consumer contracts. Clarified the intended integral coefficient regime as an unresolved proof/source obligation; made complex/unitary growth, character, volume-one measure and mirabolic coordinates explicit; added measure-scaling and noncuspidal tests; updated the stale AL.3 handoff to existing packet nodes. check_restructure.py passes. Actual before/after atlas assembly at 85629d35ed9adf08fbd8297247d6e45a280910b2: 4099 stages, 10772 -> 10774 edges, both acyclic, all 175 links present, none skipped, edge-idempotent, 656 Tau Ceti stages unchanged. Review accepts the structural fixes, not an integral specialization proof or closure of the separate owner packets. Details: reviews/REV-FIX-RT-RS-21.md."
+  },
+  "reviewHistory": [
+    {
+      "status": "accepted",
+      "reviewer": "independent-review-REV-RS-21",
+      "date": "2026-09-29",
+      "notes": "Reviewed by Claude Code, session cc-39fac3, against origin/main 827fe453, with the atlas as scripts/build.py assembles it (2840 stages, 7806 edges). Both member documents, the ModularForms anchor (all 16 layers), every supplier stage named in a narrowing, and the consumers of every changed layer were read. So were the accepted RS-05, RS-06, RS-08, RS-12, RS-19, RS-24, RS-26 and RS-31 and the pending RS-04 and RS-11. The fifteen pinned-library declarations the report cites were read at Mathlib 082e2d3 and Tau Ceti f790474, and the report's seven file hashes match. The main decisions hold. SmoothRepresentations stays the general foundation, with the SR.0 alias/abelian/derived split consistent with RS-05. The GL2 roadmap becomes 'Modular forms — Hecke theory, newforms, and L-functions, Part II: GL₂ automorphic representations and transfer': the title is exact, it starts at the anchor's stated Layer 2 hand-off, and it re-plans nothing the anchor plans. Layers 4, 5, 7 and 8 are only compared, and R17.2's adelic trace formula is distinct from Layer 11's level-one route. It is a third sibling Part II beside RS-06's AlgebraicModularFormsAndSerreWeights and RS-08's ModularSymbolsPadicLFunctions; the one overlap with them, R17.6 against R15.3/R15.5/R15.6, is corrected. The original 161 links join existing stages (36 were already edges), and they, the 12 added links and the atlas edges are acyclic together.",
+      "corrections": [
+        "SmoothRepresentationsOfLocalGroups:SR.0:abelian-category: the profinite exhaustion is ProfiniteCohomology Layer 0 (the pinned iSup_fixedPoints_openNormal_eq_top is in Discrete.lean, whose header implements Layer 0), not Layer 1. Layer 0 is added to suppliedBy with a link, the keeps names Mathlib's CatCenter for the ordinary center, and the reason is corrected.",
+        "SmoothRepresentationsOfLocalGroups:SR.2: keep -> narrow. For an open subgroup, compact induction is Mathlib's algebraic induction (Rep.ind, Rep.indResAdjunction), and induction in stages is InductionRestriction Layer 0's transitivity, so SR.2 now cites that case and proves compatibility. suppliedBy, a link and an owner record are added.",
+        "SmoothRepresentationsOfLocalGroups:SR.4 keeps: the anchor supplies only the GL_n(Q_p) algebra; the general spherical algebra and Satake transform stay in SR.4, as accepted RS-24 records.",
+        "GL2AutomorphicRepresentationsAndTransfer:R16.1 keeps: 'adelic/Schwartz-Bruhat' -> 'restricted-product and quotient-measure'. R16.1 never planned Schwartz-Bruhat functions, and their owner is AL.0.",
+        "GL2AutomorphicRepresentationsAndTransfer:R16.4: ModularForms Layer 8G (conjugate newforms, rationality) is added to suppliedBy and keeps, with a link and an owner record.",
+        "GL2AutomorphicRepresentationsAndTransfer:R17.6: keep -> narrow. Residual modularity (R15.6), the Hasse-invariant weight change with p = 2 explicit (R15.3) and Deligne-Serre lifting with weight change (R15.5) belong to the sibling Part II AlgebraicModularFormsAndSerreWeights (accepted RS-06). Three supplier links and two owner records are added.",
+        "owners: the Fourier transform had two owners. The AA.2 record ('Schwartz-Bruhat carrier and Fourier transform') becomes AA.2's actual scope (quotient measures, central-character sections, L² spaces), and AL.0 owns Schwartz-Bruhat spaces, the Fourier transform and Poisson summation, formerly R16.1 and R16.5. The AA.0 record is narrowed to restricted products and Haar measures.",
+        "owners: the ModularForms Layer 2 record is narrowed to the GL_n(Q_p) hand-off, avoiding overlap with RS-24's SR.4 record. PadicLocalLanglandsForGL2Qp:R30.2 is added to the formerly of the smooth-carrier record (its smooth mod-p category, deferred by accepted RS-26). AutomorphicLFunctionsAndLocalFactors:AL.5 is added to the formerly of the local newvector record.",
+        "links: 12 added, all acyclic together with the other links and the atlas. They are ProfiniteCohomology L0 -> SR.0:abelian-category; InductionRestriction L0 -> SR.2; SR.1 -> AF.0 (a missed overlap: AF.0's finite-place test functions and finite Hecke action); InductionRestriction L7 -> ClassicalSerreModularity:R33.1 (a consumer added by a later blueprint); ModularForms L8G -> R16.4; R15.3, R15.5, R15.6 -> R17.6; R16.5 -> R17.5 and R16.6 -> R17.5; R16.4 -> R17.3; R16.2 -> AL.5.",
+        "links: reasons corrected for SR.0:derived-extension -> HS3 (not complex-valued), SR.0:abelian-category -> R30.2, and AA.0/AA.2 -> R16.1."
+      ]
+    }
+  ],
+  "fix": {
+    "job": "FIX-RT-RS-21",
+    "issue": 5711,
+    "agent": "Codex",
+    "session": "codex-rtOQ9t",
+    "date": "2026-10-02",
+    "base": "c16f0e83ac16a9f462032c538ed664c55e513f87",
+    "findings": [
+      "RT-RS-21/1",
+      "RT-RS-21/2"
+    ],
+    "scope": "Ownership and source-qualified blueprint contracts. No implementation or owner-packet closure is claimed; the fixes report routes the required packet work to its existing jobs."
   }
 }

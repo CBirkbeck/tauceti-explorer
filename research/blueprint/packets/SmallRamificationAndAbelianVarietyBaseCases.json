@@ -776,13 +776,11 @@
         {
           "sourceId": "Jones10-preprint",
           "locator": "§1.1, equation (1), p. 2",
-          "excerpt": "Let F be a finite Galois extension of Qp with Galois group G. … If we write the discriminant of F/Qp as (p^{c_F}), then we have c_F = Σ_{i≥−1} ([G : G^{i+}] − [G : G^i])(i + 1).",
           "match": "The discriminant exponent c_F; δ(E) = c_E/[E:ℚ_p] is Jones's mean slope (3)."
         },
         {
           "sourceId": "Jones10-preprint",
           "locator": "§1.1, equation (3), p. 3",
-          "excerpt": "With an eye toward root discriminants, we define the mean slope of F/Qp by MS(F) := c_F/[F : Qp].",
           "match": "δ(E) is the mean slope MS(E); the name here records its role as a root-discriminant exponent."
         }
       ],
@@ -922,19 +920,16 @@
         {
           "sourceId": "MoonTaguchi07-arXiv",
           "locator": "§3, proof of the Theorem, pp. 6–7",
-          "excerpt": "We denote by d_{K/Q} the discriminant of K/Q, and d_K^{1/n} = |d_{K/Q}|^{1/n} the root discriminant of K, where n = [K : Q].",
           "match": "The root discriminant compared with the local different bounds in Tate's method."
         },
         {
           "sourceId": "Jones10-preprint",
           "locator": "§1.1, equation (1), p. 2",
-          "excerpt": "If we write the discriminant of F/Qp as (p^{c_F}), then we have c_F = Σ_{i≥−1} ([G : G^{i+}] − [G : G^i])(i + 1).",
           "match": "The local exponent entering the global root discriminant."
         },
         {
           "sourceId": "Jones10-preprint",
           "locator": "§3.1, p. 9",
-          "excerpt": "The g completions K_{P_i} are isomorphic as extensions of Q_p, hence have the same discriminants. We define MS_p(K) = MS(K_{P_1}). Then p^{MS_p(K)} is the contribution from p to the root discriminant of K/Q.",
           "match": "The statement of this node: the p-part of rd_K is p^{δ(K_𝔭)}, independent of 𝔭."
         }
       ],
@@ -974,13 +969,11 @@
         {
           "sourceId": "MoonTaguchi07-arXiv",
           "locator": "§2, after (2.1), p. 2",
-          "excerpt": "where ψi : D → F̄2^× are characters of D. Note that the ψi's have odd order, so that they are at most tamely ramified.",
           "match": "The first step; the Frobenius argument then makes them unramified over ℚ_2."
         },
         {
           "sourceId": "Jones10-preprint",
           "locator": "§2.3 (Comparison), p. 9",
-          "excerpt": "Tate also shows that the tame degree must be 1, which in turn can be used to show that all slopes are either 2 or 3, and that at most one of them is 3.",
           "match": "The p = 2 case: no tame ramification in the diagonal characters."
         }
       ],
@@ -1024,13 +1017,11 @@
         {
           "sourceId": "MoonTaguchi07-arXiv",
           "locator": "§2, before Lemma 1, p. 2",
-          "excerpt": "Since G1 is normal in G and the normalizer of G1 in GL2(F̄2) is (∗ ∗; ∗), we may assume that ρ is of the form ρ = (ψ1 ∗; ψ2), where ψi : D → F̄2^× are characters of D.",
           "match": "The Borel normal form, there for p = 2; the argument is the same for any p."
         },
         {
           "sourceId": "MoonTaguchi07-arXiv",
           "locator": "§2, proof of Lemma 1, p. 3",
-          "excerpt": "If ρ is non-abelian (or equivalently, if ψ1 ≠ ψ2 as characters on D), then Gal(E0/F) = G/G1 acts on G1 (identified with a subgroup of (1 ∗; 1)) via ψ1ψ2^{−1}",
           "match": "The action formula."
         }
       ],
@@ -1073,19 +1064,16 @@
         {
           "sourceId": "FesenkoVostokov-LF",
           "locator": "Ch. I, (5.7) Proposition, pp. 14–15",
-          "excerpt": "Then the homomorphism ↑p maps Ui to Upi for i ⩽ e/(p − 1), and Ui to Ui+e for i > e/(p − 1).",
           "match": "The p-th power map on the unit filtration, used in all four parts."
         },
         {
           "sourceId": "FesenkoVostokov-LF",
           "locator": "Ch. I, (5.8) Corollary 2, p. 16",
-          "excerpt": "Corollary 2. Let F be a complete field. Let i > pe/(p − 1). Then Ui ⊂ U^p_{i−e}.",
           "match": "The inclusions U^{(3)} ⊆ squares (e = 1, p = 2), U^{(2)} ⊆ cubes (e = 1, p = 3) and U^{(4)} ⊆ cubes (e = 2, p = 3)."
         },
         {
           "sourceId": "MoonTaguchi07-arXiv",
           "locator": "§2, proof of Lemma 1, p. 3",
-          "excerpt": "Just as in [17], we can show that the index (X5 : X4) is 1 or 2, since the image of (1 + π^4 A) in (1 + πA)/(1 + πA)^2 has order 2.",
           "match": "The Artin–Schreier cokernel argument of part (a), there over a ramified quadratic base."
         }
       ],
@@ -1135,25 +1123,21 @@
         {
           "sourceId": "MoonTaguchi07-arXiv",
           "locator": "§2, before Lemma 1, p. 2",
-          "excerpt": "Since G1 is normal in G and the normalizer of G1 in GL2(F̄2) is (∗ ∗; ∗), we may assume that ρ is of the form ρ = (ψ1 ∗; ψ2).",
           "match": "Step (ii): the Borel normal form."
         },
         {
           "sourceId": "MoonTaguchi07-arXiv",
           "locator": "§2, proof of Lemma 3, pp. 4–5",
-          "excerpt": "If e1 = 1 … we have {1} = X1 ⊂ X2 ⊂ X3 = X and (X3 : X2) ≤ 2. … If ρ is non-abelian (i.e. ψ1 ≠ ψ2), then as in the last part of the proof of Lemma 1, we have X3 = X2, and hence v2(DE/F) = (1/2^m)((2^m − 1) × 2) = 2 − 1/2^{m−1}.",
           "match": "Steps (iii): the same computation over an unramified base, with |P| = 2^m, giving 2 − 2/|P|."
         },
         {
           "sourceId": "MoonTaguchi07-arXiv",
           "locator": "§2, proof of Lemma 1, p. 3",
-          "excerpt": "Each orbit by this action has odd cardinality |Im(ψ1ψ2^{−1})|, while X5 ∖ X4 has 2-power cardinality if it is non-empty. Thus we must have X5 = X4.",
           "match": "The Frobenius-equivariance argument of step (iii), stated there on the character group."
         },
         {
           "sourceId": "Jones10-preprint",
           "locator": "§2.3 (Comparison), pp. 8–9",
-          "excerpt": "In that case, the Sylow 2-subgroup of PSL2(2^j) is elementary abelian, so the maximum slope is 3. Tate also shows that the tame degree must be 1, which in turn can be used to show that all slopes are either 2 or 3, and that at most one of them is 3.",
           "match": "Tate's own bound, δ ≤ 5/2 − 2/|P|; steps (iii) and (iv) sharpen it to δ ≤ 2."
         }
       ],
@@ -1205,25 +1189,21 @@
         {
           "sourceId": "GhitzaYamauchi25-arXiv",
           "locator": "§2.3, Lemma 2.6, p. 5",
-          "excerpt": "Let F/Qp be a finite unramified extension. Let E/F be a totally ramified extension with Galois group I. Suppose I has p-length N … Then the different of E/F divides p^C, where C = N + 1 + N/(p−1) − (1/e_N + (1/(p−1)) Σ 1/p^{m_i−1} + (r/(p−1))(1/e_0 − 1/e_N)).",
           "match": "Moon's bound; for p = 3, N = 1, e_0 = 2 it gives 5/2 − 2/|P|, weaker than 13/6 − 1/|P| here and equal to it at |P| = 3."
         },
         {
           "sourceId": "DP23-arXiv",
           "locator": "§1.1, proof of Theorem 1.1, p. 3",
-          "excerpt": "The result was proved by Tate ([Tat94]) for p = 2, and … Serre observed that the exact same argument worked for p = 3 ([Ser13, page 710]).",
           "match": "Serre's 3-adic step is the analogue of Tate's bound; this node supplies it."
         },
         {
           "sourceId": "FesenkoVostokov-LF",
           "locator": "Ch. IV, (3.5) Theorem, p. 135",
-          "excerpt": "Then for every integer n ⩾ −1 the reciprocity map ΨL/F maps the quotient group Un,F NL/F L∗/NL/F L∗ isomorphically onto the ramification group G(n) = Gh(n).",
           "match": "The identification of the upper ramification groups with images of unit groups."
         },
         {
           "sourceId": "FesenkoVostokov-LF",
           "locator": "Ch. IV, (3.4) Proposition (1), p. 135",
-          "excerpt": "Let M/F be a finite separable extension and let L/M be a finite Galois extension, σ ∈ Gal(F^sep/F). Then the diagram Gal(L/M) → M^*/N_{L/M}L^* (Υ_{L/M}), σ^* ↓, ↓ σ, Gal(σL/σM) → (σM)^*/N_{σL/σM}(σL)^* (Υ_{σL/σM}) is commutative.",
           "match": "The equivariance rec(τ(u)) = τ̃ rec(u) τ̃^{−1} of the equivariance step, with M = σM = E_1, L = E and σ a lift of τ (Υ is the inverse of the reciprocity map)."
         }
       ],
@@ -1272,13 +1252,11 @@
         {
           "sourceId": "Odlyzko90-JTNB",
           "locator": "§1, p. 119",
-          "excerpt": "For K = Q, D = 1, and one of Minkowski's fundamental results was the proof that D > 1 for n > 1. … a lower bound for D that was exponential in n.",
           "match": "Minkowski's exponential lower bound, used here with explicit thresholds."
         },
         {
           "sourceId": "GhitzaYamauchi25-arXiv",
           "locator": "§3, proof of Proposition 3.2, p. 7",
-          "excerpt": "With N = 0 and p = 2, we get from Proposition 2.7 that |dK|^{1/n} < 2, and then from Odlyzko's (unconditional) Table 2 that n < 3, so the Galois group is abelian.",
           "match": "The same deduction in the tame case; Minkowski's bound already gives n ≤ 2 from rd < 2."
         }
       ],
@@ -1321,7 +1299,6 @@
         {
           "sourceId": "Odlyzko90-JTNB",
           "locator": "§2, (2.4)–(2.5), p. 122",
-          "excerpt": "The above nonnegativity conditions on F(x) and Φ(s) are equivalent to the requirement that F(x) = f(x)/cosh(x/2), where f(x) ≥ 0 and f(x) has nonnegative Fourier transform. The best currently known unconditional bounds are obtained by selecting f(x) = g(x/b) for some parameter b.",
           "match": "g is a kernel meeting (2.4): g ≥ 0 with nonnegative Fourier transform. It is the classical self-convolution kernel, not Tartar's optimal one; the thresholds of R25.1/totally-complex-root-discriminant-thresholds only need this one."
         }
       ],
@@ -1462,7 +1439,6 @@
         {
           "sourceId": "Odlyzko90-JTNB",
           "locator": "§2, text after (2.3), p. 122",
-          "excerpt": "The above nonnegativity conditions on F(x) and Φ(s) are equivalent to the requirement that F(x) = f(x)/cosh(x/2), where f(x) ≥ 0 and f(x) has nonnegative Fourier transform.",
           "match": "The sufficiency direction of this equivalence rests on this lemma; Odlyzko states the equivalence without proof."
         }
       ],
@@ -1508,7 +1484,6 @@
         {
           "sourceId": "Odlyzko90-JTNB",
           "locator": "§2, text before (2.4), p. 122",
-          "excerpt": "one selects F(x) ≥ 0 for all x and Re(Φ(s)) ≥ 0 for all s in the critical strip, so that the contributions of the prime ideals and zeros are nonnegative. The above nonnegativity conditions on F(x) and Φ(s) are equivalent to the requirement that F(x) = f(x)/cosh(x/2)",
           "match": "The sufficiency direction of this equivalence, which is all that is used."
         }
       ],
@@ -1551,7 +1526,6 @@
         {
           "sourceId": "Odlyzko90-JTNB",
           "locator": "§2, (2.3), p. 122",
-          "excerpt": "log D = r1π/2 + n(C + log(8π)) − n ∫_0^∞ (1 − F(x))/(2 sinh(x/2)) dx − r1 ∫_0^∞ (1 − F(x))/(2 cosh(x/2)) dx − 4 ∫_0^∞ F(x) cosh(x/2) dx + Σ′_ρ Φ(ρ) + 2 Σ_𝔓 Σ_{m≥1} (log N𝔓/N𝔓^{m/2}) F(m log N𝔓).",
           "match": "P(n, r₁, b) is the right-hand side with F = F_b and the zero and prime sums removed (C = γ)."
         }
       ],
@@ -1663,7 +1637,6 @@
         {
           "sourceId": "Odlyzko90-JTNB",
           "locator": "§2, p. 123",
-          "excerpt": "The bound (2.5) was stated above only in a very rough asymptotic form. There are much more explicit versions with precise estimates of the remainder term in [B10]. Also, there are extensive tables of bounds for all degrees n ≤ 100 (and for some fields of higher degrees) in [B11].",
           "match": "Explicit finite-degree values of the bound; this lemma certifies the two that this roadmap needs, for the kernel R25.1/odlyzko-kernel."
         }
       ],
@@ -1709,19 +1682,16 @@
         {
           "sourceId": "Odlyzko90-JTNB",
           "locator": "§2, (2.3)–(2.5), p. 122",
-          "excerpt": "In the absence of any special knowledge about zeros and prime ideals … one selects F(x) ≥ 0 for all x and Re(Φ(s)) ≥ 0 for all s in the critical strip, so that the contributions of the prime ideals and zeros are nonnegative.",
           "match": "The method; the theorem is its instance for F_b."
         },
         {
           "sourceId": "Odlyzko90-JTNB",
           "locator": "§1, p. 121",
-          "excerpt": "Serre [B7] introduced the use of the explicit formulas of Guinand and Weil to discriminant bounds. … Serre's approach was extended to provide unconditional bounds by the author, and further improvements were made by Poitou and the author [B9, B10].",
           "match": "Attribution of the unconditional explicit-formula bound."
         },
         {
           "sourceId": "MoonTaguchi07-arXiv",
           "locator": "§3, p. 6",
-          "excerpt": "Next we prove the non-solvable case. This is done by the comparison of the Tate and Odlyzko bounds for discriminants.",
           "match": "The role of the bound in Tate's method."
         }
       ],
@@ -1772,13 +1742,11 @@
         {
           "sourceId": "Odlyzko90-JTNB",
           "locator": "§2, (2.5), p. 122",
-          "excerpt": "rd = D^{1/n} ≥ (4πe^{1+C})^{r1/n}(4πe^C)^{2r2/n} − O(n^{−2/3}) = (60.8395…)^{r1/n}(22.3816…)^{2r2/n} − O(n^{−2/3}).",
           "match": "The asymptotic form of the bound; the lemma certifies the explicit values needed at n = 24 and n = 36."
         },
         {
           "sourceId": "GhitzaYamauchi25-arXiv",
           "locator": "§3, proof of Proposition 3.3, p. 7",
-          "excerpt": "This gives an initial bound |dK|^{1/n} < 2^3 = 8, for which Odlyzko's Table 2 produces the constraint n < 14.",
           "match": "The same use of an unconditional table: a root-discriminant upper bound turned into a degree bound."
         }
       ],
@@ -1826,13 +1794,11 @@
         {
           "sourceId": "Khare05-arXiv",
           "locator": "§1, p. 2",
-          "excerpt": "Fix a continuous, absolutely irreducible, 2-dimensional, odd, mod p representation ρ̄ : Gal(Q̄/Q) → GL2(F) with F a finite field of characteristic p. … If ρ̄ is unramified outside p, we say that it is of level 1. This corresponds to the case when N(ρ̄) is 1.",
           "match": "The definition: (a)–(c), with the finite coefficient field F."
         },
         {
           "sourceId": "DP23-arXiv",
           "locator": "§1.1, Theorem 1.1, p. 3",
-          "excerpt": "There are no continuous, odd, absolutely irreducible two dimensional Galois representations of the absolute Galois group of Q unramified outside p and with values on a finite field of characteristic p, for p = 2 or 3.",
           "match": "The same hypotheses, as consumed by the modern proof."
         }
       ],
@@ -1963,7 +1929,6 @@
         {
           "sourceId": "MoonTaguchi07-arXiv",
           "locator": "§3, pp. 5–6",
-          "excerpt": "If G is solvable, then it sits in an exact sequence 1 → H → G → Z/2Z → 1, H ⊂ F̄2^× × F̄2^×, as in Theorem 1 in §22 of [16]. Hence K is an abelian extension of odd degree, unramified outside {2, ∞}, over the quadratic extension K′/F corresponding to H.",
           "match": "The same class of odd-degree abelian extensions unramified outside 2; over ℚ they are trivial, as here."
         }
       ],
@@ -2006,7 +1971,6 @@
         {
           "sourceId": "GhitzaYamauchi25-arXiv",
           "locator": "§3, Proposition 3.2 and proof, p. 7",
-          "excerpt": "If p ∈ {2, 3}, there exist no irreducible representations ρ : GQ → GLd(F̄p) with Qρ = K and p-ramified. Proof. With N = 0 and p = 2, we get … |dK|^{1/n} < 2, and then from Odlyzko's (unconditional) Table 2 that n < 3, so the Galois group is abelian … With p = 3 we get |dK|^{1/n} < 3, so Odlyzko's Table 2 gives n < 4.",
           "match": "The same statement for the tame case (p-length 0); Minkowski's bound replaces Odlyzko's table."
         }
       ],
@@ -2046,19 +2010,16 @@
         {
           "sourceId": "Jones10-preprint",
           "locator": "§2.3, pp. 8–9",
-          "excerpt": "In that case, the Sylow 2-subgroup of PSL2(2^j) is elementary abelian, so the maximum slope is 3.",
           "match": "The elementary abelian Sylow 2-subgroups of SL_2(𝔽_{2^j}) used in the 2-adic bound and here."
         },
         {
           "sourceId": "MoonTaguchi07-arXiv",
           "locator": "§3, p. 5",
-          "excerpt": "As in [17], we distinguish the two cases where G is solvable and non-solvable.",
           "match": "The two cases of Tate's argument: dihedral (solvable) and SL_2(𝔽_q) with q ≥ 4 (non-solvable)."
         },
         {
           "sourceId": "DP23-arXiv",
           "locator": "§3, p. 15",
-          "excerpt": "Recall that all solvable subgroups of PGL2(F̄2) in the irreducible case have dihedral projective image (the S4 case does not occur, while the A4 case corresponds to a Borel subgroup over F4 see [KW09b, Lemma 6.1]).",
           "match": "The solvable half of the lemma: irreducible solvable images in characteristic 2 are dihedral, S_4 does not occur and A_4 lies in a Borel."
         }
       ],
@@ -2099,13 +2060,11 @@
         {
           "sourceId": "DP23-arXiv",
           "locator": "§1.1, proof of Theorem 1.3, p. 3",
-          "excerpt": "By Dickson's classification, any solvable subgroup of PGL2(F̄p) is isomorphic to a cyclic group, a dihedral group, A4 or S4.",
           "match": "Dickson's classification, as used in the same source for p odd."
         },
         {
           "sourceId": "GhitzaYamauchi25-arXiv",
           "locator": "§3, proof of Proposition 3.3, p. 7",
-          "excerpt": "since the 3-length is 1, the 3-Sylow subgroup of G is elementary abelian, so if the prime-to-3 part is 2 then G ≅ (Z/3Z)^m ⋊ (Z/2Z), therefore irreducible representations of dimension ⩾ 2 are ruled out.",
           "match": "The same kind of group-order restriction, obtained there case by case."
         }
       ],
@@ -2153,19 +2112,16 @@
         {
           "sourceId": "DP23-arXiv",
           "locator": "§1.1, proof of Theorem 1.1, p. 3",
-          "excerpt": "The result was proved by Tate ([Tat94]) for p = 2",
           "match": "The statement at p = 2."
         },
         {
           "sourceId": "Khare05-arXiv",
           "locator": "§1.1, p. 2",
-          "excerpt": "Tate replied to Serre first on June 11, and then on July 2, 1973: in the second letter, he proved the conjecture for p = 2.",
           "match": "History and attribution."
         },
         {
           "sourceId": "MoonTaguchi07-arXiv",
           "locator": "§3, pp. 5–7",
-          "excerpt": "Next we prove the non-solvable case. This is done by the comparison of the Tate and Odlyzko bounds for discriminants.",
           "match": "Tate's method over quadratic fields; over ℚ the sharpened local bound lets Minkowski's bound do the comparison."
         }
       ],
@@ -2216,13 +2172,11 @@
         {
           "sourceId": "DP23-arXiv",
           "locator": "§1.1, proof of Theorem 1.1, p. 3",
-          "excerpt": "… Serre observed that the exact same argument worked for p = 3 ([Ser13, page 710]).",
           "match": "The statement at p = 3 and its attribution."
         },
         {
           "sourceId": "Khare05-arXiv",
           "locator": "§1.1, p. 2",
-          "excerpt": "it being already known for p = 2, 3 because of a method of Tate, see [51] for p = 2, which was … applied to the case of p = 3 by Serre, see page 710 of [45].",
           "match": "Serre's note (Œuvres III, p. 710) applies Tate's method; the proof here follows the method with the local bound of R25.1."
         }
       ],
@@ -2266,13 +2220,11 @@
         {
           "sourceId": "DP23-arXiv",
           "locator": "§1.1, Theorem 1.1, p. 3",
-          "excerpt": "There are no continuous, odd, absolutely irreducible two dimensional Galois representations of the absolute Galois group of Q unramified outside p and with values on a finite field of characteristic p, for p = 2 or 3.",
           "match": "Exactly the statement."
         },
         {
           "sourceId": "Khare05-arXiv",
           "locator": "§8, pp. 29–30",
-          "excerpt": "For a related reason the method of Tate cannot be used to prove Theorem 1.1 for large primes p (perhaps p = 5 is the limit of this method, even assuming the GRH: see [51] and the discussion in [8]).",
           "match": "Why the base case stops at p = 3 unconditionally."
         }
       ],
@@ -2318,25 +2270,21 @@
         {
           "sourceId": "Schoof05",
           "locator": "§5, Proposition 5.1, pp. 853–854",
-          "excerpt": "the p-adic valuation of the root discriminant δL of L is strictly smaller than 1 + [1/(p − 1)], … The estimates of Abraškin [Abr87] and Fontaine [Fon85] for the ramification at the prime p imply that the third condition is satisfied.",
           "match": "Part (i): Fontaine's bound, as used by Schoof."
         },
         {
           "sourceId": "Schoof05",
           "locator": "§6, proof of Theorem 1.3, p. 855",
-          "excerpt": "Indeed, since the primes of L that lie over l are at most tamely ramified, the l-adic contribution to the root discriminant of L is of the form l^{(e−1)/e} < l where e is the ramification index e of any of the primes over l.",
           "match": "Part (ii): the tame contribution at l."
         },
         {
           "sourceId": "BrumerKramer00-arXiv",
           "locator": "§1, p. 1",
-          "excerpt": "Restrictions on the ramification in ρ imply an upper bound for the discriminant of the ℓ-division field L = Q(A[ℓ]). Odlyzko's work [Od] on discriminants then limits the possible fields L.",
           "match": "The role of the bound in Fontaine's method."
         },
         {
           "sourceId": "BrumerKramer00-arXiv",
           "locator": "§3, Proposition 3.2 and its proof, (3.3), pp. 7–8",
-          "excerpt": "we extend the valuation vℓ of Qℓ to L̃n preserving vℓ(ℓ) = 1. By [Fo, Thm. 1], we have 1/[Ln : Q] vℓ(dLn/Q) = vℓ(𝔇_{L̃n/Qℓ}) < n + 1/(ℓ − 1)",
           "match": "Part (i) in exactly this normalisation and strict form (n = 1); Proposition 3.2 has the shape of part (ii), with tame factors p^{1 − 1/e}."
         }
       ],
@@ -2379,13 +2327,11 @@
         {
           "sourceId": "Schoof05",
           "locator": "§3, proof of Proposition 3.1, p. 850",
-          "excerpt": "It follows that Cn is étale and that the fundamental group of Z[1/l] acts on its points through a finite p-group P.",
           "match": "The same step; over ℤ the fundamental group is trivial and the étale part is constant at once."
         },
         {
           "sourceId": "Odlyzko90-JTNB",
           "locator": "§1, p. 119",
-          "excerpt": "For K = Q, D = 1, and one of Minkowski's fundamental results was the proof that D > 1 for n > 1.",
           "match": "Minkowski's theorem, the input that makes π₁(Spec ℤ) trivial."
         }
       ],
@@ -2431,13 +2377,11 @@
         {
           "sourceId": "MoonTaguchi07-arXiv",
           "locator": "§3, pp. 5–6",
-          "excerpt": "If G is solvable, then it sits in an exact sequence 1 → H → G → Z/2Z → 1 … Hence K is an abelian extension of odd degree, unramified outside {2, ∞}, over the quadratic extension K′/F corresponding to H.",
           "match": "The same dihedral step, there with class field theory over quadratic fields; here the residue field 𝔽_2 makes the odd abelian step unramified and Minkowski's bound concludes."
         },
         {
           "sourceId": "Schoof05",
           "locator": "§5, statement of Proposition 5.1 (its hypothesis on the fields L), pp. 853–854",
-          "excerpt": "has the property that the degree [L : Q(ζp)] is a power of p.",
           "match": "The property established here for p = 2, where ℚ(ζ_2) = ℚ."
         }
       ],
@@ -2482,13 +2426,11 @@
         {
           "sourceId": "Schoof05",
           "locator": "§5, proof of Proposition 5.1, p. 854",
-          "excerpt": "Since G(Q̄) is a simple Galois module of p-power order, it is fixed by the p-group Gal(L/Q(ζp)). … It follows that G has order p. Since p is prime in the ring Z[1/l], the classification of Tate and Oort [TO70] implies that G ≅ Z/pZ or µp possibly twisted by a character χ",
           "match": "The same argument over ℤ[1/l]; over ℤ with p = 2 there is no twist, since ℚ(ζ_2) = ℚ and characters unramified everywhere are trivial."
         },
         {
           "sourceId": "Schoof05",
           "locator": "§5, proof of Proposition 5.1, p. 854",
-          "excerpt": "Since G is simple, it is killed by p.",
           "match": "The first step."
         }
       ],
@@ -2534,13 +2476,11 @@
         {
           "sourceId": "Schoof05",
           "locator": "§4, Proposition 4.1, p. 851",
-          "excerpt": "Then there is a natural exact sequence 0 → Ext¹_{Z[1/l]}(µp, Z/pZ) → (Z[1/pl, ζp]*/(Z[1/pl, ζp]*)^p)_{ω²} −→ (Qp(ζp)*/(Qp(ζp)*)^p)_{ω²}.",
           "match": "The same sequence with ℤ in place of ℤ[1/l]; for p = 2 the ω²-part is everything."
         },
         {
           "sourceId": "Schoof05",
           "locator": "§4, proof of Corollary 4.2, p. 853",
-          "excerpt": "When p = 2, the group ∆ is trivial and ω = 1. The middle and rightmost groups in the exact sequence of Proposition 4.1 are each of dimension three over F2. The middle one is generated by 2, −1 and l while the rightmost group is generated by 2, −1 and 5.",
           "match": "Over ℤ the middle group is generated by 2 and −1 only, and the map is injective."
         }
       ],
@@ -2587,13 +2527,11 @@
         {
           "sourceId": "Schoof05",
           "locator": "§3, proof of Proposition 3.1, p. 850",
-          "excerpt": "By the second assumption, any extension 0 → Z/pZ → G → µp → 0 splits over Z[1/l]. Therefore, we can modify the filtration of A[p^n] and obtain for every n ⩾ 1 an exact sequence of finite flat Z[1/l]-group schemes 0 → Mn → A[p^n] → Cn → 0",
           "match": "The same reordering; over ℤ the constancy is immediate."
         },
         {
           "sourceId": "Fontaine85",
           "locator": "Introduction, Théorème B ii), p. 516, and §3.4.5, Remarques b), p. 536",
-          "excerpt": "ii) si E = Q et p = 2 ou si E = Q(√5) et p = 3, J est extension d'un groupe constant par un groupe diagonalisable. … b) En appliquant la Proposition 3.2.1 et le Théorème 3, un raisonnement analogue à celui utilisé pour prouver le Théorème 4 montre que tout 2-groupe fini sur Z est extension d'un groupe constant par un groupe diagonalisable.",
           "match": "The lemma itself, in its original source (Fontaine's 'groupe fini' is a finite flat commutative group scheme)."
         }
       ],
@@ -2634,7 +2572,6 @@
         {
           "sourceId": "Schoof05",
           "locator": "§3, proof of Proposition 3.1, p. 850",
-          "excerpt": "The abelian variety A/Mn has at least #Cn rational points over kp. Since A is isogenous to A/Mn, it has the same number of points over kp as A/Mn.",
           "match": "The use of this lemma."
         }
       ],
@@ -2681,19 +2618,16 @@
         {
           "sourceId": "BrumerKramer00-arXiv",
           "locator": "§1, p. 1",
-          "excerpt": "Thus, Fontaine [Fo] proved there do not exist abelian varieties over Z, i.e. with everywhere good reduction.",
           "match": "The statement."
         },
         {
           "sourceId": "Schoof05",
           "locator": "§3, proof of Proposition 3.1, pp. 850–851",
-          "excerpt": "The proof is very similar to that in [Fon85, § 3.4.3]. … It follows that #A(kp)² is at least the product of the orders of Mn and Cn, which is equal to #A[p^n] = p^{2ng}. This leads to a contradiction when n → ∞ unless g = 0.",
           "match": "Fontaine's concluding argument, in Schoof's form; over ℤ no base change to ℤ[1/l, ζ_l] is needed."
         },
         {
           "sourceId": "Fontaine85",
           "locator": "§3.4.6, Corollaire 2 and its proof, pp. 536–537",
-          "excerpt": "Corollaire 2. Sur E = Q, Q(√−1), Q(√−3) ou Q(√5), il n'existe pas de variété abélienne de dimension ≥ 1 ayant bonne réduction partout.",
           "match": "The theorem in its original source (case E = ℚ). Fontaine concludes with an odd prime p from his Théorème 4; this node follows the p = 2 route of his Remarque 3.4.5 b) with Schoof's point count."
         }
       ],
@@ -2742,13 +2676,11 @@
         {
           "sourceId": "Odlyzko76-tables",
           "locator": "Table 2, totally complex column",
-          "excerpt": "An entry B in the totally complex D^{1/n} column corresponding to n = n0 means that for all fields of degrees n >= n0, the discriminant satisfies D^{1/n} > B.",
           "match": "The form of each row; the values quoted in step 4 are Table 2's."
         },
         {
           "sourceId": "Schoof05",
           "locator": "§6, pp. 855–858",
-          "excerpt": "Odlyzko's bounds [Mar81, p. 187] or [Odl76] imply that [L : Q] < 24.",
           "match": "Schoof's use of such rows; the rows here are the ones the plan of R25.4 needs."
         }
       ],
@@ -2790,13 +2722,11 @@
         {
           "sourceId": "Schoof05",
           "locator": "§2, Definition 2.1(ii), p. 848",
-          "excerpt": "The category D is the full subcategory of Gr of group schemes G for which we have that (σ − id)² = 0 on G(Q̄) for all σ in the inertia groups of any of the primes lying over l.",
           "match": "The definition."
         },
         {
           "sourceId": "Schoof05",
           "locator": "§2.3, p. 849",
-          "excerpt": "Cartier duals G∨ of objects G in D are also in D. Any closed flat subgroup scheme and any quotient by such a group scheme of an object in D is again in D. The product of any two objects in D is again in D.",
           "match": "The closure properties in the API."
         }
       ],
@@ -2908,7 +2838,6 @@
         {
           "sourceId": "Schoof05",
           "locator": "§2.1, p. 849",
-          "excerpt": "By A. Grothendieck's semi-stable reduction Theorem [Gro71, Exp. IX, (3.5.3)], the subgroup schemes A[p^n] of p^n-torsion points of semi-stable abelian varieties A over Q that have good reduction outside l are objects of D and hence of C.",
           "match": "The statement."
         }
       ],
@@ -2953,7 +2882,6 @@
         {
           "sourceId": "Schoof05",
           "locator": "§3, proof of Proposition 3.1, p. 850",
-          "excerpt": "It follows that Cn is étale and that the fundamental group of Z[1/l] acts on its points through a finite p-group P. Since the maximal abelian p-extension of Q that is unramified outside l · ∞ is contained in the cyclic extension Q(ζl), the group P/P′ is cyclic. This implies that P itself is cyclic",
           "match": "The argument."
         }
       ],
@@ -3001,13 +2929,11 @@
         {
           "sourceId": "Schoof05",
           "locator": "§3, Proposition 3.1, p. 850",
-          "excerpt": "Let l be a prime and suppose there exists a prime p ≠ l for which: • the only simple objects in the category D are the group schemes Z/pZ and µp ; • we have Ext¹_{Z[1/l]}(µp , Z/pZ) = 0. Then there do not exist any non-zero abelian varieties over Q that have good reduction at every prime different from l and have semi-stable reduction at l.",
           "match": "The statement."
         },
         {
           "sourceId": "Schoof05",
           "locator": "§3, proof of Proposition 3.1, pp. 850–851",
-          "excerpt": "It follows that #A(kp)² is at least the product of the orders of Mn and Cn , which is equal to #A[p^n] = p^{2ng}. This leads to a contradiction when n → ∞ unless g = 0.",
           "match": "The concluding step."
         }
       ],
@@ -3054,13 +2980,11 @@
         {
           "sourceId": "Schoof05",
           "locator": "§4, Corollary 4.2, p. 852",
-          "excerpt": "Let l and p be distinct primes. We have that dim_{Fp} Ext¹_{Z[1/l]}(µp , Z/pZ) = 1, if (l² − 1)/24 ≡ 0 (mod p); 0, otherwise.",
           "match": "The statement; restricted here to p ∈ {2, 3}."
         },
         {
           "sourceId": "Schoof05",
           "locator": "§4, proof of Corollary 4.2, p. 853",
-          "excerpt": "When p = 3, the group ∆ has order two, so that ω² = 1 … The middle one is generated by 3 and l, while the rightmost one is generated by 3 and the unit 4. This implies that the group Ext¹_{Z[1/l]}(µ3 , Z/3Z) is a one-dimensional F3-vector space when l is a 3-adic cube, i.e. when l ≡ ±1 (mod 9), while it is zero otherwise.",
           "match": "The p = 3 computation."
         }
       ],
@@ -3103,13 +3027,11 @@
         {
           "sourceId": "Schoof05",
           "locator": "§5, Proposition 5.1, pp. 853–854",
-          "excerpt": "Suppose that any Galois extension L of Q for which each of the following three conditions hold: • the field F(ζ2p , l^{1/p}) is contained in L, • the extension F(ζ2p , l^{1/p}) ⊂ L is unramified at all primes not lying over p, • the p-adic valuation of the root discriminant δL of L is strictly smaller than 1 + [1/(p − 1)], has the property that the degree [L : Q(ζp)] is a power of p.",
           "match": "The statement."
         },
         {
           "sourceId": "Schoof05",
           "locator": "§5, proof of Proposition 5.1, p. 854",
-          "excerpt": "Since tame ramification groups are cyclic, it follows that the ramification indices of the primes over l divide p. Since the ramification indices of the primes over l in the subfield F(ζ2p, l^{1/p}) are actually equal to p, the field L must be unramified over F(ζ2p, l^{1/p}) at the primes lying over l.",
           "match": "Step 2."
         }
       ],
@@ -3156,13 +3078,11 @@
         {
           "sourceId": "Schoof05",
           "locator": "§6, pp. 855–858",
-          "excerpt": "However, the class number of K is 1 and the multiplicative group F∗3 of the residue field of the unique prime over 3 is generated by the global unit −1.",
           "match": "One of the class numbers used; the others appear in the cases l = 3, 5 and 13."
         },
         {
           "sourceId": "Odlyzko76-tables",
           "locator": "Table 2, totally complex column, n = 9 and n = 6",
-          "excerpt": "9 … 6.134 ; 6 … 4.549",
           "match": "The rows behind the first and third certificates."
         }
       ],
@@ -3203,7 +3123,6 @@
         {
           "sourceId": "Schoof05",
           "locator": "§6, Case l = 2, p = 3, p. 855",
-          "excerpt": "However, the class number of K is 1 and the multiplicative group F∗3 of the residue field of the unique prime over 3 is generated by the global unit −1. Therefore, class field theory implies that the field K does not admit any quadratic extension that is unramified outside 3.",
           "match": "The class-field step, reused."
         }
       ],
@@ -3243,7 +3162,6 @@
         {
           "sourceId": "Schoof05",
           "locator": "§6, Case l = 3, p = 2, pp. 855–856",
-          "excerpt": "The root discriminant δL of the field L of Proposition 5.2 satisfies δL < 3·2² = 12. Odlyzko's bounds imply that [L : Q] < 32.",
           "match": "Schoof's tame version of this case; the D version is sharper."
         }
       ],
@@ -3284,7 +3202,6 @@
         {
           "sourceId": "Schoof05",
           "locator": "§6, Case l = 5, p = 2, pp. 856–857",
-          "excerpt": "The root discriminant δL of the field L of Proposition 5.2 satisfies δL < 5 · 2² = 20. Odlyzko's bounds imply that [L : Q] < 480",
           "match": "Schoof's tame version; the D version is sharper."
         }
       ],
@@ -3330,13 +3247,11 @@
         {
           "sourceId": "Schoof05",
           "locator": "§6, Case l = 7, p = 3, pp. 857–858",
-          "excerpt": "The root discriminant δL of the field L satisfies δL < 3^{3/2} · 7^{2/3} = 19.01 . . . . Odlyzko's bounds imply that [L : Q] < 270 so that the degree of L over K = Q(ζ3 , ζ7 + ζ7^{−1}, 7^{1/3}) is at most 14.",
           "match": "The case, followed step by step with Odlyzko's 1976 rows."
         },
         {
           "sourceId": "Schoof05",
           "locator": "§6, Case l = 7, p = 3, p. 858",
-          "excerpt": "It is easily seen that its unit group is generated by the global units −1 and ζ7 + ζ7^{−1}.",
           "match": "The unit step."
         }
       ],
@@ -3382,13 +3297,11 @@
         {
           "sourceId": "Schoof05",
           "locator": "§6, Case l = 13, p = 2, p. 858",
-          "excerpt": "The root discriminant δL of the extension L satisfies δL < 2² · 13^{1/2} = 14.422 . . . . Odlyzko's bounds imply that [L : Q] < 60 so that the degree of L over Q(i, √13) is at most 14.",
           "match": "The case, followed step by step."
         },
         {
           "sourceId": "Schoof05",
           "locator": "§6, Case l = 13, p = 2, p. 858",
-          "excerpt": "Indeed, δK is equal to 2^{3/2}√13 = 10.198 . . . so that Odlyzko's bounds imply that the absolute degree of its Hilbert class field is at most 22.",
           "match": "Row (j)."
         }
       ],
@@ -3436,13 +3349,11 @@
         {
           "sourceId": "Schoof05",
           "locator": "§1, Theorem 1.1, p. 847",
-          "excerpt": "For the primes l = 2, 3, 5, 7 or 13, there do not exist any non-zero abelian varieties over Q that have good reduction at every prime different from l and have semi-stable reduction at l.",
           "match": "The statement."
         },
         {
           "sourceId": "DP23-arXiv",
           "locator": "§1.1, Theorem 1.2, p. 3",
-          "excerpt": "There do not exist non-zero semistable rational abelian varieties that have good reduction outside ℓ for ℓ = 2, 3, 5, 7, 13.",
           "match": "The form consumed by the modern proof (R33)."
         }
       ],
@@ -3489,13 +3400,11 @@
         {
           "sourceId": "Snowden09-arXiv",
           "locator": "§9.4, before Lemma 9.4.3, p. 29",
-          "excerpt": "we say that a representation ρ : GF → GL2(Q̄p) … comes from a GL2-type abelian variety if there is a number field K, an embedding K → Q̄p and a GL2(K)-type abelian variety A/F such that ρ is equivalent to Tp A ⊗OK Q̄p",
           "match": "The definition used."
         },
         {
           "sourceId": "KW04-arXiv",
           "locator": "§3, Theorem 3.1(ii), p. 16",
-          "excerpt": "we may choose E so that there exists an abelian variety A over Q of dimension [E : Q] and an embedding OE ↪ End(A/Q) such that (ρλ) is equivalent to the representation on the λ-adic Tate module of A.",
           "match": "The same notion in Khare–Wintenberger's form."
         }
       ],
@@ -3616,7 +3525,6 @@
         {
           "sourceId": "Snowden09-arXiv",
           "locator": "§9.4, Lemma 9.4.4 and proof, pp. 29–30",
-          "excerpt": "Assume there exists a finite extension F′/F such that ρ|GF′ is irreducible and comes from a GL2-type abelian variety. Then ρ comes from a GL2-type abelian variety. … The first step above is Faltings' theorem; the other steps are straightforward.",
           "match": "The lemma and its proof, which Snowden takes from Taylor's Corollary 2.4."
         }
       ],
@@ -3662,19 +3570,16 @@
         {
           "sourceId": "Snowden09-arXiv",
           "locator": "§9.4, Proposition 9.4.1, p. 29",
-          "excerpt": "Let ρ : GF → GL2(Q̄p) be a finitely ramified, odd, weight two representation such that ρ̄ satisfies (A1) and (A2). Assume furthermore that F has odd degree or that there exists a place v ∤ p for which ρ|GFv is indecomposable. Then there exists a number field K, an embedding K → Q̄p and a GL2(K)-type abelian variety A/F such that ρ is equivalent to Tp A ⊗OK Q̄p.",
           "match": "The statement, applied with F = ℚ."
         },
         {
           "sourceId": "Snowden09-arXiv",
           "locator": "§9.4, proof of Proposition 9.4.1, p. 30",
-          "excerpt": "Let G be the Galois group of F″/F, let H be its 2-Sylow subgroup and let F′ be the fixed field of H. … Thus by solvable descent, we can find a parallel weight two Hilbert modular form f′ over F′ … The field F′ has odd degree over F and thus odd degree over Q.",
           "match": "Steps 1–3."
         },
         {
           "sourceId": "DP23-arXiv",
           "locator": "§2, Paso 6, p. 14",
-          "excerpt": "In this case, by [Sno09, Proposition 9.4.1] the representation ρ̃5 matches the 5-adic representation of an abelian variety A/Q of GL2-type.",
           "match": "The use in the modern proof."
         }
       ],
@@ -3720,13 +3625,11 @@
         {
           "sourceId": "DP23-arXiv",
           "locator": "§2, Paso 6, p. 14",
-          "excerpt": "Since ρ̃5 is Steinberg at 5 and unramified at any other prime, the variety A is semistable and has good reduction outside 5 contradicting Theorem 1.2.",
           "match": "Statement (ii) at p = 5, with (i)."
         },
         {
           "sourceId": "KW04-arXiv",
           "locator": "§3, proof of Theorem 3.1, p. 18",
-          "excerpt": "Enlarging E so it contains EA and replacing A by A ⊗EA E, we get our abelian variety. It is semistable over Q by the properties of (ρλ).",
           "match": "The same step in Khare–Wintenberger."
         }
       ],
@@ -3769,7 +3672,6 @@
         {
           "sourceId": "Khare05-arXiv",
           "locator": "§5, Lemma 5.1(i), p. 20",
-          "excerpt": "(i.e., p is 3 mod 4 and p ̸= 3, 7, 11, 19, 43, 67, 163)",
           "match": "The primes p ≡ 3 (mod 4) with h(ℚ(√−p)) = 1 that the lemma excludes."
         }
       ],
@@ -3812,13 +3714,11 @@
         {
           "sourceId": "Khare05-arXiv",
           "locator": "§5, Lemma 5.1 (Wintenberger) and proof, pp. 20–21",
-          "excerpt": "A mod p dihedral, semistable representation ρ̄ which is odd and irreducible, with p odd, exists if and only if p is 3 mod 4, and the class number of the imaginary quadratic field Q(√−p) is non-trivial … Such a ρ̄ is split at p and has a twist with Serre weight k = (p+1)/2.",
           "match": "Part (ii)."
         },
         {
           "sourceId": "DP23-arXiv",
           "locator": "§1.2, Lemma 1.13, p. 8",
-          "excerpt": "Let p be an odd prime and ρ̄ : GalQ → GL2(F̄p) be an odd continuous representation. Then the following are equivalent: (1) ρ̄|GalQ(√p⋆) is irreducible, (2) ρ̄|GalQ(ζp) is irreducible.",
           "match": "Part (i)."
         }
       ],
@@ -3864,13 +3764,11 @@
         {
           "sourceId": "DP23-arXiv",
           "locator": "§2, Paso 6, p. 14",
-          "excerpt": "Theorem 1.1 implies that there are no irreducible residual Galois representations unramified outside 3, so the representation ρ̃3 [overlined in the source, i.e. its reduction] is reducible. Furthermore, ρ̃3 is ordinary by [BLZ04, Corollary 4,3], because the weight is either 2 or 4 = 3 + 1, so the third hypothesis of Theorem 1.7 is satisfied.",
           "match": "The case p = 3, k ∈ {2, 4}."
         },
         {
           "sourceId": "KW04-arXiv",
           "locator": "§4, proof of Theorem 4.3, p. 20",
-          "excerpt": "Consider a prime λ above 5: then by results in [4], and as the residual representation is globally and hence of course locally reducible at 5, we see that ρλ is ordinary at 5, and hence by Skinner-Wiles [45] corresponds to a cusp form of level 1 and weight 6 of which there are none.",
           "match": "The case (5, 6); the cases (7, 8) and (13, 14) are the same argument on pp. 20–21."
         }
       ],
@@ -3918,13 +3816,11 @@
         {
           "sourceId": "KW04-arXiv",
           "locator": "§4, Theorem 4.1(i), p. 18",
-          "excerpt": "There is no finite flat group scheme over Z of (p, p) type which is irreducible. (In fact there is no irreducible, odd 2-dimensional representation ρ̄ that is unramified outside p and whose Serre weight k(ρ̄) is 2).",
           "match": "The statement."
         },
         {
           "sourceId": "KW04-arXiv",
           "locator": "§4, proof of Theorem 4.1, pp. 18–19",
-          "excerpt": "For p > 3, (i) follows from Theorem 3.1 and the main result of [23] and [54]. For instance [54] uses a 7-adic representation that is part of the system to apply Fontaine's result",
           "match": "KW04's route uses no abelian variety: [54] applies Fontaine's classification of finite flat group schemes over ℤ to the 7-adic member and [23] uses the 3-adic member with Serre and Skinner–Wiles (Theorem 3.1(ii) excludes this level-one crystalline case). The route here, through Snowden's realisation and R25.3/fontaine-theorem, is a different proof."
         }
       ],
@@ -3969,13 +3865,11 @@
         {
           "sourceId": "KW04-arXiv",
           "locator": "§4, Theorem 4.1(iii), p. 18",
-          "excerpt": "For p = 5, 7, 13 there is no Serre type ρ̄ that is unramified outside p and such that k(ρ̄) = p + 1.",
           "match": "The statement."
         },
         {
           "sourceId": "DP23-arXiv",
           "locator": "§2, Paso 6, p. 14",
-          "excerpt": "If Serre's weight is 6, take a weight 2 lift, with Steinberg Weil-Deligne type at p = 5, unramified outside 5, which exists by Theorem 1.9 (4)",
           "match": "The case p = 5."
         }
       ],
@@ -4015,7 +3909,6 @@
         {
           "sourceId": "KW04-arXiv",
           "locator": "§4, proof of Theorem 4.3, p. 21",
-          "excerpt": "We first deal with the case p = 11. It is easy to see, by the definition of the Serre weight, that ρ̄ is a twist by χ of a level 1 representation with Serre weight 2, that as we have ruled out.",
           "match": "The claim corrected here: it holds in cases (a)–(c) only; the version of record (Ann. of Math. 169 (2009), Theorem 5.4) excludes p = 11 for k(ρ̄) = 14."
         }
       ],
@@ -4068,19 +3961,16 @@
         {
           "sourceId": "KW04-arXiv",
           "locator": "§4, Theorem 4.3, p. 19",
-          "excerpt": "There is no Serre type ρ̄ of level 1 such that 2 ≤ k(ρ̄) ≤ 8, or k(ρ̄) = 14.",
           "match": "The statement of arXiv v1, which includes p = 11 for k = 14; the version of record (Ann. of Math. 169 (2009), Theorem 5.4, p. 247) reads 'or k(ρ̄) = 14 where in the latter case we assume p ≠ 11', the form adopted here."
         },
         {
           "sourceId": "KW04-arXiv",
           "locator": "§4, Corollary 4.4, p. 21",
-          "excerpt": "For the primes p = 2, 3, 5, 7 there are no irreducible, odd 2 dimensional mod p representations of Gal(Q̄/Q), unramified outside p.",
           "match": "The corollary."
         },
         {
           "sourceId": "Khare05-arXiv",
           "locator": "§1.1, p. 3",
-          "excerpt": "In this paper we use the results of [31] for weights 2, 4, 6, and after that prove the level one case without making any further use of results classifying abelian varities over Q with certain good reduction properties.",
           "match": "How R26 consumes the theorem."
         }
       ],
@@ -4125,7 +4015,6 @@
         {
           "sourceId": "DP23-arXiv",
           "locator": "§2, Paso 6, p. 14",
-          "excerpt": "In the cases of weight 2 and 4, we look at the 3-adic representation ρ̃3 and we reduce modulo 3. … The last case to consider is when ρ̃5 has weight 2, is Steinberg at 5 and unramified at any other prime.",
           "match": "The two branches."
         }
       ],
@@ -4172,13 +4061,11 @@
         {
           "sourceId": "DP23-arXiv",
           "locator": "§1.1, pp. 3–4",
-          "excerpt": "The base cases we rely on to propagate modularity are the following.",
           "match": "The modern proof's base cases: Theorems 1.1–1.3."
         },
         {
           "sourceId": "Khare05-arXiv",
           "locator": "§1.1, pp. 2–3",
-          "excerpt": "Thus in the end we see that the only such results we use are those showing that there is no semistable abelian variety over Q with good reduction outside 5",
           "match": "Khare's base cases."
         }
       ],
@@ -4291,7 +4178,6 @@
         {
           "sourceId": "DP23-arXiv",
           "locator": "§2, end of the proof in odd characteristic, p. 15",
-          "excerpt": "We have seen that by a combination of suitable modularity lifting theorems the modularity of the given representation was deduced by propagation from the base cases proved by Serre and Schoof and cases where the residual image is solvable.",
           "match": "The role of the table."
         }
       ],

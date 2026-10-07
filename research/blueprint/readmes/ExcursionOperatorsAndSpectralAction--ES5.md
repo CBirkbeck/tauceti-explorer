@@ -1,1616 +1,897 @@
-# Excursion operators and the spectral action — the parameter assignment and its functoriality
+# Excursion operators and the spectral action: parameters and their functorial properties
 
-*A blueprint packet for the Tau Ceti Atlas roadmap `ExcursionOperatorsAndSpectralAction`,
-part `ES5` (layers ES5, ES6, ES6:functoriality, ES6:duality). Written by Claude Code,
-session `cc-7b31c4`, 24 September 2026, for issue #727.*
+This part plans the proved semisimple parameter assignment and its functorial properties. Its output is a conjugacy class of continuous semisimple Weil parameters, characterized by every finite-leg excursion coefficient. It supplies neither a monodromy operator nor a categorical local Langlands equivalence. The integral categorical action's dual-fundamental-group prime restriction is a separate theorem and does not restrict the field-valued assignment here.
 
-## What this document is
+The four layers are ES5, ES6, ES6:functoriality and ES6:duality. Each is **planned** at target level. Every target has a declaration, and each prerequisite chain terminates at a pinned declaration, an existing supplier node, a requested supplier stage or a stated gap. No layer is closed: the eight gaps and thirteen requests at the end are substantive mathematical interfaces, not claims of implementation. All declarations have implementation status **unchecked**.
 
-The proved semisimple parameter assignment and its functorial properties, layers ES5,
-ES6, ES6:duality and ES6:functoriality. This roadmap has NO integrated decomposition, so
-every one of the sixteen nodes of this packet was written from Fargues-Scholze read
-directly in this session, from a file whose SHA-256 reproduces the recorded value byte
-for byte. The sections read are VII.7, VIII.3, VIII.4, IX.1, IX.2, IX.4, IX.5, IX.6 and
-IX.7 in full, together with X.2. ES5 plans Schur-irreducibility in the CONDENSED sense,
-with Proposition IX.1.2's description of what that structure is; the excursion character
-of a Schur object, with the two families of relations of Proposition VIII.3.7 and the
-continuity that the condensed Schur condition buys; the abstract parameter of Corollary
-VIII.4.3; the geometric one of Definition/Proposition IX.4.1; the parameter
-phi_{(G,b,pi)} of an irreducible smooth representation, transported through Proposition
-VII.7.2's fully faithful left adjoint to i_b^*, with phi_pi at b = 1; and invariance
-under isomorphism together with CONDITIONAL transport along algebraically closed
-extensions - the roadmap forbids assuming that base change preserves Schur-
-irreducibility, and this packet does not. ES6 plans the coefficient policy: the standing
-hypothesis of Section IX.6 that the order of pi_0 Z(G) be invertible, imposed on every
-centre-level diagram and for every participating group, together with the excursion-
-algebra variant that Fargues-Scholze assert and never write out. ES6:functoriality plans
-IX.6.1 to IX.6.5 with their proofs - isogenies through the push-pull identity and the
-Satake compatibility, products through the product Hecke diagram and Proposition
-VII.7.10, Weil restriction through the nonabelian Shapiro comparison of excursion
-algebras and the finite-index free subgroup F_n x_W W', the spectral centre of a torus
-through local class field theory, and the diagonal embedding - plus the closing
-paragraph on twisting and central characters and a node for the z-embedding apparatus
-the roadmap makes an obligation of this layer. ES6:duality plans the two representation-
-level halves of Proposition IX.5.3. Twenty-three baseline declarations, all read at the
-pins. Eleven gaps, each with a next source action; the deepest are that the STATEMENT of
-Proposition VIII.3.8 is damaged in the extraction and is therefore requested rather than
-restated, that V. Lafforgue's continuity argument was not read, and that local class
-field theory is in NEITHER pinned library although the whole torus case rests on it.
-Twenty-one requests. Three structural findings. A reviewed library audit DOES exist for
-this roadmap: AUDIT-20, reviewed as REV-AUDIT-20 on 17 September 2026 (240 targets
-checked, 89 corrections), covers every layer and returns NOT BUILT for each. Its target
-notes are acted on here: Mathlib's CategoryTheory.CatCenter is cited rather than re-
-planned, the Nielsen-Schreier theorem and abelian Shapiro's lemma are cited to mark
-exactly where the nonabelian Shapiro equivalence of Proposition IX.6.3 begins, and Tau
-Ceti's class formations are cited to show that local class field theory has carriers but
-no reciprocity map at the pins.
+## Conventions and the construction route
 
-Nothing here is formalised. Every node carries `implementationStatus: "unchecked"`,
-no Lean was compiled for this job, and the suggested file is a set of signatures and
-`example` statements, not a development.
+Let E be a nonarchimedean local field of **residue characteristic** p and residue cardinality q. Thus E may have characteristic zero or p. Fix a prime ℓ different from p, a connected reductive E-group G, and the normalized Satake square root of q. Lambda denotes an eligible coefficient algebra; L denotes an algebraically closed Z_ℓ[sqrt(q)]-field, with its relatively discrete condensed coefficient structure. Characteristic ℓ is included. The word continuous for a parameter refers to the imported condensed topology, not to a homomorphism between groups stripped of topology.
 
-## The source, and how it was read
+Write W_E for the local Weil group and Q for the fixed finite quotient through which its action on the pinned dual group factors. An L-parameter lifts W_E → Q in Ghat(L) ⋊ Q. Changing a representative by Ghat(L)-conjugation changes none of the output. Semisimple means the closed-orbit/G-complete-reducibility convention supplied by LP2; it does not mean that the image of each individual element is a semisimple matrix. A statement concerning a product retains one common Weil projection rather than introducing two unrelated copies of W_E.
 
-- **Geometrization of the local Langlands correspondence**, Laurent Fargues, Peter Scholze.
-- `https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf`
-- SHA-256 `9ab9efbd0df251bfa3b610d1d1d88a8dfb1bdf7c397bd04f4c277280d98ae905`, accessed 2026-09-24.
-- Author-hosted 356-page PDF (MPIM Bonn); corresponds to arXiv:2102.13459v4 by metadata and contents, not by byte comparison. PDF page = printed page.
+The construction proceeds through actual scalar units. The ES0 operators take values in the condensed degree-zero endomorphism algebra of a sheaf. Schur irreducibility says that its specified unit from L is invertible in condensed algebras. Its inverse produces a condensed family of excursion characters, with both finite-leg relations. LP2 reconstructs the unique semisimple parameter class, including its prescribed projection and continuity. For a smooth representation, the enriched stratum dictionary and fully faithful adjunction first establish the condensed Schur condition. An abstract endomorphism-ring calculation alone does not discharge that step.
 
-The file was downloaded and hashed in this session and the hash reproduces the value
-recorded in `references/CATALOGUE.json` byte for byte. The text was extracted by
-inflating the PDF's object streams and reading its text operators; printed pages were
-recovered from the running heads. Sections read:
+For ordinary smooth representations the indispensable foundational input is admissibility over the chosen coefficient field. In characteristic ℓ the required theorem is Vignéras' admissibility theorem, not the complex Bernstein theorem. The proposed SR.3b is independent of this roadmap and of the late SR.6. The verified correction to the red-team finding is retained: Fbar_ℓ is countable, whereas Qbar_ℓ is uncountable. In particular every characteristic-zero Z_ℓ-field contains Q_ℓ, so an uncountability argument is available in that case. ES5 owns the condensed refinement, and requests the foundational representation theorem from its owner.
 
-- VII.7, printed pp. 272-276: Proposition VII.7.2 with its proof - the left adjoint to
-  i_b^* and the equivalence that is its unit - Proposition VII.7.3, Proposition VII.7.7,
-  Definition VII.7.8, Proposition VII.7.9 and Proposition VII.7.10 with the Hom formula
-  for exterior tensor products. These belong to VStackSheavesAndLisseCategories and are
-  cited, not planned.
-- VIII.3, printed pp. 286-290: Section VIII.3.1 on geometric points and the description
-  of semisimple parameters as closed orbits, Lemma VIII.3.3, Section VIII.3.2's
-  presentation of O(Z^1(W_E,G-hat)) with Haboush's theorem and the universal
-  homeomorphism, Definition VIII.3.4 of Exc(W,G-hat), the relations of Proposition
-  VIII.3.7 with the discussion of the l-torsion-free quotient, and the proof of
-  Proposition VIII.3.8. The statement of Proposition VIII.3.8 itself is damaged in the
-  extraction and is recorded as a gap.
-- VIII.4, printed pp. 290-293: the categorical hypotheses including that W is taken
-  DISCRETE, Theorem VIII.4.1, Definition VIII.4.2 with the relation S_D = S_{D'} and the
-  invariant function, the proof of Theorem VIII.4.1, and Corollary VIII.4.3.
-- IX.1, printed pp. 320-321: Proposition IX.1.1 and Proposition IX.1.2 with its proof -
-  what the condensed structure on D_lis(Bun_G,Lambda) is, and that it is relatively
-  discrete on compact objects.
-- IX.2, printed pp. 321-323: the construction of the Hecke operators, Proposition
-  IX.2.1, Theorem IX.2.2 with the duality identities D_BZ(T_V(A)) = T_{sw
-  V-dual}(D_BZ(A)), Corollary IX.2.3 and Corollary IX.2.4. These belong to
-  HeckeStacksAndLocalShtukas and are cited, not planned.
-- IX.4, printed p. 327: Definition/Proposition IX.4.1 with its one-line proof.
-- IX.5, printed pp. 327-330: Proposition IX.5.1 with its proof, the component
-  decomposition, the map Z^geom -> Z(G(E),Lambda), Theorem IX.5.2 with its proof, the
-  construction of D^geom and D^spec, and Proposition IX.5.3 with its proof. The parts of
-  this section other than IX.5.3's second sentence are planned in the ES0 part of this
-  roadmap.
-- IX.6, printed pp. 330-333: the standing coefficient hypothesis and the excursion-
-  algebra variant; Theorem IX.6.1 with its proof; Proposition IX.6.2 with its proof;
-  Proposition IX.6.3 with its proof; Section IX.6.4's description of D_lis(Bun_T,Lambda)
-  and Proposition IX.6.4 with its proof; Proposition IX.6.5 with its proof; and the
-  closing paragraph on central characters, twisting and z-extensions.
-- IX.7, printed pp. 334-338: Definition IX.7.1, Section IX.7.1's twisted Levi inclusion,
-  Theorem IX.7.2 with its proof - read for the z-embedding apparatus it uses - Corollary
-  IX.7.3 with its proof, and Theorem IX.7.4. These belong to ES7:parabolic and ES7:GLn-
-  comparison and are cited, not planned.
-- X.2, printed pp. 346-348: Definition X.2.1 and the elliptic discussion, read because
-  ES4 consumes the parameter assignment there. Planned in the ES0 part of this roadmap.
+The spectral-to-geometric centre map is the ES1:spectral-center input of IX.5.2. Its coefficient hypothesis is invertibility of |π₀ Z(G)|, imposed for every group appearing in a centre diagram. If it fails, the same comparison is formulated for integral excursion operators. Evaluation on Schur objects still gives the field-valued parameter assertion. No step imports ES3's categorical good-prime restriction as a substitute for this coefficient policy.
 
-## What this packet does not plan, and why
+For torus normalization, Art_arith sends a uniformizer to arithmetic Frobenius and rec_geom = Art_arith composed with inversion sends it to geometric Frobenius. The underlying class-field-theory normalization is already fixed upstream and is consumed without modification. Fargues' associated-sheaf convention introduces a second, character inversion. The endpoint calculation that connects it to the Hecke convention is recorded explicitly as a gap; it is not erased by changing the name of reciprocity.
 
-Material inside the sections read that belongs to other layers is left to them rather
-than duplicated here (PROTOCOL.md section 15). The ES0 part of this roadmap, written in
-the same session, plans the first group; the rest await their own jobs.
+## Ownership and supplier boundaries
 
-| Statement | Printed page | Owner |
-| --- | --- | --- |
-| VIII.4.1, VIII.4.2 and the excursion relations | 290–292 | `ES0` (part ES0) |
-| IX.5.1 and the component decomposition | 327–329 | `ES1:finite-ramification` (part ES0) |
-| IX.5.2 and the map to the classical Bernstein centre | 329 | `ES1:spectral-center`, `ES0:classical-center` (part ES0) |
-| IX.5.3, first sentence: the commuting duality square | 329 | `ES4` (part ES0) |
-| X.0–X.3, the spectral action | 339–350 | `ES2`, `ES3`, `ES4` (part ES0) |
-| Definition IX.7.1 and Theorems IX.7.2, IX.7.3 | 334–338 | `ES7:parabolic` |
-| Theorem IX.7.4, the `GL_n` comparison | 338 | `ES7:GLn-comparison` |
-| VII.7.2 and VII.7.10, the stratum embedding and exterior products | 272–276 | `VStackSheavesAndLisseCategories:VS4`, `VS5` |
-| VIII.3.1–VIII.3.8, the coarse moduli space and the character theorem | 286–290 | `LanglandsParameterStacks:LP0`, `LP2:semisimple-characters` |
-| IX.1.2 and IX.2.2, the condensed structure and the Hecke duality identities | 320–322 | `HeckeStacksAndLocalShtukas:HS1`, `HS4` |
+The following are mathematical imports, not declarations to recreate in this part. Exact node references are given again at each use.
 
-## ES5 — The proved semisimple parameter assignment
-
-*Coverage: **partial**. 6 nodes.*
-
-Schur-irreducibility in the CONDENSED sense with what the condensed structure is; the
-excursion character of a Schur object with its relations and its continuity; the
-abstract semisimple parameter of FS VIII.4.3; the geometric one of FS IX.4.1; the
-parameter phi_{(G,b,pi)} of an irreducible smooth representation through
-VStackSheavesAndLisseCategories' fully faithful stratum embedding, with phi_pi at b = 1;
-and invariance under isomorphism with conditional transport along algebraically closed
-extensions. This roadmap has NO integrated decomposition, so every node was written from
-Fargues-Scholze read in this session.
-
-### Schur-irreducibility: End(A) = L as CONDENSED algebras
-
-`ExcursionOperatorsAndSpectralAction:ES5/schur-irreducible-object` — *definition* · planet **Schur-irreducible objects**
-
-**Statement.**
-
-Let L be an algebraically closed field over Z_l[sqrt q]. An object A in D_lis(Bun_G,L)
-is SCHUR-IRREDUCIBLE if End(A) = L AS CONDENSED ALGEBRAS. The condensed structure is the
-one Proposition IX.1.2 describes: for A compact and B arbitrary,
-Hom_{D_lis(Bun_G,Lambda)}(A,B) is a condensed animated Lambda-module RELATIVELY DISCRETE
-over Z_l, so on compact objects the condensed structure is simply the relatively
-discrete one, and in general it is induced from that. Schur-irreducibility in this sense
-is what the excursion character of ES5 is extracted from.
-
-**Hypotheses and warnings.**
-
-- The identity is of CONDENSED algebras, not of abstract algebras. The abstract
-  condition is strictly weaker and does not give a continuous parameter; the whole point
-  of the condensed enhancement here is that it forces continuity
-- L must be ALGEBRAICALLY CLOSED and an algebra over Z_l[sqrt q]. The square root of q
-  trivialises the cyclotomic twist in the Satake normalisation
-- Schur-irreducibility is not irreducibility: no t-structure is involved, A may be any
-  object of D_lis, and shifts of an irreducible object are Schur-irreducible
-- EXTENSION OF SCALARS DOES NOT AUTOMATICALLY PRESERVE IT. The roadmap is explicit on
-  this point, and nothing in the source asserts otherwise; coefficient transport is a
-  separate statement with its own hypothesis
-- The condensed enhancement of D_lis(Bun_G,Lambda) is HeckeStacksAndLocalShtukas:HS1's
-  and VStackSheavesAndLisseCategories' and is imported, not constructed here
-
-**Proof outline.**
-
-1. Take the condensed enhancement of D_lis(Bun_G,Lambda), which on compact objects is the
-   relatively discrete condensed structure by Proposition IX.1.2 and in general is
-   induced from it.
-2. Say that A is Schur-irreducible if the unit L -> End(A) is an isomorphism of condensed
-   L-algebras.
-3. Record that this is what makes every excursion operator act on A by a scalar.
-
-**Planning API.**
-
-| Name | Role | Statement |
-| --- | --- | --- |
-| `IsSchurIrreducible` | data | The unit L -> End(A) is an isomorphism of CONDENSED L-algebras. |
-| `IsSchurIrreducible.condensed` | structure | The identity is of condensed algebras; the abstract version is a strictly weaker condition and is not this one. |
-| `IsSchurIrreducible.scalar` | characterisation | Every endomorphism of A is a scalar, and every natural endomorphism of the identity acts on A by a scalar; this is what turns the excursion operators into a character. |
-| `IsSchurIrreducible.shift` | functoriality | Stable under shift; no t-structure is involved. |
-| `IsSchurIrreducible.ofIrreducibleSmooth` | example | An irreducible smooth L-representation of G_b(E), transported by VS4's fully faithful embedding, gives a Schur-irreducible object. |
-| `IsSchurIrreducible.notStableUnderBaseChange` | structure | Base change to a larger algebraically closed field is NOT asserted to preserve it; the transport statement carries the hypothesis explicitly. |
-
-**Where it is used.**
-
-- `ExcursionOperatorsAndSpectralAction:ES5/excursion-character-of-a-schur-object` — the character is extracted from the scalars
-- `ExcursionOperatorsAndSpectralAction:ES5/parameter-of-a-schur-irreducible-sheaf` — the parameter is attached to such an object
-- `ExcursionOperatorsAndSpectralAction:ES4/elliptic-parameters-and-components` — Schur-irreducible objects of an elliptic component act by scalars given by an unramified twist
-
-**Unit tests.**
-
-- `condensed_not_abstract` — There are objects with End(A) = L abstractly but not as condensed algebras; only the condensed condition is used.
-- `stable_under_shift` — A[n] is Schur-irreducible when A is.
-- `irreducible_smooth_gives_schur` — For pi irreducible smooth, the object of D_lis(Bun_G,L) it corresponds to under VS4's embedding is Schur-irreducible.
-- `no_free_base_change` — Base change of a Schur-irreducible object along L -> L' need not be Schur-irreducible; a development that assumes it is has assumed the roadmap's forbidden step.
-
-**Acceptance.**
-
-- Check that the abstract and the condensed conditions differ, and that only the condensed one is used
-- Check that a shift of a Schur-irreducible object is Schur-irreducible
-- Check that for an irreducible smooth representation of G_b(E) the corresponding object is Schur-irreducible, which is what ES5's representation-level assignment needs
-- Check that no claim is made that base change to a larger algebraically closed field preserves the condition
-
-**Prerequisites.** `VStackSheavesAndLisseCategories:VS3`, `VStackSheavesAndLisseCategories:VS4`, `HeckeStacksAndLocalShtukas:HS1`, `SmoothRepresentationsOfLocalGroups:SR.0`, `EnhancedDerivedSheaves:E5:abstract`, `mathlib:Condensed`, `mathlib:CondensedMod`, `mathlib:Module.End`, `tauceti:TauCeti.IsSmoothDiscrete`
-
-**Sources.**
-
-- *Definition/Proposition IX.4.1, printed p. 327.* “Let L be an algebraically closed field over Z_l[sqrt q], and let A in D_lis(Bun_G,L) be a Schur-irreducible object, i.e. End(A) = L as condensed algebras.”
-  The definition, quoted verbatim, with the CONDENSED qualification. Read directly
-  from Geometrization.pdf in this session; the file's SHA-256 reproduces the value
-  recorded in references/CATALOGUE.json.
-- *Proposition IX.1.2, printed p. 320.* “For A in D_lis(Bun_G,Lambda)^omega and B in D_lis(Bun_G,Lambda), the condensed animated Lambda-module Hom_{D_lis(Bun_G,Lambda)}(A,B) is relatively discrete over Z_l.”
-  What the condensed structure IS on the objects the Schur condition is applied to.
-- *After Proposition IX.1.2, printed p. 320.* “In other words, the condensed structure on D_lis(Bun_G,Lambda) can also be defined as the relatively discrete condensed structure when restricted to compact objects, and in general induced from this. In particular, when restricting attention to the compact objects D_lis(Bun_G,Lambda)^omega, it is simply the relatively discrete condensed structure.”
-  The consequence that makes the Schur condition checkable on compact objects.
-
-### The excursion character of a Schur object, with its relations and its continuity
-
-`ExcursionOperatorsAndSpectralAction:ES5/excursion-character-of-a-schur-object` — *construction* · planet **The excursion character**
-
-**Statement.**
-
-Let A be Schur-irreducible, so End(A) = L. Evaluating the excursion operators at A
-gives, for every n >= 1, a map Theta_n(A) : O((G-hat semidirect Q)^n // G-hat) ->
-Map(W_E^n, L), linear over O(Q^n) -> Map(W_E^n, L). These maps satisfy the two families
-of relations of FS Proposition VIII.3.7: the squares induced by PULLBACK along a map g :
-{1,...,m} -> {1,...,n}, and the squares induced by the MULTIPLICATION maps (G-hat
-semidirect Q)^m -> (G-hat semidirect Q)^n that multiply, in each fibre over i, the terms
-of g^{-1}(i) in their induced order. They are maps of CONDENSED SETS, because A is
-Schur-irreducible in the condensed sense and the Hecke action is continuous. This family
-is the input of Proposition VIII.3.8.
-
-**Hypotheses and warnings.**
-
-- The target is Map(W_E^n, L) as CONDENSED SETS; this is the whole difference between a
-  family of relations and a genuine parameter, and it is where the condensed Schur
-  condition is consumed
-- The relations are Proposition VIII.3.7's two commuting squares, pullback and
-  multiplication; the multiplication map orders the terms of g^{-1}(i) by their ordering
-  as a subset of {1,...,m}, and the ordering matters
-- The maps are indexed by n >= 1 and land over O(Q^n) -> Map(W_E^n, Lambda); the
-  O(Q^n)-linearity is part of the datum
-- Fargues-Scholze also record that the l-torsion-free quotient of Exc(W,G-hat) is the
-  universal flat Z_l-algebra carrying such maps over W_E/P, that this makes it
-  independent of the discretisation W, that the l-torsion of Exc(W,G-hat) is always
-  nilpotent so the passage is a universal homeomorphism, and that they DO NOT KNOW
-  whether passing to the l-torsion-free quotient is necessary
-- One does not need to construct a parameter here: the passage from the character to the
-  parameter is Proposition VIII.3.8, which is LanglandsParameterStacks:LP2:semisimple-
-  characters' statement
-
-**Proof outline.**
-
-1. Evaluate each excursion operator at A; by Schur-irreducibility the result is a scalar
-   in L.
-2. Assemble the scalars into maps Theta_n(A) out of the invariant functions on (G-hat
-   semidirect Q)^n // G-hat, using ES0's unit-insertion identification.
-3. Verify the pullback and multiplication relations of Proposition VIII.3.7, which hold
-   because the excursion operators satisfy them before evaluation.
-4. Verify that the maps are maps of condensed sets: this uses the condensed form of the
-   Schur condition and the condensed Weil action on the Hecke functors.
-
-**Planning API.**
-
-| Name | Role | Statement |
-| --- | --- | --- |
-| `excursionCharacter` | data | Theta_n(A) : O((G-hat semidirect Q)^n // G-hat) -> Map(W_E^n, L) for n >= 1, obtained by evaluating the excursion operators at A. |
-| `excursionCharacter.linear` | structure | Linear over O(Q^n) -> Map(W_E^n, L); the O(Q^n)-linearity is part of the datum, not a consequence. |
-| `excursionCharacter.pullback` | relation | The square induced by pullback along g : {1,...,m} -> {1,...,n} commutes. |
-| `excursionCharacter.multiplication` | relation | The square induced by the multiplication map commutes, the terms of g^{-1}(i) being multiplied in their induced order. |
-| `excursionCharacter.condensed` | structure | The maps are maps of CONDENSED sets; this is where the condensed Schur condition is consumed and is what makes the resulting parameter continuous. |
-| `excursionCharacter.universalProperty` | universal-property | The l-torsion-free quotient of Exc(W,G-hat) is universal for such families; in particular the family does not depend on the discretisation W. |
-
-**Where it is used.**
-
-- `ExcursionOperatorsAndSpectralAction:ES5/parameter-of-a-schur-irreducible-sheaf` — Proposition VIII.3.8 turns the character into a parameter
-- `ExcursionOperatorsAndSpectralAction:ES5/abstract-semisimple-parameter` — the same construction in the abstract categorical setting
-- `ExcursionOperatorsAndSpectralAction:ES6:functoriality/tori-diagonal-embedding` — the torus computation evaluates exactly this character on the two-leg datum
-
-**Unit tests.**
-
-- `two_leg_relation` — On I of size two with V = std tensor std-dual, the relations force the character to be a trace.
-- `ordering_matters` — The multiplication relation orders the terms of g^{-1}(i) as a subset of {1,...,m}; another order gives a different and false relation.
-- `continuity_from_condensed` — The maps are condensed because A is Schur-irreducible in the condensed sense; with the abstract condition continuity fails and no parameter results.
-- `no_parameter_yet` — The construction produces a family of maps, not a homomorphism out of W_E; the passage is Proposition VIII.3.8's.
-
-**Acceptance.**
-
-- Check the relations on a two-leg datum
-- Check that the ordering in the multiplication maps is the induced one and that changing it changes the relation
-- Check that continuity is a consequence of the condensed Schur condition and not an extra assumption
-- Check that no parameter is constructed at this stage
-
-**Prerequisites.** `ExcursionOperatorsAndSpectralAction:ES5/schur-irreducible-object`, `ExcursionOperatorsAndSpectralAction:ES0`, `ExcursionOperatorsAndSpectralAction:ES1:finite-ramification`, `LanglandsParameterStacks:LP2:excursion-presentation`, `LanglandsParameterStacks:LP2:semisimple-characters`, `LanglandsParameterStacks:LP0`, `HeckeStacksAndLocalShtukas:HS1`, `HeckeStacksAndLocalShtukas:HS4`, `GeometricSatakeAndFusion:GS4:integral-dual-group`, `mathlib:Condensed`, `mathlib:CommRing`, `mathlib:RingHom`, `mathlib:MonoidHom`
-
-**Sources.**
-
-- *Proposition VIII.3.7 and the discussion after it, printed pp. 288-289.* “commutes, where both vertical maps are the natural pullback maps. On the other hand, g also induces a map (G-hat semidirect Q)^m -> (G-hat semidirect Q)^n, multiplying in every fibre over i = 1,...,n the terms in g^{-1}(i) (ordered by virtue of their ordering as a subset of {1,...,m}). This map is equivariant under diagonal G-hat-conjugation, and hence descends to the ...”
-  The two families of relations, quoted verbatim, with the ordering convention. Read
-  directly from the hash-verified PDF in this session. The excerpt is truncated at a
-  word boundary; the full passage is on the printed page named in the locator.
-- *After Proposition VIII.3.7, printed p. 289.* “The l-torsion free quotient of Exc(W,G-hat) is also the universal flat Z_l-algebra A' equipped with maps Theta'_n : O((G-hat semidirect Q)^n // G-hat) -> Map((W_E/P)^n, A') for n >= 1, linear over O(Q^n) -> Map((W_E/P)^n, A'), satisfying the same relations as in Proposition VIII.3.7, where the right-hand side denotes the maps of CONDENSED SETS. In particular, the l-torsion ...”
-  The universal property the character realises, and the independence of the
-  discretisation it buys. The excerpt is truncated at a word boundary; the full
-  passage is on the printed page named in the locator.
-- *After Proposition VIII.3.7, printed p. 289.* “We do not know whether it is necessary to pass to the l-torsion free quotient for the final assertion. Note that if l does not divide the order of pi_1(G-hat)_tors, then Exc(W,G-hat) = O(Z^1(W_E/P,G-hat))^{G-hat} is flat over Z_l. Moreover note that the l-torsion in Exc(W,G-hat) is always nilpotent, so passing to this quotient is a universal homeomorphism.”
-  An open question the source states about its own construction, recorded so that a
-  formalisation does not silently assume the stronger statement.
-
-### FS VIII.4.3: a Schur object of an abstract Hecke category has a unique semisimple parameter
-
-`ExcursionOperatorsAndSpectralAction:ES5/abstract-semisimple-parameter` — *theorem* · planet **The abstract semisimple parameter**
-
-**Statement.**
-
-Assume Lambda = L is an algebraically closed field and X in C an object with End(X) = L,
-where C carries the categorical data of FS VIII.4: functorially in finite sets I, a
-monoidal Rep_{Z_l}(Q^I)-linear functor Rep_{Z_l}((G-hat semidirect Q)^I) ->
-End(C)^{BW^I} for a DISCRETE group W. Then there is, UP TO G-hat(L)-CONJUGATION, a
-UNIQUE semisimple L-parameter phi_X : W -> G-hat(L) semidirect W such that for all
-excursion data D = (I,V,alpha,beta,(gamma_i)) the endomorphism S_D(X) in End(X) = L, X =
-T_1(X) -> T_V(X) -> T_V(X) -> T_1(X) = X, is given by the composite L -> V -> V -> L in
-which the middle map is (V(phi_X(gamma_i)))_{i in I}.
-
-**Hypotheses and warnings.**
-
-- Uniqueness is UP TO CONJUGATION and only among SEMISIMPLE parameters; the excursion
-  operators see no more than the semisimplification
-- W is DISCRETE here. The statement for W_E, with continuity, is the geometric one below
-  and needs the condensed Schur condition
-- The corollary is deduced from Theorem VIII.4.1 'using the description of geometric
-  points', that is, from Section VIII.3.1's description of the L-valued points of
-  Z^1(W_E,G-hat)_L // G-hat as the closed G-hat-orbits, which are the semisimple
-  parameters
-- The statement is about an abstract C; the roadmap requires it to be usable without
-  Bun_G, and this packet keeps it separate from the geometric statement
-- The source's own display writes the target as G-hat(L) semidirect W; in the geometric
-  statement it is G-hat(L) semidirect Q. The two agree because the action of W_E on
-  G-hat factors over the fixed finite quotient Q
-
-**Proof outline.**
-
-1. Attach to X the family of scalars given by the excursion operators, which is the
-   excursion character.
-2. Verify the relations of Proposition VIII.3.7 for that family.
-3. Apply Proposition VIII.3.8, using the description of the geometric points of the
-   coarse moduli space as the closed orbits, to get a semisimple parameter unique up to
-   conjugation.
-
-**Acceptance.**
-
-- Check that uniqueness fails without semisimplicity, by exhibiting two parameters with the same semisimplification
-- Check the abstract statement on the category of perfect complexes on a point
-- Check that the group is discrete here and that no continuity is claimed
-
-**Prerequisites.** `ExcursionOperatorsAndSpectralAction:ES5/excursion-character-of-a-schur-object`, `ExcursionOperatorsAndSpectralAction:ES0`, `LanglandsParameterStacks:LP2:semisimple-characters`, `LanglandsParameterStacks:LP0`, `LanglandsParameterStacks:LP2:excursion-presentation`, `GeometricSatakeAndFusion:GS4:integral-dual-group`, `EnhancedDerivedSheaves:E5:abstract`, `mathlib:Representation`, `mathlib:CategoryTheory.MonoidalCategory`, `mathlib:CategoryTheory.Functor.Monoidal`
-
-**Sources.**
-
-- *Corollary VIII.4.3, printed pp. 292-293.* “Assume that Lambda = L is an algebraically closed field and X in C is an object with End(X) = L. Then there is, up to G-hat(L)-conjugation, a unique semisimple L-parameter phi_X : W -> G-hat(L) semidirect W such that for all excursion data D = (I,V,alpha,beta,(gamma_i)), the endomorphism S_D(X) in End(X) = L is given by the composite L -> V -> V -> L.”
-  The abstract statement, quoted verbatim. Read directly from the hash-verified PDF in
-  this session.
-- *Before Corollary VIII.4.3, printed p. 292.* “In particular, using the description of geometric points, Theorem VIII.4.1 implies the following proposition.”
-  How it is deduced: from the algebra map of VIII.4.1 together with the description of
-  geometric points of Section VIII.3.1.
-- *Section VIII.3.1, printed p. 287.* “For any algebraically closed field L over Z_l, the L-valued points of Z^1(W_E,G-hat)_L // G-hat are in bijection with the closed G-hat-orbits in Z^1(W_E,G-hat)_L. We want to describe L-valued points with closed G-hat-orbit as the 'semisimple' parameters.”
-  What 'semisimple' means here and why the coarse moduli space sees exactly those. The
-  development of that description is LanglandsParameterStacks' and is requested, not
-  planned.
-
-### FS IX.4.1: the semisimple L-parameter of a Schur-irreducible object of D_lis(Bun_G,L)
-
-`ExcursionOperatorsAndSpectralAction:ES5/parameter-of-a-schur-irreducible-sheaf` — *theorem* · planet **The parameter of a Schur-irreducible object**
-
-**Statement.**
-
-Let L be an algebraically closed field over Z_l[sqrt q], and let A in D_lis(Bun_G,L) be
-a SCHUR-IRREDUCIBLE object, that is End(A) = L as condensed algebras. Then there is a
-UNIQUE semisimple L-parameter phi_A : W_E -> G-hat(L) semidirect Q such that for all
-excursion data (I,V,alpha,beta,(gamma_i)_{i in I}) - a finite set I, V in Rep((G-hat
-semidirect Q)^I), alpha : 1 -> V restricted to G-hat, beta : V restricted to G-hat -> 1
-and gamma_i in W_E - the endomorphism of A given by A = T_1(A) --alpha--> T_V(A)
---(gamma_i)--> T_V(A) --beta--> T_1(A) = A is the SCALAR L --alpha--> V
---(V(phi_A(gamma_i)))--> V --beta--> L.
-
-**Hypotheses and warnings.**
-
-- Uniqueness is up to G-hat(L)-conjugation and among semisimple parameters only, exactly
-  as in the abstract statement; the source labels this a Definition/Proposition because
-  the parameter is DEFINED by the displayed identity
-- The gamma_i range over W_E itself, not over a discrete subgroup; the passage is by the
-  wild cutoff of Proposition IX.5.1 and the discretisation, and continuity is delivered
-  by the condensed Schur condition through Proposition VIII.3.8
-- The whole proof in the source is one sentence: 'By the arguments of Section VIII.4, we
-  can build excursion data as required for Proposition VIII.3.8.'
-- By the component decomposition of FS IX.5, a Schur-irreducible A lies in exactly one
-  factor D^c_lis(Bun_G,L) and its parameter phi_A lies in that connected component c of
-  Z^1(W_E,G-hat)_L
-- The theorem holds in EVERY characteristic different from p. The roadmap says
-  explicitly not to import the good-prime condition of ES3, and the source's variant
-  remark at the head of IX.6 confirms it
-
-**Proof outline.**
-
-1. Build the excursion data required by Proposition VIII.3.8 from the Hecke action on
-   D_lis(Bun_G,L), as in Section VIII.4.
-2. Evaluate them at A; by Schur-irreducibility each acts by a scalar, giving the
-   excursion character with its relations and its continuity.
-3. Apply Proposition VIII.3.8 to obtain a unique semisimple continuous parameter up to
-   conjugation.
-
-**Acceptance.**
-
-- Check that the parameter is characterised by the displayed identity and is not constructed by any other route
-- Check that the condensed Schur condition is what gives continuity
-- Check that the parameter lies in the connected component the object lies in
-- Check that no good-prime hypothesis is used
-
-**Prerequisites.** `ExcursionOperatorsAndSpectralAction:ES5/excursion-character-of-a-schur-object`, `ExcursionOperatorsAndSpectralAction:ES5/schur-irreducible-object`, `ExcursionOperatorsAndSpectralAction:ES5/abstract-semisimple-parameter`, `ExcursionOperatorsAndSpectralAction:ES0`, `ExcursionOperatorsAndSpectralAction:ES1:finite-ramification`, `LanglandsParameterStacks:LP2:semisimple-characters`, `LanglandsParameterStacks:LP0`, `VStackSheavesAndLisseCategories:VS4`, `VStackSheavesAndLisseCategories:VS3`, `HeckeStacksAndLocalShtukas:HS1`, `HeckeStacksAndLocalShtukas:HS4`, `GeometricSatakeAndFusion:GS4:integral-dual-group`, `mathlib:Representation`, `mathlib:Condensed`
-
-**Sources.**
-
-- *Definition/Proposition IX.4.1, printed p. 327.* “Let L be an algebraically closed field over Z_l[sqrt q], and let A in D_lis(Bun_G,L) be a Schur-irreducible object, i.e. End(A) = L as condensed algebras. Then there is a unique semisimple L-parameter phi_A : W_E -> G-hat(L) semidirect Q such that for all excursion data (I,V,alpha,beta,(gamma_i)_{i in I}) consisting of a finite set I, V in Rep((G-hat semidirect Q)^I), alpha : ...”
-  The statement, quoted verbatim. Read directly from the hash-verified PDF in this
-  session. The excerpt is truncated at a word boundary; the full passage is on the
-  printed page named in the locator.
-- *Proof of Definition/Proposition IX.4.1, printed p. 327.* “By the arguments of Section VIII.4, we can build excursion data as required for Proposition VIII.3.8.”
-  The whole proof, one sentence long.
-- *After the component decomposition, printed p. 329.* “Note in particular that any Schur-irreducible object A in D_lis(Bun_G,Lambda) necessarily lies in one of these factors, given by some connected component c of Z^1(W_E,G-hat)_Lambda; and then the L-parameter phi_A of A necessarily lies in this connected component.”
-  Where the parameter sits. The decomposition itself is planned in the ES0 part of
-  this roadmap, on ES1:finite-ramification.
-- *Head of Section IX.6, printed p. 330.* “All results admit an obvious variant replacing the spectral Bernstein center by an excursion algebra when this assumption is omitted, and in particular the claims about L-parameters of Schur-irreducible objects work in any characteristic (different from p, of course).”
-  That this theorem needs no hypothesis on pi_0 Z(G) and no good-prime condition.
-
-### FS IX.4-IX.7: the parameter phi_{(G,b,pi)} of an irreducible smooth representation, and phi_pi at b = 1
-
-`ExcursionOperatorsAndSpectralAction:ES5/parameter-of-an-irreducible-smooth-representation` — *construction* · planet **The parameter of an irreducible smooth representation**
-
-**Statement.**
-
-For b in B(G) and an irreducible smooth L-representation pi of G_b(E), transport pi
-through the FULLY FAITHFUL embedding D(G_b(E),L) = D_lis(Bun^b_G,L) -> D_lis(Bun_G,L).
-By FS Proposition VII.7.2 the functor i_b^* : D_lis(Bun_G,Lambda) ->
-D_lis(Bun^b_G,Lambda) = D_lis([*/G_b(E)],Lambda) admits a LEFT ADJOINT, given by pi_{b!}
-q_b^*, whose unit is the equivalence id = i_b^* pi_{b!} q_b^* arising from base change
-and from the identification of the pullback of i_b along pi_b with [*/G_b(E)] x M_b. The
-resulting object is Schur-irreducible, so the previous node attaches to it a unique
-semisimple parameter, written phi_{(G,b,pi)}; at b = 1, where the embedding is j_!, it
-is written phi_pi. The construction must be shown INDEPENDENT of the eligible embedding
-at the level of the centre.
-
-**Hypotheses and warnings.**
-
-- The embedding is only 'determined FOR EXAMPLE by the left adjoint to i_b^*': the
-  source notes that in the D_lis-setting there is no general i_{b!}-functor, although it
-  can be defined in the present situation, and that ALL these maps induce the SAME map
-  to the Bernstein centre. Independence is therefore part of the construction and is not
-  automatic
-- That the transported object is Schur-irreducible is a statement about the CONDENSED
-  endomorphism algebra of the actual representation category, and the roadmap demands it
-  be proved there rather than assumed
-- pi is irreducible and SMOOTH, over an algebraically closed L over Z_l[sqrt q]
-- The statement is valid in every characteristic different from p
-- Proposition VII.7.2 is VStackSheavesAndLisseCategories:VS4's and is imported unproved;
-  its proof reduces to the generators c-Ind^{G_b(E)}_K for K open pro-p and uses Theorem
-  VII.2.10
-
-**Proof outline.**
-
-1. Take the left adjoint pi_{b!} q_b^* to i_b^* of Proposition VII.7.2, whose unit is an
-   equivalence, so that the functor is fully faithful.
-2. Transport pi to an object of D_lis(Bun_G,L) and show its condensed endomorphism
-   algebra is L.
-3. Apply the parameter theorem to that object and call the result phi_{(G,b,pi)}; write
-   phi_pi at b = 1.
-4. Show that any other eligible embedding induces the same map on centres, hence the same
-   parameter.
-
-**Planning API.**
-
-| Name | Role | Statement |
-| --- | --- | --- |
-| `stratumEmbedding` | data | The left adjoint pi_{b!} q_b^* to i_b^*, fully faithful because its unit is an equivalence. |
-| `stratumEmbedding.noGeneralShriek` | structure | There is no general i_{b!} in the D_lis setting; it exists in this situation, and the source says so. |
-| `stratumEmbedding.centreIndependent` | structure | All eligible embeddings induce the same map to the Bernstein centre, so the parameter does not depend on the choice. |
-| `parameterOfRepresentation` | data | phi_{(G,b,pi)} : W_E -> G-hat(L) semidirect Q, the parameter of the transported object. |
-| `parameterOfRepresentation.atBasepoint` | data | phi_pi at b = 1, where the embedding is j_!. |
-| `schurOfIrreducible` | characterisation | For pi irreducible smooth, the transported object has condensed endomorphism algebra L; this must be proved on the representation category. |
-
-**Where it is used.**
-
-- `ExcursionOperatorsAndSpectralAction:ES6:functoriality/isogenies` — the isogeny statement is about parameters of Schur-irreducible constituents
-- `ExcursionOperatorsAndSpectralAction:ES6:duality/bernstein-zelevinsky-duals` — the duality statement is about parameters of irreducible smooth representations
-- `ExcursionOperatorsAndSpectralAction:ES7:parabolic` — the parabolic-induction statement compares phi_{pi-tilde} with phi_pi
-
-**Unit tests.**
-
-- `basepoint_case` — At b = 1 the embedding is j_! and the parameter is phi_pi.
-- `independence_of_embedding` — Two eligible embeddings give the same parameter; a construction depending on the choice is not well posed.
-- `schur_is_proved_not_assumed` — The Schur condition for the transported object is a statement about the condensed endomorphisms of the representation category.
-- `any_characteristic` — The construction is valid for every l different from p; importing ES3's good-prime condition would be an error.
-
-**Acceptance.**
-
-- Check full faithfulness through the unit being an equivalence
-- Check that the Schur condition is verified on the representation category and not assumed
-- Check independence of the eligible embedding
-- Check the case b = 1, where the embedding is j_!
-
-**Prerequisites.** `ExcursionOperatorsAndSpectralAction:ES5/parameter-of-a-schur-irreducible-sheaf`, `ExcursionOperatorsAndSpectralAction:ES5/schur-irreducible-object`, `VStackSheavesAndLisseCategories:VS4`, `VStackSheavesAndLisseCategories:VS3`, `VStackSheavesAndLisseCategories:VS5`, `SmoothRepresentationsOfLocalGroups:SR.0`, `SmoothRepresentationsOfLocalGroups:SR.1`, `BunGAndNewtonStrata:BG0`, `BunGAndNewtonStrata:BG1`, `HeckeStacksAndLocalShtukas:HS1`, `mathlib:Representation`, `mathlib:CategoryTheory.Adjunction`, `tauceti:TauCeti.IsSmoothDiscrete`, `tauceti:TauCeti.SmoothDiscreteTopRep`
-
-**Sources.**
-
-- *Proposition VII.7.2, printed p. 272.* “For any b in B(G) with locally closed immersion i_b : Bun^b_G -> Bun_G, the functor i_b^* : D_lis(Bun_G,Lambda) -> D_lis(Bun^b_G,Lambda) = D_lis([*/G_b(E)],Lambda) admits a left adjoint, given by pi_{b!} q_b^* : D_lis([*/G_b(E)],Lambda) -> D_lis(Bun_G,Lambda). The unit of the adjunction is given by the equivalence id = i_b^* pi_{b!} q_b^* arising from base change, and the ...”
-  The embedding the construction uses, quoted verbatim. Read directly from the hash-
-  verified PDF in this session. It is VStackSheavesAndLisseCategories:VS4's statement
-  and is imported. The excerpt is truncated at a word boundary; the full passage is on
-  the printed page named in the locator.
-- *Definition IX.7.1, printed p. 334.* “the fully faithful embedding D(G_b(E),Lambda) = D_lis(Bun^b_G,Lambda) -> D_lis(Bun_G,Lambda) determined for example by the left adjoint to i_b^*, where i_b : Bun^b_G -> Bun_G is the locally closed embedding (see Proposition VII.7.2). (Recall that in the D_lis-setting, we do not have a general i_{b!}-functor, although it can be defined in the present situation. All these maps ...”
-  The source's own statement that the embedding is not unique and that independence
-  holds at the level of the centre - which is exactly the obligation the roadmap
-  attaches to this construction. The excerpt is truncated at a word boundary; the full
-  passage is on the printed page named in the locator.
-- *Proof of Corollary IX.7.3, printed p. 337.* “let mu : G_m -> G be a cocharacter with dynamical parabolic P and let b = mu(pi) in B(G). Then G_b = M, and we can build a sheaf A in D_et(Bun_G,Lambda) concentrated on Bun^b_G, given by the representation pi.”
-  The same transport used in practice, on a non-basic stratum.
-
-### Invariance under isomorphism, and transport along algebraically closed extensions
-
-`ExcursionOperatorsAndSpectralAction:ES5/invariance-and-coefficient-transport` — *theorem* · planet **Invariance and coefficient transport**
-
-**Statement.**
-
-The parameter phi_A depends only on the isomorphism class of A: an isomorphism A = A' of
-Schur-irreducible objects gives phi_A conjugate to phi_{A'}, because the excursion
-operators are natural endomorphisms of the identity and therefore correspond under any
-isomorphism. For a map L -> L' of algebraically closed fields over Z_l[sqrt q], IF the
-base change A_{L'} remains Schur-irreducible, then phi_{A_{L'}} is the base change of
-phi_A, because the excursion operators commute with coefficient extension and the
-characterising identity is preserved. IT IS NOT ASSERTED that base change preserves
-Schur-irreducibility, and the roadmap forbids assuming it.
-
-**Hypotheses and warnings.**
-
-- The transport statement is CONDITIONAL on Schur-irreducibility being retained; that
-  hypothesis cannot be discharged in general and the roadmap says so in as many words
-- Invariance under isomorphism is a consequence of the excursion operators being NATURAL
-  endomorphisms of the identity functor, which is the distinction the ES0 part insists
-  on
-- Nothing in Fargues-Scholze states either half of this node as a numbered statement;
-  both are obligations the roadmap adds, and the packet records that rather than
-  manufacturing a locator
-- Uniqueness being only up to conjugation, all the statements are statements about
-  conjugacy classes
-
-**Proof outline.**
-
-1. Invariance: an isomorphism A = A' intertwines the actions of every natural
-   endomorphism of the identity, so the two families of scalars agree and the parameters
-   are conjugate.
-2. Transport: base change commutes with the Hecke functors and hence with the excursion
-   operators, so the characterising identity for phi_A base-changes to the characterising
-   identity for phi_{A_{L'}}, provided End(A_{L'}) = L'.
-3. Record that the proviso is a hypothesis, not a lemma.
-
-**Acceptance.**
-
-- Check that invariance follows from naturality and not from any property of the parameter
-- Check that the transport statement carries its hypothesis explicitly
-- Check that no statement is made about whether base change preserves Schur-irreducibility
-
-**Prerequisites.** `ExcursionOperatorsAndSpectralAction:ES5/parameter-of-a-schur-irreducible-sheaf`, `ExcursionOperatorsAndSpectralAction:ES5/schur-irreducible-object`, `ExcursionOperatorsAndSpectralAction:ES5/excursion-character-of-a-schur-object`, `ExcursionOperatorsAndSpectralAction:ES0`, `LanglandsParameterStacks:LP2:semisimple-characters`, `VStackSheavesAndLisseCategories:VS3`, `VStackSheavesAndLisseCategories:VS4`, `mathlib:Representation`, `mathlib:Condensed`, `mathlib:RingHom`
-
-**Sources.**
-
-- *Definition/Proposition IX.4.1, printed p. 327.* “Then there is a unique semisimple L-parameter phi_A : W_E -> G-hat(L) semidirect Q such that for all excursion data ... the endomorphism ... is given by the scalar ...”
-  The characterising identity, which is what both halves of this node argue from.
-  Fargues-Scholze state neither the isomorphism-invariance nor the coefficient
-  transport separately, and this packet does not claim a locator for them.
-- *Head of Section IX.6, printed p. 330.* “the claims about L-parameters of Schur-irreducible objects work in any characteristic (different from p, of course).”
-  The only coefficient statement the source makes about this assignment: it is about
-  the characteristic, not about extension of the field.
-
-**What remains in this layer.**
-
-- The STATEMENT of Proposition VIII.3.8 - the passage from an excursion character to a
-  semisimple parameter - is damaged in the text extraction used here: its enumerated
-  items (i), (ii) and (iii) were not recovered, only the third item's two commuting
-  squares and the proof. The packet therefore REQUESTS the statement from
-  LanglandsParameterStacks:LP2:semisimple-characters rather than restating it, and
-  records the damage as a gap.
-- V. Lafforgue's Proposition 11.7 and Lemma 11.10, from which the continuity of the
-  parameter is deduced in the proof of VIII.3.8, were NOT read.
-- The roadmap requires that the Schur condition be proved on the actual representation
-  category of G_b(E) - that an irreducible smooth representation gives an object with
-  condensed endomorphism algebra L - and that independence of the eligible stratum
-  embedding be proved at the level of the centre. Fargues-Scholze assert the second in a
-  parenthesis in Definition IX.7.1 and do not prove it in anything read; the first is
-  not stated at all. Both are open obligations.
-- Neither the invariance under isomorphism nor the coefficient transport is a numbered
-  statement of the source; the packet argues both from the characterising identity and
-  says so.
-- Section VIII.3.1's description of geometric points as closed G-hat-orbits, on which
-  Corollary VIII.4.3 rests, is quoted and not proved; it belongs to
-  LanglandsParameterStacks.
-
-## ES6 — Functorial properties of the assignment
-
-*Coverage: **partial**. 1 node.*
-
-The standing coefficient hypothesis of FS IX.6 and the excursion-algebra variant that
-replaces it, recorded as the policy the whole layer follows: centre-level diagrams carry
-the invertibility of the order of pi_0 Z(G) for every participating group, parameter-
-level statements carry none.
-
-### The standing coefficient hypothesis of FS IX.6, and the excursion-algebra version without it
-
-`ExcursionOperatorsAndSpectralAction:ES6/coefficient-policy-for-the-functorial-diagrams` — *comparison*
-
-**Statement.**
-
-Throughout Section IX.6 Fargues-Scholze assume FOR SIMPLICITY that the order of pi_0
-Z(G) is INVERTIBLE IN Lambda, which is the hypothesis of Theorem IX.5.2 and is what
-makes the spectral Bernstein centre Z^spec(G,Lambda) available. They state that ALL the
-results of the section admit an obvious variant replacing the spectral Bernstein centre
-by an EXCURSION ALGEBRA when the assumption is omitted, and that in particular the
-claims about L-parameters of Schur-irreducible objects work in ANY CHARACTERISTIC
-different from p. The roadmap turns this into a policy for the whole layer: impose the
-invertibility hypothesis on every centre-level diagram, and for each participating group
-separately, wherever IX.5.2 is used; and prove the excursion-algebra version of the same
-diagram without it, which yields the field-valued statements for all l different from p.
-
-**Hypotheses and warnings.**
-
-- The hypothesis must be imposed for EVERY participating group, not only for G: in
-  IX.6.1 both G and G', in IX.6.2 both factors, in IX.6.3 both G and G'. The source
-  states it once for G and says nothing about the others; this is the roadmap's
-  sharpening and this packet carries it as a hypothesis on each statement
-- Fargues-Scholze write out NONE of the excursion-algebra variants. Each variant that a
-  formalisation uses must be restated and reproved; the phrase 'obvious variant' is not
-  a proof
-- The parameter statements themselves - the ones about Schur-irreducible objects - need
-  no hypothesis on pi_0 Z(G) at all, which is why ES5's nodes carry none
-- This is a policy node and not a theorem: it fixes which hypothesis appears where in
-  the rest of the layer
-
-**Proof outline.**
-
-1. Record the standing hypothesis of IX.6 and the scope over which it is in force.
-2. For each diagram in the layer, note whether it is a centre-level diagram - and
-   therefore needs the hypothesis for every participating group - or a parameter-level
-   statement, which does not.
-3. For each centre-level diagram, record the excursion-algebra variant obtained by
-   replacing Z^spec by Exc(W,G-hat) throughout, and note that the source does not write
-   it out.
-
-**Acceptance.**
-
-- Check that every centre-level statement in this packet carries the hypothesis for each participating group
-- Check that no parameter-level statement carries it
-- Check that the excursion-algebra variants are restated rather than quoted
-
-**Prerequisites.** `ExcursionOperatorsAndSpectralAction:ES1:spectral-center`, `ExcursionOperatorsAndSpectralAction:ES0`, `ExcursionOperatorsAndSpectralAction:ES1:finite-ramification`, `LanglandsParameterStacks:LP2:excursion-presentation`, `LanglandsParameterStacks:LP2:integral-invariants`, `LanglandsParameterStacks:LP2:semisimple-characters`, `mathlib:CommRing`, `mathlib:FreeGroup`, `mathlib:CategoryTheory.CatCenter`
-
-**Sources.**
-
-- *Head of Section IX.6, printed p. 330.* “In this section, we check various basic properties of the correspondence. Throughout, we assume for simplicity that the order of pi_0 Z(G) is invertible in Lambda. All results admit an obvious variant replacing the spectral Bernstein center by an excursion algebra when this assumption is omitted, and in particular the claims about L-parameters of Schur-irreducible objects work ...”
-  The standing hypothesis and the variant, quoted verbatim. Read directly from the
-  hash-verified PDF in this session. The excerpt is truncated at a word boundary; the
-  full passage is on the printed page named in the locator.
-- *Theorem IX.5.2, printed p. 329.* “Assume that the order of pi_0 Z(G) is invertible in Lambda. There is a natural map Z^spec(G,Lambda) -> Z^geom(G,Lambda) compatible with the above decomposition into connected components.”
-  Where the hypothesis comes from. Theorem IX.5.2 itself is planned in the ES0 part of
-  this roadmap, on ES1:spectral-center.
-
-**What remains in this layer.**
-
-- Fargues-Scholze write out NONE of the excursion-algebra variants; each one a
-  formalisation uses has to be restated and reproved, and this packet does not restate
-  them either - it records which statements need them.
-- The source imposes the hypothesis only for G. That it must also be imposed for the
-  other participating groups in IX.6.1, IX.6.2 and IX.6.3 is the roadmap's sharpening,
-  carried here as a hypothesis on each statement, and is not justified by any text read.
-- This layer is a parent whose atlas inputs are only its own two children; it has one
-  node, and the mathematics is in the children.
-
-## ES6:functoriality — Isogenies, products, restriction, tori and characters
-
-*Coverage: **partial**. 7 nodes.*
-
-FS IX.6.1 to IX.6.5 with their proofs: maps inducing an isomorphism of adjoint groups,
-products, Weil restriction with the nonabelian Shapiro comparison of excursion algebras,
-the spectral centre of a torus through local class field theory, and the diagonal
-embedding for a torus; together with the closing paragraph on twisting and central
-characters, and a node for the z-embedding apparatus the roadmap makes an obligation of
-this layer.
-
-### FS IX.6.1: maps inducing an isomorphism of adjoint groups
-
-`ExcursionOperatorsAndSpectralAction:ES6:functoriality/isogenies` — *theorem* · planet **Isogeny compatibility**
-
-**Statement.**
-
-Let G' -> G be a map of reductive groups inducing an ISOMORPHISM OF ADJOINT GROUPS,
-inducing a dual map G-hat -> G-hat', and let pi : Bun_{G'} -> Bun_G. Then for any A in
-D_lis(Bun_G,Lambda) the square relating Z^spec(G-hat',Lambda) -> End(pi^* A) and
-Z^spec(G-hat,Lambda) -> End(A) commutes. In particular, if Lambda = L is an
-algebraically closed field, A is SCHUR-IRREDUCIBLE and A' is a SCHUR-IRREDUCIBLE
-CONSTITUENT of pi^* A, then phi_{A'} is the composite of phi_A with G-hat -> G-hat'.
-
-**Hypotheses and warnings.**
-
-- The conclusion is about a Schur-irreducible CONSTITUENT of pi^* A. The pullback need
-  not itself be Schur-irreducible, and the roadmap insists the constituent hypothesis be
-  retained
-- The centre-level square needs the standing hypothesis of IX.6 for BOTH G and G'; the
-  parameter-level consequence does not
-- The proof computes pi_* T_{V'}(pi^* A) and identifies it with T_V(A tensor pi_*
-  Lambda), so the identification of the Hecke operators is up to the twist by pi_*
-  Lambda; that twist is invisible on excursion operators because those are endomorphisms
-  of the identity
-- The identification of H_* S'_{V'} uses the COMPATIBILITY OF GEOMETRIC SATAKE with a
-  map G -> G' inducing isomorphisms of adjoint groups, as in the proof of Theorem
-  VI.11.1; that compatibility is GeometricSatakeAndFusion's and is imported
-- The map on dual groups goes the OTHER WAY, G-hat -> G-hat', so the parameter of the
-  constituent is the parameter of A pushed forward, not pulled back
-
-**Proof outline.**
-
-1. Consider any excursion operator for G', given by (I, V', alpha, beta, (gamma_i)).
-2. Form the diagram relating Hck^I_{G'} and Hck^I_G over Bun_{G'} and Bun_G and note that
-   to compute an endomorphism of A it is enough to compute pi_* T_{V'}(pi^* A).
-3. Compute pi_* T_{V'}(pi^* A) = h_{2*}(h_1^* A tensor H_* S'_{V'}) and identify H_*
-   S'_{V'} = h_1^* pi_* Lambda tensor S'_V by writing H as the composite Hck^I_{G'} ->
-   Hck^I_G x_{Bun_G} Bun_{G'} -> Hck^I_G, whose first map is locally over Bun_{G'}
-   isomorphic to Gr^I_{G'} -> Gr^I_G, and applying the projection formula.
-4. The identification is functorial in V' and in I and lives over Bun_G x (Div^1)^I, so
-   it gives the desired equality of excursion operators.
-
-**Acceptance.**
-
-- Check that the constituent hypothesis is retained and that pi^* A need not be Schur-irreducible
-- Check the direction of the dual map
-- Check that the twist by pi_* Lambda does not affect excursion operators
-- Check the appeal to the Satake compatibility of Theorem VI.11.1
-
-**Prerequisites.** `ExcursionOperatorsAndSpectralAction:ES5/parameter-of-a-schur-irreducible-sheaf`, `ExcursionOperatorsAndSpectralAction:ES5/parameter-of-an-irreducible-smooth-representation`, `ExcursionOperatorsAndSpectralAction:ES6/coefficient-policy-for-the-functorial-diagrams`, `ExcursionOperatorsAndSpectralAction:ES1:spectral-center`, `ExcursionOperatorsAndSpectralAction:ES0`, `GeometricSatakeAndFusion:GS4:integral-dual-group`, `ReductiveGroupsPartII:RG2.5`, `HeckeStacksAndLocalShtukas:HS4`, `HeckeStacksAndLocalShtukas:HS1`, `BunGAndNewtonStrata:BG0`, `VStackSheavesAndLisseCategories:VS4`, `mathlib:Representation`, `mathlib:RootPairing`, `mathlib:MonoidHom`
-
-**Sources.**
-
-- *Theorem IX.6.1, printed p. 330.* “Let G' -> G be a map of reductive groups inducing an isomorphism of adjoint groups, inducing a dual map G-hat -> G-hat', and pi : Bun_{G'} -> Bun_G. Then for any A in D_lis(Bun_G,Lambda) the diagram Z^spec(G-hat',Lambda) -> End(pi^* A), Z^spec(G-hat,Lambda) -> End(A) commutes. In particular, if Lambda = L is an algebraically closed field, A is Schur-irreducible and A' is a ...”
-  The statement, quoted verbatim, with the constituent hypothesis. Read directly from
-  the hash-verified PDF in this session. The excerpt is truncated at a word boundary;
-  the full passage is on the printed page named in the locator.
-- *Proof of Theorem IX.6.1, printed pp. 330-331.* “We are interested in computing an endomorphism of A; in particular, it is enough to compute pi_* T_{V'}(pi^* A). But pi_* T_{V'}(pi^* A) = pi_* h'_{2*}(h'^*_1 pi^* A tensor S'_{V'}) = h_{2*} H_*(H^* h_1^* A tensor S'_{V'}) = h_{2*}(h_1^* A tensor H_* S'_{V'}) = h_{2*}(h_1^* A tensor h_1^* pi_* Lambda tensor S'_V) = T_V(A tensor pi_* Lambda).”
-  The computation, and the twist by pi_* Lambda that it produces.
-- *Proof of Theorem IX.6.1, printed p. 331.* “Here, to identify H_* S_{V'}, we write H as the composite Hck^I_{G'} -> Hck^I_G x_{Bun_G} Bun_{G'} -> Hck^I_G. The first map is locally (over Bun_{G'}) isomorphic to the map Gr^I_{G'} -> Gr^I_G and hence pushforward takes S_{V'} to the pullback of S_V, by the compatibility of the geometric Satake equivalence with the map G -> G' inducing isomorphisms of adjoint groups, as in ...”
-  The Satake input, which belongs to GeometricSatakeAndFusion and is imported. The
-  excerpt is truncated at a word boundary; the full passage is on the printed page
-  named in the locator.
-
-### FS IX.6.2: products of groups give products of parameters
-
-`ExcursionOperatorsAndSpectralAction:ES6:functoriality/products` — *theorem* · planet **Product compatibility**
-
-**Statement.**
-
-If G = G_1 x G_2 is a product of two reductive groups over E, then the square relating
-Z^spec(G_1,Lambda) tensor Z^spec(G_2,Lambda) -> Z^geom(G_1,Lambda) tensor
-Z^geom(G_2,Lambda) and Z^spec(G,Lambda) -> Z^geom(G,Lambda) commutes. In particular, if
-Lambda = L is an algebraically closed field and A_1, A_2 in D_lis(Bun_{G_i},L) are
-SCHUR-IRREDUCIBLE, and A is a SCHUR-IRREDUCIBLE CONSTITUENT of the exterior tensor
-product A_1 box A_2, then phi_A = (phi_{A_1}, phi_{A_2}) : W_E -> G-hat(L) = G-hat_1(L)
-x G-hat_2(L).
-
-**Hypotheses and warnings.**
-
-- Again the conclusion is for a Schur-irreducible CONSTITUENT of the exterior product;
-  the exterior product need not itself be Schur-irreducible
-- The categorical input is Proposition VII.7.10: for compact A_i, the exterior tensor
-  product A_1 box A_2 is compact, such objects form a class of compact generators, and
-  RHom(A_1,B_1) tensor RHom(A_2,B_2) -> RHom(A_1 box A_2, B_1 box B_2) is an
-  isomorphism. That proposition is VStackSheavesAndLisseCategories:VS5's and is imported
-- The centre-level square needs the standing hypothesis of IX.6 for BOTH factors
-- The whole proof in the source is: 'The statement can be checked using excursion
-  operators, and the proof is a straightforward diagram chase, noting that everything
-  decomposes into products.' It is short because the product Hecke diagram decomposes,
-  which is the fact that must be supplied
-
-**Proof outline.**
-
-1. Note that Bun_{G_1 x G_2} = Bun_{G_1} x Bun_{G_2} and that the Hecke correspondence
-   for the product is the product of the Hecke correspondences.
-2. Check the statement on excursion operators: an excursion datum for the product
-   decomposes into data for the factors.
-3. Conclude by the diagram chase, using Proposition VII.7.10 to know that the exterior
-   products generate and that the Hom formula holds.
-
-**Acceptance.**
-
-- Check the constituent hypothesis
-- Check that the product Hecke diagram is the product of the two, which is what makes the chase work
-- Check the Hom formula of Proposition VII.7.10, which is the categorical input
-- Check the hypothesis on pi_0 Z(G_i) for both factors
-
-**Prerequisites.** `ExcursionOperatorsAndSpectralAction:ES5/parameter-of-a-schur-irreducible-sheaf`, `ExcursionOperatorsAndSpectralAction:ES6/coefficient-policy-for-the-functorial-diagrams`, `ExcursionOperatorsAndSpectralAction:ES6:functoriality/isogenies`, `ExcursionOperatorsAndSpectralAction:ES1:spectral-center`, `VStackSheavesAndLisseCategories:VS4`, `VStackSheavesAndLisseCategories:VS5`, `VStackSheavesAndLisseCategories:VS3`, `HeckeStacksAndLocalShtukas:HS4`, `GeometricSatakeAndFusion:GS4:integral-dual-group`, `ReductiveGroupsPartII:RG2.5`, `BunGAndNewtonStrata:BG0`, `mathlib:Representation`, `mathlib:TensorProduct`, `mathlib:DirectSum`
-
-**Sources.**
-
-- *Proposition IX.6.2, printed p. 331.* “If G = G_1 x G_2 is a product of two groups, then the diagram Z^spec(G_1,Lambda) tensor Z^spec(G_2,Lambda) -> Z^geom(G_1,Lambda) tensor Z^geom(G_1,Lambda), Z^spec(G,Lambda) -> Z^geom(G,Lambda) commutes. In particular, if Lambda = L is an algebraically closed field and A_1, A_2 in D_lis(Bun_{G_i},L) are Schur-irreducible, and A is a Schur-irreducible constituent of A_1 box A_2, ...”
-  The statement, quoted verbatim. Read directly from the hash-verified PDF in this
-  session. The extraction prints the upper-right corner of the source's display as
-  Z^geom(G_1) tensor Z^geom(G_1); the second factor is plainly Z^geom(G_2) and the
-  packet records this as a typographical point rather than a mathematical one. The
-  excerpt is truncated at a word boundary; the full passage is on the printed page
-  named in the locator.
-- *Proof of Proposition IX.6.2, printed p. 331.* “The statement can be checked using excursion operators, and the proof is a straightforward diagram chase, noting that everything decomposes into products.”
-  The whole proof.
-- *Proposition VII.7.10, printed p. 276.* “Let G_1 and G_2 be two reductive groups over E, and let G = G_1 x G_2. Consider the exterior tensor product box : D_lis(Bun_{G_1},Lambda) x D_lis(Bun_{G_2},Lambda) -> D_lis(Bun_G,Lambda). For all compact objects A_i, the exterior tensor product A_1 box A_2 is compact, these objects form a class of compact generators, and for all further objects B_i the natural map ...”
-  The categorical input, which belongs to VStackSheavesAndLisseCategories and is
-  imported. The excerpt is truncated at a word boundary; the full passage is on the
-  printed page named in the locator.
-
-### FS IX.6.3: Weil restriction of scalars and the nonabelian Shapiro comparison
-
-`ExcursionOperatorsAndSpectralAction:ES6:functoriality/weil-restriction` — *theorem* · planet **Weil-restriction compatibility**
-
-**Statement.**
-
-Let G = Res_{E'|E} G' for a reductive group G' over a finite SEPARABLE extension E' of
-E. Choose P an open subgroup of the wild inertia of W_{E'} inside W_E, and let W' inside
-W_{E'}/P be the preimage of W inside W_E/P. Then there are canonical identifications
-Bun_{G'} = Bun_G, Z^1(W_E,G-hat)/G-hat = Z^1(W_{E'},G-hat')/G-hat' and Exc(W,G-hat) =
-Exc(W',G-hat'), and the square relating Z^spec(G',Lambda) -> Z^geom(G',Lambda) and
-Z^spec(G,Lambda) -> Z^geom(G,Lambda) commutes. In particular, L-parameters are
-compatible with Weil restriction.
-
-**Hypotheses and warnings.**
-
-- E'|E must be finite and SEPARABLE
-- The identification of the excursion algebras is the one Fargues-Scholze single out as
-  the most nontrivial. It rests on the isomorphism of affine schemes
-  Z^1(F_n,G-hat)//G-hat = Z^1(F_n x_W W', G-hat')//G-hat', on the fact that F_n x_W W'
-  is a SUBGROUP OF FINITE INDEX of F_n and is therefore itself a finitely generated free
-  group, and on the consequent fact that restricting to those maps F_n -> W which factor
-  over W' produces the SAME COLIMIT
-- The Weil embedding is CHOSEN: G-hat = product over embeddings E' -> E-bar of G-hat',
-  and one picks out an embedding E' -> E-bar and hence a projection G-hat -> G-hat' when
-  regarding W_{E'} inside W_E as a subgroup. The roadmap requires that choice to be
-  carried through the statement
-- The geometric side uses that Hck^I_{G'} -> Hck^I_G x_{(Div^1)^I} (Div'^1)^I is a
-  CLOSED IMMERSION, compatibly with a similar closed immersion of Beilinson-Drinfeld
-  Grassmannians
-- V' is inflated from a representation of (G-hat' semidirect W_{E'})^I to (G-hat
-  semidirect W_{E'})^I and then INDUCED to (G-hat semidirect W_E)^I; that is the
-  nonabelian Shapiro step
-- At the pins Mathlib HAS the Nielsen-Schreier theorem - a subgroup of a free group is
-  free - which is exactly what is needed for F_n x_W W', and it HAS abelian Shapiro's
-  lemma in all degrees as groupCohomology.coindIso. What it does NOT have is the
-  Schreier index formula for the rank, nor the NONABELIAN Shapiro equivalence for
-  1-cocycles with values in a nonabelian group, which is what this proposition actually
-  proves. The reviewed audit AUDIT-20 records exactly this boundary.
-
-**Proof outline.**
-
-1. Identify Bun_{G'} with Bun_G and the two stacks of parameters.
-2. Identify the excursion algebras: use Exc(W,G-hat) = colim over (n, F_n -> W) of
-   O(Z^1(F_n,G-hat))^{G-hat} and the isomorphism Z^1(F_n,G-hat)//G-hat = Z^1(F_n x_W
-   W',G-hat')//G-hat', noting that F_n x_W W' is of finite index in F_n and hence
-   finitely generated free, so that restricting to maps factoring over W' gives the same
-   colimit.
-3. Given an excursion operator for G' with V' a representation of (G-hat' semidirect
-   W_{E'})^I, inflate V' to (G-hat semidirect W_{E'})^I and induce to (G-hat semidirect
-   W_E)^I to get V.
-4. Geometrically this is the commutative diagram of Hecke correspondences with Hck^I_{G'}
-   -> Hck^I_G x (Div^1)^I over (Div'^1)^I a closed immersion; conclude by a diagram
-   chase.
-
-**Acceptance.**
-
-- Check that E'|E is required to be separable
-- Check that F_n x_W W' is of finite index in F_n and therefore free of finite rank, which is what makes the colimit comparison work
-- Check that the Weil embedding is chosen and that the projection G-hat -> G-hat' depends on it
-- Check the closed-immersion claim for the Hecke stacks
-
-**Prerequisites.** `ExcursionOperatorsAndSpectralAction:ES6:functoriality/isogenies`, `ExcursionOperatorsAndSpectralAction:ES6:functoriality/products`, `ExcursionOperatorsAndSpectralAction:ES5/parameter-of-a-schur-irreducible-sheaf`, `ExcursionOperatorsAndSpectralAction:ES6/coefficient-policy-for-the-functorial-diagrams`, `LanglandsParameterStacks:LP2:excursion-presentation`, `LanglandsParameterStacks:LP0`, `GeometricSatakeAndFusion:GS4:integral-dual-group`, `ReductiveGroupsPartII:RG2.5`, `HeckeStacksAndLocalShtukas:HS4`, `BunGAndNewtonStrata:BG0`, `VStackSheavesAndLisseCategories:VS4`, `mathlib:FreeGroup`, `mathlib:Subgroup`, `mathlib:Representation`, `mathlib:AlgebraicGeometry.Scheme`, `mathlib:IsFreeGroup`, `mathlib:groupCohomology.coindIso`
-
-**Sources.**
-
-- *Proposition IX.6.3, printed p. 331.* “If G = Res_{E'|E} G' is a Weil restriction of scalars of some reductive group G' over a finite separable extension E' of E. Choose P to be an open subgroup of the wild inertia of W_{E'} inside W_E, and let W' inside W_{E'}/P be the preimage of W inside W_E/P. Then there are canonical identifications Bun_{G'} = Bun_G, Z^1(W_E,G-hat)/G-hat = Z^1(W_{E'},G-hat')/G-hat' and ...”
-  The statement, quoted verbatim. Read directly from the hash-verified PDF in this
-  session. The excerpt is truncated at a word boundary; the full passage is on the
-  printed page named in the locator.
-- *Proof of Proposition IX.6.3, printed p. 332.* “The most nontrivial of these identifications is the identification Exc(W,G-hat) = Exc(W',G-hat'). One way to understand this is to use the presentation Exc(W,G-hat) = colim over (n, F_n -> W) of O(Z^1(F_n,G-hat))^{G-hat} and the natural isomorphism Z^1(F_n,G-hat) // G-hat = Z^1(F_n x_W W', G-hat') // G-hat' of affine schemes, noting that F_n x_W W' inside F_n is a subgroup of ...”
-  The excursion-algebra comparison, quoted verbatim - the step the roadmap calls the
-  nonabelian Shapiro equivalence. The excerpt is truncated at a word boundary; the
-  full passage is on the printed page named in the locator.
-- *Proof of Proposition IX.6.3, printed p. 332.* “Note that G-hat semidirect W_E contains G-hat semidirect W_{E'} as a subgroup, and this admits a surjection onto G-hat' semidirect W_{E'} (noting that G-hat = product over E' -> E-bar of G-hat', where we picked out an embedding E' -> E-bar and hence a projection G-hat -> G-hat' when we regarded W_{E'} inside W_E as a subgroup). In this way, one can inflate V' to a ...”
-  The chosen Weil embedding and the inflate-then-induce recipe. The excerpt is
-  truncated at a word boundary; the full passage is on the printed page named in the
-  locator.
-- *Proof of Proposition IX.6.3, printed p. 332.* “More precisely, we note that Hck^I_{G'} -> Hck^I_G x_{(Div^1)^I} (Div'^1)^I is a closed immersion (compatibly with a similar closed immersion of Beilinson-Drinfeld Grassmannians). Now the claim follows from a diagram chase.”
-  The geometric side.
-
-### FS IX.6.4: the spectral centre of a torus is the classical Bernstein centre of T(E)
-
-`ExcursionOperatorsAndSpectralAction:ES6:functoriality/tori-spectral-center` — *theorem* · planet **The spectral centre of a torus**
-
-**Statement.**
-
-Let G = T be a torus over E. Then D_lis(Bun_T,Lambda) = product over b in B(T) of
-D(T(E),Lambda), and in particular Z^geom(T,Lambda) = product over b in B(T) of
-Z(T(E),Lambda), where Z(T(E),Lambda) = lim over open subgroups K of T(E) of
-Lambda[T(E)/K] is the classical Bernstein centre of T(E). There is a NATURAL ISOMORPHISM
-Z^spec(T,Lambda) = lim over K inside T(E) of Lambda[T(E)/K].
-
-**Hypotheses and warnings.**
-
-- The description of Z^geom(T,Lambda) as a PRODUCT over B(T) reflects that Bun_T has one
-  stratum for each element of B(T) and that they are all open and closed; that is
-  BunGAndNewtonStrata's geometry and is imported
-- The proof RESOLVES T by products of INDUCED TORI, reduces to T induced, and then by
-  Weil restriction of scalars to T = G_m; so it consumes IX.6.1, IX.6.2 and IX.6.3 and
-  cannot be proved before them
-- The case T = G_m is LOCAL CLASS FIELD THEORY: Z^1(W_E,G_m) = Hom(E^times,G_m). Neither
-  Mathlib nor Tau Ceti has local class field theory at the pins, so this is requested
-  from the upstream Tau Ceti class-field-theory roadmap
-- Lambda[T(E)/K] is the group algebra of the finite - indeed profinite, but the limit is
-  over open K so each quotient is discrete - quotient, and the limit is over open
-  subgroups K of T(E)
-
-**Proof outline.**
-
-1. Resolve T by products of induced tori.
-2. Reduce to T induced, and then by Weil restriction of scalars to T = G_m, using IX.6.3.
-3. For T = G_m, apply local class field theory: Z^1(W_E,G_m) = Hom(E^times,G_m), which
-   gives the asserted description of the spectral centre.
-
-**Acceptance.**
-
-- Check the reduction to induced tori and then to G_m
-- Check that local class field theory is the input in the G_m case and that it is not available in the pinned libraries
-- Check that Z^geom(T,Lambda) is a product over B(T) and not a single copy
-
-**Prerequisites.** `ExcursionOperatorsAndSpectralAction:ES6:functoriality/weil-restriction`, `ExcursionOperatorsAndSpectralAction:ES6:functoriality/products`, `ExcursionOperatorsAndSpectralAction:ES6:functoriality/isogenies`, `ExcursionOperatorsAndSpectralAction:ES6/coefficient-policy-for-the-functorial-diagrams`, `LanglandsParameterStacks:LP0`, `LanglandsParameterStacks:LP2:excursion-presentation`, `LanglandsParameterStacks:LP2:integral-invariants`, `BunGAndNewtonStrata:BG0`, `BunGAndNewtonStrata:BG1`, `BunGAndNewtonStrata:BG2`, `SmoothRepresentationsOfLocalGroups:SR.0`, `VStackSheavesAndLisseCategories:VS4`, `mathlib:MonoidHom`, `mathlib:MulChar`, `mathlib:MonoidAlgebra`, `mathlib:CommRing`, `mathlib:Units.map`, `tauceti:TauCeti.ClassFieldTheory.Formation`
-
-**Sources.**
-
-- *Section IX.6.4, printed p. 333.* “If G = T is a torus, then D_lis(Bun_T,Lambda) = product over b in B(T) of D(T(E),Lambda) and in particular Z^geom(T,Lambda) = product over b in B(T) of Z(T(E),Lambda) where Z(T(E),Lambda) is the Bernstein center of T(E); explicitly, this is Z(T(E),Lambda) = lim over K inside T(E) of Lambda[T(E)/K] where K runs over open subgroups of T(E).”
-  The geometric side for a torus, quoted verbatim. Read directly from the hash-
-  verified PDF in this session.
-- *Proposition IX.6.4, printed p. 333.* “There is a natural isomorphism Z^spec(T,Lambda) = lim over K inside T(E) of Lambda[T(E)/K].”
-  The statement, quoted verbatim.
-- *Proof of Proposition IX.6.4, printed p. 333.* “One can resolve T by products of induced tori and then reduce to the case that T is induced, and then by Weil restrictions of scalars to T = G_m. In that case Z^1(W_E,G_m) = Hom(E^times,G_m) by local class field theory, giving the result.”
-  The proof, and the appeal to local class field theory, which neither pinned library
-  has.
-
-### FS IX.6.5: for a torus the spectral-to-geometric map is the diagonal embedding
-
-`ExcursionOperatorsAndSpectralAction:ES6:functoriality/tori-diagonal-embedding` — *theorem* · planet **Tori and local class field theory**
-
-**Statement.**
-
-Under the identifications Z^spec(T,Lambda) = lim over K inside T(E) of Lambda[T(E)/K]
-and Z^geom(T,Lambda) = product over b in B(T) of lim over K of Lambda[T(E)/K], the map
-Z^spec(T,Lambda) -> Z^geom(T,Lambda) is the DIAGONAL EMBEDDING. In particular the
-L-parameters constructed here for tori are THE USUAL L-parameters: for a smooth
-character chi of T(E), phi_chi is the parameter local class field theory attaches to
-chi, with the fixed geometric-Frobenius normalisation.
-
-**Hypotheses and warnings.**
-
-- The map is the diagonal, so it is the SAME element of the Bernstein centre on every
-  Newton stratum; that is the precise sense in which the assignment is insensitive to b
-  for a torus
-- The proof resolves T by induced tori and uses Theorem IX.6.1, Proposition IX.6.2 and
-  Proposition IX.6.3 to reduce to T = G_m
-- For T = G_m it is ENOUGH to compute the excursion operators corresponding to I =
-  {1,2}, V = std tensor std-dual and the TAUTOLOGICAL maps alpha : 1 -> std tensor std-
-  dual and beta : std tensor std-dual -> 1, and the computation is then an easy
-  consequence of Section II.2.1 - the explicit line-bundle computation on the Fargues-
-  Fontaine curve, which is RelativeFarguesFontaine's and BunGAndNewtonStrata's, not read
-  here
-- The normalisation of the class-field correspondence must be fixed: the roadmap
-  requires the geometric-Frobenius normalisation, which is the same one used in IX.7.1's
-  degree map
-
-**Proof outline.**
-
-1. Resolve T by induced tori and use IX.6.1, IX.6.2 and IX.6.3 to reduce to T = G_m.
-2. For T = G_m compute the excursion operator for I = {1,2}, V = std tensor std-dual and
-   the tautological unit and counit.
-3. Conclude from the computation of Section II.2.1.
-4. Deduce that the parameters constructed for tori agree with the usual ones.
-
-**Acceptance.**
-
-- Check that the map is the diagonal and not one component
-- Check the two-leg computation on G_m
-- Check that the geometric-Frobenius normalisation is fixed and used
-- Check that Section II.2.1 is the input for the G_m case
-
-**Prerequisites.** `ExcursionOperatorsAndSpectralAction:ES6:functoriality/tori-spectral-center`, `ExcursionOperatorsAndSpectralAction:ES6:functoriality/isogenies`, `ExcursionOperatorsAndSpectralAction:ES6:functoriality/products`, `ExcursionOperatorsAndSpectralAction:ES6:functoriality/weil-restriction`, `ExcursionOperatorsAndSpectralAction:ES5/excursion-character-of-a-schur-object`, `ExcursionOperatorsAndSpectralAction:ES1:spectral-center`, `LanglandsParameterStacks:LP0`, `BunGAndNewtonStrata:BG0`, `BunGAndNewtonStrata:BG1`, `SmoothRepresentationsOfLocalGroups:SR.0`, `mathlib:MonoidHom`, `mathlib:MulChar`, `mathlib:MonoidAlgebra`, `mathlib:LinearMap.trace`, `tauceti:TauCeti.ClassFieldTheory.Formation`
-
-**Sources.**
-
-- *Proposition IX.6.5, printed p. 333.* “Under the above identifications Z^spec(T,Lambda) = lim over K of Lambda[T(E)/K] and Z^geom(T,Lambda) = product over b in B(T) of lim over K of Lambda[T(E)/K], the map Z^spec(T,Lambda) -> Z^geom(T,Lambda) is the diagonal embedding.”
-  The statement, quoted verbatim. Read directly from the hash-verified PDF in this
-  session.
-- *Proof of Proposition IX.6.5, printed p. 333.* “We may resolve T by induced tori and use Theorem IX.6.1, Proposition IX.6.2 and Proposition IX.6.3 to reduce to the case of T = G_m. It is enough to compute the excursion operators corresponding to I = {1,2}, V = std tensor std-dual and the tautological maps alpha : 1 -> std tensor std-dual and beta : std tensor std-dual -> 1. It is then an easy consequence of Section II.2.1.”
-  The proof, and the explicit two-leg computation the roadmap asks for.
-- *After Proposition IX.6.5, printed p. 333.* “Proposition IX.6.5 in particular shows that the L-parameters we construct for tori are the usual L-parameters”
-  The conclusion: agreement with local class field theory.
-
-### FS IX.6, final paragraph: twisting, central characters and the reduction by z-extensions
-
-`ExcursionOperatorsAndSpectralAction:ES6:functoriality/central-characters-and-twisting` — *theorem* · planet **Central characters and twisting**
-
-**Statement.**
-
-Proposition IX.6.5, together with Theorem IX.6.1 and Proposition IX.6.2, implies that
-L-parameters are COMPATIBLE WITH CENTRAL CHARACTERS - in the case of CONNECTED CENTRE -
-and with TWISTING, by applying Theorem IX.6.1 to the map Z_G -> G, where Z_G is the
-centre, and to the quotient of G by its derived group. To deduce compatibility with
-central characters IN GENERAL, one reduces to the case of connected centre using
-Z-EXTENSIONS, as in Kaletha, Section 5.
-
-**Hypotheses and warnings.**
-
-- The connected-centre case is the one the argument gives directly; the general case
-  needs a z-extension and is NOT proved in anything read here beyond the citation
-- The z-extension apparatus - the existence of a z-embedding G -> G' with G' of
-  connected centre and torus quotient D, the injectivity of B(G) -> B(G'), and the
-  surjectivity of Z'(E) -> D(E) - is used again, and in more detail, in the proof of
-  Theorem IX.7.2, which belongs to ES7:parabolic. The roadmap makes the z-embedding and
-  rational-point-surjectivity lemmas OBLIGATIONS OF THIS LAYER on BunGAndNewtonStrata's
-  reductive carriers, and explicitly says they are not an assumed functorial local
-  Langlands correspondence
-- Kaletha's Section 5, cited as [Kal18], was NOT read in this session
-- The text recovered from the extraction reads 'by applying Theorem IX.6.1 to the maps
-  Z_G -> G and G -> G/D where Z_G is the center and G -> D is the quotient by the
-  derived group'; the second map is the projection to the torus quotient by the derived
-  group, and the packet states it that way rather than reproducing an ambiguous fragment
-
-**Proof outline.**
-
-1. Apply Theorem IX.6.1 to Z_G -> G to get compatibility with central characters when the
-   centre is connected.
-2. Apply Theorem IX.6.1 to the quotient of G by its derived group, a torus, and use
-   Proposition IX.6.5 to identify the resulting parameter through local class field
-   theory; this gives compatibility with twisting.
-3. For a general centre, choose a z-embedding G -> G' with Z(G') connected and torus
-   quotient D, prove B(G) -> B(G') injective and Z'(E) -> D(E) surjective, and reduce.
-
-**Acceptance.**
-
-- Check that the direct argument needs the centre to be connected
-- Check that twisting is obtained from the torus quotient together with the torus case
-- Check that the z-extension lemmas are obligations of this layer and not imported from a functorial local Langlands correspondence
-- Check that Kaletha's Section 5 is an unread external input
-
-**Prerequisites.** `ExcursionOperatorsAndSpectralAction:ES6:functoriality/tori-diagonal-embedding`, `ExcursionOperatorsAndSpectralAction:ES6:functoriality/isogenies`, `ExcursionOperatorsAndSpectralAction:ES6:functoriality/products`, `ExcursionOperatorsAndSpectralAction:ES6/coefficient-policy-for-the-functorial-diagrams`, `ExcursionOperatorsAndSpectralAction:ES7:parabolic`, `BunGAndNewtonStrata:BG0`, `BunGAndNewtonStrata:BG1`, `BunGAndNewtonStrata:BG2`, `ReductiveGroupsPartII:RG2.5`, `SmoothRepresentationsOfLocalGroups:SR.0`, `SmoothRepresentationsOfLocalGroups:SR.1`, `LanglandsParameterStacks:LP0`, `mathlib:Representation`, `mathlib:MonoidHom`, `mathlib:RootPairing`, `mathlib:Subgroup`
-
-**Sources.**
-
-- *After Proposition IX.6.5, printed p. 333.* “Proposition IX.6.5 in particular shows that the L-parameters we construct for tori are the usual L-parameters, and together with Theorem IX.6.1 and Proposition IX.6.2 implies that L-parameters are compatible with central characters (in case of connected center) and twisting, by applying Theorem IX.6.1 to the maps Z_G -> G and G -> G/D where Z_G is the center and G -> D is the ...”
-  The whole paragraph, quoted as recovered. Read directly from the hash-verified PDF
-  in this session. The excerpt is truncated at a word boundary; the full passage is on
-  the printed page named in the locator.
-- *Proof of Theorem IX.7.2, printed p. 335.* “Take a z-embedding G -> G' as in [Kal18, Section 5], with quotient a torus D, so that the center Z(G') is connected. Then Bun_G = Bun_{G'} x_{Bun_D} {*} and the map B(G) -> B(G') is injective. To see the latter, by the description of the stacks, it suffices to see that for all b in B(G) with image b' in B(G'), the map G'_{b'}(E) -> D(E) is surjective. But for any b in B(G), ...”
-  The z-extension apparatus in the form in which it is actually used. The theorem it
-  serves is ES7:parabolic's; the lemmas about z-embeddings are, by the roadmap's own
-  instruction, obligations of this layer. The excerpt is truncated at a word boundary;
-  the full passage is on the printed page named in the locator.
-
-### Z-embeddings: the reduction to connected centre, and the surjectivity it needs
-
-`ExcursionOperatorsAndSpectralAction:ES6:functoriality/z-embedding` — *definition*
-
-**Statement.**
-
-A Z-EMBEDDING of a reductive group G over E, in the sense of Kaletha's Section 5, is an
-embedding G -> G' with QUOTIENT A TORUS D such that the centre Z(G') is CONNECTED.
-Fargues-Scholze use it twice: to reduce compatibility with central characters to the
-connected-centre case (IX.6, final paragraph), and to reduce Theorem IX.7.2 to a
-quasisplit group. The properties they use are: Bun_G = Bun_{G'} x_{Bun_D} {*}; the map
-B(G) -> B(G') is INJECTIVE; and for every b in B(G) the map G'_{b'}(E) -> D(E) is
-SURJECTIVE, which itself follows because G_b -> G'_{b'} is again a z-embedding with
-quotient D and because Z'(E) -> D(E) is surjective for the central torus Z' of G'_{b'}.
-The roadmap makes these lemmas obligations of THIS layer, on BunGAndNewtonStrata's
-reductive carriers, and says explicitly that they are not an assumed functorial local
-Langlands correspondence.
-
-**Hypotheses and warnings.**
-
-- The quotient is a TORUS and the centre of the target is CONNECTED; both are part of
-  the definition and both are used
-- The injectivity of B(G) -> B(G') is DEDUCED from the surjectivity of G'_{b'}(E) ->
-  D(E), not assumed; the deduction goes through the description of the stacks
-- The surjectivity Z'(E) -> D(E) is quoted from Kaletha's Fact 5.5, which was NOT read
-  in this session
-- The construction of a z-embedding for a given G is also quoted from Kaletha's Section
-  5 and is not carried out in anything read here
-- The roadmap requires that z-embeddings be CONSTRUCTED AND COMPARED here rather than
-  being assumed, and that the rational-point surjectivity be proved on
-  BunGAndNewtonStrata's carriers
-
-**Proof outline.**
-
-1. Define a z-embedding as an embedding G -> G' with torus quotient D and Z(G')
-   connected.
-2. From the description of Bun_G as a fibre product, deduce Bun_G = Bun_{G'} x_{Bun_D}
-   {*}.
-3. Show that for every b in B(G) the map G'_{b'}(E) -> D(E) is surjective, using that G_b
-   -> G'_{b'} is a z-embedding with quotient D and that Z'(E) -> D(E) is surjective.
-4. Deduce that B(G) -> B(G') is injective.
-
-**Planning API.**
-
-| Name | Role | Statement |
-| --- | --- | --- |
-| `IsZEmbedding` | data | G -> G' with quotient a torus D and Z(G') connected. |
-| `IsZEmbedding.connectedCentre` | structure | The centre of the target is connected; that is the point of the construction. |
-| `IsZEmbedding.bunFibreProduct` | characterisation | Bun_G = Bun_{G'} x_{Bun_D} {*}. |
-| `IsZEmbedding.surjectiveOnPoints` | structure | G'_{b'}(E) -> D(E) is surjective for every b, because G_b -> G'_{b'} is again a z-embedding and Z'(E) -> D(E) is surjective. |
-| `IsZEmbedding.injectiveOnB` | projection | B(G) -> B(G') is injective; this is deduced from the surjectivity, not assumed. |
-| `IsZEmbedding.exists` | constructor | Every reductive G admits a z-embedding; this is Kaletha's construction and is an external input. |
-
-**Where it is used.**
-
-- `ExcursionOperatorsAndSpectralAction:ES6:functoriality/central-characters-and-twisting` — the general central-character statement reduces to the connected-centre case through it
-- `ExcursionOperatorsAndSpectralAction:ES7:parabolic` — the proof of Theorem IX.7.2 reduces to quasisplit G through it
-- `ExcursionOperatorsAndSpectralAction:ES6:functoriality/isogenies` — the reduction uses that the parameters are compatible with the map G -> G'
-
-**Unit tests.**
-
-- `torus_quotient` — The quotient is a torus; an embedding with a non-torus quotient is not a z-embedding.
-- `connected_centre_of_target` — Z(G') is connected; without it the reduction achieves nothing.
-- `injectivity_is_deduced` — B(G) -> B(G') is injective, and the proof goes through surjectivity on rational points; assuming injectivity directly skips the content.
-- `existence_is_external` — The existence of a z-embedding is Kaletha's and is not proved in anything read here.
-
-**Acceptance.**
-
-- Check that the quotient is a torus and the target has connected centre
-- Check the fibre-product description of Bun_G
-- Check the surjectivity on rational points and the injectivity it gives
-- Check that the existence of a z-embedding is an external input
-
-**Prerequisites.** `ExcursionOperatorsAndSpectralAction:ES6:functoriality/central-characters-and-twisting`, `ExcursionOperatorsAndSpectralAction:ES6:functoriality/tori-diagonal-embedding`, `ExcursionOperatorsAndSpectralAction:ES7:parabolic`, `BunGAndNewtonStrata:BG0`, `BunGAndNewtonStrata:BG1`, `BunGAndNewtonStrata:BG2`, `ReductiveGroupsPartII:RG2.5`, `SmoothRepresentationsOfLocalGroups:SR.0`, `mathlib:Representation`, `mathlib:MonoidHom`, `mathlib:Subgroup`, `mathlib:RootPairing`
-
-**Sources.**
-
-- *After Proposition IX.6.5, printed p. 333.* “To deduce compatibility with central characters in general, one can reduce to the case of connected center using z-extensions [Kal18, Section 5].”
-  The first use. Read directly from the hash-verified PDF in this session.
-- *Proof of Theorem IX.7.2, printed p. 335.* “Take a z-embedding G -> G' as in [Kal18, Section 5], with quotient a torus D, so that the center Z(G') is connected. Then Bun_G = Bun_{G'} x_{Bun_D} {*} and the map B(G) -> B(G') is injective. To see the latter, by the description of the stacks, it suffices to see that for all b in B(G) with image b' in B(G'), the map G'_{b'}(E) -> D(E) is surjective. But for any b in B(G), ...”
-  The properties used, quoted verbatim. The theorem this serves is ES7:parabolic's;
-  the lemmas are, by the roadmap's instruction, obligations of this layer. The excerpt
-  is truncated at a word boundary; the full passage is on the printed page named in
-  the locator.
-
-**What remains in this layer.**
-
-- Local class field theory - the identification Z^1(W_E,G_m) = Hom(E^times,G_m), on
-  which the whole torus case rests - is in NEITHER pinned library. A direct search of
-  the pinned index found no Artin map, no local reciprocity map and no class field
-  theory of any kind. It is requested from the upstream Tau Ceti class-field-theory
-  roadmap.
-- Section II.2.1, the explicit line-bundle computation on the Fargues-Fontaine curve
-  that finishes the G_m case of Proposition IX.6.5, was NOT read. NEXT SOURCE ACTION:
-  read FS II.2.1.
-- The compatibility of geometric Satake with a map G -> G' inducing an isomorphism of
-  adjoint groups, quoted in the proof of Theorem IX.6.1 'as in the proof of Theorem
-  VI.11.1', was not read; Theorem VI.11.1 belongs to GeometricSatakeAndFusion.
-- Kaletha's Section 5 and Fact 5.5, from which both the construction of a z-embedding
-  and the surjectivity Z'(E) -> D(E) are quoted, were NOT read.
-- The roadmap asks that the actual maps of Bun and Hecke correspondences be constructed
-  and their kernels compared BEFORE any character is evaluated. The source's proofs are
-  diagram chases at the level of the correspondences and do not discuss kernels; that
-  comparison is an obligation with no locator.
-- The upper-right corner of the display in Proposition IX.6.2 is printed in the
-  extraction as Z^geom(G_1,Lambda) tensor Z^geom(G_1,Lambda); the second factor must be
-  Z^geom(G_2,Lambda). A reviewer should confirm against the printed page.
-
-## ES6:duality — Contragradients with the correct proof return
-
-*Coverage: **partial**. 2 nodes.*
-
-The representation-level halves of FS Proposition IX.5.3: compatibility of the parameter
-assignment with Bernstein-Zelevinsky duals, from the commuting square of ES4 and the
-Chevalley involution; and with smooth duals, immediately for supercuspidals and through
-parabolic induction in general.
-
-### FS IX.5.3: L-parameters are compatible with Bernstein-Zelevinsky duals
-
-`ExcursionOperatorsAndSpectralAction:ES6:duality/bernstein-zelevinsky-duals` — *theorem* · planet **Compatibility with Bernstein-Zelevinsky duals**
-
-**Statement.**
-
-The formation of L-parameters for irreducible smooth representations of G(E) is
-COMPATIBLE WITH PASSAGE TO BERNSTEIN-ZELEVINSKY DUALS. This is deduced from the
-commuting square of Proposition IX.5.3 relating the involution D^spec of
-Z^spec(G,Lambda) induced by the CHEVALLEY INVOLUTION of G-hat and the involution D^geom
-of Z^geom(G,Lambda) induced by the Bernstein-Zelevinsky duality functor D_BZ on
-D_lis(Bun_G,Lambda). The commutation itself follows from the construction of the
-excursion operators and from Proposition VI.12.1.
-
-**Hypotheses and warnings.**
-
-- The square is the ES4 statement; this node is its representation-level consequence,
-  which the roadmap assigns here and not to ES4
-- The Chevalley involution must be PRESERVED in the dual parameter; the roadmap says so
-  explicitly. On Z^1(W_E,G-hat) the Chevalley involution of G-hat induces an involution,
-  and only AFTER passing to the quotient by the conjugation action of G-hat may one
-  forget the inner automorphism appearing in Proposition VI.12.1
-- The Hecke-side input is Theorem IX.2.2: for the automorphism sw of Rep(G-hat^I) given
-  by Proposition VI.12.1 there are natural isomorphisms D_BZ(T_V(A)) = T_{sw
-  V-dual}(D_BZ(A)) and RHom_lis(T_V(A),Lambda) = T_{sw V-dual} RHom_lis(A,Lambda). That
-  theorem is HeckeStacksAndLocalShtukas' and is imported
-- Proposition VI.12.1 was NOT read in this session; it is GeometricSatakeAndFusion's and
-  is the only substantive input
-
-**Proof outline.**
-
-1. Use the square of Proposition IX.5.3 relating D^spec and D^geom.
-2. Apply it to the object attached to an irreducible smooth representation by ES5's
-   construction.
-3. Read off that the parameter of the Bernstein-Zelevinsky dual is the Chevalley
-   involution applied to the parameter.
-
-**Acceptance.**
-
-- Check that the Chevalley involution is preserved and that the inner automorphism may be dropped only after passing to the quotient
-- Check the Hecke-side identity D_BZ(T_V(A)) = T_{sw V-dual}(D_BZ(A))
-- Check that the statement is about irreducible smooth representations and not about arbitrary objects
-
-**Prerequisites.** `ExcursionOperatorsAndSpectralAction:ES5/parameter-of-an-irreducible-smooth-representation`, `ExcursionOperatorsAndSpectralAction:ES5/parameter-of-a-schur-irreducible-sheaf`, `ExcursionOperatorsAndSpectralAction:ES6:functoriality/isogenies`, `ExcursionOperatorsAndSpectralAction:ES4`, `ExcursionOperatorsAndSpectralAction:ES1:spectral-center`, `VStackSheavesAndLisseCategories:VS5`, `VStackSheavesAndLisseCategories:VS4`, `GeometricSatakeAndFusion:GS4:integral-dual-group`, `ReductiveGroupsPartII:RG2.5`, `HeckeStacksAndLocalShtukas:HS1`, `SmoothRepresentationsOfLocalGroups:SR.0`, `mathlib:CategoryTheory.LeftRigidCategory`, `mathlib:Representation`, `mathlib:RootPairing`
-
-**Sources.**
-
-- *Proposition IX.5.3, printed p. 329.* “The formation of L-parameters for irreducible smooth representations of G(E) is compatible with passage to Bernstein-Zelevinsky duals, and to smooth duals.”
-  The statement's second sentence, which is this layer's. The commuting square in the
-  first sentence belongs to ES4 and is planned in the ES0 part of this roadmap. Read
-  directly from the hash-verified PDF in this session.
-- *Before Proposition IX.5.3, printed p. 329.* “The Bernstein-Zelevinsky duality functor D_BZ on D_lis(Bun_G,Lambda) induces an involution D^geom of Z^geom(G,Lambda). On the other hand, on Z^1(W_E,G-hat), the Chevalley involution of G-hat induces an involution; after passing to the quotient by the conjugation action of G-hat, we can also forget about the inner automorphism appearing in Proposition VI.12.1.”
-  The two involutions, and the exact sense in which the inner automorphism may be
-  dropped.
-- *Theorem IX.2.2, printed p. 322.* “Moreover, for the automorphism sw of Rep_Lambda(G-hat^I) given by Proposition VI.12.1, there are natural isomorphisms D_BZ(T_V(A)) = T_{sw V-dual}(D_BZ(A)), RHom_lis(T_V(A),Lambda) = T_{sw V-dual} RHom_lis(A,Lambda).”
-  The Hecke-side compatibility that makes the duality argument work. It belongs to
-  HeckeStacksAndLocalShtukas and is imported.
-
-### FS IX.5.3: smooth duals - immediate for supercuspidals, and via parabolic induction in general
-
-`ExcursionOperatorsAndSpectralAction:ES6:duality/smooth-duals` — *theorem* · planet **Compatibility with smooth duals**
-
-**Statement.**
-
-The formation of L-parameters is also compatible with passage to SMOOTH DUALS. For
-SUPERCUSPIDAL representations the Bernstein-Zelevinsky dual agrees with the smooth dual,
-so the statement is immediate from the previous node. IN GENERAL the claim for smooth
-duals FOLLOWS FROM THE COMPATIBILITY WITH PARABOLIC INDUCTION proved later, that is from
-FS Corollary IX.7.3, which belongs to ES7:parabolic. The two halves are therefore not
-independent, and the general statement is a LATE RETURN in the roadmap's sense.
-
-**Hypotheses and warnings.**
-
-- The general smooth-dual statement DEPENDS on ES7:parabolic. The roadmap says so and
-  adds that ES7:parabolic itself imports only ES6:functoriality, not this return - so
-  the dependence must not be made circular
-- The supercuspidal case is where the two dualities agree; for a general irreducible
-  smooth representation they differ, and the difference is exactly what parabolic
-  induction controls
-- The representation-theoretic duality and induction theorem the roadmap names as an
-  additional import - Aubert-Zelevinsky duality and its interaction with induction - is
-  SmoothRepresentationsOfLocalGroups' and is not proved anywhere read here
-- Fargues-Scholze's proof of this half is a single sentence
-
-**Proof outline.**
-
-1. For supercuspidal pi, note that the Bernstein-Zelevinsky dual agrees with the smooth
-   dual and apply the previous node.
-2. For general irreducible pi, use the compatibility with parabolic induction of
-   Corollary IX.7.3 together with the representation-theoretic relation between the two
-   dualities and induction.
-
-**Acceptance.**
-
-- Check that the supercuspidal case is the one where the two duals agree
-- Check that the general case depends on ES7:parabolic and that the dependence is not circular
-- Check that the representation-theoretic duality and induction theorem is an import
-
-**Prerequisites.** `ExcursionOperatorsAndSpectralAction:ES6:duality/bernstein-zelevinsky-duals`, `ExcursionOperatorsAndSpectralAction:ES5/parameter-of-an-irreducible-smooth-representation`, `ExcursionOperatorsAndSpectralAction:ES7:parabolic`, `SmoothRepresentationsOfLocalGroups:SR.0`, `SmoothRepresentationsOfLocalGroups:SR.1`, `SmoothRepresentationsOfLocalGroups:SR.2`, `SmoothRepresentationsOfLocalGroups:SR.3`, `VStackSheavesAndLisseCategories:VS5`, `VStackSheavesAndLisseCategories:VS4`, `mathlib:Representation`, `tauceti:TauCeti.IsSmoothDiscrete`
-
-**Sources.**
-
-- *Proof of Proposition IX.5.3, printed p. 330.* “For the final part, it now follows that the formation of L-parameters is compatible with passage to Bernstein-Zelevinsky duals. For supercuspidal representations, this agrees with the smooth dual. In general, the claim for smooth duals follows from the compatibility with parabolic induction proved below.”
-  The proof, quoted verbatim - three sentences, the last of which creates the
-  dependence on ES7:parabolic. Read directly from the hash-verified PDF in this
-  session.
-- *Corollary IX.7.3, printed p. 337.* “In particular, the formation of L-parameters is compatible with parabolic induction: If Lambda = L is an algebraically closed field, pi is irreducible and pi-tilde is an irreducible subquotient of the unnormalised induction Ind^{G(E)}_{P(E)} pi, then phi_{pi-tilde} is conjugate to the composite W_E -> M-hat(L) semidirect W_E -> G-hat(L) semidirect W_E, involving the cyclotomic twist.”
-  The statement this node depends on. It belongs to ES7:parabolic and is imported.
-
-**What remains in this layer.**
-
-- Proposition VI.12.1, which identifies the switching involution sw of Rep(G-hat^I) with
-  the Chevalley involution up to an inner automorphism, was NOT read. It is
-  GeometricSatakeAndFusion's and is the only substantive input to the duality argument.
-- The general smooth-dual statement depends on FS Corollary IX.7.3, which belongs to
-  ES7:parabolic and is not planned anywhere yet. Until that layer is planned, this half
-  rests on an unplanned supplier.
-- The representation-theoretic duality and induction theorem that the roadmap names as
-  an additional import - the relation between Aubert-Zelevinsky duality and parabolic
-  induction - is not proved in anything read and is requested from
-  SmoothRepresentationsOfLocalGroups.
-- The commuting square itself is planned in the ES0 part of this roadmap, on ES4; this
-  packet cites it as a prerequisite by stage.
-
-## Baseline: what the pinned libraries already have
-
-Mathlib `082e2d3`, Tau Ceti `f790474`. The reviewed audit **AUDIT-20** (reviewed as
-`REV-AUDIT-20`, 17 September 2026, 240 targets checked, 89 corrections) covers every
-layer of this roadmap and returns **not built** for each. Its target notes are acted
-on below: `CategoryTheory.CatCenter`, the Nielsen–Schreier theorem, abelian Shapiro
-and Tau Ceti's class formations are cited rather than re-planned, which fixes exactly
-where the nonabelian Shapiro equivalence and the local reciprocity map begin. Every
-declaration below was read at the pins before being cited.
-
-| Declaration | Module | Why it is baseline |
-| --- | --- | --- |
-| `mathlib:Representation` | `Mathlib/RepresentationTheory/Basic.lean` | Representations of a group on a module. The V of an excursion datum, the smooth representations of G_b(E) whose parameters are constructed here, and the inflate-then-induce recipe of the Weil-restriction argument are all this notion. |
-| `mathlib:MonoidHom` | `Mathlib/Algebra/Group/Hom/Defs.lean` | Group homomorphisms. An L-parameter is a continuous 1-cocycle W_E -> G-hat(L) semidirect Q; for a torus it is a homomorphism, and the identification Z^1(W_E,G_m) = Hom(E^times,G_m) of Proposition IX.6.4 is a statement about this type. |
-| `mathlib:MulChar` | `Mathlib/NumberTheory/MulChar/Basic.lean` | Multiplicative characters. The smooth characters of T(E) whose parameters Proposition IX.6.5 identifies with the usual ones, and the characters of E^times that local class field theory produces, are of this kind. |
-| `mathlib:Units.map` | `Mathlib/Algebra/Group/Units/Hom.lean` | Functoriality of unit groups. E^times and its quotients by open subgroups are the objects the torus case is stated in terms of. |
-| `mathlib:MonoidAlgebra` | `Mathlib/Algebra/MonoidAlgebra/Defs.lean` | Monoid algebras. Lambda[T(E)/K], whose limit over open K is both the classical Bernstein centre of a torus and, by Proposition IX.6.4, its spectral centre. |
-| `mathlib:CommRing` | `Mathlib/Algebra/Ring/Defs.lean` | Commutative rings. The excursion algebra, the spectral centre, the invariant rings O((G-hat semidirect Q)^n // G-hat) and the Bernstein centres are commutative rings. |
-| `mathlib:RingHom` | `Mathlib/Algebra/Ring/Hom/Defs.lean` | Ring homomorphisms. Every square in Section IX.6 is a square of algebra maps, and the excursion character is a family of maps of Z_l-algebras. |
-| `mathlib:FreeGroup` | `Mathlib/GroupTheory/FreeGroup/Basic.lean` | Free groups. The excursion algebra is a colimit over (n, F_n -> W); the Weil-restriction comparison turns on the fact that a finite-index subgroup F_n x_W W' of F_n is itself finitely generated free. |
-| `mathlib:Subgroup` | `Mathlib/Algebra/Group/Subgroup/Defs.lean` | Subgroups. The open subgroup P of the wild inertia, the discrete dense W inside W_E/P, the finite-index F_n x_W W', the open K inside T(E) and the central torus Z' of a z-embedding are subgroups. |
-| `mathlib:Condensed` | `Mathlib/Condensed/Basic.lean` | Condensed objects. Schur-irreducibility is an identity of CONDENSED algebras and the excursion character is a family of maps of CONDENSED sets; without the condensed structure the parameter is not continuous. The condensed enhancement of D_lis is imported from the sheaf roadmaps. |
-| `mathlib:CondensedMod` | `Mathlib/Condensed/Module.lean` | Condensed modules. Proposition IX.1.2's relatively discrete condensed animated Lambda-modules Hom(A,B) are of this kind after truncation. |
-| `mathlib:Module.End` | `Mathlib/Algebra/Module/LinearMap/End.lean` | Endomorphism rings. End(A) = L is the Schur condition, and End(pi^* A) and End(Ind pi) are the targets of the squares of Section IX.6. |
-| `mathlib:CategoryTheory.Adjunction` | `Mathlib/CategoryTheory/Adjunction/Basic.lean` | Adjunctions. The embedding of a stratum's category is the LEFT ADJOINT to i_b^* of Proposition VII.7.2, and it is fully faithful because its unit is an equivalence; the alpha and beta of an excursion datum are unit and counit. |
-| `mathlib:CategoryTheory.MonoidalCategory` | `Mathlib/CategoryTheory/Monoidal/Category.lean` | Monoidal categories. The Hecke datum is a monoidal functor out of Rep((G-hat semidirect Q)^I), and the exterior tensor product of Proposition VII.7.10 is a monoidal comparison. |
-| `mathlib:CategoryTheory.Functor.Monoidal` | `Mathlib/CategoryTheory/Monoidal/Functor.lean` | Monoidal functors. The categorical datum of FS VIII.4, which the abstract parameter theorem quantifies over, is one. |
-| `mathlib:CategoryTheory.LeftRigidCategory` | `Mathlib/CategoryTheory/Monoidal/Rigid/Basic.lean` | Rigid monoidal categories. Dualisability of V in the Satake category gives T_V its adjoints, and the switching involution sw and the Chevalley involution of the duality statements act on duals. |
-| `mathlib:TensorProduct` | `Mathlib/LinearAlgebra/TensorProduct/Basic.lean` | Tensor products. Z^spec(G_1,Lambda) tensor Z^spec(G_2,Lambda) is the source of the square of Proposition IX.6.2, and the Hom formula of Proposition VII.7.10 is an isomorphism of tensor products. |
-| `mathlib:DirectSum` | `Mathlib/Algebra/DirectSum/Basic.lean` | Direct sums. The decomposition of D_lis(Bun_T,Lambda) over B(T), and the decomposition of a pullback or an exterior product into Schur-irreducible constituents, are stated in these terms. |
-| `mathlib:LinearMap.trace` | `Mathlib/LinearAlgebra/Trace.lean` | Traces of endomorphisms. The two-leg excursion datum with V = std tensor std-dual computes a trace, and that is the computation the torus case and the GL_n comparison both run. |
-| `mathlib:RootPairing` | `Mathlib/LinearAlgebra/RootSystem/Defs.lean` | Root pairings. The Chevalley involution, the dual map G-hat -> G-hat' attached to a map inducing an isomorphism of adjoint groups, and the derived group and centre of a reductive group are root-datum notions; the dual group itself is GeometricSatakeAndFusion:GS4's and ReductiveGroupsPartII:RG2.5's. |
-| `mathlib:AlgebraicGeometry.Scheme` | `Mathlib/AlgebraicGeometry/Scheme.lean` | Schemes. Z^1(F_n,G-hat) and its quotients Z^1(F_n,G-hat)//G-hat are affine schemes, and the Weil-restriction comparison is an isomorphism of affine schemes. |
-| `tauceti:TauCeti.IsSmoothDiscrete` | `TauCeti/RepresentationTheory/SmoothDiscrete.lean` | Smooth discrete actions. The irreducible smooth representations of G_b(E) to which parameters are attached are of this kind at the pins. This is a genuine baseline and is NOT the equivalence with sheaves on a stratum, which is VStackSheavesAndLisseCategories:VS4's. |
-| `tauceti:TauCeti.SmoothDiscreteTopRep` | `TauCeti/RepresentationTheory/SmoothDiscrete.lean` | The category of smooth discrete representations. The Bernstein centre of a torus, and the categories D(G_b(E),Lambda) that the strata are identified with, live over this category. |
-| `mathlib:CategoryTheory.CatCenter` | `Mathlib/CategoryTheory/Center/Basic.lean` | `abbrev CatCenter := End (1_C)`, ALREADY IN MATHLIB: the Bernstein centre of a category, which the reviewed audit AUDIT-20 records as a PARTIAL target of ES0. Every square of Section IX.6 has a centre at one corner, and the 1-categorical notion is this declaration. |
-| `mathlib:IsFreeGroup` | `Mathlib/GroupTheory/FreeGroup/IsFreeGroup.lean` | Free groups as a property. AUDIT-20 records that Mathlib HAS the Nielsen-Schreier theorem, that a subgroup of a free group is free - which is exactly what the Weil-restriction comparison of Proposition IX.6.3 needs for F_n x_W W' - but NOT the Schreier index formula for its rank. The comparison uses only freeness, so this is a genuine baseline citation, and the missing rank formula is recorded as a gap. |
-| `mathlib:groupCohomology.coindIso` | `Mathlib/RepresentationTheory/Homological/GroupCohomology/Shapiro.lean` | ABELIAN SHAPIRO'S LEMMA in all degrees, at the pins. Proposition IX.6.3's comparison is the NONABELIAN Shapiro equivalence for Z^1 with coefficients in a nonabelian group, which is absent; the pinned abelian statement is its degree-one shadow and is cited to mark the boundary precisely. |
-| `tauceti:TauCeti.ClassFieldTheory.Formation` | `TauCeti/NumberTheory/ClassFieldTheory/Formation/Basic.lean` | CLASS FORMATIONS, at the pins, together with Tau Ceti's Tate cohomology. AUDIT-20 records these as the only class-field-theory content in either library: the CARRIERS exist, the local reciprocity map does not. A direct search confirms it - there is no Artin map and no reciprocity map anywhere in either library - so Proposition IX.6.4's appeal to local class field theory has, at the pins, a formulation but no right-hand side. |
-
-Confirmed **absent** at both pins, and therefore not cited: **local class field theory**
-in any form — a search of the pinned index found no Artin map, no local reciprocity map
-and no class field theory, and Tau Ceti's only `Weil` declarations are about Weil
-divisors — the local Weil group as a topological group, the Langlands dual group, stable
-infinity-categories and their Ind-completions, perfect complexes on a stack, and the
-classical Bernstein decomposition. Everything this packet needs from those notions is
-requested from another roadmap rather than cited as baseline.
-
-## Gaps
-
-Thirteen. The first two are the standing caveats on this packet; the rest each carry
-a next source action.
-
-### 1. This roadmap has no integrated decomposition; every node was written from the source read in this session
-
-There is no file for ExcursionOperatorsAndSpectralAction in data/decompositions/, no
-draft in research/expansion/drafts/, no external contribution. All sixteen nodes of this
-packet were written from Fargues-Scholze read directly, from Geometrization.pdf whose
-SHA-256 reproduces the recorded value byte for byte; the text was extracted by inflating
-the PDF's object streams and reading its text operators, and every printed page was read
-off the running heads. The companion part of this roadmap, covering ES0 to ES4, was
-written in the same session from the same reading. A reviewer of this packet is checking
-a first reading and not a refinement of a reviewed one.
-
-### 2. CORRECTION: this roadmap does have a reviewed library audit, and the first version of this packet said it did not
-
-The first version of this packet said there is 'no reviewed audit in data/library-
-coverage.json' for this roadmap. That is wrong. AUDIT-20, reviewed as REV-AUDIT-20 on 17
-September 2026 with 240 targets checked and 89 corrections, covers all seventeen layers
-and returns NOT BUILT for every one. No node here duplicates a built target, so nothing
-planned is overturned; but four of the audit's notes change what this packet cites, and
-all four are applied. (1) ES0's centre target is PARTIAL because Mathlib has
-CategoryTheory.CatCenter = End(1_C); it is now cited. (2) ES6:functoriality's Weil-
-restriction target records that Mathlib HAS the Nielsen-Schreier theorem - a subgroup of
-a free group is free, which is precisely what F_n x_W W' needs - but NOT the Schreier
-index formula for its rank, and HAS abelian Shapiro's lemma in all degrees
-(groupCohomology.coindIso) while the NONABELIAN Shapiro equivalence this proposition
-proves is absent. Both pinned declarations are now cited, so the boundary is exact. (3)
-ES6's torus target records that local class field theory is not proved and that Tau Ceti
-has only the class-formation carriers and Tate cohomology;
-TauCeti.ClassFieldTheory.Formation is now cited, and a direct search of the index
-confirms there is no Artin map and no reciprocity map anywhere in either library. (4)
-The audit's duplicate records for ES5 name GlobalShtukasAndFunctionFieldLanglands:GS.5
-and LanglandsParameterStacks:LP2:semisimple-characters; the second was already requested
-and a request to the first is now added.
-
-### 3. The statement of Proposition VIII.3.8 is damaged in the text extraction, so this packet requests it rather than restating it
-
-Proposition VIII.3.8 is the statement that turns an excursion character into a
-semisimple parameter, and the whole of ES5 rests on it. On printed pages 289 and 290 the
-extraction used here renders its enumerated items (i), (ii) and (iii) as a broken run of
-display fragments; what was recovered cleanly is the third item's two commuting squares
-- the one induced by pullback and the one induced by multiplication, both with target
-Map(W_E^n,L) - and the proof, which says that (i) and (ii) are in natural bijection,
-that the recipe gives a canonical map from (ii) to (iii), and that data as in (iii)
-gives a semisimple 1-cocycle phi : W_E -> G-hat(L) of discrete groups up to conjugation,
-whose continuity follows from V. Lafforgue's Proposition 11.7 and Lemma 11.10. Rather
-than reconstruct an enumerated statement that was not read, this packet files the whole
-proposition as a request to LanglandsParameterStacks:LP2:semisimple-characters, which
-owns it. NEXT SOURCE ACTION: read printed pages 289-290 of Geometrization.pdf in a
-viewer and record the three items verbatim.
-
-### 4. V. Lafforgue's continuity argument was not read
-
-The proof of Proposition VIII.3.8 establishes continuity of the resulting cocycle by
-citing 'the proof of [Laf18, Proposition 11.7], in particular the choice of finitely
-many elements gamma_1,...,gamma_n in W_E such that phi(gamma) is determined by the
-closed G-hat-orbit in (G-hat semidirect Q)^{n+1} determined by
-(gamma_1,...,gamma_n,gamma) via Theta_{n+1}, cf. [Laf18, Lemma 11.10]'. V. Lafforgue,
-Chtoucas pour les groupes reductifs et parametrisation de Langlands globale, J. Amer.
-Math. Soc. 31 (2018), was NOT read in this session. Since continuity is the entire
-reason for carrying the condensed structure through ES5, this is the deepest unread
-dependence of this part. NEXT SOURCE ACTION: read [Laf18] Section 11, in particular
-Proposition 11.7 and Lemma 11.10.
-
-### 5. Local class field theory is in neither pinned library, and the whole torus case rests on it
-
-The proof of Proposition IX.6.4 reduces to T = G_m and then says 'In that case
-Z^1(W_E,G_m) = Hom(E^times,G_m) by local class field theory, giving the result.' A
-direct search of the pinned declaration index for both libraries found no Artin map, no
-local reciprocity map, no class field theory and no Weil group: the only matches for
-'Weil' in Tau Ceti are Weil divisors, and Mathlib has nothing under ArtinMap, classField
-or localReciprocity. So Propositions IX.6.4 and IX.6.5, and with them the identification
-of the parameters of characters of a torus with the usual ones, rest entirely on a
-request to the upstream Tau Ceti class-field-theory roadmap. NEXT SOURCE ACTION: none in
-this source; the statement must come from tauceti:TauCetiRoadmap/ClassFieldTheory layers
-8 and 9, with the geometric-Frobenius normalisation fixed.
-
-### 6. FS Section II.2.1, which finishes the G_m case of Proposition IX.6.5, was not read
-
-The proof of Proposition IX.6.5 reduces to computing the excursion operator for I of
-size two with V = std tensor std-dual and the tautological unit and counit, and
-concludes: 'It is then an easy consequence of Section II.2.1.' Section II.2.1 is the
-explicit computation with line bundles on the Fargues-Fontaine curve and was not read in
-this session. The roadmap asks for exactly that computation - 'Compute the two-leg
-standard/dual excursion using the explicit line-bundle calculation' - so this is the one
-place where the layer's own text names a calculation that this packet cannot yet
-exhibit. NEXT SOURCE ACTION: read FS Section II.2.1, printed pages in Chapter II; it is
-also RelativeFarguesFontaine's and BunGAndNewtonStrata's material.
-
-### 7. Kaletha's Section 5, from which the z-embedding apparatus is quoted, was not read
-
-Both the existence of a z-embedding G -> G' with connected centre and torus quotient,
-and the surjectivity Z'(E) -> D(E) quoted as Fact 5.5, come from T. Kaletha, Regular
-supercuspidal representations (or the Section 5 of the paper Fargues-Scholze cite as
-[Kal18]). Neither was read here. The roadmap makes these lemmas obligations of
-ES6:functoriality rather than imports, so a formalisation cannot simply cite them; the
-node for them records exactly which properties are used and which are external. NEXT
-SOURCE ACTION: read [Kal18] Section 5 and Fact 5.5 and decide whether to plan them here
-or route them to ReductiveGroupsPartII.
-
-### 8. Proposition VI.12.1 was not read, and it is the only substantive input to the duality statements
-
-The involution D^spec is defined using the Chevalley involution 'after passing to the
-quotient by the conjugation action of G-hat, we can also forget about the inner
-automorphism appearing in Proposition VI.12.1', the proof of Proposition IX.5.3 says the
-commutation 'follows easily from the construction of excursion operators and Proposition
-VI.12.1', and Theorem IX.2.2's duality identities are stated 'for the automorphism sw of
-Rep(G-hat^I) given by Proposition VI.12.1'. Proposition VI.12.1 lives in the geometric
-Satake chapter, belongs to GeometricSatakeAndFusion, and was not read. NEXT SOURCE
-ACTION: read FS VI.12.
-
-### 9. The Schur condition for an irreducible smooth representation is nowhere stated in the source
-
-ES5's own text requires: 'Prove the Schur/condensed scalar-endomorphism fact on the
-actual representation category and independence of the eligible embedding at the center
-level.' Fargues-Scholze use the transported object freely - for example in the proof of
-Corollary IX.7.3, where a sheaf concentrated on a stratum is built from a representation
-- and assert the independence of the embedding in a parenthesis in Definition IX.7.1
-('All these maps will induce the same map to the Bernstein center'), but neither
-statement is proved in anything read here, and the first is not even stated. Both are
-open obligations of this layer with no locator. NEXT SOURCE ACTION: none in this source;
-the statements have to be formulated against VStackSheavesAndLisseCategories:VS4's
-identification and proved.
-
-### 10. The roadmap's demand to compare kernels before evaluating characters has no counterpart in the source
-
-ES6:functoriality's text opens: 'Construct the actual maps of Bun/Hecke correspondences
-and compare their kernels before evaluating any character.' The proofs of IX.6.1, IX.6.2
-and IX.6.3 are computations with those correspondences - a push-pull identity, a diagram
-chase, and a closed immersion of Hecke stacks - but none of them discusses kernels, and
-no statement in anything read compares them. This is an obligation the roadmap adds; the
-packet records it rather than inventing a statement to satisfy it.
-
-### 11. The excursion-algebra variants of Section IX.6 are not written out anywhere
-
-The head of IX.6 says all its results 'admit an obvious variant replacing the spectral
-Bernstein center by an excursion algebra when this assumption is omitted'. Not one of
-the five variants is written out, and the roadmap requires them: 'Prove their excursion-
-algebra versions without that restriction, yielding the field-valued statements for all
-l not equal to p.' This packet records which statements need a variant and does not
-manufacture the variants; a continuation must state and prove each one.
-
-### 12. The display in Proposition IX.6.2 is misprinted in the extraction
-
-The extraction used here renders the upper-right corner of the square in Proposition
-IX.6.2 as Z^geom(G_1,Lambda) tensor Z^geom(G_1,Lambda), with the first factor repeated.
-The second factor is plainly Z^geom(G_2,Lambda), and the packet states it that way. This
-is recorded as an artefact of the extraction rather than an error in the source; a
-reviewer should confirm against the printed page. Nothing else in the node depends on
-it.
-
-### 13. The Schreier index formula, which the rank of F_n x_W W' would need, is not at the pins
-
-The Weil-restriction comparison of Proposition IX.6.3 uses that F_n x_W W' is a subgroup
-of finite index in F_n and is therefore itself a finitely generated free group. Mathlib
-at the pinned commit proves the Nielsen-Schreier theorem, so the freeness is available;
-AUDIT-20 records that the SCHREIER INDEX FORMULA for the rank of a finite-index subgroup
-of a free group is NOT. The proof as Fargues-Scholze write it needs only freeness and
-finite generation, so nothing here is blocked, but a formalisation that wants to name
-the rank - for instance to bound the index set of the colimit - would have to prove the
-index formula first. NEXT SOURCE ACTION: none in Fargues-Scholze; this is a Mathlib gap
-and should be recorded as such by a kind:link or library job.
-
-## Requests to other roadmaps
-
-| Supplier | What is needed |
+| Owner | Interface consumed here |
 | --- | --- |
-| `LanglandsParameterStacks:LP2:semisimple-characters` | Proposition VIII.3.8: the passage from a family of maps Theta_n : O((G-hat semidirect Q)^n // G-hat) -> Map(W_E^n, L) of CONDENSED sets, satisfying the pullback and multiplication relations of Proposition VIII.3.7, to a semisimple continuous L-parameter W_E -> G-hat(L) semidirect Q, unique up to conjugation. This is the single statement on which the whole of ES5 rests. Its enumerated statement is damaged in the extraction used here, so this packet does not restate it; and the continuity step is quoted by Fargues-Scholze from V. Lafforgue's Proposition 11.7 and Lemma 11.10. |
-| `LanglandsParameterStacks:LP0` | The scheme Z^1(W_E,G-hat), the Weil group W_E itself, the description of its L-valued points, the open subgroups of the wild inertia and the discretisation of W_E/P. Also Section VIII.3.1's description of the L-valued points of the coarse moduli space Z^1(W_E,G-hat)_L // G-hat as the CLOSED G-hat-orbits, which is what makes 'semisimple' the right word in Corollary VIII.4.3. |
-| `LanglandsParameterStacks:LP2:excursion-presentation` | The excursion algebra Exc(W,G-hat) with its presentation as a colimit over (n, F_n -> W), the invariant rings O((G-hat semidirect Q)^n // G-hat), the relations of Proposition VIII.3.7, and the universal property of the l-torsion-free quotient. The Weil-restriction comparison of Proposition IX.6.3 is an argument about that presentation. |
-| `LanglandsParameterStacks:LP2:integral-invariants` | The integral invariant-function theory of the parameter stack, which is what Z^spec(G,Lambda) is for a general Z_l[sqrt q]-algebra Lambda, and the component decomposition it carries. Every centre-level square of Section IX.6 is a square of maps out of it. |
-| `HeckeStacksAndLocalShtukas:HS1` | The condensed enhancement of D_lis(Bun_G,Lambda): the condensed infinity-category structure of Section IX.1, Proposition IX.1.2's relative discreteness on compact objects, and the condensed W_E^I-equivariant objects. Schur-irreducibility is an identity of CONDENSED algebras, and the continuity of the parameter comes from nothing else. |
-| `HeckeStacksAndLocalShtukas:HS4` | The Hecke functors T_V given coCartesianly in the finite set I, the fusion compatibility, and Theorem IX.2.2's duality identities D_BZ(T_V(A)) = T_{sw V-dual}(D_BZ(A)) and RHom_lis(T_V(A),Lambda) = T_{sw V-dual} RHom_lis(A,Lambda). The first is what every excursion datum is built from; the second is the Hecke-side input of the duality statements of ES6:duality. |
-| `GeometricSatakeAndFusion:GS4:integral-dual-group` | The dual group G-hat with its Q-action, the category Rep((G-hat semidirect Q)^I) over the coefficients used here, the CHEVALLEY INVOLUTION, Proposition VI.12.1's identification of the switching involution sw, and the compatibility of geometric Satake with a map G -> G' inducing an isomorphism of adjoint groups (quoted in the proof of Theorem IX.6.1 'as in the proof of Theorem VI.11.1'). |
-| `ReductiveGroupsPartII:RG2.5` | The integral pinned dual group and the L-group with its projection and action law, its change-of-pinning equivalence and Levi inclusions, and its compatibility with products, central isogenies and restriction of scalars. Theorem IX.6.1, Proposition IX.6.2 and Proposition IX.6.3 are exactly statements about those three compatibilities on the automorphic side, and they need the dual-side ones to be available first. |
-| `VStackSheavesAndLisseCategories:VS3` | The Ind-category of D_lis(Bun_G,Lambda) and its compact objects, and the relation between them. Proposition IX.1.2 is a statement about compact objects, and the Schur condition is checked there. |
-| `VStackSheavesAndLisseCategories:VS4` | The identification D(G_b(E),Lambda) = D_lis(Bun^b_G,Lambda) and Proposition VII.7.2's LEFT ADJOINT pi_{b!} q_b^* to i_b^*, whose unit is an equivalence. ES5's assignment of a parameter to an irreducible smooth representation is the transport along that embedding and has no other definition. |
-| `VStackSheavesAndLisseCategories:VS5` | Bernstein-Zelevinsky duality D_BZ on D_lis(Bun_G,Lambda), and Proposition VII.7.10's statement that exterior tensor products of compact objects are compact, generate, and satisfy the Hom formula. The first is the geometric involution of ES6:duality; the second is the categorical input of Proposition IX.6.2. |
-| `SmoothRepresentationsOfLocalGroups:SR.0` | The category of smooth representations of a locally profinite group over the allowed coefficients, and irreducibility in it. The objects to which ES5 attaches parameters are irreducible smooth representations of G_b(E). |
-| `SmoothRepresentationsOfLocalGroups:SR.1` | The normalisation conventions for induction and for the modulus character. Proposition IX.6.5 fixes the geometric-Frobenius normalisation of local class field theory, and the roadmap requires that the dictionary with the local-group owner's conventions be explicit. |
-| `SmoothRepresentationsOfLocalGroups:SR.2` | Parabolic induction and its interaction with duality. The general smooth-dual statement of ES6:duality is deduced from compatibility with parabolic induction together with the representation-theoretic relation between the two dualities. |
-| `SmoothRepresentationsOfLocalGroups:SR.3` | The classical Bernstein centre and its block description. Z(T(E),Lambda) = lim over open K of Lambda[T(E)/K] is the object Proposition IX.6.4 identifies with the spectral centre of a torus. |
-| `BunGAndNewtonStrata:BG0` | Bun_G, the set B(G) and the strata Bun^b_G, with the sigma-centralisers G_b and the pure-inner-twisting formalism. Proposition IX.6.4's product decomposition over B(T), the injectivity of B(G) -> B(G') for a z-embedding, and every statement about a stratum rest on them. |
-| `BunGAndNewtonStrata:BG1` | The Newton and Kottwitz invariants and the identification B(T) = pi_1(T)_Gamma for a torus, which is what indexes the product in Section IX.6.4. |
-| `BunGAndNewtonStrata:BG2` | Bun_G as an Artin v-stack and the description of Bun_G as a fibre product Bun_{G'} x_{Bun_D} {*} for a z-embedding G -> G' with torus quotient D, which is the geometric half of the z-embedding apparatus. |
-| `EnhancedDerivedSheaves:E5:abstract` | Small idempotent-complete Lambda-linear stable infinity-categories and their endofunctor categories, over which the abstract statement of Corollary VIII.4.3 quantifies. |
-| `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-8-separate-arithmetic-local-existence-and-the-local-class-field-correspondence` | LOCAL CLASS FIELD THEORY, in the form the identification Z^1(W_E,G_m) = Hom(E^times,G_m) of Proposition IX.6.4 needs, with the GEOMETRIC-FROBENIUS normalisation that Proposition IX.6.5 and the degree map of Section IX.7.1 both use. A direct search of the pinned declaration index found no Artin map and no local reciprocity map in either Mathlib 082e2d3 or Tau Ceti f790474, so the whole torus case of this layer rests on this request. |
-| `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-9-the-local-weil-group` | The local Weil group W_E as a topological group, with its inertia and wild inertia subgroups and the normalised degree map sending geometric Frobenius to 1. Every parameter in this packet is a continuous cocycle on it, and the pinned libraries have no Weil group. |
-| `GlobalShtukasAndFunctionFieldLanglands:GS.5` | The GLOBAL reconstruction of semisimple L-parameters from excursion characters, over the function field of a curve, with the same uniqueness-up-to-conjugacy caveat. The reviewed audit AUDIT-20 records GS.5 as a duplicate of ES5 for exactly this reason. The two differ in the group - the Galois group of a function field against the local Weil group - and in the enhancement - a global Hecke stack against the condensed D_lis(Bun_G) - but the reconstruction argument is the same one, and PROTOCOL.md section 15 says it is planned once. A restructuring job should decide which layer owns it. |
+| ES0 | Excursion algebra action and condensed continuity of its evaluations. |
+| ES1:spectral-center | Conditional spectral-to-geometric centre map, change of data, and excursion-only variant. |
+| LP0 and LP2 | Condensed cocycles, projection to Q, closed-orbit classification, integral excursion presentation, and general-coefficient reconstruction. |
+| GS4:integral-dual-group | Normalized Satake, the Chevalley involution, and adjoint-isomorphism, product and restriction-of-scalars naturality. |
+| HS1 and HS4 | Condensed Hecke action, relative-homology kernels, and the geometric comparison diagrams before scalar evaluation. |
+| VS4 and VS5 | Stratum equivalence and enriched adjunction; exterior compact generators and their Hom comparison; Bernstein–Zelevinsky duality. |
+| SR.0, SR.1 and SR.2 | Smooth representation carriers, arbitrary-coefficient abelian Bernstein centre, central characters and the induction/contragredient dictionary. The modular admissibility extension is requested as SR.3b. |
+| BG0 and BG1 | Torsor/bundle identifications and the torus specialization B(T)=π₁(T)_Γ. |
+| RG2.5 and proposed RG2.6 | Existing reductive dual/root data, with a requested extension for induced-torus resolutions, surjective z-extensions and their dual maps. |
+| RelativeFarguesFontaine RF3 and its requested Part II | Existing line-bundle signs, extended by the Lubin–Tate universal-cover torsor and endpoint actions. |
+| Upstream ClassFieldTheory and its requested Part II | Arithmetic local reciprocity in its documented field range; full equal-characteristic wild reciprocity exceeds that endpoint. |
+| ES7:parabolic | The parabolic parameter theorem used by the general smooth-dual proof return. ES7 imports ES6:functoriality, and this return must not create the reverse dependence through ES6:duality. |
 
-## Structural findings
+Mathlib's condensed sheaves, algebra homomorphisms, category centres, representation intertwiners, group algebras and free-group results remain baseline declarations. Its abelian Shapiro theorem does not replace nonabelian Shapiro for the cocycle quotient stack. The nonabelian comparison is proved in the restriction-of-scalars proof below. No Schreier rank formula is required: freeness and finite generation suffice.
 
-### 1. ES6, like ES1, is a parent layer with no external supplier, while ES0 supplies its own child
+## ES5. The proved semisimple parameter assignment
 
-*Kind: `link-direction`.*
+The following eight declarations cover the Schur condition, scalar extraction, reconstruction, the representation assignment, eligible stratum embeddings, and isomorphism/coefficient comparisons. Coefficient transport is conditional on the required base-change comparison and on retaining the Schur condition after extension. It does not assert that an arbitrary extension preserves irreducibility or Schur irreducibility.
 
-Within this one roadmap the parent-child edges run in two directions. ES0's recorded
-inputs are six external stages and ES0 SUPPLIES its child ES0:classical-center. ES6's
-recorded inputs, by contrast, are its own two children ES6:duality and
-ES6:functoriality, and ES6 has no external supplier and no consumer at all. The same
-holds for ES1. The consequence for a reader of the link graph is that ES6 - the layer
-whose text states the whole functoriality programme, including the coefficient policy
-that governs both children - appears to rest on nothing. This packet gives ES6 one node,
-the coefficient policy, whose prerequisites are ES1:spectral-center, ES0, ES1:finite-
-ramification, LP2:excursion-presentation, LP2:integral-invariants and LP2:semisimple-
-characters; none of those edges exists. The companion ES0 packet of this session files
-the same finding for ES1. A kind:link or kind:restructure job should settle the
-convention for parent layers across this roadmap and then draw the edges the texts
-require.
+### Schur irreducibility in condensed algebras
 
-### 2. ES5 and ES6:duality both use suppliers the atlas does not record
+**Declaration:** `IsSchurIrreducible` · definition. Node `ExcursionOperatorsAndSpectralAction:ES5/schur-irreducible-object`.
 
-*Kind: `missing-links`.*
+Fix a nonarchimedean local field E of residue cardinality q and residue characteristic p, a prime ell different from p, a connected reductive E-group G, and an algebraically closed Z_ell[sqrt(q)]-field L. Give L its relatively discrete condensed Z_ell-algebra structure. For A in D_lis(Bun_G,L), write End(A) for the degree-zero algebra in its condensed mapping object. A is Schur-irreducible precisely when the scalar unit L to End(A) is an isomorphism of condensed L-algebras. An abstract scalar endomorphism ring alone is insufficient to establish this definition.
 
-ES5's recorded inputs are ES0, ES1:finite-ramification, LP2:semisimple-characters, SR.0
-and VS4. Its nodes here additionally need HeckeStacksAndLocalShtukas:HS1 - without the
-condensed enhancement the Schur condition cannot even be stated - HS4,
-GeometricSatakeAndFusion:GS4:integral-dual-group, LanglandsParameterStacks:LP0 and
-LP2:excursion-presentation, VStackSheavesAndLisseCategories:VS3 and VS5, and
-BunGAndNewtonStrata:BG0 and BG1. ES6:duality's recorded inputs are ES5,
-ES6:functoriality, ES7:parabolic and VS5; its nodes additionally need GS4:integral-dual-
-group, whose Proposition VI.12.1 is the only substantive input to the whole argument,
-and HS4 for Theorem IX.2.2's duality identities, and ES4, where the commuting square
-itself lives. ES6:functoriality's recorded inputs are ES5, GS4:integral-dual-group, HS4
-and ReductiveGroupsPartII:RG2.5; its nodes additionally need BunGAndNewtonStrata:BG0,
-BG1 and BG2, and local class field theory, which no stage of this atlas supplies at all.
-A kind:link job should draw these; the class-field-theory dependence in particular is a
-link from a proposed roadmap to an upstream Tau Ceti roadmap and may need a new kind of
-edge.
+**Hypotheses and conventions.** End means degree zero, not the whole derived mapping complex. The condensed enhancement and its scalar unit are those of HS1/IX.1. Compact-source Hom is relatively discrete by IX.1.2; arbitrary A is handled by the induced enhancement.
 
-### 3. Local class field theory has no owner anywhere in this family, and two layers of this roadmap stop dead without it
+**Construction or proof.**
 
-*Kind: `new-layer`.*
+1. Import the enhanced category and unit; take invertibility of that specific unit, using the existing category of condensed algebras.
+2. Invert the unit to recover unique scalar sections over every profinite test object, compatibly with restriction.
+3. Use the unit-preserving endomorphism isomorphism under a sheaf isomorphism or shift; no t-structure or compactness hypothesis enters this invariance.
 
-Propositions IX.6.4 and IX.6.5 - the torus case, and with it the statement that the
-parameters this roadmap constructs for tori are the usual ones - rest on the single
-identification Z^1(W_E,G_m) = Hom(E^times,G_m). A direct search of the pinned
-declaration index found nothing of the kind in either library: Mathlib 082e2d3 has no
-Artin map and no local reciprocity map, and Tau Ceti f790474's only 'Weil' declarations
-are about Weil divisors. Nor does any stage of any roadmap in this family claim it:
-LanglandsParameterStacks:LP0 owns Weil groups and continuous cocycles, but the
-reciprocity isomorphism is arithmetic, not cocycle-theoretic. The upstream Tau Ceti
-roadmap ClassFieldTheory has layers 8 and 9 - the local class-field correspondence and
-the local Weil group - and they are the natural owners. What is missing is an edge, and
-possibly a Part II: the statement needed here is the reciprocity map with a FIXED
-geometric-Frobenius normalisation, compatible with the degree map used in Section
-IX.7.1, and that normalisation is exactly the sort of thing an upstream layer states
-loosely and a consumer needs pinned. A kind:link job should draw the edges; if layer 8
-does not fix the normalisation, a ClassFieldTheory Part II should.
+**Uses that determine the API.**
 
+- IX.4.1: Turn an excursion endomorphism into a scalar while retaining its condensed dependence on Weil elements.
+- ES5 representation assignment: Prove the definition for the transported representation, rather than replace it by abstract Schur’s lemma.
+
+**API.**
+
+- `IsSchurIrreducible.scalarIso` (constructor): Invert the scalar unit to obtain its canonical condensed algebra isomorphism.
+- `IsSchurIrreducible.scalar_unique` (characterisation): For every test object S and endomorphism section e there is exactly one scalar section a whose unit image is e.
+- `IsSchurIrreducible.sections_bijective` (structure): The scalar unit is bijective on sections over every S.
+- `IsSchurIrreducible.iso_invariant` (functoriality): A scalar-unit-preserving isomorphism of endomorphism algebras preserves and reflects Schur irreducibility.
+- `IsSchurIrreducible.shift` (functoriality): The canonical endomorphism isomorphism for a shift, which preserves the unit, carries Schur irreducibility to the shifted object.
+
+**Unit tests.** These are typed mathematical obligations; their corresponding examples in the suggested file exercise the documented prototype fragments.
+
+- `schur_scalar_identity` (computation): The identity unit on the relatively discrete scalar algebra is Schur.
+- `schur_rejects_zero` (degenerate): If a scalar section ring is nonzero and the target section ring has zero equal to one, its scalar unit is not Schur.
+- `schur_requires_all_sections` (non-example): Failure of bijectivity on any condensed test object excludes Schur irreducibility, even if a global-section comparison is known.
+
+**Acceptance.**
+
+- The zero object fails: its identity is zero whereas L is nonzero.
+- Check all condensed sections, not only global sections.
+- A shift of a Schur object remains Schur.
+
+**Direct prerequisites.** `mathlib:Condensed`; `mathlib:AlgCat`; `mathlib:CategoryTheory.IsIso`; `HeckeStacksAndLocalShtukas:HS1/condensed-enrichment`.
+
+**Source match.**
+
+- [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), IX.4.1, p. 327: The printed Schur condition; the scalar-unit formulation fixes its canonical algebra structure.
+- [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), IX.1.2, pp. 320–321: Specifies the compact-source enhancement; it does not say every irreducible representation is compact.
+
+**Planet:** Condensed Schur irreducibility.
+
+### The condensed Schur refinement for smooth representations
+
+**Declaration:** `condensedSchurOfAdmissible` · theorem. Node `ExcursionOperatorsAndSpectralAction:ES5/condensed-schur-from-admissibility`.
+
+Let pi be an irreducible admissible smooth L-representation of G_b(E). The scalar map L to End_{G_b(E)}(pi) is an isomorphism of abstract L-algebras and, using the relatively discrete representation/sheaf dictionary with its enriched mapping objects, an isomorphism of condensed algebras. Its image under the fully faithful enriched stratum embedding is therefore Schur-irreducible. For all irreducible smooth pi the admissibility input is supplied by the proposed foundational SR.3b; this node owns only the condensed refinement, not Vignéras’ theorem.
+
+**Hypotheses and conventions.** L is algebraically closed of characteristic different from p. Use the actual smooth representation category and its scalar unit. Do not assume pi is compact in its derived category.
+
+**Construction or proof.**
+
+1. Choose a nonzero K-fixed vector for an open pro-p K; admissibility makes pi^K finite dimensional and irreducibility makes its G-orbit generate pi.
+2. An equivariant endomorphism acts on pi^K and has an eigenvalue over L. Its difference from this scalar has a nonzero invariant kernel, hence vanishes on pi.
+3. For a condensed family, evaluate on that vector in the finite-dimensional relatively discrete pi^K and extract a scalar by a linear coordinate. The supplier’s enriched evaluation comparison shows this is a morphism of condensed algebras inverse to the unit.
+4. Transport through the enriched fully faithful adjunction, whose unit preserves scalars. The missing enriched fixed-vector comparison and modular admissibility are recorded as supplier gaps.
+
+**Acceptance.**
+
+- This argument works for the countable field Fbar_ell, where an uncountability shortcut is unavailable.
+- A characteristic-zero Z_ell-field contains Q_ell and is uncountable; Qbar_ell is not countable.
+- Test the trivial one-dimensional representation without asserting that arbitrary irreducibles are compact.
+
+**Direct prerequisites.** `ExcursionOperatorsAndSpectralAction:ES5/schur-irreducible-object`; `mathlib:Representation.IntertwiningMap`; `tauceti:TauCeti.IsSmoothDiscrete`; `tauceti:TauCeti.SmoothDiscreteTopRep`; `SmoothRepresentationsOfLocalGroups:SR.0`; `VStackSheavesAndLisseCategories:VS4/compact-generation-and-compact-objects`.
+
+**Source match.**
+
+- [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), IX.4.1 and IX.7.1, pp. 327, 334: Motivates application to representations; the fixed-vector proof is a refinement outlined here, with the foundational admissibility theorem requested separately.
+
+### The scalar excursion character
+
+**Declaration:** `excursionCharacter` · construction. Node `ExcursionOperatorsAndSpectralAction:ES5/excursion-character-of-a-schur-object`.
+
+For Schur A, evaluate the ES0 excursion action and apply the inverse scalar unit, giving chi_A: Exc(W,Ghat) tensor L to L and the associated family Theta_n: Inv_n to Map(W_E^n,L), n at least one. Here Inv_n is O((Ghat semidirect Q)^n // Ghat), with O(Q^n)-linearity determined by W_E to Q. For g:[m] to [n], the reindexing square commutes. The second square uses ordered fibre multiplication mu_g:H^m to H^n and m_g:W_E^m to W_E^n, and reads Theta_m(mu_g^* f)(gamma)=Theta_n(f)(m_g gamma). Empty fibres contribute the identity. The family is condensed.
+
+**Hypotheses and conventions.** The pinned Weil action factors through Q. Use the universal integral excursion algebra; its flat torsion-free universal property is not applicable to a characteristic-ell field. For abstract characters restrict to a suitable discretization; the condensed family itself is expressed on W_E.
+
+**Construction or proof.**
+
+1. Import ES0’s operators and LP2’s presentation, including the coefficient attached to a matrix coefficient.
+2. Compose evaluation with the inverse condensed scalar unit, which preserves algebra operations and O(Q^n)-linearity.
+3. Apply the two operator relations before scalar extraction; their naturality is unchanged by this composition.
+4. Check condensed continuity using the actual inverse unit and the condensed Hecke action, rather than assert continuity from a character of a discrete group.
+5. Use the integral relations for characteristic ell. Inversion follows by inserting an inverse pair and multiplying it to the identity; the torsion-free quotient is only used with flat targets.
+
+**Uses that determine the API.**
+
+- VIII.3.8: Provides exactly its third datum, with both relations and condensed continuity.
+- IX.6: Prove operator squares before evaluating chi_A, so constituent statements follow from scalar naturality.
+
+**API.**
+
+- `excursionCharacter.apply` (simp): On an excursion coefficient x, chi_A(x) is the inverse scalar-unit image of its operator.
+- `excursionCharacter.scalar_linear` (structure): The map fixes L-scalars; the invariant-ring family is linear over O(Q^n) with its prescribed evaluation.
+- `excursionCharacter.family` (data): Postcompose universal invariant-ring evaluation with chi_A to obtain Theta_n.
+- `excursionCharacter.pullback` (relation): Theta_n(g^* f)(gamma) equals Theta_m(f)(gamma composed with g).
+- `excursionCharacter.multiplication` (relation): Theta_m(mu_g^* f)(gamma) equals Theta_n(f)(ordered fibre products of gamma).
+- `excursionCharacter.condensed` (structure): An operator family in a condensed endomorphism algebra has exactly one scalar family whose composition with the scalar unit is that family.
+- `excursionCharacter.ext` (extensionality): Agreement on all excursion coefficients generating the algebra implies equality of characters.
+
+**Unit tests.** These are typed mathematical obligations; their corresponding examples in the suggested file exercise the documented prototype fragments.
+
+- `character_unit` (computation): The unit excursion coefficient has scalar value one.
+- `character_inverse_pair` (compatibility): The inverse-pair coefficient identified with the identity coefficient by the universal relations has the same scalar value.
+- `character_detects_order` (non-example): If the evaluated operators for two ordered-word coefficients differ, their scalar values differ; a scalar extraction that discards order fails this test.
+
+**Acceptance.**
+
+- Theta sends one to one and evaluates base O(Q^n) functions by the prescribed projection.
+- Repeated variables, empty multiplication fibres and an inverse pair satisfy the specified relations.
+- Ordering is preserved; not every coefficient distinguishes a reversed word, but those which do retain the distinction.
+
+**Direct prerequisites.** `ExcursionOperatorsAndSpectralAction:ES5/schur-irreducible-object`; `ExcursionOperatorsAndSpectralAction:ES0/excursion-algebra-to-bernstein-center`; `ExcursionOperatorsAndSpectralAction:ES0/continuity-of-excursion-evaluations`; `LanglandsParameterStacks:LP2:excursion-presentation/universal-property-of-the-excursion-algebra`; `HeckeStacksAndLocalShtukas:HS1/properties-and-weil-equivariance`; `mathlib:AlgHom`.
+
+**Source match.**
+
+- [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), VIII.3.7, pp. 288–289: The ordered multiplication relation.
+- [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), VIII.3.8 proof, p. 290: The continuity required by the reconstruction theorem, supplied here by the Schur inverse.
+
+**Planet:** Scalar excursion character.
+
+### The abstract scalar-parameter consequence
+
+**Declaration:** `abstractSemisimpleParameter` · theorem. Node `ExcursionOperatorsAndSpectralAction:ES5/abstract-semisimple-parameter`.
+
+Let W be discrete and let an L-linear category C carry the finite-set functorial Rep(Q^I)-linear monoidal Weil-equivariant functors of VIII.4. For X with scalar unit L to End(X) an isomorphism of abstract algebras, there is a unique Ghat(L)-conjugacy class of semisimple sections W to Ghat(L) semidirect W. For every excursion datum its scalar is beta composed with V(phi_X(gamma_i)) composed with alpha. This is the objectwise consequence of the imported excursion action and character classification, not a new construction of those theories.
+
+**Hypotheses and conventions.** The group W in this statement is discrete. Uniqueness is of a conjugacy class, not a preferred representative.
+
+**Construction or proof.**
+
+1. Evaluate the imported excursion algebra action at X.
+2. Apply LP2’s closed-orbit character theorem to the resulting scalar character.
+3. Evaluate its matrix-coefficient character to obtain the displayed identity; uniqueness follows because those coefficients determine the closed orbit.
+
+**Acceptance.**
+
+- No claim of continuity on W_E follows from this discrete statement alone.
+- The identity applies to every finite set and matrix coefficient, not merely traces of individual elements.
+
+**Direct prerequisites.** `ExcursionOperatorsAndSpectralAction:ES0/excursion-algebra-to-bernstein-center`; `LanglandsParameterStacks:LP2:semisimple-characters/character-bijection`; `LanglandsParameterStacks:LP2:semisimple-characters/semisimple-parameters-and-closed-orbits`.
+
+**Source match.**
+
+- [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), VIII.4.3, pp. 292–293: The scalar matrix-coefficient characterization in the discrete categorical setting.
+
+**Planet:** Abstract semisimple parameter.
+
+### The continuous parameter of a Schur sheaf
+
+**Declaration:** `parameterOfSchurSheaf` · theorem. Node `ExcursionOperatorsAndSpectralAction:ES5/parameter-of-a-schur-irreducible-sheaf`.
+
+For Schur A in D_lis(Bun_G,L), there is exactly one Ghat(L)-conjugacy class of continuous semisimple L-parameters phi_A:W_E to Ghat(L) semidirect Q lifting the fixed W_E to Q. For every datum (I,V,alpha,beta,gamma), the creation–Weil–annihilation endomorphism equals the scalar beta V(phi_A(gamma_i)) alpha. Continuity means a map of condensed sets into the relatively discrete coefficient object; semisimplicity is the LP2 closed-orbit/G-complete-reducibility convention, not elementwise semisimplicity.
+
+**Hypotheses and conventions.** L is an arbitrary algebraically closed Z_ell[sqrt(q)]-field. No good-prime or centre-component invertibility assumption. A is Schur in the condensed sense, without an additional compactness restriction.
+
+**Construction or proof.**
+
+1. Use the scalar excursion family with its exact two relations and prescribed projection.
+2. Invoke all three clauses of LP2’s VIII.3.8: semisimple conjugacy classes, coarse-space points, and condensed character families are in bijection.
+3. Continuity is the finite-anchor conclusion in VIII.3.8’s proof; LP2 owns its general-coefficient proof. Lafforgue 11.7/11.10 explains the anchor argument in characteristic zero.
+4. Read each excursion coefficient via the resulting coarse point, then use the injectivity of classification to obtain uniqueness.
+
+**Acceptance.**
+
+- Reconstruction uses simultaneous tuple invariants; individual traces do not replace the theorem.
+- Positive-characteristic continuity must not be justified using characteristic-zero Reynolds exactness.
+- The output supplies no nilpotent monodromy operator or full local Langlands packet.
+
+**Direct prerequisites.** `ExcursionOperatorsAndSpectralAction:ES5/excursion-character-of-a-schur-object`; `ExcursionOperatorsAndSpectralAction:ES5/abstract-semisimple-parameter`; `LanglandsParameterStacks:LP0/condensed-cocycles-and-L-parameters`; `LanglandsParameterStacks:LP2:semisimple-characters/character-bijection`.
+
+**Source match.**
+
+- [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), IX.4.1, p. 327: Its complete one-line proof, expanded through the existing supplier.
+- [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), VIII.3.8 proof, p. 290: The finite-anchor continuity input; the full proposition was recovered and read.
+- [Chtoucas pour les groupes réductifs et paramétrisation de Langlands globale](https://arxiv.org/pdf/1209.5352v10), Proposition 11.7 and Lemma 11.10, pp. 143–147: Characteristic-zero source for the finite-anchor continuity argument, not a blanket proof in characteristic ell.
+
+**Planet:** Continuous semisimple parameter.
+
+### The parameter of an irreducible smooth representation
+
+**Declaration:** `parameterOfRepresentation` · construction. Node `ExcursionOperatorsAndSpectralAction:ES5/parameter-of-an-irreducible-smooth-representation`.
+
+For b in B(G) and irreducible smooth pi of G_b(E), use the VS4 equivalence D(G_b(E),L) with D_lis(Bun_G^b,L) and the fully faithful left adjoint L_b=pi_b-sharp q_b^* to i_b^*. Its unit i_b^* L_b is the identity. The enriched condensed Schur theorem makes L_b(pi) Schur, and define phi_(G,b,pi)=phi_{L_b(pi)} as a conjugacy class. At b=1, L_b is j_! and write phi_pi. The common restricted excursion-centre action makes this independent of eligible embeddings.
+
+**Hypotheses and conventions.** The sharp symbol denotes relative homology, not ordinary pushforward or a general i_b! functor. Admissibility for all irreducible smooth pi needs SR.3b; SR.3/SR.3a are complex-only and SR.6 is downstream of excursions. An eligible embedding is an enriched full-faithful stratum extension with the scalar-preserving retraction/comparison described in the next theorem; no claim is made for arbitrary embeddings.
+
+**Construction or proof.**
+
+1. Import VII.7.1–7.2 with their enrichment and invertible adjunction unit from VS4.
+2. Apply the condensed Schur refinement on the actual representation category and transport its unit.
+3. Apply the Schur-sheaf theorem and characterize the parameter by the restricted excursion character.
+4. Use centre independence to compare extensions; the b=1 notation is the j_! special case.
+
+**Uses that determine the API.**
+
+- IX.7.1–IX.7.3: Provides phi_(G,b,pi) for comparing strata and parabolic induction.
+- ES6 duality and characters: Apply the geometric parameter comparisons to the actual smooth representation.
+
+**API.**
+
+- `parameterOfRepresentation.eval` (characterisation): The parameter’s invariant character equals the scalar excursion character of pi.
+- `parameterOfRepresentation.defining_identity` (simp): The operator of a coefficient x on pi is scalar multiplication by its excursion character.
+- `parameterOfRepresentation.embedding_independent` (compatibility): Equal restricted excursion actions for eligible embeddings yield the same parameter class.
+- `parameterOfRepresentation.iso_invariant` (functoriality): A scalar-preserving equivariant representation isomorphism conjugates operators and hence preserves their scalar character and parameter class.
+- `parameterOfRepresentation.at_basepoint` (data): At b=1 this is classification of the excursion character evaluated through j_!.
+
+**Unit tests.** These are typed mathematical obligations; their corresponding examples in the suggested file exercise the documented prototype fragments.
+
+- `representation_basepoint` (compatibility): At the neutral stratum the parameter is reconstruction of the j_!-restricted excursion character.
+- `representation_same_centre` (characterisation): Two eligible extensions with the same restricted excursion action give the same parameter class.
+- `representation_trivial_group` (degenerate): For the trivial group with Q=1 and its one-dimensional irreducible L, the reconstructed parameter has value one at every Weil element, the unique section to the trivial dual group.
+
+**Acceptance.**
+
+- For a trivial one-dimensional representation the construction still uses its equivariant endomorphism algebra.
+- Compare two eligible extensions by equality of their restricted central action.
+- All coefficient characteristics different from p are allowed, subject to the recorded supplier inputs.
+
+**Direct prerequisites.** `ExcursionOperatorsAndSpectralAction:ES5/condensed-schur-from-admissibility`; `ExcursionOperatorsAndSpectralAction:ES5/parameter-of-a-schur-irreducible-sheaf`; `VStackSheavesAndLisseCategories:VS4/compact-generation-and-compact-objects`; `VStackSheavesAndLisseCategories:VS4`; `mathlib:Representation.IntertwiningMap`; `SmoothRepresentationsOfLocalGroups:SR.0`.
+
+**Source match.**
+
+- [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), VII.7.2, pp. 272–273: The source’s relative-homology left adjoint and unit; not an ordinary shriek pushforward.
+- [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), IX.7.1, p. 334: The representation parameter is obtained by this stratum extension.
+
+**Planet:** Parameter of a smooth representation.
+
+### Centre independence of eligible stratum extensions
+
+**Declaration:** `stratumCentreEmbeddingIndependence` · theorem. Node `ExcursionOperatorsAndSpectralAction:ES5/stratum-centre-embedding-independence`.
+
+Let R=i_b^* and let L and J be enriched fully faithful left and right stratum extensions with L adjoint to R adjoint to J and unit/counit retractions RL=RJ=id. The canonical comparison tau:L to J restricts to the identity. For any natural endomorphism z of the identity on D_lis(Bun_G,L), naturality along tau gives R(z_L)=R(z_J). The same argument compares extensions carrying such a retraction comparison. Thus all these eligible choices give the same degree-zero centre map, and hence the same excursion character and parameter.
+
+**Hypotheses and conventions.** The common restriction of tau must be the specified invertible retraction; full faithfulness alone of unrelated functors is insufficient. Use the enriched comparison to retain condensed scalar information. The existence and lisse preservation of the eligible right extension are VS4 obligations, recorded explicitly.
+
+**Construction or proof.**
+
+1. Construct tau via the left/right adjunctions: L to JR L, identified with J using RL=id.
+2. Apply naturality of z to tau and then R.
+3. Identify R tau with the identity using the triangle identities; cancel it to identify restricted actions.
+4. Apply scalar extraction and LP2 uniqueness to the excursion subalgebra.
+
+**Acceptance.**
+
+- For an open neutral stratum compare j_! and its eligible right extension.
+- Do not claim general pullback to a nonbasic stratum intertwines all Hecke functors.
+
+**Direct prerequisites.** `mathlib:CategoryTheory.CatCenter`; `mathlib:CategoryTheory.Adjunction`; `VStackSheavesAndLisseCategories:VS4`; `ExcursionOperatorsAndSpectralAction:ES5/schur-irreducible-object`.
+
+**Source match.**
+
+- [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), IX.7.1, p. 334: The assertion is expanded as a formal adjunction/naturality argument; supplier existence is kept separate.
+
+### Isomorphism invariance and conditional coefficient transport
+
+**Declaration:** `invarianceAndCoefficientTransport` · theorem. Node `ExcursionOperatorsAndSpectralAction:ES5/invariance-and-coefficient-transport`.
+
+Isomorphic Schur sheaves, or isomorphic irreducible smooth representations, have the same semisimple parameter class. If L to Lprime is an extension of eligible algebraically closed coefficient fields, the Hecke/operator base-change comparison holds, and A_Lprime remains Schur-irreducible, then phi_(A_Lprime) is the scalar extension of phi_A. For representations impose the same Schur/irreducibility hypotheses after extension. This proves a comparison conditional on those hypotheses; it does not assert their preservation.
+
+**Hypotheses and conventions.** Coefficient structures and Q-actions are transported along the specified coefficient map. The relatively discrete scalar comparison must commute with the canonical units.
+
+**Construction or proof.**
+
+1. Use naturality to conjugate excursion endomorphisms under an isomorphism and recover equal scalar characters.
+2. For coefficient extension use ES1’s operator comparison and HS coefficient-compatible kernels.
+3. Use the retained Schur condition and LP0 coefficient functoriality to compare character evaluations, then LP2 uniqueness.
+
+**Acceptance.**
+
+- The identity extension gives the original parameter.
+- Two successive eligible extensions give the same comparison as their composite.
+- No proof uses commutation of arbitrary base change with all invariant rings.
+
+**Direct prerequisites.** `ExcursionOperatorsAndSpectralAction:ES5/parameter-of-a-schur-irreducible-sheaf`; `ExcursionOperatorsAndSpectralAction:ES5/parameter-of-an-irreducible-smooth-representation`; `ExcursionOperatorsAndSpectralAction:ES5/stratum-centre-embedding-independence`; `ExcursionOperatorsAndSpectralAction:ES1:spectral-center/center-change-of-data`; `LanglandsParameterStacks:LP0/functoriality-of-cocycles`.
+
+**Source match.**
+
+- [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), IX.4.1, p. 327: The characterization forces these transport consequences when operators and scalar units are compatible.
+
+
+## ES6. Coefficients in the functorial diagrams
+
+This parent layer fixes the common coefficient contract. The two children use it at the actual operator/centre comparison, before their parameter consequences.
+
+### The coefficient policy for centre and excursion diagrams
+
+**Declaration:** `coefficientPolicyForFunctorialDiagrams` · comparison. Node `ExcursionOperatorsAndSpectralAction:ES6/coefficient-policy-for-the-functorial-diagrams`.
+
+Every centre diagram below uses the existing map Z_spec(G,Lambda) to Z_geom(G,Lambda) under invertibility of |pi_0 Z(G)|, and imposes the analogous condition for every other group in the diagram. Without it, replace the spectral-centre input by the integral excursion algebra and compare excursion operators. Evaluating these diagrams on Schur objects over L gives all field-valued parameter assertions for every ell different from p. There is no appeal to ES3’s categorical spectral-action good-prime condition.
+
+**Hypotheses and conventions.** Lambda is an eligible Z_ell[sqrt(q)]-algebra. An excursion variant is stated at the operator level; it is not an unconditional isomorphism of centres.
+
+**Construction or proof.**
+
+1. Import the IX.5.2 map from its exact ES1 node.
+2. At each comparison perform the kernel and operator calculation, before converting it to a centre statement.
+3. Use the exact ES1 excursion-only node when the invertibility assumption fails; the scalar-parameter theorem still applies.
+
+**Acceptance.**
+
+- Check a characteristic dividing a centre-component order using operators, without asserting the unavailable centre map.
+- No inverse of that component order appears in scalar extraction.
+
+**Direct prerequisites.** `ExcursionOperatorsAndSpectralAction:ES1:spectral-center/spectral-to-geometric-center-map`; `ExcursionOperatorsAndSpectralAction:ES1:spectral-center/excursion-algebra-without-the-coefficient-condition`; `ExcursionOperatorsAndSpectralAction:ES0/excursion-algebra-to-bernstein-center`.
+
+**Source match.**
+
+- [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), IX.6 introduction, p. 330: The centre hypothesis is distinct from the unrestricted excursion/field conclusion.
+
+
+## ES6:functoriality. Kernels, tori and characters
+
+The comparison first concerns Hecke kernels over the leg divisor space, then natural centre actions, then their scalar evaluation. The kernel for the relative-homology Hecke operator is the dualized kernel S′_V, not an unqualified replacement by the original perverse Satake sheaf. The isogeny argument uses the relative-homology pushforward π♮, not compactly supported pushforward π!. A constituent inherits a parameter only under the stated inheritance of its scalar excursion action.
+
+For tori, T(E)/K is discrete and may be infinite. For example E×/O_E× is the infinite valuation group Z. The diagonal theorem is an equality in completed centre algebras on every component; checking a collection of scalar characters alone would lose nilpotent information at modular coefficients. The two-leg calculation and its endpoint convention must support the stronger centre statement.
+
+An injective z-embedding is distinguished throughout from a surjective z-extension. The z-embedding and rational-point factorization are ES6 obligations, as clarified in the verified finding. Pure foundational surjective z-extensions and induced-torus resolutions are routed to RG2.6. Kaletha's p-adic result is stated in that field range. Neither finiteness of centre cohomology nor character-extension arguments are transferred to all local fields by changing notation.
+
+### Compatibility with maps inducing adjoint isomorphisms
+
+**Declaration:** `isogenies` · theorem. Node `ExcursionOperatorsAndSpectralAction:ES6:functoriality/isogenies`.
+
+For f:Gprime to G inducing an adjoint-group isomorphism, write dual f:Ghat to Gprimehat and pi:Bun_Gprime to Bun_G. For every A the centre action of Z_spec(Gprime) on pi^*A equals pullback of the Z_spec(G) action along the function map induced by dual f. Before scalar evaluation compare Hecke kernels via pi_H-sharp Sprime_Vprime = h_1^* pi-sharp Lambda tensor Sprime_V, where V is the dual pullback of Vprime. This gives pi-sharp T_Vprime(pi^*A)=T_V(A tensor pi-sharp Lambda). Any Schur constituent on which the induced excursion action is inherited has parameter dual f composed with phi_A.
+
+**Hypotheses and conventions.** For centres use the coefficient policy for both groups; for scalar parameters use its excursion variant. Do not require pi^*A itself to be irreducible or Schur. A constituent means a subquotient in an eligible heart, or a direct summand with inherited scalar central action; no t-structure is invented on all D_lis.
+
+**Construction or proof.**
+
+1. Import HS4’s Bun/Hecke diagrams and GS4’s exact adjoint-isomorphism Satake naturality.
+2. Factor pi_H through Hck_G times Bun_Gprime. Its first relative-homology pushforward sends the Satake kernel to the pulled-back kernel; apply the projection formula to the second map.
+3. Compute the displayed functor identity using relative-homology base change. It is over the leg divisor space and natural in Vprime and I.
+4. Compare creation, Weil action and annihilation under this identity, giving the algebra square.
+5. Restrict the scalar action to the specified constituent and use the parameter characterization.
+
+**Acceptance.**
+
+- The identity map gives the identity parameter comparison.
+- Central multiplication Z times G to G has an adjoint isomorphism; Z to G alone generally does not.
+- Retain the constituent hypothesis and the sharp functors.
+
+**Direct prerequisites.** `ExcursionOperatorsAndSpectralAction:ES6/coefficient-policy-for-the-functorial-diagrams`; `ExcursionOperatorsAndSpectralAction:ES5/parameter-of-a-schur-irreducible-sheaf`; `HeckeStacksAndLocalShtukas:HS4/isogeny-product-and-weil-restriction-diagrams`; `HeckeStacksAndLocalShtukas:HS1/hecke-operator-via-relative-homology`; `GeometricSatakeAndFusion:GS4:integral-dual-group/adjoint-isomorphism-naturality`; `ExcursionOperatorsAndSpectralAction:ES1:spectral-center/spectral-to-geometric-center-map`.
+
+**Source match.**
+
+- [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), IX.6.1 proof, pp. 330–331: The relative-homology kernel calculation precedes the equality of excursion operators.
+
+**Planet:** Adjoint-isomorphism compatibility.
+
+### Product compatibility of centres and parameters
+
+**Declaration:** `products` · theorem. Node `ExcursionOperatorsAndSpectralAction:ES6:functoriality/products`.
+
+For G=G_1 times G_2, Bun_G is the product. The tensor product Z_spec(G_1) tensor Z_spec(G_2) identifies with Z_spec(G), and the corrected square with Z_geom(G_1) tensor Z_geom(G_2) commutes. Over the same divisor-leg base, product Hecke kernels for external product representations are external products of the factor kernels. For Schur A_i and a Schur constituent of A_1 external-tensor A_2 with inherited scalar excursion action, its parameter is (phi_A1,phi_A2), with the common Weil projection.
+
+**Hypotheses and conventions.** The tensor product of centres need not equal the entire geometric centre. Use the coefficient policy for each group. Compact exterior generators and their derived Hom comparison are imported from VS5/VII.7.10.
+
+**Construction or proof.**
+
+1. Import the HS4 product diagram and GS4 product naturality over the common leg space.
+2. Check external-product kernels and operators on external Satake generators; pass to all representations using their generating operations.
+3. Use VII.7.10 for the exterior generators/Hom comparison and LP2 invariant algebra product comparison to identify the spectral source.
+4. Apply scalar-character uniqueness on the inherited constituent.
+
+**Acceptance.**
+
+- For G_m times G_m the two factor characters are recovered separately.
+- The second top-right centre factor is G_2, not G_1; source finding E1 records the preprint typo.
+- The kernel base is the common divisor-leg base, not independently varying leg bases.
+
+**Direct prerequisites.** `ExcursionOperatorsAndSpectralAction:ES6/coefficient-policy-for-the-functorial-diagrams`; `ExcursionOperatorsAndSpectralAction:ES5/parameter-of-a-schur-irreducible-sheaf`; `mathlib:TensorProduct`; `HeckeStacksAndLocalShtukas:HS4/isogeny-product-and-weil-restriction-diagrams`; `GeometricSatakeAndFusion:GS4:integral-dual-group/product-naturality`; `VStackSheavesAndLisseCategories:VS5`; `LanglandsParameterStacks:LP2:excursion-presentation/excursion-algebra-and-universal-homeomorphism`.
+
+**Source match.**
+
+- [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), IX.6.2 proof, p. 331: Expanded through the owned kernel and exterior-Hom interfaces; the display correction is recorded separately.
+
+**Planet:** Product parameters.
+
+### Weil restriction and nonabelian Shapiro comparison
+
+**Declaration:** `weilRestriction` · theorem. Node `ExcursionOperatorsAndSpectralAction:ES6:functoriality/weil-restriction`.
+
+Let Eprime/E be finite separable, fix an embedding Eprime into a separable closure of E and the resulting W_Eprime inside W_E, and let G=Res_(Eprime/E)Gprime. There are compatible identifications of Bun, nonabelian cocycle quotient stacks and excursion algebras, and their centre-action square commutes. Choose a common W_E-normal open wild subgroup P inside W_Eprime so both quotients are defined; let Wprime be the inverse image of W intersected with W_Eprime/P. The parameter of Gprime is projection to the chosen dual factor after restriction of the parameter of G to W_Eprime; equivalently its Shapiro class is the parameter of G.
+
+**Hypotheses and conventions.** Separable, not arbitrary finite, extension. Projection depends on the chosen Weil embedding, and another choice gives the corresponding conjugate comparison. The nonabelian comparison is not the pinned abelian Shapiro theorem.
+
+**Construction or proof.**
+
+1. Identify the bundles by extension of coefficient field and restriction of scalars, using the owned torsor geometry.
+2. Prove the nonabelian Shapiro comparison on cocycles, not by the abelian baseline theorem. For Wprime inside W and Hprime with Wprime-action, use the coinduced group of f with f(hx)=h(f(x)), with W acting by right translation. Evaluation at 1 restricts a W-cocycle to Wprime. Choose left-coset representatives and write x=h_x r_x. From c on Wprime define a(w)(x)=h_x(c(h_x inverse h_(xw))). The cocycle law telescopes; changing representatives gives the usual coboundary. The two constructions are inverse up to conjugacy and commute with coefficient base change. For finite index this is a finite product of algebraic groups. Apply the natural constructions fppf-locally where torsors are trivial and glue by conjugacy, obtaining the quotient-stack comparison.
+3. For each finite free group F_n to W, apply this comparison to F_n times_W Wprime. This subgroup has finite index, is free by Nielsen–Schreier and is finitely generated by Subgroup.fg_of_index_ne_zero.
+4. Use these finite free sources and their common refinements to obtain the cofinal excursion colimit comparison; no Schreier rank formula is needed.
+5. Inflate a representation of the chosen Gprimehat semidirect W_Eprime through the dual-factor projection, then induce to Ghat semidirect W_E.
+6. Import the closed Hecke immersion over Divprime to Div from HS4; its pushforward realizes the inflate/induce kernel. Compare the operators and reconstruct parameters.
+
+**Acceptance.**
+
+- The degree-one extension gives identity.
+- Different coset representatives give canonically equivalent Shapiro data.
+- Specify P normal in the ambient Weil group, not merely open in its subgroup.
+
+**Direct prerequisites.** `ExcursionOperatorsAndSpectralAction:ES6/coefficient-policy-for-the-functorial-diagrams`; `ExcursionOperatorsAndSpectralAction:ES5/parameter-of-a-schur-irreducible-sheaf`; `mathlib:IsFreeGroup`; `mathlib:Subgroup.fg_of_index_ne_zero`; `mathlib:Subgroup`; `mathlib:groupCohomology.coindIso`; `LanglandsParameterStacks:LP0/functoriality-of-cocycles`; `HeckeStacksAndLocalShtukas:HS4/isogeny-product-and-weil-restriction-diagrams`; `GeometricSatakeAndFusion:GS4:integral-dual-group/weil-restriction-naturality`; `BunGAndNewtonStrata:BG0/g-torsors-three-descriptions`.
+
+**Source match.**
+
+- [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), IX.6.3 proof, p. 332: Exactly the baseline input; its rank is irrelevant.
+- [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), IX.6.3 proof, p. 332: The nonabelian finite-free-source excursion-colimit argument.
+
+**Planet:** Weil restriction of parameters.
+
+### The spectral centre of a torus
+
+**Declaration:** `toriSpectralCenter` · theorem. Node `ExcursionOperatorsAndSpectralAction:ES6:functoriality/tori-spectral-center`.
+
+For an E-torus T, local reciprocity gives a natural isomorphism Z_spec(T,Lambda) with R_T=lim_K Lambda[T(E)/K], over open subgroups K. These quotient groups are discrete and need not be finite: for T=G_m and K=O_E-times they contain the infinite valuation quotient Z. The geometric category decomposes as the product over b in B(T)=pi_1(T)_Gamma of D(T(E),Lambda), and Z_geom(T,Lambda) is the corresponding product of R_T. The classical abelian-category centre description is imported from SR.1, not the complex Bernstein-block theorem.
+
+**Hypotheses and conventions.** Use full local reciprocity, including wild p-primary equal-characteristic characters. The inverse limit is the compatible group-algebra completion, not a finite group-algebra approximation to all T(E). Induced-torus resolutions and their exactness belong to the proposed RG2.6 extension.
+
+**Construction or proof.**
+
+1. Use the BG torus classification and VS stratum equivalence for the geometric product.
+2. Import SR.1’s centre as the inverse limit of idempotent Hecke corners; for the abelian group T(E) these identify with group algebras of quotients.
+3. Resolve T by induced tori using the requested reductive-group input, keeping the exact sequence and dual maps.
+4. Use product and Weil restriction to reduce to G_m and apply local reciprocity to the continuous cocycle/character functor.
+5. Pass to coordinate algebras and the compatible K-completions. The missing full equal-characteristic reciprocity is a recorded gap, not supplied by a prime-to-p statement.
+
+**Acceptance.**
+
+- For G_m the unramified quotient contributes Lambda[t,t^-1].
+- Check norm compatibility for an induced torus and restriction to open K.
+- No definition of the general Bernstein centre is duplicated here.
+
+**Direct prerequisites.** `ExcursionOperatorsAndSpectralAction:ES6:functoriality/weil-restriction`; `ExcursionOperatorsAndSpectralAction:ES6:functoriality/products`; `ExcursionOperatorsAndSpectralAction:ES6:functoriality/isogenies`; `mathlib:MonoidAlgebra`; `tauceti:TauCeti.ClassFieldTheory.Formation`; `SmoothRepresentationsOfLocalGroups:SR.1`; `BunGAndNewtonStrata:BG1/abelianization-identification`; `LanglandsParameterStacks:LP0/condensed-cocycles-and-L-parameters`; `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-9-the-local-weil-group`.
+
+**Source match.**
+
+- [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), IX.6.4 proof, p. 333: The reduction uses separate reductive-group and reciprocity suppliers.
+
+### The normalized two-leg torus excursion
+
+**Declaration:** `torusTwoLegCalculation` · theorem. Node `ExcursionOperatorsAndSpectralAction:ES6:functoriality/torus-two-leg-calculation`.
+
+Fix geometric Artin reciprocity rec_geom:E-times to W_E^top-ab, sending a uniformizer to geometric Frobenius; it is the inverse of the upstream arithmetic-normalized Artin map. For a smooth character chi:E-times to L-times, the G_m two-leg datum Std external-tensor Std-dual with its tautological creation and annihilation has scalar chi(rec_geom^-1(gamma_1 gamma_2^-1)). At (gamma,1) it is the usual parameter chi composed with rec_geom^-1. On any degree-b line-bundle stratum the same scalar occurs.
+
+**Hypotheses and conventions.** Topological abelianization means quotient by the closure of the commutator, not the raw algebraic quotient. Track the source/target conventions of the Hecke correspondence and of the associated character sheaf. The formula is a planned geometric calculation; the Lean prototype checks only the group-homomorphism identity, with the geometric identification left out.
+
+**Construction or proof.**
+
+1. Use the requested Lubin–Tate comparison BC(O(1)) minus zero modulo E-times = Div1 and its explicit torsor.
+2. Fargues Proposition 2.16 describes Frobenius descent as pi times the canonical descent. Proposition 3.3 computes the associated E_chi character as chi^-1 composed with arithmetic Artin^-1.
+3. Identify the Hecke endpoint actions and the associated sheaf convention so this monodromy is expressed using rec_geom, without silently removing either inversion. This endpoint adapter is recorded as a remaining verification gap.
+4. Compose the Std and Std-dual modifications: their two Weil actions produce gamma_1 gamma_2^-1; evaluation cancels the line-bundle degree dependence.
+5. Use the matrix coefficient to recover the G_m parameter; a single-leg scalar is the specialization gamma_2=1.
+
+**Acceptance.**
+
+- For an unramified chi with chi(pi)=a, geometric Frobenius at the first leg and identity at the second gives a.
+- On the diagonal gamma_1=gamma_2 the scalar is one.
+- Switching the legs inverts the scalar.
+- The endpoint/character inversion must be checked against the torsor, not inferred from a name for Frobenius.
+
+**Direct prerequisites.** `ExcursionOperatorsAndSpectralAction:ES6:functoriality/tori-spectral-center`; `RelativeFarguesFontaine:RF3/isocrystal-line-bundles-and-sign`; `HeckeStacksAndLocalShtukas:HS1/hecke-operator-via-relative-homology`; `GeometricSatakeAndFusion:GS4:integral-dual-group/normalized-satake-equivalence`; `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-9-the-local-weil-group`.
+
+**Source match.**
+
+- [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), IX.6.5 proof, p. 333: The missing displayed calculation is planned explicitly, rather than treated as a baseline fact.
+- [Simple connexité des fibres d’une application d’Abel-Jacobi et corps de classe local](https://webusers.imj-prg.fr/~laurent.fargues/cdc.pdf), Proposition 3.3 proof, p. 13: Arithmetic normalization and the associated-sheaf inversion are read from the proof.
+
+### The diagonal torus centre map
+
+**Declaration:** `toriDiagonalEmbedding` · theorem. Node `ExcursionOperatorsAndSpectralAction:ES6:functoriality/tori-diagonal-embedding`.
+
+Under the spectral isomorphism with R_T and the geometric identification Z_geom(T,Lambda)=product_(b in B(T)) R_T, the map Z_spec(T,Lambda) to Z_geom(T,Lambda) sends r to the constant tuple (r)_b. Consequently phi_chi on every torus stratum is the usual torus parameter with the specified reciprocity normalization. This is an equality of the actual centre actions and their coordinates, not merely agreement on one chosen character.
+
+**Hypotheses and conventions.** For a torus its centre is connected, so the centre-component hypothesis is automatic. The entire B(T) product, not only the neutral stratum, occurs.
+
+**Construction or proof.**
+
+1. Resolve by induced tori and descend the action along the resolution using the adjoint-isomorphism comparison.
+2. Apply the product and Weil-restriction comparisons to reduce to G_m.
+3. Use the two-leg calculation on every line-bundle component to identify the completed group-algebra action.
+4. Use the compatible K-generators of the torus centre to establish equality in R_T, then in each B(T) factor.
+
+**Acceptance.**
+
+- For G_m, B(T)=Z, and every degree factor receives the same r.
+- Check the full centre action rather than only its evaluation on irreducible characters; characters need not detect all integral nilpotents.
+
+**Direct prerequisites.** `ExcursionOperatorsAndSpectralAction:ES6:functoriality/tori-spectral-center`; `ExcursionOperatorsAndSpectralAction:ES6:functoriality/torus-two-leg-calculation`; `ExcursionOperatorsAndSpectralAction:ES6:functoriality/isogenies`; `ExcursionOperatorsAndSpectralAction:ES6:functoriality/products`; `ExcursionOperatorsAndSpectralAction:ES6:functoriality/weil-restriction`; `ExcursionOperatorsAndSpectralAction:ES1:spectral-center/spectral-to-geometric-center-map`.
+
+**Source match.**
+
+- [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), IX.6.5, p. 333: The centre statement is stronger than a scalar pointwise test.
+
+**Planet:** Diagonal torus centre map.
+
+### Central characters for a connected centre
+
+**Declaration:** `centralCharacters` · theorem. Node `ExcursionOperatorsAndSpectralAction:ES6:functoriality/central-characters-and-twisting`.
+
+If Z=Z(G) is connected, it is a torus. For irreducible smooth pi with central character omega_pi, the composite of phi_pi with the dual map Ghat to Zhat is the usual parameter of omega_pi. The correct adjoint-isomorphism map is multiplication Z times G to G. Pulling pi back along it identifies its scalar central action with omega_pi external-tensor pi; combine this with the product parameter and torus comparison.
+
+**Hypotheses and conventions.** Z to G by itself does not induce an adjoint-group isomorphism. Use the excursion version if ell divides a relevant centre-component order. Smooth central characters and the irreducible scalar action are imported from the representation-theoretic supplier.
+
+**Construction or proof.**
+
+1. Use Schur’s lemma to identify the central action with a smooth character.
+2. Construct multiplication and its Weil-equivariant dual map through the reductive-group/Satake supplier.
+3. Apply adjoint-isomorphism compatibility to multiplication and product compatibility to the external representation.
+4. Identify the Z-coordinate using the diagonal torus theorem and cancel the unchanged G-coordinate.
+
+**Acceptance.**
+
+- For G=T the statement is the torus result.
+- For a connected-centre group the central dual projection, not restriction of the primal parameter, is used.
+- This proof does not depend on the ES7 parabolic theorem.
+
+**Direct prerequisites.** `ExcursionOperatorsAndSpectralAction:ES5/parameter-of-an-irreducible-smooth-representation`; `ExcursionOperatorsAndSpectralAction:ES6:functoriality/isogenies`; `ExcursionOperatorsAndSpectralAction:ES6:functoriality/products`; `ExcursionOperatorsAndSpectralAction:ES6:functoriality/tori-diagonal-embedding`; `GeometricSatakeAndFusion:GS4:integral-dual-group/adjoint-isomorphism-naturality`; `ReductiveGroupsPartII:RG2.5`.
+
+**Source match.**
+
+- [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), IX.6 closing paragraph, p. 333: Pins the two actual maps, correcting the checkpoint’s Z to G error.
+
+**Planet:** Central-character compatibility.
+
+### Twisting by characters of the abelianization
+
+**Declaration:** `twisting` · theorem. Node `ExcursionOperatorsAndSpectralAction:ES6:functoriality/twisting-by-abelianized-characters`.
+
+Let a:G to D=G/G_der and chi be a smooth L-times character of D(E). For irreducible smooth pi, phi_(pi tensor chi composed with a) is phi_pi multiplied by the central cocycle dual a composed with phi_chi. In L-group notation multiply only the Ghat-valued cocycle part, retaining the same Weil projection. Equivalently this is composition of the product parameter with the dual of the graph map G to G times D.
+
+**Hypotheses and conventions.** The dual torus Dhat maps centrally into Ghat. The two cocycles share the prescribed Weil projection and use its action; do not multiply their Weil components.
+
+**Construction or proof.**
+
+1. Apply the product theorem to pi external-tensor chi.
+2. Apply the adjoint-isomorphism theorem to g mapped to (g,a(g)).
+3. Use the torus normalization to identify the twisting cocycle, and centrality to check its cocycle identity.
+
+**Acceptance.**
+
+- The trivial character leaves the parameter unchanged.
+- Successive twists compose by multiplying central cocycles.
+- No use of ES7 parabolic induction is needed.
+
+**Direct prerequisites.** `ExcursionOperatorsAndSpectralAction:ES6:functoriality/central-characters-and-twisting`; `ExcursionOperatorsAndSpectralAction:ES6:functoriality/isogenies`; `ExcursionOperatorsAndSpectralAction:ES6:functoriality/products`; `ExcursionOperatorsAndSpectralAction:ES6:functoriality/tori-diagonal-embedding`; `LanglandsParameterStacks:LP0/functoriality-of-cocycles`; `ReductiveGroupsPartII:RG2.5`.
+
+**Source match.**
+
+- [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), IX.6 closing paragraph, p. 333: The graph map and the central dual twisting cocycle.
+
+### Pseudo-z-embeddings and z-embeddings
+
+**Declaration:** `ZEmbedding` · definition. Node `ExcursionOperatorsAndSpectralAction:ES6:functoriality/z-embedding`.
+
+Over a p-adic field F, a pseudo-z-embedding is an injective morphism G to Gz of connected reductive F-groups such that C=Gz/G is a torus, H1(F,C)=1 and H1(F,Z(G)) to H1(F,Z(Gz)) is bijective. It is a z-embedding if Z(Gz) is connected and C is an induced torus. Kaletha constructs it by embedding the diagonalizable centre in a torus T with induced quotient and the same H1, then taking Gz=G times_Z T. The injective z-embedding is distinct from a surjective z-extension with induced-torus kernel and simply connected derived group.
+
+**Hypotheses and conventions.** Kaletha’s source is p-adic; a uniform claim for arbitrary equal-characteristic E is not justified by this citation. The cohomological bijection is essential: SL_n to GL_n is not a z-embedding in the cited p-adic setting. These definitions and their application-level construction belong here; foundational z-extensions and induced-torus resolutions belong to proposed RG2.6.
+
+**Construction or proof.**
+
+1. Use the existing reductive/multiplicative-type carriers and the requested finite local cohomology input.
+2. Embed Z(G) in T0, split the quotient over F1, and choose a finite extension whose norm kills its finite H1 image using local reciprocity.
+3. Take the fibre-product torus T and verify the centre H1 bijection; push out G along Z(G) to T.
+4. From injectivity on centre H1 prove Z(Gz)(F) to C(F) surjective, hence Gz(F)=Z(Gz)(F)G(F).
+5. Given an extension of a smooth central character, define the representation on a product z g by that character times pi(g); prove descent and smoothness using the requested representation dictionary.
+
+**Uses that determine the API.**
+
+- Kaletha Corollary 5.3 and Fact 5.5: Reduce central-character questions over p-adic fields to connected centre while retaining rational-point control.
+- ES6 disconnected-centre comparison and ES7 parabolic: Compare the representation extensions and their parameters; no new general local Langlands theory is assumed.
+
+**API.**
+
+- `ZEmbedding.ofMaps` (constructor): Bundle the injection and torus quotient with the full scheme and cohomological conditions; the prototype bundles only its rational exactness and central lifting.
+- `ZEmbedding.quotient_inclusion` (simp): The quotient is one on the included G.
+- `ZEmbedding.central_lift` (data): Each c in C(F) has a lift in Z(Gz)(F).
+- `ZEmbedding.rational_factorization` (characterisation): Every x in Gz(F) can be written z times i(g) with central z and g in G(F).
+- `ZEmbedding.extend_representation` (compatibility): A chosen smooth central-character extension agreeing on the intersection gives a smooth representation of Gz(F) restricting to pi; its formula on z i(g) is the central scalar times pi(g).
+
+**Unit tests.** These are typed mathematical obligations; their corresponding examples in the suggested file exercise the documented prototype fragments.
+
+- `zembedding_identity` (degenerate): For a connected-centre reductive group, its identity with quotient one is a z-embedding; its rational-point inclusion is the identity.
+- `zembedding_product` (computation): For connected-centre G and induced torus C, the inclusion G to G times C and projection to C give a z-embedding and central lifts (1,c).
+- `zembedding_requires_central_lifting` (non-example): A proposed rational quotient not surjective on the centre cannot be the rational-point data of a pseudo-z-embedding.
+
+**Acceptance.**
+
+- Check both quotient/cohomology conditions, not merely connected centre and torus quotient.
+- Only pseudo-z-embeddings are asserted to be transitive (Fact 5.4).
+- An extension of a central character is a choice whose effect must be compared, not declared canonical.
+
+**Direct prerequisites.** `ReductiveGroupsPartII:RG2.5`; `SmoothRepresentationsOfLocalGroups:SR.2`; `mathlib:MonoidHom`; `mathlib:Subgroup`; `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-9-the-local-weil-group`.
+
+**Source match.**
+
+- [Rigid inner forms vs isocrystals](https://arxiv.org/pdf/1502.00650v2), Definition 5.1 and Proposition 5.2, p. 17: The full definition includes all preceding pseudo-z conditions.
+- [Rigid inner forms vs isocrystals](https://arxiv.org/pdf/1502.00650v2), Fact 5.5, p. 19: The exact cohomological reason for central rational-point surjectivity.
+
+**Planet:** Z-embeddings.
+
+### The disconnected-centre reduction and choice comparison
+
+**Declaration:** `zEmbeddingCentralCharacterComparison` · theorem. Node `ExcursionOperatorsAndSpectralAction:ES6:functoriality/z-embedding-central-character-comparison`.
+
+For a p-adic E and a z-embedding G to Gz, extend pi by a chosen smooth extension of its central character. Its connected-centre parameter projects back to the G parameter by the adjoint-isomorphism theorem, and its restriction to the included centre recovers omega_pi. Two such extensions differ by a character of C(E); twisting comparison shows they induce the same descended central data. Common pseudo-z refinements compare choices of embeddings. For general nonarchimedean E the source’s surjective z-extension route is a separate required input: a connected-centre cover with induced-torus kernel and rational-point surjectivity must carry the analogous central and parameter comparison. That all-field route is explicitly a gap, not attributed to Kaletha’s p-adic construction.
+
+**Hypotheses and conventions.** Extension of the central character over L, including modular coefficients, must be smooth and is a requested input. Disconnected Z(G) is not treated as an E-torus with an ordinary torus L-parameter. Central data means its actual scalar character, compared after the connected-centre cover. Do not deduce a global compatibility from a single chosen extension without the twisting/common-refinement argument.
+
+**Construction or proof.**
+
+1. Use the rational central-factorization lemma to extend pi; irreducibility is preserved because the extra factors act centrally.
+2. Apply the connected-centre theorem to Gz and the adjoint-isomorphism theorem to G to Gz.
+3. Two central-character extensions differ by a quotient-torus character; apply twisting and restrict back to G to cancel it.
+4. Use Kaletha Fact 5.6: the pushout G1 times_Z(G) Z(G2) is a common pseudo-z refinement. Each quotient is the other original quotient torus; Fact 5.5 gives its central rational surjectivity and the required H1 vanishing. Fact 5.4 makes the composite pseudo-z. Apply the two adjoint-isomorphism comparisons and twisting cancellation to identify descended data.
+5. For equal characteristic request the foundational z-extension cover, its rational-point and dual-centre interfaces, then run the corresponding pullback/descent calculation; record this unproved extension separately.
+
+**Acceptance.**
+
+- For connected centre the identity embedding gives the earlier result.
+- A quotient character changes the extended parameter but does not change the descended data.
+- No general centre-character parameter for a disconnected finite-type group is silently defined.
+
+**Direct prerequisites.** `ExcursionOperatorsAndSpectralAction:ES6:functoriality/z-embedding`; `ExcursionOperatorsAndSpectralAction:ES6:functoriality/central-characters-and-twisting`; `ExcursionOperatorsAndSpectralAction:ES6:functoriality/twisting-by-abelianized-characters`; `ExcursionOperatorsAndSpectralAction:ES6:functoriality/isogenies`; `ReductiveGroupsPartII:RG2.5`; `SmoothRepresentationsOfLocalGroups:SR.2`.
+
+**Source match.**
+
+- [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), IX.6 closing paragraph, p. 333: The source calls these z-extensions; Kaletha’s section develops z-embeddings. Their distinction and field range are made explicit.
+- [Rigid inner forms vs isocrystals](https://arxiv.org/pdf/1502.00650v2), Fact 5.5 and following paragraph, p. 19: The paragraph compares representation extensions by quotient characters; the full passage, not this short fragment, was read.
+
+
+## ES6:duality. Chevalley and the smooth-dual return
+
+Bernstein–Zelevinsky duality acts on the enhanced geometric centre. Its compatibility with Chevalley gives parameters of eligible dual Schur objects or inherited Schur constituents. It does not turn an arbitrary dual complex into a degree-zero irreducible representation. The supercuspidal smooth-dual consequence uses the classical comparison with the appropriate shift. The assertion for every irreducible smooth dual returns through ES7:parabolic and the coefficient-qualified induction dictionary.
+
+### Chevalley compatibility for Bernstein–Zelevinsky duals
+
+**Declaration:** `bernsteinZelevinskyDuals` · theorem. Node `ExcursionOperatorsAndSpectralAction:ES6:duality/bernstein-zelevinsky-duals`.
+
+The existing spectral-to-geometric centre map intertwines the spectral involution induced by the pinned Chevalley automorphism with the involution induced by Bernstein–Zelevinsky duality. If both A and D_BZ(A) are Schur and the duality is defined in the required category, phi_(D_BZ A)=theta composed with phi_A up to Ghat-conjugacy. More generally a Schur cohomological constituent with inherited scalar central action has that parameter. On irreducible smooth representations use the classical BZ comparison with its shifts, rather than assume the dual complex is a representation in degree zero.
+
+**Hypotheses and conventions.** The actual Satake switch is Chevalley up to Ad(rhohat(-1)); the inner automorphism disappears only after conjugacy quotient. Use the coefficient policy for the centre square and its excursion variant for unrestricted L. Import the compact/reflexive domain and extension of BZ duality from VS5.
+
+**Construction or proof.**
+
+1. Import ES4’s duality/centre square, HS1’s dual Hecke identity and GS4’s exact Chevalley comparison.
+2. Reverse creation and annihilation under duality and compare the Weil action through the switch; this pulls back the invariant coefficient by theta.
+3. Keep the rhohat(-1) inner correction until passing to conjugacy classes.
+4. Use scalar-character uniqueness for the dual object or inherited Schur constituent.
+
+**Acceptance.**
+
+- For a torus Chevalley is inversion and dual characters invert.
+- The compact BZ dual may carry a cohomological shift; it must not be identified with a degree-zero smooth dual without further input.
+- The spectral-centre supplier is an explicit prerequisite.
+
+**Direct prerequisites.** `ExcursionOperatorsAndSpectralAction:ES6/coefficient-policy-for-the-functorial-diagrams`; `ExcursionOperatorsAndSpectralAction:ES5/parameter-of-a-schur-irreducible-sheaf`; `ExcursionOperatorsAndSpectralAction:ES1:spectral-center/spectral-to-geometric-center-map`; `ExcursionOperatorsAndSpectralAction:ES4/duality-and-the-chevalley-involution`; `GeometricSatakeAndFusion:GS4:integral-dual-group/chevalley-involution`; `HeckeStacksAndLocalShtukas:HS1/properties-and-weil-equivariance`; `VStackSheavesAndLisseCategories:VS5/bernstein-zelevinsky-duality`.
+
+**Source match.**
+
+- [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), IX.5.3 proof, p. 330: The centre involutions and parameter consequence.
+- [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), VI.12.1 proof, p. 241: The rank-one sign calculation explains the inner rho(-1) correction.
+
+**Planet:** Chevalley duality of parameters.
+
+### Chevalley compatibility for smooth contragredients
+
+**Declaration:** `smoothDuals` · theorem. Node `ExcursionOperatorsAndSpectralAction:ES6:duality/smooth-duals`.
+
+For every irreducible smooth L-representation pi of G(E), its smooth contragredient pi-vee is irreducible and phi_(pi-vee)=theta composed with phi_pi up to Ghat-conjugacy. For supercuspidals this follows from the BZ comparison (with its shift accounted for). In general it is a late return using ES7’s parabolic-induction parameter theorem and SR.2’s contragredient/induction dictionary. The twist of the Levi inclusion and all modulus conventions are retained.
+
+**Hypotheses and conventions.** Admissibility is the all-coefficient supplier input, including characteristic ell. Use ES7’s unnormalized induction statement with its explicitly twisted Levi inclusion; do not silently replace it by normalized induction. This stage is downstream of ES7:parabolic; the early functoriality nodes here never depend on this return.
+
+**Construction or proof.**
+
+1. Apply BZ compatibility in the supercuspidal case, using the supplier’s agreement with the smooth dual up to shift.
+2. Use supercuspidal support and realize pi as an irreducible subquotient of an eligible induction.
+3. Take smooth duals using the existing induction/duality comparison, tracking the opposite parabolic and modulus factor.
+4. Apply ES7’s parameter theorem to both induced sides; use the Chevalley compatibility of the twisted Levi inclusions to identify the two conjugacy classes.
+
+**Acceptance.**
+
+- For a character of G_m, phi_(chi^-1)=phi_chi^-1.
+- The duality graph remains acyclic by keeping this result downstream of ES7.
+- The proof covers irreducible subquotients, not only a socle or cosocle.
+
+**Direct prerequisites.** `ExcursionOperatorsAndSpectralAction:ES6:duality/bernstein-zelevinsky-duals`; `ExcursionOperatorsAndSpectralAction:ES5/invariance-and-coefficient-transport`; `ExcursionOperatorsAndSpectralAction:ES7:parabolic/parabolic-induction`; `ExcursionOperatorsAndSpectralAction:ES7:parabolic/normalised-induction-dictionary`; `SmoothRepresentationsOfLocalGroups:SR.2`; `ExcursionOperatorsAndSpectralAction:ES1:spectral-center/spectral-to-geometric-center-map`.
+
+**Source match.**
+
+- [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), IX.5.3 proof, p. 330: The source explicitly requires the ES7 induction theorem.
+
+**Planet:** Smooth contragredient parameters.
+
+## Pinned baseline and prototype boundaries
+
+The baseline is Mathlib **082e2d37e8b0463410cdb532e111cd43d5a66174** and Tau Ceti **f790474821cf4256814db967cb154e7af3d0c369**. Each named declaration's statement was checked in the pinned source. A searchable declaration index was used to locate candidates; index membership alone was not treated as mathematical coverage. The roadmap's library audit and the upstream AdicSpaces and InductionRestriction documents were read before assigning ownership.
+
+The suggested file elaborates against the pinned Mathlib build and claims no implementation. The table is an omission ledger: a compiled algebraic fragment is not evidence that a geometric or topological hypothesis has been formalized.
+
+| Suggested interface | Precisely what the prototype retains | Conditions left out because their carriers/interfaces are unavailable |
+| --- | --- | --- |
+| IsSchurIrreducible and its API | Invertibility of a specified morphism of actual condensed L-algebras, sectionwise scalar uniqueness, and invariance under a unit-compatible isomorphism. | The choice of relatively discrete L and the identification of the other condensed algebra with the enhanced degree-zero endomorphisms of a sheaf. The shift API takes its endomorphism isomorphism as input. |
+| condensedSchurOfAdmissible | Composition of explicit condensed scalar and endomorphism comparison isomorphisms, with equality to the scalar unit. | The smooth/admissible/irreducible representation, fixed-vector argument, derived stratum category and enriched adjunction producing those isomorphisms. |
+| excursionCharacter and its API | Actual algebra homomorphisms, inverse scalar transport, finite-family evaluations and their stated reindexing/multiplication equalities; condensed factorization through the scalar unit; equality on algebra generators. | The integral excursion presentation, Q-linearity and the identification of the algebraic families with geometric excursion operators. The inverse-pair example takes the imported relation as an equality. |
+| abstractSemisimpleParameter and parameterOfSchurSheaf | An explicit imported reconstruction/evaluation pair, with existence and conjugacy uniqueness under an explicit separation condition. | Semisimplicity, the specified Weil projection, continuity, invariant quotient-stack carriers and the actual LP2 reconstruction theorem. The prototype does not define any of these by an unnamed predicate. |
+| parameterOfRepresentation and its API | A Mathlib Representation, its equivariant endomorphism algebra, excursion action, scalar algebra equivalence and explicit reconstruction map. | Smoothness, admissibility, irreducibility and the geometric stratum equivalence/adjunction. The explicit classifier chooses a representative; the full output is its conjugacy class. The basepoint and trivial-group tests retain only their global algebraic consequences. |
+| stratumCentreEmbeddingIndependence | Naturality of an actual category-centre element along a comparison of ordinary functors, with explicit restriction retractions. | The enhanced D_lis categories, construction of these functors by the geometric adjunctions, and identification with the excursion action. |
+| invarianceAndCoefficientTransport | Character pullback and an explicit naturality equation for the imported reconstruction maps. | Field extension and geometric coefficient base change, and preservation of the Schur condition. The algebraic prototype uses one ground field. |
+| coefficientPolicyForFunctorialDiagrams and isogenies | Evaluation of an explicit commuting square of algebra homomorphisms. | The coefficient component-order condition, Bun/Hecke geometry and the relative-homology kernel theorem which establishes that square. |
+| products and weilRestriction | Product of actual group homomorphisms, and restriction followed by a chosen dual-factor projection. | Common Weil projection and semisimplicity, quotient-stack Shapiro, cofinal excursion colimits, product kernel geometry and inflate/induce Satake comparison. |
+| toriSpectralCenter and toriDiagonalEmbedding | Conversion of an explicit bijective algebra homomorphism to an algebra equivalence, and coordinates of an explicit diagonal action. | The inverse limit of completed group algebras, geometric components and the reciprocity/kernel calculation proving the maps have those properties. |
+| torusTwoLegCalculation | The group-law identity for a specified geometric-reciprocity inverse and a character. | Lubin–Tate geometry and the endpoint/associated-sheaf inversions. In particular compilation does not resolve the endpoint gap. |
+| centralCharacters and twisting | Composition with a central dual map, and multiplication of a group homomorphism by a cocycle with genuinely central image in the untwisted group fragment. | Reductive dual/root data, the Weil semidirect product and its action, the graph/multiplication kernel comparisons, and identification with the representation parameter. |
+| ZEmbedding and its API | An exact rational-point sequence with injective inclusion, surjective quotient and surjective restriction of the quotient to the actual group centre. Representation extension uses an actual character and its scalar compatibility on the intersection. | Reductive schemes, connected centre, induced quotient torus, H¹ conditions, topology and smoothness. The identity/product tests are rational-point fragments; connectedness of the algebraic centre is not asserted for an arbitrary abstract group. |
+| zEmbeddingCentralCharacterComparison | Cancellation on the included centre of the difference of two extensions by a quotient character. | The connected-centre parameter comparison, common pseudo-z refinement, geometry of centre inclusions, and the general-field z-extension route. |
+| bernsteinZelevinskyDuals and smoothDuals | An imported Chevalley pullback equation on characters and its reconstruction naturality. | The actual duality functor, enriched dual kernel, shifts, smooth contragredient, supercuspidal support and ES7's parabolic proof. |
+
+The four definition/construction nodes have 22 API items and 12 unit tests. Every named declaration, API item and test appears in the suggested file. Its examples use actual condensed algebras, algebra homomorphisms, representations or exact group maps where those exist at the pins. None replaces missing geometry by an empty structure or an uninterpreted proposition.
+
+## Source versions and source correction
+
+All Fargues–Scholze page numbers refer to the hash-identified **356-page author manuscript**. The relevant excursion and functoriality passages were also collated against arXiv:2102.13459v4 (27 November 2024). The 2026 Astérisque 466 volume has different pagination; its public ten-page sample does not include the passages used here. No claim is made about the full published display.
+
+Source issue **ExcursionOperatorsAndSpectralAction/E2** records the repeated G₁ in the geometric-centre tensor product in the IX.6.2 display. The second factor must be G₂. The author PDF was visually inspected and the arXiv v4 display independently collated, so the repetition is not a text-extraction artifact. Source issue E3 records that the same proposition must place A_i on Bun_(G_i), rather than placing both inputs on Bun_G. Source issue E4 records the reversed group-morphism direction in the IX.6.1 proof prose: Gprime to G gives Gr_Gprime to Gr_G, while the dual map runs in the opposite direction. Both additional slips were visually checked in the author copy and collated with arXiv v4. The mathematics uses the corrected domains and directions. The earlier part already owns E1, concerning the VIII.4 reindexing square; the present finite-set API uses only commutativity and does not duplicate that source issue.
+
+Kaletha's source is **Rigid inner forms vs isocrystals**, arXiv:1502.00650v2, published JEMS 20 (2018), 61–101. It is not the separate regular-supercuspidal paper. Section 5.1's definition, torus-envelope construction, existence, rational-point factorization and common-refinement arguments are consumed with their p-adic hypotheses. Fargues' author copy of the Abel–Jacobi paper numbers the torsor-descent statement **Proposition 2.16**; the IX.6 proof's published reference to Proposition 2.12 is not silently assigned the author-copy numbering. Proposition 3.3 in that copy gives the inverse-character/inverse-arithmetic-Artin convention.
+
+Lafforgue Proposition 11.7 and Lemma 11.10 supply a read account of finite anchors, group relations, uniqueness and continuity in characteristic zero. The general-coefficient local character theorem remains owned by LP2. The characteristic-zero Reynolds argument is not used as a proof in characteristic ℓ. Vignéras' book theorem is a precise requested input; its proof was not read and this plan does not represent it as source-verified closure.
+
+### Sources and passages actually read
+
+- [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), Laurent Fargues, Peter Scholze. Author-hosted 356-page preprint; locators below use its printed pages, which equal PDF pages. Separately collated with arXiv:2102.13459v4 (27 November 2024); not the 2026 published pagination.
+  - II.2.1, pp. 58–61: the height-one Lubin–Tate universal cover, O(1) sections and the E-times torsor on Div1.
+  - VI.12.1 and its complete proof, pp. 239–241: switching, Chevalley and the rho(-1) sign.
+  - VII.7.1–VII.7.2 and proofs, pp. 271–273; VII.7.9–VII.7.10, pp. 275–276: stratum equivalence, relative-homology left adjoint and exterior Hom comparison.
+  - VIII.3.7–VIII.3.8 with all three clauses and both relations, pp. 288–290; VIII.4 and VIII.4.3, pp. 290–293.
+  - IX.1–IX.2, pp. 320–323: condensed enhancement and relative-homology Hecke operators.
+  - IX.4–IX.6, pp. 327–333, including complete proofs of IX.6.1–IX.6.5. IX.6.2 display visually checked and compared with arXiv v4.
+  - IX.7.1, p. 334: centre restriction to strata and assertion of embedding independence; IX.7.3, pp. 337–338: the parabolic input to smooth duality.
+- [Chtoucas pour les groupes réductifs et paramétrisation de Langlands globale](https://arxiv.org/pdf/1209.5352v10), Vincent Lafforgue. arXiv:1209.5352v10, 10 January 2018; J. Amer. Math. Soc. 31 (2018), 719–891. Locators are preprint pages.
+  - Proposition 11.7 and proof, pp. 143–147, including Lemma 11.10: finite anchors, uniqueness, multiplicativity and the characteristic-zero continuity argument. The local general-coefficient character theorem is imported from LP2, not re-planned from the global application.
+- [Rigid inner forms vs isocrystals](https://arxiv.org/pdf/1502.00650v2), Tasho Kaletha. arXiv:1502.00650v2; published J. Eur. Math. Soc. 20 (2018), 61–101. Locators are preprint pages.
+  - Section 5.1, pp. 16–19: Definition 5.1, Proposition 5.2, Corollary 5.3 and Facts 5.4–5.6, with proofs and representation-extension paragraph. The field here is p-adic.
+- [Simple connexité des fibres d’une application d’Abel-Jacobi et corps de classe local](https://webusers.imj-prg.fr/~laurent.fargues/cdc.pdf), Laurent Fargues. Author-hosted preprint cdc.pdf; published Ann. Sci. Éc. Norm. Supér. (4) 53 (2020), 89–124. Proposition numbers and pages below are those of this author copy.
+  - Section 2.3 and Proposition 2.16, pp. 8–10: Lubin–Tate torsor and Frobenius descent.
+  - Propositions 3.1 and 3.3 with proof, pp. 12–13: the Weil dictionary and inverse-character/inverse-Artin normalization.
+  - Section 5.2, pp. 18–19: geometric reciprocity and equal-characteristic range, used to identify the requested scope.
+
+## Remaining gaps and requests
+
+These records are required to reach closure. They do not prevent this target-level pass from being complete under the protocol. No requested new stage is represented as an existing supplier.
+
+### Gap 1: All-coefficient admissibility supplier
+
+The current SR.0 defines admissibility and SR.3/SR.3a prove complex results; they do not supply the modular theorem. SR.6 is downstream. Create the proposed independent SR.3b and read Vignéras II.2.8 before treating this input as closed. Qbar_ell is uncountable; the countable-field issue is Fbar_ell.
+
+Consumers: `ExcursionOperatorsAndSpectralAction:ES5/condensed-schur-from-admissibility`, `ExcursionOperatorsAndSpectralAction:ES5/parameter-of-an-irreducible-smooth-representation`, `ExcursionOperatorsAndSpectralAction:ES6:duality/smooth-duals`.
+
+### Gap 2: Enriched noncompact Schur and stratum adjunction interfaces
+
+The existing VS4 and HS1 nodes do not explicitly provide the condensed fixed-vector endomorphism comparison, VII.7.2’s enriched relative-homology left adjoint or eligible right-extension comparison. The mathematical proof outline is given, but these exact reusable supplier declarations remain required.
+
+Consumers: `ExcursionOperatorsAndSpectralAction:ES5/condensed-schur-from-admissibility`, `ExcursionOperatorsAndSpectralAction:ES5/parameter-of-an-irreducible-smooth-representation`, `ExcursionOperatorsAndSpectralAction:ES5/stratum-centre-embedding-independence`.
+
+### Gap 3: Pre-evaluation kernel and exterior-generator precision
+
+HS4’s comparison node states the centre diagrams but records only an opening read of IX.6.1; the complete relative-homology kernel formula is requested. VS5 must provide the VII.7.10 exterior Hom formula at the required coefficients. These are supplier refinements, not new local definitions of their geometry.
+
+Consumers: `ExcursionOperatorsAndSpectralAction:ES6:functoriality/isogenies`, `ExcursionOperatorsAndSpectralAction:ES6:functoriality/products`, `ExcursionOperatorsAndSpectralAction:ES6:functoriality/weil-restriction`.
+
+### Gap 4: Foundational induced-torus and z-extension scope extension
+
+No existing RG2.5 node plans induced-torus resolutions or z-extension existence. Confirmed finding 10 calls for a new foundational RG2.6, with BG/ET consumers outside this issue’s allowed paths. The proposal here routes that need and does not make a nonexistent stage into a prerequisite.
+
+Consumers: `ExcursionOperatorsAndSpectralAction:ES6:functoriality/tori-spectral-center`, `ExcursionOperatorsAndSpectralAction:ES6:functoriality/central-characters-and-twisting`, `ExcursionOperatorsAndSpectralAction:ES6:functoriality/twisting-by-abelianized-characters`, `ExcursionOperatorsAndSpectralAction:ES6:functoriality/z-embedding-central-character-comparison`.
+
+### Gap 5: Full equal-characteristic reciprocity
+
+The upstream ClassFieldTheory document fixes normalization, but its equal-characteristic endpoint excludes wild p-primary norm/existence theory. The torus theorem for all E needs that full reciprocity interface. Request a Part II for the missing range; retain upstream layer 9 only for the interface it actually states.
+
+Consumers: `ExcursionOperatorsAndSpectralAction:ES6:functoriality/tori-spectral-center`, `ExcursionOperatorsAndSpectralAction:ES6:functoriality/torus-two-leg-calculation`, `ExcursionOperatorsAndSpectralAction:ES6:functoriality/tori-diagonal-embedding`.
+
+### Gap 6: Lubin–Tate torsor and Hecke endpoint inversion adapter
+
+RF3 supplies O(1) and its sign, not II.2.1’s Lubin–Tate torsor. Fargues’ author copy 2.16/3.3 identifies the torsor descent and the inverse-character/inverse-Artin monodromy. The complete endpoint action calculation connecting that convention with this Hecke kernel, including modular/equal-characteristic coefficients, still needs a supplier extension and explicit verification.
+
+Consumers: `ExcursionOperatorsAndSpectralAction:ES6:functoriality/torus-two-leg-calculation`, `ExcursionOperatorsAndSpectralAction:ES6:functoriality/tori-diagonal-embedding`.
+
+### Gap 7: Z-embedding field range and modular extension of characters
+
+Kaletha §5 is p-adic and the following representation paragraph uses complex characters. The extension to arbitrary algebraically closed L, and the alternative z-extension descent route for general E, require a proof. Specify the appropriate cohomology of possibly nonsmooth centres in equal characteristic; do not transfer p-adic finiteness of centre H1 without checking it.
+
+Consumers: `ExcursionOperatorsAndSpectralAction:ES6:functoriality/z-embedding`, `ExcursionOperatorsAndSpectralAction:ES6:functoriality/z-embedding-central-character-comparison`.
+
+### Gap 8: Prototype geometric conditions unavailable at the pins
+
+The suggested file elaborates actual condensed algebra and representation/algebraic interfaces. Animated categories, the geometric kernel identities, semisimplicity, the full prescribed Weil projection, relatively discrete continuity, reductive z-embedding/cohomology conditions and smoothness of extensions are omitted. Its classifier and kernel comparisons are explicit imported maps/equations, not implementations of the full theorems. Replace those fragments with exact owner interfaces when available.
+
+Consumers: `ExcursionOperatorsAndSpectralAction:ES5/schur-irreducible-object`, `ExcursionOperatorsAndSpectralAction:ES5/condensed-schur-from-admissibility`, `ExcursionOperatorsAndSpectralAction:ES5/excursion-character-of-a-schur-object`, `ExcursionOperatorsAndSpectralAction:ES5/abstract-semisimple-parameter`, `ExcursionOperatorsAndSpectralAction:ES5/parameter-of-a-schur-irreducible-sheaf`, `ExcursionOperatorsAndSpectralAction:ES5/parameter-of-an-irreducible-smooth-representation`, `ExcursionOperatorsAndSpectralAction:ES5/stratum-centre-embedding-independence`, `ExcursionOperatorsAndSpectralAction:ES5/invariance-and-coefficient-transport`, `ExcursionOperatorsAndSpectralAction:ES6/coefficient-policy-for-the-functorial-diagrams`, `ExcursionOperatorsAndSpectralAction:ES6:functoriality/isogenies`, `ExcursionOperatorsAndSpectralAction:ES6:functoriality/products`, `ExcursionOperatorsAndSpectralAction:ES6:functoriality/weil-restriction`, `ExcursionOperatorsAndSpectralAction:ES6:functoriality/tori-spectral-center`, `ExcursionOperatorsAndSpectralAction:ES6:functoriality/torus-two-leg-calculation`, `ExcursionOperatorsAndSpectralAction:ES6:functoriality/tori-diagonal-embedding`, `ExcursionOperatorsAndSpectralAction:ES6:functoriality/central-characters-and-twisting`, `ExcursionOperatorsAndSpectralAction:ES6:functoriality/twisting-by-abelianized-characters`, `ExcursionOperatorsAndSpectralAction:ES6:functoriality/z-embedding`, `ExcursionOperatorsAndSpectralAction:ES6:functoriality/z-embedding-central-character-comparison`, `ExcursionOperatorsAndSpectralAction:ES6:duality/bernstein-zelevinsky-duals`, `ExcursionOperatorsAndSpectralAction:ES6:duality/smooth-duals`.
+
+### Exact supplier requests
+
+1. **`SmoothRepresentationsOfLocalGroups:SR.0`**. The actual arbitrary-coefficient smooth representation category, its irreducible objects, scalar unit and central characters, compatible with the pinned SmoothDiscreteTopRep carrier.
+   Needed by: `ExcursionOperatorsAndSpectralAction:ES5/condensed-schur-from-admissibility`, `ExcursionOperatorsAndSpectralAction:ES5/parameter-of-an-irreducible-smooth-representation`.
+2. **`SmoothRepresentationsOfLocalGroups:SR.2`** — scope extension required. Add foundational SR.3b after SR.2: admissibility of every irreducible smooth representation over algebraically closed characteristic ell different from p (Vignéras 1996, II.2.8), then scalar endomorphisms. For characteristic-zero Z_ell-fields the uncountability/Dixmier argument is available. SR.3/SR.3a are complex-only and SR.6 cannot supply an ancestor of ES5. Also give the smooth central-character extension and duality/induction dictionary for these coefficients.
+   Proposed owner: `SmoothRepresentationsOfLocalGroups:SR.3b`.
+   Needed by: `ExcursionOperatorsAndSpectralAction:ES5/condensed-schur-from-admissibility`, `ExcursionOperatorsAndSpectralAction:ES6:functoriality/z-embedding`, `ExcursionOperatorsAndSpectralAction:ES6:functoriality/z-embedding-central-character-comparison`, `ExcursionOperatorsAndSpectralAction:ES6:duality/smooth-duals`.
+3. **`VStackSheavesAndLisseCategories:VS4`**. VII.7.1–7.2 with condensed enrichment: relative-homology L_b=pi_b-sharp q_b^* left adjoint to i_b^*, invertible scalar-preserving unit, mapping-object comparison for noncompact representations, and eligible right extensions/retraction comparisons. The existing compact-generation node supplies the stratum equivalence, but not this whole adjunction API.
+   Needed by: `ExcursionOperatorsAndSpectralAction:ES5/condensed-schur-from-admissibility`, `ExcursionOperatorsAndSpectralAction:ES5/parameter-of-an-irreducible-smooth-representation`, `ExcursionOperatorsAndSpectralAction:ES5/stratum-centre-embedding-independence`.
+4. **`HeckeStacksAndLocalShtukas:HS1/condensed-enrichment`**. IX.1.2 and the fixed-vector evaluation comparison needed to identify the condensed equivariant endomorphisms of an admissible smooth pi with relatively discrete L, without assuming pi is compact.
+   Needed by: `ExcursionOperatorsAndSpectralAction:ES5/condensed-schur-from-admissibility`, `ExcursionOperatorsAndSpectralAction:ES5/schur-irreducible-object`.
+5. **`LanglandsParameterStacks:LP2:semisimple-characters/character-bijection`**. Specify the exact two VIII.3.8 relations, prescribed Q-projection and maps of condensed sets for arbitrary algebraically closed Z_ell-fields. Audit the characteristic-ell finite-anchor continuity argument separately from Lafforgue’s characteristic-zero Reynolds step; the local theorem is the unique supplier.
+   Needed by: `ExcursionOperatorsAndSpectralAction:ES5/parameter-of-a-schur-irreducible-sheaf`.
+6. **`HeckeStacksAndLocalShtukas:HS4/isogeny-product-and-weil-restriction-diagrams`**. Supply the actual pre-evaluation geometric diagrams: pi_H-sharp kernel formula of IX.6.1, product kernels over a common divisor-leg base, and the closed Weil-restriction Hecke immersion implementing inflate-then-induce. Correct the repeated G1 product factor and use a common ambient-normal wild subgroup.
+   Needed by: `ExcursionOperatorsAndSpectralAction:ES6:functoriality/isogenies`, `ExcursionOperatorsAndSpectralAction:ES6:functoriality/products`, `ExcursionOperatorsAndSpectralAction:ES6:functoriality/weil-restriction`.
+7. **`VStackSheavesAndLisseCategories:VS5`**. VII.7.10: compact exterior generators and the derived Hom tensor comparison with compact A_i and arbitrary B_i; retain its coefficient/enrichment conventions.
+   Needed by: `ExcursionOperatorsAndSpectralAction:ES6:functoriality/products`.
+8. **`SmoothRepresentationsOfLocalGroups:SR.1`** — scope extension required. Arbitrary-coefficient abelian-category Bernstein centre and its inverse limit of pro-p idempotent Hecke corners, as in confirmed finding 9; for an abelian locally pro-p group identify these with Lambda[T(E)/K]. SR.3’s complex Bernstein blocks are not the supplier.
+   Needed by: `ExcursionOperatorsAndSpectralAction:ES6:functoriality/tori-spectral-center`.
+9. **`ReductiveGroupsPartII:RG2.5`** — scope extension required. Proposed foundational RG2.6 after RG2.5: z-extensions with induced-torus kernel and simply connected derived group, induced-torus resolutions, functorial pi_1 and the compatible dual maps. RG2.5 currently supplies only dual/root data. Keep the z-embedding definition in ES6; do not claim RG2.5 already proves any z-extension existence theorem.
+   Proposed owner: `ReductiveGroupsPartII:RG2.6`.
+   Needed by: `ExcursionOperatorsAndSpectralAction:ES6:functoriality/tori-spectral-center`, `ExcursionOperatorsAndSpectralAction:ES6:functoriality/central-characters-and-twisting`, `ExcursionOperatorsAndSpectralAction:ES6:functoriality/twisting-by-abelianized-characters`, `ExcursionOperatorsAndSpectralAction:ES6:functoriality/z-embedding-central-character-comparison`.
+10. **`BunGAndNewtonStrata:BG1/abelianization-identification`**. The torus specialization B(T)=pi_1(T)_Gamma and all degree components, compatible with the already supplied torsor and stratum equivalences; give the maps used by torus resolutions.
+   Needed by: `ExcursionOperatorsAndSpectralAction:ES6:functoriality/tori-spectral-center`, `ExcursionOperatorsAndSpectralAction:ES6:functoriality/tori-diagonal-embedding`.
+11. **`tauceti:TauCetiRoadmap/ClassFieldTheory#layer-9-the-local-weil-group`** — scope extension required. Consume the fixed arithmetic Artin and topological Weil abelianization interfaces in their stated field range; supply the consumer conversion rec_geom=Art_arith composed with inversion. Full equal-characteristic wild p-primary reciprocity lies beyond the upstream prime-to-p endpoint and needs a ClassFieldTheory Part II, not a re-plan of upstream layers.
+   Proposed owner: `ClassFieldTheoryPartII:full-equal-characteristic-reciprocity`.
+   Needed by: `ExcursionOperatorsAndSpectralAction:ES6:functoriality/tori-spectral-center`, `ExcursionOperatorsAndSpectralAction:ES6:functoriality/torus-two-leg-calculation`, `ExcursionOperatorsAndSpectralAction:ES6:functoriality/z-embedding`.
+12. **`RelativeFarguesFontaine:RF3/isocrystal-line-bundles-and-sign`** — scope extension required. Extend the relative period-geometry direction with II.2.1–II.2.4: height-one Lubin–Tate universal cover as H0(O(1)), the punctured E-times torsor on Div1, and its Frobenius/endpoint action. The existing RF3 node gives line-bundle signs only; it does not give this torsor.
+   Proposed owner: `RelativeFarguesFontainePartII:Lubin-Tate-torsor`.
+   Needed by: `ExcursionOperatorsAndSpectralAction:ES6:functoriality/torus-two-leg-calculation`.
+13. **`ReductiveGroupsPartII:RG2.5`** — scope extension required. For the ES6-owned p-adic z-embedding construction supply the diagonalizable centre, pushout along Z(G) to a torus, finite centre H1 and norm-kernel interfaces used by Kaletha 5.2. For arbitrary E distinguish a genuine eligible z-embedding from the separate z-extension cover and verify the rational/dual-centre descent comparison.
+   Needed by: `ExcursionOperatorsAndSpectralAction:ES6:functoriality/z-embedding`, `ExcursionOperatorsAndSpectralAction:ES6:functoriality/z-embedding-central-character-comparison`.
+
+## Structure, verified findings and acceptance
+
+- **Foundational admissibility before excursion parameters** (new-layer): Implement confirmed RT-AREA-geomlanglands/8 with its verified correction: SR.3b after SR.2 owns Vignéras admissibility for characteristic ell and scalar endomorphisms; ES5 owns the condensed refinement. SR.6 must not be a supplier and Qbar_ell must not be described as countable.
+- **Foundational z-extensions and induced-torus resolutions** (new-layer): Implement the verified RT-AREA-geomlanglands/10 division: proposed RG2.6 owns surjective z-extensions, induced-torus resolutions and functorial pi_1; ES6 keeps injective z-embeddings with the correct Kaletha citation. BG1/BG2/ET0 and the routed arithmetic Part II are consumers to update in their own jobs.
+- **Exact spectral-centre inputs for both ES6 children** (missing-links): Confirmed RT-AREA-geomlanglands/7 is realized here by explicit prerequisite references to ES1:spectral-center/spectral-to-geometric-center-map for functoriality and duality. The same finding’s ES2/ES4/ES7 stage-edge changes are outside the allowed files.
+- **Full equal-characteristic local reciprocity** (part-ii): Upstream ClassFieldTheory layers 8–9 remain unchanged. Their arithmetic normalization is consumed with an inversion adapter. Full equal-characteristic wild reciprocity exceeds the documented upstream endpoint and should be a ClassFieldTheory Part II; it is not a new normalization theory.
+
+The confirmed finding **RT-AREA-geomlanglands/7** is handled in both ES6 children by exact prerequisites on the spectral-centre map. Its ES2/ES4/ES7 changes belong to their own parts. Finding **/8** is handled by the SR.3b request, the corrected field-countability statement, and a separate condensed Schur proof. Finding **/10** is handled with the verified ownership division: foundational surjective z-extensions move to RG2.6, while injective z-embeddings and their rational-point applications remain here. Confirmed finding **/9**, encountered while following the torus dependency, puts the arbitrary-coefficient abelian Bernstein centre in SR.1.
+
+Acceptance includes characteristic-ℓ coefficients even when a categorical spectral-action prime is forbidden; a genuinely nonsplit torus and its twisted cocycle; the infinite valuation quotient for G_m; equality of the torus centre action on every degree component; the inverse-pair and ordered-fibre excursion relations; a noncompact representation without an unjustified compactness assumption; the identity and product rational z-embedding fragments; and the full smooth-dual proof return through parabolic induction. A Steinberg parameter remains semisimple data and does not manufacture N. The node acceptance lists give the local obligations in full.
+
+There are 13 selected planets, with at most six in any layer. The packet's four coverage records are planned and specify their remaining supplier refinements. Passing the JSON checker and elaborating the suggested file validate the planning artifact and its available prototype interfaces; they do not close the mathematical gaps listed above.

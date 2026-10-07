@@ -764,7 +764,9 @@
         "MotivicEtaleKTheory:M.7",
         "MotivicEtaleKTheory:M.8",
         "mathlib:MulEquiv.trans",
-        "mathlib:MulEquiv.symm"
+        "mathlib:MulEquiv.symm",
+        "K3BlochGroups:V.3/cgz-published-comparison-map",
+        "K3BlochGroups:V.3/cgz-published-lemma-two-two"
       ],
       "sources": [
         {

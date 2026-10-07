@@ -1,114 +1,142 @@
 # Handoff — BP-ExcursionOperatorsAndSpectralAction--ES7 (issue #728)
 
-Agent: Claude Code, session `cc-7b31c4`. Branch `cc-7b31c4-bp-es7`.
+Agent: Codex, session `codex-yiSh7u`. Branch `codex-yiSh7u-es7`.
 
-## Deliverables
+This completes the target-level planning pass continuing the inherited checkpoint.
+The packet has status **complete**. All five scoped stages are **planned**, none is
+closed, and every node retains `implementationStatus: unchecked`. The next step is
+independent review, followed by the recorded proof and supplier refinements.
 
-- `research/blueprint/packets/ExcursionOperatorsAndSpectralAction--ES7.json` — 24 nodes
-  (2 definitions, 3 constructions, 13 theorems, 3 lemmas, 3 comparisons), 30 API items,
-  20 unit tests, 17 planets, 22 baseline declarations, 11 gaps, 36 requests, 3
-  structural findings. `"part": "ES7"`, `"status": "partial"`.
-- `research/blueprint/readmes/ExcursionOperatorsAndSpectralAction--ES7.md` — 2258 lines.
-- `research/blueprint/suggested/ExcursionOperatorsAndSpectralAction--ES7.lean` — 291 lines.
-- This note.
+## Deliverables and counts
 
-## Checks run
+- Packet: `research/blueprint/packets/ExcursionOperatorsAndSpectralAction--ES7.json`.
+  All 24 inherited node ids are retained; 25 additional targets give **49 nodes**:
+  5 definitions, 6 constructions, 29 theorems, 6 lemmas and 3 comparisons.
+- Reader: `research/blueprint/readmes/ExcursionOperatorsAndSpectralAction--ES7.md`.
+  Approximately 15,900 words; every packet statement, API, test, prerequisite,
+  source anchor, request and gap is included.
+- Prototype: `research/blueprint/suggested/ExcursionOperatorsAndSpectralAction--ES7.lean`.
+  Algebraic centre-map and twisted-cocycle signatures, normalization and trace
+  examples, and an explicit named ledger of omitted native geometric signatures.
+- **49 API items, 33 unit tests, 21 planets, 23 baseline declarations, 15 gaps,
+  40 supplier requests.** The packet also has five structural proposals and one
+  known published-source error with source-version records.
 
-- `check_blueprint.py … --index $TAUCETI_BASELINE/declarations.tsv` → **0 errors, 0 warnings**.
-- `research/blueprint/intake.py check-files` → 0 problems.
-- `python3 -m unittest discover -s tests` → OK.
-- **The Lean file was not compiled.** Every `implementationStatus` is `unchecked`.
+| Stage | Status | Main remaining work |
+| --- | --- | --- |
+| `ES7:parabolic` | planned | Root/modulus proof; equal-characteristic z-embedding; bounded-modification and constant-term proof refinements; native centre signatures |
+| `ES7:GLn-comparison` | planned | ET.6a's O_E tower comparison; infinite-Weil trace separation; equal-characteristic dual-operation transport |
+| `ES7:equal-characteristic` | planned | Chain-moduli and formal-module proofs; D̄ uniformization and local finiteness; independent local constants; analytic Hochschild–Serre and Hecke-fibre transport |
+| `ES7:function-field-automorphic` | planned | Order gluing and division compactness; EP and simple trace proof sources; corrected graded-weight chain; selected genericity and cohomology concentration |
+| `ES7` | planned | Discharge the two characteristic realization inputs and induction prerequisites for the all-local-field assembly |
 
-## The library audit
+## Source and statement corrections
 
-`AUDIT-20` (reviewed as `REV-AUDIT-20`, 17 September 2026, 240 targets checked, 89
-corrections) covers all seventeen layers of this roadmap and returns **not built** for
-each. Its target notes pointed to three pinned declarations that a name search would
-have missed, and all three are cited rather than re-planned:
+FS IX.7.3 uses **b=μ(π_E^{-1}), T_{μ^{-1}}, and Ind_P^Gσ(−d/2)[−d]**.
+The normalized-induction dictionary separately fixes geometric reciprocity,
+δ_P^{1/2} and its inverse twisting factor. The GL₂ tests distinguish normalized
+and unnormalized induction. Twisted cocycles require action invariance and Levi
+centrality, in addition to equivariance of the inclusion.
 
-- `MeasureTheory.Measure.modularCharacter` — the modulus of a *group* exists; `δ_P` of a
-  parabolic and normalised smooth induction do **not**, which is exactly why the
-  normalised-induction dictionary cannot yet be stated against the libraries.
-- `TauCeti.Cocharacter.parabolic` / `.levi` — the dynamic parabolic with Levi
-  decomposition, which the proofs of both IX.7.2 and IX.7.3 pick.
-- `Representation.nonempty_equiv_of_character_eq` — semisimple trace determination, but
-  only for **finite** groups in characteristic zero; the GL_n comparison needs it for
-  continuous Weil-group representations.
+The equal-characteristic definition has **t_i:τE_i→E_{i+1}**, rank d²,
+d-periodicity and rank-d cokernels. Res′ is an indexed coproduct with descent.
+The fundamental local representation retains the triple-action stabilizer and
+the source's finite-order central character. Uniformization uses the different
+inner form **D̄**, with formal levels away from o and o-level covers on the generic
+fibre. Hausberger's auxiliary supercuspidal transfer place is **outside S**.
 
-The audit's **duplicate** records drove all three structural findings (below).
+Both pages of Kaiser's erratum have been read. Corollary 14.11's second factor
+changes to **L((V^bullet)^∨,q^{-1}T^{-1})**: both the dual and exponent change.
+The amended graded-chain lemma and proposition are separate nodes; they do not
+assert concentration by themselves. Poincaré duality pairs contragredient
+automorphic isotypes. Middle-degree concentration is used only for the selected
+proven transfer-image globalizations; the unpublished ample-class argument is
+not used to infer an arbitrary-isotype theorem. The published self-duality error
+in LRS §14.16, p. 306 is recorded under `sourceIssues` with Kaiser as its known
+correction.
 
-## Sources
+## Confirmed red-team findings
 
-| Source | Read? |
-| --- | --- |
-| Fargues–Scholze, *Geometrization*, SHA-256 `9ab9efbd0df251bf…` | **IX.7 in full** (pp. 334–338), plus IX.3 and the parts used from IX.5–IX.6 |
-| Hausberger, Ann. Inst. Fourier 55 (2005) 1285–1371, SHA-256 `d51dc22168dcd483…` | **read in full** — Introduction, §§1–3, 6–8, 9, 10 |
-| Laumon–Rapoport–Stuhler, Invent. Math. 113 (1993) 217–338, SHA-256 `05ea7ab8cb64577f…` | **NOT read** — 124-page image scan, no text layer |
-| Kaiser's erratum (author-hosted), SHA-256 `6aa9e01d3551e3f0…` | **NOT read** — 2-page image scan, no text layer |
+- **RT-AREA-geomlanglands/2:** ET.6a owns the classical tower diamond/minuscule
+  Hecke-fibre comparison downstream of HS2 and its own tower construction, and
+  exports it to ES7. Its O_E-module form for E≠Q_p is an explicit request and gap.
+  HS3 supplies the cohomology interface. No ET.6a→HS2 edge is proposed. EL/PEL
+  Corollary 24.3.5 is outside this scope.
+- **/7:** The exact ES1 spectral-to-geometric-centre node is a prerequisite of
+  the stratum-map construction. The separate excursion node handles the regime
+  without the centre-order condition. Changes needed in ES4 and ES6 are left to
+  their owners; this job edits no other packet or atlas graph.
+- **/9:** SR.1 is requested to supply the Λ-linear derived Bernstein centre,
+  the inverse limit of pro-p Hecke corners and integral ℓ-adic separatedness.
+  SR.0's category and SR.3's complex centre do not substitute for it. SR.2 owns
+  the induction conventions. The ownership correction is also a structural
+  proposal for other consumers.
+- **/11:** ES6 owns the full z-embedding, including its cohomological conditions.
+  BG1 owns the basic-class/H¹ bridge from Kottwitz's central-extension theorem;
+  BG0 owns pure inner twisting and its requested Hecke equivariance. ES7 owns
+  the Bun fibre, B-injectivity, central quotient and restriction-detection
+  application. Kaletha's standing p-adic hypothesis leaves an explicit
+  equal-characteristic extension gap.
+- **/12:** Generic function-field adeles and quotients are imported from
+  FA.2/FA.6 and AA.0/AA.1. The exact AA.0 Haar node is cited. AA.1's present node
+  is number-field only, so its function-field extension is requested honestly.
+  ES7 owns the D-specific compactness, spectrum, kernels, EP tests, selected
+  transfer/globalization and cohomology. No AF.2–3 or AS.6 number-field theorem
+  is used.
 
-Both unreadable files were located, downloaded and hashed in this session, and their
-URLs and hashes are in the packet's gaps so that a later worker can pick them up.
-**Everything this packet attributes to Laumon–Rapoport–Stuhler comes through
-Hausberger's restatements**, and every affected node says so in its own `sources`.
+## Sources read and acquisition limits
 
-## What is planned, layer by layer
+Every source URL, SHA-256, access date and exact reading range is preserved in
+the packet's `sources` and `sourceVersions`; no scratch file is needed to resume.
 
-- **ES7:parabolic** (8 nodes). Definition IX.7.1; the twisted Levi cocycle inclusion
-  `φ(w) ↦ (2ρ_Ĝ − 2ρ_{Ĝ_b})(√q)^{|w|}·φ(w)` with its geometric-Frobenius normalisation
-  and its cocycle obligation; and Theorem IX.7.2 and Corollary IX.7.3 **with their proofs
-  in full**, split into the coefficient reduction, the basic case and the quasisplit
-  reduction, the sequence `b_N` with its modification count, the constant-term
-  computation with its degree-zero remark, and the unnormalised induction statement with
-  the explicit `(d/2)[d]`, `d = ⟨2ρ,μ⟩`. Plus the dictionary to normalised induction.
-- **ES7:GLn-comparison** (4). Theorem IX.7.4 with its proof in full.
-- **ES7:equal-characteristic** (7). From Hausberger: `D`-elliptic sheaves; the moduli,
-  its smoothness, its projectivity for a division algebra and its extension over a place;
-  special formal `O_D`-modules and Drinfeld's theorem; the uniformisation in both forms;
-  the fundamental local representation; the Hochschild–Serre spectral sequence and the
-  degeneration of its cuspidal part; and the Drinfeld–Carayol theorem.
-- **ES7:function-field-automorphic** (4). The global cohomology and LRS 14.9/14.12; the
-  globalisation; the transfer with multiplicity one; and Kaiser's erratum.
-- **ES7** (1). The assembly: IX.7.4 holds for every `E` because the single external input
-  has two different proofs, one per characteristic.
+- **Fargues–Scholze:** IX.7, pp. 334–338, in full; relevant VI.11/VI.12 passages,
+  pp. 235–239. IX.3/IX.5/IX.6 supplier locators were checked through their
+  packets; those sections are not claimed read in full in this run.
+- **Hausberger:** §§1.1–1.3; Definition 3.1/Theorem 3.4; Theorems 6.1/6.4,
+  7.2/7.3 and 8.1/8.3 with their setups; §§9.1–9.3, 10.1–10.2,
+  10.3.2–10.3.3; Appendix A.9–A.12. The full uniformization proof and all
+  earlier analytic foundations are not claimed expanded.
+- **LRS:** Published journal scan acquired and OCR used for navigation;
+  definitions and principal statements/proof passages in §§4–6, §13,
+  §§14.9–14.19 and §§15.10–15.17 read. Crucial displayed formulas and
+  the quoted self-duality sentence were checked against page images. Printed
+  page equals PDF page plus 215.
+- **Kaiser:** Both pages visually read, including the dual/exponent replacement,
+  amended Lemma 14.14′, Proposition 14.17′ and its application.
+- **Kaletha:** Definition 5.1 and Fact 5.5, pp. 78–80, including standing field
+  hypotheses. **Kottwitz:** Proposition 10.4/Lemma 10.5, p. 50.
+- **Scholze–Weinstein:** Theorem 24.2.5, p. 227, and beginning of its proof.
+  The O_E-module variant is a supplier obligation, not a result verified here.
 
-## Three structural findings
+Still to acquire or expand, as named in the gaps: GI16 Theorem 4.26;
+Laumon/Kottwitz's primary EP proofs; the precise Deligne–Kazhdan simple trace
+formula and Henniart appendix A.4; global-order gluing and anisotropic reduction;
+Genestier/Boutot–Carayol/Drinfeld formal-module proofs; Henniart's local-constant
+and numerical proofs, LRS §§15.18–15.20 and Badulescu's local character proof.
+The packet gives each gap's consuming nodes and next action.
 
-1. **`ES7:function-field-automorphic` restates what four other layers own.** `AUDIT-20`
-   records four duplicates — `FA.6` is called the *declared supplier*, with `FA.2`,
-   `AA.0` and `AA.1` — yet the stage text opens by asking this layer to build restricted
-   products, integral orders, the diagonal embedding, degree/central quotients and Haar
-   measures. None of that is planned here; it is four requests, and a restructuring job
-   should narrow the text.
-2. **The trace argument would be written twice.** `ES7:equal-characteristic` is told to
-   "repeat `ES7:GLn-comparison`'s trace argument". There is one argument with two inputs.
-   It is written once here, in `ES7:GLn-comparison`; the transport is recorded as a gap
-   and the shared-node proposal is filed.
-3. **`D`-elliptic sheaves and Drinfeld's elliptic sheaves are one construction.**
-   `AUDIT-20` records `DrinfeldModulesAndTModules:DM.7` as a duplicate: DM.7's are the
-   `D = M_d(F)` case. The general definition is planned here, because the
-   division-algebra case is what the local correspondence needs, and a request to DM.7 is
-   filed with a proposal that DM.7 be narrowed rather than the reverse.
+## Verification and Lean limits
 
-## What remains
+- `scripts/check_blueprint.py` with the pinned declaration index:
+  **0 errors, 0 warnings**; five planned stages and no closed stages.
+- `research/blueprint/intake.py check-files` on the four deliverables:
+  **0 problems**.
+- Published-source issue schema and version records: **0 errors**.
+- `git diff --check`: clean.
+- **The suggested Lean file elaborated successfully with `lean-check`: exit 0,
+  only the 16 expected `sorry` warnings.** Available memory exceeded 20 GB.
+  It imports individual Mathlib modules only, at pinned Mathlib
+  `082e2d37e8b0463410cdb532e111cd43d5a66174`. Tau Ceti declarations were
+  source-checked at pinned `f790474821cf4256814db967cb154e7af3d0c369`;
+  they were not imported in this elaboration. The shared build's Tau Ceti HEAD
+  differs from that pin, so no pinned Tau Ceti compilation claim is made.
 
-Eleven gaps, each with a next source action. The three that block most:
+The algebraic prototype does not implement the native geometric carriers. Its
+omission ledger names every omitted API/test and named geometric statement.
+There are no proposition-valued stand-ins or tautological theorem assumptions.
+When suppliers expose the native carriers, expand those signatures and tests.
+Compilation of the present algebraic signatures is no evidence that the
+geometric comparison has been formalized.
 
-1. **Laumon–Rapoport–Stuhler is unread.** Obtain a text-bearing copy or run OCR on the
-   recorded scan, then check each of Hausberger's restatements — §§4–6, 13, 14, 15.
-2. **Kaiser's erratum is unread**, so it is not known whether Hausberger's Théorème 10.1
-   already incorporates the correction to Theorem 14.12. Two pages; read them.
-3. **The normalised-induction dictionary has no locator.** FS give the twist in two
-   places and never state that they cancel. It has to be formulated against `SR.1`–`SR.2`
-   and proved, and at the pins it cannot even be *stated*, since `δ_P` is absent.
-
-Also unread and named in the gaps: Kaletha §5 and Fact 5.5; FS VI.11 and VI.12 (the
-constant term and the switching involution); Gross–Iancu Theorem 4.26; Hausberger's
-Berkovich appendix; and Drinfeld's theorem itself (Boutot–Carayol, Genestier).
-
-## Where to resume
-
-All three parts of this roadmap are now written: `ES0` (issue #726, part ES0, layers
-ES0–ES4), `ES5` (issue #727, layers ES5–ES6) and this one. The next work on this roadmap
-is its independent reviews, and then the gaps above. The single highest-value source
-action across all three parts is **reading FS VIII.5 in full** (pp. 293–300): it closes
-the deepest gap of part ES0 and serves `LanglandsParameterStacks:LP3` at the same time.
+Resume from the independent review and the 15 gaps/40 requests, rather than
+claiming a new target inventory is needed. All declarations remain unchecked.

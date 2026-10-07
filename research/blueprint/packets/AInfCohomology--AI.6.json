@@ -350,25 +350,21 @@
         {
           "sourceId": "CK",
           "locator": "§1.5, (1.5.1), p.4",
-          "excerpt": "We ﬁx a p-adic formal scheme X over OC that in the étale topology may be covered by open aﬃnes U which admit an étale OC-morphism",
           "match": "The chart ring R□ displayed right after this sentence is the node's completion with R=O_C, π=p^q and s=d−r torus coordinates."
         },
         {
           "sourceId": "CK",
           "locator": "§1.5, sentence after (1.5.1), p.4",
-          "excerpt": "for some d ≥ 0, some 0 ≤ r ≤ d, and some q ∈ Q>0 (where d, r, and q may depend on U).",
           "match": "Ranges of d, r and q: r+1 branch variables, d−r invertible ones, q a positive rational."
         },
         {
           "sourceId": "CK",
           "locator": "§1.5, p.4",
-          "excerpt": "In addition, no generality is gained by allowing pq in (1.5.1) to be any nonunit π ∈ OC \\{0}.",
           "match": "Why the node may take π=p^q in the CK application."
         },
         {
           "sourceId": "CK",
           "locator": "§1.7, p.6",
-          "excerpt": "For power series rings, we use {−} to indicate decaying coeﬃcients.",
           "match": "The braces of (1.5.1) mean restricted power series, so the completion is p-adic and not along the coordinates (test restricted)."
         }
       ],
@@ -466,37 +462,31 @@
         {
           "sourceId": "CK",
           "locator": "§1.6 (1), p.5",
-          "excerpt": "1.6. The logarithmic structure on X. Unless noted otherwise, we always equip (1) the ring OC (resp., OC/pn or k) with the log structure OC \\{0} ֒→ OC (resp., its pullback);",
           "match": "The log structure O_C∖{0}→O_C on the base."
         },
         {
           "sourceId": "CK",
           "locator": "§1.6 (2), p.5",
-          "excerpt": "(2) the formal scheme X (resp., XOC/pn or Xk) with the log structure given by the subsheaf",
           "match": "The log structure on 𝔛 is the subsheaf O∩(O[1/p])× displayed after these words."
         },
         {
           "sourceId": "CK",
           "locator": "§1.6, p.5",
-          "excerpt": "Moreover, étale locally on X, the log structure may be made explicit: in the presence of a coordinate morphism (1.5.1), Claims 1.6.1 and 1.6.3 below give an explicit chart for the log structure of U, namely, the chart (1.6.2) in which we replace O by OC, replace U by U, and set π := pq.",
           "match": "The chart on a coordinate patch is (1.6.2) with O replaced by O_C and π=p^q."
         },
         {
           "sourceId": "CK",
           "locator": "§1.6, p.5",
-          "excerpt": "By the preceding discussion, all the log structures above are quasi-coherent and integral.",
           "match": "Quasi-coherence and integrality."
         },
         {
           "sourceId": "CK",
           "locator": "Claim 1.6.1 (proof), p.6",
-          "excerpt": "Then U, endowed with the log structure associated to (1.6.2), is logarithmically regular in the sense of [Kat94b, 2.1] (compare with [Bei12, §4.1, proof of Lemma]). Therefore, since the locus of triviality of this log structure is U[1 p], the claim follows from [Kat94b, 11.6].",
           "match": "The chart is identified through log regularity and Kato's Theorem 11.6; the triviality locus is U[1/p]."
         },
         {
           "sourceId": "CK",
           "locator": "Claim 1.6.3, (1.6.4), p.6",
-          "excerpt": "the formal p-adic completion morphism j: U → U of log ringed étale sites is strict. (1.6.4)",
           "match": "Strictness of p-adic completion, which transfers the chart from the algebraic model to 𝔛."
         }
       ],
@@ -588,37 +578,31 @@
         {
           "sourceId": "CK",
           "locator": "§3.1, (3.1.1), p.10",
-          "excerpt": "3.1. The local setup. We assume throughout §3 that X = Spf(R) and for some d ≥ 0, some 0 ≤ r ≤ d, and some q ∈ Q>0, there is an étale Spf(OC)-morphism as in (1.5.1):",
           "match": "The local setup: an étale morphism to the chart, not a formally étale algebra."
         },
         {
           "sourceId": "CK",
           "locator": "§3 (introduction), p.10",
-          "excerpt": "one complication is that the perfectoid cover of X that gives rise to Xad C,∞ is not ﬂat over the singular points of Xk.",
           "match": "The tower is not flat over the singular points (acceptance item and test nonflat)."
         },
         {
           "sourceId": "CK",
           "locator": "§3.2, p.10",
-          "excerpt": "In particular, R∞ is perfectoid (see §1.7). By [GR03, 7.1.6 (ii)], each Rm is p-adically complete.",
           "match": "R_∞ is perfectoid and each R_m is p-adically complete."
         },
         {
           "sourceId": "CK",
           "locator": "§1.7, p.7",
-          "excerpt": "In particular, for such an S, any p-adically formally étale S-algebra S′ that is p-adically complete is also perfectoid.",
           "match": "Perfectoidness passes from R□_∞ to its p-complete formally étale algebra R_∞."
         },
         {
           "sourceId": "CK",
           "locator": "§3.2, p.11",
-          "excerpt": "In terms of the element ǫ ﬁxed in §2.1, ∆ is topologically freely generated by the following d elements: δi := (ǫ−1 ,1,...,1,ǫ,1,...,1) for i = 1,...,r, where the 0-th and i-th entries are nonidentity; δi := (1,...,1,ǫ,1,... ,1) for i = r + 1,...,d, where the i-th entry is nonidentity.",
           "match": "Generators of Δ and the signs of the action (api action, test node_action)."
         },
         {
           "sourceId": "CK",
           "locator": "§3.2, p.11",
-          "excerpt": "is an aﬃnoid perfectoid pro-(ﬁnite étale) ∆-cover of Xad C , so, in particular, is an aﬃnoid perfectoid object of (Xad C )proét.",
           "match": "The generic fibre of the tower is an affinoid perfectoid pro-(finite étale) Δ-cover."
         }
       ],
@@ -707,37 +691,31 @@
         {
           "sourceId": "CK",
           "locator": "§3.2, (3.2.1), p.10",
-          "excerpt": "Explicitly, we have the p-adically completed direct sum decomposition",
           "match": "The monomial decomposition whose index set the node formalises; the display follows this sentence."
         },
         {
           "sourceId": "CK",
           "locator": "§3.2, (3.2.1), p.10",
-          "excerpt": "aj = 0 for some 0 ≤ j ≤ r",
           "match": "The normalisation condition under the direct sum sign: some branch exponent vanishes."
         },
         {
           "sourceId": "CK",
           "locator": "§3.2, p.10",
-          "excerpt": "for which pmaj ∈ Z for all j.",
           "match": "Level m: the summands with p^m·a_j integral for all j."
         },
         {
           "sourceId": "CK",
           "locator": "§3.14, p.15",
-          "excerpt": "The summands for which ai ∈ Z for all i comprise a subring",
           "match": "Integral indices are those with all exponents in Z."
         },
         {
           "sourceId": "CK",
           "locator": "Proposition 3.19 (proof), (3.19.3), p.17",
-          "excerpt": "bj := aj − a0 for 1 ≤ j ≤ r and bj := aj for r + 1 ≤ j ≤ d, (3.19.3)",
           "match": "The weights b_j used for the Δ-eigencharacters (api weight)."
         },
         {
           "sourceId": "CK",
           "locator": "§3.22, p.18",
-          "excerpt": "smallest nonnegative integer such that pmaj ∈ Z for all j (equivalently, in the notation of (3.19.3), such that pmbj ∈ Z for all j).",
           "match": "The exact level, and its equivalent description through the weights (api level)."
         }
       ],
@@ -845,43 +823,36 @@
         {
           "sourceId": "CK",
           "locator": "§3.2, (3.2.2), p.10",
-          "excerpt": "(resp., R∞ ∼ = R ⊕ M∞). (3.2.2)",
           "match": "The decomposition R_∞≅R⊕M_∞."
         },
         {
           "sourceId": "CK",
           "locator": "§3.2, p.11",
-          "excerpt": "are continuous, compatible, and preserve the decompositions (3.2.1) and (3.2.2).",
           "match": "Δ preserves the decompositions (3.2.1) and (3.2.2)."
         },
         {
           "sourceId": "CK",
           "locator": "§3.11, p.14",
-          "excerpt": "the completions are p1/p∞ -adic, and the decomposition is as O♭ C-modules.",
           "match": "The explicit tilt of R□_∞, the input for the decomposition of A_inf(R□_∞)."
         },
         {
           "sourceId": "CK",
           "locator": "§3.14, p.15",
-          "excerpt": "In general, for a perfect Fp-algebra A, the Witt ring W(A) is the unique p-adically complete p- torsion free Zp-algebra e A equipped with an isomorphism e A/p ≃ A (see [Bha18, 2.5]).",
           "match": "The characterisation of W(A) used to lift the tilted decomposition to A_inf."
         },
         {
           "sourceId": "CK",
           "locator": "§3.14, (3.14.5), p.15",
-          "excerpt": "Ainf(R∞) ∼ = A(R) ⊕ N∞. (3.14.5)",
           "match": "The decomposition A_inf(R_∞)≅A(R)⊕N_∞."
         },
         {
           "sourceId": "CK",
           "locator": "§3.14, p.15",
-          "excerpt": "Modulo Kerθ (that is, modulo ξ), these decompositions reduce to the decompositions (3.2.2).",
           "match": "Reduction modulo ξ to (3.2.2), hence N_∞/ξ≅M_∞."
         },
         {
           "sourceId": "CK",
           "locator": "§3.14, p.15",
-          "excerpt": "The identiﬁcations (3.14.4) and (3.14.5) are ∆-equivariant.",
           "match": "Δ-equivariance of (3.14.4) and (3.14.5)."
         }
       ],
@@ -927,43 +898,36 @@
         {
           "sourceId": "CK",
           "locator": "§3.14, (3.14.2), p.15",
-          "excerpt": "The summands for which ai ∈ Z for all i comprise a subring",
           "match": "A(R□) is the subring of integral monomials; its presentation is the display that follows."
         },
         {
           "sourceId": "CK",
           "locator": "§3.14, (3.14.2), p.15",
-          "excerpt": "Ainf{X0,...,Xr,X±1 r+1,...,X±1 d }/(X0 ···Xr − [(p1/p∞ )q ])",
           "match": "The presentation of A(R□) (extracted display; exponents ±1 and the Teichmüller lift of (p^{1/p^∞})^q appear flattened)."
         },
         {
           "sourceId": "CK",
           "locator": "§3.14, p.15",
-          "excerpt": "where the convergence is (p,µ)-adic.",
           "match": "The convergence in (3.14.2) is (p,μ)-adic."
         },
         {
           "sourceId": "CK",
           "locator": "§3.14, (3.14.3), p.15",
-          "excerpt": "is described by Xi 7→ ti. (3.14.3)",
           "match": "θ on A(R□) sends Xᵢ to tᵢ (api theta, test theta_tilde)."
         },
         {
           "sourceId": "CK",
           "locator": "§3.14, p.15",
-          "excerpt": "We use the surjection (3.14.3) to uniquely lift the étale R",
           "match": "The lifting sentence; the excerpt stops where the extracted text has a control character for the superscript □, the sentence continuing '…□/p-algebra R/p to a (p,μ)-adically complete, formally étale A(R□)-algebra A(R)'."
         },
         {
           "sourceId": "CK",
           "locator": "§3.14, p.15",
-          "excerpt": "it is semilinear with respect to the Frobenius of Ainf and raises each X 1/pm i to the p-th power.",
           "match": "Frobenius of A(R□): semilinear, raising each X_i^{1/p^m} to the p-th power."
         },
         {
           "sourceId": "CK",
           "locator": "§3.14, p.15",
-          "excerpt": "lifts uniquely to a necessarily Frobenius-equivariant ∆-action on A(R). In particular, ∆ acts trivially on A(R)/µ.",
           "match": "Unique Frobenius-equivariant lift of the Δ-action to A(R) and its triviality modulo μ."
         }
       ],
@@ -1071,55 +1035,46 @@
         {
           "sourceId": "CK",
           "locator": "§3.3, (3.3.1), p.11",
-          "excerpt": "By the almost purity theorem [Sch13a, 4.10 (v)], the maximal ideal m ⊂ OC kills the cohomology groups of Cone(e).",
           "match": "Almost purity: m kills the cohomology of the cone of the edge map."
         },
         {
           "sourceId": "CK",
           "locator": "Lemma 3.5, p.12",
-          "excerpt": "Lemma 3.5. For an inclusion o ⊂ O of a discrete valuation ring into a nondiscrete valuation ring of rank 1, if N is an o-module and M ⊂ O denotes the maximal ideal, then (N ⊗o O)[M] = 0.",
           "match": "No m-torsion after base change from a discrete valuation subring."
         },
         {
           "sourceId": "CK",
           "locator": "Lemma 3.6, p.12",
-          "excerpt": "Lemma 3.6. Fix an i ∈ Z≥0, let H be a profinite group, let {Mj}j∈J be p-adically complete, p-torsion free, continuous H-modules, and suppose that either",
           "match": "The lemma on continuous cohomology of p-adically completed direct sums."
         },
         {
           "sourceId": "CK",
           "locator": "Lemma 3.7, p.12",
-          "excerpt": "For any γ1,...,γd ∈ H that topologically freely generate H, there is a natural identification",
           "match": "Koszul description of continuous cohomology of Z_p^d on chosen topological generators."
         },
         {
           "sourceId": "CK",
           "locator": "Proposition 3.8, p.12",
-          "excerpt": "Proposition 3.8. The element ζp − 1 kills the OC-modules Hi cont(∆,M∞). Moreover, for each b ∈ OC, the OC-modules R∞/b and Hi cont(∆,R∞/b) have no nonzero m-torsion.",
           "match": "Part (a)."
         },
         {
           "sourceId": "CK",
           "locator": "Theorem 3.9, p.13",
-          "excerpt": "Theorem 3.9. The edge map e defined in (3.3.1) induces the isomorphism",
           "match": "Part (c); the displayed isomorphism Lη_{ζ_p−1}(e) follows."
         },
         {
           "sourceId": "CK",
           "locator": "Theorem 3.9 (proof), p.13",
-          "excerpt": "Since ∆ acts trivially on R, this last quotient is a ﬁnite direct sum of copies of R (see Lemma 3.7), so, by Proposition 3.8, it has no nonzero m-torsion.",
           "match": "The quotient whose m-torsion CK's proof examines (see the fifth proof step)."
         },
         {
           "sourceId": "CK",
           "locator": "Remark 3.10, p.13",
-          "excerpt": "Remark 3.10. Theorem 3.9 extends as follows: for any proﬁnite group ∆′ equipped with a con- tinuous surjection ∆′ ։ ∆ and any pro-(ﬁnite étale) aﬃnoid perfectoid ∆′-cover",
           "match": "Part (d)."
         },
         {
           "sourceId": "CK",
           "locator": "Lemma 3.12, p.14",
-          "excerpt": "Lemma 3.12. Both R♭ ∞/b and Hi cont(∆,R♭ ∞/b) for each b ∈ O♭ C \\{0} have no nonzero m♭-torsion.",
           "match": "Part (b)."
         }
       ],
@@ -1171,49 +1126,41 @@
         {
           "sourceId": "CK",
           "locator": "Proposition 3.19, p.16",
-          "excerpt": "Proposition 3.19. For each i ∈ Z, the Ainf-module Hi cont(∆,Ainf(R∞)/µ) is p-torsion free and p-adically complete; moreover, the following natural maps are isomorphisms:",
           "match": "Part (b): p-torsion-freeness, completeness and the isomorphisms (3.19.1)–(3.19.2)."
         },
         {
           "sourceId": "CK",
           "locator": "Proposition 3.19 (last sentence), p.16",
-          "excerpt": "In addition, Hi cont(∆,Ainf(R∞)/(µ,pn)) and Hi cont(∆,Ainf(R∞)/µ) have no nonzero W(m♭)-torsion.",
           "match": "Part (b): no nonzero W(m^♭)-torsion, also modulo p^n."
         },
         {
           "sourceId": "CK",
           "locator": "Proposition 3.19 (proof), (3.19.5), p.17",
-          "excerpt": "for i ∈ Z, Hi cont(∆,S/µ) ≃ L I Ainf/ϕ−m(µ) for some set I, and hence Hi cont(∆,S/µ)[p] = 0. (3.19.5)",
           "match": "The single-summand computation (extracted display)."
         },
         {
           "sourceId": "CK",
           "locator": "Corollary 3.23, p.19",
-          "excerpt": "Corollary 3.23. For all i and n,m ≥ 0, Hi cont(∆,Nm/(µ,pn )) is killed by ϕ−m (µ) and is a flat Ainf/(ϕ−m (µ),pn )-module.",
           "match": "Part (c)."
         },
         {
           "sourceId": "CK",
           "locator": "Proposition 3.25, p.19",
-          "excerpt": "Proposition 3.25. The element µ kills every Hi cont(∆,N∞).",
           "match": "Part (a)."
         },
         {
           "sourceId": "CK",
           "locator": "Proposition 3.25 (proof), p.19",
-          "excerpt": "Lemma 3.7, and Proposition 3.19 show that the cohomology of KN∞(δ1 −1,...,δd −1)⊗L Ainf Ainf/µ is p-torsion free. Therefore, Lemma 3.24 supplies the identiﬁcation",
           "match": "Part (a) is deduced from (b) through the base-change lemma for Lη, Lemma 3.24."
         },
         {
           "sourceId": "CK",
           "locator": "Lemma 3.24, p.19",
-          "excerpt": "Lemma 3.24 ([Bha18, 5.16]). For a ring A, elements f,g ∈ A with g a nonzerodivisor, and a K ∈ D(A), if the modules Hi(K ⊗L A A/f) have no nonzero g-torsion, then the natural map Lη(f)(K) ⊗L A A/g → Lη(f)(K ⊗L A A/g), where f denotes the image of f in A/g, is an isomorphism.",
           "match": "The base-change lemma for Lη used in the proof of (a) (in the extracted text the bar on the second f is lost)."
         },
         {
           "sourceId": "CK",
           "locator": "Proposition 3.25 (proof), p.19",
-          "excerpt": "ζp − 1 kills the cohomology of KN∞/ϕ(ξ)(δ1 − 1,...,δd − 1), so both sides of (3.25.2) are acyclic.",
           "match": "The vanishing modulo ξ̃ comes from the Ô⁺-level Proposition 3.8."
         }
       ],
@@ -1264,43 +1211,36 @@
         {
           "sourceId": "CK",
           "locator": "Theorem 3.20, p.18",
-          "excerpt": "Theorem 3.20. The edge map e defined in (3.15.1) induces the isomorphism",
           "match": "The integral comparison; the displayed isomorphism Lη_μ(e) follows this line."
         },
         {
           "sourceId": "CK",
           "locator": "Theorem 3.20 (proof), p.18",
-          "excerpt": "By the projection formula [SP, 0944], RΓcont(∆,Ainf(R∞)) ⊗L Ainf Ainf/µ ∼ = RΓcont(∆,Ainf(R∞)/µ), (3.20.1) so Proposition 3.19 implies that the cohomology modules of RΓcont(∆,Ainf(R∞))⊗L Ainf Ainf/µ have no nonzero W(m♭)-torsion. Thus, the claim follows from Lemmas 3.16 and 3.18.",
           "match": "The proof uses Proposition 3.19 and Lemmas 3.16 and 3.18 only."
         },
         {
           "sourceId": "CK",
           "locator": "Lemma 3.16, p.16",
-          "excerpt": "Lemma 3.16. The ideal W(m♭) ⊂ Ainf defined in (2.3.3) kills each Hi(Cone(e)).",
           "match": "W(m^♭), not only [m^♭], kills the cohomology of Cone(e)."
         },
         {
           "sourceId": "CK",
           "locator": "Lemma 3.18, p.16",
-          "excerpt": "Lemma 3.18. If B b − → B′ is a morphism in D(Ainf) such that each Hi(B ⊗L Ainf Ainf/µ) has no nonzero W(m♭)-torsion and W(m♭) kills each Hi(Cone(b)), then Lη(µ)(b) is an isomorphism.",
           "match": "The almost-to-integral criterion."
         },
         {
           "sourceId": "CK",
           "locator": "Proposition 3.25 (proof), (3.25.1), p.19",
-          "excerpt": "By Lemma 3.7, we need to prove that Lη(µ)(KN∞(δ1 − 1,...,δd − 1)) ∼ = 0. (3.25.1)",
           "match": "Vanishing of Lη_μ on the nonintegral part, used for the Koszul description."
         },
         {
           "sourceId": "CK",
           "locator": "Proposition 5.6 (proof), p.34",
-          "excerpt": "In turn, (5.6.2) follows from the triviality of the ∆-action on A(R)/µ and A (m) cris (R)/µ (see §3.14 and §3.27)",
           "match": "The Koszul description of the A(R)-part rests on the triviality of Δ modulo μ."
         },
         {
           "sourceId": "CK",
           "locator": "Remark 3.21, p.18",
-          "excerpt": "Remark 3.21. Analogously to Remark 3.10, Theorem 3.20 extends as follows: for any pro-(ﬁnite étale) aﬃnoid perfectoid ∆′-cover",
           "match": "Compatibility with refinements of the cover."
         }
       ],
@@ -1353,61 +1293,51 @@
         {
           "sourceId": "CK",
           "locator": "§1.5, (1.5.5), p.5",
-          "excerpt": "be the morphism to the étale site of X that sends any étale U → X to the constant pro-system associated to its adic generic ﬁber. By [SP, 00X6], this functor indeed deﬁnes a morphism of",
           "match": "The morphism of sites ν to the étale site of 𝔛."
         },
         {
           "sourceId": "CK",
           "locator": "§2.2, (2.2.3), p.9",
-          "excerpt": "The key object that we are going to study in this paper is AΩX := Lη(µ)(Rν∗(Ainf,Xad C )) ∈ D≥0 (Xét,Ainf), (2.2.3)",
           "match": "The definition of AΩ_𝔛 (extracted display)."
         },
         {
           "sourceId": "CK",
           "locator": "§2.2, (2.2.4), p.9",
-          "excerpt": "which is the AΩX that was used in [BMS18].",
           "match": "The Zariski-site version is the object of BMS1 (api zariski)."
         },
         {
           "sourceId": "CK",
           "locator": "§2.2, (2.2.7), p.9",
-          "excerpt": "In addition, by loc. cit., we also have",
           "match": "After inverting μ the décalage disappears (api invert_mu); the display (2.2.7) follows these words."
         },
         {
           "sourceId": "CK",
           "locator": "§4.1, p.24",
-          "excerpt": "whose objects are those connected aﬃne opens of Xét that have an étale coordinate map (1.5.1) and coverings are the isomorphisms. Thus, the topology of Xpsh",
           "match": "The presheaf site 𝔛^psh_ét."
         },
         {
           "sourceId": "CK",
           "locator": "§4.1, (4.1.2), p.25",
-          "excerpt": "Since Lη commutes with pullback under ﬂat morphisms of ringed topoi (see [BMS18, 6.14]), φ−1 (AΩpsh X ) ∼ = AΩX. (4.1.2)",
           "match": "φ⁻¹AΩ^psh≅AΩ_𝔛, by compatibility of Lη with flat pullback."
         },
         {
           "sourceId": "CK",
           "locator": "§4.1, p.25",
-          "excerpt": "In particular, since, by [BMS18, 6.19], the functor Lη preserves derived completeness when used in the context of a replete topos (such as that of sets), we see from (4.1.3) that AΩpsh X is derived ξ-adically (and also ϕ(ξ)-adically) complete (compare with Corollary 4.6 below).",
           "match": "Derived ξ- and ξ̃-completeness of AΩ^psh, obtained in the topos of sets."
         },
         {
           "sourceId": "CK",
           "locator": "§7.2, p.68",
-          "excerpt": "Since Lη commutes with pullback along a ﬂat morphism of ringed topoi (see [BMS18, 6.14]), the object RΓAinf (X) is contravariantly functorial in X: an OC-morphism X′ → X induces a morphism",
           "match": "Contravariant functoriality in 𝔛."
         },
         {
           "sourceId": "BMS1",
           "locator": "Proposition 6.7, p.290",
-          "excerpt": "Proposition 6.7. — There is a natural lax symmetric monoidal structure on LηI : D(OT) → D(OT), i.e. for all C,D ∈ D(OT), there is a natural map",
           "match": "Lax symmetric monoidality of Lη, the source of the commutative algebra structure (not discussed in CK)."
         },
         {
           "sourceId": "CK",
           "locator": "§8.1, p.72",
-          "excerpt": "by the functoriality of RΓAinf (X) (see §7.2), G acts Ainf-semilinearly on each Hi Ainf (X).",
           "match": "CK obtains the semilinear Galois action from the functoriality of §7.2 (api semilinear)."
         }
       ],
@@ -1531,37 +1461,31 @@
         {
           "sourceId": "CK",
           "locator": "§2.1, p.8",
-          "excerpt": "The composition θ ◦ ϕ−1 : Ainf ։ OC is the Hodge–Tate specialization map of Ainf, and its kernel is generated by the element ϕ(ξ)",
           "match": "ξ̃=φ(ξ) generates the kernel of θ̃=θ∘φ⁻¹."
         },
         {
           "sourceId": "CK",
           "locator": "§2.2, (2.2.5), p.9",
-          "excerpt": "Since ϕ(µ) = ϕ(ξ)µ, by [BMS18, 6.11], we have Lη(ϕ(µ)) ∼ = Lη(ϕ(ξ)) ◦ Lη(µ), so the Frobenius automorphism of Ainf,Xad C gives the Frobenius morphism",
           "match": "The Frobenius morphism of AΩ_𝔛, from φ(μ)=φ(ξ)μ and the composition law for Lη."
         },
         {
           "sourceId": "CK",
           "locator": "§2.2, (2.2.6), p.9",
-          "excerpt": "which, by [BMS18, 6.14], induces an isomorphism",
           "match": "It becomes an isomorphism after inverting φ(ξ); the display (2.2.6) follows."
         },
         {
           "sourceId": "CK",
           "locator": "§7.2, p.68",
-          "excerpt": "The Frobenius morphism (2.2.5) gives rise to the Frobenius morphism",
           "match": "The induced Frobenius on RΓ_Ainf(𝔛)."
         },
         {
           "sourceId": "BMS1",
           "locator": "Lemma 6.10, p.292",
-          "excerpt": "Lemma 6.10. — Let C ∈ D≥0 (OT) such that H0 (C)[I] = 0. Then there is a canonical",
           "match": "The canonical map Lη_I C→C used for Lη_{ξ̃}AΩ→AΩ."
         },
         {
           "sourceId": "BMS1",
           "locator": "Lemma 6.11, p.292",
-          "excerpt": "Lemma 6.11. — Let I,J ⊂ OT be two invertible ideal sheaves, with product I ⊗OT J",
           "match": "Composition law Lη_{IJ}≅Lη_I∘Lη_J behind (2.2.5)."
         }
       ],
@@ -1614,79 +1538,66 @@
         {
           "sourceId": "CK",
           "locator": "Theorem 4.2, (4.2.1), p.25",
-          "excerpt": "Theorem 4.2. We have the identification AΩX ⊗L Ainf,θ◦ϕ−1 OC ∼ −→ Lη(ζp−1)(Rν∗( b O+ Xad C )), (4.2.1)",
           "match": "The Hodge–Tate specialisation (extracted display: θ∘φ⁻¹ is θ̃)."
         },
         {
           "sourceId": "CK",
           "locator": "Theorem 4.2 (proof), p.25",
-          "excerpt": "In particular, Proposition 3.19 and (3.20.1) ensure that the cohomology of RΓcont(∆,Ainf(R∞)) ⊗L Ainf Ainf/µ is p-torsion free. Thus, since ϕ(ξ) ≡ p mod (µ) (see §2.1), Lemma 3.24 implies that",
           "match": "The reduction modulo ξ̃ commutes with Lη_μ on group cohomology, by p-torsion-freeness and Lemma 3.24."
         },
         {
           "sourceId": "CK",
           "locator": "Theorem 4.2 (proof), p.25",
-          "excerpt": "Since the edge maps (3.3.1) and (3.15.1) are compatible, Theorems 3.9 and 3.20 then imply that",
           "match": "Both local edge comparisons are used: Theorem 3.9 for Ô⁺ and Theorem 3.20 for A_inf."
         },
         {
           "sourceId": "CK",
           "locator": "Proposition 4.4, p.26",
-          "excerpt": "Proposition 4.4. For i ≥ 0, the OX,ét-module Hi(e ΩX) is locally free",
           "match": "Local freeness of H^i(Ω̃_𝔛); the rank and (4.4.1) follow in the same statement."
         },
         {
           "sourceId": "CK",
           "locator": "Proposition 4.8, p.27",
-          "excerpt": "Proposition 4.8. For each i > 0, the map (4.7.1) induces the isomorphism",
           "match": "Cup product gives the exterior powers."
         },
         {
           "sourceId": "CK",
           "locator": "§4.10, p.28",
-          "excerpt": "By [BMS18, 8.15 and its proof], the restriction of this composition to Xsm is an isomorphism onto",
           "match": "On the smooth locus the map comes from the smooth case of BMS1."
         },
         {
           "sourceId": "CK",
           "locator": "§4.10, (4.10.3), p.28",
-          "excerpt": "In conclusion, we may divide the composition (4.10.2) by ζp − 1 to obtain a map Ω1 X/OC {−1} → H1 (e ΩX) that is an isomorphism over Xsm . (4.10.3)",
           "match": "The map from Kähler differentials, an isomorphism over 𝔛^sm."
         },
         {
           "sourceId": "CK",
           "locator": "Theorem 4.11, p.28",
-          "excerpt": "Theorem 4.11. The restriction of the map (4.10.3) to Xsm extends uniquely to an OX,ét-isomorphism Ω1 X/OC,log{−1} ∼ = H1 (e ΩX), (4.11.1) which, by (4.4.1) and Proposition 4.8, induces an OX,ét-module identification Ωi X/OC,log{−i} ∼ = Hi (e ΩX) for every i ≥ 0. (4.11.2)",
           "match": "The identification with twisted log differentials."
         },
         {
           "sourceId": "CK",
           "locator": "Theorem 4.12, p.29",
-          "excerpt": "The proof of Theorem 4.11 will use the formal GAGA and Grothendieck existence theorems.",
           "match": "Formal GAGA is announced as an input of the proof of Theorem 4.11."
         },
         {
           "sourceId": "CK",
           "locator": "§4.15, p.30",
-          "excerpt": "By Theorem 4.12, the map (4.10.3) algebraizes to an OX -module map",
           "match": "The one place where formal GAGA is used: algebraising (4.10.3)."
         },
         {
           "sourceId": "CK",
           "locator": "Claim 4.15.1 (proof), p.30",
-          "excerpt": "By the adic GAGA (see [Sch13a, 9.1 (i)]), it suﬃces to ﬁnd an analogous isomorphism after pullback to (XC)ad ∼ = Xad C .",
           "match": "Adic GAGA on the generic fibre."
         },
         {
           "sourceId": "CK",
           "locator": "Claim 4.15.1 (proof), p.30",
-          "excerpt": "On the other, [Sch13b, 3.23–3.24 and their proofs] supply an isomorphism between",
           "match": "Scholze's rational Hodge–Tate isomorphism for R¹ν_*Ô⁺[1/p]."
         },
         {
           "sourceId": "CK",
           "locator": "§4.15, p.30",
-          "excerpt": "Since X \\ Xsm is of codimension ≥ 2 in X, limit arguments and [EGA IV2, 5.10.5] ensure that H",
           "match": "Extension across the codimension ≥2 non-smooth locus."
         }
       ],
@@ -1739,79 +1650,66 @@
         {
           "sourceId": "CK",
           "locator": "Remark 4.5, p.26",
-          "excerpt": "Remark 4.5. The proof of Proposition 4.4, speciﬁcally, (4.4.4) and (4.4.5), shows that if X is aﬃne, connected, and admits a coordinate map as in (1.5.1), then the presheaf assigning",
           "match": "Part (a): hypotheses of the sheaf property."
         },
         {
           "sourceId": "CK",
           "locator": "Remark 4.5, p.26",
-          "excerpt": "to a variable X-étale aﬃne X′ is already a sheaf.",
           "match": "Part (a): conclusion."
         },
         {
           "sourceId": "CK",
           "locator": "Corollary 4.6, p.26",
-          "excerpt": "Corollary 4.6. The object AΩX is derived ξ-adically complete and",
           "match": "Part (b); the display (4.6.1) follows."
         },
         {
           "sourceId": "CK",
           "locator": "Corollary 4.6 (proof), p.26",
-          "excerpt": "Thus, since AΩpsh X is derived ξ-adically complete (see §4.1), it suﬃces to establish the adjunction isomorphism (4.6.1).",
           "match": "Completeness of AΩ_𝔛 is reduced to the adjunction isomorphism and the completeness of AΩ^psh."
         },
         {
           "sourceId": "CK",
           "locator": "Corollary 4.6 (proof), p.26",
-          "excerpt": "In addition, since AΩpsh X is derived ϕ(ξ)-adically complete, the Xpsh ét -analogue of [BMS18, 9.15] reduces us to proving that",
           "match": "Reduction modulo powers of ξ̃ by the analogue of BMS1 Lemma 9.15."
         },
         {
           "sourceId": "CK",
           "locator": "Corollary 4.6 (proof), p.27",
-          "excerpt": "It remains to recall from Remark 4.5 that the cohomology presheaves of Ωpsh X are in fact sheaves.",
           "match": "The case modulo ξ̃ rests on Remark 4.5."
         },
         {
           "sourceId": "CK",
           "locator": "Theorem 4.2 (second sentence), p.25",
-          "excerpt": "If the coordinate morphisms (1.5.1) exist Zariski locally on X, then (4.2.1) also holds for AΩXZar (defined in (2.2.4)).",
           "match": "Zariski version of the Hodge–Tate specialisation, used in (c)."
         },
         {
           "sourceId": "CK",
           "locator": "Remark 4.16, p.30",
-          "excerpt": "Remark 4.16. If the coordinate morphisms (1.5.1) exist Zariski locally on X, then, by (4.5.1), the identiﬁcations of Theorem 4.11 hold already for the Zariski topology; more precisely, then",
           "match": "Zariski version of Theorem 4.11, used in (c)."
         },
         {
           "sourceId": "CK",
           "locator": "Theorem 4.17 (second sentence), p.30",
-          "excerpt": "If the coordinate morphisms (1.5.1) exist Zariski locally on X, then (4.17.1) also holds for AΩXZar",
           "match": "Zariski version of the de Rham specialisation, used in (c)."
         },
         {
           "sourceId": "CK",
           "locator": "Corollary 4.21, p.31",
-          "excerpt": "Corollary 4.21. If the coordinate morphisms (1.5.1) exist Zariski locally on X, then RΓ(Xét,AΩX) may be computed using the Zariski topology of X; more precisely, then",
           "match": "Part (c): Zariski and étale A_inf-cohomology agree."
         },
         {
           "sourceId": "CK",
           "locator": "Corollary 4.21 (proof), p.32",
-          "excerpt": "Thus, since, by Corollary 4.6 (and its Zariski analogue), RΓ(XZar,AΩXZar ) and RΓ(Xét,AΩX) are derived ξ-adic complete, (4.21.1) is an isomorphism.",
           "match": "The comparison follows from its reduction modulo ξ and derived ξ-completeness on both sides."
         },
         {
           "sourceId": "CK",
           "locator": "Example 4.22, p.32",
-          "excerpt": "Example 4.22. By §1.5, Corollary 4.21 applies to any OC-smooth X and, more generally, to any X that Zariski locally arises from a strictly semistable scheme deﬁned over a discrete valuation ring.",
           "match": "Cases where (c) applies."
         },
         {
           "sourceId": "BMS1",
           "locator": "Lemma 9.15, p.331",
-          "excerpt": "Lemma 9.15. — Let Cr ∈ D(X psh Zar), r ≥ 1, be a projective system, with homotopy limit C = Rlim ← − Cr. Assume that for each r ≥ 1, Cr is a sheaf, i.e. Cr → Rj∗j∗ Cr is a quasi-isomorphism. Then C is a sheaf, i.e. C → Rj∗j∗ C is a quasi-isomorphism.",
           "match": "A derived limit of sheaves on the presheaf site is a sheaf; CK uses its analogue for 𝔛^psh_ét."
         }
       ],
@@ -1862,37 +1760,31 @@
         {
           "sourceId": "CK",
           "locator": "Theorem 4.17, (4.17.1), p.30",
-          "excerpt": "Theorem 4.17. There is an identification AΩX ⊗L Ainf,θ OC ∼ = Ω• X/OC,log. (4.17.1)",
           "match": "The de Rham specialisation of AΩ_𝔛 (extracted display)."
         },
         {
           "sourceId": "CK",
           "locator": "Theorem 4.17 (proof), p.30",
-          "excerpt": "Proof. Since ϕ(µ) = ϕ(ξ)µ (see §2.1), [BMS18, 6.11] gives the second identiﬁcation in",
           "match": "First step: θ=θ̃∘φ and the composition law for Lη."
         },
         {
           "sourceId": "CK",
           "locator": "Theorem 4.17 (proof), p.31",
-          "excerpt": "Thus, b LOC/Ainf ∼ = (OC{1})[1], where OC is an Ainf-algebra via θ ◦ ϕ−1.",
           "match": "The cotangent complex of O_C over A_inf via θ̃ is O_C{1}[1], which cancels the twists (in the extracted text the hat of the completed cotangent complex appears as a detached b)."
         },
         {
           "sourceId": "CK",
           "locator": "Theorem 4.17 (proof), p.31",
-          "excerpt": "Each Ωi X/OC,log is a vector bundle, so the agreement of the Bockstein diﬀerentials with those of Ω• X/OC,log may be checked over Xsm (compare with the argument for (4.10.3)), where it follows from [BMS18, 14.1 (ii)] (or [Bha18, proof of Prop. 7.9]).",
           "match": "The differential is identified on the smooth locus only, by reference to the smooth case."
         },
         {
           "sourceId": "CK",
           "locator": "Corollary 4.18, p.31",
-          "excerpt": "Corollary 4.18. The de Rham specialization of RΓ(Xét,AΩX) may be identified as follows: RΓ(Xét,AΩX) ⊗L Ainf,θ OC ∼ = RΓlogdR(X/OC). (4.18.1) Proof. The claim follows from Theorem 4.17 and the projection formula [SP, 0944].",
           "match": "The global form, by the projection formula; no hypothesis on 𝔛 beyond §1.5."
         },
         {
           "sourceId": "BMS1",
           "locator": "Theorem 14.1, p.388",
-          "excerpt": "Theorem 14.1. — There are canonical quasi-isomorphisms of complexes of sheaves on XZar (compatible with multiplicative structures).",
           "match": "The smooth case used on 𝔛^sm (its part (ii)); the clause on multiplicative structures there is for smooth X and is not carried over to this node."
         }
       ],
@@ -1942,37 +1834,31 @@
         {
           "sourceId": "CK",
           "locator": "Corollary 4.20, p.31",
-          "excerpt": "Corollary 4.20. If X is proper over OC, then RΓ(Xét,AΩX) is a perfect object of D≥0(Ainf); in other words, then RΓ(Xét,AΩX) is quasi-isomorphic to a bounded complex of finite free Ainf-modules.",
           "match": "Perfectness for proper 𝔛."
         },
         {
           "sourceId": "CK",
           "locator": "Corollary 4.20 (proof), p.31",
-          "excerpt": "By the Grothendieck ﬁniteness theorem [Ull95, 5.3] and the spectral sequence as in Re- mark 4.19, the OC-modules Hj(RΓlogdR(X/OC)) are ﬁnitely presented, and hence also perfect (see [SP, 0ASP]).",
           "match": "The finiteness input is the direct image theorem for proper formal schemes, not formal GAGA."
         },
         {
           "sourceId": "CK",
           "locator": "Corollary 4.20 (proof), p.31",
-          "excerpt": "Thus, by Corollary 4.18 and [SP, 066U], the object RΓ(Xét,AΩX) ⊗L Ainf Ainf/(ξ) of D≥0(OC) is perfect. Moreover, by Corollary 4.6, the object RΓ(Xét,AΩX) is derived ξ-adically complete. Therefore, by [SP, 09AW], it is perfect as well, as desired.",
           "match": "Perfectness modulo ξ and derived ξ-completeness (Corollary 4.6) give perfectness."
         },
         {
           "sourceId": "CK",
           "locator": "§7.1, p.68",
-          "excerpt": "7.1. Properness of X. Throughout §7, we assume that X is proper and Xk is purely d-dimensional.",
           "match": "The standing hypotheses under which CK states the range."
         },
         {
           "sourceId": "CK",
           "locator": "Theorem 7.4, p.69",
-          "excerpt": "Theorem 7.4. Each (Hi Ainf (X),ϕ) is a Breuil–Kisin–Fargues module and vanishes unless i ∈ [0,2d].",
           "match": "Vanishing of H^i_Ainf(𝔛) outside [0,2d]."
         },
         {
           "sourceId": "CK",
           "locator": "Theorem 7.4 (proof), p.69",
-          "excerpt": "Thus, by the de Rham specialization of (7.2.1) and the Nakayama lemma, Hi Ainf (X) = 0 for i > 2d.",
           "match": "CK's argument for the upper bound: de Rham specialisation and Nakayama."
         }
       ],
@@ -2026,73 +1912,61 @@
         {
           "sourceId": "CK",
           "locator": "§3.26, p.19",
-          "excerpt": "3.26. The Ainf-algebras A (m) cris . For m ∈ Z≥1, we let A (m) cris be the p-adic completion of the Ainf- subalgebra A 0,(m) cris of Ainf[1 p] generated by the elements ξs s! with s ≤ m.",
           "match": "The definition (extracted text: the superscripts (m) and 0,(m) and the fraction ξ^s/s! appear flattened)."
         },
         {
           "sourceId": "CK",
           "locator": "§3.26, p.19",
-          "excerpt": "In particular, A (m) cris ∼ = Ainf for m < p.",
           "match": "For m<p the ring is A_inf (api small)."
         },
         {
           "sourceId": "CK",
           "locator": "§3.26, p.20",
-          "excerpt": "Due to the “ﬁnite type nature” of the Ainf-algebra A (m) cris , more precisely, due to [BMS18, 12.8 (ii)], the systems of ideals",
           "match": "The intertwining property (3.26.2) comes from BMS1 Lemma 12.8(ii) (api intertwined)."
         },
         {
           "sourceId": "CK",
           "locator": "§3.26, (3.26.4), p.20",
-          "excerpt": "we conclude that A (m) cris is µ-torsion free and A (m) cris /µ is p-adically complete. (3.26.4)",
           "match": "μ-torsion-freeness and p-adic completeness modulo μ (api mu_torsion_free)."
         },
         {
           "sourceId": "CK",
           "locator": "§3.27, (3.27.2), p.20",
-          "excerpt": "Consequently, the generalization of (3.26.4) holds, too: A (m) cris (R∞) is µ-torsion free and A (m) cris (R∞)/µ is p-adically complete. (3.27.2)",
           "match": "The same for A_cris^(m)(R_∞)."
         },
         {
           "sourceId": "CK",
           "locator": "§3.27, p.20",
-          "excerpt": "In particular, ∆ acts trivially on A (m) cris (R)/µ.",
           "match": "Δ acts trivially modulo μ on A_cris^(m)(R) (api delta_trivial_mod_mu)."
         },
         {
           "sourceId": "CK",
           "locator": "Proposition 3.29, p.21",
-          "excerpt": "Proposition 3.29. Each A (m) cris (R∞)/(µ,pn) and also A (m) cris (R∞)/µ have no nonzero W(m♭)-torsion.",
           "match": "No W(m^♭)-torsion modulo (μ,p^n) and modulo μ (api no_almost_torsion)."
         },
         {
           "sourceId": "CK",
           "locator": "§5.1, (5.1.1), p.32",
-          "excerpt": "is Frobenius equivariant and compatible with the maps θ.",
           "match": "The identification of A_cris with the completed colimit is Frobenius-equivariant and compatible with θ (api colimit); the display (5.1.1) precedes this line."
         },
         {
           "sourceId": "BMS1",
           "locator": "Lemma 12.8, p.364",
-          "excerpt": "Lemma 12.8. — Let A(m) crys ⊂ Acrys be the p-adic completion of the Ainf-subalgebra generated by",
           "match": "The same rings in BMS1 (written A^(m)_crys there); part (ii) of that lemma is (3.26.2)."
         },
         {
           "sourceId": "CK",
           "locator": "§5.19, (5.19.3), p.42",
-          "excerpt": "Similarly to §3.27, for an m ∈ Z≥1, we set A (m) cris (RΣ,Λ,∞) := Ainf(RΣ,Λ,∞)b ⊗Ainf A (m) cris , (5.19.3) where the completion is (p,µ)-adic (equivalently, p-adic if m ≥ p).",
           "match": "The same definition for the perfectoid cover R_{Σ,Λ,∞} (extracted text: the completed tensor product and the superscripts appear flattened)."
         },
         {
           "sourceId": "CK",
           "locator": "§5.35, p.52",
-          "excerpt": "For an m ∈ Z≥1, we let A 0,(m) cris (R′ ∞) ⊂ A0 cris(R′ ∞) be the Ainf(R′ ∞)-subalgebra generated by the",
           "match": "The uncompleted finite-level ring of an arbitrary affinoid perfectoid R′_∞; (5.35.1) and (5.35.2) follow."
         },
         {
           "sourceId": "CK",
           "locator": "Proposition 5.36, p.52",
-          "excerpt": "Proposition 5.36. For an affinoid perfectoid Spa(R′ ∞[1 p],R′ ∞) over Spa(C,OC) and an m ≥ 1, the following ring homomorphisms are injective:",
           "match": "Injectivity of the chain (5.36.1) into B_dR⁺(R′_∞) (api injective)."
         }
       ],
@@ -2250,67 +2124,56 @@
         {
           "sourceId": "CK",
           "locator": "§3.28, (3.28.1), p.21",
-          "excerpt": "Consequently, the edge map e deﬁned in (3.15.1) gives rise to the map",
           "match": "The base-changed edge map of part (a); its display follows."
         },
         {
           "sourceId": "CK",
           "locator": "Proposition 3.32, p.23",
-          "excerpt": "Proposition 3.32. For every m ≥ p and i ∈ Z, we have the identifications",
           "match": "Commutation of cohomology with the completed tensor product on N_∞, for m≥p."
         },
         {
           "sourceId": "CK",
           "locator": "Proposition 3.32 (last sentence), p.23",
-          "excerpt": "In particular, µ kills every Hi cont(∆,N∞ b ⊗Ainf A (m) cris ).",
           "match": "μ still kills the cohomology of the nonintegral part after base change."
         },
         {
           "sourceId": "CK",
           "locator": "Proposition 3.33, p.23",
-          "excerpt": "Proposition 3.33. For every m ≥ p and i ∈ Z, we have the identifications",
           "match": "The same for A_cris^(m)(R_∞)/μ."
         },
         {
           "sourceId": "CK",
           "locator": "Proposition 3.33 (last sentence), p.23",
-          "excerpt": "Moreover, the Ainf-module Hi cont(∆,A (m) cris (R∞)/µ) has no nonzero W(m♭)-torsion.",
           "match": "No W(m^♭)-torsion, the hypothesis of Lemma 3.18 for part (a)."
         },
         {
           "sourceId": "CK",
           "locator": "Theorem 3.34, p.24",
-          "excerpt": "Theorem 3.34. For each m ≥ p, the map eb ⊗ L Ainf A (m) cris from (3.28.1) induces the isomorphism",
           "match": "Part (a)."
         },
         {
           "sourceId": "CK",
           "locator": "Proposition 5.6, p.34",
-          "excerpt": "Proposition 5.6. In the local setting of §5.5, for every m ≥ p, we have",
           "match": "Part (c), in the local setting and for m≥p."
         },
         {
           "sourceId": "CK",
           "locator": "Proposition 5.6 (proof), p.34",
-          "excerpt": "Moreover, by Theorems 3.20 and 3.34, it suﬃces to prove that",
           "match": "Reduction of (c) to (b) through Theorems 3.20 and 3.34."
         },
         {
           "sourceId": "CK",
           "locator": "Proposition 5.6 (proof), p.34",
-          "excerpt": "By Propositions 3.25 and 3.32, the “nonintegral” part N∞ does not contribute, so it suﬃces to show:",
           "match": "The nonintegral part does not contribute."
         },
         {
           "sourceId": "CK",
           "locator": "Proposition 5.6 (proof), p.34",
-          "excerpt": "where the completed tensor product is nonderived (that is, termwise) because each pn, µn′ is an A(R)-regular sequence with A(R)/(pn,µn′ ) ﬂat over Ainf/(pn,µn′ ) (see Lemma 3.13);",
           "match": "The completed tensor product of the A(R)-Koszul complex is termwise."
         },
         {
           "sourceId": "CK",
           "locator": "§5.5, p.34",
-          "excerpt": "but this requires understanding the W(m♭)-torsion in the groups Hi cont(∆,(Ainf(R∞)b ⊗Ainf Acris)/µ) that seem diﬃcult to access due to pathologies of the ring Acris/µ.",
           "match": "Why the statement is made for A_cris^(m) and not for A_cris (third acceptance item)."
         }
       ],
@@ -2360,37 +2223,31 @@
         {
           "sourceId": "CK",
           "locator": "§5.9, p.36",
-          "excerpt": "Then, under the diagonal map N≥0 → Nr+1 ≥0 , the ring A(R) is a (p,µ)-adically formally log smooth Ainf-algebra (see (3.14.2) and [Kat89, 3.5–3.6]).",
           "match": "Formal log smoothness of the chart lift over A_inf (the ring is A(R□) in the print; the extraction drops the box), which makes the log differentials free."
         },
         {
           "sourceId": "CK",
           "locator": "§5.10, (5.10.1), p.36",
-          "excerpt": "Due to the formal log smoothness of A(R) over Ainf, each Ωi A(R)/Ainf,log is a free A(R)-module: indeed, the logarithmic diﬀerentials dlog(X1),...,dlog(Xd) form an A(R)-basis of Ω1 A(R)/Ainf,log.",
           "match": "The logarithmic differentials dlog X₁,…,dlog X_d form a basis, so the dual derivations exist."
         },
         {
           "sourceId": "CK",
           "locator": "§5.10, (5.10.2), p.37",
-          "excerpt": "denote the dual basis of log Ainf-derivations (we do not notationally explicate the accompanying homomorphisms from the log structure to A(R)). These satisfy the following explicit formulas that are derived using the relation dlog(X0) + ··· + dlog(Xr) = 0:",
           "match": "The derivations are the dual basis, and the relation among the dlog X_i gives the formulas D_i(X_i)=X_i, D_i(X₀)=−X₀."
         },
         {
           "sourceId": "CK",
           "locator": "§5.10, (5.10.3), p.37",
-          "excerpt": "The Frobenius of the log Ainf-algebra A(R) multiplies each dlog(Xi) by p, so its eﬀect on the right side of (5.10.3) is given in each degree j by pj times the Frobenius of A(R).",
           "match": "Koszul description of the log de Rham complex and the Frobenius p^j·φ in degree j."
         },
         {
           "sourceId": "CK",
           "locator": "§5.9, p.36",
-          "excerpt": "The Frobenii of Ainf and A(R) extend to the log structures by letting them act as multiplication by p on Nr+1 ≥0 and N≥0 and as the p-th power map on O♭ C \\{0}.",
           "match": "Frobenius acts as multiplication by p on the charts, which is why each dlog X_i is multiplied by p."
         },
         {
           "sourceId": "CK",
           "locator": "Proposition 5.13, p.38",
-          "excerpt": "Proposition 5.13. In the local setting of §5.5, letting ∂ ∂ log(Xi) : A (m) cris (R) → A (m) cris (R) denote the A (m) cris -derivations induced from (5.10.1) by base change, we have Frobenius-equivariant identifications",
           "match": "The derivations of A_cris^(m)(R) are obtained from those of A(R) by base change."
         }
       ],
@@ -2505,55 +2362,46 @@
         {
           "sourceId": "CK",
           "locator": "§5.14, p.38",
-          "excerpt": "5.14. The element log([ǫ]). Fix an m ≥ p2. By the proof of [BMS18, 12.2],",
           "match": "Source of the bound m≥p² and of the element log([ε]) in A_cris^(m)."
         },
         {
           "sourceId": "BMS1",
           "locator": "Lemma 12.8, p.364",
-          "excerpt": "and Lemma 12.2 holds true with A(m) crys in place of Acrys.",
           "match": "For m≥p² the statements of BMS1 Lemma 12.2 hold in A_cris^(m), which is the input of CK §5.14."
         },
         {
           "sourceId": "CK",
           "locator": "§3.27, (3.27.2), p.20",
-          "excerpt": "A (m) cris (R∞) is µ-torsion free and A (m) cris (R∞)/µ is p-adically complete. (3.27.2)",
           "match": "μ-torsion-freeness of A_cris^(m)(R_∞), hence of its direct summand A_cris^(m)(R), used to divide by μ."
         },
         {
           "sourceId": "CK",
           "locator": "Lemma 5.15, pp.38–39",
-          "excerpt": "Lemma 5.15. For m ≥ p2, a δi ∈ ∆ with i = 1,...,d (see §3.2) acts on A (m) cris (R) as the series",
           "match": "The action of δ_i on A_cris^(m)(R) is the exponential series, for m≥p²."
         },
         {
           "sourceId": "CK",
           "locator": "Lemma 5.15, proof, p.39",
-          "excerpt": "follows by noting that both of its sides agree on every Xj: indeed, due to the formulas (5.10.2), they send Xi to [ǫ]Xi, ﬁx each Xj with 0 < j 6= i, and send X0 to [ǫ−1]X0 if i ≤ r and to X0 if r < i.",
           "match": "The check on the generators X_j for R=R□ (second acceptance item)."
         },
         {
           "sourceId": "CK",
           "locator": "Proposition 5.16, (5.16.1)–(5.16.2), pp.39–40",
-          "excerpt": "of complexes in degrees 0 and 1 is Frobenius equivariant, granted that the usual Frobenius action on the copy of A (m) cris (R) in degree 1 of the source is multiplied by p (compare with the description after (5.10.3)). For m ≥ p2, these morphisms induce a Frobenius-equivariant quasi-isomorphism",
           "match": "Frobenius twist by p in degree 1 and the quasi-isomorphism (5.16.2), for m≥p²."
         },
         {
           "sourceId": "CK",
           "locator": "Proposition 5.16, proof, p.40",
-          "excerpt": "Proposition 3.32 (with Lemma 3.7) implies that the natural inclusion of the target of (5.16.4) into the target of (5.16.2) is a quasi-isomorphism, and (5.16.2) follows.",
           "match": "Passage from A_cris^(m)(R) to A_cris^(m)(R_∞) by Proposition 3.32."
         },
         {
           "sourceId": "CK",
           "locator": "Proposition 5.13, proof, p.38",
-          "excerpt": "By Lemma 5.12, each Acris(R)/pn over Acris/pn is a PD smooth thickening of R/p over OC/p, so [Bei13b, (1.8.1)] gives the Frobenius-equivariant identiﬁcation",
           "match": "The log de Rham complex of the PD smooth lift A_cris(R) computes log crystalline cohomology."
         },
         {
           "sourceId": "CK",
           "locator": "Corollary 5.7, p.35",
-          "excerpt": "Corollary 5.7. In the local setting of §5.5, there is a Frobenius-equivariant identification",
           "match": "Identification of the target with AΩ_R⊗̂A_cris."
         }
       ],
@@ -2602,67 +2450,56 @@
         {
           "sourceId": "CK",
           "locator": "§5.17, p.40",
-          "excerpt": "5.17. More general coordinates. Continuing to work locally, we now assume until the ﬁnal part of the proof of Theorem 5.4 given in §5.40 that X = Spf(R) is aﬃne and nonempty, that every two irreducible components of Spec(R ⊗OC k) meet (so that X is connected), and that we have",
           "match": "The standing assumptions on Spf R, including that every two irreducible components of the special fibre meet."
         },
         {
           "sourceId": "CK",
           "locator": "§5.17, p.40",
-          "excerpt": "a nonempty ﬁnite set Λ and, for each λ ∈ Λ, an OC-algebra",
           "match": "Λ is nonempty and finite."
         },
         {
           "sourceId": "CK",
           "locator": "§5.17, (5.17.2)–(5.17.3), p.40",
-          "excerpt": "is a closed immersion (5.17.2) and, for each λ ∈ Λ, the induced map",
           "match": "The torus map alone is a closed immersion and each chart map is required to be étale."
         },
         {
           "sourceId": "CK",
           "locator": "§5.17, p.40",
-          "excerpt": "By (5.17.3), for each λ ∈ Λ, the irreducible components of Spec(R⊗OC k) are a priori identiﬁed with the connected components of F i Spec((R ⊗OC k)/(tλ, i)). Thus, our assumption on Spec(R ⊗OC k) implies that each irreducible component of Spec(R⊗OC k) is cut out by a unique tλ,i with 0 ≤ i ≤ rλ.",
           "match": "Each irreducible component of the special fibre is cut out by a unique t_{λ,i}."
         },
         {
           "sourceId": "CK",
           "locator": "§5.17, p.40",
-          "excerpt": "By §1.5, if R ⊗OC k is not k-smooth, then R determines qλ, which therefore does not depend on λ. On the other hand, if R ⊗OC k is k-smooth, then qλ may depend on λ.",
           "match": "When q_λ is independent of λ and when it is not."
         },
         {
           "sourceId": "CK",
           "locator": "§1.5, footnote 2, p.4",
-          "excerpt": "In addition, if R ⊗OC k is not k-smooth, then R determines q.",
           "match": "R determines q when the special fibre is not smooth (proved in the footnote)."
         },
         {
           "sourceId": "CK",
           "locator": "§5.17, p.40",
-          "excerpt": "For any X, the data above exist on a basis for Xét: indeed, a coordinate map (5.17.3) exists étale locally on X (see §1.5), and then R is the p-adic completion of a ﬁnite type OC-algebra, so the Zariski topology of Spf(R) has a basis whose elements embed into some (variable) b GΣ m.",
           "match": "The data exist on a basis of 𝔛_ét."
         },
         {
           "sourceId": "CK",
           "locator": "§5.18, (5.18.1), p.41",
-          "excerpt": "which contains each Spa(Rλ,∞[1 p],Rλ,∞) → Spa(R[1 p],R) as a subcover. Thus, by the almost purity theorem [Sch12, 7.9 (iii)], the OC-algebra RΣ,Λ,∞ deﬁned by (5.18.1) is perfectoid",
           "match": "The root cover R_{Σ,Λ,∞} contains each chart tower as a subcover and is perfectoid by almost purity."
         },
         {
           "sourceId": "CK",
           "locator": "§5.18, p.41",
-          "excerpt": "Jointly, the δσ’s and the δλ,i’s topologically freely generate ∆Σ,Λ.",
           "match": "Generators of Δ_{Σ,Λ}."
         },
         {
           "sourceId": "CK",
           "locator": "§5.21, p.42",
-          "excerpt": "For a ﬁxed R, we form the ﬁltered direct limit over the closed immersions (5.17.1) for varying Σ and Λ to build the complex",
           "match": "Indices form a filtered system under enlarging Σ and Λ."
         },
         {
           "sourceId": "CK",
           "locator": "§5.22, (5.22.1), p.43",
-          "excerpt": "of (p,µ)-adic formal log schemes, where the products are over the (p,µ)-adic formal log scheme Spf(Ainf).",
           "match": "The product algebra A□_{Σ,Λ} is the product over A_inf of the chart lifts, as (p,μ)-adic formal log schemes."
         }
       ],
@@ -2763,55 +2600,46 @@
         {
           "sourceId": "CK",
           "locator": "§5.25, p.45",
-          "excerpt": "To express DΣ,Λ as the p-adic completion of a usual (non log) divided power envelope, in §§5.25–5.27 we build a chart for the (ﬁne version) of the log closed immersion",
           "match": "Purpose of the charts: a chart for the fine version of the log closed immersion."
         },
         {
           "sourceId": "CK",
           "locator": "§5.25, p.45",
-          "excerpt": "For this, we ﬁx the unique q ∈ Q>0 for which Z · q = Σλ∈Λ Z · qλ inside Q, so that qλ q ∈ Z>0 for every λ (and even qλ = q in the case when R⊗OC k is not k-smooth, see §5.17).",
           "match": "Definition of q from the q_λ, and q_λ=q in the nonsmooth case."
         },
         {
           "sourceId": "CK",
           "locator": "§5.26, (5.26.3), p.46",
-          "excerpt": "equipped with a unit Vλ,i ∈ B× for each (λ,i) with 0 ≤ i ≤ rλ subject to the relations",
           "match": "Universal property of the exactified algebra in the smooth case (the relations are the display (5.26.3))."
         },
         {
           "sourceId": "CK",
           "locator": "§5.26, (5.26.5), p.46",
-          "excerpt": "jλ0 is an exact closed immersion and, by [Kat89, 3.5], the projection qλ0 is log étale.",
           "match": "The factorization: j_{λ₀} exact closed immersion, q_{λ₀} log étale."
         },
         {
           "sourceId": "CK",
           "locator": "§5.26, (5.26.6)–(5.26.7), p.46",
-          "excerpt": "The relations (5.26.3) do not depend on the choice of λ0, so neither does the factorization (5.26.5).",
           "match": "Independence of λ₀ in the smooth case."
         },
         {
           "sourceId": "CK",
           "locator": "§5.27, (5.27.2), p.47",
-          "excerpt": "Letting Y denote the set of the generic points of Spec(R ⊗OC k), for λ0 ∈ Λ we build the monoid",
           "match": "P_{λ₀} in the nonsmooth case is built from the set of generic points of the special fibre."
         },
         {
           "sourceId": "CK",
           "locator": "§5.27, (5.27.3), p.47",
-          "excerpt": "algebras B for which Xλ,i ∈ B× when i 6∈ iλ(Y) and that are equipped with, for each y ∈ Y and λ ∈ Λ, a unit Uλ,λ0,y ∈ B× subject to the relations",
           "match": "Universal property of the exactified algebra in the nonsmooth case (the relations are the display (5.27.3))."
         },
         {
           "sourceId": "CK",
           "locator": "§5.27, (5.27.5), p.47",
-          "excerpt": "where jλ0 is an exact closed immersion and, by [Kat89, 3.5], the projection qλ0 is log étale. As in §5.26, we have natural isomorphisms Pλ0 ≃ Pλ′ 0 over Q and the compatibility diagram (5.26.7).",
           "match": "The factorization and the change of λ₀ in the nonsmooth case."
         },
         {
           "sourceId": "CK",
           "locator": "§5.25, footnote 11, p.45",
-          "excerpt": "Neither [Kat89, 5.4] nor [Bei13b, 1.3, Theorem] gives this hypothetical envelope because p is not nilpotent in",
           "match": "Why the log PD envelope of the nonexact immersion is not used directly."
         }
       ],
@@ -2912,73 +2740,61 @@
         {
           "sourceId": "CK",
           "locator": "§5.22, p.43",
-          "excerpt": "For n,n′ > 0, by [Bei13b, 1.3, Theorem], the Ainf/(pn,µn′ )-base change of the closed immersion (5.22.1) has a log PD envelope Spec(DΣ,Λ,n,n′) over (Z/pn Z,pZ/pn Z),",
           "match": "Existence of the log PD envelopes D_{Σ,Λ,n,n′} over (Z/p^n,pZ/p^n)."
         },
         {
           "sourceId": "CK",
           "locator": "§5.22, (5.22.2), p.43",
-          "excerpt": "Thus, letting DΣ,Λ,n be this log PD envelope, that is, the common DΣ,Λ,n,n′ for large n′, we have DΣ,Λ,n/pn−1 ∼ = DΣ,Λ,n−1 for n > 1 and obtain a p-adic formal log Spf(Acris)-scheme Spf(DΣ,Λ)",
           "match": "Definition of D_{Σ,Λ,n} and of D_{Σ,Λ} as their limit."
         },
         {
           "sourceId": "CK",
           "locator": "§5.22, p.44",
-          "excerpt": "The main practical deﬁciency of DΣ,Λ is its inexplicit nature, for instance, we do not know whether DΣ,Λ is p-torsion free.",
           "match": "p-torsion-freeness of D_{Σ,Λ} is not known."
         },
         {
           "sourceId": "CK",
           "locator": "§5.28, p.47",
-          "excerpt": "5.28. The divided power envelope of jλ0. For λ0 ∈ Λ, we let Djλ0 be the divided power envelope over (Zp,pZp) of the closed immersion jλ0 deﬁned in (5.26.5) and (5.27.5). The universal property of A0 cris (see §5.1) identiﬁes Djλ0 with the divided power envelope of the closed immersion",
           "match": "D_{jλ₀} is the ordinary envelope over (Z_p,pZ_p), equally over A_cris^0."
         },
         {
           "sourceId": "CK",
           "locator": "§5.28, p.48",
-          "excerpt": "Since jλ0 underlies an exact closed immersion of log schemes, we may, in addition, identify Djλ0 endowed with the log structure determined by Pλ0 with the log PD envelope of jλ0 over Zp, or of jλ0,cris over A0 cris (compare with [Kat89, 5.5.1]).",
           "match": "For the exact immersion the ordinary envelope is the log PD envelope."
         },
         {
           "sourceId": "CK",
           "locator": "Lemma 5.29, (5.29.1), p.48",
-          "excerpt": "Lemma 5.29. For λ0 ∈ Λ, the map qλ0 induces Frobenius- and ∆Σ,Λ-equivariant isomorphisms DΣ,Λ,n ∼ = Djλ0 /pn for n > 0 (resp., DΣ,Λ ∼ = d Djλ0 ) (5.29.1)",
           "match": "D_{Σ,Λ,n}≅D_{jλ₀}/p^n and D_{Σ,Λ} is the p-adic completion of D_{jλ₀}."
         },
         {
           "sourceId": "CK",
           "locator": "Lemma 5.29, proof, p.48",
-          "excerpt": "By [Bei13b, 1.1 Exercises (iii)], for any t,t′ ∈ Γ(T,NT ) and u0 ∈ O× T0 with t|T0 = u0 · t′|T0, there exists a unique lift u ∈ O× T of u0 such that t = ut′.",
           "match": "Unique lifting of units along log PD thickenings, the key step of the lemma."
         },
         {
           "sourceId": "CK",
           "locator": "§5.30, p.49",
-          "excerpt": "the same holds for the image D 0,(m) Σ,Λ ⊂ D0 Σ,Λ of D (m) jλ0 in DΣ,Λ. For m ≥ p, the p-adic completion D (m) Σ,Λ := (D 0,(m) Σ,Λ )b is naturally an algebra over A (m) cris and comes equipped with an A (m) cris -semilinear Frobenius.",
           "match": "D^{0,(m)}_{Σ,Λ} is the image of D^{(m)}_{jλ₀}, and D^{(m)}_{Σ,Λ} is its p-adic completion, defined for m≥p."
         },
         {
           "sourceId": "CK",
           "locator": "§5.30, (5.30.1), p.49",
-          "excerpt": "By Lemma 5.29, the composition Djλ0 ։ D0 Σ,Λ ֒→ DΣ,Λ induces an isomorphism modulo pn, and",
           "match": "The maps D_{jλ₀}→D^0_{Σ,Λ}→D_{Σ,Λ} are isomorphisms modulo p^n, which gives D_{Σ,Λ} as the completed colimit of the D^{(m)}_{Σ,Λ}."
         },
         {
           "sourceId": "CK",
           "locator": "§5.31, (5.31.3), p.49",
-          "excerpt": "Since qλ0 is log étale (see §§5.26–5.27), the derivations (5.31.1) uniquely extend to log Ainf-derivations",
           "match": "The derivations extend to the exactified algebra because q_{λ₀} is log étale."
         },
         {
           "sourceId": "CK",
           "locator": "§5.31, (5.31.4), p.50",
-          "excerpt": "These, in turn, induce divided power A0 cris-derivations (see [SP, 07HW])",
           "match": "They induce divided power derivations of D_{jλ₀}."
         },
         {
           "sourceId": "CK",
           "locator": "§5.32, p.50",
-          "excerpt": "For a ﬁxed R, the formation of the rings DΣ,Λ, Djλ0 , D0 Σ,Λ, and D (m) Σ,Λ and the morphisms jλ0 and qλ0 is compatible with enlarging Σ and Λ",
           "match": "Functoriality under enlarging (Σ,Λ)."
         }
       ],
@@ -3092,49 +2908,41 @@
         {
           "sourceId": "CK",
           "locator": "§5.19, p.42",
-          "excerpt": "Since Ainf(RΣ,Λ,∞) is (p,µ)- adically formally ﬂat over Ainf, the ring A (m) cris (RΣ,Λ,∞) inherits p-torsion freeness from A (m) cris .",
           "match": "p-torsion-freeness of A_cris^(m)(R_{Σ,Λ,∞}), which makes termwise completion derived."
         },
         {
           "sourceId": "CK",
           "locator": "Proposition 5.20, (5.20.1), p.42",
-          "excerpt": "Proposition 5.20. In the local setting of §5.17, for every m ≥ p, the analogue for RΣ,Λ,∞ of the edge map (3.15.1) induces the Frobenius-equivariant identification",
           "match": "The edge map identifies each complex with the A_cris^(m)-base change of AΩ^psh, for m≥p."
         },
         {
           "sourceId": "CK",
           "locator": "Proposition 5.20, proof, p.42",
-          "excerpt": "Therefore, since the pro-(ﬁnite étale) aﬃnoid perfectoid ∆Σ,Λ-cover Spa(RΣ,Λ,∞[1 p],RΣ,Λ,∞) of Spa(R[1 p],R) contains Spa(Rλ,∞[1 p],Rλ,∞) as a subcover (see §5.18), Remark 3.35 applies and (with Lemma 3.7) gives (5.20.1).",
           "match": "The comparison for the cover R_{Σ,Λ,∞} comes from Remark 3.35 and Lemma 3.7."
         },
         {
           "sourceId": "CK",
           "locator": "Remark 3.35, p.24",
-          "excerpt": "Remark 3.35. Analogously to Remark 3.21, we may extend Theorem 3.34 to any aﬃnoid perfectoid ∆′-cover that reﬁnes Xad C,∞ → Xad C and is subject to the same conditions as in Remark 3.10",
           "match": "Extension of Theorem 3.34 to perfectoid covers refining a chart tower."
         },
         {
           "sourceId": "CK",
           "locator": "Proposition 5.20, proof, p.42",
-          "excerpt": "The remaining assertion follows: each A (m) cris (RΣ,Λ,∞) is p-torsion free, so the termwise p-adic completion of the source there agrees with the derived p-adic completion.",
           "match": "Termwise p-adic completion agrees with derived completion."
         },
         {
           "sourceId": "CK",
           "locator": "§5.21, (5.21.1), p.42",
-          "excerpt": "where the direct limits and the p-adic completion are termwise. By its construction, this complex comes equipped with an Acris-semilinear Frobenius endomorphism.",
           "match": "The model: termwise colimits and completion, with its Frobenius."
         },
         {
           "sourceId": "CK",
           "locator": "§5.21, p.43",
-          "excerpt": "Moreover, if R′ is a p-adically formally étale R-algebra equipped with data as in §5.17 for some sets Σ′ and Λ′, then the term indexed by Σ, Λ (and by the closed immersion (5.17.1)) of the direct limit (5.21.1) maps to the term indexed by Σ ∪ Σ′, Λ ∪ Λ′",
           "match": "Functoriality in R for p-adically formally étale maps."
         },
         {
           "sourceId": "CK",
           "locator": "§4.1, (4.1.3), p.25",
-          "excerpt": "Moreover, AΩpsh X may be described explicitly: for every object U of Xpsh ét , we have",
           "match": "The value AΩ_R of the presheaf AΩ^psh on Spf R."
         }
       ],
@@ -3238,55 +3046,46 @@
         {
           "sourceId": "CK",
           "locator": "Proposition 5.23, (5.23.1), p.44",
-          "excerpt": "Proposition 5.23. In the local setting of §5.17, the complex (where the inverse limit is termwise)",
           "match": "The log PD de Rham complex of D_{Σ,Λ}."
         },
         {
           "sourceId": "CK",
           "locator": "Proposition 5.23, (5.23.1), p.44",
-          "excerpt": "is canonically and Frobenius-equivariantly identified in the derived category as follows:",
           "match": "Its canonical Frobenius-equivariant identification with log crystalline cohomology."
         },
         {
           "sourceId": "CK",
           "locator": "Proposition 5.23, proof, p.44",
-          "excerpt": "Therefore, by [Bei13b, 1.4, Remarks (ii)] (and the second paragraph of §5.22), the log PD thickening DΣ,Λ,n of R/p is PD smooth over Acris/pn (see the proof of Lemma 5.12).",
           "match": "PD smoothness of the envelope D_{Σ,Λ,n}."
         },
         {
           "sourceId": "CK",
           "locator": "Proposition 5.23, proof, p.44",
-          "excerpt": "Thus, as in the proof of Proposition 5.13 above, [Bei13b, (1.8.1)] ensures that the logarithmic PD de Rham complex Ω• DΣ, Λ, n/(Acris/pn),log,PD Frobenius-equivariantly computes RΓlogcris(OXOC/p/(Acris/pn)). By [Bei13b, 1.7, Exercises, (i)],",
           "match": "The log PD de Rham complex computes log crystalline cohomology and has the stated terms."
         },
         {
           "sourceId": "CK",
           "locator": "Proposition 5.23, (5.23.2), proof, p.44",
-          "excerpt": "Then, since each R/pn is a log smooth log PD thickening of R/p over OC/pn, analogous reasoning applies to RΓlogcris(OXOC/p/OC ) [Bei13b, (1.8.1)] ∼ = RΓlogdR(X/OC) (compare with the proof of Proposition 5.13) and gives (5.23.2).",
           "match": "The map to log de Rham cohomology of Spf R."
         },
         {
           "sourceId": "CK",
           "locator": "§5.31, (5.31.5), p.50",
-          "excerpt": "Consequently, we may reexpress the identiﬁcation (5.23.3) as the Frobenius-equivariant identiﬁcation",
           "match": "Rewriting (5.23.3) with the rings D^{(m)}_{Σ,Λ}, m≥p."
         },
         {
           "sourceId": "CK",
           "locator": "§5.31, (5.31.5), p.50",
-          "excerpt": "where in degree j of KD (m) Σ, Λ (( ∂ ∂ log(Xτ ))τ) the Frobenius acts as pj times the Frobenius of D (m) Σ,Λ.",
           "match": "Frobenius is p^j times the Frobenius of D^{(m)}_{Σ,Λ} in degree j."
         },
         {
           "sourceId": "CK",
           "locator": "§5.32, (5.32.1), p.50",
-          "excerpt": "where the direct limits and the p-adic completion are termwise. By construction, this complex comes equipped with an Acris-semilinear Frobenius endomorphism (see the end of §5.31) and, by (5.31.5), in the derived category it is canonically and Frobenius-equivariantly identiﬁed with",
           "match": "The model (5.32.1), with termwise colimits and completion, and its identification."
         },
         {
           "sourceId": "CK",
           "locator": "§5.32, p.50",
-          "excerpt": "Moreover, if R′ is a p-adically formally étale R-algebra equipped with data as in §5.17 for some sets Σ′ and Λ′, then the term indexed by Σ, Λ (and by the closed immersion (5.17.1)) of the direct limit (5.32.1) maps to12 the term indexed by Σ∪Σ′, Λ∪Λ′",
           "match": "Functoriality in R for p-adically formally étale maps."
         }
       ],
@@ -3392,85 +3191,71 @@
         {
           "sourceId": "CK",
           "locator": "Lemma 5.33, p.51",
-          "excerpt": "Lemma 5.33. For m ≥ p2, the element δτ ∈ ∆Σ,Λ, where the index τ is either “σ” for some σ ∈ Σ or “λ,i” for some λ ∈ Λ and i = 1,...,d (see §5.18), acts on D (m) Σ,Λ as the endomorphism",
           "match": "For m≥p² the generators δ_τ act on D^{(m)}_{Σ,Λ} by the exponential series."
         },
         {
           "sourceId": "CK",
           "locator": "Proposition 5.34, (5.34.1), p.51",
-          "excerpt": "of complexes in degree 0 and 1, where the index τ ranges over “σ” for σ ∈ Σ and “λ,i” for λ ∈ Λ and i = 1,...,d, define a Frobenius-equivariant morphism (whose target is defined as in (1.7.3))",
           "match": "The Frobenius-equivariant morphism to η_μ of the Koszul complex of D^{(m)}_{Σ,Λ}, whose target is defined by (1.7.3)."
         },
         {
           "sourceId": "CK",
           "locator": "§1.7, (1.7.3), p.7",
-          "excerpt": "We will mostly (but a priori not always, see Proposition 5.34) use ηI(M•) as in [BMS18, 6.2], namely, when I is generated by a nonzerodivisor and the Mj have no nonzero I-torsion.",
           "match": "The subcomplex η is used here outside the torsion-free case, so it is not asserted to compute Lη."
         },
         {
           "sourceId": "CK",
           "locator": "§5.35, (5.35.2), p.52",
-          "excerpt": "Thus, by letting the completion be p-adic if m ≥ p and (p,µ)-adic if m < p, we obtain the following identiﬁcation with the A (m) cris -algebra A (m) cris (R′ ∞) deﬁned as in (5.19.3):",
           "match": "A_cris^(m)(R′_∞) is the completion of A_cris^{0,(m)}(R′_∞)."
         },
         {
           "sourceId": "CK",
           "locator": "Proposition 5.36, (5.36.1), p.52",
-          "excerpt": "Proposition 5.36. For an affinoid perfectoid Spa(R′ ∞[1 p],R′ ∞) over Spa(C,OC) and an m ≥ 1, the following ring homomorphisms are injective:",
           "match": "Injectivity of A_cris^{0,(m)}(R′_∞)→A_cris^(m)(R′_∞)→A_cris(R′_∞), needed to restrict the map to level m."
         },
         {
           "sourceId": "CK",
           "locator": "Lemma 5.37, (5.37.1), p.53",
-          "excerpt": "Lemma 5.37. For λ0 ∈ Λ, there is a ∆Σ,Λ-equivariant divided power morphism Djλ0 → A0 cris(RΣ,Λ,∞) (5.37.1) that is compatible with the isomorphisms Djλ0 ∼ = Djλ′ 0 of (5.28.1) and is Frobenius-equivariant.",
           "match": "The Δ_{Σ,Λ}- and Frobenius-equivariant divided power morphism from D_{jλ₀}, compatible with change of λ₀."
         },
         {
           "sourceId": "CK",
           "locator": "Lemma 5.37, proof, p.54",
-          "excerpt": "Thus, since RΣ,Λ,∞ is integrally closed in RΣ,Λ,∞[1 p], we conclude from (5.27.1) that",
           "match": "The ratio units exist in R_{Σ,Λ,∞} because it is integrally closed in R_{Σ,Λ,∞}[1/p]."
         },
         {
           "sourceId": "CK",
           "locator": "Lemma 5.37, proof, p.54",
-          "excerpt": "Thus, since each Xλ,i is a nonzero divisor in Ainf(RΣ,Λ,∞), the [u♭ λ,λ0,y] solve the equations (5.27.3) in Ainf(RΣ,Λ,∞), compatibly with the solution in R ⊂ RΣ,Λ,∞ of (5.27.4).",
           "match": "Their Teichmüller lifts solve the relations (5.27.3)."
         },
         {
           "sourceId": "CK",
           "locator": "§5.38, (5.38.1), p.54",
-          "excerpt": "5.38. The comparison map. The p-adic completion of the morphism (5.37.1) is the morphism DΣ,Λ → Acris(RΣ,Λ,∞) (5.38.1) (see Lemma 5.29), which does not depend on λ0.",
           "match": "The map D_{Σ,Λ}→A_cris(R_{Σ,Λ,∞}) and its independence of λ₀."
         },
         {
           "sourceId": "CK",
           "locator": "§5.38, (5.38.3), p.54",
-          "excerpt": "Its restriction to D 0,(m) Σ,Λ of §5.30 lands in the subring A 0,(m) cris (RΣ,Λ,∞) 5.36 ⊂ Acris(RΣ,Λ,∞), so, by passing to p-adic completions and using (5.35.2), we obtain the compatible morphisms D (m) Σ,Λ → A (m) cris (RΣ,Λ,∞) for m ≥ p (5.38.3)",
           "match": "The maps D^{(m)}_{Σ,Λ}→A_cris^(m)(R_{Σ,Λ,∞}) for m≥p."
         },
         {
           "sourceId": "CK",
           "locator": "§5.38, (5.38.4), p.55",
-          "excerpt": "After applying the functor η(µ), these morphisms compose with the ones constructed in Proposi- tion 5.34 to give rise to the desired Frobenius-equivariant comparison map of complexes:",
           "match": "The comparison map of complexes."
         },
         {
           "sourceId": "CK",
           "locator": "§5.38, p.55",
-          "excerpt": "The source (resp., the target) of the map (5.38.4) is a term of the direct limit (5.32.1) (resp., (5.21.1)) and the formation of this map is compatible with enlarging Σ and Λ",
           "match": "Compatibility with refinement."
         },
         {
           "sourceId": "CK",
           "locator": "Proposition 5.41, proof, p.58",
-          "excerpt": "would be a map of diﬀerential graded algebras if in the formula log([ǫ])·",
           "match": "The comparison map is not a map of differential graded algebras as it stands."
         },
         {
           "sourceId": "CK",
           "locator": "Proposition 5.41, proof, p.58",
-          "excerpt": "that describes the morphism (5.34.1) in degree 1 we could disregard the terms with n ≥ 1.",
           "match": "It would be one only after disregarding the terms n≥1 of the degree-one component."
         }
       ],
@@ -3581,61 +3366,51 @@
         {
           "sourceId": "CK",
           "locator": "Theorem 5.4, (5.4.1), p.33",
-          "excerpt": "Theorem 5.4. There is a Frobenius-equivariant identification",
           "match": "The comparison is a Frobenius-equivariant identification; nothing more is claimed."
         },
         {
           "sourceId": "CK",
           "locator": "Theorem 5.4, p.33",
-          "excerpt": "where the Frobenii result from those discussed in §2.1, §2.2, §5.1, and §5.3 and, consistently with the notation (1.7.1), we have AΩX b ⊗ L Ainf Acris = Rlimn(AΩX ⊗L Ainf Acris/pn).",
           "match": "The completed tensor product is the derived p-adic completion."
         },
         {
           "sourceId": "CK",
           "locator": "Proposition 5.39, p.55",
-          "excerpt": "Proposition 5.39. The Frobenius-equivariant comparison map (5.38.4) is a quasi-isomorphism.",
           "match": "The comparison map (5.38.4) is a quasi-isomorphism."
         },
         {
           "sourceId": "CK",
           "locator": "Proposition 5.39, proof, p.55",
-          "excerpt": "Consequently, for each m ≥ p, the ideal of D (m) Σ,Λ that cuts out R/p is ﬁnitely generated, too, and hence, due to divided powers, it is also p-adically topologically nilpotent.",
           "match": "Topological nilpotence of the ideal of D^{(m)}_{Σ,Λ}, used to construct the map (5.39.1)."
         },
         {
           "sourceId": "CK",
           "locator": "Proposition 5.39, proof, p.56",
-          "excerpt": "By Proposition 5.16, for m ≥ p2, the top horizontal map in (5.39.2) is a quasi-isomorphism and, by Lemma 3.7 and Remark 3.35, so is the right vertical map.",
           "match": "The top and right maps of the square (5.39.2) are quasi-isomorphisms."
         },
         {
           "sourceId": "CK",
           "locator": "Proposition 5.39, proof, p.56",
-          "excerpt": "By Proposition 5.13 and (5.31.5), the left vertical map in (5.39.2) becomes a quasi-isomorphism after applying lim − →m≥p and forming the termwise p-adic completion.",
           "match": "The left map of (5.39.2) is a quasi-isomorphism after colimit and completion."
         },
         {
           "sourceId": "CK",
           "locator": "§5.38, p.55",
-          "excerpt": "we obtain a comparison map from the complex (5.32.1) to the complex (5.21.1), and the formation of this map is compatible with replacing R by a formally étale R-algebra R′.",
           "match": "Compatibility of the comparison map with formally étale maps R→R′, which is what allows sheafification."
         },
         {
           "sourceId": "CK",
           "locator": "§5.40, p.56",
-          "excerpt": "5.40. Proof of Theorem 5.4. By §5.38 and Proposition 5.39, the functorial in R complexes (5.21.1) and (5.32.1) deﬁne canonically and Frobenius-equivariantly quasi-isomorphic complexes of presheaves on a basis for the topology of Xét.",
           "match": "The two functorial complexes are quasi-isomorphic complexes of presheaves on a basis."
         },
         {
           "sourceId": "CK",
           "locator": "§5.40, (5.40.1), p.56",
-          "excerpt": "By §5.21 and §5.32, these complexes of sheaves Frobenius-compatibly represent AΩX b ⊗ L Ainf Acris and Ru∗(OXOC/p/Acris ), respectively, so that, in conclusion, Proposition 5.39 supplies a Frobenius-equivariant isomorphism",
           "match": "Their sheafifications represent the two sides of Theorem 5.4."
         },
         {
           "sourceId": "CK",
           "locator": "Corollary 4.6, (4.6.1), p.26",
-          "excerpt": "Corollary 4.6. The object AΩX is derived ξ-adically complete and",
           "match": "The presheaf AΩ^psh is Rφ_*AΩ_𝔛, used to identify the sheafification of the AΩ model."
         }
       ],
@@ -3693,55 +3468,46 @@
         {
           "sourceId": "CK",
           "locator": "Proposition 5.41, (5.41.1), p.56",
-          "excerpt": "Proposition 5.41. The following diagram commutes:",
           "match": "The commutative triangle of the statement."
         },
         {
           "sourceId": "CK",
           "locator": "Proposition 5.41, p.56",
-          "excerpt": "where the unlabeled map results from the identification Ru∗(OXOC/p/Acris )b ⊗ L Acris,θ OC ∼ = Ω• X/OC,log of [Bei13b, (1.8.1) and (1.11.1)] (compare with Remark 5.24).",
           "match": "The unlabeled map is the log crystalline-to-log de Rham comparison of Beilinson."
         },
         {
           "sourceId": "CK",
           "locator": "Remark 5.24, (5.24.1), p.44",
-          "excerpt": "Remark 5.24. By [Bei13b, (1.11.1)], the ﬁrst map in (5.23.2) induces the identiﬁcation",
           "match": "Reduction of the log crystalline complex to O_C/p, the base-change form of the same comparison."
         },
         {
           "sourceId": "CK",
           "locator": "Proposition 5.41, proof, (5.41.2), p.56",
-          "excerpt": "Then the dlog(Xσ) and dlog(Xλ,i) generate the diﬀerential graded algebra Ω• DΣ, Λ/Acris,log,PD over DΣ,Λ (see Proposition 5.23), so, since the terms of Ω• Spf(R)/OC,log are p-torsion free and each tσ and tλ,i is a unit in R[1 p], there is at most one map",
           "match": "Uniqueness of a map of differential graded algebras over D_{Σ,Λ}→R."
         },
         {
           "sourceId": "CK",
           "locator": "Proposition 5.41, proof, p.57",
-          "excerpt": "By Proposition 5.23, the unlabeled map of (5.41.1) is identiﬁed with this unique map, so we need to show that so is the composition in (5.41.1).",
           "match": "The map from CR.5 is this unique map, by Proposition 5.23."
         },
         {
           "sourceId": "CK",
           "locator": "Proposition 5.41, proof, p.57",
-          "excerpt": "We recall from the proof of Theorem 4.17 that the right diagonal map in (5.41.1) is deﬁned by com- posing the Frobenius of AΩX, the reduction modulo ϕ(ξ), and the canonical identiﬁcation supplied by [BMS18, 6.12]",
           "match": "How the de Rham specialization (4.17.1) is defined: Frobenius, reduction modulo φ(ξ), Bockstein identification."
         },
         {
           "sourceId": "CK",
           "locator": "Proposition 5.41, proof, (5.41.4), p.58",
-          "excerpt": "In addition, by construction and [BMS18, 6.13], this composition is a morphism of diﬀerential graded algebras16 that in degree 0 is given by the map θ of (5.19.4).",
           "match": "The specialization on the Koszul model is a map of differential graded algebras, θ in degree 0."
         },
         {
           "sourceId": "CK",
           "locator": "Proposition 5.41, proof, p.58",
-          "excerpt": "However, log([ǫ]) and µ are unit multiples of each other (see §5.14) and θ( µn (n+1)!) = 0 in OC for n ≥ 1, so we can indeed ignore these terms if we are only interested in the composition",
           "match": "The terms n≥1 of the comparison map disappear in the composite."
         },
         {
           "sourceId": "CK",
           "locator": "Proposition 5.41, proof, p.58",
-          "excerpt": "In conclusion, this composition is a morphism of dif- ferential graded algebras that, due to (5.38.2), in degree 0 is the map DΣ,Λ ։ R from (5.22.3). Therefore, as desired, it is the unique morphism (5.41.2).",
           "match": "Conclusion: the composite is the unique map of differential graded algebras."
         }
       ],
@@ -3794,55 +3560,46 @@
         {
           "sourceId": "CK",
           "locator": "§5.42, p.58",
-          "excerpt": "Since ξ maps to p in W(k), this surjection factors through Acris as follows: Ainf ֒→ Acris ։ W(k). We equip W(k) with the pullback of the log structure (5.2.1) on Acris.",
           "match": "A_inf→W(k̄) factors through A_cris, and W(k̄) carries the pulled back log structure."
         },
         {
           "sourceId": "CK",
           "locator": "Corollary 5.43, (5.43.1), p.58",
-          "excerpt": "Corollary 5.43. For quasi-compact and quasi-separated X, we have Frobenius-equivariant identifi- cations",
           "match": "The two Frobenius-equivariant identifications for quasi-compact quasi-separated 𝔛."
         },
         {
           "sourceId": "CK",
           "locator": "Corollary 5.43, (5.43.2), p.58",
-          "excerpt": "For OC-proper X, we have Frobenius-equivariant identifications",
           "match": "The uncompleted identifications for proper 𝔛."
         },
         {
           "sourceId": "CK",
           "locator": "Corollary 5.43, p.58",
-          "excerpt": "and the cohomology modules of RΓ(Xét,AΩX) ⊗L Ainf Acris[1 p] are finite free over Acris[1 p].",
           "match": "Finite freeness over A_cris[1/p] in the proper case."
         },
         {
           "sourceId": "CK",
           "locator": "Corollary 5.43, proof, p.58",
-          "excerpt": "Proof. By [BMS18, 4.9 (i)], a ﬁnitely presented Ainf/pn-module is perfect as an Ainf-module. Con- sequently, any Ainf/pn-module M is a ﬁltered direct limit of perfect Ainf-modules, so, by [SP, 0739],",
           "match": "The first identification: filtered colimits of perfect modules."
         },
         {
           "sourceId": "CK",
           "locator": "Corollary 5.43, proof, (5.43.3), p.59",
-          "excerpt": "and quasi-separated, ﬁne, log smooth log scheme X over O/p that descends XOC/p and is of Cartier type (see [Kat89, 4.8]). Then the base change theorem [Bei13b, (1.11.1)] applies17 and shows that",
           "match": "The descent to O/p of Cartier type and the base change theorem, giving the W(k̄) identification."
         },
         {
           "sourceId": "CK",
           "locator": "Corollary 5.43, proof, footnote 17, p.59",
-          "excerpt": "In loc. cit., the map f of ﬁne log schemes is quasi-compact and separated. One may relax this to quasi-compact and quasi-separated",
           "match": "The base change theorem is used for quasi-separated maps."
         },
         {
           "sourceId": "CK",
           "locator": "Corollary 5.43, proof, p.59",
-          "excerpt": "If X is OC-proper, then, by Corollary 4.20, the object RΓ(Xét,AΩX) is quasi-isomorphic to a bounded complex of ﬁnite free Ainf-modules, so the identiﬁcations in (5.43.2) follow from those in (5.43.1). Moreover, then X is O-proper and [Bei13b, 1.18, Theorem] proves that the cohomology groups of",
           "match": "The proper case: Corollary 4.20 removes the completion, and Beilinson’s theorem gives the freeness."
         },
         {
           "sourceId": "CK",
           "locator": "Corollary 4.20, p.31",
-          "excerpt": "Corollary 4.20. If X is proper over OC, then RΓ(Xét,AΩX) is a perfect object of D≥0(Ainf); in other words, then RΓ(Xét,AΩX) is quasi-isomorphic to a bounded complex of finite free Ainf-modules.",
           "match": "Perfectness of RΓ_Ainf(𝔛) for proper 𝔛."
         }
       ],
@@ -3894,79 +3651,66 @@
         {
           "sourceId": "CK",
           "locator": "Corollary 5.43, (5.43.2), p.58",
-          "excerpt": "For OC-proper X, we have Frobenius-equivariant identifications",
           "match": "The W(k̄) specialization of RΓ_Ainf for proper 𝔛, with the Q≥0 log base."
         },
         {
           "sourceId": "CK",
           "locator": "Remark 5.44, p.59",
-          "excerpt": "5.44. In the preceding proof, the special ﬁber Xk is a descent of Xk to a ﬁne, log smooth log scheme of Cartier type over k equipped with the log structure associated to N≥0",
           "match": "The descent of the special fibre to a fine log scheme over the standard log point; the descent is over the same algebraically closed field."
         },
         {
           "sourceId": "CK",
           "locator": "Remark 5.44, p.59",
-          "excerpt": "(the base change map is a “change of log structure” self-map of k determined by the map N≥0 → Q≥0 that sends 1 to the valuation of a uniformizer of O).",
           "match": "The change of log structure ℕ→Q≥0 sends 1 to the valuation of a uniformizer."
         },
         {
           "sourceId": "CK",
           "locator": "Remark 5.44, (5.44.1), p.59",
-          "excerpt": "Given such a descent, the base change theorem [Bei13b, (1.11.1)] gives the further Frobenius-equivariant identiﬁcation",
           "match": "The identification between the Q≥0 and ℕ log bases is Beilinson’s base change theorem."
         },
         {
           "sourceId": "CK",
           "locator": "Remark 8.8, (8.8.1), p.74",
-          "excerpt": "and hence also the Frobenius-equivariant identiﬁcation (Hi Ainf (X) ⊗Ainf W(k))G ∼ = Hi logcris(Xk0/W(k0)). (8.8.1)",
           "match": "The only place where CK passes to W(k₀): Galois invariants of the W(k̄) specialization, on cohomology groups."
         },
         {
           "sourceId": "CK",
           "locator": "§9.1, p.75",
-          "excerpt": "The interaction of ϕ and N is described by the formula Nϕ = pϕN.",
           "match": "The monodromy relation Nφ=pφN."
         },
         {
           "sourceId": "CK",
           "locator": "Proposition 9.2, (9.2.2), p.76",
-          "excerpt": "where the log structures are those of §1.6 (2), §5.2, and §5.42. In particular, if X is OC-proper and Y is a descent of XOC/p to a proper, log smooth, fine log O/p-scheme of Cartier type for some discrete valuation subring O ⊂ OC with a perfect residue field k0 and C ∼ =",
           "match": "Hypotheses of the comparison over B_st⁺: proper 𝔛 and a proper Cartier-type descent over O/p with residue field k₀."
         },
         {
           "sourceId": "CK",
           "locator": "Proposition 9.2, proof, p.76",
-          "excerpt": "Proof. A descent Y exists (see the proof of Corollary 5.43), so (9.2.2) follows from [Bei13b, (1.16.2) and (1.18.5)] and, due to (5.44.1), it implies (9.2.1).",
           "match": "(9.2.2) is Beilinson’s (1.16.2) and (1.18.5)."
         },
         {
           "sourceId": "CK",
           "locator": "§9.4, p.76",
-          "excerpt": "for a ﬁxed complete, dis- cretely valued subﬁeld K ⊂ C with a perfect residue ﬁeld k0, set G := Gal(K/K)",
           "match": "The arithmetic field K with perfect residue field k₀."
         },
         {
           "sourceId": "CK",
           "locator": "Theorem 9.5, p.76",
-          "excerpt": "Theorem 9.5. Let X be a proper p-adic formal OK-scheme that has an étale cover by affines U each of which has an étale OK-morphism U → Spf(OK{t0,...,tr,tr+1,...,td}/(t0 ···tr − π)) for some nonunit π ∈ OK \\ {0}",
           "match": "The class of proper formal O_K-schemes considered."
         },
         {
           "sourceId": "CK",
           "locator": "Theorem 9.5, (9.5.1), p.76",
-          "excerpt": "There is the following natural, G-equivariant isomorphism that is compatible with the actions of ϕ and N:",
           "match": "The rational comparison over B_st, which is not part of this node."
         },
         {
           "sourceId": "CK",
           "locator": "Theorem 9.5, proof, p.76",
-          "excerpt": "By Claims 1.6.1 and 1.6.3 and [Kat89, 4.8], the base change XOK/p is ﬁne, log smooth, and of Cartier type over OK/p, so Proposition 9.2 applies to it and gives the G-equivariant (see §9.4) identiﬁcation",
           "match": "The reduction of 𝔛₀ is fine, log smooth and of Cartier type over O_K/p."
         },
         {
           "sourceId": "CK",
           "locator": "Remark 9.6, p.77",
-          "excerpt": "Remark 9.6. The isomorphism (9.5.1) is compatible with ﬁltrations in the following sense: by [Fon94, §4.2], there is a (noncanonical) Acris-algebra homomorphism Bst → BdR",
           "match": "Compatibility with filtrations, which is not part of this node."
         }
       ],
@@ -4022,109 +3766,91 @@
         {
           "sourceId": "CK",
           "locator": "§6.2, p.60",
-          "excerpt": "In [BMS18, §13], Bhatt–Morrow–Scholze used the analytic topology of a smooth adic C-space X to deﬁne the “B+ dR-cohomology” of X,",
           "match": "The object RΓ_crys(X/B_dR⁺) is that of BMS1 §13, for any smooth adic space X over C."
         },
         {
           "sourceId": "CK",
           "locator": "§6.2, (6.2.1), p.60",
-          "excerpt": "By [Hub96, 1.6.10, 2.2.8], the analytic (resp., étale) topology of X has a basis of aﬃnoids Spa(A,A◦) each of which admits a map",
           "match": "The bases of affinoids for the analytic and the étale topology."
         },
         {
           "sourceId": "CK",
           "locator": "§6.2, (6.2.5), p.61",
-          "excerpt": "Consequently, by [BMS18, 9.15] (which we also used for proving Corollary 4.6), our deﬁnition of RΓcris(X/B+ dR) agrees with that of [BMS18, §13]",
           "match": "Agreement with BMS1 §13, derived ξ-completeness (6.2.5) and the reductions (6.2.6)."
         },
         {
           "sourceId": "CK",
           "locator": "§6.2, (6.2.7), p.61",
-          "excerpt": "Thus, since, by the Hodge-to-de Rham spectral sequence and [Sch13a, 9.2 (ii)], the formation of the de Rham cohomology is insensitive to passage to the étale topology, we have",
           "match": "The pullback isomorphism (6.2.7)."
         },
         {
           "sourceId": "CK",
           "locator": "§6.3, p.61",
-          "excerpt": "6.3. The B+ dR-cohomology using more general embeddings. To relate RΓcris(Xét/B+ dR) to the absolute crystalline cohomology of §5.3, we now mildly generalize the construction of the former.",
           "match": "Purpose of the generalised embeddings."
         },
         {
           "sourceId": "CK",
           "locator": "§6.3, (6.3.2), p.61",
-          "excerpt": "and limit arguments, there is a ﬁnite subextension W(k)[1 p] ⊂ K ⊂ C",
           "match": "Descent of the coordinate map to a finite extension K of W(k̄)[1/p]."
         },
         {
           "sourceId": "CK",
           "locator": "§6.3, (6.3.3), p.61",
-          "excerpt": "By also using the reduced ﬁber theorem [SP, 09IL], we enlarge K to ensure that, in addition,",
           "match": "Enlarging K so that A_0⊗̂_O O_C≃A°."
         },
         {
           "sourceId": "CK",
           "locator": "§6.3, (6.3.5), p.62",
-          "excerpt": "Then there are ﬁnite subsets Ψ ⊂ (A◦)× and Ξ ⊂ A◦ ∩ A× such that the map",
           "match": "Coordinates Ξ⊂A°∩A^× that are not units of A°."
         },
         {
           "sourceId": "CK",
           "locator": "Lemma 6.3.8, p.62",
-          "excerpt": "Lemma 6.3.8. If Spa(A,A◦) is an element of the refined basis for Xét described above, Ψ ⊂ (A◦)× (resp., Ξ ⊂ A◦ ∩ A×) contains the images of the Ti for r + 1 ≤ i ≤ d (resp., 1 ≤ i ≤ r) under a coordinate morphism as in (6.3.1)",
           "match": "Hypotheses of the lemma on Ψ and Ξ."
         },
         {
           "sourceId": "CK",
           "locator": "Lemma 6.3.8, last sentence, p.62",
-          "excerpt": "In particular, for large Ψ and Ξ, the B+ dR-algebra DΨ,Ξ(A) has no nonzero ξ-torsion and is ξ-adically complete.",
           "match": "ξ-torsion-freeness and ξ-adic completeness of D_{Ψ,Ξ}(A)."
         },
         {
           "sourceId": "CK",
           "locator": "§6.4, p.63",
-          "excerpt": "We require that Ψ (resp., Ξ) contains the image of this Ψ0 (resp., Ξ0) in A◦—this is the meaning of “large enough” in the statement.",
           "match": "The meaning of ‘large enough’ in Lemma 6.3.8."
         },
         {
           "sourceId": "CK",
           "locator": "§6.4, proof of Lemma 6.3.8, p.63",
-          "excerpt": "By [GR03, 7.3.15], for each n > 0, the subring D◦ 0,n ⊂ D0,n of powerbounded elements",
           "match": "The power-boundedness argument in the proof."
         },
         {
           "sourceId": "CK",
           "locator": "§6.3, (6.3.10), p.62",
-          "excerpt": "Since a ∈ A× for a ∈ Ψ ∪ Ξ, the proof of [BMS18, 13.13] shows that for Ψ and Ξ to which Lemma 6.3.8 applies,",
           "match": "The reduction modulo ξ for the rings D_{Ψ,Ξ}(A)."
         },
         {
           "sourceId": "CK",
           "locator": "§6.3, (6.3.11)–(6.3.12), p.63",
-          "excerpt": "Such Spa(A,A◦) still form a basis for Xét (see the parenthetical remark after (6.3.1)), so we conclude that the hypercohomology of the sheaﬁﬁcation of the complex of presheaves furnished by the target of (6.3.11)",
           "match": "The complexes with coordinates (Ψ,Ξ) compute the same cohomology."
         },
         {
           "sourceId": "BMS1",
           "locator": "Lemma 13.12(ii), p.378",
-          "excerpt": "ξ-adically complete and ξ-torsion-free.",
           "match": "The unit-coordinate case that Lemma 6.3.8 adapts."
         },
         {
           "sourceId": "BMS1",
           "locator": "Lemma 13.4, p.370",
-          "excerpt": "(ii) If R is topologically of finite type over B+ dR/ξn , the following further properties are satisfied. (a) The ring R is noetherian. (b) Any ideal I ⊂ R is closed.",
           "match": "Noetherianity and closed ideals for the rings D_{Ψ,Ξ,n}(A)."
         },
         {
           "sourceId": "BMS1",
           "locator": "Lemma 13.11, p.376",
-          "excerpt": "Lemma 13.11. — The algebra RA⊗AB+ dR is a ξ-adically complete flat B+ dR-algebra",
           "match": "The model for the properties of B_dR⁺⊗̂_K A_0[1/p]."
         },
         {
           "sourceId": "BMS1",
           "locator": "Lemma 9.15, p.331",
-          "excerpt": "Assume that for each r ≥ 1, Cr is a sheaf, i.e. Cr → Rj∗j∗ Cr is a quasi-isomorphism. Then C is a sheaf, i.e. C → Rj∗j∗ C is a quasi-isomorphism.",
           "match": "A homotopy limit of sheaves is a sheaf: used for (6.2.5) and for the agreement with BMS1 §13."
         }
       ],
@@ -4186,37 +3912,31 @@
         {
           "sourceId": "CK",
           "locator": "§6.5, map (6.5.1), p.64",
-          "excerpt": "6.5. The map from the absolute crystalline cohomology. Returning to the X of §1.5, our next goal is to use the preceding discussion to exhibit a map",
           "match": "Existence of the map (6.5.1) for every 𝔛 of §1.5; properness is not assumed."
         },
         {
           "sourceId": "CK",
           "locator": "§6.5, (6.5.2), p.64",
-          "excerpt": "and Lemma 6.3.8 applies to (the enlarged) Ψ and Ξ. In conclusion, with these choices, the entire §6.3 applies.",
           "match": "The choice of A, Ψ and Ξ and the appeal to bdr-cohomology-etale-embeddings."
         },
         {
           "sourceId": "CK",
           "locator": "§6.5, (6.5.4)–(6.5.5), p.65",
-          "excerpt": "Consequently, we obtain independent of λ0 and compatible as n varies continuous maps",
           "match": "The continuous ring maps D_{Σ,Λ}→D_{Ψ,Ξ}(A), independent of λ₀."
         },
         {
           "sourceId": "CK",
           "locator": "§6.5, (6.5.6), p.65",
-          "excerpt": "The formation of this map is compatible with replacing R by a p-adically formally étale R-algebra R′ equipped with data as in §5.17.",
           "match": "Compatibility with étale localisation, which is all the functoriality that is asserted."
         },
         {
           "sourceId": "CK",
           "locator": "§6.5, square (6.5.7), p.65",
-          "excerpt": "In conclusion, the map (6.5.1) ﬁts into the commutative square:",
           "match": "The reduction square of the api item reduce."
         },
         {
           "sourceId": "CK",
           "locator": "Corollary 5.43, (5.43.2), p.58",
-          "excerpt": "For OC-proper X, we have Frobenius-equivariant identifications",
           "match": "The composite with RΓ_Ainf(𝔛)⊗^L_{A_inf}A_cris for proper 𝔛."
         }
       ],
@@ -4325,43 +4045,36 @@
         {
           "sourceId": "CK",
           "locator": "Theorem 6.6, p.66",
-          "excerpt": "Theorem 6.6. If X is OC-proper, then the map (6.5.1) induces the identification",
           "match": "The equivalence (6.6.1) for proper 𝔛 and its consequence (6.6.2)."
         },
         {
           "sourceId": "CK",
           "locator": "Theorem 6.6, mod-ξ clause, p.66",
-          "excerpt": "compatibly with the identifications modulo ξ with RΓdR(Xad C /C) given by (4.18.1) and (6.2.6).",
           "match": "The compatibility modulo ξ with (4.18.1) and (6.2.6)."
         },
         {
           "sourceId": "CK",
           "locator": "Theorem 6.6, proof, p.66",
-          "excerpt": "By Corollaries 4.20 and 5.43, the object RΓlogcris(XOC/p/Acris) of D(Acris) is perfect and its cohomology modules become ﬁnite free after inverting p.",
           "match": "Finite freeness of the cohomology comes from the crystalline side, not from BMS1."
         },
         {
           "sourceId": "CK",
           "locator": "Corollary 5.43, p.58",
-          "excerpt": "and the cohomology modules of RΓ(Xét,AΩX) ⊗L Ainf Acris[1 p] are finite free over Acris[1 p].",
           "match": "The A_cris[1/p]-freeness used in the first proof step."
         },
         {
           "sourceId": "CK",
           "locator": "Remark 5.24, (5.24.1), p.44",
-          "excerpt": "Remark 5.24. By [Bei13b, (1.11.1)], the ﬁrst map in (5.23.2) induces the identiﬁcation",
           "match": "Reduction of the source to log de Rham cohomology."
         },
         {
           "sourceId": "CK",
           "locator": "Proposition 5.41, p.56",
-          "excerpt": "Proposition 5.41. The following diagram commutes:",
           "match": "Agreement of the two de Rham specializations, used for the mod-ξ compatibility."
         },
         {
           "sourceId": "CK",
           "locator": "§6.1, p.60",
-          "excerpt": "By the “glueing of ﬂatness” [RG71, II.1.4.2.1], the ring B+ dR is ﬂat as an Ainf-algebra.",
           "match": "Flatness of B_dR⁺ over A_inf, which gives the degreewise form."
         }
       ],
@@ -4413,43 +4126,36 @@
         {
           "sourceId": "CK",
           "locator": "§1.5, p.5",
-          "excerpt": "By (1.5.1) and [Hub96, 3.5.1], the adic space Xad C is smooth over C; by [Hub96, 1.3.18 ii)], if X is OC-proper, then Xad C is C-proper.",
           "match": "The generic fibre is smooth, and proper when 𝔛 is: the hypotheses of the primitive comparison."
         },
         {
           "sourceId": "CK",
           "locator": "§2.2, p.9",
-          "excerpt": "so a result of Scholze [BMS18, 5.6] supplies the following relation to integral p-adic étale cohomology:",
           "match": "The comparison is deduced from (2.2.7) and Scholze's theorem."
         },
         {
           "sourceId": "CK",
           "locator": "Theorem 2.3, p.9",
-          "excerpt": "Theorem 2.3. If X is proper over OC, then there is an identification",
           "match": "The statement, for proper 𝔛 only; the display (2.3.1) follows."
         },
         {
           "sourceId": "CK",
           "locator": "Theorem 2.3 (sketch of proof), p.9",
-          "excerpt": "Since µ lies in W(m♭) and we have the identiﬁcation (2.2.7), it follows that the map (2.3.2) induces the identiﬁcation (2.3.1).",
           "match": "Inverting μ, which lies in W(m^♭), turns (2.3.2) into an isomorphism."
         },
         {
           "sourceId": "CK",
           "locator": "Theorem 9.5 (proof), p.76",
-          "excerpt": "that is trivially compatible with N and is compatible with ϕ by the discussion after Theorem 2.3.",
           "match": "CK uses the Frobenius compatibility of (2.3.1) 'by the discussion after Theorem 2.3'."
         },
         {
           "sourceId": "BMS1",
           "locator": "Theorem 5.7, p.287",
-          "excerpt": "Theorem 5.7 ([59, proof of Theorem 8.4]). — Assume that C is algebraically closed, and X is a proper smooth adic space over C.",
           "match": "The primitive comparison in the published numbering; it requires a proper smooth adic space."
         },
         {
           "sourceId": "CK",
           "locator": "Theorem 8.7 (proof), p.74",
-          "excerpt": "By (7.6.2), we have the G-equivariant identiﬁcation of the étale realization:",
           "match": "CK uses the G_K-equivariance of the étale identification."
         }
       ],
@@ -4508,55 +4214,46 @@
         {
           "sourceId": "CK",
           "locator": "Proposition 6.8, p.66 (proof pp.67–68)",
-          "excerpt": "Proposition 6.8. If X is OC-proper, then the map RΓcris(Xad C /B+ dR) → RΓ(Xad C ,Zp) ⊗Zp B+ dR of [BMS18, proof of 13.1] that underlies the identification (6.7.1) for X = Xad C makes the diagram",
           "match": "The commutative diagram for proper 𝔛 and the map c of BMS1."
         },
         {
           "sourceId": "CK",
           "locator": "Proposition 6.8, conclusion, p.66",
-          "excerpt": "in particular, the identification of RΓ(Xét,AΩX) ⊗L Ainf BdR with RΓét(Xad C ,Zp) ⊗L Zp BdR that results from (2.3.1) (and is encoded by the bottom part of the above diagram) agrees with the identification that results from (6.6.2) and (6.7.1)",
           "match": "Equality of the two identifications after base change to B_dR."
         },
         {
           "sourceId": "CK",
           "locator": "Proposition 6.8, proof, p.67",
-          "excerpt": "In addition, we may generalize the construction of the morphisms (6.8.3) further by using the basis for the étale topology of Xad C considered in §6.3",
           "match": "The local map must be rebuilt for the coordinates (Ψ,Ξ) of §6.3."
         },
         {
           "sourceId": "CK",
           "locator": "§6.7, (6.7.1), p.66",
-          "excerpt": "For any proper, smooth adic space X over C, in [BMS18, 13.1] Bhatt–Morrow–Scholze constructed the functorial in X identiﬁcation",
           "match": "The isomorphism (6.7.1) over B_dR, for proper smooth adic spaces."
         },
         {
           "sourceId": "CK",
           "locator": "§6.7, (6.7.2), p.66",
-          "excerpt": "In particular, in this case, (6.7.2) is compatible with ﬁltrations, where BdR is ﬁltered by its discrete valuation",
           "match": "Compatibility of the de Rham comparison with filtrations when C is the completion of K̄."
         },
         {
           "sourceId": "CK",
           "locator": "§6.2, (6.2.8), p.61",
-          "excerpt": "if X is proper over C and there is a complete, discretely valued subﬁeld K ⊂ C with a perfect residue ﬁeld and a proper, smooth adic space X0 over K",
           "match": "Hypotheses on K and X₀ for the descended identification."
         },
         {
           "sourceId": "BMS1",
           "locator": "Theorem 13.1, p.368",
-          "excerpt": "Theorem 13.1. — Let X be a proper smooth adic space over C. Then there are cohomology groups Hi crys(X/B+ dR) which come with a canonical isomorphism",
           "match": "The comparison with étale cohomology over B_dR from which c and (6.7.1) come."
         },
         {
           "sourceId": "BMS1",
           "locator": "Remark 13.20, p.384",
-          "excerpt": "Remark 13.20. — In the special case of Theorem 13.19 where the proper smooth adic space X/C arises as the base change of a proper smooth adic space X0/K defined over a discretely valued subfield K ⊂ C, the proof above shows that there is a canonical",
           "match": "The identification (6.2.8) for X₀ over a discretely valued K."
         },
         {
           "sourceId": "BMS1",
           "locator": "Lemma 6.10, p.292",
-          "excerpt": "Lemma 6.10. — Let C ∈ D≥0 (OT) such that H0 (C)[I] = 0. Then there is a canonical map LηIC → C.",
           "match": "The map Lη_μ→id in the lower row of the diagram."
         }
       ],
@@ -4606,37 +4303,31 @@
         {
           "sourceId": "CK",
           "locator": "Theorem 7.4 with proof, p.69",
-          "excerpt": "Theorem 7.4. Each (Hi Ainf (X),ϕ) is a Breuil–Kisin–Fargues module and vanishes unless i ∈ [0,2d].",
           "match": "Each H^i is a Breuil–Kisin–Fargues module and vanishes outside [0,2d]."
         },
         {
           "sourceId": "CK",
           "locator": "§7.3, p.69",
-          "excerpt": "7.3. Breuil–Kisin–Fargues modules. A Breuil–Kisin–Fargues module is a ﬁnitely presented Ainf-module M equipped with an Ainf[ 1 ϕ(ξ)]-module isomorphism",
           "match": "The definition used: finitely presented, Frobenius an isomorphism after inverting φ(ξ), free after inverting p."
         },
         {
           "sourceId": "CK",
           "locator": "§7.2, Frobenius, p.68",
-          "excerpt": "that becomes an isomorphism after inverting ϕ(ξ) (see (2.2.6)).",
           "match": "The Frobenius is an isomorphism after inverting ξ̃=φ(ξ)."
         },
         {
           "sourceId": "CK",
           "locator": "§7.1, p.68",
-          "excerpt": "7.1. Properness of X. Throughout §7, we assume that X is proper and Xk is purely d-dimensional.",
           "match": "Standing hypotheses of CK §7: proper, special fibre purely d-dimensional."
         },
         {
           "sourceId": "BMS1",
           "locator": "Corollary 4.20, pp.275–276",
-          "excerpt": "Corollary 4.20. — Let C ∈ D(Ainf) be a perfect complex such that for all j ∈ Z, Hj (C)[ 1 pμ ] is free over Ainf[ 1 pμ ], and Hj (C ⊗L Ainf B+ crys) is free over B+ crys.",
           "match": "The two hypotheses of the criterion: freeness after inverting pμ and freeness over B_crys⁺."
         },
         {
           "sourceId": "CK",
           "locator": "§8.3, p.72",
-          "excerpt": "we may consider Breuil–Kisin–Fargues G-modules, that is, Breuil–Kisin–Fargues modules (M,ϕM) equipped with an Ainf-semilinear G-action on M for which ϕM is G-equivariant.",
           "match": "The notion for which the compatibility of the Galois action with Frobenius is needed."
         }
       ],
@@ -4684,37 +4375,31 @@
         {
           "sourceId": "CK",
           "locator": "§7.6, (7.6.1)–(7.6.2), p.69",
-          "excerpt": "In particular, since µ is a unit in W(C♭) and W(C♭) is Ainf-ﬂat (the localization of Ainf at the prime ideal (p) is a discrete valuation ring whose completion is W(C♭))",
           "match": "The étale statement over W(C^♭) and the flatness of A_inf→W(C^♭)."
         },
         {
           "sourceId": "CK",
           "locator": "§7.6, (7.6.3), p.69",
-          "excerpt": "A similar de Rham comparison consists of exact sequences that result from (7.2.1) and [SP, 0662]:",
           "match": "The de Rham exact sequence."
         },
         {
           "sourceId": "CK",
           "locator": "§7.6, (7.6.4), p.69",
-          "excerpt": "Similarly, by Theorem 7.4 and [BMS18, 4.9], we have a Frobenius-equivariant exact sequence",
           "match": "The Frobenius-equivariant crystalline exact sequence and its inputs."
         },
         {
           "sourceId": "CK",
           "locator": "§7.6, top degree, p.69",
-          "excerpt": "In particular, we have the top degree base changes",
           "match": "The top-degree instance in the acceptance list."
         },
         {
           "sourceId": "CK",
           "locator": "§5.42, p.58",
-          "excerpt": "Explicitly, the resulting log structure on W(k) is associated to the prelog structure Q≥0",
           "match": "The log structure on W(k̄) used in (7.6.4)."
         },
         {
           "sourceId": "BMS1",
           "locator": "Lemma 4.9(iii), p.269",
-          "excerpt": "(iii) M has Tor-dimension ≤ 2, and TorAinf 2 (M,W(k)) = 0.",
           "match": "Why (7.6.4) has no higher Tor term."
         }
       ],
@@ -4763,37 +4448,31 @@
         {
           "sourceId": "CK",
           "locator": "Proposition 7.7, p.70",
-          "excerpt": "Proposition 7.7. For each i ∈ Z, the OC-module Hi logdR(X/OC) is p-torsion free (equivalently, free) if and only if the W(k)-module Hi logcris(Xk/W(k)) is p-torsion free (equivalently, free), in which case Hi Ainf (X) is free as an Ainf-module and Hi ét(Xad C ,Zp) is free as a Zp-module.",
           "match": "The equivalence in a single degree i and the freeness of H_A^i and of étale cohomology."
         },
         {
           "sourceId": "CK",
           "locator": "Proposition 7.7, proof, p.70",
-          "excerpt": "Due to Theorem 7.4, we may apply [BMS18, 4.18] and combine it with (7.2.1) to conclude",
           "match": "The proof is by BMS1 Lemma 4.18 and Corollary 4.17."
         },
         {
           "sourceId": "CK",
           "locator": "§7.6, p.70",
-          "excerpt": "The same holds without inverting p in the case when Hi+1 Ainf (X) is Ainf-free.",
           "match": "The adjacent-degree terms vanish when H_A^{i+1} is free; basis of the caution in the last sentence."
         },
         {
           "sourceId": "CK",
           "locator": "Remark 7.8, p.70",
-          "excerpt": "Indeed, by Corollary 7.5, the ranks of Hi logdR(X/OC) and Hi logcris(Xk/W(k)) agree and",
           "match": "The alternative route through the rank equality, mentioned but not used."
         },
         {
           "sourceId": "BMS1",
           "locator": "Lemma 4.18, p.274",
-          "excerpt": "Lemma 4.18. — Let C ∈ D(Ainf) be a perfect complex such that Hj (C)[1 p ] is free over Ainf[1 p ] for all j ∈ Z. Fix some index i. Then Hi (C⊗L Ainf W(k)) is p-torsion-free if and only if Hi (C⊗L Ainf O) is p-torsion-free.",
           "match": "The equivalence of p-torsion-freeness of the two specializations in one degree."
         },
         {
           "sourceId": "BMS1",
           "locator": "Corollary 4.17, p.274",
-          "excerpt": "Corollary 4.17. — Let C ∈ D(Ainf) be a perfect complex such that Hj (C)[1 p ] is free over Ainf[1 p ] for all j ∈ Z. Then, for every j, Hj (C) is a finitely presented Ainf-module. Moreover, for fixed i, if Hi (C⊗L Ainf W(k)) is p-torsion-free, then Hi (C) is a finite free Ainf-module",
           "match": "Freeness of H_A^i when the crystalline specialization is p-torsion-free."
         }
       ],
@@ -4840,19 +4519,16 @@
         {
           "sourceId": "CK",
           "locator": "Corollary 7.5, p.69",
-          "excerpt": "Corollary 7.5. For each i ∈ Z, the rank of the finitely presented Zp-module Hi ét(Xad C ,Zp) is equal to the rank of the finitely presented W(k)-module Hi logcris(Xk/W(k)), and is also equal to the rank of the finitely presented OC-module Hi logdR(X/OC)",
           "match": "Equality of the ranks of étale, log crystalline and log de Rham cohomology."
         },
         {
           "sourceId": "CK",
           "locator": "Corollary 7.5, proof, p.69",
-          "excerpt": "Due to Theorem 7.4 and the comparisons (7.2.1), all the ranks in question are equal to the rank of the free Ainf[1 p]-module (Hi Ainf (X))[1 p].",
           "match": "All ranks equal the rank of H_A^i[1/p]; the proof uses Theorem 7.4 and (7.2.1) only."
         },
         {
           "sourceId": "CK",
           "locator": "§7.2, (7.2.1), p.68",
-          "excerpt": "Moreover, by (2.3), (4.18.1), and (5.43.2), we have the following identiﬁcations:",
           "match": "The three specializations used; the printed '(2.3)' is a misprint for (2.3.1)."
         }
       ],
@@ -4899,31 +4575,26 @@
         {
           "sourceId": "CK",
           "locator": "Theorem 7.9, p.70",
-          "excerpt": "Theorem 7.9. For every i ∈ Z and n ∈ Z≥0, we have",
           "match": "The range of i and n for the two inequalities (7.9.1)."
         },
         {
           "sourceId": "CK",
           "locator": "Theorem 7.9, proof, p.70",
-          "excerpt": "Namely, by Corollary 7.5, we may drop the subscripts “tors” and, by Theorem 7.4, (7.6.2), and [BMS18, 4.15 (ii)], we have",
           "match": "Inputs of the first inequality: rank equality, Theorem 7.4, (7.6.2) and BMS1 Corollary 4.15(ii)."
         },
         {
           "sourceId": "CK",
           "locator": "Theorem 7.9, end of proof, p.70",
-          "excerpt": "that result from [SP, 0662], the second inequality in (7.9.1) follows from the ﬁrst.",
           "match": "The finite-coefficient inequality follows from the first one."
         },
         {
           "sourceId": "BMS1",
           "locator": "Corollary 4.15, p.272",
-          "excerpt": "Corollary 4.15. — Let M be a finitely presented Ainf-module such that M[1 p ] is free over Ainf[1 p ].",
           "match": "Hypothesis of the length inequality between the specializations over W(C^♭) and W(k)."
         },
         {
           "sourceId": "BMS1",
           "locator": "Theorem 14.5(ii), p.393",
-          "excerpt": "(ii) For all n ≥ 0, we have the inequality",
           "match": "The smooth case, whose proof CK follow."
         }
       ],
@@ -4971,37 +4642,31 @@
         {
           "sourceId": "CK",
           "locator": "§7.10, p.71",
-          "excerpt": "7.10. The normalized length. Let o be a valuation ring of rank 1 and mixed characteristic (0,p). We normalize its valuation valo by requiring that valo(p) = 1.",
           "match": "The normalization v(p)=1 and the class of valuation rings."
         },
         {
           "sourceId": "CK",
           "locator": "§7.10, Fitting ideal, p.71",
-          "excerpt": "More intrinsically, valo(M) is the valuation of any generator of the 0th Fitting ideal Fitt0(M) ⊂ o of M, so it depends only on M. If o is a discrete valuation ring for which p is a uniformizer, then valo(M) = lengtho(M).",
           "match": "v is the valuation of a generator of Fitt₀ and equals ordinary length when p is a uniformizer."
         },
         {
           "sourceId": "CK",
           "locator": "Lemma 7.11, p.71",
-          "excerpt": "Lemma 7.11. For a finitely presented Wn(O♭ C)-module M for some n ≥ 1, we have",
           "match": "The comparison between W(C^♭) and O_C for modules over W_n(O_C^♭)."
         },
         {
           "sourceId": "CK",
           "locator": "Theorem 7.12, p.71",
-          "excerpt": "Theorem 7.12. For every i ∈ Z and n ∈ Z≥0, we have (recall from §7.10 that valZp = lengthZp )",
           "match": "The range of i and n for the two inequalities (7.12.1)."
         },
         {
           "sourceId": "CK",
           "locator": "Theorem 7.12, proof, p.71",
-          "excerpt": "Namely, by Corollary 7.5, we may drop the subscripts “tors” and, by Theorem 7.4, (7.6.2), and Lemma 7.11, we have",
           "match": "Inputs of the proof: Corollary 7.5, Theorem 7.4, (7.6.2), Lemma 7.11; Theorem 7.9 is not used."
         },
         {
           "sourceId": "BMS1",
           "locator": "Proposition 3.24, p.258",
-          "excerpt": "Proposition 3.24. — For any r ≥ 1, the ring Wr(O) is coherent.",
           "match": "Coherence used in the proof of Lemma 7.11."
         }
       ],
@@ -5061,109 +4726,91 @@
         {
           "sourceId": "CK",
           "locator": "§8.1, p.72",
-          "excerpt": "for a ﬁxed complete, discretely valued ﬁeld K that is of mixed characteristic (0,p) and has a perfect residue ﬁeld k0.",
           "match": "The hypotheses on K."
         },
         {
           "sourceId": "CK",
           "locator": "§8.1, Galois action, p.72",
-          "excerpt": "The continuous maps ϕ and θ are G-equivariant, and the ideals (ξ), (ϕ(ξ)), and (µ) of Ainf are G-stable (see §2.1).",
           "match": "G-equivariance of φ and θ and G-stability of (ξ), (φ(ξ)), (μ)."
         },
         {
           "sourceId": "CK",
           "locator": "§8.2, étale realization, p.72",
-          "excerpt": "8.2. The Fargues equivalence. By [BMS18, 4.26], for any Breuil–Kisin–Fargues module (M,ϕM) (see §7.3), its étale realization, namely,",
           "match": "The étale realization of a Breuil–Kisin–Fargues module, from BMS1 Lemma 4.26."
         },
         {
           "sourceId": "CK",
           "locator": "§8.2, Fargues’ theorem, p.72",
-          "excerpt": "By a theorem of Fargues [BMS18, 4.28], the category of Ainf-free Breuil–Kisin–Fargues modules (M,ϕM) is equivalent to that of pairs (T,Ξ) consisting of a ﬁnite free Zp-module T and a B+ dR- lattice Ξ ⊂ T ⊗Zp BdR via the functor",
           "match": "The non-equivariant equivalence with pairs (T,Ξ)."
         },
         {
           "sourceId": "CK",
           "locator": "§8.3, p.72",
-          "excerpt": "Breuil–Kisin–Fargues G-modules, that is, Breuil–Kisin–Fargues modules (M,ϕM) equipped with an Ainf-semilinear G-action on M for which ϕM is G-equivariant.",
           "match": "Definition of Breuil–Kisin–Fargues G-modules."
         },
         {
           "sourceId": "CK",
           "locator": "Proposition 8.4, p.73",
-          "excerpt": "Proposition 8.4. The category of Ainf-free Breuil–Kisin–Fargues G-modules (M,ϕM) is equivalent to that of pairs (T,Ξ) consisting of a finite free Zp-module T equipped with a G-action and a G-stable",
           "match": "The equivariant equivalence of part (b)."
         },
         {
           "sourceId": "CK",
           "locator": "Proposition 8.4, proof, p.73",
-          "excerpt": "The claim follows from the Fargues equivalence reviewed in §8.2.",
           "match": "CK’s proof is a reduction to Fargues’ equivalence."
         },
         {
           "sourceId": "CK",
           "locator": "§8.5, hypotheses on T, p.73",
-          "excerpt": "8.5. An étale lattice determines a de Rham lattice. Let T be a ﬁnite free Zp-module endowed with a continuous G-action for which the G-representation T[1 p] is de Rham",
           "match": "T is a lattice with continuous G-action in a de Rham representation."
         },
         {
           "sourceId": "CK",
           "locator": "§8.5, M(T), p.73",
-          "excerpt": "the pair (T,DdR(T)⊗K B+ dR), so T, determines an Ainf-free Breuil–Kisin–Fargues G-module",
           "match": "Definition of M(T) from the pair (T, D_dR(T)⊗_K B_dR⁺)."
         },
         {
           "sourceId": "CK",
           "locator": "§8.5, de Rham realization, p.73",
-          "excerpt": "The de Rham realization M(T)dR := M(T) ⊗Ainf,θ OC of (M(T),ϕM(T)) is an OC-lattice in",
           "match": "Definition of M(T)_dR and the O_C-lattice it gives."
         },
         {
           "sourceId": "CK",
           "locator": "§8.5, the O_K-lattice, p.73",
-          "excerpt": "Therefore, functorially in T, we obtain the OK-lattice (M(T)dR)G inside the K-vector space DdR(T).",
           "match": "CK’s assertion that (M(T)_dR)^G is an O_K-lattice in D_dR(T); no argument is given there."
         },
         {
           "sourceId": "CK",
           "locator": "Example 8.6, p.73",
-          "excerpt": "Example 8.6. We ﬁx a K-scheme X (or even a K-rigid space, which we view as an adic space, see [Hub96, 1.1.11 (d)]) that is proper and smooth, and set",
           "match": "The class of X for which L^i_ét(X) and L^i_dR(X) are defined."
         },
         {
           "sourceId": "CK",
           "locator": "Example 8.6, (8.6.1), p.73",
-          "excerpt": "As is well known and follows from (6.7.2), the G-representation (Li ét(X))[1 p] is de Rham and",
           "match": "L^i_ét(X)[1/p] is de Rham, with D_dR identified with de Rham cohomology by (6.7.2)."
         },
         {
           "sourceId": "CK",
           "locator": "Example 8.6, finite Galois extensions, p.73",
-          "excerpt": "Its deﬁnition implies that for a ﬁnite Galois extension K′/K,",
           "match": "Behaviour of L^i_dR under a finite Galois extension K′/K."
         },
         {
           "sourceId": "BMS1",
           "locator": "Lemma 4.26, p.278",
-          "excerpt": "Lemma 4.26. — Let (M,ϕM) be a Breuil–Kisin–Fargues module, where the base field K = C is algebraically closed of characteristic 0. Then",
           "match": "The étale realization and its comparison over A_inf[1/μ]."
         },
         {
           "sourceId": "BMS1",
           "locator": "Theorem 4.28, p.279",
-          "excerpt": "Theorem 4.28 (Fargues). — Assume that K = C is algebraically closed of characteristic 0. The category of finite free Breuil–Kisin–Fargues modules is equivalent to the category of pairs",
           "match": "Fargues’ classification of finite free Breuil–Kisin–Fargues modules."
         },
         {
           "sourceId": "BMS1",
           "locator": "Example 4.24, p.276",
-          "excerpt": "Example 4.24 (Tate twist). — There is a Breuil–Kisin–Fargues module Ainf{1} given by",
           "match": "The module A_inf{1} used in the Tate-twist formula."
         },
         {
           "sourceId": "BMS1",
           "locator": "§4.3, sentence after Remark 4.29, p.280",
-          "excerpt": "As an easy example, Ainf{1} corresponds to T = Zp(1)",
           "match": "The pair of A_inf{1}, which identifies M(Z_p(1))."
         }
       ],
@@ -5309,31 +4956,26 @@
         {
           "sourceId": "CK",
           "locator": "Theorem 8.7, p.74",
-          "excerpt": "Theorem 8.7. Let X be a proper, flat p-adic formal OK-scheme endowed with the log structure OX,ét∩(OX,ét[1 p])× such that X has an étale cover by affines U each of which has an étale morphism",
           "match": "Hypotheses on the formal model: proper, flat, p-adic, divisorial log structure, étale-local charts."
         },
         {
           "sourceId": "CK",
           "locator": "Theorem 8.7, freeness hypothesis, p.74",
-          "excerpt": "(where d, r, and π depend on U). If Hi logdR(X/OK) and Hi+1 logdR(X/OK) are OK-free, then",
           "match": "Freeness is assumed in both degrees i and i+1; d, r and π may vary with the chart."
         },
         {
           "sourceId": "CK",
           "locator": "§8.1, p.72",
-          "excerpt": "for a ﬁxed complete, discretely valued ﬁeld K that is of mixed characteristic (0,p) and has a perfect residue ﬁeld k0.",
           "match": "The hypotheses on K."
         },
         {
           "sourceId": "CK",
           "locator": "Example 8.6, (8.6.2), p.73",
-          "excerpt": "in particular, if X′ is another such OK-model of X, then",
           "match": "Independence of the model."
         },
         {
           "sourceId": "CK",
           "locator": "§8, introduction, p.72",
-          "excerpt": "We do not know whether the same holds “modulo torsion” if one drops the OK-freeness assumption.",
           "match": "Nothing is claimed modulo torsion without the freeness hypotheses (acceptance)."
         }
       ],
@@ -5386,31 +5028,26 @@
         {
           "sourceId": "CK",
           "locator": "§1.5, (1.5.1), p.4",
-          "excerpt": "a p-adic formal scheme X over OC that in the étale topology may be covered by open aﬃnes U which admit an étale OC-morphism",
           "match": "The chart condition verified for the conic; the example itself is not in CK."
         },
         {
           "sourceId": "CK",
           "locator": "§1.5, (1.5.3), p.4",
-          "excerpt": "for some discrete valuation subring O ⊂ OC with a perfect residue ﬁeld and a uniformizer π ∈ O and a locally of ﬁnite type, ﬂat O-scheme X that is semistable in the sense that XO/π is a normal crossings divisor in X (as deﬁned in [SP, 0BSF])",
           "match": "Semistable means normal crossings special fibre over a discrete valuation ring; the example itself is not in CK."
         },
         {
           "sourceId": "CK",
           "locator": "Proposition 7.7, p.70",
-          "excerpt": "Proposition 7.7. For each i ∈ Z, the OC-module Hi logdR(X/OC) is p-torsion free (equivalently, free) if and only if the W(k)-module Hi logcris(Xk/W(k)) is p-torsion free (equivalently, free), in which case Hi Ainf (X) is free as an Ainf-module and Hi ét(Xad C ,Zp) is free as a Zp-module.",
           "match": "Freeness of the A_inf groups from freeness of the log de Rham groups; applied to the packet’s own example."
         },
         {
           "sourceId": "CK",
           "locator": "Theorem 8.7, p.74",
-          "excerpt": "(where d, r, and π depend on U). If Hi logdR(X/OK) and Hi+1 logdR(X/OK) are OK-free, then",
           "match": "The lattice comparison applied in degrees 0 and 2; the example itself is not in CK."
         },
         {
           "sourceId": "BMS1",
           "locator": "§4.3, sentence after Remark 4.29, p.280",
-          "excerpt": "As an easy example, Ainf{1} corresponds to T = Zp(1)",
           "match": "The twist dictionary giving H²_A=A_inf{−1}; applied to the packet’s own example."
         }
       ],
@@ -5473,43 +5110,36 @@
         {
           "sourceId": "BMS1",
           "locator": "§4.4, first paragraph, pp.280–281",
-          "excerpt": "and is the Frobenius on W(k); note that this map commutes with ϕ and",
           "match": "Defines the map 𝔖→A_inf (T↦[π^♭]^p, Frobenius on W(k)), this node's f, and states that it commutes with φ and θ̃."
         },
         {
           "sourceId": "BMS1",
           "locator": "Remark 3.11, p.250",
-          "excerpt": "The argument in Lemma 3.10 shows that ξ generates Kerθ if and only if it is distinguished.",
           "match": "The criterion by which g(E), and hence f(E), generates the kernel of θ, respectively θ̃."
         },
         {
           "sourceId": "BMS2",
           "locator": "§1.1, p.200",
-          "excerpt": "One can regard S as a subring of Ainf by using the Frobenius on W(k) and",
           "match": "The embedding 𝔖⊂A_inf in BMS2's notation (Frobenius on W(k), z↦[ϖ^♭]^p): the same map f."
         },
         {
           "sourceId": "BMS2",
           "locator": "Notation 11.1, p.298",
-          "excerpt": "Write θ = θ̃ ◦ϕ : S → OK. The embedding S ⊂ Ainf is compatible with the θ and θ̃ maps.",
           "match": "Defines θ=θ̃∘φ on 𝔖 and states compatibility of the embedding with θ and θ̃."
         },
         {
           "sourceId": "BMS2",
           "locator": "§11.2, first two paragraphs, p.302",
-          "excerpt": "Thus, let us write S(−1) for a copy of S, which we regard as S-algebra via ϕ : S → S = S(−1)",
           "match": "Defines 𝔖^(−1), the copy of 𝔖 that is an 𝔖-algebra through φ."
         },
         {
           "sourceId": "BMS2",
           "locator": "§11.2, second paragraph, p.302",
-          "excerpt": "Ainf(OK∞) which is W(k)-linear and sends z to",
           "match": "The W(k)-linear inclusion 𝔖^(−1)→A_inf with z↦[ϖ^♭]: this node's g."
         },
         {
           "sourceId": "BMS2",
           "locator": "Theorem 1.2(3), p.201",
-          "excerpt": "(3) After scalar extension along the map S → W(k) which is the Frobenius on W(k) and sends z to 0, one recovers crystalline cohomology of the special fiber:",
           "match": "The map 𝔖→W(k) that is the Frobenius on W(k) and sends the variable to 0: this node's c."
         }
       ],
@@ -5618,31 +5248,26 @@
         {
           "sourceId": "BMS1",
           "locator": "Lemma 4.30, p.281",
-          "excerpt": "Lemma 4.30. — The map S → Ainf above is flat.",
           "match": "Flatness of f; the lemma states flatness only."
         },
         {
           "sourceId": "BMS1",
           "locator": "Lemma 4.30, proof, p.281",
-          "excerpt": "is flat; this is clear as the source is a discrete valuation ring, and the target is torsionfree.",
           "match": "The reduction modulo p to a DVR source and torsion-free target used in the first proof step."
         },
         {
           "sourceId": "BMS1",
           "locator": "Remark 4.31, p.281",
-          "excerpt": "Remark 4.31. — More generally, one has: if A → B is a map of p-adically complete p-torsionfree rings with A noetherian and A/p → B/p flat, then A → B is flat.",
           "match": "Flatness over 𝔖 of the p-completed tensor powers of A_inf, used for the Čech nerve."
         },
         {
           "sourceId": "BMS2",
           "locator": "Notation 11.1, p.298",
-          "excerpt": "the resulting map S → Ainf is faithfully flat and even topologically free (see [BMS18, Lemma 4.30 and its proof]).",
           "match": "Asserts faithful flatness and topological freeness of 𝔖→A_inf without proof; they are proved in steps 2 and 3."
         },
         {
           "sourceId": "BMS2",
           "locator": "Corollary 11.12, proof of part (4), p.305",
-          "excerpt": "The map S(−1) → Ainf(OC) is a topological direct summand",
           "match": "The source's use of the topological direct summand property (for g) to detect acyclicity after extension to A_inf."
         }
       ],
@@ -5692,31 +5317,26 @@
         {
           "sourceId": "BS22",
           "locator": "Example 1.3(3), pp.2–3",
-          "excerpt": "Frobenius lift that extends the Frobenius on W(k) and sends u to up. Let I ⊂ A be the kernel of the surjective map A = W(k)[[u]] → OK sending u to π. Then (A,I) is a prism.",
           "match": "The Breuil–Kisin prism (𝔖,I) with I the kernel of u↦π."
         },
         {
           "sourceId": "BS22",
           "locator": "Theorem 1.8, opening, p.4",
-          "excerpt": "Theorem 1.8. Let (A,I) be a bounded prism, and let X be a smooth p-adic formal scheme over A/I.",
           "match": "The definition of RΓ_Δ(X/A) for a bounded prism and a smooth formal scheme, applied to (𝔖,(E))."
         },
         {
           "sourceId": "BS22",
           "locator": "Theorem 1.8(6), p.5",
-          "excerpt": "(6) Image of φ (Corollary 15.5): The linearization φ∗ ARΓ∆(X/A) → RΓ∆(X/A) of φ becomes an isomorphism after inverting I.",
           "match": "The linearized Frobenius becomes an isomorphism after inverting the prism ideal."
         },
         {
           "sourceId": "BS22",
           "locator": "Example 1.9(3), pp.5–6",
-          "excerpt": "equipped with a Frobenius, using topological Hochschild homology. In §15, we construct a canonical φ-equivariant isomorphism RΓS(X) ∼ = RΓ∆(X/S) . The above comparison results recover the results of [BMS19] on Breuil-Kisin cohomology.",
           "match": "Prismatic cohomology over (𝔖,I) is the Breuil–Kisin cohomology of BMS2; this justifies taking it as the definition."
         },
         {
           "sourceId": "BMS2",
           "locator": "Theorem 1.2(2), p.201",
-          "excerpt": "(2) After scalar extension along θ := θ̃ ◦ϕ : S → OK, one recovers de Rham cohomology:",
           "match": "BMS2's theory has the same normalisation: de Rham cohomology is recovered along θ=θ̃∘φ, as for RΓ_Δ(−/𝔖) by BS22 Theorem 1.8(3)."
         }
       ],
@@ -5814,61 +5434,51 @@
         {
           "sourceId": "BMS2",
           "locator": "§11.2, first two paragraphs, p.302",
-          "excerpt": "Thus, let us write S(−1) for a copy of S, which we regard as S-algebra via ϕ : S → S = S(−1)",
           "match": "Defines 𝔖^(−1), over which the twisted complex lives."
         },
         {
           "sourceId": "BMS2",
           "locator": "Proposition 11.10, pp.302–303",
-          "excerpt": "[u,v]/(uv −E) where u is of degree 2 and v is of degree −2,",
           "match": "The relation uv=E in π_*TC⁻(O_K/𝕊[z];Z_p) over 𝔖^(−1) (u is this node's b)."
         },
         {
           "sourceId": "BMS2",
           "locator": "Proposition 11.10, p.303",
-          "excerpt": "sends u to Eσ and v to σ−1",
           "match": "The canonical map on the classes u and v."
         },
         {
           "sourceId": "BMS2",
           "locator": "Proposition 11.10, p.303, top arrow of the last diagram",
-          "excerpt": "ϕ,u→σ,v→ϕ(E)σ−1",
           "match": "The cyclotomic Frobenius on the classes u and v."
         },
         {
           "sourceId": "BMS2",
           "locator": "Proposition 11.11, p.303",
-          "excerpt": "Proposition 11.11. — If S ∈ QRSPerfdOK is quasiregular semiperfectoid, then THH(S/ S[z];Zp), TC− (S/S[z];Zp) and TP(S/S[z];Zp) are concentrated in even degrees",
           "match": "Evenness on quasiregular semiperfectoid algebras, which makes the unfolding of π₀ possible."
         },
         {
           "sourceId": "BMS2",
           "locator": "paragraph after Proposition 11.11, p.303",
-          "excerpt": "by unfolding π0TC− (−/S[z];Zp); it is equipped with a natural Frobenius endomorphism compatible with the one on S(−1)",
           "match": "The definition of gr⁰TC⁻≃gr⁰TP by unfolding, with its Frobenius over that of 𝔖^(−1)."
         },
         {
           "sourceId": "BMS2",
           "locator": "Corollary 11.12, p.304",
-          "excerpt": "(A/S[z];Zp) is a (p,z)-complete object of D(S(−1) ) that admits a natural Frobenius endomorphism ϕ.",
           "match": "The statement that the complex is a (p,z)-complete object of D(𝔖^(−1)) with a Frobenius."
         },
         {
           "sourceId": "BMS2",
           "locator": "Corollary 11.12(3), p.304",
-          "excerpt": "(3) After scalar extension along the map S(−1) → W(k) which is the identity on W(k) and sends z to 0, there is a functorial Frobenius equivariant isomorphism",
           "match": "The crystalline specialisation along the map that is the identity on W(k) and sends the variable to 0."
         },
         {
           "sourceId": "BMS2",
           "locator": "Corollary 11.12, proof of part (4), p.305",
-          "excerpt": "The map S(−1) → Ainf(OC) is a topological direct summand",
           "match": "Part (4) is deduced from part (1) by the topological direct summand property."
         },
         {
           "sourceId": "BMS2",
           "locator": "Remark 11.9, p.302",
-          "excerpt": "while one needs relative THH for the Breuil-Kisin descent.",
           "match": "Why the relative theory, not absolute THH, is needed for the Breuil–Kisin complex."
         }
       ],
@@ -5960,43 +5570,36 @@
         {
           "sourceId": "BMS2",
           "locator": "Proposition 11.15, p.305",
-          "excerpt": "Proposition 11.15. — For any OK-algebra A, the map ϕ : TC− (A/S[z];Zp) → TP(A/S[z];Zp) extends naturally to a map",
           "match": "The cyclotomic Frobenius extends over inversion of u (this node's b) and adjunction of z^{1/p}, for every O_K-algebra."
         },
         {
           "sourceId": "BMS2",
           "locator": "Proposition 11.15, p.305, last sentence",
-          "excerpt": "If A is the p-adic completion of a smooth OK-algebra, this map is an equivalence.",
           "match": "For p-completed smooth algebras the resulting map on gr⁰ is an equivalence: φ_𝔖^*D_𝔖^tr≃D̂_tw."
         },
         {
           "sourceId": "BMS2",
           "locator": "Proposition 11.15, proof, p.305",
-          "excerpt": "The extension of the map follows from the observation that for A = OK, the element u maps to σ under ϕ, and thus becomes invertible; and that the map is linear over S[z] → S[z], z → zp",
           "match": "Why the extension exists (u maps to the invertible σ) and that the map is linear over z↦z^p, which is the 𝔖-module structure used here."
         },
         {
           "sourceId": "BMS2",
           "locator": "Proposition 11.15, proof, p.306",
-          "excerpt": "But this follows from the version of the Segal conjecture, Corollary 8.18, by passing to homotopy-T-fixed points.",
           "match": "The Segal-conjecture input, Corollary 8.18."
         },
         {
           "sourceId": "BMS2",
           "locator": "Theorem 11.2, proof, p.306",
-          "excerpt": "Proof of Theorem 11.2. — For the p-adic completion A of a smooth OK-algebra, define",
           "match": "The definition of the descended complex; its first display prints the absolute TC⁻ and is read with the relative one."
         },
         {
           "sourceId": "BMS2",
           "locator": "Theorem 11.2, proof, p.306",
-          "excerpt": "One verifies that this base changes to the Frobenius endomorphism of",
           "match": "The compatibility of the descent Frobenius with that of the twisted complex, left to the reader; proved in step 3."
         },
         {
           "sourceId": "BMS2",
           "locator": "Theorem 11.2, p.298",
-          "excerpt": "After base extension to Ainf, there is a functorial Frobenius equivariant isomorphism",
           "match": "The properties of the descended complex (here the A_inf comparison) that the proof deduces from Corollary 11.12."
         }
       ],
@@ -6055,73 +5658,61 @@
         {
           "sourceId": "BS22",
           "locator": "Example 1.9(3), pp.5–6",
-          "excerpt": "equipped with a Frobenius, using topological Hochschild homology. In §15, we construct a canonical φ-equivariant isomorphism RΓS(X) ∼ = RΓ∆(X/S) . The above comparison results recover the results of [BMS19] on Breuil-Kisin cohomology.",
           "match": "States the canonical φ-equivariant isomorphism between BMS2's Breuil–Kisin cohomology and prismatic cohomology over 𝔖: clause (a)."
         },
         {
           "sourceId": "BS22",
           "locator": "§15.2, first paragraph, p.105",
-          "excerpt": "Let us verify that the theory deﬁned in [BMS19] agrees with the present construction.",
           "match": "Announces the comparison proved in §15.2."
         },
         {
           "sourceId": "BS22",
           "locator": "Proposition 15.7, p.105",
-          "excerpt": "Proposition 15.7. For any quasiregular semiperfectoid quasisyntomic OK-algebra S, the cyclo- tomic Frobenius on π0TP(S/S[u];Zp) refines to a δ-ring structure, functorial in S",
           "match": "The key comparison on quasiregular semiperfectoid algebras, used in the first proof step."
         },
         {
           "sourceId": "BS22",
           "locator": "Proposition 15.7, proof, p.105",
-          "excerpt": "Now the universal property of ∆S/S and the formal properties of π0TP(S/S[u];Zp) (namely, the relative to S[u] analog of the diagrams (11) and (12)) give a map",
           "match": "The comparison map comes from the universal property of Δ_{S/𝔖}."
         },
         {
           "sourceId": "BS22",
           "locator": "§15.2, last paragraph, p.105",
-          "excerpt": "This is how RΓS(X) was deﬁned in [BMS19] (cf. [BMS19, Proposition 11.5], noting that the Nygaard ﬁltration is what one ﬁnds on higher homotopy groups in TC− ), so we get a canonical isomorphism RΓS(X) ∼ = RΓ∆(X/S) ,",
           "match": "How the trace definition of BMS2 is recovered from the Nygaard pieces, giving the isomorphism of (a)."
         },
         {
           "sourceId": "BS22",
           "locator": "Theorem 15.2(1), p.102",
-          "excerpt": "Theorem 15.2. Let S be a large quasisyntomic A/I-algebra. (1) The derived prismatic cohomology ∆S/A is concentrated in degree 0 and a (p,I)-completely flat δ-A-algebra. It is the initial object of (S/A)∆.",
           "match": "Δ_{S/𝔖} is the initial object of the prismatic site for large quasisyntomic S."
         },
         {
           "sourceId": "BS22",
           "locator": "Theorem 15.3, p.103",
-          "excerpt": "Theorem 15.3. Let (A,I) be a bounded prism and let X = SpfR be an affine smooth p-adic formal scheme over A/I. There is a canonical isomorphism",
           "match": "Prismatic cohomology as quasisyntomic cohomology of Δ_{−/A}, and the graded pieces used for i at least the dimension."
         },
         {
           "sourceId": "BS22",
           "locator": "Theorem 13.1, p.94",
-          "excerpt": "Theorem 13.1. There is a functorial (in S) δ-ring structure on b ∆S refining the endomorphism φ. The induced map ∆S = ∆init S → b ∆S identifies b ∆S with the Nygaard completion of ∆S, compatibly with Nygaard filtrations.",
           "match": "The absolute comparison to which Proposition 15.7 is reduced after base change."
         },
         {
           "sourceId": "BS22",
           "locator": "§18, first paragraph, p.122",
-          "excerpt": "In particular, the comparison isomorphisms relating prismatic cohomology to q-crystalline cohomology (Theorem 16.18), the AΩ-theory (Theorem 17.2), or the p-adic Nygaard complexes arising from topological Hochschild homology (Theorem 13.1) are essentially unique.",
           "match": "The comparison isomorphisms that BS22 calls essentially unique; the Breuil–Kisin comparison of §15.2 is not among them."
         },
         {
           "sourceId": "BS22",
           "locator": "Notation 18.1, p.122",
-          "excerpt": "Notation 18.1. Let SmR denote the category of p-completely smooth R-algebras. Let CSmR be the ∞-category of pairs (G,η), where G : SmR → D(p,I)-comp(A) is a symmetric monoidal functor and η : id → G ⊗L A R is a natural transformation of symmetric monoidal functors SmR → Dp-comp(R);",
           "match": "The uniqueness theorem concerns functors on all p-completely smooth algebras over the perfectoid ring: the reason it does not give clause (b)."
         },
         {
           "sourceId": "BMS2",
           "locator": "Corollary 11.8, p.301",
-          "excerpt": "Corollary 11.8. — For any OK-algebra A, the p-completion of",
           "match": "Relative THH becomes absolute THH after base change to 𝕊[z^{1/p^∞}], as used in the proof of BS22 Proposition 15.7."
         },
         {
           "sourceId": "BMS2",
           "locator": "Proposition 11.15, p.305",
-          "excerpt": "If A is quasiregular semiperfectoid, then the source is concentrated in even degrees, and A →",
           "match": "The definition of the trace complex by inverting u on quasiregular semiperfectoid algebras, which BS22 §15.2 compares with the Nygaard pieces."
         }
       ],
@@ -6171,31 +5762,26 @@
         {
           "sourceId": "BS22",
           "locator": "Theorem 1.8(5), p.4",
-          "excerpt": "(5) Base Change (Corollary 4.12): Let (A,I) → (B,J) be a map of bounded prisms, and let Y = X ×Spf(A/I) Spf(B/J). Then the natural map induces an isomorphism",
           "match": "Completed base change of prismatic cohomology along a map of bounded prisms, applied to f; the quasi-compact quasi-separated hypothesis is added here because the global statement needs it."
         },
         {
           "sourceId": "BS22",
           "locator": "Example 1.9(2), p.5",
-          "excerpt": "We shall prove in §17 that there exists a canonical φ-equivariant isomorphism RΓAinf (X) ∼ = φ∗ ARΓ∆(X/Ainf) .",
           "match": "Announces the φ-equivariant isomorphism between RΓ_Ainf and the Frobenius pullback of prismatic cohomology over A_inf."
         },
         {
           "sourceId": "BS22",
           "locator": "Theorem 17.2, p.117",
-          "excerpt": "Theorem 17.2. There is a canonical isomorphism qΩR/A ≃ AΩR, and thus AΩR ≃ qΩR/A ≃ ∆R(1)/A = φ∗ A∆R/A . All these maps are isomorphisms of E∞-A-algebras compatible with the Frobenius.",
           "match": "AΩ_R≃φ_A^*Δ_{R/A_inf}, the identification used after base change."
         },
         {
           "sourceId": "BMS2",
           "locator": "Theorem 1.2(1), p.201",
-          "excerpt": "(1) After base extension to Ainf, it recovers the Ainf-cohomology theory:",
           "match": "The same statement for the complex of BMS2, with the same embedding f (for proper 𝔛 and the ordinary tensor product)."
         },
         {
           "sourceId": "BMS2",
           "locator": "Theorem 11.2(1), p.298",
-          "excerpt": "After base extension to Ainf, there is a functorial Frobenius equivariant isomorphism",
           "match": "The affine form in BMS2, with the completed tensor product, Frobenius equivariant."
         }
       ],
@@ -6251,31 +5837,26 @@
         {
           "sourceId": "BS22",
           "locator": "Theorem 1.8(3), p.4",
-          "excerpt": "(3) de Rham Comparison (Theorem 6.4, Corollary 15.4): There is a canonical isomorphism",
           "match": "The de Rham comparison along φ_A followed by A→A/I; for (𝔖,(E)) the coefficient map is θ_𝔖."
         },
         {
           "sourceId": "BS22",
           "locator": "Theorem 1.8(3), p.4, second sentence",
-          "excerpt": "Moreover, it can be upgraded naturally to an isomorphism of commutative differential graded algebras.",
           "match": "The comparison is compatible with the differential graded algebra structures."
         },
         {
           "sourceId": "BS22",
           "locator": "Corollary 15.4, p.104",
-          "excerpt": "Corollary 15.4. For any bounded prism (A,I) and any smooth formal A/I-scheme X, there is a canonical isomorphism of E∞-algebras in D(Xét,A/I),",
           "match": "The comparison as an isomorphism of E∞-algebras of sheaves on X_ét, for every smooth formal scheme and every bounded prism."
         },
         {
           "sourceId": "BMS2",
           "locator": "Theorem 1.2(2), p.201",
-          "excerpt": "(2) After scalar extension along θ := θ̃ ◦ϕ : S → OK, one recovers de Rham cohomology:",
           "match": "The same statement for BMS2's complex: de Rham cohomology along θ=θ̃∘φ."
         },
         {
           "sourceId": "BMS2",
           "locator": "Theorem 11.2(2), p.298",
-          "excerpt": "(2) (de Rham comparison) After scalar extension along θ := θ̃ ◦ ϕ : S → OK, there is a functorial isomorphism",
           "match": "The affine form in BMS2, with the uncompleted tensor product over 𝔖."
         }
       ],
@@ -6324,31 +5905,26 @@
         {
           "sourceId": "BS22",
           "locator": "Theorem 1.8(1), p.4",
-          "excerpt": "(1) Crystalline Comparison (Theorem 5.2): If I = (p), then there is a canonical φ-equivariant isomorphism",
           "match": "The crystalline comparison with its Frobenius pullback, for the prism (W(k₀),(p))."
         },
         {
           "sourceId": "BS22",
           "locator": "Theorem 1.8(5), p.4",
-          "excerpt": "(5) Base Change (Corollary 4.12): Let (A,I) → (B,J) be a map of bounded prisms, and let Y = X ×Spf(A/I) Spf(B/J). Then the natural map induces an isomorphism",
           "match": "Base change of prismatic cohomology along the map of prisms (𝔖,(E))→(W(k₀),(p)), u↦0."
         },
         {
           "sourceId": "BMS2",
           "locator": "Theorem 1.2(3), p.201",
-          "excerpt": "(3) After scalar extension along the map S → W(k) which is the Frobenius on W(k) and sends z to 0, one recovers crystalline cohomology of the special fiber:",
           "match": "The same statement for BMS2's complex, with the map that is the Frobenius on W(k) and sends the variable to 0: this node's c."
         },
         {
           "sourceId": "BMS2",
           "locator": "Theorem 11.2(3), p.299",
-          "excerpt": "(3) (Crystalline comparison) After scalar extension along the map S → W(k) which is the Frobenius on W(k) and sends z to 0, there is a functorial Frobenius equivariant isomorphism",
           "match": "The affine form in BMS2, Frobenius equivariant."
         },
         {
           "sourceId": "BMS2",
           "locator": "Remark 1.3, pp.201–202",
-          "excerpt": "that approach clarifies the various Frobenius twists that appear: In parts (1), (2) and (3), one always uses a base change along the Frobenius map of W(k), which may seem confusing.",
           "match": "The Frobenius on W(k) in the coefficient maps is explained by the prismatic approach."
         }
       ],
@@ -6398,25 +5974,21 @@
         {
           "sourceId": "BMS2",
           "locator": "Definition 1.1, p.201",
-          "excerpt": "Definition 1.1. — A Breuil-Kisin module is a finitely generated S-module M together with an isomorphism",
           "match": "The broad notion of Breuil–Kisin module: finitely generated, with Frobenius an isomorphism after inverting E."
         },
         {
           "sourceId": "BMS2",
           "locator": "Theorem 1.2(1), p.201",
-          "excerpt": "(1) After base extension to Ainf, it recovers the Ainf-cohomology theory:",
           "match": "Part (1) of the theorem, which also asserts perfectness and that the cohomology groups are Breuil–Kisin modules."
         },
         {
           "sourceId": "BMS2",
           "locator": "Theorem 11.2, footnote 18, p.299",
-          "excerpt": "To see that it is a perfect complex of S-modules, reduce modulo p and z and use the crystalline comparison.",
           "match": "The source's argument for perfectness: reduce modulo p and the variable and use a comparison with the special fibre."
         },
         {
           "sourceId": "BS22",
           "locator": "sentence after Theorem 1.8, p.5",
-          "excerpt": "In particular, it follows from the Hodge-Tate comparison that RΓ∆(X/A) is a perfect complex of A-modules if X is proper.",
           "match": "Perfectness of prismatic cohomology of a proper smooth formal scheme, from the Hodge–Tate comparison."
         }
       ],
@@ -6462,31 +6034,26 @@
         {
           "sourceId": "BMS1",
           "locator": "Proposition 4.32, p.281",
-          "excerpt": "M ⊗S Ainf defines an exact tensor functor from Breuil–Kisin modules over S to Breuil–Kisin–Fargues modules over Ainf.",
           "match": "The statement: base change along 𝔖→A_inf is an exact tensor functor from Breuil–Kisin to Breuil–Kisin–Fargues modules."
         },
         {
           "sourceId": "BMS1",
           "locator": "Proposition 4.32, proof, p.281",
-          "excerpt": "The resulting functor is clearly symmetric monoidal, and exactness follows from Lemma 4.30.",
           "match": "Symmetric monoidality, and exactness from flatness of 𝔖→A_inf."
         },
         {
           "sourceId": "BMS1",
           "locator": "Proposition 4.3, p.263",
-          "excerpt": "Proposition 4.3. — Let (M,ϕM) be a Breuil–Kisin module. Then there is a canonical exact sequence of Breuil–Kisin modules",
           "match": "The structure theorem whose consequence, M[1/p] finite free, is used to check the Breuil–Kisin–Fargues condition."
         },
         {
           "sourceId": "BMS1",
           "locator": "Lemma 4.30, p.281",
-          "excerpt": "Lemma 4.30. — The map S → Ainf above is flat.",
           "match": "Flatness of 𝔖→A_inf, giving exactness."
         },
         {
           "sourceId": "BMS1",
           "locator": "Definition 4.22, p.276",
-          "excerpt": "Definition 4.22. — A Breuil–Kisin–Fargues module is a finitely presented Ainf-module M with an isomorphism",
           "match": "The target category: finitely presented A_inf-modules with Frobenius structure."
         }
       ],
@@ -6539,31 +6106,26 @@
         {
           "sourceId": "BMS1",
           "locator": "Corollary 4.33, proof, pp.281–282",
-          "excerpt": "From the definition in terms of cotangent complexes, we see that S{1} ⊗S Ainf ∼ = Ainf{1} as Breuil–Kisin–Fargues modules, compatibly with the GK∞-",
           "match": "The node's main claim: the first sentence of the proof, with its only justification."
         },
         {
           "sourceId": "BMS1",
           "locator": "Corollary 4.33, p.281",
-          "excerpt": "Corollary 4.33. — Under the functor of Theorem 4.4, Zp(1) is sent to S{1}.",
           "match": "The statement of the corollary: Z_p(1) corresponds to 𝔖{1}."
         },
         {
           "sourceId": "BMS1",
           "locator": "Example 4.2, pp.262–263",
-          "excerpt": "This object is ⊗-invertible in the category of Breuil–Kisin modules.",
           "match": "Definition of 𝔖{1} and its ⊗-invertibility, used for tensor powers and duals."
         },
         {
           "sourceId": "BMS1",
           "locator": "Example 4.24, pp.276–277",
-          "excerpt": "Example 4.24 (Tate twist). — There is a Breuil–Kisin–Fargues module Ainf{1} given",
           "match": "Definition of A_inf{1}, with which 𝔖{1}⊗A_inf is compared."
         },
         {
           "sourceId": "BMS1",
           "locator": "Theorem 4.4, p.265",
-          "excerpt": "M(T) from Zp-lattices T in crystalline GK-representations V to finite free Breuil–Kisin modules.",
           "match": "The functor from lattices in crystalline representations, characterised by an identification over W(C^♭), used for Z_p(1)↦𝔖{1}."
         }
       ],
@@ -6612,37 +6174,31 @@
         {
           "sourceId": "BS22",
           "locator": "Theorem 15.3, p.103",
-          "excerpt": "The Frobenius φ on RΓ∆(X/A) factors as",
           "match": "The factorisation of Frobenius through the décalage functor for relative prismatic cohomology."
         },
         {
           "sourceId": "BS22",
           "locator": "Theorem 15.3, p.103, last sentence",
-          "excerpt": "The map φ̃ : φ∗ ARΓ∆(X/A) → LηIRΓ∆(X/A) is an isomorphism.",
           "match": "The first map of the factorisation is an isomorphism."
         },
         {
           "sourceId": "BMS2",
           "locator": "Remark 11.17, p.307",
-          "excerpt": "and that this map is a connective cover for the Beilinson t-structure. In particular, by Proposition 5.8, this implies that ϕA factors as",
           "match": "The filtered Frobenius of the trace complex is a Beilinson connective cover, and Proposition 5.8 then gives the factorisation."
         },
         {
           "sourceId": "BMS2",
           "locator": "Remark 11.17, p.307",
-          "excerpt": "the rest will follow by base change to OC (i.e., via Theorem 11.2(1)) as S → Ainf is topologically free.",
           "match": "The reduction to A_inf using topological freeness."
         },
         {
           "sourceId": "BMS2",
           "locator": "Remark 11.14, p.305",
-          "excerpt": "This filtration is compatible with the Nygaard filtration via the identifications in Corollary 11.12(1) and (3), and with the Hodge filtration via the identification in Theorem 11.2(2).",
           "match": "The Nygaard filtration on the twisted complex, source of the filtered map."
         },
         {
           "sourceId": "BMS2",
           "locator": "Proposition 5.8, p.238",
-          "excerpt": "Proposition 5.8. — Let R be a ring, and let I ⊂ R be an ideal defining a Cartier divisor. Fix",
           "match": "The identification of Lη with the Beilinson connective cover of the adic filtration."
         }
       ],
@@ -6691,19 +6247,16 @@
         {
           "sourceId": "BMS2",
           "locator": "Remark 11.16, p.307",
-          "excerpt": "In fact, there cannot be a functorial descent.",
           "match": "The assertion that no functorial descent of the Nygaard filtration along φ exists."
         },
         {
           "sourceId": "BMS2",
           "locator": "Remark 11.16, p.307",
-          "excerpt": "which is clearly nonsensical: any elliptic curve with good reduction whose j invariant lies in",
           "match": "The elliptic-curve argument through the j-invariant, which is case (ii) of the statement."
         },
         {
           "sourceId": "BMS2",
           "locator": "Remark 11.14, p.305",
-          "excerpt": "This filtration is compatible with the Nygaard filtration via the identifications in Corollary 11.12(1) and (3), and with the Hodge filtration via the identification in Theorem 11.2(2).",
           "match": "The Nygaard filtration on the twisted complex whose descent is in question."
         }
       ],
@@ -6749,19 +6302,16 @@
         {
           "sourceId": "BMS2",
           "locator": "§1.1, p.200",
-          "excerpt": "The theory depends on the choice of a uniformizer",
           "match": "The Breuil–Kisin theory depends on the uniformizer; the transport between two choices is this packet's construction and is not in the source."
         },
         {
           "sourceId": "BMS2",
           "locator": "Notation 11.1, p.298",
-          "excerpt": "is our chosen compatible system of p-power roots of",
           "match": "The embedding f also depends on the chosen system of p-power roots."
         },
         {
           "sourceId": "BMS2",
           "locator": "Theorem 11.2(1), p.298",
-          "excerpt": "After base extension to Ainf, there is a functorial Frobenius equivariant isomorphism",
           "match": "The comparison with AΩ after extension to A_inf, through which the transport is defined (for the prismatic definition: ainf-base-change)."
         }
       ],
@@ -6859,55 +6409,46 @@
         {
           "sourceId": "BS22",
           "locator": "§17, first paragraph, p.117",
-          "excerpt": "In this section, we ﬁx a perfectoid ﬁeld C of characteristic 0 containing µp∞ as well as a p- completely smooth OC-algebra R.",
           "match": "The standing hypotheses of the comparison with AΩ."
         },
         {
           "sourceId": "BS22",
           "locator": "Theorem 17.2, p.117",
-          "excerpt": "Theorem 17.2. There is a canonical isomorphism qΩR/A ≃ AΩR, and thus AΩR ≃ qΩR/A ≃ ∆R(1)/A = φ∗ A∆R/A . All these maps are isomorphisms of E∞-A-algebras compatible with the Frobenius.",
           "match": "AΩ_R≃φ_A^*Δ_{R/A}, an isomorphism of E∞-algebras compatible with Frobenius: the import in clause (a)."
         },
         {
           "sourceId": "BS22",
           "locator": "Remark 17.3, p.117",
-          "excerpt": "Remark 17.3. The proof will a priori give an isomorphism of E1-A-algebras functorially in R and compatibly with the Frobenius.",
           "match": "How the E∞ structure of the comparison is obtained."
         },
         {
           "sourceId": "BS22",
           "locator": "Theorem 17.2, proof, p.120",
-          "excerpt": "We leave it to the reader to check that the comparison map µR intertwines ηqΩR/A with ηAΩR by reduction to the case where R = OC[x±1]∧.",
           "match": "Compatibility of the comparison map with the two Hodge–Tate structure maps, left to the reader in the source."
         },
         {
           "sourceId": "BS22",
           "locator": "Lemma 17.4, p.120",
-          "excerpt": "Then any commutative A-algebra map α : E → F that intertwines ηE with ηF must be an isomorphism.",
           "match": "A multiplicative map intertwining the maps η is an isomorphism and identifies the Bockstein complexes with the de Rham complex."
         },
         {
           "sourceId": "BS22",
           "locator": "Notation 18.1, p.122",
-          "excerpt": "Notation 18.1. Let SmR denote the category of p-completely smooth R-algebras. Let CSmR be the ∞-category of pairs (G,η), where G : SmR → D(p,I)-comp(A) is a symmetric monoidal functor and η : id → G ⊗L A R is a natural transformation of symmetric monoidal functors SmR → Dp-comp(R);",
           "match": "The category of pairs (G,η) in which uniqueness is stated: functors on all p-completely smooth algebras over the perfectoid ring, with η as part of the datum."
         },
         {
           "sourceId": "BS22",
           "locator": "Theorem 18.2, p.122",
-          "excerpt": "Theorem 18.2. The object ∆−/A ∈ CSmR has no nontrivial endomorphisms, i.e., End(∆−/A) = {1}. Somewhat surprisingly, we do not need to a priori impose compatibility with the Frobenius endomorphism of prismatic cohomology in formulating the above uniqueness assertion.",
           "match": "Uniqueness: no nontrivial endomorphisms, with no Frobenius hypothesis."
         },
         {
           "sourceId": "BS22",
           "locator": "Example 1.9(2), p.5",
-          "excerpt": "note that the Acrys-comparison theorem from [BMS18] follows from Theorem 1.8 (1) thanks to Theorem 1.8 (5) applied to the map (Ainf,ker(θ)) → (Acrys,(p)) of bounded prisms.",
           "match": "What BS22 says about the comparisons of BMS1: that the theorems follow, not that the comparison maps coincide; this is why clause (b) is not in the sources."
         },
         {
           "sourceId": "BMS1",
           "locator": "Theorem 14.1, proof, p.389",
-          "excerpt": "Moreover, part (iii) implies parts (i) and (ii). Alternatively, one can use the relation to the de Rham–Witt complex to prove (i)",
           "match": "BMS1 obtains its de Rham comparison from the A_cris comparison and gives the route through Lη only as an alternative, so agreement of de Rham maps needs an argument not in the sources."
         }
       ],
@@ -6958,25 +6499,21 @@
         {
           "sourceId": "BMS2",
           "locator": "Remark 1.4, p.202",
-          "excerpt": "and thus factors over Zp ⊂ OK.",
           "match": "For K=Q_p(p^{1/p}) the map θ of Theorem 1.2(2) factors over Z_p."
         },
         {
           "sourceId": "BMS2",
           "locator": "Remark 1.4, p.202",
-          "excerpt": "in fact, each indecomposable summand of this group has length a multiple of p.",
           "match": "The conclusion: every indecomposable summand of the torsion of de Rham cohomology has length a multiple of p."
         },
         {
           "sourceId": "BMS2",
           "locator": "Theorem 1.2(2), p.201",
-          "excerpt": "(2) After scalar extension along θ := θ̃ ◦ϕ : S → OK, one recovers de Rham cohomology:",
           "match": "De Rham cohomology is recovered along θ=θ̃∘φ, the map that factors over Z_p."
         },
         {
           "sourceId": "BMS2",
           "locator": "Remark 11.13, p.305",
-          "excerpt": "discussed in Remark 1.4 from Corollary 11.12.",
           "match": "The constraint needs the descended complex: it cannot be obtained from the Frobenius-twisted complex."
         }
       ],

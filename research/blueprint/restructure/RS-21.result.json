@@ -1408,7 +1408,7 @@
         "SmoothRepresentationsOfLocalGroups:SR.5",
         "AutomorphicCongruences:L3"
       ],
-      "scope": "Verifier-approved GL2 application only, downstream of SR.5 and R16.2, using R16.3’s Weil-Deligne/LLC normalization through existing prerequisites. For a compatible integral coefficient system and local specialization A -> O, semisimple Weil-Deligne data, unchanged monodromy ranks and conductor m, let U=K1(varpi^m) with last row (0,1) modulo varpi^m. Prove model comparison, rank-one freeness of both essential lines and that the natural map pi(rho)^U tensor_A O -> pi(rho_lambda)^U is an isomorphism. FW v3’s residual-characteristic-zero wording must be reconciled with its integral O; the invariant comparison requires a separate proof. Neither rank-one freeness nor that isomorphism is an input assumption or established here. General GL_n integral theory stays with Smooth.",
+      "scope": "Verifier-approved GL2 application only, downstream of SR.5 and R16.2, using R16.3’s Weil-Deligne/LLC normalization through existing prerequisites. The intended integral proof regime is a p-torsion-free complete Noetherian local W(k0)-domain A with finite residue field k0 of characteristic p, O the integers of a finite extension E/Q_p, and a continuous local W(k0)-compatible specialization lambda:A -> O. The representation rho:G_F -> GL2(A) is continuous for F/Q_ell finite, ell != p. This regime is a source-reconciliation obligation, not a theorem supplied by FW v3’s incompatible residual-characteristic-zero wording. Specify existence of the attached co-Whittaker models, the source’s semisimple Weil-Deligne convention, preservation of ranks of all powers of monodromy and the common conductor m. For U=K1(varpi^m) with last row (0,1) modulo varpi^m, prove model comparison, rank-one freeness of both essential lines and that the natural map pi(rho)^U tensor_A O -> pi(rho_lambda)^U is an isomorphism. Neither freeness nor that isomorphism is an input assumption or established here; invariant comparison requires its own proof. General GL_n integral theory stays with Smooth.",
       "sources": [
         {
           "url": "https://arxiv.org/pdf/2107.13726v3",
@@ -1449,7 +1449,7 @@
           "statement": "A specialization changing the monodromy ranks or conductor does not satisfy the minimal-lift theorem hypotheses and receives no specialization-isomorphism assertion."
         }
       ],
-      "blueprintHandoff": "AutomorphicCongruences L3 and SmoothRepresentationsOfLocalGroups SR.5: declaration-level decomposition, reconciled coefficient/source register, invariant-map and duality API, tests and matching suggested signatures. No packet for either owner exists at this base."
+      "blueprintHandoff": "AutomorphicCongruences L3 and SmoothRepresentationsOfLocalGroups SR.5: declaration-level decomposition, reconciled coefficient/source register, invariant-map and duality API, at least three tests per definition and matching suggested signatures. No packet for either owner exists at review base 85629d35ed9adf08fbd8297247d6e45a280910b2. The displayed integral regime still needs a covering proof/source; Emerton-Helm uniqueness and characteristic-zero-point comparison do not prove the integral essential-line statement."
     },
     {
       "target": "General cuspidal GL_n adelic Fourier-Whittaker expansion and convergence for unfolding",
@@ -1458,7 +1458,7 @@
         "GL2AutomorphicRepresentationsAndTransfer:R16.5",
         "AutomorphicLFunctionsAndLocalFactors:AL.3"
       ],
-      "scope": "A lower declaration component of AL.3, before its global Rankin-Selberg unfolding. For n>=2 over a number field k, a smooth cuspidal automorphic form with the source’s growth/central-character conditions and a fixed nontrivial character of A_k/k, construct its global Whittaker coefficient by integration over N_n(k) backslash N_n(A_k). Reconstruct the form by summing over N_(n-1)(k) backslash GL_(n-1)(k), with absolute convergence uniformly on compact subsets. Prove the additional gauge/dominating estimate needed to interchange the sum with the noncompact global integral for Re(s) sufficiently large. Compact-uniform convergence alone does not justify that interchange; continuation is a separate theorem. R16.5 imports the n=2 case and proves its integral/classical comparison.",
+      "scope": "A lower declaration component of AL.3, before its global Rankin-Selberg unfolding. For n>=2 over a number field k, use complex-valued smooth vectors of uniform moderate growth in an irreducible unitary cuspidal automorphic representation, with unitary central character as in Cogdell; any extension by a determinant twist needs its compatibility proof. Fix a nontrivial continuous unitary additive character psi of A_k/k, put psi_N(u)=psi(sum_i u_(i,i+1)), and normalize compatible unipotent quotient Haar measures to volume one. Define W_phi(g)=integral_(N_n(k) backslash N_n(A_k)) phi(u g) psi_N(u)^(-1) du and prove phi(g)=sum_(gamma in N_(n-1)(k) backslash GL_(n-1)(k)) W_phi(diag(gamma,1) g), absolutely uniformly on compact subsets. Separately prove the gauge/dominating estimate for noncompact sum-integral interchange in Re(s) sufficiently large; continuation is a separate theorem. R16.5 imports the n=2 case and proves its integral/classical comparison.",
       "sources": [
         {
           "url": "https://people.math.osu.edu/cogdell.1/pcmi-www.pdf",
@@ -1467,8 +1467,8 @@
         }
       ],
       "api": [
-        "Reuse AF.2/AF.3 cusp forms and AL.0 additive characters/Fourier integration; construct a linear global Whittaker-coefficient map, its left N_n(A_k) character covariance and right-translation compatibility.",
-        "Define the mirabolic subgroup, its abelian last-column subgroup and coset-indexed expansion using imported algebraic matrix/subgroup APIs; prove representative independence and the induction/reconstruction formula.",
+        "Reuse AF.2/AF.3 cusp forms, AA.2 quotient measures and AL.0 additive characters/Fourier integration; construct the complex-linear Whittaker-coefficient map, W_phi(u g)=psi_N(u) W_phi(g), right-translation compatibility and linear measure-scaling. Reconstruction uses quotient volume one, not an arbitrary unnormalized Haar measure.",
+        "Define P_n as the stabilizer of the last row vector e_n, with abelian last-column subgroup Y_n={blockMatrix(I,y;0,1)} and P_n=GL_(n-1) semidirect Y_n, using imported matrix/subgroup APIs. Prove coset-representative independence and the induction/reconstruction formula; use last-column coordinates with this convention.",
         "Export absolute convergence, uniform convergence on every compact set and a separately proved integrable majorant in the initial Rankin-Selberg half-plane.",
         "Compare n=2 with the k^times Fourier expansion, with identical character and measures; R16.5 owns the further integral-model and classical-normalization comparison."
       ],
@@ -1497,15 +1497,26 @@
           "name": "globalWhittaker_noncompact_interchange",
           "kind": "characterisation",
           "statement": "The unfolding sum-integral identity requires the separately established gauge/dominating estimate in Re(s) sufficiently large; the compact-uniform expansion theorem alone does not discharge that premise."
+        },
+        {
+          "name": "globalWhittaker_measure_scaling",
+          "kind": "computation",
+          "statement": "Replacing the coefficient quotient measure by twice that measure doubles W_phi and the reconstructed series. For a nonzero cusp form the unweighted identity with phi therefore requires the stated volume-one normalization."
+        },
+        {
+          "name": "globalWhittaker_cuspidality_required",
+          "kind": "non-example",
+          "statement": "For n=2 and the noncuspidal automorphic function phi=1, a nontrivial additive character gives W_phi=0 while phi=1. The nonconstant reconstruction is not asserted on the full automorphic-function carrier."
         }
       ],
-      "blueprintHandoff": "AutomorphicLFunctionsAndLocalFactors AL.3: add coefficient, mirabolic expansion, compact-uniform convergence and noncompact domination nodes before global unfolding, with signatures/tests; its current partial packet leaves AL.3 not_read and is outside this issue’s edit allowlist."
+      "blueprintHandoff": "At review base 85629d35ed9adf08fbd8297247d6e45a280910b2 the AutomorphicLFunctionsAndLocalFactors packet is complete/planned, with an independent needs_changes review. Refine its existing AL.3/global-whittaker-factorization, AL.3/gln-fourier-expansion and AL.3/global-rs-unfolding nodes; do not add a duplicate expansion theorem. Expose the coefficient map and last-row-stabilizer/last-column mirabolic carriers with at least three tests per definition, and a separate noncompact gauge/majorant theorem before interchange, with matching reader and suggested signatures. Cogdell’s referenced gauge-proof interior remains unread. Keep Fourier reconstruction distinct from local-uniqueness tensor factorization, and fix the expansion node’s last-row-unipotent wording to this coordinate convention. That packet and its current review remain outside this issue’s edit allowlist; this acceptance certifies its owner, not its closure."
     }
   ],
   "review": {
-    "status": "pending",
-    "date": "2026-10-02",
-    "notes": "FIX-RT-RS-21 by Codex, session codex-rtOQ9t, for issue #5711. The accepted REV-RS-21 review of the previous revision is preserved verbatim in reviewHistory. REV-FIX-RT-RS-21 must independently adjudicate this revision; the fixer does not accept its own work."
+    "status": "accepted",
+    "reviewer": "independent-review-REV-FIX-RT-RS-21",
+    "date": "2026-10-07",
+    "notes": "Independent review by Codex, session codex-0HK3IJ, of FIX-RT-RS-21 (codex-rtOQ9t), following accepted REV-RS-21 (cc-39fac3), preserved verbatim in reviewHistory. Both confirmed findings are corrected: L3 owns the source-qualified GL2 minimal-lift essential-line application downstream of SR.5/R16.2, and AL.3 owns general cuspidal GL_n Fourier-Whittaker reconstruction, imported by R16.5 without losing its full converse theorem. Freshly checked FW v3, Emerton-Helm and Cogdell passages, pinned invariant APIs, reviewed audit rows and supplier/consumer contracts. Clarified the intended integral coefficient regime as an unresolved proof/source obligation; made complex/unitary growth, character, volume-one measure and mirabolic coordinates explicit; added measure-scaling and noncuspidal tests; updated the stale AL.3 handoff to existing packet nodes. check_restructure.py passes. Actual before/after atlas assembly at 85629d35ed9adf08fbd8297247d6e45a280910b2: 4099 stages, 10772 -> 10774 edges, both acyclic, all 175 links present, none skipped, edge-idempotent, 656 Tau Ceti stages unchanged. Review accepts the structural fixes, not an integral specialization proof or closure of the separate owner packets. Details: reviews/REV-FIX-RT-RS-21.md."
   },
   "reviewHistory": [
     {

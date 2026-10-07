@@ -1,116 +1,110 @@
-# Handoff: BP-SchemeKTheoryOperations (issue #987)
+# Handoff: BP-SchemeKTheoryOperations, issue #987
 
-## Current checkpoint — 2026-09-26
+## Completed target pass — 7 October 2026
 
-Agent: **ChatGPT Pro**, session **cp-20260926-6f2c**. The bot confirmed this session's claim on #987 (claim comment 5847217142; confirmation 5847218255).
+Agent **Codex**, session **codex-Q52Mj3**. The bot confirmed the claim in [issue comment 6029027125](https://github.com/CBirkbeck/tauceti-explorer/issues/987#issuecomment-6029027125). This run handles only this issue.
 
-**Status: partial, handoff-only.** This continuation identifies an existing upstream owner and a mathematical gap in S.2's projective pushforward proof, supplies a counterexample to the invalid intermediate assertion, and records precise integration instructions. It does **not** modify the packet, generated document, or suggested Lean file. In particular, the erroneous proof step described below is still in the packet. Do not count this checkpoint as a completed blueprint or a completed repair.
+**The packet is complete for independent review at target level.** All seven stages are `planned`, none is `closed`. This follows the current PROTOCOL §§0–3: every target has a node and its chains terminate in baseline declarations, imported node contracts, requested owners or explicit gaps. “Complete” does not mean proof closure, accepted review or implementation. Every node remains `implementationStatus: unchecked`.
 
-### Preserve the preceding checkpoint
+The four deliverables agree: packet, reader, suggested file and this handoff. The 247 inherited node ids are preserved; 35 nodes were added. The module-perfect and complete-flag nodes are comparisons to existing owners, rather than competing definitions. Final totals:
 
-The complete cc-38267a handoff, including all stage-by-stage gaps, requests, structural proposals, source-acquisition notes and historical validation results, is preserved at this immutable revision:
+| Item | Count |
+|---|---:|
+| Definitions | 28 |
+| Lemmas | 83 |
+| Theorems | 94 |
+| Comparisons | 24 |
+| Constructions | 37 |
+| Applications | 16 |
+| All nodes | 282 |
+| API items (definitions/constructions) | 437 |
+| Unit tests (definitions/constructions) | 275 |
+| Planets | 40 |
+| Baseline declarations | 133 |
+| Gaps | 42 |
+| Requests | 34 |
 
-https://github.com/CBirkbeck/tauceti-explorer/blob/28ed861858ba244d26285021d0761ed56384a958/research/blueprint/handoff/BP-SchemeKTheoryOperations.md
+The validator counts API items and tests on definitions/constructions. Including comparison-node contracts, the packet contains 451 API items and 284 tests.
 
-Its blob is `34ef6b4c4e43193924fb1dd08cb3d02921d8b266`. Read it together with this continuation. **Every unresolved item there remains open unless this note explicitly refines its diagnosis.** The packet's nodes, source-issue records, requests and restructuring entries have not been removed or rewritten. Historical compilation and test results in the preceding handoff belong to cc-38267a, not to this session.
+The reader preserves unchanged declaration prose and regenerates the revised contracts and coverage. The suggested file preserves the native prototypes, corrects their owner comments, and lists every added or changed mathematical signature, API item and test. Unavailable enhanced/formal/spectrum/support/Chow carriers are genuinely omitted with supplier explanations, as PROTOCOL §13 permits. They are not fabricated as opaque types or proposition-valued conditions.
 
-Audited packet: `research/blueprint/packets/SchemeKTheoryOperations.json`, blob `03c97d130340cb7600460873b34e363603b968e3` (1,359,617 bytes). Compare against this blob before applying the edits below; another continuation may have changed the relevant nodes.
+## What changed
 
-## 1. Proper coherent pushforward has an upstream owner
+S.1 now imports arbitrary-ring module perfection from DGAInfinity layer 5, with the right-module convention transported through the opposite ring to Mathlib's left modules. It owns the scheme comparison and compares the complete-local overlap with P7. Added enhanced Tor-amplitude strata, residue-field detection and enhanced finite-diagram continuity. Mapping spaces have truncation bound b−a, while the **core** has bound b−a+1; rank-one objects over a field retain the automorphism group k×. Derived global sections preserve the required lower bound, so the mapping-space argument needs no global upper cohomological-dimension bound.
 
-The old handoff calls Grothendieck's coherence theorem unowned. The actual upstream text now supplies an exact owner:
+S.2 imports proper coherent direct images from StableReduction layer 2. Its proper-support bridge factors each bounded coherent cohomology sheaf through a proper closed support; the ambient map may be non-quasi-compact. The arbitrary-base projective branch instead descends the **ambient perfect complex** on projective space to a Noetherian approximation before applying coherence. It does not assume coherent cohomology of the original perfect complex. The regression ring A=k⊕V, V=⊕ℕ k with square-zero multiplication, has ker(e₀:A→A)=V, which is not finitely generated. The two-term finite-free complex is still perfect and remains so under the projective identity. Negative G-theory vanishing is now a scheme node, importing K.6's Noetherian abelian-category theorem.
 
-- File: `content/tau-ceti/StableReduction/README.md`.
-- Layer 2: **Coherent curve theory, duality, and positivity**.
-- Planet 1: **Coherent cohomology and base-change toolkit for curve families**.
-- Rubric 2 states coherence of all higher direct images for a proper morphism of locally Noetherian schemes and a coherent sheaf.
-- Owner reference: `tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity`.
+S.3 adds the Witt p-supported perfect category, the special-fibre pushforward α, derived closed-fibre completion excision, the supplied Frobenius-lift comparison, the regular-perfection dévissage target, the quasi-isogeny exact category and its normalized virtual K₀ class, and ramified restriction of scalars. Bhatt–Scholze's **W(X) is a p-adic formal scheme**, the colimit of the Wₙ(X); its affine supported model is Spec W(R) on V(p). The formal gluing interface is an explicit E4/SF.4 gap. α uses W(R)→R; it does not assume a unital ring section R→W(R). Arbitrary regular R₀ needs the recorded Popescu bridge, rather than a universal Frobenius lift. Completion excision requires a finitely presented closed support and equality of **derived** closed fibres.
 
-Despite the layer's curve-oriented title, that rubric does **not** impose flatness or relative dimension one. Its stated generality covers the underived coherence input of `SchemeKTheoryOperations:S.2/proper-pushforward-coherent`. This is an upstream *planned theorem*, not a claim that it is implemented in the pinned library.
+The quasi-isogeny class is [Cone(pᵐβ)]−[Cone(pᵐ:E₁→E₁)]. Precomposition by p proves independence of the integralizing exponent. For composition, the multiplication-by-p square and its 3×3 cone identity reconcile the normalizing cones on E₁ and E₂; the cone of p on an already supported cone has zero supported K₀ class. Over a perfect field β=pʳ has class r[k], including negative r; an identity triple has zero supported class but nonzero exact-category K₀ class detected by its first-module rank. The full K(C_R) relation with K(R) is **Zhu's question**, not an asserted equivalence.
 
-The reviewed library-coverage audit led to this candidate; the actual upstream README was then read. `content/tau-ceti/JacobianChallenge/README.md` was also read: its relative-cohomology Layer C is phrased for proper flat finite-presentation families and is not the right replacement for the unrestricted proper Noetherian input.
+Scholze's application uses the non-Noetherian unitization B=ℤ⊕A_<1. T is a unit in A but can be a zero-divisor in B. The proposed bounded-torsion argument ker(Tⁿ)=ker(B→A), n≥1, feeds an exact DD.1 principal weak-proregular ordinary/derived completion request. A Noetherian completion citation or an assumed regular T does not settle this bridge. No cdh/pro-cdh, valuation-ring A¹ invariance or rigidity result is added.
 
-### Source-backed bridge to the existing S.2 node
+S.4 adds the perfect-scheme h/v sites, Noetherian h-local perfectness detection, Noetherian derived Čech descent and perfect-scheme derived h-descent. Its **four separate** v-hyperdescent nodes are Perf(X), Perf(Wₙ(X)), Perf(W(X)) and supported Perf(W(X) on X). The source abbreviates the last three deductions; their coefficient/effectivity bridges are explicit gaps. Noetherian D_QCoh h-descent uses a derived Čech nerve but does not extend to arbitrary derived schemes: BS17 Remark 11.13 kills the nonzero A[u⁻¹] for A=Sym_C(C[2]) after A→π₀A. The sheafified τ≤1 α comparison is kept separate from full K-theory descent. Graded Picard normalization imports finer Z.3 nodes; it does not import the downstream Z.6 determinant construction. Degree uses affine Z.2 rank and sheaf-local gluing, without assuming a global inverse to unsheafified α.
 
-[Stacks 02O5](https://stacks.math.columbia.edu/tag/02O5), Proposition 30.19.1, gives the general proper coherence theorem. Its proof reduces locally to a Noetherian base, uses coherent-sheaf devissage and Chow modification, and applies simultaneous relative Serre vanishing to a relatively ample bundle on the modification. Leray and the projective coherence theorem provide the generic-rank-one sheaf required by devissage. The projective coherence theorem is used before the general proper theorem, not circularly after it. This proof was read; its foundational ingredients should remain with the upstream owner, not be copied into S.2.
+The Nisnevich node now uses the finite-presentation small-site basis and TT E.5's conservative finite-residue-extension henselian point family. Whole covering components need not be isomorphisms: Spec(k×k)→Spec k covers because a component splits. A new qcqs distinguished-square criterion cites Hoyois's finite splitting-sequence note and Asok–Hoyois–Wendt Theorem 3.2.5. It proves **Čech sheaf descent**, not unrestricted hypercompleteness. H.6 supplies the generic exact-couple and convergence machinery.
 
-The proper-support extension is a separate bridge. [Stacks 08DS](https://stacks.math.columbia.edu/tag/08DS), Lemma 30.26.10, factors a coherent sheaf with proper support as `i_*G` for a closed immersion `i: Z -> X` with `g = f i` proper. Apply the owner's coherence theorem to `g`; higher direct images along `i` vanish, and Leray identifies the resulting direct images. The proof uses Lemma 30.26.7 for the supported-sheaf factorisation; that dependency still needs its explicit supplier when the packet is edited.
+S.5 imports current K.6's finer projective-line and Nil inputs, and places scheme IK/TT Bass agreement **after** the projective-bundle and Bass theorems. The group comparison and the additional coherent spectrum-map obligation are distinguished. R09 geometry is imported. S.6's line convention P_lines(E)=P_quot(E∨) is reconciled with S.5's quotient convention, including the rank-two filtration.
 
-Finally [Stacks 08E2](https://stacks.math.columbia.edu/tag/08E2), Lemma 36.11.3, passes from sheaves to bounded coherent complexes by the hypercohomology spectral sequence. For the variant where `f` is merely locally of finite type and each cohomology sheaf has proper support, do **not** silently assume that `f` is quasi-compact. Apply the preceding factorisation separately to the finitely many nonzero cohomology sheaves. The finitely many proper morphisms so obtained have finite cohomological-dimension bounds; take their maximum to obtain boundedness of the spectral sequence. This avoids applying the qcqs direct-image lemma outside its hypotheses.
+S.6 adds GS87's strict supported-complex comparison, degree-zero supported Adams operations, ambient-codimension filtration comparison, rational weight splitting and rational filtration multiplicativity. Global strict representatives require the resolution property; regularity alone does not license them. The TT local-perfect extension needs the recorded Dold–Puppe/operations/gluing bridge. The rational product route is independent of the inherited higher Hiller/Soulé proof gaps.
 
-### Exact integration work still required
+S.7 adds the cycle map [V]↦[O_V], the rational supported Chow/graded-K₀ comparison and the dimension-one G-cycle consumer. Ambient codimension, codimension relative to Y and increasing support dimension are kept distinct. On an equidimensional catenary ambient scheme of dimension d, the dimension-one case has p=d−1. Zhang's final map to proper cycles is not asserted to be an isomorphism. The proved scheme statements are separate from the source's **explicitly unproved formal extension**, requested from SF.4.
 
-1. In `S.2/proper-pushforward-coherent`, replace the first hypothesis's unowned-coherence diagnosis by the above exact upstream import. Keep the Noetherian/proper-support hypotheses of the statement.
-2. Add a request to the exact StableReduction owner for all `R^i f_*F`, with no flatness or relative-dimension restriction. Retain SF.2 requests for the distinct quasi-coherent-cohomology infrastructure.
-3. Make the supported-sheaf factorisation, vanishing for closed immersions, and the bounded hypercohomology argument explicit prerequisites or owned lemmas; source them by 08DS/08E2 and the dependencies those proofs cite.
-4. Refine, rather than simply delete, the existing coherence gap and the structural proposal about cohomology ownership. The underived owner is identified; packet integration, the support bridge, and graph validation remain outstanding. Do not infer that *all* coherent/cohomological infrastructure is supplied by one rubric.
-5. Keep the downstream G- and K-pushforward node identifiers unchanged. Do not duplicate StableReduction's theorem or reassign its ownership from this job.
+## Assigned source routes and red-team findings
 
-## 2. The projective perfect-pushforward proof needs a separate branch
+The packet's `sourceRouteCoverage` maps every paper item assigned in #987 to its consuming nodes and exact boundary. It includes Zhang /132,/133,/139; Li–Liu /75; Zhu /B06; all assigned BS17 D/Q/G and support/localization/Cartan items; and Scholze /37. Generic constructions remain with their owners.
 
-Affected node: `SchemeKTheoryOperations:S.2/proper-perfect-pushforward-perfect`.
+| Confirmed finding | Handling |
+|---|---|
+| RT-AREA-ktheory-1/17 | Current K.6 already plans ring P¹ splitting, Nilₙ=NKₙ₊₁ for n≥0 and the ring Laurent theorem; import finer nodes. Move negative G vanishing to S.2 and scheme agreement to S.5. Historical open-PR cycle entries are marked superseded. |
+| RT-AREA-ktheory-1/23 | Import finer H.6 filtered-spectrum, exact-couple and convergence nodes into S.4; propose H.6→S.4. |
+| RT-AREA-ktheory-2/38 | Named S.4 Nisnevich fallback owner, with qcqs distinguished-square criterion; propose its import by M.5a. A future adopted SF.2/EDS move must replace this owner. |
+| RT-AREA-ktheory-2/39 | Request/import R09.1 projective/flag geometry and R09.7a blowups for S.5/S.7; keep only K-theoretic comparisons here. |
+| RT-AREA-ktheory-2/40 | Import StableReduction layer 2 proper coherence and JacobianChallenge layer C's proper-flat-finite-presentation base-change overlap. Keep derived/K-theoretic bridges in S.2. |
+| RT-AREA-ktheory-2/41 | Propose dropping S.6→M.4, S.6→Z.5, S.7→Z.6; adding S.6→M.6b and Z.3→Z.5; preserve RS-18 S.2→Z.5/Z.6 and S.5→Z.6. |
+| RT-AREA-ktheory-2/42 | Propose S.3→ArithmeticKTheory:N.2 and narrowing duplicate Dedekind content. Current N.2 already imports S.3 for its ramified follow-up; the older N.2 content embedded in N.1 still needs reconciliation. |
+| RT-AREA-ktheory-2/45 | Import DGAInfinity layer 5 arbitrary-ring Perf; S.1 owns only scheme/affine comparison and its P7 overlap. |
 
-Its statement allows either a Noetherian target **or a projective perfect morphism over an arbitrary target**. Its first proof step invokes `S.2/proper-pushforward-coherent`, which assumes a Noetherian target. The subsequent Tor-amplitude argument does not repair the missing pseudo-coherence argument in the projective non-Noetherian case.
+These are packet contracts/proposals. This job does not edit foreign packets, reviewed atlas data or upstream Tau Ceti roadmaps. The R09.7a/StableReduction blowup overlap remains an owner-reconciliation obligation, not a second construction.
 
-This is an error in the **packet proof**, not an error in Thomason–Trobaugh's theorem. Do not enter it in `sourceIssues`, and do not fix it by dropping the non-Noetherian projective case: that generality is part of the stated target and is used by the projective-bundle programme.
+## Sources and baseline audit
 
-### Independent regression example
+Exact source URLs, editions, access dates, read passages and SHA-256 receipts are in `sources` and `sourceVersions`, also rendered in the reader. They suffice to reacquire the papers after scratch cleanup. Fresh reading covered:
 
-Let `k` be a field and let `V` be a vector space with countably infinite basis `e_0, e_1, ...`. Form the square-zero algebra `A = k direct_sum V`, with multiplication `(a,v)(b,w) = (ab, aw+bv)`. Let `f` be the identity of `Spec A` and let `E` be the two-term complex
+- TT 2.7(a), 3.20.1 and Appendix E.1–E.6; the published scan's printed page is PDF page +246.
+- GS87's published scan, §§1,4,5,8; the usable page images were read rather than the unusable OCR. The strict/global support model and the local hypotheses in Proposition 5.5 were checked separately from the global rational route through 4.11,5.3,8.3.
+- BS17 arXiv:1507.06490v3: Lemma 2.12, §5, the relevant §7/§9/§10 passages, Theorems 11.2/11.12/11.15 and their proof machinery. The publisher PDF was inaccessible; numbering is that of the recorded v3, not a claim of comparison to the publisher version.
+- Published Zhang Appendix B and §9.1; Li–Liu's author final Appendix B; published Zhu Remark B.3.
+- Bhatt arXiv:1404.7483v1 Lemma 5.12 and Remark 5.13; Scholze's author copy dated 21 January 2026, Proposition 8.8's completion step. No assertion that author and published versions coincide.
+- Stacks online tags 02O5, **0CYS**, 08DS,08E2, with fresh HTML receipts. The preceding handoff's “08DQ” for proper-support factorization was a citation error: 30.26.7 is 0CYS. This is not a Stacks erratum.
+- Hoyois's 30 January 2016 one-page note `allagree.pdf`, read in full; AHW arXiv:1506.07093v2, Example 2.1.2, Proposition 2.3.2 and Theorem 3.2.5 with Remark 3.2.6.
 
-`A -- multiplication by e_0 --> A`, in degrees -1 and 0.
+All **127 inherited baseline declaration excerpts** were reread in the source-only baseline at Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. Six additional Mathlib statements were read for the square-zero regression: TrivSqZeroExt, its ideal inclusion and commutative ring instance, Finsupp.single, DistribSMul.toLinearMap and Module.Free. This is a declaration-statement audit, not a fresh proof audit of every inherited paper claim. Inherited sourceIssues E1–E31 retain their historical evidence; this pass does not claim to have independently rediscovered them.
 
-The identity is projective and perfect, and `E` is strictly perfect. But `H^(-1)(E) = V`: multiplication by `e_0` kills exactly the elements with scalar component zero. The A-action on V factors through k, so any finitely generated A-submodule of V is finite-dimensional over k. Thus V is not finitely generated and this cohomology sheaf is not coherent. All elements of V are nilpotent and `A/V = k`, so `Spec A` has one point; the failure is local as well as global.
+## Validation and Lean status
 
-Consequently `Rf_*E = E` is perfect but does **not** have coherent cohomology. This disproves the packet's intermediate assertion in the claimed generality while satisfying, rather than contradicting, the final perfect-pushforward conclusion. Using the two-term complex avoids relying on any convention about the word coherent for a free module over a noncoherent ring.
+- `python3 scripts/check_blueprint.py research/blueprint/packets/SchemeKTheoryOperations.json --index <pinned-baseline>/declarations.tsv`: **0 errors, 0 warnings**.
+- Submission allowlist/local-path/JSON check: **four deliverables, zero problems**.
+- Reader consistency audit: all 282 node statements, API/test names, gap titles and assigned source-route ids present. Suggested-file audit: every packet API and test name present, either in a native prototype or an explicitly omitted signature with its missing supplier.
+- A separate traversal follows reachable finer node contracts, with current packets overriding integrated decompositions: **822 reachable contracts, zero cycles**. Open stage requests are terminals in that audit. This is not a proof that future supplier extensions or proposed atlas edge changes are acyclic.
+- `git diff --check`: clean.
 
-### Source-verified route for the missing branch
+**Full suggested Lean file compiled in this run: no.** The existing shared build has the correct Mathlib pin but Tau Ceti HEAD `cf386627e9176a3827c1a5fe804989fd94a4d216`, rather than the required `f790474…`. No replacement build was made. The preceding worker's historical compilation claim does not validate this revised file.
 
-Thomason–Trobaugh, [published scan](https://gwern.net/doc/math/1990-thomason.pdf), Theorem 2.5.4 (printed p. 304) and Proposition 2.7(a), Remark 2.7.2 (printed pp. 310–312), separate the two cases. The relevant pages were inspected as rendered images as well as text.
+The isolated Mathlib-only four-example square-zero signature probe was run with `lean-check` against the exact Mathlib pin and **elaborated with only `sorry` warnings**. Its final declarations and examples are included in the suggested file. This tests their types, not their proofs or the full Tau Ceti file. No Lean language server, Lake build/update/cache operation, or private library build was started. No compile remains running.
 
-For the projective branch, work locally on the target and factor through projective space. The smooth ambient map and perfectness of the original morphism give a perfect ambient direct image. Proposition 2.7(a) descends the flat finitely presented ambient scheme and this **ambient perfect complex** to a Noetherian approximation, using 3.20. At a sufficiently late stage its cohomology has proper support, hence lies on proper infinitesimal thickenings. Noetherian coherence, the projection formula and finite cohomological dimension give a perfect pushforward there. Flat-ambient base change brings this conclusion back to the original base.
+## Review and follow-up work
 
-Crucial distinction: the descended ambient complex need not be a direct image of a complex on the descended closed subscheme; the relevant square need not be Tor-independent. Do not assume such a lift. The source explicitly notes that the proof of 3.20 used here does not depend on 2.7. Merely importing continuity of *K-groups* does not supply descent of perfect complexes.
+Independent review should check the fresh source-route contracts first, especially formal Witt gluing, core truncation, the Noetherian/projective pushforward split, GS87 strict/local hypotheses, sheafified τ≤1 and the ambient-codimension/dimension-one indexing. The 42 explicit gaps and 34 requests, with exact consuming node ids, are the authoritative worklist; they are reproduced in the reader. Stage refinements:
 
-### Integration and closure obligations
+- **S.1 planned:** close enhanced finite-diagram continuity, doubled-origin vector-bundle proof and approximation/cohomology suppliers.
+- **S.2 planned:** receive enhanced pushforward/base-change, derived invariance and pairing compatibility. The coherence owner and the projective proof correction are integrated, not left as handoff-only instructions.
+- **S.3 planned:** close Popescu/perfection continuity, formal Witt carrier, unitization completion, fractional spectrum coherence and inherited divisor/boundary/reciprocity source gaps. Reconcile the early tame-symbol supplier before importing it.
+- **S.4 planned:** close descendability/perfection and the three Witt hyperdescent deduction bridges, henselian-point/cohomological-dimension inputs, Gersten/source and coniveau comparison refinements. Keep generic spectral sequences with H.6.
+- **S.5 planned:** close the scheme coherent IK/TT comparison lift, non-affine Nil and inherited graded/Rees/sign/blowup source gaps.
+- **S.6 planned:** close supported Dold–Puppe/TT gluing, inherited higher-operation stability/universality/sheaf-product/comparison inputs, and the requested formal support/product interface.
+- **S.7 planned:** close the general supported Adams/coniveau comparison and arithmetic Chow-valued Riemann–Roch/source inputs; reconcile Chow/support and formal carrier owners.
 
-- Preserve the existing lemma ID and theorem statement. Split its proof into a Noetherian branch and a projective branch, beginning with target-locality of perfection.
-- In the Noetherian branch, use the owner/bridge in section 1, then the projection formula and finite relative Tor-amplitude. On an affine target the proper source is quasi-compact, so the local amplitude bounds can be made uniform. Record both the pseudo-coherence and Tor-amplitude inputs.
-- In the projective branch, expand the ambient-factorisation argument into named prerequisites at the protocol's granularity. In particular, separate scheme approximation, descent of ambient perfect complexes, eventual support control, and derived base change. The current request to AdicCoefficientsAndComparisons L2 for scheme approximation does not by itself supply all four.
-- Check the exact existing owners of these prerequisites before adding any nodes. Do not create a dependency on the S.5 K-theoretic projective-bundle theorem in order to prove its S.2 pushforward input.
-- Read the proof of 3.20 and the approximation inputs it cites before marking that branch closed; this continuation checked their role in 2.7, not every underlying proof.
-- Audit at least `S.2/k-theory-proper-pushforward` and the S.5 projective-bundle/blow-up consumers after changing the prerequisites. Their IDs and generality must not be narrowed silently.
+Once review accepts the target pass, the protocol creates follow-up work for the open stages. Do not revert this to `partial` merely because those explicit refinements remain. No second issue was claimed in this run.
 
-## 3. Acceptance tests to add when integrating
-
-These are mathematical planning tests, not claims of Lean elaboration.
-
-1. **Non-Noetherian projective success / invalid-coherence regression:** the square-zero algebra and strictly perfect two-term complex above. Perfectness must survive identity pushforward without an assertion of coherent cohomology.
-2. **Projective spaces over arbitrary rings:** `P^n_A -> Spec A` and `O(m)` for arbitrary commutative A, not just Noetherian A. The projective branch must discharge the pushforward input without importing the later K-theoretic projective-bundle theorem.
-3. **Proper but not perfect:** `Spec k -> Spec k[epsilon]/(epsilon^2)`. The residue field has infinite projective dimension over the dual numbers, so properness alone must not produce a K-pushforward on perfect complexes. Preserve the packet's existing negative test.
-4. **Proper support without a proper or quasi-compact ambient morphism:** take the disjoint union of countably many copies of `A^1_k`, mapped to `Spec k`, and the coherent sheaf supported at the origin of one component. Its pushforward is `k[0]`. The proper-support bridge must work although the ambient map is not quasi-compact.
-5. **Noetherian branch coverage:** arbitrary proper perfect morphisms over Noetherian bases must still use the coherence-plus-Tor argument; no projective embedding may be demanded of every proper morphism.
-
-## 4. Validation and resumption
-
-### What this session checked
-
-- The worker instructions, issue and confirmed claim, blueprint/browser/upstream/expansion protocols, the existing handoff and the affected packet nodes.
-- The relevant library-coverage ownership lead, followed by actual StableReduction and JacobianChallenge roadmap texts.
-- The statements and proofs of Stacks 02O5, 08DS and 08E2, and the relevant rendered Thomason–Trobaugh pages.
-- The square-zero regression by the explicit kernel and finite-generation argument above.
-
-### What this session did not check or change
-
-- No packet or generated-document edits were applied. The JSON still contains the diagnosed proof gap and stale unowned-coherence language.
-- No new pinned Mathlib/Tau Ceti implementation claim is made. The previous session's declaration audit and compilation results have not been rerun.
-- No repository validator, test suite, fresh dependency-cycle check or Lean compilation was run locally. Required pins remain Mathlib `082e2d3` and Tau Ceti `f790474`.
-- Existing `sourceIssues` were not independently revalidated by this continuation. This finding concerns the packet only.
-
-The browser connection can read the large packet through its Git blob, but the available editing action requires a complete replacement file. A safe complete reconstruction of that packet was not performed here. This handoff therefore preserves the research and exact repair instructions without pretending that an unapplied edit is an integrated result.
-
-### Where the next worker should resume
-
-First apply sections 1–3 to the packet while preserving all unrelated nodes, requests, sources and tests; regenerate the document from the edited packet and align the suggested Lean comments/statements where affected. Check actual declaration statements at the pinned libraries before adding infrastructure. Run `python3 scripts/check_blueprint.py research/blueprint/packets/SchemeKTheoryOperations.json`, the index and dependency-cycle checks, relevant tests, and the suggested Lean file when the pinned environment is available. Keep the whole blueprint partial until the preceding handoff's remaining gaps are closed.
-
-For the rest of S.1–S.7, continue from the immutable cc-38267a handoff above. In particular, preserve its tame-symbol cycle work, the move of abstract lambda-ring algebra to KTheoryLowDegrees Z.3, unresolved higher-K-theory interfaces, source-proof gaps in S.4–S.7, and the arithmetic Chow-valued Riemann–Roch ownership problem. None is resolved by this S.2 audit.
+The incoming handoff remains available at [revision 724fe765](https://github.com/CBirkbeck/tauceti-explorer/blob/724fe76518a80c48a891fff0abe85458d26299f9/research/blueprint/handoff/BP-SchemeKTheoryOperations.md), blob `a92757a3c944c1c2deaa63ab973a2a8b4aaa03e8`. The older full checkpoint is linked there. Its unresolved mathematical gaps remain in this packet unless explicitly repaired above. Scratch files are disposable and are removed after submission; nothing needed for review or continuation depends on them.
