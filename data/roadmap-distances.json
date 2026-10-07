@@ -814,7 +814,17 @@
     "missingLayers": 68.0,
     "missingTargets": 357.8,
     "depth": 18,
-    "suppliers": 23
+    "suppliers": 23,
+    "declarationLevel": {
+     "source": "blueprint",
+     "reviewed": true,
+     "declarations": 66,
+     "missingDeclarations": 66,
+     "depth": 21,
+     "layersCovered": 7,
+     "layers": 7,
+     "sourcePages": 45
+    }
    },
    "measurement": 4.83,
    "judgements": 11,

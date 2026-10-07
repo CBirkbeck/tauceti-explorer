@@ -1,8 +1,8 @@
 {
   "roadmaps": 233,
-  "stages": 4309,
+  "stages": 4340,
   "originalStages": 2138,
-  "sourceRefinements": 2171,
+  "sourceRefinements": 2202,
   "reviewedDecompositions": [
     {
       "roadmap": "AInfCohomology",
@@ -299,14 +299,14 @@
   "editedRoadmapSummaries": 181,
   "curatedStagePresentations": 339,
   "administrativeStages": 101,
-  "mathematicalStars": 4208,
+  "mathematicalStars": 4239,
   "plainTextPlanetLabels": 398,
   "hiddenPlanets": 600,
   "mappedStageStatuses": 350,
   "libraryAuditStatuses": 19,
   "bibliographicSources": 46,
-  "roadmapEdges": 2010,
-  "stageEdges": 11154,
+  "roadmapEdges": 2018,
+  "stageEdges": 11221,
   "reviewedLinkPackets": 25,
   "promotedBlueprints": [
     {
@@ -380,6 +380,12 @@
       "roadmap": "ArithmeticKTheory",
       "nodes": 15,
       "reviewer": "independent-review-REV-ArithmeticKTheory--N.7"
+    },
+    {
+      "file": "ArithmeticLocallySymmetricSpaces",
+      "roadmap": "ArithmeticLocallySymmetricSpaces",
+      "nodes": 66,
+      "reviewer": "independent-review-REV-ArithmeticLocallySymmetricSpaces~2"
     },
     {
       "file": "ArithmeticStatistics",
@@ -1031,8 +1037,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 34848252,
-  "htmlSha256": "3d8cdfc6fb7677ac80e67b7269fe9b2d583acdb4ee6a9ad46decb206a5d4df1a",
+  "htmlBytes": 34957679,
+  "htmlSha256": "de925df8827fed23ce235287da1c66fb961569df395e6fe3a5e9095fbd65fe8d",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -1064,7 +1070,7 @@
     "data/roadmap-summaries.json": "c8bdd0a9105f5d3c4a858c8b635990729f8e94497dee784a71fae659b8c05b9f",
     "data/roadmap-classification.json": "2641dbc97eb2566c715162d011b46890d1635629181ef8126ac7aed9e24a3b13",
     "data/classification-estimates.json": "625d35fe6121bf099dc5de9e6a9111793596f9b664e3fbd439841434bb4a57d6",
-    "data/roadmap-distances.json": "69fc4b9fc3b4307057d7cf46b6d48d1517720b61017867f3209e2dd2bab9ffac",
+    "data/roadmap-distances.json": "5ddbdfd026e2d2ef56d7a25b5cc71f3a7bae97c61574475bad35935c56c59e78",
     "data/galaxy-layout.json": "932ee55b48af97dd9edcf3eae954717060ba0bf228420046e5fe56e53138a1f5",
     "data/bibliography.json": "bef230a41fad22d6b790c7564061c4d05c2ae5b78cab53d005eb404afab2b122",
     "NOTICE": "a285b95d5adbf5c2bcc82db36e2a77b797f84a2c5cbb30292efd0bae17cc4f34",
@@ -1146,6 +1152,8 @@
     "data/blueprints/ArithmeticKTheory--N.5.md": "60c9c703947c064badfc6ad1eb4d9d522db1012f335f2d1e2c04476230479893",
     "data/blueprints/ArithmeticKTheory--N.7.json": "c2e15013d0254a01323d4e90056fce843ce340c3531a49ddfd0cec77b57a942d",
     "data/blueprints/ArithmeticKTheory--N.7.md": "35ccec306ac1e5a26abaebbf240c9643df611fb6bd35d2bab67411f06206ceb0",
+    "data/blueprints/ArithmeticLocallySymmetricSpaces.json": "5d7184dac1676759f8d3585cf562ae869de1d820a16367d55542d9db6b440a27",
+    "data/blueprints/ArithmeticLocallySymmetricSpaces.md": "a7e5a444b889c258c55a32cc13182d1bc61b9b40882d96286f02ab9c91bf3c02",
     "data/blueprints/ArithmeticStatistics.json": "cdb8a395a9e31c558652bced177cbf833d4b6935341ba92418830a7c9e3a91aa",
     "data/blueprints/ArithmeticStatistics.md": "e2be6e0549ffb4b934b0616427c897a098b8e7db0164dc134619dfa22de65ed4",
     "data/blueprints/AutomorphicBundles--B0.json": "b06d0a0fc2b406a71ec0e7fb649fd7ab8f8cb6e9f7ef2a3d1938cfa675b6a85e",
