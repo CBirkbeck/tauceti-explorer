@@ -161,7 +161,6 @@
         {
           "sourceId": "Zagier.BWR.1990",
           "locator": "§2, p. 616, denominator; Theorem 1, p. 619",
-          "excerpt": "This is a classical series",
           "match": "The weight-two double-series summand, rewritten in the oriented basis (1,τ); sourceIssue E-ER3-1 fixes its complex normalization."
         }
       ],
@@ -302,13 +301,11 @@
         {
           "sourceId": "Zagier.BWR.1990",
           "locator": "§2, proof of Theorem 1, pp. 619–620",
-          "excerpt": "single integral from 0 to ∞",
           "match": "Use the unfolding, disc expansion and Laplace-integral method. The coefficient is recalculated in weight two rather than copied from the erroneous printed Theorem 1."
         },
         {
           "sourceId": "Brunault.These.2005",
           "locator": "§1.2, Theorem 21 and the companion assertion, pp. 23–24",
-          "excerpt": "elle coïncide avec l’opposée",
           "match": "The real-part theorem and asserted companion identification are both accounted for by this direct complex calculation."
         }
       ],
@@ -355,13 +352,11 @@
         {
           "sourceId": "Zagier.BWR.1990",
           "locator": "§2, p. 616 and proof of Theorem 1, pp. 619–620",
-          "excerpt": "This proves the theorem.",
           "match": "The source proof method yields a complete complex Fourier reconstruction with the orientation and signs recalculated."
         },
         {
           "sourceId": "Brunault.These.2005",
           "locator": "§1.2, Theorem 21, p. 23; Remark 25, p. 26",
-          "excerpt": "normalement convergente",
           "match": "Real-part comparison and normal convergence of the weight-two series."
         }
       ],
@@ -404,7 +399,6 @@
         {
           "sourceId": "Goncharov.Arakelov.2004",
           "locator": "Theorem 3.4, p. 28; Proposition 6.8 and Lemma 6.9 with proof, p. 57",
-          "excerpt": "Integrating we get the lemma.",
           "match": "The ensuing Proposition 6.8 gives the projective-line divisor formula, which already makes scalar multiplication irrelevant. The corrected Lemma 6.9 gives the endpoint Steinberg evaluation; Polylogarithms/E11 and E12 supply the normalization corrections."
         }
       ],

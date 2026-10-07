@@ -362,13 +362,11 @@
         {
           "sourceId": "hltt-rigid-cohomology",
           "locator": "Theorem 7.13 and notation §1, pp. 1–3, 227",
-          "excerpt": "Theorem 7.13.",
           "match": "The normalized good parameter is the one supplied by local Langlands."
         },
         {
           "sourceId": "clozel-thorne17",
           "locator": "§1.1 notation, accepted copy p. 3",
-          "excerpt": "rec",
           "match": "The rational normalization must be compared with the fixed Artin convention."
         }
       ],
@@ -495,13 +493,11 @@
         {
           "sourceId": "blggt-potential-automorphy",
           "locator": "§2.1, p. 32",
-          "excerpt": "algebraically closed field of characteristic 0",
           "match": "Dominant weights, verbatim from the text layer (superscripts flattened)."
         },
         {
           "sourceId": "blggt-potential-automorphy",
           "locator": "§2.1, p. 32",
-          "excerpt": "extremely regular if for some",
           "match": "Extremely regular weights; the definition continues on the same page."
         }
       ],
@@ -602,13 +598,11 @@
         {
           "sourceId": "blggt-potential-automorphy",
           "locator": "§2.1, p. 32",
-          "excerpt": "same infinitesimal character as an irreducible",
           "match": "The definition of regular algebraic."
         },
         {
           "sourceId": "accplus-cm-potential-automorphy",
           "locator": "§1, Notation, p. 908",
-          "excerpt": "regular algebraic of weight",
           "match": "ACC+ use the same Ξ^∨ convention for the weight."
         }
       ],
@@ -724,19 +718,16 @@
         {
           "sourceId": "blggt-potential-automorphy",
           "locator": "§2.1, p. 32",
-          "excerpt": "we mean a pair",
           "match": "The three conditions of a polarized pair follow on the same page."
         },
         {
           "sourceId": "blggt-potential-automorphy",
           "locator": "§2.1, p. 32",
-          "excerpt": "imaginary we further suppose",
           "match": "BLGGT's sign normalisation, with µ printed for χ (sourceIssue E1); corrected in (v) (E2)."
         },
         {
           "sourceId": "chenevier-harris-II",
           "locator": "Hypotheses 4.1(ii), p. 13",
-          "excerpt": "independent of the prime",
           "match": "Chenevier–Harris's polarization over a totally real field, with the same independence condition."
         }
       ],
@@ -780,13 +771,11 @@
         {
           "sourceId": "blggt-potential-automorphy",
           "locator": "§2.1, p. 31",
-          "excerpt": "further require",
           "match": "The sign convention linking ε_v and µ(c_v)."
         },
         {
           "sourceId": "blggt-potential-automorphy",
           "locator": "§2.1, p. 31",
-          "excerpt": "We will call (r, µ) (resp. (r, µ)) totally odd if εv = 1 for all v|∞.",
           "match": "Totally odd."
         }
       ],
@@ -907,19 +896,16 @@
         {
           "sourceId": "blggt-potential-automorphy",
           "locator": "§A.2, p. 87",
-          "excerpt": "de Rham at all primes above",
           "match": "The Hodge–Tate numbers of r_{l,ι}(χ)."
         },
         {
           "sourceId": "blggt-potential-automorphy",
           "locator": "§A.2, p. 87",
-          "excerpt": "wt(χ) is even",
           "match": "Parity of the weight over a totally real field."
         },
         {
           "sourceId": "blggt-potential-automorphy",
           "locator": "Notation, p. 8",
-          "excerpt": "Artin map normalized to send uniformizers",
           "match": "The Artin normalisation fixing r_{l,ι}(‖·‖) = ε_l."
         }
       ],
@@ -959,19 +945,16 @@
         {
           "sourceId": "blggt-potential-automorphy",
           "locator": "Theorem 2.1.1(1), p. 33",
-          "excerpt": "totally odd, polarized",
           "match": "The assertion that fails for odd w under the printed normalisation (sourceIssue E2)."
         },
         {
           "sourceId": "blggt-potential-automorphy",
           "locator": "Proof of Theorem 2.1.1, p. 34",
-          "excerpt": "takes every complex conjugation",
           "match": "The step that holds only when w is even."
         },
         {
           "sourceId": "patrikis-sign",
           "locator": "§4, proof of Proposition 4.1, p. 8",
-          "excerpt": "preserves a pairing of sign",
           "match": "An independent calculation of ω_ι(c_v)=(−1)^w ω_v(−1), with ω_ι the associated geometric Galois character. This is in Proposition 4.1, not the proof of Theorem 2.1."
         }
       ],
@@ -1070,19 +1053,16 @@
         {
           "sourceId": "blggt-potential-automorphy",
           "locator": "Theorem 2.1.1(3), p. 33",
-          "excerpt": "is de Rham and if",
           "match": "The multiset, and after it the polarity HT_{τ∘c} = {w − h}, with BLGGT's w equal to w + n − 1 here."
         },
         {
           "sourceId": "blggt-potential-automorphy",
           "locator": "Notation, p. 8",
-          "excerpt": "Thus for example",
           "match": "The sign convention for Hodge–Tate numbers."
         },
         {
           "sourceId": "accplus-cm-potential-automorphy",
           "locator": "Corollary 7.2.4, p. 1100",
-          "excerpt": "regular algebraic, cuspidal, polarizable",
           "match": "Weight 0 corresponds to Sym^m of the dual Tate module (the test expectedHodgeTate_zero)."
         }
       ],
@@ -1124,19 +1104,16 @@
         {
           "sourceId": "accplus-cm-potential-automorphy",
           "locator": "§2.2.5, (2.2.6), p. 922",
-          "excerpt": "characteristic polynomial of a Frobenius element",
           "match": "The Hecke polynomial P_v(X) and its Galois meaning."
         },
         {
           "sourceId": "accplus-cm-potential-automorphy",
           "locator": "Theorem 2.3.2, p. 935",
-          "excerpt": "equal to the image",
           "match": "The geometric convention in the construction HLTT–ACC+ use (Frob_v geometric)."
         },
         {
           "sourceId": "accplus-cm-potential-automorphy",
           "locator": "Notation, p. 906",
-          "excerpt": "arithmetic normalization",
           "match": "rec^T, in which P_v is read."
         }
       ],
@@ -1239,13 +1216,11 @@
         {
           "sourceId": "accplus-cm-potential-automorphy",
           "locator": "Theorem 2.3.2, p. 935",
-          "excerpt": "is unramified and the characteristic polynomial",
           "match": "The good-place property that defines attachment."
         },
         {
           "sourceId": "accplus-cm-potential-automorphy",
           "locator": "§2.3, after Definition 2.3.6, p. 938",
-          "excerpt": "is of Galois type",
           "match": "The contragredient rule r ↦ r^∨ ⊗ ε^{1−n}, as ACC+ state it for Hecke maximal ideals."
         }
       ],
@@ -1285,7 +1260,6 @@
         {
           "sourceId": "accplus-cm-potential-automorphy",
           "locator": "§7.1, p. 1093",
-          "excerpt": "fixed field",
           "match": "The field of rationality, in the coefficient field of the compatible system ACC+ attach to π."
         }
       ],
@@ -1325,7 +1299,6 @@
         {
           "sourceId": "chenevier-harris-II",
           "locator": "Theorem 3.2.3 and proof, pp. 11–12",
-          "excerpt": "Theorem 3.2.3.",
           "match": "Arbitrary regular CSD existence follows from the separate interpolation and patching steps."
         }
       ],
@@ -1367,7 +1340,6 @@
         {
           "sourceId": "hltt-rigid-cohomology",
           "locator": "Theorem 7.13 and Corollary 7.14, pp. 227–228",
-          "excerpt": "Corollary 7.14.",
           "match": "The final auxiliary-field descent supplies the nonselfdual rank-n representation."
         }
       ],
@@ -1408,7 +1380,6 @@
         {
           "sourceId": "varma-local-global",
           "locator": "Theorem (1), Proposition 9.1 and §§10–11, pp. 2, 19–26, 26–29",
-          "excerpt": "Proposition 9.1.",
           "match": "The completed route gives the semisimple local comparison and the monodromy bound at all away places."
         }
       ],
@@ -1450,7 +1421,6 @@
         {
           "sourceId": "caraiani-monodromy-away",
           "locator": "Theorem 7.4 and proof, pp. 83–85",
-          "excerpt": "Theorem 7.4.",
           "match": "The tensor-square geometric route proves the full away-prime result."
         }
       ],
@@ -1489,7 +1459,6 @@
         {
           "sourceId": "accplus-cm-potential-automorphy",
           "locator": "§2.3 after Definition 2.3.6, p. 938",
-          "excerpt": "so is",
           "match": "The dual Hecke ideal has representation ρ^∨⊗ε^(1−n); the polynomial computation supplies the other operations."
         }
       ],
@@ -1525,7 +1494,6 @@
         {
           "sourceId": "shin-compact",
           "locator": "§3.6, definitions preceding (3.18), and §6.2 preceding Corollary 6.7, pp. 20, 48",
-          "excerpt": "Define",
           "match": "The central exponent enters both w(ξ) and j_κ(k); forgetting it fails the similitude acceptance test."
         }
       ],
@@ -1562,13 +1530,11 @@
         {
           "sourceId": "accplus-cm-potential-automorphy",
           "locator": "§4.5.1, proof of Theorem 4.5.1, pp. 985–986",
-          "excerpt": "After possibly enlarging",
           "match": "The split p-adic twist is used to place the weights in the prescribed range."
         },
         {
           "sourceId": "hsbt-character",
           "locator": "Lemma 2.2, pp. 795–796",
-          "excerpt": "Then there is a continuous character",
           "match": "The three compatibility hypotheses precede the extension, so local prescriptions alone do not imply existence."
         }
       ],
@@ -1609,7 +1575,6 @@
         {
           "sourceId": "shin-compact",
           "locator": "Lemma 5.1 and §5.2, pp. 30–34",
-          "excerpt": "Lemma 5.1.",
           "match": "The finite-level compact datum and its models are fixed here."
         }
       ],
@@ -1701,7 +1666,6 @@
         {
           "sourceId": "taylor-yoshida",
           "locator": "§2, p. 12, definition of a_ξ",
-          "excerpt": "the exponent 2n − 1",
           "match": "The source corrects the projector and identifies its global cohomology image."
         }
       ],
@@ -1792,7 +1756,6 @@
         {
           "sourceId": "taylor-yoshida",
           "locator": "§2, cohomology identity after a_ξ, p. 12",
-          "excerpt": "j ≥ mξ",
           "match": "This is the actual shifted coefficient-cohomology identity."
         }
       ],
@@ -1830,7 +1793,6 @@
         {
           "sourceId": "shin-compact",
           "locator": "§5.2, definitions of H^k and H, pp. 33–34",
-          "excerpt": "Define",
           "match": "Actual graded cohomology precedes the alternating virtual class."
         }
       ],
@@ -1916,7 +1878,6 @@
         {
           "sourceId": "taylor-yoshida",
           "locator": "§2, action following the cohomology identity, p. 12",
-          "excerpt": "commutes",
           "match": "The level and Galois actions respect the ξ projector."
         }
       ],
@@ -1953,7 +1914,6 @@
         {
           "sourceId": "shin-compact",
           "locator": "Proposition 5.3(ii)–(iii), pp. 34–35",
-          "excerpt": "Proposition 5.3.",
           "match": "Only the geometric finiteness and weight assertions are used here."
         }
       ],
@@ -1993,7 +1953,6 @@
         {
           "sourceId": "shin-compact",
           "locator": "§5.2 decomposition (5.5), p. 34",
-          "excerpt": "Rξ,l",
           "match": "The multiplicity space is graded before its alternating sum."
         }
       ],
@@ -2083,7 +2042,6 @@
         {
           "sourceId": "shin-igusa",
           "locator": "§§3–4, fixed-point formula and admissible triples",
-          "excerpt": "Kottwitz",
           "match": "The raw count requires the actual effectivity and coefficient factors."
         }
       ],
@@ -2125,7 +2083,6 @@
         {
           "sourceId": "shin-compact",
           "locator": "Proposition 5.2 and §5.2, pp. 33–34",
-          "excerpt": "Proposition 5.2.",
           "match": "The geometric stratum identity supplies the Mantovan comparison."
         }
       ],
@@ -2163,7 +2120,6 @@
         {
           "sourceId": "shin-compact",
           "locator": "§2, Mantovan functor, and Proposition 5.2, pp. 6–7, 34",
-          "excerpt": "Proposition 5.2.",
           "match": "The required global formula includes the Ext/colimit functor and normalization."
         }
       ],
@@ -2203,7 +2159,6 @@
         {
           "sourceId": "shin-compact",
           "locator": "§6.1 and Theorem 6.1, pp. 41–46",
-          "excerpt": "Theorem 6.1.",
           "match": "The specialized ST/END computation retains the signs and C_G factors."
         }
       ],
@@ -2243,7 +2198,6 @@
         {
           "sourceId": "shin-compact",
           "locator": "Propositions 2.2–2.3 and Theorem 6.4, pp. 8–10, 46–47",
-          "excerpt": "Theorem 6.4.",
           "match": "The local computation applies to the required generalized Steinberg and parabolic cases."
         }
       ],
@@ -2280,7 +2234,6 @@
         {
           "sourceId": "shin-compact",
           "locator": "Corollary 6.5(i)–(ii) and proof, pp. 47–49",
-          "excerpt": "Corollary 6.5.",
           "match": "The source explicitly uses Proposition 5.3(iii) and HT01 p. 207."
         }
       ],
@@ -2319,7 +2272,6 @@
         {
           "sourceId": "shin-compact",
           "locator": "Corollary 6.5(iv), pp. 47–48",
-          "excerpt": "τ (G)",
           "match": "The formula selects one END block and preserves the packet multiplicity."
         }
       ],
@@ -2358,7 +2310,6 @@
         {
           "sourceId": "shin-compact",
           "locator": "Corollary 6.8 and Remark 6.9, p. 49",
-          "excerpt": "a (true) continuous semisimple representation",
           "match": "The proof extracts a true rank-n or selected-rank representation; it does not divide a virtual dimension."
         }
       ],
@@ -2448,7 +2399,6 @@
         {
           "sourceId": "shin-compact",
           "locator": "§7.1, Lemmas 7.1–7.3 and Proposition 7.4, pp. 50–53",
-          "excerpt": "Proposition 7.4.",
           "match": "The rank-m effective representation is built by the selected ST/END geometry."
         }
       ],
@@ -2488,13 +2438,11 @@
         {
           "sourceId": "blggt-potential-automorphy",
           "locator": "Proof of Theorem 2.1.1, p. 34",
-          "excerpt": "by a twisting argument",
           "match": "The proof twists the polarized form to conjugate-self-dual type."
         },
         {
           "sourceId": "clozel-thorne17",
           "locator": "Lemma 7.4 and proof, accepted copy pp. 47–48",
-          "excerpt": "Lemma 7.4.",
           "match": "The rank-two route explicitly checks the odd infinity-weight and conjugate-character conditions."
         }
       ],
@@ -2535,7 +2483,6 @@
         {
           "sourceId": "hltt-rigid-cohomology",
           "locator": "Proposition 1.2 and Corollary 1.3, p. 31",
-          "excerpt": "square integrable automorphic representation",
           "match": "The discrete decomposition and its good-place parameter determine the twists."
         }
       ],
@@ -2624,7 +2571,6 @@
         {
           "sourceId": "cs-generic-published",
           "locator": "Corollary 5.5.5, pp. 745–746",
-          "excerpt": "5.5.5.",
           "match": "The discrete case requires the displayed blockwise parity/norm corrections."
         }
       ],
@@ -2658,7 +2604,6 @@
         {
           "sourceId": "chenevier-harris-II",
           "locator": "§3.1, proof of Theorem 3.1.2, p. 9",
-          "excerpt": "patching",
           "match": "Good-polynomial compatibility identifies restrictions along the chosen base changes."
         }
       ],
@@ -2697,7 +2642,6 @@
         {
           "sourceId": "chenevier-harris-II",
           "locator": "Lemma 2.1, Hypotheses 2.2 and proof of Theorem 2.3, p. 8",
-          "excerpt": "Lemma 2.1.",
           "match": "This is a specific definite-unitary instance, not a second generic eigenvariety construction."
         }
       ],
@@ -2786,7 +2730,6 @@
         {
           "sourceId": "chenevier-harris-II",
           "locator": "Proof of Theorem 2.3, p. 8; references to Ch Theorems 3.3 and 3.5",
-          "excerpt": "The main ingredient",
           "match": "The classicality/density input is not furnished by the group-independent spectral theorem."
         }
       ],
@@ -2827,7 +2770,6 @@
         {
           "sourceId": "chenevier-harris-II",
           "locator": "Theorem 2.3 and proof, p. 8",
-          "excerpt": "semisimple continuous Galois representation",
           "match": "The family interpolation is evaluated at the arbitrary regular target."
         }
       ],
@@ -2862,7 +2804,6 @@
         {
           "sourceId": "chenevier-harris-II",
           "locator": "Theorem 2.3, p. 8",
-          "excerpt": "Theorem 2.3.",
           "match": "The theorem explicitly drops Hypothesis 1.3."
         }
       ],
@@ -2897,7 +2838,6 @@
         {
           "sourceId": "chenevier-harris-II",
           "locator": "§3.1 and Lemma 3.2.1, pp. 9–10",
-          "excerpt": "S general",
           "match": "These are the exact families needed by effective patching."
         }
       ],
@@ -2977,7 +2917,6 @@
         {
           "sourceId": "chenevier-harris-II",
           "locator": "§3.1, patching lemma and Theorem 3.1.2, p. 9",
-          "excerpt": "ensures that there exists a unique",
           "match": "The effective descent, not a trace-only construction, removes the field restrictions."
         }
       ],
@@ -3016,13 +2955,11 @@
         {
           "sourceId": "chenevier-harris-II",
           "locator": "Theorem 3.1.2 and proof, p. 9",
-          "excerpt": "Theorem 3.1.2.",
           "match": "This step removes Hypotheses 1.2, before the solvable-index induction."
         },
         {
           "sourceId": "chenevier-harris-II",
           "locator": "Proof of Theorem 3.2.3, first paragraph, p. 11",
-          "excerpt": "Arguing as in Theorem 3.1.2",
           "match": "The arbitrary-regular finite-slope branch removes the field hypotheses by the same patching argument as the slightly regular Theorem 3.1.2."
         }
       ],
@@ -3058,7 +2995,6 @@
         {
           "sourceId": "chenevier-harris-II",
           "locator": "Property P(m) and Corollary 3.2.2, p. 10",
-          "excerpt": "Corollary 3.2.2.",
           "match": "The local index drops strictly and the resulting family is S-general."
         }
       ],
@@ -3094,7 +3030,6 @@
         {
           "sourceId": "chenevier-harris-II",
           "locator": "Proof of Theorem 3.2.3, pp. 11–12",
-          "excerpt": "by induction",
           "match": "This induction removes the residual Iwahori/finite-slope construction hypothesis."
         }
       ],
@@ -3134,7 +3069,6 @@
         {
           "sourceId": "hltt-rigid-cohomology",
           "locator": "§§3–5 and Appendix A.1, pp. 229–234",
-          "excerpt": "Shimura varieties.",
           "match": "The ordinary mixed model, boundary charts and group actions are the actual geometric input."
         }
       ],
@@ -3222,7 +3156,6 @@
         {
           "sourceId": "hltt-rigid-cohomology",
           "locator": "§6.5 definition and Lemma 6.19, pp. 218–219",
-          "excerpt": "Lemma 6.19.",
           "match": "The definition uses the selected boundary pair and its tower invariants."
         }
       ],
@@ -3309,13 +3242,11 @@
         {
           "sourceId": "hltt-rigid-cohomology",
           "locator": "Lemma 6.8 and bracketed functoriality proof, pp. 201–202",
-          "excerpt": "Lemma 6.8.",
           "match": "The source supplies the missing functorial comparison needed for Frobenius."
         },
         {
           "sourceId": "grosse-klonne-dagger",
           "locator": "Theorem 5.1 and proof, §5",
-          "excerpt": "Theorem 5.1",
           "match": "The proper formal embedding comparison is the generic supplier theorem."
         }
       ],
@@ -3351,7 +3282,6 @@
         {
           "sourceId": "hltt-rigid-cohomology",
           "locator": "Proposition 6.15 and Corollary 6.17; §6.5 before Lemma 6.19, pp. 215–218",
-          "excerpt": "tr F",
           "match": "The coefficient filtration and the Kuga degree fix the slope operator normalization."
         }
       ],
@@ -3388,7 +3318,6 @@
         {
           "sourceId": "hltt-rigid-cohomology",
           "locator": "Lemmas 6.10–6.12 and Corollary 6.13, pp. 209–215",
-          "excerpt": "Lemma 6.12.",
           "match": "The finite-slope admissibility input applies to the ordinary cusp-section tower."
         }
       ],
@@ -3424,7 +3353,6 @@
         {
           "sourceId": "hltt-rigid-cohomology",
           "locator": "Lemma 6.1 and proof, pp. 192–195",
-          "excerpt": "Lemma 6.1.",
           "match": "The actual source surjection provides the integral weight-changing congruence."
         }
       ],
@@ -3463,7 +3391,6 @@
         {
           "sourceId": "hltt-rigid-cohomology",
           "locator": "Lemma 6.2 and Corollaries 6.3–6.4, pp. 195–197",
-          "excerpt": "Lemma 6.2.",
           "match": "The high classical weights have Galois type before ordinary interpolation."
         }
       ],
@@ -3500,7 +3427,6 @@
         {
           "sourceId": "hltt-rigid-cohomology",
           "locator": "Corollaries 6.3–6.4 and proof of Proposition 6.5, pp. 196–199",
-          "excerpt": "Proposition 6.5.",
           "match": "The passage from classical forms to the ordinary finite module uses congruences, not density alone."
         }
       ],
@@ -3541,7 +3467,6 @@
         {
           "sourceId": "hltt-rigid-cohomology",
           "locator": "Proposition 6.5 and Corollary 6.13, pp. 197–199, 214–215",
-          "excerpt": "continuous semi-simple representation",
           "match": "The source obtains a characteristic-zero rank-2n representation for the applicable ordinary eigenquotient."
         }
       ],
@@ -3578,7 +3503,6 @@
         {
           "sourceId": "hltt-rigid-cohomology",
           "locator": "Proposition 6.15, Corollary 6.17 and Corollaries 6.18, 6.23, pp. 215–220",
-          "excerpt": "Proposition 6.15.",
           "match": "The filtration and spectral sequence connect sections to higher boundary-support cohomology."
         }
       ],
@@ -3616,7 +3540,6 @@
         {
           "sourceId": "hltt-rigid-cohomology",
           "locator": "Lemmas 6.21 and Corollaries 6.22–6.24, pp. 219–220",
-          "excerpt": "Corollary 6.24.",
           "match": "The precise degree shift and the i=0 exception identify the boundary weight-zero part."
         }
       ],
@@ -3656,7 +3579,6 @@
         {
           "sourceId": "hltt-rigid-cohomology",
           "locator": "Corollaries 1.9 and 6.25–6.27, pp. 28–29, 221",
-          "excerpt": "Corollary 6.27.",
           "match": "The Levi inclusion and the varying-twist polynomial are the bridge to separation."
         }
       ],
@@ -3695,7 +3617,6 @@
         {
           "sourceId": "hltt-rigid-cohomology",
           "locator": "§7 first two paragraphs, Proposition 7.12 and proof of Theorem 7.13, pp. 222–228",
-          "excerpt": "Proposition 7.12.",
           "match": "The algebraic separation hypotheses are all checked for the automorphic family."
         }
       ],
@@ -3732,7 +3653,6 @@
         {
           "sourceId": "hltt-rigid-cohomology",
           "locator": "Corollary 7.14, p. 228",
-          "excerpt": "unramified at v",
           "match": "The final good-place unramifiedness is stronger than the auxiliary-field good set."
         }
       ],
@@ -3771,7 +3691,6 @@
         {
           "sourceId": "varma-local-global",
           "locator": "§9, Definitions 1–2 and Lemma 9.2, pp. 20–21",
-          "excerpt": "Definition 1.",
           "match": "The actual orders retain the isotypic partitions and all initial sums."
         }
       ],
@@ -3809,7 +3728,6 @@
         {
           "sourceId": "varma-local-global",
           "locator": "§7.2, integral operators; §9.1, e_{Π,B}, pp. 15–17, 24–25",
-          "excerpt": "Bernstein",
           "match": "The centre operators and their integral action are the additional local interpolation data."
         }
       ],
@@ -3847,7 +3765,6 @@
         {
           "sourceId": "varma-local-global",
           "locator": "Proposition 8.1 and proof, pp. 18–20",
-          "excerpt": "Proposition 8.1.",
           "match": "Every required local Weil trace is included in the interpolation."
         }
       ],
@@ -3885,7 +3802,6 @@
         {
           "sourceId": "varma-local-global",
           "locator": "Lemma 9.7, Lemma 9.8 and proof of Proposition 9.1, pp. 24–26",
-          "excerpt": "Lemma 9.7.",
           "match": "The exterior trace identities establish the full inertial monodromy bound."
         }
       ],
@@ -3924,7 +3840,6 @@
         {
           "sourceId": "caraiani-monodromy-away",
           "locator": "§7 setup and proof of Theorem 7.4, pp. 80–85",
-          "excerpt": "Theorem 7.4.",
           "match": "The actual two-signature geometry realizes the tensor-square constituent."
         }
       ],
@@ -4011,7 +3926,6 @@
         {
           "sourceId": "caraiani-monodromy-away",
           "locator": "Proposition 3.9, Proposition 4.6 (p. 29), Proposition 4.10 (p. 33) and Corollary 4.29 (p. 51)",
-          "excerpt": "Corollary 4.29.",
           "match": "The generic product nearby-cycle result supplies the needed N and double filtration."
         }
       ],
@@ -4048,7 +3962,6 @@
         {
           "sourceId": "caraiani-monodromy-away",
           "locator": "Proposition 5.8 and Proposition 5.10, §5",
-          "excerpt": "Proposition 5.10.",
           "match": "The stratum concentration is the actual input used for degeneration in §7."
         }
       ],
@@ -4087,7 +4000,6 @@
         {
           "sourceId": "caraiani-monodromy-away",
           "locator": "Corollary 5.9 and Theorem 1.2",
-          "excerpt": "Corollary 5.9.",
           "match": "The automorphic local parameter is pure because the local components are tempered."
         }
       ],
@@ -4127,7 +4039,6 @@
         {
           "sourceId": "caraiani-monodromy-away",
           "locator": "Proposition 7.2 and Corollary 7.3, pp. 81–83",
-          "excerpt": "Corollary 7.3.",
           "match": "The exact double spectral sequence establishes the geometric monodromy purity."
         }
       ],
@@ -4169,7 +4080,6 @@
         {
           "sourceId": "taylor-yoshida",
           "locator": "Lemma 1.4(2)–(4), proof of (4), pp. 6–7",
-          "excerpt": "up to equivalence",
           "match": "The uniqueness is a WD equivalence statement and uses full purity."
         }
       ],
@@ -4210,7 +4120,6 @@
         {
           "sourceId": "chenevier-harris-II",
           "locator": "Theorem 2.3, tame-family paragraph, p. 8; Theorem 3.2.3(a′), pp. 11–12",
-          "excerpt": "Theorem 2.3.",
           "match": "The polarized bound is already proved by this interpolation and patching route."
         }
       ],
@@ -4246,25 +4155,21 @@
         {
           "sourceId": "liu-et-al22",
           "locator": "Definition 1.1.3, Proposition 3.2.4, Hypothesis 3.2.10 and Proposition 3.2.11",
-          "excerpt": "Hypothesis 3.2.10",
           "match": "The geometric identification is conditional and has a restricted verification range."
         },
         {
           "sourceId": "bcgp25-racsdc",
           "locator": "Unnumbered RACSDC GL_n summary after equation (1.8.21), pp. 14–15",
-          "excerpt": "regular algebraic, conjugate self-dual",
           "match": "The unnumbered paragraph summarizes RACSDC systems; (1.8.21) labels the preceding GSp₄ equation."
         },
         {
           "sourceId": "cs-generic-published",
           "locator": "Theorem 5.5.4, pp. 744–745",
-          "excerpt": "Theorem 5.5.4.",
           "match": "The published result is split by its away-prime and coefficient-prime dependencies."
         },
         {
           "sourceId": "cs-generic-published",
           "locator": "Remark 5.5.6 and §5.6, pp. 746–750",
-          "excerpt": "Remark 5.5.6.",
           "match": "The generic principal-series consequence and simple-Kottwitz variant have explicit supplier contracts."
         }
       ],
@@ -4304,7 +4209,6 @@
         {
           "sourceId": "bellaiche-chenevier-sign",
           "locator": "Theorem 1.2 and Corollary 1.3, pp. 1338–1339",
-          "excerpt": "Theorem 1.2.",
           "match": "The automorphic theorem gives sign +1 for the specified irreducible factors."
         }
       ],
@@ -4344,7 +4248,6 @@
         {
           "sourceId": "chenevier-harris-II",
           "locator": "Proposition 3.2.5 and proof, p. 12",
-          "excerpt": "Proposition 3.2.5.",
           "match": "The explicit auxiliary-prime/root construction supplies a common number field."
         }
       ],
@@ -4385,7 +4288,6 @@
         {
           "sourceId": "chenevier-harris-II",
           "locator": "§3.2, p. 9, and §4 totally real fields",
-          "excerpt": "the case n = 2 is already understood",
           "match": "The overlap is identified by uniqueness after the arbitrary regular construction."
         }
       ],
@@ -4421,7 +4323,6 @@
         {
           "sourceId": "liu-et-al22",
           "locator": "Definition 3.1.1 and Lemma 3.1.2",
-          "excerpt": "Lemma 3.1.2",
           "match": "Clozel and strong multiplicity one identify the global/local coefficient fields."
         }
       ],

@@ -1,0 +1,3038 @@
+{
+  "roadmapId": "HodgeStructuresPartII",
+  "protocol": "blueprint-v1",
+  "part": "H.7",
+  "scope": [
+    "HodgeStructuresPartII:H.7"
+  ],
+  "status": "complete",
+  "summary": "Target-level continuation from polarized variations and multivariable nilpotent orbits to fixed-canonical-compact finite Siegel containment, definability of period maps and algebraicity of individual special pullbacks. The exceptional Hodge locus is only a countable union of closed irreducible algebraic subvarieties. Native fibrewise Hodge theory is reused; generic arithmetic quotients, reduction theory, o-minimal geometry and degeneration estimates retain their existing owners.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "mathlib:Set.Definable",
+        "kind": "declaration",
+        "module": "Mathlib/ModelTheory/Definability.lean",
+        "provides": "A subset of a finite Cartesian power of a first-order structure is given by a formula with parameters from A. This is a coordinate-level baseline, not an o-minimality or finite-atlas theorem.",
+        "checked": "Actual declaration and surrounding conventions read at the recorded commit on 2026-10-07; not inferred from its name."
+      },
+      {
+        "ref": "mathlib:Complex.norm_exp",
+        "kind": "declaration",
+        "module": "Mathlib/Analysis/Complex/Trigonometric.lean",
+        "provides": "For z complex, the norm of exp(z) is exp(Re z). Applied to 2πiz this bounds the punctured-disc coordinate away from its outer circle.",
+        "checked": "Actual declaration and surrounding conventions read at the recorded commit on 2026-10-07; not inferred from its name."
+      },
+      {
+        "ref": "tauceti:TauCeti.Hodge.HodgeStructureOn",
+        "kind": "declaration",
+        "module": "TauCeti/Geometry/Hodge/Structure.lean",
+        "provides": "A decreasing exhaustive opposed filtration on a complex module with specified conjugation, of integral weight n; separatedness is derived.",
+        "checked": "Actual declaration and surrounding conventions read at the recorded commit on 2026-10-07; not inferred from its name."
+      },
+      {
+        "ref": "tauceti:TauCeti.Hodge.HodgeStructureOn.piece",
+        "kind": "declaration",
+        "module": "TauCeti/Geometry/Hodge/Structure.lean",
+        "provides": "The submodule H^{p,n-p}=F^p intersect conjugate F^{n-p}. A type-(0,0) subspace in nonzero weight is zero, not simply the p=0 piece.",
+        "checked": "Actual declaration and surrounding conventions read at the recorded commit on 2026-10-07; not inferred from its name."
+      },
+      {
+        "ref": "tauceti:TauCeti.Hodge.Polarization.hodgeForm",
+        "kind": "declaration",
+        "module": "TauCeti/Geometry/Hodge/HodgeForm.lean",
+        "provides": "Native conjugate-first Hermitian form h_N(u,v)=Q(C(conjugate u),v), on an abstract integral complexification. H.7 reuses it fibrewise.",
+        "checked": "Actual declaration and surrounding conventions read at the recorded commit on 2026-10-07; not inferred from its name."
+      },
+      {
+        "ref": "tauceti:TauCeti.Hodge.Polarization.hodgeForm_eq_conj",
+        "kind": "declaration",
+        "module": "TauCeti/Geometry/Hodge/HodgeForm.lean",
+        "provides": "h_N(u,v)=conjugate(Q(Cu,conjugate v)); supplies the BKT conjugate-second convention exactly.",
+        "checked": "Actual declaration and surrounding conventions read at the recorded commit on 2026-10-07; not inferred from its name."
+      },
+      {
+        "ref": "tauceti:TauCeti.Hodge.Polarization.hodgeForm_self_pos",
+        "kind": "declaration",
+        "module": "TauCeti/Geometry/Hodge/HodgeForm.lean",
+        "provides": "A polarization has strictly positive Hodge-form diagonal on every nonzero complex vector. Zero must be excluded from two-sided monomial estimates.",
+        "checked": "Actual declaration and surrounding conventions read at the recorded commit on 2026-10-07; not inferred from its name."
+      },
+      {
+        "ref": "tauceti:TauCeti.Hodge.tate_piece",
+        "kind": "declaration",
+        "module": "TauCeti/Geometry/Hodge/Tate/Basic.lean",
+        "provides": "The only nonzero piece of Z(m), weight -2m, has first index -m and is the whole complex line.",
+        "checked": "Actual declaration and surrounding conventions read at the recorded commit on 2026-10-07; not inferred from its name."
+      },
+      {
+        "ref": "tauceti:TauCeti.Hodge.tate_hodgeForm_apply",
+        "kind": "declaration",
+        "module": "TauCeti/Geometry/Hodge/HodgeForm.lean",
+        "provides": "The native Hodge form of the polarized Tate line evaluates to conjugate x times y.",
+        "checked": "Actual declaration and surrounding conventions read at the recorded commit on 2026-10-07; not inferred from its name."
+      },
+      {
+        "ref": "mathlib:TopologicalSpace.NoetherianSpace.finite_irreducibleComponents",
+        "kind": "declaration",
+        "module": "Mathlib/Topology/NoetherianSpace.lean",
+        "provides": "Every Noetherian topological space has finitely many irreducible components; apply to a closed algebraic subset with its Zariski topology, not its ordinary complex topology.",
+        "checked": "Actual declaration and surrounding conventions read at the recorded commit on 2026-10-07; not inferred from its name."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.finite_irreducibleComponents_of_isNoetherian",
+        "kind": "declaration",
+        "module": "Mathlib/AlgebraicGeometry/Noetherian.lean",
+        "provides": "A native Noetherian scheme has finitely many irreducible components. The complex-point/analytification comparison is still supplied externally.",
+        "checked": "Actual declaration and surrounding conventions read at the recorded commit on 2026-10-07; not inferred from its name."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "BKT20",
+      "title": "Tame topology of arithmetic quotients and algebraicity of Hodge loci",
+      "authors": "Benjamin Bakker, Bruno Klingler and Jacob Tsimerman",
+      "edition": "JAMS 33 (2020), 917–939; published PDF",
+      "url": "https://par.nsf.gov/servlets/purl/10200187",
+      "sha256": "b7cf457907c30c9dc1c349637e74027ce4ef038a2e0f646b7685f571d367e058",
+      "accessed": "2026-10-07",
+      "readSections": [
+        "Full mathematical body §§1–5 and Appendix A read using the author version, with published pp.928–934 collated for every H.7 statement and proof.",
+        "§4.1 normal-crossings reduction; §4.2 local lift; §4.3 rough-function curve lemma; complete §§4.4–4.5 norm/reduction argument; §5 algebraicity.",
+        "The cited Schmid, CKS and general reduction-theory proofs are supplied externally, not freshly verified here."
+      ]
+    },
+    {
+      "id": "BKT-author",
+      "title": "Tame topology of arithmetic quotients and algebraicity of Hodge loci",
+      "authors": "Benjamin Bakker, Bruno Klingler and Jacob Tsimerman",
+      "edition": "Author-hosted version, 23 PDF pages; pagination differs from publication",
+      "url": "https://benjamin-bakker.github.io/DefArith.pdf",
+      "sha256": "b559c652490eb54595e86ec063945d016dd104949a91f9d6b4616cc4e25b8c8e",
+      "accessed": "2026-10-07",
+      "readSections": [
+        "Complete mathematical body §§1–5 and Appendix A; bibliography used only for locating suppliers."
+      ]
+    },
+    {
+      "id": "BKT23",
+      "title": "Erratum: Tame topology of arithmetic quotients and algebraicity of Hodge loci",
+      "authors": "Benjamin Bakker, Bruno Klingler and Jacob Tsimerman",
+      "edition": "Author-hosted erratum, JAMS 36 (2023), DOI 10.1090/jams/1025",
+      "url": "https://benjamin-bakker.github.io/DefArithErr.pdf",
+      "sha256": "86d76a5d2443840ddcaf2c08966cd236759bade659e338e3fcdb3edcd2b61ac7",
+      "accessed": "2026-10-07",
+      "readSections": [
+        "Complete §§1.1–1.6 and examples; Theorem 1.2, Corollary 1.3 and corrected inverse-Siegel citation."
+      ]
+    },
+    {
+      "id": "Ka85",
+      "title": "The asymptotic behavior of a variation of polarized Hodge structure",
+      "authors": "Masaki Kashiwara",
+      "edition": "Publications of RIMS 21 (1985), 853–875",
+      "url": "https://www.jstage.jst.go.jp/article/kyotoms1969/21/4/21_4_853/_pdf",
+      "sha256": "7d2d279b315af10d45964d49c10e0f27893804ee9c820237cf302bbf18ed7bef",
+      "accessed": "2026-10-07",
+      "readSections": [
+        "Selected §2.3–2.4: Lemma 2.4.1 and its full proof; §3.4 Theorems 3.4.1–3.4.2; §4.1–4.2 comparison proof through Proposition 4.1.1.",
+        "Printed p.870 rendered to check the formulas against poor OCR. Not a new verification of the source’s complete §4.3 proof or earlier nilpotent-orbit inputs."
+      ]
+    },
+    {
+      "id": "K17",
+      "title": "Hodge loci and atypical intersections: conjectures",
+      "authors": "Bruno Klingler",
+      "edition": "arXiv:1711.09387v1 (2017)",
+      "url": "https://arxiv.org/pdf/1711.09387v1",
+      "sha256": "fb0ea85a98db871ec140378feef334e2f67cc8215fc2a5e3c0e75d8d42015939",
+      "accessed": "2026-10-07",
+      "readSections": [
+        "Selected §§2.4–2.6 pp.8–9: tensor characterization, generic Mumford–Tate group and exceptional locus; §§3.3–3.5 pp.11–13: arithmetic quotients, holomorphic Hodge morphisms and special images.",
+        "The cited André/Pink results are supplier obligations, not newly proved or verified here. Mixed/admissible conclusions are outside H.7."
+      ]
+    },
+    {
+      "id": "PS09",
+      "title": "Complex analytic geometry and analytic-geometric categories",
+      "authors": "Ya’acov Peterzil and Sergei Starchenko",
+      "edition": "Author draft dated July 22, 2005; published J. reine angew. Math. 626 (2009), 39–74; locators use draft pagination",
+      "url": "https://math.haifa.ac.il/kobi/analytic.pdf",
+      "sha256": "e7556f77373bdc1e24e4f620413d674197f842569dde1a704555dd1d03f7856a",
+      "accessed": "2026-10-07",
+      "readSections": [
+        "Complete statements and proofs of Theorem 4.4 and Corollary 4.5, draft p.12; Theorem 6.1 and remarks, draft p.16.",
+        "Earlier analytic-geometric closure results, projective Chow, and the full Theorem 6.1 proof are external supplier obligations."
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "HodgeStructuresPartII:H.7/bounded-sector",
+      "parentStageId": "HodgeStructuresPartII:H.7",
+      "realises": [
+        "HodgeStructuresPartII:H.7"
+      ],
+      "title": "Bounded-width positive-height sectors",
+      "kind": "definition",
+      "statement": "For n≥0, R≥0 and η>0, boundedSector(n,R,η) is {z∈C^n : |Re z_i|≤R and Im z_i≥η for every i}. Closed horizontal and height inequalities are intentional. The width is R and the height is η; constants in theorems may depend on both. Interior and translated half-open angular strips are used when selecting logarithms.",
+      "hypotheses": [
+        "n is finite; R≥0; η>0."
+      ],
+      "proofSteps": [
+        "Take coordinatewise intersections of closed inequalities in the real coordinates of C^n.",
+        "Use the identity map for n=0; no coordinate condition remains."
+      ],
+      "prerequisites": [],
+      "sources": [
+        {
+          "sourceId": "BKT20",
+          "locator": "§1, Theorem 1.5; §4.2, pp.920–921,929",
+          "excerpt": "|Re zi|",
+          "match": "The two sector parameters are separated; the source’s C in the width inequality is corrected to R."
+        }
+      ],
+      "acceptance": [
+        "In dimension one 0+2i lies in the width-one height-one sector, while 2+2i does not.",
+        "Positive height is essential for an analytic buffer inside the unit disc."
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Tame/PeriodMap",
+        "namespace": "TauCeti.Hodge.Tame"
+      },
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.Hodge.Tame.boundedSector.mem_iff",
+          "role": "characterisation",
+          "statement": "Membership is exactly the conjunction of the two coordinate inequalities."
+        },
+        {
+          "name": "TauCeti.Hodge.Tame.boundedSector.mono",
+          "role": "relation",
+          "statement": "If R≤R′ and η′≤η, boundedSector(n,R,η) is contained in boundedSector(n,R′,η′)."
+        },
+        {
+          "name": "TauCeti.Hodge.Tame.boundedSector.reindex",
+          "role": "functoriality",
+          "statement": "Reindexing the coordinates by a permutation preserves the sector."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.Hodge.Tame.boundedSector_test_point",
+          "kind": "computation",
+          "statement": "The point z_0=2i belongs to boundedSector(1,1,1)."
+        },
+        {
+          "name": "TauCeti.Hodge.Tame.boundedSector_test_empty_coordinates",
+          "kind": "degenerate",
+          "statement": "boundedSector(0,R,η) is the whole singleton C^0."
+        },
+        {
+          "name": "TauCeti.Hodge.Tame.boundedSector_test_width",
+          "kind": "non-example",
+          "statement": "The point z_0=2+2i does not belong to boundedSector(1,1,1)."
+        }
+      ],
+      "uses": [
+        {
+          "where": "BKT Theorem 1.5 and §4.2",
+          "how": "Provides the domain for restricted exponential and finite Siegel containment."
+        },
+        {
+          "where": "HodgeStructuresPartII:H.7/positive-height-siegel-cover",
+          "how": "Allows every strictly positive height, rather than only deep cuspidal regions."
+        }
+      ],
+      "suggestedDeclaration": "TauCeti.Hodge.Tame.boundedSector"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.7/ordered-sector",
+      "parentStageId": "HodgeStructuresPartII:H.7",
+      "realises": [
+        "HodgeStructuresPartII:H.7"
+      ],
+      "title": "Ordered deep sectors",
+      "kind": "definition",
+      "statement": "orderedSector(n,R,Y) is boundedSector(n,R,Y) intersected with the inequalities Im z_i≥Im z_j whenever i≤j in the fixed coordinate ordering. Each bounded sector is covered by its finitely many permuted ordered sectors. The asymptotic arguments choose Y≥Y₀>0; they do not assert estimates at all positive heights.",
+      "hypotheses": [
+        "Finite ordered index set {0,…,n−1}; R≥0; Y>0."
+      ],
+      "proofSteps": [
+        "Add the finite weak ordering inequalities to boundedSector.",
+        "Sort the finite list of imaginary parts; ties may choose any permutation."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.7/bounded-sector"
+      ],
+      "sources": [
+        {
+          "sourceId": "BKT20",
+          "locator": "§4.3 Definition 4.4, p.929; §4.5 opening, p.932",
+          "excerpt": "y1 ≥ · · · ≥ yn",
+          "match": "This is the source Σ region with an explicit deep-height parameter."
+        }
+      ],
+      "acceptance": [
+        "Tied heights belong to every compatible ordering; a finite cover need not be disjoint."
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Tame/PeriodMap",
+        "namespace": "TauCeti.Hodge.Tame"
+      },
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.Hodge.Tame.orderedSector.mem_iff",
+          "role": "characterisation",
+          "statement": "Membership means membership in boundedSector together with the weak descending-height inequalities."
+        },
+        {
+          "name": "TauCeti.Hodge.Tame.orderedSector.subset_boundedSector",
+          "role": "coercion",
+          "statement": "Every ordered-sector point is in the corresponding bounded sector."
+        },
+        {
+          "name": "TauCeti.Hodge.Tame.orderedSector.permutation_cover",
+          "role": "relation",
+          "statement": "Every bounded-sector point can be reindexed into orderedSector by a coordinate permutation."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.Hodge.Tame.orderedSector_test_order",
+          "kind": "computation",
+          "statement": "The two coordinates (3i,2i) lie in orderedSector(2,1,1)."
+        },
+        {
+          "name": "TauCeti.Hodge.Tame.orderedSector_test_ties",
+          "kind": "degenerate",
+          "statement": "The two coordinates (2i,2i) lie in orderedSector(2,1,1)."
+        },
+        {
+          "name": "TauCeti.Hodge.Tame.orderedSector_test_reverse",
+          "kind": "non-example",
+          "statement": "The two coordinates (2i,3i) do not lie in orderedSector(2,1,1)."
+        }
+      ],
+      "uses": [
+        {
+          "where": "BKT §4.4 Theorem 4.8",
+          "how": "The ratio monomials use the ordering y₁≥⋯≥yₙ."
+        },
+        {
+          "where": "BKT §4.5",
+          "how": "Permuting the degeneration coordinates yields a finite cover of the full sector."
+        }
+      ],
+      "suggestedDeclaration": "TauCeti.Hodge.Tame.orderedSector"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.7/sector-uniformization",
+      "parentStageId": "HodgeStructuresPartII:H.7",
+      "realises": [
+        "HodgeStructuresPartII:H.7"
+      ],
+      "title": "Punctured-polydisc sector uniformization",
+      "kind": "construction",
+      "statement": "sectorUniformization(z)_i=exp(2πi z_i). On boundedSector(n,R,η) its image has 0<|q_i|≤exp(−2πη)<1. On the angular selection 0≤Re z_i<1 and Im z_i>η it surjects onto 0<|q_i|<exp(−2πη), coordinatewise. Integer shifts leave q unchanged. The half-open strip includes the angular seam.",
+      "hypotheses": [
+        "η>0; finitely many coordinates."
+      ],
+      "proofSteps": [
+        "Evaluate the native complex exponential coordinatewise.",
+        "Apply Complex.norm_exp to 2πiz to obtain the radius bound.",
+        "Choose arguments in [0,2π) for surjectivity. Restricted sine/cosine in the bounded real coordinate and real exponential supply definability through LD.6."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.7/bounded-sector",
+        "mathlib:Complex.norm_exp",
+        "LogicAndDefinabilityInNumberTheory:LD.6"
+      ],
+      "sources": [
+        {
+          "sourceId": "BKT20",
+          "locator": "§4.2 uniformizing diagram and Lemma 4.2, p.929",
+          "excerpt": "exp(2πi · )",
+          "match": "The image is a buffered punctured polydisc, not the full unit polydisc."
+        }
+      ],
+      "acceptance": [
+        "The real angular coordinate zero must be represented.",
+        "A height-one strip only covers radii at most exp(−2π)."
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Tame/PeriodMap",
+        "namespace": "TauCeti.Hodge.Tame"
+      },
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.Hodge.Tame.sectorUniformization.apply",
+          "role": "simp",
+          "statement": "The i-th coordinate is exp(2πi z_i)."
+        },
+        {
+          "name": "TauCeti.Hodge.Tame.sectorUniformization.norm",
+          "role": "compatibility",
+          "statement": "Its i-th coordinate has norm exp(−2π Im z_i), by Complex.norm_exp."
+        },
+        {
+          "name": "TauCeti.Hodge.Tame.sectorUniformization.integer_shift",
+          "role": "relation",
+          "statement": "Adding any vector of integers to z does not change sectorUniformization."
+        },
+        {
+          "name": "TauCeti.Hodge.Tame.sectorUniformization.halfOpen_surjective",
+          "role": "characterisation",
+          "statement": "Every point in the smaller open punctured polydisc has a lift with real parts in [0,1) and imaginary parts greater than η."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.Hodge.Tame.sectorUniformization_test_height",
+          "kind": "computation",
+          "statement": "In one coordinate q(i)=exp(−2π), a positive real number."
+        },
+        {
+          "name": "TauCeti.Hodge.Tame.sectorUniformization_test_period",
+          "kind": "characterisation",
+          "statement": "q(z+1)=q(z) in one coordinate."
+        },
+        {
+          "name": "TauCeti.Hodge.Tame.sectorUniformization_test_outer_radius",
+          "kind": "non-example",
+          "statement": "A coordinate of norm exp(−π) is not in the image of boundedSector(1,1,1)."
+        }
+      ],
+      "uses": [
+        {
+          "where": "BKT Lemma 4.2",
+          "how": "Pulls the holomorphic nilpotent-orbit extension into a restricted-analytic coefficient ring."
+        },
+        {
+          "where": "BKT §4.2 quotient diagram",
+          "how": "The image of the lifted graph is the graph of the period map on the smaller punctured polydisc."
+        }
+      ],
+      "suggestedDeclaration": "TauCeti.Hodge.Tame.sectorUniformization"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.7/sector-lift-definable",
+      "parentStageId": "HodgeStructuresPartII:H.7",
+      "realises": [
+        "HodgeStructuresPartII:H.7"
+      ],
+      "title": "Definability of the lifted period map",
+      "kind": "theorem",
+      "statement": "For an integral polarized pure VHS with unipotent coordinate monodromies on a polydisc neighbourhood, let Φ̃(z)=exp(Σz_iN_i)Ψ(q(z)) be its H.6 nilpotent-orbit lift into its H.3 semialgebraic period domain D. For every fixed R≥0 and η>0 for which the closed q-polydisc of radius exp(−2πη) is contained in the extension neighbourhood, Φ̃ restricted to boundedSector(n,R,η) is R_an,exp-definable. The neighbourhood condition cannot be replaced by holomorphy on the open unit polydisc alone.",
+      "hypotheses": [
+        "H.2 integral polarized pure VHS; H.6 unipotent commuting N_i and holomorphic extension Ψ.",
+        "H.3 algebraic compact dual, algebraic group action, and semialgebraic D.",
+        "A compact q-buffer lies inside the extension domain."
+      ],
+      "proofSteps": [
+        "Use sector-uniformization and the LD.6 bounded-strip exponential theorem.",
+        "Cover the compact q-buffer by finitely many algebraic compact-dual charts; Ψ is restricted analytic in these charts.",
+        "Commuting nilpotent logarithms have polynomial exponential, and the group action is algebraic; compose definable maps."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.7/sector-uniformization",
+        "ShimuraData:D3/polarized-integral-variation",
+        "HodgeStructuresPartII:H.3",
+        "HodgeStructuresPartII:H.6",
+        "LogicAndDefinabilityInNumberTheory:LD.6",
+        "mathlib:Set.Definable"
+      ],
+      "sources": [
+        {
+          "sourceId": "BKT20",
+          "locator": "§4.2 Lemma 4.2 and complete proof, p.929",
+          "excerpt": "Ψ",
+          "match": "Uses its compact analytic buffer, polynomial nilpotent exponential and algebraic action."
+        }
+      ],
+      "acceptance": [
+        "For N_i=0 and constant Ψ, the lifted map is constant and semialgebraic.",
+        "The theorem does not make arbitrary holomorphic functions on an unbuffered open disc definable."
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Tame/PeriodMap",
+        "namespace": "TauCeti.Hodge.Tame"
+      },
+      "implementationStatus": "unchecked",
+      "suggestedDeclaration": "TauCeti.Hodge.Tame.sectorLift_definable"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.7/hodge-form-function",
+      "parentStageId": "HodgeStructuresPartII:H.7",
+      "realises": [
+        "HodgeStructuresPartII:H.7"
+      ],
+      "title": "The varying Hodge form",
+      "kind": "construction",
+      "statement": "On a fixed complexification V_C of a free integral local system, with a family of pure Hodge structures hs_z and polarizations P_z supplied by H.2/H.3, hodgeFormFunction(P,z,u,v) is the conjugate of P_z.hodgeForm(u,v). Equivalently it is Q_C(C_z u,conjugate v), the BKT convention, linear in u and conjugate-linear in v. Its diagonal equals the native diagonal and is positive for u≠0. On real vectors it induces a real positive definite symmetric form b_z; this real restriction is what reduction theory uses.",
+      "hypotheses": [
+        "Fixed lattice-induced conjugation and fixed weight k.",
+        "Polarization Q is flat in the chosen local trivialization."
+      ],
+      "proofSteps": [
+        "Use the existing fibrewise Polarization.hodgeForm, not a new polarization definition.",
+        "Conjugate its value and apply hodgeForm_eq_conj.",
+        "Restrict to real points; conjugation fixes those vectors and Hermitian symmetry becomes real symmetry."
+      ],
+      "prerequisites": [
+        "tauceti:TauCeti.Hodge.Polarization.hodgeForm",
+        "tauceti:TauCeti.Hodge.Polarization.hodgeForm_eq_conj",
+        "tauceti:TauCeti.Hodge.Polarization.hodgeForm_self_pos",
+        "ShimuraData:D3/polarized-integral-variation",
+        "HodgeStructuresPartII:H.3"
+      ],
+      "sources": [
+        {
+          "sourceId": "BKT20",
+          "locator": "§4.4 first paragraph, p.930; formulas (4.2)–(4.5), pp.931–932",
+          "excerpt": "hz",
+          "match": "The printed first formula omits conjugation in its second argument; the proof uses the corrected Hermitian form."
+        }
+      ],
+      "acceptance": [
+        "For the Tate line h(i,1)=i while the native conjugate-first form gives −i.",
+        "No Gram reduction theorem is applied directly to a complex bilinear polarization in odd weight."
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Tame/PeriodMap",
+        "namespace": "TauCeti.Hodge.Tame"
+      },
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.Hodge.Tame.hodgeFormFunction.apply",
+          "role": "compatibility",
+          "statement": "h(z,u,v)=Q_C(C_z u,conjugate v)=conjugate(P_z.hodgeForm u v)."
+        },
+        {
+          "name": "TauCeti.Hodge.Tame.hodgeFormFunction.diagonal",
+          "role": "compatibility",
+          "statement": "h(z,u,u)=P_z.hodgeForm u u."
+        },
+        {
+          "name": "TauCeti.Hodge.Tame.hodgeFormFunction.hermitian",
+          "role": "relation",
+          "statement": "h(z,u,v)=conjugate(h(z,v,u))."
+        },
+        {
+          "name": "TauCeti.Hodge.Tame.hodgeFormFunction.smul_left",
+          "role": "simp",
+          "statement": "h(z,a u,v)=a h(z,u,v)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.Hodge.Tame.hodgeFormFunction_test_tate",
+          "kind": "computation",
+          "statement": "On the polarized Tate line h(i,1)=i."
+        },
+        {
+          "name": "TauCeti.Hodge.Tame.hodgeFormFunction_test_zero",
+          "kind": "degenerate",
+          "statement": "h(z,0,v)=0 for every z,v."
+        },
+        {
+          "name": "TauCeti.Hodge.Tame.hodgeFormFunction_test_native_diagonal",
+          "kind": "compatibility",
+          "statement": "The varying diagonal agrees with the native positive Hermitian diagonal, for every weight and every vector."
+        }
+      ],
+      "uses": [
+        {
+          "where": "BKT Proposition 4.6 and Lemma 4.7",
+          "how": "Its entries and positive diagonal are compared to multigrading monomials."
+        },
+        {
+          "where": "BKT §4.5",
+          "how": "Its real restriction maps the period domain to positive definite symmetric forms."
+        }
+      ],
+      "suggestedDeclaration": "TauCeti.Hodge.Tame.hodgeFormFunction"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.7/hodge-adapted-flag",
+      "parentStageId": "HodgeStructuresPartII:H.7",
+      "realises": [
+        "HodgeStructuresPartII:H.7"
+      ],
+      "title": "A Hodge-adapted full flag",
+      "kind": "construction",
+      "statement": "From the H.6 simultaneous complex splitting I^{p,q₁,…,qₙ} of the limiting filtration and partial-sum monodromy weight filtrations, choose a complex basis w₁,…,w_m of homogeneous vectors with the p indices nonincreasing. hodgeAdaptedFlag(w)_j is span(w₁,…,w_j), 0≤j≤m. This is a full flag refining F: F^a is the step indexed by #{i:p_i≥a}. It is not asserted rational, and is distinct from a rational basis adapted to the weight-only splitting J.",
+      "hypotheses": [
+        "Finite dimensional V_C; H.6 distributive simultaneous splitting; choose homogeneous bases in each summand."
+      ],
+      "proofSteps": [
+        "Choose bases in the finitely many nonzero splitting summands and order them by decreasing p.",
+        "Take native spans of the initial segments. Linear independence gives dimension j.",
+        "The splitting’s filtration identity gives the refinement of F."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.6",
+        "tauceti:TauCeti.Hodge.HodgeStructureOn"
+      ],
+      "sources": [
+        {
+          "sourceId": "BKT20",
+          "locator": "§4.4 proof of Lemma 4.7, p.931",
+          "excerpt": "K j",
+          "match": "Constructs the flag used for the indefinite Gram calculation; the splitting is imported from H.6."
+        }
+      ],
+      "acceptance": [
+        "A weight-only rational basis does not generally refine F; these two bases cannot be identified."
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Tame/PeriodMap",
+        "namespace": "TauCeti.Hodge.Tame"
+      },
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.Hodge.Tame.hodgeAdaptedFlag.zero",
+          "role": "simp",
+          "statement": "The first step is the zero submodule."
+        },
+        {
+          "name": "TauCeti.Hodge.Tame.hodgeAdaptedFlag.top",
+          "role": "simp",
+          "statement": "The final step is the whole complex module."
+        },
+        {
+          "name": "TauCeti.Hodge.Tame.hodgeAdaptedFlag.finrank",
+          "role": "characterisation",
+          "statement": "For an independent basis, the j-th step has complex dimension j."
+        },
+        {
+          "name": "TauCeti.Hodge.Tame.hodgeAdaptedFlag.filtration",
+          "role": "compatibility",
+          "statement": "For a basis homogeneous for the simultaneous splitting and sorted by p, its indicated step equals the supplied F^a."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.Hodge.Tame.hodgeAdaptedFlag_test_line",
+          "kind": "computation",
+          "statement": "For a one-dimensional basis, step one is the whole line."
+        },
+        {
+          "name": "TauCeti.Hodge.Tame.hodgeAdaptedFlag_test_rank_zero",
+          "kind": "degenerate",
+          "statement": "For the zero-dimensional basis every step is zero."
+        },
+        {
+          "name": "TauCeti.Hodge.Tame.hodgeAdaptedFlag_test_first_vector",
+          "kind": "characterisation",
+          "statement": "For the standard basis of C² the first step is exactly the first coordinate axis, not the second."
+        }
+      ],
+      "uses": [
+        {
+          "where": "BKT equations (4.2)–(4.5)",
+          "how": "Its determinant vectors give nonvanishing pivot denominators and rational expressions for Hodge entries."
+        },
+        {
+          "where": "BKT Lemma 4.7 proof",
+          "how": "The sorted p labels determine the Weil-operator phases in the Gram calculation."
+        }
+      ],
+      "suggestedDeclaration": "TauCeti.Hodge.Tame.hodgeAdaptedFlag"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.7/gram-determinant-formulas",
+      "parentStageId": "HodgeStructuresPartII:H.7",
+      "realises": [
+        "HodgeStructuresPartII:H.7"
+      ],
+      "title": "Indefinite Gram determinants and Hodge entries",
+      "kind": "theorem",
+      "statement": "Let w be hodge-adapted-flag at F=Ψ(0), γ(z)=exp(Σz_iN_i)exp(v(q(z))) the H.6 negative-Lie-chart lift, and B(u,v)=Q_C(u,conjugate v). Put W_j=w₁∧⋯∧w_j, Δ_j=B(γW_j,γW_j), Δ₀=1. Each Δ_j is nonzero wherever γF is pure. B-Gram–Schmidt vectors w̃_j satisfy B(w̃_j,w̃_j)=Δ_j/Δ_{j−1}; the j-th Hodge-entry contribution is i^{2p_j−k} B(γW_{j−1}∧u,γW_j) B(γW_j,γW_{j−1}∧v)/(Δ_{j−1}Δ_j). Summing gives h_z(u,v). For γu replace u by γu inside these exterior expressions. In odd weight B is skew-Hermitian; i^k B is Hermitian. The unit phases cancel correctly, and no positivity of B itself is asserted.",
+      "hypotheses": [
+        "Polarization has weight parity Q(v,u)=(−1)^kQ(u,v).",
+        "The full flag refines the pure Hodge filtration after applying γ; nonvanishing uses its definite successive Hodge blocks."
+      ],
+      "proofSteps": [
+        "Use the flag’s sorted p indices to identify orthogonal Hodge blocks and show that their leading Gram minors cannot vanish.",
+        "Apply Gram determinant identities to the Hermitian form i^kB and then undo the phase.",
+        "Use h=i^{2p_j−k}B on each pure component and sum the orthogonal contributions.",
+        "The nilpotent exponential is polynomial and the holomorphic big-cell correction is restricted analytic on a buffer, so the displayed numerators and minors lie in the coefficient Laurent-polynomial algebra."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.7/hodge-adapted-flag",
+        "HodgeStructuresPartII:H.7/hodge-form-function",
+        "HodgeStructuresPartII:H.3",
+        "HodgeStructuresPartII:H.6",
+        "LogicAndDefinabilityInNumberTheory:LD.6"
+      ],
+      "sources": [
+        {
+          "sourceId": "BKT20",
+          "locator": "§4.4 equations (4.2)–(4.5), pp.931–932",
+          "excerpt": "B",
+          "match": "Notation Δ is introduced here for the source’s exterior B-values; phases and complex conjugation are retained."
+        }
+      ],
+      "acceptance": [
+        "For a single pure Tate line, Δ₁=Q(w,conjugate w) and the phase produces its positive Hodge norm.",
+        "An arbitrary full flag, unrelated to the Hodge filtration, can have an isotropic first vector; no nonvanishing theorem is given for it."
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Tame/PeriodMap",
+        "namespace": "TauCeti.Hodge.Tame"
+      },
+      "implementationStatus": "unchecked",
+      "suggestedDeclaration": "TauCeti.Hodge.Tame.gramDeterminant_formulas"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.7/flat-norm-rough-monomial",
+      "parentStageId": "HodgeStructuresPartII:H.7",
+      "realises": [
+        "HodgeStructuresPartII:H.7"
+      ],
+      "title": "Rough monomiality of flat multigraded Hodge norms",
+      "kind": "theorem",
+      "statement": "For every nonzero vector u in one summand of either the H.6 simultaneous complex splitting I or any compatible rational weight splitting J, its flat squared norm h_z(u,u) belongs to the LD.6 rough-monomial class on a sufficiently deep orderedSector(n,R,Y). For weight labels σ=(σ₁,…,σₙ) the comparison monomial is m_σ(y)=(y₁/y₂)^{σ₁}⋯(y_{n−1}/yₙ)^{σ_{n−1}}yₙ^{σₙ}. Constants and Y depend on the fixed data, R and u; the two-sided estimate is not asserted for u=0. The same assertion holds in every exterior power with its induced polarized Hodge structure.",
+      "hypotheses": [
+        "H.6 splitting-independent estimates for every compatible splitting, not just a chosen rational J.",
+        "LD.6 rough-monomial class means a rational coefficient-algebra function bounded above and below by positive multiples of a Laurent monomial."
+      ],
+      "proofSteps": [
+        "Invoke H.6’s Kashiwara estimates to get the two-sided comparison with m_σ, including for complex I and determinant vectors.",
+        "Use gram-determinant-formulas to express the flat diagonal in the fraction algebra.",
+        "Combine fraction-algebra membership with the imported estimates; this node supplies rough-function membership, not a second proof of Kashiwara’s theorem."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.7/gram-determinant-formulas",
+        "HodgeStructuresPartII:H.7/ordered-sector",
+        "HodgeStructuresPartII:H.6",
+        "LogicAndDefinabilityInNumberTheory:LD.6"
+      ],
+      "sources": [
+        {
+          "sourceId": "BKT20",
+          "locator": "§4.4 Lemma 4.7(1), Theorem 4.8, p.931",
+          "excerpt": "h(u)",
+          "match": "Separates fraction-algebra membership from the H.6 norm estimate."
+        },
+        {
+          "sourceId": "Ka85",
+          "locator": "Theorems 3.4.1–3.4.2, p.870; Lemma 2.4.1, pp.863–864",
+          "excerpt": "splitting",
+          "match": "The source estimates use compatible splittings and not a canonical rational-to-complex identification."
+        }
+      ],
+      "acceptance": [
+        "For a constant Tate line, all centered weight labels are zero and the diagonal is constant.",
+        "The zero diagonal is not roughly monomial."
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Tame/PeriodMap",
+        "namespace": "TauCeti.Hodge.Tame"
+      },
+      "implementationStatus": "unchecked",
+      "suggestedDeclaration": "TauCeti.Hodge.Tame.flatNorm_roughMonomial"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.7/moving-norm-rough-monomial",
+      "parentStageId": "HodgeStructuresPartII:H.7",
+      "realises": [
+        "HodgeStructuresPartII:H.7"
+      ],
+      "title": "Rough monomiality of moving Hodge norms",
+      "kind": "theorem",
+      "statement": "For nonzero homogeneous u in the simultaneous complex splitting and γ=exp(Σz_iN_i)exp(v(q)), h_z(γu,γu) is roughly monomial on a sufficiently deep ordered sector, including every exterior power. Its monomial is the one from the H.6 moving-section estimate for exp(Σz_iN_i)u. In particular h_z(γW_j,γW_j)=|Δ_j| is roughly monomial. This uses uniform near-identity comparison only after the least height is sufficiently large.",
+      "hypotheses": [
+        "H.6 splitting-independent moving estimates and horizontal correction comparison.",
+        "The negative-Lie-chart correction is defined and analytic on the closed q-buffer."
+      ],
+      "proofSteps": [
+        "Use H.6’s comparison between γu and exp(Σz_iN_i)u, with its depth and transverse-coordinate hypotheses.",
+        "Use gram-determinant-formulas to show fraction-algebra membership for the moving diagonal.",
+        "For determinant vectors the adapted flag identifies the absolute B determinant with the positive Hodge determinant."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.7/gram-determinant-formulas",
+        "HodgeStructuresPartII:H.7/flat-norm-rough-monomial",
+        "HodgeStructuresPartII:H.6",
+        "LogicAndDefinabilityInNumberTheory:LD.6"
+      ],
+      "sources": [
+        {
+          "sourceId": "BKT20",
+          "locator": "§4.4 Lemma 4.7(2), Lemma 4.10 and final paragraph, pp.931–932",
+          "excerpt": "h(γu)",
+          "match": "Keeps the deep-height hypothesis used by the exponential-decay comparison."
+        }
+      ],
+      "acceptance": [
+        "The estimate is stable under compatible changes of splitting because the H.6 supplier states that independence explicitly.",
+        "The set where yₙ is bounded while y₁ grows is not compact; it is handled by the positive-height theorem below."
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Tame/PeriodMap",
+        "namespace": "TauCeti.Hodge.Tame"
+      },
+      "implementationStatus": "unchecked",
+      "suggestedDeclaration": "TauCeti.Hodge.Tame.movingNorm_roughMonomial"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.7/hodge-entry-rough-polynomial",
+      "parentStageId": "HodgeStructuresPartII:H.7",
+      "realises": [
+        "HodgeStructuresPartII:H.7"
+      ],
+      "title": "Rough polynomiality of Hodge-form entries",
+      "kind": "theorem",
+      "statement": "For all fixed u,v in V_C the function z↦h_z(u,v) is roughly polynomial on a sufficiently deep ordered sector. Here roughly polynomial means g/d with g in the restricted-analytic coefficient Laurent-polynomial algebra and d in that algebra, nowhere zero and roughly monomial, using the repaired LD.6 localization convention. No nonzero hypothesis on u,v is needed. Finite sums, real/imaginary parts and conjugation are allowed by the imported algebra.",
+      "hypotheses": [
+        "Use the repaired denominator convention, not the overly broad printed fraction-field condition.",
+        "Apply all needed norm comparisons after a common finite maximum of their depth thresholds."
+      ],
+      "proofSteps": [
+        "For homogeneous vectors use the Gram formula; its numerator is a coefficient Laurent polynomial.",
+        "By moving-norm-rough-monomial, Δ_{j−1}Δ_j is a coefficient polynomial roughly monomial in absolute value.",
+        "Sum over the finite Gram contributions and then over the homogeneous decompositions of u,v using the LD.6 ring laws."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.7/gram-determinant-formulas",
+        "HodgeStructuresPartII:H.7/moving-norm-rough-monomial",
+        "LogicAndDefinabilityInNumberTheory:LD.6"
+      ],
+      "sources": [
+        {
+          "sourceId": "BKT20",
+          "locator": "§4.4 Proposition 4.6, Lemma 4.7(3) and proof, pp.930–932",
+          "excerpt": "h(u, v)",
+          "match": "The source proof actually yields polynomial denominators with monomial size; this stronger representation makes the claimed ring laws valid."
+        }
+      ],
+      "acceptance": [
+        "The zero entry belongs to the rough-polynomial ring.",
+        "In a constant Tate family the entry h(u,v)=u conjugate(v) is a constant coefficient."
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Tame/PeriodMap",
+        "namespace": "TauCeti.Hodge.Tame"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Rough polynomiality of Hodge forms"
+      },
+      "suggestedDeclaration": "TauCeti.Hodge.Tame.hodgeEntry_roughPolynomial"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.7/determinant-weight-bound",
+      "parentStageId": "HodgeStructuresPartII:H.7",
+      "realises": [
+        "HodgeStructuresPartII:H.7"
+      ],
+      "title": "The determinant bound for a weight-adapted rational basis",
+      "kind": "theorem",
+      "statement": "Choose any rational basis e_i homogeneous for the H.6 simultaneous weight splitting J of V_Q. For b_z, the real symmetric restriction of h_z, there are C>1 and Y such that ∏_i b_z(e_i,e_i)<C det(b_z in e) on orderedSector(n,R,Y). Each centered monodromy weight filtration has total weight zero, so the product of all comparison monomials is one. The determinant is a fixed positive multiple of |det Q in e| and is constant along the period domain. The basis need not be integral and no fixed ordering of its diagonal norms is asserted.",
+      "hypotheses": [
+        "Fixed finite rank polarized pure variation, rational splitting J and fixed ordered rational basis.",
+        "H.3 faithful derived representation has determinant one; pure Hodge numbers are fixed."
+      ],
+      "proofSteps": [
+        "Use flat-norm-rough-monomial for each of the finitely many basis vectors.",
+        "The centered weight multiset is symmetric by monodromy polarization, hence its total is zero at every partial filtration.",
+        "The Weil operator has fixed determinant on the component; thus det b is fixed and nonzero. Take C strictly larger than the product bound divided by this determinant."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.7/flat-norm-rough-monomial",
+        "HodgeStructuresPartII:H.7/hodge-form-function",
+        "HodgeStructuresPartII:H.3",
+        "HodgeStructuresPartII:H.6",
+        "AdelicAlgebraicGroups:AA.3/reduced-form"
+      ],
+      "sources": [
+        {
+          "sourceId": "BKT20",
+          "locator": "§4.5 paragraph following the Claim, p.933",
+          "excerpt": "centered",
+          "match": "The determinant condition is independent of diagonal ordering and survives rational, rather than integral, basis choices."
+        }
+      ],
+      "acceptance": [
+        "In rank two with weights +1 and −1, the diagonal comparison product is constant.",
+        "The same two diagonal entries can exchange order in more than one variable."
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Tame/PeriodMap",
+        "namespace": "TauCeti.Hodge.Tame"
+      },
+      "implementationStatus": "unchecked",
+      "suggestedDeclaration": "TauCeti.Hodge.Tame.determinantWeight_bound"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.7/curvewise-reducedness",
+      "parentStageId": "HodgeStructuresPartII:H.7",
+      "realises": [
+        "HodgeStructuresPartII:H.7"
+      ],
+      "title": "Reducedness along rational degeneration curves",
+      "kind": "theorem",
+      "statement": "On every source curve used in the corrected LD.6 curve lemma—positive rational slopes among any initial block of degeneration coordinates, real intercepts, and the other coordinates fixed—the real Hodge form satisfies |b_z(e_i,e_j)|≤C_τ b_z(e_i,e_i) for the fixed rational weight-adapted basis e. A finite reordering of e is permitted for full reducedness. The constant C_τ depends on the curve; there is no uniformity in all curves at this step.",
+      "hypotheses": [
+        "Schmid’s one-variable finite Siegel theorem is supplied by H.6, including finite algebraic covers clearing rational slopes.",
+        "The rational curve extends to a one-variable polarized variation after that cover."
+      ],
+      "proofSteps": [
+        "Apply the one-variable H.6 theorem to the pullback period map.",
+        "Use AA.3/orbit-map-siegel-image and reduction-siegel-dictionary to obtain reducedness in some rational basis e′ along each of finitely many Siegel pieces.",
+        "Transfer the off-diagonal estimates to e using determinant-weight-bound and AA.3/basis-change-reducedness. Sorting e changes only the order condition, not the off-diagonal inequalities."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.7/determinant-weight-bound",
+        "HodgeStructuresPartII:H.6",
+        "AdelicAlgebraicGroups:AA.3/orbit-map-siegel-image",
+        "AdelicAlgebraicGroups:AA.3/reduction-siegel-dictionary",
+        "AdelicAlgebraicGroups:AA.3/basis-change-reducedness",
+        "LogicAndDefinabilityInNumberTheory:LD.6"
+      ],
+      "sources": [
+        {
+          "sourceId": "BKT20",
+          "locator": "§4.5 final paragraph of the proof, p.933",
+          "excerpt": "Cτ",
+          "match": "This is the one-variable input to the curve lemma; constants may depend on τ."
+        }
+      ],
+      "acceptance": [
+        "A fixed one-dimensional nilpotent orbit gives one-variable Siegel containment directly.",
+        "Only rational positive slopes enter the curve lemma; arbitrary analytic curves are not being classified."
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Tame/PeriodMap",
+        "namespace": "TauCeti.Hodge.Tame"
+      },
+      "implementationStatus": "unchecked",
+      "suggestedDeclaration": "TauCeti.Hodge.Tame.curvewiseReducedness"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.7/uniform-reducedness",
+      "parentStageId": "HodgeStructuresPartII:H.7",
+      "realises": [
+        "HodgeStructuresPartII:H.7"
+      ],
+      "title": "Uniform reducedness with finitely many basis orderings",
+      "kind": "theorem",
+      "statement": "There are a rational weight-adapted basis e, Y>0 and C>1 such that on orderedSector(n,R,Y) every b_z is (σe,C)-reduced for at least one permutation σ of its m basis vectors. The off-diagonal inequalities and determinant-product bound hold uniformly in the original basis; σ orders its diagonal norms. Thus the image lies in the union of at most m! AA.3 reduced-form sets. There need not be a single fixed ordering valid everywhere.",
+      "hypotheses": [
+        "Use LD.6’s repaired curve lemma on every bounded real width, with constants allowed to depend on that width.",
+        "Use the repaired roughly-polynomial class from hodge-entry-rough-polynomial."
+      ],
+      "proofSteps": [
+        "Apply LD.6 curve transfer to each numerator b(e_i,e_j), using its roughly-polynomial representation, and denominator b(e_i,e_i), using flat-norm-rough-monomial.",
+        "The curvewise bounds supply each test-curve hypothesis. Take the maximum of the finitely many global constants and combine with determinant-weight-bound.",
+        "At each z sort the finitely many positive diagonal norms. Taking C>1 gives the strict reducedness inequalities even for ties."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.7/curvewise-reducedness",
+        "HodgeStructuresPartII:H.7/hodge-entry-rough-polynomial",
+        "HodgeStructuresPartII:H.7/flat-norm-rough-monomial",
+        "HodgeStructuresPartII:H.7/determinant-weight-bound",
+        "LogicAndDefinabilityInNumberTheory:LD.6",
+        "AdelicAlgebraicGroups:AA.3/reduced-form-set"
+      ],
+      "sources": [
+        {
+          "sourceId": "BKT20",
+          "locator": "§4.5 Claim and last paragraph, p.933",
+          "excerpt": "orderings",
+          "match": "Corrects the source’s fixed-ordering assertion while preserving the finite-union conclusion."
+        }
+      ],
+      "acceptance": [
+        "For diag(y₁/y₂²,y₂²/y₁) with y₁≥y₂≥1, either diagonal can be smaller; the two basis permutations suffice.",
+        "A varying permutation is allowed; the claim is a finite cover, not a continuous basis choice."
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Tame/PeriodMap",
+        "namespace": "TauCeti.Hodge.Tame"
+      },
+      "implementationStatus": "unchecked",
+      "suggestedDeclaration": "TauCeti.Hodge.Tame.uniformReducedness"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.7/deep-siegel-containment",
+      "parentStageId": "HodgeStructuresPartII:H.7",
+      "realises": [
+        "HodgeStructuresPartII:H.7"
+      ],
+      "title": "Finite Siegel containment on deep sectors",
+      "kind": "theorem",
+      "statement": "For the lifted period map Φ̃ into its general Mumford–Tate domain D=G/M, the image of orderedSector(n,R,Y) for some Y is contained in finitely many rational Siegel sets of D associated with its one fixed canonical maximal compact K_t⊃M. Use a faithful rational representation of the derived Hodge group (or a faithful central cover) on V; the adjoint quotient is not assumed to act on V. The metric map D→G/K_t→X sends Φ̃ to b_z.",
+      "hypotheses": [
+        "H.3 supplies faithful rational representation, compact metric stabilizer, Weil/Cartan compatibility, and quotient transport across a finite central cover.",
+        "All source and target Siegel conventions fix their compacts."
+      ],
+      "proofSteps": [
+        "Uniform-reducedness and AA.3/reduction-siegel-dictionary put b_z in finitely many Siegel sets of X.",
+        "Apply AA.3/orbit-map-siegel-preimage; its Cartan and forward-containment hypotheses are checked by H.3’s canonical Hodge metric.",
+        "Lift the resulting Siegel sets from G/K_t to G/M: the compact fibre K_t/M is already included in the Siegel compact factor. Transport finite central quotients using the H.3 supplier."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.7/uniform-reducedness",
+        "HodgeStructuresPartII:H.3",
+        "AdelicAlgebraicGroups:AA.3/reduction-siegel-dictionary",
+        "AdelicAlgebraicGroups:AA.3/orbit-map-siegel-preimage",
+        "AdelicAlgebraicGroups:AA.3/real-siegel-set"
+      ],
+      "sources": [
+        {
+          "sourceId": "BKT20",
+          "locator": "§4.5 first two paragraphs, pp.932–933",
+          "excerpt": "ι",
+          "match": "Uses the corrected inverse-image result, not the printed Borel–Harish-Chandra citation."
+        },
+        {
+          "sourceId": "BKT23",
+          "locator": "§1.5, p.3",
+          "excerpt": "[1, 28.1]",
+          "match": "The erratum identifies the rational inverse-Siegel supplier."
+        }
+      ],
+      "acceptance": [
+        "Every Siegel set in this conclusion uses the same K_t.",
+        "Replacing the faithful derived representation by an adjoint action on V would be an invalid step."
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Tame/PeriodMap",
+        "namespace": "TauCeti.Hodge.Tame"
+      },
+      "implementationStatus": "unchecked",
+      "suggestedDeclaration": "TauCeti.Hodge.Tame.deepSiegelContainment"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.7/positive-height-siegel-cover",
+      "parentStageId": "HodgeStructuresPartII:H.7",
+      "realises": [
+        "HodgeStructuresPartII:H.7"
+      ],
+      "title": "Finite Siegel containment at every positive height",
+      "kind": "theorem",
+      "statement": "For every R≥0 and η>0 whose closed q-buffer lies in the extension domain, Φ̃(boundedSector(n,R,η)) lies in finitely many Siegel sets of D for the same canonical K_t. The theorem includes mixed regions with some heights bounded and others arbitrarily large. A compactness argument on {yₙ≤Y} is invalid. The proof uses finitely many buffered normal-crossings charts on the compact closed q-polydisc and uniform estimates with the nondegenerating coordinates retained as compact parameters.",
+      "hypotheses": [
+        "H.6 nilpotent-orbit and norm theorems with compact analytic parameters in partly degenerating charts.",
+        "H.3 canonical symmetric-space projection and basepoint/compact-coordinate transport."
+      ],
+      "proofSteps": [
+        "Cover the compact closed q-buffer, including every incident partial boundary stratum, by finitely many smaller analytic charts with closed buffers inside larger charts.",
+        "At each chart make only its vanishing coordinates deep; retain all nonzero coordinates as compact parameters. Apply deep-siegel-containment uniformly in these parameters and use the finite coordinate orderings.",
+        "For local boundary equations differing by nonvanishing analytic units, choose bounded logarithms on the buffer; the new real widths remain finite. Bounded-width lift choices differ by finitely many integral monodromy translates.",
+        "Transport each local compact choice back through the same canonical metric projection; AA.3/real-siegel-translation handles the corresponding right-coordinate change and rational left monodromy translations. Union the finite families."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.7/deep-siegel-containment",
+        "HodgeStructuresPartII:H.7/bounded-sector",
+        "HodgeStructuresPartII:H.7/sector-uniformization",
+        "HodgeStructuresPartII:H.3",
+        "HodgeStructuresPartII:H.6",
+        "AdelicAlgebraicGroups:AA.3/real-siegel-translation"
+      ],
+      "sources": [
+        {
+          "sourceId": "BKT20",
+          "locator": "Theorem 1.5, p.921; §4.5, pp.932–933",
+          "excerpt": "η",
+          "match": "The positive-height statement needs this partial-boundary continuation in addition to the printed deep-sector proof."
+        }
+      ],
+      "acceptance": [
+        "The sequence (y₁,y₂)=(t,2) is covered by a one-boundary chart, not a compact region in the logarithmic coordinates.",
+        "A chart with no vanishing coordinates contributes a compact analytic image and finitely many Siegel pieces."
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Tame/PeriodMap",
+        "namespace": "TauCeti.Hodge.Tame"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Finite Siegel containment"
+      },
+      "suggestedDeclaration": "TauCeti.Hodge.Tame.positiveHeightSiegelCover"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.7/local-period-definability",
+      "parentStageId": "HodgeStructuresPartII:H.7",
+      "realises": [
+        "HodgeStructuresPartII:H.7"
+      ],
+      "title": "Definability on buffered normal-crossings charts",
+      "kind": "theorem",
+      "statement": "Let a polarized integral pure VHS be defined on a neighbourhood of the closure of a normal-crossings chart U=(Δ_ρ^*)^r×Δ_ρ^{d−r}, 0<ρ<1, with coordinate radii strictly smaller than that neighbourhood. Its period map into the arithmetic Hodge manifold with the canonical fixed-K definable structure is R_an,exp-definable on U. Quasi-unipotent monodromy is made unipotent by a finite coordinate power cover; trivial-monodromy interior coordinates are retained and angular seams are included.",
+      "hypotheses": [
+        "H.2 integral polarized VHS and H.6 quasi-unipotence.",
+        "The fixed-K arithmetic definable quotient supplier is missing from the current atlas and is recorded as gap G1.",
+        "The complex algebraic base charts use their canonical R_alg structure; analytic coordinate changes on compact buffers are R_an-definable."
+      ],
+      "proofSteps": [
+        "Take finite coordinate power covers to obtain unipotent monodromy, with buffered radii in the covering chart.",
+        "Use sector-lift-definable, positive-height-siegel-cover and the fixed-K quotient supplier: quotient restriction is definable on each of finitely many Siegel sets.",
+        "Choose half-open angular strips; the definable image of (q,πΦ̃) is exactly the local period graph. Finite union and graph-image calculus are supplied by LD.6.",
+        "Descend the graph through the finite definable coordinate cover. Mixed interior coordinates are handled directly as analytic parameters; treating an interior disc as punctured alone would omit its centre."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.7/sector-lift-definable",
+        "HodgeStructuresPartII:H.7/positive-height-siegel-cover",
+        "ShimuraData:D3/polarized-integral-variation",
+        "HodgeStructuresPartII:H.3",
+        "HodgeStructuresPartII:H.6",
+        "LogicAndDefinabilityInNumberTheory:LD.6",
+        "mathlib:Set.Definable"
+      ],
+      "sources": [
+        {
+          "sourceId": "BKT20",
+          "locator": "§4.1–4.2 Theorem 4.1, Lemma 4.2 and proof, pp.928–929",
+          "excerpt": "Φ",
+          "match": "This is the buffered form of the local statement, with the outer-boundary gap and angular seam repaired."
+        }
+      ],
+      "acceptance": [
+        "A constant Tate variation is definable on a full smaller disc including its centre.",
+        "The original open-polydisc statement without a buffer is not asserted."
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Tame/PeriodMap",
+        "namespace": "TauCeti.Hodge.Tame"
+      },
+      "implementationStatus": "unchecked",
+      "suggestedDeclaration": "TauCeti.Hodge.Tame.localPeriod_definable"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.7/global-period-definability",
+      "parentStageId": "HodgeStructuresPartII:H.7",
+      "realises": [
+        "HodgeStructuresPartII:H.7"
+      ],
+      "title": "Definability of the period map",
+      "kind": "theorem",
+      "statement": "Let S be a smooth connected quasi-projective complex algebraic variety and V a polarized integral variation of pure Hodge structure on S. Its period map to the connected arithmetic Hodge manifold Hod⁰(S,V), constructed from the generic Mumford–Tate datum and endowed with its canonical fixed-K R_alg/R_an structure, is R_an,exp-definable. It is not asserted R_an-definable, and the target need not be Hermitian symmetric or an algebraic variety.",
+      "hypotheses": [
+        "Torsion is removed from the integral local system; rational polarization may be scaled to an integral one.",
+        "Use a torsion-free arithmetic level after a finite cover; finite-quotient descent is part of the H.3 quotient contract."
+      ],
+      "proofSteps": [
+        "Import the smooth projective compactification with strict normal-crossings boundary from R09.7d.",
+        "Choose finitely many buffered analytic charts whose smaller members still cover the compactification; coordinate changes are restricted analytic.",
+        "Apply local-period-definability on each mixed chart.",
+        "Use LD.6 finite-atlas graph gluing and finite-cover descent to recover the original level and S."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.7/local-period-definability",
+        "ShimuraData:D3/polarized-integral-variation",
+        "HodgeStructuresPartII:H.3",
+        "LogicAndDefinabilityInNumberTheory:LD.6",
+        "AlgebraicModuliForArithmeticGeometry:R09.7d"
+      ],
+      "sources": [
+        {
+          "sourceId": "BKT20",
+          "locator": "Theorem 1.3, p.920; §4.1 complete reduction, p.928",
+          "excerpt": "ΦS",
+          "match": "Global definability follows from the finite buffered SNC cover, not from arbitrary analytic atlases."
+        }
+      ],
+      "acceptance": [
+        "The nodal elliptic degeneration requires exp in its cusp coordinate; the conclusion is R_an,exp.",
+        "The conclusion applies to non-Hermitian Mumford–Tate domains."
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Tame/PeriodMap",
+        "namespace": "TauCeti.Hodge.Tame"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Definability of period maps"
+      },
+      "suggestedDeclaration": "TauCeti.Hodge.Tame.globalPeriod_definable"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.7/special-hodge-image",
+      "parentStageId": "HodgeStructuresPartII:H.7",
+      "realises": [
+        "HodgeStructuresPartII:H.7"
+      ],
+      "title": "Special subvarieties of a Hodge manifold",
+      "kind": "definition",
+      "statement": "Given a rational morphism f of connected pure Hodge manifolds at compatible arithmetic levels, specialHodgeImage(f) is its set-theoretic image. The morphism and its holomorphic quotient carrier are imported from H.3. This definition includes the identity image; an exceptional Hodge-locus index subsequently restricts to proper Mumford–Tate subdata of the fixed generic datum. It does not call every analytic subvariety special and does not assert that the target is algebraic.",
+      "hypotheses": [
+        "Rational pure Hodge-data morphism, compatible levels and component choices as in H.3.",
+        "Use canonical compacts; Hodge compatibility implies the Cartan conditions of the erratum."
+      ],
+      "proofSteps": [
+        "Take the range of the supplied map.",
+        "Use H.3 to identify kernel/image factorizations and the image of the corresponding rational subdatum."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.3",
+        "ShimuraData:D1/mumford-tate-group"
+      ],
+      "sources": [
+        {
+          "sourceId": "BKT20",
+          "locator": "§5 first two paragraphs, pp.933–934",
+          "excerpt": "Y",
+          "match": "Defines the image, with analytic and definable properties proved in separate nodes."
+        },
+        {
+          "sourceId": "K17",
+          "locator": "§3.4 Definition 3.12, p.12",
+          "excerpt": "image",
+          "match": "Imports the Hodge morphism rather than constructing it again."
+        }
+      ],
+      "acceptance": [
+        "An identity morphism has the entire target as its special image, so properness is a separate restriction."
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Tame/PeriodMap",
+        "namespace": "TauCeti.Hodge.Tame"
+      },
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.Hodge.Tame.specialHodgeImage.mem_iff",
+          "role": "characterisation",
+          "statement": "A point belongs to the image exactly when it has a preimage under the Hodge morphism."
+        },
+        {
+          "name": "TauCeti.Hodge.Tame.specialHodgeImage.id",
+          "role": "simp",
+          "statement": "The identity morphism has the whole target as its image."
+        },
+        {
+          "name": "TauCeti.Hodge.Tame.specialHodgeImage.comp",
+          "role": "functoriality",
+          "statement": "The special image of g composed with f is g applied to the special image of f."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.Hodge.Tame.specialHodgeImage_test_identity",
+          "kind": "degenerate",
+          "statement": "The identity image is the whole Hodge manifold."
+        },
+        {
+          "name": "TauCeti.Hodge.Tame.specialHodgeImage_test_point",
+          "kind": "computation",
+          "statement": "The image of a point Hodge datum is the singleton containing its Hodge point."
+        },
+        {
+          "name": "TauCeti.Hodge.Tame.specialHodgeImage_test_empty",
+          "kind": "degenerate",
+          "statement": "A range whose underlying domain is empty is empty; the set operation does not manufacture a special point."
+        }
+      ],
+      "uses": [
+        {
+          "where": "BKT §5",
+          "how": "Each individual special image has an algebraic pullback."
+        },
+        {
+          "where": "Klingler §3.4; BKT Hodge-locus argument",
+          "how": "Proper rational subdata index the exceptional locus after the generic identity image is excluded."
+        }
+      ],
+      "suggestedDeclaration": "TauCeti.Hodge.Tame.specialHodgeImage"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.7/special-image-definable",
+      "parentStageId": "HodgeStructuresPartII:H.7",
+      "realises": [
+        "HodgeStructuresPartII:H.7"
+      ],
+      "title": "Definability of special Hodge images",
+      "kind": "theorem",
+      "statement": "Every specialHodgeImage(f) is R_alg-definable in the canonical R_alg structures of the pure Hodge manifolds, hence R_an,exp-definable. Hodge compatibility of f makes its induced Lie-algebra map a Hodge map, so it carries the canonical compact into the conjugated target compact and the target Weil/Cartan involution preserves its image. The analogous statement for an arbitrary rational quotient map without Cartan compatibility is false.",
+      "hypotheses": [
+        "H.3 rational pure Hodge morphism and its induced adjoint Hodge map.",
+        "Fixed-K arithmetic-quotient definability and corrected functoriality: gap G1."
+      ],
+      "proofSteps": [
+        "Invoke H.3’s canonical compact/Cartan compatibility for the Hodge morphism.",
+        "Apply the generic fixed-K functoriality supplier, exactly as BKT23 Corollary 1.3 does.",
+        "Take the definable image using LD.6 projection calculus."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.7/special-hodge-image",
+        "HodgeStructuresPartII:H.3",
+        "LogicAndDefinabilityInNumberTheory:LD.6",
+        "AdelicAlgebraicGroups:AA.3/orr-schnell-containment"
+      ],
+      "sources": [
+        {
+          "sourceId": "BKT23",
+          "locator": "§1.4 Corollary 1.3 and proof, p.3",
+          "excerpt": "Corollary 1.3",
+          "match": "Replaces the nonexistent Theorem 1.1(3) cited in the original §5."
+        }
+      ],
+      "acceptance": [
+        "The identity special image is definable.",
+        "The erratum’s Cartan-incompatible arithmetic maps are excluded."
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Tame/PeriodMap",
+        "namespace": "TauCeti.Hodge.Tame"
+      },
+      "implementationStatus": "unchecked",
+      "suggestedDeclaration": "TauCeti.Hodge.Tame.specialImage_definable"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.7/special-image-closed-analytic",
+      "parentStageId": "HodgeStructuresPartII:H.7",
+      "realises": [
+        "HodgeStructuresPartII:H.7"
+      ],
+      "title": "Closed analyticity of special Hodge images",
+      "kind": "theorem",
+      "statement": "For a rational Hodge morphism f at compatible arithmetic levels, specialHodgeImage(f) is a closed complex analytic subset of the target. Factor out its group kernel first: the original source map need not be proper when its kernel is noncompact. On the image datum, use a compatible finite-index arithmetic level and the proper arithmetic immersion of the rational reductive subdomain, then the proper holomorphic image theorem. Closedness and analyticity are independent of definability and must not be inferred from it alone.",
+      "hypotheses": [
+        "H.3 kernel/image Hodge-data factorization and holomorphic quotient maps.",
+        "AA.3 proper arithmetic subdomain immersion supplier requested below.",
+        "ComplexComparisonPartII:C4 proper analytic image extension requested below."
+      ],
+      "proofSteps": [
+        "Factor the rational group morphism through its represented reductive image, preserving connected domain and level data.",
+        "The image-domain stabilizer is the intersection with the ambient compact stabilizer. Use the requested proper arithmetic immersion theorem at the intersection level; a finite-index source level changes it by a finite cover.",
+        "Use proper holomorphic image to obtain a closed analytic subset; this is the unstated input behind the last paragraph of BKT §5."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.7/special-hodge-image",
+        "HodgeStructuresPartII:H.3",
+        "AdelicAlgebraicGroups:AA.3",
+        "ComplexComparisonPartII:C4"
+      ],
+      "sources": [
+        {
+          "sourceId": "BKT20",
+          "locator": "§5 final paragraph, p.934",
+          "excerpt": "analytic",
+          "match": "The paper assumes this input; its proof is an explicit supplier gap rather than a claim obtained from definability."
+        },
+        {
+          "sourceId": "PS09",
+          "locator": "§6.1 Theorem 6.1 and remarks, draft p.16",
+          "excerpt": "closed",
+          "match": "A stronger alternative image theorem also needs closedness and tame local geometry."
+        }
+      ],
+      "acceptance": [
+        "A positive-dimensional noncompact group kernel must be removed before claiming properness.",
+        "Closedness in the noncompact arithmetic target is required, not only analyticity in local domain charts."
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Tame/PeriodMap",
+        "namespace": "TauCeti.Hodge.Tame"
+      },
+      "implementationStatus": "unchecked",
+      "suggestedDeclaration": "TauCeti.Hodge.Tame.specialImage_closedAnalytic"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.7/tensor-hodge-locus",
+      "parentStageId": "HodgeStructuresPartII:H.7",
+      "realises": [
+        "HodgeStructuresPartII:H.7"
+      ],
+      "title": "The type-(0,0) locus of one rational flat tensor",
+      "kind": "definition",
+      "statement": "On a simply connected flat trivialization U of a tensor construction T_Q of the variation, with embedding r:T_Q→T_C, define tensorHodgeLocus(t)={u : r(t) has type (0,0) at u}. For pure weight n, its type-(0,0) subspace is hs_u.piece(0) when n=0 and the zero subspace when n≠0. Tensor constructions here are finite sums of V^{⊗a}⊗(V^∨)^{⊗b}, with an explicitly recorded Tate twist when a (p,p) class is to be tested: T(p) shifts it to type (0,0). This is not a test for untwisted (p,p) invariance under the full Mumford–Tate group.",
+      "hypotheses": [
+        "Finite tensor construction with native fibrewise tensor/dual/Tate operations supplied by H.2/H.3; rational flat vector in a trivialization.",
+        "Real rational vectors are fixed by the lattice conjugation."
+      ],
+      "proofSteps": [
+        "Use the native HodgeStructureOn.piece and the weight guard to form the relevant type-zero subspace.",
+        "Take the inverse image under the rational embedding of that subspace, pointwise on U.",
+        "Tate shifts use the native convention Z(m) of weight −2m; no new Tate structure is defined."
+      ],
+      "prerequisites": [
+        "tauceti:TauCeti.Hodge.HodgeStructureOn.piece",
+        "tauceti:TauCeti.Hodge.tate_piece",
+        "HodgeStructuresPartII:H.3",
+        "ShimuraData:D3/polarized-integral-variation"
+      ],
+      "sources": [
+        {
+          "sourceId": "BKT20",
+          "locator": "§1.4 definition of Hodge locus, pp.921–922",
+          "excerpt": "(0, 0)",
+          "match": "Uses exceptional type-zero tensors, with the native Tate convention pinned."
+        },
+        {
+          "sourceId": "K17",
+          "locator": "§2.4 tensor characterization and Lemma 2.5(a), p.8",
+          "excerpt": "T m,n",
+          "match": "The rational full-torus invariant convention, rather than the restricted norm-one torus."
+        }
+      ],
+      "acceptance": [
+        "The zero tensor is type (0,0) everywhere but is never exceptional.",
+        "The nonzero generator of constant Z(−1) is untwisted type (1,1), hence has empty type-zero locus; after twist (1) it is type zero everywhere."
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Tame/PeriodMap",
+        "namespace": "TauCeti.Hodge.Tame"
+      },
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.Hodge.Tame.tensorHodgeLocus.mem_iff",
+          "role": "characterisation",
+          "statement": "Membership is membership of r(t) in the weight-guarded native piece-zero submodule."
+        },
+        {
+          "name": "TauCeti.Hodge.Tame.tensorHodgeLocus.zero",
+          "role": "simp",
+          "statement": "The zero tensor has the whole base as its locus."
+        },
+        {
+          "name": "TauCeti.Hodge.Tame.tensorHodgeLocus.constant",
+          "role": "compatibility",
+          "statement": "For a constant pure structure the locus is the whole base or empty according to its native type-zero membership."
+        },
+        {
+          "name": "TauCeti.Hodge.Tame.tensorHodgeLocus.pullback",
+          "role": "functoriality",
+          "statement": "Replacing hs_u by hs_{g(u)} pulls the locus back along g."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.Hodge.Tame.tensorHodgeLocus_test_tate_zero",
+          "kind": "computation",
+          "statement": "The rational generator of the constant weight-zero Tate line has the whole base as its locus."
+        },
+        {
+          "name": "TauCeti.Hodge.Tame.tensorHodgeLocus_test_zero",
+          "kind": "degenerate",
+          "statement": "For every pure weight, the zero tensor has the whole base as its locus."
+        },
+        {
+          "name": "TauCeti.Hodge.Tame.tensorHodgeLocus_test_untwisted_tate",
+          "kind": "non-example",
+          "statement": "The rational generator of constant Z(−1), weight two, has empty untwisted type-zero locus; it is not a generic-Mumford–Tate invariant."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Klingler Lemma 2.5 and §2.6",
+          "how": "Detects rational tensors gained when the Mumford–Tate group drops."
+        },
+        {
+          "where": "HodgeStructuresPartII:H.7/exceptional-hodge-locus",
+          "how": "Provides each summand of the exceptional tensor union."
+        }
+      ],
+      "suggestedDeclaration": "TauCeti.Hodge.Tame.tensorHodgeLocus"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.7/exceptional-hodge-locus",
+      "parentStageId": "HodgeStructuresPartII:H.7",
+      "realises": [
+        "HodgeStructuresPartII:H.7"
+      ],
+      "title": "The exceptional Hodge locus",
+      "kind": "definition",
+      "statement": "Fix the generic Mumford–Tate datum of V and a universal-cover flat trivialization π:U→S. Index all rational vectors t in all permitted finite tensor constructions (including explicitly specified Tate twists). Let G be the set of these tensors that are type (0,0) for the generic datum. Define exceptionalHodgeLocus(V)=π({u : some t∉G belongs to tensorHodgeLocus(t) at u}). Monodromy acts on both the tensor index and G, so this set is independent of lift/trivialization. Generic tensors, including zero, are excluded. The index is countable, but neither the union nor its image is asserted definable.",
+      "hypotheses": [
+        "H.3 generic Mumford–Tate group, tensor-invariant characterization and monodromy-stable generic tensor subspaces.",
+        "Smooth connected base, supplied universal cover and flat trivialization."
+      ],
+      "proofSteps": [
+        "For each tensor construction take all rational vectors outside its generic invariant subspace.",
+        "Take the union of the corresponding tensor loci on the cover and its image under π.",
+        "Transport tensors under monodromy to prove saturation and independence of the chosen lift; generic invariants are stable."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.7/tensor-hodge-locus",
+        "HodgeStructuresPartII:H.3",
+        "ShimuraData:D1/mumford-tate-group"
+      ],
+      "sources": [
+        {
+          "sourceId": "BKT20",
+          "locator": "§1.4 definition of HL(S,V), pp.921–922",
+          "excerpt": "generic",
+          "match": "Excludes generically Hodge tensors."
+        },
+        {
+          "sourceId": "K17",
+          "locator": "§2.6 first paragraph, p.9",
+          "excerpt": "proper",
+          "match": "The intended exceptional locus records strict drops from the generic group."
+        }
+      ],
+      "acceptance": [
+        "A constant Tate variation has empty exceptional locus even though it has many ordinary Hodge classes after twists.",
+        "A constant CM weight-one variation has empty exceptional locus in its own generic datum; embedding it in a larger ambient domain does not change this definition."
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Tame/PeriodMap",
+        "namespace": "TauCeti.Hodge.Tame"
+      },
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.Hodge.Tame.exceptionalHodgeLocus.mem_iff",
+          "role": "characterisation",
+          "statement": "s is in the locus exactly when it has a lift u and a nongeneric rational tensor that is type zero at u."
+        },
+        {
+          "name": "TauCeti.Hodge.Tame.exceptionalHodgeLocus.generic_all",
+          "role": "simp",
+          "statement": "If every indexed tensor is generic, the exceptional locus is empty."
+        },
+        {
+          "name": "TauCeti.Hodge.Tame.exceptionalHodgeLocus.preimage_eq",
+          "role": "compatibility",
+          "statement": "When the nongeneric-tensor union is monodromy-saturated, its pullback under the covering projection is exactly that union."
+        },
+        {
+          "name": "TauCeti.Hodge.Tame.exceptionalHodgeLocus.empty_of_generic",
+          "role": "characterisation",
+          "statement": "If every tensor with a nonempty type-zero locus is generic, the exceptional locus is empty."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.Hodge.Tame.exceptionalHodgeLocus_test_generic",
+          "kind": "degenerate",
+          "statement": "If G is the full tensor index, the locus is empty even if every tensor locus is the entire base."
+        },
+        {
+          "name": "TauCeti.Hodge.Tame.exceptionalHodgeLocus_test_constant",
+          "kind": "non-example",
+          "statement": "If all tensors that occur as Hodge tensors anywhere are generic, the exceptional locus is empty; this includes constant Tate and CM variations."
+        },
+        {
+          "name": "TauCeti.Hodge.Tame.exceptionalHodgeLocus_test_single_gain",
+          "kind": "computation",
+          "statement": "On a two-point trivial cover, one nongeneric tensor with locus {0} and all other tensors generic gives exceptional locus exactly {0}, not the entire base."
+        }
+      ],
+      "uses": [
+        {
+          "where": "BKT Theorem 1.6 and §5",
+          "how": "This is the exceptional union whose algebraicity is proved component by component."
+        },
+        {
+          "where": "HodgeStructuresPartII:H.8",
+          "how": "Distinguishes ordinary (p,p) classes used by Noether–Lefschetz interfaces from exceptional type-zero tensors."
+        }
+      ],
+      "planet": {
+        "name": "Hodge locus"
+      },
+      "suggestedDeclaration": "TauCeti.Hodge.Tame.exceptionalHodgeLocus"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.7/local-tensor-locus-analytic",
+      "parentStageId": "HodgeStructuresPartII:H.7",
+      "realises": [
+        "HodgeStructuresPartII:H.7"
+      ],
+      "title": "Analyticity of a fixed rational tensor locus",
+      "kind": "theorem",
+      "statement": "On a simply connected complex chart with flat rational t, tensorHodgeLocus(t) is closed complex analytic. In weight zero, reality of t makes type-(0,0) equivalent to t∈F^0; it is the zero locus of the holomorphic section of the quotient bundle T_C/F^0. In nonzero weight the locus is the whole chart for t=0 and empty for t≠0. This local assertion does not by itself prove closedness of arbitrary projected monodromy orbits on S.",
+      "hypotheses": [
+        "H.3/H.2 holomorphic subbundle filtration and flat tensor section.",
+        "ComplexComparisonPartII:C0 analytic ideal/subspace and zero-locus calculus."
+      ],
+      "proofSteps": [
+        "Use native opposedness and rational conjugation to identify the real weight-zero intersection with F^0.",
+        "Pass to the holomorphic quotient bundle and its section; finite local holomorphic equations cut out the zero set.",
+        "For other weights apply the weight-zero guard and injectivity of rational complexification."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.7/tensor-hodge-locus",
+        "HodgeStructuresPartII:H.3",
+        "ComplexComparisonPartII:C0"
+      ],
+      "sources": [
+        {
+          "sourceId": "BKT20",
+          "locator": "§1.4 analytic locus sentence, p.921",
+          "excerpt": "analytic",
+          "match": "This local proof supplies the fixed-tensor assertion without presupposing algebraicity."
+        },
+        {
+          "sourceId": "K17",
+          "locator": "§2.4 Hodge classes; §2.6, pp.8–9",
+          "excerpt": "F 0",
+          "match": "For a real pure weight-zero tensor, membership in F⁰ implies membership in its conjugate."
+        }
+      ],
+      "acceptance": [
+        "A flat nonzero Tate weight-two tensor has the empty type-zero locus.",
+        "One cannot infer the global exceptional union is closed analytic from this local statement."
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Tame/PeriodMap",
+        "namespace": "TauCeti.Hodge.Tame"
+      },
+      "implementationStatus": "unchecked",
+      "suggestedDeclaration": "TauCeti.Hodge.Tame.localTensorLocus_analytic"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.7/exceptional-special-preimage",
+      "parentStageId": "HodgeStructuresPartII:H.7",
+      "realises": [
+        "HodgeStructuresPartII:H.7"
+      ],
+      "title": "Hodge locus as strict special pullbacks",
+      "kind": "theorem",
+      "statement": "With the generic datum fixed as in exceptional-hodge-locus, HL(S,V) is the union of Φ_S^{-1}(Y) over strict rational Mumford–Tate special images Y in that connected Hodge manifold. These are the images of subdata enforcing at least one nongeneric type-(0,0) rational tensor; the generic identity image is excluded. The equality is independent of monodromy lift and finite-level cover. No assertion is made about the exceptional locus of an arbitrary larger ambient period domain.",
+      "hypotheses": [
+        "H.3 tensor/subdatum correspondence for pure polarizable rational structures, represented full-torus conventions and generic datum.",
+        "Compatible arithmetic image/level factorization of Hodge subdata."
+      ],
+      "proofSteps": [
+        "A nongeneric rational tensor at a point gives its rational stabilizer subgroup and the connected Mumford–Tate subdatum containing that point. The H.3 tensor/subdatum supplier produces a strict special image.",
+        "Conversely a point in such an image has a proper Mumford–Tate subgroup of the generic group; the tensor-invariant characterization supplies an extra rational type-zero tensor.",
+        "Use monodromy saturation and finite-level transport to identify their unions on S."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.7/exceptional-hodge-locus",
+        "HodgeStructuresPartII:H.7/special-hodge-image",
+        "HodgeStructuresPartII:H.3"
+      ],
+      "sources": [
+        {
+          "sourceId": "BKT20",
+          "locator": "§5 second paragraph, p.934",
+          "excerpt": "Φ−1",
+          "match": "Uses the corrected strict-special interpretation of the source’s preimage formula."
+        },
+        {
+          "sourceId": "K17",
+          "locator": "Lemma 2.5(a), §2.6 and Definition 3.13, pp.8–9,13",
+          "excerpt": "HL",
+          "match": "The printed Definition 3.13 must exclude the identity when used for the exceptional locus."
+        }
+      ],
+      "acceptance": [
+        "For a constant CM variation the generic domain is a point and has no strict exceptional subdatum.",
+        "Including the identity image would make the union all of S and is therefore excluded."
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Tame/PeriodMap",
+        "namespace": "TauCeti.Hodge.Tame"
+      },
+      "implementationStatus": "unchecked",
+      "suggestedDeclaration": "TauCeti.Hodge.Tame.exceptionalSpecial_preimage"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.7/rational-special-countability",
+      "parentStageId": "HodgeStructuresPartII:H.7",
+      "realises": [
+        "HodgeStructuresPartII:H.7"
+      ],
+      "title": "Countability of the relevant rational special images",
+      "kind": "theorem",
+      "statement": "The strict rational special images of a fixed pure generic datum needed in exceptional-special-preimage have a countable indexing set. Rational tensor constructions have countably many rational vectors; each stabilizer/subdatum construction has finitely or countably many connected component and arithmetic-level choices. Taking the finite irreducible-component lists of the resulting algebraic pullbacks retains countability. This is set-theoretic countability, not a definable parameter family.",
+      "hypotheses": [
+        "Finite dimensional rational spaces; countably many tensor constructions and Tate indices.",
+        "H.3 tensor-to-rational-subdatum correspondence and countably many connected-component/level choices. Finite algebraic components use the native Noetherian theorem."
+      ],
+      "proofSteps": [
+        "Use a finite rational basis to identify each rational tensor space with Q^m.",
+        "Take a countable union over tensor arities, twists and finite lists of rational tensors; rational algebraic subgroups also have finite rational polynomial presentations.",
+        "Use the H.3 connected-component/level contract and Noetherian finite-component theorem for each eventual algebraic pullback."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.7/exceptional-special-preimage",
+        "HodgeStructuresPartII:H.3",
+        "mathlib:TopologicalSpace.NoetherianSpace.finite_irreducibleComponents",
+        "mathlib:AlgebraicGeometry.finite_irreducibleComponents_of_isNoetherian"
+      ],
+      "sources": [
+        {
+          "sourceId": "BKT20",
+          "locator": "§5 second paragraph, p.934",
+          "excerpt": "countable",
+          "match": "The countable union is not a finite definable union."
+        }
+      ],
+      "acceptance": [
+        "A countable union of singletons in an elliptic/modular family can be infinite; o-minimality forbids treating its index as a definable discrete set."
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Tame/PeriodMap",
+        "namespace": "TauCeti.Hodge.Tame"
+      },
+      "implementationStatus": "unchecked",
+      "suggestedDeclaration": "TauCeti.Hodge.Tame.rationalSpecial_countability"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.7/special-pullback-algebraic",
+      "parentStageId": "HodgeStructuresPartII:H.7",
+      "realises": [
+        "HodgeStructuresPartII:H.7"
+      ],
+      "title": "Algebraicity of each special pullback",
+      "kind": "theorem",
+      "statement": "For S smooth quasi-projective complex algebraic, V polarized integral pure and Y any specialHodgeImage in its canonical arithmetic Hodge target, W=Φ_S^{-1}(Y) is a closed algebraic subset of S. It has finitely many irreducible algebraic components. If Y is strict relative to the generic datum and meets the period image, W is a proper subset. Algebraicity here concerns the reduced closed subset, not automatic algebraization of an analytic ideal with nilpotents.",
+      "hypotheses": [
+        "Global-period-definability and the two independent properties of Y: closed analytic and definable.",
+        "LD.6 definable analytic Chow for a closed complex analytic subset of a smooth algebraic variety in an o-minimal expansion of R_an.",
+        "Finite-type algebraic Noetherian/irreducible-component supplier."
+      ],
+      "proofSteps": [
+        "Use the definable period graph and definable Y to take its definable inverse image.",
+        "Use holomorphy and closed analyticity of Y for the analytic inverse image.",
+        "Apply the LD.6 Peterzil–Starchenko theorem in the canonical algebraic definable atlas of S; take the reduced algebraic subset.",
+        "Use Noetherian finite irreducible decomposition. Genericity excludes W=S for strict subdata."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.7/global-period-definability",
+        "HodgeStructuresPartII:H.7/special-image-definable",
+        "HodgeStructuresPartII:H.7/special-image-closed-analytic",
+        "LogicAndDefinabilityInNumberTheory:LD.6",
+        "ComplexComparisonPartII:C0",
+        "HodgeStructuresPartII:H.3",
+        "mathlib:TopologicalSpace.NoetherianSpace.finite_irreducibleComponents",
+        "mathlib:AlgebraicGeometry.finite_irreducibleComponents_of_isNoetherian"
+      ],
+      "sources": [
+        {
+          "sourceId": "BKT20",
+          "locator": "§5 final paragraph, p.934; §4.6 Theorem 4.13, p.933",
+          "excerpt": "W",
+          "match": "The proof uses analytic and definable inputs separately."
+        },
+        {
+          "sourceId": "PS09",
+          "locator": "Theorem 4.4 and Corollary 4.5, draft p.12",
+          "excerpt": "algebraic",
+          "match": "The generic o-minimal Chow theorem is imported from LD.6."
+        }
+      ],
+      "acceptance": [
+        "Y equal to the whole target gives W=S, which is algebraic; properness requires a strict datum.",
+        "A merely definable real arc in S is not complex analytic and does not meet the theorem’s hypotheses."
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Tame/PeriodMap",
+        "namespace": "TauCeti.Hodge.Tame"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Algebraicity of special pullbacks"
+      },
+      "suggestedDeclaration": "TauCeti.Hodge.Tame.specialPullback_algebraic"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.7/hodge-locus-algebraicity",
+      "parentStageId": "HodgeStructuresPartII:H.7",
+      "realises": [
+        "HodgeStructuresPartII:H.7"
+      ],
+      "title": "Algebraicity of Hodge loci",
+      "kind": "theorem",
+      "statement": "For a polarized integral variation of pure Hodge structure on a smooth connected quasi-projective complex variety S, its exceptional Hodge locus is a countable union of proper closed irreducible algebraic subvarieties of S. Enumerate the strict rational special images, take their algebraic pullbacks, and then their finite irreducible decompositions. The entire countable union need not be closed, algebraic or definable. No mixed/admissible or real Noether–Lefschetz theorem is claimed here.",
+      "hypotheses": [
+        "All hypotheses of global-period-definability; the generic datum used by exceptional-hodge-locus."
+      ],
+      "proofSteps": [
+        "Identify the exceptional set by exceptional-special-preimage.",
+        "Apply special-pullback-algebraic individually, without taking an infinite definable union.",
+        "Use rational-special-countability and each pullback’s finite irreducible decomposition to enumerate the closed irreducible algebraic subvarieties."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.7/exceptional-special-preimage",
+        "HodgeStructuresPartII:H.7/rational-special-countability",
+        "HodgeStructuresPartII:H.7/special-pullback-algebraic"
+      ],
+      "sources": [
+        {
+          "sourceId": "BKT20",
+          "locator": "Theorem 1.6, p.922; §5 complete proof, pp.933–934",
+          "excerpt": "HL",
+          "match": "This is the BKT proof of the pure Hodge-locus theorem with corrected generic and definability conventions."
+        }
+      ],
+      "acceptance": [
+        "Constant Tate and constant CM variations have empty exceptional locus in their own generic datum.",
+        "Infinitely many CM points in a nonconstant elliptic variation illustrate why the final union is not asserted definable."
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Tame/PeriodMap",
+        "namespace": "TauCeti.Hodge.Tame"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Algebraicity of Hodge loci"
+      },
+      "suggestedDeclaration": "TauCeti.Hodge.Tame.hodgeLocus_algebraicity"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.7/compact-target-period-definability",
+      "parentStageId": "HodgeStructuresPartII:H.7",
+      "realises": [
+        "HodgeStructuresPartII:H.7"
+      ],
+      "title": "Restricted-analytic definability for compact Hodge targets",
+      "kind": "theorem",
+      "statement": "Under the hypotheses of global-period-definability, if the arithmetic Hodge target is compact, the period map is R_an-definable. After a compatible neat congruence level, local monodromy is unipotent by H.6 quasi-unipotence and contains no nontrivial unipotent by the cocompact arithmetic theorem. Hence local monodromy is trivial and the period map extends holomorphically across a smooth SNC compactification. Compact analytic chart graphs are restricted analytic; finite atlas gluing and level descent prove the claim.",
+      "hypotheses": [
+        "Smooth quasi-projective base and polarized integral pure VHS as in the global theorem.",
+        "Compact target, canonical compact stabilizer, and compatible neat congruence-level cover.",
+        "H.6 finite-monodromy extension into the period domain, not merely into the compact dual."
+      ],
+      "proofSteps": [
+        "Compactness of Γ\\G/M with M compact implies compactness of Γ\\G. Apply AA.3/cocompact-no-unipotents at the compatible congruence level.",
+        "Quasi-unipotence and torsion-freeness then give trivial boundary monodromy. Apply the finite-monodromy extension case of H.6.",
+        "Cover the compactification and compact target by finitely many buffered analytic charts, compare with the canonical atlases, and descend from the finite level using LD.6."
+      ],
+      "prerequisites": [
+        "ShimuraData:D3/polarized-integral-variation",
+        "HodgeStructuresPartII:H.3",
+        "HodgeStructuresPartII:H.6",
+        "AdelicAlgebraicGroups:AA.3/cocompact-no-unipotents",
+        "LogicAndDefinabilityInNumberTheory:LD.6",
+        "AlgebraicModuliForArithmeticGeometry:R09.7d"
+      ],
+      "sources": [
+        {
+          "sourceId": "BKT20",
+          "locator": "Remarks 1.4(1), p.921",
+          "excerpt": "compact",
+          "match": "The stronger R_an special case; its extension input remains an H.6 request."
+        }
+      ],
+      "acceptance": [
+        "This statement uses R_an, not merely the expansion R_an,exp.",
+        "A compact target does not allow arbitrary holomorphic maps with essential boundary singularities; the VHS monodromy and extension hypotheses remain essential."
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Tame/PeriodMap",
+        "namespace": "TauCeti.Hodge.Tame"
+      },
+      "implementationStatus": "unchecked",
+      "suggestedDeclaration": "TauCeti.Hodge.Tame.compactTargetPeriod_definable"
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "HodgeStructuresPartII:H.3",
+      "need": "Compact dual and connected Mumford–Tate orbit models with finite algebraic charts and holomorphic period maps for the existing ShimuraData:D3/polarized-integral-variation carrier. Supply real algebraic D⊂D-check, rational local trivializations, tensor/dual/Tate functor transport and local holomorphic quotient-bundle equations. Preserve all connected component choices; no full-isometry-domain identification for a proper Mumford–Tate group.",
+      "neededBy": [
+        "HodgeStructuresPartII:H.7/sector-lift-definable",
+        "HodgeStructuresPartII:H.7/hodge-form-function",
+        "HodgeStructuresPartII:H.7/gram-determinant-formulas",
+        "HodgeStructuresPartII:H.7/local-period-definability",
+        "HodgeStructuresPartII:H.7/global-period-definability",
+        "HodgeStructuresPartII:H.7/tensor-hodge-locus",
+        "HodgeStructuresPartII:H.7/local-tensor-locus-analytic",
+        "HodgeStructuresPartII:H.7/compact-target-period-definability"
+      ]
+    },
+    {
+      "supplier": "HodgeStructuresPartII:H.3",
+      "need": "Faithful rational derived-group (or faithful finite central-cover) realization inside SL(V_Q), with the Hodge metric map D=G/M→G/K_t→X, M⊂K_t and target Cartan involution preserving the represented Lie algebra. Supply compact-fibre Siegel lifting, finite central/level quotient transport and basepoint changes transporting compacts through the same canonical symmetric-space projection. Do not let the adjoint quotient act on V without this adapter.",
+      "neededBy": [
+        "HodgeStructuresPartII:H.7/determinant-weight-bound",
+        "HodgeStructuresPartII:H.7/deep-siegel-containment",
+        "HodgeStructuresPartII:H.7/positive-height-siegel-cover",
+        "HodgeStructuresPartII:H.7/global-period-definability",
+        "HodgeStructuresPartII:H.7/compact-target-period-definability"
+      ]
+    },
+    {
+      "supplier": "HodgeStructuresPartII:H.3",
+      "need": "Pure rational Hodge-data morphisms and their holomorphic arithmetic quotient maps; image/kernel factorization including compatible arithmetic image and finite-index intersection levels. Prove induced Lie maps preserve Hodge structures and hence canonical Weil/Cartan involutions. Export special subdatum stabilizer M_H=H(R)∩M. This requests Hodge specialization only; the generic fixed-K definable quotient remains gap G1 with its routed owner.",
+      "neededBy": [
+        "HodgeStructuresPartII:H.7/special-hodge-image",
+        "HodgeStructuresPartII:H.7/special-image-definable",
+        "HodgeStructuresPartII:H.7/special-image-closed-analytic"
+      ]
+    },
+    {
+      "supplier": "HodgeStructuresPartII:H.3",
+      "need": "Generic Mumford–Tate datum and strict-drop tensor/subdatum correspondence for pure polarizable rational variations, using the full Deligne torus. Generic type-(0,0) tensor subspaces are monodromy-stable; local tensor loci saturate after ranging over all rational tensors. Every strict drop admits a nongeneric rational tensor and a strict rational Hodge subdatum; converse holds. Export countability of the choices and independence from finite level and trivialization, without using the H.7 algebraicity theorem to prove these inputs.",
+      "neededBy": [
+        "HodgeStructuresPartII:H.7/exceptional-hodge-locus",
+        "HodgeStructuresPartII:H.7/exceptional-special-preimage",
+        "HodgeStructuresPartII:H.7/rational-special-countability",
+        "HodgeStructuresPartII:H.7/special-pullback-algebraic"
+      ]
+    },
+    {
+      "supplier": "HodgeStructuresPartII:H.6",
+      "need": "Quasi-unipotent monodromy, finite coordinate power-cover normalization, commuting rational nilpotent logarithms N_i=log T_i, holomorphic untwisted extension Ψ and Φ̃=exp(Σz_iN_i)Ψ(q). Export the negative-Lie big-cell lift γ=exp(zN)exp(v(q)), with shrinking/compact-buffer hypotheses and the correct transversality factor 2πi. Include nondegenerating analytic coordinates as compact parameters and the finite-monodromy case extending the period map into D across the SNC boundary.",
+      "neededBy": [
+        "HodgeStructuresPartII:H.7/sector-lift-definable",
+        "HodgeStructuresPartII:H.7/gram-determinant-formulas",
+        "HodgeStructuresPartII:H.7/local-period-definability",
+        "HodgeStructuresPartII:H.7/positive-height-siegel-cover",
+        "HodgeStructuresPartII:H.7/compact-target-period-definability"
+      ]
+    },
+    {
+      "supplier": "HodgeStructuresPartII:H.6",
+      "need": "Centered partial-sum monodromy weight filtrations, cone-independence, distributivity with the limiting F, a simultaneous complex splitting I and a separate rational weight splitting J. For every compatible splitting and induced exterior power, provide the flat and moving squared-Hodge-norm estimate Σ m_σ(y)|u_σ|² with positive constants, uniform on bounded real widths and compact nondegenerating parameters. Nonzero homogeneous vectors have two-sided monomial estimates. This is Kashiwara §§1.9,2.4,3.4, not merely BKT’s narrower J-only restatement.",
+      "neededBy": [
+        "HodgeStructuresPartII:H.7/hodge-adapted-flag",
+        "HodgeStructuresPartII:H.7/flat-norm-rough-monomial",
+        "HodgeStructuresPartII:H.7/moving-norm-rough-monomial",
+        "HodgeStructuresPartII:H.7/determinant-weight-bound",
+        "HodgeStructuresPartII:H.7/positive-height-siegel-cover"
+      ]
+    },
+    {
+      "supplier": "HodgeStructuresPartII:H.6",
+      "need": "Uniform deep-height comparison h_z(γu)≍h_z(exp(zN)u), including exterior powers, derived from horizontal negative-Lie correction and exponential decay. Give a depth threshold after which the lower bound holds, uniform on each fixed bounded real width and compact parameter set; do not use compactness of a mixed logarithmic-height remainder.",
+      "neededBy": [
+        "HodgeStructuresPartII:H.7/moving-norm-rough-monomial",
+        "HodgeStructuresPartII:H.7/positive-height-siegel-cover"
+      ]
+    },
+    {
+      "supplier": "HodgeStructuresPartII:H.6",
+      "need": "Schmid’s one-variable finite Siegel containment for a polarized integral nilpotent-orbit lift, with the fixed canonical compact, every bounded real width and positive height after a buffer, and finite covers clearing the rational slopes in the LD.6 curve test. Verify the source proof and its uniformity rather than importing the desired multivariable H.7 theorem.",
+      "neededBy": [
+        "HodgeStructuresPartII:H.7/curvewise-reducedness"
+      ]
+    },
+    {
+      "supplier": "LogicAndDefinabilityInNumberTheory:LD.6",
+      "need": "Finite definable atlases and graph calculus extending native Set.Definable: the real structures R_alg⊂R_an⊂R_an,exp and their o-minimality, coordinate restriction/reindexing, finite gluing, products, definable images/inverse images, finite-cover graph descent, continuous graph-closure extension, and finiteness of connected components. Canonical algebraic definable atlases and restricted-analytic charts on compact buffers must be compared explicitly.",
+      "neededBy": [
+        "HodgeStructuresPartII:H.7/sector-lift-definable",
+        "HodgeStructuresPartII:H.7/local-period-definability",
+        "HodgeStructuresPartII:H.7/global-period-definability",
+        "HodgeStructuresPartII:H.7/special-image-definable",
+        "HodgeStructuresPartII:H.7/special-pullback-algebraic",
+        "HodgeStructuresPartII:H.7/compact-target-period-definability"
+      ]
+    },
+    {
+      "supplier": "LogicAndDefinabilityInNumberTheory:LD.6",
+      "need": "Restricted complex exponential exp(2πiz) is R_an,exp-definable on every fixed bounded real strip; restricted analytic coefficient pullbacks from a compact q-buffer, conjugation and algebraic actions preserve definability. Finite half-open angular strips cover the seams and identify the graph image on a smaller punctured polydisc.",
+      "neededBy": [
+        "HodgeStructuresPartII:H.7/sector-uniformization",
+        "HodgeStructuresPartII:H.7/sector-lift-definable",
+        "HodgeStructuresPartII:H.7/local-period-definability"
+      ]
+    },
+    {
+      "supplier": "LogicAndDefinabilityInNumberTheory:LD.6",
+      "need": "The repaired rough-function algebra: A=O_C[x,y,y^{-1}] with O from holomorphic functions on a neighbourhood of a fixed closed q-buffer and their conjugates; roughly monomial denominators d must belong to A and satisfy |d|≍a positive Laurent monomial. Roughly polynomial functions are g/d, g∈A. Prove localization ring laws, conjugation/real parts and rational-curve bound transfer on every bounded real width, with constants depending on width; include exponential domination and the finite-difference/Vandermonde proof after substitutions z₁=mz₂+c enlarge the strip.",
+      "neededBy": [
+        "HodgeStructuresPartII:H.7/gram-determinant-formulas",
+        "HodgeStructuresPartII:H.7/flat-norm-rough-monomial",
+        "HodgeStructuresPartII:H.7/moving-norm-rough-monomial",
+        "HodgeStructuresPartII:H.7/hodge-entry-rough-polynomial",
+        "HodgeStructuresPartII:H.7/curvewise-reducedness",
+        "HodgeStructuresPartII:H.7/uniform-reducedness"
+      ]
+    },
+    {
+      "supplier": "LogicAndDefinabilityInNumberTheory:LD.6",
+      "need": "Peterzil–Starchenko definable analytic Chow: every closed complex analytic subset of a smooth complex algebraic variety, definable in an o-minimal expansion of R_an in its canonical algebraic atlas, is a reduced closed algebraic subset. Supply the quasi-projective version via closure/affine algebraic charts and native finite-type/Noetherian component comparison. No generic real definable subset, analytic nilpotent ideal, or countably infinite definable union is included.",
+      "neededBy": [
+        "HodgeStructuresPartII:H.7/special-pullback-algebraic"
+      ]
+    },
+    {
+      "supplier": "AdelicAlgebraicGroups:AA.3",
+      "need": "At compatible arithmetic levels, the rational reductive, Cartan-compatible subdomain H(R)^+/M_H→G(R)^+/M with M_H=H(R)∩M induces a proper map (Γ∩H)\\H(R)^+/M_H→Γ\\G(R)^+/M. Include the finite-index level-cover variant, group/component hypotheses and the compact-fibre reduction to H/K_H→G/K_G. Derive this from finite overlap/inverse Siegel containment. The existing AA.3 orbit-map-siegel-preimage node supplies metric inverse containment, but does not yet state this arithmetic properness theorem.",
+      "neededBy": [
+        "HodgeStructuresPartII:H.7/special-image-closed-analytic"
+      ]
+    },
+    {
+      "supplier": "ComplexComparisonPartII:C0",
+      "need": "Closed reduced analytic subsets and holomorphic inverse images/zero loci in smooth algebraic analytifications; holomorphic vector-bundle quotient sections have closed analytic zero sets. Export the complex-point comparison needed by the native reduced algebraic/Noetherian component carrier.",
+      "neededBy": [
+        "HodgeStructuresPartII:H.7/local-tensor-locus-analytic",
+        "HodgeStructuresPartII:H.7/special-pullback-algebraic"
+      ]
+    },
+    {
+      "supplier": "ComplexComparisonPartII:C4",
+      "need": "Extend the analytic-image boundary of this Part II to Remmert’s proper holomorphic image theorem for possibly noncompact analytic source/target manifolds: the image of a closed analytic subset under a proper holomorphic map is closed analytic. This is an additional analytic supplier, not projective Chow or proper algebraic GAGA. The current C4 description does not yet explicitly cover it; gap G5 and the rescope proposal record the extension.",
+      "neededBy": [
+        "HodgeStructuresPartII:H.7/special-image-closed-analytic"
+      ]
+    },
+    {
+      "supplier": "AlgebraicModuliForArithmeticGeometry:R09.7d",
+      "need": "For smooth quasi-projective S over C, export a smooth projective compactification preserving S with strict normal-crossings boundary, together with a finite smaller/larger analytic polydisc chart system whose smaller buffered charts still cover the compactification. Analytic charts use the canonical algebraic real-definable structure on compact buffers.",
+      "neededBy": [
+        "HodgeStructuresPartII:H.7/global-period-definability",
+        "HodgeStructuresPartII:H.7/compact-target-period-definability"
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "HodgeStructuresPartII:H.7",
+      "status": "planned",
+      "remaining": [
+        "Replace the four H.3, four H.6 and four LD.6 requests with exact supplied nodes after their proof/API passes.",
+        "Materialize the routed ArithmeticQuotientDefinability owner and resolve fixed-K quotient/functoriality gap G1.",
+        "Close AA.3 proper arithmetic immersion, the ComplexComparisonPartII analytic-image extension and buffered R09.7d chart requests.",
+        "Replace the suggested file’s explicitly omitted supplier conditions with the actual supplied carriers, including native analytic/algebraic closed-subset and generic tensor families; re-elaborate at the full pinned baseline."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "id": "G1",
+      "title": "Routed tame arithmetic quotient owner is not yet defined",
+      "detail": "The reviewed BKT extraction routes fixed-K structures on general Γ\\G/M and corrected Cartan-compatible functoriality to ArithmeticQuotientDefinability, an extension of ArithmeticLocallySymmetricSpaces. No roadmap/stage/packet with that id exists in this clone. Required input: Γ torsion-free arithmetic, connected semisimple Q-group, connected compact M⊂K; finite definable Siegel chart refinement, π restricted to every same-K rational Siegel set R_alg-definable, and corrected functoriality (φ,g) with level, M, K and Cartan inclusions. Also finite central and level quotient descent. General M≠K cannot be silently supplied by ALS.2. The consuming H.7 nodes are conditional on this gap; no unknown supplier id is used as a fake resolved prerequisite.",
+      "neededBy": [
+        "HodgeStructuresPartII:H.7/local-period-definability",
+        "HodgeStructuresPartII:H.7/global-period-definability",
+        "HodgeStructuresPartII:H.7/special-image-definable"
+      ]
+    },
+    {
+      "id": "G2",
+      "title": "Unplanned H.3 period, metric and generic-tensor contracts",
+      "detail": "No finer H.3 nodes exist in the parent or part packets. The four H.3 requests above must be replaced by exact nodes. Native pure Hodge structures, fibre polarizations and Tate structures are already available; general Mumford–Tate manifolds, canonical metric quotient adapters, Hodge-morphism image factorizations and generic tensor/subdatum classification are not supplied by those fibrewise declarations. K17 cites André/Pink for parts of these contracts; those proofs have not been reverified in this H.7 pass.",
+      "neededBy": [
+        "HodgeStructuresPartII:H.7/sector-lift-definable",
+        "HodgeStructuresPartII:H.7/deep-siegel-containment",
+        "HodgeStructuresPartII:H.7/special-image-closed-analytic",
+        "HodgeStructuresPartII:H.7/exceptional-special-preimage",
+        "HodgeStructuresPartII:H.7/rational-special-countability",
+        "HodgeStructuresPartII:H.7/compact-target-period-definability"
+      ]
+    },
+    {
+      "id": "G3",
+      "title": "H.6 degeneration estimates and parameter uniformity need exact suppliers",
+      "detail": "The four H.6 requests are not yet nodes. Kashiwara’s selected statements, splitting proof and norm-comparison reduction were read, including the rendered formulas; the whole §4.3 and Schmid’s Corollary 5.29 proof were not read in this pass. Supplier work must verify centered weights, splitting-independent flat/moving/exterior estimates, bounded-width uniformity, compact nondegenerating parameters and depth thresholds. The finite partial-boundary chart proof of positive-height-siegel-cover is stated explicitly but is not declared source-closed until those parameter/transport contracts are supplied.",
+      "neededBy": [
+        "HodgeStructuresPartII:H.7/hodge-adapted-flag",
+        "HodgeStructuresPartII:H.7/flat-norm-rough-monomial",
+        "HodgeStructuresPartII:H.7/moving-norm-rough-monomial",
+        "HodgeStructuresPartII:H.7/curvewise-reducedness",
+        "HodgeStructuresPartII:H.7/positive-height-siegel-cover",
+        "HodgeStructuresPartII:H.7/compact-target-period-definability"
+      ]
+    },
+    {
+      "id": "G4",
+      "title": "LD.6 rough algebra, finite atlases and definable Chow need exact nodes",
+      "detail": "LD.6 has no finer blueprint nodes in this clone. Its four requests carry the exact repaired generic statements. Set.Definable is only a first-order coordinate predicate and proves none of o-minimality, R_an,exp, finite atlases, rough-polynomial ring/curve transfer or definable analytic Chow. PS09 Theorem 4.4/Corollary 4.5 and their proofs were read, but their earlier closure and projective-Chow inputs remain this supplier’s proof closure. The repaired wider-strip curve argument also needs the H.6 bounded-width source theorem.",
+      "neededBy": [
+        "HodgeStructuresPartII:H.7/sector-uniformization",
+        "HodgeStructuresPartII:H.7/sector-lift-definable",
+        "HodgeStructuresPartII:H.7/hodge-entry-rough-polynomial",
+        "HodgeStructuresPartII:H.7/uniform-reducedness",
+        "HodgeStructuresPartII:H.7/global-period-definability",
+        "HodgeStructuresPartII:H.7/special-pullback-algebraic"
+      ]
+    },
+    {
+      "id": "G5",
+      "title": "Closed analytic special-image proof needs two supplier extensions",
+      "detail": "BKT §5 assumes closed analyticity without a proof or citation. The requested AA.3 proper rational arithmetic immersion and ComplexComparisonPartII:C4 proper analytic image theorem do not yet exist as exact nodes. C4’s published stage scope concerns projective Chow/proper GAGA, so its requested noncompact analytic image result is recorded as a rescope extension rather than claimed already covered. No claim that arbitrary Hodge morphisms are proper survives their potentially noncompact kernels.",
+      "neededBy": [
+        "HodgeStructuresPartII:H.7/special-image-closed-analytic",
+        "HodgeStructuresPartII:H.7/special-pullback-algebraic"
+      ]
+    },
+    {
+      "id": "G6",
+      "title": "Buffered SNC compactification supplier not yet decomposed",
+      "detail": "R09.7d’s stage expressly exports the required smooth SNC compactification, but there is no exact node for its finite buffered analytic chart form. The request must establish that shrinking charts still gives a cover, preserves interior-coordinate centres and compares their restricted-analytic maps with the canonical algebraic definable atlas.",
+      "neededBy": [
+        "HodgeStructuresPartII:H.7/global-period-definability",
+        "HodgeStructuresPartII:H.7/compact-target-period-definability"
+      ]
+    },
+    {
+      "id": "G7",
+      "title": "Suggested-file supplier conditions cannot all be expressed at the baseline",
+      "detail": "The suggested file gives exact native signatures for the eight local definitions, all their API items and tests, and coordinate/metric forms of the named results. Conditions involving integral variations as sheaves, finite definable manifold atlases, rational Hodge morphisms/subdata, canonical K-Siegel sets, the repaired rough-function classes and analytic/algebraic subset comparison have no baseline carrier. They are omitted with declaration-specific comments and catalogued in the reader/handoff. Supplied subrings, sets and maps are data boundaries, not definitions of these missing theories or Prop-valued placeholders. The analytic conclusion of specialImage_closedAnalytic and localTensorLocus_analytic is also omitted, and specialPullback_algebraic and hodgeLocus_algebraicity omit the reduced algebraic structure and complex-point comparison, typing only the Zariski closed-set form. These are incomplete conclusion prototypes, not surrogates for the full mathematical statements. The full suggested file does not elaborate in the shared build: the pinned Hodge imports have no compiled objects there, and its TauCeti checkout is newer than the pin. A Mathlib-only slice elaborates with only expected proof-placeholder warnings. No library build was attempted.",
+      "neededBy": [
+        "HodgeStructuresPartII:H.7/bounded-sector",
+        "HodgeStructuresPartII:H.7/ordered-sector",
+        "HodgeStructuresPartII:H.7/sector-uniformization",
+        "HodgeStructuresPartII:H.7/sector-lift-definable",
+        "HodgeStructuresPartII:H.7/hodge-form-function",
+        "HodgeStructuresPartII:H.7/hodge-adapted-flag",
+        "HodgeStructuresPartII:H.7/gram-determinant-formulas",
+        "HodgeStructuresPartII:H.7/flat-norm-rough-monomial",
+        "HodgeStructuresPartII:H.7/moving-norm-rough-monomial",
+        "HodgeStructuresPartII:H.7/hodge-entry-rough-polynomial",
+        "HodgeStructuresPartII:H.7/determinant-weight-bound",
+        "HodgeStructuresPartII:H.7/curvewise-reducedness",
+        "HodgeStructuresPartII:H.7/uniform-reducedness",
+        "HodgeStructuresPartII:H.7/deep-siegel-containment",
+        "HodgeStructuresPartII:H.7/positive-height-siegel-cover",
+        "HodgeStructuresPartII:H.7/local-period-definability",
+        "HodgeStructuresPartII:H.7/global-period-definability",
+        "HodgeStructuresPartII:H.7/special-hodge-image",
+        "HodgeStructuresPartII:H.7/special-image-definable",
+        "HodgeStructuresPartII:H.7/special-image-closed-analytic",
+        "HodgeStructuresPartII:H.7/tensor-hodge-locus",
+        "HodgeStructuresPartII:H.7/exceptional-hodge-locus",
+        "HodgeStructuresPartII:H.7/local-tensor-locus-analytic",
+        "HodgeStructuresPartII:H.7/exceptional-special-preimage",
+        "HodgeStructuresPartII:H.7/rational-special-countability",
+        "HodgeStructuresPartII:H.7/special-pullback-algebraic",
+        "HodgeStructuresPartII:H.7/hodge-locus-algebraicity",
+        "HodgeStructuresPartII:H.7/compact-target-period-definability"
+      ]
+    }
+  ],
+  "sourceIssues": [
+    {
+      "kind": "error",
+      "locator": "Theorem 4.1, JAMS p. 928; the failing step is on p. 929 ('We are reduced to proving that the composition …'); author pp. 13–14",
+      "printed": "Theorem 4.1. Let V be a polarized variation of pure Hodge structures of weight k over the punctured polydisk (Δ*)^n, with period map Φ : (Δ*)^n → S_{Γ,G,M}. Then Φ is R_an,exp-definable.",
+      "correction": "Restrict to smaller polydisks: for every 0 < ρ < 1, Φ restricted to (Δ*_ρ)^n is R_an,exp-definable. The printed proof gives ρ = e^(−2π), once 0 < x < 1 is replaced by 0 ≤ x < 1 (see E45). For general ρ < 1: cover the closed ρ-polydisk, which is compact in Δ^n, by finitely many small polydisk charts centred at its points, each of the form (Δ*)^r × Δ^l, and apply the local statement in each chart. Alternatively, rerun §4.2 on {0 ≤ x < 1, y > η} with η = −(log ρ)/2π. That uses Theorem 1.5 for this η, and its printed proof (§4.5, on Σ_n with y > 1) needs the same compactness step. §4.1 must use charts whose shrunken polydisks still cover S̄.",
+      "reason": "The counterexample holds; I rechecked it by hand and numerically. With f(z) = exp(−(1+z)/(1−z)), τ = 2i + εf and trivial monodromy, the fibre over π(2i + ε/e) is {z_n = 2πin/(2+2πin) : n ≠ 0}, an infinite discrete set accumulating at 1. The fibre of a definable map would have finitely many components. Δ is the unit disk (p. 922), and e(·) maps H onto the unit Δ* (p. 929). Where the proof fails: Lemma 4.2 is true as stated with no shrinking, because Schmid (4.12) (p. 233) says Ψ extends holomorphically to the whole open Δ^n, and p(S_H^n) lies in the compact polydisk |q_j| ≤ e^(−2π). The failing step is the reduction 'We are reduced to proving that the composition S_H^n → G/M → S_{Γ,G,M} is R_an,exp-definable'. That reduction controls Φ only on p(S_H^n) ⊂ (Δ*_(e^(−2π)))^n. The earlier correction's 'then for every ρ<1 by compactness of the remaining annular pieces' is inaccurate for n ≥ 2: {ρ ≤ |q_1| < ρ'} × (Δ*)^(n−1) is not compact. The author copy is identical. The erratum does not mention this; §1.5 calls the proof of Theorem 1.3 correct apart from the §4.5 citation. Theorem 1.3 is unaffected.",
+      "affects": "a stated result",
+      "known": "Already recorded and independently confirmed in PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E1; no additional published correction found in the versions read.",
+      "id": "HodgeStructuresPartII/EH7-01",
+      "source": "BKT20",
+      "catalogueFinding": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E1",
+      "searched": [
+        "Published BKT PDF at the recorded NSF URL and author-hosted copy, passages relevant to H.7, collated 2026-10-07.",
+        "Complete author-hosted 2023 erratum read 2026-10-07.",
+        "Existing independently reviewed BKT extraction, including PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E1. No fresh complete arXiv or Crossref correction search is claimed."
+      ]
+    },
+    {
+      "kind": "gap",
+      "locator": "Lemma 4.5 proof, JAMS p.930; author p.15",
+      "printed": "\"Consider for each positive integer m and real number c the function f_{m,c} which we obtain from f by setting z_1 = mz_2 + c. Note that the assumptions of the lemma still apply to f_{m,c}, and it follows by induction on n that f_{m,c} ≪ 1 on all of Σ_{n−1}\"",
+      "correction": "State the lemma, and verify its curve hypothesis, on wider sectors Σ_n^R={|x_i|<R,y₁≥⋯≥y_n>1} for every R, with constants depending on R. The substitution maps Σ_(n−1)^R′ into Σ_n^(mR′+|c|). The application needs original-source bounded-real-width uniformity for Schmid Corollary 5.29 and the CKS/Kashiwara norm estimates; G3 records that this is still unverified. The R-quantifier of the target Theorem 1.5 is not evidence for its prerequisites.",
+      "reason": "Σ_n is defined with 0 < x_i < 1 (Definition 4.4). The proof uses c = 0, 1, …, r_1 and m ≥ 1. For c ≥ 1, x_1 = mx_2 + c > 1, so Σ_n ∩ {z_1 = mz_2 + c} is empty. For c = 0 it is only the strip x_2 < 1/m. So the hypothesis gives no information about f_{m,c} on Σ_{n−1}. The functions extend there (the coefficients in O are periodic in x and f is polynomial in x), but the bound is assumed only on Σ_n. With the R-uniform hypothesis, the finite difference in c isolates the top x_1-degree, the Vandermonde step in m isolates each y-power, and |x_1| < 1 on Σ_n finishes the proof, as printed. Noted by the extraction (verification gap G4); the repair is given by this continuation.",
+      "affects": "the proof",
+      "known": "Already recorded and independently confirmed in PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E2; no additional published correction found in the versions read.",
+      "id": "HodgeStructuresPartII/EH7-02",
+      "source": "BKT20",
+      "catalogueFinding": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E2",
+      "searched": [
+        "Published BKT PDF at the recorded NSF URL and author-hosted copy, passages relevant to H.7, collated 2026-10-07.",
+        "Complete author-hosted 2023 erratum read 2026-10-07.",
+        "Existing independently reviewed BKT extraction, including PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E2. No fresh complete arXiv or Crossref correction search is claimed."
+      ]
+    },
+    {
+      "kind": "error",
+      "locator": "§4.5, JAMS p.933; author p.18",
+      "printed": "\"Moreover, if b is (e′, C′)-reduced and e is a basis for which condition (3) of Definition 4.11 holds for some C > 0, then b will also be (e, C″)-reduced for some C″ = C″(e, C, e′, C′) > 0.\"",
+      "correction": "Condition (2), the ordering b(e_i) < C b(e_j) for i < j, transfers only up to a permutation of e. Conclude that b is (σe, C″)-reduced for some permutation σ, which is one of finitely many.",
+      "reason": "Take e′ = (e_1, e_2), e = (e_2, e_1) and b = diag(1, T) with T ≥ 1. Then b is (e′, 2)-reduced and satisfies condition (3) for e (b(e_2)b(e_1) = T = det b), but condition (2) for e would need T = b(e_2) < C″b(e_1) = C″ for all T. The proof immediately adds 'we may assume (2) as there are only finitely many orderings of the basis', which is the corrected form, so Theorem 1.5 is unaffected. Noted by the extraction (item basis-change-reducedness).",
+      "affects": "the proof",
+      "known": "Already recorded and independently confirmed in PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E3; no additional published correction found in the versions read.",
+      "id": "HodgeStructuresPartII/EH7-03",
+      "source": "BKT20",
+      "catalogueFinding": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E3",
+      "searched": [
+        "Published BKT PDF at the recorded NSF URL and author-hosted copy, passages relevant to H.7, collated 2026-10-07.",
+        "Complete author-hosted 2023 erratum read 2026-10-07.",
+        "Existing independently reviewed BKT extraction, including PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E3. No fresh complete arXiv or Crossref correction search is claimed."
+      ]
+    },
+    {
+      "kind": "error",
+      "locator": "Theorem 1.1(1), JAMS p.919; Definition 2.5 and Proposition 2.7, p.924",
+      "printed": "\"(1) The arithmetic quotient S_{Γ,G,M} := Γ\\G/M admits a natural structure of R_alg-definable manifold, characterized by the following property. ... S ⊂ G/M a semi-algebraic Siegel set ...\"",
+      "correction": "The definable structure depends on a choice of maximal compact subgroup K ⊃ M. For each such K there is a structure S_{Γ,G,M,K}, characterized by the Siegel sets associated to K. Definition 2.5 must fix K, and Proposition 2.7 holds when all Siegel sets use the same K (Erratum, Theorem 1.2(1)).",
+      "reason": "Erratum §1.6.1: for G = SL₂, a Siegel set built with K_x is not contained in finitely many Siegel sets built with K_i when x ≠ i, so the two structures on Γ\\G differ. The Hodge-theoretic statements are unaffected, because Hodge manifolds carry a canonical K (Erratum §1.4).",
+      "affects": "a stated result",
+      "known": "BKT 2023 erratum, §§1.1–1.5.",
+      "id": "HodgeStructuresPartII/EH7-04",
+      "source": "BKT20",
+      "catalogueFinding": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E5",
+      "searched": [
+        "Published BKT PDF at the recorded NSF URL and author-hosted copy, passages relevant to H.7, collated 2026-10-07.",
+        "Complete author-hosted 2023 erratum read 2026-10-07.",
+        "Existing independently reviewed BKT extraction, including PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E5. No fresh complete arXiv or Crossref correction search is claimed."
+      ]
+    },
+    {
+      "kind": "error",
+      "locator": "Theorem 1.1(2), JAMS p.919",
+      "printed": "\"(2) Any morphism f: S_{Γ′,G′,M′} → S_{Γ,G,M} of arithmetic quotients is R_alg-definable.\"",
+      "correction": "Only morphisms compatible with the chosen maximal compacts are definable: maps Γ′h′M′ ↦ Γφ(h′)gM with φ(Γ′) ⊂ Γ, φ(M′) ⊂ gMg^{−1}, φ(K′) ⊂ gKg^{−1}, and θ_{gKg^{−1}} preserving φ(g′) (Erratum, Theorem 1.2(2)).",
+      "reason": "Erratum §1.6.2, using Orr–Schnell's examples: without the Cartan-involution condition, the image of a Siegel set is not contained in finitely many translates of Siegel sets, so the morphism is not definable. Morphisms of Hodge manifolds satisfy the condition (Erratum, Corollary 1.3).",
+      "affects": "a stated result",
+      "known": "BKT 2023 erratum, §§1.1–1.5.",
+      "id": "HodgeStructuresPartII/EH7-05",
+      "source": "BKT20",
+      "catalogueFinding": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E6",
+      "searched": [
+        "Published BKT PDF at the recorded NSF URL and author-hosted copy, passages relevant to H.7, collated 2026-10-07.",
+        "Complete author-hosted 2023 erratum read 2026-10-07.",
+        "Existing independently reviewed BKT extraction, including PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E6. No fresh complete arXiv or Crossref correction search is claimed."
+      ]
+    },
+    {
+      "kind": "gap",
+      "locator": "§4.5, JAMS p.932; author p.17",
+      "printed": "By [B-HC62, 7.5] the preimage of any Siegel set 𝔖 ⊂ X is contained in the union of finitely many Siegel sets of D.",
+      "correction": "Replace [B-HC62, 7.5] with [BGST, Prop. 28.1] (arXiv numbering; Prop. 3.4 in the published version). Apply it to G′ = MT(V)^der ⊂ SL(V) ⊂ GL(V) with K_H = G′(ℝ) ∩ SO(h_{x0}) ⊂ K_G = SO(h_{x0}). Its forward-containment hypothesis holds by Orr–Schnell Thm 1, since θ_{K_G} = Ad(C_{x0}) on 𝔤′ stabilizes 𝔤′. Absorb the finite set F ⊂ G′(ℚ) by Remark 2.6(1).",
+      "reason": "Confirmed on the page image and in erratum §1.5 ('should be replaced with [1, 28.1], as the former is for real Siegel sets'). I reclassify it as a gap: the statement is true, and only the cited justification is inapplicable. Known: erratum §1.5.",
+      "affects": "the proof",
+      "known": "BKT 2023 erratum, §§1.1–1.5.",
+      "id": "HodgeStructuresPartII/EH7-06",
+      "source": "BKT20",
+      "catalogueFinding": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E7",
+      "searched": [
+        "Published BKT PDF at the recorded NSF URL and author-hosted copy, passages relevant to H.7, collated 2026-10-07.",
+        "Complete author-hosted 2023 erratum read 2026-10-07.",
+        "Existing independently reviewed BKT extraction, including PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E7. No fresh complete arXiv or Crossref correction search is claimed."
+      ]
+    },
+    {
+      "kind": "misprint",
+      "locator": "Theorem 1.5, JAMS p.921; also Theorem 1.5, p. 921, line after the display of H^n_{R,η}; same in author copy p. 5",
+      "printed": "|Re z_i| ≤ C | Also: where |Re z| := sup_{1≤j≤n} |Re z_i| and Im z := inf_{1≤j≤n} Im z_i",
+      "correction": "Use R in the definition of H_(R,η), consistently with the quantified parameter. Also: |Re z| := sup_{1≤i≤n} |Re z_i| and Im z := inf_{1≤i≤n} Im z_i. H^n_{R,η} := {z ∈ H^n : sup_i |Re z_i| ≤ R and inf_i Im z_i ≥ η}.",
+      "reason": "The statement quantifies R>0 and η>0; C is not bound there.",
+      "affects": "nothing",
+      "known": "Already recorded and independently confirmed in PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E11; no additional published correction found in the versions read.",
+      "id": "HodgeStructuresPartII/EH7-07",
+      "source": "BKT20",
+      "catalogueFinding": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E11",
+      "searched": [
+        "Published BKT PDF at the recorded NSF URL and author-hosted copy, passages relevant to H.7, collated 2026-10-07.",
+        "Complete author-hosted 2023 erratum read 2026-10-07.",
+        "Existing independently reviewed BKT extraction, including PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E11. No fresh complete arXiv or Crossref correction search is claimed."
+      ]
+    },
+    {
+      "kind": "misprint",
+      "locator": "§4.2 after Remark 4.3, JAMS p.929",
+      "printed": "Theorem 1.1(2)",
+      "correction": "Refer to Theorem 1.1(1), with fixed K as in the erratum.",
+      "reason": "Part (1) supplies definability of the quotient map restricted to Siegel sets; part (2) concerns morphisms of quotients.",
+      "affects": "nothing",
+      "known": "Already recorded and independently confirmed in PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E12; no additional published correction found in the versions read.",
+      "id": "HodgeStructuresPartII/EH7-08",
+      "source": "BKT20",
+      "catalogueFinding": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E12",
+      "searched": [
+        "Published BKT PDF at the recorded NSF URL and author-hosted copy, passages relevant to H.7, collated 2026-10-07.",
+        "Complete author-hosted 2023 erratum read 2026-10-07.",
+        "Existing independently reviewed BKT extraction, including PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E12. No fresh complete arXiv or Crossref correction search is claimed."
+      ]
+    },
+    {
+      "kind": "misprint",
+      "locator": "Proof following Theorem 4.8, JAMS p.931",
+      "printed": "part (1) of Proposition 4.6",
+      "correction": "Refer to Lemma 4.7(1).",
+      "reason": "Proposition 4.6 has no numbered part (1); the immediately discussed roughly monomial diagonal assertion is Lemma 4.7(1).",
+      "affects": "nothing",
+      "known": "Already recorded and independently confirmed in PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E13; no additional published correction found in the versions read.",
+      "id": "HodgeStructuresPartII/EH7-09",
+      "source": "BKT20",
+      "catalogueFinding": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E13",
+      "searched": [
+        "Published BKT PDF at the recorded NSF URL and author-hosted copy, passages relevant to H.7, collated 2026-10-07.",
+        "Complete author-hosted 2023 erratum read 2026-10-07.",
+        "Existing independently reviewed BKT extraction, including PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E13. No fresh complete arXiv or Crossref correction search is claimed."
+      ]
+    },
+    {
+      "kind": "misprint",
+      "locator": "§5, JAMS p.933",
+      "printed": "Theorem 1.1(3)",
+      "correction": "Use Theorem 1.1(2), as restricted to Hodge morphisms by erratum Corollary 1.3.",
+      "reason": "Theorem 1.1 has only two parts; compatible Hodge morphisms are the required maps.",
+      "affects": "nothing",
+      "known": "Already recorded and independently confirmed in PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E15; no additional published correction found in the versions read.",
+      "id": "HodgeStructuresPartII/EH7-10",
+      "source": "BKT20",
+      "catalogueFinding": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E15",
+      "searched": [
+        "Published BKT PDF at the recorded NSF URL and author-hosted copy, passages relevant to H.7, collated 2026-10-07.",
+        "Complete author-hosted 2023 erratum read 2026-10-07.",
+        "Existing independently reviewed BKT extraction, including PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E15. No fresh complete arXiv or Crossref correction search is claimed."
+      ]
+    },
+    {
+      "kind": "misprint",
+      "locator": "§5, JAMS p.934, definability of Φ_S",
+      "printed": "Theorem 1.1",
+      "correction": "Use Theorem 1.3.",
+      "reason": "The period-map theorem is 1.3, not the quotient-structure theorem 1.1.",
+      "affects": "nothing",
+      "known": "Already recorded and independently confirmed in PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E16; no additional published correction found in the versions read.",
+      "id": "HodgeStructuresPartII/EH7-11",
+      "source": "BKT20",
+      "catalogueFinding": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E16",
+      "searched": [
+        "Published BKT PDF at the recorded NSF URL and author-hosted copy, passages relevant to H.7, collated 2026-10-07.",
+        "Complete author-hosted 2023 erratum read 2026-10-07.",
+        "Existing independently reviewed BKT extraction, including PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E16. No fresh complete arXiv or Crossref correction search is claimed."
+      ]
+    },
+    {
+      "kind": "error",
+      "locator": "Lemma 4.7(1),(2) and Theorem 4.8(1),(2), JAMS p.931",
+      "printed": "u ∈ J_σ",
+      "correction": "Require u≠0 for positive two-sided monomial comparisons.",
+      "reason": "At u=0 the squared norm is identically zero and cannot be bounded below by a positive multiple of a positive monomial. The extraction already imposes the nonzero hypothesis. (cc-442dc5) Reclassified to affect nothing: the two-sided monomial comparison is meant for u ≠ 0, the only case in which it has content.",
+      "affects": "nothing",
+      "known": "Already recorded and independently confirmed in PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E20; no additional published correction found in the versions read.",
+      "id": "HodgeStructuresPartII/EH7-12",
+      "source": "BKT20",
+      "catalogueFinding": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E20",
+      "searched": [
+        "Published BKT PDF at the recorded NSF URL and author-hosted copy, passages relevant to H.7, collated 2026-10-07.",
+        "Complete author-hosted 2023 erratum read 2026-10-07.",
+        "Existing independently reviewed BKT extraction, including PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E20. No fresh complete arXiv or Crossref correction search is claimed."
+      ]
+    },
+    {
+      "kind": "misprint",
+      "locator": "Lemma 4.7 proof, JAMS p.931, definition of B",
+      "printed": "Hermitian",
+      "correction": "B(u,v)=Q(u,conj v) is (−1)^k-Hermitian in weight k. For odd weight it is skew-Hermitian; i^kB is Hermitian. Retain phase factors in all determinant and Hodge-metric formulas.",
+      "reason": "Q(v,u)=(−1)^kQ(u,v), hence B(v,u)=(−1)^k conjugate(B(u,v)). For the standard weight-one alternating form and u=(1,i), B(u,u)=−2i. Nondegeneracy and the sesquilinear determinant identities remain valid with the correct parity.",
+      "affects": "nothing",
+      "known": "Already recorded and independently confirmed in PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E21; no additional published correction found in the versions read.",
+      "id": "HodgeStructuresPartII/EH7-13",
+      "source": "BKT20",
+      "catalogueFinding": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E21",
+      "searched": [
+        "Published BKT PDF at the recorded NSF URL and author-hosted copy, passages relevant to H.7, collated 2026-10-07.",
+        "Complete author-hosted 2023 erratum read 2026-10-07.",
+        "Existing independently reviewed BKT extraction, including PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E21. No fresh complete arXiv or Crossref correction search is claimed."
+      ]
+    },
+    {
+      "kind": "misprint",
+      "locator": "Lemma 4.5 proof, JAMS p.930, finite difference F_m",
+      "printed": "(1/r₁!) ∑_i (−1)^i binom(r₁,i) f_(m,i)",
+      "correction": "This normalization extracts (−1)^r₁ times the leading coefficient; either include that factor in the next identity or use (−1)^(r₁−i) in the definition.",
+      "reason": "Already for r₁=1 the displayed sum is f_(m,0)−f_(m,1), which is the negative of the leading coefficient. Absolute-value bounds used by the proof are unchanged.",
+      "affects": "nothing",
+      "known": "Already recorded and independently confirmed in PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E22; no additional published correction found in the versions read.",
+      "id": "HodgeStructuresPartII/EH7-14",
+      "source": "BKT20",
+      "catalogueFinding": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E22",
+      "searched": [
+        "Published BKT PDF at the recorded NSF URL and author-hosted copy, passages relevant to H.7, collated 2026-10-07.",
+        "Complete author-hosted 2023 erratum read 2026-10-07.",
+        "Existing independently reviewed BKT extraction, including PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E22. No fresh complete arXiv or Crossref correction search is claimed."
+      ]
+    },
+    {
+      "kind": "misprint",
+      "locator": "§4.5, first sentence, p. 932 (𝔖^b_𝔥); Claim, p. 933 (H_ℚ)",
+      "printed": "the set 𝔖^b_𝔥 is covered by finitely many sets of the form Σ_n; There is a basis e = {e_i} of H_ℚ",
+      "correction": "Locator: §4.5, first sentence, p. 932 (𝔖^b_𝔥); Claim, p. 933 (H_ℚ). Read 𝔖^n_𝔥 and V_ℚ.",
+      "reason": "Confirmed on the page image. The only revision is the locator: the 𝔖^b_𝔥 is in the first sentence of §4.5, lower on p. 932, not on the first line of the page. The author copy (pp. 17–18) and arXiv v2 have the same text. The integral-versus-rational mismatch in the same Claim is a separate issue below.",
+      "affects": "nothing",
+      "known": "Already recorded and independently confirmed in PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E26; no additional published correction found in the versions read.",
+      "id": "HodgeStructuresPartII/EH7-15",
+      "source": "BKT20",
+      "catalogueFinding": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E26",
+      "searched": [
+        "Published BKT PDF at the recorded NSF URL and author-hosted copy, passages relevant to H.7, collated 2026-10-07.",
+        "Complete author-hosted 2023 erratum read 2026-10-07.",
+        "Existing independently reviewed BKT extraction, including PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E26. No fresh complete arXiv or Crossref correction search is claimed."
+      ]
+    },
+    {
+      "kind": "gap",
+      "locator": "§1.3 (p. 920: 'let G be its associated adjoint semi-simple Q-group') against §4.2 (p. 928) and §4.4 (p. 931); also §4.5, second paragraph, p. 932",
+      "printed": "the monodromy transformation T_i ∈ G(Z) ⊂ GL(V_Z) | Also: The natural embedding G(ℚ) ⊂ SL(V_ℚ) defines a natural map ι : D → X, given by ι(x) := h_x",
+      "correction": "Take G = MT(V)^der ⊂ SL(V_Q), which is semisimple and acts on V, throughout §4. Unipotent T_i lie in the identity component of the monodromy group, which is contained in MT^der, so T_i ∈ MT^der(Q) and N_i ∈ Lie(MT^der) = g_Q. Γ is torsion-free, so it meets the finite centre trivially. D, the Siegel sets and the definable structure of S_(Γ,G,M) correspond under the isogeny MT^der → MT^ad (a surjective morphism of arithmetic quotients as in §3.2). Erratum §1.4 likewise uses a group inside GL(V_Q). Also: Merge into E27 as an additional locator (§4.5, second paragraph, p. 932). Read G′ = MT(V)^der ⊂ SL(V) in place of G, and note that the Siegel sets of D = G/M are the same whether defined through G′ or through G.",
+      "reason": "§4 treats G as acting on V: T_i ∈ G(Z) ⊂ GL(V_Z), γ(z) ∈ G(C) applied to u ∈ V_C (p. 931), and G(Q) ⊂ SL(V_Q) (p. 932). An adjoint group does not act on V in general (−I ∈ SL_2 acts nontrivially). The fix is routine and changes no statement, so I downgrade 'affects' from 'the proof' to 'nothing'.",
+      "affects": "nothing",
+      "known": "Already recorded and independently confirmed in PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E27; no additional published correction found in the versions read.",
+      "id": "HodgeStructuresPartII/EH7-16",
+      "source": "BKT20",
+      "catalogueFinding": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E27",
+      "searched": [
+        "Published BKT PDF at the recorded NSF URL and author-hosted copy, passages relevant to H.7, collated 2026-10-07.",
+        "Complete author-hosted 2023 erratum read 2026-10-07.",
+        "Existing independently reviewed BKT extraction, including PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E27. No fresh complete arXiv or Crossref correction search is claimed."
+      ]
+    },
+    {
+      "kind": "misprint",
+      "locator": "§5, p. 934, lines 1–3",
+      "printed": "The Hodge locus HL(S_{Γ,G,M}) is defined as the (countable) union of special subvarieties of S_{Γ,G,M}. The Hodge locus HL(S, V) coïncides with the preimage Φ_S^{−1}(HL(S_{Γ,G,M})).",
+      "correction": "Read 'the (countable) union of strict special subvarieties of S_{Γ,G,M}' (Y ≠ S_{Γ,G,M}). Then HL(S,V) = Φ_S^{-1}(HL(S_{Γ,G,M})) holds because Φ_S(S) is Hodge generic. The same slip is in [K17, Def. 3.13 and Prop. 3.20].",
+      "reason": "With the definition on p. 933, the identity Hodge morphism makes S_{Γ,G,M} itself special. Read literally, HL(S_{Γ,G,M}) = S_{Γ,G,M} and the next sentence would give HL(S,V) = S. The intended meaning (strict special subvarieties, the convention of [K17] and the only one consistent with the §1.4 definition via exceptional Hodge tensors) is clear. The proof then shows that Φ_S^{-1}(Y) is algebraic for every special Y, strict or not, so nothing downstream changes. I therefore classify it as a misprint (an omitted word) rather than an error. The identification HL(S,V) = ⋃_{Y strict} Φ_S^{-1}(Y) is asserted without proof but is standard.",
+      "affects": "nothing",
+      "known": "Already recorded and independently confirmed in PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E28; no additional published correction found in the versions read.",
+      "id": "HodgeStructuresPartII/EH7-17",
+      "source": "BKT20",
+      "catalogueFinding": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E28",
+      "searched": [
+        "Published BKT PDF at the recorded NSF URL and author-hosted copy, passages relevant to H.7, collated 2026-10-07.",
+        "Complete author-hosted 2023 erratum read 2026-10-07.",
+        "Existing independently reviewed BKT extraction, including PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E28. No fresh complete arXiv or Crossref correction search is claimed."
+      ]
+    },
+    {
+      "kind": "gap",
+      "locator": "§4.1, JAMS p. 928",
+      "printed": "Let (S̄_i)_{1≤i≤m} be a finite open cover of S̄ such that the pair (S̄_i, S_i := S ∩ S̄_i) is biholomorphic to (Δ^n, (Δ*)^{r_i} × Δ^{l_i:=n−r_i}). … Without loss of generality we can assume that r_i = n and l_i = 0 by allowing some factors with trivial monodromies.",
+      "correction": "(i) Take the charts to be restrictions of charts defined on neighbourhoods of the closures of the S̄_i (so they are R_an-definable), with the shrunken polydisks required by E1 still covering S̄. (ii) After applying Theorem 4.1 to V restricted to (Δ*)^n, extend definability to (Δ*)^r × Δ^l by the graph-closure argument (Φ is continuous on (Δ*)^r × Δ^l and (Δ*)^n is dense), or run §4.2 with t_j ∈ Δ as coordinates on the l trivial-monodromy factors.",
+      "reason": "The paper does not say why definability of each Φ_S|S_i gives definability for the algebraic structure on S; that needs definable charts. A biholomorphism S̄_i ≅ Δ^n with no control at the boundary need not be definable. The reduction to r_i = n also drops the points where one of the last l coordinates vanishes. Both steps are routine.",
+      "affects": "nothing",
+      "known": "Already recorded and independently confirmed in PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E43; no additional published correction found in the versions read.",
+      "id": "HodgeStructuresPartII/EH7-18",
+      "source": "BKT20",
+      "catalogueFinding": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E43",
+      "searched": [
+        "Published BKT PDF at the recorded NSF URL and author-hosted copy, passages relevant to H.7, collated 2026-10-07.",
+        "Complete author-hosted 2023 erratum read 2026-10-07.",
+        "Existing independently reviewed BKT extraction, including PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E43. No fresh complete arXiv or Crossref correction search is claimed."
+      ]
+    },
+    {
+      "kind": "gap",
+      "locator": "§4.3–4.4, JAMS pp. 929–931: Definition 4.4 (O), the lift v(t) and g: Δ^n → G(C) (p. 931), and 'on Σ_n' in Theorem 4.8",
+      "printed": "there is a unique holomorphic lift v(t) ∈ ⊕_{p<0} g^{p,q} with Ψ(t) = e^{v(t)}F. … Theorem 4.8 … Then on Σ_n we have",
+      "correction": "Make the '(after maybe shrinking the polydisk)' of Lemma 4.2 an explicit standing convention for §4.3–4.4. Rescale q (q ↦ q/λ shifts y by a constant and replaces F by e^(icΣN_j)F) so that on the new unit polydisk: (a) Ψ lies in the cell exp(⊕_(p<0) g^(p,q))·F, so v and g are defined; (b) {y > 1} lies inside Kashiwara's range {y_ν > M}. Alternatively, prove Theorem 4.8 on Σ_n by applying Kashiwara at every point of the closed e^(−2π)-polydisk and using compactness.",
+      "reason": "(a) The map v ↦ e^v F from ⊕_(p<0) g^(p,q) is an open embedding onto a Zariski-open cell of Ď, not onto all of Ď, so v(t) exists only near t = 0 (compare item negative-lie-chart). (b) O is defined as 'real restricted analytic functions on Δ^n', i.e. analytic near the closed unit polydisk, but Ψ and g are only holomorphic on the open Δ^n. (c) Kashiwara's Theorems 3.4.1 and 3.4.2 (p. 870) give the estimates only for y_ν > M near x_0, while Σ_n has y_n > 1. On Theorem 4.1 and Theorem 1.3 this has no effect, since those statements are local. Theorem 1.5, stated for every η > 0, then needs its own compactness step.",
+      "affects": "nothing",
+      "known": "Already recorded and independently confirmed in PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E44; no additional published correction found in the versions read.",
+      "id": "HodgeStructuresPartII/EH7-19",
+      "source": "BKT20",
+      "catalogueFinding": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E44",
+      "searched": [
+        "Published BKT PDF at the recorded NSF URL and author-hosted copy, passages relevant to H.7, collated 2026-10-07.",
+        "Complete author-hosted 2023 erratum read 2026-10-07.",
+        "Existing independently reviewed BKT extraction, including PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E44. No fresh complete arXiv or Crossref correction search is claimed."
+      ]
+    },
+    {
+      "kind": "misprint",
+      "locator": "§4.2, JAMS p. 929",
+      "printed": "Let 𝔖_H ⊂ H be the usual Siegel fundamental set {(x, y) ∈ H | 0 < x < 1, 1 < y}. … We are reduced to proving that the composition 𝔖_H^n → G/M → S_{Γ,G,M} is R_an,exp-definable.",
+      "correction": "Read {(x,y) ∈ H | 0 ≤ x < 1, 1 < y}. Alternatively, keep the open strip and conclude by continuity: Φ is continuous and p(𝔖_H^n) is a dense definable subset of (Δ*_(e^(−2π)))^n, so the graph of Φ is the closure of a definable set.",
+      "reason": "e(x+iy) = e^(−2πy)e^(2πix) with 0 < x < 1 omits arg q = 0. So p(𝔖_H^n) misses every point with some q_j ∈ (0, e^(−2π)), and definability of π∘Φ̃ on 𝔖_H^n does not directly give definability of Φ on a punctured polydisk. The open strip is not a fundamental set for z ↦ z+1. The radius e^(−2π) is the separate E1 issue.",
+      "affects": "nothing",
+      "known": "Already recorded and independently confirmed in PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E45; no additional published correction found in the versions read.",
+      "id": "HodgeStructuresPartII/EH7-20",
+      "source": "BKT20",
+      "catalogueFinding": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E45",
+      "searched": [
+        "Published BKT PDF at the recorded NSF URL and author-hosted copy, passages relevant to H.7, collated 2026-10-07.",
+        "Complete author-hosted 2023 erratum read 2026-10-07.",
+        "Existing independently reviewed BKT extraction, including PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E45. No fresh complete arXiv or Crossref correction search is claimed."
+      ]
+    },
+    {
+      "kind": "error",
+      "locator": "Definition 4.4, JAMS pp. 929–930 (author p. 14)",
+      "printed": "We say that f ∈ O(x, y) is roughly polynomial if it is of the form g/h where g ∈ O[x, y, y^{−1}] and h is roughly monomial. Note that roughly polynomial functions form a ring which we denote T_n.",
+      "correction": "Require the denominator h to be a roughly monomial element of O[x,y,y^(−1)] (complex coefficients allowed for complex-valued functions). Then g/h + g'/h' = (gh' + g'h)/(hh') stays in the class, so T_n is a ring. In the proof of Lemma 4.7(3), write (4.4) over the denominator B(γ w_det K^(i−1))·B(γ w_det K^i), which lies in O_C[y] and is roughly monomial up to a constant phase by part (2), instead of dividing by the ratio (4.2).",
+      "reason": "As printed, h may be any roughly monomial element of O(x,y), and the sum of two roughly polynomial functions need not be roughly polynomial. Counterexample on Σ_1: let c = (x−1/2)² + y^(−2) ∈ O[x,y,y^(−1)] and k = (c + y^(−1))/(c + 2y^(−1)) ∈ (1/2, 1), so k ∼ 1. Then 1/k (g = 1, h = k) and −1 are roughly polynomial, but 1/k − 1 = y^(−1)/(c + y^(−1)) is not. Suppose it equals g/h with h ∼ y^s. Then g = h/(yc + 1). Write g = P(x,y) + O(y^A e^(−2πy)) with P ∈ R[x,y,y^(−1)], since the coefficients in O are analytic in q with |q| = e^(−2πy). For fixed x ≠ 1/2, |g| ≪ y^(s−1), so every y^j-coefficient of P with j ≥ s vanishes at every x ≠ 1/2, hence identically. But at x = 1/2, g ≫ y^s, a contradiction. The ring property is used in 'Proposition 4.6 follows immediately from Lemma 4.7' (sums over I-components) and in h(u,v) = Σ_i h(ũ_i,ṽ_i). Both hold with the repaired definition. The author copy is identical, and the erratum is silent.",
+      "affects": "a stated result",
+      "known": "Already recorded and independently confirmed in PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E46; no additional published correction found in the versions read.",
+      "id": "HodgeStructuresPartII/EH7-21",
+      "source": "BKT20",
+      "catalogueFinding": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E46",
+      "searched": [
+        "Published BKT PDF at the recorded NSF URL and author-hosted copy, passages relevant to H.7, collated 2026-10-07.",
+        "Complete author-hosted 2023 erratum read 2026-10-07.",
+        "Existing independently reviewed BKT extraction, including PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E46. No fresh complete arXiv or Crossref correction search is claimed."
+      ]
+    },
+    {
+      "kind": "misprint",
+      "locator": "Lemma 4.5 proof, JAMS p. 930",
+      "printed": "F_m = Σ_{j=(r_1,j_2)} a_J m^{j_2} y_2^{j_2}",
+      "correction": "F_m = Σ_(j=(r_1,j_2)) a_j m^(j_2) y_2^(j_2), with the sign (−1)^(r_1) noted in E22.",
+      "reason": "There is no index J. This is a typographical slip.",
+      "affects": "nothing",
+      "known": "Already recorded and independently confirmed in PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E47; no additional published correction found in the versions read.",
+      "id": "HodgeStructuresPartII/EH7-22",
+      "source": "BKT20",
+      "catalogueFinding": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E47",
+      "searched": [
+        "Published BKT PDF at the recorded NSF URL and author-hosted copy, passages relevant to H.7, collated 2026-10-07.",
+        "Complete author-hosted 2023 erratum read 2026-10-07.",
+        "Existing independently reviewed BKT extraction, including PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E47. No fresh complete arXiv or Crossref correction search is claimed."
+      ]
+    },
+    {
+      "kind": "misprint",
+      "locator": "§4.4 first paragraph, JAMS p. 930; author p. 15",
+      "printed": "the Hodge form h_z(u, v) := Q_C(C_z u, v) of u and v at Φ̃(z)",
+      "correction": "h_z(u,v) := Q_C(C_z u, v̄).",
+      "reason": "Q_C is defined as the C-linear extension (p. 928), so the printed form is bilinear. For u ∈ H^(p,q) with p ≠ q it gives h_z(u) = i^(p−q) Q(u,u) = 0, so h(u) could not be roughly monomial. (4.4), h(ũ_i,ṽ_i) = i^(2p_i−k) B(ũ_i,ṽ_i) with B(u,v) = Q_C(u, v̄), matches only the conjugated form. Checked on the 300-dpi image; the author copy is identical.",
+      "affects": "nothing",
+      "known": "Already recorded and independently confirmed in PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E48; no additional published correction found in the versions read.",
+      "id": "HodgeStructuresPartII/EH7-23",
+      "source": "BKT20",
+      "catalogueFinding": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E48",
+      "searched": [
+        "Published BKT PDF at the recorded NSF URL and author-hosted copy, passages relevant to H.7, collated 2026-10-07.",
+        "Complete author-hosted 2023 erratum read 2026-10-07.",
+        "Existing independently reviewed BKT extraction, including PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E48. No fresh complete arXiv or Crossref correction search is claimed."
+      ]
+    },
+    {
+      "kind": "gap",
+      "locator": "Proof of Lemma 4.7, JAMS p. 931 ('Given Theorem 4.8(1), proving part (1) … reduces to showing that h(u) is in O(x,y)'); the same applies to part (2) via Lemma 4.10",
+      "printed": "Theorem 4.8 … Let u ∈ J^{s_1,…,s_n}_C. Then on Σ_n we have (1) h(u) ∼ (y_1/y_2)^{s_1} ⋯ (y_{n−1}/y_n)^{s_{n−1}} y_n^{s_n}",
+      "correction": "State Theorem 4.8 in Kashiwara's splitting-independent form (Definition 1.9.3, Corollary 1.9.2, Theorem 3.4.1): for any splitting V_C = ⊕ U_σ adapted to all the W(M_j), h(Σ u_σ) ∼ Σ_σ m_σ |u_σ|², where m_σ is the σ-monomial; in particular h(u) ∼ m_σ for nonzero u ∈ U_σ. Apply it to the splitting obtained by grouping the I^(p,q_1,…,q_n) by σ_j = p + q_j, and to the induced splittings of the wedge powers. For part (2), use Theorem 3.4.2 with the splitting induced by the I-pieces.",
+      "reason": "Lemma 4.7(1) concerns u ∈ I^α, a piece of the complex splitting of {F, W(M_1), …, W(M_n)}. Theorem 4.8 as stated covers only vectors of the rational splitting J^σ_C. In general I^α ⊄ J^σ_C, because F need not be split compatibly with a rational splitting. Theorem 4.8 for J^σ alone does not give the lower bound for u = Σ_σ u_σ in regions where some y_j/y_(j+1) is bounded. Kashiwara's formulation (checked on pp. 860–861 and 870) covers every adapted splitting, so the cited source closes the gap, but the printed statement does not.",
+      "affects": "the proof",
+      "known": "Already recorded and independently confirmed in PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E49; no additional published correction found in the versions read.",
+      "id": "HodgeStructuresPartII/EH7-24",
+      "source": "BKT20",
+      "catalogueFinding": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E49",
+      "searched": [
+        "Published BKT PDF at the recorded NSF URL and author-hosted copy, passages relevant to H.7, collated 2026-10-07.",
+        "Complete author-hosted 2023 erratum read 2026-10-07.",
+        "Existing independently reviewed BKT extraction, including PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E49. No fresh complete arXiv or Crossref correction search is claimed."
+      ]
+    },
+    {
+      "kind": "misprint",
+      "locator": "§4.4, JAMS p. 931",
+      "printed": "V_C = ⊕_{p,q_1,…,q_r} I^{p,q_1,…,q_n}",
+      "correction": "V_C = ⊕_(p,q_1,…,q_n) I^(p,q_1,…,q_n).",
+      "reason": "There are n weight filtrations W(M_1), …, W(M_n) and no r. Checked on the 260-dpi image; the author copy is the same.",
+      "affects": "nothing",
+      "known": "Already recorded and independently confirmed in PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E50; no additional published correction found in the versions read.",
+      "id": "HodgeStructuresPartII/EH7-25",
+      "source": "BKT20",
+      "catalogueFinding": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E50",
+      "searched": [
+        "Published BKT PDF at the recorded NSF URL and author-hosted copy, passages relevant to H.7, collated 2026-10-07.",
+        "Complete author-hosted 2023 erratum read 2026-10-07.",
+        "Existing independently reviewed BKT extraction, including PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E50. No fresh complete arXiv or Crossref correction search is claimed."
+      ]
+    },
+    {
+      "kind": "misprint",
+      "locator": "Definition 4.11 (p. 932) and definition of T_{e,C} (p. 933), against the Claim (p. 933)",
+      "printed": "Given an integral (ordered) basis e = {e_i} of V_ℤ … Claim. There is a basis e = {e_i} of H_ℚ … Choosing a basis e for which each e_i ∈ J^{σ_i}",
+      "correction": "In Definition 4.11 and in the definition of 𝔗_{e,C}, allow ordered bases of V_ℚ, equivalently ℤ-bases of lattices commensurable with V_ℤ. Then 𝔗_{ge,C} = g·𝔗_{e,C} for g ∈ GL(V_ℚ), and the comparison with Siegel sets of X ([K90, Prop. 2]) carries over by rational translation. Drop the alternative 'replace e_i by d_ie_i ∈ V_ℤ', or state it for the lattice ⊕ℤd_ie_i.",
+      "reason": "The J-splitting is only rational, and a ℤ-basis of V_ℤ adapted to it need not exist, only one of finite index. So the basis in the proof is rational, while reducedness is defined for integral bases. The fix is immediate.",
+      "affects": "nothing",
+      "known": "Already recorded and independently confirmed in PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E51; no additional published correction found in the versions read.",
+      "id": "HodgeStructuresPartII/EH7-26",
+      "source": "BKT20",
+      "catalogueFinding": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E51",
+      "searched": [
+        "Published BKT PDF at the recorded NSF URL and author-hosted copy, passages relevant to H.7, collated 2026-10-07.",
+        "Complete author-hosted 2023 erratum read 2026-10-07.",
+        "Existing independently reviewed BKT extraction, including PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E51. No fresh complete arXiv or Crossref correction search is claimed."
+      ]
+    },
+    {
+      "kind": "misprint",
+      "locator": "Lemma 4.10 proof, p. 932, displayed transversality condition",
+      "printed": "e^{−ad(v(t))}N_i + t_i \\frac{1 − e^{−ad(v(t))}}{ad(v(t))} \\frac{∂v}{∂t_i} ∈ F^{−1}𝔤",
+      "correction": "e^{−ad(v(t))}N_i + 2πi t_i ((1 − e^{−ad(v(t))})/ad(v(t))) ∂v/∂t_i ∈ F^{−1}𝔤. Equivalently, keep t_i and replace N_i by N_i/(2πi).",
+      "reason": "Here γ^{-1}∂_{z_i}γ = e^{-ad v}N_i + ((1−e^{-ad v})/ad v)(∂_{z_i}v), and ∂_{z_i}v = 2πi t_i ∂v/∂t_i since t_i = e^{2πi z_i}. F^{-1}𝔤 is a linear subspace, so the factor cannot be absorbed into only one of the two terms. The argument uses only the value of the display at t_i = 0, where the second term vanishes, so nothing changes.",
+      "affects": "nothing",
+      "known": "Already recorded and independently confirmed in PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E52; no additional published correction found in the versions read.",
+      "id": "HodgeStructuresPartII/EH7-27",
+      "source": "BKT20",
+      "catalogueFinding": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E52",
+      "searched": [
+        "Published BKT PDF at the recorded NSF URL and author-hosted copy, passages relevant to H.7, collated 2026-10-07.",
+        "Complete author-hosted 2023 erratum read 2026-10-07.",
+        "Existing independently reviewed BKT extraction, including PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E52. No fresh complete arXiv or Crossref correction search is claimed."
+      ]
+    },
+    {
+      "kind": "gap",
+      "locator": "Lemma 4.10 and its proof, p. 932",
+      "printed": "Lemma 4.10. On Σ_n we have h(γu) ∼ h(e^{z·N}u). … we have that |t_i|^2 y^I < ε for sufficiently large y_n and so the same is true of h(γu − e^{z·N}u)/h(e^{z·N}u), whence the claim.",
+      "correction": "State Lemma 4.10, and with it Lemma 4.7(2), Proposition 4.6 and the Claim of §4.5, on Σ_n ∩ {y_n ≥ Y_0}. Equivalently, state them on Σ_n after shrinking the polydisk, as Lemma 4.2 allows. Note that the upper bound h(γu) ≪ h(e^{zN}u) already holds on all of Σ_n. Alternatively, add a proof of the lower bound on {y_n ≤ Y_0}.",
+      "reason": "The proof shows h(γu − e^{zN}u) ≤ ε h(e^{zN}u) only once y_n is large, and then concludes by the triangle inequality. For n = 1 the rest of Σ_1 is relatively compact, so the comparison holds there by continuity. For n ≥ 2, Σ_n ∩ {1 < y_n < Y_0} is not relatively compact (y_1 → ∞), and there the t_n g_n-term is of the same order as h(e^{zN}u). The paper gives no argument for this region; it would need parametric one-variable estimates. Defence: Lemma 4.2 already allows 'after maybe shrinking the polydisk', and §4.1 can use shrunken charts, so Theorem 1.3 is unaffected. This is the same convention as E1 and the items that say 'after the standard shrinking'.",
+      "affects": "the proof",
+      "known": "Already recorded and independently confirmed in PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E53; no additional published correction found in the versions read.",
+      "id": "HodgeStructuresPartII/EH7-28",
+      "source": "BKT20",
+      "catalogueFinding": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E53",
+      "searched": [
+        "Published BKT PDF at the recorded NSF URL and author-hosted copy, passages relevant to H.7, collated 2026-10-07.",
+        "Complete author-hosted 2023 erratum read 2026-10-07.",
+        "Existing independently reviewed BKT extraction, including PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E53. No fresh complete arXiv or Crossref correction search is claimed."
+      ]
+    },
+    {
+      "kind": "gap",
+      "locator": "Lemma 4.10 (p. 932), used to finish Lemma 4.7(2) (pp. 931–932)",
+      "printed": "To finish the proof of part (2), we need the following lemma … Lemma 4.10. On Σ_n we have h(γu) ∼ h(e^{z·N}u).",
+      "correction": "State Theorem 4.8 (both parts), and Lemma 4.10, for nonzero u ∈ ∩_j W(M_j)_{s_j,ℂ} with nonzero image in the multigraded quotient W_σ/Σ_{σ′<σ}W_{σ′}. This is the form in CKS86 5.21 and Kashiwara 3.4.1–3.4.2, and it includes u ∈ I^α and w_{det K^i} ∈ Λ^iV_ℂ. Add the locator Theorem 4.8, p. 931.",
+      "reason": "The lemma does not say what u is. Its proof uses the exponents s_1,…,s_n of u ∈ J^{s_1,…,s_n}_C, because Theorem 4.8 is stated only for J-vectors. But it is invoked for Lemma 4.7(2), where u ∈ I^α and later u = w_{det K^i}. An I^α-vector is generally not in a single J^σ_C; the I-splitting also splits F, so it cannot refine J_C. The J-components of such a vector are not h-orthogonal, so the per-component comparisons cannot simply be added. The root is the formulation of Theorem 4.8 on p. 931, which Lemma 4.7(1) also applies to I^α. Defence: the CKS/Kashiwara estimates are usually stated in the multigraded form, and in that form everything goes through.",
+      "affects": "the proof",
+      "known": "Already recorded and independently confirmed in PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E54; no additional published correction found in the versions read.",
+      "id": "HodgeStructuresPartII/EH7-29",
+      "source": "BKT20",
+      "catalogueFinding": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E54",
+      "searched": [
+        "Published BKT PDF at the recorded NSF URL and author-hosted copy, passages relevant to H.7, collated 2026-10-07.",
+        "Complete author-hosted 2023 erratum read 2026-10-07.",
+        "Existing independently reviewed BKT extraction, including PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E54. No fresh complete arXiv or Crossref correction search is claimed."
+      ]
+    },
+    {
+      "kind": "misprint",
+      "locator": "End of proof of Lemma 4.7, p. 932",
+      "printed": "and thus that h(ũ_i, ṽ_i) is roughly polynomial, as the numerator in (4.4) is clearly in 𝒪[x, y, y^{−1}].",
+      "correction": "…and thus, by (4.2)–(4.4), h(ũ_i,ṽ_i) = i^{2p_i−k} B((γw_{det K^{i−1}})∧u, γw_{det K^i}) B(γw_{det K^i}, (γw_{det K^{i−1}})∧v) / (B(γw_{det K^{i−1}}) B(γw_{det K^i})). Its numerator is in 𝒪[x,y] and its denominator is roughly monomial, so h(ũ_i,ṽ_i) is roughly polynomial.",
+      "reason": "The literal numerator of (4.4), B(u,w̃_i)B(w̃_i,v), itself contains the denominator B(γw_{det K^{i−1}})² through (4.3), so it is not in 𝒪[x,y,y^{-1}]. After clearing it, the conclusion 'roughly polynomial' is correct.",
+      "affects": "nothing",
+      "known": "Already recorded and independently confirmed in PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E55; no additional published correction found in the versions read.",
+      "id": "HodgeStructuresPartII/EH7-30",
+      "source": "BKT20",
+      "catalogueFinding": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E55",
+      "searched": [
+        "Published BKT PDF at the recorded NSF URL and author-hosted copy, passages relevant to H.7, collated 2026-10-07.",
+        "Complete author-hosted 2023 erratum read 2026-10-07.",
+        "Existing independently reviewed BKT extraction, including PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E55. No fresh complete arXiv or Crossref correction search is claimed."
+      ]
+    },
+    {
+      "kind": "gap",
+      "locator": "§4.5, first paragraph, p. 932 (proof of Theorem 1.5, p. 921)",
+      "printed": "First, observe that the set 𝔖^b_𝔥 is covered by finitely many sets of the form Σ_n (corresponding to the finitely many possible orderings of the coordinates). Hence it is enough to show that Φ̃(Σ_n) is contained in finitely many Siegel sets of D = G/M.",
+      "correction": "Either restrict Theorem 1.5 to 𝔖^n_𝔥 on a suitably shrunken polydisk, which is all that §4.2 uses, or add the reduction. For R, use monodromy translates T^k ∈ Γ and Remark 2.6(1), together with the closed strips 0 ≤ x_j ≤ 1 obtained by continuity. For η, cover the compact polydisk {|t_j| ≤ e^{−2πη}} by finitely many local charts (Δ*)^k × Δ^{n−k}, treating Δ-factors as punctured with N_j = 0 and choosing chart centres so that every point lies in the punctured part of some chart, and apply the proven case in each chart.",
+      "reason": "Theorem 1.5 claims the inclusion for 𝔥^n_{R,η} = {|Re z| ≤ R, Im z ≥ η} for all R, η > 0. The proof treats only 𝔖^n_𝔥 = {0 < x_j < 1, y_j > 1}. Through Lemma 4.10 ('sufficiently large y_n') and the norm estimates, it effectively treats only its part with y_n ≫ 0. The set of z with some y_j ∈ [η, Y_0] and others → ∞ is never addressed. The theorem is very likely true (the compactness argument above), but that argument is not in the paper. Theorem 1.3 is unaffected, because §4.2 applies Theorem 1.5 only to 𝔖^n_𝔥 and the charts of §4.1 can be shrunk. Not in the erratum. Related to E1 (Theorem 4.1) and E2 (wider sectors for Lemma 4.5), but distinct from both.",
+      "affects": "the proof",
+      "known": "Already recorded and independently confirmed in PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E56; no additional published correction found in the versions read.",
+      "id": "HodgeStructuresPartII/EH7-31",
+      "source": "BKT20",
+      "catalogueFinding": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E56",
+      "searched": [
+        "Published BKT PDF at the recorded NSF URL and author-hosted copy, passages relevant to H.7, collated 2026-10-07.",
+        "Complete author-hosted 2023 erratum read 2026-10-07.",
+        "Existing independently reviewed BKT extraction, including PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E56. No fresh complete arXiv or Crossref correction search is claimed."
+      ]
+    },
+    {
+      "kind": "gap",
+      "locator": "§5, p. 933, second sentence",
+      "printed": "Notice that any connected Hodge variety is in particular an arithmetic quotient and that any Hodge morphism of connected Hodge varieties is in particular a morphism of arithmetic quotients.",
+      "correction": "Present the source through G'' := the image of P'^der in G^ad (semisimple), M'' := the stabiliser of the base point, and Γ'' := the image of Γ'. For neat Γ' this image lies in G''(Q): the quotient ρ̄(P')/G'' is an R-anisotropic Q-torus, whose arithmetic subgroups are finite, and a finite neat group is trivial. Pass if necessary to a finite-index subgroup (a finite cover of the source), which does not change Y. Alternatively, use erratum Cor. 1.3 directly for morphisms of pure Hodge manifolds.",
+      "reason": "With the definitions of §1.1, the claim holds only up to a finite cover of the source; the images, and hence the definability of special subvarieties, are unaffected. The erratum's Corollary 1.3 makes the claim moot.",
+      "affects": "nothing",
+      "known": "Already recorded and independently confirmed in PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E57; no additional published correction found in the versions read.",
+      "id": "HodgeStructuresPartII/EH7-32",
+      "source": "BKT20",
+      "catalogueFinding": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E57",
+      "searched": [
+        "Published BKT PDF at the recorded NSF URL and author-hosted copy, passages relevant to H.7, collated 2026-10-07.",
+        "Complete author-hosted 2023 erratum read 2026-10-07.",
+        "Existing independently reviewed BKT extraction, including PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E57. No fresh complete arXiv or Crossref correction search is claimed."
+      ]
+    },
+    {
+      "kind": "error",
+      "locator": "§4.5, Claim and proof of the Claim, p. 933",
+      "printed": "Claim. There is a basis e = {e_i} of H_ℚ and C > 0 such that h_z is (e, C)-reduced for all z ∈ Σ_n. … it follows that h_z is (e, C_τ)-reduced for p(z) restricted to any curve τ in Σ_n.",
+      "correction": "Claim′: there are a basis e of V_ℚ with each e_i ∈ J^{σ_i}, and C > 0, such that for all z ∈ Σ_n, h_z satisfies conditions (1) and (3) of Definition 4.11 for e. Conditions (1) and (3) do not depend on the ordering, so h_z is (σ_z e, C′)-reduced for any C′ > max(C,1), where σ_z sorts the values h_z(e_i). Hence ι∘Φ̃(Σ_n) ⊂ ∪_{σ∈S_m} T_{σe,C′}, a union of m! reduced sets with m = dim V. The curve statement should read: along each curve τ, h_z satisfies (1) (and (3)) for e with a constant C_τ.",
+      "reason": "Counterexample showing the Claim fails for every basis. Take V = V_a ⊗ V_b over (Δ*)^2, where V_a is H^1 of a Tate-curve family in t_1 and V_b is Sym^2 H^1 of one in t_2. On Σ_2, h_z is uniformly comparable to diag(y_1^s y_2^b) in the integral basis e_{s,b}, s ∈ {±1}, b ∈ {−2,0,2}. If h_z were (f,C)-reduced on Σ_2 for one basis f, then h_z(f_i) ≍ λ_i(h_z)² by (2), (3) and Minkowski's second theorem. At (y_1,y_2) = (Y,Y) and at (Y³,Y) the third minimum is ≍ Y^{-1}. This forces f_1, f_2, f_3 into span(e_{−1,−2}, e_{−1,0}), which is impossible. The same example shows that no fixed ordering satisfies (2) along both the curve z_1 = z_2 and the curve z_2 = ζ. So the printed Claim and the curve statement are false. The following sentence ('we may assume (2) as there are only finitely many orderings') shows the intended Claim′. Claim′ is what the argument proves, and it gives Theorem 1.5, which asserts finitely many Siegel sets, consistent with GGLR's |I| = 1 counterexample. Same root as E3, but a different statement. Not in the erratum; the author copy p. 18 is identical.",
+      "affects": "the proof",
+      "known": "Already recorded and independently confirmed in PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E60; no additional published correction found in the versions read.",
+      "id": "HodgeStructuresPartII/EH7-33",
+      "source": "BKT20",
+      "catalogueFinding": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E60",
+      "searched": [
+        "Published BKT PDF at the recorded NSF URL and author-hosted copy, passages relevant to H.7, collated 2026-10-07.",
+        "Complete author-hosted 2023 erratum read 2026-10-07.",
+        "Existing independently reviewed BKT extraction, including PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E60. No fresh complete arXiv or Crossref correction search is claimed."
+      ]
+    }
+  ],
+  "restructure": [
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "HodgeStructuresPartII",
+        "ArithmeticLocallySymmetricSpaces"
+      ],
+      "detail": "The reviewed BKT route ArithmeticQuotientDefinability has not yet become an atlas roadmap; general compact stabilizer M and fixed-K tame quotient structures have no available stage owner. H.7 must consume them, not duplicate reduction theory or pretend ALS.2 (M=K) covers the general case.",
+      "proposal": "Materialize the already routed Arithmetic locally symmetric spaces and their cohomology, Part II: tame arithmetic quotients, id ArithmeticQuotientDefinability. Import ALS.0/ALS.2, AA.3 and LD.6; own generic fixed-K finite Siegel-chart refinements and corrected Cartan-compatible maps. H.3 supplies only canonical Hodge compact and morphism compatibility; H.7 consumes the generic quotient theorem."
+    },
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "ComplexComparisonPartII"
+      ],
+      "detail": "Closed analytic images of noncompact arithmetic Hodge subdomains require proper holomorphic image, which is not stated by the existing projective-Chow/proper-GAGA C4 scope.",
+      "proposal": "Export the general proper analytic image theorem from the analytic foundations of ComplexComparisonPartII (extend C4 or add an analytic-image sublayer using C0). Keep projective Chow there and o-minimal definable Chow in LD.6; H.7 owns only its special-image application."
+    }
+  ],
+  "sourceVersions": [
+    {
+      "kind": "published",
+      "url": "https://par.nsf.gov/servlets/purl/10200187",
+      "citation": "JAMS 33 (2020), 917–939; published PDF",
+      "read": "2026-10-07",
+      "sha256": "b7cf457907c30c9dc1c349637e74027ce4ef038a2e0f646b7685f571d367e058"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://benjamin-bakker.github.io/DefArith.pdf",
+      "citation": "Author-hosted version, 23 PDF pages; pagination differs from publication",
+      "read": "2026-10-07",
+      "sha256": "b559c652490eb54595e86ec063945d016dd104949a91f9d6b4616cc4e25b8c8e"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://benjamin-bakker.github.io/DefArithErr.pdf",
+      "citation": "Author-hosted erratum, JAMS 36 (2023), DOI 10.1090/jams/1025",
+      "read": "2026-10-07",
+      "sha256": "86d76a5d2443840ddcaf2c08966cd236759bade659e338e3fcdb3edcd2b61ac7"
+    },
+    {
+      "kind": "published",
+      "url": "https://www.jstage.jst.go.jp/article/kyotoms1969/21/4/21_4_853/_pdf",
+      "citation": "Publications of RIMS 21 (1985), 853–875",
+      "read": "2026-10-07",
+      "sha256": "7d2d279b315af10d45964d49c10e0f27893804ee9c820237cf302bbf18ed7bef"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1711.09387v1",
+      "citation": "arXiv:1711.09387v1 (2017)",
+      "read": "2026-10-07",
+      "sha256": "fb0ea85a98db871ec140378feef334e2f67cc8215fc2a5e3c0e75d8d42015939"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://math.haifa.ac.il/kobi/analytic.pdf",
+      "citation": "Author draft dated July 22, 2005; published J. reine angew. Math. 626 (2009), 39–74; locators use draft pagination",
+      "read": "2026-10-07",
+      "sha256": "e7556f77373bdc1e24e4f620413d674197f842569dde1a704555dd1d03f7856a"
+    }
+  ],
+  "audit": {
+    "read": "2026-10-07",
+    "reviewedLibraryAudit": "data/library-coverage.json: no HodgeStructuresPartII:H.7 layer entry; upstream pure/mixed Hodge entries and evidence read before planning.",
+    "baselineSearch": "Exact pinned TauCeti tree searched for definable period maps, Hodge loci, o-minimality, rough polynomial and Siegel-set declarations; no relevant H.7 theorem found. Mathlib ModelTheory definability and complex exponential source read. Existing TauCeti HodgeForm, Structure, Tate and rational-substructure sources read at the pin. No second fibrewise theory is planned.",
+    "upstreamDocuments": [
+      "content/tau-ceti/HodgeStructures/README.md",
+      "content/tau-ceti/UniversalCovers/README.md"
+    ],
+    "stageEdges": "H.7 imports H.3/H.6 in the new roadmap definition; its atlas extract does not exist. All link files were searched for HodgeStructuresPartII and no matching entries were found.",
+    "supplierReviewBoundary": "External node statements were read as plans, including AA.3 and ShimuraData; their implementation and independent review status are not upgraded by this packet.",
+    "sourceRoute": "All 60 items of the reviewed BKT DegeneratingHodgeStructures route are accounted for by local H.7 nodes or named external stages in sourceRouteAccounting. The accepted design renamed that route to HodgeStructuresPartII; H.3/H.6 retain the domain/degeneration items."
+  },
+  "sourceRouteAccounting": [
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/general-period-domain",
+      "accountedBy": "HodgeStructuresPartII:H.3",
+      "boundary": "Imported supplier; exact contract is in requests/gaps. No duplicate definition is planned here."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/hodge-datum",
+      "accountedBy": "HodgeStructuresPartII:H.3",
+      "boundary": "Imported supplier; exact contract is in requests/gaps. No duplicate definition is planned here."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/hodge-manifold",
+      "accountedBy": "HodgeStructuresPartII:H.3",
+      "boundary": "Imported supplier; exact contract is in requests/gaps. No duplicate definition is planned here."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/period-map",
+      "accountedBy": "HodgeStructuresPartII:H.3",
+      "boundary": "Imported supplier; exact contract is in requests/gaps. No duplicate definition is planned here."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/hodge-morphism-compatible",
+      "accountedBy": "HodgeStructuresPartII:H.3",
+      "boundary": "Imported supplier; exact contract is in requests/gaps. No duplicate definition is planned here."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/snc-buffered-cover",
+      "accountedBy": "AlgebraicModuliForArithmeticGeometry:R09.7d",
+      "boundary": "Imported supplier; exact contract is in requests/gaps. No duplicate definition is planned here."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/quasi-unipotent-monodromy",
+      "accountedBy": "HodgeStructuresPartII:H.6",
+      "boundary": "Imported supplier; exact contract is in requests/gaps. No duplicate definition is planned here."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/monodromy-logarithms",
+      "accountedBy": "HodgeStructuresPartII:H.6",
+      "boundary": "Imported supplier; exact contract is in requests/gaps. No duplicate definition is planned here."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/nilpotent-orbit",
+      "accountedBy": "HodgeStructuresPartII:H.6",
+      "boundary": "Imported supplier; exact contract is in requests/gaps. No duplicate definition is planned here."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/nilpotent-extension",
+      "accountedBy": "HodgeStructuresPartII:H.6",
+      "boundary": "Imported supplier; exact contract is in requests/gaps. No duplicate definition is planned here."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/bounded-sector",
+      "accountedBy": "HodgeStructuresPartII:H.7/bounded-sector",
+      "boundary": "Local H.7 target or supporting key theorem."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/period-lift-definable",
+      "accountedBy": "HodgeStructuresPartII:H.7/sector-lift-definable",
+      "boundary": "Local H.7 target or supporting key theorem."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/monodromy-weight-filtration",
+      "accountedBy": "HodgeStructuresPartII:H.6",
+      "boundary": "Imported supplier; exact contract is in requests/gaps. No duplicate definition is planned here."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/nilpotent-cone-weights",
+      "accountedBy": "HodgeStructuresPartII:H.6",
+      "boundary": "Imported supplier; exact contract is in requests/gaps. No duplicate definition is planned here."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/limiting-mixed-hodge",
+      "accountedBy": "HodgeStructuresPartII:H.6",
+      "boundary": "Imported supplier; exact contract is in requests/gaps. No duplicate definition is planned here."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/simultaneous-splitting",
+      "accountedBy": "HodgeStructuresPartII:H.6",
+      "boundary": "Imported supplier; exact contract is in requests/gaps. No duplicate definition is planned here."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/distributive-weight-family",
+      "accountedBy": "HodgeStructuresPartII:H.6",
+      "boundary": "Imported supplier; exact contract is in requests/gaps. No duplicate definition is planned here."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/hodge-norm-asymptotic",
+      "accountedBy": "HodgeStructuresPartII:H.6",
+      "boundary": "Imported supplier; exact contract is in requests/gaps. No duplicate definition is planned here."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/twisted-norm-asymptotic",
+      "accountedBy": "HodgeStructuresPartII:H.6",
+      "boundary": "Imported supplier; exact contract is in requests/gaps. No duplicate definition is planned here."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/negative-lie-chart",
+      "accountedBy": "HodgeStructuresPartII:H.6",
+      "boundary": "Imported supplier; exact contract is in requests/gaps. No duplicate definition is planned here."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/horizontal-perturbation",
+      "accountedBy": "HodgeStructuresPartII:H.6",
+      "boundary": "Imported supplier; exact contract is in requests/gaps. No duplicate definition is planned here."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/perturbed-norm-comparison",
+      "accountedBy": "HodgeStructuresPartII:H.6",
+      "boundary": "Imported supplier; exact contract is in requests/gaps. No duplicate definition is planned here."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/hodge-adapted-flag",
+      "accountedBy": "HodgeStructuresPartII:H.7/hodge-adapted-flag",
+      "boundary": "Local H.7 target or supporting key theorem."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/indefinite-gram-minors",
+      "accountedBy": "HodgeStructuresPartII:H.7/gram-determinant-formulas",
+      "boundary": "Local H.7 target or supporting key theorem."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/gram-determinant-ratios",
+      "accountedBy": "HodgeStructuresPartII:H.7/gram-determinant-formulas",
+      "boundary": "Local H.7 target or supporting key theorem."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/hodge-entry-rationality",
+      "accountedBy": "HodgeStructuresPartII:H.7/gram-determinant-formulas",
+      "boundary": "Local H.7 target or supporting key theorem."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/split-flat-norm-rough-monomial",
+      "accountedBy": "HodgeStructuresPartII:H.7/flat-norm-rough-monomial",
+      "boundary": "Local H.7 target or supporting key theorem."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/split-moving-norm-rough-monomial",
+      "accountedBy": "HodgeStructuresPartII:H.7/moving-norm-rough-monomial",
+      "boundary": "Local H.7 target or supporting key theorem."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/split-entry-rough-polynomial",
+      "accountedBy": "HodgeStructuresPartII:H.7/hodge-entry-rough-polynomial",
+      "boundary": "Local H.7 target or supporting key theorem."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/all-entries-rough-polynomial",
+      "accountedBy": "HodgeStructuresPartII:H.7/hodge-entry-rough-polynomial",
+      "boundary": "Local H.7 target or supporting key theorem."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/determinant-weight-bound",
+      "accountedBy": "HodgeStructuresPartII:H.7/determinant-weight-bound",
+      "boundary": "Local H.7 target or supporting key theorem."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/one-variable-siegel",
+      "accountedBy": "HodgeStructuresPartII:H.6",
+      "boundary": "Imported supplier; exact contract is in requests/gaps. No duplicate definition is planned here."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/faithful-hodge-representation",
+      "accountedBy": "HodgeStructuresPartII:H.3",
+      "boundary": "Imported supplier; exact contract is in requests/gaps. No duplicate definition is planned here."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/curvewise-reducedness",
+      "accountedBy": "HodgeStructuresPartII:H.7/curvewise-reducedness",
+      "boundary": "Local H.7 target or supporting key theorem."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/uniform-reducedness",
+      "accountedBy": "HodgeStructuresPartII:H.7/uniform-reducedness",
+      "boundary": "Local H.7 target or supporting key theorem."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/period-finite-siegel-cover",
+      "accountedBy": "HodgeStructuresPartII:H.7/positive-height-siegel-cover",
+      "boundary": "Local H.7 target or supporting key theorem."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/local-period-definability",
+      "accountedBy": "HodgeStructuresPartII:H.7/local-period-definability",
+      "boundary": "Local H.7 target or supporting key theorem."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/global-period-definability",
+      "accountedBy": "HodgeStructuresPartII:H.7/global-period-definability",
+      "boundary": "Local H.7 target or supporting key theorem."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/special-hodge-subvariety",
+      "accountedBy": "HodgeStructuresPartII:H.7/special-hodge-image",
+      "boundary": "Local H.7 target or supporting key theorem."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/special-image-analytic",
+      "accountedBy": "HodgeStructuresPartII:H.7/special-image-closed-analytic",
+      "boundary": "Local H.7 target or supporting key theorem."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/special-image-definable",
+      "accountedBy": "HodgeStructuresPartII:H.7/special-image-definable",
+      "boundary": "Local H.7 target or supporting key theorem."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/rational-hodge-countability",
+      "accountedBy": "HodgeStructuresPartII:H.7/rational-special-countability",
+      "boundary": "Local H.7 target or supporting key theorem."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/special-pullback-algebraic",
+      "accountedBy": "HodgeStructuresPartII:H.7/special-pullback-algebraic",
+      "boundary": "Local H.7 target or supporting key theorem."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/hodge-locus-algebraicity",
+      "accountedBy": "HodgeStructuresPartII:H.7/hodge-locus-algebraicity",
+      "boundary": "Local H.7 target or supporting key theorem."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/compact-target-analytic-definability",
+      "accountedBy": "HodgeStructuresPartII:H.7/compact-target-period-definability",
+      "boundary": "Local H.7 target or supporting key theorem."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/generic-mumford-tate-group",
+      "accountedBy": "HodgeStructuresPartII:H.3",
+      "boundary": "Imported supplier; exact contract is in requests/gaps. No duplicate definition is planned here."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/hodge-locus",
+      "accountedBy": "HodgeStructuresPartII:H.7/exceptional-hodge-locus",
+      "boundary": "Local H.7 target or supporting key theorem."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/hodge-locus-analytic",
+      "accountedBy": "HodgeStructuresPartII:H.7/local-tensor-locus-analytic",
+      "boundary": "Local H.7 target or supporting key theorem."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/siegel-strip-uniformization",
+      "accountedBy": "HodgeStructuresPartII:H.7/sector-uniformization",
+      "boundary": "Local H.7 target or supporting key theorem."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/hodge-form-function",
+      "accountedBy": "HodgeStructuresPartII:H.7/hodge-form-function",
+      "boundary": "Local H.7 target or supporting key theorem."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/composite-quotient-definable",
+      "accountedBy": "HodgeStructuresPartII:H.7/local-period-definability",
+      "boundary": "Local H.7 target or supporting key theorem."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/kashiwara-splitting-independent-estimates",
+      "accountedBy": "HodgeStructuresPartII:H.6",
+      "boundary": "Imported supplier; exact contract is in requests/gaps. No duplicate definition is planned here."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/finite-cover-descent",
+      "accountedBy": "LogicAndDefinabilityInNumberTheory:LD.6",
+      "boundary": "Imported supplier; exact contract is in requests/gaps. No duplicate definition is planned here."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/holomorphic-map-to-arithmetic-variety-is-period-map",
+      "accountedBy": "ShimuraVarieties:V3",
+      "boundary": "Imported supplier; exact contract is in requests/gaps. Borel reconstruction belongs to V3 and is outside the H.7 proof chain."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/hodge-variety-hodge-locus",
+      "accountedBy": "HodgeStructuresPartII:H.7/exceptional-special-preimage",
+      "boundary": "Local H.7 target or supporting key theorem."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/hodge-locus-preimage",
+      "accountedBy": "HodgeStructuresPartII:H.7/exceptional-special-preimage",
+      "boundary": "Local H.7 target or supporting key theorem."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/hodge-form-map",
+      "accountedBy": "HodgeStructuresPartII:H.3",
+      "boundary": "Imported supplier; exact contract is in requests/gaps. No duplicate definition is planned here."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/transversality-in-lift-coordinates",
+      "accountedBy": "HodgeStructuresPartII:H.6",
+      "boundary": "Imported supplier; exact contract is in requests/gaps. No duplicate definition is planned here."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/monodromy-logarithms-type-minus-one",
+      "accountedBy": "HodgeStructuresPartII:H.6",
+      "boundary": "Imported supplier; exact contract is in requests/gaps. No duplicate definition is planned here."
+    },
+    {
+      "item": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/centralizer-preserves-weight-filtration",
+      "accountedBy": "HodgeStructuresPartII:H.6",
+      "boundary": "Imported supplier; exact contract is in requests/gaps. No duplicate definition is planned here."
+    }
+  ]
+}

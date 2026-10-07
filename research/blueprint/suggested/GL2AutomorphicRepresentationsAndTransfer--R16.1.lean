@@ -82,27 +82,33 @@ example (g : GeneralLinearGroup (Fin 2) (ZMod 5)) (hg : g.val = !![2, 0; 0, 1]) 
     g ∈ k1 (⊥ : Ideal (ZMod 5)) ∧ g.val ≠ !![1, 0; 0, 1] := by sorry
 end Congruence
 
-section LocalTopology
--- Missing: F is a local field, O its integers; K is the indicated integral,
--- orthogonal or unitary maximal compact subgroup in the supplier topology.
-theorem compactComparison {G : Type*} [TopologicalSpace G] (K : Set G) :
-    IsCompact K := by sorry
--- Missing: F nonarchimedean, ϖ a uniformizer, K=GL₂(O), Cartan representatives.
-theorem iwasawaCartan {F : Type*} [Field F] (ϖ : Fˣ)
-    (K : Subgroup (GeneralLinearGroup (Fin 2) F)) (g : GeneralLinearGroup (Fin 2) F) :
-    ∃ (a b : ℤ) (k l : K), b ≤ a ∧
-      g = k.val * GeneralLinearGroup.mkOfDetNeZero
-        (!![(ϖ : F) ^ a, 0; 0, (ϖ : F) ^ b]) (by sorry) * l.val := by sorry
--- Missing: μ is the specified local Haar measure normalized on K;
--- AA.0's restricted product and AA.2's central quotient identifications.
-theorem haarComparison {G : Type*} [MeasurableSpace G]
-    (μ : MeasureTheory.Measure G) (K : Set G) : μ K = 1 := by sorry
--- Missing: the source and target are AF.2's exact finite-level automorphic and
--- finite-double-coset classical spaces, with growth/character/type conditions.
-theorem finiteLevelComparison {A C : Type*} [AddCommGroup A] [Module ℂ A]
-    [AddCommGroup C] [Module ℂ C] : Nonempty (A ≃ₗ[ℂ] C) := by sorry
-end LocalTopology
+/-
+Explicit signature omissions (PROTOCOL §13; REV-FIX-RT-AREA-automorphic-1~3).
+The AA.0 Haar product, AA.1 adelic group, AA.2 quotient/central-character L² and AL.0 test-function carriers are absent. An arbitrary compact set, measure or vector space cannot satisfy these GL₂ identifications.
+These source targets require the actual supplier objects and hypotheses below.
+They are not universal theorems about arbitrary types, functions, or multiplicity maps.
+Omitted declaration names: TauCeti.GL2Blueprint.compactComparison, TauCeti.GL2Blueprint.iwasawaCartan, TauCeti.GL2Blueprint.haarComparison, TauCeti.GL2Blueprint.finiteLevelComparison.
 
+GL2AutomorphicRepresentationsAndTransfer:R16.1/local-adelic-compact-comparison
+TauCeti.GL2Blueprint.compactComparison
+For any number field F, identify the generic reductive group GL₂(Fv) with existing matrix units. At finite v the standard maximal compact is GL₂(Ov); at real v it is O(2); at complex v it is U(2). The adelic compact is their product, and its finite part is compact open in the restricted product with respect to GL₂(Ov). K₀(pvⁿ), K₁(pvⁿ) and finite products of these are compact open at finite places. All topology and restricted-product identifications are those of AA.1.
+Hypotheses: F a number field; chosen place completions and valuation rings.
+
+GL2AutomorphicRepresentationsAndTransfer:R16.1/iwasawa-cartan
+TauCeti.GL2Blueprint.iwasawaCartan
+Specialize RG2.4 at finite places and AF.1 at infinity: GL₂(Fv)=B(Fv)K_v. At a finite place every double coset K_v g K_v has a unique representative diag(ϖᵃ,ϖᵇ) with a≥b integers. With upper triangular B and normalized induction, δB(diag(a,d))=|a/d|v. At infinity use positive singular values and O(2)/U(2).
+Hypotheses: Chosen uniformizer at finite v; upper triangular B.
+
+GL2AutomorphicRepresentationsAndTransfer:R16.1/haar-quotient-comparison
+TauCeti.GL2Blueprint.haarComparison
+Fix local measures dg_v on GL₂(Fv), vol(GL₂(Ov))=1 at finite places outside a specified finite set; form AA.0’s restricted Haar product. GL₂ is unimodular. For a continuous unitary idele-class character ω use AA.2’s quotient measure and central-character L² space on Z(𝔸)GL₂(F)\GL₂(𝔸): f(zγg)=ω(z)f(g), with finite integral of |f|². The matrix realization is an isometric right-translation-equivariant identification with AA.2/central-character-l2. Measures on elliptic centralizers are fixed separately, not inferred from dg_v.
+Hypotheses: ω unitary and trivial on F×; quotient is formed by the closed subgroup specified by AA.2.
+
+GL2AutomorphicRepresentationsAndTransfer:R16.1/finite-level-comparison
+TauCeti.GL2Blueprint.finiteLevelComparison
+At compact open Kf, the GL₂ finite-level space is the Kf-fixed subspace of AF.2’s automorphic forms with chosen central character, finite K∞ types and infinitesimal-character ideal. Using the finite double-coset decomposition GL₂(𝔸)=⊔GL₂(F)tᵢGL₂(F∞)Kf, restriction identifies it with the direct sum of classical spaces on Γᵢ\GL₂(F∞), with Γᵢ the corresponding arithmetic stabilizer. The central character, growth, differential and right-translation conditions are transported, not redefined. AL.0 owns additive Schwartz–Bruhat/Fourier theory; SR.1 owns the compactly supported smooth Hecke carrier.
+Hypotheses: Kf compact open; finite type and finite-codimension annihilator data as in AF.2.
+-/
 section LocalRepresentation
 variable {G V : Type*} [Group G] [AddCommGroup V] [Module ℂ V]
 -- Missing: P is the SR.2 irreducible admissible GL₂(F) class carrier, with the
@@ -344,28 +350,38 @@ theorem tamelyDihedralSupercuspidal {P C W : Type*} (ℓ q : ℕ)
 end Parameters
 
 section Global
--- Missing: A is the actual cuspidal constituent and T its AF.2 restricted tensor
--- model; the Hilbert completion is separate from this algebraic equivalence.
-theorem cuspidalTensor {A T : Type*} [AddCommGroup A] [Module ℂ A]
-    [AddCommGroup T] [Module ℂ T] : Nonempty (A ≃ₗ[ℂ] T) := by sorry
--- Missing: F number field, φ a genuine cusp form, W its Fourier coefficient,
--- ψ on F\A and vol(F\A)=1; convergence is supplied by AL.3 before multiplicity.
-theorem globalWhittakerExpansion {F G : Type*} [Field F] [Group G]
-    (diag : Fˣ → G) (φ W : G → ℂ) (g : G) :
-    φ g = ∑' a : Fˣ, W (diag a * g) := by sorry
--- Missing: C is the existing cuspidal isomorphism-class carrier and mult AS.4 multiplicity.
-theorem globalMultiplicityOne {C : Type*} (mult : C → ℕ) (π : C) : mult π = 1 := by sorry
--- Missing: C consists of cuspidal global classes, v ranges over finite places,
--- and local is the actual local-class map. No infinite-place equality is assumed.
-theorem strongMultiplicityOne {C V L : Type*} [DecidableEq V]
-    (localFactor : C → V → L) (π π' : C) (S : Finset V)
-    (h : ∀ v ∉ S, localFactor π v = localFactor π' v) : π = π' := by sorry
--- Missing: π is regular algebraic cuspidal in the algebraic normalization
--- π_alg = π_unitary ⊗ |det|^{-(k-2)/2}; K is the AF.4 rationality/model field,
--- coeff the algebraically normalized Hecke coefficients.
-theorem cohomologicalRationality {C : Type*} (π : C) (K : Subfield ℂ)
-    (coeff : C → ℕ → ℂ) : ∀ n, coeff π n ∈ K := by sorry
+/-
+Explicit signature omissions (PROTOCOL §13; REV-FIX-RT-AREA-automorphic-1~3).
+Use AL.3 Fourier reconstruction, global-whittaker-factorization and global-multiplicity-one, then AL.3 strong-multiplicity-one. The source π, its cusp embedding, its actual local components and its rational model are indispensable. The old statements quantified over unrelated functions and multiplicities.
+These source targets require the actual supplier objects and hypotheses below.
+They are not universal theorems about arbitrary types, functions, or multiplicity maps.
+Omitted declaration names: TauCeti.GL2Blueprint.cuspidalTensor, TauCeti.GL2Blueprint.globalWhittakerExpansion, TauCeti.GL2Blueprint.globalMultiplicityOne, TauCeti.GL2Blueprint.strongMultiplicityOne, TauCeti.GL2Blueprint.cohomologicalRationality.
 
+GL2AutomorphicRepresentationsAndTransfer:R16.4/cuspidal-tensor-factorization
+TauCeti.GL2Blueprint.cuspidalTensor
+For unitary central character ω trivial on F×, the smooth K∞-finite cuspidal spectrum in AA.2’s L² space is AS.4’s algebraic Hilbert-direct-sum decomposition with finite multiplicities. Every irreducible constituent has the AF.2 restricted tensor factorization ⊗′vπv, with spherical distinguished vectors at almost all finite v. Identify this algebraic factorization with the corresponding smooth vectors of its Hilbert completion and with the Whittaker tensor model. Multiplicity one is proved below; it is not assumed in this comparison. Nonunitary cuspidal representations are handled after an explicitly recorded norm twist.
+Hypotheses: F number field; central character unitary for L²; admissible local factors and AF.2 distinguished-vector data.
+
+GL2AutomorphicRepresentationsAndTransfer:R16.4/global-whittaker-expansion
+TauCeti.GL2Blueprint.globalWhittakerExpansion
+Fix nontrivial ψ:F\𝔸→ℂ× and additive Haar mass vol(F\𝔸)=1. For a smooth K∞-finite cuspidal φ, Wφ(g)=∫_{F\𝔸}φ(n(x)g)ψ(−x)dx and φ(g)=Σ_{a∈F×}Wφ(diag(a,1)g), with the convergence appropriate to smooth cusp forms, locally uniform after the stated differentiability/growth estimates. The coefficient map is injective and equivariant. Specialize AL.3’s general GLn Fourier–Whittaker expansion; the GL₂ unipotent has a single additive coordinate. This declaration is in R16.4, upstream of both multiplicity and the integral comparison.
+Hypotheses: Cuspidality supplies zero constant term; smooth automorphic form with supplier growth estimates; global ψ and compatible self-dual local measures.
+
+GL2AutomorphicRepresentationsAndTransfer:R16.4/global-multiplicity-one
+TauCeti.GL2Blueprint.globalMultiplicityOne
+Every irreducible cuspidal automorphic GL₂(𝔸F) representation occurs with multiplicity one in the smooth cuspidal spectrum with its central character. The Whittaker coefficient identifies its realization with the restricted tensor product of the local Whittaker models, uniquely once ψ and almost-all spherical normalizations are fixed. Equivalently, two equivariant embeddings of the same irreducible representation into the cusp space are scalar multiples.
+Hypotheses: Number field F; characteristic-zero automorphic forms; unitary twist when working inside L².
+
+GL2AutomorphicRepresentationsAndTransfer:R16.4/strong-multiplicity-one
+TauCeti.GL2Blueprint.strongMultiplicityOne
+Let π,π′ be cuspidal automorphic representations of GL₂(𝔸F). If there is a finite set S of finite places containing their ramification and πv≅π′v for every finite v outside S, then π≅π′ globally, including every v in S and every infinite place. Equality at a density-one subset is not substituted for this cofinite condition. At an unramified place, equality means the unordered Satake pair, equivalently both standard Hecke trace and determinant data, not a single incomplete eigenvalue without central character.
+Hypotheses: Cuspidal GL₂ over a number field; isomorphism at all finite places outside one finite set.
+
+GL2AutomorphicRepresentationsAndTransfer:R16.4/cohomological-rationality
+TauCeti.GL2Blueprint.cohomologicalRationality
+For regular algebraic cuspidal GL₂ representations, import AF.4’s rationality field Q(π), the fixed field of automorphisms preserving the finite-part isomorphism class, and Clozel’s finite-part Q(π)-model. Specialize its semilinear Galois conjugation to the GL₂ Hecke operators and algebraic infinitesimal character. For a holomorphic newform f of weight k≥2 over ℚ, make this comparison for π_alg=π_f⊗|det|^{−(k−2)/2}, where π_f is unitary: the unnormalized spherical T₁ eigenvalue is a_p and T₀ eigenvalue is χ(p)p^{k−2}. Then Q(π_alg) is the field generated by the normalized newform coefficients and compatible nebentypus values. A claim about the field generated by raw unitary Satake roots is not this rationality theorem. Neither periods nor an integral lattice are canonical. Étale/cohomological rationality and Galois realization required by R19 belong to that geometric owner.
+Hypotheses: Regular algebraic cuspidal π; distinguish field of rationality from a field of definition before invoking AF.4. Use the algebraic determinant twist just displayed in the holomorphic comparison; regular algebraicity is not inferred from arbitrary unitary normalization.
+-/
 /-- Trivial stabilizer on existing global isomorphism classes under determinant twists.
 P must be AF.2's cusp classes and H its Hecke characters; this is not a new carrier. -/
 def nonCM (H P : Type*) [Group H] [MulAction H P] : Set P := by sorry
@@ -384,20 +400,28 @@ example {H P : Type*} [Group H] [MulAction H P] (π : P) : (1 : H) • π = π :
 example {H P : Type*} [Group H] [MulAction H P] (π : P) (χ : H)
     (hne : χ ≠ 1) (hsquare : χ ^ 2 = 1) (hfix : χ • π = π) :
     π ∉ nonCM H P := by sorry
--- Missing: Zglobal is the unfolded GL₂ Mellin integral and Zlocal its AL.2
--- factors; absolute convergence, factorization, ψ and Haar hypotheses precede continuation.
-theorem whittakerIntegral {V : Type*} (Zglobal : ℂ → ℂ)
-    (Zlocal : V → ℂ → ℂ) (s : ℂ) : Zglobal s = ∏' v, Zlocal v s := by sorry
--- Missing: Pi is the irreducible generic restricted tensor with central character
--- trivial on F×, all Hecke-quasicharacter twists entire/bounded in strips,
--- uniform Euler exponent bound, the dual functional equations and actual
--- archimedean CW globalizations. No dummy analytic predicate is introduced.
-theorem gl2Converse {Tensor Cusp : Type*} (Pi : Tensor)
-    (forget : Cusp → Tensor) : ∃ π, forget π = Pi := by sorry
--- Missing: f a primitive existing Newform, Lf its classical coefficient series,
--- Lunitary its AF.5 adelization's full standard L including bad factors.
-theorem classicalLFunction (Lf Lunitary : ℂ → ℂ) (k : ℕ) (hk : 2 ≤ k) (s : ℂ) :
-    Lunitary s = Lf (s + ((k : ℂ) - 1) / 2) := by sorry
+/-
+Explicit signature omissions (PROTOCOL §13; REV-FIX-RT-AREA-automorphic-1~3).
+The actual Rankin–Selberg integrals and completed L-functions are unavailable. The GL₂ converse needs every Hecke-quasicharacter twist, generic local factors/Casselman–Wallach globalizations, central-character automorphy, Euler convergence, dual entireness, strip bounds and the epsilon functional equations. AL.3/gln-converse-full-rank is used at n=2; reduced rank gives no n=2 theorem.
+These source targets require the actual supplier objects and hypotheses below.
+They are not universal theorems about arbitrary types, functions, or multiplicity maps.
+Omitted declaration names: TauCeti.GL2Blueprint.whittakerIntegral, TauCeti.GL2Blueprint.gl2Converse, TauCeti.GL2Blueprint.classicalLFunction.
+
+GL2AutomorphicRepresentationsAndTransfer:R16.5/whittaker-integral-comparison
+TauCeti.GL2Blueprint.whittakerIntegral
+For factorizable cusp φ and Wφ=⊗vWv, the integral ∫_{F×\𝔸×}φ(diag(a,1))χ(a)|a|^{s−1/2}d×a unfolds to ∫_{𝔸×}Wφ(diag(a,1))χ(a)|a|^{s−1/2}d×a and factors into the AL.2 local Whittaker zeta integrals in a common right half-plane. At unramified places with normalized spherical Wv the factor is L(s,πv⊗χv); at ramified places a supplier test vector realizes the L-factor, rather than every newvector doing so for every ramified twist. Compare this integral with AL.2’s Godement–Jacquet standard factor and AL.3’s GL₂×GL₁ Rankin–Selberg integral, using their shared LLC normalization.
+Hypotheses: Cuspidal φ, Hecke character χ; factorizable measures with standard unit volume at almost all finite places; absolute convergence first.
+
+GL2AutomorphicRepresentationsAndTransfer:R16.5/full-gl2-converse
+TauCeti.GL2Blueprint.gl2Converse
+Let Π=⊗′vΠv be an irreducible admissible generic GL₂(𝔸F) tensor, with central character trivial on F×, spherical almost everywhere and the JL uniform exponent bound at the unramified principal-series places so its standard and dual Euler products converge absolutely in a right half-plane. At infinity use genuine irreducible admissible Harish–Chandra modules and their Casselman–Wallach globalizations. Suppose for EVERY Hecke quasicharacter χ, the completed L(s,Π⊗χdet) and L(s,Π̃⊗χ⁻¹det) extend to entire functions, are bounded in every vertical strip outside the standard excluded neighborhoods (here there are no poles), and satisfy L(s,Π⊗χ)=ε(s,Π⊗χ,ψ)L(1−s,Π̃⊗χ⁻¹). Then Π is cuspidal automorphic. Finite-order, unramified-only or one fixed-conductor twists are not substituted for this family. One-dimensional local constituents are excluded by genericity/infinite-dimensionality.
+Hypotheses: Number field F; uniform bound |χᵢ,v(ϖv)| between qv^{−r} and qv^r for a common r at principal-series unramified places; all local constituents infinite-dimensional/generic; full archimedean and analytic conditions above.
+
+GL2AutomorphicRepresentationsAndTransfer:R16.5/classical-l-function-comparison
+TauCeti.GL2Blueprint.classicalLFunction
+For a normalized primitive holomorphic newform f of weight k≥2, let πf be the AF.5 unitary adelization. With Lf(s)=Σ_{n≥1}a_n n^{−s}, L(s,πf)=Lf(s+(k−1)/2), including the bad-prime factors supplied by upstream newform theory. Its infinite factor is Γℂ(s+(k−1)/2). The factor 2 in Γℂ distinguishes this completion from the common classical (2π)^{−s}Γ(s)Lf(s); record the scalar and the conductor power rather than asserting equality of differently normalized completed functions. At width one the pinned CuspForm L-series theorem supplies the convergent-domain Mellin comparison; the global continuation is imported.
+Hypotheses: f in the existing Γ₁(N) normalized newform carrier, nebentypus compatible with weight; AF.5 unitary normalization.
+-/
 -- Variable conversion only; the packet separately states local root numbers,
 -- the discriminant, conductor and global additive-character product formula.
 theorem globalEpsilon (k : ℂ) (s : ℂ) :
@@ -405,36 +429,27 @@ theorem globalEpsilon (k : ℂ) (s : ℂ) :
 end Global
 
 section Classical
--- NClass is the existing Tau Ceti primitive Newform subtype with N,k,χ fixed;
--- AClass is AF.5's conductor-N, central-character-χ, infinite-D_k cusp subtype.
--- Missing: k≥2, parity, exact conductor, the good-index/bad-U distinction,
--- normalization a₁=1, and the actual AF.5 map. This is not an arbitrary equivalence.
-def primitiveBijection (NClass AClass : Type*) : NClass ≃ AClass := by sorry
-lemma primitiveBijection_conductor {NClass AClass : Type*}
-    (f : NClass) (N : ℕ) (conductor : AClass → ℕ) :
-    conductor (primitiveBijection NClass AClass f) = N := by sorry
-lemma primitiveBijection_weight_character {NClass AClass W C : Type*}
-    (f : NClass) (Dk : W) (χ : C) (infinite : AClass → W) (central : AClass → C) :
-    infinite (primitiveBijection NClass AClass f) = Dk ∧
-    central (primitiveBijection NClass AClass f) = χ := by sorry
-lemma primitiveBijection_hecke {NClass AClass : Type*} (f : NClass)
-    (p k : ℕ) (hp : 0 < p) (hk : 2 ≤ k) (α β : AClass → ℂ)
-    (ap χp : NClass → ℂ) :
-    α (primitiveBijection NClass AClass f) + β (primitiveBijection NClass AClass f) =
-      ap f * (p : ℂ) ^ (-((k : ℂ) - 1) / 2) ∧
-    α (primitiveBijection NClass AClass f) * β (primitiveBijection NClass AClass f) = χp f := by sorry
--- Missing in hecke: p∤N and α,β are the actual unitary Satake values.
-lemma primitiveBijection_normalized {NClass AClass : Type*} (π : AClass)
-    (a1 : NClass → ℂ) : a1 ((primitiveBijection NClass AClass).symm π) = 1 := by sorry
-lemma primitiveBijection_inverse {NClass AClass : Type*} (f : NClass) (π : AClass) :
-    (primitiveBijection NClass AClass).symm (primitiveBijection NClass AClass f) = f ∧
-    primitiveBijection NClass AClass ((primitiveBijection NClass AClass).symm π) = π := by sorry
--- TauCeti.GL2Blueprint.primitiveBijection_weight_two
--- Missing: f weight two, p good, Satake the supplier pair of its adelization.
-example {NClass AClass : Type*} (f : NClass) (p : ℕ) (hp : 0 < p)
-    (α β : AClass → ℂ) (ap : NClass → ℂ) :
-    α (primitiveBijection NClass AClass f) + β (primitiveBijection NClass AClass f) =
-      ap f * (p : ℂ) ^ (-(1 / 2 : ℂ)) := by sorry
+/-
+Explicit signature omissions (PROTOCOL §13; REV-FIX-RT-AREA-automorphic-1~3).
+The primitive exact-conductor newform subtype and actual AF.5 adelization map with fixed k, nebentypus, infinity type and coefficient projections must exist before these equivalences and their API can be stated. No equivalence of two arbitrary types is asserted. The sound old-level/scalar tests below remain concrete fragments.
+These source targets require the actual supplier objects and hypotheses below.
+They are not universal theorems about arbitrary types, functions, or multiplicity maps.
+Omitted declaration names: TauCeti.GL2Blueprint.primitiveBijection, TauCeti.GL2Blueprint.primitiveBijection_conductor, TauCeti.GL2Blueprint.primitiveBijection_weight_character, TauCeti.GL2Blueprint.primitiveBijection_hecke, TauCeti.GL2Blueprint.primitiveBijection_normalized, TauCeti.GL2Blueprint.primitiveBijection_inverse.
+Full source-level tests awaiting the same carriers: TauCeti.GL2Blueprint.primitiveBijection_weight_two.
+
+GL2AutomorphicRepresentationsAndTransfer:R16.6/primitive-classical-bijection
+TauCeti.GL2Blueprint.primitiveBijection
+For fixed k≥2 and nebentypus χ with χ(−1)=(−1)^k, identify normalized primitive Γ₁(N) newforms in the existing HeckeRing.GL2.Newform carrier with cuspidal automorphic GL₂(𝔸ℚ) isomorphism classes of conductor N, central character determined by χ via AF.5, and infinite component D_k in unitary normalization. On the automorphic side take the finite newvector tensor and the holomorphic lowest-weight vector in the positive-determinant constituent; the full GL₂(ℝ) representation still contains both O(2) signs. Normalize its first Fourier coefficient to one. The all-bad-prime eigenproperty needed on the classical side is supplied by upstream primitive newform theory, not assumed to be a field of the pinned Newform structure.
+Hypotheses: N>0, k≥2; primitive at exact conductor, existing newspace and AF.5 dictionary; chosen additive character for the vector comparison.
+TauCeti.GL2Blueprint.primitiveBijection_conductor: The product of the local conductor ideals is exactly N.
+TauCeti.GL2Blueprint.primitiveBijection_weight_character: π∞=D_k and the central character is the AF.5 character attached to χ.
+TauCeti.GL2Blueprint.primitiveBijection_hecke: For p∤N, α_p+β_p=a_p p^{−(k−1)/2} and α_pβ_p=χ(p).
+TauCeti.GL2Blueprint.primitiveBijection_normalized: The recovered holomorphic newform has first q-coefficient one.
+TauCeti.GL2Blueprint.primitiveBijection_inverse: The two maps are inverse on primitive forms and compatible automorphic classes.
+TauCeti.GL2Blueprint.primitiveBijection_weight_two: At k=2 the infinite component is D₂ and the good trace is a_p/√p.
+TauCeti.GL2Blueprint.primitiveBijection_old_level: A primitive form of level M properly dividing N is not primitive of conductor N after the oldform inclusion.
+TauCeti.GL2Blueprint.primitiveBijection_scalar_normalization: For a normalized eigenform with a₁=1, multiplying by a scalar c≠1 changes a₁ to c and fails normalization. Every nonzero c yields the same primitive class after renormalization; c=0 is excluded from the eigenform carrier.
+-/
 -- TauCeti.GL2Blueprint.primitiveBijection_old_level
 -- Missing: old is the upstream oldform inclusion of primitive conductor M<N;
 -- cond is the actual conductor, not the ambient level. Old forms fail the N subtype.
@@ -498,10 +513,18 @@ end Weight
 theorem weightKParameterConversion (α β z : ℂ) :
     z * α + z * β = z * (α + β) ∧
     (z * α) * (z * β) = z ^ 2 * (α * β) := by sorry
--- Missing: V is the characteristic-zero multiplicity factor in R18/R19 at the
--- fixed compatible level/infinite type; torsion and integral multiplicity are separate.
-theorem geometricExports {V : Type*} [AddCommGroup V] [Module ℂ V] :
-    Module.finrank ℂ V = 1 := by sorry
+/-
+Explicit signature omissions (PROTOCOL §13; REV-FIX-RT-AREA-automorphic-1~3).
+The designated characteristic-zero automorphic multiplicity space at its compatible level/infinite type must be identified first. An arbitrary vector space does not have dimension one; integral/torsion multiplicity is separate.
+These source targets require the actual supplier objects and hypotheses below.
+They are not universal theorems about arbitrary types, functions, or multiplicity maps.
+Omitted declaration names: TauCeti.GL2Blueprint.geometricExports.
+
+GL2AutomorphicRepresentationsAndTransfer:R16.6/geometry-and-galois-exports
+TauCeti.GL2Blueprint.geometricExports
+Export the exact local conductor dimensions, normalized Whittaker line, primitive classical comparison, coefficient field and Hilbert algebraic representation to R18’s automorphic cohomology and R19’s Galois construction. Each consumer records its central character, archimedean dual convention, local compact subgroup, Hecke normalization and coefficient lattice. The finite-part multiplicity remains one for a fixed compatible infinite type; no new claim of integral multiplicity one, torsion-freeness or Galois existence is made by this export.
+Hypotheses: Consumer coefficient field, local level and infinite type fixed; geometric statements imported from their owners.
+-/
 end Classical
 
 section Quaternion
@@ -628,17 +651,24 @@ theorem strongCuspidalVanishing {V : Type*} [AddCommGroup V] [Module ℂ V]
 theorem specializedTraceComparison (geometric spectral : ℂ) :
     geometric = spectral := by sorry
 end Trace
--- Missing: the existing primitive k=1 newform subtype, exact conductor N, odd
--- nebentypus, and AF.1 full-O(2) D₁(0) limit carrier. This is the AF.5 k≥1
--- dictionary restricted to normalized newforms; no negative symmetric power.
-theorem weightOneClassicalComparison {NewformWeightOne AutoWeightOne : Type*} :
-    Nonempty (NewformWeightOne ≃ AutoWeightOne) := by sorry
+/-
+Explicit signature omissions (PROTOCOL §13; REV-FIX-RT-AREA-automorphic-1~3).
+The actual conductor-N weight-one primitive newforms and full-O(2) limit D₁(0) automorphic subtype, odd nebentypus and lowering-operator condition are unavailable. Weight one has parameter 1⊕sgn and is not a negative symmetric-power coefficient system.
+These source targets require the actual supplier objects and hypotheses below.
+They are not universal theorems about arbitrary types, functions, or multiplicity maps.
+Omitted declaration names: TauCeti.GL2Blueprint.weightOneClassicalComparison.
 
+GL2AutomorphicRepresentationsAndTransfer:R16.6/weight-one-classical-comparison
+TauCeti.GL2Blueprint.weightOneClassicalComparison
+For N>0 and odd nebentypus χ, the existing primitive normalized weight-one cusp forms at conductor N correspond to cuspidal GL₂(𝔸ℚ) classes of exact conductor N and central character ω_χ whose unitary infinite component is the full-O(2) limit D₁(0). Its positive-determinant restriction has holomorphic and antiholomorphic limits of lowest weights ±1. Its real Weil parameter is 1⊕sgn, not an irreducible induction from ℂ×; its standard infinite factor is Γℝ(s)Γℝ(s+1)=Γℂ(s). Use AF.5’s k≥1 function dictionary, finite newvector normalization and global multiplicity. This comparison does not give a regular algebraic Hilbert coefficient Sym^{−1} or a weight-one Galois construction. The Casimir is −1/4 at k=1 in the convention Δ=(H²+2XY+2YX)/4.
+Hypotheses: N>0; χ(−1)=−1; existing primitive newform carrier with k=1 and exact conductor; chosen AF.1 limit globalization and AF.5 dictionary.
+-/
 end TauCeti.GL2Blueprint
 
 /-
 Supplier boundary for the converse and multiplicity interfaces:
 globalWhittakerExpansion imports AL.3/gln-fourier-expansion;
+globalMultiplicityOne imports AL.3/global-multiplicity-one after Fourier reconstruction;
 strong multiplicity one imports AL.3/strong-multiplicity-one.
 gl2Converse compares the full GL1 twist family with
 AL.3/gln-converse-full-rank at n=2, retaining the R16.5 local growth,

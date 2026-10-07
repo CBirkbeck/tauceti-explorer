@@ -123,7 +123,7 @@ itself, and the issue says so.
 
 - **Review** (`kind:review`). Check another agent's work, named in the issue.
   You must not review your own work. Check:
-  - every source locator and excerpt against the text;
+  - every source locator against the text, with no verbatim passages (delete any `excerpt`);
   - every baseline declaration, in its Lean file at the pinned commit;
   - that every proof step follows from the node's prerequisites;
   - granularity;

@@ -8,7 +8,23 @@ The development follows Ribet's *Abelian varieties over Q and modular forms* (19
 
 GT.5 and GT.6 develop Ribet's ℚ-curves (§§6–7): an elliptic curve over ℚ̄ isogenous to all its Galois conjugates is, if it has no CM, a ℚ̄-factor of a GL₂-type variety over ℚ (Ribet's Theorem 6.1, via Tate's theorem H²(G_ℚ, ℚ̄^×) = 0 and Weil restriction), hence a quotient of J₁(N) over ℚ̄; over a solvable Galois field of definition K its Tate module is a twist of the restriction of a newform's representation, and the twisted base change of the newform is a cuspidal automorphic representation of GL₂(𝔸_K) of parallel weight two with the same L-function. This is the ℚ-curve step that `EllipticCurveModularityImaginaryQuadratic` imports for the quadratic points of Caraiani–Newton (Corollaries 7.2.5 and 7.3.4), and that Freitas–Le Hung–Siksek use over real quadratic fields (§12).
 
-**Route of the main theorem.** Khare–Wintenberger deduce Corollary 10.2(i) from their Theorem 10.1(i), which concerns *compatible systems* in the sense of their §5, with Weil–Deligne comparison at every prime q not above ℓ. For a GL₂-type variety the E-rationality of the Weil–Deligne representations at the primes of bad reduction is not proved in either source before modularity (recorded as the source issue E2). GT.3 therefore follows Ribet's proof of Theorem 4.4, which is also the shape of the parent's R29.2–R29.5: it needs only the strong Serre theorem at the primes of an infinite set Λ, the boundedness of the conductors (Grothendieck's independence of ℓ, imported from NeronModelsAndSemistableAbelianVarieties R11.6), the finiteness of newforms of bounded level, and Faltings' ℓ-adic isogeny criterion. The full Khare–Wintenberger strict compatibility of the λ-adic system is then a corollary (GT.4/strict-compatibility), obtained from modularity and Carayol's local–global compatibility.
+**Route of the main theorem.** Khare–Wintenberger deduce Corollary 10.2(i) from their Theorem 10.1(i), which concerns *compatible systems* in the sense of their §5, with Weil–Deligne comparison at every prime q not above ℓ. The original source-gap allegation E2 was rejected by independent review: a difference of compatibility conventions and an abbreviated background argument do not establish an error in the paper. To make its own prerequisite chain explicit without needing full local compatibility first, GT.3 follows Ribet's proof of Theorem 4.4, which is also the shape of the parent's R29.2–R29.5: it needs only the strong Serre theorem at the primes of an infinite set Λ, the boundedness of the conductors (Grothendieck's independence of ℓ, imported from NeronModelsAndSemistableAbelianVarieties R11.6), the finiteness of newforms of bounded level, and Faltings' ℓ-adic isogeny criterion. The full Khare–Wintenberger strict compatibility of the λ-adic system is then a corollary (GT.4/strict-compatibility), obtained from modularity and the full local–global compatibility supplied by R19.3 after a finite coefficient extension E′/E. Good Frobenius polynomials remain E-rational; simultaneous realisation of all local Weil–Deligne parameters over E is not claimed.
+
+## Independent review and prototype gaps
+
+The independent review REV-DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties by Codex (session codex-xW1MVH), dated 2026-10-07, returns **needs_changes**. The mathematical corrections below are applied, but the suggested file uses an arbitrary private AVContext rather than the pinned geometric and representation carriers. Its successful Mathlib elaboration does not validate the advertised signatures or tests. The packet remains a complete target-level pass with all six stages planned under Protocol §0: every target has a node, and the unresolved prototype obligations are now explicit gaps. No node is formalised.
+
+### Replace the private AVContext prototype by the pinned geometric and representation carriers
+
+The suggested file’s arbitrary ℚ-linear category, dim, intEnd, pi/piEnd, Lie, V/Vemb/rhoEmb, Jacobians, Newform, Af, base change and automorphic fields have no laws connecting them. Thus its signatures are not signatures on TauCeti.AlgebraicGeometry.AbelianVariety, HeckeRing.GL2.Newform or the reviewed ContinuousRep carrier. For example dim(J₀(11))=1 is false for an allowed AVContext with dim constantly 0. The elliptic adapters also accept singular Weierstrass equations. The review adds a dimension-one clause to the Q-curve predicate, but this arbitrary dimension function still does not identify an actual elliptic curve. Import the actual available types, request absent supplier interfaces precisely, and omit unstateable signature parts with suggestedCoverage notes instead of asserting them for arbitrary mirrors. Explicitly bridge the native WithBot ℕ∞ dimension to a finite ℕ dimension.
+
+### Restore the omitted geometric API and meaningful concrete tests
+
+The endField isogeny API omits Tate-module compatibility; the J₀(23) tests omit the promised Hecke action and T₂ identification; the elliptic modularity API replaces the specified curve-morphism equivalence by a nonzero Jacobian Hom; parametrisation omits X₁(N), the cusp, its value and the generating image; Proposition 6.5 omits R-equivariance. Restore these against the owners’ actual carriers, and give concrete examples of pinned objects rather than examples universally quantified over an unlawful context. The mathematical outlines and corrected trace test are retained.
+
+### Use the existing continuous-cohomology carrier and make the non-CM cocycle construction typed
+
+Private Z2/B2/H2 restate the baseline continuousCohomology carrier and its reviewed upstream dictionary. Replace them by continuousCohomology 2 on TauCeti.ofDiscreteModule for Additive ℚˣ/ℚ̄ˣ, importing the explicit degree-two comparison and inflation from ProfiniteCohomology. Supply coherent conjugation/base-change maps and the injection End⁰_K(C)→End⁰_ℚ̄(C). The old cocycle chose a rational scalar with Classical.epsilon even without non-CM input. Data now states dimension one and non-CM explicitly, but the missing geometric laws still prevent validating its scalar extraction or associativity argument. Use the rational End⁰ identification from the non-CM hypothesis on actual elliptic curves.
 
 ## Conventions and imported objects
 
@@ -44,6 +60,8 @@ Pinned libraries: Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`, Tau Ceti `
 | `mathlib:LinearMap.bijective_or_eq_zero` | theorem | `Mathlib/RingTheory/SimpleModule/Basic.lean` | Schur's lemma: a linear map between simple modules is bijective or zero |
 | `mathlib:traceForm_nondegenerate` | theorem | `Mathlib/RingTheory/Trace/Basic.lean` | The trace form of a finite separable field extension is nondegenerate |
 | `mathlib:WeierstrassCurve.IsElliptic` | class | `Mathlib/AlgebraicGeometry/EllipticCurve/Weierstrass.lean` | Elliptic Weierstrass curves (unit discriminant), the elliptic curves of GT.5 |
+| `mathlib:continuousCohomology` | abbrev | `Mathlib/RepresentationTheory/Homological/ContCohomology/Basic.lean` | Continuous cohomology in degree n of a TopRep, as the homology of homogeneous cochains in TopModuleCat; the canonical H² carrier, not its inflation/comparison API. |
+| `tauceti:TauCeti.ofDiscreteModule` | def | `TauCeti/RepresentationTheory/Homological/ContCohomology/SmoothDiscrete.lean` | A discrete module with a G-action as a TopRep; joint continuity/smoothness is a separate hypothesis, automatic for the trivial action used here. Use Additive ℚˣ or Additive ℚ̄ˣ with discrete topology for the multiplicative coefficients. |
 
 ## GT.1. Abelian varieties of GL₂-type and their endomorphism algebras
 
@@ -64,7 +82,7 @@ Elliptic curves over ℚ are exactly the one-dimensional case (E = ℚ), which r
 
 **Layer dependencies.** `AbelianSchemesAndArithmeticModuli:A2`, `AbelianSchemesAndArithmeticModuli:A6`, `AutomorphicGaloisRepresentations:R19.1`, `AutomorphicGaloisRepresentations:R19.6`, `FaltingsFinitenessAndIsogenyTheorems:R28.4`, `ModularCurvesPartII:R14.5`, `PELModuli:M0`, `SmallRamificationAndAbelianVarietyBaseCases:R25.5`, `tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev`, `tauceti:TauCetiRoadmap/ModularForms#layer-3-the-petersson-inner-product-adjoints-oldforms-and-newforms`.
 
-**Coverage.** planned. Remaining: Resolve the imports from AbelianSchemesAndArithmeticModuli A2/A6 (Rosati, Poincaré, endomorphism algebras), which are planned in a packet not yet reviewed. Lemma-level refinement when the roadmap comes near the front of the line: split Ribet's Theorem 2.1 into the commutant lemma, the matrix-algebra structure and the three equivalences.
+**Coverage.** planned. Remaining: Resolve the imports from AbelianSchemesAndArithmeticModuli A2/A6 (Rosati, Poincaré, endomorphism algebras), which are planned in a packet not yet reviewed. Lemma-level refinement when the roadmap comes near the front of the line: split Ribet's Theorem 2.1 into the commutant lemma, the matrix-algebra structure and the three equivalences. Independent review REV-DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties: replace the private signature carriers and restore the omitted API/tests listed in the packet’s prototype gaps before acceptance; this is not merely a later lemma refinement.
 
 ### `GT.1/lie-algebra-divisibility` — The degree of an acting division algebra divides the dimension
 
@@ -299,13 +317,13 @@ Let A be a ℚ-simple abelian variety of GL₂-type with E = End⁰_ℚ(A), and 
 
 **Layer dependencies.** `GT.1`, `AbelianSchemesAndArithmeticModuli:A2`, `AbelianSchemesAndArithmeticModuli:A3`, `AbelianSchemesAndArithmeticModuli:A6`, `ArithmeticGaloisRepresentations:R01.1`, `ArithmeticGaloisRepresentations:R01.2`, `ArithmeticGaloisRepresentations:R01.3`, `ArithmeticGaloisRepresentations:R01.4`, `ArithmeticGaloisRepresentations:R01.6`, `FaltingsFinitenessAndIsogenyTheorems:R28.2`, `FaltingsFinitenessAndIsogenyTheorems:R28.4`, `FaltingsFinitenessAndIsogenyTheorems:R28.6`, `NeronModelsAndSemistableAbelianVarieties:R11.1`, `NeronModelsAndSemistableAbelianVarieties:R11.5`, `NeronModelsAndSemistableAbelianVarieties:R11.6`, `PadicHodgeTheory:R06.2`, `PadicHodgeTheory:R06.5`, `PadicHodgeTheory:R06.6`, `tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev`.
 
-**Coverage.** planned. Remaining: Resolve the request to AbelianSchemesAndArithmeticModuli A6 for the complex uniformization and the comparison V_ℓ(A) ≅ H₁(A(ℂ), ℚ) ⊗ ℚ_ℓ used by GT.2/odd. Lemma-level refinement when the roadmap comes near the front of the line: the Hodge–Tate argument for Lemma 3.1 (weight of ⟨χ⟩^a), and the reduction step from the commutant theorem in Lemma 3.7.
+**Coverage.** planned. Remaining: Resolve the request to AbelianSchemesAndArithmeticModuli A6 for the complex uniformization and the comparison V_ℓ(A) ≅ H₁(A(ℂ), ℚ) ⊗ ℚ_ℓ used by GT.2/odd. Lemma-level refinement when the roadmap comes near the front of the line: the Hodge–Tate argument for Lemma 3.1 (weight of ⟨χ⟩^a), and the reduction step from the commutant theorem in Lemma 3.7. Independent review REV-DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties: replace the private signature carriers and restore the omitted API/tests listed in the packet’s prototype gaps before acceptance; this is not merely a later lemma refinement.
 
 ### `GT.2/integral-model` — The integral model with endomorphism ring 𝒪_E
 
 *Construction* · Lean namespace `TauCeti.GL2Type`
 
-Let A is a ℚ-simple abelian variety over ℚ of GL₂-type with endomorphism field E = End⁰_ℚ(A) (GT.1/endomorphism-field), S the finite set of primes of bad reduction of A, and ρ_λ : G_ℚ → GL(V_λ(A)) ≅ GL₂(E_λ) the λ-adic representations of SmallRamificationAndAbelianVarietyBaseCases:R25.5/gl2-type-abelian-variety. There is an abelian variety A′ over ℚ with End_ℚ(A′) = 𝒪_E and an E-equivariant ℚ-isogeny A → A′. For such A′ and every maximal ideal λ of 𝒪_E, the λ-torsion A′[λ] of ArithmeticGaloisRepresentations:R01.6/tate-module-with-endomorphism-coefficients (d) is a two-dimensional 𝔽_λ-vector space with continuous action ρ̄_λ of G_ℚ, and its semisimplification ρ̄_λ^{ss} is the semisimplified reduction of ρ_λ; it does not depend on the choice of A′.
+Let A be a ℚ-simple abelian variety over ℚ of GL₂-type with endomorphism field E = End⁰_ℚ(A) (GT.1/endomorphism-field), S the finite set of primes of bad reduction of A, and ρ_λ : G_ℚ → GL(V_λ(A)) ≅ GL₂(E_λ) the λ-adic representations of SmallRamificationAndAbelianVarietyBaseCases:R25.5/gl2-type-abelian-variety. There is an abelian variety A′ over ℚ with End_ℚ(A′) = 𝒪_E and an E-equivariant ℚ-isogeny A → A′. For such A′ and every maximal ideal λ of 𝒪_E, the λ-torsion A′[λ] of ArithmeticGaloisRepresentations:R01.6/tate-module-with-endomorphism-coefficients (d) is a two-dimensional 𝔽_λ-vector space with continuous action ρ̄_λ of G_ℚ, and its semisimplification ρ̄_λ^{ss} is the semisimplified reduction of ρ_λ; it does not depend on the choice of A′.
 
 **Hypotheses.**
 
@@ -358,7 +376,7 @@ Let A is a ℚ-simple abelian variety over ℚ of GL₂-type with endomorphism f
 
 *Theorem* · Lean namespace `TauCeti.GL2Type`
 
-Let A is a ℚ-simple abelian variety over ℚ of GL₂-type with endomorphism field E = End⁰_ℚ(A) (GT.1/endomorphism-field), S the finite set of primes of bad reduction of A, and ρ_λ : G_ℚ → GL(V_λ(A)) ≅ GL₂(E_λ) the λ-adic representations of SmallRamificationAndAbelianVarietyBaseCases:R25.5/gl2-type-abelian-variety. For every prime p ∉ S there are algebraic integers a_p, d_p ∈ 𝒪_E such that for every prime λ of E with λ ∤ p, ρ_λ is unramified at p and the characteristic polynomial of ρ_λ(Frob_p) (arithmetic Frobenius) is X² − a_p X + d_p, read in E_λ. Thus (ρ_λ) is an E-rational strictly compatible system in Serre's sense, with exceptional set S.
+Let A be a ℚ-simple abelian variety over ℚ of GL₂-type with endomorphism field E = End⁰_ℚ(A) (GT.1/endomorphism-field), S the finite set of primes of bad reduction of A, and ρ_λ : G_ℚ → GL(V_λ(A)) ≅ GL₂(E_λ) the λ-adic representations of SmallRamificationAndAbelianVarietyBaseCases:R25.5/gl2-type-abelian-variety. For every prime p ∉ S there are algebraic integers a_p, d_p ∈ 𝒪_E such that for every prime λ of E with λ ∤ p, ρ_λ is unramified at p and the characteristic polynomial of ρ_λ(Frob_p) (arithmetic Frobenius) is X² − a_p X + d_p, read in E_λ. Thus (ρ_λ) is an E-rational strictly compatible system in Serre's sense, with exceptional set S.
 
 **Construction and proof.**
 
@@ -381,7 +399,7 @@ Let A is a ℚ-simple abelian variety over ℚ of GL₂-type with endomorphism f
 
 *Theorem* · planet: Nebentypus character ε · Lean namespace `TauCeti.GL2Type`
 
-Let A is a ℚ-simple abelian variety over ℚ of GL₂-type with endomorphism field E = End⁰_ℚ(A) (GT.1/endomorphism-field), S the finite set of primes of bad reduction of A, and ρ_λ : G_ℚ → GL(V_λ(A)) ≅ GL₂(E_λ) the λ-adic representations of SmallRamificationAndAbelianVarietyBaseCases:R25.5/gl2-type-abelian-variety. There is a character of finite order ε : G_ℚ → E^×, unramified at every p ∉ S, with det ρ_λ = ε · χ_ℓ for every prime λ of E (λ | ℓ). Equivalently d_p = ε(p)·p for p ∉ S (GT.2/frobenius-polynomial), where ε is regarded as an E-valued Dirichlet character whose conductor is divisible only by primes of S; and N_{E/ℚ}(ε) = 1.
+Let A be a ℚ-simple abelian variety over ℚ of GL₂-type with endomorphism field E = End⁰_ℚ(A) (GT.1/endomorphism-field), S the finite set of primes of bad reduction of A, and ρ_λ : G_ℚ → GL(V_λ(A)) ≅ GL₂(E_λ) the λ-adic representations of SmallRamificationAndAbelianVarietyBaseCases:R25.5/gl2-type-abelian-variety. There is a character of finite order ε : G_ℚ → E^×, unramified at every p ∉ S, with det ρ_λ = ε · χ_ℓ for every prime λ of E (λ | ℓ). Equivalently d_p = ε(p)·p for p ∉ S (GT.2/frobenius-polynomial), where ε is regarded as an E-valued Dirichlet character whose conductor is divisible only by primes of S; and N_{E/ℚ}(ε) = 1.
 
 **Construction and proof.**
 
@@ -405,7 +423,7 @@ Let A is a ℚ-simple abelian variety over ℚ of GL₂-type with endomorphism f
 
 *Theorem* · Lean namespace `TauCeti.GL2Type`
 
-Let A is a ℚ-simple abelian variety over ℚ of GL₂-type with endomorphism field E = End⁰_ℚ(A) (GT.1/endomorphism-field), S the finite set of primes of bad reduction of A, and ρ_λ : G_ℚ → GL(V_λ(A)) ≅ GL₂(E_λ) the λ-adic representations of SmallRamificationAndAbelianVarietyBaseCases:R25.5/gl2-type-abelian-variety. The character ε of GT.2/determinant-character is even, ε(c) = 1 for every complex conjugation c ∈ G_ℚ; equivalently det ρ_λ(c) = −1 for every λ, so every ρ_λ is odd (ArithmeticGaloisRepresentations:R01.4/odd-representation).
+Let A be a ℚ-simple abelian variety over ℚ of GL₂-type with endomorphism field E = End⁰_ℚ(A) (GT.1/endomorphism-field), S the finite set of primes of bad reduction of A, and ρ_λ : G_ℚ → GL(V_λ(A)) ≅ GL₂(E_λ) the λ-adic representations of SmallRamificationAndAbelianVarietyBaseCases:R25.5/gl2-type-abelian-variety. The character ε of GT.2/determinant-character is even, ε(c) = 1 for every complex conjugation c ∈ G_ℚ; equivalently det ρ_λ(c) = −1 for every λ, so every ρ_λ is odd (ArithmeticGaloisRepresentations:R01.4/odd-representation).
 
 **Construction and proof.**
 
@@ -429,7 +447,7 @@ Let A is a ℚ-simple abelian variety over ℚ of GL₂-type with endomorphism f
 
 *Theorem* · planet: Ribet's irreducibility theorem · Lean namespace `TauCeti.GL2Type`
 
-Let A is a ℚ-simple abelian variety over ℚ of GL₂-type with endomorphism field E = End⁰_ℚ(A) (GT.1/endomorphism-field), S the finite set of primes of bad reduction of A, and ρ_λ : G_ℚ → GL(V_λ(A)) ≅ GL₂(E_λ) the λ-adic representations of SmallRamificationAndAbelianVarietyBaseCases:R25.5/gl2-type-abelian-variety. For every prime λ of E, ρ_λ is absolutely irreducible and End_{ℚ_ℓ[G_ℚ]} V_λ(A) = E_λ. More generally, for an open subgroup H = G_K ⊆ G_ℚ, End_{ℚ_ℓ[H]} V_ℓ(A) = End⁰_K(A) ⊗ ℚ_ℓ.
+Let A be a ℚ-simple abelian variety over ℚ of GL₂-type with endomorphism field E = End⁰_ℚ(A) (GT.1/endomorphism-field), S the finite set of primes of bad reduction of A, and ρ_λ : G_ℚ → GL(V_λ(A)) ≅ GL₂(E_λ) the λ-adic representations of SmallRamificationAndAbelianVarietyBaseCases:R25.5/gl2-type-abelian-variety. For every prime λ of E, ρ_λ is absolutely irreducible and End_{ℚ_ℓ[G_ℚ]} V_λ(A) = E_λ. More generally, for an open subgroup H = G_K ⊆ G_ℚ, End_{ℚ_ℓ[H]} V_ℓ(A) = End⁰_K(A) ⊗ ℚ_ℓ.
 
 **Construction and proof.**
 
@@ -451,7 +469,7 @@ Let A is a ℚ-simple abelian variety over ℚ of GL₂-type with endomorphism f
 
 *Theorem* · Lean namespace `TauCeti.GL2Type`
 
-Let A is a ℚ-simple abelian variety over ℚ of GL₂-type with endomorphism field E = End⁰_ℚ(A) (GT.1/endomorphism-field), S the finite set of primes of bad reduction of A, and ρ_λ : G_ℚ → GL(V_λ(A)) ≅ GL₂(E_λ) the λ-adic representations of SmallRamificationAndAbelianVarietyBaseCases:R25.5/gl2-type-abelian-variety and e ↦ ē the canonical involution of E (GT.1/totally-real-or-cm). For every p ∉ S, a_p = ε(p)·ā_p. Equivalently, for every embedding σ : E → ℚ̄_ℓ, V_σ ≅ V_{σ̄} ⊗ σ(ε), where V_σ = V_ℓ ⊗_{E⊗ℚ_ℓ, σ} ℚ̄_ℓ and σ̄ = σ ∘ (bar).
+Let A be a ℚ-simple abelian variety over ℚ of GL₂-type with endomorphism field E = End⁰_ℚ(A) (GT.1/endomorphism-field), S the finite set of primes of bad reduction of A, and ρ_λ : G_ℚ → GL(V_λ(A)) ≅ GL₂(E_λ) the λ-adic representations of SmallRamificationAndAbelianVarietyBaseCases:R25.5/gl2-type-abelian-variety and e ↦ ē the canonical involution of E (GT.1/totally-real-or-cm). For every p ∉ S, a_p = ε(p)·ā_p. Equivalently, for every embedding σ : E → ℚ̄_ℓ, V_σ ≅ V_{σ̄} ⊗ σ(ε), where V_σ = V_ℓ ⊗_{E⊗ℚ_ℓ, σ} ℚ̄_ℓ and σ̄ = σ ∘ (bar).
 
 **Construction and proof.**
 
@@ -474,7 +492,7 @@ Let A is a ℚ-simple abelian variety over ℚ of GL₂-type with endomorphism f
 
 *Theorem* · Lean namespace `TauCeti.GL2Type`
 
-Let A is a ℚ-simple abelian variety over ℚ of GL₂-type with endomorphism field E = End⁰_ℚ(A) (GT.1/endomorphism-field), S the finite set of primes of bad reduction of A, and ρ_λ : G_ℚ → GL(V_λ(A)) ≅ GL₂(E_λ) the λ-adic representations of SmallRamificationAndAbelianVarietyBaseCases:R25.5/gl2-type-abelian-variety and S′ ⊇ S a finite set of primes. Then E = ℚ(a_p : p ∉ S′).
+Let A be a ℚ-simple abelian variety over ℚ of GL₂-type with endomorphism field E = End⁰_ℚ(A) (GT.1/endomorphism-field), S the finite set of primes of bad reduction of A, and ρ_λ : G_ℚ → GL(V_λ(A)) ≅ GL₂(E_λ) the λ-adic representations of SmallRamificationAndAbelianVarietyBaseCases:R25.5/gl2-type-abelian-variety and S′ ⊇ S a finite set of primes. Then E = ℚ(a_p : p ∉ S′).
 
 **Construction and proof.**
 
@@ -496,19 +514,19 @@ Let A is a ℚ-simple abelian variety over ℚ of GL₂-type with endomorphism f
 
 *Theorem* · Lean namespace `TauCeti.GL2Type`
 
-Let A is a ℚ-simple abelian variety over ℚ of GL₂-type with endomorphism field E = End⁰_ℚ(A) (GT.1/endomorphism-field), S the finite set of primes of bad reduction of A, and ρ_λ : G_ℚ → GL(V_λ(A)) ≅ GL₂(E_λ) the λ-adic representations of SmallRamificationAndAbelianVarietyBaseCases:R25.5/gl2-type-abelian-variety and F ⊆ E the subfield generated by the a_p²/ε(p) for p ∉ S. Then F is totally real and E/F is an abelian extension.
+Let A be a ℚ-simple abelian variety over ℚ of GL₂-type with endomorphism field E = End⁰_ℚ(A) (GT.1/endomorphism-field), S the finite set of primes of bad reduction of A, and ρ_λ : G_ℚ → GL(V_λ(A)) ≅ GL₂(E_λ) the λ-adic representations of SmallRamificationAndAbelianVarietyBaseCases:R25.5/gl2-type-abelian-variety and F ⊆ E the subfield generated by the a_p²/ε(p) for p ∉ S. Then F is totally real and E/F is an abelian extension.
 
 **Construction and proof.**
 
 1. By GT.2/coefficient-conjugation, the conjugate of a_p²/ε(p) is ā_p²/ε̄(p) = ε(p)⁻²a_p² · ε(p) = a_p²/ε(p), so F is fixed by the canonical involution and is totally real (GT.1/totally-real-or-cm).
-2. E is generated over F by the square roots of the t_p = a_p²/ε(p) and the values of ε (GT.2/coefficients-generate), all contained in an abelian extension of F.
+2. Adjoin all roots of unity and the square roots of t_p = a_p²/ε(p) to F. This is an abelian extension of F (a compositum of cyclotomic and quadratic extensions). Since ε(p) is a root of unity, its square roots lie in this extension too; a_p = ±√t_p·√ε(p) lies there, including a_p = 0. GT.2/coefficients-generate then places E inside this abelian extension, so E/F is abelian. This is Ribet’s argument, not the claim that √t_p and ε(p) alone generate E.
 
 **Acceptance.**
 
 - For J₀(23), F = E = ℚ(√5).
 - For the newform of level 169 with E = ℚ(√3) in Ribet §7, F = ℚ (an extra twist).
 
-**Depends on.** `GT.2/coefficient-conjugation`, `GT.2/coefficients-generate`, `GT.1/totally-real-or-cm`.
+**Depends on.** `GT.2/coefficient-conjugation`, `GT.2/coefficients-generate`, `GT.1/totally-real-or-cm`, `GT.2/determinant-character`.
 
 **Source.**
 
@@ -518,7 +536,7 @@ Let A is a ℚ-simple abelian variety over ℚ of GL₂-type with endomorphism f
 
 *Theorem* · Lean namespace `TauCeti.GL2Type`
 
-Let A is a ℚ-simple abelian variety over ℚ of GL₂-type with endomorphism field E = End⁰_ℚ(A) (GT.1/endomorphism-field), S the finite set of primes of bad reduction of A, and ρ_λ : G_ℚ → GL(V_λ(A)) ≅ GL₂(E_λ) the λ-adic representations of SmallRamificationAndAbelianVarietyBaseCases:R25.5/gl2-type-abelian-variety and A′ an integral model (GT.2/integral-model). For all but finitely many maximal ideals λ of 𝒪_E, ρ̄_λ on A′[λ] is absolutely irreducible. For dim A = 1 this is the irreducibility of E[p] for almost all p of EllipticCurveModularity:R29.1.
+Let A be a ℚ-simple abelian variety over ℚ of GL₂-type with endomorphism field E = End⁰_ℚ(A) (GT.1/endomorphism-field), S the finite set of primes of bad reduction of A, and ρ_λ : G_ℚ → GL(V_λ(A)) ≅ GL₂(E_λ) the λ-adic representations of SmallRamificationAndAbelianVarietyBaseCases:R25.5/gl2-type-abelian-variety and A′ an integral model (GT.2/integral-model). For all but finitely many maximal ideals λ of 𝒪_E, ρ̄_λ on A′[λ] is absolutely irreducible. For dim A = 1 this is the irreducibility of E[p] for almost all p of EllipticCurveModularity:R29.1.
 
 **Construction and proof.**
 
@@ -540,7 +558,7 @@ Let A is a ℚ-simple abelian variety over ℚ of GL₂-type with endomorphism f
 
 *Theorem* · Lean namespace `TauCeti.GL2Type`
 
-Let A is a ℚ-simple abelian variety over ℚ of GL₂-type with endomorphism field E = End⁰_ℚ(A) (GT.1/endomorphism-field), S the finite set of primes of bad reduction of A, and ρ_λ : G_ℚ → GL(V_λ(A)) ≅ GL₂(E_λ) the λ-adic representations of SmallRamificationAndAbelianVarietyBaseCases:R25.5/gl2-type-abelian-variety and cond(A) = ∏_p p^{f_p(A)} the conductor of A, f_p(A) the Artin conductor exponent of V_ℓ(A) at p for any ℓ ≠ p. For every prime λ of degree one over ℓ, the prime-to-ℓ Artin conductor N(ρ_λ) divides cond(A), and the prime-to-ℓ Artin conductor N(ρ̄_λ) of the residual representation divides N(ρ_λ).
+Let A be a ℚ-simple abelian variety over ℚ of GL₂-type with endomorphism field E = End⁰_ℚ(A) (GT.1/endomorphism-field), S the finite set of primes of bad reduction of A, and ρ_λ : G_ℚ → GL(V_λ(A)) ≅ GL₂(E_λ) the λ-adic representations of SmallRamificationAndAbelianVarietyBaseCases:R25.5/gl2-type-abelian-variety and cond(A) = ∏_p p^{f_p(A)} the conductor of A, f_p(A) the Artin conductor exponent of V_ℓ(A) at p for any ℓ ≠ p. For every prime λ of degree one over ℓ, the prime-to-ℓ Artin conductor N(ρ_λ) divides cond(A), and the prime-to-ℓ Artin conductor N(ρ̄_λ) of the residual representation divides N(ρ_λ).
 
 **Construction and proof.**
 
@@ -563,7 +581,7 @@ Let A is a ℚ-simple abelian variety over ℚ of GL₂-type with endomorphism f
 
 *Theorem* · Lean namespace `TauCeti.GL2Type`
 
-Let A is a ℚ-simple abelian variety over ℚ of GL₂-type with endomorphism field E = End⁰_ℚ(A) (GT.1/endomorphism-field), S the finite set of primes of bad reduction of A, and ρ_λ : G_ℚ → GL(V_λ(A)) ≅ GL₂(E_λ) the λ-adic representations of SmallRamificationAndAbelianVarietyBaseCases:R25.5/gl2-type-abelian-variety. For ℓ ∉ S and λ | ℓ, ρ_λ|_{G_{ℚ_ℓ}} is crystalline, and for every embedding τ : E_λ → ℚ̄_ℓ the Hodge–Tate weights of ρ_λ ⊗_{E_λ,τ} ℚ̄_ℓ are 0 and 1, each once (convention: χ_ℓ has weight 1, that of Khare–Wintenberger §5); and for an integral model A′, A′[λ] extends to a finite flat group scheme over ℤ_ℓ. In particular the system has weights (a, b) = (1, 0) and is regular.
+Let A be a ℚ-simple abelian variety over ℚ of GL₂-type with endomorphism field E = End⁰_ℚ(A) (GT.1/endomorphism-field), S the finite set of primes of bad reduction of A, and ρ_λ : G_ℚ → GL(V_λ(A)) ≅ GL₂(E_λ) the λ-adic representations of SmallRamificationAndAbelianVarietyBaseCases:R25.5/gl2-type-abelian-variety. For ℓ ∉ S and λ | ℓ, ρ_λ|_{G_{ℚ_ℓ}} is crystalline, and for every embedding τ : E_λ → ℚ̄_ℓ the Hodge–Tate weights of ρ_λ ⊗_{E_λ,τ} ℚ̄_ℓ are 0 and 1, each once (convention: χ_ℓ has weight 1, that of Khare–Wintenberger §5); and for an integral model A′, A′[λ] extends to a finite flat group scheme over ℤ_ℓ. In particular the system has weights (a, b) = (1, 0) and is regular.
 
 **Construction and proof.**
 
@@ -603,7 +621,7 @@ The modularity theorem, proved as the parent proves dimension one. Serre's stron
 
 **Layer dependencies.** `GT.1`, `GT.2`, `AbelianSchemesAndArithmeticModuli:A6`, `AlgebraicModularFormsAndSerreWeights:R15.4`, `ArithmeticGaloisRepresentations:R01.1`, `ArithmeticGaloisRepresentations:R01.5`, `ArithmeticGaloisRepresentations:R01.6`, `AutomorphicGaloisRepresentations:R19.1`, `AutomorphicGaloisRepresentations:R19.6`, `ClassicalSerreModularity:R27.6`, `EllipticCurveModularity:R29.3`, `FaltingsFinitenessAndIsogenyTheorems:R28.4`, `ModularCurvesPartII:R14.2`, `ModularCurvesPartII:R14.5`, `ModularCurvesPartII:R14.6`, `SmallRamificationAndAbelianVarietyBaseCases:R25.5`, `tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev`, `tauceti:TauCetiRoadmap/JacobianChallenge#layer-e-abelian-varieties`, `tauceti:TauCetiRoadmap/JacobianChallenge#layer-f-abeljacobi-and-the-universal-property`, `tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus`, `tauceti:TauCetiRoadmap/ModularForms#layer-4-eigenforms-newforms-primitive-forms-the-conductor`, `tauceti:TauCetiRoadmap/ModularForms#layer-5-strong-multiplicity-one-and-the-eigenform-characterization`.
 
-**Coverage.** planned. Remaining: Lemma-level refinement when the roadmap comes near the front of the line: the étale-algebra pigeonhole of GT.3/coefficient-identification and the finiteness of newforms of bounded level as separate lemmas.
+**Coverage.** planned. Remaining: Lemma-level refinement when the roadmap comes near the front of the line: the étale-algebra pigeonhole of GT.3/coefficient-identification and the finiteness of newforms of bounded level as separate lemmas. Independent review REV-DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties: replace the private signature carriers and restore the omitted API/tests listed in the packet’s prototype gaps before acceptance; this is not merely a later lemma refinement.
 
 ### `GT.3/modular-abelian-variety` — Modular abelian varieties over ℚ ★
 
@@ -665,20 +683,20 @@ An abelian variety A over ℚ is modular of level N (N ≥ 1) if there is a surj
 
 *Theorem* · Lean namespace `TauCeti.GL2Type`
 
-Let A is a ℚ-simple abelian variety over ℚ of GL₂-type with endomorphism field E (GT.1/endomorphism-field), S its set of primes of bad reduction, cond(A) its conductor, ρ_λ its λ-adic representations with Frobenius traces a_p ∈ E (GT.2/frobenius-polynomial) and character ε (GT.2/determinant-character) and A′ an integral model (GT.2/integral-model). Let Λ be the set of maximal ideals λ of 𝒪_E of degree one over odd primes ℓ ∉ S, unramified in E, with ρ̄_λ absolutely irreducible; Λ is infinite. For every λ ∈ Λ there are a normalised newform g_λ of weight two, level N_λ dividing cond(A) and some character, and a prime λ′ of its coefficient field above ℓ, with ρ̄_{g_λ,λ′} ≅ ρ̄_λ; in particular a_p(g_λ) ≡ a_p(A) mod (λ′, λ) for every p ∉ S ∪ {ℓ}. This generalises EllipticCurveModularity:R29.2/weight-two-and-level-N-from-the-weight-recipe.
+Let A be a ℚ-simple abelian variety over ℚ of GL₂-type with endomorphism field E (GT.1/endomorphism-field), S its set of primes of bad reduction, cond(A) its conductor, ρ_λ its λ-adic representations with Frobenius traces a_p ∈ E (GT.2/frobenius-polynomial) and character ε (GT.2/determinant-character) and A′ an integral model (GT.2/integral-model). Let Λ be the set of maximal ideals λ of 𝒪_E of degree one over odd primes ℓ ∉ S, unramified in E, with ρ̄_λ absolutely irreducible; Λ is infinite. For every λ ∈ Λ there are a normalised newform g_λ of weight two, level N_λ dividing cond(A) and some character, and a prime λ′ of its coefficient field above ℓ, with ρ̄_{g_λ,λ′} ⊗ 𝔽̄_ℓ ≅ ρ̄_λ ⊗ 𝔽̄_ℓ through fixed embeddings of both residue fields; in particular a_p(g_λ) ≡ a_p(A) mod (λ′, λ) for every p ∉ S ∪ {ℓ}. This generalises EllipticCurveModularity:R29.2/weight-two-and-level-N-from-the-weight-recipe.
 
 **Construction and proof.**
 
 1. Λ is infinite: infinitely many primes split completely in E (Chebotarev), and only finitely many λ are excluded by GT.2/residual-irreducibility.
 2. For λ ∈ Λ, ρ̄_λ : G_ℚ → GL₂(𝔽_ℓ) is odd (GT.2/odd), absolutely irreducible, finite at ℓ with det ρ̄_λ|_{I_ℓ} = χ̄_ℓ (GT.2/crystalline-at-good-primes; ε is unramified at ℓ ∉ S), so Serre's weight is k(ρ̄_λ) = 2 (AlgebraicModularFormsAndSerreWeights:R15.4/weight-two-iff-finite-flat-at-p) and its level N(ρ̄_λ) divides cond(A) (GT.2/conductor-bound).
-3. The strong form of Serre's conjecture (ClassicalSerreModularity:R27.6/full-classical-serre-theorem) gives g_λ of weight k(ρ̄_λ) = 2 and level N(ρ̄_λ); compare traces of Frobenius (R01.6 (f), R19.1).
+3. The strong form of Serre's conjecture (ClassicalSerreModularity:R27.6/full-classical-serre-theorem) gives g_λ of weight k(ρ̄_λ) = 2 and level N(ρ̄_λ); compare traces of Frobenius (R01.6 (f), R19.1). The comparison is over a common algebraic closure 𝔽̄_ℓ; Serre does not assert that the newform’s residue field is already 𝔽_ℓ.
 
 **Acceptance.**
 
 - For dim A = 1 the witnesses have trivial character, as in the parent (ε = 1).
 - For J₀(23) and λ above ℓ ≡ ±1 mod 5, g_λ can be taken to be the newform of level 23.
 
-**Depends on.** `GT.2/residual-irreducibility`, `GT.2/odd`, `GT.2/crystalline-at-good-primes`, `GT.2/conductor-bound`, `GT.2/frobenius-polynomial`, `ClassicalSerreModularity:R27.6/full-classical-serre-theorem`, `AlgebraicModularFormsAndSerreWeights:R15.4/weight-two-iff-finite-flat-at-p`, `tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev`, `AutomorphicGaloisRepresentations:R19.1/newform-rank-two-realisation`.
+**Depends on.** `GT.2/residual-irreducibility`, `GT.2/odd`, `GT.2/crystalline-at-good-primes`, `GT.2/conductor-bound`, `GT.2/frobenius-polynomial`, `ClassicalSerreModularity:R27.6/full-classical-serre-theorem`, `AlgebraicModularFormsAndSerreWeights:R15.4/weight-two-iff-finite-flat-at-p`, `tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev`, `AutomorphicGaloisRepresentations:R19.1/newform-rank-two-realisation`, `GT.2/integral-model`, `GT.2/determinant-character`.
 
 **Source.**
 
@@ -694,14 +712,16 @@ In the situation of GT.3/serre-witnesses there are a normalised newform f of wei
 **Construction and proof.**
 
 1. The newforms of weight two and level dividing cond(A), with any character, form a finite set: they are eigenvectors in the finite-dimensional spaces S₂(Γ₁(M)), M | cond(A) (Tau Ceti ModularForms layers 0 and 4).
-2. λ ↦ g_λ maps the infinite set Λ to this finite set, so some fibre Λ_f is infinite (EllipticCurveModularity:R29.3/pigeonhole-infinite-fiber); φ_λ is reduction modulo λ′.
+2. λ ↦ g_λ maps the infinite set Λ to this finite set, so some fibre is infinite (EllipticCurveModularity:R29.3/pigeonhole-infinite-fiber). At this point reduction lands in 𝔽_{λ′}, with the good Hecke values in its embedded subfield 𝔽_λ.
+
+3. Choose finitely many good-prime a_p(f) generating K_f: use GT.1/modular-quotient-is-gl2-type, the Frobenius comparison of ModularCurvesPartII:R14.5/newform-hecke-prime, and GT.2/coefficients-generate applied to A_f. The order they generate has finite index in 𝒪_{K_f}. Delete the finitely many λ whose residue characteristic divides this index or is one of the chosen primes. The remaining Λ_f is infinite, and reduction of every element of 𝒪_{K_f} lies in the embedded 𝔽_λ. Thus φ_λ has the stated codomain 𝔽_λ = 𝔽_ℓ.
 
 **Acceptance.**
 
 - For dim A = 1 this is the parent's pigeonhole step.
 - The level of f divides cond(A); its exact value is GT.4/exact-level.
 
-**Depends on.** `GT.3/serre-witnesses`, `EllipticCurveModularity:R29.3/pigeonhole-infinite-fiber`, `tauceti:TauCetiRoadmap/ModularForms#layer-4-eigenforms-newforms-primitive-forms-the-conductor`, `tauceti:HeckeRing.GL2.Newform`, `tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus`, `tauceti:cuspFormCharSpace`, `mathlib:CongruenceSubgroup.Gamma1`.
+**Depends on.** `GT.3/serre-witnesses`, `EllipticCurveModularity:R29.3/pigeonhole-infinite-fiber`, `tauceti:TauCetiRoadmap/ModularForms#layer-4-eigenforms-newforms-primitive-forms-the-conductor`, `tauceti:HeckeRing.GL2.Newform`, `tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus`, `tauceti:cuspFormCharSpace`, `mathlib:CongruenceSubgroup.Gamma1`, `GT.2/coefficients-generate`, `GT.1/modular-quotient-is-gl2-type`, `ModularCurvesPartII:R14.5/newform-hecke-prime`.
 
 **Source.**
 
@@ -717,14 +737,14 @@ In the situation of GT.3/fixed-newform there is a field isomorphism j : K_f → 
 
 1. For λ ∈ Λ_f the pair (φ_λ, 𝒪_E → 𝔽_λ) is a ring map 𝒪_{K_f} ⊗_ℤ 𝒪_E → 𝔽_ℓ; its kernel m_λ lies over a prime of exactly one factor L_i of the étale algebra K_f ⊗_ℚ E = ∏ L_i, so infinitely many m_λ lie over one factor L with embeddings u : K_f → L, v : E → L (EllipticCurveModularity:R29.3/pigeonhole-infinite-fiber).
 2. For p ∉ S, p ∤ N_f, the element u(a_p(f)) − v(a_p(A)) ∈ 𝒪_L lies in primes above infinitely many ℓ, hence vanishes (EllipticCurveModularity:R29.3/algebraic-integer-norm-vanishing).
-3. K_f is generated by these a_p(f) (ModularCurvesPartII:R14.5/newform-hecke-prime with GT.2/coefficients-generate applied to A_f, GT.1/modular-quotient-is-gl2-type) and E by these a_p(A) (GT.2/coefficients-generate), so u(K_f) = v(E) and j = v⁻¹ ∘ u. The determinants agree by the same argument applied to d_p = ε(p)p.
+3. K_f is generated by these a_p(f) (ModularCurvesPartII:R14.5/newform-hecke-prime with GT.2/coefficients-generate applied to A_f, GT.1/modular-quotient-is-gl2-type) and E by these a_p(A) (GT.2/coefficients-generate), so u(K_f) = v(E) and j = v⁻¹ ∘ u. To identify characters, first use the resulting equality of good traces and Chebotarev–Brauer–Nesbitt (R01.5) to identify the characteristic-zero representations. Their determinants then identify j(ε_f) with ε. Trace congruences alone do not give determinant congruences.
 
 **Acceptance.**
 
 - For dim A = 1, K_f = ℚ and a_p(f) = a_p(A): the parent's exact equality.
 - For J₀(23) and its newform f, j is the identity of ℚ(√5) once E is identified with the Hecke field through the Hecke action; j is unique, as the a_p generate.
 
-**Depends on.** `GT.3/fixed-newform`, `EllipticCurveModularity:R29.3/pigeonhole-infinite-fiber`, `EllipticCurveModularity:R29.3/algebraic-integer-norm-vanishing`, `GT.2/coefficients-generate`, `GT.1/modular-quotient-is-gl2-type`, `ModularCurvesPartII:R14.5/newform-hecke-prime`, `GT.2/determinant-character`.
+**Depends on.** `GT.3/fixed-newform`, `EllipticCurveModularity:R29.3/pigeonhole-infinite-fiber`, `EllipticCurveModularity:R29.3/algebraic-integer-norm-vanishing`, `GT.2/coefficients-generate`, `GT.1/modular-quotient-is-gl2-type`, `ModularCurvesPartII:R14.5/newform-hecke-prime`, `GT.2/determinant-character`, `ArithmeticGaloisRepresentations:R01.5/recognition-by-characteristic-polynomials-and-coefficient-descent`.
 
 **Source.**
 
@@ -786,7 +806,7 @@ For a ℚ-simple abelian variety A over ℚ of GL₂-type with endomorphism fiel
 **Construction and proof.**
 
 1. (a) ⇒ (b): a surjection J₁(N) → A and the isogeny decomposition of J₁(N) (GT.1/modular-quotient-is-gl2-type) give a nonzero map A_g → A for some newform g of level dividing N (A6: Hom between non-isogenous simple varieties vanishes), hence A ~ A_g as both are simple (A6/endomorphisms-of-simple-abelian-varieties).
-2. (b) ⇒ (d): V_ℓ(A) ≅ V_ℓ(A_f) decomposes compatibly with the endomorphism fields (R19.6). (d) ⇒ (c) is trivial. (c) ⇒ (b): traces give an embedding of fields as in GT.3/coefficient-identification, then GT.3/tate-module-comparison and Faltings' isogeny criterion.
+2. (b) ⇒ (d): V_ℓ(A) ≅ V_ℓ(A_f) decomposes compatibly with the endomorphism fields (R19.6). (d) ⇒ (c) is trivial. For (c) ⇒ (b), fix the embeddings τ : E → ℚ̄_ℓ and τ′ : K_f → ℚ̄_ℓ of the given isomorphism. Their good Frobenius traces agree. E and K_f are each generated by these traces off a common finite exceptional set (GT.2/coefficients-generate, applied also to A_f using GT.1/modular-quotient-is-gl2-type and R14.5/newform-hecke-prime). Thus τ(E) = τ′(K_f), giving j = τ⁻¹τ′ with exact good coefficients. GT.3/tate-module-comparison, followed by Faltings, gives A ~ A_f. This argument needs no infinite residual congruences and no Serre theorem.
 3. (b) ⇒ (e) ⇒ (a): compose J₁(N) → A_f with the isogeny; an isogeny image of a quotient is a quotient.
 
 **Acceptance.**
@@ -794,7 +814,7 @@ For a ℚ-simple abelian variety A over ℚ of GL₂-type with endomorphism fiel
 - For dim A = 1 these are formulations (i)–(ii) of R29.6.
 - (c) for a single λ of degree one already suffices.
 
-**Depends on.** `GT.3/modular-abelian-variety`, `GT.3/modularity-theorem`, `GT.3/tate-module-comparison`, `GT.3/coefficient-identification`, `GT.1/modular-quotient-is-gl2-type`, `AbelianSchemesAndArithmeticModuli:A6/endomorphisms-of-simple-abelian-varieties`, `FaltingsFinitenessAndIsogenyTheorems:R28.4/isogeny-criterion-by-rational-tate-modules-and-local-factors`, `AutomorphicGaloisRepresentations:R19.6/weight-two-tate-module-decomposition`.
+**Depends on.** `GT.3/modular-abelian-variety`, `GT.3/modularity-theorem`, `GT.3/tate-module-comparison`, `GT.1/modular-quotient-is-gl2-type`, `AbelianSchemesAndArithmeticModuli:A6/endomorphisms-of-simple-abelian-varieties`, `FaltingsFinitenessAndIsogenyTheorems:R28.4/isogeny-criterion-by-rational-tate-modules-and-local-factors`, `AutomorphicGaloisRepresentations:R19.6/weight-two-tate-module-decomposition`, `GT.2/coefficients-generate`, `ModularCurvesPartII:R14.5/newform-hecke-prime`.
 
 **Source.**
 
@@ -852,20 +872,20 @@ For a ℚ-simple abelian variety A over ℚ of GL₂-type with endomorphism fiel
 
 *Theorem* · Lean namespace `TauCeti.GL2Type`
 
-Let A be a ℚ-simple abelian variety over ℚ of GL₂-type, modular of level N. There is a nonconstant morphism φ : X₁(N) → A over ℚ with φ(c) = 0 for the rational cusp c of ModularCurvesPartII:R14.6/rational-cusp-abel-jacobi, whose image generates A as an algebraic group; φ is the composite of the Abel–Jacobi map, a quotient J₁(N) → A_f and an isogeny A_f → A. If ε = 1, φ can be taken on X₀(N) with φ(∞) = 0. This generalises EllipticCurveModularity:R29.5/modular-parametrisation.
+Let A be a ℚ-simple abelian variety over ℚ of GL₂-type, modular of level N. There is a nonconstant morphism φ : X₁(N) → A over ℚ with φ(c) = 0 for the rational cusp c of ModularCurvesPartII:R14.6/rational-cusp-abel-jacobi, whose image generates A as an algebraic group; φ is the composite of the Abel–Jacobi map, a quotient J₁(N) → J₁(M) → A_f with the newform level M dividing N and an isogeny A_f → A. If ε = 1, φ can be taken on X₀(N) with φ(∞) = 0. This generalises EllipticCurveModularity:R29.5/modular-parametrisation.
 
 **Construction and proof.**
 
-1. Compose AJ_c : X₁(N) → J₁(N), the quotient J₁(N) → A_f and the isogeny A_f → A of GT.3/modularity-theorem; nonconstancy is ModularCurvesPartII:R14.5/abel-jacobi-composite-nonzero.
+1. From the surjection J₁(N) → A and the newform decomposition of J₁(N), choose a newform f of level M | N with A_f ~ A (GT.3/modularity-equivalences and GT.1/modular-quotient-is-gl2-type). Compose AJ_c : X₁(N) → J₁(N), a surjective degeneracy map J₁(N) → J₁(M) (R14.2/jacobian-and-functoriality), J₁(M) → A_f and an isogeny A_f → A. Nonconstancy follows from R14.5/abel-jacobi-composite-nonzero. The ambient modular level N need not be the newform level M.
 2. The image of X₁(N) generates J₁(N) (the Jacobian is generated by the curve, Tau Ceti JacobianChallenge layer F), hence its image generates A.
-3. For ε = 1 use J₀(N) and AJ_∞ (GT.3/trivial-character).
+3. For ε = 1 the chosen f has trivial character, so use J₀(N) → J₀(M) → A_f, with AJ_∞ and the trivial-character quotient (R14.5/trivial-character-J0). This gives the Γ₀ parametrisation at the specified ambient level N, not merely at some other level.
 
 **Acceptance.**
 
 - For dim A = 1 and ε = 1 this is the parametrisation X₀(N) → E of R29.5.
 - For J₁(13) the parametrisation is the Abel–Jacobi embedding of X₁(13), a curve of genus 2.
 
-**Depends on.** `GT.3/modularity-theorem`, `GT.3/trivial-character`, `ModularCurvesPartII:R14.6/rational-cusp-abel-jacobi`, `ModularCurvesPartII:R14.5/abel-jacobi-composite-nonzero`, `tauceti:TauCetiRoadmap/JacobianChallenge#layer-f-abeljacobi-and-the-universal-property`.
+**Depends on.** `GT.3/modularity-theorem`, `GT.3/trivial-character`, `ModularCurvesPartII:R14.6/rational-cusp-abel-jacobi`, `ModularCurvesPartII:R14.5/abel-jacobi-composite-nonzero`, `tauceti:TauCetiRoadmap/JacobianChallenge#layer-f-abeljacobi-and-the-universal-property`, `GT.3/modularity-equivalences`, `GT.1/modular-quotient-is-gl2-type`, `ModularCurvesPartII:R14.2/jacobian-and-functoriality`, `ModularCurvesPartII:R14.5/trivial-character-J0`.
 
 **Source.**
 
@@ -881,19 +901,19 @@ Carayol's theorem identifies the conductor of ρ_{f,λ} with the level of f at e
 - The conductor exponent of a GL₂-type variety: for every prime p and every λ ∤ p, f_p(A) = [E : ℚ]·f_p(ρ_λ), where f_p(A) is the Artin conductor exponent of V_ℓ(A) and f_p(ρ_λ) that of the E_λ-representation; f_p(ρ_λ) is independent of λ ∤ p. Hence cond(A) = N(A)^{dim A} for the integer N(A) = ∏ p^{f_p(ρ_λ)}.
 - Carayol's conductor theorem for A_f: for a weight-two newform f of level N, cond(A_f) = N^{dim A_f} and N(A_f) = N.
 - Exact level: for A of GL₂-type, A is modular of level M if and only if N(A) divides M; the optimal level is N(A) = cond(A)^{1/dim A}. The level M = cond(A)^{dim A} named in Khare–Wintenberger §10.2 is valid but not optimal.
-- Strict compatibility, after modularity: the λ-adic system of A is an E-rational strictly compatible system in the sense of Khare–Wintenberger §5 (PotentialModularityAndCompatibleSystems R24.5), with E-rational Weil–Deligne representations at every prime, transported from the system of f.
+- Strict compatibility, after modularity: the good Frobenius polynomials are E-rational, and after a finite coefficient extension E′/E the reindexed λ-adic system is E′-rational and strictly compatible in the sense of Khare–Wintenberger §5 (PotentialModularityAndCompatibleSystems R24.5), with local Weil–Deligne parameters realised over E′ and transported from the system of f.
 - L-functions: for A of GL₂-type, L(A, s) = ∏_{σ : K_f → ℂ} L(f^σ, s) with equality of every local factor, including the bad ones; hence L(A, s) has analytic continuation and a functional equation with conductor cond(A). For dim A = 1 this is the parent's `EllipticCurveModularity:R29.6`.
 - Compatibility with the parent: for an elliptic curve over ℚ, GT.3–GT.4 return the parent's newform of level N_E, isogeny and parametrisation X₀(N_E) → E.
 
 **Layer dependencies.** `GT.2`, `GT.3`, `ArithmeticGaloisRepresentations:R01.3`, `AutomorphicGaloisRepresentations:R19.3`, `AutomorphicGaloisRepresentations:R19.4`, `EllipticCurveModularity:R29.3`, `EllipticCurveModularity:R29.5`, `EllipticCurveModularity:R29.6`, `ModularCurvesPartII:R14.2`, `NeronModelsAndSemistableAbelianVarieties:R11.5`, `PotentialModularityAndCompatibleSystems:R24.5:operations`, `SmallRamificationAndAbelianVarietyBaseCases:R25.3`, `tauceti:TauCetiRoadmap/ModularForms#layer-5-strong-multiplicity-one-and-the-eigenform-characterization`, `tauceti:TauCetiRoadmap/ModularForms#layer-6-atkinlehner-and-fricke-operators`, `tauceti:TauCetiRoadmap/ModularForms#layer-7-l-functions`.
 
-**Coverage.** planned. Remaining: Lemma-level refinement when the roadmap comes near the front of the line: additivity of Artin conductors under restriction of scalars as its own lemma; the sign w_A of the functional equation.
+**Coverage.** planned. Remaining: Lemma-level refinement when the roadmap comes near the front of the line: additivity of Artin conductors under restriction of scalars as its own lemma; the sign w_A of the functional equation. Independent review REV-DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties: replace the private signature carriers and restore the omitted API/tests listed in the packet’s prototype gaps before acceptance; this is not merely a later lemma refinement.
 
 ### `GT.4/conductor-of-gl2-type` — Carayol's conductor formula for GL₂-type varieties ★
 
 *Theorem* · planet: Carayol's conductor formula · Lean namespace `TauCeti.GL2Type`
 
-Let A is a ℚ-simple abelian variety over ℚ of GL₂-type with endomorphism field E, n = dim A = [E : ℚ], f a weight-two newform of level N_f with j : K_f ≅ E and V_ℓ(A) ≅ V_ℓ(A_f) (GT.3/modularity-theorem, GT.3/tate-module-comparison), and cond(A) = ∏_p p^{f_p(A)} the conductor of A (NeronModelsAndSemistableAbelianVarieties:R11.5/conductor-import). For every prime p and every prime λ of E with λ ∤ p, f_p(A) = n·f_p(ρ_λ), where f_p(ρ_λ) is the Artin conductor exponent of the E_λ-representation ρ_λ at p, and f_p(ρ_λ) = ord_p(N_f) for all such λ. Hence cond(A) = N_f^{n}; in particular cond(A_f) = N^{dim A_f} for every weight-two newform of level N (Carayol, Corollaire 0.8 for dim A_f = 1).
+Let A be a ℚ-simple abelian variety over ℚ of GL₂-type with endomorphism field E, n = dim A = [E : ℚ], f a weight-two newform of level N_f with j : K_f ≅ E and V_ℓ(A) ≅ V_ℓ(A_f) (GT.3/modularity-theorem, GT.3/tate-module-comparison), and cond(A) = ∏_p p^{f_p(A)} the conductor of A (NeronModelsAndSemistableAbelianVarieties:R11.5/conductor-import). For every prime p and every prime λ of E with λ ∤ p, f_p(A) = n·f_p(ρ_λ), where f_p(ρ_λ) is the Artin conductor exponent of the E_λ-representation ρ_λ at p, and f_p(ρ_λ) = ord_p(N_f) for all such λ. Hence cond(A) = N_f^{n}; in particular cond(A_f) = N^{dim A_f} for every weight-two newform of level N (Carayol, Corollaire 0.8 for dim A_f = 1).
 
 **Construction and proof.**
 
@@ -943,35 +963,37 @@ Let A be a ℚ-simple abelian variety over ℚ of GL₂-type of dimension n. The
 
 *Theorem* · Lean namespace `TauCeti.GL2Type`
 
-Let A be a ℚ-simple abelian variety over ℚ of GL₂-type with endomorphism field E. The family (ρ_ι)_ι, ρ_ι = V_λ(A) ⊗_{E_λ, ι} ℚ̄_ℓ for embeddings ι : E → ℚ̄_ℓ, is an E-rational, two-dimensional, strictly compatible system of geometric representations of G_ℚ with Hodge–Tate weights (1, 0) (PotentialModularityAndCompatibleSystems:R24.5/compatible-system): for every prime q there is a Frobenius-semisimple Weil–Deligne representation r_q over E, unramified for q ∉ S, with WD(ρ_ι|_{D_q})^{F-ss} ≅ ι r_q for all ι, including q = ℓ. It is regular, irreducible and odd. The compatibility at the primes of bad reduction is obtained here from modularity; it is not used to prove it.
+Let A be a ℚ-simple abelian variety over ℚ of GL₂-type with endomorphism field E. Its good-prime Frobenius polynomials are E-rational (GT.2/frobenius-polynomial). There is a finite number-field extension i : E ↪ E′ for which the reindexed family ρ_{τ′∘i}, for τ′ : E′ → ℚ̄_ℓ, is an E′-rational, two-dimensional strictly compatible system of geometric representations of G_ℚ with Hodge–Tate weights (1, 0) (R24.5/compatible-system). For every prime q there is a Frobenius-semisimple Weil–Deligne representation r_q over E′, unramified for q ∉ S, with WD(ρ_{τ′∘i}|_{D_q})^{F-ss} ≅ τ′r_q for every τ′, including q = ℓ. It is regular, irreducible and odd. The full local compatibility is obtained after modularity. Realisation of every r_q over the original endomorphism field E is not asserted: Carayol §0.6 and Théorème (A) allow a finite coefficient extension.
 
 **Construction and proof.**
 
-1. Transport the strictly compatible family of the newform f (AutomorphicGaloisRepresentations:R19.3/fixed-eigenform-compatible-family, which supplies a Frobenius-semisimple WD parameter over K_f at every finite place, including those above λ) through j : K_f ≅ E and the isomorphisms of GT.3/tate-module-comparison.
+1. Choose f and j : K_f ≅ E by GT.3/modularity-theorem. R19.3/fixed-eigenform-compatible-family supplies a full strictly compatible family over a sufficiently large number field containing K_f; its statement does not require that field to be K_f. Transport K_f through j, obtaining a finite extension E′/E, and reindex the members by τ′ : E′ → ℚ̄_ℓ using R24.5’s coefficient-extension API and GT.3/tate-module-comparison. Carayol §0.6 distinguishes being defined over a rationality field from being realised there; full comparison at q = ℓ is supplied by R19.3’s coefficient-prime theorem, not by Carayol 1986 alone.
 2. Regular, odd and irreducible: GT.2/crystalline-at-good-primes, GT.2/odd, GT.2/absolute-irreducibility.
 
 **Acceptance.**
 
-- For an elliptic curve over ℚ this is the ℚ-rational system of NeronModelsAndSemistableAbelianVarieties:R11.6/strict-compatible-system-export at i = 1 (dualised).
+- For an elliptic curve over ℚ the good-prime polynomials lie in ℚ; the theorem permits enlarging ℚ to realise all local WD parameters. This is stronger local data than the good-prime strict compatibility of R11.6, whose convention must be compared explicitly.
 - At p ∥ cond(A)^{1/n} with p not dividing the conductor of ε, r_p has nonzero monodromy (Steinberg type, R19.4 (b)).
 
-**Depends on.** `GT.3/tate-module-comparison`, `GT.3/coefficient-identification`, `AutomorphicGaloisRepresentations:R19.3/fixed-eigenform-compatible-family`, `PotentialModularityAndCompatibleSystems:R24.5/compatible-system`, `GT.2/crystalline-at-good-primes`, `GT.2/odd`, `GT.2/absolute-irreducibility`.
+**Depends on.** `GT.3/tate-module-comparison`, `GT.3/coefficient-identification`, `AutomorphicGaloisRepresentations:R19.3/fixed-eigenform-compatible-family`, `PotentialModularityAndCompatibleSystems:R24.5/compatible-system`, `GT.2/crystalline-at-good-primes`, `GT.2/odd`, `GT.2/absolute-irreducibility`, `GT.3/modularity-theorem`.
 
 **Source.**
 
 - Chandrashekhar Khare and Jean-Pierre Wintenberger, §5, pp. 7–8: “For a number field E, we call an E-rational, 2-dimensional strictly com- patible system of geometric representations (ρι ) of GF the data of:” — The notion of strict compatibility, which requires Weil–Deligne comparison at all primes.
 - Kenneth A. Ribet, §3, p. 4: “One knows that the collection (ρλ ) (as λ ranges over the set of finite primes of E) forms a strictly compatible system of E-rational representations whose exceptional set is the set of prime numbers at which A has bad reduction.” — Ribet's strict compatibility, in Serre's sense, concerns only the primes of good reduction (GT.2/frobenius-polynomial).
+- Henri Carayol, §0.6 and Théorème (A) (§0.7), p. 410: “une extension finie E” — Both the simultaneous realisation of the local parameters and the theorem allow a finite extension of the rationality field; they do not promise realisation over K_f.
+
 
 ### `GT.4/l-function` — The L-function of a GL₂-type variety
 
 *Theorem* · Lean namespace `TauCeti.GL2Type`
 
-Let A is a ℚ-simple abelian variety over ℚ of GL₂-type with endomorphism field E, n = dim A = [E : ℚ], f a weight-two newform of level N_f with j : K_f ≅ E and V_ℓ(A) ≅ V_ℓ(A_f) (GT.3/modularity-theorem, GT.3/tate-module-comparison), and cond(A) = ∏_p p^{f_p(A)} the conductor of A (NeronModelsAndSemistableAbelianVarieties:R11.5/conductor-import). For every prime p the local factor of L(A, s) (from H¹(A_ℚ̄, ℚ_ℓ)^{I_p}, ℓ ≠ p, NeronModelsAndSemistableAbelianVarieties:R11.5/local-euler-polynomial) equals ∏_{σ : K_f → ℂ} L_p(f^σ, s), the product over the embeddings of K_f of the Euler factors (1 − a_p(f^σ)p^{−s} + ε_f^σ(p)p^{1−2s})⁻¹ for p ∤ N_f and (1 − a_p(f^σ)p^{−s})⁻¹ for p | N_f. Hence L(A, s) = ∏_σ L(f^σ, s) extends to an entire function, and Λ(A, s) = cond(A)^{s/2}((2π)^{−s}Γ(s))^n L(A, s) satisfies Λ(A, s) = w_A Λ(A, 2 − s) with w_A = ±1. This generalises EllipticCurveModularity:R29.4/bad-euler-factors and R29.6/l-function-continuation.
+Let A be a ℚ-simple abelian variety over ℚ of GL₂-type with endomorphism field E, n = dim A = [E : ℚ], f a weight-two newform of level N_f with j : K_f ≅ E and V_ℓ(A) ≅ V_ℓ(A_f) (GT.3/modularity-theorem, GT.3/tate-module-comparison), and cond(A) = ∏_p p^{f_p(A)} the conductor of A (NeronModelsAndSemistableAbelianVarieties:R11.5/conductor-import). For every prime p the local factor of L(A, s) (from H¹(A_ℚ̄, ℚ_ℓ)^{I_p}, ℓ ≠ p, NeronModelsAndSemistableAbelianVarieties:R11.5/local-euler-polynomial) equals ∏_{σ : K_f → ℂ} L_p(f^σ, s), the product over the embeddings of K_f of the Euler factors (1 − a_p(f^σ)p^{−s} + ε_f^σ(p)p^{1−2s})⁻¹ for p ∤ N_f and (1 − a_p(f^σ)p^{−s})⁻¹ for p | N_f. Hence L(A, s) = ∏_σ L(f^σ, s) extends to an entire function, and Λ(A, s) = cond(A)^{s/2}((2π)^{−s}Γ(s))^n L(A, s) satisfies Λ(A, s) = w_A Λ(A, 2 − s) with w_A = ±1. This generalises EllipticCurveModularity:R29.4/bad-euler-factors and R29.6/l-function-continuation.
 
 **Construction and proof.**
 
 1. H¹ ⊗ ℚ̄_ℓ = ⊕_ι ρ_ι^∨ and ρ_ι ≅ ρ_{f,ι∘j} (GT.3/tate-module-comparison); the local factor of ρ_{f,λ}^∨ at p ≠ ℓ is that of f at p (AutomorphicGaloisRepresentations:R19.4/conductor-and-local-factors-classical (c)).
-2. Each L(f^σ, s) is entire with Λ(f^σ, s) = N_f^{s/2}(2π)^{−s}Γ(s)L(f^σ, s) = w_σ Λ(f^{σ}|W_{N_f}, 2 − s), and f^σ|W_{N_f} is a multiple of the conjugate form f^{σ̄} (Tau Ceti ModularForms layers 6–7). The set of σ is closed under complex conjugation, so the product is self-dual; cond(A) = N_f^n (GT.4/conductor-of-gl2-type) gives the conductor, and w_A = ∏ w_σ is ±1 because Λ(A, s) is real on the real line.
+2. Use the normalised Fricke companion 𝒲_{N_f} of ModularForms layers 6–7. At weight two its functional equation carries i² = −1; after absorbing the Fricke pseudo-eigenvalue into w_σ it reads Λ(f^σ, s) = w_σ Λ(f^{σ̄}, 2 − s). The embeddings are closed under complex conjugation, so the product is self-dual, and cond(A) = N_f^n gives the displayed completion. Apply this product equation twice to obtain Λ(A, s) = w_A²Λ(A, s). The normalised Euler product is nonzero in its half-plane of absolute convergence, so its continuation is not identically zero and w_A² = 1. Thus w_A = ±1; realness on the real line alone would not prove this.
 
 **Acceptance.**
 
@@ -1022,9 +1044,9 @@ Ribet's ℚ-curves. For a non-CM ℚ-curve with a model over a Galois field K an
 - Ribet's Corollary 6.2, unconditional: every non-CM ℚ-curve is a quotient over ℚ̄ of J₁(N)_ℚ̄ for some N.
 - Quadratic fields (Ribet §7): for K quadratic with a K-isogeny μ : σC₀ → C₀ and μ ∘ σμ = [m], Res_{K/ℚ} C₀ is of GL₂-type with E = ℚ(√m) when m is not a square, and C₀ is K-isogenous to the base change of a curve over ℚ when m is a square; ε equals the character θ of K/ℚ cut out by the sign of m (Lemma 7.1), and at least one of E, K is real (Proposition 7.2).
 
-**Layer dependencies.** `GT.1`, `GT.2`, `GT.3`, `GT.4`, `AbelianSchemesAndArithmeticModuli:A1`, `AbelianSchemesAndArithmeticModuli:A6`, `ArithmeticGaloisRepresentations:R01.2`, `GL2AutomorphicRepresentationsAndTransfer:R17.5`, `ModularCurvesPartII:R14.5`, `SmallRamificationAndAbelianVarietyBaseCases:R25.5`, `tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees`.
+**Layer dependencies.** `GT.1`, `GT.2`, `GT.3`, `GT.4`, `AbelianSchemesAndArithmeticModuli:A1`, `AbelianSchemesAndArithmeticModuli:A6`, `ArithmeticGaloisRepresentations:R01.2`, `GL2AutomorphicRepresentationsAndTransfer:R17.5`, `ModularCurvesPartII:R14.5`, `SmallRamificationAndAbelianVarietyBaseCases:R25.5`, `tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees`, `ComplexMultiplicationAndExplicitReciprocity:CM.1`.
 
-**Coverage.** planned. Remaining: Resolve the request to AbelianSchemesAndArithmeticModuli A3 (quotients by finite subgroups), not yet in a packet. Lemma-level refinement when the roadmap comes near the front of the line: write out the omitted computation of Ribet's Proposition 6.5 and the projector construction of Theorem 6.1.
+**Coverage.** planned. Remaining: Resolve the request to AbelianSchemesAndArithmeticModuli A3 (quotients by finite subgroups), not yet in a packet. Lemma-level refinement when the roadmap comes near the front of the line: write out the omitted computation of Ribet's Proposition 6.5 and the projector construction of Theorem 6.1. Independent review REV-DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties: replace the private signature carriers and restore the omitted API/tests listed in the packet’s prototype gaps before acceptance; this is not merely a later lemma refinement.
 
 ### `GT.5/q-curve` — ℚ-curves ★
 
@@ -1039,7 +1061,7 @@ Fix an algebraic closure ℚ̄. An elliptic curve C over ℚ̄ is a ℚ-curve if
 
 **Construction and proof.**
 
-1. The definition only names the property. Its basic properties: it depends only on the ℚ̄-isogeny class of C; conjugates of a ℚ-curve are ℚ-curves; a curve with a model over ℚ is a ℚ-curve; every CM curve is a ℚ-curve, because ᵍC has CM by an order in the same imaginary quadratic field and all such curves are isogenous.
+1. The definition only names the property. Its basic properties: it depends only on the ℚ̄-isogeny class of C; conjugates of a ℚ-curve are ℚ-curves; a curve with a model over ℚ is a ℚ-curve; every CM curve is a ℚ-curve, because ᵍC has CM by an order in the same imaginary quadratic field and all such curves are isogenous. The CM assertion uses the ideal-lattice classification and ideal-isogeny API of ComplexMultiplicationAndExplicitReciprocity CM.1; the fixed embedded CM type is adjusted by conjugation before forgetting the action.
 2. Because ℚ̄-isogenies are defined over a finite extension, a ℚ-curve with a model over K has, after enlarging K to a finite Galois extension of ℚ, isogenies μ_g : ᵍC₀ → C₀ defined over K for all g ∈ Gal(K/ℚ) (Ribet §6).
 
 **API.**
@@ -1059,8 +1081,8 @@ Fix an algebraic closure ℚ̄. An elliptic curve C over ℚ̄ is a ℚ-curve if
 |---|---|---|
 | `IsQCurve.rational` | degenerate | The base change to ℚ̄ of X₀(11) is a ℚ-curve, with μ_g the identity. |
 | `IsQCurve.cm` | computation | The curve y² = x³ − x with CM by ℤ[i] is a ℚ-curve; so are all curves with CM by an order of ℚ(i). |
-| `IsQCurve.twist` | characterisation | A quadratic twist over K of a curve defined over ℚ is a ℚ-curve with μ_g isomorphisms over ℚ̄. |
-| `IsQCurve.not_of_traces` | non-example | If K is quadratic, p = 𝔭·σ𝔭 splits in K, C₀ has good reduction at 𝔭 and σ𝔭, and a_𝔭(C₀) ≠ a_{σ𝔭}(C₀), then C₀ is not a ℚ-curve: σC₀ has trace a_{σ𝔭}(C₀) at 𝔭, and isogenous curves have equal traces. |
+| `IsQCurve.twist` | characterisation | A quadratic twist over K of a curve defined over ℚ is a ℚ-curve with μ_g isomorphisms over ℚ̄. In particular, over K = ℚ(√2), the twist of y² = x³ − x + 1 by d = √2 has traces 4 and −4 at the two primes above 7 (d reduces to 3 and 4), and is still a non-CM ℚ-curve: its j-invariant is −6912/23, which is not an algebraic integer. |
+| `IsQCurve.not_of_squared_traces` | non-example | Let C₀ be non-CM over a quadratic field K and let p = 𝔭·σ𝔭 split, with good reduction at both primes. If a_𝔭(C₀)² ≠ a_{σ𝔭}(C₀)² then C₀ is not a ℚ-curve. For a geometric isogeny to σC₀, the one-dimensional space Hom⁰_ℚ̄(σC₀,C₀) is a G_K-line with finite action in ℚ^×, hence action by {±1}; the two Tate representations differ by this quadratic character, so their good traces agree up to sign. Unequal unsquared traces are not an obstruction to a geometric isogeny. |
 
 **Used by.**
 
@@ -1074,7 +1096,7 @@ Fix an algebraic closure ℚ̄. An elliptic curve C over ℚ̄ is a ℚ-curve if
 - Every elliptic curve over ℚ is a ℚ-curve.
 - Caraiani–Newton Corollary 7.2.5: a curve E over a quadratic field F with E and σE 5-isogenous is a ℚ-curve.
 
-**Depends on.** `mathlib:WeierstrassCurve.IsElliptic`, `AbelianSchemesAndArithmeticModuli:A1`, `tauceti:TauCeti.AlgebraicGeometry.AbelianVariety`, `tauceti:TauCeti.AlgebraicGeometry.AbelianVariety.IsIsogeny`.
+**Depends on.** `mathlib:WeierstrassCurve.IsElliptic`, `AbelianSchemesAndArithmeticModuli:A1`, `tauceti:TauCeti.AlgebraicGeometry.AbelianVariety`, `tauceti:TauCeti.AlgebraicGeometry.AbelianVariety.IsIsogeny`, `ComplexMultiplicationAndExplicitReciprocity:CM.1/ideal-lattice-curve`, `ComplexMultiplicationAndExplicitReciprocity:CM.1/picard-classification`, `ComplexMultiplicationAndExplicitReciprocity:CM.1/ideal-isogeny-degree`.
 
 **Source.**
 
@@ -1096,7 +1118,7 @@ Let C₀ be a non-CM ℚ-curve over a finite Galois extension K/ℚ with K-isoge
 **Construction and proof.**
 
 1. μ_g ∘ ᵍμ_h ∘ μ_{gh}⁻¹ ∈ End⁰_K(C₀) = ℚ, nonzero; the cocycle identity follows from associativity of composition and ᵍ(μ_h ∘ ʰμ_k) = ᵍμ_h ∘ ᵍʰμ_k.
-2. Changing μ_g to r_g μ_g (r_g ∈ ℚ^×) changes c by the coboundary of r; enlarging K inflates; a K-isomorphic model changes μ_g by conjugation. Degrees are multiplicative and deg r = r² on ℚ^× ⊆ End⁰.
+2. Changing μ_g to r_gμ_g changes c by the coboundary of r. Enlarging K inflates. To compare models in the same ℚ̄-isogeny class, first enlarge to a common finite Galois field where the comparison quasi-isogeny φ is defined, then conjugate μ_g by φ and ᵍφ; the cocycle values are unchanged because the scalars are rational. Any remaining choices differ by a rational coboundary. Degrees are multiplicative and deg r = r² on ℚ^× ⊆ End⁰.
 
 **API.**
 
@@ -1105,7 +1127,7 @@ Let C₀ be a non-CM ℚ-curve over a finite Galois extension K/ℚ with K-isoge
 | `QCurve.cocycle` | data | c : Gal(K/ℚ) × Gal(K/ℚ) → ℚ^× from the chosen μ_g. |
 | `QCurve.cocycle_isCocycle` | characterisation | c is a 2-cocycle for the trivial action. |
 | `QCurve.cocycleClass` | data | [c_C] ∈ H²(G_ℚ, ℚ^×), by inflation. |
-| `QCurve.cocycleClass_indep` | extensionality | [c_C] is independent of K, the model C₀ and the μ_g. |
+| `QCurve.cocycleClass_indep` | extensionality | [c_C] depends only on the ℚ̄-isogeny class of the non-CM elliptic curve; it is independent of K, the model C₀ and the μ_g after inflation. |
 | `QCurve.cocycle_sq` | relation | c(g, h)² = deg μ_g · deg μ_h / deg μ_{gh}. |
 | `QCurve.cocycleClass_of_rat` | simp | If C has a model over ℚ, [c_C] = 0. |
 
@@ -1115,7 +1137,7 @@ Let C₀ be a non-CM ℚ-curve over a finite Galois extension K/ℚ with K-isoge
 |---|---|---|
 | `QCurve.cocycle_rational` | degenerate | For a curve over ℚ with μ_g = id, c ≡ 1. |
 | `QCurve.cocycle_quadratic` | computation | For K quadratic and μ ∘ σμ = [m]: c(σ, σ) = m, c(1, ·) = c(·, 1) = 1. |
-| `QCurve.cocycle_twist_trivial` | characterisation | For a quadratic twist of a curve over ℚ by K = ℚ(√d), the μ_g can be chosen as isomorphisms over ℚ̄ with c = ±1-valued and [c] of order dividing 2. |
+| `QCurve.cocycle_twist_after_extension` | characterisation | For a non-CM quadratic twist C₀/K of an elliptic curve E₀/ℚ, enlarge K to a finite Galois L/ℚ where a twisting isomorphism φ : C₀,L ≅ E₀,L is defined. Taking μ_g = φ⁻¹ ∘ ᵍφ gives an L-defined family of isomorphisms with c ≡ 1 and [c_C] = 0. The geometric twist hypothesis does not supply K-defined conjugate isogenies. |
 | `QCurve.cocycle_cm_excluded` | non-example | For a CM curve, End⁰ is an imaginary quadratic field, the values μ_g ∘ ᵍμ_h ∘ μ_{gh}⁻¹ need not be rational, and the construction does not apply. |
 
 **Used by.**
@@ -1129,7 +1151,7 @@ Let C₀ be a non-CM ℚ-curve over a finite Galois extension K/ℚ with K-isoge
 - For C₀ defined over ℚ take μ_g = id: c = 1.
 - For K quadratic and μ = μ_σ with μ ∘ σμ = [m], c(σ, σ) = m and c = 1 elsewhere (GT.5/quadratic-q-curves).
 
-**Depends on.** `GT.5/q-curve`, `AbelianSchemesAndArithmeticModuli:A6/endomorphism-algebra-is-semisimple`, `tauceti:TauCeti.AlgebraicGeometry.AbelianVariety.IsIsogeny`, `tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees`.
+**Depends on.** `GT.5/q-curve`, `AbelianSchemesAndArithmeticModuli:A6/endomorphism-algebra-is-semisimple`, `tauceti:TauCeti.AlgebraicGeometry.AbelianVariety.IsIsogeny`, `tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees`, `mathlib:continuousCohomology`, `tauceti:TauCeti.ofDiscreteModule`.
 
 **Source.**
 
@@ -1153,7 +1175,7 @@ Let M = ℚ̄^× with trivial action of G_ℚ (discrete). Then H²(G_ℚ, M) = 0
 - For K quadratic and μ ∘ σμ = [m], α(σ) = √m and ε_C is trivial or the character of K/ℚ according to the sign of m (GT.5/quadratic-q-curves).
 - The statement fails for nontrivial action: H²(G_ℚ, ℚ̄^×) with the Galois action is not zero (it contains the Brauer group of ℚ).
 
-**Depends on.** `GL2AutomorphicRepresentationsAndTransfer:R17.5/tate-vanishing`, `GT.5/ribet-cocycle`, `tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees`, `ArithmeticGaloisRepresentations:R01.2/cyclotomic-and-dirichlet-characters`, `mathlib:DirichletCharacter`, `mathlib:cyclotomicCharacter`.
+**Depends on.** `GL2AutomorphicRepresentationsAndTransfer:R17.5/tate-vanishing`, `GT.5/ribet-cocycle`, `tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees`, `ArithmeticGaloisRepresentations:R01.2/cyclotomic-and-dirichlet-characters`, `mathlib:DirichletCharacter`, `mathlib:cyclotomicCharacter`, `mathlib:continuousCohomology`, `tauceti:TauCeti.ofDiscreteModule`.
 
 **Source.**
 
@@ -1188,19 +1210,19 @@ Let C₀ be a non-CM ℚ-curve over a finite Galois K/ℚ with K-isogenies μ_g 
 
 *Theorem* · Lean namespace `TauCeti.GL2Type`
 
-In the situation of GT.5/restriction-of-scalars-endomorphisms, let T = ∏_{σ} C_σ (copies of C₀ over K) with R acting by λ_g : C_σ → C_{gσ} through multiplication by c(g, σ). The isomorphism up to isogeny ι : T → B_K = ∏_σ σC₀, taking C_σ to σC₀ by σμ_σ⁻¹, is R-equivariant. Consequently Lie(B/ℚ) is a free R-module of rank one.
+In the situation of GT.5/restriction-of-scalars-endomorphisms, let T = ∏_{σ} C_σ (copies of C₀ over K) with R acting by λ_g : C_σ → C_{gσ} through multiplication by c(g, σ). The isomorphism up to isogeny ι : T → B_K = ∏_σ σC₀, taking C_σ to the σ⁻¹C₀ factor by ᵟμ_σ with δ = σ⁻¹ (the conjugate of μ_σ, not its inverse), is R-equivariant. Consequently Lie(B/ℚ) is a free R-module of rank one.
 
 **Construction and proof.**
 
-1. Check λ_g ∘ ι = ι ∘ λ_g on each factor using μ_g ∘ ᵍμ_σ = c(g, σ)μ_{gσ} (Ribet calls the computation routine and omits it; it is a finite check over the factors).
-2. Lie(B_K/K) = Lie(B/ℚ) ⊗ K, and through ι it is R ⊗_ℚ Lie(C₀/K) with R acting on the first factor; Lie(C₀/K) is one-dimensional, so Lie(B_K/K) is free of rank one over R ⊗ K, and freeness descends to Lie(B/ℚ) over R.
+1. On the C_σ factor put h = (gσ)⁻¹. The structural λ_g sends the σ⁻¹C₀ factor to hC₀ through ʰμ_g. Thus λ_gι has component ʰμ_g ∘ ᵟμ_σ with δ = σ⁻¹, equal to ʰ(μ_g ∘ ᵍμ_σ) = c(g,σ)ʰμ_{gσ}. This is the component of ιλ_g from C_σ to hC₀, proving equivariance with the source’s inverse-index convention.
+2. Lie(B_K/K) = Lie(B/ℚ) ⊗ K, and through ι it is R ⊗_ℚ Lie(C₀/K) with R acting on the first factor; Lie(C₀/K) is one-dimensional, so Lie(B_K/K) is free of rank one over R ⊗ K, and freeness descends to Lie(B/ℚ) over R. Here R is finite-dimensional semisimple: descent of this module isomorphism follows by comparing simple-module multiplicities in its Wedderburn decomposition, not from a general assertion that free modules descend over every ring.
 
 **Acceptance.**
 
 - For K = ℚ: Lie(C₀) is free of rank one over ℚ.
 - For K quadratic, Lie(B) is a free ℚ[X]/(X² − m)-module of rank one, two-dimensional over ℚ.
 
-**Depends on.** `GT.5/restriction-of-scalars-endomorphisms`, `tauceti:TauCeti.AlgebraicGeometry.AbelianVariety.TangentSpace`, `AbelianSchemesAndArithmeticModuli:A6/weil-restriction-over-a-separable-extension-splits`, `AbelianSchemesAndArithmeticModuli:A6/tate-module-of-a-weil-restriction`.
+**Depends on.** `GT.5/restriction-of-scalars-endomorphisms`, `tauceti:TauCeti.AlgebraicGeometry.AbelianVariety.TangentSpace`, `AbelianSchemesAndArithmeticModuli:A6/weil-restriction-over-a-separable-extension-splits`, `AbelianSchemesAndArithmeticModuli:A6/tate-module-of-a-weil-restriction`, `mathlib:IsSemisimpleRing.exists_algEquiv_pi_matrix_divisionRing`.
 
 **Source.**
 
@@ -1258,7 +1280,7 @@ Every non-CM ℚ-curve C is a quotient over ℚ̄ of J₁(N)_ℚ̄ for some N �
 
 *Theorem* · Lean namespace `TauCeti.GL2Type`
 
-Let K be a quadratic field with Gal(K/ℚ) = {1, σ} and C₀ a non-CM elliptic curve over K with a K-isogeny μ : σC₀ → C₀; then μ ∘ σμ = [m] for a nonzero integer m, R = End⁰_ℚ(Res_{K/ℚ} C₀) = ℚ[X]/(X² − m), and θ : Gal(K/ℚ) → {±1}, θ(σ) = sign(m), is the character α²/deg μ. (a) If m is a square, C₀ is K-isogenous to the base change of an elliptic curve over ℚ. (b) If m is not a square, B = Res_{K/ℚ} C₀ is a primitive abelian surface of GL₂(ℚ(√m))-type, its character ε (GT.2/determinant-character) equals θ (Lemma 7.1), and E = ℚ(√m) is real if and only if θ is trivial. (c) (Serre, Proposition 7.2) At least one of E and K is real; in particular, if K is imaginary then m > 0, E is real quadratic and ε = 1, so B is a quotient of J₀(N).
+Let K be a quadratic field with Gal(K/ℚ) = {1, σ} and C₀ a non-CM elliptic curve over K with a K-isogeny μ : σC₀ → C₀; then μ ∘ σμ = [m] for a nonzero integer m, R = End⁰_ℚ(Res_{K/ℚ} C₀) = ℚ[X]/(X² − m), and θ : Gal(K/ℚ) → {±1}, θ(σ) = sign(m), is the character α²/deg μ. (a) If m is a square, C₀ is K-isogenous to the base change of an elliptic curve over ℚ. (b) If m is not a square, B = Res_{K/ℚ} C₀ is a primitive abelian surface of GL₂(ℚ(√m))-type, its character ε (GT.2/determinant-character) equals θ (Lemma 7.1), and E = ℚ(√m) is real if and only if θ is trivial. (c) If K is imaginary then m > 0. In the nonsquare case (b), Serre’s Proposition 7.2 says that at least one of the two quadratic fields E and K is real; thus imaginary K gives real quadratic E, ε = 1 and B a quotient of J₀(N). In the square case R ≅ ℚ × ℚ and there is no quadratic endomorphism field E of B; instead its rational elliptic factors are modular Γ₀ quotients.
 
 **Construction and proof.**
 
@@ -1268,7 +1290,7 @@ Let K be a quadratic field with Gal(K/ℚ) = {1, σ} and C₀ a non-CM elliptic 
 
 **Acceptance.**
 
-- Caraiani–Newton's imaginary quadratic ℚ-curves fall under (c): E real, ε = 1.
+- Caraiani–Newton’s imaginary quadratic ℚ-curves with K-defined conjugate isogenies fall under (c): the nonsquare case has E real and ε = 1, while the square case descends to rational elliptic factors.
 - Koike's example: E = ℚ(√3) real, K = ℚ(√−3) imaginary (Ribet §7, level 81).
 - Shimura's examples with E imaginary and K real (Ribet §7).
 
@@ -1292,9 +1314,9 @@ The modularity of a ℚ-curve over its own field of definition, in the automorph
 - Automorphic form: if moreover K/ℚ is Galois with solvable Galois group, then Π = BC_{K/ℚ}(π_f) ⊗ (ψ ∘ Art_K) is a cuspidal automorphic representation of GL₂(𝔸_K) of parallel weight two with L(Π, s − 1/2) = L(C, s), local factor by local factor; so C is modular over K in the sense of Caraiani–Newton and of Freitas–Le Hung–Siksek.
 - Quadratic fields: every ℚ-curve over a real or imaginary quadratic field is modular in that sense (the input of Caraiani–Newton Corollaries 7.2.5 and 7.3.4 and of Freitas–Le Hung–Siksek §12).
 
-**Layer dependencies.** `GT.5`, `ArithmeticGaloisRepresentations:R01.1`, `ArithmeticGaloisRepresentations:R01.6`, `AutomorphicGaloisRepresentations:R19.1`, `AutomorphicGaloisRepresentations:R19.4`, `AutomorphicGaloisRepresentations:R19.6`, `FaltingsFinitenessAndIsogenyTheorems:R28.6`, `GL2AutomorphicRepresentationsAndTransfer:R17.4`, `GL2AutomorphicRepresentationsAndTransfer:R17.6`, `NeronModelsAndSemistableAbelianVarieties:R11.5`, `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity`.
+**Layer dependencies.** `GT.5`, `ArithmeticGaloisRepresentations:R01.1`, `ArithmeticGaloisRepresentations:R01.6`, `AutomorphicGaloisRepresentations:R19.1`, `AutomorphicGaloisRepresentations:R19.4`, `AutomorphicGaloisRepresentations:R19.6`, `FaltingsFinitenessAndIsogenyTheorems:R28.6`, `GL2AutomorphicRepresentationsAndTransfer:R17.4`, `GL2AutomorphicRepresentationsAndTransfer:R17.6`, `NeronModelsAndSemistableAbelianVarieties:R11.5`, `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity`, `ArithmeticGaloisRepresentations:R01.5`.
 
-**Coverage.** planned. Remaining: Lemma-level refinement when the roadmap comes near the front of the line: the archimedean component of the base change (cohomological of parallel weight two) as its own statement.
+**Coverage.** planned. Remaining: Lemma-level refinement when the roadmap comes near the front of the line: the archimedean component of the base change (cohomological of parallel weight two) as its own statement. Independent review REV-DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties: replace the private signature carriers and restore the omitted API/tests listed in the packet’s prototype gaps before acceptance; this is not merely a later lemma refinement.
 
 ### `GT.6/twisting-lemma` — Representations agreeing on an open normal subgroup differ by a character
 
@@ -1304,7 +1326,7 @@ Let G be a profinite group, H ⊆ G an open normal subgroup, L an algebraically 
 
 **Construction and proof.**
 
-1. Hom_H(ρ₁, ρ₂) is one-dimensional by Schur's lemma; G acts on it by (g·φ) = ρ₂(g) ∘ φ ∘ ρ₁(g)⁻¹, H trivially since φ is H-equivariant, so G/H acts through a character ψ⁻¹.
+1. Hom_H(ρ₁, ρ₂) is one-dimensional by Schur's lemma; G acts on it by (g·φ) = ρ₂(g) ∘ φ ∘ ρ₁(g)⁻¹, H trivially since φ is H-equivariant, so G/H acts through a character ψ.
 2. A nonzero φ is injective and surjective (ρ₁|_H, ρ₂|_H irreducible of the same dimension) and satisfies ρ₂(g) ∘ φ = ψ(g) · φ ∘ ρ₁(g) for the character ψ of G/H by which G acts on the line Hom_H(ρ₁, ρ₂); so φ : ρ₁ ⊗ ψ ≅ ρ₂. ψ is continuous as it factors through the finite group G/H.
 
 **Acceptance.**
@@ -1350,8 +1372,8 @@ Let K be a finite Galois extension of ℚ with solvable Galois group, C a non-CM
 **Construction and proof.**
 
 1. Base change: K/ℚ is Galois solvable, so BC_{K/ℚ} is defined along a prime-cyclic tower (GL2AutomorphicRepresentationsAndTransfer:R17.4/solvable-base-change); at each step the image stays cuspidal because ρ_f restricted to every open subgroup is absolutely irreducible (GT.6/q-curve-galois-modularity), so π_f is never dihedral relative to a step.
-2. At unramified places R17.6/compatible-base-change matches BC(π_f) with ρ_f|_{G_K}; twisting by the Hecke character ψ ∘ Art_K (Tau Ceti ClassFieldTheory, global Artin reciprocity) matches Π with the family V_ℓ(C) ⊗ ℚ̄_ℓ in the arithmetic normalisation of R17.6.
-3. At every finite v, rec(Π_v) is the restriction of rec(π_{f,p}) to W_{K_v} (R17.4/local-compatibility) twisted by ψ_v, and rec(π_{f,p}) ↔ WD(ρ_{f,ι}|_{G_{ℚ_p}}) by Carayol (R19.4); choose ℓ ≠ p. So WD(Π_v) = WD(V_ℓ(C)|_{G_{K_v}}) and the local factors agree, including at bad v (R11.5/local-euler-polynomial).
+2. Fix the one-ℓ isomorphism (f,ι,ψ) from GT.6/q-curve-galois-modularity. The finite image of ψ consists of roots of unity; choose their algebraic lifts compatibly with ι in a finite number field containing K_f, and use global Artin reciprocity to form its finite-order Hecke character. At good v the one-ℓ isomorphism identifies the algebraic trace and determinant of the twisted restricted newform with the rational polynomial of C. Injectivity of the coefficient embedding makes these identities algebraic, so they transport to every auxiliary coefficient prime. R17.6/compatible-base-change then matches the twisted base change Π with this family at good v; R01.5 recognition identifies it with V_ℓ′(C) for every auxiliary ℓ′, using continuity, semisimplicity and the corresponding embeddings and twists.
+3. For any finite v over p, now choose an auxiliary ℓ′ ≠ p using the preceding transport, rather than changing the original fixed ℓ without justification. R17.4/local-compatibility identifies rec(Π_v) with the restriction of rec(π_{f,p}) to W_{K_v} twisted by the algebraic character at v; Carayol (R19.4) compares this with the WD parameter of the corresponding ℓ′-adic member. Its identification with V_ℓ′(C) gives equality of the local factors even at bad v (R11.5/local-euler-polynomial).
 4. At archimedean places the base change of the weight-two discrete series is cohomological of parallel weight two.
 
 **Acceptance.**
@@ -1360,7 +1382,7 @@ Let K be a finite Galois extension of ℚ with solvable Galois group, C a non-CM
 - K = ℚ(√−11) and the ℚ-curves with x(P) ∈ ℚ of Caraiani–Newton Corollary 7.3.4: Π is a twisted base change from ℚ of a weight-two newform.
 - Non-example: for K/ℚ not solvable the base-change step is unavailable and the theorem makes no claim.
 
-**Depends on.** `GT.6/q-curve-galois-modularity`, `GL2AutomorphicRepresentationsAndTransfer:R17.4/solvable-base-change`, `GL2AutomorphicRepresentationsAndTransfer:R17.4/local-compatibility`, `GL2AutomorphicRepresentationsAndTransfer:R17.6/compatible-base-change`, `AutomorphicGaloisRepresentations:R19.4/conductor-and-local-factors-classical`, `NeronModelsAndSemistableAbelianVarieties:R11.5/local-euler-polynomial`, `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity`, `AutomorphicGaloisRepresentations:R19.1/newform-rank-two-realisation`.
+**Depends on.** `GT.6/q-curve-galois-modularity`, `GL2AutomorphicRepresentationsAndTransfer:R17.4/solvable-base-change`, `GL2AutomorphicRepresentationsAndTransfer:R17.4/local-compatibility`, `GL2AutomorphicRepresentationsAndTransfer:R17.6/compatible-base-change`, `AutomorphicGaloisRepresentations:R19.4/conductor-and-local-factors-classical`, `NeronModelsAndSemistableAbelianVarieties:R11.5/local-euler-polynomial`, `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity`, `AutomorphicGaloisRepresentations:R19.1/newform-rank-two-realisation`, `ArithmeticGaloisRepresentations:R01.5/recognition-by-characteristic-polynomials-and-coefficient-descent`.
 
 **Source.**
 
@@ -1378,7 +1400,7 @@ Let K be a quadratic field (real or imaginary) and C an elliptic curve over K th
 
 1. CM curves are modular by definition in Caraiani–Newton's sense.
 2. Otherwise K/ℚ is cyclic of degree two, hence solvable Galois, and GT.6/q-curve-automorphy applies.
-3. For imaginary K, GT.5/quadratic-q-curves (c) shows moreover that when the isogeny σC → C is defined over K the variety Res_{K/ℚ} C has totally real endomorphism field and is a quotient of J₀(N).
+3. For imaginary K and a K-defined isogeny σC → C, GT.5/quadratic-q-curves gives m > 0. If m is nonsquare, Res_{K/ℚ} C has a real quadratic endomorphism field and is a quotient of J₀(N). If m is square, its endomorphism algebra is ℚ × ℚ: the rational elliptic factors are Γ₀-modular, so their product is a quotient of J₀(N) at a common multiple of their levels. This last conclusion does not turn the split endomorphism algebra into a field.
 
 **Acceptance.**
 
@@ -1454,13 +1476,13 @@ Needed by: `GT.3/modular-parametrisation`.
 
 ### `tauceti:TauCetiRoadmap/ModularForms#layer-7-l-functions`
 
-Analytic continuation of L(f, s) for a weight-two newform with character and the functional equation Λ(f, s) = w Λ(f|W_N, 2 − s), with Λ(f, s) = N^{s/2}(2π)^{−s}Γ(s)L(f, s).
+Analytic continuation of L(f, s) for a weight-two newform with character and the functional equation for the normalised Fricke companion 𝒲_N, including the weight-two factor i² = −1 and its pseudo-eigenvalue: after absorbing these constants, Λ(f, s) = w_f Λ(f̄, 2 − s), with Λ(f, s) = N^{s/2}(2π)^{−s}Γ(s)L(f, s).
 
 Needed by: `GT.4/l-function`.
 
 ### `tauceti:TauCetiRoadmap/ModularForms#layer-6-atkinlehner-and-fricke-operators`
 
-The Fricke/Atkin–Lehner involution W_N on a newform f of level N: f|W_N is a multiple of the complex-conjugate newform, which gives the functional equation relating f and its conjugate.
+The normalised Fricke companion 𝒲_N on a newform f of level N, its pseudo-eigenvalue relating it to the complex-conjugate newform, and its compatibility with the functional equation of ModularForms Layer 7. At weight two record the sign i² = −1 before absorbing the constants into w_f.
 
 Needed by: `GT.4/l-function`.
 
@@ -1472,7 +1494,7 @@ Needed by: `GT.5/q-curve`.
 
 ### `tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees`
 
-Continuous cochain cohomology H²(G, M) of a profinite group with discrete coefficients, inflation from finite quotients, and vanishing of H^i (i ≥ 1) for uniquely divisible discrete modules.
+Use the existing continuousCohomology n (TauCeti.ofDiscreteModule ...) carrier for discrete coefficients; supply its degree-two dictionary with continuous inhomogeneous cocycles modulo coboundaries, inflation from finite quotients, and vanishing in positive degrees for uniquely divisible discrete modules. For GT.5 take the trivial G_ℚ-action on Additive ℚˣ and Additive ℚ̄ˣ; give the comparison and inflation as maps on these canonical carriers, not a second H² definition.
 
 Needed by: `GT.5/ribet-cocycle`, `GT.5/tate-vanishing-qbar`.
 
@@ -1492,20 +1514,26 @@ Correction: We recall that an abelian variety A over ℚ is said to be of GL₂-
 
 Reason: 'than' is a slip for 'that'; the sentence introduces a definition.
 
-### EllipticCurveModularityPartIIGL2TypeAbelianVarieties/E2 (gap, affects the proof)
+**Independent review: confirmed in the author copy.** The recorded author copy, §10.2 p. 21, prints “We recall than”; “that” is the grammatical correction. No mathematical content changes. The published text was not accessible for comparison.
+
+### EllipticCurveModularityPartIIGL2TypeAbelianVarieties/E2 (rejected source-gap allegation)
 
 *Chandrashekhar Khare and Jean-Pierre Wintenberger, §10.2, p. 21 (deduction of Corollary 10.2(i)), with the definition of compatible systems in §5, pp. 7–8, of the authors' copy results.pdf (Invent. Math. 178 (2009) not compared).* Printed: “Part (i) of Theorem 10.1 combined with Faltings’ isogeny theorem yields modularity of abelian varieties of GL2 -type over Q (see Theorem 4.4 of [33]).”
 
-Correction: To apply Theorem 10.1(i), the λ-adic system of A must be a compatible system in the sense of §5, which includes (ii) b): for every prime q not above ℓ, the Frobenius-semisimple Weil–Deligne representation of ρ_ι|_{D_q} is conjugate to an E-rational r_q independent of ι. At the primes of bad reduction this is not verified, and neither KW nor Ribet's Theorem 4.4 (whose 'strictly compatible', p. 4, is Serre's notion at the primes of good reduction) proves it. The corollary follows without it by Ribet's own argument, which uses only the strong Serre theorem, the boundedness of conductors (Grothendieck) and Faltings' theorem; the comparison at bad primes then follows from modularity and Carayol's theorem.
+Original proposed correction (rejected): To apply Theorem 10.1(i), the λ-adic system of A must be a compatible system in the sense of §5, which includes (ii) b): for every prime q not above ℓ, the Frobenius-semisimple Weil–Deligne representation of ρ_ι|_{D_q} is conjugate to an E-rational r_q independent of ι. At the primes of bad reduction this is not verified, and neither KW nor Ribet's Theorem 4.4 (whose 'strictly compatible', p. 4, is Serre's notion at the primes of good reduction) proves it. The corollary follows without it by Ribet's own argument, which uses only the strong Serre theorem, the boundedness of conductors (Grothendieck) and Faltings' theorem; the comparison at bad primes then follows from modularity and Carayol's theorem.
 
-Reason: Khare–Wintenberger define 'compatible' on pp. 7–8 with (ii) b) imposed for q not above ℓ; Ribet, §3 p. 4, asserts strict compatibility 'whose exceptional set is the set of prime numbers at which A has bad reduction', i.e. no statement at those primes. The E-rationality of the Weil–Deligne representations of V_λ(A) at a prime of bad reduction requires an argument (through Néron models and the E-action on the semi-abelian reduction) that neither text gives.
+Original rationale (rejected): Khare–Wintenberger define 'compatible' on pp. 7–8 with (ii) b) imposed for q not above ℓ; Ribet, §3 p. 4, asserts strict compatibility 'whose exceptional set is the set of prime numbers at which A has bad reduction', i.e. no statement at those primes. The E-rationality of the Weil–Deligne representations of V_λ(A) at a prime of bad reduction requires an argument (through Néron models and the E-action on the semi-abelian reduction) that neither text gives.
+
+**Independent review: rejected.** The two texts use different compatibility conventions, and Ribet’s good-prime statement alone cannot be substituted for KW §5. That establishes a needed blueprint input, not an error in KW’s corollary: the finding supplies neither a counterexample nor evidence ruling out the standard geometric compatibility argument or a larger coefficient field. A compressed invocation of background results is not by itself a source gap. The roadmap’s Serre/Ribet route remains valid without this allegation. Moreover Carayol §0.6 permits enlarging coefficients to realise local parameters; GT.4 now records that extension explicitly.
+
+Published-version comparison: Independent review 2026-10-07 read the recorded author copy. Publisher metadata was accessible at https://link.springer.com/article/10.1007/s00222-009-0205-7, but the PDF request did not provide published full text; no comparison with published pagination is claimed.
 
 ## Boundaries
 
 - The definition of GL₂(K)-type and its λ-adic representations belong to SmallRamificationAndAbelianVarietyBaseCases R25.5; Tate modules, their λ-components, Weil pairings and residual λ-torsion to ArithmeticGaloisRepresentations R01.6; endomorphism algebras, Rosati involutions, Poincaré reducibility and Weil restriction to AbelianSchemesAndArithmeticModuli A2–A6; Faltings' theorems to FaltingsFinitenessAndIsogenyTheorems R28.2–R28.6; the strong Serre theorem to ClassicalSerreModularity R27.6; J₁(N), J₀(N) and A_f to ModularCurvesPartII R14.2–R14.6; the representations of newforms and Carayol's theorem to AutomorphicGaloisRepresentations R19.1–R19.6; base change to GL2AutomorphicRepresentationsAndTransfer R17.4–R17.6. They are imported, not re-planned.
 - Khare–Wintenberger's Theorem 10.1(i) is owned by ClassicalSerreModularity R27.6; this roadmap does not use it (see the route above) and does not restate it.
 - Inner twists, the building-block theory over ℚ̄ and the converse direction of Ribet §5 (that the ℚ̄-simple factors of a non-CM GL₂-type variety are ℚ-curves, with Ribet's Theorems 5.3–5.6 on the centre F, the class of End⁰_ℚ̄ in Br(F) and the map α) are not part of this roadmap; nor is Ribet §8 (descent up to isogeny).
-- CM elliptic curves and CM abelian varieties are excluded from GT.5–GT.6; Caraiani–Newton count CM curves as modular by definition, and Shimura's theorem for them is not planned here.
+- The Ribet cocycle and factor construction and the automorphy argument assume non-CM. The ℚ-curve definition includes CM curves using the imported CM.1 ideal-lattice API; the final quadratic theorem includes them by Caraiani–Newton’s definition of modularity. No CM modularity theorem is planned here.
 - The modularity of elliptic curves over imaginary quadratic fields (Caraiani–Newton) belongs to EllipticCurveModularityImaginaryQuadratic, which imports GT.6.
 
 ## Sources

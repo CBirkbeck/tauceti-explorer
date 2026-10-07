@@ -11,6 +11,7 @@ import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
 import Mathlib.RepresentationTheory.Basic
 import Mathlib.RingTheory.Ideal.Maps
 import Mathlib.GroupTheory.OrderOfElement
+import Mathlib.Data.ZMod.Basic
 
 /-!
 # Automorphic forms on reductive groups: suggested Lean forms
@@ -296,8 +297,17 @@ theorem AlgebraicModularForm.hecke_apply (J : Subgroup Gf) (g : Gf) (reps : Fins
     (AlgebraicModularForm.hecke ι σ J g reps hreps f).val x =
       ∑ c ∈ reps, f.val (x * c) := sorry
 
-theorem AlgebraicModularForm.res {J J' : Subgroup Gf} (h : J' ≤ J) :
-    AlgebraicModularForm ι σ J ≤ AlgebraicModularForm ι σ J' := sorry
+def AlgebraicModularForm.res {J J' : Subgroup Gf} (h : J' ≤ J) :
+    AlgebraicModularForm ι σ J →ₗ[A] AlgebraicModularForm ι σ J' := sorry
+
+@[simp] theorem AlgebraicModularForm.res_apply {J J' : Subgroup Gf} (h : J' ≤ J)
+    (f : AlgebraicModularForm ι σ J) (x : Gf) :
+    (AlgebraicModularForm.res ι σ h f).val x = f.val x := sorry
+
+theorem AlgebraicModularForm.res_comp {J J' J'' : Subgroup Gf}
+    (h : J' ≤ J) (h' : J'' ≤ J') :
+    (AlgebraicModularForm.res ι σ h').comp (AlgebraicModularForm.res ι σ h) =
+      AlgebraicModularForm.res ι σ (h'.trans h) := sorry
 
 /-- Trace requires representatives of the finite right-coset quotient J/J′. -/
 def AlgebraicModularForm.trace {J J' : Subgroup Gf} (h : J' ≤ J) (reps : Finset Gf)
@@ -311,6 +321,41 @@ theorem AlgebraicModularForm.trace_apply {J J' : Subgroup Gf} (h : J' ≤ J)
     (f : AlgebraicModularForm ι σ J') (x : Gf) :
     (AlgebraicModularForm.trace ι σ h reps hmem hreps f).val x =
       ∑ u ∈ reps, f.val (x * u) := sorry
+
+/-- The degree identity follows from the coset sum; it does not require a free action. -/
+theorem AlgebraicModularForm.trace_res {J J' : Subgroup Gf} (h : J' ≤ J)
+    (reps : Finset Gf) (hmem : ∀ u ∈ reps, u ∈ J)
+    (hreps : ∀ x ∈ J, ∃! u : Gf, u ∈ reps ∧ ∃ v ∈ J', x = u * v) :
+    (AlgebraicModularForm.trace ι σ h reps hmem hreps).comp
+        (AlgebraicModularForm.res ι σ h) =
+      (reps.card : A) • LinearMap.id := sorry
+
+/-- The actual level-coefficient convention. A representation of J alone suffices for
+this function module; weighted Hecke operators require a specified extension of that action. -/
+def LevelAlgebraicModularForm (J : Subgroup Gf) (σJ : Representation A J M) :
+    Submodule A (Gf → M) where
+  carrier := {f | (∀ (γ : GQ) (g : Gf), f (ι γ * g) = f g) ∧
+    ∀ (g : Gf) (u : J), f (g * u) = σJ u⁻¹ (f g)}
+  add_mem' := sorry
+  zero_mem' := sorry
+  smul_mem' := sorry
+
+/-- Abstract form of f(g)↦g_p⁻¹f(g), for a coefficient whose action really extends to
+the p-component of all finite adeles. An arbitrary inertial-type J-action has no such extension. -/
+def AlgebraicModularForm.rationalEquiv (J : Subgroup Gf)
+    (τ : Representation A Gf M) (hτ : ∀ γ : GQ, τ (ι γ) = σ γ) :
+    AlgebraicModularForm ι σ J ≃ₗ[A]
+      LevelAlgebraicModularForm ι J (τ.comp J.subtype) := sorry
+
+theorem AlgebraicModularForm.rationalEquiv_apply (J : Subgroup Gf)
+    (τ : Representation A Gf M) (hτ : ∀ γ : GQ, τ (ι γ) = σ γ)
+    (f : AlgebraicModularForm ι σ J) (g : Gf) :
+    (AlgebraicModularForm.rationalEquiv ι σ J τ hτ f).val g = τ g⁻¹ (f.val g) := sorry
+
+theorem AlgebraicModularForm.rationalEquiv_symm_apply (J : Subgroup Gf)
+    (τ : Representation A Gf M) (hτ : ∀ γ : GQ, τ (ι γ) = σ γ)
+    (f : LevelAlgebraicModularForm ι J (τ.comp J.subtype)) (g : Gf) :
+    ((AlgebraicModularForm.rationalEquiv ι σ J τ hτ).symm f).val g = τ g (f.val g) := sorry
 
 def IsSufficientlySmall {Gv : Type*} [Group Gv] (J : Subgroup Gf)
     (proj : Gf →* Gv) : Prop :=
@@ -342,8 +387,32 @@ example (J : Subgroup Gf) (f : Gf → M)
 example (m : M) : (fun _ : Gf => m) ∈ AlgebraicModularForm ι σ ⊤ ↔
     ∀ γ : GQ, σ γ m = m := sorry
 
--- Definite quaternion, failure of non-small integral base change, p-adic/rational
--- transport and automorphic comparison need their actual supplier objects.
+-- test: amf_not_small_basechange, the C₂ sign coefficient invariant spaces.
+-- Integral invariants are zero, while reduction modulo 2 has all of F₂ invariant.
+example : (∀ m : ℤ, -m = m ↔ m = 0) ∧ (∀ m : ZMod 2, -m = m) := sorry
+
+-- level-coefficient degenerate case
+example [Subsingleton M] (J : Subgroup Gf) (σJ : Representation A J M) :
+    Subsingleton (LevelAlgebraicModularForm ι J σJ) := sorry
+
+-- level-coefficient trivial action agrees with scalar double-coset functions
+example (J : Subgroup Gf) (f : Gf → M)
+    (hf : f ∈ LevelAlgebraicModularForm ι J (Representation.trivial A J M))
+    (γ : GQ) (g : Gf) (u : J) : f (ι γ * g * u) = f g := sorry
+
+-- level-coefficient compatibility with the actual rational transport
+example (J : Subgroup Gf) (τ : Representation A Gf M)
+    (hτ : ∀ γ : GQ, τ (ι γ) = σ γ) (f : AlgebraicModularForm ι σ J) :
+    (AlgebraicModularForm.rationalEquiv ι σ J τ hτ).symm
+      (AlgebraicModularForm.rationalEquiv ι σ J τ hτ f) = f := sorry
+
+-- Weighted Hecke maps for a J-action extending only to a Hecke semigroup need that
+-- semigroup carrier and the coefficient transport. Definite quaternion class-set calculations
+-- and the automorphic comparison retain their actual arithmetic supplier inputs.
+-- The positive-unit-rank central-character extension is requested from this AF.5 owner:
+-- f(γgzu)=ψ(z)u⁻¹f(g), with rational-central and Z_f∩J compatibility, central quotient
+-- double cosets and descended effective-stabilizer actions. It is not supplied by the
+-- current discrete-centre branch or by finiteness of its unmodified class set.
 end AlgebraicModularForms
 
 end TauCeti.Automorphic

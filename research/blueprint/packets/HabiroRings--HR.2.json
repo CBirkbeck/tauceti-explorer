@@ -117,7 +117,6 @@
         {
           "sourceId": "Wagner.HR2.v2",
           "locator": "Appendix B.1 and proof of B.2, printed/PDF p.77",
-          "excerpt": "its obvious spherical lift",
           "match": "Defines the localization and its idempotence; the proof gives the fibre telescope."
         }
       ],
@@ -234,19 +233,16 @@
         {
           "sourceId": "Wagner.HR2.v2",
           "locator": "B.1–B.5, printed/PDF pp.77–79",
-          "excerpt": "All homotopy groups",
           "match": "B.2 gives the reflection and homotopy criterion, B.3–B.5 give detection."
         },
         {
           "sourceId": "Lurie.HA.2017",
           "locator": "Proposition 2.2.1.9, printed p.197",
-          "excerpt": "compatible with the O-monoidal structure",
           "match": "The generic localization input is imported, with tensor-ideal hypothesis verified here."
         },
         {
           "sourceId": "Lurie.HA.2017",
           "locator": "Theorem 7.1.2.13, printed p.1212",
-          "excerpt": "a canonical equivalence of symmetric monoidal",
           "match": "Only HZ-relative module categories are symmetric monoidally identified with derived categories."
         }
       ],
@@ -400,13 +396,11 @@
         {
           "sourceId": "Wagner.HR2.v2",
           "locator": "Proof of B.8, printed/PDF pp.79–80, first two paragraphs",
-          "excerpt": "SH is idempotent",
           "match": "The statement and finite-stage/countable-product proof sketch occur here."
         },
         {
           "sourceId": "Wagner.Thesis.2025",
           "locator": "§5.3, printed p.86 (PDF p.90), paragraph defining Null_R",
-          "excerpt": "is a compact generator of",
           "match": "Supplies the compact generator recollection; the supplier must still prove it."
         }
       ],
@@ -456,13 +450,11 @@
         {
           "sourceId": "Wagner.HR2.v2",
           "locator": "Proof of B.8, printed/PDF p.80, completed sum formula",
-          "excerpt": "the Habiro-completions of countable direct sums",
           "match": "The construction includes countable product blocks, not just singleton summands."
         },
         {
           "sourceId": "Bosco.2023",
           "locator": "Lemma A.4 and its proof, printed/PDF p.93",
-          "excerpt": "partially ordered by the relation of pointwise inequality",
           "match": "The p-adic null-family analogue explains uniform decay and inclusion orientation; it does not prove the spectral statement."
         }
       ],
@@ -604,13 +596,11 @@
         {
           "sourceId": "Wagner.HR2.v2",
           "locator": "Proof of B.8, printed/PDF p.80, final three paragraphs",
-          "excerpt": "because q-binomial coefficients",
           "match": "Gives product divisibility, proper profiles and the completed double sum."
         },
         {
           "sourceId": "Bosco.2023",
           "locator": "Proposition A.3, printed/PDF pp.92–93",
-          "excerpt": "bounded above complexes",
           "match": "Documents the uniformly connective resolution argument only in the algebraic p-adic setting."
         }
       ],

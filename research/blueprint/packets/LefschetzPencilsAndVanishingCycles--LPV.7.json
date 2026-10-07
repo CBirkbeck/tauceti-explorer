@@ -320,7 +320,6 @@
         {
           "sourceId": "Illusie91",
           "locator": "§§1.1, 2.1–2.3, formulas1.1.1–1.1.3, 2.1.2, 2.3.5",
-          "excerpt": "branches",
           "match": "Illusie91 2.1.2 and 2.3.5 give tail-minus-head after choosing branch order. Loops and parallel edges must survive the imported multigraph. The API now states the actual kernel and quotient-map properties prototyped in Lean; identifying two-term cohomology still uses the geometric realization."
         }
       ],
@@ -413,7 +412,6 @@
         {
           "sourceId": "Illusie91",
           "locator": "§2.3, formulas2.3.1–2.3.5 and Lemma2.4",
-          "excerpt": "normalisée",
           "match": "Illusie91 2.3.1–2.3.5 and Lemma2.4 supply the constant étale normalization sequence with branch quotient, not the coherent conductor sequence. The stalk proof and signed differential agree."
         }
       ],
@@ -457,7 +455,6 @@
         {
           "sourceId": "Illusie91",
           "locator": "§§1.2–1.5, formulas1.2.1–1.2.2, 1.3.3 and 1.5.1",
-          "excerpt": "trace",
           "match": "Illusie91 1.2–1.5 gives the node-supported degree-one sheaf, its trace-dual branch kernel and trivial sheaf-level inertia. Added EDC.2:pairings directly for the residue/trace identification; LPV.2 supplies the local quadratic computation and LPV.0 the triangle."
         }
       ],
@@ -502,7 +499,6 @@
         {
           "sourceId": "Illusie91",
           "locator": "Lemma1.5.4, §1.7 formulas1.7.1–1.7.4, Lemma2.4",
-          "excerpt": "opposés",
           "match": "Illusie91 Lemma1.5.4, 1.7.4 and Lemma2.4 fix the minus sign and valuation factor. The two localization connecting maps are opposite; the packet keeps this convention instead of identifying the two maps."
         }
       ],
@@ -546,7 +542,6 @@
         {
           "sourceId": "Illusie91",
           "locator": "§1.6, formulas1.6.1–1.6.6, §2.2",
-          "excerpt": "spécialisation",
           "match": "Illusie91 1.2.2 and 2.2.2 give the proper specialization exact sequence. The boundary is oriented incidence, and the rational H2 trace/sum yields the graph-cycle quotient."
         }
       ],
@@ -590,7 +585,6 @@
         {
           "sourceId": "Illusie91",
           "locator": "§§2.1–2.4, especially2.3.5 and Lemma2.4",
-          "excerpt": "conoyau",
           "match": "Illusie91 2.3.1–2.3.5 and 2.6.1–2.6.5 give the normalization H1 extension and dual graph lattices. Characters are H1 of the graph, while the toric cohomology is H^1; R11.4 owns the integral lattice objects."
         }
       ],
@@ -637,7 +631,6 @@
         {
           "sourceId": "Illusie91",
           "locator": "§§2.1–2.2, formulas2.1.3, 2.2.3;2.6.5–2.7",
-          "excerpt": "négative",
           "match": "Illusie91 2.2.3 and 2.6.5 factor N through the negative thickness-weighted form on the graph quotient. Positivity/nondegeneracy is used over rational coefficients, yielding N2=0 and rank equal to the graph Betti number, without claiming a torsion-level isomorphism."
         }
       ],
@@ -678,7 +671,6 @@
         {
           "sourceId": "Illusie91",
           "locator": "Remarques2.8–2.9, printed p.42",
-          "excerpt": "Ker N",
           "match": "Illusie91 2.2.3, 2.6.5 and 2.8 show ker N equals the specialized H1 and the inertia invariants in the rational unipotent setting. LPV.1 supplies the tame character; fixed cohomology sheaves alone would not prove this."
         }
       ],
@@ -723,7 +715,6 @@
         {
           "sourceId": "Illusie91",
           "locator": "Remarque2.9, printed p.42; formulas2.2.3,2.6.5",
-          "excerpt": "filtration",
           "match": "Illusie91 Remarque2.9 gives the filtration centered at1. The graph cohomology, component H1 and twisted graph homology are its graded pieces; no Frobenius purity over an arbitrary residue field is asserted."
         }
       ],
@@ -772,7 +763,6 @@
         {
           "sourceId": "Illusie91",
           "locator": "§§2.3–2.6, formulas2.3.3–2.3.5 and2.6.1–2.6.5",
-          "excerpt": "Tate",
           "match": "Illusie91 2.3–2.6 supplies the Picard/Tate specialization diagram. The principal polarization/Kummer realization accounts for H1(1), and the torus character lattice remains graph H1, as in accepted R11.4."
         }
       ],
@@ -815,7 +805,6 @@
         {
           "sourceId": "Illusie91",
           "locator": "Theorem2.7 and its sign comparison with SGA7 IX9.1.2, printed p.41",
-          "excerpt": "signe opposé",
           "match": "Illusie91 Theorem2.7 explicitly compares opposite pairing conventions. The packet correctly keeps uMinus=-uPlus and imports the positive integral valuation pairing from R11.4 instead of re-planning it."
         }
       ],
@@ -861,7 +850,6 @@
         {
           "sourceId": "Illusie91",
           "locator": "§0 thicknesses and §§1.7,2.1–2.7; compare Illusie21 §4.4",
-          "excerpt": "valuation",
           "match": "Illusie91 defines thickness as valuation and its local variation is linear in that valuation. Ramification sends n_e to e*n_e. Corrected the requested regular resolution to e*n_e unit edges; e edges applies only when n_e=1. Reorientation and coefficient/Galois transport preserve the intrinsic twisted map."
         }
       ],
@@ -905,7 +893,6 @@
         {
           "sourceId": "Illusie91",
           "locator": "§§2.1–2.2, especially2.1.1 and2.1.3; Remarques2.8–2.9",
-          "excerpt": "rang fini",
           "match": "Illusie91 graph formulas imply the smooth, bridge and split two-edge-cycle calculations; the two-edge negative form gives -2. These are derived examples, not examples explicitly constructed in the source. Existence of an actual proper I2 model remains G-geometric-tests."
         }
       ],
@@ -948,13 +935,11 @@
         {
           "sourceId": "Saito03",
           "locator": "§1.1, Propositions1.1.1–1.1.2 and Corollary1.1.3",
-          "excerpt": "Kummer",
           "match": "Saito03 1.1 computes the Kummer-residue exterior stalks in strict multiplicity-one charts and proves trivial inertia on their cohomology sheaves. Illusie21 (2.5) independently gives the exterior formula; split its locator into its own source entry. Relative trait purity remains an explicit EDC extension/gap."
         },
         {
           "sourceId": "Illusie21",
           "locator": "§2.2, formula(2.5), reduced multiplicity-one case; §6.3",
-          "excerpt": "normal crossings",
           "match": "Illusie21 gives an exterior stalk calculation and, in6.3, trivial inertia in the semistable case. Its formula uses the kernel lattice C=ker(sum:Z^a→Z); it corroborates rank and vanishing, not a canonical integral identification of that kernel with the diagonal quotient. The canonical Kummer quotient and residue resolution asserted by this node follow Saito03 Proposition1.1.2 and Corollary1.1.3."
         }
       ],
@@ -1000,13 +985,11 @@
         {
           "sourceId": "Saito03",
           "locator": "Lemma2.2.1, Corollary2.2.2, Proposition2.2.3 (author numbering)",
-          "excerpt": "perverse",
           "match": "Saito03 Lemma2.2.1 through Proposition2.2.3 gives the shifted-perverse monodromy grading and the identity maps between shared stratum summands. Illusie21 (6.3)–(6.4) confirms the shifts/twists; split its citation from Saito. LPV.1 owns the general filtration."
         },
         {
           "sourceId": "Illusie21",
           "locator": "§6.3, formulas(6.3)–(6.4)",
-          "excerpt": "associated graded object",
           "match": "Saito03 Lemma2.2.1 through Proposition2.2.3 gives the shifted-perverse monodromy grading and the identity maps between shared stratum summands. Illusie21 (6.3)–(6.4) confirms the shifts/twists; split its citation from Saito. LPV.1 owns the general filtration."
         }
       ],
@@ -1057,13 +1040,11 @@
         {
           "sourceId": "Saito03",
           "locator": "Corollary2.2.4 and proof (author numbering; published Corollary2.8)",
-          "excerpt": "spectral sequence",
           "match": "Saito03 Corollary2.2.4 constructs the E1 page and distinguishes proper generic-fibre cohomology from nearby hypercohomology. LTXZZ22 5.9 actually uses its nonproper form. Corrected the suggested convergence page to 2*d+2 under the column bound [-d,d], with no assumed E2 degeneration."
         },
         {
           "sourceId": "LTXZZ22",
           "locator": "§5.9, Construction5.9.1, printed p.231, and Lemma5.9.3 proof, printed pp.233–240",
-          "excerpt": "weight spectral",
           "match": "Construction5.9.1 is the downstream use of the stratum spectral sequence; Lemma5.9.3 explicitly uses Saito Corollary2.8(2) without properness. The arithmetic localizations and special computations remain owned by the consumer."
         }
       ],
@@ -1157,7 +1138,6 @@
         {
           "sourceId": "Saito03",
           "locator": "Lemma2.2.5 and Proposition2.2.6, author pp.21–26, including final sign comparison",
-          "excerpt": "Gysin",
           "match": "Saito03 Lemma2.2.5 and Proposition2.2.6 give alternating restriction plus Gysin, square-zero identities and the signed comparison with Rapoport–Zink. Keep the source convention rather than identifying matrices without conjugation."
         }
       ],
@@ -1200,19 +1180,16 @@
         {
           "sourceId": "Saito03",
           "locator": "Corollary2.2.4(2), author pp.19–20",
-          "excerpt": "filtration",
           "match": "Saito03 Corollary2.2.4(2) gives the page monodromy map and Illusie21 6.3–6.4 distinguishes degeneration from monodromy-filtration equality. Curves have no possible higher differentials by their page support; the negative residue coordinates are retained. Split the Illusie citation into its own entry."
         },
         {
           "sourceId": "LTXZZ22",
           "locator": "§5.9, monodromy-filtration discussion preceding Lemma5.9.3, printed p.233",
-          "excerpt": "monodromy filtration",
           "match": "This consumer tracks the filtration on nearby cohomology and its induced Galois-cohomology filtration; its localized degeneration and concentration arguments are not asserted as geometric generalities here."
         },
         {
           "sourceId": "Illusie21",
           "locator": "§§6.3–6.4, monodromy action and degeneration versus weight-monodromy",
-          "excerpt": "monodromy",
           "match": "Saito03 Corollary2.2.4(2) gives the page monodromy map and Illusie21 6.3–6.4 distinguishes degeneration from monodromy-filtration equality. Curves have no possible higher differentials by their page support; the negative residue coordinates are retained. Split the Illusie citation into its own entry."
         }
       ],
@@ -1258,7 +1235,6 @@
         {
           "sourceId": "WeilII",
           "locator": "Introduction to §3.6, printed p.212; specialization in6.2.9",
-          "excerpt": "invariants",
           "match": "WeilII 3.6 and 6.2.9 construct specialization into actual inertia invariants. The corestriction API and tests distinguish fixed image from surjectivity, which is reserved for later source-qualified theorems."
         }
       ],
@@ -1349,7 +1325,6 @@
         {
           "sourceId": "WeilII",
           "locator": "Proof3.6.1, printed p.213, referring to1.11.3; read1.11.1–1.11.3",
-          "excerpt": "arithmétique",
           "match": "WeilII proof3.6.1 invokes the tame-cover spreading result1.11.3 to preserve the inertia image after arithmetic descent. The packet requests the full representation-image statement, not just unchanged cohomology dimensions."
         }
       ],
@@ -1392,7 +1367,6 @@
         {
           "sourceId": "WeilII",
           "locator": "Proof3.6.1, equations(1)–(5), printed p.213; proof6.2.9, generalized Wang row, printed p.249",
-          "excerpt": "Wang",
           "match": "WeilII proof3.6.1 gives the continuous Wang row, and proof6.2.9 uses the same row for bounded constructible K. Expanded the node to this coefficient generality without total-space smoothness and added EDC.0. R02.1/2 must supply inverse-limit exactness and continuous Hochschild–Serre; discrete group cohomology is insufficient."
         }
       ],
@@ -1434,7 +1408,6 @@
         {
           "sourceId": "WeilII",
           "locator": "Proof3.6.1, equations(6)–(8), printed p.214",
-          "excerpt": "dualité",
           "match": "WeilII proof3.6.1 (6)–(8) gives the localization/Wang cross, proper base change and dual support group with dimension d and twist -d. The smooth-total-space hypothesis belongs to this constant-coefficient duality calculation."
         }
       ],
@@ -1476,7 +1449,6 @@
         {
           "sourceId": "WeilII",
           "locator": "Lemmas3.6.2–3.6.3 and final exact W_i diagram, printed p.214",
-          "excerpt": "exact",
           "match": "WeilII Lemmas3.6.2–3.6.3 give invariant weights at most i and support weights at least i+1; exact W_i lifts classes through the cross. The requested DWP inputs precede hard Lefschetz and do not create a circular proof."
         }
       ],
@@ -1518,7 +1490,6 @@
         {
           "sourceId": "WeilII",
           "locator": "Theorem3.6.1 and proof, printed pp.213–214",
-          "excerpt": "surjectif",
           "match": "WeilII Theorem3.6.1 proves the stated algebraizable equicharacteristic rational theorem. The packet retains essentially smooth total space and smooth generic fibre and does not promote it to arbitrary traits or integral coefficients."
         }
       ],
@@ -1562,7 +1533,6 @@
         {
           "sourceId": "WeilII",
           "locator": "§3.6.4, printed p.215, citing Steenbrink’s Oslo vanishing-cohomology work",
-          "excerpt": "Hodge",
           "match": "The source gives surjectivity for a proper smooth-total-space disk family and says f factors through the projective projection. This packet uses a relative projective closed embedding as a sufficient explicit form, leaving a broader analytic interpretation unclaimed; the complete geometric MHS proof is recorded as a gap."
         }
       ],
@@ -1615,7 +1585,6 @@
         {
           "sourceId": "WeilII",
           "locator": "6.2.8(a),(c),(d), and proof6.2.12 constructing potentially pure i*q*K, printed pp.248,250",
-          "excerpt": "intègre",
           "match": "The source defines potential purity in the local curve setting and applies it to the global incidence pencil. This node isolates the sufficient absolute arithmetic input to that pullback, without asserting an unproved converse to the local definition."
         }
       ],
@@ -1726,7 +1695,6 @@
         {
           "sourceId": "WeilII",
           "locator": "Definition6.2.8(a)–(d), printed p.248",
-          "excerpt": "section",
           "match": "WeilII 6.2.8(a)–(d) defines the curve-with-section, proper-family and pure-complex witness. The suggested structure uses real scheme predicates and pullback maps but omits the henselization/purity interface openly. Corrected the projection descriptions and added constructor/extensionality APIs without collapsing the witness to a proposition."
         }
       ],
@@ -1838,7 +1806,6 @@
         {
           "sourceId": "WeilII",
           "locator": "Proof6.2.12, printed p.250; generic duality comparison in proof6.2.11",
-          "excerpt": "général",
           "match": "WeilII proof6.2.12 applies arithmetic purity only to the sufficiently general incidence pullback. The smooth/noncharacteristic duality exchange and canceled shifts require LPV.3 and EDC; arbitrary pullback purity is not asserted."
         }
       ],
@@ -1885,7 +1852,6 @@
         {
           "sourceId": "WeilII",
           "locator": "Theorem6.2.9 and its duality cross, printed pp.248–249",
-          "excerpt": "potentiellement pur",
           "match": "WeilII 6.2.9 proves local invariant cycles for a potentially pure bounded complex with no added smoothness assumption. Its support dual is H^(-i-1)(Xs,DK)^dual. The corrected Wang node now supplies the coefficient generality actually consumed here."
         }
       ],
@@ -1930,7 +1896,6 @@
         {
           "sourceId": "WeilII",
           "locator": "Proposition6.2.11 and proof, printed pp.249–250; compare4.1.6",
-          "excerpt": "support",
           "match": "WeilII 6.2.11 proof and4.1.6 give affine support vanishing after Verdier duality. Reindexing q=j-2n-2 gives the unshifted bound -n-1-q; the shift and vanishing endpoint i<=n agree with the source."
         }
       ],
@@ -1971,7 +1936,6 @@
         {
           "sourceId": "WeilII",
           "locator": "Proposition6.2.11(i) and first two paragraphs of its proof, printed pp.249–250",
-          "excerpt": "hyperplan",
           "match": "WeilII 6.2.11(i) gives isomorphism below n and injection at n for every hyperplane, including singular ones. Only the inherited duality bound for a sufficiently general hyperplane uses generic local acyclicity and the (-1)[-2] exchange."
         }
       ],
@@ -2017,7 +1981,6 @@
         {
           "sourceId": "WeilII",
           "locator": "Proposition4.3.6 and §§4.3.7–4.3.8, printed pp.224–226; proof6.2.11",
-          "excerpt": "torseurs",
           "match": "WeilII 4.3.6–4.3.8 and proof6.2.11 give the relative obstruction and finite-support argument on P1. The packet requests the constructible-complex cone/axis extension from LPV.4 and local inertia/torsor input from LPV.5, not the later orthogonal decomposition4.3.9."
         }
       ],
@@ -2058,7 +2021,6 @@
         {
           "sourceId": "WeilII",
           "locator": "Proposition6.2.11(ii) and proof;4.3.7–4.3.8",
-          "excerpt": "image",
           "match": "WeilII 6.2.11(ii), via4.3.7–4.3.8, identifies the two images for a sufficiently general pencil. It requires neither wholesale Leray degeneration nor hard Lefschetz."
         }
       ],
@@ -2099,7 +2061,6 @@
         {
           "sourceId": "WeilII",
           "locator": "§6.2.10, formulas6.2.10.1–6.2.10.2, printed p.249",
-          "excerpt": "coïncide",
           "match": "WeilII 6.2.10.1–6.2.10.2 identifies general-line and full incidence monodromy images. The request correctly extends LPV.3/5 beyond constant-coefficient transvection formulas to the actual constructible K."
         }
       ],
@@ -2145,7 +2106,6 @@
         {
           "sourceId": "WeilII",
           "locator": "Corollary6.2.12 and proof, printed p.250",
-          "excerpt": "global",
           "match": "WeilII Corollary6.2.12 combines weak-Lefschetz injection, the potential-purity pullback, local6.2.9, image equality and general-line monodromy. All inputs are earlier/imported; DWP.9 is a consumer and never a prerequisite."
         }
       ],
@@ -2188,7 +2148,6 @@
         {
           "sourceId": "Illusie21",
           "locator": "§§4.4,6.3–6.4 (separate curve calculation and weight-monodromy question); scope fixed by reviewed RS-17",
-          "excerpt": "monodromy",
           "match": "Illusie21 motivates separating the curve calculation from the general weight-monodromy question, but the navigation/export ownership is an atlas decision fixed by accepted RS-17. Clarified that citation match. The aggregate adds no mathematical construction and does not re-own Hyodo–Kato N."
         }
       ],

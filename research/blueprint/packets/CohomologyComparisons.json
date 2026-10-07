@@ -294,7 +294,6 @@
         {
           "sourceId": "bms1-2019",
           "locator": "Example 3.16, p.25; Definition 3.22, p.27; §4.3, p.40",
-          "excerpt": "We let ε = (1, ζ_p, ζ_{p²}, . . .) ∈ O♭, and consider the elements µ = [ε] − 1 ∈ A_inf and ξ = µ/ϕ⁻¹(µ), which generates the kernel of θ. We also have ξ_r = µ/ϕ⁻ʳ(µ) which generates the kernel of θ_r, and ξ̃_r = ϕʳ(µ)/µ which generates the kernel of θ̃_r, as in Proposition 3.17.",
           "match": "BMS1 fixes µ = [ε] − 1 and ξ = µ/ϕ⁻¹(µ) generating ker θ, and ξ̃_r = ϕʳ(µ)/µ generating ker θ̃_r, which are exactly the node's normalizations ξ = μ/φ⁻¹(μ), ξ̃ = φ(ξ), ker θ = (ξ), ker θ̃ = (ξ̃)."
         }
       ],
@@ -411,7 +410,6 @@
         {
           "sourceId": "bms1-2019",
           "locator": "Theorem 1.1 and Remarks 1.2–1.3, pp.2–4; §13.4, p.116",
-          "excerpt": "Let 𝔛 be a proper smooth formal scheme over O, with generic fibre X. In this situation, we can consider the scheme Y = 𝔛 ×_{Spf O} Spec O/p. The universal p-adically complete PD thickening (compatible with the natural PD structure on Z_p) of O/p is Fontaine’s ring A_crys.",
           "match": "§13.4 sets Y = 𝔛 ×_{Spf O} Spec O/p, whose universal PD thickening is A_crys, and in the next sentence the special fibre Ȳ = 𝔛 ×_{Spf O} Spec k with W(k)-cohomology: the O_C/p versus k distinction the dictionary keeps."
         }
       ],
@@ -453,7 +451,6 @@
         {
           "sourceId": "sch13-erratum",
           "locator": "Erratum (1)–(3), pp.1–2",
-          "excerpt": "In the definition of covers in Xprofét, Definition 3.3, instead of asking that the morphisms Ui → U are open, one asks the stronger condition that Ui → U can be written as an inverse limit Ui = lim←−µ<λ Uµ → U of Uµ ∈ pro − Xfét, U0 = U,",
           "match": "Erratum item (1) replaces the open-cover condition of Definition 3.3 by transfinite inverse-limit covers, which is exactly the 'corrected pro-étale covers' the node requires."
         }
       ],
@@ -495,7 +492,6 @@
         {
           "sourceId": "bms1-2019",
           "locator": "Example 4.24, p.41; §4.4, pp.43–44; introduction p.4",
-          "excerpt": "Then 𝔖 = W(k)[[T]] is equipped with a Frobenius automorphism ϕ, and the map θ̃ : 𝔖 → O_K given by T ↦ π. The constructions over K and C are related by the map 𝔖 → A_inf that sends T to [π♭]^p and is the Frobenius on W(k); note that this map commutes with ϕ and θ̃.",
           "match": "§4.4 defines 𝔖 = W(k)[[T]] → A_inf by T ↦ [π♭]^p and Frobenius on W(k), commuting with ϕ and θ̃, and p.4 defines 𝔖 → W(k) by T ↦ 0 and Frobenius on W(k), matching the node's map statements (BMS1 writes T, not u)."
         }
       ],
@@ -537,7 +533,6 @@
         {
           "sourceId": "bms1-2019",
           "locator": "Lemmas 13.11–13.13, pp.109–112; Remark 13.20, p.114; Remark 13.22, p.116",
-          "excerpt": "For the rest of this section, fix notation as in Lemma 13.7, though we shall use the flexibility of enlarging Σ as necessary. Note that by smoothness of A over a discretely valued field, there are continuous maps A → B⁺_dR lifting the map to C; we fix one such map.",
           "match": "The source fixes one continuous lift A → B⁺_dR of the spreading-out algebra as a proof choice (p.109), while Remark 13.20 uses 'the unique continuous lift of K → C' and pp.5/104 stress that there is no (continuous) section C → B⁺_dR, matching the node's split between canonical and chosen data."
         }
       ],
@@ -577,7 +572,6 @@
         {
           "sourceId": "bms1-2019",
           "locator": "Theorems 14.1 and 14.3, pp.118–120",
-          "excerpt": "Then RΓ_{A_inf}(𝔛) = RΓ(𝔛, AΩ_𝔛) is a perfect complex of A_inf-modules, equipped with a ϕ-linear map ϕ : RΓ_{A_inf}(𝔛) → RΓ_{A_inf}(𝔛) inducing an isomorphism RΓ_{A_inf}(𝔛)[1/ξ] ≃ RΓ_{A_inf}(𝔛)[1/ϕ(ξ)], such that all cohomology groups are Breuil–Kisin–Fargues modules.",
           "match": "Theorem 14.3 states that RΓ_{A_inf}(𝔛) = RΓ(𝔛, AΩ_𝔛) is perfect, carries a ϕ-linear map that is an isomorphism after inverting ξ, and has Breuil–Kisin–Fargues cohomology groups: finitely presented and free after inverting p (Definition 4.22)."
         }
       ],
@@ -618,7 +612,6 @@
         {
           "sourceId": "bms1-2019",
           "locator": "Theorem 14.1(ii), p.118; Theorem 14.3(ii), p.120",
-          "excerpt": "(ii) With de Rham cohomology of 𝔛: AΩ_𝔛 ⊗^L_{A_inf} O ≃ Ω^{•,cont}_{𝔛/O}, where Ω^{i,cont}_{𝔛/O} = lim_n Ω^i_{(𝔛/pⁿ)/(O/pⁿ)}.",
           "match": "Theorem 14.1(ii) gives AΩ_𝔛 ⊗^L_{A_inf} O ≃ Ω^{•,cont}_{𝔛/O} with continuous differentials inside a theorem 'compatible with multiplicative structures', and Theorem 14.3(ii) is the global RΓ_dR form the node uses."
         }
       ],
@@ -662,7 +655,6 @@
         {
           "sourceId": "bms1-2019",
           "locator": "Theorem 8.3, p.61; Theorem 9.2(i), p.69; Proposition 6.12, p.52; Theorem 14.1 proof, p.118",
-          "excerpt": "Theorem 8.3. There is a natural isomorphism H^i(Ω̃_𝔛) ≅ Ω^{i,cont}_{𝔛/O}{−i} of sheaves on 𝔛_Zar. Here, Ω^{i,cont}_{𝔛/O} = lim Ω^i_{(𝔛/pⁿ)/(O/pⁿ)} denotes the O_𝔛-module of continuous differentials.",
           "match": "Theorem 8.3 gives H^i(Ω̃_𝔛) ≅ Ω^{i,cont}_{𝔛/O}{−i}, which together with Ω̃_𝔛 ≃ AΩ_𝔛 ⊗^L_{A_inf,θ̃} O (Theorem 9.2(i)) and the Bockstein identification H^•(AΩ_𝔛/ξ̃) ≅ Ω^{•,cont}_{𝔛/O} in the proof of Theorem 14.1(ii) (via Proposition 6.12) supports the node."
         }
       ],
@@ -706,7 +698,6 @@
         {
           "sourceId": "bms1-2019",
           "locator": "Theorem 14.1(i), p.118; Theorem 14.3(i), p.120",
-          "excerpt": "(i) With crystalline cohomology of 𝔛_k: AΩ_𝔛 ⊗̂^L_{A_inf} W(k) ≃ WΩ^•_{𝔛_k/W(k)}. Here, the tensor product is p-adically completed, and the right side denotes the de Rham–Witt complex of 𝔛_k, which computes crystalline cohomology of 𝔛_k.",
           "match": "Theorem 14.1(i) gives AΩ_𝔛 ⊗̂^L_{A_inf} W(k) ≃ WΩ^•_{𝔛_k/W(k)} with a p-adically completed tensor, and Theorem 14.3(i) gives the proper global form RΓ_{A_inf}(𝔛) ⊗^L_{A_inf} W(k) ≃ RΓ_crys(𝔛_k/W(k))."
         }
       ],
@@ -751,7 +742,6 @@
         {
           "sourceId": "bms1-2019",
           "locator": "Theorem 12.1, p.96; Theorem 14.3(iii), p.120",
-          "excerpt": "Theorem 12.1. There is a canonical isomorphism AΩ_𝔛 ⊗̂_{A_inf} A_crys ≃ Ru_∗O^crys_{Y/A_crys} in D(𝔛_Zar). In particular, if 𝔛 is qcqs, this gives an isomorphism RΓ(𝔛, AΩ_𝔛) ⊗̂_{A_inf} A_crys ≃ RΓ_crys(Y/A_crys).",
           "match": "Theorem 12.1 gives the canonical isomorphism AΩ_𝔛 ⊗̂_{A_inf} A_crys ≃ Ru_∗O^crys_{Y/A_crys}, and for qcqs 𝔛 the global RΓ(𝔛, AΩ_𝔛) ⊗̂_{A_inf} A_crys ≃ RΓ_crys(Y/A_crys) with Y = 𝔛 ×_{Spf O} Spec O/p."
         }
       ],
@@ -794,7 +784,6 @@
         {
           "sourceId": "bms1-2019",
           "locator": "Theorem 14.3(iv), p.120; Lemma 4.26, p.41",
-          "excerpt": "(iv) With étale cohomology of X: RΓ_{A_inf}(𝔛) ⊗_{A_inf} A_inf[1/µ] ≃ RΓ_ét(X, Z_p) ⊗_{Z_p} A_inf[1/µ]. Proof. The comparison results (i), (ii), (iii) and (iv) follow immediately from Theorem 14.1, using Theorem 5.7 for part (iv).",
           "match": "Theorem 14.3(iv) states RΓ_{A_inf}(𝔛) ⊗_{A_inf} A_inf[1/µ] ≃ RΓ_ét(X, Z_p) ⊗_{Z_p} A_inf[1/µ] for proper smooth 𝔛, deduced from Theorem 14.1 and the primitive comparison Theorem 5.7."
         }
       ],
@@ -837,7 +826,6 @@
         {
           "sourceId": "bs22",
           "locator": "Theorem 17.2, p.117 (proof pp.117–121); Notation 18.1, Theorem 18.2 and Lemma 18.3, pp.122–123",
-          "excerpt": "Theorem 18.2. The object Δ−/A ∈ CSmR has no nontrivial endomorphisms, i.e., End(Δ−/A) = {1}. Somewhat surprisingly, we do not need to a priori impose compatibility with the Frobenius endomorphism of prismatic cohomology in formulating the above uniqueness assertion.",
           "match": "Theorem 18.2 is the uniqueness statement in the category of pairs (G, η) from Notation 18.1, and the next sentence confirms that Frobenius compatibility is not imposed, exactly as the node says."
         }
       ],
@@ -879,7 +867,6 @@
         {
           "sourceId": "bms1-2019",
           "locator": "Theorem 14.1 proof, pp.118–119; §12.2",
-          "excerpt": "Proof. Part (iii) is Theorem 12.1, and part (iv) follows directly from the definition of AΩ_𝔛. Moreover, part (iii) implies parts (i) and (ii).",
           "match": "The proof of Theorem 14.1 obtains the de Rham and crystalline specializations (i), (ii) from the A_crys comparison (iii) = Theorem 12.1, which is the overlap square the node records."
         }
       ],
@@ -920,7 +907,6 @@
         {
           "sourceId": "bms1-2019",
           "locator": "Theorem 14.1 opening and proof, pp.118–119",
-          "excerpt": "Recall Theorem 1.10: Theorem 14.1. There are canonical quasi-isomorphisms of complexes of sheaves on 𝔛_Zar (compatible with multiplicative structures).",
           "match": "Theorem 14.1 asserts that its sheaf comparisons are 'compatible with multiplicative structures', the smooth-case multiplicativity the node imports."
         }
       ],
@@ -960,7 +946,6 @@
         {
           "sourceId": "bms1-2019",
           "locator": "Lemma 4.16, p.38; Theorems 14.1–14.3",
-          "excerpt": "Lemma 4.16. Let C ∈ D(A_inf) such that H^j(C)[1/p] is free for each j. Fix some index i. Then the natural map H^i(C) ⊗_{A_inf} W(k) → H^i(C ⊗^L_{A_inf} W(k)) is injective, and bijective after inverting p. Furthermore, if H^{i+1}(C) has no x-torsion, then this map is bijective.",
           "match": "Lemma 4.16 shows that H^i(C) ⊗ W(k) → H^i(C ⊗^L W(k)) is only injective in general and bijective when H^{i+1}(C) has no x-torsion, which is the Tor-from-H^{i+1} obstruction the node cites."
         }
       ],
@@ -1009,7 +994,6 @@
         {
           "sourceId": "bms1-2019",
           "locator": "Theorem 14.5(i), pp.120–121",
-          "excerpt": "canonical isomorphism H^i_crys(𝔛_{O/p}/A_crys)⊗_{A_crys}B_crys ≅ H^i_ét(X,Z_p)⊗_{Z_p}B_crys. It is compatible with the isomorphism H^i_crys(X/B⁺_dR)⊗_{B⁺_dR}B_dR ≅ H^i_ét(X,Z_p)⊗_{Z_p}B_dR via the identification H^i_crys(𝔛_{O/p}/A_crys)⊗_{A_crys}B⁺_dR ≅ H^i_crys(X/B⁺_dR).",
           "match": "Theorem 14.5(i) gives the canonical B_crys isomorphism and its compatibility with the Theorem 13.1 B_dR isomorphism via H^i_crys(𝔛_{O/p}/A_crys) ⊗ B⁺_dR ≅ H^i_crys(X/B⁺_dR), exactly as the node states."
         }
       ],
@@ -1063,7 +1047,6 @@
         {
           "sourceId": "bms1-2019",
           "locator": "Theorem 14.6(i), pp.121–122",
-          "excerpt": "(i) There is a comparison isomorphism H^i_ét(X_C, Z_p) ⊗_{Z_p} B_crys ≅ H^i_crys(𝔛_k/W(k)) ⊗_{W(k)} B_crys, compatible with the Galois and Frobenius actions, and the filtration. In particular, H^i_ét(X_C, Q_p) is a crystalline Galois representation.",
           "match": "Theorem 14.6(i) states the G_K-, Frobenius- and filtration-compatible isomorphism H^i_ét(X_C,Z_p) ⊗ B_crys ≅ H^i_crys(𝔛_k/W(k)) ⊗ B_crys and the crystallinity of H^i_ét(X_C,Q_p), as in the node."
         }
       ],
@@ -1107,7 +1090,6 @@
         {
           "sourceId": "bms1-2019",
           "locator": "Proposition 13.21 and Remark 13.22, p.116; Theorem 14.6 proof, p.122",
-          "excerpt": "Proposition 13.21. Fix a section k → O/p. Then there is a canonical ϕ-equivariant isomorphism H^i_crys(Y/A_crys)[1/p] ≅ H^i_crys(Ȳ/W(k)) ⊗_{W(k)} A_crys[1/p]. In particular, H^i_crys(Y/A_crys)[1/p] is a finite free A_crys[1/p]-module.",
           "match": "For a fixed section k → O/p, Proposition 13.21 gives the canonical ϕ-equivariant isomorphism H^i_crys(Y/A_crys)[1/p] ≅ H^i_crys(Ȳ/W(k)) ⊗_{W(k)} A_crys[1/p], which the adapter composes with the B_crys comparison."
         }
       ],
@@ -1150,7 +1132,6 @@
         {
           "sourceId": "bms1-2019",
           "locator": "Theorems 14.3–14.5, pp.119–121; §1.2, p.6",
-          "excerpt": "which proves Theorem 1.1 (i); note that since each H^i_{A_inf}(𝔛)[1/p] is free over A_inf[1/p], the derived comparison statement above immediately yields one for the individual cohomology groups.",
           "match": "BMS1 passes from the derived B_crys comparison to individual cohomology groups using exactly the freeness of each H^i_{A_inf}(𝔛)[1/p], as the node does."
         }
       ],
@@ -1191,7 +1172,6 @@
         {
           "sourceId": "bms1-2019",
           "locator": "Theorem 14.6(i), p.121",
-          "excerpt": "compatible with the Galois and Frobenius actions, and the filtration. In particular, H^i_ét(X_C, Q_p) is a crystalline Galois representation.",
           "match": "Theorem 14.6(i) states that the comparison is compatible with Galois, Frobenius and filtration and that 'in particular' H^i_ét(X_C,Q_p) is crystalline, while the D_cris identification is on p.4: (H^i_ét(X_C,Z_p) ⊗ B_crys)^{G_K} = H^i_crys(𝔛_k/W(k))[1/p]."
         }
       ],
@@ -1230,7 +1210,6 @@
         {
           "sourceId": "bms1-2019",
           "locator": "Theorem 14.6, p.121",
-          "excerpt": "Theorem 14.6. Let 𝔛 be a proper smooth formal scheme over O, where O is the ring of integers in a complete discretely valued nonarchimedean extension K of Q_p with perfect residue field k, and let i ≥ 0.",
           "match": "Theorem 14.6 is stated for an arbitrary proper smooth formal scheme over O_K with no projectivity hypothesis, which is the only part of this node that BMS1 supports."
         }
       ],
@@ -1269,7 +1248,6 @@
         {
           "sourceId": "bms1-2019",
           "locator": "Definition 13.5 and Construction 13.6, p.106",
-          "excerpt": "Definition 13.5. Let R be a smooth Tate C-algebra of dimension d. We say that R is very small if there exist finite subsets {T_1, ..., T_d} ⊂ Σ ⊂ (R°)^∗ with the following properties: (i) The map C⟨(X_u^{±1})_{u∈Σ}⟩ → R defined by X_u ↦ u is surjective.",
           "match": "Definition 13.5 defines very small R by finite {T_1,…,T_d} ⊂ Σ ⊂ (R°)^∗ with C⟨(X_u^{±1})⟩ → R surjective, and in its part (ii) Spa(R,R°) → T^d étale and a composite of rational embeddings and finite étale maps."
         }
       ],
@@ -1314,7 +1292,6 @@
         {
           "sourceId": "bms1-2019",
           "locator": "Construction 13.6, p.106; Lemma 13.4, pp.105–106",
-          "excerpt": "let D_Σ(R) be the completion of B⁺_dR⟨(X_u^{±1})_{u∈Σ}⟩ with respect to the ideal I(R) = Ker(B⁺_dR⟨(X_u^{±1})_{u∈Σ}⟩ → R). By Lemma 13.4, all powers I(R)ⁿ ⊂ B⁺_dR⟨(X_u^{±1})_{u∈Σ}⟩ are closed, so that with its natural topology, D_Σ(R) is a complete and separated B⁺_dR-algebra.",
           "match": "Construction 13.6 defines D_Σ(R) as the completion of B⁺_dR⟨(X_u^{±1})⟩ along the full kernel I(R) of X_u ↦ u, with powers closed by Lemma 13.4, and extends the log derivations continuously."
         }
       ],
@@ -1422,7 +1399,6 @@
         {
           "sourceId": "bms1-2019",
           "locator": "Lemmas 13.7–13.10, pp.106–109",
-          "excerpt": "at the expense of enlarging Σ, we can find the following: (i) A smooth adic space S = Spa(A, A°) of finite type over W(k′)[1/p] for some perfect field k′ ⊂ k and a W(k′)-algebra map A → C. (ii) A smooth morphism Spa(R_A, R_A°) → Spa(A, A°) and an identification R ≃ R_A ⊗̂_A C.",
           "match": "Lemma 13.7 descends a very small R, after enlarging Σ, to R_A smooth over a smooth affinoid A over W(k′)[1/p] with R ≃ R_A ⊗̂_A C and compatible Σ_A, while Lemmas 13.8–13.10 are the perturbation, rank-one-neighbourhood and p^k-containment lemmas the node lists."
         }
       ],
@@ -1464,7 +1440,6 @@
         {
           "sourceId": "bms1-2019",
           "locator": "Lemma 13.11, pp.109–110",
-          "excerpt": "Lemma 13.11. The algebra R_A ⊗̂_A B⁺_dR is a ξ-adically complete flat B⁺_dR-algebra, with (R_A ⊗̂_A B⁺_dR)/ξ = R and more generally (R_A ⊗̂_A B⁺_dR)/ξⁿ = R_A ⊗̂_A B⁺_dR/ξⁿ, which is topologically free over B⁺_dR/ξⁿ.",
           "match": "Lemma 13.11 states that R_A ⊗̂_A B⁺_dR is ξ-adically complete and flat over B⁺_dR, reduces to R mod ξ, and has topologically free reductions mod ξⁿ, as the node says."
         }
       ],
@@ -1504,7 +1479,6 @@
         {
           "sourceId": "bms1-2019",
           "locator": "Lemma 13.12, pp.110–111",
-          "excerpt": "(ii) If Σ is sufficiently large, there is an isomorphism of topological algebras D_Σ(R) ≅ (R_A ⊗̂_A B⁺_dR)[[(X_u − ũ)_{u∈Σ,u≠T_1,...,T_d}]], compatibly with the projection to R, and the structure of B⁺_dR⟨(X_u^{±1})_{u∈Σ}⟩-algebras (via X_{T_i} ↦ T_i).",
           "match": "Lemma 13.12(ii) gives D_Σ(R) ≅ (R_A ⊗̂_A B⁺_dR)[[(X_u − ũ)_{u∈Σ,u≠T_i}]] for sufficiently large Σ, with ũ chosen lifts, which is the node's normal form."
         }
       ],
@@ -1545,7 +1519,6 @@
         {
           "sourceId": "bms1-2019",
           "locator": "Lemma 13.13 and Definition 13.14, pp.111–112",
-          "excerpt": "Lemma 13.13. The maps Ω^•_{D_Σ(R)/B⁺_dR}/ξ → Ω^•_{D̃_Σ(R)/C} ← Ω^•_{R/C} and Ω^•_{D_Σ(R)/B⁺_dR} → Ω^•_{D̃_Σ(R_A)/B⁺_dR} ← Ω^•_{R_A/A} ⊗̂_A B⁺_dR are quasi-isomorphisms.",
           "match": "Lemma 13.13 shows that the envelope de Rham complex reduces mod ξ to Ω^•_{R/C} and is quasi-isomorphic to Ω^•_{R_A/A} ⊗̂_A B⁺_dR, hence independent of Σ, which Definition 13.14 uses to form the filtered colimit."
         }
       ],
@@ -1589,7 +1562,6 @@
         {
           "sourceId": "bms1-2019",
           "locator": "Proposition 13.15 and Corollary 13.16, pp.112–113",
-          "excerpt": "In particular, any proper smooth rigid space over C can be realized as the fibre of a proper smooth morphism of smooth rigid spaces defined over a discretely valued subfield of C.",
           "match": "Corollary 13.16 ends by realizing every proper smooth rigid space over C as a fibre of a proper smooth morphism of smooth rigid spaces over a discretely valued subfield, built from the formal-model descent of Proposition 13.15."
         }
       ],
@@ -1631,7 +1603,6 @@
         {
           "sourceId": "bms1-2019",
           "locator": "Definition 13.18, p.114",
-          "excerpt": "Definition 13.18. For a proper smooth adic space X/C, write RΓ_crys(X/B⁺_dR) ∈ D(B⁺_dR) for the hypercohomology of the presheaf U ↦ C^•_crys(U/B⁺_dR) defined on the category of all smooth open affinoids U ⊂ X that are very small.",
           "match": "Definition 13.18 defines RΓ_crys(X/B⁺_dR) as the hypercohomology of U ↦ C^•_crys(U/B⁺_dR) (the Σ-colimit of Definition 13.14) on very small affinoids, and the lines after it give ⊗^L_{B⁺_dR} C ≅ RΓ_dR(X), derived ξ-completeness and perfectness."
         }
       ],
@@ -1730,7 +1701,6 @@
         {
           "sourceId": "bms1-2019",
           "locator": "Theorem 13.19, p.114",
-          "excerpt": "Theorem 13.19. Let X/C be a proper smooth adic space. Then H^i_crys(X/B⁺_dR) is finite free over B⁺_dR for all i ∈ Z.",
           "match": "Theorem 13.19 states that H^i_crys(X/B⁺_dR) is finite free over B⁺_dR for all i, and its proof uses spreading out (Corollary 13.16) and local freeness of R^i f_dR∗O_𝒳 from its integrable connection, as the node says."
         }
       ],
@@ -1775,7 +1745,6 @@
         {
           "sourceId": "bms1-2019",
           "locator": "Theorem 13.1 proof, p.115; Proposition 12.9",
-          "excerpt": "We claim that this induces a quasi-isomorphism between Ω^•_{D_Σ(R)/B⁺_dR} and η_ξ K_{B⁺_dR(R_∞,Σ)}((γ_u − 1)_{u∈Σ}), which finishes the proof of the comparison. This is completely analogous to the proof of Proposition 12.9.",
           "match": "In the proof of Theorem 13.1, the degree-0 map D_Σ(R) → B⁺_dR(R_∞,Σ) induces a quasi-isomorphism Ω^•_{D_Σ(R)/B⁺_dR} ≃ η_ξ K_{B⁺_dR(R_∞,Σ)}((γ_u − 1)_{u∈Σ}), 'completely analogous to the proof of Proposition 12.9'."
         }
       ],
@@ -1816,7 +1785,6 @@
         {
           "sourceId": "bms1-2019",
           "locator": "Theorem 13.1 and proof, pp.104,115",
-          "excerpt": "Theorem 13.1. Let X be a proper smooth adic space over C. Then there are cohomology groups H^i_crys(X/B⁺_dR) which come with a canonical isomorphism H^i_crys(X/B⁺_dR) ⊗_{B⁺_dR} B_dR ≅ H^i_ét(X, Z_p) ⊗_{Z_p} B_dR.",
           "match": "Theorem 13.1 gives the canonical isomorphism H^i_crys(X/B⁺_dR) ⊗ B_dR ≅ H^i_ét(X,Z_p) ⊗ B_dR for proper smooth X/C, and its proof (p.115) builds RΓ_crys(X/B⁺_dR) → RΓ(X_proét, B⁺_dR,X) ≅ RΓ_ét(X,Z_p) ⊗ B⁺_dR and inverts ξ."
         }
       ],
@@ -1860,7 +1828,6 @@
         {
           "sourceId": "bms1-2019",
           "locator": "Remark 13.20, p.114; Theorem 13.1 proof diagram, p.115",
-          "excerpt": "the proof above shows that there is a canonical identification H^i_dR(X_0/K) ⊗_K B⁺_dR ≃ H^i_crys(X/B⁺_dR) of B⁺_dR-modules, where the implicit map K → B⁺_dR is the unique continuous lift of K → C that exists since K is discretely valued.",
           "match": "Remark 13.20 gives the canonical identification H^i_dR(X_0/K) ⊗_K B⁺_dR ≃ H^i_crys(X/B⁺_dR) via the continuous lift K → B⁺_dR, and the diagram in the proof of Theorem 13.1 (p.115) gives the agreement with Theorem 5.1."
         }
       ],
@@ -1899,7 +1866,6 @@
         {
           "sourceId": "sch13",
           "locator": "Theorem 8.4, p.48, and its proof, pp.47–48; BMS1 Theorem 5.1 and Theorem 13.1 proof",
-          "excerpt": "then the Hodge-de Rham spectral sequence Hⁱ⁻ʲ,ʲHodge(X, E) ⇒ HⁱdR(X, E) degenerates, and there is a Gal(k̄/k)-equivariant isomorphism Hⁱ(Xk̄, L) ⊗Zp BdR ≅ HⁱdR(X, E) ⊗k BdR preserving filtrations.",
           "match": "Theorem 8.4 gives the Galois-equivariant isomorphism H^i(X_k̄,L)⊗B_dR ≅ H^i_dR(X,E)⊗_k B_dR 'preserving filtrations' for proper smooth X over a discretely valued k. With L = Ẑ_p this is the node's filtered de Rham comparison."
         }
       ],
@@ -1939,7 +1905,6 @@
         {
           "sourceId": "bms1-2019",
           "locator": "Theorem 13.3(i) and proof, pp.104,116",
-          "excerpt": "Theorem 13.3. Let X be a proper smooth adic space over C. (i) (Conrad-Gabber) The Hodge–de Rham spectral sequence E_1^{ij} = H^j(X, Ω^i_{X/C}) ⇒ H^{i+j}_dR(X) degenerates at E_1.",
           "match": "Theorem 13.3(i) (credited to Conrad–Gabber) states E_1-degeneration of H^j(X,Ω^i_{X/C}) ⇒ H^{i+j}_dR(X) for proper smooth X/C, and its proof (p.116) spreads out and checks ranks at classical points via [58, Corollary 1.8]."
         }
       ],
@@ -1981,7 +1946,6 @@
         {
           "sourceId": "bms1-2019",
           "locator": "Theorem 13.3(ii) and proof, pp.105,116",
-          "excerpt": "(ii) The Hodge–Tate spectral sequence E_2^{ij} = H^i(X, Ω^j_{X/C})(−j) ⇒ H^{i+j}_ét(X, Z_p) ⊗_{Z_p} C degenerates at E_2.",
           "match": "Theorem 13.3(ii) states E_2-degeneration of H^i(X,Ω^j_{X/C})(−j) ⇒ H^{i+j}_ét(X,Z_p) ⊗ C, and its proof equates de Rham dimension with the rank of the free B⁺_dR-lattice and, via Theorem 13.1, with étale dimension."
         }
       ],
@@ -2028,7 +1992,6 @@
         {
           "sourceId": "bms1-2019",
           "locator": "Proposition 13.23, p.117",
-          "excerpt": "Proposition 13.23. There is a natural quasi-isomorphism RΓ_crys(Y/A_crys) ⊗_{A_crys} B⁺_dR ≅ RΓ_crys(X/B⁺_dR). In particular, H^i_crys(X/B⁺_dR) is free over B⁺_dR.",
           "match": "Proposition 13.23 gives the natural quasi-isomorphism RΓ_crys(Y/A_crys) ⊗_{A_crys} B⁺_dR ≅ RΓ_crys(X/B⁺_dR) and freeness of H^i_crys(X/B⁺_dR), and the line before it records that H^i_crys(Y/A_crys) ⊗ B⁺_dR is finite free."
         }
       ],
@@ -2068,7 +2031,6 @@
         {
           "sourceId": "bms1-2019",
           "locator": "Theorem 14.5(i) proof, p.121; Theorem 13.1 proof, p.115",
-          "excerpt": "The compatibility with the B⁺_dR-lattice H^i_crys(X/B⁺_dR) amounts to the compatibility between the isomorphisms of Theorem 12.1 and Theorem 13.1, which one checks on the level of the explicit complexes.",
           "match": "The proof of Theorem 14.5(i) reduces the B⁺_dR-lattice compatibility to the agreement of the Theorem 12.1 and Theorem 13.1 isomorphisms 'which one checks on the level of the explicit complexes', which is the agreement this node records."
         }
       ],
@@ -2110,7 +2072,6 @@
         {
           "sourceId": "gr",
           "locator": "Definition 10.1, p.94",
-          "excerpt": "An object is a pair (U, T), where U is an open subset of the rigid space XC and T is an adic space which is topologically of finite type over YB⁺dR,e for some e ∈ N, together with a Zariski closed immersion U → T defined by a nilpotent ideal.",
           "match": "Definition 10.1 defines the objects of the relative B_dR^+ infinitesimal site exactly as the node describes: open U ⊂ X_C, T topologically of finite type over Y_{B_dR,e}^+, and a nilpotent closed immersion U → T."
         }
       ],
@@ -2205,7 +2166,6 @@
         {
           "sourceId": "gr",
           "locator": "Construction 10.6 and Theorem 10.7, pp.95–96; Corollary 10.8, p.97",
-          "excerpt": "(ii) Any degeneracy map [a] → [0] in Δ induces an isomorphism of de Rham complexes M⁰,•Σ → Mᵃ,•Σ. In particular, the total complex of Mᵃ,ᵇΣ is isomorphic to both M•,⁰Σ = lim[n]∈Δ FDZ(X)• and M⁰,•Σ = dR(FDZ(X)).",
           "match": "Theorem 10.7 builds the double complex whose total complex is isomorphic both to the Čech–Alexander complex and to the de Rham complex on the envelope. That is the node's claim that both compute RΓ_inf."
         }
       ],
@@ -2246,7 +2206,6 @@
         {
           "sourceId": "gr",
           "locator": "Corollaries 10.8–10.9, p.97",
-          "excerpt": "By the I-completeness, we thus have the finiteness of relative B⁺dR-cohomology as well. Corollary 10.9. Assume that X → Y is smooth and proper. Let F be a crystal in vector bundles on X/YB⁺dR,inf. Then RΓ(X/YB⁺dR,inf, F) is a perfect RB⁺dR-complex.",
           "match": "Corollary 10.9 states verbatim that RΓ_inf is a perfect R_{B_dR^+}-complex for smooth proper X → Y. The preceding sentence is the I-completeness argument the node uses."
         }
       ],
@@ -2286,7 +2245,6 @@
         {
           "sourceId": "gr",
           "locator": "Proposition 10.10 and proof, pp.97–98",
-          "excerpt": "Proposition 10.10. There is a natural functor Dperf(Xp=0,crys) → Dperf(X/YB⁺dR,inf), whose restriction to Vect(Xp=0,crys) has image in Vect(X/YB⁺dR,inf).",
           "match": "Proposition 10.10 states the natural functor D_perf(X_{p=0,crys}) → D_perf(X/Y_{B_dR^+},inf) that preserves vector-bundle crystals, as in the node."
         }
       ],
@@ -2328,7 +2286,6 @@
         {
           "sourceId": "gr",
           "locator": "Proposition 10.11, pp.98–99, equation (36)",
-          "excerpt": "By a calculation as in [SP22, Tag 07JG], one can explicitly identify ∇inf as (∇crys[1/p])∧ker(θ̃K). As a consequence, the completed base change of RΓ((Xp=0/R)crys, E′) along R → RB⁺dR gives RΓ(X/YB⁺dR,inf, F).",
           "match": "The proof of Proposition 10.11 identifies ∇_inf with the ker θ̃_K-completion of ∇_crys[1/p] and concludes that the completed base change of crystalline cohomology gives infinitesimal cohomology. This is the node's (36) comparison."
         }
       ],
@@ -2370,7 +2327,6 @@
         {
           "sourceId": "gr",
           "locator": "Theorem 10.13 and Remark 10.14, pp.99–100",
-          "excerpt": "(A,I) ∈ YΔ is a perfect prism satisfying Convention 10.12 for Y = Spf(R), such that A ⊗W(k) OK admits a map from R that is compatible with R → A. The base change of the étale-crystalline comparison from Theorem 9.15 to BdR(A) = A[1/p]∧I[1/I] underlies the filtered isomorphism",
           "match": "Theorem 10.13 has exactly the node's hypotheses: a perfect prism satisfying Convention 10.12 and a compatible map R → A⊗_{W(k)}O_K. It concludes that the B_dR(A) base change of the étale–crystalline comparison underlies a filtered isomorphism."
         }
       ],
@@ -2409,13 +2365,11 @@
         {
           "sourceId": "guo",
           "locator": "Theorem 1.2.7 and Corollary 1.2.11, pp.5–6",
-          "excerpt": "A consequence of the explicit computation in Theorem 1.2.7 (ii) is the following. Corollary 1.2.11. The infinitesimal cohomology RΓinf(X/Σ) is isomorphic to crystalline cohomology of X over B⁺dR in the sense of [BMS, Section 13].",
           "match": "Corollary 1.2.11 states that Guo's infinitesimal cohomology over B_dR^+ is isomorphic to BMS crystalline cohomology over B_dR^+ (BMS §13), which is the node's agreement statement."
         },
         {
           "sourceId": "guo",
           "locator": "Definition 2.2.1, Remarks 2.2.2–2.2.4, pp.12–13; Lemma 4.1.10, p.31",
-          "excerpt": "The envelope DX(Y) of X in Y, is an object in the infinitesimal topos Sh(X/Σe inf), defined by the colimit of the direct system of representable sheaves hYn of (X, Yn) in Sh(X/Σe inf): DX(Y) := lim−→n∈N hYn.",
           "match": "Definition 2.2.1 defines the envelope D_X(Y) as the colimit of the infinitesimal neighbourhoods. These are the 'same completed envelopes' through which the node compares the absolute and relative constructions."
         }
       ],
@@ -2457,7 +2411,6 @@
         {
           "sourceId": "ck",
           "locator": "§7.1–7.2, pp.68–69; Corollary 5.43, pp.58–59; Theorem 2.3, p.9",
-          "excerpt": "Moreover, by (2.3), (4.18.1), and (5.43.2), we have the following identifications: RΓAinf(𝔛) ⊗𝕃Ainf Ainf[1/µ] ≅ RΓét(𝔛adC, ℤp) ⊗𝕃ℤp Ainf[1/µ]; RΓAinf(𝔛) ⊗𝕃Ainf,θ 𝒪C ≅ RΓlogdR(𝔛/𝒪C); RΓAinf(𝔛) ⊗𝕃Ainf W(k) ≅ RΓlogcris(𝔛k/W(k)).",
           "match": "(7.2.1) gives the three specializations of RΓ_Ainf(X): μ-inverted étale, θ-log de Rham and Witt-vector log crystalline. Corollary 5.43 adds the A_cris-log crystalline one. Together these are the node's integral diagram."
         }
       ],
@@ -2499,7 +2452,6 @@
         {
           "sourceId": "ck",
           "locator": "Proposition 9.2 and Remark 9.3, pp.75–76",
-          "excerpt": "On the left side of (9.2.2), the operator N combines the monodromy of RΓlogcris(𝒳k0/W(k0)) and B⁺st, so is “N ⊗ 1 + 1 ⊗ N”; on the right, N is the monodromy of B⁺st. On both sides of (9.2.2), the Frobenius φ acts on both factors.",
           "match": "The proof of Proposition 9.2 says that on the Hyodo–Kato side N is 'N⊗1+1⊗N' and on the A_cris side N is the monodromy of B_st^+, with φ acting on both factors. That is exactly the node's φ,N bookkeeping."
         }
       ],
@@ -2542,7 +2494,6 @@
         {
           "sourceId": "ck",
           "locator": "Theorem 9.5, p.76",
-          "excerpt": "There is the following natural, G-equivariant isomorphism that is compatible with the actions of φ and N: RΓét(𝒳adC, ℤp) ⊗𝕃ℤp Bst ≅ RΓlogcris(𝒳k0/W(k0)) ⊗𝕃W(k0) Bst, (9.5.1) where W(k0) is endowed with the log structure associated to ℕ≥0 −(1↦0, 0↦1)→ W(k0).",
           "match": "Theorem 9.5 gives the natural G-equivariant φ,N-compatible isomorphism RΓ_ét(X_C^ad,Z_p)⊗^L B_st ≅ RΓ_logcris(X_{k0}/W(k0))⊗^L B_st with the N_{≥0}, 1↦0 log base. This is the node's statement."
         }
       ],
@@ -2587,7 +2538,6 @@
         {
           "sourceId": "ck",
           "locator": "Remark 9.6, p.77; Proposition 6.8, pp.66–68",
-          "excerpt": "The isomorphism (9.5.1) is compatible with filtrations in the following sense: by [Fon94, §4.2], there is a (noncanonical) Acris-algebra homomorphism Bst → BdR and, by the proof above and Proposition 6.8, the BdR-base change of the isomorphism (9.5.1) is identified with the",
           "match": "Remark 9.6 says the B_dR base change of (9.5.1), via a noncanonical A_cris-algebra map B_st → B_dR, is identified with the filtered de Rham comparison (6.7.2). This supports the node's agreement statement."
         }
       ],
@@ -2630,7 +2580,6 @@
         {
           "sourceId": "ck",
           "locator": "§9.1, p.75",
-          "excerpt": "Ast ≃ Acris[T], which, upon adjusting the trivialization by an a ∈ 1 + J, gets postcomposed with the Acris-automorphism Acris[T] −(T↦T+log(a))→ Acris[T]. The Acris-derivation −d/dT respects these automorphisms, so it induces a canonical Acris-derivation, the monodromy operator,",
           "match": "CK §9.1 fixes the B_st normalization the node relies on: A_st ≃ A_cris[T], T ↦ T + log(a) when the trivialization changes by a ∈ 1+J, and N induced by −d/dT. On the same page, φ is T ↦ pT and Nφ = pφN."
         }
       ],
@@ -2674,7 +2623,6 @@
         {
           "sourceId": "ck",
           "locator": "§9 introduction and Theorem 9.5, pp.75–76",
-          "excerpt": "and is similar to the semistable comparison established by Colmez–Niziol [CN17, 5.26]. More precisely, loc. cit. also includes cases in which the log structures are not “vertical.”",
           "match": "The §9 introduction confirms that CK covers only 'vertical' log structures, whereas Colmez–Nizioł [CN17] also treat non-vertical ones. This supports the node's scope restriction."
         }
       ],
@@ -2716,7 +2664,6 @@
         {
           "sourceId": "ck",
           "locator": "§9 introduction, p.75; Theorem 9.5, p.76; §9.1, p.75",
-          "excerpt": "Our final goal is to deduce the semistable comparison isomorphism for suitable proper, “semistable” formal schemes (see Theorem 9.5). This extends [BMS18, 1.1 (i)], which treated the good reduction case",
           "match": "CK presents Theorem 9.5 as extending the good-reduction comparison of [BMS18, 1.1(i)]. This supports 'restricts in good reduction to the crystalline comparison'."
         }
       ],
@@ -2757,7 +2704,6 @@
         {
           "sourceId": "cn",
           "locator": "Theorem 6.2 and footnote 17, p.40",
-          "excerpt": "Let r ≥ 0. There exists a natural Bst-linear Galois equivariant period isomorphism¹⁷ αst : Hʳét(X, Qp) ⊗Qp Bst ≃ HʳHK(X) ⊗Fnr Bst, that preserves the Frobenius and the monodromy operators, and induces a filtered isomorphism αdR : Hʳét(X, Qp) ⊗Qp BdR ≃ HʳdR(XK) ⊗K BdR.",
           "match": "Theorem 6.2 gives Beilinson's B_st-linear Galois-equivariant (φ,N)-compatible period isomorphism and the filtered B_dR isomorphism for H^r of an algebraic variety, as the node says. Footnote 17 adds 'Note that there is no assumption on the variety.'"
         }
       ],
@@ -2799,7 +2745,6 @@
         {
           "sourceId": "cn",
           "locator": "Theorem 6.2, equation (6.3), p.40; Remark 6.7, p.41",
-          "excerpt": "In particular, we have the natural isomorphism Hʳét(X, Qp) ≃ (HʳHK(X) ⊗Fnr Bst)φ=1,N=0 ∩ F⁰(HʳdR(XK) ⊗K BdR), as a GK-module, as well as the natural isomorphisms Homsm GK(Hʳét(X, Qp), Bst) ≃ HʳHK(X)∗, as a (φ, N, GK)-module, (6.3)",
           "match": "The excerpt gives the period recovery (H_HK⊗B_st)^{φ=1,N=0} ∩ F^0(H_dR⊗B_dR) and the first line of (6.3), Hom^sm_{G_K}(H_ét^r, B_st) ≃ H_HK^r(X)^* as a (φ,N,G_K)-module, exactly as the node says."
         }
       ],
@@ -2838,7 +2783,6 @@
         {
           "sourceId": "cn",
           "locator": "Theorem 6.4 and proof, pp.40–41",
-          "excerpt": "Theorem 6.4. Let r ≥ 0. There exists a natural Bst-linear and GK-equivariant period isomorphism αst : Hʳét(X, Qp) ⊗Qp Bst ≃ HʳHK(X) ⊗Fnr Bst, that preserves the Frobenius and the monodromy operators, and induces a filtered isomorphism αdR : Hʳét(X, Qp) ⊗Qp BdR ≃ HʳdR,K(X) ⊗K BdR.",
           "match": "Theorem 6.4 gives, for X_K proper smooth rigid analytic over K, the natural G_K-equivariant (φ,N)-compatible B_st isomorphism with H_HK^r(X)⊗_{F^nr}B_st and the induced filtered B_dR isomorphism, exactly as the node says."
         }
       ],
@@ -2881,7 +2825,6 @@
         {
           "sourceId": "cn",
           "locator": "Theorem 6.8 and Remark 6.10, p.42",
-          "excerpt": "Here, the filtration on HʳdR(X/B⁺dR) is defined by Fⁱ HʳdR(X/B⁺dR) := Im(Hʳ(Fⁱ RΓdR(X/B⁺dR)) → HʳdR(X/B⁺dR)). Remark 6.10. A de Rham comparison isomorphism as in (6.9) was constructed earlier in [7, Th. 13.1]. It did not treat filtrations.",
           "match": "Theorem 6.8's filtration definition F^iH^r_dR(X/B_dR^+) := Im(H^r(F^iRΓ_dR(X/B_dR^+)) → H^r_dR(X/B_dR^+)) and Remark 6.10's 'It did not treat filtrations' are exactly what the node cites."
         }
       ],
@@ -2928,7 +2871,6 @@
         {
           "sourceId": "bms1-2019",
           "locator": "Remarks 14.4 and 14.7, pp.120,122; supplier Lemma 4.18",
-          "excerpt": "In the situation of Theorem 14.3, if we fix a cohomological index i, then the following conditions are equivalent: (i) H^i_crys(𝔛_k/W(k)) is torsion-free. (ii) H^i_dR(𝔛) is torsion-free. Indeed, this follows by combining parts (i) and (ii) of Theorem 14.3 with Remark 4.21.",
           "match": "Remark 14.4 states that for fixed i, H^i_crys(𝔛_k/W(k)) is torsion-free if and only if H^i_dR(𝔛) is, via Theorem 14.3(i),(ii) and Remark 4.21 (Lemma 4.18), as in the node."
         }
       ],
@@ -2980,7 +2922,6 @@
         {
           "sourceId": "bms1-2019",
           "locator": "Theorem 14.5(ii), pp.120–121",
-          "excerpt": "(ii) For all n ≥ 0, we have the inequality length_{W(k)}(H^i_crys(𝔛_k/W(k))_tor/pⁿ) ≥ length_{Z_p}(H^i_ét(X, Z_p)_tor/pⁿ). In particular, if H^i_crys(𝔛_k/W(k)) is p-torsion-free, then so is H^i_ét(X, Z_p).",
           "match": "Theorem 14.5(ii) is the node's length inequality verbatim, including the p-torsion-free corollary."
         }
       ],
@@ -3037,7 +2978,6 @@
         {
           "sourceId": "bms1-2019",
           "locator": "Theorem 14.5(iii), pp.120–121",
-          "excerpt": "we have a canonical isomorphism H^i_{A_inf}(𝔛) ≅ BKF(H^i_ét(X,Z_p)), and H^i_crys(𝔛_k/W(k)) ⊃ BKF(H^i_ét(X,Z_p))⊗_{A_inf}W(k), compatibly with the ϕ-action. If H^{i+1}_crys(𝔛_k/W(k)) is also p-torsion-free, then the last inclusion is an equality.",
           "match": "Assuming only that H^i_crys is p-torsion-free, Theorem 14.5(iii) gives H^i_{A_inf}(𝔛) ≅ BKF(H^i_ét(X,Z_p)) and a ϕ-compatible inclusion into H^i_crys that becomes an equality when H^{i+1}_crys is also p-torsion-free, i.e. the node's Tier 1 and Tier 2."
         }
       ],
@@ -3093,7 +3033,6 @@
         {
           "sourceId": "bms1-2019",
           "locator": "Theorem 14.6(iii) and proof, pp.121–122",
-          "excerpt": "In particular, by extending scalars along B⁺_crys → W(k̄)[1/p], we get an identification BK(H^i_ét(X_C, Z_p)) ⊗_𝔖 W(k)[1/p] ≅ H^i_crys(𝔛_k/W(k))[1/p]. Then BK(H^i_ét(X_C, Z_p)) ⊗_𝔖 W(k) = H^i_crys(𝔛_k/W(k)) as submodules of the common base extension to W(k)[1/p].",
           "match": "Theorem 14.6(iii) states BK(H^i_ét) ⊗_𝔖 W(k)[1/p] ≅ H^i_crys(𝔛_k/W(k))[1/p] and the lattice equality BK(H^i_ét) ⊗_𝔖 W(k) = H^i_crys(𝔛_k/W(k)) inside the W(k)[1/p]-extension, as in the node."
         }
       ],
@@ -3139,7 +3078,6 @@
         {
           "sourceId": "bms1-2019",
           "locator": "Theorem 14.6(ii), pp.121–122",
-          "excerpt": "(ii) For all n ≥ 0, we have the inequality length_{W(k)}(H^i_crys(𝔛_k/W(k))_tor/pⁿ) ≥ length_{Z_p}(H^i_ét(X_C, Z_p)_tor/pⁿ). In particular, if H^i_crys(𝔛_k/W(k)) is p-torsion-free, then so is H^i_ét(X_C, Z_p).",
           "match": "Theorem 14.6(ii) is the node's inequality and corollary verbatim, and its proof is 'immediate from Theorem 14.5 (ii)' (p.122)."
         }
       ],
@@ -3187,7 +3125,6 @@
         {
           "sourceId": "bms1-2019",
           "locator": "Theorem 1.1 and inequality (1), pp.2–3",
-          "excerpt": "part (ii) implies the following inequality: (1) dim_k H^i_dR(𝔛_k) ≥ dim_{F_p} H^i_ét(X_C, F_p). In other words, p-torsion classes in singular homology still produce non-zero obstructions to integrating differential forms on any (good) reduction modulo p of the variety.",
           "match": "BMS1's inequality (1) is exactly the node's dim_k H^i_dR(𝔛_k) ≥ dim_{F_p} H^i_ét(X_C,F_p), stated as implied by Theorem 1.1(ii)."
         }
       ],
@@ -3231,7 +3168,6 @@
         {
           "sourceId": "ck",
           "locator": "Theorem 7.9 and proof, p.70",
-          "excerpt": "Theorem 7.9. For every i ∈ ℤ and n ∈ ℤ≥0, we have lengthℤp((Hⁱét(𝔛adC, ℤp)tors)/pⁿ) ≤ lengthW(k)((Hⁱlogcris(𝔛k/W(k))tors)/pⁿ), lengthℤp(Hⁱét(𝔛adC, ℤ/pⁿℤ)) ≤ lengthW(k)(Hⁱlogcris(𝔛k/Wn(k))).",
           "match": "Theorem 7.9 states both inequalities exactly as in the node: torsion lengths mod p^n, and the finite-coefficient version with W_n(k)."
         }
       ],
@@ -3272,7 +3208,6 @@
         {
           "sourceId": "ck",
           "locator": "§7.10, Lemma 7.11 and Theorem 7.12, p.71",
-          "excerpt": "Theorem 7.12. For every i ∈ ℤ and n ∈ ℤ≥0, we have (recall from §7.10 that valℤp = lengthℤp) valℤp((Hⁱét(𝔛adC, ℤp)tors)/pⁿ) ≤ val𝒪C((HⁱlogdR(𝔛/𝒪C)tors)/pⁿ), valℤp(Hⁱét(𝔛adC, ℤ/pⁿℤ)) ≤ val𝒪C(RⁱΓ(𝔛𝒪C/pⁿ,ét, Ω•𝔛𝒪C/pⁿ/(𝒪C/pⁿ),log)).",
           "match": "Theorem 7.12 states both normalized inequalities, including the finite-coefficient one with RΓ(X_{O_C/p^n}, Ω•_log). The opening parenthesis recalls the §7.10 normalization val_{Z_p} = length_{Z_p}."
         }
       ],
@@ -3313,7 +3248,6 @@
         {
           "sourceId": "ck",
           "locator": "§8.5–8.6, p.73; Theorem 8.7 and Remark 8.8, p.74",
-          "excerpt": "If HⁱlogdR(𝒳/𝒪K) and Hⁱ⁺¹logdR(𝒳/𝒪K) are 𝒪K-free, then LⁱdR(𝒳adK) = HⁱlogdR(𝒳/𝒪K) inside HⁱdR(𝒳adK/K); (8.7.2) in fact, then, setting 𝔛 := 𝒳 ⊗̂𝒪K 𝒪C, we have the identification M(Lⁱét(𝒳adK)) ≅ HⁱAinf(𝔛) (8.7.3) of Breuil–Kisin–Fargues G-modules.",
           "match": "Theorem 8.7 gives L^i_dR(X_K^ad) = H^i_logdR(𝔛/O_K) inside H^i_dR when H^i_logdR and H^{i+1}_logdR are O_K-free, plus the Breuil–Kisin–Fargues identification. This is the node's lattice statement."
         }
       ],
@@ -3354,7 +3288,6 @@
         {
           "sourceId": "bms1-2019",
           "locator": "§4.4, pp.43–44; Theorem 14.6(iii), pp.121–122",
-          "excerpt": "More precisely, Theorem 4.4 associates a finite free Breuil–Kisin module BK(H^i_ét(X_C, Z_p)) over 𝔖 = W(k)[[T]] to the lattice H^i_ét(X_C, Z_p) in a crystalline G_K-representation.",
           "match": "BMS1's only Breuil–Kisin input is Theorem 14.6(iii), Kisin's 𝔖-module BK(H^i_ét(X_C,Z_p)) attached to the crystalline lattice, together with the 𝔖 → A_inf map of §4.4, which is the part of this interface taken from BMS1."
         }
       ],
@@ -3395,7 +3328,6 @@
         {
           "sourceId": "bms1-2019",
           "locator": "Theorem 2.1 and Proposition 2.2 with proofs, pp.13–15",
-          "excerpt": "(relative) surface X over Z₂ such that (i) the étale cohomology groups H^i_ét(X_{Q̄₂}, Z₂) are free over Z₂ for all i ∈ Z, and (ii) the second crystalline cohomology group H²_crys(X_{F₂}/Z₂) has nontrivial 2-torsion given by H²_crys(X_{F₂}/Z₂)_tor = F₂.",
           "match": "For a smooth projective geometrically connected surface over Z₂, Theorem 2.1 states that every H^i_ét(X_{Q̄₂}, Z₂) is free while H²_crys(X_{F₂}/Z₂)_tor = F₂, as the node says."
         }
       ],
@@ -3438,7 +3370,6 @@
         {
           "sourceId": "bms1-2019",
           "locator": "Lemmas 2.5,2.7,2.9 and Theorem 2.10 proof, pp.15–17",
-          "excerpt": "Theorem 2.10. The above construction gives a smooth projective (relative) surface H over Spec(O) such that H²_ét(H_C, Z_p)_tor ≃ Z/p²Z, while H²_crys(H_k/W(k))_tor ≃ k ⊕ k.",
           "match": "Theorem 2.10 states H²_ét(H_C,Z_p)_tor ≃ Z/p²Z and H²_crys(H_k/W(k))_tor ≃ k ⊕ k for the smooth projective surface H over O = O_C, exactly as the node says."
         }
       ],
@@ -3480,7 +3411,6 @@
         {
           "sourceId": "bms1-2019",
           "locator": "Remark 2.4, p.15",
-          "excerpt": "Thus, the torsion in the étale cohomology of the generic fibre of a smooth and proper Z_2-scheme is not a functor of the special fibre. In particular, the theory RΓ_{A_inf}(𝔛) from Theorem 1.8 is not a functor of the special fibre 𝔛_{O/p}; in fact, not even RΓ_{A_inf}(𝔛)/p is.",
           "match": "Remark 2.4 concludes that the generic-fibre étale torsion of a smooth proper Z₂-scheme, and RΓ_{A_inf}(𝔛) even modulo p, are not functors of the special fibre."
         }
       ],
@@ -3520,7 +3450,6 @@
         {
           "sourceId": "cdn",
           "locator": "§3.3, Proposition 3.12 and first proof paragraph, p.36",
-          "excerpt": "Soient V = H¹ét(X, Qp), M = Dpst(V) et MdR = DdR(V). Alors V est une représentation potentiellement semi-stable à poids de Hodge-Tate 0, −1 et Fil¹(MdR) ≅ Ω¹(XK) et M ≅ H¹HK(X) d’après le théorème de comparaison semi-stable [67].",
           "match": "The first proof paragraph of Proposition 3.12 states the inputs the node lists: V = H^1_ét is potentially semistable with Hodge–Tate weights 0, −1, Fil^1(M_dR) ≅ Ω^1(X_K), and D_pst(V) ≅ H^1_HK(X). It attributes them to the semistable comparison theorem [Tsuji]."
         }
       ],
@@ -3562,7 +3491,6 @@
         {
           "sourceId": "bs",
           "locator": "Proposition 3.19, p.27",
-          "excerpt": "(1) For any smooth proper variety X/Lw, the total comparison isomorphism cdR : BdR ⊗Qp H•ét(XL̄w, Qp) ∼→ BdR ⊗Lw H•dR(X/Lw) is an isomorphism of graded algebras with respect to cup product. (2) For fixed Lw, the isomorphism cdR is natural in X.",
           "match": "Proposition 3.19(1)–(2) state that c_dR is an isomorphism of graded algebras under cup product and is natural in X; (3)–(4) give finite base extension and Künneth. These are exactly the node's compatibilities."
         }
       ],
@@ -3606,7 +3534,6 @@
         {
           "sourceId": "bs",
           "locator": "Proposition 3.20(5) and proof; Remark 3.21, pp.27–28",
-          "excerpt": "Thus there is a canonical choice of an isomorphism BdR(−1) ≅ BdR⟨−1⟩; we suspect that the isomorphism a from Proposition 3.20 should be this canonical choice of isomorphism, but we do not prove it here.",
           "match": "Remark 3.21 explicitly says only that the authors 'suspect' a equals the canonical isomorphism coming from Q_p(1) → B_dR, and 'do not prove it here'. This confirms the node's caveat."
         }
       ],
@@ -3652,7 +3579,6 @@
         {
           "sourceId": "bs",
           "locator": "Proposition 3.20(6)–(7) and proof, pp.27–28",
-          "excerpt": "(7) For any smooth proper variety X/Lw and any codimension r cycle Z on X, the étale and de Rham cycle classes of Z are identified with one another under the isomorphism cdR ⊗ a⊗−r : BdR ⊗Qp H²ʳét(XL̄w, Qp)(r) ∼→ BdR ⊗Lw H²ʳdR(X/Lw)⟨r⟩. (3.10)",
           "match": "Proposition 3.20(7) identifies the étale and de Rham cycle classes of a codimension-r cycle under c_dR ⊗ a^{⊗−r}, which is the node's cycle-class statement. (6) gives the Poincaré-pairing compatibility."
         }
       ],
@@ -3696,7 +3622,6 @@
         {
           "sourceId": "bs",
           "locator": "Proposition 3.20(8), final proof paragraph, p.28",
-          "excerpt": "But in this case the projection V → X from the total space of V induces an isomorphism on étale and de Rham cohomology, and the first Chern class of V is none other than the cycle class of the zero section in V. So we are done by (2) and (7).",
           "match": "This is the step recorded as E3: the proof identifies c_1 with the cycle class of the zero section in the total space V and finishes 'by (2) and (7)', although (7) and c_dR are only available for smooth proper varieties."
         }
       ],
@@ -3741,7 +3666,6 @@
         {
           "sourceId": "bs",
           "locator": "Proposition 3.20(8) and proof, p.28",
-          "excerpt": "(8) For any smooth proper variety X/Lw and vector bundle V on X, the rth étale and de Rham Chern classes of V are identified with one another under the isomorphism (3.10). Proof. First we must define the isomorphism a: we take a to be the unique isomorphism making (3.9)",
           "match": "Proposition 3.20(8) is the higher Chern class statement the node generalizes. The proof reduces it to line bundles by 'Grothendieck's formalism of Chern classes' without further detail."
         }
       ],
@@ -3783,7 +3707,6 @@
         {
           "sourceId": "cn",
           "locator": "Theorems 6.4, 6.8 and proof, pp.40–42",
-          "excerpt": "Let XK be a proper smooth rigid analytic variety over K. Let X = XK,C. The following result generalizes [16, Cor. 1.10], where semistable reduction was assumed.",
           "match": "The §6.2.2 setup gives CN's potential-semistable comparison for any proper smooth rigid X_K over K, generalizing the semistable-reduction case. This supports the node's 'proper smooth rigid space over K supplies the potential realization'."
         }
       ],
@@ -3824,7 +3747,6 @@
         {
           "sourceId": "bms1-2019",
           "locator": "Theorem 14.1, p.118; specialization picture §1.2, p.6",
-          "excerpt": "there is the cohomology theory RΓ_{A_inf}(𝔛) which lives over all of Spec A_inf, and which over various (big) subsets of Spec A_inf can be described through other cohomology theories. These subsets often overlap, and on these overlaps one gets comparison isomorphisms.",
           "match": "BMS1's specialization picture (RΓ_{A_inf} over Spec A_inf, described on overlapping subsets by other cohomology theories with comparison isomorphisms on the overlaps) is the diagram the export passes to HQ.8."
         }
       ],
@@ -3866,7 +3788,6 @@
         {
           "sourceId": "pan",
           "locator": "Proposition 6.3.9 and preceding paragraphs (§6.3.8), pp.100–101",
-          "excerpt": "are isomorphisms. Moreover the i-th symmetric power of Faltings’s extension induces a natural filtration on grⁱOB⁺,la,χ̃ldR,k(U)K whose graded pieces are isomorphic to Ola,χ̃lKp(U)(j)K ⊗OV0 Ω¹V0(C)⊗i−j, j = 0, · · · , i For i ≥ 0, since grⁱOB⁺,ladR,k does not depend on k > i,",
           "match": "Proposition 6.3.9 asserts that gr^i commutes with locally analytic vectors, χ̃_l-isotypic parts and G_{K∞}-fixed, G_K-analytic vectors, gives the Faltings-extension filtration of the graded pieces, and notes independence of k > i. This is the node's statement."
         }
       ],
@@ -3911,7 +3832,6 @@
         {
           "sourceId": "pan",
           "locator": "Lemma 7.2.5 and proof, p.119",
-          "excerpt": "Lemma 7.2.5. For k ≥ 1, (1) The torsion part of Hⁱ(XKp, Aᵃinf,XKp/(ker θ)ᵏ) is killed by pⁿ for some n; (2) Hⁱ(XKp, Aᵃinf,XKp/(ker θ)ᵏ) ≅ lim←−m Hⁱ(XKp, Aᵃinf,XKp/((ker θ)ᵏ, pᵐ)).",
           "match": "Lemma 7.2.5 states bounded p-power torsion of H^i(X_{K^p}, A^a_inf/(ker θ)^k) and its identification with the inverse limit mod p^m, exactly as the node says."
         }
       ],
@@ -3954,7 +3874,6 @@
         {
           "sourceId": "pan",
           "locator": "Lemma 7.2.6 and proof, p.120",
-          "excerpt": "Lemma 7.2.6. There are natural isomorphisms (1) H̃ⁱ(Kᵖ, Ainf/(ker θ)ᵏ) ≅ lim←−m H̃ⁱ(Kᵖ, Z/pᵐ) ⊗Zp Ainf/((ker θ)ᵏ, pᵐ). (2) Hⁱ(XKp, Aᵃinf,XKp/(ker θ)ᵏ) ≅ Hⁱ(Fℓ, πHT∗Aᵃinf,XKp/(ker θ)ᵏ).",
           "match": "Lemma 7.2.6 gives both the completed-cohomology coefficient formula and H^i(X_{K^p}, A^a_inf/(ker θ)^k) ≅ H^i(Fℓ, π_HT∗(…)), as in the node."
         }
       ],
@@ -3998,7 +3917,6 @@
         {
           "sourceId": "pan",
           "locator": "Lemma 7.2.4 and proof, pp.118–120",
-          "excerpt": "Lemma 7.2.4. There is a natural GQp-equivariant homomorphism of B⁺dR,k-modules H̃ⁱ(Kᵖ, B⁺dR,k) → Hⁱ(Fℓ, B⁺dR,k) whose reduction modulo t agrees with the isomorphism (7.2.1).",
           "match": "Lemma 7.2.4 states the natural G_{Q_p}-equivariant B^+_dR,k-linear map that reduces mod t to (7.2.1). This is the node's map."
         }
       ],
@@ -4039,7 +3957,6 @@
         {
           "sourceId": "pan",
           "locator": "Proposition 7.2.3 and proof, p.118",
-          "excerpt": "Proposition 7.2.3. There is a natural GQp-equivariant isomorphism of B⁺dR,k-modules H̃ⁱ(Kᵖ, B⁺dR,k) ≅ Hⁱ(Fℓ, B⁺dR,k), where B⁺dR,k denotes the truncated de Rham period sheaves introduced in Subsection 6.2.",
           "match": "Proposition 7.2.3 is verbatim the node's natural G_{Q_p}-equivariant isomorphism H̃^i(K^p, B^+_dR,k) ≅ H^i(Fℓ, B^+_dR,k)."
         }
       ],
@@ -4980,31 +4897,26 @@
         {
           "sourceId": "bms1-2019",
           "locator": "Proposition 3.24 statement p.28, proof p.30",
-          "excerpt": "For any r ≥ 1, the ring Wr (O) is coherent.",
           "match": "The coherence statement; the characteristic-p case is what Lemma 4.9 uses for W_n(O♭). 'Unfortunately, in general Ainf is not coherent, cf. [46].' Matched against the public BMS1 PDF with printed pagination."
         },
         {
           "sourceId": "bms1-2019",
           "locator": "Lemma 3.25 with proof, pp.28–29",
-          "excerpt": "An R/I-module M is finitely presented as an R/I-module if and only if M is finitely presented as an R-module.",
           "match": "Transfers finite presentation between A_inf and A_inf/p^n; used in Lemma 4.9(ii) and Corollary 4.15. Matched against the public BMS1 PDF with printed pagination."
         },
         {
           "sourceId": "bms1-2019",
           "locator": "Lemma 3.26 with proof, p.29",
-          "excerpt": "Assume that R is coherent and I is a finitely presented R-module. Then S is coherent.",
           "match": "Square-zero extension step in both cases of Proposition 3.24. Matched against the public BMS1 PDF with printed pagination."
         },
         {
           "sourceId": "bms1-2019",
           "locator": "Lemmas 3.27–3.28 with proofs, pp.29–30",
-          "excerpt": "Then R is coherent if R[f −1 ] and R/f are coherent.",
           "match": "Artin–Rees reduction for the characteristic-0 case. Matched against the public BMS1 PDF with printed pagination."
         },
         {
           "sourceId": "bms1-2019",
           "locator": "Corollary 3.29 with proof, p.30",
-          "excerpt": "there are no non-zero elements of M which are killed by Wr (m)",
           "match": "Recorded consequence of coherence; not used in the CP.5 chain. Matched against the public BMS1 PDF with printed pagination."
         }
       ],
@@ -5035,25 +4947,21 @@
         {
           "sourceId": "bms1-2019",
           "locator": "Proposition 13.21 statement, p.116",
-          "excerpt": "Fix a section k → O/p. Then there is a canonical ϕ-equivariant isomorphism Hcrys (Y /Acrys )[1/p] ≅ Hcrys (Ȳ /W (k)) ⊗W (k) Acrys [1/p].",
           "match": "Statement with its section dependence and finite-freeness consequence. Matched against the public BMS1 PDF with printed pagination."
         },
         {
           "sourceId": "bms1-2019",
           "locator": "Proposition 13.21 proof, p.116",
-          "excerpt": "Base change for crystalline cohomology implies the result.",
           "match": "The crystalline base-change import. Matched against the public BMS1 PDF with printed pagination."
         },
         {
           "sourceId": "bms1-2019",
           "locator": "Remark 13.22, p.116(PDF p.116 checked for the overline)",
-          "excerpt": "The choice of section k → O/p in Proposition 13.21 is unique in the important special case when k = F̄p .",
           "match": "Limits of canonicity; k is the (algebraically closed) residue field of O_C. Matched against the public BMS1 PDF with printed pagination."
         },
         {
           "sourceId": "bms1-2019",
           "locator": "Theorem 14.6 proof, p.122",
-          "excerpt": "Note that in this situation, there is a canonical section k → O/p → OC /p, so part (i) follows from Theorem 14.5 (i) and Proposition 13.21.",
           "match": "The canonical section used in the DVR descent. Matched against the public BMS1 PDF with printed pagination."
         }
       ],
@@ -5084,13 +4992,11 @@
         {
           "sourceId": "bms1-2019",
           "locator": "Lemma 4.9 statement p.35, proof p.36",
-          "excerpt": "Moreover, if M has no x-torsion, then Tori (M, W (k)) = 0 for i > 0.",
           "match": "The Tor-vanishing under x-torsion-freeness that Lemma 4.16 and Corollary 4.17 turn into the adjacent-degree condition. Matched against the public BMS1 PDF with printed pagination."
         },
         {
           "sourceId": "bms1-2019",
           "locator": "Lemma 4.9 proof, p.36",
-          "excerpt": "since Wn (O♭ ) is coherent, pM ⊂ M is finitely presented over Wn (O♭ )",
           "match": "The §3 coherence import inside the perfectness induction. Matched against the public BMS1 PDF with printed pagination."
         }
       ],
@@ -5121,19 +5027,16 @@
         {
           "sourceId": "bms1-2019",
           "locator": "Proposition 4.13 with proof, p.37",
-          "excerpt": "Moreover, M is a finite free Ainf -module if either M ⊗Ainf W (k) is p-torsion-free, or if K has characteristic zero and M ⊗Ainf O is p-torsion-free.",
           "match": "The freeness criterion consumed by Corollaries 4.17/4.20 and Lemma 4.18. Matched against the public BMS1 PDF with printed pagination."
         },
         {
           "sourceId": "bms1-2019",
           "locator": "Lemma 4.6 with proof and Lemmas 4.7–4.8, pp.34–35",
-          "excerpt": "restriction induces an equivalence of categories between vector bundles on Spec(Ainf ) and vector bundles on U . In particular, all vector bundles on U are free.",
           "match": "Kedlaya's extension theorem used to produce M_free. Matched against the public BMS1 PDF with printed pagination."
         },
         {
           "sourceId": "bms1-2019",
           "locator": "Lemma 4.10 with proof and Corollary 4.12 with proof, pp.36–37",
-          "excerpt": "Let N be a finite projective Ainf [1/p]-module. Then N is free.",
           "match": "Justifies 'equivalently free'; reused in Lemma 4.19. Matched against the public BMS1 PDF with printed pagination."
         }
       ],
@@ -5162,13 +5065,11 @@
         {
           "sourceId": "bms1-2019",
           "locator": "Lemma 4.14 with proof, pp.37–38",
-          "excerpt": "ℓ(Mη ) = ℓ(Ms ) − ℓ(Tor1 (M, Wn (k))).",
           "match": "The precise defect formula behind the inequality ℓ(M_η) ≤ ℓ(M_s). Matched against the public BMS1 PDF with printed pagination."
         },
         {
           "sourceId": "bms1-2019",
           "locator": "Lemma 4.14 proof, p.38",
-          "excerpt": "By the classification of finitely presented modules over valuation rings, we may assume M = O♭ or M = O♭ /(xr )",
           "match": "Locates the external commutative-algebra import at the base case. Matched against the public BMS1 PDF with printed pagination."
         }
       ],
@@ -5195,7 +5096,6 @@
         {
           "sourceId": "bms1-2019",
           "locator": "Corollary 4.15 with proof, p.38",
-          "excerpt": "For all n ≥ 1, ℓ(M2 /pn ) ≥ ℓ(M1 /pn ).",
           "match": "The inequality between the W(k)- and W(K♭)-specializations, 'crucial to our eventual applications' per the §4 introduction (p.31). Matched against the public BMS1 PDF with printed pagination."
         }
       ],
@@ -5226,13 +5126,11 @@
         {
           "sourceId": "bms1-2019",
           "locator": "Lemma 4.16 with proof, p.38",
-          "excerpt": "the natural map H i (C) ⊗Ainf W (k) → H i (C ⊗LAinf W (k)) is injective, and bijective after inverting p. Furthermore, if H i+1 (C) has no x-torsion, then this map is bijective.",
           "match": "Exact adjacent-degree hypothesis: x-torsion-freeness of H^{i+1}(C). Matched against the public BMS1 PDF with printed pagination."
         },
         {
           "sourceId": "bms1-2019",
           "locator": "Lemma 4.16 proof, p.38",
-          "excerpt": "the obstruction to surjectivity is the boundary map H i (C ⊗LAinf W (k)) → H i+1 (C ⊗LAinf Q)",
           "match": "The boundary-map argument for surjectivity of d and the reduction of surjectivity of c to that of b. Matched against the public BMS1 PDF with printed pagination."
         }
       ],
@@ -5262,7 +5160,6 @@
         {
           "sourceId": "bms1-2019",
           "locator": "Corollary 4.17 with proof, p.39",
-          "excerpt": "If moreover H i+1 (C) ⊗Ainf W (k) is p-torsion-free (e.g., by Lemma 4.16, this happens if H i+1 (C ⊗LAinf W (k)) is p-torsion-free), then H i (C) ⊗Ainf W (k) = H i (C ⊗LAinf W (k)) .",
           "match": "The exact two-degree hypothesis for the degreewise identification. Matched against the public BMS1 PDF with printed pagination."
         }
       ],
@@ -5292,19 +5189,16 @@
         {
           "sourceId": "bms1-2019",
           "locator": "Lemma 4.19 with proof, pp.39–40",
-          "excerpt": "By the Beauville–Laszlo lemma, [4], and Corollary 4.12, it is enough to check that N [1/µ] is finite projective over R[1/µ], that N ⊗R R̂ is finite projective over R̂, and that N has no µ-torsion.",
           "match": "The three conditions checked and the external import. Matched against the public BMS1 PDF with printed pagination."
         },
         {
           "sourceId": "bms1-2019",
           "locator": "Corollary 4.20 with proof, p.40",
-          "excerpt": "We only need to prove that H j (C)[1/p] is finite free over Ainf [1/p]; the rest is Corollary 4.17.",
           "match": "Corollary 4.20 adds only rational freeness to Corollary 4.17. Matched against the public BMS1 PDF with printed pagination."
         },
         {
           "sourceId": "bms1-2019",
           "locator": "Theorem 14.3 proof, p.120",
-          "excerpt": "It follows that all cohomology groups are finite free after inverting p by Corollary 4.20 and comparisons (iii) and (iv), using also Proposition 13.21.",
           "match": "How the criterion is instantiated on RΓ_Ainf(X). Matched against the public BMS1 PDF with printed pagination."
         }
       ],
@@ -5332,7 +5226,6 @@
         {
           "sourceId": "bms1-2019",
           "locator": "Theorem 14.5(ii) proof, p.121",
-          "excerpt": "for any injective map M ֒→ N of finitely generated W (k)-modules with torsion cokernel Q, lengthW (k) (N/pn ) ≥ lengthW (k) (M/pn )",
           "match": "The inline observation and its Tor exact sequence. Matched against the public BMS1 PDF with printed pagination."
         }
       ],

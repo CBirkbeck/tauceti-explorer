@@ -923,7 +923,6 @@
     {
      "sourceId": "STACKS.WEIL",
      "locator": "Section 0FFZ, the displayed definition opening the section",
-     "excerpt": "We define the Q-vector space of correspondences of degree r from X to Y by the formula Corr^r(X, Y) = direct sum over d of CH^{d+r}(X_d times Y) tensor Q, contained in CH^*(X times Y) tensor Q.",
      "match": "The node is that formula, with the decomposition of X into equidimensional parts spelled out as a hypothesis rather than left to the notation."
     }
    ],
@@ -1034,7 +1033,6 @@
     {
      "sourceId": "STACKS.WEIL",
      "locator": "Section 0FFZ, the two displayed formulas after the definition of Corr^r(X, Y)",
-     "excerpt": "Given c in Corr^r(X, Y) and b in CH_j(Y) tensor Q we can define the pullback of b by c using the formula c^*(b) = pr_{1,*}(c . pr_2^*b) in CH_{j-r}(X) tensor Q. Similarly, switching to grading by codimension, given a in CH^i(X) tensor Q, c_*(a) = pr_{2,*}(c . pr_1^*a) in CH^{i+r}(Y) tensor Q.",
      "match": "The node is those two formulas together with the dimension bookkeeping the source gives immediately after each, which is what fixes the target degrees."
     }
    ],
@@ -1128,7 +1126,6 @@
     {
      "sourceId": "STACKS.WEIL",
      "locator": "Section 0FFZ, the display defining the composition of correspondences",
-     "excerpt": "We define a composition of correspondences Corr^s(Y, Z) times Corr^r(X, Y) to Corr^{r+s}(X, Z) by the rule (c', c) maps to c' composed with c = pr_{13,*}(pr_{12}^*c . pr_{23}^*c').",
      "match": "The node is that display, with the flatness and properness of the three projections written out as the hypotheses the pullbacks and the pushforward need."
     }
    ],
@@ -1218,7 +1215,6 @@
     {
      "sourceId": "STACKS.WEIL",
      "locator": "Lemma 0FG0, part (1), with the proof of associativity",
-     "excerpt": "We have the following for correspondences: (1) composition of correspondences is Q-bilinear and associative, [...] Bilinearity follows immediately from the linearity of pushforward and pullback and the bilinearity of the intersection product.",
      "match": "The node is part (1) of the lemma with the source's five-step proof of associativity; parts (2) to (4) are separate nodes."
     }
    ],
@@ -1255,7 +1251,6 @@
     {
      "sourceId": "STACKS.WEIL",
      "locator": "Example 0FG1",
-     "excerpt": "Let f : Y to X be a morphism of smooth projective schemes over k. Denote Gamma_f in X times Y the graph of f. [...] Then Gamma_f intersected with X_d times Y has pure codimension d. Hence [Gamma_f] [...] is contained in Corr^0(X times Y), i.e., [Gamma_f] is a correspondence of degree 0 from X to Y.",
      "match": "The node is that example, with the codimension computation made a proof step. The source's 'Corr^0(X times Y)' is a misprint for Corr^0(X, Y) (sourceIssues MotivesAndAlgebraicCycles/E6); the node uses the corrected group."
     }
    ],
@@ -1349,7 +1344,6 @@
     {
      "sourceId": "STACKS.WEIL",
      "locator": "Lemma 0FG2 with its proof",
-     "excerpt": "Smooth projective schemes over k with correspondences and composition of correspondences as defined above form a graded category over Q [...]. Everything is clear from the construction and Lemma 0FG0 except for the existence of identity morphisms.",
      "match": "The node is the lemma, with the source's proof of the identity axiom turned into the proof steps, including the reduction to integral X and Y and the proper intersection input the source cites (Stacks 0FFD)."
     }
    ],
@@ -1443,7 +1437,6 @@
     {
      "sourceId": "STACKS.WEIL",
      "locator": "Lemma 0FG3 with its proof",
-     "excerpt": "There is a contravariant functor from the category of smooth projective schemes over k to the category of correspondences which is the identity on objects and sends f : Y to X to the element the class of Gamma_f in Corr^0(X, Y).",
      "match": "The node is the lemma, with the source's proof of functoriality on composites written out in the four steps, including the identification of the scheme theoretic intersection the source performs."
     }
    ],
@@ -1481,7 +1474,6 @@
     {
      "sourceId": "STACKS.WEIL",
      "locator": "Remark 0FG4",
-     "excerpt": "Assume X is equidimensional of dimension d and Y is equidimensional of dimension e. Then the isomorphism X times Y to Y times X switching the factors determines an isomorphism Corr^r(X, Y) to Corr^{d-e+r}(Y, X), c maps to c^t called the transpose. It acts on cycles as well as cycle classes.",
      "match": "The node is that remark, with the equidimensionality made an explicit hypothesis since the degree shift is stated only under it."
     }
    ],
@@ -1572,7 +1564,6 @@
     {
      "sourceId": "STACKS.WEIL",
      "locator": "Lemma 0FG5 with its proof",
-     "excerpt": "(1) pushforward of cycles by the correspondence [Gamma_f] agrees with the Gysin map f^! : CH^*(X) to CH^*(Y), (2) pullback of cycles by the correspondence [Gamma_f] agrees with the pushforward map f_* : CH_*(Y) to CH_*(X), (3) if X and Y are equidimensional of dimensions d and e, then [...]",
      "match": "The node is the lemma with all four assertions, proved simultaneously by the same computation; the proof steps follow the source's computation (source issues E4 and E5 are in this proof)."
     }
    ],
@@ -1617,7 +1608,6 @@
     {
      "sourceId": "STACKS.WEIL",
      "locator": "Section 0FFZ, the paragraph after Example 0FG6, and Lemma 0FG7",
-     "excerpt": "The category of correspondences is a symmetric monoidal category. [...] we define a tensor product [...] by the rule (c, c') maps to c tensor c' = pr_{13}^*c . pr_{24}^*c' [...]. The commutativity constraint will be given by the isomorphism X times Y to Y times X switching the factors.",
      "match": "The node is that paragraph together with Lemma 0FG7, whose proof the source omits ('Omitted.'); the verification is therefore listed as proof steps of this blueprint and its one non-routine identity is the lemma node MC.0/tensor-interchange."
     }
    ],
@@ -1722,7 +1712,6 @@
     {
      "sourceId": "STACKS.WEIL",
      "locator": "Example 0FG6",
-     "excerpt": "Choose a k-rational point x in X and consider the cycles c_0 = [x times X] and c_2 = [X times x]. A computation shows that 1 = [Delta] = c_0 + c_2 in Corr^0(X, X) and that we have the following rules for composition c_0 o c_0 = c_0, c_0 o c_2 = 0, c_2 o c_0 = 0, and c_2 o c_2 = c_2.",
      "match": "The node is that example, with the computation the source leaves implicit written out as proof steps."
     }
    ],
@@ -1767,7 +1756,6 @@
     {
      "sourceId": "STACKS.WEIL",
      "locator": "Example 0FG6 together with Lemma 0FG0 and Lemma 0FG3",
-     "excerpt": "A computation shows that 1 = [Delta] = c_0 + c_2 in Corr^0(X, X) and that we have the following rules for composition c_0 after c_0 = c_0, c_0 after c_2 = 0, c_2 after c_0 = 0, c_2 after c_2 = c_2.",
      "match": "The node is the same computation with the projective line and its chosen point replaced by a pointed geometrically irreducible curve. Only the first two projectors are claimed to be given by the source's formula; the third is defined as the complement, and the source is cited for the composition rules and for the fact that the diagonal is the identity, which are the two inputs the computation uses. The source does not state the curve case, and the blueprint does not claim it does."
     }
    ],
@@ -1807,13 +1795,11 @@
     {
      "sourceId": "JANNSEN.1992",
      "locator": "page 447, the second paragraph",
-     "excerpt": "Fix a field F of characteristic zero, and an adequate equivalence relation ~ on F-linear algebraic cycles (cf [K2] §1; in short, pull-back, push-forward and intersection of cycles is always (well-)defined modulo ~). For a variety X and an integer j ≥ 0, denote by A^j(X) = A^j(X, F) the group",
      "match": "The node is that paragraph. Jannsen's relation is on cycles and refers to Kleiman for the definition; the node records it through the classes it identifies with zero, which is the form in which the paper uses it (the groups A^j and the composition law on them)."
     },
     {
      "sourceId": "MILNE.MOT",
      "locator": "Section 4 (Algebraic cycles), subsection Definitions, page 5",
-     "excerpt": "Rational equivalence is the finest equivalence relation on algebraic cycles giving a well defined map (2) on equivalence classes and satisfying certain natural conditions. The coarsest such equivalence relation is numerical equivalence",
      "match": "Cited for the two extreme cases. Milne's 'coarsest' is informal; the precise comparison, which must exclude the trivial relation, is in the numerical equivalence node (sourceIssues MotivesAndAlgebraicCycles/E10)."
     }
    ],
@@ -1930,13 +1916,11 @@
     {
      "sourceId": "MILNE.MOT",
      "locator": "Section 4 (Algebraic cycles), subsection Definitions, page 5",
-     "excerpt": "The coarsest such equivalence relation is numerical equivalence: two algebraic cycles γ and γ′ are numerically equivalent if γ · δ = γ′ · δ for all algebraic cycles δ of complementary dimension for which the intersection numbers are defined.",
      "match": "The node is that definition, stated on Chow groups with F-coefficients; Milne's next sentence, that the classes form a ring which is a quotient of the Chow ring, is the ring structure."
     },
     {
      "sourceId": "JANNSEN.1992",
      "locator": "page 448, first sentence of the proof of Theorem 1",
-     "excerpt": "Recall that, obviously, numerical equivalence is the coarsest adequate equivalence relation.",
      "match": "Cited with a correction: the statement fails for the trivial relation (sourceIssues MotivesAndAlgebraicCycles/E10); the node proves the corrected comparison."
     }
    ],
@@ -2057,13 +2041,11 @@
     {
      "sourceId": "JANNSEN.1992",
      "locator": "page 448, the proof of the implication c) -> b) of Theorem 1",
-     "excerpt": "Let ~ be numerical equivalence, and fix a Weil cohomology X ↦ H(X), for example the one given by the étale cohomology groups H^i(X ×_k k_s, Q_l), where k_s is a separable closure of k [...]. Denote the corresponding homological equivalence by ~', and the cycle groups modulo ~' by B^j(X).",
      "match": "The node is the notion Jannsen introduces there, over an algebraically closed base field; Jannsen's own use is over an arbitrary field through k_s, which is the gap recorded for this node."
     },
     {
      "sourceId": "MILNE.MOT",
      "locator": "Section 6 (What is known about the categories of motives), page 8",
-     "excerpt": "Conjecture D. If an algebraic cycle is numerically equivalent to zero, then its cohomology class is zero.",
      "match": "Cited for the direction that is open: only one of the two implications between homological and numerical equivalence is a theorem."
     }
    ],
@@ -2155,13 +2137,11 @@
     {
      "sourceId": "STACKS.WEIL",
      "locator": "Section 0FG9, the definition of a motive and of a morphism of motives",
-     "excerpt": "A motive or a Chow motive over k will be a triple (X, p, m) where (1) X is a smooth projective scheme over k, (2) p in Corr^0(X, X) satisfies p o p = p, (3) m in Z. [...] Hom((X, p, m), (Y, q, n)) = q o Corr^{n-m}(X, Y) o p, contained in Corr^{n-m}(X, Y)",
      "match": "The node is that definition, with the closure of the cut under composition made a proof step and the identification with the Karoubi envelope of the category of pairs (X, m) recorded."
     },
     {
      "sourceId": "JANNSEN.1992",
      "locator": "page 447, the definition of M_k",
-     "excerpt": "Objects of M_k are triples (X, p, m), where X is a variety, p in A^{dim X}(X times X) is a projector, and m is an integer. The morphism sets are defined by putting Hom((X, p, m), (Y, q, n)) = q A^{dim(X)-m+n}(X times Y) p.",
      "match": "Cited for the same definition with an arbitrary adequate equivalence relation in place of rational equivalence, which is the form the semisimplicity layer uses; the two agree when the relation is rational equivalence."
     }
    ],
@@ -2268,7 +2248,6 @@
     {
      "sourceId": "STACKS.WEIL",
      "locator": "Lemma 0FGA with its proof",
-     "excerpt": "The category M_k whose objects are motives over k and morphisms are morphisms of motives over k is a Q-linear category.",
      "match": "The node is the first assertion of that lemma; the second, the functor h, is the next node."
     }
    ],
@@ -2364,7 +2343,6 @@
     {
      "sourceId": "STACKS.WEIL",
      "locator": "Lemma 0FGA, second assertion, with the section's opening paragraph",
-     "excerpt": "There is a contravariant functor h : {smooth projective schemes over k} to M_k defined by h(X) = (X, 1, 0) and h(f) = [Gamma_f]. [...] a contravariant functor h which maps products to tensor products and disjoint unions to direct sums.",
      "match": "The node is that functor together with the two structural properties the section's opening paragraph states for it."
     }
    ],
@@ -2465,7 +2443,6 @@
     {
      "sourceId": "STACKS.WEIL",
      "locator": "Lemma 0FGB with its proof",
-     "excerpt": "The category M_k is Karoubian. Let M = (X, p, m) be a motive and let a be a projector in the endomorphisms of M. Set N = (X, a, m). Since we have a = p after a after a in Corr^0(X, X) we see that a : N to M is a morphism of M_k.",
      "match": "The node is that lemma with the source's proof written out; the universal property of the kernel is spelled out as the third proof step."
     }
    ],
@@ -2509,7 +2486,6 @@
     {
      "sourceId": "STACKS.WEIL",
      "locator": "Section 0FG9, the paragraph defining the tensor functor, and Lemma 0FGC",
-     "excerpt": "On objects we use the formula (X, p, m) tensor (Y, q, n) = (X times Y, p tensor q, m + n). The category M_k with tensor product defined as above is symmetric monoidal with the obvious associativity and commutativity constraints and with unit 1 = (Spec(k), 1, 0).",
      "match": "The node is that construction and lemma; the source omits the details of the verification, so the checks are listed as proof steps of this blueprint."
     }
    ],
@@ -2607,7 +2583,6 @@
     {
      "sourceId": "STACKS.WEIL",
      "locator": "Section 0FG9, the paragraph following Lemma 0FGC",
-     "excerpt": "The motives 1(n) = (Spec(k), 1, n) are useful. Observe that 1 = 1(0) and 1(n + m) = 1(n) tensor 1(m). Thus tensoring with 1(1) is an autoequivalence of the category of motives. Given a motive M we sometimes write M(n) = M tensor 1(n). Observe that if M = (X, p, m), then M(n) = (X, p, m + n).",
      "match": "The node is that paragraph verbatim."
     }
    ],
@@ -2710,7 +2685,6 @@
     {
      "sourceId": "STACKS.WEIL",
      "locator": "Lemma 0FGD with its proof, and Remark 0FGE",
-     "excerpt": "(1) the motive (X, c_0, 0) is isomorphic to the motive 1 = (Spec(k), 1, 0). (2) the motive (X, c_2, 0) is isomorphic to the motive 1(-1) = (Spec(k), 1, -1). [...] the Lefschetz motive is isomorphic to 1(-1). Hence the Lefschetz motive is invertible",
      "match": "The node is that lemma and remark, with the source's two computations kept as separate proof steps because they fix the sign of the twist. The proof's 'a' = a' o b o a'' is a misprint for a' o b' o a' (sourceIssues MotivesAndAlgebraicCycles/E7)."
     }
    ],
@@ -2752,7 +2726,6 @@
     {
      "sourceId": "STACKS.WEIL",
      "locator": "Lemma 0FGF with its proof",
-     "excerpt": "The category M_k is additive. [...] If n = m, then a direct sum is given by (Y coproduct Z, p + q, m), with obvious notation. Details omitted. Suppose that n < m. [...] This reduces us to the case discussed in the first paragraph.",
      "match": "The node is that lemma with the source's reduction written out; the 'obvious notation' is MC.0/correspondences-of-disjoint-union."
     }
    ],
@@ -2790,7 +2763,6 @@
     {
      "sourceId": "STACKS.WEIL",
      "locator": "Lemma 0FGG",
-     "excerpt": "In M_k we have h(P^1_k) isomorphic to 1 plus 1(-1). This follows from Example 0FG6 and Lemma 0FGD.",
      "match": "The node is that lemma with the two ingredients of its one-line proof made prerequisites."
     }
    ],
@@ -2836,7 +2808,6 @@
     {
      "sourceId": "STACKS.WEIL",
      "locator": "Lemma 0FGH with its proof",
-     "excerpt": "Let C be a Q-linear Karoubian symmetric monoidal category. Any Q-linear functor F [...] to C of symmetric monoidal categories such that the image of F(c_2) on F(X) is an invertible object, factors uniquely through a functor F : M_k to C of symmetric monoidal categories.",
      "match": "The node is that lemma; the source omits the verification that the extension is a symmetric monoidal functor ('We omit the verification'), so that verification is a proof step of this blueprint."
     }
    ],
@@ -2878,7 +2849,6 @@
     {
      "sourceId": "STACKS.WEIL",
      "locator": "Lemma 0FGI with its proof",
-     "excerpt": "Let X be a smooth projective scheme over k which is equidimensional of dimension d. Then h(X)(d) is a left dual to h(X) in M_k. [...] Here we have eta = [Delta]. [...] and here we have the class epsilon = [Delta] of the diagonal as well.",
      "match": "The node is that lemma with its zig-zag computation on the fourfold and fivefold products; 'left dual' in the source's sense (Categories 0FFP) is an exact pairing (h(X), h(X)(d)) in Mathlib's sense."
     }
    ],
@@ -2926,7 +2896,6 @@
     {
      "sourceId": "STACKS.WEIL",
      "locator": "Lemma 0FGJ with its proof",
-     "excerpt": "Every object of M_k has a left dual. [...] Then M is a summand of (X, 1, m) = h(X)(m). [...] By construction 1(-m) is a left dual of 1(m). Hence it suffices to show that h(X) has a left dual [...]. Then h(X) = direct sum of h(X_i)",
      "match": "The node is that lemma with its reduction steps kept separate; each categorical input the source cites (Homology 0FFU, Categories 0FFS, Homology 0FFT) is a prerequisite."
     }
    ],
@@ -2969,7 +2938,6 @@
     {
      "sourceId": "STACKS.WEIL",
      "locator": "Definition 0FGL and the paragraph after it",
-     "excerpt": "Let M = (X, p, m) be a Chow motive over k. For i in Z we define the i-th Chow group of M by the formula CH^i(M) = p(CH^{i+m}(X) tensor Q). We have CH^i(h(X)) = CH^i(X) tensor Q if X is a smooth projective scheme over k. Observe that CH^i(-) is a functor from M_k to Q-vector spaces.",
      "match": "The node is that definition with the functoriality the source establishes in the following paragraph."
     }
    ],
@@ -3063,7 +3031,6 @@
     {
      "sourceId": "STACKS.WEIL",
      "locator": "Lemma 0FGM",
-     "excerpt": "The functor CH^i(-) on the category of motives M_k is representable by 1(-i), that is, we have CH^i(M) = Hom_{M_k}(1(-i), M) functorially in M in M_k. Immediate from the definitions and Lemma 0FG0.",
      "match": "The node is that lemma, with the unfolding the source calls immediate written out as four proof steps."
     }
    ],
@@ -3105,7 +3072,6 @@
     {
      "sourceId": "STACKS.WEIL",
      "locator": "Lemma 0FGN with its proof",
-     "excerpt": "Let c : M to N be a morphism of motives. If for every smooth projective scheme X over k the map c tensor 1 : M tensor h(X) to N tensor h(X) induces an isomorphism on Chow groups, then c is an isomorphism.",
      "match": "The node is that lemma, attributed to Manin in the source, with its four proof steps kept separate; the third uses that every object has a left dual, which is why rigidity is a prerequisite."
     }
    ],
@@ -3151,7 +3117,6 @@
     {
      "sourceId": "STACKS.WEIL",
      "locator": "Lemma 0FGQ with its proof, and the paragraph of Section 0FGP defining the correspondences c_i",
-     "excerpt": "the map sum over i = 0, ..., r - 1 of c_i : direct sum of h(X)(-i) to h(P) is an isomorphism in the category of motives. [...] By Lemma 0FGN it suffices to show that our map defines an isomorphism on Chow groups of motives after taking the product with any smooth projective scheme Z.",
      "match": "The node is that lemma with the definition of the c_i from the preceding paragraph, including the normalisation p_*(O_P(1)) = E, which the source fixes explicitly."
     }
    ],
@@ -3191,7 +3156,6 @@
     {
      "sourceId": "STACKS.WEIL",
      "locator": "Lemma 0FGR with its proof",
-     "excerpt": "The class of the diagonal of P in CH^*(P times P) can be written as the cap of the sum over i of (r - 1 choose i) c_{r-1-i}(pr_1^* S dual) with c_1(pr_2^* O_P(1))^i, applied to (p times p)^*[Delta_X], where S is the kernel of the canonical surjection p^* E to O_P(1).",
      "match": "The node is that lemma with the coefficients corrected to 1 (sourceIssues MotivesAndAlgebraicCycles/E9): the source's proof ends by citing Stacks 02UD, whose top-degree case has all coefficients binom(j, j) = 1."
     }
    ],
@@ -3238,7 +3202,6 @@
     {
      "sourceId": "JANNSEN.1992",
      "locator": "page 448, the sentence after the Remark, and page 450, the proof of Corollary 2",
-     "excerpt": "M_k is an F-linear, pseudo-abelian category, cf. [K2] Sect. 5. [...] Moreover, M_k is rigid ([DM] 1.7), with the internal Hom in the case of an irreducible X defined by Hom((X, p, m), (Y, q, n)) = (X times Y, ^tp times q, dim(X) - m + n).",
      "match": "The node is that construction, taken from the two places in the source where it is set up and then recalled with its tensor structure and internal Hom."
     }
    ],
@@ -3348,7 +3311,6 @@
     {
      "sourceId": "STACKS.WEIL",
      "locator": "Section 0FGS, the list of data (D1), (D2), (D3) with the remarks following it",
-     "excerpt": "The data is given by: (D1) A contravariant functor H^* from the category of smooth projective varieties to the category of graded commutative F-algebras. (D2) For every smooth projective variety X a group homomorphism gamma from CH^i(X) to H^{2i}(X). (D3) For every smooth projective variety X of dimension d a map the integral over X from H^{2d}(X) to F.",
      "match": "The node is that list together with the source's remarks naming pullback, the cycle class map and the trace map, and flagging the ambiguity of the cycle class notation."
     }
    ],
@@ -3477,7 +3439,6 @@
     {
      "sourceId": "STACKS.WEIL",
      "locator": "Definition 0FGV together with the statements of axioms (A), (B) and (C) in Section 0FGS, and Remark 0FGU",
-     "excerpt": "A classical Weil cohomology theory over k with coefficients in F is given by data (D1), (D2), and (D3) satisfying Poincare duality, the Kuenneth formula, and compatibility with cycle classes, more precisely, satisfying (A), (B), and (C).",
      "match": "The node is that definition with the three axioms written out from the same section, and the remark that (C)(c) is equivalent to compatibility with exterior products recorded as an acceptance point."
     }
    ],
@@ -3620,7 +3581,6 @@
     {
      "sourceId": "STACKS.WEIL",
      "locator": "Section 0FGS, the paragraph defining f_* after axiom (A), and Lemma 0FGT with its proof",
-     "excerpt": "Using Poincare duality we can define a pushforward f_* from H^{2d-i}(X) to H^{2e-i}(Y) as the contragredient of f^*. For a in H^{2d-i}(X), the element f_*a is characterised by: the integral over X of f^*b cup a equals the integral over Y of b cup f_*a. Assume given (D1) and (D3) satisfying (A). Then f_*(f^*b cup a) = b cup f_*a, and g_* after f_* = (g after f)_*.",
      "match": "The node is that construction and lemma, with the source's two short proofs kept as proof steps."
     }
    ],
@@ -3725,7 +3685,6 @@
     {
      "sourceId": "STACKS.WEIL",
      "locator": "Lemma 0FGW",
-     "excerpt": "Let H^* be a classical Weil cohomology theory. Let X be a smooth projective variety of dimension d. The diagram with CH^d(X) to H^{2d}(X) by gamma, CH^d(X) equal to CH_0(X), the trace from H^{2d}(X) to F and the degree from CH_0(X) to Z commutes, where the degree is the degree of zero cycles.",
      "match": "The node is that lemma, with the reduction to the class of a closed point made explicit as the first proof step."
     }
    ],
@@ -3763,7 +3722,6 @@
     {
      "sourceId": "STACKS.WEIL",
      "locator": "Lemma 0FGX with its proof (Section 0FGS)",
-     "excerpt": "Let X and Y be smooth projective varieties. Then ∫_{X × Y} = ∫_X ⊗ ∫_Y. ... By Lemma 0FGW this 1-dimensional vector space generated by the class γ([x × y]) of a closed point (x, y) and ∫_{X × Y} γ([x × y]) = 1.",
      "match": "The node is Lemma 0FGX with its proof; Lemma 0FGY, formerly bundled here, is MC.2/pushforward-along-projection."
     }
    ],
@@ -3803,7 +3761,6 @@
     {
      "sourceId": "STACKS.WEIL",
      "locator": "Lemma 0FGZ",
-     "excerpt": "Let X be a smooth projective variety of dimension d. Choose a basis e_{i,j} of H^i(X) over F. Using Kuenneth write gamma([Delta]) as the sum over i and j of e_{i,j} tensor e'_{2d-i,j} with e'_{2d-i,j} in H^{2d-i}(X). Then the integral over X of e_{i,j} cup e'_{2d-i,j'} is minus one to the i times the Kronecker delta of j and j'.",
      "match": "The node is that lemma verbatim, with the sign retained."
     }
    ],
@@ -3846,7 +3803,6 @@
     {
      "sourceId": "STACKS.WEIL",
      "locator": "Lemma 0FH0",
-     "excerpt": "Let X be a smooth projective variety. We have the sum over i from 0 to 2 dim(X) of minus one to the i times dim_F H^i(X) equals deg([Delta] . [Delta]) equals deg(c_d(T_X) cap [X]).",
      "match": "The node is that lemma, with the consequence that the Euler characteristic does not depend on the theory recorded as an acceptance point."
     }
    ],
@@ -3900,13 +3856,11 @@
     {
      "sourceId": "STACKS.WEIL",
      "locator": "Lemma 0FH1",
-     "excerpt": "Consider a Q-linear functor G : M_k → graded F-vector spaces of symmetric monoidal categories such that G(1(1)) is nonzero only in degree −2. Then we obtain data (D1), (D2), (D3) satisfying all of (A), (B), (C) except for possibly (A)(c) and (A)(d).",
      "match": "The node is that lemma, with the two axioms that are not obtained named in the statement, as the source does."
     },
     {
      "sourceId": "STACKS.WEIL",
      "locator": "Lemma 0FH1, proof, second paragraph",
-     "excerpt": "By assumption we only get something nonzero in degree −2 and we may choose an isomorphism F[2] → G(1(1)) of graded F-vector spaces. Here and below F[n] means the graded F-vector space which has F in degree −n and zero elsewhere.",
      "match": "Cited for the choice of normalisation and the shift convention, both now in the statement. The same proof prints F[−2d] twice where F[2d] is meant (source issue E12)."
     }
    ],
@@ -3956,7 +3910,6 @@
     {
      "sourceId": "STACKS.WEIL",
      "locator": "Lemma 0FH2",
-     "excerpt": "Let H^* be a classical Weil cohomology theory. Then we can construct a Q-linear functor G from M_k to graded F-vector spaces of symmetric monoidal categories such that H^*(X) = G(h(X)).",
      "match": "The node is that lemma; the construction of the functor on correspondences and the verification that the image of c_2 is invertible are written out as proof steps because the extension to motives is what the universal property needs."
     }
    ],
@@ -3998,7 +3951,6 @@
     {
      "sourceId": "STACKS.WEIL",
      "locator": "Proposition 0FH3",
-     "excerpt": "A classical Weil cohomology theory is the same thing as a Q-linear functor G from M_k to graded F-vector spaces of symmetric monoidal categories together with an isomorphism F[2] to G(1(1)) of graded F-vector spaces such that in addition (1) G(h(X)) lives in nonnegative degrees, and (2) dim_F G^0(h(X)) = 1 for any smooth projective variety X.",
      "match": "The node is that proposition, with the two extra conditions kept in the statement and identified in the proof steps with the two axioms the functorial description does not otherwise give."
     }
    ],
@@ -4036,7 +3988,6 @@
     {
      "sourceId": "STACKS.WEIL",
      "locator": "Lemma 0FH6 with its proof (Section 0FH4)",
-     "excerpt": "Let K/k be an algebraic field extension. Let X be a finite type scheme over k. Then CH_i(X_K) = colim CH_i(X_{k'}) where the colimit is over the subextensions K/k'/k with k'/k finite. Proof. This is a special case of Chow Homology, Lemma 0FVQ.",
      "match": "The node is that lemma with its one-line proof."
     }
    ],
@@ -4083,13 +4034,11 @@
     {
      "sourceId": "JANNSEN.1992",
      "locator": "page 448, Lemma 1",
-     "excerpt": "Lemma 1. Let f ↦ ᵗf, B^{dim(X)}(X × X) → B^{dim(X)}(X × X), be the transposition, induced by interchanging the factors of X × X. Then for f, g ∈ B^{dim(X)}(X × X) one has ⟨f · ᵗg⟩ = Σ_{i=0}^{2dim(X)} (−1)^i Tr_i(f ∘ g), where Tr_i(f) is the trace of f acting on H^i(X).",
      "match": "The node is Jannsen's Lemma 1. He calls it well known and cites Kleiman's 1968 article, which was not obtained; the proof steps derive it from the Lefschetz formula of MC.2/lefschetz-trace-formula and an identity of correspondences."
     },
     {
      "sourceId": "STACKS.WEIL",
      "locator": "Lemmas 0FGZ and 0FH0",
-     "excerpt": "Then ∫_X e_{i,j} ∪ e'_{2d−i,j'} = (−1)^i δ_{jj'}. ... We have Σ_{i = 0, ..., 2 dim(X)} (−1)^i dim_F H^i(X) = deg([Δ] · [Δ]) = deg(c_d(T_X) ∩ [X])",
      "match": "Cited for the method: the case f = g = [Δ] is Lemma 0FH0, and the general case goes through MC.2/lefschetz-trace-formula, which uses the basis of Lemma 0FGZ."
     }
    ],
@@ -4139,7 +4088,6 @@
     {
      "sourceId": "JANNSEN.1992",
      "locator": "page 449, Lemma 2 with its proof",
-     "excerpt": "Lemma 2. Let C be an F-linear, pseudo-abelian category such that End(M) is a finite-dimensional, semi-simple F-algebra for every object M of C. Then C is a semi-simple abelian category. Proof. By Wedderburn's theorem, End(M) is a product of full matrix algebras over skewfields.",
      "match": "The node is Jannsen's Lemma 2 with his proof, kept in its steps; the last step is the equivalence with a sum of categories of vector spaces over division rings."
     }
    ],
@@ -4184,7 +4132,6 @@
     {
      "sourceId": "JANNSEN.1992",
      "locator": "page 451, Remark 3",
-     "excerpt": "Then the category C of finitely generated free Q[ε]-modules is a Q-linear pseudo-abelian category with a faithful Q-linear functor into Vec_Q (the forgetful functor), and every indecomposable object of C is simple, but C is not an abelian category. In fact, the endomorphism ε of Q[ε] has no kernel.",
      "match": "The node is that remark; Jannsen adds that the endomorphism ε of Q[ε] has no kernel, that Lemma 2 should replace Lemma 6.6 of Deligne and Milne, which is false, and that the same wrong argument seems to appear in Saavedra Rivano's book."
     }
    ],
@@ -4227,13 +4174,11 @@
     {
      "sourceId": "JANNSEN.1992",
      "locator": "page 448, Theorem 1",
-     "excerpt": "Theorem 1. The following properties are equivalent. a) M_k is a semi-simple abelian category. b) A^{dim(X)}(X × X) is a finite-dimensional, semi-simple F-algebra for every variety X. c) The relation ∼ is numerical equivalence.",
      "match": "The node is that theorem; its three implications are MC.3/semisimple-category-implies-numerical, MC.3/numerical-implies-semisimple-algebras and MC.3/semisimple-algebras-imply-semisimple-category."
     },
     {
      "sourceId": "JANNSEN.1992",
      "locator": "page 447, the opening paragraph",
-     "excerpt": "is a semi-simple abelian category if - and in fact, only if - the relation is numerical equivalence. Contrary to general belief Grothendieck's standard conjectures are not needed for this.",
      "match": "Cited for the unconditionality: an implementation that assumes a standard conjecture has not proved this theorem."
     }
    ],
@@ -4284,7 +4229,6 @@
     {
      "sourceId": "JANNSEN.1992",
      "locator": "page 449, Corollary 1, with its proof on pages 449 to 450",
-     "excerpt": "If, for a variety X, the Künneth components π^j ∈ H^{2dim(X)−j}(X) ⊗ H^j(X) of the diagonal are algebraic (cf. [K1] Sect. 2), then the kernel of the surjective ring homomorphism S : B = A_hom^{dim(X)}(X × X) → A_num^{dim(X)}(X × X) = A is the Jacobson radical of B, and is a nilpotent ideal.",
      "match": "The node is that corollary with its proof, including the comparison of coefficient fields and the source's statement that finite dimensionality over F is open in positive characteristic."
     }
    ],
@@ -4331,13 +4275,11 @@
     {
      "sourceId": "JANNSEN.1992",
      "locator": "page 450, inside the proof of Corollary 2",
-     "excerpt": "under the above normalizations the rank (in the sense of [DM] p. 113) of a motive h(X) = (X, id, 0) can be negative, while in the presence of a fibre functor it should be non-negative, as the dimension of a vector space ... one easily computes rk(h(X)) = ⟨Δ · Δ⟩ for the diagonal",
      "match": "The node is that step of the proof, made a lemma because it is what forces the sign change."
     },
     {
      "sourceId": "MILNE.MOT",
      "locator": "Section 6, 'Is M_num(k) tannakian?'",
-     "excerpt": "For example, if X is a curve of genus g, then Tr(u|hX) = dim H^0 − dim H^1 + dim H^2 = 2 − 2g, which may be negative. This proves that there does not exist an exact faithful tensor functor ω: M_num(k) → Vec_F for any field F.",
      "match": "Milne's version, with the genus formula the node uses."
     }
    ],
@@ -4389,19 +4331,16 @@
     {
      "sourceId": "JANNSEN.1992",
      "locator": "page 450, Corollary 2",
-     "excerpt": "Corollary 2. If the Künneth components of the diagonal (w.r.t. some fixed Weil cohomology X ↦ H(X)) are algebraic for every variety X over k, then the category M_k of motives with respect to numerical equivalence is a semi-simple F-linear Tannakian category",
      "match": "The node is that corollary."
     },
     {
      "sourceId": "JANNSEN.1992",
      "locator": "page 451, proof of Corollary 2, continued",
-     "excerpt": "If we modify the constraints by defining ψ_new = ⊕_{r,s} (−1)^{rs} ψ^{r,s}, then the computation leading to Lemma 1 easily shows rk((X, p, m)) = Σ_{i≥0} dim_A pH^i(X) ≥ 0 for every motive (X, p, m) in M_k. By Deligne's theorem 7.1 in [D], M_k is Tannakian.",
      "match": "The sign change and the rank formula, with the grading printed just before as (X, p, m)^r = (X, pπ^{r+2m}, r), a misprint for twist m (source issue E16)."
     },
     {
      "sourceId": "JANNSEN.1992",
      "locator": "page 451, Remark 2",
-     "excerpt": "Moreover, the result of Corollary 2 holds for every subcategory C of M_k generated (as an abelian tensor category) by 1(1) and a family of varieties (X_i | i ∈ I) such that the Künneth components of the diagonal are algebraic for the X_i.",
      "match": "Recorded as an acceptance point; the abelian-variety case of the remark rests on Lieberman's theorem, cited by Jannsen and not read."
     }
    ],
@@ -4448,13 +4387,11 @@
     {
      "sourceId": "MVW.2006",
      "locator": "Lecture 14, Definition 14.1, second paragraph (p. 109)",
-     "excerpt": "We define DM^eff_gm(k,R) to be the thick subcategory of DM^{eff,-}_Nis(k,R) generated by the motives M(X), where X is smooth over k. Objects in DM^eff_gm(k,R) will be called effective geometric motives.",
      "match": "The definition, literally; the rest of the paragraph (the resolution-dependent consequences) is the node MC.4/geometric-motives-generated-by-smooth-projective."
     },
     {
      "sourceId": "MVW.2006",
      "locator": "Lecture 9, Definition 9.1 (p. 67)",
-     "excerpt": "A full additive subcategory E of D^- is thick if: (1) Let A -> B -> C -> A[1] be a distinguished triangle. Then if two out of A,B,C are in E then so is the third. (2) if A+B is in E then both A and B are in E.",
      "match": "Fixes the meaning of 'thick' used in Definition 14.1: a triangulated subcategory closed under summands, which is Mathlib's triangulated envelope closed under retracts."
     }
    ],
@@ -4592,19 +4529,16 @@
     {
      "sourceId": "MVW.2006",
      "locator": "Lecture 14, paragraph after Definition 14.2 (p. 110)",
-     "excerpt": "The category DM_gm(k,R) of geometric motives is obtained from DM^eff_gm(k,R) by inverting the Tate twist operation M -> M(1) = M tensor^tr_{L,Nis} R(1). From the previous paragraph, it is clear that DM_gm(k,R) is a full tensor triangulated subcategory of DM^-(k,R)",
      "match": "The definition of DM_gm and its relation to DM^-, literally."
     },
     {
      "sourceId": "MVW.2006",
      "locator": "Lecture 14, paragraph after Definition 14.2 (p. 110)",
-     "excerpt": "Thus every object in DM^-(k,R) is isomorphic to M(-n) for some n >= 0 and some M in DM^{eff,-}_Nis(k,R). For any coefficients R, it will follow from 8A.11 and 15.8 below that DM^-(k,R) is always a tensor triangulated category.",
      "match": "The description of the objects and the two inputs of the tensor structure."
     },
     {
      "sourceId": "VOEVODSKY.CANCEL",
      "locator": "Section 4, Corollary 4.10",
-     "excerpt": "Let k be a perfect field. Then for any K, L in DM^eff_-(k) the map Hom(K, L) -> Hom(K(1), L(1)) is a bijection.",
      "match": "The cancellation theorem in the form imported from MotivicEtaleKTheory:M.5a and used for full faithfulness."
     }
    ],
@@ -4725,19 +4659,16 @@
     {
      "sourceId": "MVW.2006",
      "locator": "Lecture 14, Properties 14.5, first item (p. 110)",
-     "excerpt": "By 14.4, we have M(X) = Z_tr(X) = C_*Z_tr(X). By 8.10, we see that M(X) tensor M(Y) = M(X x Y), and 2.24 yields M(X) = M(X x A^1).",
      "match": "Homotopy invariance, literally (with isomorphism signs written as =)."
     },
     {
      "sourceId": "MVW.2006",
      "locator": "Lecture 14, Properties 14.5, Mayer-Vietoris item, display (14.5.1) (p. 110)",
-     "excerpt": "(Mayer-Vietoris) For each open cover {U,V} of a smooth scheme X, proposition 13.15 yields the Mayer-Vietoris triangle in DM^{eff,-}_Nis(k,R): (14.5.1) M(U intersect V) -> M(V)+M(U) -> M(X) -> M(U intersect V)[1].",
      "match": "The triangle, literally."
     },
     {
      "sourceId": "MVW.2006",
      "locator": "Lecture 13, before Proposition 13.15 (p. 103)",
-     "excerpt": "If U = {U1,...,Un} is a Zariski covering of X, we saw in 6.12 that the Cech complex Z_tr(U^): 0 -> Z_tr(U1 intersect ... intersect Un) -> ... -> +_i Z_tr(Ui) -> 0 is a resolution of Z_tr(X) in the etale topology (and the Nisnevich topology).",
      "match": "The exactness from which the triangle in DM follows over any field."
     }
    ],
@@ -4779,19 +4710,16 @@
     {
      "sourceId": "MVW.2006",
      "locator": "Lecture 13, Example 13.17 (p. 103)",
-     "excerpt": "Applying 13.15 to the usual cover of P1 (by P1 - {0} and P1 - {infinity}) allows us to deduce that C_*(Z_tr(P1)/Z) = C_*Z_tr(G_m)[1] = Z(1)[2] for the Zariski topology, because C_*Z_tr(A1)/Z = 0 by 2.24.",
      "match": "The computation for P^1; the middle term should be C_*(Z_tr(G_m)/Z)[1] (MotivesAndAlgebraicCycles/E20)."
     },
     {
      "sourceId": "MVW.2006",
      "locator": "Lecture 15, Corollary 15.5 with the start of its proof (p. 121)",
-     "excerpt": "There is a quasi-isomorphism M(Pn) = C_*Z_tr(Pn) -> Z+Z(1)[2]+...+Z(n)[2n]. PROOF. We proceed by induction, the case n = 1 being 13.17. By exercise 15.4, the map Z_tr(Pn-1) -> Z_tr(Pn) is split injective in DM",
      "match": "The computation for P^n and the structure of its proof."
     },
     {
      "sourceId": "MVW.2006",
      "locator": "Lecture 3, Definition 3.1 (p. 21)",
-     "excerpt": "For every integer q >= 0 the motivic complex Z(q) is defined as the following complex of presheaves with transfers: Z(q) = C_*Z_tr(G_m^{wedge q})[-q].",
      "match": "With Lemma 2.13 this gives M(G_m) = Z + Z(1)[1]."
     }
    ],
@@ -4839,13 +4767,11 @@
     {
      "sourceId": "MVW.2006",
      "locator": "Lecture 15, Theorem 15.15 (p. 124)",
-     "excerpt": "Let X be a smooth scheme over a perfect field and Z a smooth closed subscheme of X of codimension c. Then there is a \"Gysin\" triangle: C_*Z_tr(X - Z) -> C_*Z_tr(X) -> C_*Z_tr(Z)(c)[2c] -> C_*Z_tr(X - Z)[1].",
      "match": "The theorem as the source states it; the node adds the resolution hypothesis its proof uses (E21)."
     },
     {
      "sourceId": "MVW.2006",
      "locator": "Lecture 15, proof of Theorem 15.15 (p. 124)",
-     "excerpt": "We have to show that the Gysin map gamma-bar : C_*(Z_tr(X)/Z_tr(X - Z)) -> C_*Z_tr(Z)(c)[2c] of 15.13 is a quasi-isomorphism. By 12.20 we may assume that X = Y x A^c and Z = Y x 0. But then gamma-bar is the isomorphism of 15.14, tensored with C_*Z_tr(Y).",
      "match": "The proof the node's steps follow."
     }
    ],
@@ -4893,13 +4819,11 @@
     {
      "sourceId": "MVW.2006",
      "locator": "Lecture 20, Proposition 20.14 and Definition 20.15 (p. 170)",
-     "excerpt": "Let L, M, and N be three objects of DM_gm. Then there is a natural isomorphism Hom_gm(L tensor M,N) = Hom_gm(L,M^* tensor N). ... DEFINITION 20.15. If M and N are two objects of DM_gm, we define their internal Hom to be: Hom(M,N) = M^* tensor N.",
      "match": "The adjunction and the internal Hom."
     },
     {
      "sourceId": "MVW.2006",
      "locator": "Lecture 20, before Theorem 20.17 and the theorem (pp. 170-171)",
-     "excerpt": "Recall from [DMOS82, p. 111] that a tensor category A is said to be rigid if it has an internal Hom, bi-distributive for the tensor, and if A -> (A^*)^* is an isomorphism for every A. THEOREM 20.17. The tensor category DM_gm is rigid.",
      "match": "The notion of rigidity and the theorem."
     }
    ],
@@ -4948,19 +4872,16 @@
     {
      "sourceId": "MVW.2006",
      "locator": "Lecture 20, Proposition 20.1 (p. 167)",
-     "excerpt": "Assume that k is a perfect field which admits resolution of singularities. Then Grothendieck's category of effective Chow motives embeds contravariantly into DM^eff_gm(k,Z), ... in the sense that if X and Y are two smooth projective schemes, then Hom_Chow(Y,X) = Hom(M(X),M(Y)).",
      "match": "The proposition, literally; the proof is the chain the node's steps follow, with d = dim Y."
     },
     {
      "sourceId": "MVW.2006",
      "locator": "Lecture 20, introduction and Remark 20.2 (pp. 167-168)",
-     "excerpt": "whose morphisms are given by: Hom_Chow(Y,X) = CH_dimX(X x Y). ... The Lefschetz motive L is mapped to Z(1)[2] by 13.17. So from 16.25 and 20.1 we have the following diagram of fully faithful tensor functors:",
      "match": "The source's convention for Chow^eff and its assertion of the functor."
     },
     {
      "sourceId": "MVW.2006",
      "locator": "Authors' list of corrections, entries for p. 167",
-     "excerpt": "p.167, line 13: HomChow(Y, X) should be CHdim Y (X x Y). p.167, line -5: We set d = dim Y (not dim X)",
      "match": "The correction to the value of d in the proof; list fetched from the Internet Archive copy of the file linked from Weibel's page."
     }
    ],
@@ -5002,19 +4923,16 @@
     {
      "sourceId": "MVW.2006",
      "locator": "Lecture 19, Theorem 19.1 (p. 159)",
-     "excerpt": "Let X be a smooth separated scheme over a perfect field k, then for all n and i >= 0 there is a natural isomorphism: H^{n,i}(X,Z) -> CH^i(X,2i-n).",
      "match": "The theorem, literally."
     },
     {
      "sourceId": "MVW.2006",
      "locator": "Lecture 19, Corollary 19.2 and Vanishing Theorem 19.3 (p. 159)",
-     "excerpt": "Because CH^i(X,0) is the classical Chow group CH^i(X) we obtain: COROLLARY 19.2. H^{2i,i}(X,Z) = CH^i(X). It is clear from definition 17.1 that CH^i(X,m) = 0 for m < 0.",
      "match": "The two consequences."
     },
     {
      "sourceId": "MVW.2006",
      "locator": "Lecture 19, proof of Theorem 19.1 (p. 163)",
-     "excerpt": "Using 19.9 and 19.12, we define the map to be the compositions of isomorphisms: H^{n,i}(X,Z) = H^n(X,Z(i)) -> H^{n-2i}(X,z^i(- x A^i)) = CH^i(X,2i-n).",
      "match": "The proof the node's steps follow."
     }
    ],
@@ -5055,13 +4973,11 @@
     {
      "sourceId": "MVW.2006",
      "locator": "Lecture 13, Theorem 13.26 (p. 106)",
-     "excerpt": "Assume that resolution of singularities holds over k. Let X' -> X be an abstract blow-up with center Z, and set Z' = Z x_X X'. Then there is a distinguished triangle in D^-(Sh_Nis(Cor_k)): C_*Z_tr(Z') -> C_*Z_tr(Z)+C_*Z_tr(X') -> C_*Z_tr(X) -> C_*Z_tr(Z')[1].",
      "match": "The theorem, literally."
     },
     {
      "sourceId": "MVW.2006",
      "locator": "Lecture 13, Theorem 13.25 (p. 105)",
-     "excerpt": "Assume that resolution of singularities holds over a perfect field k. Let F be a Nisnevich sheaf with transfers such that F_cdh = 0. Then the complex C_*(F) is acyclic.",
      "match": "The input the proof reduces to, which needs k perfect."
     }
    ],
@@ -5102,19 +5018,16 @@
     {
      "sourceId": "MVW.2006",
      "locator": "Lecture 16, Definition 16.13 (p. 128)",
-     "excerpt": "For any scheme X of finite type over k, let M^c(X) denote z_equi(X,0), regarded as an object in DM^{eff,-}_Nis(k). By 14.4, M^c(X) = C_*z_equi(X,0) in DM^{eff,-}_Nis(k).",
      "match": "The definition, literally."
     },
     {
      "sourceId": "MVW.2006",
      "locator": "Lecture 16, paragraph after Definition 16.13 (p. 129)",
-     "excerpt": "As pointed out in 16.1, M^c(X) is contravariant in X for etale maps and covariant in X for proper maps. As observed in 16.2, there is a canonical map M(X) -> M^c(X), induced by Z_tr(X) in z_equi(X,0). Moreover, M(X) = M^c(X) if X is proper over k.",
      "match": "The elementary functoriality, literally."
     },
     {
      "sourceId": "MVW.2006",
      "locator": "Lecture 16, Example 16.14 (p. 129)",
-     "excerpt": "We have an isomorphism M^c(A^i) = Z(i)[2i] in DM^{eff,-}_Nis(k). To see this, recall from 16.7 that the Suslin-Friedlander motivic complex Z_SF(i) = C_*z_equi(A^i,0)[-2i] is quasi-isomorphic to Z(i).",
      "match": "The computation and its input, which needs k perfect."
     }
    ],
@@ -5248,13 +5161,11 @@
     {
      "sourceId": "MVW.2006",
      "locator": "Lecture 16, Definition 16.20 (p. 130)",
-     "excerpt": "We define the motivic cohomology with compact supports of X with coefficients in R to be: H^{n,i}_c(X,R) = Hom(M^c(X),R(i)[n]). Dually, we define the (Borel-Moore) motivic homology with compact supports H^BM_{n,i}(X,R) to be H^BM_{n,i}(X,R) = Hom(R(i)[n],M^c(X)).",
      "match": "The two definitions, literally."
     },
     {
      "sourceId": "MVW.2006",
      "locator": "Lecture 16, after Definition 16.20 (p. 130)",
-     "excerpt": "Applying Hom to the triangle in 16.15 yields the expected long exact localization sequences for motivic cohomology and homology with compact supports",
      "match": "The sequences, from the localisation triangle."
     }
    ],
@@ -5363,13 +5274,11 @@
     {
      "sourceId": "HMS.2014",
      "locator": "Appendix B, Definition B.1 (p. 17)",
-     "excerpt": "A small diagram D is a directed graph on a set of vertices such that for every vertex there is a distinguished edge id : v -> v. ... A finite subdiagram of a small diagram D is a diagram containing a finite subset of vertices of D and all edges (in D) between them.",
      "match": "The definition of a diagram, literally."
     },
     {
      "sourceId": "HMS.2014",
      "locator": "Appendix B, Definition B.4 (p. 17)",
-     "excerpt": "A representation T of a diagram D in a category C is a map T of directed graphs from D to D(C) such that id is mapped to id.",
      "match": "The definition of a representation, literally; D(C) is the diagram of C (Example B.3)."
     }
    ],
@@ -5504,13 +5413,11 @@
     {
      "sourceId": "HMS.2014",
      "locator": "Appendix B, Definition B.6 (p. 17)",
-     "excerpt": "Let T be a representation of D in R-Mod. For each finite subdiagram F in D let End(T|F) be the ring of endomorphisms of the functor T|F, more precisely, as End(T|F) := {(e_p) in prod_{p in F} End_R(T(p)) | e_q o T(m) = T(m) o e_p for all p, q in F, m in Mor(p, q)}.",
      "match": "The endomorphism ring, literally."
     },
     {
      "sourceId": "HMS.2014",
      "locator": "Appendix B, Proposition B.7 (p. 17)",
-     "excerpt": "Suppose R is a Dedekind domain or a field and T takes values in R-Proj. Let A(F, T) := Hom_R(End(T|F), R). We set A(T) := colim_F A(F, T). Then C(T) is the category of finitely generated R-modules with an R-linear A(T)-comodule structure.",
      "match": "The coalgebra and its role; the proof is referred to von Wangenheim's thesis."
     }
    ],
@@ -5609,13 +5516,11 @@
     {
      "sourceId": "HMS.2014",
      "locator": "Section 1, notation list (p. 4)",
-     "excerpt": "Let C(D, T) its associated diagram category. It is the universal abelian category together with a functor f_T : C(D, T) -> Q-Mod such that T factors via f_T. ... The category C(D, T) arises as the category of A(T)-comodules finite dimensional over Q for a certain coalgebra A(T).",
      "match": "The comodule description the node takes as the definition."
     },
     {
      "sourceId": "HMS.2014",
      "locator": "Appendix B, Definition B.6 (p. 17)",
-     "excerpt": "Let C(T|F) = End(T|F)-Mod be the category of finitely generated R-modules equipped with an R-linear operation of algebra End(T|F). Finally let C(T) = colim_F C(T|F).",
      "match": "The source's own definition, compared with the comodule description in B.7."
     }
    ],
@@ -5741,19 +5646,16 @@
     {
      "sourceId": "HMS.2014",
      "locator": "Appendix B, Definition B.14 (pp. 20-21)",
-     "excerpt": "A graded diagram is a small diagram D together with a map |.| : {vertices of D} -> Z/2Z. ... A commutative product structure on a graded D is a map of graded diagrams x : D x D -> D together with choices of edges a_{f,g} : f x g -> g x f",
      "match": "The grading and the product structure; conditions (1)-(5) follow in the definition."
     },
     {
      "sourceId": "HMS.2014",
      "locator": "Appendix B, Proposition B.16 (p. 21)",
-     "excerpt": "(1) Then C(T) is a commutative and associative tensor category with unit and T : C(T) -> R-Mod is a tensor functor. (2) If in addition R is a field or a Dedekind domain, the coalgebra A(T) carries a natural structure of commutative bialgebra (with unit and counit).",
      "match": "The two conclusions, literally."
     },
     {
      "sourceId": "HMS.2014",
      "locator": "Appendix B, Remark B.19(2) (p. 24)",
-     "excerpt": "In an earlier version, we had to assume f0 even. We were able to drop the condition by shifting the sign condition in the definition of a multiplicative diagram to the first variable.",
      "match": "Where the sign sits."
     }
    ],
@@ -5875,19 +5777,16 @@
     {
      "sourceId": "HMS.2014",
      "locator": "Appendix B, Definition B.18 (p. 24)",
-     "excerpt": "(1) for every f a vertex of Deff and n in Z a vertex denoted f(n); (2) for every edge a : f -> g in Deff and every n in Z, an edge denoted a(n) : f(n) -> g(n) in D; (3) for every vertex f in Deff and every n in Z an edge denoted c_{f,n} : (f x f0)(n) -> f(n + 1).",
      "match": "The localised diagram, literally (the source writes gamma for c)."
     },
     {
      "sourceId": "HMS.2014",
      "locator": "Appendix B, Assumption B.20 and Lemma B.21 (pp. 24-25)",
-     "excerpt": "Let T be a graded multiplicative unital representation of Deff with values in R-Proj such that T(f0) is locally free of rank 1 as R-module. ... T extends uniquely to a graded multiplicative representation of D such that T(f(n)) = T(f) tensor T(f0)^{tensor n}",
      "match": "The assumption and the extension."
     },
     {
      "sourceId": "HMS.2014",
      "locator": "Appendix B, Proposition B.22 (p. 25)",
-     "excerpt": "(1) C(D, T) is the localization of C(Deff, T) with respect to the object T~(f0). (2) Let chi in End(T(f0))^dual = A({f0}, T) be the dual of id in End(T(f0)). We view it in Aeff. Then A = Aeff_chi (localization of algebras).",
      "match": "The two conclusions, literally."
     }
    ],
@@ -6004,19 +5903,16 @@
     {
      "sourceId": "HMS.2014",
      "locator": "Section 1, Definition 1.1(1) (p. 4)",
-     "excerpt": "The diagram Deff of effective pairs consists of triples (X, Y, i) with X a Q-variety, Y in X a closed subvariety and an integer i. There are two types of edges between effective good pairs: (a) (functoriality) For every morphism f : X -> X' with f(Y) in Y' an edge f^* : (X', Y', i) -> (X, Y, i)",
      "match": "The vertices and the functoriality edges; 'good' is a slip for 'effective' (MotivesAndAlgebraicCycles/E34)."
     },
     {
      "sourceId": "HMS.2014",
      "locator": "Section 1, Definition 1.1(1)(b) and (2) (p. 4)",
-     "excerpt": "(b) (coboundary) For every chain X contains Y contains Z of closed Q-subschemes of X an edge d : (Y, Z, i) -> (X, Y, i + 1). The diagram is graded (see Definition B.14) by |(X, Y, i)| = i. (2) The diagram Deff_Nori of effective good pairs is the full subdiagram of Deff",
      "match": "The coboundary edges, the grading and good pairs."
     },
     {
      "sourceId": "HMS.2014",
      "locator": "Section 1, Definition 1.1(3) and the sentence after it (p. 4)",
-     "excerpt": "The diagram D~eff of effective very good pairs is the full subdiagram of those effective good pairs (X, Y, i) with X affine, X - Y smooth and either X of dimension i and Y of dimension i - 1, or X = Y of dimension less than i.",
      "match": "Very good pairs, literally."
     }
    ],
@@ -6133,19 +6029,16 @@
     {
      "sourceId": "HMS.2014",
      "locator": "Section 1, Definition 1.3 (p. 4)",
-     "excerpt": "The category of (effective) mixed Nori motives MM_Nori (resp. MM^eff_Nori) is defined as the diagram category C(D_Nori, H^*) (resp. C(D^eff_Nori, H^*)). For a good pair (X, Y, i) we write H^i_Nori(X, Y) for the corresponding object in MM_Nori. We put 1(-1) = H^1_Nori(G_m, {1}) in MM^eff_Nori.",
      "match": "The definition, literally."
     },
     {
      "sourceId": "HMS.2014",
      "locator": "Section 1, after Definition 1.1 (p. 4)",
-     "excerpt": "We use the representation H^* : D_Nori -> Q-Mod which assigns to (X, Y, i) relative singular cohomology H^i(X(C), Y(C), Q).",
      "match": "The representation."
     },
     {
      "sourceId": "HMS.2014",
      "locator": "Section 1, Definition 1.11 (p. 7)",
-     "excerpt": "Let 1(-1) = H^1_Nori(G_m) and 1(-n) = 1(-1)^{tensor n}.",
      "match": "The second definition of 1(-1) (E35)."
     }
    ],
@@ -6268,19 +6161,16 @@
     {
      "sourceId": "HMS.2014",
      "locator": "Section 1, Theorem 1.6 (pp. 4-5)",
-     "excerpt": "(1) This definition is equivalent to Nori's original definition. (2) MM^eff_Nori in MM_Nori are commutative tensor categories with a faithful fiber functor H^*. (3) MM_Nori is the localization of MM^eff_Nori with respect to the Lefschetz object 1(-1).",
      "match": "The theorem, literally."
     },
     {
      "sourceId": "HMS.2014",
      "locator": "Section 1, proof of Theorem 1.6 (p. 5)",
-     "excerpt": "It carries a commutative multiplicative structure (see Definition B.14 again) by (X, Y, i) x (X', Y', i') = (X x X', X x Y' union Y x X', i + i'). with unit given by (SpecQ, empty, 0)",
      "match": "The product, given on vertices only (E30)."
     },
     {
      "sourceId": "HMS.2014",
      "locator": "Section 1, proof of Theorem 1.6 (p. 5)",
-     "excerpt": "Properties (2) and (3) depend on a choice of a sign convention such that the boundary map d is compatible with cup products in the first variable and compatible up to sign in the second variable.",
      "match": "The sign description that conflicts with Definition B.14 (E29)."
     }
    ],
@@ -6323,13 +6213,11 @@
     {
      "sourceId": "HMS.2014",
      "locator": "Section 1, Corollary 1.7 (p. 5)",
-     "excerpt": "The diagram categories of Deff and D~eff with respect to singular cohomology are equivalent to MM^eff_Nori as abelian categories. The diagram categories of D and D~ are equivalent to MM_Nori.",
      "match": "The corollary, literally."
     },
     {
      "sourceId": "HMS.2014",
      "locator": "Section 1, proof of Corollary 1.7 (pp. 5-6)",
-     "excerpt": "We are going to represent the diagram Deff in C(D~eff) such the restriction of the representation to D~eff gives back H^* (up to natural isomorphism). By the universal property this induces a faithful functor j : C(Deff) -> C(D~eff)",
      "match": "The structure of the proof."
     }
    ],
@@ -6368,13 +6256,11 @@
     {
      "sourceId": "HMS.2014",
      "locator": "Section 1, Corollary 1.10 with its proof (pp. 6-7)",
-     "excerpt": "Let Z in X be a closed immersion. Then there is a natural object H^i_Z(X) in MM_Nori representing cohomology with supports. There is a natural long exact sequence ... -> H^i_Z(X) -> H^i_Nori(X) -> H^i_Nori(X - Z) -> H^{i+1}_Z(X) -> ...",
      "match": "The corollary, literally."
     },
     {
      "sourceId": "HMS.2014",
      "locator": "Section 1, proof of Corollary 1.10 (p. 7)",
-     "excerpt": "Let U = X - Z. Put R_Z(X) = R(Cone(U -> X)), H^i_Z(X) = H^i(R_Z(X)).",
      "match": "The definition through the realisation functor."
     }
    ],
@@ -6420,13 +6306,11 @@
     {
      "sourceId": "HMS.2014",
      "locator": "Section 1, Theorem 1.14 with its proof (p. 8)",
-     "excerpt": "(Nori). MM_Nori is rigid, hence a neutral Tannakian category. Its Tannaka dual is given by G_mot = Spec(A(D_Nori, H^*)). Proof. By Corollary 1.8 every object of MM_Nori is subquotient of M = H^i_Nori(X, Y)(j) for a good pair (X, Y, i) of the particular form occurring in Lemma 1.13.",
      "match": "The theorem and the start of its proof."
     },
     {
      "sourceId": "HMS.2014",
      "locator": "Section 1, proof of Theorem 1.14 (p. 8)",
-     "excerpt": "By this Lemma they all admit a perfect pairing. By Proposition C.4, the category MM_Nori is neutral Tannakian. The Hopf algebra of its Tannaka dual agrees with Nori's algebra by Theorem B.10.",
      "match": "The criterion used is Proposition C.4."
     }
    ],
@@ -6464,7 +6348,6 @@
     {
      "sourceId": "HMS.2014",
      "locator": "Appendix A, Definition A.1, Lemma A.2 and Lemma A.3 (pages 14 to 15), arXiv:1105.0865v5",
-     "excerpt": "A torsor is a set X together with a map (·, ·, ·) : X × X × X → X satisfying: (1) (x, y, y) = (y, y, x) = x for all x, y ∈ X (2) ((x, y, z), u, v) = (x, (u, z, y), v) = (x, y, (z, u, v)) for all x, y, z, u, v ∈ X.",
      "match": "The node is Definition A.1 with Lemmas A.2 and A.3. Proposition A.4, Definition A.5 and Proposition A.6 are the separate nodes MC.6/torsor-groups, MC.6/affine-torsor and MC.6/affine-torsor-groups. The source traces the notion to Baer (1929)."
     }
    ],
@@ -6624,13 +6507,11 @@
     {
      "sourceId": "HMS.2014",
      "locator": "Theorem 1.14 with its proof (page 8) and Theorem B.10 (page 18), arXiv:1105.0865v5",
-     "excerpt": "Theorem 1.14 (Nori). MMNori is rigid, hence a neutral Tannakian category. Its Tannaka dual is given by Gmot = Spec(A(DNori, H∗)).",
      "match": "The definition of G_mot through singular cohomology; Theorem B.10 identifies A(T) with the Hopf algebra of the Tannaka dual by reference to Deligne and Milne."
     },
     {
      "sourceId": "HMS.2014",
      "locator": "Lemma 3.2 (page 12), arXiv:1105.0865v5",
-     "excerpt": "Assume C(T1) is a neutral Tannakian category. In this way we obtain two affine group schemes G1 = Aut⊗(T1), G2 = Aut⊗(T2) and an affine scheme X = X1,2 = Iso⊗(T1, T2).",
      "match": "The first half of the lemma, for one fibre functor; the second half is MC.6/tensor-iso-scheme."
     }
    ],
@@ -6750,7 +6631,6 @@
     {
      "sourceId": "HMS.2014",
      "locator": "Section 2, the setting paragraph, Definition 2.1, Lemma 2.2 and Example 2.3 (page 9), arXiv:1105.0865v5",
-     "excerpt": "Let D be a graded diagram with commutative product structure (see Definition B.14), T1, T2 : D → Q-Mod two representations. Definition 2.1. Let A1 = A(D, T1), A2 = A(D, T2). Put A1,2 = colimF Hom(T1|F , T2|F )∨",
      "match": "The node is Definition 2.1 with Lemma 2.2, under the multiplicativity hypothesis the lemma needs (finding E36); Example 2.3 records the application to de Rham and singular cohomology."
     }
    ],
@@ -6874,7 +6754,6 @@
     {
      "sourceId": "HMS.2014",
      "locator": "Definition 2.4, Proposition 2.5 and the construction of Ψ after it (page 9), arXiv:1105.0865v5",
-     "excerpt": "We deﬁne the space of periods P1,2 as the Q-vector space generated by symbols (p, ω, γ) where p is a vertex of D, ω ∈ T1(p), γ ∈ T2(p)∨ with the following relations: (1) linearity in ω, γ; (2) (change of variables) If f : p → p′ is an edge in D",
      "match": "The node is Definition 2.4 with Proposition 2.5 and the natural transformation Ψ, which the source gives in the same place."
     }
    ],
@@ -6975,7 +6854,6 @@
     {
      "sourceId": "HMS.2014",
      "locator": "Theorem 2.6 with its proof, and Remark 2.7",
-     "excerpt": "The above map Psi from P_{1,2} to A_{1,2} is an isomorphism of Q-algebras. For a finite subdiagram F of D let P_{1,2}(F) be the space of periods. This works for coefficients in Dedekind rings as long as the representations take values in projective modules of finite type.",
      "match": "The node is that theorem with the source's reduction to finite subdiagrams, and the remark on Dedekind coefficients."
     }
    ],
@@ -7021,7 +6899,6 @@
     {
      "sourceId": "HMS.2014",
      "locator": "Definition 2.8 with Remark 2.9",
-     "excerpt": "The space of formal periods is the localization P of P^+ with respect to the period of (G_m, {1}, dX/X, S^1).",
      "match": "The node is that definition together with the remark recording the three ways in which it differs from Kontsevich's."
     }
    ],
@@ -7181,7 +7058,6 @@
     {
      "sourceId": "HMS.2014",
      "locator": "Theorem 2.10 with its proof (page 11), arXiv:1105.0865v5",
-     "excerpt": "Theorem 2.10. Let D be the diagram of pairs (see Deﬁnition 1.1). Let T1 = H∗dR : D → Q-Mod (de Rham cohomology) T2 = H∗: D → Q-Mod (singular cohomology) then the space of formal periods P (Deﬁnition 2.4) agrees with the comparison algebra A1,2 (Deﬁnition 2.8). P = P1,2 = A1,2 .",
      "match": "The node is Theorem 2.10. Its two parenthetical cross references are misprinted (finding E1), and its proof applies Theorem 2.6 as a statement about algebras on the diagram of all pairs (finding E37)."
     }
    ],
@@ -7234,7 +7110,6 @@
     {
      "sourceId": "HMS.2014",
      "locator": "Section 3, the setting paragraph and Lemma 3.1 with its proof (page 12), arXiv:1105.0865v5",
-     "excerpt": "Let D be a graded diagram with commutative product structure, T1, T2 → Q-Mod two representations which become isomorphic after some ﬁeld extension K/Q. The isomorphism is denoted by ϕ : T1 ⊗ K → T2 ⊗ K. ... Lemma 3.1. T2 extends to a ﬁber functor",
      "match": "The node is Lemma 3.1 with its proof, where the universal property of the diagram category is used; the tensor structure needs the hypothesis of finding R401."
     }
    ],
@@ -7274,7 +7149,6 @@
     {
      "sourceId": "HMS.2014",
      "locator": "Theorem 3.3 with its proof (page 13), arXiv:1105.0865v5",
-     "excerpt": "Theorem 3.3. There is a natural isomorphism of aﬃne schemes ι : X1,2 → X2,1 given by f ↦ f −1. Furthermore, X1,2 and X2,1 carry the structure of aﬃne torsors in the sense of appendix A.",
      "match": "The node is Theorem 3.3; Lemma 3.2 is now MC.6/tensor-automorphism-group and MC.6/tensor-iso-scheme."
     }
    ],
@@ -7320,7 +7194,6 @@
     {
      "sourceId": "HMS.2014",
      "locator": "Corollary 3.4 with its proof and Remark 3.5 (page 13); Theorem 0.2 (page 2), arXiv:1105.0865v5",
-     "excerpt": "Corollary 3.4. The algebra of formal periods P (see Deﬁnition 2.8) has a natural torsor structure under Gmot. Proof. By Theorems 2.6 and 2.9 we have A1,2 = P = P1,2 ... Finally note that G1 = Gmot is the motivic fundamental group by deﬁnition.",
      "match": "The node is Corollary 3.4, the paper's main theorem as announced in Theorem 0.2. The reference to Theorem 2.9 is misprinted (E2); the identification G_1 = G_mot contradicts Theorem 1.14 (E39); the introduction points to Corollary 2.11 for the proof (E40)."
     }
    ],
@@ -7365,13 +7238,11 @@
     {
      "sourceId": "MILNE.MOT",
      "locator": "Section 6, the statement of Conjecture C with display (4) and the paragraph after it (pages 8 to 9)",
-     "excerpt": "CONJECTURE C. In the ring End(hX) = C^dimX_num(X × X), the diagonal ΔX has a canonical decomposition into a sum of orthogonal idempotents ΔX = π0 + ··· + π2dimX.",
      "match": "Milne's form of the conjecture, which the node obtains from the cohomological predicate; the remark that it is a weak form of the Lefschetz standard conjecture is in Section 7."
     },
     {
      "sourceId": "JANNSEN.1992",
      "locator": "page 449, the hypothesis of Corollary 1; page 451, the first paragraph (in the proof of Corollary 2)",
-     "excerpt": "If for a variety X, the Künneth components π^j ∈ H^{2dim(X)−j}(X) ⊗ H^j(X) of the diagonal are algebraic (cf. [K1] Sect. 2), then the kernel of the surjective ring homomorphism S ... Note that the π^j are central idempotents, with π^j orthogonal to π^i for i ≠ j.",
      "match": "The cohomological form of the predicate, and the properties of the numerical classes that bridge to Milne's form."
     }
    ],
@@ -7487,7 +7358,6 @@
     {
      "sourceId": "MILNE.MOT",
      "locator": "Section 6, the statement of Conjecture D with the two paragraphs following it (page 8)",
-     "excerpt": "CONJECTURE D. If an algebraic cycle is numerically equivalent to zero, then its cohomology class is zero. ... Thus, the conjecture is an existence statement for algebraic cycles. ... In characteristic zero, Conjecture D is known for abelian varieties and it is implied by the Hodge conjecture.",
      "match": "The node is that statement with the two remarks the source makes about it."
     }
    ],
@@ -7585,7 +7455,6 @@
     {
      "sourceId": "JANNSEN.1992",
      "locator": "page 451, Remarks 1 and 2",
-     "excerpt": "The assumption of Corollary 1 holds if dim X is at most 2 or X is an abelian variety, and for all X if k is inside the algebraic closure of a finite field. If it holds for X and Y, it holds for X times Y. Corollary 2 holds for every subcategory generated by 1(1) and varieties for which the components are algebraic; in particular the category generated by abelian varieties is Tannakian over any k.",
      "match": "The node is those two remarks. The three individual cases are attributed there to Murre, to Lieberman as reported by Kleiman, and to Katz and Messing; none of those three papers was obtained for this packet, which is recorded as a gap."
     }
    ],
@@ -7627,7 +7496,6 @@
     {
      "sourceId": "STACKS.WEIL",
      "locator": "Lemma 0FH9 with its proof, and Lemma 0FH8; the Bertini argument in the proof of Lemma 0FH7 (weil.tex at a04446e)",
-     "excerpt": "Lemma 45.8.5 (Voevodsky). Let k be a field. Let X be a geometrically irreducible smooth projective scheme over k. Let x, x′ ∈ X be k-rational points. For n large enough the class of the zero cycle ([x] − [x′]) × … × ([x] − [x′]) ∈ CH0(X^n) is torsion.",
      "match": "The node is Lemma 0FH9, which the source attributes to Voevodsky, with Lemma 0FH8 used in its first step. Two steps of its proof are omitted in the source (findings E46, E47) and a symbol is misprinted (E45)."
     }
    ],
@@ -7670,19 +7538,16 @@
     {
      "sourceId": "DELIGNE.HODGE",
      "locator": "Section 1, the statement, and the paragraph before it (pages 1 to 2)",
-     "excerpt": "Rational (p, p)-classes are called Hodge classes. They form the group H2p(X, Q) ∩ Hp,p(X) = H2p(X, Q) ∩ F p ⊂ H2p(X, C). ... Hodge Conjecture. On a projective non-singular algebraic variety over C, any Hodge class is a rational linear combination of classes cl(Z) of algebraic cycles.",
      "match": "The conjecture, verbatim."
     },
     {
      "sourceId": "DELIGNE.HODGE",
      "locator": "Section 2, remarks (ii) to (vi) (pages 2 to 3)",
-     "excerpt": "(v) The assumption in the Hodge conjecture that X be algebraic cannot be weakened to X being merely Kähler. See Zucker's appendix to [11] for counterexamples where X is a complex torus. (vi) When Hodge formulated his conjecture, he had not realized it could hold only rationally",
      "match": "The remarks recorded in the statement."
     },
     {
      "sourceId": "DELIGNE.HODGE",
      "locator": "Section 4, Examples 1 and 2, and Section 5 (page 4)",
-     "excerpt": "Example 1. For X of complex dimension N, the diagonal ∆ of X × X is an algebraic cycle of codimension N. The Hodge decomposition being compatible with Künneth, the Künneth components cl(∆)a,b ∈ Ha(X) ⊗ Hb(X) ⊂ H2N(X × X) (a + b = 2N) of cl(∆) are Hodge classes.",
      "match": "The relation to Conjecture C and, with Example 2, to the Lefschetz standard conjecture."
     }
    ],
@@ -7799,19 +7664,16 @@
     {
      "sourceId": "TOTARO.TATE",
      "locator": "Section 1, Conjecture 1.1 and the paragraph after it",
-     "excerpt": "Let k be a finitely generated field over the prime field (that is, over Q or a finite field). Let X be a smooth projective variety over k. Then the Q_l-linear subspace of H^{2a}(X; Q_l(a)) fixed by the Galois group of k is spanned by the classes of codimension-a subvarieties of X. ... A cohomology class fixed by the Galois group is sometimes called a Tate class. Thus the conjecture says ...",
      "match": "The conjecture and the name of its objects, verbatim."
     },
     {
      "sourceId": "TOTARO.TATE",
      "locator": "Section 1, the paragraph on the base field",
-     "excerpt": "The Tate conjecture depends on the fact that the base field k, a finitely generated field over the prime field, is small in some sense. The analogous statement fails when k is algebraically closed (in which case the Galois representation is trivial), and also for some other fields such as p-adic fields.",
      "match": "Why the hypothesis on the base field cannot be dropped, verbatim."
     },
     {
      "sourceId": "TOTARO.TATE",
      "locator": "Section 2, the base-change reduction",
-     "excerpt": "In another direction, the Tate conjecture for a smooth projective variety X over a finitely generated field k follows easily from the conjecture for the base change X_E, for any finite Galois extension field E. ... As a result, one can always make finite extensions of the base field in trying to prove the Tate conjecture.",
      "match": "The reduction along a finite extension, verbatim."
     }
    ],
@@ -7929,25 +7791,21 @@
     {
      "sourceId": "TOTARO.TATE",
      "locator": "Section 2, the strong Tate conjecture and the standard conjectures (page 6)",
-     "excerpt": "The strong Tate conjecture would imply most of Grothendieck’s standard conjectures (except for the “Hodge standard conjecture” in positive characteristic) [2, section 7.3]. ... that is, “numerical and homological equivalence of algebraic cycles coincide.”",
      "match": "The consequences of the strong variant, verbatim."
     },
     {
      "sourceId": "TOTARO.TATE",
      "locator": "Section 2, Jannsen's variant, the separable-closure variant and the integral variant (page 6)",
-     "excerpt": "In fact, this more general conjecture essentially follows from the usual Tate conjecture (the case where X is smooth and projective). The deduction works whenever X has a resolution of singularities with a smooth compactiﬁcation [17, Theorem 7.10].",
      "match": "The Borel-Moore variant with its hypothesis; the separable-closure paragraph prints Q_l(i) for Q_l(a) (finding E43)."
     },
     {
      "sourceId": "TOTARO.TATE",
      "locator": "Section 2, the integral variant (page 6)",
-     "excerpt": "for varieties over a ﬁnite ﬁeld k, the usual Tate conjecture for divisors would imply the integral Tate conjecture for divisors ... Also, for varieties over the algebraic closure of a ﬁnite ﬁeld, the usual Tate conjecture for divisors on surfaces would imply the integral Tate conjecture for 1-cycles",
      "match": "The two integral implications with their fields."
     },
     {
      "sourceId": "TOTARO.TATE",
      "locator": "Section 1, the fibred-surface equivalence (page 4) and the summary diagram (page 5)",
-     "excerpt": "let X be a smooth projective surface over a ﬁnite ﬁeld k, and let f be a morphism with connected ﬁbers from X onto a smooth projective curve C. Assume that the generic ﬁber F of f, which is a curve over the function ﬁeld k(C), is smooth over k(C).",
      "match": "The hypotheses of the equivalence with the Brauer and Tate-Shafarevich finiteness and BSD; the diagram on page 5 gives the implications."
     }
    ],
@@ -7993,25 +7851,21 @@
     {
      "sourceId": "MILNE.MOT",
      "locator": "Section 7, The standard conjectures and the Weil conjectures (page 12)",
-     "excerpt": "In 1968 Grothendieck announced two conjectures, known respectively as the Lefschetz standard conjecture and the Hodge standard conjecture, whose proof would allow one to extend Weil’s proof of the Weil conjectures from curves to varieties of arbitrary dimension",
      "match": "The two conjectures are named, not stated."
     },
     {
      "sourceId": "MILNE.MOT",
      "locator": "Section 7, the Hodge standard conjecture and its status (page 12)",
-     "excerpt": "The Hodge standard conjecture is a positivity statement which implies that the endomorphism algebra of every motive admits a positive deﬁnite involution. Assuming this, Weil’s argument then proves (7b). In characteristic zero, the Hodge standard conjecture can be proved by analytic methods",
      "match": "The description and status of the Hodge standard conjecture, verbatim."
     },
     {
      "sourceId": "MILNE.MOT",
      "locator": "Section 7, after the status paragraph (page 12)",
-     "excerpt": "In 1973, Deligne succeeded in completing the proof of the Weil conjectures by means of a very clever argument not involving the standard conjectures.",
      "match": "The status of the Weil conjectures relative to the two conjectures."
     },
     {
      "sourceId": "DELIGNE.HODGE",
      "locator": "Section 4, Example 2, and Section 5 (page 4)",
-     "excerpt": "Example 2. If η ∈ H2(X, Z) is the cohomology class of a hyperplane section of X, the iterated cup product ηp : HN−p(X, C) → HN+p(X, C) is an isomorphism (hard Lefschetz theorem, proved by Hodge. See [10, IV.6]). Let z ∈ HN−p(X, C) ⊗ HN−p(X, C) ⊂ H2N−2p(X × X)",
      "match": "The class whose algebraicity is the typed Lefschetz predicate; Section 5 states what the algebraicity of the classes of Examples 1 and 2 would give."
     }
    ],
@@ -8117,7 +7971,6 @@
     {
      "sourceId": "MILNE.MOT",
      "locator": "Section 6, Aside 6.1",
-     "excerpt": "Murre conjectured that a decomposition (4) exists with certain properties even in C^{dim X}_rat(X times X). It has been shown that his conjecture is equivalent to the existence of an interesting filtration on the Chow groups, which had been conjectured by Beilinson and Bloch.",
      "match": "The whole of what the source says about both conjectures; the phrase with certain properties is exactly what this packet cannot fill in from the sources read."
     }
    ],
@@ -8156,7 +8009,6 @@
     {
      "sourceId": "MILNE.MOT",
      "locator": "Section 10, Final note",
-     "excerpt": "Grothendieck also envisaged a category of mixed motives attached to the category of all varieties over k. It should no longer be semisimple, but each mixed motive should have a filtration whose quotients are pure motives. There is at present no definition of a category of mixed motives, but several mathematicians have constructed triangulated categories that are candidates to be its ...",
      "match": "The whole of what the sources read say about the motivic t-structure, verbatim."
     }
    ],
@@ -8202,37 +8054,31 @@
     {
      "sourceId": "TOTARO.TATE",
      "locator": "Section 3, the abelian variety case (pages 7 to 9)",
-     "excerpt": "let A and B be abelian varieties over a ﬁnite ﬁeld k. ... there is a natural homomorphism Homk(A, B) ⊗ Zl → HomGal(ks/k)(H1(A, Zl), H1(B, Zl)), which is injective. Tate’s theorem is that for k ﬁnite, this homomorphism is actually bijective.",
      "match": "Entry T1 with its equivalent formulation, verbatim."
     },
     {
      "sourceId": "TOTARO.TATE",
      "locator": "Section 4, Faltings, Zarhin, h^{2,0} = 0, Tankeev and André (pages 9 to 10)",
-     "excerpt": "Using the results of Tate and Faltings, Zarhin deduced the Tate conjecture for divisors on an abelian variety over any ﬁnitely generated ﬁeld. ... The Tate conjecture for divisors on a variety X over a number ﬁeld is trivial when the Hodge number h2,0(X) = dim H0(X, Ω2) is equal to zero",
      "match": "Entries T2 to T6."
     },
     {
      "sourceId": "TOTARO.TATE",
      "locator": "Section 4, Theorem 4.1 (page 10)",
-     "excerpt": "Let X be a smooth proper variety with h2,0(X) = 1 over a ﬁnitely generated ﬁeld k of characteristic zero. Assume that there is an embedding of k into C such that XC has a deformation (over some smooth base variety) in which the Hodge structure on H2(XC, Q) varies nontrivially.",
      "match": "Entry T7 with its hypotheses, verbatim."
     },
     {
      "sourceId": "TOTARO.TATE",
      "locator": "Section 5, opening paragraphs (pages 10 to 11)",
-     "excerpt": "For non-supersingular K3 surfaces in characteristic p > 5, the Tate conjecture was proved by Nygaard and Ogus ... Finally, the supersingular case was proved in a series of papers starting in 2012 by Charles, Kim, Madapusi Pera, and Maulik ... The case of characteristic 2 was proved only in the last",
      "match": "Entry T8 with its characteristic restrictions."
     },
     {
      "sourceId": "TOTARO.TATE",
      "locator": "Section 2, the Tate-Beilinson paragraph (page 7)",
-     "excerpt": "More generally, the group of k-points on an abelian variety over a ﬁnite ﬁeld k is ﬁnite, which implies Beilinson’s conjecture for codimension-1 cycles.",
      "match": "Entry TB1."
     },
     {
      "sourceId": "DELIGNE.HODGE",
      "locator": "Section 2, remark (iii) (page 2)",
-     "excerpt": "a class c ∈ H2(X, Z) of type (1, 1) has image 0 in the quotient H0,2 = H2(X, O) of H2(X, C), and the long exact sequence of cohomology deﬁned by the exponential exact sequence shows that c is the ﬁrst Chern class of a line bundle.",
      "match": "Entry H1, verbatim."
     }
    ],
@@ -8271,7 +8117,6 @@
     {
      "sourceId": "STACKS.WEIL",
      "locator": "Lemma 0FG0, parts (2) and (3)",
-     "excerpt": "(2) there is a canonical isomorphism CH_{-r}(X) tensor Q = Corr^r(X, Spec(k)) such that pullback by correspondences corresponds to composition, (3) there is a canonical isomorphism CH^r(X) tensor Q = Corr^r(Spec(k), X) such that pushforward by correspondences corresponds to composition,",
      "match": "The node is parts (2) and (3), which the source proves together by 'carefully bookkeeping where various cycles live'; the bookkeeping is written out as proof steps."
     }
    ],
@@ -8308,7 +8153,6 @@
     {
      "sourceId": "STACKS.WEIL",
      "locator": "Lemma 0FG0, part (4), with the last paragraph of its proof",
-     "excerpt": "(4) composition of correspondences is compatible with pushforward and pullback of cycles. [...] The statement on pushforward and pullback of cycles means that (c' o c)^*(alpha) = c^*((c')^*(alpha)) and (c' o c)_*(alpha) = (c')_*(c_*(alpha)). This follows on combining (1), (2), and (3).",
      "match": "The node is part (4) with the source's one-line proof."
     }
    ],
@@ -8351,7 +8195,6 @@
     {
      "sourceId": "STACKS.WEIL",
      "locator": "Lemma 0FGF, proof, first paragraph; and Lemma 0FGJ, proof",
-     "excerpt": "If n = m, then a direct sum is given by (Y coproduct Z, p + q, m), with obvious notation. Details omitted. [...] Let X = coproduct X_i be the decomposition of X into irreducible components. Then h(X) = direct sum of h(X_i)",
      "match": "The node is the 'obvious notation' and the omitted details behind both statements, made one lemma about correspondences, which both MC.1 statements then use."
     }
    ],
@@ -8391,7 +8234,6 @@
     {
      "sourceId": "STACKS.WEIL",
      "locator": "Lemma 0FG7 with its proof, and the display in Section 0FG9 defining the tensor product of morphisms of motives",
-     "excerpt": "The tensor product of correspondences defined above turns the category of correspondences into a symmetric monoidal category with unit Spec(k). Proof. Omitted. [...] a tensor a' = (q o c o p) tensor (q' o c' o p') = (q tensor q') o (c tensor c') o (p tensor p')",
      "match": "The source omits the proof of Lemma 0FG7 and uses the interchange law in Section 0FG9 without comment; this node is that law, the one non-routine identity the omitted verification needs."
     }
    ],
@@ -8433,7 +8275,6 @@
     {
      "sourceId": "STACKS.WEIL",
      "locator": "Lemma 0FG8 with its proof",
-     "excerpt": "Assume X and Y equidimensional of dimensions d and e. [...] The diagram [...] is commutative in the category of correspondences. [...] going either way around the diagram we obtain the element of Corr^d(X × Y, Spec(k)) corresponding to the cycle Gamma_f",
      "match": "The node is the lemma with its two computations; the degree printed as d is corrected to -e (E11)."
     }
    ],
@@ -8473,13 +8314,11 @@
     {
      "sourceId": "STACKS.WEIL",
      "locator": "Section 0FG9, the definition of a morphism of motives",
-     "excerpt": "we define a morphism of motives or a morphism of Chow motives to be an element of Hom((X, p, m), (Y, q, n)) = q o Corr^{n-m}(X, Y) o p, contained in Corr^{n-m}(X, Y)",
      "match": "The source's morphism groups are cut out of Corr^{n-m}(X, Y); this node is the category those ambient groups form, of which the category of motives is the Karoubi envelope."
     },
     {
      "sourceId": "MILNE.MOT",
      "locator": "Section 5 (Definition of motives), Third attempt, page 7",
-     "excerpt": "This can be achieved quite easily simply by inverting L. The objects of M(k) are now triples h(X, e, m) with X and e as before, and with m ∈ Z.",
      "match": "Milne describes the same passage from effective motives to motives by adding the twist m."
     }
    ],
@@ -8577,7 +8416,6 @@
     {
      "sourceId": "STACKS.WEIL",
      "locator": "Lemma 0FGF, proof, second paragraph",
-     "excerpt": "Suppose that n < m. Let X, c_2 be as in Example 0FG6. Then we consider (Z, q, n) = (Z, q, m) tensor (Spec(k), 1, -1) tensor ... tensor (Spec(k), 1, -1) =~ (Z, q, m) tensor (X, c_2, 0) tensor ... tensor (X, c_2, 0) =~ (Z × X^{m-n}, q tensor c_2 tensor ... tensor c_2, m)",
      "match": "The node is that chain of isomorphisms, which the proof of Lemma 0FGH reuses as sigma."
     }
    ],
@@ -8616,7 +8454,6 @@
     {
      "sourceId": "STACKS.HOMOLOGY",
      "locator": "Lemma 0FFT with its proof",
-     "excerpt": "Let A be an additive monoidal category. If Y_i, i = 1, 2 are left duals of X_i, i = 1, 2, then Y_1 ⊕ Y_2 is a left dual of X_1 ⊕ X_2. Proof. Follows from uniqueness of adjoints and Categories, Remark [left-dual-adjoint].",
      "match": "The node is that lemma in Mathlib's convention; the proof steps are a direct computation in place of the source's appeal to uniqueness of adjoints. Cited by the proof of Lemma 0FGJ."
     }
    ],
@@ -8655,7 +8492,6 @@
     {
      "sourceId": "STACKS.HOMOLOGY",
      "locator": "Lemma 0FFU with its proof",
-     "excerpt": "In a Karoubian additive monoidal category every summand of an object which has a left dual has a left dual. [...] If a : X → X corresponds to b : Y → Y then b is the unique endomorphism of Y such that precomposing by a [...] is the same as postcomposing by 1 ⊗ b.",
      "match": "The node is that lemma in Mathlib's convention; the endomorphism b of the source is the adjoint mate. Cited by the proof of Lemma 0FGJ."
     }
    ],
@@ -8702,7 +8538,6 @@
     {
      "sourceId": "STACKS.WEIL",
      "locator": "Section 0FGP, the paragraph after Lemma 0FGQ",
-     "excerpt": "We immediately conclude c'_j o c_i = 0 for i + r - 1 - j < r - 1, in other words when i < j. On the other hand, [...] Hence for i = j the pushforward above gives the class of the diagonal and hence we see that c'_i o c_i = 1 in Corr^0(X, X)",
      "match": "For X = Spec(k) the source's c_i and c'_j are h^i and h^{n-j}; the node specialises that paragraph and Lemma 0FGR (with the correction E9) to projective space."
     }
    ],
@@ -8740,7 +8575,6 @@
     {
      "sourceId": "STACKS.WEIL",
      "locator": "Lemma 0FGR, proof",
-     "excerpt": "The source of the composition is a module locally free of rank r - 1 and a local calculation shows that this map vanishes exactly along Delta_P. By Chow Homology, Lemma [top-chern-class] the class [Delta_P] is the top Chern class of the dual q_1^* S dual tensor q_2^* O_P(1)",
      "match": "The node is the local calculation the source leaves to the reader, with the hypotheses of Stacks 0FA9 (expected dimension, regular sequence) checked."
     }
    ],
@@ -8779,7 +8613,6 @@
     {
      "sourceId": "STACKS.WEIL",
      "locator": "Lemma 0FGY with its proof (Section 0FGS)",
-     "excerpt": "Let X and Y be smooth projective varieties. Then pr_{2,*} : H^*(X × Y) → H^*(Y) sends a ⊗ b to (∫_X a) b. Proof. This is equivalent to the result of Lemma 0FGX.",
      "match": "The node is Lemma 0FGY, split off from MC.2/trace-of-a-product, with the one-line equivalence written out."
     }
    ],
@@ -8820,7 +8653,6 @@
     {
      "sourceId": "STACKS.WEIL",
      "locator": "Lemma 0FGZ, proof, first paragraph",
-     "excerpt": "[X] · [X] = [X] hence by axiom (C)(c) the cohomology class γ([X]) is 0 or 1 in the 1-dimensional F-algebra H^0(X); here we have also used axioms (A)(d) and (A)(b). But γ([X]) cannot be zero as [X] · [x] = [x] for a closed point x of X",
      "match": "The node is the step of the proof of Lemma 0FGZ showing γ([X]) = 1, made a lemma because Lemmas 0FGZ and 0FH0, the realisation and the round trip all use γ([Δ]) = Δ_*1."
     }
    ],
@@ -8863,19 +8695,16 @@
     {
      "sourceId": "STACKS.HOMOLOGY",
      "locator": "Example 0FFX (Homology, Section 09MF)",
-     "excerpt": "There are two commutativity constraints on C which turn C into a symmetric monoidal category: one involves the intervention of signs and the other does not. We will usually use the one that does. ... V^p ⊗_F W^q → W^q ⊗_F V^p, v ⊗ w ↦ (−1)^{pq} w ⊗ v",
      "match": "The node is that example, the convention Lemma 0FH1 uses for graded commutativity; the source omits the verification that it is symmetric monoidal."
     },
     {
      "sourceId": "STACKS.HOMOLOGY",
      "locator": "Lemma 0FFV with its proof",
-     "excerpt": "Let F be a field. Let C be the category of graded F-vector spaces viewed as a monoidal category as in Example 0FFX. If V in C has a left dual W, then Σ_n dim_F V^n < ∞ and the map ε defines nondegenerate pairings W^{−n} × V^n → F.",
      "match": "The duality statement of the node."
     },
     {
      "sourceId": "STACKS.WEIL",
      "locator": "Lemma 0FH1, proof, second paragraph",
-     "excerpt": "Since 1(1) is invertible in the category of motives we see that G(1(1)) is invertible in the category of graded F-vector spaces. Thus Σ_i dim_F G^i(1(1)) = 1.",
      "match": "The description of invertible objects, used there without separate proof."
     }
    ],
@@ -8995,13 +8824,11 @@
     {
      "sourceId": "STACKS.WEIL",
      "locator": "Lemma 0FH2, proof, first paragraph",
-     "excerpt": "Since every smooth projective scheme is canonically a disjoint union of smooth projective varieties, it suffices to construct G on the category whose objects are smooth projective varieties and whose morphisms are correspondences of degree 0. (Some details omitted.)",
      "match": "The node supplies the omitted details: the extension of a classical theory from varieties to smooth projective schemes (source issue E18)."
     },
     {
      "sourceId": "STACKS.WEIL",
      "locator": "Section 0FHA, the data (D1) and (D3)",
-     "excerpt": "(D1) A contravariant functor H^* from the category of smooth projective schemes over k to the category of graded commutative F-algebras. ... (D3) For every nonempty smooth projective scheme X over k which is equidimensional of dimension d a map ∫_X : H^{2d}(X)(d) → F.",
      "match": "The shape of the data on schemes, which the source uses over an arbitrary field; here only the extension of a classical theory is needed."
     }
    ],
@@ -9114,13 +8941,11 @@
     {
      "sourceId": "JANNSEN.1992",
      "locator": "page 448, proof of the implication c) to b) of Theorem 1",
-     "excerpt": "fix a Weil cohomology X ↦ H(X), for example the one given by the étale cohomology groups H^i(X ×_k k_s, Q_l), where k_s is a separable closure of k, and l is a prime number invertible in k.",
      "match": "Jannsen fixes a Weil cohomology theory for varieties over an arbitrary field without defining the notion; the node makes it precise as the base change of a classical theory over an algebraic closure, which is the form MC.3 uses."
     },
     {
      "sourceId": "STACKS.WEIL",
      "locator": "Section 0FH4, opening sentence",
-     "excerpt": "Some lemmas which will help us in our study of motives over base fields which are not algebraically closed.",
      "match": "The change-of-field lemmas of that section are the inputs used for rational coefficients."
     }
    ],
@@ -9234,19 +9059,16 @@
     {
      "sourceId": "JANNSEN.1992",
      "locator": "page 448, proof of the implication c) to b) of Theorem 1",
-     "excerpt": "fix a Weil cohomology X ↦ H(X), for example the one given by the étale cohomology groups H^i(X ×_k k_s, Q_l), where k_s is a separable closure of k, and l is a prime number invertible in k.",
      "match": "Jannsen's instance of a Weil cohomology theory; the node states that it is one, with every part imported from its owner."
     },
     {
      "sourceId": "MILNE.MOT",
      "locator": "Section 2, on the cohomology theories available for varieties over an arbitrary field",
-     "excerpt": "For each prime number ℓ distinct from the characteristic of k, étale cohomology gives cohomology groups H^0_et(X, Q_ℓ), ..., H^{2n}_et(X, Q_ℓ) which are finite-dimensional vector spaces over Q_ℓ and satisfy Poincaré duality, a Lefschetz fixed point formula, and so on.",
      "match": "Milne's description of the properties being assembled."
     },
     {
      "sourceId": "STACKS.WEIL",
      "locator": "Section 0FGS, opening paragraph",
-     "excerpt": "In this section we define what we will call a classical Weil cohomology theory. This is exactly what is called a Weil cohomology theory in [Kleiman, Section 1.2].",
      "match": "The definition being verified is Kleiman's, whose standard example is l-adic cohomology."
     }
    ],
@@ -9289,13 +9111,11 @@
     {
      "sourceId": "JANNSEN.1992",
      "locator": "page 448, Lemma 1, the case g = Δ",
-     "excerpt": "Then for f, g ∈ B^{dim(X)}(X × X) one has ⟨f · ᵗg⟩ = Σ_{i=0}^{2dim(X)} (−1)^i Tr_i(f ∘ g), where Tr_i(f) is the trace of f acting on H^i(X).",
      "match": "With g the diagonal this is the formula for the correspondence f. Jannsen calls it well known and cites Kleiman, whose survey was not obtained."
     },
     {
      "sourceId": "STACKS.WEIL",
      "locator": "Lemmas 0FGZ and 0FH0",
-     "excerpt": "Then ∫_X e_{i,j} ∪ e'_{2d−i,j'} = (−1)^i δ_{jj'}. ... We have Σ_{i = 0, ..., 2 dim(X)} (−1)^i dim_F H^i(X) = deg([Δ] · [Δ]) = deg(c_d(T_X) ∩ [X])",
      "match": "Lemma 0FH0 is the case u = γ([Δ]); the general case is the same computation with the basis of Lemma 0FGZ, written out in the proof steps."
     }
    ],
@@ -9337,13 +9157,11 @@
     {
      "sourceId": "JANNSEN.1992",
      "locator": "page 449, Corollary 1, and page 449 to 450, its proof",
-     "excerpt": "If, for a variety X, the Künneth components π^j ∈ H^{2dim(X)−j}(X) ⊗ H^j(X) of the diagonal are algebraic (cf. [K1] Sect. 2), then ... Now, by definition of the π^j we have Tr_i(f ∘ π^j) = δ_{ij} Tr_j(f) for every f ∈ B",
      "match": "The definition and the defining trace identity; placed in MC.2 so that MC.3 does not depend on MC.7, which states the conjecture that they are algebraic."
     },
     {
      "sourceId": "JANNSEN.1992",
      "locator": "page 451, Remark 1",
-     "excerpt": "Moreover, if the assumption holds for X and Y, it also holds for X × Y, since π^j_{X×Y} = Σ_{r+s=j} π^r_X ⊗ π^s_Y by the Künneth formula.",
      "match": "The product formula, an API item."
     }
    ],
@@ -9463,13 +9281,11 @@
     {
      "sourceId": "JANNSEN.1992",
      "locator": "page 450, proof of Corollary 1",
-     "excerpt": "By definition, the cycle map B ↪ H^{2dim(X)}(X × X) = ⊕_{i≥0} End H^i(X) is an injective ring homomorphism, so that f is nilpotent in B.",
      "match": "The node is the statement Jannsen uses as a definition, with the identification of H^{2d}(X × X) with the endomorphisms of cohomology made explicit and extended to correspondences between two varieties."
     },
     {
      "sourceId": "MILNE.MOT",
      "locator": "Section 6, 'Is X ↦ hX a universal cohomology theory?'",
-     "excerpt": "With M_num(k) there is a problem: a correspondence numerically equivalent to zero will define the zero map on motives, but we don't know in general that it defines the zero map on cohomology.",
      "match": "The reason the realisation is stated modulo homological, not numerical, equivalence."
     }
    ],
@@ -9513,7 +9329,6 @@
     {
      "sourceId": "STACKS.WEIL",
      "locator": "Proposition 0FH3 with its proof",
-     "excerpt": "A classical Weil cohomology theory is the same thing as a Q-linear functor G : M_k → graded F-vector spaces of symmetric monoidal categories together with an isomorphism F[2] → G(1(1)) ... Conversely, given H^* we get a functor G by the construction of Lemma 0FH2.",
      "match": "The proposition asserts a bijection; its proof builds the two constructions and checks the extra conditions but does not compose them (source issue E13). The node supplies the verification."
     }
    ],
@@ -9555,7 +9370,6 @@
     {
      "sourceId": "STACKS.WEIL",
      "locator": "Lemma 0FG8 with its proof (Section 0FFZ)",
-     "excerpt": "Let f : Y → X be a morphism of smooth projective schemes over k. Assume X and Y equidimensional of dimensions d and e. Denote a = [Γ_f] ∈ Corr^0(X, Y) and a^t = [Γ_f^t] ∈ Corr^{d−e}(Y, X). ... The diagram ... is commutative in the category of correspondences.",
      "match": "The node is Lemma 0FG8, which no node of the packet planned although Lemma 0FH1 uses it for (C)(b). It belongs with the correspondences of MC.0 and may be re-parented there."
     }
    ],
@@ -9592,7 +9406,6 @@
     {
      "sourceId": "STACKS.WEIL",
      "locator": "Lemma 0FH8 with its proof (Section 0FH4)",
-     "excerpt": "Let K/k be an algebraic extension of fields. Let X be a finite type scheme over k. The kernel of the map CH_i(X) → CH_i(X_K) constructed in Lemma 0FH6 is torsion. Proof. ... This is clear because π_* π^* α = [k' : k] α",
      "match": "The node is Lemma 0FH8, formerly bundled into MC.2/chow-groups-under-field-extension."
     }
    ],
@@ -9632,7 +9445,6 @@
     {
      "sourceId": "STACKS.WEIL",
      "locator": "Lemma 0FH5 with its proof (Section 0FH4)",
-     "excerpt": "Let k be a field. Let X be a smooth projective scheme over k. Then CH_0(X) is generated by classes of closed points whose residue fields are separable over k.",
      "match": "The node is Lemma 0FH5, formerly bundled into MC.2/chow-groups-under-field-extension; its proof, a Bertini argument of about a page, is not routine and is laid out in the proof steps."
     }
    ],
@@ -9673,13 +9485,11 @@
     {
      "sourceId": "JANNSEN.1992",
      "locator": "page 449, proof of Lemma 2",
-     "excerpt": "Indeed, then C is equivalent to a sum, indexed by the isomorphism classes of indecomposables (= irreducibles), of categories which are equivalent to categories of vector spaces over skewfields.",
      "match": "Jannsen uses the notion without defining it; this sentence is the description the node records as its block decomposition."
     },
     {
      "sourceId": "MILNE.MOT",
      "locator": "Section 6, 'Properties of the category M(k)'",
-     "excerpt": "The category M_num(k) is abelian and semisimple, but M_rat(k) is not even abelian, except perhaps when k is algebraic over a finite field.",
      "match": "The use of the notion for numerical motives."
     }
    ],
@@ -9794,13 +9604,11 @@
     {
      "sourceId": "JANNSEN.1992",
      "locator": "page 450, proof of Corollary 2",
-     "excerpt": "under the above normalizations the rank (in the sense of [DM] p. 113) of a motive h(X) = (X, id, 0) can be negative, while in the presence of a fibre functor it should be non-negative, as the dimension of a vector space",
      "match": "Jannsen uses the rank of Deligne and Milne, which was not obtained; the node records the standard definition through the commutativity constraint, which is what makes the sign change of Corollary 2 change ranks."
     },
     {
      "sourceId": "MILNE.MOT",
      "locator": "Section 6, 'Is M_num(k) tannakian?'",
-     "excerpt": "In an abelian category T with tensor products and duals it possible to deﬁne the trace of an endomorphism of an object. This is preserved by every exact faithful tensor functor ω: T → Vec_Q, and so, for the identity map u of an object M, Tr(u|M) = Tr(ω(u)|ω(M)) = dim_Q ω(M)",
      "match": "Milne's description of the trace and of its preservation, which the node states."
     }
    ],
@@ -9917,13 +9725,11 @@
     {
      "sourceId": "MILNE.MOT",
      "locator": "Section 6, 'What is a tannakian category?', with its footnote 9",
-     "excerpt": "A tannakian category T over Q (not necessarily neutral) is an abelian category with tensor products and duals for which there exists an exact faithful tensor functor to the category of vector spaces over some field of characteristic zero (not necessarily Q). ... We also require that End(1) = Q",
      "match": "The node takes Milne's formulation over F, with his footnote requiring End(1) = F, and records neutrality separately as the stage asks."
     },
     {
      "sourceId": "JANNSEN.1992",
      "locator": "page 450, proof of Corollary 2",
-     "excerpt": "Then M_k is semi-simple abelian by Theorem 1, so by [D] it only needs a fibre functor with values in some extension field F' of F = End(1) to make M_k into a Tannakian category.",
      "match": "Jannsen's working definition, which agrees; he cites Saavedra Rivano and Deligne, neither obtained."
     }
    ],
@@ -10036,13 +9842,11 @@
     {
      "sourceId": "JANNSEN.1992",
      "locator": "page 448, proof of c) to b)",
-     "excerpt": "It is well-known that A^j(X) is a finite-dimensional F-vector space for all X and j, and that one has an isomorphism A^j(X, Q) ⊗_Q F ≅ A^j(X, F), cf. [K1] Thm. 3.5.",
      "match": "The node is the fact Jannsen quotes from Kleiman's Theorem 3.5, which was not obtained; the proof steps are the standard argument through a Weil cohomology theory."
     },
     {
      "sourceId": "MILNE.MOT",
      "locator": "Section 6, 'Properties of the category M(k)'",
-     "excerpt": "The Hom sets are Q-vector space, which are ﬁnite-dimensional if ∼ = num (but not usually otherwise).",
      "match": "Milne states the same finiteness without proof."
     }
    ],
@@ -10088,7 +9892,6 @@
     {
      "sourceId": "JANNSEN.1992",
      "locator": "page 448, proof of c) to b)",
-     "excerpt": "In particular, the Jacobson radical J of A^{dim(X)}(X × X, F) is obtained from the one of A^{dim(X)}(X × X, Q) by base extension to F, and it suffices to show J = 0 over any field F.",
      "match": "Jannsen uses this without proof; the node is the standard separability argument, needed because the reduction to one coefficient field rests on it."
     }
    ],
@@ -10128,7 +9931,6 @@
     {
      "sourceId": "JANNSEN.1992",
      "locator": "page 450, proof of Corollary 1",
-     "excerpt": "The same is true for all powers of f, which implies that for all i ≥ 0 the endomorphism f_i of H^i(X) induced by f has zero eigenvalues, thus is nilpotent.",
      "match": "The step of Jannsen's proof this lemma makes precise."
     }
    ],
@@ -10171,7 +9973,6 @@
     {
      "sourceId": "JANNSEN.1992",
      "locator": "page 448, proof of a) to c)",
-     "excerpt": "Since End(1) = F is a field, 1 is an irreducible object. Hence every non-trivial morphism f: 1 → (X, id, j) is a monomorphism, and by a) there is a morphism g: (X, id, j) → 1 with g ∘ f = id. Translated back to algebraic cycles this means",
      "match": "The node is the implication a) to c) of Theorem 1 with its proof."
     }
    ],
@@ -10220,7 +10021,6 @@
     {
      "sourceId": "JANNSEN.1992",
      "locator": "page 448, proof of c) to b)",
-     "excerpt": "Now consider the surjection of finite-dimensional Q_l-algebras S : B = B^{dim(X)}(X × X) → A^{dim(X)}(X × X) = A and let J' be the Jacobson radical of B. Since B/J' is semi-simple and this carries over to quotients, and since S(J') is a nilpotent two-sided ideal in A, we must have S(J') = J.",
      "match": "The node is the implication c) to b) of Theorem 1 with its proof, which continues on page 449."
     }
    ],
@@ -10262,7 +10062,6 @@
     {
      "sourceId": "JANNSEN.1992",
      "locator": "page 449, proof of b) to a)",
-     "excerpt": "First we deduce from b) that End_{M_k}(M) is a finite-dimensional, semi-simple F-algebra for every direct factor M of h(X) = (X, id, 0) and hence for every object M of M_k. In fact, if J is a nilpotent two-sided ideal of End(M), and if h(X) = M ⊕ N, then",
      "match": "The node is the implication b) to a) of Theorem 1 with its proof."
     }
    ],
@@ -10303,7 +10102,6 @@
     {
      "sourceId": "JANNSEN.1992",
      "locator": "pages 451 to 452, Remark 4",
-     "excerpt": "Under the assumption of Corollary 1, one can associate cohomology groups H(M) to every motive M = (X, p, m) w.r.t. numerical equivalence, such that H(M) is well-defined up to non-canonical isomorphism. In fact, one can lift p to an idempotent p' in A_hom^{dim X}(X × X)",
      "match": "The node is Remark 4, which no node of the packet planned although Corollary 2's rank formula needs it to make sense of pH^i(X) for a numerical class p."
     }
    ],
@@ -10346,13 +10144,11 @@
     {
      "sourceId": "MILNE.MOT",
      "locator": "Section 5, 'Second attempt', and Section 6",
-     "excerpt": "That's it! This is the category of effective motives for rational or numerical equivalence depending on the choice of ∼",
      "match": "Milne builds both categories by one recipe; the quotient functor is reduction of cycles. He adds that M_rat(k) contains more information than M_num(k)."
     },
     {
      "sourceId": "JANNSEN.1992",
      "locator": "page 447, the setting",
-     "excerpt": "Fix a field F of characteristic zero, and an adequate equivalence relation ∼ on F-linear algebraic cycles (cf [K2] §1; in short, pull-back, push-forward and intersection of cycles is always (well-)defined modulo ∼).",
      "match": "The category is formed for every adequate relation, and rational equivalence is the finest, which gives the reduction maps."
     }
    ],
@@ -10461,19 +10257,16 @@
     {
      "sourceId": "MVW.2006",
      "locator": "Appendix 8A, before Exercise 8A.8 (p. 65)",
-     "excerpt": "Let C[T^-1] denote the category whose objects are pairs (X,m) with X in C and m in Z; morphisms (X,m) -> (Y,n) in C[T^-1] are just elements of the direct limit lim_{i->infinity} Hom(X tensor T^{tensor m+i}, Y tensor T^{tensor n+i}), where the bonding maps are given by the functor tensor T : C -> C.",
      "match": "The construction, literally."
     },
     {
      "sourceId": "MVW.2006",
      "locator": "Appendix 8A, Proposition 8A.10 and Corollary 8A.11 (pp. 65-66)",
-     "excerpt": "Let T be an object in a symmetric monoidal category (C,tensor,1) such that the cyclic permutation on T^{tensor 3} is the identity in C[T^-1]. Then (C[T^-1],tensor,1) is also a symmetric monoidal category.",
      "match": "The symmetric monoidal structure and its hypothesis; 8A.11 adds the triangulated structure under the same hypothesis."
     },
     {
      "sourceId": "MVW.2006",
      "locator": "Appendix 8A, Exercise 8A.8 (p. 65)",
-     "excerpt": "Let T be an object in a tensor triangulated category C. Show that C[T^-1] is a triangulated category, and that C -> C[T^-1] is triangulated.",
      "match": "The triangulated structure, left as an exercise in the source and planned here."
     }
    ],
@@ -10607,13 +10400,11 @@
     {
      "sourceId": "MVW.2006",
      "locator": "Lecture 15, Corollary 15.8 (p. 122)",
-     "excerpt": "The action of the symmetric group Sigma_n on Z(n) is A1-homotopic to the trivial action. Hence it is trivial in DM^{eff,-}_Nis, and on the motivic cohomology groups H^p(X,Z(n)).",
      "match": "The statement, literally."
     },
     {
      "sourceId": "MVW.2006",
      "locator": "Lecture 15, Example 15.6 and Proposition 15.7 (pp. 121-122)",
-     "excerpt": "Consider the reflection automorphism tau of Pn, n >= 1, sending (x0 : x1 : ... : xn) to (-x0 : x1 : ... : xn). We claim that the induced automorphism of C_*Z_tr(Pn) is A1-homotopic to the identity map",
      "match": "The geometric input of the proof."
     }
    ],
@@ -10654,7 +10445,6 @@
     {
      "sourceId": "MVW.2006",
      "locator": "Lecture 14, Definition 14.1, second paragraph (p. 109)",
-     "excerpt": "If k admits resolution of singularities, it follows from (14.5.3) and (14.5.5) that DM^eff_gm contains M(Y) for every Y in Sch/k, and is generated by M(X), where X is smooth and projective.",
      "match": "The two assertions, literally; the inductions are written out in the steps."
     }
    ],
@@ -10692,13 +10482,11 @@
     {
      "sourceId": "MVW.2006",
      "locator": "Lecture 13, Corollary 13.16 with its proof (p. 103)",
-     "excerpt": "If E is a vector bundle over X, C_*Z_tr(E) -> C_*Z_tr(X) is a quasi-isomorphism. PROOF. Choose a Zariski cover U of X on which E is a trivial bundle.",
      "match": "The statement and the start of the proof."
     },
     {
      "sourceId": "MVW.2006",
      "locator": "Lecture 14, Properties 14.5, vector bundle item (p. 111)",
-     "excerpt": "(Vector bundle) If E -> X is a vector bundle, by 13.16 we have an isomorphism M(E) -> M(X).",
      "match": "The statement in DM."
     }
    ],
@@ -10738,13 +10526,11 @@
     {
      "sourceId": "MVW.2006",
      "locator": "Lecture 15, Lemma 15.1 and Theorem 15.2 (p. 119)",
-     "excerpt": "LEMMA 15.1. There is a chain homotopy equivalence: C_*Z_tr(Pn - 0) = C_*Z_tr(Pn-1). THEOREM 15.2. If k is a perfect field, there is a quasi-isomorphism of Zariski sheaves for each n: C_*(Z_tr(Pn)/Z_tr(Pn-1)) = C_*Z_tr(G_m^{wedge n})[n] = Z(n)[2n].",
      "match": "The two statements, literally."
     },
     {
      "sourceId": "MVW.2006",
      "locator": "Lecture 15, after Theorem 15.2 (p. 119)",
-     "excerpt": "Our proof will use theorem 13.12, whose proof depended upon theorem 13.8, a result whose proof we have postponed until lecture 24. The requirement that k be perfect is only needed for 13.8 (and hence 13.12).",
      "match": "Where the hypothesis on k enters."
     }
    ],
@@ -10783,7 +10569,6 @@
     {
      "sourceId": "MVW.2006",
      "locator": "Lecture 15, Exercise 15.4 with its hint (p. 121)",
-     "excerpt": "Show that the map C_*Z_tr(Pi) -> Z(i)[2i] of theorem 15.2 factors through the natural inclusion C_*Z_tr(Pi) -> C_*Z_tr(Pn) for all n > i. Hint: Fix U0 in U and construct Z_tr(U^) -> Z(1)[2] vanishing on Z_tr(U0).",
      "match": "The statement and the hint the proof follows."
     }
    ],
@@ -10829,13 +10614,11 @@
     {
      "sourceId": "MVW.2006",
      "locator": "Lecture 15, Theorem 15.12 (p. 123)",
-     "excerpt": "(Projective Bundle Theorem). Let p : P(E) -> X be a projective bundle associated to a vector bundle E of rank n + 1. Then the canonical map +_{i=0}^n Z_tr(X)(i)[2i] -> Z_tr(P(E)) is an isomorphism in DM, and p is the projection onto the factor Z_tr(X).",
      "match": "The theorem; the arrow of the display is reversed relative to the construction (E26)."
     },
     {
      "sourceId": "MVW.2006",
      "locator": "Lecture 15, Construction 15.10 (pp. 122-123)",
-     "excerpt": "From 4.2, 13.11, and 13.5 we have an isomorphism Pic(P) = H2_Nis(P,Z(1)) = Hom_{D-}(Z_tr(P),Z(1)[2]). Therefore the canonical line bundle yields a canonical map tau : Z_tr(P) -> Z(1)[2] in D-.",
      "match": "The construction of the canonical map."
     }
    ],
@@ -10881,13 +10664,11 @@
     {
      "sourceId": "MVW.2006",
      "locator": "Lecture 15, Corollary 15.13 (p. 123)",
-     "excerpt": "Let X be a smooth scheme and Z a smooth subscheme of pure codimension c. Let p : X' -> X be the blow-up along Z. Then C_*Z_tr(X') = C_*Z_tr(X)+(+_{i=1}^{c-1} C_*Z_tr(Z)(i)[2i]). Moreover, there is a natural \"Gysin\" map gamma : C_*Z_tr(X) -> C_*Z_tr(Z)(c)[2c], which is zero on C_*Z_tr(X - Z).",
      "match": "The statement, literally; MVW's (14.5.4) is its first half."
     },
     {
      "sourceId": "MVW.2006",
      "locator": "Lecture 15, proof of Corollary 15.13 (p. 123)",
-     "excerpt": "Since Z is smooth, Z' is the projective bundle associated to the normal bundle of Z in X. We claim that the morphism C_*Z_tr(X') -> C_*Z_tr(X) is a split surjection. By 13.26 and 15.12, this will prove the first assertion.",
      "match": "Shows that the proof uses Theorem 13.26 and hence resolution (E21)."
     }
    ],
@@ -10928,19 +10709,16 @@
     {
      "sourceId": "MVW.2006",
      "locator": "Lecture 16, Definition 16.1 (p. 125)",
-     "excerpt": "The presheaf z_equi(T,r) on Sm/k is defined as follows. For each smooth S, z_equi(T,r)(S) is the free abelian group generated by the closed and irreducible subvarieties Z of S x T which are dominant and equidimensional of relative dimension r over a component of S.",
      "match": "The definition, literally."
     },
     {
      "sourceId": "MVW.2006",
      "locator": "Lecture 16, after Definition 16.1 and Exercise 16.3 (pp. 125-126)",
-     "excerpt": "One can also check that each z_equi(T,r) is contravariant for flat maps in T, and covariant for proper maps in T, both with the appropriate change in the dimension index r",
      "match": "The functoriality, cited in the source from Relative cycles and Chow sheaves."
     },
     {
      "sourceId": "MVW.2006",
      "locator": "Lecture 16, Example 16.2 (p. 125)",
-     "excerpt": "If T is projective, or proper, then Z_tr(T) = z_equi(T,0).",
      "match": "The proper case."
     }
    ],
@@ -11063,13 +10841,11 @@
     {
      "sourceId": "MVW.2006",
      "locator": "Lecture 16, Theorem 16.7 (p. 126)",
-     "excerpt": "Assume that k is perfect. Then there is a quasi-isomorphism in the Zariski topology: Z(i) = Z_SF(i). In particular, H^{n,i}(X,Z) = H^n(X,Z_SF(i)) for all n and i.",
      "match": "The theorem, literally."
     },
     {
      "sourceId": "MVW.2006",
      "locator": "Lecture 16, before Example 16.5 and Theorem 16.8 (pp. 126-127)",
-     "excerpt": "We define the Suslin-Friedlander motivic complexes Z_SF(i) by: Z_SF(i) = C_*z_equi(A^i,0)[-2i]. ... THEOREM 16.8. There is a quasi-isomorphism in the Zariski topology: C_*(z_equi(P^i,0)/z_equi(P^{i-1},0)) = C_*z_equi(A^i,0).",
      "match": "The definition and the key comparison whose proof (16.9-16.12) the steps follow."
     }
    ],
@@ -11112,13 +10888,11 @@
     {
      "sourceId": "MVW.2006",
      "locator": "Lecture 19, Lemma 19.4 (p. 159)",
-     "excerpt": "Let T be smooth of dimension d. If 0 <= i <= d then for all X there is an embedding of simplicial abelian groups: C_.z_equi(T,d-i)(X) in z^i(X x T,.). In particular (for T = A^i), Z_SF(i)[2i](X) is a subcomplex of z^i(X x A^i,*).",
      "match": "The embedding, literally."
     },
     {
      "sourceId": "MVW.2006",
      "locator": "Lecture 19, Theorem 19.8 and Corollary 19.9 (p. 161)",
-     "excerpt": "The map Z_SF(i)[2i] = C_*z_equi(A^i,0) -> z^i(- x A^i,*) is a quasi-isomorphism of complexes of Zariski sheaves. COROLLARY 19.9. For any smooth scheme X, the inclusion of 19.4 induces an isomorphism: H^{n,i}(X,Z) -> H^{n-2i}(X,z^i(- x A^i,*)).",
      "match": "The quasi-isomorphism and its consequence."
     }
    ],
@@ -11161,13 +10935,11 @@
     {
      "sourceId": "MVW.2006",
      "locator": "Lecture 16, Theorem 16.15 (p. 129)",
-     "excerpt": "Assume that k admits resolution of singularities. If Z -> X is a closed subscheme with complement U -> X, there is a distinguished triangle: M^c(Z) -> M^c(X) -> M^c(U) -> M^c(Z)[1].",
      "match": "The theorem, literally."
     },
     {
      "sourceId": "MVW.2006",
      "locator": "Lecture 16, proof of Theorem 16.15 (p. 129)",
-     "excerpt": "It is easy to see from the definitions that there is an exact sequence of sheaves with transfers: 0 -> z_equi(Z,0) -> z_equi(X,0) -> z_equi(U,0) -> Q -> 0. By 13.25 it suffices to show that Q_cdh = 0.",
      "match": "The reduction the steps follow; 13.25 assumes k perfect."
     }
    ],
@@ -11209,7 +10981,6 @@
     {
      "sourceId": "MVW.2006",
      "locator": "Lecture 16, Corollary 16.16 with its proof (p. 129)",
-     "excerpt": "For every X and Y, M^c(X x Y) = M^c(X) tensor^tr_{L,Nis} M^c(Y). In particular, M^c(X x A^i) = M^c(X)(i)[2i]. PROOF. If X and Y are smooth and proper, this is just the identity M(X x Y) = M(X) tensor^tr_{L,Nis} M(Y).",
      "match": "The statement and the base case; the rest of the proof cites 13.26 and 16.15 with the axioms of 8A.1."
     }
    ],
@@ -11248,7 +11019,6 @@
     {
      "sourceId": "MVW.2006",
      "locator": "Lecture 16, Corollary 16.17 with its proof (p. 129)",
-     "excerpt": "For every scheme X in Sch/k, M^c(X) is in DM^eff_gm. PROOF. If X is proper, so that M^c(X) = M(X), this follows from (14.5.3), as pointed out in 14.1. The general case follows from this, using theorem 16.15.",
      "match": "The statement and its proof, literally."
     }
    ],
@@ -11288,19 +11058,16 @@
     {
      "sourceId": "MVW.2006",
      "locator": "Lecture 16, Theorem 16.22 (p. 130)",
-     "excerpt": "Let X be in Sch/k, where k admits resolution of singularities. Then for any r >= 0 and any M in DM^{eff,-}_Nis, there are natural isomorphisms: Hom(M(1)[2],C_*z_equi(X,r)) -> Hom(M,C_*z_equi(X,r+1)); Hom(M(r)[2r],M^c(X)) -> Hom(M,C_*z_equi(X,r)).",
      "match": "The theorem, literally."
     },
     {
      "sourceId": "MVW.2006",
      "locator": "Lecture 16, Remark 16.21 and after Theorem 16.22 (p. 130)",
-     "excerpt": "In [BivCy, 8.3], they proved the following result: ... More precisely, they proved in [BivCy, 8.3] that there is a natural isomorphism A_{r,i}(Y(1)[2],X) = A_{r+1,i}(Y,X) for every X,Y in Sch/k.",
      "match": "The source cites the result from Friedlander-Voevodsky and does not prove it."
     },
     {
      "sourceId": "MVW.2006",
      "locator": "Lecture 16, Corollary 16.23 (pp. 130-131)",
-     "excerpt": "Let X -> Y be a flat map of relative dimension r. Then we have a morphism in DM^{eff,-}_Nis: M^c(Y)(r)[2r] -> M^c(X).",
      "match": "The flat pullback."
     }
    ],
@@ -11337,13 +11104,11 @@
     {
      "sourceId": "MVW.2006",
      "locator": "Lecture 16, before and in Theorem 16.24 (p. 131)",
-     "excerpt": "The Duality Theorem below is also due to Friedlander and Voevodsky ([BivCy, 8.2]). We also cite it without proof. THEOREM 16.24. (Duality) Assume that k admits resolution of singularities. If T is a smooth scheme of dimension d over k then there are canonical isomorphisms",
      "match": "The theorem and the source's statement that it is cited without proof."
     },
     {
      "sourceId": "MVW.2006",
      "locator": "Lecture 16, Theorem 16.24, display (p. 131)",
-     "excerpt": "Hom(M(X x T)[n],M^c(Y)) = Hom(M(X)(d)[2d+n],M^c(T x Y)).",
      "match": "The isomorphism."
     }
    ],
@@ -11385,13 +11150,11 @@
     {
      "sourceId": "MVW.2006",
      "locator": "Lecture 20, Proposition 20.3 (p. 168)",
-     "excerpt": "If X is smooth of dimension d, the diagonal X -> X x X induces isomorphisms for r >= 0: Delta_r : M^c(X)(r)[-2d] = RHom(M(X),Z(d))(r) = RHom(M(X),Z(d+r)).",
      "match": "The proposition, literally."
     },
     {
      "sourceId": "MVW.2006",
      "locator": "Lecture 20, Example 20.11 (p. 169)",
-     "excerpt": "If X is smooth of dimension d, the dual M(X)^* is just an untwisting of M^c(X). To see this, we combine 20.3 with definition 20.6: M^c(X) = RHom(M(X),Z(d))[2d] = M(X)^*(d)[2d]. In particular, if X is projective then M(X) = M(X)^*(d)[2d].",
      "match": "The consequence for the dual, which MC.4/geometric-motive-dual defines."
     }
    ],
@@ -11431,13 +11194,11 @@
     {
      "sourceId": "MVW.2006",
      "locator": "Lecture 20, Definition 20.6 (p. 168)",
-     "excerpt": "If X is in Sm/k and d = dimX, we define the dual to be: M(X)^* = RHom(M(X),Z(d))(-d). ... If M is any object of DM_gm, some twist M(r) is effective. We define the dual M^* to be RHom(M(r),Z(i))(r-i) for large i.",
      "match": "The definition, literally."
     },
     {
      "sourceId": "MVW.2006",
      "locator": "Lecture 20, Proposition 20.8 (p. 169)",
-     "excerpt": "The dual M^* of an object M in DM_gm represents the functor A -> Hom_gm(A tensor M,Z), in the sense that there is a natural isomorphism: Hom_gm(A,M^*) = Hom_gm(A tensor M,Z).",
      "match": "The representability, literally."
     }
    ],
@@ -11549,7 +11310,6 @@
     {
      "sourceId": "MVW.2006",
      "locator": "Lecture 20, Proposition 20.12 with its proof (pp. 169-170)",
-     "excerpt": "There is a natural isomorphism iota_M : M -> M^** for M in DM_gm. PROOF. ... To prove that iota_M is an isomorphism for all M, it suffices to prove it when M = M(X), where X is a smooth projective scheme of dimension d.",
      "match": "The proposition and the reduction."
     }
    ],
@@ -11587,7 +11347,6 @@
     {
      "sourceId": "MVW.2006",
      "locator": "Lecture 20, Proposition 20.13 (p. 170)",
-     "excerpt": "There is a natural isomorphism M^* tensor N^* -> (M tensor N)^* for every M and N in DM_gm.",
      "match": "The proposition, literally."
     }
    ],
@@ -11628,7 +11387,6 @@
     {
      "sourceId": "HMS.2014",
      "locator": "Appendix B, Proposition B.8 (p. 18)",
-     "excerpt": "Then there is a category C(T) together with a faithful exact R-linear functor f_T : C(T) -> R-Mod and a representation T~ : D -> C(T) such that f_T o T~ = T",
      "match": "The source uses that the diagram category, which is finitely generated comodules, is abelian with a faithful exact fibre functor; for comodules over a field this is the routine lemma planned here."
     }
    ],
@@ -11665,13 +11423,11 @@
     {
      "sourceId": "HMS.2014",
      "locator": "Appendix B, Proposition B.8 (p. 18)",
-     "excerpt": "for any other representation F : D -> A into some R-linear abelian category A with a faithful exact functor A -> R-Mod there is a unique functor (up to unique isomorphism) C(T) -> A such that",
      "match": "The universal property, literally; the diagram that follows requires compatibility with the functors to R-Mod."
     },
     {
      "sourceId": "HMS.2014",
      "locator": "Introduction (p. 3)",
-     "excerpt": "What is missing from our account is the proof of universality of Nori's diagram category for a diagram with a representation. The paper [vW] by J. von Wangenheim provides full details.",
      "match": "The source's own statement that the proof is not included."
     }
    ],
@@ -11709,7 +11465,6 @@
     {
      "sourceId": "HMS.2014",
      "locator": "Appendix B, Proposition B.9 (p. 18)",
-     "excerpt": "(1) As an abelian category C(T) is generated by the T~(v) ... (2) Each object of C(T) is a subquotient of a finite direct sum of objects of the form T~(v). (3) If a : v -> v' is an edge in D such that T(a) is an isomorphism, then T~(a) is also an isomorphism.",
      "match": "The proposition, literally."
     }
    ],
@@ -11758,13 +11513,11 @@
     {
      "sourceId": "HMS.2014",
      "locator": "Section 1, after Definition 1.1 (p. 4)",
-     "excerpt": "We use the representation H^* : D_Nori -> Q-Mod which assigns to (X, Y, i) relative singular cohomology H^i(X(C), Y(C), Q).",
      "match": "The representation on vertices; on edges it is the pullback and the connecting map, as the edges' names indicate."
     },
     {
      "sourceId": "HMS.2014",
      "locator": "Section 1, proof of Corollary 1.7 (p. 6)",
-     "excerpt": "Finally, we need to consider edges corresponding to coboundary maps for triples X contains Y contains Z. In this case, it follows from the construction of R that there is a natural triangle R(X, Y) -> R(X, Z) -> R(Y, Z). We use the connecting morphism in cohomology to represent the edge",
      "match": "Coboundary edges are represented by connecting morphisms of triples."
     }
    ],
@@ -11884,13 +11637,11 @@
     {
      "sourceId": "HMS.2014",
      "locator": "Appendix D, Lemma D.2 (p. 29)",
-     "excerpt": "(Basic Lemma of Nori). Let X be an affine scheme of finite type over k in C of dimension n and Z in X be a closed subscheme of dimension <= n - 1. Then there is a closed subscheme Y containing Z such that (X, Y, n) is a good pair.",
      "match": "The lemma; the three bullet conditions and 'Moreover X - Y can be chosen smooth' follow in the source."
     },
     {
      "sourceId": "HMS.2014",
      "locator": "Appendix D, after Lemma D.2 (p. 29)",
-     "excerpt": "A similar result holds in arbitrary characteristic by work of Beilinson [B, Lemma 3.3] and Kari Vilonen apparently used similar methods in his Master thesis [V].",
      "match": "The source gives no proof, only these references."
     }
    ],
@@ -11937,19 +11688,16 @@
     {
      "sourceId": "HMS.2014",
      "locator": "Appendix D, Proposition D.3 (p. 30)",
-     "excerpt": "Let A be an R-linear abelian category with a faithful forgetful functor to R-Mod. Let T : D~eff -> A be a representation. Then there is a natural contravariant triangulated functor R : C^b(Z[Var]) -> D^b(A)",
      "match": "The statement; it continues with the cohomology of R(Cone(Y -> X)) and the comparison with singular cohomology."
     },
     {
      "sourceId": "HMS.2014",
      "locator": "Appendix D, proof of Proposition D.3 (p. 33)",
-     "excerpt": "Choose a rigidified affine cover U~_{X_*} of X_*. Choose a very good filtration on the cover. In induces a very good filtration on Tot C_*(U~_{X_*}). Put R(X_*) = R~(Tot C_*(U~_{X_*})). Note that any other choice yields a complex isomorphic to this one in D^+(A).",
      "match": "The construction; the remaining properties are not verified in the proof (E31)."
     },
     {
      "sourceId": "HMS.2014",
      "locator": "Appendix D, Corollary D.19 (p. 33)",
-     "excerpt": "Let X be a variety, U~_X a rigidified affine cover with Cech complex C_*(U~_X). Then R(X) -> R(C_*(U~_X)) is an isomorphism in D^+(A).",
      "match": "Cech descent."
     }
    ],
@@ -12058,13 +11806,11 @@
     {
      "sourceId": "HMS.2014",
      "locator": "Section 1, Corollary 1.8 (p. 6)",
-     "excerpt": "Every object of MM^eff_Nori is subquotient of a direct sum of objects of the form H^i_Nori(X, Y) for a good pair (X, Y, i) where X = W - W_inf and Y = W_0 - (W_0 intersect W_inf) with W smooth projective, W_inf union W_0 a divisor with normal crossings.",
      "match": "The corollary, literally."
     },
     {
      "sourceId": "HMS.2014",
      "locator": "Section 1, Remark 1.9 (p. 6)",
-     "excerpt": "It is not clear to us if it suffices to construct Nori's category using the diagram of (X, Y, i) with X smooth, Y a divisor with normal crossings. The corollary says that the diagram category has the right \"generators\", but there might be too few \"relations\".",
      "match": "The caveat recorded in the statement."
     }
    ],
@@ -12104,13 +11850,11 @@
     {
      "sourceId": "HMS.2014",
      "locator": "Section 1, Lemma 1.12(1) and (2) (p. 7)",
-     "excerpt": "(1) H^{2n}_Nori(P^N) = 1(-n) for N >= n >= 0. (2) Let Z be a projective variety of dimension n. Then H^{2n}_Nori(Z) = 1(-n).",
      "match": "The two statements as printed; (2) needs geometric irreducibility (E28)."
     },
     {
      "sourceId": "HMS.2014",
      "locator": "Section 1, proof of Lemma 1.12(2) (p. 7)",
-     "excerpt": "(2) Let Z in P^N be a closed immersion with N large enough. Then H^{2n}_Nori(Z) -> H^{2n}_Nori(P^N) is an isomorphism in MM_Nori because it is in singular cohomology.",
      "match": "The proof; the map is the restriction from P^N to Z."
     }
    ],
@@ -12153,13 +11897,11 @@
     {
      "sourceId": "HMS.2014",
      "locator": "Section 1, Lemma 1.12(3) (p. 7)",
-     "excerpt": "(3) Let X be a smooth variety, Z in X a smooth, irreducible, closed subvariety of pure codimension n. Then H^{2n}_Z(X) = 1(-n).",
      "match": "The statement as printed; it needs Z geometrically connected (E28)."
     },
     {
      "sourceId": "HMS.2014",
      "locator": "Section 1, proof of Lemma 1.12(3) (p. 7)",
-     "excerpt": "We note first that (3) holds in singular cohomology by the Gysin isomorphism H^0(Z) -> H^{2n}_Z(X) under our assumptions.",
      "match": "The proof starts from H^0(Z), which is one-dimensional only when Z is geometrically connected."
     }
    ],
@@ -12202,13 +11944,11 @@
     {
      "sourceId": "HMS.2014",
      "locator": "Section 1, Lemma 1.13 (p. 8)",
-     "excerpt": "Let W be a smooth projective variety of dimension i ... We assume that (X, Y) is a very good pair. Then there is a morphism in MM_Nori q : 1 -> H^i_Nori(X, Y) tensor H^i_Nori(X', Y')(i) such that the dual of H^*(q) is a perfect pairing.",
      "match": "The lemma; the definitions of X, Y, X', Y' are elided."
     },
     {
      "sourceId": "HMS.2014",
      "locator": "Section 1, proof of Lemma 1.13 (p. 8)",
-     "excerpt": "Again, by functoriality, there is a map H^{2i}_Delta(X x X') <- H^{2i}_{Delta-bar}(W x W) with Delta-bar = Delta(W). By Lemma 1.12 it is isomorphic to 1(-i).",
      "match": "Where Lemma 1.12(3) is applied to the diagonal of W, which needs W geometrically connected."
     }
    ],
@@ -12252,13 +11992,11 @@
     {
      "sourceId": "HMS.2014",
      "locator": "Appendix C, Proposition C.4 (p. 28)",
-     "excerpt": "(Nori). Let C and T : C -> R-Mod be as defined at the beginning of the section. Let {V_i | i in I} be a set of objects of C with the properties: (1) It generates C as an abelian tensor category",
      "match": "The criterion; condition (2) (the pairings) and the conclusion follow."
     },
     {
      "sourceId": "HMS.2014",
      "locator": "Appendix C, Lemma C.3 and Lemma C.6 (pp. 26-28)",
-     "excerpt": "Let V be an object such that C = <V>_tensor and such that V admits a perfect duality. Then C is rigid. ... Let R be noetherian ring, G be an algebraic group scheme of finite type over R and M in G a closed immersion of a submonoid with 1 in M(R). Then M is an algebraic group scheme over R.",
      "match": "The two lemmas the criterion rests on."
     }
    ],
@@ -12299,7 +12037,6 @@
     {
      "sourceId": "HMS.2014",
      "locator": "Appendix A, Proposition A.4 with its proof (pages 15 to 16), arXiv:1105.0865v5",
-     "excerpt": "Let µl : X2 × X2 → X2 be given by µl ((a, b), (c, d)) = ((a, b, c), d). Then µl is associative and has (x, x) for x ∈ X as left-neutral elements. Let Gl = X2/ ∼l where (a, b) ∼l (a, b)(x, x) for all x ∈ X is an equivalence relation.",
      "match": "The node is Proposition A.4, with the nonemptiness hypothesis its statement needs (finding E42); the right-hand group is the case the source leaves to the reader."
     }
    ],
@@ -12419,7 +12156,6 @@
     {
      "sourceId": "HMS.2014",
      "locator": "Appendix A, Definition A.5 (page 16), arXiv:1105.0865v5",
-     "excerpt": "Definition A.5. A torsor in the category of schemes is a scheme X and a morphism X × X × X → X which on S-valued points is a torsor for all S. This simply means that the diagrams of the previous definition commute as morphisms of schemes.",
      "match": "The node is Definition A.5 restricted to affine schemes, the only case the source uses (Proposition A.6, Theorem 3.3, Corollary 3.4)."
     }
    ],
@@ -12527,7 +12263,6 @@
     {
      "sourceId": "HMS.2014",
      "locator": "Appendix A, Proposition A.6 with its proof (page 16), arXiv:1105.0865v5",
-     "excerpt": "Proposition A.6. Let X be a torsor in the category of affine schemes. Then there are affine group schemes Gl and Gr operating from the left and right on X respectively such that X is a Gl- and Gr-torsor. Proof. We use Thm. 1.4 from [SGA3, exposé VII] to obtain affine scheme quotients",
      "match": "The node is Proposition A.6 with the nonemptiness hypothesis added (E42); the quotient theorem its proof cites was not obtained and is recorded as a gap."
     }
    ],
@@ -12571,13 +12306,11 @@
     {
      "sourceId": "DM.TC",
      "locator": "Proposition 1.13 (page 12) and the end of the proof of Theorem 2.11 (pages 23 to 24), in the corrected version of 2012",
-     "excerpt": "PROPOSITION 1.13. Let (F,c) and (G,d) be tensor functors C → C′. If C and C′ are rigid, then every morphism of tensor functors λ: F → G is an isomorphism. ... If we now assume that (C,⊗) is rigid, then (1.13) shows that End⊗(ω) = Aut⊗(ω), and the theorem follows.",
      "match": "The node is that argument for the category of finite dimensional B-comodules."
     },
     {
      "sourceId": "HMS.2014",
      "locator": "Theorem 1.14 with its proof (page 8) and Theorem B.10 (page 18), arXiv:1105.0865v5",
-     "excerpt": "By Proposition C.4, the category MMNori is neutral Tannakian. The Hopf algebra of its Tannaka dual agrees with Nori's algebra by Theorem B.10.",
      "match": "The source uses the lemma, through Deligne and Milne, to see that Nori's bialgebra is a Hopf algebra."
     }
    ],
@@ -12617,7 +12350,6 @@
     {
      "sourceId": "HMS.2014",
      "locator": "Corollary 2.11 with its proof (page 11), arXiv:1105.0865v5",
-     "excerpt": "Corollary 2.11. The algebra of formal periods P remains unchanged when we restrict in Deﬁnition 2.8 to (X, D, ω, γ) with X aﬃne of dimension d, D of dimension d −1 and X ∖ D smooth",
      "match": "The node is Corollary 2.11, split out of the theorem node; its proof is the same argument for very good pairs with the analogue of Corollary 1.7."
     }
    ],
@@ -12659,7 +12391,6 @@
     {
      "sourceId": "HMS.2014",
      "locator": "Lemma 3.2 and the paragraph after it (pages 12 to 13), arXiv:1105.0865v5",
-     "excerpt": "If A1, A2 and A1,2 denote the Hopf algebras deﬁned above then we have G1 = Spec(A1), G2 = Spec(A2), and X = Spec(A1,2). Proof. This follows (almost verbatim) the Tannakian pattern, see [DM]. ... These schemes are related via natural morphisms",
      "match": "The second half of Lemma 3.2 and the natural morphisms displayed after it; the proof steps decompose the Tannakian pattern the source refers to."
     }
    ],
@@ -12774,13 +12505,11 @@
     {
      "sourceId": "DM.TC",
      "locator": "Theorem 3.2(a) with its proof, and Remark 3.3 (pages 30 to 31), in the corrected version of 2012",
-     "excerpt": "THEOREM 3.2. Let C be a neutral Tannakian category over k: (a) For any ﬁbre functor η on C with values in R, Hom⊗(ω,η) is representable by an afﬁne scheme faithfully ﬂat over Spec R; it is therefore a G-torsor.",
      "match": "The node is part (a) of that theorem; part (b), the equivalence between fibre functors and torsors, is not needed here."
     },
     {
      "sourceId": "HMS.2014",
      "locator": "Lemma 3.2, proof (page 12), arXiv:1105.0865v5",
-     "excerpt": "Proof. This follows (almost verbatim) the Tannakian pattern, see [DM].",
      "match": "The source defers the Tannakian facts it uses to Deligne and Milne."
     }
    ],
@@ -12822,13 +12551,11 @@
     {
      "sourceId": "DM.TC",
      "locator": "Propositions 2.14, 2.20 and 2.21 (pages 22 to 25), in the corrected version of 2012",
-     "excerpt": "PROPOSITION 2.20. Let G be an afﬁne group scheme over k. (a) G is ﬁnite if and only if there exists an object X of Repk(G) such that every object of Repk(G) is isomorphic to a subquotient of Xn for some n ≥ 0. (b) G is algebraic if and only if Repk(G) has a tensor generator X.",
      "match": "The algebraicity of the groups of the subcategories generated by finite subdiagrams, with Propositions 2.14 and 2.21 for the colimit and the transition maps."
     },
     {
      "sourceId": "HMS.2014",
      "locator": "Proposition B.7 and Proposition B.9 (pages 17 to 18), arXiv:1105.0865v5",
-     "excerpt": "Let A(F, T ) := HomR(End(T |F ), R). We set A(T ) := colimF A(F, T ). Then C(T ) is the category of ﬁnitely generated R-modules with an R-linear A(T )-comodule structure.",
      "match": "Nori's colimit over finite subdiagrams, and the generation of C(T) by the objects attached to vertices."
     }
    ],
@@ -12873,13 +12600,11 @@
     {
      "sourceId": "HMS.2014",
      "locator": "Introduction, the paragraph after Theorem 0.2 (page 2), arXiv:1105.0865v5",
-     "excerpt": "... singular cohomology and algebraic de Rham cohomology are both ﬁber functors on the same Tannaka category of motives. By general Tannaka formalism, there is a pro-algebraic torsor of isomorphisms between them. The period pairing is nothing but a complex point of this torsor.",
      "match": "The node makes that sentence a construction."
     },
     {
      "sourceId": "HMS.2014",
      "locator": "The paragraph before Corollary 2.12 (page 11), arXiv:1105.0865v5",
-     "excerpt": "All formal eﬀective periods (X, D, ω, γ) can be evaluated by ”integrating” ω along γ. More precisely, there is a natural pairing Hd dR(X, D) × Hd(X(C), D(C)) → C This induces a ring homomorphism ev : P → C which maps (Gm, {1}, dX/X, S1) to 2πi.",
      "match": "The evaluation, which PeriodsAndSpecialValues:PS.2 constructs by integration and identifies with this point."
     }
    ],
@@ -13028,13 +12753,11 @@
     {
      "sourceId": "DELIGNE.HODGE",
      "locator": "Section 1, the paragraph on the Hodge filtration and the paragraph before the statement (page 1 to 2)",
-     "excerpt": "When X moves in a holomorphic family, the Hodge ﬁltration F p := ⊕a≥p Ha,n−a of Hn(X, C) is better behaved than the Hodge decomposition. ... Rational (p, p)-classes are called Hodge classes. They form the group H2p(X, Q) ∩ Hp,p(X) = H2p(X, Q) ∩ F p ⊂ H2p(X, C).",
      "match": "The definition of the Hodge filtration and of Hodge classes, verbatim; the packet's algebraic description of F^p is the one the de Rham comparison supplies."
     },
     {
      "sourceId": "TOTARO.TATE",
      "locator": "Section 1, the paragraph on the Hodge conjecture (page 4)",
-     "excerpt": "The Hodge conjecture predicts the converse: any element of H2a(X, Q) whose image in H2a(X, C) is in the middle piece of the Hodge decomposition is the class of some algebraic cycle with Q coeﬃcients",
      "match": "The same definition, in terms of the middle piece of the Hodge decomposition."
     }
    ],
@@ -13147,7 +12870,6 @@
     {
      "sourceId": "DELIGNE.HODGE",
      "locator": "Section 1, the last paragraph of page 1 and the first sentence of page 2, and remark (i) of Section 2",
-     "excerpt": "If Z is a closed analytic subspace of X, of complex codimension p, Z is an integral cycle and, by Poincaré duality, deﬁnes a class cl(Z) in H2p(X, Z). The integration current on Z is a closed (p, p)-form with generalized function coeﬃcients, representing the image of cl(Z) in H2p(X, C).",
      "match": "The node is that argument; remark (i) supplies Chow's theorem."
     }
    ],
@@ -13185,7 +12907,6 @@
     {
      "sourceId": "TOTARO.TATE",
      "locator": "Section 2, the paragraphs on the strong Tate conjecture and on motives over finite fields (pages 6 to 7)",
-     "excerpt": "The strong Tate conjecture is the combination of the Tate conjecture with the conjecture that, for a smooth projective variety over a ﬁnitely generated ﬁeld k, the Galois-invariant subspace of H2a(X, Ql(a)) is a summand, as a Galois representation.",
      "match": "The definition, verbatim; the consequences are recorded from the two paragraphs that follow."
     }
    ],
@@ -13274,7 +12995,6 @@
     {
      "sourceId": "TOTARO.TATE",
      "locator": "Section 2, the paragraphs on the Tate-Beilinson conjecture (page 7)",
-     "excerpt": "... there is an important strengthening of the Tate conjecture, the Tate-Beilinson conjecture. Namely, let X be a smooth projective variety over a ﬁnite ﬁeld k. ... Beilinson conjectured in the mid-1980s that the cycle map to l-adic cohomology, CHa(X) ⊗ Q → H2a(X, Ql(a)), is injective",
      "match": "The definition; the conjunction with the Tate conjecture follows the source's 'strengthening' and its diagram, in which the Tate-Beilinson conjecture implies the Tate conjecture."
     }
    ],
@@ -13364,8 +13084,7 @@
     {
      "sourceId": "FS.2021.v4",
      "locator": "VI.10.2, pp.232–233, first proof paragraph",
-     "match": "The local adjunction, tensor monad and dual coalgebra are the finite-piece construction.",
-     "excerpt": "left adjoint"
+     "match": "The local adjunction, tensor monad and dual coalgebra are the finite-piece construction."
     }
    ],
    "implementationStatus": "unchecked",
@@ -13446,8 +13165,7 @@
     {
      "sourceId": "FS.2021.v4",
      "locator": "VI.10.2, p.233, middle proof paragraphs",
-     "match": "Filtered coalgebra and the explicit coaction on F(Y).",
-     "excerpt": "coalgebra"
+     "match": "Filtered coalgebra and the explicit coaction on F(Y)."
     }
    ],
    "implementationStatus": "unchecked",
@@ -13528,8 +13246,7 @@
     {
      "sourceId": "FS.2021.v4",
      "locator": "VI.10.2, pp.233–234",
-     "match": "Multiplication from tensor products of representing objects; only a bialgebra without source rigidity.",
-     "excerpt": "bialgebra"
+     "match": "Multiplication from tensor products of representing objects; only a bialgebra without source rigidity."
     }
    ],
    "implementationStatus": "unchecked",
@@ -13608,8 +13325,7 @@
     {
      "sourceId": "FS.2021.v4",
      "locator": "VI.10.2, p.234, final rigidity paragraph",
-     "match": "The additional rigidity hypothesis supplies inversion.",
-     "excerpt": "If C is rigid"
+     "match": "The additional rigidity hypothesis supplies inversion."
     }
    ],
    "implementationStatus": "unchecked",
@@ -13666,8 +13382,7 @@
     {
      "sourceId": "DM.TC",
      "locator": "2.12 and Lemma 2.13, pp.21–22",
-     "match": "Construction of P_X, its stabilizer algebra, finite-module equivalence and the needed local representing object.",
-     "excerpt": "subquotients"
+     "match": "Construction of P_X, its stabilizer algebra, finite-module equivalence and the needed local representing object."
     }
    ],
    "implementationStatus": "unchecked",
@@ -13751,8 +13466,7 @@
     {
      "sourceId": "DM.TC",
      "locator": "Propositions 2.14 and 2.16, Example 2.15, pp.22–24",
-     "match": "Neutral coalgebra assembly, induced bialgebra and representability of tensor endomorphisms.",
-     "excerpt": "coalgebra"
+     "match": "Neutral coalgebra assembly, induced bialgebra and representability of tensor endomorphisms."
     }
    ],
    "implementationStatus": "unchecked",
@@ -13832,8 +13546,7 @@
     {
      "sourceId": "DM.TC",
      "locator": "Theorem 2.11, pp.20–24; Proposition 1.13, p.12",
-     "match": "Arbitrary neutral reconstruction; duality turns tensor endomorphisms into automorphisms.",
-     "excerpt": "exact faithful"
+     "match": "Arbitrary neutral reconstruction; duality turns tensor endomorphisms into automorphisms."
     }
    ],
    "implementationStatus": "unchecked",
@@ -13892,8 +13605,7 @@
     {
      "sourceId": "DM.TC",
      "locator": "Proposition 2.20, pp.24–25",
-     "match": "Finite-group and algebraic-group criteria; keep the two generator notions separate.",
-     "excerpt": "algebraic"
+     "match": "Finite-group and algebraic-group criteria; keep the two generator notions separate."
     }
    ],
    "implementationStatus": "unchecked",
@@ -13949,14 +13661,12 @@
     {
      "sourceId": "DM.TC",
      "locator": "Proposition 2.21(a) and Corollary 2.22, p.25",
-     "match": "Tensor subcategory/quotient recognition and connectedness in characteristic zero.",
-     "excerpt": "connected"
+     "match": "Tensor subcategory/quotient recognition and connectedness in characteristic zero."
     },
     {
      "sourceId": "FS.2021.v4",
      "locator": "VI.11, p.236",
-     "match": "The rational Satake application uses finite tensor generation, absence of finite tensor subcategories, then characteristic-zero reductivity.",
-     "excerpt": "finite type"
+     "match": "The rational Satake application uses finite tensor generation, absence of finite tensor subcategories, then characteristic-zero reductivity."
     }
    ],
    "implementationStatus": "unchecked",
@@ -14610,7 +14320,6 @@
    "source": "STACKS.WEIL",
    "locator": "Example 0FG1 (tag 0FG1), last sentence",
    "printed": "Hence [Gamma_f] in CH^*(X × Y) tensor Q is contained in Corr^0(X × Y), i.e., [Gamma_f] is a correspondence of degree 0 from X to Y.",
-   "excerpt": "Hence $[\\Gamma_f] \\in \\CH^*(X \\times Y) \\otimes \\mathbf{Q}$ is contained in $\\text{Corr}^0(X \\times Y)$, i.e., $[\\Gamma_f]$ is a correspondence of degree $0$ from $X$ to $Y$.",
    "kind": "misprint",
    "correction": "Corr^0(X, Y).",
    "reason": "Corr^r is defined for a pair of schemes, Corr^r(X, Y); the same sentence goes on to say that [Gamma_f] is a correspondence of degree 0 from X to Y.",
@@ -14632,7 +14341,6 @@
    "source": "STACKS.WEIL",
    "locator": "Lemma 0FGD (tag 0FGD), proof of part (2)",
    "printed": "Thus a' = a' o b o a' = c_2 o a' and b' = b' o a' o b' = b' o c_2.",
-   "excerpt": "Thus $a' = a' \\circ b \\circ a' = c_2 \\circ a'$ and $b' = b' \\circ a' \\circ b' = b' \\circ c_2$.",
    "kind": "misprint",
    "correction": "a' = a' o b' o a' = c_2 o a'.",
    "reason": "b is the correspondence of part (1), of degree zero from X to Spec(k); a' o b o a' is not even defined in the right degree. The argument uses b' o a' = 1, proved two sentences earlier, and a' o b' = c_2.",
@@ -14654,7 +14362,6 @@
    "source": "STACKS.WEIL",
    "locator": "Lemma 0FGI (tag 0FGI), proof, the displayed intersection product on X^5",
    "printed": "[pr^{12345,-1}_{23}(Delta) cap pr^{12345,-1}_{14}(Delta)] . [pr^{12345,-1}_{34}(Delta) cap pr^{12345,-1}_{15}(Delta)] = [small diagonal in X^5]",
-   "excerpt": "[\\text{pr}^{12345, -1}_{23}(\\Delta) \\cap \\text{pr}^{12345, -1}_{14}(\\Delta)] \\cdot [\\text{pr}^{12345, -1}_{34}(\\Delta) \\cap \\text{pr}^{12345, -1}_{15}(\\Delta)] = [\\text{small diagonal in } X^5]",
    "kind": "misprint",
    "correction": "The second factor is pr^{12345,-1}_{34}(Delta) cap pr^{12345,-1}_{25}(Delta).",
    "reason": "The second factor is the pullback along pr^{12345}_{2345} of 1 tensor [Delta], which on X^3 × X is pr_{23}^{-1}(Delta) cap pr_{14}^{-1}(Delta); in the coordinates 2, 3, 4, 5 of X^5 this is pr_{34}^{-1}(Delta) cap pr_{25}^{-1}(Delta). With either index the intersection is the small diagonal, so the conclusion stands.",
@@ -14676,7 +14383,6 @@
    "source": "STACKS.WEIL",
    "locator": "Lemma 0FGR (tag 0FGR), statement and last line of the proof",
    "printed": "[Delta_P] = (sum over i = 0, ..., r - 1 of (r - 1 choose i) c_{r-1-i}(pr_1^*S^dual) cap c_1(pr_2^*O_P(1))^i) cap (p × p)^*[Delta_X]",
-   "excerpt": "[\\Delta_P] = \\left(\\sum\\nolimits_{i = 0, \\ldots, r - 1} {r - 1 \\choose i} c_{r - 1 - i}(\\text{pr}_1^*\\mathcal{S}^\\vee) \\cap c_1(\\text{pr}_2^*\\mathcal{O}_P(1))^i\\right) \\cap (p \\times p)^*[\\Delta_X]",
    "kind": "error",
    "correction": "Every coefficient is 1: [Delta_P] = (sum over i = 0, ..., r - 1 of c_{r-1-i}(pr_1^*S^dual) . c_1(pr_2^*O_P(1))^i) cap (p × p)^*[Delta_X].",
    "reason": "The proof identifies [Delta_P] with the top Chern class c_{r-1}(q_1^*S^dual tensor q_2^*O_P(1)) and expands it by Chow Homology Lemma 02UD, c_i(E tensor L) = sum over j of binom(rk E - i + j, j) c_{i-j}(E) c_1(L)^j; in top degree i = rk E = r - 1 every coefficient is binom(j, j) = 1, not binom(r - 1, j). Check: X = Spec(k), E = k^3, P = P^2, c_j(S^dual) = h^j; the printed formula gives h_1^2 + 2 h_1 h_2 + h_2^2, whose product with the class of L × L' (two lines) is 2, while the diagonal meets L × L' in the single point L cap L'; the corrected formula gives h_1^2 + h_1 h_2 + h_2^2, the Kuenneth decomposition of the diagonal. For r <= 2 the two agree.",
@@ -14698,7 +14404,6 @@
    "source": "JANNSEN.1992",
    "locator": "Page 448, first sentence of the proof of Theorem 1, and the statement of Theorem 1 (version of record, Invent. math. 107 (1992), read from the scan in the Regensburg repository)",
    "printed": "Recall that, obviously, numerical equivalence is the coarsest adequate equivalence relation.",
-   "excerpt": "Proof. Recall that, obviously, numerical equivalence is the coarsest adequate equivalence relation. a) → c): Let 1 = (Spec k, id, 0) be the identity object and let X be an irreducible variety. Since End(1) = F is a field, 1 is an irreducible object.",
    "kind": "error",
    "correction": "Exclude the trivial relation, under which every cycle is equivalent to zero: numerical equivalence is the coarsest adequate relation other than the trivial one (equivalently, among those with A^0(Spec k) = F). Theorem 1 holds for adequate relations other than the trivial one.",
    "reason": "The trivial relation satisfies the conditions for adequacy (pullback, pushforward and intersection are well defined modulo it) and is strictly coarser than numerical equivalence, since it kills [Spec k]. For it every A^j(X) is zero, so M_k is the zero category, which is semisimple abelian, and every A^{dim X}(X × X) is the zero algebra, which is finite-dimensional and semisimple; so a) and b) of Theorem 1 hold and c) fails. The proof of a) => c) uses End(1) = F, which fails exactly for the trivial relation. For any other adequate relation A^0(Spec k) = F and the stated comparison holds (proof in MC.0/numerical-equivalence).",
@@ -14720,7 +14425,6 @@
    "source": "STACKS.WEIL",
    "locator": "Lemma 0FG8 (tag 0FG8), last sentence of the proof",
    "printed": "In other words, going either way around the diagram we obtain the element of Corr^d(X × Y, Spec(k)) corresponding to the cycle Gamma_f in X × Y.",
-   "excerpt": "In other words, going either way around the diagram we obtain the element of $\\text{Corr}^d(X \\times Y, \\Spec(k))$ corresponding to the cycle $\\Gamma_f \\subset X \\times Y$.",
    "kind": "misprint",
    "correction": "Corr^{-e}(X × Y, Spec(k)) (which is CH^d(X × Y) tensor Q).",
    "reason": "Both composites in the diagram have degree -e: id tensor a^t has degree d - e, eta_X degree 0 and [X] degree -d, and a tensor id, eta_Y and [Y] have degrees 0, 0 and -e. Corr^r(X × Y, Spec(k)) is CH^{d+e+r}(X × Y), so the class of Gamma_f, of codimension d, lies in degree -e; Corr^d(X × Y, Spec(k)) = CH^{2d+e}(X × Y) is zero for d positive.",
@@ -14742,7 +14446,6 @@
    "source": "STACKS.WEIL",
    "locator": "Lemma 0FH1, proof, the paragraph constructing (D3) and the paragraph proving (A)(a) and (A)(b); weil.tex lines 1712 and 1721 at the pinned commit",
    "printed": "H^*(X) ⊗ F[−2d] = G(h(X)(d)) → G(1) = F ... G(h(X)(d)) = H^*(X) ⊗ F[−2d] is a left dual to H^*(X)",
-   "excerpt": "This map is zero except in degree 0 where we obtain ∫_X : H^{2d}(X) → F. This is the datum (D3).",
    "kind": "misprint",
    "correction": "F[2d] in both places: G(h(X)(d)) = H^*(X) ⊗ G(1(d)) and G(1(d)) ≅ F[2d], which has F in degree −2d.",
    "reason": "The same proof fixes F[n] to have F in degree −n and an isomorphism F[2n] → G(1(n)). With F[−2d], F sits in degree 2d and the degree zero part of H^*(X) ⊗ F[−2d] is H^{−2d}(X) = 0, contradicting the next sentence, which extracts ∫_X : H^{2d}(X) → F from degree zero.",
@@ -14763,7 +14466,6 @@
    "source": "STACKS.WEIL",
    "locator": "Proposition 0FH3 with its proof",
    "printed": "A classical Weil cohomology theory is the same thing as a Q-linear functor G ... together with an isomorphism F[2] → G(1(1)) ... Conversely, given H^* we get a functor G by the construction of Lemma 0FH2.",
-   "excerpt": "Given G and F[2] → G(1(1)) by setting H^*(X) = G(h(X)) we obtain data (D1), (D2), and (D3) satisfying all of (A), (B), and (C) except for possibly (A)(c) and (A)(d)",
    "kind": "gap",
    "correction": "The proof should show that the two constructions are mutually inverse: the data recovered from the functor of Lemma 0FH2 with the normalisation given by ∫ over P^1 are the original pullbacks, cup product, cycle classes and traces, and the functor rebuilt from the theory attached to (G, F[2] → G(1(1))) is isomorphic to G as a symmetric monoidal functor compatibly with the normalisation. The blueprint supplies this as MC.2/realization-round-trip.",
    "reason": "The proof constructs a theory from a functor and a functor from a theory and checks the two extra conditions, but never composes the constructions. 'The same thing' asserts a bijection, and the recovery of the cycle class and trace maps depends on the chosen normalisation, which the proof does not follow through the round trip.",
@@ -14784,7 +14486,6 @@
    "source": "STACKS.WEIL",
    "locator": "Lemma 0FH2, proof, the justification of the fourth equality (weil.tex line 1895; the same slip recurs in Lemma 0FHL, line 3090)",
    "printed": "The fourth equalith holds by axiom (C)(a) and the fact that the Gysin map agrees with flat pullback for flat morphisms",
-   "excerpt": "The fourth equalith holds by axiom (C)(a) and the fact that the Gysin map agrees with flat pullback for flat morphisms",
    "kind": "misprint",
    "correction": "The fourth equality holds by axiom (C)(a) ...",
    "reason": "A spelling slip; the justification is otherwise correct.",
@@ -14805,7 +14506,6 @@
    "source": "JANNSEN.1992",
    "locator": "page 449, proof of Lemma 2, the displayed inclusion; the author's scanned copy of the Inventiones article (Regensburg repository), the version read",
    "printed": "since otherwise (0 0; Hom(M, N) 0) ⊆ (End(M) Hom(N, M); Hom(M, N) End(N)) = End(M ⊕ N) was a non-trivial nilpotent two-sided ideal.",
-   "excerpt": "If Hom(M, N) ≠ 0, then the composition Hom(N, M) × Hom(M, N) → End(M), (f, g) ↦ f ∘ g is non-zero, since otherwise",
    "kind": "gap",
    "correction": "From the hypothesis that all composites M → N → M vanish, the displayed corner is a left ideal of square zero; closure under right multiplication needs the composites N → M → N to vanish too, which is true in context (a nonzero one would make g : N → M split, hence an isomorphism since M is indecomposable, and then some composite M → N → M would be nonzero) but is not argued. Alternatively, a semisimple algebra has no nonzero nilpotent left ideal, which suffices.",
    "reason": "In End(M ⊕ N) with Hom(M, N) in the lower left corner, [[a, b], [c, d]] · [[0, 0], [h, 0]] = [[b ∘ h, 0], [d ∘ h, 0]] lies in the corner because b ∘ h = 0 by hypothesis, but [[0, 0], [h, 0]] · [[a, b], [c, d]] = [[0, 0], [h ∘ a, h ∘ b]] has the entry h ∘ b in End(N), which the hypothesis does not control.",
@@ -14827,7 +14527,6 @@
    "source": "JANNSEN.1992",
    "locator": "page 451, proof of Corollary 2, the display defining the grading; the author's scanned copy of the Inventiones article, the version read",
    "printed": "(X, p, m)^r = (X, pπ^{r+2m}, r)",
-   "excerpt": "Thus every motive M gets a Z-grading by putting (X, p, m)^r = (X, pπ^{r+2m}, r), and this grading is respected by all morphisms.",
    "kind": "misprint",
    "correction": "(X, p, m)^r = (X, pπ^{r+2m}, m): the twist is unchanged.",
    "reason": "The graded pieces must be direct summands of (X, p, m), cut out by the central idempotents pπ^{r+2m}, and so carry the same twist m; with twist r the object is not a summand of (X, p, m) when r ≠ m, since morphisms (X, q, r) → (X, p, m) are correspondences of degree m − r. The index r + 2m is right: (X, π^i, m) has cohomology H^i(X) in degree i − 2m.",
@@ -14849,7 +14548,6 @@
    "source": "STACKS.WEIL",
    "locator": "Example 0FHZ (Section 0FHY, Weil cohomology theories II); weil.tex lines 3637 and 3639 at the pinned commit",
    "printed": "satisfying all classical axioms (A), (B), (C), except for possibly the classical axioms (A)(a) and (A)(d). However, if E is an elliptic curve over k, then we find dim H^{−1}(E) = 1, i.e., axiom (A)(a) is indeed violated.",
-   "excerpt": "However, if E is an elliptic curve over k, then we find dim H^{−1}(E) = 1, i.e., axiom (A)(a) is indeed violated.",
    "kind": "misprint",
    "correction": "(A)(c) in both places: Lemma 0FH1, which the example applies, leaves open (A)(c) and (A)(d), and a nonzero H^{−1}(E) violates the vanishing range (A)(c); (A)(a), finite dimensionality, holds.",
    "reason": "Lemma 0FH1 states the exceptions as (A)(c) and (A)(d). In the example H^n(E) collects the Hodge groups H^{p,q} with n = 3p − q, so H^{−1}(E) = H^{0,1}, H^0 = H^{0,0}, H^2 = H^{1,1}, H^3 = H^{1,0}, all finite-dimensional; what fails is vanishing outside [0, 2].",
@@ -14870,7 +14568,6 @@
    "source": "STACKS.WEIL",
    "locator": "Lemma 0FH2, proof, first paragraph",
    "printed": "Since every smooth projective scheme is canonically a disjoint union of smooth projective varieties, it suffices to construct G on the category whose objects are smooth projective varieties and whose morphisms are correspondences of degree 0. (Some details omitted.)",
-   "excerpt": "Since every smooth projective scheme is canonically a disjoint union of smooth projective varieties, it suffices to construct G on the category whose objects are smooth projective varieties and whose morphisms are correspondences of degree 0. (Some details omitted.)",
    "kind": "gap",
    "correction": "The extension of a classical theory from varieties to smooth projective schemes, with the componentwise pullback, cycle class, trace and Künneth maps, has to be constructed and checked; the blueprint does this in MC.2/weil-cohomology-of-schemes.",
    "reason": "The universal property of motives (Lemma 0FGH) is stated for functors on all smooth projective schemes, while a classical theory is defined on varieties; the reduction is asserted with details omitted.",
@@ -14891,7 +14588,6 @@
    "source": "STACKS.HOMOLOGY",
    "locator": "Lemma 0FFV, first line of the proof; homology.tex line 4074 at commit a04446e57ec1fbc252a871afcec7752fb2807b14",
    "printed": "As unit we take By Categories, Definition 0FFP we have maps η : 1 → V ⊗ W, ε : W ⊗ V → 1",
-   "excerpt": "As unit we take By Categories, Definition 0FFP we have maps η : 1 → V ⊗ W, ε : W ⊗ V → 1",
    "kind": "misprint",
    "correction": "Delete the stray fragment 'As unit we take'; the proof begins with 'By Categories, Definition ...'.",
    "reason": "The fragment is an unfinished sentence left before the first real sentence of the proof; nothing depends on it.",
@@ -14912,7 +14608,6 @@
    "source": "MVW.2006",
    "locator": "Lecture 13, Example 13.17, p. 103 (Clay PDF)",
    "printed": "C_*(Z_tr(P1)/Z) = C_*Z_tr(G_m)[1] = Z(1)[2]",
-   "excerpt": "allows us to deduce that C_*(Z_tr(P1)/Z) = C_*Z_tr(G_m)[1] = Z(1)[2] for the Zariski topology",
    "kind": "misprint",
    "correction": "The middle term should be C_*(Z_tr(G_m)/Z)[1], equivalently C_*Z_tr(G_m^{wedge 1})[1].",
    "reason": "By Lemma 2.13, Z_tr(G_m) = Z + Z_tr(G_m, 1), and by Definition 3.1, Z(1) = C_*Z_tr(G_m^{wedge 1})[-1]; so C_*Z_tr(G_m)[1] = Z[1] + Z(1)[2], which is not Z(1)[2]. The argument (the Mayer-Vietoris sequence with C_*Z_tr(A1)/Z = 0) produces the quotient by Z.",
@@ -14933,7 +14628,6 @@
    "source": "MVW.2006",
    "locator": "Lecture 15, Corollary 15.13 and Theorem 15.15, pp. 123-124",
    "printed": "COROLLARY 15.13. Let X be a smooth scheme and Z a smooth subscheme of pure codimension c. ... THEOREM 15.15. Let X be a smooth scheme over a perfect field",
-   "excerpt": "We claim that the morphism C_*Z_tr(X') -> C_*Z_tr(X) is a split surjection. By 13.26 and 15.12, this will prove the first assertion.",
    "kind": "gap",
    "correction": "As proved in the source, Corollary 15.13 and Theorem 15.15 need k perfect and admitting resolution of singularities: the proof of 15.13 uses Theorem 13.26 twice (for X' -> X and for the blow-up of X x A^1 along Z x 0), and 13.26 assumes resolution; 15.15 is proved from the Gysin map of 15.13. Either add the hypothesis or supply a proof of the smooth-centre case without it.",
    "reason": "Theorem 13.26 begins 'Assume that resolution of singularities holds over k', and its proof uses Theorem 13.25, which assumes resolution over a perfect field. Corollary 15.13 carries no hypothesis and Theorem 15.15 only 'over a perfect field'.",
@@ -14954,7 +14648,6 @@
    "source": "MVW.2006",
    "locator": "Lecture 15, proof of Corollary 15.5, p. 121",
    "printed": "the quasi-isomorphism Z_tr(Pn-1) -> +Z(i)[i] factors through it. ... C_*Z_tr(Pn) -> Z(n)[n] -> C_*Z_tr(Pn-1)[1].",
-   "excerpt": "By exercise 15.4, the map Z_tr(Pn-1) -> Z_tr(Pn) is split injective in DM, because the quasi-isomorphism Z_tr(Pn-1) -> +Z(i)[i] factors through it.",
    "kind": "misprint",
    "correction": "Z(i)[i] should be Z(i)[2i], and Z(n)[n] should be Z(n)[2n].",
    "reason": "Theorem 15.2 identifies the quotient with Z(n)[2n] and the statement of 15.5 has summands Z(i)[2i].",
@@ -14975,7 +14668,6 @@
    "source": "MVW.2006",
    "locator": "Lecture 20, proof of Proposition 20.1, p. 167",
    "printed": "We set d = dimX and compute in DM^{eff,-}_Nis: CH^d(X x Y) = H^{2d,d}(X x Y,Z)",
-   "excerpt": "We set d = dimX and compute in DM^{eff,-}_Nis",
    "kind": "misprint",
    "correction": "d = dim Y: the chain passes through duality with T = Y of dimension d, and Hom_Chow(Y, X) = CH_{dim X}(X x Y) = CH^{dim Y}(X x Y).",
    "reason": "Duality (16.24) with T = Y introduces the twist by dim Y; with d = dim X the third equality of the chain fails unless dim X = dim Y.",
@@ -14996,7 +14688,6 @@
    "source": "MVW.2006",
    "locator": "Lecture 20, Proposition 20.1 and Remark 20.2, pp. 167-168",
    "printed": "Then Grothendieck's category of effective Chow motives embeds contravariantly into DM^eff_gm(k,Z) ... in the sense that if X and Y are two smooth projective schemes, then Hom_Chow(Y,X) = Hom(M(X),M(Y)).",
-   "excerpt": "So from 16.25 and 20.1 we have the following diagram of fully faithful tensor functors:",
    "kind": "gap",
    "correction": "The proof of 20.1 gives, for each pair (X, Y), an isomorphism of Hom groups through a chain of identifications; that these isomorphisms are compatible with composition of correspondences and with the tensor product, which a (tensor) functor requires, is asserted in Remark 20.2 but not proved.",
    "reason": "The chain CH^d(X x Y) = H^{2d,d}(X x Y) = Hom(M(X x Y), Z(d)[2d]) = Hom(M(X)(d)[2d], M(Y)(d)[2d]) = Hom(M(X), M(Y)) involves duality and cancellation isomorphisms whose compatibility with composition of correspondences is a separate statement; the source does not address it.",
@@ -15017,7 +14708,6 @@
    "source": "MVW.2006",
    "locator": "Corollary 13.14, Proposition 13.15, Corollary 13.16 (p. 103), Theorem 13.26 (p. 106), Corollary 15.5 and Theorem 15.12 (pp. 121-123), Theorem 16.8 (p. 127), Example 16.14 and Theorem 16.15 (p. 129), Corollary 19.9 (p. 161)",
    "printed": "COROLLARY 13.14. Let f : C1 -> C2 be a map of bounded above cochain complexes of presheaves with transfers.",
-   "excerpt": "PROOF. Let K = cone(f) denote the mapping cone of f. By assumption, each H^pK is a presheaf with transfers which vanishes on all Hensel local schemes, i.e., K_Nis = 0. By 13.12, C_*H^pK = 0 in the Zariski topology.",
    "kind": "gap",
    "correction": "These results are stated without 'k perfect' but their proofs use Theorem 13.12 or 13.8 (through 13.14, 15.2, 16.12 or 16.7) or Theorem 13.25, each of which assumes k perfect; as proved in the source they hold over perfect fields.",
    "reason": "13.12 and 13.25 are stated for a perfect field; 13.14 is proved from 13.12, 13.15 and 13.16 from 13.14, 15.5 and 15.12 from 15.2 (which says perfectness is needed for 13.8), 16.8 from 16.12, 16.14 and 19.9 from 16.7, and 13.26 and 16.15 from 13.25.",
@@ -15038,7 +14728,6 @@
    "source": "MVW.2006",
    "locator": "Theorem 15.12 and display (14.5.2), pp. 111 and 123",
    "printed": "Then the canonical map +_{i=0}^n Z_tr(X)(i)[2i] -> Z_tr(P(E)) is an isomorphism in DM, and p is the projection onto the factor Z_tr(X).",
-   "excerpt": "Then the canonical map +_{i=0}^n Z_tr(X)(i)[2i] -> Z_tr(P(E)) is an isomorphism in DM",
    "kind": "misprint",
    "correction": "The canonical map of Construction 15.10 goes from Z_tr(P(E)) to the sum: sigma_i : Z_tr(P) -> Z_tr(X) tensor Z(i)[2i]; the display should read Z_tr(P(E)) -> +_{i=0}^n Z_tr(X)(i)[2i].",
    "reason": "Construction 15.10 defines sigma_i from Z_tr(P) to Z_tr(X)(i)[2i], and 'p is the projection onto the factor Z_tr(X)' only makes sense for a map out of Z_tr(P(E)).",
@@ -15059,7 +14748,6 @@
    "source": "MVW.2006",
    "locator": "Lecture 16, Definition 16.1, p. 125",
    "printed": "Let T be any scheme of finite type over k and m >= 0 an integer. The presheaf z_equi(T,r) on Sm/k is defined as follows.",
-   "excerpt": "Let T be any scheme of finite type over k and m >= 0 an integer. The presheaf z_equi(T,r) on Sm/k is defined as follows.",
    "kind": "misprint",
    "correction": "m should be r.",
    "reason": "The definition and everything after it use r; m does not occur again.",
@@ -15080,7 +14768,6 @@
    "source": "HMS.2014",
    "locator": "Lemma 1.12(2) and (3), with the proof of (2), p. 7, arXiv v5",
    "printed": "(2) Let Z be a projective variety of dimension n. Then H^{2n}_Nori(Z) = 1(-n). (3) Let X be a smooth variety, Z in X a smooth, irreducible, closed subvariety of pure codimension n. Then H^{2n}_Z(X) = 1(-n).",
-   "excerpt": "(2) Let Z be a projective variety of dimension n. Then H^{2n}_Nori(Z) = 1(-n).",
    "kind": "error",
    "correction": "In (2) Z must be geometrically irreducible, and in (3) Z must be geometrically connected (for Z smooth, geometrically irreducible); in general the proof of (3) gives H^{2n}_Z(X) = H^0_Nori(Z)(-n). In the proof of (2) the map is the restriction H^{2n}_Nori(P^N) -> H^{2n}_Nori(Z), not the reverse.",
    "reason": "Varieties are reduced separated schemes of finite type over Q, not necessarily geometrically irreducible. For Z = {0, infinity} in P^1 (n = 0), or Z = Spec Q(i), H^0(Z(C); Q) = Q^2, so H^0_Nori(Z) is not 1(0). For X = A^1 over Q and Z = V(t^2 + 1), which is smooth and irreducible of codimension 1, H^2_Z(X) realises to H^2_{Z(C)}(C; Q) = Q^2, so it is not 1(-1). The proof of (3) itself starts from the Gysin isomorphism H^0(Z) = H^{2n}_Z(X). Lemma 1.13 applies (3) to the diagonal of W, so it needs W geometrically connected or the replacement of 1(-i) by H^0_Nori(W)(-i); Theorem 1.14 is unaffected.",
@@ -15101,7 +14788,6 @@
    "source": "HMS.2014",
    "locator": "Proof of Theorem 1.6, p. 5, against Definition B.14 (pp. 20-21) and Remark B.19(2) (p. 24), arXiv v5",
    "printed": "Properties (2) and (3) depend on a choice of a sign convention such that the boundary map d is compatible with cup products in the first variable and compatible up to sign in the second variable.",
-   "excerpt": "Properties (2) and (3) depend on a choice of a sign convention such that the boundary map d is compatible with cup products in the first variable and compatible up to sign in the second variable.",
    "kind": "error",
    "correction": "Definition B.14 puts the sign in the first variable (condition (2): T(g x id) = (-1)^{|g||h|} T(g) tensor id) and none in the second (condition (3)), as Remark B.19(2) says. With the usual conventions d(a x b) = da x b and d(a x b) = (-1)^{|a|} a x db for the cross product, singular cohomology satisfies B.14 with tau^{-1}(a tensor b) = (-1)^{|a||b|} a x b, not with the plain cross product.",
    "reason": "Remark B.19(2): 'We were able to drop the condition by shifting the sign condition in the definition of a multiplicative diagram to the first variable.' The description in the proof of Theorem 1.6 still has the sign in the second variable. A direct computation with the stated conventions checks conditions (1)-(3) of B.14 for the normalisation given.",
@@ -15122,7 +14808,6 @@
    "source": "HMS.2014",
    "locator": "Proof of Theorem 1.6, p. 5, arXiv v5",
    "printed": "D^eff_Nori is a graded diagram in the sense of Definition B.14. It carries a commutative multiplicative structure (see Definition B.14 again) by (X, Y, i) x (X', Y', i') = (X x X', X x Y' union Y x X', i + i').",
-   "excerpt": "It carries a commutative multiplicative structure (see Definition B.14 again) by (X, Y, i) x (X', Y', i') = (X x X', X x Y' union Y x X', i + i').",
    "kind": "gap",
    "correction": "A product structure in the sense of Definition B.14 (or Remark B.17) must also send a pair (coboundary edge, identity) to an edge (or path). The source defines the product on vertices only, and in general no edge or path of D^eff_Nori has the required ends; the construction needs an enlarged diagram, for instance with excision edges, together with a check that the diagram category is unchanged.",
    "reason": "For a coboundary edge (Y, Z, i) -> (X, Y, i + 1) and a vertex (X', Y', j) the product must go from (Y x X', Y x Y' union Z x X', i + j) to (X x X', X x Y' union Y x X', i + j + 1). Coboundary edges into the target start at (X x Y' union Y x X', V); functoriality edges out of (Y x X', ...) go to pairs mapping to Y x X', and X x Y' union Y x X' admits no map to Y x X' restricting to the identity unless Y is a retract of X (it is not for Y two points of X = A^1).",
@@ -15143,7 +14828,6 @@
    "source": "HMS.2014",
    "locator": "Proposition D.3 and its proof, pp. 30 and 33, arXiv v5",
    "printed": "Then there is a natural contravariant triangulated functor R : C^b(Z[Var]) -> D^b(A) on the category of bounded homological complexes in Z[Var] such that for every good pair (X, Y, i) we have H^j(R(Cone(Y -> X)) = 0 for j not i, T(X, Y, i) for j = i",
-   "excerpt": "Put R(X_*) = R~(Tot C_*(U~_{X_*})). Note that any other choice yields a complex isomorphic to this one in D^+(A).",
    "kind": "gap",
    "correction": "The proof constructs R on objects and morphisms and asserts independence of the choices, but does not show that R is triangulated, that its values are bounded, or that H^j(R(Cone(Y -> X))) is concentrated in degree i; and the statement writes T(X, Y, i) for good pairs although T is defined only on very good pairs (for good pairs the value is H^i of the cone by Definition D.4).",
    "reason": "The proof on p. 33 consists of the definition of R on objects and on morphisms through refinements; the other assertions of the proposition, including the comparison with singular cohomology, are not addressed.",
@@ -15164,7 +14848,6 @@
    "source": "HMS.2014",
    "locator": "Proof of Proposition B.16, pp. 22-23, arXiv v5",
    "printed": "Left and right commute by property (3) up to the same sign (-1)^{|g||a|}. ... The associativity assumption (3) for representations of diagrams with product structure implies the coassociativity of mu*.",
-   "excerpt": "Left and right commute by property (3) up to the same sign (-1)^{|g||a|}.",
    "kind": "misprint",
    "correction": "The first reference should be property (2) (the one with the sign, for edges in the first variable) and the second property (4) (associativity).",
    "reason": "In Definition B.14, (2) is the condition with the sign (-1)^{|g||h|} for g x id, (3) the sign-free condition for id x g, and (4) the associativity condition.",
@@ -15185,7 +14868,6 @@
    "source": "HMS.2014",
    "locator": "Proof of Corollary D.11, p. 31, arXiv v5",
    "printed": "By construction F_{n-1}X - F_{n-1}X is smooth and hence the pair is very good.",
-   "excerpt": "By construction F_{n-1}X - F_{n-1}X is smooth and hence the pair is very good.",
    "kind": "misprint",
    "correction": "F_nX - F_{n-1}X is smooth.",
    "reason": "F_{n-1}X - F_{n-1}X is empty; the very good condition asks that X - Y = F_nX - F_{n-1}X be smooth, which the choice of F_{n-1}X containing the singular locus gives.",
@@ -15206,7 +14888,6 @@
    "source": "HMS.2014",
    "locator": "Definition 1.1(1), p. 4, arXiv v5",
    "printed": "The diagram D^eff of effective pairs consists of triples (X, Y, i) ... There are two types of edges between effective good pairs:",
-   "excerpt": "There are two types of edges between effective good pairs:",
    "kind": "misprint",
    "correction": "'between effective pairs': D^eff contains all effective pairs, and D^eff_Nori is then defined as its full subdiagram on good pairs.",
    "reason": "Good pairs are defined only in part (2), as a full subdiagram of D^eff; the sentence comes from Definition D.1(2), where D^eff denotes the diagram of good pairs, so the notation D^eff means different diagrams in Section 1 and in Appendix D.",
@@ -15227,7 +14908,6 @@
    "source": "HMS.2014",
    "locator": "Definition 1.3 (p. 4) and Definition 1.11 (p. 7), arXiv v5",
    "printed": "We put 1(-1) = H^1_Nori(G_m, {1}) in MM^eff_Nori. ... Definition 1.11. Let 1(-1) = H^1_Nori(G_m) and 1(-n) = 1(-1)^{tensor n}.",
-   "excerpt": "Let 1(-1) = H^1_Nori(G_m) and 1(-n) = 1(-1)^{tensor n}.",
    "kind": "misprint",
    "correction": "Definition 1.11 should read 1(-1) = H^1_Nori(G_m, {1}), as in Definition 1.3; the two objects are canonically isomorphic.",
    "reason": "(G_m, empty, 1) is not a good pair, since H^0(C^*; Q) is nonzero, so H^1_Nori(G_m) is defined only through Corollary 1.7; the long exact sequence of the triple (G_m, {1}, empty), with H^0(G_m) -> H^0({1}) an isomorphism, identifies it with H^1_Nori(G_m, {1}).",
@@ -15248,7 +14928,6 @@
    "source": "HMS.2014",
    "locator": "Section 2, the setting paragraph before Definition 2.1 (page 9), and Section 3, the setting paragraph before Lemma 3.1 (page 12), arXiv:1105.0865v5",
    "printed": "Let D be a graded diagram with commutative product structure (see Definition B.14), T1, T2 : D → Q-Mod two representations.",
-   "excerpt": "Let D be a graded diagram with commutative product structure (see Deﬁnition B.14), T1, T2 : D → Q-Mod two representations.",
    "kind": "gap",
    "correction": "T_1 and T_2 must be unital graded multiplicative representations in the sense of Definition B.14, and in Section 3 the isomorphism ϕ : T_1 ⊗ K → T_2 ⊗ K must be compatible with the multiplicative structures.",
    "reason": "Lemma 2.2 (the ring structure on A_{1,2}), Proposition 2.5 (the product (p × p′, ω ⊗ ω′, γ ⊗ γ′) needs T_i(p × p′) ≅ T_i(p) ⊗ T_i(p′)), Theorem 2.6 as an isomorphism of algebras, and Lemma 3.2 and Theorem 3.3 (tensor automorphisms and tensor isomorphisms need T_2 to extend to a tensor functor) all use the isomorphisms τ of Definition B.14 for both representations and the compatibility of ϕ with them; for mere representations none of these structures is defined. The application to de Rham and singular cohomology on good pairs satisfies the hypotheses.",
@@ -15269,7 +14948,6 @@
    "source": "HMS.2014",
    "locator": "Proof of Theorem 2.10 (page 11), arXiv:1105.0865v5",
    "printed": "We first restrict to the effective situation. ... Hence by Theorem 2.6 P^eff_{1,2} = A^eff_{1,2} and P_{1,2} = A_{1,2}.",
-   "excerpt": "We ﬁrst restrict to the eﬀective situation. Let P eﬀ 1,2 and Aeﬀ 1,2 be the algebras for this diagram. ... Hence by Theorem 2.6 P eﬀ 1,2 = Aeﬀ 1,2 and P1,2 = A1,2.",
    "kind": "gap",
    "correction": "On the diagram of all pairs, singular and de Rham cohomology are not graded multiplicative representations, so Theorem 2.6 gives only an isomorphism of vector spaces there. The algebra structure must be taken through the diagram of good pairs, where both cohomologies are graded multiplicative, using the analogue of Corollary 1.7 that the comparison algebras of all pairs and of good pairs agree (which the source invokes only in the proof of Corollary 2.11), and checking that the product of P^+ matches on generators.",
    "reason": "For a pair (X, Y) that is not good, H^{i+i′} of the product pair is the sum over a + b = i + i′ of H^a(X, Y) ⊗ H^b(X′, Y′) and not H^i ⊗ H^{i′}, so the isomorphisms τ of Definition B.14 do not exist; Proposition B.16, Lemma B.21 and Proposition B.22, on which the multiplicative statements rest, all assume a graded multiplicative representation.",
@@ -15290,7 +14968,6 @@
    "source": "HMS.2014",
    "locator": "Proof of Theorem 2.6 (page 10), arXiv:1105.0865v5",
    "printed": "By definition P_{1,2} is the subspace of ∏_{p∈D} T_1(p) ⊗ T_2(p)^∨ of elements satisfying the relations induced by D. By definition A_{1,2}(T) is the subspace of ∏_{p∈D} Hom(T_1(p), T_2(p))^∨ of elements satisfying the relations induced by D.",
-   "excerpt": "By deﬁnition P1,2 is the subspace of ∏p∈D T1(p) ⊗ T2(p)∨ of elements satisfying the relations induced by D. By deﬁnition A1,2(T ) is the subspace of ∏p∈D Hom(T1(p), T2(p))∨ of elements satisfying the relations induced by D.",
    "kind": "error",
    "correction": "Both are quotients, not subspaces: for finite D, P_{1,2} is the quotient of the sum of the T_1(p) ⊗ T_2(p)^∨ by the span of the elements T_1(f)ω ⊗ γ − ω ⊗ T_2(f)^∨γ, one for each edge f, and A_{1,2} = Hom(T_1|D, T_2|D)^∨ is the quotient of the dual of the product of the Hom(T_1(p), T_2(p)) by the annihilator of the subspace Hom(T_1|D, T_2|D) cut out by the edge conditions, which is the span of the same elements. With 'quotient' the conclusion 'this is the same thing' holds.",
    "reason": "Definition 2.4 presents P_{1,2} by generators and relations, which is a quotient; Definition 2.1 takes the dual of the subspace Hom(T_1|F, T_2|F), which is a quotient of the dual of the ambient product. The elements of the product 'satisfying the relations' form neither space.",
@@ -15311,7 +14988,6 @@
    "source": "HMS.2014",
    "locator": "Proof of Corollary 3.4 (page 13), arXiv:1105.0865v5, against Theorem 1.14 (page 8)",
    "printed": "Finally note that G_1 = G_mot is the motivic fundamental group by definition.",
-   "excerpt": "Finally note that G1 = Gmot is the motivic fundamental group by deﬁnition.",
    "kind": "gap",
    "correction": "With T_1 = H*_dR and T_2 = H* as in Theorem 2.10, G_1 = Aut⊗(H*_dR), whereas Theorem 1.14 defines G_mot = Spec A(D_Nori, H*) through singular cohomology, that is G_mot = G_2. Moreover Lemma 3.2 needs C(T_1) = C(D, H*_dR) to be neutral Tannakian, which the paper proves only for C(D_Nori, H*). The proof should take the base category MM_Nori = C(D_Nori, H*), extend H*_dR to it by Lemma 3.1 with the roles exchanged, and use ι : X_{1,2} ≅ X_{2,1}; then Spec P is a torsor under G_mot = G_2 acting by composition, and under the de Rham group on the other side, so the corollary holds as stated.",
    "reason": "Theorem 1.14: 'Its Tannaka dual is given by Gmot = Spec(A(DNori, H∗))', with H* relative singular cohomology (Definition 1.1 and the paragraph after it); Section 3 applies Lemma 3.2 to C(T_1) with T_1 = H*_dR.",
@@ -15332,7 +15008,6 @@
    "source": "HMS.2014",
    "locator": "Introduction, the sentence before Theorem 0.2 (page 2), arXiv:1105.0865v5",
    "printed": "The main aim of this note is to provide the proof (see Corollary 2.11) of the following result:",
-   "excerpt": "The main aim of this note is to provide the proof (see Corollary 2.11) of the following result: Theorem 0.2 (Nori, [Ko] Theorem 6). Spec(P) is a torsor under the motivic Galois group of Nori’s category of mixed motives over Q.",
    "kind": "misprint",
    "correction": "Read 'see Corollary 3.4'. Corollary 2.11 is the restriction of the generators of P to very good pairs; the torsor statement is Corollary 3.4.",
    "reason": "Corollary 3.4 on page 13 states that P has a natural torsor structure under G_mot, which is Theorem 0.2; Corollary 2.11 on page 11 concerns the generators of P.",
@@ -15353,7 +15028,6 @@
    "source": "HMS.2014",
    "locator": "Definition 2.8, the product on P^+ (page 10), arXiv:1105.0865v5; Definition 0.1 (page 2) has a different slip",
    "printed": "(X, D, ω, γ)(X′, D′, ω′, γ′) = (X × X′, D × X′ ∪ D′ × X, ω ∧ ω′, γ × γ′)",
-   "excerpt": "P + is turned into an algebra via (X, D, ω, γ)(X′, D′, ω′, γ′) = (X × X′, D × X′ ∪ D′ × X, ω ∧ ω′, γ × γ′)",
    "kind": "misprint",
    "correction": "The subvariety of X × X′ is D × X′ ∪ X × D′. Definition 0.1 prints D × X′ ∪ X′ × D, which is also wrong.",
    "reason": "D′ × X is a subvariety of X′ × X, not of X × X′; the product of pairs in the proof of Theorem 1.6 is (X × X′, X × Y′ ∪ Y × X′), with the factors in the right order.",
@@ -15374,7 +15048,6 @@
    "source": "HMS.2014",
    "locator": "Appendix A, Propositions A.4 and A.6 (pages 15 to 16), arXiv:1105.0865v5",
    "printed": "Let G_l = X^2/∼_l ... Then µ_l is well-defined on G_l and turns G_l into a group. ... Proposition A.6. Let X be a torsor in the category of affine schemes. Then there are affine group schemes G_l and G_r",
-   "excerpt": "Let Gl = X2/ ∼l where (a, b) ∼l (a, b)(x, x) for all x ∈ X is an equivalence relation. Then µl is well-deﬁned on Gl and turns Gl into a group.",
    "kind": "error",
    "correction": "Both propositions need X nonempty (for Proposition A.6, X nonempty over a field, or faithfully flat over the base). Definition A.1 admits the empty set as a torsor, and then G_l is empty, which is not a group.",
    "reason": "For X = ∅ the axioms of Definition A.1 hold vacuously, X × X is empty, so G_l is empty and has no neutral element; the proof takes (x, x) for some x in X as the neutral element. The same happens for the empty affine scheme in Proposition A.6.",
@@ -15395,7 +15068,6 @@
    "source": "TOTARO.TATE",
    "locator": "Section 2, the paragraph on the separable-closure variant (page 6), author's copy",
    "printed": "every class in H^{2a}(X, Q_l(i)) fixed by some open subgroup of Gal(k_s/k) is represented by an algebraic cycle over some finite extension of k",
-   "excerpt": "Another version of the Tate conjecture is that for a variety X over a ﬁnitely generated ﬁeld k, every class in H2a(X, Ql(i)) ﬁxed by some open subgroup of Gal(ks/k) is represented by an algebraic cycle over some ﬁnite extension of k.",
    "kind": "misprint",
    "correction": "Read Q_l(a).",
    "reason": "Classes of codimension-a cycles lie in H^{2a}(X, Q_l(a)); the index i is not defined in the paragraph, and the next sentence identifies the variant with the usual conjecture, which uses Q_l(a).",
@@ -15416,7 +15088,6 @@
    "source": "TOTARO.TATE",
    "locator": "Section 2, the paragraph after the Tate-Beilinson conjecture (page 7), author's copy",
    "printed": "CH^1 of an elliptic curve X is the direct sum of Z with the Mordell-Weil group X(k), where X(k) maps to zero in H^2(X, Q_l(i)) ≅ Q_l.",
-   "excerpt": "For example, CH1 of an elliptic curve X is the direct sum of Z with the Mordell-Weil group X(k), where X(k) maps to zero in H2(X, Ql(i)) ∼= Ql.",
    "kind": "misprint",
    "correction": "Read H^2(X, Q_l(1)).",
    "reason": "The cycle map on CH^1 lands in H^2(X, Q_l(1)), as in the displayed map CH^a(X) ⊗ Q → H^{2a}(X, Q_l(a)) just above with a = 1.",
@@ -15437,7 +15108,6 @@
    "source": "STACKS.WEIL",
    "locator": "Proof of Lemma 0FH9, the paragraph proving that N is trivial on the fibres (weil.tex line 2304 at a04446e)",
    "printed": "an invertible module $\\mathcal{L}'$ on $T \\times X$ and $k$-rational points $p, q \\in T$ such that $\\mathcal{M}_p \\cong \\mathcal{O}_X$ and $\\mathcal{M}_q = \\mathcal{L}$.",
-   "excerpt": "an invertible module L′ on T × X and k-rational points p, q ∈ T such that Mp ≅ OX and Mq = L. Namely, since L = OX(x − x′) we can take T = X, p = x′, q = x, and L′ = OX×X(∆) ⊗ pr2*OX(−x′).",
    "kind": "misprint",
    "correction": "Read L′_p ≅ O_X and L′_q ≅ L.",
    "reason": "The module just introduced on T × X is L′; M denotes the invertible module on Pic^n_{X/k} earlier in the proof. With T = X, p = x′, q = x and L′ = O(Δ) ⊗ pr_2^*O(−x′), the fibres are L′_{x′} = O_X and L′_x = O_X(x − x′) = L, as the proof needs.",
@@ -15458,7 +15128,6 @@
    "source": "STACKS.WEIL",
    "locator": "Proof of Lemma 0FH9, the computation of π^*N (weil.tex line 2245 at a04446e)",
    "printed": "in $\\Pic(X^n)$ by a calculation. Deails omitted; hint: this follows from the fact that $\\text{Norm}_\\pi$ ...",
-   "excerpt": "π*N = (L1 ⊗ … ⊗ Ln)⊗(n−1)! in Pic(Xn) by a calculation. Deails omitted; hint: this follows from the fact that Normπ : π*OXn → OSn(X) composed with the natural map ... is equal to the product over all σ ∈ Sn",
    "kind": "gap",
    "correction": "The identity π^*Norm_π(L_1) = (L_1 ⊗ ... ⊗ L_n)^{⊗(n−1)!} must be proved: the pullback of the norm is the tensor product of the translates σ^*L_1 over σ in the symmetric group, and each L_i occurs (n − 1)! times. 'Deails' is also a misprint for 'Details'.",
    "reason": "The step is asserted with its details omitted, and the proof's conclusion π^*β_n = (n!)^n α_n rests on it.",
@@ -15479,7 +15148,6 @@
    "source": "STACKS.WEIL",
    "locator": "Proof of Lemma 0FH9, the map S^n(X) → Pic^n (weil.tex line 2278 at a04446e)",
    "printed": "For $n \\geq 2g - 1$ this morphism is a projective space bundle (details omitted; compare with the proof of Picard Schemes of Curves, Lemma 44.6.7).",
-   "excerpt": "For n ≥ 2g − 1 this morphism is a projective space bundle (details omitted; compare with the proof of Picard Schemes of Curves, Lemma 44.6.7).",
    "kind": "gap",
    "correction": "It must be proved that f : S^n(X) → Pic^n_{X/k} is a projective space bundle for n ≥ 2g − 1, the fibre over a line bundle of degree n being the projective space of its sections, of constant dimension n − g + 1 by Riemann-Roch.",
    "reason": "The step is asserted with its details omitted, and the vanishing c_1(N)^n = f^*(c_1(M)^n) = 0 rests on it.",

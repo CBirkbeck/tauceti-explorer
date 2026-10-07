@@ -890,7 +890,7 @@ theorem siegelWeil_firstTerm (A B : ℤ → ℂ) : A 0 = 2*B (-1) := by sorry
 Native residual-image membership, expressing the quotient identity. B₀ is the Ikeda(K_Hφ) correction; residual is Im A₋₁, so no literal A₀=BnegOne identity is asserted without vanishing. -/
 theorem siegelWeil_secondTerm (residual : Submodule ℂ V) (A₀ BnegOne B₀ : V) (κ : ℂ) : A₀-BnegOne+κ • B₀ ∈ residual := by sorry
 /- MetaplecticAutomorphicForms:MP.6/coherent-incoherent-sections
-Restricted tensor evaluation fragment, with almost-all spherical value1. Coherence is existence of a global quadratic/Hermitian form, not a new assumed Prop field; only its necessary invariant product is prototyped. -/
+Restricted tensor evaluation fragment, with almost-all spherical value1. Quadratic coherence uses GlobalQuadraticForms Layers3,7,8 and its actual localizations; QFI6C supplies local invariants. Global Hermitian coherence needs a separate source-qualified extension. Only a necessary invariant product is prototyped; this is not an existence or classification theorem. -/
 def thetaSectionCollection (places : Type*) (sections : places → G → ℂ) : G → ℂ := fun g => ∏' v, sections v g
 lemma thetaSectionCollection_tensor (places : Type*) (sections : places → G → ℂ) (g : G) : thetaSectionCollection places sections g = ∏' v, sections v g := by sorry
 lemma thetaSectionCollection_global (places : Type*) (sections : places → G → ℂ) (ω : Representation ℂ G (X → ℂ)) (φ : X → ℂ) : thetaSectionCollection places sections = siegelWeilSection ω φ := by sorry
@@ -948,10 +948,12 @@ theorem globalTheta_nonvanishing (lift : H → H) (L : ℂ) : (∃ v, lift v ≠
 The compatible global see-saw theta kernel and absolute integrability on the quotient product are required; regularized pairings and spectral projection need the packet’s separate proof gates. -/
 theorem globalTheta_seeSaw [MeasurableSpace H] (μ : Measure G) (ν : Measure H) (theta : G → H → ℂ) (f : G → ℂ) (h : H → ℂ) : (∫ g, ∫ x, theta g x*star (f g)*star (h x) ∂ν ∂μ) = ∫ x, ∫ g, theta g x*star (f g)*star (h x) ∂μ ∂ν := by sorry
 /- MetaplecticAutomorphicForms:MP.6/quadratic-quaternionic-norm-instances
-Range classification fragment: anisotropic binary/ternary convergent, split binary boundary, split ternary second-term. The actual norm-form case and rank conditions in the packet are required; it is not a disjunction for arbitrary integers. -/
-theorem normTheta_integralRange (m r n : ℤ) : (r = 0 ∨ n+1 < m-r) ∨ (m = n+1 ∧ r = 1) ∨ n+1 < m := by sorry
+Range classification fragment with explicit n=1, m∈{2,3} and r∈{0,1}: anisotropic binary/ternary convergent, split binary boundary, split ternary second-term. The arithmetic construction, Haar/splitting normalization and residual-image comparison are separate packet obligations; the integer lemma supplies none of those proofs. -/
+theorem normTheta_integralRange (m r n : ℤ) (hn : n = 1)
+    (hm : m = 2 ∨ m = 3) (hr : r = 0 ∨ r = 1) :
+    (r = 0 ∨ n+1 < m-r) ∨ (m = n+1 ∧ r = 1) ∨ n+1 < m := by sorry
 /- MetaplecticAutomorphicForms:MP.6/toric-theta-pairing-interface
-Normalized pairing interface only. The actual torus/GL₂ representations and Schwartz input and convergence are required; Waldspurger’s period/L-value theorem remains GZ.5’s responsibility. -/
+Normalized pairing interface only. The actual torus/GL₂ representations, Schwartz input and convergence are required. YZZ’s 2011 draft pp.48–55 supplies the nonsplit route; its split Shimizu factorization refers to a separate Waldspurger proof, still required. A GQT residual-image identity does not by itself identify the pairing. Waldspurger’s period/L-value theorem remains GZ.5’s responsibility. -/
 theorem toricTheta_pairingComparison (θPeriod toricPairing normalization : ℂ) : θPeriod = normalization*toricPairing := by sorry
 end Doubling
 section Jacobi

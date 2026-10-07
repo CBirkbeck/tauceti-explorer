@@ -160,25 +160,21 @@
         {
           "sourceId": "DLLZ-adic",
           "locator": "Convention 2.2.1, p. 7",
-          "excerpt": "From now on, we shall only work with adic spaces that are étale sheafy. (They include locally noetherian adic spaces and perfectoid spaces.)",
           "match": "States the étale-sheafiness convention behind the node; the packet further restricts to the analytic carriers of the A1 étale site, as recorded in the hypotheses."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Definition 2.2.2(3), p. 8",
-          "excerpt": "A pre-log structure (MX , α) on X is called a log structure if the morphism",
           "match": "Defines the unit condition α⁻¹(O×)≃O× that makes a pre-log structure a log structure; parts (1)-(2) and (4)-(6) of the same definition give pre-log structures, integrality/saturation, the characteristic and the associated log structure stated here."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Definition 2.2.2(7)-(8), p. 8",
-          "excerpt": "The morphism f is called strict if the induced morphism f ∗ (MX ) → MY is an isomorphism.",
           "match": "Defines morphisms of log adic spaces, the pullback log structure f*M_X and strictness exactly as in the node; part (8) defines exactness of (f*M_X)_ȳ→M_{Y,ȳ} at geometric points."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Example 2.2.7 and Remark 2.2.6, p. 9",
-          "excerpt": "We call it the trivial log structure on X.",
           "match": "Example 2.2.7 identifies the trivial log structure as O×_{X_ét} with its inclusion (the node's degenerate test); Remark 2.2.6 on the same page gives the stalkwise criterion for strictness."
         }
       ],
@@ -300,25 +296,21 @@
         {
           "sourceId": "DLLZ-adic",
           "locator": "Lemma 2.2.11 and Remark 2.2.12, pp. 9-10",
-          "excerpt": "Let us equip R[P ] with the topology determined by the ring of definition R0 [P ] such that {I m R0 [P ]}m≥0 forms a basis of open neighborhoods of 0.",
           "match": "Gives the Huber pair (R[P],R⁺[P]) and, in Remark 2.2.12, its completion (R⟨P⟩,R⁺⟨P⟩), as in the node."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Lemma 2.2.13, p. 10",
-          "excerpt": "As a result, Spa(RhP i, R+ hP i) is a noetherian adic space when Spa(R, R+ ) is, and Spa(RhP i, R+ hP i) is étale sheafy (see Corollary A.11).",
           "match": "Noetherianity, étale sheafiness and compatibility with rational localisation for finitely generated P, with the two cases on R kept in the hypotheses."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Definition 2.2.17 and Convention 2.2.18, p. 11",
-          "excerpt": "Then the natural homomorphism P → RhP i of monoids induces a pre-log structure PX → OXét on X, whose associated log structure we simply denote by P log .",
           "match": "Defines the log structure P^log on Spa(R⟨P⟩,R⁺⟨P⟩)."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Examples 2.2.19-2.2.21, pp. 11-12",
-          "excerpt": "by gluing the morphisms Spa(RhP i, R+ hP i) → Spa(R, R+ ) as in Lemma 2.2.13 over the noetherian affinoid open Spa(R, R+ ) in Y",
           "match": "Constructs Y⟨P⟩→Y by gluing; Examples 2.2.20-2.2.21 give affinoid toric log adic spaces and the log polydisc Dⁿ."
         }
       ],
@@ -448,31 +440,26 @@
         {
           "sourceId": "DLLZ-adic",
           "locator": "Definition 2.3.1, p. 13",
-          "excerpt": "A (global) chart of X modeled on P is a morphism of sheaves of monoids θ : PX → MX such that",
           "match": "Defines charts with the integral-image condition α(θ(P_X))⊂O⁺ and the logification isomorphism, as stated in the node."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "§2.3 introduction, p. 12; Remarks 2.3.2-2.3.4, p. 13",
-          "excerpt": "Compared with the corresponding notion for log schemes, a notable difference is that the definition of charts for a log adic space X involves",
           "match": "Explains that DLLZ charts involve O⁺ as well as O; Remarks 2.3.2-2.3.4 on the next page give the strict-morphism description to Spa(R⟨P⟩,R⁺⟨P⟩) and the characteristic formula stated in the node."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Definition 2.3.5, p. 13",
-          "excerpt": "A quasi-coherent (resp. coherent, resp. fine, resp. fs) log adic space is a log adic space X that étale locally admits some charts modeled on some monoids (resp. finitely generated monoids, resp. fine monoids, resp. fs monoids).",
           "match": "Defines coherent, fine and fs log adic spaces through charts, as in the node."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Proposition 2.3.11, p. 15",
-          "excerpt": "Let (X, MX , α) be a locally noetherian coherent log adic space. Then it is fine (resp. fs) if and only if it is integral (resp. saturated).",
           "match": "States the equivalence of fine/fs with integral/saturated, with the locally noetherian coherent hypothesis kept in the node."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Definition 2.3.19, p. 17; Propositions 2.3.13 and 2.3.22, pp. 16-18",
-          "excerpt": "A chart of f consists of charts θX : PX → MX and θY : QY → MY and a homomorphism u : P → Q of monoids such that the diagram",
           "match": "Defines charts of morphisms; Propositions 2.3.13 and 2.3.22 give the étale-local existence statements included in the node."
         }
       ],
@@ -589,25 +576,21 @@
         {
           "sourceId": "DLLZ-adic",
           "locator": "Example 2.3.16, p. 16",
-          "excerpt": "(The normality of X is necessary for showing that the log structure MX is indeed saturated.)",
           "match": "Example 2.3.16 defines M_X(V) as functions invertible on the preimage of X−D on a normal rigid variety and asserts it is a locally noetherian fs log structure; the node keeps the normality hypothesis."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Example 2.3.17, pp. 16-17",
-          "excerpt": "We say that D is a (reduced) normal crossings divisor of X if, étale locally on X—or equivalently (by [dJvdP96, Lem. 3.1.5]), analytic locally on X, up to replacing the base field k with a finite separable extension",
           "match": "Defines normal crossings divisors étale locally, which the node keeps rather than restricting to strict normal crossings."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Example 2.3.17, p. 17",
-          "excerpt": "which is compatible with the one of Dm as in Example 2.2.21 via pullback",
           "match": "States that the divisorial log structure is the pullback of the toric log structure of D^m, which gives the chart ℕ^m→M_X of the node."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Example 3.1.13, p. 25",
-          "excerpt": "We claim that, étale locally, X admits a smooth toric chart X → Dn , where n = dim(X).",
           "match": "Gives the smooth toric charts and log smoothness over k included in the node."
         }
       ],
@@ -720,25 +703,21 @@
         {
           "sourceId": "DLLZ-adic",
           "locator": "Proposition 2.3.23(1)-(2), p. 18",
-          "excerpt": "fine log adic spaces admits a right adjoint X 7→ X sat , and the corresponding morphism of underlying adic spaces is finite and surjective.",
           "match": "States saturation as a right adjoint with finite surjective underlying map; part (1) gives integralisation with a closed immersion, both as in the node."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Proposition 2.3.27(2), p. 19",
-          "excerpt": "Finite fiber products exist in the category of locally noetherian fine (resp. fs) log adic spaces when the corresponding fiber products of the underlying adic spaces exist.",
           "match": "Gives the existence condition kept in the node; part (1) and the proof give the coherent product and its chart model."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Remark 2.3.30, p. 20",
-          "excerpt": "does not respect fiber products (when defined), because the underlying adic spaces may change under the functor",
           "match": "States that the fine and fs fibre products can have a different underlying adic space, as in the node."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Proposition 2.3.32 and Lemma 2.3.33, p. 20",
-          "excerpt": "Then, given any two points y ∈ Y and z ∈ Z that are mapped to the same point x ∈ X, there exists some point w ∈ W := Y ×X Z",
           "match": "The four-point lemma for lft morphisms of locally noetherian fs log adic spaces with f exact; Lemma 2.3.33 is its geometric-point case."
         }
       ],
@@ -858,31 +837,26 @@
         {
           "sourceId": "DLLZ-adic",
           "locator": "Definition 3.1.1 and Remark 3.1.2, p. 21",
-          "excerpt": "the kernel and the torsion part of the cokernel (resp. the kernel and cokernel) of ugp : P gp → Qgp are finite groups of order invertible in OX",
           "match": "Defines log smoothness and log étaleness by fs charts with this group condition and étaleness of Y→X×_{X⟨P⟩}X⟨Q⟩, with invertibility in O_X as kept in the node."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Propositions 3.1.3 and 3.1.6, pp. 21-23",
-          "excerpt": "Base changes of log smooth (resp. log étale) morphisms (by arbitrary morphisms between locally noetherian fs log adic spaces, which are justified by Remark 3.1.2) are still log smooth (resp. log étale).",
           "match": "States stability under fs base change; Proposition 3.1.6 gives stability under composition."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Proposition 3.1.4, pp. 21-23",
-          "excerpt": "Then, étale locally on Y and X, there exists an injective fs chart u : P → Q of f satisfying the conditions in Definition 3.1.1.",
           "match": "Gives injective (and torsion-free when P is) charts over a given fs chart of the base, as stated in the node."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Proposition 3.1.7, p. 24",
-          "excerpt": "If f : Y → X is log smooth (resp. log étale) and strict, then the underlying morphism of adic spaces is smooth (resp. étale).",
           "match": "The strict case stated in the node."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Proposition 3.1.10, Corollary 3.1.11 and Definition 3.1.12, pp. 24-25",
-          "excerpt": "Then, étale locally on X, there exist a sharp fs monoid P and a strictly étale morphism X → Spa(khP i, k + hP i) that is a composition of rational localizations and finite étale morphisms.",
           "match": "Existence of toric charts for log smooth X over an affinoid field; Corollary 3.1.11 gives smooth toric charts X→Dⁿ when X is smooth."
         }
       ],
@@ -928,19 +902,16 @@
         {
           "sourceId": "DLLZ-adic",
           "locator": "Definition 3.2.1, p. 26",
-          "excerpt": "A pre-log Huber ring is a triple (A, M, α) consisting of a (not necessarily complete) Huber ring A, a monoid M , and a homomorphism α : M → A of multiplicative monoids called a pre-log structure.",
           "match": "Defines pre-log Huber rings; parts (2)-(4) give log Huber rings, associated log Huber rings and homomorphisms as stated in the node."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Definition 3.2.2, p. 26",
-          "excerpt": "Given any complete topological B-module L, a derivation from (B, N, β) to L over (A, M, α) (or an (A, M, α)-derivation of (B, N, β) to L) consists of a continuous A-linear derivation",
           "match": "Defines the pair (d,δ) with δ(f♯m)=0 and d(βn)=β(n)δ(n), its B-module Der^log_A(B,L) and the trivial-log case; the node adds Hausdorffness of L as a packet convention."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Remark 3.2.3, p. 26",
-          "excerpt": "remains unchanged if we replace (B, N, β) with (B, a N, β). In addition, δ naturally extends to a group homomorphism",
           "match": "Invariance under logification and the extension δ^gp stated in the node."
         }
       ],
@@ -1058,25 +1029,21 @@
         {
           "sourceId": "DLLZ-adic",
           "locator": "Definition 3.2.4, p. 26",
-          "excerpt": "of pre-log Huber rings is called topologically of finite type (or tft for short) if A and B are complete",
           "match": "Defines tft homomorphisms of pre-log Huber rings, including the finite generation condition on N^gp kept in the node."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "(3.2.7)-(3.2.8), p. 27",
-          "excerpt": "where ΩB/A is the usual B-module of continuous differentials (see [Hub96, Def. 1.6.1 and (1.6.2)]), and where R is the B-module generated by",
           "match": "Gives the presentation of Ω^log_{B/A} over Huber's continuous differentials stated in the node; the following sentence deduces finiteness and completeness."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Proposition 3.2.9, p. 27",
-          "excerpt": "is a universal object among all (A, M, α)-derivations of (B, N, β).",
           "match": "States the universal property among derivations into complete topological B-modules."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Lemma 3.2.10, p. 28",
-          "excerpt": "is a strict homomorphism of log Huber rings, then the canonical morphism Derlog A (B, L) → DerA (B, L) is an isomorphism, for every complete topological B-module L.",
           "match": "The strict comparison Ω_{B/A}≅Ω^log_{B/A} stated in the node."
         }
       ],
@@ -1199,25 +1166,21 @@
         {
           "sourceId": "DLLZ-adic",
           "locator": "Constructions 3.3.2-3.3.4 and Lemma 3.3.5, pp. 34-35",
-          "excerpt": "Given any lft morphism f : Y → X of noetherian coherent log adic spaces, by Proposition 2.3.21, there exist a finite index set I and étale coverings",
           "match": "Construction 3.3.4 glues the affinoid log differentials by étale descent; Lemma 3.3.5 extends the definition to lft morphisms of locally noetherian coherent log adic spaces, as stated in the node."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Proposition 3.3.7, pp. 35-36",
-          "excerpt": "be a cartesian diagram in the category of locally noetherian coherent (resp. fine,",
           "match": "Base change of Ω^log along any cartesian square in the coherent, fine or fs category with Y→X lft; the node states this, not a log-étale base change."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Proposition 3.3.16, p. 38",
-          "excerpt": "Then f is formally log smooth (resp. formally log étale) as in Definition 3.3.10 if and only if it is log smooth (resp. log étale) as in Definition 3.1.1.",
           "match": "The equivalence of formal and chart log smoothness for lft morphisms of locally noetherian fs log adic spaces, part (4) of the node."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Theorem 3.3.17, pp. 39-40",
-          "excerpt": "A composition of lft morphisms Y → X → S of locally noetherian coherent log adic spaces naturally induces an exact sequence",
           "match": "Part (1) is the right-exact transitivity sequence; parts (2)-(5) give injectivity and local freeness (with the rank formula) for log smooth f, vanishing for log étale f and the converses, as in the node."
         }
       ],
@@ -1263,25 +1226,21 @@
         {
           "sourceId": "DLLZ-adic",
           "locator": "Definition 3.3.19, p. 40",
-          "excerpt": "Let X → S be a log smooth morphism of locally noetherian fs log adic spaces. Then Ωlog X/S is a locally free OX -module of finite rank, by Theorem",
           "match": "Defines Ω^{log,a}_{X/S} as exterior powers of the locally free Ω^log_{X/S} for log smooth X→S, as in the node."
         },
         {
           "sourceId": "DLLZ-RH",
           "locator": "Definition 3.1.7(4), p. 24",
-          "excerpt": "A log connection on a coherent sheaf E on X is a k-linear map of sheaves",
           "match": "Defines log connections on coherent sheaves, integrability ∇²=0, the log de Rham complex and its cohomology; no continuity condition is imposed."
         },
         {
           "sourceId": "DLLZ-RH",
           "locator": "§3.4, (3.4.1), p. 33",
-          "excerpt": "To define the residue ResZ (∇) of ∇ along Z, we may shrink X and assume that Z is smooth and connected.",
           "match": "Defines Res_Z(∇)=∇(T₁∂/∂T₁) mod T₁ along an irreducible component of a normal crossings divisor, independent of the coordinate, as in the node."
         },
         {
           "sourceId": "DLLZ-RH",
           "locator": "Theorem 3.2.3(4), p. 25, and proof of Corollary 3.5.7, p. 40",
-          "excerpt": "working with local coordinates as in Section 3.4, we see that ResW h∗ (∇L ) = h(W )⊂Z mW Z",
           "match": "The pullback formula Res_W(h*∇)=Σ_{h(W)⊂Z}m_{WZ}h_{WZ}*Res_Z(∇), with m_{WZ} the multiplicity of W in h⁻¹(Z) defined in Theorem 3.2.3(4)."
         }
       ],
@@ -1389,25 +1348,21 @@
         {
           "sourceId": "DLLZ-adic",
           "locator": "Definition 4.1.2(1)–(2), p. 41",
-          "excerpt": "Kummer (resp. finite Kummer ) if it admits, étale locally on X and Y (resp. étale locally on X), an fs chart u : P → Q that is Kummer as in Definition 4.1.1",
           "match": "Defines (finite) Kummer maps through étale-local Kummer charts; part (2) adds the cokernel order invertible in O_Y and étaleness of Y→X×_{X⟨P⟩}X⟨Q⟩, as in the node's definition."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Lemma 4.1.13, p. 45",
-          "excerpt": "is Kummer étale if and only if it is log étale and Kummer, and if and only if it is log étale and exact. It is finite Kummer étale if and only it is log étale and finite Kummer.",
           "match": "The log-étale characterisations recorded in the statement and in the api item iff_logEtale_exact."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Proposition 4.1.14, p. 46",
-          "excerpt": "Kummer étale (resp. finite Kummer étale) morphisms as in Definition 4.1.2 are stable under compositions and base changes under arbitrary morphisms between locally noetherian fs log adic spaces",
           "match": "Composition and fs base-change stability (api comp and base_change)."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Proposition 4.1.15, p. 46; Corollary 4.1.9, p. 43",
-          "excerpt": "Suppose that f : Y → X and g : Z → X are Kummer étale morphisms of locally noetherian fs log adic spaces. Then any morphism h : Y → Z such that f = g ◦ h is also Kummer étale.",
           "match": "Cancellation (api of_comp); openness is the separate Corollary 4.1.9 on p. 43."
         }
       ],
@@ -1527,25 +1482,21 @@
         {
           "sourceId": "DLLZ-adic",
           "locator": "Definition 4.1.5, p. 41",
-          "excerpt": "is a finite Kummer cover with a Kummer chart given by the natural inclusion P ,→ n1 P , which is finite Kummer étale when n is invertible in OX",
           "match": "The root cover X^{1/n}=X×_{X⟨P⟩}X⟨(1/n)P⟩ for a torsion-free fs chart, finite Kummer étale when n is invertible."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Proposition 4.1.6, pp. 41–42; Definition 4.1.8, p. 43",
-          "excerpt": "which is an analogue of a diagonalizable group scheme that is Cartier dual to the constant group scheme G",
           "match": "The group object G^D_X=X⟨G⟩ acting on Y=X×_{X⟨P⟩}X⟨Q⟩; parts (1)–(4) give finiteness, surjectivity, the torsor isomorphism and the Galois property recorded in the statement."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Lemma 4.3.2, p. 52",
-          "excerpt": "We emphasize that Lemma 4.3.2 also works for standard Kummer covers that are not necessarily Kummer étale.",
           "match": "Čech exactness of O for standard Kummer covers (api cech_exact), valid without the étale condition."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Lemmas 4.2.5–4.2.6, pp. 49–50",
-          "excerpt": "Let X be a noetherian fs log adic space modeled on a sharp fs monoid P . Let {Ui → X}i∈I be a Kummer étale covering indexed by a finite set I.",
           "match": "Lemma 4.2.6 (refinement by members étale over root covers); Lemma 4.2.5 just before it gives strictification after base change to X^{1/n}. The node keeps the noetherian sharp-chart hypothesis."
         }
       ],
@@ -1659,25 +1610,21 @@
         {
           "sourceId": "DLLZ-adic",
           "locator": "Definition 4.1.12, p. 44",
-          "excerpt": "be the smallest positive integer n that annihilates coker(MX,f (y) → MY,y ).",
           "match": "The local index is the exponent of the group cokernel of the characteristic stalk map (the pdftotext layer drops the superscripts gp)."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Definition 4.1.12, p. 44",
-          "excerpt": "The ramification index of a Kummer étale morphism f is the least common multiple, when defined, of the ramification indices among the geometric points y of Y . (The ramification index is not always defined.)",
           "match": "The global index (api global), including the caveat that it need not exist."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Definition 4.1.12, p. 44",
-          "excerpt": "The ramification index of a Kummer étale morphism is 1 if and only if f is strictly étale.",
           "match": "The index-one characterisation (api index_one); the source states it without proof, the node's proof sketch supplies it."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Lemma 4.1.11(2) proof, p. 44",
-          "excerpt": "By Lemma 4.1.10, if f is Kummer étale, then we may assume that the order of coker(ugp ) is invertible in OY,y , and the same is true for its quotient coker(v gp ).",
           "match": "Invertibility of the cokernel order, hence of the local index, for Kummer étale f (api isUnit)."
         }
       ],
@@ -1779,31 +1726,26 @@
         {
           "sourceId": "DLLZ-adic",
           "locator": "Definition 4.1.16, pp. 46–47",
-          "excerpt": "locally noetherian fs log adic spaces consisting of objects that are Kummer étale over X, and has coverings given by the topological coverings.",
           "match": "Defines X_két as the category of Kummer étale objects over X with jointly surjective (topological) coverings."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Remark 4.1.17(1), p. 47",
-          "excerpt": "This gives rise to a strictly étale morphism U → X of log adic spaces, which is Kummer étale by definition. Therefore, we obtain a natural projection of sites",
           "match": "The projection ε_ét, an isomorphism for trivial log structure (api epsilon, test trivial_log)."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Theorem 4.3.1(2), p. 52",
-          "excerpt": "(2) If X is affinoid, then H i (Xkét , OXkét ) = 0, for all i > 0.",
           "match": "Affinoid acyclicity of O; part (1), just above, gives sheafiness of O and O⁺."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Proposition 4.3.4, p. 53",
-          "excerpt": "Then the presheaf MXkét assigning U 7→ MU (U ) is a sheaf on Xkét .",
           "match": "Sheafiness of M on X_két with ε_ét,*M_{X_két}≃M_X."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Proposition 4.3.5, p. 54",
-          "excerpt": "Let Y → X be a morphism of locally noetherian fs log adic spaces. Then the presheaf MorX ( · , Y ) on Xkét is a sheaf.",
           "match": "Representable descent for every log adic space over X, not only objects of X_két (api representable)."
         }
       ],
@@ -1920,19 +1862,16 @@
         {
           "sourceId": "DLLZ-adic",
           "locator": "Definition 4.3.6(1), p. 55",
-          "excerpt": "is called an analytic coherent sheaf if it is isomorphic to the inverse image of a coherent sheaf on the analytic site of X.",
           "match": "Definition of analytic coherent O_{X_két}-modules; part (2) defines coherent ones Kummer étale locally."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Theorem 4.3.7(2), p. 55",
-          "excerpt": "F is a coherent OXkét -module, and X is over an affinoid field (k, k + ).",
           "match": "The field alternative of the theorem, kept as a hypothesis of case (2)."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Theorem 4.3.7, proof of (2), p. 56",
-          "excerpt": "in k as n is, and since F(U ) is a k-vector space, we have",
           "match": "The group-cohomology vanishing used in proof step 3."
         }
       ],
@@ -1977,31 +1916,26 @@
         {
           "sourceId": "DLLZ-adic",
           "locator": "Propositions 4.2.7–4.2.8, pp. 50–52",
-          "excerpt": "The following two propositions show that the properties of morphisms being Kummer étale, log smooth, and log étale can be verified up to Kummer étale localization on either the source or the target",
           "match": "Part (i) of the statement, used in the proof of Theorem 4.4.12."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Theorem 4.4.12, p. 60",
-          "excerpt": "Now, we are ready to prove the main result of this subsection; i.e., Kummer étale covers satisfy effective descent in the fibered category Fkét.",
           "match": "Introduces Theorem 4.4.12: effective descent of finite Kummer étale objects along Kummer étale covers, part (ii)."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Theorem 4.4.15(2), p. 62",
-          "excerpt": "Categorical quotients by finite groups exist in Xfkét and Loc(Xkét ), and φ preserves such quotients.",
           "match": "Part (iii): the equivalence φ:X_fkét≃Loc(X_két) and its compatibility with quotients (and, in (1), fibre products)."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Corollary 4.4.18, p. 63",
-          "excerpt": "Then the fiber functor F in (4.4.17) is prorepresentable. Let π1két (X, ζ) be the automorphism group of F .",
           "match": "Part (iv): π₁^két(X,ζ) and the equivalences (4.4.19)–(4.4.20) with finite continuous π₁-sets."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Corollary 4.4.22, p. 63",
-          "excerpt": "In particular, the underlying adic spaces of ξ (resp. X(ξ)) is a geometric point (resp. a strictly local adic space).",
           "match": "Part (v): the local fundamental group Hom(M̄^gp,Ẑ′(1)(l)) of a strictly local log adic space."
         }
       ],
@@ -2045,25 +1979,21 @@
         {
           "sourceId": "DLLZ-adic",
           "locator": "Lemma 4.4.27, p. 64",
-          "excerpt": "Then, for each sheaf F of finite abelian groups on Xkét , we have",
           "match": "Lemma 4.4.27: stalks of R^iε_ét,*F are the continuous cohomology of π₁^két of the strictly local log point, part (1)."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Discussion before Lemma 4.4.29, p. 64",
-          "excerpt": "on Xkét , which is exact by comparing stalks at log geometric points of X (cf. Construction 4.4.3)",
           "match": "Exactness of the Kummer sequence for M^gp on X_két, the input of (4.4.28)."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "(4.4.28), p. 65",
-          "excerpt": "which is nothing but the inverse of the isomorphism in Lemma 4.4.27, by comparing stalks at geometric points of X",
           "match": "The map M̄^gp/nM̄^gp→R^1ε_ét,*(μ_n) of part (2) and its identification with Lemma 4.4.27."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Lemma 4.4.29, p. 65",
-          "excerpt": "the canonical morphism ∧i R1 εét,∗ (µn ) → Ri εét,∗ (µn ) is an isomorphism.",
           "match": "Part (3); the source prints the target R^iε_ét,*(μ_n), corrected here to R^iε_ét,*(μ_n^{⊗i}) (see the source issue); Lemma 4.6.2 (p. 69) uses the equivalent form ∧^i(M̄^gp/n)(−i)≅R^iε_ét,*(Z/n)."
         }
       ],
@@ -2121,25 +2051,21 @@
         {
           "sourceId": "DLLZ-adic",
           "locator": "Proposition 4.2.1, p. 47",
-          "excerpt": "Suppose that h : V → U := X − D is a finite étale surjective morphism of rigid analytic varieties over k. Then it extends to a finite surjective and Kummer étale morphism of log adic spaces f : Y → X, where Y is a normal rigid analytic variety with its log structures defined by the preimage of D.",
           "match": "The extension statement; the proposition's hypotheses (smooth X over k of characteristic zero, D a normal crossings divisor) are kept, SNC being a special case."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Proposition 4.2.1, proof, p. 47",
-          "excerpt": "By [Han20, Thm. 1.6] (which was based on [Lüt93, Thm. 3.1 and its proof]),",
           "match": "The external normal-extension input of proof step 1."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Lemma 4.2.3, p. 48",
-          "excerpt": "we may assume that the positive integers d1 , . . . , dr there (for various Y 0 ) are no greater than the degree d of f : Y → X",
           "match": "The bound d_i≤d and, in the same lemma, ρ=p^{−b(d,p)} and m=d!."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Lemma 4.2.2, p. 48",
-          "excerpt": "splits completely (i.e., the source is a disjoint union of sections) and is therefore strictly étale.",
           "match": "The local strictification after the root cover X_ρ^{1/m}."
         }
       ],
@@ -2188,25 +2114,21 @@
         {
           "sourceId": "DLLZ-adic",
           "locator": "Theorem 4.6.1, p. 68",
-          "excerpt": "Suppose moreover that char(k) = 0 and k + = Ok . Let L be a torsion local system on Uét .",
           "match": "The hypotheses of the purity theorem (including k⁺=O_k); its conclusion, j_két,*L a torsion local system with vanishing higher direct images, follows in the same sentence."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Theorem 4.6.1, proof, p. 69",
-          "excerpt": "we may assume that L = Z/n is constant, in which case Lemma 4.6.5 applies.",
           "match": "The reduction to constant coefficients through root covers (proof steps 2–4)."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Lemma 4.6.2, proof, p. 69",
-          "excerpt": "By Lemma 4.4.29, it suffices to show that the composition",
           "match": "Lemma 4.6.2 rests on the higher-direct-image computation of Lemma 4.4.29 and the algebraic purity comparison."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Corollary 4.6.7, p. 69",
-          "excerpt": "Conversely, any étale Fp -local system L on Xkét is of this form.",
           "match": "The converse half of the equivalence, stated for F_p and extended here to torsion coefficients by the same proof."
         }
       ],
@@ -2246,25 +2168,21 @@
         {
           "sourceId": "DLLZ-adic",
           "locator": "Definition 5.1.1(1), p. 70",
-          "excerpt": "if it is the pullback under some morphism V → V0 in pro-Xkét of some Kummer étale (resp. finite Kummer étale, resp. strictly étale, resp. strictly finite étale) morphism U0 → V0 in Xkét",
           "match": "Finite-stage Kummer étale morphisms in the pro-category are pullbacks of morphisms of X_két."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Definition 5.1.1(2), p. 70",
-          "excerpt": "such that Uj → Ui is finite Kummer étale and surjective for all sufficiently large i (i.e., all i ≥ i0 , for some i0 ∈ I). Such a presentation",
           "match": "The pro-Kummer étale presentation with its eventual finite surjective clause."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Lemma 5.1.4(4), p. 71",
-          "excerpt": "Pro-Kummer étale morphisms in pro-Xket are open (i.e., they induce open maps between the underlying topological spaces).",
           "match": "Openness (api isOpenMap), which excludes the shrinking-disc system of the non-example test."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Lemma 5.1.4(7), p. 71",
-          "excerpt": "Arbitrary finite inverse limits exist in Xprokét .",
           "match": "Finite limits; parts (1), (2), (5), (6) give base change, composition and the surjective-pullback property."
         }
       ],
@@ -2364,25 +2282,21 @@
         {
           "sourceId": "DLLZ-adic",
           "locator": "Definition 5.1.2, p. 70",
-          "excerpt": "the following conditions (cf. [Sch16]), for each i ∈ I:",
           "match": "The covering condition is introduced with an explicit reference to [Sch16]; the three conditions follow."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Definition 5.1.2(3), p. 70",
-          "excerpt": "of a Kummer étale morphism in Xkét , and is the pullback of a surjective finite Kummer étale morphism in Xkét for all sufficiently large µ.",
           "match": "The step condition of the ordinal tower, with its eventual surjective finite clause."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Lemma 5.1.4(8), p. 71",
-          "excerpt": "Any base change of a covering in Xprokét is also a covering.",
           "match": "Pullback stability (api pullback)."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Bibliography, [Sch16], p. 99",
-          "excerpt": "p-adic Hodge theory for rigid-analytic varieties—corrigendum, Forum Math. Pi 4 (2016), e6, 4.",
           "match": "[Sch16] is Scholze's corrigendum, the source of the transfinite covering condition that the word 'corrected' refers to."
         }
       ],
@@ -2482,37 +2396,31 @@
         {
           "sourceId": "DLLZ-adic",
           "locator": "Definition 5.1.2, p. 70",
-          "excerpt": "The pro-Kummer étale site Xprokét has as underlying category the full subcategory of pro-Xkét consisting of objects that are pro-Kummer étale over X",
           "match": "The underlying category; the coverings are those of corrected-pro-kummer-covers."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Proposition 5.1.5(1), p. 71",
-          "excerpt": "such that all Ui are affinoid. Then U is quasi-compact and quasi-separated.",
           "match": "The qcqs basis of affinoid presentations (api qcqs_basis); parts (2)–(7) give generation, algebraicity and the topological qcqs criteria."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Proposition 5.1.5(7), p. 72",
-          "excerpt": "The site Xprokét is quasi-separated (resp. coherent) if and only if |X| is quasi-separated (resp. coherent).",
           "match": "Coherence of the site in terms of |X|."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "§5.1, p. 72",
-          "excerpt": "Let υ : Xprokét → Xkét be the natural projection of sites.",
           "match": "The projection ν (written υ in the source)."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Definition 5.1.9, p. 72",
-          "excerpt": "The pro-finite Kummer étale site Xprofkét has as underlying category the category pro-Xfkét",
           "match": "Defines the pro-finite Kummer étale site added to the node."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Proposition 5.1.12, p. 73",
-          "excerpt": "Let X be a connected locally noetherian fs log adic space, and let ζ be a log geometric point of X. Then there is an equivalence of categories",
           "match": "States the equivalence X_profkét≃π_1^két(X,ζ)-PFSets; its proof also matches the coverings."
         }
       ],
@@ -2639,31 +2547,26 @@
         {
           "sourceId": "DLLZ-adic",
           "locator": "Proposition 5.1.6, proof, p. 72",
-          "excerpt": "This follows from essentially the same argument as in the proof of [Sch13a, Lem. 3.16], by using Proposition 5.1.5 (1) and (2) here.",
           "match": "Proof of the colimit formula for qcqs U, which the node keeps restricted to qcqs objects."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Proposition 5.1.7, p. 72",
-          "excerpt": "For any abelian sheaf F on Xkét , the canonical morphism F → Rυ∗ υ −1 (F) is an isomorphism.",
           "match": "The unit isomorphism."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Corollary 5.1.8, p. 72",
-          "excerpt": "The functor υ −1 : ShAb (Xkét ) → ShAb (Xprokét ) is fully faithful.",
           "match": "Full faithfulness of ν⁻¹."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Proposition 5.2.1, p. 73",
-          "excerpt": "Let f : Y → X be a qcqs morphism of locally noetherian fs",
           "match": "Hypothesis of the base-change isomorphism ν_X⁻¹Rf_két,*≅Rf_prokét,*ν_Y⁻¹ added to the node; f must be qcqs."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Proof of Proposition 5.2.1, p. 73",
-          "excerpt": "can be identified with the sheafification of the presheaf sending a qcqs object",
           "match": "The proof the node follows: both sides compute the sheafified colimit of finite-level cohomology."
         }
       ],
@@ -2709,25 +2612,21 @@
         {
           "sourceId": "DLLZ-adic",
           "locator": "Proposition 3.1.10 and Definition 3.1.12, pp. 24–25",
-          "excerpt": "Then, étale locally on X, there exist a sharp fs monoid P and a strictly étale morphism X → Spa(khP i, k + hP i) that is a composition of rational localizations and finite étale morphisms.",
           "match": "States the existence of toric charts recorded in part (0); Definition 3.1.12 names such a map a toric chart."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Lemma 5.3.4, p. 75",
-          "excerpt": "Let us equip I × Z≥1 with the partial ordering such that (i, m) ≥ (j, n) exactly when i ≥ j and n|m",
           "match": "Gives the divisibility-indexed geometric tower of part (a), which the lemma shows is log affinoid perfectoid and a pro-Kummer étale (pro-finite Kummer étale) cover."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "§6.1, (6.1.3)–(6.1.5) and Lemma 6.1.6, pp. 81–82",
-          "excerpt": "Note that the set of finite-order characters of Γ can be naturally identified with",
           "match": "Part (b): the Galois groups Γ/m and Γ=Hom(P^gp,Ẑ(1)) of the toric tower and the character decomposition; the node adds the perfectoid hypothesis on k that the tower needs."
         },
         {
           "sourceId": "DLLZ-RH",
           "locator": "§2.3, p. 15, and (3.3.4), p. 29",
-          "excerpt": "étale cover, whose Galois group Γ fits into a short exact sequence",
           "match": "Part (c): the arithmetic tower over k_m=k(μ_m) and the extension of Gal(k_∞/k) by Γ_geom with the cyclotomic action."
         }
       ],
@@ -2839,25 +2738,21 @@
         {
           "sourceId": "DLLZ-adic",
           "locator": "Definition 5.3.1, pp. 74–75",
-          "excerpt": "An object U in Xprokét is called log affinoid perfectoid if it admits a pro-Kummer étale presentation",
           "match": "Defines the notion by conditions (1)–(4), which the node lists with the same hypotheses on X."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Definition 5.3.1(3), p. 75",
-          "excerpt": "is the uniformization of (Ri , Ri+ ) as in [KL15, Def. 2.8.13]",
           "match": "Fixes the completion convention of condition (3) recorded in the node."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Remark 5.3.3, p. 75",
-          "excerpt": "Therefore, the condition (4) in Definition 5.3.1 is equivalent to the condition that P is uniquely n-divisible, for all n ≥ 1.",
           "match": "Supports the equivalence of n-divisibility and unique n-divisibility of the chart colimit."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Lemma 5.3.8, p. 76",
-          "excerpt": "Kummer étale (resp. finite Kummer étale) morphism in Xprokét that is the pullback of some Kummer étale (resp. finite Kummer étale) morphism V0 → U0 between affinoid log adic spaces in Xkét",
           "match": "Hypothesis of the localization statement behind the strict_pullback API item; Remark 5.3.5 and Lemma 5.3.6 give the realization and its topology."
         }
       ],
@@ -2968,25 +2863,21 @@
         {
           "sourceId": "DLLZ-adic",
           "locator": "Proposition 5.3.12, p. 77",
-          "excerpt": "Then the log affinoid perfectoid objects in Xprokét form a basis.",
           "match": "States part (1), the basis property, under the same hypotheses on X."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Proposition 5.3.11, p. 77",
-          "excerpt": "Then the subcategory of log affinoid perfectoid objects in Xprokét is stable under fiber products.",
           "match": "Stability under fibre products in part (1)."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Lemma 5.3.8, p. 76",
-          "excerpt": "Kummer étale (resp. finite Kummer étale) morphism in Xprokét that is the pullback of some Kummer étale (resp. finite Kummer étale) morphism V0 → U0 between affinoid log adic spaces in Xkét",
           "match": "Hypothesis of part (3); the lemma concludes étaleness, log affinoid perfectoidness and the equivalence of topoi."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Proposition 5.3.13, p. 78",
-          "excerpt": "for all V ∈ B, all p-torsion locally constant sheaf L on Xkét , and all i > 0.",
           "match": "Part (4): the basis on which inverse images of p-torsion locally constant sheaves are acyclic."
         }
       ],
@@ -3028,19 +2919,16 @@
         {
           "sourceId": "DLLZ-adic",
           "locator": "Definition 5.4.1, p. 78",
-          "excerpt": "Suppose that X is a locally noetherian fs log adic space over Spa(Qp , Zp ). We define the following sheaves on Xprokét .",
           "match": "Introduces the integral, completed and tilted structure sheaves and the log structures α, α♭ defined in the node, with the same hypothesis on X."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Definition 5.4.1(4), p. 78",
-          "excerpt": "We have canonical morphisms α : MXprokét := υ −1 (MXkét ) → OXprokét and",
           "match": "Defines M=ν⁻¹M_két, its tilt M♭ and the structural maps."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Proposition 5.4.2, p. 78",
-          "excerpt": "In Definition 5.4.1, we have MXprokét (U ) = limi MUi (Ui ), for",
           "match": "Gives M(U)=colim M_{U_i}(U_i) for every pro-Kummer étale presentation, as in the monoid_sections API item."
         }
       ],
@@ -3146,19 +3034,16 @@
         {
           "sourceId": "DLLZ-adic",
           "locator": "Theorem 5.4.3, p. 79",
-          "excerpt": "Suppose that X is a locally noetherian fs log adic space over Spa(Qp , Zp ). Let U ∈ Xprokét be a log affinoid perfectoid object, with associated",
           "match": "Hypotheses of parts (1)–(5), which the node restates."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Theorem 5.4.3(3), p. 79",
-          "excerpt": "is canonically isomorphic to the p-adic completion of",
           "match": "The exact identification Ô⁺(U)≅R⁺ with the p-adic completion of O⁺(U) in part (3)."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Theorem 5.4.4, p. 80",
-          "excerpt": "is an equivalence from the category of finite locally free",
           "match": "Part (6): finite locally free Ô-modules over U and their higher cohomology vanishing."
         }
       ],
@@ -3199,13 +3084,11 @@
         {
           "sourceId": "DLLZ-adic",
           "locator": "Definition 6.3.1(1), p. 88",
-          "excerpt": "such that each Ln is a locally constant sheaf which are locally (on Xkét ) associated with finitely generated Z/pn -modules",
           "match": "Defines Z_p-local systems as inverse systems of locally constant sheaves of finitely generated Z/p^n-modules, pro-isomorphic to strict systems; torsion is allowed."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Definition 6.3.1(2), p. 88",
-          "excerpt": "A Qp -local system (or lisse Qp -sheaf ) on Xkét is an object of the stack associated with the fibered category of isogeny lisse Zp -sheaves.",
           "match": "Defines Q_p-local systems through the stack of the isogeny category, as in the node."
         }
       ],
@@ -3309,31 +3192,26 @@
         {
           "sourceId": "DLLZ-adic",
           "locator": "Definition 6.3.2, p. 88",
-          "excerpt": "Zp -modules on Xprokét that is locally (on",
           "match": "Definition of Ẑ_p-local systems on X_prokét as sheaves locally isomorphic to L⊗Ẑ_p with L finitely generated."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Lemma 6.3.3(1), p. 88",
-          "excerpt": "is an equivalence of categories from the category of Zp -local systems on",
           "match": "The completion functor L↦L̂ is an equivalence onto Ẑ_p-local systems, as in part (1)."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Lemma 6.3.3, proof, p. 88",
-          "excerpt": "Proof. Apply Proposition 5.3.13 and [Sch13a, Lem. 3.18].",
           "match": "The proof the node follows: the acyclic basis of Proposition 5.3.13 and Scholze's derived-limit lemma, giving part (2)."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Lemma 6.3.6, p. 89",
-          "excerpt": "Lemma 6.3.6. Let ı : Z → X be a strict closed immersion of locally noetherian fs log adic spaces over Spa(Qp , Zp ).",
           "match": "Hypotheses of part (3), the pullback of completed Q̂_p-local systems along strict closed immersions."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Proof of Lemma 6.3.6, p. 89",
-          "excerpt": "By Lemma 5.3.7, U ×X Z is a log affinoid perfectoid object of Zprokét , and the",
           "match": "The proof followed in the node: Lemma 5.3.7, surjectivity of completed structure sheaves and Theorem 5.4.4."
         }
       ],
@@ -3441,37 +3319,31 @@
         {
           "sourceId": "DLLZ-adic",
           "locator": "Definition 6.3.7, p. 89",
-          "excerpt": "for each log geometric points ξe of X lying above each geometric point ξ of D, where the log structure of the strict localization X(ξ) is pulled back from X",
           "match": "The defining condition on the action of π_1^két(X(ξ),ξ̃) on stalks, with the strict localization convention kept in the node."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "§6.3, before Definition 6.3.7, p. 89",
-          "excerpt": "Finally, let us define and study the notion of unipotent and quasi-unipotent geometric monodromy actions along a normal crossings divisor.",
           "match": "Sets the normal crossings setting of Example 2.3.17 for the definition."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Example 6.3.8, p. 90",
-          "excerpt": "the action of π1két X(ξ) ∼ = ΓJ on Lξ is unipotent (resp. quasi-unipotent), and this property depends only the pullback of L to UJ∂ (ξ)két .",
           "match": "Identifies the local inertia with Γ^J on the strata U_J, as in the node."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Lemma 6.3.11, p. 90",
-          "excerpt": "In Definition 6.3.7, it suffices to verify the condition for geometric points ξ of X lying above the smooth locus of D.",
           "match": "The smooth-locus reduction used in the smooth_locus API item."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Remark 6.3.13, p. 91",
-          "excerpt": "if and only if, for each ξ0 as above, the induced action",
           "match": "Componentwise formulation at geometric points over the generic points (smooth locus) of the components, via the algebraic analogue of Lemma 6.3.11."
         },
         {
           "sourceId": "DLLZ-RH",
           "locator": "Theorem 3.2.3(4), p. 25",
-          "excerpt": "let nZ be 0 (resp. 1) if L|Uét has (resp. does not have) unipotent geometric monodromy",
           "match": "Use of unipotent geometric monodromy along a single component Z, which the unipotent_along API item supplies."
         }
       ],
@@ -3582,25 +3454,21 @@
         {
           "sourceId": "DLLZ-adic",
           "locator": "Proposition 6.1.1, p. 81",
-          "excerpt": "In the above setting, assume moreover that k is characteristic zero and contains all roots of unity.",
           "match": "Hypotheses of Proposition 6.1.1; the node adds that k is perfectoid, which the proof uses."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Proposition 6.1.1(1), p. 81",
-          "excerpt": "is almost zero, for all i > n = dim(V ).",
           "match": "Part (1): almost vanishing above the dimension."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Proposition 6.1.1(2), p. 81",
-          "excerpt": "Let V 0 ⊂ V be a rational subset such that V 0 is strictly contained in V",
           "match": "Part (2): almost finite generation of restriction images to strictly contained rational subsets."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Lemma 6.1.7, p. 83",
-          "excerpt": "Let M be any k + /pn -module on which Γ acts via a primitive character χ : Γ → µm . Then H i (Γ, M ) is annihilated by ζm − 1",
           "match": "Part (3): the character cohomology estimate and, in the same lemma, the finite-presentation clause."
         }
       ],
@@ -3646,25 +3514,21 @@
         {
           "sourceId": "DLLZ-adic",
           "locator": "Theorem 6.2.1, p. 85",
-          "excerpt": "Let (k, k + ) be an affinoid field, where k is algebraically closed and of characteristic zero, and let X be a proper log smooth fs log adic space over",
           "match": "Hypotheses of Theorem 6.2.1, kept in the node (properness and log smoothness)."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Theorem 6.2.1(1), p. 85",
-          "excerpt": "is an almost finitely generated k + -module (see [GR03, Def. 2.3.8]) for each i ≥ 0",
           "match": "The almost finite generation conclusion of part (1)."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Lemma 6.2.4, p. 86",
-          "excerpt": "Let X be a proper log smooth fs log adic space over Spa(k, Ok ). For each integer N ≥ 2, we can find N affinoid étale coverings of X",
           "match": "The covering lemma used in the proof, with its properness hypothesis."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Proof of Theorem 6.2.1(1), p. 86",
-          "excerpt": "Hence, for the purpose of this proof, up to replacing X with X 0 , we may assume that k + = Ok in what follows.",
           "match": "The reduction to k⁺=O_k recorded as the first proof step."
         }
       ],
@@ -3708,19 +3572,16 @@
         {
           "sourceId": "DLLZ-adic",
           "locator": "§6.2 and Theorem 6.2.1(2), p. 85",
-          "excerpt": "The main goal of this subsection is to prove the following primitive comparison theorem, with the finiteness of cohomology as a byproduct",
           "match": "Introduces Theorem 6.2.1, whose part (2) is the almost isomorphism H^i(X_két,L)⊗k⁺/p→H^i(X_két,L⊗O⁺/p) stated in the node with the same hypotheses plus residue characteristic p (source issue on Theorem 6.2.1)."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Proof of Theorem 6.2.1(2), p. 87",
-          "excerpt": "The exactness of (6.2.5) can be checked locally on log affinoid perfectoid objects U ∈ Xprokét over which L is trivial",
           "match": "The Artin–Schreier step of the proof followed in the node."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Proof of Theorem 6.2.1(2), p. 87",
-          "excerpt": "Choose any $ ∈ k [ such that $] = p.",
           "match": "The tilt-side computation; it uses that k has residue characteristic p, made explicit in the node."
         }
       ],
@@ -3768,25 +3629,21 @@
         {
           "sourceId": "DLLZ-adic",
           "locator": "Theorem 6.2.1, consequences, p. 85",
-          "excerpt": "Consequently, H i (Xkét , L) is a finite-dimensional Fp -vector space for each i ≥ 0,",
           "match": "Part (1), deduced in the source from the primitive comparison."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Theorem 6.2.1, last sentence, p. 85",
-          "excerpt": "In addition, if X is as in Example 2.3.17, then H i (Xkét , L) = 0 for i > 2 dim(X).",
           "match": "Part (2), for the normal crossings log structure of Example 2.3.17."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Remark 6.2.2, p. 85",
-          "excerpt": "Recall that there is no general finiteness results for the étale cohomology of Fp -local systems on non-proper rigid analytic varieties over k",
           "match": "Supports the acceptance criterion: no finiteness without a proper compactification."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Corollary 6.2.3, p. 85",
-          "excerpt": "Let U be a smooth rigid analytic variety that is Zariski open in a proper rigid analytic variety over k.",
           "match": "Part (3) with its hypothesis; its proof (p. 86) uses resolution of singularities and Theorems 4.6.1 and 6.2.1."
         }
       ],
@@ -3831,25 +3688,21 @@
         {
           "sourceId": "DLLZ-adic",
           "locator": "Corollary 6.3.4, p. 88",
-          "excerpt": "Let k, X, and U be as in Theorem 4.6.1. Let L be an étale Zp -local system on Uét .",
           "match": "The corollary's hypotheses: those of Theorem 4.6.1, without properness; the node adds properness for the finiteness (source issue E1)."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Corollary 6.3.4, p. 88",
-          "excerpt": "is a Kummer étale Zp -local system extending L. Conversely, any étale Zp -local system L on Xkét is of this form.",
           "match": "The extension statement of part (1), valid without properness."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Corollary 6.3.4, p. 88",
-          "excerpt": "of finite Zp -modules, for each i ≥ 0, where k denotes any algebraic closure of k.",
           "match": "The finiteness clause, which the node keeps only for proper X."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Proof of Corollary 6.3.4, p. 88",
-          "excerpt": "which is justified by the finite-dimensionality of the cohomology of Fp -local systems on Xk,két shown in Theorem 6.2.1.",
           "match": "The proof invokes Theorem 6.2.1, whose hypothesis requires X proper; this is why properness is added."
         }
       ],
@@ -3896,25 +3749,21 @@
         {
           "sourceId": "DLLZ-adic",
           "locator": "Corollary 6.3.5, p. 89",
-          "excerpt": "Let f : X → Y be a log smooth morphism of log adic spaces whose log structures are defined by normal crossings divisors D and E of smooth rigid analytic varieties X and Y",
           "match": "The setting of the node, with normal crossings (not necessarily strict) divisors as in Example 2.3.17."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Corollary 6.3.5, p. 89",
-          "excerpt": "Assume that the underlying morphisms of adic spaces of f and f |X−D : X − D → Y − E are both proper.",
           "match": "The two properness hypotheses, kept in the node."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Corollary 6.3.5, p. 89",
-          "excerpt": "Then Ri fkét,∗ (L) is a Zp -local system on Ykét , for each i.",
           "match": "The conclusion of the node."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Proof of Corollary 6.3.5, p. 89",
-          "excerpt": "Proof. This follows from [SW20, Thm. 10.5.1] and Corollary 6.3.4.",
           "match": "The two inputs of the proof sketch: the relative finiteness theorem for proper smooth maps and the Kummer extension of local systems."
         }
       ],
@@ -3974,25 +3823,21 @@
         {
           "sourceId": "DLLZ-RH",
           "locator": "Definition 2.2.3(2), p. 12",
-          "excerpt": "(We will choose some t in (2.3.2) below.)",
           "match": "Definition 2.2.3(2) sets B_dR=B_dR⁺[t⁻¹] for any generator t of (ker θ)B_dR⁺ and only later fixes t=log[ε] in (2.3.2); the node keeps the arbitrary local generator and the convolution filtration of Definition 2.2.3(3)."
         },
         {
           "sourceId": "DLLZ-RH",
           "locator": "Proposition 2.2.4(1)–(2), p. 12",
-          "excerpt": "We have a canonical isomorphism Ainf (U ) ∼ = Ainf (R, R+ ), and similar iso+ morphisms for Binf",
           "match": "Proposition 2.2.4 gives the values of A_inf, B_inf, B_dR⁺, B_dR on a log affinoid perfectoid U through its associated perfectoid pair and the vanishing of higher cohomology of B_dR⁺ and B_dR; the node states both parts."
         },
         {
           "sourceId": "DLLZ-RH",
           "locator": "Remark 2.2.5, p. 12",
-          "excerpt": "the element t in Definition 2.2.3(2) exists locally on Xprokét and is not a zero divisor. Therefore, the sheaf BdR and its filtration are indeed well defined.",
           "match": "Remark 2.2.5 is the well-definedness of B_dR and its filtration recorded in the node."
         },
         {
           "sourceId": "DLLZ-RH",
           "locator": "Corollary 2.2.6, p. 12",
-          "excerpt": "If X is over a perfectoid field k (over Qp ) containing all roots",
           "match": "Corollary 2.2.6 identifies gr^•B_dR with ⊕Ô(r) under the stated base hypothesis, which the node keeps."
         }
       ],
@@ -4120,25 +3965,21 @@
         {
           "sourceId": "DLLZ-RH",
           "locator": "Equation (2.2.8) and following, p. 13",
-          "excerpt": "By abuse of notation, we shall sometimes drop tensor products with 1 in the notation, and write αi (a0 ) = [α[ (a00 )] ea in Si,r .",
           "match": "The relation ring S_{i,r} of (2.2.8) with the structural relation α_i(a′)=[α♭(a″)]e_a, as in the node."
         },
         {
           "sourceId": "DLLZ-RH",
           "locator": "Equation (2.2.9), p. 13",
-          "excerpt": "which is well defined because θ([α[ (a00 )]) = αi (a0 ) in R, for all (a0 , a00 ) ∈ Mi ×M M [ .",
           "match": "The well-definedness of θ_log with θ_log(e_a)=1 recorded in the node."
         },
         {
           "sourceId": "DLLZ-RH",
           "locator": "Definition 2.2.10(1), p. 13",
-          "excerpt": "Xprokét is the sheaf associated with the presheaf sending U to limi∈I Sbi",
           "match": "OB⁺_dR,log is the sheafification of U↦colim_iŜ_i with Fil^r=(ker θ_log)^r, for X over Spa(k,k⁺) as in the node."
         },
         {
           "sourceId": "DLLZ-RH",
           "locator": "Remark 2.2.12, p. 14",
-          "excerpt": "Although OBdR,log is defined for any locally noetherian fs log adic space X over Spa(k, k + ), we shall only use it for log smooth ones over p-adic fields, or some of their closed subspaces with induced log structures.",
           "match": "Confirms that the definition is general and the applications are log smooth over p-adic fields or strata; the node keeps the general definition."
         }
       ],
@@ -4259,13 +4100,11 @@
         {
           "sourceId": "DLLZ-RH",
           "locator": "Definition 2.2.10(3) and the note after it, p. 13",
-          "excerpt": "Note that Fil0 OBdR,log is a sheaf of rings and OBdR,log = (Fil0 OBdR,log )[t−1 ].",
           "match": "States the ring structure of Fil⁰ and OB_dR,log=(Fil⁰)[t⁻¹] after the filtration completion defined in Definition 2.2.10(2)–(3), as in the node."
         },
         {
           "sourceId": "DLLZ-RH",
           "locator": "Remark 2.2.11, p. 13",
-          "excerpt": "Even if the log structure is trivial, the definition of OBdR,log given here is slightly different from the definitions of OBdR in [Bri08, Sec. 5], [Sch13, Sec. 6], and [Sch16], as we perform an additional completion with respect to the filtration.",
           "match": "The additional completion is present even for trivial log structure; the node's trivial-log test records this."
         }
       ],
@@ -4382,19 +4221,16 @@
         {
           "sourceId": "DLLZ-RH",
           "locator": "Equations (2.2.13)–(2.2.14), p. 14",
-          "excerpt": "Note that there is a unique B+ dR (U )/ξ -linear log connection",
           "match": "Uniqueness and existence of the log connection on S_{i,r} extending d and δ with ∇(e_a)=e_aδ(a′), as stated in the node."
         },
         {
           "sourceId": "DLLZ-RH",
           "locator": "Equation (2.2.15), p. 14",
-          "excerpt": "By taking ker(θlog )-adic completion, inverse limit over r, and direct limit over i, the above log connection (2.2.13) extends to a B+ dR -linear log connection",
           "match": "The B_dR⁺-linear connection on OB⁺_dR,log obtained from the (ker θ_log)-transversality, as in the node."
         },
         {
           "sourceId": "DLLZ-RH",
           "locator": "Equations (2.2.16)–(2.2.17), p. 14",
-          "excerpt": "Since t ∈ B+ dR , (2.2.15) further extends to a BdR -linear log connection",
           "match": "The B_dR-linear extensions to OB⁺_dR,log[t⁻¹] and OB_dR,log with ∇Fil^r⊂Fil^{r−1}⊗Ω^log_X, as in the node."
         }
       ],
@@ -4508,25 +4344,21 @@
         {
           "sourceId": "DLLZ-RH",
           "locator": "Proposition 2.3.15, p. 18",
-          "excerpt": "The following is a log analogue of [Bri08, Prop. 5.2.2] and [Sch13, Prop. 6.10], formulated in terms of charts and monoids: Proposition 2.3.15. The map (2.3.14) is an isomorphism of filtered sheaves.",
           "match": "Proposition 2.3.15 is part (2) of the node, for the toric chart X→E of §2.3 with P=P̄⊕Q."
         },
         {
           "sourceId": "DLLZ-RH",
           "locator": "Remark after the proof of Proposition 2.3.15, p. 19",
-          "excerpt": "As a byproduct of the proof, we see that, as in [Sch16], for U = limi∈I Ui as ←− above, the natural map Sbi → OB+ dR,log (U ) (as in Definition 2.2.10) is already an isomorphism, for each i.",
           "match": "The evaluation Ŝ_i≅OB⁺_dR,log(U) on log affinoid perfectoid U over X̃ stated in part (2)."
         },
         {
           "sourceId": "DLLZ-RH",
           "locator": "Corollary 2.3.17, p. 19",
-          "excerpt": "Here we denote by {W1 , . . . , Wn } the ring of power series that are t-adically convergent, which is similar to the notation hW1 , . . . , Wn i for the ring of power sebX ries that are p-adically convergent.)",
           "match": "Corollary 2.3.17 gives Fil^rOB_dR,log≅t^rB_dR⁺{W} and the graded pieces, part (4) of the node."
         },
         {
           "sourceId": "DLLZ-RH",
           "locator": "Corollary 2.3.20, pp. 19–20",
-          "excerpt": "are compatible with each other via pullback and pushforward.",
           "match": "Corollary 2.3.20 is the stratum compatibility, part (5) of the node."
         }
       ],
@@ -4592,19 +4424,16 @@
         {
           "sourceId": "DLLZ-RH",
           "locator": "Remark 2.4.1, p. 20",
-          "excerpt": "Let k be a p-adic field. We may apply the calculations in Section 2.3 in the following two cases:",
           "match": "Remark 2.4.1 gives the two cases (log smooth X, or a smooth stratum with pulled-back log structure) kept as the node's hypothesis."
         },
         {
           "sourceId": "DLLZ-RH",
           "locator": "Corollary 2.4.2 and its proof, pp. 20–21",
-          "excerpt": "The exactness then follows from a straightforward calculation. (Note that the t-adic convergence condition on power series is not affected by taking anti-derivatives.)",
           "match": "The proof of Corollary 2.4.2 reduces parts (1)–(4) to the explicit power-series complexes, as in the node's proof sketch."
         },
         {
           "sourceId": "DLLZ-RH",
           "locator": "Corollary 2.4.6, p. 21",
-          "excerpt": "which is strictly compatible with all the filtrations.",
           "match": "Corollary 2.4.6 is the relative Poincaré lemma with filtered strictness; the node uses the filtration-completed tensor product in its first term instead of the printed uncompleted one."
         }
       ],
@@ -4662,13 +4491,11 @@
         {
           "sourceId": "DLLZ-RH",
           "locator": "Corollary 2.4.5, p. 21",
-          "excerpt": "By combining Corollaries 2.2.6 and 2.4.2, we obtain the log Faltings’s extension:",
           "match": "Corollary 2.4.5 is the node's short exact sequence; the node records the hypothesis of Remark 2.4.1 under which Corollary 2.4.2 is proved."
         },
         {
           "sourceId": "DLLZ-RH",
           "locator": "Remark 2.4.1, p. 20",
-          "excerpt": "Let k be a p-adic field. We may apply the calculations in Section 2.3 in the following two cases:",
           "match": "The standing hypothesis on X for §2.4, kept by the node."
         }
       ],
@@ -4714,25 +4541,21 @@
         {
           "sourceId": "DLLZ-RH",
           "locator": "Definition 3.1.1(1), p. 22",
-          "excerpt": "Then the homomorphism k → K lifts uniquely to k → BdR .",
           "match": "Definition 3.1.1 fixes B_dR⁺=B_dR⁺(K,O_K), t=log[ε] and the lift k→B_dR⁺ used to form O_X⊗̂_kB_dR⁺, as in the node."
         },
         {
           "sourceId": "DLLZ-RH",
           "locator": "Lemma 3.1.4, p. 22",
-          "excerpt": "Thanks to Remark 3.1.3, the arguments in the proofs of [LZ17, Lem. 3.1 and 3.2, Prop. 3.3, and Cor. 3.4] also apply in the current setting and give the following:",
           "match": "Introduces Lemma 3.1.4 with the proof route through Liu–Zhu recorded in the node."
         },
         {
           "sourceId": "DLLZ-RH",
           "locator": "Lemma 3.1.4(5), p. 23",
-          "excerpt": "The pushforward λ∗ induces an equivalence from the category of finite locally",
           "match": "Lemma 3.1.4(5), the equivalence between étale and analytic finite locally free modules used in Proposition 3.3.3."
         },
         {
           "sourceId": "DLLZ-RH",
           "locator": "Equation (3.1.5) and following, p. 23",
-          "excerpt": "By passing to the t-isogeny category, we obtain the stack of vector bundles on open subspaces of X .",
           "match": "The definition of vector bundles on X⁺ and X recorded in the node."
         }
       ],
@@ -4854,25 +4677,21 @@
         {
           "sourceId": "DLLZ-RH",
           "locator": "Definition 3.1.7(2), p. 24",
-          "excerpt": "satisfying the (modified) Leibniz rule ∇+ (f e) = (te) ⊗ df + f ∇+ (e), for all f ∈ OX + and e ∈ E + .",
           "match": "The modified Leibniz rule defining log t-connections, as in part (2) of the node."
         },
         {
           "sourceId": "DLLZ-RH",
           "locator": "Definition 3.1.7(3), p. 24",
-          "excerpt": "A log Higgs bundle on XK is a vector bundle E on XK,an equipped with an OXK -linear map of sheaves θ : E → E ⊗OXK Ωlog XK (−1) such that θ ∧ θ = 0.",
           "match": "The definition of log Higgs bundles with the (−1) twist, part (3) of the node."
         },
         {
           "sourceId": "DLLZ-RH",
           "locator": "Lemma 3.1.8, p. 24",
-          "excerpt": "is an equivalence of categories from the category of vector bundles with integrable log t-connections on X + to the category of vector bundles with integrable log connections",
           "match": "Lemma 3.1.8, the equivalence with filtrations {t^rE⁺}_{r≥0}, Fil^r=t·Fil^{r−1}, recorded in the node."
         },
         {
           "sourceId": "DLLZ-RH",
           "locator": "Lemma 3.1.9, p. 24",
-          "excerpt": "is a functor from the category of vector bundles with integrable log t-connections on X + to the category of log Higgs bundles on XK .",
           "match": "Lemma 3.1.9, reduction modulo t to log Higgs bundles, recorded in the node."
         }
       ],
@@ -4991,25 +4810,21 @@
         {
           "sourceId": "DLLZ-RH",
           "locator": "Definition A.1.2(2), p. 67",
-          "excerpt": "For each model (Li , ιi ) over Ai , there exists some i0 ≥ i such that, for every i0 ≥ i0 , the model (Li0 , ιi0 ) := (Li ⊗Ai Ai0 , ιi ⊗ 1) is good in the sense that the natural map H • (Γ, Li0 ) → H • (Γ, L∞ ) is an isomorphism.",
           "match": "The good-model condition of a decompletion system, stated in the node."
         },
         {
           "sourceId": "DLLZ-RH",
           "locator": "Theorem A.2.1.2 and its proof, p. 73",
-          "excerpt": "Combine Proposition A.2.1.1 and Theorem A.1.10.",
           "match": "Proof of Theorem A.2.1.2 (arithmetic towers are decompletion systems) from stable decompletion and Theorem A.1.10, as in the node."
         },
         {
           "sourceId": "DLLZ-RH",
           "locator": "Theorem A.2.2.3 and its proof, p. 74",
-          "excerpt": "Combine Proposition A.2.2.1 and Theorem A.1.10.",
           "match": "Proof of Theorem A.2.2.3 (geometric towers) from Proposition A.2.2.1 and Theorem A.1.10; the theorem prints {A_m} for the tower {A_{m,k̂_∞}} of Proposition A.2.2.1."
         },
         {
           "sourceId": "DLLZ-RH",
           "locator": "Theorem A.2.3.4, pp. 75–76",
-          "excerpt": "is a decompletion system, for all r ≥ 1.",
           "match": "Theorem A.2.3.4 for the deformation towers B_{r,m}, every r≥1, as in the node."
         }
       ],
@@ -5060,25 +4875,21 @@
         {
           "sourceId": "DLLZ-RH",
           "locator": "Proposition 3.3.3 and the definition of Z before Lemma 3.3.2, p. 28",
-          "excerpt": "Let L be a Qp -local system on Xkét . Let Z be as above, and",
           "match": "Proposition 3.3.3 for Z equal to X or an open subspace of a smooth stratum of D; the node keeps 'rank rk L if Z=X' and reads gr⁰(O_X⊗̂_kB_dR) as O_Z⊗̂_kK."
         },
         {
           "sourceId": "DLLZ-RH",
           "locator": "Lemma 3.3.15, p. 31",
-          "excerpt": "There is a canonical Gal(K/k)-equivariant isomorphism ( L(ZK ), if i = 0;",
           "match": "Lemma 3.3.15: the pro-Kummer cohomology of L̂_Z⊗OC_log,Z is the unipotent part L(Z_K) in degree 0 and vanishes above, as in the node."
         },
         {
           "sourceId": "DLLZ-RH",
           "locator": "Lemma 3.3.16, p. 31",
-          "excerpt": "is of rank rkQp (L) when Z = X, is compatible with base changes under compositions of rational embeddings and finite étale morphisms Y → Z.",
           "match": "Lemma 3.3.16: rank and base-change compatibility of L(Z_K), as in the node."
         },
         {
           "sourceId": "DLLZ-RH",
           "locator": "Remark 3.3.12, p. 31",
-          "excerpt": "might not be an isomorphism in general. This is the source of the failure of the surjectivity of (1.8) mentioned in the introduction.",
           "match": "Remark 3.3.12: the comparison of the unipotent part with the full model need not be an isomorphism; the node keeps this as a rejection test."
         }
       ],
@@ -5126,25 +4937,21 @@
         {
           "sourceId": "DLLZ-RH",
           "locator": "§3 opening, p. 22",
-          "excerpt": "Let K be a perfectoid field containing k∞ = k(µ∞ ) ⊂ k, and let Gal(K/k) abusively denote the group of continuous field automorphisms of K over k.",
           "match": "Fixes the coefficient field: K is any perfectoid field containing k_∞ (k a p-adic field, k̄ its algebraic closure, bar lost in extraction); the node uses exactly this generality."
         },
         {
           "sourceId": "DLLZ-RH",
           "locator": "Equation (3.2.2) and Theorem 3.2.3(1), p. 25",
-          "excerpt": "The assignment L 7→ RHlog (L) is an exact functor from the category of Qp -local systems on Xkét to the category of Gal(K/k)equivariant vector bundles",
           "match": "States that RH_log(L)=Rµ′_*(L̂⊗OB_dR,log) is an exact functor to Gal(K/k)-equivariant vector bundles on 𝒳 with integrable log connection and locally free O_X⊗̂B_dR⁺-lattice filtration, as in the node."
         },
         {
           "sourceId": "DLLZ-RH",
           "locator": "§3.3, proof of Theorem 3.2.3(1), pp. 27–28",
-          "excerpt": "is a vector bundle of rank rkQp (L) on X , equipped with the filtration",
           "match": "Gives the rank rk_{Q_p}L of RH_log(L) on 𝒳 and its filtration Fil^r=µ′_*(L̂⊗Fil^r OB_dR,log), deduced from the locally free B_dR⁺-lattices; no de Rham hypothesis is used."
         },
         {
           "sourceId": "DLLZ-RH",
           "locator": "§3.3, (3.3.1) and following, p. 28",
-          "excerpt": "we obtain a log connection ∇L : RHlog (L) → RHlog (L)⊗OX Ωlog X . The integrability of ∇L and the Griffiths transversality with respect to the filtration",
           "match": "Constructs ∇_L by the projection formula and derives integrability and Griffiths transversality from the structural period connection, as in the node's proof steps."
         }
       ],
@@ -5256,25 +5063,21 @@
         {
           "sourceId": "DLLZ-RH",
           "locator": "Theorem 3.2.4(1), p. 25",
-          "excerpt": "There is a natural functor Hlog from the category of Qp local systems L on Xkét to the category of Gal(K/k)-equivariant log Higgs bundles",
           "match": "States the existence of the natural functor H_log to Gal(K/k)-equivariant log Higgs bundles with θ_L valued in Ω^log_{X_K}(−1) on X_K,an, as in the node."
         },
         {
           "sourceId": "DLLZ-RH",
           "locator": "Theorem 3.2.4(1), p. 26",
-          "excerpt": "Hlog := gr0 RHlog = RH+ log /t is the desired functor.",
           "match": "Defines H_log as gr⁰RH_log=RH⁺_log/t via Lemmas 3.1.8–3.1.9, which is the node's construction."
         },
         {
           "sourceId": "DLLZ-RH",
           "locator": "Lemma 3.1.9, p. 24",
-          "excerpt": "is a functor from the category of vector bundles with integrable log t-connections on X + to the category of log Higgs bundles on XK",
           "match": "Reduction modulo t of an integrable log t-connection gives a log Higgs bundle; this produces θ_L."
         },
         {
           "sourceId": "DLLZ-RH",
           "locator": "Definition 3.1.7(3), p. 24",
-          "excerpt": "A log Higgs bundle on XK is a vector bundle E on XK,an equipped with an",
           "match": "Defines log Higgs bundles with θ:E→E⊗Ω^log(−1), θ∧θ=0, and the complex with terms E⊗Ω^{log,q}(−q) used by the node."
         }
       ],
@@ -5379,19 +5182,16 @@
         {
           "sourceId": "DLLZ-RH",
           "locator": "Proposition 3.4.16, p. 37",
-          "excerpt": "A torsion-free coherent OX -module F with an integrable log connection ∇ : F → F ⊗OX Ωlog X is locally free when the following conditions hold",
           "match": "States part (1): local freeness under reflexivity and residue eigenvalues in Q∩[0,1), with exactly these two conditions."
         },
         {
           "sourceId": "DLLZ-RH",
           "locator": "Proposition 3.4.17, p. 37",
-          "excerpt": "Then any morphism (F, ∇) → (F 0 , ∇0 ) whose restriction to U = X −D is an isomorphism is necessarily an isomorphism over the whole X.",
           "match": "States part (2) for F locally free and F′ torsion-free with normalized residues; the source adds that the same holds for O_X⊗̂_k B_dR-modules, which the node keeps."
         },
         {
           "sourceId": "DLLZ-RH",
           "locator": "Proof of Proposition 3.4.17, p. 37",
-          "excerpt": "Let (F 00 , ∇00 ) := ((F 0 , ∇0 )∨ )∨ , where F 00 is the double OX -dual of F 0 , which is by definition a reflexive coherent OX -module",
           "match": "The bidual reduction used in the node's second proof step."
         }
       ],
@@ -5439,19 +5239,16 @@
         {
           "sourceId": "DLLZ-RH",
           "locator": "Theorem 3.2.3(2), p. 25",
-          "excerpt": "If Zk is irreducible (which we may always assume, up to replacing k with a finite extension), then all the eigenvalues of ResZ (∇L ) are in Q ∩ [0, 1).",
           "match": "The normalization for RH_log; the extracted 'Zk' is Z_k̄ (bar lost in extraction), the geometric-irreducibility hypothesis the node keeps."
         },
         {
           "sourceId": "DLLZ-RH",
           "locator": "Lemma 3.4.7, p. 35",
-          "excerpt": "the residue of the connection ∇L of RHlog (L) along Zi = {Ti = 0} corresponds to the endomorphism t−1 log(γi ) of N/Ti N",
           "match": "The local residue formula stated in the node; Remark 3.4.8 records independence of the choice of roots of unity."
         },
         {
           "sourceId": "DLLZ-RH",
           "locator": "Proof of Theorem 3.2.12, p. 38",
-          "excerpt": "the residues of RHlog (L) (by Lemma 3.4.7) are all nilpotent (i.e., have zero eigenvalues)",
           "match": "Nilpotence of the residues under unipotent geometric boundary monodromy, the node's last clause."
         }
       ],
@@ -5502,25 +5299,21 @@
         {
           "sourceId": "DLLZ-RH",
           "locator": "Equation (3.2.6) and Theorem 3.2.7(1), p. 26",
-          "excerpt": "The assignment L 7→ DdR,log (L) defines a functor from the category of Qp -local systems on Xkét to the category of vector bundles on Xan with integrable log connections",
           "match": "Defines D_dR,log(L)=µ_*(L̂⊗OB_dR,log) and states it is a functor (not claimed exact) to vector bundles with integrable log connection and coherent Griffiths-transversal filtration."
         },
         {
           "sourceId": "DLLZ-RH",
           "locator": "Theorem 3.2.7(2), p. 26",
-          "excerpt": "For each irreducible component Z (defined as in [Con99]) of the normal crossings divisor D, all eigenvalues of the residue ResZ (∇L ) are in Q∩[0, 1).",
           "match": "The arithmetic residue normalization, stated without a geometric-irreducibility hypothesis; the same item gives the graded rank rk_{Q_p}L for de Rham L|U."
         },
         {
           "sourceId": "DLLZ-RH",
           "locator": "Lemma 3.4.18, p. 38",
-          "excerpt": "defined by adjunction is injective (by definition) and strictly compatible with the filtrations on both sides",
           "match": "The adjunction map D_dR,log(L)⊗̂_k B_dR→RH_log(L) is injective and strict, as in the node and its toRH API item."
         },
         {
           "sourceId": "DLLZ-RH",
           "locator": "Corollary 3.4.21, p. 38",
-          "excerpt": "If L|Uét is de Rham, then (3.4.19) is an isomorphism of vector bundles on X , compatible with the log connections and filtrations on both sides.",
           "match": "The de Rham isomorphism with RH_log stated in the node; Corollary 3.4.22 then gives the graded rank."
         }
       ],
@@ -5638,25 +5431,21 @@
         {
           "sourceId": "DLLZ-RH",
           "locator": "Theorem 3.2.3(4), p. 25",
-          "excerpt": "let mW Z ∈ Z≥0 denote the multiplicity of W in the divisor h−1 (Z); and let nZ be 0 (resp. 1) if L|Uét has (resp. does not have) unipotent geometric monodromy",
           "match": "Defines m_WZ and n_Z; the same item assumes ∑_Z m_WZ n_Z≤1 for each component W of E (checked on the rendered page) and gives the filtered RH_log isomorphism; Theorems 3.2.4(3), 3.2.7(4) give the Higgs and D_dR,log analogues."
         },
         {
           "sourceId": "DLLZ-RH",
           "locator": "Lemma 3.5.3, p. 39",
-          "excerpt": "are injective and strictly compatible with the filtrations on their both sides",
           "match": "Unconditional injectivity and strictness of the RH_log and D_dR,log adjunction maps (the Higgs map is stated injective)."
         },
         {
           "sourceId": "DLLZ-RH",
           "locator": "Corollary 3.5.7, p. 39",
-          "excerpt": "Under the same assumption as in Theorem 3.2.3(4), the canonical morphisms (3.5.5) and (3.5.6) are isomorphisms compatible with the log connections and filtrations on both sides.",
           "match": "The conditional isomorphism stated in the node."
         },
         {
           "sourceId": "DLLZ-RH",
           "locator": "Proof of Corollary 3.5.7, p. 40",
-          "excerpt": "Hence, by Theorem 3.2.12, the assumption in Theorem 3.2.3(4) ensures",
           "match": "Starts the residue argument: nilpotent residues along unipotent components leave at most one non-nilpotent summand, with multiplicity 1."
         }
       ],
@@ -5701,25 +5490,21 @@
         {
           "sourceId": "DLLZ-RH",
           "locator": "Theorem 3.2.12(1), p. 27",
-          "excerpt": "restricts to a tensor functor from the category of Qp -local systems on Xkét whose restrictions to Uét have unipotent geometric monodromy along D",
           "match": "Part (1) for RH_log and H_log, with targets filtered equivariant bundles with nilpotent residues (resp. equivariant log Higgs bundles), as in the node."
         },
         {
           "sourceId": "DLLZ-RH",
           "locator": "Theorem 3.2.12(2), p. 27",
-          "excerpt": "The functor DdR,log restricts to a tensor functor from the category of Qp local systems on Xkét whose restrictions to Uét are de Rham",
           "match": "Part (2): the arithmetic functor needs de Rham and unipotent interior restriction."
         },
         {
           "sourceId": "DLLZ-RH",
           "locator": "Paragraph before Theorem 3.2.12, p. 27",
-          "excerpt": "DdR,log is not a tensor functor in general, and we have similar failures for RHlog and Hlog",
           "match": "Supports the node's refusal of an unrestricted tensor statement."
         },
         {
           "sourceId": "DLLZ-RH",
           "locator": "Proof of Theorem 3.2.12, p. 39",
-          "excerpt": "we can argue as in the proofs of [LZ17, Thm. 2.1(iv) and 3.8(i)] that Hlog and RHlog restrict to tensor functors.",
           "match": "The final step of the proof sketch, after the period maps are shown to be isomorphisms."
         }
       ],
@@ -5770,25 +5555,21 @@
         {
           "sourceId": "DLLZ-RH",
           "locator": "Theorem 3.2.3(3), p. 25",
-          "excerpt": "Assume that X is proper over k, and that K = b k.",
           "match": "The standing hypotheses of all cohomology comparisons: X proper and K the completed algebraic closure (the hat and bar are lost in extraction); Theorems 3.2.4(2) and 3.2.7(3) refer back to them."
         },
         {
           "sourceId": "DLLZ-RH",
           "locator": "Lemma 3.6.1, p. 42",
-          "excerpt": "The proof is the same as [Sch13, Thm. 8.4], with the input [Sch13, Thm. 5.1] there replaced with [DLLZ, Thm. 6.2.1].",
           "match": "The B_dR⁺ upgrade of the log primitive comparison, the node's first proof step."
         },
         {
           "sourceId": "DLLZ-RH",
           "locator": "§3.6, after Lemma 3.6.2, p. 42",
-          "excerpt": "Thus, Theorems 3.2.3(3) and 3.2.4(2) follow from Lemmas 3.6.1 and 3.6.2.",
           "match": "The RH_log and H_log comparisons hold for every Z_p-local system, without a de Rham hypothesis."
         },
         {
           "sourceId": "DLLZ-RH",
           "locator": "Theorem 3.2.7(3), p. 26",
-          "excerpt": "which can be identified with the 0-th graded piece of the isomorphism (3.2.8), giving the (log) Hodge–Tate decomposition",
           "match": "The de Rham-interior comparison with D_dR,log(L)⊗_k B_dR, E₁-degeneration and Hodge–Tate decomposition with twist K(−a), as in the node."
         }
       ],
@@ -5837,25 +5618,21 @@
         {
           "sourceId": "DLLZ-RH",
           "locator": "Theorem 3.2.7(5), p. 26",
-          "excerpt": "Let f : X → Y be a proper log smooth morphism that restricts to a proper smooth morphism f |U : U → V",
           "match": "The two properness hypotheses of the node; the same item states that R^if_két,*(L) is a Z_p-local system on Y_két that is de Rham on V."
         },
         {
           "sourceId": "DLLZ-RH",
           "locator": "Theorem 3.2.7(5), p. 27",
-          "excerpt": "where the subscript “free” denotes the OY -torsion-free quotient",
           "match": "The torsion-free quotient in the comparison isomorphism, which the node retains."
         },
         {
           "sourceId": "DLLZ-RH",
           "locator": "Proof of Corollary 3.5.14, p. 41",
-          "excerpt": "Hence, by Proposition 3.4.17 and Theorem 3.2.7(1), the assertion follows from the corresponding one for f |U : U → V in [Sch13, Thm. 8.8].",
           "match": "The final extension-uniqueness step, after Katz's residue argument shows the free quotient has normalized residues."
         },
         {
           "sourceId": "DLLZ-adic",
           "locator": "Corollary 6.3.5, p. 89",
-          "excerpt": "Then Ri fkét,∗ (L) is a Zp -local system on Ykét , for each i.",
           "match": "The Kummer proper pushforward used in the first proof step; its hypotheses (f log smooth, f and f|_{X−D} proper) are those of the node."
         }
       ],
@@ -5903,25 +5680,21 @@
         {
           "sourceId": "DLLZ-RH",
           "locator": "Proposition 5.2.10, p. 54",
-          "excerpt": "defines a tensor functor from RepQ (Gc ) to the category of G(Af )-equivariant Q-local systems (resp. filtered regular connections)",
           "match": "States the Betti and automorphic de Rham coefficient functors as G(A_f)-equivariant tensor functors on Rep(Gᶜ); the node imports them and their canonical log extension."
         },
         {
           "sourceId": "DLLZ-RH",
           "locator": "§5.2, (5.2.12)–(5.2.16), p. 55",
-          "excerpt": "Note that this implies that ét V Qp has unipotent geometric monodromy along DQ",
           "match": "Gives the unipotent boundary monodromy of the étale coefficient used for the Kummer extension; the same page records de Rham-ness via Liu–Zhu Theorem 1.2 and builds p-dR V^can with nilpotent residues."
         },
         {
           "sourceId": "DLLZ-RH",
           "locator": "Proposition 5.2.17, p. 56",
-          "excerpt": "The analogue of Proposition 5.2.10 holds for the assignments of p-B V C",
           "match": "States the tensor-functor and Hecke properties of the p-adic realizations p-dR and p-B that the node constructs."
         },
         {
           "sourceId": "BP",
           "locator": "§4.4.38, p. 79",
-          "excerpt": "we have a local system on the pro-kummer-étale site Wp as well as a filtered vector bundle with integrable log-connection WdR",
           "match": "BP’s finite-level coefficients on S^tor_{K,Σ}: the pro-Kummer-étale local system and the filtered log connection that the node supplies."
         }
       ],
@@ -6038,19 +5811,16 @@
         {
           "sourceId": "DLLZ-RH",
           "locator": "Proposition 5.4.1, p. 58",
-          "excerpt": "are canonically and G(Q) × G(Af )-equivariantly isomorphic to the trivial local system",
           "match": "The statement of the node: canonical equivariant trivialization of both Betti systems over (G(Q)h)×G(A_f), with the actions recorded exactly as printed."
         },
         {
           "sourceId": "DLLZ-RH",
           "locator": "proof of Proposition 5.4.1, p. 59",
-          "excerpt": "By [LZ17, Lem. 4.4], this representation is potentially crystalline.",
           "match": "The CM-motive route of the proof (potential crystallinity, Patrikis, Blasius) that the node’s proof steps follow."
         },
         {
           "sourceId": "DLLZ-RH",
           "locator": "proof of Proposition 5.4.4, p. 60",
-          "excerpt": "Thus, the Hodge filtrations on the pullbacks of p-dR V C and dR V C to h are both determined by the Hodge cocharacter",
           "match": "Source of the node’s clause that both Hodge filtrations at h are those of µ_h; this is proved inside Proposition 5.4.4, not in Proposition 5.4.1."
         }
       ],
@@ -6095,25 +5865,21 @@
         {
           "sourceId": "DLLZ-RH",
           "locator": "Proposition 5.4.5, p. 61",
-          "excerpt": "extends to an algebraic representation of Gder,c that coincides with the representation VC |Gder,c of Gder,c on VC",
           "match": "The node’s statement; Remark 5.4.6 on the same page gives uniqueness by Borel density."
         },
         {
           "sourceId": "DLLZ-RH",
           "locator": "Proposition 5.5.9, pp. 63–64",
-          "excerpt": "In particular, Proposition 5.4.5 holds under the assumptions of this subsection.",
           "match": "The type A / real rank ≤1 (abelian-type) case of the node."
         },
         {
           "sourceId": "DLLZ-RH",
           "locator": "Lemma 5.6.7 and its proof, pp. 65–66",
-          "excerpt": "As explained in [Bor84, Mil83], based on a construction due to Piatetski-Shapiro",
           "match": "The Piatetski-Shapiro embedding step identifying every simple factor in the real rank ≥2, non-type-A case."
         },
         {
           "sourceId": "DLLZ-RH",
           "locator": "end of §5.6, p. 66",
-          "excerpt": "Thus, Proposition 5.4.5 also holds under the assumptions of this subsection, by Lemmas 5.6.5 and 5.6.7.",
           "match": "Conclusion of the remaining case via Lemmas 5.6.5 (Schur/Borel density) and 5.6.7."
         }
       ],
@@ -6161,25 +5927,21 @@
         {
           "sourceId": "BP",
           "locator": "§4.4.38, p. 79",
-          "excerpt": "The local system Wp and the filtered vector bundle with integrable log-connection WdR are associated ([Sch13b], def 7.5) in the sense that there is a canonical isomorphism compatible with filtrations, connection and Hecke action",
           "match": "The node’s isomorphism W_p⊗OB_dR,log=W_dR⊗OB_dR,log on S^tor_{K,Σ}, which BP calls a consequence of DLLZ-RH Theorem 5.3.1."
         },
         {
           "sourceId": "DLLZ-RH",
           "locator": "Theorem 5.3.1, p. 56",
-          "excerpt": "compatible with each other under the complex Riemann–Hilbert correspondence. Furthermore, we have canonical G(Af )-equivariant isomorphisms between the relevant pairs of tensor functors",
           "match": "The canonical isomorphism p-dR V≃dR V (and of the log versions, last paragraph of the theorem) with tensor, Hecke, functoriality and canonical-model descent that the node composes with the period isomorphism."
         },
         {
           "sourceId": "DLLZ-RH",
           "locator": "Proposition 5.4.4, p. 60",
-          "excerpt": "Suppose that the assertions for Betti local systems in Theorem 5.3.1 hold. Then the remaining assertions in Theorem 5.3.1 also hold.",
           "match": "The passage from the Betti comparison to the filtered log connections and descent used in the node’s second proof step."
         },
         {
           "sourceId": "DLLZ-RH",
           "locator": "proof of Theorem 3.2.12(2), pp. 38–39",
-          "excerpt": "if L|Uét is de Rham and has unipotent geometric monodromy along D, then the residues of DdR,log (L)(X) are nilpotent",
           "match": "The same paragraph states that the canonical map µ⁻¹D_dR,log(L)⊗OB_dR,log→L̂⊗OB_dR,log is an isomorphism for such L; this is the period isomorphism the node composes with Theorem 5.3.1."
         }
       ],
@@ -6224,13 +5986,11 @@
         {
           "sourceId": "BP",
           "locator": "Remark 4.4.39 and following text, p. 79",
-          "excerpt": "These are two B+ dR -local systems and are lattices inside",
           "match": "BP’s definition of the two lattices M and M⁰ in a common B_dR-local system. BP prints M=W_p⊗B⁺_{dR,log}; the sheaf meant is B_dR⁺ (the sentence quoted calls M a B_dR⁺-local system), and the node uses B_dR⁺."
         },
         {
           "sourceId": "BP",
           "locator": "Remark 4.4.39 and following text, p. 79",
-          "excerpt": "There are therefore two filtrations on this BdR -local system",
           "match": "The two filtrations Fil^iM and Fil^iM⁰ are the ones determined by the two lattices; the node defines them as Fil^iB_dR·L."
         }
       ],
@@ -6338,13 +6098,11 @@
         {
           "sourceId": "BP",
           "locator": "text after Remark 4.4.39, p. 79",
-          "excerpt": "Fili M and Fili M0 . One defines an ascending filtration by",
           "match": "Introduces the displayed definition Fil_{−j}(W_p⊗Ô)=(M∩Fil^jM⁰)/(Fil¹M∩Fil^jM⁰) that the node states verbatim."
         },
         {
           "sourceId": "BP",
           "locator": "text after Remark 4.4.39, p. 79",
-          "excerpt": "Using this canonical isomorphism, we define the Hodge-Tate filtration on",
           "match": "The filtration is defined from the canonical comparison of §4.4.38 on S^tor_{K,Σ}; the relation Gr_j(W_p⊗Ô)(j)=Gr^jW_dR⊗Ô is displayed at the top of p. 80."
         }
       ],
@@ -6460,7 +6218,6 @@
         {
           "sourceId": "BP",
           "locator": "text after Remark 4.4.39, p. 80",
-          "excerpt": "This construction is functorial with respect to the Hecke action and compatible with the Tannakian formalism.",
           "match": "BP’s statement that the lattice HT filtration is Hecke functorial and tensor compatible, which the node makes precise (sums over a+b=i, duals, unit, exactness)."
         }
       ],
@@ -6508,25 +6265,21 @@
         {
           "sourceId": "BP",
           "locator": "text after Remark 4.4.39, p. 80",
-          "excerpt": "we have a pro-kummer-étale Gc (Qp )-torsor Gpet,p",
           "match": "BP’s finite-level torsor G_pet,p over S^tor_{K,Σ}, whose P^c_µ-reduction P_HT (“corresponding to the filtration on W_p⊗Ô”) and de Rham P^{std,c}_µ-reduction P_dR are defined in the same paragraph."
         },
         {
           "sourceId": "BP",
           "locator": "text after Remark 4.4.39, p. 80",
-          "excerpt": "has a reduction of structure group to a Pµc,an -torsor (corresponding to the filtration on",
           "match": "The defining property of P_HT stated by the node (layout text of the PDF)."
         },
         {
           "sourceId": "BP",
           "locator": "§4.4.8, p. 68",
-          "excerpt": "Namely, we consider trivializations of H1 (A, Qp )⊗Qp ÔSK which respect the filtration.",
           "match": "In the Siegel case BP define P_HT as the trivializations of H₁(A,Q_p)⊗Ô respecting the HT filtration, which is the node’s membership description for a faithful representation."
         },
         {
           "sourceId": "BP",
           "locator": "§4.0, p. 49",
-          "excerpt": "Associated to µ we have two opposite parabolic subgroups",
           "match": "Conventions P^std_µ (limit t→∞) and P_µ (limit t→0) used for P_dR and P_HT."
         }
       ],
@@ -6639,25 +6392,21 @@
         {
           "sourceId": "BP",
           "locator": "text after Remark 4.4.39, p. 80",
-          "excerpt": "We have the identification of torsors on the pro-étale site",
           "match": "Introduces the displayed identification M_HT^an=M_dR^an×^{µ,Z_p^×}Z_p(1), compatible with Hecke, which is the node’s statement."
         },
         {
           "sourceId": "BP",
           "locator": "text after Remark 4.4.39, p. 80",
-          "excerpt": "compatible with the Hecke action. This implies that a cyclotomic twist of Man HT is already defined on the étale site.",
           "match": "The Hecke compatibility and the étale-site descent of the twisted torsor stated in the node."
         },
         {
           "sourceId": "BP",
           "locator": "§4.4.8, p. 68",
-          "excerpt": "Namely, we let Zp (1) be the Tate twist, which we think of as a Z× p - pro-étale torsor over Spa(Qp , Zp ).",
           "match": "Definition of the contracted product M_dR×^{µ,Z_p^×}Z_p(1) through the central cocharacter µ, used by the node (Siegel case; §4.4.23, p. 74, repeats it for Hodge type)."
         },
         {
           "sourceId": "BP",
           "locator": "§4.0, p. 49",
-          "excerpt": "Associated to µ we have two opposite parabolic subgroups",
           "match": "BP’s conventions P^std_µ (limit t→∞) and P_µ (limit t→0) with common Levi M_µ, which the node records."
         }
       ],
@@ -6766,25 +6515,21 @@
         {
           "sourceId": "BP",
           "locator": "Remark 4.4.39, p. 79",
-          "excerpt": "In the Hodge case and outside of the boundary, it is proved in [CS17] section 2.2 and 2.3, as a consequence of the comparison theorems for abelian varieties, together with results on Hodge tensors under comparison isomorphisms due to [Bla94].",
           "match": "BP’s statement that in Hodge type, off the boundary, the comparison is the abelian-variety one with Hodge tensors; the node states this agreement and its consequences for the HT filtration and P_HT."
         },
         {
           "sourceId": "DLLZ-RH",
           "locator": "Lemma 5.5.3, p. 62",
-          "excerpt": "Moreover, the pullback of (5.5.5) to the image of the special point h",
           "match": "The abelian-scheme comparison for V₀^{⊗m}(−t) via Scholze’s relative comparison, normalized at h; part (i) of the node."
         },
         {
           "sourceId": "DLLZ-RH",
           "locator": "Proposition 5.5.9 and its proof, pp. 63–64",
-          "excerpt": "because Hodge cycles on such abelian varieties are absolute Hodge",
           "match": "The Hodge-tensor-induced morphism (5.5.8) is the identity at h, hence the canonical comparison of Theorem 5.3.1; part (i) for general W."
         },
         {
           "sourceId": "DLLZ-RH",
           "locator": "Remark 5.5.10, p. 64",
-          "excerpt": "and Scholze’s (used in the proof of Lemma 5.5.3) coincide",
           "match": "Faltings’s and Scholze’s p-adic de Rham comparisons agree for CM abelian varieties, used to match the special-point normalization."
         }
       ],
@@ -6838,13 +6583,11 @@
         {
           "sourceId": "BP",
           "locator": "§4.4.38, p. 79",
-          "excerpt": "General Shimura varieties. We now extend part of the preceding to general Shimura varieties.",
           "match": "Opens the finite-level general-datum passage (§4.4.38–Remark 4.4.39 and the text before Theorem 4.4.40) that the package assembles."
         },
         {
           "sourceId": "BP",
           "locator": "text before Theorem 4.4.40, p. 80",
-          "excerpt": "We can consider the inverse limit in the category of diamonds",
           "match": "Ownership boundary: from this sentence on (diamond limit, Theorem 4.4.40) the material belongs to PerfectoidShimuraVarieties:S6; the package asserts nothing about the tower."
         }
       ],

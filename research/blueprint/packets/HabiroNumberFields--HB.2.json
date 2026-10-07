@@ -148,13 +148,11 @@
         {
           "sourceId": "CGZ.published",
           "locator": "§2.5, proof of Theorem 2.11, p.398",
-          "excerpt": "we set",
           "match": "The following display defines f using (ζy;ζ)_k/(ζx;ζ)_k and k=0,…,n−1."
         },
         {
           "sourceId": "GZ.published",
           "locator": "Appendix A, (56), p.235",
-          "excerpt": "where x, y and z are mth roots of X , Y and Z",
           "match": "The specialized cyclic sum, with its period justified on p.236."
         }
       ],
@@ -280,13 +278,11 @@
         {
           "sourceId": "CGZ.published",
           "locator": "§2.5, p.398, quoted (C.7)",
-          "excerpt": "By Equation (C.7) of [15], we have",
           "match": "The exact finite identity used for the five-term descent."
         },
         {
           "sourceId": "GZ.published",
           "locator": "Appendix A, Proposition 8.1 and (55)–(60), pp.235–237",
-          "excerpt": "In this appendix we give a simple proof of this identity",
           "match": "The independent analytic proof, with the explicitly recorded normalization corrections."
         }
       ],
@@ -334,13 +330,11 @@
         {
           "sourceId": "Hutchinson.2013",
           "locator": "§6.4, pp.32–33",
-          "excerpt": "the resulting map is independent of the particular choice of x and y.",
           "match": "The resolution comparison and the explicit refined cross-ratio sum."
         },
         {
           "sourceId": "Hutchinson.2024",
           "locator": "§3, (1), pp.5–6",
-          "excerpt": "the natural homomorphism",
           "match": "Forgetting the refined weights and reducing the correction terms in the CGZ convention."
         }
       ],
@@ -388,25 +382,21 @@
         {
           "sourceId": "Hutchinson.2024",
           "locator": "§2.3, Corollary 2.13, p.5",
-          "excerpt": "then c̄2,1(a ∗ b) = −c̄1,1(a) ∪ c̄1,0(b).",
           "match": "The negative raw product formula; §4 supplies the positive Bockstein normalization."
         },
         {
           "sourceId": "Hutchinson.2024",
           "locator": "§4, Proposition 4.6, p.7",
-          "excerpt": "We have η̄ζ = ζ ∗ β",
           "match": "The K-theoretic identity with the positive bar generator."
         },
         {
           "sourceId": "Hutchinson.2024",
           "locator": "§4, Bott-element paragraph before Lemma 4.1, p.6",
-          "excerpt": "We note that c̄1,0 (β) = ζ",
           "match": "The explicit Bott Chern normalization used in the signed calculation; the thesis Kummer section is not itself a citation for this equality."
         },
         {
           "sourceId": "Soule.thesis",
           "locator": "Second part, Proposition 2.2.3.3, p.49; §2.2.4.3, pp.51–54",
-          "excerpt": "Proposition 2.2.3.3.",
           "match": "The coefficient in degrees (1,1) and (1,0) is negative; this author transcription corroborates the formula rather than fixing CGZ’s comparison sign."
         }
       ],

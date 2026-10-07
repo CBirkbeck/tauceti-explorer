@@ -206,13 +206,11 @@
         {
           "sourceId": "KIII",
           "locator": "III.7.2(a), p61",
-          "excerpt": "for all n ≥ 2",
           "match": "Finite Milnor groups in positive degrees at least two vanish."
         },
         {
           "sourceId": "KIV",
           "locator": "IV.1.13, p10",
-          "excerpt": "For every finite field",
           "match": "Apply the supplier with i=2."
         }
       ],
@@ -252,7 +250,6 @@
         {
           "sourceId": "KIV",
           "locator": "IV.1.13, p10",
-          "excerpt": "is onto",
           "match": "Transport, rather than reprove, the stable computation."
         }
       ],
@@ -294,7 +291,6 @@
         {
           "sourceId": "Hutch",
           "locator": "§3, Corollaries 3.6–3.7 and Lemma 3.8, pp14–15",
-          "excerpt": "is trivial",
           "match": "Cyclic computation uses coefficients Z[1/ℓ], and the inclusion map is the source’s homological corestriction."
         }
       ],
@@ -334,7 +330,6 @@
         {
           "sourceId": "Hutch",
           "locator": "§3, Lemma 3.14, pp17–18",
-          "excerpt": "(3, 2), (3, 3), (3, 4), (3, 5), (3, 8), (3, 9), (3, 27)",
           "match": "The k=3 row gives the complete exception list."
         }
       ],
@@ -376,7 +371,6 @@
         {
           "sourceId": "Hutch",
           "locator": "§3, proof of Corollary 3.9, p15",
-          "excerpt": "there is a natural composite homomorphism",
           "match": "Specifies the stabilization/Hurewicz map before proving it bijective."
         }
       ],
@@ -464,7 +458,6 @@
         {
           "sourceId": "Hutch",
           "locator": "§3, Corollary 3.9, p15",
-          "excerpt": "For any finite field Fq",
           "match": "Naturality and equality with K₃ⁱⁿᵈ are part of the result."
         }
       ],
@@ -507,7 +500,6 @@
         {
           "sourceId": "Hutch",
           "locator": "§4 Theorem 4.3; §6.3–6.4 pp30–33; §7 Lemma 7.1",
-          "excerpt": "independent of the particular choice of x and y",
           "match": "Chain-homotopy independence specifies the map, not only an abstract cyclic quotient."
         }
       ],
@@ -601,7 +593,6 @@
         {
           "sourceId": "Hutch",
           "locator": "§7 Lemma 7.4 and preceding paragraph, pp34–35",
-          "excerpt": "it is always the latter",
           "match": "Resolves the extra factor2 by explicit quaternion/cyclic bar images; the ambient hypothesis is q≥4."
         }
       ],
@@ -644,7 +635,6 @@
         {
           "sourceId": "Hutch",
           "locator": "§7 Corollary 7.5 and proof, pp35–36",
-          "excerpt": "natural short exact sequence",
           "match": "Transfers the finite refined Bloch map through the natural stabilization comparison."
         }
       ],
@@ -734,7 +724,6 @@
         {
           "sourceId": "Hutch",
           "locator": "§7 Corollary 7.5, p35",
-          "excerpt": "We can thus extend the main result",
           "match": "Finite-field proof replaces the infinite-field-only proof in the K-book."
         }
       ],
@@ -777,13 +766,11 @@
         {
           "sourceId": "CGZ",
           "locator": "§4.2 and Lemma 4.4, pp406–407",
-          "excerpt": "is an isomorphism after tensoring with Z/nZ",
           "match": "State the exact coefficient and congruence restrictions for the map."
         },
         {
           "sourceId": "Hutch",
           "locator": "§7 Corollary 7.5, p35",
-          "excerpt": "natural short exact sequence",
           "match": "The kernel order is invertible modulo n."
         }
       ],
@@ -826,13 +813,11 @@
         {
           "sourceId": "Hutch",
           "locator": "§3 before Lemma 3.5, p13",
-          "excerpt": "is just the norm map",
           "match": "The multiplication representation lands in SL₂ on the norm kernel."
         },
         {
           "sourceId": "CGZ",
           "locator": "§4.2 p406",
-          "excerpt": "well defined up to conjugation",
           "match": "Basis dependence is conjugation, not equality of embeddings."
         }
       ],
@@ -927,7 +912,6 @@
         {
           "sourceId": "CGZ",
           "locator": "§4.2 pp406–407",
-          "excerpt": "is an isomorphism after tensoring with Z/nZ",
           "match": "Retains the actual Cartan inclusion; corrects the integral H₃ and canonical cyclic-identification assertions."
         }
       ],
@@ -970,7 +954,6 @@
         {
           "sourceId": "KIII",
           "locator": "III.7.2(c)–(d), pp61–62",
-          "excerpt": "this map is an isomorphism for all n ≥ 3",
           "match": "Bass–Tate signs determine degree-three symbols; weak approximation supplies a unit with each prescribed sign pattern."
         }
       ],
@@ -1015,13 +998,11 @@
         {
           "sourceId": "KVI",
           "locator": "VI.2.1.2 p7; VI.5.3 p24",
-          "excerpt": "Lee and Szczarba used a variant of the formula",
           "match": "The ambient arithmetic calculation is imported, not owned by this application."
         },
         {
           "sourceId": "KIII",
           "locator": "III.7.2(d) p62",
-          "excerpt": "this map is an isomorphism for all n ≥ 3",
           "match": "Use the exact signs theorem at degree3."
         }
       ],
@@ -1066,7 +1047,6 @@
         {
           "sourceId": "KVI",
           "locator": "VI.2.1.2 p7; VI.5.3 p24",
-          "excerpt": "w2 = 24",
           "match": "The Gaussian field has r₂=1 and vanishing real signs."
         }
       ],
@@ -1109,13 +1089,11 @@
         {
           "sourceId": "Suslin",
           "locator": "§1 Lemma 1.6 and proof, pp219–220",
-          "excerpt": "the image of c′ under this homomorphism",
           "match": "The positive presentation and its kernel6c′ determine the periodπ²."
         },
         {
           "sourceId": "Zagier",
           "locator": "II.1.A pp23–24",
-          "excerpt": "L(1) = π²/6",
           "match": "Fix the interval normalization; the global periodπ²/2 version is insufficient for order6."
         }
       ],
@@ -1212,13 +1190,11 @@
         {
           "sourceId": "Suslin",
           "locator": "§1 Proposition1.1, p220",
-          "excerpt": "is equal to six",
           "match": "Original proof establishes the exact real lower bound."
         },
         {
           "sourceId": "KVI",
           "locator": "VI.5.2.1 p24",
-          "excerpt": "using the Rogers L-function",
           "match": "Resolves the parent’s missing lower bound without the Bloch–Wigner function."
         }
       ],

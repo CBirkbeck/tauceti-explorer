@@ -212,7 +212,6 @@
         {
           "sourceId": "accplus-cm-potential-automorphy",
           "locator": "§7.1, pp.1084–1086",
-          "excerpt": "very weakly compatible",
           "match": "These are imported predicates on one carrier."
         }
       ],
@@ -248,7 +247,6 @@
         {
           "sourceId": "chenevier-harris-II",
           "locator": "§1.4–1.5, Theorem 1.4 and formula (1.6)",
-          "excerpt": "Hodge-Tate numbers",
           "match": "Geometric cases, including the dual convention."
         }
       ],
@@ -289,7 +287,6 @@
         {
           "sourceId": "chenevier-harris-II",
           "locator": "Theorem 2.3; §3.1; Theorem 3.2.3, pp.8–12",
-          "excerpt": "de Rham",
           "match": "Other coefficient places first; cyclic patching removes the exclusion."
         }
       ],
@@ -325,7 +322,6 @@
         {
           "sourceId": "blggt-potential-automorphy",
           "locator": "Theorem 2.1.1(3)–(4), pp.33–34",
-          "excerpt": "de Rham",
           "match": "Admissibility and the Iwahori comparison."
         }
       ],
@@ -365,7 +361,6 @@
         {
           "sourceId": "caraiani-monodromy-at-p",
           "locator": "§§2–4; Theorem 4.6, Remark 4.7, Proposition 5.1, pp.31–32",
-          "excerpt": "pure",
           "match": "The projected two-boundary spectral sequence supplies purity."
         }
       ],
@@ -403,7 +398,6 @@
         {
           "sourceId": "caraiani-monodromy-at-p",
           "locator": "Theorem 1.1, pp.1–2; §§2 and 5",
-          "excerpt": "local-global compatibility",
           "match": "Equality includes N, including even non-Shin-regular weights."
         }
       ],
@@ -443,7 +437,6 @@
         {
           "sourceId": "ahtw-coefficient-prime",
           "locator": "Theorem 1.2.1, p.5; §1.2.3–1.2.5; Theorem 5.2.9",
-          "excerpt": "de Rham",
           "match": "All regular algebraic CM cuspidal representations."
         }
       ],
@@ -481,7 +474,6 @@
         {
           "sourceId": "ahtw-coefficient-prime",
           "locator": "Corollary 1.2.2, p.6; Definitions 6.0.1–4, Corollary 6.0.6, pp.111–112",
-          "excerpt": "Corollary 1.2.2",
           "match": "Generic local GL_n parameters occupy the maximal monodromy orbit."
         }
       ],
@@ -518,7 +510,6 @@
         {
           "sourceId": "ahtw-coefficient-prime",
           "locator": "Theorem 1.2.1 and Corollary 1.2.2, pp.5–6",
-          "excerpt": "de Rham",
           "match": "Admissibility is a consequence using the imported WD criteria."
         }
       ],
@@ -555,7 +546,6 @@
         {
           "sourceId": "blggt-potential-automorphy",
           "locator": "Theorem 2.1.1, pp.33–34; §2.1 terminology",
-          "excerpt": "de Rham",
           "match": "The source allows CM or totally real polarized fields."
         }
       ],
@@ -591,7 +581,6 @@
         {
           "sourceId": "accplus-cm-potential-automorphy",
           "locator": "§7.1, pp.1093–1094",
-          "excerpt": "Mπ",
           "match": "The common rationality field and Frobenius data determine members."
         }
       ],
@@ -631,13 +620,11 @@
         {
           "sourceId": "accplus-cm-potential-automorphy",
           "locator": "§7.1, pp.1093–1094",
-          "excerpt": "Mπ",
           "match": "Construct the automorphic data; stronger admissibility is supplied separately."
         },
         {
           "sourceId": "ahtw-coefficient-prime",
           "locator": "Theorem 1.2.1, pp.5–6",
-          "excerpt": "de Rham",
           "match": "Upgrades the all-CM instance to weak compatibility."
         }
       ],
@@ -739,7 +726,6 @@
         {
           "sourceId": "newton-thorne-26",
           "locator": "Theorem 5.1 and Lemma 5.2, p.38, footnote 4",
-          "excerpt": "Lemma 5.2",
           "match": "Both complex and local coefficient automorphisms, with inverse orientation."
         }
       ],
@@ -773,13 +759,11 @@
         {
           "sourceId": "liu-et-al-22",
           "locator": "Definition 3.2.5 and Remark 3.2.6, printed p.145",
-          "excerpt": "strong coefficient field",
           "match": "A simultaneous field of definition, distinguished from Q(Π)."
         },
         {
           "sourceId": "chenevier-harris-II",
           "locator": "Proposition 3.2.5, author-copy p.12",
-          "excerpt": "number field",
           "match": "Justifies the broader regular cohomological domain used by the following uniform-realization theorem."
         }
       ],
@@ -868,13 +852,11 @@
         {
           "sourceId": "chenevier-harris-II",
           "locator": "Proposition 3.2.5, p.12",
-          "excerpt": "number field",
           "match": "Uniform realization follows from two regular Frobenius elements."
         },
         {
           "sourceId": "liu-et-al-22",
           "locator": "Remark 3.2.6, printed p.145",
-          "excerpt": "strong coefficient field",
           "match": "Existence is separate from conditional minimal-field rationality."
         }
       ],
@@ -914,7 +896,6 @@
         {
           "sourceId": "blggt-potential-automorphy",
           "locator": "Theorem 2.1.1(1)–(2), pp.33–34; §5.1 pp.62–65",
-          "excerpt": "strictly pure",
           "match": "Purity weight and branch predicates on the imported carrier."
         }
       ],
@@ -951,7 +932,6 @@
         {
           "sourceId": "accplus-cm-potential-automorphy",
           "locator": "Lemmas 7.1.9–7.1.10, pp.1093–1094",
-          "excerpt": "very weakly compatible",
           "match": "The density-one DGI route, with rank-two specialization."
         }
       ],
@@ -985,13 +965,11 @@
         {
           "sourceId": "ahtw-coefficient-prime",
           "locator": "Theorem 1.2.1 and Corollary 1.2.2, pp.5–6",
-          "excerpt": "Corollary 1.2.2",
           "match": "Separate ss equality and N bound."
         },
         {
           "sourceId": "caraiani-monodromy-at-p",
           "locator": "Theorem 1.1, pp.1–2",
-          "excerpt": "local-global compatibility",
           "match": "The polarized theorem identifies N."
         }
       ],
@@ -1026,7 +1004,6 @@
         {
           "sourceId": "chenevier-harris-II",
           "locator": "§1.5 formula (1.6); Theorem 3.2.3",
-          "excerpt": "Hodge-Tate numbers",
           "match": "Explicit dual-normalization comparison on the common domain."
         }
       ],
@@ -1060,7 +1037,6 @@
         {
           "sourceId": "newton-thorne-26",
           "locator": "Proof of Lemma 5.8, pp.42–44, cf. proof of Lemma 2.1",
-          "excerpt": "a single prime",
           "match": "The same coefficient-conjugation argument applies to an automorphic tensor product."
         }
       ],
@@ -1095,7 +1071,6 @@
         {
           "sourceId": "calegari-geraghty-20",
           "locator": "Proposition 6.8(3), author-copy pp.38–39",
-          "excerpt": "crystalline",
           "match": "Regular good-level GSp4 branch, with the corrected eigenform wording."
         }
       ],
@@ -1131,7 +1106,6 @@
         {
           "sourceId": "calegari-geraghty-20",
           "locator": "Proposition 6.8(4), author-copy p.39",
-          "excerpt": "ordinary",
           "match": "Use roots of the specialized polynomial, correcting E55."
         }
       ],
@@ -1166,7 +1140,6 @@
         {
           "sourceId": "pilloni-20",
           "locator": "Theorem 5.1.7.1(3)–(4), Remark 5.1.7.1, author-copy pp.22–23",
-          "excerpt": "de Rham",
           "match": "Hodge weights and the reciprocal polynomial in its stated convention."
         }
       ],
@@ -1199,13 +1172,11 @@
         {
           "sourceId": "blggt-potential-automorphy",
           "locator": "§2.1, after Theorem 2.1.1, p.34",
-          "excerpt": "semisimplification",
           "match": "Finite realization is the prerequisite for the residual construction."
         },
         {
           "sourceId": "calegari-geraghty-20",
           "locator": "Proof of Proposition 6.8, author-copy p.39",
-          "excerpt": "Baire category argument",
           "match": "An explicit source for finite local realization; the proof sketch records the compact-image argument in arbitrary rank."
         }
       ],
@@ -1244,13 +1215,11 @@
         {
           "sourceId": "blggt-potential-automorphy",
           "locator": "§2.1, p.34",
-          "excerpt": "semisimplification",
           "match": "The invariant is the semisimple reduction, with its polarized extension."
         },
         {
           "sourceId": "accplus-cm-potential-automorphy",
           "locator": "§7.1, p.1085",
-          "excerpt": "Brauer groups",
           "match": "Finite-field descent of residual members."
         }
       ],
@@ -1347,7 +1316,6 @@
         {
           "sourceId": "accplus-cm-potential-automorphy",
           "locator": "Definition 2.3.6, p.938; §7.1, p.1085",
-          "excerpt": "characteristic polynomial",
           "match": "Residual Hecke polynomials are reduced characteristic polynomials."
         }
       ],
@@ -1382,7 +1350,6 @@
         {
           "sourceId": "accplus-cm-potential-automorphy",
           "locator": "Definition 2.3.6, printed p.938",
-          "excerpt": "Galois type",
           "match": "Existence with all good Hecke polynomials, separated from non-Eisensteinness."
         }
       ],
@@ -1468,7 +1435,6 @@
         {
           "sourceId": "accplus-cm-potential-automorphy",
           "locator": "Definition 2.3.6, p.938",
-          "excerpt": "non-Eisenstein",
           "match": "Absolute irreducibility is an additional global condition."
         }
       ],
@@ -1545,7 +1511,6 @@
         {
           "sourceId": "accplus-cm-potential-automorphy",
           "locator": "Definition 2.3.6, p.938; §7.1, p.1085",
-          "excerpt": "Galois type",
           "match": "The reduced automorphic eigencharacter has the matching residual representation."
         }
       ],
@@ -1581,7 +1546,6 @@
         {
           "sourceId": "accplus-cm-potential-automorphy",
           "locator": "After Definition 2.3.6, p.938",
-          "excerpt": "Galois type",
           "match": "Exact dual ε^(1−n) and character-twist conventions."
         }
       ],
@@ -1617,7 +1581,6 @@
         {
           "sourceId": "accplus-cm-potential-automorphy",
           "locator": "Definition 4.3.1(1), p.972",
-          "excerpt": "generic",
           "match": "Unramifiedness and the ordered noncyclotomic ratio condition."
         }
       ],
@@ -1727,7 +1690,6 @@
         {
           "sourceId": "accplus-cm-potential-automorphy",
           "locator": "Definition 4.3.1(2), p.972",
-          "excerpt": "decomposed generic",
           "match": "All places over a completely split rational prime."
         }
       ],
@@ -1799,7 +1761,6 @@
         {
           "sourceId": "accplus-cm-potential-automorphy",
           "locator": "Definition 4.3.1(3), p.972",
-          "excerpt": "decomposed generic",
           "match": "Existence of an auxiliary rational prime."
         }
       ],
@@ -1875,13 +1836,11 @@
         {
           "sourceId": "caraiani-scholze-17",
           "locator": "Definition 1.9, printed p.652",
-          "excerpt": "decomposed generic",
           "match": "The stronger condition over an arbitrary p-adic field."
         },
         {
           "sourceId": "liu-et-al-22",
           "locator": "Definition D.1.2, footnote 37, printed p.365",
-          "excerpt": "distinct (nonzero) roots",
           "match": "The paper explains the relaxed noncompact input."
         }
       ],
@@ -1974,7 +1933,6 @@
         {
           "sourceId": "accplus-cm-potential-automorphy",
           "locator": "Lemma 4.3.2, pp.972–973",
-          "excerpt": "infinitely many",
           "match": "Chebotarev reproduces the witness at all conjugate places."
         }
       ],
@@ -2014,7 +1972,6 @@
         {
           "sourceId": "accplus-cm-potential-automorphy",
           "locator": "After Definition 4.3.1, p.972; Lemma 4.3.2",
-          "excerpt": "same projective representation",
           "match": "Qualify the local assertion by unramifiedness; see E5."
         }
       ],
@@ -2051,7 +2008,6 @@
         {
           "sourceId": "liu-et-al-22",
           "locator": "Corollary D.1.4, printed p.368; Remark 3.2.6",
-          "excerpt": "all but finitely many",
           "match": "Exclude divisors of finitely many nonzero algebraic quantities, then use Chebotarev."
         }
       ],
@@ -2083,7 +2039,6 @@
         {
           "sourceId": "accplus-cm-potential-automorphy",
           "locator": "§7.1, pp.1093–1094",
-          "excerpt": "Mπ",
           "match": "The minimum automorphic compatible-data export."
         }
       ],
@@ -2163,7 +2118,6 @@
         {
           "sourceId": "ahtw-coefficient-prime",
           "locator": "Theorem 1.2.1 and Corollary 1.2.2, pp.5–6",
-          "excerpt": "de Rham",
           "match": "The nonselfdual export includes the known Hodge and coefficient-prime properties."
         }
       ],
@@ -2250,13 +2204,11 @@
         {
           "sourceId": "blggt-potential-automorphy",
           "locator": "Theorem 2.1.1, pp.33–34; §5.1, pp.63–65",
-          "excerpt": "strictly pure",
           "match": "The polarized system evidence."
         },
         {
           "sourceId": "caraiani-monodromy-at-p",
           "locator": "Theorem 1.1, pp.1–2",
-          "excerpt": "local-global compatibility",
           "match": "Full coefficient-prime WD evidence."
         }
       ],
@@ -2346,7 +2298,6 @@
         {
           "sourceId": "caraiani-scholze-17",
           "locator": "Corollary 5.5.5 and Remark 5.5.6, printed pp.745–746",
-          "excerpt": "direct sum",
           "match": "The algebraic twists and finite-place comparison restricted away from ℓ."
         }
       ],
@@ -2428,7 +2379,6 @@
         {
           "sourceId": "accplus-cm-potential-automorphy",
           "locator": "Definition 2.3.6, p.938; §7.1, p.1085",
-          "excerpt": "Galois type",
           "match": "Integral-to-residual good-polynomial interface."
         }
       ],
@@ -2515,7 +2465,6 @@
         {
           "sourceId": "accplus-cm-potential-automorphy",
           "locator": "Definition 2.3.6 and following duality statement, p.938",
-          "excerpt": "Galois type",
           "match": "The dual convention descends to the residual comparison."
         }
       ],

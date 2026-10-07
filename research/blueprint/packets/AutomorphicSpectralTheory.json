@@ -2013,9 +2013,9 @@
       "sources": [
         {
           "sourceId": "arthur05",
-          "locator": "§7 equation (7.2); PDF page 34",
-          "excerpt": "If s belongs to W (aP , aP ′ ), the operator M (s, λ) : HP −→ HP ′ that intertwines IP (λ) with IP ′ (sλ) is defined by Z \u0001 −1 (7.2) M (s, λ)φ (x) = φ(ws−1 nx)e(λ+ρP )(HP (ws nx) e(−sλ+ρP ′ )(HP ′ (x)) dn, where the inte",
-          "match": "The quoted passage is on the indicated PDF page. The statement above separates source input from the adapter/proof work and recorded gaps."
+          "locator": "§7 equation (7.2) and Lemma7.1, p.34; outer ρ sign corrected as sourceIssue E37",
+          "excerpt": "both converge absolutely to analytic functions",
+          "match": "Lemma7.1 supplies the convergence chamber. The displayed outer exponent in (7.2) has a sign error; the packet uses −(wλ+ρ_Q), checked against the identity Weyl case and the local formula on p.135."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2121,17 +2121,19 @@
       ],
       "title": "Paley–Wiener pseudo-Eisenstein series",
       "kind": "construction",
-      "statement": "Fix cuspidal data (P,σ). Let Ψ:𝔞_P,ℂ*→H_P,cusp,σ⁰ be entire, valued in one finite-dimensional subspace, and the Fourier–Laplace transform of a smooth compactly supported function on 𝔞_P. Set ψ(g)=∫_{Λ+i𝔞_P*}exp((λ+ρ_P)H_P(g))Ψ(λ,g)dλ and Eψ(g)=Σ_{P(F)\\G(F)}ψ(δg). Fourier inversion makes ψ compactly supported in H_P, so the result is independent of Λ. The dual measure satisfies ∫_{i𝔞*}∫_𝔞 h(H)e^(−λ(H))dH dλ=h(0); no extra (2π)^rank factor is inserted.",
+      "statement": "Fix cuspidal data (P,σ). Let Ψ:(𝔞_P^G)_ℂ*→H_P,cusp,σ⁰ be entire, valued in one finite-dimensional subspace, and the Fourier–Laplace transform of a smooth compactly supported function on 𝔞_P^G. Set ψ(g)=∫_{Λ+i(𝔞_P^G)*}exp((λ+ρ_P)H_P(g))Ψ(λ,g)dλ and Eψ(g)=Σ_{P(F)\\G(F)}ψ(δg). Fourier inversion makes ψ compactly supported in the projected height H_P^G, so the result is independent of Λ. The dual measure satisfies ∫_{i(𝔞_P^G)*}∫_{𝔞_P^G} h(H)e^(−λ(H))dH dλ=h(0); no extra (2π)^rank factor is inserted. This is the fixed trivial A_G(ℝ)⁰-character version on G(F)\\G(𝔸)¹ (equivalently the quotient by A_G(ℝ)⁰): λ vanishes on 𝔞_G and the inducing central action is compatible. Arthur Lemmas12.2–12.4 first use all of 𝔞_P and L²(G(F)\\G(𝔸)); that full-height version is a separate construction and does not automatically descend to the central quotient.",
       "hypotheses": [
-        "The compact-picture coefficient space is fixed and finite dimensional; Ψ is Paley–Wiener, not merely an arbitrary entire function."
+        "The compact-picture coefficient space is fixed and finite dimensional; Ψ is Paley–Wiener, not merely an arbitrary entire function.",
+        "Fix the trivial split-central character, parameters in (𝔞_P^G)_ℂ* and the matching central restriction of the inducing datum. In the full-height variant use 𝔞_P and the full arithmetic quotient instead."
       ],
       "proofSteps": [
-        "Apply scalar Fourier inversion componentwise to construct ψ with compact height support.",
+        "Apply scalar Fourier inversion componentwise on 𝔞_P^G with the chosen dual measure; first restrict the central datum and parameter space, then construct ψ with compact projected-height support.",
         "Use reduction theory and cusp decay for its automorphic sum.",
         "Apply chamber convergence to express Eψ as a shifted contour integral of E_P."
       ],
       "acceptance": [
-        "Compact height support does not mean compact support in the full arithmetic quotient."
+        "Compact height support does not mean compact support in the full arithmetic quotient.",
+        "For G=G_m, a nonconstant smooth compactly supported function of log|g| is a full-height pseudo-Eisenstein function and does not descend through A_G(ℝ)⁰. The two parameter conventions must remain distinct."
       ],
       "prerequisites": [
         "AutomorphicSpectralTheory:AS.1/induced-family",
@@ -2182,12 +2184,12 @@
         {
           "name": "TauCeti.AutomorphicSpectral.pseudo_eisenstein.split_torus",
           "kind": "compatibility",
-          "statement": "For a split torus, P=G and the construction is ordinary inverse Fourier–Laplace transformation on its real height space."
+          "statement": "For a split torus in the full-height variant, P=G and Eψ is ordinary inverse Fourier–Laplace transformation on 𝔞_G; in the fixed-central-character version 𝔞_P^G=0, so this height transform is absent."
         },
         {
           "name": "TauCeti.AutomorphicSpectral.pseudo_eisenstein.wrong_entire_growth",
           "kind": "non-example",
-          "statement": "Ψ(z)=exp(z⁴)v is entire but not Paley–Wiener and does not qualify for this construction."
+          "statement": "For V=ℂ, Ψ(z)=exp(z⁴) is entire but not Paley–Wiener and does not qualify for this construction. More generally exp(z⁴)v is excluded only when v≠0."
         }
       ],
       "uses": [
@@ -2209,9 +2211,10 @@
       ],
       "title": "Square-integrability of pseudo-Eisenstein series",
       "kind": "theorem",
-      "statement": "Every pseudo-Eisenstein series just defined belongs to L²(G(F)\\G(𝔸)/A_G(ℝ)⁰); equivalently use the G(𝔸)¹ version with 𝔞_P^G and the corresponding central restriction. The assertion applies to finite-dimensional cuspidal Paley–Wiener sections. It does not assert square-integrability of an individual Eisenstein series on the unitary axis.",
+      "statement": "For the fixed-central-character pseudo-Eisenstein series just defined, Eψ belongs to L²(G(F)\\G(𝔸)¹), equivalently L²(G(F)\\G(𝔸)/A_G(ℝ)⁰), using parameters and compact height support in 𝔞_P^G. If one instead uses the full 𝔞_P transform of Arthur Lemma12.2, the target is L²(G(F)\\G(𝔸)); no descent through the split centre is asserted for an arbitrary full-height section. Both assertions concern finite-dimensional cuspidal Paley–Wiener sections, not an individual unitary-axis Eisenstein series.",
       "hypotheses": [
-        "Cuspidal inducing vectors; smooth compact height support before summation; compatible quotient measures."
+        "Cuspidal inducing vectors; smooth compact height support before summation; compatible quotient measures.",
+        "The split-central convention and height space agree with the preceding construction; the full-height and fixed-central variants are not identified."
       ],
       "proofSteps": [
         "Unfold the squared pairing in a positive chamber.",
@@ -2248,9 +2251,10 @@
       ],
       "title": "Langlands pseudo-Eisenstein inner product",
       "kind": "theorem",
-      "statement": "With Mathlib’s conjugate-first inner product, ⟪Eψ′,Eψ⟫=∫_{Λ+i𝔞_P*}Σ_{w∈W(𝔞_P,𝔞_Q)}⟪Ψ′(−overline(wλ)),M(w,λ)Ψ(λ)⟫dλ, where Ψ is attached to (P,σ), Ψ′ to (Q,σ′), and Λ−ρ_P is positive. Only compatible inducing cuspidal isotypic spaces contribute. The conjugation in −overline(wλ) is essential: the second section is evaluated on the reflected real contour. On an imaginary contour after justified continuation this becomes wλ.",
+      "statement": "With Mathlib’s conjugate-first inner product, ⟪Eψ′,Eψ⟫=∫_{Λ+i(𝔞_P^G)*}Σ_{w∈W(𝔞_P,𝔞_Q)}⟪Ψ′(−overline(wλ)),M(w,λ)Ψ(λ)⟫dλ, where Ψ is attached to (P,σ), Ψ′ to (Q,σ′), and Λ−ρ_P is positive. Only compatible inducing cuspidal isotypic spaces contribute. The conjugation in −overline(wλ) is essential: the second section is evaluated on the reflected real contour. On an imaginary contour after justified continuation this becomes wλ. Use the same fixed-central datum and quotient as pseudo-eisenstein. For the full-height version replace 𝔞_P^G by 𝔞_P and use the full arithmetic quotient on both sides.",
       "hypotheses": [
-        "Paley–Wiener sections of the preceding construction; the equality is first proved in the absolute-convergence chamber."
+        "Paley–Wiener sections of the preceding construction; the equality is first proved in the absolute-convergence chamber.",
+        "Central restriction, contour dimension and both L² measures use the same variant; conjugation is retained in the reflected contour."
       ],
       "proofSteps": [
         "Unfold Eψ′ against Eψ and take the cuspidal constant term.",
@@ -4937,7 +4941,8 @@
       "kind": "theorem",
       "statement": "For a real reductive algebraic group G with maximal compact K and radius r>0, the trace transforms of smooth bi-K-finite functions supported in the radius-r ball are exactly the collections F_i(δ,ν) on basic representations induced from limits of discrete series of Levi subgroups satisfying: finite support in δ; entire scalar Paley–Wiener bounds of type r in ν; K-conjugacy/Weyl invariance; and every induction-in-stages additivity relation (iv) of Clozel–Delorme Theorem 1. The LF image carries the quotient topology. All four conditions are required; a Weyl-invariant entire function alone is insufficient.",
       "hypotheses": [
-        "The real reductive algebraic setting and basic representations of Clozel–Delorme §0; Haar, norm/radius, and normalized induction are fixed."
+        "The real reductive algebraic setting and basic representations of Clozel–Delorme §0; Haar, norm/radius, and normalized induction are fixed.",
+        "The induced families in this local theorem come from the requested AF.1 real-parabolic compact picture, not AS.1 global adelic automorphic induction."
       ],
       "proofSteps": [
         "Use minimal K-types to reduce to a single discrete-series datum.",
@@ -4949,8 +4954,8 @@
       ],
       "prerequisites": [
         "AutomorphicSpectralTheory:AS.0/nuclear-lf-space",
-        "AutomorphicSpectralTheory:AS.1/induced-family",
-        "AutomorphicFormsOnReductiveGroups:AF.1"
+        "AutomorphicFormsOnReductiveGroups:AF.1",
+        "AutomorphicFormsOnReductiveGroups:AF.1/sf-representation"
       ],
       "sources": [
         {
@@ -4980,7 +4985,8 @@
       "kind": "theorem",
       "statement": "For Arthur’s real reductive group G and K, Fourier transformation f↦{I_B(σ,λ,f)} is a topological algebra isomorphism C_c^∞(G,K)→PW(G,K). At fixed radius N and finite K-type set Γ it identifies C_N^∞(G)_Γ with PW_N(G)_Γ: entire finite-dimensional operator families with all seminorms sup e^(−N||Re λ||)(1+||λ||)^n||F_B(σ,λ)|| finite and all differential matrix-coefficient relations (III.4.1) inherited from the induced representations. The relations include derivatives, not just ordinary intertwining covariance.",
       "hypotheses": [
-        "The representation, radius and finite-K-type conventions of Arthur Acta III §4; finite-dimensional matrix coefficient spaces."
+        "The representation, radius and finite-K-type conventions of Arthur Acta III §4; finite-dimensional matrix coefficient spaces.",
+        "The induced families in this local theorem come from the requested AF.1 real-parabolic compact picture, not AS.1 global adelic automorphic induction."
       ],
       "proofSteps": [
         "Translate Eisenstein integrals to induced matrix coefficients using Part I §3.",
@@ -4993,7 +4999,8 @@
       "prerequisites": [
         "AutomorphicSpectralTheory:AS.0/vector-schwartz",
         "AutomorphicSpectralTheory:AS.0/nuclear-lf-space",
-        "AutomorphicSpectralTheory:AS.1/induced-family"
+        "AutomorphicFormsOnReductiveGroups:AF.1/sf-representation",
+        "AutomorphicFormsOnReductiveGroups:AF.1"
       ],
       "sources": [
         {
@@ -5055,7 +5062,7 @@
         {
           "name": "TauCeti.AutomorphicSpectral.spectral_multiplier.character",
           "role": "characterisation",
-          "statement": "π(f_γ)=γ̂(ν_π)π(f) for every admissible π."
+          "statement": "π(f_γ)=γ̂(ν_π)π(f) for every irreducible admissible π, with ν_π its infinitesimal-character W-orbit."
         },
         {
           "name": "TauCeti.AutomorphicSpectral.spectral_multiplier.composition",
@@ -5496,7 +5503,7 @@
         {
           "name": "TauCeti.AutomorphicSpectral.weighted_orbital_integral.rank_one_volume",
           "kind": "computation",
-          "statement": "For two heights differing by rα∨, the weight is r times the chosen coroot-segment volume."
+          "statement": "In rank one, with the positive orthogonal height ordering and difference rα∨ where r≥0, the weight is r times the chosen positive coroot-segment volume. Without that ordering, the geometric interval length is |r| times the volume."
         },
         {
           "name": "TauCeti.AutomorphicSpectral.weighted_orbital_integral.measure_scaling",
@@ -10011,7 +10018,8 @@
         "mathlib:Complex.radius_regularizedHGFunSeries_eq_top",
         "mathlib:Complex.betaIntegral_eq_Gamma_mul_div",
         "QSeriesPartitionsAndMockModularForms:QM.2",
-        "QSeriesPartitionsAndMockModularForms:QM.2/modified-bessel-function-i"
+        "QSeriesPartitionsAndMockModularForms:QM.2/modified-bessel-function-i",
+        "AutomorphicSpectralTheory:AS.0/dit-112"
       ],
       "sources": [
         {
@@ -10042,7 +10050,7 @@
         "The parameter, sign, nonzero-index and boundary assumptions in the statement are retained; ⟪u,v⟫ is conjugate-linear in u."
       ],
       "proofSteps": [
-        "Apply the tail-integral Laplace estimate to W to get y^μe^(−y/2) with the stated uniformity on parameter compacts.",
+        "Apply the tail-integral Laplace estimate to W to get y^μe^(−y/2) for fixed admitted parameters. Uniform differentiated bounds on parameter compacts require the separate domination/exceptional-parameter continuation contract, and are not supplied by DIT11 Appendix A alone.",
         "Apply the endpoint beta/Euler estimate to M to obtain its growing coefficient Γ(1+2ν)/Γ(ν−μ+1/2).",
         "If that coefficient vanishes, use the lower branch instead; the generic growing asymptotic cannot be asserted at such a parameter."
       ],
@@ -10052,7 +10060,8 @@
       "prerequisites": [
         "mathlib:Complex.regularizedHGFun",
         "mathlib:Complex.radius_regularizedHGFunSeries_eq_top",
-        "mathlib:Complex.betaIntegral_eq_Gamma_mul_div"
+        "mathlib:Complex.betaIntegral_eq_Gamma_mul_div",
+        "AutomorphicSpectralTheory:AS.0/dit-112"
       ],
       "sources": [
         {
@@ -11928,6 +11937,14 @@
         "AutomorphicSpectralTheory:AS.0/dit-113",
         "AutomorphicSpectralTheory:AS.0/gz-217"
       ]
+    },
+    {
+      "supplier": "AutomorphicFormsOnReductiveGroups:AF.1",
+      "need": "Local real normalized parabolic induction for every real parabolic P=M_P A_P N_P and a supplied admissible SF representation (or a supplied unitary Hilbert realization) of M_P, on the fixed compact picture with K∩M_P covariance. Supply the half-modulus convention a^(ν+ρ_P), right translation, finite K-type coefficient spaces, holomorphic parameter dependence, and induction-in-stages. The existing AF.1/principal-series only treats minimal parabolics with finite-dimensional inducing W and is not this general Levi-family theorem. Use the independent AF.1/sf-representation interface; do not require a global automorphic occurrence in L²([M]¹). Bernstein–Krötz §9.3, Proposition9.6 and pp.39–40 give the local source route with its good-module/globalization hypotheses; wider supplied-SF holomorphy remains a stated extension.",
+      "neededBy": [
+        "AutomorphicSpectralTheory:AS.6/real-invariant-paley-wiener",
+        "AutomorphicSpectralTheory:AS.6/real-operator-paley-wiener"
+      ]
     }
   ],
   "coverage": [
@@ -11946,7 +11963,8 @@
         "Strong operator topology source qualification: BPCZ Appendix A equips Hom(V,W) and V′ with weak pointwise topologies. The bounded-set topology and weak-to-strong meromorphy upgrade in the operator-meromorphic target require a separate proof with a common denominator and the appropriate local boundedness/uniform seminorm hypotheses. The cited weak holomorphy passage alone does not establish that upgrade.",
         "Suggested continuation signatures: The packet retains the BPCZ two-sided functional equation, initial continuous functionals and common finite strip order. The suggested Schwartz and LF-dual signatures omit already expressible hypotheses and are false. Replace them with correctly typed half-plane data and an existence/uniqueness extension before acceptance; see the independent review for counterexamples.",
         "Suggested Fourier and object-sensitive tests: The Yu149 suggested theorem admits an arbitrary index/character family and arbitrary f and measure, so neither absolute Fourier convergence nor transfer follows. It must encode smooth f, probability Haar, the full dual character family and the corresponding convergence theorem. Several object tests in AS.0–AS.6 use numerical facts or unrelated carriers instead of the proposed object; the independent review identifies the failures. Replace those tests without assuming the desired conclusion.",
-        "Supplier request: QSeriesPartitionsAndMockModularForms:QM.2 — Supply the K-Bessel function with its convergent positive-real integral, order reflection K_ν=K_(−ν), initial-value/decaying normalization and the differentiated parameter estimates required by AS.0/dit-113 and gz-217. QM.2 has I and J nodes but no K node yet. I and J are imported by their exact node ids; the finite untwisted Kloosterman sum is QM.3/classical-kloosterman-sum. The Whittaker M/W definitions belong to AS.0/dit-112."
+        "Supplier request: QSeriesPartitionsAndMockModularForms:QM.2 — Supply the K-Bessel function with its convergent positive-real integral, order reflection K_ν=K_(−ν), initial-value/decaying normalization and the differentiated parameter estimates required by AS.0/dit-113 and gz-217. QM.2 has I and J nodes but no K node yet. I and J are imported by their exact node ids; the finite untwisted Kloosterman sum is QM.3/classical-kloosterman-sum. The Whittaker M/W definitions belong to AS.0/dit-112.",
+        "REV-FIX-RT-AREA-automorphic-1~3: retain the precise local-real induction, split-central pseudo-Eisenstein and source-qualified signature obligations recorded in the new gaps; the narrow fix review does not discharge the earlier broader B1–B4 failures."
       ],
       "note": "Every stated stage target has a node, an imported owner target, or an explicit gap. Planned is target-level inventory coverage, not proof closure or formalization; the independent review records unresolved signature/test contradictions."
     },
@@ -11964,7 +11982,8 @@
         "Supplier request: AutomorphicLFunctionsAndLocalFactors:AL.0 — Fourier–Laplace inversion for C_c∞ on finite-dimensional real height spaces with dual Haar measure and the componentwise Paley–Wiener characterization; this is the real-place Schwartz–Bruhat interface.",
         "Supplier request: AutomorphicLFunctionsAndLocalFactors:AL.1 — Import AL.1/hecke-l-functional-equation and its local/global Tate zeta normalization; specialize the completed Hecke L-function to the Riemann or Dirichlet character and remove the finite Euler factors stated here. AL.0 supplies Fourier analysis, not this scalar functional equation.",
         "Supplier request: AutomorphicLFunctionsAndLocalFactors:AL.1 — Import AL.1/hecke-l-functional-equation and its local/global Tate zeta normalization; specialize the completed Hecke L-function to the Riemann or Dirichlet character and remove the finite Euler factors stated here. AL.0 supplies Fourier analysis, not this scalar functional equation.",
-        "Supplier request: QSeriesPartitionsAndMockModularForms:QM.2 — Supply the K-Bessel function with its convergent positive-real integral, order reflection K_ν=K_(−ν), initial-value/decaying normalization and the differentiated parameter estimates required by AS.0/dit-113 and gz-217. QM.2 has I and J nodes but no K node yet. I and J are imported by their exact node ids; the finite untwisted Kloosterman sum is QM.3/classical-kloosterman-sum. The Whittaker M/W definitions belong to AS.0/dit-112."
+        "Supplier request: QSeriesPartitionsAndMockModularForms:QM.2 — Supply the K-Bessel function with its convergent positive-real integral, order reflection K_ν=K_(−ν), initial-value/decaying normalization and the differentiated parameter estimates required by AS.0/dit-113 and gz-217. QM.2 has I and J nodes but no K node yet. I and J are imported by their exact node ids; the finite untwisted Kloosterman sum is QM.3/classical-kloosterman-sum. The Whittaker M/W definitions belong to AS.0/dit-112.",
+        "REV-FIX-RT-AREA-automorphic-1~3: retain the precise local-real induction, split-central pseudo-Eisenstein and source-qualified signature obligations recorded in the new gaps; the narrow fix review does not discharge the earlier broader B1–B4 failures."
       ],
       "note": "Every stated stage target has a node, an imported owner target, or an explicit gap. Planned is target-level inventory coverage, not proof closure or formalization; the independent review records unresolved signature/test contradictions."
     },
@@ -11995,7 +12014,8 @@
         "Supplier request: EndoscopicTransferAndUnitaryTraceComparison:ET.0 — EndoscopicTransferAndUnitaryTraceComparison, Part II: local unitary and orthogonal/classical tempered parameter and packet carriers with pure-inner-form/genericity conventions. Current ET.0 supplies conjugacy data; it supplies none of these packet carriers. No existing ET node discharges this request.",
         "Supplier request: AutomorphicLFunctionsAndLocalFactors:AL.3 — Import only the GL×GL Rankin–Selberg normalization/factor input covered by AL.3. The GL×classical and exterior/symmetric/Asai Shahidi factors exceed its current scope and are the precise Part II gap below.",
         "Supplier request: SmoothRepresentationsOfLocalGroups:SR.4 — Spherical Satake/normalized constant-term map for GL_n and the rank-one Gindikin–Karpelevich action, with local vol N(𝒪_v)=1.",
-        "Supplier request: AutomorphicLFunctionsAndLocalFactors:AL.2 — Unramified standard GL_n local Euler factors; an isobaric block sum concatenates Satake multisets and multiplies these factors. This does not request the isobaric existence theorem from AL.2."
+        "Supplier request: AutomorphicLFunctionsAndLocalFactors:AL.2 — Unramified standard GL_n local Euler factors; an isobaric block sum concatenates Satake multisets and multiplies these factors. This does not request the isobaric existence theorem from AL.2.",
+        "REV-FIX-RT-AREA-automorphic-1~3: retain the precise local-real induction, split-central pseudo-Eisenstein and source-qualified signature obligations recorded in the new gaps; the narrow fix review does not discharge the earlier broader B1–B4 failures."
       ],
       "note": "Every stated stage target has a node, an imported owner target, or an explicit gap. Planned is target-level inventory coverage, not proof closure or formalization; the independent review records unresolved signature/test contradictions."
     },
@@ -12062,7 +12082,8 @@
         "Supplier request: SmoothRepresentationsOfLocalGroups:SR.1 — Complex finite Hecke convolution and its integrated unitary action, involution and L¹ operator-norm bound; compact-open idempotents project to finite-level invariants.",
         "Supplier request: EndoscopicTransferAndUnitaryTraceComparison:ET.1 — The unweighted quotient-centralizer orbital integral, its semisimple convergence and singular extension, with connected/full centralizer and discriminant conventions exposed for comparison.",
         "Supplier request: EndoscopicTransferAndUnitaryTraceComparison:ET.1 — Import unitary/discrete-series and tempered pseudo-coefficient carriers; AS.6 adds the full finite-length EP trace identity and L²-Lefschetz application.",
-        "Real harmonic-analysis prefix before ET.1: The real invariant/operator Paley–Wiener and multiplier targets are currently located in AS.6, whose weighted orbital-integral and Euler–Poincaré targets import ET.1. ET.1 must consume the general real harmonic-analysis results through an earlier AS prefix or an AF Part II prefix, not by importing the complete AS.6 stage. Record that exported prefix and its acyclic dependencies when integrating RT-AREA-automorphic-1/4 and /24; no new stage id is invented in this review."
+        "Real harmonic-analysis prefix before ET.1: The real invariant/operator Paley–Wiener and multiplier targets are currently located in AS.6, whose weighted orbital-integral and Euler–Poincaré targets import ET.1. ET.1 must consume the general real harmonic-analysis results through an earlier AS prefix or an AF Part II prefix, not by importing the complete AS.6 stage. Record that exported prefix and its acyclic dependencies when integrating RT-AREA-automorphic-1/4 and /24; no new stage id is invented in this review.",
+        "REV-FIX-RT-AREA-automorphic-1~3: retain the precise local-real induction, split-central pseudo-Eisenstein and source-qualified signature obligations recorded in the new gaps; the narrow fix review does not discharge the earlier broader B1–B4 failures."
       ],
       "note": "Every stated stage target has a node, an imported owner target, or an explicit gap. Planned is target-level inventory coverage, not proof closure or formalization; the independent review records unresolved signature/test contradictions."
     }
@@ -12473,6 +12494,37 @@
         "AutomorphicSpectralTheory:AS.6/real-operator-paley-wiener",
         "AutomorphicSpectralTheory:AS.6/spectral-multiplier",
         "AutomorphicSpectralTheory:AS.6/general-euler-poincare"
+      ]
+    },
+    {
+      "title": "Local real induction interface for the independent Paley–Wiener prefix",
+      "detail": "Local real normalized parabolic induction for every real parabolic P=M_P A_P N_P and a supplied admissible SF representation (or a supplied unitary Hilbert realization) of M_P, on the fixed compact picture with K∩M_P covariance. Supply the half-modulus convention a^(ν+ρ_P), right translation, finite K-type coefficient spaces, holomorphic parameter dependence, and induction-in-stages. The existing AF.1/principal-series only treats minimal parabolics with finite-dimensional inducing W and is not this general Levi-family theorem. Use the independent AF.1/sf-representation interface; do not require a global automorphic occurrence in L²([M]¹). Bernstein–Krötz §9.3, Proposition9.6 and pp.39–40 give the local source route with its good-module/globalization hypotheses; wider supplied-SF holomorphy remains a stated extension.",
+      "neededBy": [
+        "AutomorphicSpectralTheory:AS.6/real-invariant-paley-wiener",
+        "AutomorphicSpectralTheory:AS.6/real-operator-paley-wiener"
+      ]
+    },
+    {
+      "title": "Fixed-central and full-height pseudo-Eisenstein comparison",
+      "detail": "Arthur05 pp.65–66 distinguishes the full 𝔞_P construction on G(F)\\G(𝔸) from its G(𝔸)¹ variant. Implement the split-centre decomposition, restricted inducing character and projected-height Fourier measure before identifying either model with the AS.1 abstract carrier. The rank-one full-height Lean specialization fixes the forward-transform sign and dt/(2π) dual measure; it does not prove global square-integrability or descent. The previously stated universal L² and inner-product prototypes are removed because arbitrary scalar families do not satisfy them.",
+      "neededBy": [
+        "AutomorphicSpectralTheory:AS.1/pseudo-eisenstein",
+        "AutomorphicSpectralTheory:AS.1/pseudo-eisenstein-l2",
+        "AutomorphicSpectralTheory:AS.1/pseudo-eisenstein-inner-product"
+      ]
+    },
+    {
+      "title": "Source-qualified spectral signatures after the round-3 fix review",
+      "detail": "The real invariant/operator Paley–Wiener conclusions cannot quantify over an arbitrary linear transform or an arbitrary pair of rings. Local normalizing factors cannot be asserted for arbitrary J (J=0 contradicts the unitary inverse). The convergent-intertwiner and its SL₂/Weyl tests need actual rational quotient, inducing, chamber and Weyl-transport data. Those full source signatures are explicitly omitted until the named suppliers exist. The suggested file retains a regular-point scalar-composition adapter for μ, an image-preserving multiplier transport, and actual rank-one/measure specializations, without claiming that these produce the missing real/adelic carriers. Prior B1–B4 blockers outside this narrow review remain in force. The local-intertwiner adapter now assumes actual integrability and pointwise intertwining compatibility. Its spherical test evaluates the normalized valuation-shell integral, with the identification with GL₂ unipotent integration still omitted; arbitrary-kernel meromorphic continuation is no longer asserted. Weighted two-place splitting likewise awaits its actual quotient/Levi data, instead of asserting equality for unrelated scalars.",
+      "neededBy": [
+        "AutomorphicSpectralTheory:AS.1/convergent-intertwiner",
+        "AutomorphicSpectralTheory:AS.2/mu-function",
+        "AutomorphicSpectralTheory:AS.2/local-normalization",
+        "AutomorphicSpectralTheory:AS.6/real-invariant-paley-wiener",
+        "AutomorphicSpectralTheory:AS.6/real-operator-paley-wiener",
+        "AutomorphicSpectralTheory:AS.6/spectral-multiplier",
+        "AutomorphicSpectralTheory:AS.6/weighted-orbital-integral",
+        "AutomorphicSpectralTheory:AS.2/local-intertwiner"
       ]
     }
   ],
@@ -13286,6 +13338,26 @@
       },
       "source": "yu23",
       "scope": "Only arXiv:1807.04659v5 (18 July 2022) is collated here; no assertion that the unavailable journal text has the same defect."
+    },
+    {
+      "id": "AutomorphicSpectralTheory/E37",
+      "source": "arthur05",
+      "kind": "misprint",
+      "locator": "§7 equation (7.2), printed/PDF p.34, outer exponential factor; compared with the local J_Q|P formula on p.135",
+      "printed": "exp((−sλ+ρ_P′)(H_P′(x)))",
+      "correction": "exp(−(sλ+ρ_P′)(H_P′(x)))",
+      "reason": "The page image has a plus before ρ_P′. Put s=1 and P′=P: the quotient is a point, so the printed two exponentials leave exp(2ρ_P H_P(x)) rather than the identity operator. Replacing +ρ_P′ by −ρ_P′ cancels the height factors. The same survey prints the corresponding local factor exp(−(λ+ρ_Q)H_Q(x)) on p.135. The packet already had the corrected mathematical exponent; this entry makes its departure from the cited display explicit.",
+      "affects": "a stated result",
+      "known": "No separate published correction located in the bounded search; the correct local convention appears in the same source. No claim of global novelty.",
+      "searched": [
+        "2026-10-07: inspected rendered Arthur05 p.34 and p.65, read p.135 and the normalized induced-action convention.",
+        "2026-10-07: public searches for Arthur Introduction to the Trace Formula 7.2 correction and errata rho intertwining returned the author/Clay archives but no separately labelled correction."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independent page-image inspection and identity-Weyl substitution; the outer ρ sign must be negative in the stated compact-picture convention.",
+        "by": "REV-FIX-RT-AREA-automorphic-1~3"
+      }
     }
   ],
   "sourceVersions": [
@@ -13508,7 +13580,7 @@
         "EndoscopicTransferAndUnitaryTraceComparison"
       ],
       "detail": "RT-AREA-automorphic-1/4 and /24: real harmonic analysis supplies ET.1, whereas weighted orbital integrals use ET.1. A whole AS.6→ET.1 import would cycle.",
-      "proposal": "Extract AS.1a “Real Paley–Wiener theory and spectral multipliers” containing AS.6/real-invariant-paley-wiener, AS.6/real-operator-paley-wiener and AS.6/spectral-multiplier, preserving their statements, source ranges, APIs and tests. Its inputs are AS.0/vector-schwartz, AS.0/nuclear-lf-space, AS.0/locally-convex-integration, AS.1/induced-family and AF.1 real representation theory. The multiplier depends on the operator theorem inside this prefix. It imports neither ET.1 nor any AS.6 orbital/trace result. Export AS.1a to ET.1 and AS.6; keep ET.1→AS.6/weighted-orbital-integral and general-euler-poincare. Until integration use the current precise node ids and keep the stage boundary gap; do not claim a new atlas stage already exists. The nonarchimedean BDK supplier stays SmoothRepresentationsCharactersPartII, and AS.2 retains the measure-dependent μ-function/local-normalization nodes."
+      "proposal": "Extract AS.1a “Real Paley–Wiener theory and spectral multipliers” containing AS.6/real-invariant-paley-wiener, AS.6/real-operator-paley-wiener and AS.6/spectral-multiplier, preserving their statements, source ranges, APIs and tests. Its inputs are AS.0/vector-schwartz, AS.0/nuclear-lf-space, AS.0/locally-convex-integration, the independent AF.1/sf-representation carrier and the precise AF.1 local real-parabolic induction request (including arbitrary supplied Levi data and holomorphic compact pictures), together with AF.1b real classification/discrete-series inputs. AS.1 global adelic induced-family is not a supplier for this local prefix. The multiplier depends on the operator theorem inside this prefix. It imports neither ET.1 nor any AS.6 orbital/trace result. Export AS.1a to ET.1 and AS.6; keep ET.1→AS.6/weighted-orbital-integral and general-euler-poincare. Until integration use the current precise node ids and keep the stage boundary gap; do not claim a new atlas stage already exists. The nonarchimedean BDK supplier stays SmoothRepresentationsCharactersPartII, and AS.2 retains the measure-dependent μ-function/local-normalization nodes."
     }
   ],
   "upstreamNotes": [],
@@ -14585,960 +14657,968 @@
   ],
   "review": {
     "status": "needs_changes",
-    "reviewer": "independent-review-REV-AutomorphicSpectralTheory",
+    "reviewer": "independent-review-REV-FIX-RT-AREA-automorphic-1~3",
     "date": "2026-10-07",
-    "notes": "Independent target-level review of all 191 input nodes (190 retained), all source locators/excerpts, 24 pinned baseline declarations, 21 supplier requests, 128 routes, 223 API items, 219 tests and 38 planets. Corrected clear source, normalization, hypothesis and ownership defects and independently adjudicated 36 sourceIssues. Honest proof gaps do not by themselves prevent acceptance. Remaining blockers are false continuation prototypes and packet/Lean test mismatches itemized in checked and the report. Full Lean check is unavailable because the shared build lacks a required Tau Ceti object; the Mathlib-only diagnostic elaborates with provisional-proof warnings only. No formalization is claimed.",
-    "checked": [
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.0/measurable-hilbert-field",
-        "verdict": "corrected",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against yetter §2 Definition 1 and Example 4. Checked API against consumers and all three packet/Lean tests. Corrected tests."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.0/direct-integral",
-        "verdict": "corrected",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against yetter §4 Definition26, p.13; Theorem27, pp.13–14. Checked API against consumers and all three packet/Lean tests. Corrected tests."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.0/decomposable-operator",
-        "verdict": "unverifiable",
-        "note": "identity tests the norm of CLM.id rather than the decomposable construction; unbounded_multiplier tests an a.e. scalar bound without linking multiplication to the operator. Keep null_change, and add the actual identity and scalar multiplication instances."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.0/isometric-integration-map",
-        "verdict": "verified",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against teschl §0.4 Theorem0.26 (B.L.T. theorem), pp.23–24."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.0/projection-valued-measure",
-        "verdict": "verified",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against teschl §3.1 equations (3.5)–(3.15); PDF page 100. Checked API against consumers and all three packet/Lean tests."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.0/herglotz-representation",
-        "verdict": "corrected",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against teschl §3.4 Theorem 3.20; shapiro25 §10.1 Theorem 10.5, equation (10.1), and proof, printed pp.125–126. Corrected sources. Proof closure remains explicitly open: Positive harmonic Poisson representation."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.0/unbounded-selfadjoint-spectral",
-        "verdict": "verified",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against teschl §3.1 Theorems 3.1–3.7; §3.3 Theorem 3.17."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.0/bounded-normal-spectral",
-        "verdict": "corrected",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against teschl §3.1 bounded functional calculus and §3.3 multiplication models. Corrected the suggested signature/normalization. Proof closure remains explicitly open: Bounded-normal joint-measure proof."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.0/hilbert-schmidt",
-        "verdict": "unverifiable",
-        "note": "infinite_identity and finite_identity only assert scalar series/square-root facts. They never assert non-membership or the norm of the identity operator, so they do not match the two packet tests."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.0/trace-class",
-        "verdict": "unverifiable",
-        "note": "diagonal_harmonic is only a pair of scalar summability facts, with no diagonal operator or trace-class membership. The compact positive eigenbasis prerequisite was corrected; the test still needs its actual operator. Corrections already applied: proofSteps, prerequisites, sources."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.0/kernel-trace-diagonal",
-        "verdict": "verified",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against teschl §6.3 kernel expansion (6.10)–(6.12) and Lemma 6.15."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.0/nuclear-lf-space",
-        "verdict": "unverifiable",
-        "note": "finite_group only states finite dimensionality, real_line only states a support-set equality, and escaping_support only excludes one compact support. None tests the LF topology, strictness, nuclearity or boundedness of a family."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.0/locally-convex-integration",
-        "verdict": "verified",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against bpcz22 Appendix A.0.2 and Lemmas A.0.6.1–A.0.6.2; PDF page 145."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.0/projective-tensor",
-        "verdict": "verified",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against bpcz22 Appendix A.0.7; PDF page 148. Checked API against consumers and all three packet/Lean tests. Proof closure remains explicitly open: Locally convex Schwartz kernel integration."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.0/vector-schwartz",
-        "verdict": "verified",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against bpcz22 Appendix A.0.8–A.0.9, Lemma A.0.9.1; PDF page 149. Checked API against consumers and all three packet/Lean tests. Proof closure remains explicitly open: Locally convex Schwartz kernel integration."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.0/operator-meromorphic",
-        "verdict": "unverifiable",
-        "note": "pointwise_orders is only the unboundedness of the natural numbers. It must exhibit the direct-sum operator family and failure of a common denominator; the strong-topology proof remains an honest separate gap."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.0/analytic-fredholm",
-        "verdict": "verified",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against teschl §6.2 Fredholm alternative and analytic perturbation motivation; PDF page 148. Proof closure remains explicitly open: Analytic Fredholm source closure."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.0/distribution-convergence",
-        "verdict": "verified",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against bpcz22 Appendix A.0.2–A.0.5; PDF page 146."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.0/vector-phragmen-lindelof",
-        "verdict": "verified",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against bpcz22 Appendix A.0.8 definition; Lemma A.0.10.1, printed p.332."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.1/induced-family",
-        "verdict": "unverifiable",
-        "note": "rank_one_half_modulus is an exponential identity and unnormalized_not_unitary is sqrt(4)≠1; neither tests the induced action or its Hilbert norm. The whole_group test is an actual specialization."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.1/eisenstein-series",
-        "verdict": "verified",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against arthur05 §7 equation (7.1) and Lemma 7.1. Checked API against consumers and all three packet/Lean tests."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.1/eisenstein-convergence",
-        "verdict": "verified",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against arthur05 §7 Lemma 7.1; §13 paragraph after Proposition 13.2. Proof closure remains explicitly open: Uniform differentiated chamber estimates."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.1/convergent-intertwiner",
-        "verdict": "unverifiable",
-        "note": "sl2_spherical uses an arbitrary M without relating it to convergent_intertwiner; target_parabolic is merely an inhabited CLM type filled by an admitted term, not a Weyl-transport assertion. The identity quotient test alone matches the object."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.1/cuspidal-constant-term",
-        "verdict": "verified",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against langlands66 §3 Lemma 3 and following Bruhat computation. Proof closure remains explicitly open: General nonassociate constant-term indexing; Global rational Bruhat indexing."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.1/pseudo-eisenstein",
-        "verdict": "unverifiable",
-        "note": "split_torus states scalar Fourier inversion and wrong_entire_growth a scalar growth failure without linking either to pseudo_eisenstein or its allowed section. Add actual torus pseudo-Eisenstein and excluded-section statements."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.1/pseudo-eisenstein-l2",
-        "verdict": "verified",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against arthur05 §12 Lemma 12.2."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.1/pseudo-eisenstein-inner-product",
-        "verdict": "verified",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against langlands66 §4 Corollary formula (2)."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.1/cuspidal-datum-space",
-        "verdict": "unverifiable",
-        "note": "inequivalent_same_levi is inequality of raw pairs and never mentions associate cuspidal data or their quotient. It cannot check whether the datum space wrongly merges inequivalent representations."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.1/cuspidal-data-orthosum",
-        "verdict": "verified",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against arthur05 §12 Lemma 12.4, equation (12.4). Proof closure remains explicitly open: Smooth globalization, weighted χ projections and Siegel cutoffs."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.2/local-intertwiner",
-        "verdict": "unverifiable",
-        "note": "p_adic_gl2_spherical asserts a formula for an arbitrary J without constructing the local integral; raw_not_unitary only evaluates a c-function. Add the actual unipotent integral on a spherical vector and its norm."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.2/mu-function",
-        "verdict": "unverifiable",
-        "note": "gl2_spherical only multiplies c-functions, while measure_scaling is a scalar inequality. Neither tests mu_function, its inverse convention, or a change of the two quotient measures."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.2/local-normalization",
-        "verdict": "verified",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against arthur89weighted §2 Theorem 2.1; §§3–4. Proof closure remains explicitly open: Local Harish-Chandra analytic inputs beyond suppliers; Local analytic extensions beyond representation carriers."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.2/eisenstein-continuation",
-        "verdict": "verified",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against arthur05 §7 Theorem 7.2(a), equations (7.3)–(7.4). Proof closure remains explicitly open: Langlands Chapter 7 residue-system proof; Smooth globalization, weighted χ projections and Siegel cutoffs."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.2/intertwiner-factorization",
-        "verdict": "corrected",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against arthur05 §21 equations (21.13)–(21.14). Corrected prerequisites."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.2/residue-calculus",
-        "verdict": "corrected",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against arthur05 §12 p.66 discussion of contour shifts. Checked API against consumers and all three packet/Lean tests. Corrected api. Proof closure remains explicitly open: Langlands Chapter 7 residue-system proof."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.2/shahidi-normalization",
-        "verdict": "unverifiable",
-        "note": "orthogonal_parity is inequality of enum constructors and unitary_dual an identity of complex units. They do not check which local L-factor the normalization actually uses or the dual packet relation. Corrections already applied: prerequisites."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.2/generic-standard-module",
-        "verdict": "corrected",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against jiangzhang20 Appendix B Proposition B.1 and (B.5)–(B.6). Corrected prerequisites. Proof closure remains explicitly open: Jiang–Zhang rank-one source closure; Local-factor and packet Part II beyond current owners."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.2/tempered-gl-intertwiner",
-        "verdict": "verified",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against jiangzhang20 Appendix B after (B.7)–(B.9), citing [66]. Proof closure remains explicitly open: Jiang–Zhang rank-one source closure."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.2/tempered-standard-intertwiner",
-        "verdict": "verified",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against jiangzhang20 Appendix B p.87. Proof closure remains explicitly open: Jiang–Zhang rank-one source closure; Local-factor and packet Part II beyond current owners."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.2/generic-normalized-intertwiner",
-        "verdict": "verified",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against jiangzhang20 Appendix B proof of Theorem B.2. Proof closure remains explicitly open: Jiang–Zhang rank-one source closure; Local-factor and packet Part II beyond current owners."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.2/jiang-zhang-holomorphy",
-        "verdict": "verified",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against jiangzhang20 Appendix B Theorem B.2 = §5.1 Theorem 5.1. Proof closure remains explicitly open: Jiang–Zhang rank-one source closure; Local-factor and packet Part II beyond current owners."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.3/truncation-cones",
-        "verdict": "unverifiable",
-        "note": "a2_distinction only states three numerical inequalities. Encode the A₂ root and dual-weight forms and apply the two named cutoff functions at the specified height. Corrections already applied: sources."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.3/arthur-truncation",
-        "verdict": "unverifiable",
-        "note": "sl2_constant only evaluates an if expression and never arthur_truncation. Give the actual rank-one truncation datum and the truncated constant function."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.3/truncation-projection",
-        "verdict": "verified",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against arthur05 §13 Proposition 13.1(a)–(c) and correction after statement. Proof closure remains explicitly open: Global rational Bruhat indexing."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.3/truncation-rapid-decay",
-        "verdict": "verified",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against arthur05 §13 Proposition 13.2(a)–(b), (13.5)–(13.6)."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.3/cuspidal-maass-selberg",
-        "verdict": "verified",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against arthur82ms Introduction formula (1); §9 ωᵀ formula."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.3/discrete-maass-selberg-asymptotic",
-        "verdict": "verified",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against arthur82ms §9 Theorem 9.1, Q=G, printed p.69."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.3/eisenstein-wave-packet",
-        "verdict": "unverifiable",
-        "note": "weyl_overcount is only (v+v)/2=v, with no packet map or compatible Weyl sections. The construction was moved to pointwise/truncated targets before the Gram theorem; the Weyl multiplicity test remains to be stated. Corrections already applied: proofSteps, acceptance."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.3/wave-packet-gram",
-        "verdict": "verified",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against arthur05 §7 Theorem 7.2(b) and §12 contour discussion; PDF page 35. Proof closure remains explicitly open: Uniform packet-limit argument."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.3/singular-parameter-limits",
-        "verdict": "verified",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against arthur82ms §§3–6 taking residues of the cuspidal pairing."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.4/associate-parameter-fields",
-        "verdict": "unverifiable",
-        "note": "rank_zero and rank_one are inverse-one and division-by-two identities without the measurable field, Weyl relation or weighted norm. The stabilizer kernel helper also needs to be linked to the compatible-field subspace."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.4/spectral-map",
-        "verdict": "verified",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against arthur05 §7 Theorem 7.2(b). Checked API against consumers and all three packet/Lean tests."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.4/spectral-orthosum",
-        "verdict": "verified",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against arthur05 §7 Theorem 7.2(b), equation (7.5); §12. Proof closure remains explicitly open: Langlands Chapter 7 residue-system proof."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.4/residual-spectrum",
-        "verdict": "unverifiable",
-        "note": "sl2_constant computes a scalar Eisenstein residue but does not assert that the constant vector spans residual_spectrum; non_l2_pole only tests a cusp exponent. Add the actual subspace/membership statements."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.4/discrete-finite-multiplicity",
-        "verdict": "verified",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against arthur05 §7 discrete decomposition and §12."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.4/hecke-central-compatibility",
-        "verdict": "verified",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against arthur05 §7 representation decomposition and §§12,15. Proof closure remains explicitly open: Local analytic extensions beyond representation carriers."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.4/compact-quotient-spectrum",
-        "verdict": "verified",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against arthur05 §§3–4 compact quotient trace formula; PDF page 8. Proof closure remains explicitly open: Compact-quotient Sobolev trace-class input."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.4/gl2-spectral-expansion",
-        "verdict": "verified",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against dit16 §5 equations (5.1)–(5.6). Proof closure remains explicitly open: Modular Weyl and pointwise analytic proof inputs; No exceptional level-one cusp spectrum; Weight-k modular Laplacian conjugation."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.4/modular-weyl-estimates",
-        "verdict": "verified",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against dit16 §5 equation (5.10) and paragraph after (5.11). Proof closure remains explicitly open: Modular Weyl and pointwise analytic proof inputs; No exceptional level-one cusp spectrum."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.4/wallach-cuspidality",
-        "verdict": "verified",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against wallach §4 Theorem 4.3 and its proof pp.233–234. Proof closure remains explicitly open: Essentially tempered reductive central adapter."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.5/weighted-l2-complex",
-        "verdict": "unverifiable",
-        "note": "cusp_power only computes scalar integrability. Connect the power vector and its differential to membership in weighted_l2_complex, including the critical boundary."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.5/weighted-regularization",
-        "verdict": "verified",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against franke §§2.2–2.3 and §3 Theorems 2–3."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.5/finite-character-functor",
-        "verdict": "unverifiable",
-        "note": "nilpotent_jordan states N²=0 and ker(N)≠top but never finite_character_functor. Both a generalized-character definition and the incorrect first-kernel definition pass this test."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.5/derived-finite-character",
-        "verdict": "verified",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against franke §4 Theorem 7 and equation (4.4)."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.5/franke-filtration",
-        "verdict": "unverifiable",
-        "note": "rank_only_fails is only 0<1 and ¬1<1. It must give two constant-term exponents at the same parabolic rank whose filtration levels differ."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.5/eisenstein-principal-value",
-        "verdict": "unverifiable",
-        "note": "direction_dependence computes finite parts of z/z and 2z/z as two different one-variable germs. It does not evaluate one multivariable germ along two directions as the packet claims."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.5/franke-graded-isomorphism",
-        "verdict": "verified",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against franke §6 Theorem 14, equation (14). Proof closure remains explicitly open: Franke graded-piece weight/index integration."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.5/weighted-finite-character-acyclic",
-        "verdict": "verified",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against franke §7 Theorem 16. Proof closure remains explicitly open: Franke graded-piece weight/index integration."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.5/constant-term-resolution",
-        "verdict": "verified",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against franke §7.1 Theorem 17."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.5/franke-comparison",
-        "verdict": "verified",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against franke §7.4 Theorem 18."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.5/gl-sl-cuspidal-diagram",
-        "verdict": "corrected",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against bcg25 Remark 1.2, pp.511–512. Corrected prerequisites. Proof closure remains explicitly open: General GLₙ cohomological and multiplicity-one input."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.2/isobaric-sum",
-        "verdict": "corrected",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against bcgp21 Notation preceding automorphic representation results. Checked API against consumers and all three packet/Lean tests. Corrected statement, acceptance. Proof closure remains explicitly open: Franke–Schwermer primary source and GLₙ synthesis."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.5/franke-schwermer-support",
-        "verdict": "verified",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against cgh20 §3 proof of Lemma 3.1, citing FS98 Theorem 2.3. Proof closure remains explicitly open: Franke–Schwermer primary source and GLₙ synthesis."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.5/isobaric-realization",
-        "verdict": "verified",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against cgh20 §3 proof of Lemma 3.1. Proof closure remains explicitly open: General GLₙ cohomological and multiplicity-one input; Franke–Schwermer primary source and GLₙ synthesis."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.6/real-invariant-paley-wiener",
-        "verdict": "verified",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against clozeldelorme90 §0 Theorem 1(i)–(iv), pp.194–195; §5 Theorem 1′. Proof closure remains explicitly open: Real harmonic-analysis prefix before ET.1."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.6/real-operator-paley-wiener",
-        "verdict": "corrected",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against arthur83acta III §4 Theorem 4.1, pp.84–85. Corrected sources. Proof closure remains explicitly open: Real harmonic-analysis prefix before ET.1."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.6/spectral-multiplier",
-        "verdict": "verified",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against arthur83acta III §4 Theorem 4.2 and its proof, pp.86–87. Checked API against consumers and all three packet/Lean tests. Proof closure remains explicitly open: Real harmonic-analysis prefix before ET.1."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.6/automorphic-kernel",
-        "verdict": "unverifiable",
-        "note": "noncompact_diagonal only integrates the constant one on a half-line. Specify an actual periodized kernel and quotient for which its untruncated diagonal fails to be integrable."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.6/coarse-truncated-kernel",
-        "verdict": "unverifiable",
-        "note": "anisotropic assumes an arbitrary function is constant and rank_one only subtracts a from a+bT. Neither tests the coarse truncated kernel or its polynomial dependence."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.6/coarse-trace-identity",
-        "verdict": "verified",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against arthur05 §14 Theorem 14.1; §16 (16.1); PDF page 74."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.6/gm-family",
-        "verdict": "unverifiable",
-        "note": "rank_zero and rank_one are scalar finite-sum/limit formulas without gm_family; bad_wall is merely 1≠0. The tests need actual family data and rejection of unequal restrictions on a shared wall."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.6/gm-splitting",
-        "verdict": "verified",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against arthur05 §17 Lemmas 17.4–17.6, (17.8), (17.12)–(17.14)."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.6/weighted-orbital-integral",
-        "verdict": "unverifiable",
-        "note": "rank_one_volume and measure_scaling are scalar identities without the orbital integral, its convex-hull weight or quotient Haar measures. They do not distinguish a wrongly chosen weight."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.6/weighted-character",
-        "verdict": "unverifiable",
-        "note": "rank_one_derivative is only a derivative of CLM composition and normalization_change only differentiates exp at zero. Neither tests the weighted character trace or its change under scalar normalizing factors."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.6/fine-geometric-expansion",
-        "verdict": "verified",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against arthur05 §19 Theorems 19.1–19.2 and Corollary 19.3 (19.10)."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.6/fine-spectral-expansion",
-        "verdict": "verified",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against arthur05 §21 Theorem 21.6, Corollary 21.7; Remarks 3–4; Arthur88global Theorem4.4; arthur05 §21 (21.5), p.129, and Corollary21.3, p.134; arthur88global Theorem4.4 proof, p.520, first coefficient in the proof."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.6/almost-compact-test-space",
-        "verdict": "unverifiable",
-        "note": "fiberwise_only is merely that no finite set contains all naturals. It must exhibit a family with compact height fibres and unbounded K-types and assert failure of the uniform Γ condition."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.6/invariant-recursion",
-        "verdict": "verified",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against arthur05 §23 Theorems 23.2–23.3, (23.3)–(23.4), (23.10). Checked API against consumers and all three packet/Lean tests. Proof closure remains explicitly open: Nonarchimedean invariant trace Paley–Wiener supplier."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.6/invariant-trace-formula",
-        "verdict": "verified",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against arthur05 §23 Theorem23.4 (23.11)–(23.13); Arthur88global §§3–6."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.6/compact-trace-specialization",
-        "verdict": "verified",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against arthur05 §1 compact quotient formula; §16 (16.1)′′; PDF page 8. Proof closure remains explicitly open: Compact-quotient Sobolev trace-class input; Weighted orbital estimate and general L²-cohomology primary prerequisites."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.6/general-euler-poincare",
-        "verdict": "unverifiable",
-        "note": "all three tests are finite alternating arithmetic or trace(0)=0. None evaluates general_euler_poincare on a representation or the relative cochain complex."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.6/l2-lefschetz",
-        "verdict": "corrected",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against arthur89lefschetz Arthur89 §2, p.264 (compact-Cartan hypothesis), Proposition 2.1; §3 Proposition 3.2; §6 Theorem 6.1; CT20 §1.4. Corrected hypotheses, prerequisites, sources. Proof closure remains explicitly open: Weighted orbital estimate and general L²-cohomology primary prerequisites."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.1/yu-010",
-        "verdict": "corrected",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against yu23 Yu arXiv:1807.04659v5 (18 July 2022), §2.2.3, p. 9 (M(A)^0, Ξ_M, X_M, X_M^L); unitary parts Im X in §4. Checked API against consumers and all three packet/Lean tests. Corrected hypotheses. Proof closure remains explicitly open: Yu 010 external proof inputs."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.4/yu-017",
-        "verdict": "unverifiable",
-        "note": "test1 is 1≠0 without the discrete space, and test3 is pointwise cancellation of a scalar denominator without the quotient measure. They do not test the norm on the stated quotient. Corrections already applied: hypotheses."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.4/yu-018",
-        "verdict": "corrected",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against yu23 Yu arXiv:1807.04659v5 (18 July 2022), §2.3.3 pp11–12. Checked API against consumers and all three packet/Lean tests. Corrected hypotheses."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.4/yu-019",
-        "verdict": "unverifiable",
-        "note": "test1 and test2 only permute raw tuples; test3 asserts equality of arbitrary sets without the good-pair normal form. None tests the constructed distinguished inducing representative. Corrections already applied: hypotheses."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.4/yu-020",
-        "verdict": "corrected",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against yu23 Yu arXiv:1807.04659v5 (18 July 2022), §2.3.4, p. 12, Théorème 2.3.6 (the theorem is on p. 12 only). Corrected hypotheses. Proof closure remains explicitly open: Yu 020 external proof inputs; Function-field spectral analytic sources."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.4/yu-021",
-        "verdict": "corrected",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against yu23 Yu arXiv:1807.04659v5 (18 July 2022), Proposition 2.3.7 p13. Corrected hypotheses. Proof closure remains explicitly open: Yu 021 external proof inputs."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.3/yu-022",
-        "verdict": "unverifiable",
-        "note": "test1 computes a total and an average without the block projection yu_022; test2 assumes x=0 and concludes x=0. The relative-root helper test is meaningful, but the two projection tests do not match the packet. Corrections already applied: hypotheses, prerequisites."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.3/yu-023",
-        "verdict": "unverifiable",
-        "note": "test3 is n+m+k=m under n=k=0, without a parabolic height or cone cutoff. It does not test the central/Levi/unipotent factorization stated in the packet. Corrections already applied: hypotheses, prerequisites."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.6/yu-024",
-        "verdict": "unverifiable",
-        "note": "test3 is a−b≠a under b≠0, without the truncated kernel or fixed-degree trace. It cannot test that dropping a proper-parabolic term changes that trace. Corrections already applied: hypotheses."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.6/yu-025",
-        "verdict": "corrected",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against yu23 Yu arXiv:1807.04659v5 (18 July 2022), §3.2.1; Theorem 3.3.1; Laf97 p227; Ch15 Definition4.5.3. Corrected hypotheses."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.6/yu-038",
-        "verdict": "corrected",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against yu23 Yu arXiv:1807.04659v5 (18 July 2022), AppendixB pp78–79. Checked API against consumers and all three packet/Lean tests. Corrected hypotheses, proofSteps, prerequisites, sources, tests. Proof closure remains explicitly open: Yu 038 external proof inputs."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.6/yu-039",
-        "verdict": "corrected",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against yu23 Yu arXiv:1807.04659v5 (18 July 2022), Appendix B, p. 79; [Ch15, Théorème 6.2.1, Corollaires 5.2.2–5.2.3]. Corrected hypotheses. Proof closure remains explicitly open: Yu 039 external proof inputs."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.6/yu-047",
-        "verdict": "corrected",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against yu23 Yu arXiv:1807.04659v5 (18 July 2022), §4.1.1, p. 21, and §4.1.3, p. 22. Checked API against consumers and all three packet/Lean tests. Corrected hypotheses."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.6/yu-048",
-        "verdict": "corrected",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against yu23 Yu arXiv:1807.04659v5 (18 July 2022), §4.1.5–4.1.6, p. 22. Checked API against consumers and all three packet/Lean tests. Corrected hypotheses."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.6/yu-049",
-        "verdict": "unverifiable",
-        "note": "test2 is 1≠2 and does not compare the root and coroot products or a (G,M)-family wall condition. Corrections already applied: hypotheses."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.6/yu-050",
-        "verdict": "corrected",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against yu23 Yu arXiv:1807.04659v5 (18 July 2022), §4.2.1–4.2.2, p. 23, Théorème 4.2.2 and (4.2.2)–(4.2.5). Corrected hypotheses."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.6/yu-051",
-        "verdict": "corrected",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against yu23 Yu arXiv:1807.04659v5 (18 July 2022), §4.2.2, pp. 23–24, Proposition 4.2.3 (variant of Arthur 1981, Corollary 6.5). Corrected hypotheses."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.6/yu-052",
-        "verdict": "corrected",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against yu23 Yu arXiv:1807.04659v5 (18 July 2022), Theorem4.2.4 pp24–26. Corrected hypotheses."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.6/yu-053",
-        "verdict": "corrected",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against yu23 Yu arXiv:1807.04659v5 (18 July 2022), Lemma4.2.5 p26. Corrected hypotheses. Proof closure remains explicitly open: Yu 053 external proof inputs."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.6/yu-054",
-        "verdict": "corrected",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against yu23 Yu arXiv:1807.04659v5 (18 July 2022), Corollary4.2.6 p27, corrected E4. Corrected hypotheses."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.6/yu-055",
-        "verdict": "corrected",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against yu23 Yu arXiv:1807.04659v5 (18 July 2022), Lemmas4.2.7–4.2.8 pp27–29. Corrected hypotheses."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.3/yu-056",
-        "verdict": "unverifiable",
-        "note": "test1 and test2 are scalar arithmetic without the canonical parabolic selector. Specify the block projection and actual maximal-parabolic selection/non-example. Corrections already applied: hypotheses."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.3/yu-058",
-        "verdict": "corrected",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against yu23 Yu arXiv:1807.04659v5 (18 July 2022), §5.2.1 pp31–32. Checked API against consumers and all three packet/Lean tests. Corrected hypotheses."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.3/yu-059",
-        "verdict": "corrected",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against yu23 Yu arXiv:1807.04659v5 (18 July 2022), Proposition5.2.1 p32, E7. Corrected hypotheses."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.1/yu-060",
-        "verdict": "unverifiable",
-        "note": "test3 is 2 inverse ≠2 and does not apply the change-of-section map to a vector; the desired rho sign test must use yu_060. Corrections already applied: hypotheses."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.2/yu-061",
-        "verdict": "unverifiable",
-        "note": "test1 and test3 impose identity/cocycle conclusions on arbitrary M, and test2 only composes an equivalence with its inverse. Relate all three to the normalized function-field intertwiner yu_061. Corrections already applied: hypotheses."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.6/yu-062",
-        "verdict": "corrected",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against yu23 Yu arXiv:1807.04659v5 (18 July 2022), §5.2.3 pp34–35. Corrected hypotheses."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.6/yu-063",
-        "verdict": "corrected",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against yu23 Yu arXiv:1807.04659v5 (18 July 2022), Theorem5.2.2 andCorollary5.2.3 pp33–36; corrected Laf97 theorem. Corrected hypotheses. Proof closure remains explicitly open: Function-field spectral analytic sources."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.4/yu-065",
-        "verdict": "corrected",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against yu23 Yu arXiv:1807.04659v5 (18 July 2022), Proposition5.3.1 andRemark5.3.2 pp36–39. Corrected hypotheses. Proof closure remains explicitly open: Yu 065 external proof inputs; Function-field spectral analytic sources."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.2/yu-066",
-        "verdict": "corrected",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against yu23 Yu arXiv:1807.04659v5 (18 July 2022), Proposition5.3.4 p39, E12. Corrected hypotheses. Proof closure remains explicitly open: Yu 066 external proof inputs; Function-field spectral analytic sources; Local analytic extensions beyond representation carriers."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.3/yu-115",
-        "verdict": "unverifiable",
-        "note": "test1 expands floors without the named exponent function, and test3 only multiplies −z inverse by z without the cutoff factor. test2 tests the telescoping sum correctly. Corrections already applied: hypotheses."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.3/yu-116",
-        "verdict": "corrected",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against yu23 Yu arXiv:1807.04659v5 (18 July 2022), LemmaA.2 pp75–76, E24. Corrected hypotheses. Proof closure remains explicitly open: Function-field root and coprime cutoff proof adapters."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.3/yu-117",
-        "verdict": "corrected",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against yu23 Yu arXiv:1807.04659v5 (18 July 2022), LemmaA.3 pp76–77. Corrected hypotheses. Proof closure remains explicitly open: Function-field root and coprime cutoff proof adapters."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.0/yu-145",
-        "verdict": "verified",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against yu23 Yu arXiv:1807.04659v5, §§5.2.2–5.2.3 pp32–36; detailed derivation in the continuation report. Checked API against consumers and all three packet/Lean tests."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.0/yu-146",
-        "verdict": "verified",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against yu23 Yu arXiv:1807.04659v5, §§5.2.2–5.2.3 pp32–36; detailed derivation in the continuation report."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.0/yu-147",
-        "verdict": "verified",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against yu23 Yu arXiv:1807.04659v5, §§5.2.2–5.2.3 pp32–36; detailed derivation in the continuation report."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.0/yu-148",
-        "verdict": "unverifiable",
-        "note": "test2 is a scalar square identity and test3 is 2≠1, with no covering p or yu_148. The normalized finite-fibre transfer is correct, but these are not the circle-cover tests stated in the packet."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.0/yu-149",
-        "verdict": "unverifiable",
-        "note": "The packet Fourier theorem is correctly stated for the full dual of a smooth compact abelian Lie group with probability Haar. The prototype omits even probability measure normalization, which is already expressible, and has no reviewable finite-group/torus specialization. μ=0 and f=1 give zero on the left and transfer one on the right."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.0/yu-150",
-        "verdict": "verified",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against yu23 Yu arXiv:1807.04659v5, §§5.2.2–5.2.3 pp32–36; detailed derivation in the continuation report. Proof closure remains explicitly open: Yu 150 external proof inputs."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.6/yu-151",
-        "verdict": "unverifiable",
-        "note": "test1 multiplies arbitrary ones and degrees without the covering map or finite kernel. It does not compute the actual covering degree in the all-cycle-length-one case. Corrections already applied: hypotheses, prerequisites."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.6/yu-152",
-        "verdict": "corrected",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against yu23 Yu arXiv:1807.04659v5, §§5.2.2–5.2.3 pp32–36; detailed derivation in the continuation report. Corrected hypotheses. Proof closure remains explicitly open: Yu 152 external proof inputs."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.1/yu-153",
-        "verdict": "unverifiable",
-        "note": "test1 and test3 are scalar arithmetic without the source/target section map or measure. normalizedSection alone does not test the full section transport and norm compensation. Corrections already applied: hypotheses."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.3/yu-157",
-        "verdict": "corrected",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against yu23 Yu arXiv:1807.04659v5 (18 July 2022), §3.3.1, p. 20, and Remarque 3.3.3, p. 19; [Ch15, Définition 4.5.3, Proposition 4.5.5]. Corrected hypotheses, prerequisites. Proof closure remains explicitly open: Function-field root and coprime cutoff proof adapters."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.6/yu-164",
-        "verdict": "corrected",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against yu23 Yu arXiv:1807.04659v5 (18 July 2022), §5.2.3, p. 33, equation (5.2.8); p. 36, displays before Corollaire 5.2.3. Corrected hypotheses, prerequisites."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.6/yu-165",
-        "verdict": "corrected",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against yu23 Yu arXiv:1807.04659v5 (18 July 2022), §5.2.3, p. 34, proof of Théorème 5.2.2, equation (5.2.10). Corrected hypotheses, prerequisites. Proof closure remains explicitly open: Function-field spectral analytic sources."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.4/yu-166",
-        "verdict": "corrected",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against yu23 Yu arXiv:1807.04659v5 (18 July 2022), §5.3.1, pp. 38–39, proof of Proposition 5.3.1 (citing [MW94, V.3.13(iii)] and [MW94, II.1.5]). Corrected hypotheses, prerequisites. Proof closure remains explicitly open: Function-field spectral analytic sources."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.6/yu-169",
-        "verdict": "verified",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against yu23 §4.2.3 proof of Théorème4.2.4, p.26, k=m case; citing Ar82 pp.1319–1320."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.3/yu-175",
-        "verdict": "corrected",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against yu23 Yu arXiv:1807.04659v5 (18 July 2022), Appendix A, pp. 75–76, input to Lemme A.2 (supplement; not stated in the paper). Corrected hypotheses."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.1/dit-57",
-        "verdict": "unverifiable",
-        "note": "test1 only expands rpowC, without the Eisenstein constant term claimed by the packet. Retain the primitive-pair and divergence tests and add the actual constant-term asymptotic."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.1/dit-58",
-        "verdict": "corrected",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against dit16 (5.3). Checked API against consumers and all three packet/Lean tests. Corrected prerequisites, sources."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.2/dit-59",
-        "verdict": "corrected",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against dit16 §5, (5.3), p962. Corrected sources."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.2/dit-60",
-        "verdict": "verified",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against dit16 §5, text before (5.4), (5.4) and (5.5), p962."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.1/dit-88",
-        "verdict": "unverifiable",
-        "note": "test3 only says that a zero integer fails a nonzero-index condition. It must check the excluded zero-index case of the coefficient construction; the branch tests otherwise use the named sign helper."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.1/dit-89",
-        "verdict": "unverifiable",
-        "note": "test3 only tests divergence of an unrelated exponential on a cusp interval. Connect it to the actual growing seed and failure of its Poincaré family to be L²."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.1/dit-90",
-        "verdict": "verified",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against dit16 §8, p973."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.2/dit-91",
-        "verdict": "unverifiable",
-        "note": "all three tests are arithmetic of spectral denominators. None applies the resolvent to an eigenvector or relates the parameter denominator to dit_91."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.2/dit-92",
-        "verdict": "verified",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against dit16 (8.4). Proof closure remains explicitly open: Modular resolvent primary source and noncompact boundary realization."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.2/dit-93",
-        "verdict": "verified",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against dit16 Proposition3, pp973–974. Proof closure remains explicitly open: Modular resolvent primary source and noncompact boundary realization; Modular core and boundary-residue adapters."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.2/dit-94",
-        "verdict": "verified",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against dit16 §8, pp974–975. Proof closure remains explicitly open: Modular resolvent primary source and noncompact boundary realization; Modular core and boundary-residue adapters."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.1/dit-105",
-        "verdict": "unverifiable",
-        "note": "test1 is 1·2≠1, test2 is interval-integral reversal for an arbitrary f, and test3 is existence of a bounded nondifferentiable function. None tests the smooth weight-two Poincaré one-form; test3 also misses the smooth seed with uncontrolled derivative convergence intended by the packet. Corrections already applied: statement, sources."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.1/dit-110",
-        "verdict": "verified",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against dit16 (9.2)."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.0/dit-112",
-        "verdict": "corrected",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against dit11 DIT11 Appendix A, (A.1)–(A.2), p. 977; DIT16 §5, p. 961; the series for M_{μ,s−1/2} is the display on DIT16 p. 984. Checked API against consumers and all three packet/Lean tests. Corrected api, tests."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.0/dit-113",
-        "verdict": "verified",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against dit11 DIT11 AppendixA, p977."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.0/dit-114",
-        "verdict": "corrected",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against dit11 DIT11 Appendix A, (A.3)–(A.5), printed p.977. Corrected sources."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.0/dit-115",
-        "verdict": "verified",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against dit16 AppendixA, p984; [23]3.892(1)."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.0/dit-118",
-        "verdict": "verified",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against dit16 Lemma 7, display (9.4), p. 980 (statement); restated as (A.1), Appendix A, p. 983; proof Appendix A, pp. 983–985."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.4/dit-138",
-        "verdict": "verified",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against dit16 Lemma1 proof, p972."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.0/dit-165",
-        "verdict": "verified",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against dit16 Appendix A, proof of (A.1), p. 984: the displays from 'Using this last equation gives for the integral in (A.1)' to 'This proves that both sides of (A.1) satisfy the same differential equation', including the boundary term [e^{i(t cos θ+μθ)}M_{μ,λ}(2t sin θ)]_0^π = 0."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.4/dit-wrong-sign-weyl-integrals-vanish",
-        "verdict": "corrected",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against dit16 §5, p963, paragraph after (5.12). Corrected prerequisites. Proof closure remains explicitly open: Modular core and boundary-residue adapters."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.4/dit-eisenstein-integrable-over-core",
-        "verdict": "corrected",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against dit16 §5, p963 ('by (5.3)'). Corrected hypotheses, proofSteps. Proof closure remains explicitly open: Modular core and boundary-residue adapters."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.1/dit-fourier-expansion-weight0-poincare",
-        "verdict": "verified",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against dit16 §8, p.974, citing [20] and [16]."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.2/dit-resolvent-fourier-expansion-weight0",
-        "verdict": "verified",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against dit16 (8.3), p.973, citing Fay [20, Thm 3.1, p.173]. Proof closure remains explicitly open: Modular resolvent primary source and noncompact boundary realization."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.0/dit-appendix-a2-series-of-whittaker-cycle-integral",
-        "verdict": "verified",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against dit16 Appendix A, (A.2), p. 985 (derivation p. 984)."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.0/dit-appendix-a3-series-of-rhs",
-        "verdict": "verified",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against dit16 Appendix A, (A.3), p. 985."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.0/dit-appendix-a-leading-coefficient-match",
-        "verdict": "verified",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against dit16 Appendix A, p. 985 (last paragraph of the proof)."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.0/gz-64",
-        "verdict": "corrected",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against gz86 Chapter II, §2, (2.5), (2.6), p. 238; inspected printed p.238. Checked API against consumers and all three packet/Lean tests. Corrected the suggested signature/normalization."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.0/gz-65",
-        "verdict": "verified",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against gz86 Chapter II, §2, (2.7), (2.8), p. 238; inspected printed p.238."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.0/gz-66",
-        "verdict": "corrected",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against gz86 Chapter II, §2, (2.4), (2.9), pp. 238–239; inspected printed p.238. Checked API against consumers and all three packet/Lean tests. Corrected the suggested signature/normalization."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.2/gz-68",
-        "verdict": "verified",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against gz86 Chapter II, §2, (2.13), p. 239; inspected printed p.239. Proof closure remains explicitly open: Gross–Zagier resolvent source and regularized derivative integrals; Effective modular-group and Green-resolvent integration."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.1/gz-69",
-        "verdict": "unverifiable",
-        "note": "nonprimitive is an unrelated inverse-square series ≠1; it must compare the primitive and unrestricted Eisenstein sums and their zeta factor."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.1/gz-70",
-        "verdict": "verified",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against gz86 Chapter II, §2, (2.16), p. 240; p. 241; inspected printed p.240."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.0/gz-108",
-        "verdict": "verified",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against gz86 Chapter II, §5, display after (5.7), p. 251; inspected printed p.251."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.1/gz-179",
-        "verdict": "unverifiable",
-        "note": "sign_pair and wrong_parity are scalar parity identities without the lattice sum or characters. They do not test cancellation or equality of the actual sign-paired series. Corrections already applied: prerequisites."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.1/gz-192",
-        "verdict": "unverifiable",
-        "note": "odd_product is a scalar identity and nonfundamental is only ¬Squarefree(12). Neither checks the two character lattice sum or its required fundamental discriminant. Corrections already applied: proofSteps, prerequisites."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.0/gz-207",
-        "verdict": "verified",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against gz86 Chapter IV, (3.2) Proposition, p. 277; inspected printed p.277. Checked API against consumers and all three packet/Lean tests."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.1/gz-208",
-        "verdict": "verified",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against gz86 Chapter IV, §3, proof of (3.2), p. 278; inspected printed p.278."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.1/gz-209",
-        "verdict": "verified",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against gz86 Chapter IV, §3, proof of (3.2), pp. 278–279; inspected printed p.279."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.0/gz-212",
-        "verdict": "verified",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against gz86 Chapter IV, §3, (3.3) Proposition a), p. 277; proofs pp. 279–280; inspected printed p.279."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.0/gz-213",
-        "verdict": "verified",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against gz86 Chapter IV, §3, (3.3) Proposition b), p. 277; proof pp. 280–281; inspected printed p.280. Proof closure remains explicitly open: Gross–Zagier resolvent source and regularized derivative integrals."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.0/gz-214",
-        "verdict": "corrected",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against gz86 Chapter IV, §3, (3.3) Proposition c), p. 278; proof p. 280; inspected printed p.280. Corrected statement."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.0/gz-215",
-        "verdict": "verified",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against gz86 Chapter IV, §3, (3.3) Proposition d), p. 278; proof p. 281; inspected printed p.281. Proof closure remains explicitly open: Gross–Zagier resolvent source and regularized derivative integrals."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.0/gz-216",
-        "verdict": "verified",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against gz86 Chapter IV, §3, (3.3) Proposition e), p. 278; proof p. 281; inspected printed p.281. Proof closure remains explicitly open: Gross–Zagier resolvent source and regularized derivative integrals."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.0/gz-217",
-        "verdict": "verified",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against gz86 Chapter IV, §3, proof of (3.3), p. 280; inspected printed p.280. Proof closure remains explicitly open: Gross–Zagier resolvent source and regularized derivative integrals."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.1/gz-241",
-        "verdict": "verified",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against gz86 Chapter IV §5 proof of (5.1), p.289; estimate follows from II(2.17), inspected p.240."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.1/gz-265",
-        "verdict": "verified",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against gz86 Chapter IV, §6, proof of (6.2), pp. 298-299; inspected printed p.299."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.0/schwartz-family-continuation",
-        "verdict": "unverifiable",
-        "note": "The suggested theorem omits the two-sided functional equation and initial Schwartz finite strip order, which are expressible with its existing normed Schwartz carrier. exp((1−s)x²) is Schwartz for Re(s)>1 and entire pointwise, but at s=1 is the non-Schwartz constant one."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.0/lf-dual-continuation",
-        "verdict": "unverifiable",
-        "note": "The suggested theorem quantifies arbitrary all-plane algebraic functionals instead of constructing continuous extensions of initial half-plane continuous functionals with a common scalar order. A constant discontinuous functional vanishing on a proper dense subspace satisfies its hypotheses and violates its conclusion. Corrections already applied: statement, proofSteps."
-      },
-      {
-        "nodeId": "AutomorphicSpectralTheory:AS.2/automorphic-green",
-        "verdict": "verified",
-        "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against gz86 ChapterII §2 equations(2.10)–(2.13), p.239. Checked API against consumers and all three packet/Lean tests. Proof closure remains explicitly open: Effective modular-group and Green-resolvent integration."
-      }
-    ]
-  }
+    "notes": "Independent scoped review of RT-AREA-automorphic-1/4,/5,/20,/24, following REV-FIX-RT-AREA-automorphic-1~2 and the archived REV-AutomorphicSpectralTheory. Corrected local rather than global real induction, fixed-central versus full-height pseudo-Eisenstein conventions, Fourier sign/contour normalization, the nonzero-vector growth test, irreducible multiplier qualifier, direct Whittaker prerequisites, differentiated DIT proof scope and positive rank-one ordering. Confirmed new Arthur05 sign misprint E37 by page image and identity-Weyl substitution. Replaced scoped false universal signatures with exact omissions and sound constructor-based torus, shell-integral, scalar-mu, weighted-integral and Fourier-image multiplier fragments. All24 AS baseline statements were freshly read at the pins. Whole-packet needs_changes remains: schwartz_family_continuation, lf_dual_continuation and yu_149 retain explicit counterexamples, and several B4 tests still do not test their packet objects. Required reader synchronization is outside this issue. No fresh all-190-node audit or Lean compilation is claimed."
+  },
+  "reviewHistory": [
+    {
+      "status": "needs_changes",
+      "reviewer": "independent-review-REV-AutomorphicSpectralTheory",
+      "date": "2026-10-07",
+      "notes": "Independent target-level review of all 191 input nodes (190 retained), all source locators/excerpts, 24 pinned baseline declarations, 21 supplier requests, 128 routes, 223 API items, 219 tests and 38 planets. Corrected clear source, normalization, hypothesis and ownership defects and independently adjudicated 36 sourceIssues. Honest proof gaps do not by themselves prevent acceptance. Remaining blockers are false continuation prototypes and packet/Lean test mismatches itemized in checked and the report. Full Lean check is unavailable because the shared build lacks a required Tau Ceti object; the Mathlib-only diagnostic elaborates with provisional-proof warnings only. No formalization is claimed.",
+      "checked": [
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.0/measurable-hilbert-field",
+          "verdict": "corrected",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against yetter §2 Definition 1 and Example 4. Checked API against consumers and all three packet/Lean tests. Corrected tests."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.0/direct-integral",
+          "verdict": "corrected",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against yetter §4 Definition26, p.13; Theorem27, pp.13–14. Checked API against consumers and all three packet/Lean tests. Corrected tests."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.0/decomposable-operator",
+          "verdict": "unverifiable",
+          "note": "identity tests the norm of CLM.id rather than the decomposable construction; unbounded_multiplier tests an a.e. scalar bound without linking multiplication to the operator. Keep null_change, and add the actual identity and scalar multiplication instances."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.0/isometric-integration-map",
+          "verdict": "verified",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against teschl §0.4 Theorem0.26 (B.L.T. theorem), pp.23–24."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.0/projection-valued-measure",
+          "verdict": "verified",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against teschl §3.1 equations (3.5)–(3.15); PDF page 100. Checked API against consumers and all three packet/Lean tests."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.0/herglotz-representation",
+          "verdict": "corrected",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against teschl §3.4 Theorem 3.20; shapiro25 §10.1 Theorem 10.5, equation (10.1), and proof, printed pp.125–126. Corrected sources. Proof closure remains explicitly open: Positive harmonic Poisson representation."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.0/unbounded-selfadjoint-spectral",
+          "verdict": "verified",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against teschl §3.1 Theorems 3.1–3.7; §3.3 Theorem 3.17."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.0/bounded-normal-spectral",
+          "verdict": "corrected",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against teschl §3.1 bounded functional calculus and §3.3 multiplication models. Corrected the suggested signature/normalization. Proof closure remains explicitly open: Bounded-normal joint-measure proof."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.0/hilbert-schmidt",
+          "verdict": "unverifiable",
+          "note": "infinite_identity and finite_identity only assert scalar series/square-root facts. They never assert non-membership or the norm of the identity operator, so they do not match the two packet tests."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.0/trace-class",
+          "verdict": "unverifiable",
+          "note": "diagonal_harmonic is only a pair of scalar summability facts, with no diagonal operator or trace-class membership. The compact positive eigenbasis prerequisite was corrected; the test still needs its actual operator. Corrections already applied: proofSteps, prerequisites, sources."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.0/kernel-trace-diagonal",
+          "verdict": "verified",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against teschl §6.3 kernel expansion (6.10)–(6.12) and Lemma 6.15."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.0/nuclear-lf-space",
+          "verdict": "unverifiable",
+          "note": "finite_group only states finite dimensionality, real_line only states a support-set equality, and escaping_support only excludes one compact support. None tests the LF topology, strictness, nuclearity or boundedness of a family."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.0/locally-convex-integration",
+          "verdict": "verified",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against bpcz22 Appendix A.0.2 and Lemmas A.0.6.1–A.0.6.2; PDF page 145."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.0/projective-tensor",
+          "verdict": "verified",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against bpcz22 Appendix A.0.7; PDF page 148. Checked API against consumers and all three packet/Lean tests. Proof closure remains explicitly open: Locally convex Schwartz kernel integration."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.0/vector-schwartz",
+          "verdict": "verified",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against bpcz22 Appendix A.0.8–A.0.9, Lemma A.0.9.1; PDF page 149. Checked API against consumers and all three packet/Lean tests. Proof closure remains explicitly open: Locally convex Schwartz kernel integration."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.0/operator-meromorphic",
+          "verdict": "unverifiable",
+          "note": "pointwise_orders is only the unboundedness of the natural numbers. It must exhibit the direct-sum operator family and failure of a common denominator; the strong-topology proof remains an honest separate gap."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.0/analytic-fredholm",
+          "verdict": "verified",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against teschl §6.2 Fredholm alternative and analytic perturbation motivation; PDF page 148. Proof closure remains explicitly open: Analytic Fredholm source closure."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.0/distribution-convergence",
+          "verdict": "verified",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against bpcz22 Appendix A.0.2–A.0.5; PDF page 146."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.0/vector-phragmen-lindelof",
+          "verdict": "verified",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against bpcz22 Appendix A.0.8 definition; Lemma A.0.10.1, printed p.332."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.1/induced-family",
+          "verdict": "unverifiable",
+          "note": "rank_one_half_modulus is an exponential identity and unnormalized_not_unitary is sqrt(4)≠1; neither tests the induced action or its Hilbert norm. The whole_group test is an actual specialization."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.1/eisenstein-series",
+          "verdict": "verified",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against arthur05 §7 equation (7.1) and Lemma 7.1. Checked API against consumers and all three packet/Lean tests."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.1/eisenstein-convergence",
+          "verdict": "verified",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against arthur05 §7 Lemma 7.1; §13 paragraph after Proposition 13.2. Proof closure remains explicitly open: Uniform differentiated chamber estimates."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.1/convergent-intertwiner",
+          "verdict": "unverifiable",
+          "note": "sl2_spherical uses an arbitrary M without relating it to convergent_intertwiner; target_parabolic is merely an inhabited CLM type filled by an admitted term, not a Weyl-transport assertion. The identity quotient test alone matches the object."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.1/cuspidal-constant-term",
+          "verdict": "verified",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against langlands66 §3 Lemma 3 and following Bruhat computation. Proof closure remains explicitly open: General nonassociate constant-term indexing; Global rational Bruhat indexing."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.1/pseudo-eisenstein",
+          "verdict": "unverifiable",
+          "note": "split_torus states scalar Fourier inversion and wrong_entire_growth a scalar growth failure without linking either to pseudo_eisenstein or its allowed section. Add actual torus pseudo-Eisenstein and excluded-section statements."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.1/pseudo-eisenstein-l2",
+          "verdict": "verified",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against arthur05 §12 Lemma 12.2."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.1/pseudo-eisenstein-inner-product",
+          "verdict": "verified",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against langlands66 §4 Corollary formula (2)."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.1/cuspidal-datum-space",
+          "verdict": "unverifiable",
+          "note": "inequivalent_same_levi is inequality of raw pairs and never mentions associate cuspidal data or their quotient. It cannot check whether the datum space wrongly merges inequivalent representations."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.1/cuspidal-data-orthosum",
+          "verdict": "verified",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against arthur05 §12 Lemma 12.4, equation (12.4). Proof closure remains explicitly open: Smooth globalization, weighted χ projections and Siegel cutoffs."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.2/local-intertwiner",
+          "verdict": "unverifiable",
+          "note": "p_adic_gl2_spherical asserts a formula for an arbitrary J without constructing the local integral; raw_not_unitary only evaluates a c-function. Add the actual unipotent integral on a spherical vector and its norm."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.2/mu-function",
+          "verdict": "unverifiable",
+          "note": "gl2_spherical only multiplies c-functions, while measure_scaling is a scalar inequality. Neither tests mu_function, its inverse convention, or a change of the two quotient measures."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.2/local-normalization",
+          "verdict": "verified",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against arthur89weighted §2 Theorem 2.1; §§3–4. Proof closure remains explicitly open: Local Harish-Chandra analytic inputs beyond suppliers; Local analytic extensions beyond representation carriers."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.2/eisenstein-continuation",
+          "verdict": "verified",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against arthur05 §7 Theorem 7.2(a), equations (7.3)–(7.4). Proof closure remains explicitly open: Langlands Chapter 7 residue-system proof; Smooth globalization, weighted χ projections and Siegel cutoffs."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.2/intertwiner-factorization",
+          "verdict": "corrected",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against arthur05 §21 equations (21.13)–(21.14). Corrected prerequisites."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.2/residue-calculus",
+          "verdict": "corrected",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against arthur05 §12 p.66 discussion of contour shifts. Checked API against consumers and all three packet/Lean tests. Corrected api. Proof closure remains explicitly open: Langlands Chapter 7 residue-system proof."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.2/shahidi-normalization",
+          "verdict": "unverifiable",
+          "note": "orthogonal_parity is inequality of enum constructors and unitary_dual an identity of complex units. They do not check which local L-factor the normalization actually uses or the dual packet relation. Corrections already applied: prerequisites."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.2/generic-standard-module",
+          "verdict": "corrected",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against jiangzhang20 Appendix B Proposition B.1 and (B.5)–(B.6). Corrected prerequisites. Proof closure remains explicitly open: Jiang–Zhang rank-one source closure; Local-factor and packet Part II beyond current owners."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.2/tempered-gl-intertwiner",
+          "verdict": "verified",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against jiangzhang20 Appendix B after (B.7)–(B.9), citing [66]. Proof closure remains explicitly open: Jiang–Zhang rank-one source closure."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.2/tempered-standard-intertwiner",
+          "verdict": "verified",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against jiangzhang20 Appendix B p.87. Proof closure remains explicitly open: Jiang–Zhang rank-one source closure; Local-factor and packet Part II beyond current owners."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.2/generic-normalized-intertwiner",
+          "verdict": "verified",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against jiangzhang20 Appendix B proof of Theorem B.2. Proof closure remains explicitly open: Jiang–Zhang rank-one source closure; Local-factor and packet Part II beyond current owners."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.2/jiang-zhang-holomorphy",
+          "verdict": "verified",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against jiangzhang20 Appendix B Theorem B.2 = §5.1 Theorem 5.1. Proof closure remains explicitly open: Jiang–Zhang rank-one source closure; Local-factor and packet Part II beyond current owners."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.3/truncation-cones",
+          "verdict": "unverifiable",
+          "note": "a2_distinction only states three numerical inequalities. Encode the A₂ root and dual-weight forms and apply the two named cutoff functions at the specified height. Corrections already applied: sources."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.3/arthur-truncation",
+          "verdict": "unverifiable",
+          "note": "sl2_constant only evaluates an if expression and never arthur_truncation. Give the actual rank-one truncation datum and the truncated constant function."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.3/truncation-projection",
+          "verdict": "verified",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against arthur05 §13 Proposition 13.1(a)–(c) and correction after statement. Proof closure remains explicitly open: Global rational Bruhat indexing."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.3/truncation-rapid-decay",
+          "verdict": "verified",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against arthur05 §13 Proposition 13.2(a)–(b), (13.5)–(13.6)."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.3/cuspidal-maass-selberg",
+          "verdict": "verified",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against arthur82ms Introduction formula (1); §9 ωᵀ formula."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.3/discrete-maass-selberg-asymptotic",
+          "verdict": "verified",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against arthur82ms §9 Theorem 9.1, Q=G, printed p.69."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.3/eisenstein-wave-packet",
+          "verdict": "unverifiable",
+          "note": "weyl_overcount is only (v+v)/2=v, with no packet map or compatible Weyl sections. The construction was moved to pointwise/truncated targets before the Gram theorem; the Weyl multiplicity test remains to be stated. Corrections already applied: proofSteps, acceptance."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.3/wave-packet-gram",
+          "verdict": "verified",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against arthur05 §7 Theorem 7.2(b) and §12 contour discussion; PDF page 35. Proof closure remains explicitly open: Uniform packet-limit argument."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.3/singular-parameter-limits",
+          "verdict": "verified",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against arthur82ms §§3–6 taking residues of the cuspidal pairing."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.4/associate-parameter-fields",
+          "verdict": "unverifiable",
+          "note": "rank_zero and rank_one are inverse-one and division-by-two identities without the measurable field, Weyl relation or weighted norm. The stabilizer kernel helper also needs to be linked to the compatible-field subspace."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.4/spectral-map",
+          "verdict": "verified",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against arthur05 §7 Theorem 7.2(b). Checked API against consumers and all three packet/Lean tests."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.4/spectral-orthosum",
+          "verdict": "verified",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against arthur05 §7 Theorem 7.2(b), equation (7.5); §12. Proof closure remains explicitly open: Langlands Chapter 7 residue-system proof."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.4/residual-spectrum",
+          "verdict": "unverifiable",
+          "note": "sl2_constant computes a scalar Eisenstein residue but does not assert that the constant vector spans residual_spectrum; non_l2_pole only tests a cusp exponent. Add the actual subspace/membership statements."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.4/discrete-finite-multiplicity",
+          "verdict": "verified",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against arthur05 §7 discrete decomposition and §12."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.4/hecke-central-compatibility",
+          "verdict": "verified",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against arthur05 §7 representation decomposition and §§12,15. Proof closure remains explicitly open: Local analytic extensions beyond representation carriers."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.4/compact-quotient-spectrum",
+          "verdict": "verified",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against arthur05 §§3–4 compact quotient trace formula; PDF page 8. Proof closure remains explicitly open: Compact-quotient Sobolev trace-class input."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.4/gl2-spectral-expansion",
+          "verdict": "verified",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against dit16 §5 equations (5.1)–(5.6). Proof closure remains explicitly open: Modular Weyl and pointwise analytic proof inputs; No exceptional level-one cusp spectrum; Weight-k modular Laplacian conjugation."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.4/modular-weyl-estimates",
+          "verdict": "verified",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against dit16 §5 equation (5.10) and paragraph after (5.11). Proof closure remains explicitly open: Modular Weyl and pointwise analytic proof inputs; No exceptional level-one cusp spectrum."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.4/wallach-cuspidality",
+          "verdict": "verified",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against wallach §4 Theorem 4.3 and its proof pp.233–234. Proof closure remains explicitly open: Essentially tempered reductive central adapter."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.5/weighted-l2-complex",
+          "verdict": "unverifiable",
+          "note": "cusp_power only computes scalar integrability. Connect the power vector and its differential to membership in weighted_l2_complex, including the critical boundary."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.5/weighted-regularization",
+          "verdict": "verified",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against franke §§2.2–2.3 and §3 Theorems 2–3."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.5/finite-character-functor",
+          "verdict": "unverifiable",
+          "note": "nilpotent_jordan states N²=0 and ker(N)≠top but never finite_character_functor. Both a generalized-character definition and the incorrect first-kernel definition pass this test."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.5/derived-finite-character",
+          "verdict": "verified",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against franke §4 Theorem 7 and equation (4.4)."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.5/franke-filtration",
+          "verdict": "unverifiable",
+          "note": "rank_only_fails is only 0<1 and ¬1<1. It must give two constant-term exponents at the same parabolic rank whose filtration levels differ."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.5/eisenstein-principal-value",
+          "verdict": "unverifiable",
+          "note": "direction_dependence computes finite parts of z/z and 2z/z as two different one-variable germs. It does not evaluate one multivariable germ along two directions as the packet claims."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.5/franke-graded-isomorphism",
+          "verdict": "verified",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against franke §6 Theorem 14, equation (14). Proof closure remains explicitly open: Franke graded-piece weight/index integration."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.5/weighted-finite-character-acyclic",
+          "verdict": "verified",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against franke §7 Theorem 16. Proof closure remains explicitly open: Franke graded-piece weight/index integration."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.5/constant-term-resolution",
+          "verdict": "verified",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against franke §7.1 Theorem 17."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.5/franke-comparison",
+          "verdict": "verified",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against franke §7.4 Theorem 18."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.5/gl-sl-cuspidal-diagram",
+          "verdict": "corrected",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against bcg25 Remark 1.2, pp.511–512. Corrected prerequisites. Proof closure remains explicitly open: General GLₙ cohomological and multiplicity-one input."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.2/isobaric-sum",
+          "verdict": "corrected",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against bcgp21 Notation preceding automorphic representation results. Checked API against consumers and all three packet/Lean tests. Corrected statement, acceptance. Proof closure remains explicitly open: Franke–Schwermer primary source and GLₙ synthesis."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.5/franke-schwermer-support",
+          "verdict": "verified",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against cgh20 §3 proof of Lemma 3.1, citing FS98 Theorem 2.3. Proof closure remains explicitly open: Franke–Schwermer primary source and GLₙ synthesis."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.5/isobaric-realization",
+          "verdict": "verified",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against cgh20 §3 proof of Lemma 3.1. Proof closure remains explicitly open: General GLₙ cohomological and multiplicity-one input; Franke–Schwermer primary source and GLₙ synthesis."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.6/real-invariant-paley-wiener",
+          "verdict": "verified",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against clozeldelorme90 §0 Theorem 1(i)–(iv), pp.194–195; §5 Theorem 1′. Proof closure remains explicitly open: Real harmonic-analysis prefix before ET.1."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.6/real-operator-paley-wiener",
+          "verdict": "corrected",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against arthur83acta III §4 Theorem 4.1, pp.84–85. Corrected sources. Proof closure remains explicitly open: Real harmonic-analysis prefix before ET.1."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.6/spectral-multiplier",
+          "verdict": "verified",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against arthur83acta III §4 Theorem 4.2 and its proof, pp.86–87. Checked API against consumers and all three packet/Lean tests. Proof closure remains explicitly open: Real harmonic-analysis prefix before ET.1."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.6/automorphic-kernel",
+          "verdict": "unverifiable",
+          "note": "noncompact_diagonal only integrates the constant one on a half-line. Specify an actual periodized kernel and quotient for which its untruncated diagonal fails to be integrable."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.6/coarse-truncated-kernel",
+          "verdict": "unverifiable",
+          "note": "anisotropic assumes an arbitrary function is constant and rank_one only subtracts a from a+bT. Neither tests the coarse truncated kernel or its polynomial dependence."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.6/coarse-trace-identity",
+          "verdict": "verified",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against arthur05 §14 Theorem 14.1; §16 (16.1); PDF page 74."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.6/gm-family",
+          "verdict": "unverifiable",
+          "note": "rank_zero and rank_one are scalar finite-sum/limit formulas without gm_family; bad_wall is merely 1≠0. The tests need actual family data and rejection of unequal restrictions on a shared wall."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.6/gm-splitting",
+          "verdict": "verified",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against arthur05 §17 Lemmas 17.4–17.6, (17.8), (17.12)–(17.14)."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.6/weighted-orbital-integral",
+          "verdict": "unverifiable",
+          "note": "rank_one_volume and measure_scaling are scalar identities without the orbital integral, its convex-hull weight or quotient Haar measures. They do not distinguish a wrongly chosen weight."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.6/weighted-character",
+          "verdict": "unverifiable",
+          "note": "rank_one_derivative is only a derivative of CLM composition and normalization_change only differentiates exp at zero. Neither tests the weighted character trace or its change under scalar normalizing factors."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.6/fine-geometric-expansion",
+          "verdict": "verified",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against arthur05 §19 Theorems 19.1–19.2 and Corollary 19.3 (19.10)."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.6/fine-spectral-expansion",
+          "verdict": "verified",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against arthur05 §21 Theorem 21.6, Corollary 21.7; Remarks 3–4; Arthur88global Theorem4.4; arthur05 §21 (21.5), p.129, and Corollary21.3, p.134; arthur88global Theorem4.4 proof, p.520, first coefficient in the proof."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.6/almost-compact-test-space",
+          "verdict": "unverifiable",
+          "note": "fiberwise_only is merely that no finite set contains all naturals. It must exhibit a family with compact height fibres and unbounded K-types and assert failure of the uniform Γ condition."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.6/invariant-recursion",
+          "verdict": "verified",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against arthur05 §23 Theorems 23.2–23.3, (23.3)–(23.4), (23.10). Checked API against consumers and all three packet/Lean tests. Proof closure remains explicitly open: Nonarchimedean invariant trace Paley–Wiener supplier."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.6/invariant-trace-formula",
+          "verdict": "verified",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against arthur05 §23 Theorem23.4 (23.11)–(23.13); Arthur88global §§3–6."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.6/compact-trace-specialization",
+          "verdict": "verified",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against arthur05 §1 compact quotient formula; §16 (16.1)′′; PDF page 8. Proof closure remains explicitly open: Compact-quotient Sobolev trace-class input; Weighted orbital estimate and general L²-cohomology primary prerequisites."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.6/general-euler-poincare",
+          "verdict": "unverifiable",
+          "note": "all three tests are finite alternating arithmetic or trace(0)=0. None evaluates general_euler_poincare on a representation or the relative cochain complex."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.6/l2-lefschetz",
+          "verdict": "corrected",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against arthur89lefschetz Arthur89 §2, p.264 (compact-Cartan hypothesis), Proposition 2.1; §3 Proposition 3.2; §6 Theorem 6.1; CT20 §1.4. Corrected hypotheses, prerequisites, sources. Proof closure remains explicitly open: Weighted orbital estimate and general L²-cohomology primary prerequisites."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.1/yu-010",
+          "verdict": "corrected",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against yu23 Yu arXiv:1807.04659v5 (18 July 2022), §2.2.3, p. 9 (M(A)^0, Ξ_M, X_M, X_M^L); unitary parts Im X in §4. Checked API against consumers and all three packet/Lean tests. Corrected hypotheses. Proof closure remains explicitly open: Yu 010 external proof inputs."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.4/yu-017",
+          "verdict": "unverifiable",
+          "note": "test1 is 1≠0 without the discrete space, and test3 is pointwise cancellation of a scalar denominator without the quotient measure. They do not test the norm on the stated quotient. Corrections already applied: hypotheses."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.4/yu-018",
+          "verdict": "corrected",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against yu23 Yu arXiv:1807.04659v5 (18 July 2022), §2.3.3 pp11–12. Checked API against consumers and all three packet/Lean tests. Corrected hypotheses."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.4/yu-019",
+          "verdict": "unverifiable",
+          "note": "test1 and test2 only permute raw tuples; test3 asserts equality of arbitrary sets without the good-pair normal form. None tests the constructed distinguished inducing representative. Corrections already applied: hypotheses."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.4/yu-020",
+          "verdict": "corrected",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against yu23 Yu arXiv:1807.04659v5 (18 July 2022), §2.3.4, p. 12, Théorème 2.3.6 (the theorem is on p. 12 only). Corrected hypotheses. Proof closure remains explicitly open: Yu 020 external proof inputs; Function-field spectral analytic sources."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.4/yu-021",
+          "verdict": "corrected",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against yu23 Yu arXiv:1807.04659v5 (18 July 2022), Proposition 2.3.7 p13. Corrected hypotheses. Proof closure remains explicitly open: Yu 021 external proof inputs."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.3/yu-022",
+          "verdict": "unverifiable",
+          "note": "test1 computes a total and an average without the block projection yu_022; test2 assumes x=0 and concludes x=0. The relative-root helper test is meaningful, but the two projection tests do not match the packet. Corrections already applied: hypotheses, prerequisites."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.3/yu-023",
+          "verdict": "unverifiable",
+          "note": "test3 is n+m+k=m under n=k=0, without a parabolic height or cone cutoff. It does not test the central/Levi/unipotent factorization stated in the packet. Corrections already applied: hypotheses, prerequisites."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.6/yu-024",
+          "verdict": "unverifiable",
+          "note": "test3 is a−b≠a under b≠0, without the truncated kernel or fixed-degree trace. It cannot test that dropping a proper-parabolic term changes that trace. Corrections already applied: hypotheses."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.6/yu-025",
+          "verdict": "corrected",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against yu23 Yu arXiv:1807.04659v5 (18 July 2022), §3.2.1; Theorem 3.3.1; Laf97 p227; Ch15 Definition4.5.3. Corrected hypotheses."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.6/yu-038",
+          "verdict": "corrected",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against yu23 Yu arXiv:1807.04659v5 (18 July 2022), AppendixB pp78–79. Checked API against consumers and all three packet/Lean tests. Corrected hypotheses, proofSteps, prerequisites, sources, tests. Proof closure remains explicitly open: Yu 038 external proof inputs."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.6/yu-039",
+          "verdict": "corrected",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against yu23 Yu arXiv:1807.04659v5 (18 July 2022), Appendix B, p. 79; [Ch15, Théorème 6.2.1, Corollaires 5.2.2–5.2.3]. Corrected hypotheses. Proof closure remains explicitly open: Yu 039 external proof inputs."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.6/yu-047",
+          "verdict": "corrected",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against yu23 Yu arXiv:1807.04659v5 (18 July 2022), §4.1.1, p. 21, and §4.1.3, p. 22. Checked API against consumers and all three packet/Lean tests. Corrected hypotheses."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.6/yu-048",
+          "verdict": "corrected",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against yu23 Yu arXiv:1807.04659v5 (18 July 2022), §4.1.5–4.1.6, p. 22. Checked API against consumers and all three packet/Lean tests. Corrected hypotheses."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.6/yu-049",
+          "verdict": "unverifiable",
+          "note": "test2 is 1≠2 and does not compare the root and coroot products or a (G,M)-family wall condition. Corrections already applied: hypotheses."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.6/yu-050",
+          "verdict": "corrected",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against yu23 Yu arXiv:1807.04659v5 (18 July 2022), §4.2.1–4.2.2, p. 23, Théorème 4.2.2 and (4.2.2)–(4.2.5). Corrected hypotheses."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.6/yu-051",
+          "verdict": "corrected",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against yu23 Yu arXiv:1807.04659v5 (18 July 2022), §4.2.2, pp. 23–24, Proposition 4.2.3 (variant of Arthur 1981, Corollary 6.5). Corrected hypotheses."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.6/yu-052",
+          "verdict": "corrected",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against yu23 Yu arXiv:1807.04659v5 (18 July 2022), Theorem4.2.4 pp24–26. Corrected hypotheses."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.6/yu-053",
+          "verdict": "corrected",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against yu23 Yu arXiv:1807.04659v5 (18 July 2022), Lemma4.2.5 p26. Corrected hypotheses. Proof closure remains explicitly open: Yu 053 external proof inputs."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.6/yu-054",
+          "verdict": "corrected",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against yu23 Yu arXiv:1807.04659v5 (18 July 2022), Corollary4.2.6 p27, corrected E4. Corrected hypotheses."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.6/yu-055",
+          "verdict": "corrected",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against yu23 Yu arXiv:1807.04659v5 (18 July 2022), Lemmas4.2.7–4.2.8 pp27–29. Corrected hypotheses."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.3/yu-056",
+          "verdict": "unverifiable",
+          "note": "test1 and test2 are scalar arithmetic without the canonical parabolic selector. Specify the block projection and actual maximal-parabolic selection/non-example. Corrections already applied: hypotheses."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.3/yu-058",
+          "verdict": "corrected",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against yu23 Yu arXiv:1807.04659v5 (18 July 2022), §5.2.1 pp31–32. Checked API against consumers and all three packet/Lean tests. Corrected hypotheses."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.3/yu-059",
+          "verdict": "corrected",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against yu23 Yu arXiv:1807.04659v5 (18 July 2022), Proposition5.2.1 p32, E7. Corrected hypotheses."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.1/yu-060",
+          "verdict": "unverifiable",
+          "note": "test3 is 2 inverse ≠2 and does not apply the change-of-section map to a vector; the desired rho sign test must use yu_060. Corrections already applied: hypotheses."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.2/yu-061",
+          "verdict": "unverifiable",
+          "note": "test1 and test3 impose identity/cocycle conclusions on arbitrary M, and test2 only composes an equivalence with its inverse. Relate all three to the normalized function-field intertwiner yu_061. Corrections already applied: hypotheses."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.6/yu-062",
+          "verdict": "corrected",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against yu23 Yu arXiv:1807.04659v5 (18 July 2022), §5.2.3 pp34–35. Corrected hypotheses."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.6/yu-063",
+          "verdict": "corrected",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against yu23 Yu arXiv:1807.04659v5 (18 July 2022), Theorem5.2.2 andCorollary5.2.3 pp33–36; corrected Laf97 theorem. Corrected hypotheses. Proof closure remains explicitly open: Function-field spectral analytic sources."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.4/yu-065",
+          "verdict": "corrected",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against yu23 Yu arXiv:1807.04659v5 (18 July 2022), Proposition5.3.1 andRemark5.3.2 pp36–39. Corrected hypotheses. Proof closure remains explicitly open: Yu 065 external proof inputs; Function-field spectral analytic sources."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.2/yu-066",
+          "verdict": "corrected",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against yu23 Yu arXiv:1807.04659v5 (18 July 2022), Proposition5.3.4 p39, E12. Corrected hypotheses. Proof closure remains explicitly open: Yu 066 external proof inputs; Function-field spectral analytic sources; Local analytic extensions beyond representation carriers."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.3/yu-115",
+          "verdict": "unverifiable",
+          "note": "test1 expands floors without the named exponent function, and test3 only multiplies −z inverse by z without the cutoff factor. test2 tests the telescoping sum correctly. Corrections already applied: hypotheses."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.3/yu-116",
+          "verdict": "corrected",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against yu23 Yu arXiv:1807.04659v5 (18 July 2022), LemmaA.2 pp75–76, E24. Corrected hypotheses. Proof closure remains explicitly open: Function-field root and coprime cutoff proof adapters."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.3/yu-117",
+          "verdict": "corrected",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against yu23 Yu arXiv:1807.04659v5 (18 July 2022), LemmaA.3 pp76–77. Corrected hypotheses. Proof closure remains explicitly open: Function-field root and coprime cutoff proof adapters."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.0/yu-145",
+          "verdict": "verified",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against yu23 Yu arXiv:1807.04659v5, §§5.2.2–5.2.3 pp32–36; detailed derivation in the continuation report. Checked API against consumers and all three packet/Lean tests."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.0/yu-146",
+          "verdict": "verified",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against yu23 Yu arXiv:1807.04659v5, §§5.2.2–5.2.3 pp32–36; detailed derivation in the continuation report."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.0/yu-147",
+          "verdict": "verified",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against yu23 Yu arXiv:1807.04659v5, §§5.2.2–5.2.3 pp32–36; detailed derivation in the continuation report."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.0/yu-148",
+          "verdict": "unverifiable",
+          "note": "test2 is a scalar square identity and test3 is 2≠1, with no covering p or yu_148. The normalized finite-fibre transfer is correct, but these are not the circle-cover tests stated in the packet."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.0/yu-149",
+          "verdict": "unverifiable",
+          "note": "The packet Fourier theorem is correctly stated for the full dual of a smooth compact abelian Lie group with probability Haar. The prototype omits even probability measure normalization, which is already expressible, and has no reviewable finite-group/torus specialization. μ=0 and f=1 give zero on the left and transfer one on the right."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.0/yu-150",
+          "verdict": "verified",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against yu23 Yu arXiv:1807.04659v5, §§5.2.2–5.2.3 pp32–36; detailed derivation in the continuation report. Proof closure remains explicitly open: Yu 150 external proof inputs."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.6/yu-151",
+          "verdict": "unverifiable",
+          "note": "test1 multiplies arbitrary ones and degrees without the covering map or finite kernel. It does not compute the actual covering degree in the all-cycle-length-one case. Corrections already applied: hypotheses, prerequisites."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.6/yu-152",
+          "verdict": "corrected",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against yu23 Yu arXiv:1807.04659v5, §§5.2.2–5.2.3 pp32–36; detailed derivation in the continuation report. Corrected hypotheses. Proof closure remains explicitly open: Yu 152 external proof inputs."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.1/yu-153",
+          "verdict": "unverifiable",
+          "note": "test1 and test3 are scalar arithmetic without the source/target section map or measure. normalizedSection alone does not test the full section transport and norm compensation. Corrections already applied: hypotheses."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.3/yu-157",
+          "verdict": "corrected",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against yu23 Yu arXiv:1807.04659v5 (18 July 2022), §3.3.1, p. 20, and Remarque 3.3.3, p. 19; [Ch15, Définition 4.5.3, Proposition 4.5.5]. Corrected hypotheses, prerequisites. Proof closure remains explicitly open: Function-field root and coprime cutoff proof adapters."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.6/yu-164",
+          "verdict": "corrected",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against yu23 Yu arXiv:1807.04659v5 (18 July 2022), §5.2.3, p. 33, equation (5.2.8); p. 36, displays before Corollaire 5.2.3. Corrected hypotheses, prerequisites."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.6/yu-165",
+          "verdict": "corrected",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against yu23 Yu arXiv:1807.04659v5 (18 July 2022), §5.2.3, p. 34, proof of Théorème 5.2.2, equation (5.2.10). Corrected hypotheses, prerequisites. Proof closure remains explicitly open: Function-field spectral analytic sources."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.4/yu-166",
+          "verdict": "corrected",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against yu23 Yu arXiv:1807.04659v5 (18 July 2022), §5.3.1, pp. 38–39, proof of Proposition 5.3.1 (citing [MW94, V.3.13(iii)] and [MW94, II.1.5]). Corrected hypotheses, prerequisites. Proof closure remains explicitly open: Function-field spectral analytic sources."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.6/yu-169",
+          "verdict": "verified",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against yu23 §4.2.3 proof of Théorème4.2.4, p.26, k=m case; citing Ar82 pp.1319–1320."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.3/yu-175",
+          "verdict": "corrected",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against yu23 Yu arXiv:1807.04659v5 (18 July 2022), Appendix A, pp. 75–76, input to Lemme A.2 (supplement; not stated in the paper). Corrected hypotheses."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.1/dit-57",
+          "verdict": "unverifiable",
+          "note": "test1 only expands rpowC, without the Eisenstein constant term claimed by the packet. Retain the primitive-pair and divergence tests and add the actual constant-term asymptotic."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.1/dit-58",
+          "verdict": "corrected",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against dit16 (5.3). Checked API against consumers and all three packet/Lean tests. Corrected prerequisites, sources."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.2/dit-59",
+          "verdict": "corrected",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against dit16 §5, (5.3), p962. Corrected sources."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.2/dit-60",
+          "verdict": "verified",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against dit16 §5, text before (5.4), (5.4) and (5.5), p962."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.1/dit-88",
+          "verdict": "unverifiable",
+          "note": "test3 only says that a zero integer fails a nonzero-index condition. It must check the excluded zero-index case of the coefficient construction; the branch tests otherwise use the named sign helper."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.1/dit-89",
+          "verdict": "unverifiable",
+          "note": "test3 only tests divergence of an unrelated exponential on a cusp interval. Connect it to the actual growing seed and failure of its Poincaré family to be L²."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.1/dit-90",
+          "verdict": "verified",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against dit16 §8, p973."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.2/dit-91",
+          "verdict": "unverifiable",
+          "note": "all three tests are arithmetic of spectral denominators. None applies the resolvent to an eigenvector or relates the parameter denominator to dit_91."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.2/dit-92",
+          "verdict": "verified",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against dit16 (8.4). Proof closure remains explicitly open: Modular resolvent primary source and noncompact boundary realization."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.2/dit-93",
+          "verdict": "verified",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against dit16 Proposition3, pp973–974. Proof closure remains explicitly open: Modular resolvent primary source and noncompact boundary realization; Modular core and boundary-residue adapters."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.2/dit-94",
+          "verdict": "verified",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against dit16 §8, pp974–975. Proof closure remains explicitly open: Modular resolvent primary source and noncompact boundary realization; Modular core and boundary-residue adapters."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.1/dit-105",
+          "verdict": "unverifiable",
+          "note": "test1 is 1·2≠1, test2 is interval-integral reversal for an arbitrary f, and test3 is existence of a bounded nondifferentiable function. None tests the smooth weight-two Poincaré one-form; test3 also misses the smooth seed with uncontrolled derivative convergence intended by the packet. Corrections already applied: statement, sources."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.1/dit-110",
+          "verdict": "verified",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against dit16 (9.2)."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.0/dit-112",
+          "verdict": "corrected",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against dit11 DIT11 Appendix A, (A.1)–(A.2), p. 977; DIT16 §5, p. 961; the series for M_{μ,s−1/2} is the display on DIT16 p. 984. Checked API against consumers and all three packet/Lean tests. Corrected api, tests."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.0/dit-113",
+          "verdict": "verified",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against dit11 DIT11 AppendixA, p977."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.0/dit-114",
+          "verdict": "corrected",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against dit11 DIT11 Appendix A, (A.3)–(A.5), printed p.977. Corrected sources."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.0/dit-115",
+          "verdict": "verified",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against dit16 AppendixA, p984; [23]3.892(1)."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.0/dit-118",
+          "verdict": "verified",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against dit16 Lemma 7, display (9.4), p. 980 (statement); restated as (A.1), Appendix A, p. 983; proof Appendix A, pp. 983–985."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.4/dit-138",
+          "verdict": "verified",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against dit16 Lemma1 proof, p972."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.0/dit-165",
+          "verdict": "verified",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against dit16 Appendix A, proof of (A.1), p. 984: the displays from 'Using this last equation gives for the integral in (A.1)' to 'This proves that both sides of (A.1) satisfy the same differential equation', including the boundary term [e^{i(t cos θ+μθ)}M_{μ,λ}(2t sin θ)]_0^π = 0."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.4/dit-wrong-sign-weyl-integrals-vanish",
+          "verdict": "corrected",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against dit16 §5, p963, paragraph after (5.12). Corrected prerequisites. Proof closure remains explicitly open: Modular core and boundary-residue adapters."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.4/dit-eisenstein-integrable-over-core",
+          "verdict": "corrected",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against dit16 §5, p963 ('by (5.3)'). Corrected hypotheses, proofSteps. Proof closure remains explicitly open: Modular core and boundary-residue adapters."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.1/dit-fourier-expansion-weight0-poincare",
+          "verdict": "verified",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against dit16 §8, p.974, citing [20] and [16]."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.2/dit-resolvent-fourier-expansion-weight0",
+          "verdict": "verified",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against dit16 (8.3), p.973, citing Fay [20, Thm 3.1, p.173]. Proof closure remains explicitly open: Modular resolvent primary source and noncompact boundary realization."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.0/dit-appendix-a2-series-of-whittaker-cycle-integral",
+          "verdict": "verified",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against dit16 Appendix A, (A.2), p. 985 (derivation p. 984)."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.0/dit-appendix-a3-series-of-rhs",
+          "verdict": "verified",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against dit16 Appendix A, (A.3), p. 985."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.0/dit-appendix-a-leading-coefficient-match",
+          "verdict": "verified",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against dit16 Appendix A, p. 985 (last paragraph of the proof)."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.0/gz-64",
+          "verdict": "corrected",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against gz86 Chapter II, §2, (2.5), (2.6), p. 238; inspected printed p.238. Checked API against consumers and all three packet/Lean tests. Corrected the suggested signature/normalization."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.0/gz-65",
+          "verdict": "verified",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against gz86 Chapter II, §2, (2.7), (2.8), p. 238; inspected printed p.238."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.0/gz-66",
+          "verdict": "corrected",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against gz86 Chapter II, §2, (2.4), (2.9), pp. 238–239; inspected printed p.238. Checked API against consumers and all three packet/Lean tests. Corrected the suggested signature/normalization."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.2/gz-68",
+          "verdict": "verified",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against gz86 Chapter II, §2, (2.13), p. 239; inspected printed p.239. Proof closure remains explicitly open: Gross–Zagier resolvent source and regularized derivative integrals; Effective modular-group and Green-resolvent integration."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.1/gz-69",
+          "verdict": "unverifiable",
+          "note": "nonprimitive is an unrelated inverse-square series ≠1; it must compare the primitive and unrestricted Eisenstein sums and their zeta factor."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.1/gz-70",
+          "verdict": "verified",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against gz86 Chapter II, §2, (2.16), p. 240; p. 241; inspected printed p.240."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.0/gz-108",
+          "verdict": "verified",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against gz86 Chapter II, §5, display after (5.7), p. 251; inspected printed p.251."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.1/gz-179",
+          "verdict": "unverifiable",
+          "note": "sign_pair and wrong_parity are scalar parity identities without the lattice sum or characters. They do not test cancellation or equality of the actual sign-paired series. Corrections already applied: prerequisites."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.1/gz-192",
+          "verdict": "unverifiable",
+          "note": "odd_product is a scalar identity and nonfundamental is only ¬Squarefree(12). Neither checks the two character lattice sum or its required fundamental discriminant. Corrections already applied: proofSteps, prerequisites."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.0/gz-207",
+          "verdict": "verified",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against gz86 Chapter IV, (3.2) Proposition, p. 277; inspected printed p.277. Checked API against consumers and all three packet/Lean tests."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.1/gz-208",
+          "verdict": "verified",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against gz86 Chapter IV, §3, proof of (3.2), p. 278; inspected printed p.278."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.1/gz-209",
+          "verdict": "verified",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against gz86 Chapter IV, §3, proof of (3.2), pp. 278–279; inspected printed p.279."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.0/gz-212",
+          "verdict": "verified",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against gz86 Chapter IV, §3, (3.3) Proposition a), p. 277; proofs pp. 279–280; inspected printed p.279."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.0/gz-213",
+          "verdict": "verified",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against gz86 Chapter IV, §3, (3.3) Proposition b), p. 277; proof pp. 280–281; inspected printed p.280. Proof closure remains explicitly open: Gross–Zagier resolvent source and regularized derivative integrals."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.0/gz-214",
+          "verdict": "corrected",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against gz86 Chapter IV, §3, (3.3) Proposition c), p. 278; proof p. 280; inspected printed p.280. Corrected statement."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.0/gz-215",
+          "verdict": "verified",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against gz86 Chapter IV, §3, (3.3) Proposition d), p. 278; proof p. 281; inspected printed p.281. Proof closure remains explicitly open: Gross–Zagier resolvent source and regularized derivative integrals."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.0/gz-216",
+          "verdict": "verified",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against gz86 Chapter IV, §3, (3.3) Proposition e), p. 278; proof p. 281; inspected printed p.281. Proof closure remains explicitly open: Gross–Zagier resolvent source and regularized derivative integrals."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.0/gz-217",
+          "verdict": "verified",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against gz86 Chapter IV, §3, proof of (3.3), p. 280; inspected printed p.280. Proof closure remains explicitly open: Gross–Zagier resolvent source and regularized derivative integrals."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.1/gz-241",
+          "verdict": "verified",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against gz86 Chapter IV §5 proof of (5.1), p.289; estimate follows from II(2.17), inspected p.240."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.1/gz-265",
+          "verdict": "verified",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against gz86 Chapter IV, §6, proof of (6.2), pp. 298-299; inspected printed p.299."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.0/schwartz-family-continuation",
+          "verdict": "unverifiable",
+          "note": "The suggested theorem omits the two-sided functional equation and initial Schwartz finite strip order, which are expressible with its existing normed Schwartz carrier. exp((1−s)x²) is Schwartz for Re(s)>1 and entire pointwise, but at s=1 is the non-Schwartz constant one."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.0/lf-dual-continuation",
+          "verdict": "unverifiable",
+          "note": "The suggested theorem quantifies arbitrary all-plane algebraic functionals instead of constructing continuous extensions of initial half-plane continuous functionals with a common scalar order. A constant discontinuous functional vanishing on a proper dense subspace satisfies its hypotheses and violates its conclusion. Corrections already applied: statement, proofSteps."
+        },
+        {
+          "nodeId": "AutomorphicSpectralTheory:AS.2/automorphic-green",
+          "verdict": "verified",
+          "note": "Checked target statement, source locator/excerpt, hypotheses, direct prerequisites and proof sketch against gz86 ChapterII §2 equations(2.10)–(2.13), p.239. Checked API against consumers and all three packet/Lean tests. Proof closure remains explicitly open: Effective modular-group and Green-resolvent integration."
+        }
+      ]
+    }
+  ]
 }

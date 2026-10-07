@@ -183,7 +183,6 @@
         {
           "sourceId": "Quillen.1973",
           "locator": "§1, proof of Theorem 1, pp. 184–185, displayed (2) and (3) (scan PDF pp. 192–193)",
-          "excerpt": "finitely generated",
           "match": "Quillen proves finite generation of the Steinberg group-homology sums and then of H_i Q_m by induction. The arithmetic input is imported, not reconstructed."
         }
       ],
@@ -226,13 +225,11 @@
         {
           "sourceId": "Quillen.1973",
           "locator": "§1, Corollary (Stability), p. 182 (scan PDF p. 190); Theorem 3, p. 181",
-          "excerpt": "COROLLARY (\"Stability\").",
           "match": "The exact two bounds are verified against the rendered primary page. The passage to BQ uses filtered-union homology."
         },
         {
           "sourceId": "Kahn.2014",
           "locator": "§§4.3.3–4.3.4, p. 17 (Vogel proof continues on p. 18), with §2.4.1",
-          "excerpt": "coincide with those of Quillen",
           "match": "Kahn identifies the E¹ terms and compares the relative exact sequences to Quillen’s. His notation is translated using zero in negative group-homology degrees."
         }
       ],
@@ -275,7 +272,6 @@
         {
           "sourceId": "Quillen.1973",
           "locator": "§1, conclusion of proof of Theorem 1, p. 185 (scan PDF p. 193)",
-          "excerpt": "homotopy associative and commutative H-space",
           "match": "The primary proof first establishes stable integral homology finite generation, then invokes the H-space theorem for homotopy. This node supplies the former input."
         }
       ],
@@ -323,13 +319,11 @@
         {
           "sourceId": "Quillen.1973",
           "locator": "§1, Theorem 1, Remark (2), pp. 179–180 (scan PDF pp. 187–188)",
-          "excerpt": "finite kernel",
           "match": "The source states the finite kernel/cokernel and even injectivity for 𝓞_F → 𝓞_{F,S}. The same localization proof, over 𝓞_{F,S}, gives S ⊆ T."
         },
         {
           "sourceId": "Weibel.2013",
           "locator": "V.6.1–6.1.1, book p. 406 (PDF p. 414), and IV.1.13, book p. 269 (PDF p. 277)",
-          "excerpt": "Localization Theorem",
           "match": "The exact sequence and the positive-degree finite-field table give the stated refinement; degree-zero residue groups explain the n=1 exception."
         }
       ],
@@ -385,13 +379,11 @@
         {
           "sourceId": "Quillen.1973",
           "locator": "§1, Theorem 1, Remark (2), pp. 179–180 (scan PDF pp. 187–188)",
-          "excerpt": "same rank",
           "match": "The finite defects prove bijectivity of the actual rationalized inclusion. Packaging it as the native linear equivalence is a library refinement of this passage, not a new theorem attributed verbatim to Quillen."
         },
         {
           "sourceId": "Weibel.2013",
           "locator": "IV.1.17, book p. 271 (PDF p. 279); V.6.6, book p. 409 (PDF p. 417)",
-          "excerpt": "for all n",
           "match": "The order comparison supplies the surrounding rank use; the all-prime localization sequence supplies compatibility with passage to the field. S-integers with nonempty S are not orders."
         }
       ],
@@ -519,7 +511,6 @@
         {
           "sourceId": "Quillen.1973",
           "locator": "§1, Theorem 1, Remark (2), pp. 179–180 (scan PDF pp. 187–188)",
-          "excerpt": "finite cokernel",
           "match": "The refinement packages the actual localization map whose finite defects Quillen computes. Its defining map is retained by the native linear equivalence."
         }
       ],
@@ -565,7 +556,6 @@
         {
           "sourceId": "Weibel.2013",
           "locator": "V.6.6.3–6.6.4, book p. 410 (PDF p. 418); IV.6.3–6.3.2, book p. 320 (PDF p. 328), natural-isomorphism invariance and projective-module transfer",
-          "excerpt": "homotopy commutative diagram",
           "match": "V.6.6.3–6.6.4 constructs the localization transfer square from compatible exact functors. IV.6.3.2 supplies restriction-of-scalars transfer for finite-projective ring extensions; IV.6.3 says naturally isomorphic exact functors induce the same K-map. Apply these to the finite-S base-change square; extension uses tensor associativity. IV.6.3.3 alone is the coherent-module G-transfer, not the projective-module transfer needed here."
         }
       ],

@@ -573,7 +573,6 @@
     {
      "sourceId": "GR.2022",
      "locator": "1.1, item 1 (PDF p. 2)",
-     "excerpt": "Li_n(z) = sum_{k=1}^{infinity} z^k / k^n, |z| < 1. It is continued analytically to a multivalued analytic function on C - {0, 1} by induction, setting Li_n(z) = integral from 0 to z of Li_{n-1}(z) d log z, n >= 2.",
      "match": "The definition and the inductive continuation, as displayed."
     }
    ],
@@ -746,7 +745,6 @@
     {
      "sourceId": "GR.2022",
      "locator": "1.1, item 3 (PDF p. 4)",
-     "excerpt": "Although we do not know explicitly functional equations for n-logarithms for large n except a trivial one L_n(z) + (-1)^n L_n(z^{-1}) = 0, and the distribution relations",
      "match": "The source names the distribution relations; the form for Li_n stated here is the standard one, checked numerically by the reviewer for n = 1, ..., 4 and m = 2, 3."
     }
    ],
@@ -784,7 +782,6 @@
     {
      "sourceId": "GR.2022",
      "locator": "1.1, item 3 (PDF p. 4)",
-     "excerpt": "Although we do not know explicitly functional equations for n-logarithms for large n except a trivial one L_n(z) + (-1)^n L_n(z^{-1}) = 0",
      "match": "The source states the single-valued consequence; the classical formula is not stated in the sources read. It extends mathlib:hasSum_one_div_nat_pow_mul_fourier from the unit circle, and the reviewer checked it numerically for n = 1, ..., 4 at four points (error below 5e-41)."
     }
    ],
@@ -828,7 +825,6 @@
     {
      "sourceId": "GR.2022",
      "locator": "1.1, item 1 (PDF p. 3)",
-     "excerpt": "the following expression is a single-valued function on CP^1 - {0, 1, infinity}: L_n(z) := pi_n( sum_{k=0}^{n-1} (2^k B_k / k!) Li_{n-k}(z) log^k |z| ), n > 1. Here B_k are the Bernoulli numbers ... For example, L_2(z) is the Bloch-Wigner dilogarithm. The function L_n(z) is continuous on CP^1.",
      "match": "The definition, its single-valuedness, its continuity and the identification of the weight-two case, as displayed, for n > 1."
     }
    ],
@@ -966,13 +962,11 @@
     {
      "sourceId": "GR.2022",
      "locator": "1.1, item 1 (PDF p. 3)",
-     "excerpt": "For example, L_2(z) is the Bloch-Wigner dilogarithm.",
      "match": "The identification of the weight-two single-valued polylogarithm with the Bloch-Wigner function."
     },
     {
      "sourceId": "Gonch.Arakelov.2004",
      "locator": "Introduction, item 4 (PDF p. 5)",
-     "excerpt": "It has a single-valued cousin, the Bloch-Wigner function: L2(z) := ImLi2(z) + arg(1 - z) log |z|",
      "match": "The defining formula, as displayed."
     }
    ],
@@ -1125,7 +1119,6 @@
     {
      "sourceId": "Gonch.Arakelov.2004",
      "locator": "proof of Lemma 6.9, (85), p. 57",
-     "excerpt": "dL2 (z) = - log |1 - z|d arg z + log |z|d arg(1 - z)",
      "match": "The differential formula, as displayed."
     }
    ],
@@ -1160,7 +1153,6 @@
     {
      "sourceId": "Gonch.Arakelov.2004",
      "locator": "Introduction, item 5 (PDF p. 7)",
-     "excerpt": "formula relates its volume to the Bloch-Wigner function: vol I(z1 , ..., z4 ) = L2 (r(z1 , ..., z4 ))",
      "match": "Positivity of the volume of a positively oriented ideal tetrahedron is the geometric meaning; the analytic proof through the Laplacian is the reviewer's, checked numerically at four points."
     }
    ],
@@ -1200,7 +1192,6 @@
     {
      "sourceId": "GR.2022",
      "locator": "1.1, item 3 (PDF pp. 3-4)",
-     "excerpt": "recall the cross-ratio of four points on P^1(F): [s_1, s_2, s_3, s_4] := (s_1 - s_2)(s_3 - s_4) / ((s_1 - s_4)(s_3 - s_2)), [infinity, -1, 0, z] = -z. Then for any five distinct points s_1, ..., s_5 on CP^1 we have: sum_{i=1}^{5} L_2([s_i, s_{i+1}, s_{i+2}, s_{i+3}]) = 0, i in Z/5Z.",
      "match": "The cross-ratio normalisation and the cyclic five-term relation, as displayed; footnote 2 converts it into the alternating form."
     }
    ],
@@ -1232,7 +1223,6 @@
     {
      "sourceId": "GR.2022",
      "locator": "1.1, item 3, (3) and (4) (PDF pp. 3-4)",
-     "excerpt": "recall the cross-ratio of four points on P^1(F): [s_1, s_2, s_3, s_4] := (s_1 - s_2)(s_3 - s_4) / ((s_1 - s_4)(s_3 - s_2))",
      "match": "The identity behind (4): with eta(f, g) = log|f| d arg g - log|g| d arg f, bilinear and antisymmetric with eta(f, -1) = 0, it gives sum eta(x_i, 1 - x_i) = 0."
     }
    ],
@@ -1270,7 +1260,6 @@
     {
      "sourceId": "GR.2022",
      "locator": "1.1, item 1 (PDF p. 3)",
-     "excerpt": "The obtained multivalued analytic function has a single valued cousin. Namely, consider the projection given by pi_n ...",
      "match": "The single-valued cousin whose existence this lemma proves; the jump formula and the criterion are the reviewer's, checked numerically for n = 1, ..., 4 at x = 3."
     }
    ],
@@ -1310,7 +1299,6 @@
     {
      "sourceId": "GR.2022",
      "locator": "1.1, item 3 and footnote 4 (PDF p. 4)",
-     "excerpt": "Although we do not know explicitly functional equations for n-logarithms for large n except a trivial one L_n(z) + (-1)^n L_n(z^{-1}) = 0, and the distribution relations ... And the reality relation L_n(conjugate z) = (-1)^{n-1} L_n(z), which is not on the list of algebraic functional equations.",
      "match": "The three relations and the classification, as displayed."
     }
    ],
@@ -1350,7 +1338,6 @@
     {
      "sourceId": "GR.2022",
      "locator": "1.1, item 1 (PDF p. 3)",
-     "excerpt": "The function L_n(z) is continuous on CP^1.",
      "match": "The continuity statement, for n > 1."
     }
    ],
@@ -1393,7 +1380,6 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.5.1 (PDF p. 495)",
-     "excerpt": "and Bloch's group B(F) is defined to be its kernel.",
      "match": "The convention through which the function descends is the one fixed there."
     }
    ],
@@ -1521,13 +1507,11 @@
     {
      "sourceId": "GR.2022",
      "locator": "Theorem 1.1 (PDF p. 3)",
-     "excerpt": "Then there exist elements y_1, ..., y_{r_2} in Q[F] satisfying a certain condition *_4 ... such that zeta_F(4) = pi^{4(r_1+r_2)} |d_F|^{-1/2} det(L_4(sigma_{r_1+i}(y_j))), 1 <= i, j <= r_2.",
      "match": "The weight-four shape of the determinant; the map of this node has the same shape with L_2 = D. The weight-two theorem is cited in the source to Zagier's 1986 paper, which was not read."
     },
     {
      "sourceId": "GR.2022",
      "locator": "1.1, item 2 (PDF p. 3)",
-     "excerpt": "Similar results about zeta_F(2) and zeta_F(3) were proved in [Zag86] and [Gon91], [Gon95], respectively.",
      "match": "The weight-two case this regulator is built for."
     }
    ],
@@ -1642,13 +1626,11 @@
     {
      "sourceId": "Gonch.Arakelov.2004",
      "locator": "Introduction, item 6, Theorem 1.1 (PDF p. 8)",
-     "excerpt": "Theorem 1.1 The cohomology class of the Grassmannian cocycle (12) is a non zero rational multiple of the Borel class b2n-1 .",
      "match": "At n = 2, by (11), the Grassmannian cocycle is D of the cross-ratio, so its class is a nonzero rational multiple of b_3."
     },
     {
      "sourceId": "Gonch.Arakelov.2004",
      "locator": "Introduction, item 6 (PDF p. 8)",
-     "excerpt": "For normalization of the Borel classes and precise relationship between the Grassmannian polylogarithms and the Borel regulator see Chapter 5, especially Sections 5.4 and 5.5.",
      "match": "Why the exact scalar is not fixed here: those sections were not read."
     }
    ],
@@ -1686,13 +1668,11 @@
     {
      "sourceId": "Gonch.Arakelov.2004",
      "locator": "Introduction, item 6, (12) (PDF p. 8)",
-     "excerpt": "For any point x in CP^{n-1} the function c^n_{2n-1}(g_1, ..., g_{2n}) := L^G_n(g_1 x, ..., g_{2n} x) (12) is a measurable (2n-1)-cocycle of the Lie group GL_n(C).",
      "match": "The cocycle at n = 2."
     },
     {
      "sourceId": "Gonch.Arakelov.2004",
      "locator": "Introduction, item 5, (11) (PDF p. 7)",
-     "excerpt": "It follows from (8) that the Grassmannian dilogarithm is given by the Bloch-Wigner function: L^G_2(z_1, ..., z_4) = L_2(r(z_1, ..., z_4)) (11)",
      "match": "Why the n = 2 cocycle is D of the cross-ratio."
     }
    ],
@@ -1800,13 +1780,11 @@
     {
      "sourceId": "Gonch.Arakelov.2004",
      "locator": "Abstract and introduction (PDF p. 1)",
-     "excerpt": "For n = 2 we recover Lobachevsky's formula expressing the volume of an ideal geodesic simplex in the hyperbolic space via the dilogarithm.",
      "match": "The volume formula in the weight-two case, as the source states it."
     },
     {
      "sourceId": "Gonch.Arakelov.2004",
      "locator": "Introduction, item 5 (PDF p. 7)",
-     "excerpt": "formula relates its volume to the Bloch-Wigner function: vol I(z1 , ..., z4 ) = L2 (r(z1 , ..., z4 ))",
      "match": "The volume formula with Goncharov's cross-ratio, whose normalisation r(infinity, 0, 1, x) = x is fixed in his Section 6 (p. 53)."
     }
    ],
@@ -1855,7 +1833,6 @@
     {
      "sourceId": "Gonch.Arakelov.2004",
      "locator": "Abstract (PDF p. 1)",
-     "excerpt": "For n = 2 we recover Lobachevsky's formula expressing the volume of an ideal geodesic simplex in the hyperbolic space via the dilogarithm.",
      "match": "The analytic half of Lobachevsky's formula; Goncharov's proof (Section 7) was not read, and the reviewer checked the identity numerically to 1e-40 at z = 0.3 + 0.7i."
     }
    ],
@@ -1896,7 +1873,6 @@
     {
      "sourceId": "GR.2022",
      "locator": "1.1, item 2 (PDF p. 3)",
-     "excerpt": "Zagier's conjecture predicts that the classical regulator formula ... has analogs for zeta_F(n) for any positive integer n.",
      "match": "The determinant identities these numerics are used to test; the source states them exactly, and the numerical evaluation is a separate object."
     }
    ],
@@ -1985,7 +1961,6 @@
     {
      "sourceId": "GR.2022",
      "locator": "1.1, item 2 (PDF p. 3)",
-     "excerpt": "Zagier's conjecture predicts that the classical regulator formula ... has analogs for zeta_F(n) for any positive integer n.",
      "match": "The determinant identities these numerics are used to test; the source states them exactly, and the numerical evaluation is a separate object."
     }
    ],
@@ -2040,19 +2015,16 @@
     {
      "sourceId": "GR.2026",
      "locator": "Section 1.2 (PDF p. 9)",
-     "excerpt": "A deep result of Suslin ([Sus90, Corollary 5.6]) implies that the natural map B2(F) -> B2(F) is an isomorphism.",
      "match": "The explicit weight-two group, identified with the inductive one for infinite fields."
     },
     {
      "sourceId": "GR.2026",
      "locator": "Section 1.2, (19) (PDF p. 9)",
-     "excerpt": "Let us denote by R3(F) the subspace of Q[F] generated by the elements {x}_3 - {x^{-1}}_3, {x}_3 + {1 - x}_3 + {1 - x^{-1}}_3 - {1}_3 for all x in F^x (19) and the 22-term relation [Gon95, Formula 1.10, Theorem 1.3] for the trilogarithm.",
      "match": "The explicit weight-three group."
     },
     {
      "sourceId": "Gonch.Arakelov.2004",
      "locator": "Section 6.1 (PDF p. 52)",
-     "excerpt": "where delta_n({x}_k tensor Y) := {x}_{k-1} tensor x wedge Y for k > 2, and (1 - x) wedge x wedge y for k = 2, called the weight n polylogarithmic complex.",
      "match": "The differentials on generators, including the case k = 2."
     }
    ],
@@ -2186,13 +2158,11 @@
     {
      "sourceId": "GR.2026",
      "locator": "Section 1.2, (19) (PDF p. 9)",
-     "excerpt": "Let us denote by R3(F) the subspace of Q[F] generated by the elements {x}_3 - {x^{-1}}_3, {x}_3 + {1 - x}_3 + {1 - x^{-1}}_3 - {1}_3 for all x in F^x (19) and the 22-term relation [Gon95, Formula 1.10, Theorem 1.3] for the trilogarithm.",
      "match": "The definition of R_3(F) and B_3(F)."
     },
     {
      "sourceId": "GR.2026",
      "locator": "Section 1.2 (PDF p. 9)",
-     "excerpt": "It was conjectured in [Gon95] that the natural map B3(F) -> B3(F) is an isomorphism.",
      "match": "The comparison with the inductive group, recorded in P.4/explicit-to-inductive-comparison."
     }
    ],
@@ -2323,7 +2293,6 @@
     {
      "sourceId": "GR.2022",
      "locator": "1.1, item 4 (PDF p. 5)",
-     "excerpt": "Evidently, the following composition is zero for n >= 3: B_n(F) -> B_{n-1}(F) tensor F^x_Q -> B_{n-2}(F) tensor Lambda^2 F^x_Q.",
      "match": "The vanishing, as displayed, specialised to weight three."
     }
    ],
@@ -2359,7 +2328,6 @@
     {
      "sourceId": "Gonch.Arakelov.2004",
      "locator": "Section 2, item 6 (PDF pp. 17-18)",
-     "excerpt": "There is a homomorphism resv : Lambda^n K* -> Lambda^{n-1} kv* uniquely defined by the properties (ui in U): resv(pi wedge u1 wedge ... wedge un-1) = u1 wedge ... wedge un-1 and resv(u1 wedge ... wedge un) = 0. It does not depend on the choice of pi.",
      "match": "The definition and the independence of the uniformiser, as displayed."
     }
    ],
@@ -2468,13 +2436,11 @@
     {
      "sourceId": "Gonch.Arakelov.2004",
      "locator": "Section 6.1, (75) (PDF p. 52)",
-     "excerpt": "Here resv({x}2 tensor y) is zero unless v(x) = 0. In the latter case it is resv({x}2 tensor y) = v(y){x}2, where x denotes projection of x to the residue field of K.",
      "match": "The residue on the middle term, as displayed."
     },
     {
      "sourceId": "Gonch.Arakelov.2004",
      "locator": "Section 6.1 (PDF p. 52)",
-     "excerpt": "If K is a field with a discrete valuation v and the residue field kv, then there is a homomorphism of complexes resv : Gamma(K, n) -> Gamma(kv, n - 1)[-1]",
      "match": "That the residue is a map of complexes."
     }
    ],
@@ -2582,13 +2548,11 @@
     {
      "sourceId": "GR.2026",
      "locator": "Theorem 1.3(i) (PDF p. 6)",
-     "excerpt": "(i) Let F be an infinite field. Then there are canonical homomorphisms K_{8-i}(F)_Q -> H^i B(F; 4), i = 1, 2, 3, 4. Their restrictions to F^rk_3 K_{8-i}(F)_Q are zero.",
      "match": "The weight-four form of the maps."
     },
     {
      "sourceId": "GR.2022",
      "locator": "1.1, item 6 (PDF p. 5)",
-     "excerpt": "The conjecture states that one expects the following isomorphisms: gr^n_gamma K_{2n-i}(F)_Q = H^i B(F; n), i > 0.",
      "match": "The conjecture, labelled as such, with i > 0 as printed."
     }
    ],
@@ -2618,13 +2582,11 @@
     {
      "sourceId": "GR.2022",
      "locator": "1.1, item 2 (PDF p. 3)",
-     "excerpt": "Similar results about zeta_F(2) and zeta_F(3) were proved in [Zag86] and [Gon91], [Gon95], respectively.",
      "match": "The weight-three theorem is attributed to Goncharov's 1991 and 1995 papers, which were not obtained; the weight-four form is GR Theorem 1.3(iv)."
     },
     {
      "sourceId": "GR.2026",
      "locator": "Theorem 1.3(iv) (PDF p. 6)",
-     "excerpt": "(iv) The following composition is a non-zero rational multiple of the Borel regulator map [Bor77]: K7(C)Q -> H^1 B(C; 4) -> R.",
      "match": "The weight-four shape of the statement."
     }
    ],
@@ -2658,7 +2620,6 @@
     {
      "sourceId": "GR.2026",
      "locator": "after Theorem 1.3 (PDF p. 7)",
-     "excerpt": "The map (12) for i = 4 is an isomorphism due to a theorem of Suslin [Sus84] relating Quillen's and Milnor's K-groups. Conjecture 1.4. The maps (12) are isomorphisms.",
      "match": "The weight-four form of the top-degree case; the weight-three case is the same theorem of Suslin."
     }
    ],
@@ -2708,7 +2669,6 @@
     {
      "sourceId": "GR.2022",
      "locator": "1.1, item 2 (PDF p. 3)",
-     "excerpt": "Similar results about zeta_F(2) and zeta_F(3) were proved in [Zag86] and [Gon91], [Gon95], respectively.",
      "match": "The attribution and the existence of the weight-three theorem, as displayed; the shape of the identity is that of the weight-four formula the source states in full."
     }
    ],
@@ -2752,13 +2712,11 @@
     {
      "sourceId": "GR.2022",
      "locator": "1.1, item 4 (PDF p. 4)",
-     "excerpt": "We define by induction a map Q[F] -> delta_n : B_{n-1}(F) tensor F^x_Q for n >= 2, F^x_Q wedge F^x_Q for n = 2, {x} -> {x}_{n-1} tensor x for n >= 2, (1 - x) wedge x for n = 2, delta_2{1} = delta_2{0} = 0. It is handy to add a generator {infinity} together with the relation {infinity} = 0.",
      "match": "The map and its degenerate conventions, as displayed."
     },
     {
      "sourceId": "GR.2026",
      "locator": "Section 1.1, item 4 (PDF p. 5)",
-     "excerpt": "One proves that the map delta_n induces a group homomorphism",
      "match": "The descent, stated in the source with its proof in Goncharov (1995)."
     }
    ],
@@ -2868,7 +2826,6 @@
     {
      "sourceId": "GR.2026",
      "locator": "Section 1.1, item 4 (PDF p. 5)",
-     "excerpt": "One proves that the map delta_n induces a group homomorphism",
      "match": "The source asserts the descent and refers to Goncharov (1995) for the proof, which was not obtained; this lemma is the specialisation argument that proves it (gap for the full induction)."
     }
    ],
@@ -2911,13 +2868,11 @@
     {
      "sourceId": "GR.2026",
      "locator": "Section 1.2 (PDF p. 9)",
-     "excerpt": "A deep result of Suslin ([Sus90, Corollary 5.6]) implies that the natural map B2(F) -> B2(F) is an isomorphism.",
      "match": "The weight-two isomorphism."
     },
     {
      "sourceId": "GR.2026",
      "locator": "Section 1.2 (PDF p. 9)",
-     "excerpt": "It was conjectured in [Gon95] that the natural map B3(F) -> B3(F) is an isomorphism.",
      "match": "The weight-three map and its conjectural bijectivity."
     }
    ],
@@ -2953,13 +2908,11 @@
     {
      "sourceId": "GR.2022",
      "locator": "1.1, item 4 (PDF p. 5)",
-     "excerpt": "So we get a complex in the degrees [1, n], where B_n(F) is in the degree 1, and the differential has degree +1, called the weight n polylogarithmic motivic complex: B(F; n) : B_n(F) -> B_{n-1}(F) tensor F^x_Q -> ... -> Lambda^n F^x_Q.",
      "match": "The complex and its indexing, as displayed."
     },
     {
      "sourceId": "Gonch.Arakelov.2004",
      "locator": "Section 6.1 (PDF p. 52)",
-     "excerpt": "where delta_n({x}_k tensor Y) := {x}_{k-1} tensor x wedge Y for k > 2, and (1 - x) wedge x wedge y for k = 2, called the weight n polylogarithmic complex.",
      "match": "The differential on generators."
     }
    ],
@@ -3068,13 +3021,11 @@
     {
      "sourceId": "GR.2022",
      "locator": "1.1, item 6 (PDF p. 5)",
-     "excerpt": "The conjecture states that one expects the following isomorphisms: gr^n_gamma K_{2n-i}(F)_Q = H^i B(F; n), i > 0.",
      "match": "The conjecture, as displayed."
     },
     {
      "sourceId": "GR.2026",
      "locator": "Section 1.1, item 6 (PDF p. 7)",
-     "excerpt": "The map (12) for i = 4 is an isomorphism due to a theorem of Suslin [Sus84] relating Quillen's and Milnor's K-groups. Conjecture 1.4. The maps (12) are isomorphisms.",
      "match": "The proved top-degree case and Conjecture 1.4."
     }
    ],
@@ -3113,7 +3064,6 @@
     {
      "sourceId": "GR.2026",
      "locator": "Section 1.1, item 4 (PDF p. 5)",
-     "excerpt": "One proves [Gon94a, Theorem 1.5] that there is a map of abelian groups L_n : B_n(C) -> R, {z}_n |-> L_n(z), n > 1. For n = 1 we have a map B_1(C) -> R, {z}_1 |-> log |z|.",
      "match": "The theorem, cited by the source to Goncharov (1994)."
     }
    ],
@@ -3159,19 +3109,16 @@
     {
      "sourceId": "GR.2022",
      "locator": "1.1, item 4 (PDF p. 4)",
-     "excerpt": "one defines inductively for each n >= 1 a subspace R_n(F) in Q[F] reflecting functional equations for the classical n-logarithm function, and set B_n(F) := Q[F] / R_n(F). ... The subgroup R_n(F) is generated by all elements obtained this way, and {0}.",
      "match": "The definition, as displayed."
     },
     {
      "sourceId": "GR.2022",
      "locator": "1.1, item 4 (PDF p. 4)",
-     "excerpt": "Any expression sum n_i {f_i(t)} which lies in the kernel of delta_n for the field F(t) gives rise to an element sum n_i ({f_i(1)} - {f_i(0)}).",
      "match": "The specialisation recipe."
     },
     {
      "sourceId": "GR.2026",
      "locator": "Conventions (PDF p. 4)",
-     "excerpt": "Conventions. A few remarks about conventions are in order. First, we work everywhere with infinite fields. Second, we work modulo torsion, i.e., with Q-vector spaces.",
      "match": "The standing hypotheses of the version of record."
     }
    ],
@@ -3329,7 +3276,6 @@
     {
      "sourceId": "GR.2022",
      "locator": "1.1, item 5 and footnote 7 (PDF p. 5)",
-     "excerpt": "The condition *_n. It simply says that delta y = 0 for an element y in B_n(F), i.e., y in H^1 B(F; n). ... Zagier's conjecture in its original formulation does not use groups B_n(F); it uses subgroups beta_n(F), defined for number fields only.",
      "match": "The condition and the caveat about the original formulation; the asterisk was checked on the page image."
     }
    ],
@@ -3433,7 +3379,6 @@
     {
      "sourceId": "GR.2022",
      "locator": "Theorem 1.2 (PDF p. 5)",
-     "excerpt": "Then there exist elements y_1, ..., y_{r_2} in Ker delta_4 in B_4(F) such that zeta_F(4) = pi^{4(r_1+r_2)} |d_F|^{-1/2} det(L_4(sigma_{r_1+i}(y_j))), 1 <= i, j <= r_2.",
      "match": "The determinant and its normalisation, as displayed in weight four."
     }
    ],
@@ -3557,13 +3502,11 @@
     {
      "sourceId": "GR.2022",
      "locator": "Theorem 1.1 and item 6 (PDF pp. 3, 5)",
-     "excerpt": "Then there exist elements y_1, ..., y_{r_2} in Q[F] satisfying a certain condition *_4 ... For any y_1, ..., y_{r_2} satisfying *_4 the right-hand side of (2) is equal to q times zeta_F(4) for some q in Q.",
      "match": "The two halves the source separates, existence and the identity for every family (with q in Q, not necessarily nonzero); the comparison is the conjecture of item 6."
     },
     {
      "sourceId": "GR.2022",
      "locator": "1.1, item 2 (PDF p. 3)",
-     "excerpt": "Similar results about zeta_F(2) and zeta_F(3) were proved in [Zag86] and [Gon91], [Gon95], respectively.",
      "match": "The proved weights two and three, as attributed."
     }
    ],
@@ -3608,19 +3551,16 @@
     {
      "sourceId": "GR.2026",
      "locator": "Theorem 1.2 (PDF p. 5)",
-     "excerpt": "Let F be a number field, [F : Q] = r1 + 2r2, and the set {sigma_j} of all embeddings F -> C is numbered so that conj(sigma_{r1+i}) = sigma_{r1+r2+i}. Let dF be the discriminant of F. Then there exist elements y1, ..., yr2 in Ker delta4 in B4(F) such that",
      "match": "The theorem, in the version of record."
     },
     {
      "sourceId": "GR.2026",
      "locator": "after Theorem 1.3 (PDF p. 7)",
-     "excerpt": "Theorem 1.2 follows from the part (iv) of Theorem 1.3 and Borel's theorem [Bor77].",
      "match": "The architecture of the proof."
     },
     {
      "sourceId": "GR.2022",
      "locator": "Abstract (PDF p. 2)",
-     "excerpt": "We prove Zagier's conjecture on the value at s = 4 of the Dedekind zeta-function of a number field F: zeta_F(4) = pi^{4(r_1+r_2)} |d_F|^{-1/2} det(L_4(sigma_i(y_j))), 1 <= i, j <= r_2.",
      "match": "The theorem as stated in the abstract."
     }
    ],
@@ -3658,13 +3598,11 @@
     {
      "sourceId": "GR.2022",
      "locator": "Abstract (PDF p. 2)",
-     "excerpt": "We get a strong evidence for the part of Freeness Conjecture describing the weight four part L_4(F) of the motivic Lie coalgebra of F via higher Bloch groups as an extension: 0 -> B_4(F) -> L_4(F) -> Lambda^2 B_2(F) -> 0.",
      "match": "The extension and its status, as displayed."
     },
     {
      "sourceId": "GR.2026",
      "locator": "Theorem 1.14(c) (PDF p. 16)",
-     "excerpt": "c) There is a short exact sequence of Q-vector space, functorial in F: 0 -> B4(F) -> L4(F) -> Lambda^2 L2(F) -> 0. (43) Here the map i is the natural embedding from Definition 1.11.",
      "match": "The proved extension."
     }
    ],
@@ -3711,7 +3649,6 @@
     {
      "sourceId": "Gonch.Arakelov.2004",
      "locator": "Section 6.1, (75) (PDF p. 52)",
-     "excerpt": "Let X be a regular curve over an algebraically closed field k and F := k(X)*. Set Res := sum_x resx where resx is the residue homomorphism for the valuation on F corresponding to a point x of X.",
      "match": "The total residue on a curve, as displayed (F := k(X)* is source issue E15)."
     }
    ],
@@ -3826,13 +3763,11 @@
     {
      "sourceId": "Gonch.Arakelov.2004",
      "locator": "Section 2, item 4, (13) with m = 2 (PDF p. 14)",
-     "excerpt": "r_{m-1}(f_1,..., f_m) := Alt_m sum_{j>=0, 2j+1<=2m+1} c_{j,m} log|f_1| d log|f_2| wedge ... wedge d log|f_{2j+1}| wedge d i arg f_{2j+2} wedge ... wedge d i arg f_m, where c_{j,m} = 1/((2j+1)!(m-2j-1)!)",
      "match": "At m = 2 the alternation gives r_1(f wedge g) = i(log|f| d arg g - log|g| d arg f) = i eta(f, g); the printed range '2j+1 <= 2m+1' is source issue E10."
     },
     {
      "sourceId": "Gonch.Arakelov.2004",
      "locator": "proof of Lemma 6.9, (85) (PDF p. 57)",
-     "excerpt": "dL2(z) = - log |1 - z|d arg z + log |z|d arg(1 - z) (85)",
      "match": "The Steinberg identity."
     }
    ],
@@ -3963,7 +3898,6 @@
     {
      "sourceId": "Gonch.Arakelov.2004",
      "locator": "Proposition 2.8, (24) (PDF p. 19), n = 2",
-     "excerpt": "Proposition 2.8 Let Y be an arbitrary subvariety of a regular complex variety X and f1 wedge ... wedge fn in Lambda^n C(Y)*. Then drn-1(f1 wedge ... wedge fn) = pi_n(d log f1 wedge ... wedge d log fn) + 2 pi i (rn-2 o Res)(f1 wedge ... wedge fn) (24)",
      "match": "On a curve pi_2(dlog f wedge dlog g) = 0, so d eta(xi) is supported on the residues."
     }
    ],
@@ -3996,7 +3930,6 @@
     {
      "sourceId": "Gonch.Arakelov.2004",
      "locator": "Section 1, item 4, (6) and (7) (PDF p. 5); Section 6, (74) (PDF p. 52)",
-     "excerpt": "The Chow dilogarithm is a real function on its complex points defined by the formula P2(X; f1, f2, f3) := 1/(2 pi i) integral_{X(C)} r2(f1, f2, f3)",
      "match": "The definition, with the normalisation corrected (source issue E12): r_2 is real, so the printed value is imaginary."
     }
    ],
@@ -4093,7 +4026,6 @@
     {
      "sourceId": "Gonch.Arakelov.2004",
      "locator": "Section 6, Remark 2 after Conjecture 6.2 (PDF p. 54)",
-     "excerpt": "According to Suslin's reciprocity law for the Milnor group K^M_3(F) the projection of Res(Lambda^3 F^*) in Lambda^2 k^* to K_2(k) is zero. Since by Matsumoto's theorem K_2(k) = Coker(delta_2), one has Res(Lambda^3 F^*) contained in Im(delta_2).",
      "match": "The implication and why it is not an equivalence."
     }
    ],
@@ -4129,13 +4061,11 @@
     {
      "sourceId": "Gonch.Arakelov.2004",
      "locator": "Section 2, item 4, (13) (PDF p. 14)",
-     "excerpt": "r_{m-1}(f_1,..., f_m) := Alt_m sum_{j>=0, 2j+1<=2m+1} c_{j,m} log|f_1| d log|f_2| wedge ... wedge d log|f_{2j+1}| wedge d i arg f_{2j+2} wedge ... wedge d i arg f_m, where c_{j,m} = 1/((2j+1)!(m-2j-1)!)",
      "match": "The definition, with the range corrected (E10)."
     },
     {
      "sourceId": "Gonch.Arakelov.2004",
      "locator": "Section 2, item 4, (14) (PDF p. 14)",
-     "excerpt": "So rm-1(f1, ..., fm) is an R(m - 1)-valued (m - 1)-form and it is easy to check that drm-1(f1, ..., fm) = pi_m(d log f1 wedge ... wedge d log fm) (14)",
      "match": "The values and the differential."
     }
    ],
@@ -4252,7 +4182,6 @@
     {
      "sourceId": "Gonch.Arakelov.2004",
      "locator": "Theorem 2.4 with Lemma 2.5, (18) (PDF p. 15)",
-     "excerpt": "Let Y be an arbitrary irreducible subvariety of a smooth complex variety X and f_1, ..., f_m in C^*(Y). Then for any smooth differential form omega with compact support on X(C) the following integral is convergent ... It provides a group homomorphism r_{m-1}: Lambda^m C(Y)^* -> D^{m-1}_{X(C)}(m-1).",
      "match": "The convergence and the homomorphism; the degree printed in (18) is source issue E14."
     }
    ],
@@ -4282,7 +4211,6 @@
     {
      "sourceId": "Gonch.Arakelov.2004",
      "locator": "Section 2, item 6 (PDF p. 18)",
-     "excerpt": "Let X be a normal variety. Then there is the residue homomorphism Res : Lambda^n C(X)* -> direct sum over Y in X^(1) of Lambda^{n-1} C(Y)*, where the sum is over all irreducible divisors of X.",
      "match": "The residue, as displayed."
     }
    ],
@@ -4368,7 +4296,6 @@
     {
      "sourceId": "Gonch.Arakelov.2004",
      "locator": "Proposition 2.8, (24) (PDF p. 19)",
-     "excerpt": "Proposition 2.8 Let Y be an arbitrary subvariety of a regular complex variety X and f1 wedge ... wedge fn in Lambda^n C(Y)*. Then drn-1(f1 wedge ... wedge fn) = pi_n(d log f1 wedge ... wedge d log fn) + 2 pi i (rn-2 o Res)(f1 wedge ... wedge fn) (24)",
      "match": "The formula; the sign is source issue E21."
     }
    ],
@@ -4399,7 +4326,6 @@
     {
      "sourceId": "Gonch.Arakelov.2004",
      "locator": "Section 2, item 7, (25) and Corollary 2.9 (PDF pp. 19-20)",
-     "excerpt": "r_{m-1}(L; H) := r_{m-1}(z1/z0 wedge ... wedge zm/z0) (25) ... Corollary 2.9 One has dr_{n-1}(L; H) = pi_n(Omega_L) + 2 pi i sum_i (-1)^i r_{n-2}(L-hat_i; H_i) delta_{L_i} (26)",
      "match": "The definition and its differential."
     }
    ],
@@ -4487,7 +4413,6 @@
     {
      "sourceId": "Gonch.Arakelov.2004",
      "locator": "Section 2, item 3 (PDF pp. 10-11)",
-     "excerpt": "Take the intersection of the part of the complex Tot coming from the n x n square in the diagram (and concentrated in degrees [1, 2n - 1]) with the complex of distributions with values in R(n - 1).",
      "match": "The definition of the complex; the top term is D^{n,n}_{R,cl}(n)."
     }
    ],
@@ -4573,7 +4498,6 @@
     {
      "sourceId": "Gonch.Arakelov.2004",
      "locator": "Proposition 2.1 (PDF p. 11)",
-     "excerpt": "Proposition 2.1 Let X be a regular complex projective variety. Then the complex CD(X; n) is quasiisomorphic to the truncated Beilinson-Deligne complex tau_{<=2n} R(X; n)_D.",
      "match": "The comparison, verbatim."
     }
    ],
@@ -4618,13 +4542,11 @@
     {
      "sourceId": "Gonch.Arakelov.2004",
      "locator": "Definition 2.11 (PDF p. 22)",
-     "excerpt": "Definition 2.11 P^{2n-i}(n)(Y) := (2 pi i)^{n-i} pi_X* r_{i-1}(g1 wedge ... wedge gi)",
      "match": "The definition, as displayed."
     },
     {
      "sourceId": "Gonch.Arakelov.2004",
      "locator": "Theorem-Construction 2.3 (PDF p. 13)",
-     "excerpt": "Let X be a regular complex projective variety. Then there exists a canonical homomorphism of complexes P^bullet(n): Z^bullet(X; n) -> C^bullet_D(X; n).",
      "match": "The construction whose data this node is."
     }
    ],
@@ -4726,7 +4648,6 @@
     {
      "sourceId": "Gonch.Arakelov.2004",
      "locator": "Theorem 2.12 (PDF p. 23)",
-     "excerpt": "Theorem 2.12 P^bullet(n) is a homomorphism of complexes.",
      "match": "The theorem."
     }
    ],
@@ -4759,7 +4680,6 @@
     {
      "sourceId": "Gonch.Arakelov.2004",
      "locator": "Theorem-Construction 2.3 (PDF p. 13)",
-     "excerpt": "If X is defined over R then the image of the map P^bullet(n) lies in the subcomplex C^bullet_D(X_{/R}; n).",
      "match": "The real statement, verbatim."
     }
    ],
@@ -4806,19 +4726,16 @@
     {
      "sourceId": "Gonch.Arakelov.2004",
      "locator": "Theorem-Construction 3.1, identities (i), (ii), (iii) (PDF p. 26)",
-     "excerpt": "For given q >= 0 there is an explicitly constructed chain of (q-p-1)-distributions omega^q_p = omega^q_p(L; H) on Z^q_p(L) such that i) d omega^q_0(L,H) = pi_q(Omega_L); ii) d omega^q_p(L; H) = sum_i (-1)^i a_i^* omega^q_{p-1}(L; H_i); iii) sum_j (-1)^j b_j^* omega^q_p(L; H) = 0.",
      "match": "The construction with its three identities, verbatim."
     },
     {
      "sourceId": "Gonch.Arakelov.2004",
      "locator": "Section 3, after Theorem-Construction 3.1 (PDF p. 26)",
-     "excerpt": "The varieties Z^q_p(L) for p >= 0 form a truncated simplicial variety Z^q_bullet(L). The conditions i) and ii) just mean that the sequence of forms omega^q_p is a 2q-cocycle in the complex computing the Deligne cohomology H^{2q}(Z^q_bullet(L), R_D(q)).",
      "match": "The cocycle interpretation, verbatim."
     },
     {
      "sourceId": "Gonch.Arakelov.2004",
      "locator": "Theorem 3.3, the Remark after it, and Theorem 3.4 (PDF pp. 27-28)",
-     "excerpt": "Theorem 3.3 The Chow polylogarithm function is invariant under the natural action of the torus (C*)^{p+q} on Z^q_p(C). In particular it does not depend on the choice of the hyperplane H. Remark. The statements of Theorem 3.3 are no longer true for the forms omega^q_p for p < q - 1.",
      "match": "The torus invariance of the top function and the warning that it is special to it, verbatim."
     }
    ],
@@ -4951,19 +4868,16 @@
     {
      "sourceId": "Gonch.Arakelov.2004",
      "locator": "Section 1, item 2, (3), (4) and (5) (PDF p. 3)",
-     "excerpt": "The weight n Arakelov motivic complex Gamma_A^bullet(X; n) is the cone of the map (2), shifted by -1 ... For a regular projective variety X over R the image of map (2) lies in the subcomplex C^bullet_D(X_{/R}; n) := C^bullet_D(X(C); n)^{bar F_infinity}",
      "match": "The three variants of the definition, verbatim."
     },
     {
      "sourceId": "Gonch.Arakelov.2004",
      "locator": "Definition 2.13 and Proposition 2.14, (35) and (36) (PDF p. 25)",
-     "excerpt": "The Higher Arakelov Chow groups are CH-hat^n(X; i) := H^{2n-i}(Z-hat^bullet(X; n)). ... Proposition. CH-hat^n(X; 0) = CH-hat^n(X).",
      "match": "The definition and the degree-zero identification (numbered 2.13 and 2.14 in the source)."
     },
     {
      "sourceId": "Gonch.Arakelov.2004",
      "locator": "Section 1, item 2, the remark on other motivic complexes (PDF p. 3)",
-     "excerpt": "Our construction works equally well for the Suslin-Voevodsky versions of the motivic complexes. ... However a precise relationship between the construction given in [G7] and the one in Chapter 2 is not clear.",
      "match": "The source's own caveat about the dependence on the choice of motivic complex, verbatim."
     }
    ],
@@ -5063,7 +4977,6 @@
     {
      "sourceId": "Gonch.Arakelov.2004",
      "locator": "Proposition 2.14 and (36) (PDF p. 25)",
-     "excerpt": "Proposition 2.14 CH-hat^n(X; 0) = CH-hat^n(X).",
      "match": "The identification, as printed."
     }
    ],
@@ -5107,19 +5020,16 @@
     {
      "sourceId": "BFT.2011",
      "locator": "Theorem 6.18 (arXiv v1, p. 21)",
-     "excerpt": "Let X be an equidimensional projective complex algebraic manifold. Let Ps' be the composition of Ps with the isomorphism given by the Chern character of [Blo86] ... Then, the morphism Ps' agrees with Beilinson's regulator.",
      "match": "The comparison, proved."
     },
     {
      "sourceId": "BFT.2011",
      "locator": "Section 5.2, Remark 5.12",
-     "excerpt": "The sign (-1)^m appears due to the difference in sign on the differential of the Deligne complex",
      "match": "The sign convention relating their forms to Goncharov's."
     },
     {
      "sourceId": "Gonch.Arakelov.2004",
      "locator": "Section 1, item 2, Problems a) (PDF p. 4)",
-     "excerpt": "Show that taking cohomology of the map (2) and using the isomorphism between the rational Bloch's Higher Chow groups of X and the corresponding part of the rational K-theory of X ([Bl2], [Lev]) we get a non-zero rational multiple of the Beilinson's regulator map.",
      "match": "The source poses it as a problem."
     }
    ],
@@ -5152,13 +5062,11 @@
     {
      "sourceId": "Gonch.Arakelov.2004",
      "locator": "Conjecture 6.2 (PDF pp. 53-54)",
-     "excerpt": "Let X be a regular projective curve over an algebraically closed field k and F := k(X)^*. Then there exists a canonical homomorphism of groups h: Lambda^3 F^* -> B_2(k) satisfying the following two conditions",
      "match": "The conjecture; condition (b) as printed has the normalisation error E12, and 'F := k(X)*' is E15."
     },
     {
      "sourceId": "Gonch.Arakelov.2004",
      "locator": "Section 6, the list of proved cases (PDF p. 54)",
-     "excerpt": "We prove this conjecture in the following cases: a) X = P^1 ... b) X is an elliptic curve over an algebraically closed field ... c) k = Q-bar, X is any curve.",
      "match": "Exactly which cases are theorems."
     }
    ],
@@ -5243,7 +5151,6 @@
     {
      "sourceId": "Gonch.Arakelov.2004",
      "locator": "Lemma 6.4 (PDF p. 54)",
-     "excerpt": "Lemma 6.4 Assume that we have a map h such that h(k* wedge Lambda^2 F*) = 0 and Res = delta2 o h. Then h o delta3 = Res.",
      "match": "The lemma, verbatim."
     }
    ],
@@ -5282,13 +5189,11 @@
     {
      "sourceId": "Gonch.Arakelov.2004",
      "locator": "Lemma 6.9 (PDF p. 57)",
-     "excerpt": "Lemma 6.9 Let X be an arbitrary curve over C. Then integral_{X(C)} r2((1 - f) wedge f wedge g) = - sum_{x in X(C)} vx(g) L2(f(x))",
      "match": "The lemma as printed; the missing factor 2 pi is source issue E11."
     },
     {
      "sourceId": "Gonch.Arakelov.2004",
      "locator": "proof of Lemma 6.9, (83) and (84) (PDF p. 57)",
-     "excerpt": "Consider the following 1-form on X(C) L2(f)d arg g - (1/3) alpha(1 - f, f) log |g| (83) ... We claim that its derivative is equal to: 2 pi L2(f)delta(g) + r2((1 - f) wedge f wedge g) (84)",
      "match": "The current identity that proves it."
     }
    ],
@@ -5322,7 +5227,6 @@
     {
      "sourceId": "Gonch.Arakelov.2004",
      "locator": "Proposition 6.8 (PDF p. 57)",
-     "excerpt": "P2(P1; f1, f2, f3) = sum_{xi in P1(C)} vx1(f1)vx2(f2)vx3(f3)L2(r(x1, x2, x3, infinity))",
      "match": "The formula; with the corrected normalisation of P_2 (E12) it holds as printed."
     }
    ],
@@ -5360,13 +5264,11 @@
     {
      "sourceId": "Gonch.Arakelov.2004",
      "locator": "Theorem 6.5 (PDF p. 54)",
-     "excerpt": "Assume that k = k-bar. Then the map h: Lambda^3 k(P^1)^* -> B_2(k) given by the formula h(f_1 wedge f_2 wedge f_3) := sum v_{x_1}(f_1) v_{x_2}(f_2) v_{x_3}(f_3) {r(x_1, x_2, x_3, infinity)}_2 satisfies all the conditions of conjecture 6.2 modulo 6-torsion.",
      "match": "The theorem, verbatim."
     },
     {
      "sourceId": "Gonch.Arakelov.2004",
      "locator": "Proposition 6.6 (PDF p. 55)",
-     "excerpt": "Proposition 6.6 Let k = k-bar. Then modulo 6-torsion h((1 - f) wedge f wedge g) = sum_{x in P1(k)} vx(g){f(x)}2",
      "match": "The Steinberg value of h."
     }
    ],
@@ -5401,7 +5303,6 @@
     {
      "sourceId": "Gonch.Arakelov.2004",
      "locator": "Theorem 6.10 (PDF p. 58)",
-     "excerpt": "a) Let pi: Y -> S be a family of curves over a base S over C. Then there are rational functions phi_i on S such that P_2(Y -> S; f_1, f_2, f_3) = sum_i L_2(phi_i(s)).",
      "match": "Part (a), verbatim."
     }
    ],
@@ -5439,13 +5340,11 @@
     {
      "sourceId": "Gonch.Arakelov.2004",
      "locator": "Theorem 6.12 (PDF p. 59)",
-     "excerpt": "Let X be a regular projective curve over Q-bar and F := Q-bar(X). Then there exists a homomorphism h: Lambda^3 F^* -> B_2(Q-bar) tensor Q as in conjecture 6.2",
      "match": "The theorem."
     },
     {
      "sourceId": "Gonch.Arakelov.2004",
      "locator": "Lemma 6.13 (PDF p. 59)",
-     "excerpt": "Lemma 6.13 Suppose sum_i (1 - fi) wedge fi wedge gi = 0 in Lambda^3 Q(X)*. Then sum_i sum_x vx(gi) {fi(x)}2 = 0 in the group B2(Q).",
      "match": "The lemma that makes h well defined."
     }
    ],
@@ -5492,7 +5391,6 @@
     {
      "sourceId": "Gonch.Arakelov.2004",
      "locator": "Theorem 6.14, (93) and (94) (PDF p. 62)",
-     "excerpt": "Let E be an elliptic curve over an algebraically closed field k. Then there exists a homomorphism of groups h: Lambda^3 F^* -> B_2(k) for any linear homogeneous functions l_0,...,l_3 one has h(l_1/l_0 wedge l_2/l_0 wedge l_3/l_0) = -sum_i (-1)^i {r(l_{i0},..., l_{ii}-hat, ..., l_{i3}, D_i)}_2",
      "match": "The theorem with its explicit formula, verbatim."
     }
    ],
@@ -5523,13 +5421,11 @@
     {
      "sourceId": "Gonch.Arakelov.2004",
      "locator": "Proposition 6.18, (96) (PDF p. 64)",
-     "excerpt": "Let X be an algebraic curve in P^2 over C and l_0,...,l_3 linear homogeneous functions on C^3. Then integral_{X(C)} r_2(l_1/l_0 wedge l_2/l_0 wedge l_3/l_0) = 2 pi sum_i (-1)^i L_2(r(l_{i0},..., l_{ii}-hat, ..., l_{i3}, D_i)).",
      "match": "The formula, with the factor 2 pi."
     },
     {
      "sourceId": "Gonch.Arakelov.2004",
      "locator": "Lemma 6.16 (PDF p. 62)",
-     "excerpt": "For any plane curve X one has sum_x res_x((l_1/l_0) wedge (l_2/l_0) wedge (l_3/l_0)) = -delta_2(sum_i (-1)^i {r(l_{i0},..., l_{ii}-hat, ..., l_{i3}, D_i)}_2).",
      "match": "The residue computation."
     }
    ],
@@ -5573,19 +5469,16 @@
     {
      "sourceId": "Gonch.Arakelov.2004",
      "locator": "proof of Lemma 6.9, (83) and (84) (PDF p. 57)",
-     "excerpt": "Consider the following 1-form on X(C) L2(f)d arg g - (1/3) alpha(1 - f, f) log |g| (83) ... We claim that its derivative is equal to: 2 pi L2(f)delta(g) + r2((1 - f) wedge f wedge g) (84)",
      "match": "The weight-three curve regulator and its differential identity."
     },
     {
      "sourceId": "Gonch.Arakelov.2004",
      "locator": "Conjecture 6.3 (PDF p. 54)",
-     "excerpt": "Let X be a projective regular curve over an algebraically closed field k and F := k(X). Then the homomorphism Res: Gamma(F;n) -> Gamma(k;n-1)[-1] ...",
      "match": "The general-weight reciprocity conjecture, stated by the source as a conjecture; the weight-three case is the one this node records."
     },
     {
      "sourceId": "Gonch.Arakelov.2004",
      "locator": "Section 6, the list of proved cases (PDF p. 54)",
-     "excerpt": "We prove this conjecture in the following cases: a) X = P^1 ... b) X is an elliptic curve over an algebraically closed field ... c) k = Q-bar, X is any curve.",
      "match": "Exactly which cases are theorems."
     }
    ],
@@ -5663,7 +5556,6 @@
     {
      "sourceId": "Gonch.Arakelov.2004",
      "locator": "Conjecture 6.3 (PDF p. 54)",
-     "excerpt": "Let X be a projective regular curve over an algebraically closed field k and F := k(X). Then the homomorphism Res: Gamma(F;n) -> Gamma(k;n-1)[-1] ...",
      "match": "The general-weight reciprocity conjecture, stated by the source as a conjecture; the weight-three case is the one this node records."
     }
    ],
@@ -5752,13 +5644,11 @@
     {
      "sourceId": "NSW.2013",
      "locator": "Theorem 10.3.6 (PDF p. 628 of the electronic edition 2.3)",
-     "excerpt": "(i) Leopoldt's conjecture is true for K and p. (ii) rank Zp E(S)K = r1 + r2 - 1. (iii) The canonical homomorphism EK tensor Z Zp -> prod_{p in S} U-hat_p is injective.",
      "match": "The injectivity form, with the equivalence proved there."
     },
     {
      "sourceId": "NSW.2013",
      "locator": "(10.3.5) (PDF p. 627)",
-     "excerpt": "Leopoldt's Conjecture. For every number field K and every prime number p, the p-adic regulator rank rrp(K) is equal to r1 + r2 - 1.",
      "match": "The rank form."
     }
    ],
@@ -5847,7 +5737,6 @@
     {
      "sourceId": "NSW.2013",
      "locator": "(10.3.3) and (10.3.4) (PDF pp. 626-627)",
-     "excerpt": "We define the regulator matrix Rp(eps1, ..., eps_{r1+r2-1}) := (logp sigma_j(eps_i)) and set rrp(K) := rank Rp(eps1, ..., eps_{r1+r2-1}) ... We call rrp(K) the p-adic regulator rank of K.",
      "match": "The definition; Remark 1 there gives independence of the choices."
     }
    ],
@@ -5945,13 +5834,11 @@
     {
      "sourceId": "NSW.2013",
      "locator": "Theorem 10.3.6 (PDF p. 628)",
-     "excerpt": "Let K be a number field, p be a prime number and assume that S is a finite set of places of K containing Sp u S_infinity. Then the following assertions are equivalent.",
      "match": "The theorem."
     },
     {
      "sourceId": "NSW.2013",
      "locator": "after (10.3.5) (PDF p. 627)",
-     "excerpt": "For totally real number fields the Leopoldt conjecture is equivalent to the non-vanishing of the p-adic regulator Rp.",
      "match": "The totally real case."
     }
    ],
@@ -5998,7 +5885,6 @@
     {
      "sourceId": "GR.2022",
      "locator": "1.1, item 3 (PDF p. 4)",
-     "excerpt": "Then for any five distinct points s_1, ..., s_5 on CP^1 we have: sum_{i=1}^{5} L_2([s_i, s_{i+1}, s_{i+2}, s_{i+3}]) = 0.",
      "match": "The relation the first test evaluates."
     }
    ],

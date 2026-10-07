@@ -1634,43 +1634,36 @@
     {
      "sourceId": "Huber-GeneralizationFormalRigid-1994",
      "locator": "§3, proof of Proposition 3.7, printed p. 536",
-     "excerpt": "which is cocartesian in the category of complete affinoid rings (3.5.i).",
      "match": "Huber proves that the completed tensor product square is cocartesian among complete affinoid rings: the declaration (iii)."
     },
     {
      "sourceId": "Huber-GeneralizationFormalRigid-1994",
      "locator": "§3, proof of Lemma 3.9(i), printed p. 537",
-     "excerpt": "We equip E^ with the group topology such that {/\" • F\\n G M} is a fundamental system of neighbourhoods of 0. Then E^ is a f-adic ring and E^ is a ring of integral elements of E^.",
      "match": "The topology {Iⁿ·F} and the integral-closure plus ring of (i)–(ii), in Huber's OCR text."
     },
     {
      "sourceId": "Morel-AdicSpacesNotes",
      "locator": "§II.3.2, Proposition II.3.2.1",
-     "excerpt": "Then D is a f-adic ring with couple of definition (D0 , J), and the obvious ring morphisms u : B → D and v : C → D are continuous and adic.",
      "match": "Pair of definition (F, I·F) and adicness of inl, inr."
     },
     {
      "sourceId": "KedlayaLiu-RelativeFoundations-2015",
      "locator": "§2.4, paragraph before Definition 2.4.3, p. 38",
-     "excerpt": "coproduct in the category of adic Banach rings will be denoted by",
      "match": "Kedlaya–Liu's coproduct of adic Banach rings, whose plus ring is the completion of the integral closure of B⁺ ⊗_{A⁺} C⁺ in D; step (ii) identifies it with R0's."
     },
     {
      "sourceId": "Scholze-PerfectoidSpaces-2012",
      "locator": "§6, proof of Proposition 6.18, p. 38",
-     "excerpt": "D+ is the completion of the integral closure of the image of A+ ⊗B+ C+ in D.",
      "match": "Scholze's plus ring of the affinoid fibre product; the same ring by (ii). The perfectoid statement of 6.18 is P2's."
     },
     {
      "sourceId": "Huber-EtaleCohomology-1996",
      "locator": "§1.2, Proposition 1.2.2 and proof, pp. 47-49",
-     "excerpt": "The fibre product of f and g in the category of adic spaces exists if one of the following conditions is satisfied a) f is locally of finite type b) f is locally of weakly finite type and g is adic.",
      "match": "The globalisation cited in (iv)."
     },
     {
      "sourceId": "Hubner-AdicSpaces-2024",
      "locator": "§9, Example 9.3, p. 43",
-     "excerpt": "Its adic spectrum is a polydisc",
      "match": "The polydisc acceptance instance."
     }
    ],
@@ -1737,25 +1730,21 @@
     {
      "sourceId": "KedlayaLiu-RelativeFoundations-2015",
      "locator": "§2.8, Definition 2.8.13, p. 63",
-     "excerpt": "we see that uniformization defines a left adjoint to the forgetful functor from uniform Banach rings to arbitrary Banach rings.",
      "match": "The universal property of uniformization used for the pushout."
     },
     {
      "sourceId": "KedlayaLiu-RelativeFoundations-2015",
      "locator": "§2.8, Definition 2.8.13, p. 63",
-     "excerpt": "and the map Spa(Au , Au+ ) → Spa(A, A+ ) is a homeomorphism which identifies rational subspaces on both sides.",
      "match": "Spa(ι) is a homeomorphism matching rational subsets."
     },
     {
      "sourceId": "KedlayaLiu-RelativeFoundations-2015",
      "locator": "§2.8, Remark 2.8.5, p. 60",
-     "excerpt": "need not be uniform. A simple example is A = Qp and B = C = Cp (the completion of an algebraic closure of Qp ).",
      "match": "A separated completion need not be uniform."
     },
     {
      "sourceId": "HansenKedlaya-SheafinessCriteria",
      "locator": "§7, Remark 7.2, p. 22",
-     "excerpt": "However, such tensor products generally do not preserve uniformity, and passing to the uniform completion may destroy the splitting",
      "match": "Why the fibre-product carrier is the completed, not the uniform completed, tensor product."
     }
    ],
@@ -1818,19 +1807,16 @@
     {
      "sourceId": "Hubner-AdicSpaces-2024",
      "locator": "§9, proof of Theorem 9.2, p. 41",
-     "excerpt": "We define its ring of definition D0 as the image of B0 ⊗A0 C0 in D and let D+ be the integral closure of B + ⊗A+ C + in D.",
      "match": "The ring of definition and plus ring whose dependence on choices (a)–(b) records."
     },
     {
      "sourceId": "KedlayaLiu-RelativeFoundations-2015",
      "locator": "§2.4, Definition 2.4.3, p. 38",
-     "excerpt": "The adic spectrum of (A, A+ ) is the subset Spa(A, A+ ) of Spv(A) consisting of the equivalence classes of continuous semivaluations on A bounded by 1 on A+ .",
      "match": "The membership criterion used in (c): a point lies in Spa(D, D'⁺) iff it is bounded by 1 on D'⁺."
     },
     {
      "sourceId": "Huber-GeneralizationFormalRigid-1994",
      "locator": "§3, proof of Lemma 3.9(i), printed p. 537",
-     "excerpt": "The completion of the affinoid ring E = {E^, E^) is denoted by Bé>A С.",
      "match": "The completed tensor product is the completion of the affinoid ring (E, E⁺); its plus ring is carried through the completion."
     }
    ],
@@ -1905,25 +1891,21 @@
     {
      "sourceId": "Wedhorn-AdicSpaces-2019",
      "locator": "§7.5, Lemma 7.46(3), p. 68",
-     "excerpt": "(3) If ϕ is adic, then for every rational subset V of Y the preimage f −1 (V ) is rational.",
      "match": "The preimage statement of (b), and why adicness is needed."
     },
     {
      "sourceId": "KedlayaLiu-RelativeFoundations-2015",
      "locator": "§2.4, after Definition 2.4.12, p. 41",
-     "excerpt": "Note that the completed tensor product of two affinoid (resp. rational) localizations is again such a localization, corresponding to the intersection of affinoid (resp. rational) subdomains.",
      "match": "The completed tensor formula for rational localisations."
     },
     {
      "sourceId": "Hubner-AdicSpaces-2024",
      "locator": "§9, Example 9.4, p. 43",
-     "excerpt": "If X is only locally formally of finite type over Zp , we have to compute the fiber product by taking an ascending union of affinoids.",
      "match": "The non-adic case (d)."
     },
     {
      "sourceId": "ScholzeWeinstein-Berkeley-2020",
      "locator": "Lecture 4, examples of adic spaces (the open unit disc), p. 28",
-     "excerpt": "is the open unit disc over K. This is another adic space, even though we have not proved the intermediate space Spa OK [[T ]] to be one.",
      "match": "The open unit disc as a fibre product over a non-Tate base."
     }
    ],
@@ -1997,25 +1979,21 @@
     {
      "sourceId": "KedlayaLiu-RelativeFoundations-2015",
      "locator": "§8.2, Definition 8.2.16, p. 162",
-     "excerpt": "where B is a finite étale A-algebra and B + is the integral closure of A+ in B.",
      "match": "The finite étale pieces whose base change is computed here."
     },
     {
      "sourceId": "KedlayaLiu-RelativeFoundations-2015",
      "locator": "§8.2, Definition 8.2.16, p. 162",
-     "excerpt": "These properties are evidently stable under base extension.",
      "match": "Base change of finite étale maps, made precise on sheafy pieces by (i)–(iv)."
     },
     {
      "sourceId": "KedlayaLiu-RelativeFoundations-2015",
      "locator": "§8.2, Remark 8.2.18, p. 162",
-     "excerpt": "beware that we do not know that a finite étale extension of a sheafy adic Banach algebra is sheafy, or even that a finite étale cover of an adic affinoid space is itself an adic space.",
      "match": "Why (iv) keeps sheafiness as a hypothesis."
     },
     {
      "sourceId": "KedlayaLiu-RelativeFoundations-2015",
      "locator": "§2.8, after Remark 2.8.5, p. 60",
-     "excerpt": "One operation under which the class of uniform Banach rings does turn out to be stable is the formation of finite étale extensions",
      "match": "The uniform (hence stably uniform) cases where sheafiness can be checked."
     }
    ],
@@ -2076,25 +2054,21 @@
     {
      "sourceId": "Wedhorn-AdicSpaces-2019",
      "locator": "§8.6, proof of Theorem 8.56(i), p. 89",
-     "excerpt": "As usual (using the fact that morphisms between adic spaces can be glued) the existence",
      "match": "The gluing reduction the chart comparison makes canonical."
     },
     {
      "sourceId": "Wedhorn-AdicSpaces-2019",
      "locator": "§8.6, proof of Theorem 8.56(i), p. 89",
-     "excerpt": "such that all fiber products Xij ×Si Yik exist.",
      "match": "Fibre products of affinoid charts over affinoid charts."
     },
     {
      "sourceId": "Hubner-AdicSpaces-2024",
      "locator": "§9, proof of Theorem 9.2, p. 41",
-     "excerpt": "As for the fiber product of schemes we reduce to the case of affinoid adic spaces",
      "match": "Reduction to affinoid charts."
     },
     {
      "sourceId": "Huber-GeneralizationFormalRigid-1994",
      "locator": "§3, proof of Proposition 3.7, printed p. 536",
-     "excerpt": "is cartesian in the category of adic spaces by (2.1.i).",
      "match": "The affinoid chart is a fibre product in adic spaces."
     }
    ],
@@ -2162,19 +2136,16 @@
     {
      "sourceId": "Huber-GeneralizationFormalRigid-1994",
      "locator": "§3, Proposition 3.7, printed p. 535",
-     "excerpt": "Then there exists in the category of adic spaces the fibre product X Xs Y of X and Y over S The projection X Xs Y -^ Y is locally of finite type and the projection X XsY -^X is adic",
      "match": "The projections stay locally of finite type, so iterated fibre products exist."
     },
     {
      "sourceId": "Morel-AdicSpacesNotes",
      "locator": "§II.3.2, Proposition II.3.2.1",
-     "excerpt": "Moreover, for every non-Archimedean topological ring D0 and every pair of continuous ring morphisms (u0 : B → D0 , v 0 : C → D0 ) such that u ◦ f = v ◦ g, there exists a unique continuous ring morphism ϕ : D → D0 such that u0 = ϕ ◦ u and v 0 = ϕ ◦ v.",
      "match": "The pushout property whose pasting gives the affinoid associator."
     },
     {
      "sourceId": "ScholzeWeinstein-Berkeley-2020",
      "locator": "Lecture 4, examples of adic spaces, p. 28",
-     "excerpt": "(Fiber products do not exist in general.)",
      "match": "Why the existence hypotheses are kept."
     }
    ],
@@ -2366,55 +2337,46 @@
     {
      "sourceId": "Wedhorn-AdicSpaces-2019",
      "locator": "§8.3, Proposition and Definition 8.36, p. 85",
-     "excerpt": "We set X a := { x ∈ X ; x is analytic} and X na := X \\ X a .",
      "match": "The analytic locus of an adic space."
     },
     {
      "sourceId": "Wedhorn-AdicSpaces-2019",
      "locator": "§8.3, Remark 8.37, p. 86",
-     "excerpt": "(2) For every open subspace U of X one has U a = X a ∩ U and U na = X na ∩ U .",
      "match": "Property (a)."
     },
     {
      "sourceId": "Wedhorn-AdicSpaces-2019",
      "locator": "§8.4, Proposition 8.39, p. 86",
-     "excerpt": "(1) f is a adic if and only if f (X a ) ⊆ Y a .",
      "match": "Property (d)."
     },
     {
      "sourceId": "Huber-GeneralizationFormalRigid-1994",
      "locator": "§3, Definition of analytic points, printed p. 532",
-     "excerpt": "A point x of an adic space X is called analytic if there exists an open neighbourhood U of x in X such that (9x{U) has a topologically nilpotent unit.",
      "match": "Huber's definition of analytic points (OCR text)."
     },
     {
      "sourceId": "Hubner-AdicSpaces-2024",
      "locator": "§6, Lemma 6.10, p. 30",
-     "excerpt": "The set of analytic points Xa of an adic space X is open.",
      "match": "Openness of X_a."
     },
     {
      "sourceId": "Hubner-AdicSpaces-2024",
      "locator": "§6, after Lemma 6.8, p. 29",
-     "excerpt": "for an adic space X over Spa(Zp , Zp ) whose structure morphism X → Spa(Zp , Zp ) is adic, the analytic points are those mapping to the p-adic valuation of Qp",
      "match": "The convention for spaces over Spa ℤ_p with adic structure morphism."
     },
     {
      "sourceId": "Hubner-AdicSpaces-2024",
      "locator": "§6, after Lemma 6.8, p. 29",
-     "excerpt": "However, there are relevant examples of adic spaces over Spa(Zp , Zp ) with non-adic structure morphism.",
      "match": "Why non-Tate inputs such as ℤ_p⟦T⟧ and A_inf are kept."
     },
     {
      "sourceId": "Hubner-AdicSpaces-2024",
      "locator": "§6, Example 6.12, p. 30",
-     "excerpt": "The analytic locus of X = Spa(Zp JT K) is given by the union of two affinoids",
      "match": "The test computation for ℤ_p⟦T⟧."
     },
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "Introduction, p. 2",
-     "excerpt": "In this manuscript, we will deal with analytic adic spaces X on which a fixed prime p is topologically nilpotent.",
      "match": "The consumers' category: analytic adic spaces over ℤ_p."
     }
    ],
@@ -2574,25 +2536,21 @@
     {
      "sourceId": "HansenKedlaya-SheafinessCriteria",
      "locator": "§4, Definition 4.1, p. 11",
-     "excerpt": "We say that a Huber ring A is strongly sheafy if for every nonnegative ... For example, by Proposition 3.12, any strongly noetherian Huber ring is strongly sheafy.",
      "match": "The definition of the class and the strongly noetherian example."
     },
     {
      "sourceId": "HansenKedlaya-SheafinessCriteria",
      "locator": "§4, Lemma 4.3(b), p. 11",
-     "excerpt": "The rings A⟨f ⟩ and A⟨f −1 ⟩ also satisfy conditions (i), (ii) of Theorem 4.2.",
      "match": "Stability under Laurent (hence all rational) localisations, clause (b)."
     },
     {
      "sourceId": "HansenKedlaya-SheafinessCriteria",
      "locator": "§4, Corollary 4.5(ii), p. 12",
-     "excerpt": "There exists a covering of Spa(A, A+ ) by rational subspaces Spa(B, B + ) for each of which B is strongly sheafy.",
      "match": "The locality statement, clause (c)."
     },
     {
      "sourceId": "HansenKedlaya-SheafinessCriteria",
      "locator": "§1, p. 2",
-     "excerpt": "Buzzard–Verberkmoes [15] and Mihara [37] gave examples of uniform Huber rings which are not sheafy",
      "match": "The non-example: uniformity does not give (strong) sheafiness."
     }
    ],
@@ -2791,31 +2749,26 @@
     {
      "sourceId": "KedlayaLiu-RelativeFoundations-2015",
      "locator": "§2.4, Remark 2.4.2, p. 38",
-     "excerpt": "For (A, A+ ) an adic Banach ring and B ∈ FÉt(A), view B as a finite Banach A-algebra as in Definition 2.2.14. Then let B + be the integral closure of A+ in B; in this way, we obtain a morphism (A, A+ ) → (B, B + ).",
      "match": "Exactly the construction: natural topology and integral-closure plus ring, used for étale morphisms in KL §8."
     },
     {
      "sourceId": "KedlayaLiu-RelativeFoundations-2015",
      "locator": "§2.2, Lemma 2.2.12(a), p. 32",
-     "excerpt": "The subspace norm on P for the inclusion into Rn is equivalent to the quotient norm for the projection from Rn , and gives P the structure of a finite Banach module over R.",
      "match": "The topology of a finite projective module (here B) is the subspace and the quotient topology of a presentation."
     },
     {
      "sourceId": "Scholze-PerfectoidSpaces-2012",
      "locator": "§7, Definition 7.1(i), p. 39",
-     "excerpt": "A morphism (R, R+ ) → (S, S + ) of affinoid k-algebras is called finite étale if S is a finite étale R-algebra with the induced topology, and S + is the integral closure of R+ in S.",
      "match": "The affinoid finite étale pair, with the same topology and plus-ring conventions."
     },
     {
      "sourceId": "HansenKedlaya-SheafinessCriteria",
      "locator": "§2, Remark 2.4, p. 4",
-     "excerpt": "any finitely generated A-module M admits a natural topology as a topological A-module (inherited from any surjection from a finite free module), but this topology need not be Hausdorff in general. When it is, M is complete for the natural topology; for example, this always happens if M is projective",
      "match": "Completeness and separation of the natural topology come from projectivity (finite étale ⇒ projective)."
     },
     {
      "sourceId": "Scholze-PerfectoidSpaces-2012",
      "locator": "§7, proof of Lemma 7.3(ii), p. 40",
-     "excerpt": "As A⊗B C is finite projective over C, it is already complete.",
      "match": "Clause (v): base change of a finite étale pair needs no completion."
     }
    ],
@@ -2877,31 +2830,26 @@
     {
      "sourceId": "HansenKedlaya-SheafinessCriteria",
      "locator": "§4, Corollary 4.7, p. 13",
-     "excerpt": "Let A → B be a finite flat, locally free, locally monogenic morphism of rings. If A is a strongly sheafy Huber ring, then so is B.",
      "match": "Statement (ii), the heart of the theorem."
     },
     {
      "sourceId": "HansenKedlaya-SheafinessCriteria",
      "locator": "§4, proof of Corollary 4.7, p. 13",
-     "excerpt": "By Corollary 4.5 we may check the claim locally on Spa(A, A+ ); we may thus reduce to the case where B = A⟨T ⟩/(P (T )) for some monic polynomial P (T ).",
      "match": "Local monogenicity is meant locally on Spa, which statement (i) supplies for finite étale B."
     },
     {
      "sourceId": "HansenKedlaya-SheafinessCriteria",
      "locator": "§5, after Definition 5.7, p. 16",
-     "excerpt": "By Corollary 4.7, if A → B is finite étale as a morphism of rings, then (A, A+ ) → (B, B + ) is étale in this sense.",
      "match": "The source applies Corollary 4.7 to finite étale algebras; step 1–3 supply the local monogenicity it uses."
     },
     {
      "sourceId": "KedlayaLiu-RelativeFoundations-2015",
      "locator": "§8.2, Remark 8.2.18, p. 162",
-     "excerpt": "beware that we do not know that a finite étale extension of a sheafy adic Banach algebra is sheafy, or even that a finite étale cover of an adic affinoid space is itself an adic space.",
      "match": "The boundary: sheafy alone is not known to suffice."
     },
     {
      "sourceId": "HansenKedlaya-SheafinessCriteria",
      "locator": "§3, Definition 3.13, p. 9",
-     "excerpt": "If A is stably uniform, then any finite étale extension B of A is again uniform (see Definition 2.9), but it is not known in general whether B must again be stably uniform.",
      "match": "The stably uniform boundary."
     }
    ],
@@ -2965,19 +2913,16 @@
     {
      "sourceId": "KedlayaLiu-RelativeFoundations-2015",
      "locator": "§2.6, Theorem 2.6.9, p. 55",
-     "excerpt": "Then the homomorphism R → R1 ⊕ · · · ⊕ Rn is an effective descent morphism for finite étale algebras over Banach rings.",
      "match": "The statement, for an arbitrary adic Banach (= complete Tate) ring and a rational covering."
     },
     {
      "sourceId": "KedlayaLiu-RelativeFoundations-2015",
      "locator": "§2.6, proof of Theorem 2.6.9, p. 55",
-     "excerpt": "By Proposition 2.6.8, any descent datum for finite étale algebras over Banach rings with respect to R → S1 ⊕ · · · ⊕ Sn arises from a descent datum with respect to Aj → Bj,1 ⊕ · · · ⊕ Bj,n for some j.",
      "match": "Steps 1–2: reduction to a finite stage of an affinoid system."
     },
     {
      "sourceId": "KedlayaLiu-RelativeFoundations-2015",
      "locator": "§2.6, proof of Theorem 2.6.9, p. 55",
-     "excerpt": "This descent datum is effective by Theorem 2.5.20(b)",
      "match": "Step 3: effectivity at the noetherian stage by Kiehl gluing."
     }
    ],
@@ -3041,25 +2986,21 @@
     {
      "sourceId": "KedlayaLiu-RelativeFoundations-2015",
      "locator": "§2.6, Lemma 2.6.2, p. 53",
-     "excerpt": "Let (R, R+ ) be an adic Banach algebra. Then there exists an affinoid system with completed direct limit (R, R+ ).",
      "match": "The existence of the approximating system."
     },
     {
      "sourceId": "KedlayaLiu-RelativeFoundations-2015",
      "locator": "§2.6, Definition 2.6.1, p. 53",
-     "excerpt": "Note that each ring Ai is strongly noetherian (Remark 2.5.23).",
      "match": "The terms of the system are noetherian affinoids, where Huber's theory applies."
     },
     {
      "sourceId": "KedlayaLiu-RelativeFoundations-2015",
      "locator": "§2.6, Remark 2.6.3, p. 53",
-     "excerpt": "every rational subspace of Spa(R, R+ ) arises from some Spa(Ai , A+ i ) by Remark 2.4.7.",
      "match": "Clause (a): rational subsets are defined at a finite stage."
     },
     {
      "sourceId": "KedlayaLiu-RelativeFoundations-2015",
      "locator": "§2.6, proof of Lemma 2.6.2, p. 53",
-     "excerpt": "By choosing a topologically nilpotent unit z ∈ R, we may view R as a Banach algebra over Z((z)) for a suitable norm as in Remark 2.5.23.",
      "match": "The base ℤ((z)) and the choice z ↦ ϖ."
     }
    ],
@@ -3122,19 +3063,16 @@
     {
      "sourceId": "KedlayaLiu-RelativeFoundations-2015",
      "locator": "§2.6, Proposition 2.6.8, p. 55",
-     "excerpt": "Then the base change functors FÉt(A) → FÉt(A) → FÉt(R) are tensor equivalences.",
      "match": "The statement (the middle term is the separated quotient of the direct limit)."
     },
     {
      "sourceId": "KedlayaLiu-RelativeFoundations-2015",
      "locator": "§1.2, Remark 1.2.9, p. 15",
-     "excerpt": "We conclude that limi FÉt(Ri ) → FÉt(R) is a tensor equivalence.",
      "match": "Step 1: finite étale algebras over a filtered colimit."
     },
     {
      "sourceId": "KedlayaLiu-RelativeFoundations-2015",
      "locator": "§1.2, Theorem 1.2.8, p. 15",
-     "excerpt": "Let (R, I) be a henselian pair. Then the base change functor FÉt(R) → FÉt(R/I) is a tensor equivalence.",
      "match": "Step 2: the henselian comparison."
     }
    ],
@@ -3295,25 +3233,21 @@
     {
      "sourceId": "KedlayaLiu-RelativeFoundations-2015",
      "locator": "§8.2, Definition 8.2.16, p. 162",
-     "excerpt": "We say that ψ is finite étale if locally on the target, ψ corresponds to a morphism of ... where B is a finite étale A-algebra and B + is the integral closure of A+ in B.",
      "match": "The definition: locally on the target Spa of a finite étale algebra with integral-closure plus ring."
     },
     {
      "sourceId": "Scholze-PerfectoidSpaces-2012",
      "locator": "§7, Definition 7.1(ii), p. 39",
-     "excerpt": "A morphism f : X → Y of adic spaces over k is called finite étale if there is a cover of Y by open affinoids V ⊂ Y such that the preimage U = f −1 (V ) is affinoid",
      "match": "The same definition for adic spaces over a field, by an affinoid cover of the target."
     },
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§6, Definition 6.2(i), p. 26",
-     "excerpt": "The morphism f is finite étale if for all open affinoid perfectoid Spa(R, R+ ) = U ⊂ X, the preimage V = f −1 (U ) = Spa(S, S + ) ⊂ Y is affinoid perfectoid",
      "match": "The 'for all affinoids' form for perfectoid spaces, obtained here from the local-to-global node."
     },
     {
      "sourceId": "ScholzeWeinstein-Berkeley-2020",
      "locator": "Lecture 7, Definition 7.5.1(1), p. 55",
-     "excerpt": "A morphism f : X → Y of perfectoid spaces is finite étale if for all Spa(B, B + ) ⊂ Y open, the pullback X ×Y Spa(B, B + ) is Spa(A, A+ ), where A is a finite étale B-algebra, and A+ is the integral closure of the image of B + in A.",
      "match": "The same notion for perfectoid spaces, with the integral-closure plus ring."
     }
    ],
@@ -3384,25 +3318,21 @@
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§6, after Definition 6.2, p. 26",
-     "excerpt": "In particular, it is proved there that a morphism is finite étale if and only if there is a cover by open affinoid perfectoid U = Spa(R, R+ ) ⊂ X such that their preimages V = Spa(S, S + ) ⊂ Y are affinoid perfectoid",
      "match": "The local-to-global statement in the perfectoid case (Scholze 2012 Proposition 7.6)."
     },
     {
      "sourceId": "Scholze-PerfectoidSpaces-2012",
      "locator": "§7, Proposition 7.6, p. 41",
-     "excerpt": "then for any open affinoid perfectoid V ⊂ Y , its preimage U is affinoid perfectoid",
      "match": "The perfectoid instance of (a)."
     },
     {
      "sourceId": "KedlayaLiu-RelativeFoundations-2015",
      "locator": "§8.2, Lemma 8.2.17(a), p. 162",
-     "excerpt": "For (A, A+ ) an adic Banach ring, the global sections functor induces an equivalence of categories between finite étale morphisms to",
      "match": "Clause (c)."
     },
     {
      "sourceId": "KedlayaLiu-RelativeFoundations-2015",
      "locator": "§8.2, proof of Lemma 8.2.17, p. 162",
-     "excerpt": "Part (a) is immediate from Theorem 2.6.9 and the formal properties of the functor",
      "match": "The proof: rational descent of finite étale algebras."
     }
    ],
@@ -3558,31 +3488,26 @@
     {
      "sourceId": "KedlayaLiu-RelativeFoundations-2015",
      "locator": "§8.2, Definition 8.2.16, p. 162",
-     "excerpt": "We say that ψ is étale if for each y ∈ Y , there exists an open neighborhood U of y in Y such that the restriction of ψ to U factors as an open immersion followed by a finite étale morphism followed by another open immersion.",
      "match": "The definition."
     },
     {
      "sourceId": "Scholze-PerfectoidSpaces-2012",
      "locator": "§7, Definition 7.1(iii), p. 39",
-     "excerpt": "A morphism f : X → Y of adic spaces over k is called étale if for any point x ∈ X there are open neighborhoods U and V of x and f (x) and a commutative diagram",
      "match": "The same definition for adic spaces over a field."
     },
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§6, Definition 6.2(ii), p. 26",
-     "excerpt": "The morphism f is étale if for all y ∈ Y , there are open subsets V ⊂ Y , U ⊂ X such that y ∈ Y , f (V ) ⊂ U , and there is a factorization",
      "match": "The perfectoid form (the printed 'y ∈ Y' means y ∈ V; see sourceIssues)."
     },
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§15, proof of Lemma 15.6, p. 91",
-     "excerpt": "in both cases an étale map is locally given by a composite of a quasicompact open immersion and a finite étale map.",
      "match": "The local form used in ECD §15."
     },
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§5, Lemma 5.2, p. 28",
-     "excerpt": "together with an étale map U → Tn which factors as a composite of rational embeddings and finite étale maps.",
      "match": "The standard affinoid étale form."
     }
    ],
@@ -3671,31 +3596,26 @@
     {
      "sourceId": "Scholze-PerfectoidSpaces-2012",
      "locator": "§7, after Definition 7.1, p. 39",
-     "excerpt": "For locally noetherian adic spaces over k, this recovers the usual notions, by Example 1.6.6 ii) and Lemma 2.2.8 of [20], respectively.",
      "match": "Exactly (i) and (ii), attributed to Huber 1.6.6(ii) and 2.2.8."
     },
     {
      "sourceId": "ScholzeWeinstein-Berkeley-2020",
      "locator": "Lecture 7, after Definition 7.5.1, p. 55",
-     "excerpt": "We note that this characterization of étale maps does not hold true in the world of schemes, but it does in the case of analytic adic spaces, by [Hub96, Lemma 2.2.8].",
      "match": "(ii) needs analytic spaces; no scheme-theoretic analogue."
     },
     {
      "sourceId": "Huber-EtaleCohomology-1996",
      "locator": "§1.6, Definition 1.6.5, p. 78",
-     "excerpt": "for any affinoid ring A, any ideal I of A^▷ with I^2 = {0} and any morphism Spa A -> Y, the mapping Hom_Y(Spa A, X) -> Hom_Y(Spa A/I, X) is injective (resp. surjective, resp. bijective).",
      "match": "Huber's infinitesimal definition, the other side of the comparison."
     },
     {
      "sourceId": "Huber-EtaleCohomology-1996",
      "locator": "§2.1, p. 109",
-     "excerpt": "The etale site X_et of an adic space X is the category Et/X of adic spaces etale over X equipped with the Grothendieck topology such that a family (U_i -> U) of morphisms in Et/X is a covering if and only if U = ∪ f_i(U_i)",
      "match": "(iii): Huber's site has the same coverings."
     },
     {
      "sourceId": "KedlayaLiu-RelativeFoundations-2015",
      "locator": "§8.2, before Definition 8.2.16, p. 162",
-     "excerpt": "We thus introduce some ad hoc definitions that agree with Huber’s definitions when the latter are applicable",
      "match": "The local definitions are designed to agree with Huber's in his setting."
     }
    ],
@@ -3771,31 +3691,26 @@
     {
      "sourceId": "KedlayaLiu-RelativeFoundations-2015",
      "locator": "§8.2, after Definition 8.2.16, p. 162",
-     "excerpt": "These properties are evidently stable under base extension.",
      "match": "Base change of the local notions."
     },
     {
      "sourceId": "Scholze-PerfectoidSpaces-2012",
      "locator": "§7, Lemma 7.3(ii), p. 40",
-     "excerpt": "where D = A ⊗B C and D+ is the integral closure of C + in D",
      "match": "The affinoid formula with the uncompleted tensor product and integral-closure plus ring."
     },
     {
      "sourceId": "Scholze-PerfectoidSpaces-2012",
      "locator": "§7, Lemma 7.3(i), p. 40",
-     "excerpt": "Moreover, the map of underlying topological spaces |X ×Z Y | → |X| ×|Z| |Y | is surjective.",
      "match": "Surjectivity on points (the printed indices are permuted; see sourceIssues)."
     },
     {
      "sourceId": "Huber-EtaleCohomology-1996",
      "locator": "§1.2, Corollary 1.2.3, p. 49",
-     "excerpt": "d) For every x ∈ X and t ∈ T with f(x) = g(t), there exists a s ∈ S with x = v(s) and t = u(s).",
      "match": "Surjectivity on points of fibre products in Huber's setting."
     },
     {
      "sourceId": "KedlayaLiu-RelativeFoundations-2015",
      "locator": "§8.2, Remark 8.2.5, p. 160",
-     "excerpt": "However, it is unknown whether the fibred product of adic spaces (over an adic space) is again an adic space.",
      "match": "Why the strongly sheafy hypothesis on X' is needed."
     }
    ],
@@ -3869,31 +3784,26 @@
     {
      "sourceId": "KedlayaLiu-RelativeFoundations-2015",
      "locator": "§8.2, Lemma 8.2.17(c), p. 162",
-     "excerpt": "The properties introduced in Definition 8.2.16 are stable under compositions and fibred products.",
      "match": "The statement."
     },
     {
      "sourceId": "KedlayaLiu-RelativeFoundations-2015",
      "locator": "§8.2, proof of Lemma 8.2.17, p. 162",
-     "excerpt": "we may use Lemma 2.6.2 and Proposition 2.6.8 to reduce to the case where all of the spaces involved are classical affinoid spaces",
      "match": "The approximation strategy followed in steps 4–6."
     },
     {
      "sourceId": "KedlayaLiu-RelativeFoundations-2015",
      "locator": "§8.2, proof of Lemma 8.2.17, p. 162",
-     "excerpt": "for which we may appeal to [34, Proposition 3.1.7] for (b) and [79, Proposition 1.7.5] for (c).",
      "match": "At the noetherian stage the classical theory (Huber) is used."
     },
     {
      "sourceId": "ScholzeWeinstein-Berkeley-2020",
      "locator": "Lecture 7, Proposition 7.5.2(1), p. 55",
-     "excerpt": "Compositions of (finite) étale morphisms are (finite) étale.",
      "match": "The same statement for perfectoid spaces."
     },
     {
      "sourceId": "Scholze-PerfectoidSpaces-2012",
      "locator": "§7, proof of Corollary 7.8, p. 42",
-     "excerpt": "For the second part, argue as in the previous proposition for both f and g to reduce to the analogous result for locally noetherian adic spaces, [20], Proposition 1.6.7 (ii).",
      "match": "The perfectoid case is also proved by reduction to noetherian adic spaces."
     }
    ],
@@ -3958,25 +3868,21 @@
     {
      "sourceId": "KedlayaLiu-RelativeFoundations-2015",
      "locator": "§1.2, Definition 1.2.2, p. 13",
-     "excerpt": "Then there exists an idempotent element eU/R ∈ U ⊗R U mapping to 1 via the multiplication map µ : U ⊗R U → U and killing the kernel of µ",
      "match": "The diagonal idempotent of a finite étale algebra."
     },
     {
      "sourceId": "KedlayaLiu-RelativeFoundations-2015",
      "locator": "§2.6, Proposition 2.6.4, p. 54",
-     "excerpt": "Let (R, R+ ) be an adic Banach algebra, and let U be a closed-open subset of Spa(R, R+ ).",
      "match": "Open and closed subsets of the adic spectrum correspond to idempotents."
     },
     {
      "sourceId": "deJongvanderPut-EtaleRigid-1996",
      "locator": "§3.2, proof of Proposition 3.2.2, p. 24",
-     "excerpt": "we have that the diagonal ... is a union of connected components of",
      "match": "The diagonal of a finite étale map is open and closed."
     },
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§14, proof of Proposition 14.3, p. 82",
-     "excerpt": "Note that equalizers exist in Yét , so the colimit defining Fy is filtered.",
      "match": "Consequence (a) is what makes stalk colimits filtered."
     }
    ],
@@ -4038,19 +3944,16 @@
     {
      "sourceId": "deJongvanderPut-EtaleRigid-1996",
      "locator": "§3.2, p. 23",
-     "excerpt": "the morphism g is automatically étale",
      "match": "Morphisms in the étale site are étale (rigid case)."
     },
     {
      "sourceId": "ScholzeWeinstein-Berkeley-2020",
      "locator": "Lecture 7, Proposition 7.5.2(3), p. 55",
-     "excerpt": "If g and gf are (finite) étale, then so is f .",
      "match": "The cancellation statement for perfectoid spaces."
     },
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§6, after Definition 6.2, p. 26",
-     "excerpt": "Moreover, composites, base changes, and maps between (finite) étale maps are (finite) étale.",
      "match": "Maps between étale maps are étale."
     }
    ],
@@ -4114,25 +4017,21 @@
     {
      "sourceId": "KedlayaLiu-RelativeFoundations-2015",
      "locator": "§8.2, Lemma 8.2.17(b), p. 162",
-     "excerpt": "Any étale morphism Y → X of preadic spaces with Y quasicompact factors uniquely as Y → Z → X where Y → Z is surjective, Z is quasicompact, and Z → X is an open immersion.",
      "match": "Clause (ii)."
     },
     {
      "sourceId": "deJongvanderPut-EtaleRigid-1996",
      "locator": "§3.1, Proposition 3.1.7(1), p. 21",
-     "excerpt": "The image f (Y ) of f is a special subset of X , i.e., it is a finite union of open affinoid subvarieties of X .",
      "match": "The affinoid form of (ii) in the rigid case."
     },
     {
      "sourceId": "Scholze-PerfectoidSpaces-2012",
      "locator": "§7, proof of Corollary 7.8, p. 42",
-     "excerpt": "The first part follows directly from the previous proposition and the result for locally noetherian adic spaces, cf. [20], Proposition 1.7.8.",
      "match": "Openness by reduction to the noetherian case (Huber 1.7.8), the strategy of steps 2–4."
     },
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§1, p. 3",
-     "excerpt": "is automatic in cases (i) and (ii) as étale maps are open.",
      "match": "Openness is what makes covering conditions of étale families purely set-theoretic."
     }
    ],
@@ -4331,31 +4230,26 @@
     {
      "sourceId": "Huber-EtaleCohomology-1996",
      "locator": "§2.1, p. 109",
-     "excerpt": "The etale site X_et of an adic space X is the category Et/X of adic spaces etale over X equipped with the Grothendieck topology such that a family (U_i -> U) of morphisms in Et/X is a covering if and only if U = ∪ f_i(U_i)",
      "match": "Huber's definition: same objects (on noetherian X) and same coverings."
     },
     {
      "sourceId": "KedlayaLiu-RelativeFoundations-2015",
      "locator": "§8.2, Definition 8.2.19, p. 163",
-     "excerpt": "We may define the small finite étale site (resp. the small étale site) on a preadic space X over an analytic field as the site Xfét (resp. Xét ) whose objects consist of finite étale (resp. étale) morphisms Y → X and whose coverings are set-theoretic coverings.",
      "match": "The site for the local-description étale morphisms."
     },
     {
      "sourceId": "ScholzeWeinstein-Berkeley-2020",
      "locator": "Lecture 7, Definition 7.5.1(3), p. 55",
-     "excerpt": "An étale cover is a jointly surjective family of étale maps.",
      "match": "Coverings are the jointly surjective families."
     },
     {
      "sourceId": "deJongvanderPut-EtaleRigid-1996",
      "locator": "§3.2, p. 23",
-     "excerpt": "It is also clear from the lemma that any (general) morphism f : Z → X defines a morphism of sites",
      "match": "Clause (iv): base change defines morphisms of étale sites."
     },
     {
      "sourceId": "Scholze-PerfectoidSpaces-2012",
      "locator": "§7, Definition 7.11, p. 43",
-     "excerpt": "Then the étale site of X is the category Xét of perfectoid spaces which are étale over X, and coverings are given by topological coverings.",
      "match": "The perfectoid instance."
     }
    ],
@@ -4508,25 +4402,21 @@
     {
      "sourceId": "KedlayaLiu-RelativeFoundations-2015",
      "locator": "§8.2, Definition 8.2.19, p. 163",
-     "excerpt": "We may define the small finite étale site (resp. the small étale site) on a preadic space X over an analytic field as the site Xfét (resp. Xét ) whose objects consist of finite étale (resp. étale) morphisms Y → X and whose coverings are set-theoretic coverings.",
      "match": "The definition."
     },
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§3, before Definition 3.3, p. 13",
-     "excerpt": "Let Xfét denote the category of spaces Y finite étale over X.",
      "match": "The category underlying Scholze's pro-finite étale site."
     },
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§6, after Definition 6.2, p. 26",
-     "excerpt": "If X = Spa(R, R+ ) is affinoid, then Xfét",
      "match": "Clause (ii) in the perfectoid case (X_fét ≅ R_fét^op)."
     },
     {
      "sourceId": "KedlayaLiu-RelativeFoundations-2015",
      "locator": "§8.2, Lemma 8.2.17(a), p. 162",
-     "excerpt": "For (A, A+ ) an adic Banach ring, the global sections functor induces an equivalence of categories between finite étale morphisms to",
      "match": "Clause (ii)."
     }
    ],
@@ -4597,25 +4487,21 @@
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§7, proof of Proposition 7.16, p. 36",
-     "excerpt": "But any étale cover of any connected component Spa(C, C + ) splits, and then the splitting extends to a small neighborhood by Proposition 6.4.",
      "match": "Clause (iii) for perfectoid Spa(C, C⁺)."
     },
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§14, proof of Proposition 14.3, p. 82",
-     "excerpt": "But note that any surjective étale map to Spa(C(y), C(y)+ ) splits and Spa(C(y), C(y)+ ) is connected, so the functor of global sections is exact and commutes with all colimits, i.e. defines a point.",
      "match": "Consequence of (iii): global sections on S_ét define a point."
     },
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§7, proof of Lemma 7.5, p. 31",
-     "excerpt": "in particular, U contains the connected component Xc ⊂ X, as all points of Xc specialize to xc .",
      "match": "Clause (i): an open neighbourhood of the closed point contains everything."
     },
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§7, proof of Proposition 7.16, p. 36",
-     "excerpt": "If K is not algebraically closed, then for any finite extension L of K with integral closure L+ ⊂ L of K + , the map Spa(L, L+ ) → Spa(K, K + ) is a nonsplit finite étale cover.",
      "match": "Clause (v)."
     }
    ],
@@ -4785,37 +4671,31 @@
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§14, Proposition 14.3, p. 82",
-     "excerpt": "More precisely, for any y ∈ |Y |, choose a quasi-pro-étale map y : Spa(C(y), C(y)+ ) → Y where C(y) is algebraically closed and C(y)+ ⊂ C(y) is an open and bounded valuation subring, such that y maps the closed point to y.",
      "match": "Geometric points with open bounded valuation subrings of arbitrary rank, and their support."
     },
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§19, p. 109",
-     "excerpt": "stalks, i.e. after pullback to maps Spa(C, C + ) → X, where C is algebraically closed and C + ⊂ C is an open and bounded valuation subring.",
      "match": "Stalks are taken at such higher-rank geometric points."
     },
     {
      "sourceId": "Huber-EtaleCohomology-1996",
      "locator": "§2.1, p. 109",
-     "excerpt": "The etale site X_et of an adic space X is the category Et/X of adic spaces etale over X equipped with the Grothendieck topology such that a family (U_i -> U) of morphisms in Et/X is a covering if and only if U = ∪ f_i(U_i)",
      "match": "The site whose points are constructed (Huber's, on noetherian X)."
     },
     {
      "sourceId": "deJongvanderPut-EtaleRigid-1996",
      "locator": "§3.3, p. 27",
-     "excerpt": "An étale point e above the analytic point a of X is a separable closure",
      "match": "The rigid-analytic analogue (rank-one points only)."
     },
     {
      "sourceId": "deJongvanderPut-EtaleRigid-1996",
      "locator": "§3.3, p. 29",
-     "excerpt": "As in the rigid case we do not have enough étale points to separate étale sheaves.",
      "match": "Rank-one (analytic) points are not enough: the reason higher-rank field pairs are kept."
     },
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§3, footnote to Proposition 3.13, p. 18",
-     "excerpt": "We note that in the case of adic spaces, the image of Y may be larger than x itself.",
      "match": "Clause (e)."
     }
    ],
@@ -4886,25 +4766,21 @@
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§14, Proposition 14.3, p. 82",
-     "excerpt": "Proposition 14.3. Let Y be a locally spatial diamond. Then the étale site Yét has enough points.",
      "match": "The same theorem for locally spatial diamonds, with the same points."
     },
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§14, proof of Proposition 14.3, p. 82",
-     "excerpt": "As étale maps are open, it follows that the disjoint union of all Uy is an étale cover of Y , over which s becomes 0, so that s = 0, as desired.",
      "match": "The conservativity argument."
     },
     {
      "sourceId": "Huber-EtaleCohomology-1996",
      "locator": "§2.1, p. 109",
-     "excerpt": "The etale site X_et of an adic space X is the category Et/X of adic spaces etale over X equipped with the Grothendieck topology such that a family (U_i -> U) of morphisms in Et/X is a covering if and only if U = ∪ f_i(U_i)",
      "match": "Coverings are surjective families, which is why fibre functors at all points are conservative."
     },
     {
      "sourceId": "deJongvanderPut-EtaleRigid-1996",
      "locator": "§3.3, p. 29",
-     "excerpt": "As in the rigid case we do not have enough étale points to separate étale sheaves.",
      "match": "The rank-one points of rigid geometry are not conservative."
     }
    ],
@@ -4970,25 +4846,21 @@
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§3, before Definition 3.4, p. 13",
-     "excerpt": "Finite étale covers of X are equivalent to finite sets with a continuous",
      "match": "The statement used by Scholze for connected locally noetherian X with a geometric base point."
     },
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§3, p. 13",
-     "excerpt": "We will mostly be using this category in the case that X is connected.",
      "match": "The connectedness hypothesis."
     },
     {
      "sourceId": "ScholzeWeinstein-Berkeley-2020",
      "locator": "Lecture 16, §16.3, p. 142",
-     "excerpt": "finite étale covers of D form a Galois category, so for a geometric point",
      "match": "The same statement for connected diamonds."
     },
     {
      "sourceId": "KedlayaLiu-RelativeFoundations-2015",
      "locator": "§2.6, Proposition 2.6.4, p. 54",
-     "excerpt": "Let (R, R+ ) be an adic Banach algebra, and let U be a closed-open subset of Spa(R, R+ ).",
      "match": "Open and closed subsets of affinoids come from idempotents; used for connectedness and summands."
     }
    ],
@@ -5059,31 +4931,26 @@
     {
      "sourceId": "KedlayaLiu-RelativeFoundations-2015",
      "locator": "§8.2, Definition 8.2.19, p. 163",
-     "excerpt": "We define a stable basis of Xét to be a basis B of Xét consisting of adic affinoid spaces such that for any morphism Y ′ → Y in Xét which is either finite étale or a rational subdomain embedding, if Y ∈ B then Y ′ ∈ B.",
      "match": "Clause (b): the basis is stable."
     },
     {
      "sourceId": "KedlayaLiu-RelativeFoundations-2015",
      "locator": "§8.2, after Definition 8.2.19, p. 163",
-     "excerpt": "For instance, rigid analytic spaces are stably adic",
      "match": "Rigid analytic spaces are stably adic: the conclusion in the classical case."
     },
     {
      "sourceId": "HansenKedlaya-SheafinessCriteria",
      "locator": "§5, proof of Proposition 5.5, p. 15",
-     "excerpt": "Let B be the basis of Spa(A, A+ )et consisting of compositions of rational localizations and finite étale morphisms.",
      "match": "The basis used here."
     },
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§5, Lemma 5.2, p. 28",
-     "excerpt": "together with an étale map U → Tn which factors as a composite of rational embeddings and finite étale maps.",
      "match": "Basic affinoid étale objects in the smooth rigid case."
     },
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§6, proof of Proposition 6.4, p. 28",
-     "excerpt": "Thus, we can assume that f is a composite of a rational open subset, a finite étale map, and a rational open subset.",
      "match": "The same basic form for étale maps of perfectoid spaces."
     }
    ],
@@ -5143,25 +5010,21 @@
     {
      "sourceId": "KedlayaLiu-RelativeFoundations-2015",
      "locator": "§8.2, Proposition 8.2.20, p. 163",
-     "excerpt": "Let P be a property of coverings in Xét of and by elements of B, and assume that the following conditions hold.",
      "match": "The statement."
     },
     {
      "sourceId": "KedlayaLiu-RelativeFoundations-2015",
      "locator": "§8.2, before Proposition 8.2.20, p. 163",
-     "excerpt": "adapted from de Jong and van der Put [34, Proposition 3.2.2].",
      "match": "Provenance of the argument."
     },
     {
      "sourceId": "KedlayaLiu-RelativeFoundations-2015",
      "locator": "§8.2, proof of Proposition 8.2.20, p. 163",
-     "excerpt": "We induct on the maximum degree d of V → U.",
      "match": "Step (e)."
     },
     {
      "sourceId": "deJongvanderPut-EtaleRigid-1996",
      "locator": "§3.2, Proposition 3.2.2, p. 23",
-     "excerpt": "The presheaf S on Xétale is a sheaf if and only if the following two conditions hold",
      "match": "The sheaf criterion (rigid case)."
     }
    ],
@@ -5231,25 +5094,21 @@
     {
      "sourceId": "KedlayaLiu-RelativeFoundations-2015",
      "locator": "§8.2, Theorem 8.2.22(a), p. 165",
-     "excerpt": "is an acyclic sheaf for the adic topology and the finite étale topology.",
      "match": "The sheaf property of M̃, in particular of O, for the finite étale topology."
     },
     {
      "sourceId": "HansenKedlaya-SheafinessCriteria",
      "locator": "§5, proof of Proposition 5.5, p. 15",
-     "excerpt": "(b) The complex (5.4.1) is exact for a finite étale covering. This follows from faithfully flat descent for modules.",
      "match": "Step (2)."
     },
     {
      "sourceId": "HansenKedlaya-SheafinessCriteria",
      "locator": "§5, Proposition 5.8, p. 16",
-     "excerpt": "Let (A, A+ ) be a strongly sheafy Huber pair. Then H i (Spa(A, A+ )et , O) = 0 for all i > 0.",
      "match": "The cohomological strengthening, owned elsewhere."
     },
     {
      "sourceId": "deJongvanderPut-EtaleRigid-1996",
      "locator": "§3.2, Proposition 3.2.2, p. 23",
-     "excerpt": "The presheaf S on Xétale is a sheaf if and only if the following two conditions hold",
      "match": "The criterion used."
     }
    ],
@@ -5322,19 +5181,16 @@
     {
      "sourceId": "deJongvanderPut-EtaleRigid-1996",
      "locator": "§3.2, p. 23",
-     "excerpt": "the morphism g is automatically étale",
      "match": "Objects over U are étale over U: the essential surjectivity."
     },
     {
      "sourceId": "Huber-EtaleCohomology-1996",
      "locator": "§2.1, p. 109",
-     "excerpt": "The etale site X_et of an adic space X is the category Et/X of adic spaces etale over X equipped with the Grothendieck topology such that a family (U_i -> U) of morphisms in Et/X is a covering if and only if U = ∪ f_i(U_i)",
      "match": "Coverings are defined by surjectivity, independently of the base."
     },
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§3, Proposition 3.15, p. 19",
-     "excerpt": "There is an equivalence of sites XL,proét ∼= Xproét /XL .",
      "match": "The pro-étale analogue (slice description of the site of an object)."
     }
    ],
@@ -5473,25 +5329,21 @@
     {
      "sourceId": "deJongvanderPut-EtaleRigid-1996",
      "locator": "§3.3, p. 28",
-     "excerpt": "In this way we see that the category of all étale neighborhoods of e give a filtered system.",
      "match": "Étale neighbourhoods of a geometric point form a filtered system."
     },
     {
      "sourceId": "deJongvanderPut-EtaleRigid-1996",
      "locator": "§3.3, p. 28",
-     "excerpt": "The stalk Se of a sheaf S on Xétale at the étale point e is defined by the formula:",
      "match": "Clause (ii)."
     },
     {
      "sourceId": "FarguesScholze-Geometrization",
      "locator": "§IV.2.1, p. 114",
-     "excerpt": "we let Xx = Spa(C(x), C(x)+ ) be the strict localization of X at x (which is the initial diamond pro-étale over X with a lift of x).",
      "match": "The strict localisation as the initial pro-étale object with a lift of the geometric point (diamond setting)."
     },
     {
      "sourceId": "KedlayaLiu-RelativeFoundations-2015",
      "locator": "§2.4, Lemma 2.4.17(a), p. 43",
-     "excerpt": "For v ∈ Spa(A, A+ ), the stalk Ov is a henselian local ring whose residue field is dense in H(v).",
      "match": "The local rings O_{U, u} entering (iii)."
     }
    ],
@@ -5555,31 +5407,26 @@
     {
      "sourceId": "KedlayaLiu-RelativeFoundations-2015",
      "locator": "§2.4, Lemma 2.4.17(a), p. 43",
-     "excerpt": "For v ∈ Spa(A, A+ ), the stalk Ov is a henselian local ring whose residue field is dense in H(v).",
      "match": "The henselian local rings whose colimit is O_{X_ét, ξ}."
     },
     {
      "sourceId": "KedlayaLiu-RelativeFoundations-2015",
      "locator": "§1.2, Theorem 1.2.8, p. 15",
-     "excerpt": "Let (R, I) be a henselian pair. Then the base change functor FÉt(R) → FÉt(R/I) is a tensor equivalence.",
      "match": "Finite étale algebras over a henselian local ring are determined by the residue field."
     },
     {
      "sourceId": "deJongvanderPut-EtaleRigid-1996",
      "locator": "§3.3, p. 27",
-     "excerpt": "Note that the field Fe is algebraically closed (see [BGR, 3.4.1/6]).",
      "match": "C_ξ is algebraically closed."
     },
     {
      "sourceId": "deJongvanderPut-EtaleRigid-1996",
      "locator": "§3.3, p. 28",
-     "excerpt": "We claim that these étale neighborhoods are cofinal in the system of all étale neighborhoods of e.",
      "match": "The cofinality step of (b), in the rigid case."
     },
     {
      "sourceId": "FarguesScholze-Geometrization",
      "locator": "§IV.2.1, p. 114",
-     "excerpt": "we let Xx = Spa(C(x), C(x)+ ) be the strict localization of X at x (which is the initial diamond pro-étale over X with a lift of x).",
      "match": "The strict localisation is Spa of an algebraically closed affinoid field (diamond setting)."
     }
    ],
@@ -5736,31 +5583,26 @@
     {
      "sourceId": "KedlayaLiu-RelativeFoundations-2015",
      "locator": "§8.2, Definition 8.2.3, p. 159",
-     "excerpt": "we are forced to associate spaces also to general adic Banach rings.",
      "match": "Why generalized adic spaces are needed: sheafiness is not stable under finite étale extension."
     },
     {
      "sourceId": "KedlayaLiu-RelativeFoundations-2015",
      "locator": "§8.2, Remark 8.2.5, p. 160",
-     "excerpt": "The categories of locally v-ringed spaces and preadic spaces admit fibred products.",
      "match": "Clause (i): fibre products exist among preadic spaces."
     },
     {
      "sourceId": "KedlayaLiu-RelativeFoundations-2015",
      "locator": "§8.2, Definition 8.2.19, p. 163",
-     "excerpt": "We may define the small finite étale site (resp. the small étale site) on a preadic space X over an analytic field as the site Xfét (resp. Xét ) whose objects consist of finite étale (resp. étale) morphisms Y → X and whose coverings are set-theoretic coverings.",
      "match": "The definition of the sites."
     },
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§15, Lemma 15.6, p. 91",
-     "excerpt": "Moreover, with Yét and Yfét defined as in [KL15, Definition 8.2.19], one has equivalences of sites",
      "match": "Clause (v): the site used in ECD §15."
     },
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§15, after Definition 15.5, p. 91",
-     "excerpt": "We note that this definition (and the next lemma) work in the generality of adic spaces as defined in [SW13, Section 2.1].",
      "match": "The generality of Yoneda-adic spaces."
     }
    ],
@@ -5903,37 +5745,31 @@
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§3, Definition 3.1, p. 13",
-     "excerpt": "The category pro − C of pro-objects of C is the full subcategory of those objects of Cˆ which are small cofiltered inverse limits of representable objects.",
      "match": "Pro-objects as small cofiltered limits of representables."
     },
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§3, Proposition 3.2, p. 13",
-     "excerpt": "The category pro − C is equivalent to the category whose objects are functors F : I → C from small cofiltered index categories I and whose morphisms are given by",
      "match": "The formal-system description and Hom formula used for pro-X_ét."
     },
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§3, after Proposition 3.2, p. 13",
-     "excerpt": "Note that cofiltered inverse limits exist in pro − C, cf. (dual of) SGA 4 I, Proposition 8.5.1: This amounts to combining a double inverse system into a single inverse system.",
      "match": "Cofiltered limits exist in pro-C by combining double systems."
     },
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§3, before Definition 3.9, p. 15",
-     "excerpt": "has an underlying topological space |U | = lim |Ui |. This allows us to put topological conditions in the following.",
      "match": "The underlying space |U| = lim |U_i|."
     },
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§3, Definition 3.9, p. 15",
-     "excerpt": "A morphism U → V of objects of pro − Xét is called étale, resp. finite étale, if it is induced by an étale, resp. finite étale, morphism U0 → V0 of objects in Xét , i.e. U = U0 ×V0 V via some morphism V → V0 .",
      "match": "Étale and finite étale morphisms of pro-X_ét: pullbacks from X_ét."
     },
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§3, Definition 3.9, p. 15",
-     "excerpt": "A morphism U → V of objects of pro − Xét is called pro-étale if it can be written as a cofiltered inverse limit U = lim Ui of objects Ui → V étale over V , such that Ui → Uj is finite étale and surjective for large i > j.",
      "match": "Pro-étale morphisms and pro-étale presentations."
     }
    ],
@@ -6082,31 +5918,26 @@
     {
      "sourceId": "Scholze-PadicHodgeRigid-Erratum",
      "locator": "item (1), p. 1",
-     "excerpt": "a transfinite composition of surjective maps should be defined as a functor µ↦→Xµ from the set of ordinals less than some fixed ordinal λ, such that for all µ<λ , the map Xµ→X<µ := lim←−µ′<µ Xµ′ is surjective.",
      "match": "Kerz's definition of a transfinite composition of surjective maps, with a step at every ordinal."
     },
     {
      "sourceId": "Scholze-PadicHodgeRigid-Erratum",
      "locator": "item (1), p. 1",
-     "excerpt": "instead of asking that the morphisms Ui→ U are open, one asks the stronger condition that Ui→ U can be written as an inverse limit Ui = lim←−µ<λUµ→ U of Uµ∈ pro−Xfét, U0 = U,",
      "match": "The erratum's replacement of open maps by transfinite limits U_i = lim U_μ with U_0 = U."
     },
     {
      "sourceId": "Scholze-PadicHodgeRigid-Erratum",
      "locator": "item (1), p. 1",
-     "excerpt": "with the following property: for all µ < λ, Uµ→ U<µ := lim←−µ′<µUµ′ is the pullback of a finite étale and surjective map inXfét.",
      "match": "Each step U_μ → U_{<μ} is the pullback of a finite étale surjective map."
     },
     {
      "sourceId": "Scholze-PadicHodgeRigid-Erratum",
      "locator": "item (1), p. 1",
-     "excerpt": "A similar condition should then also appear in the definition of covers in the pro-étale topology, Definition 3.9, and in the definition of covers in Definition 3.4. We note that for countable limits, the definitions are unchanged.",
      "match": "The same condition enters the pro-étale topology; countable limits are unchanged."
     },
     {
      "sourceId": "Scholze-PadicHodgeRigid-Erratum",
      "locator": "item (1), p. 1",
-     "excerpt": "If I is countable, one can choose λ =ω. In general, if i↦→ Xi is a functor taking any map i→ j to a surjection Xi→ Xj, then the induced functorµ↦→Xµ is not a transfinite composition of surjective maps; however, this is true if λ =ω, so can be arranged if I is countable.",
      "match": "Countable index categories give towers of length ω; general cofiltered systems of surjections do not give towers."
     }
    ],
@@ -6153,19 +5984,16 @@
     {
      "sourceId": "Scholze-PadicHodgeRigid-Erratum",
      "locator": "item (1), p. 1",
-     "excerpt": "If I is countable, one can choose λ =ω. In general, if i↦→ Xi is a functor taking any map i→ j to a surjection Xi→ Xj, then the induced functorµ↦→Xµ is not a transfinite composition of surjective maps; however, this is true if λ =ω, so can be arranged if I is countable.",
      "match": "Countable systems give towers of length ω; general cofiltered systems of surjections need not give transfinite compositions."
     },
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§3, proof of Lemma 3.10 (vi), p. 17",
-     "excerpt": "We may write U → V as the composition U → U0 → V of an inverse system U = lim Ui → U0 of finite étale surjective maps Ui → Uj → U0 , and an étale map U0 → V .",
      "match": "Pro-étale maps are an étale map followed by an inverse system of finite étale surjections, which the lemma produces for towers."
     },
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§3, proof of Lemma 3.10 (i), p. 16",
-     "excerpt": "But the middle map is surjective, because at each finite stage it is surjective with finite fibres, and inverse limits of nonempty finite sets are nonempty.",
      "match": "Inverse limits of nonempty finite sets are nonempty: surjectivity of limits."
     }
    ],
@@ -6207,19 +6035,16 @@
     {
      "sourceId": "Scholze-PadicHodgeRigid-Erratum",
      "locator": "item (1), p. 1",
-     "excerpt": "If S→ S′ is a map of profinite sets such that S = lim←−µ<λSµ, with S0 =S′, having the property that Sµ→S<µ is the pullback of a surjective map of finite sets for all µ < λ, then it admits a continuous splitting. This follows directly from transfinite induction.",
      "match": "The erratum's true variant of Proposition 3.7(i), proved by transfinite induction."
     },
     {
      "sourceId": "Scholze-PadicHodgeRigid-Erratum",
      "locator": "item (1), p. 1",
-     "excerpt": "Proposition 3.7 (i) (“Any continuous open surjective map of profinite sets admits a continuous splitting”) is wrong, see [3, Example 5.6.9] for a counterexample (involving uncountable inverse limits).",
      "match": "Proposition 3.7(i) as printed is wrong; counterexample in Ribes–Zalesskii."
     },
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§3, Proposition 3.7 (i), p. 14",
-     "excerpt": "(i) Any continuous open surjective map S → S ′ of profinite sets admits a continuous splitting.",
      "match": "The printed statement that is not used."
     }
    ],
@@ -6261,13 +6086,11 @@
     {
      "sourceId": "Scholze-PadicHodgeRigid-Erratum",
      "locator": "item (1), p. 1",
-     "excerpt": "Note that ifG is a profinite group, thenG can be written as a limit of profinite groups G = lim←−µ<λGµ, with G0 =∗, where Gµ→G<µ is the quotient by a finite normal subgroup (so that in particular the map G→∗ is allowed as a cover in G− pfsets).",
      "match": "Profinite groups as transfinite limits with finite kernels; G → * is a cover in G-pfsets."
     },
     {
      "sourceId": "Scholze-PadicHodgeRigid-Erratum",
      "locator": "item (1), p. 1",
-     "excerpt": "More generally, for any closed subgroup G′⊂G, the map G→G/G′ is a cover in G− pfsets.",
      "match": "G → G/G' is a cover in G-pfsets for every closed subgroup G'."
     }
    ],
@@ -6314,13 +6137,11 @@
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§3, Lemma 3.10 (i), p. 15",
-     "excerpt": "Then U ×V W exists in pro − Xét , the map U ×V W → W is étale, resp. finite étale, resp. pro-étale, and the map |U ×V W | → |U | ×|V | |W | of underlying topological spaces is surjective.",
      "match": "The statement of Lemma 3.10(i)."
     },
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§3, proof of Lemma 3.10 (i), p. 16",
-     "excerpt": "But the middle map is surjective, because at each finite stage it is surjective with finite fibres, and inverse limits of nonempty finite sets are nonempty.",
      "match": "The surjectivity argument via inverse limits of nonempty finite sets."
     }
    ],
@@ -6363,7 +6184,6 @@
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§3, Lemma 3.10 (ii), p. 15",
-     "excerpt": "(ii) A composition of U → V → W of two étale, resp. finite étale, morphisms in pro−Xét is étale, resp. finite étale.",
      "match": "The statement of Lemma 3.10(ii)."
     }
    ],
@@ -6409,13 +6229,11 @@
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§3, Lemma 3.10 (iii), p. 15",
-     "excerpt": "Let U ∈ pro−Xét and let W ⊂ |U | be a quasicompact open subset. Then there is some V ∈ pro − Xét with an étale map V → U such that",
      "match": "The statement of Lemma 3.10(iii)."
     },
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§3, Lemma 3.10 (iii), p. 15",
-     "excerpt": "If U ∈ Xproét , the following strengthening is true: One can take V ∈ Xproét , and for any V ′ ∈ Xproét such that V ′ → U factors over |W | on topological spaces, the map V ′ → U factors over V .",
      "match": "The strengthened universal property in X_proét."
     }
    ],
@@ -6457,13 +6275,11 @@
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§3, Lemma 3.10 (iv), p. 15",
-     "excerpt": "(iv) Any pro-étale map U → V in pro − Xét is open.",
      "match": "The statement of Lemma 3.10(iv)."
     },
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§3, proof of Lemma 3.10 (iv), p. 16",
-     "excerpt": "but this is true because étale maps are open, cf. [12], Proposition 1.7.8, in the adic case.",
      "match": "The reduction to openness of étale maps, Huber Proposition 1.7.8."
     }
    ],
@@ -6504,7 +6320,6 @@
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§3, Lemma 3.10 (v), p. 15",
-     "excerpt": "A surjective étale, resp. surjective finite étale, map U → V in pro − Xét with V ∈ Xproét comes via pullback along V → V0 from a surjective étale, resp. surjective finite étale, map U0 → V0 of objects U0 , V0 ∈ Xét .",
      "match": "The statement of Lemma 3.10(v)."
     }
    ],
@@ -6547,13 +6362,11 @@
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§3, Lemma 3.10 (vi), p. 16",
-     "excerpt": "(vi) Let U → V → W be pro-étale morphisms in pro − Xét , and assume W ∈ Xproét . Then U, V ∈ Xproét and the composition U → W is pro-étale.",
      "match": "The statement of Lemma 3.10(vi)."
     },
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§3, proof of Lemma 3.10 (vi), p. 17",
-     "excerpt": "We may write U → V as the composition U → U0 → V of an inverse system U = lim Ui → U0 of finite étale surjective maps Ui → Uj → U0 , and an étale map U0 → V .",
      "match": "The factorisation into an étale map and an inverse system of finite étale surjections."
     }
    ],
@@ -6596,13 +6409,11 @@
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§3, before Definition 3.3, p. 13",
-     "excerpt": "As a consequence, if Y → X is étale, then locally, Y is connected. This will be used in verifying that the pro-étale site is a site.",
      "match": "Étale spaces over locally noetherian X are locally connected; used to verify that the pro-étale site is a site."
     },
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§3, after Lemma 3.10, p. 17",
-     "excerpt": "It is part (vii) which is the most nonformal part: One needs that any U ∈ Xét has locally on U only a finite number of connected components.",
      "match": "The finiteness of connected components is the nonformal input of Lemma 3.10(vii)."
     }
    ],
@@ -6650,19 +6461,16 @@
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§3, Lemma 3.10 (vii), p. 16",
-     "excerpt": "(vii) Arbitrary finite projective limits exist in Xproét .",
      "match": "The statement of Lemma 3.10(vii)."
     },
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§3, proof of Lemma 3.10 (vii), p. 17",
-     "excerpt": "Since locally, Ui has only a finite number of connected components, it follows that Vi ⊂ Ui is open and closed for large i.",
      "match": "Local finiteness of connected components makes V_i open and closed."
     },
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§3, after Lemma 3.10, p. 17",
-     "excerpt": "It is part (vii) which is the most nonformal part: One needs that any U ∈ Xét has locally on U only a finite number of connected components.",
      "match": "This is the nonformal part of Lemma 3.10."
     }
    ],
@@ -6706,19 +6514,16 @@
     {
      "sourceId": "Scholze-PadicHodgeRigid-Erratum",
      "locator": "item (1), p. 1",
-     "excerpt": "instead of asking that the morphisms Ui→ U are open, one asks the stronger condition that Ui→ U can be written as an inverse limit Ui = lim←−µ<λUµ→ U of Uµ∈ pro−Xfét, U0 = U,",
      "match": "The corrected covering maps are transfinite limits; the swap keeps coverings in that form."
     },
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§3, proof of Lemma 3.10 (vi), p. 17",
-     "excerpt": "We may write U → V as the composition U → U0 → V of an inverse system U = lim Ui → U0 of finite étale surjective maps Ui → Uj → U0 , and an étale map U0 → V .",
      "match": "Pro-étale maps factor as an étale map followed by an inverse system of finite étale surjections; the swap is its tower version."
     },
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§3, Proposition 3.2, p. 13",
-     "excerpt": "The category pro − C is equivalent to the category whose objects are functors F : I → C from small cofiltered index categories I and whose morphisms are given by",
      "match": "The Hom formula for pro-objects gives factorisation through a finite stage."
     }
    ],
@@ -6768,25 +6573,21 @@
     {
      "sourceId": "Scholze-PadicHodgeRigid-Erratum",
      "locator": "item (1), p. 1",
-     "excerpt": "A similar condition should then also appear in the definition of covers in the pro-étale topology, Definition 3.9, and in the definition of covers in Definition 3.4. We note that for countable limits, the definitions are unchanged.",
      "match": "The corrected condition also governs covers of Definition 3.9; countable limits unchanged."
     },
     {
      "sourceId": "Scholze-PadicHodgeRigid-Erratum",
      "locator": "item (1), p. 1",
-     "excerpt": "We also stress that we do not change the category Xproét(or any of its variants); only the class of covers gets restricted.",
      "match": "Only the class of covers is restricted; the category is unchanged."
     },
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§3, Definition 3.9, p. 15",
-     "excerpt": "a covering S in Xproét is given by a family of pro-étale morphisms {fi : Ui → U } such that",
      "match": "The printed covering condition: jointly surjective families of pro-étale morphisms."
     },
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§3, Lemma 3.10 (i), p. 15",
-     "excerpt": "Then U ×V W exists in pro − Xét , the map U ×V W → W is étale, resp. finite étale, resp. pro-étale, and the map |U ×V W | → |U | ×|V | |W | of underlying topological spaces is surjective.",
      "match": "Base change and surjectivity on underlying spaces."
     }
    ],
@@ -6952,49 +6753,41 @@
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§3, Definition 3.9, p. 15",
-     "excerpt": "The pro-étale site Xproét has as underlying category the full subcategory of pro − Xét of objects that are pro-étale over X.",
      "match": "The underlying category of X_proét, unchanged by the erratum."
     },
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§3, Definition 3.9, p. 15",
-     "excerpt": "a covering S in Xproét is given by a family of pro-étale morphisms {fi : Ui → U } such that",
      "match": "The printed covering condition, restricted by the erratum."
     },
     {
      "sourceId": "Scholze-PadicHodgeRigid-Erratum",
      "locator": "item (1), p. 1",
-     "excerpt": "We now make a small change in the definition of the pro-étale site; all results of the paper are then kept intact.",
      "match": "The erratum changes only the definition of covers; results are kept."
     },
     {
      "sourceId": "Scholze-PadicHodgeRigid-Erratum",
      "locator": "item (1), p. 1",
-     "excerpt": "A similar condition should then also appear in the definition of covers in the pro-étale topology, Definition 3.9, and in the definition of covers in Definition 3.4. We note that for countable limits, the definitions are unchanged.",
      "match": "The corrected condition applies to covers of Definition 3.9; countable limits unchanged."
     },
     {
      "sourceId": "Scholze-PadicHodgeRigid-Erratum",
      "locator": "item (1), p. 1",
-     "excerpt": "We also stress that we do not change the category Xproét(or any of its variants); only the class of covers gets restricted.",
      "match": "The category X_proét is not changed; only covers are restricted."
     },
     {
      "sourceId": "Scholze-PadicHodgeRigid-Erratum",
      "locator": "item (2), p. 1",
-     "excerpt": "Proposition 3.8 and the last sentence of Proposition 3.13 (concerning points) should be removed, and are due to misconceptions of the author on the notion of a point of a topos.",
      "match": "Proposition 3.8 and the last sentence of Proposition 3.13 are deleted."
     },
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§3, before Definition 3.3, p. 13",
-     "excerpt": "Now let X be a locally noetherian scheme, or a locally noetherian adic space. We recall that an adic space is called locally noetherian if it is locally of the form Spa(A, A+ ), where A is strongly noetherian, or A admits a noetherian ring of definition.",
      "match": "Locally noetherian adic spaces are the carriers."
     },
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§8, Definition 8.1 (ii), p. 39",
-     "excerpt": "The pro-étale site Xproét (resp. Xproét,κ ) of X is the Grothendieck topology on the category of (κ-small) perfectoid spaces f : Y → X pro-étale over X, with covers the same as in the big pro-étale site.",
      "match": "ECD's pro-étale site of a perfectoid space is a different site, on perfectoid spaces."
     }
    ],
@@ -7042,13 +6835,11 @@
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§3, before Lemma 3.16, p. 19",
-     "excerpt": "There is the natural projection ν : Xproét → Xét .",
      "match": "The natural projection ν: X_proét → X_ét."
     },
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§3, Proposition 3.2, p. 13",
-     "excerpt": "The category pro − C is equivalent to the category whose objects are functors F : I → C from small cofiltered index categories I and whose morphisms are given by",
      "match": "The Hom formula gives full faithfulness of c and cofinality in the pullback formula."
     }
    ],
@@ -7096,31 +6887,26 @@
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§3, Lemma 3.16, p. 19",
-     "excerpt": "For any quasicompact and quasiseparated U = lim Uj ∈ Xproét and any i ≥ 0, we have",
      "match": "Lemma 3.16 for quasi-compact quasi-separated U = lim U_j; this node is its case i = 0."
     },
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§3, proof of Lemma 3.16, p. 20",
-     "excerpt": "is the sheaf associated to F̃. We have to show that F̃ is a sheaf with H i (V, F̃ ) = 0",
      "match": "ν^*F is the sheaf associated with F̃."
     },
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§3, proof of Lemma 3.16, p. 20",
-     "excerpt": "This shows in the first step that F̃ is separated; in the second step that F̃ is a sheaf; in the third step that all higher cohomology groups vanish.",
      "match": "The Čech argument: first separated, then a sheaf; higher vanishing is the derived part."
     },
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§3, proof of Lemma 3.16, p. 20",
-     "excerpt": "This reduces us to checking exactness of the Cech complexes for the covers Vj ′ → Uj ′ . But this is just the acyclicity of the injective sheaf F on Xét .",
      "match": "Reduction to étale covers at finite level."
     },
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§3, after Corollary 3.17, p. 20",
-     "excerpt": "Part (i) implies that ν ∗ gives a fully faithful embedding from abelian sheaves on Xét to abelian sheaves on Xproét",
      "match": "ν^* is fully faithful."
     }
    ],
@@ -7252,37 +7038,31 @@
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§3, Definition 3.4, p. 13",
-     "excerpt": "For a profinite group G, let G − fsets denote the site whose underlying category is the category of finite sets S with continuous G-action",
      "match": "The site G-fsets."
     },
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§3, Definition 3.4, p. 13",
-     "excerpt": "Let G − pfsets denote the site whose underlying category is the category of profinite sets S with continuous G-action",
      "match": "The site G-pfsets of profinite G-sets."
     },
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§3, proof of Proposition 3.5, p. 14",
-     "excerpt": "Recalling that every profinite set with continuous action by a profinite group G is in fact an inverse limit of finite sets with continuous G-action",
      "match": "Profinite G-sets are inverse limits of finite G-sets."
     },
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§3, before Proposition 3.7, p. 14",
-     "excerpt": "Associated to M , we define a sheaf FM on G − pfsets by setting",
      "match": "The sheaf F_M attached to a topological G-module."
     },
     {
      "sourceId": "Scholze-PadicHodgeRigid-Erratum",
      "locator": "item (1), p. 1",
-     "excerpt": "A similar condition should then also appear in the definition of covers in the pro-étale topology, Definition 3.9, and in the definition of covers in Definition 3.4. We note that for countable limits, the definitions are unchanged.",
      "match": "The corrected condition applies to covers of Definition 3.4."
     },
     {
      "sourceId": "Scholze-PadicHodgeRigid-Erratum",
      "locator": "item (1), p. 1",
-     "excerpt": "Note that ifG is a profinite group, thenG can be written as a limit of profinite groups G = lim←−µ<λGµ, with G0 =∗, where Gµ→G<µ is the quotient by a finite normal subgroup (so that in particular the map G→∗ is allowed as a cover in G− pfsets).",
      "match": "G → * is a cover of G-pfsets after the correction."
     }
    ],
@@ -7324,13 +7104,11 @@
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§3, Lemma 3.6, p. 14",
-     "excerpt": "Let S → S ′ be an open surjective map in G − pfsets for a profinite group G. Then S → S ′ can be written as an inverse limit S = lim Ti → S ′ , where each Ti is of the form Ti = Ai ×Bi S ′ , where Ai → Bi is a surjection in G − fsets",
      "match": "The statement of Lemma 3.6."
     },
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§3, proof of Lemma 3.6, p. 14",
-     "excerpt": "such that S → S ′ factors surjectively over Ai ×Bi S ′ → S ′ . Now S is the inverse limit of these maps, giving the first claim.",
      "match": "The factorisation through A_i ×_{B_i} S' and the limit."
     }
    ],
@@ -7372,19 +7150,16 @@
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§3, Proposition 3.7 (ii), p. 14",
-     "excerpt": "(ii) For any S ∈ G − pfsets with free G-action, the functor F 7→ F(S) on sheaves over G − pfsets is exact.",
      "match": "The statement of Proposition 3.7(ii)."
     },
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§3, proof of Proposition 3.7 (ii), p. 15",
-     "excerpt": "By part (i), it admits a splitting, and hence S = S/G × G.",
      "match": "The splitting S = S/G × G used in its proof."
     },
     {
      "sourceId": "Scholze-PadicHodgeRigid-Erratum",
      "locator": "item (1), p. 1",
-     "excerpt": "We now make a small change in the definition of the pro-étale site; all results of the paper are then kept intact.",
      "match": "All results of the paper are kept after the correction; here the splitting is re-derived from towers."
     }
    ],
@@ -7505,25 +7280,21 @@
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§3, Definition 3.3, p. 13",
-     "excerpt": "The pro-finite étale site Xprofét has as underlying category the category pro − XSfét . A covering is given by a family of open morphisms {fi : Ui → U } such that",
      "match": "The printed Definition 3.3 of X_profét."
     },
     {
      "sourceId": "Scholze-PadicHodgeRigid-Erratum",
      "locator": "item (1), p. 1",
-     "excerpt": "instead of asking that the morphisms Ui→ U are open, one asks the stronger condition that Ui→ U can be written as an inverse limit Ui = lim←−µ<λUµ→ U of Uµ∈ pro−Xfét, U0 = U,",
      "match": "The erratum's replacement condition: transfinite limits U_i = lim U_μ."
     },
     {
      "sourceId": "Scholze-PadicHodgeRigid-Erratum",
      "locator": "item (1), p. 1",
-     "excerpt": "with the following property: for all µ < λ, Uµ→ U<µ := lim←−µ′<µUµ′ is the pullback of a finite étale and surjective map inXfét.",
      "match": "Steps are pullbacks of finite étale surjections of X_fét."
     },
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§5, proof of Lemma 5.6, p. 31",
-     "excerpt": "Recall that the category underlying Spa(K, OK )profét contains the category of profinite sets",
      "match": "Spa(K, O_K)_profét contains the profinite sets."
     }
    ],
@@ -7567,19 +7338,16 @@
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§3, Proposition 3.5, p. 14",
-     "excerpt": "Let X be a connected locally noetherian scheme or connected locally noetherian adic space. Then there is a canonical equivalence of sites",
      "match": "The statement of Proposition 3.5."
     },
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§3, proof of Proposition 3.5, p. 14",
-     "excerpt": "Recalling that every profinite set with continuous action by a profinite group G is in fact an inverse limit of finite sets with continuous G-action",
      "match": "Profinite G-sets are inverse limits of finite G-sets."
     },
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§3, before Definition 3.4, p. 13",
-     "excerpt": "fix a geometric base point x̄ of X, so that we have the pro-finite fundamental group π1 (X, x̄): Finite étale covers of X are equivalent to finite sets with a continuous π1 (X, x̄)-action.",
      "match": "Finite étale covers correspond to finite continuous π1-sets."
     }
    ],
@@ -7624,7 +7392,6 @@
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§3, Lemma 3.11, p. 17",
-     "excerpt": "Under the fully faithful embedding of categories Xprofét ⊂ Xproét , a morphism f : U → V in Xprofét is open if and only if it is pro-étale as a morphism in Xproét . In particular, the notions of coverings coincide, and there is a map of sites Xproét → Xprofét .",
      "match": "The statement of Lemma 3.11."
     }
    ],
@@ -7672,25 +7439,21 @@
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§3, Proposition 3.12 (i), p. 17",
-     "excerpt": "(i) Let U = lim Ui → X be a pro-étale presentation of U ∈ Xproét , such that all Ui are affinoid. Then U is a quasicompact object of Xproét .",
      "match": "Proposition 3.12(i)."
     },
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§3, Proposition 3.12 (ii), p. 17",
-     "excerpt": "(ii) The family of all objects U as in (i) is generating, and stable under fibre products.",
      "match": "Proposition 3.12(ii)."
     },
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§3, Proposition 3.12 (iii), p. 17",
-     "excerpt": "(iii) The topos associated to the site Xproét is algebraic, cf. SGA 4 VI, Definition 2.3, and all U as in (i) are coherent, i.e. quasicompact and quasiseparated.",
      "match": "Proposition 3.12(iii)."
     },
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§3, proof of Proposition 3.12 (iii), p. 18",
-     "excerpt": "by restricting to the class of U as in (i) that have the additional property that U → X factors over an affinoid open subset U0 of X.",
      "match": "The refined class: U → X factoring through an affinoid open."
     }
    ],
@@ -7737,25 +7500,21 @@
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§3, Proposition 3.12 (iv), p. 17",
-     "excerpt": "(iv) An object U ∈ Xproét is quasicompact, resp. quasiseparated, if and only if |U | is quasicompact, resp. quasiseparated.",
      "match": "Proposition 3.12(iv)."
     },
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§3, Proposition 3.12 (vi), p. 17",
-     "excerpt": "(vi) A morphism f : U → V of objects in Xproét is quasicompact, resp. quasiseparated, if and only if |f | : |U | → |V | is quasicompact, resp. quasiseparated.",
      "match": "Proposition 3.12(vi)."
     },
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§3, Proposition 3.12 (vii), p. 18",
-     "excerpt": "(vii) The site Xproét is quasiseparated, resp. coherent, if and only if |X| is quasiseparated, resp. coherent.",
      "match": "Proposition 3.12(vii)."
     },
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§3, after Proposition 3.12, p. 18",
-     "excerpt": "If X is quasiseparated, one can also consider the subsite Xproétqc ⊂ Xproét consisting of quasicompact objects in Xproét ; the associated topoi are the same.",
      "match": "The subsite of quasi-compact objects has the same topos."
     }
    ],
@@ -7804,25 +7563,21 @@
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§3, Proposition 3.13, p. 18",
-     "excerpt": "such that the pullback of F ∈ Xproét is the sheafification i∗x F of the functor",
      "match": "The pullback i_x^*F as the sheafification of the colimit functor."
     },
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§3, proof of Proposition 3.13, p. 19",
-     "excerpt": "Then there is a morphism of sites Yprofét → Xproétqc , induced from the taking the fibre of U ∈ Xproétqc above x.",
      "match": "The morphism of sites induced by taking the fibre above x."
     },
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§3, footnote 2, p. 18",
-     "excerpt": "We note that in the case of adic spaces, the image of Y may be larger than x itself.",
      "match": "The image of Y may be larger than x."
     },
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§3, after Proposition 3.12, p. 18",
-     "excerpt": "If X is quasiseparated, one can also consider the subsite Xproétqc ⊂ Xproét consisting of quasicompact objects in Xproét ; the associated topoi are the same.",
      "match": "Reduction to quasi-separated X and quasi-compact objects."
     }
    ],
@@ -7866,19 +7621,16 @@
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§3, Proposition 3.13, p. 18",
-     "excerpt": "If for all points x, i∗x F = 0, then F = 0.",
      "match": "The conservativity statement of Proposition 3.13."
     },
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§3, proof of Proposition 3.13, p. 19",
-     "excerpt": "Since S̃ ′ → S̃ is a pro-finite étale cover, Sx̄′ → Sx̄ is an open surjective map, hence so is the map S(V ′ ) = T → S(U ) = Sx̄ . This means that the map V ′ → U is pro-étale.",
      "match": "The printed step: V' → U is pro-étale."
     },
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§3, Remark 3.14, p. 19",
-     "excerpt": "It is not enough to check stalks at geometric points: One has to include the profinite covers of geometric points to get a conservative family.",
      "match": "Remark 3.14: geometric-point stalks alone are not conservative."
     }
    ],
@@ -7925,25 +7677,21 @@
     {
      "sourceId": "Scholze-PadicHodgeRigid-Erratum",
      "locator": "item (2), p. 1",
-     "excerpt": "Note however that as both topoi are coherent, they still admit enough points for abstract reasons. These results were not used in the rest of the paper.",
      "match": "Both topoi are coherent and have enough points for abstract reasons."
     },
     {
      "sourceId": "Scholze-PadicHodgeRigid-Erratum",
      "locator": "item (2), p. 1",
-     "excerpt": "Proposition 3.8 and the last sentence of Proposition 3.13 (concerning points) should be removed, and are due to misconceptions of the author on the notion of a point of a topos.",
      "match": "Proposition 3.8 and the last sentence of 3.13 are removed."
     },
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§3, Proposition 3.13, last sentence, p. 18",
-     "excerpt": "In particular, Xproét has enough points, given by profinite covers of geometric points.",
      "match": "The deleted sentence."
     },
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§3, Corollary 3.8, p. 15",
-     "excerpt": "The site G − pfsets has enough points, given by G-profinite sets S with free G-action.",
      "match": "The deleted Corollary 3.8."
     }
    ],
@@ -7990,13 +7738,11 @@
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§3, before Proposition 3.15, p. 19",
-     "excerpt": "Then, we may consider the localized site Xproét /XL of objects with a structure map to XL , and the induced covers. One immediately checks the following result.",
      "match": "Localized sites X_proét/X_L with the induced covers; here for an étale X-space."
     },
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§3, Lemma 3.10 (iii), p. 15",
-     "excerpt": "If U ∈ Xproét , the following strengthening is true: One can take V ∈ Xproét , and for any V ′ ∈ Xproét such that V ′ → U factors over |W | on topological spaces, the map V ′ → U factors over V .",
      "match": "Maps factoring through a representable open subobject."
     }
    ],
@@ -8043,19 +7789,16 @@
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§3, before Proposition 3.15, p. 19",
-     "excerpt": "We may also define an object of Xproét , by taking the inverse limit of XLi ∈ Xét where Li ⊂ L runs through the finite extensions of K.",
      "match": "X_L as the formal inverse limit of the X_{L_i}."
     },
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§3, before Proposition 3.15, p. 19",
-     "excerpt": "Then, we may consider the localized site Xproét /XL of objects with a structure map to XL , and the induced covers. One immediately checks the following result.",
      "match": "The source asserts that the comparison is immediate; this node records the approximation it needs."
     },
     {
      "sourceId": "Huber-ContinuousValuations-1993",
      "locator": "§3, Proposition 3.9, p. 468",
-     "excerpt": "The canonical mapping g Spa Ä -^ Spa A is a homeomorphism, and It maps rational subsets to rational subsets",
      "match": "Spa of the completion of a Huber pair is Spa of the pair."
     }
    ],
@@ -8105,25 +7848,21 @@
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§3, before Proposition 3.15, p. 19",
-     "excerpt": "and let L/K be a separable extension (with L+ ⊂ L the integral closure of K + in the adic case).",
      "match": "The separable extension L/K with L⁺ the integral closure of K⁺."
     },
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§3, before Proposition 3.15, p. 19",
-     "excerpt": "We may also define an object of Xproét , by taking the inverse limit of XLi ∈ Xét where Li ⊂ L runs through the finite extensions of K.",
      "match": "X_L ∈ X_proét as the inverse limit of the X_{L_i}."
     },
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§3, before Proposition 3.15, p. 19",
-     "excerpt": "Then, we may consider the localized site Xproét /XL of objects with a structure map to XL , and the induced covers. One immediately checks the following result.",
      "match": "The localized site with the induced covers."
     },
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§3, Proposition 3.15, p. 19",
-     "excerpt": "There is an equivalence of sites XL,proét ∼ = Xproét /XL .",
      "match": "The statement of Proposition 3.15."
     }
    ],
@@ -8174,19 +7913,16 @@
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§5, proof of Lemma 5.6, p. 31",
-     "excerpt": "Recall that the category underlying Spa(K, OK )profét contains the category of profinite sets",
      "match": "Profinite sets as objects of the pro-finite étale site of Spa(K, O_K), pulled back to V_proét."
     },
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§6, Corollary 6.6, p. 36",
-     "excerpt": "Further, let S be some profinite set, and V = U × S ∈ Xproét , which is again affinoid perfectoid.",
      "match": "The objects U × S for profinite S are used for period sheaves."
     },
     {
      "sourceId": "Scholze-PadicHodgeRigid-Erratum",
      "locator": "item (1), p. 1",
-     "excerpt": "Proposition 3.7 (i) (“Any continuous open surjective map of profinite sets admits a continuous splitting”) is wrong, see [3, Example 5.6.9] for a counterexample (involving uncountable inverse limits).",
      "match": "Open surjections of profinite sets need not split."
     }
    ],
@@ -8235,19 +7971,16 @@
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§5, proof of Lemma 5.6, p. 31",
-     "excerpt": "a Galois cover with Galois group Znp , we see that",
      "match": "Galois covers and their fibre products with Z_p^n in the proof of Lemma 5.6."
     },
     {
      "sourceId": "Scholze-PadicHodgeRigid-Erratum",
      "locator": "item (1), p. 1",
-     "excerpt": "Note that ifG is a profinite group, thenG can be written as a limit of profinite groups G = lim←−µ<λGµ, with G0 =∗, where Gµ→G<µ is the quotient by a finite normal subgroup (so that in particular the map G→∗ is allowed as a cover in G− pfsets).",
      "match": "The erratum's filtration of a profinite group makes G → * a cover."
     },
     {
      "sourceId": "Scholze-PadicHodgeRigid-Erratum",
      "locator": "item (1), p. 1",
-     "excerpt": "More generally, for any closed subgroup G′⊂G, the map G→G/G′ is a cover in G− pfsets.",
      "match": "G → G/G' is a cover for every closed subgroup."
     }
    ],
@@ -8388,31 +8121,26 @@
     {
      "sourceId": "ScholzeWeinstein-Berkeley-2020",
      "locator": "Lecture 3, §3.4, p. 22",
-     "excerpt": "Let CAff be the category of complete Huber pairs,1 where morphisms are continuous homomorphisms.",
      "match": "The category CAff of complete Huber pairs with continuous homomorphisms."
     },
     {
      "sourceId": "ScholzeWeinstein-Berkeley-2020",
      "locator": "Lecture 3, §3.4, p. 22",
-     "excerpt": "is a cover, and these generate all covers.",
      "match": "Rational covers generate the covers of the site on CAffᵒᵖ."
     },
     {
      "sourceId": "KedlayaLiu-RelativeFoundations-2015",
      "locator": "§8.2, Definition 8.2.3, p. 159",
-     "excerpt": "Perhaps the simplest way to do this is to sheafify in the style of Scholze-Weinstein [115, Definition 2.1.5].",
      "match": "Kedlaya–Liu sheafify in the style of Scholze–Weinstein on the site of adic Banach rings with rational coverings."
     },
     {
      "sourceId": "ScholzeWeinstein-Berkeley-2020",
      "locator": "Lecture 3, Definition 3.1.11, p. 19",
-     "excerpt": "A Huber pair (A, A+ ) is sheafy if OX is a sheaf of topological rings.",
      "match": "Sheafy pairs: the structure presheaf is a sheaf."
     },
     {
      "sourceId": "HansenKedlaya-SheafinessCriteria",
      "locator": "§6, Example 6.28, p. 24",
-     "excerpt": "Then X3 ∈ A is nonzero but maps to zero in B1 and B2 , so A → H 0 (X, O) fails to be injective.",
      "match": "Rost's pair: the structure presheaf is not a sheaf (A → H⁰ not injective)."
     }
    ],
@@ -8571,55 +8299,46 @@
     {
      "sourceId": "ScholzeWeinstein-Berkeley-2020",
      "locator": "Lecture 3, §3.4, p. 21",
-     "excerpt": "It really is a problem that the structure presheaf on Spa(A, A+ ) isn’t generally a sheaf. It ruins any hope of defining a general adic space as what one gets by gluing together spaces of the form Spa(A, A+ )",
      "match": "Without the sheaf property, gluing Spa(A, A⁺) makes no sense."
     },
     {
      "sourceId": "ScholzeWeinstein-Berkeley-2020",
      "locator": "Lecture 3, §3.4, p. 21",
-     "excerpt": "Construct a larger category of adic spaces using a “functor of points” approach.",
      "match": "A functor-of-points category of adic spaces."
     },
     {
      "sourceId": "ScholzeWeinstein-Berkeley-2020",
      "locator": "Lecture 3, §3.4, p. 22",
-     "excerpt": "Let SpaY (A, A+ ) denote its sheafification; here Y stands for Yoneda.",
      "match": "Spa^Y(A, A⁺) is the sheafification of the representable functor."
     },
     {
      "sourceId": "ScholzeWeinstein-Berkeley-2020",
      "locator": "Lecture 3, Definition 3.4.1, p. 22",
-     "excerpt": "Let F be a sheaf on CAff op , and let (A, A+ ) be a complete Huber pair with adic spectrum X = Spa(A, A+ ). A map F → SpaY (A, A+ ) is an open immersion if there is an open subset U ⊂ X such that",
      "match": "Open immersions into Spa^Y(A, A⁺)."
     },
     {
      "sourceId": "ScholzeWeinstein-Berkeley-2020",
      "locator": "Lecture 3, Definition 3.4.1, p. 22",
-     "excerpt": "Note that an open immersion F → G is injective; in that case we will simply say that F ⊂ G is open. Finally, a pre-adic space is a sheaf F on CAff op such that",
      "match": "Pre-adic spaces as sheaves that are colimits of their open affinoids."
     },
     {
      "sourceId": "KedlayaLiu-RelativeFoundations-2015",
      "locator": "§8.2, Definition 8.2.3, p. 159",
-     "excerpt": "Since the property of being sheafy is not known to be stable under various natural operations (e.g., formation of finite étale extensions), we are forced to associate spaces also to general adic Banach rings.",
      "match": "Sheafiness is not known to be stable under finite étale extensions."
     },
     {
      "sourceId": "KedlayaLiu-RelativeFoundations-2015",
      "locator": "§8.2, Definition 8.2.3, p. 159",
-     "excerpt": "A preadic space (called an adic space in [115]) is a functor F ∈ (AdBanop )˜ such that",
      "match": "Kedlaya–Liu preadic spaces (adic spaces in [SW13])."
     },
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§15, after Definition 15.5, p. 91",
-     "excerpt": "We note that this definition (and the next lemma) work in the generality of adic spaces as defined in [SW13, Section 2.1].",
      "match": "ECD Definition 15.5 and Lemma 15.6 hold for the adic spaces of [SW13, 2.1]."
     },
     {
      "sourceId": "Wedhorn-AdicSpaces-2019",
      "locator": "§8.1, Remark and Definition 8.10, p. 77",
-     "excerpt": "We call X a pre-adic space if in addition the sheaf of topological rings OX is adapted to the basis of open affinoid subspaces.",
      "match": "Wedhorn's pre-adic spaces are presheaf-based; a different notion."
     }
    ],
@@ -8667,25 +8386,21 @@
     {
      "sourceId": "ScholzeWeinstein-Berkeley-2020",
      "locator": "Lecture 3, Definition 3.4.1, p. 22",
-     "excerpt": "Let F be a sheaf on CAff op , and let (A, A+ ) be a complete Huber pair with adic spectrum X = Spa(A, A+ ). A map F → SpaY (A, A+ ) is an open immersion if there is an open subset U ⊂ X such that",
      "match": "Open immersions into Spa^Y(A, A⁺) are given by open subsets U."
     },
     {
      "sourceId": "ScholzeWeinstein-Berkeley-2020",
      "locator": "Lecture 3, Definition 3.4.1, p. 22",
-     "excerpt": "Note that an open immersion F → G is injective; in that case we will simply say that F ⊂ G is open. Finally, a pre-adic space is a sheaf F on CAff op such that",
      "match": "Open immersions are injective."
     },
     {
      "sourceId": "ScholzeWeinstein-Berkeley-2020",
      "locator": "Appendix to Lecture 3, proof of Proposition 3.5.3, p. 25",
-     "excerpt": "It is clear that open immersions into SpaY (A, A+ ) correspond bijectively to open subsets of Spa(A, A+ ), and then to open subsets of Spaind (A, A+ ).",
      "match": "Open immersions into Spa^Y(A, A⁺) correspond bijectively to open subsets of Spa(A, A⁺)."
     },
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§15, before Definition 15.5, p. 91",
-     "excerpt": "One can now glue the functor (A, A+ ) 7→ Spd(A, A+ ), and pass to adic spaces. Indeed, if U ⊂ Spa(A, A+ ) is a rational open subset, then",
      "match": "ECD glues Spd along rational open subsets."
     }
    ],
@@ -8733,37 +8448,31 @@
     {
      "sourceId": "ScholzeWeinstein-Berkeley-2020",
      "locator": "Appendix to Lecture 3, p. 23",
-     "excerpt": "Here, our idea is that instead of sheafifying OX in the category of topological rings, one sheafifies in the category of ind-topological rings.",
      "match": "Sheafify the structure presheaf in ind-topological rings."
     },
     {
      "sourceId": "ScholzeWeinstein-Berkeley-2020",
      "locator": "Appendix to Lecture 3, p. 23",
-     "excerpt": "but then one runs into problems. For instance, the analogue of Proposition 3.2.2 fails, and it seems impossible to describe the maps between affinoids defined this way.",
      "match": "Sheafifying in topological rings fails to describe maps between affinoids."
     },
     {
      "sourceId": "ScholzeWeinstein-Berkeley-2020",
      "locator": "Appendix to Lecture 3, Definition 3.5.2, p. 24",
-     "excerpt": "A pre-adic space is an object of (V )ind that is locally isomorphic to Spaind (A, A+ ) for some complete Huber pair (A, A+ ).",
      "match": "Pre-adic spaces in (V)_ind."
     },
     {
      "sourceId": "ScholzeWeinstein-Berkeley-2020",
      "locator": "Appendix to Lecture 3, Proposition 3.5.3, p. 24",
-     "excerpt": "defines a sheaf on CAff op that is a Yoneda-adic space. This defines an equivalence of categories between pre-adic spaces and Yoneda-adic spaces that takes Spaind (B, B + ) to SpaY (B, B + ).",
      "match": "The equivalence with Yoneda-adic spaces."
     },
     {
      "sourceId": "ScholzeWeinstein-Berkeley-2020",
      "locator": "Appendix to Lecture 3, proof of Proposition 3.5.3, p. 24",
-     "excerpt": "For any rational cover of Spa(A, A+ ), one can glue Spaind (A, A+ ) from the corresponding pieces on rational subsets; this implies that X Y is indeed a sheaf on CAff op , for any X ∈ (V )ind .",
      "match": "X^Y is a sheaf by gluing along rational covers."
     },
     {
      "sourceId": "KedlayaLiu-RelativeFoundations-2015",
      "locator": "§8.2, Definition 8.2.3, p. 159",
-     "excerpt": "may also associate to any preadic space X an underlying topological space |X| in such a way",
      "match": "Kedlaya–Liu attach an underlying topological space to every preadic space."
     }
    ],
@@ -8809,19 +8518,16 @@
     {
      "sourceId": "KedlayaLiu-RelativeFoundations-2015",
      "locator": "§8.2, Lemma 8.2.9, p. 160",
-     "excerpt": "Then for each adic space X, the global ... sections functor induces a bijection between morphisms X → Spa(A, A+ ) of preadic spaces",
      "match": "Lemma 8.2.9: morphisms from an adic space to Spa(A, A⁺) are maps A → O_X(X) with A⁺ into O_X⁺(X)."
     },
     {
      "sourceId": "KedlayaLiu-RelativeFoundations-2015",
      "locator": "§8.2, Remark 8.2.10, p. 160",
-     "excerpt": "The statement of Lemma 8.2.9 also holds when X is a preadic space, but in that case it is purely formal. The essential content of the lemma is to define the functor from adic spaces to preadic spaces.",
      "match": "The content of the lemma is the functor from adic spaces to preadic spaces."
     },
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§15, Lemma 15.1 (ii), p. 89",
-     "excerpt": "Let A be a Tate Zp -algebra, and let A+ ⊂ A be an open and integrally closed subring.",
      "match": "ECD's Spd(A, A⁺) uses maps of pairs into global sections."
     }
    ],
@@ -8871,25 +8577,21 @@
     {
      "sourceId": "ScholzeWeinstein-Berkeley-2020",
      "locator": "Lecture 3, §3.4, p. 22",
-     "excerpt": "In particular, our comparison shows that adic spaces are naturally a full subcategory of pre-adic spaces.",
      "match": "Adic spaces are naturally a full subcategory of pre-adic spaces."
     },
     {
      "sourceId": "KedlayaLiu-RelativeFoundations-2015",
      "locator": "§8.2, Definition 8.2.3, p. 159",
-     "excerpt": "This allows us to regard adic spaces as a full subcategory of preadic spaces",
      "match": "Adic spaces as a full subcategory of preadic spaces."
     },
     {
      "sourceId": "ScholzeWeinstein-Berkeley-2020",
      "locator": "Lecture 3, Proposition 3.2.2, p. 20",
-     "excerpt": "from sheafy complete Huber pairs to adic spaces is fully faithful.",
      "match": "Spa is fully faithful on sheafy complete Huber pairs."
     },
     {
      "sourceId": "ScholzeWeinstein-Berkeley-2020",
      "locator": "Lecture 3, Definition 3.2.1, p. 20",
-     "excerpt": "An adic space is an object (X, OX , (|·(x)|)x∈X ) of (V) that admits a covering by spaces Ui such that the triple",
      "match": "Adic spaces as objects of (V) covered by Spa of sheafy pairs."
     }
    ],
@@ -8940,31 +8642,26 @@
     {
      "sourceId": "ScholzeWeinstein-Berkeley-2020",
      "locator": "Lecture 4, Proposition 4.3.1 (2), p. 33",
-     "excerpt": "A point x ∈ Spa(A, A+ ) is analytic if and only if there is a rational neighbor- hood U ⊂ Spa(A, A+ ) of x such that OX (U ) is Tate.",
      "match": "Analytic points have Tate rational neighbourhoods."
     },
     {
      "sourceId": "ScholzeWeinstein-Berkeley-2020",
      "locator": "Lecture 4, Definition 4.3.2, p. 33",
-     "excerpt": "Let X be a pre-adic space. A point x ∈ X is analytic if there is some open affinoid neighborhood U = Spa(A, A+ ) ⊂ X of x such that A is Tate. Moreover, X is analytic if all of its points are analytic.",
      "match": "Analytic points and analytic pre-adic spaces."
     },
     {
      "sourceId": "ScholzeWeinstein-Berkeley-2020",
      "locator": "Lecture 5, Lemma 5.1.2, p. 35",
-     "excerpt": "If A is Tate, then any f : A → B is adic.",
      "match": "Maps out of Tate rings are adic."
     },
     {
      "sourceId": "ScholzeWeinstein-Berkeley-2020",
      "locator": "Lecture 5, after Proposition 5.1.3, p. 35",
-     "excerpt": "In particular, the previous lemma holds more generally when A is analytic.",
      "match": "The same for analytic rings."
     },
     {
      "sourceId": "KedlayaLiu-RelativeFoundations-2015",
      "locator": "§8.2, Definition 8.2.2, p. 159",
-     "excerpt": "our Banach rings are required to contain topologically nilpotent units",
      "match": "Kedlaya–Liu's Banach rings contain topologically nilpotent units."
     }
    ],
@@ -9015,19 +8712,16 @@
     {
      "sourceId": "ScholzeWeinstein-Berkeley-2020",
      "locator": "Lecture 5, Remark 5.1.6, p. 36",
-     "excerpt": "If the objects in the diagram were complete Huber pairs, then after completing (D, D+ ), one would obtain the pushout of the diagram in the category of complete Huber pairs",
      "match": "Completed pushouts of adic diagrams of complete Huber pairs."
     },
     {
      "sourceId": "ScholzeWeinstein-Berkeley-2020",
      "locator": "Lecture 5, Remark 5.1.7, p. 36",
-     "excerpt": "An example of a non-adic morphism of Huber rings is Zp → Zp [[T ]].",
      "match": "A non-adic morphism, for which pushouts fail."
     },
     {
      "sourceId": "KedlayaLiu-RelativeFoundations-2015",
      "locator": "§8.2, Remark 8.2.5, p. 160",
-     "excerpt": "The categories of locally v-ringed spaces and preadic spaces admit fibred products. However, it is unknown whether the fibred product of adic spaces (over an adic space) is again an adic space.",
      "match": "Preadic spaces admit fibre products, while it is unknown whether fibre products of adic spaces are adic."
     }
    ],
@@ -9113,37 +8807,31 @@
     {
      "sourceId": "Huber-EtaleCohomology-1996",
      "locator": "§1.3, Definitions 1.3.1-1.3.3, p. 51",
-     "excerpt": "ii) f is called proper if f is of +weakly finite type, separated and universally closed.",
      "match": "Huber's definition of proper morphisms, which R0 formalises."
     },
     {
      "sourceId": "Huber-EtaleCohomology-1996",
      "locator": "§1.3, Corollary 1.3.9, pp. 54-55",
-     "excerpt": "b) For every (x,A) ∈ X_v and every center y of (x,A) on Y, there exists a unique center z of (x,A) on X with y = f(z).",
      "match": "The valuative criterion (2)–(3)."
     },
     {
      "sourceId": "Huber-EtaleCohomology-1996",
      "locator": "§1.3, before Definition 1.3.5, p. 52",
-     "excerpt": "For simplicity we explain here this criterion only for morphisms between analytic adic spaces.",
      "match": "Why the contract is stated for analytic adic spaces."
     },
     {
      "sourceId": "ScholzeWeinstein-Berkeley-2020",
      "locator": "Lecture 17, Definition 17.4.5, p. 156",
-     "excerpt": "A map f : G → F of small v-sheaves is proper if it is quasicompact, separated, and universally closed, i.e. after any pullback the map |G| → |F| is closed.",
      "match": "The v-stack notion, distinct from the classical one."
     },
     {
      "sourceId": "ScholzeWeinstein-Berkeley-2020",
      "locator": "Lecture 17, Corollary 17.4.8, p. 157",
-     "excerpt": "The map f is proper if and only if it is partially proper and quasicompact.",
      "match": "The v-sheaf analogue of (3)."
     },
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§18, before Proposition 18.6, p. 103",
-     "excerpt": "A useful feature of the world of analytic adic spaces is the presence of canonical compactifications, cf. [Hub96, Theorem 5.1.5].",
      "match": "The consumers use Huber's classical notions for analytic adic spaces."
     }
    ],
@@ -9339,37 +9027,31 @@
     {
      "sourceId": "ScholzeWeinstein-Berkeley-2020",
      "locator": "Lecture 4, §4.1, the adic closed unit disc, p. 27",
-     "excerpt": "The space Spa Z[T ] = Spa(Z[T ], Z[T ]) represents",
      "match": "Spa ℤ[T] represents X ↦ O⁺_X(X): the universal property (b)."
     },
     {
      "sourceId": "ScholzeWeinstein-Berkeley-2020",
      "locator": "Lecture 4, §4.1, the adic closed unit disc, p. 27",
-     "excerpt": "Spa Z[T ] × Spa K = Spa KhT i,",
      "match": "The chart formula (a) over a field."
     },
     {
      "sourceId": "ScholzeWeinstein-Berkeley-2020",
      "locator": "Lecture 4, §4.1, the adic affine line, p. 27",
-     "excerpt": "Note that between this example and the previous one, it was the ring R+ that made all the difference!",
      "match": "The plus ring distinguishes the ball from the affine line: the convention on B⁺⟨T⟩."
     },
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§24, after Proposition 24.4, p. 156",
-     "excerpt": "Here, for Y = Spa(A, A+ ) affinoid, the ball BnY is defined by Spa(A⟨T1 , . . . , Tn ⟩, A+ ⟨T1 , . . . , Tn ⟩).",
      "match": "ECD's affinoid ball, which (a) recovers."
     },
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§6, proof of Proposition 6.4(iv), p. 28",
-     "excerpt": "one can find a Zariski closed immersion of sousperfectoid adic spaces Y ,→ BnX ,",
      "match": "A consumer of B^n_X over a non-noetherian base."
     },
     {
      "sourceId": "Huber-EtaleCohomology-1996",
      "locator": "§1.6, Corollary 1.6.10, p. 80",
-     "excerpt": "If A is Tate and f is smooth then, for every x ∈ X, there exists a commutative diagram (*) with M_1 = ... = M_n = {1}.",
      "match": "Huber's relative ball over a Tate base is this B^n."
     }
    ],
@@ -9523,19 +9205,16 @@
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§4, Example 4.4, p. 22",
-     "excerpt": "X = Tn = Spa(KhT1±1 , . . . , Tn±1 i, K + hT1±1 , . . . , Tn±1 i) ,",
      "match": "The torus over a field, (c)."
     },
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§5, proof of Lemma 5.2, p. 28",
-     "excerpt": "Finally, embed Bn → Tn as a rational subset, e.g. as the locus where |Ti − 1| ≤ |p| for all i = 1, . . . , n.",
      "match": "The embedding (d)."
     },
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§24, proof of Proposition 24.4, p. 156",
-     "excerpt": "As we can cover BY by two copies of TY ⊂ BY of the annulus (with “center” 0 and 1 respectively), it suffices to show that TY → Y is ℓ-cohomologically smooth.",
      "match": "The annulus cover (e) and its use."
     }
    ],
@@ -9675,19 +9354,16 @@
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§24, Proposition 24.4, p. 156",
-     "excerpt": "i.e. f is locally on Y ′ the composition of an étale map Y ′ → BnY and the projection BnY → Y , cf. [Hub96, Corollary 1.6.10].",
      "match": "ECD's definition of smooth morphisms of analytic adic spaces over ℤ_p."
     },
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§24, before Proposition 24.4, p. 156",
-     "excerpt": "In particular, we note that smooth morphisms of analytic adic spaces give examples of cohomologically smooth morphisms.",
      "match": "The consumer of the notion."
     },
     {
      "sourceId": "KedlayaLiu-RelativeFoundations-2015",
      "locator": "§8.2, Definition 8.2.16, p. 162",
-     "excerpt": "These properties are evidently stable under base extension.",
      "match": "Base change of the étale charts (Kedlaya–Liu's étale morphisms)."
     }
    ],
@@ -9768,31 +9444,26 @@
     {
      "sourceId": "Huber-EtaleCohomology-1996",
      "locator": "§1.6, Corollary 1.6.10, p. 80",
-     "excerpt": "If A is Tate and f is smooth then, for every x ∈ X, there exists a commutative diagram (*) with M_1 = ... = M_n = {1}.",
      "match": "Huber's local structure of smooth morphisms over a Tate base."
     },
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§5, proof of Lemma 5.2, p. 28",
-     "excerpt": "This follows from Corollary 1.6.10 of [12], once one observes that the open subset constructed there may be assumed to contain M .",
      "match": "The closure-containing refinement."
     },
     {
      "sourceId": "BHW-OverconvergentHilbert-2023",
      "locator": "§3, proof of Corollary 3.4, p. 5",
-     "excerpt": "By [18, Corollary 1.6.10], the smooth rigid space Y can be covered by open subspaces which are étale over some disc",
      "match": "A consumer's reading of the comparison."
     },
     {
      "sourceId": "Zavyalov-FoundationalAdic-2024",
      "locator": "§5, Remark 5.10, p. 12",
-     "excerpt": "In general, a similar argument shows that, for any smooth morphism f : X → S and a point x ∈ X, there is an open x ∈ U and an integer d such that f |U factors as a composition",
      "match": "Public statement of the ⇒ direction."
     },
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§24, Proposition 24.4, p. 156",
-     "excerpt": "Let f : Y ′ → Y be a separated smooth morphism of analytic adic spaces over Spa Zp",
      "match": "ECD's smooth morphisms, identified with Huber's here on locally noetherian spaces."
     }
    ],
@@ -9861,25 +9532,21 @@
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§5, Lemma 5.2, p. 28",
-     "excerpt": "Then there exists a rational subset U ⊂ V containing M , together with an étale map U → Tn which factors as a composite of rational embeddings and finite étale maps.",
      "match": "The absolute chart (m = 0)."
     },
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§5, proof of Lemma 5.2, p. 28",
-     "excerpt": "Finally, embed Bn → Tn as a rational subset, e.g. as the locus where |Ti − 1| ≤ |p| for all i = 1, . . . , n.",
      "match": "The ball-into-torus step."
     },
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§8, Proposition 8.5, p. 48",
-     "excerpt": "Let f : X → Y be a smooth morphism of smooth adic spaces over Spa(k, Ok ), of relative dimension d.",
      "match": "The consumer: the relative Poincaré lemma."
     },
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§8, proof of Proposition 8.5, p. 48",
-     "excerpt": "It is enough to check the assertion in the case X = Tn , Y = Tn−d , with the evident projection.",
      "match": "The reduction that needs compatible charts (see sourceIssues)."
     }
    ],
@@ -10032,37 +9699,31 @@
     {
      "sourceId": "Zavyalov-FoundationalAdic-2024",
      "locator": "§3, Definition 3.1, p. 4",
-     "excerpt": "The dimension of a locally spectral X is the supremum of the length d of the chains of specializations x0 ≻ x1 ≻ · · · ≻ xd of points of X.",
      "match": "Huber's Definition 1.8.1 as quoted by Zavyalov."
     },
     {
      "sourceId": "Zavyalov-FoundationalAdic-2024",
      "locator": "§3, Definition 3.1, p. 4",
-     "excerpt": "A locally spectral space X is of pure dimension d if every non-empty open subset U ⊂ X has dimension d.",
      "match": "Pure dimension."
     },
     {
      "sourceId": "Zavyalov-FoundationalAdic-2024",
      "locator": "§3, after Definition 3.1, p. 5",
-     "excerpt": "The (relative) dimension dim f of a morphism of analytic adic spaces f : X → Y is the supremum of the dimensions of the fibers of f",
      "match": "Relative dimension."
     },
     {
      "sourceId": "Zavyalov-FoundationalAdic-2024",
      "locator": "§3, after Definition 3.1, p. 5",
-     "excerpt": "A morphism f : X → Y is of relative pure dimension d if all non-empty fibers f −1 (y) are of pure dimension d.",
      "match": "Relative pure dimension."
     },
     {
      "sourceId": "Hubner-AdicSpaces-2024",
      "locator": "§2, p. 5",
-     "excerpt": "We conclude that Spa(k, k + ) has rk k + many points if (k, k + ) is analytic",
      "match": "The computation for Spa(K, K⁺)."
     },
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§21, proof of Lemma 21.6, p. 123",
-     "excerpt": "the proof of [Hub96, Lemma 1.8.5 (i)] applies to show that dim f ≤ dim. trg f .",
      "match": "A consumer comparing dim f with dim.trg f."
     }
    ],
@@ -10118,13 +9779,11 @@
     {
      "sourceId": "Zavyalov-FoundationalAdic-2024",
      "locator": "§3, Lemma 3.2, p. 5",
-     "excerpt": "Let S be a locally noetherian analytic adic space, and let f : X → S be a locally finite type morphism. Then f is of relative pure dimension d if and only if, for each rank-1 point s ∈ S, the fiber",
      "match": "The statement."
     },
     {
      "sourceId": "Zavyalov-FoundationalAdic-2024",
      "locator": "§3, Lemma 3.2, p. 5",
-     "excerpt": "is either empty or of pure dimension d.",
      "match": "The conclusion."
     }
    ],
@@ -10185,19 +9844,16 @@
     {
      "sourceId": "Zavyalov-FoundationalAdic-2024",
      "locator": "§3, Corollary 3.4, p. 5",
-     "excerpt": "where g is étale and p is the natural projection. Then f is of pure relative dimension d.",
      "match": "The dimension statement for local charts."
     },
     {
      "sourceId": "Zavyalov-FoundationalAdic-2024",
      "locator": "§3, proof of Corollary 3.4, p. 5",
-     "excerpt": "Then [Hub96, Example 1.8.9(i)] does the job (alternatively, one can use that étale morphisms are of pure dimension 0 and [Bos14, Proposition 2.2/17 and Proposition 4.1/2] to get the claim).",
      "match": "The two proofs, both outside the library."
     },
     {
      "sourceId": "Zavyalov-FoundationalAdic-2024",
      "locator": "§3, Lemma 3.3, p. 5",
-     "excerpt": "Then X is of pure dimension d if and only if, for each classical point x ∈ X, dim OX,x = d.",
      "match": "Comparison with the rigid dimension."
     }
    ],
@@ -10252,25 +9908,21 @@
     {
      "sourceId": "Zavyalov-FoundationalAdic-2024",
      "locator": "§3, Lemma 3.7, p. 7",
-     "excerpt": "Let f : X → Y be a weakly finite type morphism, and let Y be quasi-compact. Then f is of finite dimension.",
      "match": "The statement."
     },
     {
      "sourceId": "Zavyalov-FoundationalAdic-2024",
      "locator": "§3, before Lemma 3.5, p. 5",
-     "excerpt": "Surprisingly, this claim seems missing in [Hub96].",
      "match": "Zavyalov supplies it."
     },
     {
      "sourceId": "Zavyalov-FoundationalAdic-2024",
      "locator": "§3, proof of Lemma 3.7, p. 7",
-     "excerpt": "Therefore, dim.tr(X/Y ) = dim.tr(X ′ /Y ) (see [Hub96, Def. 1.8.4]).",
      "match": "The unread input from Huber §1.8."
     },
     {
      "sourceId": "Zavyalov-FoundationalAdic-2024",
      "locator": "§3, proof of Lemma 3.7, p. 7",
-     "excerpt": "so it suffices to show the claim for the relative closed unit disk DnY → Y . This case follows from Corollary 3.4.",
      "match": "Reduction to the relative polydisc."
     }
    ],
@@ -10335,25 +9987,21 @@
     {
      "sourceId": "Huber-EtaleCohomology-1996",
      "locator": "§1.2, (1.2.7), p. 50",
-     "excerpt": "For morphisms of locally ringed spaces g: T -> S and f: X -> S where T, S are schemes, X is an adic space and g is locally of finite type, we have an adic space X ×_S T over X ([Hu, 3.8]).",
      "match": "The relative construction over an adic base."
     },
     {
      "sourceId": "Huber-EtaleCohomology-1996",
      "locator": "§1.7, Corollary 1.7.3, pp. 85-86",
-     "excerpt": "Then by [Hu, 3.8] every scheme X locally of finite type over Spec D defines an adic space X^ad := X ×_{Spec D} Spa A locally of finite type over Spa A.",
      "match": "Analytification relative to an affinoid pair."
     },
     {
      "sourceId": "Wedhorn-AdicSpaces-2019",
      "locator": "§8.7, Definition 8.64, p. 92",
-     "excerpt": "Let k be a non-archimedean field and let X be a k-scheme locally of finite type. The identity k → k corresponds to a morphism of locally ringed spaces Spa(k, k o ) → Spec k.",
      "match": "Analytification over a field."
     },
     {
      "sourceId": "ScholzeWeinstein-Berkeley-2020",
      "locator": "Lecture 4, §4.1, the adic affine line, p. 27",
-     "excerpt": "Note that between this example and the previous one, it was the ring R+ that made all the difference!",
      "match": "Ball versus affine line: the same ring, different plus rings."
     }
    ],
@@ -10423,13 +10071,11 @@
     {
      "sourceId": "Huber-EtaleCohomology-1996",
      "locator": "§2.1, p. 109",
-     "excerpt": "The etale site X_et of an adic space X is the category Et/X of adic spaces etale over X equipped with the Grothendieck topology such that a family (U_i -> U) of morphisms in Et/X is a covering if and only if U = ∪ f_i(U_i)",
      "match": "Huber's étale site, whose coverings are the jointly surjective families."
     },
     {
      "sourceId": "Scholze-PadicHodgeRigid-2013",
      "locator": "§4, proof of Corollary 4.7, p. 24",
-     "excerpt": "In general, X locally admits an étale map to Tn , cf. [12], Corollary 1.6.10",
      "match": "Toric charts cover a smooth space."
     }
    ],
@@ -10490,31 +10136,26 @@
     {
      "sourceId": "Huber-EtaleCohomology-1996",
      "locator": "§1.9, Proposition 1.9.1, pp. 96-97",
-     "excerpt": "Then there exist an adic space d(X) = (d(X), O_{d(X)}) and a morphism of topologically ringed spaces λ = λ_X: d(X) -> X such that",
      "match": "Huber's generic fibre."
     },
     {
      "sourceId": "Huber-EtaleCohomology-1996",
      "locator": "§1.9, condition (S), p. 96",
-     "excerpt": "b) there exists a s ∈ A such that sA is an ideal of definition of A and the Tate ring A(1/s) is strongly noetherian.",
      "match": "Type (S), the scope of d."
     },
     {
      "sourceId": "Huber-GeneralizationFormalRigid-1994",
      "locator": "§4, Proposition 4.2(i), printed p. 540",
-     "excerpt": "if and only ift(f): t(X) -> t(Y) is adic resp. locally of finite type.",
      "match": "t(g) is adic iff g is adic."
     },
     {
      "sourceId": "Hubner-AdicSpaces-2024",
      "locator": "§8, Theorem 8.1, p. 37",
-     "excerpt": "There is a fully faithful functor from the category of locally noetherian formal schemes to the category of adic spaces. It maps Spf A to Spa(A) = Spa(A, A).",
      "match": "The functor t."
     },
     {
      "sourceId": "Hubner-AdicSpaces-2024",
      "locator": "§8, Example 8.7, p. 39",
-     "excerpt": "Here one can see that Xη is not quasi-compact due to the fact that Zp JT K is not of topologically finite type over Zp .",
      "match": "The generic fibre over Spa ℚ_p versus the analytic locus."
     }
    ],
@@ -10658,19 +10299,16 @@
     {
      "sourceId": "KedlayaLiu-RelativeII-ImperfectPeriodRings",
      "locator": "§1.1, Definition 1.1.1, p. 10",
-     "excerpt": "an R-module M is m-pseudocoherent if there exists a projective resolution",
      "match": "The definition of m-pseudocoherence by projective resolutions finitely generated in degrees ≤ m."
     },
     {
      "sourceId": "KedlayaLiu-RelativeII-ImperfectPeriodRings",
      "locator": "§1.1, Definition 1.1.1, p. 10",
-     "excerpt": "with Pi finitely generated for all i ≤ m. In particular, M is 0-pseudocoherent (resp. 1- pseudocoherent) if and only if it is finitely generated (resp. finitely presented).",
      "match": "The identification of 0- and 1-pseudocoherence with finite generation and finite presentation, pinned as the compatibility with Mathlib."
     },
     {
      "sourceId": "KedlayaLiu-RelativeII-ImperfectPeriodRings",
      "locator": "§1.1, Remark 1.1.6, p. 12",
-     "excerpt": "Let R be a ring and suppose f ∈ R is not a zero-divisor. Then R/f R admits the projective resolution",
      "match": "The basic example R/fR for a non-zero-divisor f, used as the computation test."
     }
    ],
@@ -10708,7 +10346,6 @@
     {
      "sourceId": "KedlayaLiu-RelativeII-ImperfectPeriodRings",
      "locator": "§1.1, Lemma 1.1.5, p. 11",
-     "excerpt": "In particular, if any two of M, M1 , M2 are pseudocoherent (resp. fpd), then so is the third;",
      "match": "The two-out-of-three conclusion for pseudocoherent and fpd modules."
     }
    ],
@@ -10750,7 +10387,6 @@
     {
      "sourceId": "KedlayaLiu-RelativeII-ImperfectPeriodRings",
      "locator": "§1.1, Remark 1.1.6, p. 12",
-     "excerpt": "Let R be a ring and suppose f ∈ R is not a zero-divisor. Then R/f R admits the projective resolution",
      "match": "Kedlaya–Liu's example of a non-zero-divisor; this node is its r-fold iteration by Koszul complexes."
     }
    ],
@@ -10800,25 +10436,21 @@
     {
      "sourceId": "KedlayaLiu-RelativeII-ImperfectPeriodRings",
      "locator": "§1.2, Definition 1.2.2, p. 14",
-     "excerpt": "By the natural topology on a finitely generated R-module M , we will mean the quotient topology induced by some surjection",
      "match": "The natural topology on a finitely generated module."
     },
     {
      "sourceId": "KedlayaLiu-RelativeII-ImperfectPeriodRings",
      "locator": "§1.2, Theorem 1.2.9(b), p. 16",
-     "excerpt": "If N is complete and metrizable and f is continuous and surjective, then f is strict.",
      "match": "The open mapping theorem's strictness conclusion."
     },
     {
      "sourceId": "KedlayaLiu-RelativeII-ImperfectPeriodRings",
      "locator": "§1.2, Corollary 1.2.11, p. 16",
-     "excerpt": "Let M be a finitely generated R-module which is complete for its natural topology.",
      "match": "Closedness of a submodule of a complete finitely generated module whose closure is finitely generated (the hypothesis of the corollary is on the completion N̂)."
     },
     {
      "sourceId": "KedlayaLiu-RelativeII-ImperfectPeriodRings",
      "locator": "§2, Convention 2.0.1, p. 29",
-     "excerpt": "In particular, all Banach rings we consider contain a topologically nilpotent unit, and hence are open mapping rings.",
      "match": "Kedlaya–Liu's Banach rings contain topologically nilpotent units: the complete Tate rings of Tau Ceti."
     }
    ],
@@ -10966,25 +10598,21 @@
     {
      "sourceId": "KedlayaLiu-RelativeII-ImperfectPeriodRings",
      "locator": "§1.2, Definition 1.2.13, p. 17",
-     "excerpt": "is strictly m-pseudocoherent (resp. strictly m-fpd ) if it is m-pseudocoherent (resp. m-fpd) and complete for the natural topology.",
      "match": "Strict pseudocoherence: pseudocoherent and complete for the natural topology."
     },
     {
      "sourceId": "KedlayaLiu-RelativeII-ImperfectPeriodRings",
      "locator": "§2.4, Definition 2.4.1, p. 35",
-     "excerpt": "is stably m-pseudocoherent (resp. stably m-fpd ) if S is m-pseudocoherent (resp. m-fpd) and for every rational localization (A, A+ ) → (B, B + ), the B-module S ⊗A B is complete for the natural topology.",
      "match": "Stable pseudocoherence: completeness after every rational localisation."
     },
     {
      "sourceId": "KedlayaLiu-RelativeII-ImperfectPeriodRings",
      "locator": "§2.4, Example 2.4.2, p. 35",
-     "excerpt": "In this case, A/f A is strictly pseudocoherent but not stably pseudocoherent.",
      "match": "The non-example separating strict from stable."
     },
     {
      "sourceId": "KedlayaLiu-RelativeII-ImperfectPeriodRings",
      "locator": "§2.4, Definition 2.4.1, p. 35",
-     "excerpt": "In case A is strongly noetherian, Corollary 1.2.12 implies that any finite A-module is stably pseudocoherent, but not necessarily fpd.",
      "match": "The strongly noetherian compatibility."
     }
    ],
@@ -11106,19 +10734,16 @@
     {
      "sourceId": "KedlayaLiu-RelativeII-ImperfectPeriodRings",
      "locator": "§2.4, Definition 2.4.4, p. 36",
-     "excerpt": "is m-pseudoflat if for every stably m-pseudocoherent A-module P , we have TorA 1 (P, B) = 0",
      "match": "The definition of m-pseudoflatness by vanishing of Tor₁ against stably m-pseudocoherent modules."
     },
     {
      "sourceId": "KedlayaLiu-RelativeII-ImperfectPeriodRings",
      "locator": "§2.4, Remark 2.4.5, p. 37",
-     "excerpt": "the composition of an m-pseudoflat rational localization followed by any m-pseudoflat morphism is again m-pseudoflat.",
      "match": "Composition of pseudoflat rational localisations with pseudoflat morphisms."
     },
     {
      "sourceId": "KedlayaLiu-RelativeII-ImperfectPeriodRings",
      "locator": "§2.4, Definition 2.4.6, p. 37",
-     "excerpt": "is pro-projective if there exists a filtered family of continuous A-linear projectors",
      "match": "Pro-projective modules."
     }
    ],
@@ -11158,25 +10783,21 @@
     {
      "sourceId": "KedlayaLiu-RelativeII-ImperfectPeriodRings",
      "locator": "§2.4, Definition 2.4.6, p. 37",
-     "excerpt": "is pro-projective if there exists a filtered family of continuous A-linear projectors",
      "match": "Definition of pro-projective modules."
     },
     {
      "sourceId": "KedlayaLiu-RelativeII-ImperfectPeriodRings",
      "locator": "§2.4, Lemma 2.4.7, p. 37",
-     "excerpt": "For any strictly 2-pseudocoherent A-module M , M ⊗A B is complete for the natural topology and TorA 1 (M, B) = 0.",
      "match": "Completeness of M ⊗ B and vanishing of Tor₁ for strictly 2-pseudocoherent M."
     },
     {
      "sourceId": "KedlayaLiu-RelativeII-ImperfectPeriodRings",
      "locator": "§2.4, Corollary 2.4.8, p. 38",
-     "excerpt": "Any pro-projective A-module is 2-pseudoflat.",
      "match": "Pro-projective modules are 2-pseudoflat."
     },
     {
      "sourceId": "KedlayaLiu-RelativeII-ImperfectPeriodRings",
      "locator": "§2.4, Corollary 2.4.9, p. 38",
-     "excerpt": "are surjective (resp. bijective).",
      "match": "Surjectivity/bijectivity of M ⊗ A{T} → M{T}."
     }
    ],
@@ -11220,25 +10841,21 @@
     {
      "sourceId": "KedlayaLiu-RelativeII-ImperfectPeriodRings",
      "locator": "§2.4, Lemma 2.4.10, p. 38",
-     "excerpt": "Let (A, A+ ) be a sheafy adic Banach ring. Choose f ∈ A, define the simple Laurent covering",
      "match": "The simple Laurent covering of a sheafy adic Banach ring."
     },
     {
      "sourceId": "KedlayaLiu-RelativeII-ImperfectPeriodRings",
      "locator": "§2.4, Lemma 2.4.10, p. 38",
-     "excerpt": "are strict inclusions.",
      "match": "The conclusion: the multiplication maps are strict inclusions."
     },
     {
      "sourceId": "KedlayaLiu-RelativeII-ImperfectPeriodRings",
      "locator": "§1.2, Remark 1.2.8, p. 15",
-     "excerpt": "then for any f ∈ R, multiplication by 1 − f T is bijective on M JT K and hence injective on M {T }.",
      "match": "Injectivity of multiplication by 1 − fT on M{T}."
     },
     {
      "sourceId": "KedlayaLiu-RelativeFoundations-2015",
      "locator": "§2.4, Lemma 2.4.13(a), p. 42",
-     "excerpt": "where B is the quotient of A{T1 , . . . , Tn } for the closure of the ideal (gT1 − f1 , . . . , gTn − fn )",
      "match": "The rational localisation as the quotient of A{T} by the closure of (gT − f)."
     }
    ],
@@ -11283,19 +10900,16 @@
     {
      "sourceId": "KedlayaLiu-RelativeII-ImperfectPeriodRings",
      "locator": "§2.4, Lemma 2.4.12, p. 39",
-     "excerpt": "With notation as in Lemma 2.4.10, the morphism A → B2 is 2-pseudoflat.",
      "match": "A → B₂ is 2-pseudoflat."
     },
     {
      "sourceId": "KedlayaLiu-RelativeII-ImperfectPeriodRings",
      "locator": "§2.4, Lemma 2.4.13, p. 39",
-     "excerpt": "With notation as in Lemma 2.4.10, the morphisms A → B1 , A → B12 are 2-pseudoflat.",
      "match": "A → B₁ and A → B₁₂ are 2-pseudoflat."
     },
     {
      "sourceId": "KedlayaLiu-RelativeII-ImperfectPeriodRings",
      "locator": "§2.4, after the proof of Lemma 2.4.12, p. 39",
-     "excerpt": "In the setting of Remark 1.2.8, it is not clear to us how to make an analogous argument with 1 − f T replaced by T − f when f is not a unit in A.",
      "match": "The source records that the argument with 1 − fT does not transfer directly to T − f; the second lemma's diagram chase replaces it."
     }
    ],
@@ -11336,13 +10950,11 @@
     {
      "sourceId": "KedlayaLiu-RelativeFoundations-2015",
      "locator": "§2.4, Proposition 2.4.24, p. 47",
-     "excerpt": "Let P be a property of inclusions V ⊆ U of rational subdomains of Spa(A, A+ ) satisfying the following conditions.",
      "match": "The statement of the reduction principle for inclusions of rational subdomains."
     },
     {
      "sourceId": "KedlayaLiu-RelativeFoundations-2015",
      "locator": "§2.4, proof of Proposition 2.4.24, p. 47",
-     "excerpt": "Since each of the inclusions V = Vn ⊆ · · · ⊆ V0 ⊆ U is part of a simple Laurent covering, we may deduce the claim from (a) and (b).",
      "match": "The chain of simple Laurent inclusions used in the proof."
     }
    ],
@@ -11383,19 +10995,16 @@
     {
      "sourceId": "KedlayaLiu-RelativeII-ImperfectPeriodRings",
      "locator": "§2.4, Theorem 2.4.15, p. 40",
-     "excerpt": "For any rational localization (A, A+ ) → (B, B + ), A → B is 2-pseudoflat.",
      "match": "The theorem."
     },
     {
      "sourceId": "KedlayaLiu-RelativeII-ImperfectPeriodRings",
      "locator": "§2.4, proof of Theorem 2.4.15, p. 40",
-     "excerpt": "We apply [91, Proposition 2.4.24]: criterion (a) follows from Remark 2.4.5, while criterion (b) follows from Lemma 2.4.12 and Lemma 2.4.13.",
      "match": "Its proof via the inclusion-reduction principle and the simple Laurent lemmas."
     },
     {
      "sourceId": "KedlayaLiu-RelativeII-ImperfectPeriodRings",
      "locator": "§2.2, Remark 2.2.8, p. 32",
-     "excerpt": "We do not know whether Lemma 2.2.6 remains true if one drops the strongly noetherian hypothesis.",
      "match": "Flatness of rational localisations is not known in general; pseudoflatness replaces it."
     }
    ],
@@ -11438,13 +11047,11 @@
     {
      "sourceId": "KedlayaLiu-RelativeII-ImperfectPeriodRings",
      "locator": "§2.5, Theorem 2.5.1, p. 41",
-     "excerpt": "For M a stably pseudocoherent A-module, let M̃ be the presheaf for which M̃ (U ) is the inverse limit of M ⊗A B over all ra- tional subspaces",
      "match": "The associated presheaf M̃ of a stably pseudocoherent module."
     },
     {
      "sourceId": "KedlayaLiu-RelativeII-ImperfectPeriodRings",
      "locator": "§2.5, proof of Theorem 2.5.1, p. 41",
-     "excerpt": "this reduces immediately to Lemma 2.4.13.",
      "match": "The proof reduces to the simple Laurent lemma."
     }
    ],
@@ -11488,7 +11095,6 @@
     {
      "sourceId": "KedlayaLiu-RelativeII-ImperfectPeriodRings",
      "locator": "§2.5, Corollary 2.5.2, p. 41",
-     "excerpt": "such that M ⊗A O(V ) is an m-fpd O(V )-module for each V ∈ V. Then M is m-fpd.",
      "match": "The local-to-global statement for m-fpd modules."
     }
    ],
@@ -11619,13 +11225,11 @@
     {
      "sourceId": "KedlayaLiu-RelativeII-ImperfectPeriodRings",
      "locator": "§2.5, Definition 2.5.3, p. 41",
-     "excerpt": "if it is locally the sheaf associated to a stably pseudocoherent (resp. stably fpd) module.",
      "match": "The definition: locally the sheaf associated with a stably pseudocoherent (resp. stably fpd) module."
     },
     {
      "sourceId": "FarguesScholze-Geometrization",
      "locator": "§IV.4.1, Proposition IV.4.19, p. 140",
-     "excerpt": "is pseudocoherent in the sense of [KL16]",
      "match": "Fargues–Scholze use the notion for the ideal sheaf of a Zariski closed immersion."
     }
    ],
@@ -11672,13 +11276,11 @@
     {
      "sourceId": "KedlayaLiu-RelativeII-ImperfectPeriodRings",
      "locator": "§2.5, Lemma 2.5.4, p. 41",
-     "excerpt": "is an effective descent morphism for stably pseudocoherent modules over Banach rings and for stably fpd modules over Banach rings.",
      "match": "Effective descent along a simple Laurent covering."
     },
     {
      "sourceId": "KedlayaLiu-RelativeFoundations-2015",
      "locator": "§2.7, Lemma 2.7.4, p. 57",
-     "excerpt": "Consider a glueing square as in Definition 2.7.3, and let M1 , M2 , M12 be a finite glueing datum.",
      "match": "The finite-generation lemma for glueing data used in the proof."
     }
    ],
@@ -11733,25 +11335,21 @@
     {
      "sourceId": "KedlayaLiu-RelativeII-ImperfectPeriodRings",
      "locator": "§2.5, Theorem 2.5.5, p. 42",
-     "excerpt": "the global sections functor defines an exact equivalence of categories between pseudocoherent (resp. fpd) sheaves of O-modules on Spa(A, A+ ) and stably pseudocoherent (resp. stably fpd) A-modules.",
      "match": "The exact equivalence between pseudocoherent sheaves and stably pseudocoherent modules."
     },
     {
      "sourceId": "KedlayaLiu-RelativeII-ImperfectPeriodRings",
      "locator": "§2.5, Corollary 2.5.6, p. 43",
-     "excerpt": "In particular, A → B is pseudoflat.",
      "match": "Base extension along open immersions: pseudoflatness."
     },
     {
      "sourceId": "FarguesScholze-Geometrization",
      "locator": "§IV.4.1, proof of Proposition IV.4.19, p. 140",
-     "excerpt": "By the gluing result for pseudocoherent modules of [KL16]",
      "match": "Fargues–Scholze invoke this gluing result in the proof of Proposition IV.4.19."
     },
     {
      "sourceId": "KedlayaLiu-RelativeFoundations-2015",
      "locator": "§2.7, Theorem 2.7.7, p. 58",
-     "excerpt": "Then the structure sheaf on Spa(A, A+ ) satisfies the Tate sheaf property and the Kiehl glueing property.",
      "match": "The finite projective case (Kiehl glueing property) in Kedlaya–Liu I."
     }
    ],
@@ -11801,19 +11399,16 @@
     {
      "sourceId": "Huber-EtaleCohomology-1996",
      "locator": "§1.7, Proposition 1.7.1, p. 80",
-     "excerpt": "the image of the determinant det(∂f_i/∂X_j)_{i,j=1,...,n} ∈ B^▷ in B^▷/I is a unit of B^▷/I and X is Y-isomorphic to Spa B/I.",
      "match": "Huber's Proposition 1.7.1 phrases étaleness by a unit Jacobian; the inverse-function input of its proof (point (1)) is this Newton lemma, here without noetherian hypotheses."
     },
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§6, proof of Proposition 6.4(iv), p. 28",
-     "excerpt": "Slightly perturbing ... the fi ’s will still give an affinoid sousperfectoid space étale over X (and thus perfectoid), by the same result.",
      "match": "ECD's perturbation step presupposes a quantitative implicit-function statement of this kind."
     },
     {
      "sourceId": "FarguesScholze-Geometrization",
      "locator": "§IV.4.1, proof of Lemma IV.4.16, p. 139",
-     "excerpt": "is a quasi-isomorphism, as can be checked modulo ϖ",
      "match": "Fargues–Scholze reduce a similar local statement to congruences modulo ϖ; here the reduction is done by Newton iteration instead of descent."
     }
    ],
@@ -11856,13 +11451,11 @@
     {
      "sourceId": "Huber-EtaleCohomology-1996",
      "locator": "§1.7, Proposition 1.7.1, p. 80",
-     "excerpt": "the image of the determinant det(∂f_i/∂X_j)_{i,j=1,...,n} ∈ B^▷ in B^▷/I is a unit of B^▷/I and X is Y-isomorphic to Spa B/I.",
      "match": "Huber 1.7.1's presentation; its proof uses that nearby generators give the same presentation up to automorphism."
     },
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§6, proof of Proposition 6.4(iv), p. 28",
-     "excerpt": "For close enough approximations, this will in fact be isomorphic to Y , by the approximation results above, and this is enough to deduce the essential surjectivity.",
      "match": "ECD's identification of close approximations with Y rests on such comparison automorphisms."
     }
    ],
@@ -12029,19 +11622,16 @@
     {
      "sourceId": "Huber-EtaleCohomology-1996",
      "locator": "§1.7, Proposition 1.7.1, p. 80",
-     "excerpt": "the image of the determinant det(∂f_i/∂X_j)_{i,j=1,...,n} ∈ B^▷ in B^▷/I is a unit of B^▷/I and X is Y-isomorphic to Spa B/I.",
      "match": "Huber's standard étale presentation: n equations in n variables, unit Jacobian, X ≅ Spa B/I."
     },
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§6, proof of Proposition 6.4(iv), p. 28",
-     "excerpt": "whose ideal I is necessarily generated by n functions",
      "match": "ECD: the ideal of Y in B^n_X is generated near Y by n functions."
     },
     {
      "sourceId": "KedlayaLiu-RelativeFoundations-2015",
      "locator": "§2.4, Lemma 2.4.13(a), p. 42",
-     "excerpt": "where B is the quotient of A{T1 , . . . , Tn } for the closure of the ideal (gT1 − f1 , . . . , gTn − fn )",
      "match": "Rational localisations as quotients by closures of ideals: the closure in condition (i)."
     }
    ],
@@ -12091,25 +11681,21 @@
     {
      "sourceId": "KedlayaLiu-RelativeFoundations-2015",
      "locator": "§2.4, Lemma 2.4.13(a), p. 42",
-     "excerpt": "where B is the quotient of A{T1 , . . . , Tn } for the closure of the ideal (gT1 − f1 , . . . , gTn − fn )",
      "match": "The rational localisation as the quotient of A{T} by the closure of (gT − f)."
     },
     {
      "sourceId": "KedlayaLiu-RelativeFoundations-2015",
      "locator": "§2.4, Lemma 2.4.13(a), p. 42",
-     "excerpt": "B + is the completion of the integral closure of the image of A+ [T1 , . . . , Tn ] in B.",
      "match": "Its plus ring as the completed integral closure of the image of A⁺[T]."
     },
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§6, proof of Proposition 6.4(ii), p. 28",
-     "excerpt": "Thus, we can assume that f is a composite of a rational open subset, a finite étale map, and a rational open subset.",
      "match": "ECD reduces étale maps to composites of rational subsets and finite étale maps; these composites are what (d) presents."
     },
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§6, Theorem 6.1(i), p. 26",
-     "excerpt": "For any finite étale R-algebra S, S is perfectoid.",
      "match": "Finite étale algebras over perfectoid rings are perfectoid, so (b) stays inside perfectoid rings."
     }
    ],
@@ -12165,19 +11751,16 @@
     {
      "sourceId": "FarguesScholze-Geometrization",
      "locator": "§IV.4.1, before Lemma IV.4.14, p. 137",
-     "excerpt": "Locally around a section, any smooth space is a ball",
      "match": "Fargues–Scholze's local statement that smooth spaces are balls near sections; the tube theorem is its analytic-algebra replacement for étale loci."
     },
     {
      "sourceId": "FarguesScholze-Geometrization",
      "locator": "§IV.4.1, proof of Lemma IV.4.16, p. 139",
-     "excerpt": "is a quasi-isomorphism, as can be checked modulo ϖ",
      "match": "Fargues–Scholze establish the local product structure after reduction modulo ϖ; here Newton iteration gives it directly."
     },
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§6, proof of Proposition 6.4(iv), p. 28",
-     "excerpt": "Slightly perturbing ... the fi ’s will still give an affinoid sousperfectoid space étale over X (and thus perfectoid), by the same result.",
      "match": "ECD's perturbation argument is carried out inside such a tube."
     }
    ],
@@ -12221,19 +11804,16 @@
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§6, proof of Proposition 6.4(iv), p. 28",
-     "excerpt": "Slightly perturbing ... the fi ’s will still give an affinoid sousperfectoid space étale over X (and thus perfectoid), by the same result.",
      "match": "ECD: slightly perturbed equations still define an affinoid sousperfectoid space étale over X."
     },
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§6, proof of Proposition 6.4(iv), p. 28",
-     "excerpt": "For close enough approximations, this will in fact be isomorphic to Y , by the approximation results above, and this is enough to deduce the essential surjectivity.",
      "match": "ECD: close approximations are isomorphic to Y; here the isomorphism is α_{F,G}."
     },
     {
      "sourceId": "Huber-EtaleCohomology-1996",
      "locator": "§1.7, Proposition 1.7.1, p. 80",
-     "excerpt": "the image of the determinant det(∂f_i/∂X_j)_{i,j=1,...,n} ∈ B^▷ in B^▷/I is a unit of B^▷/I and X is Y-isomorphic to Spa B/I.",
      "match": "Huber's standard presentation, whose perturbation stability (1.7.2) is proved there with a noetherian ring of definition."
     }
    ],
@@ -12279,13 +11859,11 @@
     {
      "sourceId": "FarguesScholze-Geometrization",
      "locator": "§IV.4.1, Proposition IV.4.17, p. 139",
-     "excerpt": "is a sous-perfectoid space smooth over X.",
      "match": "Fargues–Scholze: vanishing loci of functions with independent differentials are sous-perfectoid spaces smooth over X; the étale case is proved here via the tube."
     },
     {
      "sourceId": "FarguesScholze-Geometrization",
      "locator": "§IV.4.1, opening of §IV.4.1, p. 135",
-     "excerpt": "The class of sous-perfectoid rings R is stable under passage to rational localizations, finite étale maps, and R⟨T1 , . . . , Tn ⟩.",
      "match": "The stability properties of sous-perfectoid rings used."
     }
    ],
@@ -12326,13 +11904,11 @@
     {
      "sourceId": "FarguesScholze-Geometrization",
      "locator": "§IV.4.1, Lemma IV.4.13, p. 137",
-     "excerpt": "Then T1 , . . . , Tn define a regular sequence on S and (T1 , . . . , Tn )S ⊂ S is a closed ideal.",
      "match": "Fargues–Scholze IV.4.13: the coordinates form a regular sequence with closed ideal."
     },
     {
      "sourceId": "FarguesScholze-Geometrization",
      "locator": "§IV.4.1, proof of Lemma IV.4.13, p. 137",
-     "excerpt": "By spreading of étale maps, this implies that they are isomorphic after base change to",
      "match": "Its proof uses the spreading of étale maps, replaced here by the tube theorem."
     }
    ],
@@ -12374,13 +11950,11 @@
     {
      "sourceId": "Scholze-PerfectoidSpaces-2012",
      "locator": "§6, Lemma 6.13(i), p. 37",
-     "excerpt": "Any perfectoid affinoid K-algebra (R, R+ ) for which R+ is a K ◦ -algebra is the com- pletion of a filtered direct limit of p-finite perfectoid affinoid K-algebras",
      "match": "Scholze's approximation of perfectoid affinoid algebras in characteristic p by p-finite ones, under the hypothesis supplied by (a)."
     },
     {
      "sourceId": "Scholze-PerfectoidSpaces-2012",
      "locator": "§6, Definition 6.9, p. 35",
-     "excerpt": "is said to be p-finite if there exists a reduced affinoid K-algebra (S, S + ) of topologically finite type such that (R, R+ ) is the completed perfection of (S, S + )",
      "match": "p-finite: the completed perfection of a reduced affinoid algebra of topologically finite type."
     }
    ],
@@ -12441,31 +12015,26 @@
     {
      "sourceId": "FarguesScholze-Geometrization",
      "locator": "§IV.4.1, Proposition IV.4.17, p. 139",
-     "excerpt": "is a sous-perfectoid space smooth over X.",
      "match": "Fargues–Scholze IV.4.17: vanishing loci with independent differentials are sous-perfectoid and smooth (étale when r = n)."
     },
     {
      "sourceId": "FarguesScholze-Geometrization",
      "locator": "§IV.4.1, Proposition IV.4.15(ii), p. 138",
-     "excerpt": "is a locally split injection, then g is smooth.",
      "match": "Fargues–Scholze IV.4.15(ii): a locally split injection on differentials gives smoothness (an isomorphism gives étaleness)."
     },
     {
      "sourceId": "FarguesScholze-Geometrization",
      "locator": "§IV.4.1, proof of Proposition IV.4.15, p. 138",
-     "excerpt": "The resulting étale map Y1,S → Y2,S deforms uniquely to a quasicompact separated étale map",
      "match": "The deformation step of Fargues–Scholze's proof, which rests on ECD Lemma 12.17 and is not used here."
     },
     {
      "sourceId": "Scholze-PerfectoidSpaces-2012",
      "locator": "§7, Proposition 7.7, p. 41",
-     "excerpt": "Let f : X → Y be an étale map of perfectoid spaces. Then for any x ∈ X, there exist affinoid perfectoid neighborhoods",
      "match": "Scholze 2012, Proposition 7.7: in characteristic p étale maps of perfectoid spaces are locally base changes of étale maps of noetherian adic spaces — the approximation strategy used here."
     },
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§6, proof of Proposition 6.4(iv), p. 28",
-     "excerpt": "Slightly perturbing ... the fi ’s will still give an affinoid sousperfectoid space étale over X (and thus perfectoid), by the same result.",
      "match": "ECD: the perturbed locus is étale over X and thus perfectoid."
     }
    ],
@@ -12521,19 +12090,16 @@
     {
      "sourceId": "KedlayaLiu-RelativeII-ImperfectPeriodRings",
      "locator": "§1.1, Remark 1.1.13, p. 14",
-     "excerpt": "If S is pseudocoherent as an R-module, then base extension takes pseudocoherent R-modules to pseudocoherent S-modules",
      "match": "Pseudocoherence descends along an algebra that is itself pseudocoherent as a module."
     },
     {
      "sourceId": "KedlayaLiu-RelativeFoundations-2015",
      "locator": "§2.4, Lemma 2.4.13(a), p. 42",
-     "excerpt": "B + is the completion of the integral closure of the image of A+ [T1 , . . . , Tn ] in B.",
      "match": "Plus rings of rational localisations are completed integral closures, which is what makes the integral cut-off possible."
     },
     {
      "sourceId": "FarguesScholze-Geometrization",
      "locator": "§IV.4.1, proof of Proposition IV.4.19, p. 140",
-     "excerpt": "but it is also a closed immersion, hence locally an isomorphism.",
      "match": "Fargues–Scholze conclude with 'closed immersion and étale, hence locally an isomorphism'; the graph argument replaces this step."
     }
    ],
@@ -12580,25 +12146,21 @@
     {
      "sourceId": "FarguesScholze-Geometrization",
      "locator": "§IV.4.1, Proposition IV.4.19(i), p. 140",
-     "excerpt": "There is a cover of Y ′ by open affinoid V ′ = Spa(S ′ , S ′+ ) such that V = Y ×Y ′ V ′ = Spa(S, S + ) is affinoid and S ′ → S is surjective",
      "match": "Condition (i) of Fargues–Scholze IV.4.19: local surjectivity on an affinoid covering of the target."
     },
     {
      "sourceId": "FarguesScholze-Geometrization",
      "locator": "§IV.4.1, Definition IV.4.20, p. 141",
-     "excerpt": "the map g is a Zariski closed immersion if the equivalent conditions are satisfied.",
      "match": "The definition of Zariski closed immersions by these equivalent conditions."
     },
     {
      "sourceId": "FarguesScholze-Geometrization",
      "locator": "§IV.4.1, Proposition IV.4.19, p. 140",
-     "excerpt": "is pseudocoherent in the sense of [KL16]",
      "match": "The ideal sheaf is pseudocoherent in Kedlaya–Liu's sense."
     },
     {
      "sourceId": "FarguesScholze-Geometrization",
      "locator": "§IV.4.1, proof of Proposition IV.4.19, p. 140",
-     "excerpt": "By the gluing result for pseudocoherent modules of [KL16]",
      "match": "The passage (i) ⇒ (ii) is Kedlaya–Liu's gluing."
     }
    ],
@@ -12644,19 +12206,16 @@
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§6, Definition 6.2(ii), p. 26",
-     "excerpt": "The morphism f is étale if for all y ∈ Y , there are open subsets V ⊂ Y , U ⊂ X such that y ∈ Y , f (V ) ⊂ U , and there is a factorization",
      "match": "ECD's local description of étale morphisms of perfectoid spaces."
     },
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§6, proof of Proposition 6.4(ii), p. 28",
-     "excerpt": "Thus, we can assume that f is a composite of a rational open subset, a finite étale map, and a rational open subset.",
      "match": "ECD's reduction of qcqs étale maps to composites of rational subsets and finite étale maps."
     },
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§6, remark after Definition 6.2, p. 26",
-     "excerpt": "Moreover, composites, base changes, and maps between (finite) étale maps are (finite) étale.",
      "match": "Composites and base changes of (finite) étale maps are (finite) étale."
     }
    ],
@@ -12697,7 +12256,6 @@
     {
      "sourceId": "KedlayaLiu-RelativeFoundations-2015",
      "locator": "§2.4, Lemma 2.4.13(a), p. 42",
-     "excerpt": "B + is the completion of the integral closure of the image of A+ [T1 , . . . , Tn ] in B.",
      "match": "The plus ring of a rational localisation is the completed integral closure of the image of A⁺[T]."
     }
    ],
@@ -12745,25 +12303,21 @@
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§6, proof of Proposition 6.4(iv), p. 28",
-     "excerpt": "one can find a Zariski closed immersion of sousperfectoid adic spaces",
      "match": "ECD asserts the existence of this Zariski closed immersion without constructing it."
     },
     {
      "sourceId": "FarguesScholze-Geometrization",
      "locator": "§IV.4.1, Proposition IV.4.19(i), p. 140",
-     "excerpt": "There is a cover of Y ′ by open affinoid V ′ = Spa(S ′ , S ′+ ) such that V = Y ×Y ′ V ′ = Spa(S, S + ) is affinoid and S ′ → S is surjective",
      "match": "The local-on-the-target condition verified for the covering built in the proof."
     },
     {
      "sourceId": "FarguesScholze-Geometrization",
      "locator": "§IV.4.1, Definition IV.4.20, p. 141",
-     "excerpt": "the map g is a Zariski closed immersion if the equivalent conditions are satisfied.",
      "match": "Zariski closed immersions in Fargues–Scholze's sense."
     },
     {
      "sourceId": "KedlayaLiu-RelativeFoundations-2015",
      "locator": "§2.4, after Definition 2.4.12, p. 41",
-     "excerpt": "In general, the structure of affinoid subdomains is quite mysterious",
      "match": "Why a construction is needed: affinoid subdomains of non-noetherian adic spaces are not controlled in general."
     }
    ],
@@ -12810,7 +12364,6 @@
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§6, proof of Proposition 6.4(iv), p. 28",
-     "excerpt": "as Ω1Y /X = 0 and so I/I 2 ∼= Ω1Bn /X /I",
      "match": "ECD's conormal identification, which this lemma proves."
     }
    ],
@@ -12853,13 +12406,11 @@
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§6, proof of Proposition 6.4(iv), p. 28",
-     "excerpt": "whose ideal I is necessarily generated by n functions",
      "match": "ECD: the ideal of Y is generated by n functions near Y."
     },
     {
      "sourceId": "FarguesScholze-Geometrization",
      "locator": "§IV.4.1, proof of Proposition IV.4.19, p. 140",
-     "excerpt": "but it is also a closed immersion, hence locally an isomorphism.",
      "match": "The step of Fargues–Scholze's proof replaced here by the idempotent argument."
     }
    ],
@@ -12917,13 +12468,11 @@
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§6, proof of Proposition 6.4(iv), p. 28",
-     "excerpt": "In (iv), fully faithfulness again follows from (ii). For essential surjectivity, we can work in characteristic p, where it follows from [Hub96, Proposition 1.7.1], which holds for affinoid perfectoid spaces of characteristic p by using the theory of pseudocoherent sheaves of Kedlaya–Liu, [KL16].",
      "match": "ECD: Huber 1.7.1 holds for affinoid perfectoid spaces of characteristic p by the theory of pseudocoherent sheaves."
     },
     {
      "sourceId": "Huber-EtaleCohomology-1996",
      "locator": "§1.7, Proposition 1.7.1, p. 80",
-     "excerpt": "the image of the determinant det(∂f_i/∂X_j)_{i,j=1,...,n} ∈ B^▷ in B^▷/I is a unit of B^▷/I and X is Y-isomorphic to Spa B/I.",
      "match": "Huber's statement being extended."
     }
    ],
@@ -12965,13 +12514,11 @@
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§6, proof of Proposition 6.4(iv), p. 28",
-     "excerpt": "For essential surjectivity, we can work in characteristic p",
      "match": "ECD reduces the essential surjectivity in (iv) to characteristic p."
     },
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§6, Theorem 6.3, p. 26",
-     "excerpt": "Let X be a perfectoid space with tilt X ♭ . Then tilting induces an equivalence",
      "match": "Tilting identifies étale sites (ECD Theorem 6.3)."
     }
    ],
@@ -13012,13 +12559,11 @@
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§6, Proposition 6.4 (set-up), p. 27",
-     "excerpt": "Consider the inverse limit X = Spa(R, R+ ), where R+ is the ϖ-adic completion of",
      "match": "The inverse limit is formed by ϖ-adically completing the colimit of the integral rings."
     },
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§6, proof of Proposition 6.5, p. 29",
-     "excerpt": "The first part follows from uniformity of perfectoid spaces, which means that whenever Y maps compatibly to all Xi",
      "match": "Uniformity makes Spa of the completed colimit the limit; the same completeness drives the approximation."
     }
    ],
@@ -13063,13 +12608,11 @@
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§6, proof of Proposition 6.4(iv), p. 28",
-     "excerpt": "Slightly perturbing ... the fi ’s will still give an affinoid sousperfectoid space étale over X (and thus perfectoid), by the same result.",
      "match": "ECD: perturbed equations define affinoid (sous)perfectoid spaces étale over the base."
     },
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§6, proof of Proposition 6.4(iv), p. 28",
-     "excerpt": "For close enough approximations, this will in fact be isomorphic to Y , by the approximation results above, and this is enough to deduce the essential surjectivity.",
      "match": "ECD: close enough approximations are isomorphic to Y."
     }
    ],
@@ -13109,13 +12652,11 @@
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§6, proof of Proposition 6.4(ii), p. 28",
-     "excerpt": "As an intermediate step to fullness, we check that if fi : Yi → Yi′ is a morphism over X whose pullback f : Y → Y ′ to X is an isomorphism, then the pullback fj : Yj → Yj′ to Xj is an isomorphism for large enough j.",
      "match": "ECD's isomorphism-detection step at a finite stage."
     },
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§6, proof of Proposition 6.4(iv), p. 28",
-     "excerpt": "In (iv), fully faithfulness again follows from (ii). For essential surjectivity, we can work in characteristic p, where it follows from [Hub96, Proposition 1.7.1], which holds for affinoid perfectoid spaces of characteristic p by using the theory of pseudocoherent sheaves of Kedlaya–Liu, [KL16].",
      "match": "ECD: full faithfulness in (iv) follows from (ii)."
     }
    ],
@@ -13178,25 +12719,21 @@
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§6, Proposition 6.4(iv), p. 27",
-     "excerpt": "Let Xét,aff ⊂ Xét,qc,sep be the full subcategory of affinoid perfectoid spaces which are étale over X (and similarly for Xi ). Then the base change functors (Xi )ét,aff → Xét,aff induce an equivalence of categories",
      "match": "The statement of ECD Proposition 6.4(iv)."
     },
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§6, proof of Proposition 6.4(iv), p. 28",
-     "excerpt": "In (iv), fully faithfulness again follows from (ii). For essential surjectivity, we can work in characteristic p, where it follows from [Hub96, Proposition 1.7.1], which holds for affinoid perfectoid spaces of characteristic p by using the theory of pseudocoherent sheaves of Kedlaya–Liu, [KL16].",
      "match": "ECD's proof sketch: full faithfulness from (ii), essential surjectivity in characteristic p via Huber 1.7.1 and Kedlaya–Liu's pseudocoherent sheaves."
     },
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§7, proof of Lemma 7.18, p. 37",
-     "excerpt": "a cover comes from some finite level by Proposition 6.4 (iv), and becomes split at the next.",
      "match": "A use of 6.4(iv) in ECD §7."
     },
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§7, proof of Lemma 7.11(i), p. 33",
-     "excerpt": "Proposition 7.10, Proposition 6.4 (iv) and the natural functor",
      "match": "A second use of 6.4(iv) in ECD §7."
     }
    ],
@@ -13235,25 +12772,21 @@
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§6, Proposition 6.4(o), p. 27",
-     "excerpt": "is a homeomorphism of spectral spaces.",
      "match": "Part (o)."
     },
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§6, Proposition 6.4(i), p. 27",
-     "excerpt": "The base change functors (Xi )fét → Xfét induce an equivalence of categories",
      "match": "Part (i)."
     },
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§6, Proposition 6.4(ii), p. 27",
-     "excerpt": "Let Xét,qcqs ⊂ Xét denote the full subcategory of qcqs étale perfectoid spaces over X",
      "match": "Part (ii)."
     },
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§6, Proposition 6.4(iv), p. 27",
-     "excerpt": "Let Xét,aff ⊂ Xét,qc,sep be the full subcategory of affinoid perfectoid spaces which are étale over X (and similarly for Xi ). Then the base change functors (Xi )ét,aff → Xét,aff induce an equivalence of categories",
      "match": "Part (iv)."
     }
    ],
@@ -13290,7 +12823,6 @@
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§5, Definition 5.7(ii), p. 24",
-     "excerpt": "The map f is strongly Zariski closed if Z = Spa(S, S + ) is affinoid, R → S is surjective, and S + is the integral closure of R+ in S.",
      "match": "ECD's strongly Zariski closed immersions."
     }
    ],
@@ -13447,19 +12979,16 @@
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§15, Lemma 15.3, p. 90",
-     "excerpt": "Let A be any ring. Then one can find a cofiltered inverse system of finite groups Gi with surjective transition maps, and a compatible filtered direct system of finite étale Gi -torsors A → Ai such that A∞ = limi Ai has no nonsplit finite étale covers.",
      "match": "The notion 'no nonsplit finite étale covers' that this node defines is the conclusion of Lemma 15.3."
     },
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§15, proof of Lemma 15.3, p. 90",
-     "excerpt": "This determines a finite étale R-algebra, which consequently has a section",
      "match": "The form in which the property is used: a faithfully flat finite étale algebra has a section."
     },
     {
      "sourceId": "ScholzeWeinstein-Berkeley-2020",
      "locator": "Lecture 10, Lemma 10.1.6, p. 75",
-     "excerpt": "of algebras Ri finite étale over R, which admits no nonsplit finite étale covers.",
      "match": "The same notion in the Berkeley lectures' version of the lemma."
     }
    ],
@@ -13620,19 +13149,16 @@
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§15, Lemma 15.3, p. 90",
-     "excerpt": "a compatible filtered direct system of finite étale Gi -torsors A → Ai",
      "match": "The notion of a finite étale G_i-torsor of rings used in Lemma 15.3."
     },
     {
      "sourceId": "ScholzeWeinstein-Berkeley-2020",
      "locator": "Lecture 10, proof of Lemma 10.1.6, p. 75",
-     "excerpt": "We can also assume that each Ri is a Gi -torsor over R, compatibly with change in i for an inverse system {Gi } of finite groups.",
      "match": "Torsors of rings under finite groups, compatible along surjections of groups."
     },
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§15, proof of Proposition 15.4, p. 91",
-     "excerpt": "It follows from Theorem 6.1 that",
      "match": "The torsor A → A_i is what Theorem 6.1 turns into a G_i-torsor of v-sheaves (a D6 conclusion, not used here)."
     }
    ],
@@ -13683,13 +13209,11 @@
     {
      "sourceId": "Stacks-Project",
      "locator": "Tag 0FWT (Lemma 15.11.13)",
-     "excerpt": "The property of being Henselian is preserved under filtered colimits of pairs.",
      "match": "The statement, with its proof by descending the data to a finite stage."
     },
     {
      "sourceId": "Scholze-PerfectoidSpaces-2012",
      "locator": "§7, remark before Lemma 7.5, p. 40",
-     "excerpt": "if Ai is a direct system of K ◦ -algebras henselian along ($), then so is the direct limit",
      "match": "The special case along a pseudouniformizer, as used for towers."
     }
    ],
@@ -13750,13 +13274,11 @@
     {
      "sourceId": "KedlayaLiu-RelativeFoundations-2015",
      "locator": "§1.2, Remark 1.2.9, p. 15",
-     "excerpt": "Since S is finitely presented as an R-algebra, by [59, Lemme 1.8.4.2] it has the form Si ⊗Ri R for some i ∈ I and some finitely presented Ri -algebra Si .",
      "match": "Descent of a finite étale algebra to a finite stage."
     },
     {
      "sourceId": "KedlayaLiu-RelativeFoundations-2015",
      "locator": "§1.2, Remark 1.2.9, p. 15",
-     "excerpt": "We conclude that limi FÉt(Ri ) → FÉt(R) is a tensor equivalence.",
      "match": "The resulting tensor equivalence 2-colim FÉt(R_i) ≅ FÉt(colim R_i)."
     }
    ],
@@ -13812,19 +13334,16 @@
     {
      "sourceId": "Stacks-Project",
      "locator": "Tag 0BN2 (Lemma 58.3.8)",
-     "excerpt": "Consider $X^ n$ endowed with its natural action of $S_ n$.",
      "match": "The construction of a Galois object from X^n with its S_n-action, here carried out for rings with possibly disconnected spectrum."
     },
     {
      "sourceId": "KedlayaLiu-RelativeFoundations-2015",
      "locator": "§1.4, Remark 1.4.7(c), p. 22",
-     "excerpt": "Then there exists a faithfully finite étale X-scheme Y ′ such that Y ×X Y ′ splits over Y ′ as a finite disjoint union of copies of Y ′ (by induction on the degree of Y → X).",
      "match": "Existence of a faithfully finite étale splitting cover; the torsor refines it."
     },
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§15, proof of Lemma 15.3, p. 90",
-     "excerpt": "Proof. The first part is standard.",
      "match": "ECD leaves the construction of the tower to the reader; this lemma is its key step."
     }
    ],
@@ -13987,19 +13506,16 @@
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§15, Lemma 15.3, p. 90",
-     "excerpt": "Let A be any ring. Then one can find a cofiltered inverse system of finite groups Gi with surjective transition maps, and a compatible filtered direct system of finite étale Gi -torsors A → Ai such that A∞ = limi Ai has no nonsplit finite étale covers.",
      "match": "The statement of the construction."
     },
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§15, proof of Lemma 15.3, p. 90",
-     "excerpt": "Proof. The first part is standard.",
      "match": "The source gives no construction; the canonical construction above supplies it."
     },
     {
      "sourceId": "ScholzeWeinstein-Berkeley-2020",
      "locator": "Lecture 10, proof of Lemma 10.1.6, p. 75",
-     "excerpt": "We can also assume that each Ri is a Gi -torsor over R, compatibly with change in i for an inverse system {Gi } of finite groups.",
      "match": "The torsor refinement of a filtered system of finite étale algebras."
     }
    ],
@@ -14079,31 +13595,26 @@
     {
      "sourceId": "KedlayaLiu-RelativeFoundations-2015",
      "locator": "§2.8, Definition 2.8.13, p. 63",
-     "excerpt": "For any Banach ring A, the separated completion of A for the spectral seminorm is a uniform Banach ring, called the uniformization of A and denoted Au .",
      "match": "The uniformization, which AdicSpacesPartII:R0/uniformization constructs for Tate pairs."
     },
     {
      "sourceId": "KedlayaLiu-RelativeFoundations-2015",
      "locator": "§2.8, Definition 2.8.13, p. 63",
-     "excerpt": "and the map Spa(Au , Au+ ) → Spa(A, A+ ) is a homeomorphism which identifies rational subspaces on both sides.",
      "match": "Clause (i)."
     },
     {
      "sourceId": "KedlayaLiu-RelativeFoundations-2015",
      "locator": "§2.8, Proposition 2.8.16(a), p. 64",
-     "excerpt": "(a) The functor FÉt(A) → FÉt(Au ) is a tensor equivalence.",
      "match": "Clause (ii)."
     },
     {
      "sourceId": "KedlayaLiu-RelativeFoundations-2015",
      "locator": "§2.8, Proposition 2.8.16(b), p. 64",
-     "excerpt": "the power-multiplicative seminorm given by Lemma 2.8.14 is equiv- alent to any norm on B provided by Definition 2.2.14, and thus provides B with the structure of a uniform Banach algebra over Au .",
      "match": "Clause (iii)."
     },
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§15, Lemma 15.3, p. 90",
-     "excerpt": "If A is a Tate Zp -algebra, then the uniform completion ... is perfectoid.",
      "match": "ECD's use of the uniform completion, whose finite étale algebras this theorem controls."
     }
    ],
@@ -14277,19 +13788,16 @@
     {
      "sourceId": "ScholzeWeinstein-Berkeley-2020",
      "locator": "Lecture 10, Lemma 10.1.6, p. 75",
-     "excerpt": "Endow lim Ri with the topology making lim Ri◦ open and bounded.",
      "match": "The pinned topology on the colimit A_∞."
     },
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§15, Lemma 15.3, p. 90",
-     "excerpt": "If A is a Tate Zp -algebra, then the uniform completion ... is perfectoid.",
      "match": "ECD's uniform completion of A_∞, which this node constructs."
     },
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§15, Proposition 15.4, p. 90",
-     "excerpt": "be the integral closure of A+ . Also, let A ... be the closure of",
      "match": "The plus rings: A_i⁺ the integral closure of A⁺, Â_∞⁺ the closure of lim A_i⁺."
     }
    ],
@@ -14367,31 +13875,26 @@
     {
      "sourceId": "ScholzeWeinstein-Berkeley-2020",
      "locator": "Lecture 7, Theorem 7.4.8, p. 54",
-     "excerpt": "Let A be a Tate ring such that A is \"topologically henselian.\" That is, for a ring of definition A0 ⊂ A, and for $ ∈ A0 a pseudo-uniformizer, the ring A0 is henselian along $A0 .",
      "match": "The topologically henselian comparison FÉt(A) ≅ FÉt(Â) used in step 3."
     },
     {
      "sourceId": "ScholzeWeinstein-Berkeley-2020",
      "locator": "Lecture 7, after Theorem 7.4.8, p. 54",
-     "excerpt": "As a corollary, let Ai be a filtered directed system of complete Tate rings,",
      "match": "The corollary for filtered colimits of complete Tate rings, which is (i)."
     },
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§15, proof of Lemma 15.6, p. 91",
-     "excerpt": "Choosing a G-torsor as in Proposition 15.4, this follows from the equivalence",
      "match": "(Â_∞)_fét = 2-colim (A_i)_fét, as used for Lemma 15.6."
     },
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§15, proof of Lemma 15.6, p. 91",
-     "excerpt": "for the algebras corresponding to the fibre products) and usual descent along the finite étale Gi - torsors A → Ai .",
      "match": "The variants for C^0(G, Â_∞) and C^0(G × G, Â_∞), which are (ii)."
     },
     {
      "sourceId": "Scholze-PerfectoidSpaces-2012",
      "locator": "§7, Lemma 7.5(i) and its proof, pp. 40–41",
-     "excerpt": "On the other hand, lim Ai is henselian along ($), hence the left-hand side agrees with",
      "match": "The argument of [Sch12, Lemma 7.5(i)] that ECD cites, over a perfectoid field."
     }
    ],
@@ -14453,19 +13956,16 @@
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§15, proof of Lemma 15.6, p. 91",
-     "excerpt": "for the algebras corresponding to the fibre products) and usual descent along the finite étale Gi - torsors A → Ai .",
      "match": "Effectivity is reduced to descent along the finite étale torsors A → A_i."
     },
     {
      "sourceId": "KedlayaLiu-RelativeFoundations-2015",
      "locator": "§1.3, Theorem 1.3.4, p. 16",
-     "excerpt": "Any faithfully flat morphism of rings is an effective descent morphism for the category of modules over rings",
      "match": "Effective faithfully flat descent."
     },
     {
      "sourceId": "KedlayaLiu-RelativeFoundations-2015",
      "locator": "§1.3, Theorem 1.3.5, p. 16",
-     "excerpt": "An R-algebra U is finite étale if and only if f ∗ U is a finite étale S-algebra.",
      "match": "Finite étaleness descends along faithfully flat maps."
     }
    ],
@@ -14526,13 +14026,11 @@
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§15, proof of Lemma 15.3, p. 90",
-     "excerpt": "finite étale R-algebra, and so it admits a solution x = ϖ ∈ R.",
      "match": "The pattern 'finite étale, hence a solution' that this lemma makes precise."
     },
     {
      "sourceId": "ScholzeWeinstein-Berkeley-2020",
      "locator": "Lecture 10, proof of Lemma 10.1.6, p. 75",
-     "excerpt": "and so it admits a solution, giving the desired surjectivity of Frobenius modulo",
      "match": "The same pattern in the Berkeley lectures."
     }
    ],
@@ -14589,19 +14087,16 @@
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§15, proof of Lemma 15.3, p. 90",
-     "excerpt": "To do this, let ϖ0 ∈ R be any pseudo-uniformizer.",
      "match": "Start of the pseudouniformizer argument."
     },
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§15, proof of Lemma 15.3, p. 90",
-     "excerpt": "finite étale R-algebra, and so it admits a solution x = ϖ ∈ R.",
      "match": "The root of x^{p^n} − ϖ₀x − ϖ₀."
     },
     {
      "sourceId": "ScholzeWeinstein-Berkeley-2020",
      "locator": "Lecture 10, proof of Lemma 10.1.6, p. 75",
-     "excerpt": "In fact, taking N larger than necessary, we can even ensure that ... is still topologically nilpotent.",
      "match": "The strengthening p/ϖ^p topologically nilpotent, obtained by taking the exponent larger."
     }
    ],
@@ -14655,19 +14150,16 @@
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§15, proof of Lemma 15.3, p. 90",
-     "excerpt": "Now we must check that Φ : R◦ /ϖ → R◦ /ϖp is surjective.",
      "match": "The Frobenius step."
     },
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§15, proof of Lemma 15.3, p. 90",
-     "excerpt": "This determines a finite étale R-algebra, which consequently has a section, i.e. there is some x ∈ R◦ with",
      "match": "The root of x^p − ϖ^p x − f; étaleness needs p/ϖ^p topologically nilpotent."
     },
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§3, Definition 3.1, p. 14",
-     "excerpt": "If R is a ring, and I, J ⊂ R are ideals containing p such that I p ⊂ J, then Φ : R/I → R/J will refer to the ring homomorphism x 7→ xp .",
      "match": "The convention making Φ : R°/ϖ → R°/ϖ^p a ring homomorphism."
     }
    ],
@@ -14720,13 +14212,11 @@
     {
      "sourceId": "ScholzeWeinstein-Berkeley-2020",
      "locator": "Lecture 10, Lemma 10.1.6, p. 75",
-     "excerpt": "Let R be a Tate ring such that p ∈ R is topologically nilpotent.",
      "match": "The setting; the perfectoidness argument only uses completeness, uniformity and splitness of the completed ring."
     },
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§3, Remark 3.2, p. 14",
-     "excerpt": "Thus, the isomorphism condition on Φ in Definition 3.1 is equivalent to surjectivity of Φ : R◦ /ϖ → R◦ /ϖp .",
      "match": "Injectivity is automatic."
     }
    ],
@@ -14795,25 +14285,21 @@
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§15, Lemma 15.3, p. 90",
-     "excerpt": "If A is a Tate Zp -algebra, then the uniform completion ... is perfectoid.",
      "match": "The statement (to which completeness of A is added)."
     },
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§15, proof of Lemma 15.3, p. 90",
-     "excerpt": "To see that R = A ... is perfectoid we find first a pseudo",
      "match": "The proof strategy: pseudouniformizer, then Frobenius."
     },
     {
      "sourceId": "ScholzeWeinstein-Berkeley-2020",
      "locator": "Lecture 10, Lemma 10.1.6, p. 75",
-     "excerpt": "Endow lim Ri with the topology making lim Ri◦ open and bounded.",
      "match": "The Berkeley version: the completion of the colimit with colim R_i° open and bounded is perfectoid."
     },
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§3, Definition 3.1, p. 14",
-     "excerpt": "A Tate ring R is perfectoid if R is complete, uniform, i.e. R◦ ⊂ R is bounded,",
      "match": "The definition verified."
     }
    ],
@@ -14866,25 +14352,21 @@
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§15, proof of Proposition 15.4, p. 91",
-     "excerpt": "and for each i, | Spa(Ai , A+ i )|/Gi = | Spa(A, A+ )|. Passing to the limit gives the result.",
      "match": "The finite-level identification this lemma proves."
     },
     {
      "sourceId": "KedlayaLiu-RelativeFoundations-2015",
      "locator": "§9.1, proof of Lemma 9.1.9, p. 191",
-     "excerpt": "by Lemma 8.2.17(b) the morphism Spa(B, B + ) → Spa(A, A+ ) of topological spaces is open and hence a quotient map.",
      "match": "Openness and surjectivity for faithfully finite étale morphisms."
     },
     {
      "sourceId": "Huber-GeneralizationFormalRigid-1994",
      "locator": "§3, Lemma 3.9(i), p. 537",
-     "excerpt": "there exists a z eX XsY with x = q(z) and y = p{z)",
      "match": "Surjectivity onto pairs of points with the same image (OCR text of the statement)."
     },
     {
      "sourceId": "Huber-GeneralizationFormalRigid-1994",
      "locator": "§3, proof of Lemma 3.9(i), p. 538",
-     "excerpt": "Also w lies over x and y.",
      "match": "The valuation argument, which works for affinoid rings without sheafiness."
     }
    ],
@@ -14950,19 +14432,16 @@
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§15, proof of Proposition 15.4, p. 91",
-     "excerpt": "For the identification of the topological space, only the last identification needs justification.",
      "match": "The topological identification |Spa(Â_∞)|/G = |Spa(A)|."
     },
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§15, proof of Proposition 15.4, p. 91",
-     "excerpt": "and for each i, | Spa(Ai , A+ i )|/Gi = | Spa(A, A+ )|. Passing to the limit gives the result.",
      "match": "The limit argument of (ii)."
     },
     {
      "sourceId": "KedlayaLiu-RelativeFoundations-2015",
      "locator": "§2.6, Remark 2.6.3, p. 53",
-     "excerpt": "and also bijective because specifying a compatible system of semivaluations on each Ai bounded by αi is equivalent to specifying a semivaluation on A bounded by α.",
      "match": "The bijectivity argument of (i)."
     }
    ],
@@ -15025,13 +14504,11 @@
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§15, proof of Lemma 15.6, p. 91",
-     "excerpt": "for the algebras corresponding to the fibre products) and usual descent along the finite étale Gi - torsors A → Ai .",
      "match": "C^0(G, Â_∞) and C^0(G × G, Â_∞) are the algebras of the fibre products of the cover with itself."
     },
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§15, Proposition 15.4, p. 90",
-     "excerpt": "is a G-torsor, where G = limi Gi .",
      "match": "The torsor structure whose ring-level form is Â_∞ ⊗̂ᵘ_A Â_∞ ≅ C^0(G, Â_∞)."
     }
    ],
@@ -15203,25 +14680,21 @@
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§15, Proposition 15.4, p. 90",
-     "excerpt": "is a universally open qcqs quasi-pro-étale map from an affinoid perfectoid space, so that Spd(A, A+ ) is a spatial diamond",
      "match": "The presentation of Spd(A, A⁺) by an affinoid perfectoid space with a G-torsor; this node is its analytic side."
     },
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§15, proof of Proposition 15.4, p. 91",
-     "excerpt": "For the identification of the topological space, only the last identification needs justification.",
      "match": "The topological quotient clause (b)."
     },
     {
      "sourceId": "ScholzeWeinstein-Berkeley-2020",
      "locator": "Lecture 10, Lemma 10.1.7, p. 75",
-     "excerpt": "is a G-torsor. In particular, Spd(R, R+ ) is a diamond.",
      "match": "The G-torsor presentation in the Berkeley lectures (text layer garbles R̃)."
     },
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§15, after Definition 15.5, p. 91",
-     "excerpt": "We note that this definition (and the next lemma) work in the generality of adic spaces as defined in [SW13, Section 2.1].",
      "match": "Generalized (not necessarily sheafy) adic spaces: the presentation needs no sheafiness of (A, A⁺)."
     }
    ],
@@ -15288,25 +14761,21 @@
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§15, Lemma 15.3, p. 90",
-     "excerpt": "If A is a Tate Zp -algebra, then the uniform completion ... is perfectoid.",
      "match": "The analytic statement owned by A4 (completeness added)."
     },
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§15, Proposition 15.4, p. 90",
-     "excerpt": "is a universally open qcqs quasi-pro-étale map from an affinoid perfectoid space, so that Spd(A, A+ ) is a spatial diamond",
      "match": "The v-sheaf conclusion owned by D6."
     },
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§15, Lemma 15.1(ii), p. 89",
-     "excerpt": "The functor Spd(A, A+ ) taking X ∈ Perf to the set of pairs",
      "match": "Spd(A, A⁺), owned by D6."
     },
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§15, proof of Proposition 15.4, p. 91",
-     "excerpt": "The rest, except for the identification of the topological space, follows formally from Lemma 15.3, Lemma 15.2,",
      "match": "The division between the formal v-sheaf part and the topological identification."
     }
    ],
@@ -15368,25 +14837,21 @@
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§15, Lemma 15.6, p. 91",
-     "excerpt": "Then Y ♢ is a locally spatial diamond, with |Y ♢ | = |Y |.",
      "match": "The endpoint, owned by D6."
     },
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§15, proof of Lemma 15.6, p. 91",
-     "excerpt": "we need to see that the category of finite étale A-algebras is equivalent to (the",
      "match": "The affinoid finite étale input that A4 supplies."
     },
     {
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§15, proof of Lemma 15.6, p. 91",
-     "excerpt": "Choosing a G-torsor as in Proposition 15.4, this follows from the equivalence",
      "match": "The use of A4's torsor presentation."
     },
     {
      "sourceId": "KedlayaLiu-RelativeFoundations-2015",
      "locator": "§8.2, Lemma 8.2.17(a), p. 162",
-     "excerpt": "For (A, A+ ) an adic Banach ring, the global sections functor induces an equivalence of categories between finite étale morphisms to",
      "match": "Finite étale morphisms to the preadic space Spa(A, A⁺)~ are finite étale A-algebras (A1's site)."
     }
    ],

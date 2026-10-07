@@ -5251,8 +5251,10 @@ example (θ : ℝ) (i : Fin 3) :
 
 /-- `KTheoryLowDegrees:U.3/SK1-real-circle-nonzero`: over `ℝ[x, y]/(x² + y² - 1)` the rotation
 matrix with rows `(x, -y), (y, x)` has nontrivial class in `SK₁`, so the canonical
-determinant is not injective. The SL-to-SO retraction and the separate Dedekind assertion remain explicit gaps;
-the SO rotation obstruction is decomposed by the preceding application lemmas. -/
+determinant is not injective. The final proof still needs the precise SL-to-SO retraction
+requested from LieGroups layer 9; the SO rotation obstruction is decomposed by the preceding
+application lemmas. The independent circle-ring Dedekind assertion is already planned by
+`circleRing_dedekind`, rather than being an additional gap. -/
 theorem sk1_real_circle_nonzero :
     K1.of 2 (Matrix.SpecialLinearGroup.toGL circleRotation) ∈ SK1 CircleRing ∧
       K1.of 2 (Matrix.SpecialLinearGroup.toGL circleRotation) ≠ 1 ∧ SK1 CircleRing ≠ ⊥ := by
@@ -7676,7 +7678,10 @@ namespace TauCeti.RelativeK1
 -- `GeneralAlgebraicKTheory:K.2:plus/plus-equals-Q`,
 -- `StableHomotopyKTheory:H.2/homotopy-fibre-and-long-exact-sequence`; the proof also needs
 -- `K2SymbolsBrauer:T.1` and `T.6`, an actual relative-plus/excision-defect argument,
--- and the degree-two boundary comparison). Suggested form: `RelK1 I ≃* π₁ (K(A, I))` and
+-- and the degree-two boundary comparison). The common section proves that add identifies
+-- GL(J)/E(D,J) with GL(I)/E(A,I), but this algebraic identification does not prove
+-- that the map of homotopy fibres is an isomorphism on π₁. No general Milnor-square
+-- excision is assumed. Suggested form: `RelK1 I ≃* π₁ (K(A, I))` and
 -- `RelativeK0.RelK0 I ≃+ π₀ (K(A, I))`, compatible with `RelK1.toK1` and `RelativeK0.RelK0.toK0`.
 
 end TauCeti.RelativeK1

@@ -224,13 +224,11 @@
         {
           "sourceId": "blr",
           "locator": "§9.3 Theorem1 and proof p.252",
-          "excerpt": "Pic",
           "match": "Degree components, torsors and quasi-projectivity are stated together; the imported sheaf, Euler-characteristic local constancy and representability proof inputs remain explicit."
         },
         {
           "sourceId": "dgh",
           "locator": "§6.1 p.24",
-          "excerpt": "Pic1",
           "match": "The universal Picard degree decomposition and section-free degree-one target motivate JC0."
         }
       ],
@@ -321,7 +319,6 @@
         {
           "sourceId": "blr",
           "locator": "§9.3 Theorem1 proof p.252, invoking §9.1/2",
-          "excerpt": "is constant",
           "match": "The degree constancy argument is reduced to parent proper-flat cohomology and Euler characteristics, rather than asserted as a baseline theorem."
         }
       ],
@@ -362,7 +359,6 @@
         {
           "sourceId": "blr",
           "locator": "§9.3 Theorem1 and proof p.252",
-          "excerpt": "smooth and separated",
           "match": "Projective flat finitely presented curves with reduced irreducible geometric fibres satisfy the represented Picard statement, with degree-zero identity component and quasi-projective degree torsors. Arbitrary base change follows from the imported fppf sheaf."
         }
       ],
@@ -405,7 +401,6 @@
         {
           "sourceId": "blr",
           "locator": "§9.3 Theorem1 and proof p.252",
-          "excerpt": "is a torsor",
           "match": "The proof acquires a section by faithfully flat base extension; no S-point is inserted in the torsor data."
         }
       ],
@@ -498,13 +493,11 @@
         {
           "sourceId": "yuan",
           "locator": "§2.2.1 p.29",
-          "excerpt": "J = Pic",
           "match": "Yuan defines the relative Jacobian; BLR9.4/4 p.260 supplies the abelian-scheme conclusion, while the dimension comparison uses the parent curve tangent/cohomology target."
         },
         {
           "sourceId": "blr",
           "locator": "§9.4 Proposition4 p.260",
-          "excerpt": "abelian",
           "match": "BLR supplies the relative abelian-scheme assertion."
         }
       ],
@@ -595,7 +588,6 @@
         {
           "sourceId": "blr",
           "locator": "§9.4 Proposition4 and proof p.260, invoking §8.4/3",
-          "excerpt": "proper over S",
           "match": "The proof separates properness from the canonical ample bundle construction. Full §8.4/3 proof inputs remain a refinement gap."
         }
       ],
@@ -634,7 +626,6 @@
         {
           "sourceId": "milne",
           "locator": "§8 Theorem8.1 p.27 and following paragraph p.28",
-          "excerpt": "commutes with base change",
           "match": "The paragraph states Jacobian base change; the proof route uses the exact supplier sheaf restriction and degree-zero criterion on every test scheme."
         }
       ],
@@ -674,13 +665,11 @@
         {
           "sourceId": "yuan",
           "locator": "§2.2.1 p.30, citing MFK §6.1 Proposition6.9",
-          "excerpt": "canonical principal polarization",
           "match": "Yuan explicitly allows no global degree-one bundle. BLR9.4/4 pp.260–261 describes translation independence and descent; MFK proof/overlap comparisons remain a gap."
         },
         {
           "sourceId": "blr",
           "locator": "§9.4 Proposition4 proof pp.260–261",
-          "excerpt": "φ",
           "match": "The theta-induced homomorphism is independent of the local section and descends."
         }
       ],
@@ -765,7 +754,6 @@
         {
           "sourceId": "dgh",
           "locator": "§6.1 p.24, paragraph defining the Faltings–Zhang morphism",
-          "excerpt": "Pic1",
           "match": "DGH uses the section-free curve→Pic¹ map. The diagonal Cartier construction and its arbitrary-base-change API extend this universal-family instance through the imported curve theory."
         }
       ],
@@ -851,7 +839,6 @@
         {
           "sourceId": "yuan",
           "locator": "§2.2.1 p.29",
-          "excerpt": "iα :X−→J",
           "match": "The displayed degree-d map defines the natural transformation; finiteness is corrected separately to d≠0, and the construction also makes sense for zero and negative d."
         }
       ],
@@ -944,7 +931,6 @@
         {
           "sourceId": "yuan",
           "locator": "§2.2.1 p.29; Proposition2.6 proof p.31",
-          "excerpt": "dx−α",
           "match": "The pointed factorization is the direct Picard-group identity d(x−x₀)+(dx₀−α); Yoneda makes it a morphism equality, not a fibre-only check."
         }
       ],
@@ -985,7 +971,6 @@
         {
           "sourceId": "yuan",
           "locator": "§A.4 TheoremA.3 p.110; §2.2.1 p.29",
-          "excerpt": "canonical embedding",
           "match": "A.3 supplies the field degree-one embedding. The relative closed-immersion bridge is explicitly unclosed and descended after a section-acquiring cover."
         }
       ],
@@ -1032,7 +1017,6 @@
         {
           "sourceId": "yuan",
           "locator": "§2.2.1 p.29; Proposition2.6 proof p.31",
-          "excerpt": "d > 0",
           "match": "The positive-degree uses repair the omitted premise on p.29. Negative degrees are independently justified by inversion and finite multiplication, including inseparable cases."
         }
       ],
@@ -1075,13 +1059,11 @@
         {
           "sourceId": "yuan",
           "locator": "Theorem2.10(2) p.37; proof pp.38–39",
-          "excerpt": "y−x",
           "match": "The difference order agrees with DGH6.1 pp.24–25. The geometric definition itself requires neither g>1 nor the arithmetic/metric hypotheses of Theorem2.10."
         },
         {
           "sourceId": "dgh",
           "locator": "§6.1 pp.24–25",
-          "excerpt": "P1 − P0",
           "match": "DGH fixes the same difference sign."
         }
       ],
@@ -1188,7 +1170,6 @@
         {
           "sourceId": "yuan",
           "locator": "proof of Theorem2.10(2) p.38",
-          "excerpt": "(x,y−x)",
           "match": "The source identifies the diagonal-section Abel map over X and its projection to J; the proof is a natural Picard-sheaf comparison."
         }
       ],
@@ -1226,7 +1207,6 @@
         {
           "sourceId": "yuan",
           "locator": "§2.2.1 p.30; §A.4 TheoremA.3(2) p.110 and proof p.111",
-          "excerpt": "P =m",
           "match": "The negative addition formula fixes which signed self-duality pulls back the evaluation-normalized supplier bundle. The zero-axis normalization and all-test-scheme comparison remain named obligations."
         }
       ],
@@ -1312,7 +1292,6 @@
         {
           "sourceId": "yuan",
           "locator": "§A.4 TheoremA.3 p.110",
-          "excerpt": "theta divisor",
           "match": "The source defines the degree-(g−1) Abel image; factoring through Sym^{g−1} and retaining the Cartier structure imports the parent theta/symmetric-power targets."
         }
       ],
@@ -1397,7 +1376,6 @@
         {
           "sourceId": "yuan",
           "locator": "Definition2.4 p.30",
-          "excerpt": "Θ = ∆",
           "match": "The definition dualizes P before diagonal pullback, ensuring the positive twice-theta class."
         }
       ],
@@ -1486,7 +1464,6 @@
         {
           "sourceId": "yuan",
           "locator": "§A.4 TheoremA.3(1) first identity p.110; proof p.111",
-          "excerpt": "gα",
           "match": "The source allows any field and any degree-one divisor, not just an effective rational point. Serre’s translated-theta proof remains a gap."
         }
       ],
@@ -1528,7 +1505,6 @@
         {
           "sourceId": "yuan",
           "locator": "§A.4 TheoremA.3(1) second identity p.110; proof p.111",
-          "excerpt": "(2−g)α",
           "match": "The formula includes ω and preserves arbitrary degree-one α; no symmetry or canonical-root hypothesis is added."
         }
       ],
@@ -1570,7 +1546,6 @@
         {
           "sourceId": "yuan",
           "locator": "§A.4 TheoremA.3(2) p.110; proof p.111",
-          "excerpt": "P =m",
           "match": "The addition formula is a Picard-class equality; a rigidified isomorphism additionally uses the fibre-at-zero factor."
         }
       ],
@@ -1615,7 +1590,6 @@
         {
           "sourceId": "yuan",
           "locator": "§A.4 TheoremA.3(3) p.110; proof p.111",
-          "excerpt": "O(∆)−p",
           "match": "The diagonal has positive sign. The source explicitly removes Serre’s canonical-root premise by an extra computation, retained as a proof gap."
         }
       ],
@@ -1658,7 +1632,6 @@
         {
           "sourceId": "yuan",
           "locator": "proof of §A.4 TheoremA.3(4) p.111",
-          "excerpt": "O(3θα",
           "match": "The cube recurrence keeps the inversion term; no symmetric-theta assumption is inserted."
         }
       ],
@@ -1695,7 +1668,6 @@
         {
           "sourceId": "yuan",
           "locator": "§A.4 TheoremA.3(4) and proof p.111",
-          "excerpt": "∆",
           "match": "The diagonal identity follows by pulling back addition and substituting the nonsymmetric doubling formula."
         }
       ],
@@ -1741,7 +1713,6 @@
         {
           "sourceId": "yuan",
           "locator": "Definition2.4 and following paragraph p.30; §A.4 TheoremA.3(4) p.111",
-          "excerpt": "twice",
           "match": "The geometric-fibre algebraic-equivalence statement is weaker than choosing a global theta divisor. The A1 square/cube input supplies inversion on Néron–Severi classes."
         }
       ],
@@ -1782,7 +1753,6 @@
         {
           "sourceId": "yuan",
           "locator": "Definition2.4 and following paragraph p.30",
-          "excerpt": "symmetric",
           "match": "The source asserts symmetry; the proof uses the normalized biextension’s simultaneous inversion, not equality on geometric fibres."
         }
       ],
@@ -1822,7 +1792,6 @@
         {
           "sourceId": "yuan",
           "locator": "Definition2.4 and following paragraph p.30",
-          "excerpt": "rigidiﬁed",
           "match": "The two Poincaré axis trivializations induce the zero trivialization after dualization and diagonal pullback."
         }
       ],
@@ -1865,7 +1834,6 @@
         {
           "sourceId": "yuan",
           "locator": "Definition2.4 and following paragraph p.30",
-          "excerpt": "relatively ample",
           "match": "The source passes from geometric twice-theta to relative ampleness. The proper-family criterion is imported from upstream StableReduction Layer2."
         }
       ],
@@ -1909,7 +1877,6 @@
         {
           "sourceId": "yuan",
           "locator": "Proposition2.6 proof p.31",
-          "excerpt": "Pic0(Y )",
           "match": "This is the actual fibrewise algebraically trivial subgroup; equality with relative sheaf sections is not assumed."
         }
       ],
@@ -1996,7 +1963,6 @@
         {
           "sourceId": "yuan",
           "locator": "Proposition2.6 proof p.31",
-          "excerpt": "Pic00",
           "match": "Both projection-fibre conditions are part of the actual subgroup, and base classes are retained."
         }
       ],
@@ -2082,7 +2048,6 @@
         {
           "sourceId": "yuan",
           "locator": "Proposition2.6 proof p.31",
-          "excerpt": "multiplication",
           "match": "The source states autoduality and multiplication by d; its fibrewise check does not close the nonreduced-base descent gap."
         }
       ],
@@ -2126,7 +2091,6 @@
         {
           "sourceId": "blr",
           "locator": "§8.1 Leray discussion p.203 and Proposition4 pp.204–205",
-          "excerpt": "Br(T)",
           "match": "The source defines Br as cohomological H² and states the exact sequence under universal global-functions hypotheses. A section eliminates the obstruction."
         }
       ],
@@ -2167,7 +2131,6 @@
         {
           "sourceId": "yuan",
           "locator": "Proposition2.6 proof p.31",
-          "excerpt": "torsion cokernel",
           "match": "The actual-class proof lifts using the Jacobian identity section and absorbs the base line; it does not assume [d] surjective on S-points."
         }
       ],
@@ -2213,7 +2176,6 @@
         {
           "sourceId": "yuan",
           "locator": "Proposition2.6 proof pp.31–32",
-          "excerpt": "Pic00",
           "match": "The two pullback factorizations are stated, but retaining algebraic triviality along the other projection is an explicit additional proof obligation."
         }
       ],
@@ -2251,7 +2213,6 @@
         {
           "sourceId": "yuan",
           "locator": "Proposition2.6 proof pp.31–32",
-          "excerpt": "Pic00",
           "match": "Compose the two condition-preserving one-factor lifts; the exponent may depend on the class."
         }
       ],
@@ -2295,7 +2256,6 @@
         {
           "sourceId": "yuan",
           "locator": "§A.3 p.109, axis-normalized subgroups",
-          "excerpt": "Pic−",
           "match": "The restrictions to both pointed axes are trivial as actual line classes; these are not chosen trivializations or the larger bi-zero group."
         }
       ],
@@ -2380,7 +2340,6 @@
         {
           "sourceId": "yuan",
           "locator": "§A.3 p.109, citing Zhang Lemmas2.2.1–2.2.3",
-          "excerpt": "Pic−",
           "match": "The comparison is an actual-group isomorphism after choosing a rational point. The algebraic argument is separated from its complete-valued-field metric application."
         }
       ],
@@ -2423,7 +2382,6 @@
         {
           "sourceId": "yuan",
           "locator": "Theorem2.10(1) p.37; §2.2.1 p.29",
-          "excerpt": "ωX/S",
           "match": "The canonical bundle has degree2g−2, so the corrected finite degree-Abel theorem applies for g>1. Metric conclusions are external consumers."
         }
       ],
@@ -2461,7 +2419,6 @@
         {
           "sourceId": "yuan",
           "locator": "Theorem2.10(3) p.37",
-          "excerpt": "(y,y +",
           "match": "The first Jacobian coordinate remains y; the shifted second coordinate uses the canonical bundle. The construction is algebraic and section-free."
         }
       ],
@@ -2549,13 +2506,11 @@
         {
           "sourceId": "yuan",
           "locator": "§4.6.2 preceding Theorem4.17 p.98 and proof p.99",
-          "excerpt": "iFZ,m",
           "match": "The tuple consists of x_r−x₀. Maximal variation and dimension bounds apply to nondegeneracy, not to defining the proper algebraic morphism."
         },
         {
           "sourceId": "dgh",
           "locator": "§6.1 equation(6.3) and paragraph after(6.5) p.25",
-          "excerpt": "proper",
           "match": "The source explicitly states properness after base change."
         }
       ],
@@ -2650,7 +2605,6 @@
         {
           "sourceId": "yuan",
           "locator": "§4.6.2 preceding Theorem4.17 p.98 and proof p.99",
-          "excerpt": "τm",
           "match": "The first coordinate is shifted canonical Abel and the tail differences are unscaled. The source order X^m×J is kept."
         }
       ],
@@ -2734,7 +2688,6 @@
         {
           "sourceId": "yuan",
           "locator": "proof of Theorem4.17(5) p.99",
-          "excerpt": "y 2−y1",
           "match": "The Jacobian triangular coordinate change extends by group cancellation to native Hom(T,A) for any group object, without asserting a noncommutative group-homomorphism property."
         }
       ],
@@ -2828,7 +2781,6 @@
         {
           "sourceId": "yuan",
           "locator": "proof of Theorem4.17(5) p.99",
-          "excerpt": "(2g−2)(x2−x1)",
           "match": "The coordinate identity separates the tail isogeny D from the unscaled shifted FZ map; in characteristic dividing2g−2 finiteness remains."
         }
       ],
@@ -2868,13 +2820,11 @@
         {
           "sourceId": "blr",
           "locator": "§8.4 Theorem1(a) and proof pp.231–232; §9.4 Theorem1 p.259",
-          "excerpt": "Lie",
           "match": "The infinitesimal Picard calculation requires cohomological flatness in degree zero and Picard-space representability. Nodal identity components belong to R11.4; nodal duality/cohomology belongs to upstream StableReduction Layer2."
         },
         {
           "sourceId": "yuan",
           "locator": "Lemma3.4 proof p.44",
-          "excerpt": "Lie(J/S)",
           "match": "Yuan gives the exact stable-family Hodge application."
         }
       ],
@@ -2914,7 +2864,6 @@
         {
           "sourceId": "yuan",
           "locator": "Lemma3.4 and proof pp.43–44",
-          "excerpt": "Lie(J/S)",
           "match": "The source dualizes Picard Lie/cohomology to obtain the rank-g Hodge-bundle comparison for stable families, with relative duality imported from its nodal owner."
         }
       ],
@@ -2952,7 +2901,6 @@
         {
           "sourceId": "yuan",
           "locator": "Lemma3.4 and proof pp.43–44",
-          "excerpt": "λS",
           "match": "The determinant of the vector-bundle comparison supplies the algebraic Hodge-line isomorphism; the complex metric equality is outside scope."
         }
       ],
@@ -2998,7 +2946,6 @@
         {
           "sourceId": "dgh",
           "locator": "§6.1 pp.23–24, universal relative Jacobian and equation(6.1)",
-          "excerpt": "level-",
           "match": "DGH works over Q in a chosen component. The broader prime-to-level integral application is justified by the exact StableReductionPartII fine-level suppliers, not attributed to DGH alone."
         }
       ],
@@ -3039,7 +2986,6 @@
         {
           "sourceId": "dgh",
           "locator": "§6.1 equation(6.3) and base change equation(6.5) p.25",
-          "excerpt": "P1 − P0",
           "match": "The universal difference tuple is pulled back to arbitrary S. A chosen field point is used only for the pointed fibre restriction."
         }
       ],

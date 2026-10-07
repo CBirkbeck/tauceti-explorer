@@ -352,13 +352,11 @@
         {
           "sourceId": "freer-poly",
           "locator": "toDiophPoly and its evaluation lemmas",
-          "excerpt": "polynomial",
           "match": "Mathematical comparison with the existing native types; declaration shape follows the cited source."
         },
         {
           "sourceId": "poonen-2008",
           "locator": "Definition 1 and footnote 4, author-copy p.2",
-          "excerpt": "diophantine",
           "match": "Motivation: arithmetic relations represented by one integer polynomial and finitely many existential witnesses. The source states its definition over integers; this component retains Mathlib’s natural assignment domain and does not identify those domains."
         }
       ],
@@ -474,13 +472,11 @@
         {
           "sourceId": "freer-poly",
           "locator": "toDiophPoly and its evaluation lemmas",
-          "excerpt": "polynomial",
           "match": "Mathematical comparison with the existing native types; declaration shape follows the cited source."
         },
         {
           "sourceId": "poonen-2008",
           "locator": "Definition 1 and footnote 4, author-copy p.2",
-          "excerpt": "diophantine",
           "match": "Motivation: arithmetic relations represented by one integer polynomial and finitely many existential witnesses. The source states its definition over integers; this component retains Mathlib’s natural assignment domain and does not identify those domains."
         }
       ],
@@ -517,13 +513,11 @@
         {
           "sourceId": "freer-poly",
           "locator": "toDiophPoly and its evaluation lemmas",
-          "excerpt": "polynomial",
           "match": "Mathematical comparison with the existing native types; declaration shape follows the cited source."
         },
         {
           "sourceId": "poonen-2008",
           "locator": "Definition 1 and footnote 4, author-copy p.2",
-          "excerpt": "diophantine",
           "match": "Motivation: arithmetic relations represented by one integer polynomial and finitely many existential witnesses. The source states its definition over integers; this component retains Mathlib’s natural assignment domain and does not identify those domains."
         }
       ],
@@ -567,13 +561,11 @@
         {
           "sourceId": "freer-poly",
           "locator": "toDiophPoly and its evaluation lemmas",
-          "excerpt": "polynomial",
           "match": "Mathematical comparison with the existing native types; declaration shape follows the cited source."
         },
         {
           "sourceId": "poonen-2008",
           "locator": "Definition 1 and footnote 4, author-copy p.2",
-          "excerpt": "diophantine",
           "match": "Motivation: arithmetic relations represented by one integer polynomial and finitely many existential witnesses. The source states its definition over integers; this component retains Mathlib’s natural assignment domain and does not identify those domains."
         }
       ],
@@ -615,13 +607,11 @@
         {
           "sourceId": "freer-poly",
           "locator": "exists_mvPolynomial and its constructor induction",
-          "excerpt": "polynomial",
           "match": "The source’s existence proof, repackaged as surjectivity of the native ring map."
         },
         {
           "sourceId": "poonen-2008",
           "locator": "Definition 1 and footnote 4, author-copy p.2",
-          "excerpt": "diophantine",
           "match": "Motivation: arithmetic relations represented by one integer polynomial and finitely many existential witnesses. The source states its definition over integers; this component retains Mathlib’s natural assignment domain and does not identify those domains."
         }
       ],
@@ -662,13 +652,11 @@
         {
           "sourceId": "mathlib-funext",
           "locator": "funext_set, lines 51–74",
-          "excerpt": "polynomial",
           "match": "Specialization of native polynomial extensionality to the infinite natural-number box in the integers; the specialized injectivity statement is new."
         },
         {
           "sourceId": "poonen-2008",
           "locator": "Definition 1 and footnote 4, author-copy p.2",
-          "excerpt": "diophantine",
           "match": "Motivation: arithmetic relations represented by one integer polynomial and finitely many existential witnesses. The source states its definition over integers; this component retains Mathlib’s natural assignment domain and does not identify those domains."
         }
       ],
@@ -711,13 +699,11 @@
         {
           "sourceId": "mathlib-dioph",
           "locator": "Poly, Poly.induction and the comparison TODO, lines 48–51,93,197–204",
-          "excerpt": "polynomial",
           "match": "Completes the missing native polynomial comparison using the separately listed infinite-box theorem; the ring equivalence is an elementary consequence, not an existing pinned declaration."
         },
         {
           "sourceId": "poonen-2008",
           "locator": "Definition 1 and footnote 4, author-copy p.2",
-          "excerpt": "diophantine",
           "match": "Motivation: arithmetic relations represented by one integer polynomial and finitely many existential witnesses. The source states its definition over integers; this component retains Mathlib’s natural assignment domain and does not identify those domains."
         }
       ],
@@ -838,13 +824,11 @@
         {
           "sourceId": "mathlib-dioph",
           "locator": "Poly and Poly.ext, lines 93–107, together with the polynomial-comparison TODO",
-          "excerpt": "polynomial",
           "match": "Elementary inverse law of the new equivalence. Promoted from its API because the finite-witness theorem consumes it."
         },
         {
           "sourceId": "poonen-2008",
           "locator": "Definition 1 and footnote 4, author-copy p.2",
-          "excerpt": "diophantine",
           "match": "Motivation: arithmetic relations represented by one integer polynomial and finitely many existential witnesses. The source states its definition over integers; this component retains Mathlib’s natural assignment domain and does not identify those domains."
         }
       ],
@@ -885,13 +869,11 @@
         {
           "sourceId": "mathlib-dioph",
           "locator": "Poly.map and map_apply, lines 226–234",
-          "excerpt": "polynomial",
           "match": "Comparison of native reindexing with the new ring equivalence."
         },
         {
           "sourceId": "poonen-2008",
           "locator": "Definition 1 and footnote 4, author-copy p.2",
-          "excerpt": "diophantine",
           "match": "Motivation: arithmetic relations represented by one integer polynomial and finitely many existential witnesses. The source states its definition over integers; this component retains Mathlib’s natural assignment domain and does not identify those domains."
         }
       ],
@@ -935,13 +917,11 @@
         {
           "sourceId": "mathlib-pr-42203",
           "locator": "PR body, exists_finset_right_rename and proof route",
-          "excerpt": "polynomial",
           "match": "Same statement shape as the open Mathlib proposal; absent from the required pin."
         },
         {
           "sourceId": "poonen-2008",
           "locator": "Definition 1 and footnote 4, author-copy p.2",
-          "excerpt": "diophantine",
           "match": "Motivation: arithmetic relations represented by one integer polynomial and finitely many existential witnesses. The source states its definition over integers; this component retains Mathlib’s natural assignment domain and does not identify those domains."
         }
       ],
@@ -982,13 +962,11 @@
         {
           "sourceId": "mathlib-pr-42203",
           "locator": "PR body, exists_fin_right_rename and finite enumeration",
-          "excerpt": "polynomial",
           "match": "Follows the proposed Mathlib shape and generality at the fixed baseline."
         },
         {
           "sourceId": "poonen-2008",
           "locator": "Definition 1 and footnote 4, author-copy p.2",
-          "excerpt": "diophantine",
           "match": "Motivation: arithmetic relations represented by one integer polynomial and finitely many existential witnesses. The source states its definition over integers; this component retains Mathlib’s natural assignment domain and does not identify those domains."
         }
       ],
@@ -1028,13 +1006,11 @@
         {
           "sourceId": "freer-normal",
           "locator": "dioph_iff_exists_fin_mvPolynomial, key equality and witness extension",
-          "excerpt": "polynomial",
           "match": "Extracts the two solution-transport directions as a reusable lemma; does not add a new representation predicate."
         },
         {
           "sourceId": "poonen-2008",
           "locator": "Definition 1 and footnote 4, author-copy p.2",
-          "excerpt": "diophantine",
           "match": "Motivation: arithmetic relations represented by one integer polynomial and finitely many existential witnesses. The source states its definition over integers; this component retains Mathlib’s natural assignment domain and does not identify those domains."
         }
       ],
@@ -1082,13 +1058,11 @@
         {
           "sourceId": "freer-normal",
           "locator": "dioph_iff_exists_fin_mvPolynomial and dioph_iff_exists_finite_mvPolynomial",
-          "excerpt": "polynomial",
           "match": "Generalizes the cited finite-input theorem by applying witness compression before any input reindexing; the proof does not require a finite input type."
         },
         {
           "sourceId": "poonen-2008",
           "locator": "Definition 1 and footnote 4, author-copy p.2",
-          "excerpt": "diophantine",
           "match": "Motivation: arithmetic relations represented by one integer polynomial and finitely many existential witnesses. The source states its definition over integers; this component retains Mathlib’s natural assignment domain and does not identify those domains."
         }
       ],

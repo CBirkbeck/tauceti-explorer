@@ -358,25 +358,21 @@
         {
           "sourceId": "bockle-appendix-2003",
           "locator": "Proposition 1, p. 2",
-          "excerpt": "so that n + ∆ = j, as asserted.",
           "match": "The statement begins."
         },
         {
           "sourceId": "bockle-appendix-2003",
           "locator": "Proposition 1, p. 2",
-          "excerpt": "so that n + ∆ = j, as asserted.",
           "match": "The presentation."
         },
         {
           "sourceId": "bockle-appendix-2003",
           "locator": "Proof of Proposition 1, p. 2",
-          "excerpt": "so that n + ∆ = j, as asserted.",
           "match": "Where oddness enters."
         },
         {
           "sourceId": "kw-annals-2009",
           "locator": "Proposition 3.4, printed p. 240",
-          "excerpt": "presentation as a CNL W -algebra",
           "match": "KW Annals' form of it for minimal lifts."
         }
       ],
@@ -430,7 +426,6 @@
         {
           "sourceId": "bockle-appendix-2003",
           "locator": "Lemma 2, p. 5",
-          "excerpt": "then R is a complete intersection, finite flat over O.",
           "match": "The lemma."
         }
       ],
@@ -481,7 +476,6 @@
         {
           "sourceId": "bockle-appendix-2003",
           "locator": "Theorem 1, p. 1",
-          "excerpt": "of minimal rings is an isomorphism as well.",
           "match": "The theorem."
         }
       ],
@@ -542,37 +536,31 @@
         {
           "sourceId": "kw-annals-2009",
           "locator": "Theorem 3.3, printed p. 239",
-          "excerpt": "is absolutely irreducible. We suppose that",
           "match": "The theorem."
         },
         {
           "sourceId": "kw-annals-2009",
           "locator": "Introduction, printed p. 231",
-          "excerpt": "its proof) and its background. These are deduced from proving that a certain",
           "match": "The method: finiteness then flatness."
         },
         {
           "sourceId": "kw-annals-2009",
           "locator": "Introduction, printed p. 231",
-          "excerpt": "This argument for producing minimal liftings has been suggested",
           "match": "The pinned earlier input: the Remark in §5.2 of [27] = Khare–Ramakrishna 2003 (checkpoint 2 corrects an earlier attribution to Khare's paper [26])."
         },
         {
           "sourceId": "kw-annals-2009",
           "locator": "Lemma 3.6, printed p. 241",
-          "excerpt": "is finite if and only if",
           "match": "The finiteness criterion."
         },
         {
           "sourceId": "kw-annals-2009",
           "locator": "References, printed p. 252",
-          "excerpt": "Finiteness of Selmer groups and deformation rings",
           "match": "What \"[27]\" is."
         },
         {
           "sourceId": "kw-annals-2009",
           "locator": "Proof of Proposition 3.8, printed p. 242",
-          "excerpt": "as we are excluding weight p",
           "match": "Why k(ρ̄) = p is excluded.",
           "addedBy": "REV-PotentialModularityAndCompatibleSystems--R24.3"
         }
@@ -631,25 +619,21 @@
         {
           "sourceId": "kw-serre-modularity-I",
           "locator": "Theorem 5.1, p. 9 of the preprint",
-          "excerpt": "and is crystalline of weight",
           "match": "Type (1)."
         },
         {
           "sourceId": "kw-serre-modularity-I",
           "locator": "Theorem 5.1, p. 9 of the preprint",
-          "excerpt": "with q an odd prime such that",
           "match": "Type (3) begins."
         },
         {
           "sourceId": "kw-serre-modularity-I",
           "locator": "Theorem 5.1(4), p. 10 of the preprint",
-          "excerpt": "and assume that",
           "match": "Type (4) needs p | q + 1."
         },
         {
           "sourceId": "kw-serre-modularity-I",
           "locator": "Remark after Theorem 5.1, p. 10",
-          "excerpt": "except if p = 2 and r = 1.",
           "match": "Existence of level-2 characters."
         }
       ],
@@ -815,13 +799,11 @@
         {
           "sourceId": "kw-serre-modularity-I",
           "locator": "Theorem 5.1(1), p. 9 of the preprint",
-          "excerpt": "and is crystalline of weight",
           "match": "The statement."
         },
         {
           "sourceId": "kw-serre-modularity-II",
           "locator": "§10.3.1, p. 92 of the preprint",
-          "excerpt": "The existence of such points follows if we know that",
           "match": "The existence argument."
         }
       ],
@@ -874,13 +856,11 @@
         {
           "sourceId": "kw-serre-modularity-I",
           "locator": "Theorem 5.1(2), p. 9 of the preprint",
-          "excerpt": "and the inertial Weil-Deligne parameter at p is",
           "match": "The statement."
         },
         {
           "sourceId": "kw-serre-modularity-II",
           "locator": "§10.3.1, p. 92 of the preprint",
-          "excerpt": "The existence of such points follows if we know that",
           "match": "The existence argument."
         }
       ],
@@ -934,13 +914,11 @@
         {
           "sourceId": "kw-serre-modularity-I",
           "locator": "Theorem 5.1(3), p. 9 of the preprint",
-          "excerpt": "with q an odd prime such that",
           "match": "The statement."
         },
         {
           "sourceId": "kw-serre-modularity-II",
           "locator": "§10.3.1, p. 92 of the preprint",
-          "excerpt": "The existence of such points follows if we know that",
           "match": "The existence argument."
         }
       ],
@@ -995,13 +973,11 @@
         {
           "sourceId": "kw-serre-modularity-I",
           "locator": "Theorem 5.1(4), p. 10 of the preprint",
-          "excerpt": "and assume that",
           "match": "The hypothesis p | q + 1."
         },
         {
           "sourceId": "kw-serre-modularity-II",
           "locator": "§10.3.1, p. 92 of the preprint",
-          "excerpt": "The existence of such points follows if we know that",
           "match": "The existence argument."
         }
       ],
@@ -1051,13 +1027,11 @@
         {
           "sourceId": "dieulefait-pacetti",
           "locator": "Proof of Theorem 1.9, p. 6 of the arXiv version",
-          "excerpt": "The ﬁrst three cases are due to Khare-Wintenberger ([KW09b, Theorem 5.1], its proof given in [KW09c]). Partial results of the last case are also proven in Khare-Wintenberger’s article (same Theorem), the more general case is due to Gee and Snowden ([Gee11]; [Sno09, Theorem 7.2.1]).",
           "match": "The modern route's attribution."
         },
         {
           "sourceId": "kw-serre-modularity-I",
           "locator": "§8.2, pp. 13–15 of the preprint",
-          "excerpt": "In the case of (ii) we use Theorem 5.1 (1) to get an almost strictly compatible lift",
           "match": "The sub-cases of the mod 5 and inductive steps use types (2) and (1).",
           "addedBy": "REV-PotentialModularityAndCompatibleSystems--R24.3"
         }
@@ -1111,19 +1085,16 @@
         {
           "sourceId": "snowden-2009",
           "locator": "Theorem 7.2.1, p. 21 of arXiv:0905.4266v1",
-          "excerpt": "A solution exists if and only if a local solution exists.",
           "match": "The theorem."
         },
         {
           "sourceId": "dieulefait-pacetti",
           "locator": "Theorem 1.9(4), p. 6 of the arXiv version",
-          "excerpt": "any inertial type",
           "match": "The form DP use."
         },
         {
           "sourceId": "snowden-2009",
           "locator": "§1.4, notation, p. 3 of arXiv:0905.4266v1",
-          "excerpt": "The letter p always denotes an odd prime.",
           "match": "p is odd throughout.",
           "addedBy": "REV-PotentialModularityAndCompatibleSystems--R24.3"
         }
@@ -1177,7 +1148,6 @@
         {
           "sourceId": "kw-serre-modularity-II",
           "locator": "§10.2, p. 92 of the preprint",
-          "excerpt": "by the weight part of Serre’s conjecture proven in Theorem 13.10",
           "match": "The residual hypotheses from modularity."
         }
       ],
@@ -1236,19 +1206,16 @@
         {
           "sourceId": "kw-serre-modularity-I",
           "locator": "Theorem 4.1, p. 7 of the preprint",
-          "excerpt": "outside a finite set of primes and is either",
           "match": "Case (2)."
         },
         {
           "sourceId": "kw-serre-modularity-II",
           "locator": "§10.2, p. 92 of the preprint",
-          "excerpt": "by results of Berger-Li-Zhu",
           "match": "The earlier cases."
         },
         {
           "sourceId": "kw-serre-modularity-II",
           "locator": "§10.2, p. 92 of the preprint",
-          "excerpt": "by results of Berger-Li-Zhu",
           "match": "The derivation."
         }
       ],
@@ -1305,19 +1272,16 @@
         {
           "sourceId": "kw-serre-modularity-I",
           "locator": "§5, p. 7 of the preprint",
-          "excerpt": "For a number field E",
           "match": "Strict compatibility."
         },
         {
           "sourceId": "kw-serre-modularity-I",
           "locator": "§5, p. 8 of the preprint",
-          "excerpt": "for which (ii) b) is known to be true",
           "match": "Almost strict compatibility."
         },
         {
           "sourceId": "dieulefait-pacetti",
           "locator": "Definition 1.10 and after, p. 7 of the arXiv version",
-          "excerpt": "then we only impose the compatibility as in condition (6)",
           "match": "DP's version."
         }
       ],
@@ -1482,7 +1446,6 @@
         {
           "sourceId": "kw-serre-modularity-II",
           "locator": "§10.3.2, p. 93 of the preprint",
-          "excerpt": "Using Brauer’s theorem we get subextensions",
           "match": "The operations used: induction, twist, restriction."
         }
       ],
@@ -1634,19 +1597,16 @@
         {
           "sourceId": "kw-serre-modularity-II",
           "locator": "§10.3.2, p. 93 of the preprint",
-          "excerpt": "Using Brauer’s theorem we get subextensions",
           "match": "The construction."
         },
         {
           "sourceId": "kw-serre-modularity-II",
           "locator": "§10.3.2, p. 93 of the preprint",
-          "excerpt": "Using Brauer’s theorem we get subextensions",
           "match": "True representations."
         },
         {
           "sourceId": "khare-level-one",
           "locator": "§3, proof of Proposition 3.1, pp. 16–17 of arXiv:math/0504080v1 (KW II cite it as the proof of Theorem 5.1 of the Duke version)",
-          "excerpt": "We check that ρι is a true representation by computing its inner product.",
           "match": "Genuineness by inner-product computation; the norm-one step is expanded here."
         }
       ],
@@ -1801,25 +1761,21 @@
         {
           "sourceId": "kw-serre-modularity-II",
           "locator": "§10.3.2, p. 93",
-          "excerpt": "it follows from Carayol and Taylor",
           "match": "(a)."
         },
         {
           "sourceId": "kw-serre-modularity-II",
           "locator": "§10.3.2, p. 94",
-          "excerpt": "it follows from Breuil and Berger",
           "match": "(b)."
         },
         {
           "sourceId": "kw-serre-modularity-II",
           "locator": "§10.3.2, p. 94",
-          "excerpt": "it follows from Kisin",
           "match": "(c)."
         },
         {
           "sourceId": "kw-serre-modularity-II",
           "locator": "§10.3.2, p. 93",
-          "excerpt": "we state that we can propagate to a strictly compatible system",
           "match": "The authors' correction of the earlier strictness claim."
         }
       ],
@@ -1877,25 +1833,21 @@
         {
           "sourceId": "kw-serre-modularity-I",
           "locator": "Theorem 5.1, p. 9 of the preprint",
-          "excerpt": "almost strictly compatible, irreducible, odd system",
           "match": "The theorem."
         },
         {
           "sourceId": "kw-serre-modularity-I",
           "locator": "Remark after Theorem 5.1, p. 10",
-          "excerpt": "The computation of the weights of the residual representations",
           "match": "Savitt."
         },
         {
           "sourceId": "kw-serre-modularity-II",
           "locator": "§10.3.2, p. 94",
-          "excerpt": "bility and Corollary 6.15 (1) of Savitt’s paper",
           "match": "Residual weights."
         },
         {
           "sourceId": "kw-serre-modularity-I",
           "locator": "Proof of Theorem 9.1, p. 19 of the preprint",
-          "excerpt": "does not consider the case p = 2",
           "match": "No Savitt input in residual characteristic two.",
           "addedBy": "REV-PotentialModularityAndCompatibleSystems--R24.3"
         }
@@ -1952,26 +1904,22 @@
         {
           "sourceId": "dieulefait-pacetti",
           "locator": "Theorem 1.11, p. 7 of the arXiv version",
-          "excerpt": "representation ramified at finitely many places and de Rham at p",
           "match": "The statement."
         },
         {
           "sourceId": "dieulefait-pacetti",
           "locator": "Proof of Theorem 1.11, p. 7 of the arXiv version",
-          "excerpt": "See [Die04, Theorem 1.1].",
           "match": "Attribution to Dieulefait 2004, whose Theorem 1.1 is narrower (E5)."
         },
         {
           "sourceId": "dieulefait-pacetti",
           "locator": "Definition 1.10(4), p. 7 of the arXiv version",
-          "excerpt": "is de Rham and furthermore crystalline if",
           "match": "DP's systems are de Rham at every member.",
           "addedBy": "REV-PotentialModularityAndCompatibleSystems--R24.3"
         },
         {
           "sourceId": "dieulefait-2004",
           "locator": "Theorem 1.1, pp. 1–2 of arXiv:math/0304433v1",
-          "excerpt": "Assume also that q ≥ 2w + 1.",
           "match": "The hypotheses of the theorem DP cite.",
           "addedBy": "REV-PotentialModularityAndCompatibleSystems--R24.3"
         }
@@ -2033,20 +1981,17 @@
         {
           "sourceId": "kw-serre-modularity-I",
           "locator": "Proof of Theorem 10.1, p. 20 of the preprint",
-          "excerpt": "In both cases it is easy to see that",
           "match": "(ii)."
         },
         {
           "sourceId": "kw-serre-modularity-I",
           "locator": "§8.4, p. 17 of the preprint",
-          "excerpt": "almost all the residual representations that arise from it are absolutely irreducible",
           "match": "(ii), the cofinite conclusion as KW use it.",
           "addedBy": "REV-PotentialModularityAndCompatibleSystems--R24.3"
         },
         {
           "sourceId": "kw-serre-modularity-I",
           "locator": "Lemma 6.2(ii), p. 11 of the preprint",
-          "excerpt": "If ρ̄ is of S-type, p ≥ 3, 2 ≤ k(ρ̄) ≤ p + 1, and ρ̄|GQ(µp ) is reducible,",
           "match": "(ii), the restriction to G_{ℚ(ζ_ℓ)}: reducibility there forces weight (ℓ+1)/2 or (ℓ+3)/2.",
           "addedBy": "REV-PotentialModularityAndCompatibleSystems--R24.3"
         }
@@ -2100,13 +2045,11 @@
         {
           "sourceId": "kw-serre-modularity-I",
           "locator": "§5, p. 8 of the preprint",
-          "excerpt": "We shall say that such a system is “almost strictly compatible” of Hodge- Tate weights (a, b).",
           "match": "The almost strict conditions."
         },
         {
           "sourceId": "dieulefait-pacetti",
           "locator": "Paso 5, p. 14 of the arXiv version",
-          "excerpt": "we only know that it is a de Rham representation.",
           "match": "The modern route in case (c)."
         }
       ],
@@ -2164,13 +2107,11 @@
         {
           "sourceId": "kw-serre-modularity-I",
           "locator": "§8.2, p. 15 of the preprint",
-          "excerpt": "and another application of Theorem 4.1 yields",
           "match": "Linked systems."
         },
         {
           "sourceId": "dieulefait-pacetti",
           "locator": "Remark 4, p. 7 of the arXiv version",
-          "excerpt": "is modular if and only if any given member of the family is.",
           "match": "(i)."
         }
       ],
@@ -2226,13 +2167,11 @@
         {
           "sourceId": "blggt-2014",
           "locator": "§5.1, definition of a weakly compatible system, p. 51 (arXiv v1; printed page = PDF page)",
-          "excerpt": "We will refer to a rank 1 weakly compatible system of representations as a weakly compatible system of characters.",
           "match": "The 5-tuple (M, S, {Q_v}, {r_λ}, {H_τ}), displayed above this sentence."
         },
         {
           "sourceId": "taylor-2006-meromorphic-continuation",
           "locator": "§6, rank d weakly compatible systems over ℚ, p. 773 (PDF page 45)",
-          "excerpt": "By a rank d weakly compatible system of l-adic representations",
           "match": "Taylor's version over ℚ with Hodge numbers."
         }
       ],
@@ -2396,25 +2335,21 @@
         {
           "sourceId": "blggt-2014",
           "locator": "§5.1, the subsidiary definitions, p. 51 (arXiv v1; printed page = PDF page)",
-          "excerpt": "We make the following subsidiary deﬁnitions.",
           "match": "Regular, extremely regular, totally odd, essentially conjugate self-dual, irreducible."
         },
         {
           "sourceId": "blggt-2014",
           "locator": "§5.1, strict compatibility and purity, p. 52 (arXiv v1; printed page = PDF page)",
-          "excerpt": "We will call R pure of weight w if",
           "match": "Strictly compatible, pure, strictly pure."
         },
         {
           "sourceId": "blggt-2014",
           "locator": "§5.1, automorphy, p. 53 (arXiv v1; printed page = PDF page)",
-          "excerpt": "We will call R automorphic if there is a regular, algebraic, cuspidal au- tomorphic representation",
           "match": "Automorphic systems."
         },
         {
           "sourceId": "taylor-2006-meromorphic-continuation",
           "locator": "§6, Taylor's remark on motives, p. 773 (PDF page 45)",
-          "excerpt": "We remark that whatever is meant by a",
           "match": "Strong compatibility and rank-2 regularity over ℚ."
         }
       ],
@@ -2584,13 +2519,11 @@
         {
           "sourceId": "blggt-2014",
           "locator": "§5.1, operations, p. 51 (arXiv v1; printed page = PDF page)",
-          "excerpt": "We deﬁne the usual linear algebra and group theoretic operations on weakly compatible systems by applying the corresponding operation to each",
           "match": "Operations member by member, with the dual as the example."
         },
         {
           "sourceId": "blggt-2014",
           "locator": "§5.1, restriction, p. 53 (arXiv v1; printed page = PDF page)",
-          "excerpt": "to be the weakly compatible system of representations of",
           "match": "ℛ|_{G_{F′}} with S^{(F′)}, H^{(F′)}_τ and Q^{(F′)}_v (continued on p. 54)."
         }
       ],
@@ -2761,13 +2694,11 @@
         {
           "sourceId": "taylor-2006-meromorphic-continuation",
           "locator": "§6, before Lemma 6.5, p. 773 (PDF page 45)",
-          "excerpt": "The following lemma is an easy consequence of the characterisation of one dimensional Hodge-Tate representations of",
           "match": "The proof indication for Lemma 6.5."
         },
         {
           "sourceId": "taylor-2006-meromorphic-continuation",
           "locator": "§6, after Lemma 6.5, p. 774 (PDF page 46)",
-          "excerpt": "holds. Otherwise we call it irreducible.",
           "match": "Reducible and irreducible rank-2 systems."
         }
       ],
@@ -2822,13 +2753,11 @@
         {
           "sourceId": "blggt-2014",
           "locator": "§5.1, pp. 52–53 (arXiv v1)",
-          "excerpt": "we deﬁne the partial L-function",
           "match": "The definitions of L^S, L, the archimedean Γ- and ε-factors, the Hodge factors, Λ and ε in §5.1."
         },
         {
           "sourceId": "blggt-2014-v4",
           "locator": "§5.1, pp. 63–64 (arXiv v4)",
-          "excerpt": "We wish to deﬁne the completed L-function and ǫ-factors of",
           "match": "The v4 archimedean factors, replacing v1's Hodge factor."
         }
       ],
@@ -3002,7 +2931,6 @@
         {
           "sourceId": "blggt-2014",
           "locator": "§5.4, items (1)–(9), pp. 61–63 (arXiv v1)",
-          "excerpt": "denote the Grothendieck group",
           "match": "The group-theoretic preliminaries of §5.4, items (1)–(9)."
         }
       ],
@@ -3181,13 +3109,11 @@
         {
           "sourceId": "blggt-2014",
           "locator": "§5.2, Lemma 5.2.1 and Proposition 5.2.2, pp. 54–58 (arXiv v1)",
-          "excerpt": "Then there is a set of rational primes L of Dirichlet density 1 such that if s is an irreducible sub-representation of rλ",
           "match": "Lemma 5.2.1 and Proposition 5.2.2 with its proof."
         },
         {
           "sourceId": "blggt-2014-v4",
           "locator": "§5.3, Proposition 5.3.2, p. 71 (arXiv v4)",
-          "excerpt": "Then there is a set of rational primes L of Dirichlet",
           "match": "v4 Proposition 5.3.2 (= v1 Proposition 5.2.2), whose proof now runs through v4 Proposition 5.2.2 (larsen-good-primes)."
         }
       ],
@@ -3240,13 +3166,11 @@
         {
           "sourceId": "blggt-2014",
           "locator": "§5.2, Lemma 5.2.3, pp. 58–59 (arXiv v1)",
-          "excerpt": "is invariant by",
           "match": "Lemma 5.2.3 and its proof."
         },
         {
           "sourceId": "blggt-2014-v4",
           "locator": "Lemma 5.4.5, pp.77–78",
-          "excerpt": "Suppose that F is an imaginary CM field",
           "match": "Correct CM base, irreducible constituent, actual polarization and total-oddness hypotheses."
         }
       ],
@@ -3295,7 +3219,6 @@
         {
           "sourceId": "blggt-2014-v4",
           "locator": "§5.2, pp. 65–66 (arXiv v4)",
-          "excerpt": "In this section we present a formulation of the results of Larsen",
           "match": "The setup of §5.2 through the construction of θ_l."
         }
       ],
@@ -3436,7 +3359,6 @@
         {
           "sourceId": "blggt-2014-v4",
           "locator": "§5.2, Lemma 5.2.1 and proof, pp. 66–67 (arXiv v4)",
-          "excerpt": "is surjective",
           "match": "Lemma 5.2.1 (1)–(4) and its proof."
         }
       ],
@@ -3488,7 +3410,6 @@
         {
           "sourceId": "blggt-2014-v4",
           "locator": "§5.2, Proposition 5.2.2 and proof, pp. 68–70 (arXiv v4)",
-          "excerpt": "There is a Dirichlet density 1 set L of rational primes with the following",
           "match": "Proposition 5.2.2 (1)–(6) and its proof."
         }
       ],
@@ -3537,19 +3458,16 @@
         {
           "sourceId": "kw-serre-modularity-II",
           "locator": "§10.3.2, pp.93–94",
-          "excerpt": "Let F (q) be the subfield of F fixed by the decomposition subgroup of",
           "match": "The decomposition-field local descent argument in KW; the complete coefficient-prime input is supplied by Skinner separately."
         },
         {
           "sourceId": "skinner-2009",
           "locator": "Theorem 1, pp.241–243; proof §2, pp.244–255",
-          "excerpt": "The representation ρπ |Dv is potentially semistable",
           "match": "Full coefficient-prime compatibility for motivic Hilbert forms, without residual irreducibility."
         },
         {
           "sourceId": "blggt-2014-v4",
           "locator": "§2.1 Theorem 2.1.1, pp.33–34; §5.1 pp.62–63",
-          "excerpt": "and these Weil–Deligne representations are pure of weight w.",
           "match": "Automorphic WD/Hodge purity for polarized motivic Hilbert families. Combined with Skinner and decomposition-field descent; no all-place coefficient theorem is inferred just from BLGGT strictness."
         }
       ],
@@ -3599,13 +3517,11 @@
         {
           "sourceId": "blggt-2014-v4",
           "locator": "Lemma 5.3.1, pp.70–71",
-          "excerpt": "Suppose that R is a weakly compatible system",
           "match": "Common component field, multiplicity one, and uniform coefficient extension; v1 Lemma 5.2.1 only states the first part."
         },
         {
           "sourceId": "blggt-2014-v4",
           "locator": "Appendix A.1 Lemma A.1.5, p.85",
-          "excerpt": "rational roots. Then r is conjugate to a representation",
           "match": "The coefficient-descent criterion used in Lemma 5.3.1; its split-eigenvalue hypothesis removes the descent obstruction."
         }
       ],
@@ -3652,7 +3568,6 @@
         {
           "sourceId": "blggt-2014-v4",
           "locator": "§2.1, p.31; §5.1, p.62",
-          "excerpt": "a polarized (resp. totally odd, polarized) weakly compatible system",
           "match": "Representation-level signs and the system pair (ℛ,ℳ)."
         }
       ],
@@ -3793,7 +3708,6 @@
         {
           "sourceId": "blggt-2014-v4",
           "locator": "§2.1, p.31; §5.1, p.62; tensor-product use in §4.3",
-          "excerpt": "totally odd if εv = 1 for all v|∞.",
           "match": "Derived system-level pairing operations from §2.1 covariance and CM sign equation. Multiplication by δ corrects the extension of the multiplier at real conjugations; these explicit formulas are a derivation from the definition."
         }
       ],
@@ -3933,13 +3847,11 @@
         {
           "sourceId": "blggt-2014-v4",
           "locator": "Appendix A.2, p.87, before Lemma A.2.1",
-          "excerpt": "Any algebraic l-adic character of GF arises in this way.",
           "match": "Algebraic character realizations, Hodge numbers, weight properties and pure WD parameters."
         },
         {
           "sourceId": "acc-2023",
           "locator": "§7.1, pp.1085,1092",
-          "excerpt": "representations is always de Rham",
           "match": "Rank-one extremely weak systems are de Rham and pure; the character realization argument is imported."
         }
       ],
@@ -4071,13 +3983,11 @@
         {
           "sourceId": "blggt-2014-v4",
           "locator": "Appendix A.2, p.87, items (1),(2),(8)",
-          "excerpt": "Any algebraic l-adic character of GF arises in this way.",
           "match": "Weights and pure local parameters of algebraic characters."
         },
         {
           "sourceId": "acc-2023",
           "locator": "§7.1, p.1092, purity paragraph",
-          "excerpt": "then it is automatically pure",
           "match": "Rank-one purity before potential automorphy consequences."
         }
       ],
@@ -4127,13 +4037,11 @@
         {
           "sourceId": "acc-2023",
           "locator": "§7.1, p.1092, purity paragraph",
-          "excerpt": "induced from an extremely weakly compatible system of characters",
           "match": "Purity for induction of an extremely weak character system with its induced data."
         },
         {
           "sourceId": "blggt-2014-v4",
           "locator": "§5.1, pp.62–63",
-          "excerpt": "We define the usual linear algebra and group theoretic operations",
           "match": "Operations and the two clauses of purity."
         }
       ],
@@ -4181,7 +4089,6 @@
         {
           "sourceId": "acc-2023",
           "locator": "§7.1, pp.1086,1092",
-          "excerpt": "or if R is Artin up to twist.",
           "match": "The Artin-up-to-twist purity observation; the finite-quotient family, zero Hodge weights and root-of-unity polynomials are the explicit untwisted construction used in that observation."
         }
       ],
@@ -4309,7 +4216,6 @@
         {
           "sourceId": "acc-2023",
           "locator": "§7.1, pp.1086,1092",
-          "excerpt": "or if R is Artin up to twist.",
           "match": "Artin-up-to-twist definition and purity observation, with the canonical-Hodge qualification recorded in source issue E4."
         }
       ],
@@ -4355,7 +4261,6 @@
         {
           "sourceId": "acc-2023",
           "locator": "§7.1, pp.1084–1085",
-          "excerpt": "If we further drop hypothesis (5b)",
           "match": "Definitions of very weak and extremely weak systems, including the determinant condition and density-one full-member condition."
         }
       ],

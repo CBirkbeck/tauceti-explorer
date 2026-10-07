@@ -1982,9 +1982,12 @@ theorem toricTestVector_nonzero {V : Type*} [AddCommGroup V] [Module ℂ V]
     (l : V →ₗ[ℂ] ℂ) (hl : l≠0) : ∃ f : V,l f≠0 := by sorry
 
 /-! GrossZagierAndArithmeticHeights:GZ.5/coherent-quaternionic-specialization — Coherent quaternionic theta specialization
-These are the actual coherent norm-space kernels. Ordinary anisotropic
-data have zero correction; divergent split binary/ternary data use the
-correct regularized first/second-term input. Weil and Witt-index hypotheses are omitted.
+The quadratic-field binary norm is anisotropic even in a split quaternion
+algebra. YZZ’s 2011 draft pp.48–50 uses ternary Siegel–Weil for the nonsplit
+Shimizu contraction and refers the split contraction to a different Waldspurger
+proof. GQT’s split ternary identity modulo the residual image does not by
+itself prove that contraction. The separate split comparison and actual
+Weil, measure and Witt-index data are required.
 -/
 /- Omitted coherentQuaternionicTheta: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 

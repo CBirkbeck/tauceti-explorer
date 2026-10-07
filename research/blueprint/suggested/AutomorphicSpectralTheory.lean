@@ -1398,146 +1398,85 @@ example (r : J → G) (lam : Parameter ι) (g : G) : eisenstein_series D r lam 0
 
 end eisenstein_series
 
-/-- One-parameter slice of the chamber theorem. Positivity and uniform Siegel seminorm
-hypotheses are omitted here and recorded in the chamber-estimate gap. -/
-theorem eisenstein_convergence (r : J → G) (v : D.space.Carrier) (g : G)
-    (lam : ℂ → Parameter ι) (U : Set ℂ) :
-    AnalyticOnNhd ℂ (fun s => eisenstein_series D r (lam s) v g) U ∧
-      ∀ s ∈ U, Summable (fun j => D.evaluate v (r j * g) *
-        Complex.exp (Pairing (lam s + fun i => (D.rho i : ℂ)) (D.height (r j * g)))) := by sorry
+/- Signature omissions (REV-FIX-RT-AREA-automorphic-1~3).
+AS.1/eisenstein-convergence, AS.1/convergent-intertwiner and
+AS.1/cuspidal-constant-term require actual adelic quotient representatives,
+normalized inducing actions, a positive root chamber, coherent Weyl transport and
+the finite smooth inducing vectors. An arbitrary InductionData, arbitrary slice
+and arbitrary operator family do not imply convergence or a constant-term formula.
+The former universally quantified prototypes have therefore been removed.
 
-variable (Q : InductionData G ι)
-/-- Standard unipotent quotient integral; source and target Hilbert spaces are distinct.
-The quotient's measure and the Weyl height transport are imported from AA. -/
-def convergent_intertwiner {N : Type w} [MeasurableSpace N] (ν : Measure N)
-    (weyl : G) (embed : N → G) (wlam : Parameter ι → Parameter ι)
-    (lam : Parameter ι) : D.space.Carrier →L[ℂ] Q.space.Carrier := by sorry
-namespace convergent_intertwiner
-variable {N : Type w} [MeasurableSpace N] (ν : Measure N) (w : G)
-variable (embed : N → G) (wlam : Parameter ι → Parameter ι) (lam : Parameter ι)
-theorem intertwines (g : G) :
-    (convergent_intertwiner D Q ν w embed wlam lam).comp (induced_family D lam g) =
-      (induced_family Q (wlam lam) g).comp (convergent_intertwiner D Q ν w embed wlam lam) := by sorry
-
-theorem identity : convergent_intertwiner D D (Measure.dirac ()) 1
-    (fun _ : Unit => (1 : G)) id lam = ContinuousLinearMap.id ℂ D.space.Carrier := by sorry
-
-theorem holomorphic_chamber (U : Set ℂ) (slice : ℂ → Parameter ι)
-    (v : D.space.Carrier) (u : Q.space.Carrier) :
-    AnalyticOnNhd ℂ (fun s => inner ℂ u
-      (convergent_intertwiner D Q ν w embed wlam (slice s) v)) U := by sorry
-
-theorem identity_quotient (v : D.space.Carrier) :
-    convergent_intertwiner D D (Measure.dirac ()) 1 (fun _ : Unit => (1 : G)) id lam v = v := by sorry
-
--- Packet unit test: TauCeti.AutomorphicSpectral.convergent_intertwiner.identity_quotient
--- The identity Weyl integral is over a singleton and equals φ.
-example (v : D.space.Carrier) :
-    convergent_intertwiner D D (Measure.dirac ()) 1 (fun _ : Unit => (1 : G)) id lam v = v := by sorry
-
-
-theorem sl2_spherical (xi : ℂ → ℂ) (M : ℂ → Operator D.space.Carrier)
-    (v : D.space.Carrier) (s : ℂ) :
-    M s v = (xi (2 * s - 1) / xi (2 * s)) • v := by sorry
-
--- Packet unit test: TauCeti.AutomorphicSpectral.convergent_intertwiner.sl2_spherical
--- For spherical SL₂ and E(z,s), M(s) acts on the spherical vector by ξ(2s−1)/ξ(2s), ξ(t)=π^(−t/2)Γ(t/2)ζ(t).
-example (xi : ℂ → ℂ) (M : ℂ → Operator D.space.Carrier)
-    (v : D.space.Carrier) (s : ℂ) :
-    M s v = (xi (2 * s - 1) / xi (2 * s)) • v := by sorry
-
-
-/-- Typed target check; the geometric permutation is an imported Weyl transport. -/
-example : D.space.Carrier →L[ℂ] Q.space.Carrier :=
-  convergent_intertwiner D Q ν w embed wlam lam
-
-def target_parabolic : D.space.Carrier →L[ℂ] Q.space.Carrier :=
-  convergent_intertwiner D Q ν w embed wlam lam
-
--- Packet unit test: TauCeti.AutomorphicSpectral.convergent_intertwiner.target_parabolic
--- For a permutation between distinct GL_n block parabolics, the result has the permuted inducing datum and parameter wλ.
-example : D.space.Carrier →L[ℂ] Q.space.Carrier := by sorry
-
-end convergent_intertwiner
-
-/-- Cuspidal/associate clause only. General nonassociate cells are omitted explicitly. -/
-theorem cuspidal_constant_term {W : Type*} [Fintype W]
-    (CT : (G → ℂ) → G → ℂ) (r : J → G) (wlam : W → Parameter ι → Parameter ι)
-    (M : W → Parameter ι → D.space.Carrier →L[ℂ] Q.space.Carrier)
-    (lam : Parameter ι) (v : D.space.Carrier) (g : G) :
-    CT (eisenstein_series D r lam v) g = ∑ w,
-      Complex.exp (Pairing (wlam w lam + fun i => (Q.rho i : ℂ)) (Q.height g)) *
-        Q.evaluate (M w lam v) g := by sorry
+convergent_intertwiner.intertwines, .identity, .holomorphic_chamber and packet unit
+tests .identity_quotient, .sl2_spherical and .target_parabolic remain requested exact
+signatures of that carrier. In particular the SL₂ test must evaluate the actual
+convergent integral with completed ξ(s), and the target test must transport the
+inducing datum; an arbitrary M or an inhabited CLM type is not the test.
+-/
 end Induction
 
-/- Paley–Wiener sections below are parametrized by their actual compactly supported
-smooth inverse transforms. The adelic scalar summation map is omitted from the abstract
-normed signature until the quotient carrier is integrated. -/
+/- The following is the one-dimensional full-height specialization. The forward
+Laplace transform has the negative sign, and parametrizing the imaginary dual by
+t requires dt/(2π). The full-height transform for a split torus does not descend
+to its split-central quotient. The central-trivial adelic construction instead
+uses a_P^G and the matching restricted inducing datum. -/
 section PseudoEisenstein
 variable {V : Type u} [NormedAddCommGroup V] [NormedSpace ℂ V] [CompleteSpace V]
-def Laplace (h : ℝ → V) (s : ℂ) : V := ∫ x : ℝ, Complex.exp (s * x) • h x
+def Laplace (h : ℝ → V) (s : ℂ) : V := ∫ x : ℝ, Complex.exp (-s * x) • h x
+
+def IsPaleyWienerSection (Ψ : ℂ → V) : Prop :=
+  ∃ h : ℝ → V, ContDiff ℝ ⊤ h ∧ HasCompactSupport h ∧ Ψ = Laplace h
 
 def pseudo_eisenstein (E : ℂ → V →L[ℂ] ℂ) (h : ℝ → V) (Λ : ℝ) : ℂ :=
-  ∫ t : ℝ, E (Λ + t * Complex.I) (Laplace h (Λ + t * Complex.I))
+  (1 / (2 * Real.pi) : ℂ) *
+    ∫ t : ℝ, E (Λ + t * Complex.I) (Laplace h (Λ + t * Complex.I))
+
+def torusEisenstein (x : ℝ) (s : ℂ) : ℂ →L[ℂ] ℂ :=
+  Complex.exp (s * x) • ContinuousLinearMap.id ℂ ℂ
+
 namespace pseudo_eisenstein
 variable (E : ℂ → V →L[ℂ] ℂ)
-theorem contour_independent (h : ℝ → V) (hh : ContDiff ℝ ⊤ h)
-    (hc : HasCompactSupport h) (Λ Λ' : ℝ) :
-    (∫ t : ℝ, Complex.exp (-(Λ + t * Complex.I) * (0 : ℂ)) • Laplace h (Λ + t * Complex.I)) =
-      ∫ t : ℝ, Laplace h (Λ' + t * Complex.I) := by sorry
+theorem contour_independent (h : ℝ → ℂ) (hh : ContDiff ℝ ⊤ h)
+    (hc : HasCompactSupport h) (x Λ Λ' : ℝ) :
+    pseudo_eisenstein (torusEisenstein x) h Λ =
+      pseudo_eisenstein (torusEisenstein x) h Λ' := by sorry
 
-theorem linear (h k : ℝ → V) (a b : ℂ) (Λ : ℝ)
+theorem linear (h k : ℝ → V) (hh : ContDiff ℝ ⊤ h) (hk : ContDiff ℝ ⊤ k)
+    (hc : HasCompactSupport h) (kc : HasCompactSupport k) (a b : ℂ) (Λ : ℝ)
     (h₁ : Integrable (fun t : ℝ => E (Λ + t * Complex.I) (Laplace h (Λ + t * Complex.I))))
     (h₂ : Integrable (fun t : ℝ => E (Λ + t * Complex.I) (Laplace k (Λ + t * Complex.I)))) :
     pseudo_eisenstein E (fun x => a • h x + b • k x) Λ =
       a * pseudo_eisenstein E h Λ + b * pseudo_eisenstein E k Λ := by sorry
 
 theorem eisenstein_integral (h : ℝ → V) (Λ : ℝ) :
-    pseudo_eisenstein E h Λ = ∫ t : ℝ, E (Λ + t * Complex.I) (Laplace h (Λ + t * Complex.I)) := by sorry
+    pseudo_eisenstein E h Λ = (1 / (2 * Real.pi) : ℂ) *
+      ∫ t : ℝ, E (Λ + t * Complex.I) (Laplace h (Λ + t * Complex.I)) := by sorry
 
 theorem zero (Λ : ℝ) : pseudo_eisenstein E (fun _ : ℝ => (0 : V)) Λ = 0 := by sorry
-
 -- Packet unit test: TauCeti.AutomorphicSpectral.pseudo_eisenstein.zero
--- The zero Paley–Wiener section gives zero.
 example (Λ : ℝ) : pseudo_eisenstein E (fun _ : ℝ => (0 : V)) Λ = 0 := by sorry
 
-
-theorem split_torus (h : ℝ → V) (hh : ContDiff ℝ ⊤ h) (hc : HasCompactSupport h) (x : ℝ) :
-    (1 / (2 * Real.pi) : ℂ) •
-      (∫ t : ℝ, Complex.exp (-(t * Complex.I) * x) • Laplace h (t * Complex.I)) = h x := by sorry
-
+theorem split_torus (h : ℝ → ℂ) (hh : ContDiff ℝ ⊤ h)
+    (hc : HasCompactSupport h) (x Λ : ℝ) :
+    pseudo_eisenstein (torusEisenstein x) h Λ = h x := by sorry
 -- Packet unit test: TauCeti.AutomorphicSpectral.pseudo_eisenstein.split_torus
--- For a split torus, P=G and the construction is ordinary inverse Fourier–Laplace transformation on its real height space.
-example (h : ℝ → V) (hh : ContDiff ℝ ⊤ h) (hc : HasCompactSupport h) (x : ℝ) :
-    (1 / (2 * Real.pi) : ℂ) •
-      (∫ t : ℝ, Complex.exp (-(t * Complex.I) * x) • Laplace h (t * Complex.I)) = h x := by sorry
+-- Actual full-height torus specialization, with the dual measure in its definition.
+example (h : ℝ → ℂ) (hh : ContDiff ℝ ⊤ h) (hc : HasCompactSupport h) (x Λ : ℝ) :
+    pseudo_eisenstein (torusEisenstein x) h Λ = h x := by sorry
 
-
-theorem wrong_entire_growth : ¬ ∃ C N : ℝ, ∀ t : ℝ,
-    ‖Complex.exp ((t * Complex.I) ^ 4)‖ ≤ C * (1 + |t|) ^ N := by sorry
-
+theorem wrong_entire_growth :
+    ¬ IsPaleyWienerSection (fun z : ℂ => Complex.exp (z ^ 4)) := by sorry
 -- Packet unit test: TauCeti.AutomorphicSpectral.pseudo_eisenstein.wrong_entire_growth
--- Ψ(z)=exp(z⁴)v is entire but not Paley–Wiener and does not qualify for this construction.
-example : ¬ ∃ C N : ℝ, ∀ t : ℝ,
-    ‖Complex.exp ((t * Complex.I) ^ 4)‖ ≤ C * (1 + |t|) ^ N := by sorry
-
+-- The entire function is excluded from the actual compact-support transform domain.
+example : ¬ IsPaleyWienerSection (fun z : ℂ => Complex.exp (z ^ 4)) := by sorry
 end pseudo_eisenstein
 
-/-- Adelic finite-vector and compact-height hypotheses are omitted pending AF carriers. -/
-theorem pseudo_eisenstein_l2 {X : Type v} [MeasurableSpace X] (μ : Measure X)
-    (E : X → ℂ → V →L[ℂ] ℂ) (h : ℝ → V)
-    (hh : ContDiff ℝ ⊤ h) (hc : HasCompactSupport h) (Λ : ℝ) :
-    MemLp (fun x => pseudo_eisenstein (E x) h Λ) 2 μ := by sorry
-
-/-- Rank-one slice of the Weyl pairing; holomorphy, chamber and induced-family coherence
-are the omitted supplier conditions, not arbitrary scalar functional assumptions. -/
-theorem pseudo_eisenstein_inner_product {W : Type*} [Fintype W]
-    {H : Type u} [NormedAddCommGroup H] [InnerProductSpace ℂ H] [CompleteSpace H]
-    (M : W → ℂ → Operator H) (w : W → ℂ → ℂ) (Ψ Ψ' : ℂ → H)
-    (EΨ EΨ' : H) (Λ : ℝ) :
-    inner ℂ EΨ' EΨ = ∫ t : ℝ, ∑ v,
-      inner ℂ (Ψ' (-star (w v (Λ + t * Complex.I))))
-        (M v (Λ + t * Complex.I) (Ψ (Λ + t * Complex.I))) := by sorry
+/- AS.1/pseudo-eisenstein-l2 and AS.1/pseudo-eisenstein-inner-product are omitted
+until the actual adelic cuspidal summation, coherent Weyl intertwiners, chamber
+estimates and central quotient measures are supplied. Arbitrary scalar E(x,s) and
+unrelated Hilbert vectors do not satisfy these assertions. The exact packet
+statements retain the finite-dimensional Paley–Wiener input, a_P^G contour and
+reflected conjugate parameter; the full-height variant uses a_P and full L².
+-/
 end PseudoEisenstein
 
 section CuspidalBlocks
@@ -2141,16 +2080,20 @@ namespace local_intertwiner
 variable {N : Type w} [MeasurableSpace N] (μ : Measure N) (k : ℂ → N → H →L[ℂ] K)
 
 theorem intertwines {G : Type*} [Group G] (IP : ℂ → G → Operator H)
-    (IQ : ℂ → G → Operator K) (s : ℂ) (g : G) :
+    (IQ : ℂ → G → Operator K) (s : ℂ) (g : G)
+    (hInt : Integrable (k s) μ)
+    (hCompat : ∀ n, (k s n).comp (IP s g) = (IQ s g).comp (k s n)) :
     (local_intertwiner μ k s).comp (IP s g) = (IQ s g).comp (local_intertwiner μ k s) := by sorry
 
 theorem identity (s : ℂ) : local_intertwiner (Measure.dirac ())
     (fun _ (_ : Unit) => ContinuousLinearMap.id ℂ H) s = ContinuousLinearMap.id ℂ H := by sorry
 
-/-- Continuation is a separate family agreeing in the convergence chamber. -/
-theorem meromorphic_coefficients (v : H) (u : K) :
-    ∃ f : ℂ → ℂ, CommonDenominator Set.univ f ∧
-      ∀ s, 1 < s.re → f s = inner ℂ u (local_intertwiner μ k s v) := by sorry
+/- local_intertwiner.meromorphic_coefficients is omitted until the actual local
+induction and unipotent quotient carrier exists. An arbitrary measurable kernel
+need not depend analytically on its parameter. The preceding integration adapter
+requires expressible integrability and pointwise intertwining compatibility;
+the local representation argument producing those hypotheses is still required.
+-/
 
 theorem identity_test (s : ℂ) (v : H) : local_intertwiner (Measure.dirac ())
     (fun _ (_ : Unit) => ContinuousLinearMap.id ℂ H) s v = v := by sorry
@@ -2163,13 +2106,21 @@ example (s : ℂ) (v : H) : local_intertwiner (Measure.dirac ())
 
 def cFunction (q : ℝ) (z : ℂ) : ℂ := (1 - (q : ℂ)⁻¹ * z) / (1 - z)
 
-theorem p_adic_gl2_spherical (q : ℝ) (hq : 1 < q) (z : ℂ) (hz : ‖z‖ < 1)
-    (v : H) (J : Operator H) : J v = cFunction q z • v := by sorry
+def gl2ShellKernel (q : ℝ) (z : ℂ) : ℂ → ℕ → ℂ →L[ℂ] ℂ :=
+  fun _ n => (if n = 0 then 1 else (1 - (q : ℂ)⁻¹) * z ^ n) •
+    ContinuousLinearMap.id ℂ ℂ
+
+theorem p_adic_gl2_spherical (q : ℝ) (hq : 1 < q) (z : ℂ) (hz : ‖z‖ < 1) :
+    local_intertwiner Measure.count (gl2ShellKernel q z) 0 =
+      cFunction q z • ContinuousLinearMap.id ℂ ℂ := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.local_intertwiner.p_adic_gl2_spherical
--- For GL₂(k), unramified χ₁⊗χ₂ and hyperspecial normalization, the nontrivial Weyl integral on the spherical vector equals (1−q⁻¹z)/(1−z), z=χ₁(ϖ)/χ₂(ϖ), in |z|<1.
-example (q : ℝ) (hq : 1 < q) (z : ℂ) (hz : ‖z‖ < 1)
-    (v : H) (J : Operator H) : J v = cFunction q z • v := by sorry
+-- The normalized valuation-shell model calls the actual integral constructor.
+-- Identifying these shells with the GL₂ unipotent quotient is a supplier omission.
+-- This signature does not evaluate an arbitrary unrelated operator J.
+example (q : ℝ) (hq : 1 < q) (z : ℂ) (hz : ‖z‖ < 1) :
+    local_intertwiner Measure.count (gl2ShellKernel q z) 0 =
+      cFunction q z • ContinuousLinearMap.id ℂ ℂ := by sorry
 
 
 theorem raw_not_unitary : ‖cFunction 2 (-1)‖ ≠ 1 := by sorry
@@ -2180,60 +2131,77 @@ example : ‖cFunction 2 (-1)‖ ≠ 1 := by sorry
 
 end local_intertwiner
 
-/-- Scalar extracted from the opposite composition in the irreducible generic compact
-picture. Its definition presupposes that supplied local data; Schur hypotheses are omitted. -/
-def mu_function (J Jopp : ℂ → Operator H) (s : ℂ) : ℂ := by sorry
+/- Regular-point algebraic adapter for the μ-function. The local representation
+theorem supplies scalar opposite composition on an admitted regular parameter.
+It is not asserted for arbitrary operators, and this adapter does not construct
+the missing meromorphic family or its generic irreducibility theorem. -/
+structure ScalarIntertwinerPair (H : Type u) [NormedAddCommGroup H]
+    [InnerProductSpace ℂ H] where
+  forward : Operator H
+  backward : Operator H
+  scalar : ℂ
+  scalar_comp : backward.comp forward = scalar • ContinuousLinearMap.id ℂ H
+
+def mu_function (D : ScalarIntertwinerPair H) : ℂ := D.scalar⁻¹
 namespace mu_function
+def rescale (D : ScalarIntertwinerPair H) (c d : ℂ) : ScalarIntertwinerPair H where
+  forward := c • D.forward
+  backward := d • D.backward
+  scalar := c * d * D.scalar
+  scalar_comp := by sorry
 
-theorem opposite_composition (J Jopp : ℂ → Operator H) (s : ℂ) :
-    (Jopp s).comp (J s) = (mu_function J Jopp s)⁻¹ • ContinuousLinearMap.id ℂ H := by sorry
+def noRootPair : ScalarIntertwinerPair H where
+  forward := ContinuousLinearMap.id ℂ H
+  backward := ContinuousLinearMap.id ℂ H
+  scalar := 1
+  scalar_comp := by sorry
 
-theorem measure_change (J Jopp : ℂ → Operator H) (c d : ℝ)
-    (hc : 0 < c) (hd : 0 < d) (s : ℂ) :
-    (mu_function (fun z => (c : ℂ) • J z) (fun z => (d : ℂ) • Jopp z) s)⁻¹ =
-      (c * d : ℝ) * (mu_function J Jopp s)⁻¹ := by sorry
+def sphericalPair (q : ℝ) (z : ℂ) : ScalarIntertwinerPair ℂ where
+  forward := local_intertwiner.cFunction q z • ContinuousLinearMap.id ℂ ℂ
+  backward := local_intertwiner.cFunction q z⁻¹ • ContinuousLinearMap.id ℂ ℂ
+  scalar := local_intertwiner.cFunction q z * local_intertwiner.cFunction q z⁻¹
+  scalar_comp := by sorry
 
-/-- Compatible reduced-root factorizations and measures are omitted. -/
-theorem rank_one_product {I : Type*} [Fintype I] (J Jopp : ℂ → Operator H)
-    (rootMu : I → ℂ → ℂ) (s : ℂ) : mu_function J Jopp s = ∏ i, rootMu i s := by sorry
+theorem opposite_composition (D : ScalarIntertwinerPair H) :
+    D.backward.comp D.forward = (mu_function D)⁻¹ • ContinuousLinearMap.id ℂ H := by sorry
 
-theorem no_roots [Nontrivial H] (s : ℂ) :
-    mu_function (fun _ => ContinuousLinearMap.id ℂ H) (fun _ => ContinuousLinearMap.id ℂ H) s = 1 := by sorry
+theorem measure_change (D : ScalarIntertwinerPair H) (c d : ℝ)
+    (hc : 0 < c) (hd : 0 < d) :
+    (mu_function (rescale D c d))⁻¹ = (c * d : ℝ) * (mu_function D)⁻¹ := by sorry
 
+-- The source rank-one factorization must first provide hFactor at this regular point.
+theorem rank_one_product {I : Type*} [Fintype I] (D : ScalarIntertwinerPair H)
+    (rootMu : I → ℂ) (hFactor : D.scalar = ∏ i, (rootMu i)⁻¹) :
+    mu_function D = ∏ i, rootMu i := by sorry
+
+theorem no_roots : mu_function (noRootPair (H := H)) = 1 := by sorry
 -- Packet unit test: TauCeti.AutomorphicSpectral.mu_function.no_roots
--- For M=G the point integral gives μ=1.
-example [Nontrivial H] (s : ℂ) :
-    mu_function (fun _ => ContinuousLinearMap.id ℂ H) (fun _ => ContinuousLinearMap.id ℂ H) s = 1 := by sorry
+example : mu_function (noRootPair (H := H)) = 1 := by sorry
 
-
-theorem gl2_spherical (q : ℝ) (hq : 1 < q) (z : ℂ) :
-    local_intertwiner.cFunction q z * local_intertwiner.cFunction q z⁻¹ =
-      ((1 - (q : ℂ)⁻¹ * z) * (1 - (q : ℂ)⁻¹ * z⁻¹)) / ((1 - z) * (1 - z⁻¹)) := by sorry
-
+theorem gl2_spherical (q : ℝ) (hq : 1 < q) (z : ℂ) (hz : z ≠ 0) (hPole : z ≠ 1) :
+    (mu_function (sphericalPair q z))⁻¹ =
+      local_intertwiner.cFunction q z * local_intertwiner.cFunction q z⁻¹ := by sorry
 -- Packet unit test: TauCeti.AutomorphicSpectral.mu_function.gl2_spherical
--- For unramified GL₂, μ⁻¹=c(z)c(z⁻¹), c(z)=(1−q⁻¹z)/(1−z), interpreted meromorphically.
-example (q : ℝ) (hq : 1 < q) (z : ℂ) :
-    local_intertwiner.cFunction q z * local_intertwiner.cFunction q z⁻¹ =
-      ((1 - (q : ℂ)⁻¹ * z) * (1 - (q : ℂ)⁻¹ * z⁻¹)) / ((1 - z) * (1 - z⁻¹)) := by sorry
+-- The scalar eigenline is linked to the μ construction; the actual local integral
+-- supplying cFunction remains a separate local-representation obligation.
+example (q : ℝ) (hq : 1 < q) (z : ℂ) (hz : z ≠ 0) (hPole : z ≠ 1) :
+    (mu_function (sphericalPair q z))⁻¹ =
+      local_intertwiner.cFunction q z * local_intertwiner.cFunction q z⁻¹ := by sorry
 
-
-theorem measure_scaling (m : ℂ) (hm : m ≠ 0) : (2 * 2 : ℂ) * m⁻¹ ≠ m⁻¹ := by sorry
-
+theorem measure_scaling :
+    (mu_function (rescale (noRootPair (H := ℂ)) 2 2))⁻¹ = 4 ∧
+      mu_function (rescale (noRootPair (H := ℂ)) 2 2) ≠ mu_function (noRootPair (H := ℂ)) := by sorry
 -- Packet unit test: TauCeti.AutomorphicSpectral.mu_function.measure_scaling
--- Rescaling both opposite measures by 2 changes μ⁻¹ by 4; μ is not measure independent.
-example (m : ℂ) (hm : m ≠ 0) : (2 * 2 : ℂ) * m⁻¹ ≠ m⁻¹ := by sorry
-
+example : (mu_function (rescale (noRootPair (H := ℂ)) 2 2))⁻¹ = 4 ∧
+    mu_function (rescale (noRootPair (H := ℂ)) 2 2) ≠ mu_function (noRootPair (H := ℂ)) := by sorry
 end mu_function
 
-/-- One-variable finite-block slice of Arthur's normalization theorem. The rationality,
-Weyl transport and induction-in-stages interfaces are omitted, not replaced by new objects. -/
-theorem local_normalization {P : Type*} [Fintype P]
-    (J : P → P → ℂ → Operator H) :
-    ∃ r : P → P → ℂ → ℂ, ∃ R : P → P → ℂ → Operator H,
-      (∀ Q P s, R Q P s = (r Q P s)⁻¹ • J Q P s) ∧
-      (∀ S Q P s, R S P s = (R S Q s).comp (R Q P s)) ∧
-      ∀ Q P s, s.re = 0 → (R Q P s).adjoint = R P Q (-star s) ∧
-        (R P Q s).comp (R Q P s) = ContinuousLinearMap.id ℂ H := by sorry
+/- AS.2/local-normalization is omitted until local induced representations and their
+actual meromorphic J_Q|P are supplied. Its former conclusion for arbitrary J was
+false: J=0 cannot acquire unitary inverse compositions by scalar normalization.
+The packet retains all seven source conditions, including their unitary/tempered
+and unramified hypotheses; this omission does not prove them from the scalar adapter.
+-/
 
 /-- Source family and the discrete inducing conditions are AS.1 supplier data. This slice
 retains common-denominator continuation, the functional equation and unitary-axis inverse. -/
@@ -3750,62 +3718,81 @@ def PaleyWienerBound (f : ℂ → ℂ) (r : ℝ) : Prop :=
   ∀ N : ℕ, ∃ C : ℝ, ∀ s : ℂ,
     Real.exp (-r * |s.re|) * (1 + ‖s‖) ^ N * ‖f s‖ ≤ C
 
-theorem real_invariant_paley_wiener {E : Type u} [AddCommGroup E] [Module ℂ E]
-    {I : Type v} (transform : E →ₗ[ℂ] (I → ℂ → ℂ))
-    (F : I → ℂ → ℂ) (r : ℝ) (hr : 0 < r)
-    (hEntire : ∀ i, AnalyticOnNhd ℂ (F i) Set.univ)
-    (hBound : ∀ i, PaleyWienerBound (F i) r)
-    (hFinite : Set.Finite {i | F i ≠ 0}) : ∃ f : E, transform f = F := by sorry
-
-/-- The target is a topological algebra isomorphism; the operator PW algebra and its
-III.4.1 derivative relations are omitted until the real-induced carrier is integrated. -/
-theorem real_operator_paley_wiener {A B : Type u} [Ring A] [Ring B]
-    [TopologicalSpace A] [TopologicalSpace B] :
-    ∃ e : A ≃+* B, Continuous e ∧ Continuous e.symm := by sorry
+/- AS.6/real-invariant-paley-wiener and AS.6/real-operator-paley-wiener:
+full signatures omitted until the AF local real-parabolic family and the actual
+Hecke/PW topological algebras exist. Scalar entire bounds and finite support alone
+do not imply membership in an arbitrary transform range; arbitrary rings need not
+be isomorphic. The invariant theorem also needs Clozel–Delorme's relations (iii),
+(iv); the operator theorem needs every differentiated matrix-coefficient relation.
+These source conditions are not replaced by an unqualified numerical prototype.
+-/
 
 section Multipliers
 variable {E : Type u} [AddCommGroup E] [Module ℂ E]
 variable {I : Type v}
-def spectral_multiplier (characterTransform : E →ₗ[ℂ] (I → ℂ))
-    (multiplierTransform : I → ℂ) : E →ₗ[ℂ] E := by sorry
+
+/-- Scalar multiplication preserving a specified Fourier-image subspace. The actual
+Cartan-distribution theorem must produce this property for the operator PW image. -/
+structure PWMultiplier (W : Submodule ℂ (I → ℂ)) where
+  symbol : I → ℂ
+  preserves : ∀ f ∈ W, (fun i => symbol i * f i) ∈ W
+
+def PWMultiplier.map {W : Submodule ℂ (I → ℂ)} (gamma : PWMultiplier W) : W →ₗ[ℂ] W where
+  toFun f := ⟨fun i => gamma.symbol i * f i, gamma.preserves f f.property⟩
+  map_add' := by sorry
+  map_smul' := by sorry
+
+def PWMultiplier.one (W : Submodule ℂ (I → ℂ)) : PWMultiplier W where
+  symbol := fun _ => 1
+  preserves := by sorry
+
+def PWMultiplier.zero (W : Submodule ℂ (I → ℂ)) : PWMultiplier W where
+  symbol := fun _ => 0
+  preserves := by sorry
+
+def PWMultiplier.mul {W : Submodule ℂ (I → ℂ)}
+    (gamma eta : PWMultiplier W) : PWMultiplier W where
+  symbol := fun i => gamma.symbol i * eta.symbol i
+  preserves := by sorry
+
+/-- Algebraic transport after a Fourier isomorphism and an image-preserving symbol
+have been supplied. No arbitrary linear transform is declared invertible. -/
+def spectral_multiplier {W : Submodule ℂ (I → ℂ)} (T : E ≃ₗ[ℂ] W)
+    (gamma : PWMultiplier W) : E →ₗ[ℂ] E :=
+  T.symm.toLinearMap.comp (gamma.map.comp T.toLinearMap)
+
 namespace spectral_multiplier
+variable {W : Submodule ℂ (I → ℂ)}
+theorem character (T : E ≃ₗ[ℂ] W) (gamma : PWMultiplier W) (f : E) (i : I) :
+    T (spectral_multiplier T gamma f) i = gamma.symbol i * T f i := by sorry
 
-theorem character (T : E →ₗ[ℂ] (I → ℂ)) (gamma : I → ℂ) (f : E) (i : I) :
-    T (spectral_multiplier T gamma f) i = gamma i * T f i := by sorry
-
-theorem composition (T : E →ₗ[ℂ] (I → ℂ)) (gamma eta : I → ℂ) (f : E) :
+theorem composition (T : E ≃ₗ[ℂ] W) (gamma eta : PWMultiplier W) (f : E) :
     spectral_multiplier T eta (spectral_multiplier T gamma f) =
-      spectral_multiplier T (fun i => gamma i * eta i) f := by sorry
+      spectral_multiplier T (PWMultiplier.mul gamma eta) f := by sorry
 
-/-- Supplied test support and Cartan support-radius functions. -/
-theorem support (T : E →ₗ[ℂ] (I → ℂ)) (gamma : I → ℂ) (f : E)
-    (radius : E → ℝ) (Ngamma : ℝ) (hNgamma : 0 ≤ Ngamma) :
-    radius (spectral_multiplier T gamma f) ≤ radius f + Ngamma := by sorry
-
-theorem dirac (T : E →ₗ[ℂ] (I → ℂ)) (f : E) : spectral_multiplier T (fun _ => 1) f = f := by sorry
-
+/- spectral_multiplier.support is omitted: the actual radius filtration and
+support addition theorem for compact Cartan distributions are not arbitrary
+functions E→ℝ. The packet's N+N_gamma and fixed-K-type conclusions remain required.
+-/
+theorem dirac (T : E ≃ₗ[ℂ] W) (f : E) :
+    spectral_multiplier T (PWMultiplier.one W) f = f := by sorry
 -- Packet unit test: TauCeti.AutomorphicSpectral.spectral_multiplier.dirac
--- The Dirac distribution at 0 acts as identity.
-example (T : E →ₗ[ℂ] (I → ℂ)) (f : E) : spectral_multiplier T (fun _ => 1) f = f := by sorry
+example (T : E ≃ₗ[ℂ] W) (f : E) :
+    spectral_multiplier T (PWMultiplier.one W) f = f := by sorry
 
-
-theorem central_polynomial (T : E →ₗ[ℂ] (I → ℂ)) (p : I → ℂ) (z : E →ₗ[ℂ] E)
-    (hT : Function.Injective T) (hz : ∀ f i, T (z f) i = p i * T f i) (f : E) :
+theorem central_polynomial (T : E ≃ₗ[ℂ] W) (p : PWMultiplier W)
+    (z : E →ₗ[ℂ] E) (hz : ∀ f i, T (z f) i = p.symbol i * T f i) (f : E) :
     spectral_multiplier T p f = z f := by sorry
-
 -- Packet unit test: TauCeti.AutomorphicSpectral.spectral_multiplier.central_polynomial
--- For the distribution whose transform is the Harish-Chandra polynomial p_z, f_γ=zf.
-example (T : E →ₗ[ℂ] (I → ℂ)) (p : I → ℂ) (z : E →ₗ[ℂ] E)
-    (hT : Function.Injective T) (hz : ∀ f i, T (z f) i = p i * T f i) (f : E) :
+example (T : E ≃ₗ[ℂ] W) (p : PWMultiplier W) (z : E →ₗ[ℂ] E)
+    (hz : ∀ f i, T (z f) i = p.symbol i * T f i) (f : E) :
     spectral_multiplier T p f = z f := by sorry
 
-
-theorem zero (T : E →ₗ[ℂ] (I → ℂ)) (f : E) : spectral_multiplier T 0 f = 0 := by sorry
-
+theorem zero (T : E ≃ₗ[ℂ] W) (f : E) :
+    spectral_multiplier T (PWMultiplier.zero W) f = 0 := by sorry
 -- Packet unit test: TauCeti.AutomorphicSpectral.spectral_multiplier.zero
--- The zero distribution sends every f to zero.
-example (T : E →ₗ[ℂ] (I → ℂ)) (f : E) : spectral_multiplier T 0 f = 0 := by sorry
-
+example (T : E ≃ₗ[ℂ] W) (f : E) :
+    spectral_multiplier T (PWMultiplier.zero W) f = 0 := by sorry
 end spectral_multiplier
 end Multipliers
 
@@ -3987,9 +3974,11 @@ def weight {P : Type*} [Fintype P] (heights : P → ℂ) (theta : P → ℂ → 
 theorem full_levi {X : Type u} [MeasurableSpace X] (μ : Measure X) (D : ℝ) (f : X → ℂ) :
     weighted_orbital_integral μ D f (fun _ => 1) = (Real.sqrt |D| : ℂ) * ∫ x, f x ∂μ := by sorry
 
-/-- The two-place splitting test functions and normalized constant terms are imported. -/
-theorem splitting {L : Type*} [Fintype L] (J : ℂ) (d J₁ J₂ : L → ℂ) :
-    J = ∑ l, d l * J₁ l * J₂ l := by sorry
+/- weighted_orbital_integral.splitting is omitted until the actual two-place
+quotients, Levi pairs, determinant coefficients and normalized constant terms are
+supplied. The former equation for arbitrary unrelated scalars J,d,J₁,J₂ was false.
+The packet's exact splitting theorem and its source hypotheses remain required.
+-/
 
 theorem rank_zero {P : Type*} [Fintype P] [Unique P] : weight (fun _ : P => 0) (fun _ _ => 1) = 1 := by sorry
 
@@ -3999,19 +3988,24 @@ example {P : Type*} [Fintype P] [Unique P] : weight (fun _ : P => 0) (fun _ _ =>
 
 
 theorem rank_one_volume (r vol : ℝ) (hr : 0 ≤ r) (hvol : 0 < vol) :
-    |r| * vol = r * vol := by sorry
-
+    weight (fun b : Bool => if b then (r : ℂ) else 0)
+      (fun b z => if b then -z / (vol : ℂ) else z / (vol : ℂ)) = (r * vol : ℝ) := by sorry
 -- Packet unit test: TauCeti.AutomorphicSpectral.weighted_orbital_integral.rank_one_volume
--- For two heights differing by rα∨, the weight is r times the chosen coroot-segment volume.
+-- The actual two-height family has positive order r≥0 and the fixed coroot covolume.
 example (r vol : ℝ) (hr : 0 ≤ r) (hvol : 0 < vol) :
-    |r| * vol = r * vol := by sorry
+    weight (fun b : Bool => if b then (r : ℂ) else 0)
+      (fun b z => if b then -z / (vol : ℂ) else z / (vol : ℂ)) = (r * vol : ℝ) := by sorry
 
-
-theorem measure_scaling (c volume orbital : ℝ) (hc : c ≠ 0) : (c * volume) * (orbital / c) = volume * orbital := by sorry
-
+theorem measure_scaling {X : Type u} [MeasurableSpace X] (μ : Measure X)
+    (D : ℝ) (f w : X → ℂ) (c : ℝ≥0) (hc : c ≠ 0) :
+    (c : ℂ) * weighted_orbital_integral (c⁻¹ • μ) D f w =
+      weighted_orbital_integral μ D f w := by sorry
 -- Packet unit test: TauCeti.AutomorphicSpectral.weighted_orbital_integral.measure_scaling
--- Scaling the centralizer Haar by c scales the quotient integral by c⁻¹; the global centralizer-volume coefficient scales by c and cancels it.
-example (c volume orbital : ℝ) (hc : c ≠ 0) : (c * volume) * (orbital / c) = volume * orbital := by sorry
+-- Centralizer scaling uses the inverse quotient measure and cancels its coefficient.
+example {X : Type u} [MeasurableSpace X] (μ : Measure X)
+    (D : ℝ) (f w : X → ℂ) (c : ℝ≥0) (hc : c ≠ 0) :
+    (c : ℂ) * weighted_orbital_integral (c⁻¹ • μ) D f w =
+      weighted_orbital_integral μ D f w := by sorry
 
 end weighted_orbital_integral
 
@@ -4662,8 +4656,10 @@ end TauCeti.AutomorphicSpectral
 Real harmonic-analysis export proposal (findings /4 and /24):
 AS.6/real-invariant-paley-wiener, real-operator-paley-wiener and
 spectral-multiplier form a proposed AS.1a prefix before ET.1 and AS.6.
-Only independent AS.0 LF/Schwartz/integration, AS.1 induced-family and AF.1
-real-representation inputs belong to that prefix. The multiplier uses the
+Only independent AS.0 LF/Schwartz/integration and the requested AF.1 local
+real-parabolic families on the independent supplied SF/Hilbert carrier, together
+with AF.1b real classification, belong to that prefix. The global adelic
+AS.1 induced-family is not a local real supplier. The multiplier uses the
 operator theorem. ET.1 then supplies ordinary orbital integrals to AS.6's
 weighted orbital and general Euler-Poincare consumers. This does not create
 an integrated atlas stage or claim that the entire stage graph is acyclic.
