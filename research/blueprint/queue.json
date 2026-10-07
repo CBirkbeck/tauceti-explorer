@@ -16770,7 +16770,8 @@
    "avoidAccountOf": "DESIGN-CrystallineLocalGlobalCompatibilityCM",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-CrystallineLocalGlobalCompatibilityCM.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6904"
   },
   {
    "id": "DESIGN-EllipticCurveModularityImaginaryQuadratic",
@@ -16816,7 +16817,8 @@
    "avoidAccountOf": "DESIGN-EllipticCurveModularityImaginaryQuadratic",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-EllipticCurveModularityImaginaryQuadratic.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6905"
   },
   {
    "id": "DESIGN-EllAdicHomotopyTypesAndWeights",
@@ -42820,7 +42822,8 @@
     "REV-DiamondEtaleCohomology--C8"
    ],
    "prompt": "research/blueprint/prompts/ASM-DiamondEtaleCohomology.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #224"
   },
   {
    "id": "ASM-DirichletPadicLFunctions",
@@ -69860,8 +69863,9 @@
     "REV-FIX-RT-AREA-automorphic-1~2"
    ],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-automorphic-1~3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6900"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6900",
+   "finishedAt": "2026-10-07T17:09:21Z"
   },
   {
    "id": "REV-FIX-RT-AREA-automorphic-1~3",
