@@ -21348,8 +21348,9 @@
    ],
    "avoidAccountOf": "BP-AInfCohomology--AI.0",
    "prompt": "research/blueprint/prompts/REV-AInfCohomology--AI.0.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #338"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #338",
+   "finishedAt": "2026-10-07T04:09:15Z"
   },
   {
    "id": "BP-AInfCohomology--AI.6",
@@ -26898,12 +26899,13 @@
     "REV-RS-08"
    ],
    "prompt": "research/blueprint/prompts/BP-LocalGaloisDeformationRings.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [
     "BP-DeformationAndDerivedPatchingAlgebra--P7",
     "BP-DeformationAndDerivedPatchingAlgebra--R03.6"
    ],
-   "note": "claimed on GitHub issue #770"
+   "note": "deliverables arrived from an external worker on issue #770",
+   "finishedAt": "2026-10-07T04:09:18Z"
   },
   {
    "id": "REV-LocalGaloisDeformationRings",
@@ -26973,7 +26975,8 @@
    ],
    "avoidAccountOf": "BP-MetaplecticAutomorphicForms--MP.0",
    "prompt": "research/blueprint/prompts/REV-MetaplecticAutomorphicForms--MP.0.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #448"
   },
   {
    "id": "BP-MetaplecticAutomorphicForms--MP.8",
