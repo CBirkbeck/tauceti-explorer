@@ -346,6 +346,9 @@ FULL MATHEMATICAL SIGNATURE REGISTER
 These names and full statements agree with the packet. A name with a declared
 ordinary observation above still needs the higher conditions stated here.
 All other higher signatures are explicitly OMITTED pending the supplier types.
+Independent review REV-ExcursionOperatorsAndSpectralAction--ES0 records needs_changes:
+this comment register is not the actual signatures required by PROTOCOL section 13.
+See the review report for the complete declaration/API/example inventory.
 The register is not a family of assumed propositions or formalized proofs.
 
 ExcursionOperatorsAndSpectralAction:ES0/bernstein-center-of-a-category
@@ -426,8 +429,8 @@ Proposed declaration: excursion_algebra_to_bernstein_center
 OMITTED HIGHER SIGNATURE: the exact types are not supplied at the pins.
 For a finite-wild compact Hecke category D^P, the LP2 algebra Exc(W,H) tensor Lambda maps naturally
 to Z_enh(D^P) by f_D,gamma |-> [S_D]. Its projection to CatCenter(hD^P) is the imported VIII.4.1
-map. Relations are enforced on enhanced natural transformations before pi_0; no Perf action or
-good-prime hypothesis is needed.
+map. Coherent HS4 comparisons between enhanced natural transformations give equal classes in pi_0,
+where the excursion algebra relations hold; no Perf action or good-prime hypothesis is needed.
 
 ExcursionOperatorsAndSpectralAction:ES0/continuity-of-excursion-evaluations
 Proposed declaration: continuity_of_excursion_evaluations
@@ -835,9 +838,9 @@ Example centralSupport_free (computation): For C=Perf(R_P) with its scalar actio
 module R_P has annihilator zero and support all Spec R_P.
 An ordinary observation is present above; the full supplier-dependent test remains as specified
 here.
-Example centralSupport_nilpotent (computation): For R=k[epsilon]/(epsilon^2) and A=k,
-Ann(A)=(epsilon) but Supp(A)=Spec R as an underlying set; the support does not retain the nilpotent
-thickening.
+Example centralSupport_nilpotent (computation): For R=k[epsilon]/(epsilon^2), take C=Perf(k) with its R-linear action through R->k and A=k, which is
+compact in C. Then Ann_R(A)=(epsilon) but Supp_R(A)=Spec R as an underlying set; the support does
+not retain the nilpotent thickening. Do not take k to be a perfect R-module.
 An ordinary observation is present above; the full supplier-dependent test remains as specified
 here.
 
@@ -895,8 +898,9 @@ OMITTED HIGHER SIGNATURE: the exact types are not supplied at the pins.
 For an algebraically closed characteristic-zero coefficient field L, a continuous parameter phi with
 the prescribed pinned Weil projection is elliptic if it is semisimple and S_phi/Z(H)^Gamma is
 finite, where S_phi is the H-centralizer of the full twisted parameter. The centralizer is a group
-scheme; quotienting by the fixed center removes central unramified twists. The connected-component
-assertion is a separate theorem.
+scheme; quotienting the centralizer by the fixed center removes the central stabilizer from the
+finiteness test. Unramified central twists still vary the parameter in its connected component. The
+connected-component assertion is a separate theorem.
 API ellipticParameter_iff (characterisation): Ellipticity means semisimplicity and finiteness of the
 specified centralizer quotient.
 OMITTED HIGHER API SIGNATURE pending the supplier types.
