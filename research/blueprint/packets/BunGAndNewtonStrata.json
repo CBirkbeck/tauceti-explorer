@@ -9343,7 +9343,7 @@
    "date": "2026-10-07",
    "command": "lean-check research/blueprint/suggested/BunGAndNewtonStrata.lean",
    "exitCode": 0,
-   "warnings": "Only declaration uses sorry warnings; independently rerun successfully after the review corrections.",
+   "warnings": "Only admitted-proof placeholder warnings; independently rerun successfully after the review corrections.",
    "limitation": "This checks only the concrete Mathlib cores; full signatures listed in the G08 register are omitted, not elaborated. Tau Ceti baseline declarations were read at their pin but were not imported from the different shared-build HEAD.",
    "reviewer": "independent-review-REV-BunGAndNewtonStrata"
   }
