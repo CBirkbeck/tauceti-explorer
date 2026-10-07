@@ -25635,7 +25635,8 @@
    ],
    "avoidAccountOf": "BP-GrossZagierAndArithmeticHeights--GZ.0",
    "prompt": "research/blueprint/prompts/REV-GrossZagierAndArithmeticHeights--GZ.0.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #421"
   },
   {
    "id": "BP-GrossZagierAndArithmeticHeights--GZ.8",
