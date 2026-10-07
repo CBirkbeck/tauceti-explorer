@@ -1788,9 +1788,15 @@
         "SV2000 Theorem 7.4 alone assumes resolution of singularities; Geisser–Levine 2001 removes it. The latter original PDF was unavailable and its exact resolution-free proof input is an explicit gap, corroborated by Geisser 2004 §5."
       ],
       "prerequisites": [
-        "MotivicEtaleKTheory:M.4",
-        "MotivicEtaleKTheory:M.5a",
-        "MotivicEtaleKTheory:M.5c"
+        "MotivicEtaleKTheory:M.4/cycle-complex",
+        "MotivicEtaleKTheory:M.4/vanishing-above-weight",
+        "MotivicEtaleKTheory:M.4/nesterenko-suslin-totaro",
+        "MotivicEtaleKTheory:M.5a/suslin-complex-and-motivic-complexes",
+        "MotivicEtaleKTheory:M.5a/cycle-complex-transfers",
+        "MotivicEtaleKTheory:M.5a/etale-motivic-comparison",
+        "MotivicEtaleKTheory:M.5c/mod-l-norm-residue",
+        "MotivesAndAlgebraicCycles:MC.4/suslin-friedlander-into-cycle-complex",
+        "MotivesAndAlgebraicCycles:MC.4/motivic-cohomology-higher-chow"
       ],
       "sources": [
         {
@@ -1833,8 +1839,10 @@
       ],
       "prerequisites": [
         "MotivicEtaleKTheory:M.5d/mod-prime-motivic-comparison",
-        "MotivicEtaleKTheory:M.4",
-        "MotivicEtaleKTheory:M.1",
+        "MotivicEtaleKTheory:M.4/nesterenko-suslin-totaro",
+        "MotivicEtaleKTheory:M.4/vanishing-above-weight",
+        "MotivicEtaleKTheory:M.1/finite-tate-twist",
+        "MotivicEtaleKTheory:M.1/adic-tate-twist",
         "StableHomotopyKTheory:H.6/bockstein-long-exact-sequence"
       ],
       "sources": [
@@ -1877,7 +1885,7 @@
         "K2SymbolsBrauer:T.2/milnor-k-theory",
         "DerivedDeRhamCohomology:DD.2/ordinary-de-rham-complex",
         "CrystallineCohomology:CR.4",
-        "MotivicEtaleKTheory:M.1",
+        "MotivicEtaleKTheory:M.1/field-etale-galois-comparison",
         "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees"
       ],
       "sources": [
@@ -1921,7 +1929,8 @@
       "prerequisites": [
         "MotivicEtaleKTheory:M.5d/filtered-colimit-comparisons",
         "K2SymbolsBrauer:T.4/restriction-transfer-degree",
-        "ArithmeticGaloisDuality:R02.2"
+        "ArithmeticGaloisDuality:R02.2",
+        "MotivicEtaleKTheory:M.1/field-etale-galois-comparison"
       ],
       "sources": [
         {
@@ -1959,7 +1968,8 @@
       "prerequisites": [
         "SchemeKTheoryOperations:S.4/codimension-support-filtration",
         "SchemeKTheoryOperations:S.4/coniveau-layer-fibre-sequence",
-        "MotivicEtaleKTheory:M.4"
+        "MotivicEtaleKTheory:M.4/algebraic-simplex",
+        "MotivicEtaleKTheory:M.4/admissible-cycles"
       ],
       "sources": [
         {
@@ -2213,7 +2223,9 @@
       "prerequisites": [
         "MotivicEtaleKTheory:M.6a/k-theory-well-connected",
         "MotivicEtaleKTheory:M.6a/moving-and-excision",
-        "MotivicEtaleKTheory:M.4"
+        "MotivicEtaleKTheory:M.4/cycle-complex",
+        "MotivicEtaleKTheory:M.4/localization-sequence",
+        "MotivicEtaleKTheory:M.4/moving-lemma"
       ],
       "sources": [
         {
@@ -2455,7 +2467,9 @@
         "MotivicEtaleKTheory:M.6b/motivic-exact-couple",
         "SchemeKTheoryOperations:S.6/support-product-pairings",
         "StableHomotopyKTheory:H.6/moore-spectrum-multiplication",
-        "MotivicEtaleKTheory:M.4"
+        "MotivicEtaleKTheory:M.4/products",
+        "MotivicEtaleKTheory:M.4/moving-lemma",
+        "MotivicEtaleKTheory:M.4/cubical-cycle-complex"
       ],
       "sources": [
         {
@@ -2740,8 +2754,13 @@
       "prerequisites": [
         "MotivicEtaleKTheory:M.5d/mod-prime-motivic-comparison",
         "MotivicEtaleKTheory:M.5d/prime-power-norm-residue",
-        "MotivicEtaleKTheory:M.4",
-        "MotivicEtaleKTheory:M.5a"
+        "MotivicEtaleKTheory:M.4/cycle-complex",
+        "MotivicEtaleKTheory:M.4/vanishing-above-weight",
+        "MotivicEtaleKTheory:M.5a/suslin-complex-and-motivic-complexes",
+        "MotivicEtaleKTheory:M.5a/cycle-complex-transfers",
+        "MotivicEtaleKTheory:M.5a/etale-motivic-comparison",
+        "MotivesAndAlgebraicCycles:MC.4/suslin-friedlander-into-cycle-complex",
+        "MotivesAndAlgebraicCycles:MC.4/motivic-cohomology-higher-chow"
       ],
       "sources": [
         {
@@ -2787,7 +2806,10 @@
       ],
       "prerequisites": [
         "MotivicEtaleKTheory:M.7/beilinson-lichtenbaum",
-        "MotivicEtaleKTheory:M.4",
+        "MotivicEtaleKTheory:M.4/dedekind-cycle-complex",
+        "MotivicEtaleKTheory:M.4/dedekind-gersten",
+        "MotivicEtaleKTheory:M.4/purity-gysin-triangle",
+        "MotivicEtaleKTheory:M.4/zariski-descent",
         "ArithmeticGaloisDuality:R02.3"
       ],
       "sources": [
@@ -3007,7 +3029,9 @@
         "KTheoryFiniteLocalFields:L.1/finite-field-mod-m-groups",
         "GeneralAlgebraicKTheory:K.3/abelian-localization-theorem",
         "GeneralAlgebraicKTheory:K.3/transfer-maps-and-projection-formula",
-        "ArithmeticGaloisDuality:R02.3"
+        "ArithmeticGaloisDuality:R02.3",
+        "MotivicEtaleKTheory:M.2/high-degree-real-isomorphism",
+        "MotivicEtaleKTheory:M.2/adic-s-integer-cohomology"
       ],
       "sources": [
         {
@@ -3053,8 +3077,13 @@
         "StableHomotopyKTheory:H.6/l-adic-completion-milnor-sequence",
         "StableHomotopyKTheory:H.6/completion-finite-type",
         "ArithmeticKTheory:N.3:finite-generation/finite-generation-of-K-of-S-integers",
-        "MotivicEtaleKTheory:M.1",
-        "ArithmeticGaloisDuality:R02.3"
+        "MotivicEtaleKTheory:M.1/adic-tate-twist",
+        "MotivicEtaleKTheory:M.1/continuous-limit-comparison",
+        "MotivicEtaleKTheory:M.1/etale-twist-sheaf",
+        "MotivicEtaleKTheory:M.1/s-integer-galois-comparison",
+        "ArithmeticGaloisDuality:R02.3",
+        "MotivicEtaleKTheory:M.2/high-degree-real-isomorphism",
+        "MotivicEtaleKTheory:M.2/adic-s-integer-cohomology"
       ],
       "sources": [
         {
@@ -3262,7 +3291,9 @@
         "MotivicEtaleKTheory:M.7/suslin-real-comparison",
         "MotivicEtaleKTheory:M.6/motivic-spectral-sequence",
         "MotivicEtaleKTheory:M.6b/filtered-motivic-products",
-        "MotivicEtaleKTheory:M.4",
+        "MotivicEtaleKTheory:M.4/cycle-complex",
+        "MotivicEtaleKTheory:M.4/weight-zero-and-one",
+        "MotivicEtaleKTheory:M.4/products",
         "RefinedTraceMethods:RT.4"
       ],
       "sources": [
@@ -3301,7 +3332,9 @@
       ],
       "prerequisites": [
         "MotivicEtaleKTheory:M.7/real-mod-two-sequence",
-        "MotivicEtaleKTheory:M.2",
+        "MotivicEtaleKTheory:M.2/real-restriction-map",
+        "MotivicEtaleKTheory:M.2/positive-and-modified-cohomology",
+        "MotivicEtaleKTheory:M.2/high-degree-real-isomorphism",
         "ArithmeticGaloisDuality:D7",
         "StableHomotopyKTheory:H.6/qp-zp-coefficients"
       ],
@@ -3387,7 +3420,10 @@
         "MotivicEtaleKTheory:M.7/real-place-correction",
         "MotivicEtaleKTheory:M.7/real-mod-two-sequence",
         "ArithmeticGaloisDuality:R02.4",
-        "ArithmeticKTheory:N.3:finite-generation/finite-generation-of-K-of-S-integers"
+        "ArithmeticKTheory:N.3:finite-generation/finite-generation-of-K-of-S-integers",
+        "MotivicEtaleKTheory:M.2/real-restriction-map",
+        "MotivicEtaleKTheory:M.2/high-degree-real-isomorphism",
+        "MotivicEtaleKTheory:M.2/adic-s-integer-cohomology"
       ],
       "sources": [
         {
@@ -3426,8 +3462,10 @@
       "prerequisites": [
         "GeneralAlgebraicKTheory:K.2",
         "SchemeKTheoryOperations:S.7/gamma-chern-character",
-        "MotivicEtaleKTheory:M.1",
-        "MotivicEtaleKTheory:M.4",
+        "MotivicEtaleKTheory:M.1/finite-tate-twist",
+        "MotivicEtaleKTheory:M.1/etale-twist-sheaf",
+        "MotivicEtaleKTheory:M.4/products",
+        "MotivicEtaleKTheory:M.4/projective-bundle-formula",
         "StableHomotopyKTheory:H.6/bockstein-long-exact-sequence"
       ],
       "sources": [
@@ -3515,7 +3553,9 @@
       "prerequisites": [
         "MotivicEtaleKTheory:M.6/rational-weight-comparison",
         "MotivicEtaleKTheory:M.6b/filtered-motivic-products",
-        "MotivicEtaleKTheory:M.4",
+        "MotivicEtaleKTheory:M.4/cycle-complex",
+        "MotivicEtaleKTheory:M.4/products",
+        "MotivicEtaleKTheory:M.4/projective-bundle-formula",
         "SchemeKTheoryOperations:S.7/gamma-chern-character",
         "SchemeKTheoryOperations:S.7/grothendieck-riemann-roch"
       ],
@@ -3605,7 +3645,10 @@
         "MotivicEtaleKTheory:M.8/motivic-chern-character",
         "SchemeKTheoryOperations:S.3",
         "SchemeKTheoryOperations:S.7/scheme-gamma-filtration",
-        "SchemeAndStackFoundations:SF.5"
+        "SchemeAndStackFoundations:SF.5",
+        "MotivicEtaleKTheory:M.4/purity-gysin-triangle",
+        "MotivicEtaleKTheory:M.4/localization-sequence",
+        "MotivicEtaleKTheory:M.4/products"
       ],
       "sources": [
         {
@@ -3780,7 +3823,9 @@
         "MotivicEtaleKTheory:M.8/supported-cycle-character",
         "MotivicEtaleKTheory:M.7/etale-k-transfer",
         "SchemeKTheoryOperations:S.7/grothendieck-riemann-roch",
-        "MotivicEtaleKTheory:M.4",
+        "MotivicEtaleKTheory:M.4/functoriality",
+        "MotivicEtaleKTheory:M.4/products",
+        "MotivicEtaleKTheory:M.4/projective-bundle-formula",
         "MotivesAndAlgebraicCycles:MC.2",
         "SchemeAndStackFoundations:SF.5"
       ],
@@ -3824,7 +3869,8 @@
         "Regulators kill torsion in characteristic-zero vector spaces; this does not identify two integral groups that differ by torsion. Model dependence is preserved until localization proves independence."
       ],
       "prerequisites": [
-        "MotivicEtaleKTheory:M.4",
+        "MotivicEtaleKTheory:M.4/cycle-complex",
+        "MotivicEtaleKTheory:M.4/nesterenko-suslin-totaro",
         "MotivicEtaleKTheory:M.8/chern-functoriality",
         "ArithmeticKTheory:N.3:finite-generation/finite-generation-of-K-of-S-integers",
         "BorelRegulators:R.4/regulator-lattice",
@@ -3921,7 +3967,8 @@
         "MotivesAndAlgebraicCycles:MC.1",
         "MotivesAndAlgebraicCycles:MC.2",
         "tauceti:TauCetiRoadmap/EllipticCurves#layer-2-torsion-the-weil-pairing-and-the-tate-module-aec-iii68",
-        "MotivicEtaleKTheory:M.1",
+        "MotivicEtaleKTheory:M.1/finite-tate-twist",
+        "MotivicEtaleKTheory:M.1/adic-tate-twist",
         "tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1",
         "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
         "EtaleDualityAndPerverseSheaves:EDC.2:pairings"
@@ -4718,6 +4765,15 @@
         "MotivicEtaleKTheory:M.8/selmer-regulator-factorization",
         "MotivicEtaleKTheory:M.8/arithmetic-fundamental-line",
         "MotivicEtaleKTheory:M.8/regulator-determinant-comparison"
+      ]
+    },
+    {
+      "title": "Resolution-free Beilinson–Lichtenbaum input",
+      "detail": "Geisser–Levine 2001, Invent. Math. 143, pp.55–113: original author PDF BlochKato.pdf returned 404. Read its resolution-free cone/truncation proof and extract the exact semilocal transfer hypotheses. SV2000 Theorem 7.4 was read with resolution of singularities and does not supply the unconditional version by itself; Geisser Dedekind §5 supplies only the cited application. Assembly: MC.4/suslin-friedlander-into-cycle-complex and MC.4/motivic-cohomology-higher-chow supply the packaged comparison only under their stated perfect-field hypotheses, and M.5a/cycle-complex-transfers supplies the transfer action. Those exact imports do not prove the unrestricted resolution-free passage; that obligation remains here and in M.5c/hilbert-ninety-implies-beilinson-lichtenbaum.",
+      "neededBy": [
+        "MotivicEtaleKTheory:M.5d/mod-prime-motivic-comparison",
+        "MotivicEtaleKTheory:M.7/beilinson-lichtenbaum",
+        "MotivicEtaleKTheory:M.5d/prime-power-norm-residue"
       ]
     }
   ],
