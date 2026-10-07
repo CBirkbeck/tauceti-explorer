@@ -26794,8 +26794,9 @@
    ],
    "avoidAccountOf": "BP-HodgeTateAndCanonicalSubgroups--T0",
    "prompt": "research/blueprint/prompts/REV-HodgeTateAndCanonicalSubgroups--T0.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #432"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #432",
+   "finishedAt": "2026-10-07T14:22:00Z"
   },
   {
    "id": "BP-HodgeTateAndCanonicalSubgroups--T6",
@@ -41853,7 +41854,8 @@
    ],
    "revisionOf": "BP-EffectiveDiophantineMethods",
    "prompt": "research/blueprint/prompts/BP-EffectiveDiophantineMethods~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6936"
   },
   {
    "priority": 2,
