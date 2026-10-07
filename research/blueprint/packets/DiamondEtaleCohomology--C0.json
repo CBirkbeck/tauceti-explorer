@@ -1559,7 +1559,7 @@
         "DiamondsAndVStacks:D5/local-structure-of-etale-maps"
       ],
       "acceptance": [
-        "This is ECD material of §14; the C8 node strictly-disconnected-acyclic states the same vanishing and should import this node (restructure entry of this packet)."
+        "This is the proof owner for étale acyclicity of strictly totally disconnected spaces in ECD §14. The stable C8/strictly-disconnected-acyclic identifier exports this result, and C8/qpetale-direct-image cites this C0 node directly; no second proof is planned."
       ],
       "sources": [
         {
