@@ -1,3 +1,9 @@
+import Mathlib.Analysis.Normed.Field.Basic
+import Mathlib.RingTheory.DiscreteValuationRing.Basic
+import Mathlib.RingTheory.Localization.FractionRing
+import Mathlib.Topology.MetricSpace.Ultra.Basic
+import Mathlib.Algebra.Category.ModuleCat.ChangeOfRings
+import Mathlib.Algebra.Homology.DerivedCategory.Ext.Map
 import Mathlib.RingTheory.Idempotents
 import Mathlib.Algebra.DualNumber
 import Mathlib.RingTheory.Nilpotent.Defs
@@ -73,7 +79,7 @@ Pinned baseline: Mathlib `082e2d3`, Tau Ceti `f790474`.
   (source issue E1).
 -/
 
-universe u
+universe u w
 
 open TensorProduct Polynomial
 
@@ -547,7 +553,7 @@ def coordinateRing (A : Type u) [CommRing A] (R : Type u) [Ring R] [Algebra A R]
     (d : ℕ) : CommAlgCat A := sorry
 def universal (A : Type u) [CommRing A] (R : Type u) [Ring R] [Algebra A R] (d : ℕ) :
     Determinant (coordinateRing A R d) (coordinateRing A R d ⊗[A] R) d := sorry
-def coordinateRingEquiv (d : ℕ) (B : Type u) [CommRing B] [Algebra A B] :
+def coordinateRingEquiv (d : ℕ) (B : Type w) [CommRing B] [Algebra A B] :
     (coordinateRing A R d →ₐ[A] B) ≃ Determinant B (B ⊗[A] R) d := sorry
 def coordinateRing_baseChange (d : ℕ) (B : Type u) [CommRing B] [Algebra A B] :
     B ⊗[A] coordinateRing A R d ≃ₐ[B] coordinateRing B (B ⊗[A] R) d := sorry
@@ -624,6 +630,36 @@ def mergeLast {G : Type u} [Mul G] {n : ℕ} (g : Fin (n+2) → G) : Fin (n+1) �
   fun i ↦ if hi : i.val < n then g ⟨i.val, by omega⟩
     else g ⟨n, by omega⟩ * g ⟨n+1, by omega⟩
 
+/-- IHG.0/invariant-evaluation. Evaluation at point tuples, together with the two
+coordinate equations needed to pull back along a representation. LP3 identifies
+these data with evaluation on the actual H⁰-invariant coordinate algebras. -/
+structure InvariantEvaluation {O : Type u} [CommRing O]
+    (C : InvariantCoordinateInput O) (H : Type u) [Group H]
+    (A : Type u) [CommRing A] [Algebra O A] where
+  evaluate : ∀ n, C.ring n →ₐ[O] ((Fin n → H) → A)
+  reindex_eq : ∀ {n m : ℕ} (σ : Fin n → Fin m) (f : C.ring n) (g : Fin m → H),
+    evaluate m (C.reindex σ f) g = evaluate n f (g ∘ σ)
+  multiply_eq : ∀ (n : ℕ) (f : C.ring (n+1)) (g : Fin (n+2) → H),
+    evaluate (n+2) (C.multiply n f) g = evaluate (n+1) f (mergeLast g)
+
+namespace InvariantEvaluation
+/-- Expressible matrix version of regularity and simultaneous conjugation invariance.
+The extra variables evaluate the inverse determinants. This is sufficient for the
+GL₂ unipotent degeneration tests, without an invented group-scheme predicate. -/
+def IsRegularMatrixInvariant {k : Type u} [Field k] [IsAlgClosed k] {d : ℕ}
+    {C : InvariantCoordinateInput k}
+    (E : InvariantEvaluation C (Matrix (Fin d) (Fin d) k)ˣ k) : Prop :=
+  ∀ n (f : C.ring n),
+    (∃ p : MvPolynomial ((Fin n × (Fin d × Fin d)) ⊕ Fin n) k,
+      ∀ g : Fin n → (Matrix (Fin d) (Fin d) k)ˣ,
+        E.evaluate n f g = MvPolynomial.eval
+          (fun v ↦ match v with
+            | Sum.inl (i,a,b) => (g i : Matrix (Fin d) (Fin d) k) a b
+            | Sum.inr i => Matrix.det (↑((g i)⁻¹) : Matrix (Fin d) (Fin d) k)) p) ∧
+    ∀ (P : (Matrix (Fin d) (Fin d) k)ˣ) (g : Fin n → (Matrix (Fin d) (Fin d) k)ˣ),
+      E.evaluate n f (fun i ↦ P*g i*P⁻¹) = E.evaluate n f g
+end InvariantEvaluation
+
 /-- IHG.0/reductive-pseudocharacter. The group-scheme and H⁰-invariant hypotheses
 on `C` are omitted; the actual reindexing and multiplication equations are retained.
 Degree zero is the canonical O-valued coordinate slot. -/
@@ -638,11 +674,13 @@ structure ReductivePseudocharacter (G : Type u) [Group G]
 namespace ReductivePseudocharacter
 variable {G H A B : Type u} [Group G] [Group H] [CommRing A] [Algebra O A]
     [CommRing B] [Algebra O B] (C : InvariantCoordinateInput O)
-/-- The evaluation maps are actual invariant-coordinate evaluation at H(A)-points;
-their coordinate compatibility equations are omitted until LP3's carrier is supplied. -/
+/-- Pull back compatible invariant evaluation at point tuples along ρ. -/
 def ofRepresentation (ρ : G →* H)
-    (evaluate : ∀ n, C.ring n →ₐ[O] ((Fin n → H) → A)) :
+    (evaluate : InvariantEvaluation C H A) :
     ReductivePseudocharacter G C A := sorry
+theorem ofRepresentation_theta (ρ : G →* H) (evaluate : InvariantEvaluation C H A)
+    (n : ℕ) (f : C.ring n) (g : Fin n → G) :
+    (ofRepresentation C ρ evaluate).theta n f g = evaluate.evaluate n f (ρ ∘ g) := sorry
 theorem ext (Θ Ψ : ReductivePseudocharacter G C A)
     (h : ∀ n (f : C.ring n) (g : Fin n → G), Θ.theta n f g = Ψ.theta n f g) : Θ = Ψ := sorry
 def map (Θ : ReductivePseudocharacter G C A) (φ : A →ₐ[O] B) :
@@ -656,8 +694,8 @@ def IsContinuous [TopologicalSpace G] [TopologicalSpace A]
   ∀ n (f : C.ring n), Continuous (Θ.theta n f)
 theorem continuous_ofRepresentation [TopologicalSpace G] [TopologicalSpace H]
     [TopologicalSpace A] (ρ : G →* H) (hρ : Continuous ρ)
-    (evaluate : ∀ n, C.ring n →ₐ[O] ((Fin n → H) → A))
-    (heval : ∀ n (f : C.ring n), Continuous (evaluate n f)) :
+    (evaluate : InvariantEvaluation C H A)
+    (heval : ∀ n (f : C.ring n), Continuous (evaluate.evaluate n f)) :
     (ofRepresentation C ρ evaluate).IsContinuous := sorry
 theorem continuous_dense_ext [TopologicalSpace G] [TopologicalSpace A] [T2Space A]
     (Θ Ψ : ReductivePseudocharacter G C A) (hΘ : Θ.IsContinuous) (hΨ : Ψ.IsContinuous)
@@ -726,6 +764,40 @@ def residual {d : ℕ} (D : Determinant A R d) :
     Determinant (IsLocalRing.ResidueField A) (IsLocalRing.ResidueField A ⊗[A] R) d := sorry
 end Determinant
 
+end TauCeti
+
+namespace TauCeti
+variable {K : Type u} [CommRing K] {R : Type u} [Ring R] [Algebra K R] {d : ℕ}
+/-- Explicit invariant-subspace test; no new representation carrier is introduced. -/
+def MatrixRepresentationStable (ρ : R →ₐ[K] Matrix (Fin d) (Fin d) K)
+    (W : Submodule K (Fin d → K)) : Prop :=
+  ∀ r x, x ∈ W → (ρ r).mulVec x ∈ W
+def MatrixRepresentationIrreducible (ρ : R →ₐ[K] Matrix (Fin d) (Fin d) K) : Prop :=
+  ∀ W : Submodule K (Fin d → K), MatrixRepresentationStable ρ W → W=⊥ ∨ W=⊤
+def MatrixRepresentationSemisimple (ρ : R →ₐ[K] Matrix (Fin d) (Fin d) K) : Prop :=
+  ∀ W : Submodule K (Fin d → K), MatrixRepresentationStable ρ W →
+    ∃ W' : Submodule K (Fin d → K), MatrixRepresentationStable ρ W' ∧ IsCompl W W'
+namespace Determinant
+/-- IHG.1/residual-determinant-properties: these predicates apply to the residual law. -/
+def IsSplit (D : Determinant K R d) : Prop :=
+  ∃ ρ : R →ₐ[K] Matrix (Fin d) (Fin d) K, ofMatrix ρ=D
+def IsAbsolutelyIrreducible (D : Determinant K R d) : Prop :=
+  0 < d ∧ ∀ (L : Type u) [Field L] [Algebra K L] [IsAlgClosed L],
+    ∃ ρ : L ⊗[K] R →ₐ[L] Matrix (Fin d) (Fin d) L,
+      ofMatrix ρ=D.baseChange L ∧ MatrixRepresentationIrreducible ρ
+/-- Semisimple multiplicity one is detected by the commutative commutant after
+algebraic closure. The signature uses every algebraically closed coefficient field. -/
+def IsMultiplicityFree (D : Determinant K R d) : Prop :=
+  ∀ (L : Type u) [Field L] [Algebra K L] [IsAlgClosed L],
+    ∃ ρ : L ⊗[K] R →ₐ[L] Matrix (Fin d) (Fin d) L,
+      ofMatrix ρ=D.baseChange L ∧ MatrixRepresentationSemisimple ρ ∧
+        ∀ P Q : Matrix (Fin d) (Fin d) L,
+          (∀ r, P*ρ r=ρ r*P) → (∀ r, Q*ρ r=ρ r*Q) → P*Q=Q*P
+end Determinant
+end TauCeti
+
+namespace TauCeti
+variable {A : Type u} [CommRing A] {R : Type u} [Ring R] [Algebra A R]
 namespace GMA
 /-- IHG.1/generalized-matrix-algebra. All fields are actual data or explicit equations. -/
 structure Data (A : Type u) [CommRing A] (R : Type u) [Ring R] [Algebra A R]
@@ -783,19 +855,102 @@ theorem determinant_adapted (x : R) :
 def reducibilityIdeal (i j : Fin s) : Ideal A :=
   Ideal.span {a | ∃ (x : entryModule E i j) (y : entryModule E j i),
     algebraMap A R a * primitive E i = (x : R)*(y : R)}
-/-- Two-block and henselian conditions are explicit. Omitted: the split,
-multiplicity-free residual dictionary and the prescribed reductions of the factors.
-The independent review leaves this characterisation unresolved until those are stated. -/
-theorem reducibilityIdeal_le_iff [HenselianLocalRing A] {size : Fin 2 → ℕ}
-    (E : Data A R 2 size) (i j : Fin 2) (hij : i ≠ j) (J : Ideal A) :
-    reducibilityIdeal E i j ≤ J ↔ ∃ D₁ : Determinant (A ⧸ J) ((A ⧸ J) ⊗[A] R) (size i),
-      ∃ D₂ : Determinant (A ⧸ J) ((A ⧸ J) ⊗[A] R) (size j),
-      ((determinant E).baseChange (A ⧸ J)).toLaw = (D₁.mul D₂).toLaw := sorry
 /-- Quotient entry corners must come from the same primitive matrix units. -/
 theorem reducibilityIdeal_baseChange (i j : Fin s) (J : Ideal A)
     (EJ : Data (A ⧸ J) ((A ⧸ J) ⊗[A] R) s size)
     (hprimitive : ∀ k, primitive EJ k=1 ⊗ₜ[A] primitive E k) :
     (reducibilityIdeal E i j).map (Ideal.Quotient.mk J) = reducibilityIdeal EJ i j := sorry
+/-- IHG.1/partition-reducibility. The labels encode the nonempty partition parts. -/
+def partitionReducibilityIdeal {t : ℕ} (part : Fin s → Fin t) : Ideal A :=
+  ⨆ i : Fin s, ⨆ j : Fin s, if part i ≠ part j then reducibilityIdeal E i j else ⊥
+
+/-- IHG.1/gma-residual-dictionary. These are the actual ordered residual constituents,
+with full-law product, absolute irreducibility, pairwise nonisomorphism and corner data. -/
+structure ResidualData [IsLocalRing A] {s : ℕ} {size : Fin s → ℕ}
+    (E : Data A R s size) where
+  representation : ∀ i, IsLocalRing.ResidueField A ⊗[A] R →ₐ[IsLocalRing.ResidueField A]
+    Matrix (Fin (size i)) (Fin (size i)) (IsLocalRing.ResidueField A)
+  absolutelyIrreducible : ∀ i, (Determinant.ofMatrix (representation i)).IsAbsolutelyIrreducible
+  distinct : ∀ i j, i ≠ j → ¬ ∃ T :
+      (Fin (size j) → IsLocalRing.ResidueField A) ≃ₗ[IsLocalRing.ResidueField A]
+      (Fin (size i) → IsLocalRing.ResidueField A),
+    ∀ r x, T ((representation j r).mulVec x) = (representation i r).mulVec (T x)
+  projectors : ∀ i j, representation i (1 ⊗ₜ[A] E.idempotent j) = if j=i then 1 else 0
+  diagonal : ∀ i (x : Corner A R (E.idempotent i) (E.idem i)),
+    representation i (1 ⊗ₜ[A] (x : R)) = (E.diagonal i x).map (IsLocalRing.residue A)
+  factorization : ∀ (B : Type u) [CommRing B] [Algebra (IsLocalRing.ResidueField A) B]
+      (x : B ⊗[IsLocalRing.ResidueField A] (IsLocalRing.ResidueField A ⊗[A] R)),
+    (determinant E).residual.toLaw.toFun' B x =
+      ∏ i, (Determinant.ofMatrix (representation i)).toLaw.toFun' B x
+
+/-- The quotient coefficient map is the unique one induced by A → k. -/
+def quotientResidue [IsLocalRing A] (J : Ideal A) (hJ : J ≤ IsLocalRing.maximalIdeal A) :
+    (A ⧸ J) →ₐ[A] IsLocalRing.ResidueField A := sorry
+/-- Canonical tensor reassociation, valid for a noncommutative R as well. -/
+def quotientResidualTransport [IsLocalRing A] (J : Ideal A)
+    (hJ : J ≤ IsLocalRing.maximalIdeal A) :
+    letI := (quotientResidue J hJ).toRingHom.toAlgebra
+    (IsLocalRing.ResidueField A ⊗[A ⧸ J] ((A ⧸ J) ⊗[A] R)) ≃ₐ[IsLocalRing.ResidueField A]
+      (IsLocalRing.ResidueField A ⊗[A] R) := sorry
+/-- Reduction of the entire polynomial law, not just evaluations on R. -/
+def residualFactor [IsLocalRing A] (J : Ideal A) (hJ : J ≤ IsLocalRing.maximalIdeal A)
+    {n : ℕ} (F : Determinant (A ⧸ J) ((A ⧸ J) ⊗[A] R) n) :
+    Determinant (IsLocalRing.ResidueField A) (IsLocalRing.ResidueField A ⊗[A] R) n :=
+  letI := (quotientResidue J hJ).toRingHom.toAlgebra
+  (F.baseChange (IsLocalRing.ResidueField A)).comap
+    (quotientResidualTransport (R := R) J hJ).symm.toAlgHom
+
+/-- ANT20 Proposition 2.5 for a labelled nonempty partition. The reductions are
+products of precisely the residual constituents in that part. -/
+theorem partition_reducibility [HenselianLocalRing A]
+    (res : ResidualData E) (hCH : (determinant E).IsCayleyHamilton)
+    {t : ℕ} (part : Fin s → Fin t) (hpart : Function.Surjective part)
+    (J : Ideal A) (hJ : J ≤ IsLocalRing.maximalIdeal A) :
+    partitionReducibilityIdeal E part ≤ J ↔
+      ∃! F : ∀ m : Fin t, Determinant (A ⧸ J) ((A ⧸ J) ⊗[A] R)
+          (∑ i ∈ Finset.univ.filter (fun i ↦ part i=m), size i),
+        (∀ (B : Type u) [CommRing B] [Algebra (A ⧸ J) B]
+          (x : B ⊗[A ⧸ J] ((A ⧸ J) ⊗[A] R)),
+          ((determinant E).baseChange (A ⧸ J)).toLaw.toFun' B x =
+            ∏ m, (F m).toLaw.toFun' B x) ∧
+        ∀ m (B : Type u) [CommRing B] [Algebra (IsLocalRing.ResidueField A) B]
+          (x : B ⊗[IsLocalRing.ResidueField A] (IsLocalRing.ResidueField A ⊗[A] R)),
+          (residualFactor J hJ (F m)).toLaw.toFun' B x =
+            ∏ i ∈ Finset.univ.filter (fun i ↦ part i=m),
+              (Determinant.ofMatrix (res.representation i)).toLaw.toFun' B x := sorry
+
+/-- Two blocks, prescribed reductions and uniqueness are explicit (ANT20 Prop. 2.5). -/
+theorem reducibilityIdeal_le_iff [HenselianLocalRing A] {size : Fin 2 → ℕ}
+    (E : Data A R 2 size) (res : ResidualData E) (hCH : (determinant E).IsCayleyHamilton)
+    (i j : Fin 2) (hij : i ≠ j) (J : Ideal A) (hJ : J ≤ IsLocalRing.maximalIdeal A) :
+    reducibilityIdeal E i j ≤ J ↔
+      ∃! pair : Determinant (A ⧸ J) ((A ⧸ J) ⊗[A] R) (size i) ×
+        Determinant (A ⧸ J) ((A ⧸ J) ⊗[A] R) (size j),
+        ((determinant E).baseChange (A ⧸ J)).toLaw = (pair.1.mul pair.2).toLaw ∧
+        residualFactor J hJ pair.1 = Determinant.ofMatrix (res.representation i) ∧
+        residualFactor J hJ pair.2 = Determinant.ofMatrix (res.representation j) := sorry
+
+/-- IHG.1/gma-quotient-constituent. A singleton part makes its diagonal compression
+multiplicative modulo the partition ideal. The residual ordering remains fixed. -/
+def quotientRepresentation {t : ℕ} (part : Fin s → Fin t) (i : Fin s)
+    (hi : ∀ k, part k=part i → k=i) (J : Ideal A)
+    (hIP : partitionReducibilityIdeal E part ≤ J) :
+    (A ⧸ J) ⊗[A] R →ₐ[A ⧸ J] Matrix (Fin (size i)) (Fin (size i)) (A ⧸ J) := sorry
+theorem quotientRepresentation_apply {t : ℕ} (part : Fin s → Fin t) (i : Fin s)
+    (hi : ∀ k, part k=part i → k=i) (J : Ideal A)
+    (hIP : partitionReducibilityIdeal E part ≤ J) (r : R) :
+    quotientRepresentation E part i hi J hIP (1 ⊗ₜ[A] r) =
+      (E.diagonal i (cornerLift (E.idempotent i) (E.idem i)
+        (E.idempotent i*r*E.idempotent i) (by sorry))).map (Ideal.Quotient.mk J) := sorry
+/-- The vector module is restricted along the actual quotient matrix action. -/
+def quotientConstituent {t : ℕ} (part : Fin s → Fin t) (i : Fin s)
+    (hi : ∀ k, part k=part i → k=i) (J : Ideal A)
+    (hIP : partitionReducibilityIdeal E part ≤ J) : ModuleCat.{u} ((A ⧸ J) ⊗[A] R) :=
+  let action := (Matrix.toLinAlgEquiv'.toAlgHom).comp
+    (quotientRepresentation E part i hi J hIP)
+  letI := Module.compHom (Fin (size i) → A ⧸ J) action.toRingHom
+  ModuleCat.of ((A ⧸ J) ⊗[A] R) (Fin (size i) → A ⧸ J)
+
 /-- IHG.1/gma-extension-module. Intermediate products are killed. -/
 def intermediateProducts (i j : Fin s) : Submodule A (entryModule E i j) :=
   Submodule.span A {z | ∃ k : Fin s, k ≠ i ∧ k ≠ j ∧
@@ -809,21 +964,67 @@ def extensionModule_twoBlocks {size2 : Fin 2 → ℕ} (E : Data A R 2 size2) :
     extensionModule E 0 1 ≃ₗ[A] entryModule E 0 1 := sorry
 end GMA
 
+abbrev CHQuotient {d : ℕ} (D : Determinant A R d) := D.chIdeal.ringCon.Quotient
+instance chQuotientAlgebra {d : ℕ} (D : Determinant A R d) : Algebra A (CHQuotient D) := sorry
+/-- Canonical algebra map to the actual characteristic-coefficient quotient. -/
+def chQuotientMap {d : ℕ} (D : Determinant A R d) : R →ₐ[A] CHQuotient D := sorry
+
 namespace CayleyHamilton
 variable {d : ℕ} {G : Type} [Group G]
-/-- IHG.1/universal-cayley-hamilton-algebra. -/
+/-- IHG.1/universal-cayley-hamilton-algebra. The carrier is the actual CH quotient. -/
 def universalAlgebra (G : Type) [Group G] (d : ℕ) :
-    AlgCat (Determinant.coordinateRing ℤ (MonoidAlgebra ℤ G) d) := sorry
-/-- The representing and descended determinant constraints are omitted until
-universalAlgebra's scalar-extension API is implemented; the group representation is actual data. -/
-def universalAlgebra_lift (d : ℕ)
-    (B : Type u) [CommRing B] [Algebra (Determinant.coordinateRing ℤ (MonoidAlgebra ℤ G) d) B]
-    (S : Type u) [Ring S] [Algebra B S] (ρ : G →* Sˣ) :
-    universalAlgebra G d →+* S := sorry
-/-- The specified determinant-coordinate change supplies the coefficient map. -/
-def universalAlgebra_baseChange (d : ℕ) (B : Type u) [CommRing B]
-    [Algebra (Determinant.coordinateRing ℤ (MonoidAlgebra ℤ G) d) B] :
-    AlgCat B := sorry
+    AlgCat (Determinant.coordinateRing ℤ (MonoidAlgebra ℤ G) d) :=
+  AlgCat.of (Determinant.coordinateRing ℤ (MonoidAlgebra ℤ G) d)
+    (CHQuotient (Determinant.universal ℤ (MonoidAlgebra ℤ G) d))
+def universalAlgebra_quotientMap (G : Type) [Group G] (d : ℕ) :
+    MonoidAlgebra (Determinant.coordinateRing ℤ (MonoidAlgebra ℤ G) d) G →ₐ[
+      Determinant.coordinateRing ℤ (MonoidAlgebra ℤ G) d] universalAlgebra G d := sorry
+/-- The same explicit coefficient map determines the specialized universal law. -/
+def universalSpecialization (d : ℕ) {B : Type u} [CommRing B]
+    (φ : Determinant.coordinateRing ℤ (MonoidAlgebra ℤ G) d →ₐ[ℤ] B) :
+    Determinant B (B ⊗[ℤ] MonoidAlgebra ℤ G) d :=
+  Determinant.coordinateRingEquiv d B φ
+/-- The full determinant compatibility is an explicit input to the quotient lift. -/
+def universalAlgebra_lift (d : ℕ) {B : Type u} [CommRing B]
+    (φ : Determinant.coordinateRing ℤ (MonoidAlgebra ℤ G) d →ₐ[ℤ] B)
+    {S : Type u} [Ring S] [Algebra B S] (DS : Determinant B S d)
+    (hDS : DS.IsCayleyHamilton)
+    (r : B ⊗[ℤ] MonoidAlgebra ℤ G →ₐ[B] S)
+    (hcompat : DS.comap r = universalSpecialization d φ) :
+    letI := Algebra.compHom S φ.toRingHom
+    universalAlgebra G d →ₐ[Determinant.coordinateRing ℤ (MonoidAlgebra ℤ G) d] S := sorry
+/-- The compatible lift has the prescribed value on every group-algebra coefficient. -/
+theorem universalAlgebra_lift_single (d : ℕ) {B : Type u} [CommRing B]
+    (φ : Determinant.coordinateRing ℤ (MonoidAlgebra ℤ G) d →ₐ[ℤ] B)
+    {S : Type u} [Ring S] [Algebra B S] (DS : Determinant B S d)
+    (hDS : DS.IsCayleyHamilton)
+    (r : B ⊗[ℤ] MonoidAlgebra ℤ G →ₐ[B] S)
+    (hcompat : DS.comap r = universalSpecialization d φ) :
+    letI := Algebra.compHom S φ.toRingHom
+    ∀ c g, universalAlgebra_lift d φ DS hDS r hcompat
+      (universalAlgebra_quotientMap G d (MonoidAlgebra.single g c)) =
+        r (φ c ⊗ₜ[ℤ] MonoidAlgebra.of ℤ G g) := sorry
+/-- Coefficients and group generators determine the compatible quotient map uniquely. -/
+theorem universalAlgebra_lift_unique (d : ℕ) {B : Type u} [CommRing B]
+    (φ : Determinant.coordinateRing ℤ (MonoidAlgebra ℤ G) d →ₐ[ℤ] B)
+    {S : Type u} [Ring S] [Algebra B S] (DS : Determinant B S d)
+    (hDS : DS.IsCayleyHamilton)
+    (r : B ⊗[ℤ] MonoidAlgebra ℤ G →ₐ[B] S)
+    (hcompat : DS.comap r = universalSpecialization d φ) :
+    letI := Algebra.compHom S φ.toRingHom
+    ∀ f : universalAlgebra G d →ₐ[Determinant.coordinateRing ℤ (MonoidAlgebra ℤ G) d] S,
+      (∀ c g, f (universalAlgebra_quotientMap G d (MonoidAlgebra.single g c))=
+        r (φ c ⊗ₜ[ℤ] MonoidAlgebra.of ℤ G g)) →
+      f = universalAlgebra_lift d φ DS hDS r hcompat := sorry
+/-- Scalar extension of the very same universal quotient along φ. -/
+def universalAlgebra_baseChange (d : ℕ) {B : Type u} [CommRing B]
+    (φ : Determinant.coordinateRing ℤ (MonoidAlgebra ℤ G) d →ₐ[ℤ] B) : AlgCat B :=
+  letI := φ.toRingHom.toAlgebra
+  AlgCat.of B (B ⊗[Determinant.coordinateRing ℤ (MonoidAlgebra ℤ G) d] universalAlgebra G d)
+/-- Characteristic-coefficient ideals commute with arbitrary scalar extension. -/
+def universalAlgebra_specializationEquiv (d : ℕ) {B : Type u} [CommRing B]
+    (φ : Determinant.coordinateRing ℤ (MonoidAlgebra ℤ G) d →ₐ[ℤ] B) :
+    universalAlgebra_baseChange d φ ≃ₐ[B] CHQuotient (universalSpecialization d φ) := sorry
 /-- IHG.1/generic-matrix-algebra-finite: finite type, not module finite. -/
 def genericRepresentationRing (D : Determinant A R d) (hD : D.IsCayleyHamilton)
     [Module.Finite A R] : CommAlgCat A := sorry
@@ -921,36 +1122,6 @@ def operatorLocalization_idempotent (C : DerivedCategory (ModuleCat.{u} A)) (t e
     (hnil : ∃ n : ℕ, 0 < n ∧ (t*(1-e))^n=0) :
     operatorLocalization C t ≅ localizedComplex C e he := sorry
 end TauCeti.HeckeImage
-
-namespace TauCeti
-variable {K : Type u} [CommRing K] {R : Type u} [Ring R] [Algebra K R] {d : ℕ}
-/-- Explicit invariant-subspace test; no new representation carrier is introduced. -/
-def MatrixRepresentationStable (ρ : R →ₐ[K] Matrix (Fin d) (Fin d) K)
-    (W : Submodule K (Fin d → K)) : Prop :=
-  ∀ r x, x ∈ W → (ρ r).mulVec x ∈ W
-def MatrixRepresentationIrreducible (ρ : R →ₐ[K] Matrix (Fin d) (Fin d) K) : Prop :=
-  ∀ W : Submodule K (Fin d → K), MatrixRepresentationStable ρ W → W=⊥ ∨ W=⊤
-def MatrixRepresentationSemisimple (ρ : R →ₐ[K] Matrix (Fin d) (Fin d) K) : Prop :=
-  ∀ W : Submodule K (Fin d → K), MatrixRepresentationStable ρ W →
-    ∃ W' : Submodule K (Fin d → K), MatrixRepresentationStable ρ W' ∧ IsCompl W W'
-namespace Determinant
-/-- IHG.1/residual-determinant-properties: these predicates apply to the residual law. -/
-def IsSplit (D : Determinant K R d) : Prop :=
-  ∃ ρ : R →ₐ[K] Matrix (Fin d) (Fin d) K, ofMatrix ρ=D
-def IsAbsolutelyIrreducible (D : Determinant K R d) : Prop :=
-  0 < d ∧ ∀ (L : Type u) [Field L] [Algebra K L] [IsAlgClosed L],
-    ∃ ρ : L ⊗[K] R →ₐ[L] Matrix (Fin d) (Fin d) L,
-      ofMatrix ρ=D.baseChange L ∧ MatrixRepresentationIrreducible ρ
-/-- Semisimple multiplicity one is detected by the commutative commutant after
-algebraic closure. The signature uses every algebraically closed coefficient field. -/
-def IsMultiplicityFree (D : Determinant K R d) : Prop :=
-  ∀ (L : Type u) [Field L] [Algebra K L] [IsAlgClosed L],
-    ∃ ρ : L ⊗[K] R →ₐ[L] Matrix (Fin d) (Fin d) L,
-      ofMatrix ρ=D.baseChange L ∧ MatrixRepresentationSemisimple ρ ∧
-        ∀ P Q : Matrix (Fin d) (Fin d) L,
-          (∀ r, P*ρ r=ρ r*P) → (∀ r, Q*ρ r=ρ r*Q) → P*Q=Q*P
-end Determinant
-end TauCeti
 
 namespace TauCeti.Spherical
 local instance residueFieldStructure {T : Type u} [CommRing T] (m : Ideal T) [m.IsMaximal] :
@@ -1397,7 +1568,6 @@ def Supported (C : DerivedCategory (ModuleCat.{u} A)) (a b : ℤ) : Prop :=
   ∀ i : ℤ, i < a ∨ b < i → Limits.IsZero ((DerivedCategory.homologyFunctor (ModuleCat.{u} A) i).obj C)
 def FiniteCohomology (C : DerivedCategory (ModuleCat.{u} A)) : Prop :=
   ∀ i : ℤ, Module.Finite A ((DerivedCategory.homologyFunctor (ModuleCat.{u} A) i).obj C)
-abbrev CHQuotient (D : Determinant A R d) := D.chIdeal.ringCon.Quotient
 abbrev FaithfulQuotient (D : Determinant A R d) := D.kerTwoSided.ringCon.Quotient
 /-- Characteristic-polynomial integrality and the complete coefficient congruence. -/
 def RibetCongruence {B G : Type u} [CommRing B] [Algebra A B] [Group G]
@@ -1670,19 +1840,39 @@ theorem henselian_multiplicity_free [HenselianLocalRing A] (D : Determinant A R 
     ∃ (s : ℕ) (size : Fin s → ℕ) (E : GMA.Data A R s size),
       (∑ i, size i)=d ∧ (GMA.determinant E).toLaw=D.toLaw := sorry
 
-/-- `IntegralHeckeAndGaloisDeterminants:IHG.1/gma-extension-injection`.
-Under the extension-module hypotheses, the upper-block formula defines an injective A/J-linear map Hom_A(E_ij,A/J)→Ext¹_{R/JR}(ρ_j,ρ_i). Its image consists of extensions factoring through the chosen Cayley–Hamilton quotient S.
+open scoped ModuleCat.Algebra
 
-Omitted: the partition reducibility ideal is contained in J, i and j are singleton parts with prescribed distinct residual constituents, and Mi,Mj are those quotient representations. The image consists of extensions through the chosen CH quotient. -/
-theorem gma_extension_injection {s : ℕ} {size : Fin s → ℕ} (E : GMA.Data A R s size)
-    (i j : Fin s) (J : Ideal A) (Mi Mj : ModuleCat.{u} R) :
-    ∃ f : (GMA.extensionModule E i j →ₗ[A] A ⧸ J) → CategoryTheory.Abelian.Ext Mj Mi 1,
-      Function.Injective f := sorry
+/-- IHG.1/gma-extension-injection. q is the chosen Cayley–Hamilton quotient;
+CH(D) ⊆ ker(q) ⊆ ker(D). Both endpoints are the singleton quotient constituents.
+The image is exactly the range of restriction of scalars on Ext¹. -/
+theorem gma_extension_injection {S : Type u} [Ring S] [Algebra A S]
+    [HenselianLocalRing A] (D : Determinant A R d)
+    (q : R →ₐ[A] S) (hq : Function.Surjective q)
+    (hCH : D.chIdeal ≤ TwoSidedIdeal.comap q.toRingHom ⊥)
+    (hker : TwoSidedIdeal.comap q.toRingHom ⊥ ≤ D.kerTwoSided)
+    {s t : ℕ} {size : Fin s → ℕ} (E : GMA.Data A S s size)
+    (res : GMA.ResidualData E)
+    (hD : ((GMA.determinant E).comap q).toLaw = D.toLaw)
+    (part : Fin s → Fin t) (hpart : Function.Surjective part)
+    (i j : Fin s) (hij : i ≠ j)
+    (hi : ∀ k, part k=part i → k=i) (hj : ∀ k, part k=part j → k=j)
+    (J : Ideal A) (hJ : J ≤ IsLocalRing.maximalIdeal A)
+    (hIP : GMA.partitionReducibilityIdeal E part ≤ J) :
+    let qJ := Algebra.TensorProduct.map (AlgHom.id (A ⧸ J) (A ⧸ J)) q
+    let Mi := GMA.quotientConstituent E part i hi J hIP
+    let Mj := GMA.quotientConstituent E part j hj J hIP
+    let restrict := ModuleCat.restrictScalars qJ.toRingHom
+    letI : CategoryTheory.Limits.PreservesFiniteLimits restrict := by sorry
+    letI : CategoryTheory.Limits.PreservesFiniteColimits restrict := by sorry
+    ∃ f : (GMA.extensionModule E i j →ₗ[A] A ⧸ J) →ₗ[A ⧸ J]
+        CategoryTheory.Abelian.Ext (restrict.obj Mj) (restrict.obj Mi) 1,
+      Function.Injective f ∧
+      LinearMap.range f = LinearMap.range (restrict.mapExtLinearMap (A ⧸ J) Mj Mi 1) := sorry
 
 /-- `IntegralHeckeAndGaloisDeterminants:IHG.1/gma-projective-cover-extensions`.
 For a GMA S, M_j=SE_j is a finitely generated projective left S-module. Its quotient gives ρ_j, and applying Hom to its kernel identifies the extensions that factor through S with the functionals on E_ij. This identifies the image of gma-extension-injection, without asserting it equals all extensions over a larger R.
 
-The Ext-image identification is omitted until the quotient-constituent/projective-cover comparison maps are supplied. The projective module is the actual left ideal R E_j. -/
+The projective module is the actual left ideal R E_j. Its quotient-constituent kernel calculation remains a recorded proof leaf; the Ext-image conclusion is expressed in gma_extension_injection. -/
 theorem gma_projective_cover_extensions {s : ℕ} {size : Fin s → ℕ} (E : GMA.Data A R s size) (j : Fin s)
     (Mj : Type u) [AddCommGroup Mj] [Module R Mj]
     (e : Mj ≃ₗ[R] LinearMap.range
@@ -1691,15 +1881,36 @@ theorem gma_projective_cover_extensions {s : ℕ} {size : Fin s → ℕ} (E : GM
          map_smul' := sorry } : R →ₗ[R] R)) :
     Module.Projective R Mj ∧ Module.Finite R Mj := sorry
 
-/-- `IntegralHeckeAndGaloisDeterminants:IHG.1/ribet-lattice`.
-Let A be a complete DVR with fraction field K and residue field k. If a continuous irreducible ρ:G→GL₂(K) has integral characteristic polynomials with residual determinant χ̄ψ̄ for distinct k-valued characters, there is a stable free A-lattice whose residual representation is a nonsplit extension of ψ̄ by χ̄. Reversing the choice gives the other orientation. Residual equality is excluded here.
-
-Omitted: A is a complete DVR with fraction field K, ρ is continuous irreducible with integral characteristic polynomials, its residual determinant has two distinct characters, and the residual nonsplit extension orientation. The carrier is an actual stable spanning lattice. -/
-theorem ribet_lattice {K G : Type u} [Field K] [Algebra A K] [Group G]
-    (ρ : G →* (Matrix (Fin 2) (Fin 2) K)ˣ) :
-    ∃ L : Submodule A (Fin 2 → K), Module.Free A L ∧ Module.Finite A L ∧
-      (∀ g x, x ∈ L → (ρ g : Matrix _ _ K).mulVec x ∈ L) ∧
-      Submodule.span K (L : Set (Fin 2 → K))=⊤ := sorry
+/-- IHG.1/ribet-lattice. Complete DVR and fraction field with their valuation topology,
+compact continuous irreducible image, integral characteristic polynomials and distinct
+residual characters. The upper entry tests a nonsplit extension of ψ by χ. -/
+theorem ribet_lattice {K G : Type u} [IsDomain A] [IsDiscreteValuationRing A]
+    [IsAdicComplete (IsLocalRing.maximalIdeal A) A]
+    [NormedField K] [IsUltrametricDist K] [CompleteSpace K] [LocallyCompactSpace K]
+    [Algebra A K] [IsFractionRing A K]
+    (hvaluation : ∀ x : K, x ∈ Set.range (algebraMap A K) ↔ ‖x‖ ≤ 1)
+    [Group G] [TopologicalSpace G] [CompactSpace G] [T2Space G] [IsTopologicalGroup G]
+    (ρ : G →* (Matrix (Fin 2) (Fin 2) K)ˣ)
+    (hρ : Continuous (fun g ↦ (ρ g : Matrix (Fin 2) (Fin 2) K)))
+    (hIrr : ∀ W : Submodule K (Fin 2 → K),
+      (∀ g x, x ∈ W → (ρ g : Matrix (Fin 2) (Fin 2) K).mulVec x ∈ W) → W=⊥ ∨ W=⊤)
+    (χ ψ : G →* (IsLocalRing.ResidueField A)ˣ) (hdistinct : χ ≠ ψ)
+    (hcoeff : ∀ g, ∃ P : A[X],
+      P.map (algebraMap A K)=Matrix.charpoly (ρ g : Matrix (Fin 2) (Fin 2) K) ∧
+      P.map (IsLocalRing.residue A)=(X-C (χ g : IsLocalRing.ResidueField A)) *
+        (X-C (ψ g : IsLocalRing.ResidueField A))) :
+    ∃ (L : Submodule A (Fin 2 → K)), Module.Free A L ∧ Module.Finite A L ∧
+      (∀ g x, x ∈ L → (ρ g : Matrix (Fin 2) (Fin 2) K).mulVec x ∈ L) ∧
+      Submodule.span K (L : Set (Fin 2 → K))=⊤ ∧
+      ∃ (b : Module.Basis (Fin 2) A L) (ρA : G →* (Matrix (Fin 2) (Fin 2) A)ˣ),
+        (∀ g i, (ρ g : Matrix (Fin 2) (Fin 2) K).mulVec (b i : Fin 2 → K) =
+          ∑ j, ((ρA g : Matrix (Fin 2) (Fin 2) A) j i) • (b j : Fin 2 → K)) ∧
+        (∀ g, IsLocalRing.residue A ((ρA g : Matrix (Fin 2) (Fin 2) A) 1 0)=0 ∧
+          IsLocalRing.residue A ((ρA g : Matrix (Fin 2) (Fin 2) A) 0 0)=(χ g : IsLocalRing.ResidueField A) ∧
+          IsLocalRing.residue A ((ρA g : Matrix (Fin 2) (Fin 2) A) 1 1)=(ψ g : IsLocalRing.ResidueField A)) ∧
+        ∀ v : IsLocalRing.ResidueField A, ∃ g,
+          IsLocalRing.residue A ((ρA g : Matrix (Fin 2) (Fin 2) A) 0 1) ≠
+            ((ψ g : IsLocalRing.ResidueField A)-(χ g : IsLocalRing.ResidueField A))*v := sorry
 
 /-- `IntegralHeckeAndGaloisDeterminants:IHG.1/completed-cayley-hamilton-finite`.
 Let G be profinite, D̄ a continuous finite-field determinant, R_D its noetherian universal pseudodeformation ring, and dim_kH¹_c(G,adρ̄_ss)<∞. Then its completed Cayley–Hamilton algebra E_D is finite over R_D, and its profinite, quotient and maximal-ideal-adic topologies agree. Residual split absolute irreducibility gives E_D≅M_d(R_D).
@@ -1736,20 +1947,44 @@ theorem coefficient_descent {B G : Type u} [CommRing B] [Algebra A B] [IsLocalRi
       ∀ g : G, (ρA (MonoidAlgebra.of A G g)).map (algebraMap A B)=
         (P : Matrix (Fin d) (Fin d) B)*ρ (MonoidAlgebra.of B G g)*((P⁻¹ : (Matrix (Fin d) (Fin d) B)ˣ) : Matrix (Fin d) (Fin d) B) := sorry
 
-/-- `IntegralHeckeAndGaloisDeterminants:IHG.1/symplectic-coefficient-descent`.
-Let A⊂B be complete noetherian local O-algebras, residue characteristic >2, and ρ:G→GSp₄(B) residually absolutely irreducible. If traces lie in A and the full multiplier character lies in Aˣ, then, under the local residue/topology hypotheses of GG12 Lemma 7.1.1, ρ is GSp₄(B)-conjugate to an A-valued symplectic representation.
-
-Omitted: the standard nondegenerate symplectic form, complete local residue hypotheses, residual characteristic >2 and absolute irreducibility, trace descent, and the GSp carrier supplied by ReductiveGroups. The full multiplier ν is retained. -/
-theorem symplectic_coefficient_descent {B G : Type u} [CommRing B] [Algebra A B] [Group G]
-    (ρ : G →* (Matrix (Fin 4) (Fin 4) B)ˣ) (ν : G →* Aˣ)
-    (form : Matrix (Fin 4) (Fin 4) A)
-    (hform : ∀ g, (ρ g : Matrix (Fin 4) (Fin 4) B).transpose * form.map (algebraMap A B) * (ρ g : Matrix (Fin 4) (Fin 4) B)=
+/-- IHG.1/symplectic-coefficient-descent. Matrix equations encode the GSp carrier:
+the alternating form is invertible, both coefficient rings are complete local with
+common odd-characteristic residue, and the full multiplier is prescribed over A. -/
+theorem symplectic_coefficient_descent {B G : Type u} [CommRing B] [Algebra A B]
+    [IsLocalRing A] [IsLocalRing B] [IsNoetherianRing A] [IsNoetherianRing B]
+    [IsAdicComplete (IsLocalRing.maximalIdeal A) A]
+    [IsAdicComplete (IsLocalRing.maximalIdeal B) B]
+    [TopologicalSpace A] [TopologicalSpace B]
+    (hAadic : IsAdic (IsLocalRing.maximalIdeal A)) (hBadic : IsAdic (IsLocalRing.maximalIdeal B))
+    [Group G] [TopologicalSpace G] [CompactSpace G] [T2Space G]
+    [TotallyDisconnectedSpace G] [IsTopologicalGroup G]
+    (hinj : Function.Injective (algebraMap A B))
+    (residueEquiv : IsLocalRing.ResidueField A ≃+* IsLocalRing.ResidueField B)
+    (hres : ∀ a : A, IsLocalRing.residue B (algebraMap A B a)=
+      residueEquiv (IsLocalRing.residue A a))
+    (p : ℕ) [CharP (IsLocalRing.ResidueField A) p] (hp : 2 < p)
+    (ρ : G →* (Matrix (Fin 4) (Fin 4) B)ˣ)
+    (hρ : Continuous (fun g ↦ (ρ g : Matrix (Fin 4) (Fin 4) B)))
+    (hIrr : (Determinant.ofMatrix (MonoidAlgebra.lift B (Matrix (Fin 4) (Fin 4) B) G
+      ((Units.coeHom _).comp ρ))).residual.IsAbsolutelyIrreducible)
+    (htrace : ∀ g, ∃ a : A, Matrix.trace (ρ g : Matrix (Fin 4) (Fin 4) B)=algebraMap A B a)
+    (ν : G →* Aˣ) (hν : Continuous (fun g ↦ (ν g : A)))
+    (form : Matrix (Fin 4) (Fin 4) A) (hnondegenerate : IsUnit form)
+    (halternating : ∀ x : Fin 4 → A, dotProduct x (form.mulVec x)=0)
+    (hform : ∀ g, (ρ g : Matrix (Fin 4) (Fin 4) B).transpose *
+      form.map (algebraMap A B) * (ρ g : Matrix (Fin 4) (Fin 4) B)=
       algebraMap A B (ν g) • form.map (algebraMap A B)) :
     ∃ (ρA : G →* (Matrix (Fin 4) (Fin 4) A)ˣ) (P : (Matrix (Fin 4) (Fin 4) B)ˣ),
-      (∃ μ : Bˣ, (P : Matrix (Fin 4) (Fin 4) B).transpose * form.map (algebraMap A B) * (P : Matrix (Fin 4) (Fin 4) B)=
-        (μ : B) • form.map (algebraMap A B)) ∧
+      Continuous (fun g ↦ (ρA g : Matrix (Fin 4) (Fin 4) A)) ∧
+      (∀ g, (ρA g : Matrix (Fin 4) (Fin 4) A).transpose * form *
+        (ρA g : Matrix (Fin 4) (Fin 4) A)=(ν g : A) • form) ∧
+      (∀ i j, (P : Matrix (Fin 4) (Fin 4) B) i j-(1 : Matrix (Fin 4) (Fin 4) B) i j ∈
+        IsLocalRing.maximalIdeal B) ∧
+      (∃ μ : Bˣ, (P : Matrix (Fin 4) (Fin 4) B).transpose * form.map (algebraMap A B) *
+        (P : Matrix (Fin 4) (Fin 4) B)=(μ : B) • form.map (algebraMap A B)) ∧
       ∀ g, (ρA g : Matrix (Fin 4) (Fin 4) A).map (algebraMap A B)=
-        (P : Matrix (Fin 4) (Fin 4) B)*(ρ g : Matrix (Fin 4) (Fin 4) B)*((P⁻¹ : (Matrix (Fin 4) (Fin 4) B)ˣ) : Matrix (Fin 4) (Fin 4) B) := sorry
+        (P : Matrix (Fin 4) (Fin 4) B)*(ρ g : Matrix (Fin 4) (Fin 4) B)*
+          (↑(P⁻¹) : Matrix (Fin 4) (Fin 4) B) := sorry
 
 /-- `IntegralHeckeAndGaloisDeterminants:IHG.1/brauer-nesbitt-module-recognition`.
 Let A be henselian local, ρ:G→GL_d(A) have split absolutely irreducible residual representation, and M be an A[G]-module annihilated by CH(detρ). Then M≅A^d⊗_AN as an A[G]-module for N=E_11M, with G acting through ρ on the first factor.
@@ -1765,16 +2000,65 @@ theorem brauer_nesbitt_module_recognition {G M : Type u} [Group G] [AddCommGroup
       ∀ (g : G) (x : M), e (MonoidAlgebra.of A G g • x)=
         TensorProduct.map (Matrix.toLin' (ρ (MonoidAlgebra.of A G g))) LinearMap.id (e x) := sorry
 
-/-- `IntegralHeckeAndGaloisDeterminants:IHG.1/compatible-local-reconstruction`.
-With all CN23 §3.2 hypotheses, including the disjoint residual local constituents, the globally reconstructed representation over A has an Ã-valued local lift whose generic fiber is the selected local constituent. The corner basis can be chosen so its reduction agrees with the given global representation over A.
+/-- IHG.1/local-matrix-inner-conjugacy: local matrix algebra identifications
+are conjugate by an invertible matrix over the same coefficient ring. -/
+theorem local_matrix_inner_conjugacy [IsLocalRing A] (d : ℕ) (hd : 0 < d)
+    (f : Matrix (Fin d) (Fin d) A ≃ₐ[A] Matrix (Fin d) (Fin d) A) :
+    ∃ P : (Matrix (Fin d) (Fin d) A)ˣ, ∀ x,
+      f x=(P : Matrix (Fin d) (Fin d) A)*x*(↑(P⁻¹) : Matrix (Fin d) (Fin d) A) := sorry
 
-Omitted: every CN23 §3.2 coefficient, generic-fiber, local multiplicity and disjoint residual-constituent hypothesis. Corner dimension d denotes the selected local constituent; the reduction basis condition awaits its supplier. -/
-theorem compatible_local_reconstruction {B G : Type u} [CommRing B] [Algebra A B] [Group G]
-    (ρ : G →* (Matrix (Fin d) (Fin d) A)ˣ) (H : Subgroup G)
-    (localMap : H →* (Matrix (Fin d) (Fin d) B)ˣ) :
-    ∃ P : (Matrix (Fin d) (Fin d) B)ˣ, ∀ g : H,
-      (localMap g : Matrix (Fin d) (Fin d) B)=(P : Matrix (Fin d) (Fin d) B)*
-        (ρ g : Matrix (Fin d) (Fin d) A).map (algebraMap A B)*((P⁻¹ : (Matrix (Fin d) (Fin d) B)ˣ) : Matrix (Fin d) (Fin d) B) := sorry
+/-- IHG.1/compatible-local-reconstruction. Assembly from CN23's preceding corner
+constructions: B is Ã and B → A is surjective. σ is the global compressed map,
+localRep the local integral corner map. Their common corner basis and the generic-fiber
+comparison are explicit. A local residual separator certifies the disjoint blocks. -/
+theorem compatible_local_reconstruction {B S G : Type u} [CommRing B] [Algebra B A]
+    [HenselianLocalRing B] [HenselianLocalRing A] [IsNoetherianRing B] [IsNoetherianRing A]
+    [IsAdicComplete (IsLocalRing.maximalIdeal B) B]
+    [IsAdicComplete (IsLocalRing.maximalIdeal A) A]
+    [TopologicalSpace B] [TopologicalSpace A]
+    (hBadic : IsAdic (IsLocalRing.maximalIdeal B)) (hAadic : IsAdic (IsLocalRing.maximalIdeal A))
+    (hπ : Function.Surjective (algebraMap B A))
+    [Ring S] [Algebra B S] [Group G] [TopologicalSpace G] [IsTopologicalGroup G]
+    (E : GMA.Data B S 2 (fun _ ↦ d)) (res : GMA.ResidualData E)
+    (r : G →* Sˣ) (H : Subgroup G)
+    (separatorMap : MonoidAlgebra (IsLocalRing.ResidueField B) H →ₐ[IsLocalRing.ResidueField B]
+      (IsLocalRing.ResidueField B ⊗[B] S))
+    (hseparatorMap : ∀ h : H, separatorMap (MonoidAlgebra.of (IsLocalRing.ResidueField B) H h)=
+      1 ⊗ₜ[B] (r h : S))
+    (hseparated : ∃ x, res.representation 0 (separatorMap x)=1 ∧
+      res.representation 1 (separatorMap x)=0)
+    (hred : ∀ a ∈ GMA.reducibilityIdeal E 0 1, algebraMap B A a=0)
+    (ρ σ : G →* (Matrix (Fin d) (Fin d) A)ˣ)
+    (hIrr : (Determinant.ofMatrix (MonoidAlgebra.lift A (Matrix (Fin d) (Fin d) A) G
+      ((Units.coeHom _).comp ρ))).residual.IsAbsolutelyIrreducible)
+    (hdet : Determinant.ofMatrix (MonoidAlgebra.lift A (Matrix (Fin d) (Fin d) A) G
+      ((Units.coeHom _).comp σ)) = Determinant.ofMatrix
+        (MonoidAlgebra.lift A (Matrix (Fin d) (Fin d) A) G ((Units.coeHom _).comp ρ)))
+    (hglobal : ∀ g, (σ g : Matrix (Fin d) (Fin d) A)=
+      (E.diagonal 0 (cornerLift (E.idempotent 0) (E.idem 0)
+        (E.idempotent 0*(r g : S)*E.idempotent 0) (by sorry))).map (algebraMap B A))
+    (localRep : H →* (Matrix (Fin d) (Fin d) B)ˣ)
+    (hLocalRep : Continuous (fun h ↦ (localRep h : Matrix (Fin d) (Fin d) B)))
+    (hlocal : ∀ h : H, (localRep h : Matrix (Fin d) (Fin d) B)=
+      E.diagonal 0 (cornerLift (E.idempotent 0) (E.idem 0)
+        (E.idempotent 0*(r h : S)*E.idempotent 0) (by sorry)))
+    {a : ℕ} (K : Fin a → Type u) [∀ i, Field (K i)] [∀ i, Algebra B (K i)]
+    (selected : ∀ i, H →* (Matrix (Fin d) (Fin d) (K i))ˣ)
+    (cornerBasis : ∀ i, (Matrix (Fin d) (Fin d) (K i))ˣ)
+    (hgeneric : ∀ i h, (localRep h : Matrix (Fin d) (Fin d) B).map (algebraMap B (K i))=
+      (cornerBasis i : Matrix (Fin d) (Fin d) (K i))*(selected i h : Matrix (Fin d) (Fin d) (K i))*
+        (↑((cornerBasis i)⁻¹) : Matrix (Fin d) (Fin d) (K i))) :
+    ∃ (lift : H →* (Matrix (Fin d) (Fin d) B)ˣ) (P : (Matrix (Fin d) (Fin d) B)ˣ),
+      Continuous (fun h ↦ (lift h : Matrix (Fin d) (Fin d) B)) ∧
+      (∀ h : H, (lift h : Matrix (Fin d) (Fin d) B).map (algebraMap B A)=
+        (ρ h : Matrix (Fin d) (Fin d) A)) ∧
+      (∀ h, (lift h : Matrix (Fin d) (Fin d) B)=
+        (P : Matrix (Fin d) (Fin d) B)*(localRep h : Matrix (Fin d) (Fin d) B)*
+          (↑(P⁻¹) : Matrix (Fin d) (Fin d) B)) ∧
+      ∀ i, ∃ Pi : (Matrix (Fin d) (Fin d) (K i))ˣ, ∀ h,
+        (lift h : Matrix (Fin d) (Fin d) B).map (algebraMap B (K i))=
+          (Pi : Matrix (Fin d) (Fin d) (K i))*(selected i h : Matrix (Fin d) (Fin d) (K i))*
+            (↑(Pi⁻¹) : Matrix (Fin d) (Fin d) (K i)) := sorry
 
 /-- `IntegralHeckeAndGaloisDeterminants:IHG.1/reductive-reconstruction`.
 For generalized reductive H over noetherian O, any H-pseudocharacter of Γ with values in an algebraically closed O-field k is realized by an H-completely reducible homomorphism Γ→H(k), unique up to H⁰(k)-conjugation. This uses full invariant tuples, not only the trace of a chosen linear representation.
@@ -1782,7 +2066,7 @@ For generalized reductive H over noetherian O, any H-pseudocharacter of Γ with 
 Omitted: H is the k-points of a generalized reductive O-group, C/evaluate are its H⁰-invariant coordinates, complete reducibility and uniqueness up to H⁰-conjugacy; LP3 supplies these conditions. -/
 theorem reductive_reconstruction {O G H k : Type u} [CommRing O] [Group G] [Group H] [Field k] [Algebra O k]
     (C : InvariantCoordinateInput O)
-    (evaluate : ∀ n, C.ring n →ₐ[O] ((Fin n → H) → k)) [IsAlgClosed k] (Θ : ReductivePseudocharacter G C k) :
+    (evaluate : InvariantEvaluation C H k) [IsAlgClosed k] (Θ : ReductivePseudocharacter G C k) :
     ∃ ρ : G →* H, ReductivePseudocharacter.ofRepresentation C ρ evaluate=Θ := sorry
 
 /-- `IntegralHeckeAndGaloisDeterminants:IHG.1/reductive-discrete-continuity`.
@@ -1791,7 +2075,7 @@ For a split connected reductive H/Z, profinite Γ and algebraically closed discr
 Omitted: G profinite, H split connected reductive with the k-point topology, C/evaluate its invariant coordinates, and complete reducibility. -/
 theorem reductive_discrete_continuity {O G H k : Type u} [CommRing O] [Group G] [Group H] [Field k] [Algebra O k]
     (C : InvariantCoordinateInput O)
-    (evaluate : ∀ n, C.ring n →ₐ[O] ((Fin n → H) → k)) [IsAlgClosed k] [TopologicalSpace G] [CompactSpace G]
+    (evaluate : InvariantEvaluation C H k) [IsAlgClosed k] [TopologicalSpace G] [CompactSpace G]
     [TopologicalSpace H] [TopologicalSpace k] [DiscreteTopology k]
     (Θ : ReductivePseudocharacter G C k) (hΘ : Θ.IsContinuous) :
     ∃ ρ : G →* H, Continuous ρ ∧ ReductivePseudocharacter.ofRepresentation C ρ evaluate=Θ ∧
@@ -1803,7 +2087,7 @@ For split connected reductive H/Z, profinite Γ and algebraically closed charact
 Omitted: G profinite, k has a rank-one valuation topology, H is a split connected reductive group with its k-point topology, invariant coordinates and complete reducibility. -/
 theorem reductive_valued_continuity {O G H k : Type u} [CommRing O] [Group G] [Group H] [Field k] [Algebra O k]
     (C : InvariantCoordinateInput O)
-    (evaluate : ∀ n, C.ring n →ₐ[O] ((Fin n → H) → k)) [IsAlgClosed k] [CharZero k] [TopologicalSpace G]
+    (evaluate : InvariantEvaluation C H k) [IsAlgClosed k] [CharZero k] [TopologicalSpace G]
     [CompactSpace G] [TopologicalSpace H] [TopologicalSpace k]
     (Θ : ReductivePseudocharacter G C k) (hΘ : Θ.IsContinuous) :
     ∃ ρ : G →* H, Continuous ρ ∧ ReductivePseudocharacter.ofRepresentation C ρ evaluate=Θ := sorry
@@ -1833,7 +2117,7 @@ Omitted: O complete DVR, H split connected reductive, absolutely H-completely re
 theorem reductive_slice_reconstruction {O G H A k : Type u} [CommRing O] [Group G] [Group H]
     [CommRing A] [Algebra O A] [Field k] [Algebra O k]
     (C : InvariantCoordinateInput O) (φ : A →ₐ[O] k)
-    (evaluate : ∀ n, C.ring n →ₐ[O] ((Fin n → H) → A))
+    (evaluate : InvariantEvaluation C H A)
     (Θ : ReductivePseudocharacter G C A) (Θbar : ReductivePseudocharacter G C k)
     (hred : ReductivePseudocharacter.map C Θ φ=Θbar) :
     ∃ ρ : G →* H, ReductivePseudocharacter.ofRepresentation C ρ evaluate=Θ := sorry
@@ -2100,6 +2384,26 @@ def orderGMA (J : Ideal A) (upper : Bool) : GMA.Data A (matrixOrder A J upper) 2
   trace := (Matrix.traceLinearMap (Fin 2) A A).comp (matrixOrder A J upper).val.toLinearMap
   trace_cyclic := sorry
   trace_diagonal := sorry
+/-- The two ordered diagonal residual constituents of the triangular algebra. -/
+def triangularResidualData (k : Type u) [Field k] :
+    GMA.ResidualData (orderGMA k ⊥ false) := sorry
+/-- The actual rank-one quotient matrix module, with i selecting its diagonal entry. -/
+def upperConstituent (k : Type u) [Field k] (i : Fin 2) :
+    ModuleCat.{u} ((k ⧸ (⊥ : Ideal k)) ⊗[k] matrixOrder k ⊥ false) :=
+  GMA.quotientConstituent (orderGMA k ⊥ false) id i (by simp) ⊥ (by sorry)
+/-- Iwahori units act on the standard integral lattice A². -/
+def iwahoriDiagonal [IsLocalRing A] (i : Fin 2) :
+    (matrixOrder A (IsLocalRing.maximalIdeal A) false)ˣ →*
+      (IsLocalRing.ResidueField A)ˣ where
+  toFun g := Units.mk0 (IsLocalRing.residue A (g.val.val i i)) (by sorry)
+  map_one' := sorry
+  map_mul' := sorry
+def iwahoriUpperUnipotent (J : Ideal A) : (matrixOrder A J false)ˣ where
+  val := ⟨!![1,1;0,1], by sorry⟩
+  inv := ⟨!![1,-1;0,1], by sorry⟩
+  val_inv := by sorry
+  inv_val := by sorry
+
 /-- Actual split diagonal determinant on A×A. -/
 def productDeterminant : Determinant A (A × A) 2 :=
   ((Determinant.dimOneEquiv).symm (AlgHom.fst A A A)).mul
@@ -2536,15 +2840,34 @@ example [IsAzumaya A A] (hRank : Determinant.HasConstantRank (A := A) A 1) (a : 
 /-- `azumaya_quaternion_norm`: For the Hamilton quaternion algebra over R, Nrd(a+bi+cj+dk)=a²+b²+c²+d². -/
 example [IsAzumaya ℝ (Quaternion ℝ)] (hRank : Determinant.HasConstantRank (A := ℝ) (Quaternion ℝ) 4) (x : Quaternion ℝ) : (Determinant.ofAzumaya 2 (by decide) hRank).eval x=x.re^2+x.imI^2+x.imJ^2+x.imK^2 := sorry
 
+/-- `invariant_eval_reindex_swap`: swapping two coordinates commutes with evaluation. -/
+example {O H A : Type u} [CommRing O] [Group H] [CommRing A] [Algebra O A]
+    (C : InvariantCoordinateInput O) (E : InvariantEvaluation C H A)
+    (f : C.ring 2) (g : Fin 2 → H) :
+    E.evaluate 2 (C.reindex (Equiv.swap (0 : Fin 2) 1) f) g =
+      E.evaluate 2 f (g ∘ Equiv.swap (0 : Fin 2) 1) := sorry
+/-- `invariant_eval_multiply_pair`: the product pullback evaluates at the product tuple. -/
+example {O H A : Type u} [CommRing O] [Group H] [CommRing A] [Algebra O A]
+    (C : InvariantCoordinateInput O) (E : InvariantEvaluation C H A)
+    (f : C.ring 1) (g : Fin 2 → H) :
+    E.evaluate 2 (C.multiply 0 f) g = E.evaluate 1 f (fun _ ↦ g 0*g 1) := sorry
+/-- `invariant_eval_incompatible`: a violated reindex equation excludes compatible evaluation. -/
+example {O H A : Type u} [CommRing O] [Group H] [CommRing A] [Algebra O A]
+    (C : InvariantCoordinateInput O)
+    (raw : ∀ n, C.ring n →ₐ[O] ((Fin n → H) → A))
+    {n m : ℕ} (σ : Fin n → Fin m) (f : C.ring n) (g : Fin m → H)
+    (h : raw m (C.reindex σ f) g ≠ raw n f (g ∘ σ)) :
+    ¬ ∃ E : InvariantEvaluation C H A, E.evaluate = raw := sorry
+
 /-- `h_pseudocharacter_torus`: For H=G_m, it is a unit character Γ→Aˣ. -/
 example {G : Type u} [Group G] : Nonempty (ReductivePseudocharacter G (SuggestedFixtures.torusCoordinates A) A ≃ (G →* Aˣ)) := sorry
 
 /-- `h_pseudocharacter_trivial_rep`: The trivial representation evaluates every invariant at the identity tuple. -/
-example {G : Type u} [Group G] (C : InvariantCoordinateInput A) (eval : ∀ n, C.ring n →ₐ[A] ((Fin n → Aˣ) → A)) (n : ℕ) (f : C.ring n) (g : Fin n → G) : (ReductivePseudocharacter.ofRepresentation C (1 : G →* Aˣ) eval).theta n f g=eval n f (fun _ ↦ 1) := sorry
+example {G : Type u} [Group G] (C : InvariantCoordinateInput A) (eval : InvariantEvaluation C Aˣ A) (n : ℕ) (f : C.ring n) (g : Fin n → G) : (ReductivePseudocharacter.ofRepresentation C (1 : G →* Aˣ) eval).theta n f g=eval.evaluate n f (fun _ ↦ 1) := sorry
 
-/-- Omitted hypothesis: C and eval are the GL_d simultaneous-conjugation invariant coordinate input supplied by LP3.
+/-- Regular polynomial evaluation and simultaneous conjugation invariance are explicit.
 `h_pseudocharacter_unipotent`: Over an algebraically closed field, the nontrivial upper-unipotent representation Z→GL₂ has the same pseudocharacter as the trivial rank-two representation; the pseudocharacter does not retain the nonsplit extension. -/
-example {K : Type} [Field K] [IsAlgClosed K] (C : InvariantCoordinateInput K) (eval : ∀ n, C.ring n →ₐ[K] ((Fin n → (Matrix (Fin 2) (Fin 2) K)ˣ) → K)) : ReductivePseudocharacter.ofRepresentation C (SuggestedFixtures.unipotentUnits K) eval=ReductivePseudocharacter.ofRepresentation C (1 : Multiplicative ℤ →* (Matrix (Fin 2) (Fin 2) K)ˣ) eval := sorry
+example {K : Type} [Field K] [IsAlgClosed K] (C : InvariantCoordinateInput K) (eval : InvariantEvaluation C (Matrix (Fin 2) (Fin 2) K)ˣ K) (hregular : eval.IsRegularMatrixInvariant) : ReductivePseudocharacter.ofRepresentation C (SuggestedFixtures.unipotentUnits K) eval=ReductivePseudocharacter.ofRepresentation C (1 : Multiplicative ℤ →* (Matrix (Fin 2) (Fin 2) K)ˣ) eval := sorry
 
 /-- `h_continuous_discrete_group`: Every pseudocharacter on a discrete Γ is continuous. -/
 example {G : Type u} [Group G] [TopologicalSpace G] [DiscreteTopology G] [TopologicalSpace A] (C : InvariantCoordinateInput A) (Θ : ReductivePseudocharacter G C A) : Θ.IsContinuous := sorry
@@ -2556,14 +2879,14 @@ example {G : Type u} [Group G] [TopologicalSpace G] [TopologicalSpace A] [IsTopo
 example {G Q : Type u} [Group G] [Group Q] [TopologicalSpace G] [TopologicalSpace Q] [Finite Q] [DiscreteTopology Q] [TopologicalSpace A] (C : InvariantCoordinateInput A) (Θ : ReductivePseudocharacter Q C A) (π : G →* Q) (hπ : Continuous π) : (ReductivePseudocharacter.restrict C Θ π).IsContinuous := sorry
 
 /-- `h_kernel_trivial_rep`: The trivial representation has ker Θ=Γ. -/
-example {G : Type u} [Group G] (C : InvariantCoordinateInput A) (eval : ∀ n, C.ring n →ₐ[A] ((Fin n → Aˣ) → A)) : ReductivePseudocharacter.kernel C (ReductivePseudocharacter.ofRepresentation C (1 : G →* Aˣ) eval)=⊤ := sorry
+example {G : Type u} [Group G] (C : InvariantCoordinateInput A) (eval : InvariantEvaluation C Aˣ A) : ReductivePseudocharacter.kernel C (ReductivePseudocharacter.ofRepresentation C (1 : G →* Aˣ) eval)=⊤ := sorry
 
 /-- `h_kernel_rank_one`: For H=G_m it is the kernel of the unit character. -/
 example {G : Type u} [Group G] (Θ : ReductivePseudocharacter G (SuggestedFixtures.torusCoordinates A) A) : ReductivePseudocharacter.kernel (SuggestedFixtures.torusCoordinates A) Θ=(SuggestedFixtures.torusEquiv Θ).ker := sorry
 
-/-- Omitted hypothesis: C and eval are the GL_d simultaneous-conjugation invariant coordinate input supplied by LP3.
+/-- Regular invariant evaluation is explicit; characteristic zero makes ρ faithful.
 `h_kernel_unipotent_strict`: For the upper-unipotent representation of Z in GL₂ over C, ker ρ={0} but ker Θ_ρ=Z. -/
-example {K : Type} [Field K] [IsAlgClosed K] [CharZero K] (C : InvariantCoordinateInput K) (eval : ∀ n, C.ring n →ₐ[K] ((Fin n → (Matrix (Fin 2) (Fin 2) K)ˣ) → K)) : (SuggestedFixtures.unipotentUnits K).ker=⊥ ∧ ReductivePseudocharacter.kernel C (ReductivePseudocharacter.ofRepresentation C (SuggestedFixtures.unipotentUnits K) eval)=⊤ := sorry
+example {K : Type} [Field K] [IsAlgClosed K] [CharZero K] (C : InvariantCoordinateInput K) (eval : InvariantEvaluation C (Matrix (Fin 2) (Fin 2) K)ˣ K) (hregular : eval.IsRegularMatrixInvariant) : (SuggestedFixtures.unipotentUnits K).ker=⊥ ∧ ReductivePseudocharacter.kernel C (ReductivePseudocharacter.ofRepresentation C (SuggestedFixtures.unipotentUnits K) eval)=⊤ := sorry
 
 /-- `corner_matrix`: For the usual determinant on M₃(A) and e=diag(1,1,0), D_e is the 2×2 determinant. -/
 example [Nontrivial A] (hconnected : ∀ a : A, a*a=a → a=0 ∨ a=1) : let D := Determinant.ofMatrix (AlgHom.id A (Matrix (Fin 3) (Fin 3) A))
@@ -2658,9 +2981,14 @@ example {G : Type} [Group G] : Nonempty (CayleyHamilton.universalAlgebra G 1 ≃
 /-- `universal_trivial_group`: For G={1}, R(G,d)=Z for d≥1. -/
 example (d : ℕ) (hd : 0 < d) : Nonempty (CayleyHamilton.universalAlgebra Unit d ≃+* ℤ) := sorry
 
-/-- Omitted hypotheses: A is henselian local, and its universal coefficient map is the specified split residually absolutely irreducible determinant.
-`universal_matrix_specialization`: Specializing to a residual split absolutely irreducible determinant over henselian A gives M_d(A). -/
-example {G : Type} [Group G] (d : ℕ) (hd : 0 < d) [Algebra (Determinant.coordinateRing ℤ (MonoidAlgebra ℤ G) d) A] : Nonempty (CayleyHamilton.universalAlgebra_baseChange (G := G) d A ≃ₐ[A] Matrix (Fin d) (Fin d) A) := sorry
+/-- `universal_matrix_specialization`: the specialized universal law at φ has split,
+absolutely irreducible residue, so its CH quotient is M_d(A). -/
+example {G : Type} [Group G] [HenselianLocalRing A] (d : ℕ) (hd : 0 < d)
+    (φ : Determinant.coordinateRing ℤ (MonoidAlgebra ℤ G) d →ₐ[ℤ] A)
+    (hSplit : (CayleyHamilton.universalSpecialization d φ).residual.IsSplit)
+    (hIrr : (CayleyHamilton.universalSpecialization d φ).residual.IsAbsolutelyIrreducible) :
+    Nonempty (CayleyHamilton.universalAlgebra_baseChange d φ ≃ₐ[A]
+      Matrix (Fin d) (Fin d) A) := sorry
 
 /-- `reductive_universal_trivial`: For the trivial target group H, B_H^Γ=O. -/
 example {G : Type u} [Group G] : Nonempty (ReductivePseudocharacter.universalRing G (SuggestedFixtures.trivialCoordinates A) ≃ₐ[A] A) := sorry
@@ -2856,3 +3184,112 @@ example (d : ℕ) : Nonempty (CayleyHamilton.genericRepresentationRing (Determin
 example : ¬ Module.Finite ℚ (CayleyHamilton.genericRepresentationRing (SuggestedFixtures.productDeterminant ℚ) (by sorry)) := sorry
 
 end TauCeti.SuggestedTest
+
+namespace TauCeti
+open CategoryTheory
+open scoped ModuleCat.Algebra
+variable {A R : Type u} [CommRing A] [Ring R] [Algebra A R]
+
+/-- `residual_ordered_projectors`: ordered residual constituents distinguish their
+own diagonal idempotent from every other block. -/
+example [IsLocalRing A] {s : ℕ} {size : Fin s → ℕ} (E : GMA.Data A R s size)
+    (res : GMA.ResidualData E) (i j : Fin s) (hij : i ≠ j) :
+    Matrix.charpoly (res.representation i (1 ⊗ₜ[A] E.idempotent i)) = (X-1)^(size i) ∧
+    Matrix.charpoly (res.representation i (1 ⊗ₜ[A] E.idempotent j)) = X^(size i) := sorry
+
+/-- `residual_triangular_product`: full determinant and prescribed diagonal factors
+agree on triangular matrices, including the nonzero upper off-diagonal entry. -/
+example {k : Type u} [Field k] (a b c : k) :
+    let E := SuggestedFixtures.orderGMA k ⊥ false
+    let res := SuggestedFixtures.triangularResidualData k
+    let x : SuggestedFixtures.matrixOrder k ⊥ false := ⟨!![a,b;0,c], by sorry⟩
+    res.representation 0 (1 ⊗ₜ[k] x) 0 0=IsLocalRing.residue k a ∧
+    res.representation 1 (1 ⊗ₜ[k] x) 0 0=IsLocalRing.residue k c ∧
+    (GMA.determinant E).residual.eval (1 ⊗ₜ[k] x)=IsLocalRing.residue k (a*c) := sorry
+
+/-- `residual_repeated_rejected`: two isomorphic labelled constituents cannot be
+ResidualData, even if their product has the requested total degree. -/
+example [IsLocalRing A] {s : ℕ} {size : Fin s → ℕ} (E : GMA.Data A R s size)
+    (res : GMA.ResidualData E) (i j : Fin s) (hij : i ≠ j)
+    (T : (Fin (size j) → IsLocalRing.ResidueField A) ≃ₗ[IsLocalRing.ResidueField A]
+      (Fin (size i) → IsLocalRing.ResidueField A))
+    (hT : ∀ r x, T ((res.representation j r).mulVec x)=
+      (res.representation i r).mulVec (T x)) : False := sorry
+
+/-- `quotient_constituent_diagonal`: the two actual triangular constituents act by
+their indicated diagonal entries, after the same coefficient quotient. -/
+example (i : Fin 2) (r : SuggestedFixtures.matrixOrder A ⊥ false) :
+    GMA.quotientRepresentation (SuggestedFixtures.orderGMA A ⊥ false) id i
+      (by simp) ⊥ (by sorry) (1 ⊗ₜ[A] r) 0 0 =
+        Ideal.Quotient.mk (⊥ : Ideal A) (r.val i i) := sorry
+
+/-- `quotient_constituent_nonzero`: the prescribed one-dimensional constituents
+cannot be replaced by zero modules. -/
+example {k : Type u} [Field k] (i : Fin 2) :
+    ¬ Limits.IsZero (SuggestedFixtures.upperConstituent k i) := sorry
+
+/-- `quotient_triangular_ext_orientation`: for the upper triangular algebra the
+extension of the second diagonal character by the first is one-dimensional. -/
+example {k : Type u} [Field k] :
+    Nonempty (Abelian.Ext (SuggestedFixtures.upperConstituent k 1)
+      (SuggestedFixtures.upperConstituent k 0) 1 ≃ₗ[k] k) := sorry
+
+/-- `reducibility_prescribed_order`: the two factors of the triangular determinant
+are uniquely fixed by the ordered residual reductions, even in characteristic two. -/
+example {k : Type u} [Field k] :
+    let E := SuggestedFixtures.orderGMA k ⊥ false
+    ∃! F : Determinant (k ⧸ (⊥ : Ideal k)) ((k ⧸ (⊥ : Ideal k)) ⊗[k]
+        SuggestedFixtures.matrixOrder k ⊥ false) 1 ×
+      Determinant (k ⧸ (⊥ : Ideal k)) ((k ⧸ (⊥ : Ideal k)) ⊗[k]
+        SuggestedFixtures.matrixOrder k ⊥ false) 1,
+      ((GMA.determinant E).baseChange (k ⧸ (⊥ : Ideal k))).toLaw=(F.1.mul F.2).toLaw ∧
+      GMA.residualFactor ⊥ (by sorry) F.1=
+        Determinant.ofMatrix ((SuggestedFixtures.triangularResidualData k).representation 0) ∧
+      GMA.residualFactor ⊥ (by sorry) F.2=
+        Determinant.ofMatrix ((SuggestedFixtures.triangularResidualData k).representation 1) := sorry
+
+/-- `ribet_lattice_oriented_iwahori`: on the standard lattice the upper-unipotent
+unit witnesses the nonsplit extension of ψ (second diagonal) by χ (first). -/
+example [IsDomain A] [IsDiscreteValuationRing A]
+    (hdistinct : ∃ u : Aˣ, IsLocalRing.residue A (u : A) ≠ 1) :
+    let χ := SuggestedFixtures.iwahoriDiagonal A 0
+    let ψ := SuggestedFixtures.iwahoriDiagonal A 1
+    χ ≠ ψ ∧
+    (∀ g : (SuggestedFixtures.matrixOrder A (IsLocalRing.maximalIdeal A) false)ˣ,
+      IsLocalRing.residue A (g.val.val 1 0)=0) ∧
+    ∀ v : IsLocalRing.ResidueField A, ∃ g :
+        (SuggestedFixtures.matrixOrder A (IsLocalRing.maximalIdeal A) false)ˣ,
+      IsLocalRing.residue A (g.val.val 0 1) ≠ ((ψ g : IsLocalRing.ResidueField A)-
+        (χ g : IsLocalRing.ResidueField A))*v := sorry
+
+/-- `ribet_lattice_unipotent_witness`: the witness has both diagonal characters 1
+and upper entry 1, so no change of splitting can kill that upper entry. -/
+example [IsLocalRing A] :
+    let g := SuggestedFixtures.iwahoriUpperUnipotent A (IsLocalRing.maximalIdeal A)
+    SuggestedFixtures.iwahoriDiagonal A 0 g=1 ∧
+    SuggestedFixtures.iwahoriDiagonal A 1 g=1 ∧
+    IsLocalRing.residue A (g.val.val 0 1)=1 := sorry
+
+/-- `symplectic_zero_form_rejected`: the zero-form equation satisfies every
+matrix representation, but zero cannot be a nondegenerate alternating form. -/
+example [Nontrivial A] : ¬ IsUnit (0 : Matrix (Fin 4) (Fin 4) A) := sorry
+
+/-- `symplectic_standard_form`: the usual J is alternating and invertible over
+any coefficient ring, including characteristic two. -/
+example :
+    let J : Matrix (Fin 4) (Fin 4) A := !![0,0,1,0;0,0,0,1;-1,0,0,0;0,-1,0,0]
+    IsUnit J ∧ ∀ x : Fin 4 → A, dotProduct x (J.mulVec x)=0 := sorry
+
+/-- `local_quotient_identity_compatibility`: in rank one and with Ã=A, a compatible
+local corner already reduces to the given global character, and identity conjugation
+preserves every selected generic fiber. -/
+example {G : Type u} [Group G] (H : Subgroup G)
+    (ρ : G →* (Matrix (Fin 1) (Fin 1) A)ˣ) :
+    ∃ localRep : H →* (Matrix (Fin 1) (Fin 1) A)ˣ,
+      ∀ h : H, (localRep h : Matrix (Fin 1) (Fin 1) A).map (RingHom.id A)=
+        (ρ h : Matrix (Fin 1) (Fin 1) A) := sorry
+
+/-- `local_quotient_incompatible_character`: an arbitrary local matrix with entry 2
+cannot lift the global trivial character through the identity quotient Q→Q. -/
+example : (!![(2 : ℚ)].map (RingHom.id ℚ) : Matrix (Fin 1) (Fin 1) ℚ) ≠ 1 := sorry
+end TauCeti
