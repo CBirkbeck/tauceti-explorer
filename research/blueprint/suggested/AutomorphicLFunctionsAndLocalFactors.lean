@@ -29,6 +29,7 @@ import Mathlib.Topology.Algebra.PontryaginDual
 import Mathlib.NumberTheory.LSeries.Basic
 import Mathlib.Analysis.Calculus.IteratedDeriv.Defs
 import Mathlib.Analysis.Meromorphic.Order
+import Mathlib.Analysis.Meromorphic.Divisor
 
 noncomputable section
 open MeasureTheory
@@ -343,7 +344,10 @@ example {F : Type*} [MeasurableSpace F] (μ₀ : Measure F) (q : ℝ) :
 example {F : Type*} [MeasurableSpace F] (μ₀ : Measure F) (q : ℝ) (hq : 0 < q) :
     SelfDualHaar μ₀ q 2 = ENNReal.ofReal q⁻¹ • μ₀ := by sorry
 -- TauCeti.AutomorphicLFunctions.AL0.SelfDualHaar.scaled_character
-example (q : ℝ) (hq : 0 < q) : Real.sqrt q⁻¹ = q ^ (-1/2 : ℝ) := by sorry
+example {F : Type*} [MeasurableSpace F] (μ₀ : Measure F)
+    (q : ℝ) (hq : 0 < q) (d : ℕ) :
+    SelfDualHaar μ₀ q (d+1) =
+      ENNReal.ofReal (q ^ (-1/2 : ℝ)) • SelfDualHaar μ₀ q d := by sorry
 -- TauCeti.AutomorphicLFunctions.AL0.SelfDualHaar.complex_trace
 example : (∫ z : ℂ, Complex.exp (-2*Real.pi*(‖z‖ : ℂ)^2)) = (1/2 : ℂ) := by sorry
 
@@ -425,6 +429,17 @@ def QuasiChar.absPow {F : Type*} [Field F] [TopologicalSpace F]
 def zetaIntegral {G : Type*} [MeasurableSpace G]
     (μ : Measure G) (a : G → ℝ) (ω : G → ℂ) (s : ℂ) (f : G → ℂ) : ℂ :=
   ∫ x, f x * ω x * (a x : ℂ)^s ∂μ
+
+theorem zetaIntegral_measure_scale {G : Type*} [MeasurableSpace G]
+    (μ : Measure G) (a : G → ℝ) (ω f : G → ℂ) (s : ℂ) (c : ℝ≥0) :
+    zetaIntegral ((c : ℝ≥0∞) • μ) a ω s f =
+      (c : ℂ) * zetaIntegral μ a ω s f := by sorry
+
+-- TauCeti.TateZeta.zetaIntegral_normalized_measure_scale
+example {G : Type*} [MeasurableSpace G] (μ : Measure G)
+    (a : G → ℝ) (ω f : G → ℂ) (s L : ℂ) :
+    zetaIntegral ((2 : ℝ≥0∞) • μ) a ω s f / L =
+      2 * (zetaIntegral μ a ω s f / L) := by sorry
 
 theorem zetaIntegral_twist {G : Type*} [MeasurableSpace G]
     (μ : Measure G) (a : G → ℝ) (ha : ∀ x, 0 < a x)
@@ -562,7 +577,10 @@ example {G : Type*} [MeasurableSpace G] (μ : Measure G) (β Φ : G → ℂ)
     GodementJacquetIntegral 1 μ β Φ absDet s =
       TauCeti.TateZeta.zetaIntegral μ absDet β s Φ := by sorry
 -- TauCeti.AutomorphicLFunctions.AL2.GodementJacquetIntegral.rank_two_shift
-example : ((2 : ℂ)-1)/2 = 1/2 := by sorry
+example {G : Type*} [MeasurableSpace G] (μ : Measure G) (β Φ : G → ℂ)
+    (absDet : G → ℝ) (s : ℂ) :
+    GodementJacquetIntegral 2 μ β Φ absDet s =
+      ∫ g, β g * Φ g * (absDet g : ℂ)^(s+1/2) ∂μ := by sorry
 -- TauCeti.AutomorphicLFunctions.AL2.GodementJacquetIntegral.zero_test
 example {G : Type*} [MeasurableSpace G] (n : ℕ) (μ : Measure G)
     (β : G → ℂ) (absDet : G → ℝ) (s : ℂ) :
@@ -578,8 +596,11 @@ example {G : Type*} [MeasurableSpace G] (n : ℕ) (μ : Measure G)
 def StandardLocalLFactor (P : Polynomial ℂ) (q : ℝ) (s : ℂ) : ℂ :=
   (P.eval ((q : ℂ)^(-s)))⁻¹
 
-theorem StandardLocalLFactor.constant (P : Polynomial ℂ) (h : P.eval 0 = 1) :
-    P.eval 0 = 1 := by sorry
+/-- Constant term of the unramified polynomial; the general generator
+    normalization remains in the named omission manifest. -/
+theorem StandardLocalLFactor.unramified_polynomial_constant {ι : Type*} [Fintype ι]
+    (α : ι → ℂ) :
+    (∏ i, (1-Polynomial.C (α i)*Polynomial.X)).eval 0 = 1 := by sorry
 
 theorem StandardLocalLFactor.unramified {ι : Type*} [Fintype ι]
     (α : ι → ℂ) (q : ℝ) (s : ℂ) :
@@ -700,9 +721,10 @@ example (α β : ℂ) (q : ℝ) (s : ℂ) :
     RsLocalFactor (1-Polynomial.C (α*β)*Polynomial.X) q s =
       (1-α*β*(q : ℂ)^(-s))⁻¹ := by sorry
 -- TauCeti.AutomorphicLFunctions.AL3.RsLocalFactor.two_by_one
-example : (1-Polynomial.C (2*5 : ℂ)*Polynomial.X)*
-    (1-Polynomial.C (3*5 : ℂ)*Polynomial.X) =
-      (1-Polynomial.C (10 : ℂ)*Polynomial.X)*(1-Polynomial.C (15 : ℂ)*Polynomial.X) := by sorry
+example (q : ℝ) (s : ℂ) :
+    RsLocalFactor ((1-Polynomial.C (2*5 : ℂ)*Polynomial.X)*
+      (1-Polynomial.C (3*5 : ℂ)*Polynomial.X)) q s =
+      (1-10*(q : ℂ)^(-s))⁻¹ * (1-15*(q : ℂ)^(-s))⁻¹ := by sorry
 
 /-- Theta Mellin expression on the supplied idele-class measure. -/
 def MirabolicEisensteinSeries {C : Type*} [MeasurableSpace C]
@@ -761,6 +783,12 @@ example (a : ℂ) (ha : a ≠ 0) (d : ℕ) : ffRsLocalFactor (fun _ : Fin 1 => a
 def OpenDiscZeroPoleIndex (P Q : Polynomial ℂ) : ℤ :=
   ((P.roots.filter (fun z => ‖z‖ < 1)).card : ℤ)-
     ((Q.roots.filter (fun z => ‖z‖ < 1)).card : ℤ)
+
+/-- Native analytic divisor compared with finite polynomial multiplicities. -/
+theorem OpenDiscZeroPoleIndex.divisor (P Q : Polynomial ℂ) (hP : P ≠ 0) (hQ : Q ≠ 0) :
+    OpenDiscZeroPoleIndex P Q =
+      ∑ z ∈ ((P.roots+Q.roots).toFinset.filter (fun z => ‖z‖ < 1)),
+        MeromorphicOn.divisor (fun w => P.eval w / Q.eval w) Set.univ z := by sorry
 
 theorem OpenDiscZeroPoleIndex.presentation (P Q P' Q' : Polynomial ℂ)
     (hP : P ≠ 0) (hQ : Q ≠ 0) (hP' : P' ≠ 0) (hQ' : Q' ≠ 0)
@@ -824,8 +852,9 @@ example : LGroupLocalFactor (0 : Matrix (Fin 0) (Fin 0) ℂ) = 1 := by sorry
 example (a : ℂ) : LGroupLocalFactor (Matrix.diagonal (fun _ : Fin 1 => a)) =
     1-Polynomial.C a*Polynomial.X := by sorry
 -- TauCeti.AutomorphicLFunctions.AL4.LGroupLocalFactor.tensor_not_product
-example : (1-Polynomial.C (2*3 : ℂ)*Polynomial.X) ≠
-    (1-Polynomial.C (2 : ℂ)*Polynomial.X)*(1-Polynomial.C (3 : ℂ)*Polynomial.X) := by sorry
+example : LGroupLocalFactor (Matrix.diagonal (fun _ : Fin 1 => (2*3 : ℂ))) ≠
+    LGroupLocalFactor (Matrix.diagonal (fun _ : Fin 1 => (2 : ℂ))) *
+      LGroupLocalFactor (Matrix.diagonal (fun _ : Fin 1 => (3 : ℂ))) := by sorry
 -- TauCeti.AutomorphicLFunctions.AL4.LGroupLocalFactor.gln2_integral_shift
 example (q : ℝ) (α : Fin 2 → ℂ) :
     (LGroupLocalFactor (Matrix.diagonal (fun i => (Real.sqrt q : ℂ)*α i))).coeff 1 =
@@ -850,10 +879,15 @@ theorem FiniteEulerCorrection.union {ι : Type*} [DecidableEq ι]
 example {ι : Type*} (P : ι → Polynomial ℂ) (q : ι → ℝ) (s : ℂ) (L : ℂ → ℂ) :
     FiniteEulerCorrection ∅ P q s * L s = L s := by sorry
 -- TauCeti.AutomorphicLFunctions.AL5.FiniteEulerCorrection.simple_exceptional_zero
-example (p : ℝ) (hp : 1 < p) : 1-(p : ℂ)^(-(0 : ℂ)) = 0 := by sorry
+example (p : ℝ) (hp : 1 < p) :
+    FiniteEulerCorrection (Finset.univ : Finset (Fin 1))
+      (fun _ => 1-Polynomial.X) (fun _ => p) 0 = 0 := by sorry
 -- TauCeti.AutomorphicLFunctions.AL5.FiniteEulerCorrection.double_exceptional_zero
 example (p : ℝ) (hp : 1 < p) :
-    iteratedDeriv 2 (fun s : ℂ => (1-(p : ℂ)^(-s))^2) 0 = 2*(Real.log p : ℂ)^2 := by sorry
+    iteratedDeriv 2 (fun s : ℂ =>
+      FiniteEulerCorrection (Finset.univ : Finset (Fin 2))
+        (fun _ => 1-Polynomial.X) (fun _ => p) s) 0 =
+      2*(Real.log p : ℂ)^2 := by sorry
 
 def OrdinaryGl2EulerFactor (p : ℝ) (k j : ℕ) (α χp χinvp εp : ℂ) : ℂ :=
   (1-χp*(p : ℂ)^j/α)*(1-χinvp*εp*(p : ℂ)^(k-j)/α)
@@ -1055,9 +1089,18 @@ theorem WhittakerModel.realization {G V : Type*} [Group G]
     Function.Injective (fun v => whittakerFunction ρ ℓ v) := by sorry
 
 -- TauCeti.AutomorphicLFunctions.AL3.WhittakerModel.rank_one
-example (χ : ℂˣ →* ℂ) (g : ℂˣ) (c : ℂ) : χ g*c = χ g*(χ 1*c) := by sorry
+example (ρ : ℂˣ →* Module.End ℂ ℂ) (χ : ℂˣ →* ℂ)
+    (hρ : ∀ g v, ρ g v = χ g*v) (g : ℂˣ) (c : ℂ) :
+    whittakerFunction ρ (LinearMap.id : ℂ →ₗ[ℂ] ℂ) c g =
+      χ g * whittakerFunction ρ (LinearMap.id : ℂ →ₗ[ℂ] ℂ) c 1 := by sorry
 -- TauCeti.AutomorphicLFunctions.AL3.WhittakerModel.opposite_character
-example (z : Circle) : (z : ℂ)*(z⁻¹ : Circle) = 1 := by sorry
+example (ρ ρ' : Circle →* Module.End ℂ ℂ)
+    (hρ : ∀ z v, ρ z v = (z : ℂ)*v)
+    (hρ' : ∀ z v, ρ' z v = (z⁻¹ : Circle)*v) (z : Circle) (c d : ℂ) :
+    whittakerFunction ρ (LinearMap.id : ℂ →ₗ[ℂ] ℂ) c z *
+      whittakerFunction ρ' (LinearMap.id : ℂ →ₗ[ℂ] ℂ) d z =
+    whittakerFunction ρ (LinearMap.id : ℂ →ₗ[ℂ] ℂ) c 1 *
+      whittakerFunction ρ' (LinearMap.id : ℂ →ₗ[ℂ] ℂ) d 1 := by sorry
 
 -- TauCeti.AutomorphicLFunctions.AL3.RsLocalIntegrals.two_by_one
 example (μ : Measure ℝ) (W χ : ℝ → ℂ) (a : ℝ → ℝ) (s : ℂ) :
@@ -1070,11 +1113,14 @@ theorem RsLocalIntegrals.twist {Q M : Type*} [MeasurableSpace Q] [MeasurableSpac
     RsLocalIntegrals n m μ ν (fun g x => W g x*(a g : ℂ)^t) W' a s =
       RsLocalIntegrals n m μ ν W W' a (s+t) := by sorry
 
-/-- The last normalization evaluates an entire quotient, not a divergent integral. -/
--- TauCeti.AutomorphicLFunctions.AL3.NormalizedRsPeriod.tempered_half_plane
-example : (-(1/2 : ℝ) < 0) ∧ ¬ (-(1/2 : ℝ) < -(1/2 : ℝ)) := by sorry
--- TauCeti.AutomorphicLFunctions.AL3.NormalizedRsPeriod.continued_value
-example : (fun s : ℂ => if s = 0 then 1 else s/s) 0 = 1 ∧ (0 : ℂ)/(0 : ℂ) = 0 := by sorry
+/-- Scalar-family specialization of quotient evaluation. The representation-level
+    convergence and continuation tests are named omissions below. -/
+example : NormalizedRsPeriod
+    (fun s => (s+1) • (LinearMap.id : ℂ →ₗ[ℂ] ℂ)) 2 = 2 := by sorry
+
+example : NormalizedRsPeriod
+    (fun s => (if s = 0 then 1 else s/s) • (LinearMap.id : ℂ →ₗ[ℂ] ℂ)) 1 = 1 ∧
+      (0 : ℂ)/(0 : ℂ) = 0 := by sorry
 
 /-- The degree substitution in the local determinant. -/
 theorem FunctionFieldRsEulerProduct.local {ι κ : Type*} [Fintype ι] [Fintype κ]
@@ -1099,8 +1145,8 @@ theorem RsNormalizingScalar.root (P Q : Polynomial ℂ) (q : ℝ) (g Ni Nj : ℕ
       (P.eval z/Q.eval z)/(P.eval ((q : ℂ)⁻¹*z)/Q.eval ((q : ℂ)⁻¹*z)) := by sorry
 
 -- TauCeti.AutomorphicLFunctions.AL3.RsNormalizingScalar.pole_not_value
-example : (1-Polynomial.X : Polynomial ℂ).eval 1 = 0 ∧
-    (1 : Polynomial ℂ).eval 1 = 1 := by sorry
+example : (RsNormalizingScalar 1 (1-Polynomial.X) 2 1 1 1).1.eval 1 = 1/2 ∧
+    (RsNormalizingScalar 1 (1-Polynomial.X) 2 1 1 1).2.eval 1 = 0 := by sorry
 
 /-- The algebraic telescoping underlying residual Rankin–Selberg products. -/
 theorem ResidualRsTelescoping (L : ℤ → ℂˣ) (a : ℤ) (ν₁ ν₂ : ℕ) :
@@ -1460,7 +1506,7 @@ TauCeti.AutomorphicLFunctions.AL3.RsLocalFunctionalEquation
 AutomorphicLFunctionsAndLocalFactors:AL.3/rs-archimedean-realization
 Unavailable full input: SR.1/SR.5 generic Whittaker/derivative and AF.1/AF.3 global quotient carriers; FA.5/GS.6 cohomological comparison or rational-structure input for the specified theorem.
 TauCeti.AutomorphicLFunctions.AL3.RsArchimedeanRealization
-  For induced representations of Whittaker type, every holomorphic multiple h(s)L(s,σ⊗σ′) is represented by the appropriate completed-tensor RS integral in Jacquet Theorem2.6. If the induced representations are irreducible and m=n−1 or m=n, L itself is a finite sum of K-finite test integrals (Gaussian-type Φ when n=m). The finite K-finite statement is not extended to arbitrary rank gap or reducible induced inputs.
+  For the ordered induced Whittaker-type representations of Jacquet Theorem2.6, every m(s)=h(s)L(s,σ⊗σ′) in the space L(σ⊗σ′) is represented by the completed projective tensor RS integral when n>m, and by a finite sum of such integrals with Schwartz Φ_i when n=m. Here h is entire and, on every finite vertical strip, P(s)m(s) is bounded whenever P is a polynomial clearing the poles of L on that strip. For irreducible induced representations and m=n−1 or m=n, L itself is a finite sum of K-finite test integrals (Gaussian-polynomial Φ_i when n=m). No arbitrary-entire-multiple claim, arbitrary-rank-gap K-finite claim, or reducible-input extension of Theorem2.7 is made.
 
 AutomorphicLFunctionsAndLocalFactors:AL.3/rs-unramified-test
 Unavailable full input: SR.1/SR.5 generic Whittaker/derivative and AF.1/AF.3 global quotient carriers; FA.5/GS.6 cohomological comparison or rational-structure input for the specified theorem.
@@ -1622,8 +1668,6 @@ TauCeti.AutomorphicLFunctions.AL3.ResidualRsProduct
 
 AutomorphicLFunctionsAndLocalFactors:AL.3/open-disc-zero-pole-index
 Unavailable full input: SR.1/SR.5 generic Whittaker/derivative and AF.1/AF.3 global quotient carriers; FA.5/GS.6 cohomological comparison or rational-structure input for the specified theorem.
-TauCeti.AutomorphicLFunctions.AL3.OpenDiscZeroPoleIndex.divisor
-  I(f) equals the sum of its finite native divisor in |z|<1.
 
 AutomorphicLFunctionsAndLocalFactors:AL.3/residual-rs-index
 Unavailable full input: SR.1/SR.5 generic Whittaker/derivative and AF.1/AF.3 global quotient carriers; FA.5/GS.6 cohomological comparison or rational-structure input for the specified theorem.
@@ -1728,5 +1772,26 @@ AutomorphicLFunctionsAndLocalFactors:AL.2/archimedean-standard-epsilon
 Unavailable full input: SR.1 smooth/Casselman–Wallach representation and AF.1 cuspidal/global parameter carriers; general finite LLC is a recorded supplier gap.
 TauCeti.AutomorphicLFunctions.AL2.ArchimedeanStandardEpsilon
   For the positive standard Tate character, a real Weil constituent1 has epsilon1, sgn has epsilon i, and I_w=Ind_(W_C)^(W_R)(z/|z|)^w, w≥1, has epsilon i^(w+1). A weight-k discrete-series constituent therefore has epsilon i^k. Over C an angular character of weightκ has epsilon i^|κ|. Direct sums multiply these factors; norm twists do not change these archimedean constants.
+
+
+Independent-review omissions (full representation-level statements):
+TauCeti.AutomorphicLFunctions.AL2.StandardLocalLFactor.constant
+  The general GJ generator has P_pi(0)=1. The arbitrary supplied-polynomial
+  formula cannot prove this construction theorem; the unramified polynomial
+  constant-term specialization above is not its replacement.
+TauCeti.AutomorphicLFunctions.AL3.NormalizedRsPeriod.tempered_half_plane
+  The actual local period integral converges for Re(s)>-1/2 for tempered
+  representations. Missing smooth representation, temperedness and quotient
+  measure suppliers prevent this signature; a scalar inequality is not a test.
+TauCeti.AutomorphicLFunctions.AL3.NormalizedRsPeriod.continued_value
+  Evaluate the continued actual lambda/L quotient rather than a totalized
+  divergent integral. The scalar-family example above checks evaluation only,
+  not the missing representation-level continuation theorem.
+Measure convention for all AL.1 full statements:
+  Multiplicative Haar scaling by c>0 scales z and z0=z/L by c. It preserves
+  epsilon and gamma ratios with the additive Fourier measure held fixed.
+  Standard normalized vectors must be rescaled by c^(-1); z0 itself is not
+  measure-independent. Full local test vectors use Kudla's unit-volume measure
+  unless an explicit compensating vector rescaling is stated.
 
 -/
