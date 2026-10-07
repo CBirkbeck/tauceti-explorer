@@ -226,7 +226,8 @@
       ],
       "prerequisites": [
         "HabiroNahmSeries:HB.8/formal-pochhammer-symbol",
-        "HabiroNahmSeries:HB.8/fgi-collection"
+        "HabiroNahmSeries:HB.8/fgi-collection",
+        "HabiroNahmSeries:HB.8/refinement-gaussian-normalization"
       ],
       "sources": [
         {
@@ -262,7 +263,8 @@
       ],
       "prerequisites": [
         "HabiroNahmSeries:HB.8/fgi-collection",
-        "mathlib:PowerSeries.coeff"
+        "mathlib:PowerSeries.coeff",
+        "HabiroNahmSeries:HB.8/refinement-gaussian-normalization"
       ],
       "sources": [
         {
@@ -365,7 +367,8 @@
         "HabiroNahmSeries:HB.9/specialisation-at-one",
         "HabiroNahmSeries:HB.8/fgi-collection",
         "HabiroNahmSeries:HB.4/euler-function-at-a-root-of-unity",
-        "HabiroNahmSeries:HB.8"
+        "HabiroNahmSeries:HB.8/refinement-gaussian-normalization",
+        "HabiroNahmSeries:HB.8/refinement-gaussian-identification"
       ],
       "sources": [
         {
@@ -593,7 +596,10 @@
         "HabiroNahmSeries:HB.9/followup-unpowered-product-system",
         "HabiroNahmSeries:HB.9/followup-regularisation-jet",
         "HabiroNahmSeries:HB.8/fgi-collection",
-        "HabiroNahmSeries:HB.8"
+        "HabiroNahmSeries:HB.8/refinement-gaussian-shifts",
+        "HabiroNahmSeries:HB.8/refinement-gaussian-regularity",
+        "HabiroNahmSeries:HB.8/refinement-gaussian-identification",
+        "HabiroNahmSeries:HB.8/refinement-corrected-level-admissibility"
       ],
       "sources": [
         {

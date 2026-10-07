@@ -1,60 +1,68 @@
 /-
 This file is not the roadmap and is not exhaustive. The roadmap document
-`research/blueprint/readmes/HabiroNahmSeries.md` is definitive. These statements suggest
-Lean forms so that contributors and reviewers can converge on names and signatures. They
-claim no implementation.
+research/blueprint/readmes/HabiroNahmSeries.md is definitive. These statements
+suggest Lean forms so contributors and reviewers converge on names and signatures.
+No implementation is claimed; every packet node remains unchecked.
 
-BP-HabiroNahmSeries, revised by the independent review REV-HabiroNahmSeries: partial
-prototype, implementationStatus = unchecked.
 Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174;
 Tau Ceti f790474821cf4256814db967cb154e7af3d0c369.
-Synced with the reviewed packet (109 nodes) and elaborated with the Lean toolchain of
-Mathlib 082e2d3 against its prebuilt library: `sorry` is the only warning. The file imports
-only Mathlib; the Tau Ceti declarations the packet cites (the translation-orbit width of a
-cusp, the multivariate Gaussian density) are named in comments.
 
-Conventions fixed here (see the packet's sourceIssues for the corrections).
-* GZ Theorem 3.1 with the root of unity `χ_α = e(s(a,m)/2)` (Dedekind sum) and the corrected
-  all-orders series; CGZ Theorem 7.1 assumes `n` odd.
-* CGZ's Rogers dilogarithm is `π²/6` minus the standard one and GZ's (8) is its negative;
-  `λ = L(ξ_A)/(4π²)` and `C₀(A) = -λ`.
-* GSWZ: `ℚ(q) = RatFunc ℚ`, multi-indices `Fin N →₀ ℕ`, expansions at `ζ_m` in `T = t^{1/m}`;
-  the t-deformed equations are `1 - z_j = (-1)^{A_jj} t_j ∏_i z_i^{A_ij}` (index `i`), and
-  level-m admissibility uses the corrected ring (poles at `Φ_d` with `m ∣ d`,
-  `gcd(d/m, m) > 1` allowed).
+The base signatures and six reviewed refinements appear in layer order, with one
+import block. Scoped sections preserve each packet's declaration namespace and
+local notation. HB8Refinement.Imported consists of adapters to the base signatures;
+it is not a second ownership plan. Unavailable Gaussian completions, Bloch/K3,
+Rogers, regulator, Habiro module and cohomology carriers remain explicit omissions.
+The reader records their exact owner contracts and all unresolved proof obligations.
 
-Objects another roadmap owns are not re-planned: the Bloch groups (K3BlochGroups), the
-polylogarithms (Polylogarithms P.1), the q-Pochhammer symbols (QSeriesPartitionsAndMockModularForms
-QM.0), the cyclic quantum dilogarithm, `P_ζ`, `R_ζ`, the Habiro ring and its K₃-indexed modules
-(HabiroNumberFields HB.2, HB.6, HB.7) and the p-adic dilogarithm (PadicHodgeRegulators D.1).
-Where a statement needs one of them, a few-line Mathlib stand-in is given or the item is named
-in a comment.
-
-Parts: HB.3–HB.4 (namespace `HabiroNahmSeries.HB34`), HB.5a–HB.5 (`HabiroNahmSeries.HB5`), HB.8
-(`HabiroNahmSeries.HB8`), HB.9–HB.10 (`HabiroNahmSeries.HB910`). Nodes, API items and tests
-without a Lean form here are listed as `-- name: not stated; needs …` comments.
+Analytic A is rational and positive definite, with rational powers evaluated on the
+upper half-plane. Formal A is integral with diagonal signs and no positivity.
+The signed integral class, arithmetic root descent, corrected all-order Gaussian
+identification and full coefficient-algebra descent retain the reader's conditions.
+The powered and unpowered auxiliary products have different covariance laws.
 -/
 
+import Mathlib.Algebra.MvPolynomial.Degrees
+import Mathlib.Algebra.MvPolynomial.PDeriv
+import Mathlib.Algebra.Polynomial.Laurent
+import Mathlib.Algebra.Ring.Equiv
 import Mathlib.Analysis.Asymptotics.Defs
 import Mathlib.Analysis.Calculus.ContDiff.Basic
+import Mathlib.Analysis.Calculus.MeanValue
+import Mathlib.Analysis.Complex.Exponential
 import Mathlib.Analysis.Complex.Periodic
 import Mathlib.Analysis.Complex.UpperHalfPlane.Basic
+import Mathlib.Analysis.Fourier.PoissonSummation
 import Mathlib.Analysis.Matrix.PosDef
 import Mathlib.Analysis.Meromorphic.Order
 import Mathlib.Analysis.Meromorphic.TrailingCoefficient
+import Mathlib.Analysis.Normed.Group.InfiniteSum
 import Mathlib.Analysis.SpecialFunctions.Complex.Circle
 import Mathlib.Analysis.SpecialFunctions.Gaussian.GaussianIntegral
+import Mathlib.Analysis.SpecialFunctions.Log.Basic
+import Mathlib.Analysis.SpecialFunctions.Log.Summable
 import Mathlib.Analysis.SpecialFunctions.Pow.Real
+import Mathlib.Analysis.SpecialFunctions.Trigonometric.Basic
+import Mathlib.Analysis.SpecificLimits.Basic
 import Mathlib.Combinatorics.Enumerative.Pentagonal.EulerFunction
+import Mathlib.Basic.Complex.Basic
 import Mathlib.Data.Finsupp.Weight
+import Mathlib.Data.Nat.Prime.Basic
+import Mathlib.Data.PNat.Basic
+import Mathlib.Data.ZMod.Basic
+import Mathlib.FieldTheory.Galois.Basic
+import Mathlib.FieldTheory.IntermediateField.Adjoin.Algebra
+import Mathlib.FieldTheory.IntermediateField.Adjoin.Basic
 import Mathlib.FieldTheory.IntermediateField.Adjoin.Defs
 import Mathlib.FieldTheory.IsAlgClosed.AlgebraicClosure
+import Mathlib.FieldTheory.IsAlgClosed.Basic
+import Mathlib.FieldTheory.KummerExtension
 import Mathlib.FieldTheory.RatFunc.AsPolynomial
 import Mathlib.GroupTheory.FiniteAbelian.Basic
 import Mathlib.LinearAlgebra.ExteriorPower.Basic
 import Mathlib.LinearAlgebra.Matrix.Determinant.Basic
 import Mathlib.LinearAlgebra.Matrix.PosDef
 import Mathlib.LinearAlgebra.Matrix.Symmetric
+import Mathlib.MeasureTheory.Constructions.Pi
 import Mathlib.MeasureTheory.Integral.IntervalIntegral.TrapezoidalRule
 import Mathlib.NumberTheory.ArithmeticFunction.Moebius
 import Mathlib.NumberTheory.BernoulliPolynomials
@@ -63,6 +71,7 @@ import Mathlib.NumberTheory.Cyclotomic.PrimitiveRoots
 import Mathlib.NumberTheory.ModularForms.BoundedAtCusp
 import Mathlib.NumberTheory.ModularForms.CongruenceSubgroups
 import Mathlib.NumberTheory.ModularForms.Cusps
+import Mathlib.NumberTheory.ModularForms.DedekindEta
 import Mathlib.NumberTheory.ModularForms.Discriminant
 import Mathlib.NumberTheory.ModularForms.EisensteinSeries.Basic
 import Mathlib.NumberTheory.ModularForms.NormTrace
@@ -80,15 +89,19 @@ import Mathlib.RingTheory.Algebraic.Defs
 import Mathlib.RingTheory.Etale.Basic
 import Mathlib.RingTheory.LaurentSeries
 import Mathlib.RingTheory.Localization.Away.Basic
-import Mathlib.Algebra.MvPolynomial.PDeriv
+import Mathlib.RingTheory.MvPowerSeries.Expand
 import Mathlib.RingTheory.MvPowerSeries.PiTopology
 import Mathlib.RingTheory.MvPowerSeries.Substitution
 import Mathlib.RingTheory.Norm.Defs
 import Mathlib.RingTheory.Polynomial.Cyclotomic.Basic
+import Mathlib.RingTheory.PowerSeries.Basic
 import Mathlib.RingTheory.PowerSeries.Exp
 import Mathlib.RingTheory.PowerSeries.Inverse
 import Mathlib.RingTheory.PowerSeries.Log
 import Mathlib.RingTheory.PowerSeries.PiTopology
+import Mathlib.RingTheory.PowerSeries.Substitution
+import Mathlib.RingTheory.RootsOfUnity.PrimitiveRoots
+import Mathlib.RingTheory.Unramified.Finite
 import Mathlib.Topology.Instances.AddCircle.Defs
 
 section PartHB34
@@ -546,7 +559,7 @@ def formalGaussian (Λ : Matrix (Fin N) (Fin N) ℝ) (f : MvPolynomial (Fin N) �
 theorem formalGaussian_const (Λ : Matrix (Fin N) (Fin N) ℝ) (c : ℝ) :
     formalGaussian Λ (MvPolynomial.C c) = c := sorry
 
-theorem formalGaussian_sq (Λ : Matrix (Fin N) (Fin N) ℝ) (i j : Fin N) :
+theorem formalGaussian_sq (Λ : Matrix (Fin N) (Fin N) ℝ) (hΛ : Λ.IsSymm) (i j : Fin N) :
     formalGaussian Λ (MvPolynomial.X i * MvPolynomial.X j) = Λ⁻¹ i j := sorry
 
 -- test `fourth_moment` (computation)
@@ -714,10 +727,12 @@ def kummerSum {m : ℕ} (A : Matrix (Fin N) (Fin N) ℕ) (B : Fin N → ZMod m) 
         ∑ i, B i * ((k i : ℕ) : ZMod m)).val *
       ∏ i, θ i ^ (∑ j, A i j * (k j : ℕ)) / qPochhammerFin (ζ * θ i) ζ (k i)
 
-/-- `S^m` at `ε = 0` does not depend on the choice of the `m`-th roots `θᵢ` of the solution. -/
+/-- Constant-term naming target only. Symmetry and admissible nonzero coordinates are
+explicit; this does not supply the missing all-order automorphism identity. -/
 theorem kummerSum_invariant {m : ℕ} (hm : Odd m) (A : Matrix (Fin N) (Fin N) ℕ)
-    (B : Fin N → ZMod m) {ζ : ℂ} (hζ : IsPrimitiveRoot ζ m) (θ : Fin N → ℂ)
-    (hN : ∀ i, 1 - θ i ^ m = ∏ j, (θ j ^ m) ^ A i j) (s : Fin N → ℕ) :
+    (hA : A.IsSymm) (B : Fin N → ZMod m) {ζ : ℂ} (hζ : IsPrimitiveRoot ζ m) (θ : Fin N → ℂ)
+    (hN : ∀ i, 1 - θ i ^ m = ∏ j, (θ j ^ m) ^ A i j)
+    (hθ : ∀ i, θ i ≠ 0) (hθm : ∀ i, θ i ^ m ≠ 1) (s : Fin N → ℕ) :
     kummerSum A B ζ (fun i => ζ ^ s i * θ i) ^ m / ∏ i, cyclicDilog ζ (ζ * (ζ ^ s i * θ i)) m =
       kummerSum A B ζ θ ^ m / ∏ i, cyclicDilog ζ (ζ * θ i) m := sorry
 
@@ -758,6 +773,608 @@ end HabiroNahmSeries.HB34
 end
 
 end PartHB34
+
+/-! ## HB.3: reviewed refinements -/
+
+noncomputable section AssemblyHB3
+open scoped BigOperators
+
+namespace TauCeti.Nahm
+
+variable {n : ℕ}
+
+/-- For M integral, Pᵢ=(1-Xᵢ^d)∏ⱼXⱼ^((-Mᵢⱼ).toNat)-εᵢ∏ⱼXⱼ^(Mᵢⱼ.toNat).
+    The datum d>0 is imposed by the equivalence theorem, not by this polynomial. -/
+def clearingPolynomial (d : ℕ) (M : Matrix (Fin n) (Fin n) ℤ)
+    (ε : Fin n → ℤ) (i : Fin n) : MvPolynomial (Fin n) ℚ := by
+  sorry
+
+lemma clearingPolynomial.eval {K : Type*} [Field K] [Algebra ℚ K]
+    (d : ℕ) (M : Matrix (Fin n) (Fin n) ℤ) (ε : Fin n → ℤ)
+    (y : Fin n → K) (i : Fin n) :
+    MvPolynomial.aeval y (clearingPolynomial d M ε i) =
+      (1 - y i ^ d) * (∏ j, y j ^ (-M i j).toNat) -
+        (ε i : K) * (∏ j, y j ^ (M i j).toNat) := by
+  sorry
+
+lemma clearingPolynomial.zero_iff {K : Type*} [Field K] [Algebra ℚ K]
+    (d : ℕ) (hd : 0 < d) (M : Matrix (Fin n) (Fin n) ℤ)
+    (ε : Fin n → ℤ) (y : Fin n → K) (hy : ∀ j, y j ≠ 0) (i : Fin n) :
+    MvPolynomial.aeval y (clearingPolynomial d M ε i) = 0 ↔
+      1 - y i ^ d = (ε i : K) * ∏ j, y j ^ M i j := by
+  sorry
+
+lemma clearingPolynomial.nonnegative (d : ℕ) (M : Matrix (Fin n) (Fin n) ℤ)
+    (hM : ∀ i j, 0 ≤ M i j) (ε : Fin n → ℤ) (i : Fin n) :
+    clearingPolynomial d M ε i = 1 - MvPolynomial.X i ^ d -
+      MvPolynomial.C (ε i : ℚ) * ∏ j, MvPolynomial.X j ^ (M i j).toNat := by
+  sorry
+
+lemma clearingPolynomial.map (d : ℕ) (M : Matrix (Fin n) (Fin n) ℤ)
+    (ε : Fin n → ℤ) {K L : Type*} [Field K] [Field L]
+    [Algebra ℚ K] [Algebra ℚ L] (φ : K →ₐ[ℚ] L)
+    (y : Fin n → K) (i : Fin n) :
+    φ (MvPolynomial.aeval y (clearingPolynomial d M ε i)) =
+      MvPolynomial.aeval (fun j => φ (y j)) (clearingPolynomial d M ε i) := by
+  sorry
+
+lemma clearingPolynomial.reindex (d : ℕ) (M : Matrix (Fin n) (Fin n) ℤ)
+    (ε : Fin n → ℤ) (e : Fin n ≃ Fin n) (i : Fin n) :
+    MvPolynomial.rename e (clearingPolynomial d M ε i) =
+      clearingPolynomial d (fun a b => M (e.symm a) (e.symm b))
+        (fun a => ε (e.symm a)) (e i) := by
+  sorry
+
+-- clearingPolynomial_rank_one: A=(2), d=1, ε=1.
+example : clearingPolynomial 1 (fun _ _ : Fin 1 => 2) (fun _ => 1) 0 =
+    1 - MvPolynomial.X 0 - MvPolynomial.X 0 ^ 2 := by
+  sorry
+
+-- clearingPolynomial_negative_entry: negative exponents are cleared on the left.
+example : clearingPolynomial 1 (fun _ _ : Fin 1 => -1) (fun _ => 1) 0 =
+    (1 - MvPolynomial.X 0) * MvPolynomial.X 0 - 1 := by
+  sorry
+
+-- clearingPolynomial_zero_denominator: d=0 cannot encode root lifting.
+example : clearingPolynomial 0 (fun _ _ : Fin 1 => 0) (fun _ => 1) 0 = -1 := by
+  sorry
+
+-- clearingPolynomial_boundary_zero: cleared polynomials have spurious nonunit zeros.
+example (i : Fin 2) : MvPolynomial.aeval (fun _ : Fin 2 => (0 : ℚ))
+    (clearingPolynomial 1 (fun i j : Fin 2 => if i = j then -1 else 1)
+      (fun _ => 1) i) = 0 := by
+  sorry
+
+-- clearingPolynomial_aeval_compatibility: the existing evaluation is used literally.
+example (y : Fin 1 → ℚ) : MvPolynomial.aeval y
+    (clearingPolynomial 1 (fun _ _ : Fin 1 => 2) (fun _ => 1) 0) =
+    1 - y 0 - y 0 ^ 2 := by
+  sorry
+
+/-- Exact Jacobian factorization at a unit zero of the cleared system. -/
+theorem clearingJacobian {K : Type*} [Field K] [Algebra ℚ K]
+    (d : ℕ) (hd : 0 < d) (M : Matrix (Fin n) (Fin n) ℤ)
+    (ε : Fin n → ℤ) (y : Fin n → K) (hy : ∀ j, y j ≠ 0)
+    (hx : ∀ i, 1 - y i ^ d ≠ 0)
+    (hf : ∀ i, MvPolynomial.aeval y (clearingPolynomial d M ε i) = 0) :
+    let J : Matrix (Fin n) (Fin n) K := fun i j =>
+      MvPolynomial.aeval y (MvPolynomial.pderiv j (clearingPolynomial d M ε i))
+    let c : Fin n → K := fun i => (1 - y i ^ d) * ∏ j, y j ^ (-M i j).toNat
+    let B : Matrix (Fin n) (Fin n) K :=
+      (show Matrix (Fin n) (Fin n) K from fun i j => (M i j : K)) +
+        Matrix.diagonal (fun i => (d : K) * y i ^ d / (1 - y i ^ d))
+    J = -(Matrix.diagonal c * B * Matrix.diagonal (fun j => (y j)⁻¹)) ∧
+      Matrix.det J = (-1 : K) ^ n * (∏ i, c i) *
+        (∏ j, (y j)⁻¹) * Matrix.det B ∧
+      (Matrix.det J ≠ 0 ↔ Matrix.det B ≠ 0) := by
+  sorry
+
+/-- The missing commutative-algebra bridge behind the imported algebraicity result.
+    Generation is as a field; generation as an algebra is not assumed. -/
+theorem coordinateFieldUnramified {k L : Type*} [Field k] [Field L] [Algebra k L]
+    (p : Fin n → L) (f : Fin n → MvPolynomial (Fin n) k)
+    (hgen : IntermediateField.adjoin k (Set.range p) = ⊤)
+    (hf : ∀ i, MvPolynomial.aeval p (f i) = 0)
+    (hJ : Matrix.det (fun i j => MvPolynomial.aeval p (MvPolynomial.pderiv j (f i))) ≠ 0) :
+    Algebra.FormallyUnramified k L ∧ Module.Finite k L := by
+  sorry
+
+/-- Positive coherent roots yᵢ=xᵢ^(1/d), with their coordinate field Q(y). -/
+def positiveRootLift (d : ℕ) (x : Fin n → ℝ) : Fin n → ℝ := by
+  sorry
+
+lemma positiveRootLift.eq_rpow (d : ℕ) (x : Fin n → ℝ) (i : Fin n) :
+    positiveRootLift d x i = Real.rpow (x i) (1 / (d : ℝ)) := by
+  sorry
+
+lemma positiveRootLift.pow (d : ℕ) (hd : 0 < d) (x : Fin n → ℝ)
+    (hx : ∀ i, 0 ≤ x i) (i : Fin n) : positiveRootLift d x i ^ d = x i := by
+  sorry
+
+lemma positiveRootLift.mem_cube (d : ℕ) (hd : 0 < d) (x : Fin n → ℝ)
+    (hx : ∀ i, x i ∈ Set.Ioo 0 1) (i : Fin n) :
+    positiveRootLift d x i ∈ Set.Ioo 0 1 := by
+  sorry
+
+lemma positiveRootLift.one (x : Fin n → ℝ) (hx : ∀ i, 0 ≤ x i) :
+    positiveRootLift 1 x = x := by
+  sorry
+
+lemma positiveRootLift.unique (d : ℕ) (hd : 0 < d) (x y : Fin n → ℝ)
+    (hx : ∀ i, 0 ≤ x i) (hy : ∀ i, 0 ≤ y i)
+    (hp : ∀ i, y i ^ d = x i) : y = positiveRootLift d x := by
+  sorry
+
+lemma positiveRootLift.equations (d : ℕ) (hd : 0 < d)
+    (M : Matrix (Fin n) (Fin n) ℤ) (x : Fin n → ℝ)
+    (hx : ∀ i, x i ∈ Set.Ioo 0 1)
+    (heq : ∀ i, 1 - x i = ∏ j, Real.rpow (x j) ((M i j : ℝ) / d)) (i : Fin n) :
+    1 - x i = ∏ j, positiveRootLift d x j ^ M i j := by
+  sorry
+
+lemma positiveRootLift.field_le (d : ℕ) (hd : 0 < d) (x : Fin n → ℝ)
+    (hx : ∀ i, 0 ≤ x i) :
+    IntermediateField.adjoin ℚ (Set.range x) ≤
+      IntermediateField.adjoin ℚ (Set.range (positiveRootLift d x)) := by
+  sorry
+
+lemma positiveRootLift.finite (d : ℕ) (hd : 0 < d)
+    (M : Matrix (Fin n) (Fin n) ℤ)
+    (hA : Matrix.PosDef (fun i j => (M i j : ℝ) / d))
+    (x : Fin n → ℝ) (hx : ∀ i, x i ∈ Set.Ioo 0 1)
+    (heq : ∀ i, 1 - x i = ∏ j, Real.rpow (x j) ((M i j : ℝ) / d)) :
+    Module.Finite ℚ (IntermediateField.adjoin ℚ (Set.range (positiveRootLift d x))) := by
+  sorry
+
+-- positiveRootLift_rank_one_half: x=(3-√5)/2 for A=(1/2), not for A=(2).
+example : positiveRootLift 2 (fun _ : Fin 1 => (3 - Real.sqrt 5) / 2) 0 =
+    (Real.sqrt 5 - 1) / 2 := by
+  sorry
+
+-- positiveRootLift_denominator_one.
+example : positiveRootLift 1 (fun _ : Fin 1 => (1 / 2 : ℝ)) 0 = 1 / 2 := by
+  sorry
+
+-- positiveRootLift_empty: both coordinate fields are Q.
+example : IntermediateField.adjoin ℚ
+    (Set.range (positiveRootLift 2 (fun i : Fin 0 => Fin.elim0 i))) =
+    (⊥ : IntermediateField ℚ ℝ) := by
+  sorry
+
+-- positiveRootLift_negative_branch: the chosen root is positive, not the other square root.
+example : positiveRootLift 2 (fun _ : Fin 1 => (1 / 4 : ℝ)) 0 ≠ -1 / 2 := by
+  sorry
+
+/-- Coherent roots give the exact exterior boundary zero in the root field.
+    The integral class is then supplied by K3BlochGroups:V.3/cgz-bloch-group. -/
+theorem coherentRootBoundary {K : Type*} [Field K]
+    (d : ℕ) (M : Matrix (Fin n) (Fin n) ℤ) (hM : ∀ i j, M i j = M j i)
+    (y t : Fin n → Kˣ) (ht : ∀ i, (t i : K) = 1 - (y i : K) ^ d)
+    (heq : ∀ i, t i = ∏ j, y j ^ M i j) :
+    ∑ i, exteriorPower.ιMulti ℤ 2 ![Additive.ofMul (y i ^ d), Additive.ofMul (t i)] = 0 := by
+  sorry
+
+/-- The diagonal signs in GSWZ (41) leave a genuine possible 2-torsion boundary.
+    Read the inner product variable as z_i, correcting the printed z_j (E36). -/
+theorem signedBoundaryObstruction {K : Type*} [Field K]
+    (M : Matrix (Fin n) (Fin n) ℤ) (hM : ∀ i j, M i j = M j i)
+    (z t : Fin n → Kˣ) (ht : ∀ i, (t i : K) = 1 - (z i : K))
+    (heq : ∀ i, t i = (-1 : Kˣ) ^ M i i * ∏ j, z j ^ M i j) :
+    (∑ i, exteriorPower.ιMulti ℤ 2 ![Additive.ofMul (z i), Additive.ofMul (t i)]) =
+      ∑ i, M i i • exteriorPower.ιMulti ℤ 2 ![Additive.ofMul (z i), Additive.ofMul (-1 : Kˣ)] ∧
+    (2 : ℕ) • (∑ i, exteriorPower.ιMulti ℤ 2 ![Additive.ofMul (z i), Additive.ofMul (t i)]) = 0 := by
+  sorry
+
+/-
+regulatorConventionComparison (exact mathematical interface; missing supplier types):
+Let F=Q(x), E=Q(y) be the finite fields in positiveRootLift, A=M/d symmetric,
+and c_d the integral CGZ class represented by d sum[x_i] in F. Let beta be
+the integral class represented by sum[x_i] in E (coherentRootBoundary).
+Then the image of c_d equals d beta, so the rationalized F class c_d/d maps
+to beta. For every embedding tau:E→C, the Bloch-Wigner value of beta is
+sum_i D(tau(x_i)), equal to the value at tau restricted to F of c_d/d.
+All embeddings of F extend to E. If beta maps to zero over Qbar, each
+embedding E→C extends across Qbar/E, so every regulator value is zero.
+Consequently, using the imported Borel
+criterion, c_d/d=0 iff beta is torsion iff beta maps to zero over Qbar.
+At the preferred real embedding, L_CGZ(x)=pi²/6-L_std(x), with period pi²/2;
+L(0)=pi²/6, L(1)=0, L(infinity)=-pi²/6. The circle-valued map is applied
+to beta or c_d, never Q-linearly extended. Torsion of c_d implies
+sum_i L_CGZ(x_i)∈Q pi². A=(1/2), (1), (2) give respectively
+pi²/10, pi²/12, pi²/15. These require the Rogers API requested from
+Polylogarithms:P.1, regulator injectivity from BorelRegulators:R.4 and
+unique divisibility from K3BlochGroups:V.4. No such types are invented here.
+The signed GSWZ integral class requires the separate V.3 convention request;
+signedBoundaryObstruction supplies only twice the class in the CGZ kernel.
+-/
+
+end TauCeti.Nahm
+
+end AssemblyHB3
+
+/-! ## HB.4: reviewed refinements -/
+
+noncomputable section AssemblyHB4
+open scoped BigOperators Topology
+open Filter Asymptotics MeasureTheory
+
+namespace TauCeti.Nahm.Radial
+
+variable {N : ℕ}
+
+namespace Expressions
+
+-- Parent HB.4/q-pochhammer-symbols, finite quantum factorial convention.
+def qFinite (q : ℂ) (n : ℕ) : ℂ := ∏ j ∈ Finset.range n, (1 - q ^ (j + 1))
+
+def quadratic (A : Matrix (Fin N) (Fin N) ℝ) (x : Fin N → ℝ) : ℝ :=
+  ∑ i, ∑ j, x i * A i j * x j
+
+-- Parent HB.4/analytic-nahm-sum, restricted to real data for estimates.
+def Qreal (A : Matrix (Fin N) (Fin N) ℝ) (B : Fin N → ℝ) (C : ℝ)
+    (n : Fin N → ℕ) : ℝ :=
+  quadratic A (fun i ↦ (n i : ℝ)) / 2 + (∑ i, B i * n i) + C
+
+def phaseFreeTerm (A : Matrix (Fin N) (Fin N) ℝ) (B : Fin N → ℝ)
+    (C : ℝ) (ζ : ℂ) (m : ℕ) (ε : ℝ) (n : Fin N → ℕ) : ℂ :=
+  (Real.exp (-ε * Qreal A B C n / m) : ℂ) /
+    ∏ i, qFinite (ζ * (Real.exp (-ε / m) : ℂ)) (n i)
+
+def nahmFunction (A : Matrix (Fin N) (Fin N) ℝ) (B : Fin N → ℝ)
+    (C : ℝ) (τ : ℂ) : ℂ :=
+  ∑' n : Fin N → ℕ,
+    Complex.exp (2 * Real.pi * Complex.I * τ * (Qreal A B C n : ℂ)) /
+      ∏ i, qFinite (Complex.exp (2 * Real.pi * Complex.I * τ)) (n i)
+
+-- Polylogarithms:P.1/classical-polylogarithm, real value on [0,1].
+def li2Real (x : ℝ) : ℝ := ∑' k : ℕ, x ^ (k + 1) / (k + 1 : ℝ) ^ 2
+
+def growth (z : Fin N → ℝ) : ℝ :=
+  N * Real.pi ^ 2 / 6 - (∑ i, li2Real (z i)) -
+    (∑ i, Real.log (z i) * Real.log (1 - z i)) / 2
+
+def hessian (A : Matrix (Fin N) (Fin N) ℝ) (z : Fin N → ℝ) :
+    Matrix (Fin N) (Fin N) ℝ :=
+  A + Matrix.diagonal (fun i ↦ z i / (1 - z i))
+
+def deviation (z : Fin N → ℝ) (ε : ℝ) (n : Fin N → ℕ) (i : Fin N) : ℝ :=
+  Real.sqrt ε * ((n i : ℝ) + Real.log (z i) / ε)
+
+def sqSize (x : Fin N → ℝ) : ℝ := ∑ i, x i ^ 2
+
+-- Parent Bernoulli/polylogarithm log-product interface, explicit finite truncation.
+def liSeries (r : ℤ) (w : ℂ) : ℂ :=
+  ∑' l : ℕ, w ^ (l + 1) * (l + 1 : ℂ) ^ (-r)
+
+def logProduct (ζ : ℂ) (m : ℕ) (w : ℂ) (ν ε : ℝ) : ℂ :=
+  ∑' j : ℕ, Complex.log (1 - ζ ^ (j + 1) * w *
+    (Real.exp (-((j + 1 : ℝ) + ν) * ε / m) : ℂ))
+
+def bernoulliTrunc (ζ : ℂ) (m : ℕ) (w : ℂ) (ν ε : ℝ) (J : ℕ) : ℂ :=
+  - ∑ r ∈ Finset.range (J + 1), ∑ t ∈ Finset.range m,
+    (Polynomial.bernoulli r).eval₂ (algebraMap ℚ ℂ)
+        (1 - (((t + 1 : ℕ) : ℂ) + (ν : ℂ)) / (m : ℂ)) *
+      liSeries (2 - (r : ℤ)) (ζ ^ (t + 1) * w) *
+      (ε : ℂ) ^ ((r : ℤ) - 1) / (r.factorial : ℂ)
+
+end Expressions
+
+open Expressions
+
+/-- New construction: coherent coefficient base Q(z_i^(1/d),ζ). -/
+def radialBaseField (d : ℕ) (z : Fin N → ℝ) (ζ : ℂ) : IntermediateField ℚ ℂ := by
+  sorry
+
+/-- New construction: Q(z_i^(1/d),ζ,z_i^(1/(dm))). -/
+def radialKummerField (d m : ℕ) (z : Fin N → ℝ) (ζ : ℂ) :
+    IntermediateField ℚ ℂ := by
+  sorry
+
+-- These characterizations pin the construction to the existing field API.
+lemma radialBaseField_eq_adjoin (d : ℕ) (z : Fin N → ℝ) (ζ : ℂ) :
+    radialBaseField d z ζ = IntermediateField.adjoin ℚ
+      (Set.range (fun i ↦ (Real.rpow (z i) (1 / (d : ℝ)) : ℂ)) ∪ {ζ}) := by
+  sorry
+
+lemma radialKummerField_eq_adjoin (d m : ℕ) (z : Fin N → ℝ) (ζ : ℂ) :
+    radialKummerField d m z ζ = IntermediateField.adjoin ℚ
+      (Set.range (fun i ↦ (Real.rpow (z i) (1 / (d : ℝ)) : ℂ)) ∪ {ζ} ∪
+        Set.range (fun i ↦ (Real.rpow (z i) (1 / ((d * m : ℕ) : ℝ)) : ℂ))) := by
+  sorry
+
+-- The projection and compatibility part of the packet API.
+lemma radialBaseField.root_mem (d : ℕ) (z : Fin N → ℝ) (ζ : ℂ) :
+    (∀ i, (Real.rpow (z i) (1 / (d : ℝ)) : ℂ) ∈ radialBaseField d z ζ) ∧
+      ζ ∈ radialBaseField d z ζ := by
+  sorry
+
+lemma radialKummerField.base_le (d m : ℕ) (z : Fin N → ℝ) (ζ : ℂ) :
+    radialBaseField d z ζ ≤ radialKummerField d m z ζ := by
+  sorry
+
+lemma radialKummerField.radical_mem (d m : ℕ) (z : Fin N → ℝ) (ζ : ℂ) (i : Fin N) :
+    (Real.rpow (z i) (1 / ((d * m : ℕ) : ℝ)) : ℂ) ∈
+      radialKummerField d m z ζ := by
+  sorry
+
+lemma radialKummerField.theta_mem (d m : ℕ) (hd : 0 < d) (hm : 0 < m)
+    (z : Fin N → ℝ) (hz : ∀ i, 0 < z i) (ζ : ℂ) (i : Fin N) :
+    (Real.rpow (z i) (1 / (m : ℝ)) : ℂ) ∈ radialKummerField d m z ζ := by
+  sorry
+
+lemma radialKummerField.eq_theta_adjoin (d m : ℕ) (hd : 0 < d) (hm : 0 < m)
+    (hcop : Nat.Coprime d m) (z : Fin N → ℝ) (hz : ∀ i, 0 < z i) (ζ : ℂ) :
+    radialKummerField d m z ζ = IntermediateField.adjoin ℚ
+      (Set.range (fun i ↦ (Real.rpow (z i) (1 / (d : ℝ)) : ℂ)) ∪ {ζ} ∪
+        Set.range (fun i ↦ (Real.rpow (z i) (1 / (m : ℝ)) : ℂ))) := by
+  sorry
+
+-- Minimality permits using the fields without unfolding either construction.
+lemma radialBaseField_le_iff (d : ℕ) (z : Fin N → ℝ) (ζ : ℂ)
+    (L : IntermediateField ℚ ℂ) :
+    radialBaseField d z ζ ≤ L ↔
+      (∀ i, (Real.rpow (z i) (1 / (d : ℝ)) : ℂ) ∈ L) ∧ ζ ∈ L := by
+  sorry
+
+lemma radialKummerField_le_iff (d m : ℕ) (z : Fin N → ℝ) (ζ : ℂ)
+    (L : IntermediateField ℚ ℂ) :
+    radialKummerField d m z ζ ≤ L ↔ radialBaseField d z ζ ≤ L ∧
+      ∀ i, (Real.rpow (z i) (1 / ((d * m : ℕ) : ℝ)) : ℂ) ∈ L := by
+  sorry
+
+lemma radialKummerField.radical_pow (d m : ℕ) (hd : 0 < d) (hm : 0 < m)
+    (z : Fin N → ℝ) (hz : ∀ i, 0 < z i) (i : Fin N) :
+    (Real.rpow (z i) (1 / ((d * m : ℕ) : ℝ)) : ℂ) ^ m =
+        (Real.rpow (z i) (1 / (d : ℝ)) : ℂ) ∧
+      (Real.rpow (z i) (1 / ((d * m : ℕ) : ℝ)) : ℂ) ^ d =
+        (Real.rpow (z i) (1 / (m : ℝ)) : ℂ) := by
+  sorry
+
+lemma radialKummerField.finite_galois (d m : ℕ) (hd : 0 < d) (hm : 0 < m)
+    (z : Fin N → ℝ) (hz : ∀ i, 0 < z i) (ζ : ℂ) (hζ : IsPrimitiveRoot ζ m) :
+    let E := radialBaseField d z ζ
+    let H := radialKummerField d m z ζ
+    letI : Algebra E H :=
+      (IntermediateField.inclusion (radialKummerField.base_le d m z ζ)).toRingHom.toAlgebra
+    FiniteDimensional E H ∧ IsGalois E H := by
+  sorry
+
+lemma radialKummerField.automorphism_radical (d m : ℕ) (hd : 0 < d) (hm : 0 < m)
+    (z : Fin N → ℝ) (hz : ∀ i, 0 < z i) (ζ : ℂ) (hζ : IsPrimitiveRoot ζ m)
+    (σ : radialKummerField d m z ζ ≃+* radialKummerField d m z ζ)
+    (hfix : ∀ x : radialKummerField d m z ζ,
+      (x : ℂ) ∈ radialBaseField d z ζ → σ x = x) :
+    ∀ (i : Fin N) (x : radialKummerField d m z ζ),
+      (x : ℂ) = (Real.rpow (z i) (1 / ((d * m : ℕ) : ℝ)) : ℂ) →
+      ∃ s : Fin m, (σ x : ℂ) = ζ ^ (s : ℕ) * (x : ℂ) := by
+  sorry
+
+-- radialFields_order_one (degenerate).
+example (d : ℕ) (hd : 0 < d) (z : Fin N → ℝ) :
+    radialKummerField d 1 z 1 = radialBaseField d z 1 := by
+  sorry
+
+-- radialFields_integral_case (compatibility).
+example (z : Fin N → ℝ) :
+    radialBaseField 1 z 1 = IntermediateField.adjoin ℚ
+      (Set.range (fun i ↦ (z i : ℂ))) ∧
+    radialKummerField 1 1 z 1 = IntermediateField.adjoin ℚ
+      (Set.range (fun i ↦ (z i : ℂ))) := by
+  sorry
+
+-- radialFields_trivial_coordinates (computation).
+example (d m : ℕ) (hd : 0 < d) (hm : 0 < m) (ζ : ℂ) :
+    radialBaseField d (fun _ : Fin N ↦ 1) ζ = IntermediateField.adjoin ℚ {ζ} ∧
+    radialKummerField d m (fun _ : Fin N ↦ 1) ζ = IntermediateField.adjoin ℚ {ζ} := by
+  sorry
+
+-- radialFields_nontrivial_radical (non-example).
+example :
+    radialBaseField 2 (fun _ : Fin 1 ↦ (1 / 4 : ℝ))
+        (Complex.exp (2 * Real.pi * Complex.I / 3)) <
+      radialKummerField 2 3 (fun _ : Fin 1 ↦ (1 / 4 : ℝ))
+        (Complex.exp (2 * Real.pi * Complex.I / 3)) := by
+  sorry
+
+-- analytic-convergence-and-branch-comparison: product component.
+theorem analytic_product_convergence (w q : ℂ) (hq : ‖q‖ < 1) :
+    Multipliable (fun j : ℕ ↦ 1 - w * q ^ j) ∧
+      ((∏' j : ℕ, (1 - w * q ^ j)) ≠ 0 ↔ ∀ j : ℕ, 1 - w * q ^ j ≠ 0) := by
+  sorry
+
+theorem analytic_nahm_convergence (A : Matrix (Fin N) (Fin N) ℝ) (hA : A.PosDef)
+    (B : Fin N → ℝ) (C : ℝ) (τ : ℂ) (hτ : 0 < τ.im) :
+    Summable (fun n : Fin N → ℕ ↦
+      Complex.exp (2 * Real.pi * Complex.I * τ * (Qreal A B C n : ℂ)) /
+        ∏ i, qFinite (Complex.exp (2 * Real.pi * Complex.I * τ)) (n i)) := by
+  sorry
+
+theorem analytic_nahm_holomorphic (A : Matrix (Fin N) (Fin N) ℝ) (hA : A.PosDef)
+    (B : Fin N → ℝ) (C : ℝ) :
+    DifferentiableOn ℂ (nahmFunction A B C) {τ : ℂ | 0 < τ.im} := by
+  sorry
+
+theorem nahm_C_shift (A : Matrix (Fin N) (Fin N) ℝ) (B : Fin N → ℝ)
+    (C : ℝ) (τ : ℂ) :
+    nahmFunction A B C τ = Complex.exp (2 * Real.pi * Complex.I * C * τ) *
+      nahmFunction A B 0 τ := by
+  sorry
+
+-- compact-pochhammer-remainder: the guard keeps every factor away from zero.
+theorem compact_pochhammer_remainder (m : ℕ) (hm : 0 < m) (ζ : ℂ)
+    (hζ : IsPrimitiveRoot ζ m) (ρ : ℝ) (hρ : 0 < ρ) (hρ1 : ρ < 1)
+    (J : ℕ) (hJ : 1 ≤ J) :
+    ∃ C ε₀ : ℝ, 0 < C ∧ 0 < ε₀ ∧ ∀ ε : ℝ, 0 < ε → ε < ε₀ →
+      ∀ (w : ℂ) (ν : ℝ), ‖w‖ ≤ ρ → |ν| * ε / m ≤ -Real.log ρ / 2 →
+        ‖logProduct ζ m w ν ε - bernoulliTrunc ζ m w ν ε J‖ ≤
+          C / ε * (ε * (1 + |ν|)) ^ (J + 1) := by
+  sorry
+
+-- finite-product-modulus-estimate: its all-n statement includes n=0.
+theorem finite_product_modulus_estimate (m : ℕ) (hm : 0 < m) (ζ : ℂ)
+    (hζ : IsPrimitiveRoot ζ m) :
+    ∃ C ε₀ : ℝ, 0 < C ∧ 0 < ε₀ ∧ ∀ ε : ℝ, 0 < ε → ε < ε₀ → ∀ n : ℕ,
+      |Real.log ‖qFinite (ζ * (Real.exp (-ε / m) : ℂ)) n‖ -
+          (li2Real (Real.exp (-ε * n)) - Real.pi ^ 2 / 6) / (m * ε)| ≤
+        C * (1 + |Real.log ε|) := by
+  sorry
+
+-- saddlepoint-global-domination: actual concrete Nahm equations are hypotheses.
+theorem saddlepoint_global_domination (A : Matrix (Fin N) (Fin N) ℝ)
+    (hA : A.PosDef) (B : Fin N → ℝ) (C : ℝ) (z : Fin N → ℝ)
+    (hz : ∀ i, 0 < z i ∧ z i < 1)
+    (hNahm : ∀ i, 1 - z i = ∏ j, Real.rpow (z j) (A i j))
+    (m : ℕ) (hm : 0 < m) (ζ : ℂ) (hζ : IsPrimitiveRoot ζ m) :
+    (hessian A z).PosDef ∧ 0 < Matrix.det (hessian A z) ∧
+    ∃ c M L ε₀ : ℝ, 0 < c ∧ 0 < M ∧ 0 < L ∧ 0 < ε₀ ∧
+      ∀ ε : ℝ, 0 < ε → ε < ε₀ → ∀ n : Fin N → ℕ,
+        ‖(Real.exp (-growth z / (m * ε)) : ℂ) * phaseFreeTerm A B C ζ m ε n‖ ≤
+          M * Real.rpow ε (-L) * Real.exp (-c * sqSize (deviation z ε n)) := by
+  sorry
+
+-- poisson-covolume-comparison: uniform in the lattice shift, absolute error.
+theorem poisson_covolume_comparison (H : Matrix (Fin N) (Fin N) ℝ) (hH : H.PosDef)
+    (m : ℕ) (hm : 0 < m) (P : MvPolynomial (Fin N) ℂ) (K : ℕ) :
+    ∃ C ε₀ : ℝ, 0 < C ∧ 0 < ε₀ ∧ ∀ ε : ℝ, 0 < ε → ε < ε₀ →
+      ∀ b : Fin N → ℝ,
+        ‖((m : ℝ) * Real.sqrt ε) ^ N *
+            (∑' v : Fin N → ℤ,
+              MvPolynomial.eval (fun i ↦ ((b i + m * Real.sqrt ε * v i : ℝ) : ℂ)) P *
+                (Real.exp (-quadratic H (fun i ↦ b i + m * Real.sqrt ε * v i) /
+                  (2 * m)) : ℂ)) -
+          (∫ x : Fin N → ℝ, MvPolynomial.eval (fun i ↦ (x i : ℂ)) P *
+            (Real.exp (-quadratic H x / (2 * m)) : ℂ))‖ ≤ C * ε ^ K := by
+  sorry
+
+-- The parent CRT subsums have concrete signatures even before its carrier API exists.
+theorem cancellation_safe_congruence_remainder (A : Matrix (Fin N) (Fin N) ℚ)
+    (hA : (A.map (fun x ↦ (x : ℝ))).PosDef) (B : Fin N → ℚ)
+    (z : Fin N → ℝ) (hz : ∀ i, 0 < z i ∧ z i < 1)
+    (hNahm : ∀ i, 1 - z i = ∏ j, Real.rpow (z j) (A i j : ℝ))
+    (d m D : ℕ) (hd : 0 < d) (hm : 0 < m) (hD : 0 < D)
+    (hodd : Odd m) (hcop : Nat.Coprime m D) (hdD : d ∣ D)
+    (hden : ∀ v : Fin N → ℤ,
+      ∃ r : ℤ, (d : ℚ) * ((∑ i, ∑ j, (v i : ℚ) * A i j * v j) / 2 +
+        ∑ i, B i * v i) = r)
+    (ζ : ℂ) (hζ : IsPrimitiveRoot ζ m)
+    (k : Fin N → Fin m) (k' : Fin N → Fin D) (K : ℕ) :
+    (fun ε : ℝ ↦ (Real.exp (-growth z / (m * ε)) : ℂ) *
+      ((∑' n : Fin N → ℕ,
+          if (∀ i, n i % m = (k i : ℕ)) ∧ (∀ i, n i % D = (k' i : ℕ)) then
+            phaseFreeTerm (A.map (fun x ↦ (x : ℝ))) (fun i ↦ (B i : ℝ)) 0 ζ m ε n
+          else 0) - (D : ℂ)⁻¹ ^ N *
+        (∑' n : Fin N → ℕ,
+          if ∀ i, n i % m = (k i : ℕ) then
+            phaseFreeTerm (A.map (fun x ↦ (x : ℝ))) (fun i ↦ (B i : ℝ)) 0 ζ m ε n
+          else 0))) =O[𝓝[>] (0 : ℝ)] (fun ε : ℝ ↦ ε ^ K) := by
+  sorry
+
+-- radial-analytic-remainder-comparison: existence part of the analytic target.
+-- The exact chi*c*G*S coefficient identification is specified below, rather
+-- than replacing the missing formal Gaussian series by unconstrained data.
+theorem radial_analytic_remainder (A : Matrix (Fin N) (Fin N) ℚ)
+    (hA : (A.map (fun x ↦ (x : ℝ))).PosDef) (B : Fin N → ℚ)
+    (z : Fin N → ℝ) (hz : ∀ i, 0 < z i ∧ z i < 1)
+    (hNahm : ∀ i, 1 - z i = ∏ j, Real.rpow (z j) (A i j : ℝ))
+    (d m : ℕ) (hd : 0 < d) (hm : 0 < m) (hodd : Odd m)
+    (hcop : Nat.Coprime d m)
+    (hden : ∀ v : Fin N → ℤ,
+      ∃ r : ℤ, (d : ℚ) * ((∑ i, ∑ j, (v i : ℚ) * A i j * v j) / 2 +
+        ∑ i, B i * v i) = r)
+    (a : ℤ) (hprim : IsPrimitiveRoot (Complex.exp (2 * Real.pi * Complex.I * a / m)) m) :
+    ∃ c : ℕ → ℂ, ∀ K : ℕ,
+      (fun ε : ℝ ↦ (Real.exp (-growth z / (m * ε)) : ℂ) *
+        nahmFunction (A.map (fun x ↦ (x : ℝ))) (fun i ↦ (B i : ℝ)) 0
+          ((a : ℂ) / m + Complex.I * (ε : ℂ) / (2 * Real.pi * m)) -
+        ∑ j ∈ Finset.range K, c j * (ε : ℂ) ^ j) =O[𝓝[>] (0 : ℝ)]
+          (fun ε : ℝ ↦ ε ^ K) := by
+  sorry
+
+-- nonzero-unit-series-descent-comparison: coefficientwise root recursion.
+theorem nonzero_unit_series_descent (K : IntermediateField ℚ ℂ) (m : ℕ) (hm : 0 < m)
+    (Φ : PowerSeries ℂ) (hΦ : PowerSeries.coeff 0 Φ ≠ 0)
+    (hpow : ∀ j, PowerSeries.coeff j (Φ ^ m) ∈ K) :
+    ∀ j, PowerSeries.coeff j
+      (PowerSeries.C (PowerSeries.coeff 0 Φ)⁻¹ * Φ) ∈ K := by
+  sorry
+
+-- Concrete analytic acceptance cases.
+example : 1 - (Real.sqrt 5 - 1) / 2 = ((Real.sqrt 5 - 1) / 2) ^ 2 := by
+  sorry
+
+example :
+    (fun ε : ℝ ↦ (Real.exp (-Real.pi ^ 2 / (15 * ε)) : ℂ) *
+      nahmFunction (fun _ _ : Fin 1 ↦ 2) (fun _ ↦ 0) 0
+        (Complex.I * (ε : ℂ) / (2 * Real.pi)) -
+      ((Real.rpow ((2 + ((Real.sqrt 5 - 1) / 2) /
+          (1 - (Real.sqrt 5 - 1) / 2)) * (1 - (Real.sqrt 5 - 1) / 2)) (-1 / 2) : ℂ) *
+        (1 - (ε : ℂ) / 60))) =O[𝓝[>] (0 : ℝ)] (fun ε : ℝ ↦ ε ^ 2) := by
+  sorry
+
+/-!
+Remaining named interfaces; their unavailable supplier types are not replaced.
+
+compact-pochhammer-remainder / compact_pochhammer_remainder:
+For |w|<=rho<1, |nu|epsilon/m<=-log(rho)/2, the r<=J Bernoulli
+log-product truncation has error <=C epsilon^(-1)[epsilon(1+|nu|)]^(J+1).
+The factorwise logs and the parent psi supply the truncation function.
+
+uniform-local-saddle-remainder / uniform_local_saddle_remainder:
+R_k(x,t)=exp[-B.x*t/m-(C+N/24)t^2/m+sum_i psi_i(x_i/t,t^2)].
+Its t^p coefficient has degree<=3p and parity p. On |x_i|<=epsilon^(-1/12),
+J=12(K+1), P=4(K+1) give an absolute polynomial-Gaussian error whose
+lattice-scaled sum is O(epsilon^K); odd p vanishes under the parent bracket.
+
+cancellation-safe-congruence-remainder / cancellation_safe_congruence_remainder:
+The signature above states the flat difference for the concrete restricted tsums.
+Its estimate is independent of the strong-denominator phase used later in CRT;
+the full congruence carrier and Gauss-sum API remain the parent's construction.
+
+radial-analytic-remainder-comparison / radial_analytic_remainder:
+The coefficients in the existence signature above equal those of
+chi^N m^(-N/2)c(Q)G(Q,a/m)S(Q,zeta,epsilon), with the exact corrected
+integrand and factorwise-log root convention in the reader. Multiplying by
+exp(2*pi*i*a*C/m)exp(-C epsilon/m) gives the general C statement.
+
+coefficientwise-kummer-descent-interface / coefficientwise_kummer_descent:
+With E=Q(y,zeta), H_rad=E(eta), eta_i=z_i^(1/(dm)), theta_i=eta_i^d,
+C(theta)=product_i D_zeta(zeta theta_i), prove coefficientwise
+sigma(C(theta)^(-1)T(eta,epsilon)^m)=C(theta)^(-1)T(eta,epsilon)^m
+for every actual E-automorphism. sigma(eta_i)=zeta^s_i eta_i and
+sigma(theta_i)=zeta^(d*s_i)theta_i. This is the recorded proof gap; the
+source states descent but does not prove this formal Gaussian identity.
+
+cgz-normalization-and-field-comparison / cgz_normalization_and_field_comparison:
+omega=m^(-N/2)det(H)^(-1/2)product(1-z_i)^(1/2)>0;
+Phi=G product(theta_i^B_i (1-z_i)^(-1/m))S; mu=chi^N.
+Then the radial formula is mu*omega*exp(Lambda/(m epsilon))*(Phi+O).
+Conditional on the missing automorphism identity, Phi^m has coefficients
+in Q(y,zeta,zeta_D). The constant near-unit class and eigenspace need the
+exact arithmetic compatibility described in the packet: F_G=Q(y,zeta_D),
+K=F_G(zeta), H_G=K(eta), and the cyclotomic character of Aut_{F_G}(K).
+The constant class is formed in H_G^*/H_G^{*m}; its descended class, when
+proved, must be in the inverse-character eigenspace of K^*/K^{*m}.
+
+nonzero-unit-series-descent-comparison / nonzero_unit_series_descent:
+The compiled signature states the recursion component. Given the actual
+near-unit representative epsilon_beta and a compatible root with
+root(epsilon_beta)*Phi_0 in K, its product with Phi also has coefficients
+in K. The nonzero constant, representative and arithmetic supplier
+conditions, including gcd(m,w_F)=1 for the base F before adjoining zeta
+(F=F_G in the Gauss-enlarged application), must all be retained.
+
+andrews-gordon-owner-and-acceptance-comparison / andrews_gordon_owner_comparison:
+For odd n=2r+3, A_ij=2min(i,j), B=0, import the existing QM.0 identities:
+product classes exclude 0,±(r+1) mod n. The positive solution has coordinates
+1-[sin(pi/n)/sin(pi*j/n)]^2 for j=2,...,r+1, in that order.
+The Rogers supplier gives Lambda=(n-3)pi^2/(6n). The parent supplies the
+radial constant exp(2*pi*i*(n/24-1/8+1/(12n)-1/(4n^2))).
+These q-series and Rogers objects are not redefined here.
+-/
+
+end TauCeti.Nahm.Radial
+
+end AssemblyHB4
 
 section PartHB5
 
@@ -1318,6 +1935,218 @@ end HabiroNahmSeries.HB5
 end
 
 end PartHB5
+
+/-! ## HB.5: reviewed refinements -/
+
+noncomputable section AssemblyHB5
+
+open scoped BigOperators
+open Matrix
+
+namespace TauCeti.Nahm.HB5
+
+-- The polynomial Q from the existing analytic Nahm datum, written literally.
+local notation "qval" => fun {r : ℕ}
+  (A : Matrix (Fin r) (Fin r) ℚ) (B : Fin r → ℚ) (C : ℚ) (x : Fin r → ℚ) =>
+    (1 / 2 : ℚ) * (x ⬝ᵥ Matrix.mulVec A x) + (B ⬝ᵥ x) + C
+
+-- Finite specializations (q;q)_N of the QM.0/q-pochhammer supplier.
+local notation "pfin" => fun (q : ℝ) (N : ℕ) =>
+  ∏ j ∈ Finset.range N, (1 - q ^ (j + 1))
+local notation "pcfin" => fun (q : ℂ) (N : ℕ) =>
+  ∏ j ∈ Finset.range N, (1 - q ^ (j + 1))
+
+variable {r : ℕ}
+
+/-- HB.5/residue-class-majorant. The analytic API requires positive t and A.
+The definition is total, following the baseline real tsum convention. -/
+noncomputable def residueMajorant
+    (A : Matrix (Fin r) (Fin r) ℚ) (B : Fin r → ℚ) (C : ℚ)
+    (m : ℕ+) (t : ℝ) : ℝ := by
+  sorry
+
+lemma residueMajorant_eq_tsum
+    (A : Matrix (Fin r) (Fin r) ℚ) (B : Fin r → ℚ) (C : ℚ)
+    (m : ℕ+) (t : ℝ) :
+    residueMajorant A B C m t =
+      ∑' n : Fin r → ℕ,
+        Real.exp (-t * (qval A B C (fun i => (n i : ℚ)) : ℝ)) /
+          ∏ i, pfin (Real.exp (-((m : ℕ) : ℝ) ^ 2 * t)) (n i / (m : ℕ)) := by
+  sorry
+
+lemma residueMajorant_summable
+    (A : Matrix (Fin r) (Fin r) ℚ) (B : Fin r → ℚ) (C : ℚ)
+    (m : ℕ+) (t : ℝ) (hA : A.PosDef) (ht : 0 < t) :
+    Summable (fun n : Fin r → ℕ =>
+      Real.exp (-t * (qval A B C (fun i => (n i : ℚ)) : ℝ)) /
+        ∏ i, pfin (Real.exp (-((m : ℕ) : ℝ) ^ 2 * t)) (n i / (m : ℕ))) := by
+  sorry
+
+lemma residueMajorant_pos
+    (A : Matrix (Fin r) (Fin r) ℚ) (B : Fin r → ℚ) (C : ℚ)
+    (m : ℕ+) (t : ℝ) (hA : A.PosDef) (ht : 0 < t) :
+    0 < residueMajorant A B C m t := by
+  sorry
+
+lemma residueMajorant_quadratic_split
+    (A : Matrix (Fin r) (Fin r) ℚ) (B : Fin r → ℚ) (C : ℚ)
+    (m : ℕ+) (ℓ : Fin r → ℕ) (s : Fin r → Fin (m : ℕ))
+    (hA : A.transpose = A) :
+    qval A B C (fun i => ((m : ℕ) : ℚ) * (ℓ i : ℚ) + ((s i : ℕ) : ℚ)) =
+      ((m : ℕ) : ℚ) ^ 2 *
+        qval A
+          (fun i => (A.mulVec (fun j => ((s j : ℕ) : ℚ)) i + B i) / ((m : ℕ) : ℚ))
+          0 (fun i => (ℓ i : ℚ)) +
+      qval A B C (fun i => ((s i : ℕ) : ℚ)) := by
+  sorry
+
+-- Every shifted f on the right is its literal positive real Nahm series.
+lemma residueMajorant_split
+    (A : Matrix (Fin r) (Fin r) ℚ) (B : Fin r → ℚ) (C : ℚ)
+    (m : ℕ+) (t : ℝ) (hA : A.PosDef) (ht : 0 < t) :
+    residueMajorant A B C m t =
+      ∑ s : Fin r → Fin (m : ℕ),
+        Real.exp (-t * (qval A B C (fun i => ((s i : ℕ) : ℚ)) : ℝ)) *
+          ∑' ℓ : Fin r → ℕ,
+            Real.exp (-((m : ℕ) : ℝ) ^ 2 * t *
+              (qval A
+                (fun i => (A.mulVec (fun j => ((s j : ℕ) : ℚ)) i + B i) /
+                  ((m : ℕ) : ℚ))
+                0 (fun i => (ℓ i : ℚ)) : ℝ)) /
+              ∏ i, pfin (Real.exp (-((m : ℕ) : ℝ) ^ 2 * t)) (ℓ i) := by
+  sorry
+
+lemma residueMajorant_order_one
+    (A : Matrix (Fin r) (Fin r) ℚ) (B : Fin r → ℚ) (C : ℚ)
+    (t : ℝ) (hA : A.PosDef) (ht : 0 < t) :
+    residueMajorant A B C 1 t =
+      ∑' n : Fin r → ℕ,
+        Real.exp (-t * (qval A B C (fun i => (n i : ℚ)) : ℝ)) /
+          ∏ i, pfin (Real.exp (-t)) (n i) := by
+  sorry
+
+lemma residueMajorant_rank_zero
+    (A : Matrix (Fin 0) (Fin 0) ℚ) (B : Fin 0 → ℚ) (C : ℚ)
+    (m : ℕ+) (t : ℝ) :
+    residueMajorant A B C m t = Real.exp (-t * (C : ℝ)) := by
+  sorry
+
+lemma residueMajorant_shift_constant
+    (A : Matrix (Fin r) (Fin r) ℚ) (B : Fin r → ℚ) (C u : ℚ)
+    (m : ℕ+) (t : ℝ) (hA : A.PosDef) (ht : 0 < t) :
+    residueMajorant A B (C + u) m t =
+      Real.exp (-t * (u : ℝ)) * residueMajorant A B C m t := by
+  sorry
+
+-- Test: majorant_rank_one_even_order. Distinguishes m² from m and both B-shifts.
+example (t : ℝ) (ht : 0 < t) :
+    residueMajorant (r := 1) (fun _ _ => 2) (fun _ => 1) (11 / 60) 2 t =
+      Real.exp (-t * (11 / 60 : ℝ)) *
+        (∑' ℓ : ℕ, Real.exp (-4 * t * ((ℓ : ℝ) ^ 2 + (ℓ : ℝ) / 2)) /
+          pfin (Real.exp (-4 * t)) ℓ) +
+      Real.exp (-t * (131 / 60 : ℝ)) *
+        (∑' ℓ : ℕ, Real.exp (-4 * t * ((ℓ : ℝ) ^ 2 + 3 * (ℓ : ℝ) / 2)) /
+          pfin (Real.exp (-4 * t)) ℓ) := by
+  sorry
+
+-- Test: majorant_empty_rank. The empty-rank construction retains C.
+example :
+    residueMajorant (r := 0) (fun _ _ => 0) (fun _ => 0) 7 2 (Real.log 2) =
+      (1 / 128 : ℝ) := by
+  sorry
+
+-- Test: majorant_original_axis. Exact compatibility with the original series.
+example (t : ℝ) (ht : 0 < t) :
+    residueMajorant (r := 1) (fun _ _ => 2) (fun _ => 1) (11 / 60) 1 t =
+      ∑' n : ℕ, Real.exp (-t * ((n : ℝ) ^ 2 + (n : ℝ) + 11 / 60)) /
+        pfin (Real.exp (-t)) n := by
+  sorry
+
+-- Test: majorant_constant_shift. A nonzero q^C factor must survive.
+example (t : ℝ) (ht : 0 < t) :
+    residueMajorant (r := 1) (fun _ _ => 2) (fun _ => 1) (71 / 60) 2 t =
+      Real.exp (-t) *
+        residueMajorant (r := 1) (fun _ _ => 2) (fun _ => 1) (11 / 60) 2 t := by
+  sorry
+
+/-- HB.5/block-product-lower-bound; uniform in N,t and primitive ζ. -/
+theorem rootProduct_lower_bound (m : ℕ+) :
+    ∃ c : ℝ, 0 < c ∧
+      ∀ ζ : ℂ, IsPrimitiveRoot ζ (m : ℕ) →
+        ∀ t : ℝ, 0 < t → t ≤ 1 → ∀ N : ℕ,
+          c * pfin (Real.exp (-((m : ℕ) : ℝ) ^ 2 * t)) (N / (m : ℕ)) ≤
+            ‖pcfin (ζ * (Real.exp (-t) : ℂ)) N‖ := by
+  sorry
+
+lemma rootProduct_order_one (t : ℝ) (ht : 0 < t) (N : ℕ) :
+    ‖pcfin (Real.exp (-t) : ℂ) N‖ = pfin (Real.exp (-t)) N := by
+  sorry
+
+lemma rootProduct_order_two (t : ℝ) (ht : 0 < t) (N : ℕ) :
+    pfin (Real.exp (-4 * t)) (N / 2) ≤ ‖pcfin (-(Real.exp (-t) : ℂ)) N‖ := by
+  sorry
+
+/-- The exact majorant inequality from HB.5/growth-at-all-roots-of-unity.
+`hblock` is the concrete finite-product estimate, not an abstract analytic predicate.
+The left side is the parent f(α+it/(2π)), written as its literal complex series. -/
+lemma nahmRoot_le_majorant
+    (A : Matrix (Fin r) (Fin r) ℚ) (B : Fin r → ℚ) (C : ℚ)
+    (m : ℕ+) (α : ℚ) (t c : ℝ) (hA : A.PosDef) (ht : 0 < t) (hc : 0 < c)
+    (hζ : IsPrimitiveRoot (Complex.exp (2 * (Real.pi : ℂ) * Complex.I * (α : ℂ)))
+      (m : ℕ))
+    (hblock : ∀ N : ℕ,
+      c * pfin (Real.exp (-((m : ℕ) : ℝ) ^ 2 * t)) (N / (m : ℕ)) ≤
+        ‖pcfin (Complex.exp (2 * (Real.pi : ℂ) * Complex.I * (α : ℂ) - (t : ℂ))) N‖) :
+    ‖∑' n : Fin r → ℕ,
+      Complex.exp ((2 * (Real.pi : ℂ) * Complex.I * (α : ℂ) - (t : ℂ)) *
+        (qval A B C (fun i => (n i : ℚ)) : ℂ)) /
+      ∏ i, pcfin
+        (Complex.exp (2 * (Real.pi : ℂ) * Complex.I * (α : ℂ) - (t : ℂ))) (n i)‖ ≤
+        c⁻¹ ^ r * residueMajorant A B C m t := by
+  sorry
+
+/-
+Signatures omitted because their honest supplier carriers are absent at the baseline:
+
+* nahmRoot_exponential_bound: the preceding majorant inequality is O(exp(Λ/(m²t)))
+  at 0+, with Λ the parent complementary Rogers value of the distinguished solution.
+  Needs the actual Rogers-value and distinguished-solution definitions, not a free Λ.
+
+* nahm_cusp_valuation_lower_bound, nahm_cusp_zero_valuation,
+  nahm_infinity_valuation: for the parent finite-index weight-zero modular function,
+  normalized cusp valuation v_P is at least -Λ/(4π²), equals that at zero, and is
+  min Q(n) at infinity. Requires the parent Laurent-expansion and width carriers.
+
+* nahm_constant_kummer_class: take a strong denominator D divisible by 24 and the
+  fixed E = F(X_i^(1/D), ζ_D). Write ν_a = e(r(n-1)(n-2)a/(24n)), the multiplier
+  of published GZ (17), and μ_a = e(r s(a,n)/2). Use the rescaled series
+  Φ_Ded = (ν_a/μ_a) Φ_GZ; its explicit Gauss/product/S formula carries this ratio.
+  The ratio belongs to E_n, so its nth power changes no Kummer class.
+  With the integral symbol η_E in this fixed extension E,
+  the corrected nonzero constant u has [u^n]=R_ζ(η_E)^(-1) in E_n×/(E_n×)^n.
+  Requires B_CGZ, R_ζ and the corrected HB.4 constant-term object; its coefficient
+  and eigenspace inputs are the one explicit packet gap, not fields of a fake record.
+
+* nahm_modular_constant_comparison, nahm_constant_fixed_power: u equals
+  μ_b^(-1) ω_d^(-1) e(-Cb/d) e(-λc/d) K, and u^s belongs to F_d× for a fixed
+  s divisible by 24, 2den(B), den(C), den(λ). Requires the actual expansion objects,
+  Dedekind sum and embedded Nahm number field. Φ has the specified multiplier
+  rescaling; Gauss phases remain inside it. The unrescaled GZ series uses ν_b.
+
+* nahm_rational_bloch_bridge: bounded powers for an unbounded set of good n force
+  the original rationalized ξ_F to be zero. Only η_E is reduced modulo n; apply
+  good-order R injectivity, the parent CGZ/Suslin torsion criterion and extension
+  of embeddings before descending through the regulator criterion. Torsion maps
+  to zero by the lower HB.3 algebraically closed target result; the parent
+  introductory-formulation is a consequence, not a proof prerequisite.
+
+The parent named endpoints modularity-implies-torsion and introductory-formulation
+retain ownership of the conclusions; they are not redeclared in this follow-up.
+-/
+
+end TauCeti.Nahm.HB5
+
+end AssemblyHB5
 
 section PartHB8
 
@@ -2033,6 +2862,297 @@ end
 
 end PartHB8
 
+/-! ## HB.8: reviewed refinements -/
+
+noncomputable section AssemblyHB8
+open scoped LaurentPolynomial RatFunc
+open Finset
+
+namespace HabiroNahmSeries.HB8Refinement
+
+abbrev Qq := RatFunc ℚ
+abbrev Idx (N : ℕ) := Fin N →₀ ℕ
+abbrev Series (N : ℕ) (R : Type*) := MvPowerSeries (Fin N) R
+variable {N : ℕ}
+
+namespace Imported
+
+/-- These are aliases/adapters to the assembled base signatures, not new owners. -/
+abbrev q : Qq := HabiroNahmSeries.HB8.q
+theorem q_ne_zero : q ≠ 0 := HabiroNahmSeries.HB8.q_ne_zero
+
+def evalLaurent (P : ℤ[T;T⁻¹]) : Qq := HabiroNahmSeries.HB8.evalQPow P 1
+
+def mvLog {R : Type*} [CommRing R] [Algebra ℚ R] (F : Series N R) : Series N R :=
+  HabiroNahmSeries.HB8.mvLog F
+
+def shiftBy (a : Fin N → ℤ) : Series N Qq →+* Series N Qq :=
+  MvPowerSeries.rescale (fun i => q ^ a i)
+
+def shift (j : Fin N) : Series N Qq →+* Series N Qq := HabiroNahmSeries.HB8.shift j
+
+def diagDot (A : Matrix (Fin N) (Fin N) ℤ) (n : Idx N) : ℤ :=
+  HabiroNahmSeries.HB8.diagDot A n
+
+def quad (A : Matrix (Fin N) (Fin N) ℤ) (n : Idx N) : ℤ :=
+  HabiroNahmSeries.HB8.quadForm A n
+
+/-- Adapter for HB.8/series-F-A, with signed integer q-exponent. -/
+def seriesFA (A : Matrix (Fin N) (Fin N) ℤ) : Series N Qq :=
+  HabiroNahmSeries.HB8.seriesFA A
+
+def ratio (A : Matrix (Fin N) (Fin N) ℤ) (j : Fin N) : Series N Qq :=
+  HabiroNahmSeries.HB8.ratioFA A j
+
+def signedRatio (A : Matrix (Fin N) (Fin N) ℤ) (a : Fin N → ℤ) : Series N Qq :=
+  shiftBy a (seriesFA A) * (seriesFA A)⁻¹
+
+/-- Adapter for HB.8/t-deformed-nahm-equations, after scalar extension to ℚ. -/
+def nahmUnit (A : Matrix (Fin N) (Fin N) ℤ) (j : Fin N) : (Series N ℚ)ˣ :=
+  Units.map (MvPowerSeries.map (Int.castRingHom ℚ)).toMonoidHom
+    (HabiroNahmSeries.HB8.tNahmSolution A j)
+
+/-- Adapter for HB.8/laurent-expansion-at-a-root-of-unity: q ↦ ζ+x. -/
+def expandAt {K : Type*} [Field K] [Algebra ℚ K] (ζ : K) :
+    Qq →+* LaurentSeries K := HabiroNahmSeries.HB8.expandAt ζ
+
+/-- Polylogarithms:P.1/classical-polylogarithm, API polylogSeries, weight two. -/
+def li2 : PowerSeries ℚ := PowerSeries.mk fun n => if n = 0 then 0 else 1 / (n : ℚ)^2
+
+/-- q ↦ q^ℓ for ℓ positive, used by the parent plethystic coefficient API. -/
+def adams (ℓ : ℕ) (_hℓ : ℓ ≠ 0) : Qq →+* Qq := HabiroNahmSeries.HB8.frobQ ℓ
+
+def divIndex (n : Idx N) (ℓ : ℕ) : Idx N := HabiroNahmSeries.HB8.Idx.divNat n ℓ
+
+/-- Adapter for HB.8/congruence-sum-series; e is the exponent after removing t^k. -/
+def congruenceSum (A : Matrix (Fin N) (Fin N) ℤ) (m : ℕ) (k : Idx N) : Series N Qq :=
+  HabiroNahmSeries.HB8.congruenceSum A m k
+
+end Imported
+open Imported
+
+def euler {R : Type*} [Semiring R] (j : Fin N) (F : Series N R) : Series N R :=
+  fun n => (n j : R) * MvPowerSeries.coeff n F
+
+def evalSeries {K : Type} [Field K] [Algebra ℚ K] (ζ : K) (F : Series N Qq) :
+    Series N K := fun n => RatFunc.eval (K := ℚ) (algebraMap ℚ K) ζ
+      (MvPowerSeries.coeff n F)
+
+def powSubst {R : Type*} [CommRing R] (m : ℕ) (hm : m ≠ 0) (F : Series N R) :
+    Series N R := MvPowerSeries.expand m hm F
+
+def residueAt {K : Type*} [Field K] [Algebra ℚ K] (ζ : K) (F : Series N Qq) :
+    Series N K := fun n => (expandAt ζ (MvPowerSeries.coeff n F)).coeff (-1)
+
+/- refinement-signed-shifts. The cocycle and Riccati identities are the imported
+ratio API; this theorem supplies the missing simultaneous signed induction. -/
+theorem signedShift_integral (A : Matrix (Fin N) (Fin N) ℤ) (hA : A.IsSymm)
+    (a : Fin N → ℤ) (n : Idx N) :
+    ∃ P : ℤ[T;T⁻¹], MvPowerSeries.coeff n (signedRatio A a) = evalLaurent P := sorry
+
+/- refinement-orbit-ratio: construction, five API items and four unit tests. -/
+def orbitRatio (A : Matrix (Fin N) (Fin N) ℤ) (j : Fin N) (m : ℕ) : Series N Qq :=
+  ∏ s ∈ range m, MvPowerSeries.rescale (Function.update 1 j (q ^ s)) (ratio A j)
+
+theorem orbitRatio_quotient (A : Matrix (Fin N) (Fin N) ℤ) (j : Fin N) (m : ℕ) :
+    orbitRatio A j m =
+      MvPowerSeries.rescale (Function.update 1 j (q ^ m)) (seriesFA A) * (seriesFA A)⁻¹ :=
+  sorry
+
+theorem orbitRatio_add (A : Matrix (Fin N) (Fin N) ℤ) (j : Fin N) (m n : ℕ) :
+    orbitRatio A j (m+n) = orbitRatio A j m *
+      MvPowerSeries.rescale (Function.update 1 j (q ^ m)) (orbitRatio A j n) := sorry
+
+theorem orbitRatio_integral (A : Matrix (Fin N) (Fin N) ℤ) (hA : A.IsSymm)
+    (j : Fin N) (m : ℕ) (n : Idx N) :
+    ∃ P : ℤ[T;T⁻¹], MvPowerSeries.coeff n (orbitRatio A j m) = evalLaurent P := sorry
+
+theorem orbitRatio_one (A : Matrix (Fin N) (Fin N) ℤ) (j : Fin N) :
+    orbitRatio A j 1 = ratio A j := sorry
+
+-- orbitRatio_zero (degenerate)
+example (A : Matrix (Fin N) (Fin N) ℤ) (j : Fin N) : orbitRatio A j 0 = 1 := sorry
+
+-- orbitRatio_zeroMatrix (computation)
+example (j : Fin N) : orbitRatio 0 j 2 =
+    (1 - MvPowerSeries.X j) * (1 - MvPowerSeries.C q * MvPowerSeries.X j) := sorry
+
+-- orbitRatio_root_zeroMatrix (computation)
+example {K : Type} [Field K] [Algebra ℚ K] (m : ℕ) (hm : m ≠ 0)
+    (ζ : K) (hζ : IsPrimitiveRoot ζ m) (j : Fin N) :
+    evalSeries ζ (orbitRatio 0 j m) = 1 - MvPowerSeries.X j ^ m := sorry
+
+-- orbitRatio_rescale (compatibility with Mathlib rescale)
+example (A : Matrix (Fin N) (Fin N) ℤ) (j : Fin N) (m : ℕ) :
+    MvPowerSeries.rescale (Function.update 1 j (q ^ m)) (seriesFA A) =
+      orbitRatio A j m * seriesFA A := sorry
+
+/- refinement-orbit-nahm -/
+theorem orbitRatio_at_root {K : Type} [Field K] [Algebra ℚ K]
+    (A : Matrix (Fin N) (Fin N) ℤ) (hA : A.IsSymm) (m : ℕ) (hm : m ≠ 0)
+    (ζ : K) (hζ : IsPrimitiveRoot ζ m) (j : Fin N) :
+    evalSeries ζ (orbitRatio A j m) = powSubst m hm
+      (MvPowerSeries.map (algebraMap ℚ K) (nahmUnit A j : Series N ℚ)) := sorry
+
+/- refinement-residue-potential: construction, five API items and four tests. -/
+def residuePotential (A : Matrix (Fin N) (Fin N) ℤ) : Series N ℚ :=
+  residueAt (1 : ℚ) (mvLog (seriesFA A))
+
+theorem residuePotential_constantCoeff (A : Matrix (Fin N) (Fin N) ℤ) :
+    MvPowerSeries.constantCoeff (residuePotential A) = 0 := sorry
+
+theorem residuePotential_euler (A : Matrix (Fin N) (Fin N) ℤ) (hA : A.IsSymm)
+    (j : Fin N) : euler j (residuePotential A) = mvLog (nahmUnit A j : Series N ℚ) := sorry
+
+theorem residuePotential_unique (A : Matrix (Fin N) (Fin N) ℤ) (hA : A.IsSymm)
+    (W : Series N ℚ) (h0 : MvPowerSeries.constantCoeff W = 0)
+    (hW : ∀ j, euler j W = mvLog (nahmUnit A j : Series N ℚ)) :
+    W = residuePotential A := sorry
+
+theorem residuePotential_coeff (A : Matrix (Fin N) (Fin N) ℤ) (hA : A.IsSymm)
+    (n : Idx N) (j : Fin N) (hn : n j ≠ 0) :
+    MvPowerSeries.coeff n (residuePotential A) =
+      MvPowerSeries.coeff n (mvLog (nahmUnit A j : Series N ℚ)) / (n j : ℚ) := sorry
+
+-- residuePotential_rankZero (degenerate)
+example (A : Matrix (Fin 0) (Fin 0) ℤ) : residuePotential A = 0 := sorry
+
+-- residuePotential_zeroMatrix (computation)
+example : residuePotential (0 : Matrix (Fin N) (Fin N) ℤ) =
+    -∑ j, PowerSeries.subst (MvPowerSeries.X j : Series N ℚ) li2 := sorry
+
+-- residuePotential_three (computation)
+example : ∀ k < 5, MvPowerSeries.coeff (Finsupp.single 0 k)
+    (residuePotential (N := 1) !![3]) = [0, 1, 5/4, 28/9, 165/16].getD k 0 := sorry
+
+-- residuePotential_logCompatibility (compatibility)
+example (A : Matrix (Fin N) (Fin N) ℤ) (hA : A.IsSymm) (j : Fin N) :
+    MvPowerSeries.coeff (Finsupp.single j 1) (residuePotential A) =
+      -((-1 : ℚ) ^ (A j j).natAbs) := sorry
+
+/- refinement-all-root-residue: residue equality and the entire pole bound. -/
+theorem allRoot_residue {K : Type*} [Field K] [Algebra ℚ K]
+    (A : Matrix (Fin N) (Fin N) ℤ) (hA : A.IsSymm) (m : ℕ) (hm : m ≠ 0)
+    (ζ : K) (hζ : IsPrimitiveRoot ζ m) :
+    residueAt ζ (mvLog (seriesFA A)) = MvPowerSeries.C (ζ / (m : K)^2) *
+      powSubst m hm (MvPowerSeries.map (algebraMap ℚ K) (residuePotential A)) ∧
+    ∀ n : Idx N, ∀ k : ℤ, k < -1 →
+      (expandAt ζ (MvPowerSeries.coeff n (mvLog (seriesFA A)))).coeff k = 0 := sorry
+
+/- refinement-critical-value -/
+theorem residuePotential_criticalValue (A : Matrix (Fin N) (Fin N) ℤ) (hA : A.IsSymm) :
+    residuePotential A =
+      -∑ j, PowerSeries.subst (1 - (nahmUnit A j : Series N ℚ)) li2 -
+      (1/2 : ℚ) • ∑ i, ∑ j, (A i j : ℚ) •
+        (mvLog (nahmUnit A i : Series N ℚ) * mvLog (nahmUnit A j : Series N ℚ)) := sorry
+
+/- refinement-restricted-adams: the rational-function signature. The completed
+Z[1/m]((q)) version additionally uses the imported parent product topology. -/
+def restrictedLog (m : ℕ) (L : Idx N → Qq) : Series N Qq := fun n =>
+  -∑ ℓ ∈ (Icc 1 (Finsupp.degree n)).filter
+      (fun ℓ => (∀ i, ℓ ∣ n i) ∧ Nat.Coprime ℓ m),
+    if hℓ : ℓ ≠ 0 then
+      adams ℓ hℓ (L (divIndex n ℓ)) / ((ℓ : Qq) * (1 - q ^ (m * ℓ)))
+    else 0
+
+def restrictedCoeffs (m : ℕ) (F : Series N Qq) : Idx N → Qq := sorry
+
+theorem restrictedCoeffs_log (m : ℕ) (hm : m ≠ 0) (F : Series N Qq)
+    (hF : MvPowerSeries.constantCoeff F = 1) :
+    restrictedCoeffs m F 0 = 0 ∧ mvLog F = restrictedLog m (restrictedCoeffs m F) := sorry
+
+theorem restrictedCoeffs_unique (m : ℕ) (hm : m ≠ 0) (F : Series N Qq)
+    (hF : MvPowerSeries.constantCoeff F = 1) (L : Idx N → Qq)
+    (h0 : L 0 = 0) (hL : mvLog F = restrictedLog m L) :
+    L = restrictedCoeffs m F := sorry
+
+theorem restrictedCoeffs_recursion (m : ℕ) (hm : m ≠ 0) (F : Series N Qq)
+    (hF : MvPowerSeries.constantCoeff F = 1) (n : Idx N) (hn : n ≠ 0) :
+    restrictedCoeffs m F n = -(1-q^m) * (MvPowerSeries.coeff n (mvLog F) +
+      ∑ ℓ ∈ (Icc 2 (Finsupp.degree n)).filter
+          (fun ℓ => (∀ i, ℓ ∣ n i) ∧ Nat.Coprime ℓ m),
+        if hℓ : ℓ ≠ 0 then
+          adams ℓ hℓ (restrictedCoeffs m F (divIndex n ℓ)) /
+            ((ℓ : Qq) * (1-q^(m*ℓ))) else 0) := sorry
+
+-- The parent ordinary coefficient family is specified by restrictedLog 1.
+-- restrictedCoeffs_one (compatibility with HB.8/admissible-series)
+theorem restrictedCoeffs_one (F : Series N Qq) (hF : MvPowerSeries.constantCoeff F = 1)
+    (L : Idx N → Qq) (h0 : L 0 = 0) (hL : mvLog F = restrictedLog 1 L) :
+    restrictedCoeffs 1 F = L := sorry
+
+theorem restrictedCoeffs_mul (m : ℕ) (hm : m ≠ 0) (F G : Series N Qq)
+    (hF : MvPowerSeries.constantCoeff F = 1)
+    (hG : MvPowerSeries.constantCoeff G = 1) :
+    restrictedCoeffs m (F * G) = restrictedCoeffs m F + restrictedCoeffs m G := sorry
+
+-- restrictedCoeffs_unit (degenerate)
+example (m : ℕ) (hm : m ≠ 0) : restrictedCoeffs (N := N) m 1 = 0 := sorry
+
+-- restrictedCoeffs_linear (mixed monomial computation)
+example (m : ℕ) (hm : m ≠ 0) :
+    restrictedCoeffs m (1 + MvPowerSeries.X 0 * MvPowerSeries.X 1 : Series 2 Qq)
+      (Finsupp.single 0 1 + Finsupp.single 1 1) = -(1-q^m) := sorry
+
+-- restrictedCoeffs_two (computation)
+example : restrictedCoeffs 2 (1 + MvPowerSeries.X 0 * MvPowerSeries.X 1 : Series 2 Qq)
+    (Finsupp.single 0 2 + Finsupp.single 1 2) = (1-q^2)/2 := sorry
+
+-- restrictedCoeffs_mOne (compatibility)
+example : restrictedCoeffs 1 (1 + MvPowerSeries.X 0 * MvPowerSeries.X 1 : Series 2 Qq)
+    (Finsupp.single 0 2 + Finsupp.single 1 2) = 1-q := sorry
+
+/- refinement-finite-support. Finiteness in i is encoded by the LaurentPolynomial
+carrier; it is not replaced by integrality of unrestricted exponents. -/
+theorem seriesFA_finiteSupport (A : Matrix (Fin N) (Fin N) ℤ) (hA : A.IsSymm) :
+    ∃ L : Idx N → ℤ[T;T⁻¹], L 0 = 0 ∧
+      mvLog (seriesFA A) = restrictedLog 1 (fun n => evalLaurent (L n)) := sorry
+
+/- refinement-congruence-uniqueness -/
+def higherDifference (j : Fin N) : ℕ → Series N Qq → Series N Qq
+  | 0 => id
+  | m+1 => fun F => higherDifference j m F -
+      MvPowerSeries.C (q ^ (-(m : ℤ))) * shift j (higherDifference j m F)
+
+theorem congruenceSolution_unique (A : Matrix (Fin N) (Fin N) ℤ) (hA : A.IsSymm)
+    (m : ℕ) (hm : m ≠ 0) (k : Idx N) (hk : ∀ j, k j < m)
+    (H : Series N Qq) (h0 : MvPowerSeries.coeff k H = 1)
+    (hsupp : ∀ n, ¬ (∀ j, ∃ b : ℕ, n j = k j + m*b) → MvPowerSeries.coeff n H = 0)
+    (hrec : ∀ j, higherDifference j m H =
+      MvPowerSeries.C ((-1) ^ ((A j j).natAbs*m) *
+        q ^ (A j j * ((m*(m+1)/2 : ℕ) : ℤ))) * MvPowerSeries.X j ^ m *
+        shiftBy (fun i => (m : ℤ)*A i j) H) :
+    H = MvPowerSeries.monomial k 1 * congruenceSum A m k := sorry
+
+/- Gaussian signatures cannot yet be stated in the required coefficient completion.
+Each omitted name is an explicit packet theorem, not a Prop-valued stub:
+
+HabiroNahmSeries.HB8Refinement.gaussianLocal_normalization
+  needs the h,w augmentation completion and the Bernoulli expansion of a Pochhammer
+  factor; its exact four coefficients and counterchecks are in the packet/reader.
+HabiroNahmSeries.HB8Refinement.gaussianAffine_system
+  needs HB.4/formal-gaussian-integration over the formal rational-function coefficient
+  ring and the corrected global prefactors (G1); it is not an analytic Gaussian.
+HabiroNahmSeries.HB8Refinement.gaussianCS_regular
+  needs the corrected CS in its x-first completion and the change to K((x))[[t]] (G2).
+HabiroNahmSeries.HB8Refinement.gaussianIdentification
+  needs both previous completions and the corrected refined normalization (G1,G2).
+HabiroNahmSeries.HB8Refinement.congruenceRoot_residue
+  needs that identification for c=m*a, gcd(a,m)=1 (G1,G2).
+HabiroNahmSeries.HB8Refinement.congruenceSum_correctedLevel
+  needs the parent R_m localization and its evaluation API, and the complete corrected
+  pole/value argument (G3). This is not the false printed Definition 2.8.
+
+The completed-coefficient integrality assertion for restrictedCoeffs needs the parent
+Z[1/m]((q)) inclusion/product module. The rational-function construction, its API and all
+twelve tests have signatures above. No assertion that these omitted objects already
+exist is made by elaboration of this file.
+-/
+
+end HabiroNahmSeries.HB8Refinement
+
+end AssemblyHB8
+
 section PartHB910
 
 /-! # HB.9–HB.10: Habiro integrality and the worked examples (checker D)
@@ -2232,3 +3352,593 @@ pinned libraries, and the presentation of `S` (HB.8's `ringS`) is left abstract;
 end HabiroNahmSeries.HB910
 
 end PartHB910
+
+/-! ## HB.9: reviewed refinements -/
+
+noncomputable section AssemblyHB9
+
+namespace TauCeti.HabiroNahmHB9
+
+open scoped BigOperators
+
+section Transfer
+variable {S T : Type*} [CommRing S] [CommRing T] [IsDomain T]
+
+/-- Divisibility at the first power is an explicit hypothesis, not a consequence
+of étaleness. This is applied separately to a jointly faithful set of factors. -/
+theorem saturation_transfer (ι : S →+* T) (p : S) (hp : ι p ≠ 0)
+    (hsat : ∀ a : S, (∃ b : T, ι a = ι p * b) → ∃ c : S, a = p * c)
+    (n : ℕ) (a : S) (b : T) (hab : ι a = (ι p) ^ n * b) :
+    ∃ c : S, a = p ^ n * c := by
+  sorry
+
+-- followup-branch-loss: the full algebra has two square-root factors.
+example (z T : ZMod 5) (h : T ^ 2 = z ^ 4) :
+    T = z ^ 2 ∨ T = -(z ^ 2) := by
+  sorry
+
+example (z : ZMod 5) (hz : z ≠ 0) :
+    z ^ 2 - (-(z ^ 2)) ≠ 0 := by
+  sorry
+
+example (z : ZMod 5) : (z ^ 2) - z ^ 2 = 0 := by
+  sorry
+end Transfer
+
+section FirstJet
+variable {I L E : Type*} [Fintype I] [Field L] [CharZero L]
+    [Field E] [CharZero E]
+
+/-- The finite contraction polynomial for diagonal cubic/quartic vertices.
+The covariance is Λ⁻¹, rather than its negative. -/
+def gaussianFirstJet (C : I → I → L) (b Q T U : I → L) (c : L) : L :=
+  c + (1 / 2 : L) * (∑ i, Q i * C i i)
+    + (1 / 2 : L) * (∑ i, ∑ j, b i * b j * C i j)
+    + (1 / 2 : L) * (∑ i, ∑ j, T i * b j * C i i * C i j)
+    + (1 / 8 : L) * (∑ i, U i * (C i i) ^ 2)
+    + (1 / 8 : L) * (∑ i, ∑ j, T i * T j * C i i * C j j * C i j)
+    + (1 / 12 : L) * (∑ i, ∑ j, T i * T j * (C i j) ^ 3)
+
+theorem gaussianFirstJet_map (f : L →+* E) (C : I → I → L)
+    (b Q T U : I → L) (c : L) :
+    f (gaussianFirstJet C b Q T U c) =
+      gaussianFirstJet (fun i j => f (C i j)) (fun i => f (b i))
+        (fun i => f (Q i)) (fun i => f (T i)) (fun i => f (U i)) (f c) := by
+  sorry
+
+theorem gaussianFirstJet_zero_covariance (b Q T U : I → L) (c : L) :
+    gaussianFirstJet (fun _ _ => 0) b Q T U c = c := by
+  sorry
+
+theorem gaussianFirstJet_integral (O : Subring L)
+    (h2 : (2 : L)⁻¹ ∈ O) (h3 : (3 : L)⁻¹ ∈ O)
+    (C : I → I → L) (b Q T U : I → L) (c : L)
+    (hC : ∀ i j, C i j ∈ O) (hb : ∀ i, b i ∈ O) (hQ : ∀ i, Q i ∈ O)
+    (hT : ∀ i, T i ∈ O) (hU : ∀ i, U i ∈ O) (hc : c ∈ O) :
+    gaussianFirstJet C b Q T U c ∈ O := by
+  sorry
+
+-- gaussianFirstJet_linear
+example : gaussianFirstJet (I := Fin 1) (L := ℚ) (fun _ _ => 1)
+    (fun _ => 1) (fun _ => 0) (fun _ => 0) (fun _ => 0) 0 = 1 / 2 := by
+  sorry
+
+-- gaussianFirstJet_cubic
+example : gaussianFirstJet (I := Fin 1) (L := ℚ) (fun _ _ => 1)
+    (fun _ => 0) (fun _ => 0) (fun _ => 1) (fun _ => 0) 0 = 5 / 24 := by
+  sorry
+
+-- gaussianFirstJet_quartic
+example : gaussianFirstJet (I := Fin 1) (L := ℚ) (fun _ _ => 1)
+    (fun _ => 0) (fun _ => 0) (fun _ => 0) (fun _ => 1) 0 = 1 / 8 := by
+  sorry
+
+-- gaussianFirstJet_empty
+example (C : Fin 0 → Fin 0 → L) (b Q T U : Fin 0 → L) (c : L) :
+    gaussianFirstJet C b Q T U c = c := by
+  sorry
+
+-- gaussianFirstJet_mixed: the cubic-linear term contributes 1/2.
+example : gaussianFirstJet (I := Fin 1) (L := ℚ) (fun _ _ => 1)
+    (fun _ => 1) (fun _ => 0) (fun _ => 1) (fun _ => 0) 0 = 29 / 24 := by
+  sorry
+end FirstJet
+
+section Auxiliary
+variable {I L E : Type*} [Fintype I] [DecidableEq I]
+    [Field L] [Field E]
+
+/-- Rescale before expanding. For γ=2 the coefficient scale is q^(2μ),
+not q^(4μ). F⁺ and F⁻ are the imported F_A at q^γ and q⁻¹. -/
+def auxiliaryProduct (q : Lˣ) (γ : ℕ) (hγ : γ ≠ 0)
+    (Fp Fm : MvPowerSeries I L) (μ : Fin γ → I → ℤ) (ν : I → ℤ) :
+    MvPowerSeries I L :=
+  (∏ i : Fin γ, MvPowerSeries.expand γ hγ
+    (MvPowerSeries.rescale (fun j => (q : L) ^ ((γ : ℤ) * μ i j)) Fp)) *
+    MvPowerSeries.rescale (fun j => (q : L) ^ (-ν j)) Fm
+
+theorem auxiliaryProduct_constantCoeff (q : Lˣ) (γ : ℕ) (hγ : γ ≠ 0)
+    (Fp Fm : MvPowerSeries I L) (μ : Fin γ → I → ℤ) (ν : I → ℤ) :
+    MvPowerSeries.constantCoeff (auxiliaryProduct q γ hγ Fp Fm μ ν) =
+      (MvPowerSeries.constantCoeff Fp) ^ γ * MvPowerSeries.constantCoeff Fm := by
+  sorry
+
+theorem auxiliaryProduct_one (q : Lˣ) (Fp Fm : MvPowerSeries I L)
+    (μ : Fin 1 → I → ℤ) (ν : I → ℤ) :
+    auxiliaryProduct q 1 (by decide) Fp Fm μ ν =
+      MvPowerSeries.rescale (fun j => (q : L) ^ (μ 0 j)) Fp *
+        MvPowerSeries.rescale (fun j => (q : L) ^ (-ν j)) Fm := by
+  sorry
+
+theorem auxiliaryProduct_covariance (q : Lˣ) (γ : ℕ) (hγ : γ ≠ 0)
+    (Fp Fm : MvPowerSeries I L) (μ : Fin γ → I → ℤ) (ν : I → ℤ) (j : I) :
+    MvPowerSeries.rescale (fun l => if l = j then (q : L) else 1)
+      (auxiliaryProduct q γ hγ Fp Fm μ ν) =
+      auxiliaryProduct q γ hγ Fp Fm
+        (μ + fun _ => Pi.single j 1) (ν - Pi.single j 1) := by
+  sorry
+
+theorem auxiliaryProduct_map (f : L →+* E) (q : Lˣ) (γ : ℕ) (hγ : γ ≠ 0)
+    (Fp Fm : MvPowerSeries I L) (μ : Fin γ → I → ℤ) (ν : I → ℤ) :
+    MvPowerSeries.map f (auxiliaryProduct q γ hγ Fp Fm μ ν) =
+      auxiliaryProduct (Units.map f.toMonoidHom q) γ hγ
+        (MvPowerSeries.map f Fp) (MvPowerSeries.map f Fm) μ ν := by
+  sorry
+
+-- auxiliaryProduct_units
+example (q : Lˣ) (γ : ℕ) (hγ : γ ≠ 0) (μ : Fin γ → I → ℤ) (ν : I → ℤ) :
+    auxiliaryProduct q γ hγ (1 : MvPowerSeries I L) 1 μ ν = 1 := by
+  sorry
+
+-- auxiliaryProduct_gamma_two
+example : auxiliaryProduct (I := Fin 1) (Units.mk0 (2 : ℚ) (by decide))
+    2 (by decide) (MvPowerSeries.X 0) 1 (fun _ _ => 1) (fun _ => 0) =
+    MvPowerSeries.C 16 * (MvPowerSeries.X 0) ^ 4 := by
+  sorry
+
+-- auxiliaryProduct_inverse_shift
+example : auxiliaryProduct (I := Fin 1) (Units.mk0 (2 : ℚ) (by decide))
+    1 (by decide) 1 (MvPowerSeries.X 0) (fun _ _ => 0) (fun _ => 1) =
+    MvPowerSeries.C (1 / 2 : ℚ) * MvPowerSeries.X 0 := by
+  sorry
+
+-- auxiliaryProduct_two_coordinates
+example : auxiliaryProduct (I := Fin 2) (Units.mk0 (2 : ℚ) (by decide))
+    1 (by decide) (MvPowerSeries.X 0 + MvPowerSeries.X 1) 1
+    (fun _ j => if j = 0 then 1 else -1) (fun _ => 0) =
+    MvPowerSeries.C 2 * MvPowerSeries.X 0 +
+      MvPowerSeries.C (1 / 2 : ℚ) * MvPowerSeries.X 1 := by
+  sorry
+
+-- auxiliaryProduct_covariance_test
+example : MvPowerSeries.rescale (fun _ : Fin 1 => (2 : ℚ))
+    (auxiliaryProduct (Units.mk0 (2 : ℚ) (by decide)) 2 (by decide)
+      (MvPowerSeries.X 0) 1 (fun _ _ => 0) (fun _ => 0)) =
+    auxiliaryProduct (Units.mk0 (2 : ℚ) (by decide)) 2 (by decide)
+      (MvPowerSeries.X 0) 1 (fun _ _ => 1) (fun _ => 0) := by
+  sorry
+
+/-- The positive and negative recurrences are explicit assumptions on the imported
+series. No unavailable `NahmSeries` object is represented by theorem fields. -/
+theorem auxiliary_product_system (q : Lˣ) (γ : ℕ) (hγ : γ ≠ 0)
+    (A : I → I → ℤ) (Fp Fm : MvPowerSeries I L)
+    (hp : ∀ j, Fp - MvPowerSeries.rescale
+      (fun l => if l = j then (q : L) ^ γ else 1) Fp =
+      MvPowerSeries.C ((-1 : L) ^ (A j j) * (q : L) ^ ((γ : ℤ) * A j j)) *
+        MvPowerSeries.X j * MvPowerSeries.rescale
+          (fun l => (q : L) ^ ((γ : ℤ) * A l j)) Fp)
+    (hm : ∀ j, Fm - MvPowerSeries.rescale
+      (fun l => if l = j then (q : L)⁻¹ else 1) Fm =
+      MvPowerSeries.C ((-1 : L) ^ (A j j) * (q : L) ^ (-A j j)) *
+        MvPowerSeries.X j * MvPowerSeries.rescale
+          (fun l => (q : L) ^ (-A l j)) Fm)
+    (μ : Fin γ → I → ℤ) (ν : I → ℤ) :
+    (∀ i j, auxiliaryProduct q γ hγ Fp Fm μ ν -
+      auxiliaryProduct q γ hγ Fp Fm (μ + Pi.single i (Pi.single j 1)) ν =
+      MvPowerSeries.C ((-1 : L) ^ (A j j) *
+        (q : L) ^ ((γ : ℤ) * (A j j + μ i j))) *
+        (MvPowerSeries.X j) ^ γ *
+          auxiliaryProduct q γ hγ Fp Fm (μ + Pi.single i (fun l => A l j)) ν) ∧
+    (∀ j, auxiliaryProduct q γ hγ Fp Fm μ ν -
+      auxiliaryProduct q γ hγ Fp Fm μ (ν + Pi.single j 1) =
+      MvPowerSeries.C ((-1 : L) ^ (A j j) * (q : L) ^ (-(A j j + ν j))) *
+        MvPowerSeries.X j *
+          auxiliaryProduct q γ hγ Fp Fm μ (ν + fun l => A l j)) := by
+  sorry
+
+/-- Total-degree induction: the first two equations remove parameter dependence,
+and covariance kills each positive-degree coefficient. -/
+theorem auxiliary_product_unique (q : Lˣ) (γ : ℕ) (hγ : γ ≠ 0)
+    (A : I → I → ℤ)
+    (G H : (Fin γ → I → ℤ) → (I → ℤ) → MvPowerSeries I L)
+    (hq : ∀ n : ℕ, 0 < n → (q : L) ^ n ≠ 1)
+    (hzero : ∀ F ∈ ({G, H} : Set ((Fin γ → I → ℤ) → (I → ℤ) →
+      MvPowerSeries I L)), ∀ μ ν, MvPowerSeries.constantCoeff (F μ ν) = 1)
+    (hplus : ∀ F ∈ ({G, H} : Set ((Fin γ → I → ℤ) → (I → ℤ) →
+      MvPowerSeries I L)), ∀ μ ν i j,
+      F μ ν - F (μ + Pi.single i (Pi.single j 1)) ν =
+        MvPowerSeries.C ((-1 : L) ^ (A j j) *
+          (q : L) ^ ((γ : ℤ) * (A j j + μ i j))) *
+          (MvPowerSeries.X j) ^ γ * F (μ + Pi.single i (fun l => A l j)) ν)
+    (hminus : ∀ F ∈ ({G, H} : Set ((Fin γ → I → ℤ) → (I → ℤ) →
+      MvPowerSeries I L)), ∀ μ ν j,
+      F μ ν - F μ (ν + Pi.single j 1) =
+        MvPowerSeries.C ((-1 : L) ^ (A j j) * (q : L) ^ (-(A j j + ν j))) *
+          MvPowerSeries.X j * F μ (ν + fun l => A l j))
+    (hcov : ∀ F ∈ ({G, H} : Set ((Fin γ → I → ℤ) → (I → ℤ) →
+      MvPowerSeries I L)), ∀ μ ν j,
+      MvPowerSeries.rescale (fun l => if l = j then (q : L) else 1) (F μ ν) =
+        F (μ + fun _ => Pi.single j 1) (ν - Pi.single j 1)) :
+    G = H := by
+  sorry
+end Auxiliary
+
+section UnpoweredAuxiliary
+variable {I L E : Type*} [Fintype I] [DecidableEq I] [Field L] [Field E]
+
+/-- The original unpowered product, whose common volume cancels.
+Its covariance uses q^γ; inserting t^γ would change that volume. -/
+def unpoweredAuxiliaryProduct (q : Lˣ) (γ : ℕ)
+    (Fp Fm : MvPowerSeries I L) (μ : Fin γ → I → ℤ) (ν : I → ℤ) :
+    MvPowerSeries I L :=
+  (∏ i : Fin γ, MvPowerSeries.rescale
+    (fun j => (q : L) ^ ((γ : ℤ) * μ i j)) Fp) *
+    MvPowerSeries.rescale (fun j => (q : L) ^ (-ν j)) Fm
+
+theorem unpoweredAuxiliaryProduct_constantCoeff (q : Lˣ) (γ : ℕ)
+    (Fp Fm : MvPowerSeries I L) (μ : Fin γ → I → ℤ) (ν : I → ℤ) :
+    MvPowerSeries.constantCoeff (unpoweredAuxiliaryProduct q γ Fp Fm μ ν) =
+      (MvPowerSeries.constantCoeff Fp) ^ γ * MvPowerSeries.constantCoeff Fm := by
+  sorry
+
+theorem unpoweredAuxiliaryProduct_covariance (q : Lˣ) (γ : ℕ)
+    (Fp Fm : MvPowerSeries I L) (μ : Fin γ → I → ℤ) (ν : I → ℤ) (j : I) :
+    MvPowerSeries.rescale (fun l => if l = j then (q : L) ^ γ else 1)
+      (unpoweredAuxiliaryProduct q γ Fp Fm μ ν) =
+      unpoweredAuxiliaryProduct q γ Fp Fm
+        (μ + fun _ => Pi.single j 1) (ν - (γ : ℤ) • Pi.single j 1) := by
+  sorry
+
+theorem unpoweredAuxiliaryProduct_map (f : L →+* E) (q : Lˣ) (γ : ℕ)
+    (Fp Fm : MvPowerSeries I L) (μ : Fin γ → I → ℤ) (ν : I → ℤ) :
+    MvPowerSeries.map f (unpoweredAuxiliaryProduct q γ Fp Fm μ ν) =
+      unpoweredAuxiliaryProduct (Units.map f.toMonoidHom q) γ
+        (MvPowerSeries.map f Fp) (MvPowerSeries.map f Fm) μ ν := by
+  sorry
+
+-- unpoweredAuxiliaryProduct_gamma_two: t² distinguishes it from t⁴.
+example : unpoweredAuxiliaryProduct (I := Fin 1)
+    (Units.mk0 (2 : ℚ) (by decide)) 2
+    (MvPowerSeries.X 0) 1 (fun _ _ => 1) (fun _ => 0) =
+    MvPowerSeries.C 16 * (MvPowerSeries.X 0) ^ 2 := by
+  sorry
+
+-- unpoweredAuxiliaryProduct_units
+example (q : Lˣ) (γ : ℕ) (μ : Fin γ → I → ℤ) (ν : I → ℤ) :
+    unpoweredAuxiliaryProduct q γ (1 : MvPowerSeries I L) 1 μ ν = 1 := by
+  sorry
+
+-- unpoweredAuxiliaryProduct_inverse_shift
+example : unpoweredAuxiliaryProduct (I := Fin 1)
+    (Units.mk0 (2 : ℚ) (by decide)) 1
+    1 (MvPowerSeries.X 0) (fun _ _ => 0) (fun _ => 1) =
+    MvPowerSeries.C (1 / 2 : ℚ) * MvPowerSeries.X 0 := by
+  sorry
+
+/-- The positive and negative recurrences are explicit assumptions on the imported
+series. No unavailable `NahmSeries` object is represented by theorem fields. -/
+theorem unpowered_product_system (q : Lˣ) (γ : ℕ) (hγ : γ ≠ 0)
+    (A : I → I → ℤ) (Fp Fm : MvPowerSeries I L)
+    (hp : ∀ j, Fp - MvPowerSeries.rescale
+      (fun l => if l = j then (q : L) ^ γ else 1) Fp =
+      MvPowerSeries.C ((-1 : L) ^ (A j j) * (q : L) ^ ((γ : ℤ) * A j j)) *
+        MvPowerSeries.X j * MvPowerSeries.rescale
+          (fun l => (q : L) ^ ((γ : ℤ) * A l j)) Fp)
+    (hm : ∀ j, Fm - MvPowerSeries.rescale
+      (fun l => if l = j then (q : L)⁻¹ else 1) Fm =
+      MvPowerSeries.C ((-1 : L) ^ (A j j) * (q : L) ^ (-A j j)) *
+        MvPowerSeries.X j * MvPowerSeries.rescale
+          (fun l => (q : L) ^ (-A l j)) Fm)
+    (μ : Fin γ → I → ℤ) (ν : I → ℤ) :
+    (∀ i j, unpoweredAuxiliaryProduct q γ Fp Fm μ ν -
+      unpoweredAuxiliaryProduct q γ Fp Fm (μ + Pi.single i (Pi.single j 1)) ν =
+      MvPowerSeries.C ((-1 : L) ^ (A j j) *
+        (q : L) ^ ((γ : ℤ) * (A j j + μ i j))) *
+        MvPowerSeries.X j *
+          unpoweredAuxiliaryProduct q γ Fp Fm (μ + Pi.single i (fun l => A l j)) ν) ∧
+    (∀ j, unpoweredAuxiliaryProduct q γ Fp Fm μ ν -
+      unpoweredAuxiliaryProduct q γ Fp Fm μ (ν + Pi.single j 1) =
+      MvPowerSeries.C ((-1 : L) ^ (A j j) * (q : L) ^ (-(A j j + ν j))) *
+        MvPowerSeries.X j *
+          unpoweredAuxiliaryProduct q γ Fp Fm μ (ν + fun l => A l j)) := by
+  sorry
+
+/-- Total-degree induction: the first two equations remove parameter dependence,
+and q^γ covariance kills each positive-degree coefficient. -/
+theorem unpowered_product_unique (q : Lˣ) (γ : ℕ) (hγ : γ ≠ 0)
+    (A : I → I → ℤ)
+    (G H : (Fin γ → I → ℤ) → (I → ℤ) → MvPowerSeries I L)
+    (hq : ∀ n : ℕ, 0 < n → (q : L) ^ n ≠ 1)
+    (hzero : ∀ F ∈ ({G, H} : Set ((Fin γ → I → ℤ) → (I → ℤ) →
+      MvPowerSeries I L)), ∀ μ ν, MvPowerSeries.constantCoeff (F μ ν) = 1)
+    (hplus : ∀ F ∈ ({G, H} : Set ((Fin γ → I → ℤ) → (I → ℤ) →
+      MvPowerSeries I L)), ∀ μ ν i j,
+      F μ ν - F (μ + Pi.single i (Pi.single j 1)) ν =
+        MvPowerSeries.C ((-1 : L) ^ (A j j) *
+          (q : L) ^ ((γ : ℤ) * (A j j + μ i j))) *
+          MvPowerSeries.X j * F (μ + Pi.single i (fun l => A l j)) ν)
+    (hminus : ∀ F ∈ ({G, H} : Set ((Fin γ → I → ℤ) → (I → ℤ) →
+      MvPowerSeries I L)), ∀ μ ν j,
+      F μ ν - F μ (ν + Pi.single j 1) =
+        MvPowerSeries.C ((-1 : L) ^ (A j j) * (q : L) ^ (-(A j j + ν j))) *
+          MvPowerSeries.X j * F μ (ν + fun l => A l j))
+    (hcov : ∀ F ∈ ({G, H} : Set ((Fin γ → I → ℤ) → (I → ℤ) →
+      MvPowerSeries I L)), ∀ μ ν j,
+      MvPowerSeries.rescale (fun l => if l = j then (q : L) ^ γ else 1) (F μ ν) =
+        F (μ + fun _ => Pi.single j 1) (ν - (γ : ℤ) • Pi.single j 1)) :
+    G = H := by
+  sorry
+end UnpoweredAuxiliary
+
+section PotentialSign
+variable {I L : Type*} [Fintype I] [Field L] [CharZero L]
+
+/-- An algebraic consequence of the actual reflection and Nahm logarithm
+identities. It does not define a substitute p-adic dilogarithm. -/
+theorem coleman_potential_sign (A : I → I → ℤ) (z : I → L)
+    (li₂ log : L → L)
+    (hreflect : ∀ j, li₂ (z j) + li₂ (1 - z j) =
+      -log (z j) * log (1 - z j))
+    (hnahm : ∀ j, log (1 - z j) = ∑ i, (A i j : L) * log (z i)) :
+    -(∑ j, li₂ (1 - z j)) - (1 / 2 : L) *
+      (∑ i, ∑ j, (A i j : L) * log (z i) * log (z j)) =
+    ∑ j, (li₂ (z j) + (1 / 2 : L) * log (z j) * log (1 - z j)) := by
+  sorry
+end PotentialSign
+
+/-!
+Named omissions, as required by PROTOCOL §13. These cannot yet be stated against
+the pins because their mathematical carriers are imported planning nodes.
+
+* followup-regularisation-jet / regularisation_jet:
+  The actual fgiFactor and the Gaussian weight completion are from
+  HabiroNahmSeries:HB.8/fgi-collection. Correct the pole to
+  Li₂(θ^m)/(m²h)+Li₁(θ^m)w/(mh)+Li₀(θ^m)w²/(2h), with the constant-log sign
+  fixed in E64. These are identities of the imported logarithmic expansion,
+  not signatures for an invented function. B₁ and B₂ keep their Mathlib meanings.
+
+* followup-refined-linear-integrality / refined_linear_integrality:
+  For the principal-part-free refined Ω piece, normalize by its nonzero
+  individual constant, then coeff 1 = ζ_m⁻¹ * gaussianFirstJet C b Q T₃ U₄ c
+  in the full local coefficient algebra, with c including N/24 and the finite
+  Pochhammer jet. The exact data are in the packet and reader. Missing carriers:
+  corrected fgiRefined, S_p^(m), the Kummer torsor and B_p[ζ_m]. A possibly zero
+  sum of constants is never inverted. E64/E65 must be reconciled at all orders
+  by the HB.8 owner before this is used with identification.
+
+* followup-modified-potential-formula / modified_potential_formula:
+  W_p = p Σℓ₂(y_j) + p Σβ_jℓ₁(y_j) − pηᵗAη/2
+        − Σ_j Σ_(r≥2) p^(r−1)β_j^r Li_(2−r)(y_j^p)/r! ∈ pS_p.
+  Missing carriers are the actual completed coefficient algebra and its lifted
+  Frobenius, and integralModifiedPolylog from ColemanIntegration L2. No general
+  logarithm on S_p units is postulated; η is the log of φ(z)/z^p in 1+pS_p.
+
+* followup-regulator-specialisation / regulator_specialisation:
+  specOne(W_p)=φ_p(D_p ξ)/p−pD_p ξ, with ξ=Σ[z_j]. The exact main theorem uses
+  actual Coleman functions, K₃/Bloch classes, Frobenius and specOne. These are
+  imported HB.3/HB.6/HB.8/HB.9 and requested D.1/D.3/D.4 objects. The preceding
+  typed lemma supplies its algebraic sign reduction, without pretending that
+  an arbitrary function is the Coleman dilogarithm.
+
+* followup-integral-gluing-contract / integral_product_gluing:
+  The actual unpowered Gaussian auxiliary product is required to have integral coefficients in
+  S^(m)[1/(Δγ)][[x]], at primes p∤Δγ, and satisfies the HB.6 coefficient-Frobenius root gluing on
+  all components. The family is identified using unpowered_product_unique;
+  integrality and the faithful coefficient model are separate recorded gaps.
+  The imported all-root-order symmetrization and torsion-power corollaries also
+  need the separate Corollary 1.11 extension argument recorded in
+  G-all-order-gluing; membership restricted to orders prime to Δ does not
+  supply that argument.
+
+* followup-kummer-orientation-contract / gaussian_constant_kummer_comparison:
+  Match the full corrected U_m(1) with the fixed ε_m=c_ζ², including the inverse
+  cyclic prefactor, monomials and k-sum. Missing carriers are HB.2's actual
+  Kummer quotient/torsor and signed finite Chern comparison. Do not choose the
+  sign by imposing the desired answer as a field of a structure.
+
+* followup-etale-module-contract / etale_habiro_membership:
+  Extend the existing HB.7 indexed module to B=R[T]/(δT²−1) and full finite
+  products, prove actual Kummer descent, and consume its effective global descent.
+  No private HabiroModule is defined here. The imported theorem names
+  frobeniusCongruence and moduleMembership remain at their accepted owner IDs.
+  They are omitted as Lean signatures until the actual completed S and indexed
+  H_(B,ξ)|_Δ objects exist. Theorems 4 and 5 retain every hypothesis in the reader.
+
+* followup-descendant-pullback-contract / descendant_etale_pullback:
+  Use t_j^(1/m)=q^ν_j, hence t_j=q^(mν_j), and the unique formal étale lift at
+  the selected t=1 point. Its logarithmic derivative is Λ⁻¹(mν/ζ_m).
+  Missing carriers are HB.8's actual formal étale coefficient algebra, its
+  completed lift and the indexed-module pullback/gluing. The ν=0, m=2 ν=1 and
+  m=1 ν=−1 acceptance computations are mathematical tests in the reader;
+  this node is a comparison, not a replacement descendant definition.
+
+All definition/construction API names and all thirteen named tests of this packet
+appear above with real finite-sum/power-series carriers. The unavailable named
+results have these explicit omissions instead of dummy Prop-valued fields.
+-/
+
+end TauCeti.HabiroNahmHB9
+
+end AssemblyHB9
+
+/-! ## HB.10: reviewed refinements -/
+
+noncomputable section AssemblyHB10
+
+open scoped NumberField
+open Finset Module
+
+namespace HabiroNahmExamples
+
+/-- The domain excludes order zero. Each order has a constant Taylor series. -/
+def rationalGaussTaylor (m : ℕ+) : PowerSeries ℤ := by sorry
+
+lemma rationalGaussTaylor_eq (m : ℕ+) :
+    rationalGaussTaylor m = PowerSeries.C
+      (if 4 ∣ (m : ℕ) then (2 : ℤ) else if 2 ∣ (m : ℕ) then 0 else 1) := by sorry
+
+lemma rationalGaussTaylor_coeff_zero (m : ℕ+) :
+    PowerSeries.coeff 0 (rationalGaussTaylor m) =
+      (if 4 ∣ (m : ℕ) then (2 : ℤ) else if 2 ∣ (m : ℕ) then 0 else 1) := by sorry
+
+lemma rationalGaussTaylor_coeff_succ (m : ℕ+) (n : ℕ) :
+    PowerSeries.coeff (n + 1) (rationalGaussTaylor m) = 0 := by sorry
+
+lemma rationalGaussTaylor_map (R : Type*) [CommRing R] (m : ℕ+) :
+    PowerSeries.map (Int.castRingHom R) (rationalGaussTaylor m) =
+      PowerSeries.C
+        (if 4 ∣ (m : ℕ) then (2 : R) else if 2 ∣ (m : ℕ) then 0 else 1) := by sorry
+
+lemma rationalGaussTaylor_gauss_product (m : ℕ+) (ζ : ℂ)
+    (hζ : IsPrimitiveRoot ζ (m : ℕ)) :
+    PowerSeries.map (Int.castRingHom ℂ) (rationalGaussTaylor m) =
+      PowerSeries.C
+        (((m : ℕ) : ℂ)⁻¹ *
+          (∑ k ∈ range (m : ℕ), ζ ^ (k ^ 2)) *
+          (∑ k ∈ range (m : ℕ), ζ ^ (-((k ^ 2 : ℕ) : ℤ)))) := by sorry
+
+-- rationalGaussTaylor_one
+example : rationalGaussTaylor 1 = PowerSeries.C 1 := by sorry
+
+-- rationalGaussTaylor_two
+example : rationalGaussTaylor 2 = PowerSeries.C 0 := by sorry
+
+-- rationalGaussTaylor_four
+example : rationalGaussTaylor 4 = PowerSeries.C 2 := by sorry
+
+-- rationalGaussTaylor_positive_degree
+example : PowerSeries.coeff 1 (rationalGaussTaylor 4) = 0 := by sorry
+
+-- rationalGaussTaylor_complex_four
+example :
+    (∑ k ∈ range 4, Complex.I ^ (k ^ 2)) = 2 + 2 * Complex.I ∧
+    (∑ k ∈ range 4, Complex.I ^ (-((k ^ 2 : ℕ) : ℤ))) = 2 - 2 * Complex.I ∧
+    (4 : ℂ)⁻¹ * (2 + 2 * Complex.I) * (2 - 2 * Complex.I) = 2 := by sorry
+
+/-- This is the exact constant equality used in every odd-prime gluing square. -/
+theorem rationalGaussTaylor_odd_prime (p m : ℕ+)
+    (hp : Nat.Prime (p : ℕ)) (hp2 : (p : ℕ) ≠ 2) :
+    rationalGaussTaylor (p * m) = rationalGaussTaylor m := by sorry
+
+/-- The m=1 to m=2 equation fails over Z. H_Z itself is an imported carrier. -/
+theorem rationalGaussTaylor_two_obstruction :
+    PowerSeries.coeff 0 (rationalGaussTaylor 1) ≠
+      PowerSeries.coeff 0 (rationalGaussTaylor 2) := by sorry
+
+section Quartic
+
+variable {K L : Type*} [Field K] [CharZero K] [Field L] [CharZero L]
+
+/-- A selected root, with its root equation as input; the vector has two entries. -/
+def quarticCoordinates (u : K) (hu : u ^ 4 + u ^ 3 + 3 * u ^ 2 - 3 * u - 1 = 0) :
+    Fin 2 → K := by sorry
+
+lemma quarticCoordinates_zero (u : K)
+    (hu : u ^ 4 + u ^ 3 + 3 * u ^ 2 - 3 * u - 1 = 0) :
+    quarticCoordinates u hu 0 = u := by sorry
+
+lemma quarticCoordinates_one (u : K)
+    (hu : u ^ 4 + u ^ 3 + 3 * u ^ 2 - 3 * u - 1 = 0) :
+    quarticCoordinates u hu 1 = (-9 * u ^ 3 - 6 * u ^ 2 - 25 * u + 37) / 5 := by sorry
+
+lemma quarticCoordinates_ext (u u' : K)
+    (hu : u ^ 4 + u ^ 3 + 3 * u ^ 2 - 3 * u - 1 = 0)
+    (hu' : u' ^ 4 + u' ^ 3 + 3 * u' ^ 2 - 3 * u' - 1 = 0) :
+    quarticCoordinates u hu = quarticCoordinates u' hu' ↔ u = u' := by sorry
+
+/-- The image-root proof follows from hu by applying σ; it is an explicit input. -/
+lemma quarticCoordinates_map (σ : K →+* L) (u : K)
+    (hu : u ^ 4 + u ^ 3 + 3 * u ^ 2 - 3 * u - 1 = 0)
+    (hσu : (σ u) ^ 4 + (σ u) ^ 3 + 3 * (σ u) ^ 2 - 3 * σ u - 1 = 0) :
+    (fun i => σ (quarticCoordinates u hu i)) = quarticCoordinates (σ u) hσu := by sorry
+
+-- quarticCoordinates_first_equation
+example (u : K) (hu : u ^ 4 + u ^ 3 + 3 * u ^ 2 - 3 * u - 1 = 0) :
+    1 - quarticCoordinates u hu 0 =
+      (quarticCoordinates u hu 0) ^ 8 * (quarticCoordinates u hu 1) ^ 5 := by sorry
+
+-- quarticCoordinates_second_equation
+example (u : K) (hu : u ^ 4 + u ^ 3 + 3 * u ^ 2 - 3 * u - 1 = 0) :
+    1 - quarticCoordinates u hu 1 =
+      (quarticCoordinates u hu 0) ^ 5 * (quarticCoordinates u hu 1) ^ 4 := by sorry
+
+-- quarticCoordinates_missing_five
+example (u : K) (hu : u ^ 4 + u ^ 3 + 3 * u ^ 2 - 3 * u - 1 = 0) :
+    quarticCoordinates u hu 1 ≠ -9 * u ^ 3 - 6 * u ^ 2 - 25 * u + 37 := by sorry
+
+-- quarticCoordinates_zero_not_root
+example : ¬ ((0 : ℚ) ^ 4 + 0 ^ 3 + 3 * 0 ^ 2 - 3 * 0 - 1 = 0) := by sorry
+
+/-- Exact GSWZ discriminant certificate, including every nonzero denominator. -/
+theorem quarticCoordinateCertificate (u : K)
+    (hu : u ^ 4 + u ^ 3 + 3 * u ^ 2 - 3 * u - 1 = 0) :
+    let v := quarticCoordinates u hu 1
+    let δ := (753 - 505 * u - 124 * u ^ 2 - 186 * u ^ 3) / 5
+    1 - u = u ^ 8 * v ^ 5 ∧ 1 - v = u ^ 5 * v ^ 4 ∧
+    u ≠ 0 ∧ v ≠ 0 ∧ 1 - u ≠ 0 ∧ 1 - v ≠ 0 ∧ δ ≠ 0 ∧
+    δ * ((18 + 45 * u - 44 * u ^ 2 + 9 * u ^ 3) / 475) = 1 ∧
+    (1 - u) * (1 - v) * ((8 + u / (1 - u)) * (4 + v / (1 - v)) - 25) =
+      δ * u ^ 8 * v ^ 4 := by sorry
+
+end Quartic
+
+/-- The field degree and discriminant are imported facts of the selected orbit. -/
+theorem quarticIntegralBasis {F : Type*} [Field F] [NumberField F]
+    (u : F) (hu : u ^ 4 + u ^ 3 + 3 * u ^ 2 - 3 * u - 1 = 0)
+    (hdegree : Module.finrank ℚ F = 4) (hdiscr : NumberField.discr F = -475) :
+    ∃ b : Basis (Fin 4) ℤ (𝓞 F),
+      (b 0 : F) = 1 ∧ (b 1 : F) = u ∧ (b 2 : F) = u ^ 2 ∧
+      (b 3 : F) = (u ^ 3 - u ^ 2 + 2) / 5 := by sorry
+
+/-- The three ordinary-binomial profiles needed for the corrected q-Lucas numerator.
+The Gaussian-polynomial statement is imported from QM.0 and is not invented here. -/
+theorem cubicRootConstant_lagrange (z : PowerSeries ℚ)
+    (hz0 : PowerSeries.coeff 0 z = 1)
+    (hz : z = 1 + PowerSeries.X * z ^ 3) (a : Fin 3) :
+    z ^ (a.val + 1) * (PowerSeries.C 3 - PowerSeries.C 2 * z)⁻¹ =
+      PowerSeries.mk (fun h => (Nat.choose (3 * h + a.val) h : ℚ)) := by sorry
+
+/-- The cubic delta inverse used for the precise coefficient-ring export. -/
+theorem cubicDeltaInverse {K : Type*} [Field K] [CharZero K] (z : K)
+    (hz : z ^ 3 - z + 1 = 0) :
+    (-z ^ 2 - z - 2) * ((2 * z ^ 2 + 3 * z - 9) / 23) = 1 := by sorry
+
+/-- This is composition of supplied equivalences, with no fake cohomology type. -/
+theorem etaleNahmCohomologyExport_apply
+    {Hrel HR Hzero : Type*} [CommRing Hrel] [CommRing HR] [CommRing Hzero]
+    (κ : Hrel ≃+* HR) (d : Hzero ≃+* Hrel) (s : HR) :
+    (κ.symm.trans d.symm) s = d.symm (κ.symm s) := by sorry
+
+/-- Owner naturality squares imply the concrete export preserves Taylor maps. -/
+theorem etaleNahmCohomologyExport_taylor
+    {Hrel HR Hzero R : Type*}
+    [CommRing Hrel] [CommRing HR] [CommRing Hzero] [CommRing R]
+    (κ : Hrel ≃+* HR) (d : Hzero ≃+* Hrel)
+    (τrel : Hrel →+* PowerSeries R) (τR : HR →+* PowerSeries R)
+    (τzero : Hzero →+* PowerSeries R)
+    (hκ : ∀ r, τR (κ r) = τrel r)
+    (hd : ∀ h, τrel (d h) = τzero h) (s : HR) :
+    τzero ((κ.symm.trans d.symm) s) = τR s := by sorry
+
+/-
+The complete cubic Laurent symmetrisation, small-prime membership criterion,
+rational/cubic cohomology applications, restricted quartic module application,
+Picard transport and higher geometric comparison use owner carriers absent
+from the pinned libraries. Their exact statements and five proof obligations
+are in the packet and reader. No assertion of an all-coefficient gluing proof,
+60-torsion K3 lift, or naive-to-algebraic equivalence is made by this file.
+-/
+
+end HabiroNahmExamples
+
+end AssemblyHB10

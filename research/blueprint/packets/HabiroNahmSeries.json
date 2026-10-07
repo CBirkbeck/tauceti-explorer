@@ -2143,7 +2143,8 @@
         "HabiroNahmSeries:HB.4/euler-function-at-a-root-of-unity",
         "HabiroNahmSeries:HB.4/cyclic-dilogarithm-interface",
         "HabiroNahmSeries:HB.4/analytic-nahm-sum",
-        "mathlib:Matrix.PosDef.det_pos"
+        "mathlib:Matrix.PosDef.det_pos",
+        "HabiroNahmSeries:HB.3/positive-coherent-root-lift"
       ],
       "sources": [
         {
@@ -2611,7 +2612,8 @@
         "HabiroNahmSeries:HB.4/cyclic-dilogarithm-interface",
         "HabiroNahmSeries:HB.3/algebraicity-and-the-nahm-field",
         "mathlib:IsPrimitiveRoot",
-        "mathlib:NumberField"
+        "mathlib:NumberField",
+        "HabiroNahmSeries:HB.3/positive-coherent-root-lift"
       ],
       "sources": [
         {
@@ -3854,7 +3856,8 @@
         "HabiroNahmSeries:HB.3/embeddings-and-regulator-evaluations",
         "HabiroNahmSeries:HB.5/nahm-sum-meromorphic-at-every-cusp",
         "HabiroNahmSeries:HB.5a/radial-growth-at-a-cusp",
-        "HabiroNahmSeries:HB.5a/laurent-expansion-at-a-cusp"
+        "HabiroNahmSeries:HB.5a/laurent-expansion-at-a-cusp",
+        "HabiroNahmSeries:HB.4/radial-analytic-remainder-comparison"
       ],
       "sources": [
         {
@@ -3903,7 +3906,9 @@
         "HabiroNahmSeries:HB.5/expansion-at-one",
         "HabiroNahmSeries:HB.5a/supplier-interface",
         "HabiroNahmSeries:HB.4/simplified-form-and-the-unit",
-        "HabiroNahmSeries:HB.4/analytic-nahm-sum"
+        "HabiroNahmSeries:HB.4/analytic-nahm-sum",
+        "HabiroNahmSeries:HB.4/cgz-normalization-and-field-comparison",
+        "HabiroNahmSeries:HB.4/nonzero-unit-series-descent-comparison"
       ],
       "sources": [
         {
@@ -4090,7 +4095,9 @@
         "HabiroNahmSeries:HB.4/unit-corollary-and-nonvanishing",
         "HabiroNahmSeries:HB.3/bloch-class-of-a-solution",
         "HabiroNahmSeries:HB.5a/supplier-interface",
-        "HabiroNumberFields:HB.2/R-injectivity-and-image"
+        "HabiroNumberFields:HB.2/R-injectivity-and-image",
+        "HabiroNahmSeries:HB.4/cgz-normalization-and-field-comparison",
+        "HabiroNahmSeries:HB.3/regulator-field-and-normalization-comparison"
       ],
       "sources": [
         {
@@ -4411,9 +4418,6 @@
         }
       ],
       "implementationStatus": "unchecked",
-      "planet": {
-        "name": "Admissible series"
-      },
       "api": [
         {
           "name": "Admissible",
@@ -4874,9 +4878,6 @@
         }
       ],
       "implementationStatus": "unchecked",
-      "planet": {
-        "name": "The series F_A"
-      },
       "api": [
         {
           "name": "seriesFA",
@@ -5112,9 +5113,6 @@
         }
       ],
       "implementationStatus": "unchecked",
-      "planet": {
-        "name": "Formal Gaussian integration series"
-      },
       "api": [
         {
           "name": "fgiFactor",
@@ -5184,7 +5182,7 @@
         {
           "name": "lambda_determinant",
           "kind": "computation",
-          "statement": "prod_j z_j^{-A_jj}(1 - z_j) det(-Lambda(t)) = delta(t); for A = (3), det(-Lambda) = (1 - 5t - 3t^2 - ...)/(-z^{-3}(1 - z))."
+          "statement": "prod_j z_j^{-A_jj}(1 - z_j) det(-Lambda(t)) = delta(t); for A = (3), det(-Lambda) = (1 - 5t - 3t^2 - ...)/(z^{-3}(1 - z))."
         },
         {
           "name": "refined_relation",
@@ -5453,9 +5451,6 @@
         }
       ],
       "implementationStatus": "unchecked",
-      "planet": {
-        "name": "The two collections agree"
-      },
       "uses": [
         {
           "where": "ArithmeticQuantumTopology:QT.6",
@@ -5830,10 +5825,7 @@
           "match": "The rank-one instance."
         }
       ],
-      "implementationStatus": "unchecked",
-      "planet": {
-        "name": "Finite support of the DT exponents"
-      }
+      "implementationStatus": "unchecked"
     },
     {
       "id": "HabiroNahmSeries:HB.8/level-m-admissible-series",
@@ -5887,9 +5879,6 @@
         }
       ],
       "implementationStatus": "unchecked",
-      "planet": {
-        "name": "Level m admissible series"
-      },
       "api": [
         {
           "name": "levelLog",
@@ -6489,7 +6478,9 @@
         "HabiroNahmSeries:HB.9/dwork-difference-for-the-gaussian-data",
         "HabiroNahmSeries:HB.8/identification-theorem",
         "HabiroNahmSeries:HB.8/dwork-quotient-admissible",
-        "HabiroNahmSeries:HB.9/frobenius-on-the-coefficient-ring"
+        "HabiroNahmSeries:HB.9/frobenius-on-the-coefficient-ring",
+        "HabiroNahmSeries:HB.8/refinement-gaussian-identification",
+        "HabiroNahmSeries:HB.8/refinement-corrected-level-admissibility"
       ],
       "sources": [
         {
@@ -6859,7 +6850,8 @@
         "HabiroNahmSeries:HB.3/general-nondegenerate-class",
         "HabiroNumberFields:HB.7/dworks-lemma",
         "HabiroNumberFields:HB.7/invertible-local-sections",
-        "HabiroNumberFields:HB.7/the-global-module"
+        "HabiroNumberFields:HB.7/the-global-module",
+        "HabiroNahmSeries:HB.8/refinement-gaussian-identification"
       ],
       "sources": [
         {
@@ -7324,7 +7316,8 @@
       "prerequisites": [
         "HabiroNahmSeries:HB.8/identification-theorem",
         "HabiroNahmSeries:HB.8/t-deformed-nahm-equations",
-        "HabiroNahmSeries:HB.8/series-F-A"
+        "HabiroNahmSeries:HB.8/series-F-A",
+        "HabiroNahmSeries:HB.8/refinement-gaussian-identification"
       ],
       "sources": [
         {
@@ -7372,7 +7365,9 @@
         "HabiroNahmSeries:HB.9/gluing-by-uniqueness-of-q-difference-solutions",
         "HabiroNahmSeries:HB.9/symmetrisation-lies-in-the-ring",
         "HabiroNahmSeries:HB.9/specialisation-at-one",
-        "HabiroNumberFields:HB.6/the-gluing-condition"
+        "HabiroNumberFields:HB.6/the-gluing-condition",
+        "HabiroNahmSeries:HB.9/followup-descendant-pullback-contract",
+        "HabiroNahmSeries:HB.9/followup-integral-gluing-contract"
       ],
       "sources": [
         {
@@ -7523,7 +7518,8 @@
       "prerequisites": [
         "HabiroNahmSeries:HB.9/module-membership",
         "HabiroNahmSeries:HB.3/general-nondegenerate-class",
-        "ArithmeticQuantumTopology:QT.5"
+        "ArithmeticQuantumTopology:QT.5",
+        "HabiroNahmSeries:HB.3/signed-exterior-boundary-obstruction"
       ],
       "sources": [
         {
