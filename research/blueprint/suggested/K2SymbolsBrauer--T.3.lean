@@ -2704,7 +2704,8 @@ example :
 
 -- test TauCeti.K2.relative_presentation_bot (degenerate)
 example {A : Type u} [CommRing A] :
-    Subsingleton (relDennisSteinGroup (⊥ : Ideal A)) := by
+    Subsingleton (relDennisSteinGroup (⊥ : Ideal A)) ∧
+      Subsingleton (relK2 A (⊥ : Ideal A)) := by
   sorry
 
 end RelativePresentation
@@ -3201,12 +3202,12 @@ must have real factor 1. In the uniformiser-last Milnor convention
 is zero on this subgroup and is not the exponent coordinate. Milne’s ordered
 cup/Artin calculation fixes the exponent sign at −1 for higher powers as well. -/
 
-/- Packet names with no Lean signature in this file yet (FIX-RT-AREA-ktheory-1~2,
-claude-HJaFqR, 2026-10-06). PROTOCOL section 13 asks for every definition, API item and
-unit test of the packet under the packet's name; these are listed with their packet
-statements so that the names agree, and a contributor gives each its signature (or an
-`example`) next to its node above.
-
-TauCeti.K2.relK2.toK2 (API, projection; K2SymbolsBrauer:T.6/relative-steinberg-group): The map K₂(R, I) → K₂(R).
-TauCeti.K2.relDennisSteinGroup.toRelK2 (API, compatibility; K2SymbolsBrauer:T.6/relative-presentation): For I ≤ Ideal.jacobson ⊥, the relative generator map descends through exactly the source-allowed D1–D3 relations. Bijectivity is relative_presentation; its cited completeness proof remains unobtained.
--/
+/- Independent review REV-FIX-RT-BP-K2SymbolsBrauer--T.3~2:
+The APIs relK2.toK2 and relDennisSteinGroup.toRelK2 have signatures above.
+The general norm/residue proof chain still has a supplier-scope gap:
+LocalFieldsRamification's finite-residue local-field contract does not export
+the requested arbitrary-residue complete-DVR norm and lattice-length support.
+The packet records the exact missing exports and maintainer routing request.
+The full file remains unelaborated because the shared build lacks the prebuilt
+TauCeti.FieldTheory.FunctionField.Divisor.Eval import. Isolated Mathlib checks
+of selected signatures do not certify this complete suggested file. -/
