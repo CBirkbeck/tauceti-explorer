@@ -5337,13 +5337,16 @@ theorem renormalised_sum {M : ℕ} [NeZero M] (Φ : ZMod M → ℂ) (hΦ : ∑ j
 
 /-! ### Quantum modular forms (Zagier's canonical definition)
 
-QM.5 owns this definition and the Kontsevich–Zagier and Lawrence–Zagier q-series examples.
-ArithmeticQuantumTopology QT.7 imports the exact nodes listed in the reader's export table.
-QT.7 owns the knot invariant comparisons, Kashaev modularity conjecture, matrix-valued
-cocycle and sourced proved cases. Zagier's Example 5 explicitly allows a discontinuous knot
-cocycle, so its asymptotic or matrix transformation law does not imply the canonical
-`IsQuantumModularForm` predicate. No QT.7 theorem is an input of this section. The character/
-multiplier and finite-Weil-image gaps in the packet remain mathematical proof obligations.
+QM.5 owns this definition, its scalar cocycle lemma (`quantumPeriodFunction_mul`,
+`isQuantumModularForm_iff_generators`) and the Kontsevich–Zagier and Lawrence–Zagier q-series
+examples. The QM.5 nodes whose packet `uses` name ArithmeticQuantumTopology QT.7 are offered to
+it; the QT.7 plan imports the cocycle lemma and asks QM.5 for a matrix-valued multiplicative
+extension that no node here supplies yet. QT.7 owns the knot invariant comparisons, the Kashaev
+modularity conjecture, the Garoufalidis–Zagier knot matrices and sourced proved cases. The
+cocycle of Zagier's Example 5 is not analytic or even continuous, so its asymptotic or matrix
+transformation law does not imply the canonical `IsQuantumModularForm` predicate. No QT.7
+theorem is an input of this section. The character/multiplier and finite-Weil-image gaps in the
+packet remain mathematical proof obligations.
 -/
 
 /-- The Möbius action of `SL(2, ℤ)` on `ℚ` (junk value when `cx + d = 0`). -/
