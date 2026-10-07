@@ -4,7 +4,7 @@
  "area": "automorphic",
  "parent": "EllipticCurveModularity",
  "summary": "Starting where the modularity of elliptic curves over ℚ stops, this Part II proves that every abelian variety over ℚ of GL₂-type is a quotient of a modular Jacobian J₁(N) (Ribet's reduction, made unconditional by Khare–Wintenberger, Corollary 10.2(i)), with the exact level cond(A)^{1/dim A} given by Carayol's conductor theorem. It develops the endomorphism algebra and the two-dimensional λ-adic system of such a variety, the equivalent forms of modularity, the L-function, and Ribet's theory of ℚ-curves: a non-CM elliptic curve isogenous to all its Galois conjugates is a factor of a GL₂-type variety, hence modular over ℚ̄ and, over a solvable Galois field of definition, automorphic of parallel weight two.",
- "readme": "The definitive document is research/blueprint/readmes/EllipticCurveModularityPartIIGL2TypeAbelianVarieties.md. This Part II starts where EllipticCurveModularity stops: R29 proves modularity of elliptic curves over ℚ, and GT.1–GT.4 generalise its steps to an abelian variety A over ℚ of GL₂-type of any dimension n = [E : ℚ], proving compatibility with R29 in dimension one. GT.1 sets up the endomorphism algebra (Ribet §2), GT.2 the λ-adic system and the hypotheses of Khare–Wintenberger Theorem 10.1(i) (Ribet §3), GT.3 the modularity theorem (Ribet Theorem 4.4, Khare–Wintenberger Corollary 10.2(i)) and its equivalent forms, GT.4 the exact level and L-function (Carayol). GT.5–GT.6 develop Ribet's ℚ-curves (§§6–7) and their modularity over a solvable Galois field of definition, which EllipticCurveModularityImaginaryQuadratic imports for Caraiani–Newton's quadratic points. Imported, never re-planned: Theorem 10.1(i) and the Serre theorem (ClassicalSerreModularity R27.6), Faltings' theorems (FaltingsFinitenessAndIsogenyTheorems R28.4), the quotient A_f (ModularCurvesPartII R14.5), the representations of newforms with Carayol's local–global compatibility (AutomorphicGaloisRepresentations R19.3–R19.4), endomorphism algebras, Rosati involutions and Weil restriction (AbelianSchemesAndArithmeticModuli A6), and base change for GL₂ (GL2AutomorphicRepresentationsAndTransfer). Inner twists, the building-block theory over ℚ̄ and the converse direction of Ribet §5 (that the ℚ̄-factors of GL₂-type varieties are ℚ-curves) are not part of this roadmap.",
+ "readme": "The definitive document is research/blueprint/readmes/EllipticCurveModularityPartIIGL2TypeAbelianVarieties.md. This Part II starts where EllipticCurveModularity stops: R29 proves modularity of elliptic curves over ℚ, and GT.1–GT.4 generalise its steps to an abelian variety A over ℚ of GL₂-type of any dimension n = [E : ℚ], proving compatibility with R29 in dimension one. GT.1 sets up the endomorphism algebra (Ribet §2), GT.2 the good-prime λ-adic system and the hypotheses for the direct Serre/Ribet argument (Ribet §3), GT.3 the modularity theorem (Ribet Theorem 4.4, Khare–Wintenberger Corollary 10.2(i)) and its equivalent forms, GT.4 the exact level and L-function (Carayol). GT.5–GT.6 develop Ribet's ℚ-curves (§§6–7) and their modularity over a solvable Galois field of definition, which EllipticCurveModularityImaginaryQuadratic imports for Caraiani–Newton's quadratic points. Imported, never re-planned: Theorem 10.1(i) and the Serre theorem (ClassicalSerreModularity R27.6), Faltings' theorems (FaltingsFinitenessAndIsogenyTheorems R28.4), the quotient A_f (ModularCurvesPartII R14.5), the representations of newforms with Carayol's local–global compatibility (AutomorphicGaloisRepresentations R19.3–R19.4), endomorphism algebras, Rosati involutions and Weil restriction (AbelianSchemesAndArithmeticModuli A6), and base change for GL₂ (GL2AutomorphicRepresentationsAndTransfer). Inner twists, the building-block theory over ℚ̄ and the converse direction of Ribet §5 (that the ℚ̄-factors of GL₂-type varieties are ℚ-curves) are not part of this roadmap.",
  "prerequisites": [
   "EllipticCurveModularity",
   "AbelianSchemesAndArithmeticModuli",
@@ -24,7 +24,8 @@
   "PotentialModularityAndCompatibleSystems",
   "GL2AutomorphicRepresentationsAndTransfer",
   "tauceti:TauCetiRoadmap/ProfiniteCohomology",
-  "tauceti:TauCetiRoadmap/ClassFieldTheory"
+  "tauceti:TauCetiRoadmap/ClassFieldTheory",
+  "ComplexMultiplicationAndExplicitReciprocity"
  ],
  "stages": [
   {
@@ -102,7 +103,7 @@
   {
    "key": "GT.4",
    "title": "Conductors, exact level and L-functions",
-   "description": "**Targets.**\n- The conductor exponent of a GL₂-type variety: for every prime p and every λ ∤ p, f_p(A) = [E : ℚ]·f_p(ρ_λ), where f_p(A) is the Artin conductor exponent of V_ℓ(A) and f_p(ρ_λ) that of the E_λ-representation; f_p(ρ_λ) is independent of λ ∤ p. Hence cond(A) = N(A)^{dim A} for the integer N(A) = ∏ p^{f_p(ρ_λ)}.\n- Carayol's conductor theorem for A_f: for a weight-two newform f of level N, cond(A_f) = N^{dim A_f} and N(A_f) = N.\n- Exact level: for A of GL₂-type, A is modular of level M if and only if N(A) divides M; the optimal level is N(A) = cond(A)^{1/dim A}. The level M = cond(A)^{dim A} named in Khare–Wintenberger §10.2 is valid but not optimal.\n- Strict compatibility, after modularity: the λ-adic system of A is an E-rational strictly compatible system in the sense of Khare–Wintenberger §5 (PotentialModularityAndCompatibleSystems R24.5), with E-rational Weil–Deligne representations at every prime, transported from the system of f.\n- L-functions: for A of GL₂-type, L(A, s) = ∏_{σ : K_f → ℂ} L(f^σ, s) with equality of every local factor, including the bad ones; hence L(A, s) has analytic continuation and a functional equation with conductor cond(A). For dim A = 1 this is the parent's `EllipticCurveModularity:R29.6`.\n- Compatibility with the parent: for an elliptic curve over ℚ, GT.3–GT.4 return the parent's newform of level N_E, isogeny and parametrisation X₀(N_E) → E.",
+   "description": "**Targets.**\n- The conductor exponent of a GL₂-type variety: for every prime p and every λ ∤ p, f_p(A) = [E : ℚ]·f_p(ρ_λ), where f_p(A) is the Artin conductor exponent of V_ℓ(A) and f_p(ρ_λ) that of the E_λ-representation; f_p(ρ_λ) is independent of λ ∤ p. Hence cond(A) = N(A)^{dim A} for the integer N(A) = ∏ p^{f_p(ρ_λ)}.\n- Carayol's conductor theorem for A_f: for a weight-two newform f of level N, cond(A_f) = N^{dim A_f} and N(A_f) = N.\n- Exact level: for A of GL₂-type, A is modular of level M if and only if N(A) divides M; the optimal level is N(A) = cond(A)^{1/dim A}. The level M = cond(A)^{dim A} named in Khare–Wintenberger §10.2 is valid but not optimal.\n- Strict compatibility, after modularity: the good Frobenius polynomials are E-rational, and after a finite coefficient extension E′/E the reindexed λ-adic system is E′-rational and strictly compatible in the sense of Khare–Wintenberger §5 (PotentialModularityAndCompatibleSystems R24.5), with local Weil–Deligne parameters realised over E′ and transported from the system of f.\n- L-functions: for A of GL₂-type, L(A, s) = ∏_{σ : K_f → ℂ} L(f^σ, s) with equality of every local factor, including the bad ones; hence L(A, s) has analytic continuation and a functional equation with conductor cond(A). For dim A = 1 this is the parent's `EllipticCurveModularity:R29.6`.\n- Compatibility with the parent: for an elliptic curve over ℚ, GT.3–GT.4 return the parent's newform of level N_E, isogeny and parametrisation X₀(N_E) → E.",
    "requires": [
     "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.2",
     "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.3",
@@ -136,7 +137,8 @@
     "GL2AutomorphicRepresentationsAndTransfer:R17.5",
     "ModularCurvesPartII:R14.5",
     "SmallRamificationAndAbelianVarietyBaseCases:R25.5",
-    "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees"
+    "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
+    "ComplexMultiplicationAndExplicitReciprocity:CM.1"
    ]
   },
   {
@@ -154,7 +156,8 @@
     "GL2AutomorphicRepresentationsAndTransfer:R17.4",
     "GL2AutomorphicRepresentationsAndTransfer:R17.6",
     "NeronModelsAndSemistableAbelianVarieties:R11.5",
-    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity"
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity",
+    "ArithmeticGaloisRepresentations:R01.5"
    ]
   }
  ],

@@ -8,11 +8,21 @@ open, and every packet node stays unchecked.
 Pinned baseline: Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174,
 Tau Ceti f790474821cf4256814db967cb154e7af3d0c369.
 
+Independent review REV-DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties,
+Codex — codex-xW1MVH, 2026-10-07: NEEDS_CHANGES. This is a signature fragment.
+Elaboration of this file checks the private stand-in's types, not the mathematical API.
+The arbitrary fields of AVContext have no laws identifying its dimension, products,
+endomorphisms, Tate modules, Jacobians or newforms with the advertised objects. For
+example the context allows dim to be constantly zero, contradicting the J₀(11) example.
+Replace the stand-in by the pinned types and import the existing cohomology carrier.
+The packet and reader list the missing signatures and concrete tests precisely.
+
 Carriers. The intended carriers are Tau Ceti's `TauCeti.AlgebraicGeometry.AbelianVariety`
 (with its `End`, `TangentSpace` and `IsIsogeny`) and the bundled newforms
 `HeckeRing.GL2.Newform`. These modules are not available in the build in which this file
-is elaborated, so the file prototypes against an explicit data-only carrier structure
-`TauCeti.GL2Type.AVContext` that mirrors them:
+is elaborated. The original file instead used the data-only structure
+`TauCeti.GL2Type.AVContext`; this does not satisfy Protocol §13's carrier requirement.
+The following describes the intended interpretation, not laws proved for that structure:
 
 * abelian varieties over `ℚ` (and over subfields `K ⊆ ℚ̄`) are the objects of a
   `ℚ`-linear preadditive category whose morphisms are the homomorphisms up to isogeny
@@ -28,9 +38,8 @@ is elaborated, so the file prototypes against an explicit data-only carrier stru
   characters, and the quotients `A_f` with their Hecke action;
 * cuspidal automorphic representations of `GL₂(𝔸_K)` of parallel weight two (GT.6).
 
-Every field is data: no field of the carrier states a theorem. The notions built from
-them (simplicity, isogeny, Frobenius elements, inertia, complex conjugations, the
-cyclotomic character, cocycles) are honest definitions below.
+Data-only fields do not make the mirror faithful. Missing conditions remain recorded
+as omissions; no theorem in this file is formalised.
 
 Root namespace: `TauCeti`. The packet's dotted API names are kept relative to it
 (`TauCeti.GL2Type.power`, `TauCeti.AbelianVariety.IsModularOfLevel`,
@@ -153,9 +162,10 @@ abbrev IsAbsIrred {G k W : Type} [Group G] [Field k] [AddCommGroup W] [Module k 
 
 /-! ## The carrier -/
 
-/-- The data the roadmap's statements are about, mirroring Tau Ceti's
+/-- Unvalidated stand-in retained to locate the signatures needing migration. It does
+not model the geometric laws of Tau Ceti's
 `AbelianVariety`, `AbelianVariety.End`, `TangentSpace`, `IsIsogeny` and
-`HeckeRing.GL2.Newform` (not available in the elaborating build). Data only. -/
+`HeckeRing.GL2.Newform` (not available in the elaborating build). See the review gaps. -/
 structure AVContext where
   /-- Abelian varieties over `ℚ`, as objects of the isogeny category (`Hom⁰ = Hom ⊗ ℚ`). -/
   AV : Type
@@ -1171,7 +1181,8 @@ theorem trivialCharacter {A : ctx.AV} {E : Type} [Field E] [NumberField E]
 /-! ### GT.3/modular-parametrisation -/
 
 /-- GT.3/modular-parametrisation. For `ℚ`-simple `A` of GL₂-type, modular of level `N`, there
-is a surjective homomorphism `h : J₁(N) → A` factoring as a quotient `J₁(N) → A_f` followed by
+is a surjective homomorphism `h : J₁(N) → A` factoring through `A_f` for a newform of level
+`M ∣ N`, using the degeneracy quotient `J₁(N) → J₁(M) → A_f`, followed by
 an isogeny `A_f → A`; `φ = h ∘ AJ_c : X₁(N) → A` is then the parametrisation (nonconstant,
 `φ(c) = 0`, image generating `A`) by the Albanese property of the Abel–Jacobi map `AJ_c`, which
 the carrier does not supply as a morphism of curves. If `ε = 1`, `h` can be taken on `J₀(N)`. -/
@@ -1228,16 +1239,17 @@ theorem exactLevel (A : ctx.AV) (hA : Simple A) (hgl : IsGL2TypeSome ctx A) :
 
 /-! ### GT.4/strict-compatibility -/
 
-/-- GT.4/strict-compatibility. The family `ρ_τ = V_λ(A) ⊗_{E_λ, τ} ℚ̄_ℓ` is an `E`-rational,
-two-dimensional, strictly compatible system of geometric representations with Hodge–Tate
-weights `(1, 0)`: for every prime `q` there is a Frobenius-semisimple Weil–Deligne
-representation `r_q` over `E` with `WD(ρ_τ|_{D_q})^{F-ss} ≅ τ r_q` for all `τ`, including
-`q = ℓ`, unramified (`ρ_τ` unramified at `q`, `ℓ ≠ q`) for `q ∉ S`; it is regular, irreducible
-and odd. -/
+/-- GT.4/strict-compatibility. Good-prime polynomials are `E`-rational. After a finite
+coefficient extension `i : E → E'`, the reindexed family is an `E'`-rational strictly
+compatible system: all local WD parameters are realised over `E'`, including `q = ℓ`.
+Carayol §0.6 permits this extension; realisation over the original `E` is not asserted.
+The family has weights `(1, 0)`, is regular, irreducible and odd. -/
 theorem strictCompatibility {A : ctx.AV} {E : Type} [Field E] [NumberField E]
     (ι : E →ₐ[ℚ] End A) (h : IsEndField ctx A ι) :
-    (∀ q : ℕ, q.Prime → ∃ r : ctx.WDRep E q,
-      ∀ (ℓ : ℕ) [Fact ℓ.Prime] (τ : E →+* Qlbar ℓ), ctx.wdOf (ctx.rhoEmb A ι ℓ τ) q = ctx.wdMap τ r) ∧
+    (∃ (E' : Type) (_ : Field E') (_ : NumberField E') (i : E →+* E'),
+      ∀ q : ℕ, q.Prime → ∃ r : ctx.WDRep E' q,
+        ∀ (ℓ : ℕ) [Fact ℓ.Prime] (τ' : E' →+* Qlbar ℓ),
+          ctx.wdOf (ctx.rhoEmb A ι ℓ (τ'.comp i)) q = ctx.wdMap τ' r) ∧
       (∀ q : ℕ, q.Prime → ¬ ctx.IsBad A q → ∀ (ℓ : ℕ) [Fact ℓ.Prime], ℓ ≠ q →
         ∀ τ : E →+* Qlbar ℓ, IsUnramifiedAt (ctx.rhoEmb A ι ℓ τ) q) ∧
       ∀ (ℓ : ℕ) [Fact ℓ.Prime] (τ : E →+* Qlbar ℓ),
@@ -1323,6 +1335,8 @@ def B2 (M : Type) [CommGroup M] : Subgroup (GQ × GQ → M) where
   inv_mem' := sorry
 
 /-- Continuous cohomology `H²(G_ℚ, M)` for the trivial action on a discrete abelian group `M`. -/
+-- REVIEW GAP: this private quotient must be replaced by the pinned continuousCohomology
+-- on TauCeti.ofDiscreteModule, with upstream's explicit H² comparison and inflation.
 abbrev H2 (M : Type) [CommGroup M] : Type := Z2 M ⧸ (B2 M).subgroupOf (Z2 M)
 
 end TauCeti.GL2Type
@@ -1338,7 +1352,8 @@ variable (ctx : GL2Type.AVContext)
 /-- GT.5/q-curve: `C₀` over `K ⊆ ℚ̄` (in particular `C` over `ℚ̄ = ⊤`) is a `ℚ`-curve:
 `ᵍC₀ ×_{gK} ℚ̄` is `ℚ̄`-isogenous to `C₀ ×_K ℚ̄` for every `g ∈ G_ℚ`. -/
 def IsQCurve {K : NF} (C₀ : ctx.AVK K) : Prop :=
-  ∀ g : GQ, Nonempty (ctx.bcEmb ((GQ.toAut g).toAlgHom.comp K.val) C₀ ≅ ctx.bcEmb K.val C₀)
+  ctx.dimK C₀ = 1 ∧
+    ∀ g : GQ, Nonempty (ctx.bcEmb ((GQ.toAut g).toAlgHom.comp K.val) C₀ ≅ ctx.bcEmb K.val C₀)
 
 /-- GT.5/q-curve: being a `ℚ`-curve is invariant under `ℚ̄`-isogeny. -/
 theorem IsQCurve.of_isogeny {K K' : NF} {C : ctx.AVK K} {C' : ctx.AVK K'}
@@ -1375,17 +1390,28 @@ example :
       ∀ C : ctx.AVK ⊤, ctx.dimK C = 1 → (∃ i : End C, i * i = -1) → IsQCurve ctx C := sorry
 
 -- test: IsQCurve.twist
+-- A twist can have opposite traces at conjugate split primes and remain a Q-curve.
+-- For y² = x³ − x + 1 twisted by √2, √2 reduces to 3 and 4 above 7.
+-- These finite-field computations count the affine points; add the point at infinity.
+example :
+    1 + (Finset.univ.filter (fun xy : ZMod 7 × ZMod 7 =>
+      xy.2 ^ 2 = xy.1 ^ 3 - 9 * xy.1 + 27)).card = 4 ∧
+    1 + (Finset.univ.filter (fun xy : ZMod 7 × ZMod 7 =>
+      xy.2 ^ 2 = xy.1 ^ 3 - 16 * xy.1 + 64)).card = 12 := by decide
+
 example {K : NF} (hK : finrank ℚ K = 2) (E₀ : ctx.AV) (h1 : ctx.dim E₀ = 1)
     (C₀ : ctx.AVK K) (htw : Nonempty (ctx.bcEmb K.val C₀ ≅ ctx.bcEmb K.val ((ctx.bcQ K).obj E₀))) :
     IsQCurve ctx C₀ := sorry
 
--- test: IsQCurve.not_of_traces
+-- test: IsQCurve.not_of_squared_traces
+-- Non-CM is essential: a geometric isogeny gives a quadratic twist of Tate modules,
+-- so good traces agree up to sign, rather than necessarily agreeing.
 example {K : NF} [FiniteDimensional ℚ K] (hK : finrank ℚ K = 2) (C₀ : ctx.AVK K)
-    (h1 : ctx.dimK C₀ = 1) (p : ℕ) (hp : p.Prime)
+    (h1 : ctx.dimK C₀ = 1) (hnc : IsNonCM ctx C₀) (p : ℕ) (hp : p.Prime)
     (v w : IsDedekindDomain.HeightOneSpectrum (𝓞 K)) (hvw : v ≠ w)
     (hv : (p : 𝓞 K) ∈ v.asIdeal) (hw : (p : 𝓞 K) ∈ w.asIdeal)
     (hgood : (ctx.eulerPolyK C₀ v).natDegree = 2 ∧ (ctx.eulerPolyK C₀ w).natDegree = 2)
-    (hne : (ctx.eulerPolyK C₀ v).coeff 1 ≠ (ctx.eulerPolyK C₀ w).coeff 1) :
+    (hne : ((ctx.eulerPolyK C₀ v).coeff 1) ^ 2 ≠ ((ctx.eulerPolyK C₀ w).coeff 1) ^ 2) :
     ¬ IsQCurve ctx C₀ := sorry
 
 end TauCeti.EllipticCurve
@@ -1398,10 +1424,18 @@ open GL2Type GL2Type.AVContext
 
 variable (ctx : GL2Type.AVContext)
 
-/-- A `ℚ`-curve over `K` with chosen `K`-isogenies `μ_g : ᵍC₀ → C₀`, `g ∈ Gal(K/ℚ)`. -/
+/-- A non-CM elliptic `ℚ`-curve over a finite Galois `K`, with chosen `K`-isogenies.
+The private conjugation fields still lack coherence and faithful base-change laws. -/
 structure Data (K : NF) where
   /-- The curve `C₀` over `K`. -/
   C₀ : ctx.AVK K
+  /-- The dimension-one clause is explicit; the arbitrary AVK carrier still needs a geometric ellipticity bridge. -/
+  dim_one : ctx.dimK C₀ = 1
+  /-- The rational cocycle construction only applies to non-CM curves. -/
+  nonCM : IsNonCM ctx C₀
+  /-- The field on which the chosen isogenies are defined is finite Galois. -/
+  finite : FiniteDimensional ℚ K
+  galois : IsGalois ℚ K
   /-- The isogenies `μ_g`, invertible in the isogeny category. -/
   μ : (g : K ≃ₐ[ℚ] K) → ((ctx.conj g).obj C₀ ≅ C₀)
   /-- Each `μ_g` is a genuine `K`-isogeny. -/
@@ -1414,6 +1448,8 @@ def cocycleValue {K : NF} (D : Data ctx K) (g h : K ≃ₐ[ℚ] K) : End D.C₀ 
 /-- GT.5/ribet-cocycle: `c(g, h) = μ_g ∘ ᵍμ_h ∘ μ_{gh}⁻¹ ∈ (End⁰_K C₀)^× = ℚ^×` (for non-CM
 `C₀`). -/
 def cocycle {K : NF} (D : Data ctx K) (gh : (K ≃ₐ[ℚ] K) × (K ≃ₐ[ℚ] K)) : ℚˣ :=
+  -- REVIEW GAP: use D.nonCM and the actual faithful base-change map to extract the
+  -- unique rational scalar. Epsilon alone does not establish that a scalar exists.
   Units.mk0
     (Classical.epsilon fun q : ℚ => algebraMap ℚ (End D.C₀) q = cocycleValue ctx D gh.1 gh.2)
     sorry
@@ -1461,13 +1497,15 @@ example {K : NF} [FiniteDimensional ℚ K] (hK : finrank ℚ K = 2) (D : Data ct
     ((cocycle ctx D (σ, σ) : ℚˣ) : ℚ) = m ∧
       ∀ g : K ≃ₐ[ℚ] K, cocycle ctx D (1, g) = 1 ∧ cocycle ctx D (g, 1) = 1 := sorry
 
--- test: QCurve.cocycle_twist_trivial
+-- test: QCurve.cocycle_twist_after_extension
+-- A geometric twisting isomorphism need not provide K-defined isogenies. Enlarge K.
 example {K : NF} [FiniteDimensional ℚ K] [Normal ℚ K] (hK : finrank ℚ K = 2) (E₀ : ctx.AV)
-    (h1 : ctx.dim E₀ = 1) (C₀ : ctx.AVK K)
+    (h1 : ctx.dim E₀ = 1) (C₀ : ctx.AVK K) (hnc : IsNonCM ctx C₀)
     (htw : Nonempty (ctx.bcEmb K.val C₀ ≅ ctx.bcEmb K.val ((ctx.bcQ K).obj E₀))) :
-    ∃ D : Data ctx K, D.C₀ = C₀ ∧
-      (∀ g h : K ≃ₐ[ℚ] K, cocycle ctx D (g, h) = 1 ∨ cocycle ctx D (g, h) = -1) ∧
-      cocycleClass ctx D ^ 2 = 1 := sorry
+    ∃ (L : NF) (hKL : K ≤ L) (_ : FiniteDimensional ℚ L) (_ : Normal ℚ L)
+      (D : Data ctx L), D.C₀ = (ctx.bcLE hKL).obj C₀ ∧
+      (∀ g h : L ≃ₐ[ℚ] L, cocycle ctx D (g, h) = 1) ∧
+      cocycleClass ctx D = 1 := sorry
 
 -- test: QCurve.cocycle_cm_excluded
 example {K : NF} (C₀ : ctx.AVK K) (h1 : ctx.dimK C₀ = 1) (hcm : ¬ IsNonCM ctx C₀) :
@@ -1532,6 +1570,8 @@ theorem restrictionOfScalarsEndomorphisms {K : NF} [FiniteDimensional ℚ K] [Is
 `C₀`) and `B_K = ∏_σ ᵟC₀` are isogenous over `K` (the `R`-equivariance of the isogeny `ι`, which
 moves the factors, needs the projections of finite products, not in the carrier); consequently
 `Lie(B/ℚ)` is a free `R`-module of rank one, `R = End⁰_ℚ(B)`. -/
+-- The intended map sends C_σ to the σ⁻¹C₀ factor through the conjugate ^{σ⁻¹}μ_σ,
+-- not through the inverse of μ_σ. The packet gives the equivariance computation.
 theorem lieFreeRankOne {K : NF} [FiniteDimensional ℚ K] [IsGalois ℚ K]
     (D : QCurve.Data ctx K) (h1 : ctx.dimK D.C₀ = 1) (hnc : IsNonCM ctx D.C₀) :
     Nonempty ((ctx.bcQ K).obj (ctx.res K D.C₀) ≅
@@ -1578,8 +1618,9 @@ open Classical in
 `End⁰_ℚ(Res_{K/ℚ} C₀) ≅ ℚ[X]/(X² - m)`; (a) if `m` is a square, `C₀` is `K`-isogenous to the
 base change of a curve over `ℚ`; (b) otherwise `B = Res_{K/ℚ} C₀` is a primitive abelian surface
 of GL₂(ℚ(√m))-type whose character `ε` is `θ` (`θ(g) = 1` on `G_K`, `sign m` off it), with
-`E = ℚ(√m)` real iff `θ = 1`; (c) `E` or `K` is real, and if `K` is imaginary then `m > 0`,
-`ε = 1` and `B` is a quotient of some `J₀(N)`. -/
+`E = ℚ(√m)` real iff `θ = 1`; (c) in the nonsquare case `E` or `K` is real. Imaginary `K`
+gives `m > 0`, and in the nonsquare case `ε = 1` and `B` is a quotient of some `J₀(N)`.
+For square `m`, the endomorphism algebra is `ℚ × ℚ`, not a quadratic field. -/
 theorem quadraticQCurves {K : NF} [FiniteDimensional ℚ K] [Normal ℚ K]
     (hK : finrank ℚ K = 2) (σ : K ≃ₐ[ℚ] K) (hσ : σ ≠ 1) (hσ2 : σ * σ = 1) (C₀ : ctx.AVK K)
     (h1 : ctx.dimK C₀ = 1) (hnc : IsNonCM ctx C₀) (μ : (ctx.conj σ).obj C₀ ≅ C₀)
