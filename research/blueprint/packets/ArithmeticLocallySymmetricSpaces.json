@@ -5671,6 +5671,7 @@
       "source": "nt16",
       "kind": "error",
       "locator": "§3.1, paragraph on neatness, p. 41, and Lemma 3.2(1), p. 42, of the published version (Forum Math. Sigma 4 (2016) e21); also Proposition 3.7(1), p. 48, which omits the orientation sheaf. arXiv:1511.04913v1 has the same text.",
+      "printed": "For neat U and arbitrary g∈G(𝔸_F^∞), the source calls Γ_{g,U}=G(F)∩gUg⁻¹ a neat arithmetic subgroup in G(F⊗_ℚℝ) and torsion-free. It claims the resulting X^G action is properly discontinuous, free, and preserves orientation.",
       "correction": "Neat arithmetic groups act freely and properly discontinuously but need not preserve the orientation of X^G; X^U_G need not be orientable, and Verdier duality (Proposition 3.7(1)) must be twisted by the orientation local system o_U. The claim holds when G(F ⊗ ℝ) is connected, which covers the paper's applications (Res_{F/ℚ}GL_n with F CM, and U(n, n)).",
       "reason": "G = PGL_{2,ℚ}, X^G = ℍ with det < 0 acting antiholomorphically. U = K(5)K(13)∏_{p≠5,13}PGL_2(Z_p) is neat (adjoint eigenvalues ≡ 1 at 5 and at 13, so torsion is 5-primary and 13-primary, hence trivial). The matrix (57, 455; 455, 3632) = 57·I + 65·(0, 7; 7, 55) has determinant −1 and lies in U, and its class reverses orientation, so the corresponding component of X^U_G is a nonorientable surface.",
       "affects": "a stated result",

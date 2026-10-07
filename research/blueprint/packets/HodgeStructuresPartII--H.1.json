@@ -3018,6 +3018,7 @@
       "source": "S94II",
       "kind": "error",
       "locator": "§6, Proposition 6.6, final sentence, published p.17",
+      "printed": "The source claims that degree-zero sub-Higgs sheaves are all strict subbundles and have zero Chern classes.",
       "correction": "Require the sub-Higgs sheaf to be saturated, equivalently that its quotient in E be torsion-free. With that hypothesis the stated subbundle and Chern conclusions apply.",
       "reason": "On P² let E=O² with zero Higgs field and F=I_p⊕0 for a point p. E is slope-semistable with all rational Chern classes zero. F is invariant of rank one and degree zero, but I_p is not locally free at p; E/F=O⊕O_p has torsion. Thus F is not a strict subbundle, and c₂(I_p)=[p] is nonzero. This refutes only the unrestricted last sentence. The packet already requires a torsion-free quotient.",
       "affects": "a stated result",

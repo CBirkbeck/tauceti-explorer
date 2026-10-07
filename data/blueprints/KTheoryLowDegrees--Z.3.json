@@ -21211,6 +21211,7 @@
    "source": "Cohen",
    "kind": "error",
    "locator": "Proposition 2.2.13 proof, printed p. 82, physical PDF p. 96, author manuscript Advanced Computational Algebraic Number Theory, 11 July 2001",
+   "printed": "The proof invokes the approximation theorem a second time to choose β ∈ Z_L satisfying v_P(β) = v_P(I).",
    "correction": "For a fractional ideal first choose nonzero δ ∈ Z_L with δI integral. Apply the proof to δI and use N(δI)=N(δ)N(I), dividing the resulting element norms by N(δ). The theorem is unchanged; the literal integral β demanded for fractional I need not exist.",
    "reason": "Take L=K=ℚ and I=(1/2)ℤ. The proof requires an algebraic integer β with v₂(β)=v₂(I)=−1, which is impossible. Merely dropping β∈Z_L also leaves the earlier assertion α∈I unjustified when fractional valuations above a base prime cancel. Clearing denominators reduces all relevant valuations to nonnegative ones and repairs both steps.",
    "affects": "the proof",

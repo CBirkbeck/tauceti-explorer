@@ -3369,7 +3369,7 @@
       "id": "PAPER-YUAN-ZHANG-18/E23",
       "kind": "misprint",
       "locator": "§4.2, proof of Theorem 4.5, first sentence, p. 564; the slip recurs on p. 565",
-      "printed": "By Proposition 4.4, Theorem 3.2 and Corollary 3.6, there is a system of regular models … (p. 564); … the identity connected component 𝒳′^0_1 of the limit 𝒳′_0 of 𝒳′_{1,U′p} constructed in Theorem 3.2 (p. 565)",
+      "printed": "On p. 564 the proof invokes Proposition 4.4, Theorem 3.2 and Corollary 3.6 to obtain regular models. On p. 565 it again attributes the construction of the limit 𝒳′_0 of 𝒳′_{1,U′p} to Theorem 3.2, when discussing its identity component 𝒳′^0_1.",
       "correction": "Read Proposition 3.2.",
       "reason": "There is no Theorem 3.2; the regular PEL models at small level are Proposition 3.2 (p554).",
       "affects": "nothing",

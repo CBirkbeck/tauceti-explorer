@@ -45031,7 +45031,7 @@
     {
       "kind": "error",
       "locator": "proof of Proposition 9.5, p. 26 (arXiv v3 = author version of 19 July 2022)",
-      "printed": "The proof seeks triviality of the action of G=Gal(F₂^alg/F₂) on Γ=Γ(J_ā). Because Γ is a tree, it claims fixing every terminal vertex suffices. For IV and IV*, it says two other terminal vertices remain besides v₀∈Γ.",
+      "printed": "The proof seeks to establish triviality of the action of G=Gal(F₂^alg/F₂) on Γ=Γ(J_ā). It regards this graph as a tree, so fixing its leaves is said to suffice. For each of IV and IV*, it counts two further leaves apart from v₀∈Γ.",
       "correction": "For IV the dual graph (§2: an edge for each pair of meeting components) is a triangle, not a tree, and has no terminal vertices. Argue directly: Θ₀ is fixed, and a section defined over F₂ through a second component fixes it. The third component is then fixed as well.",
       "reason": "The three components of IV pass through one point, so they meet pairwise. The lattice argument (A₂ is not unimodular) still gives such a section, so the conclusion stands.",
       "affects": "nothing",

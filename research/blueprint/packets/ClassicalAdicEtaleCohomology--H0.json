@@ -24956,7 +24956,7 @@
    "source": "KedlayaLiu-RelativeFoundations-2015",
    "kind": "error",
    "locator": "§8.4, Remark 8.4.8, pp. 168–169, in arXiv:1301.0792v5 (the Astérisque 371 version was not checked)",
-   "printed": "For an integral affinoid algebra A over an analytic field, the source describes Spec(A) as both noetherian and normal. It then applies Remark 1.4.9 to conclude Zp-ILoc(Spec(A)) = Qp-Loc(Spec(A)).",
+   "printed": "The source considers an integral affinoid algebra A over an analytic field and declares Spec(A) both noetherian and normal. Invoking Remark 1.4.9, it concludes Zp-ILoc(Spec(A)) = Qp-Loc(Spec(A)).",
    "correction": "Suppose that A is a normal integral (for example smooth and connected) affinoid algebra over an analytic field. Then Spec(A) is normal and noetherian, so Zp-ILoc(Spec(A)) = Qp-Loc(Spec(A)) by Remark 1.4.9.",
    "reason": "Integral affinoid algebras need not be normal: A = K⟨x,y⟩/(y²−x³) ≅ the closed subalgebra of K⟨t⟩ of series with no t¹ term (x ↦ t², y ↦ t³; Weierstrass division by y²−x³ gives A = K⟨x⟩ ⊕ K⟨x⟩y, mapped injectively) is a domain, and t = y/x is integral over A (t² = x) but not in A. The remark's conclusion survives for normal A, e.g. the smooth affinoid of Example 8.5.17.",
    "affects": "the proof",

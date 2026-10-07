@@ -2062,7 +2062,7 @@
     {
       "kind": "error",
       "locator": "Theorem 4.1, JAMS p. 928; the failing step is on p. 929 ('We are reduced to proving that the composition …'); author pp. 13–14",
-      "printed": "Theorem 4.1 asserts R_an,exp-definability of the period map Φ : (Δ*)^n → S_{Γ,G,M} for a variation V over (Δ*)^n of pure Hodge structures, polarized and of weight k.",
+      "printed": "Theorem 4.1 claims R_an,exp-definability of Φ : (Δ*)^n → S_{Γ,G,M} when V is a polarized variation, pure of weight k, on the punctured polydisk (Δ*)^n and Φ is its period map.",
       "correction": "Restrict to smaller polydisks: for every 0 < ρ < 1, Φ restricted to (Δ*_ρ)^n is R_an,exp-definable. The printed proof gives ρ = e^(−2π), once 0 < x < 1 is replaced by 0 ≤ x < 1 (see E45). For general ρ < 1: cover the closed ρ-polydisk, which is compact in Δ^n, by finitely many small polydisk charts centred at its points, each of the form (Δ*)^r × Δ^l, and apply the local statement in each chart. Alternatively, rerun §4.2 on {0 ≤ x < 1, y > η} with η = −(log ρ)/2π. That uses Theorem 1.5 for this η, and its printed proof (§4.5, on Σ_n with y > 1) needs the same compactness step. §4.1 must use charts whose shrunken polydisks still cover S̄.",
       "reason": "The counterexample holds; I rechecked it by hand and numerically. With f(z) = exp(−(1+z)/(1−z)), τ = 2i + εf and trivial monodromy, the fibre over π(2i + ε/e) is {z_n = 2πin/(2+2πin) : n ≠ 0}, an infinite discrete set accumulating at 1. The fibre of a definable map would have finitely many components. Δ is the unit disk (p. 922), and e(·) maps H onto the unit Δ* (p. 929). Where the proof fails: Lemma 4.2 is true as stated with no shrinking, because Schmid (4.12) (p. 233) says Ψ extends holomorphically to the whole open Δ^n, and p(S_H^n) lies in the compact polydisk |q_j| ≤ e^(−2π). The failing step is the reduction 'We are reduced to proving that the composition S_H^n → G/M → S_{Γ,G,M} is R_an,exp-definable'. That reduction controls Φ only on p(S_H^n) ⊂ (Δ*_(e^(−2π)))^n. The earlier correction's 'then for every ρ<1 by compactness of the remaining annular pieces' is inaccurate for n ≥ 2: {ρ ≤ |q_1| < ρ'} × (Δ*)^(n−1) is not compact. The author copy is identical. The erratum does not mention this; §1.5 calls the proof of Theorem 1.3 correct apart from the §4.5 citation. Theorem 1.3 is unaffected.",
       "affects": "a stated result",
@@ -2079,7 +2079,7 @@
     {
       "kind": "gap",
       "locator": "Lemma 4.5 proof, JAMS p.930; author p.15",
-      "printed": "The proof substitutes z_1 = mz_2 + c into f to define f_{m,c}, for each positive integer m and each real c. It asserts that f_{m,c} satisfies the lemma’s hypotheses and that induction on n yields f_{m,c} ≪ 1 throughout Σ_{n−1}.",
+      "printed": "The proof substitutes z_1 = mz_2 + c into f to define f_{m,c} for positive integers m and real c. It says the lemma’s assumptions remain valid for these functions and invokes induction on n to obtain f_{m,c} ≪ 1 throughout Σ_{n−1}.",
       "correction": "State the lemma, and verify its curve hypothesis, on wider sectors Σ_n^R={|x_i|<R,y₁≥⋯≥y_n>1} for every R, with constants depending on R. The substitution maps Σ_(n−1)^R′ into Σ_n^(mR′+|c|). The application needs original-source bounded-real-width uniformity for Schmid Corollary 5.29 and the CKS/Kashiwara norm estimates; G3 records that this is still unverified. The R-quantifier of the target Theorem 1.5 is not evidence for its prerequisites.",
       "reason": "Σ_n is defined with 0 < x_i < 1 (Definition 4.4). The proof uses c = 0, 1, …, r_1 and m ≥ 1. For c ≥ 1, x_1 = mx_2 + c > 1, so Σ_n ∩ {z_1 = mz_2 + c} is empty. For c = 0 it is only the strip x_2 < 1/m. So the hypothesis gives no information about f_{m,c} on Σ_{n−1}. The functions extend there (the coefficients in O are periodic in x and f is polynomial in x), but the bound is assumed only on Σ_n. With the R-uniform hypothesis, the finite difference in c isolates the top x_1-degree, the Vandermonde step in m isolates each y-power, and |x_1| < 1 on Σ_n finishes the proof, as printed. Noted by the extraction (verification gap G4); the repair is given by this continuation.",
       "affects": "the proof",
@@ -2096,7 +2096,7 @@
     {
       "kind": "error",
       "locator": "§4.5, JAMS p.933; author p.18",
-      "printed": "The source asserts that b being (e′, C′)-reduced, together with a basis e satisfying Definition 4.11, condition (3), for some C > 0, makes b (e, C″)-reduced with some C″ = C″(e, C, e′, C′) > 0.",
+      "printed": "The source claims that (e′, C′)-reduction of b, together with condition (3) in Definition 4.11 for a basis e and C > 0, implies (e, C″)-reduction, where C″ = C″(e, C, e′, C′) > 0.",
       "correction": "Condition (2), the ordering b(e_i) < C b(e_j) for i < j, transfers only up to a permutation of e. Conclude that b is (σe, C″)-reduced for some permutation σ, which is one of finitely many.",
       "reason": "Take e′ = (e_1, e_2), e = (e_2, e_1) and b = diag(1, T) with T ≥ 1. Then b is (e′, 2)-reduced and satisfies condition (3) for e (b(e_2)b(e_1) = T = det b), but condition (2) for e would need T = b(e_2) < C″b(e_1) = C″ for all T. The proof immediately adds 'we may assume (2) as there are only finitely many orderings of the basis', which is the corrected form, so Theorem 1.5 is unaffected. Noted by the extraction (item basis-change-reducedness).",
       "affects": "the proof",
@@ -2113,7 +2113,7 @@
     {
       "kind": "error",
       "locator": "Theorem 1.1(1), JAMS p.919; Definition 2.5 and Proposition 2.7, p.924",
-      "printed": "Part (1) asserts that S_{Γ,G,M} := Γ\\G/M, the arithmetic quotient, has a natural R_alg-definable manifold structure, characterized using a semi-algebraic Siegel set S ⊂ G/M.",
+      "printed": "Part (1) equips the arithmetic quotient S_{Γ,G,M} := Γ\\G/M with a natural R_alg-definable manifold structure, characterized by a subsequent property involving a semi-algebraic Siegel set S ⊂ G/M.",
       "correction": "The definable structure depends on a choice of maximal compact subgroup K ⊃ M. For each such K there is a structure S_{Γ,G,M,K}, characterized by the Siegel sets associated to K. Definition 2.5 must fix K, and Proposition 2.7 holds when all Siegel sets use the same K (Erratum, Theorem 1.2(1)).",
       "reason": "Erratum §1.6.1: for G = SL₂, a Siegel set built with K_x is not contained in finitely many Siegel sets built with K_i when x ≠ i, so the two structures on Γ\\G differ. The Hodge-theoretic statements are unaffected, because Hodge manifolds carry a canonical K (Erratum §1.4).",
       "affects": "a stated result",
@@ -2130,7 +2130,7 @@
     {
       "kind": "error",
       "locator": "Theorem 1.1(2), JAMS p.919",
-      "printed": "Part (2) asserts R_alg-definability for every arithmetic-quotient morphism f: S_{Γ′,G′,M′} → S_{Γ,G,M}.",
+      "printed": "Part (2) claims R_alg-definability for every arithmetic-quotient morphism f: S_{Γ′,G′,M′} → S_{Γ,G,M}.",
       "correction": "Only morphisms compatible with the chosen maximal compacts are definable: maps Γ′h′M′ ↦ Γφ(h′)gM with φ(Γ′) ⊂ Γ, φ(M′) ⊂ gMg^{−1}, φ(K′) ⊂ gKg^{−1}, and θ_{gKg^{−1}} preserving φ(g′) (Erratum, Theorem 1.2(2)).",
       "reason": "Erratum §1.6.2, using Orr–Schnell's examples: without the Cartan-involution condition, the image of a Siegel set is not contained in finitely many translates of Siegel sets, so the morphism is not definable. Morphisms of Hodge manifolds satisfy the condition (Erratum, Corollary 1.3).",
       "affects": "a stated result",
@@ -2147,7 +2147,7 @@
     {
       "kind": "gap",
       "locator": "§4.5, JAMS p.932; author p.17",
-      "printed": "The source invokes [B-HC62, 7.5] to assert that, for each Siegel set 𝔖 ⊂ X, its preimage lies in a finite union of Siegel sets in D.",
+      "printed": "The source invokes [B-HC62, 7.5] to cover the inverse image of each Siegel set 𝔖 ⊂ X by finitely many Siegel sets in D.",
       "correction": "Replace [B-HC62, 7.5] with [BGST, Prop. 28.1] (arXiv numbering; Prop. 3.4 in the published version). Apply it to G′ = MT(V)^der ⊂ SL(V) ⊂ GL(V) with K_H = G′(ℝ) ∩ SO(h_{x0}) ⊂ K_G = SO(h_{x0}). Its forward-containment hypothesis holds by Orr–Schnell Thm 1, since θ_{K_G} = Ad(C_{x0}) on 𝔤′ stabilizes 𝔤′. Absorb the finite set F ⊂ G′(ℚ) by Remark 2.6(1).",
       "reason": "Confirmed on the page image and in erratum §1.5 ('should be replaced with [1, 28.1], as the former is for real Siegel sets'). I reclassify it as a gap: the statement is true, and only the cited justification is inapplicable. Known: erratum §1.5.",
       "affects": "the proof",
@@ -2164,7 +2164,7 @@
     {
       "kind": "misprint",
       "locator": "Theorem 1.5, JAMS p.921; also Theorem 1.5, p. 921, line after the display of H^n_{R,η}; same in author copy p. 5",
-      "printed": "The source imposes |Re z_i| ≤ C. Its real-part notation is |Re z| := sup_{1≤j≤n} |Re z_i|; for the imaginary part it writes Im z := inf_{1≤j≤n} Im z_i.",
+      "printed": "The source uses the bound |Re z_i| ≤ C. Its real-part definition is |Re z| := sup_{1≤j≤n} |Re z_i|; its imaginary-part definition is Im z := inf_{1≤j≤n} Im z_i.",
       "correction": "Use R in the definition of H_(R,η), consistently with the quantified parameter. Also: |Re z| := sup_{1≤i≤n} |Re z_i| and Im z := inf_{1≤i≤n} Im z_i. H^n_{R,η} := {z ∈ H^n : sup_i |Re z_i| ≤ R and inf_i Im z_i ≥ η}.",
       "reason": "The statement quantifies R>0 and η>0; C is not bound there.",
       "affects": "nothing",
@@ -2181,7 +2181,7 @@
     {
       "kind": "misprint",
       "locator": "§4.2 after Remark 4.3, JAMS p.929",
-      "printed": "The source invokes Theorem 1.1(2).",
+      "printed": "The source cites Theorem 1.1(2).",
       "correction": "Refer to Theorem 1.1(1), with fixed K as in the erratum.",
       "reason": "Part (1) supplies definability of the quotient map restricted to Siegel sets; part (2) concerns morphisms of quotients.",
       "affects": "nothing",
@@ -2198,7 +2198,7 @@
     {
       "kind": "misprint",
       "locator": "Proof following Theorem 4.8, JAMS p.931",
-      "printed": "The proof cites Proposition 4.6, part (1).",
+      "printed": "The source cites Proposition 4.6, part (1).",
       "correction": "Refer to Lemma 4.7(1).",
       "reason": "Proposition 4.6 has no numbered part (1); the immediately discussed roughly monomial diagonal assertion is Lemma 4.7(1).",
       "affects": "nothing",
@@ -2232,7 +2232,7 @@
     {
       "kind": "misprint",
       "locator": "§5, JAMS p.934, definability of Φ_S",
-      "printed": "The source invokes Theorem 1.1.",
+      "printed": "The source cites Theorem 1.1.",
       "correction": "Use Theorem 1.3.",
       "reason": "The period-map theorem is 1.3, not the quotient-structure theorem 1.1.",
       "affects": "nothing",
@@ -2300,7 +2300,7 @@
     {
       "kind": "misprint",
       "locator": "§4.5, first sentence, p. 932 (𝔖^b_𝔥); Claim, p. 933 (H_ℚ)",
-      "printed": "The source claims that finitely many sets of the form Σ_n cover 𝔖^b_𝔥, and asserts the existence of a basis e = {e_i} of H_ℚ.",
+      "printed": "The source claims a finite covering of 𝔖^b_𝔥 by sets shaped like Σ_n, and asserts existence of a basis e = {e_i} for H_ℚ.",
       "correction": "Locator: §4.5, first sentence, p. 932 (𝔖^b_𝔥); Claim, p. 933 (H_ℚ). Read 𝔖^n_𝔥 and V_ℚ.",
       "reason": "Confirmed on the page image. The only revision is the locator: the 𝔖^b_𝔥 is in the first sentence of §4.5, lower on p. 932, not on the first line of the page. The author copy (pp. 17–18) and arXiv v2 have the same text. The integral-versus-rational mismatch in the same Claim is a separate issue below.",
       "affects": "nothing",
@@ -2317,7 +2317,7 @@
     {
       "kind": "gap",
       "locator": "§1.3 (p. 920: 'let G be its associated adjoint semi-simple Q-group') against §4.2 (p. 928) and §4.4 (p. 931); also §4.5, second paragraph, p. 932",
-      "printed": "The source places T_i, the monodromy transformation, in G(Z) ⊂ GL(V_Z). It also says the natural embedding G(ℚ) ⊂ SL(V_ℚ) induces ι : D → X with ι(x) := h_x.",
+      "printed": "The source places the monodromy transformation in T_i ∈ G(Z) ⊂ GL(V_Z). It also uses the natural inclusion G(ℚ) ⊂ SL(V_ℚ) to construct ι : D → X by ι(x) := h_x.",
       "correction": "Take G = MT(V)^der ⊂ SL(V_Q), which is semisimple and acts on V, throughout §4. Unipotent T_i lie in the identity component of the monodromy group, which is contained in MT^der, so T_i ∈ MT^der(Q) and N_i ∈ Lie(MT^der) = g_Q. Γ is torsion-free, so it meets the finite centre trivially. D, the Siegel sets and the definable structure of S_(Γ,G,M) correspond under the isogeny MT^der → MT^ad (a surjective morphism of arithmetic quotients as in §3.2). Erratum §1.4 likewise uses a group inside GL(V_Q). Also: Merge into E27 as an additional locator (§4.5, second paragraph, p. 932). Read G′ = MT(V)^der ⊂ SL(V) in place of G, and note that the Siegel sets of D = G/M are the same whether defined through G′ or through G.",
       "reason": "§4 treats G as acting on V: T_i ∈ G(Z) ⊂ GL(V_Z), γ(z) ∈ G(C) applied to u ∈ V_C (p. 931), and G(Q) ⊂ SL(V_Q) (p. 932). An adjoint group does not act on V in general (−I ∈ SL_2 acts nontrivially). The fix is routine and changes no statement, so I downgrade 'affects' from 'the proof' to 'nothing'.",
       "affects": "nothing",
@@ -2334,7 +2334,7 @@
     {
       "kind": "misprint",
       "locator": "§5, p. 934, lines 1–3",
-      "printed": "The source defines HL(S_{Γ,G,M}) by taking the countable union of the special subvarieties in S_{Γ,G,M}, and asserts HL(S, V) equals Φ_S^{−1}(HL(S_{Γ,G,M})).",
+      "printed": "It defines HL(S_{Γ,G,M}) by taking the countable union of the special subvarieties in S_{Γ,G,M}, and claims HL(S, V) equals Φ_S^{−1}(HL(S_{Γ,G,M})).",
       "correction": "Read 'the (countable) union of strict special subvarieties of S_{Γ,G,M}' (Y ≠ S_{Γ,G,M}). Then HL(S,V) = Φ_S^{-1}(HL(S_{Γ,G,M})) holds because Φ_S(S) is Hodge generic. The same slip is in [K17, Def. 3.13 and Prop. 3.20].",
       "reason": "With the definition on p. 933, the identity Hodge morphism makes S_{Γ,G,M} itself special. Read literally, HL(S_{Γ,G,M}) = S_{Γ,G,M} and the next sentence would give HL(S,V) = S. The intended meaning (strict special subvarieties, the convention of [K17] and the only one consistent with the §1.4 definition via exceptional Hodge tensors) is clear. The proof then shows that Φ_S^{-1}(Y) is algebraic for every special Y, strict or not, so nothing downstream changes. I therefore classify it as a misprint (an omitted word) rather than an error. The identification HL(S,V) = ⋃_{Y strict} Φ_S^{-1}(Y) is asserted without proof but is standard.",
       "affects": "nothing",
@@ -2351,7 +2351,7 @@
     {
       "kind": "gap",
       "locator": "§4.1, JAMS p. 928",
-      "printed": "The source takes a finite open cover (S̄_i)_{1≤i≤m} of S̄, with (S̄_i, S_i := S ∩ S̄_i) biholomorphic to (Δ^n, (Δ*)^{r_i} × Δ^{l_i:=n−r_i}). It claims one may assume r_i = n and l_i = 0 by permitting factors whose monodromies are trivial.",
+      "printed": "The source chooses a finite open covering (S̄_i)_{1≤i≤m} of S̄ whose pairs (S̄_i, S_i := S ∩ S̄_i) are biholomorphic to (Δ^n, (Δ*)^{r_i} × Δ^{l_i:=n−r_i}). It then says factors of trivial monodromy allow the assumptions r_i = n, l_i = 0 without loss.",
       "correction": "(i) Take the charts to be restrictions of charts defined on neighbourhoods of the closures of the S̄_i (so they are R_an-definable), with the shrunken polydisks required by E1 still covering S̄. (ii) After applying Theorem 4.1 to V restricted to (Δ*)^n, extend definability to (Δ*)^r × Δ^l by the graph-closure argument (Φ is continuous on (Δ*)^r × Δ^l and (Δ*)^n is dense), or run §4.2 with t_j ∈ Δ as coordinates on the l trivial-monodromy factors.",
       "reason": "The paper does not say why definability of each Φ_S|S_i gives definability for the algebraic structure on S; that needs definable charts. A biholomorphism S̄_i ≅ Δ^n with no control at the boundary need not be definable. The reduction to r_i = n also drops the points where one of the last l coordinates vanishes. Both steps are routine.",
       "affects": "nothing",
@@ -2368,7 +2368,7 @@
     {
       "kind": "gap",
       "locator": "§4.3–4.4, JAMS pp. 929–931: Definition 4.4 (O), the lift v(t) and g: Δ^n → G(C) (p. 931), and 'on Σ_n' in Theorem 4.8",
-      "printed": "The source asserts existence and uniqueness of a holomorphic lift v(t) ∈ ⊕_{p<0} g^{p,q} satisfying Ψ(t) = e^{v(t)}F. Theorem 4.8 then states its conclusions on Σ_n.",
+      "printed": "The source claims a unique holomorphic v(t) ∈ ⊕_{p<0} g^{p,q} lifting Ψ(t) = e^{v(t)}F. It states the conclusions of Theorem 4.8 throughout Σ_n.",
       "correction": "Make the '(after maybe shrinking the polydisk)' of Lemma 4.2 an explicit standing convention for §4.3–4.4. Rescale q (q ↦ q/λ shifts y by a constant and replaces F by e^(icΣN_j)F) so that on the new unit polydisk: (a) Ψ lies in the cell exp(⊕_(p<0) g^(p,q))·F, so v and g are defined; (b) {y > 1} lies inside Kashiwara's range {y_ν > M}. Alternatively, prove Theorem 4.8 on Σ_n by applying Kashiwara at every point of the closed e^(−2π)-polydisk and using compactness.",
       "reason": "(a) The map v ↦ e^v F from ⊕_(p<0) g^(p,q) is an open embedding onto a Zariski-open cell of Ď, not onto all of Ď, so v(t) exists only near t = 0 (compare item negative-lie-chart). (b) O is defined as 'real restricted analytic functions on Δ^n', i.e. analytic near the closed unit polydisk, but Ψ and g are only holomorphic on the open Δ^n. (c) Kashiwara's Theorems 3.4.1 and 3.4.2 (p. 870) give the estimates only for y_ν > M near x_0, while Σ_n has y_n > 1. On Theorem 4.1 and Theorem 1.3 this has no effect, since those statements are local. Theorem 1.5, stated for every η > 0, then needs its own compactness step.",
       "affects": "nothing",
@@ -2385,7 +2385,7 @@
     {
       "kind": "misprint",
       "locator": "§4.2, JAMS p. 929",
-      "printed": "The source calls 𝔖_H ⊂ H, defined by {(x, y) ∈ H | 0 < x < 1, 1 < y}, the usual Siegel fundamental set. It reduces the argument to R_an,exp-definability of the composite 𝔖_H^n → G/M → S_{Γ,G,M}.",
+      "printed": "The source takes {(x, y) ∈ H | 0 < x < 1, 1 < y} as 𝔖_H ⊂ H, a standard fundamental Siegel set. It reduces the argument to R_an,exp-definability of the composite 𝔖_H^n → G/M → S_{Γ,G,M}.",
       "correction": "Read {(x,y) ∈ H | 0 ≤ x < 1, 1 < y}. Alternatively, keep the open strip and conclude by continuity: Φ is continuous and p(𝔖_H^n) is a dense definable subset of (Δ*_(e^(−2π)))^n, so the graph of Φ is the closure of a definable set.",
       "reason": "e(x+iy) = e^(−2πy)e^(2πix) with 0 < x < 1 omits arg q = 0. So p(𝔖_H^n) misses every point with some q_j ∈ (0, e^(−2π)), and definability of π∘Φ̃ on 𝔖_H^n does not directly give definability of Φ on a punctured polydisk. The open strip is not a fundamental set for z ↦ z+1. The radius e^(−2π) is the separate E1 issue.",
       "affects": "nothing",
@@ -2402,7 +2402,7 @@
     {
       "kind": "error",
       "locator": "Definition 4.4, JAMS pp. 929–930 (author p. 14)",
-      "printed": "The source calls f ∈ O(x, y) roughly polynomial when f = g/h with g ∈ O[x, y, y^{−1}] and roughly monomial h. It asserts that these functions constitute a ring denoted T_n.",
+      "printed": "It calls f ∈ O(x, y) roughly polynomial when f = g/h with g ∈ O[x, y, y^{−1}] and a roughly monomial denominator h. It claims these functions constitute a ring, denoted T_n.",
       "correction": "Require the denominator h to be a roughly monomial element of O[x,y,y^(−1)] (complex coefficients allowed for complex-valued functions). Then g/h + g'/h' = (gh' + g'h)/(hh') stays in the class, so T_n is a ring. In the proof of Lemma 4.7(3), write (4.4) over the denominator B(γ w_det K^(i−1))·B(γ w_det K^i), which lies in O_C[y] and is roughly monomial up to a constant phase by part (2), instead of dividing by the ratio (4.2).",
       "reason": "As printed, h may be any roughly monomial element of O(x,y), and the sum of two roughly polynomial functions need not be roughly polynomial. Counterexample on Σ_1: let c = (x−1/2)² + y^(−2) ∈ O[x,y,y^(−1)] and k = (c + y^(−1))/(c + 2y^(−1)) ∈ (1/2, 1), so k ∼ 1. Then 1/k (g = 1, h = k) and −1 are roughly polynomial, but 1/k − 1 = y^(−1)/(c + y^(−1)) is not. Suppose it equals g/h with h ∼ y^s. Then g = h/(yc + 1). Write g = P(x,y) + O(y^A e^(−2πy)) with P ∈ R[x,y,y^(−1)], since the coefficients in O are analytic in q with |q| = e^(−2πy). For fixed x ≠ 1/2, |g| ≪ y^(s−1), so every y^j-coefficient of P with j ≥ s vanishes at every x ≠ 1/2, hence identically. But at x = 1/2, g ≫ y^s, a contradiction. The ring property is used in 'Proposition 4.6 follows immediately from Lemma 4.7' (sums over I-components) and in h(u,v) = Σ_i h(ũ_i,ṽ_i). Both hold with the repaired definition. The author copy is identical, and the erratum is silent.",
       "affects": "a stated result",
@@ -2436,7 +2436,7 @@
     {
       "kind": "misprint",
       "locator": "§4.4 first paragraph, JAMS p. 930; author p. 15",
-      "printed": "The source defines the Hodge form at Φ̃(z) by h_z(u, v) := Q_C(C_z u, v).",
+      "printed": "At Φ̃(z), the source defines the Hodge form on u and v by h_z(u, v) := Q_C(C_z u, v).",
       "correction": "h_z(u,v) := Q_C(C_z u, v̄).",
       "reason": "Q_C is defined as the C-linear extension (p. 928), so the printed form is bilinear. For u ∈ H^(p,q) with p ≠ q it gives h_z(u) = i^(p−q) Q(u,u) = 0, so h(u) could not be roughly monomial. (4.4), h(ũ_i,ṽ_i) = i^(2p_i−k) B(ũ_i,ṽ_i) with B(u,v) = Q_C(u, v̄), matches only the conjugated form. Checked on the 300-dpi image; the author copy is identical.",
       "affects": "nothing",
@@ -2453,7 +2453,7 @@
     {
       "kind": "gap",
       "locator": "Proof of Lemma 4.7, JAMS p. 931 ('Given Theorem 4.8(1), proving part (1) … reduces to showing that h(u) is in O(x,y)'); the same applies to part (2) via Lemma 4.10",
-      "printed": "Theorem 4.8 asserts, for u ∈ J^{s_1,…,s_n}_C and on Σ_n, (1) h(u) ∼ (y_1/y_2)^{s_1} ⋯ (y_{n−1}/y_n)^{s_{n−1}} y_n^{s_n}.",
+      "printed": "For u ∈ J^{s_1,…,s_n}_C, Theorem 4.8 claims the estimate (1) h(u) ∼ (y_1/y_2)^{s_1} ⋯ (y_{n−1}/y_n)^{s_{n−1}} y_n^{s_n} throughout Σ_n.",
       "correction": "State Theorem 4.8 in Kashiwara's splitting-independent form (Definition 1.9.3, Corollary 1.9.2, Theorem 3.4.1): for any splitting V_C = ⊕ U_σ adapted to all the W(M_j), h(Σ u_σ) ∼ Σ_σ m_σ |u_σ|², where m_σ is the σ-monomial; in particular h(u) ∼ m_σ for nonzero u ∈ U_σ. Apply it to the splitting obtained by grouping the I^(p,q_1,…,q_n) by σ_j = p + q_j, and to the induced splittings of the wedge powers. For part (2), use Theorem 3.4.2 with the splitting induced by the I-pieces.",
       "reason": "Lemma 4.7(1) concerns u ∈ I^α, a piece of the complex splitting of {F, W(M_1), …, W(M_n)}. Theorem 4.8 as stated covers only vectors of the rational splitting J^σ_C. In general I^α ⊄ J^σ_C, because F need not be split compatibly with a rational splitting. Theorem 4.8 for J^σ alone does not give the lower bound for u = Σ_σ u_σ in regions where some y_j/y_(j+1) is bounded. Kashiwara's formulation (checked on pp. 860–861 and 870) covers every adapted splitting, so the cited source closes the gap, but the printed statement does not.",
       "affects": "the proof",
@@ -2487,7 +2487,7 @@
     {
       "kind": "misprint",
       "locator": "Definition 4.11 (p. 932) and definition of T_{e,C} (p. 933), against the Claim (p. 933)",
-      "printed": "The source starts with an ordered integral basis e = {e_i} for V_ℤ, then claims H_ℚ has a basis e = {e_i} and chooses e so that each e_i ∈ J^{σ_i}.",
+      "printed": "The source starts with an ordered integral basis e = {e_i} for V_ℤ, later claims existence of a basis e = {e_i} for H_ℚ, and chooses e so that each e_i ∈ J^{σ_i}.",
       "correction": "In Definition 4.11 and in the definition of 𝔗_{e,C}, allow ordered bases of V_ℚ, equivalently ℤ-bases of lattices commensurable with V_ℤ. Then 𝔗_{ge,C} = g·𝔗_{e,C} for g ∈ GL(V_ℚ), and the comparison with Siegel sets of X ([K90, Prop. 2]) carries over by rational translation. Drop the alternative 'replace e_i by d_ie_i ∈ V_ℤ', or state it for the lattice ⊕ℤd_ie_i.",
       "reason": "The J-splitting is only rational, and a ℤ-basis of V_ℤ adapted to it need not exist, only one of finite index. So the basis in the proof is rational, while reducedness is defined for integral bases. The fix is immediate.",
       "affects": "nothing",
@@ -2521,7 +2521,7 @@
     {
       "kind": "gap",
       "locator": "Lemma 4.10 and its proof, p. 932",
-      "printed": "Lemma 4.10 asserts h(γu) ∼ h(e^{z·N}u) on Σ_n. Its proof says sufficiently large y_n gives |t_i|^2 y^I < ε and the same bound for h(γu − e^{z·N}u)/h(e^{z·N}u), establishing the claim.",
+      "printed": "Lemma 4.10 claims h(γu) ∼ h(e^{z·N}u) throughout Σ_n. Its proof says sufficiently large y_n gives |t_i|^2 y^I < ε and the same bound for h(γu − e^{z·N}u)/h(e^{z·N}u), from which it deduces the claim.",
       "correction": "State Lemma 4.10, and with it Lemma 4.7(2), Proposition 4.6 and the Claim of §4.5, on Σ_n ∩ {y_n ≥ Y_0}. Equivalently, state them on Σ_n after shrinking the polydisk, as Lemma 4.2 allows. Note that the upper bound h(γu) ≪ h(e^{zN}u) already holds on all of Σ_n. Alternatively, add a proof of the lower bound on {y_n ≤ Y_0}.",
       "reason": "The proof shows h(γu − e^{zN}u) ≤ ε h(e^{zN}u) only once y_n is large, and then concludes by the triangle inequality. For n = 1 the rest of Σ_1 is relatively compact, so the comparison holds there by continuity. For n ≥ 2, Σ_n ∩ {1 < y_n < Y_0} is not relatively compact (y_1 → ∞), and there the t_n g_n-term is of the same order as h(e^{zN}u). The paper gives no argument for this region; it would need parametric one-variable estimates. Defence: Lemma 4.2 already allows 'after maybe shrinking the polydisk', and §4.1 can use shrunken charts, so Theorem 1.3 is unaffected. This is the same convention as E1 and the items that say 'after the standard shrinking'.",
       "affects": "the proof",
@@ -2538,7 +2538,7 @@
     {
       "kind": "gap",
       "locator": "Lemma 4.10 (p. 932), used to finish Lemma 4.7(2) (pp. 931–932)",
-      "printed": "The proof says Lemma 4.10 is needed to complete part (2); that lemma asserts h(γu) ∼ h(e^{z·N}u) on Σ_n.",
+      "printed": "To complete part (2), the proof introduces Lemma 4.10, asserting h(γu) ∼ h(e^{z·N}u) throughout Σ_n.",
       "correction": "State Theorem 4.8 (both parts), and Lemma 4.10, for nonzero u ∈ ∩_j W(M_j)_{s_j,ℂ} with nonzero image in the multigraded quotient W_σ/Σ_{σ′<σ}W_{σ′}. This is the form in CKS86 5.21 and Kashiwara 3.4.1–3.4.2, and it includes u ∈ I^α and w_{det K^i} ∈ Λ^iV_ℂ. Add the locator Theorem 4.8, p. 931.",
       "reason": "The lemma does not say what u is. Its proof uses the exponents s_1,…,s_n of u ∈ J^{s_1,…,s_n}_C, because Theorem 4.8 is stated only for J-vectors. But it is invoked for Lemma 4.7(2), where u ∈ I^α and later u = w_{det K^i}. An I^α-vector is generally not in a single J^σ_C; the I-splitting also splits F, so it cannot refine J_C. The J-components of such a vector are not h-orthogonal, so the per-component comparisons cannot simply be added. The root is the formulation of Theorem 4.8 on p. 931, which Lemma 4.7(1) also applies to I^α. Defence: the CKS/Kashiwara estimates are usually stated in the multigraded form, and in that form everything goes through.",
       "affects": "the proof",
@@ -2555,7 +2555,7 @@
     {
       "kind": "misprint",
       "locator": "End of proof of Lemma 4.7, p. 932",
-      "printed": "The source concludes that h(ũ_i, ṽ_i) is roughly polynomial because, it says, the numerator of (4.4) belongs to 𝒪[x, y, y^{−1}].",
+      "printed": "The source concludes that h(ũ_i, ṽ_i) is roughly polynomial because it regards the numerator of (4.4) as plainly belonging to 𝒪[x, y, y^{−1}].",
       "correction": "…and thus, by (4.2)–(4.4), h(ũ_i,ṽ_i) = i^{2p_i−k} B((γw_{det K^{i−1}})∧u, γw_{det K^i}) B(γw_{det K^i}, (γw_{det K^{i−1}})∧v) / (B(γw_{det K^{i−1}}) B(γw_{det K^i})). Its numerator is in 𝒪[x,y] and its denominator is roughly monomial, so h(ũ_i,ṽ_i) is roughly polynomial.",
       "reason": "The literal numerator of (4.4), B(u,w̃_i)B(w̃_i,v), itself contains the denominator B(γw_{det K^{i−1}})² through (4.3), so it is not in 𝒪[x,y,y^{-1}]. After clearing it, the conclusion 'roughly polynomial' is correct.",
       "affects": "nothing",
@@ -2572,7 +2572,7 @@
     {
       "kind": "gap",
       "locator": "§4.5, first paragraph, p. 932 (proof of Theorem 1.5, p. 921)",
-      "printed": "The source claims a finite cover of 𝔖^b_𝔥 by sets of the form Σ_n, one for each coordinate ordering. It therefore reduces the proof to containment of Φ̃(Σ_n) in a finite union of Siegel sets in D = G/M.",
+      "printed": "The proof covers 𝔖^b_𝔥 by finitely many copies of Σ_n, one for each possible ordering of coordinates. It therefore reduces the task to covering Φ̃(Σ_n) with finitely many Siegel sets in D = G/M.",
       "correction": "Either restrict Theorem 1.5 to 𝔖^n_𝔥 on a suitably shrunken polydisk, which is all that §4.2 uses, or add the reduction. For R, use monodromy translates T^k ∈ Γ and Remark 2.6(1), together with the closed strips 0 ≤ x_j ≤ 1 obtained by continuity. For η, cover the compact polydisk {|t_j| ≤ e^{−2πη}} by finitely many local charts (Δ*)^k × Δ^{n−k}, treating Δ-factors as punctured with N_j = 0 and choosing chart centres so that every point lies in the punctured part of some chart, and apply the proven case in each chart.",
       "reason": "Theorem 1.5 claims the inclusion for 𝔥^n_{R,η} = {|Re z| ≤ R, Im z ≥ η} for all R, η > 0. The proof treats only 𝔖^n_𝔥 = {0 < x_j < 1, y_j > 1}. Through Lemma 4.10 ('sufficiently large y_n') and the norm estimates, it effectively treats only its part with y_n ≫ 0. The set of z with some y_j ∈ [η, Y_0] and others → ∞ is never addressed. The theorem is very likely true (the compactness argument above), but that argument is not in the paper. Theorem 1.3 is unaffected, because §4.2 applies Theorem 1.5 only to 𝔖^n_𝔥 and the charts of §4.1 can be shrunk. Not in the erratum. Related to E1 (Theorem 4.1) and E2 (wider sectors for Lemma 4.5), but distinct from both.",
       "affects": "the proof",
@@ -2589,7 +2589,7 @@
     {
       "kind": "gap",
       "locator": "§5, p. 933, second sentence",
-      "printed": "The source asserts that every connected Hodge variety is an arithmetic quotient, and every Hodge morphism between connected Hodge varieties is an arithmetic-quotient morphism.",
+      "printed": "The source regards every connected Hodge variety as an arithmetic quotient, and every Hodge morphism between such connected varieties as an arithmetic-quotient morphism.",
       "correction": "Present the source through G'' := the image of P'^der in G^ad (semisimple), M'' := the stabiliser of the base point, and Γ'' := the image of Γ'. For neat Γ' this image lies in G''(Q): the quotient ρ̄(P')/G'' is an R-anisotropic Q-torus, whose arithmetic subgroups are finite, and a finite neat group is trivial. Pass if necessary to a finite-index subgroup (a finite cover of the source), which does not change Y. Alternatively, use erratum Cor. 1.3 directly for morphisms of pure Hodge manifolds.",
       "reason": "With the definitions of §1.1, the claim holds only up to a finite cover of the source; the images, and hence the definability of special subvarieties, are unaffected. The erratum's Corollary 1.3 makes the claim moot.",
       "affects": "nothing",
@@ -2606,7 +2606,7 @@
     {
       "kind": "error",
       "locator": "§4.5, Claim and proof of the Claim, p. 933",
-      "printed": "The source claims H_ℚ has a basis e = {e_i} and there is C > 0 such that every z ∈ Σ_n makes h_z (e, C)-reduced. It also asserts (e, C_τ)-reducedness of h_z upon restricting p(z) to any curve τ lying in Σ_n.",
+      "printed": "The claim chooses one basis e = {e_i} for H_ℚ and C > 0 making h_z (e, C)-reduced throughout z ∈ Σ_n. The proof further claims (e, C_τ)-reduction of h_z when p(z) runs along any curve τ in Σ_n.",
       "correction": "Claim′: there are a basis e of V_ℚ with each e_i ∈ J^{σ_i}, and C > 0, such that for all z ∈ Σ_n, h_z satisfies conditions (1) and (3) of Definition 4.11 for e. Conditions (1) and (3) do not depend on the ordering, so h_z is (σ_z e, C′)-reduced for any C′ > max(C,1), where σ_z sorts the values h_z(e_i). Hence ι∘Φ̃(Σ_n) ⊂ ∪_{σ∈S_m} T_{σe,C′}, a union of m! reduced sets with m = dim V. The curve statement should read: along each curve τ, h_z satisfies (1) (and (3)) for e with a constant C_τ.",
       "reason": "Counterexample showing the Claim fails for every basis. Take V = V_a ⊗ V_b over (Δ*)^2, where V_a is H^1 of a Tate-curve family in t_1 and V_b is Sym^2 H^1 of one in t_2. On Σ_2, h_z is uniformly comparable to diag(y_1^s y_2^b) in the integral basis e_{s,b}, s ∈ {±1}, b ∈ {−2,0,2}. If h_z were (f,C)-reduced on Σ_2 for one basis f, then h_z(f_i) ≍ λ_i(h_z)² by (2), (3) and Minkowski's second theorem. At (y_1,y_2) = (Y,Y) and at (Y³,Y) the third minimum is ≍ Y^{-1}. This forces f_1, f_2, f_3 into span(e_{−1,−2}, e_{−1,0}), which is impossible. The same example shows that no fixed ordering satisfies (2) along both the curve z_1 = z_2 and the curve z_2 = ζ. So the printed Claim and the curve statement are false. The following sentence ('we may assume (2) as there are only finitely many orderings') shows the intended Claim′. Claim′ is what the argument proves, and it gives Theorem 1.5, which asserts finitely many Siegel sets, consistent with GGLR's |I| = 1 counterexample. Same root as E3, but a different statement. Not in the erratum; the author copy p. 18 is identical.",
       "affects": "the proof",

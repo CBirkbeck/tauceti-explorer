@@ -4487,7 +4487,7 @@
       "id": "VectorBundlesAndIsocrystals/E22",
       "kind": "misprint",
       "locator": "Lemma 8.5.11, p. 173 (arXiv 1301.0792v5)",
-      "printed": "It declares both loci for R̃X, the pure and the étale, to be open and partially proper.",
+      "printed": "Lemma 8.5.11 declares both the pure and étale loci of R̃X to be open, with partial properness as well.",
       "correction": "Then the pure locus and the étale locus of M are open and (when X is an adic space over an analytic field, so that its real quotient and partial properness are defined) partially proper.",
       "reason": "The loci belong to the φ^d-module M (Definitions 7.2.3 and 8.5.9), not to the sheaf of rings ℛ̃_X. Partial properness (Definition 8.2.11) and Lemma 8.2.12 are set up only for spaces over an analytic field, which a perfect uniform adic space over 𝔽_{p^d} need not be; Definition 8.5.9 itself says 'when the latter is defined'.",
       "affects": "nothing",

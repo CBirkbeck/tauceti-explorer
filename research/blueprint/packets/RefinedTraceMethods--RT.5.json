@@ -5023,7 +5023,7 @@
     {
       "kind": "misprint",
       "locator": "Proof of Theorem 7.1, p. 255",
-      "printed": "The source gives the expression 0 → π_{2i−2}THH(S) →^u π_{2i}THH(S) → (Γ^i_R M)^∧_p → 0.",
+      "printed": "The source expresses the result by the sequence 0 → π_{2i−2}THH(S) →^u π_{2i}THH(S) → (Γ^i_R M)^∧_p → 0.",
       "correction": "(Γ^i_S M)^∧_p",
       "reason": "M = π_1(L_{S/R})^∧_p is an S-module and the identification just before uses Γ^i_S M (Lemma 5.14); the statement of Theorem 7.1(3) and the next paragraph also use Γ^i_S.",
       "affects": "nothing",
@@ -5042,7 +5042,7 @@
     {
       "kind": "misprint",
       "locator": "Theorem 7.2(2), p. 255",
-      "printed": "The source gives Δ̂_S := π_0TC^-(S; Z_p) ≅ π_0TP(S; Z_p) a complete decreasing filtration indexed by N. It says the filtration is identical whether obtained from the degenerate homotopy-fixed-point sequence for TC^-(R; Z_p) or the degenerate Tate sequence for TP(R; Z_p).",
+      "printed": "The source assigns one complete filtration, descending and indexed by N, to Δ̂_S := π_0TC^-(S; Z_p) ≅ π_0TP(S; Z_p). It says this comes either from the degenerate homotopy fixed point spectral sequence for TC^-(R; Z_p) or from the degenerate Tate spectral sequence for TP(R; Z_p).",
       "correction": "The (degenerate) homotopy fixed point spectral sequence calculating TC^-(S; Z_p) or the (degenerate) Tate spectral sequence calculating TP(S; Z_p) endows Δ̂_S …",
       "reason": "The filtration on π_0 of TC^-(S; Z_p) and TP(S; Z_p) comes from their own spectral sequences, whose degeneration is part (1); the spectral sequences for the perfectoid base R filter π_0TC^-(R; Z_p) = A_inf(R), not Δ̂_S.",
       "affects": "nothing",
@@ -5080,7 +5080,7 @@
     {
       "kind": "misprint",
       "locator": "Proof of Theorem 9.6, 'Lifting the almost comparison map', p. 288",
-      "printed": "The proof says Lemma 9.8 produces d_R : Δ_S → AΩ_S as an honest map. It then describes the result on qrsPerfd^proj_{O_C} as the constructed comparison map d_S.",
+      "printed": "The source invokes Lemma 9.8 to obtain an actual map d_R : Δ_S → AΩ_S, then says this constructs the comparison d_S on qrsPerfd^proj_{O_C}.",
       "correction": "an honest map d_S : Δ_S → AΩ_S",
       "reason": "The map is indexed by S ∈ qrsPerfd^proj_{O_C}, and the next sentence and the unfolding d_A call it d_S; no R occurs in this step.",
       "affects": "nothing",
@@ -5099,7 +5099,7 @@
     {
       "kind": "misprint",
       "locator": "§11.2, paragraph before Proposition 11.10, p. 302",
-      "printed": "The source gives a natural W(k)-linear embedding 𝔖^{(−1)} ↪ A_inf(O_{K_∞}) taking z to [ϖ^♭]. Its restriction to 𝔖 ⊂ 𝔖^{(−1)} is identified with the previously chosen inclusion 𝔖 ↪ A_inf(O_K).",
+      "printed": "The source claims a natural W(k)-linear inclusion 𝔖^{(−1)} ↪ A_inf(O_{K_∞}) taking z to [ϖ^♭]. Restricting to 𝔖 ⊂ 𝔖^{(−1)} is said to recover the previously chosen inclusion 𝔖 ↪ A_inf(O_K).",
       "correction": "the inclusion 𝔖 ↪ A_inf(O_{K_∞}) fixed earlier",
       "reason": "Notation 11.1 embeds 𝔖 in A_inf(O_{K_∞}) (or A_inf); O_K is not perfectoid, and A_inf(O_K) is not the ring used anywhere in §11.",
       "affects": "nothing",
@@ -5120,6 +5120,7 @@
       "kind": "misprint",
       "sourceId": "bms",
       "locator": "Published DOI PDF, proof of Lemma 9.4, p. 285; image inspected 6 October 2026",
+      "printed": "The source describes M/ξ ⊂ N as consisting of sequences (a_i) ∈ ∏_(i∈I) O_C^flat.",
       "correction": "The sequences lie in ∏_(i∈I) O_C.",
       "reason": "The preceding line defines N=∏ O_C and M/ξ is a completed free O_C-module. The mixed-characteristic valuative argument uses p in O_C. The page image of the published DOI PDF still prints the flat superscript.",
       "affects": "nothing",
@@ -5137,6 +5138,7 @@
       "kind": "misprint",
       "sourceId": "mw",
       "locator": "arXiv:2410.23115v4, Definition 1.1(b), p. 2",
+      "printed": "The source calls every X_n → X_(n+1) trace-class, with 1 → X_(n+1)^∨ ⊗ X_n specified as the inducing morphism.",
       "correction": "The classifier is 1 → X_n^∨ ⊗ X_(n+1). The forward transition has source X_n and target X_(n+1).",
       "reason": "Evaluation of the printed classifier induces X_(n+1) → X_n, the reverse direction. Definition 2.1 later in the same paper gives the correctly ordered classifier for f:X→Y. This packet uses that body definition.",
       "affects": "nothing",

@@ -2276,6 +2276,7 @@
       "kind": "error",
       "sourceId": "MEAGHER-CHEBOTAREV",
       "locator": "Publisher 2018 PDF, Appendix A, Proposition A.2 proof, p. 201",
+      "printed": "The source takes N + 1 to be the dimension over k of H0 (X, M).",
       "correction": "Choose a finite-dimensional generating/separating linear system in H⁰(X,M) and take the finite span of its G-translates. Use that finite G-stable space for the equivariant projective embedding. All H⁰ need not be finite-dimensional on a quasi-projective scheme.",
       "reason": "Take X=A¹ and G trivial. Its trivial line bundle is very ample for the open immersion into P¹, but H⁰(A¹,O)=k[t] is infinite-dimensional. The proof’s finite GL_(N+1) construction therefore does not follow from taking all sections. A finite system and its finite orbit span repair the step.",
       "known": "No public correction located in the bounded publisher and title/erratum search on 2026-10-05; novelty is not established.",

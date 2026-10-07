@@ -12324,6 +12324,7 @@
       "source": "Kudla96",
       "kind": "error",
       "locator": "1996 author copy, I.2, p.6, character extension paragraph",
+      "printed": "The source claims there is only one possible extension.",
       "correction": "The displayed character, when multiplicative, is the distinguished extension trivial on the chosen section Y→H(Y). It is unique only after imposing that normalization; the cocycle condition must also hold as in E-MP0-3.",
       "reason": "Take a nonzero isotropic F-line Y in a symplectic plane and nontrivial ψ. Since ω restricts to zero on Y, ψ(t) and ψ(t+ℓ(y)) are distinct characters of H(Y) extending the same central ψ, for any nonzero F-linear functional ℓ:Y→F. Thus uniqueness among all extensions is false even in the simplest polarized case.",
       "affects": "a stated result",
@@ -12384,6 +12385,7 @@
     {
       "kind": "error",
       "locator": "Theorem 4, p.965, in the published version, Annals of Mathematics 184 (2016), 949–990 (publisher PDF, SHA-256 a67de715…5f61); the author preprint of 29 July 2016 on W. Duke's page has the same text there",
+      "printed": "The theorem claims uniqueness of a nonzero form F of weight 1/2 on Γ₀(4) with norm⟨F,F⟩=1 and expansion Σb(n)W_{sgn(n)/4,ir/2}(4π|n|y)e(nx). For fundamental, coprime d′,d it gives 12√π|D|^{3/4}b(d′)overline{b(d)}=⟨φ,φ⟩⁻¹Σ_Aχ(A){…}, then uses the Shimura relation to specify coefficients for n=dm².",
       "correction": "F is unique only up to a constant factor of absolute value 1. The line spanned by F is unique, and F itself becomes unique once one also requires, for example, b(d_0) > 0 for one fundamental discriminant d_0 with b(d_0) ≠ 0.",
       "affects": "a stated result",
       "id": "MetaplecticAutomorphicForms/E-DUKE-IMAMOGLU-TOTH-16-E2",
@@ -12404,7 +12406,7 @@
     {
       "kind": "misprint",
       "locator": "§5, numerical example after Theorem 4, p966 (also Proposition 6 on p981 twice and in its proof on p982 twice; those pages are outside range B)",
-      "printed": "The source gives λ = 190.13154731 = · · · = ½ + r², with r/2 = 6.889875675 · · · .",
+      "printed": "The source displays λ = 190.13154731 = · · · = ½ + r² and gives r/2 = 6.889875675 · · · .",
       "correction": "p.966: λ = 190.13154731 · · · = ¼ + r² (the stray '=' before the dots also goes). Likewise ¼ + r² for ½ + r² in Proposition 6 and after (10.4) on p.981, and twice in the proof on p.982.",
       "affects": "nothing",
       "id": "MetaplecticAutomorphicForms/E-DUKE-IMAMOGLU-TOTH-16-E3",
@@ -12425,6 +12427,7 @@
     {
       "kind": "error",
       "locator": "Proposition 2, (6.6), p.968, and its proof and use, p.969 ('Part (6.6) … follows straight from Theorem 4 and Theorem 5 of [12]'; 'c(φ) ≪ |r|^{−A}')",
+      "printed": "For an even Hecke–Maass cusp form φ with eigenvalue1/4+r² and Re(s)=1/2, (6.6) gives the bound Weyl(⟨φ,φ⟩⁻¹φ,χ)≪_εr^C|D|^{13/28+ε}.",
       "correction": "Replace (6.6) by Weyl(u_φ, χ) ≪_ε r^C|D|^{13/28+ε} for u_φ = φ/‖φ‖. With the a(1) = 1 normalization of (5.7), what Theorem 4 and [12, Thm 5] actually give is Weyl(⟨φ,φ⟩^{−1}φ, χ) ≪_ε r^C cosh²(πr/4)|D|^{13/28+ε}. The two forms agree after changing C, because ‖φ‖² = 2L(1,sym²φ)/cosh(πr) and L(1,sym²φ) = r^{o(1)}; only the upper bound L(1,sym²φ) ≪ r^ε is needed to pass from the second form to the first. In the deduction of Theorem 2, write c(φ)⟨φ,φ⟩^{−1}φ = ⟨f,u_φ⟩u_φ and use ⟨f,u_φ⟩ ≪ r^{−A} in place of c(φ) ≪ |r|^{−A}.",
       "affects": "a stated result",
       "id": "MetaplecticAutomorphicForms/E-DUKE-IMAMOGLU-TOTH-16-E6",
@@ -12445,6 +12448,7 @@
     {
       "kind": "misprint",
       "locator": "Proposition 6, p.981; also the proof: first line 'suppose that D=d′d>1', (10.4) and (10.5) on p.981, and the displays on p.982 including (10.6)",
+      "printed": "Proposition6 states T(φ,χ)=12π^{1/2}D^{3/4}b(d′)b̄(d). Its argument assumes fundamental d, m>0 and D=d′d>1. Later displays give 12π^{1/2}D^{3/4}Σ_{ψ∈B_r}b(d′)b̄(d)a_ψ(m) for (10.4), 6π^{1/2}D^{3/4}|m| for (10.5), 24π^{1/2}D^{3/4}m on p.982, and 12π^{1/2}D^{3/4} for (10.6) plus the next two displays.",
       "correction": "Read |D|^{3/4} for D^{3/4} in Proposition 6, (10.4), (10.5), the p. 982 display, (10.6) and the two displays after it, as in Proposition 5 and (5.16). In the first line of the proof, replace 'D=d′d>1' by 'D=d′d not a square', so that D<0 (the d′d<0 case of (5.16)) is covered.",
       "affects": "nothing",
       "id": "MetaplecticAutomorphicForms/E-DUKE-IMAMOGLU-TOTH-16-E8",
@@ -12465,6 +12469,7 @@
     {
       "kind": "error",
       "locator": "§5, Remarks after Theorem 4, p965",
+      "printed": "The source states Res_{s=1}E*_{1/2}(z,s)=½θ(z), citing reference[7] for the value ⟨½θ,½θ⟩=6.",
       "correction": "'… and ⟨½θ(z), ½θ(z)⟩ = π/2', equivalently ⟨θ,θ⟩ = 2π = area(Γ_0(4)\\H), for the product of Theorem 4. The value 6 = [Γ:Γ_0(4)] is ⟨θ,θ⟩, not ⟨½θ,½θ⟩, for the product normalized by 3/π = 1/area(Γ\\H). In that normalization ⟨½θ,½θ⟩ = 3/2. Either way the claimed match with ⟨F,F⟩ = 6 does not hold.",
       "affects": "nothing",
       "id": "MetaplecticAutomorphicForms/E-DUKE-IMAMOGLU-TOTH-16-E22",
@@ -12485,6 +12490,7 @@
     {
       "kind": "error",
       "locator": "Lemma 6 (pp.979–980) against Lemma 5 (p.979) and its proof; also the note in the proof of Lemma 4, p.979",
+      "printed": "Lemma 6 states Σ_{Q∈Γ\\Q_D}χ(Q)∫_{C_Q}P_m(τ,φ)dτ=Σ_{0<c≡0(4)}S_m(d,d′;c)Φ_m(2√D/c); (9.3) defines Φ_m(t)=it∫_0^π e(mt cosθ)φ(t sinθ)e^{iθ}dθ. Lemma 5 gives Σχ(Q)∫_{C_Q}i∂_zF_m(z,s)dz=2^{s−1/2}Γ((s+1)/2)²/Γ(s)·D^{1/4}Σ_{0<c≡0(4)}S_m(d′,d;c)/√c·J_{s−1/2}(4π|m|√D/c). On C_Q, the argument for Lemma4 invokes √D/Q(z,1)dz=y⁻¹|dz|.",
       "correction": "Take C_Q from z to γ_Qz, with γ_Q from (2.11) as footnote 8 indicates. This is the orientation of C_A in §2, which Lemma 1 uses. Lemma 6 should then read Σ_{Q∈Γ\\Q_D}χ(Q)∫_{C_Q}P_m(τ,φ)dτ = −Σ_{0<c≡0(4)}S_m(d′,d;c)Φ_m(2√D/c); equivalently, put −it in place of it in (9.3). The note in the proof of Lemma 4 should read √D dz/Q(z,1)=−y^{−1}|dz| on C_Q. Lemma 5, Propositions 5 and 6 and Theorem 4 stand as printed.",
       "affects": "a stated result",
       "id": "MetaplecticAutomorphicForms/E-DUKE-IMAMOGLU-TOTH-16-E28",
@@ -12505,6 +12511,7 @@
     {
       "kind": "gap",
       "locator": "Hypothesis before Lemma 6 (p.979) as applied in the proof of Lemma 5 (p.980)",
+      "printed": "The source requires smooth φ with φ(y)≪y^{1+ε} at0. To derive Lemma5 using (9.3), it substitutes φ(t)=−s|m|^{−1/2}(2πy)⁻¹Γ(s)M_{sgn(m),s−1/2}(4π|m|y)/Γ(2s).",
       "correction": "State Lemma 6 for φ(y)≪y^{ε} as y→0. This suffices, because |f(γτ)(γτ)′|=|φ(Im γτ)|Im γτ/Im τ. Alternatively, prove Lemma 5 for Re(s)>2 and continue analytically.",
       "affects": "the proof",
       "id": "MetaplecticAutomorphicForms/E-DUKE-IMAMOGLU-TOTH-16-E30",
@@ -12525,6 +12532,7 @@
     {
       "kind": "gap",
       "locator": "§10, pp.980–981: the choice of B_r, the display after (10.1), (10.2), and 'Note that for some d, we must have that b(d)≠0'",
+      "printed": "Reference[34] is cited for an orthonormal basis B_r in V_r^+ consisting of T_{p²} eigenvectors for odd p. Using T_{p²}ψ=a_ψ(p)ψ, the source states L_d(s+1/2)Σ_{n≥1}b(dn²)n^{−s+1}=b(d)∏_p(1−a_ψ(p)p^{−s}+p^{−2s})⁻¹. Equation (10.2) sets this product equal to Σa_ψ(n)n^{−s} to define a_ψ(n), relying on a choice with b(d) nonzero.",
       "correction": "Take B_r to consist of eigenfunctions of Kohnen's plus-space operator at 2 as well, and define a_ψ(2) as its eigenvalue, as in the plus-space Shimura correspondence of [34]/[1]; or restrict (10.2)–(10.4) to odd m and treat 2 separately. Justify b(d)≠0 for some fundamental d: with the full Shimura relation, b(d)=0 forces b(dk²)=0 for all k, and every nonzero n≡0,1 mod 4 is dk² with d fundamental. Note that the a_ψ(m) are real.",
       "affects": "the proof",
       "id": "MetaplecticAutomorphicForms/E-DUKE-IMAMOGLU-TOTH-16-E33",
@@ -12545,6 +12553,7 @@
     {
       "kind": "misprint",
       "locator": "Chapter IV, §2, (2.3) Lemma, p. 274; Invent. Math. 84 (1986), published version (GDZ scan; formulas read from the GDZ IIIF 1400px crops of the page images)",
+      "printed": "Before stating how θ_𝒜|₁γ transforms, Lemma(2.3) sets γ=(a b;c d)∈PSL₂(ℤ), (c,D)=|D₂| and D₁D₂=D.",
       "correction": "γ = (a b; c d) ∈ SL₂(ℤ)",
       "affects": "nothing",
       "id": "MetaplecticAutomorphicForms/E-GROSS-ZAGIER-86-E30",
@@ -12668,6 +12677,7 @@
       "source": "Garrett20",
       "kind": "misprint",
       "locator": "Author notes March23 2020 final paragraph p4",
+      "printed": "The source concludes that X⁰ is the zero space.",
       "correction": "For a nonzero irreducible π the multiplicity space is one-dimensional: X⁰≃C.",
       "reason": "The established equivalence is Y≃X⊗X⁰. X⁰=0 would force Y=0, whereas irreducibility and the concluded π≃σ require nonzero dimension one.",
       "affects": "the proof",
@@ -12687,6 +12697,7 @@
       "source": "Biro00",
       "kind": "error",
       "locator": "Published Acta Arith94(2000) p128, PDF26, function-theoretic parenthesis before Lemma10",
+      "printed": "The source requires convergence at just one domain point z₀, in the form lim_n f_n(z₀)=f(z₀).",
       "correction": "Require convergence on a set with an accumulation point inside the domain. The preceding convergence for all sufficiently large positive A supplies such a set here.",
       "reason": "On the unit disk, f_n(z)=(−1)^n z is uniformly bounded and converges to f(0)=0 at z₀=0, but fails to converge at z=1/2. The correct Vitali argument repairs this proof without changing the lift theorem.",
       "affects": "the proof",
@@ -12704,6 +12715,7 @@
     {
       "kind": "misprint",
       "locator": "§15.1, before Lemma 15.4, p. 54 (arXiv v1); checked on the page image",
+      "printed": "The source calls PB^×=SO₃* an inner form that is isotropic, with B a division quaternion algebra. Having initially named JL(ρ), it defines σ_ρ through the ψ-theta lift from JL(τ) to S̃L₂.",
       "correction": "Identify PB^×=SO₃* as the anisotropic inner form and use JL(ρ), consistently with the representation introduced, in the ψ-theta lift defining σ_ρ.",
       "affects": "nothing",
       "id": "MetaplecticAutomorphicForms/E-GAN-SAVIN-23-E17",
@@ -12724,6 +12736,7 @@
     {
       "kind": "misprint",
       "locator": "Proof of Proposition 8.4, p. 27 (arXiv v1); checked on the page image",
+      "printed": "The source initially denotes the lifts to O₃ of the contragredients by Θ(ρ^±_{ψ̄}), employing the ψ-Weil representation on C_c(M₂°(F)). It concludes Θ(ρ^−_ψ)≅st⁻ and describes Θ(ρ^+_ψ) as a principal series with st⁺ as submodule and the trivial representation as quotient.",
       "correction": "Θ(ρ^−_ψ̄) ≅ st^− and Θ(ρ^+_ψ̄) is the principal series with quotient 1 and submodule st^+, since these are the objects appearing in the SL_2-coinvariants.",
       "affects": "nothing",
       "id": "MetaplecticAutomorphicForms/E-GAN-SAVIN-23-E36",

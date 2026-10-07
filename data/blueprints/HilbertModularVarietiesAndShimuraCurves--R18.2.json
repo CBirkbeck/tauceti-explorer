@@ -4295,7 +4295,7 @@
       "id": "HilbertModularVarietiesAndShimuraCurves/E39",
       "kind": "misprint",
       "locator": "§4.1, Proposition 4.3 and the preceding paragraph, p. 563",
-      "printed": "The source specifies a compatible action through Δ̄_0/O^1_{B,p} ⊂ Δ̄_0/O^1_{B,p}.",
+      "printed": "The source requires compatibility with the action of Δ̄_0/O^1_{B,p} ⊂ Δ̄_0/O^1_{B,p}.",
       "correction": "Δ̄_0/O^1_{B,p} ≅ Δ̄′_0/O^1_{B,p}, identified through G → G″ (the proof of Theorem 4.5 writes Δ_0 = Δ′_0).",
       "reason": "Confirmed on the page image. X′^0_1 carries the action of Δ̄′_0/O^1_{B,p}, as the paragraph itself says, so the second group must be the primed one.",
       "affects": "nothing",

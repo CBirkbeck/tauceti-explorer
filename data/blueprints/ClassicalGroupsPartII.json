@@ -2571,6 +2571,7 @@
    "source": "sternberg-2004",
    "kind": "misprint",
    "locator": "Author PDF, 23 April 2004, §7.9, printed p.131, first paragraph on the Cartan product",
+   "printed": "The source names λ and σ as the highest weights.",
    "correction": "Replace the second highest-weight symbol σ by μ. The representations remain (V,ρ) and (W,σ), and the tensor highest weight is λ+μ.",
    "reason": "The next clause and the displayed tensor highest vector use μ, while σ already names the representation on W. This is a symbol slip, not a different weight convention.",
    "affects": "nothing",

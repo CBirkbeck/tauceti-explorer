@@ -2897,6 +2897,7 @@
       "source": "Del70",
       "kind": "error",
       "locator": "II, Théorème 1.23 and Proposition 1.24; April 1971 erratum, p.1",
+      "printed": "Theorem II.1.23 claims that assumptions (a)–(c) make the locus where the relative connection is regular a closed subset of S.",
       "correction": "Remove II.1.23 and II.1.24 as stated; the vector-field argument needs a no-poles assumption. For the regularity result II.4.1 use the erratum proof through canonical extension, resolution and meromorphic detection; use its corrected references on pp.124 and 127.",
       "reason": "Allowing poles in the vector field invalidates the asserted restriction argument. Deligne’s published erratum explicitly removes those results and replaces the dependent regularity proof. This packet uses corrected II.4.1 and II.5, never the deleted statements.",
       "affects": "a stated result",

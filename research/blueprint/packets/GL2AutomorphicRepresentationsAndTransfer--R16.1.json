@@ -3957,6 +3957,7 @@
       "affects": "nothing",
       "id": "GL2AutomorphicRepresentationsAndTransfer/E13",
       "source": "cg20",
+      "printed": "The source requires the representation to be nontrivial.",
       "reason": "A nontrivial unramified χ∘det satisfies the printed hypothesis and has both fixed spaces of dimension one.",
       "known": "Previously recorded and confirmed as PAPER-CALEGARI-GERAGHTY-20/E8 by REV-PAPER-CALEGARI-GERAGHTY-20",
       "searched": [
