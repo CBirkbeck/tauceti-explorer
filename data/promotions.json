@@ -616,11 +616,11 @@
    ]
   },
   "research/blueprint/packets/EllipticCurveModularity.json": {
-   "promotedAt": "2026-09-28T22:43:59Z",
-   "review": "d9dc43eb371ca681",
-   "reviewDate": "2026-09-28",
-   "reviewer": "independent-review-REV-EllipticCurveModularity",
-   "sha256": "5eb2631efd9128f36e333420d4c67e10720b1e462134ada41b5dcc073d62364e",
+   "promotedAt": "2026-10-07T13:19:42Z",
+   "review": "3b7b7651c5bb0eab",
+   "reviewDate": "2026-10-07",
+   "reviewer": "independent-review-REV-FIX-RT-BP-EllipticCurveModularity~2",
+   "sha256": "5dae2f3dfaf2d8124bf1dcd9909375de1b1f6be610abdbd654eea6d5ea745484",
    "to": [
     "data/blueprints/EllipticCurveModularity.json",
     "data/blueprints/EllipticCurveModularity.md"
@@ -1769,11 +1769,11 @@
    ]
   },
   "research/blueprint/restructure/RS-21.result.json": {
-   "promotedAt": "2026-09-29T20:00:16Z",
-   "review": "2b3a2628d659695c",
-   "reviewDate": "2026-09-29",
-   "reviewer": "independent-review-REV-RS-21",
-   "sha256": "7fea0b8ec706a954a77917a9648a2e07c43ceb52dca4263020167f87b7e38d6a",
+   "promotedAt": "2026-10-07T13:19:42Z",
+   "review": "abaed592f2b2bdbe",
+   "reviewDate": "2026-10-07",
+   "reviewer": "independent-review-REV-FIX-RT-RS-21",
+   "sha256": "a7f55931c9fe6c31d5c02fcb10d72f3d782ae2543b11a00089530ea4c272e101",
    "to": [
     "data/restructure/RS-21.result.json",
     "data/restructure/RS-21.md"
