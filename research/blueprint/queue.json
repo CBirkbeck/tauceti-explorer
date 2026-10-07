@@ -37265,7 +37265,8 @@
     "REV-ExcursionOperatorsAndSpectralAction--ES7"
    ],
    "prompt": "research/blueprint/prompts/ASM-ExcursionOperatorsAndSpectralAction.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #230"
   },
   {
    "id": "ASM-GL2AutomorphicRepresentationsAndTransfer",
@@ -37845,8 +37846,8 @@
     "REV-RelativeFarguesFontaine--RF4"
    ],
    "prompt": "research/blueprint/prompts/ASM-RelativeFarguesFontaine.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #257"
+   "state": "pending",
+   "note": "released on GitHub issue #257"
   },
   {
    "id": "ASM-ShimuraCompactifications",
