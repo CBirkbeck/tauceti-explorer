@@ -302,6 +302,7 @@ Check each item below, and correct it in place wherever the fix is clear. Record
 7. Library audit. Nothing that the reviewed audit (data/library-coverage.json) shows in the libraries is planned as a new node, and a duplicated layer is requested from its owner rather than planned again.
 8. For a new roadmap, also check that its layers are correctly ordered, that its suppliers are right, and that its scope is honest.
 9. Run `python3 scripts/check_blueprint.py` on each packet and fix every error.
+10. Reader document. It is one of the files under review: bring it in line with every correction you make, so that it says nothing the corrected packet contradicts. A reader that only lags behind your corrections is yours to fix, not a reason to send the plan back.
 <<HANDED-FINDINGS-REVIEW>>
 <<HANDED-KEYDEFS-REVIEW>>
 Then add a top-level "review" object to each packet:
@@ -718,17 +719,33 @@ def excerpt(text, size=500):
     return (cut if len(cut) > size // 3 else text[:size].rsplit(" ", 1)[0]) + " …"
 
 
-def paper_designs(calls, roadmaps):
+def split_offs():
+    """The Part II directions the orchestrator split off combined design jobs, by the roadmap their paper
+    routes name (research/blueprint/splits.json, PROTOCOL.md section 9)."""
+    try:
+        decisions = json.loads((BP / "splits.json").read_text()).get("splits", [])
+    except (OSError, ValueError):
+        return {}
+    return {rid: decision for decision in decisions for rid in decision.get("roadmaps", [])}
+
+
+def paper_designs(calls, roadmaps, splits=None):
     """One design job for each roadmap the paper extractions call for (PROTOCOL.md sections 15 and 16).
 
     Every Part II proposal for the same parent, from whichever paper, becomes one
     job planning a single "<parent>, Part II": proposals from different papers
     overlap, and planning them separately would duplicate work. Where the atlas
     already has that Part II, the job plans a Part III on top of it. A new roadmap
-    that several papers call for is one job too. calls: (route, paper, origin)."""
+    that several papers call for is one job too. A direction the orchestrator has
+    split off such a combined job (split_offs) becomes a design job of its own,
+    for the roadmap its routes name. calls: (route, paper, origin)."""
+    splits = split_offs() if splits is None else splits
     grouped = {}
     for route, paper, origin in calls:
-        key = ("part-ii", route["parent"]) if route["route"] == "part-ii" else ("new", route["roadmap"])
+        if route["route"] == "part-ii" and (splits.get(route["roadmap"]) or {}).get("parent") == route["parent"]:
+            key = ("split", route["roadmap"])
+        else:
+            key = ("part-ii", route["parent"]) if route["route"] == "part-ii" else ("new", route["roadmap"])
         grouped.setdefault(key, []).append((route, paper, origin))
     designs = []
     for (kind, name), members in grouped.items():
@@ -748,6 +765,16 @@ def paper_designs(calls, roadmaps):
             brief = (f"The roadmap is \"{title}\": it extends {name} and starts where that roadmap stops (PROTOCOL.md section 15).{built} "
                      f"The paper extractions propose {count} in this direction. Plan them as this one roadmap, merging what overlaps; if they "
                      "split into independent directions, plan the first here and record a restructure proposal for the rest.\n" + proposals)
+        elif kind == "split":
+            decision = splits[name]
+            rid, title = name, members[0][0]["title"]
+            note = (decision.get("notes") or {}).get(name)
+            brief = (f"The roadmap is \"{title}\": it extends {decision['parent']} and starts where that roadmap stops (PROTOCOL.md "
+                     f"section 15). The design job {decision['design']} was given this direction together with others. It planned "
+                     f"one of them and proposed this one as a roadmap of its own (the `restructure` proposal in {decision['packet']}), "
+                     "and the orchestrator accepted the split (research/blueprint/splits.json). Plan this direction only, within the "
+                     f"boundary that proposal sets, and import what {decision['parent']} and its other Part IIs own."
+                     + (f" {note}" if note else "") + "\n" + proposals)
         else:
             rid, title = name, members[0][0]["title"]
             several = f", which {len(members)} paper extractions call for: plan them as this one roadmap" if len(members) > 1 else ""
@@ -1361,10 +1388,10 @@ def main():
             bp_jobs_of[rid].append(job_id)
             parts_of[rid].append((job_id, output, readme, suggested))
             review_id = "REV-" + job_id[3:]
-            plan_reviews[review_id] = dict(JOB=review_id, LEVEL=f"{level(rid)} level", TARGETS=f"the blueprint packet {output} and its suggested Lean file {suggested} (roadmap {rid}, stages: {', '.join(s['id'] for s in group)})")
+            plan_reviews[review_id] = dict(JOB=review_id, LEVEL=f"{level(rid)} level", TARGETS=f"the blueprint packet {output}, its suggested Lean file {suggested} and its reader document {readme} (roadmap {rid}, stages: {', '.join(s['id'] for s in group)})")
             rtext = REVIEW_TEMPLATE.format(**fill, **plan_reviews[review_id])
             add({"id": review_id, "kind": "review", "priority": 2, "order": order * 100 + i,
-                 "roadmapIds": [rid], "outputs": [f"research/blueprint/reviews/{review_id}.md", output, suggested],
+                 "roadmapIds": [rid], "outputs": [f"research/blueprint/reviews/{review_id}.md", output, suggested, readme],
                  "after": [job_id], "avoidAccountOf": job_id}, rtext)
 
     # Priority 0: status mapping, already specified.
@@ -1426,8 +1453,12 @@ def main():
                ("DESIGN-PAN", "LocallyAnalyticCompletedCohomology", "langlands", PAN_BRIEF, None),
                ("DESIGN-SKINNER", "RankOneConverse", "iwasawa", SKINNER_BRIEF, None),
                ("DESIGN-BETTS-STIX", "GaloisSectionsPadicPeriodMaps", "arithmeticgeometry", BETTS_STIX_BRIEF, None)]
-    designs += [d for d in paper_designs(calls, roadmaps) if d[0] not in {x[0] for x in designs}]
+    splits = split_offs()
+    designs += [d for d in paper_designs(calls, roadmaps, splits) if d[0] not in {x[0] for x in designs}]
     for position, (job_id, rid, group, brief, name) in enumerate(designs, 1):
+        # A design waits for the designs of the roadmaps it builds on, when they are planned at the same time.
+        after = ["DESIGN-BCGP18"] if job_id == "DESIGN-BCGP25" else []
+        after += [f"DESIGN-{r}" for r in ((splits.get(rid) or {}).get("after") or {}).get(rid, [])]
         output = f"research/blueprint/packets/{rid}.json"
         suggested = f"research/blueprint/suggested/{rid}.lean"
         fields = dict(JOB=job_id, ROADMAP=rid, GROUP=group, BRIEF=brief, OUTPUT=output, DETAIL=DETAIL[level(rid)],
@@ -1437,12 +1468,13 @@ def main():
         plan_prompts[job_id] = (DESIGN_TEMPLATE, fields)
         add({"id": job_id, "kind": "design", "priority": 1, "order": position, "roadmapIds": [rid], **({"name": name} if name else {}),
              "outputs": [f"research/blueprint/roadmaps/{rid}.json", output, f"research/blueprint/readmes/{rid}.md", suggested],
-             "after": ["DESIGN-BCGP18"] if job_id == "DESIGN-BCGP25" else [], "timeout": 8 * 3600}, text)
+             "after": after, "timeout": 8 * 3600}, text)
         review_id = "REV-" + job_id
-        plan_reviews[review_id] = dict(JOB=review_id, LEVEL=f"{level(rid)} level", TARGETS=f"the new roadmap definition research/blueprint/roadmaps/{rid}.json, its blueprint packet {output} and its suggested Lean file {suggested}")
+        plan_reviews[review_id] = dict(JOB=review_id, LEVEL=f"{level(rid)} level", TARGETS=f"the new roadmap definition research/blueprint/roadmaps/{rid}.json, its blueprint packet {output}, its suggested Lean file {suggested} and its reader document research/blueprint/readmes/{rid}.md")
         rtext = REVIEW_TEMPLATE.format(**fill, **plan_reviews[review_id])
         add({"id": review_id, "kind": "review", "priority": 2, "order": 1, "roadmapIds": [rid], **({"name": name} if name else {}),
-             "outputs": [f"research/blueprint/reviews/{review_id}.md", f"research/blueprint/roadmaps/{rid}.json", output, suggested],
+             "outputs": [f"research/blueprint/reviews/{review_id}.md", f"research/blueprint/roadmaps/{rid}.json", output, suggested,
+                         f"research/blueprint/readmes/{rid}.md"],
              "after": [job_id], "avoidAccountOf": job_id, "timeout": 8 * 3600}, rtext)
     upstream = [rid for rid in roadmaps if rid.startswith("tauceti:")]
     upstream.sort(key=lambda r: (LINK_PRIORITY.index(r) if r in LINK_PRIORITY else 100, r))
@@ -1577,10 +1609,10 @@ def main():
                       "roadmapIds": [rid], "scope": [sid], "outputs": [output, readme, suggested], "after": [review_id],
                       "followUpOf": job["id"]}
             add(follow, text)
-            plan_reviews[review_job(fid)] = dict(JOB=review_job(fid), LEVEL=f"{level(rid)} level", TARGETS=f"the blueprint packet {output} and its suggested Lean file {suggested} (roadmap {rid}, stage {sid}, a follow-up of {job['id']})")
+            plan_reviews[review_job(fid)] = dict(JOB=review_job(fid), LEVEL=f"{level(rid)} level", TARGETS=f"the blueprint packet {output}, its suggested Lean file {suggested} and its reader document {readme} (roadmap {rid}, stage {sid}, a follow-up of {job['id']})")
             rtext = REVIEW_TEMPLATE.format(**fill, **plan_reviews[review_job(fid)])
             add({"id": review_job(fid), "kind": "review", "priority": 2, "order": job.get("order", 0), "roadmapIds": [rid],
-                 "outputs": [f"research/blueprint/reviews/{review_job(fid)}.md", output, suggested], "after": [fid],
+                 "outputs": [f"research/blueprint/reviews/{review_job(fid)}.md", output, suggested, readme], "after": [fid],
                  "avoidAccountOf": fid}, rtext)
             taken.add(review_job(fid))
             bp_jobs_of[rid].append(fid)
