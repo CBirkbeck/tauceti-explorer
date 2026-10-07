@@ -477,7 +477,7 @@ theorem Determinant.eq_of_eqOn_dense [T2Space A] {D₁ D₂ : Determinant A (Mon
 profinite `G`, a determinant is continuous iff its kernel contains
 `J(H) = ker(A[G] → A[G/H])` for some open normal subgroup `H`. -/
 theorem Determinant.isContinuous_iff_exists_openNormal [DiscreteTopology A] [CompactSpace G]
-    [TotallyDisconnectedSpace G] [IsTopologicalGroup G]
+    [T2Space G] [TotallyDisconnectedSpace G] [IsTopologicalGroup G]
     (D : Determinant A (MonoidAlgebra A G) d) :
     D.IsContinuous ↔ ∃ H : Subgroup G, H.Normal ∧ IsOpen (H : Set G) ∧
       ∀ g : G, ∀ h ∈ H, MonoidAlgebra.of A G g - MonoidAlgebra.of A G (g * h) ∈ D.ker := sorry
@@ -783,16 +783,18 @@ theorem determinant_adapted (x : R) :
 def reducibilityIdeal (i j : Fin s) : Ideal A :=
   Ideal.span {a | ∃ (x : entryModule E i j) (y : entryModule E j i),
     algebraMap A R a * primitive E i = (x : R)*(y : R)}
-/-- Omitted: two-block residually split multiplicity-free henselian hypotheses and
-prescribed-factor reduction conditions; the displayed factorization is retained. -/
-theorem reducibilityIdeal_le_iff (i j : Fin s) (J : Ideal A) :
+/-- Two-block and henselian conditions are explicit. Omitted: the split,
+multiplicity-free residual dictionary and the prescribed reductions of the factors.
+The independent review leaves this characterisation unresolved until those are stated. -/
+theorem reducibilityIdeal_le_iff [HenselianLocalRing A] {size : Fin 2 → ℕ}
+    (E : Data A R 2 size) (i j : Fin 2) (hij : i ≠ j) (J : Ideal A) :
     reducibilityIdeal E i j ≤ J ↔ ∃ D₁ : Determinant (A ⧸ J) ((A ⧸ J) ⊗[A] R) (size i),
       ∃ D₂ : Determinant (A ⧸ J) ((A ⧸ J) ⊗[A] R) (size j),
-      ∀ x : R, algebraMap A (A ⧸ J) ((determinant E).eval x) =
-        D₁.eval (1 ⊗ₜ x) * D₂.eval (1 ⊗ₜ x) := sorry
-/-- Omitted: quotient GMA block identifications. -/
+      ((determinant E).baseChange (A ⧸ J)).toLaw = (D₁.mul D₂).toLaw := sorry
+/-- Quotient entry corners must come from the same primitive matrix units. -/
 theorem reducibilityIdeal_baseChange (i j : Fin s) (J : Ideal A)
-    (EJ : Data (A ⧸ J) ((A ⧸ J) ⊗[A] R) s size) :
+    (EJ : Data (A ⧸ J) ((A ⧸ J) ⊗[A] R) s size)
+    (hprimitive : ∀ k, primitive EJ k=1 ⊗ₜ[A] primitive E k) :
     (reducibilityIdeal E i j).map (Ideal.Quotient.mk J) = reducibilityIdeal EJ i j := sorry
 /-- IHG.1/gma-extension-module. Intermediate products are killed. -/
 def intermediateProducts (i j : Fin s) : Submodule A (entryModule E i j) :=
@@ -911,9 +913,13 @@ def operatorLocalization_homology (C : DerivedCategory (ModuleCat.{u} A)) (t : E
     (DerivedCategory.homologyFunctor (ModuleCat.{u} A) i).obj (operatorLocalization C t) ≅
       moduleTelescope ((DerivedCategory.homologyFunctor (ModuleCat.{u} A) i).obj C)
         ((DerivedCategory.homologyFunctor (ModuleCat.{u} A) i).map t).hom := sorry
-/-- Omitted: A artinian local, bounded finite cohomology, and e is the t-invertible factor. -/
+/-- The selected summand is t-invertible and the complementary summand is nilpotent.
+These conditions are expressible independently of the missing ordinary-localization supplier. -/
 def operatorLocalization_idempotent (C : DerivedCategory (ModuleCat.{u} A)) (t e : End C)
-    (he : e*e=e) : operatorLocalization C t ≅ localizedComplex C e he := sorry
+    (he : e*e=e) (hte : t*e=e*t)
+    (hinv : ∃ u : End C, u=e*u*e ∧ t*u=e ∧ u*t=e)
+    (hnil : ∃ n : ℕ, 0 < n ∧ (t*(1-e))^n=0) :
+    operatorLocalization C t ≅ localizedComplex C e he := sorry
 end TauCeti.HeckeImage
 
 namespace TauCeti
@@ -932,7 +938,7 @@ namespace Determinant
 def IsSplit (D : Determinant K R d) : Prop :=
   ∃ ρ : R →ₐ[K] Matrix (Fin d) (Fin d) K, ofMatrix ρ=D
 def IsAbsolutelyIrreducible (D : Determinant K R d) : Prop :=
-  ∀ (L : Type u) [Field L] [Algebra K L],
+  0 < d ∧ ∀ (L : Type u) [Field L] [Algebra K L] [IsAlgClosed L],
     ∃ ρ : L ⊗[K] R →ₐ[L] Matrix (Fin d) (Fin d) L,
       ofMatrix ρ=D.baseChange L ∧ MatrixRepresentationIrreducible ρ
 /-- Semisimple multiplicity one is detected by the commutative commutant after
@@ -996,18 +1002,22 @@ def IsGaloisType {T G V : Type u} [CommRing T] [Group G] [TopologicalSpace G]
     Continuous (fun g : G ↦ ρ (MonoidAlgebra.of (T ⧸ m) G g)) ∧
       MatrixRepresentationSemisimple ρ ∧
       ∀ v, Matrix.charpoly (ρ (MonoidAlgebra.of (T ⧸ m) G (Frob v)))=P v
-/-- The residue representation is absolutely irreducible after every field extension. -/
+/-- The same residue representation realizing the Frobenius polynomials is absolutely
+irreducible. This remains meaningful for a prototype with an arbitrary Frobenius family. -/
 def IsNonEisenstein {T G V : Type u} [CommRing T] [Group G] [TopologicalSpace G]
     (m : Ideal T) [m.IsMaximal] [Finite (T ⧸ m)] [TopologicalSpace (T ⧸ m)] [DiscreteTopology (T ⧸ m)] (n : ℕ)
     (Frob : V → G) (P : V → (T ⧸ m)[X]) : Prop :=
-  IsGaloisType m n Frob P ∧
-    ∃ D : Determinant (T ⧸ m) (MonoidAlgebra (T ⧸ m) G) n,
-      D.IsAbsolutelyIrreducible ∧ ∀ v, D.charpoly (MonoidAlgebra.of (T ⧸ m) G (Frob v))=P v
-/-- Omitted: Frob is the unramified Frobenius family of G_F,S, hence dense up to conjugacy.
+  ∃ ρ : MonoidAlgebra (T ⧸ m) G →ₐ[T ⧸ m] Matrix (Fin n) (Fin n) (T ⧸ m),
+    Continuous (fun g : G ↦ ρ (MonoidAlgebra.of (T ⧸ m) G g)) ∧
+      MatrixRepresentationSemisimple ρ ∧ (Determinant.ofMatrix ρ).IsAbsolutelyIrreducible ∧
+      ∀ v, Matrix.charpoly (ρ (MonoidAlgebra.of (T ⧸ m) G (Frob v)))=P v
+/-- Density of the conjugacy saturation, continuity and Hausdorff coefficients are explicit.
 Equality of determinants over an algebraic closure gives the semisimple isomorphism by IHG.1. -/
 theorem galoisType_unique {G V : Type u} [Group G] [TopologicalSpace G]
-    {k : Type u} [Field k] (n : ℕ) (Frob : V → G)
+    {k : Type u} [Field k] [TopologicalSpace k] [T2Space k] (n : ℕ) (Frob : V → G)
+    (hdense : Dense {g : G | ∃ v h, g=h*Frob v*h⁻¹})
     (D E : Determinant k (MonoidAlgebra k G) n)
+    (hD : D.IsContinuous) (hE : E.IsContinuous)
     (h : ∀ v, D.charpoly (MonoidAlgebra.of k G (Frob v)) =
       E.charpoly (MonoidAlgebra.of k G (Frob v))) : D=E := sorry
 end TauCeti.Spherical
@@ -1067,26 +1077,41 @@ theorem inverseLimitDeterminant_unique {J : ℕ → Ideal A} {hJ : Antitone J}
     (D : Determinant A (MonoidAlgebra A G) d)
     (hD : ∀ r, D.mapCoefficients (Ideal.Quotient.mk (J r))=F.determinant r) :
     D=inverseLimitDeterminant F complete hcomplete := sorry
-/-- IHG.4/uniform-congruence-witness, for one fixed finite coefficient quotient.
-Each embedding is genuinely injective and every Frobenius coefficient lies in its image.
-Closedness and the adic uniform-level modulus are omitted pending the topological supplier. -/
+/-- IHG.4/uniform-congruence-witness, for one fixed compact coefficient quotient.
+Compactness and continuity make the injective coefficient map a closed embedding.
+The uniform adic modulus across levels remains an input to the geometric supplier. -/
 structure CongruenceWitness (A : Type u) [CommRing A] (G V : Type u) [Group G]
-    (d : ℕ) (Frob : V → G) where
+    [TopologicalSpace A] [CompactSpace A] [T2Space A]
+    [TopologicalSpace G] [CompactSpace G] (d : ℕ) (Frob : V → G) where
   count : ℕ
   coefficient : Fin count → CommAlgCat.{u} A
+  coefficientTopology : ∀ i, TopologicalSpace (coefficient i)
+  coefficientT2 : ∀ i, @T2Space (coefficient i) (coefficientTopology i)
+  coefficient_continuous : ∀ i, @Continuous A (coefficient i) _ (coefficientTopology i)
+    (algebraMap A (coefficient i))
   classical : ∀ i, Determinant (coefficient i) (MonoidAlgebra (coefficient i) G) d
+  classical_continuous : ∀ i k, @Continuous G (coefficient i) _ (coefficientTopology i)
+    (fun g ↦ ((classical i).charpoly (MonoidAlgebra.of (coefficient i) G g)).coeff k)
+  frobenius_dense : Dense {g : G | ∃ v h, g=h*Frob v*h⁻¹}
   injective : Function.Injective (fun a : A ↦ fun i ↦ algebraMap A (coefficient i) a)
   frobenius_mem : ∀ v k, ∃ a : A, ∀ i,
     ((classical i).charpoly (MonoidAlgebra.of (coefficient i) G (Frob v))).coeff k =
       algebraMap A (coefficient i) a
 namespace CongruenceWitness
 variable {V : Type u} {Frob : V → G}
-/-- Omitted: G profinite, continuous classical systems, Frobenius density and closedness. -/
+variable [TopologicalSpace A] [CompactSpace A] [T2Space A] [CompactSpace G]
+/-- Apply compact coefficient gluing to the conjugacy-saturated Frobenius set. -/
 def determinant (W : CongruenceWitness A G V d Frob) :
     Determinant A (MonoidAlgebra A G) d := sorry
+theorem determinant_continuous (W : CongruenceWitness A G V d Frob) :
+    (determinant W).IsContinuous := sorry
+/-- Descent is equality of polynomial laws, not only equality at Frobenius elements. -/
+theorem determinant_classical (W : CongruenceWitness A G V d Frob) (i : Fin W.count) :
+    (determinant W).mapCoefficients (algebraMap A (W.coefficient i))=W.classical i := sorry
 /-- With levelwise witnesses, exact reductions express the required integral compatibility. -/
 theorem compatible (W : CongruenceWitness A G V d Frob)
-    (φ : A →+* B) (W' : CongruenceWitness B G V d Frob)
+    [TopologicalSpace B] [CompactSpace B] [T2Space B]
+    (φ : A →+* B) (hφ : Continuous φ) (W' : CongruenceWitness B G V d Frob)
     (h : ∀ v, ((determinant W).charpoly (MonoidAlgebra.of A G (Frob v))).map φ =
       (determinant W').charpoly (MonoidAlgebra.of B G (Frob v))) :
     (determinant W).mapCoefficients φ=determinant W' := sorry
@@ -1476,12 +1501,20 @@ theorem classical_interpolation {G : Type u} [Group G] [TopologicalSpace G]
 /-- `IntegralHeckeAndGaloisDeterminants:IHG.5/nilpotent-comparison-schema`.
 Let f:T→B be a continuous homomorphism with kernel J, J^N=0, and T/J compact Hausdorff embedded in Hausdorff B. Suppose an actual continuous degree-d determinant over B is supplied and its characteristic-polynomial coefficients belong to f(T) on the dense Frobenius classes. Then it descends uniquely to T/J. The theorem concludes a determinant only in T/J; it supplies neither the geometric comparison nor a lift to T.
 
-Omitted: compact Hausdorff T/kerφ, closed embedding into Hausdorff B, continuity and integrality of every characteristic coefficient on the dense Frobenius conjugacy classes. The conclusion is only over T/kerφ. -/
+The topological and coefficient-integrality inputs are expressible and explicit.
+The conclusion is only over T/kerφ. -/
 theorem nilpotent_comparison_schema {T B G : Type u} [CommRing T] [CommRing B] [Group G]
+    [TopologicalSpace G] [CompactSpace G]
     (φ : T →+* B) (n : ℕ) (hn : 0 < n) (hker : (RingHom.ker φ)^n=⊥)
-    (D : Determinant B (MonoidAlgebra B G) d) :
-    ∃ E : Determinant (T ⧸ RingHom.ker φ) (MonoidAlgebra (T ⧸ RingHom.ker φ) G) d,
-      E.mapCoefficients (RingHom.kerLift φ)=D := sorry
+    [TopologicalSpace (T ⧸ RingHom.ker φ)] [CompactSpace (T ⧸ RingHom.ker φ)]
+    [T2Space (T ⧸ RingHom.ker φ)] [TopologicalSpace B] [T2Space B]
+    (hφ : Continuous (RingHom.kerLift φ))
+    (D : Determinant B (MonoidAlgebra B G) d) (hD : D.IsContinuous)
+    (S : Set G) (hS : Dense S)
+    (hcoeff : ∀ g ∈ S, ∀ k, ∃ a : T ⧸ RingHom.ker φ,
+      (D.charpoly (MonoidAlgebra.of B G g)).coeff k=RingHom.kerLift φ a) :
+    ∃! E : Determinant (T ⧸ RingHom.ker φ) (MonoidAlgebra (T ⧸ RingHom.ker φ) G) d,
+      E.IsContinuous ∧ E.mapCoefficients (RingHom.kerLift φ)=D := sorry
 
 /-- `IntegralHeckeAndGaloisDeterminants:IHG.5/residual-semismple-specialization`.
 For a determinant over T/J and a maximal ideal m⊂T with J nilpotent, base change gives a residual determinant over T/m. Over an algebraic closure it determines a unique semisimple degree-d representation up to isomorphism, continuous with finite image when the residue field is discrete and the determinant is continuous.
@@ -1679,10 +1712,23 @@ theorem completed_cayley_hamilton_finite {E : Type u} [Ring E] [Algebra A E]
 /-- `IntegralHeckeAndGaloisDeterminants:IHG.1/coefficient-descent`.
 Let A⊂B be complete noetherian local rings with m_B∩A=m_A and common residue field. For a profinite G and continuous ρ:G→GL_d(B), assume residual absolute irreducibility and trρ(G)⊂A. Then ρ is conjugate by 1+M_d(m_B) to a representation into GL_d(A). More generally an already descended quotient modulo J allows the conjugator in 1+M_d(J).
 
-Omitted: complete local rings, injective A→B with the same residue field and contracted maximal ideal, continuity/profiniteness and residual absolute irreducibility. -/
+The complete local rings, coefficient inclusion, common residue field, adic topology,
+profinite source and residual absolute irreducibility are explicit. The stronger
+conjugator modulo an arbitrary prescribed ideal remains a separate API item. -/
 theorem coefficient_descent {B G : Type u} [CommRing B] [Algebra A B] [IsLocalRing A] [IsLocalRing B]
     [IsNoetherianRing A] [IsNoetherianRing B] [Group G]
+    [IsAdicComplete (IsLocalRing.maximalIdeal A) A]
+    [IsAdicComplete (IsLocalRing.maximalIdeal B) B]
+    [TopologicalSpace B] (hBadic : IsAdic (IsLocalRing.maximalIdeal B))
+    [TopologicalSpace G] [CompactSpace G] [T2Space G] [TotallyDisconnectedSpace G]
+    [IsTopologicalGroup G]
+    (hinj : Function.Injective (algebraMap A B))
+    (residueEquiv : IsLocalRing.ResidueField A ≃+* IsLocalRing.ResidueField B)
+    (hres : ∀ a : A, IsLocalRing.residue B (algebraMap A B a)=
+      residueEquiv (IsLocalRing.residue A a))
     (ρ : MonoidAlgebra B G →ₐ[B] Matrix (Fin d) (Fin d) B)
+    (hρ : Continuous (fun g : G ↦ ρ (MonoidAlgebra.of B G g)))
+    (hIrr : (Determinant.ofMatrix ρ).residual.IsAbsolutelyIrreducible)
     (htrace : ∀ g : G, ∃ a : A, Matrix.trace (ρ (MonoidAlgebra.of B G g))=algebraMap A B a) :
     ∃ (ρA : MonoidAlgebra A G →ₐ[A] Matrix (Fin d) (Fin d) A)
       (P : (Matrix (Fin d) (Fin d) B)ˣ),
@@ -1708,10 +1754,16 @@ theorem symplectic_coefficient_descent {B G : Type u} [CommRing B] [Algebra A B]
 /-- `IntegralHeckeAndGaloisDeterminants:IHG.1/brauer-nesbitt-module-recognition`.
 Let A be henselian local, ρ:G→GL_d(A) have split absolutely irreducible residual representation, and M be an A[G]-module annihilated by CH(detρ). Then M≅A^d⊗_AN as an A[G]-module for N=E_11M, with G acting through ρ on the first factor.
 
-Omitted: M has the compatible A[G]-action annihilated by CH(detρ), the residual split absolutely irreducible condition, and G-equivariance of the tensor decomposition. N is the E_11 summand in the reader. -/
+The compatible A[G]-action, CH annihilation, residual absolute irreducibility and
+G-equivariance are explicit. Identifying N as the E_11 summand remains a separate API item. -/
 theorem brauer_nesbitt_module_recognition {G M : Type u} [Group G] [AddCommGroup M] [Module A M]
-    [HenselianLocalRing A] (ρ : MonoidAlgebra A G →ₐ[A] Matrix (Fin d) (Fin d) A) :
-    ∃ (N : ModuleCat.{u} A), Nonempty (M ≃ₗ[A] ((Fin d → A) ⊗[A] N)) := sorry
+    [Module (MonoidAlgebra A G) M] [IsScalarTower A (MonoidAlgebra A G) M]
+    [HenselianLocalRing A] (ρ : MonoidAlgebra A G →ₐ[A] Matrix (Fin d) (Fin d) A)
+    (hIrr : (Determinant.ofMatrix ρ).residual.IsAbsolutelyIrreducible)
+    (hCH : ∀ r ∈ (Determinant.ofMatrix ρ).chIdeal, ∀ x : M, r • x=0) :
+    ∃ (N : ModuleCat.{u} A) (e : M ≃ₗ[A] ((Fin d → A) ⊗[A] N)),
+      ∀ (g : G) (x : M), e (MonoidAlgebra.of A G g • x)=
+        TensorProduct.map (Matrix.toLin' (ρ (MonoidAlgebra.of A G g))) LinearMap.id (e x) := sorry
 
 /-- `IntegralHeckeAndGaloisDeterminants:IHG.1/compatible-local-reconstruction`.
 With all CN23 §3.2 hypotheses, including the disjoint residual local constituents, the globally reconstructed representation over A has an Ã-valued local lift whose generic fiber is the selected local constituent. The corner basis can be chosen so its reduction agrees with the given global representation over A.
@@ -1851,8 +1903,9 @@ theorem buchsbaum_rim_exactness {m n : ℕ} (hm : 0 < m) (hmn : m ≤ n)
 /-- `IntegralHeckeAndGaloisDeterminants:IHG.6/ordered-determinantal-tensor-resolution`.
 For maps f_i:R^(n_i)→R^(m_i) with 1 ≤ m_i ≤ n_i, write J_i=I_(m_i)(f_i). If each f_i modulo J₁+…+J_(i−1) is regular, then the finite tensor product ⊗_i DetBR(f_i), with determinant lines trivialized, resolves R/(∑J_i).
 
-Omitted: 1 ≤ m_i ≤ n_i, the ordered regularity after previous image ideals, and tensor=⊗DetBR(f_i) with determinant-line trivializations. -/
+Omitted: the ordered regularity after previous image ideals, and tensor=⊗DetBR(f_i) with determinant-line trivializations. The rank bounds are explicit. -/
 theorem ordered_determinantal_tensor_resolution (s : ℕ) (n m : Fin s → ℕ)
+    (hm : ∀ i, 0 < m i) (hmn : ∀ i, m i ≤ n i)
     (f : ∀ i, (Fin (n i) → A) →ₗ[A] (Fin (m i) → A))
     (tensor : ChainComplex (ModuleCat.{u} A) ℕ) :
     Nonempty (tensor.homology 0 ≅ ModuleCat.of A (A ⧸ ⨆ i, BuchsbaumRim.maximalMinorIdeal (f i))) ∧
@@ -2301,7 +2354,12 @@ example {T G V : Type u} [CommRing T] [Group G] [TopologicalSpace G] (m : Ideal 
 example {T G V : Type u} [CommRing T] [Group G] [TopologicalSpace G] (m : Ideal T) [m.IsMaximal] [Finite (T ⧸ m)] [TopologicalSpace (T ⧸ m)] [DiscreteTopology (T ⧸ m)] (χ ψ : G →* (T ⧸ m)ˣ) (hχ : Continuous χ) (hψ : Continuous ψ) : Spherical.IsGaloisType m 2 (id : G → G) (fun g ↦ (X-C ((χ g : (T ⧸ m)ˣ) : T ⧸ m))*(X-C ((ψ g : (T ⧸ m)ˣ) : T ⧸ m))) ∧ ¬ Spherical.IsNonEisenstein m 2 (id : G → G) (fun g ↦ (X-C ((χ g : (T ⧸ m)ˣ) : T ⧸ m))*(X-C ((ψ g : (T ⧸ m)ˣ) : T ⧸ m))) := sorry
 
 /-- `galois_type_twist`: A character twist preserves absolute irreducibility and scales the i-th coefficient by θ(F_v)^i. -/
-example {G : Type u} [Group G] (D : Determinant A (MonoidAlgebra A G) d) (θ : G →* Aˣ) (g : G) (i : ℕ) (hi : i ≤ d) : ((D.twist θ).charpoly (MonoidAlgebra.of A G g)).coeff (d-i)=(↑(θ g) : A)^i*(D.charpoly (MonoidAlgebra.of A G g)).coeff (d-i) := sorry
+example {K G : Type u} [Field K] [Group G]
+    (D : Determinant K (MonoidAlgebra K G) d) (hD : D.IsAbsolutelyIrreducible)
+    (θ : G →* Kˣ) (g : G) (i : ℕ) (hi : i ≤ d) :
+    (D.twist θ).IsAbsolutelyIrreducible ∧
+      ((D.twist θ).charpoly (MonoidAlgebra.of K G g)).coeff (d-i)=
+        (↑(θ g) : K)^i*(D.charpoly (MonoidAlgebra.of K G g)).coeff (d-i) := sorry
 
 /-- `operator_nilpotent`: If t^r=0 on C, its localization is zero. -/
 example (C : DerivedCategory (ModuleCat.{u} A)) (t : End C) (r : ℕ) (ht : t^r=0) : Limits.IsZero (HeckeImage.operatorLocalization C t) := sorry
@@ -2340,11 +2398,19 @@ example {G : Type u} [Group G] [TopologicalSpace G] {J : ℕ → Ideal A} {hJ : 
 example {G : Type u} [Group G] [TopologicalSpace G] {J : ℕ → Ideal A} {hJ : Antitone J} (F : Interpolation.FiniteQuotientData A G d J hJ) (complete : A ≃+* Interpolation.quotientLimit J hJ) (hc : ∀ a r, (complete a).val r=Ideal.Quotient.mk (J r) a) (D : Determinant A (MonoidAlgebra A G) d) (hD : ∀ r, D.mapCoefficients (Ideal.Quotient.mk (J r))=F.determinant r) : Interpolation.inverseLimitDeterminant F complete hc=D := sorry
 
 /-- `congruence_single`: One classical determinant already over A/J_r gives the identity embedding witness. -/
-example {G V : Type u} [Group G] (Frob : V → G) (D : Determinant A (MonoidAlgebra A G) d) :
+example {G V : Type u} [Group G] [TopologicalSpace G] [CompactSpace G]
+    [TopologicalSpace A] [CompactSpace A] [T2Space A]
+    (Frob : V → G) (hdense : Dense {g : G | ∃ v h, g=h*Frob v*h⁻¹})
+    (D : Determinant A (MonoidAlgebra A G) d) (hD : D.IsContinuous) :
     let W : Interpolation.CongruenceWitness A G V d Frob :=
       { count := 1
         coefficient := fun _ ↦ CommAlgCat.of A A
+        coefficientTopology := fun _ ↦ inferInstance
+        coefficientT2 := fun _ ↦ inferInstance
+        coefficient_continuous := sorry
         classical := fun _ ↦ D
+        classical_continuous := sorry
+        frobenius_dense := hdense
         injective := sorry
         frobenius_mem := sorry }
     W.count=1 ∧ W.classical 0=D ∧ Interpolation.CongruenceWitness.determinant W=D := sorry
@@ -2519,10 +2585,27 @@ example : let D := Determinant.ofMatrix (AlgHom.id (ZMod 2) (Matrix (Fin 3) (Fin
 example {K G : Type u} [Field K] [Group G] (χ : G →* Kˣ) : (Determinant.ofMatrix (SuggestedFixtures.rankOne χ)).IsSplit ∧ (Determinant.ofMatrix (SuggestedFixtures.rankOne χ)).IsAbsolutelyIrreducible := sorry
 
 /-- `residual_repeated`: χ² is split but not multiplicity-free, including in characteristic two. -/
-example {K G : Type u} [Field K] [Group G] (χ : G →* Kˣ) : ¬ ((Determinant.ofMatrix (SuggestedFixtures.rankOne χ)).mul (Determinant.ofMatrix (SuggestedFixtures.rankOne χ))).IsMultiplicityFree := sorry
+example {K G : Type u} [Field K] [Group G] (χ : G →* Kˣ) :
+    ((Determinant.ofMatrix (SuggestedFixtures.rankOne χ)).mul
+      (Determinant.ofMatrix (SuggestedFixtures.rankOne χ))).IsSplit ∧
+    ¬ ((Determinant.ofMatrix (SuggestedFixtures.rankOne χ)).mul
+      (Determinant.ofMatrix (SuggestedFixtures.rankOne χ))).IsMultiplicityFree := sorry
 
 /-- `residual_distinct`: χψ for two distinct k-valued characters is split multiplicity-free and reducible. -/
-example {K G : Type u} [Field K] [Group G] (χ ψ : G →* Kˣ) (h : χ≠ψ) : ((Determinant.ofMatrix (SuggestedFixtures.rankOne χ)).mul (Determinant.ofMatrix (SuggestedFixtures.rankOne ψ))).IsMultiplicityFree ∧ ¬ ((Determinant.ofMatrix (SuggestedFixtures.rankOne χ)).mul (Determinant.ofMatrix (SuggestedFixtures.rankOne ψ))).IsAbsolutelyIrreducible := sorry
+example {K G : Type u} [Field K] [Group G] (χ ψ : G →* Kˣ) (h : χ≠ψ) :
+    ((Determinant.ofMatrix (SuggestedFixtures.rankOne χ)).mul
+      (Determinant.ofMatrix (SuggestedFixtures.rankOne ψ))).IsSplit ∧
+    ((Determinant.ofMatrix (SuggestedFixtures.rankOne χ)).mul
+      (Determinant.ofMatrix (SuggestedFixtures.rankOne ψ))).IsMultiplicityFree ∧
+    ¬ ((Determinant.ofMatrix (SuggestedFixtures.rankOne χ)).mul
+      (Determinant.ofMatrix (SuggestedFixtures.rankOne ψ))).IsAbsolutelyIrreducible := sorry
+
+/-- `residual_nonsplit_quaternion`: The Hamilton reduced norm is absolutely irreducible
+over an algebraic closure but does not split over its base field R. -/
+example [IsAzumaya ℝ (Quaternion ℝ)]
+    (hRank : Determinant.HasConstantRank (A := ℝ) (Quaternion ℝ) 4) :
+    let D := Determinant.ofAzumaya 2 (by decide) hRank
+    D.IsAbsolutelyIrreducible ∧ ¬ D.IsSplit := sorry
 
 /-- `gma_full_matrix`: For R=M_d(A) partitioned into blocks, every A_ij=A. -/
 example (s : ℕ) (i j : Fin s) : Nonempty (GMA.entryModule (SuggestedFixtures.matrixGMA A s) i j ≃ₗ[A] A) := sorry
