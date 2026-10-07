@@ -16770,8 +16770,9 @@
    "avoidAccountOf": "DESIGN-CrystallineLocalGlobalCompatibilityCM",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-CrystallineLocalGlobalCompatibilityCM.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6904"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6904",
+   "finishedAt": "2026-10-07T18:03:03Z"
   },
   {
    "id": "DESIGN-EllipticCurveModularityImaginaryQuadratic",
@@ -16952,7 +16953,8 @@
    "avoidAccountOf": "DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6906"
   },
   {
    "id": "DESIGN-EllipticCurveModularityWild3Adic",
