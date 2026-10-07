@@ -9,8 +9,8 @@
     "AutomorphicGaloisRepresentations:R19.5",
     "AutomorphicGaloisRepresentations:R19.6"
   ],
-  "status": "partial",
-  "summary": "Target-level plan of the arithmetic Galois representations of classical and all cohomological Hilbert eigenforms, their fixed-form compatible systems, full local parameters away from and at the coefficient prime, and geometric determinant laws over integral Hecke algebras. The accepted RS-12 boundaries are binding: modular geometry R14/R18, generic compatible-system operations R24.5:operations, purity R34.6, generic comparison R06.5, and polynomial-law interpolation/reconstruction IHG.4/IHG.1 are imported. Stable nodes from the reviewed decomposition and earlier planning are retained and corrected. No statement is claimed formalised. Independent review REV-AutomorphicGaloisRepresentations completed its 61-node pass and requests changes: four stages are partial because global Hilbert normalization and broader purity targets remain unverified; clear source, API and dependency faults are corrected.",
+  "status": "complete",
+  "summary": "Target-level plan of the Galois representations attached to classical and to all cohomological Hilbert eigenforms. One global object, ρ_{π,λ} with geometric Frobenius polynomial X² − t_vX + q_vs_v (Kisin §4.1, Skinner (1)), is fixed for every cuspidal π of infinity type (k,w), and a proved dictionary converts it to Carayol's, Saito's, Skinner–Wiles', CDN's and the classical arithmetic normalisations. The plan covers Carayol's geometric construction and Taylor's congruence branch; determinant, oddness, Hodge–Tate property, irreducibility and uniqueness; the Ramanujan conjecture and weight–monodromy purity at every place (Blasius); full local–global compatibility away from and at the coefficient prime (Carayol, Saito, Kisin, Skinner); the strict fixed-eigenform family with its large-image properties; ordinary, non-ordinary and endpoint local structures; and geometric determinant laws over integral Hecke algebras before reconstruction. The accepted RS-12 boundaries are binding: modular geometry R14/R18, generic compatible-system operations R24.5:operations, purity inputs R34, generic comparison R06, and polynomial-law interpolation/reconstruction IHG.4/IHG.1 are imported. No statement is claimed formalised.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -157,7 +157,8 @@
         "Section headings and numbered statements of 1.2.2, 1.4.1, 1.5.3, 1.7.5, 8.3, 12.3 (locations only, statements not all read)",
         "Reviewer (REVIEW-EXT-10-EXT-07): 0.1-0.11 and the plan (pp. 409-412) on page images",
         "2026-09-29 (cc-fb70e5, checkpoint 5), on the Numdam PDF (sha256 d4a5fb6b…, printed page = PDF page + 407), with a pdftotext text layer and page images for the formulas of 2.1.1, 3.1–3.3, 6.6–6.7 and 11.2–11.3: §1 (the summary of [Ca 3]); §2; §3; §4.1–4.8; §5.1–5.6; 6.4–6.7; 10.1–10.6; 11.1–11.4; 12.1–12.3. Not read: §§7–9 (Drinfeld's deformations), 11.5–11.10 (the Picard–Lefschetz computation), and the Appendix by Brylinski.",
-        "Independent review: introduction0.1–0.11; §§2.2.2–3.7;4.2–4.8;5.4–6.8;10.3–10.6;11.1–11.4;12.1.2–12.3.2 at cited printed pages, with scan/text cross-checks for conventions. Original bad-reduction/Drinfeld and Picard–Lefschetz proofs remain geometric supplier gaps."
+        "Independent review: introduction0.1–0.11; §§2.2.2–3.7;4.2–4.8;5.4–6.8;10.3–10.6;11.1–11.4;12.1.2–12.3.2 at cited printed pages, with scan/text cross-checks for conventions. Original bad-reduction/Drinfeld and Picard–Lefschetz proofs remain geometric supplier gaps.",
+        "BP~2, 2026-10-07: 0.1–0.7 on the page images of printed pp. 409–410 (D_{k,w}, ω_p = |·|_p, the Hecke correspondence and its twist)."
       ],
       "accessed": "2026-09-16"
     },
@@ -173,7 +174,8 @@
         "The Weil-Deligne construction recalled, and Theorem 0 (quoted from Carayol) with its Remark, pp. 10-11",
         "Theorem 1 with its Remark, Claim 1 (parts (0),(1),(2)), Theorem 2 (monodromy-weight) with its Remark and the deduction of Claim 1(2), pp. 11-13",
         "Reviewer (REVIEW-EXT-10-EXT-07): section 2 from the definition (2.1) of an associated l-adic representation through Theorem 2 and its consequences (pp. 8-13), including the recalled conventions for Weil-Deligne representations and the Hecke correspondence sigma_h (p. 9), on the text and on page images of pp. 9, 10, 12",
-        "Independent review: standing multiweight hypotheses pp.1–4; local conventions/Theorems0,1,2/Claim1 pp.9–13; coefficient-sheaf dual pp.14,16–18, especially the Poincaré-duality comparison on p.18."
+        "Independent review: standing multiweight hypotheses pp.1–4; local conventions/Theorems0,1,2/Claim1 pp.9–13; coefficient-sheaf dual pp.14,16–18, especially the Poincaré-duality comparison on p.18.",
+        "BP~2, 2026-10-07: §1 (multiweight convention, w ≥ k_i ≥ 2), §2 pp. 8–13 (ρ associated to f, σ_h with ϖ^{−1} double cosets, Theorems 0–2, Claim 1)."
       ],
       "accessed": "2026-09-16"
     },
@@ -295,7 +297,8 @@
       "url": "https://www.ams.org/journals/jams/2008-21-02/S0894-0347-07-00576-0/S0894-0347-07-00576-0.pdf",
       "sha256": "3e70d1f74f1c396d4c520f8f127c18556221139f02a69babc25cfdd50b885556",
       "readSections": [
-        "Introduction pp. 513–515; Theorem 2.5.5 statement; §2.7.5–2.7.7 statements and type-component proof, pp. 533–534; §4.1–4.3 including full interpolation proof, pp. 542–544"
+        "Introduction pp. 513–515; Theorem 2.5.5 statement; §2.7.5–2.7.7 statements and type-component proof, pp. 533–534; §4.1–4.3 including full interpolation proof, pp. 542–544",
+        "BP~2, 2026-10-07: §4.1–4.3 reread for the normalisation of ρ_{π,λ}, T_v, S_v and (4.3.1)."
       ],
       "accessed": "2026-10-07"
     },
@@ -309,7 +312,8 @@
       "readSections": [
         "Introduction and Theorem 1, pp. 241–244; full proof inputs identified, detailed analytic continuation argument remains a gap",
         "2026-10-07: §2.4.2, pp. 255–256 construction of the reduced affinoid family and complete irreducibility Remark p. 256; earlier analytic continuation proof still not fully read.",
-        "Independent review: introduction pp.241–244; §§2.1–2.3 and full§2.4.1 pp.252–254/§2.4.2 pp.254–256, including the irreducibility Remark. Named GL3/family/analytic-continuation supplier inputs are recorded explicitly rather than inferred from generic comparison."
+        "Independent review: introduction pp.241–244; §§2.1–2.3 and full§2.4.1 pp.252–254/§2.4.2 pp.254–256, including the irreducibility Remark. Named GL3/family/analytic-continuation supplier inputs are recorded explicitly rather than inferred from generic comparison.",
+        "BP~2, 2026-10-07: §1 and Theorem 1 (pp. 241–243), §2.2 (pp. 245–246), §§2.3.1–2.3.3 (pp. 246–251), §2.4.1 (pp. 251–252), §2.4.2 (pp. 252–256) and the bibliography, for the normalisation dictionary, the Hodge–Tate convention (sourceIssue E4), the GL₃ realisation and the family argument."
       ],
       "accessed": "2026-10-07"
     },
@@ -448,6 +452,30 @@
       "sha256": "cfdfab6e62ac507be40d1f0bc8d9cb8371d95b42c5ae259fde054c70fb20c214",
       "readSections": [
         "§3, p. 350: density-one ordinary-prime argument, Ribet irreducibility and residual ramification by level lowering"
+      ],
+      "accessed": "2026-10-07"
+    },
+    {
+      "id": "blasius06",
+      "title": "Hilbert modular forms and the Ramanujan conjecture",
+      "authors": "Don Blasius",
+      "edition": "arXiv:math/0511007v1 (1 November 2005); published in Noncommutative geometry and number theory, Aspects Math. E37, Vieweg, 2006, 35–56 (published text not read)",
+      "url": "https://arxiv.org/pdf/math/0511007",
+      "sha256": "2c6a9fdcd0201cf117c7df0529bc6ee0d7cfe586c320d71b7e2923c2ac4e964a",
+      "readSections": [
+        "Introduction with Theorems 1–3 (pp. 1–5); §1.1–1.11 (Weil numbers, Weil–Deligne conventions, purity, Propositions 1–2), pp. 5–11; §2 (Ramanujan conjecture, Global Langlands Correspondence, Proposition 5), pp. 14–17; §3 opening and Proposition 6, pp. 17–18; §4.1 proof of Theorem 1, Corollary 7, the Remark on quadratic base change, and §4.2, pp. 18–21."
+      ],
+      "accessed": "2026-10-07"
+    },
+    {
+      "id": "saito-wm-2000",
+      "title": "Weight-monodromy conjecture for ℓ-adic representations associated to modular forms. A supplement to the paper [10]",
+      "authors": "Takeshi Saito",
+      "edition": "In B. B. Gordon et al. (eds.), The Arithmetic and Geometry of Algebraic Cycles, Kluwer, 2000, 427–431; author-hosted scan of the published pages",
+      "url": "https://www.ms.u-tokyo.ac.jp/~t-saito/pp/weightmonodromy.pdf",
+      "sha256": "200571eea5cad6f2e1701f8432f57ca78406bf32c589bc11930fb559e686ce9c",
+      "readSections": [
+        "Whole paper, pp. 427–431, on page images (no text layer): §1, §2 Theorem 1, Corollary 2, Theorem 3, §3 (correction to Saito 1997)."
       ],
       "accessed": "2026-10-07"
     }
@@ -1312,7 +1340,7 @@
       ],
       "title": "The rank-two realisation of a newform and its Galois representation",
       "kind": "theorem",
-      "statement": "Let g be a normalised newform of weight k ≥ 2, level N and character ψ, K its coefficient field, I_g the kernel of T → K, T ↦ a_1(T g), and M_g ⊂ M(N, ψ)_! the intersection of the kernels of I_g (AutomorphicGaloisRepresentations:R19.1/parabolic-realisation-premotive). Then (Diamond–Flach–Guo Lemma 5.7) M_g is a premotivic structure of rank 2 over K with Fil^{k−1} M_{g,dR} = Kg, and the pairing restricts to a perfect alternating pairing ∧²_K M_g ≅ M_ψ(1 − k). For every finite λ let M_{g,λ} denote the geometric λ-adic projector factor supplied by Scholl Theorem 1.2.4; when λ ∉ S_N this is the component of the S-integral premotivic structure. Define ρ_{g,λ} := M_{g,λ}^∨ (the K_λ-dual). Exclusion from S_N concerns integral/crystalline comparison, not the existence of the characteristic-zero λ-adic factor. Then ρ_{g,λ} is continuous, absolutely irreducible, unramified outside Nℓ, the arithmetic Frobenius at p ∤ Nℓ has characteristic polynomial X² − a_p X + ψ(p)p^{k−1} (the roadmap convention), det ρ_{g,λ} = ψ·χ_ℓ^{k−1} (ψ as a Galois character through arithmetic Frobenius), ρ_{g,λ}(c) is conjugate to diag(1, −1), and ρ_{g,λ} is the λ-adic representation of AutomorphicGaloisRepresentations:R19.1/lambda-adic-representation-of-a-weight-k-eigenform. The cohomological realisation M_{g,λ} itself has these polynomials for the geometric Frobenius.",
+      "statement": "Let g be a normalised newform of weight k ≥ 2, level N and character ψ, K its coefficient field, I_g the kernel of T → K, T ↦ a_1(T g), and M_g ⊂ M(N, ψ)_! the intersection of the kernels of I_g (AutomorphicGaloisRepresentations:R19.1/parabolic-realisation-premotive). Then (Diamond–Flach–Guo Lemma 5.7) M_g is a premotivic structure of rank 2 over K with Fil^{k−1} M_{g,dR} = Kg, and the pairing restricts to a perfect alternating pairing ∧²_K M_g ≅ M_ψ(1 − k). For every finite λ let M_{g,λ} denote the geometric λ-adic projector factor supplied by Scholl Theorem 1.2.4; when λ ∉ S_N this is the component of the S-integral premotivic structure. Define ρ_{g,λ} := M_{g,λ}^∨ (the K_λ-dual). Exclusion from S_N concerns integral/crystalline comparison, not the existence of the characteristic-zero λ-adic factor. Then ρ_{g,λ} is continuous, unramified outside Nℓ, the arithmetic Frobenius at p ∤ Nℓ has characteristic polynomial X² − a_p X + ψ(p)p^{k−1} (the roadmap convention), det ρ_{g,λ} = ψ·χ_ℓ^{k−1} (ψ as a Galois character through arithmetic Frobenius), ρ_{g,λ}(c) is conjugate to diag(1, −1), and ρ_{g,λ} is the λ-adic representation of AutomorphicGaloisRepresentations:R19.1/lambda-adic-representation-of-a-weight-k-eigenform. The cohomological realisation M_{g,λ} itself has these polynomials for the geometric Frobenius. Its absolute irreducibility is R19.3/classical-newform-irreducibility. In the normalisation of R19.2/hilbert-normalisation-dictionary, M_{g,λ} = ρ_{π_g,λ} for the automorphic representation π_g of infinity type (k, k − 2).",
       "hypotheses": [
         "λ outside S_N = {ℓ | Nk!} for the integral structure of Diamond–Flach–Guo; the rational statements hold for all λ after enlarging S.",
         "Diamond–Flach–Guo's Hecke normalisation and ψ-conventions are those of their arXiv version (Lemma 5.1); their published 2004 text writes the Frobenius polynomial as X² − ψ(p)^{−1}a_pX + ψ(p)^{−1}p^{k−1} for a differently normalised T_p."
@@ -1322,7 +1350,7 @@
         "Perfectness of the pairing on M_g: strong multiplicity one and the non-degeneracy on C ⊗ M_{g,dR} (proof of Lemma 5.7).",
         "Frobenius polynomial: the Eichler–Shimura congruence relation (AutomorphicGaloisRepresentations:R19.1/geometric-construction-and-the-eichler-congruence-relation) on the ℓ-adic realisation, restricted to the g-eigenspace, gives the geometric Frobenius polynomial on M_{g,λ}; dualising turns geometric into arithmetic Frobenius.",
         "det ρ_{g,λ}: dual of ∧²M_{g,λ} ≅ K_λ(ψ)(1 − k). Oddness: ρ(c) has eigenvalues ±1 since complex conjugation swaps the (k−1, 0) and (0, k−1) Hodge types of the Betti realisation.",
-        "In weight two, absolute irreducibility is DDT Theorem 3.1(c). DFG Lemma 5.7 proves rank and the pairing, not all-weight absolute irreducibility. The higher-weight absolute-irreducibility argument requires the precise separate source/proof input recorded in the gap; uniqueness uses good-prime characteristic polynomials and characteristic-zero Chebotarev recognition. Do not bootstrap this step through the later Hilbert irreducibility node, whose construction depends on the classical realisation."
+        "Uniqueness uses good-prime characteristic polynomials and characteristic-zero Čebotarev recognition. Absolute irreducibility is proved separately in R19.3/classical-newform-irreducibility (DDT Theorem 3.1(c) is the weight-two case); DFG Lemma 5.7 proves rank and the pairing only."
       ],
       "acceptance": [
         "11a1 (k = 2, N = 11, ψ = 1, K = Q): ρ_{g,ℓ} ≅ V_ℓ(E) for E = X_0(11); arithmetic Frobenius at 3 has polynomial X² + X + 3.",
@@ -1504,7 +1532,8 @@
         "the parity hypothesis 'd even implies there exists a finite place v with pi_v essentially square-integrable' is a standing hypothesis (0.3) of Theorem (A) itself; base change is used to pass from Theorem (B), which fixes such a v and excludes p = v and the extraordinary cuspidal places, to the conclusion at every finite place - it does NOT remove the parity hypothesis",
         "lambda must have residue characteristic different from that of p; the case of equal characteristic is Saito's theorem, a separate node",
         "sigma_lambda(pi_p) is formed with the HECKE correspondence, not the Langlands correspondence",
-        "This geometric theorem retains the finite discrete-series-place hypothesis when [F:Q] is even. The all-cohomological-Hilbert theorem is a separate node using Taylor congruences; Carayol alone is not the general existence theorem."
+        "This geometric theorem retains the finite discrete-series-place hypothesis when [F:Q] is even. The all-cohomological-Hilbert theorem is a separate node using Taylor congruences; Carayol alone is not the general existence theorem.",
+        "Translation to this roadmap's global object: Carayol's σ_λ(π) = ρ_{π,λ} ⊗ χ_{π,λ}^{−1} (R19.2/hilbert-normalisation-dictionary (a))."
       ],
       "proofSteps": [
         "Theorem (B) (R19.2/carayol-theorem-b) proves the conclusion at every 𝔭 ≠ v where π_𝔭 is not extraordinary cuspidal. When d is even, v is a fixed finite place where π_v is essentially square-integrable.",
@@ -2065,64 +2094,226 @@
       "realises": [
         "AutomorphicGaloisRepresentations:R19.3"
       ],
-      "title": "Purity of the eigenform compatible family",
+      "title": "Saito's weight–monodromy theorem for the geometric eigenform realisations",
       "kind": "theorem",
-      "statement": "Let F be totally real of degree g>1 and let f have multiweight (k_τ,w) with w≥k_τ≥2 and k_τ≡w mod 2. If g is even, assume f has a finite discrete-series component. For the cohomological Hilbert representation σ̌_h(π_f) of Saito’s Theorem 2 in this geometric setting, the common local WD parameter is monodromy-pure of weight w−1. For geometric Frobenius, N=0 gives eigenvalues of weight w−1; if N≠0, ker N has weight w−2 and coker N weight w. In classical weight k, the cohomological realisation has weight k−1, while its arithmetic dual has geometric-Frobenius weight 1−k; evaluation at arithmetic Frobenius restores weight k−1. All embeddings of the coefficient field satisfy the corresponding absolute values. Strictness is established by the fixed-family node, not by purity or by equality of good-prime polynomials.",
+      "statement": "Saito's Theorem 2, in his labelling and in this roadmap's: let F be totally real of degree g > 1 and f a Hilbert eigen-newform of multiweight (k_τ, w_S) with w_S ≥ k_τ ≥ 2 and k_τ ≡ w_S mod 2, and if g is even assume f has a finite discrete-series component. For Saito's ρ_{f,λ} = σ̌_h(π_f), which is Carayol's σ_λ(π_f) for π_f of infinity type (k, 2 − w_S) (R19.2/hilbert-normalisation-dictionary), and a finite place p of F, the monodromy filtrations of the Weil–Deligne representations of ρ_{f,λ}|G_{F_p} (λ ∤ p) and of D_pst(ρ_{f,μ}|G_{F_p}) (μ | p) are pure of weight w_S − 1: for a geometric Frobenius lift, N = 0 gives eigenvalues of weight w_S − 1, and N ≠ 0 gives weight w_S − 2 on ker N and w_S on coker N. Equivalently ρ_{π_f,λ} = σ_λ(π_f) ⊗ χ_{π_f,λ} is pure of weight 3 − w_S = w + 1. The classical case F = Q, f of weight k, is Saito 2000, Theorems 1 and 3 (weight k − 1 for M_{f,λ}). This geometric theorem is the input to Saito's coefficient-prime comparison; purity for every Hilbert form is R19.3/monodromy-weight-purity-of-the-family.",
       "hypotheses": [
-        "Saito's Theorem 2 assumes the setting of his Claim 1: p a finite place of F above p, lambda and mu places of L(f) above l different from p and above p respectively",
-        "the purity statement is for the monodromy filtration, and presupposes N^2 = 0 so that the three-step filtration 0 subset Im N subset Ker N subset V is defined",
-        "the case N nonzero is described by the source as easy, since the determinant is known and N induces an isomorphism Gr^W_1(V)(1) -> Gr^W_{-1}(V); the substantive case is N = 0",
-        "'pure of weight n' is defined by: the eigenvalues of a lifting F of geometric Frobenius on Gr_i^W are algebraic numbers whose conjugates have complex absolute value Np^{(n+i)/2}",
-        "The generic compatible-system carrier and its weak/almost-strict/strict predicates are PotentialModularityAndCompatibleSystems R24.5 (request); the Weil–Deligne relation is normalised as F N F^{−1} = q^{−1}N for a geometric Frobenius F (PadicHodgeTheory/E50 records Saito's reversed printed sign).",
-        "The degree g>1, w≥k_τ and finite discrete-series condition in even degree are part of Saito’s setting; this node does not assert general all-Hilbert purity outside that setting."
+        "Saito's setting: g > 1, w_S ≥ k_τ ≥ 2, k_τ ≡ w_S mod 2, and a finite discrete-series place when g is even; the condition w_S ≥ k_τ is his choice of twist, not a restriction on π.",
+        "N² = 0, and the monodromy filtration 0 ⊂ Im N ⊂ Ker N ⊂ V is the one Saito uses.",
+        "Weil–Deligne relation F N F^{−1} = q^{−1}N for a geometric Frobenius F; Saito's printed reversed relation is PadicHodgeTheory/E50."
       ],
       "proofSteps": [
-        "Apply R34.6 to the geometric parabolic/eigenform realisation and the vanishing/monodromy argument of Saito Theorem 2.",
-        "For rank two with N≠0 the determinant and the isomorphism between monodromy-graded pieces fix the two weights; N=0 uses the substantive purity/vanishing input.",
-        "The weight distinction detects N=0 versus N≠0 in coefficient-prime comparisons. Dualisation and inverse Frobenius change the weight as stated."
-      ],
-      "acceptance": [
-        "Check on a Steinberg place that the weight-(w-2) and weight-w eigenvalues really occur, so the purity statement distinguishes N = 0 from N nonzero",
-        "Check that a system produced by a lifting theorem in the Serre-conjecture literature is only almost strictly compatible, by exhibiting a place above the coefficient characteristic where the Weil-Deligne parameter is not pinned down"
+        "The case N ≠ 0 follows from the determinant and the isomorphism N: Gr^W_1(V)(1) ≅ Gr^W_{−1}(V) (Saito's Remark).",
+        "For N = 0: realise ρ_{f,λ} in the cohomology of the semistable model of Saito's Kuga–Sato analogue over the Shimura curve (WeightsInEtaleCohomology R34.3/saito-semistable-comparison-model); the weight spectral sequence, the Weil conjectures for the components of the special fibre and the vanishing of the relevant global sections (Saito Proposition 1, §10) give the weights (WeightsInEtaleCohomology R34.6, requested as a geometric statement on these realisations).",
+        "The same argument with log-crystalline cohomology gives the statement for D_pst; dualising and twisting by χ_{π_f,λ} translates the weight by the dictionary."
       ],
       "prerequisites": [
-        "AutomorphicGaloisRepresentations:R19.1/parabolic-realisation-premotive",
-        "WeightsInEtaleCohomology:R34.6",
-        "ArithmeticGaloisRepresentations:R01.2",
-        "PotentialModularityAndCompatibleSystems:R24.5:operations",
+        "AutomorphicGaloisRepresentations:R19.2/carayol-sigma-lambda-construction",
+        "AutomorphicGaloisRepresentations:R19.2/hilbert-normalisation-dictionary",
         "AutomorphicGaloisRepresentations:R19.2/hilbert-modular-compatible-system-carayol-theorem-A",
-        "WeightsInEtaleCohomology:R34.6/arithmetic-realization-transport"
+        "WeightsInEtaleCohomology:R34.3/saito-semistable-comparison-model",
+        "WeightsInEtaleCohomology:R34.6",
+        "WeightsInEtaleCohomology:R34.6/arithmetic-realization-transport",
+        "ArithmeticGaloisRepresentations:R01.2"
       ],
       "sources": [
         {
           "sourceId": "saito-hilbert-padic-hodge",
           "locator": "Theorem 2, p. 13 of the arXiv version",
-          "excerpt": "the eigenvalue α of ′ ρf,λ,p (F ) for an arbitrary lifting F ∈ W (F̄p /Fp ) of the geometric Frobenius is of weight n where n = w−1 if N = 0, w−2 if N 6= 0 and α is the eigenvalue on Ker N, w if N 6= 0 and α is the eigenvalue on Coker N .",
-          "match": "The precise purity statement, split by the monodromy operator, which is what 'purity' means here."
+          "excerpt": "Then the monodromy filtration of the representations",
+          "match": "Both the ℓ-adic and the p-adic Weil–Deligne representations are pure of weight w − 1 in Saito's labelling."
         },
         {
           "sourceId": "saito-hilbert-padic-hodge",
           "locator": "Remark after Theorem 2, p. 13 of the arXiv version",
-          "excerpt": "The assertion for the case N 6= 0 is easy since we know the determinant and N : GrW 1 (V )(1) → GrW −1 (V ) is an isomorphism.",
-          "match": "Identifies which case carries the mathematical content, so the decomposition does not treat the two cases as equally deep."
+          "excerpt": "The assertion for the case N 6= 0 is easy since we know the determinant",
+          "match": "The substantive case is N = 0."
         },
         {
-          "sourceId": "carayol86-hilbert",
-          "locator": "Theoreme (A), printed pp. 410-411",
-          "excerpt": "il existe alors une extension finie E de Q(n) et un système strictement compatible {a^} de représentations continues E^-adiques de dimension 2 du groupe de Galois Gai (F/F)",
-          "match": "Carayol uses the words 'strictement compatible' without defining them in the passage read; the reviewer added Dieulefait-Pacetti Definition 1.10 for the modern definition, which is not claimed to coincide with Carayol's usage."
-        },
-        {
-          "sourceId": "dieulefait-pacetti",
-          "locator": "1.4, after Definition 1.10, p. 7 of the arXiv version",
-          "excerpt": "An almost strictly compatible system is a 5-tuple satisfying the first five properties, and also condition (6) but",
-          "match": "The definition distinguishing almost strictly from strictly compatible systems. Added by the reviewer."
+          "sourceId": "saito-wm-2000",
+          "locator": "Theorem 1, printed p. 429 (page image)",
+          "excerpt": "Then the monodromy weight conjecture is satisfied for V.",
+          "match": "The classical case: for a newform of weight k and p ≠ ℓ, weight k − 1, and k − 1 ± 1 on Gr_{±1} when N ≠ 0."
         }
+      ],
+      "acceptance": [
+        "Steinberg place of a weight-two form (w_S = 2): eigenvalues of weights 0 and 2 occur, so N ≠ 0 is detected by weights.",
+        "11a1 at 11: Saito's ρ is H¹_ét(E_Q̄, Q_ℓ) with geometric Frobenius eigenvalues 1 on ker N and 11 on coker N."
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AutomorphicGaloisRepresentations:R19.3/hilbert-ramanujan-conjecture",
+      "parentStageId": "AutomorphicGaloisRepresentations:R19.3",
+      "realises": [
+        "AutomorphicGaloisRepresentations:R19.3"
+      ],
+      "title": "Ramanujan conjecture for Hilbert modular forms",
+      "kind": "theorem",
+      "statement": "Let π is a cuspidal automorphic representation of GL₂(A_F), F totally real of degree d, of infinity type (k,w): for every real place τ, π_τ is the discrete series D_{k_τ,w} with Blattner parameter k_τ and central character t ↦ sgn(t)^{k_τ}|t|^{−w} (Carayol 0.2–0.3; Skinner §1), with k_τ ≥ 2 and k_τ ≡ w mod 2 for all τ. Then for every finite place v the unitary twist π_v ⊗ |det|_v^{w/2} is tempered; equivalently each irreducible constituent Λ of the Weil–Deligne representation Rec_v(π_v ⊗ |det|_v^{w/2}) has bounded image (Blasius §2.2). At v ∉ S_π this says: for every embedding ι of E into C, both roots α of X² − t_vX + q_vs_v satisfy |ι(α)| = q_v^{(w+1)/2}, so |ι(t_v)| ≤ 2q_v^{(w+1)/2}. For F = Q and π_f of infinity type (k, k−2) this is Deligne's bound |a_p| ≤ 2p^{(k−1)/2}.",
+      "hypotheses": [
+        "Weights all congruent modulo 2 and at least 2: Blasius's type MC; parallel and non-parallel weights are both covered.",
+        "The Satake parameters are those of the positive-uniformiser operators of R19.2/all-cohomological-hilbert-representation."
+      ],
+      "proofSteps": [
+        "Reduction to unramified places (Blasius §2.2): a supercuspidal or Steinberg-twist component of a unitary cuspidal representation is tempered; a ramified principal series ψ₁ ⊕ ψ₂ with unitary product is either tempered or of complementary type μψ ⊕ μ^{−1}ψ with ψ of finite order. A finite-order idele class character η with η_v = ψ exists (class field theory, ArithmeticGaloisRepresentations R01.1); π ⊗ η^{−1} has the same infinity type and is unramified-twisted at v, so it suffices to treat places where π is unramified.",
+        "Motivic cases (Blasius §4.1, case A): if some k_τ > 2, or d is odd, or π has a finite discrete-series place, ρ_{π,λ} occurs up to twist in the cohomology of a smooth projective variety with good reduction at the unramified place v (Carayol's Shimura curves and Saito's Kuga–Sato analogues, or Blasius–Rogawski motives on unitary Shimura varieties, AutomorphicGaloisRepresentationsPartII AG2.1); Deligne's Weil I (WeightsInEtaleCohomology R34.5) makes the Frobenius eigenvalues pure of weight w + 1, and the good-place polynomial transfers this to the Satake parameters.",
+        "Parallel weight two, d even, principal series everywhere (Blasius §4.2): after a totally real quadratic base change where needed (Blasius's Remark, GL2AutomorphicRepresentationsAndTransfer R17.4), take the quaternion algebra B split at exactly two real places τ₁, τ₂ and at all finite places. By Proposition 6 (Reimann; Brylinski–Labesse; HilbertModularVarietiesAndShimuraCurves R18.4), the constituents of H²(Sh_{B,W}, Q_ℓ)(π′_f) over Γ_L are those of R_ℓ(π) = ρ_{π,λ}|_L ⊗ ^{τ₂}ρ_{π,λ}|_L. The weight–monodromy conjecture holds for H² of surfaces (Rapoport–Zink with de Jong's alterations, WeightsInEtaleCohomology R34.4), Λ²ρ_{π,λ} = det ρ_{π,λ} is pure, and the tensor-product lemma of Blasius §4.2 makes each factor pure: the Frobenius eigenvalues of ρ_{π,λ} at v have weight w + 1.",
+        "Transfer to π_v: by the good-place polynomial (R19.2/all-cohomological-hilbert-representation) the Satake parameters of π_v ⊗ |det|^{w/2} have absolute value 1 under every embedding."
+      ],
+      "prerequisites": [
+        "AutomorphicGaloisRepresentations:R19.2/all-cohomological-hilbert-representation",
+        "AutomorphicGaloisRepresentations:R19.2/hilbert-normalisation-dictionary",
+        "AutomorphicGaloisRepresentations:R19.2/carayol-sigma-lambda-construction",
+        "WeightsInEtaleCohomology:R34.5",
+        "WeightsInEtaleCohomology:R34.4",
+        "HilbertModularVarietiesAndShimuraCurves:R18.4",
+        "GL2AutomorphicRepresentationsAndTransfer:R17.4",
+        "GL2AutomorphicRepresentationsAndTransfer:R16.2",
+        "AutomorphicGaloisRepresentationsPartII:AG2.1",
+        "ArithmeticGaloisRepresentations:R01.1",
+        "ArithmeticGaloisRepresentations:R01.2"
+      ],
+      "sources": [
+        {
+          "sourceId": "blasius06",
+          "locator": "Theorem 1, p. 1 (arXiv v1)",
+          "excerpt": "having weights all congruent modulo 2 and at least 2 at each infinite place of F",
+          "match": "The Ramanujan conjecture at all finite places for every paritious Hilbert eigenform."
+        },
+        {
+          "sourceId": "blasius06",
+          "locator": "§2.2, p. 15",
+          "excerpt": "Hence, the Ramanujan Conjecture amounts to the assertion that representations of this type (complementary series) don’t occur as local components of cusp forms.",
+          "match": "Reduction of the conjecture to excluding complementary series, then to unramified places by a finite-order twist."
+        },
+        {
+          "sourceId": "blasius06",
+          "locator": "§4.2, p. 21",
+          "excerpt": "Applying this with V1 = ρTl , we conclude that ρTl |Du is pure of weight 1 at u",
+          "match": "The geometric proof in parallel weight two through the quaternionic Shimura surface."
+        },
+        {
+          "sourceId": "skinner09",
+          "locator": "§2.4.1, Remark, p. 252",
+          "excerpt": "We can also use Sym2 π to show that the Ramanujan conjecture holds for π.",
+          "match": "An alternative proof through the symmetric square; Skinner attributes the theorem to Blasius [B2]."
+        }
+      ],
+      "acceptance": [
+        "11a1 at 2: X² + 2X + 2 has roots of absolute value √2 = 2^{(0+1)/2}.",
+        "Δ at 2: X² + 24X + 2048 has negative discriminant 576 − 8192, and |α|² = 2^{11}.",
+        "Non-example: a complementary-series local component μψ ⊕ μ^{−1}ψ with μ = |·|^t, 0 < t < 1/2, does not occur."
       ],
       "implementationStatus": "unchecked",
       "planet": {
-        "name": "Monodromy purity"
+        "name": "Ramanujan conjecture for Hilbert forms"
       }
+    },
+    {
+      "id": "AutomorphicGaloisRepresentations:R19.3/monodromy-weight-purity-of-the-family",
+      "parentStageId": "AutomorphicGaloisRepresentations:R19.3",
+      "realises": [
+        "AutomorphicGaloisRepresentations:R19.3"
+      ],
+      "title": "Weight–monodromy purity of every Hilbert representation",
+      "kind": "theorem",
+      "statement": "Let π is a cuspidal automorphic representation of GL₂(A_F), F totally real of degree d, of infinity type (k,w): for every real place τ, π_τ is the discrete series D_{k_τ,w} with Blattner parameter k_τ and central character t ↦ sgn(t)^{k_τ}|t|^{−w} (Carayol 0.2–0.3; Skinner §1), with k_τ ≥ 2 and k_τ ≡ w mod 2 for all τ, λ | ℓ, and v a finite place of F. If v ∤ ℓ, the Frobenius-semisimple Weil–Deligne representation WD(ρ_{π,λ}|G_{F_v})^{F-ss} is pure of weight w + 1 in the monodromy sense: either N = 0 and every eigenvalue of a geometric Frobenius lift is a q_v-Weil number of weight w + 1 under every embedding, or N ≠ 0, ker N has weight w and coker N has weight w + 2. If v | ℓ, the same holds for the Weil–Deligne representation of D_pst(ρ_{π,λ}|G_{F_v}). In Carayol's and Saito's normalisation σ_λ(π) = ρ_{π,λ} ⊗ χ_{π,λ}^{−1} the weight is 1 − w = w_S − 1.",
+      "hypotheses": [
+        "N is normalised by F N F^{−1} = q_v^{−1}N for a geometric Frobenius F (ArithmeticGaloisRepresentations R01.2).",
+        "No discrete-series place and no residual hypothesis."
+      ],
+      "proofSteps": [
+        "Away from ℓ: by R19.4/all-hilbert-local-global-compatibility, WD(ρ_{π,λ}|G_{F_v})^{F-ss} ≅ ιRec_v(π_v ⊗ |·|_v^{−1/2}) = ιRec_v(π′_v) ⊗ |·|_v^{−(w+1)/2} with π′ = π ⊗ |det|^{w/2}.",
+        "By R19.3/hilbert-ramanujan-conjecture π′_v is tempered, so Rec_v(π′_v) is a sum of Λ ⊗ V_t with Λ bounded (Blasius §2.2, types (i)–(iii)): weight 0 in the monodromy sense. The unramified twist |·|^{−(w+1)/2} takes the value q_v^{(w+1)/2} at a geometric Frobenius, which shifts all weights by w + 1 (Blasius Proposition 1).",
+        "For N ≠ 0, π_v is a twist ψ·St and the parameter is ψ|·|^{−(w+1)/2} ⊗ V_{q^{1/2},1}; the relation FNF^{−1} = q^{−1}N puts ker N in weight w and coker N in weight w + 2. This is Blasius's Corollary 7 and Proposition 5 argument.",
+        "At v | ℓ: R19.5/skinner-full-hilbert-coefficient-prime identifies the Weil–Deligne representation of D_pst with the same ιRec_v(π_v ⊗ |·|_v^{−1/2}); apply the previous steps."
+      ],
+      "prerequisites": [
+        "AutomorphicGaloisRepresentations:R19.4/all-hilbert-local-global-compatibility",
+        "AutomorphicGaloisRepresentations:R19.5/skinner-full-hilbert-coefficient-prime",
+        "AutomorphicGaloisRepresentations:R19.3/hilbert-ramanujan-conjecture",
+        "AutomorphicGaloisRepresentations:R19.2/hilbert-normalisation-dictionary",
+        "ArithmeticGaloisRepresentations:R01.2",
+        "GL2AutomorphicRepresentationsAndTransfer:R16.3"
+      ],
+      "sources": [
+        {
+          "sourceId": "blasius06",
+          "locator": "Corollary 7, p. 20",
+          "excerpt": "which satisfies the GLC satsifies WMC at all places v prime to l",
+          "match": "Every ℓ-adic representation satisfying local–global compatibility for a type-MC Hilbert form is pure in the monodromy sense away from ℓ (the source prints 'satsifies')."
+        },
+        {
+          "sourceId": "blasius06",
+          "locator": "Proposition 5, p. 16",
+          "excerpt": "Suppose that the GLC holds for the motivic l-adic representation",
+          "match": "Local–global compatibility plus the unitary classification forces weight–monodromy purity."
+        },
+        {
+          "sourceId": "saito-wm-2000",
+          "locator": "Theorem 1, printed p. 429 (page image)",
+          "excerpt": "Then the monodromy weight conjecture is satisfied for V.",
+          "match": "Classical case F = Q at p ≠ ℓ, with the p-adic analogue in Theorem 3."
+        }
+      ],
+      "acceptance": [
+        "11a1 at 11 (split multiplicative, infinity type (2,0)): N ≠ 0, geometric Frobenius acts by 1 on ker N (weight 0 = w) and by 11 on coker N (weight 2 = w + 2).",
+        "Δ at any p: N = 0 and the eigenvalues have weight 11 = w + 1.",
+        "The split semisimplification of a Steinberg parameter has the same Frobenius eigenvalues of weights w and w + 2 with N = 0; it is not pure, which is how purity detects N."
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Weight–monodromy purity"
+      }
+    },
+    {
+      "id": "AutomorphicGaloisRepresentations:R19.3/classical-newform-irreducibility",
+      "parentStageId": "AutomorphicGaloisRepresentations:R19.3",
+      "realises": [
+        "AutomorphicGaloisRepresentations:R19.3"
+      ],
+      "title": "Absolute irreducibility of the representation of a classical newform",
+      "kind": "theorem",
+      "statement": "Let f be a normalised newform of weight k ≥ 2, level N and character ψ, with coefficient field K_f. For every finite place λ of K_f the representation ρ_{f,λ} = M_{f,λ}^∨ of R19.1/newform-rank-two-realisation is absolutely irreducible. (Weight one is R19.1/weight-one-cuspidal-irreducibility.)",
+      "hypotheses": [
+        "k ≥ 2: the Hodge–Tate weights 0 and k − 1 are distinct.",
+        "No condition on λ; residual irreducibility is a different statement."
+      ],
+      "proofSteps": [
+        "Suppose ρ_{f,λ} ⊗ K̄_{f,λ} ≅ χ₁ ⊕ χ₂. The restriction to G_{Q_ℓ} is Hodge–Tate with weights 0 and k − 1: M_{f,λ} is cut out of the cohomology of a smooth projective variety over Q by the Scholl projector (k ≥ 3) or the weight-two Jacobian factor (k = 2) (R19.1/scholl-projector, R19.1/newform-projector-and-coefficient-descent), and Faltings' Hodge–Tate decomposition applies (PadicHodgeTheory R06.5).",
+        "Each χ_i is then a Hodge–Tate character of G_Q unramified outside Nℓ, hence ε_ℓ^{n_i}η_i with η_i of finite order (ArithmeticGaloisRepresentations R01.1), and {n₁, n₂} = {0, k − 1}.",
+        "For p ∤ Nℓ, a_p = η₁(Frob_p)p^{n₁} + η₂(Frob_p)p^{n₂}, so |a_p| ≥ p^{k−1} − 1 under every embedding, which exceeds 2p^{(k−1)/2} for p large; this contradicts the bound of WeightsInEtaleCohomology R34.6/eigenform-purity-and-ramanujan-bound.",
+        "Equivalently, Skinner's Remark (p. 256) applies with F = Q: a decomposition would give L(f ⊗ η₂^{−1}, s) a pole. The Hilbert irreducibility node R19.2/hilbert-uniqueness-determinant-oddness-irreducibility is not used, since the Hilbert construction depends on the classical realisation."
+      ],
+      "prerequisites": [
+        "AutomorphicGaloisRepresentations:R19.1/newform-rank-two-realisation",
+        "AutomorphicGaloisRepresentations:R19.1/scholl-projector",
+        "AutomorphicGaloisRepresentations:R19.1/newform-projector-and-coefficient-descent",
+        "PadicHodgeTheory:R06.5",
+        "ArithmeticGaloisRepresentations:R01.1",
+        "WeightsInEtaleCohomology:R34.6/eigenform-purity-and-ramanujan-bound"
+      ],
+      "sources": [
+        {
+          "sourceId": "skinner09",
+          "locator": "Remark, p. 256",
+          "excerpt": "We recall that there is a quick proof of the irreducibility of ρπ using that it is potentially semistable (really only that it is Hodge-Tate)",
+          "match": "The Hodge–Tate argument, valid for every totally real field including Q."
+        },
+        {
+          "sourceId": "ddt",
+          "locator": "Theorem 3.1(a)–(c), p. 86 (revision of 9 September 2007)",
+          "excerpt": "ρ is absolutely irreducible.",
+          "match": "Weight two, as a check of the statement."
+        }
+      ],
+      "acceptance": [
+        "Δ: ρ_{Δ,ℓ} is irreducible for every ℓ, although ρ̄_{Δ,691} is reducible (Ramanujan's congruence τ(n) ≡ σ₁₁(n) mod 691).",
+        "11a1: irreducible at every λ, residually reducible at 5.",
+        "Non-example: the Eisenstein series E_k gives χ_ℓ^{k−1} ⊕ 1, Hodge–Tate with weights 0, k − 1; it is excluded because it is not cuspidal, and the bound |a_p| ≤ 2p^{(k−1)/2} fails for it."
+      ],
+      "implementationStatus": "unchecked"
     },
     {
       "id": "AutomorphicGaloisRepresentations:R19.5/potential-semistability-and-compatibility-at-the-coefficient-prime",
@@ -2132,12 +2323,12 @@
       ],
       "title": "Scholl–Saito comparison for geometric eigenform realisations",
       "kind": "theorem",
-      "statement": "For the classical parabolic/Kuga–Sato newform realisation, and for Hilbert forms of degree g>1 and multiweight w≥k_τ≥2, k_τ≡w mod 2, satisfying Saito’s finite-discrete-series-place hypothesis when g is even, apply the imported generic proper-smooth/semistable comparison to the coefficient projector. Obtain de Rham/potentially semistable realisations, their labelled Hodge filtration and the full WD^{F-ss} comparison at the coefficient prime. In the classical good-prime case p∤N the arithmetic representation is crystalline with Hodge weights {0,k−1} in the convention HT(χ_p)=1; the cohomological dual has the opposite representation weights. Its Euler roots in the cohomological D_cris normalisation have polynomial X²−a_pX+ε(p)p^{k−1}. Weight two gives the Barsotti–Tate realisation; arbitrary k does not. This is the concrete modular comparison application owned by R19.5.",
+      "statement": "For the classical parabolic/Kuga–Sato newform realisation, and for Hilbert forms of degree g>1 and multiweight w≥k_τ≥2, k_τ≡w mod 2, satisfying Saito’s finite-discrete-series-place hypothesis when g is even, apply the imported generic proper-smooth/semistable comparison to the coefficient projector. Obtain de Rham/potentially semistable realisations, their labelled Hodge filtration and the full WD^{F-ss} comparison at the coefficient prime. In the classical good-prime case p∤N the arithmetic representation is crystalline with Hodge weights {0,k−1} in the convention HT(χ_p)=1; the cohomological dual has the opposite representation weights. Its Euler roots in the cohomological D_cris normalisation have polynomial X²−a_pX+ε(p)p^{k−1}. Weight two gives the Barsotti–Tate realisation; arbitrary k does not. This is the concrete modular comparison application owned by R19.5. In this roadmap's normalisation the Hilbert conclusion reads WD(ρ_{π,λ}|G_{F_v})^{F-ss} ≅ ιRec_v(π_v ⊗ |·|_v^{−1/2}), because Saito's σ̌_h(π_{f,p}) is Carayol's σ(π_v) = Rec_v(π_v ⊗ |·|_v^{−1/2}) ⊗ χ_{π_v}^{−1} and ρ_{f,λ} = σ_λ(π_f) (R19.2/hilbert-normalisation-dictionary (a)–(b)). The classical branch (F = Q, every k ≥ 2 and every coefficient prime) is the case d = 1 of Skinner's Theorem 1, which attributes it to Saito 1997; its p-adic weight–monodromy statement is Saito 2000, Theorem 3.",
       "hypotheses": [
         "Classical k≥2, or Hilbert cohomological multiweight with Saito’s geometry hypotheses.",
         "Retain the coefficient projector and its realisation functor laws; comparison is not deduced just from a desired Euler polynomial.",
         "The full all-Hilbert extensions are the separate Kisin and Skinner nodes.",
-        "For the Hilbert branch retain all of Saito’s standing degree/multiweight hypotheses. The classical all-weight, all-coefficient-prime comparison requires its own precise Scholl/Saito source input; it is not inferred by treating the Hilbert paper as the classical theorem."
+        "For the Hilbert branch retain all of Saito’s standing degree/multiweight hypotheses (g > 1; finite discrete-series place when g is even). The classical all-weight, all-prime theorem is anchored in Skinner's Theorem 1 with d = 1 and in Saito 2000; Saito 1997 itself is a recorded source gap."
       ],
       "proofSteps": [
         "Use the Scholl projector or Carayol multiplicity space on the imported geometry.",
@@ -2154,11 +2345,11 @@
         "AutomorphicGaloisRepresentations:R19.1/newform-projector-and-coefficient-descent",
         "AutomorphicGaloisRepresentations:R19.2/hilbert-modular-compatible-system-carayol-theorem-A",
         "AutomorphicGaloisRepresentations:R19.3/strict-compatibility-and-the-monodromy-weight-purity",
-        "AutomorphicGaloisRepresentations:R19.4/all-hilbert-local-global-compatibility",
         "PadicHodgeTheory:R06.5/crystalline-comparison-good-reduction",
         "PadicHodgeTheory:R06.5",
         "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4",
-        "ModularCurvesPartII:R14.5/modular-quotient"
+        "ModularCurvesPartII:R14.5/modular-quotient",
+        "AutomorphicGaloisRepresentations:R19.2/hilbert-normalisation-dictionary"
       ],
       "sources": [
         {
@@ -2178,6 +2369,18 @@
           "locator": "Abstract, p. 1 of the arXiv version",
           "excerpt": "We prove the compatibility by comparing the p-adic and ℓ-adic representations for it is already established for ℓ-adic representation [C2].",
           "match": "Records that R19.5 genuinely consumes R19.4 (Carayol's l-adic compatibility) and is not an independent construction."
+        },
+        {
+          "sourceId": "saito-wm-2000",
+          "locator": "Theorem 3, printed pp. 429–430 (page image)",
+          "excerpt": "We also have a p-adic analogue.",
+          "match": "Classical p-adic weight–monodromy for D_pst of the representation attached to a newform, citing Saito 1997."
+        },
+        {
+          "sourceId": "skinner09",
+          "locator": "Introduction, p. 243",
+          "excerpt": "Saito proved that Theorem 1 holds when either d is odd or there exists a finite place w such that πw is square-integrable",
+          "match": "With d = 1 this is the classical coefficient-prime theorem."
         }
       ],
       "planet": {
@@ -2198,7 +2401,8 @@
         "the comparison is at finite places p whose residue characteristic differs from that of lambda",
         "sigma(pi_p) is F-semisimple by construction, and Theorem (A) asserts an equivalence of lambda-adic representations of W_{F_p}, not merely an isomorphism after F-semisimplification",
         "the normalization of class field theory is fixed so that GEOMETRIC Frobenius elements correspond to uniformizers (source 0.4)",
-        "the twist relating Hecke to Langlands is by omega_p^{1/2} together with contragredience (0.5); other papers use other normalizations under the same name (Saito's sigma_h, recalled from [De], appears in his Theorem 0 as sigma-check_h - see the gap on normalizations)"
+        "the twist relating Hecke to Langlands is by omega_p^{1/2} together with contragredience (0.5); other papers use other normalizations under the same name (Saito's sigma_h, recalled from [De], appears in his Theorem 0 as sigma-check_h - see the gap on normalizations)",
+        "Translation to this roadmap's global object: Carayol's σ_λ(π) = ρ_{π,λ} ⊗ χ_{π,λ}^{−1} (R19.2/hilbert-normalisation-dictionary (a))."
       ],
       "proofSteps": [
         "Kutzko's classification of the local representations gives sigma(pi_p) with the stated L- and epsilon-factor characterization.",
@@ -2417,7 +2621,8 @@
       "prerequisites": [
         "AutomorphicGaloisRepresentations:R19.1/newform-rank-two-realisation",
         "ArithmeticGaloisRepresentations:R01.1",
-        "ArithmeticGaloisRepresentations:R01.5/recognition-by-characteristic-polynomials-and-coefficient-descent"
+        "ArithmeticGaloisRepresentations:R01.5/recognition-by-characteristic-polynomials-and-coefficient-descent",
+        "AutomorphicGaloisRepresentations:R19.3/classical-newform-irreducibility"
       ],
       "sources": [
         {
@@ -2945,7 +3150,8 @@
       "hypotheses": [
         "Wiles, \"On ordinary λ-adic representations associated to modular forms\" (Invent. Math. 94, 1988) [W2] is quoted through Skinner–Wiles §3.3; it is not read here.",
         "The even-degree assumption is Skinner–Wiles' standing assumption in §3.3 (definite quaternion algebras unramified at all finite places); odd degree is reduced to it by solvable base change in their Main Theorem.",
-        "The ordinary local triangular-shape theorem and its exact characters are owned by R21.3; this node identifies Wiles’ representation with the cohomological representation by good-prime traces."
+        "The ordinary local triangular-shape theorem and its exact characters are owned by R21.3; this node identifies Wiles’ representation with the cohomological representation by good-prime traces.",
+        "By (3.3) the Skinner–Wiles ρ_π corresponds to π_v under Carayol's Hecke correspondence, so it is σ_λ(π) = ρ_{π^∨,λ} in this roadmap's normalisation (R19.2/hilbert-normalisation-dictionary (g))."
       ],
       "proofSteps": [
         "Import Wiles/Skinner–Wiles ordinary local theorem from R21.3 and compare its good-prime trace/determinant with the all-Hilbert representation by Čebotarev recognition. Its Hida-family construction and local triangular theorem are not replanned here.",
@@ -2960,7 +3166,8 @@
         "OrdinaryAutomorphicFormsAndModularityLifting:R21.1/quaternionic-nearly-ordinary-hecke-algebra",
         "AutomorphicGaloisRepresentations:R19.2/hilbert-modular-compatible-system-carayol-theorem-A",
         "OrdinaryAutomorphicFormsAndModularityLifting:R21.3",
-        "AutomorphicGaloisRepresentations:R19.2/all-cohomological-hilbert-representation"
+        "AutomorphicGaloisRepresentations:R19.2/all-cohomological-hilbert-representation",
+        "AutomorphicGaloisRepresentations:R19.2/hilbert-normalisation-dictionary"
       ],
       "sources": [
         {
@@ -2988,7 +3195,8 @@
       "kind": "theorem",
       "statement": "With π ∈ Π^ord_k(U) and ρ_π as in AutomorphicGaloisRepresentations:R19.2/wiles-ordinary-hilbert-representation, for every finite place v ∤ p, π_v ≅ π_v(ρ_π), where π_v(ρ) is the representation of GL_2(F_v) attached to ρ|_{D_v} by local Langlands normalised as in Carayol: if ρ|_{D_v} ≅ (μ_1 ∗; 0 μ_2) then π_v(ρ) is a constituent of π(μ_1^{−1}|·|_v^{−1/2}, μ_2^{−1}|·|_v^{−1/2}) (Skinner–Wiles (3.3)).",
       "hypotheses": [
-        "For ordinary π this is Wiles [W2, Theorem 2.1.3]; the twisting argument uses the compatibility π_v ⊗ ψ_v ↔ ρ ⊗ ψ^{−1} of Carayol's normalisation (AutomorphicGaloisRepresentations:R19.4/hecke-versus-langlands-normalization-and-local-global-compatibility (b))."
+        "For ordinary π this is Wiles [W2, Theorem 2.1.3]; the twisting argument uses the compatibility π_v ⊗ ψ_v ↔ ρ ⊗ ψ^{−1} of Carayol's normalisation (AutomorphicGaloisRepresentations:R19.4/hecke-versus-langlands-normalization-and-local-global-compatibility (b)).",
+        "By (3.3) the Skinner–Wiles ρ_π corresponds to π_v under Carayol's Hecke correspondence, so it is σ_λ(π) = ρ_{π^∨,λ} in this roadmap's normalisation (R19.2/hilbert-normalisation-dictionary (g))."
       ],
       "proofSteps": [
         "Ordinary π: [W2, Theorem 2.1.3] (quoted).",
@@ -3000,7 +3208,8 @@
       "prerequisites": [
         "AutomorphicGaloisRepresentations:R19.2/wiles-ordinary-hilbert-representation",
         "AutomorphicGaloisRepresentations:R19.4/hecke-versus-langlands-normalization-and-local-global-compatibility",
-        "GL2AutomorphicRepresentationsAndTransfer:R16.3"
+        "GL2AutomorphicRepresentationsAndTransfer:R16.3",
+        "AutomorphicGaloisRepresentations:R19.2/hilbert-normalisation-dictionary"
       ],
       "sources": [
         {
@@ -3080,7 +3289,7 @@
       "tests": [
         {
           "name": "TauCeti.ModularGalois.schollProjector_weight_three",
-          "kind": "example",
+          "kind": "computation",
           "statement": "r=1: translations act trivially and inversion acts by −1 on H¹ of the elliptic fibre."
         },
         {
@@ -3198,12 +3407,12 @@
       "tests": [
         {
           "name": "TauCeti.ModularGalois.newformFactor_level23",
-          "kind": "example",
+          "kind": "computation",
           "statement": "The degree-two coefficient field gives rational dimension four, not two."
         },
         {
           "name": "TauCeti.ModularGalois.newformFactor_delta",
-          "kind": "example",
+          "kind": "computation",
           "statement": "For Δ the factor has rank two over Q and is realised in degree eleven Kuga–Sato cohomology."
         },
         {
@@ -3213,7 +3422,7 @@
         },
         {
           "name": "TauCeti.ModularGalois.newformFactor_periodScaling",
-          "kind": "invariance",
+          "kind": "characterisation",
           "statement": "Changing a generator of a period line by a K_f-unit preserves the line; an unspecified lattice cannot select a numerical period."
         },
         {
@@ -3241,41 +3450,58 @@
       ],
       "title": "Galois representation of every cohomological Hilbert eigenform",
       "kind": "construction",
-      "statement": "For any totally real F and cuspidal cohomological π on GL₂(A_F), with infinity type (k_τ,w), k_τ≥2 and k_τ≡w mod 2, construct a continuous semisimple rank-two σ_π,λ over a finite coefficient extension E_λ for every λ. At good geometric Frobenius its polynomial is X²−t_vX+Nv·s_v in the Carayol/Kisin Hecke convention. The arithmetic representation is its dual, with the corresponding explicit change of eigenvalues and determinant. There is no finite discrete-series-place requirement even if [F:Q] is even. In that case construct the missing representation by Taylor’s congruences with forms special at an auxiliary place, compatible finite-quotient traces and determinants, and characteristic-zero reconstruction. The arithmetic-properties node proves absolute irreducibility separately; a minimal coefficient-field model is not inferred merely from trace values.",
+      "statement": "Let π is a cuspidal automorphic representation of GL₂(A_F), F totally real of degree d, of infinity type (k,w): for every real place τ, π_τ is the discrete series D_{k_τ,w} with Blattner parameter k_τ and central character t ↦ sgn(t)^{k_τ}|t|^{−w} (Carayol 0.2–0.3; Skinner §1), with k_τ ≥ 2 and k_τ ≡ w mod 2 for all τ; no finite discrete-series place is assumed when d is even. Let S_π be the set of finite places where π is ramified; for a finite place v ∉ S_π let q_v be the order of the residue field, ϖ_v a uniformiser, and t_v, s_v the eigenvalues of T_v = [GL₂(O_v) diag(ϖ_v,1) GL₂(O_v)] and S_v = [GL₂(O_v) ϖ_v GL₂(O_v)] on the line π_v^{GL₂(O_v)}; they generate a number field Q(π). For every sufficiently large finite extension E of Q(π) and every finite place λ | ℓ of E, construct a continuous semisimple representation ρ_{π,λ}: G_F → GL₂(E_λ), unramified outside S_π and the places above ℓ, such that for every finite v ∉ S_π with v ∤ ℓ the characteristic polynomial of ρ_{π,λ}(Frob_v), Frob_v a geometric Frobenius, is X² − t_vX + q_vs_v. It is unique up to isomorphism. This is the representation of Kisin §4.1 and of Skinner's equation (1), and it is this roadmap's single global object: Carayol's σ_λ(π), Saito's ρ_{f,λ}, the Skinner–Wiles representation, CDN's ρ_Π and the classical arithmetic ρ_{f,λ} are obtained from it by the explicit twists and duals of R19.2/hilbert-normalisation-dictionary. A minimal field of definition is not asserted.",
       "hypotheses": [
-        "The cohomological parity and k_τ≥2 are retained.",
-        "The auxiliary primes vary with the precision; this does not impose a discrete-series place on the given π.",
-        "A chosen model over E_λ is allowed; minimal coefficient-field descent must be justified separately."
+        "Class field theory is normalised so that uniformisers correspond to geometric Frobenius elements (Carayol 0.4; Skinner §1; Kisin §4.1).",
+        "T_v and S_v are the double cosets of diag(ϖ_v,1) and of the scalar ϖ_v. With ϖ_v^{−1} instead (Carayol, Saito) the eigenvalues are t_v/s_v and s_v^{−1}, and the same formal polynomial describes σ_λ(π), not ρ_{π,λ}.",
+        "k_τ ≥ 2 and k_τ ≡ w mod 2 at every τ; d may be even without a finite discrete-series place.",
+        "In the congruence branch the auxiliary primes vary with the precision; they impose no condition on π.",
+        "E is enlarged so that the representation is realised over E_λ; descent to Q(π)_λ is not claimed."
       ],
       "proofSteps": [
-        "If [F:Q] is odd, or π has a finite discrete-series place, use Carayol’s geometric construction and transfer.",
-        "Otherwise use Taylor 1989: for every s>0 a congruence homomorphism to O_λ/p^s factors through an auxiliary-prime-new Hecke quotient; trace and determinant descend and are compatible as s varies.",
-        "Take the complete limit of the rank-two trace/determinant and use imported characteristic-zero semisimple recognition. The Taylor 1989 congruence proof and exact coefficient-field descent remain source-proof refinements.",
-        "Compare models by good-prime traces, Čebotarev and Brauer–Nesbitt."
+        "Unramified dictionary (Carayol 0.5): for π_v = Ind(ξ₁,ξ₂) unramified, Carayol's σ(π_v) = ξ₁^{−1}ω_v^{−1/2} ⊕ ξ₂^{−1}ω_v^{−1/2}, with ω_v = |·|_v the cyclotomic character, so its geometric Frobenius polynomial is X² − (t_v/s_v)X + q_v/s_v, where t_v = q_v^{1/2}(ξ₁+ξ₂)(ϖ_v) and s_v = ξ₁ξ₂(ϖ_v). Twisting by the central character χ_{π_v}, whose value at ϖ_v is s_v, gives X² − t_vX + q_vs_v.",
+        "If d is odd, or π is essentially square-integrable at some finite place, Carayol's Theorem (A) supplies σ_λ(π) (R19.2/hilbert-modular-compatible-system-carayol-theorem-A). Put ρ_{π,λ} := σ_λ(π) ⊗ χ_{π,λ}, where χ_{π,λ} is the λ-adic character of the algebraic Hecke character χ_π given by class field theory (ArithmeticGaloisRepresentations R01.1).",
+        "Otherwise follow Taylor's construction as recalled in Kisin §4.3: for every s > 0 choose an auxiliary prime μ ∤ ℓ such that the eigensystem θ_π: T_m → O/λ^s factors through the μ-new quotient of the Hecke algebra with level at μ; the characteristic-zero points of that quotient are forms special at μ, which step 2 covers. The resulting traces and determinants modulo λ^s are compatible as s varies; their limit is the trace and determinant of a continuous semisimple representation (ArithmeticGaloisRepresentations R01.5, IntegralHeckeAndGaloisDeterminants IHG.1), which has the stated polynomial.",
+        "Uniqueness: two semisimple representations with the same good-place polynomials are isomorphic by Čebotarev and Brauer–Nesbitt (ArithmeticGaloisRepresentations R01.1)."
       ],
       "prerequisites": [
         "AutomorphicGaloisRepresentations:R19.2/hilbert-modular-compatible-system-carayol-theorem-A",
+        "AutomorphicGaloisRepresentations:R19.2/carayol-twisting-and-determinant",
+        "ArithmeticGaloisRepresentations:R01.1",
         "ArithmeticGaloisRepresentations:R01.5",
         "IntegralHeckeAndGaloisDeterminants:IHG.1",
-        "GL2AutomorphicRepresentationsAndTransfer:R17.3"
+        "GL2AutomorphicRepresentationsAndTransfer:R17.3",
+        "HilbertModularVarietiesAndShimuraCurves:R18.4"
       ],
       "sources": [
         {
           "sourceId": "kisin08-ams",
-          "locator": "Introduction p. 514; §4.1 p. 542; proof of Theorem 4.3 pp. 543–544",
-          "excerpt": "Taylor shows",
-          "match": "States the all-Hilbert existence theorem and describes the auxiliary-new congruences at every precision."
+          "locator": "§4.1, p. 542",
+          "excerpt": "By a result of Carayol and Taylor [Ca], [Ta 1], there exists a continuous representation",
+          "match": "Kisin's ρ_{π,λ}: geometric Frobenius polynomial X² − t_vX + N(v)s_v with T_v = U_v(ϖ_v 0; 0 1)U_v and S_v the scalar double coset."
+        },
+        {
+          "sourceId": "kisin08-ams",
+          "locator": "Proof of Theorem 4.3, p. 544",
+          "excerpt": "Taylor shows that for any s > 0 one can choose",
+          "match": "Taylor's auxiliary μ-new congruences at every precision, used for the even-degree principal-series case."
         },
         {
           "sourceId": "skinner09",
-          "locator": "Introduction pp. 241–244, equation (1)",
-          "excerpt": "Taylor",
-          "match": "Confirms existence for all cohomological forms; irreducibility is cited to Taylor II."
+          "locator": "Introduction, p. 242, after equation (1)",
+          "excerpt": "We choose Recv so that when n = 1, Recv is the inverse of the Artin map",
+          "match": "Skinner's ρ_π is defined by WD(ρ_π|D_v)^{Fr-ss} ≅ ιRec_v(π_v ⊗ |·|_v^{−1/2}) with uniformisers corresponding to geometric Frobenius, the same object."
+        },
+        {
+          "sourceId": "carayol86-hilbert",
+          "locator": "0.5, printed p. 410 (checked on the page image)",
+          "excerpt": "La correspondance « de Hecke » ainsi définie diffère de la correspondance de Langlands",
+          "match": "Carayol's σ(π_v) is the Langlands parameter of π_v ⊗ ω_v^{1/2}, dualised; this is the twist used in step 1."
         }
       ],
       "acceptance": [
-        "An even-degree totally real field with all finite π_v principal series is included.",
-        "The Carayol node alone is deliberately insufficient in that case."
+        "An even-degree totally real field with π principal series at every finite place is covered by the congruence branch.",
+        "On a form with a finite discrete-series place both branches give the same representation, by uniqueness."
       ],
       "implementationStatus": "unchecked",
       "planet": {
@@ -3285,66 +3511,235 @@
         {
           "name": "TauCeti.ModularGalois.hilbertGaloisRep",
           "role": "constructor",
-          "statement": "The continuous rank-two σ_π,λ in the named geometric-Frobenius Hecke convention."
+          "statement": "The continuous semisimple ρ_{π,λ}: G_F → GL₂(E_λ) attached to π of infinity type (k,w) and λ."
         },
         {
           "name": "TauCeti.ModularGalois.hilbertGaloisRep_charpoly",
           "role": "characterisation",
-          "statement": "At good v, charpoly(Frob_v^geom)=X²−t_vX+Nv·s_v."
+          "statement": "For v ∉ S_π, v ∤ ℓ: charpoly ρ_{π,λ}(Frob_v^{geom}) = X² − t_vX + q_vs_v, with t_v, s_v the eigenvalues of T_v and S_v defined by ϖ_v."
+        },
+        {
+          "name": "TauCeti.ModularGalois.hilbertGaloisRep_det",
+          "role": "relation",
+          "statement": "det ρ_{π,λ} = χ_{π,λ}·ε_ℓ^{−1}, where χ_{π,λ} is the λ-adic character of the central character and ε_ℓ the cyclotomic character."
+        },
+        {
+          "name": "TauCeti.ModularGalois.hilbertGaloisRep_twist",
+          "role": "functoriality",
+          "statement": "For an algebraic Hecke character χ of F: ρ_{π⊗(χ∘det),λ} ≅ ρ_{π,λ} ⊗ χ_λ; in particular ρ_{π⊗|det|^{−1},λ} ≅ ρ_{π,λ} ⊗ ε_ℓ^{−1}, and π ⊗ |det|^{−1} has infinity type (k, w+2)."
+        },
+        {
+          "name": "TauCeti.ModularGalois.hilbertGaloisRep_carayol",
+          "role": "compatibility",
+          "statement": "Carayol's σ_λ(π) ≅ ρ_{π,λ} ⊗ χ_{π,λ}^{−1} ≅ ρ_{π^∨,λ} (R19.2/hilbert-normalisation-dictionary)."
         },
         {
           "name": "TauCeti.ModularGalois.hilbertGaloisRep_arithmeticDual",
           "role": "compatibility",
-          "statement": "Dualisation inverts Frobenius eigenvalues; the arithmetic convention is obtained by evaluating at inverse Frobenius."
+          "statement": "ρ_{π,λ}^∨ has characteristic polynomial X² − t_vX + q_vs_v at an arithmetic Frobenius, and ρ_{π,λ}^∨ ≅ σ_λ(π) ⊗ ε_ℓ."
         },
         {
           "name": "TauCeti.ModularGalois.hilbertGaloisRep_unique",
           "role": "extensionality",
-          "statement": "The semisimple representation is unique up to isomorphism from its good-prime polynomials."
+          "statement": "Two continuous semisimple representations with the polynomials X² − t_vX + q_vs_v at a set of places of density one are isomorphic."
         },
         {
           "name": "TauCeti.ModularGalois.hilbertGaloisRep_coefficients",
           "role": "functoriality",
-          "statement": "Coefficient extension commutes with the construction; minimal descent requires Taylor’s theorem."
+          "statement": "Extension of E and conjugation: for σ ∈ Aut(C), ρ_{π^σ,σ(λ)} is the σ-conjugate of ρ_{π,λ}."
         },
         {
           "name": "TauCeti.ModularGalois.hilbertGaloisRep_auxiliaryCongruence",
           "role": "data",
-          "statement": "Compatible traces/determinants modulo p^s on varying auxiliary-new Hecke quotients."
+          "statement": "In the congruence branch, compatible traces and determinants modulo λ^s on μ_s-new Hecke quotients."
+        },
+        {
+          "name": "TauCeti.ModularGalois.hilbertGaloisRep_classical",
+          "role": "compatibility",
+          "statement": "For F = Q and a newform f of weight k, the automorphic representation π_f of infinity type (k, k−2) has ρ_{π_f,λ} ≅ M_{f,λ}, the cohomological realisation of R19.1/newform-rank-two-realisation."
         }
       ],
       "tests": [
         {
-          "name": "TauCeti.ModularGalois.hilbertGaloisRep_oddDegree",
+          "name": "TauCeti.ModularGalois.hilbertGaloisRep_ellipticCurve",
+          "kind": "computation",
+          "statement": "F = Q, E = 11a1 with its unitary π_E of infinity type (2,0): t_3 = a_3 = −1, s_3 = 1, so the geometric Frobenius polynomial at 3 is X² + X + 3, that of H¹_ét(E_Q̄, Q_ℓ)."
+        },
+        {
+          "name": "TauCeti.ModularGalois.hilbertGaloisRep_delta",
+          "kind": "computation",
+          "statement": "F = Q, π_Δ of infinity type (12,10): t_2 = τ(2) = −24, s_2 = 2^{10}, polynomial X² + 24X + 2048."
+        },
+        {
+          "name": "TauCeti.ModularGalois.hilbertGaloisRep_normTwist",
+          "kind": "characterisation",
+          "statement": "Replacing π by π ⊗ |det|^{−1} replaces (t_v, s_v) by (q_vt_v, q_v²s_v) and the polynomial by X² − q_vt_vX + q_v³s_v, whose roots are q_v times the old roots: the twist by ε_ℓ^{−1}."
+        },
+        {
+          "name": "TauCeti.ModularGalois.hilbertGaloisRep_inverseUniformiser",
+          "kind": "non-example",
+          "statement": "The polynomial X² − τ_vX + q_vρ_v built from Saito's inverse-uniformiser eigenvalues τ_v = t_v/s_v, ρ_v = s_v^{−1} is that of σ_λ(π), not of ρ_{π,λ}: for π_E ⊗ |det|^{−1} at p = 3 the two polynomials are X² + 3X + 27 and X² + X/3 + 1/3."
+        },
+        {
+          "name": "TauCeti.ModularGalois.hilbertGaloisRep_branches",
           "kind": "compatibility",
-          "statement": "For odd [F:Q] the result identifies with the geometric Shimura-curve multiplicity space."
-        },
-        {
-          "name": "TauCeti.ModularGalois.hilbertGaloisRep_evenNoDS",
-          "kind": "example",
-          "statement": "An even-degree field with no finite discrete-series component still has σ_π,λ."
-        },
-        {
-          "name": "TauCeti.ModularGalois.hilbertGaloisRep_auxiliaryPrecision",
-          "kind": "invariance",
-          "statement": "Choosing different permissible auxiliary primes gives isomorphic characteristic-zero semisimple representations by good-prime traces."
+          "statement": "For π with a finite discrete-series place, the congruence branch and Carayol's branch give isomorphic representations."
         },
         {
           "name": "TauCeti.ModularGalois.hilbertGaloisRep_parity",
           "kind": "non-example",
-          "statement": "A multiweight with unequal parities is not admitted by this cohomological theorem."
+          "statement": "A multiweight with k_τ ≢ w mod 2 for some τ is not an infinity type (k,w) and is not covered."
         }
       ],
       "uses": [
         {
-          "where": "KW II §7",
-          "how": "Attach representations without a hidden auxiliary-place restriction."
+          "where": "KW II §7; R19.6/hecke-algebra-representation-quaternionic",
+          "how": "The representation attached to each quaternionic eigenform, with no auxiliary-place restriction."
         },
         {
           "where": "R19.3/fixed-eigenform-compatible-family",
-          "how": "Provide each coefficient-prime member of the fixed-form family."
+          "how": "Each member ρ_{π,λ} of the fixed-form family."
+        },
+        {
+          "where": "Kisin Theorem 4.3; Skinner Theorem 1",
+          "how": "The coefficient-prime theorems are statements about this ρ_{π,λ}."
+        },
+        {
+          "where": "AutomorphicGaloisRepresentationsPartII AG2.6/rank-two-comparison-with-r19",
+          "how": "Rank-two comparison of the GL_n constructions with this representation."
         }
       ]
+    },
+    {
+      "id": "AutomorphicGaloisRepresentations:R19.2/hilbert-normalisation-dictionary",
+      "parentStageId": "AutomorphicGaloisRepresentations:R19.2",
+      "realises": [
+        "AutomorphicGaloisRepresentations:R19.2"
+      ],
+      "title": "Normalisation dictionary for Hilbert modular Galois representations",
+      "kind": "theorem",
+      "statement": "Let π is a cuspidal automorphic representation of GL₂(A_F), F totally real of degree d, of infinity type (k,w): for every real place τ, π_τ is the discrete series D_{k_τ,w} with Blattner parameter k_τ and central character t ↦ sgn(t)^{k_τ}|t|^{−w} (Carayol 0.2–0.3; Skinner §1), with k_τ ≥ 2 and k_τ ≡ w mod 2 for all τ, and ρ_{π,λ} as in R19.2/all-cohomological-hilbert-representation. Write ε_ℓ for the ℓ-adic cyclotomic character (Rec_v(|·|_v) = ε_ℓ|W_v, since |ϖ_v|_v = q_v^{−1} is the value of ε_ℓ at a geometric Frobenius) and χ_{π,λ} for the λ-adic character of the central character χ_π. Then: (a) Carayol's σ_λ(π) of Theorem (A), normalised by the Hecke correspondence σ(π_v) = Rec_v(π_v ⊗ |·|_v^{1/2})^∨ (0.5), satisfies σ_λ(π) ≅ ρ_{π,λ} ⊗ χ_{π,λ}^{−1} ≅ ρ_{π^∨,λ} ≅ ρ_{π,λ}^∨ ⊗ ε_ℓ^{−1}; equivalently ρ_{π,λ} ≅ σ_λ(π)^∨ ⊗ ε_ℓ^{−1}. A dual alone is not the conversion. (b) Saito's ρ_{f,λ} (Theorem 0: ρ ≅ σ̌_h(π_f)) is Carayol's σ_λ(π_f); Saito's T_p and R_p are the double cosets of diag(ϖ^{−1},1) and ϖ^{−1}, with eigenvalues τ_v = t_v/s_v and ρ_v = s_v^{−1}, and his multiweight (k, w_S) is the infinity type (k, 2 − w_S). (c) Kisin's ρ_{π,λ} (§4.1) and Skinner's ρ_π (equation (1)) equal ρ_{π,λ}, and the local Langlands correspondence in Kisin's Theorem 4.3 and Skinner's (2) is π_v ↦ Rec_v(π_v ⊗ |·|_v^{−1/2}). (d) det ρ_{π,λ} = χ_{π,λ}ε_ℓ^{−1} and det σ_λ(π) = χ_{π,λ}^{−1}ε_ℓ^{−1}; ρ_{π⊗(χ∘det),λ} ≅ ρ_{π,λ} ⊗ χ_λ for every algebraic Hecke character χ. (e) At each embedding τ the Hodge filtration of D_dR(ρ_{π,λ}|G_{F_v}), v | ℓ, jumps in degrees (w − k_τ + 2)/2 and (w + k_τ)/2 (Hodge–Tate weights −(w − k_τ + 2)/2 and −(w + k_τ)/2 when ε_ℓ has weight 1), and the good-place Frobenius eigenvalues have weight w + 1; Skinner prints the degrees as (w − k_τ)/2 and (w + k_τ − 2)/2, which are these with w replaced by w − 2 (sourceIssue E4). (f) For F = Q and a newform f of weight k, level N and character ψ, the automorphic representation π_f of infinity type (k, k − 2) has t_p = a_p and s_p = ψ(p)p^{k−2}; hence ρ_{π_f,λ} = M_{f,λ}, the cohomological realisation, Deligne's arithmetic ρ_{f,λ} = M_{f,λ}^∨ ≅ ρ_{π_f^∨⊗|det|,λ}, and σ_λ(π_f) ≅ ρ_{f,λ}(−1); for an elliptic curve E with unitary π_E of infinity type (2,0), σ_λ(π_E) = ρ_{π_E,λ} = H¹_ét(E_Q̄, Q_ℓ) (Carayol 0.8). (g) Skinner–Wiles (3.3) relate ρ_π|D_v and π_v by Carayol's Hecke correspondence, so their ρ_π is σ_λ(π). (h) CDN decompose the Shimura-curve cohomology as Π_f ⊗ ρ_Π(−1); the multiplicity space is Carayol's σ_λ, so CDN's ρ_Π is σ_λ(1) = ρ_{π,λ}^∨ for the Jacquet–Langlands transfer π of Π. (i) For every finite v ∤ ℓ, L(WD(ρ_{π,λ}|G_{F_v}), s) = L(s − 1/2, π_v), L(WD(σ_λ(π)|G_{F_v}), s) = L(s − 1/2, π_v^∨), and both have Artin conductor a(π_v).",
+      "hypotheses": [
+        "Class field theory: uniformisers correspond to geometric Frobenius elements (Carayol 0.4).",
+        "The Weil–Deligne relation is F N F^{−1} = q^{−1}N for a geometric Frobenius F (ArithmeticGaloisRepresentations R01.2); Saito's printed reversed relation is PadicHodgeTheory/E50.",
+        "Statements (a)–(h) are identities between representations attached to the same π; they do not identify two different automorphic representations.",
+        "Hodge–Tate degrees are those of D_HT(V) = ⊕_n (V ⊗ C_p(n))^{G_{F_v}}; with this grading H¹_ét of an elliptic curve has degrees 0 and 1."
+      ],
+      "proofSteps": [
+        "Local Hecke correspondence: Carayol 0.5 characterises σ(π_v) by L(χ·σ̌(π_v)) = L(χ·ω_v^{1/2}·π_v) and the same for ε, so σ̌(π_v) = Rec_v(π_v ⊗ |·|_v^{1/2}) (GL2AutomorphicRepresentationsAndTransfer R16.3). Since π_v^∨ ≅ π_v ⊗ χ_{π_v}^{−1} and Rec_v(τ)^∨ = Rec_v(τ^∨), σ(π_v) = Rec_v(π_v ⊗ |·|_v^{−1/2}) ⊗ χ_{π_v}^{−1}. Carayol's principal-series formula and det σ(π_v) = χ_{π_v}^{−1}ω_v^{−1} (0.5(a)) check this.",
+        "Unramified comparison: for π_v = Ind(ξ₁,ξ₂) the geometric Frobenius polynomials are X² − t_vX + q_vs_v for Rec_v(π_v ⊗ |·|^{−1/2}) and X² − (t_v/s_v)X + q_v/s_v for σ(π_v); the second is Saito's 1 − τ_pT + ρ_pNpT² (p. 9) with τ_p = t_v/s_v and ρ_p = s_v^{−1}, because the ϖ^{−1}-double cosets act on π_v^K as the ϖ-double cosets act on π_v^∨.",
+        "Global identities (a)–(c), (g): both sides are continuous semisimple with equal good-place polynomials; apply Čebotarev and Brauer–Nesbitt (ArithmeticGaloisRepresentations R01.1). (d): determinants of the local identities, and class field theory for χ_{π,λ}. Saito's w_S: comparing det ρ_{f,λ}(Frob_p) = ε_f(p)Np^{w_S−1} (Saito (2.1)) with det σ_λ(π_f)(Frob_p) = χ_{π_f}(ϖ_p)^{−1}q_p, where |χ_{π_f}(ϖ_p)| = q_p^{w}, gives w = 2 − w_S.",
+        "Hodge–Tate degrees (e): at a real place τ, Rec_τ(π_τ ⊗ |·|^{−1/2})|_{C^×} = z^{−(w+k_τ)/2} z̄^{−(w−k_τ+2)/2} ⊕ (its conjugate), and Skinner's dictionary of §2.3.3 sends z^a z̄^b to the degree −a (checked on GL₁: Rec(|·|^{−1}) = ε_ℓ^{−1}, degree 1). The classical case (f) confirms it: infinity type (k, k−2) gives degrees 0 and k−1, the Hodge numbers of M_{f,λ}.",
+        "Classical case (f): for the unitary π_{f,u}, L(s, π_{f,u}) = L(s + (k−1)/2, f), so π_f := π_{f,u} ⊗ |det|^{−(k−2)/2} has T_p-eigenvalue a_p and S_p-eigenvalue ψ(p)p^{k−2}; then compare with the Eichler–Shimura polynomial of M_{f,λ} (R19.1/newform-rank-two-realisation). Carayol's Corollaire 0.8 identifies σ_λ(π_E) with H¹_ét(E_Q̄, Q_ℓ).",
+        "L-factors and conductors (i): local Langlands preserves L-factors and conductors of twists (R16.3), and twisting by the unramified |·|^{−1/2} shifts s by 1/2 and keeps the conductor."
+      ],
+      "prerequisites": [
+        "AutomorphicGaloisRepresentations:R19.2/all-cohomological-hilbert-representation",
+        "AutomorphicGaloisRepresentations:R19.2/hilbert-modular-compatible-system-carayol-theorem-A",
+        "AutomorphicGaloisRepresentations:R19.2/carayol-twisting-and-determinant",
+        "AutomorphicGaloisRepresentations:R19.1/newform-rank-two-realisation",
+        "GL2AutomorphicRepresentationsAndTransfer:R16.3",
+        "ArithmeticGaloisRepresentations:R01.1",
+        "ArithmeticGaloisRepresentations:R01.2"
+      ],
+      "sources": [
+        {
+          "sourceId": "carayol86-hilbert",
+          "locator": "0.4–0.5, printed pp. 409–410 (checked on the page images)",
+          "excerpt": "La correspondance « de Hecke » ainsi définie diffère de la correspondance de Langlands",
+          "match": "Hecke correspondence: twist by ω_p^{1/2} followed by the contragredient; uniformisers correspond to geometric Frobenius; ω_p = |·|_p is the cyclotomic character."
+        },
+        {
+          "sourceId": "saito-hilbert-padic-hodge",
+          "locator": "§2, p. 9 of the arXiv version",
+          "excerpt": "Among several ways to normalize the local Langlands correspondence, here we consider the so-called Hecke correspondence",
+          "match": "Saito's σ_h uses the double cosets of diag(ϖ^{−1},1) and ϖ^{−1}; his Theorem 0 restates Carayol's theorem as ρ ≅ σ̌_h(π_f)."
+        },
+        {
+          "sourceId": "kisin08-ams",
+          "locator": "§4.1, p. 542",
+          "excerpt": "By a result of Carayol and Taylor [Ca], [Ta 1], there exists a continuous representation",
+          "match": "Kisin's ρ_{π,λ} has geometric Frobenius polynomial X² − t_vX + N(v)s_v with positive-uniformiser operators."
+        },
+        {
+          "sourceId": "skinner09",
+          "locator": "Introduction, p. 242",
+          "excerpt": "We choose Recv so that when n = 1, Recv is the inverse of the Artin map",
+          "match": "Skinner's equation (1) is the Rec_v(π_v ⊗ |·|_v^{−1/2}) normalisation; the Hodge–Tate degrees are discussed in sourceIssue E4."
+        },
+        {
+          "sourceId": "skinner09",
+          "locator": "§2.4.2, p. 255",
+          "excerpt": "Since for a place w ∤ np, Tx (frobw ) = x ◦ φ(char(GL2 (Ow )diag(̟w , 1)GL2 (Ow ))",
+          "match": "The trace of Skinner's representation at a geometric Frobenius is the eigenvalue of the positive-uniformiser T_w."
+        }
+      ],
+      "acceptance": [
+        "Elliptic curve 11a1 (infinity type (2,0), unitary): σ_λ(π_E) = ρ_{π_E,λ} = H¹_ét(E_Q̄, Q_ℓ), whose dual is V_ℓ(E); Carayol 0.8 and Kisin §4.1 agree.",
+        "Δ: ρ_{π_Δ,λ} has geometric polynomial X² + 24X + 2048 at 2 and Hodge degrees 0, 11; Carayol's σ_λ(π_Δ) = ρ_{π_Δ,λ} ⊗ ε_ℓ^{10} has geometric polynomial X² + (24/2^{10})X + 2/2^{10} at 2 and weight −9.",
+        "Saito's multiweight (2,2) is infinity type (2,0): the same representation H¹_ét(E_Q̄, Q_ℓ) for 11a1.",
+        "Skinner's printed Hodge–Tate degrees for (k,w) = (2,0) are −1 and 0, whereas H¹ of an elliptic curve has 0 and 1 (sourceIssue E4)."
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AutomorphicGaloisRepresentations:R19.2/hilbert-hodge-tate-property",
+      "parentStageId": "AutomorphicGaloisRepresentations:R19.2",
+      "realises": [
+        "AutomorphicGaloisRepresentations:R19.2"
+      ],
+      "title": "Hodge–Tate property of the Hilbert representation at the coefficient prime",
+      "kind": "theorem",
+      "statement": "Let π is a cuspidal automorphic representation of GL₂(A_F), F totally real of degree d, of infinity type (k,w): for every real place τ, π_τ is the discrete series D_{k_τ,w} with Blattner parameter k_τ and central character t ↦ sgn(t)^{k_τ}|t|^{−w} (Carayol 0.2–0.3; Skinner §1), with k_τ ≥ 2 and k_τ ≡ w mod 2 for all τ, and let v be a place of F above ℓ. Then ρ_{π,λ}|G_{F_v} is Hodge–Tate, and at each embedding τ of F_v its D_HT is non-zero exactly in the degrees (w − k_τ + 2)/2 and (w + k_τ)/2. Moreover: (a) if d is odd, or π is essentially square-integrable at a finite place, or some k_τ > 2, or π is a CM representation, then ρ_{π,λ} occurs, up to twist by the λ-adic character of an algebraic Hecke character, in the ℓ-adic cohomology of a smooth projective variety over a finite extension of F, and ρ_{π,λ}|G_{F_v} is de Rham; (b) in the remaining case (d even, all k_τ = 2, π principal series at every finite place, not CM), after an abelian totally real base change F′/F making π unramified above ℓ and a twist to w = 0, the representation Sym²ρ_{π,λ}|G_{F′_v} is crystalline with Hodge–Tate degrees 0, 1, 2, and ρ_{π,λ}|G_{F′_v} is a quadratic twist of a crystalline representation (Skinner §2.4.1). The comparison of the Weil–Deligne representation with π_v is not part of this statement; it is R19.5/skinner-full-hilbert-coefficient-prime.",
+      "hypotheses": [
+        "Degrees in the grading of R19.2/hilbert-normalisation-dictionary (e).",
+        "In case (b) the conclusion is up to a possibly non-trivial quadratic character of G_{F′_v}; Hodge–Tate degrees are unaffected by that twist.",
+        "The Picard modular surfaces used in (b) are those of the unitary similitude group GU(Φ) of a Hermitian form of signature (2,1) at one place and (3,0) at the others, over the CM field E = FE₀ with E₀ imaginary quadratic and ℓ split in E₀."
+      ],
+      "proofSteps": [
+        "Case (a): Carayol's Shimura curves with the coefficient sheaves F_λ (R19.2/carayol-sigma-lambda-construction), and their Kuga–Sato analogues used by Saito, give σ_λ(π) inside the cohomology of a smooth projective variety; Blasius–Rogawski motives on unitary Shimura varieties cover some k_τ > 2 (Skinner §2.3.2; AutomorphicGaloisRepresentationsPartII AG2.1); CM forms come from algebraic Hecke characters (Serre). Faltings' comparison for smooth projective varieties (PadicHodgeTheory R06.5) gives de Rham, hence Hodge–Tate, with degrees computed from the coefficient system and transported by the dictionary.",
+        "Case (b), reduction: Hodge–Tate degrees are unchanged by restriction to G_{F′_v}; choose F′ by abelian base change (GL2AutomorphicRepresentationsAndTransfer R17.4) with π_{F′} cuspidal and unramified above ℓ, and twist by an integral power of |·| (R19.2/all-cohomological-hilbert-representation, twist API).",
+        "Case (b), symmetric square: Π := Sym²π ⊗ |·|^{−1} is cuspidal on GL₃ because π is not CM (Gelbart–Jacquet, GL2AutomorphicRepresentationsAndTransfer R17.4/adjoint-lift), essentially self-dual, with archimedean parameters as in Skinner (8) with (a_i, b_i) = (−2, 0). Its ℓ-adic representation ρ_Π occurs in the cohomology of an abelian scheme over a Picard modular surface with good reduction at v (Skinner §§2.3.1, 2.3.3; AutomorphicGaloisRepresentationsPartII AG2.1, AG2.2), so it is crystalline at v with Hodge–Tate degrees 2, 1, 0 (PadicHodgeTheory R06.5, with Katz–Messing for the characteristic polynomial), and ρ_Π ≅ Sym²ρ_{π,λ} by Čebotarev.",
+        "Case (b), lifting: by Wintenberger's lifting theorem along the central isogeny GL₂ → GL₂/{±1} (PadicHodgeTheory R06.2), there is a crystalline ρ′ with Sym²ρ′ ≅ Sym²ρ_{π,λ}|G_{F′_v}; hence ρ_{π,λ}|G_{F′_v} ≅ ρ′ ⊗ η with η quadratic, and its Hodge–Tate degrees are 0 and 1."
+      ],
+      "prerequisites": [
+        "AutomorphicGaloisRepresentations:R19.2/all-cohomological-hilbert-representation",
+        "AutomorphicGaloisRepresentations:R19.2/hilbert-normalisation-dictionary",
+        "AutomorphicGaloisRepresentations:R19.2/carayol-sigma-lambda-construction",
+        "PadicHodgeTheory:R06.5",
+        "PadicHodgeTheory:R06.2",
+        "GL2AutomorphicRepresentationsAndTransfer:R17.4",
+        "GL2AutomorphicRepresentationsAndTransfer:R17.4/adjoint-lift",
+        "AutomorphicGaloisRepresentationsPartII:AG2.1",
+        "AutomorphicGaloisRepresentationsPartII:AG2.2",
+        "ArithmeticGaloisRepresentations:R01.1"
+      ],
+      "sources": [
+        {
+          "sourceId": "skinner09",
+          "locator": "Introduction, p. 243",
+          "excerpt": "It remains to deal with the cases where ρπ is not known to arise from a motive",
+          "match": "Case split: Saito, Blasius–Rogawski and CM cover (a); the remaining case is all k_i = 2, principal series everywhere, not CM."
+        },
+        {
+          "sourceId": "skinner09",
+          "locator": "§2.4.1, p. 251",
+          "excerpt": "As π is not a CM representation, Π is cuspidal.",
+          "match": "Π = Sym²π ⊗ |·|^{−1} on GL₃, realised in Picard modular surfaces."
+        },
+        {
+          "sourceId": "skinner09",
+          "locator": "§2.4.1, p. 252",
+          "excerpt": "From this it follows that ρv is isomorphic to a (possibly trivial) quadratic twist of ρ.",
+          "match": "Wintenberger lifting gives a crystalline ρ with the same symmetric square; ρ_v is a quadratic twist of it."
+        }
+      ],
+      "acceptance": [
+        "11a1 (infinity type (2,0)) at ℓ = 3: Hodge–Tate degrees 0 and 1, those of H¹ of an elliptic curve.",
+        "Δ (infinity type (12,10)): degrees 0 and 11.",
+        "Case (b) does not by itself give the Weil–Deligne representation: a quadratic ambiguity remains until R19.5/skinner-full-hilbert-coefficient-prime."
+      ],
+      "implementationStatus": "unchecked"
     },
     {
       "id": "AutomorphicGaloisRepresentations:R19.2/hilbert-uniqueness-determinant-oddness-irreducibility",
@@ -3354,22 +3749,25 @@
       ],
       "title": "Arithmetic properties of the Hilbert representation",
       "kind": "theorem",
-      "statement": "For the all-cohomological-Hilbert representation σ_π,λ, prove continuity, absolute irreducibility and uniqueness by good-prime polynomials. In Carayol’s convention det σ_π,λ=χ_π,λ⁻¹ω_λ⁻¹, where χ_π,λ is the λ-adic central character in his algebraic normalisation and ω_λ his cyclotomic character; hence the dual determinant is χ_π,λω_λ. At every real place det σ_π,λ(c_τ)=−1. Identify transfer/base-change constructions with this representation whenever their hypotheses hold. Absolute irreducibility in characteristic zero does not imply residual irreducibility at every λ.",
+      "statement": "For ρ_{π,λ} of R19.2/all-cohomological-hilbert-representation: (i) det ρ_{π,λ} = χ_{π,λ}·ε_ℓ^{−1}, equivalently det σ_λ(π) = χ_{π,λ}^{−1}ε_ℓ^{−1} in Carayol's normalisation (5.6.1); (ii) ρ_{π,λ} is totally odd: det ρ_{π,λ}(c_τ) = −1 for the complex conjugation c_τ at every real place τ; (iii) ρ_{π,λ} is absolutely irreducible; (iv) ρ_{π,λ} is determined up to isomorphism by its good-place polynomials, so it coincides with every construction having the same polynomials; in particular ρ_{π_{F′},λ} ≅ ρ_{π,λ}|G_{F′} for the base change π_{F′} to a totally real solvable F′/F when π_{F′} is cuspidal. Absolute irreducibility in characteristic zero does not imply absolute irreducibility of the residual representation.",
       "hypotheses": [
-        "Cuspidal and regular cohomological weights k_τ≥2; keep the normalisation of the algebraic central character.",
-        "Local ordinary triangularity does not contradict global absolute irreducibility."
+        "k_τ ≥ 2 and k_τ ≡ w mod 2; χ_π is algebraic with χ_{π,τ}(t) = sgn(t)^{k_τ}|t|^{−w}.",
+        "A reducible ordinary local restriction at v | ℓ does not contradict (iii)."
       ],
       "proofSteps": [
-        "Use continuity in Taylor’s construction and good-prime traces for uniqueness.",
-        "Carayol §3/5 computes the determinant of the geometric representation; class field theory and good-prime density extend the same identity to the Taylor construction.",
-        "Use Skinner’s Hodge–Tate theorem and Remark p. 256: if σ were a sum of two characters, algebraic class field theory over totally real F writes them as finite-order characters times integral norm powers. Twisting the cuspidal L-function would give a ζ_F pole not cancelled by the nonzero Hecke L-value, a contradiction. Apply this after coefficient extension for absolute irreducibility. The algebraic central character at each real place gives det(c_τ)=−1."
+        "Determinant: in Carayol's case 5.6.1 gives det σ_λ(π) = χ_{π,λ}^{−1}ω^{−1} (R19.2/carayol-twisting-and-determinant), and ρ_{π,λ} = σ_λ(π) ⊗ χ_{π,λ}; in the congruence branch the determinant of the limit is the limit of the determinants. Both are the dictionary's (d).",
+        "Oddness: the λ-adic character of χ_π takes the value (−1)^{k_τ}(−1)^{w} = 1 at c_τ (its finite-order part contributes sgn^{k_τ}, its algebraic part |·|^{−w} contributes ε_ℓ^{w}), and ε_ℓ(c_τ) = −1.",
+        "Irreducibility (Skinner, Remark p. 256): if ρ_{π,λ} ⊗ Ē_λ ≅ χ₁ ⊕ χ₂, each χ_i is Hodge–Tate at a place above ℓ (R19.2/hilbert-hodge-tate-property), hence the λ-adic character of an algebraic Hecke character ψ_i (ArithmeticGaloisRepresentations R01.1, after Serre III.2.3–2.4). Then L(π ⊗ ψ₂^{−1}, s − 1/2) = L(ψ₁/ψ₂, s)ζ_F(s) up to finitely many Euler factors; writing ψ_i = ψ′_i|·|^{a_i} with a₁ ≥ a₂, L(ψ₁/ψ₂, 1) = L(ψ′₁/ψ′₂, a₁ − a₂ + 1) ≠ 0, so L(π ⊗ ψ₂^{−1}, s) has a pole at s = 1, contradicting cuspidality (AutomorphicLFunctionsAndLocalFactors AL.3).",
+        "Uniqueness and transfers: Čebotarev and Brauer–Nesbitt (ArithmeticGaloisRepresentations R01.1); for base change, the Satake parameters of π_{F′} at places above good v are those of π_v restricted (GL2AutomorphicRepresentationsAndTransfer R17.4)."
       ],
       "prerequisites": [
         "AutomorphicGaloisRepresentations:R19.2/all-cohomological-hilbert-representation",
         "AutomorphicGaloisRepresentations:R19.2/carayol-twisting-and-determinant",
+        "AutomorphicGaloisRepresentations:R19.2/hilbert-normalisation-dictionary",
+        "AutomorphicGaloisRepresentations:R19.2/hilbert-hodge-tate-property",
+        "ArithmeticGaloisRepresentations:R01.1",
         "ArithmeticGaloisRepresentations:R01.5",
         "GL2AutomorphicRepresentationsAndTransfer:R17.4",
-        "AutomorphicGaloisRepresentations:R19.5/skinner-full-hilbert-coefficient-prime",
         "AutomorphicLFunctionsAndLocalFactors:AL.3"
       ],
       "sources": [
@@ -3381,14 +3779,21 @@
         },
         {
           "sourceId": "skinner09",
-          "locator": "Remark, p. 256 (complete argument read)",
-          "excerpt": "quick proof",
-          "match": "Hodge–Tate characters and noncancellation of a zeta pole prove irreducibility without bundling it into the automorphic datum."
+          "locator": "Remark, p. 256",
+          "excerpt": "We recall that there is a quick proof of the irreducibility of ρπ using that it is potentially semistable (really only that it is Hodge-Tate)",
+          "match": "Hodge–Tate characters come from algebraic Hecke characters, and a decomposition would give an uncancelled pole."
+        },
+        {
+          "sourceId": "saito-hilbert-padic-hodge",
+          "locator": "§2, p. 9 of the arXiv version",
+          "excerpt": "be irreducible [Ta2] Proposition 3.1, Chebotarev density implies the uniqueness.",
+          "match": "Irreducibility is due to Taylor (1995); uniqueness follows from Čebotarev."
         }
       ],
       "acceptance": [
-        "At a real c_τ its trace is zero and determinant −1.",
-        "A weight-two rational form with reducible residual representation at 5 is consistent with characteristic-zero irreducibility."
+        "At a real c_τ: trace 0 and determinant −1.",
+        "Δ: det ρ_{π_Δ,λ} = ε_ℓ^{−11}, the value at a geometric Frobenius being p^{11}.",
+        "11a1 at λ = 5: the residual representation is reducible while ρ_{π_E,5} is irreducible."
       ],
       "implementationStatus": "unchecked"
     },
@@ -3400,7 +3805,7 @@
       ],
       "title": "CM Hilbert eigenform",
       "kind": "definition",
-      "statement": "A regular cohomological Hilbert eigenform f over totally real F has CM if there is a totally imaginary quadratic extension L/F and an algebraic Hecke character α of L, of the infinity type producing f, such that π_f=AI_L^F(α), equivalently σ_f,λ≅Ind_{G_L}^{G_F} α_λ in the matching normalisation for every λ. Require α_λ≠α_λ^c so the induction is cuspidal and irreducible. This is an arithmetic predicate on the existing eigenform, importing automorphic induction and class-field characters; it is not another general induction construction.",
+      "statement": "A regular cohomological Hilbert eigenform f over totally real F has CM if there is a totally imaginary quadratic extension L/F and an algebraic Hecke character α of L, of the infinity type producing f, such that π_f=AI_L^F(α), equivalently ρ_{π_f,λ} ≅ Ind_{G_L}^{G_F}(α′)_λ for every λ, where α′ = α·|·|_L^{−1/2} is algebraic because k_τ ≡ w mod 2 (Rec_v(AI(α)_v ⊗ |·|^{−1/2}) is induced from Rec_w(α_w ⊗ |·|_w^{−1/2})). Require α_λ≠α_λ^c so the induction is cuspidal and irreducible. This is an arithmetic predicate on the existing eigenform, importing automorphic induction and class-field characters; it is not another general induction construction.",
       "hypotheses": [
         "k_τ≥2; the weight-one analogue needs a separately stated finite-order character case.",
         "Specify the dual/inverse character if the arithmetic representation rather than σ is used."
@@ -3413,7 +3818,8 @@
       "prerequisites": [
         "GL2AutomorphicRepresentationsAndTransfer:R17.5",
         "AutomorphicGaloisRepresentations:R19.2/all-cohomological-hilbert-representation",
-        "ArithmeticGaloisRepresentations:R01.5"
+        "ArithmeticGaloisRepresentations:R01.5",
+        "AutomorphicGaloisRepresentations:R19.2/hilbert-normalisation-dictionary"
       ],
       "sources": [
         {
@@ -3468,12 +3874,12 @@
       "tests": [
         {
           "name": "TauCeti.ModularGalois.IsCMHilbert_Qi",
-          "kind": "example",
+          "kind": "computation",
           "statement": "The weight-two form of y²=x³−x, conductor 32, is induced from Q(i); unramified primes 3 mod 4 have trace zero."
         },
         {
           "name": "TauCeti.ModularGalois.IsCMHilbert_twist",
-          "kind": "invariance",
+          "kind": "characterisation",
           "statement": "A finite-order character twist of this form has the same quadratic inducing field."
         },
         {
@@ -3623,7 +4029,8 @@
         "AutomorphicGaloisRepresentations:R19.1/newform-rank-two-realisation",
         "AutomorphicGaloisRepresentations:R19.2/cm-hilbert-eigenform",
         "ArithmeticGaloisRepresentations:R01.4",
-        "AutomorphicGaloisRepresentations:R19.3/fixed-eigenform-compatible-family"
+        "AutomorphicGaloisRepresentations:R19.3/fixed-eigenform-compatible-family",
+        "AutomorphicGaloisRepresentations:R19.3/classical-newform-irreducibility"
       ],
       "sources": [
         {
@@ -3656,22 +4063,24 @@
       ],
       "title": "Compatible family of a fixed eigenform",
       "kind": "construction",
-      "statement": "For a fixed classical newform of weight k≥2 or a fixed regular cohomological Hilbert eigenform π, assemble its representations for every finite coefficient place λ into the early imported compatible-system carrier. Supply one coefficient field E, the fixed finite level/ramification set S, coefficient-independent good-prime polynomials P_v(X), labelled Hodge numbers, and a local Frobenius-semisimple WD parameter at every finite v. Away from λ this is the all-Hilbert/classical local theorem; at v|λ use the coefficient-prime theorem with its exact hypotheses. With Skinner’s full theorem this fixed-form family is strict. The Kisin-only route is asserted at those λ with absolutely irreducible residual representation; the Saito-only route retains its parity/discrete-series hypotheses. A family known only by good-prime polynomials is weakly compatible and is not thereby strict.",
+      "statement": "For a fixed classical newform f, through π_f of infinity type (k, k − 2), or a fixed cuspidal π of infinity type (k,w) over a totally real F as in R19.2/all-cohomological-hilbert-representation, place the family {ρ_{π,λ}}_λ, indexed by the finite places λ of one coefficient field E ⊇ Q(π), in the early compatible-system carrier of R24.5:operations with: coefficient field E; ramification set S_π; good-place polynomials P_v(X) = X² − t_vX + q_vs_v ∈ E[X] for v ∉ S_π, independent of λ ∤ q_v; Hodge degrees (w − k_τ + 2)/2 and (w + k_τ)/2 at each τ; and at every finite v the Frobenius-semisimple Weil–Deligne parameter ιRec_v(π_v ⊗ |·|_v^{−1/2}), for v ∤ ℓ by R19.4/all-hilbert-local-global-compatibility and for v | ℓ by R19.5/skinner-full-hilbert-coefficient-prime. The family is strictly compatible and pure of weight w + 1 at every finite place (R19.3/monodromy-weight-purity-of-the-family). With Kisin's theorem alone the coefficient-prime assertion is available at the λ with absolutely irreducible residual representation, and with Saito's alone under his degree and discrete-series hypotheses; a family known only by its good-place polynomials is weakly compatible.",
       "hypotheses": [
-        "Only regular weight ≥2 is in this family; finite-image weight-one systems use the Deligne–Serre node separately.",
-        "Use one consistent dual/twist normalisation at every λ.",
-        "The generic carrier and weak/almost-strict/strict predicates belong to R24.5:operations."
+        "Only regular weight k_τ ≥ 2 is in this family; finite-image weight-one systems use R19.1/weight-one-artin-representation.",
+        "One normalisation, ρ_{π,λ}, at every λ; Carayol's or Saito's family is σ_λ(π) = ρ_{π,λ} ⊗ χ_{π,λ}^{−1}, itself strictly compatible.",
+        "The carrier and the weak, almost strict and strict predicates belong to PotentialModularityAndCompatibleSystems R24.5:operations."
       ],
       "proofSteps": [
-        "Construct each λ-member by the classical or all-Hilbert existence theorem, fixing the eigenform rather than invoking a potential-modularity existence theorem.",
-        "Read the coefficients of P_v from the Hecke eigenvalues in E; use local compatibility away from λ and the corresponding coefficient-prime theorem to attach the common WD parameters.",
-        "Compare labelled Hodge data, determinants and coefficient changes; populate the imported predicates only to the strength established by these inputs."
+        "Construct each member by R19.2/all-cohomological-hilbert-representation; for F = Q identify it with M_{f,λ} (R19.1/newform-rank-two-realisation, dictionary (f)). No potential-modularity existence theorem is used.",
+        "Read the coefficients of P_v from the Hecke eigenvalues in E; attach the common WD parameters away from λ and at λ by the two compatibility theorems.",
+        "Compare Hodge data, determinants and coefficient changes; fill the imported predicates to the strength these inputs establish, and record purity from R19.3/monodromy-weight-purity-of-the-family."
       ],
       "prerequisites": [
         "AutomorphicGaloisRepresentations:R19.2/all-cohomological-hilbert-representation",
+        "AutomorphicGaloisRepresentations:R19.2/hilbert-normalisation-dictionary",
         "AutomorphicGaloisRepresentations:R19.1/newform-rank-two-realisation",
         "AutomorphicGaloisRepresentations:R19.4/all-hilbert-local-global-compatibility",
         "AutomorphicGaloisRepresentations:R19.5/skinner-full-hilbert-coefficient-prime",
+        "AutomorphicGaloisRepresentations:R19.3/monodromy-weight-purity-of-the-family",
         "PotentialModularityAndCompatibleSystems:R24.5:operations"
       ],
       "sources": [
@@ -3679,7 +4088,7 @@
           "sourceId": "dieulefait-pacetti",
           "locator": "Definition 1.10 and following paragraph, pp. 6–7",
           "excerpt": "strictly compatible",
-          "match": "Source distinguishes strict from almost strict at the coefficient characteristic."
+          "match": "Strict versus almost strict compatibility at the coefficient characteristic."
         },
         {
           "sourceId": "skinner09",
@@ -3689,77 +4098,77 @@
         }
       ],
       "acceptance": [
-        "Good primes have the same P_v for all λ not above v.",
-        "A claim about almost strict lifting systems remains weaker than the strict fixed modular-form family."
+        "Good places have the same P_v for all λ not above v.",
+        "An almost strictly compatible lifting system remains weaker than the strict fixed modular-form family."
       ],
       "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Eigenform compatible family"
+      },
       "api": [
         {
           "name": "TauCeti.ModularGalois.fixedEigenformFamily",
           "role": "constructor",
-          "statement": "The family in the imported R24.5:operations carrier."
+          "statement": "The compatible family {ρ_{π,λ}}_λ over one coefficient field E with ramification set S_π."
         },
         {
           "name": "TauCeti.ModularGalois.fixedEigenformFamily_member",
           "role": "projection",
-          "statement": "The λ-member is the attached eigenform representation."
+          "statement": "Its λ-member is ρ_{π,λ} of R19.2/all-cohomological-hilbert-representation."
         },
         {
           "name": "TauCeti.ModularGalois.fixedEigenformFamily_goodPolynomial",
           "role": "data",
-          "statement": "A single E-valued P_v for every v∉S."
+          "statement": "P_v(X) = X² − t_vX + q_vs_v ∈ E[X] for v ∉ S_π."
         },
         {
           "name": "TauCeti.ModularGalois.fixedEigenformFamily_localParameter",
           "role": "data",
-          "statement": "The common WD parameter includes N and the coefficient-prime cases."
+          "statement": "At every finite v the parameter ιRec_v(π_v ⊗ |·|_v^{−1/2}), with N."
         },
         {
           "name": "TauCeti.ModularGalois.fixedEigenformFamily_coeffChange",
           "role": "functoriality",
-          "statement": "Coefficient extension and dualisation commute with the family."
+          "statement": "Enlarging E or conjugating by σ ∈ Aut(C) gives the family of π^σ."
         },
         {
           "name": "TauCeti.ModularGalois.fixedEigenformFamily_strict",
           "role": "characterisation",
-          "statement": "Strictness requires full local data at all finite places, plus the prescribed Hodge/crystalline conditions."
+          "statement": "The family satisfies the strict predicate of R24.5:operations and is pure of weight w + 1."
         }
       ],
       "tests": [
         {
           "name": "TauCeti.ModularGalois.fixedEigenformFamily_delta",
-          "kind": "example",
-          "statement": "For Δ, P_2=X²+24X+2048 in the arithmetic convention at every λ∤2."
+          "kind": "computation",
+          "statement": "For Δ (infinity type (12,10)): P_2(X) = X² + 24X + 2048 for every λ ∤ 2, and the family is pure of weight 11."
         },
         {
           "name": "TauCeti.ModularGalois.fixedEigenformFamily_steinberg",
           "kind": "compatibility",
-          "statement": "The local parameter at 11 for 11a1 has N≠0 for λ above 11 as well as λ away from 11."
+          "statement": "For 11a1 at v = 11 the parameter is the twist of Steinberg with N ≠ 0, for every λ ∤ 11, and agrees with the Tate-curve representation H¹_ét."
         },
         {
           "name": "TauCeti.ModularGalois.fixedEigenformFamily_weakNotStrict",
           "kind": "non-example",
-          "statement": "Coefficient-independent good-prime traces alone do not supply the WD parameter at v|λ."
+          "statement": "The family defined only by its good polynomials, without the local parameters at bad places and at λ, is weakly but not certified strictly compatible."
         },
         {
           "name": "TauCeti.ModularGalois.fixedEigenformFamily_evenHilbert",
-          "kind": "example",
-          "statement": "The full Skinner route covers an even-degree Hilbert form with no finite discrete-series place."
+          "kind": "degenerate",
+          "statement": "For d even and π principal series everywhere the strict family still exists; it does not rely on a discrete-series place."
         }
       ],
       "uses": [
         {
           "where": "PotentialModularityAndCompatibleSystems R24",
-          "how": "Input an actual fixed modular-form family into generic operations."
+          "how": "Input an actual fixed modular-form family into the generic operations."
         },
         {
-          "where": "Newton–Thorne prime selection",
-          "how": "Compare residual images at chosen members without changing the eigenform."
+          "where": "Newton–Thorne prime selection; R19.3/dimitrov-large-image",
+          "how": "Compare residual images of chosen members without changing the eigenform."
         }
-      ],
-      "planet": {
-        "name": "Eigenform compatible family"
-      }
+      ]
     },
     {
       "id": "AutomorphicGaloisRepresentations:R19.4/all-hilbert-local-global-compatibility",
@@ -3769,40 +4178,49 @@
       ],
       "title": "Full local–global compatibility away from the coefficient prime",
       "kind": "theorem",
-      "statement": "For every cohomological cuspidal Hilbert π over any totally real F, including even degree without a finite discrete-series place, and every v∤λ, WD(σ_π,λ|G_Fv)^{F-ss} is the full Hecke-normalised local Langlands parameter of π_v, including N. Translate to the arithmetic dual explicitly. This implies the local conductor and Euler-factor equalities in the matching normalisation. At a Steinberg place N≠0; traces or semisimplified inertia do not replace this assertion. Carayol proves the geometric subset; the all-Hilbert theorem uses the later extension cited by Skinner equation (1).",
+      "statement": "Let π is a cuspidal automorphic representation of GL₂(A_F), F totally real of degree d, of infinity type (k,w): for every real place τ, π_τ is the discrete series D_{k_τ,w} with Blattner parameter k_τ and central character t ↦ sgn(t)^{k_τ}|t|^{−w} (Carayol 0.2–0.3; Skinner §1), with k_τ ≥ 2 and k_τ ≡ w mod 2 for all τ, including d even with π principal series at every finite place. For every finite place v ∤ ℓ: WD(ρ_{π,λ}|G_{F_v})^{F-ss} ≅ ιRec_v(π_v ⊗ |·|_v^{−1/2}) as Frobenius-semisimple Weil–Deligne representations, including the monodromy operator (Skinner, equation (1)). In Carayol's normalisation this reads σ_λ(π)|W_{F_v} ≅ σ(π_v), Theorem (A) (R19.2/hilbert-normalisation-dictionary (a)). Consequently the Artin conductor of ρ_{π,λ} at v is a(π_v), L(WD(ρ_{π,λ}|G_{F_v}), s) = L(s − 1/2, π_v), and N ≠ 0 exactly when π_v is a twist of the Steinberg representation.",
       "hypotheses": [
-        "Frobenius-semisimplification preserves the Jordan form of N.",
-        "Carayol’s inverse central-character and half-norm twist conventions are kept distinct from Skinner’s Rec_v(π_v⊗|·|_v^{−1/2})."
+        "Frobenius-semisimplification keeps the Jordan form of N; agreement of traces or of semisimplified inertia alone is weaker.",
+        "Rec_v is normalised as in Skinner (uniformisers to geometric Frobenius), so the statement is about ρ_{π,λ}, not σ_λ(π)."
       ],
       "proofSteps": [
-        "Use Carayol Theorem A and its special/cuspidal/extraordinary cases for the geometric subset.",
-        "At extraordinary places the reduction uses cyclic base change and non-normal cubic base change; both transfer inputs must be supplied.",
-        "For the missing all-Hilbert cases use the complete local theorem recalled in Skinner equation (1); its proof input is recorded separately from mere Taylor good-prime existence.",
-        "Apply local Langlands preservation of conductor and L-factor, and dualise with the selected Frobenius convention."
+        "Geometric case (d odd or a finite discrete-series place): Carayol's Theorem (A) (R19.2/hilbert-modular-compatible-system-carayol-theorem-A), including the extraordinary places in residue characteristic 2, which need cyclic and non-normal cubic base change (GL2AutomorphicRepresentationsAndTransfer R17.4); translate by the dictionary.",
+        "Remaining case: the representation is Taylor's congruence construction, and the full compatibility at every v ∤ ℓ is the statement recalled by Skinner in (1) and by Blasius §2.3 and §3, with proofs by Taylor [Tay1, Tay2]; Taylor's original papers are a recorded source gap.",
+        "Conductors and L-factors: local Langlands preserves them, and the unramified twist by |·|^{−1/2} shifts s by 1/2 (GL2AutomorphicRepresentationsAndTransfer R16.3)."
       ],
       "prerequisites": [
         "AutomorphicGaloisRepresentations:R19.2/all-cohomological-hilbert-representation",
+        "AutomorphicGaloisRepresentations:R19.2/hilbert-normalisation-dictionary",
+        "AutomorphicGaloisRepresentations:R19.2/hilbert-modular-compatible-system-carayol-theorem-A",
         "AutomorphicGaloisRepresentations:R19.4/hecke-versus-langlands-normalization-and-local-global-compatibility",
         "GL2AutomorphicRepresentationsAndTransfer:R16.3",
-        "GL2AutomorphicRepresentationsAndTransfer:R17.4"
+        "GL2AutomorphicRepresentationsAndTransfer:R17.4",
+        "ArithmeticGaloisRepresentations:R01.2"
       ],
       "sources": [
         {
           "sourceId": "skinner09",
-          "locator": "Introduction p. 242, equation (1)",
-          "excerpt": "∀v",
-          "match": "Full away-p compatibility is stated before the coefficient-prime theorem."
+          "locator": "Introduction, p. 242",
+          "excerpt": "The existence of a ρπ satisfying (1) was established by Carayol [Ca2], Wiles [W], Blasius and Rogawski [BR], and Taylor [Tay1]",
+          "match": "Full away-from-p compatibility (1) for every π of infinity type (k,w)."
+        },
+        {
+          "sourceId": "blasius06",
+          "locator": "§3, p. 18",
+          "excerpt": "As shown by Taylor ([T1], [T2]), there is an irreducible two-dimensional l-adic representation",
+          "match": "Taylor's representation satisfies the Global Langlands Correspondence at every place prime to ℓ."
         },
         {
           "sourceId": "carayol86-hilbert",
           "locator": "Theorem (A), §12.2–12.3",
           "excerpt": "représentations",
-          "match": "The geometric proof includes the extraordinary places."
+          "match": "The geometric proof, including the extraordinary places."
         }
       ],
       "acceptance": [
         "The split semisimplification of a Steinberg parameter has the same Frobenius traces but the wrong N, conductor and bad factor.",
-        "Apply to an even-degree field without a finite discrete-series place."
+        "An even-degree field with π principal series at every finite place is covered.",
+        "11a1 at 11: conductor exponent 1 and L-factor (1 − 11^{−s})^{−1} for the cohomological normalisation."
       ],
       "implementationStatus": "unchecked"
     },
@@ -3812,21 +4230,22 @@
       "realises": [
         "AutomorphicGaloisRepresentations:R19.5"
       ],
-      "title": "Kisin’s coefficient-prime compatibility theorem",
+      "title": "Kisin's coefficient-prime compatibility theorem",
       "kind": "theorem",
-      "statement": "Kisin Theorem 4.3: for any totally real F and cohomological Hilbert π of multiweight (k,w), if the semisimplified residual representation at λ|p is absolutely irreducible, σ_π,λ|G_Fv is potentially semistable of the prescribed labelled Hodge type for every v|p, and its Frobenius-semisimple WD representation corresponds to π_v, preserving N. No unramified-base-field, parallel-weight or finite discrete-series-place hypothesis is imposed on this theorem. In Kisin’s proof the semistable/potentially semistable fixed-type quotient and its period module are available for an arbitrary complete Noetherian local coefficient algebra A°, not only the universal deformation algebra.",
+      "statement": "Kisin's Theorem 4.3 in this roadmap's normalisation: let π is a cuspidal automorphic representation of GL₂(A_F), F totally real of degree d, of infinity type (k,w): for every real place τ, π_τ is the discrete series D_{k_τ,w} with Blattner parameter k_τ and central character t ↦ sgn(t)^{k_τ}|t|^{−w} (Carayol 0.2–0.3; Skinner §1), with k_τ ≥ 2 and k_τ ≡ w mod 2 for all τ, λ | p, and suppose the semisimplified reduction of ρ_{π,λ} is absolutely irreducible. Then for every place v | p of F, ρ_{π,λ}|G_{F_v} is potentially semistable with Hodge degrees (w − k_τ + 2)/2 and (w + k_τ)/2 at each τ, and the Frobenius-semisimplification of its Weil–Deligne representation (Fontaine's covariant D_pst, Kisin §4.2) is ιRec_v(π_v ⊗ |·|_v^{−1/2}), preserving N. Kisin's ρ_{π,λ} is defined by the geometric Frobenius polynomial X² − t_vX + N(v)s_v with positive-uniformiser operators, so it is ρ_{π,λ} itself, and the local Langlands correspondence of his Theorem 4.3 is the one fixed by (4.3.1), tr(w | σ_v) = t_v. No unramified-base, parallel-weight or discrete-series hypothesis is imposed. In the proof the fixed-type quotient and its period module exist over an arbitrary complete Noetherian local coefficient algebra A°.",
       "hypotheses": [
-        "Residual absolute irreducibility is essential to this theorem’s route.",
-        "The generic quotient property tests all finite Q_p-algebras, including algebras with nilpotents; field-valued points alone do not express it."
+        "Residual absolute irreducibility is essential to this route; R19.5/skinner-full-hilbert-coefficient-prime removes it.",
+        "The quotient property tests all finite Q_p-algebras, including algebras with nilpotents; field-valued points alone do not express it."
       ],
       "proofSteps": [
-        "If π has a finite discrete-series place, apply Saito’s comparison.",
-        "Otherwise Taylor gives auxiliary-new congruences modulo p^s for every s. Their specialisations satisfy Saito and factor through the fixed Hodge/type quotient.",
-        "Apply Kisin Theorems 2.5.5 and 2.7.6 for arbitrary A° and the finite-projective period module with φ,N; its Frobenius trace is a function on the quotient.",
-        "Use the congruences at every precision, closed quotient ideals and completeness to obtain factorisation and the Frobenius trace identity for the original form. Retain N in Frobenius-semisimplification."
+        "If π has a finite discrete-series place, apply Saito's comparison (R19.5/potential-semistability-and-compatibility-at-the-coefficient-prime) and translate by the dictionary.",
+        "Otherwise Taylor's auxiliary μ-new congruences modulo p^s for every s (R19.2/all-cohomological-hilbert-representation) have characteristic-zero points special at μ, which satisfy Saito's theorem and factor through the fixed crystalline Hodge-type quotient.",
+        "Apply Kisin's Theorems 2.5.5 and 2.7.6 for arbitrary A° (LocalGaloisDeformationRings R08.3): the period module D_R with φ, and the trace T_φ of φ^{ν(w)} as a function on the quotient.",
+        "Congruences at every precision, closed quotient ideals and completeness give the factorisation R_{V_F} → T_m → O_{π,λ} through the quotient and T_φ ↦ t_v; Frobenius-semisimplification keeps N."
       ],
       "prerequisites": [
         "AutomorphicGaloisRepresentations:R19.2/all-cohomological-hilbert-representation",
+        "AutomorphicGaloisRepresentations:R19.2/hilbert-normalisation-dictionary",
         "AutomorphicGaloisRepresentations:R19.5/potential-semistability-and-compatibility-at-the-coefficient-prime",
         "LocalGaloisDeformationRings:R08.3/semistable-height-quotient",
         "LocalGaloisDeformationRings:R08.3",
@@ -3844,11 +4263,17 @@
           "locator": "Theorem 2.5.5; Theorem 2.7.6, pp. 531–534",
           "excerpt": "finite",
           "match": "The quotient/period-family input is over arbitrary coefficient algebras."
+        },
+        {
+          "sourceId": "kisin08-ams",
+          "locator": "§4.1, p. 542",
+          "excerpt": "By a result of Carayol and Taylor [Ca], [Ta 1], there exists a continuous representation",
+          "match": "Kisin's ρ_{π,λ} is the positive-uniformiser, geometric-Frobenius normalisation."
         }
       ],
       "acceptance": [
-        "A ramified totally real base field and nonparallel cohomological weight are allowed.",
-        "A residual-reducible λ cannot be covered by this theorem merely because σ_π,λ is irreducible in characteristic zero."
+        "A ramified totally real base field and a non-parallel cohomological weight are allowed.",
+        "A residually reducible λ is not covered by this theorem merely because ρ_{π,λ} is irreducible in characteristic zero."
       ],
       "implementationStatus": "unchecked",
       "planet": {
@@ -3861,38 +4286,66 @@
       "realises": [
         "AutomorphicGaloisRepresentations:R19.5"
       ],
-      "title": "Skinner’s full Hilbert coefficient-prime theorem",
+      "title": "Skinner's full Hilbert coefficient-prime theorem",
       "kind": "theorem",
-      "statement": "For all cuspidal cohomological Hilbert π of infinity type (k,w), k_τ≥2 and k_τ≡w mod 2, over any totally real F, the representation in Skinner’s equation (1) is potentially semistable at every v|p and WD(ρ_π|G_Fv)^{F-ss}=ι Rec_v(π_v⊗|·|_v^{−1/2}). In his D_HT grading the two degrees at τ are (w−k_τ)/2 and (w+k_τ−2)/2. The theorem imposes neither residual absolute irreducibility nor an auxiliary discrete-series place. Translate this named representation to the packet’s cohomological/arithmetic convention by the local dictionary, retaining the dual and norm twist.",
+      "statement": "Skinner's Theorem 1 in this roadmap's normalisation: let π is a cuspidal automorphic representation of GL₂(A_F), F totally real of degree d, of infinity type (k,w): for every real place τ, π_τ is the discrete series D_{k_τ,w} with Blattner parameter k_τ and central character t ↦ sgn(t)^{k_τ}|t|^{−w} (Carayol 0.2–0.3; Skinner §1), with k_τ ≥ 2 and k_τ ≡ w mod 2 for all τ, λ | p, and v | p. Then ρ_{π,λ}|G_{F_v} is potentially semistable with Hodge degrees (w − k_τ + 2)/2 and (w + k_τ)/2 at each τ, and WD(ρ_{π,λ}|G_{F_v})^{F-ss} ≅ ιRec_v(π_v ⊗ |·|_v^{−1/2}) (Skinner (2)). Skinner's ρ_π is ρ_{π,λ} (his equation (1) and the trace identity of §2.4.2); his printed degrees (w − k_τ)/2 and (w + k_τ − 2)/2 are these under the shift of sourceIssue E4. No residual irreducibility and no discrete-series place is assumed.",
       "hypotheses": [
-        "The Hodge numbers are labelled by embeddings; the w and parity conditions are explicit.",
-        "Generic period rings, D_pst and WD conversion are imported from R06, while this arithmetic theorem is owned here."
+        "Labelled degrees in the grading of the dictionary; the comparison is of full WD^{F-ss}, not only of Hodge numbers.",
+        "Generic period rings, D_pst and the Weil–Deligne functor are PadicHodgeTheory R06.3; this arithmetic theorem is owned here."
       ],
       "proofSteps": [
-        "Use Saito and Blasius–Rogawski in their geometric cases and the CM induced-character case.",
-        "For the remaining even-degree, parallel-weight-two, everywhere principal-series case, pass to the unitary normalization and import the exact GL₃ adjoint lift; recover Sym² by the central-character twist. Use the GL₃ geometric comparison and Wintenberger descent to obtain the desired rank-two compatibility up to a quadratic twist, with these nonroutine inputs recorded in the gap.",
-        "Use the p-adic family and Frobenius eigenline argument to remove that quadratic ambiguity; the detailed analytic continuation input remains a recorded proof refinement."
+        "Known cases: Saito when d is odd or π has a finite discrete-series place (R19.5/potential-semistability-and-compatibility-at-the-coefficient-prime); Blasius–Rogawski when some k_τ > 2 and π is unramified above p (Skinner §2.3.2, through AutomorphicGaloisRepresentationsPartII AG2.1 and AG2.2 and PadicHodgeTheory R06.5); CM representations by Serre.",
+        "Reduction (Skinner §2.2): potential crystallinity and the trace identity (4) may be checked after an abelian base change F′/F with π_{F′} cuspidal and unramified above p (GL2AutomorphicRepresentationsAndTransfer R17.4), because ρ_{π_{F′},λ} ≅ ρ_{π,λ}|G_{F′} (R19.2/hilbert-uniqueness-determinant-oddness-irreducibility); so assume d even, k_τ = 2, π principal series everywhere, unramified above p, not CM, and twist to w = 0.",
+        "Symmetric square (Skinner §2.4.1): by R19.2/hilbert-hodge-tate-property, ρ_v := ρ_{π,λ}|G_{F_v} is a quadratic twist of a crystalline representation, and the GL₃ realisation gives WD(Sym²ρ_v) ≅ ιRec_v(Sym²π_v ⊗ |·|_v^{−1}); hence WD(ρ_v) is a quadratic twist of ιRec_v(π_v ⊗ |·|_v^{−1/2}), and it suffices to show D_cris(ρ_v)^{φ^{f_v} = q_v^{1/2}α_v(ϖ_v)} ≠ 0 for π_v = π(α_v, β_v).",
+        "Family (Skinner §2.4.2): with D the totally definite quaternion algebra over F and Buzzard's overconvergent forms S^D_κ(U; m) over a weight disc B_r, a T^S-stable finite slope summand N gives a reduced affinoid A, φ: T^S → A and ρ_A on M = A ⊕ C (PadicFamilies L2a and L2, with Jacquet–Langlands GL2AutomorphicRepresentationsAndTransfer R17.3); the specialisations at the dense set of classical points x of weight ((n_x + 2), n_x + 2) are ρ_{π_x,λ}, using their irreducibility (R19.2/hilbert-uniqueness-determinant-oddness-irreducibility).",
+        "Analytic continuation: Theorem 1 holds at those points by the Blasius–Rogawski case, so D_cris(ρ_x|D_v)^{φ^{f_v} = x(φ_v)} has rank ≥ 1; Kisin's analytic continuation of crystalline periods [Ki2, (5.14)–(5.15)], extended from G_{Q_p} to G_{F_v} as in Skinner's footnote 9 (PadicHodgeTheory R06.3), gives the same at x₀, which removes the quadratic ambiguity."
       ],
       "prerequisites": [
         "AutomorphicGaloisRepresentations:R19.2/all-cohomological-hilbert-representation",
+        "AutomorphicGaloisRepresentations:R19.2/hilbert-normalisation-dictionary",
+        "AutomorphicGaloisRepresentations:R19.2/hilbert-hodge-tate-property",
+        "AutomorphicGaloisRepresentations:R19.2/hilbert-uniqueness-determinant-oddness-irreducibility",
         "AutomorphicGaloisRepresentations:R19.4/all-hilbert-local-global-compatibility",
+        "AutomorphicGaloisRepresentations:R19.5/potential-semistability-and-compatibility-at-the-coefficient-prime",
         "PadicHodgeTheory:R06.3",
         "PadicHodgeTheory:R06.5",
-        "GL2AutomorphicRepresentationsAndTransfer:R17.4/adjoint-lift"
+        "GL2AutomorphicRepresentationsAndTransfer:R17.3",
+        "GL2AutomorphicRepresentationsAndTransfer:R17.4",
+        "GL2AutomorphicRepresentationsAndTransfer:R17.4/adjoint-lift",
+        "AutomorphicGaloisRepresentationsPartII:AG2.1",
+        "AutomorphicGaloisRepresentationsPartII:AG2.2",
+        "PadicFamilies:L2a",
+        "PadicFamilies:L2"
       ],
       "sources": [
         {
           "sourceId": "skinner09",
           "locator": "Theorem 1 and Hodge–Tate definition, p. 242; proof strategy pp. 243–244",
           "excerpt": "Hodge-Tate type",
-          "match": "The statement has no residual-irreducibility assumption; the detailed proof is not claimed fully read."
+          "match": "The statement has no residual-irreducibility assumption."
+        },
+        {
+          "sourceId": "skinner09",
+          "locator": "§2.4, p. 251",
+          "excerpt": "we may also assume that w = 2",
+          "match": "The remaining case: d even, all k_i = 2, π_v unramified above p, not CM; the twist to Skinner's w = 2 is this roadmap's w = 0 (sourceIssue E4)."
+        },
+        {
+          "sourceId": "skinner09",
+          "locator": "§2.4.2, p. 254",
+          "excerpt": "It then follows easily from [Ki2, (5.15)] that",
+          "match": "Kisin's analytic continuation of crystalline periods in the quaternionic family."
         }
       ],
       "acceptance": [
         "The even-degree parallel-weight-two case with reducible residual representation is included.",
-        "The assertion compares full WD^{F-ss}, not only the two labelled Hodge numbers."
+        "The assertion compares full WD^{F-ss}, not only the two labelled Hodge degrees.",
+        "11a1 at 11 (F = Q, d = 1 odd, Saito's case): semistable non-crystalline with N ≠ 0."
       ],
-      "implementationStatus": "unchecked"
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Skinner's coefficient-prime theorem"
+      }
     },
     {
       "id": "AutomorphicGaloisRepresentations:R19.5/ordinary-refinement-and-saturated-lattice",
@@ -3980,7 +4433,7 @@
       "tests": [
         {
           "name": "TauCeti.ModularGalois.ordinaryRefinement_11a1_three",
-          "kind": "example",
+          "kind": "computation",
           "statement": "X²+X+3 has one 3-adic unit root; choose that root for the unramified quotient."
         },
         {
@@ -4090,7 +4543,7 @@
       "tests": [
         {
           "name": "TauCeti.ModularGalois.eigenformDcris_11a1_two",
-          "kind": "example",
+          "kind": "computation",
           "statement": "At 2 the polynomial X²+2X+2 has slopes 1/2,1/2 and gives a good nonordinary example."
         },
         {
@@ -4100,7 +4553,7 @@
         },
         {
           "name": "TauCeti.ModularGalois.eigenformWach_basis",
-          "kind": "invariance",
+          "kind": "characterisation",
           "statement": "Changing the basis preserves the φ-module under semilinear conjugation, not under ordinary matrix conjugation alone."
         },
         {
@@ -4257,7 +4710,8 @@
       "statement": "In CDN §5.2.1 let F/Q_p be finite, E totally real with E_𝔭=F, B̌/E ramified at 𝔭 and split at exactly one real place, and B its inner form split at 𝔭 and compact at infinity, with the other local invariants as in the source. Let M∈ΦN^ϖ be a two-dimensional supercuspidal (φ,N,G_F)-module over L with ϖ acting trivially on JL(M), choose n such that JL(M) is trivial on 1+ϖ_D^n O_D, and take Π̌∈SD_{2,n} defined over L with Π̌_𝔭=JL(M). Here SD₂ imposes the holomorphic discrete-series representation of weight two and trivial central character at the distinguished real place ∞₀, and the trivial representation at every other real place; a globally trivial central character is not assumed. Write Π_f^p=Π̌_f^p and Sh_n for the quaternionic Shimura-curve tower. Then Hom_{Ǧ(A_f^p)}(Π_f^p,L⊗Q_p H_HK¹(Sh_n))≅JL(M)⊗_L M. For F⊆K, Hom_{Ǧ(A_f^p)}(Π_f^p,L⊗Q_p H_dR¹(Sh_n,K))≅JL(M)⊗_L(K⊗_F M_dR). The isomorphisms respect the period structures, local group action and comparison map with the source’s coefficient completions.",
       "hypotheses": [
         "Retain the globalisation, ϖ-compatibility, level n, weight-two archimedean type, supercuspidal parameter and coefficient-field hypotheses. Globalisation can require a character twist and a finite extension of L (CDN footnote 21). For de Rham cohomology K contains E and F via the fixed embedding E→E_𝔭=F→K.",
-        "This is an automorphic multiplicity extraction, not a claim about the entire cohomology or a new local p-adic Langlands construction."
+        "This is an automorphic multiplicity extraction, not a claim about the entire cohomology or a new local p-adic Langlands construction.",
+        "CDN's ρ_Π satisfies H¹_ét = ⊕ Π_f ⊗ ρ_Π(−1); the multiplicity space is Carayol's σ_λ, so ρ_Π = ρ_{π,λ}^∨ for the Jacquet–Langlands transfer π (R19.2/hilbert-normalisation-dictionary (h))."
       ],
       "proofSteps": [
         "Decompose étale cohomology of the curve tower as ⊕_π π_f⊗ρ_π(−1) in CDN’s convention.",
@@ -4271,7 +4725,8 @@
         "HilbertModularVarietiesAndShimuraCurves:R18.4",
         "PadicHodgeTheory:R06.5",
         "GL2AutomorphicRepresentationsAndTransfer:R17.3",
-        "GL2AutomorphicRepresentationsAndTransfer:R16.6"
+        "GL2AutomorphicRepresentationsAndTransfer:R16.6",
+        "AutomorphicGaloisRepresentations:R19.2/hilbert-normalisation-dictionary"
       ],
       "sources": [
         {
@@ -4438,12 +4893,12 @@
         },
         {
           "name": "TauCeti.ModularGalois.geometricHeckeDeterminant_characteristicTwo",
-          "kind": "example",
+          "kind": "computation",
           "statement": "The cross coefficient tr(g)tr(h)−tr(gh) is integral in characteristic two; no 1/2 formula is used."
         },
         {
           "name": "TauCeti.ModularGalois.geometricHeckeDeterminant_oldspace",
-          "kind": "example",
+          "kind": "computation",
           "statement": "Retain the nonzero nilpotent u(u²+2u+2) in the level-88 old Hecke factor instead of replacing that factor by its reduced quotient."
         }
       ],
@@ -4532,7 +4987,7 @@
     },
     {
       "supplier": "ArithmeticGaloisRepresentations:R01.1",
-      "need": "Existence of G-stable lattices in continuous ℓ-adic representations of compact groups and Brauer–Nesbitt independence of the semisimplified reduction; Čebotarev uniqueness of semisimple representations with given Frobenius traces. Additional interface: Dirichlet characters as finite-order G_Q characters through Gal(Q(ζ_N)/Q), arithmetic good Frobenius value χ(q), and the ℓ-adic cyclotomic character of good Frobenius value q; used for the Eisenstein direct sum. Independent review interface: For a complete DVR with finite residue field of characteristic ℓ, reduction GL_n(O/π^(m+1))→GL_n(O/π^m) is surjective; its successive congruence kernels are additive matrix ℓ-groups, and GL_n(O) is the topological inverse limit of these groups. Residual recognition in characteristic ℓ uses full characteristic polynomials, not traces alone. Independent review interface: Stable lattices and lattice-independent residual semisimplification of the Hilbert eigenform representations, followed by full-polynomial recognition over the residue field; the classical-newform residual node is not this Hilbert input.",
+      "need": "Existence of G-stable lattices in continuous ℓ-adic representations of compact groups and Brauer–Nesbitt independence of the semisimplified reduction; Čebotarev uniqueness of semisimple representations with given Frobenius traces. Additional interface: Dirichlet characters as finite-order G_Q characters through Gal(Q(ζ_N)/Q), arithmetic good Frobenius value χ(q), and the ℓ-adic cyclotomic character of good Frobenius value q; used for the Eisenstein direct sum. Independent review interface: For a complete DVR with finite residue field of characteristic ℓ, reduction GL_n(O/π^(m+1))→GL_n(O/π^m) is surjective; its successive congruence kernels are additive matrix ℓ-groups, and GL_n(O) is the topological inverse limit of these groups. Residual recognition in characteristic ℓ uses full characteristic polynomials, not traces alone. Independent review interface: Stable lattices and lattice-independent residual semisimplification of the Hilbert eigenform representations, followed by full-polynomial recognition over the residue field; the classical-newform residual node is not this Hilbert input. Additional interface: Class field theory for algebraic Hecke characters with uniformisers corresponding to geometric Frobenius (the λ-adic character χ_{π,λ} of a central character, with value s_v at a geometric Frobenius); a finite-order idele class character with a prescribed finite-order component at one place; and Serre's theorem (Abelian ℓ-adic representations III.2.3–2.4) that a continuous character of G_F unramified outside a finite set and Hodge–Tate above ℓ is the λ-adic character of an algebraic Hecke character.",
       "neededBy": [
         "AutomorphicGaloisRepresentations:R19.6/residual-representation-of-a-newform",
         "AutomorphicGaloisRepresentations:R19.1/newform-rank-two-realisation",
@@ -4540,36 +4995,53 @@
         "AutomorphicGaloisRepresentations:R19.6/full-weight-two-hecke-algebra-and-its-galois-representations",
         "AutomorphicGaloisRepresentations:R19.1/mod-lambda-representation-of-a-mod-lambda-eigenform",
         "AutomorphicGaloisRepresentations:R19.1/lifting-representations-of-groups-of-order-prime-to-l",
-        "AutomorphicGaloisRepresentations:R19.6/hecke-algebra-representation-quaternionic"
+        "AutomorphicGaloisRepresentations:R19.6/hecke-algebra-representation-quaternionic",
+        "AutomorphicGaloisRepresentations:R19.2/all-cohomological-hilbert-representation",
+        "AutomorphicGaloisRepresentations:R19.2/hilbert-normalisation-dictionary",
+        "AutomorphicGaloisRepresentations:R19.2/hilbert-uniqueness-determinant-oddness-irreducibility",
+        "AutomorphicGaloisRepresentations:R19.3/classical-newform-irreducibility",
+        "AutomorphicGaloisRepresentations:R19.3/hilbert-ramanujan-conjecture",
+        "AutomorphicGaloisRepresentations:R19.2/hilbert-hodge-tate-property",
+        "AutomorphicGaloisRepresentations:R19.5/ordinary-refinement-and-saturated-lattice"
       ]
     },
     {
       "supplier": "ArithmeticGaloisRepresentations:R01.2",
-      "need": "Weil–Deligne representations of local Weil groups with Deligne's normalisation F N F^{−1} = q^{−1}N for geometric Frobenius, Frobenius-semisimplification and Grothendieck's ℓ-adic monodromy theorem.",
+      "need": "Weil–Deligne representations of local Weil groups with Deligne's normalisation F N F^{−1} = q^{−1}N for geometric Frobenius, Frobenius-semisimplification and Grothendieck's ℓ-adic monodromy theorem. Additional interface: Purity of Weil–Deligne representations in the monodromy sense (Deligne): q-Weil numbers, the classification of Frobenius-semisimple indecomposables Λ ⊗ V_t, and stability of purity under sums, duals, Tate twists and tensor products (Blasius §§1.8–1.10, Proposition 1).",
       "neededBy": [
-        "AutomorphicGaloisRepresentations:R19.4/hecke-versus-langlands-normalization-and-local-global-compatibility"
+        "AutomorphicGaloisRepresentations:R19.4/hecke-versus-langlands-normalization-and-local-global-compatibility",
+        "AutomorphicGaloisRepresentations:R19.3/monodromy-weight-purity-of-the-family",
+        "AutomorphicGaloisRepresentations:R19.3/hilbert-ramanujan-conjecture",
+        "AutomorphicGaloisRepresentations:R19.3/strict-compatibility-and-the-monodromy-weight-purity",
+        "AutomorphicGaloisRepresentations:R19.2/hilbert-normalisation-dictionary",
+        "AutomorphicGaloisRepresentations:R19.4/all-hilbert-local-global-compatibility"
       ]
     },
     {
       "supplier": "GL2AutomorphicRepresentationsAndTransfer:R16.3",
-      "need": "Local Langlands for GL_2(Q_p) and GL_2(F_v) with the Hecke normalisation σ_h (Carayol 0.5) and its relation to Langlands' (twist by ω^{1/2}, contragredient); preservation of conductors, L- and ε-factors; unramified twists of Steinberg ↔ N ≠ 0.",
+      "need": "Local Langlands for GL_2(Q_p) and GL_2(F_v) with the Hecke normalisation σ_h (Carayol 0.5) and its relation to Langlands' (twist by ω^{1/2}, contragredient); preservation of conductors, L- and ε-factors; unramified twists of Steinberg ↔ N ≠ 0. Additional interface: Twisting and duality for the Langlands parameter: Rec_v(π_v ⊗ (χ∘det)) = Rec_v(π_v) ⊗ Rec_v(χ), Rec_v(π_v^∨) = Rec_v(π_v)^∨, π_v^∨ ≅ π_v ⊗ χ_{π_v}^{−1} for GL₂, and preservation of L-, ε-factors and conductors under these operations.",
       "neededBy": [
         "AutomorphicGaloisRepresentations:R19.4/hecke-versus-langlands-normalization-and-local-global-compatibility",
         "AutomorphicGaloisRepresentations:R19.4/conductor-and-local-factors-classical",
         "AutomorphicGaloisRepresentations:R19.4/nearly-ordinary-hilbert-compatibility-away-from-p",
         "AutomorphicGaloisRepresentations:R19.2/carayol-primitive-restriction-lemma",
-        "AutomorphicGaloisRepresentations:R19.2/carayol-cubic-base-change-of-extraordinary"
+        "AutomorphicGaloisRepresentations:R19.2/carayol-cubic-base-change-of-extraordinary",
+        "AutomorphicGaloisRepresentations:R19.2/hilbert-normalisation-dictionary",
+        "AutomorphicGaloisRepresentations:R19.4/all-hilbert-local-global-compatibility",
+        "AutomorphicGaloisRepresentations:R19.3/monodromy-weight-purity-of-the-family"
       ]
     },
     {
       "supplier": "HilbertModularVarietiesAndShimuraCurves:R18.4",
-      "need": "Shimura curves attached to quaternion algebras over totally real fields split at one real place, with the ℓ-adic sheaves F_λ and the Hecke decomposition of their cohomology used by Carayol (§§1–10). Additional interface: The CDN §5.2.1 quaternionic Shimura-curve tower and automorphic decomposition of H¹ with π_f⊗ρ_π(−1), all group actions and direct limits; HK/de Rham multiplicity extraction is owned here. Additional interface: Faithful generic rank-two Hecke multiplicity module from geometric cohomology, including the completed local algebra’s generalised eigenspaces, coefficient change and topology; needed before law descent.",
+      "need": "Shimura curves attached to quaternion algebras over totally real fields split at one real place, with the ℓ-adic sheaves F_λ and the Hecke decomposition of their cohomology used by Carayol (§§1–10). Additional interface: The CDN §5.2.1 quaternionic Shimura-curve tower and automorphic decomposition of H¹ with π_f⊗ρ_π(−1), all group actions and direct limits; HK/de Rham multiplicity extraction is owned here. Additional interface: Faithful generic rank-two Hecke multiplicity module from geometric cohomology, including the completed local algebra’s generalised eigenspaces, coefficient change and topology; needed before law descent. Additional interface: Quaternionic Shimura surfaces Sh_B for B split at exactly two real places and at every finite place, and Blasius's Proposition 6 (Reimann's Hasse–Weil zeta computation; Brylinski–Labesse for intersection cohomology when B = M₂): the constituents of H²(Sh_{B,W}, Q_ℓ)(π′_f) over Γ_L are those of ρ_{π,λ}|_L ⊗ ^{τ₂}ρ_{π,λ}|_L. Also the Hecke algebras with level at an auxiliary prime μ and their μ-new quotients used in Taylor's congruences (Kisin §4.3).",
       "neededBy": [
         "AutomorphicGaloisRepresentations:R19.2/hilbert-modular-compatible-system-carayol-theorem-A",
         "AutomorphicGaloisRepresentations:R19.2/carayol-sigma-lambda-construction",
         "AutomorphicGaloisRepresentations:R19.2/carayol-twisting-and-determinant",
         "AutomorphicGaloisRepresentations:R19.5/shimura-curve-hk-dR-multiplicity",
-        "AutomorphicGaloisRepresentations:R19.6/geometric-hecke-determinant"
+        "AutomorphicGaloisRepresentations:R19.6/geometric-hecke-determinant",
+        "AutomorphicGaloisRepresentations:R19.3/hilbert-ramanujan-conjecture",
+        "AutomorphicGaloisRepresentations:R19.2/all-cohomological-hilbert-representation"
       ]
     },
     {
@@ -4582,17 +5054,18 @@
     },
     {
       "supplier": "PotentialModularityAndCompatibleSystems:R24.5:operations",
-      "need": "The generic compatible-system carrier with weak, almost-strict and strict local predicates (Dieulefait–Pacetti Definition 1.10 after Khare–Wintenberger). Additional interface: Early compatible-system carrier over a number field, coefficient extension/dual/twist operations and explicit weak/almost-strict/strict predicates. This import precedes R24 potential-modularity existence, avoiding a cycle.",
+      "need": "The generic compatible-system carrier with weak, almost-strict and strict local predicates (Dieulefait–Pacetti Definition 1.10 after Khare–Wintenberger). Additional interface: Early compatible-system carrier over a number field, coefficient extension/dual/twist operations and explicit weak/almost-strict/strict predicates. This import precedes R24 potential-modularity existence, avoiding a cycle. Additional interface: The strict predicate filled by the fixed eigenform family and the purity field it records.",
       "neededBy": [
-        "AutomorphicGaloisRepresentations:R19.3/strict-compatibility-and-the-monodromy-weight-purity",
         "AutomorphicGaloisRepresentations:R19.3/fixed-eigenform-compatible-family"
       ]
     },
     {
       "supplier": "WeightsInEtaleCohomology:R34.6",
-      "need": "Purity for the eigenform/Kuga–Sato eigenspace with its projector hypotheses (Ramanujan–Petersson in the geometric form). Additional interface: Purity and monodromy-weight theorem for the parabolic/Kuga–Sato and Shimura-curve coefficient realisations, including Saito’s required vanishing input, and preservation under eigenform projectors and coefficient extension. Independent review interface: Its hilbert-local-monodromy-weight-export node is only the Saito geometric case (g>1,w≥k_τ≥2 and a finite discrete-series place in even degree). Request the vanishing/projector transport in that scope; full all-Hilbert purity requires a separate precise proof input. Do not treat an export depending on the retired R06.6 modular application as an independent generic supplier.",
+      "need": "Purity for the eigenform/Kuga–Sato eigenspace with its projector hypotheses (Ramanujan–Petersson in the geometric form). Additional interface: Purity and monodromy-weight theorem for the parabolic/Kuga–Sato and Shimura-curve coefficient realisations, including Saito’s required vanishing input, and preservation under eigenform projectors and coefficient extension. Independent review interface: Its hilbert-local-monodromy-weight-export node is only the Saito geometric case (g>1,w≥k_τ≥2 and a finite discrete-series place in even degree). Request the vanishing/projector transport in that scope; full all-Hilbert purity requires a separate precise proof input. Do not treat an export depending on the retired R06.6 modular application as an independent generic supplier. Saito's weight theorem stated on the geometric realisations: for the semistable model of R34.3/saito-semistable-comparison-model, the monodromy filtrations of the ℓ-adic eigensummand H¹(M, F(k)) and of its log-crystalline (Hyodo–Kato) realisation are pure of weight w_S − 1 (Saito §8 and Proposition 1, §10). It must not import the coefficient-prime theorem of R19.5 or the retired PadicHodgeTheory R06.6 application, which R19.5 owns.",
       "neededBy": [
-        "AutomorphicGaloisRepresentations:R19.3/strict-compatibility-and-the-monodromy-weight-purity"
+        "AutomorphicGaloisRepresentations:R19.3/strict-compatibility-and-the-monodromy-weight-purity",
+        "AutomorphicGaloisRepresentations:R19.1/geometric-construction-and-the-eichler-congruence-relation",
+        "AutomorphicGaloisRepresentations:R19.3/classical-newform-irreducibility"
       ]
     },
     {
@@ -4605,23 +5078,27 @@
     },
     {
       "supplier": "IntegralHeckeAndGaloisDeterminants:IHG.1",
-      "need": "Chenevier Theorem 2.22(i): faithful Cayley–Hamilton quotient over a henselian local coefficient ring with residually split absolutely irreducible determinant is M₂(A); reconstruction, conjugacy/strict equivalence and continuity. No algebraically-closed-residue hypothesis and no Deligne–Serre lifting step. Additional interface: Characteristic-zero continuous semisimple reconstruction of the compatible Taylor trace/determinant, without assuming that the residual representation at every λ is absolutely irreducible.",
+      "need": "Chenevier Theorem 2.22(i): faithful Cayley–Hamilton quotient over a henselian local coefficient ring with residually split absolutely irreducible determinant is M₂(A); reconstruction, conjugacy/strict equivalence and continuity. No algebraically-closed-residue hypothesis and no Deligne–Serre lifting step. Additional interface: Characteristic-zero continuous semisimple reconstruction of the compatible Taylor trace/determinant, without assuming that the residual representation at every λ is absolutely irreducible. Additional interface: Pseudo-character reconstruction of a continuous semisimple representation from compatible traces and determinants modulo λ^s (Taylor's congruence branch).",
       "neededBy": [
         "AutomorphicGaloisRepresentations:R19.6/determinants-and-representability-over-a-hecke-algebra",
         "AutomorphicGaloisRepresentations:R19.6/hecke-algebra-representation-quaternionic",
-        "AutomorphicGaloisRepresentations:R19.2/all-cohomological-hilbert-representation"
+        "AutomorphicGaloisRepresentations:R19.2/all-cohomological-hilbert-representation",
+        "AutomorphicGaloisRepresentations:R19.5/kisin-hilbert-coefficient-prime"
       ]
     },
     {
       "supplier": "GL2AutomorphicRepresentationsAndTransfer:R17.3",
-      "need": "The Jacquet–Langlands correspondence between automorphic representations of (D ⊗ A_F)^× and cuspidal representations of GL_2(A_F) that are discrete series at the ramification places of D, with local functoriality at every place (one-dimensional representations of D_v^× ↔ unramified twists of Steinberg), as used by KW II §7 and Taylor.",
+      "need": "The Jacquet–Langlands correspondence between automorphic representations of (D ⊗ A_F)^× and cuspidal representations of GL_2(A_F) that are discrete series at the ramification places of D, with local functoriality at every place (one-dimensional representations of D_v^× ↔ unramified twists of Steinberg), as used by KW II §7 and Taylor. Additional interface: Jacquet–Langlands to the totally definite quaternion algebra split at all finite places (Skinner §2.4.2), matching T^S-eigensystems.",
       "neededBy": [
         "AutomorphicGaloisRepresentations:R19.6/hecke-algebra-representation-quaternionic",
         "AutomorphicGaloisRepresentations:R19.4/quaternionic-sigma-place-local-form",
         "AutomorphicGaloisRepresentations:R19.2/carayol-sigma-lambda-construction",
         "AutomorphicGaloisRepresentations:R19.2/carayol-special-places",
         "AutomorphicGaloisRepresentations:R19.2/carayol-local-fundamental-representation",
-        "AutomorphicGaloisRepresentations:R19.2/carayol-theorem-b"
+        "AutomorphicGaloisRepresentations:R19.2/carayol-theorem-b",
+        "AutomorphicGaloisRepresentations:R19.5/skinner-full-hilbert-coefficient-prime",
+        "AutomorphicGaloisRepresentations:R19.2/all-cohomological-hilbert-representation",
+        "AutomorphicGaloisRepresentations:R19.5/shimura-curve-hk-dR-multiplicity"
       ]
     },
     {
@@ -4688,12 +5165,15 @@
     },
     {
       "supplier": "GL2AutomorphicRepresentationsAndTransfer:R17.4",
-      "need": "Local and global base change for GL₂ along extensions of degree at most 3: Langlands for cyclic extensions and Jacquet–Piatetski-Shapiro–Shalika for non-Galois cubic ones, with the compatibility 'the lift corresponds to restriction of the Weil–Deligne representation' for principal series, special and ordinary cuspidal π, which Carayol (12.2.2) asserts without a reference. Additional interface: Cyclic totally real base change, descent and compatibility of attached good-prime polynomials with restriction; do not infer non-normal cubic base change from cyclic base change. Additional interface: Cyclic and non-normal cubic base change with local parameters and compatibility with Galois restriction, including Carayol §12.2.2; cyclic base change alone does not supply the cubic step. Independent review interface: The existing nonnormal-cubic-base-change node supplies only almost-all Satake compatibility. Carayol §12.2.1–12.2.2 requires the stronger local parameter/restriction assertion for principal series, special and ordinary cuspidal components at the chosen place; retain this as an additional request/gap, not an implication of weak transfer.",
+      "need": "Local and global base change for GL₂ along extensions of degree at most 3: Langlands for cyclic extensions and Jacquet–Piatetski-Shapiro–Shalika for non-Galois cubic ones, with the compatibility 'the lift corresponds to restriction of the Weil–Deligne representation' for principal series, special and ordinary cuspidal π, which Carayol (12.2.2) asserts without a reference. Additional interface: Cyclic totally real base change, descent and compatibility of attached good-prime polynomials with restriction; do not infer non-normal cubic base change from cyclic base change. Additional interface: Cyclic and non-normal cubic base change with local parameters and compatibility with Galois restriction, including Carayol §12.2.2; cyclic base change alone does not supply the cubic step. Independent review interface: The existing nonnormal-cubic-base-change node supplies only almost-all Satake compatibility. Carayol §12.2.1–12.2.2 requires the stronger local parameter/restriction assertion for principal series, special and ordinary cuspidal components at the chosen place; retain this as an additional request/gap, not an implication of weak transfer. Additional interface: Abelian (cyclic, solvable) base change of a cuspidal π of infinity type (k,w) to a totally real F′, cuspidal unless π is induced from F′, compatible with Satake parameters at unramified places and with Rec at every place; totally real quadratic base change; and the Gelbart–Jacquet lift Sym²π ⊗ |·|^{−1} to GL₃, cuspidal for non-CM π.",
       "neededBy": [
         "AutomorphicGaloisRepresentations:R19.2/carayol-cubic-base-change-of-extraordinary",
         "AutomorphicGaloisRepresentations:R19.2/hilbert-modular-compatible-system-carayol-theorem-A",
         "AutomorphicGaloisRepresentations:R19.2/hilbert-uniqueness-determinant-oddness-irreducibility",
-        "AutomorphicGaloisRepresentations:R19.4/all-hilbert-local-global-compatibility"
+        "AutomorphicGaloisRepresentations:R19.4/all-hilbert-local-global-compatibility",
+        "AutomorphicGaloisRepresentations:R19.2/hilbert-hodge-tate-property",
+        "AutomorphicGaloisRepresentations:R19.3/hilbert-ramanujan-conjecture",
+        "AutomorphicGaloisRepresentations:R19.5/skinner-full-hilbert-coefficient-prime"
       ]
     },
     {
@@ -4702,7 +5182,9 @@
       "neededBy": [
         "AutomorphicGaloisRepresentations:R19.2/carayol-ordinary-cuspidal-places",
         "AutomorphicGaloisRepresentations:R19.2/carayol-cubic-base-change-of-extraordinary",
-        "AutomorphicGaloisRepresentations:R19.2/cm-hilbert-eigenform"
+        "AutomorphicGaloisRepresentations:R19.2/cm-hilbert-eigenform",
+        "AutomorphicGaloisRepresentations:R19.2/ordinary-cm-primes-split",
+        "AutomorphicGaloisRepresentations:R19.2/virtual-reducibility-implies-cm"
       ]
     },
     {
@@ -4724,12 +5206,15 @@
         "AutomorphicGaloisRepresentations:R19.1/weight-one-artin-representation",
         "AutomorphicGaloisRepresentations:R19.2/all-cohomological-hilbert-representation",
         "AutomorphicGaloisRepresentations:R19.3/skinner-density-one-ordinary-primes",
-        "AutomorphicGaloisRepresentations:R19.2/hilbert-uniqueness-determinant-oddness-irreducibility"
+        "AutomorphicGaloisRepresentations:R19.2/hilbert-uniqueness-determinant-oddness-irreducibility",
+        "AutomorphicGaloisRepresentations:R19.2/cm-hilbert-eigenform",
+        "AutomorphicGaloisRepresentations:R19.6/geometric-hecke-determinant",
+        "AutomorphicGaloisRepresentations:R19.6/residual-representation-of-a-newform"
       ]
     },
     {
       "supplier": "AutomorphicLFunctionsAndLocalFactors:AL.3",
-      "need": "Rankin's theorem for a classical newform f = Σa_nqⁿ of type (k, ε) on Γ₀(N) (Rankin 1939; Deligne–Serre 5.2 also cite Jacquet LN 278, Li and Ogg): Σ|a_n|²n^{−s} converges for Re s > k, and ζ(2s − 2k + 2)·Σ|a_n|²n^{−s} extends meromorphically to ℂ with a single pole, simple, at s = k. This is the classical specialisation of the GL₂ × GL₂ Rankin–Selberg integral. Additional interface: Holomorphy of the standard L-function of a cuspidal GL₂ representation under the stated twist, and nonvanishing of the finite-order Hecke-character L-value at the noncancellation point in Skinner p. 256.",
+      "need": "Rankin's theorem for a classical newform f = Σa_nqⁿ of type (k, ε) on Γ₀(N) (Rankin 1939; Deligne–Serre 5.2 also cite Jacquet LN 278, Li and Ogg): Σ|a_n|²n^{−s} converges for Re s > k, and ζ(2s − 2k + 2)·Σ|a_n|²n^{−s} extends meromorphically to ℂ with a single pole, simple, at s = k. This is the classical specialisation of the GL₂ × GL₂ Rankin–Selberg integral. Additional interface: Holomorphy of the standard L-function of a cuspidal GL₂ representation under the stated twist, and nonvanishing of the finite-order Hecke-character L-value at the noncancellation point in Skinner p. 256. Additional interface: For cuspidal π on GL₂(A_F) and an algebraic Hecke character ψ, L(π ⊗ ψ, s) is entire; Hecke L-functions L(ψ, s) do not vanish at s = 1 + n, n ≥ 0, and ζ_F has a pole at 1.",
       "neededBy": [
         "AutomorphicGaloisRepresentations:R19.1/rankin-bound-for-a-cuspidal-eigenform",
         "AutomorphicGaloisRepresentations:R19.2/hilbert-uniqueness-determinant-oddness-irreducibility"
@@ -4765,7 +5250,8 @@
       "supplier": "ModularCurvesPartII:R14.6",
       "need": "Weight-two special-fibre Eichler–Shimura correspondence with Frobenius/Verschiebung components and the corrected ordinary versus supersingular subgroup-scheme fibres.",
       "neededBy": [
-        "AutomorphicGaloisRepresentations:R19.1/geometric-construction-and-the-eichler-congruence-relation"
+        "AutomorphicGaloisRepresentations:R19.1/geometric-construction-and-the-eichler-congruence-relation",
+        "AutomorphicGaloisRepresentations:R19.6/weight-two-tate-module-decomposition"
       ]
     },
     {
@@ -4791,29 +5277,35 @@
       "supplier": "GeneralizedHeegnerCycles:GH.0",
       "need": "Fine-level Kuga–Sato fibre powers, canonical equivariant smooth compactification/resolution and the boundary cohomology needed in Scholl §1.3; the ε-projector and its arithmetic application are owned here.",
       "neededBy": [
-        "AutomorphicGaloisRepresentations:R19.1/scholl-projector"
+        "AutomorphicGaloisRepresentations:R19.1/scholl-projector",
+        "AutomorphicGaloisRepresentations:R19.1/parabolic-realisation-premotive"
       ]
     },
     {
       "supplier": "LocalGaloisDeformationRings:R08.3",
       "need": "Kisin 2.7.6/2.7.7 fixed potentially semistable/crystalline inertial and Hodge-type quotient for any complete Noetherian local A° with a free continuous family, with finite-projective period module and coefficient specialisation. The universal pst-deformation-ring node alone is insufficient.",
       "neededBy": [
-        "AutomorphicGaloisRepresentations:R19.5/kisin-hilbert-coefficient-prime"
+        "AutomorphicGaloisRepresentations:R19.5/kisin-hilbert-coefficient-prime",
+        "AutomorphicGaloisRepresentations:R19.6/hecke-family-local-conditions"
       ]
     },
     {
       "supplier": "PadicHodgeTheory:R06.3",
-      "need": "Period-ring D_pst, labelled Hodge–Tate grading, WD conversion and its dual/twist/normalisation functor laws for potentially semistable representations.",
+      "need": "Period-ring D_pst, labelled Hodge–Tate grading, WD conversion and its dual/twist/normalisation functor laws for potentially semistable representations. Additional interface: Kisin's analytic continuation of crystalline periods in families (Kisin, Overconvergent modular forms and the Fontaine–Mazur conjecture, Invent. Math. 153 (2003), Proposition 5.14 and Corollary 5.15), for representations of G_{F_v} with φ replaced by φ^{f_v}, under the Sen-polynomial condition P(X) = XQ(X) with Q(0) not a zero divisor (Skinner footnote 9).",
       "neededBy": [
-        "AutomorphicGaloisRepresentations:R19.5/skinner-full-hilbert-coefficient-prime"
+        "AutomorphicGaloisRepresentations:R19.5/skinner-full-hilbert-coefficient-prime",
+        "AutomorphicGaloisRepresentations:R19.5/hilbert-local-behaviour-at-p"
       ]
     },
     {
       "supplier": "PadicHodgeTheory:R06.5",
-      "need": "Generic proper smooth/semistable geometric comparisons, projectors, cohomological pull–push and coefficient change used by Scholl/Saito/Skinner; concrete eigenform applications stay in R19.5. Additional interface: Generic semistable/proper-smooth comparison compatible with finite-group and Hecke projectors; sufficient logarithmic compactification and coefficient-functor compatibility for Scholl/Saito realisations, not a theorem already asserting the modular conclusion.",
+      "need": "Generic proper smooth/semistable geometric comparisons, projectors, cohomological pull–push and coefficient change used by Scholl/Saito/Skinner; concrete eigenform applications stay in R19.5. Additional interface: Generic semistable/proper-smooth comparison compatible with finite-group and Hecke projectors; sufficient logarithmic compactification and coefficient-functor compatibility for Scholl/Saito realisations, not a theorem already asserting the modular conclusion. Additional interface: Faltings' de Rham and Hodge–Tate comparison for smooth projective varieties over p-adic fields, and the crystalline comparison at good reduction with Katz–Messing characteristic polynomials, applied to Shimura-curve, Kuga–Sato and Picard-modular-surface families.",
       "neededBy": [
         "AutomorphicGaloisRepresentations:R19.5/skinner-full-hilbert-coefficient-prime",
-        "AutomorphicGaloisRepresentations:R19.5/potential-semistability-and-compatibility-at-the-coefficient-prime"
+        "AutomorphicGaloisRepresentations:R19.5/potential-semistability-and-compatibility-at-the-coefficient-prime",
+        "AutomorphicGaloisRepresentations:R19.2/hilbert-hodge-tate-property",
+        "AutomorphicGaloisRepresentations:R19.3/classical-newform-irreducibility",
+        "AutomorphicGaloisRepresentations:R19.5/shimura-curve-hk-dR-multiplicity"
       ]
     },
     {
@@ -4836,7 +5328,8 @@
       "supplier": "GL2AutomorphicRepresentationsAndTransfer:R16.6",
       "need": "Strong multiplicity one: the away-p finite component of a cohomological cuspidal GL₂ transfer determines its p-component; used in CDN Proposition 5.2.",
       "neededBy": [
-        "AutomorphicGaloisRepresentations:R19.5/shimura-curve-hk-dR-multiplicity"
+        "AutomorphicGaloisRepresentations:R19.5/shimura-curve-hk-dR-multiplicity",
+        "AutomorphicGaloisRepresentations:R19.3/skinner-density-one-ordinary-primes"
       ]
     },
     {
@@ -4875,51 +5368,109 @@
       "neededBy": [
         "AutomorphicGaloisRepresentations:R19.1/weight-one-eigenvalues-outside-a-sparse-set"
       ]
+    },
+    {
+      "supplier": "GL2AutomorphicRepresentationsAndTransfer:R16.2",
+      "need": "Classification of the irreducible unitary generic representations of GL₂(F_v): tempered (supercuspidal, twist of Steinberg, unitary principal series) or complementary series π(μψ, μ^{−1}ψ) with μ = |·|^t, 0 < t < 1/2 (Blasius §2.2).",
+      "neededBy": [
+        "AutomorphicGaloisRepresentations:R19.3/hilbert-ramanujan-conjecture"
+      ]
+    },
+    {
+      "supplier": "WeightsInEtaleCohomology:R34.4",
+      "need": "The weight–monodromy conjecture for H² of smooth projective surfaces over p-adic fields (Rapoport–Zink Satz 2.13 with de Jong's alterations), and de Jong's integrality: the Frobenius eigenvalues on H^j of a smooth projective variety over a local field are integral Weil numbers of integral weight (Blasius Proposition 2).",
+      "neededBy": [
+        "AutomorphicGaloisRepresentations:R19.3/hilbert-ramanujan-conjecture"
+      ]
+    },
+    {
+      "supplier": "WeightsInEtaleCohomology:R34.5",
+      "need": "Deligne's Weil I purity for smooth projective varieties with good reduction, applied to the Shimura-curve, Kuga–Sato and unitary realisations at unramified places.",
+      "neededBy": [
+        "AutomorphicGaloisRepresentations:R19.3/hilbert-ramanujan-conjecture"
+      ]
+    },
+    {
+      "supplier": "PadicHodgeTheory:R06.2",
+      "need": "Wintenberger's lifting of crystalline representations along central isogenies (Wintenberger, Invent. Math. 120 (1995), Theorem 1.1.3, Proposition 1.2, Remarks 1.1.4; Ann. Inst. Fourier 47 (1997), Theorem 2.2.2) for GL₂ → GL₂/{±1}: a crystalline representation of G_{F_v} into (GL₂/{±1})(Q̄_p) whose Hodge cocharacter lifts is the image of a crystalline GL₂-representation.",
+      "neededBy": [
+        "AutomorphicGaloisRepresentations:R19.2/hilbert-hodge-tate-property"
+      ]
+    },
+    {
+      "supplier": "AutomorphicGaloisRepresentationsPartII:AG2.1",
+      "need": "The geometric realisations used for Hilbert forms: (i) Blasius–Rogawski motives, in the cohomology of the PEL unitary Shimura varieties of Skinner §2.3.1 (GU(Φ), signature (2,1) at one place and (3,0) elsewhere) with good reduction at hyperspecial level above p, for a CM base-change twist of π; (ii) the three-dimensional ρ_Π of an essentially self-dual regular cuspidal Π on GL₃(A_F) with archimedean parameters as in Skinner (8), in an abelian scheme over a Picard modular surface, with WD(ρ_Π|D_v) ≅ Rec_v(Π_v) at good places (Skinner §2.3.3, after Blasius [B1, 4.1–4.6]). Only these early realisation exports are imported; the late rank-two comparisons AG2.5/late-gl2-modular-comparison and AG2.6/rank-two-comparison-with-r19, which consume R19, are not.",
+      "neededBy": [
+        "AutomorphicGaloisRepresentations:R19.2/hilbert-hodge-tate-property",
+        "AutomorphicGaloisRepresentations:R19.3/hilbert-ramanujan-conjecture",
+        "AutomorphicGaloisRepresentations:R19.5/skinner-full-hilbert-coefficient-prime"
+      ]
+    },
+    {
+      "supplier": "AutomorphicGaloisRepresentationsPartII:AG2.2",
+      "need": "Unitary descent of the GL₂ and GL₃ parameters used by Skinner §2.3: the L-packet τ on U(2) with non-standard base change π_E ⊗ η|·|^{1/2} ([BR, Prop. 4.1.2]), the endoscopic packet on U(Φ) with d(σ_f) = 2 ([BR, Lem. 4.2.1]), and the GL₃ packet of Π = Sym²π ⊗ |·|^{−1}.",
+      "neededBy": [
+        "AutomorphicGaloisRepresentations:R19.2/hilbert-hodge-tate-property",
+        "AutomorphicGaloisRepresentations:R19.5/skinner-full-hilbert-coefficient-prime"
+      ]
+    },
+    {
+      "supplier": "PadicFamilies:L2a",
+      "need": "Group-independent eigenvariety gluing in Buzzard's form: Fredholm series of a compact U_p on orthonormalisable Banach modules over an affinoid weight disc, finite slope summands, and reduced affinoid pieces whose classical points are Zariski dense.",
+      "neededBy": [
+        "AutomorphicGaloisRepresentations:R19.5/skinner-full-hilbert-coefficient-prime"
+      ]
+    },
+    {
+      "supplier": "PadicFamilies:L2",
+      "need": "The instance for the totally definite quaternion algebra over a totally real F (Buzzard, Eigenvarieties §§8–11; Buzzard 2004 §7): overconvergent forms S^D_κ(U; m) over a weight disc with the action of T^S ⊗ U_p and classicality for slope small relative to the weight, as used in Skinner §2.4.2. L2 states the eigencurve over Q; the quaternionic instance over F is not yet stated by any layer.",
+      "neededBy": [
+        "AutomorphicGaloisRepresentations:R19.5/skinner-full-hilbert-coefficient-prime"
+      ]
     }
   ],
   "coverage": [
     {
       "stageId": "AutomorphicGaloisRepresentations:R19.1",
       "status": "planned",
-      "note": "Classical weight-two/higher-weight constructions, explicit Scholl and rational newform projectors, coefficient realisations/lattices, geometric polynomial and complete Deligne–Serre chain.",
+      "note": "Classical weight-two/higher-weight constructions, Scholl and rational newform projectors, coefficient realisations and lattices, the Eichler–Shimura polynomial, absolute irreducibility for k ≥ 2, and the Deligne–Serre chain in weight one.",
       "remaining": [
         "Transcribe the GH.0/R14.3 boundary/desingularisation and minimal coefficient-field descent proof in the realisation categories."
       ]
     },
     {
       "stageId": "AutomorphicGaloisRepresentations:R19.2",
-      "status": "partial",
-      "note": "Carayol’s geometric subset and Taylor’s all-Hilbert extension; separate uniqueness/determinant/oddness/irreducibility; CM, strong irreducibility and the ordinary CM splitting/line theorems.",
+      "status": "planned",
+      "note": "One global object ρ_{π,λ} for every cohomological Hilbert form, with the normalisation dictionary to Carayol, Saito, Kisin, Skinner, Skinner–Wiles, CDN and the classical arithmetic convention; Carayol's geometric construction; Hodge–Tate property; determinant, oddness, irreducibility and uniqueness; CM and the ordinary CM lines.",
       "remaining": [
-        "Replace the combined Carayol/Kisin global representation in node42 with a specified model and verify its full central-character, uniformizer, dual/twist dictionary; then recompute node43’s determinant and good-prime identities.",
-        "Read the original Taylor auxiliary-new congruence proof; refine the R18/LPV bad-reduction imports and the Momose/Dimitrov source inputs."
+        "Read Taylor 1989 and Taylor 1995 when available (gap 'Taylor's original congruence and local–global proofs').",
+        "Refine the R18/LPV bad-reduction imports and the Momose and Dimitrov source inputs."
       ]
     },
     {
       "stageId": "AutomorphicGaloisRepresentations:R19.3",
-      "status": "partial",
-      "note": "Fixed-family carrier and large-image targets are outlined; the Saito purity node is corrected to its geometric scope. The broader target purity and the global normalization needed by the family remain unverified.",
+      "status": "planned",
+      "note": "Ramanujan at every finite place (Blasius), weight–monodromy purity of every member at every place, Saito's geometric weight theorem, the strict fixed-eigenform family and the large-image and density-one properties of that family.",
       "remaining": [
-        "Supply the full target purity outside the corrected Saito geometric scope and transport the fixed-family carrier through the verified dictionary, including all local strengths.",
-        "Check the exact R34.6 vanishing/projector statements and coefficient/dual compatibility in the imported carrier; no potential-modularity existence dependency."
+        "The strict family and the family purity consume R19.4 and R19.5; the restructure entry proposes the sub-layer that places them after R19.5.",
+        "Saito's geometric weight theorem waits for the R34.6 statement on realisations (gap)."
       ]
     },
     {
       "stageId": "AutomorphicGaloisRepresentations:R19.4",
-      "status": "partial",
-      "note": "Full WD^{F-ss} away from the coefficient prime for all Hilbert forms, retaining N; conductor/bad factors and the cyclic plus non-normal cubic base-change steps.",
+      "status": "planned",
+      "note": "Full WD^{F-ss} compatibility away from the coefficient prime for every Hilbert form in the normalisation ιRec_v(π_v ⊗ |·|^{−1/2}), with Carayol's geometric proof, conductors, L-factors and the classical Steinberg forms.",
       "remaining": [
-        "Verify the normalization conversion identifying Skinner’s all-Hilbert local theorem with the named global object; retain full N and the stronger non-normal-cubic local request.",
-        "Finish the functorial cross-source dual/twist WD dictionary and original all-Hilbert local-compatibility proof inputs."
+        "Taylor's original local–global arguments (gap) and the stronger chosen-place non-normal cubic local comparison requested from R17.4."
       ]
     },
     {
       "stageId": "AutomorphicGaloisRepresentations:R19.5",
-      "status": "partial",
-      "note": "Concrete Scholl–Saito/Kisin/Skinner coefficient-prime applications; arbitrary-A° quotient; ordinary saturation, nonordinary D_cris/Wach and endpoint contracts; CDN multiplicities. The CM line results are in R19.2 and fixed-family prime selection in R19.3.",
+      "status": "planned",
+      "note": "Saito's geometric comparison and its classical case, Kisin's theorem under residual irreducibility, Skinner's theorem without it, ordinary and non-ordinary lattices and Wach modules, endpoint weights, CDN multiplicities; all in the normalisation of the dictionary.",
       "remaining": [
-        "Complete the conversion of the Kisin/Saito/Skinner/CDN coefficient-prime applications to the same global object, with the explicit GL3, family and Frobenius-period supplier chain.",
-        "Refine Skinner’s analytic continuation proof, exact endpoint residual lifting criterion and Wach/modular-symbol lattice comparison."
+        "Skinner's remaining-case inputs (gap): Kisin 2003 continuation, Wintenberger lifting, Blasius–Rogawski, the quaternionic eigenvariety instance.",
+        "Refine the endpoint residual lifting criterion and the Wach/modular-symbol lattice comparison."
       ]
     },
     {
@@ -4941,12 +5492,13 @@
       "detail": "Scholl §1.0–1.3 supplies the explicit ε-projector and its homological newform realisation. The desingularisation and boundary proofs in §§2–3 and the exact minimal coefficient-field descent across the DFG realisation categories need further source-proof transcription. GH.0/R14.3 supply the geometry; do not add an unconditional individual Chow projector or assume trace-field descent."
     },
     {
-      "title": "Taylor auxiliary-new congruence theorem in the all-Hilbert case",
+      "title": "Taylor's original congruence and local–global proofs",
       "neededBy": [
         "AutomorphicGaloisRepresentations:R19.2/all-cohomological-hilbert-representation",
+        "AutomorphicGaloisRepresentations:R19.4/all-hilbert-local-global-compatibility",
         "AutomorphicGaloisRepresentations:R19.5/kisin-hilbert-coefficient-prime"
       ],
-      "detail": "Kisin §4.3 states and uses Taylor’s factorisation through auxiliary-new Hecke quotients modulo every p^s, and its proof was read. The original Taylor 1989 proof and the precise coefficient-model descent were not obtained/read. The target statement and proof chain are planned, but this source input is not claimed independently verified in the original paper. Irreducibility instead has the independently read Skinner p. 256 proof."
+      "detail": "Taylor, Invent. Math. 98 (1989) 265–280 and Taylor, 'On Galois representations associated to Hilbert modular forms II' (1995) were not obtainable from a public source. The statements are anchored in published texts that were read: Kisin §4.3 (the μ-new congruences at every precision), Skinner equation (1) and Blasius §3 (local–global compatibility at every place prime to ℓ), and Saito p. 9 ([Ta2] Proposition 3.1, irreducibility, which this plan proves independently by Skinner's Remark). The proof chain is planned; the original arguments are not claimed verified."
     },
     {
       "title": "Shimura-curve bad reduction and vanishing-cycle geometric imports",
@@ -4958,32 +5510,12 @@
       "detail": "Carayol’s Galois paper §1, §§2–6 and 10–12 were read in the earlier pass; its companion bad-reduction proofs, §§7–9/appendix and the Picard–Lefschetz calculation §§11.5–11.10 remain supplied by R18.2/R18.5 and LPV.7:semistable-curves. The exact requests name the special-fibre, Drinfeld-level and monodromy statements; these imports are not replanned."
     },
     {
-      "title": "All-Hilbert local compatibility and Skinner analytic proof refinement",
+      "title": "Skinner's remaining-case inputs",
       "neededBy": [
-        "AutomorphicGaloisRepresentations:R19.4/all-hilbert-local-global-compatibility",
-        "AutomorphicGaloisRepresentations:R19.5/skinner-full-hilbert-coefficient-prime"
+        "AutomorphicGaloisRepresentations:R19.5/skinner-full-hilbert-coefficient-prime",
+        "AutomorphicGaloisRepresentations:R19.2/hilbert-hodge-tate-property"
       ],
-      "detail": "Skinner pp. 241–244 states the all-Hilbert theorem, and §2.4.1 pp. 252–254 and §2.4.2 pp. 254–256 were independently read. The nonroutine chain needs: the exact GL₃ adjoint/Sym² transfer (now an explicit existing-node edge); the GL₃ PEL Galois/coefficient-prime comparison and Wintenberger lifting used on p. 252; the overconvergent quaternionic/Hilbert affinoid family with dense classical points (Buzzard Proposition 11.1); Kisin analytic continuation of Frobenius periods; and the eigenline argument removing the constant quadratic ambiguity. Generic R06 comparison alone does not supply those arithmetic/family inputs. The precise AG2.1b/AG2.6 and p-adic-family supplier exports and source-proof transcriptions remain requested refinements; no theorem is narrowed to a residual-irreducible Kisin case."
-    },
-    {
-      "title": "Cross-source WD normalisation and Saito printed sign",
-      "neededBy": [
-        "AutomorphicGaloisRepresentations:R19.4/hecke-versus-langlands-normalization-and-local-global-compatibility",
-        "AutomorphicGaloisRepresentations:R19.5/potential-semistability-and-compatibility-at-the-coefficient-prime",
-        "AutomorphicGaloisRepresentations:R19.5/shimura-curve-hk-dR-multiplicity",
-        "AutomorphicGaloisRepresentations:R19.3/strict-compatibility-and-the-monodromy-weight-purity",
-        "AutomorphicGaloisRepresentations:R19.6/hecke-algebra-representation-quaternionic",
-        "AutomorphicGaloisRepresentations:R19.4/quaternionic-sigma-place-local-form",
-        "AutomorphicGaloisRepresentations:R19.2/wiles-ordinary-hilbert-representation",
-        "AutomorphicGaloisRepresentations:R19.4/nearly-ordinary-hilbert-compatibility-away-from-p",
-        "AutomorphicGaloisRepresentations:R19.2/all-cohomological-hilbert-representation",
-        "AutomorphicGaloisRepresentations:R19.2/hilbert-uniqueness-determinant-oddness-irreducibility",
-        "AutomorphicGaloisRepresentations:R19.3/fixed-eigenform-compatible-family",
-        "AutomorphicGaloisRepresentations:R19.4/all-hilbert-local-global-compatibility",
-        "AutomorphicGaloisRepresentations:R19.5/kisin-hilbert-coefficient-prime",
-        "AutomorphicGaloisRepresentations:R19.5/skinner-full-hilbert-coefficient-prime"
-      ],
-      "detail": "Use FNF⁻¹=q⁻¹N for geometric Frobenius, so the exponential inertia reconstruction is a homomorphism. Saito’s printed inverse relation is already recorded as PadicHodgeTheory/E50. Carayol σ, Saito σ̌_h, Skinner Rec(π⊗|·|⁻¹/²), CDN ρ(−1) and the arithmetic dual are named separately. A complete functorial dual/twist comparison in the supplied R01.2/R06.3 carriers is still needed; it is not settled by agreeing spherical polynomials alone. Independent review: for the same local π, Carayol σ_C(π)=Rec(π⊗|·|^(1/2))∨, whereas Skinner ρ_S(π)=Rec(π⊗|·|^(−1/2)); therefore ρ_S(π)=σ_C(π)∨⊗|·|^(−1). Saito uses σ̌_h and the dual coefficient sheaf (pp. 14,18), while Kisin §4.3 uses positive-uniformizer Hecke operators. Node42’s combined “Carayol/Kisin” object and node43’s determinant cannot both be identified by equality of the displayed polynomial alone. Rebuild the global coefficient/central-character/Hecke dictionary, including inverse-uniformizer conventions, before transporting the all-Hilbert local theorem to that object. The review does not certify nodes42/43/49 or the resulting fixed-family assertions."
+      "detail": "Skinner §§2.2–2.4 were read: the base-change reduction, the Picard-modular-surface realisation of Sym²π ⊗ |·|^{−1}, the Wintenberger step and the quaternionic family with its irreducibility Remark. Not read: Kisin 2003 (5.14)–(5.15) (analytic continuation of crystalline periods), Wintenberger 1995/1997, Blasius–Rogawski 1993 and Buzzard's eigenvariety construction; each is an exact request (PadicHodgeTheory R06.3, R06.2; AutomorphicGaloisRepresentationsPartII AG2.1–AG2.2; PadicFamilies L2a–L2). No layer states the totally definite quaternionic eigenvariety over a totally real field; the PadicFamilies L2 request names it."
     },
     {
       "title": "Endpoint residual inertial type and modular-symbol/Wach integral comparison",
@@ -5020,20 +5552,6 @@
       "detail": "Dimitrov Propositions 3.1/3.5/3.8 and Ribet 1985 Theorems 2.1/3.1 were read, with the original Ribet 1975 group theorem read on scans. Dimitrov §3.2 tame-inertia exclusions were also independently read; the original Momose inner-twist openness proof remains a refinement. Skinner’s trace-zero density theorem is cited to Serre and requested as the exact R01.5 analytic Chebotarev input, not claimed proved here."
     },
     {
-      "title": "Classical all-weight absolute irreducibility",
-      "neededBy": [
-        "AutomorphicGaloisRepresentations:R19.1/newform-rank-two-realisation"
-      ],
-      "detail": "Supply an independently checked all-weight k≥2 absolute-irreducibility theorem for the attached classical representation, with its proof route and exact hypotheses. DFG Lemma 5.7 only proves rank/pairing; DDT Theorem 3.1(c) covers weight two. The later Hilbert irreducibility proof cannot be a prerequisite of the classical factor on which the Hilbert construction depends."
-    },
-    {
-      "title": "Purity beyond the Saito geometric Hilbert scope",
-      "neededBy": [
-        "AutomorphicGaloisRepresentations:R19.3/fixed-eigenform-compatible-family"
-      ],
-      "detail": "The corrected Saito-purity node covers g>1, w≥k_τ and a finite discrete-series place in even degree. Supply the classical geometric purity and the general all-Hilbert purity/monodromy argument separately where the fixed-family interface needs them, with exact normalization and supplier statements. The existing R34.6 Hilbert export does not prove the broader claim by itself."
-    },
-    {
       "title": "Family invariant-line descent in the quaternionic local assertion",
       "neededBy": [
         "AutomorphicGaloisRepresentations:R19.6/hecke-family-local-conditions"
@@ -5047,7 +5565,14 @@
         "AutomorphicGaloisRepresentations:R19.5/good-nonordinary-crystalline-wach-realisation",
         "AutomorphicGaloisRepresentations:R19.5/endpoint-weight-local-contract"
       ],
-      "detail": "For every classical k≥2 and coefficient prime p (including small p outside the S-integral Fontaine–Laffaille comparison range), supply the precise classical Scholl/Saito p-adic comparison theorem and its geometric proof interface. The Hilbert Saito paper has degree g>1 and cites the prior classical work; the large-prime integral DFG comparison and bare existence of Scholl’s λ-adic realisations do not alone provide this full p-adic theorem."
+      "detail": "The statement for every classical k ≥ 2 and every coefficient prime is the case d = 1 of Skinner's Theorem 1, which attributes it to Saito, Invent. Math. 129 (1997); the p-adic weight–monodromy is Saito 2000, Theorem 3 (read). Saito 1997 itself is not publicly available and was not read; the geometric proof (Kuga–Sato semistable models, Tsuji's C_st, weight spectral sequence) follows the same route as Saito's Hilbert paper, which was read."
+    },
+    {
+      "title": "Saito's geometric weight theorem as an import",
+      "neededBy": [
+        "AutomorphicGaloisRepresentations:R19.3/strict-compatibility-and-the-monodromy-weight-purity"
+      ],
+      "detail": "The existing WeightsInEtaleCohomology R34.6 Hilbert export imports the retired PadicHodgeTheory R06.6 application of Saito's coefficient-prime theorem, which R19.5 owns. R19.3 therefore imports only the geometric model and requests the weight statement on the realisations from R34.6; until R34.6 states it without the R06.6/R19.5 input, the geometric case of the weight theorem rests on that request. Purity for every Hilbert form does not depend on it: R19.3/monodromy-weight-purity-of-the-family follows Blasius."
     }
   ],
   "restructure": [
@@ -5062,6 +5587,24 @@
       ],
       "detail": "Apply accepted RS-12, rather than the superseded pre-review proposal.",
       "proposal": "R14.6 owns weight-two special-fibre geometry; R19.1 owns its higher-coefficient and eigenform applications and all Deligne–Serre weight-one results. R06.5 supplies generic geometric comparisons; R19.5 owns concrete modular/Hilbert applications. R24.5:operations supplies the early compatible-system carrier, R34.6 purity. IHG.4 supplies generic interpolation and IHG.1 reconstruction; R19.6 owns the geometric Hecke-law instance. Consumers ML.1 and R27.6 import R19.1’s Artin representation; they do not reconstruct it."
+    },
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "AutomorphicGaloisRepresentations"
+      ],
+      "detail": "R19.3 comes before R19.4 and R19.5 in the layer order, but its strict fixed-eigenform family and the weight–monodromy purity of every member use full local–global compatibility (R19.4) and the coefficient-prime theorem (R19.5).",
+      "proposal": "Sub-layer R19.3b 'Strict compatible families and purity', after R19.5 and before R19.6, with nodes R19.3/fixed-eigenform-compatible-family, R19.3/monodromy-weight-purity-of-the-family, R19.3/dimitrov-large-image, R19.3/ribet-momose-classical-large-image and R19.3/skinner-density-one-ordinary-primes. R19.3 keeps the Ramanujan conjecture and Saito's geometric weight theorem, which need only R19.2."
+    },
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "AutomorphicGaloisRepresentations",
+        "AutomorphicGaloisRepresentationsPartII",
+        "WeightsInEtaleCohomology"
+      ],
+      "detail": "R19.2, R19.3 and R19.5 import the early GL_n realisations AG2.1–AG2.2 (Blasius–Rogawski motives; the Picard-modular-surface realisation of Sym²π ⊗ |·|^{−1}), while AG2.5/late-gl2-modular-comparison and AG2.6/rank-two-comparison-with-r19 consume R19 layers. WeightsInEtaleCohomology R34.6/hilbert-local-monodromy-weight-export imports the retired PadicHodgeTheory R06.6 Hilbert application of Saito's coefficient-prime theorem, which R19.5 owns.",
+      "proposal": "Keep AG2.1–AG2.2 free of imports from R19 and move the two late rank-two comparison nodes to AG2.7, so that stage links stay acyclic. Restate the R34.6 Hilbert export as Saito's weight theorem on the geometric realisations (ℓ-adic and log-crystalline), without the R06.6/R19.5 input; R19.3 imports that statement and R19.5 owns the arithmetic comparison."
     }
   ],
   "sourceIssues": [
@@ -5125,6 +5668,21 @@
         "reason": "Confirmed on arXiv v2 pp.24,30 scans and its §1.2/pp.13,27 definitions: excluded primes divide Nk!. The public 2004 Numdam text was separately checked; its organisation differs and there is no Theorem2.4 counterpart. This is an arXiv-v2 version-specific misprint.",
         "by": "REV-AutomorphicGaloisRepresentations"
       }
+    },
+    {
+      "id": "AutomorphicGaloisRepresentations/E4",
+      "source": "skinner09",
+      "kind": "misprint",
+      "locator": "§1, p. 241 (definition of infinity type (k, w)) against Theorem 1, p. 242 (Hodge–Tate type) and §2.4.1, p. 251; published Documenta text",
+      "printed": "\"central character x ↦ sgn(x)^{k_i}|x|^{−w}\" (p. 241) and \"non-zero in degrees (w − k_{i(j)})/2 and (w + k_{i(j)} − 2)/2\" (p. 242); §2.4 assumes \"w = 2\" and uses Rec_i(π_i)|C^× ≅ (z̄/z)^{1/2} ⊕ (z/z̄)^{1/2}.",
+      "correction": "With the central-character convention of §1, the representation of equation (1) has D_HT non-zero in degrees (w − k_i + 2)/2 and (w + k_i)/2. The printed degrees are right when π_i has central character sgn(x)^{k_i}|x|^{2−w}, which is how §2.4 uses w (its 'w = 2' has trivial central character on R_{>0}).",
+      "reason": "Skinner's own dictionary in §2.3.3 sends z^a z̄^b in Rec_i to D_HT-degree −a (checked on GL₁: |·|^{−1} ↦ (zz̄)^{−1} ↦ degree 1, the inverse cyclotomic character). For π_i with Blattner parameter k and central character sgn^k|x|^{−w}, Rec_i(π_i ⊗ |·|^{−1/2})|C^× = z^{−(w+k)/2} z̄^{−(w−k+2)/2} ⊕ (conjugate), giving degrees (w+k)/2 and (w−k+2)/2. Test: for the unitary π_E of an elliptic curve (k = 2, trivial central character, so w = 0), (1) and the trace identity T_x(frob_w) = x∘φ(char(GL₂(O_w)diag(ϖ_w,1)GL₂(O_w))) of §2.4.2 give H¹_ét(E_Q̄, Q_p), with degrees 0 and 1, while the printed formula gives −1 and 0.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "EMS Press article page for Documenta Math. 14 (2009) 241–258 (no erratum or correction listed; accessed 2026-10-07)",
+        "arXiv listing for C. Skinner with 'Hilbert' in the title (no preprint version found)"
+      ]
     }
   ],
   "sourceVersions": [
@@ -5164,109 +5722,123 @@
       "sha256": "ec0697b3e9c9fa68063b19688f10347d204a8b7b86526384c9ccd6e7fe30e6f3"
     },
     {
-      "kind": "public copy",
+      "kind": "author copy",
       "url": "https://www.dpmms.cam.ac.uk/~ajs1005/preprints/mf.pdf",
       "citation": "A. J. Scholl, Motives for modular forms",
       "read": "2026-10-07",
       "sha256": "b3a28690b3ba4aff316ac52ea7003cca8da757bfa309b75a9aba9557a134def6"
     },
     {
-      "kind": "public copy",
+      "kind": "published",
       "url": "https://www.ams.org/journals/jams/2008-21-02/S0894-0347-07-00576-0/S0894-0347-07-00576-0.pdf",
       "citation": "Mark Kisin, Potentially semi-stable deformation rings",
       "read": "2026-10-07",
       "sha256": "3e70d1f74f1c396d4c520f8f127c18556221139f02a69babc25cfdd50b885556"
     },
     {
-      "kind": "public copy",
+      "kind": "published",
       "url": "https://content.ems.press/assets/public/full-texts/serials/dm/14/8965206/online/10.4171-dm-272.pdf",
       "citation": "Christopher Skinner, A note on the p-adic Galois representations attached to Hilbert modular forms",
       "read": "2026-10-07",
       "sha256": "4a2a489aa1401431b5b8279c5a246bfa147debba10698764fd6612ef37d0928d"
     },
     {
-      "kind": "public copy",
+      "kind": "preprint",
       "url": "https://arxiv.org/pdf/math/0411152",
       "citation": "Mladen Dimitrov, Galois representations modulo p and cohomology of Hilbert modular varieties",
       "read": "2026-10-07",
       "sha256": "89217e3292235b83ba01f375117fc7cd7d2ca4bb634cdb67be8c8bd82a9832aa"
     },
     {
-      "kind": "public copy",
+      "kind": "author copy",
       "url": "https://math.iisc.ac.in/~maheshkakde/brumerstark.pdf",
       "citation": "Samit Dasgupta and Mahesh Kakde, On the Brumer–Stark conjecture",
       "read": "2026-10-07",
       "sha256": "92415f59d3cc8899bf36bdbdf23d0bbcb4f0f39e7c183280b3883b4d7e8028ed"
     },
     {
-      "kind": "public copy",
+      "kind": "author copy",
       "url": "https://mathweb.tifr.res.in/~eghate/hilbertCM.pdf",
       "citation": "Baskar Balasubramanyam, Eknath Ghate and Vinayak Vatsal, On local Galois representations associated to ordinary Hilbert modular forms",
       "read": "2026-10-07",
       "sha256": "9aa0bdfbc1c8dd058027a142c05c860aeb47b8951cce1e49ad4f018dfcb972ea"
     },
     {
-      "kind": "public copy",
+      "kind": "preprint",
       "url": "https://arxiv.org/pdf/1507.07309v2",
       "citation": "Takashi Hara and Tadashi Ochiai, The cyclotomic Iwasawa main conjecture for Hilbert cuspforms with complex multiplication",
       "read": "2026-10-07",
       "sha256": "1dde55bdd56149f73b908faa82e33b9ed5c6250efece4d6384641d698132f12b"
     },
     {
-      "kind": "public copy",
+      "kind": "author copy",
       "url": "https://math.berkeley.edu/~ribet/Articles/invent_28.pdf",
       "citation": "Kenneth A. Ribet, On l-adic representations attached to modular forms",
       "read": "2026-10-07",
       "sha256": "b5af3a6a3c35b293a6447b7fc8d094821819bebc4c0ab9131035a70049d964c4"
     },
     {
-      "kind": "public copy",
+      "kind": "author copy",
       "url": "https://math.berkeley.edu/~ribet/Articles/rankin.pdf",
       "citation": "Kenneth A. Ribet, On l-adic representations attached to modular forms II",
       "read": "2026-10-07",
       "sha256": "88adbb7f4a931e5c8705a4773453315c06a98b52c434ce57e54336f8dc9353f8"
     },
     {
-      "kind": "public copy",
+      "kind": "author copy",
       "url": "https://webusers.imj-prg.fr/~wieslawa.niziol/GPW5.pdf",
       "citation": "Pierre Colmez, Gabriel Dospinescu and Wiesława Nizioł, Cohomologie p-adique de la tour de Drinfeld: le cas de la dimension 1",
       "read": "2026-10-07",
       "sha256": "2cdb1de25b5201ed46f8af6c06c19b72fdc5cbe1dd2037b4e1d24dee30155776"
     },
     {
-      "kind": "public copy",
+      "kind": "preprint",
       "url": "https://arxiv.org/pdf/1912.11261v3",
       "citation": "James Newton and Jack A. Thorne, Symmetric power functoriality for holomorphic modular forms",
       "read": "2026-10-07",
       "sha256": "6d50b558a6182a8d1515a6715529a33079807bf405c8db775e4ed252f5a2f379"
     },
     {
-      "kind": "public copy",
+      "kind": "preprint",
       "url": "https://arxiv.org/pdf/2009.07180v2",
       "citation": "James Newton and Jack A. Thorne, Symmetric power functoriality for holomorphic modular forms, II",
       "read": "2026-10-07",
       "sha256": "0f08214ebe03344c2e2851be76c49213dc4adf7928ff561610b674c423a2a6bf"
     },
     {
-      "kind": "public copy",
+      "kind": "preprint",
       "url": "https://arxiv.org/pdf/2212.03595",
       "citation": "James Newton and Jack A. Thorne, Symmetric power functoriality for Hilbert modular forms",
       "read": "2026-10-07",
       "sha256": "6a156f7a5567226e0bd2209d5b237cbbc150dc10cfbd9ffd060a3245328cb82c"
     },
     {
-      "kind": "public copy",
+      "kind": "published",
       "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v191-n2-p01-s.pdf",
       "citation": "Christopher Skinner, A converse to a theorem of Gross, Zagier, and Kolyvagin",
       "read": "2026-10-07",
       "sha256": "cfdfab6e62ac507be40d1f0bc8d9cb8371d95b42c5ae259fde054c70fb20c214"
     },
     {
-      "kind": "public copy",
+      "kind": "published",
       "url": "https://www.numdam.org/article/ASENS_2004_4_37_5_663_0.pdf",
       "citation": "Diamond–Flach–Guo, published 2004 version (comparison for source issue E3)",
       "read": "2026-10-07",
       "sha256": "385dc212a14bf884a29564375cf6308f310feac2c0b634c418e7bb46d50472a3"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/math/0511007",
+      "citation": "Blasius, Hilbert modular forms and the Ramanujan conjecture, arXiv v1; the 2006 published chapter was not read",
+      "read": "2026-10-07",
+      "sha256": "2c6a9fdcd0201cf117c7df0529bc6ee0d7cfe586c320d71b7e2923c2ac4e964a"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://www.ms.u-tokyo.ac.jp/~t-saito/pp/weightmonodromy.pdf",
+      "citation": "Saito 2000, scan of the published pages 427–431",
+      "read": "2026-10-07",
+      "sha256": "200571eea5cad6f2e1701f8432f57ca78406bf32c589bc11930fb559e686ce9c"
     }
   ],
   "part": null,
