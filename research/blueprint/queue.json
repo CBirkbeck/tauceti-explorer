@@ -24670,9 +24670,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-ExcursionOperatorsAndSpectralAction--ES0.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #726"
+   "note": "claimed on GitHub issue #726"
   },
   {
    "id": "REV-ExcursionOperatorsAndSpectralAction--ES0",
@@ -26208,7 +26208,8 @@
    ],
    "avoidAccountOf": "BP-HodgeTateAndCanonicalSubgroups--T6",
    "prompt": "research/blueprint/prompts/REV-HodgeTateAndCanonicalSubgroups--T6.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #433"
   },
   {
    "id": "BP-IgusaVarietiesAndTorsionConcentration",
@@ -26284,9 +26285,10 @@
     "REV-RS-24"
    ],
    "prompt": "research/blueprint/prompts/BP-IntegralHeckeAndGaloisDeterminants.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #758"
+   "note": "deliverables arrived from an external worker on issue #758",
+   "finishedAt": "2026-10-07T03:48:28Z"
   },
   {
    "id": "REV-IntegralHeckeAndGaloisDeterminants",
@@ -36979,8 +36981,9 @@
     "REV-CrystallineCohomology--CR.5"
    ],
    "prompt": "research/blueprint/prompts/ASM-CrystallineCohomology.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #221"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #221",
+   "finishedAt": "2026-10-07T03:48:29Z"
   },
   {
    "id": "ASM-DeligneWeightsAndPurity",
