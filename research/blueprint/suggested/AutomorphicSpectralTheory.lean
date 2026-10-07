@@ -120,12 +120,15 @@ def map_isometry {K : X → HilbertModel.{v}} (M : measurable_hilbert_field X H)
 
 theorem constant_scalar (M : measurable_hilbert_field X
     (fun _ => (⟨ℂ, inferInstance, inferInstance, inferInstance⟩ : HilbertModel)))
+    (hone : (fun _ => (1 : ℂ)) ∈ M.sections)
     (s : X → ℂ) : s ∈ M.sections ↔ Measurable s := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.measurable_hilbert_field.constant_scalar
--- For the constant ℂ field, M is exactly the measurable complex functions.
+-- For the standard constant ℂ field (the constant-one section is measurable),
+-- M is exactly the measurable complex functions.
 example (M : measurable_hilbert_field X
     (fun _ => (⟨ℂ, inferInstance, inferInstance, inferInstance⟩ : HilbertModel)))
+    (hone : (fun _ => (1 : ℂ)) ∈ M.sections)
     (s : X → ℂ) : s ∈ M.sections ↔ Measurable s := by sorry
 
 
@@ -180,13 +183,15 @@ def reindex {Y : Type u} [MeasurableSpace Y] {K : Y → HilbertModel.{v}}
     (direct_integral M μ).Carrier ≃ₗᵢ[ℂ] (direct_integral N ν).Carrier := by sorry
 
 theorem scalar_L2 (M : measurable_hilbert_field X
-    (fun _ => (⟨ℂ, inferInstance, inferInstance, inferInstance⟩ : HilbertModel))) :
+    (fun _ => (⟨ℂ, inferInstance, inferInstance, inferInstance⟩ : HilbertModel)))
+    (hone : (fun _ => (1 : ℂ)) ∈ M.sections) :
     Nonempty ((direct_integral M μ).Carrier ≃ₗᵢ[ℂ] Lp ℂ 2 μ) := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.direct_integral.scalar_L2
--- The constant ℂ field identifies unitarily with L²(μ;ℂ).
+-- The standard constant ℂ field identifies unitarily with L²(μ;ℂ).
 example (M : measurable_hilbert_field X
-    (fun _ => (⟨ℂ, inferInstance, inferInstance, inferInstance⟩ : HilbertModel))) :
+    (fun _ => (⟨ℂ, inferInstance, inferInstance, inferInstance⟩ : HilbertModel)))
+    (hone : (fun _ => (1 : ℂ)) ∈ M.sections) :
     Nonempty ((direct_integral M μ).Carrier ≃ₗᵢ[ℂ] Lp ℂ 2 μ) := by sorry
 
 
@@ -381,7 +386,7 @@ theorem unbounded_selfadjoint_spectral (D : Submodule ℂ H) (A : D →ₗ[ℂ] 
 
 /-- The complex spectral-measure carrier is still an integration gap. This signature gives
 its multiplication-model conclusion; it uses an actual normality equation. -/
-theorem bounded_normal_spectral (N : H →L[ℂ] H)
+theorem bounded_normal_spectral [TopologicalSpace.SeparableSpace H] (N : H →L[ℂ] H)
     (hNormal : N.adjoint.comp N = N.comp N.adjoint) :
     ∃ μ : Measure ℂ, ∃ K : ℂ → HilbertModel.{u},
       ∃ M : measurable_hilbert_field ℂ K,
@@ -801,8 +806,14 @@ structure SpecialFunctions where
 def rpowC (x : ℝ) (s : ℂ) : ℂ := Complex.exp (s * Real.log x)
 def phase (x : ℝ) : ℂ := Complex.exp (2 * Real.pi * Complex.I * x)
 
-/-- Euler-integral normalization, with W as a separate decaying solution. -/
+/-- The pinned regularized hypergeometric series defines M throughout its parameter
+domain. A totalized divergent Euler integral cannot define its continuation. -/
 def dit_112 (mu nu : ℂ) (y : ℝ) : ℂ :=
+  Complex.Gamma (1 + 2 * nu) * Complex.exp (-y / 2) * rpowC y (nu + 1 / 2) *
+    Complex.regularizedHGFun {nu - mu + 1 / 2} {1 + 2 * nu} y
+
+/-- Initial convergent Euler integral; its comparison with M retains both inequalities. -/
+def whittakerMEuler (mu nu : ℂ) (y : ℝ) : ℂ :=
   rpowC y (nu + 1 / 2) * Complex.exp (y / 2) * Complex.Gamma (1 + 2 * nu) /
     (Complex.Gamma (nu + mu + 1 / 2) * Complex.Gamma (nu - mu + 1 / 2)) *
       ∫ t in (0 : ℝ)..1,
@@ -813,12 +824,15 @@ def whittakerW (mu nu : ℂ) (y : ℝ) : ℂ :=
     ∫ t in Set.Ioi (1 : ℝ),
       rpowC t (nu + mu - 1 / 2) * rpowC (t - 1) (nu - mu - 1 / 2) * Complex.exp (-y * t)
 namespace dit_112
-def eulerIntegral := dit_112
-/-- The hypergeometric interface is imported from the verified Mathlib series; its multiset
-parameter adapter is omitted. This equality specifies the required normalization. -/
-theorem hypergeometricSeries (HG : ℂ → ℂ → ℂ → ℂ) (mu s : ℂ) (hs : 0 < s.re)
+theorem eulerIntegral (mu nu : ℂ) (y : ℝ) (hy : 0 < y)
+    (hp : 0 < (nu + mu + 1 / 2).re) (hm : 0 < (nu - mu + 1 / 2).re) :
+    dit_112 mu nu y = whittakerMEuler mu nu y := by sorry
+
+/-- Ordinary ₁F₁ is Gamma times the pinned regularized series. -/
+theorem hypergeometricSeries (mu s : ℂ) (hs : 0 < s.re)
     (y : ℝ) (hy : 0 < y) :
-    dit_112 mu (s - 1 / 2) y = Complex.exp (-y / 2) * rpowC y s * HG (s - mu) (2 * s) y := by sorry
+    dit_112 mu (s - 1 / 2) y = Complex.exp (-y / 2) * rpowC y s *
+      Complex.Gamma (2 * s) * Complex.regularizedHGFun {s - mu} {2 * s} y := by sorry
 
 theorem decayingNormalization (mu nu : ℂ)
     (hp : 0 < (nu + mu + 1 / 2).re) (hm : 0 < (nu - mu + 1 / 2).re) :
@@ -832,18 +846,22 @@ theorem test1 (y : ℝ) (hy : 0 < y) : dit_112 0 (1 / 2) y = (2 * Real.sinh (y /
 example (y : ℝ) (hy : 0 < y) : dit_112 0 (1 / 2) y = (2 * Real.sinh (y / 2) : ℝ) := by sorry
 
 
-theorem test2 : (Complex.Gamma 0)⁻¹ = 0 := by sorry
+theorem test2 (y : ℝ) (hy : 0 < y) :
+    dit_112 1 (1 / 2) y = y * Complex.exp (-y / 2) := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.dit_112.test2
 -- At μ=ν+1/2, the general growing-asymptotic coefficient can vanish, so exceptional parameters require care.
-example : (Complex.Gamma 0)⁻¹ = 0 := by sorry
+example (y : ℝ) (hy : 0 < y) :
+    dit_112 1 (1 / 2) y = y * Complex.exp (-y / 2) := by sorry
 
 
-theorem test3 (t : ℝ) (ht : 0 < t) : 2 * t * Real.sin (Real.pi / 2) ≠ t * Real.sin (Real.pi / 2) := by sorry
+theorem test3 (t : ℝ) (ht : 0 < t) :
+    dit_112 0 (1 / 2) (2 * t * Real.sin (Real.pi / 2)) = (2 * Real.sinh t : ℝ) := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.dit_112.test3
 -- The argument in Lemma 7 is 2 t sin θ, not t sin θ.
-example (t : ℝ) (ht : 0 < t) : 2 * t * Real.sin (Real.pi / 2) ≠ t * Real.sin (Real.pi / 2) := by sorry
+example (t : ℝ) (ht : 0 < t) :
+    dit_112 0 (1 / 2) (2 * t * Real.sin (Real.pi / 2)) = (2 * Real.sinh t : ℝ) := by sorry
 
 end dit_112
 
@@ -916,16 +934,39 @@ theorem dit_appendix_a_leading_coefficient_match (mu s : ℂ) (hs : 0 < s.re) :
       Complex.Gamma s / (Complex.Gamma ((s + 1 + mu) / 2) * Complex.Gamma ((s + 1 - mu) / 2)) ∧
       cycleCoefficient mu s 1 0 + cycleCoefficient mu s 0 1 = 0 := by sorry
 
+/-- Imported countable arithmetic action model. The actual ER quotient/group carrier
+is omitted; the named models below have distinct indexing conventions. -/
+structure ModularGeometry where
+  Index : Type
+  countable : Countable Index
+  orbit : Index → UpperHalfPlane → UpperHalfPlane
+  derivative : Index → UpperHalfPlane → ℂ
+attribute [instance] ModularGeometry.countable
+
+/-- Eisenstein index Γ∞\PSL₂(ℤ), with coset representatives. -/
+def fullModular : ModularGeometry := by sorry
+/-- Eisenstein index Γ∞\Γ₀(N), with coset representatives. -/
+def levelModular (N : ℕ) : ModularGeometry := by sorry
+
+/-- Green index is the full effective group Γ₀(N)/{±I}, including translations.
+This is supplied by ER and is distinct from the Eisenstein coset model. -/
+def effectiveModularGroup (N : ℕ) : ModularGeometry := by sorry
+
+
 /-- Legendre Q with positive real base and Re(s)>0. -/
+def legendreIntegrand (s : ℂ) (t u : ℝ) : ℂ :=
+  rpowC (t + Real.sqrt (t ^ 2 - 1) * Real.cosh u) (-s)
+
 def gz_64 (s : ℂ) (t : ℝ) : ℂ :=
-  ∫ u in Set.Ioi (0 : ℝ), rpowC (t + Real.sqrt (t ^ 2 - 1) * Real.cosh u) (-s)
+  ∫ u in Set.Ioi (0 : ℝ), legendreIntegrand s t u
 namespace gz_64
 def integral := gz_64
 
-theorem hypergeometric (HG : ℂ → ℂ → ℂ → ℂ → ℂ) (s : ℂ) (hs : 0 < s.re)
+theorem hypergeometric (s : ℂ) (hs : 0 < s.re)
     (t : ℝ) (ht : 1 < t) :
     gz_64 s t = Complex.Gamma s ^ 2 / (2 * Complex.Gamma (2 * s)) *
-      rpowC (2 / (1 + t)) s * HG s s (2 * s) (2 / (1 + t)) := by sorry
+      rpowC (2 / (1 + t)) s * (Complex.Gamma (2 * s) *
+        Complex.regularizedHGFun {s, s} {2 * s} (2 / (1 + t))) := by sorry
 
 theorem integer_specialization (t : ℝ) (ht : 1 < t) :
     gz_64 1 t = (1 / 2 * Real.log ((t + 1) / (t - 1)) : ℝ) ∧
@@ -945,11 +986,11 @@ theorem q_one : gz_64 2 3 = (3 / 2 * Real.log 2 - 1 : ℝ) := by sorry
 example : gz_64 2 3 = (3 / 2 * Real.log 2 - 1 : ℝ) := by sorry
 
 
-theorem boundary : ¬ IntegrableOn (fun _ : ℝ => (1 : ℂ)) (Set.Ioi 0) := by sorry
+theorem boundary : ¬ IntegrableOn (legendreIntegrand 1 1) (Set.Ioi 0) := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.gz_64.boundary
 -- t=1 has a logarithmic singularity and is excluded from the ordinary pointwise definition.
-example : ¬ IntegrableOn (fun _ : ℝ => (1 : ℂ)) (Set.Ioi 0) := by sorry
+example : ¬ IntegrableOn (legendreIntegrand 1 1) (Set.Ioi 0) := by sorry
 
 end gz_64
 
@@ -985,22 +1026,28 @@ example (s : ℂ) (z z' : UpperHalfPlane) : gz_66 s z z' = gz_66 s z' z := by so
 
 
 theorem singularity (z : UpperHalfPlane) :
-    ¬ IntegrableOn (fun _ : ℝ => (1 : ℂ)) (Set.Ioi 0) := by sorry
+    ¬ IntegrableOn (legendreIntegrand 1 1) (Set.Ioi 0) := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.gz_66.singularity
 -- The diagonal value is not a finite smooth kernel.
 example (z : UpperHalfPlane) :
-    ¬ IntegrableOn (fun _ : ℝ => (1 : ℂ)) (Set.Ioi 0) := by sorry
+    ¬ IntegrableOn (legendreIntegrand 1 1) (Set.Ioi 0) := by sorry
 
 
-/-- The lattice and off-diagonal hypotheses are omitted until the ER quotient is integrated. -/
-theorem bare_sum (orbit : ℕ → UpperHalfPlane) (z : UpperHalfPlane) :
-    ¬ Summable (fun n => gz_66 1 z (orbit n)) := by sorry
+/-- Full effective-group lattice; the actual ER group action is the pending carrier. -/
+theorem bare_sum (N : ℕ) (hN : 1 ≤ N) (z z' : UpperHalfPlane)
+    (hOff : ∀ j : (effectiveModularGroup N).Index,
+      z ≠ (effectiveModularGroup N).orbit j z') :
+    ¬ Summable (fun j : (effectiveModularGroup N).Index =>
+      gz_66 1 z ((effectiveModularGroup N).orbit j z')) := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.gz_66.bare_sum
--- The Γ₀(N) sum at s=1 diverges; subtract the pole before taking the finite part.
-example (orbit : ℕ → UpperHalfPlane) (z : UpperHalfPlane) :
-    ¬ Summable (fun n => gz_66 1 z (orbit n)) := by sorry
+-- Full Γ₀(N)/±I lattice, off the diagonal; subtract the pole before taking the finite part.
+example (N : ℕ) (hN : 1 ≤ N) (z z' : UpperHalfPlane)
+    (hOff : ∀ j : (effectiveModularGroup N).Index,
+      z ≠ (effectiveModularGroup N).orbit j z') :
+    ¬ Summable (fun j : (effectiveModularGroup N).Index =>
+      gz_66 1 z ((effectiveModularGroup N).orbit j z')) := by sorry
 
 end gz_66
 
@@ -1066,8 +1113,14 @@ theorem gz_213 (k : ℕ) (hk : 1 ≤ k) (t : ℝ) (ht : t ≠ 0) :
     AnalyticOnNhd ℂ (fun s => continuedV k s t) Set.univ ∧
       ∀ s : ℂ, 1 - (k : ℝ) < s.re → continuedV k s t = gz_207 k s t := by sorry
 
-def normalizedV (k : ℕ) (s : ℂ) (t : ℝ) : ℂ :=
-  rpowC (Real.pi * |t|) (-s - 2 * k + 1) * Complex.Gamma (s + 2 * k - 1) * continuedV k s t
+/-- The holomorphic extension of the normalized product, including removable values.
+At Gamma poles the pointwise product of totalized Gamma and continuedV is incorrect. -/
+def normalizedV (k : ℕ) (s : ℂ) (t : ℝ) : ℂ := by sorry
+
+theorem normalizedV_eq (k : ℕ) (hk : 1 ≤ k) (s : ℂ) (t : ℝ) (ht : t ≠ 0)
+    (hs : 0 < (s + 2 * k - 1).re) :
+    normalizedV k s t = rpowC (Real.pi * |t|) (-s - 2 * k + 1) *
+      Complex.Gamma (s + 2 * k - 1) * continuedV k s t := by sorry
 
 theorem gz_214 (k : ℕ) (hk : 1 ≤ k) (t : ℝ) (ht : t ≠ 0) :
     AnalyticOnNhd ℂ (fun s => normalizedV k s t) Set.univ ∧
@@ -1093,8 +1146,9 @@ theorem gz_217 (B : SpecialFunctions) (s : ℂ) (t : ℝ) (ht : 0 < t) :
     normalizedV 1 s t = -2 * Complex.I / Real.sqrt t *
       (B.besselK (1 / 2 + s) (2 * Real.pi * t) + B.besselK (1 / 2 - s) (2 * Real.pi * t)) := by sorry
 
-/-- General Schwartz/LF topologies and finite-order weak-to-strong hypotheses are omitted,
-precisely as in AS.0's two continuation gaps; these are normed restrictions of the outputs. -/
+/-- Review blocker: these two signatures still omit the source's initial continuous data,
+two-sided functional equation and uniform finite strip order. These conditions are already
+expressible in the normed restrictions and must be restored; see the independent review. -/
 theorem schwartz_family_continuation (Z : ℂ → SchwartzMap ℝ ℂ)
     (scalar : ℝ → ℂ → ℂ) (hScalar : ∀ x, AnalyticOnNhd ℂ (scalar x) Set.univ)
     (hInitial : ∀ s : ℂ, 1 < s.re → ∀ x : ℝ, Z s x = scalar x s) :
@@ -1651,16 +1705,6 @@ end TauCeti.AutomorphicSpectral
 
 namespace TauCeti.AutomorphicSpectral
 universe u v w
-/-- Imported arithmetic coset model; its PSL₂/Γ₀ action and representatives are supplied by ER. -/
-structure ModularGeometry where
-  Index : Type
-  countable : Countable Index
-  orbit : Index → UpperHalfPlane → UpperHalfPlane
-  derivative : Index → UpperHalfPlane → ℂ
-attribute [instance] ModularGeometry.countable
-
-def fullModular : ModularGeometry := by sorry
-def levelModular (N : ℕ) : ModularGeometry := by sorry
 
 def dit_57 (z : UpperHalfPlane) (s : ℂ) : ℂ :=
   ∑' j : fullModular.Index, rpowC (fullModular.orbit j z).im s
@@ -2208,7 +2252,9 @@ theorem intertwiner_factorization (r : ℂ) (R M : Operator H) (s : ℂ)
 def residue_calculus (f : ℂ → H) (z : ℂ) : H := by sorry
 namespace residue_calculus
 /-- Cauchy coefficient for a circle enclosing no other polar point. -/
-theorem coefficient (f : ℂ → H) (z : ℂ) (rho : ℝ) (hρ : 0 < rho) :
+theorem coefficient (f : ℂ → H) (z : ℂ) (rho : ℝ) (hρ : 0 < rho)
+    (hf : CommonDenominator Set.univ f)
+    (hNoOtherPoles : AnalyticOnNhd ℂ f (Metric.closedBall z rho \ {z})) :
     residue_calculus f z = (1 / (2 * Real.pi) : ℂ) •
       (∫ t in (0 : ℝ)..2 * Real.pi,
         ((rho : ℂ) * Complex.exp (Complex.I * t)) • f (z + rho * Complex.exp (Complex.I * t))) := by sorry
@@ -2466,30 +2512,30 @@ def greenFinitePart (N : ℕ) (z z' : UpperHalfPlane) : ℂ :=
 namespace automorphic_green
 
 theorem initial_sum (N : ℕ) (hN : 1 ≤ N) (z z' : UpperHalfPlane) (s : ℂ)
-    (hs : 1 < s.re) (hOff : ∀ j : (levelModular N).Index, z ≠ (levelModular N).orbit j z') :
-    automorphic_green N z z' s = ∑' j : (levelModular N).Index,
-      gz_66 s z ((levelModular N).orbit j z') ∧
-      Summable (fun j : (levelModular N).Index => ‖gz_66 s z ((levelModular N).orbit j z')‖) := by sorry
+    (hs : 1 < s.re) (hOff : ∀ j : (effectiveModularGroup N).Index, z ≠ (effectiveModularGroup N).orbit j z') :
+    automorphic_green N z z' s = ∑' j : (effectiveModularGroup N).Index,
+      gz_66 s z ((effectiveModularGroup N).orbit j z') ∧
+      Summable (fun j : (effectiveModularGroup N).Index => ‖gz_66 s z ((effectiveModularGroup N).orbit j z')‖) := by sorry
 
 theorem symmetry (N : ℕ) (hN : 1 ≤ N) (z z' : UpperHalfPlane) (s : ℂ)
-    (hOff : ∀ j : (levelModular N).Index, z ≠ (levelModular N).orbit j z') :
+    (hOff : ∀ j : (effectiveModularGroup N).Index, z ≠ (effectiveModularGroup N).orbit j z') :
     automorphic_green N z z' s = automorphic_green N z' z s := by sorry
 
 /-- `lap` is the imported QM.2 +y²(∂x²+∂y²) operator; its geometric identification is
 omitted pending the supplier carrier and must not be confused with DIT's sign. -/
 theorem eigenfunction (lap : (UpperHalfPlane → ℂ) → UpperHalfPlane → ℂ)
     (N : ℕ) (hN : 1 ≤ N) (z z' : UpperHalfPlane) (s : ℂ) (hs : 1 < s.re)
-    (hOff : ∀ j : (levelModular N).Index, z ≠ (levelModular N).orbit j z') :
+    (hOff : ∀ j : (effectiveModularGroup N).Index, z ≠ (effectiveModularGroup N).orbit j z') :
     lap (fun w => automorphic_green N w z' s) z = s * (s - 1) * automorphic_green N z z' s := by sorry
 
 theorem full_level_residue (z z' : UpperHalfPlane)
-    (hOff : ∀ j : (levelModular 1).Index, z ≠ (levelModular 1).orbit j z') :
+    (hOff : ∀ j : (effectiveModularGroup 1).Index, z ≠ (effectiveModularGroup 1).orbit j z') :
     scalarCoefficient (automorphic_green 1 z z') 1 (-1) = -12 := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.automorphic_green.full_level_residue
 -- At N=1 the s=1 residue is −12, with hyperbolic quotient volume π/3.
 example (z z' : UpperHalfPlane)
-    (hOff : ∀ j : (levelModular 1).Index, z ≠ (levelModular 1).orbit j z') :
+    (hOff : ∀ j : (effectiveModularGroup 1).Index, z ≠ (effectiveModularGroup 1).orbit j z') :
     scalarCoefficient (automorphic_green 1 z z') 1 (-1) = -12 := by sorry
 
 
@@ -2503,20 +2549,20 @@ example (s : ℂ) (z z' : UpperHalfPlane) : gz_66 s z z' = gz_66 s z' z := by so
 /-- Same imported Laplacian and off-diagonal convention as `eigenfunction`. -/
 theorem finite_part_not_harmonic (lap : (UpperHalfPlane → ℂ) → UpperHalfPlane → ℂ)
     (z z' : UpperHalfPlane)
-    (hOff : ∀ j : (levelModular 1).Index, z ≠ (levelModular 1).orbit j z') :
+    (hOff : ∀ j : (effectiveModularGroup 1).Index, z ≠ (effectiveModularGroup 1).orbit j z') :
     lap (fun w => greenFinitePart 1 w z') z = -12 ∧ lap (fun w => greenFinitePart 1 w z') z ≠ 0 := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.automorphic_green.finite_part_not_harmonic
 -- At N=1 the finite part after subtracting −12/(s−1) has Δ_GZ=−12≠0, so it is not harmonic.
 example (lap : (UpperHalfPlane → ℂ) → UpperHalfPlane → ℂ)
     (z z' : UpperHalfPlane)
-    (hOff : ∀ j : (levelModular 1).Index, z ≠ (levelModular 1).orbit j z') :
+    (hOff : ∀ j : (effectiveModularGroup 1).Index, z ≠ (effectiveModularGroup 1).orbit j z') :
     lap (fun w => greenFinitePart 1 w z') z = -12 ∧ lap (fun w => greenFinitePart 1 w z') z ≠ 0 := by sorry
 
 end automorphic_green
 
 theorem gz_68 (N : ℕ) (hN : 1 ≤ N) (z z' : UpperHalfPlane)
-    (hOff : ∀ j : (levelModular N).Index, z ≠ (levelModular N).orbit j z') :
+    (hOff : ∀ j : (effectiveModularGroup N).Index, z ≠ (effectiveModularGroup N).orbit j z') :
     scalarCoefficient (automorphic_green N z z') 1 (-1) =
       -12 / N * ∏ p ∈ N.primeFactors, (1 + (p : ℂ)⁻¹)⁻¹ := by sorry
 end TauCeti.AutomorphicSpectral
@@ -2740,6 +2786,8 @@ variable {X : Type u} [MeasurableSpace X]
 variable {V : Type v} [NormedAddCommGroup V] [NormedSpace ℂ V]
 variable {H : Type w} [NormedAddCommGroup H] [InnerProductSpace ℂ H] [CompleteSpace H]
 
+/-- The target H is pointwise ℂ or a truncated Hilbert space in this prototype.
+Individual E(λ) are not vectors in the untruncated global L² space. -/
 def eisenstein_wave_packet (μ : Measure X) (E : X → V →L[ℂ] H) (F : X → V) : H :=
   ∫ x, E x (F x) ∂μ
 namespace eisenstein_wave_packet
@@ -3671,8 +3719,7 @@ theorem constant_term_resolution (boundary parabolicResolution : CochainData.{u}
 theorem franke_comparison (automorphic ordinary : CochainData.{u}) (q : ℤ) :
     Nonempty (cohomology automorphic q ≃ₗ[ℂ] cohomology ordinary q) := by sorry
 
-theorem cuspidal_cohomology_decomposition (cuspidal relativeCuspidal : CochainData.{u}) (q : ℤ) :
-    Nonempty (cohomology cuspidal q ≃ₗ[ℂ] cohomology relativeCuspidal q) := by sorry
+-- The cuspidal cohomology sum and its Hecke map are imported from ALS.5; no duplicate declaration.
 
 /-- Dimension form of the BCG level-one/trivial-coefficient diagram. The O(n)/SO(n)
 archimedean cohomology and multiplicity-one carrier is omitted. -/
@@ -4201,8 +4248,11 @@ example : (1 : ℤ) + (-1) * 1 = 0 ∧ (1 : ℕ) ≠ 0 := by sorry
 
 end general_euler_poincare
 
-/-- Residual constituents remain in RepIndex_disc. The coefficient/level/central-balance and
-finite-dimensional relative-cohomology carriers are omitted pending ALS/AF/ET. -/
+/-- Arthur requires a compact Cartan in G(R)/A_G(R)^0; the CT specialization requires
+discrete series. Residual constituents remain in the discrete spectrum. RepIndex denotes
+the finite support contributing to the cohomological trace, not the whole discrete dual.
+The group, coefficient, level, central balancing and finite-dimensional L2 relative-cohomology
+carriers are omitted pending the source-qualified ALS/AF/ET integration gap. -/
 theorem l2_lefschetz {RepIndex : Type u} [Fintype RepIndex] (multiplicity : RepIndex → ℕ)
     (ep finiteHeckeTrace : RepIndex → ℂ) (lefschetz invariantGeom : ℂ) :
     lefschetz = ∑ pi, (multiplicity pi : ℂ) * ep pi * finiteHeckeTrace pi ∧
@@ -4289,30 +4339,34 @@ theorem continueInT (deep : ℤ → ℂ) : ∃ f : ℤ → ℂ, QuasiPolynomial 
     ∃ N : ℤ, ∀ T : ℤ, N ≤ T → f T = deep T := by sorry
 
 theorem test1 {F : Type u} [Field F] (n : ℕ) (a : F) :
-    Matrix.charpoly (a • (1 : Matrix (Fin n) (Fin n) F)) = (Polynomial.X - Polynomial.C a) ^ n := by sorry
+    a • (1 : Matrix (Fin n) (Fin n) F) ∈ yu_038 n ((Polynomial.X - Polynomial.C a) ^ n) := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.yu_038.test1
--- The scalar endomorphism a*Id has characteristic polynomial (X−a)^n.
+-- The scalar matrix belongs to the specified (X−a)^n fibre.
 example {F : Type u} [Field F] (n : ℕ) (a : F) :
-    Matrix.charpoly (a • (1 : Matrix (Fin n) (Fin n) F)) = (Polynomial.X - Polynomial.C a) ^ n := by sorry
+    a • (1 : Matrix (Fin n) (Fin n) F) ∈ yu_038 n ((Polynomial.X - Polynomial.C a) ^ n) := by sorry
 
 
 theorem test2 {F : Type u} [Field F] (n : ℕ) (hn : 0 < n) :
-    ¬ IsUnit (0 : Matrix (Fin n) (Fin n) F) := by sorry
+    (0 : Matrix (Fin n) (Fin n) F) ∈ yu_038 n (Polynomial.X ^ n) ∧
+      ¬ IsUnit (0 : Matrix (Fin n) (Fin n) F) ∧
+      (0 : Matrix (Fin n) (Fin n) F) ∉ yu_038 n ((Polynomial.X - 1) ^ n) := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.yu_038.test2
--- For n>0 a nilpotent endomorphism has characteristic polynomial X^n and is not invertible.
+-- Zero lies in the X^n fibre, is not invertible, and is excluded from the (X−1)^n fibre.
 example {F : Type u} [Field F] (n : ℕ) (hn : 0 < n) :
-    ¬ IsUnit (0 : Matrix (Fin n) (Fin n) F) := by sorry
+    (0 : Matrix (Fin n) (Fin n) F) ∈ yu_038 n (Polynomial.X ^ n) ∧
+      ¬ IsUnit (0 : Matrix (Fin n) (Fin n) F) ∧
+      (0 : Matrix (Fin n) (Fin n) F) ∉ yu_038 n ((Polynomial.X - 1) ^ n) := by sorry
 
 
-theorem test3 {F : Type u} [Field F] (n : ℕ) (A : Matrix (Fin n) (Fin n) F) :
-    IsUnit A ↔ A.charpoly.coeff 0 ≠ 0 := by sorry
+theorem test3 {F : Type u} [Field F] (n : ℕ) (p : Polynomial F) (A : Matrix (Fin n) (Fin n) F)
+    (hA : A ∈ yu_038 n p) : IsUnit A ↔ p.coeff 0 ≠ 0 := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.yu_038.test3
--- An endomorphism of an n-dimensional fibre is invertible iff its characteristic polynomial has nonzero constant term; use the corresponding global bundle inverse via Cayley–Hamilton.
-example {F : Type u} [Field F] (n : ℕ) (A : Matrix (Fin n) (Fin n) F) :
-    IsUnit A ↔ A.charpoly.coeff 0 ≠ 0 := by sorry
+-- Within the p fibre, invertibility is equivalent to a nonzero constant coefficient of p.
+example {F : Type u} [Field F] (n : ℕ) (p : Polynomial F) (A : Matrix (Fin n) (Fin n) F)
+    (hA : A ∈ yu_038 n p) : IsUnit A ↔ p.coeff 0 ≠ 0 := by sorry
 
 end yu_038
 
