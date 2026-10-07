@@ -23,112 +23,112 @@
         "kind": "def",
         "module": "Mathlib/RingTheory/Trace/Defs.lean",
         "provides": "The trace linear map of a finite algebra; here Tr_{F/ℚ}.",
-        "checked": "Declaration statement read at the pinned commit; no inferred implementation of the Hilbert specialization."
+        "checked": "Independently confirmed by REV-HilbertModularVarietiesAndShimuraCurves--H0 on 2026-10-07: name, full statement and variable hypotheses read in this module at the cited pin; provides the stated ingredient, not the unimplemented Hilbert moduli construction."
       },
       {
         "ref": "mathlib:Submodule.mem_traceDual",
         "kind": "lemma",
         "module": "Mathlib/RingTheory/DedekindDomain/Different.lean",
         "provides": "Membership in traceDual A K I iff every trace-form pairing with I lies in the image of A→K.",
-        "checked": "Declaration statement read at the pinned commit; no inferred implementation of the Hilbert specialization."
+        "checked": "Independently confirmed by REV-HilbertModularVarietiesAndShimuraCurves--H0 on 2026-10-07: name, full statement and variable hypotheses read in this module at the cited pin; provides the stated ingredient, not the unimplemented Hilbert moduli construction."
       },
       {
         "ref": "mathlib:FractionalIdeal.dual",
         "kind": "def",
         "module": "Mathlib/RingTheory/DedekindDomain/Different.lean",
         "provides": "Trace dual fractional ideal; sends zero to zero and nonzero I to the trace-dual submodule.",
-        "checked": "Declaration statement read at the pinned commit; no inferred implementation of the Hilbert specialization."
+        "checked": "Independently confirmed by REV-HilbertModularVarietiesAndShimuraCurves--H0 on 2026-10-07: name, full statement and variable hypotheses read in this module at the cited pin; provides the stated ingredient, not the unimplemented Hilbert moduli construction."
       },
       {
         "ref": "mathlib:FractionalIdeal.dual_eq_mul_inv",
         "kind": "lemma",
         "module": "Mathlib/RingTheory/DedekindDomain/Different.lean",
         "provides": "For the separable integral-closure Dedekind setting, dual A K I=dual A K 1*I⁻¹.",
-        "checked": "Declaration statement read at the pinned commit; no inferred implementation of the Hilbert specialization."
+        "checked": "Independently confirmed by REV-HilbertModularVarietiesAndShimuraCurves--H0 on 2026-10-07: name, full statement and variable hypotheses read in this module at the cited pin; provides the stated ingredient, not the unimplemented Hilbert moduli construction."
       },
       {
         "ref": "mathlib:FractionalIdeal.dual_dual",
         "kind": "lemma",
         "module": "Mathlib/RingTheory/DedekindDomain/Different.lean",
         "provides": "Trace dual is involutive in the separable integral-closure Dedekind setting.",
-        "checked": "Declaration statement read at the pinned commit; no inferred implementation of the Hilbert specialization."
+        "checked": "Independently confirmed by REV-HilbertModularVarietiesAndShimuraCurves--H0 on 2026-10-07: name, full statement and variable hypotheses read in this module at the cited pin; provides the stated ingredient, not the unimplemented Hilbert moduli construction."
       },
       {
         "ref": "mathlib:Matrix.adjugate_mul_distrib",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/Matrix/Adjugate.lean",
         "provides": "Over a commutative ring, adjugate(M*N)=adjugate N*adjugate M, with reversed order.",
-        "checked": "Declaration statement read at the pinned commit; no inferred implementation of the Hilbert specialization."
+        "checked": "Independently confirmed by REV-HilbertModularVarietiesAndShimuraCurves--H0 on 2026-10-07: name, full statement and variable hypotheses read in this module at the cited pin; provides the stated ingredient, not the unimplemented Hilbert moduli construction."
       },
       {
         "ref": "mathlib:Matrix.det_adjugate",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/Matrix/Adjugate.lean",
         "provides": "For a finite matrix of cardinality k, det(adjugate M)=det(M)^(k−1); in dimension2 it equals det M.",
-        "checked": "Declaration statement read at the pinned commit; no inferred implementation of the Hilbert specialization."
+        "checked": "Independently confirmed by REV-HilbertModularVarietiesAndShimuraCurves--H0 on 2026-10-07: name, full statement and variable hypotheses read in this module at the cited pin; provides the stated ingredient, not the unimplemented Hilbert moduli construction."
       },
       {
         "ref": "mathlib:QuotientGroup.mk'",
         "kind": "def",
         "module": "Mathlib/GroupTheory/QuotientGroup/Defs.lean",
         "provides": "The quotient homomorphism G→G/N for a normal subgroup, on the native quotient-group carrier.",
-        "checked": "Declaration statement read at the pinned commit; no inferred implementation of the Hilbert specialization."
+        "checked": "Independently confirmed by REV-HilbertModularVarietiesAndShimuraCurves--H0 on 2026-10-07: name, full statement and variable hypotheses read in this module at the cited pin; provides the stated ingredient, not the unimplemented Hilbert moduli construction."
       },
       {
         "ref": "tauceti:NumberField.IsTotallyPositive",
         "kind": "def",
         "module": "TauCeti/NumberTheory/NumberField/TotallyPositive.lean",
         "provides": "Strict positivity under each real infinite-place embedding.",
-        "checked": "Declaration statement read at the pinned commit; no inferred implementation of the Hilbert specialization."
+        "checked": "Independently confirmed by REV-HilbertModularVarietiesAndShimuraCurves--H0 on 2026-10-07: name, full statement and variable hypotheses read in this module at the cited pin; provides the stated ingredient, not the unimplemented Hilbert moduli construction."
       },
       {
         "ref": "tauceti:NumberField.totallyPositiveIntegerUnits",
         "kind": "def",
         "module": "TauCeti/NumberTheory/NumberField/TotallyPositive.lean",
         "provides": "The preimage subgroup of positive field units in the arithmetic unit group (𝒪_F)×.",
-        "checked": "Declaration statement read at the pinned commit; no inferred implementation of the Hilbert specialization."
+        "checked": "Independently confirmed by REV-HilbertModularVarietiesAndShimuraCurves--H0 on 2026-10-07: name, full statement and variable hypotheses read in this module at the cited pin; provides the stated ingredient, not the unimplemented Hilbert moduli construction."
       },
       {
         "ref": "tauceti:NumberField.sq_mem_totallyPositiveIntegerUnits",
         "kind": "theorem",
         "module": "TauCeti/NumberTheory/NumberField/TotallyPositive.lean",
         "provides": "Every arithmetic unit square belongs to totallyPositiveIntegerUnits.",
-        "checked": "Declaration statement read at the pinned commit; no inferred implementation of the Hilbert specialization."
+        "checked": "Independently confirmed by REV-HilbertModularVarietiesAndShimuraCurves--H0 on 2026-10-07: name, full statement and variable hypotheses read in this module at the cited pin; provides the stated ingredient, not the unimplemented Hilbert moduli construction."
       },
       {
         "ref": "tauceti:NumberField.units_sq_index_eq",
         "kind": "theorem",
         "module": "TauCeti/NumberTheory/NumberField/Units/ElementaryTwoQuotient.lean",
         "provides": "Index of the square subgroup of arithmetic units equals 2^(NumberField.Units.rank F+1).",
-        "checked": "Declaration statement read at the pinned commit; no inferred implementation of the Hilbert specialization."
+        "checked": "Independently confirmed by REV-HilbertModularVarietiesAndShimuraCurves--H0 on 2026-10-07: name, full statement and variable hypotheses read in this module at the cited pin; provides the stated ingredient, not the unimplemented Hilbert moduli construction."
       },
       {
         "ref": "tauceti:NumberField.unitsMulEquivTorsionProdMultiplicative",
         "kind": "def",
         "module": "TauCeti/NumberTheory/NumberField/Units/Dirichlet.lean",
         "provides": "Multiplicative equivalence from arithmetic units to torsion(F)×Multiplicative(Fin(rank F)→ℤ).",
-        "checked": "Declaration statement read at the pinned commit; no inferred implementation of the Hilbert specialization."
+        "checked": "Independently confirmed by REV-HilbertModularVarietiesAndShimuraCurves--H0 on 2026-10-07: name, full statement and variable hypotheses read in this module at the cited pin; provides the stated ingredient, not the unimplemented Hilbert moduli construction."
       },
       {
         "ref": "tauceti:NumberField.NarrowClassGroup.instFinite",
         "kind": "instance",
         "module": "TauCeti/NumberTheory/NumberField/NarrowClassGroup/Finite.lean",
         "provides": "The narrow ideal class group of a number field is finite.",
-        "checked": "Declaration statement read at the pinned commit; no inferred implementation of the Hilbert specialization."
+        "checked": "Independently confirmed by REV-HilbertModularVarietiesAndShimuraCurves--H0 on 2026-10-07: name, full statement and variable hypotheses read in this module at the cited pin; provides the stated ingredient, not the unimplemented Hilbert moduli construction."
       },
       {
         "ref": "tauceti:NumberField.NarrowClassGroup.exists_mk0_eq_and_isCoprime_absNorm",
         "kind": "theorem",
         "module": "TauCeti/NumberTheory/NumberField/NarrowClassGroup/CoprimeRepresentative.lean",
         "provides": "For a narrow class C and nonzero m∈ℤ, an integral ideal J represents C and has absolute norm coprime to m.",
-        "checked": "Declaration statement read at the pinned commit; no inferred implementation of the Hilbert specialization."
+        "checked": "Independently confirmed by REV-HilbertModularVarietiesAndShimuraCurves--H0 on 2026-10-07: name, full statement and variable hypotheses read in this module at the cited pin; provides the stated ingredient, not the unimplemented Hilbert moduli construction."
       },
       {
         "ref": "mathlib:AlgebraicGeometry.Scheme",
         "kind": "structure",
         "module": "Mathlib/AlgebraicGeometry/Scheme.lean",
         "provides": "The existing locally affine locally ringed space carrier; not a fresh Hilbert-specific definition of scheme.",
-        "checked": "Declaration statement read at the pinned commit; no inferred implementation of the Hilbert specialization."
+        "checked": "Independently confirmed by REV-HilbertModularVarietiesAndShimuraCurves--H0 on 2026-10-07: name, full statement and variable hypotheses read in this module at the cited pin; provides the stated ingredient, not the unimplemented Hilbert moduli construction."
       }
     ]
   },
@@ -425,7 +425,8 @@
       "proofSteps": [
         "Multiply the wedge in c⁻¹d⁻¹ by a∈c, obtaining d⁻¹.",
         "Apply the pinned trace-dual membership criterion to obtain an integer.",
-        "Restrict the imported rational trace form, recording its sign and parameter."
+        "Restrict the imported rational trace form, recording its sign and parameter.",
+        "For b∈O move b between the parameter and either lattice argument inside the commutative trace expression. This gives the balancing law and the precise O-module action on the form family."
       ],
       "acceptance": [
         "No generator of c is part of the definition."
@@ -468,6 +469,11 @@
           "name": "TauCeti.HilbertModular.integralTraceFamily_integral",
           "role": "compatibility",
           "statement": "Its rational image agrees with D5’s trace representation multiplied by a."
+        },
+        {
+          "name": "TauCeti.HilbertModular.integralTraceFamily_balance",
+          "role": "relation",
+          "statement": "For b∈O, ψ_{ba}(x,y)=ψ_a(bx,y)=ψ_a(x,by). This specifies the O-action on the family of Z-bilinear forms; it is not scalar multiplication of their Z-valued outputs."
         }
       ],
       "tests": [
@@ -734,6 +740,11 @@
           "name": "TauCeti.HilbertModular.hilbertPolarizationModule_pullback",
           "role": "functoriality",
           "statement": "Pullback is the A2 Hom/duality base-change map on the stipulated Hilbert locus."
+        },
+        {
+          "name": "TauCeti.HilbertModular.hilbertPolarizationModule_ext",
+          "role": "extensionality",
+          "statement": "Two sections of P(A,ι) agree if their underlying A→A∨ morphisms agree; the symmetry and O-linearity proofs add no extra section data."
         }
       ],
       "tests": [
@@ -2209,6 +2220,11 @@
           "name": "TauCeti.HilbertModular.tameDelta_changeLevel",
           "role": "functoriality",
           "statement": "For N|M the inclusion S_M⊂S_N induces Δ(M)→Δ(N)."
+        },
+        {
+          "name": "TauCeti.HilbertModular.tameDelta_lift",
+          "role": "universal-property",
+          "statement": "For a group J, any homomorphism U+→J killing S_N factors uniquely through tameDelta_mk."
         }
       ],
       "tests": [
@@ -3733,9 +3749,10 @@
       ],
       "title": "Real quadratic domains and minimal cusps",
       "kind": "theorem",
-      "statement": "For real quadratic F the Hilbert domains have complex dimension 2, with 4 independent-sign G components and 2 common-sign G* components. C6’s rational minimal boundary consists of finite zero-dimensional cusps on a chosen finite-level quotient, of codimension 2. This is not the boundary of a product of two compactified modular curves, whose divisor components are one-dimensional. Toroidal boundary divisors are a separate compactification.",
+      "statement": "For real quadratic F the Hilbert domains have complex dimension 2, with 4 independent-sign G components and 2 common-sign G* components. Under C6’s stated tame-ideal hypotheses, its rational minimal boundary consists of finite zero-dimensional cusps on a chosen finite-level quotient, of codimension 2. This is not the boundary of a product of two compactified modular curves, whose divisor components are one-dimensional. Toroidal boundary divisors are a separate compactification.",
       "hypotheses": [
-        "F is a totally real number field; g=[F:ℚ]; O=𝒪_F; d is the absolute different. Additional hypotheses are stated in the assertion."
+        "F is a totally real number field; g=[F:ℚ]; O=𝒪_F; d is the absolute different. Additional hypotheses are stated in the assertion.",
+        "For the C6 minimal-boundary comparison retain its tame-ideal range: n is coprime to the field discriminant and does not divide 2 or 3, and c is prime to n; use the supplier’s actual torsion-free moduli input. Other levels require a separate canonical finite-level comparison."
       ],
       "proofSteps": [
         "Specialize H0 to two real embeddings.",
@@ -3895,7 +3912,7 @@
       ],
       "title": "Simultaneous torsion Isom torsor",
       "kind": "definition",
-      "statement": "Let K be a characteristic-zero field and ℓ₁≠ℓ₂ distinct odd primes, with chosen fine tame level prime to ℓ₁ℓ₂. Fori=1,2 let V_i be a finite étale G_K-module locally free of rank 2 over O/ℓ_i O, equipped with a perfect alternating pairing∧²V_i≅(c d⁻¹/ℓ_ic d⁻¹)⊗μ_{ℓ_i}. Define the symplectic O-linear Isom torsor from the standard torsion module with its matching pairing to V_i, and take their product. Its finite structural group is the product of the two symplectic automorphism groups; it need not be commutative.",
+      "statement": "Let K be a characteristic-zero field and ℓ₁≠ℓ₂ distinct odd primes, with full paired torsion markings at these primes. A retained extra tame marking is prime to ℓ₁ℓ₂; in the elliptic specialization the two full odd torsion levels themselves supply a fine marking. Fori=1,2 let V_i be a finite étale G_K-module locally free of rank 2 over O/ℓ_i O, equipped with a perfect alternating pairing∧²V_i≅(c d⁻¹/ℓ_ic d⁻¹)⊗μ_{ℓ_i}. Define the symplectic O-linear Isom torsor from the standard torsion module with its matching pairing to V_i, and take their product. Its finite structural group is the product of the two symplectic automorphism groups; it need not be commutative.",
       "hypotheses": [
         "F is a totally real number field; g=[F:ℚ]; O=𝒪_F; d is the absolute different. Additional hypotheses are stated in the assertion."
       ],
@@ -3944,6 +3961,11 @@
           "name": "TauCeti.HilbertModular.torsionIsomTorsor_cocycle",
           "role": "compatibility",
           "statement": "A splitting-field frame gives the cocycleσ↦frame⁻¹σ(frame), and changing the frame gives a cohomologous cocycle."
+        },
+        {
+          "name": "TauCeti.HilbertModular.torsionIsomTorsor_ext",
+          "role": "extensionality",
+          "statement": "Two sections of the simultaneous Isom torsor agree if both underlying O/ℓ_i O-linear maps agree; pairing-preservation proofs add no extra data."
         }
       ],
       "tests": [
@@ -3985,12 +4007,12 @@
       ],
       "title": "Twisted Hilbert torsion moduli",
       "kind": "construction",
-      "statement": "Twist the fine paired full ℓ₁/ℓ₂ Hilbert moduli and its universal HBAV by the inverse action of the actual Hilbert Torsion Isom Torsor. The descended K-space classifies(A,ι,λ,μ_N,α₁,α₂) withα_i:V_i≅A∨[ℓ_i] preserving the c d⁻¹-valued pairing. Over a splitting field it is isomorphic to the untwisted paired full-level space. This construction uses effective finite noncommutative descent, not the commutative Γ-only torsor-twist node of R09.4.",
+      "statement": "Twist the fine paired full ℓ₁/ℓ₂ Hilbert moduli and its universal HBAV by the inverse action of the actual Hilbert Torsion Isom Torsor. The descended K-space classifies (A,ι,λ,μ_N,α₁,α₂) when the Hilbert tame marking is retained, and (A,ι,λ,α₁,α₂) when full torsion level itself supplies the fine marking. In both cases α_i:V_i≅A∨[ℓ_i] preserves the c d⁻¹-valued pairing. Over a splitting field it is isomorphic to the untwisted paired full-level space. This construction uses effective finite noncommutative descent, not the commutative Γ-only torsor-twist node of R09.4.",
       "hypotheses": [
         "F is a totally real number field; g=[F:ℚ]; O=𝒪_F; d is the absolute different. Additional hypotheses are stated in the assertion."
       ],
       "proofSteps": [
-        "Form the contracted product with the actual finite level action, checking inverse/right-versus-left conventions.",
+        "Construct the characteristic-zero fine full torsion moduli using M1/M2 and its actual complex component from M3. For the retained Hilbert μ_N convention compare with H4; for Allen’s elliptic specialization use the two full odd torsion levels as the fine marking, without an independent μ_N datum. Form the contracted product with the inverse/right-versus-left action.",
         "Descend the scheme and its universal family from the splitting-field fine cover using R09.3.",
         "Verify the moduli universal property by twisting the paired frames in both directions."
       ],
@@ -4002,7 +4024,10 @@
         "HilbertModularVarietiesAndShimuraCurves:H4/hybrid-full-level",
         "HilbertModularVarietiesAndShimuraCurves:H4/geometric-full-level",
         "AlgebraicModuliForArithmeticGeometry:R09.3",
-        "mathlib:AlgebraicGeometry.Scheme"
+        "mathlib:AlgebraicGeometry.Scheme",
+        "PELModuli:M1/char-zero-adelic-moduli",
+        "PELModuli:M2/representability",
+        "PELModuli:M3/algebraization-of-components"
       ],
       "sources": [
         {
@@ -4102,6 +4127,11 @@
           "sourceId": "DP94",
           "locator": "Corollary 2.4, p.64; Taylor§1, p.13",
           "match": "The passage fixes the object or comparison convention. The assertion records its explicit hypotheses; proof steps separate the specialization from imported general theory and any source correction."
+        },
+        {
+          "sourceId": "TAYLOR02",
+          "locator": "§1, p.13, fine simultaneous torsion moduli and complex connectedness",
+          "match": "Taylor gives the complex connected-domain argument for the chosen paired torsion component. DP Corollary 2.4 alone does not construct the twist or its component descent."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4208,9 +4238,9 @@
         "F is a totally real number field; g=[F:ℚ]; O=𝒪_F; d is the absolute different. Additional hypotheses are stated in the assertion."
       ],
       "proofSteps": [
-        "Specialize the actual paired torsion twist to F=ℚ and use V_{r_i′}∨ so its determinant isε_{ℓ₂}.",
-        "Use A6 finite-separable Weil restriction of the quasi-projective scheme Y_i.",
-        "Use the splitting-product comparison to compute smoothness, dimension and geometric irreducibility; do not repeat the generic Weil-restriction theorem."
+        "Specialize the paired simultaneous torsion twist to F=Q. Dualize V_{r_i′} so its determinant and alternating pairing have cyclotomic multiplier, and use the stipulated symplectic identifications.",
+        "Use the fine full-level elliptic moduli at the two distinct odd auxiliary primes, and the selected fixed-pairing component. Over a splitting field this component is the connected modular curve, hence is smooth, geometrically irreducible and one-dimensional. No independent μ_N marking is stored in Y_i; the two full odd torsion identifications already eliminate elliptic automorphisms.",
+        "Apply the finite noncommutative descent already requested for the twist and the component. Weil restriction is the separate allen-restriction-moduli node, not part of this construction."
       ],
       "acceptance": [
         "X_i is not an elliptic moduli curve when[K:k]=2."
@@ -4224,7 +4254,7 @@
       "sources": [
         {
           "sourceId": "ALLEN23",
-          "locator": "§7.2.5, author p.209, defining Y_i and X_i; collated with published §7.2.5, pp.1103–1106",
+          "locator": "§7.2.5, published pp.1103–1106",
           "match": "The passage fixes the object or comparison convention. The assertion records its explicit hypotheses; proof steps separate the specialization from imported general theory and any source correction."
         }
       ],
@@ -4311,7 +4341,7 @@
       "sources": [
         {
           "sourceId": "ALLEN23",
-          "locator": "§7.2.5, author p.209, defining Y_i and X_i; collated with published §7.2.5, pp.1103–1106",
+          "locator": "§7.2.5, published pp.1103–1106",
           "match": "The passage fixes the object or comparison convention. The assertion records its explicit hypotheses; proof steps separate the specialization from imported general theory and any source correction."
         }
       ],
@@ -4402,7 +4432,7 @@
       "sources": [
         {
           "sourceId": "ALLEN23",
-          "locator": "§7.2.5, author pp.209–210, and Lemma 7.2.2, pp.203–204; collated with published §7.2.5, pp.1103–1106",
+          "locator": "§7.2.5, published pp.1104–1105; Lemma 7.2.2, published pp.1098–1099",
           "match": "The passage fixes the object or comparison convention. The assertion records its explicit hypotheses; proof steps separate the specialization from imported general theory and any source correction."
         }
       ],
@@ -4441,7 +4471,7 @@
       "sources": [
         {
           "sourceId": "ALLEN23",
-          "locator": "§7.2.5, author pp.210–211, Moret–Bailly step; collated with published §7.2.5, pp.1103–1106",
+          "locator": "§7.2.5, published pp.1103–1106",
           "match": "The passage fixes the object or comparison convention. The assertion records its explicit hypotheses; proof steps separate the specialization from imported general theory and any source correction."
         }
       ],
@@ -5397,14 +5427,21 @@
       "searched": [
         "2026-10-07: publisher article/errata search at https://aif.centre-mersenne.org/articles/10.5802/aif.3560/; no linked correction located.",
         "2026-10-07: arXiv1902.03985 version history (latest v4,10May2021) and Heuer author OCHMF.pdf; Lemma8.20 retained the same stabilization assertion.",
-        "2026-10-07: targeted primary-source searches for Birkbeck–Heuer–Williams erratum and Lemma8.20 correction; none located. New means no correction found in these checks, not exhaustive novelty."
-      ]
+        "2026-10-07: targeted primary-source searches for Birkbeck–Heuer–Williams erratum and Lemma8.20 correction; none located. New means no correction found in these checks, not exhaustive novelty.",
+        "Independent review 2026-10-07: opened the publisher article page and arXiv version history, searched publisher/author correction notices, and checked the cited published passage. No correction to this passage located; this is a bounded search, not an exhaustive novelty claim."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at published p.1775. Independently computed η=ε⁴=17+12√2, Norm(η)=1, η≡1 mod4 and η≡−1 mod3. The only square roots of η² in F are ±η; neither is 1 mod12. Thus the inclusion-induced map has nonzero kernel. The replacement bound uses U_{p^nN}=U_{p^n}∩U_N and the subgroup square index, not this injection.",
+        "by": "REV-HilbertModularVarietiesAndShimuraCurves--H0"
+      }
     },
     {
       "id": "HilbertModularVarietiesAndShimuraCurves/E2",
       "source": "BHW23",
       "kind": "error",
       "locator": "Lemma8.20 statement, published p.1775",
+      "printed": "∆∞(N) = ∆n(N) for n ≫ 0",
       "correction": "The inverse limit is finite, but projection identifies it eventually with its stable image I_n, not necessarily with all Δ_n. Retain all p and the corrected stable-image statement.",
       "reason": "For F=ℚ(√2),p=2,N=5,n≥2, U_{2^n}=⟨ε^{2^n}⟩ and U_{2^n5}=⟨ε^{3·2^n}⟩. Thus Δ_n=ℤ/6 with transition ×2; its inverse limit is ℤ/3, so every projection has proper image. The Pell recurrence and order12 of ε mod5 are checked explicitly.",
       "affects": "a stated result",
@@ -5412,8 +5449,14 @@
       "searched": [
         "2026-10-07: publisher article/errata search at https://aif.centre-mersenne.org/articles/10.5802/aif.3560/; no linked correction located.",
         "2026-10-07: arXiv1902.03985 version history (latest v4,10May2021) and Heuer author OCHMF.pdf; Lemma8.20 retained the same stabilization assertion.",
-        "2026-10-07: targeted primary-source searches for Birkbeck–Heuer–Williams erratum and Lemma8.20 correction; none located. New means no correction found in these checks, not exhaustive novelty."
-      ]
+        "2026-10-07: targeted primary-source searches for Birkbeck–Heuer–Williams erratum and Lemma8.20 correction; none located. New means no correction found in these checks, not exhaustive novelty.",
+        "Independent review 2026-10-07: opened the publisher article page and arXiv version history, searched publisher/author correction notices, and checked the cited published passage. No correction to this passage located; this is a bounded search, not an exhaustive novelty claim."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at published p.1775, and corrected the printed anchor to the actual displayed assertion. For ε=1+√2, squaring gives b_{m+1}=2a_m b_m with a_m odd, hence v₂(b_m)=m; the mod4 calculation excludes negative-unit congruences. Independently computed order12 mod5. For n≥2 the quotients are Z/6 with ×2 transition; the compatible sequences project to the order-three subgroup and the inverse limit is Z/3. Finiteness survives, eventual surjectivity onto Δ_n does not.",
+        "by": "REV-HilbertModularVarietiesAndShimuraCurves--H0"
+      }
     },
     {
       "id": "HilbertModularVarietiesAndShimuraCurves/E3",
@@ -5428,8 +5471,14 @@
       "searched": [
         "2026-10-07: publisher article/errata search at https://aif.centre-mersenne.org/articles/10.5802/aif.3560/; no linked correction located.",
         "2026-10-07: arXiv1902.03985 version history (latest v4,10May2021) and Heuer author OCHMF.pdf; Lemma8.20 retained the same stabilization assertion.",
-        "2026-10-07: targeted primary-source searches for Birkbeck–Heuer–Williams erratum and Lemma8.20 correction; none located. New means no correction found in these checks, not exhaustive novelty."
-      ]
+        "2026-10-07: targeted primary-source searches for Birkbeck–Heuer–Williams erratum and Lemma8.20 correction; none located. New means no correction found in these checks, not exhaustive novelty.",
+        "Independent review 2026-10-07: opened the publisher article page and arXiv version history, searched publisher/author correction notices, and checked the cited published passage. No correction to this passage located; this is a bounded search, not an exhaustive novelty claim."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at published p.1774. F=Q is permitted by the paper: U+={1} and U_N={1} for N≥4, so Δ(N) and Δ(p^nN) are trivial and E=Γ₀=PΓ₀. Both displayed extensions split.",
+        "by": "REV-HilbertModularVarietiesAndShimuraCurves--H0"
+      }
     },
     {
       "id": "HilbertModularVarietiesAndShimuraCurves/E4",
@@ -5444,8 +5493,14 @@
       "searched": [
         "2026-10-07: https://annals.math.princeton.edu/2023/197-3/p02 and targeted publisher correction/erratum searches; no correction to §7.2.5 located.",
         "2026-10-07: arXiv1812.09999 and Taylor/Calegari author versions, including the published Calegari-hosted PDF; the two expressions remain in published p.1105.",
-        "2026-10-07: targeted primary-source searches for §7.2.5 correction; none located. No assertion of exhaustive novelty."
-      ]
+        "2026-10-07: targeted primary-source searches for §7.2.5 correction; none located. No assertion of exhaustive novelty.",
+        "Independent review 2026-10-07: opened the publisher article page and arXiv version history, searched publisher/author correction notices, and checked the cited published passage. No correction to this passage located; this is a bounded search, not an exhaustive novelty claim."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as a local proof gap at published p.1105, not as a counterexample to Theorem7.1.11. For a trace-zero curve over F_l₂, π²=−l₂; after residue extension of degree h, Frob²=(−l₂)^h. The displayed matching equation omits h and does not justify the necessary choice of arbitrary supersingular D. A sufficiently divisible unramified degree can repair the prime-to-l₂ matching; matching the finite-flat local type remains the expressly recorded gap.",
+        "by": "REV-HilbertModularVarietiesAndShimuraCurves--H0"
+      }
     },
     {
       "id": "HilbertModularVarietiesAndShimuraCurves/E5",
@@ -5460,8 +5515,14 @@
       "searched": [
         "2026-10-07: https://annals.math.princeton.edu/2023/197-3/p02 and targeted publisher correction/erratum searches; no correction to §7.2.5 located.",
         "2026-10-07: arXiv1812.09999 and Taylor/Calegari author versions, including the published Calegari-hosted PDF; the two expressions remain in published p.1105.",
-        "2026-10-07: targeted primary-source searches for §7.2.5 correction; none located. No assertion of exhaustive novelty."
-      ]
+        "2026-10-07: targeted primary-source searches for §7.2.5 correction; none located. No assertion of exhaustive novelty.",
+        "Independent review 2026-10-07: opened the publisher article page and arXiv version history, searched publisher/author correction notices, and checked the cited published passage. No correction to this passage located; this is a bounded search, not an exhaustive novelty claim."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at published p.1105. The preceding extension and Lemma7.2.2 use the residual coefficient field F_l₂. Replacing it in the later formula by the local residue field k(w) changes the coefficient module without a scalar-extension instruction; the intended correction is F_l₂.",
+        "by": "REV-HilbertModularVarietiesAndShimuraCurves--H0"
+      }
     }
   ],
   "sourceVersions": [
@@ -5515,6 +5576,389 @@
       "Added Allen item329 is realized by H6 elliptic twists, restriction of scalars and finite local points.",
       "Added Yuan–Zhang quaternion datum, PEL groups, reflex field, moduli, genus, connected/finite-level and torus bridge are in R18.1. Its integral, p-divisible, Kodaira–Spencer/height and bad-prime items remain R18.2/R18.5 or their canonical owners.",
       "Yuan–Zhang extraction E29/E39 and its published height erratum concern height or p-divisible assertions outside this part; no such height theorem is reused."
+    ]
+  },
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-HilbertModularVarietiesAndShimuraCurves--H0",
+    "date": "2026-10-07",
+    "notes": "Independent target-level review by Codex, session codex-aizIKS. All 75 source assertions/excerpts, all 16 pinned declarations, supplier statements, 8 stage targets, 36 definition/construction APIs and tests, 38 planets, RS-23 ownership and RT-AREA-padic-1/26 checked. Corrected the fine-torsion-only Allen specialization and its copied proof outline, made C6 tame hypotheses explicit, improved four APIs and one executable test, and tightened source locators/citations. All five sourceIssues independently confirmed, with E2 printed anchor corrected. Eight recorded refinements and 18 producer requests remain honest closure boundaries; no stage is marked closed. See the review report for validation and reader-document synchronization requests.",
+    "checked": [
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:H0/derived-centres",
+        "verdict": "verified",
+        "note": "D5 groups give the same derived Res SL2; over an algebraic closure the star centre has a common square and finite sign components, with diagonal identity component."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:H0/domain-comparison",
+        "verdict": "verified",
+        "note": "D5 explicitly distinguishes 2^g independent signs from two common-sign components; dimensions and rational reflex fields agree."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:H0/polarization-lattice",
+        "verdict": "verified",
+        "note": "BHW5.1 lattice and the pinned fractional-ideal dual agree; the construction does not choose a generator of c."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:H0/integral-trace-family",
+        "verdict": "corrected",
+        "note": "Trace-dual integrality and D5 sign conventions checked; added the O-balancing law to make the parameter action precise."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:H0/lattice-duality",
+        "verdict": "verified",
+        "note": "Dual of c^-1 d^-1 is c by the pinned dual identities; the row stabilizer has the displayed off-diagonal ideals."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:H0/type-witnesses",
+        "verdict": "verified",
+        "note": "D4 requires a closed Siegel embedding for Hodge type and only a derived central isogeny for abelian type; these are the stated D5 witnesses."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:H1/ordered-polarization-module",
+        "verdict": "verified",
+        "note": "Taylor p9 defines embedding-wise half-lines on the invertible module; a single global choice of positive generator would be wrong."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:H1/symmetric-polarizations",
+        "verdict": "corrected",
+        "note": "BHW5.1 symmetric Hom sheaf retains biduality and the positive cone; added extensionality on underlying morphisms."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:H1/c-polarization",
+        "verdict": "verified",
+        "note": "DP1.1 and BHW5.1 require ordered identification and evaluation isomorphism, not just a selected polarization morphism."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:H1/hilbert-pel-instance",
+        "verdict": "verified",
+        "note": "M0/M1 specialization fixes the trace sign and order; it imports the general PEL carrier rather than reconstructing it."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:H1/hilbert-determinant",
+        "verdict": "verified",
+        "note": "The determinant condition is the full characteristic polynomial; M0 does not allow replacing it by trace in positive characteristic."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:H1/tame-level-functors",
+        "verdict": "verified",
+        "note": "BHW5.1.2 fixes the d^-1 tensor mu_N convention; the marked-point comparison is an isogeny/dual comparison, not a literal equal datum."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:H1/good-representability",
+        "verdict": "verified",
+        "note": "M2 only supplies good-prime algebraic-space representability; the statement keeps its lattice, order and level hypotheses and delegates schemes to the ample supplier."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:H1/linear-weil-pairing",
+        "verdict": "verified",
+        "note": "BHW5.1.4 retains the c d^-1 pairing target and trace/different dictionary; A3 must supply the actual torsion pairing."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:H1/pairing-choice-laws",
+        "verdict": "verified",
+        "note": "Changing the chosen pairing trivialization rescales the multiplier and transports the frame; no canonical generator is asserted."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:H1/complex-hilbert-comparison",
+        "verdict": "verified",
+        "note": "M3 complex comparison keeps the actual component and polarized lattice, not an unqualified whole PEL variety equality."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:H2/dp-local-model",
+        "verdict": "verified",
+        "note": "DP3.2 and4.2 model O-stable self-orthogonal rank-g subbundles; the ramified nonfree example and R09.1 Grassmannian request are explicit."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:H2/dp-integral-model",
+        "verdict": "verified",
+        "note": "DP2.1 is an algebraic-space theorem; the mu_N scheme refinement is a named gap and not deduced from good-prime M2."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:H2/dp-flat-normal",
+        "verdict": "verified",
+        "note": "DP2.2,2.3 and4.4 provide the flat local-complete-intersection model and normal geometric fibres; the polarized deformation input is requested at all p."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:H2/dp-determinant-all-bases",
+        "verdict": "verified",
+        "note": "DP2.7 alone treats fields; the all-base polynomial equality uses the flat universal local model and p-torsion-freeness, not pointwise equality on nonreduced bases."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:H2/rapoport-locus",
+        "verdict": "verified",
+        "note": "DP smooth/Rapoport comparison and AIP3.1,5.2.4 agree on rank-one O-linear Hodge modules; ramified nonfree strata are excluded."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:H2/ordinary-rapoport",
+        "verdict": "verified",
+        "note": "The ordinary-to-Rapoport step requests the polarized O-linear ordinary decomposition at every p; no unramified Hida argument is applied at bad primes."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:H2/hilbert-hasse-ideal",
+        "verdict": "verified",
+        "note": "R07.2 supplies generic det(V*) and ordinarity; H2 owns only the Hilbert Hasse ideal, resolving RT-AREA-padic-1/26 without a T0 edge."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:H2/hasse-formal-domains",
+        "verdict": "verified",
+        "note": "R2 supplier supplies the section blow-up chart and rational-bound convention; epsilon<1 is retained and the endpoint test detects lift dependence."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:H2/polarization-representatives-at-p",
+        "verdict": "verified",
+        "note": "The pinned narrow-class coprime-representative theorem retains nonzero integer modulus; it applies to p and the chosen tame level."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:H3/congruence-units",
+        "verdict": "verified",
+        "note": "Congruence subgroup is the kernel of unit reduction, not the set of squares congruent to one; all three tests discriminate the convention."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:H3/congruence-square-image",
+        "verdict": "corrected",
+        "note": "The square-image definition quantifies a congruent root in U_M. Replaced the vacuous subtype-membership prototype test by positivity of a unit square at every real embedding."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:H3/polarization-unit-action",
+        "verdict": "verified",
+        "note": "BHW8.1 identifies the polarization scaling and square-unit isomorphism; the fine tame marking is part of the kernel computation."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:H3/tame-delta",
+        "verdict": "corrected",
+        "note": "The quotient is U+/U_N^2, not (U+ intersect U_N)^2; added the homomorphism factorization universal property."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:H3/delta-finiteness",
+        "verdict": "verified",
+        "note": "Pinned Dirichlet and square-index results imply finiteness via finite-index congruence subgroups; no Hilbert variety is inferred from those ingredients."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:H3/arithmetic-quotient",
+        "verdict": "verified",
+        "note": "The effective finite quotient is a Delta torsor with canonical generic comparison; universal abelian descent is explicitly conditional."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:H3/ideal-class-comparisons",
+        "verdict": "verified",
+        "note": "BHW8.2 and narrow-class finiteness retain rescaling and representative-change maps; components are indexed by narrow rather than wide ideal classes."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:H3/hilbert-hecke-isogenies",
+        "verdict": "verified",
+        "note": "BHW8.22 supplies the cb twist and dual-isogeny diagram; Kisin-Lai proof interior/isotropy conditions remain an explicit gap."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:H4/hybrid-full-level",
+        "verdict": "verified",
+        "note": "BHW8.3 hybrid frames are on the dual torsion, O-linear with unrestricted residue-unit multiplier; generic fibre is explicit."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:H4/pairing-multiplier",
+        "verdict": "verified",
+        "note": "BHW5.6 and8.3 fix the local beta pairing multiplier, including its dependence on the trivialization."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:H4/geometric-full-level",
+        "verdict": "verified",
+        "note": "Scalar multiplier lies in the image of rational residue units; the G-star frame condition is stricter than the hybrid condition."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:H4/adjugate-level-action",
+        "verdict": "verified",
+        "note": "Adjugation reverses products; alpha composed with adjugate gamma gives the displayed left-action order and determinant multiplier."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:H4/unit-square-level",
+        "verdict": "verified",
+        "note": "The simultaneous scalar and polarization-square change cancels on the stipulated frame; the sign/inverse convention agrees with BHW8.3."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:H4/arithmetic-full-level",
+        "verdict": "verified",
+        "note": "The whole arithmetic quotient uses U+ over U_p^nN squares, with effective unit action and no coarse universal-family claim."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:H4/hybrid-comparison-map",
+        "verdict": "verified",
+        "note": "BHW8.11 describes induction from scalar to O-residue pairing components; the two comparison maps have different images."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:H4/integral-gamma0",
+        "verdict": "verified",
+        "note": "The integral subgroup uses scheme rank, O-stability, isotropy and generic residue-module type; the flat-closure/annihilator comparison remains a gap."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:H4/gamma0-cartesian",
+        "verdict": "verified",
+        "note": "BHW8.5 gives the finite-level Cartesian unit quotient; restriction to Hasse neighborhoods uses invariant Ha and does not assume a perfectoid limit."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:H4/connected-unit-groups",
+        "verdict": "verified",
+        "note": "Connected numerator is U+ intersect U_p^n, and denominator U_p^nN squared; reduction transitions need not be surjective."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:H4/residue-component-group",
+        "verdict": "verified",
+        "note": "BHW8.3 fixed-c component quotient uses the image of positive units; the all-c label is a narrow ray-class extension."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:H4/component-and-torsor-comparison",
+        "verdict": "verified",
+        "note": "BHW8.3 whole and chosen-component torsors have different Delta groups. Strong approximation applies to the simply connected derived group, not GL2 itself."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:H4/effective-level-groups",
+        "verdict": "verified",
+        "note": "The lower-left congruence condition and scalar determinant star subgroup agree with BHW8.17; m=0 and m=n tests fix the convention."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:H4/diagonal-level-group",
+        "verdict": "verified",
+        "note": "The joint central relation is (eta I,eta^2) for eta in U_N; it is not a product of independently chosen scalar kernels."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:H4/projective-level-group",
+        "verdict": "verified",
+        "note": "P-Gamma0 is the quotient by the actual tame scalar image; the Q and universal-factorization tests detect an overlarge quotient."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:H4/level-scalar-kernel",
+        "verdict": "verified",
+        "note": "Scalar kernel is U_N/U_p^nN under coprimality; its image is central and may be nontrivial for F not Q."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:H4/finite-level-torsors",
+        "verdict": "verified",
+        "note": "BHW8.19 finite-level torsors and both exact sequences hold; source nonsplitting is correctly removed and E3 independently confirmed."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:H4/connected-limit-finiteness",
+        "verdict": "verified",
+        "note": "The corrected uniform bound proves a finite inverse limit and eventual injectivity onto its image; it does not assert eventual surjectivity onto Delta_n."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:H4/stabilization-counterexamples",
+        "verdict": "verified",
+        "note": "Independently recomputed the sqrt2 residues and congruence orders; Pell squaring proves the dyadic formula for every n, not just the finite computations."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:H5/rational-modular-comparison",
+        "verdict": "verified",
+        "note": "R12.2 and V8 GL2 nodes match the rational full/Gamma1/Gamma0 fine/coarse ranges and the mu_N versus point-level dictionary."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:H5/quadratic-domain-boundary",
+        "verdict": "corrected",
+        "note": "Added C6 tame-ideal hypotheses explicitly; at those levels the finite minimal cusp boundary has codimension two, unlike a product divisor boundary."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:H5/hodge-splitting-descent",
+        "verdict": "verified",
+        "note": "B4 and C6 suppliers require their actual loci and coefficient descent; the ramified residue algebra is not split into embedding idempotents."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:H5/algebraic-weights-units",
+        "verdict": "verified",
+        "note": "B4 arithmetic parity and determinant powers give the Norm(t)^w central character; finite residual signs remain a separate descent check."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:H5/nonprincipal-ramified-test",
+        "verdict": "verified",
+        "note": "In Q(sqrt10), norm +/-2 is impossible mod5, so c=(2,sqrt10) is nonprincipal of norm2; disc40 and p=5,N=7 satisfy the stated ramified test."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:H6/torsion-isom-torsor",
+        "verdict": "corrected",
+        "note": "Added Isom-section extensionality and clarified that Allen's full odd torsion levels supply the fine marking without extra mu_N data; the structural group may be noncommutative."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:H6/simultaneous-torsion-twist",
+        "verdict": "corrected",
+        "note": "Clarified the retained-tame and torsion-only fine problems, added M1/M2/M3 direct suppliers, and retained effective noncommutative descent of the family."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:H6/twisted-component-descent",
+        "verdict": "corrected",
+        "note": "Added Taylor's component argument as a distinct source beside DP normal fibres; component stabilizer field, smoothness and ample descent remain explicit."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:H6/real-torsion-points",
+        "verdict": "verified",
+        "note": "Taylor1.4 and the analytic trace-polarized construction give real points only for the specified odd involution and compatible component; CM Weil restriction is separate."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:H6/hilbert-finite-local-points",
+        "verdict": "verified",
+        "note": "Taylor1.2-1.3 use specific CM/ordinary/multiplicative data and structured Honda-Tate output; the exact input and realization gaps prevent an arbitrary-module assertion."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:H6/allen-elliptic-twists",
+        "verdict": "corrected",
+        "note": "Replaced copied Weil-restriction proof steps by the paired elliptic twist, fine torsion marking and connected modular component argument; locator now names the published PDF."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:H6/allen-restriction-moduli",
+        "verdict": "corrected",
+        "note": "A6 finite-separable restriction and geometric splitting give dimension2 and X(R)=Y(C); published locator corrected, no general Weil-restriction theory is replanned."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:H6/allen-finite-local-points",
+        "verdict": "corrected",
+        "note": "Published local proof and Lemma7.2.2 checked, locator corrected; residual coefficient, negative extension class, local type and residue-degree Frobenius correction are retained as conditional input/gap."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:H6/moret-bailly-input-export",
+        "verdict": "corrected",
+        "note": "Published Moret-Bailly passage checked and locator corrected; the local opens and family are inputs exported to R23, with no reverse prerequisite from its theorem."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.1/quaternionic-datum",
+        "verdict": "verified",
+        "note": "YZ4.1 uses the inverse real matrix at one split embedding; D4 allows nonrational central weight as a separate predicate and excludes the totally definite class set."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.1/quaternionic-reflex-dimension",
+        "verdict": "verified",
+        "note": "The unique active embedding fixes the quaternionic reflex field tau(F), and the domain dimension is one; the bridge reflex field is not identified with it."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.1/canonical-quaternionic-curve",
+        "verdict": "verified",
+        "note": "V8 maps presuppose actual models, so their missing quaternionic canonical-model endpoint is precisely requested; division compactness and split-Q cusps use their stated suppliers."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.1/quaternionic-effective-stabilizers",
+        "verdict": "verified",
+        "note": "YZ4.1 scalar quotient distinguishes rational finite-level stabilizers from adelic central closure; Proposition4.1 genus argument is confined to compact division components."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.1/yz-bridge-groups",
+        "verdict": "verified",
+        "note": "YZ3.1 central quotient kernel is (a^-1,a), norm map has both factors, and the derived group remains Res B^1."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.1/yz-bridge-reflex",
+        "verdict": "verified",
+        "note": "YZ3.1 weighted CM-type stabilizer contains tau(F); equality with E uses the specific quadratic-over-Q CM-type choice, not arbitrary nearby types."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.1/yz-pel-instance",
+        "verdict": "verified",
+        "note": "YZ3.1 trace form and conjugated involution agree; anti-fixity alone does not guarantee positivity, and full determinant data is retained."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.1/yz-component-comparison",
+        "verdict": "verified",
+        "note": "YZ4.2 gives the geometric connected comparison and4.4 retains p-supported n prime to d_B and n-dependent tame level; the undefined descent field is a recorded gap."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.1/yz-torus-bridge",
+        "verdict": "verified",
+        "note": "YZ5.1 tower quotient uses the inverse twisted diagonal and CM torus of dimension zero; finite levels use image groups and integral/Tate extensions stay with R18.2."
+      }
     ]
   }
 }

@@ -111,6 +111,12 @@ theorem integralTraceFamily_parameter_add (c : HilbertFractionalIdeal F) (hc : c
       integralTraceFamily F c hc a + integralTraceFamily F c hc b := by
   sorry
 
+theorem integralTraceFamily_balance (c : HilbertFractionalIdeal F) (hc : c ≠ 0)
+    (a : c) (b : 𝓞 F) (x y : polarizationLattice F c hc) :
+    integralTraceFamily F c hc ⟨(b : F) * (a : F), by sorry⟩ x y = integralTraceFamily F c hc a (b • x) y ∧
+      integralTraceFamily F c hc a (b • x) y = integralTraceFamily F c hc a x (b • y) := by
+  sorry
+
 theorem integralTraceFamily_integral (c : HilbertFractionalIdeal F) (hc : c ≠ 0)
     (a : c) (x y : polarizationLattice F c hc) :
     ∃ z : ℤ, Algebra.trace ℚ F ((a : F) *
@@ -191,8 +197,8 @@ example (M : ℕ) : congruenceUnitSquares ℚ ⊥ M = ⊥ := by
   sorry
 
 -- TauCeti.HilbertModular.squareImage_positive
-example (M : ℕ) (u : P) (hu : u ∈ congruenceUnitSquares F P M) :
-    (u : (𝓞 F)ˣ) ∈ P := by
+example (η : (𝓞 F)ˣ) (σ : F →+* ℝ) :
+    0 < σ (((η ^ 2 : (𝓞 F)ˣ) : 𝓞 F) : F) := by
   sorry
 
 abbrev TamePolarizationGroup (N : ℕ) := P ⧸ congruenceUnitSquares F P N
@@ -204,6 +210,12 @@ theorem tameDelta_eq (N : ℕ) (u v : P) :
     tameDelta_mk F P N u = tameDelta_mk F P N v ↔
       ∃ η : (𝓞 F)ˣ, η ∈ congruenceUnits F (integerLevelIdeal F N) ∧
         (u : (𝓞 F)ˣ) * (v : (𝓞 F)ˣ)⁻¹ = η ^ 2 := by
+  sorry
+
+theorem tameDelta_lift (N : ℕ) {J : Type*} [Group J] (f : P →* J)
+    (hf : ∀ u ∈ congruenceUnitSquares F P N, f u = 1) :
+    ∃! fbar : TamePolarizationGroup F P N →* J,
+      fbar.comp (tameDelta_mk F P N) = f := by
   sorry
 
 noncomputable def tameDelta_changeLevel (N M : ℕ) (h : N ∣ M) :
@@ -562,6 +574,7 @@ API TauCeti.HilbertModular.integralTraceFamily [constructor; NATIVE core above]:
 API TauCeti.HilbertModular.integralTraceFamily_apply [simp; NATIVE core above]: Evaluation is Tr(a(x₁y₂−x₂y₁)).
 API TauCeti.HilbertModular.integralTraceFamily_parameter_add [functoriality; NATIVE core above]: ψ_{a+b}=ψ_a+ψ_b and ψ_0=0.
 API TauCeti.HilbertModular.integralTraceFamily_integral [compatibility; NATIVE core above]: Its rational image agrees with D5’s trace representation multiplied by a.
+API TauCeti.HilbertModular.integralTraceFamily_balance [relation; NATIVE core above]: For b∈O, ψ_{ba}(x,y)=ψ_a(bx,y)=ψ_a(x,by). This specifies the O-action on the family of Z-bilinear forms; it is not scalar multiplication of their Z-valued outputs.
 Test TauCeti.HilbertModular.traceFamily_Q [computation; NATIVE example above]: Over ℚ,c=ℤ,a=1 its value on the two standard basis vectors is 1.
 Test TauCeti.HilbertModular.traceFamily_zero [degenerate; NATIVE example above]: The a=0 form is zero, hence is not declared nondegenerate.
 Test TauCeti.HilbertModular.traceFamily_ramified [non-example; OMITTED supplier example]: For F=ℚ(√2), the second summand uses d⁻¹=(2√2)⁻¹O, preventing a false O² self-duality assertion.
@@ -602,6 +615,7 @@ API TauCeti.HilbertModular.HilbertPolarizationModule [constructor; OMITTED suppl
 API TauCeti.HilbertModular.hilbertPolarizationModule_positive [projection; OMITTED supplier signature]: The subsheaf of positive homomorphisms from A2 ampleness.
 API TauCeti.HilbertModular.hilbertPolarizationModule_mem [characterisation; OMITTED supplier signature]: A section is an O-linear map equal to its bidual transpose.
 API TauCeti.HilbertModular.hilbertPolarizationModule_pullback [functoriality; OMITTED supplier signature]: Pullback is the A2 Hom/duality base-change map on the stipulated Hilbert locus.
+API TauCeti.HilbertModular.hilbertPolarizationModule_ext [extensionality; OMITTED supplier signature]: Two sections of P(A,ι) agree if their underlying A→A∨ morphisms agree; the symmetry and O-linearity proofs add no extra section data.
 Test TauCeti.HilbertModular.polModule_Q [compatibility; OMITTED supplier example]: For a geometric elliptic curve the symmetric Hom group is ℤ, with its degree-positive ray.
 Test TauCeti.HilbertModular.polModule_zero [degenerate; OMITTED supplier example]: Zero is symmetric and is excluded from the positive cone.
 Test TauCeti.HilbertModular.polModule_negative [non-example; OMITTED supplier example]: If λ is a polarization, −λ is symmetric but not positive.
@@ -825,6 +839,7 @@ API TauCeti.HilbertModular.TamePolarizationGroup [constructor; NATIVE core above
 API TauCeti.HilbertModular.tameDelta_mk [projection; NATIVE core above]: The projection U+→Δ(N).
 API TauCeti.HilbertModular.tameDelta_eq [characterisation; NATIVE core above]: η and θ have the same class iff ηθ⁻¹=ν² for some ν∈U_N.
 API TauCeti.HilbertModular.tameDelta_changeLevel [functoriality; NATIVE core above]: For N|M the inclusion S_M⊂S_N induces Δ(M)→Δ(N).
+API TauCeti.HilbertModular.tameDelta_lift [universal-property; NATIVE core above]: For a group J, any homomorphism U+→J killing S_N factors uniquely through tameDelta_mk.
 Test TauCeti.HilbertModular.delta_Q [computation; NATIVE example above]: For F=ℚ,N≥4, Δ(N) is trivial.
 Test TauCeti.HilbertModular.delta_square [compatibility; NATIVE example above]: Every ν∈U_N maps ν² to 1 in Δ(N).
 Test TauCeti.HilbertModular.delta_notPositiveRoot [non-example; OMITTED supplier example]: The denominator permits square roots that are not totally positive; replacing it by positive-root squares can change the quotient.
@@ -1061,8 +1076,9 @@ Suggested declaration: TauCeti.HilbertModular.rational_modular_comparison [OMITT
 
 ## HilbertModularVarietiesAndShimuraCurves:H5/quadratic-domain-boundary
 Real quadratic domains and minimal cusps [theorem]
-Contract: For real quadratic F the Hilbert domains have complex dimension 2, with 4 independent-sign G components and 2 common-sign G* components. C6’s rational minimal boundary consists of finite zero-dimensional cusps on a chosen finite-level quotient, of codimension 2. This is not the boundary of a product of two compactified modular curves, whose divisor components are one-dimensional. Toroidal boundary divisors are a separate compactification.
+Contract: For real quadratic F the Hilbert domains have complex dimension 2, with 4 independent-sign G components and 2 common-sign G* components. Under C6’s stated tame-ideal hypotheses, its rational minimal boundary consists of finite zero-dimensional cusps on a chosen finite-level quotient, of codimension 2. This is not the boundary of a product of two compactified modular curves, whose divisor components are one-dimensional. Toroidal boundary divisors are a separate compactification.
 Hypotheses: F is a totally real number field; g=[F:ℚ]; O=𝒪_F; d is the absolute different. Additional hypotheses are stated in the assertion.
+Additional hypotheses: For the C6 minimal-boundary comparison retain its tame-ideal range: n is coprime to the field discriminant and does not divide 2 or 3, and c is prime to n; use the supplier’s actual torsion-free moduli input. Other levels require a separate canonical finite-level comparison.
 Suppliers: HilbertModularVarietiesAndShimuraCurves:H0/domain-comparison, ShimuraCompactifications:C6/hilbert-minimal-cusps
 Suggested declaration: TauCeti.HilbertModular.quadratic_domain_boundary [OMITTED geometric/supplier signature]
 
@@ -1089,22 +1105,23 @@ Suggested declaration: TauCeti.HilbertModular.nonprincipal_ramified_test [OMITTE
 
 ## HilbertModularVarietiesAndShimuraCurves:H6/torsion-isom-torsor
 Simultaneous torsion Isom torsor [definition]
-Contract: Let K be a characteristic-zero field and ℓ₁≠ℓ₂ distinct odd primes, with chosen fine tame level prime to ℓ₁ℓ₂. Fori=1,2 let V_i be a finite étale G_K-module locally free of rank 2 over O/ℓ_i O, equipped with a perfect alternating pairing∧²V_i≅(c d⁻¹/ℓ_ic d⁻¹)⊗μ_{ℓ_i}. Define the symplectic O-linear Isom torsor from the standard torsion module with its matching pairing to V_i, and take their product. Its finite structural group is the product of the two symplectic automorphism groups; it need not be commutative.
+Contract: Let K be a characteristic-zero field and ℓ₁≠ℓ₂ distinct odd primes, with full paired torsion markings at these primes. A retained extra tame marking is prime to ℓ₁ℓ₂; in the elliptic specialization the two full odd torsion levels themselves supply a fine marking. Fori=1,2 let V_i be a finite étale G_K-module locally free of rank 2 over O/ℓ_i O, equipped with a perfect alternating pairing∧²V_i≅(c d⁻¹/ℓ_ic d⁻¹)⊗μ_{ℓ_i}. Define the symplectic O-linear Isom torsor from the standard torsion module with its matching pairing to V_i, and take their product. Its finite structural group is the product of the two symplectic automorphism groups; it need not be commutative.
 Hypotheses: F is a totally real number field; g=[F:ℚ]; O=𝒪_F; d is the absolute different. Additional hypotheses are stated in the assertion.
 Suppliers: HilbertModularVarietiesAndShimuraCurves:H1/linear-weil-pairing, HilbertModularVarietiesAndShimuraCurves:H4/pairing-multiplier, AlgebraicModuliForArithmeticGeometry:R09.3
 API TauCeti.HilbertModular.HilbertTorsionIsomTorsor [constructor; OMITTED supplier signature]: The product of the actual finite pairing-preserving Isom torsors.
 API TauCeti.HilbertModular.torsionIsomTorsor_points [characterisation; OMITTED supplier signature]: Sections are precisely the two O-linear symplectic identifications.
 API TauCeti.HilbertModular.torsionIsomTorsor_baseChange [functoriality; OMITTED supplier signature]: The torsor pulls back with V_i and their actual pairing targets.
 API TauCeti.HilbertModular.torsionIsomTorsor_cocycle [compatibility; OMITTED supplier signature]: A splitting-field frame gives the cocycleσ↦frame⁻¹σ(frame), and changing the frame gives a cohomologous cocycle.
+API TauCeti.HilbertModular.torsionIsomTorsor_ext [extensionality; OMITTED supplier signature]: Two sections of the simultaneous Isom torsor agree if both underlying O/ℓ_i O-linear maps agree; pairing-preservation proofs add no extra data.
 Test TauCeti.HilbertModular.torsionTorsor_trivial [degenerate; OMITTED supplier example]: For the standard paired modules with fixed frames, the torsor has a rational section and the twist is untwisted.
 Test TauCeti.HilbertModular.torsionTorsor_determinant [non-example; OMITTED supplier example]: A two-dimensional representation whose determinant is not the required cyclotomic pairing character has no equivariant paired Isom section.
 Test TauCeti.HilbertModular.torsionTorsor_coboundary [compatibility; OMITTED supplier example]: Changing both splitting frames by group elements leaves the descended twist canonically isomorphic.
 
 ## HilbertModularVarietiesAndShimuraCurves:H6/simultaneous-torsion-twist
 Twisted Hilbert torsion moduli [construction]
-Contract: Twist the fine paired full ℓ₁/ℓ₂ Hilbert moduli and its universal HBAV by the inverse action of the actual Hilbert Torsion Isom Torsor. The descended K-space classifies(A,ι,λ,μ_N,α₁,α₂) withα_i:V_i≅A∨[ℓ_i] preserving the c d⁻¹-valued pairing. Over a splitting field it is isomorphic to the untwisted paired full-level space. This construction uses effective finite noncommutative descent, not the commutative Γ-only torsor-twist node of R09.4.
+Contract: Twist the fine paired full ℓ₁/ℓ₂ Hilbert moduli and its universal HBAV by the inverse action of the actual Hilbert Torsion Isom Torsor. The descended K-space classifies (A,ι,λ,μ_N,α₁,α₂) when the Hilbert tame marking is retained, and (A,ι,λ,α₁,α₂) when full torsion level itself supplies the fine marking. In both cases α_i:V_i≅A∨[ℓ_i] preserves the c d⁻¹-valued pairing. Over a splitting field it is isomorphic to the untwisted paired full-level space. This construction uses effective finite noncommutative descent, not the commutative Γ-only torsor-twist node of R09.4.
 Hypotheses: F is a totally real number field; g=[F:ℚ]; O=𝒪_F; d is the absolute different. Additional hypotheses are stated in the assertion.
-Suppliers: HilbertModularVarietiesAndShimuraCurves:H6/torsion-isom-torsor, HilbertModularVarietiesAndShimuraCurves:H4/hybrid-full-level, HilbertModularVarietiesAndShimuraCurves:H4/geometric-full-level, AlgebraicModuliForArithmeticGeometry:R09.3, mathlib:AlgebraicGeometry.Scheme
+Suppliers: HilbertModularVarietiesAndShimuraCurves:H6/torsion-isom-torsor, HilbertModularVarietiesAndShimuraCurves:H4/hybrid-full-level, HilbertModularVarietiesAndShimuraCurves:H4/geometric-full-level, AlgebraicModuliForArithmeticGeometry:R09.3, mathlib:AlgebraicGeometry.Scheme, PELModuli:M1/char-zero-adelic-moduli, PELModuli:M2/representability, PELModuli:M3/algebraization-of-components
 API TauCeti.HilbertModular.TwistedHilbertTorsionModuli [constructor; OMITTED supplier signature]: The descended simultaneous paired torsion moduli space.
 API TauCeti.HilbertModular.twistedHilbertModuli_points [universal-property; OMITTED supplier signature]: T-points correspond to the stipulated HBAV and pairedα_i data.
 API TauCeti.HilbertModular.twistedHilbertModuli_split [equivalence; OMITTED supplier signature]: A splitting field and chosen paired frames identify the twist with the untwisted full-level moduli.
