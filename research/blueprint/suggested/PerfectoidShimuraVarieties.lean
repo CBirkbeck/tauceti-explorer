@@ -19,16 +19,16 @@ prototyped against it directly: `Matrix.J`, `Matrix.symplecticGroup`, `Matrix.Ge
 (S0/rigidified-moduli-tower), the carrier of the effective deck group (S0/tower-action-kernel)
 and the matrix identities of the Siegel graph chart (S3/siegel-graph-chart-and-frame).
 
-What is a contract. Shimura varieties, their canonical models and compactifications, adic
-spaces, diamonds and perfectoid spaces are not in the pinned libraries; they are supplied by
-the roadmaps named in each node's prerequisites (ShimuraVarieties, ShimuraCompactifications,
-AdicSpacesPartII, DiamondsAndVStacks, PerfectoidSpaces, HodgeTateAndCanonicalSubgroups,
-TorsionCohomologyInfrastructure). Restating them here would invent signatures for objects
-another roadmap owns, and a statement over a placeholder type would be hollow. So for every
-other node the file gives a CONTRACT comment: the node id, its kind and title, its statement,
-each API item under the name the packet gives it (to be declared in the namespace
-`TauCeti.<prefix>` once the supplier objects exist) and each unit test under its packet name.
-Every definition, API item and unit test of the packet occurs below under its packet name.
+Review limitation (REV-PerfectoidShimuraVarieties, 2026-10-07). Only the four native
+fragments above have Lean declarations. The remaining CONTRACT comments record mathematical
+interfaces and proposed names; they are not Lean signatures or elaborated tests. Protocol §13
+requires actual definition/construction and API signatures, examples and named theorem
+statements. This file does not yet meet that requirement, and the packet review is
+needs_changes. Supplier carriers must be used when available; an unstated condition must not
+be replaced by a Prop-valued placeholder. Compilation checks only the native fragment.
+
+The contracts below are synchronized with the corrected packet. The reader document has not
+been edited by this review and must be regenerated during revision before acceptance.
 -/
 
 import Mathlib.Data.Matrix.Block
@@ -40,6 +40,8 @@ import Mathlib.LinearAlgebra.SymplecticGroup
 import Mathlib.NumberTheory.ModularForms.CongruenceSubgroups
 import Mathlib.NumberTheory.Padics.RingHoms
 import Mathlib.Topology.Algebra.Group.Basic
+import Mathlib.Topology.Algebra.Group.Units
+import Mathlib.Topology.Instances.Matrix
 
 /-! ## S0: level groups of `GSp_{2g}` (`PerfectoidShimuraVarieties:S0/siegel-level-subgroups`)
 
@@ -134,11 +136,17 @@ def levelGamma0QuotGamma1 [Nonempty g] (m : ℕ) :
     (levelGamma0 g p m) ⧸ ((levelGamma1 g p m).subgroupOf (levelGamma0 g p m)) ≃*
       GL g (ZMod (p ^ m)) := sorry
 
-/-- Cofinality: `⋂ₘ Γ(pᵐ) = 1` inside `GSp_{2g}(ℤ_p)`; with openness of each `Γ(pᵐ)` this is
-the cofinality witness asked for by `PerfectoidSpaces:P7/level-cofinality-witness`. -/
-theorem levelGamma_cofinal : ⨅ m, levelGamma g p m = ⊥ := sorry
+/-- Cofinality inside the integral compact open: every open subgroup contains a
+principal congruence subgroup. Intersecting a compact open of `GSp(ℚ_p)` with `GSp(ℤ_p)`
+gives the ambient witness required by `PerfectoidSpaces:P7/level-cofinality-witness`. -/
+theorem levelGamma_cofinal (U : Subgroup (gsp g ℤ_[p]))
+    (hU : IsOpen (U : Set (gsp g ℤ_[p]))) : ∃ m, levelGamma g p m ≤ U := sorry
 
-/-- `c(Γ₀(pᵐ)) ⊆ 1 + pᵐ ℤ_p`, and likewise for `Γ(pᵐ)`. -/
+/-- Intersection triviality is a separate consequence, not the cofinality interface. -/
+theorem levelGamma_iInf_eq_bot : ⨅ m, levelGamma g p m = ⊥ := sorry
+
+/-- The multiplier lies in the reduction kernel `U_m`; at `m = 0`, `U_0 = ℤ_pˣ`,
+not the expression `1 + ℤ_p` as a unit subgroup. -/
 theorem similitude_levelGamma0 [Nonempty g] (m : ℕ) (γ : levelGamma0 g p m) :
     PadicInt.toZModPow m (similitude g ℤ_[p] γ : ℤ_[p]) = 1 := sorry
 
@@ -220,6 +228,22 @@ example : let mul : ℤ × ℤ → ℤ × ℤ → ℤ × ℤ := fun x y ↦
     let ω2 := mul ω ω
     let ω3 := mul ω ω2
     ω2 = (1, 1) ∧ ω3 = (1, 2) ∧ mul ω3 ω3 = (5, 8) := by decide
+
+/-- Review counterexample for E26: in the inert residue field at `p = 7`, the fundamental
+unit of `ℚ(√5)` has eighth power `-1` and sixteenth power `1`. This is the local calculation
+used with tame level `N = 4`; the full unit-group quotient argument is in the review report. -/
+example : let mul : ZMod 7 × ZMod 7 → ZMod 7 × ZMod 7 → ZMod 7 × ZMod 7 := fun x y ↦
+      (x.1 * y.1 + x.2 * y.2, x.1 * y.2 + x.2 * y.1 + x.2 * y.2)
+    let ω : ZMod 7 × ZMod 7 := (0, 1)
+    let ω2 := mul ω ω
+    let ω4 := mul ω2 ω2
+    let ω8 := mul ω4 ω4
+    ω8 = (-1, 0) ∧ mul ω8 ω8 = (1, 0) := by decide
+
+/-- Review counterexample for E41: nonidentity upper-unipotent elements can cancel.
+Thus membership of a product in a parabolic cannot force both factors to be the identity. -/
+example : (!![1, 1; 0, 1] : Matrix (Fin 2) (Fin 2) ℤ) * !![1, -1; 0, 1] = 1 ∧
+    (!![1, 1; 0, 1] : Matrix (Fin 2) (Fin 2) ℤ) ≠ 1 := by decide
 
 /-! ## S3: the Siegel graph chart (`PerfectoidShimuraVarieties:S3/siegel-graph-chart-and-frame`)
 
@@ -335,15 +359,22 @@ end TauCeti.HodgeTate
 /- CONTRACT `PerfectoidShimuraVarieties:S0/tower-right-action` (construction)
   The right action of G(ℚ_p) and of prime-to-p Hecke operators on the p-level tower
 
-  Statement: In the situation of p-level-tower, for g ∈ G(ℚ_p) (embedded in G(𝔸_f) with trivial
-  prime-to-p component) and K_p ∈ CO_p, the descended right translation T_g: S_{K^pK_p} → S_{K^p
-  g⁻¹K_pg} ([x, a] ↦ [x, ag] on C-points; ShimuraVarieties:V8/translation-laws) is an isomorphism,
-  extended to S* by ShimuraVarieties:V8/minimal-map-extension. The T_g satisfy T_1 = id, T_{gh} =
-  T_h ∘ T_g and π ∘ T_g = T_g ∘ π, and for k ∈ K_p, T_k: S_{K^pK_p} → S_{K^pK_p} is the identity.
-  Hence for K'_p normal in K_p the finite group K_p/K'_p acts on S_{K^pK'_p} over S_{K^pK_p}, and
-  G(ℚ_p) acts on the right on the pro-system (S_{K^pK_p})_{K_p} (an action in the sense of Deligne
-  2.7.1). Prime-to-p Hecke: for h ∈ G(𝔸_f^p) the translations S_{K^pK_p} → S_{h⁻¹K^ph K_p} commute
-  with the G(ℚ_p)-action and the transition maps.
+  Statement: In the situation of p-level-tower, for g ∈ G(ℚ_p) (embedded in G(𝔸_f) with
+  trivial prime-to-p component) and K_p ∈ CO_p, the descended right translation T_g:
+  S_{K^pK_p} → S_{K^p g⁻¹K_pg} ([x, a] ↦ [x, ag] on C-points; ShimuraVarieties:V8/translation-
+  laws) is an isomorphism, extended to S* by ShimuraVarieties:V8/minimal-map-extension. The
+  T_g satisfy T_1 = id, T_{gh} = T_h ∘ T_g and π ∘ T_g = T_g ∘ π, and for k ∈ K_p, T_k:
+  S_{K^pK_p} → S_{K^pK_p} is the identity. Hence for K'_p normal in K_p the finite group
+  K_p/K'_p acts on S_{K^pK'_p} over S_{K^pK_p}, and G(ℚ_p) acts on the right on the pro-system
+  (S_{K^pK_p})_{K_p} (an action in the sense of Deligne 2.7.1). Prime-to-p Hecke: for h ∈
+  G(𝔸_f^p) the translations S_{K^pK_p} → S_{h⁻¹K^ph K_p} commute with the G(ℚ_p)-action and
+  the transition maps.
+
+  Hypotheses:
+  * As in p-level-tower; g ranges over G(ℚ_p), not over the profinite K_p only.
+  * The action is C-linear: it is defined after base change along ι. Scholze's spaces over
+  ℚ_p^cycl carry a GSp_2g(ℚ_p)-action that does not preserve the structure map to
+  Spa(ℚ_p^cycl) (torsion paper, footnote 7); that twisted form is not the action here.
 
   API:
   * `ShimuraTower.translate` (constructor): T_g: S_{K^pK_p} → S_{K^p g⁻¹K_pg} for g ∈ G(ℚ_p).
@@ -351,24 +382,24 @@ end TauCeti.HodgeTate
   * `ShimuraTower.translate_mul` (simp): T_{gh} = T_h ∘ T_g (right action).
   * `ShimuraTower.translate_of_mem` (simp): T_k = id on S_{K^pK_p} for k ∈ K_p.
   * `ShimuraTower.translate_comm_transition` (functoriality): π ∘ T_g = T_g ∘ π for compatible
-      levels.
-  * `ShimuraTower.primeToPHecke` (constructor): Translations by h ∈ G(𝔸_f^p), commuting with all T_g
-      and transition maps.
+  levels.
+  * `ShimuraTower.primeToPHecke` (constructor): Translations by h ∈ G(𝔸_f^p), commuting with
+  all T_g and transition maps.
   * `ShimuraTower.quotientAction` (constructor): For K'_p ⊴ K_p, the action of K_p/K'_p on
-      S_{K^pK'_p} over S_{K^pK_p}.
+  S_{K^pK'_p} over S_{K^pK_p}.
 
   Unit tests:
-  * `translate_mul_order` (characterisation): For noncommuting g, h ∈ GL_2(ℚ_p), T_{gh} = T_h ∘ T_g
-      and in general T_{gh} ≠ T_g ∘ T_h on C-points: the action is a right action.
-  * `translate_center_gl2` (computation): For GL_2, N ≥ 3 and z = p·1 ∈ Z(ℚ_p), T_z acts on
-      lim_{K_p} S_{K^pK_p}(C) by [x, a] ↦ [x, a z_p] = [x, a (z^p)⁻¹] (z^p = p·1 ∈ G(𝔸_f^p)), which
-      is the identity exactly when p ≡ 1 modulo N (for p ≡ −1 modulo N it is T_{−1}, which is not
-      the identity since −1 ∉ K(N)^p).
-  * `translate_trivial_group` (degenerate): For the torus datum (G_m, {Nm}) (X a point), p odd, K^p
-      = Ẑ^{p×}, K_p = ℤ_p^× and K'_p = 1 + pℤ_p: S_{K^pK'_p} = ℚ^×\𝔸_f^×/K^pK'_p ≅ 𝔽_p^×/{±1}, and
-      quotientAction of K_p/K'_p = 𝔽_p^× is translation, whose trivially acting subgroup is {±1},
-      the image of Z(ℚ) ∩ K^pK_p = {±1}; so the subgroup acting trivially is nontrivial and
-      quotientAction is not faithful.
+  * `translate_mul_order` (characterisation): For noncommuting g, h ∈ GL_2(ℚ_p), T_{gh} = T_h
+  ∘ T_g and in general T_{gh} ≠ T_g ∘ T_h on C-points: the action is a right action.
+  * `translate_center_gl2` (computation): For GL_2, K^p = K(N)^p with N ≥ 3 prime to p, and z
+  = p·1 ∈ Z(ℚ_p), T_z acts on lim_{K_p} S_{K^pK_p}(C) by [x, a] ↦ [x, a z_p] = [x, a (z^p)⁻¹]
+  (z^p = p·1 ∈ G(𝔸_f^p)), which is the identity exactly when p ≡ 1 modulo N (for p ≡ −1 modulo
+  N it is T_{−1}, which is not the identity since −1 ∉ K(N)^p).
+  * `translate_trivial_group` (degenerate): For the torus datum (G_m, {Nm}) (X a point), p
+  odd, K^p = Ẑ^{p×}, K_p = ℤ_p^× and K'_p = 1 + pℤ_p: S_{K^pK'_p} = ℚ^×\𝔸_f^×/K^pK'_p ≅
+  𝔽_p^×/{±1}, and quotientAction of K_p/K'_p = 𝔽_p^× is translation, whose trivially acting
+  subgroup is {±1}, the image of Z(ℚ) ∩ K^pK_p = {±1}; so the subgroup acting trivially is
+  nontrivial and quotientAction is not faithful.
 -/
 
 /- CONTRACT `PerfectoidShimuraVarieties:S0/infinite-level-diamond` (construction)
@@ -428,65 +459,88 @@ end TauCeti.HodgeTate
 /- CONTRACT `PerfectoidShimuraVarieties:S0/perfectoid-representative` (definition)
   Perfectoid representatives of a tower
 
-  Statement: Let (Y_i)_{i∈I} be a cofiltered system of analytic adic spaces over Spa(C, O_C) with
-  qcqs transition maps (for instance a p-level tower S_{K^pK_p} or S*_{K^pK_p}, or a subsystem of
-  opens). A perfectoid representative of (Y_i) is a perfectoid space Y over Spa(C, O_C) with a
-  compatible family of maps φ_i: Y → Y_i such that Y ~ lim_i Y_i in the sense of
-  PerfectoidSpaces:P7/perfectoid-tilde-limit (Scholze–Weinstein Definition 2.4.1). Equivalently
+  Statement: Let (Y_i)_{i∈I} be a cofiltered system of analytic adic spaces over Spa(C, O_C)
+  with qcqs transition maps (for instance a p-level tower S_{K^pK_p} or S*_{K^pK_p}, or a
+  subsystem of opens). A perfectoid representative of (Y_i) is a perfectoid space Y over
+  Spa(C, O_C) with a compatible family of maps φ_i: Y → Y_i such that Y ~ lim_i Y_i in the
+  sense of PerfectoidSpaces:P7/perfectoid-tilde-limit (Scholze–Weinstein Definition 2.4.1).
+  For finite transition maps and the finite-level affinoid basis of
+  PerfectoidSpaces:P8/finite-level-affinoid-basis, equivalently
   (PerfectoidSpaces:P7/represented-functor-comparison) the induced map Y^◇ → lim_i Y_i^◇ is an
   isomorphism of v-sheaves and Y is covered by good affinoid perfectoids
-  (PerfectoidSpaces:P7/good-affinoid-perfectoid). A perfectoid representative is unique up to unique
-  isomorphism compatible with the φ_i, represents lim_i Hom(−, Y_i) on perfectoid spaces, and is
-  functorial in morphisms of systems (PerfectoidSpaces:P7/tilde-limit-perfectoid-uniqueness). The
-  tower is perfectoid if it has a perfectoid representative; this is a property of the diamond lim_i
-  Y_i^◇ together with the existence of good affinoid perfectoid charts.
+  (PerfectoidSpaces:P7/good-affinoid-perfectoid). A perfectoid representative is unique up to
+  unique isomorphism compatible with the φ_i, represents lim_i Hom(−, Y_i) on perfectoid
+  spaces, and is functorial in morphisms of systems (PerfectoidSpaces:P7/tilde-limit-
+  perfectoid-uniqueness). The tower is perfectoid if it has a perfectoid representative; this
+  is a property of the diamond lim_i Y_i^◇ together with the existence of good affinoid
+  perfectoid charts.
+
+  Hypotheses:
+  * The definition records both conditions: the diamond isomorphism alone (the form of
+  Hansen–Johansson Theorem 1.5) and the tilde-limit with finite-level charts (Scholze's form).
+  PerfectoidSpaces:P7/represented-functor-comparison (iii) supplies the passage from the first
+  to the second under the finite-level affinoid basis of PerfectoidSpaces:P8/finite-level-
+  affinoid-basis.
+  * Over a non-perfectoid base (for instance ℚ_p or E_v) one first base changes to C; descent
+  is a separate statement.
 
   API:
-  * `ShimuraTower.PerfectoidRepresentative` (data): A perfectoid space Y over Spa(C, O_C) with a
-      cone φ to the system and Y ~ lim Y_i.
-  * `ShimuraTower.PerfectoidRepresentative.diamondIso` (projection): The isomorphism Y^◇ ≅ lim_i
-      Y_i^◇.
+  * `ShimuraTower.PerfectoidRepresentative` (data): A perfectoid space Y over Spa(C, O_C) with
+  a cone φ to the system and Y ~ lim Y_i.
+  * `ShimuraTower.PerfectoidRepresentative.diamondIso` (projection): The isomorphism Y^◇ ≅
+  lim_i Y_i^◇.
   * `ShimuraTower.PerfectoidRepresentative.unique` (extensionality): Two representatives are
-      uniquely isomorphic compatibly with the cones.
-  * `ShimuraTower.PerfectoidRepresentative.lift` (universal-property): A compatible family of maps
-      from a perfectoid space Z to the Y_i factors uniquely through Y.
-  * `ShimuraTower.PerfectoidRepresentative.map` (functoriality): A morphism of systems induces a
-      unique morphism of representatives, with map_id and map_comp.
-  * `ShimuraTower.PerfectoidRepresentative.ofDiamondIso` (constructor): From a perfectoid space with
-      compatible maps and a diamond isomorphism to the limit, when the transition maps are finite
-      (via finite-level affinoid charts).
-  * `ShimuraTower.IsPerfectoidTower` (other): The property that a perfectoid representative exists;
-      invariant under cofinal reindexing.
+  uniquely isomorphic compatibly with the cones.
+  * `ShimuraTower.PerfectoidRepresentative.lift` (universal-property): A compatible family of
+  maps from a perfectoid space Z to the Y_i factors uniquely through Y.
+  * `ShimuraTower.PerfectoidRepresentative.map` (functoriality): A morphism of systems induces
+  a unique morphism of representatives, with map_id and map_comp.
+  * `ShimuraTower.PerfectoidRepresentative.ofDiamondIso` (constructor): From a perfectoid
+  space with compatible maps and a diamond isomorphism to the limit, when the transition maps
+  are finite (via finite-level affinoid charts).
+  * `ShimuraTower.IsPerfectoidTower` (other): The property that a perfectoid representative
+  exists; invariant under cofinal reindexing.
 
   Unit tests:
-  * `representative_frobenius_P1` (computation): The tower ℙ¹_C ← ℙ¹_C ← ⋯ with T ↦ T^p has the
-      perfectoid projective line as representative.
-  * `representative_constant_tower` (non-example): The constant tower Y_i = ℙ¹_C (identity maps) has
-      no perfectoid representative, although its diamond limit (ℙ¹_C)^◇ is a spatial diamond: being
-      a diamond is not perfectoidness.
-  * `representative_compatible_tilde` (compatibility): If Y is a representative, then Y^◇ → lim
-      Y_i^◇ is an isomorphism (PerfectoidSpaces:P7/represented-functor-comparison (i)).
-  * `representative_perfectoid_constant` (degenerate): A constant tower with a perfectoid space Y_0
-      (identity transition maps) has Y_0 as its representative.
+  * `representative_frobenius_P1` (computation): The tower ℙ¹_C ← ℙ¹_C ← ⋯ with T ↦ T^p has
+  the perfectoid projective line as representative.
+  * `representative_constant_tower` (non-example): The constant tower Y_i = ℙ¹_C (identity
+  maps) has no perfectoid representative, although its diamond limit (ℙ¹_C)^◇ is a spatial
+  diamond: being a diamond is not perfectoidness.
+  * `representative_compatible_tilde` (compatibility): If Y is a representative, then Y^◇ →
+  lim Y_i^◇ is an isomorphism (PerfectoidSpaces:P7/represented-functor-comparison (i)).
+  * `representative_perfectoid_constant` (degenerate): A constant tower with a perfectoid
+  space Y_0 (identity transition maps) has Y_0 as its representative.
 -/
 
 /- CONTRACT `PerfectoidShimuraVarieties:S0/tower-action-kernel` (theorem)
   Effective deck groups: the kernel of the action on the tower
 
-  Statement: In the situation of p-level-tower and tower-right-action, let Z be the centre of G and
-  put Z(ℚ)_{K^p} := {z ∈ Z(ℚ) : z^p ∈ K^p}, where z^p ∈ Z(𝔸_f^p) is the prime-to-p component, and
-  Z_{K^p} := the closure in G(ℚ_p) of the image of Z(ℚ)_{K^p} under z ↦ z_p. Then: (i) the kernel of
-  the right action of G(ℚ_p) on lim_{K_p} S_{K^pK_p}(C), equivalently on |S^◇_{K^p,∞}| and on
-  S^◇_{K^p,∞}, is Z_{K^p} = G(ℚ_p) ∩ cl(Z(ℚ)K^p), the closure taken in G(𝔸_f); (ii) for K'_p ⊆ K_p
-  normal, the kernel of the action of K_p/K'_p on S_{K^pK'_p} is the image of (Z(ℚ) ∩ K^pK_p)_p in
-  K_p/K'_p, and S_{K^pK_p} = S_{K^pK'_p}/(K_p/K'_p); if K^pK_p is neat, S_{K^pK'_p} → S_{K^pK_p} is
-  a finite étale Galois cover with group K_p/(K'_p · (Z(ℚ) ∩ K^pK_p)_p); (iii) for K^pK_p neat,
-  S^◇_{K^p,∞} → S^◇_{K^pK_p} is a pro-étale torsor under the profinite group K_p/Z_{K^pK_p}, where
-  Z_{K^pK_p} = Z_{K^p} ∩ K_p is the closure of (Z(ℚ) ∩ K^pK_p)_p. In particular the tower is a
-  K_p-torsor exactly when Z(ℚ) ∩ K^pK_p = {1}, which holds for GL_2 and GSp_2g at level K^p ⊆ K(N)^p
-  with N ≥ 3, and fails for Hilbert data, where Z(ℚ) ∩ K^pK_p contains a finite-index subgroup of
-  the units ≡ 1 mod N of a totally real field F ≠ ℚ and Z_{K^pK_p} is a nontrivial closed subgroup
-  of 𝒪_{F,p}^×.
+  Statement: In the situation of p-level-tower and tower-right-action, let Z be the centre of
+  G and put Z(ℚ)_{K^p} := {z ∈ Z(ℚ) : z^p ∈ K^p}, where z^p ∈ Z(𝔸_f^p) is the prime-to-p
+  component, and Z_{K^p} := the closure in G(ℚ_p) of the image of Z(ℚ)_{K^p} under z ↦ z_p.
+  Then: (i) the kernel of the right action of G(ℚ_p) on lim_{K_p} S_{K^pK_p}(C), equivalently
+  on |S^◇_{K^p,∞}| and on S^◇_{K^p,∞}, is Z_{K^p} = G(ℚ_p) ∩ cl(Z(ℚ)K^p), the closure taken in
+  G(𝔸_f); (ii) for K'_p ⊆ K_p normal, the kernel of the action of K_p/K'_p on S_{K^pK'_p} is
+  the image of (Z(ℚ) ∩ K^pK_p)_p in K_p/K'_p, and S_{K^pK_p} = S_{K^pK'_p}/(K_p/K'_p); if
+  K^pK_p is neat, S_{K^pK'_p} → S_{K^pK_p} is a finite étale Galois cover with group K_p/(K'_p
+  · (Z(ℚ) ∩ K^pK_p)_p); (iii) for K^pK_p neat, S^◇_{K^p,∞} → S^◇_{K^pK_p} is a pro-étale
+  torsor under the profinite group K_p/Z_{K^pK_p}, where Z_{K^pK_p} = Z_{K^p} ∩ K_p is the
+  closure of (Z(ℚ) ∩ K^pK_p)_p. In particular the tower is a K_p-torsor exactly when Z(ℚ) ∩
+  K^pK_p = {1}, which holds for GL_2 and GSp_2g at level K^p ⊆ K(N)^p with N ≥ 3, and fails
+  for Hilbert data, where Z(ℚ) ∩ K^pK_p contains a finite-index subgroup of the units ≡ 1 mod
+  N of a totally real field F ≠ ℚ and Z_{K^pK_p} is a nontrivial closed subgroup of 𝒪_{F,p}^×.
+
+  Hypotheses:
+  * D pure Shimura datum with the tower of p-level-tower; G(ℚ_p) embedded in G(𝔸_f) with
+  trivial prime-to-p component.
+  * Neatness of K^pK_p is used only for freeness (finite étaleness and torsor statements), not
+  for the kernel computation.
+  * Equality with the kernel on C-points is justified at each finite level: the translations
+  are analytifications of algebraic maps over the canonical-model field, and equality of those
+  maps can be checked after faithful base change to ℂ and on its closed points. Passing
+  through the reduced finite levels gives equality on the tower. No assertion that arbitrary
+  qcqs diamond maps are determined by one fixed field of points is used.
 -/
 
 /- CONTRACT `PerfectoidShimuraVarieties:S0/component-set-of-infinite-level` (theorem)
@@ -574,33 +628,75 @@ end TauCeti.HodgeTate
 
 /- CONTRACT `PerfectoidShimuraVarieties:S0/rigidified-moduli-tower` (definition)
   Towers retaining a moduli rigidification
-  The remaining items of this node; the others are native above.
+
+  Statement: In the situation of p-level-tower, a rigidified tower over (S_{K^pK_p})_{K_p} (or
+  over an open and closed subtower of it stable under the action below) consists of: a
+  cofiltered system (M_{K_p})_{K_p} of separated qcqs rigid analytic spaces over C with finite
+  transition maps, indexed by CO_p or by a cofinal level family with a cofinality witness
+  (PerfectoidSpaces:P7/level-cofinality-witness); a pro-system of finite groups
+  (Δ_{K_p})_{K_p}, with transition homomorphisms Δ_{K'_p} → Δ_{K_p} for K'_p ⊆ K_p, Δ_{K_p}
+  acting on M_{K_p} so that the transition maps M_{K'_p} → M_{K_p} are equivariant along
+  Δ_{K'_p} → Δ_{K_p}; finite Δ_{K_p}-invariant maps q_{K_p}: M_{K_p} → S_{K^pK_p} compatible
+  with the transition maps, each inducing an isomorphism M_{K_p}/Δ_{K_p} ≅ S_{K^pK_p}
+  (categorical quotient of a finite group action; PerfectoidSpaces:P8/rigid-finite-quotient);
+  and a right action of a locally profinite group H on the system (M_{K_p}) normalising the
+  Δ_{K_p} and lifting, through a continuous homomorphism H → G(ℚ_p), the action of tower-
+  right-action. Put Δ_∞ := lim_{K_p} Δ_{K_p}, a profinite group acting on M^◇_∞ := lim_{K_p}
+  M^◇_{K_p}. The orders of the Δ_{K_p} may grow without bound with the level; a single finite
+  group Δ is the special case of a constant pro-system. If Δ_{K_p} acts freely on M_{K_p} for
+  every K_p, each q_{K_p} is a finite étale Δ_{K_p}-torsor and M^◇_∞ → S^◇_{K^p,∞} is a pro-
+  étale Δ_∞-torsor of diamonds. If the pro-system is constant (Δ_{K_p} = Δ) and (M_{K_p}) is a
+  good tower, M^◇_∞/Δ ≅ S^◇_{K^p,∞} without any freeness, by PerfectoidSpaces:P8/quotient-of-
+  good-tower. The effective deck groups of M and of S differ: the kernel of the H-action on
+  M^◇_∞ is computed separately from tower-action-kernel and need not contain the preimage of
+  Z_{K^p}.
+
+  Hypotheses:
+  * Each Δ_{K_p} is finite and the quotients are categorical quotients of rigid spaces (P8),
+  not quotients of moduli functors; Δ_∞ is profinite and in general infinite.
+  * The basic example (Birkbeck–Heuer–Williams §8.2): for the Hilbert datum G = Res_{F/ℚ}GL_2
+  with tame level μ_N (N ≥ 4) and a polarization module 𝔠, the hybrid spaces X_{Γ(pⁿ)}
+  (G*-polarization λ fixed, G-level structure α_n: (𝒪_F/pⁿ)² ≅ A^∨[pⁿ]) over the arithmetic
+  spaces X_{G,Γ(pⁿ)}, with Δ_{K(pⁿ)} = Δ(pⁿN) = 𝒪_F^{×,+}/((1 + pⁿN𝒪_F)^×)² acting through the
+  polarization action (BHW Lemma 8.16(1)); the order of Δ(pⁿN) is unbounded in n when [F : ℚ]
+  > 1 (for F = ℚ it is 1), and Δ_∞ = Δ(p^∞N) (S5). The G*-tower X_{Γ*(pⁿ)} is not an example
+  at full level: its map to X_{G,Γ(pⁿ)} is not surjective, and 𝒪_F^{×,+} no longer acts on it
+  by changing the polarization (BHW p. 33).
+  * The finite free-quotient assertion uses the separated qcqs rigid-space hypotheses of
+  PerfectoidSpaces:P8/free-action-quotient-is-torsor; finite transition maps give the spectral
+  compactness needed for surjectivity of the inverse-limit torsor.
 
   API:
-  * `ShimuraTower.Rigidified` (data): A tower (M_{K_p}) with a pro-system of finite groups (Δ_{K_p})
-      acting compatibly, Δ_{K_p}-invariant finite maps to the Shimura tower inducing M_{K_p}/Δ_{K_p}
-      ≅ S_{K^pK_p}, and a lifted right action of H.
+  * `ShimuraTower.Rigidified` (data): A tower (M_{K_p}) with a pro-system of finite groups
+  (Δ_{K_p}) acting compatibly, Δ_{K_p}-invariant finite maps to the Shimura tower inducing
+  M_{K_p}/Δ_{K_p} ≅ S_{K^pK_p}, and a lifted right action of H.
   * `ShimuraTower.Rigidified.quotientIso` (projection): The isomorphisms M_{K_p}/Δ_{K_p} ≅
-      S_{K^pK_p}, compatible with the transition maps.
-  * `ShimuraTower.Rigidified.infiniteLevel` (data): M^◇_∞ = lim M^◇_{K_p} with the action of Δ_∞ =
-      lim Δ_{K_p} and its map to S^◇_{K^p,∞}.
-  * `ShimuraTower.Rigidified.isTorsor_of_free` (characterisation): If Δ_{K_p} acts freely on M_{K_p}
-      for every K_p, M^◇_∞ → S^◇_{K^p,∞} is a pro-étale Δ_∞-torsor.
-  * `ShimuraTower.Rigidified.quotient_infiniteLevel` (characterisation): For a constant pro-system Δ
-      and a good tower M, M^◇_∞/Δ ≅ S^◇_{K^p,∞}.
+  S_{K^pK_p}, compatible with the transition maps.
+  * `ShimuraTower.Rigidified.infiniteLevel` (data): M^◇_∞ = lim M^◇_{K_p} with the action of
+  Δ_∞ = lim Δ_{K_p} and its map to S^◇_{K^p,∞}.
+  * `ShimuraTower.Rigidified.isTorsor_of_free` (characterisation): If Δ_{K_p} acts freely on
+  M_{K_p} for every K_p, M^◇_∞ → S^◇_{K^p,∞} is a pro-étale Δ_∞-torsor.
+  * `ShimuraTower.Rigidified.quotient_infiniteLevel` (characterisation): For a constant pro-
+  system Δ and a good tower M, M^◇_∞/Δ ≅ S^◇_{K^p,∞}.
   * `ShimuraTower.Rigidified.trivial` (constructor): The tower itself with Δ_{K_p} = 1.
 
   Unit tests:
-  * `rigidified_trivial_delta` (degenerate): With Δ_{K_p} = 1 for every K_p: M = S, Δ_∞ = 1 and the
-      quotient isomorphisms are identities.
-  * `rigidified_not_shimura_kernel` (non-example): For the Hilbert hybrid tower with [F : ℚ] ≥ 2,
-      take η ∈ (1 + N𝒪_F)^× with η ≠ 1 and g = diag(η, η) ∈ H = GL_2(𝒪_p). Then g acts trivially on
-      every X_{G,Γ(pⁿ)} (it lies in the central subgroup Z_n of BHW Definition 8.17, which acts
-      trivially by Proposition 8.18(3); equivalently in Z_{K^p} of tower-action-kernel). On the
-      hybrid tower it acts as the polarization action of η⁻² (g^∨ = g and BHW Lemma 8.12), which is
-      a nontrivial element of Δ(pⁿN) for n large (η² ∈ ((1 + pⁿN𝒪_F)^×)² would force η ≡ 1 mod pⁿN,
-      as N ≥ 3) and acts freely. So the kernel of the H-action on M^◇_∞ does not contain the
-      preimage of Z_{K^p}.
+  * `rigidified_trivial_delta` (degenerate): With Δ_{K_p} = 1 for every K_p: M = S, Δ_∞ = 1
+  and the quotient isomorphisms are identities.
+  * `rigidified_hilbert_delta_order` (computation): For the Hilbert hybrid tower with F =
+  ℚ(√5), N = 4 and p odd: 𝒪_F^{×,+} = ⟨ε²⟩ with ε = (1+√5)/2 of norm −1, and −1 is not a power
+  of ε modulo 4, so 𝒪_F^× ∩ (1 + 4pⁿ𝒪_F) = ⟨ε^{k_n}⟩ with k_n the order of ε in (𝒪_F/4pⁿ)^×,
+  and |Δ_{K(pⁿ)}| = |Δ(4pⁿ)| = [⟨ε²⟩ : ⟨ε^{2k_n}⟩] = k_n. At n = 0 (the torsor X → X_G of BHW
+  Proposition 8.4) k_0 = 6, since ε has order 6 in (𝒪_F/4)^×, so |Δ(4)| = 6; and k_n is
+  unbounded in n, so no single finite group serves at every level.
+  * `rigidified_not_shimura_kernel` (non-example): For the Hilbert hybrid tower with [F : ℚ] ≥
+  2, take η ∈ (1 + N𝒪_F)^× with η ≠ 1 and g = diag(η, η) ∈ H = GL_2(𝒪_p). Then g acts
+  trivially on every X_{G,Γ(pⁿ)} (it lies in the central subgroup Z_n of BHW Definition 8.17,
+  which acts trivially by Proposition 8.18(3); equivalently in Z_{K^p} of tower-action-
+  kernel). On the hybrid tower it acts as the polarization action of η⁻² (g^∨ = g and BHW
+  Lemma 8.12), which is a nontrivial element of Δ(pⁿN) for n large (η² ∈ ((1 + pⁿN𝒪_F)^×)²
+  would force η ≡ 1 mod pⁿN, as N ≥ 3) and acts freely. So the kernel of the H-action on M^◇_∞
+  does not contain the preimage of Z_{K^p}.
 -/
 
 
@@ -646,50 +742,61 @@ end TauCeti.HodgeTate
 /- CONTRACT `PerfectoidShimuraVarieties:S0.general/toroidal-tower-diamond` (construction)
   The toroidal tower diamond with cone-compatible deck actions
 
-  Statement: Let D be a pure Shimura datum, K^p ⊆ G(𝔸_f^p) neat, K_p ∈ CO_p and Σ a
-  K^pK_p-admissible projective cone decomposition (ShimuraCompactifications C0–C3.general).
-  Smoothness of Σ is not assumed: it is relative to the lattices U(ℚ) ∩ K, which shrink when K_p
-  shrinks, so a Σ that is smooth at level K^pK_p need not be smooth at level K^pK'_p. For K'_p ⊆
-  K_p, Σ is K^pK'_p-admissible, and the toroidal compactifications S^tor_{K^pK'_p,Σ} over C
-  (analytified base changes of the canonical models of ShimuraCompactifications C2.general) with the
-  proper transition maps S^tor_{K^pK''_p,Σ} → S^tor_{K^pK'_p,Σ} of ShimuraCompactifications
-  C3.general form a tower with the same Σ at every level. Put S^{tor◇}_{K^p,Σ,∞} := lim_{K'_p ⊆ K_p}
-  (S^tor_{K^pK'_p,Σ})^◇, a spatial diamond with |S^{tor◇}_{K^p,Σ,∞}| ≅ lim |S^tor_{K^pK'_p,Σ}|,
-  containing S^◇_{K^p,∞} as the open complement of the boundary and mapping to S^{*◇}_{K^p,∞}. Deck
-  actions: K_p acts on the tower (k ∈ K_p preserves Σ because Σ is K_p-stable), compatibly with the
-  action on S^◇_{K^p,∞}; an element g ∈ G(ℚ_p) outside K_p maps the tower for Σ to the tower for gΣ,
-  and two cone decompositions are compared through a common refinement Σ'' and the proper refinement
-  maps, which are isomorphisms over S^◇_{K^p,∞}. Hecke correspondences for g ∈ G(ℚ_p) are formed on
-  a common refinement of Σ and gΣ.
+  Statement: Let D be a pure Shimura datum, K^p ⊆ G(𝔸_f^p) neat, K_p ∈ CO_p and Σ a K^pK_p-
+  admissible projective cone decomposition (ShimuraCompactifications C0–C3.general).
+  Smoothness of Σ is not assumed: it is relative to the lattices U(ℚ) ∩ K, which shrink when
+  K_p shrinks, so a Σ that is smooth at level K^pK_p need not be smooth at level K^pK'_p. For
+  K'_p ⊆ K_p, Σ is K^pK'_p-admissible, and the toroidal compactifications S^tor_{K^pK'_p,Σ}
+  over C (analytified base changes of the canonical models of ShimuraCompactifications
+  C2.general) with the proper transition maps S^tor_{K^pK''_p,Σ} → S^tor_{K^pK'_p,Σ} of
+  ShimuraCompactifications C3.general form a tower with the same Σ at every level. Put
+  S^{tor◇}_{K^p,Σ,∞} := lim_{K'_p ⊆ K_p} (S^tor_{K^pK'_p,Σ})^◇, a spatial diamond with
+  |S^{tor◇}_{K^p,Σ,∞}| ≅ lim |S^tor_{K^pK'_p,Σ}|, containing S^◇_{K^p,∞} as the open
+  complement of the boundary and mapping to S^{*◇}_{K^p,∞}. Deck actions: K_p acts on the
+  tower (k ∈ K_p preserves Σ because Σ is K_p-stable), compatibly with the action on
+  S^◇_{K^p,∞}; an element g ∈ G(ℚ_p) outside K_p maps the tower for Σ to the tower for gΣ, and
+  two cone decompositions are compared through a common refinement Σ'' and the proper
+  refinement maps, which are isomorphisms over S^◇_{K^p,∞}. Hecke correspondences for g ∈
+  G(ℚ_p) are formed on a common refinement of Σ and gΣ.
+
+  Hypotheses:
+  * Neat K^p; Σ admissible at level K^pK_p, so admissible at all smaller levels; no single Σ
+  admits every Hecke correspondence (ShimuraCompactifications C3).
+  * The same Σ is used at every level of the tower (Boxer–Pilloni 2026, §3.3; Pilloni–Stroh
+  Théorème 0.4 for the Siegel case).
 
   API:
-  * `ShimuraTower.toroidal` (data): The tower K'_p ↦ S^tor_{K^pK'_p,Σ} for K'_p ⊆ K_p with fixed Σ.
+  * `ShimuraTower.toroidal` (data): The tower K'_p ↦ S^tor_{K^pK'_p,Σ} for K'_p ⊆ K_p with
+  fixed Σ.
   * `ShimuraTower.toroidalInfiniteLevel` (data): The diamond S^{tor◇}_{K^p,Σ,∞} = lim
-      (S^tor_{K^pK'_p,Σ})^◇.
-  * `ShimuraTower.toroidalInfiniteLevel_isSpatial` (characterisation): It is a spatial diamond with
-      |·| = lim |S^tor|.
+  (S^tor_{K^pK'_p,Σ})^◇.
+  * `ShimuraTower.toroidalInfiniteLevel_isSpatial` (characterisation): It is a spatial diamond
+  with |·| = lim |S^tor|.
   * `ShimuraTower.toroidalInfiniteLevel.openEmbedding` (projection): S^◇_{K^p,∞} ⊆
-      S^{tor◇}_{K^p,Σ,∞} as the complement of the boundary.
+  S^{tor◇}_{K^p,Σ,∞} as the complement of the boundary.
   * `ShimuraTower.toroidalInfiniteLevel.toMin` (projection): The map to S^{*◇}_{K^p,∞}.
-  * `ShimuraTower.toroidalInfiniteLevel.deck` (instance): The action of K_p, compatible with the
-      action on the open part.
-  * `ShimuraTower.toroidalInfiniteLevel.refine` (functoriality): For a refinement Σ'' of Σ, the map
-      S^{tor◇}_{Σ''} → S^{tor◇}_{Σ}, an isomorphism over the open part, with identity and
-      composition laws.
-  * `ShimuraTower.toroidalInfiniteLevel.translate` (functoriality): For g ∈ G(ℚ_p), the isomorphism
-      from the tower for Σ to the tower for gΣ, compared with the K_p-action on common refinements.
+  * `ShimuraTower.toroidalInfiniteLevel.deck` (instance): The action of K_p, compatible with
+  the action on the open part.
+  * `ShimuraTower.toroidalInfiniteLevel.refine` (functoriality): For a refinement Σ'' of Σ,
+  the map S^{tor◇}_{Σ''} → S^{tor◇}_{Σ}, an isomorphism over the open part, with identity and
+  composition laws.
+  * `ShimuraTower.toroidalInfiniteLevel.translate` (functoriality): For g ∈ G(ℚ_p), the
+  isomorphism from the tower for Σ to the tower for gΣ, compared with the K_p-action on common
+  refinements.
 
   Unit tests:
-  * `toroidal_g1_equals_minimal` (compatibility): For the modular-curve datum the toroidal tower
-      diamond equals S^{*◇}_{K^p,∞}.
-  * `toroidal_refinement_iso_open` (characterisation): For a refinement Σ'' of Σ the map of toroidal
-      diamonds is an isomorphism over S^◇_{K^p,∞} and not over the boundary (it blows up boundary
-      strata) when Σ'' ≠ Σ and dim ≥ 2.
-  * `toroidal_single_level` (degenerate): Restricted to the one-element family {K_p}, the limit is
-      (S^tor_{K^pK_p,Σ})^◇.
-  * `toroidal_hecke_needs_refinement` (non-example): For the Siegel datum with g = 2 and g = diag(p,
-      p, 1, 1) the translate gΣ of a Γ(p)-admissible Σ is in general not a refinement of Σ: a Hecke
-      correspondence on the fixed-Σ tower does not exist without passing to a common refinement.
+  * `toroidal_g1_equals_minimal` (compatibility): For the modular-curve datum the toroidal
+  tower diamond equals S^{*◇}_{K^p,∞}.
+  * `toroidal_refinement_iso_open` (characterisation): For a refinement Σ'' of Σ the map of
+  toroidal diamonds is an isomorphism over S^◇_{K^p,∞} and, for a genuine star subdivision
+  introducing a new ray in a two-dimensional boundary cone, it is not an isomorphism over the
+  affected boundary stratum (the toric chart map is a blow-up).
+  * `toroidal_single_level` (degenerate): Restricted to the one-element family {K_p}, the
+  limit is (S^tor_{K^pK_p,Σ})^◇.
+  * `toroidal_hecke_needs_refinement` (non-example): For the Siegel datum with g = 2 and g =
+  diag(p, p, 1, 1) the translate gΣ of a Γ(p)-admissible Σ is in general not a refinement of
+  Σ: a Hecke correspondence on the fixed-Σ tower does not exist without passing to a common
+  refinement.
 -/
 
 
@@ -697,109 +804,136 @@ end TauCeti.HodgeTate
 
 
 /- CONTRACT `PerfectoidShimuraVarieties:S1/siegel-finite-level-spaces` (construction)
-  The Siegel spaces of the construction: integral models, Hasse domains and finite-level adic spaces
+  The Siegel spaces of the construction: integral models, Hasse domains and finite-level adic
+  spaces
 
-  Statement: Fix g ≥ 1, p and K^p as in the hypotheses. Let X = X_{g,K^p} be the moduli scheme over
-  ℤ_(p) of principally polarized abelian schemes of dimension g with level-K^p structure
-  (PELModuli:M5/siegel-moduli), X* its minimal compactification over ℤ_(p) with ample line bundle ω
-  (Faltings–Chai; ShimuraCompactifications C5), normal with normal geometric fibres and boundary of
-  codimension g, and X* = Proj ⊕_k H⁰(X, ω^{⊗k}) when g ≥ 2. Let 𝔛 ⊆ 𝔛* be the p-adic completions of
-  X ⊗ ℤ_p^cycl ⊆ X* ⊗ ℤ_p^cycl, 𝔄 → 𝔛 the universal abelian scheme, and Ha ∈ H⁰(X*_{𝔽_p},
-  ω^{⊗(p−1)}) the Hasse invariant (HodgeTateAndCanonicalSubgroups T0). For 0 ≤ ε < 1, the Hasse
-  domain 𝔛*(ε) → 𝔛* is the formal model of AdicSpacesPartII:R2/hasse-domain for (𝔛*, ω, Ha): it
-  represents pairs (f, u) with u·Ha(f̄) = p^ε modulo u ~ u(1 + p^{1−ε}h), locally Spf((R ⊗̂
-  ℤ_p^cycl)⟨u⟩/(uH̃a − p^ε)); it is an open formal subscheme of an admissible blow-up of 𝔛* (not
-  itself an admissible blow-up; PerfectoidShimuraVarieties/E3), and 𝔛(ε), 𝔄(ε) are its pullbacks,
-  with generic fibre 𝒳*(ε) = {|Ha| ≥ |p|^ε}. For K_p ⊆ GSp_2g(ℤ_p) compact open with c(K_p) = 1 +
-  pᵐℤ_p (as for Γ₀(pᵐ), Γ₁(pᵐ), Γ(pᵐ)), X*_{K_pK^p} (the minimal compactification of the
-  level-K_pK^p Siegel variety, the normalisation of X* in X_{K_pK^p}) lives over ℚ(ζ_{pᵐ}) through
-  the similitude factor (the Weil pairing), and 𝒳*_{K_p} is the adic space over Spa(ℚ_p^cycl,
-  ℤ_p^cycl) of its base change along ℚ(ζ_{pᵐ}) → ℚ_p^cycl for a fixed compatible system (ζ_{pⁿ})_n
-  of p-power roots of unity (the tautological ζ_{pᵐ} ∈ ℚ_p^cycl matched with the root ζ_{pᵐ} ∈
-  𝒪(X*_{K_pK^p}) given by the similitude factor, i.e. the Weil pairing of the level structure:
-  𝒳*_{K_p} is the fixed-similitude part); 𝒳_{K_p} ⊆ 𝒳*_{K_p} the preimage of 𝒳 (the good-reduction
-  locus, not the open Shimura variety), 𝒵_{K_p} the boundary, and 𝒳*_{K_p}(ε) the preimage of 𝒳*(ε).
-  Relation with the S0 tower: for a complete algebraically closed C ⊇ ℚ_p^cycl and S*_{K^pK_p} =
+  Statement: Fix g ≥ 1, p and K^p as in the hypotheses. Let X = X_{g,K^p} be the moduli scheme
+  over ℤ_(p) of principally polarized abelian schemes of dimension g with level-K^p structure
+  (PELModuli:M5/siegel-moduli), X* its minimal compactification over ℤ_(p) with ample line
+  bundle ω (Faltings–Chai; ShimuraCompactifications C5), normal with normal geometric fibres
+  and boundary of codimension g, and X* = Proj ⊕_k H⁰(X, ω^{⊗k}) when g ≥ 2. Let 𝔛 ⊆ 𝔛* be the
+  p-adic completions of X ⊗ ℤ_p^cycl ⊆ X* ⊗ ℤ_p^cycl, 𝔄 → 𝔛 the universal abelian scheme, and
+  Ha ∈ H⁰(X*_{𝔽_p}, ω^{⊗(p−1)}) the Hasse invariant (HodgeTateAndCanonicalSubgroups T0). For 0
+  ≤ ε < 1, the Hasse domain 𝔛*(ε) → 𝔛* is the formal model of AdicSpacesPartII:R2/hasse-domain
+  for (𝔛*, ω, Ha): it represents pairs (f, u) with u·Ha(f̄) = p^ε modulo u ~ u(1 + p^{1−ε}h),
+  locally Spf((R ⊗̂ ℤ_p^cycl)⟨u⟩/(uH̃a − p^ε)); it is an open formal subscheme of an
+  admissible blow-up of 𝔛* (not itself an admissible blow-up; PerfectoidShimuraVarieties/E3),
+  and 𝔛(ε), 𝔄(ε) are its pullbacks, with generic fibre 𝒳*(ε) = {|Ha| ≥ |p|^ε}. For K_p ⊆
+  GSp_2g(ℤ_p) compact open with c(K_p) = U_m (as for Γ₀(pᵐ), Γ₁(pᵐ), Γ(pᵐ)), X*_{K_pK^p} (the
+  minimal compactification of the level-K_pK^p Siegel variety, the normalisation of X* in
+  X_{K_pK^p}) lives over ℚ(ζ_{pᵐ}) through the similitude factor (the Weil pairing), and
+  𝒳*_{K_p} is the adic space over Spa(ℚ_p^cycl, ℤ_p^cycl) of its base change along ℚ(ζ_{pᵐ}) →
+  ℚ_p^cycl for a fixed compatible system (ζ_{pⁿ})_n of p-power roots of unity (the
+  tautological ζ_{pᵐ} ∈ ℚ_p^cycl matched with the root ζ_{pᵐ} ∈ 𝒪(X*_{K_pK^p}) given by the
+  similitude factor, i.e. the Weil pairing of the level structure: 𝒳*_{K_p} is the fixed-
+  similitude part); 𝒳_{K_p} ⊆ 𝒳*_{K_p} the preimage of 𝒳 (the good-reduction locus, not the
+  open Shimura variety), 𝒵_{K_p} the boundary, and 𝒳*_{K_p}(ε) the preimage of 𝒳*(ε). Relation
+  with the S0 tower: for a complete algebraically closed C ⊇ ℚ_p^cycl and S*_{K^pK_p} =
   (X*_{K_pK^p} ⊗_ℚ C)^{ad} (PerfectoidShimuraVarieties:S0/p-level-tower for the Siegel datum),
-  S*_{K^pK_p} = ⊔_{a ∈ (ℤ/pᵐ)^×} 𝒳*_{K_p} ⊗_{ℚ_p^cycl, σ_a} C, where σ_a ∈ Gal(ℚ_p^cycl/ℚ_p) is
-  σ_a(ζ_{pⁿ}) = ζ_{pⁿ}^a; so 𝒳*_{K_p} ⊗_{ℚ_p^cycl} C is the open and closed part of S*_{K^pK_p} on
-  which the Weil-pairing root equals the fixed ζ_{pᵐ}, and it is all of S*_{K^pK_p} only when m = 0.
-  The comparison at all levels K′_p ⊆ GSp_2g(ℚ_p), at infinite level and for the group actions is
-  siegel-similitude-comparison.
+  S*_{K^pK_p} = ⊔_{a ∈ (ℤ/pᵐ)^×} 𝒳*_{K_p} ⊗_{ℚ_p^cycl, σ_a} C, where σ_a ∈ Gal(ℚ_p^cycl/ℚ_p)
+  is σ_a(ζ_{pⁿ}) = ζ_{pⁿ}^a; so 𝒳*_{K_p} ⊗_{ℚ_p^cycl} C is the open and closed part of
+  S*_{K^pK_p} on which the Weil-pairing root equals the fixed ζ_{pᵐ}, and it is all of
+  S*_{K^pK_p} only when m = 0. The comparison at all levels K′_p ⊆ GSp_2g(ℚ_p), at infinite
+  level and for the group actions is siegel-similitude-comparison.
+
+  Hypotheses:
+  * Siegel setting of Scholze §3: g ≥ 1, p prime, K^p ⊆ GSp_2g(𝔸_f^p) contained in {γ ∈
+  GSp_2g(Ẑ^p) : γ ≡ 1 mod N} for some N ≥ 3 prime to p; ℚ_p^cycl the completion of
+  ℚ_p(μ_{p^∞}) with ring of integers ℤ_p^cycl; p^ε ∈ ℤ_p^cycl a chosen element of valuation ε.
+  * 𝒳_{K_p} is the locus of good reduction (the preimage of 𝒳 = 𝔛_η), which is strictly
+  smaller than the analytification of the open Shimura variety X_{K_pK^p}; the boundary
+  𝒵_{K_p} is the preimage of the boundary of 𝒳*.
+  * Here U_0 = ℤ_p^× and U_m = ker(ℤ_p^× → (ℤ/pᵐ)^×) = 1 + pᵐℤ_p for m ≥ 1. The formula 1 +
+  ℤ_p is not used as a unit subgroup.
 
   API:
-  * `SiegelTorsion.integralMin` (data): The p-adic formal scheme 𝔛* over ℤ_p^cycl with ω and the
-      Hasse invariant.
+  * `SiegelTorsion.integralMin` (data): The p-adic formal scheme 𝔛* over ℤ_p^cycl with ω and
+  the Hasse invariant.
   * `SiegelTorsion.hasseDomain` (constructor): 𝔛*(ε) → 𝔛*, with pullbacks 𝔛(ε), 𝔄(ε).
-  * `SiegelTorsion.hasseDomain_generic` (simp): The generic fibre of 𝔛*(ε) is {|Ha| ≥ |p|^ε} ⊆ 𝒳*.
-  * `SiegelTorsion.finiteLevel` (data): 𝒳*_{K_p}, 𝒳_{K_p} (good reduction locus) and 𝒵_{K_p} for
-      compact open K_p.
+  * `SiegelTorsion.hasseDomain_generic` (simp): The generic fibre of 𝔛*(ε) is {|Ha| ≥ |p|^ε} ⊆
+  𝒳*.
+  * `SiegelTorsion.finiteLevel` (data): 𝒳*_{K_p}, 𝒳_{K_p} (good reduction locus) and 𝒵_{K_p}
+  for compact open K_p.
   * `SiegelTorsion.finiteLevel_hasse` (projection): 𝒳*_{K_p}(ε) := preimage of 𝒳*(ε).
-  * `SiegelTorsion.finiteLevel_eq_tower` (compatibility): For C ⊇ ℚ_p^cycl complete algebraically
-      closed and c(K_p) = 1 + pᵐℤ_p: S*_{K^pK_p} of PerfectoidShimuraVarieties:S0/p-level-tower
-      (Siegel datum) is ⊔_{a ∈ (ℤ/pᵐ)^×} 𝒳*_{K_p} ⊗_{ℚ_p^cycl, σ_a} C, and 𝒳*_{K_p} ⊗_{ℚ_p^cycl} C
-      is its open and closed part where the Weil-pairing root is ζ_{pᵐ}; compatibly with level maps,
-      boundaries and open parts.
+  * `SiegelTorsion.finiteLevel_eq_tower` (compatibility): For C ⊇ ℚ_p^cycl complete
+  algebraically closed and c(K_p) = U_m: S*_{K^pK_p} of PerfectoidShimuraVarieties:S0/p-level-
+  tower (Siegel datum) is ⊔_{a ∈ (ℤ/pᵐ)^×} 𝒳*_{K_p} ⊗_{ℚ_p^cycl, σ_a} C, and 𝒳*_{K_p}
+  ⊗_{ℚ_p^cycl} C is its open and closed part where the Weil-pairing root is ζ_{pᵐ}; compatibly
+  with level maps, boundaries and open parts.
   * `SiegelTorsion.hasseDomain_mono` (functoriality): For ε' ≤ ε, 𝒳*(ε') ⊆ 𝒳*(ε), with the
-      transition maps of AdicSpacesPartII:R2/hasse-domain-transition-maps.
+  transition maps of AdicSpacesPartII:R2/hasse-domain-transition-maps.
 
   Unit tests:
-  * `hasseDomain_zero_ordinary` (computation): 𝒳*(0) = {|Ha| = 1} is the tube of the ordinary locus
-      of X*_{𝔽_p}; for g = 1 it contains every cusp.
-  * `goodReduction_ne_open` (non-example): For g = 1, K_p = Γ(p) and a supersingular point, its
-      preimage in 𝒳_{Γ(p)} is nonempty, but a point of the open modular curve with multiplicative
-      reduction lies in the open Shimura variety and not in 𝒳_{Γ(p)}: 𝒳_{K_p} is the good-reduction
-      locus, not X_{K_pK^p}^{an}.
-  * `hasseDomain_not_blowup` (non-example): 𝔛*(ε) → 𝔛* is not proper for ε > 0 (its generic fibre is
-      the proper open subset {|Ha| ≥ |p|^ε}), so it is not an admissible blow-up, only an open
-      subscheme of one.
-  * `finiteLevel_trivial_level` (degenerate): For K_p = GSp_2g(ℤ_p), 𝒳*_{K_p} is the generic fibre
-      of 𝔛* and 𝒳_{K_p} = 𝒳.
-  * `finiteLevel_fixed_similitude_g1` (computation): For g = 1, K^p = K(N)^p (N ≥ 3) and K_p = Γ(pᵐ)
-      with m ≥ 1, S*_{K^pK_p} has φ(N)φ(pᵐ) connected components, while 𝒳*_{Γ(pᵐ)} ⊗_{ℚ_p^cycl} C
-      has φ(N): those on which the Weil pairing of the level structure at p is ζ_{pᵐ}. A definition
-      with 𝒳*_{K_p} ⊗ C = S*_{K^pK_p} fails this.
+  * `hasseDomain_zero_ordinary` (computation): 𝒳*(0) = {|Ha| = 1} is the tube of the ordinary
+  locus of X*_{𝔽_p}; for g = 1 it contains every cusp.
+  * `goodReduction_ne_open` (non-example): For g = 1, K_p = Γ(p) and a supersingular point,
+  its preimage in 𝒳_{Γ(p)} is nonempty, but a point of the open modular curve with
+  multiplicative reduction lies in the open Shimura variety and not in 𝒳_{Γ(p)}: 𝒳_{K_p} is
+  the good-reduction locus, not X_{K_pK^p}^{an}.
+  * `hasseDomain_not_blowup` (non-example): 𝔛*(ε) → 𝔛* is not proper for ε > 0 (its generic
+  fibre is the proper open subset {|Ha| ≥ |p|^ε}), so it is not an admissible blow-up, only an
+  open subscheme of one.
+  * `finiteLevel_trivial_level` (degenerate): For K_p = GSp_2g(ℤ_p), 𝒳*_{K_p} is the generic
+  fibre of 𝔛* and 𝒳_{K_p} = 𝒳.
+  * `finiteLevel_fixed_similitude_g1` (computation): For g = 1, K^p = K(N)^p (N ≥ 3) and K_p =
+  Γ(pᵐ) with m ≥ 1, S*_{K^pK_p} has φ(N)φ(pᵐ) connected components, while 𝒳*_{Γ(pᵐ)}
+  ⊗_{ℚ_p^cycl} C has φ(N): those on which the Weil pairing of the level structure at p is
+  ζ_{pᵐ}. A definition with 𝒳*_{K_p} ⊗ C = S*_{K^pK_p} fails this.
 -/
 
 /- CONTRACT `PerfectoidShimuraVarieties:S1/siegel-similitude-comparison` (comparison)
   Scholze's fixed-similitude Siegel spaces over ℚ_p^cycl and the S0 Siegel tower over C
 
-  Statement: Let K^p be as in siegel-finite-level-spaces and let S_{K^pK′_p} ⊆ S*_{K^pK′_p} (K′_p ⊆
-  GSp_2g(ℚ_p) compact open) be the open and minimally compactified p-level towers of
-  PerfectoidShimuraVarieties:S0/p-level-tower for the Siegel datum (reflex field ℚ) over a complete
-  algebraically closed C, with the C-linear right action T_γ of S0/tower-right-action and
-  S0/infinite-level-diamond (iv); fix an embedding ℚ_p^cycl ⊆ C, so that the compatible system ζ =
-  (ζ_{pⁿ})_n of siegel-finite-level-spaces lies in C. For a point with level structure α: T_pA ≅
-  ℤ_p^{2g} (a symplectic similitude), its Weil-pairing root w ∈ ℤ_p^× is defined by e(α⁻¹x, α⁻¹y) =
-  ζ^{w·⟨x, y⟩} (⟨ , ⟩ the standard symplectic form, ⟨e_i, e_{g+i}⟩ = 1); at a level K′_p with
-  c(K′_p) ⊆ 1 + pᵐℤ_p, w mod pᵐ is locally constant, and w: |S^{*◇}_{K^p,∞}| → ℤ_p^× is continuous
-  and factors through π₀ (S0/component-set-of-infinite-level). For a ∈ ℤ_p^× let σ_a ∈
-  Gal(ℚ_p^cycl/ℚ_p) be the automorphism with σ_a(ζ_{pⁿ}) = ζ_{pⁿ}^a, and for γ ∈ GSp_2g(ℚ_p) put
-  u(γ) := c(γ)p^{−v_p(c(γ))} ∈ ℤ_p^×. Then: (i) (finite level) for K_p ⊆ GSp_2g(ℤ_p) compact open
-  with c(K_p) = 1 + pᵐℤ_p (m ≥ 0), S*_{K^pK_p} = ⊔_{a ∈ (ℤ/pᵐ)^×} {w ≡ a mod pᵐ} with {w ≡ a} ≅
-  𝒳*_{K_p} ⊗_{ℚ_p^cycl, σ_a} C; in particular 𝒳*_{K_p} ⊗_{ℚ_p^cycl} C is the open and closed part {w
-  ≡ 1 mod pᵐ} of S*_{K^pK_p}, equal to S*_{K^pK_p} only for m = 0; likewise for the open parts
-  𝒳*_{K_p} ∖ 𝒵_{K_p} and S_{K^pK_p} and for the boundaries. (ii) (infinite level) For every
-  perfectoid field L ⊇ ℚ_p^cycl, Spa(ℚ_p^cycl) ×_{Spa ℚ_p} Spa(L) ≅ ℤ_p^× × Spa(L) = Spa(C⁰(ℤ_p^×,
-  L), C⁰(ℤ_p^×, 𝒪_L)), the point a ∈ ℤ_p^× corresponding to ℚ_p^cycl →σ_a ℚ_p^cycl ⊆ L, and lim_m
-  𝒳*^◇_{Γ(pᵐ)} ×_{Spd ℚ_p} Spd L ≅ lim_m (X*_{Γ(pᵐ)K^p} ⊗_ℚ L)^{ad◇}; for L = C this is
-  S^{*◇}_{K^p,∞} = lim_{K′_p} S*^◇_{K^pK′_p} (Γ(pᵐ) cofinal), and its part {w = 1} is lim_m
-  𝒳*^◇_{Γ(pᵐ)} ×_{Spd ℚ_p^cycl} Spd C. Hence, once 𝒳*_{Γ(p^∞)} ~ lim_m 𝒳*_{Γ(pᵐ)} exists as a
-  perfectoid space over ℚ_p^cycl (perfectoid-siegel-space): S^{*◇}_{K^p,∞} ≅ (𝒳*_{Γ(p^∞)} ×_{Spa
-  ℚ_p} Spa C)^◇ = (𝒳*_{Γ(p^∞)} ×_{Spa ℚ_p^cycl} Spa C⁰(ℤ_p^×, C))^◇; the perfectoid space
-  𝒳*_{Γ(p^∞)} ×_{Spa ℚ_p} Spa C is a perfectoid representative (S0/perfectoid-representative) of the
-  Siegel tower (S*_{K^pK′_p})_{K′_p ⊆ GSp_2g(ℚ_p)}; and 𝒳*_{Γ(p^∞)} ⊗̂_{ℚ_p^cycl} C is its open and
-  closed part {w = 1}, not the whole tower (π₀ differs by the factor ℤ_p^×); likewise for the
-  complements of the boundaries. (iii) (actions, all levels) Under (ii) the C-linear right action of
-  GSp_2g(ℚ_p) on S^{*◇}_{K^p,∞} is the base change of the ℚ_p-linear right action on lim_m
-  (X*_{Γ(pᵐ)K^p} ⊗_ℚ ℚ_p)^{ad◇} ≅ lim_m 𝒳*^◇_{Γ(pᵐ)} by the translations of
-  ShimuraVarieties:V8/translation-laws (Scholze's GSp_2g(ℚ_p)-action), and w(x·γ) = u(γ)·w(x);
-  equivalently, for the structure map s to Spd ℚ_p^cycl, T_γ^* ∘ s^* = s^* ∘ σ_{u(γ)}, so γ acts
-  ℚ_p^cycl-linearly iff c(γ) ∈ p^ℤ. For every compact open K′_p ⊆ GSp_2g(ℚ_p), ((𝒳*_{Γ(p^∞)} ∖
-  𝒵_{Γ(p^∞)}) ×_{Spa ℚ_p} Spa C)^◇ → S^◇_{K^pK′_p} is a pro-étale K′_p-torsor; if K′_p ⊆ GSp_2g(ℤ_p)
-  with c(K′_p) = 1 + pᵐℤ_p, the stabiliser of the part {w = 1} in K′_p is K′_p ∩ ker c, and the
-  restriction of this torsor to {w = 1} is a (K′_p ∩ ker c)-torsor over (𝒳*_{K′_p} ∖ 𝒵_{K′_p})
-  ⊗_{ℚ_p^cycl} C.
+  Statement: Let K^p be as in siegel-finite-level-spaces and let S_{K^pK′_p} ⊆ S*_{K^pK′_p}
+  (K′_p ⊆ GSp_2g(ℚ_p) compact open) be the open and minimally compactified p-level towers of
+  PerfectoidShimuraVarieties:S0/p-level-tower for the Siegel datum (reflex field ℚ) over a
+  complete algebraically closed C, with the C-linear right action T_γ of S0/tower-right-action
+  and S0/infinite-level-diamond (iv); fix an embedding ℚ_p^cycl ⊆ C, so that the compatible
+  system ζ = (ζ_{pⁿ})_n of siegel-finite-level-spaces lies in C. For a point with level
+  structure α: T_pA ≅ ℤ_p^{2g} (a symplectic similitude), its Weil-pairing root w ∈ ℤ_p^× is
+  defined by e(α⁻¹x, α⁻¹y) = ζ^{w·⟨x, y⟩} (⟨ , ⟩ the standard symplectic form, ⟨e_i, e_{g+i}⟩
+  = 1); at a level K′_p with c(K′_p) ⊆ U_m, w mod pᵐ is locally constant, and w:
+  |S^{*◇}_{K^p,∞}| → ℤ_p^× is continuous and factors through π₀ (S0/component-set-of-infinite-
+  level). For a ∈ ℤ_p^× let σ_a ∈ Gal(ℚ_p^cycl/ℚ_p) be the automorphism with σ_a(ζ_{pⁿ}) =
+  ζ_{pⁿ}^a, and for γ ∈ GSp_2g(ℚ_p) put u(γ) := c(γ)p^{−v_p(c(γ))} ∈ ℤ_p^×. Then: (i) (finite
+  level) for K_p ⊆ GSp_2g(ℤ_p) compact open with c(K_p) = U_m (m ≥ 0), S*_{K^pK_p} = ⊔_{a ∈
+  (ℤ/pᵐ)^×} {w ≡ a mod pᵐ} with {w ≡ a} ≅ 𝒳*_{K_p} ⊗_{ℚ_p^cycl, σ_a} C; in particular 𝒳*_{K_p}
+  ⊗_{ℚ_p^cycl} C is the open and closed part {w ≡ 1 mod pᵐ} of S*_{K^pK_p}, equal to
+  S*_{K^pK_p} only for m = 0; likewise for the open parts 𝒳*_{K_p} ∖ 𝒵_{K_p} and S_{K^pK_p}
+  and for the boundaries. (ii) (infinite level) For every perfectoid field L ⊇ ℚ_p^cycl,
+  Spa(ℚ_p^cycl) ×_{Spa ℚ_p} Spa(L) ≅ ℤ_p^× × Spa(L) = Spa(C⁰(ℤ_p^×, L), C⁰(ℤ_p^×, 𝒪_L)), the
+  point a ∈ ℤ_p^× corresponding to ℚ_p^cycl →σ_a ℚ_p^cycl ⊆ L, and lim_m 𝒳*^◇_{Γ(pᵐ)} ×_{Spd
+  ℚ_p} Spd L ≅ lim_m (X*_{Γ(pᵐ)K^p} ⊗_ℚ L)^{ad◇}; for L = C this is S^{*◇}_{K^p,∞} =
+  lim_{K′_p} S*^◇_{K^pK′_p} (Γ(pᵐ) cofinal), and its part {w = 1} is lim_m 𝒳*^◇_{Γ(pᵐ)} ×_{Spd
+  ℚ_p^cycl} Spd C. Hence, once 𝒳*_{Γ(p^∞)} ~ lim_m 𝒳*_{Γ(pᵐ)} exists as a perfectoid space
+  over ℚ_p^cycl (perfectoid-siegel-space): S^{*◇}_{K^p,∞} ≅ (𝒳*_{Γ(p^∞)} ×_{Spa ℚ_p} Spa C)^◇
+  = (𝒳*_{Γ(p^∞)} ×_{Spa ℚ_p^cycl} Spa C⁰(ℤ_p^×, C))^◇; the perfectoid space 𝒳*_{Γ(p^∞)} ×_{Spa
+  ℚ_p} Spa C is a perfectoid representative (S0/perfectoid-representative) of the Siegel tower
+  (S*_{K^pK′_p})_{K′_p ⊆ GSp_2g(ℚ_p)}; and 𝒳*_{Γ(p^∞)} ⊗̂_{ℚ_p^cycl} C is its closed fixed-
+  pairing fibre {w = 1}, generally not open, not the whole tower (π₀ differs by the factor
+  ℤ_p^×); likewise for the complements of the boundaries. (iii) (actions, all levels) Under
+  (ii) the C-linear right action of GSp_2g(ℚ_p) on S^{*◇}_{K^p,∞} is the base change of the
+  ℚ_p-linear right action on lim_m (X*_{Γ(pᵐ)K^p} ⊗_ℚ ℚ_p)^{ad◇} ≅ lim_m 𝒳*^◇_{Γ(pᵐ)} by the
+  translations of ShimuraVarieties:V8/translation-laws (Scholze's GSp_2g(ℚ_p)-action), and
+  w(x·γ) = u(γ)·w(x); equivalently, for the structure map s to Spd ℚ_p^cycl, T_γ^* ∘ s^* = s^*
+  ∘ σ_{u(γ)}, so γ acts ℚ_p^cycl-linearly iff c(γ) ∈ p^ℤ. For every compact open K′_p ⊆
+  GSp_2g(ℚ_p), ((𝒳*_{Γ(p^∞)} ∖ 𝒵_{Γ(p^∞)}) ×_{Spa ℚ_p} Spa C)^◇ → S^◇_{K^pK′_p} is a pro-étale
+  K′_p-torsor; if K′_p ⊆ GSp_2g(ℤ_p) with c(K′_p) = U_m, the stabiliser of the part {w = 1} in
+  K′_p is K′_p ∩ ker c, and the restriction of this torsor to {w = 1} is a (K′_p ∩ ker
+  c)-torsor over (𝒳*_{K′_p} ∖ 𝒵_{K′_p}) ⊗_{ℚ_p^cycl} C.
+
+  Hypotheses:
+  * Siegel setting of Scholze §3: g ≥ 1, p prime, K^p ⊆ GSp_2g(𝔸_f^p) contained in {γ ∈
+  GSp_2g(Ẑ^p) : γ ≡ 1 mod N} for some N ≥ 3 prime to p; ℚ_p^cycl the completion of
+  ℚ_p(μ_{p^∞}) with ring of integers ℤ_p^cycl; p^ε ∈ ℤ_p^cycl a chosen element of valuation ε.
+  * C is complete and algebraically closed with a fixed embedding ℚ_p^cycl ⊆ C (equivalently a
+  compatible system of p-power roots of unity in C); L in (ii) is any perfectoid field
+  containing ℚ_p^cycl, for instance Heuer's base field K.
+  * Conventions: the right action x·γ is α ↦ γ⁻¹ ∘ α on α: V_pA ≅ ℚ_p^{2g}, i.e. η ↦ η ∘ γ on
+  η = α⁻¹, which is S0's T_γ ([x, a] ↦ [x, aγ]); the Weil pairing is normalised by e(α⁻¹e_i,
+  α⁻¹e_{g+i}) = ζ on the fixed-similitude part.
+  * Here U_0 = ℤ_p^× and U_m = ker(ℤ_p^× → (ℤ/pᵐ)^×) = 1 + pᵐℤ_p for m ≥ 1. The formula 1 +
+  ℤ_p is not used as a unit subgroup.
 -/
 
 /- CONTRACT `PerfectoidShimuraVarieties:S1/frobenius-diagram-mod-p` (lemma)
@@ -814,28 +948,42 @@ end TauCeti.HodgeTate
 /- CONTRACT `PerfectoidShimuraVarieties:S1/frobenius-trace-estimates` (theorem)
   Trace estimates for Frobenius-type extensions on Hasse domains
 
-  Statement: (i) (Lemma 3.2.21) Let R be a p-adically complete flat ℤ_p-algebra, Y_1, …, Y_n ∈ R,
-  P_1, …, P_n ∈ R⟨X_1, …, X_n⟩ topologically nilpotent and S = R⟨X⟩/(X_i^p − Y_i − P_i). Then S is
-  finite free over R with basis X^{i} (0 ≤ i_j ≤ p − 1), and tr_{S/R}(S) ⊆ Iⁿ for I = (p, I_1, …,
-  I_n), I_i the ideal generated by the coefficients of P_i. (ii) (Corollary 3.2.22) Let R be a
-  p-adically complete ℤ_p-algebra topologically of finite type and formally smooth of dimension n, f
-  ∈ R with f̄ ∈ R/p a nonzerodivisor, R_ε = (R ⊗̂_{ℤ_p} ℤ_p^cycl)⟨u_ε⟩/(f u_ε − p^ε) for 0 ≤ ε < 1,
-  and φ: R_ε → R_{ε/p} a ℤ_p^cycl-algebra map that is, modulo p^{1−ε}, Frobenius on R̄ and u_ε ↦
-  u_{ε/p}^p. If ε < 1/2 then φ[1/p] is finite flat, indeed finite free of rank p^n locally on Spf R,
-  and the trace tr: R_{ε/p}[1/p] → R_ε[1/p] maps R_{ε/p} into p^{n−(2n+1)ε} R_ε.
+  Statement: (i) (Lemma 3.2.21) Let R be a p-adically complete flat ℤ_p-algebra, Y_1, …, Y_n ∈
+  R, P_1, …, P_n ∈ R⟨X_1, …, X_n⟩ topologically nilpotent and S = R⟨X⟩/(X_i^p − Y_i − P_i).
+  Then S is finite free over R with basis X^{i} (0 ≤ i_j ≤ p − 1), and tr_{S/R}(S) ⊆ Iⁿ for I
+  = (p, I_1, …, I_n), I_i the ideal generated by the coefficients of P_i. (ii) (Corollary
+  3.2.22) Let R be a p-adically complete ℤ_p-algebra topologically of finite type and formally
+  smooth of dimension n, f ∈ R with f̄ ∈ R/p a nonzerodivisor, R_ε = (R ⊗̂_{ℤ_p}
+  ℤ_p^cycl)⟨u_ε⟩/(f u_ε − p^ε) for 0 ≤ ε < 1, and φ: R_ε → R_{ε/p} a ℤ_p^cycl-algebra map that
+  is, modulo p^{1−ε}, Frobenius on R̄ and u_ε ↦ u_{ε/p}^p. If ε < 1/2 then φ[1/p] is finite
+  flat, indeed finite free of rank p^n locally on Spf R, and the trace tr: R_{ε/p}[1/p] →
+  R_ε[1/p] maps R_{ε/p} into p^{n−(2n+1)ε} R_ε.
+
+  Hypotheses:
+  * As stated; the trace is the trace of a finite locally free algebra
+  (AdicSpacesPartII:R3/finite-locally-free-algebra-trace).
+  * ε < 1/2 in (ii).
 -/
 
 /- CONTRACT `PerfectoidShimuraVarieties:S1/canonical-frobenius-lift` (theorem)
   Canonical Frobenius lifts on Hasse domains
 
-  Statement: Let 0 ≤ ε < 1/2. There is a unique diagram of p-adic formal schemes F̃: 𝔄(p⁻¹ε) → 𝔄(ε),
-  𝔛(p⁻¹ε) → 𝔛(ε), 𝔛*(p⁻¹ε) → 𝔛*(ε), compatible with the projections, in which F̃_𝔄 is an isogeny of
-  principally polarised abelian schemes with level structure over F̃_𝔛, that reduces modulo p^{1−ε}
-  to the diagram of frobenius-diagram-mod-p (uniqueness holds among such isogeny diagrams; bare
-  Frobenius lifts of 𝔛(p⁻¹ε) are not unique). On 𝔛(p⁻¹ε), F̃ sends A to A/C, where C ⊆ A[p] is the
-  canonical subgroup of level 1 (it exists because Ha^p divides p^ε there). The maps F̃_{𝔛(p⁻¹ε)}
-  and F̃_{𝔄(p⁻¹ε)} are finite, and after inverting p they are finite étale of degrees p^{g(g+1)/2}
-  and p^{g(g+1)/2+g}; for 0 < ε they are not flat integrally.
+  Statement: Let 0 ≤ ε < 1/2. There is a unique diagram of p-adic formal schemes F̃: 𝔄(p⁻¹ε) →
+  𝔄(ε), 𝔛(p⁻¹ε) → 𝔛(ε), 𝔛*(p⁻¹ε) → 𝔛*(ε), compatible with the projections, in which F̃_𝔄 is an
+  isogeny of principally polarised abelian schemes with level structure over F̃_𝔛, that
+  reduces modulo p^{1−ε} to the diagram of frobenius-diagram-mod-p (uniqueness is among the
+  displayed diagrams, including the morphism of abelian schemes and the moduli structures). On
+  𝔛(p⁻¹ε), F̃ sends A to A/C, where C ⊆ A[p] is the canonical subgroup of level 1 (it exists
+  because Ha^p divides p^ε there). The maps F̃_{𝔛(p⁻¹ε)} and F̃_{𝔄(p⁻¹ε)} are finite, and
+  after inverting p they are finite étale of degrees p^{g(g+1)/2} and p^{g(g+1)/2+g}. No
+  general integral-flatness assertion is made here.
+
+  Hypotheses:
+  * Siegel setting of Scholze §3: g ≥ 1, p prime, K^p ⊆ GSp_2g(𝔸_f^p) contained in {γ ∈
+  GSp_2g(Ẑ^p) : γ ≡ 1 mod N} for some N ≥ 3 prime to p; ℚ_p^cycl the completion of
+  ℚ_p(μ_{p^∞}) with ring of integers ℤ_p^cycl; p^ε ∈ ℤ_p^cycl a chosen element of valuation ε.
+  * 0 ≤ ε < 1/2 (needed for the strong canonical subgroup of level 1 on 𝔄(p⁻¹ε), whose
+  uniqueness gives the uniqueness of the diagram).
 -/
 
 /- CONTRACT `PerfectoidShimuraVarieties:S1/anticanonical-open-immersions` (theorem)
@@ -904,13 +1052,21 @@ end TauCeti.HodgeTate
 /- CONTRACT `PerfectoidShimuraVarieties:S1/gamma0-infinite-level-perfectoid` (theorem)
   The anticanonical tower at Γ₀(p^∞)-level is perfectoid and its tilt is a perfection
 
-  Statement: Let 0 ≤ ε < 1/2. There are unique perfectoid spaces 𝒳_{Γ₀(p^∞)}(ε)_a, 𝒳*_{Γ₀(p^∞)}(ε)_a
-  and 𝒜_{Γ₀(p^∞)}(ε)_a over ℚ_p^cycl with 𝒳_{Γ₀(p^∞)}(ε)_a ~ lim_m 𝒳_{Γ₀(pᵐ)}(ε)_a and likewise for
-  the other two (tilde-limits in the sense of PerfectoidSpaces:P7/perfectoid-tilde-limit). The tilt
-  of 𝒳*_{Γ₀(p^∞)}(ε)_a is naturally the open subset 𝒳′*^{perf}(ε) ⊆ 𝒳′*^{perf} where |Ha| ≥ |t|^ε,
-  and the tilt of 𝒜_{Γ₀(p^∞)}(ε)_a is 𝒜′^{perf}(ε); here the primed spaces are the Siegel spaces
-  over 𝔽_p((t^{1/(p−1)p^∞})) = (ℚ_p^cycl)^♭, t^♯ = p up to a unit, and ^{perf} is the perfection of
-  PerfectoidSpaces:P7/perfection-tilde-limit.
+  Statement: Let 0 ≤ ε < 1/2. There are unique perfectoid spaces 𝒳_{Γ₀(p^∞)}(ε)_a,
+  𝒳*_{Γ₀(p^∞)}(ε)_a and 𝒜_{Γ₀(p^∞)}(ε)_a over ℚ_p^cycl with 𝒳_{Γ₀(p^∞)}(ε)_a ~ lim_m
+  𝒳_{Γ₀(pᵐ)}(ε)_a and likewise for the other two (tilde-limits in the sense of
+  PerfectoidSpaces:P7/perfectoid-tilde-limit). The tilt of 𝒳*_{Γ₀(p^∞)}(ε)_a is naturally the
+  open subset 𝒳′*^{perf}(ε) ⊆ 𝒳′*^{perf} where |Ha| ≥ |t|^ε, and the tilt of 𝒜_{Γ₀(p^∞)}(ε)_a
+  is 𝒜′^{perf}(ε); here the primed spaces are the Siegel spaces over the completed perfection
+  of 𝔽_p((t^{1/(p−1)})), identified with (ℚ_p^cycl)^♭ after choosing the tilt parameter, t^♯ =
+  p up to a unit, and ^{perf} is the perfection of PerfectoidSpaces:P7/perfection-tilde-limit.
+
+  Hypotheses:
+  * Siegel setting of Scholze §3: g ≥ 1, p prime, K^p ⊆ GSp_2g(𝔸_f^p) contained in {γ ∈
+  GSp_2g(Ẑ^p) : γ ≡ 1 mod N} for some N ≥ 3 prime to p; ℚ_p^cycl the completion of
+  ℚ_p(μ_{p^∞}) with ring of integers ℤ_p^cycl; p^ε ∈ ℤ_p^cycl a chosen element of valuation ε.
+  * 0 ≤ ε < 1/2; the limit runs over the anticanonical tower, which is not a cofinal level
+  system (Γ₀(p^∞) is not open).
 -/
 
 /- CONTRACT `PerfectoidShimuraVarieties:S1/gamma0-boundary-strongly-zariski-closed` (theorem)
@@ -1101,11 +1257,18 @@ end TauCeti.HodgeTate
 /- CONTRACT `PerfectoidShimuraVarieties:S1/translates-cover-tower` (theorem)
   Finitely many GSp_2g(ℚ_p)-translates of a Hasse neighbourhood cover the tower
 
-  Statement: (Lemma 3.3.8) For 0 < ε < 1 there is an open U ⊆ Fl containing Fl(ℚ_p) with |π_HT|⁻¹(U)
-  ⊆ |𝒳*_{Γ(p^∞)}(ε)| ∖ |𝒵_{Γ(p^∞)}(ε)|. (Lemma 3.3.9) Every open U ⊆ Fl containing a ℚ_p-rational
-  point satisfies GSp_2g(ℚ_p)·U = Fl. (Lemma 3.3.10) For 0 < ε < 1 there are γ_1, …, γ_k ∈
-  GSp_2g(ℚ_p) with |𝒳*_{Γ(p^∞)}| ∖ |𝒵_{Γ(p^∞)}| = ⋃_i γ_i·(|𝒳*_{Γ(p^∞)}(ε)| ∖ |𝒵_{Γ(p^∞)}(ε)|).
-  (Lemma 3.3.11) With the same γ_i, |𝒳*_{Γ(p^∞)}| = ⋃_i γ_i·|𝒳*_{Γ(p^∞)}(ε)|.
+  Statement: (Lemma 3.3.8) For 0 < ε < 1 there is an open U ⊆ Fl containing Fl(ℚ_p) with
+  |π_HT|⁻¹(U) ⊆ |𝒳*_{Γ(p^∞)}(ε)| ∖ |𝒵_{Γ(p^∞)}(ε)|. (Lemma 3.3.9) Every open U ⊆ Fl containing
+  a ℚ_p-rational point satisfies GSp_2g(ℚ_p)·U = Fl. (Lemma 3.3.10) For 0 < ε < 1 there are
+  γ_1, …, γ_k ∈ GSp_2g(ℚ_p) with |𝒳*_{Γ(p^∞)}| ∖ |𝒵_{Γ(p^∞)}| = ⋃_i γ_i·(|𝒳*_{Γ(p^∞)}(ε)| ∖
+  |𝒵_{Γ(p^∞)}(ε)|). (Lemma 3.3.11) With the same γ_i, |𝒳*_{Γ(p^∞)}| = ⋃_i
+  γ_i·|𝒳*_{Γ(p^∞)}(ε)|.
+
+  Hypotheses:
+  * Siegel setting of Scholze §3: g ≥ 1, p prime, K^p ⊆ GSp_2g(𝔸_f^p) contained in {γ ∈
+  GSp_2g(Ẑ^p) : γ ≡ 1 mod N} for some N ≥ 3 prime to p; ℚ_p^cycl the completion of
+  ℚ_p(μ_{p^∞}) with ring of integers ℤ_p^cycl; p^ε ∈ ℤ_p^cycl a chosen element of valuation ε.
+  * 0 < ε < 1.
 -/
 
 /- CONTRACT `PerfectoidShimuraVarieties:S1/perfectoid-siegel-space` (theorem)
@@ -1113,54 +1276,70 @@ end TauCeti.HodgeTate
 
   Statement: There is a perfectoid space 𝒳*_{Γ(p^∞)} over ℚ_p^cycl with 𝒳*_{Γ(p^∞)} ~ lim_m
   𝒳*_{Γ(pᵐ)}, unique up to unique isomorphism; for every 0 < ε < 1/2, 𝒳*_{Γ(p^∞)}(ε) =
-  GSp_2g(ℤ_p)·𝒳*_{Γ(p^∞)}(ε)_a and 𝒳*_{Γ(p^∞)} is covered by finitely many GSp_2g(ℚ_p)-translates of
-  the affinoid perfectoid 𝒳*_{Γ(p^∞)}(ε)_a. Its boundary 𝒵_{Γ(p^∞)} carries the induced perfectoid
-  structure. Over C (siegel-similitude-comparison): 𝒳*_{Γ(p^∞)} ×_{Spa ℚ_p} Spa C = 𝒳*_{Γ(p^∞)}
-  ×_{Spa ℚ_p^cycl} Spa C⁰(ℤ_p^×, C) is a perfectoid representative (S0 perfectoid-representative) of
-  the Siegel tower (S*_{K^pK′_p})_{K′_p ⊆ GSp_2g(ℚ_p)} of S0 over C, all similitude components
-  included (Γ(pᵐ) cofinal by S0 siegel-level-subgroups), and 𝒳*_{Γ(p^∞)} ⊗̂_{ℚ_p^cycl} C is only its
-  open and closed fixed-similitude part.
+  GSp_2g(ℤ_p)·𝒳*_{Γ(p^∞)}(ε)_a and 𝒳*_{Γ(p^∞)} is covered by finitely many
+  GSp_2g(ℚ_p)-translates of the affinoid perfectoid 𝒳*_{Γ(p^∞)}(ε)_a. Its boundary 𝒵_{Γ(p^∞)}
+  carries the induced perfectoid structure. Over C (siegel-similitude-comparison): 𝒳*_{Γ(p^∞)}
+  ×_{Spa ℚ_p} Spa C = 𝒳*_{Γ(p^∞)} ×_{Spa ℚ_p^cycl} Spa C⁰(ℤ_p^×, C) is a perfectoid
+  representative (S0 perfectoid-representative) of the Siegel tower (S*_{K^pK′_p})_{K′_p ⊆
+  GSp_2g(ℚ_p)} of S0 over C, all similitude components included (Γ(pᵐ) cofinal by S0 siegel-
+  level-subgroups), and 𝒳*_{Γ(p^∞)} ⊗̂_{ℚ_p^cycl} C is only its closed fixed-similitude fibre,
+  generally not open.
+
+  Hypotheses:
+  * Siegel setting of Scholze §3: g ≥ 1, p prime, K^p ⊆ GSp_2g(𝔸_f^p) contained in {γ ∈
+  GSp_2g(Ẑ^p) : γ ≡ 1 mod N} for some N ≥ 3 prime to p; ℚ_p^cycl the completion of
+  ℚ_p(μ_{p^∞}) with ring of integers ℤ_p^cycl; p^ε ∈ ℤ_p^cycl a chosen element of valuation ε.
 -/
 
 /- CONTRACT `PerfectoidShimuraVarieties:S1/siegel-hodge-tate-period-map` (construction)
   The Siegel Hodge–Tate period map as a map of adic spaces, extended over the boundary
 
   Statement: There is a unique map of adic spaces π_HT: 𝒳*_{Γ(p^∞)} ∖ 𝒵_{Γ(p^∞)} → Fl over ℚ_p
-  realising |π_HT| (Corollary 3.3.13). For every open U ⊆ Fl containing Fl(ℚ_p) there is ε > 0 with
-  𝒳*_{Γ(p^∞)}(ε) ∖ 𝒵_{Γ(p^∞)}(ε) ⊆ π_HT⁻¹(U) (Lemma 3.3.15), and there is 0 < ε < 1/2 with
-  𝒳*_{Γ(p^∞)}(ε)_a ∖ 𝒵_{Γ(p^∞)}(ε)_a ⊆ π_HT⁻¹(Fl_{g+1,…,2g}) (Lemma 3.3.16). π_HT extends uniquely
-  to a GSp_2g(ℚ_p)-equivariant map of adic spaces π_HT: 𝒳*_{Γ(p^∞)} → Fl (Corollary 3.3.17). The
-  action convention: GSp_2g(ℚ_p) acts on 𝒳*_{Γ(p^∞)} on the right by x·γ: α ↦ γ⁻¹ ∘ α (S0's right
-  translations, transported by siegel-similitude-comparison; semilinear over ℚ_p^cycl), and
-  equivariance means π_HT(x·γ) = γ⁻¹·π_HT(x) for the standard left action of GSp_2g(ℚ_p) on Fl,
-  equivalently π_HT(x·γ) = π_HT(x)·γ for the right action W·γ := γ⁻¹W; the conventions of S3 (FL =
-  P_μ\G, BP's x ↦ x⁻¹) are compared there.
+  realising the Hodge–Tate filtration functorially on perfectoid test spaces (and hence
+  inducing |π_HT|) (Corollary 3.3.13). For every open U ⊆ Fl containing Fl(ℚ_p) there is ε > 0
+  with 𝒳*_{Γ(p^∞)}(ε) ∖ 𝒵_{Γ(p^∞)}(ε) ⊆ π_HT⁻¹(U) (Lemma 3.3.15), and there is 0 < ε < 1/2
+  with 𝒳*_{Γ(p^∞)}(ε)_a ∖ 𝒵_{Γ(p^∞)}(ε)_a ⊆ π_HT⁻¹(Fl_{g+1,…,2g}) (Lemma 3.3.16). π_HT extends
+  uniquely to a GSp_2g(ℚ_p)-equivariant map of adic spaces π_HT: 𝒳*_{Γ(p^∞)} → Fl (Corollary
+  3.3.17). The action convention: GSp_2g(ℚ_p) acts on 𝒳*_{Γ(p^∞)} on the right by x·γ: α ↦ γ⁻¹
+  ∘ α (S0's right translations, transported by siegel-similitude-comparison; semilinear over
+  ℚ_p^cycl), and equivariance means π_HT(x·γ) = γ⁻¹·π_HT(x) for the standard left action of
+  GSp_2g(ℚ_p) on Fl, equivalently π_HT(x·γ) = π_HT(x)·γ for the right action W·γ := γ⁻¹W; the
+  conventions of S3 (FL = P_μ\G, BP's x ↦ x⁻¹) are compared there.
+
+  Hypotheses:
+  * Siegel setting of Scholze §3: g ≥ 1, p prime, K^p ⊆ GSp_2g(𝔸_f^p) contained in {γ ∈
+  GSp_2g(Ẑ^p) : γ ≡ 1 mod N} for some N ≥ 3 prime to p; ℚ_p^cycl the completion of
+  ℚ_p(μ_{p^∞}) with ring of integers ℤ_p^cycl; p^ε ∈ ℤ_p^cycl a chosen element of valuation ε.
+  * The extension over the boundary rests on the goodness of the boundary triple (full-level-
+  anticanonical-perfectoid) and on boundedness of the Plücker coordinates on the anticanonical
+  neighbourhood.
 
   API:
-  * `SiegelTorsion.htMap` (constructor): π_HT: 𝒳*_{Γ(p^∞)} → Fl, a map of adic spaces over ℚ_p.
-  * `SiegelTorsion.htMap_top` (compatibility): The underlying continuous map on the complement of
-      the boundary is |π_HT| of continuous-hodge-tate-map.
-  * `SiegelTorsion.htMap_unique` (extensionality): Any two maps of adic spaces 𝒳*_{Γ(p^∞)} → Fl
-      agreeing on the complement of the boundary are equal.
-  * `SiegelTorsion.htMap_equivariant` (functoriality): π_HT(x·γ) = γ⁻¹·π_HT(x) for γ ∈ GSp_2g(ℚ_p),
-      i.e. π_HT ∘ T_γ = (W ↦ γ⁻¹W) ∘ π_HT, with x·γ: α ↦ γ⁻¹ ∘ α the right action of
-      siegel-similitude-comparison.
-  * `SiegelTorsion.htMap_anticanonical` (characterisation): For small ε > 0, π_HT(𝒳*_{Γ(p^∞)}(ε)_a)
-      ⊆ Fl_{g+1,…,2g}.
-  * `SiegelTorsion.htMap_neighbourhood` (characterisation): For every open U ⊇ Fl(ℚ_p) there is ε >
-      0 with 𝒳*_{Γ(p^∞)}(ε) ⊆ π_HT⁻¹(U) away from the boundary.
+  * `SiegelTorsion.htMap` (constructor): π_HT: 𝒳*_{Γ(p^∞)} → Fl, a map of adic spaces over
+  ℚ_p.
+  * `SiegelTorsion.htMap_top` (compatibility): The underlying continuous map on the complement
+  of the boundary is |π_HT| of continuous-hodge-tate-map.
+  * `SiegelTorsion.htMap_unique` (extensionality): Any two maps of adic spaces 𝒳*_{Γ(p^∞)} →
+  Fl agreeing on the complement of the boundary are equal.
+  * `SiegelTorsion.htMap_equivariant` (functoriality): π_HT(x·γ) = γ⁻¹·π_HT(x) for γ ∈
+  GSp_2g(ℚ_p), i.e. π_HT ∘ T_γ = (W ↦ γ⁻¹W) ∘ π_HT, with x·γ: α ↦ γ⁻¹ ∘ α the right action of
+  siegel-similitude-comparison.
+  * `SiegelTorsion.htMap_anticanonical` (characterisation): For small ε > 0,
+  π_HT(𝒳*_{Γ(p^∞)}(ε)_a) ⊆ Fl_{g+1,…,2g}.
+  * `SiegelTorsion.htMap_neighbourhood` (characterisation): For every open U ⊇ Fl(ℚ_p) there
+  is ε > 0 with 𝒳*_{Γ(p^∞)}(ε) ⊆ π_HT⁻¹(U) away from the boundary.
 
   Unit tests:
-  * `htMap_g1_cusps_rational` (computation): For g = 1, the image of every cusp of 𝒳*_{Γ(p^∞)} is a
-      point of ℙ¹(ℚ_p).
-  * `htMap_anticanonical_chart` (computation): For g = 1 and small ε, π_HT(𝒳*_{Γ(p^∞)}(ε)_a) ⊆ {|x|
-      ≤ 1}-type chart Fl_{2} of ℙ¹ (the chart J = {2}).
+  * `htMap_g1_cusps_rational` (computation): For g = 1, the image of every cusp of 𝒳*_{Γ(p^∞)}
+  is a point of ℙ¹(ℚ_p).
+  * `htMap_anticanonical_chart` (computation): For g = 1 and small ε, π_HT(𝒳*_{Γ(p^∞)}(ε)_a) ⊆
+  {|x| ≤ 1}-type chart Fl_{2} of ℙ¹ (the chart J = {2}).
   * `htMap_not_finite_level` (non-example): π_HT does not factor through any finite level
-      𝒳*_{Γ(pᵐ)}: the fibres of 𝒳*_{Γ(p^∞)} → 𝒳*_{Γ(pᵐ)} (a map over ℚ_p^cycl) are orbits of Γ(pᵐ) ∩
-      Sp_2g(ℤ_p) (elements with c ≠ 1 move the structure map to Spa ℚ_p^cycl), on which π_HT is the
-      nonconstant action W ↦ γ⁻¹W on flags.
-  * `htMap_equivariant_center` (degenerate): Scalars z ∈ ℚ_p^× ⊆ GSp_2g(ℚ_p) act trivially on Fl, so
-      π_HT is invariant under the central action.
+  𝒳*_{Γ(pᵐ)}: the fibres of 𝒳*_{Γ(p^∞)} → 𝒳*_{Γ(pᵐ)} (a map over ℚ_p^cycl) are orbits of Γ(pᵐ)
+  ∩ Sp_2g(ℤ_p) (elements with c ≠ 1 move the structure map to Spa ℚ_p^cycl), on which π_HT is
+  the nonconstant action W ↦ γ⁻¹W on flags.
+  * `htMap_equivariant_center` (degenerate): Scalars z ∈ ℚ_p^× ⊆ GSp_2g(ℚ_p) act trivially on
+  Fl, so π_HT is invariant under the central action.
 -/
 
 /- CONTRACT `PerfectoidShimuraVarieties:S1/siegel-main-theorem` (theorem)
@@ -1206,87 +1385,107 @@ end TauCeti.HodgeTate
 /- CONTRACT `PerfectoidShimuraVarieties:S1/siegel-open-tower-and-level-quotients` (construction)
   The open perfectoid Siegel tower, its right action and its finite-level quotients
 
-  Statement: Let 𝒳_{Γ(p^∞),K^p} := 𝒳*_{Γ(p^∞),K^p} ∖ 𝒵_{Γ(p^∞),K^p}, the open perfectoid Siegel
-  tower over ℚ_p^cycl with fixed similitude system (the complement of the boundary, not the
-  good-reduction locus 𝒳_{K_p} of siegel-finite-level-spaces), with the right action of GSp_2g(ℚ_p)
-  of siegel-main-theorem, semilinear over ℚ_p^cycl through u(γ) = c(γ)p^{−v_p(c(γ))}. For a compact
-  open K ⊆ GSp_2g(ℤ_p) with c(K) = 1 + pᵐℤ_p containing some Γ(pⁿ) (in particular the strict Iwahori
-  level K_{Iw⁺} := {γ ∈ GSp_2g(ℤ_p) : γ mod p lies in the diagonal torus T(𝔽_p) and c(γ) ≡ 1 mod p},
-  the inverse image of the full diagonal torus modulo p with similitude 1), let 𝒳^{an}_{K,K^p} :=
-  𝒳*_K ∖ 𝒵_K (the open Siegel variety at level KK^p over ℚ_p^cycl with fixed Weil-pairing root
-  ζ_{pᵐ}, siegel-finite-level-spaces) and K¹ := K ∩ ker c. An element k ∈ K with c(k) ≠ 1 does not
-  act ℚ_p^cycl-linearly (Scholze, footnote 7), so the projection is not a K-torsor over ℚ_p^cycl:
-  for n ≥ m with Γ(pⁿ) ⊆ K the finite-level maps 𝒳^{an}_{Γ(pⁿ),K^p} → 𝒳^{an}_{K,K^p} are finite
-  étale Galois with group (K ∩ c⁻¹(1 + pⁿℤ_p))/Γ(pⁿ), and 𝒳_{Γ(p^∞),K^p} → 𝒳^{an}_{K,K^p} is a
-  pro-étale K¹-torsor; 𝒳^{an}_{K,K^p} is the quotient 𝒳_{Γ(p^∞),K^p}/K¹ in the sense that its
-  diamond is the v-sheaf quotient of the diamond of the tower by K¹. After base change along Spa C →
-  Spa ℚ_p it becomes a K-torsor: ((𝒳_{Γ(p^∞),K^p}) ×_{Spa ℚ_p} Spa C)^◇ ≅ S^◇_{K^p,∞} → S^◇_{K^pK}
-  is a pro-étale K-torsor (S0 tower-action-kernel (iii); its kernel Z(ℚ) ∩ K^pK is trivial because N
-  ≥ 3; siegel-similitude-comparison), and its restriction to the open and closed fixed-similitude
-  part 𝒳_{Γ(p^∞),K^p} ⊗̂_{ℚ_p^cycl} C is the K¹-torsor over 𝒳^{an}_{K,K^p} ⊗_{ℚ_p^cycl} C. The
-  strict Iwahori quotient is defined group-theoretically through K_{Iw⁺}, not by choosing g
-  subgroups of order p (which does not determine it: OverconvergentAutomorphicForms sourceIssue
-  E-O8-1).
+  Statement: Let 𝒳_{Γ(p^∞),K^p} := 𝒳*_{Γ(p^∞),K^p} ∖ 𝒵_{Γ(p^∞),K^p}, the open perfectoid
+  Siegel tower over ℚ_p^cycl with fixed similitude system (the complement of the boundary, not
+  the good-reduction locus 𝒳_{K_p} of siegel-finite-level-spaces), with the right action of
+  GSp_2g(ℚ_p) of siegel-main-theorem, semilinear over ℚ_p^cycl through u(γ) =
+  c(γ)p^{−v_p(c(γ))}. For a compact open K ⊆ GSp_2g(ℤ_p) with c(K) = U_m containing some Γ(pⁿ)
+  (in particular the strict Iwahori level K_{Iw⁺} := {γ ∈ GSp_2g(ℤ_p) : γ mod p lies in the
+  diagonal torus T(𝔽_p) and c(γ) ≡ 1 mod p}, the inverse image of the full diagonal torus
+  modulo p with similitude 1), let 𝒳^{an}_{K,K^p} := 𝒳*_K ∖ 𝒵_K (the open Siegel variety at
+  level KK^p over ℚ_p^cycl with fixed Weil-pairing root ζ_{pᵐ}, siegel-finite-level-spaces)
+  and K¹ := K ∩ ker c. An element k ∈ K with c(k) ≠ 1 does not act ℚ_p^cycl-linearly (Scholze,
+  footnote 7), so the projection is not a K-torsor over ℚ_p^cycl: for n ≥ m with Γ(pⁿ) ⊆ K the
+  finite-level maps 𝒳^{an}_{Γ(pⁿ),K^p} → 𝒳^{an}_{K,K^p} are finite étale Galois with group (K
+  ∩ c⁻¹(1 + pⁿℤ_p))/Γ(pⁿ), and 𝒳_{Γ(p^∞),K^p} → 𝒳^{an}_{K,K^p} is a pro-étale K¹-torsor;
+  𝒳^{an}_{K,K^p} is the quotient 𝒳_{Γ(p^∞),K^p}/K¹ in the sense that its diamond is the
+  v-sheaf quotient of the diamond of the tower by K¹. After base change along Spa C → Spa ℚ_p
+  it becomes a K-torsor: ((𝒳_{Γ(p^∞),K^p}) ×_{Spa ℚ_p} Spa C)^◇ ≅ S^◇_{K^p,∞} → S^◇_{K^pK} is
+  a pro-étale K-torsor (S0 tower-action-kernel (iii); its kernel Z(ℚ) ∩ K^pK is trivial
+  because N ≥ 3; siegel-similitude-comparison), and its restriction to the closed fixed-
+  similitude fibre, generally not open, 𝒳_{Γ(p^∞),K^p} ⊗̂_{ℚ_p^cycl} C is the K¹-torsor over
+  𝒳^{an}_{K,K^p} ⊗_{ℚ_p^cycl} C. The strict Iwahori quotient is defined group-theoretically
+  through K_{Iw⁺}, not by choosing g subgroups of order p (which does not determine it:
+  OverconvergentAutomorphicForms sourceIssue E-O8-1).
+
+  Hypotheses:
+  * Siegel setting of Scholze §3: g ≥ 1, p prime, K^p ⊆ GSp_2g(𝔸_f^p) contained in {γ ∈
+  GSp_2g(Ẑ^p) : γ ≡ 1 mod N} for some N ≥ 3 prime to p; ℚ_p^cycl the completion of
+  ℚ_p(μ_{p^∞}) with ring of integers ℤ_p^cycl; p^ε ∈ ℤ_p^cycl a chosen element of valuation ε.
+  * K contains some Γ(pⁿ) and has c(K) = U_m, so that the level-K space lives over ℚ(ζ_{pᵐ})
+  and is base changed to ℚ_p^cycl along the fixed ζ_{pᵐ}.
+  * Here U_0 = ℤ_p^× and U_m = ker(ℤ_p^× → (ℤ/pᵐ)^×) = 1 + pᵐℤ_p for m ≥ 1. The formula 1 +
+  ℤ_p is not used as a unit subgroup.
 
   API:
   * `SiegelTorsion.openTower` (data): 𝒳_{Γ(p^∞),K^p} = 𝒳*_{Γ(p^∞),K^p} ∖ 𝒵_{Γ(p^∞),K^p}.
-  * `SiegelTorsion.strictIwahori` (constructor): K_{Iw⁺} as the inverse image of the diagonal torus
-      (with similitude 1) modulo p.
-  * `SiegelTorsion.openTower_torsor` (characterisation): 𝒳_{Γ(p^∞),K^p} → 𝒳_{K,K^p} is a pro-étale
-      K¹-torsor, K¹ = K ∩ ker c, for K ⊇ Γ(pⁿ) with c(K) = 1 + pᵐℤ_p; after ×_{Spa ℚ_p} Spa C the
-      corresponding map S^◇_{K^p,∞} → S^◇_{K^pK} of the S0 tower is a K-torsor.
+  * `SiegelTorsion.strictIwahori` (constructor): K_{Iw⁺} as the inverse image of the diagonal
+  torus (with similitude 1) modulo p.
+  * `SiegelTorsion.openTower_torsor` (characterisation): 𝒳_{Γ(p^∞),K^p} → 𝒳_{K,K^p} is a pro-
+  étale K¹-torsor, K¹ = K ∩ ker c, for K ⊇ Γ(pⁿ) with c(K) = U_m; after ×_{Spa ℚ_p} Spa C the
+  corresponding map S^◇_{K^p,∞} → S^◇_{K^pK} of the S0 tower is a K-torsor.
   * `SiegelTorsion.openTower_quotient` (equivalence): (𝒳_{Γ(p^∞),K^p})^◇/K¹ ≅ 𝒳_{K,K^p}^◇.
-  * `SiegelTorsion.openTower_action` (instance): The right action of GSp_2g(ℚ_p), semilinear over
-      ℚ_p^cycl through u(γ); its restriction to K¹ is ℚ_p^cycl-linear and is the action of the deck
-      group of the torsor.
+  * `SiegelTorsion.openTower_action` (instance): The right action of GSp_2g(ℚ_p), semilinear
+  over ℚ_p^cycl through u(γ); its restriction to K¹ is ℚ_p^cycl-linear and is the action of
+  the deck group of the torsor.
 
   Unit tests:
-  * `strictIwahori_quotient_g1` (computation): For g = 1, K_{Iw⁺}/Γ(p) ≅ 𝔽_p^× via diag(a, a⁻¹) ↦ a.
-  * `strictIwahori_not_subgroups` (non-example): For g = 2, prescribing two order-p subgroups (the
-      coordinate lines of the first two basis vectors modulo p) defines a level containing
-      non-diagonal unipotent elements modulo p, strictly larger than K_{Iw⁺}: the group-theoretic
-      definition is required.
-  * `openTower_trivial_quotient` (degenerate): For K = Γ(pⁿ), K¹ = Γ(pⁿ) ∩ Sp_2g(ℤ_p) and 𝒳_{Γ(p^∞)}
-      → 𝒳_{Γ(pⁿ)} is a pro-étale (Γ(pⁿ) ∩ Sp_2g(ℤ_p))-torsor, not a Γ(pⁿ)-torsor over ℚ_p^cycl:
-      diag(1_g, (1 + pⁿ)·1_g) ∈ Γ(pⁿ) raises Weil-pairing roots to the power 1 + pⁿ and so covers
-      the nontrivial automorphism σ_{1+pⁿ} of ℚ_p^cycl.
+  * `strictIwahori_quotient_g1` (computation): For g = 1, K_{Iw⁺}/Γ(p) ≅ 𝔽_p^× via diag(a,
+  a⁻¹) ↦ a.
+  * `strictIwahori_not_subgroups` (non-example): For g = 2, prescribing two order-p subgroups
+  (the coordinate lines of the first two basis vectors modulo p) defines a level containing
+  non-diagonal unipotent elements modulo p, strictly larger than K_{Iw⁺}: the group-theoretic
+  definition is required.
+  * `openTower_trivial_quotient` (degenerate): For K = Γ(pⁿ), K¹ = Γ(pⁿ) ∩ Sp_2g(ℤ_p) and
+  𝒳_{Γ(p^∞)} → 𝒳_{Γ(pⁿ)} is a pro-étale (Γ(pⁿ) ∩ Sp_2g(ℤ_p))-torsor, not a Γ(pⁿ)-torsor over
+  ℚ_p^cycl: diag(1_g, (1 + pⁿ)·1_g) ∈ Γ(pⁿ) raises Weil-pairing roots to the power 1 + pⁿ and
+  so covers the nontrivial automorphism σ_{1+pⁿ} of ℚ_p^cycl.
   * `openTower_kernel_trivial` (compatibility): After base change to C, K acts freely on
-      S^◇_{K^p,∞}: the kernel computed by PerfectoidShimuraVarieties:S0/tower-action-kernel is
-      trivial for N ≥ 3; hence K¹ acts freely on 𝒳_{Γ(p^∞),K^p}.
+  S^◇_{K^p,∞}: the kernel computed by PerfectoidShimuraVarieties:S0/tower-action-kernel is
+  trivial for N ≥ 3; hence K¹ acts freely on 𝒳_{Γ(p^∞),K^p}.
 -/
 
 /- CONTRACT `PerfectoidShimuraVarieties:S1/elliptic-cusps-at-infinite-level` (theorem)
   The perfectoid modular curve at the cusps: Tate-curve parameter spaces at infinite level
 
-  Statement: Let g = 1, N ≥ 3 prime to p, X* the compactified modular curve over a perfectoid K ⊇
-  ℚ_p(μ_{p^∞}) of tame level Γ^p with Γ(N) ⊆ Γ^p ⊆ GL_2(ℤ/N), and x a cusp of X* with field L_x and
-  width e_x, with its analytic Tate-curve parameter space D_x ↪ X* (the open disc |q| < 1 with the
-  cusp at q = 0; Heuer Lemma 2.9). Let D_{∞,x} be the open subspace |q| < 1 of Spa(L_x⟨q^{1/p^∞}⟩,
-  𝒪_{L_x}⟨q^{1/p^∞}⟩), a perfectoid tilde-limit of the discs D_{n,x} with coordinate q^{1/pⁿ}, with
-  𝒪⁺(D_∞) = 𝒪_L[[q^{1/p^∞}]] (completed). Here Γ₀(p^∞), the Γ₁- and Γ-levels and 𝒳*_{Γ(p^∞)},
-  𝒳*_{Γ₁(p^∞)}(ε)_a are Heuer's GL_2 objects over K, with classical level groups and the Weil
-  pairing unrestricted (Heuer Definition 2.7: Γ₀(pᵐ) = {(∗ ∗; c ∗) ∈ GL_2(ℤ_p) : c ≡ 0 mod pᵐ}, so
-  Γ₀(p^∞) is the group of all upper triangular matrices, not S0's {(a b; 0 a⁻¹)}). Heuer's
-  𝒳*_{Γ(p^∞)} is 𝒳*^{S1}_{Γ(p^∞)} ×_{Spa ℚ_p} Spa K for S1's fixed-similitude space 𝒳*^{S1}_{Γ(p^∞)}
-  (siegel-similitude-comparison (ii) with L = K), the disjoint union over a ∈ ℤ_p^× of the parts
-  with Weil-pairing root ζ^a, and 𝒳*^{S1}_{Γ(p^∞)} ⊗̂_{ℚ_p^cycl} K is its part a = 1; at the Γ₀- and
-  Γ₁-levels Heuer's spaces are the base changes to K of S1's (the determinant condition being
-  absorbed by the fixed ζ_{pⁿ}). Heuer's GL_2(ℤ_p)-action is the left action γ·x = x·γ^∨, γ^∨ =
-  det(γ)γ⁻¹, i.e. S0's right action by γ^∨ (Heuer §2.7); it multiplies the Weil-pairing root by
-  c(γ^∨) = det γ. Then: (1) there is a Cartesian tower Γ₀(p^∞) × D_{∞,x} → ℤ_p^× × D_{∞,x} → D_{∞,x}
-  → D_x over 𝒳*_{Γ(p^∞)}(ε)_a → 𝒳*_{Γ₁(p^∞)}(ε)_a → 𝒳*_{Γ₀(p^∞)}(ε)_a → 𝒳*(ε), with Γ₀(p^∞) = upper
-  triangular matrices in GL_2(ℤ_p) (as a profinite perfectoid space), the top-left map sending (a b;
-  0 d) to d; the cusp obtained by specialising at (a b; 0 d) corresponds to the basis (q^{d/p^∞},
-  ζ_{p^∞}^a q^{−b/p^∞}) of T_pT(q); (2) with the right action of ℤ_p on GL_2(ℤ_p) × D_{∞,x}, (γ,
-  q^{1/pⁿ})·h = (γ(1 0; h 1), q^{1/pⁿ}ζ_{pⁿ}^{h/e_x}), the quotient (GL_2(ℤ_p) × D_{∞,x})/ℤ_p exists
-  as a perfectoid space and there is a Cartesian square with D_x → X* whose left map (GL_2(ℤ_p) ×
-  D_{∞,x})/ℤ_p → 𝒳*_{Γ(p^∞)} (Heuer's) is an open immersion, equivariant for left multiplication on
-  the first factor and γ·x = x·γ^∨; the point (γ, q) has Weil-pairing root ζ^{det γ} (for the
-  normalisation e(α⁻¹e_1, α⁻¹e_2) = ζ of Heuer Lemma 2.25), so the restriction (SL_2(ℤ_p) ×
-  D_{∞,x})/ℤ_p → 𝒳*^{S1}_{Γ(p^∞)} ⊗̂_{ℚ_p^cycl} K is an SL_2(ℤ_p)-equivariant open immersion into
-  S1's space, SL_2(ℤ_p) acting there by x ↦ x·γ⁻¹; (3) π_HT restricts to the locally constant map (γ
-  = (a b; c d), q) ↦ (b : d) ∈ ℙ¹(ℤ_p). This is the local perfectoid q-disc construction at elliptic
-  cusps that the Siegel argument (Hartogs, codimension ≥ 2) does not provide for g = 1.
+  Statement: Let g = 1, N ≥ 3 prime to p, X* the compactified modular curve over a perfectoid
+  K ⊇ ℚ_p(μ_{p^∞}) of tame level Γ^p with Γ(N) ⊆ Γ^p ⊆ GL_2(ℤ/N), and x a cusp of X* with
+  field L_x and width e_x, with its analytic Tate-curve parameter space D_x ↪ X* (the open
+  disc |q| < 1 with the cusp at q = 0; Heuer Lemma 2.9). Let D_{∞,x} be the open subspace |q|
+  < 1 of Spa(L_x⟨q^{1/p^∞}⟩, 𝒪_{L_x}⟨q^{1/p^∞}⟩), a perfectoid tilde-limit of the discs
+  D_{n,x} with coordinate q^{1/pⁿ}, with 𝒪⁺(D_∞) = 𝒪_L[[q^{1/p^∞}]] (completed). Here Γ₀(p^∞),
+  the Γ₁- and Γ-levels and 𝒳*_{Γ(p^∞)}, 𝒳*_{Γ₁(p^∞)}(ε)_a are Heuer's GL_2 objects over K,
+  with classical level groups and the Weil pairing unrestricted (Heuer Definition 2.7: Γ₀(pᵐ)
+  = {(∗ ∗; c ∗) ∈ GL_2(ℤ_p) : c ≡ 0 mod pᵐ}, so Γ₀(p^∞) is the group of all upper triangular
+  matrices, not S0's {(a b; 0 a⁻¹)}). Heuer's 𝒳*_{Γ(p^∞)} is 𝒳*^{S1}_{Γ(p^∞)} ×_{Spa ℚ_p} Spa
+  K for S1's fixed-similitude space 𝒳*^{S1}_{Γ(p^∞)} (siegel-similitude-comparison (ii) with L
+  = K), a profinite family indexed by a ∈ ℤ_p^× of the closed fibres with Weil-pairing root
+  ζ^a, rather than a coproduct of open fibres, and 𝒳*^{S1}_{Γ(p^∞)} ⊗̂_{ℚ_p^cycl} K is its
+  part a = 1; at the Γ₀- and Γ₁-levels Heuer's spaces are the base changes to K of S1's (the
+  determinant condition being absorbed by the fixed ζ_{pⁿ}). Heuer's GL_2(ℤ_p)-action is the
+  left action γ·x = x·γ^∨, γ^∨ = det(γ)γ⁻¹, i.e. S0's right action by γ^∨ (Heuer §2.7); it
+  multiplies the Weil-pairing root by c(γ^∨) = det γ. Then: (1) there is a Cartesian tower
+  Γ₀(p^∞) × D_{∞,x} → ℤ_p^× × D_{∞,x} → D_{∞,x} → D_x over 𝒳*_{Γ(p^∞)}(ε)_a →
+  𝒳*_{Γ₁(p^∞)}(ε)_a → 𝒳*_{Γ₀(p^∞)}(ε)_a → 𝒳*(ε), with Γ₀(p^∞) = upper triangular matrices in
+  GL_2(ℤ_p) (as a profinite perfectoid space), the top-left map sending (a b; 0 d) to d; the
+  cusp obtained by specialising at (a b; 0 d) corresponds to the basis (q^{d/p^∞}, ζ_{p^∞}^a
+  q^{−b/p^∞}) of T_pT(q); (2) with the right action of ℤ_p on GL_2(ℤ_p) × D_{∞,x}, (γ,
+  q^{1/pⁿ})·h = (γ(1 0; h 1), q^{1/pⁿ}ζ_{pⁿ}^{h/e_x}), the quotient (GL_2(ℤ_p) × D_{∞,x})/ℤ_p
+  exists as a perfectoid space and there is a Cartesian square with D_x → X* whose left map
+  (GL_2(ℤ_p) × D_{∞,x})/ℤ_p → 𝒳*_{Γ(p^∞)} (Heuer's) is an open immersion, equivariant for left
+  multiplication on the first factor and γ·x = x·γ^∨; the point (γ, q) has Weil-pairing root
+  ζ^{det γ} (for the normalisation e(α⁻¹e_1, α⁻¹e_2) = ζ of Heuer Lemma 2.25), so the
+  restriction (SL_2(ℤ_p) × D_{∞,x})/ℤ_p → 𝒳*^{S1}_{Γ(p^∞)} ⊗̂_{ℚ_p^cycl} K is an
+  SL_2(ℤ_p)-equivariant open immersion into S1's space, SL_2(ℤ_p) acting there by x ↦ x·γ⁻¹;
+  (3) π_HT restricts to the locally constant map (γ = (a b; c d), q) ↦ (b : d) ∈ ℙ¹(ℤ_p). This
+  is the local perfectoid q-disc construction at elliptic cusps that the Siegel argument
+  (Hartogs, codimension ≥ 2) does not provide for g = 1.
+
+  Hypotheses:
+  * g = 1; K contains all p-power roots of unity, with a fixed compatible system ζ_{pⁿ}; 0 ≤ ε
+  small as in S1.
+  * Scholze leaves the g = 1 compactified case 'to the reader'; Heuer's paper supplies it with
+  elementary means instead of the Hebbarkeitssatz.
 -/
 
 
@@ -1296,39 +1495,53 @@ end TauCeti.HodgeTate
 /- CONTRACT `PerfectoidShimuraVarieties:S2/hodge-type-embedding-and-siegel-comparison` (construction)
   The symplectic embedding and the comparison of finite levels with their Siegel images
 
-  Statement: Let (G, X) be of Hodge type with a fixed embedding ι: (G, X) ↪ (G′, X′) = (GSp_2g,
-  H_g^±) and reflex field E. For compact open K ⊆ G(𝔸_f) and K′ ⊆ G′(𝔸_f) with K = K′ ∩ G(𝔸_f), ι
-  induces finite morphisms Sh_K(G, X) → Sh_{K′}(G′, X′) ⊗_ℚ E and Sh*_K(G, X) → Sh*_{K′}(G′, X′) ⊗_ℚ
-  E of canonical models and of their minimal compactifications over E, compatible with level maps
-  and right translations; for every K there is such a K′ (which may be taken in any prescribed
-  neighbourhood basis) for which Sh_K → Sh_{K′} ⊗ E is a closed immersion (Deligne, Travaux de
-  Shimura, Proposition 1.15, descended to E by the canonical-model property), and then the boundary
-  of the image of Sh*_K is the intersection of the image with the boundary of Sh*_{K′} (the extended
-  map preserves interiors and boundaries). The tame-level hypothesis of Scholze (K^p inside the
-  level-N subgroup of G′(𝔸_f^p), N ≥ 3 prime to p) is a choice of such K′^p.
+  Statement: Let (G, X) be of Hodge type with a fixed embedding ι: (G, X) ↪ (G′, X′) =
+  (GSp_2g, H_g^±) and reflex field E. For compact open K ⊆ G(𝔸_f) and K′ ⊆ G′(𝔸_f) with K = K′
+  ∩ G(𝔸_f), ι induces finite morphisms Sh_K(G, X) → Sh_{K′}(G′, X′) ⊗_ℚ E and Sh*_K(G, X) →
+  Sh*_{K′}(G′, X′) ⊗_ℚ E of canonical models and of their minimal compactifications over E,
+  compatible with level maps and right translations; for every K there is such a K′ (chosen
+  sufficiently small among compact open neighbourhoods of K in G′(𝔸_f); an arbitrary identity
+  neighbourhood need not contain the fixed K) for which Sh_K → Sh_{K′} ⊗ E is a closed
+  immersion (Deligne, Travaux de Shimura, Proposition 1.15, descended to E by the canonical-
+  model property), and then the boundary of the image of Sh*_K is the intersection of the
+  image with the boundary of Sh*_{K′} (the extended map preserves interiors and boundaries).
+  The tame-level hypothesis of Scholze (K^p inside the level-N subgroup of G′(𝔸_f^p), N ≥ 3
+  prime to p) is a choice of such K′^p.
+
+  Hypotheses:
+  * (G, X) a Shimura datum of Hodge type in Deligne's setup (ShimuraData:D4/hodge-type): a
+  closed embedding ι: (G, X) ↪ (GSp_2g, H_g^±) into a Siegel datum, fixed once and for all;
+  Scholze's (G, D) ↪ (Sp_2g, D) setup is the restriction to a connected component and is not
+  used for statements.
+  * The finiteness of the extension of ι to minimal compactifications and the boundary
+  compatibility are not proved in Scholze (§4.1) or Hansen–Johansson (p. 34); they are
+  requested from ShimuraVarieties V8 (extension of datum morphisms to minimal
+  compactifications), whose node minimal-map-extension states finiteness only for level maps.
 
   API:
   * `HodgeTower.embedding` (data): The fixed embedding ι: (G, X) ↪ (GSp_2g, H_g^±).
-  * `HodgeTower.toSiegel` (constructor): The finite map Sh*_K(G, X) → Sh*_{K′}(G′, X′) ⊗ E for K =
-      K′ ∩ G(𝔸_f).
-  * `HodgeTower.toSiegel_isClosedImmersion` (characterisation): On open parts, a closed immersion
-      for all sufficiently small K′ with K = K′ ∩ G(𝔸_f).
-  * `HodgeTower.toSiegel_boundary` (characterisation): The preimage of the Siegel boundary is the
-      boundary of Sh*_K.
-  * `HodgeTower.toSiegel_comp` (functoriality): Compatibility with level maps and right translations
-      by G(𝔸_f) ⊆ G′(𝔸_f).
-  * `HodgeTower.toSiegel_finite` (characterisation): The map of minimal compactifications is finite.
+  * `HodgeTower.toSiegel` (constructor): The finite map Sh*_K(G, X) → Sh*_{K′}(G′, X′) ⊗ E for
+  K = K′ ∩ G(𝔸_f).
+  * `HodgeTower.toSiegel_isClosedImmersion` (characterisation): On open parts, a closed
+  immersion for all sufficiently small K′ with K = K′ ∩ G(𝔸_f).
+  * `HodgeTower.toSiegel_boundary` (characterisation): The preimage of the Siegel boundary is
+  the boundary of Sh*_K.
+  * `HodgeTower.toSiegel_comp` (functoriality): Compatibility with level maps and right
+  translations by G(𝔸_f) ⊆ G′(𝔸_f).
+  * `HodgeTower.toSiegel_finite` (characterisation): The map of minimal compactifications is
+  finite.
 
   Unit tests:
-  * `toSiegel_identity` (degenerate): For ι = id on the Siegel datum, toSiegel is the identity at
-      every level.
-  * `toSiegel_hilbert` (computation): For F real quadratic and the trace embedding, the image of the
-      Hilbert modular surface in the Siegel threefold is the Humbert surface of discriminant d_F.
-  * `toSiegel_not_closed_large_level` (non-example): For K′ = GSp_4(Ẑ)-type maximal level, the map
-      from the Hilbert modular surface is generically 2 : 1 onto its image (the Galois involution of
-      F/ℚ), so the closed-immersion statement needs K′ small.
-  * `toSiegel_points` (compatibility): On ℂ-points the map is [x, a] ↦ [ι(x), ι(a)] between the
-      double-coset descriptions of ShimuraVarieties:V1/analytic-points.
+  * `toSiegel_identity` (degenerate): For ι = id on the Siegel datum, toSiegel is the identity
+  at every level.
+  * `toSiegel_hilbert` (computation): For F real quadratic and the trace embedding, the image
+  of the Hilbert modular surface in the Siegel threefold is the Humbert surface of
+  discriminant d_F.
+  * `toSiegel_not_closed_large_level` (non-example): For K′ = GSp_4(Ẑ)-type maximal level, the
+  map from the Hilbert modular surface is generically 2 : 1 onto its image (the Galois
+  involution of F/ℚ), so the closed-immersion statement needs K′ small.
+  * `toSiegel_points` (compatibility): On ℂ-points the map is [x, a] ↦ [ι(x), ι(a)] between
+  the double-coset descriptions of ShimuraVarieties:V1/analytic-points.
 -/
 
 /- CONTRACT `PerfectoidShimuraVarieties:S2/image-compactification` (construction)
@@ -1449,11 +1662,17 @@ end TauCeti.HodgeTate
 /- CONTRACT `PerfectoidShimuraVarieties:S2/genuine-to-image-comparison` (comparison)
   Comparison of the genuine and image-compactified Hodge-type towers
 
-  Statement: For (G, X) of Hodge type and K^p as in hodge-image-compactified-tower, the finite maps
-  Sh*_K → X^{*̲}_K of image-compactification induce a G(ℚ_p)-equivariant quasicompact map 𝒳*_{K^p} →
-  𝒳^{*̲}_{K^p} of perfectoid spaces over C, which is an isomorphism over the open tower S_{K^p}
-  (hodge-open-perfectoid-tower) and maps boundary to boundary. Whether it is an isomorphism is not
-  known in general and is not asserted.
+  Statement: For (G, X) of Hodge type and K^p as in hodge-image-compactified-tower, the finite
+  maps Sh*_K → X^{*̲}_K of image-compactification induce a G(ℚ_p)-equivariant quasicompact map
+  𝒳*_{K^p} → 𝒳^{*̲}_{K^p} of perfectoid spaces over C, which is an isomorphism over the open
+  tower S_{K^p} (hodge-open-perfectoid-tower) and maps boundary to boundary. Whether it is an
+  isomorphism is not known in general and is not asserted.
+
+  Hypotheses:
+  * (G, X) a Shimura datum of Hodge type in Deligne's setup (ShimuraData:D4/hodge-type): a
+  closed embedding ι: (G, X) ↪ (GSp_2g, H_g^±) into a Siegel datum, fixed once and for all;
+  Scholze's (G, D) ↪ (Sp_2g, D) setup is the restriction to a connected component and is not
+  used for statements.
 -/
 
 /- CONTRACT `PerfectoidShimuraVarieties:S2/embedding-independence` (theorem)
@@ -1474,56 +1693,65 @@ end TauCeti.HodgeTate
 /- CONTRACT `PerfectoidShimuraVarieties:S3/levi-torsor-over-flag-variety` (construction)
   The flag variety FL_{G,μ} = P_μ\G with its right action and the Levi torsor over it
 
-  Statement: Let G be a reductive group over a field F of characteristic 0 (or a p-adic field) with
-  a cocharacter μ defined over F. The Hodge–Tate flag variety is FL_{G,μ} := P_μ\G, with G acting by
-  right translation; its analytification over a p-adic field is FL^{an}. The quotient U_{P_μ}\G →
-  P_μ\G is a right M_μ-torsor (M_μ acting through P_μ/U_{P_μ} ≅ M_μ by left multiplication twisted
-  to a right action m·(U x) = U m⁻¹ x), G-equivariant for right translation. Dictionary: Scholze's
-  and Caraiani–Scholze's flag variety G/P_μ with left G-action is identified with P_μ\G by gP_μ ↦
-  P_μ g⁻¹. For the Siegel datum the cocharacter is pinned as μ(t) = diag(1_g, t·1_g) (BP26 §3.1), so
-  Ad μ(t)(A B; C D) = (A t⁻¹B; tC D) and P_μ = {(A B; C D) : B = 0} = Stab⟨e_{g+1}, …, e_{2g}⟩, the
-  opposite of the Hodge parabolic P_μ^std = Stab⟨e_1, …, e_g⟩ = {C = 0}; P_μ·x ↦ (the row space of
-  the top g rows of x) identifies P_μ\GSp_2g with the Lagrangian Grassmannian of row spaces, with
-  right action by right multiplication. BP26's convention is π_HT(A, Ψ) = P_μ·g(Ψ)⁻¹ where
-  Ψ(g(Ψ)⟨e_{g+1}, …, e_{2g}⟩) = Lie A(1), and Scholze's Fl (Lagrangian subspaces W ⊆ ℚ_p^{2g})
-  corresponds to W = g(Ψ)⟨e_{g+1}, …, e_{2g}⟩, whose annihilator W^⊥ for the pairing of row with
-  column vectors is the row space of the top g rows of g(Ψ)⁻¹; this is well defined on P_μ\G exactly
-  because P_μ stabilises ⟨e_{g+1}, …, e_{2g}⟩. The universal P_μ-torsor over FL is G → FL, x ↦ P_μ x
-  (a right P_μ-torsor after x ↦ x⁻¹), and G-equivariant vector bundles on FL attached to
-  P_μ-representations V are G ×^{P_μ} V; for representations inflated from M_μ they are the bundles
-  associated with U_{P_μ}\G.
+  Statement: Let G be a reductive group over a field F of characteristic 0 (or a p-adic field)
+  with a cocharacter μ defined over F. The Hodge–Tate flag variety is FL_{G,μ} := P_μ\G, with
+  G acting by right translation; its analytification over a p-adic field is FL^{an}. The
+  quotient U_{P_μ}\G → P_μ\G is a right M_μ-torsor (M_μ acting through P_μ/U_{P_μ} ≅ M_μ by
+  left multiplication twisted to a right action m·(U x) = U m⁻¹ x), G-equivariant for right
+  translation. Dictionary: Scholze's and Caraiani–Scholze's flag variety G/P_μ with left
+  G-action is identified with P_μ\G by gP_μ ↦ P_μ g⁻¹. For the Siegel datum the cocharacter is
+  pinned as μ(t) = diag(1_g, t·1_g) (BP26 §3.1), so Ad μ(t)(A B; C D) = (A t⁻¹B; tC D) and P_μ
+  = {(A B; C D) : B = 0} = Stab⟨e_{g+1}, …, e_{2g}⟩, the opposite of the Hodge parabolic
+  P_μ^std = Stab⟨e_1, …, e_g⟩ = {C = 0}; P_μ·x ↦ (the row space of the top g rows of x)
+  identifies P_μ\GSp_2g with the Lagrangian Grassmannian of row spaces, with right action by
+  right multiplication. BP26's convention is π_HT(A, Ψ) = P_μ·g(Ψ)⁻¹ where Ψ(g(Ψ)⟨e_{g+1}, …,
+  e_{2g}⟩) = Lie A(1), and Scholze's Fl (Lagrangian subspaces W ⊆ ℚ_p^{2g}) corresponds to W =
+  g(Ψ)⟨e_{g+1}, …, e_{2g}⟩, whose annihilator W^⊥ for the pairing of row with column vectors
+  is the row space of the top g rows of g(Ψ)⁻¹; this is well defined on P_μ\G exactly because
+  P_μ stabilises ⟨e_{g+1}, …, e_{2g}⟩. The universal P_μ-torsor over FL is G → FL, x ↦ P_μ x
+  (a right P_μ-torsor after x ↦ x⁻¹), and G-equivariant vector bundles on FL attached to P_μ-
+  representations V are G ×^{P_μ} V; for representations inflated from M_μ they are the
+  bundles associated with U_{P_μ}\G.
+
+  Hypotheses:
+  * G reductive, μ a cocharacter defined over the base; the Bruhat decomposition and Schubert
+  cells are ShimuraData:D3/bruhat-integral.
+  * No AutomorphicBundles node states the M_μ-torsor structure of U_{P_μ}\G over the
+  Hodge–Tate flag variety; AutomorphicBundles:B0/homogeneous-hodge-torsor treats the Hodge
+  side G/P^std.
 
   API:
   * `HodgeTate.FL` (data): FL_{G,μ} = P_μ\G with the right G-action.
   * `HodgeTate.leviTorsor` (constructor): U_{P_μ}\G → FL as a G-equivariant right M_μ-torsor.
-  * `HodgeTate.FL_equivLeftFlag` (equivalence): G/P_μ ≅ P_μ\G, gP_μ ↦ P_μg⁻¹, exchanging left and
-      right actions.
-  * `HodgeTate.associatedBundle` (constructor): For a P_μ-representation V, the G-equivariant bundle
-      G ×^{P_μ} V on FL; for V inflated from M_μ it is leviTorsor ×^{M_μ} V.
-  * `HodgeTate.associatedBundle_tensor` (structure): The associated-bundle functor is exact and
-      tensor.
-  * `HodgeTate.FL_siegel` (compatibility): For GSp_2g with μ(t) = diag(1_g, t·1_g): P_μ = {B = 0} =
-      Stab⟨e_{g+1}, …, e_{2g}⟩, FL is the Lagrangian Grassmannian through P_μ·x ↦ the row space of
-      the top g rows of x, and Scholze's Fl corresponds by W = g⟨e_{g+1}, …, e_{2g}⟩ ↔ P_μ·g⁻¹, W^⊥
-      being the row space of the top g rows of g⁻¹.
+  * `HodgeTate.FL_equivLeftFlag` (equivalence): G/P_μ ≅ P_μ\G, gP_μ ↦ P_μg⁻¹, exchanging left
+  and right actions.
+  * `HodgeTate.associatedBundle` (constructor): For a P_μ-representation V, the G-equivariant
+  bundle G ×^{P_μ} V on FL; for V inflated from M_μ it is leviTorsor ×^{M_μ} V.
+  * `HodgeTate.associatedBundle_tensor` (structure): The associated-bundle functor is exact
+  and tensor.
+  * `HodgeTate.FL_siegel` (compatibility): For GSp_2g with μ(t) = diag(1_g, t·1_g): P_μ = {B =
+  0} = Stab⟨e_{g+1}, …, e_{2g}⟩, FL is the Lagrangian Grassmannian through P_μ·x ↦ the row
+  space of the top g rows of x, and Scholze's Fl corresponds by W = g⟨e_{g+1}, …, e_{2g}⟩ ↔
+  P_μ·g⁻¹, W^⊥ being the row space of the top g rows of g⁻¹.
 
   Unit tests:
-  * `FL_gl2_P1` (computation): For GL_2 and μ(t) = diag(1, t), P_μ is lower triangular and FL_{G,μ}
-      ≅ ℙ¹ by P_μ·x ↦ the line of the first row of x; the chart point P_μ·(1 z; 0 1) corresponds to
-      the row (1, z), and g = (a b; c d) acts on the right by z ↦ (b + dz)/(a + cz), since (1, z)g =
-      (a + cz)(1, (b + dz)/(a + cz)); this is the g = 1 case of siegel-graph-chart-and-frame.
-  * `FL_parabolic_pinned` (non-example): For GL_2 and μ(t) = diag(t, 1) the limit parabolic is upper
-      triangular, and P·x ↦ the line of the first row of x is not well defined on P\GL_2: (1 1; 0 1)
-      ∈ P, so P·(1 1; 0 1) = P·1, but the first rows (1, 1) and (1, 0) span different lines. The
-      pinned μ(t) = diag(1, t) is needed for the row-space dictionary.
-  * `FL_trivial_mu` (degenerate): For μ central, P_μ = G, FL is a point and the Levi torsor is G\G =
-      point with M_μ = G.
-  * `FL_left_right_inverse` (non-example): The identity map G/P_μ → P_μ\G does not exist (different
-      quotients); using gP ↦ Pg instead of Pg⁻¹ is not equivariant: it turns the left action into a
-      right action of the opposite group.
+  * `FL_gl2_P1` (computation): For GL_2 and μ(t) = diag(1, t), P_μ is lower triangular and
+  FL_{G,μ} ≅ ℙ¹ by P_μ·x ↦ the line of the first row of x; the chart point P_μ·(1 z; 0 1)
+  corresponds to the row (1, z), and g = (a b; c d) acts on the right by z ↦ (b + dz)/(a +
+  cz), since (1, z)g = (a + cz)(1, (b + dz)/(a + cz)); this is the g = 1 case of siegel-graph-
+  chart-and-frame.
+  * `FL_parabolic_pinned` (non-example): For GL_2 and μ(t) = diag(t, 1) the limit parabolic is
+  upper triangular, and P·x ↦ the line of the first row of x is not well defined on P\GL_2: (1
+  1; 0 1) ∈ P, so P·(1 1; 0 1) = P·1, but the first rows (1, 1) and (1, 0) span different
+  lines. The pinned μ(t) = diag(1, t) is needed for the row-space dictionary.
+  * `FL_trivial_mu` (degenerate): For a central cocharacter, U_P = 1 and M_μ = G; the Levi
+  torsor is G → point.
+  * `FL_left_right_inverse` (non-example): The identity map G/P_μ → P_μ\G does not exist
+  (different quotients); using gP ↦ Pg instead of Pg⁻¹ is not equivariant: it turns the left
+  action into a right action of the opposite group.
   * `FL_compact_dual` (compatibility): Over ℂ, FL_{G,μ} is the compact dual of
-      ShimuraData:D3/compact-dual after inversion and passage from the Hodge to the opposite
-      parabolic.
+  ShimuraData:D3/compact-dual after inversion and passage from the Hodge to the opposite
+  parabolic.
 -/
 
 /- CONTRACT `PerfectoidShimuraVarieties:S3/siegel-period-map-properties` (theorem)
@@ -1540,17 +1768,26 @@ end TauCeti.HodgeTate
 /- CONTRACT `PerfectoidShimuraVarieties:S3/siegel-tautological-pullback` (theorem)
   Siegel case: the tautological bundles pull back to Lie A and ω
 
-  Statement: Let W ⊆ 𝒪_Fl^{2g} be the universal totally isotropic subbundle and ω_Fl = (∧^g W)^∨.
-  (v) Over the open perfectoid Siegel tower 𝒳_{Γ(p^∞),K^p} there is a natural
+  Statement: Let W ⊆ 𝒪_Fl^{2g} be the universal totally isotropic subbundle and ω_Fl = (∧^g
+  W)^∨. (v) Over the open perfectoid Siegel tower 𝒳_{Γ(p^∞),K^p} there is a natural
   GSp_2g(ℚ_p)-equivariant isomorphism Lie A ⊗ 𝒪(1) ≅ π_HT^*W, equivalently π_HT^*(𝒪^{2g}/W) ≅
-  ω_{A^∨} through the Hodge–Tate map (the canonical, twist-free form), and π_HT^*W^∨ ≅ ω_A(−1);
-  Scholze states Lie A ≅ π_HT^*W after suppressing Tate twists over ℚ_p^cycl, i.e. after
-  trivialising ℤ_p(1) by the fixed compatible system ζ_{p^∞}, a trivialisation that GSp_2g(ℚ_p)
-  moves through the similitude character. (vi) Over the whole minimally compactified tower
-  𝒳*_{Γ(p^∞),K^p}, with ω the Hodge line bundle pulled back from finite level, there is a natural
-  GSp_2g(ℚ_p)-equivariant isomorphism ω ≅ π_HT^*ω_Fl (with the same twist convention), extending the
-  dual top exterior power of (v); both isomorphisms are compatible with change of tame level and
-  prime-to-p Hecke operators.
+  ω_{A^∨} through the Hodge–Tate map (the canonical, twist-free form), and π_HT^*W^∨ ≅
+  ω_A(−1); Scholze states Lie A ≅ π_HT^*W after suppressing Tate twists over ℚ_p^cycl, i.e.
+  after trivialising ℤ_p(1) by the fixed compatible system ζ_{p^∞}, a trivialisation that
+  GSp_2g(ℚ_p) moves through the similitude character. (vi) Over the whole minimally
+  compactified tower 𝒳*_{Γ(p^∞),K^p}, with ω the Hodge line bundle pulled back from finite
+  level, there is a natural GSp_2g(ℚ_p)-equivariant isomorphism π_HT^*ω_Fl ≅ ω(−g), extending
+  the dual top exterior power of (v); both isomorphisms are compatible with change of tame
+  level and prime-to-p Hecke operators.
+
+  Hypotheses:
+  * Siegel datum, K^p as in S1.
+  * Fargues' bound (Fargues–Genestier–Lafforgue, Théorème II.1.1) is proved only for p ≠ 2;
+  for p = 2 the integral bound of (vi) comes from the induction on g.
+  * The determinant of π_HT^*W^∨ ≅ ω_A(−1) is ω(−g). A choice of ζ trivializes the Tate line
+  and yields an untwisted underlying-bundle identification; equivariance of that untwisted
+  form requires transporting the linearization, since the action on ζ is through the
+  similitude character.
 -/
 
 /- CONTRACT `PerfectoidShimuraVarieties:S3/siegel-graph-chart-and-frame` (construction)
@@ -1621,81 +1858,112 @@ end TauCeti.HodgeTate
 /- CONTRACT `PerfectoidShimuraVarieties:S3/hodge-period-map-datum-functoriality` (theorem)
   Functoriality of the Hodge-type period map in morphisms of Shimura data
 
-  Statement: Let f: (G₁, X₁) → (G₂, X₂) be a morphism of Hodge-type Shimura data, K₁^p, K₂^p with
-  f(K₁^p) ⊆ K₂^p sufficiently small, and f̃: S_{K₁^p} → S_{K₂^p} the induced G₁(ℚ_p)-equivariant map
-  of open perfectoid towers (S0 functoriality of canonical models through the diamond limits). Then
-  π_HT,₂ ∘ f̃ = FL(f) ∘ π_HT,₁, where FL(f): FL_{G₁,μ₁} → FL_{G₂,μ₂} is induced by f (f(P_{μ₁}) ⊆
-  P_{μ₂}). The identity datum morphism gives the identity, and composition is respected.
+  Statement: Let f: (G₁, X₁) → (G₂, X₂) be a morphism of Hodge-type Shimura data, choose
+  cocharacters with f ∘ μ₁ = μ₂, K₁^p, K₂^p with f(K₁^p) ⊆ K₂^p sufficiently small, and f̃:
+  S_{K₁^p} → S_{K₂^p} the induced G₁(ℚ_p)-equivariant map of open perfectoid towers (S0
+  functoriality of canonical models through the diamond limits). Then π_HT,₂ ∘ f̃ = FL(f) ∘
+  π_HT,₁, where FL(f): FL_{G₁,μ₁} → FL_{G₂,μ₂} is induced by f (f(P_{μ₁}) ⊆ P_{μ₂}). The
+  identity datum morphism gives the identity, and composition is respected.
+
+  Hypotheses:
+  * (G, X) of Hodge type with a fixed embedding into a Siegel datum (ShimuraData:D4/hodge-
+  type); P_μ is the Hodge–Tate parabolic {g : lim_{t→0} Ad μ(t)g exists}, P_μ^std the Hodge
+  parabolic, M_μ = Cent_G(μ) their common Levi. (for both data).
+  * Caraiani–Scholze prove only independence of the Siegel embedding; the general datum-
+  morphism statement is proved here by the same construction.
 -/
 
 /- CONTRACT `PerfectoidShimuraVarieties:S3/hodge-compactified-period-maps` (theorem)
   The Hodge-type period map on the image and genuine minimal compactifications and on perfect
   toroidal towers
 
-  Statement: Let (G, X) be of Hodge type. (a) On Scholze's image-compactified tower 𝒳^{*̲}_{K^p} (S2
-  hodge-image-compactified-tower) there is a G(ℚ_p)-equivariant map π_HT: 𝒳^{*̲}_{K^p} → FL_{G,μ},
-  pulled back from the Siegel period map through FL_{G,μ} ↪ FL_{GSp,μ̃} (Zariski closed); it is
-  affinoid (FL_{G,μ} has a cover by affinoids whose preimages are good affinoid perfectoid),
-  compatible with tame level and prime-to-p Hecke operators, and ω ≅ π_HT^*ω_Fl (Scholze Theorem
-  4.1.1(iii)–(v)). (b) On the genuine minimally compactified tower 𝒳*_{K^p} (S2
-  hodge-genuine-minimal-perfectoid-tower), π_HT is the composite 𝒳*_{K^p} → 𝒳^{*̲}_{K^p} → FL_{G,μ}.
-  (c) For a perfect cone decomposition Σ (a cofinal class: those for which Lan's theorem gives Σ̃
-  and closed immersions of the Hodge-type toroidal compactifications into Siegel ones at all
-  levels), 𝒳^{tor}_{K^p,Σ} ~ lim 𝒳^{tor}_{K^pK_p,Σ} is perfectoid with a closed immersion into the
-  Siegel toroidal tower for Σ̃, π_HT^{tor} is the composite with the map to the minimal
+  Statement: Let (G, X) be of Hodge type. (a) On Scholze's image-compactified tower
+  𝒳^{*̲}_{K^p} (S2 hodge-image-compactified-tower) there is a G(ℚ_p)-equivariant map π_HT:
+  𝒳^{*̲}_{K^p} → FL_{G,μ}, pulled back from the Siegel period map through FL_{G,μ} ↪
+  FL_{GSp,μ̃} (Zariski closed); it is affinoid (FL_{G,μ} has a cover by affinoids whose
+  preimages are good affinoid perfectoid), compatible with tame level and prime-to-p Hecke
+  operators, and π_HT^*ω_Fl ≅ ω(−g) for the fixed Siegel embedding of genus g (untwisted after
+  a chosen Tate trivialization with transported linearization) (Scholze Theorem
+  4.1.1(iii)–(v)). (b) On the genuine minimally compactified tower 𝒳*_{K^p} (S2 hodge-genuine-
+  minimal-perfectoid-tower), π_HT is the composite 𝒳*_{K^p} → 𝒳^{*̲}_{K^p} → FL_{G,μ}. (c) For
+  a perfect cone decomposition Σ (a cofinal class: those for which Lan's theorem gives Σ̃ and
+  closed immersions of the Hodge-type toroidal compactifications into Siegel ones at all
+  levels), 𝒳^{tor}_{K^p,Σ} ~ lim 𝒳^{tor}_{K^pK_p,Σ} is perfectoid with a closed immersion into
+  the Siegel toroidal tower for Σ̃, π_HT^{tor} is the composite with the map to the minimal
   compactification, the pullback of the Levi torsor is M_dR^{can} ×^{μ,ℤ_p^×} ℤ_p(1) for the
-  canonical extension M_dR^{can} of the Hodge-type de Rham Levi torsor, pulled back from finite
-  level (Boxer–Pilloni Proposition 4.4.29, after Esnault–Harris), and these isomorphisms are
-  compatible with the G(𝔸_f)-action on the limit over K^p and Σ. The three compactified towers are
-  distinct: the auxiliary normalised models of hodge-tate-formal-models are a fourth object, only
-  their generic fibres being minimal compactifications.
+  canonical extension M_dR^{can} of the Hodge-type de Rham Levi torsor, pulled back from
+  finite level (Boxer–Pilloni Proposition 4.4.29, after Esnault–Harris), and these
+  isomorphisms are compatible with the G(𝔸_f)-action on the limit over K^p and Σ. The three
+  compactified towers are distinct: the auxiliary normalised models of hodge-tate-formal-
+  models are a fourth object, only their generic fibres being minimal compactifications.
+
+  Hypotheses:
+  * (G, X) of Hodge type with a fixed embedding into a Siegel datum (ShimuraData:D4/hodge-
+  type); P_μ is the Hodge–Tate parabolic {g : lim_{t→0} Ad μ(t)g exists}, P_μ^std the Hodge
+  parabolic, M_μ = Cent_G(μ) their common Levi.
+  * (c) needs perfect Σ; for general Σ it is not known (Boxer–Pilloni Remark 4.4.28).
+  * Through (b), the genuine tower uses the perfectoidization gap of S2.
 -/
 
 /- CONTRACT `PerfectoidShimuraVarieties:S3/hodge-tate-formal-models` (theorem)
   Auxiliary normalised formal models with ample Hodge line and Hodge–Tate sections
 
-  Statement: Siegel case (Pilloni–Stroh, author's version, Théorème 1.22, after Scholze's proof of
-  Theorem 4.3.1, pp. 1029–1030): let n₀ be the least integer > g/(p − 1) (n₀ = 2g + 1 if p = 2). For
-  n ≥ n₀ there are normal admissible formal models 𝔛(pⁿ)^{⋆−mod} → 𝔛(pⁿ)^{⋆−HT} of the minimal
-  compactification 𝒳(pⁿ)^⋆ of the level-Γ(pⁿ)K^p Siegel variety (over 𝒪_{ℂ_p}), the first a
-  normalised blow-up on which det ω^{mod} (the subsheaf of det ω generated by Λ^g HT_n, with
-  cokernel killed by p^{g/(p−1)}, resp. 4^g for p = 2) is invertible, the second covered by the
-  affine formal schemes Spf H⁰(𝔘_i(pⁿ), 𝒪) for the Lagrangian Plücker charts i; for some k ≥ 1,
-  det^k ω^{mod} descends to an ample invertible sheaf on 𝔛(pⁿ)^{⋆−HT}, and there are sections t_j of
-  det^k ω^{mod} modulo p^{n₀−g/(p−1)} (modulo p^{n₀−2g} if p = 2) congruent to the k-th powers of
-  the Plücker coordinates of Λ^g HT; the transition maps 𝔛(pⁿ)^{⋆−HT} → 𝔛(p^m)^{⋆−HT} are finite and
-  everything is functorial in n and K^p. Scholze's own version gives, for each n, a level K_p and
-  sections modulo pⁿ. Hodge type (Pilloni–Stroh Proposition 2.5): the normalisation of the schematic
-  closure of the Hodge-type minimal compactification in the Siegel model, with the same ampleness
-  and sections; the Hilbert–Siegel case is Boxer–Calegari–Gee–Pilloni §6.2.1. These are auxiliary
-  normalised compactifications: only their generic fibres are the canonical minimal
-  compactifications; they carry no semi-abelian scheme, boundary stratification or ordinary locus
-  (Pilloni–Stroh Remarque 1.26). The stronger form used by Pilloni (§12.9.1) and
-  Boxer–Calegari–Gee–Pilloni (§6.2.1), with det ω^{mod} itself descending and sections congruent
-  modulo p^ε for every ε > 0 once n ≥ n(ε), is not proved in the cited sources (Pilloni–Stroh
-  Remarque 1.23 states the descent of det ω^{mod} without proof); the consumers' arguments go
-  through with a power of det ω^{mod} and sections modulo a fixed p^{ε′}
-  (PerfectoidShimuraVarieties/E32).
+  Statement: Siegel case (Pilloni–Stroh, author's version, Théorème 1.22, after Scholze's
+  proof of Theorem 4.3.1, pp. 1029–1030): put B(g,p) = g/(p − 1) for odd p and B(g,2) = 2g;
+  let n₀ be the least integer > B(g,p) (so n₀ = 2g + 1 if p = 2). For n ≥ n₀ there are normal
+  admissible formal models 𝔛(pⁿ)^{⋆−mod} → 𝔛(pⁿ)^{⋆−HT} of the minimal compactification
+  𝒳(pⁿ)^⋆ of the level-Γ(pⁿ)K^p Siegel variety (over 𝒪_{ℂ_p}), the first a normalised blow-up
+  on which det ω^{mod} (the subsheaf of det ω generated by Λ^g HT_n, with cokernel killed by
+  p^{g/(p−1)}, resp. 4^g for p = 2) is invertible, the second covered by the affine formal
+  schemes Spf H⁰(𝔘_i(pⁿ), 𝒪) for the Lagrangian Plücker charts i; for some k ≥ 1, det^k
+  ω^{mod} descends to an ample invertible sheaf on 𝔛(pⁿ)^{⋆−HT}, and there are sections t_j of
+  det^k ω^{mod} modulo p^{n₀−g/(p−1)} (modulo p^{n₀−2g} if p = 2) congruent to the k-th powers
+  of the Plücker coordinates of Λ^g HT; the transition maps 𝔛(pⁿ)^{⋆−HT} → 𝔛(p^m)^{⋆−HT} are
+  finite and everything is functorial in n and K^p. Scholze's own version gives, for each n, a
+  level K_p and sections modulo pⁿ. Hodge type (Pilloni–Stroh Proposition 2.5): the
+  normalisation of the schematic closure of the Hodge-type minimal compactification in the
+  Siegel model, with the same ampleness and sections; the Hilbert–Siegel case is
+  Boxer–Calegari–Gee–Pilloni §6.2.1. These are auxiliary normalised compactifications: only
+  their generic fibres are the canonical minimal compactifications; they carry no semi-abelian
+  scheme, boundary stratification or ordinary locus (Pilloni–Stroh Remarque 1.26). The
+  stronger form used by Pilloni (§12.9.1) and Boxer–Calegari–Gee–Pilloni (§6.2.1), with det
+  ω^{mod} itself descending and sections congruent modulo p^ε for every ε > 0 once n ≥ n(ε),
+  is not proved in the cited sources (Pilloni–Stroh Remarque 1.23 states the descent of det
+  ω^{mod} without proof); the consumers' arguments go through with a power of det ω^{mod} and
+  sections modulo a fixed p^{ε′} (PerfectoidShimuraVarieties/E32).
+
+  Hypotheses:
+  * Siegel or Hodge-type (PEL) data; neat tame level; charts indexed by Lagrangian Plücker
+  coordinates only (the published statements use all indices; PAPER-SCHOLZE-15/E16).
+  * Pilloni–Stroh's published numbering is inferred to send the author's Théorème 1.22 to
+  Theorem 1.16, which is how Pilloni and Boxer–Calegari–Gee–Pilloni cite it.
 -/
 
 /- CONTRACT `PerfectoidShimuraVarieties:S3/elliptic-hodge-tate-and-O1` (theorem)
-  The elliptic period map: quotient-line description, π_HT^*𝒪(1) = ω and the automorphy factor cz +
-  d
+  The elliptic period map: quotient-line description, π_HT^*𝒪(1) = ω and the automorphy factor
+  cz + d
 
-  Statement: Let 𝒳*_{Γ(p^∞)} be the perfectoid modular curve (g = 1 of S1) over a perfectoid L ⊇
-  ℚ_p^cycl, with points (E, μ_N-level, α: ℤ_p² ≅ T_pE) and BHW's left action γ·(E, α) = (E, α ∘
-  γ^∨), γ^∨ = det(γ)γ⁻¹, i.e. γ·x = x·γ^∨ for the right action x·f = (E, α ∘ f) of S0 (γ ↦ γ^∨ is an
-  anti-automorphism, (γδ)^∨ = δ^∨γ^∨, so it turns the right action into a left action). (i) The
-  C-points of the total space of 𝒪(1) over ℙ¹ are pairs (L, y) of a line L ⊆ C² and y ∈ C²/L, and
-  π_HT^*𝒪(1) ≅ ω is the quotient-line identification C²/L ≅ ω_E through HT ∘ α (HT: T_pE → ω_E, L =
-  ker(HT ∘ α)); this form needs no Tate trivialisation. (ii) The section s: (x : y) ↦ (C² → C²/⟨(x,
-  y)⟩, image of (1, 0)) of 𝒪(1) is nowhere zero off ∞ = (1 : 0); for γ = (a b; c d) ∈ Γ₀(p) one has
-  γ^*s = (cz + d)s, where z is the coordinate of (z : 1); hence 𝔰 := π_HT^*s satisfies γ^*𝔰 = (c𝔷 +
-  d)𝔰 on the anticanonical locus and 𝔰(E, α) = HT(α(e_1)). (iii) In Pan's normalisation (V = ℚ_p²
-  the standard representation, Tate module V(1) = V^∨), the relative Hodge–Tate sequence is 0 →
-  ω⁻¹(1) → V(1) ⊗ 𝒪 → ω → 0, the position of ω⁻¹ defines π_HT: 𝒳 → ℙ¹, and the tautological ample
-  ω_Fl pulls back to ω(−1). (iv) Unlike the complex case (γ^*η_can = (cz + d)⁻¹η_can, trivialising
-  ω_E), the p-adic section trivialises ω_{E^∨} and transforms with (cz + d).
+  Statement: Let 𝒳*_{Γ(p^∞)} be the perfectoid modular curve (g = 1 of S1) over a perfectoid L
+  ⊇ ℚ_p^cycl, with points (E, μ_N-level, α: ℤ_p² ≅ T_pE) and BHW's left action γ·(E, α) = (E,
+  α ∘ γ^∨), γ^∨ = det(γ)γ⁻¹, i.e. γ·x = x·γ^∨ for the right action x·f = (E, α ∘ f) of S0 (γ ↦
+  γ^∨ is an anti-automorphism, (γδ)^∨ = δ^∨γ^∨, so it turns the right action into a left
+  action). (i) The C-points of the total space of 𝒪(1) over ℙ¹ are pairs (L, y) of a line L ⊆
+  C² and y ∈ C²/L, and π_HT^*𝒪(1) ≅ ω is the quotient-line identification C²/L ≅ ω_E through
+  HT ∘ α (HT: T_pE → ω_E, L = ker(HT ∘ α)); this form needs no Tate trivialisation. (ii) The
+  section s: (x : y) ↦ (C² → C²/⟨(x, y)⟩, image of (1, 0)) of 𝒪(1) is nowhere zero off ∞ = (1
+  : 0); for γ = (a b; c d) ∈ Γ₀(p) one has γ^*s = (cz + d)s, where z is the coordinate of (z :
+  1); hence 𝔰 := π_HT^*s satisfies γ^*𝔰 = (c𝔷 + d)𝔰 on the anticanonical locus and 𝔰(E, α) =
+  HT(α(e_1)). (iii) In Pan's normalisation (V = ℚ_p² the standard representation, Tate module
+  V(1) = V^∨), the relative Hodge–Tate sequence is 0 → ω⁻¹(1) → V(1) ⊗ 𝒪 → ω → 0, the position
+  of ω⁻¹ defines π_HT: 𝒳 → ℙ¹, and the tautological ample ω_Fl pulls back to ω(−1). (iv)
+  Unlike the complex case (γ^*η_can = (cz + d)⁻¹η_can, trivialising ω_E), the p-adic section
+  trivialises ω_{E^∨} and transforms with (cz + d).
+
+  Hypotheses:
+  * Modular curve of tame level K^p ⊆ GL_2(𝔸_f^p) with Γ(N), N ≥ 3, or Γ₁(N), N ≥ 4, prime to
+  p (BHW), or neat K^p (Pan).
+  * The statement of BHW Lemma 3.19 misprints γ^*s = (cz + d)γ for (cz + d)s
+  (PerfectoidShimuraVarieties/E24).
 -/
 
 /- CONTRACT `PerfectoidShimuraVarieties:S3/hecke-equivariant-hodge-tate-sequence` (comparison)
@@ -1732,14 +2000,19 @@ end TauCeti.HodgeTate
 -/
 
 /- CONTRACT `PerfectoidShimuraVarieties:S3/affinoid-perfectoid-basis-of-flag-variety` (lemma)
-  A basis of affinoids of the flag variety with affinoid perfectoid preimages from finite level
+  A basis of affinoids of the flag variety with affinoid perfectoid preimages from finite
+  level
 
-  Statement: For the Siegel datum (and, by pullback along hodge-compactified-period-maps (a), for
-  Hodge-type data), there is a basis 𝔅 of open affinoid subsets of Fl, stable under finite
-  intersections, such that for every U ∈ 𝔅 the preimage V_∞ = π_HT⁻¹(U) ⊆ 𝒳*_{Γ(p^∞)} is affinoid
-  perfectoid, is the preimage of an affinoid V_{K_p} ⊆ 𝒳*_{K_pK^p} for all sufficiently small K_p,
-  and colim_{K_p} H⁰(V_{K_p}, 𝒪) → H⁰(V_∞, 𝒪) has dense image. For g = 1 one may take 𝔅 = finite
-  intersections of rational subsets of U₁ = {|x| ≤ 1} and U₂ = {|x| ≥ 1}.
+  Statement: For the Siegel datum (and, by pullback along hodge-compactified-period-maps (a),
+  for Hodge-type data), there is a basis 𝔅 of open affinoid subsets of Fl, stable under finite
+  intersections, such that for every U ∈ 𝔅 the preimage V_∞ = π_HT⁻¹(U) ⊆ 𝒳*_{Γ(p^∞)} is
+  affinoid perfectoid, is the preimage of an affinoid V_{K_p} ⊆ 𝒳*_{K_pK^p} for all
+  sufficiently small K_p, and colim_{K_p} H⁰(V_{K_p}, 𝒪) → H⁰(V_∞, 𝒪) has dense image. For g =
+  1 one may take 𝔅 = finite intersections of rational subsets of U₁ = {|x| ≤ 1} and U₂ = {|x|
+  ≥ 1}.
+
+  Hypotheses:
+  * Siegel datum with S1's tame level, or Hodge type through the image compactification.
 -/
 
 
@@ -1883,21 +2156,28 @@ end TauCeti.HodgeTate
 /- CONTRACT `PerfectoidShimuraVarieties:S5/modular-cusp-charts-and-q-action` (comparison)
   Completed cusp charts of the perfectoid modular curve and the action on q-parameters
 
-  Statement: For a cusp x of the compactified modular curve X* of a rigidifying tame level Γ^p in
-  Heuer's sense (Γ(N) ⊆ Γ^p ⊆ GL_2(ℤ/N), N ≥ 3 prime to p, for instance Γ(N) with N ≥ 3 or Γ₁(N)
-  with N ≥ 4, but not Γ₁(3), which contains the element (−2 1; −3 1) of order 3;
+  Statement: For a cusp x of the compactified modular curve X* of a rigidifying tame level Γ^p
+  in Heuer's sense (Γ(N) ⊆ Γ^p ⊆ GL_2(ℤ/N), N ≥ 3 prime to p, for instance Γ(N) with N ≥ 3 or
+  Γ₁(N) with N ≥ 4, but not Γ₁(3), which contains the element (−2 1; −3 1) of order 3;
   PerfectoidShimuraVarieties/E35) with Tate parameter D_x and width e_x, the cusp chart of S1
-  elliptic-cusps-at-infinite-level is identified with the formal Tate-curve neighbourhood of the
-  finite-level comparison (ShimuraVarieties:V8/gl2-cusps-tate,
-  ShimuraCompactifications:C6/modular-formal-cusp-comparison): at level Γ₀(pⁿ) ∩ anticanonical, the
-  chart is D_n with q^{1/pⁿ} the Tate parameter of the anticanonical quotient, and at infinite level
-  (GL_2(ℤ_p) × D_{∞,x})/ℤ_p. The action of Γ₀(p) on the charts at Γ₀(p^∞)-level is through (Γ₀(p) ×
-  D_∞)/pℤ_p = Γ₀(p^∞) × D_∞ with the right action of h ∈ pℤ_p by (γ, q^{1/p^m}) ↦ (γ(1 0; h 1),
-  ζ_{p^m}^{h/e_x} q^{1/p^m}) (Heuer Proposition 3.19), i.e. the lower unipotent N⁻(pⁿℤ_p) (not a
-  quotient Γ₀(pⁿ)/Γ₀(p^∞), which is not a group) acts on q-roots by p-power roots of unity, with ζ
-  fixed by the Weil pairing; consequently the Γ₀(pⁿ)-invariant bounded functions on the chart over x
-  are 𝒪_L[ζ_d][[q^{1/pⁿ}]] (BHW Proposition 3.8). The Hodge–Tate period map is locally constant on
+  elliptic-cusps-at-infinite-level is identified with the formal Tate-curve neighbourhood of
+  the finite-level comparison (ShimuraVarieties:V8/gl2-cusps-tate,
+  ShimuraCompactifications:C6/modular-formal-cusp-comparison): at level Γ₀(pⁿ) ∩
+  anticanonical, the chart is D_n with q^{1/pⁿ} the Tate parameter of the anticanonical
+  quotient, and at infinite level (GL_2(ℤ_p) × D_{∞,x})/ℤ_p. The action of Γ₀(p) on the charts
+  at Γ₀(p^∞)-level is through (Γ₀(p) × D_∞)/pℤ_p = Γ₀(p^∞) × D_∞ with the right action of h ∈
+  pℤ_p by (γ, q^{1/p^m}) ↦ (γ(1 0; h 1), ζ_{p^m}^{h/e_x} q^{1/p^m}) (Heuer Proposition 3.19),
+  i.e. the lower unipotent N⁻(pⁿℤ_p) (not a quotient Γ₀(pⁿ)/Γ₀(p^∞), which is not a group)
+  acts on q-roots by p-power roots of unity, with ζ fixed by the Weil pairing; consequently
+  the Γ₀(pⁿ)-invariant bounded functions on the chart over x are 𝒪_{L_x}[[q^{1/pⁿ}]] (with the
+  completed bounded-series convention and L_x the actual cusp field, including any required
+  tame roots of unity) (BHW Proposition 3.8). The Hodge–Tate period map is locally constant on
   the charts, (a b; c d), q ↦ (b : d) ∈ ℙ¹(ℤ_p).
+
+  Hypotheses:
+  * Modular curve as in modular-tower-comparison; the sign of h follows Heuer's convention for
+  the right action of the lower unipotent; BHW's adjugate convention exchanges c and −c
+  (PerfectoidShimuraVarieties/E31).
 -/
 
 /- CONTRACT `PerfectoidShimuraVarieties:S5/modular-anticanonical-and-period-compatibility` (comparison)
@@ -1917,59 +2197,75 @@ end TauCeti.HodgeTate
 /- CONTRACT `PerfectoidShimuraVarieties:S5/hilbert-three-towers` (construction)
   The geometric, intermediate and arithmetic Hilbert towers at infinite level
 
-  Statement: In the setting of the hypotheses, for n ∈ ℤ_{≥0} let X_{Γ*(pⁿ)} (G*-level: α_n with
-  similitude in (ℤ/pⁿ)^×, relative to a chosen generator β of 𝔠𝔡⁻¹(1)), X_{Γ(pⁿ)} (the intermediate
-  space: the G*-variety X with a full G-level α_n: (𝒪_F/pⁿ)² ≅ A^∨[pⁿ], polarization λ fixed) and
-  X_{G,Γ(pⁿ)} (the arithmetic G-variety, polarization class [λ] = 𝒪_F^{×,+}λ) be the finite-level
-  spaces of HilbertModularVarietiesAndShimuraCurves H3–H4, with maps X_{Γ*(pⁿ)} →β₁ X_{Γ(pⁿ)} →β₂
-  X_{G,Γ(pⁿ)} over X = X → X_G. Their infinite-level diamonds X_{Γ*(p^∞)}, X_{Γ(p^∞)}, X_{G,Γ(p^∞)}
-  are formed as in S0 infinite-level-diamond. The hybrid tower (X_{Γ(pⁿ)})_n is an S0 rigidified
-  moduli tower over the arithmetic tower (X_{G,Γ(pⁿ)})_n with the pro-system of finite groups
-  Δ_{K(pⁿ)} = Δ(pⁿN) = 𝒪_F^{×,+}/((1 + pⁿN𝒪_F)^×)², whose orders are unbounded in n (BHW Lemma
-  8.16(1)); its torsor property at infinite level is hilbert-polarization-torsors. X_{Γ*(p^∞)} is
-  perfectoid by S2 (Hodge type, G* = PEL) and X_{G,Γ(p^∞)} by S4 (G is of abelian type);
-  perfectoidness of X_{Γ(p^∞)} is not asserted here, it is proved in hilbert-mixed-span, which
-  depends on this node. Actions: the level-structure action of G(ℤ_p) = GL_2(𝒪_p) on X_{Γ(p^∞)} by α
-  ↦ α ∘ γ^∨ (a pro-étale G(ℤ_p)-torsor over X), of G*(ℤ_p) on X_{Γ*(p^∞)}, and the polarization
-  action of 𝒪_F^{×,+} on X_{Γ(p^∞)} by λ ↦ ηλ, which factors through Δ(pⁿN) at level n and through
-  the profinite group Δ(p^∞N) = lim_n Δ(pⁿN) at infinite level; 𝒪_F^{×,+} does not act on X_{Γ*(pⁿ)}
-  by changing λ (BHW p. 33).
+  Statement: In the setting of the hypotheses, for n ∈ ℤ_{≥0} let X_{Γ*(pⁿ)} (G*-level: α_n
+  with similitude in (ℤ/pⁿ)^×, relative to a chosen generator β of 𝔠𝔡⁻¹(1)), X_{Γ(pⁿ)} (the
+  intermediate space: the G*-variety X with a full G-level α_n: (𝒪_F/pⁿ)² ≅ A^∨[pⁿ],
+  polarization λ fixed) and X_{G,Γ(pⁿ)} (the arithmetic G-variety, polarization class [λ] =
+  𝒪_F^{×,+}λ) be the finite-level spaces of HilbertModularVarietiesAndShimuraCurves H3–H4,
+  with maps X_{Γ*(pⁿ)} →β₁ X_{Γ(pⁿ)} →β₂ X_{G,Γ(pⁿ)} over X = X → X_G. Their infinite-level
+  diamonds X_{Γ*(p^∞)}, X_{Γ(p^∞)}, X_{G,Γ(p^∞)} are formed as in S0 infinite-level-diamond.
+  The hybrid tower (X_{Γ(pⁿ)})_n is an S0 rigidified moduli tower over the arithmetic tower
+  (X_{G,Γ(pⁿ)})_n with the pro-system of finite groups Δ_{K(pⁿ)} = Δ(pⁿN) = 𝒪_F^{×,+}/((1 +
+  pⁿN𝒪_F)^×)², whose orders are unbounded in n when [F : ℚ] > 1, and are all 1 when F = ℚ (BHW
+  Lemma 8.16(1)); its torsor property at infinite level is hilbert-polarization-torsors.
+  X_{Γ*(p^∞)} is perfectoid by S2 (Hodge type, G* = PEL) and X_{G,Γ(p^∞)} by S4 (G is of
+  abelian type); perfectoidness of X_{Γ(p^∞)} is not asserted here, it is proved in hilbert-
+  mixed-span, which depends on this node. Actions: the level-structure action of G(ℤ_p) =
+  GL_2(𝒪_p) on X_{Γ(p^∞)} by α ↦ α ∘ γ^∨ (a pro-étale G(ℤ_p)-torsor over X), of G*(ℤ_p) on
+  X_{Γ*(p^∞)}, and the polarization action of 𝒪_F^{×,+} on X_{Γ(p^∞)} by λ ↦ ηλ, which factors
+  through Δ(pⁿN) at level n and through the profinite group Δ(p^∞N) = lim_n Δ(pⁿN) at infinite
+  level; 𝒪_F^{×,+} does not act on X_{Γ*(pⁿ)} by changing λ (BHW p. 33).
+
+  Hypotheses:
+  * F totally real of degree g with ring of integers 𝒪_F, different 𝔡, 𝒪_p = 𝒪_F ⊗ ℤ_p; G =
+  Res_{F/ℚ}GL_2, G* = G ×_{Res G_m} G_m; tame level μ_N with N ≥ 4 prime to p and a
+  polarization module 𝔠 (BHW §5.1); L ⊇ ℚ_p^cycl perfectoid; levels at p act on α: 𝒪_p² ≅
+  T_pA^∨ by α ↦ α ∘ γ^∨, γ^∨ = det(γ)γ⁻¹ (the left action of BHW, equal to the Shimura right
+  translation by γ^∨ under the identification λ⁻¹ ∘ (α ⊗ id)).
 
   API:
   * `HilbertTower.geometric` (data): X_{Γ*(p^∞)} with its G*(ℤ_p)-action.
-  * `HilbertTower.intermediate` (data): X_{Γ(p^∞)} with the level-structure action of GL_2(𝒪_p) and
-      the polarization action of 𝒪_F^{×,+}.
+  * `HilbertTower.intermediate` (data): X_{Γ(p^∞)} with the level-structure action of
+  GL_2(𝒪_p) and the polarization action of 𝒪_F^{×,+}.
   * `HilbertTower.arithmetic` (data): X_{G,Γ(p^∞)} with the induced action.
   * `HilbertTower.beta1` (projection): β₁: X_{Γ*(p^∞)} → X_{Γ(p^∞)}, the inclusion of the
-      similitude-ℤ_p^× locus.
-  * `HilbertTower.beta2` (projection): β₂: X_{Γ(p^∞)} → X_{G,Γ(p^∞)}, forgetting λ up to 𝒪_F^{×,+}.
-  * `HilbertTower.levelAction` (instance): The left level-structure action α ↦ α ∘ γ^∨, equal to the
-      S0 right translation by γ^∨.
+  similitude-ℤ_p^× locus.
+  * `HilbertTower.beta2` (projection): β₂: X_{Γ(p^∞)} → X_{G,Γ(p^∞)}, forgetting λ up to
+  𝒪_F^{×,+}.
+  * `HilbertTower.levelAction` (instance): The left level-structure action α ↦ α ∘ γ^∨, equal
+  to the S0 right translation by γ^∨.
   * `HilbertTower.polAction` (instance): The polarization action η·(A, λ, α) = (A, ηλ, α) on
-      X_{Γ(p^∞)}, factoring through Δ(p^∞N) and commuting with the level action.
-  * `HilbertTower.isPerfectoid` (characterisation): X_{Γ*(p^∞)} and X_{G,Γ(p^∞)} are perfectoid (for
-      X_{Γ(p^∞)} see hilbert-mixed-span).
+  X_{Γ(p^∞)}, factoring through Δ(p^∞N) and commuting with the level action.
+  * `HilbertTower.isPerfectoid` (characterisation): X_{Γ*(p^∞)} and X_{G,Γ(p^∞)} are
+  perfectoid (for X_{Γ(p^∞)} see hilbert-mixed-span).
 
   Unit tests:
-  * `three_towers_F_eq_Q` (degenerate): For F = ℚ the three towers and β₁, β₂ are identities between
-      copies of the modular tower.
+  * `three_towers_F_eq_Q` (degenerate): For F = ℚ the three towers and β₁, β₂ are identities
+  between copies of the modular tower.
   * `beta1_not_surjective` (non-example): For [F : ℚ] = 2, β₁ is not surjective on π₀:
-      π₀(X_{Γ*(pⁿ)}) = (ℤ/pⁿ)^× while π₀(X_{Γ(pⁿ)}) = (𝒪_F/pⁿ)^×.
-  * `levelAction_adjugate` (computation): For γ = diag(u, 1), γ^∨ = diag(1, u), so the level action
-      of γ multiplies the second basis vector by u.
-  * `levelAction_vs_rightTranslation` (compatibility): The level action of γ equals the S0 right
-      translation T_{γ^∨} under α ↔ λ⁻¹ ∘ (α ⊗ id) (BHW Remark 5.5).
+  π₀(X_{Γ*(pⁿ)}) = (ℤ/pⁿ)^× while π₀(X_{Γ(pⁿ)}) = (𝒪_F/pⁿ)^×.
+  * `levelAction_adjugate` (computation): For γ = diag(u, 1), γ^∨ = diag(1, u), so the level
+  action of γ multiplies the second basis vector by u.
+  * `levelAction_vs_rightTranslation` (compatibility): The level action of γ equals the S0
+  right translation T_{γ^∨} under α ↔ λ⁻¹ ∘ (α ⊗ id) (BHW Remark 5.5).
 -/
 
 /- CONTRACT `PerfectoidShimuraVarieties:S5/hilbert-mixed-span` (theorem)
   The intermediate Hilbert tower as a contracted product: the ℤ_p^×-torsor span
 
-  Statement: In hilbert-three-towers, let 𝒪_p^× act on X_{Γ(p^∞)} by the level action of diag(η, 1).
-  Then X_{Γ*(p^∞)} × 𝒪_p^× → X_{Γ(p^∞)}, (x, u) ↦ diag(u, 1)·β₁(x), is a ℤ_p^×-torsor for the
-  antidiagonal action t·(x, u) = (diag(t, 1)·x, ut⁻¹), i.e. X_{Γ(p^∞)} = X_{Γ*(p^∞)} ×^{ℤ_p^×}
-  𝒪_p^×; in particular X_{Γ(p^∞)} is perfectoid. The decomposition X_{Γ(pⁿ)} = X_{Γ*(pⁿ)} ×
-  (𝒪_F/pⁿ)^×/(ℤ/pⁿ)^× printed by BHW uses a set-theoretic section of 𝒪_p^× → 𝒪_p^×/ℤ_p^× and is not
-  canonical; the contracted product is.
+  Statement: In hilbert-three-towers, let 𝒪_p^× act on X_{Γ(p^∞)} by the level action of
+  diag(η, 1). Then X_{Γ*(p^∞)} × 𝒪_p^× → X_{Γ(p^∞)}, (x, u) ↦ diag(u, 1)·β₁(x), is a
+  ℤ_p^×-torsor for the antidiagonal action t·(x, u) = (diag(t, 1)·x, ut⁻¹), i.e. X_{Γ(p^∞)} =
+  X_{Γ*(p^∞)} ×^{ℤ_p^×} 𝒪_p^×; in particular X_{Γ(p^∞)} is perfectoid. The decomposition
+  X_{Γ(pⁿ)} = X_{Γ*(pⁿ)} × (𝒪_F/pⁿ)^×/(ℤ/pⁿ)^× printed by BHW uses a set-theoretic section of
+  𝒪_p^× → 𝒪_p^×/ℤ_p^× and is not canonical; the contracted product is.
+
+  Hypotheses:
+  * F totally real of degree g with ring of integers 𝒪_F, different 𝔡, 𝒪_p = 𝒪_F ⊗ ℤ_p; G =
+  Res_{F/ℚ}GL_2, G* = G ×_{Res G_m} G_m; tame level μ_N with N ≥ 4 prime to p and a
+  polarization module 𝔠 (BHW §5.1); L ⊇ ℚ_p^cycl perfectoid; levels at p act on α: 𝒪_p² ≅
+  T_pA^∨ by α ↦ α ∘ γ^∨, γ^∨ = det(γ)γ⁻¹ (the left action of BHW, equal to the Shimura right
+  translation by γ^∨ under the identification λ⁻¹ ∘ (α ⊗ id)).
 -/
 
 /- CONTRACT `PerfectoidShimuraVarieties:S5/hilbert-weil-pairing` (construction)
@@ -2020,15 +2316,23 @@ end TauCeti.HodgeTate
 /- CONTRACT `PerfectoidShimuraVarieties:S5/hilbert-polarization-torsors` (theorem)
   The full-tower profinite polarization torsor and the finite torsor on connected components
 
-  Statement: In hilbert-three-towers: (1) β₂: X_{Γ(p^∞)} → X_{G,Γ(p^∞)} is a pro-étale torsor under
-  the profinite group Δ(p^∞N) := lim_n Δ(pⁿN), Δ(pⁿN) = 𝒪_F^{×,+}/((1 + pⁿN𝒪_F)^×)², into which
-  𝒪_F^{×,+} embeds densely; (2) on identity components, X⁰_{Γ(p^∞)} = X⁰_{Γ*(p^∞)} → X⁰_{G,Γ(p^∞)}
-  is a finite étale torsor under the finite group Δ_∞(N) := ker(Δ(p^∞N) → 𝒪_p^×), the stabiliser of
-  the identity component; for p odd Δ_∞(N) = Δ_n(N) = (1 + pⁿ𝒪_F)^{×,+}/((1 + pⁿN𝒪_F)^×)² for n ≫ 0,
-  while for p = 2 the transition maps Δ_{n+1}(N) → Δ_n(N) need not be injective and Δ_∞(N) is only
-  the kernel above (BHW's proof of Lemma 8.20 assumes an injection Δ_n(N) → Δ(N) that need not
-  exist; PerfectoidShimuraVarieties/E26). The profinite group on the full tower and the finite group
-  on components are different and both statements are needed.
+  Statement: In hilbert-three-towers: (1) β₂: X_{Γ(p^∞)} → X_{G,Γ(p^∞)} is a pro-étale torsor
+  under the profinite group Δ(p^∞N) := lim_n Δ(pⁿN), Δ(pⁿN) = 𝒪_F^{×,+}/((1 + pⁿN𝒪_F)^×)²,
+  into which 𝒪_F^{×,+} embeds densely; (2) on identity components, X⁰_{Γ(p^∞)} = X⁰_{Γ*(p^∞)}
+  → X⁰_{G,Γ(p^∞)} is a finite étale torsor under the finite group Δ_∞(N) := ker(Δ(p^∞N) →
+  𝒪_p^×), the stabiliser of the identity component; for p odd Δ_∞(N) = Δ_n(N) = (1 +
+  pⁿ𝒪_F)^{×,+}/((1 + pⁿN𝒪_F)^×)² for n ≫ 0, while for p = 2 the transition maps Δ_{n+1}(N) →
+  Δ_n(N) need not be injective and Δ_∞(N) is only the kernel above (BHW's proof of Lemma 8.20
+  assumes an injection Δ_n(N) → Δ(N) that need not exist; PerfectoidShimuraVarieties/E26). The
+  profinite group on the full tower and the finite group on components are different and both
+  statements are needed.
+
+  Hypotheses:
+  * F totally real of degree g with ring of integers 𝒪_F, different 𝔡, 𝒪_p = 𝒪_F ⊗ ℤ_p; G =
+  Res_{F/ℚ}GL_2, G* = G ×_{Res G_m} G_m; tame level μ_N with N ≥ 4 prime to p and a
+  polarization module 𝔠 (BHW §5.1); L ⊇ ℚ_p^cycl perfectoid; levels at p act on α: 𝒪_p² ≅
+  T_pA^∨ by α ↦ α ∘ γ^∨, γ^∨ = det(γ)γ⁻¹ (the left action of BHW, equal to the Shimura right
+  translation by γ^∨ under the identification λ⁻¹ ∘ (α ⊗ id)).
 -/
 
 /- CONTRACT `PerfectoidShimuraVarieties:S5/hilbert-level-torsors` (theorem)
@@ -2053,31 +2357,46 @@ end TauCeti.HodgeTate
 /- CONTRACT `PerfectoidShimuraVarieties:S5/hilbert-gl2-qp-action` (construction)
   The action of G(ℚ_p) on the Hilbert towers and the change of polarization module
 
-  Statement: The level-structure action of G(ℤ_p) = GL_2(𝒪_p) on X_{Γ(p^∞)} extends to an action of
-  G(ℚ_p) = GL_2(F_p) on the disjoint union ⊔_𝔠 X_{𝔠,Γ(p^∞)} over polarization modules: for γ ∈
-  M_2(𝒪_p) ∩ GL_2(F_p) (after scaling, a scalar x acting by A ↦ A/A[x]), with D = ker(γ on A[pⁿ])
-  for n ≫ 0 transported through λ⁻¹ ∘ α, γ sends (A, ι, λ, μ_N, α) to (A/D, ι′, λ′, μ′_N, α′), where
-  φ: A → A/D is the quotient isogeny, λ′ is the unique 𝔠𝔟-polarization of A/D compatible with λ, and
-  α′: 𝒪_p² ≅ T_p(A/D)^∨ is the unique isomorphism with φ^∨ ∘ α′ = α ∘ γ^∨ (BHW Lemma 8.23; for γ ∈
-  GL_2(𝒪_p), φ = id and α′ = α ∘ γ^∨). Equivalently φ^∨(T_p(A/D)^∨) = α(γ^∨𝒪_p²) ⊆ T_pA^∨. This is a
-  left action: γ·(δ·x) = (γδ)·x. Relative to S0, it lies over the right translation by γ^∨ on the
-  arithmetic tower, combined with the change of the component of the polarization class; it permutes
-  the X_{𝔠,Γ(p^∞)} and does not preserve a fixed 𝔠.
+  Statement: The level-structure action of G(ℤ_p) = GL_2(𝒪_p) on X_{Γ(p^∞)} extends to an
+  action of G(ℚ_p) = GL_2(F_p) on the disjoint union ⊔_𝔠 X_{𝔠,Γ(p^∞)} over polarization
+  modules: for γ ∈ M_2(𝒪_p) ∩ GL_2(F_p) (after scaling, a scalar x acting by A ↦ A/A[x]), with
+  D = ker(γ on A[pⁿ]) for n ≫ 0 transported through λ⁻¹ ∘ α, γ sends (A, ι, λ, μ_N, α) to
+  (A/D, ι′, λ′, μ′_N, α′), where φ: A → A/D is the quotient isogeny, λ′ is the unique 𝔠𝔟-
+  polarization of A/D compatible with λ, and α′: 𝒪_p² ≅ T_p(A/D)^∨ is the unique isomorphism
+  with φ^∨ ∘ α′ = α ∘ γ^∨ (BHW Lemma 8.23; for γ ∈ GL_2(𝒪_p), φ = id and α′ = α ∘ γ^∨).
+  Equivalently φ^∨(T_p(A/D)^∨) = α(γ^∨𝒪_p²) ⊆ T_pA^∨. This is a left action: γ·(δ·x) = (γδ)·x.
+  Relative to S0, it lies over the right translation by γ^∨ on the arithmetic tower, combined
+  with the change of the component of the polarization class; it permutes the X_{𝔠,Γ(p^∞)} and
+  does not preserve a fixed 𝔠.
+
+  Hypotheses:
+  * F totally real of degree g with ring of integers 𝒪_F, different 𝔡, 𝒪_p = 𝒪_F ⊗ ℤ_p; G =
+  Res_{F/ℚ}GL_2, G* = G ×_{Res G_m} G_m; tame level μ_N with N ≥ 4 prime to p and a
+  polarization module 𝔠 (BHW §5.1); L ⊇ ℚ_p^cycl perfectoid; levels at p act on α: 𝒪_p² ≅
+  T_pA^∨ by α ↦ α ∘ γ^∨, γ^∨ = det(γ)γ⁻¹ (the left action of BHW, equal to the Shimura right
+  translation by γ^∨ under the identification λ⁻¹ ∘ (α ⊗ id)).
+  * Compatibility with multiplication is only asserted by BHW ('It is clear from this
+  characterisation of γ and the contravariance'); it is proved directly below. It cannot be
+  read off from the S0 right translations, because the action lives on ⊔_𝔠 X_{𝔠,Γ(p^∞)}, a
+  Δ(p^∞N)-torsor over the Shimura tower, not on the Shimura tower itself.
 
   API:
   * `HilbertTower.qpAction` (constructor): The action of G(ℚ_p) on ⊔_𝔠 X_{𝔠,Γ(p^∞)}.
-  * `HilbertTower.qpAction_extends` (compatibility): On G(ℤ_p) it is the level-structure action.
-  * `HilbertTower.qpAction_polModule` (characterisation): γ maps X_{𝔠} to X_{𝔠𝔟} with 𝔟 the product
-      of the elementary divisors of the kernel.
-  * `HilbertTower.qpAction_eq_translate` (equivalence): Under the dictionary, it is the S0 right
-      translation by γ^∨.
+  * `HilbertTower.qpAction_extends` (compatibility): On G(ℤ_p) it is the level-structure
+  action.
+  * `HilbertTower.qpAction_polModule` (characterisation): γ maps X_{𝔠} to X_{𝔠𝔟} with 𝔟 the
+  product of the elementary divisors of the kernel.
+  * `HilbertTower.qpAction_eq_translate` (equivalence): Under the dictionary, it is the S0
+  right translation by γ^∨.
 
   Unit tests:
   * `qpAction_scalar_p` (computation): γ = p·1 sends 𝔠 to p²𝔠.
-  * `qpAction_integral` (degenerate): For γ ∈ GL_2(𝒪_p), 𝔟 = 𝒪_F and the action is the level action.
-  * `qpAction_not_fixed_c` (non-example): For γ = diag(ϖ, 1) with ϖ generating a non-principal prime
-      𝔭 | p, the polarization module changes to 𝔠𝔭, in a different narrow class, so the action does
-      not preserve X_{𝔠,Γ(p^∞)}.
+  * `qpAction_integral` (degenerate): For γ ∈ GL_2(𝒪_p), 𝔟 = 𝒪_F and the action is the level
+  action.
+  * `qpAction_not_fixed_c` (non-example): For γ = diag(ϖ, 1) with ϖ ∈ F_p^× a local
+  uniformizer of valuation 1 at a non-principal prime 𝔭 | p and valuation 0 at the other
+  primes above p, the polarization module changes to 𝔠𝔭, in a different narrow class, so the
+  action does not preserve X_{𝔠,Γ(p^∞)}.
 -/
 
 /- CONTRACT `PerfectoidShimuraVarieties:S5/hilbert-period-and-domain-compatibility` (theorem)
@@ -2122,15 +2441,24 @@ end TauCeti.HodgeTate
   Evaluating the Hodge–Tate torsor on perfectoid test objects over the toroidal tower diamond
 
   Statement: In the situation of toroidal-tower-diamond (S0.general) and
-  HodgeTateAndCanonicalSubgroups T6:comparison: let P_HT ⊆ G_{pet,p} ×^{G^c(ℚ_p)} G^{c,an} be the
-  P^c_μ-reduction of the pro-Kummer-étale G^c(ℚ_p)-torsor over S^tor_{K,Σ} given by the logarithmic
-  Hodge–Tate filtration. For every perfectoid space S with a map S → S^{tor◇}_{K^p,Σ,∞}, there is a
-  P^{c,an}_μ-torsor P_HT(S) ⊆ G^{c,an} × S, functorial in S and compatible with base change, which
-  étale-locally on S̃ → S is P^{c,an}_μ · g_{S̃} for an element g_{S̃} ∈ G^{c,an}(S̃) unique up to
-  left multiplication by P^{c,an}_μ(S̃); the cocycle p₂^*g · (p₁^*g)⁻¹ ∈ P_μ(S̃ ×_S S̃) describes
-  P_HT(S), and right translation g_{S̃} ↦ g_{S̃}·g by G^{an} does not change P_HT(S). This is the
-  passage from the pro-Kummer-étale site of S^tor_{K,Σ} to the v-site of the diamond that
-  Boxer–Pilloni §4.6.1 presuppose and do not prove.
+  HodgeTateAndCanonicalSubgroups T6:comparison: let P_HT ⊆ G_{pet,p} ×^{G^c(ℚ_p)} G^{c,an} be
+  the P^c_μ-reduction of the pro-Kummer-étale G^c(ℚ_p)-torsor over S^tor_{K,Σ} given by the
+  logarithmic Hodge–Tate filtration. For every perfectoid space S with a map S →
+  S^{tor◇}_{K^p,Σ,∞}, there is a P^{c,an}_μ-torsor P_HT(S) ⊆ G^{c,an} × S, functorial in S and
+  compatible with base change, which étale-locally on S̃ → S is P^{c,an}_μ · g_{S̃} for an
+  element g_{S̃} ∈ G^{c,an}(S̃) unique up to left multiplication by P^{c,an}_μ(S̃); the
+  cocycle p₂^*g · (p₁^*g)⁻¹ ∈ P_μ(S̃ ×_S S̃) describes P_HT(S), and right translation g_{S̃} ↦
+  g_{S̃}·g by G^{an} carries the embedded reduction P_HT(S) to its translate P_HT(S)·g,
+  inducing an isomorphism of the intrinsic P-torsors. This is the passage from the pro-Kummer-
+  étale site of S^tor_{K,Σ} to the v-site of the diamond that Boxer–Pilloni §4.6.1 presuppose
+  and do not prove.
+
+  Hypotheses:
+  * (G, X) an arbitrary pure Shimura datum (Boxer–Pilloni §4: axioms SV1–SV3), K = K^pK_p
+  neat, Σ a fixed smooth projective K-admissible cone decomposition used at every level
+  K^pK′_p ⊆ K^pK_p, F/ℚ_p finite splitting G with E(G, X) ⊆ F; G^c = G/Z_s(G), where Z_s(G) is
+  the largest subtorus of the centre Z(G) which is ℝ-split but contains no ℚ-split subtorus
+  (Boxer–Pilloni §4.1.1; Z_s(G) = 1 in the Hodge-type case).
 -/
 
 /- CONTRACT `PerfectoidShimuraVarieties:S6/general-toroidal-period-map` (theorem)
@@ -2174,55 +2502,75 @@ end TauCeti.HodgeTate
 /- CONTRACT `PerfectoidShimuraVarieties:S6/abelian-auxiliary-data` (construction)
   Auxiliary data for an abelian-type datum: the Hodge-type cover and Lovering's B₁
 
-  Statement: Let (G, X) be of abelian type (ShimuraData:D4/abelian-type): there are a Hodge-type
-  datum (G₁, X₁) and a central isogeny G₁^der → G^der inducing (G₁^ad, X₁⁺) ≅ (G^ad, X⁺). Let E be
-  the composite of the reflex fields, T = Res_{E/ℚ}G_m, and (Lovering, §4.6) B₁ = G₁ ×_{G₁^ab} T for
-  the map T → G₁^ab induced by μ_{G₁}, with a datum (B₁, X_{B₁}) and maps (B₁, X_{B₁}) → (G₁, X₁),
-  (B₁, X_{B₁}) → (G, X) (through (B, X_B)) inducing isomorphisms on derived groups or central
-  isogenies, so that all three share the flag variety FL_{G,μ} = FL_{G₁,μ_{G₁}} = FL_{B₁,μ_{B₁}} and
-  the adjoint datum. For a morphism of data g: (H, X_H) → (S, X_S) with H^ad = S^ad, compact opens
-  with g(K′) ⊆ K and Σ for S: S(H)_{K′} → S(S)_K is finite étale, Σ induces a cone decomposition for
-  H with S^tor(H)_{K′,Σ} → S^tor(S)_{K,Σ} finite, and if g(K′) is normal in K the map of neutral
-  components is Galois with finite group Δ(K, K′) = Γ^{ad}_K/Γ^{ad}_{K′}, the action extending to
-  S^{tor,0}(H)_{K′,Σ} with quotient S^{tor,0}(S)_{K,Σ} (Boxer–Pilloni Proposition 4.4.42).
+  Statement: Let (G, X) be of abelian type (ShimuraData:D4/abelian-type): there are a Hodge-
+  type datum (G₁, X₁) and a central isogeny G₁^der → G^der inducing (G₁^ad, X₁⁺) ≅ (G^ad, X⁺).
+  Let E be the composite of the reflex fields, T = Res_{E/ℚ}G_m, and (Lovering, §4.6) B₁ = G₁
+  ×_{G₁^ab} T for the map T → G₁^ab induced by μ_{G₁}, with a datum (B₁, X_{B₁}) and maps (B₁,
+  X_{B₁}) → (G₁, X₁), (B₁, X_{B₁}) → (G, X) (through (B, X_B)) inducing isomorphisms on
+  derived groups or central isogenies, so that all three share the flag variety FL_{G,μ} =
+  FL_{G₁,μ_{G₁}} = FL_{B₁,μ_{B₁}} and the adjoint datum. For a morphism of data g: (H, X_H) →
+  (S, X_S) with H^ad = S^ad, compact opens with g(K′) ⊆ K and Σ for S: S(H)_{K′} → S(S)_K is
+  finite étale, Σ induces a cone decomposition for H with S^tor(H)_{K′,Σ} → S^tor(S)_{K,Σ}
+  finite, and if g(K′) is normal in K the map of neutral components is Galois with finite
+  group Δ(K, K′) = Γ^{ad}_K/Γ^{ad}_{K′}, the action extending to S^{tor,0}(H)_{K′,Σ} with
+  quotient S^{tor,0}(S)_{K,Σ} (Boxer–Pilloni Proposition 4.4.42).
+
+  Hypotheses:
+  * (G, X) of abelian type; neat levels; Σ smooth projective.
+  * This is not the pre-abelian representability argument of S4: it uses the Hodge cover G₁
+  through a central isogeny of derived groups, Lovering's B₁, Deligne's reconstruction from
+  connected components and finite quotients.
+  * The existing ShimuraData:D4/central-isogeny-lift supplies a lift through a specified
+  central isogeny, not this auxiliary reflex-torus construction. The complete B₁ construction
+  and its maps are separately requested below.
 
   API:
   * `AbelianType.hodgeCover` (data): A Hodge-type datum (G₁, X₁) with G₁^der → G^der a central
-      isogeny inducing an isomorphism of adjoint connected data.
-  * `AbelianType.lovering` (constructor): B₁ = G₁ ×_{G₁^ab} Res_{E/ℚ}G_m with its datum and maps to
-      (G₁, X₁) and (G, X).
-  * `AbelianType.flag_eq` (equivalence): FL_{G,μ} = FL_{G₁,μ_{G₁}} = FL_{B₁,μ_{B₁}} through the
-      common adjoint group.
-  * `AbelianType.deltaGroup` (constructor): Δ(K, K′) = Γ^{ad}_K/Γ^{ad}_{K′} for g(K′) normal in K.
-  * `AbelianType.neutral_galois` (characterisation): The neutral components form a Galois cover with
-      group Δ(K, K′), extending to toroidal compactifications.
+  isogeny inducing an isomorphism of adjoint connected data.
+  * `AbelianType.lovering` (constructor): B₁ = G₁ ×_{G₁^ab} Res_{E/ℚ}G_m with its datum and
+  maps to (G₁, X₁) and (G, X).
+  * `AbelianType.flag_eq` (equivalence): FL_{G,μ} = FL_{G₁,μ_{G₁}} = FL_{B₁,μ_{B₁}} through
+  the common adjoint group.
+  * `AbelianType.deltaGroup` (constructor): Δ(K, K′) = Γ^{ad}_K/Γ^{ad}_{K′} for g(K′) normal
+  in K.
+  * `AbelianType.neutral_galois` (characterisation): The neutral components form a Galois
+  cover with group Δ(K, K′), extending to toroidal compactifications.
 
   Unit tests:
-  * `abelian_aux_hodge_trivial` (degenerate): For the Siegel datum (GSp_2g, H_g^±) with G₁ = G: E =
-      ℚ, T = G_m and T → G^ab = G_m is the identity (the similitude of μ(z) is z), so B₁ = G; for f
-      = id and K′ = K, Δ(K, K) = 1.
-  * `abelian_aux_hilbert` (computation): For G = Res_{F/ℚ}GL_2 and G₁ = G* (both with reflex field
-      ℚ, so T = G_m → G₁^ab = G_m is an isomorphism and B₁ = G*), K = K(N) = {g ≡ 1 mod N} and K′ =
-      K ∩ G*(𝔸_f): the determinant identifies Δ(K, K′) with (𝒪_F^{×,+} ∩ (1 + N𝒪_F))/(𝒪_F^× ∩ (1 +
-      N𝒪_F))², the denominator coming from the scalar matrices in Γ_K.
-  * `abelian_aux_not_preabelian_proof` (non-example): A pre-abelian datum that is not of abelian
-      type (an isomorphism of adjoint connected data without a central isogeny of derived groups)
-      has no B₁ of this form; the construction does not apply.
+  * `abelian_aux_hodge_trivial` (degenerate): For the Siegel datum (GSp_2g, H_g^±) with G₁ =
+  G: E = ℚ, T = G_m and T → G^ab = G_m is the identity (the similitude of μ(z) is z), so B₁ =
+  G; for f = id and K′ = K, Δ(K, K) = 1.
+  * `abelian_aux_hilbert` (computation): For G = Res_{F/ℚ}GL_2 and G₁ = G* (both with reflex
+  field ℚ, so T = G_m → G₁^ab = G_m is an isomorphism and B₁ = G*), K = K(N) = {g ≡ 1 mod N}
+  and K′ = K ∩ G*(𝔸_f): the determinant identifies Δ(K, K′) with (𝒪_F^{×,+} ∩ (1 +
+  N𝒪_F))/(𝒪_F^× ∩ (1 + N𝒪_F))², the denominator coming from the scalar matrices in Γ_K.
+  * `abelian_aux_not_preabelian_proof` (non-example): A pre-abelian datum that is not of
+  abelian type (an isomorphism of adjoint connected data without a central isogeny of derived
+  groups) has no B₁ of this form; the construction does not apply.
 -/
 
 /- CONTRACT `PerfectoidShimuraVarieties:S6/torsor-fibre-product` (lemma)
   Fibre products of torsors and the de Rham torsor of B₁
 
-  Statement: (i) Let H₁ → H₂ ← H₃ be smooth affine group schemes over a base S with H₁ → H₂ smooth
-  and surjective (in the application G₁ → G₁^ab and M_{μ_{G₁}} → M^{ab}_μ), P_{H_i} étale torsors
-  and isomorphisms θ₁: P_{H₁} ×^{H₁} H₂ ≅ P_{H₂}, θ₃: P_{H₃} ×^{H₃} H₂ ≅ P_{H₂}. Then P_{H₁}
-  ×_{P_{H₂}} P_{H₃} is an étale (H₁ ×_{H₂} H₃)-torsor (Boxer–Pilloni print P_{H₁} ×_{P_{H₂}} P_{H₁};
-  PerfectoidShimuraVarieties/E22). (ii) In the situation of abelian-auxiliary-data, for K ⊆ B₁(𝔸_f)
-  and Σ for G₁ there are levels K₁, K₂, K₃ and maps π₁: S^tor(B₁)_{K,Σ} → S^tor(G₁)_{K₁,Σ}, π₂:
-  S^tor(B₁)_{K,Σ} → S(T)_{K₂} over S(G₁^ab)_{K₃}, with M_dR(B₁) ≅ π₁^*M_dR(G₁) ×_{π₃^*M_dR(G₁^ab)}
-  π₂^*M_dR(T) canonically, and likewise for M_HT; with M^c_{μ_{B₁}} = M^c_{μ_{G₁}} ×_{M^{ab,c}_{μ}}
-  T^c, constructions for G₁ extend to B₁ by the trivial construction on the zero-dimensional
-  T-Shimura variety (Principle 4.4.44(1)).
+  Statement: (i) Let H₁ → H₂ ← H₃ be smooth affine group schemes over a base S with H₁ → H₂
+  smooth and surjective (in the application G₁ → G₁^ab and M_{μ_{G₁}} → M^{ab}_μ), P_{H_i}
+  étale torsors and isomorphisms θ₁: P_{H₁} ×^{H₁} H₂ ≅ P_{H₂}, θ₃: P_{H₃} ×^{H₃} H₂ ≅ P_{H₂}.
+  Then P_{H₁} ×_{P_{H₂}} P_{H₃} is an étale (H₁ ×_{H₂} H₃)-torsor (Boxer–Pilloni print P_{H₁}
+  ×_{P_{H₂}} P_{H₁}; PerfectoidShimuraVarieties/E22). (ii) In the situation of abelian-
+  auxiliary-data, for K ⊆ B₁(𝔸_f) and Σ for G₁ there are levels K₁, K₂, K₃ and maps π₁:
+  S^tor(B₁)_{K,Σ} → S^tor(G₁)_{K₁,Σ}, π₂: S^tor(B₁)_{K,Σ} → S(T)_{K₂} over S(G₁^ab)_{K₃}, with
+  M_dR(B₁) ≅ π₁^*M_dR(G₁) ×_{π₃^*M_dR(G₁^ab)} π₂^*M_dR(T) canonically, and likewise for M_HT;
+  with M^c_{μ_{B₁}} = M^c_{μ_{G₁}} ×_{M^{ab,c}_{μ}} T^c, constructions for G₁ extend to B₁ by
+  the trivial construction on the zero-dimensional T-Shimura variety (Principle 4.4.44(1)).
+
+  Hypotheses:
+  * Smooth surjectivity of H₁ → H₂ is needed: flatness of H₁ ×_{H₂} H₃ does not suffice (for
+  H₁ = H₃ = 1, H₂ = G_m and two different trivialisations θ₁, θ₃ of P_{H₂} the fibre product
+  is the equaliser of two sections, not a torsor). It holds for G₁ → G₁^ab (quotient by
+  G₁^der) and for M_{μ_{G₁}} → M^{ab}_μ (surjective because M_{μ_{G₁}} contains the centre).
+  * The compatibility of the c-quotients M^c for B₁ ⊇ Res T is asserted, not proved, in the
+  source; a precise central-character calculation or supplier theorem is still required and is
+  recorded as a gap.
 -/
 
 /- CONTRACT `PerfectoidShimuraVarieties:S6/abelian-connected-towers-and-descent-group` (theorem)
@@ -2286,13 +2634,19 @@ end TauCeti.HodgeTate
 /- CONTRACT `PerfectoidShimuraVarieties:S6/abelian-torsor-descent` (theorem)
   The Levi torsor of an abelian-type datum from its Hodge cover
 
-  Statement: In the situation of abelian-auxiliary-data, for neat K ⊆ G(𝔸_f), K′ ⊆ B₁(𝔸_f) with
-  f(K′) normal in K and Σ for G: over the neutral toroidal component S^{tor,0}(G)_{K,Σ}, the de Rham
-  Levi torsor M_dR(G, X) is the quotient by Δ(K, K′) of M_dR(B₁) ×^{M^c_{μ_{B₁}}} M^c_{μ_G} over
-  S^{tor,0}(B₁)_{K′,Σ} (after refining Σ so that S^{tor,0}(B₁)_{K′,Σ} → S^{tor,0}(G)_{K,Σ} is finite
-  and generically finite étale with group Δ(K, K′)), and the same holds for M_HT on the towers; with
-  the fibre-product description of torsor-fibre-product this expresses M_HT(G) through M_HT(G₁) and
-  the torus T.
+  Statement: In the situation of abelian-auxiliary-data, for neat K ⊆ G(𝔸_f), K′ ⊆ B₁(𝔸_f)
+  with f(K′) normal in K and Σ for G: over the neutral toroidal component S^{tor,0}(G)_{K,Σ},
+  the de Rham Levi torsor M_dR(G, X) is the quotient by Δ(K, K′) of M_dR(B₁) ×^{M^c_{μ_{B₁}}}
+  M^c_{μ_G} over S^{tor,0}(B₁)_{K′,Σ} (after refining Σ so that S^{tor,0}(B₁)_{K′,Σ} →
+  S^{tor,0}(G)_{K,Σ} is finite and generically finite étale with group Δ(K, K′)), and the same
+  holds for M_HT on the towers; with the fibre-product description of torsor-fibre-product
+  this expresses M_HT(G) through M_HT(G₁) and the torus T.
+
+  Hypotheses:
+  * Abelian type; the refinement of Σ is part of the statement (Boxer–Pilloni say 'possibly
+  after refining Σ').
+  * The necessary triviality of boundary inertia on the pushed-out torsor is a separate
+  supplier obligation; generic Galoisness alone is insufficient.
 -/
 
 /- CONTRACT `PerfectoidShimuraVarieties:S6/minimal-toroidal-period-map-compatibility` (theorem)
@@ -2307,15 +2661,23 @@ end TauCeti.HodgeTate
 /- CONTRACT `PerfectoidShimuraVarieties:S6/integral-levi-reduction` (theorem)
   Integral structure of the Levi torsor at hyperspecial-type level
 
-  Statement: Assume G_{ℚ_p} quasi-split with a reductive model over 𝒪_F, M^c_μ ⊆ M^{c,an}_μ the
-  corresponding quasi-compact open subgroup, and K_p ⊆ G(ℚ_p) ∩ G(𝒪_F). Then the étale
-  M^{c,an}_μ-torsor M^{an}_dR over S^tor_{K^pK_p,Σ} (the canonical extension of the de Rham Levi
-  torsor; general-toroidal-period-map) has a reduction to an étale M^c_μ-torsor M_dR (Boxer–Pilloni
-  Proposition 4.6.3). Over the toroidal tower diamond, M_HT := M_dR ×^{μ,ℤ_p^×} ℤ_p(1) is the
-  M^c_μ-reduction of M^{an}_HT = M^{an}_dR ×^{μ,ℤ_p^×} ℤ_p(1) given by integral trivialisations (the
-  cyclotomic character through μ lands in M^c_μ since μ(ℤ_p^×) ⊆ M_μ(𝒪_F)). The twist by ℤ_p(1)
-  exists only over the tower (ℤ_p(1) is pro-étale, not étale, over S^tor_{K^pK_p,Σ}), so the descent
-  to finite level is performed on the untwisted M_dR.
+  Statement: Assume G_{ℚ_p} quasi-split with a reductive model over 𝒪_F, M^c_μ ⊆ M^{c,an}_μ
+  the corresponding quasi-compact open subgroup, and K_p ⊆ G(ℚ_p) ∩ G(𝒪_F). Then the étale
+  M^{c,an}_μ-torsor M^{an}_dR over S^tor_{K^pK_p,Σ} (the canonical extension of the de Rham
+  Levi torsor; general-toroidal-period-map) has a reduction to an étale M^c_μ-torsor M_dR
+  (Boxer–Pilloni Proposition 4.6.3). Over the toroidal tower diamond, M_HT := M_dR ×^{μ,ℤ_p^×}
+  ℤ_p(1) is the M^c_μ-reduction of M^{an}_HT = M^{an}_dR ×^{μ,ℤ_p^×} ℤ_p(1) given by integral
+  trivialisations (the cyclotomic character through μ lands in M^c_μ since μ(ℤ_p^×) ⊆
+  M_μ(𝒪_F)). The twist by ℤ_p(1) exists only over the tower (ℤ_p(1) is pro-étale, not étale,
+  over S^tor_{K^pK_p,Σ}), so the descent to finite level is performed on the untwisted M_dR.
+
+  Hypotheses:
+  * Abelian type (Boxer–Pilloni §4.5–4.6), quasi-split G_{ℚ_p}, F large enough to split G.
+  * The descent uses that the étale torsor M^{an}_dR is already defined at finite level,
+  because pro-étale descent is not effective in general (Remark 4.6.5).
+  * The quotient used to descend the open reduction is by the effective deck group
+  K_p/(Z_{K^p} ∩ K_p). Compatibility of the G^c-torsor with this kernel is the same requested
+  logarithmic/effective-deck comparison as in kummer-to-v-bridge.
 -/
 
 /- CONTRACT `PerfectoidShimuraVarieties:S6/bruhat-levi-reduction` (theorem)
