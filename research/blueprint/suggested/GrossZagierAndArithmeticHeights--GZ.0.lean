@@ -32,13 +32,13 @@ can converge on names and signatures. All proposed proofs are admitted.
 Mathlib pin: 082e2d37e8b0463410cdb532e111cd43d5a66174.
 Tau Ceti pin: f790474821cf4256814db967cb154e7af3d0c369.
 
-Every owned node, API and named unit test is represented. Each test is an
-example with its packet name in the preceding comment. Geometric conditions
-whose supplier carriers do not yet exist are explicitly omitted per node;
-the packet's full mathematical hypotheses remain binding. The scalar and
-function parameters denote the source's actual objects, and do not turn an
-identity into an assertion about arbitrary unrelated inputs. No Prop-valued
-substitute objects or universal dummy hypotheses encode missing mathematics.
+The independent review omitted signatures and tests that asserted geometric
+identities for arbitrary scalars, functions or operators without the necessary
+hypotheses. Their omissions are named below and in the review report. Retained
+algebraic signatures describe explicit arithmetic operations on their inputs;
+they do not supply the missing geometric constructions. The packet records
+those constructions and the outstanding supplier contracts. No Prop-valued
+substitute objects or dummy hypotheses encode missing mathematics.
 
 The full file has not been compiled: the shared build lacks the pinned Tau Ceti
 canonical-height compiled module. The handoff distinguishes the Mathlib-only
@@ -277,9 +277,7 @@ theorem artinConvention {A G : Type*} [CommGroup A] [Group G] (art : A →* G) (
 fullPeriod and identityPeriod are its actual integrals for the same differential.
 Their supplier carrier and component comparison are omitted here. No period
 placeholder is defined in this roadmap. -/
-theorem realPeriod_eq_card_components_mul (W : WeierstrassCurve ℚ) [W.IsElliptic]
-    (fullPeriod identityPeriod : ℝ) :
-  fullPeriod=(if 0<W.Δ then 2 else 1)*identityPeriod := by sorry
+/- Omitted realPeriod_eq_card_components_mul: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-- GZ.0/height-convention-dictionary, collected. -/
 theorem heightConventions {F : Type*} [Field F] {W : WeierstrassCurve.Affine F}
@@ -353,6 +351,13 @@ theorem coefficientHeight_smul (b : P →ₗ[ℝ] Q →ₗ[ℝ] ℝ)
     (hadj : ∀ (m : M) (x : P) (y : Q), b (m • x) y = b x (m • y)) (m : M) (x : P) (y : Q) :
   coefficientHeight b (m • x) y = m * coefficientHeight b x y ∧
   coefficientHeight b x (m • y) = m * coefficientHeight b x y := by sorry
+theorem coefficientHeight_add (b : P →ₗ[ℝ] Q →ₗ[ℝ] ℝ)
+    (htrace : Function.Injective (fun z : M ↦ fun m : M ↦ Algebra.trace ℝ M (m*z)))
+    (x x' : P) (y y' : Q) :
+  coefficientHeight (M := M) b (x+x') y =
+    coefficientHeight (M := M) b x y + coefficientHeight (M := M) b x' y ∧
+  coefficientHeight (M := M) b x (y+y') =
+    coefficientHeight (M := M) b x y + coefficientHeight (M := M) b x y' := by sorry
 theorem coefficientHeight_basis_independent (b : P →ₗ[ℝ] Q →ₗ[ℝ] ℝ)
     (htrace : Function.Injective (fun z : M ↦ fun m : M ↦ Algebra.trace ℝ M (m*z)))
     (H : P → Q → M) (hH : ∀ m x y, Algebra.trace ℝ M (m * H x y)=b (m • x) y) :
@@ -480,6 +485,10 @@ section Composition
 variable {J A : Type*} [AddCommGroup J] [Module ℚ J] [AddCommGroup A] [Module ℚ A]
 def compositionPairing (f : J →ₗ[ℚ] A) (dualG : A →ₗ[ℚ] J)
     (volume : ℚ) : A →ₗ[ℚ] A := by sorry
+theorem compositionPairing_add (f f' : J →ₗ[ℚ] A) (g g' : A →ₗ[ℚ] J)
+    (vol : ℚ) :
+  compositionPairing (f+f') g vol = compositionPairing f g vol + compositionPairing f' g vol ∧
+  compositionPairing f (g+g') vol = compositionPairing f g vol + compositionPairing f g' vol := by sorry
 theorem compositionPairing_level (f : J →ₗ[ℚ] A) (g : A →ₗ[ℚ] J)
     (vol d : ℚ) (hd : d≠0) :
   compositionPairing (d • f) g (d*vol)=compositionPairing f g vol := by sorry
@@ -659,6 +668,10 @@ theorem arithmeticIntersection_add (fin inf : D →ₗ[ℝ] D →ₗ[ℝ] ℝ)
     (d : ℕ) (a b c : D) :
   arithmeticIntersection fin inf d (a+b) c =
     arithmeticIntersection fin inf d a c + arithmeticIntersection fin inf d b c := by sorry
+theorem arithmeticIntersection_symm (fin inf : D →ₗ[ℝ] D →ₗ[ℝ] ℝ)
+    (hfin : ∀ a b, fin a b=fin b a) (hinf : ∀ a b, inf a b=inf b a)
+    (d : ℕ) (a b : D) :
+  arithmeticIntersection fin inf d a b = arithmeticIntersection fin inf d b a := by sorry
 theorem arithmeticIntersection_projection (fin inf : D →ₗ[ℝ] D →ₗ[ℝ] ℝ)
     (pull push : D →ₗ[ℝ] D)
     (hfin : ∀ a b, fin (pull a) b=fin a (push b))
@@ -689,38 +702,7 @@ signature, not stored in a substitute proposition. The characterization
 needs the construction’s same normalization maps; realizing that dependence
 is an explicit carrier refinement in GZ.2.
 -/
-section Extension
-variable {D A C V : Type*} [AddCommGroup D] [Module ℚ D]
-  [AddCommGroup A] [Module ℚ A] [AddCommGroup C] [Module ℚ C]
-  [AddCommGroup V] [Module ℚ V]
-def admissibleExtension (generic : A →ₗ[ℚ] D) : D →ₗ[ℚ] A := by sorry
-theorem admissibleExtension_characterization (generic : A →ₗ[ℚ] D)
-    (curvature : A →ₗ[ℚ] C) (vertical : A →ₗ[ℚ] V)
-    (mean : A →ₗ[ℚ] ℚ) (degree : D →ₗ[ℚ] ℚ) (ξ : A)
-    (hinj : Function.Injective (fun a : A ↦ (generic a, curvature a, vertical a, mean a)))
-    (D₀ : D) (a : A) (hg : generic a=D₀)
-    (hc : curvature a=degree D₀ • curvature ξ)
-    (hv : vertical a=degree D₀ • vertical ξ) (hm : mean a=0) :
-  a = admissibleExtension generic D₀ := by sorry
-theorem admissibleExtension_add (generic : A →ₗ[ℚ] D) (a b : D) :
-  admissibleExtension generic (a+b)=admissibleExtension generic a+admissibleExtension generic b := by sorry
-theorem admissibleExtension_pullback (generic : A →ₗ[ℚ] D)
-    (pullA : A →ₗ[ℚ] A) (pullD : D →ₗ[ℚ] D)
-    (hcomp : pullA.comp (admissibleExtension generic)=
-      (admissibleExtension generic).comp pullD) (a : D) :
-  pullA (admissibleExtension generic a)=admissibleExtension generic (pullD a) := by sorry
-theorem admissibleExtension_degreeZero (generic : A →ₗ[ℚ] D)
-    (degree : D →ₗ[ℚ] ℚ) (curvature : A →ₗ[ℚ] C) (ξ : C)
-    (hcurv : ∀ a, curvature (admissibleExtension generic a)=degree a • ξ)
-    (a : D) (ha : degree a=0) : curvature (admissibleExtension generic a)=0 := by sorry
--- Test: admissibleExtension_zero
-example (generic : A →ₗ[ℚ] D) : admissibleExtension generic 0=0 := by sorry
--- Test: admissibleExtension_xi
-example (generic : A →ₗ[ℚ] D) (ξ : D) (ξhat : A)
-    (hξ : admissibleExtension generic ξ=ξhat) : generic ξhat=ξ := by sorry
--- Test: admissibleExtension_disconnected
-example : ((1 : ℚ),(-1 : ℚ)) ≠ (0,0) := by sorry
-end Extension
+/- Signatures and tests omitted for GZ.2/admissible-arithmetic-extension. The constructor only depends on generic restriction and cannot encode the chosen curvature, vertical and Hodge normalizations. See the independent review and the packet gap. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.2/arakelov-probability-form — Arakelov probability form
 Each μ_i is the measure (i/2) α_i∧conj(α_i) from the actual orthonormal
@@ -818,31 +800,7 @@ omitted until the named analytic supplier provides their actual types.
 The final example checks the sign of the local logarithmic principal part;
 it does not claim smoothness from a scalar identity.
 -/
-section GreenKernel
-variable {X C : Type*} [AddCommGroup C] [Module ℝ C]
-def arakelovGreen (μ : C) (δ : X → C) (ddc : (X → ℝ) →ₗ[ℝ] C)
-    (mean : (X → ℝ) →ₗ[ℝ] ℝ) : X → X → ℝ := by sorry
-theorem arakelovGreen_symm (μ : C) (δ : X → C) (ddc : (X → ℝ) →ₗ[ℝ] C)
-    (mean : (X → ℝ) →ₗ[ℝ] ℝ) (x y : X) :
-  arakelovGreen μ δ ddc mean x y=arakelovGreen μ δ ddc mean y x := by sorry
-theorem arakelovGreen_mean (μ : C) (δ : X → C) (ddc : (X → ℝ) →ₗ[ℝ] C)
-    (mean : (X → ℝ) →ₗ[ℝ] ℝ) (x : X) : mean (arakelovGreen μ δ ddc mean x)=0 := by sorry
-theorem arakelovGreen_diagonal_metric (μ : C) (δ : X → C) (ddc : (X → ℝ) →ₗ[ℝ] C)
-    (mean : (X → ℝ) →ₗ[ℝ] ℝ) (x : X) :
-  ddc (arakelovGreen μ δ ddc mean x)=μ-δ x := by sorry
--- Test: arakelovGreen_constant_shift
-example (μ : C) (δ : X → C) (ddc : (X → ℝ) →ₗ[ℝ] C)
-    (mean : (X → ℝ) →ₗ[ℝ] ℝ) (hmean : mean (fun _ ↦ 1)=1)
-    (x : X) (c : ℝ) (hc : c≠0) :
-  mean (fun y ↦ arakelovGreen μ δ ddc mean x y+c)≠0 := by sorry
--- Test: arakelovGreen_degree_zero
-example (μ : C) (δ : X → C) (ddc : (X → ℝ) →ₗ[ℝ] C)
-    (mean : (X → ℝ) →ₗ[ℝ] ℝ) (x y : X) :
-  ddc (arakelovGreen μ δ ddc mean x-arakelovGreen μ δ ddc mean y)=δ y-δ x := by sorry
--- Test: arakelovGreen_local_singularity
-example (z w : ℂ) (hzw : z≠w) :
-  -Real.log ‖z-w‖ + Real.log ‖z-w‖ = 0 := by sorry
-end GreenKernel
+/- Signatures and tests omitted for GZ.2/normalized-arakelov-green. An arbitrary linear ddc operator need not solve the Green equation; compact-curve Green solvability and logarithmic currents are missing. See the independent review and the packet gap. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.2/arakelov-dualizing-metric — Arakelov dualizing metric
 L is the actual fibre of omega tensor O(x), with the latter factor normalized
@@ -858,18 +816,12 @@ variable {X C : Type*} {L : X → Type*} [∀ x, AddCommGroup (L x)]
 def arakelovDualizingMetric (residue : ∀ x, L x →ₗ[ℂ] ℂ) : ∀ x, L x → ℝ := by sorry
 theorem arakelovDualizingMetric_residue (residue : ∀ x, L x →ₗ[ℂ] ℂ) (x : X) (v : L x) :
   arakelovDualizingMetric residue x v = ‖residue x v‖ := by sorry
-theorem arakelovDualizingMetric_curvature (residue : ∀ x, L x →ₗ[ℂ] ℂ)
-    (c1 : (∀ x, L x → ℝ) → C) (g : ℕ) (μ : C) :
-  c1 (arakelovDualizingMetric residue) = (2*(g : ℝ)-2) • μ := by sorry
-theorem arakelovDualizingMetric_diagonal (residue : ∀ x, L x →ₗ[ℂ] ℂ)
-    (dual : (∀ x, L x → ℝ) → (∀ x, L x → ℝ))
-    (diagonalNorm : ∀ x, L x → ℝ) : dual (arakelovDualizingMetric residue)=diagonalNorm := by sorry
+/- Omitted arakelovDualizingMetric_curvature: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
+/- Omitted arakelovDualizingMetric_diagonal: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 -- Test: arakelovDualizingMetric_genus_one
-example (residue : ∀ x, L x →ₗ[ℂ] ℂ) (c1 : (∀ x, L x → ℝ) → C) :
-  c1 (arakelovDualizingMetric residue)=0 := by sorry
+/- Omitted test:arakelovDualizingMetric_genus_one: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 -- Test: arakelovDualizingMetric_genus_two
-example (residue : ∀ x, L x →ₗ[ℂ] ℂ) (c1 : (∀ x, L x → ℝ) → C) (μ : C) :
-  c1 (arakelovDualizingMetric residue)=2 • μ := by sorry
+/- Omitted test:arakelovDualizingMetric_genus_two: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 -- Test: arakelovDualizingMetric_rescale
 example (residue : ∀ x, L x →ₗ[ℂ] ℂ) (x : X) (v : L x)
     (hv : residue x v≠0) (c : ℝ) (hc : 0<c) (hne : c≠1) :
@@ -895,13 +847,8 @@ theorem graphAdmissibleMeasure_mass (g : ℕ) (genus : V → ℕ) (resistance : 
       ∑ e, (resistance e+1)⁻¹=(g : ℝ≥0∞))
     (hv : ∀ v, vertex v Set.univ=1) (he : ∀ e, length e Set.univ=1) :
   graphAdmissibleMeasure g genus resistance vertex length Set.univ=1 := by sorry
-theorem graphAdmissibleGreen_laplacian {C : Type*} [AddCommGroup C] [Module ℝ C]
-    (green : X → X → ℝ) (lap : (X → ℝ) →ₗ[ℝ] C) (δ : X → C) (μ : C)
-    (mean : (X → ℝ) →ₗ[ℝ] ℝ) (x : X) :
-  lap (green x)=δ x-μ ∧ mean (green x)=0 := by sorry
-theorem graphAdmissibleGreen_canonical (green : X → X → ℝ)
-    (K : X →₀ ℝ) : ∃ c : ℝ, ∀ x,
-  K.sum (fun v a ↦ a*green v x)+green x x=c := by sorry
+/- Omitted graphAdmissibleGreen_laplacian: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
+/- Omitted graphAdmissibleGreen_canonical: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 theorem graphAdmissibleMeasure_pushforward (g : ℕ) (genus : V → ℕ) (resistance : E → ℝ≥0∞)
     (vertex : V → MeasureTheory.Measure X) (length : E → MeasureTheory.Measure X)
     (i : X → X) (hi : Measurable i) :
@@ -971,9 +918,7 @@ theorem residueAdjunctionLine_residue_coordinate (residue residue' : L →ₗ[A]
     (hres : residue=residue') : residueAdjunctionLine residue=residueAdjunctionLine residue' := by sorry
 theorem residueAdjunctionLine_finite_lattice (residue : L →ₗ[A] K) (a : K) :
   a∈residueAdjunctionLine residue ↔ ∃ x, residue x=a := by sorry
-theorem residueAdjunctionLine_degree (finiteLengths : ℕ → ℝ)
-    (logNorms : ℕ → ℝ) (degree : ℝ) :
-  degree=(∑' n, finiteLengths n)-(∑' n, logNorms n) := by sorry
+/- Omitted residueAdjunctionLine_degree: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 -- Test: residueAdjunctionLine_coordinate_unit
 example (residue : L →ₗ[A] K) (u : Aˣ) :
   residueAdjunctionLine ((u : A) • residue)=residueAdjunctionLine residue := by sorry
@@ -1011,16 +956,14 @@ def normalizedWhittaker (a : ℂ) (γ : ℂˣ) (Lnext Lcurrent : ℂ → ℂ)
 theorem normalizedWhittaker_constructor (a : ℂ) (γ : ℂˣ) (Lnext Lcurrent raw : ℂ → ℂ) (D d : ℝ) (s : ℂ) :
   normalizedWhittaker a γ Lnext Lcurrent D d raw s=
     (γ : ℂ)⁻¹*(if a=0 then Lnext s/Lcurrent s*(Real.sqrt D*Real.sqrt d : ℂ)⁻¹ else 1)*raw s := by sorry
-theorem normalizedWhittaker_zero_value (γ : ℂˣ) (Lnext Lcurrent raw : ℂ → ℂ) (D d : ℝ) (weilValue : ℂ) :
-  normalizedWhittaker 0 γ Lnext Lcurrent D d raw 0=weilValue := by sorry
+/- Omitted normalizedWhittaker_zero_value: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 theorem normalizedWhittaker_nonzero_index (a : ℂ) (ha : a≠0) (γ : ℂˣ) (Lnext Lcurrent raw : ℂ → ℂ) (D d : ℝ) (s : ℂ) :
   normalizedWhittaker a γ Lnext Lcurrent D d raw s=(γ : ℂ)⁻¹*raw s := by sorry
 theorem normalizedWhittaker_zero_index (γ : ℂˣ) (Lnext Lcurrent raw : ℂ → ℂ) (D d : ℝ) (s : ℂ) :
   normalizedWhittaker 0 γ Lnext Lcurrent D d raw s=
     (γ : ℂ)⁻¹*(Lnext s/Lcurrent s)*(Real.sqrt D*Real.sqrt d : ℂ)⁻¹*raw s := by sorry
 -- Test: normalizedWhittaker_standard_zero
-example (γ : ℂˣ) (Lnext Lcurrent raw : ℂ → ℂ) (D d δ : ℝ) (weilValue s : ℂ) :
-  normalizedWhittaker 0 γ Lnext Lcurrent D d raw s=(δ : ℂ)^(-s)*weilValue := by sorry
+/- Omitted test:normalizedWhittaker_standard_zero: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 -- Test: normalizedWhittaker_zero_branch
 example (z : ℂ) (hz : z≠0) : 2*z≠z := by sorry
 -- Test: normalizedWhittaker_incoherent_product_sign
@@ -1302,12 +1245,8 @@ theorem colmezTestFunction_constructor {X U : Type*} (O Ounits shell : Set X) (O
       if i=3 then Set.indicator Ounits (fun _ ↦ (1 : ℂ)) x-
         (1+q+(q : ℂ)^2)⁻¹*Set.indicator shell (fun _ ↦ (1 : ℂ)) x else
       Set.indicator O (fun _ ↦ (1 : ℂ)) x else 0 := by sorry
-theorem colmezTestFunction_biinvariant {X U : Type*} (O Ounits shell : Set X) (Ou : Set U) (q : ℕ)
-    (i : Fin 5) (gaussian : X → U → ℂ) (left right : X → X) :
-  ∀ x u,colmezTestFunction O Ounits shell Ou q i gaussian (left (right x)) u=
-    colmezTestFunction O Ounits shell Ou q i gaussian x u := by sorry
-theorem colmezTestFunction_auxiliary_degenerate {X U G : Type*} (φ : X → U → ℂ) (weil : G → (X → U → ℂ) → (X → U → ℂ))
-    (zero : X) : ∀ g u,weil g φ zero u=0 := by sorry
+/- Omitted colmezTestFunction_biinvariant: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
+/- Omitted colmezTestFunction_auxiliary_degenerate: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 theorem colmezTestFunction_order_containment {X : Type*} (OE O : Set X) (h : OE⊆O) (x : X) (hx : x∈OE) : x∈O := by sorry
 -- Test: colmezTestFunction_auxiliary_q_two
 example  : -(1+2+(2 : ℂ)^2)⁻¹= -1/7 := by sorry
@@ -1384,8 +1323,7 @@ theorem archDerivativeKernel_constructor (lambda : ℝ) (s : ℂ) : archDerivati
     ∫ t in Set.Ici (1 : ℝ), ((t : ℂ)*(1-(lambda*t : ℂ))^(s+1))⁻¹ := by sorry
 theorem archDerivativeKernel_lambda_domain (y1Norm y2Norm : ℝ) (hy1 : 0<y1Norm) (hy2 : y2Norm<0)
     (hy : 0<y1Norm+y2Norm) : y2Norm/(y1Norm+y2Norm)<0 := by sorry
-theorem archDerivativeKernel_torus_average {C : Type*} [Fintype C] (K : C → ℂ) (projectedDerivative : ℂ) :
-  projectedDerivative=2*cmOrbitAverage K := by sorry
+/- Omitted archDerivativeKernel_torus_average: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 theorem archDerivativeKernel_zero_parameter (lambda : ℝ) (hlambda : lambda<0) : archDerivativeKernel lambda 0=(1/2 : ℂ)*Real.log ((1-lambda)/(-lambda)) := by sorry
 -- Test: archDerivativeKernel_lambda_minus_one
 example  : archDerivativeKernel (-1) 0=(Real.log 2/2 : ℂ) := by sorry
@@ -1403,7 +1341,7 @@ normalization and exclusion required by the packet.
 -/
 def regularizedCmGreen (germ : LaurentSeries ℂ) : ℂ := by sorry
 theorem regularizedCmGreen_constructor (germ : LaurentSeries ℂ) : regularizedCmGreen germ=germ.coeff 0 := by sorry
-theorem regularizedCmGreen_distinct_points (germ : LaurentSeries ℂ) (ordinaryHeight : ℂ) : regularizedCmGreen germ=ordinaryHeight := by sorry
+/- Omitted regularizedCmGreen_distinct_points: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 theorem regularizedCmGreen_diagonal_exclusion {I : Type*} (E : Set I) (terms : I → LaurentSeries ℂ) (finite : Finset I) :
   regularizedCmGreen (∑ i∈finite.filter (fun i ↦ i∉E),terms i)=
     ∑ i∈finite.filter (fun i ↦ i∉E),regularizedCmGreen (terms i) := by sorry
@@ -1452,15 +1390,9 @@ complex-s holomorphy strengthen the Summable signature in the packet.
 -/
 def classicalResolvent {Γ : Type*} (Q : ℝ → ℝ → ℝ) (action : Γ → ℂ → ℂ)
     (s : ℝ) (z w : ℂ) : ℝ := by sorry
-theorem classicalResolvent_invariant {Γ : Type*} (Q : ℝ → ℝ → ℝ) (action : Γ → ℂ → ℂ)
-    (left right : ℂ → ℂ) (s : ℝ) (z w : ℂ) :
-  classicalResolvent Q action s (left z) (right w)=classicalResolvent Q action s z w := by sorry
-theorem classicalResolvent_laplacian {Γ : Type*} (Q : ℝ → ℝ → ℝ) (action : Γ → ℂ → ℂ)
-    (Δ : (ℂ → ℝ) → (ℂ → ℝ)) (s : ℝ) (z w : ℂ) :
-  Δ (fun z ↦ classicalResolvent Q action s z w) z=s*(s-1)*classicalResolvent Q action s z w ∧
-    Δ (fun w ↦ classicalResolvent Q action s z w) w=s*(s-1)*classicalResolvent Q action s z w := by sorry
-theorem classicalResolvent_converges {Γ : Type*} (Q : ℝ → ℝ → ℝ) (action : Γ → ℂ → ℂ) (s : ℝ) (z w : ℂ) :
-  Summable (fun γ ↦ Q (s-1) (1+‖z-action γ w‖^2/(2*z.im*(action γ w).im))) := by sorry
+/- Omitted classicalResolvent_invariant: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
+/- Omitted classicalResolvent_laplacian: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
+/- Omitted classicalResolvent_converges: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 -- Test: classicalResolvent_orbit_diagonal
 example {Γ : Type*} (action : Γ → ℂ → ℂ) (γ : Γ) (z w : ℂ)
     (h : z=action γ w) : 1+‖z-action γ w‖^2/(2*z.im*(action γ w).im)=1 := by sorry
@@ -1481,16 +1413,9 @@ The plain-finite-part example records its nonzero Laplacian kappa;
 it cannot yet apply that operator to the actual uncorrected kernel.
 -/
 def markedModularGreen (G E0 Einfty : LaurentSeries ℂ) (kappa lambda : ℂ) : ℂ := by sorry
-theorem markedModularGreen_cusp_zero (G E0 Einfty : ℝ → LaurentSeries ℂ) (κ lambda : ℂ) :
-  Tendsto (fun y ↦ markedModularGreen (G y) (E0 y) (Einfty y) κ lambda) atTop (𝓝 0) := by sorry
-theorem markedModularGreen_singularities {X : Type*} (G E0 Einfty : X → LaurentSeries ℂ) (κ lambda : ℂ)
-    (Δ : (X → ℂ) → (X → ℂ)) (x : X) :
-  Δ (fun y ↦ markedModularGreen (G y) (E0 y) (Einfty y) κ lambda) x=0 := by sorry
-theorem markedModularGreen_fricke {X : Type*} (G E0 Einfty : X → X → LaurentSeries ℂ) (κ lambda : ℂ)
-    (fricke : X → X) (z w : X) :
-  markedModularGreen (G z w) (E0 z w) (Einfty z w) κ lambda=
-    markedModularGreen (G (fricke w) (fricke z))
-      (E0 (fricke w) (fricke z)) (Einfty (fricke w) (fricke z)) κ lambda := by sorry
+/- Omitted markedModularGreen_cusp_zero: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
+/- Omitted markedModularGreen_singularities: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
+/- Omitted markedModularGreen_fricke: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 -- Test: markedModularGreen_four_residues
 example (κ : ℂ) : κ-κ-κ+κ=0 := by sorry
 -- Test: markedModularGreen_plain_finite_part
@@ -1509,12 +1434,8 @@ def heckeGreen {X : Type*} {d : ℕ} (G : X → X → ℝ) (reps : Fin d → X �
     (z w : X) : ℝ := by sorry
 theorem heckeGreen_one {X : Type*} (G : X → X → ℝ) (z w : X) :
   heckeGreen G (fun _ : Fin 1 ↦ id) z w=G z w := by sorry
-theorem heckeGreen_hecke {X : Type*} {d : ℕ} (G : X → X → ℝ) (reps : Fin d → X → X)
-    (hecke : (X → ℝ) → (X → ℝ)) (z w : X) :
-  heckeGreen G reps z w=hecke (G z) w := by sorry
-theorem heckeGreen_fricke {X : Type*} {d : ℕ} (G : X → X → ℝ) (reps : Fin d → X → X)
-    (fricke : X → X) (z w : X) :
-  heckeGreen G reps (fricke z) (fricke w)=heckeGreen G reps z w := by sorry
+/- Omitted heckeGreen_hecke: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
+/- Omitted heckeGreen_fricke: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 -- Test: heckeGreen_m_one
 example {X : Type*} (G : X → X → ℝ) (z w : X) :
   heckeGreen G (fun _ : Fin 1 ↦ id) z w=G z w := by sorry
@@ -1669,8 +1590,7 @@ Green symbol; continuity and the principal-divisor universal property
 remain the full requirement in the packet.
 -/
 def classicalComplexHeight {X : Type*} (green : X → X → ℝ) (D E : X →₀ ℤ) : ℝ := by sorry
-theorem classicalComplexHeight_principal {X : Type*} (green : X → X → ℝ) (D E : X →₀ ℤ) (f : X → ℂ) :
-  classicalComplexHeight green D E=D.sum (fun x n ↦ n*Real.log (‖f x‖^2)) := by sorry
+/- Omitted classicalComplexHeight_principal: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 theorem classicalComplexHeight_add {X : Type*} (green : X → X → ℝ) (D D' E : X →₀ ℤ) :
   classicalComplexHeight green (D+D') E=classicalComplexHeight green D E+classicalComplexHeight green D' E := by sorry
 theorem classicalComplexHeight_unique {X : Type*} (green green' : X → X → ℝ) (h : green=green') :
@@ -1721,10 +1641,10 @@ omitted. Change of parameter subtracts r log|gprime/g|, as in the packet.
 def cmTangentHeight (ordinary logParameter : ℝ → ℝ) (multiplicity : ℕ) : ℝ := by sorry
 theorem cmTangentHeight_disjoint (placeValue logg : ℝ → ℝ) : cmTangentHeight placeValue logg 0=
   Filter.lim (Filter.map placeValue (𝓝[≠] (0 : ℝ))) := by sorry
-theorem cmTangentHeight_change (placeValue logg : ℝ → ℝ) (r : ℕ) (a : ℝ) :
+theorem cmTangentHeight_change (placeValue logg : ℝ → ℝ) (r : ℕ) (a value : ℝ)
+    (hlim : Tendsto (fun y ↦ placeValue y-r*logg y) (𝓝[≠] (0 : ℝ)) (𝓝 value)) :
   cmTangentHeight placeValue (fun y ↦ logg y+a) r=cmTangentHeight placeValue logg r-r*a := by sorry
-theorem cmTangentHeight_global {V : Type*} [Fintype V] (placeValue : V → ℝ → ℝ) (logg : V → ℝ → ℝ) (r : ℕ) (global : ℝ) :
-  (∑ v,cmTangentHeight (placeValue v) (logg v) r)=global := by sorry
+/- Omitted cmTangentHeight_global: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 -- Test: cmTangentHeight_multiplicity
 example (f g : ℝ → ℝ) : cmTangentHeight f g 2=
   Filter.lim (Filter.map (fun y ↦ f y-2*g y) (𝓝[≠] (0 : ℝ))) := by sorry
@@ -1791,10 +1711,8 @@ the local CM reduction identifications are omitted. The set imposes
 alpha in A, beta in B and alpha-sign*beta in O (sign=1 for the basic model).
 -/
 def inertOrderModel {K : Type*} [Field K] (A B O : Submodule ℤ K) : Set (K×K) := by sorry
-theorem inertOrderModel_norm {K : Type*} [Field K] (A B O : Submodule ℤ K) (norm : K → ℚ) (p q : ℚ)
-    (x : inertOrderModel A B O) : ∃ n : ℤ,norm x.val.1+p*q*norm x.val.2=n := by sorry
-theorem inertOrderModel_discriminant {K : Type*} [Field K] (A B O : Submodule ℤ K) (disc : Set (K×K) → ℕ) (N p : ℕ) :
-  disc (inertOrderModel A B O)=N*p := by sorry
+/- Omitted inertOrderModel_norm: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
+/- Omitted inertOrderModel_discriminant: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 theorem inertOrderModel_hom_ideal {K : Type*} [Field K] (A B O : Submodule ℤ K) (star : K →+* K) (a α β : K) :
   (α*a,β*star a).2=β*star a := by sorry
 -- Test: inertOrderModel_correct_q
@@ -1862,20 +1780,11 @@ can express them; the source fixes each of them exactly.
 -/
 def inertNormIdeals {K I : Type*} [Field K] [CommGroupWithZero I]
     (principal : K →*₀ I) (different a q n b bbar abar : I) (α β : K) : I×I := by sorry
-theorem inertNormIdeals_classes {K I C : Type*} [Field K] [CommGroupWithZero I] [CommGroupWithZero C]
-    (principal : K →*₀ I) (classMap : I →*₀ C) (d a q n b bbar abar : I) (α β : K)
-    (A B Q : C) :
-  classMap (inertNormIdeals principal d a q n b bbar abar α β).1=A⁻¹ ∧
-  classMap (inertNormIdeals principal d a q n b bbar abar α β).2=A*B^2*Q := by sorry
-theorem inertNormIdeals_norm {K I : Type*} [Field K] [CommGroupWithZero I] (principal : K →*₀ I)
-    (norm : I → ℚ) (d a q n b bbar abar : I) (α β : K) (N p m D : ℚ) :
-  norm (inertNormIdeals principal d a q n b bbar abar α β).1+N*p*
-    norm (inertNormIdeals principal d a q n b bbar abar α β).2=m*D := by sorry
-theorem inertNormIdeals_valuation (ord : ℚˣ → ℤ) (p Ncprime negativeNorm : ℚˣ) : ord (p*Ncprime)=ord negativeNorm := by sorry
+/- Omitted inertNormIdeals_classes: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
+/- Omitted inertNormIdeals_norm: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
+/- Omitted inertNormIdeals_valuation: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 -- Test: inertNormIdeals_nonzero
-example {K I : Type*} [Field K] [CommGroupWithZero I] (principal : K →*₀ I)
-    (norm : I → ℝ) (d a q n b bbar abar : I) (α β : K) (hβ : β≠0) :
-  0<norm (inertNormIdeals principal d a q n b bbar abar α β).2 := by sorry
+/- Omitted test:inertNormIdeals_nonzero: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 -- Test: inertNormIdeals_sign
 example {K I : Type*} [Field K] [CommGroupWithZero I] (principal : K →*₀ I)
     (hminus : principal (-1)=1) (d a q n b bbar abar : I) (α β : K) :
@@ -1893,12 +1802,8 @@ identity are omitted; the Fourier signature below is refined separately.
 -/
 def classicalRankinKernel {X : Type*} {d : ℕ} (theta eisenstein : X → ℂ)
     (dilate : X → X) (reps : Fin d → X → X) : X → ℂ := by sorry
-theorem classicalRankinKernel_trace {X : Type*} {d : ℕ} (θ E : X → ℂ) (dilate : X → X) (reps : Fin d → X → X)
-    (isLevelN : (X → ℂ) → Set ℕ) (N : ℕ) : N∈isLevelN (classicalRankinKernel θ E dilate reps) := by sorry
-theorem classicalRankinKernel_fourier {X : Type*} {d : ℕ}
-    (θ E : X → ℂ) (dilate : X → X) (reps : Fin d → X → X)
-    (coefficient : (X → ℂ) → ℤ → ℂ) (a b : ℤ → ℂ) (N D m : ℤ) (hD : 0<D) :
-  coefficient (classicalRankinKernel θ E dilate reps) m=∑' n : ℤ,a (m*D-N*n)*b n := by sorry
+/- Omitted classicalRankinKernel_trace: Arbitrary scalar/function inputs are not tied to the modular, quadratic-character or ideal-count objects; the statement can be false under the displayed hypotheses. -/
+/- Omitted classicalRankinKernel_fourier: Arbitrary scalar/function inputs are not tied to the modular, quadratic-character or ideal-count objects; the statement can be false under the displayed hypotheses. -/
 theorem classicalRankinKernel_class_dependence {X : Type*} {d : ℕ} (θ θ' E : X → ℂ) (dilate : X → X)
     (reps : Fin d → X → X) (c : ℂ) :
   classicalRankinKernel (θ+c • θ') E dilate reps=
@@ -1949,12 +1854,8 @@ def rankinGenusSign (D N n d D1 D2 : ℤ) (epsilon1 epsilon2 : ℤ → ℤ) (gen
 theorem rankinGenusSign_values (D N n d D1 D2 : ℤ) (ε1 ε2 : ℤ → ℤ) (χ : ℤ)
     (h1 : ∀ x,ε1 x∈({-1,0,1} : Set ℤ)) (h2 : ∀ x,ε2 x∈({-1,0,1} : Set ℤ))
     (hχ : χ∈({-1,1} : Set ℤ)) : rankinGenusSign D N n d D1 D2 ε1 ε2 χ∈({-1,0,1} : Set ℤ) := by sorry
-theorem rankinGenusSign_complement (D N n d D1 D2 : ℤ) (ε1 ε2 : ℤ → ℤ) (χ εN : ℤ) :
-  rankinGenusSign D N n (n.natAbs/d.natAbs) D2 D1 ε2 ε1 χ=
-    -εN*Int.sign n*rankinGenusSign D N n d D1 D2 ε1 ε2 χ := by sorry
-theorem rankinGenusSign_multiplicative (D N n d e D1 D2 : ℤ) (ε1 ε2 : ℤ → ℤ) (χ : ℤ) (h : Int.gcd d e=1) :
-  rankinGenusSign D N n (d*e) D1 D2 ε1 ε2 χ=
-    rankinGenusSign D N n d D1 D2 ε1 ε2 χ*rankinGenusSign D N n e D1 D2 ε1 ε2 χ := by sorry
+/- Omitted rankinGenusSign_complement: Arbitrary scalar/function inputs are not tied to the modular, quadratic-character or ideal-count objects; the statement can be false under the displayed hypotheses. -/
+/- Omitted rankinGenusSign_multiplicative: Arbitrary scalar/function inputs are not tied to the modular, quadratic-character or ideal-count objects; the statement can be false under the displayed hypotheses. -/
 -- Test: rankinGenusSign_common_ramification
 example (D N n d D1 D2 : ℤ) (ε1 ε2 : ℤ → ℤ) (χ : ℤ)
     (h : Nat.gcd (Int.gcd d (n/d)) D.natAbs≠1) : rankinGenusSign D N n d D1 D2 ε1 ε2 χ=0 := by sorry
@@ -1962,7 +1863,7 @@ example (D N n d D1 D2 : ℤ) (ε1 ε2 : ℤ → ℤ) (χ : ℤ)
 example (divisors : Finset ℕ) (ε : ℕ → ℤ) (e : divisors ≃ divisors)
     (h : ∀ d,ε (e d)=-ε d) : (∑ d∈divisors,ε d)=0 := by sorry
 -- Test: rankinGenusSign_negative_index
-example  : (1 : ℤ)*1=1 ∧ (-1 : ℤ)*(-1)=1 := by sorry
+/- Omitted rankinGenusSign_negative_index: the scalar identity did not test the genus-sign construction. Use the packet’s n=±3 character computation once the actual quadratic-character carrier is available. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.6/classical-signed-divisor-sums — Signed divisor sums
 epsilon is the actual genus sign of the preceding construction, not an
@@ -1975,8 +1876,7 @@ def signedDivisorSums (epsilon : ℤ → ℕ → ℤ) (n : ℤ) : ℤ×ℝ := by
 theorem signedDivisorSums_log (ε : ℤ → ℕ → ℤ) (n : ℤ) (hn : 0<n) :
   (signedDivisorSums ε n).2=Real.log n*(signedDivisorSums ε n).1-
     2*∑ d∈n.natAbs.divisors,(ε n d : ℝ)*Real.log d := by sorry
-theorem signedDivisorSums_prime_support (ε : ℤ → ℕ → ℤ) (n : ℤ) (hn : 0<n) (primeContributions : Finset ℕ)
-    (a : ℕ → ℝ) : (signedDivisorSums ε n).2=∑ p∈primeContributions,a p*Real.log p := by sorry
+/- Omitted signedDivisorSums_prime_support: Arbitrary scalar/function inputs are not tied to the modular, quadratic-character or ideal-count objects; the statement can be false under the displayed hypotheses. -/
 theorem signedDivisorSums_negative (ε : ℤ → ℕ → ℤ) (n : ℤ) (sign : ℕ → ℤ)
     (h : ∀ d∈n.natAbs.divisors,ε (-n) d=sign d*ε n d) :
   (signedDivisorSums ε (-n)).1=∑ d∈n.natAbs.divisors,sign d*ε n d := by sorry
@@ -2012,46 +1912,35 @@ V is E(K), pinned its exact Tau Ceti pairing and poincare the canonical
 RP biextension pairing. The actual line bundle, principal polarization and
 coordinate-height comparison hypotheses are omitted, not free predicates.
 -/
-theorem elliptic_poincare_comparison {V : Type*} [AddCommGroup V] [Module ℤ V]
-    (poincare pinned : V →ₗ[ℤ] V →ₗ[ℤ] ℝ) (x y : V) : poincare x y=2*pinned x y := by sorry
+/- Omitted elliptic_poincare_comparison: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.2/hodge-index-theorem-and-admissible-arithmetic-extensions — Faltings–Hriljac comparison
 D consists of the componentwise degree-zero divisor classes; J is Pic0
 under the principal polarization. Model smoothness, flat admissibility and
 disjoint representatives are omitted pending the actual SR/TB carriers.
 -/
-theorem faltingsHriljac {D J : Type*}
-    [AddCommGroup D] [Module ℝ D] [AddCommGroup J] [Module ℝ J]
-    (intersection : D →ₗ[ℝ] D →ₗ[ℝ] ℝ) (height : J →ₗ[ℝ] J →ₗ[ℝ] ℝ)
-    (classMap : D →ₗ[ℝ] J) (extension : D →ₗ[ℝ] D) (degree : ℕ) (a b : D) :
-  -(degree : ℝ)⁻¹*intersection (extension a) (extension b)=height (classMap a) (classMap b) := by sorry
+/- Omitted faltingsHriljac: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.3/strict-gl2-realization — Strict GL₂ realization and transfer
 M is End0(A) of the actual simple parametrized quotient and A here is
 its tangent space. Simplicity, rational Hecke summand, irreducibility and
 Jacquet-Langlands identifications are omitted until the GL2/A2 carriers exist.
 -/
-theorem strictGL2_realization {M A : Type*} [Field M] [Algebra ℚ M]
-    [AddCommGroup A] [Module ℚ A] [Module.Finite ℚ A] [Module.Finite ℚ M] :
-  Module.finrank ℚ M=Module.finrank ℚ A := by sorry
+/- Omitted strictGL2_realization: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.3/petersson-composition-comparison — Petersson and modular-degree comparison
 The inputs are the actual integrals of the named differential and its
 pullback, and c is the Manin scalar. Their analytic-geometric definitions
 and coefficient embedding are omitted; no normalization is chosen to force equality.
 -/
-theorem petersson_composition_comparison (petersson differentialNorm c targetNorm : ℝ)
-    (degree : ℕ) : differentialNorm=8*Real.pi^2*petersson ∧
-  c^2*differentialNorm=degree*targetNorm := by sorry
+/- Omitted petersson_composition_comparison: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.3/manin-integrality-and-p-unit — Integral Manin constant and p-unit range
 This is the optimal semistable-at-p branch. Nonconstant parametrization,
 minimal differential, normalized newform and connected quotient kernel are
 omitted until the actual elliptic/modular morphism carrier is available.
 -/
-theorem maninConstant_integral_p_unit {D : Type*} [AddCommGroup D] [Module ℚ D]
-    (ωf pullω : D) (p : ℕ) (hp : p.Prime) (hodd : 2<p) :
-  ∃ c : ℤ,maninConstant ωf pullω=c ∧ ¬(p : ℤ)∣c := by sorry
+/- Omitted maninConstant_integral_p_unit: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.3/manin-isogeny-twist-transfer — Manin isogeny and twist transfer
 ord is the actual minimal-differential p-adic valuation. The twist factor
@@ -2068,26 +1957,21 @@ c and degree are the actual nonzero absolute Manin constant and modular
 degree for Gamma1(N) <= Gamma <= Gamma0(N). The source exceptional valuations
 and Gamma1 strengthening are specified in the packet; morphism hypotheses are omitted.
 -/
-theorem maninConstant_dvd_modularDegree (c degree N : ℕ) (hN : 0<N) :
-  c∣6*degree ∧ ((¬8∣N ∧ ¬27∣N) → c∣degree) := by sorry
+/- Omitted maninConstant_dvd_modularDegree: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.4/saito-tunnell-dichotomy-and-the-local-toric-functional — Saito–Tunnell dichotomy
 ρ is the actual irreducible local representation and epsilon the
 base-change root number. Genericity/inner-form transfer and all field
 hypotheses are omitted; this includes the separate archimedean alternatives.
 -/
-theorem saitoTunnell {V T : Type*}
-    [NormedAddCommGroup V] [NormedSpace ℂ V] [Group T]
-    (ρ : T → V →L[ℂ] V) (χ : T →* ℂˣ) (epsilon chiMinusOne hasse : ℂ) :
-  Module.finrank ℂ (toricHom ρ χ)≤1 ∧
-    (Module.finrank ℂ (toricHom ρ χ)=1 ↔ epsilon=chiMinusOne*hasse) := by sorry
+/- Omitted saitoTunnell: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.4/unramified-toric-value — Unramified toric value and finite product
 beta is the normalized toric form on the actual spherical unramified
 pair, with unramified quadratic field and compact torus quotient volume one.
 Its representation, measure and standard-vector hypotheses are omitted.
 -/
-theorem normalizedToricForm_unramified (beta pairing : ℂ) (hpairing : pairing≠0) : beta/pairing=1 := by sorry
+/- Omitted normalizedToricForm_unramified: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.4/toric-test-vectors — Nonzero toric test vectors
 l is a genuine distinguished toric functional. The source admissible-order
@@ -2102,29 +1986,21 @@ These are the actual coherent norm-space kernels. Ordinary anisotropic
 data have zero correction; divergent split binary/ternary data use the
 correct regularized first/second-term input. Weil and Witt-index hypotheses are omitted.
 -/
-theorem coherentQuaternionicTheta {G : Type*}
-    (eisenstein theta regularizedCorrection : G → ℂ) (g : G) :
-  eisenstein g=2*theta g+regularizedCorrection g := by sorry
+/- Omitted coherentQuaternionicTheta: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.5/waldspurger-period-formula-and-its-siegel-weil-proof — Waldspurger period formula
 P and Q are actual probability toric periods; alpha uses the quaternionic
 Tamagawa Petersson form of volume two. Cuspidality, central characters,
 local/global representations and regularized proof hypotheses are omitted.
 -/
-theorem waldspurger {V W : Type*}
-    [AddCommGroup V] [Module ℂ V] [AddCommGroup W] [Module ℂ W]
-    (P : V →ₗ[ℂ] ℂ) (Q : W →ₗ[ℂ] ℂ) (α : V →ₗ[ℂ] W →ₗ[ℂ] ℂ)
-    (zeta Lhalf Leta Lad : ℂ) (f : V) (g : W) :
-  P f*Q g=zeta*Lhalf/(8*Leta^2*Lad)*α f g := by sorry
+/- Omitted waldspurger: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.5/toric-period-nonvanishing — Toric period nonvanishing criterion
 localHom is provisionally represented inside V; its true restricted
 tensor/local representation carriers and factorization theorem hypotheses
 are omitted. The criterion concerns a fixed character, not twist existence.
 -/
-theorem toricPeriod_nonzero_iff {V : Type*} [AddCommGroup V] [Module ℂ V]
-    (P : V →ₗ[ℂ] ℂ) (Lhalf : ℂ) (localHom : ℕ → Submodule ℂ V) :
-  (∃ f,P f≠0) ↔ Lhalf≠0 ∧ ∀ v,localHom v≠⊥ := by sorry
+/- Omitted toricPeriod_nonzero_iff: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.5/finite-vector-variation — Finite test-vector variation
 
@@ -2147,43 +2023,35 @@ Both sides are the actual projected Jacobian homomorphisms after rational
 scalar extension; Picard-correspondence-to-Hom, finite level and projection
 conditions are omitted until their suppliers give typed geometric terms.
 -/
-theorem arithmeticThetaLift_comparison {J : Type*} [AddCommGroup J] [Module ℂ J]
-    (arithmetic coherent : J →ₗ[ℂ] J) (Lad zeta : ℂ) :
-  arithmetic=(Lad/(2*zeta)) • coherent := by sorry
+/- Omitted arithmeticThetaLift_comparison: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.6/generating-series-arithmetic-theta-lifting-and-the-kernel-identity — Projected arithmetic kernel identity
 A is the automorphic-form carrier and project the fixed cuspidal isotypic
 projection. Its actual analytic growth/orthogonality and test-data hypotheses
 are omitted. The statement is projected, not pointwise.
 -/
-theorem arithmeticKernel_projected_identity {A : Type*}
-    [AddCommGroup A] [Module ℂ A] (project : A →ₗ[ℂ] A) (Iprime Z : A) :
-  project Iprime=2 • project Z := by sorry
+/- Omitted arithmeticKernel_projected_identity: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.7/good-local-arithmetic-identity — Good-place arithmetic identity
 The two terms are the actual good-place coefficients. Local level,
 conductor, degeneracy, deformation lengths and analytic continuation
 hypotheses cannot yet be applied to typed supplier objects and are omitted.
 -/
-theorem goodLocal_arithmetic_identity (whittakerDerivative localHeight : ℂ) :
-  whittakerDerivative=2*localHeight := by sorry
+/- Omitted goodLocal_arithmetic_identity: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.7/nearby-coherent-orthogonality — Nearby coherent kernel orthogonality
 nearby is the coherent B(v) kernel and target lies in sigma, whose local
 distinction/ramification set differs. These actual local representation
 hypotheses are omitted. No vanishing of nearby itself is asserted.
 -/
-theorem nearbyCoherent_orthogonal {A : Type*} [AddCommGroup A] [Module ℂ A]
-    (pairing : A →ₗ[ℂ] A →ₗ[ℂ] ℂ) (nearby target : A) : pairing nearby target=0 := by sorry
+/- Omitted nearbyCoherent_orthogonal: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.7/degenerate-schwartz-functions-local-decomposition-and-approximation — Nearby quaternionic approximation
 The actual kernels are automorphic and satisfy the source degenerate
 test-data comparison on 1^S GL2(A^S). Their density/K-finiteness and
 approximation hypotheses are omitted; the coherent sum is generally nonzero.
 -/
-theorem nearbyQuaternionic_approximation {A V : Type*}
-    [AddCommGroup A] [Module ℂ A] [Fintype V] (Iprime Z : A) (coherent : V → A) :
-  Iprime-2 • Z=∑ v,coherent v := by sorry
+/- Omitted nearbyQuaternionic_approximation: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.7/boundary-cusp-correction — Modular cusp and boundary correction
 raw, boundary and corrected are the actual finite-level modular kernels.
@@ -2199,22 +2067,14 @@ L is the actual holomorphic line bundle on a connected positive-genus
 compact curve. Smooth norm and Chern-current conditions are omitted;
 uniqueness is of norms up to one positive constant, not equality.
 -/
-theorem admissibleMetric_exists_unique {X C : Type*} {L : X → Type*}
-    [AddCommGroup C] [Module ℝ C] (c1 : (∀ x,L x → ℝ) → C) (μ : C) (degree : ℝ) :
-  ∃ a∈admissibleMetric c1 μ degree, ∀ b∈admissibleMetric c1 μ degree,
-    ∃ c : ℝ,0<c ∧ ∀ x v,b x v=c*a x v := by sorry
+/- Omitted admissibleMetric_exists_unique: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.2/explicit-skeleton-measure — Explicit admissible skeleton measure
 X is the model skeleton, vertex Dirac and edge unit-mass length measures.
 The connected polarized graph, minimal split semistable model and genus
 identity are omitted. Bridges use resistance infinity; loops zero.
 -/
-theorem graphAdmissibleMeasure_resistance_formula {X V E : Type*} [MeasurableSpace X]
-    [Fintype V] [Fintype E] (vertex : V → MeasureTheory.Measure X)
-    (edge : E → MeasureTheory.Measure X) (genus : V → ℕ) (resistance : E → ℝ≥0∞)
-    (g : ℕ) (μ : MeasureTheory.Measure X) :
-  μ=(g : ℝ≥0∞)⁻¹ • ((∑ v,(genus v : ℝ≥0∞) • vertex v)+
-    ∑ e,(resistance e+1)⁻¹ • edge e) := by sorry
+/- Omitted graphAdmissibleMeasure_resistance_formula: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.6/colmez-pseudo-comparison — Pseudo-theta comparison on a small bad-place compact
 The parameters are the actual kernels, coefficients, measures and orders
@@ -2222,10 +2082,7 @@ of the stated Yuan-Zhang source result. Their adelic/quaternionic/geometric
 carrier conditions are omitted where the named suppliers lack Lean types;
 the exact hypotheses and corrected versions are binding in the packet.
 -/
-theorem colmez_pseudo_comparison {G : Type*} (A theta0 theta1 chi0 chi1 rho delta : G → ℂ)
-    (d d0 d1 : ℕ) (g : G) : A g=
-  chi1 g*(rho g*delta g)^((d-d1 : ℕ)/2 : ℂ)*theta1 g-
-    chi0 g*(rho g*delta g)^((d-d0 : ℕ)/2 : ℂ)*theta0 g := by sorry
+/- Omitted colmez_pseudo_comparison: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.6/colmez-pseudo-automorphic — Automorphic sum reduces to nondegenerate outer theta
 The parameters are the actual kernels, coefficients, measures and orders
@@ -2233,9 +2090,7 @@ of the stated Yuan-Zhang source result. Their adelic/quaternionic/geometric
 carrier conditions are omitted where the named suppliers lack Lean types;
 the exact hypotheses and corrected versions are binding in the packet.
 -/
-theorem colmez_pseudo_automorphic {I G : Type*} [Fintype I]
-    (A theta : I → G → ℂ) (outerFull : Finset I) (g : G) :
-  (∑ i,A i g)=∑ i∈outerFull,theta i g := by sorry
+/- Omitted colmez_pseudo_automorphic: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.6/colmez-pseudo-weight-cancel — Positive-codimension theta cancellation
 The parameters are the actual kernels, coefficients, measures and orders
@@ -2243,11 +2098,7 @@ of the stated Yuan-Zhang source result. Their adelic/quaternionic/geometric
 carrier conditions are omitted where the named suppliers lack Lean types;
 the exact hypotheses and corrected versions are binding in the packet.
 -/
-theorem colmez_pseudo_weight_cancel {I G : Type*} [Fintype I]
-    (theta0 theta1 : I → G → ℂ) (codim0 codim1 : I → ℕ)
-    (k : ℕ) (hk : 0<k) (g : G) :
-  (∑ i,if codim1 i=k then theta1 i g else 0)-
-    (∑ i,if codim0 i=k then theta0 i g else 0)=0 := by sorry
+/- Omitted colmez_pseudo_weight_cancel: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.6/colmez-projected-derivative — Projected derivative decomposition
 The parameters are the actual kernels, coefficients, measures and orders
@@ -2255,9 +2106,7 @@ of the stated Yuan-Zhang source result. Their adelic/quaternionic/geometric
 carrier conditions are omitted where the named suppliers lack Lean types;
 the exact hypotheses and corrected versions are binding in the packet.
 -/
-theorem colmez_projected_derivative {V C : Type*} [Fintype V] [Fintype C]
-    (projected Omega c1 error logTerm : ℂ) (K : V → C → ℂ) :
-  projected= -(∑ v,2*cmOrbitAverage (K v))-c1*Omega-error+logTerm := by sorry
+/- Omitted colmez_projected_derivative: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.7/colmez-order-sandwich — Integral order sandwich
 The parameters are the actual kernels, coefficients, measures and orders
@@ -2265,9 +2114,7 @@ of the stated Yuan-Zhang source result. Their adelic/quaternionic/geometric
 carrier conditions are omitted where the named suppliers lack Lean types;
 the exact hypotheses and corrected versions are binding in the packet.
 -/
-theorem colmez_order_sandwich {B : Type*} [Ring B] (D : B)
-    (OB OEplus : Submodule ℤ B) :
-  (∀ x∈OB,D*x∈OEplus) ∧ OEplus≤OB := by sorry
+/- Omitted colmez_order_sandwich: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.7/colmez-shell-inert — Inert norm-shell cutoff
 The parameters are the actual kernels, coefficients, measures and orders
@@ -2275,9 +2122,7 @@ of the stated Yuan-Zhang source result. Their adelic/quaternionic/geometric
 carrier conditions are omitted where the named suppliers lack Lean types;
 the exact hypotheses and corrected versions are binding in the packet.
 -/
-theorem colmez_shell_inert {X : Type*} (shell : ℤ → Set X)
-    (shifted : ℤ → Set X) (cutoff n : ℤ) :
-  shifted n=if n≤cutoff then shell n else ∅ := by sorry
+/- Omitted colmez_shell_inert: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.7/colmez-shell-ramified — Ramified norm-shell volume
 The parameters are the actual kernels, coefficients, measures and orders
@@ -2285,12 +2130,7 @@ of the stated Yuan-Zhang source result. Their adelic/quaternionic/geometric
 carrier conditions are omitted where the named suppliers lack Lean types;
 the exact hypotheses and corrected versions are binding in the packet.
 -/
-theorem colmez_shell_ramified {X : Type*} [MeasurableSpace X]
-    (shell shifted : ℤ → Set X) (μ : MeasureTheory.Measure X)
-    (cutoff discOrd n : ℤ) (D d a q : ℝ≥0∞) :
-  (n≤cutoff → shifted n=shell n) ∧
-  (cutoff+discOrd-1<n → shifted n=∅) ∧
-  (cutoff<n ∧ n≤cutoff+discOrd-1 → μ (shifted n)=D^(1/2 : ℝ)*d*a*q^(cutoff-n)) := by sorry
+/- Omitted colmez_shell_ramified: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.7/colmez-k-inert — Inert logarithmic singularity and diagonal extension
 The parameters are the actual kernels, coefficients, measures and orders
@@ -2298,9 +2138,7 @@ of the stated Yuan-Zhang source result. Their adelic/quaternionic/geometric
 carrier conditions are omitted where the named suppliers lack Lean types;
 the exact hypotheses and corrected versions are binding in the packet.
 -/
-theorem colmez_k_inert (k phi val q differentNorm originalJNorm : ℝ) :
-  k-phi*(val+1)*Real.log q/2=
-    phi*(differentNorm*originalJNorm-1)*Real.log q/((1+q⁻¹)*(1-q)) := by sorry
+/- Omitted colmez_k_inert: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.7/colmez-k-ramified — Ramified logarithmic singularity and diagonal extension
 The parameters are the actual kernels, coefficients, measures and orders
@@ -2308,9 +2146,7 @@ of the stated Yuan-Zhang source result. Their adelic/quaternionic/geometric
 carrier conditions are omitted where the named suppliers lack Lean types;
 the exact hypotheses and corrected versions are binding in the packet.
 -/
-theorem colmez_k_ramified (k phi val q differentNorm discOrd alpha : ℝ) :
-  k-phi*(val+1)*Real.log q/2=
-    phi*((differentNorm-1)/(2*(1-q))+(discOrd-1)/2)*Real.log q+alpha/2 := by sorry
+/- Omitted colmez_k_ramified: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.7/colmez-c-arch — Archimedean zero-term correction
 The parameters are the actual kernels, coefficients, measures and orders
@@ -2318,8 +2154,7 @@ of the stated Yuan-Zhang source result. Their adelic/quaternionic/geometric
 carrier conditions are omitted where the named suppliers lack Lean types;
 the exact hypotheses and corrected versions are binding in the packet.
 -/
-theorem colmez_c_arch (factor phi1 logDelta value : ℂ) (W W0 : ℂ → ℂ) :
-  (localDerivativeCorrection factor phi1 W W0 logDelta value).2=0 := by sorry
+/- Omitted colmez_c_arch: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.7/colmez-c-finite — Finite zero-term correction
 The parameters are the actual kernels, coefficients, measures and orders
@@ -2327,11 +2162,7 @@ of the stated Yuan-Zhang source result. Their adelic/quaternionic/geometric
 carrier conditions are omitted where the named suppliers lack Lean types;
 the exact hypotheses and corrected versions are binding in the packet.
 -/
-theorem colmez_c_finite (c phi unitsIndicator shellIndicator q dJ alpha : ℝ)
-    (branch : Fin 4) : c=if branch=3 then
-  -2*Real.log q/(1+q+q^2)*shellIndicator else
-  phi*Real.log dJ+(if branch=0 then phi*2*(dJ-1)*Real.log q/((1+q⁻¹)*(1-q))
-    else if branch=1 then phi*(dJ-1)*Real.log q/(1-q)+alpha else 0) := by sorry
+/- Omitted colmez_c_finite: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.6/colmez-series-automorphy — Automorphy and cuspidality of the height series
 The parameters are the actual kernels, coefficients, measures and orders
@@ -2339,9 +2170,7 @@ of the stated Yuan-Zhang source result. Their adelic/quaternionic/geometric
 carrier conditions are omitted where the named suppliers lack Lean types;
 the exact hypotheses and corrected versions are binding in the packet.
 -/
-theorem colmez_series_automorphy {G P : Type*} [AddCommGroup P] [Module ℂ P] [TopologicalSpace P]
-    (terms : ℕ → G → P) (Z : G → P) :
-  (∀ g,Summable (fun n ↦ terms n g)) ∧ ∀ g,Z g=∑' n,terms n g := by sorry
+/- Omitted colmez_series_automorphy: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.7/colmez-arch-proper — Archimedean proper-height expression
 The parameters are the actual kernels, coefficients, measures and orders
@@ -2349,7 +2178,7 @@ of the stated Yuan-Zhang source result. Their adelic/quaternionic/geometric
 carrier conditions are omitted where the named suppliers lack Lean types;
 the exact hypotheses and corrected versions are binding in the packet.
 -/
-theorem colmez_arch_proper (proper M self Omega e : ℝ) : proper=M-self*Omega/e := by sorry
+/- Omitted colmez_arch_proper: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.7/colmez-nonsplit-proper — Nonsplit proper-height expression
 The parameters are the actual kernels, coefficients, measures and orders
@@ -2357,7 +2186,7 @@ of the stated Yuan-Zhang source result. Their adelic/quaternionic/geometric
 carrier conditions are omitted where the named suppliers lack Lean types;
 the exact hypotheses and corrected versions are binding in the packet.
 -/
-theorem colmez_nonsplit_proper (proper M N self Omega e : ℝ) : proper=M+N-self*Omega/e := by sorry
+/- Omitted colmez_nonsplit_proper: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.7/colmez-ordinary-pairing — Ordinary multiplicity and local pairing
 The parameters are the actual kernels, coefficients, measures and orders
@@ -2365,8 +2194,7 @@ of the stated Yuan-Zhang source result. Their adelic/quaternionic/geometric
 carrier conditions are omitted where the named suppliers lack Lean types;
 the exact hypotheses and corrected versions are binding in the packet.
 -/
-theorem colmez_ordinary_pairing {I : Type*} (multiplicity indicator : I → ℝ)
-    (pairing : ℝ) : pairing=∑' γ,multiplicity γ*indicator γ := by sorry
+/- Omitted colmez_ordinary_pairing: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.7/colmez-split-proper — Split proper height and zero extended diagonal
 The parameters are the actual kernels, coefficients, measures and orders
@@ -2374,7 +2202,7 @@ of the stated Yuan-Zhang source result. Their adelic/quaternionic/geometric
 carrier conditions are omitted where the named suppliers lack Lean types;
 the exact hypotheses and corrected versions are binding in the packet.
 -/
-theorem colmez_split_proper (self proper upper lower : ℝ) : self=0 ∧ proper=(upper+lower)/2 := by sorry
+/- Omitted colmez_split_proper: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.7/colmez-height-decomposition-series — Full local decomposition of the height series
 The parameters are the actual kernels, coefficients, measures and orders
@@ -2382,10 +2210,7 @@ of the stated Yuan-Zhang source result. Their adelic/quaternionic/geometric
 carrier conditions are omitted where the named suppliers lack Lean types;
 the exact hypotheses and corrected versions are binding in the packet.
 -/
-theorem colmez_height_decomposition_series {V C : Type*} [Fintype V] [Fintype C]
-    (Z i0 Omega e : ℂ) (logN : V → ℂ) (M : V → C → ℂ) (N vertical : V → ℂ) :
-  Z= -(∑ v,logN v*cmOrbitAverage (M v))-(∑ v,N v*logN v)-
-    (∑ v,vertical v*logN v)-i0*Omega/e := by sorry
+/- Omitted colmez_height_decomposition_series: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.7/colmez-local-m-inert — Supersingular inert local intersection
 The parameters are the actual kernels, coefficients, measures and orders
@@ -2393,7 +2218,7 @@ of the stated Yuan-Zhang source result. Their adelic/quaternionic/geometric
 carrier conditions are omitted where the named suppliers lack Lean types;
 the exact hypotheses and corrected versions are binding in the packet.
 -/
-theorem colmez_local_m_inert (m phi indicator val discOrd : ℝ) : m=phi*indicator*(val+1)/2 := by sorry
+/- Omitted colmez_local_m_inert: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.7/colmez-local-m-ramified — Wild-inclusive ramified local intersection
 The parameters are the actual kernels, coefficients, measures and orders
@@ -2401,7 +2226,7 @@ of the stated Yuan-Zhang source result. Their adelic/quaternionic/geometric
 carrier conditions are omitted where the named suppliers lack Lean types;
 the exact hypotheses and corrected versions are binding in the packet.
 -/
-theorem colmez_local_m_ramified (m phi indicator val discOrd : ℝ) : m=phi*indicator*(val+discOrd)/2 := by sorry
+/- Omitted colmez_local_m_ramified: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.7/colmez-local-m-division — Superspecial local intersection
 The parameters are the actual kernels, coefficients, measures and orders
@@ -2409,7 +2234,7 @@ of the stated Yuan-Zhang source result. Their adelic/quaternionic/geometric
 carrier conditions are omitted where the named suppliers lack Lean types;
 the exact hypotheses and corrected versions are binding in the packet.
 -/
-theorem colmez_local_m_division (m phi indicator val discOrd : ℝ) : m=phi*indicator*(val+0)/2 := by sorry
+/- Omitted colmez_local_m_division: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.7/colmez-local-n — Diagonal-correction local coefficient
 The parameters are the actual kernels, coefficients, measures and orders
@@ -2417,8 +2242,7 @@ of the stated Yuan-Zhang source result. Their adelic/quaternionic/geometric
 carrier conditions are omitted where the named suppliers lack Lean types;
 the exact hypotheses and corrected versions are binding in the packet.
 -/
-theorem colmez_local_n (n phi val shell q : ℝ) (auxiliary : Bool) :
-  n=if auxiliary then -(1+q+q^2)⁻¹*shell else phi*val/2 := by sorry
+/- Omitted colmez_local_n: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.7/colmez-superspecial-m — Superspecial multiplicity by uniformization
 The parameters are the actual kernels, coefficients, measures and orders
@@ -2426,8 +2250,7 @@ of the stated Yuan-Zhang source result. Their adelic/quaternionic/geometric
 carrier conditions are omitted where the named suppliers lack Lean types;
 the exact hypotheses and corrected versions are binding in the packet.
 -/
-theorem colmez_superspecial_m (m val : ℝ) (unitNorm supported : Bool) :
-  m=if unitNorm && supported then val/2 else 0 := by sorry
+/- Omitted colmez_superspecial_m: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.7/colmez-vertical-pseudo — Vertical correction is nonsingular pseudo-theta
 The parameters are the actual kernels, coefficients, measures and orders
@@ -2435,8 +2258,7 @@ of the stated Yuan-Zhang source result. Their adelic/quaternionic/geometric
 carrier conditions are omitted where the named suppliers lack Lean types;
 the exact hypotheses and corrected versions are binding in the packet.
 -/
-theorem colmez_vertical_pseudo {I G : Type*} [Fintype I]
-    (vertical : G → ℂ) (pseudo : I → G → ℂ) : vertical=fun g ↦ ∑ i,pseudo i g := by sorry
+/- Omitted colmez_vertical_pseudo: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.7/colmez-vertical-split-zero — Vertical correction vanishes at B-split places
 The parameters are the actual kernels, coefficients, measures and orders
@@ -2444,7 +2266,7 @@ of the stated Yuan-Zhang source result. Their adelic/quaternionic/geometric
 carrier conditions are omitted where the named suppliers lack Lean types;
 the exact hypotheses and corrected versions are binding in the packet.
 -/
-theorem colmez_vertical_split_zero (vertical : ℝ) : vertical=0 := by sorry
+/- Omitted colmez_vertical_split_zero: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.7/colmez-kernel-schwartz — Analytic–arithmetic difference is a finite pseudo-theta sum
 The parameters are the actual kernels, coefficients, measures and orders
@@ -2452,10 +2274,7 @@ of the stated Yuan-Zhang source result. Their adelic/quaternionic/geometric
 carrier conditions are omitted where the named suppliers lack Lean types;
 the exact hypotheses and corrected versions are binding in the packet.
 -/
-theorem colmez_kernel_schwartz {V X : Type*} [Fintype V]
-    (k m logq n c logDelta logNorm phi : V → X → ℂ) (S : Finset V) :
-  ∀ v∉S, (∀ x,k v x-m v x*logq v x=0) ∧
-    ∀ x,2*n v x*logq v x-c v x+(2*logDelta v x+logNorm v x)*phi v x=0 := by sorry
+/- Omitted colmez_kernel_schwartz: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.7/colmez-local-cancel-nonsplit — Nonsplit diagonal cancellation
 The parameters are the actual kernels, coefficients, measures and orders
@@ -2463,8 +2282,7 @@ of the stated Yuan-Zhang source result. Their adelic/quaternionic/geometric
 carrier conditions are omitted where the named suppliers lack Lean types;
 the exact hypotheses and corrected versions are binding in the packet.
 -/
-theorem colmez_local_cancel_nonsplit (k m n c logq logNorm phi logdJ : ℝ) :
-  2*k-2*m*logq+(2*n*logq-c+logNorm*phi)= -logdJ*phi := by sorry
+/- Omitted colmez_local_cancel_nonsplit: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.7/colmez-local-cancel-split — Split diagonal cancellation
 The parameters are the actual kernels, coefficients, measures and orders
@@ -2472,8 +2290,7 @@ of the stated Yuan-Zhang source result. Their adelic/quaternionic/geometric
 carrier conditions are omitted where the named suppliers lack Lean types;
 the exact hypotheses and corrected versions are binding in the packet.
 -/
-theorem colmez_local_cancel_split (n c logq logNorm phi logdJ : ℝ) :
-  2*n*logq-c+logNorm*phi= -logdJ*phi := by sorry
+/- Omitted colmez_local_cancel_split: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.7/colmez-nonzero-theta — Nonzero associated weight-one theta
 The parameters are the actual kernels, coefficients, measures and orders
@@ -2481,7 +2298,7 @@ of the stated Yuan-Zhang source result. Their adelic/quaternionic/geometric
 carrier conditions are omitted where the named suppliers lack Lean types;
 the exact hypotheses and corrected versions are binding in the packet.
 -/
-theorem colmez_nonzero_theta {G : Type*} (theta : G → ℂ) : ∃ g,theta g≠0 := by sorry
+/- Omitted colmez_nonzero_theta: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.7/colmez-adjunction-arch — Archimedean adjunction constant
 The parameters are the actual kernels, coefficients, measures and orders
@@ -2489,8 +2306,7 @@ of the stated Yuan-Zhang source result. Their adelic/quaternionic/geometric
 carrier conditions are omitted where the named suppliers lack Lean types;
 the exact hypotheses and corrected versions are binding in the packet.
 -/
-theorem colmez_adjunction_arch (normOne intersection e : ℝ) :
-  -Real.log normOne=intersection/e := by sorry
+/- Omitted colmez_adjunction_arch: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.7/colmez-small-level-diagonal — Extended local diagonal vanishes at small away-v level
 The parameters are the actual kernels, coefficients, measures and orders
@@ -2498,7 +2314,7 @@ of the stated Yuan-Zhang source result. Their adelic/quaternionic/geometric
 carrier conditions are omitted where the named suppliers lack Lean types;
 the exact hypotheses and corrected versions are binding in the packet.
 -/
-theorem colmez_small_level_diagonal (extendedSelf : ℝ) : extendedSelf=0 := by sorry
+/- Omitted colmez_small_level_diagonal: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.7/colmez-modified-projection — Geometric realization of extended self-intersection
 The parameters are the actual kernels, coefficients, measures and orders
@@ -2506,9 +2322,7 @@ of the stated Yuan-Zhang source result. Their adelic/quaternionic/geometric
 carrier conditions are omitted where the named suppliers lack Lean types;
 the exact hypotheses and corrected versions are binding in the packet.
 -/
-theorem colmez_modified_projection {D : Type*} [AddCommGroup D] [Module ℚ D]
-    (pairing : D →ₗ[ℚ] D →ₗ[ℚ] ℚ) (pullP Pprime : D) (e : ℕ)
-    (i extended : ℚ) : i=extended ∧ i=pairing (pullP-e • Pprime) Pprime := by sorry
+/- Omitted colmez_modified_projection: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.7/colmez-adjunction-finite — Finite adjunction lattice identity
 The parameters are the actual kernels, coefficients, measures and orders
@@ -2516,8 +2330,7 @@ of the stated Yuan-Zhang source result. Their adelic/quaternionic/geometric
 carrier conditions are omitted where the named suppliers lack Lean types;
 the exact hypotheses and corrected versions are binding in the packet.
 -/
-theorem colmez_adjunction_finite {R N : Type*} [CommRing R] [AddCommGroup N] [Module R N]
-    (O : Submodule R N) (i e : ℝ) : (Module.length R (N⧸O)).toNat=i/e := by sorry
+/- Omitted colmez_adjunction_finite: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.7/colmez-arithmetic-adjunction — Arithmetic adjunction for the CM point
 The parameters are the actual kernels, coefficients, measures and orders
@@ -2525,7 +2338,7 @@ of the stated Yuan-Zhang source result. Their adelic/quaternionic/geometric
 carrier conditions are omitted where the named suppliers lack Lean types;
 the exact hypotheses and corrected versions are binding in the packet.
 -/
-theorem colmez_arithmetic_adjunction (i0 e hL : ℝ) : i0/e= -hL := by sorry
+/- Omitted colmez_arithmetic_adjunction: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.6/colmez-rev-derivative-of-the-mixed-theta — Derivative of the mixed theta–Eisenstein series before projection
 The parameters are the actual kernels, coefficients, measures and orders
@@ -2533,9 +2346,7 @@ of the stated Yuan-Zhang source result. Their adelic/quaternionic/geometric
 carrier conditions are omitted where the named suppliers lack Lean types;
 the exact hypotheses and corrected versions are binding in the packet.
 -/
-theorem colmez_rev_derivative_of_the_mixed_theta {V : Type*} [Fintype V]
-    (L : ℂ → ℂ) (W : V → ℂ → ℂ) (W0 : ℂ → ℂ) (s : ℂ) :
-  W0 s= -(L s/L 0)/(L (s+1)/L 1)*∏ v,W v s := by sorry
+/- Omitted colmez_rev_derivative_of_the_mixed_theta: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.6/colmez-rev-archimedean-holomorphic-projection-of-log — Archimedean holomorphic projection of log δ∞·W^(2)
 The parameters are the actual kernels, coefficients, measures and orders
@@ -2543,10 +2354,7 @@ of the stated Yuan-Zhang source result. Their adelic/quaternionic/geometric
 carrier conditions are omitted where the named suppliers lack Lean types;
 the exact hypotheses and corrected versions are binding in the packet.
 -/
-theorem colmez_rev_archimedean_holomorphic_projection_of_log {A : Type*}
-    [AddCommGroup A] [Module ℂ A] (project : A →ₗ[ℂ] A) (logDeltaW W : A)
-    (degree : ℕ) (gamma : ℝ) :
-  project logDeltaW=(-(degree : ℂ)/2*(gamma+Real.log (4*Real.pi))) • W := by sorry
+/- Omitted colmez_rev_archimedean_holomorphic_projection_of_log: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.6/colmez-rev-local-whittaker-series-for-incoherent — Local Whittaker series for incoherent sections
 The parameters are the actual kernels, coefficients, measures and orders
@@ -2554,10 +2362,7 @@ of the stated Yuan-Zhang source result. Their adelic/quaternionic/geometric
 carrier conditions are omitted where the named suppliers lack Lean types;
 the exact hypotheses and corrected versions are binding in the packet.
 -/
-theorem colmez_rev_local_whittaker_series_for_incoherent (W : ℂ → ℂ)
-    (q d : ℝ) (shellIntegral : ℕ → ℂ) (s : ℂ) :
-  W s=(Real.sqrt d : ℂ)*(1-(q : ℂ)^(-s))*
-    ∑' n : ℕ,(q : ℂ)^(-(n : ℂ)*s+n)*shellIntegral n := by sorry
+/- Omitted colmez_rev_local_whittaker_series_for_incoherent: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.7/colmez-rev-corrected-cm-multiplicity-at-split — Corrected CM multiplicity at 𝔹-split, E-nonsplit places
 The parameters are the actual kernels, coefficients, measures and orders
@@ -2565,10 +2370,7 @@ of the stated Yuan-Zhang source result. Their adelic/quaternionic/geometric
 carrier conditions are omitted where the named suppliers lack Lean types;
 the exact hypotheses and corrected versions are binding in the packet.
 -/
-theorem colmez_rev_corrected_cm_multiplicity_at_split (m val discOrd q : ℝ)
-    (c : ℕ) (ramified : Bool) : m=if c=0 then
-  (if ramified then (val+discOrd)/2 else (val+1)/2) else
-  (if ramified then q^(-(c : ℤ))/2 else q^(1-(c : ℤ))/(q+1)) := by sorry
+/- Omitted colmez_rev_corrected_cm_multiplicity_at_split: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.6/colmez-rev-hodge-class-terms-vanish-and — Hodge-class terms vanish and the height series splits into horizontal and vertical parts
 The parameters are the actual kernels, coefficients, measures and orders
@@ -2588,9 +2390,7 @@ discriminant, Heegner condition, prime-to-level and source-specific model
 hypotheses are omitted when their imported carrier is not yet available.
 The exact mathematical statement in the packet is definitive.
 -/
-theorem gz86_height_green_characterization {X : Type*} (G : X → X → ℝ)
-    (D E : X →₀ ℤ) (symbol : (X →₀ ℤ) → (X →₀ ℤ) → ℝ) :
-  symbol D E=D.sum (fun x a ↦ E.sum (fun y b ↦ (a : ℝ)*b*G x y)) := by sorry
+/- Omitted gz86_height_green_characterization: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.7/classical-resolvent-residue — Resolvent residue
 The inputs denote the actual classical CM points, Hecke kernels, ideal
@@ -2599,8 +2399,7 @@ discriminant, Heegner condition, prime-to-level and source-specific model
 hypotheses are omitted when their imported carrier is not yet available.
 The exact mathematical statement in the packet is definitive.
 -/
-theorem gz86_resolvent_residue (germ : LaurentSeries ℂ) (index : ℕ) :
-  germ.coeff (-1)= -12/(index : ℂ) := by sorry
+/- Omitted gz86_resolvent_residue: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.7/classical-cusp-expansion — Resolvent cusp expansion
 The inputs denote the actual classical CM points, Hecke kernels, ideal
@@ -2609,9 +2408,7 @@ discriminant, Heegner condition, prime-to-level and source-specific model
 hypotheses are omitted when their imported carrier is not yet available.
 The exact mathematical statement in the packet is definitive.
 -/
-theorem gz86_cusp_expansion (G : ℝ → ℝ) (E s : ℝ) (hs : 1<s) :
-  ∃ C Y : ℝ,0<C ∧ ∀ y≥Y,
-    |G y+4*Real.pi/(2*s-1)*E*y^(1-s)|≤C*Real.exp (-y) := by sorry
+/- Omitted gz86_cusp_expansion: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.7/classical-green-constant — Modular Green constant
 The inputs denote the actual classical CM points, Hecke kernels, ideal
@@ -2620,9 +2417,7 @@ discriminant, Heegner condition, prime-to-level and source-specific model
 hypotheses are omitted when their imported carrier is not yet available.
 The exact mathematical statement in the packet is definitive.
 -/
-theorem gz86_green_constant (lambda kappa gamma zetaLogDeriv : ℝ) (N : ℕ) (primes : Finset ℕ) :
-  lambda=kappa*(Real.log N+2*Real.log 2-2*gamma+2*zetaLogDeriv-
-    2*∑ p∈primes,(p : ℝ)*Real.log p/((p : ℝ)^2-1)) := by sorry
+/- Omitted gz86_green_constant: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.7/classical-archimedean-height — Archimedean modular height formula
 The inputs denote the actual classical CM points, Hecke kernels, ideal
@@ -2631,10 +2426,7 @@ discriminant, Heegner condition, prime-to-level and source-specific model
 hypotheses are omitted when their imported carrier is not yet available.
 The exact mathematical statement in the packet is definitive.
 -/
-theorem gz86_archimedean_height (placeValue : ℂ) (G Ezero Einfty : LaurentSeries ℂ)
-    (kappa lambda : ℂ) :
-  placeValue=(G+4*(Real.pi : ℂ) • Ezero+4*(Real.pi : ℂ) • Einfty+
-    HahnSeries.single (-1 : ℤ) kappa).coeff 0-lambda+2*kappa := by sorry
+/- Omitted gz86_archimedean_height: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.7/classical-hecke-kernel-action — Hecke kernel action
 The inputs denote the actual classical CM points, Hecke kernels, ideal
@@ -2654,10 +2446,7 @@ discriminant, Heegner condition, prime-to-level and source-specific model
 hypotheses are omitted when their imported carrier is not yet available.
 The exact mathematical statement in the packet is definitive.
 -/
-theorem gz86_hecke_archimedean_height (placeValue : ℂ) (G Ezero Eweighted : LaurentSeries ℂ)
-    (sigma kappa lambda : ℂ) : placeValue=
-  (G+(4*(Real.pi : ℂ)*sigma) • Ezero+4*(Real.pi : ℂ) • Eweighted+
-    HahnSeries.single (-1 : ℤ) (sigma*kappa)).coeff 0-sigma*lambda+2*sigma*kappa := by sorry
+/- Omitted gz86_hecke_archimedean_height: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.7/classical-atkin-lehner-invariance — Atkin–Lehner kernel invariance
 The inputs denote the actual classical CM points, Hecke kernels, ideal
@@ -2666,9 +2455,7 @@ discriminant, Heegner condition, prime-to-level and source-specific model
 hypotheses are omitted when their imported carrier is not yet available.
 The exact mathematical statement in the packet is definitive.
 -/
-theorem gz86_atkin_lehner_invariance {X : Type*} {d : ℕ} (G : X → X → ℝ)
-    (reps : Fin d → X → X) (wN : X → X) (z w : X) :
-  heckeGreen G reps (wN z) (wN w)=heckeGreen G reps z w := by sorry
+/- Omitted gz86_atkin_lehner_invariance: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.7/classical-cm-genus-orbits — CM genus-orbit count
 The inputs denote the actual classical CM points, Hecke kernels, ideal
@@ -2677,10 +2464,7 @@ discriminant, Heegner condition, prime-to-level and source-specific model
 hypotheses are omitted when their imported carrier is not yet available.
 The exact mathematical statement in the packet is definitive.
 -/
-theorem gz86_cm_genus_orbits {C : Type*} [CommGroup C] [Fintype C] [DecidableEq C]
-    (A B n : C) (t : ℕ) :
-  (Finset.univ.filter (fun x : C×C ↦ x.1*x.2⁻¹=A ∧ x.1*x.2*n⁻¹=B)).card=
-    if ∃ c : C,c^2=B*n*A⁻¹ then 2^(t-1) else 0 := by sorry
+/- Omitted gz86_cm_genus_orbits: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.7/classical-hyperbolic-norm-parameter — Hyperbolic norm parameter
 The inputs denote the actual classical CM points, Hecke kernels, ideal
@@ -2700,8 +2484,7 @@ discriminant, Heegner condition, prime-to-level and source-specific model
 hypotheses are omitted when their imported carrier is not yet available.
 The exact mathematical statement in the packet is definitive.
 -/
-theorem gz86_pair_count {M P : Type*} [Fintype M] [Fintype P]
-    (matrixPair : M → P) : ∃ e : M ≃ P,∀ x,e x=matrixPair x := by sorry
+/- Omitted gz86_pair_count: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.7/classical-ramified-congruence-count — Ramified-congruence pair count
 The inputs denote the actual classical CM points, Hecke kernels, ideal
@@ -2710,7 +2493,7 @@ discriminant, Heegner condition, prime-to-level and source-specific model
 hypotheses are omitted when their imported carrier is not yet available.
 The exact mathematical statement in the packet is definitive.
 -/
-theorem gz86_ramified_congruence_count (rho u rA rB : ℕ) : rho=2*u^2*rA*rB := by sorry
+/- Omitted gz86_ramified_congruence_count: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.7/classical-prime-discriminant-count — Prime-discriminant pair count
 The inputs denote the actual classical CM points, Hecke kernels, ideal
@@ -2719,8 +2502,7 @@ discriminant, Heegner condition, prime-to-level and source-specific model
 hypotheses are omitted when their imported carrier is not yet available.
 The exact mathematical statement in the packet is definitive.
 -/
-theorem gz86_prime_discriminant_count (rho u rA rB D n : ℕ) :
-  rho=u^2*rA*rB*(if D∣n then 2 else 1) := by sorry
+/- Omitted gz86_prime_discriminant_count: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.7/classical-genus-pair-count — Genus pair count
 The inputs denote the actual classical CM points, Hecke kernels, ideal
@@ -2729,9 +2511,7 @@ discriminant, Heegner condition, prime-to-level and source-specific model
 hypotheses are omitted when their imported carrier is not yet available.
 The exact mathematical statement in the packet is definitive.
 -/
-theorem gz86_genus_pair_count {I : Type*} [Fintype I] (rho : I → ℕ)
-    (u delta rA rB : ℕ) (sameGenus : Bool) :
-  (∑ i,rho i)=if sameGenus then u^2*delta*rA*rB else 0 := by sorry
+/- Omitted gz86_genus_pair_count: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.7/classical-genus-kernel-evaluation — Genus kernel evaluation
 The inputs denote the actual classical CM points, Hecke kernels, ideal
@@ -2740,10 +2520,7 @@ discriminant, Heegner condition, prime-to-level and source-specific model
 hypotheses are omitted when their imported carrier is not yet available.
 The exact mathematical statement in the packet is definitive.
 -/
-theorem gz86_genus_kernel_evaluation (gamma u m D N s : ℝ) (delta rA rB : ℕ → ℝ)
-    (Q : ℝ → ℝ → ℝ) (sameGenus : Bool) : gamma=
-  if sameGenus then -2*u^2*∑' n,delta (n+1)*rA (n+1)*rB (n+1)*
-    Q (s-1) (1+2*(n+1)*N/(m*D)) else 0 := by sorry
+/- Omitted gz86_genus_kernel_evaluation: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.7/classical-orbit-kernel-evaluation — CM orbit kernel evaluation
 The inputs denote the actual classical CM points, Hecke kernels, ideal
@@ -2752,9 +2529,7 @@ discriminant, Heegner condition, prime-to-level and source-specific model
 hypotheses are omitted when their imported carrier is not yet available.
 The exact mathematical statement in the packet is definitive.
 -/
-theorem gz86_orbit_kernel_evaluation (gamma u m D N s : ℝ) (delta rA Rgenus : ℕ → ℝ)
-    (Q : ℝ → ℝ → ℝ) : gamma= -2*u^2*∑' n,delta (n+1)*rA (n+1)*Rgenus (n+1)*
-    Q (s-1) (1+2*(n+1)*N/(m*D)) := by sorry
+/- Omitted gz86_orbit_kernel_evaluation: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.7/classical-genus-character-filter — Genus-character filter
 The inputs denote the actual classical CM points, Hecke kernels, ideal
@@ -2763,8 +2538,7 @@ discriminant, Heegner condition, prime-to-level and source-specific model
 hypotheses are omitted when their imported carrier is not yet available.
 The exact mathematical statement in the packet is definitive.
 -/
-theorem gz86_genus_character_filter (delta Rgenus R rA : ℝ) (primes : Finset ℕ)
-    (character : ℕ → ℝ) : delta*Rgenus*rA=(∏ p∈primes,1+character p)*R*rA := by sorry
+/- Omitted gz86_genus_character_filter: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.7/classical-cm-eisenstein-sum — CM Eisenstein sum
 The inputs denote the actual classical CM points, Hecke kernels, ideal
@@ -2773,9 +2547,7 @@ discriminant, Heegner condition, prime-to-level and source-specific model
 hypotheses are omitted when their imported carrier is not yet available.
 The exact mathematical statement in the packet is definitive.
 -/
-theorem gz86_cm_eisenstein_sum {C : Type*} [Fintype C] (EN E : C → ℂ)
-    (N : ℕ) (primes : Finset ℕ) (s : ℂ) :
-  (∑ A,EN A)=(N : ℂ)^(-s)*(∏ p∈primes,1+(p : ℂ)^(-s))⁻¹*∑ A,E A := by sorry
+/- Omitted gz86_cm_eisenstein_sum: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.7/classical-disjoint-archimedean-sum — Disjoint archimedean CM formula
 The inputs denote the actual classical CM points, Hecke kernels, ideal
@@ -2784,10 +2556,7 @@ discriminant, Heegner condition, prime-to-level and source-specific model
 hypotheses are omitted when their imported carrier is not yet available.
 The exact mathematical statement in the packet is definitive.
 -/
-theorem gz86_disjoint_archimedean_sum (height h sigma kappa lambdaCorrection divisorCorrection : ℂ)
-    (orbit : LaurentSeries ℂ) : height=
-  (orbit-HahnSeries.single (-1 : ℤ) (h*sigma*kappa)).coeff 0+
-    h*kappa*(sigma*lambdaCorrection+divisorCorrection) := by sorry
+/- Omitted gz86_disjoint_archimedean_sum: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.7/classical-tangent-product-formula — Tangent product formula
 The inputs denote the actual classical CM points, Hecke kernels, ideal
@@ -2807,8 +2576,7 @@ discriminant, Heegner condition, prime-to-level and source-specific model
 hypotheses are omitted when their imported carrier is not yet available.
 The exact mathematical statement in the packet is definitive.
 -/
-theorem gz86_complex_tangent_asymptotic (logg logEta : ℝ → ℝ) (u : ℕ) :
-  Tendsto (fun t ↦ logg t-u*logEta t) (𝓝[≠] (0 : ℝ)) (𝓝 0) := by sorry
+/- Omitted gz86_complex_tangent_asymptotic: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.7/classical-diagonal-archimedean-height — Diagonal archimedean CM formula
 The inputs denote the actual classical CM points, Hecke kernels, ideal
@@ -2817,11 +2585,7 @@ discriminant, Heegner condition, prime-to-level and source-specific model
 hypotheses are omitted when their imported carrier is not yet available.
 The exact mathematical statement in the packet is definitive.
 -/
-theorem gz86_diagonal_archimedean_height {I : Type*} [Fintype I]
-    (hit : Set I) (off : I → LaurentSeries ℂ) (self cuspZero cuspInf : LaurentSeries ℂ)
-    (height sigma kappa lambda : ℂ) : height=
-  (diagonalHeckeGreen hit off self+cuspZero+cuspInf+
-    HahnSeries.single (-1 : ℤ) (sigma*kappa)).coeff 0-sigma*(lambda-2*kappa) := by sorry
+/- Omitted gz86_diagonal_archimedean_height: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.7/classical-renormalized-self-value — Renormalized resolvent self-value
 The inputs denote the actual classical CM points, Hecke kernels, ideal
@@ -2830,9 +2594,7 @@ discriminant, Heegner condition, prime-to-level and source-specific model
 hypotheses are omitted when their imported carrier is not yet available.
 The exact mathematical statement in the packet is definitive.
 -/
-theorem gz86_renormalized_self_value (self : ℂ) (z eta4 : ℂ) (s : ℂ) :
-  self= -(Real.log (‖2*(Real.pi : ℂ)*(z-star z)*eta4‖^2) : ℂ)+
-    2*deriv Complex.Gamma s/Complex.Gamma s-2*deriv Complex.Gamma 1/Complex.Gamma 1 := by sorry
+/- Omitted gz86_renormalized_self_value: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.7/classical-self-value-orbit-sum — Self-value CM orbit sum
 The inputs denote the actual classical CM points, Hecke kernels, ideal
@@ -2841,10 +2603,7 @@ discriminant, Heegner condition, prime-to-level and source-specific model
 hypotheses are omitted when their imported carrier is not yet available.
 The exact mathematical statement in the packet is definitive.
 -/
-theorem gz86_self_value_orbit_sum {C : Type*} [Fintype C] (self : C → ℂ)
-    (s logDeriv D : ℂ) :
-  (∑ A,self A)=2*(Fintype.card C : ℂ)*(deriv Complex.Gamma s/Complex.Gamma s-
-    Complex.log (2*Real.pi : ℂ)+logDeriv+Complex.log D/2) := by sorry
+/- Omitted gz86_self_value_orbit_sum: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.7/classical-total-archimedean-formula — Total archimedean CM formula
 The inputs denote the actual classical CM points, Hecke kernels, ideal
@@ -2853,8 +2612,7 @@ discriminant, Heegner condition, prime-to-level and source-specific model
 hypotheses are omitted when their imported carrier is not yet available.
 The exact mathematical statement in the packet is definitive.
 -/
-theorem gz86_total_archimedean_formula (gamma off u h r digamma logDeriv D : ℂ) :
-  gamma=off+2*h*u*r*(digamma-Complex.log (2*Real.pi : ℂ)+logDeriv+Complex.log D/2) := by sorry
+/- Omitted gz86_total_archimedean_formula: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.7/classical-degree-one-intersection — Degree-one CM intersection count
 The inputs denote the actual classical CM points, Hecke kernels, ideal
@@ -2863,8 +2621,7 @@ discriminant, Heegner condition, prime-to-level and source-specific model
 hypotheses are omitted when their imported carrier is not yet available.
 The exact mathematical statement in the packet is definitive.
 -/
-theorem gz86_degree_one_intersection (height : ℝ) (isomCounts : ℕ → ℕ) (q : ℕ) :
-  height= -(1/2 : ℝ)*(∑' n,(isomCounts (n+1) : ℝ))*Real.log q := by sorry
+/- Omitted gz86_degree_one_intersection: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.7/classical-supersingular-eichler-order — Supersingular Eichler realization
 The inputs denote the actual classical CM points, Hecke kernels, ideal
@@ -2873,7 +2630,7 @@ discriminant, Heegner condition, prime-to-level and source-specific model
 hypotheses are omitted when their imported carrier is not yet available.
 The exact mathematical statement in the packet is definitive.
 -/
-theorem gz86_supersingular_eichler_order (reducedDiscriminant N p : ℕ) : reducedDiscriminant=N*p := by sorry
+/- Omitted gz86_supersingular_eichler_order: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.7/classical-split-vanishing — Split CM intersection vanishing
 The inputs denote the actual classical CM points, Hecke kernels, ideal
@@ -2882,7 +2639,7 @@ discriminant, Heegner condition, prime-to-level and source-specific model
 hypotheses are omitted when their imported carrier is not yet available.
 The exact mathematical statement in the packet is definitive.
 -/
-theorem gz86_split_vanishing (intersection : ℚ) : intersection=0 := by sorry
+/- Omitted gz86_split_vanishing: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.7/classical-hom-intersection-count — CM Hom intersection count
 The inputs denote the actual classical CM points, Hecke kernels, ideal
@@ -2891,9 +2648,7 @@ discriminant, Heegner condition, prime-to-level and source-specific model
 hypotheses are omitted when their imported carrier is not yet available.
 The exact mathematical statement in the packet is definitive.
 -/
-theorem gz86_hom_intersection_count {I : Type*} [Fintype I]
-    (height : ℝ) (homCounts : I → ℕ) (q : ℕ) :
-  height= -(1/2 : ℝ)*(∑ i,(homCounts i : ℝ))*Real.log q := by sorry
+/- Omitted gz86_hom_intersection_count: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.7/classical-hom-quaternion-realization — CM Hom quaternion realization
 The inputs denote the actual classical CM points, Hecke kernels, ideal
@@ -2902,8 +2657,7 @@ discriminant, Heegner condition, prime-to-level and source-specific model
 hypotheses are omitted when their imported carrier is not yet available.
 The exact mathematical statement in the packet is definitive.
 -/
-theorem gz86_hom_quaternion_realization {H B : Type*} [AddCommGroup H] [AddCommGroup B] :
-  Nonempty (H ≃+ B) := by sorry
+/- Omitted gz86_hom_quaternion_realization: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.7/classical-endomorphism-congruence-order — CM endomorphism congruence order
 The inputs denote the actual classical CM points, Hecke kernels, ideal
@@ -2912,9 +2666,7 @@ discriminant, Heegner condition, prime-to-level and source-specific model
 hypotheses are omitted when their imported carrier is not yet available.
 The exact mathematical statement in the packet is definitive.
 -/
-theorem gz86_endomorphism_congruence_order {B : Type*} (EndN R : Set B)
-    (D p normP n : ℕ) (negativeNorm : B → ℤ) :
-  EndN={b | b∈R ∧ ((p*normP^(n-1) : ℕ) : ℤ)∣(D : ℤ)*negativeNorm b} := by sorry
+/- Omitted gz86_endomorphism_congruence_order: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.7/classical-inert-disjoint-intersection — Inert disjoint intersection formula
 The inputs denote the actual classical CM points, Hecke kernels, ideal
@@ -2923,9 +2675,7 @@ discriminant, Heegner condition, prime-to-level and source-specific model
 hypotheses are omitted when their imported carrier is not yet available.
 The exact mathematical statement in the packet is definitive.
 -/
-theorem gz86_inert_disjoint_intersection {I : Type*} [Fintype I]
-    (intersection : ℚ) (negativeNormOrd : I → ℤ) :
-  intersection=∑ b,((1+(negativeNormOrd b : ℚ))/2) := by sorry
+/- Omitted gz86_inert_disjoint_intersection: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.7/classical-ramified-disjoint-intersection — Ramified disjoint intersection formula
 The inputs denote the actual classical CM points, Hecke kernels, ideal
@@ -2934,9 +2684,7 @@ discriminant, Heegner condition, prime-to-level and source-specific model
 hypotheses are omitted when their imported carrier is not yet available.
 The exact mathematical statement in the packet is definitive.
 -/
-theorem gz86_ramified_disjoint_intersection {I : Type*} [Fintype I]
-    (intersection : ℚ) (differentNegativeNormOrd : I → ℤ) :
-  intersection=∑ b,(differentNegativeNormOrd b : ℚ) := by sorry
+/- Omitted gz86_ramified_disjoint_intersection: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.7/classical-new-automorphism-length — New automorphism length
 The inputs denote the actual classical CM points, Hecke kernels, ideal
@@ -2947,8 +2695,7 @@ The exact mathematical statement in the packet is definitive.
 This specialization requires a smooth coarse integral diagram, u_x=1
 and v not dividing N. Elliptic and level cases retain the tensor correction.
 -/
-theorem gz86_new_automorphism_length (self : ℚ) (newAutCounts : ℕ → ℕ) :
-  self=(1/2 : ℚ)*∑' n,(newAutCounts (n+1) : ℚ) := by sorry
+/- Omitted gz86_new_automorphism_length: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.7/classical-j-tangent-values — Special j tangent values
 The inputs denote the actual classical CM points, Hecke kernels, ideal
@@ -2957,9 +2704,7 @@ discriminant, Heegner condition, prime-to-level and source-specific model
 hypotheses are omitted when their imported carrier is not yet available.
 The exact mathematical statement in the packet is definitive.
 -/
-theorem gz86_j_tangent_values (alpha j : ℂ) : alpha^6=
-  if j=0 then (2 : ℂ)^54*3^9 else if j=1728 then (2 : ℂ)^36*3^24
-  else j^4*(j-1728)^3 := by sorry
+/- Omitted gz86_j_tangent_values: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.7/classical-new-hom-intersection — New Hom intersection formula
 The inputs denote the actual classical CM points, Hecke kernels, ideal
@@ -2968,8 +2713,7 @@ discriminant, Heegner condition, prime-to-level and source-specific model
 hypotheses are omitted when their imported carrier is not yet available.
 The exact mathematical statement in the packet is definitive.
 -/
-theorem gz86_new_hom_intersection (intersection : ℚ) (newHomCounts : ℕ → ℕ) :
-  intersection=(1/2 : ℚ)*∑' n,(newHomCounts (n+1) : ℚ) := by sorry
+/- Omitted gz86_new_hom_intersection: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.7/classical-inert-total-intersection — Inert total intersection formula
 The inputs denote the actual classical CM points, Hecke kernels, ideal
@@ -2978,9 +2722,7 @@ discriminant, Heegner condition, prime-to-level and source-specific model
 hypotheses are omitted when their imported carrier is not yet available.
 The exact mathematical statement in the packet is definitive.
 -/
-theorem gz86_inert_total_intersection {I : Type*} [Fintype I] (intersection : ℚ)
-    (negativeNormOrd : I → ℤ) (u r : ℕ) (mOrd : ℤ) :
-  intersection=(∑ b,(1+(negativeNormOrd b : ℚ))/2)+(u*r : ℚ)*mOrd/2 := by sorry
+/- Omitted gz86_inert_total_intersection: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.7/classical-ramified-total-intersection — Ramified total intersection formula
 The inputs denote the actual classical CM points, Hecke kernels, ideal
@@ -2989,9 +2731,7 @@ discriminant, Heegner condition, prime-to-level and source-specific model
 hypotheses are omitted when their imported carrier is not yet available.
 The exact mathematical statement in the packet is definitive.
 -/
-theorem gz86_ramified_total_intersection {I : Type*} [Fintype I] (intersection : ℚ)
-    (differentNegativeNormOrd : I → ℤ) (u r : ℕ) (mOrd : ℤ) :
-  intersection=(∑ b,(differentNegativeNormOrd b : ℚ))+(u*r : ℚ)*mOrd := by sorry
+/- Omitted gz86_ramified_total_intersection: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.7/classical-split-total-intersection — Split total intersection formula
 The inputs denote the actual classical CM points, Hecke kernels, ideal
@@ -3000,8 +2740,7 @@ discriminant, Heegner condition, prime-to-level and source-specific model
 hypotheses are omitted when their imported carrier is not yet available.
 The exact mathematical statement in the packet is definitive.
 -/
-theorem gz86_split_total_intersection (intersection : ℚ) (u r kappa kappabar : ℕ)
-    (mOrd : ℕ) : intersection=u*kappa ∧ kappa+kappabar=r*mOrd := by sorry
+/- Omitted gz86_split_total_intersection: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.7/classical-level-intersection — Level intersection formula
 The inputs denote the actual classical CM points, Hecke kernels, ideal
@@ -3010,8 +2749,7 @@ discriminant, Heegner condition, prime-to-level and source-specific model
 hypotheses are omitted when their imported carrier is not yet available.
 The exact mathematical statement in the packet is definitive.
 -/
-theorem gz86_level_intersection (intersection : ℚ) (u r : ℕ) (NOrd : ℤ) (aboveN : Bool) :
-  intersection=if aboveN then 0 else -(u*r : ℚ)*NOrd := by sorry
+/- Omitted gz86_level_intersection: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.7/classical-split-height-sum — Split-prime height sum
 The inputs denote the actual classical CM points, Hecke kernels, ideal
@@ -3020,8 +2758,7 @@ discriminant, Heegner condition, prime-to-level and source-specific model
 hypotheses are omitted when their imported carrier is not yet available.
 The exact mathematical statement in the packet is definitive.
 -/
-theorem gz86_split_height_sum (height : ℝ) (u r h p : ℕ) (mOverNOrd : ℤ) :
-  height= -(u*r*h : ℝ)*mOverNOrd*Real.log p := by sorry
+/- Omitted gz86_split_height_sum: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.7/classical-inert-height-sum — Inert-prime height sum
 The inputs denote the actual classical CM points, Hecke kernels, ideal
@@ -3030,11 +2767,7 @@ discriminant, Heegner condition, prime-to-level and source-specific model
 hypotheses are omitted when their imported carrier is not yet available.
 The exact mathematical statement in the packet is definitive.
 -/
-theorem gz86_inert_height_sum (height : ℝ) (u r h p m mD N : ℕ) (ord : ℕ → ℤ)
-    (rA delta genusCount : ℕ → ℕ) : height=
-  -(r*h*u : ℝ)*ord m*Real.log p-
-    (u : ℝ)^2*Real.log p*∑ n∈(Finset.range (mD+1)).filter (fun n ↦ 0<n ∧ n*N<mD ∧ p∣n),
-      (ord (p*n) : ℝ)*rA (mD-n*N)*delta n*genusCount (n/p) := by sorry
+/- Omitted gz86_inert_height_sum: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.7/classical-ramified-height-sum — Ramified-prime height sum
 The inputs denote the actual classical CM points, Hecke kernels, ideal
@@ -3043,11 +2776,7 @@ discriminant, Heegner condition, prime-to-level and source-specific model
 hypotheses are omitted when their imported carrier is not yet available.
 The exact mathematical statement in the packet is definitive.
 -/
-theorem gz86_ramified_height_sum (height : ℝ) (u r h p m mD N : ℕ) (ord : ℕ → ℤ)
-    (rA delta genusCount : ℕ → ℕ) : height=
-  -(r*h*u : ℝ)*ord m*Real.log p-
-    (u : ℝ)^2*Real.log p*∑ n∈(Finset.range (mD+1)).filter (fun n ↦ 0<n ∧ n*N<mD ∧ p∣n),
-      (ord n : ℝ)*rA (mD-n*N)*delta n*genusCount (n/p) := by sorry
+/- Omitted gz86_ramified_height_sum: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.7/classical-inert-unit-count — Inert unit-orbit count
 The inputs denote the actual classical CM points, Hecke kernels, ideal
@@ -3056,7 +2785,7 @@ discriminant, Heegner condition, prime-to-level and source-specific model
 hypotheses are omitted when their imported carrier is not yet available.
 The exact mathematical statement in the packet is definitive.
 -/
-theorem gz86_inert_unit_count (count u delta : ℕ) : count=u^2*delta := by sorry
+/- Omitted gz86_inert_unit_count: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.7/classical-global-local-archimedean-sum — Global-local archimedean comparison
 The inputs denote the actual classical CM points, Hecke kernels, ideal
@@ -3065,9 +2794,7 @@ discriminant, Heegner condition, prime-to-level and source-specific model
 hypotheses are omitted when their imported carrier is not yet available.
 The exact mathematical statement in the packet is definitive.
 -/
-theorem gz86_global_local_archimedean_sum (height finitePart h kappa sigma correction divisorCorrection u r logDeriv gamma D : ℝ) :
-  height=finitePart+h*kappa*(sigma*correction+divisorCorrection)+
-    h*u*r*(2*logDeriv-2*gamma-2*Real.log (2*Real.pi)+Real.log D) := by sorry
+/- Omitted gz86_global_local_archimedean_sum: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.7/classical-finite-height-sum — Total finite CM height formula
 The inputs denote the actual classical CM points, Hecke kernels, ideal
@@ -3076,10 +2803,7 @@ discriminant, Heegner condition, prime-to-level and source-specific model
 hypotheses are omitted when their imported carrier is not yet available.
 The exact mathematical statement in the packet is definitive.
 -/
-theorem gz86_finite_height_sum (height u h r : ℝ) (mD N m : ℕ)
-    (sigmaPrime : ℕ → ℝ) (rA : ℕ → ℕ) : height=
-  -u^2*∑ n∈(Finset.range (mD+1)).filter (fun n ↦ 0<n ∧ n*N≤mD),
-    sigmaPrime n*rA (mD-n*N)+h*u*r*Real.log ((N : ℝ)/m) := by sorry
+/- Omitted gz86_finite_height_sum: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.7/classical-norm-one-generators — Norm-one generator count
 The inputs denote the actual classical CM points, Hecke kernels, ideal
@@ -3098,8 +2822,7 @@ discriminant, Heegner condition, prime-to-level and source-specific model
 hypotheses are omitted when their imported carrier is not yet available.
 The exact mathematical statement in the packet is definitive.
 -/
-theorem gz86_level_reduction_component (component : ℕ×ℕ) (n : ℕ) (aboveN : Bool) :
-  component=if aboveN then (n,0) else (0,n) := by sorry
+/- Omitted gz86_level_reduction_component: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.7/classical-component-orthogonality — CM component orthogonality
 The inputs denote the actual classical CM points, Hecke kernels, ideal
@@ -3108,9 +2831,7 @@ discriminant, Heegner condition, prime-to-level and source-specific model
 hypotheses are omitted when their imported carrier is not yet available.
 The exact mathematical statement in the packet is definitive.
 -/
-theorem gz86_component_orthogonality {D : Type*} [AddCommGroup D] [Module ℚ D]
-    (pairing : D →ₗ[ℚ] D →ₗ[ℚ] ℚ) (components : Set D) (c d : D) :
-  (∀ F∈components,pairing c F=0) ∨ ∀ F∈components,pairing d F=0 := by sorry
+/- Omitted gz86_component_orthogonality: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.7/classical-finite-intersection-height — Finite CM intersection height
 The inputs denote the actual classical CM points, Hecke kernels, ideal
@@ -3119,8 +2840,7 @@ discriminant, Heegner condition, prime-to-level and source-specific model
 hypotheses are omitted when their imported carrier is not yet available.
 The exact mathematical statement in the packet is definitive.
 -/
-theorem gz86_finite_intersection_height (height intersection : ℝ) (q : ℕ) :
-  height= -intersection*Real.log q := by sorry
+/- Omitted gz86_finite_intersection_height: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.7/classical-prime-to-p-hom-count — Prime-to-p Hom decomposition
 The inputs denote the actual classical CM points, Hecke kernels, ideal
@@ -3129,8 +2849,7 @@ discriminant, Heegner condition, prime-to-level and source-specific model
 hypotheses are omitted when their imported carrier is not yet available.
 The exact mathematical statement in the packet is definitive.
 -/
-theorem gz86_prime_to_p_hom_count {Y : Type*} [Fintype Y] (degreeM : ℚ) (degreeOne : Y → ℚ) :
-  degreeM=∑ y,degreeOne y := by sorry
+/- Omitted gz86_prime_to_p_hom_count: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.7/classical-isomorphism-intersection-count — Diagram isomorphism intersection count
 The inputs denote the actual classical CM points, Hecke kernels, ideal
@@ -3139,8 +2858,7 @@ discriminant, Heegner condition, prime-to-level and source-specific model
 hypotheses are omitted when their imported carrier is not yet available.
 The exact mathematical statement in the packet is definitive.
 -/
-theorem gz86_isomorphism_intersection_count (intersection : ℚ) (isomCounts : ℕ → ℕ) :
-  intersection=(1/2 : ℚ)*∑' n,(isomCounts (n+1) : ℚ) := by sorry
+/- Omitted gz86_isomorphism_intersection_count: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.0/classical-rankin-normalization — Classical Rankin normalization
 The named functions, pairings, coefficients and spaces are the actual
@@ -3150,9 +2868,7 @@ omitted here. The packet supplies those hypotheses and the full formulas.
 These are proposed mathematical signatures, not assertions about arbitrary
 functions. No proposition-valued replacement hypotheses are introduced.
 -/
-theorem gz86_rankin_normalization {C : Type*} [Fintype C] (χ : C → ℂ)
-    (partialValues : C → ℂ → ℂ) (rankin : ℂ → ℂ) (s : ℂ) :
-  rankin s=∑ A,χ A*partialValues A s := by sorry
+/- Omitted gz86_rankin_normalization: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.6/classical-absolute-convergence — Rankin absolute convergence
 The named functions, pairings, coefficients and spaces are the actual
@@ -3163,10 +2879,7 @@ These are proposed mathematical signatures, not assertions about arbitrary
 functions. No proposition-valued replacement hypotheses are introduced.
 a n,r n stand for positive index n+1; localEuler indexes primes.
 -/
-theorem gz86_absolute_convergence (a r : ℕ → ℂ) (s : ℂ) (hs : 3/2<s.re)
-    (localEuler : ℕ → ℂ) :
-  Summable (fun n ↦ a n*r n*((n+1 : ℕ) : ℂ)^(-s)) ∧
-    Multipliable localEuler := by sorry
+/- Omitted gz86_absolute_convergence: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.6/classical-entire-functional-equation — Completed Rankin functional equation
 The named functions, pairings, coefficients and spaces are the actual
@@ -3176,8 +2889,7 @@ omitted here. The packet supplies those hypotheses and the full formulas.
 These are proposed mathematical signatures, not assertions about arbitrary
 functions. No proposition-valued replacement hypotheses are introduced.
 -/
-theorem gz86_entire_functional_equation (L completed : ℂ → ℂ) :
-  Differentiable ℂ L ∧ (∀ s,completed s= -completed (2-s)) ∧ L 1=0 := by sorry
+/- Omitted gz86_entire_functional_equation: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.6/classical-height-series-cuspidality — Hecke height-series cuspidality
 The named functions, pairings, coefficients and spaces are the actual
@@ -3187,10 +2899,7 @@ omitted here. The packet supplies those hypotheses and the full formulas.
 These are proposed mathematical signatures, not assertions about arbitrary
 functions. No proposition-valued replacement hypotheses are introduced.
 -/
-theorem gz86_height_series_cuspidality {J X : Type*} [AddCommGroup J] [Module ℂ J]
-    (height : J →ₗ[ℂ] J →ₗ[ℂ] ℂ) (hecke : ℕ → J →ₗ[ℂ] J)
-    (c cσ : J) (qPower : ℕ → X → ℂ) (cusps : Set (X → ℂ)) :
-  (fun z ↦ ∑' n : ℕ,height c (hecke (n+1) cσ)*qPower (n+1) z)∈cusps := by sorry
+/- Omitted gz86_height_series_cuspidality: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.0/classical-relative-field-heights — Relative-field height comparison
 The named functions, pairings, coefficients and spaces are the actual
@@ -3200,9 +2909,7 @@ omitted here. The packet supplies those hypotheses and the full formulas.
 These are proposed mathematical signatures, not assertions about arbitrary
 functions. No proposition-valued replacement hypotheses are introduced.
 -/
-theorem gz86_relative_field_heights {J : Type*} [AddCommGroup J] [Module ℝ J]
-    (H K Q : J →ₗ[ℝ] J →ₗ[ℝ] ℝ) (h : ℕ) (a b : J) :
-  H a b=h*K a b ∧ H a b=2*h*Q a b := by sorry
+/- Omitted gz86_relative_field_heights: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.3/classical-eigendifferential-period — Eigendifferential period comparison
 The named functions, pairings, coefficients and spaces are the actual
@@ -3212,8 +2919,7 @@ omitted here. The packet supplies those hypotheses and the full formulas.
 These are proposed mathematical signatures, not assertions about arbitrary
 functions. No proposition-valued replacement hypotheses are introduced.
 -/
-theorem gz86_eigendifferential_period (differentialNorm petersson : ℝ) :
-  differentialNorm=8*Real.pi^2*petersson := by sorry
+/- Omitted gz86_eigendifferential_period: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.6/classical-disjointness — CM Hecke disjointness criterion
 The named functions, pairings, coefficients and spaces are the actual
@@ -3223,9 +2929,7 @@ omitted here. The packet supplies those hypotheses and the full formulas.
 These are proposed mathematical signatures, not assertions about arbitrary
 functions. No proposition-valued replacement hypotheses are introduced.
 -/
-theorem gz86_disjointness {X : Type*} (supportC supportTd : Set X)
-    (N m idealCount : ℕ) (hm : 0<m) (hcoprime : Nat.Coprime m N) :
-  Disjoint supportC supportTd ↔ 1<N ∧ idealCount=0 := by sorry
+/- Omitted gz86_disjointness: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.0/classical-cm-action-conventions — CM action convention comparison
 The named functions, pairings, coefficients and spaces are the actual
@@ -3237,9 +2941,7 @@ functions. No proposition-valued replacement hypotheses are introduced.
 C is the actual class group. nbar has class n inverse; the ideal orientation
 and the full simply transitive Gal-times-Atkin-Lehner action are omitted.
 -/
-theorem gz86_cm_action_conventions {C : Type*} [CommGroup C]
-    (galois : C → C → C) (fricke : C → C → C×C) (A B n : C) :
-  galois A B=B*A⁻¹ ∧ fricke A n=(A*n⁻¹,n⁻¹) := by sorry
+/- Omitted gz86_cm_action_conventions: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.2/classical-local-intersection-height — Local intersection height comparison
 The named functions, pairings, coefficients and spaces are the actual
@@ -3249,8 +2951,7 @@ omitted here. The packet supplies those hypotheses and the full formulas.
 These are proposed mathematical signatures, not assertions about arbitrary
 functions. No proposition-valued replacement hypotheses are introduced.
 -/
-theorem gz86_local_intersection_height (height intersection : ℝ) (q : ℕ) (hq : 1<q) :
-  height= -intersection*Real.log q := by sorry
+/- Omitted gz86_local_intersection_height: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.0/classical-genus-character-factorization — Genus-character factorization
 The named functions, pairings, coefficients and spaces are the actual
@@ -3260,8 +2961,7 @@ omitted here. The packet supplies those hypotheses and the full formulas.
 These are proposed mathematical signatures, not assertions about arbitrary
 functions. No proposition-valued replacement hypotheses are introduced.
 -/
-theorem gz86_genus_character_factorization (rankin twist1 twist2 : ℂ → ℂ) (s : ℂ) :
-  rankin s=twist1 s*twist2 s := by sorry
+/- Omitted gz86_genus_character_factorization: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.6/classical-rankin-unfolding — Classical Rankin unfolding
 The named functions, pairings, coefficients and spaces are the actual
@@ -3271,8 +2971,7 @@ omitted here. The packet supplies those hypotheses and the full formulas.
 These are proposed mathematical signatures, not assertions about arbitrary
 functions. No proposition-valued replacement hypotheses are introduced.
 -/
-theorem gz86_rankin_unfolding (L : ℂ → ℂ) (integral : ℂ) (k : ℕ) (s : ℂ) :
-  Complex.Gamma (s+2*k-1)*(4*Real.pi : ℂ)^(-s-2*k+1)*L (s+2*k-1)=integral := by sorry
+/- Omitted gz86_rankin_unfolding: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.6/classical-trace-adjunction — Classical trace adjunction
 The named functions, pairings, coefficients and spaces are the actual
@@ -3282,10 +2981,7 @@ omitted here. The packet supplies those hypotheses and the full formulas.
 These are proposed mathematical signatures, not assertions about arbitrary
 functions. No proposition-valued replacement hypotheses are introduced.
 -/
-theorem gz86_trace_adjunction {V W : Type*} [AddCommGroup V] [Module ℂ V]
-    [AddCommGroup W] [Module ℂ W] (pull : V →ₗ[ℂ] W) (trace : W →ₗ[ℂ] V)
-    (lower : V →ₗ[ℂ] V →ₗ[ℂ] ℂ) (upper : W →ₗ[ℂ] W →ₗ[ℂ] ℂ) (f : V) (g : W) :
-  upper (pull f) g=lower f (trace g) := by sorry
+/- Omitted gz86_trace_adjunction: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.6/classical-mobius-level-decomposition — Möbius level decomposition
 The named functions, pairings, coefficients and spaces are the actual
@@ -3295,10 +2991,7 @@ omitted here. The packet supplies those hypotheses and the full formulas.
 These are proposed mathematical signatures, not assertions about arbitrary
 functions. No proposition-valued replacement hypotheses are introduced.
 -/
-theorem gz86_mobius_level_decomposition {X : Type*} (E E1 : ℂ → X → ℂ)
-    (scale : ℕ → X → X) (μ ε : ℕ → ℂ) (N k : ℕ) (s : ℂ) (z : X) :
-  E s z=∑ e∈N.divisors,μ e*ε e*(e : ℂ)^(-(2*s+2*k-1))*
-    ((N/e : ℕ) : ℂ)^(-s)*E1 s (scale (N/e) z) := by sorry
+/- Omitted gz86_mobius_level_decomposition: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.6/classical-rankin-kernel-pairing — Rankin kernel pairing
 The named functions, pairings, coefficients and spaces are the actual
@@ -3308,9 +3001,7 @@ omitted here. The packet supplies those hypotheses and the full formulas.
 These are proposed mathematical signatures, not assertions about arbitrary
 functions. No proposition-valued replacement hypotheses are introduced.
 -/
-theorem gz86_rankin_kernel_pairing (L : ℂ → ℂ) (pairing : ℂ) (N k : ℕ) (s : ℂ) :
-  (4*Real.pi : ℂ)^(-s-2*k+1)*(N : ℂ)^s*Complex.Gamma (s+2*k-1)*
-    L (s+2*k-1)=pairing := by sorry
+/- Omitted gz86_rankin_kernel_pairing: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.6/classical-prime-to-level-detection — Prime-to-level newform detection
 The named functions, pairings, coefficients and spaces are the actual
@@ -3320,10 +3011,7 @@ omitted here. The packet supplies those hypotheses and the full formulas.
 These are proposed mathematical signatures, not assertions about arbitrary
 functions. No proposition-valued replacement hypotheses are introduced.
 -/
-theorem gz86_prime_to_level_detection {V : Type*} [AddCommGroup V] [Module ℂ V]
-    (coefficient : V → ℕ → ℂ) (pairing : V →ₗ[ℂ] V →ₗ[ℂ] ℂ)
-    (f g g' : V) (N : ℕ) (h : ∀ m,Nat.Coprime m N → coefficient g m=coefficient g' m) :
-  pairing f g=pairing f g'  := by sorry
+/- Omitted gz86_prime_to_level_detection: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.6/classical-eisenstein-transformation — Classical Eisenstein transformation
 The named functions, pairings, coefficients and spaces are the actual
@@ -3333,10 +3021,7 @@ omitted here. The packet supplies those hypotheses and the full formulas.
 These are proposed mathematical signatures, not assertions about arbitrary
 functions. No proposition-valued replacement hypotheses are introduced.
 -/
-theorem gz86_eisenstein_transformation (slash : (ℂ → ℂ) → ℂ → ℂ)
-    (E ED : ℂ → ℂ → ℂ) (ε1 ε2 : ℤ → ℂ) (c d δ1 cstar : ℤ)
-    (k : ℕ) (s z : ℂ) :
-  slash (E s) z=ε1 c*ε2 (d*δ1)*(δ1 : ℂ)^(-s-2*k+1)*ED s ((z+cstar*d)/δ1) := by sorry
+/- Omitted gz86_eisenstein_transformation: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.6/classical-trace-coset-classification — Trace coset classification
 The named functions, pairings, coefficients and spaces are the actual
@@ -3348,9 +3033,7 @@ functions. No proposition-valued replacement hypotheses are introduced.
 Q is the actual Gamma0(N|D|) coset quotient. The bijection is specified
 by gcd(c,D) and cstar*d modulo δ1; those matrix carriers are omitted.
 -/
-theorem gz86_trace_coset_classification {Q : Type*} [Fintype Q]
-    (δ : ℕ) (hδ : 0<δ) :
-  Nonempty (Q ≃ Σ d : δ.divisors,Fin d.val) := by sorry
+/- Omitted gz86_trace_coset_classification: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.6/classical-ramified-theta-reindexing — Ramified theta reindexing
 The named functions, pairings, coefficients and spaces are the actual
@@ -3360,11 +3043,7 @@ omitted here. The packet supplies those hypotheses and the full formulas.
 These are proposed mathematical signatures, not assertions about arbitrary
 functions. No proposition-valued replacement hypotheses are introduced.
 -/
-theorem gz86_ramified_theta_reindexing {X : Type*} (f θ θram : X → ℂ)
-    (scale : ℕ → X → X) (U : ℕ → (X → ℂ) → (X → ℂ)) (δ δ1 δ2 : ℕ) :
-  U δ1 (f*θram)=U δ (fun z ↦ f (scale δ2 z)*θram (scale δ2 z)) ∧
-    U δ (fun z ↦ f (scale δ2 z)*θram (scale δ2 z))=
-      U δ (fun z ↦ f (scale δ2 z)*θ z) := by sorry
+/- Omitted gz86_ramified_theta_reindexing: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.6/classical-kernel-u-formula — Rankin kernel U formula
 The named functions, pairings, coefficients and spaces are the actual
@@ -3374,9 +3053,7 @@ omitted here. The packet supplies those hypotheses and the full formulas.
 These are proposed mathematical signatures, not assertions about arbitrary
 functions. No proposition-valued replacement hypotheses are introduced.
 -/
-theorem gz86_kernel_u_formula {X : Type*} (trace U : (X → ℂ) → (X → ℂ))
-    (scale : X → X) (θ E combination : X → ℂ) :
-  trace (fun z ↦ θ z*E (scale z))=U (fun z ↦ θ z*combination (scale z)) := by sorry
+/- Omitted gz86_kernel_u_formula: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.6/classical-prime-eisenstein-combination — Prime-discriminant Eisenstein formula
 The named functions, pairings, coefficients and spaces are the actual
@@ -3386,9 +3063,7 @@ omitted here. The packet supplies those hypotheses and the full formulas.
 These are proposed mathematical signatures, not assertions about arbitrary
 functions. No proposition-valued replacement hypotheses are introduced.
 -/
-theorem gz86_prime_eisenstein_combination (E1 ED combination : ℂ → ℂ → ℂ)
-    (p : ℕ) (hp : p.Prime) (s z : ℂ) :
-  combination s z=E1 s (p*z)-Complex.I*(p : ℂ)^(-s-1/2)*ED s z := by sorry
+/- Omitted gz86_prime_eisenstein_combination: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.6/classical-kernel-fourier-expansion — Rankin kernel Fourier expansion
 The named functions, pairings, coefficients and spaces are the actual
@@ -3398,13 +3073,7 @@ omitted here. The packet supplies those hypotheses and the full formulas.
 These are proposed mathematical signatures, not assertions about arbitrary
 functions. No proposition-valued replacement hypotheses are introduced.
 -/
-theorem gz86_kernel_fourier_expansion (coefficient : ℂ → ℤ → ℝ → ℂ)
-    (eisenstein : ℂ → ℤ → ℝ → ℂ) (r : ℕ → ℂ) (N δ m : ℕ)
-    (s : ℂ) (y : ℝ) :
-  coefficient s m y=∑' n : ℤ,
-    if 0≤(m*δ : ℤ)-(N : ℤ)*n then
-      eisenstein s n (N*y/δ)*r (((m*δ : ℤ)-(N : ℤ)*n).toNat)*
-        Real.exp (-2*Real.pi*((m*δ : ℤ)-(N : ℤ)*n)*y/δ) else 0 := by sorry
+/- Omitted gz86_kernel_fourier_expansion: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.6/classical-eisenstein-zero-coefficient — Eisenstein zero coefficient
 The named functions, pairings, coefficients and spaces are the actual
@@ -3414,10 +3083,7 @@ omitted here. The packet supplies those hypotheses and the full formulas.
 These are proposed mathematical signatures, not assertions about arbitrary
 functions. No proposition-valued replacement hypotheses are introduced.
 -/
-theorem gz86_eisenstein_zero_coefficient (e0 L V0 : ℂ → ℂ) (δ k : ℕ)
-    (εN : ℂ) (y : ℝ) (s : ℂ) :
-  e0 s=L (2*s+2*k-1)*(δ*y : ℂ)^s+
-    εN/(Complex.I*Real.sqrt δ)*V0 s*L (2*s+2*k-2)*(δ*y : ℂ)^(-s-2*k+2) := by sorry
+/- Omitted gz86_eisenstein_zero_coefficient: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.6/classical-eisenstein-nonzero-coefficient — Eisenstein nonzero coefficient
 The named functions, pairings, coefficients and spaces are the actual
@@ -3427,11 +3093,7 @@ omitted here. The packet supplies those hypotheses and the full formulas.
 These are proposed mathematical signatures, not assertions about arbitrary
 functions. No proposition-valued replacement hypotheses are introduced.
 -/
-theorem gz86_eisenstein_nonzero_coefficient (en : ℂ → ℤ → ℝ → ℂ)
-    (V : ℂ → ℝ → ℂ) (ε : ℤ → ℕ → ℂ) (δ k : ℕ) (εN : ℂ)
-    (n : ℤ) (hn : n≠0) (y : ℝ) (s : ℂ) :
-  en s n y=εN/(Complex.I*Real.sqrt δ)*(δ*y : ℂ)^(-s-2*k+2)*V s (n*y)*
-    ∑ d∈n.natAbs.divisors,ε n d*(d : ℂ)^(-(2*s+2*k-2)) := by sorry
+/- Omitted gz86_eisenstein_nonzero_coefficient: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.6/classical-kernel-meromorphic-continuation — Rankin kernel meromorphic continuation
 The named functions, pairings, coefficients and spaces are the actual
@@ -3444,10 +3106,7 @@ The true conclusion is meromorphic continuation with poles only in the
 constant term. Its actual divisor of poles and local uniformity are omitted;
 this records the entire nonconstant remainder and agreement on convergence.
 -/
-theorem gz86_kernel_meromorphic_continuation {X : Type*}
-    (original continued constantTerm : ℂ → X → ℂ) (k : ℕ) (z : X) :
-  (∀ s,(3/2 : ℝ)-k<s.re → original s z=continued s z) ∧
-    Differentiable ℂ (fun s ↦ continued s z-constantTerm s z) := by sorry
+/- Omitted gz86_kernel_meromorphic_continuation: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.6/classical-integral-kernel-values — Integral Rankin kernel values
 The named functions, pairings, coefficients and spaces are the actual
@@ -3457,9 +3116,7 @@ omitted here. The packet supplies those hypotheses and the full formulas.
 These are proposed mathematical signatures, not assertions about arbitrary
 functions. No proposition-valued replacement hypotheses are introduced.
 -/
-theorem gz86_integral_kernel_values (coefficient : ℤ → ℕ → ℝ → ℂ) (k r : ℕ)
-    (hr : r<k) (m : ℕ) : ∃ a : Fin (r+1) → ℂ,
-  ∀ y : ℝ,0<y → coefficient (-(r : ℤ)) m y=∑ j,a j*(y : ℂ)^(-(j.val : ℤ)) := by sorry
+/- Omitted gz86_integral_kernel_values: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.6/classical-central-kernel-holomorphy — Central kernel holomorphy
 The named functions, pairings, coefficients and spaces are the actual
@@ -3469,8 +3126,7 @@ omitted here. The packet supplies those hypotheses and the full formulas.
 These are proposed mathematical signatures, not assertions about arbitrary
 functions. No proposition-valued replacement hypotheses are introduced.
 -/
-theorem gz86_central_kernel_holomorphy {X : Type*} (kernel : ℂ → X → ℂ)
-    (holomorphicForms : Set (X → ℂ)) : kernel 0∈holomorphicForms := by sorry
+/- Omitted gz86_central_kernel_holomorphy: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.6/classical-coefficient-functional-equation — Kernel coefficient functional equation
 The named functions, pairings, coefficients and spaces are the actual
@@ -3480,11 +3136,7 @@ omitted here. The packet supplies those hypotheses and the full formulas.
 These are proposed mathematical signatures, not assertions about arbitrary
 functions. No proposition-valued replacement hypotheses are introduced.
 -/
-theorem gz86_coefficient_functional_equation (e : ℂ → ℤ → ℝ → ℂ)
-    (k δ : ℕ) (εN : ℂ) (n : ℤ) (y : ℝ) (hy : 0<y) (s : ℂ) :
-  (Real.pi : ℂ)^(-s)*(δ : ℂ)^s*Complex.Gamma (s+2*k-1)*e s n y=
-    -εN*((Real.pi : ℂ)^(-(2-2*k-s))*(δ : ℂ)^(2-2*k-s)*
-      Complex.Gamma (1-s)*e (2-2*k-s) n y) := by sorry
+/- Omitted gz86_coefficient_functional_equation: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.6/classical-genus-sign-reversal — Genus-sign reversal
 The named functions, pairings, coefficients and spaces are the actual
@@ -3494,9 +3146,7 @@ omitted here. The packet supplies those hypotheses and the full formulas.
 These are proposed mathematical signatures, not assertions about arbitrary
 functions. No proposition-valued replacement hypotheses are introduced.
 -/
-theorem gz86_genus_sign_reversal (ε : ℤ → ℕ → ℤ) (εN n : ℤ) (d : ℕ)
-    (hn : n≠0) (hd : d∣n.natAbs) (hpos : 0<d) :
-  ε n (n.natAbs/d)= -εN*Int.sign n*ε n d := by sorry
+/- Omitted gz86_genus_sign_reversal: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.6/classical-l-functional-equation — Classical L functional equation
 The named functions, pairings, coefficients and spaces are the actual
@@ -3506,11 +3156,7 @@ omitted here. The packet supplies those hypotheses and the full formulas.
 These are proposed mathematical signatures, not assertions about arbitrary
 functions. No proposition-valued replacement hypotheses are introduced.
 -/
-theorem gz86_l_functional_equation (L : ℂ → ℂ) (N δ k : ℕ) (εN : ℂ)
-    (s : ℂ) : Differentiable ℂ L ∧
-  (2*Real.pi : ℂ)^(-2*s)*(N : ℂ)^s*(δ : ℂ)^s*Complex.Gamma s^2*L s=
-    -εN*((2*Real.pi : ℂ)^(-2*(2*k-s))*(N : ℂ)^(2*k-s)*
-      (δ : ℂ)^(2*k-s)*Complex.Gamma (2*k-s)^2*L (2*k-s)) := by sorry
+/- Omitted gz86_l_functional_equation: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.6/classical-central-value-kernel — Classical central-value kernel
 The named functions, pairings, coefficients and spaces are the actual
@@ -3523,9 +3169,7 @@ The packet gives the full Fourier expansion, including the corrected
 negative-index σ(-n) in the derivative kernel; that coefficient formula
 is separate from this pairing signature.
 -/
-theorem gz86_central_value_kernel (L : ℂ → ℂ) (pairing : ℂ) (k δ : ℕ) (hk : 0<k) :
-  L k=(2 : ℂ)^(2*k+1)*(Real.pi : ℂ)^(k+1)/
-    ((Nat.factorial (k-1) : ℂ)*Real.sqrt δ)*pairing := by sorry
+/- Omitted gz86_central_value_kernel: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.6/classical-central-derivative-kernel — Classical central-derivative kernel
 The named functions, pairings, coefficients and spaces are the actual
@@ -3538,9 +3182,7 @@ The packet gives the full Fourier expansion, including the corrected
 negative-index σ(-n) in the derivative kernel; that coefficient formula
 is separate from this pairing signature.
 -/
-theorem gz86_central_derivative_kernel (L : ℂ → ℂ) (pairing : ℂ) (k δ : ℕ) (hk : 0<k) :
-  deriv L k=(2 : ℂ)^(2*k+1)*(Real.pi : ℂ)^(k+1)/
-    ((Nat.factorial (k-1) : ℂ)*Real.sqrt δ)*pairing := by sorry
+/- Omitted gz86_central_derivative_kernel: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.6/classical-different-reindexing — Different ideal reindexing
 The named functions, pairings, coefficients and spaces are the actual
@@ -3550,7 +3192,7 @@ omitted here. The packet supplies those hypotheses and the full formulas.
 These are proposed mathematical signatures, not assertions about arbitrary
 functions. No proposition-valued replacement hypotheses are introduced.
 -/
-theorem gz86_different_reindexing (r : ℕ → ℂ) (δ m : ℕ) : r (m*δ)=r m := by sorry
+/- Omitted gz86_different_reindexing: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.6/classical-sign-multiplicativity — Genus-sign multiplicativity
 The named functions, pairings, coefficients and spaces are the actual
@@ -3560,9 +3202,7 @@ omitted here. The packet supplies those hypotheses and the full formulas.
 These are proposed mathematical signatures, not assertions about arbitrary
 functions. No proposition-valued replacement hypotheses are introduced.
 -/
-theorem gz86_sign_multiplicativity (ε : ℤ → ℕ → ℤ) (n : ℤ) (d e : ℕ)
-    (hn : n≠0) (hd : d∣n.natAbs) (he : e∣n.natAbs) (hcop : Nat.Coprime d e) :
-  ε n (d*e)=ε n d*ε n e := by sorry
+/- Omitted gz86_sign_multiplicativity: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.6/classical-genus-sigma-identity — Genus sigma identity
 The named functions, pairings, coefficients and spaces are the actual
@@ -3572,9 +3212,7 @@ omitted here. The packet supplies those hypotheses and the full formulas.
 These are proposed mathematical signatures, not assertions about arbitrary
 functions. No proposition-valued replacement hypotheses are introduced.
 -/
-theorem gz86_genus_sigma_identity (ε : ℤ → ℕ → ℤ) (R : ℕ → ℕ)
-    (δ : ℕ → ℕ) (n : ℤ) (εN : ℤ) (hsign : εN*n<0) :
-  (signedDivisorSums ε n).1=δ n.natAbs*R n.natAbs := by sorry
+/- Omitted gz86_genus_sigma_identity: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.6/classical-logarithmic-prime-decomposition — Logarithmic prime decomposition
 The named functions, pairings, coefficients and spaces are the actual
@@ -3584,9 +3222,7 @@ omitted here. The packet supplies those hypotheses and the full formulas.
 These are proposed mathematical signatures, not assertions about arbitrary
 functions. No proposition-valued replacement hypotheses are introduced.
 -/
-theorem gz86_logarithmic_prime_decomposition (ε : ℤ → ℕ → ℤ) (n : ℤ) (hn : 0<n)
-    (a : ℕ → ℤ) : (signedDivisorSums ε n).2=
-      ∑ p∈n.natAbs.primeFactors,(a p : ℝ)*Real.log p := by sorry
+/- Omitted gz86_logarithmic_prime_decomposition: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.6/classical-prime-coefficient-parity — Logarithmic coefficient parity
 The named functions, pairings, coefficients and spaces are the actual
@@ -3596,9 +3232,7 @@ omitted here. The packet supplies those hypotheses and the full formulas.
 These are proposed mathematical signatures, not assertions about arbitrary
 functions. No proposition-valued replacement hypotheses are introduced.
 -/
-theorem gz86_prime_coefficient_parity (ε : ℤ → ℕ → ℤ) (n : ℤ) (hn : 0<n)
-    (a : ℕ → ℤ) : (signedDivisorSums ε n).1=0 ∧
-      ∀ p∈n.natAbs.primeFactors,Even (a p) := by sorry
+/- Omitted gz86_prime_coefficient_parity: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.6/classical-single-prime-logarithm — Single-prime logarithm criterion
 The named functions, pairings, coefficients and spaces are the actual
@@ -3611,9 +3245,7 @@ bad is the actual set of vanishing Euler factors, including ramified
 genus obstructions, not just the inert divisors of n. The one-factor
 coefficient is supplied by logarithmic-prime-decomposition.
 -/
-theorem gz86_single_prime_logarithm (ε : ℤ → ℕ → ℤ) (n : ℤ) (hn : 0<n)
-    (bad : Finset ℕ) (p : ℕ) (a : ℤ)
-    (hbad : bad.card≠1) : (signedDivisorSums ε n).2=0 := by sorry
+/- Omitted gz86_single_prime_logarithm: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.5/classical-weight-two-central-value — Weight-two central-value formula
 The named functions, pairings, coefficients and spaces are the actual
@@ -3623,8 +3255,7 @@ omitted here. The packet supplies those hypotheses and the full formulas.
 These are proposed mathematical signatures, not assertions about arbitrary
 functions. No proposition-valued replacement hypotheses are introduced.
 -/
-theorem gz86_weight_two_central_value (L : ℂ → ℂ) (petersson : ℂ) (δ : ℕ) :
-  L 1=(8*Real.pi^2/Real.sqrt δ : ℂ)*petersson := by sorry
+/- Omitted gz86_weight_two_central_value: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.5/classical-central-value-endpoints — Central-value endpoint normalization
 The named functions, pairings, coefficients and spaces are the actual
@@ -3646,10 +3277,7 @@ omitted here. The packet supplies those hypotheses and the full formulas.
 These are proposed mathematical signatures, not assertions about arbitrary
 functions. No proposition-valued replacement hypotheses are introduced.
 -/
-theorem gz86_genus_sum_filter {C G : Type*} [Fintype C] [Fintype G]
-    (r : C → ℕ → ℕ) (genusR : G → ℕ → ℕ) (g : C → G) (shift : G → G)
-    (n l : ℕ) :
-  (∑ A,genusR (shift (g A)) n*r A l)=∑ B,genusR (shift B) n*genusR B l := by sorry
+/- Omitted gz86_genus_sum_filter: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.6/classical-holomorphic-projection — Logarithmic weight-two projection
 The named functions, pairings, coefficients and spaces are the actual
@@ -3662,9 +3290,7 @@ All-cusp logarithmic growth and the invertible cusp system are omitted.
 The finite-part Fourier formula is recorded separately in the packet and
 the projected-derivative-coefficients signature.
 -/
-theorem gz86_holomorphic_projection {X : Type*} (original : X → ℂ)
-    (cusps : Set (X → ℂ)) (petersson : (X → ℂ) → (X → ℂ) → ℂ) :
-  ∃ projected∈cusps,∀ f∈cusps,petersson projected f=petersson original f := by sorry
+/- Omitted gz86_holomorphic_projection: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.6/classical-eisenstein-mellin-asymptotics — Eisenstein Mellin asymptotics
 The named functions, pairings, coefficients and spaces are the actual
@@ -3674,11 +3300,7 @@ omitted here. The packet supplies those hypotheses and the full formulas.
 These are proposed mathematical signatures, not assertions about arbitrary
 functions. No proposition-valued replacement hypotheses are introduced.
 -/
-theorem gz86_eisenstein_mellin_asymptotics (F : ℂ → ℂ) (σ σprime gammaZeta : ℂ)
-    (m : ℕ) (hm : 0<m) :
-  Tendsto (fun s : ℂ ↦ F s+6/(Real.pi*m)*σ/s+
-    12/(Real.pi*m)*σprime-12/(Real.pi*m)*σ*((Real.log (2*m) : ℂ)+1/2+gammaZeta))
-      (𝓝[≠] 0) (𝓝 0) := by sorry
+/- Omitted gz86_eisenstein_mellin_asymptotics: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.6/classical-boundary-eisenstein-cusps — Boundary Eisenstein cusp constants
 The named functions, pairings, coefficients and spaces are the actual
@@ -3688,10 +3310,7 @@ omitted here. The packet supplies those hypotheses and the full formulas.
 These are proposed mathematical signatures, not assertions about arbitrary
 functions. No proposition-valued replacement hypotheses are introduced.
 -/
-theorem gz86_boundary_eisenstein_cusps (E F : ℝ → ℝ) (M N1 : ℕ) (hM : 0<M) :
-  Tendsto E atTop (𝓝 ((Nat.gcd M N1 : ℝ)^2/M^2)) ∧
-    Tendsto (fun y ↦ F y-((Nat.gcd M N1 : ℝ)^2/M^2)*
-      (Real.log y+Real.log ((Nat.gcd M N1 : ℝ)^2/M))) atTop (𝓝 0) := by sorry
+/- Omitted gz86_boundary_eisenstein_cusps: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.6/classical-boundary-eisenstein-orthogonality — Boundary Eisenstein orthogonality
 The named functions, pairings, coefficients and spaces are the actual
@@ -3701,9 +3320,7 @@ omitted here. The packet supplies those hypotheses and the full formulas.
 These are proposed mathematical signatures, not assertions about arbitrary
 functions. No proposition-valued replacement hypotheses are introduced.
 -/
-theorem gz86_boundary_eisenstein_orthogonality {V : Type*} [AddCommGroup V] [Module ℂ V]
-    (pairing : V →ₗ[ℂ] V →ₗ[ℂ] ℂ) (f E F : V) :
-  pairing f E=0 ∧ pairing f F=0 := by sorry
+/- Omitted gz86_boundary_eisenstein_orthogonality: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.6/classical-cusp-matrix-inverse — Cusp constant matrix inverse
 The named functions, pairings, coefficients and spaces are the actual
@@ -3716,9 +3333,9 @@ The type proof in hd says d i divides N. The packet specifies the
 tridiagonal prime-power inverse, including the separate exponent-zero case.
 -/
 theorem gz86_cusp_matrix_inverse {I : Type*} [Fintype I] [DecidableEq I]
-    (N : ℕ) (hN : 0<N) (d : I → ℕ)
-    (hd : Function.Bijective (fun i : I ↦ (⟨d i, by sorry⟩ : N.divisors))) :
-  Matrix.det (fun i j : I ↦ (Nat.gcd (d j) (d i) : ℝ)^2/(d j : ℝ)^2)≠0 := by sorry
+    (N : ℕ) (hN : 0<N) (d : I → N.divisors)
+    (hd : Function.Bijective d) :
+  Matrix.det (fun i j : I ↦ (Nat.gcd (d j).val (d i).val : ℝ)^2/((d j).val : ℝ)^2)≠0 := by sorry
 
 /-! GrossZagierAndArithmeticHeights:GZ.6/classical-projection-boundary-coefficients — Projection boundary coefficients
 The named functions, pairings, coefficients and spaces are the actual
@@ -3728,11 +3345,7 @@ omitted here. The packet supplies those hypotheses and the full formulas.
 These are proposed mathematical signatures, not assertions about arbitrary
 functions. No proposition-valued replacement hypotheses are introduced.
 -/
-theorem gz86_projection_boundary_coefficients (N : ℕ) (A B : ℕ → ℝ)
-    (μ : ℕ → ℝ) (rho alpha beta : ℝ) :
-  alpha=rho⁻¹*∑ d∈N.divisors,μ d/(d : ℝ)^2*A d ∧
-    beta=rho⁻¹*(∑ d∈N.divisors,μ d/(d : ℝ)^2*(B d-2*A d*Real.log d))-
-      2*alpha*∑ p∈N.primeFactors,Real.log p/((p : ℝ)^2-1) := by sorry
+/- Omitted gz86_projection_boundary_coefficients: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.6/classical-rankin-cusp-constants — Rankin cusp constants
 The named functions, pairings, coefficients and spaces are the actual
@@ -3742,10 +3355,7 @@ omitted here. The packet supplies those hypotheses and the full formulas.
 These are proposed mathematical signatures, not assertions about arbitrary
 functions. No proposition-valued replacement hypotheses are introduced.
 -/
-theorem gz86_rankin_cusp_constants (A B ε : ℕ → ℝ) (N N1 δ h u : ℕ)
-    (gamma logderiv : ℝ) (hdiv : N1∣N) :
-  A N1=h/(2*(u : ℝ)^2)*ε N1*N1/N ∧
-    B N1=A N1*(Real.log ((N1 : ℝ)^2*δ/(N*Real.pi))-gamma+2*logderiv) := by sorry
+/- Omitted gz86_rankin_cusp_constants: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.6/classical-rankin-boundary-coefficients — Rankin boundary coefficients
 The named functions, pairings, coefficients and spaces are the actual
@@ -3755,11 +3365,7 @@ omitted here. The packet supplies those hypotheses and the full formulas.
 These are proposed mathematical signatures, not assertions about arbitrary
 functions. No proposition-valued replacement hypotheses are introduced.
 -/
-theorem gz86_rankin_boundary_coefficients (ε : ℕ → ℝ) (N δ h u : ℕ)
-    (alpha beta gamma logderiv : ℝ) :
-  alpha=h/(2*(u : ℝ)^2)/N*∏ p∈N.primeFactors,(1+ε p/p)⁻¹ ∧
-    beta=alpha*(Real.log (δ/(N*Real.pi))-gamma+2*logderiv-
-      2*∑ p∈N.primeFactors,Real.log p/((p : ℝ)^2-1)) := by sorry
+/- Omitted gz86_rankin_boundary_coefficients: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.6/classical-rankin-mellin-regularization — Rankin Mellin regularization
 The named functions, pairings, coefficients and spaces are the actual
@@ -3769,11 +3375,7 @@ omitted here. The packet supplies those hypotheses and the full formulas.
 These are proposed mathematical signatures, not assertions about arbitrary
 functions. No proposition-valued replacement hypotheses are introduced.
 -/
-theorem gz86_rankin_mellin_regularization (m N δ : ℕ) (hm : 0<m)
-    (M : ℂ → ℂ) (Q : ℂ → ℝ → ℂ) (C : ℕ → ℂ) (A B gamma : ℂ) :
-  Tendsto (fun s : ℂ ↦ M s-(B-A*(gamma+(Real.log (4*Real.pi*m) : ℂ))+
-    2*Complex.Gamma (2*s+2)/((4*Real.pi*m : ℂ)^s*Complex.Gamma (s+2))*
-      ∑' n : ℕ,C n*Q s (1+2*(n+1)*N/(m*δ)))) (𝓝[≠] 0) (𝓝 0) := by sorry
+/- Omitted gz86_rankin_mellin_regularization: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.6/classical-projected-derivative-cuspform — Projected Rankin derivative cusp form
 The named functions, pairings, coefficients and spaces are the actual
@@ -3783,11 +3385,7 @@ omitted here. The packet supplies those hypotheses and the full formulas.
 These are proposed mathematical signatures, not assertions about arbitrary
 functions. No proposition-valued replacement hypotheses are introduced.
 -/
-theorem gz86_projected_derivative_cuspform {V : Type*} [AddCommGroup V] [Module ℂ V]
-    (cusps : Submodule ℂ V) (newforms : Submodule ℂ V)
-    (L : V → ℂ → ℂ) (pairing : V →ₗ[ℂ] V →ₗ[ℂ] ℂ) (δ : ℕ) :
-  ∃ Φ∈cusps,∀ f∈newforms,L f 1=0 ∧
-    deriv (L f) 1=(8*Real.pi^2/Real.sqrt δ : ℂ)*pairing f Φ := by sorry
+/- Omitted gz86_projected_derivative_cuspform: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.6/classical-projected-derivative-coefficients — Projected Rankin derivative coefficients
 The named functions, pairings, coefficients and spaces are the actual
@@ -3799,17 +3397,7 @@ functions. No proposition-valued replacement hypotheses are introduced.
 σneg n denotes σ(-n). The finite part exists by the analytic estimate;
 the Filter.lim here uses its punctured real germ, not value at the pole.
 -/
-theorem gz86_projected_derivative_coefficients (a r σ σprime σ1 : ℕ → ℝ)
-    (σneg : ℕ → ℝ) (Q : ℝ → ℝ → ℝ) (N δ h u m : ℕ)
-    (kappa gamma Llog Zlog : ℝ) (hm : 0<m) (hcop : Nat.Coprime m N) :
-  a m= -(∑ n∈Finset.Icc 1 (m*δ/N),σprime n*r (m*δ-N*n))+
-    (h/u : ℝ)*r m*(Real.log (N*δ/(4*Real.pi^2*m))-2*gamma+2*Llog)+
-    Filter.lim (Filter.map (fun s : ℝ ↦
-      -2*(∑' n : ℕ,σneg (n+1)*r (m*δ+N*(n+1))*Q s (1+2*(n+1)*N/(m*δ)))-
-        h*kappa/(u : ℝ)^2*σ1 m/s) (𝓝[≠] 0))+
-    h*kappa/(u : ℝ)^2*(σ1 m*(Real.log (N/δ : ℝ)+
-      2*(∑ p∈N.primeFactors,Real.log p/((p : ℝ)^2-1))+2+2*Zlog-2*Llog)+
-        ∑ d∈m.divisors,(d : ℝ)*Real.log (m/(d : ℝ)^2)) := by sorry
+/- Omitted gz86_projected_derivative_coefficients: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.3/classical-modular-period-degree — Modular period-degree comparison
 The named functions, pairings, coefficients and spaces are the actual
@@ -3819,8 +3407,7 @@ omitted here. The packet supplies those hypotheses and the full formulas.
 These are proposed mathematical signatures, not assertions about arbitrary
 functions. No proposition-valued replacement hypotheses are introduced.
 -/
-theorem gz86_modular_period_degree (omegaNorm eigenNorm manin : ℝ)
-    (degree : ℕ) (hd : 0<degree) : omegaNorm=manin^2*eigenNorm/degree := by sorry
+/- Omitted gz86_modular_period_degree: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.0/classical-twist-real-period — Quadratic-twist real-period comparison
 The named functions, pairings, coefficients and spaces are the actual
@@ -3832,9 +3419,7 @@ functions. No proposition-valued replacement hypotheses are introduced.
 The twist period uses omega/sqrt(D), not the minimal Neron differential.
 The rational transport scalar must be supplied when changing differentials.
 -/
-theorem gz86_twist_real_period (omegaNorm identityPeriod transportedTwistPeriod : ℝ)
-    (components absD : ℕ) :
-  omegaNorm/Real.sqrt absD=components*identityPeriod*transportedTwistPeriod := by sorry
+/- Omitted gz86_twist_real_period: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.5/classical-definite-period-announcement — Definite period specialization
 The named functions, pairings, coefficients and spaces are the actual
@@ -3846,8 +3431,7 @@ functions. No proposition-valued replacement hypotheses are introduced.
 P,Q are probability periods and alpha is the normalized local-product
 form with quaternionic Tamagawa Petersson pairing. No free scalar is chosen.
 -/
-theorem gz86_definite_period_announcement (P Q zeta Lhalf Leta Lad alpha : ℂ) :
-  P*Q=zeta*Lhalf/(8*Leta^2*Lad)*alpha := by sorry
+/- Omitted gz86_definite_period_announcement: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.5/classical-definite-square-class — Definite central-value square class
 The named functions, pairings, coefficients and spaces are the actual
@@ -3869,11 +3453,7 @@ is the finite twisted L-value. Fundamental discriminant, Hecke eigenline,
 a(1)=1 and actual Whittaker/Bessel Fourier carriers are omitted. Both
 signs of d and both r/2 gamma factors are explicitly retained.
 -/
-theorem halfWeight_waldspurger (b Lhalf : ℂ) (phiNorm r : ℝ)
-    (d : ℤ) (hd : d≠0) :
-  (12*Real.pi*d.natAbs*‖b‖^2 : ℂ)=
-    (phiNorm : ℂ)⁻¹*Complex.Gamma (1/2+Complex.I*r/2-(Int.sign d : ℂ)/4)*
-      Complex.Gamma (1/2-Complex.I*r/2-(Int.sign d : ℂ)/4)*Lhalf := by sorry
+/- Omitted halfWeight_waldspurger: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.7/cm-tensor-stabilizer-height — CM tensor stabilizer height
 The true integral diagram is smooth on the coarse model. newAut n is
@@ -3882,9 +3462,6 @@ The actual deformation coordinate, cotangent normalization, tensor and
 finite-support hypotheses are omitted. The correction remains at elliptic
 points and level primes, as in Conrad Theorem 9.2.
 -/
-theorem cmTensor_stabilizer_height (self : ℝ) (newAut : ℕ → ℕ)
-    (ordC ordTensor r k : ℤ) (hr : r+k≠0) :
-  self=(1/2 : ℝ)*(∑' n : ℕ,(newAut n : ℝ))+
-    ((ordC-ordTensor : ℤ) : ℝ)/(r+k : ℤ) := by sorry
+/- Omitted cmTensor_stabilizer_height: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
 end TauCeti.GrossZagier
