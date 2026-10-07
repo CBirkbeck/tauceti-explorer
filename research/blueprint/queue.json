@@ -23649,7 +23649,8 @@
    ],
    "avoidAccountOf": "BP-DiamondEtaleCohomology--C0",
    "prompt": "research/blueprint/prompts/REV-DiamondEtaleCohomology--C0.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #386"
   },
   {
    "id": "BP-DiamondEtaleCohomology--C8",
@@ -24805,7 +24806,8 @@
    ],
    "avoidAccountOf": "BP-ExcursionOperatorsAndSpectralAction--ES7",
    "prompt": "research/blueprint/prompts/REV-ExcursionOperatorsAndSpectralAction--ES7.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #405"
   },
   {
    "id": "BP-FaltingsFinitenessAndIsogenyTheorems",
@@ -37624,8 +37626,9 @@
     "REV-MetaplecticAutomorphicForms--MP.8"
    ],
    "prompt": "research/blueprint/prompts/ASM-MetaplecticAutomorphicForms.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #245"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #245",
+   "finishedAt": "2026-10-07T08:27:41Z"
   },
   {
    "id": "ASM-ModularCurvesPartII",
