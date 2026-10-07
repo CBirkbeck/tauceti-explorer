@@ -1743,11 +1743,32 @@ theorem jacobiModularSlash_sum_thetaIndex (k : ℤ) (m : ℕ) (hm : 0 < m) (h : 
 
 -- The comparison of the declarations above with the Jacobi theory of MetaplecticAutomorphicForms
 -- (node `QM.1/jacobi-rank-one-specialisation`: the group `J₁(SL(2, ℤ))`, the action `|_{k,m}`, the
--- spaces `J_{k,m}(Mp₂(ℤ), ℂ(ψ))` with `ψ(A, ±w_A) = (±1)^{2k} v(A)`, the passage `φ(τ, z) ↦ φ(τ, 2z)`
--- from half-integral index `m` to index `4m`, and the theta functions `ϑ_{F,x}` at `F = m`) is
--- stated in the roadmap document but not here: the Jacobi group, its action and its spaces of
--- Jacobi forms are requested from `MetaplecticAutomorphicForms:MP.6`, and neither Mathlib nor
--- Tau Ceti has them at the pinned commits. The node is a comparison and has no API or unit tests.
+-- spaces `J_{k,m}(Mp₂(ℤ), ℂ(ψ))` with `ψ(A, ±w_A) = (±1)^{2k} v(A)`, the supplier's Fourier
+-- coefficients and the theta functions `ϑ_{F,x}` at `F = m`) is stated in the roadmap document but
+-- not here: the Jacobi group, its action and its spaces of Jacobi forms are requested from
+-- `MetaplecticAutomorphicForms:MP.6`, and neither Mathlib nor Tau Ceti has them at the pinned
+-- commits. Only part (c′), the passage `φ(τ, z) ↦ φ(τ, 2z)` from half-integral index `m` to index
+-- `4m`, is between classical spaces; it is stated below. The node is a comparison and has no API or
+-- unit tests.
+
+/-- Part (c′) of node `QM.1/jacobi-rank-one-specialisation`: for `m ∈ ½ + ℤ`, `m > 0`, and a
+character `χ` of `ℤ²` with `χ² = 1`, `φ(τ, z) ↦ φ(τ, 2z)` is a bijection from `J_{k,m}(v, χ)` onto
+the `ψ ∈ J_{k,4m}(v, 1)` with the half-lattice law
+`e(m(l²τ + 4lz)) ψ(τ, z + (lτ + μ)/2) = χ(l, μ) ψ(τ, z)`; the inverse is `ψ(τ, z) ↦ ψ(τ, z/2)`. -/
+theorem mem_JacobiForm_iff_comp_two_mul (k m : ℚ) (hm : ∃ n : ℤ, m = n + 1 / 2) (hm₀ : 0 < m)
+    (v : SL(2, ℤ) → ℂ) (χ : ℤ × ℤ → ℂ) (hχ : ∀ p q, χ (p + q) = χ p * χ q)
+    (hχ₂ : ∀ p, χ p ^ 2 = 1) (φ : ℍ → ℂ → ℂ) :
+    φ ∈ JacobiForm k m v χ ↔
+      (fun (τ : ℍ) (z : ℂ) ↦ φ τ (2 * z)) ∈ JacobiForm k (4 * m) v 1 ∧
+        ∀ (l μ : ℤ) (τ : ℍ) (z : ℂ),
+          cexp (2 * π * I * m * ((l : ℂ) ^ 2 * τ + 4 * l * z)) * φ τ (2 * (z + (l * τ + μ) / 2)) =
+            χ (l, μ) * φ τ (2 * z) := sorry
+
+/-- The instance of part (c′): `(τ, z) ↦ ϑ(2z; τ)` lies in `J_{1/2,2}(v_η³, 1)`. This is Skoruppa's
+`ϑ(τ, 2z) ∈ J_{1/2,2}(Mp(2, ℤ), ℂ(ε³))`, his `ϑ(τ, z)` being `-i·ϑ(z; τ)`. -/
+theorem oddJacobiTheta_two_mul_mem_JacobiForm :
+    (fun (τ : ℍ) (z : ℂ) ↦ oddJacobiTheta (2 * z) τ) ∈
+      JacobiForm (1 / 2) 2 (fun γ ↦ etaMultiplier γ ^ 3) 1 := sorry
 
 /-! ## Examples: `ϑ` and `φ_{-2,1}` -/
 
