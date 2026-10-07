@@ -33,7 +33,7 @@ Routed catalogue items covered: Esnault–Groechenig 2020 items 001, 002, 008, 0
 ## What remains (precisely)
 
 - Lemma-level decomposition when the roadmap comes near the front of the line: split the multi-part theorems (rigid-hodge-splitting (i)–(v), nice-hodge-models (a)–(c), no-symmetric-differentials (a)–(c), rigid-sl3-geometric (a)–(b)) and promote the API items used as prerequisites (Hitchin scaling, trace splitting, base change of H¹) to lemma nodes.
-- Resolve the recorded gaps: Mochizuki's tame theory, ℓ-adic companions and tame specialization (pending Part II roadmaps of GlobalShtukas and InverseGalois), Langer's mixed-characteristic boundedness, the analytic intermediate extension, the equivariant non-reduced Hodge splitting, isomonodromy carriers, the Brunebarbe–Klingler–Totaro and Langer–Simpson inputs, and finite presentation of quasi-projective fundamental groups.
+- Resolve the recorded gaps: Mochizuki's tame theory, ℓ-adic companions and tame specialization (pending Part II roadmaps of GlobalShtukas and InverseGalois), Langer's mixed-characteristic boundedness, the analytic intermediate extension, the Tannakian inputs of the Hodge splitting, isomonodromy carriers, the Brunebarbe–Klingler–Totaro and Langer–Simpson inputs, and finite presentation of quasi-projective fundamental groups.
 - Replace the stage prerequisites HodgeStructuresPartII:H.2 (polarized complex variations, semisimplicity and uniqueness up to shift, Schmid extension) and HodgeStructuresPartII:H.4 (Landesman–Litt Theorem 6.2.1, parabolic semistability) by node ids once those layers are planned, and check that their statements match the uses recorded here.
 - Discharge the supplier requests (R09.1, R09.2, R09.4, R09.5, R09.7d, C5 with coefficients, EDC.5, LPV.1, SF.0, GS.6, DWP.7, IG.1, CA.6, Tau Ceti AlgebraicTopology stages 5–6).
 - Elaborate the omission-inventory signatures of the suggested file against native moduli carriers once H.1's carriers exist.
@@ -44,7 +44,7 @@ Gaps (full text in the packet and reader):
 - G2. ℓ-adic companions on smooth varieties over finite fields — needed by integrality-EG18, integrality-KP.
 - G3. Boundedness of semistable Λ-modules in positive and mixed characteristic — needed by relative-moduli.
 - G4. Analytic intermediate extension of local systems — needed by intermediate-extension-h1.
-- G5. Equivariant global splitting of the rigid Hodge locus — needed by rigid-hodge-splitting.
+- G5. Tannakian inputs for the equivariant splitting of the rigid Hodge locus — needed by rigid-hodge-splitting.
 - G6. Isomonodromic deformations and analytically general curves — needed by low-rank-pvhs-unitary, very-general-rank-bound.
 - G7. Symmetric differentials, positivity and p-adic harmonic maps — needed by no-symmetric-differentials.
 - G8. Langer–Simpson's construction of geometric origin in rank three — needed by rigid-sl3-geometric.
@@ -73,14 +73,14 @@ Gaps (full text in the packet and reader):
 
 - H.2 must supply: the polarized complex variation carrier (Simpson's convention, no lattice), semisimplicity and isotypic decomposition, uniqueness of a variation on an irreducible local system up to shift, and Schmid's extension of variations across a closed subset where the local system extends. Consumers: cvhs-hodge-bundles, zero-higgs-unitary, coh-rigid-semisimple-cvhs, geometric-origin, integral-pvhs, geometric-origin-integral-pvhs, low-rank-pvhs-unitary.
 - H.4 must supply: Landesman–Litt Theorem 6.2.1 (H⁰(M, R¹π°_* V) = 0 for unitary V of rank < g on a punctured versal family, with Artinian coefficients) and the parabolic semistability of isomonodromic deformations (LL22 Corollary 6.1.2). Consumers: versal-unitary-rigidity, low-rank-pvhs-unitary.
-- Source issue E-H5-2 (EG20 Lemma 4.9) is a proof gap, not a claim that the lemma is false: finiteness and the reduced splitting are proved here; the equivariant non-reduced splitting is recorded as gap G5. EG20 also uses the splitting at W_i(k(s))-points of the arithmetic model (p.135), which needs it to spread to the model.
+- Source issue E-H5-2 (EG20 Lemma 4.9) is a gap in the printed proof, not a claim that the lemma is false: finiteness, the reduced splitting and the equivariant non-reduced splitting are proved here (the last via torsors on [𝔸¹/𝔾_m] and Ziegler's Theorem 1.3, whose Tannakian inputs are gap G5). EG20 also uses the splitting at W_i(k(s))-points of the arithmetic model (p.135), which needs it to spread to the model.
 - The design packet's coverage text for H.5 asked for 'End-zero tangent conventions'; these are pinned as the trace-free adjoint g^der (sl_r for GL_r and PGL_r) throughout.
 - Proposed restructure: sub-layers H.5a–H.5d (node lists in `restructure`).
 - Upstream note for the Tau Ceti algebraic-topology roadmap: low-degree cohomology of local systems and the five-term sequence of a fibration.
 
 ## Sources
 
-Read (public, hashed, 7 October 2026): Esnault–Groechenig, Acta 2020 (published PDF); Esnault–Groechenig 2018 (arXiv v3, complete); Landesman–Litt 2024 (arXiv v4, §§1.10, 4.3, 8, 9.1); Klevdal–Patrikis (arXiv v2, §§1, 3, 4); Langer–Simpson (arXiv v3, introduction); Brunebarbe–Klingler–Totaro (arXiv v3, introduction and §4); Landesman–Litt 2022 (arXiv v2, §§1.2, 7.2–7.3); Langer 2014 (arXiv v2, §1); Simpson 1992 (§4); Simpson 1996 (Lemma 7.2, Theorem 9.1, Corollaries 9.2, 10.2–10.3).
+Read (public, hashed, 7 October 2026): Esnault–Groechenig, Acta 2020 (published PDF); Esnault–Groechenig 2018 (arXiv v3, complete); Landesman–Litt 2024 (arXiv v4, §§1.10, 4.3, 8, 9.1); Klevdal–Patrikis (arXiv v2, §§1, 3, 4); Langer–Simpson (arXiv v3, introduction); Brunebarbe–Klingler–Totaro (arXiv v3, introduction and §4); Landesman–Litt 2022 (arXiv v2, §§1.2, 7.2–7.3); Langer 2014 (arXiv v2, §1); Simpson 1992 (§4); Simpson 1994, Moduli II (introduction and §10, isosingularity); Simpson 1996 (Lemma 7.2, Theorem 9.1, Corollaries 9.2, 10.2–10.3); Ziegler 2015 (arXiv v4, §1 statements).
 Not read: Mochizuki's Memoirs (tame harmonic bundles); Drinfeld 2012/2018; Lafforgue; Langer 2004; Arapura 2002; Daileda; the published versions of the arXiv papers above; Klevdal–Patrikis 2025 (Springer refused the PDF download; its routed item 031 is covered from KP20 and Landesman–Litt Definition 8.3.1).
 
 The scratch directory (source PDFs, extracted text, builder scripts) is deleted after submission; everything needed to continue is in the four deliverables.

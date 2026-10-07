@@ -6,7 +6,7 @@
     "HodgeStructuresPartII:H.5"
   ],
   "status": "complete",
-  "summary": "Target-level plan of layer H.5: rigid loci, arithmetic models and integral variations. The layer fixes the trace-free (g^der) coefficient convention and plans rigidity and cohomological rigidity of representations, flat connections and Higgs bundles with fixed torsion determinant, including the quasi-projective version with good compactification, quasi-unipotent local monodromy and the moduli with prescribed local monodromy, its tangent space H¹(U, a_* End⁰V) and the intermediate-extension comparison. It proves that rigid objects correspond across the Betti, de Rham and Dolbeault moduli, are finite in number and defined over number fields, that rigid Higgs fields are nilpotent and scaling-fixed, that rigid local systems underlie complex variations of Hodge structure through systems of Hodge bundles, and that a polarized variation has vanishing graded Higgs field exactly when its monodromy is unitary. The rigid locus of a moduli scheme is Mathlib's quasi-finite locus; the rigid Hodge locus is finite flat over the affine line and splits as the rigid Dolbeault locus times the line (Esnault–Groechenig Lemma 4.9, with the equivariant non-reduced splitting recorded as a gap). Smooth arithmetic models, Langer's relative moduli and the nice models of Esnault–Groechenig Propositions 3.3 and 4.10 spread the finitely many rigid objects, keep Higgs fields nilpotent and exhaust the relative rigid loci by disjoint sections. Integral and strongly integral representations are distinguished: strong integrality or unitarity at every embedding forces finite image, while a Salem-type character is integral, unitary and of infinite image. Esnault–Groechenig's and Klevdal–Patrikis' integrality theorems, local systems of geometric origin, integral polarizable variations, Landesman–Litt's results on very general curves and on low-rank rigidity over versal families, the cohomologically rigid SL₃ case of Langer–Simpson and the Brunebarbe–Klingler–Totaro theorem are stated with all hypotheses; their external inputs (Lafforgue–Drinfeld companions, Mochizuki's tame theory, Langer's boundedness, isomonodromy) are requests or recorded gaps. The layer exports to the Cartier-flow and rigid-companion successors of Esnault–Groechenig without importing them.",
+  "summary": "Target-level plan of layer H.5: rigid loci, arithmetic models and integral variations. The layer fixes the trace-free (g^der) coefficient convention and plans rigidity and cohomological rigidity of representations, flat connections and Higgs bundles with fixed torsion determinant, including the quasi-projective version with good compactification, quasi-unipotent local monodromy and the moduli with prescribed local monodromy, its tangent space H¹(U, a_* End⁰V) and the intermediate-extension comparison. It proves that rigid objects correspond across the Betti, de Rham and Dolbeault moduli, are finite in number and defined over number fields, that rigid Higgs fields are nilpotent and scaling-fixed, that rigid local systems underlie complex variations of Hodge structure through systems of Hodge bundles, and that a polarized variation has vanishing graded Higgs field exactly when its monodromy is unitary. The rigid locus of a moduli scheme is Mathlib's quasi-finite locus; the rigid Hodge locus is finite flat over the affine line and splits 𝔾_m-equivariantly as the rigid Dolbeault locus times the line, non-reduced structure included (Esnault–Groechenig Lemma 4.9, with the equivariant step supplied through torsors on [𝔸¹/𝔾_m] and Ziegler's splitting of filtered fibre functors). Smooth arithmetic models, Langer's relative moduli and the nice models of Esnault–Groechenig Propositions 3.3 and 4.10 spread the finitely many rigid objects, keep Higgs fields nilpotent and exhaust the relative rigid loci by disjoint sections. Integral and strongly integral representations are distinguished: strong integrality or unitarity at every embedding forces finite image, while a Salem-type character is integral, unitary and of infinite image. Esnault–Groechenig's and Klevdal–Patrikis' integrality theorems, local systems of geometric origin, integral polarizable variations, Landesman–Litt's results on very general curves and on low-rank rigidity over versal families, the cohomologically rigid SL₃ case of Langer–Simpson and the Brunebarbe–Klingler–Totaro theorem are stated with all hypotheses; their external inputs (Lafforgue–Drinfeld companions, Mochizuki's tame theory, Langer's boundedness, isomonodromy) are requests or recorded gaps. The layer exports to the Cartier-flow and rigid-companion successors of Esnault–Groechenig without importing them.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -314,6 +314,19 @@
         "§10 pp.64–69: Goldman–Millson deformation diagrams, Theorem 10.4, Proposition 10.5, Theorem 10.6 (isosingularity) and the remarks between them"
       ],
       "readingExtent": "§10 read in the scanned text layer (OCR); §§6–7 were read for layer H.1, not reread."
+    },
+    {
+      "id": "Z15",
+      "title": "Graded and filtered fiber functors on Tannakian categories",
+      "authors": "Paul Ziegler",
+      "edition": "arXiv:1111.1981v4 (5 August 2015); published in Journal of the Institute of Mathematics of Jussieu 14 (2015), 87–130 (published version not read)",
+      "url": "https://arxiv.org/pdf/1111.1981v4",
+      "sha256": "742e6ecb5be56cb3fc7c1b48a944ae0fdba91a0e8546f3ff61f6b6f57054ea9f",
+      "accessed": "2026-10-07",
+      "readSections": [
+        "§1 pp.1–3: definitions of graded, filtered and splittable fibre functors; Theorems 1.2 and 1.3"
+      ],
+      "readingExtent": "Statements only; the proofs (§4) were not read."
     },
     {
       "id": "S96",
@@ -2091,7 +2104,7 @@
       "proofSteps": [
         "By HodgeStructuresPartII:H.5/rigid-higgs-gm-fixed, (V,tθ) ≅ (V,θ) for all t ∈ ℂ^×, so h(V,θ) = h(V,tθ).",
         "The Hitchin morphism is 𝔾_m-equivariant with weight i on H⁰(Sym^i Ω¹) (HodgeStructuresPartII:H.1/hitchin-map API scale), so a_i(θ) = t^i a_i(θ) for all t and i ≥ 2, forcing a_i(θ) = 0 (Esnault–Groechenig Lemma 2.1: positive weights).",
-        "At each point x and tangent covector direction the endomorphism θ(v) ∈ End(V_x) has characteristic polynomial T^r, hence is nilpotent (Mathlib LinearMap.isNilpotent_iff_charpoly); the θ(v) commute because θ ∧ θ = 0, so they are simultaneously strictly triangularizable and any product of r of them vanishes."
+        "At each point x and tangent vector v ∈ T_xX the endomorphism θ(v) ∈ End(V_x) has characteristic polynomial T^r, hence is nilpotent (Mathlib LinearMap.isNilpotent_iff_charpoly); the θ(v) commute because θ ∧ θ = 0, so they are simultaneously strictly triangularizable and any product of r of them vanishes."
       ],
       "acceptance": [
         "For r = 1 the Higgs field of a rigid object is zero.",
@@ -2101,7 +2114,6 @@
         "HodgeStructuresPartII:H.5/rigid-higgs-gm-fixed",
         "HodgeStructuresPartII:H.1/hitchin-map",
         "HodgeStructuresPartII:H.0/joint-nilpotence",
-        "HodgeStructuresPartII:H.0/nilpotence-filtration",
         "mathlib:LinearMap.isNilpotent_iff_charpoly"
       ],
       "sources": [
@@ -2128,14 +2140,14 @@
       ],
       "title": "Systems of Hodge bundles",
       "kind": "definition",
-      "statement": "Let X be a complex manifold (or smooth variety over a field). A system of Hodge bundles is a Higgs bundle (E,θ) together with a decomposition E = ⊕_{p∈ℤ} E^p into locally free subsheaves, finitely many nonzero, such that θ(E^p) ⊂ E^{p−1} ⊗ Ω¹_X. Morphisms preserve the decomposition and commute with θ; the shift E[k]^p = E^{p+k} is an isomorphism of underlying Higgs bundles. Every system of Hodge bundles is a fixed point of scaling: multiplication by t^p on E^p is an isomorphism (E,θ) ≅ (E,tθ). The associated graded (⊕_p Gr^p_F E, gr ∇) of a Griffiths-transverse filtration F of a flat bundle (HodgeStructuresPartII:H.0/graded-higgs) is a system of Hodge bundles with E^p = Gr^p_F E.",
+      "statement": "Let X be a complex manifold (or smooth variety over a field). A system of Hodge bundles is a Higgs bundle (E,θ) together with a decomposition E = ⊕_{p∈ℤ} E^p into locally free subsheaves, finitely many nonzero, such that θ(E^p) ⊂ E^{p−1} ⊗ Ω¹_X. Morphisms preserve the decomposition and commute with θ; the shift E[k]^p = E^{p+k} is an isomorphism of underlying Higgs bundles. Every system of Hodge bundles is a fixed point of scaling: multiplication by t^p on E^p is an isomorphism (E,tθ) → (E,θ) (equivalently t^{−p} on E^p is an isomorphism (E,θ) → (E,tθ)). The associated graded (⊕_p Gr^p_F E, gr ∇) of a Griffiths-transverse filtration F of a flat bundle (HodgeStructuresPartII:H.0/graded-higgs) is a system of Hodge bundles with E^p = Gr^p_F E.",
       "hypotheses": [
         "θ is an integrable Higgs field (θ ∧ θ = 0), as in HodgeStructuresPartII:H.0/twisted-higgs with trivial twist.",
         "The grading is by subbundles (locally free summands), not merely subsheaves."
       ],
       "proofSteps": [
         "Define the structure as a Higgs bundle with a finite ℤ-grading for which θ has degree −1.",
-        "Scaling isomorphism: φ_t = ⊕ t^p·id_{E^p} satisfies φ_t θ = t θ φ_t on E^p, since θ maps E^p to E^{p−1}.",
+        "Scaling isomorphism: φ_t = ⊕ t^p·id_{E^p} satisfies φ_t ∘ (tθ) = θ ∘ φ_t, since for e ∈ E^p both sides are t^p θ(e) (θ maps E^p to E^{p−1}, where φ_t is t^{p−1}); so φ_t: (E,tθ) → (E,θ) is a Higgs isomorphism.",
         "Nilpotence: θ lowers degree by one, so θ^N = 0 when the nonzero degrees lie in an interval of length N − 1; trace zero because θ is off the block diagonal.",
         "Griffiths transversality ∇F^p ⊂ F^{p−1} ⊗ Ω¹ gives gr ∇: Gr^p_F → Gr^{p−1}_F ⊗ Ω¹, which is O-linear and integrable (HodgeStructuresPartII:H.0/graded-higgs-integrable)."
       ],
@@ -2185,7 +2197,7 @@
         {
           "name": "SystemOfHodgeBundles.test_scale_iso",
           "kind": "characterisation",
-          "statement": "For a system with degrees {0, 1} and t ∈ ℂ^×, the map t·id on E^1 and id on E^0 is an isomorphism (E,θ) ≅ (E,tθ)."
+          "statement": "For a system with degrees {0, 1} and t ∈ ℂ^×, the map t·id on E^1 and id on E^0 is an isomorphism (E,tθ) → (E,θ) (and t⁻¹·id on E^1 an isomorphism (E,θ) → (E,tθ))."
         }
       ],
       "prerequisites": [
@@ -2209,7 +2221,7 @@
         {
           "name": "SystemOfHodgeBundles.scaleIso",
           "role": "constructor",
-          "statement": "For t ∈ ℂ^×, the isomorphism (E,θ) ≅ (E,tθ) acting by t^p on E^p."
+          "statement": "For t ∈ ℂ^×, the isomorphism (E,tθ) → (E,θ) acting by t^p on E^p, i.e. (φ ⊗ id)(tθ(e)) = θ(φ(e))."
         },
         {
           "name": "SystemOfHodgeBundles.shift",
@@ -2278,7 +2290,7 @@
       "proofSteps": [
         "Let f: E → E be a holomorphic automorphism with fθ = tθf. The coefficients of its characteristic polynomial are holomorphic functions on X, hence constant, so f has constant eigenvalues and E = ⊕_λ E_λ with E_λ = ker(f − λ)^n (Simpson Lemma 4.1).",
         "From (f − tλ)^n θ = t^n θ (f − λ)^n, θ maps E_λ into E_{tλ} ⊗ Ω¹.",
-        "Since t is not a root of unity, the eigenvalues split into strings λ, tλ, …, t^k λ with t⁻¹λ and t^{k+1}λ not eigenvalues; index each string by its exponent to obtain the grading.",
+        "Since t is not a root of unity, the eigenvalues split into strings λ₀, tλ₀, …, t^k λ₀ with t⁻¹λ₀ and t^{k+1}λ₀ not eigenvalues; put E^p := ⊕ E_{t^{−p}λ₀} over the strings (index by minus the exponent), so that θ(E^p) ⊂ E^{p−1} ⊗ Ω¹ and f acts by t^{−p}λ₀ on the string through λ₀.",
         "If (E,θ) is stable, its endomorphisms are scalars, so f is determined up to a scalar and the grading up to a shift."
       ],
       "acceptance": [
@@ -2476,7 +2488,7 @@
         "Let G be the Zariski closure of ρ(π₁(X)); it is reductive since ρ is semisimple, and g = Lie G ⊂ sl_r because det ρ is finite.",
         "ad⁰ρ is semisimple, so g is a π₁-stable direct summand of ad⁰ρ and H¹(X, g) ⊂ H¹(X, ad⁰ρ) = 0: ρ is cohomologically rigid as a G-representation.",
         "Mochizuki's Lemma 10.13 (HodgeStructuresPartII:H.5/deformation-to-cvhs (b), G-version) deforms ρ within Hom(π₁(X), G) to ρ₀ underlying a polarizable complex variation.",
-        "H¹(X, g) = 0 means the G-conjugation orbit of ρ is open in Hom(π₁(X), G), so the deformation is trivial: ρ₀ is conjugate to ρ and ρ underlies a variation (Landesman–Litt Lemma 4.3.2)."
+        "H¹(X, g) = 0 means the G-conjugation orbit of ρ is open in Hom(π₁(X), G); since ρ is semisimple with reductive Zariski closure G, its orbit is also closed (Richardson), so it is a union of connected components of Hom and contains the whole deformation path: ρ₀ is conjugate to ρ and ρ underlies a variation (Landesman–Litt Lemma 4.3.2)."
       ],
       "acceptance": [
         "For X projective this specializes to HodgeStructuresPartII:H.5/rigid-underlies-cvhs for cohomologically rigid irreducible ρ.",
@@ -2807,17 +2819,17 @@
       ],
       "title": "The rigid Hodge locus splits over the affine line",
       "kind": "theorem",
-      "statement": "Let X be smooth connected projective over ℂ, L torsion, r ≥ 1. Then: (i) for every rigid stable flat connection (E,∇) with determinant (L,∇_L), with Hodge filtration F of HodgeStructuresPartII:H.5/rigid-underlies-cvhs, the Rees λ-connection ξ(E, F) = Σ_p λ^{−p} F^p ⊗ ℂ[λ] (HodgeStructuresPartII:H.0/rees-parameter) defines a 𝔾_m-equivariant section σ_E: 𝔸¹ → M^rig_Hod(X, L, r) with σ_E(1) = [(E,∇)] and σ_E(0) = [(Gr_F E, gr_F ∇)]; (ii) M^rig_Hod(X, L, r) → 𝔸¹ is finite and flat, and its reduced subscheme is the disjoint union of the images of the sections σ_E, so (M^rig_Hod)_red ≅ (M^rig_Dol)_red × 𝔸¹ 𝔾_m-equivariantly; (iii) each connected component is finite flat over 𝔸¹ with all fibres isomorphic to the local Artinian ring of M_Dol^s at the corresponding rigid Higgs point; (iv) (Esnault–Groechenig Lemma 4.9) M^rig_Hod(X, L, r) ≅ M^rig_Dol(X, (L,0), r) × 𝔸¹ 𝔾_m-equivariantly over 𝔸¹, the action on the right being scaling of θ times weight one on 𝔸¹, including non-reduced structure; (v) every 𝔾_m-equivariant section of M^rig_Hod over 𝔸¹ is a Rees section of a complex variation of Hodge structure as in (i) (Simpson's Lemma 7.2).",
+      "statement": "Let X be smooth connected projective over ℂ, L torsion, r ≥ 1. Then: (i) for every rigid stable flat connection (E,∇) with determinant (L,∇_L), with Hodge filtration F of HodgeStructuresPartII:H.5/rigid-underlies-cvhs, the Rees λ-connection ξ(E, F) = Σ_p λ^{−p} F^p ⊗ ℂ[λ] (HodgeStructuresPartII:H.0/rees-parameter) defines a 𝔾_m-equivariant section σ_E: 𝔸¹ → M^rig_Hod(X, L, r) with σ_E(1) = [(E,∇)] and σ_E(0) = [(Gr_F E, gr_F ∇)]; (ii) M^rig_Hod(X, L, r) → 𝔸¹ is finite and flat, and its reduced subscheme is the disjoint union of the images of the sections σ_E, so (M^rig_Hod)_red ≅ (M^rig_Dol)_red × 𝔸¹ 𝔾_m-equivariantly; (iii) each connected component is finite flat over 𝔸¹ with all fibres isomorphic to the local Artinian ring of M_Dol^s at the corresponding rigid Higgs point; (iv) (Esnault–Groechenig Lemma 4.9) M^rig_Hod(X, L, r) ≅ M^rig_Dol(X, (L,0), r) × 𝔸¹ 𝔾_m-equivariantly over 𝔸¹, the action on the right being scaling of θ times weight one on 𝔸¹, including non-reduced structure (proved here from (iii) by the classification of torsors on [𝔸¹/𝔾_m]); (v) every 𝔾_m-equivariant section of M^rig_Hod over 𝔸¹ is a Rees section of a complex variation of Hodge structure as in (i) (Simpson's Lemma 7.2).",
       "hypotheses": [
         "X smooth connected projective; stable fixed-determinant moduli on the vanishing-Chern-class component.",
-        "Part (iv) with non-reduced structure is the statement of Esnault–Groechenig; the passage from Simpson's étale local product to a global 𝔾_m-equivariant isomorphism is recorded as a gap (and as source issue E-H5-2)."
+        "Part (iv) uses, beyond (iii), the description of torsors on [𝔸¹/𝔾_m] by filtered fibre functors and Ziegler's splitting theorem in characteristic 0; these Tannakian inputs are not planned in the atlas (gap G5). Esnault–Groechenig's printed proof omits this step (source issue E-H5-2)."
       ],
       "proofSteps": [
         "(i) By HodgeStructuresPartII:H.5/rigid-underlies-cvhs, (E,∇) carries a Griffiths-transverse filtration F with associated graded the rigid Higgs bundle; the Rees construction of HodgeStructuresPartII:H.0/rees-parameter is a λ-connection on X × 𝔸¹ with 𝔾_m-action, fibres (E,∇) at 1 and (Gr_F E, gr_F ∇) at 0, stable at every λ, and fixed determinant (Simpson 1996 Lemma 7.2). Its values over λ ≠ 0 are λ·[(E,∇)], isolated by HodgeStructuresPartII:H.5/hodge-rigid-locus; its value at 0 is rigid by HodgeStructuresPartII:H.5/rigid-correspondence.",
         "(ii) Over 𝔾_m every point of M^rig_Hod is λ·m with m ∈ M^rig_dR (HodgeStructuresPartII:H.5/hodge-rigid-locus nonzeroTrivialization), hence lies on a section σ_E; at 0 the points are those of M^rig_Dol, which are the values σ_E(0) by the bijection of HodgeStructuresPartII:H.5/rigid-correspondence. Distinct sections are disjoint since their values differ over every λ. So (M^rig_Hod)_red is a finite disjoint union of sections ≅ 𝔸¹, closed in M_Hod^s; M^rig_Hod → 𝔸¹ is therefore finite (finiteness is detected on the reduced subscheme). Flatness is the restriction of HodgeStructuresPartII:H.1/hodge-flatness to the open M^rig_Hod.",
         "(iii) By HodgeStructuresPartII:H.1/hodge-etale-product, near σ_E(0) the morphism q is étale locally M_Dol^s × 𝔸¹ → 𝔸¹; restricting to quasi-finite loci, the component through σ_E is étale locally Spec(A) × 𝔸¹ with A the local Artinian ring of M_Dol^s at σ_E(0); étale maps between Artinian local schemes with the same residue field are isomorphisms, so all fibres near 0 are ≅ Spec A, and by 𝔾_m-translation all fibres over 𝔾_m.",
-        "(iv) Esnault–Groechenig deduce the equivariant product from the nonzero trivialization and Simpson's Theorem 9.1. Given (ii)–(iii), the remaining input is that a 𝔾_m-equivariant finite flat family over 𝔸¹ which is étale locally trivial with fibre Spec A is 𝔾_m-equivariantly isomorphic to Spec A × 𝔸¹. Non-equivariantly this follows from triviality of Aut(A)-torsors over 𝔸¹_ℂ; the equivariant statement is the recorded gap.",
-        "(v) A 𝔾_m-equivariant section of the Hodge moduli is a 𝔾_m-equivariant λ-connection on X × 𝔸¹, i.e. a filtered flat bundle with Griffiths transversality (Simpson 1996 Lemma 7.2), which is a complex variation by HodgeStructuresPartII:H.5/cvhs-hodge-bundles."
+        "(iv) For a component Z with zero fibre Spec A, P = Isom_{𝔸¹}(Spec A × 𝔸¹, Z) is a torsor under the affine algebraic group Aut(A) ⊂ GL(A), étale locally trivial by (iii) and 𝔾_m-equivariant, i.e. an Aut(A)-torsor on Θ = [𝔸¹/𝔾_m]. Vector bundles on Θ are finite filtered vector spaces (Rees), so such a torsor is a filtered fibre functor on Rep(Aut A) over ℂ; Aut(A) is smooth in characteristic 0, so by Ziegler's Theorem 1.3 the filtration is split by a cocharacter μ: 𝔾_m → Aut(A). Hence P ≅ Aut(A) × 𝔸¹ with t·(g, λ) = (μ(t)g, tλ) and Z = P ×^{Aut A} Spec A ≅ Spec A × 𝔸¹ with the diagonal action, μ being the scaling action on the zero fibre. This is the equivariant splitting with its non-reduced structure; Esnault–Groechenig's printed proof goes directly from Simpson's Theorem 9.1 to the conclusion.",
+        "(v) A 𝔾_m-equivariant section s of the coarse space M^rig_Hod agrees with the Rees section σ_{s(1)} of (i) on 𝔾_m(ℂ), since s(t) = t·s(1); 𝔸¹ is reduced and the target is separated, so s = σ_{s(1)}. By (i) and Simpson 1996 Lemma 7.2 (𝔾_m-equivariant λ-connections on X × 𝔸¹ are filtered flat bundles with Griffiths transversality), s comes from a complex variation (HodgeStructuresPartII:H.5/cvhs-hodge-bundles)."
       ],
       "acceptance": [
         "For r = 1, M^rig_Hod = 𝔸¹ = M^rig_Dol × 𝔸¹.",
@@ -2862,6 +2874,12 @@
           "locator": "§9, Theorem 9.1, preprint p.39",
           "excerpt": "Then etale locally (above) MHod (X, G) is a product",
           "match": "Simpson's étale local product."
+        },
+        {
+          "sourceId": "Z15",
+          "locator": "§1, Theorem 1.3, p.2",
+          "excerpt": "Assume that the group scheme Aut⊗ S (forg ◦ϕ) is pro-smooth over S. Then ϕ is splittable.",
+          "match": "Splitting of filtered fibre functors, used for the equivariant product in (iv)."
         }
       ],
       "implementationStatus": "unchecked"
@@ -3373,7 +3391,7 @@
         "Projective-module formulation (Esnault–Groechenig 2018 §1): a projective 𝒪_K-module of rank r becomes free over 𝒪_L for a finite extension L (e.g. one capitulating the Steinitz class), so a local system of projective 𝒪_K-modules gives an 𝒪_L-valued representation after enlarging K."
       ],
       "acceptance": [
-        "Finite-image representations are integral.",
+        "Finite-image representations into GL_r are integral.",
         "Rank-one ρ: ℤ → GL_1(ℂ), 1 ↦ 1/2, is not integral.",
         "An 𝒪_{K,Σ}-valued representation need not be integral."
       ],
@@ -3454,7 +3472,7 @@
         {
           "name": "IsIntegralRepresentation.of_finite",
           "role": "relation",
-          "statement": "Finite image implies integral."
+          "statement": "For G = GL_r (and PGL_r, by lifting to SL_r after a finite extension), finite image implies integral: average an 𝒪_K-lattice over the finite image and make it free over a finite extension. For a general affine group scheme over ℤ this fails (a congruence dilatation of GL_2 at 3 has torsion-free 𝒪_K-points while its ℂ-points contain −1)."
         },
         {
           "name": "IsIntegralRepresentation.charpoly",
@@ -3634,7 +3652,7 @@
       ],
       "proofSteps": [
         "Conjugate so that ρ(Γ) ⊂ GL_n(ℤ) (strong integrality); conjugation preserves compactness of the closure, so the closure of ρ(Γ) is compact.",
-        "GL_n(ℤ) is discrete in GL_n(ℂ); a discrete subset of a compact set is finite, so ρ(Γ) ⊂ GL_n(ℤ) ∩ (compact) is finite (Esnault–Groechenig Remark 6.2, citing Katz Proposition 4.2.1.3)."
+        "GL_n(ℤ) is closed and discrete in GL_n(ℂ), so its intersection with a compact set is finite (equivalently: integer matrices with bounded entries form a finite set); hence ρ(Γ) is finite (Esnault–Groechenig Remark 6.2, citing Katz Proposition 4.2.1.3)."
       ],
       "acceptance": [
         "Applies to ⊕_τ τ∘ρ for an integral ρ all of whose Galois conjugates are unitary (with HodgeStructuresPartII:H.5/unitary-embeddings-finite).",
@@ -3668,7 +3686,7 @@
       ],
       "proofSteps": [
         "The product ∏_ι ρ_ι: Γ → ∏_ι GL_m(ℂ) has image with compact closure, by unitarity at each ι.",
-        "𝒪_K embeds discretely in ∏_ι ℂ (a nonzero algebraic integer has |norm| ≥ 1); hence GL_m(𝒪_K) is discrete in ∏_ι GL_m(ℂ). Concretely, unitary matrices have entries of absolute value ≤ 1 (Mathlib entry_norm_bound_of_unitary), so every entry a of a conjugated ρ(γ) satisfies a uniform bound |ι(a)| ≤ C for all ι, and NumberField.Embeddings.finite_of_norm_le shows there are finitely many such algebraic integers.",
+        "𝒪_K embeds discretely in ∏_ι ℂ (a nonzero algebraic integer has |norm| ≥ 1); hence GL_m(𝒪_K) is discrete in ∏_ι GL_m(ℂ). Concretely, for each ι choose h_ι with h_ι ρ_ι h_ι⁻¹ unitary; unitary matrices have entries of absolute value ≤ 1 (Mathlib entry_norm_bound_of_unitary), so every entry a of the unconjugated 𝒪_K-valued ρ(γ) satisfies |ι(a)| ≤ m‖h_ι‖‖h_ι⁻¹‖ ≤ C with C the maximum over the finitely many ι, and NumberField.Embeddings.finite_of_norm_le shows there are finitely many such algebraic integers.",
         "The image is discrete and has compact closure, hence finite (Landesman–Litt 2022 Lemma 7.2.1)."
       ],
       "acceptance": [
@@ -3783,12 +3801,12 @@
         {
           "name": "SalemCharacter.not_strongly_integral",
           "role": "relation",
-          "statement": "SalemCharacter α is not strongly integral (GL_1(ℤ) = {±1})."
+          "statement": "If α is not a root of unity, SalemCharacter α is not strongly integral (GL_1(ℤ) = {±1})."
         },
         {
           "name": "SalemCharacter.exists_nonunitary_conjugate",
           "role": "relation",
-          "statement": "Some σ ∈ Aut(ℂ) makes σ ∘ SalemCharacter α non-unitary (Kronecker)."
+          "statement": "If α is not a root of unity, some σ ∈ Aut(ℂ) makes σ ∘ SalemCharacter α non-unitary (Kronecker)."
         }
       ],
       "library": {
@@ -3977,18 +3995,18 @@
       ],
       "title": "Local systems of geometric origin",
       "kind": "definition",
-      "statement": "A complex local system V on a smooth complex variety X is of geometric origin if there are a dense Zariski open U ⊂ X, a smooth projective morphism f: Y → U and an integer i ≥ 0 such that V|_U is a subquotient of R^i f_* ℂ_Y. Since R^i f_* ℂ is semisimple (Deligne), subquotient and direct summand give the same notion; the variant with smooth proper f contains this one. A flat algebraic connection is of geometric origin if its local system is (equivalently, on U it is a subquotient of a Gauss–Manin connection R^i f_*(Ω^•_{Y/U}, d)). The definition asserts nothing about existence of such families for rigid objects (Simpson's motivicity conjecture).",
+      "statement": "A complex local system V on a smooth complex variety X is of geometric origin if there are a dense Zariski open U ⊂ X, a smooth projective morphism f: Y → U and an integer i ≥ 0 such that V|_U is a subquotient of R^i f_* ℂ_Y. Since R^i f_* ℂ is semisimple (Deligne), subquotient and direct summand give the same notion; the variant with smooth proper f contains this one. A flat algebraic connection is of geometric origin if its local system is; when the connection has regular singularities (automatic for X projective), this is equivalent to being, on U, a subquotient of a Gauss–Manin connection R^i f_*(Ω^•_{Y/U}, d). The irregular connection (O_{𝔸¹}, d + dx) has the trivial, geometric local system but is not a subquotient of a Gauss–Manin connection on any dense open. The definition asserts nothing about existence of such families for rigid objects (Simpson's motivicity conjecture).",
       "hypotheses": [
         "X smooth connected over ℂ; f smooth projective (Esnault–Groechenig, Langer–Simpson) — Landesman–Litt allow smooth proper f; record which variant a consumer uses."
       ],
       "proofSteps": [
         "Define the predicate by existence of (U, f, i) and a subquotient embedding.",
         "Semisimplicity of R^i f_* ℂ for smooth projective f (Deligne's theorem, via the polarized ℤ-variation of Hodge structure on R^i f_* ℤ, HodgeStructuresPartII:H.2) turns subquotients into direct summands.",
-        "Gauss–Manin version: the algebraic de Rham comparison for smooth projective families (ComplexComparisonPartII:C5) identifies R^i f_* ℂ ⊗ O_U with the Gauss–Manin connection."
+        "Gauss–Manin version: the algebraic de Rham comparison for smooth projective families (ComplexComparisonPartII:C5) identifies R^i f_* ℂ ⊗ O_U with the Gauss–Manin connection, which has regular singularities; by Deligne's Riemann–Hilbert correspondence for regular singular connections the comparison of subquotients needs the connection to be regular singular."
       ],
       "acceptance": [
-        "Constant local systems ℂ^r are of geometric origin (f = id, i = 0).",
-        "Finite-monodromy local systems are of geometric origin (finite étale covers)."
+        "Constant local systems ℂ^r are of geometric origin (f the disjoint union of r copies of U, i = 0).",
+        "Finite-monodromy local systems are of geometric origin (disjoint unions of copies of a finite étale cover)."
       ],
       "uses": [
         {
@@ -4017,7 +4035,7 @@
         {
           "name": "IsOfGeometricOrigin.test_finite_monodromy",
           "kind": "computation",
-          "statement": "A local system with finite monodromy is of geometric origin: it is a summand of f_* ℂ for the finite étale cover f trivializing it (i = 0)."
+          "statement": "A local system V of rank r with finite monodromy is of geometric origin: if f₀: Y → X is the finite étale Galois cover trivializing it, V is a summand of f_* ℂ for f: ⊔^r Y → X the disjoint union of r copies (i = 0), since the regular representation contains each irreducible representation of the Galois group."
         },
         {
           "name": "IsOfGeometricOrigin.test_salem_not",
@@ -4132,7 +4150,7 @@
         {
           "name": "IsIntegralPVHS.test_finite_monodromy",
           "kind": "degenerate",
-          "statement": "A local system with finite monodromy underlies an integral PVHS: it is defined over 𝒪_K for K containing its character values and every conjugate is unitary, hence a variation of a single Hodge type."
+          "statement": "A local system with finite monodromy underlies an integral PVHS: it is defined over 𝒪_K for K a splitting field of its finite monodromy group (e.g. ℚ(ζ_N), N the exponent, by Brauer; the character field need not suffice because of Schur indices, as for the quaternion group), and every conjugate is unitary, hence a variation of a single Hodge type."
         },
         {
           "name": "IsIntegralPVHS.test_salem_not",
@@ -4269,7 +4287,7 @@
       ],
       "proofSteps": [
         "By Landesman–Litt 2022 Corollary 6.1.2, after an isomonodromic deformation to an analytically general nearby curve the parabolic bundle E_⋆ is semistable when the rank bound holds (parabolic Clifford-type bounds, HodgeStructuresPartII:H.4).",
-        "A polarizable complex variation whose parabolic Hodge bundle is semistable has zero Kodaira–Spencer (Higgs) field (Landesman–Litt 2022 Lemma 7.1.1), hence unitary monodromy (HodgeStructuresPartII:H.5/zero-higgs-unitary, quasi-projective version via the parabolic correspondence)."
+        "Landesman–Litt 2022 Lemma 7.1.1: if the underlying parabolic bundle E_⋆ of the Deligne canonical extension is semistable, a polarizable complex variation on it is unitary: after reducing to irreducible summands (semisimplicity, HodgeStructuresPartII:H.2), the top Hodge piece F^i E_⋆ is ∇-stable by semistability, so F^i = E_⋆, the variation has one Hodge type and its polarization is definite (compare HodgeStructuresPartII:H.5/zero-higgs-unitary)."
       ],
       "acceptance": [
         "Rank one: every polarizable complex variation of rank one is unitary.",
@@ -4349,7 +4367,7 @@
       ],
       "title": "Cohomologically rigid SL₃ local systems are of geometric origin",
       "kind": "theorem",
-      "statement": "Let X be a smooth connected projective complex variety with base point x. (a) (Langer–Simpson Theorem 1.3) Every rigid, integral, irreducible representation ρ: π₁(X, x) → SL_3(ℂ) is of geometric origin; by Langer–Simpson Theorem 4.1 as read by Esnault–Groechenig, its local system is a subquotient of the Gauss–Manin local system of a family of abelian varieties over a dense open of X. (b) (Esnault–Groechenig §8.1) Every cohomologically rigid irreducible flat connection of rank 3 with trivial determinant on X is of geometric origin.",
+      "statement": "Let X be a smooth connected projective complex variety with base point x. (a) (Langer–Simpson Theorem 1.3) Every rigid, integral, irreducible representation ρ: π₁(X, x) → SL_3(ℂ) is of geometric origin. (b) (Esnault–Groechenig §8.1) Every cohomologically rigid irreducible flat connection of rank 3 with trivial determinant on X is of geometric origin.",
       "hypotheses": [
         "X smooth projective; rank 3; determinant trivial (SL_3).",
         "(a) is Langer–Simpson's theorem, recorded with its hypotheses (rigid, integral, irreducible) and not re-proved; its proof constructs weight-one integral variations and uses the moduli of abelian varieties (AbelianSchemesAndArithmeticModuli roadmaps)."
@@ -4357,7 +4375,7 @@
       "proofSteps": [
         "(b) A cohomologically rigid irreducible connection with trivial determinant is rigid (HodgeStructuresPartII:H.5/coh-rigid-reduced-isolated) and integral (HodgeStructuresPartII:H.5/integrality-EG18 with X projective, so the quasi-unipotence condition is vacuous).",
         "Apply (a) to its monodromy (Esnault–Groechenig §8.1).",
-        "(a) Langer–Simpson: the Galois conjugates L^σ of the integral rigid L carry complex variations (HodgeStructuresPartII:H.5/rigid-underlies-cvhs) of Hodge type weight one after adjusting, which assemble into a polarized weight-one ℤ-variation, i.e. a family of abelian varieties; L is a summand of its Gauss–Manin local system."
+        "(a) Langer–Simpson distinguish three cases. If ρ projectively factors through an orbicurve, geometric origin follows from Katz's classification of rigid local systems on punctured projective lines. If the monodromy is small (finite, or not Zariski dense), it follows from the rank-one and rank-two cases (Corlette–Simpson). Otherwise their Theorem 1.6 excludes complex variations of type (1,1,1) for every Galois conjugate L^σ (each underlies a variation by HodgeStructuresPartII:H.5/rigid-underlies-cvhs), so all L^σ underlie weight-one variations, which assemble into a polarized weight-one ℤ-variation, i.e. a family of abelian varieties, of whose Gauss–Manin local system L is a summand. Only this last case produces abelian varieties."
       ],
       "acceptance": [
         "Finite-monodromy SL_3 local systems are covered trivially.",
@@ -4384,10 +4402,10 @@
           "match": "Esnault–Groechenig's combination."
         },
         {
-          "sourceId": "EG20",
-          "locator": "§8.1, proof of Proposition 8.1, p.152",
-          "excerpt": "together with the remarks above imply that cohomologically rigid SL(3)-connections all are sub- quotients of Gauss–Manin connections coming from families of abelian varieties.",
-          "match": "Families of abelian varieties."
+          "sourceId": "LS18",
+          "locator": "§1, p.4",
+          "excerpt": "the case of factorization through a curve is treated on the side, and otherwise the theorem rules out having a VHS of type (1, 1, 1).",
+          "match": "The case division of the proof: only the non-orbicurve case yields weight-one variations and abelian varieties."
         }
       ],
       "implementationStatus": "unchecked"
@@ -4408,7 +4426,7 @@
       "proofSteps": [
         "(c) The Hitchin base ⊕_{i≥2} H⁰(X, Sym^i Ω¹) is zero, so h ≡ 0 and every Higgs field is nilpotent (HodgeStructuresPartII:H.1/hitchin-map API nilpotent_iff).",
         "(a) Arapura's argument: the GL_n Hitchin base ⊕_{i=1}^{n} H⁰(X, Sym^i Ω¹) is zero, so the Hitchin morphism of the semistable Higgs moduli is constant; it is proper (HodgeStructuresPartII:H.1/hitchin-properness), so M_Dol(X, GL_n) is proper over ℂ, hence compact. By the non-abelian Hodge homeomorphism of the semisimple coarse spaces (HodgeStructuresPartII:H.1/nonabelian-hodge-topology) M_B(X, GL_n) is compact; it is affine (HodgeStructuresPartII:H.1/betti-coarse), hence finite, and every point is isolated.",
-        "(b) Brunebarbe–Klingler–Totaro: by (a) the representation is rigid, so its semisimplification underlies a complex variation of Hodge structure (HodgeStructuresPartII:H.5/rigid-underlies-cvhs, Simpson Corollary 4.2); bigness of the cotangent bundle on the period-map image would produce symmetric differentials unless the monodromy is finite; the non-semisimple case reduces to H¹ of a finite cover."
+        "(b) Brunebarbe–Klingler–Totaro, characteristic zero: by (a) the representation is rigid, so its semisimplification σ is a direct factor of a ℚ-variation of Hodge structure τ (Simpson Theorem 5; HodgeStructuresPartII:H.5/rigid-underlies-cvhs); τ is bounded at every finite place (Katzarkov–Zuo), hence conjugate into GL(m, ℤ) (Bass), so its monodromy is discrete; bigness of the cotangent bundle on the image of the period map (their Corollary 3.2) then produces symmetric differentials unless the monodromy is finite. The non-semisimple case reduces to H¹ of a finite cover. Positive characteristic: the moduli of representations over 𝔽_p is zero-dimensional (Katzarkov–Zuo over 𝔽_q((t))), and unipotent parts are finite."
       ],
       "acceptance": [
         "ℙⁿ and simply connected varieties satisfy the conclusion trivially.",
@@ -4657,7 +4675,7 @@
       "status": "planned",
       "remaining": [
         "Lemma-level decomposition when the roadmap comes near the front of the line: split the multi-part theorems (rigid-hodge-splitting (i)–(v), nice-hodge-models (a)–(c), no-symmetric-differentials (a)–(c), rigid-sl3-geometric (a)–(b)) and promote the API items used as prerequisites (Hitchin scaling, trace splitting, base change of H¹) to lemma nodes.",
-        "Resolve the recorded gaps: Mochizuki's tame theory, ℓ-adic companions and tame specialization (pending Part II roadmaps of GlobalShtukas and InverseGalois), Langer's mixed-characteristic boundedness, the analytic intermediate extension, the equivariant non-reduced Hodge splitting, isomonodromy carriers, the Brunebarbe–Klingler–Totaro and Langer–Simpson inputs, and finite presentation of quasi-projective fundamental groups.",
+        "Resolve the recorded gaps: Mochizuki's tame theory, ℓ-adic companions and tame specialization (pending Part II roadmaps of GlobalShtukas and InverseGalois), Langer's mixed-characteristic boundedness, the analytic intermediate extension, the Tannakian inputs of the Hodge splitting, isomonodromy carriers, the Brunebarbe–Klingler–Totaro and Langer–Simpson inputs, and finite presentation of quasi-projective fundamental groups.",
         "Replace the stage prerequisites HodgeStructuresPartII:H.2 (polarized complex variations, semisimplicity and uniqueness up to shift, Schmid extension) and HodgeStructuresPartII:H.4 (Landesman–Litt Theorem 6.2.1, parabolic semistability) by node ids once those layers are planned, and check that their statements match the uses recorded here.",
         "Discharge the supplier requests (R09.1, R09.2, R09.4, R09.5, R09.7d, C5 with coefficients, EDC.5, LPV.1, SF.0, GS.6, DWP.7, IG.1, CA.6, Tau Ceti AlgebraicTopology stages 5–6).",
         "Elaborate the omission-inventory signatures of the suggested file against native moduli carriers once H.1's carriers exist."
@@ -4697,11 +4715,11 @@
       "detail": "EDC.5 constructs j_{!*} for étale sheaves; the complex-analytic constructible version on X̄(ℂ) used by Esnault–Groechenig 2018 Remark 2.4 and Klevdal–Patrikis Remark 4.8 is not planned. The a_*-definition of HodgeStructuresPartII:H.5/cohomological-rigidity avoids it; only the comparison with the j_{!*} formulation needs it."
     },
     {
-      "title": "Equivariant global splitting of the rigid Hodge locus",
+      "title": "Tannakian inputs for the equivariant splitting of the rigid Hodge locus",
       "neededBy": [
         "HodgeStructuresPartII:H.5/rigid-hodge-splitting"
       ],
-      "detail": "Esnault–Groechenig Lemma 4.9 asserts M^rig_Hod ≅ M^rig_Dol × 𝔸¹ 𝔾_m-equivariantly, including non-reduced structure, and derives it from the nonzero trivialization and Simpson's étale local product (1996 Theorem 9.1). The packet proves finiteness, flatness, the reduced splitting and étale-local triviality with constant Artinian fibres; the passage to a global 𝔾_m-equivariant isomorphism of non-reduced schemes needs a 𝔾_m-equivariant local product at the fixed points of M^rig_Dol (or a classification of 𝔾_m-equivariant étale-locally trivial finite flat families over 𝔸¹). Recorded also as source issue HodgeStructuresPartII/E-H5-2."
+      "detail": "Part (iv) of HodgeStructuresPartII:H.5/rigid-hodge-splitting (the 𝔾_m-equivariant isomorphism M^rig_Hod ≅ M^rig_Dol × 𝔸¹ with non-reduced structure, Esnault–Groechenig Lemma 4.9) is proved from the étale-local triviality of (iii) by viewing the Isom-scheme as an Aut(A)-torsor on [𝔸¹/𝔾_m], i.e. a filtered fibre functor on Rep(Aut A), and splitting it by Ziegler's Theorem 1.3 (Aut(A) is smooth in characteristic 0). The Tannakian dictionary (torsors on [𝔸¹/𝔾_m] as filtered fibre functors; vector bundles on [𝔸¹/𝔾_m] as filtered vector spaces) and Ziegler's theorem are library inputs that no layer of the atlas plans. Recorded also as source issue HodgeStructuresPartII/E-H5-2 for the printed proof."
     },
     {
       "title": "Isomonodromic deformations and analytically general curves",
@@ -4768,7 +4786,7 @@
       "kind": "gap",
       "locator": "Lemma 4.9 and its proof, published p.132",
       "printed": "The morphism M^rig_Hod(X/C, L, r) → A¹ is finite, flat, and splits G_m-equivariantly as M^rig_Hod(X/C, L, r) ≅ M^rig_Dol(X/C, L, r) ×_C A¹ … On the other hand, by [Si4, Theorem 9.1], at a complex point x∈M_Dol(X/C, L, r), the fibre at λ=0, M_Hod(X/C, L, r) is étale locally isomorphic to the product of M_Dol(X/C, L, r) with A¹. This finishes the proof of the first part.",
-      "correction": "Finiteness needs the observation that every point of the rigid locus lies on the Rees section of a rigid variation (so the reduced locus is a finite disjoint union of sections); the global 𝔾_m-equivariant isomorphism including non-reduced structure needs, beyond étale-local triviality, an equivariant local product at the 𝔾_m-fixed points of M^rig_Dol or a classification of 𝔾_m-equivariant étale-locally trivial finite flat families over 𝔸¹. Node HodgeStructuresPartII:H.5/rigid-hodge-splitting supplies (i)–(iii) and (v) and records (iv) as a gap.",
+      "correction": "Finiteness needs the observation that every point of the rigid locus lies on the Rees section of a rigid variation (so the reduced locus is a finite disjoint union of sections); the global 𝔾_m-equivariant isomorphism including non-reduced structure needs, beyond étale-local triviality, the classification of 𝔾_m-equivariant étale-locally trivial finite flat families over 𝔸¹: the Isom-scheme is an Aut(A)-torsor on [𝔸¹/𝔾_m], a filtered fibre functor, split by a cocharacter in characteristic 0 (Ziegler, Theorem 1.3). Node HodgeStructuresPartII:H.5/rigid-hodge-splitting supplies these steps; the lemma as stated is correct.",
       "reason": "Simpson's Theorem 9.1 gives étale neighbourhoods U → M_Hod,0 × 𝔸¹ that are étale, not 𝔾_m-equivariant isomorphisms; combined with the trivialization over 𝔾_m it shows that each component of the rigid locus is étale locally Spec(A) × 𝔸¹, which does not by itself give a global equivariant product (an equivariant finite flat family can be étale locally trivial without the trivialization being equivariant), and the printed proof does not address finiteness at all. The isomorphism is used again on p.135 (before Claim 4.14) for W_i(k(s))-points of the arithmetic rigid loci, which also needs it to spread to the model of Proposition 4.10, whose part (c) is a bijection of underlying sets.",
       "affects": "the proof",
       "known": "new",
@@ -4896,6 +4914,13 @@
       "read": "2026-10-07",
       "sha256": "5dc0ef646f59819f717b75a90a6a2952af7e29065c34e517e65b2844f90fedbe",
       "scope": "Simpson, Moduli II: introduction and §10 (scanned text layer)."
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1111.1981v4",
+      "read": "2026-10-07",
+      "sha256": "742e6ecb5be56cb3fc7c1b48a944ae0fdba91a0e8546f3ff61f6b6f57054ea9f",
+      "scope": "Ziegler, arXiv v4: §1 statements."
     },
     {
       "kind": "preprint",

@@ -1293,9 +1293,9 @@ Node HodgeStructuresPartII:H.5/rigid-hodge-splitting (missing carriers: M, V)
   component is finite flat over 𝔸¹ with all fibres isomorphic to the local Artinian ring of
   M_Dol^s at the corresponding rigid Higgs point; (iv) (Esnault–Groechenig Lemma 4.9) M^rig_Hod(X,
   L, r) ≅ M^rig_Dol(X, (L,0), r) × 𝔸¹ 𝔾_m-equivariantly over 𝔸¹, the action on the right being
-  scaling of θ times weight one on 𝔸¹, including non-reduced structure; (v) every 𝔾_m-equivariant
-  section of M^rig_Hod over 𝔸¹ is a Rees section of a complex variation of Hodge structure as in
-  (i) (Simpson's Lemma 7.2).
+  scaling of θ times weight one on 𝔸¹, including non-reduced structure (proved here from (iii) by
+  the classification of torsors on [𝔸¹/𝔾_m]); (v) every 𝔾_m-equivariant section of M^rig_Hod over
+  𝔸¹ is a Rees section of a complex variation of Hodge structure as in (i) (Simpson's Lemma 7.2).
 
 Node HodgeStructuresPartII:H.5/smooth-arithmetic-model (missing carriers: A)
   ArithmeticModel.dominate: Any two arithmetic models of (X, x, L, ι) restrict to isomorphic
@@ -1451,10 +1451,12 @@ Node HodgeStructuresPartII:H.5/geometric-origin (missing carriers: F)
   origin if there are a dense Zariski open U ⊂ X, a smooth projective morphism f: Y → U and an
   integer i ≥ 0 such that V|_U is a subquotient of R^i f_* ℂ_Y. Since R^i f_* ℂ is semisimple
   (Deligne), subquotient and direct summand give the same notion; the variant with smooth proper f
-  contains this one. A flat algebraic connection is of geometric origin if its local system is
-  (equivalently, on U it is a subquotient of a Gauss–Manin connection R^i f_*(Ω^•_{Y/U}, d)). The
-  definition asserts nothing about existence of such families for rigid objects (Simpson's
-  motivicity conjecture).
+  contains this one. A flat algebraic connection is of geometric origin if its local system is;
+  when the connection has regular singularities (automatic for X projective), this is equivalent
+  to being, on U, a subquotient of a Gauss–Manin connection R^i f_*(Ω^•_{Y/U}, d). The irregular
+  connection (O_{𝔸¹}, d + dx) has the trivial, geometric local system but is not a subquotient of
+  a Gauss–Manin connection on any dense open. The definition asserts nothing about existence of
+  such families for rigid objects (Simpson's motivicity conjecture).
   IsOfGeometricOrigin.iff_summand: Equivalent with 'direct summand' in place of 'subquotient'
   (semisimplicity).
   IsOfGeometricOrigin.restrict: Pullback along a morphism X′ → X and restriction to dense opens
@@ -1467,8 +1469,10 @@ Node HodgeStructuresPartII:H.5/geometric-origin (missing carriers: F)
   (HodgeStructuresPartII:H.5/geometric-origin-integral-pvhs).
   IsOfGeometricOrigin.test_constant: The constant local system ℂ_X is of geometric origin (U = X,
   f = id_X, i = 0).
-  IsOfGeometricOrigin.test_finite_monodromy: A local system with finite monodromy is of geometric
-  origin: it is a summand of f_* ℂ for the finite étale cover f trivializing it (i = 0).
+  IsOfGeometricOrigin.test_finite_monodromy: A local system V of rank r with finite monodromy is
+  of geometric origin: if f₀: Y → X is the finite étale Galois cover trivializing it, V is a
+  summand of f_* ℂ for f: ⊔^r Y → X the disjoint union of r copies (i = 0), since the regular
+  representation contains each irreducible representation of the Galois group.
   IsOfGeometricOrigin.test_salem_not: The Salem-type character χ_α on a genus-one curve is not of
   geometric origin: geometric origin implies that every Galois conjugate underlies a polarizable
   variation (HodgeStructuresPartII:H.5/geometric-origin-integral-pvhs), and a rank-one polarizable
@@ -1491,8 +1495,9 @@ Node HodgeStructuresPartII:H.5/integral-pvhs (missing carriers: V)
   IsIntegralPVHS.unitary_all_finite: If moreover every W ⊗_ι ℂ is unitary, the monodromy is finite
   (HodgeStructuresPartII:H.5/unitary-embeddings-finite).
   IsIntegralPVHS.test_finite_monodromy: A local system with finite monodromy underlies an integral
-  PVHS: it is defined over 𝒪_K for K containing its character values and every conjugate is
-  unitary, hence a variation of a single Hodge type.
+  PVHS: it is defined over 𝒪_K for K a splitting field of its finite monodromy group (e.g. ℚ(ζ_N),
+  N the exponent, by Brauer; the character field need not suffice because of Schur indices, as for
+  the quaternion group), and every conjugate is unitary, hence a variation of a single Hodge type.
   IsIntegralPVHS.test_salem_not: The Salem-type character χ_α is integral and unitary but does not
   underlie an integral PVHS: some conjugate σ∘χ_α is not unitary, and a rank-one polarizable
   complex variation is unitary (HodgeStructuresPartII:H.5/zero-higgs-unitary).
@@ -1530,11 +1535,9 @@ Node HodgeStructuresPartII:H.5/very-general-rank-bound (missing carriers: T, V)
 Node HodgeStructuresPartII:H.5/rigid-sl3-geometric (missing carriers: M, F)
   isOfGeometricOrigin_of_sl3: Let X be a smooth connected projective complex variety with base
   point x. (a) (Langer–Simpson Theorem 1.3) Every rigid, integral, irreducible representation ρ:
-  π₁(X, x) → SL_3(ℂ) is of geometric origin; by Langer–Simpson Theorem 4.1 as read by
-  Esnault–Groechenig, its local system is a subquotient of the Gauss–Manin local system of a
-  family of abelian varieties over a dense open of X. (b) (Esnault–Groechenig §8.1) Every
-  cohomologically rigid irreducible flat connection of rank 3 with trivial determinant on X is of
-  geometric origin.
+  π₁(X, x) → SL_3(ℂ) is of geometric origin. (b) (Esnault–Groechenig §8.1) Every cohomologically
+  rigid irreducible flat connection of rank 3 with trivial determinant on X is of geometric
+  origin.
 
 Node HodgeStructuresPartII:H.5/no-symmetric-differentials (missing carriers: M)
   finite_of_no_symmetric_differentials: Let X be a compact Kähler manifold (smooth projective in
