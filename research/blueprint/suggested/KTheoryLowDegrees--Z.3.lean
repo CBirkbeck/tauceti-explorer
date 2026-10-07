@@ -87,7 +87,8 @@ implementation, and `implementationStatus` stays `"unchecked"` for every node.
 Pinned commits: Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti
 `f790474821cf4256814db967cb154e7af3d0c369`.
 
-The round-2 independent review attempted `lean-check`: it stopped at the missing prebuilt
+The round-2 independent review and the 7 October 2026 round-3 revision attempted
+`lean-check`: both stopped at the missing prebuilt
 `TauCeti.Algebra.AlgebraicGroup.GeneralLinear.DiagonalTorus.Basic` import before checking the
 file. No available existing build matches both pinned commits, and elaboration remains
 unverified. The independent review and handoff record the source checks and remaining
@@ -5564,6 +5565,13 @@ theorem nonprincipal_ideal_test [IsDedekindDomain (ℤ√(-5))] (I : Ideal (ℤ�
 -- `KTheoryLowDegrees:Z.6/projective-line-rank-pic`: not stated here; needs `P¹_F` and `O(m)`
 -- (supplier: AlgebraicModuliForArithmeticGeometry:R09.1, with KTheoryLowDegrees:Z.6/projective-
 -- line-regular-curve).
+-- The reviewed elementary gamma argument uses the pre-lambda structure descended by
+-- Z.5/exterior-power-extension-filtration, Z.3/gamma and Z.3/gamma-filtration. In rank-degree
+-- coordinates L = [O(1)] = 1 + z with z^2 = 0, and for every integer d:
+-- lambda_t(d*z) = ((1 + L*t)/(1 + t))^d = 1 + d*z*t/(1 + t), so
+-- gamma_t(d*z) = 1 + d*z*t. The rank kernel is Z*z; every weight-at-least-two
+-- generator vanishes, including products of two multiples of z. Hence F^2_gamma = 0.
+-- These are mathematical contracts for the missing P1 carrier, not Lean declarations.
 
 /-- Helper (not a packet name): the change of coordinates `(r, d) ↦ (r + d, -d)` from rank–degree
 coordinates to projective-bundle coordinates `(a, b)` on `K₀(P¹_F) ≅ ℤ²` (a real definition; it is
