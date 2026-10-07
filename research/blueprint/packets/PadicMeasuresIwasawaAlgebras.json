@@ -13,7 +13,7 @@
     "PadicMeasuresIwasawaAlgebras:L6"
   ],
   "status": "complete",
-  "summary": "Independent review needs_changes after a completed inherited budget pass: 436 unchecked declaration records, including67 mandatory L4 splits. The declared partial/not_read stages remain honest; named L4 proof and suggested-interface gaps prevent acceptance.",
+  "summary": "Independent review needs_changes after a completed inherited budget pass: 436 unchecked declaration records, including67 mandatory L4 splits. The declared partial/not_read stages remain honest; named L4 proof and suggested-interface gaps prevent acceptance. FIX-RT-AREA-iwasawa-2~2 (2026-10-07) adds 25 L6 nodes for the Dasgupta–Kakde character group rings, quadratic presentations, compound matrices and transposes (RT-AREA-iwasawa-2/4), with source finding E17; L6 is now partial.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -2447,6 +2447,237 @@
         "module": "Mathlib/RingTheory/KrullDimension/Basic.lean",
         "provides": "Krull dimension.",
         "checked": "name, kind and module confirmed in the pinned declaration index (Mathlib 082e2d3); used by the L4 block of the suggested file, which elaborates against that Mathlib"
+      },
+      {
+        "ref": "mathlib:MonoidAlgebra.lift",
+        "kind": "def",
+        "module": "Mathlib/Algebra/MonoidAlgebra/Basic.lean",
+        "provides": "lift R A M : (M →* A) ≃ (R[M] →ₐ[R] A) for a commutative semiring R, monoid M and R-algebra A (line 237): the universal property of the monoid algebra.",
+        "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 (2026-10-07, FIX-RT-AREA-iwasawa-2~2)."
+      },
+      {
+        "ref": "mathlib:MonoidAlgebra.lift_of",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/MonoidAlgebra/Basic.lean",
+        "provides": "lift R A M F (of R M m) = F m (line 259).",
+        "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 (2026-10-07, FIX-RT-AREA-iwasawa-2~2)."
+      },
+      {
+        "ref": "mathlib:AlgHom.pi",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Algebra/Pi.lean",
+        "provides": "AlgHom.pi g : B →ₐ[R] Π i, A i for a family g i : B →ₐ[R] A i, with (AlgHom.pi g x) i = g i x (line 57); Pi.algHom is its deprecated alias.",
+        "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 (2026-10-07, FIX-RT-AREA-iwasawa-2~2)."
+      },
+      {
+        "ref": "mathlib:sum_hom_units_eq_zero",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/IntegralDomain.lean",
+        "provides": "For a finite group G, a domain R and f : G →* R with f ≠ 1, Σ_{g : G} f g = 0 (line 186).",
+        "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 (2026-10-07, FIX-RT-AREA-iwasawa-2~2)."
+      },
+      {
+        "ref": "mathlib:AlgHom.range",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Algebra/Subalgebra/Basic.lean",
+        "provides": "The range of an algebra homomorphism φ : A →ₐ[R] B as a subalgebra of B (line 545).",
+        "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 (2026-10-07, FIX-RT-AREA-iwasawa-2~2)."
+      },
+      {
+        "ref": "mathlib:AlgHom.rangeRestrict",
+        "kind": "abbrev",
+        "module": "Mathlib/Algebra/Algebra/Subalgebra/Basic.lean",
+        "provides": "The corestriction f.rangeRestrict : A →ₐ[R] f.range of an algebra homomorphism to its range (line 582); it is surjective.",
+        "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 (2026-10-07, FIX-RT-AREA-iwasawa-2~2)."
+      },
+      {
+        "ref": "mathlib:HopfAlgebra.antipodeAlgHom",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/HopfAlgebra/Convolution.lean",
+        "provides": "For a commutative Hopf algebra A over R, the antipode as an algebra homomorphism A →ₐ[R] A (line 80).",
+        "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 (2026-10-07, FIX-RT-AREA-iwasawa-2~2)."
+      },
+      {
+        "ref": "mathlib:MonoidAlgebra.antipode_single",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/HopfAlgebra/MonoidAlgebra.lean",
+        "provides": "For a group G and an R-Hopf algebra A, antipode R (single g a) = single g⁻¹ (antipode R a) in A[G] (line 44).",
+        "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 (2026-10-07, FIX-RT-AREA-iwasawa-2~2)."
+      },
+      {
+        "ref": "mathlib:MonoidAlgebra.mapDomainAlgHom",
+        "kind": "def",
+        "module": "Mathlib/Algebra/MonoidAlgebra/Basic.lean",
+        "provides": "For a monoid homomorphism f : M →* N, the algebra homomorphism A[M] →ₐ[R] A[N] induced on monoid algebras (line 289).",
+        "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 (2026-10-07, FIX-RT-AREA-iwasawa-2~2)."
+      },
+      {
+        "ref": "mathlib:invMonoidHom",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Group/Hom/Basic.lean",
+        "provides": "Inversion on a commutative group as a monoid homomorphism α →* α (line 61).",
+        "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 (2026-10-07, FIX-RT-AREA-iwasawa-2~2)."
+      },
+      {
+        "ref": "mathlib:LinearMap.dualMap",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Dual/Defs.lean",
+        "provides": "For f : M₁ →ₗ[R] M₂, the transpose Dual R M₂ →ₗ[R] Dual R M₁, φ ↦ φ ∘ f (line 117).",
+        "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 (2026-10-07, FIX-RT-AREA-iwasawa-2~2)."
+      },
+      {
+        "ref": "mathlib:Module.compHom",
+        "kind": "abbrev",
+        "module": "Mathlib/Algebra/Module/RingHom.lean",
+        "provides": "Module.compHom M f : Module S M for a ring homomorphism f : S →+* R and an R-module M, with action f s • m (line 57).",
+        "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 (2026-10-07, FIX-RT-AREA-iwasawa-2~2)."
+      },
+      {
+        "ref": "mathlib:Matrix.toLin'",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Matrix/ToLin.lean",
+        "provides": "The linear equivalence Matrix m n R ≃ₗ[R] ((n → R) →ₗ[R] m → R), a matrix acting on column vectors (line 386).",
+        "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 (2026-10-07, FIX-RT-AREA-iwasawa-2~2)."
+      },
+      {
+        "ref": "mathlib:Matrix.det",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean",
+        "provides": "The determinant of a square matrix over a commutative ring (line 60).",
+        "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 (2026-10-07, FIX-RT-AREA-iwasawa-2~2)."
+      },
+      {
+        "ref": "mathlib:Matrix.det_transpose",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean",
+        "provides": "det Mᵀ = det M (line 203).",
+        "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 (2026-10-07, FIX-RT-AREA-iwasawa-2~2)."
+      },
+      {
+        "ref": "mathlib:Matrix.submatrix",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Matrix/Defs.lean",
+        "provides": "A.submatrix r c, the matrix (i, j) ↦ A (r i) (c j) for reindexing maps r, c (line 476).",
+        "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 (2026-10-07, FIX-RT-AREA-iwasawa-2~2)."
+      },
+      {
+        "ref": "mathlib:Matrix.adjugate",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Matrix/Adjugate.lean",
+        "provides": "The adjugate of a square matrix, of fun i => cramer Aᵀ (Pi.single i 1) (line 188); its (j, i) entry is the (i, j) cofactor.",
+        "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 (2026-10-07, FIX-RT-AREA-iwasawa-2~2)."
+      },
+      {
+        "ref": "mathlib:Matrix.mul_adjugate",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Matrix/Adjugate.lean",
+        "provides": "A * adjugate A = A.det • 1 (line 264); adjugate_mul (line 269) gives the other order.",
+        "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 (2026-10-07, FIX-RT-AREA-iwasawa-2~2)."
+      },
+      {
+        "ref": "mathlib:Module.FinitePresentation",
+        "kind": "class",
+        "module": "Mathlib/Algebra/Module/FinitePresentation.lean",
+        "provides": "A module is finitely presented: finitely generated with a finitely generated kernel of some surjection from a finite free module (line 67).",
+        "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 (2026-10-07, FIX-RT-AREA-iwasawa-2~2)."
+      },
+      {
+        "ref": "mathlib:Module.rankAtStalk",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/Spectrum/Prime/FreeLocus.lean",
+        "provides": "Module.rankAtStalk M p = finrank of the localization M_p over R_p, for p a prime of R (line 183).",
+        "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 (2026-10-07, FIX-RT-AREA-iwasawa-2~2)."
+      },
+      {
+        "ref": "mathlib:IsLocalRing",
+        "kind": "class",
+        "module": "Mathlib/RingTheory/LocalRing/Defs.lean",
+        "provides": "A (semi)ring is local: nontrivial, and for every a, a or 1 − a is a unit (line 30).",
+        "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 (2026-10-07, FIX-RT-AREA-iwasawa-2~2)."
+      },
+      {
+        "ref": "mathlib:IsAdicComplete",
+        "kind": "class",
+        "module": "Mathlib/RingTheory/AdicCompletion/Basic.lean",
+        "provides": "IsAdicComplete I M: M is I-adically Hausdorff and precomplete (line 56).",
+        "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 (2026-10-07, FIX-RT-AREA-iwasawa-2~2)."
+      },
+      {
+        "ref": "mathlib:Submodule.smithNormalForm",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/FreeModule/PID.lean",
+        "provides": "For a basis b of a finite free module over a PID and a submodule N, a basis of M and of N in Smith normal form (line 533).",
+        "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 (2026-10-07, FIX-RT-AREA-iwasawa-2~2)."
+      },
+      {
+        "ref": "mathlib:Set.powersetCard",
+        "kind": "def",
+        "module": "Mathlib/Data/Set/PowersetCard.lean",
+        "provides": "Set.powersetCard α n = {s : Finset α | s.card = n} (line 32), the index set of Module.Basis.exteriorPower; Fintype when α is.",
+        "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 (2026-10-07, FIX-RT-AREA-iwasawa-2~2)."
+      },
+      {
+        "ref": "mathlib:Set.powersetCard.ofFinEmbEquiv",
+        "kind": "def",
+        "module": "Mathlib/Order/Hom/PowersetCard.lean",
+        "provides": "For a linear order I, the equivalence (Fin n ↪o I) ≃ powersetCard I n; its inverse enumerates an n-subset increasingly (line 38).",
+        "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 (2026-10-07, FIX-RT-AREA-iwasawa-2~2)."
+      },
+      {
+        "ref": "mathlib:Module.Basis.exteriorPower",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/ExteriorPower/Basis.lean",
+        "provides": "For a basis b of M indexed by a linearly ordered type I, the basis of ⋀[R]^n M indexed by powersetCard I n, formed by the n-fold wedge products in increasing order (line 96).",
+        "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 (2026-10-07, FIX-RT-AREA-iwasawa-2~2)."
+      },
+      {
+        "ref": "mathlib:exteriorPower.map",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/ExteriorPower/Basic.lean",
+        "provides": "exteriorPower.map n f : ⋀[R]^n M →ₗ[R] ⋀[R]^n N induced by f : M →ₗ[R] N (line 260).",
+        "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 (2026-10-07, FIX-RT-AREA-iwasawa-2~2)."
+      },
+      {
+        "ref": "mathlib:exteriorPower.map_comp",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/ExteriorPower/Basic.lean",
+        "provides": "map n (g ∘ₗ f) = map n g ∘ₗ map n f (line 298).",
+        "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 (2026-10-07, FIX-RT-AREA-iwasawa-2~2)."
+      },
+      {
+        "ref": "mathlib:exteriorPower.map_surjective",
+        "kind": "lemma",
+        "module": "Mathlib/LinearAlgebra/ExteriorPower/Basic.lean",
+        "provides": "If f is surjective, so is exteriorPower.map n f (line 327).",
+        "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 (2026-10-07, FIX-RT-AREA-iwasawa-2~2)."
+      },
+      {
+        "ref": "tauceti:TauCeti.AuslanderReitenTranspose",
+        "kind": "def",
+        "module": "TauCeti/Algebra/Module/AuslanderReiten/Transpose.lean",
+        "provides": "For a ring A and any A-linear p₁ : P₁ → P₀, the cokernel Module.Dual A P₁ ⧸ range (p₁.lcomp Aᵐᵒᵖ A) of Hom_A(P₀, A) → Hom_A(P₁, A), an Aᵐᵒᵖ-module (line 94); minimality is not needed to form it.",
+        "checked": "Statement read at pinned Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 (2026-10-07, FIX-RT-AREA-iwasawa-2~2)."
+      },
+      {
+        "ref": "tauceti:TauCeti.AuslanderReitenTranspose.mk",
+        "kind": "def",
+        "module": "TauCeti/Algebra/Module/AuslanderReiten/Transpose.lean",
+        "provides": "The quotient map Module.Dual A P₁ →ₗ[Aᵐᵒᵖ] AuslanderReitenTranspose p₁ (line 132).",
+        "checked": "Statement read at pinned Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 (2026-10-07, FIX-RT-AREA-iwasawa-2~2)."
+      },
+      {
+        "ref": "tauceti:TauCeti.AuslanderReitenTranspose.mk_eq_zero_iff",
+        "kind": "theorem",
+        "module": "TauCeti/Algebra/Module/AuslanderReiten/Transpose.lean",
+        "provides": "mk p₁ φ = 0 ↔ φ ∈ range (p₁.lcomp Aᵐᵒᵖ A): a functional represents zero iff it factors through p₁ (line 138).",
+        "checked": "Statement read at pinned Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 (2026-10-07, FIX-RT-AREA-iwasawa-2~2)."
+      },
+      {
+        "ref": "tauceti:TauCeti.AuslanderReitenTranspose.linearEquiv",
+        "kind": "def",
+        "module": "TauCeti/Algebra/Module/AuslanderReiten/Transpose.lean",
+        "provides": "An isomorphism (e₀, e₁) of the first squares of two projective presentations induces an Aᵐᵒᵖ-linear equivalence of their transposes (line 293); independence of the presentation is proved only for minimal presentations (line 481).",
+        "checked": "Statement read at pinned Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 (2026-10-07, FIX-RT-AREA-iwasawa-2~2)."
       }
     ]
   },
@@ -2562,6 +2793,19 @@
       "accessed": "2026-09-29",
       "readSections": [
         "2026-09-29 (cc-39fac3, L4-1): Chapter V introduction and §1 (5.1.1–5.1.10), pp. 267–273, and §3 (5.3.1–5.3.20 with Exercises 1–4), pp. 289–301, read in full from the text layer; the errata list (../papers/errata-nsw2e.pdf) was checked for these pages."
+      ]
+    },
+    {
+      "id": "DK-arXiv-v3",
+      "title": "On the Brumer–Stark conjecture",
+      "authors": "Samit Dasgupta and Mahesh Kakde",
+      "edition": "arXiv:2010.00657v3 (5 September 2022), PDF and TeX source; the published version (Annals of Mathematics 197 (2023)) was not accessible and was not read",
+      "url": "https://arxiv.org/pdf/2010.00657v3",
+      "sha256": "c1fe1cd8e1d218b4d44c58b1171c561b5955261340e345e51f9c82fa33b63099",
+      "accessed": "2026-10-07",
+      "readSections": [
+        "2026-10-07 (claude-6ZAIEy, FIX-RT-AREA-iwasawa-2~2): §2.2 Character group rings with Lemma 2.2 and Corollary 2.3 (PDF pp. 15–16); §2.3 Fitting ideals with Lemmas 2.4–2.7 and their proofs (PDF pp. 16–18); Lemma 3.9 and its proof (PDF pp. 25–26); §5.1 end (PDF p. 34); §6.1 Transpose with (80), (81), Lemma 6.1 and Corollary 6.2 (PDF p. 40); Lemma A.5 and Remark A.7 (PDF pp. 85–86); Lemma B.4 with (171) (PDF p. 93); §7.2.9 first sentence (PDF p. 49). Text layer and TeX source (e-print SHA-256 4a73268176e1db3f4071b80368bbdec5440716f4f9ce5cee10157fbadc72ff25) read; the TeX labels match the paper extraction PAPER-DASGUPTA-KAKDE-23.",
+        "2026-10-07: the authors' copy https://services.math.duke.edu/~dasgupta/papers/Brumer-Stark.pdf (15 February 2022, SHA-256 c5b1df5da32ea7a30ed49b9ddc71249adb37e318971b0d304584c98d6ef69dcf), PDF p. 26, read for the Lemma 3.9 display only (E17)."
       ]
     }
   ],
@@ -24563,6 +24807,1844 @@
       ],
       "statement": "A finitely generated Λ-module M has no nonzero finite Λ-submodule iff its Γ_n-invariants are ℤ_p-free for some n, equivalently for every n.",
       "title": "Iwasawa invariants free criterion"
+    },
+    {
+      "kind": "construction",
+      "title": "Evaluation of the group ring at a character",
+      "statement": "For a commutative ring O, a commutative group G and a character ψ : G → O^× (a group homomorphism), the character evaluation ev_ψ : O[G] → O is the O-algebra homomorphism Σ_g a_g g ↦ Σ_g a_g ψ(g), the lift of g ↦ ψ(g) through the universal property of the monoid algebra. For a set Ψ of characters the joint evaluation ev_Ψ : O[G] → ∏_{ψ∈Ψ} O is x ↦ (ev_ψ(x))_{ψ∈Ψ}. Following Dasgupta–Kakde, ψ(x) means ev_ψ(x) for x ∈ O[G].",
+      "hypotheses": [
+        "O is a commutative ring and G a commutative group; the map needs no finiteness. Orthogonality and injectivity below assume G finite and O a domain.",
+        "A character is a group homomorphism ψ : G → O^×; the trivial character is 1."
+      ],
+      "proofSteps": [
+        "Apply MonoidAlgebra.lift O O G to the composite of ψ with the inclusion O^× → O (Units.coeHom); MonoidAlgebra.lift_of gives ev_ψ(g) = ψ(g).",
+        "The joint evaluation is AlgHom.pi of the family (ev_ψ)_{ψ∈Ψ}.",
+        "Orthogonality: for G finite, O a domain and ψ ≠ 1, Σ_g ψ(g) = 0 by sum_hom_units_eq_zero applied to the composite G → O.",
+        "Injectivity of ev_Ĝ when #G ≠ 0 in the domain O and #Ĝ = #G: for x = Σ a_h h, Σ_{ψ∈Ĝ} ψ(g)^{-1} ev_ψ(x) = #G·a_g by orthogonality on Ĝ (the dual group of G has the same order), so ev_ψ(x) = 0 for all ψ forces every a_g = 0."
+      ],
+      "acceptance": [
+        "ev_ψ(g) = ψ(g); ev_1 is the augmentation.",
+        "For G of order 2 with generator h and ψ(h) = −1: ev_ψ(1 + h) = 0 and ev_ψ(1 − h) = 2."
+      ],
+      "uses": [
+        {
+          "where": "Dasgupta–Kakde §2.2, the embedding O[G] → ∏_{ψ∈Ĝ} O_ψ, x ↦ (ψ(x))_ψ",
+          "how": "character group rings are the images of joint evaluations"
+        },
+        {
+          "where": "Dasgupta–Kakde Lemma 2.5 and §5.1–5.2 (equation (67))",
+          "how": "cardinalities and unit detection are read off the values ψ(x)"
+        },
+        {
+          "where": "IntegralIwasawaTheory:I.7 (Dasgupta–Kakde (67), Fitt_O(Sel_ψ) = (ψ(x)L(ψ,0)))",
+          "how": "the ψ-specialisation of Fitting ideals and Stickelberger elements"
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.charEval",
+          "role": "constructor",
+          "statement": "ev_ψ : O[G] →ₐ[O] O, the lift of g ↦ ψ(g)."
+        },
+        {
+          "name": "TauCeti.charEval_single",
+          "role": "simp",
+          "statement": "ev_ψ(a·g) = a·ψ(g) for a ∈ O, g ∈ G."
+        },
+        {
+          "name": "TauCeti.charEval_of",
+          "role": "simp",
+          "statement": "ev_ψ(g) = ψ(g)."
+        },
+        {
+          "name": "TauCeti.charEval_one",
+          "role": "example",
+          "statement": "The trivial character evaluates by the augmentation: ev_1(a·g) = a."
+        },
+        {
+          "name": "TauCeti.charEval_sum_eq_zero",
+          "role": "relation",
+          "statement": "For G finite, O a domain and ψ ≠ 1: ev_ψ(Σ_{g∈G} g) = 0 (orthogonality)."
+        },
+        {
+          "name": "TauCeti.charEval_eq_lift",
+          "role": "compatibility",
+          "statement": "ev_ψ = MonoidAlgebra.lift O O G (Units.coeHom O ∘ ψ)."
+        },
+        {
+          "name": "TauCeti.jointEval",
+          "role": "constructor",
+          "statement": "ev_Ψ : O[G] →ₐ[O] (Ψ → O), the product of the ev_ψ (AlgHom.pi)."
+        },
+        {
+          "name": "TauCeti.jointEval_apply",
+          "role": "simp",
+          "statement": "ev_Ψ(x)(ψ) = ev_ψ(x)."
+        },
+        {
+          "name": "TauCeti.jointEval_injective",
+          "role": "characterisation",
+          "statement": "If G is finite, O is a domain with #G ≠ 0 in O and #Hom(G, O^×) = #G, the joint evaluation at all characters is injective."
+        }
+      ],
+      "tests": [
+        {
+          "name": "charEval_sign",
+          "kind": "computation",
+          "statement": "G with an element h ≠ 1, h² = 1, and ψ(h) = −1: ev_ψ(1 + h) = 0 and ev_ψ(1 − h) = 2."
+        },
+        {
+          "name": "charEval_trivialGroup",
+          "kind": "degenerate",
+          "statement": "G trivial: ev_1 : O[G] → O is bijective."
+        },
+        {
+          "name": "charEval_not_injective",
+          "kind": "non-example",
+          "statement": "If G has an element h ≠ 1 and O ≠ 0, no single ev_ψ is injective: it kills h − ψ(h)·1 ≠ 0."
+        },
+        {
+          "name": "charEval_lift",
+          "kind": "compatibility",
+          "statement": "ev_ψ(g) agrees with MonoidAlgebra.lift O O G (Units.coeHom O ∘ ψ) at g."
+        }
+      ],
+      "prerequisites": [
+        "mathlib:MonoidAlgebra",
+        "mathlib:MonoidAlgebra.lift",
+        "mathlib:MonoidAlgebra.lift_of",
+        "mathlib:Units.coeHom",
+        "mathlib:AlgHom.pi",
+        "mathlib:sum_hom_units_eq_zero"
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/GroupRing/CharacterGroupRing",
+        "namespace": "TauCeti",
+        "declaration": "TauCeti.charEval"
+      },
+      "sources": [
+        {
+          "sourceId": "DK-arXiv-v3",
+          "locator": "§2.2, arXiv v3 PDF p. 15",
+          "excerpt": "Here Oψ denotes the ring O endowed with the G-action in which g ∈ G acts by multiplication by ψ(g)",
+          "match": "The source writes ψ(x) for the image of x under O[G] → O_ψ; this construction names that map and the joint embedding x ↦ (ψ(x))_ψ."
+        }
+      ],
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L6",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L6"
+      ],
+      "implementationStatus": "unchecked",
+      "id": "PadicMeasuresIwasawaAlgebras:L6/character-evaluation"
+    },
+    {
+      "kind": "definition",
+      "title": "Character group rings",
+      "planet": {
+        "name": "Character group ring"
+      },
+      "statement": "In the Dasgupta–Kakde setting, for a subset Ψ ⊆ Ĝ the character group ring R_Ψ is the image of the joint evaluation ev_Ψ : O[G] → ∏_{ψ∈Ψ} O, an O-subalgebra of the product, together with the canonical surjection α_Ψ : O[G] ↠ R_Ψ; equivalently R_Ψ = O[G]/⋂_{ψ∈Ψ} ker ev_ψ. Quotients of O[G] of this form are the character group rings. R_Ψ is in general a proper, non-maximal O-order in ∏_{ψ∈Ψ} O and is never replaced by that product; it is not Gorenstein in general.",
+      "hypotheses": [
+        "Dasgupta–Kakde setting (§2.2): p is an odd prime; G is a finite abelian group, G = G_p × G′ with G_p its p-Sylow subgroup and G′ of order prime to p; O is the valuation ring of a finite extension K of Q_p containing all values of all characters G → Q̄_p^× (equivalently the e-th roots of unity, e the exponent of G), with finite residue field k; Ĝ = Hom(G, O^×), a group of order #G.",
+        "Ψ ⊆ Ĝ is arbitrary: Ψ = ∅ gives the zero ring, Ψ = {1} gives O through the augmentation, Ψ = Ĝ gives O[G].",
+        "No Gorenstein property is part of the definition. L6's Gorenstein-order and exact-duality results apply to an R_Ψ only after it has been proved Gorenstein (test charGroupRing_not_gorenstein)."
+      ],
+      "proofSteps": [
+        "Define R_Ψ as AlgHom.range of ev_Ψ and α_Ψ as AlgHom.rangeRestrict; α_Ψ is surjective by construction.",
+        "ker α_Ψ = ⋂_{ψ∈Ψ} ker ev_ψ because R_Ψ sits inside the product and its ψ-coordinate of α_Ψ(x) is ψ(x).",
+        "For Ψ ⊆ Ψ′, restriction of coordinates ∏_{Ψ′} O → ∏_Ψ O maps R_{Ψ′} onto R_Ψ compatibly with α; functoriality is coordinate restriction."
+      ],
+      "acceptance": [
+        "α_Ĝ : O[G] → R_Ĝ is an isomorphism (node character-group-ring-lattice).",
+        "For Ψ_χ = {ψ : ψ|_{G′} = χ}, R_{Ψ_χ} is the connected component R_χ = O[G_p]_χ of O[G] (node component-character-group-ring)."
+      ],
+      "uses": [
+        {
+          "where": "Dasgupta–Kakde §2.2 and Lemma 2.2, Corollary 2.3",
+          "how": "definition; the quotients O[G]/N_I and R_χ/N_I are character group rings"
+        },
+        {
+          "where": "Dasgupta–Kakde §5 (preamble, (57)–(59)) and §5.1–5.2",
+          "how": "R = O[G_p]_χ and its character group ring quotients are the coefficient rings of the Brumer–Stark argument"
+        },
+        {
+          "where": "Dasgupta–Kakde §6.1 and Corollary 6.2",
+          "how": "R^# = R_{Ψ^#} receives the transpose and its Fitting ideal"
+        },
+        {
+          "where": "Dasgupta–Kakde §7.1, Lemma 7.1 and its proof (PDF p. 43): R_Ψ for the characters without trivial zero and the injection R → R_Ψ × R_{Ψ′}",
+          "how": "splitting the characters with and without trivial zeroes"
+        },
+        {
+          "where": "IntegralIwasawaTheory:I.6/I.7",
+          "how": "the integral Brumer–Stark statements are made over character group rings imported from L6"
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.charGroupRing",
+          "role": "constructor",
+          "statement": "R_Ψ := range(ev_Ψ), an O-subalgebra of ∏_{ψ∈Ψ} O."
+        },
+        {
+          "name": "TauCeti.charGroupRing.proj",
+          "role": "projection",
+          "statement": "α_Ψ : O[G] →ₐ[O] R_Ψ."
+        },
+        {
+          "name": "TauCeti.charGroupRing.proj_surjective",
+          "role": "projection",
+          "statement": "α_Ψ is surjective."
+        },
+        {
+          "name": "TauCeti.charGroupRing.ker_proj",
+          "role": "characterisation",
+          "statement": "α_Ψ(x) = 0 iff ψ(x) = 0 for every ψ ∈ Ψ."
+        },
+        {
+          "name": "TauCeti.charGroupRing.coord_proj",
+          "role": "simp",
+          "statement": "The ψ-coordinate of α_Ψ(x) is ψ(x)."
+        },
+        {
+          "name": "TauCeti.charGroupRing.ext",
+          "role": "extensionality",
+          "statement": "Two elements of R_Ψ are equal iff all their ψ-coordinates are equal."
+        },
+        {
+          "name": "TauCeti.charGroupRing.restrict",
+          "role": "functoriality",
+          "statement": "For Ψ ⊆ Ψ′, the coordinate restriction R_{Ψ′} →ₐ[O] R_Ψ."
+        },
+        {
+          "name": "TauCeti.charGroupRing.restrict_proj",
+          "role": "functoriality",
+          "statement": "restrict(α_{Ψ′}(x)) = α_Ψ(x)."
+        },
+        {
+          "name": "TauCeti.charGroupRing.restrict_id",
+          "role": "functoriality",
+          "statement": "Restriction along Ψ ⊆ Ψ is the identity."
+        },
+        {
+          "name": "TauCeti.charGroupRing.restrict_comp",
+          "role": "functoriality",
+          "statement": "Restriction along Ψ ⊆ Ψ′ ⊆ Ψ″ is the composite of the two restrictions."
+        },
+        {
+          "name": "TauCeti.charGroupRing.equivGroupRing",
+          "role": "equivalence",
+          "statement": "O[G] ≃ₐ[O] R_Ĝ when #G ≠ 0 in the domain O and #Ĝ = #G."
+        },
+        {
+          "name": "TauCeti.charGroupRing.subsingleton_empty",
+          "role": "example",
+          "statement": "R_∅ is the zero ring."
+        },
+        {
+          "name": "TauCeti.charGroupRing.equivOfSingletonOne",
+          "role": "example",
+          "statement": "R_{1} ≃ₐ[O] O, sending α_{1}(a·g) to a."
+        },
+        {
+          "name": "TauCeti.charGroupRing.card_smul_single_mem",
+          "role": "relation",
+          "statement": "For ψ ∈ Ψ, #G·δ_ψ ∈ R_Ψ (it is α_Ψ(Σ_g ψ(g)^{-1} g)), so #G·∏_{ψ∈Ψ} O ⊆ R_Ψ."
+        }
+      ],
+      "tests": [
+        {
+          "name": "charGroupRing_cyclic_proper",
+          "kind": "non-example",
+          "statement": "G of prime order p with p not a unit in O and #Hom(G, O^×) = p (e.g. O = Z_p[ζ_p]): for every character ψ the idempotent δ_ψ of ∏_{Ĝ} O is not in R_Ĝ ≅ O[G]; R_Ĝ is a proper suborder of the product."
+        },
+        {
+          "name": "charGroupRing_not_gorenstein",
+          "kind": "non-example",
+          "statement": "G generated by g, h, O local with primitive p-th root ζ and maximal ideal (ζ − 1), Ψ = {1, ψ_1, ψ_2} with ψ_1(g) = ζ, ψ_1(h) = 1, ψ_2(g) = 1, ψ_2(h) = ζ: R_Ψ = {(a, b, c) : a ≡ b ≡ c mod (ζ − 1)}, and the maximal ideal of R_Ψ/(ζ − 1) squares to zero and is not principal, so its socle is two-dimensional and R_Ψ is not Gorenstein."
+        },
+        {
+          "name": "charGroupRing_empty",
+          "kind": "degenerate",
+          "statement": "Ψ = ∅: R_∅ is the zero ring."
+        },
+        {
+          "name": "charGroupRing_trivial",
+          "kind": "degenerate",
+          "statement": "Ψ = {1}: R_{1} ≅ O, with α_{1}(a·g) ↦ a."
+        },
+        {
+          "name": "charGroupRing_full",
+          "kind": "compatibility",
+          "statement": "Ψ = Ĝ, #G ≠ 0 in O, #Ĝ = #G: α_Ĝ : O[G] → R_Ĝ is bijective."
+        }
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L6/character-evaluation",
+        "mathlib:AlgHom.range",
+        "mathlib:AlgHom.rangeRestrict"
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/GroupRing/CharacterGroupRing",
+        "namespace": "TauCeti",
+        "declaration": "TauCeti.charGroupRing"
+      },
+      "sources": [
+        {
+          "sourceId": "DK-arXiv-v3",
+          "locator": "§2.2, arXiv v3 PDF p. 15",
+          "excerpt": "given any subset of characters Ψ ⊂ Ĝ, we define RΨ to be the image of",
+          "match": "Definition of R_Ψ as an image, not the product; the names ‘character group rings’ follow the next sentence of the source."
+        }
+      ],
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L6",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L6"
+      ],
+      "implementationStatus": "unchecked",
+      "id": "PadicMeasuresIwasawaAlgebras:L6/character-group-ring"
+    },
+    {
+      "kind": "theorem",
+      "title": "Character group rings are full-rank lattices of finite index",
+      "statement": "In the Dasgupta–Kakde setting, for Ψ ⊆ Ĝ: (i) for ψ ∈ Ψ, α_Ψ(Σ_{g∈G} ψ(g)^{-1} g) = #G·δ_ψ, the vector with #G at ψ and 0 elsewhere, so #G·∏_{ψ∈Ψ} O ⊆ R_Ψ ⊆ ∏_{ψ∈Ψ} O; (ii) R_Ψ is a free O-module of rank #Ψ and (∏_{ψ∈Ψ} O)/R_Ψ is finite; (iii) the joint evaluation of all characters is injective, so α_Ĝ : O[G] → R_Ĝ is an isomorphism; in particular every R_Ψ is a quotient of O[G] of finite index in a finite product of DVRs.",
+      "hypotheses": [
+        "Dasgupta–Kakde setting (§2.2): p is an odd prime; G is a finite abelian group, G = G_p × G′ with G_p its p-Sylow subgroup and G′ of order prime to p; O is the valuation ring of a finite extension K of Q_p containing all values of all characters G → Q̄_p^× (equivalently the e-th roots of unity, e the exponent of G), with finite residue field k; Ĝ = Hom(G, O^×), a group of order #G.",
+        "Only O a domain of characteristic zero with finite residue field and #Ĝ = #G is used; p odd is the source's standing assumption."
+      ],
+      "proofSteps": [
+        "(i) The ψ′-coordinate of Σ_g ψ(g)^{-1} g is Σ_g (ψ^{-1}ψ′)(g), which is #G if ψ′ = ψ and 0 otherwise by orthogonality (character-evaluation, sum_hom_units_eq_zero).",
+        "(ii) R_Ψ lies between the free O-modules #G·O^Ψ and O^Ψ of rank #Ψ; a submodule of a finite free module over the PID O is free, of rank #Ψ by the two bounds. O^Ψ/R_Ψ is a quotient of (O/#G)^Ψ, which is finite because #G ≠ 0 in the characteristic-zero DVR O and its residue field is finite.",
+        "(iii) Σ_{ψ∈Ĝ} ψ(g^{-1})ψ(x) = #G·a_g for x = Σ a_h h, by orthogonality over the dual group Ĝ of order #G; #G is a non-zerodivisor of O."
+      ],
+      "acceptance": [
+        "If p ∤ #G then #G ∈ O^× and R_Ψ = ∏_{ψ∈Ψ} O for every Ψ.",
+        "G = C_p, O = Z_p[ζ_p], Ψ = Ĝ: #(∏_{ψ} O / O[C_p]) = p^{p(p−1)/2}, the norm of the Vandermonde determinant (whose square is ±p^p)."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L6/character-group-ring",
+        "mathlib:sum_hom_units_eq_zero",
+        "mathlib:Submodule.smithNormalForm"
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/GroupRing/CharacterGroupRing",
+        "namespace": "TauCeti",
+        "declaration": "TauCeti.charGroupRing.free"
+      },
+      "sources": [
+        {
+          "sourceId": "DK-arXiv-v3",
+          "locator": "§2.2, arXiv v3 PDF p. 15",
+          "excerpt": "Each RΨ is a finite index subring of a finite product of DVRs",
+          "match": "The source asserts finite index without proof; (i) gives the explicit bound #G·∏O ⊆ R_Ψ, which also supplies the injectivity claimed for O[G] → ∏_{Ĝ} O_ψ."
+        }
+      ],
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L6",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L6"
+      ],
+      "implementationStatus": "unchecked",
+      "id": "PadicMeasuresIwasawaAlgebras:L6/character-group-ring-lattice"
+    },
+    {
+      "kind": "lemma",
+      "title": "Non-zerodivisors of a character group ring",
+      "statement": "For Ψ ⊆ Ĝ and x ∈ R_Ψ the following are equivalent: x is a non-zerodivisor of R_Ψ; ψ(x) ≠ 0 for every ψ ∈ Ψ; x is a non-zerodivisor of ∏_{ψ∈Ψ} O. Multiplication by such x is injective on ∏_{ψ∈Ψ} O and on (∏_{ψ∈Ψ} O)/R_Ψ-lifts, as used in Lemma 2.5.",
+      "hypotheses": [
+        "Dasgupta–Kakde setting (§2.2): p is an odd prime; G is a finite abelian group, G = G_p × G′ with G_p its p-Sylow subgroup and G′ of order prime to p; O is the valuation ring of a finite extension K of Q_p containing all values of all characters G → Q̄_p^× (equivalently the e-th roots of unity, e the exponent of G), with finite residue field k; Ĝ = Hom(G, O^×), a group of order #G."
+      ],
+      "proofSteps": [
+        "If ψ(x) = 0 for some ψ ∈ Ψ, then y = #G·δ_ψ ∈ R_Ψ (character-group-ring-lattice (i)) is nonzero and xy = 0.",
+        "If every ψ(x) ≠ 0, x is a non-zerodivisor of the product of copies of the domain O, hence of its subring R_Ψ."
+      ],
+      "acceptance": [
+        "For G of order 2, O = Z_3 and Ψ = Ĝ, x = 1 + h is a zerodivisor (ψ(x) = 0 for the sign character) while x = 3 + h is not."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L6/character-group-ring-lattice"
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/GroupRing/CharacterGroupRing",
+        "namespace": "TauCeti",
+        "declaration": "TauCeti.charGroupRing.mem_nonZeroDivisors_iff"
+      },
+      "sources": [
+        {
+          "sourceId": "DK-arXiv-v3",
+          "locator": "Proof of Lemma 2.5, arXiv v3 PDF p. 17",
+          "excerpt": "since multiplication by x is an isomorphism between the two quotients",
+          "match": "The source uses that x is a non-zerodivisor of the product O_Ψ; this lemma supplies it from x being one in R_Ψ."
+        }
+      ],
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L6",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L6"
+      ],
+      "implementationStatus": "unchecked",
+      "id": "PadicMeasuresIwasawaAlgebras:L6/character-group-ring-nonzerodivisor"
+    },
+    {
+      "kind": "theorem",
+      "title": "Quotients by subgroup norms are character group rings",
+      "statement": "(Dasgupta–Kakde Lemma 2.2.) Let I ⊆ G be a subgroup and N_I = Σ_{σ∈I} σ ∈ O[G]. For Ψ = {ψ ∈ Ĝ : ψ(I) ≠ 1}, the kernel of α_Ψ : O[G] ↠ R_Ψ is exactly the principal ideal N_I·O[G]; hence O[G]/N_I ≅ R_Ψ is a character group ring.",
+      "hypotheses": [
+        "Dasgupta–Kakde setting (§2.2): p is an odd prime; G is a finite abelian group, G = G_p × G′ with G_p its p-Sylow subgroup and G′ of order prime to p; O is the valuation ring of a finite extension K of Q_p containing all values of all characters G → Q̄_p^× (equivalently the e-th roots of unity, e the exponent of G), with finite residue field k; Ĝ = Hom(G, O^×), a group of order #G."
+      ],
+      "proofSteps": [
+        "ψ(N_I) = Σ_{σ∈I} ψ(σ) = 0 when ψ|_I ≠ 1 (orthogonality on I), so N_I ∈ ker α_Ψ.",
+        "If α_Ψ(x) = 0 and g ∈ I, then ψ(gx) = ψ(g)ψ(x) equals ψ(x) for every ψ ∈ Ĝ: trivially when ψ(g) = 1, and because ψ ∈ Ψ and ψ(x) = 0 otherwise.",
+        "Injectivity of the joint evaluation at all characters (character-group-ring-lattice (iii)) gives gx = x for all g ∈ I.",
+        "An I-invariant x = Σ a_h h has coefficients constant on I-cosets; choosing coset representatives h_j gives x = N_I·Σ_j a_{h_j} h_j."
+      ],
+      "acceptance": [
+        "I = 1: Ψ = ∅ and N_I = 1, so O[G]/(1) = 0 = R_∅.",
+        "I = G: O[G]/N_G ≅ R_{Ĝ∖{1}}; for G = C_p this is O[x]/(1 + x + … + x^{p−1})."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L6/character-group-ring-lattice",
+        "mathlib:sum_hom_units_eq_zero"
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/GroupRing/CharacterGroupRing",
+        "namespace": "TauCeti",
+        "declaration": "TauCeti.charGroupRing.ker_proj_eq_span_norm"
+      },
+      "sources": [
+        {
+          "sourceId": "DK-arXiv-v3",
+          "locator": "Lemma 2.2 and proof, arXiv v3 PDF p. 16",
+          "excerpt": "Hence gx = x for all g ∈ I, which implies that x ∈ (NI)",
+          "match": "Lemma 2.2 with its proof; the injectivity of O[G] → ∏_{Ĝ} O_ψ it uses is character-group-ring-lattice (iii)."
+        }
+      ],
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L6",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L6"
+      ],
+      "implementationStatus": "unchecked",
+      "id": "PadicMeasuresIwasawaAlgebras:L6/norm-element-kernel"
+    },
+    {
+      "kind": "theorem",
+      "title": "Connected components of O[G] as character group rings",
+      "statement": "Write G = G_p × G′. For χ ∈ Ĝ′ let e_χ = (#G′)^{-1} Σ_{a∈G′} χ(a)^{-1} a ∈ O[G′] ⊆ O[G] be its idempotent (L4 character decomposition with H = G′) and Ψ_χ = {ψ ∈ Ĝ : ψ|_{G′} = χ} (the characters belonging to χ). Then ker α_{Ψ_χ} = (1 − e_χ)O[G], so R_{Ψ_χ} ≅ e_χO[G] =: R_χ; R_χ ≅ O[G_p] as O-algebras, with g = g′g_p acting by χ(g′)g_p (the source's O[G_p]_χ); and O[G] ≅ ∏_{χ∈Ĝ′} R_{Ψ_χ}.",
+      "hypotheses": [
+        "Dasgupta–Kakde setting (§2.2): p is an odd prime; G is a finite abelian group, G = G_p × G′ with G_p its p-Sylow subgroup and G′ of order prime to p; O is the valuation ring of a finite extension K of Q_p containing all values of all characters G → Q̄_p^× (equivalently the e-th roots of unity, e the exponent of G), with finite residue field k; Ĝ = Hom(G, O^×), a group of order #G.",
+        "#G′ is a unit of O because p ∤ #G′; O contains the values of χ."
+      ],
+      "proofSteps": [
+        "For ψ ∈ Ĝ, ψ(e_χ) = (#G′)^{-1} Σ_a χ(a)^{-1}ψ(a) is 1 if ψ|_{G′} = χ and 0 otherwise (orthogonality on G′); hence 1 − e_χ ∈ ker α_{Ψ_χ}.",
+        "If x ∈ ker α_{Ψ_χ}, then ψ(e_χx) = 0 for all ψ ∈ Ĝ (zero on Ψ_χ by hypothesis, zero off Ψ_χ because ψ(e_χ) = 0), so e_χx = 0 by injectivity of ev_Ĝ and x = (1 − e_χ)x.",
+        "e_χO[G] → O[G_p], e_χ g′g_p ↦ χ(g′)g_p, is an O-algebra isomorphism since e_χ g′ = χ(g′)e_χ.",
+        "The idempotents e_χ are orthogonal with sum 1 (L4 charIdempotent_mul and sum_charIdempotent), giving the product decomposition."
+      ],
+      "acceptance": [
+        "G = G′ (p ∤ #G): R_χ ≅ O for every χ and O[G] ≅ ∏_{χ∈Ĝ} O.",
+        "G = G_p: there is one component, χ = 1, and R_1 = O[G_p]."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L6/character-group-ring-lattice",
+        "PadicMeasuresIwasawaAlgebras:L4/character-decomposition",
+        "PadicMeasuresIwasawaAlgebras:L4/character-decomposition-api-1",
+        "PadicMeasuresIwasawaAlgebras:L4/character-decomposition-api-2"
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/GroupRing/CharacterGroupRing",
+        "namespace": "TauCeti",
+        "declaration": "TauCeti.charGroupRing.ker_proj_component"
+      },
+      "sources": [
+        {
+          "sourceId": "DK-arXiv-v3",
+          "locator": "§2.2, arXiv v3 PDF p. 15",
+          "excerpt": "Each connected component Rχ of O[G] is an example of a character group ring",
+          "match": "The source states the decomposition and the identification R_χ = R_{Ψ_χ} without proof; the steps above prove both."
+        }
+      ],
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L6",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L6"
+      ],
+      "implementationStatus": "unchecked",
+      "id": "PadicMeasuresIwasawaAlgebras:L6/component-character-group-ring"
+    },
+    {
+      "kind": "theorem",
+      "title": "Norm quotients of a component",
+      "statement": "(Dasgupta–Kakde Corollary 2.3.) For χ ∈ Ĝ′ and a subgroup I ⊆ G_p, R_χ/N_I R_χ ≅ R_Ψ with Ψ = {ψ ∈ Ĝ : ψ|_{G′} = χ, ψ(I) ≠ 1}; precisely, ker α_Ψ is generated by 1 − e_χ and N_I. In particular R_χ/N_I is a finite-index subring of a finite product of copies of O.",
+      "hypotheses": [
+        "Dasgupta–Kakde setting (§2.2): p is an odd prime; G is a finite abelian group, G = G_p × G′ with G_p its p-Sylow subgroup and G′ of order prime to p; O is the valuation ring of a finite extension K of Q_p containing all values of all characters G → Q̄_p^× (equivalently the e-th roots of unity, e the exponent of G), with finite residue field k; Ĝ = Hom(G, O^×), a group of order #G.",
+        "The kernel description holds for any subgroup I; the source states I ⊆ G_p."
+      ],
+      "proofSteps": [
+        "For ψ ∉ Ψ_χ, ψ(e_χx) = 0; for ψ ∈ Ψ_χ, ψ(e_χx) = ψ(x). Hence α_Ψ(x) = 0 iff e_χx ∈ ker α_{{ψ : ψ(I) ≠ 1}}.",
+        "By norm-element-kernel that kernel is N_I·O[G]; so x = (1 − e_χ)x + e_χx lies in (1 − e_χ, N_I), and both generators lie in ker α_Ψ.",
+        "Reduce through R_χ ≅ O[G]/(1 − e_χ) (component-character-group-ring)."
+      ],
+      "acceptance": [
+        "I = 1 gives Ψ = ∅ and R_χ/R_χ = 0.",
+        "χ = 1, G = G_p = I: R_1/N_G ≅ R_{Ĝ∖{1}}."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L6/norm-element-kernel",
+        "PadicMeasuresIwasawaAlgebras:L6/component-character-group-ring"
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/GroupRing/CharacterGroupRing",
+        "namespace": "TauCeti",
+        "declaration": "TauCeti.charGroupRing.ker_proj_component_norm"
+      },
+      "sources": [
+        {
+          "sourceId": "DK-arXiv-v3",
+          "locator": "Corollary 2.3, arXiv v3 PDF p. 16",
+          "excerpt": "In particular, Rχ /NI can be expressed as a finite index subring of a product of DVRs",
+          "match": "Corollary 2.3, deduced from Lemma 2.2 and the component description."
+        }
+      ],
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L6",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L6"
+      ],
+      "implementationStatus": "unchecked",
+      "id": "PadicMeasuresIwasawaAlgebras:L6/component-norm-quotient"
+    },
+    {
+      "kind": "theorem",
+      "title": "Units of character group rings",
+      "statement": "For Ψ ⊆ Ĝ and x ∈ R_Ψ: x is a unit of R_Ψ iff ψ(x) ∈ O^× for every ψ ∈ Ψ. If Ψ is nonempty and contained in Ψ_χ for one χ ∈ Ĝ′, this holds as soon as ψ(x) ∈ O^× for one ψ ∈ Ψ. Moreover ∏_{ψ∈Ψ} ψ(x) ∈ O^× implies ψ(x) ∈ O^× for each ψ.",
+      "hypotheses": [
+        "Dasgupta–Kakde setting (§2.2): p is an odd prime; G is a finite abelian group, G = G_p × G′ with G_p its p-Sylow subgroup and G′ of order prime to p; O is the valuation ring of a finite extension K of Q_p containing all values of all characters G → Q̄_p^× (equivalently the e-th roots of unity, e the exponent of G), with finite residue field k; Ĝ = Hom(G, O^×), a group of order #G."
+      ],
+      "proofSteps": [
+        "∏_{ψ∈Ψ} O is integral over O, hence over R_Ψ. If all ψ(x) are units, the inverse y of x in the product satisfies a monic equation y^n + a_1y^{n−1} + … + a_n = 0 over R_Ψ; multiplying by x^{n−1} gives y = −(a_1 + a_2x + … + a_nx^{n−1}) ∈ R_Ψ. The converse is clear.",
+        "For ψ, ψ′ ∈ Ψ_χ the character ψ′ψ^{-1} is trivial on G′, so it takes p-power roots of unity as values, which are ≡ 1 mod 𝔪_O; hence ψ(x) ≡ ψ′(x) mod 𝔪_O for x ∈ O[G].",
+        "In the local ring O a product of elements is a unit iff each factor is."
+      ],
+      "acceptance": [
+        "G = C_p, χ = 1, x = g ∈ R_Ĝ = O[C_p]: every ψ(g) is a root of unity, so g is a unit (with inverse g^{p−1}).",
+        "x = g − 1 in O[C_p]: ψ(x) = ζ − 1 ∈ 𝔪_O for ψ ≠ 1 and 0 for ψ = 1, so x is not a unit."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L6/character-group-ring",
+        "PadicMeasuresIwasawaAlgebras:L6/component-character-group-ring"
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/GroupRing/CharacterGroupRing",
+        "namespace": "TauCeti",
+        "declaration": "TauCeti.charGroupRing.isUnit_iff"
+      },
+      "sources": [
+        {
+          "sourceId": "DK-arXiv-v3",
+          "locator": "§5.1, arXiv v3 PDF p. 34",
+          "excerpt": "since the O-algebra maps R −→ O induced by each character ψ are local homomorphisms of local rings",
+          "match": "The source uses the unit criterion in §5.1–5.2; the integral-equation argument proves it for every Ψ, and the congruence gives the one-character form."
+        }
+      ],
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L6",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L6"
+      ],
+      "implementationStatus": "unchecked",
+      "id": "PadicMeasuresIwasawaAlgebras:L6/character-group-ring-unit-criterion"
+    },
+    {
+      "kind": "theorem",
+      "title": "Character group rings of one component are complete local",
+      "statement": "For χ ∈ Ĝ′ and nonempty Ψ ⊆ Ψ_χ (for instance R_χ itself, or R_χ/N_I), R_Ψ is a local ring whose maximal ideal is 𝔪_Ψ = {x : ψ(x) ∈ 𝔪_O} for any ψ ∈ Ψ, with residue field k; it is a finite free O-module, noetherian, and complete and separated for the 𝔪_Ψ-adic topology, which coincides with the 𝔪_O-adic topology. Each ψ ∈ Ψ induces a local homomorphism R_Ψ → O.",
+      "hypotheses": [
+        "Dasgupta–Kakde setting (§2.2): p is an odd prime; G is a finite abelian group, G = G_p × G′ with G_p its p-Sylow subgroup and G′ of order prime to p; O is the valuation ring of a finite extension K of Q_p containing all values of all characters G → Q̄_p^× (equivalently the e-th roots of unity, e the exponent of G), with finite residue field k; Ĝ = Hom(G, O^×), a group of order #G."
+      ],
+      "proofSteps": [
+        "By the congruence in character-group-ring-unit-criterion, 𝔪_Ψ does not depend on ψ ∈ Ψ; it is the kernel of the surjection R_Ψ → O → k, hence maximal.",
+        "Every x ∉ 𝔪_Ψ has ψ(x) ∈ O^× for one, hence every, ψ ∈ Ψ, so x is a unit: R_Ψ is local and each ψ is a local homomorphism.",
+        "R_Ψ is finite free over O (character-group-ring-lattice), hence noetherian; R_Ψ/𝔪_O R_Ψ is a finite local k-algebra, so 𝔪_Ψ^N ⊆ 𝔪_O R_Ψ ⊆ 𝔪_Ψ for some N and the two adic topologies agree.",
+        "A finite free module over the complete local ring O is 𝔪_O-adically complete and separated."
+      ],
+      "acceptance": [
+        "Ψ = Ψ_1 for G = G_p: R_Ψ = O[G_p] is local with residue field k.",
+        "Ψ spanning two components (χ ≠ χ′) gives R_Ψ ≅ R_{Ψ∩Ψ_χ} × R_{Ψ∩Ψ_χ′}, which is not local."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L6/character-group-ring-unit-criterion",
+        "PadicMeasuresIwasawaAlgebras:L6/character-group-ring-lattice",
+        "mathlib:IsLocalRing",
+        "mathlib:IsAdicComplete"
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/GroupRing/CharacterGroupRing",
+        "namespace": "TauCeti",
+        "declaration": "TauCeti.charGroupRing.isLocalRing"
+      },
+      "sources": [
+        {
+          "sourceId": "DK-arXiv-v3",
+          "locator": "§7.2.9, arXiv v3 PDF p. 49",
+          "excerpt": "The ring R = RΨ is a complete local Zp -algebra",
+          "match": "Stated without proof in the source (the extraction cites it as §7.2.10; it is §7.2.9 in v3)."
+        }
+      ],
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L6",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L6"
+      ],
+      "implementationStatus": "unchecked",
+      "id": "PadicMeasuresIwasawaAlgebras:L6/character-group-ring-local"
+    },
+    {
+      "kind": "theorem",
+      "title": "The order of a principal quotient of a character group ring",
+      "statement": "(Dasgupta–Kakde Lemma 2.5.) For Ψ ⊆ Ĝ and a non-zerodivisor x ∈ R_Ψ, the quotient R_Ψ/xR_Ψ is finite and #(R_Ψ/xR_Ψ) = #(O/(∏_{ψ∈Ψ} ψ(x))).",
+      "hypotheses": [
+        "Dasgupta–Kakde setting (§2.2): p is an odd prime; G is a finite abelian group, G = G_p × G′ with G_p its p-Sylow subgroup and G′ of order prime to p; O is the valuation ring of a finite extension K of Q_p containing all values of all characters G → Q̄_p^× (equivalently the e-th roots of unity, e the exponent of G), with finite residue field k; Ĝ = Hom(G, O^×), a group of order #G."
+      ],
+      "proofSteps": [
+        "R_Ψ ⊆ O_Ψ := ∏_{ψ∈Ψ} O has finite index (character-group-ring-lattice) and x is a non-zerodivisor of O_Ψ (character-group-ring-nonzerodivisor).",
+        "Multiplication by x is an isomorphism O_Ψ/R_Ψ ≅ xO_Ψ/xR_Ψ; comparing the chains xR_Ψ ⊆ R_Ψ ⊆ O_Ψ and xR_Ψ ⊆ xO_Ψ ⊆ O_Ψ gives #(R_Ψ/xR_Ψ) = #(O_Ψ/xO_Ψ).",
+        "#(O_Ψ/xO_Ψ) = ∏_{ψ∈Ψ} #(O/ψ(x)) = #(O/∏ψ(x)), since #(O/(ab)) = #(O/(a))·#(O/(b)) for nonzero a, b in the DVR O."
+      ],
+      "acceptance": [
+        "x = #G·1: #(R_Ψ/#G R_Ψ) = #(O/#G)^{#Ψ}.",
+        "G = C_p, O = Z_p[ζ_p], Ψ = Ĝ∖{1}, x = g − 1: #(R_Ψ/(x)) = #(O/(ζ−1)^{p−1}) = #(O/p) = p^{p−1}."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L6/character-group-ring-lattice",
+        "PadicMeasuresIwasawaAlgebras:L6/character-group-ring-nonzerodivisor"
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/GroupRing/CharacterGroupRing",
+        "namespace": "TauCeti",
+        "declaration": "TauCeti.charGroupRing.card_quotient_span"
+      },
+      "sources": [
+        {
+          "sourceId": "DK-arXiv-v3",
+          "locator": "Lemma 2.5, arXiv v3 PDF p. 17",
+          "excerpt": "be a non-zerodivisor. Then #RΨ /(x) = #O/(",
+          "match": "Lemma 2.5 and its proof; the non-zerodivisor transfer to O_Ψ is made explicit."
+        }
+      ],
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L6",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L6"
+      ],
+      "implementationStatus": "unchecked",
+      "id": "PadicMeasuresIwasawaAlgebras:L6/character-group-ring-index"
+    },
+    {
+      "kind": "construction",
+      "title": "The involution # and the rings R^#",
+      "statement": "The involution # of O[G] is the O-algebra automorphism g ↦ g^{-1} (the antipode of the commutative Hopf algebra O[G]); (x^#)^# = x and ψ(x^#) = ψ^{-1}(x) for every character ψ. For Ψ ⊆ Ĝ put Ψ^# = Ψ^{-1} = {ψ^{-1} : ψ ∈ Ψ} and R^# = R_{Ψ^#} for R = R_Ψ. Then # maps ker α_Ψ onto ker α_{Ψ^#} and induces mutually inverse O-algebra isomorphisms # : R_Ψ → R_{Ψ^#} and # : R_{Ψ^#} → R_Ψ, with #(α_Ψ(x)) = α_{Ψ^#}(x^#) and (#y)(ψ^{-1}) = y(ψ). It is an endomorphism of R_Ψ only when Ψ^# = Ψ. For R = O[G] (and Z_p[G], Z[G]) R^# = R. Ideals transport as I^# = #(I) ⊆ R^#; in particular (xR)^# = x^#R^#.",
+      "hypotheses": [
+        "Dasgupta–Kakde setting (§2.2): p is an odd prime; G is a finite abelian group, G = G_p × G′ with G_p its p-Sylow subgroup and G′ of order prime to p; O is the valuation ring of a finite extension K of Q_p containing all values of all characters G → Q̄_p^× (equivalently the e-th roots of unity, e the exponent of G), with finite residue field k; Ĝ = Hom(G, O^×), a group of order #G.",
+        "The construction of # on O[G] needs only O commutative and G commutative."
+      ],
+      "proofSteps": [
+        "Take HopfAlgebra.antipodeAlgHom O O[G], an algebra map because O[G] is commutative; MonoidAlgebra.antipode_single gives g ↦ g^{-1}. It agrees with MonoidAlgebra.mapDomainAlgHom of invMonoidHom, so # ∘ # = id.",
+        "ψ(g^#) = ψ(g)^{-1} = ψ^{-1}(g) on group elements, hence on O[G] by linearity.",
+        "Therefore x ∈ ker α_Ψ iff x^# ∈ ker α_{Ψ^#}; # descends to the quotients and its square is the identity."
+      ],
+      "acceptance": [
+        "G′ = ⟨τ⟩ ≅ C_3 (p ≠ 3), χ(τ) = ζ_3: # maps the component R_χ onto the different component R_{χ^{-1}}.",
+        "For Ψ = Ĝ, # is the automorphism # of O[G] ≅ R_Ĝ."
+      ],
+      "uses": [
+        {
+          "where": "Dasgupta–Kakde §6.1 (the definition of R^#) and Lemma 6.1",
+          "how": "the transpose and its Fitting ideal live over R^#"
+        },
+        {
+          "where": "Dasgupta–Kakde (80)",
+          "how": "the contragredient action on M^* uses r^#"
+        },
+        {
+          "where": "Dasgupta–Kakde Theorem 3.3 / Theorem 1.7 and Corollary 6.2",
+          "how": "Fitt(Sel) = (Θ^#) and Fitt_R(Sel_R) = Fitt_{R^#}(∇_{R^#})^#"
+        },
+        {
+          "where": "Dasgupta–Kakde §1.1, observation (b)",
+          "how": "Ann(M^∨) = Ann(M)^# for the Pontryagin dual"
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.sharp",
+          "role": "constructor",
+          "statement": "# : O[G] →ₐ[O] O[G], the antipode, g ↦ g^{-1}."
+        },
+        {
+          "name": "TauCeti.sharp_of",
+          "role": "simp",
+          "statement": "#g = g^{-1}."
+        },
+        {
+          "name": "TauCeti.sharp_sharp",
+          "role": "simp",
+          "statement": "(x^#)^# = x."
+        },
+        {
+          "name": "TauCeti.sharpAlgEquiv",
+          "role": "equivalence",
+          "statement": "# as a self-inverse O-algebra automorphism of O[G]."
+        },
+        {
+          "name": "TauCeti.charEval_sharp",
+          "role": "relation",
+          "statement": "ψ(x^#) = ψ^{-1}(x)."
+        },
+        {
+          "name": "TauCeti.sharp_eq_mapDomain",
+          "role": "compatibility",
+          "statement": "# = MonoidAlgebra.mapDomainAlgHom of inversion G → G."
+        },
+        {
+          "name": "TauCeti.charGroupRing.sharpEquiv",
+          "role": "equivalence",
+          "statement": "R_Ψ ≃ₐ[O] R_{Ψ^{-1}} induced by #."
+        },
+        {
+          "name": "TauCeti.charGroupRing.sharpEquiv_proj",
+          "role": "simp",
+          "statement": "#(α_Ψ(x)) = α_{Ψ^{-1}}(x^#)."
+        },
+        {
+          "name": "TauCeti.charGroupRing.coord_sharpEquiv",
+          "role": "simp",
+          "statement": "(#y)(ψ^{-1}) = y(ψ)."
+        },
+        {
+          "name": "TauCeti.charGroupRing.map_sharp_span",
+          "role": "functoriality",
+          "statement": "#(xR_Ψ) = #(x)·R_{Ψ^{-1}}."
+        }
+      ],
+      "tests": [
+        {
+          "name": "sharp_component",
+          "kind": "computation",
+          "statement": "τ ∈ G, ψ(τ) = ζ a primitive cube root of unity: ψ(τ^#) = ζ²."
+        },
+        {
+          "name": "sharp_not_endomorphism",
+          "kind": "non-example",
+          "statement": "O a characteristic-zero domain, ψ(τ) = ζ a primitive cube root of unity, Ψ = {ψ}: τ − ζ ∈ ker α_Ψ but #(τ − ζ) = τ^{-1} − ζ ∉ ker α_Ψ (ψ-value ζ² − ζ ≠ 0), so # does not induce an endomorphism of R_Ψ."
+        },
+        {
+          "name": "sharp_trivialGroup",
+          "kind": "degenerate",
+          "statement": "G trivial: # is the identity."
+        },
+        {
+          "name": "sharp_full",
+          "kind": "compatibility",
+          "statement": "Ĝ^{-1} = Ĝ, so R_Ĝ^# = R_Ĝ."
+        }
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L6/character-group-ring",
+        "mathlib:HopfAlgebra.antipodeAlgHom",
+        "mathlib:MonoidAlgebra.antipode_single",
+        "mathlib:MonoidAlgebra.mapDomainAlgHom",
+        "mathlib:invMonoidHom"
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/GroupRing/CharacterGroupRing",
+        "namespace": "TauCeti",
+        "declaration": "TauCeti.sharp"
+      },
+      "sources": [
+        {
+          "sourceId": "DK-arXiv-v3",
+          "locator": "§6.1, arXiv v3 PDF p. 40",
+          "excerpt": "The involution # on O[G] induces mutually inverse O-algebra maps",
+          "match": "R^# = R_{Ψ^#} with # : R → R^#, R^# → R mutually inverse; # is not an endomorphism of R unless Ψ^# = Ψ."
+        }
+      ],
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L6",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L6"
+      ],
+      "implementationStatus": "unchecked",
+      "id": "PadicMeasuresIwasawaAlgebras:L6/sharp-involution"
+    },
+    {
+      "kind": "construction",
+      "title": "The contragredient dual",
+      "statement": "For a ring isomorphism σ : S → R of commutative rings (σ = # : R^# → R for R = R_Ψ, or # : R → R for R = O[G], Z_p[G], Z[G]) and an R-module M, the contragredient dual M^* = Hom_R(M, R) is the S-module with (s·φ)(x) = φ(σ(s)·x); for R = R_Ψ this is Dasgupta–Kakde's rule (r·φ)(x) = φ(r^#·x). A linear map f : M → N induces the S-linear f^* : N^* → M^*, φ ↦ φ∘f, functorially; for M = R^m, M^* is free over S on the dual basis.",
+      "hypotheses": [
+        "R and S are commutative rings and σ is a ring isomorphism; the module structure is Module.compHom along σ.",
+        "The source defines it for Z[G]-modules and transports it to R_Ψ-modules; the general form covers both."
+      ],
+      "proofSteps": [
+        "Give Module.Dual R M the S-module structure Module.compHom along σ; (s·φ)(x) = σ(s)φ(x) = φ(σ(s)x) by R-linearity of φ.",
+        "f^* is LinearMap.dualMap f, which is S-linear for the transported structures; map_id and map_comp hold for dualMap.",
+        "For M = R^m the dual basis identifies M^* with R^m, and σ^{-1} coordinatewise with S^m."
+      ],
+      "acceptance": [
+        "R = O[G], M = R, φ = id: (g·φ)(1) = g^{-1}.",
+        "σ = id: M^* is the ordinary dual Hom_R(M, R)."
+      ],
+      "uses": [
+        {
+          "where": "Dasgupta–Kakde (80)–(81), §6.1",
+          "how": "P_i^* for the transpose of a presentation"
+        },
+        {
+          "where": "Dasgupta–Kakde Lemma A.8 and (153)",
+          "how": "the transpose of ∇ is computed from (B^θ)^* → (V^θ)^*"
+        },
+        {
+          "where": "IntegralIwasawaTheory:I.6",
+          "how": "the Selmer module is the transpose of the Ritter–Weiss module ∇"
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.ContragredientDual",
+          "role": "constructor",
+          "statement": "Hom_R(M, R) with the S-module structure along σ."
+        },
+        {
+          "name": "TauCeti.ContragredientDual.toDual",
+          "role": "coercion",
+          "statement": "The underlying functional in Module.Dual R M."
+        },
+        {
+          "name": "TauCeti.ContragredientDual.smul_apply",
+          "role": "simp",
+          "statement": "(s·φ)(x) = φ(σ(s)·x)."
+        },
+        {
+          "name": "TauCeti.ContragredientDual.map",
+          "role": "functoriality",
+          "statement": "f : M → N induces f^* : N^* →ₗ[S] M^*."
+        },
+        {
+          "name": "TauCeti.ContragredientDual.map_id",
+          "role": "functoriality",
+          "statement": "id^* = id."
+        },
+        {
+          "name": "TauCeti.ContragredientDual.map_comp",
+          "role": "functoriality",
+          "statement": "(g∘f)^* = f^*∘g^*."
+        },
+        {
+          "name": "TauCeti.ContragredientDual.equivPi",
+          "role": "equivalence",
+          "statement": "(R^m)^* ≃ₗ[S] S^m via the dual basis and σ^{-1}."
+        }
+      ],
+      "tests": [
+        {
+          "name": "contragredient_smul_group",
+          "kind": "computation",
+          "statement": "R = S = O[G], σ = #, φ = id ∈ Hom_R(R, R): (g·φ)(1) = g^{-1}."
+        },
+        {
+          "name": "contragredient_trivial",
+          "kind": "degenerate",
+          "statement": "σ = id: (s·φ)(x) = s·φ(x), the ordinary dual."
+        },
+        {
+          "name": "contragredient_not_ordinary",
+          "kind": "non-example",
+          "statement": "R = O[G], σ = #, g with g^{-1} ≠ g: (g·id)(1) = g^{-1} ≠ g, so the contragredient structure differs from the ordinary one."
+        }
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L6/sharp-involution",
+        "mathlib:Module.Dual",
+        "mathlib:LinearMap.dualMap",
+        "mathlib:Module.compHom"
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/Fitting/Transpose",
+        "namespace": "TauCeti.ContragredientDual",
+        "declaration": "TauCeti.ContragredientDual"
+      },
+      "sources": [
+        {
+          "sourceId": "DK-arXiv-v3",
+          "locator": "§6.1, equation (80), arXiv v3 PDF p. 40",
+          "excerpt": "we endow the dual M ∗ := HomZ[G] (M, Z[G]) with the contragradient action",
+          "match": "Equation (80); for an R_Ψ-module the source views M^* as an R^#-module by the same rule."
+        }
+      ],
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L6",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L6"
+      ],
+      "implementationStatus": "unchecked",
+      "id": "PadicMeasuresIwasawaAlgebras:L6/contragredient-dual"
+    },
+    {
+      "kind": "definition",
+      "title": "Quadratically presented modules",
+      "planet": {
+        "name": "Quadratically presented module"
+      },
+      "statement": "Let R be a commutative ring. A quadratic presentation of an R-module N consists of an integer m ≥ 1, an m×m matrix φ over R and a surjection π : R^m → N whose kernel is the image of φ : R^m → R^m; N is quadratically presented over R if it has one, equivalently N ≅ coker(φ) for a square matrix φ of size m ≥ 1.",
+      "hypotheses": [
+        "R is an arbitrary commutative ring; no noetherian or finiteness hypothesis is made beyond the stated ones.",
+        "m ≥ 1 is part of the definition (the zero module is presented by R →(1) R)."
+      ],
+      "proofSteps": [
+        "Record (m, φ, π) with π surjective and range(φ) = ker(π); a quadratically presented module is finitely presented.",
+        "Base change: tensoring the exact sequence R^m → R^m → N → 0 with R′ is right exact and gives the image matrix.",
+        "Direct sums use the block-diagonal matrix; transport along isomorphisms composes π."
+      ],
+      "acceptance": [
+        "R/(a) is presented by R →(a) R; R^m by the zero m×m matrix.",
+        "Over Z_p⟦T⟧, F_p = Z_p⟦T⟧/(p, T) is not quadratically presented."
+      ],
+      "uses": [
+        {
+          "where": "Dasgupta–Kakde Theorem 3.3 (= Theorem 1.7)",
+          "how": "Sel^{Σ′}_Σ(H)^-_p is quadratically presented with Fitt = (Θ^#)"
+        },
+        {
+          "where": "Dasgupta–Kakde Lemma 4.3 and (53)",
+          "how": "quadratic presentations pass to extensions by Lemma 2.6"
+        },
+        {
+          "where": "Dasgupta–Kakde §2.3 (elementary argument) and §5.1",
+          "how": "Lemmas 2.4–2.5 compute orders from the principal Fitting ideal"
+        },
+        {
+          "where": "Dasgupta–Kakde Lemma 6.1 and Corollary 6.2",
+          "how": "the transpose of a quadratic presentation"
+        },
+        {
+          "where": "IntegralIwasawaTheory:I.7",
+          "how": "statement of the integral Brumer–Stark theorem"
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.QuadraticPresentation",
+          "role": "structure",
+          "statement": "Data (m ≥ 1, φ ∈ M_m(R), π : R^m ↠ N) with range(φ) = ker(π)."
+        },
+        {
+          "name": "TauCeti.QuadraticPresentation.size",
+          "role": "projection",
+          "statement": "The size m ≥ 1."
+        },
+        {
+          "name": "TauCeti.QuadraticPresentation.rel",
+          "role": "projection",
+          "statement": "The square relation matrix φ."
+        },
+        {
+          "name": "TauCeti.QuadraticPresentation.gen",
+          "role": "projection",
+          "statement": "The surjection π : R^m → N."
+        },
+        {
+          "name": "TauCeti.IsQuadraticallyPresented",
+          "role": "constructor",
+          "statement": "N has a quadratic presentation over R."
+        },
+        {
+          "name": "TauCeti.QuadraticPresentation.finitePresentation",
+          "role": "instance",
+          "statement": "A quadratically presented module is finitely presented."
+        },
+        {
+          "name": "TauCeti.QuadraticPresentation.ofLinearEquiv",
+          "role": "functoriality",
+          "statement": "Transport along N ≅ N′."
+        },
+        {
+          "name": "TauCeti.QuadraticPresentation.cokernel",
+          "role": "constructor",
+          "statement": "coker(φ) is quadratically presented by φ, for square φ of size m ≥ 1."
+        },
+        {
+          "name": "TauCeti.QuadraticPresentation.baseChange",
+          "role": "functoriality",
+          "statement": "N ⊗_R R′ is quadratically presented over R′."
+        },
+        {
+          "name": "TauCeti.QuadraticPresentation.baseChange_size",
+          "role": "simp",
+          "statement": "The base change has the same size."
+        },
+        {
+          "name": "TauCeti.QuadraticPresentation.baseChange_rel",
+          "role": "simp",
+          "statement": "The base-changed relation matrix is the image of φ under R → R′."
+        },
+        {
+          "name": "TauCeti.QuadraticPresentation.prod",
+          "role": "relation",
+          "statement": "N × N′ is quadratically presented by the block-diagonal matrix."
+        },
+        {
+          "name": "TauCeti.QuadraticPresentation.zero",
+          "role": "example",
+          "statement": "The zero module, presented by R →(1) R."
+        },
+        {
+          "name": "TauCeti.QuadraticPresentation.cyclic",
+          "role": "example",
+          "statement": "R/(a), presented by R →(a) R."
+        },
+        {
+          "name": "TauCeti.QuadraticPresentation.cyclic_det",
+          "role": "simp",
+          "statement": "det of the presentation of R/(a) is a."
+        }
+      ],
+      "tests": [
+        {
+          "name": "quadratic_cyclic",
+          "kind": "computation",
+          "statement": "R/(a) has a quadratic presentation of size 1 with determinant a."
+        },
+        {
+          "name": "quadratic_zero",
+          "kind": "degenerate",
+          "statement": "The zero module is quadratically presented (m = 1, φ = (1)); m = 0 is excluded."
+        },
+        {
+          "name": "quadratic_free",
+          "kind": "degenerate",
+          "statement": "R^m (m ≥ 1) has a quadratic presentation with φ = 0."
+        },
+        {
+          "name": "not_quadratic_residue_field",
+          "kind": "non-example",
+          "statement": "Over Z_p⟦T⟧ the module Z_p⟦T⟧/(p, T) is not quadratically presented: its Fitting ideal (p, T) is not principal."
+        },
+        {
+          "name": "quadratic_baseChange",
+          "kind": "compatibility",
+          "statement": "For R → R′, (R/(a)) ⊗_R R′ is quadratically presented over R′."
+        }
+      ],
+      "prerequisites": [
+        "mathlib:Matrix.toLin'",
+        "mathlib:Module.FinitePresentation"
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/Fitting/QuadraticPresentation",
+        "namespace": "TauCeti.QuadraticPresentation",
+        "declaration": "TauCeti.QuadraticPresentation"
+      },
+      "sources": [
+        {
+          "sourceId": "DK-arXiv-v3",
+          "locator": "§2.3, arXiv v3 PDF p. 16",
+          "excerpt": "is called quadratically presented over R if there exists a positive integer m",
+          "match": "The definition, with m positive."
+        }
+      ],
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L6",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L6"
+      ],
+      "implementationStatus": "unchecked",
+      "id": "PadicMeasuresIwasawaAlgebras:L6/quadratic-presentation"
+    },
+    {
+      "kind": "theorem",
+      "title": "The Fitting ideal of a quadratic presentation",
+      "statement": "If N has a quadratic presentation R^m →φ R^m → N → 0, then Fitt_R(N) = (det φ); in particular Fitt_R(N) is principal.",
+      "hypotheses": [
+        "R is an arbitrary commutative ring; no noetherian or finiteness hypothesis is made beyond the stated ones.",
+        "Fitt^i_R(M) is the i-th Fitting ideal of a finitely generated R-module M (minors of size n − i of the relation matrix of any n generators; R when n ≤ i), independent of the generators, imported from the Tau Ceti roadmap StableReduction, Layer 1 (accepted RS-16), together with base change, monotonicity under surjections and Fitt^0 ⊆ Ann; Fitt_R(M) means Fitt^0_R(M)."
+      ],
+      "proofSteps": [
+        "By presentation independence of the imported Fitting ideal, compute Fitt^0 from the presentation (π, φ): its m×m minors.",
+        "The only m×m minor of the m×m matrix φ is det φ."
+      ],
+      "acceptance": [
+        "N = R/(a): Fitt = (a).",
+        "N = R^m: Fitt = (det 0) = 0 for m ≥ 1."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L6/quadratic-presentation",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
+        "mathlib:Matrix.det"
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/Fitting/QuadraticPresentation",
+        "namespace": "TauCeti.QuadraticPresentation",
+        "declaration": "TauCeti.QuadraticPresentation.fittingIdeal_eq"
+      },
+      "sources": [
+        {
+          "sourceId": "DK-arXiv-v3",
+          "locator": "§2.3, arXiv v3 PDF p. 16",
+          "excerpt": "In this case, FittR (N) is principal and generated by the determinant of the map ϕ",
+          "match": "Stated in the source after the definition."
+        }
+      ],
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L6",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L6"
+      ],
+      "implementationStatus": "unchecked",
+      "id": "PadicMeasuresIwasawaAlgebras:L6/fitting-quadratic"
+    },
+    {
+      "kind": "definition",
+      "title": "Locally quadratic presentations",
+      "statement": "A locally quadratic presentation of an R-module M is an exact sequence P_1 →f P_0 →π M → 0 with P_0, P_1 finitely generated projective R-modules of the same constant rank r (rank of (P_i)_𝔭 equal to r at every prime 𝔭). Every quadratic presentation is locally quadratic; over a local ring, and factorwise over a finite product of local rings (such as Z_p[G] and its algebras), a locally quadratic presentation is quadratic, because projective modules of constant rank are free (Dasgupta–Kakde Remark A.7); for r = 0 the module M is 0, presented by R →(1) R.",
+      "hypotheses": [
+        "R is an arbitrary commutative ring; no noetherian or finiteness hypothesis is made beyond the stated ones.",
+        "Constant rank is Module.rankAtStalk at every prime."
+      ],
+      "proofSteps": [
+        "Over a local ring, a finitely generated projective module is free of rank its rank at the closed point.",
+        "Over R = ∏_i A_i with A_i local, P = ∏_i P_i with P_i free over A_i of rank r, so P ≅ R^r and the presentation becomes R^r → R^r → M → 0.",
+        "A quadratic presentation has P_0 = P_1 = R^m, of constant rank m."
+      ],
+      "acceptance": [
+        "Over Z_p × Z_p the inclusion of Z_p × 0 into R presents 0 × Z_p by projectives of unequal ranks: not locally quadratic.",
+        "Over a local ring, locally quadratic of rank r ≥ 1 means quadratic of size r."
+      ],
+      "uses": [
+        {
+          "where": "Dasgupta–Kakde Lemma A.5, (151)–(152)",
+          "how": "V^θ → B^θ → ∇ is a locally quadratic presentation of the Ritter–Weiss module"
+        },
+        {
+          "where": "Dasgupta–Kakde Remark A.7",
+          "how": "over Z_p[G]-algebras the locally quadratic presentation is quadratic (property (P4))"
+        },
+        {
+          "where": "IntegralIwasawaTheory:I.6",
+          "how": "(P4) for ∇ and its base changes to character group rings"
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.IsLocallyQuadraticPresentation",
+          "role": "constructor",
+          "statement": "P_1 →f P_0 →π M → 0 exact with P_i finitely generated projective of the same constant rank."
+        },
+        {
+          "name": "TauCeti.QuadraticPresentation.isLocallyQuadraticPresentation",
+          "role": "coercion",
+          "statement": "A quadratic presentation is locally quadratic."
+        },
+        {
+          "name": "TauCeti.IsLocallyQuadraticPresentation.isQuadraticallyPresented",
+          "role": "characterisation",
+          "statement": "Over a local ring a locally quadratic presentation gives a quadratic presentation."
+        },
+        {
+          "name": "TauCeti.IsLocallyQuadraticPresentation.isQuadraticallyPresented_pi",
+          "role": "characterisation",
+          "statement": "Over a finite product of local rings a locally quadratic presentation gives a quadratic presentation."
+        }
+      ],
+      "tests": [
+        {
+          "name": "lq_quadratic",
+          "kind": "compatibility",
+          "statement": "A quadratic presentation (φ, π) is a locally quadratic presentation."
+        },
+        {
+          "name": "lq_unequal_rank",
+          "kind": "non-example",
+          "statement": "R = Z_p × Z_p, I = Z_p × 0: the presentation I ↪ R ↠ R/I is not locally quadratic (ranks of I are 1 and 0)."
+        },
+        {
+          "name": "lq_rank_zero",
+          "kind": "degenerate",
+          "statement": "0 → 0 → 0 → 0 is locally quadratic of rank 0."
+        }
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L6/quadratic-presentation",
+        "mathlib:Module.Projective",
+        "mathlib:Module.Free",
+        "mathlib:Module.rankAtStalk"
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/Fitting/QuadraticPresentation",
+        "namespace": "TauCeti",
+        "declaration": "TauCeti.IsLocallyQuadraticPresentation"
+      },
+      "sources": [
+        {
+          "sourceId": "DK-arXiv-v3",
+          "locator": "Remark A.7, arXiv v3 PDF p. 86",
+          "excerpt": "Since Zp [G] is a product of local rings, the projective module of constant rank VRθ is free",
+          "match": "Remark A.7; Lemma A.5 (PDF p. 85) uses the term ‘locally quadratic presentation’ without a separate definition."
+        }
+      ],
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L6",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L6"
+      ],
+      "implementationStatus": "unchecked",
+      "id": "PadicMeasuresIwasawaAlgebras:L6/locally-quadratic-presentation"
+    },
+    {
+      "kind": "theorem",
+      "title": "Fitting ideals of extensions with a quadratically presented quotient",
+      "statement": "(Dasgupta–Kakde Lemma 2.6.) Let R be a commutative ring and 0 → A → B → C → 0 an exact sequence of R-modules with C quadratically presented and A finitely generated. Then Fitt_R(B) = Fitt_R(A)·Fitt_R(C). If A and C are both quadratically presented, so is B: from presentations of size n of A (matrix ψ_A) and size m of C (matrix φ_C), B has a quadratic presentation of size n + m with block upper-triangular matrix [[ψ_A, X], [0, φ_C]], where the columns of X express the lifted relations of C in the generators of A.",
+      "hypotheses": [
+        "R is an arbitrary commutative ring; no noetherian or finiteness hypothesis is made beyond the stated ones.",
+        "Fitt^i_R(M) is the i-th Fitting ideal of a finitely generated R-module M (minors of size n − i of the relation matrix of any n generators; R when n ≤ i), independent of the generators, imported from the Tau Ceti roadmap StableReduction, Layer 1 (accepted RS-16), together with base change, monotonicity under surjections and Fitt^0 ⊆ Ann; Fitt_R(M) means Fitt^0_R(M).",
+        "A finitely generated is needed for Fitt_R(A) and is implicit in the source, where all modules are finitely generated over noetherian rings; it is equivalent to B finitely generated."
+      ],
+      "proofSteps": [
+        "Choose generators a_1, …, a_n of A, a quadratic presentation (m, φ_C) of C and lifts c̃_j ∈ B of its generators; the lifted relations Σ_j φ_{jk}c̃_j lie in A and equal Σ_i X_{ik}a_i.",
+        "Every relation Σ x_ia_i + Σ y_jc̃_j = 0 of B maps to a relation of C, so y = φ_Cz; then x + Xz is a relation of A. Hence the relation module of B is generated by (relations of A, 0) and the columns (−X_k, φ_k).",
+        "An (n + m)-minor of the block matrix that uses fewer than m columns of the second block has more than n columns supported in the first n rows and vanishes; the others are (n-minor of A's relations)·det φ_C.",
+        "If A has a square presentation, the block matrix is square of size n + m."
+      ],
+      "acceptance": [
+        "0 → R/(a) → R/(ab) → R/(b) → 0 for a non-zerodivisor b: (ab) = (a)(b).",
+        "Split sequences B = A ⊕ C: Fitt(A ⊕ C) = Fitt(A)Fitt(C) when C is quadratically presented."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L6/quadratic-presentation",
+        "PadicMeasuresIwasawaAlgebras:L6/fitting-quadratic",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs"
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/Fitting/Extension",
+        "namespace": "TauCeti",
+        "declaration": "TauCeti.fittingIdeal_eq_mul_of_exact"
+      },
+      "sources": [
+        {
+          "sourceId": "DK-arXiv-v3",
+          "locator": "Lemma 2.6, arXiv v3 PDF p. 18",
+          "excerpt": "Furthermore, if A and C are both quadratically presented, then B is as well",
+          "match": "Lemma 2.6; the source cites Northcott, Finite free resolutions, Theorem 22 (not read here), and the proof steps above give a direct argument."
+        }
+      ],
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L6",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L6"
+      ],
+      "implementationStatus": "unchecked",
+      "id": "PadicMeasuresIwasawaAlgebras:L6/fitting-extension"
+    },
+    {
+      "kind": "theorem",
+      "title": "Fitting ideals of two extensions of a common quotient",
+      "statement": "(Dasgupta–Kakde Lemma 2.7.) Let B, B′ be quadratically presented R-modules with exact sequences 0 → A → B → C → 0 and 0 → A′ → B′ → C → 0, A and A′ finitely generated. Then Fitt_R(A)·Fitt_R(B′) = Fitt_R(A′)·Fitt_R(B).",
+      "hypotheses": [
+        "R is an arbitrary commutative ring; no noetherian or finiteness hypothesis is made beyond the stated ones.",
+        "Fitt^i_R(M) is the i-th Fitting ideal of a finitely generated R-module M (minors of size n − i of the relation matrix of any n generators; R when n ≤ i), independent of the generators, imported from the Tau Ceti roadmap StableReduction, Layer 1 (accepted RS-16), together with base change, monotonicity under surjections and Fitt^0 ⊆ Ann; Fitt_R(M) means Fitt^0_R(M).",
+        "A, A′ finitely generated (automatic when R is noetherian)."
+      ],
+      "proofSteps": [
+        "Form M = B ×_C B′, the pairs (b, b′) with the same image in C.",
+        "The projections give exact sequences 0 → A′ → M → B → 0 and 0 → A → M → B′ → 0.",
+        "fitting-extension applied to both (B and B′ quadratically presented) computes Fitt_R(M) = Fitt_R(A′)Fitt_R(B) = Fitt_R(A)Fitt_R(B′)."
+      ],
+      "acceptance": [
+        "C = 0: A = B, A′ = B′ and both sides are Fitt(B)Fitt(B′).",
+        "B = B′, A = A′: trivial identity."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L6/fitting-extension"
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/Fitting/Extension",
+        "namespace": "TauCeti",
+        "declaration": "TauCeti.fittingIdeal_mul_comm_of_exact"
+      },
+      "sources": [
+        {
+          "sourceId": "DK-arXiv-v3",
+          "locator": "Lemma 2.7 and proof, arXiv v3 PDF p. 18",
+          "excerpt": "Computing FittR (M) in two ways using these exact sequences and Lemma 2.6 yields the desired result",
+          "match": "Lemma 2.7 with its fibre-product proof."
+        }
+      ],
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L6",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L6"
+      ],
+      "implementationStatus": "unchecked",
+      "id": "PadicMeasuresIwasawaAlgebras:L6/fitting-fibre-product"
+    },
+    {
+      "kind": "theorem",
+      "title": "The order of a quadratically presented module over a finite-index order",
+      "statement": "(Dasgupta–Kakde Lemma 2.4.) Let B be a subring of finite index of a finite product B′ = ∏_i D_i of principal ideal domains of characteristic zero (for instance a character group ring R_Ψ ⊆ ∏_{ψ∈Ψ} O). Let N be a quadratically presented B-module with Fitt_B(N) = (x) for a non-zerodivisor x of B such that B/(x) is finite. Then N is finite and #N = #(B/(x)).",
+      "hypotheses": [
+        "B ⊆ ∏_i D_i has finite additive index; each D_i is a PID of characteristic zero. The source says ‘a finite product of PIDs’; characteristic zero is the generality planned here, which covers every use, and is what makes x a non-zerodivisor of B′.",
+        "Fitt^i_R(M) is the i-th Fitting ideal of a finitely generated R-module M (minors of size n − i of the relation matrix of any n generators; R when n ≤ i), independent of the generators, imported from the Tau Ceti roadmap StableReduction, Layer 1 (accepted RS-16), together with base change, monotonicity under surjections and Fitt^0 ⊆ Ann; Fitt_R(M) means Fitt^0_R(M)."
+      ],
+      "proofSteps": [
+        "Let A be the m×m relation matrix, so N ≅ B^m/AB^m and (det A) = (x); det A is a non-zerodivisor of B.",
+        "det A is a non-zerodivisor of B′: if (det A)y = 0 with y ∈ B′, then e·y ∈ B for e = #(B′/B), so e·y = 0 and y = 0 in characteristic zero.",
+        "For a PID D, Smith normal form gives D^m/AD^m ≅ ⊕ D/x_iD with ∏ x_i = det A up to a unit, so #(D^m/AD^m) = #(D/det A); the statement is multiplicative over finite products.",
+        "Descent from B′ to B: multiplication by det A gives B′/B ≅ det(A)B′/det(A)B, so #(B′/det A·B′) = #(B/det A·B) (source (27)); multiplication by A gives (B′)^m/B^m ≅ A(B′)^m/AB^m, injective by the adjugate and the non-zerodivisor det A, so #((B′)^m/A(B′)^m) = #(B^m/AB^m) (source (28))."
+      ],
+      "acceptance": [
+        "B = O, N = O/(a): #N = #(O/a).",
+        "N = 0 with presentation (1): #N = 1 = #(B/B)."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L6/quadratic-presentation",
+        "PadicMeasuresIwasawaAlgebras:L6/fitting-quadratic",
+        "PadicMeasuresIwasawaAlgebras:L6/character-group-ring-nonzerodivisor",
+        "mathlib:Submodule.smithNormalForm",
+        "mathlib:Matrix.mul_adjugate"
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/Fitting/QuadraticPresentation",
+        "namespace": "TauCeti.QuadraticPresentation",
+        "declaration": "TauCeti.QuadraticPresentation.card_eq"
+      },
+      "sources": [
+        {
+          "sourceId": "DK-arXiv-v3",
+          "locator": "Lemma 2.4, arXiv v3 PDF p. 16–17",
+          "excerpt": "Let N be a quadratically presented B-module such that FittB (N) = (x) for some non-zerodivisor x ∈ B",
+          "match": "Lemma 2.4 with its proof via (27)–(28); the transfer of the non-zerodivisor to B′ is made explicit."
+        }
+      ],
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L6",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L6"
+      ],
+      "implementationStatus": "unchecked",
+      "id": "PadicMeasuresIwasawaAlgebras:L6/quadratic-cardinality"
+    },
+    {
+      "kind": "construction",
+      "title": "Compound matrices",
+      "planet": {
+        "name": "Compound matrix"
+      },
+      "statement": "For a commutative ring R, finite linearly ordered index types and an ι×κ matrix A over R, the r-th compound matrix C_r(A) is the matrix indexed by r-subsets S ⊆ ι and T ⊆ κ whose (S, T) entry is the minor det A[S, T] (rows S and columns T in increasing order). It is the matrix of ⋀^r A : ⋀^r R^κ → ⋀^r R^ι in the bases e_T = e_{t_1} ∧ … ∧ e_{t_r} (t_1 < … < t_r) of Mathlib's exterior-power bases.",
+      "hypotheses": [
+        "R is an arbitrary commutative ring; no noetherian or finiteness hypothesis is made beyond the stated ones.",
+        "Index types are finite and linearly ordered; r-subsets are Set.powersetCard, enumerated increasingly by Set.powersetCard.ofFinEmbEquiv."
+      ],
+      "proofSteps": [
+        "Define the entry as the determinant of A.submatrix along the increasing enumerations of S and T.",
+        "The coefficient of e_S in ⋀^r A(e_T) = A e_{t_1} ∧ … ∧ A e_{t_r} is det A[S, T] (exteriorPower.map_apply_ιMulti and the dual basis ιMultiDual of Module.Basis.exteriorPower).",
+        "Functoriality of exterior powers (exteriorPower.map_comp) then gives Cauchy–Binet C_r(AB) = C_r(A)C_r(B)."
+      ],
+      "acceptance": [
+        "C_1(A) = A under the bijection of κ with its 1-subsets.",
+        "For square A of size m, C_m(A) = (det A)."
+      ],
+      "uses": [
+        {
+          "where": "Dasgupta–Kakde proof of Lemma 3.9",
+          "how": "⋀^r R^n → ⋀^r R^m is given by C_r(A)"
+        },
+        {
+          "where": "Dasgupta–Kakde Appendix B.2 (maximal minors and higher Fitting ideals)",
+          "how": "Fitt^s is generated by the minors that compound matrices list"
+        },
+        {
+          "where": "PadicMeasuresIwasawaAlgebras:L6 exterior biduals",
+          "how": "the exterior-power bases and minors of the Burns–Sakamoto–Sano contractions"
+        }
+      ],
+      "api": [
+        {
+          "name": "Matrix.compound",
+          "role": "constructor",
+          "statement": "C_r(A)_{S,T} = det A[S, T]."
+        },
+        {
+          "name": "Matrix.compound_eq_toMatrix",
+          "role": "compatibility",
+          "statement": "C_r(A) is the matrix of exteriorPower.map r (toLin' A) in the bases Module.Basis.exteriorPower r of the standard bases."
+        },
+        {
+          "name": "Matrix.compound_mul",
+          "role": "functoriality",
+          "statement": "C_r(AB) = C_r(A)C_r(B) (Cauchy–Binet)."
+        },
+        {
+          "name": "Matrix.compound_one",
+          "role": "functoriality",
+          "statement": "C_r(1) = 1."
+        },
+        {
+          "name": "Matrix.compound_one_eq",
+          "role": "simp",
+          "statement": "C_1(A)_{{i},{k}} = A_{ik}."
+        },
+        {
+          "name": "Matrix.compound_submatrix_col",
+          "role": "relation",
+          "statement": "For an order embedding e : J → κ, C_r(A·e)_{S,T} = C_r(A)_{S,e(T)}: C_r(A)∘ι_J = C_r(A_J)."
+        },
+        {
+          "name": "Matrix.compound_card",
+          "role": "example",
+          "statement": "For square A of size m, C_m(A) is the 1×1 matrix (det A)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "compound_one_by_one",
+          "kind": "degenerate",
+          "statement": "C_1(A)_{{i},{k}} = A_{ik} for a 2×3 matrix."
+        },
+        {
+          "name": "compound_two_by_two",
+          "kind": "computation",
+          "statement": "C_2 of the 2×2 matrix (a b; c d) is (ad − bc)."
+        },
+        {
+          "name": "compound_too_large",
+          "kind": "degenerate",
+          "statement": "For r larger than the number of rows there are no r-subsets: C_3 of a 2×3 matrix is empty."
+        },
+        {
+          "name": "compound_not_additive",
+          "kind": "non-example",
+          "statement": "C_2(1 + 1) = (4) ≠ (2) = C_2(1) + C_2(1) over Z."
+        }
+      ],
+      "prerequisites": [
+        "mathlib:Matrix.det",
+        "mathlib:Matrix.submatrix",
+        "mathlib:Set.powersetCard",
+        "mathlib:Set.powersetCard.ofFinEmbEquiv",
+        "mathlib:Module.Basis.exteriorPower",
+        "mathlib:exteriorPower.map",
+        "mathlib:exteriorPower.map_comp"
+      ],
+      "library": {
+        "module": "TauCeti/LinearAlgebra/Matrix/Compound",
+        "namespace": "Matrix",
+        "declaration": "Matrix.compound"
+      },
+      "sources": [
+        {
+          "sourceId": "DK-arXiv-v3",
+          "locator": "Proof of Lemma 3.9, arXiv v3 PDF p. 26",
+          "excerpt": "is given by the rth compound matrix",
+          "match": "The source uses C_r(A) as the matrix of ⋀^r A with entries the r×r minors."
+        }
+      ],
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L6",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L6"
+      ],
+      "implementationStatus": "unchecked",
+      "id": "PadicMeasuresIwasawaAlgebras:L6/compound-matrix"
+    },
+    {
+      "kind": "construction",
+      "title": "Higher adjugates",
+      "statement": "For a square m×m matrix A over a commutative ring and 0 ≤ r ≤ m, the r-th higher adjugate adj_r(A) is the matrix indexed by r-subsets with entry adj_r(A)_{T,S} = (−1)^{ΣS+ΣT} det A[Sᶜ, Tᶜ] (complementary minor; ΣS the sum of the elements of S). It satisfies C_r(A)·adj_r(A) = det(A)·I and adj_r(A)·C_r(A) = det(A)·I (generalized Laplace expansion); adj_1 is the adjugate and adj_m = (1).",
+      "hypotheses": [
+        "R is an arbitrary commutative ring; no noetherian or finiteness hypothesis is made beyond the stated ones.",
+        "Indices are Fin m; with 0-based or 1-based element sums the sign is the same, since both change by 2r."
+      ],
+      "proofSteps": [
+        "Define the entry from the complements S ↦ Sᶜ (Set.powersetCard.compl) and the increasing enumerations.",
+        "(C_r(A)adj_r(A))_{S,S′} = Σ_T (−1)^{ΣS′+ΣT} det A[S, T]det A[S′ᶜ, Tᶜ]: Laplace expansion along the rows S gives det A when S′ = S, and for S′ ≠ S it expands the determinant of a matrix with two equal rows, which is 0.",
+        "The left identity is Laplace expansion along columns.",
+        "For r = 1 the entry is the cofactor, matching Matrix.adjugate (whose (j, i) entry is (−1)^{i+j} det A with row i and column j deleted)."
+      ],
+      "acceptance": [
+        "adj_r(1) = 1.",
+        "r = m: the complementary minor is empty and adj_m(A) = (1)."
+      ],
+      "uses": [
+        {
+          "where": "Dasgupta–Kakde proof of Lemma 3.9",
+          "how": "det(A′)x = C_r(A′)·adj_r(A′)·x puts det(A′)x in the image of C_r(A) (the right-sided identity; E17)"
+        }
+      ],
+      "api": [
+        {
+          "name": "Matrix.higherAdjugate",
+          "role": "constructor",
+          "statement": "adj_r(A)_{T,S} = (−1)^{ΣS+ΣT} det A[Sᶜ, Tᶜ]."
+        },
+        {
+          "name": "Matrix.compound_mul_higherAdjugate",
+          "role": "relation",
+          "statement": "C_r(A)·adj_r(A) = det(A)·I."
+        },
+        {
+          "name": "Matrix.higherAdjugate_mul_compound",
+          "role": "relation",
+          "statement": "adj_r(A)·C_r(A) = det(A)·I."
+        },
+        {
+          "name": "Matrix.higherAdjugate_one_eq",
+          "role": "compatibility",
+          "statement": "adj_1(A)_{{j},{i}} = adjugate(A)_{j,i}."
+        },
+        {
+          "name": "Matrix.higherAdjugate_self",
+          "role": "example",
+          "statement": "adj_m(A) = (1)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "higherAdjugate_one",
+          "kind": "compatibility",
+          "statement": "For a 3×3 matrix, adj_1 agrees with Matrix.adjugate."
+        },
+        {
+          "name": "higherAdjugate_top",
+          "kind": "degenerate",
+          "statement": "For a 3×3 matrix, adj_3(A) = (1)."
+        },
+        {
+          "name": "higherAdjugate_identity",
+          "kind": "computation",
+          "statement": "adj_r(1_3) = 1 for every r ≤ 3."
+        },
+        {
+          "name": "higherAdjugate_not_compound",
+          "kind": "non-example",
+          "statement": "adj_1(A) ≠ C_1(A) for A = diag(2, 1, 1) over Z (adj_1(A) = diag(1, 2, 2))."
+        }
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L6/compound-matrix",
+        "mathlib:Matrix.adjugate",
+        "mathlib:Matrix.mul_adjugate"
+      ],
+      "library": {
+        "module": "TauCeti/LinearAlgebra/Matrix/Compound",
+        "namespace": "Matrix",
+        "declaration": "Matrix.higherAdjugate"
+      },
+      "sources": [
+        {
+          "sourceId": "DK-arXiv-v3",
+          "locator": "Proof of Lemma 3.9, arXiv v3 PDF p. 26",
+          "excerpt": "the rth higher adjugate matrix of",
+          "match": "The source names adj_r and displays only the left identity; both identities are planned, and the right one is what Lemma 3.9 needs."
+        }
+      ],
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L6",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L6"
+      ],
+      "implementationStatus": "unchecked",
+      "id": "PadicMeasuresIwasawaAlgebras:L6/higher-adjugate"
+    },
+    {
+      "kind": "theorem",
+      "title": "Fitting ideals annihilate exterior-power cokernels",
+      "statement": "(Dasgupta–Kakde Lemma 3.9.) Let R be a commutative ring and N ⊆ M R-modules with N finitely generated and M finitely presented. For every r ≥ 1, Fitt_R(M/N) annihilates the cokernel of ⋀^r_R N → ⋀^r_R M. In the free case: for an m×n matrix A (n ≥ m), an m×m column submatrix A′ = A_J and x ∈ ⋀^r R^m, det(A′)x = C_r(A)(ι_J(adj_r(A′)x)) lies in the image of C_r(A).",
+      "hypotheses": [
+        "R is an arbitrary commutative ring; no noetherian or finiteness hypothesis is made beyond the stated ones.",
+        "Fitt^i_R(M) is the i-th Fitting ideal of a finitely generated R-module M (minors of size n − i of the relation matrix of any n generators; R when n ≤ i), independent of the generators, imported from the Tau Ceti roadmap StableReduction, Layer 1 (accepted RS-16), together with base change, monotonicity under surjections and Fitt^0 ⊆ Ann; Fitt_R(M) means Fitt^0_R(M)."
+      ],
+      "proofSteps": [
+        "Choose R^m ↠ M and a finite presentation R^n → R^m → M/N → 0; lift R^n → N since R^n is free.",
+        "⋀^r preserves surjections (exteriorPower.map_surjective), so the cokernel C_2 of ⋀^r R^n → ⋀^r R^m maps onto the cokernel C_1 of ⋀^r N → ⋀^r M; it suffices that Fitt(M/N) kills C_2.",
+        "Fitt(M/N) is generated by the m×m minors det(A_J) of the m×n matrix A (n ≥ m after adding zero columns, which changes no minor).",
+        "For x ∈ ⋀^r R^m: det(A_J)x = C_r(A_J)·adj_r(A_J)·x (right-sided identity of higher-adjugate) = C_r(A)·ι_J(adj_r(A_J)x) (compound-matrix, column restriction). This corrects the source's display, which applies adj_r(A′) to an element of the image of C_r(A) (PadicMeasuresIwasawaAlgebras/E17)."
+      ],
+      "acceptance": [
+        "r = 1: Fitt(M/N)·M ⊆ N, i.e. Fitt ⊆ Ann(M/N).",
+        "N = M: the cokernel is 0 and Fitt(0) = R."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L6/compound-matrix",
+        "PadicMeasuresIwasawaAlgebras:L6/higher-adjugate",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
+        "mathlib:exteriorPower.map_surjective",
+        "mathlib:Module.annihilator"
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/Fitting/ExteriorPower",
+        "namespace": "TauCeti",
+        "declaration": "TauCeti.fittingIdeal_le_annihilator_exteriorPower_cokernel"
+      },
+      "sources": [
+        {
+          "sourceId": "DK-arXiv-v3",
+          "locator": "Lemma 3.9, arXiv v3 PDF p. 25–26",
+          "excerpt": "the ideal Fitt(M/N) annihilates the cokernel of the canonical map",
+          "match": "Statement of Lemma 3.9; the last step of its proof is corrected by E17 using the right-sided identity."
+        }
+      ],
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L6",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L6"
+      ],
+      "implementationStatus": "unchecked",
+      "id": "PadicMeasuresIwasawaAlgebras:L6/exterior-cokernel-annihilator"
+    },
+    {
+      "kind": "construction",
+      "title": "The transpose of a finite projective presentation",
+      "planet": {
+        "name": "Transpose of a presentation"
+      },
+      "statement": "For a commutative ring R, a ring isomorphism σ : S → R, and a presentation P_1 →f P_0 → M → 0 by finitely generated projective R-modules, the transpose attached to it is M^tr = coker(f^* : P_0^* → P_1^*), an S-module through the contragredient structure (for R = R_Ψ, S = R^# and σ = #). Its carrier is the pinned Tau Ceti cokernel TauCeti.AuslanderReitenTranspose f (any ring, any presentation map), with scalars restricted along σ. The transpose depends on the presentation, not on M alone: for a square presentation with matrix (a_ij) it is quadratically presented over S by (σ^{-1}(a_ji)). Dasgupta–Kakde write the presentation as P_0 → P_1 → M with the indices swapped.",
+      "hypotheses": [
+        "R is an arbitrary commutative ring; no noetherian or finiteness hypothesis is made beyond the stated ones.",
+        "Minimal presentations, the stable category and the translate D Tr (Tau Ceti QuiverRepresentations Layer 6) are not used or rebuilt here; the uniqueness theorem for minimal presentations over semiprimary rings is not what Dasgupta–Kakde use."
+      ],
+      "proofSteps": [
+        "Reuse TauCeti.AuslanderReitenTranspose f = Module.Dual R P_1 / range(f.lcomp), an R^op-module, and restrict scalars along R ≅ R^op (R commutative) and σ.",
+        "Isomorphic presentations give isomorphic transposes by TauCeti.AuslanderReitenTranspose.linearEquiv.",
+        "Adding an identity summand Q → Q leaves the transpose unchanged; adding a relation summand Q → 0 adds Q^*.",
+        "For R^m →φ R^m, f^* in the dual bases is the transpose matrix; transporting along σ^{-1} gives (σ^{-1}(a_ji))."
+      ],
+      "acceptance": [
+        "The presentation R →(1) R of 0 has transpose 0; the presentation R² → R, (a, b) ↦ a, of 0 has transpose ≅ S.",
+        "R →(a) R presents R/(a), with transpose S/(σ^{-1}(a))."
+      ],
+      "uses": [
+        {
+          "where": "Dasgupta–Kakde §6.1 (property (P3)) and Lemma A.8",
+          "how": "the Selmer module is the transpose of ∇ attached to (151)/(152)"
+        },
+        {
+          "where": "Dasgupta–Kakde Lemma 6.1, Corollary 6.2 and Lemma B.4",
+          "how": "Fitting ideals of the transpose over R^#"
+        },
+        {
+          "where": "IntegralIwasawaTheory:I.6",
+          "how": "(P3) for ∇^{Σ′}_Σ(H)_R"
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.PresentationTranspose",
+          "role": "constructor",
+          "statement": "coker(f^*) with the S-module structure along σ; carrier TauCeti.AuslanderReitenTranspose f."
+        },
+        {
+          "name": "TauCeti.PresentationTranspose.mk",
+          "role": "projection",
+          "statement": "The quotient map P_1^* →ₗ[S] M^tr."
+        },
+        {
+          "name": "TauCeti.PresentationTranspose.mk_eq_zero_iff",
+          "role": "characterisation",
+          "statement": "mk φ = 0 iff φ factors through f (reuses AuslanderReitenTranspose.mk_eq_zero_iff)."
+        },
+        {
+          "name": "TauCeti.PresentationTranspose.toARTranspose",
+          "role": "compatibility",
+          "statement": "The underlying additive group is TauCeti.AuslanderReitenTranspose f."
+        },
+        {
+          "name": "TauCeti.PresentationTranspose.equivOfIso",
+          "role": "functoriality",
+          "statement": "Isomorphic presentations have S-isomorphic transposes (AuslanderReitenTranspose.linearEquiv)."
+        },
+        {
+          "name": "TauCeti.PresentationTranspose.equivAddId",
+          "role": "relation",
+          "statement": "tr(f ⊕ id_Q) ≅ tr(f)."
+        },
+        {
+          "name": "TauCeti.PresentationTranspose.equivAddZero",
+          "role": "relation",
+          "statement": "tr((f, 0) : P_1 ⊕ Q → P_0) ≅ tr(f) ⊕ Q^*."
+        },
+        {
+          "name": "TauCeti.PresentationTranspose.quadraticPresentation",
+          "role": "constructor",
+          "statement": "A quadratic presentation of M gives one of M^tr over S."
+        },
+        {
+          "name": "TauCeti.PresentationTranspose.quadraticPresentation_size",
+          "role": "simp",
+          "statement": "It has the same size."
+        },
+        {
+          "name": "TauCeti.PresentationTranspose.quadraticPresentation_rel",
+          "role": "simp",
+          "statement": "Its matrix is (σ^{-1}(a_ji))."
+        }
+      ],
+      "tests": [
+        {
+          "name": "transpose_iso_presentation",
+          "kind": "degenerate",
+          "statement": "The transpose of id : R → R is 0."
+        },
+        {
+          "name": "transpose_depends_on_presentation",
+          "kind": "non-example",
+          "statement": "The presentation R² → R, (a, b) ↦ a, of the zero module has transpose ≅ S, not 0: a transpose belongs to a presentation, not to M."
+        },
+        {
+          "name": "transpose_cyclic",
+          "kind": "computation",
+          "statement": "The transpose of R →(a) R is ≅ S/(σ^{-1}(a))."
+        },
+        {
+          "name": "transpose_reuses_AR",
+          "kind": "compatibility",
+          "statement": "The carrier is definitionally TauCeti.AuslanderReitenTranspose f."
+        }
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L6/contragredient-dual",
+        "PadicMeasuresIwasawaAlgebras:L6/quadratic-presentation",
+        "tauceti:TauCeti.AuslanderReitenTranspose",
+        "tauceti:TauCeti.AuslanderReitenTranspose.mk",
+        "tauceti:TauCeti.AuslanderReitenTranspose.mk_eq_zero_iff",
+        "tauceti:TauCeti.AuslanderReitenTranspose.linearEquiv"
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/Fitting/Transpose",
+        "namespace": "TauCeti.PresentationTranspose",
+        "declaration": "TauCeti.PresentationTranspose"
+      },
+      "sources": [
+        {
+          "sourceId": "DK-arXiv-v3",
+          "locator": "§6.1, (81), arXiv v3 PDF p. 40",
+          "excerpt": "a transpose of the module M",
+          "match": "Definition after Jannsen; the source's (81) writes P_0 → P_1 → M, so its P_1^* → P_0^* is f^* here."
+        }
+      ],
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L6",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L6"
+      ],
+      "implementationStatus": "unchecked",
+      "id": "PadicMeasuresIwasawaAlgebras:L6/presentation-transpose"
+    },
+    {
+      "kind": "theorem",
+      "title": "Transposes are unique up to projective summands",
+      "statement": "If P_1 →f P_0 →π M → 0 and Q_1 →g Q_0 →ρ M → 0 are presentations by finitely generated projective R-modules, then tr(f) ⊕ (Q_1 ⊕ P_0)^* ≅ tr(g) ⊕ (P_1 ⊕ Q_0)^* as S-modules; in particular M′ ⊕ P ≅ M″ ⊕ Q with P, Q finitely generated projective.",
+      "hypotheses": [
+        "R is an arbitrary commutative ring; no noetherian or finiteness hypothesis is made beyond the stated ones."
+      ],
+      "proofSteps": [
+        "Choose β : Q_0 → P_0 with πβ = ρ (projectivity). Then (x, y) ↦ (f x − β y, y) maps P_1 ⊕ Q_0 onto ker(π, ρ : P_0 ⊕ Q_0 → M); it is f ⊕ id_{Q_0} followed by an automorphism of P_0 ⊕ Q_0, so its transpose is ≅ tr(f). Symmetrically for g with Q_1 ⊕ P_0.",
+        "Two presentations u : F_1 ↠ K and v : F_2 ↠ K of the same kernel K: choose s : F_2 → F_1 with us = v; (u, v) = (u, 0)∘(automorphism (x, y) ↦ (x + s y, y)), so tr(u, v) ≅ tr(u) ⊕ F_2^*, and symmetrically ≅ tr(v) ⊕ F_1^*.",
+        "Combine with F_1 = P_1 ⊕ Q_0 and F_2 = Q_1 ⊕ P_0; duals of finitely generated projectives are finitely generated projective."
+      ],
+      "acceptance": [
+        "The two presentations R → R and R² → R of 0 have transposes 0 and S, and 0 ⊕ S ≅ S ⊕ 0.",
+        "Over a local ring the statement is consistent with uniqueness up to free summands."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L6/presentation-transpose",
+        "mathlib:Module.Projective"
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/Fitting/Transpose",
+        "namespace": "TauCeti.PresentationTranspose",
+        "declaration": "TauCeti.PresentationTranspose.stableEquiv"
+      },
+      "sources": [
+        {
+          "sourceId": "DK-arXiv-v3",
+          "locator": "§6.1, arXiv v3 PDF p. 40",
+          "excerpt": "Transpose is only well-defined up to homotopy",
+          "match": "Stated with reference to Jannsen; the proof steps give the projective-summand comparison of arbitrary finite projective presentations."
+        }
+      ],
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L6",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L6"
+      ],
+      "implementationStatus": "unchecked",
+      "id": "PadicMeasuresIwasawaAlgebras:L6/transpose-stable-equivalence"
+    },
+    {
+      "kind": "theorem",
+      "title": "The Fitting ideal of the transpose",
+      "planet": {
+        "name": "Fitting ideal of the transpose"
+      },
+      "statement": "(Dasgupta–Kakde Lemma 6.1.) Let R be a character group ring (more generally a commutative ring with a ring isomorphism σ : R^# → R) and M a quadratically presented R-module with square matrix (a_ij). The transpose M^tr attached to that presentation is quadratically presented over R^# with matrix (a_ji^#), and Fitt_{R^#}(M^tr) = Fitt_R(M)^#. Both statements concern the transpose of the stated quadratic presentation: adding a nonzero free relation summand makes the zeroth Fitting ideal of the transpose 0.",
+      "hypotheses": [
+        "R is an arbitrary commutative ring; no noetherian or finiteness hypothesis is made beyond the stated ones.",
+        "Fitt^i_R(M) is the i-th Fitting ideal of a finitely generated R-module M (minors of size n − i of the relation matrix of any n generators; R when n ≤ i), independent of the generators, imported from the Tau Ceti roadmap StableReduction, Layer 1 (accepted RS-16), together with base change, monotonicity under surjections and Fitt^0 ⊆ Ann; Fitt_R(M) means Fitt^0_R(M)."
+      ],
+      "proofSteps": [
+        "presentation-transpose gives the square presentation of M^tr with matrix (σ^{-1}(a_ji)) = (a_ji^#).",
+        "fitting-quadratic and det((a_ji^#)) = det(a_ij)^# (Matrix.det_transpose and # a ring isomorphism) give Fitt_{R^#}(M^tr) = (det(a_ij))^# = Fitt_R(M)^#."
+      ],
+      "acceptance": [
+        "M = R/(x): M^tr = R^#/(x^#) and Fitt = (x)^#.",
+        "M = 0 presented by (1): M^tr = 0, Fitt = R^#."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L6/presentation-transpose",
+        "PadicMeasuresIwasawaAlgebras:L6/fitting-quadratic",
+        "PadicMeasuresIwasawaAlgebras:L6/sharp-involution",
+        "mathlib:Matrix.det_transpose"
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/Fitting/Transpose",
+        "namespace": "TauCeti.PresentationTranspose",
+        "declaration": "TauCeti.PresentationTranspose.fittingIdeal_eq"
+      },
+      "sources": [
+        {
+          "sourceId": "DK-arXiv-v3",
+          "locator": "Lemma 6.1, arXiv v3 PDF p. 40",
+          "excerpt": "Then M tr is quadratically presented and FittR# (M tr ) = FittR (M)#",
+          "match": "Lemma 6.1 and its one-line proof via (a_ji^#)."
+        }
+      ],
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L6",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L6"
+      ],
+      "implementationStatus": "unchecked",
+      "id": "PadicMeasuresIwasawaAlgebras:L6/transpose-fitting"
+    },
+    {
+      "kind": "theorem",
+      "title": "Higher Fitting ideals and transposes with excess generators",
+      "statement": "(Dasgupta–Kakde (171), proof of Lemma B.4.) If M has a free presentation R^t →A R^{t+s} → M → 0 (t relations, t + s generators), then the zeroth Fitting ideal over R^# of the attached transpose is Fitt^s_R(M)^#: Fitt^0_{R^#}(M^tr) = Fitt^s_R(M)^#; both are generated by the t×t minors of A, resp. of (a_ji^#). The identity concerns the transpose of this presentation.",
+      "hypotheses": [
+        "R is an arbitrary commutative ring; no noetherian or finiteness hypothesis is made beyond the stated ones.",
+        "Fitt^i_R(M) is the i-th Fitting ideal of a finitely generated R-module M (minors of size n − i of the relation matrix of any n generators; R when n ≤ i), independent of the generators, imported from the Tau Ceti roadmap StableReduction, Layer 1 (accepted RS-16), together with base change, monotonicity under surjections and Fitt^0 ⊆ Ann; Fitt_R(M) means Fitt^0_R(M).",
+        "Projectives of constant rank over a finite product of local rings are first made free (locally-quadratic-presentation)."
+      ],
+      "proofSteps": [
+        "M^tr = coker((R^{t+s})^* → (R^t)^*) has t generators and t + s relations, with relation matrix (a_ji^#).",
+        "Fitt^0 of M^tr is generated by its t×t minors; Fitt^s of M by the (t + s − s)×(t + s − s) = t×t minors of A; # transports one set of minors to the other (Matrix.det_transpose)."
+      ],
+      "acceptance": [
+        "s = 0 recovers transpose-fitting.",
+        "t = 0: M ≅ R^s is free, M^tr = 0 and Fitt^s(R^s) = R = Fitt^0(0)."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L6/presentation-transpose",
+        "PadicMeasuresIwasawaAlgebras:L6/sharp-involution",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
+        "mathlib:Matrix.det_transpose"
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/Fitting/Transpose",
+        "namespace": "TauCeti.PresentationTranspose",
+        "declaration": "TauCeti.PresentationTranspose.fittingIdeal_eq_excess"
+      },
+      "sources": [
+        {
+          "sourceId": "DK-arXiv-v3",
+          "locator": "Proof of Lemma B.4, equation (171), arXiv v3 PDF p. 93",
+          "excerpt": "has precisely s more generators than relations",
+          "match": "Equation (171) (TeX label e:selnab), cited by the paper extraction as (175); the arithmetic instance (Lemma B.4) stays in IntegralIwasawaTheory I.6/I.7."
+        }
+      ],
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L6",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L6"
+      ],
+      "implementationStatus": "unchecked",
+      "id": "PadicMeasuresIwasawaAlgebras:L6/transpose-higher-fitting"
     }
   ],
   "requests": [
@@ -24585,6 +26667,21 @@
       ],
       "status": "open",
       "note": "The PMIA L4 coverage names this layer as the Fitting owner."
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
+      "need": "Fitting ideals Fitt^i_R(M), i ≥ 0, of a finitely generated module M over a commutative ring R: the ideal generated by the (n − i)-minors of the relation matrix of any n generators (all of R when n ≤ i), independent of the generators; base change Fitt^i_{R′}(M ⊗_R R′) = Fitt^i_R(M)·R′; Fitt^i_R(M) ⊆ Fitt^i_R(M′) for a surjection M ↠ M′; Fitt^i ⊆ Fitt^{i+1}; and Fitt^0_R(M) ⊆ Ann_R(M).",
+      "neededBy": [
+        "PadicMeasuresIwasawaAlgebras:L6/fitting-quadratic",
+        "PadicMeasuresIwasawaAlgebras:L6/fitting-extension",
+        "PadicMeasuresIwasawaAlgebras:L6/fitting-fibre-product",
+        "PadicMeasuresIwasawaAlgebras:L6/quadratic-cardinality",
+        "PadicMeasuresIwasawaAlgebras:L6/exterior-cokernel-annihilator",
+        "PadicMeasuresIwasawaAlgebras:L6/transpose-fitting",
+        "PadicMeasuresIwasawaAlgebras:L6/transpose-higher-fitting"
+      ],
+      "status": "open",
+      "note": "Extends the L4 request above (Fitt₀ of finitely presented modules) to the higher Fitting ideals of finitely generated modules, as accepted RS-16 assigns the basic Fitting carrier to this layer; StableReduction Layer 1 forms Sing(f) from a higher Fitting ideal of the differentials, so Fitt^i is within its scope. These are the upstream imports of PAPER-DASGUPTA-KAKDE-23 items 19, 65, 78, 317 and 325."
     }
   ],
   "coverage": [
@@ -24674,15 +26771,14 @@
     },
     {
       "stageId": "PadicMeasuresIwasawaAlgebras:L6",
-      "status": "not_read",
+      "status": "partial",
       "remaining": [
-        "Read/decompose Gorenstein order duality, exterior biduals and their integral comparison and base-change maps; retain this ownership under RS-16. Import Fitting facts; Euler/Kolyvagin system contractions remain at their separate ES6–8 owners.",
-        "Confirmed RT-AREA-iwasawa-2/4 remains open: decompose R_Ψ as the image of O[G] in the selected character product (often a nonmaximal order), its local finite p-adic algebra comparisons, square and locally quadratic presentations, regular determinants and cardinality, Fitting base change/extensions/fibre products, exterior-bidual integrality, higher minors and transpose identities. Import the basic Fitting-ideal carrier from StableReduction:L1 under accepted RS-16, not from the obsolete IHG pointer in older extraction notes.",
-        "For # use R_Ψ ≅ R_(Ψ inverse), an endomorphism only when Ψ is inversion-stable. Distinguish O-linear, R-linear and contragredient/derived duals; state the Gorenstein hypothesis where needed rather than assume every image order has it. Finite Artinian group rings can be self-injective; the infinite completed group ring is not automatically so (Rubin IV Remark 3.5).",
-        "Reuse native abstract Auslander–Reiten transpose machinery where its hypotheses apply. Stable independence of arbitrary finite projective presentations over orders is a separate contract; a theorem about minimal presentations over a semiprimary algebra does not supply it. For the higher-adjugate image argument use C_r(A′) adj_r(A′)=det(A′) I on the right of the rectangular compound matrix; the left identity quoted in the source argument alone does not prove preservation of its image.",
-        "Generic algebra belongs here; the trivial-zero character choice, Ritter–Weiss modules, Selmer/class-group comparisons and arithmetic specializations remain IntegralIwasawaTheory:I.6/I.7. The confirmed missing L6→I.6/I.7 supplier paths require an accepted graph amendment (I.7 may receive transitively through I.6). Recording this gap does not apply that amendment or resolve the red-team finding. Euler/Kolyvagin system operations remain at ES6–8."
+        "Read and decompose the Burns–Sakamoto–Sano targets of this layer: commutative O-orders and the Gorenstein condition, the O-dual, self-injective Artinian quotients, exact duals on finite modules, Hom_R(−, R) versus O-linear and derived duals, and exterior biduals with their integrality, base-change and denominator lemmas (Dasgupta–Kakde item 31 is the exterior-bidual instance). Euler/Kolyvagin system contractions stay with ES.6–ES.8.",
+        "Dasgupta–Kakde item 20: Ann_{Z[G]}(M^∨) = Ann_{Z[G]}(M)^# for finite M, through the contragredient-dual and sharp-involution nodes; and PAPER-KOLYVAGIN-90 (Rubin IV Lemma 3.3(ii) Ext¹ vanishing, Remark 3.5: the infinite completed group ring is not automatically self-injective).",
+        "The basic and higher Fitting ideals of finitely generated modules (presentation independence, base change, monotonicity, Fitt⁰ ⊆ Ann) are requested from Tau Ceti StableReduction Layer 1 (RS-16); the L6 nodes state the order-specific extensions on that carrier.",
+        "IntegralIwasawaTheory I.6/I.7 must import the L6 character-group-ring, quadratic-presentation and transpose nodes (stage edge L6 → I.6, acyclic; I.7 receives it through I.6); this is recorded for the maintainer and for BP-IntegralIwasawaTheory--I.1, which plans I.6/I.7."
       ],
-      "notes": " Current budget pass adds no nodes; coverage status retains the inherited source-decomposition boundary."
+      "notes": "FIX-RT-AREA-iwasawa-2~2 (2026-10-07) adds 25 nodes for the Dasgupta–Kakde ring theory of RT-AREA-iwasawa-2/4: character group rings R_Ψ as images, their lattice, component, unit, locality and index theorems (Lemmas 2.2, 2.5, Corollary 2.3), the involution # with R_Ψ ≅ R_{Ψ^{-1}}, contragredient duals, quadratic and locally quadratic presentations (Lemmas 2.4, 2.6, 2.7, Remark A.7), compound matrices and higher adjugates with Lemma 3.9 (corrected, E17), and transposes (stable equivalence, Lemma 6.1, (171)). The earlier budget-pass note (no nodes) is superseded."
     }
   ],
   "gaps": [
@@ -24726,8 +26822,10 @@
     },
     {
       "title": "L6 remaining source and interface decomposition",
-      "neededBy": [],
-      "detail": "Stage PadicMeasuresIwasawaAlgebras:L6. Read/decompose Gorenstein order duality, exterior biduals and their integral comparison and base-change maps; retain this ownership under RS-16. Import Fitting facts; Euler/Kolyvagin system contractions remain at their separate ES6–8 owners. No proposed declaration for this layer is supplied by these checkpoints; the campaign target is retained. Budget-pass frontier: Confirmed RT-AREA-iwasawa-2/4 remains open: decompose R_Ψ as the image of O[G] in the selected character product (often a nonmaximal order), its local finite p-adic algebra comparisons, square and locally quadratic presentations, regular determinants and cardinality, Fitting base change/extensions/fibre products, exterior-bidual integrality, higher minors and transpose identities. Import the basic Fitting-ideal carrier from StableReduction:L1 under accepted RS-16, not from the obsolete IHG pointer in older extraction notes. For # use R_Ψ ≅ R_(Ψ inverse), an endomorphism only when Ψ is inversion-stable. Distinguish O-linear, R-linear and contragredient/derived duals; state the Gorenstein hypothesis where needed rather than assume every image order has it. Finite Artinian group rings can be self-injective; the infinite completed group ring is not automatically so (Rubin IV Remark 3.5). Reuse native abstract Auslander–Reiten transpose machinery where its hypotheses apply. Stable independence of arbitrary finite projective presentations over orders is a separate contract; a theorem about minimal presentations over a semiprimary algebra does not supply it. For the higher-adjugate image argument use C_r(A′) adj_r(A′)=det(A′) I on the right of the rectangular compound matrix; the left identity quoted in the source argument alone does not prove preservation of its image. Generic algebra belongs here; the trivial-zero character choice, Ritter–Weiss modules, Selmer/class-group comparisons and arithmetic specializations remain IntegralIwasawaTheory:I.6/I.7. The confirmed missing L6→I.6/I.7 supplier paths require an accepted graph amendment (I.7 may receive transitively through I.6). Recording this gap does not apply that amendment or resolve the red-team finding. Euler/Kolyvagin system operations remain at ES6–8."
+      "neededBy": [
+        "PadicMeasuresIwasawaAlgebras:L6"
+      ],
+      "detail": "Stage PadicMeasuresIwasawaAlgebras:L6 is partial. The Dasgupta–Kakde character-group-ring, quadratic-presentation, compound-matrix and transpose algebra (RT-AREA-iwasawa-2/4) is planned by the L6 nodes of FIX-RT-AREA-iwasawa-2~2. Remaining: Read and decompose the Burns–Sakamoto–Sano targets of this layer: commutative O-orders and the Gorenstein condition, the O-dual, self-injective Artinian quotients, exact duals on finite modules, Hom_R(−, R) versus O-linear and derived duals, and exterior biduals with their integrality, base-change and denominator lemmas (Dasgupta–Kakde item 31 is the exterior-bidual instance). Euler/Kolyvagin system contractions stay with ES.6–ES.8. Dasgupta–Kakde item 20: Ann_{Z[G]}(M^∨) = Ann_{Z[G]}(M)^# for finite M, through the contragredient-dual and sharp-involution nodes; and PAPER-KOLYVAGIN-90 (Rubin IV Lemma 3.3(ii) Ext¹ vanishing, Remark 3.5: the infinite completed group ring is not automatically self-injective). The basic and higher Fitting ideals of finitely generated modules (presentation independence, base change, monotonicity, Fitt⁰ ⊆ Ann) are requested from Tau Ceti StableReduction Layer 1 (RS-16); the L6 nodes state the order-specific extensions on that carrier. IntegralIwasawaTheory I.6/I.7 must import the L6 character-group-ring, quadratic-presentation and transpose nodes (stage edge L6 → I.6, acyclic; I.7 receives it through I.6); this is recorded for the maintainer and for BP-IntegralIwasawaTheory--I.1, which plans I.6/I.7."
     },
     {
       "title": "Resolution signatures after the homology correction",
@@ -24843,6 +26941,18 @@
       "url": "https://arxiv.org/pdf/2309.15692v2",
       "read": "2026-09-27",
       "sha256": "efa1e10168fb092ffb072bbf147f85f07bea72d2a8f4907d6e9e4fd559c039c4"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/2010.00657v3",
+      "read": "2026-10-07",
+      "sha256": "c1fe1cd8e1d218b4d44c58b1171c561b5955261340e345e51f9c82fa33b63099"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://services.math.duke.edu/~dasgupta/papers/Brumer-Stark.pdf",
+      "read": "2026-10-07",
+      "sha256": "c5b1df5da32ea7a30ed49b9ddc71249adb37e318971b0d304584c98d6ef69dcf"
     }
   ],
   "sourceIssues": [
@@ -25197,6 +27307,24 @@
         "Bounded author-domain and precise theorem/support/errata queries on2026-10-05; no correcting publication located. This is not a priority claim."
       ],
       "source": "NSW-2.3"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras/E17",
+      "source": "DK-arXiv-v3",
+      "kind": "gap",
+      "locator": "Lemma 3.9 (TeX label l:coker), last display of the proof and the sentence after it, arXiv:2010.00657v3 PDF p. 26; the same text is on PDF p. 26 of the authors' copy dated 15 February 2022.",
+      "printed": "adj_r(A′) · C_r(A) x̃ = adj_r(A′) · C_r(A′) x = det(A′) x. This shows that det(A′)x belongs to the image of ⋀^r_R R^n → ⋀^r_R R^m.",
+      "correction": "Use the right-sided identity C_r(A′)·adj_r(A′) = det(A′)·I and the vector adj_r(A′)x extended by zero to ι_J(adj_r(A′)x) ∈ ⋀^r R^n: det(A′)x = C_r(A′)(adj_r(A′)x) = C_r(A)(ι_J(adj_r(A′)x)), which lies in the image of C_r(A).",
+      "reason": "The display writes det(A′)x as adj_r(A′) applied to C_r(A)x̃, an element of the image of C_r(A); that places det(A′)x in the image only if the image is stable under adj_r(A′), which the proof does not show. The corrected step needs no such stability, and Lemma 3.9 itself is true.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "arXiv:2010.00657v3 PDF p. 26 and TeX source, read 2026-10-07: the display as printed.",
+        "Authors' copy services.math.duke.edu/~dasgupta/papers/Brumer-Stark.pdf (15 February 2022), read 2026-10-07: same display.",
+        "arXiv v1: same display according to round 1 of this fix (RT-AREA-iwasawa-2.fixes.md); not re-read here.",
+        "Published version (Annals of Mathematics 197 (2023)): not accessible, not read.",
+        "Atlas errata research/blueprint/errata/PAPER-DASGUPTA-KAKDE-23.json: only E1 (Proposition 8.6); research/errata/REGISTER.md has no entry for Lemma 3.9."
+      ]
     }
   ],
   "checks": {
@@ -29445,5 +31573,49 @@
         "note": "The source assertion and mathematical reduction were independently read; the full native signature/proof-input/test contract is not established. Its L4 comparison, localisation, resolution or semantic-test interfaces depend on the named layer gaps. Added declaration-sized split; addedBy records this reviewer, but does not certify the missing interface. Sources: NSW-2.3. Direct prerequisites inspected: 2. Implementation remains unchecked."
       }
     ]
-  }
+  },
+  "fixHistory": [
+    {
+      "job": "FIX-RT-AREA-iwasawa-2~2",
+      "issue": 6218,
+      "agent": "Claude Code",
+      "session": "claude-6ZAIEy",
+      "date": "2026-10-07",
+      "status": "pending-independent-review",
+      "inputRevision": "67731dad0881b06af7bdf3dac17061ac64719efa",
+      "findings": [
+        "RT-AREA-iwasawa-2/4"
+      ],
+      "scope": "Finding /4 applied in this packet: 25 new L6 nodes, 35 new baseline declarations, source DK-arXiv-v3, finding E17, one request to StableReduction Layer 1; L6 coverage not_read → partial. No existing node, test or API item is changed. Findings /1 and /2 are carried by DirichletPadicLFunctions--L3 and its follow-up L3-2, /3 by PadicHodgeRegulators--D.1, /5 by the LocallyAnalyticDistributions blueprint; see research/blueprint/redteam/RT-AREA-iwasawa-2.fixes-2.md.",
+      "addedNodes": [
+        "PadicMeasuresIwasawaAlgebras:L6/character-evaluation",
+        "PadicMeasuresIwasawaAlgebras:L6/character-group-ring",
+        "PadicMeasuresIwasawaAlgebras:L6/character-group-ring-lattice",
+        "PadicMeasuresIwasawaAlgebras:L6/character-group-ring-nonzerodivisor",
+        "PadicMeasuresIwasawaAlgebras:L6/norm-element-kernel",
+        "PadicMeasuresIwasawaAlgebras:L6/component-character-group-ring",
+        "PadicMeasuresIwasawaAlgebras:L6/component-norm-quotient",
+        "PadicMeasuresIwasawaAlgebras:L6/character-group-ring-unit-criterion",
+        "PadicMeasuresIwasawaAlgebras:L6/character-group-ring-local",
+        "PadicMeasuresIwasawaAlgebras:L6/character-group-ring-index",
+        "PadicMeasuresIwasawaAlgebras:L6/sharp-involution",
+        "PadicMeasuresIwasawaAlgebras:L6/contragredient-dual",
+        "PadicMeasuresIwasawaAlgebras:L6/quadratic-presentation",
+        "PadicMeasuresIwasawaAlgebras:L6/fitting-quadratic",
+        "PadicMeasuresIwasawaAlgebras:L6/locally-quadratic-presentation",
+        "PadicMeasuresIwasawaAlgebras:L6/fitting-extension",
+        "PadicMeasuresIwasawaAlgebras:L6/fitting-fibre-product",
+        "PadicMeasuresIwasawaAlgebras:L6/quadratic-cardinality",
+        "PadicMeasuresIwasawaAlgebras:L6/compound-matrix",
+        "PadicMeasuresIwasawaAlgebras:L6/higher-adjugate",
+        "PadicMeasuresIwasawaAlgebras:L6/exterior-cokernel-annihilator",
+        "PadicMeasuresIwasawaAlgebras:L6/presentation-transpose",
+        "PadicMeasuresIwasawaAlgebras:L6/transpose-stable-equivalence",
+        "PadicMeasuresIwasawaAlgebras:L6/transpose-fitting",
+        "PadicMeasuresIwasawaAlgebras:L6/transpose-higher-fitting"
+      ],
+      "compile": "The new L6 block of the suggested file elaborates against pinned Mathlib 082e2d3 (lean-check, Lean 4 toolchain of the shared build) with only proof-placeholder warnings, using a verbatim local copy of the pinned TauCeti.AuslanderReitenTranspose definition because the shared build has no Tau Ceti oleans for that module. The whole file, which imports Tau Ceti modules, was not re-elaborated.",
+      "reviewRequired": "REV-FIX-RT-AREA-iwasawa-2~2"
+    }
+  ]
 }
