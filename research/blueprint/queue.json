@@ -37685,8 +37685,9 @@
     "REV-PrismaticCohomology--PR.8"
    ],
    "prompt": "research/blueprint/prompts/ASM-PrismaticCohomology.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #254"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #254",
+   "finishedAt": "2026-10-07T01:54:46Z"
   },
   {
    "id": "ASM-RankZeroOneBSD",
