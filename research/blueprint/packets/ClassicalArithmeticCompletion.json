@@ -28981,7 +28981,7 @@
       "id": "ClassicalArithmeticCompletion/E507",
       "kind": "error",
       "locator": "arXiv:1706.06712v3, §1(d), p.5",
-      "printed": "The source asserts h_M(k) ≤ h±_M(k) in the remaining cases.",
+      "printed": "The source gives h_M(k) ≤ h±_M(k) in the remaining case.",
       "correction": "For exceptional k≥5, h_M(k) ≥ h⁺_M(k)+1. For generic k, equality is unchanged.",
       "reason": "At k=5, (0,1,2)∈V₅(ℤ), but F⁺₅ is empty since u₁²+u₂²+u₃²+u₁u₂u₃≥54 for u_j≥3. More generally §4.1’s Δ-difference argument gives an injective map from F⁺ roots to Γ-orbits, all of whose points have |x_j|≥3: upward moves stay in this locus and the unique downward move reverses the path to its negative root. Distinct negative roots cannot meet, since a connecting path’s maximal-Δ vertex would have two smaller neighbours. An exceptional small-coordinate orbit is disjoint and supplies the additional class. The §7 means count F± directly and the generic fundamental-domain and almost-all conclusions do not use the erroneous comparison.",
       "affects": "nothing",

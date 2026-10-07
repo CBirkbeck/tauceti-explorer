@@ -2509,7 +2509,7 @@
     {
       "kind": "misprint",
       "affects": "nothing",
-      "printed": "For rigid 𝒞, the source claims that 𝒜 has an inverse. It uses F(X_i)^∨ ≅ F(X_i^∨) ≅ ℋom(X_i, X_i^∨) ≅ ℋom(X_i ⊗ X_i, 1), declaring that exchanging the factors supplies the required involution of 𝒜.",
+      "printed": "Under rigidity of 𝒞, the source claims that 𝒜 has an inverse. It gives F(X_i)^∨ ≅ F(X_i^∨) ≅ ℋom(X_i, X_i^∨) ≅ ℋom(X_i ⊗ X_i, 1); swapping the factors is said to supply the required involution of 𝒜.",
       "correction": "If 𝒞 is rigid, one also sees that ℋ admits an inverse … defines the desired involution on ℋ.",
       "reason": "𝒜 is the base symmetric monoidal category. The object being built is the bialgebra/Hopf algebra ℋ = colim F(X_i)^∨ (previous sentences: 'which turns ℋ into a commutative algebra', 'makes ℋ into a Hopf algebra'). The antipode (inverse) is an involution of ℋ, induced on each F(X_i)^∨ by the displayed isomorphisms.",
       "id": "GeometricSatakeAndFusion/E2",
@@ -2528,7 +2528,7 @@
     {
       "kind": "misprint",
       "affects": "nothing",
-      "printed": "The source says that expanding the definitions gives ℋ a Hopf algebra structure, with its symmetric monoidal representation category in 𝒜 equal to 𝒞.",
+      "printed": "The source claims that unpacking the definitions gives ℋ a Hopf algebra structure, with 𝒞 precisely its symmetric monoidal representation category in 𝒜.",
       "correction": "It is a matter of unraveling definitions that this makes ℋ into a bialgebra whose symmetric monoidal category of representations in 𝒜 is exactly 𝒞.",
       "reason": "Proposition VI.10.2 asserts in general only 'a natural structure as a bialgebra (with commutative multiplication and associative comultiplication)', and a Hopf algebra only 'If 𝒞 is rigid'; the proof supplies the antipode in the next sentence, under that hypothesis. Without rigidity ℋ need not be Hopf: with 𝒜 = Vect_k and 𝒞 the finite-dimensional comodules of the bialgebra 𝒪(M_n) of the matrix monoid (a filtered union of comodule categories of finite-dimensional subcoalgebras, each represented by the dual algebra), ℋ = 𝒪(M_n) has no antipode. The next sentence carries PAPER-FARGUES-SCHOLZE-21/E46; the two could be merged.",
       "id": "GeometricSatakeAndFusion/E3",
@@ -2547,7 +2547,7 @@
     {
       "kind": "misprint",
       "affects": "nothing",
-      "printed": "The source deduces injectivity of f : M → N from flatness of M. For each x ∈ N it then chooses the least k for which ℓ^k n = f(m) belongs to the image of M.",
+      "printed": "The source deduces injectivity of f : M → N from flatness of M. It then claims that each x ∈ N admits a minimal k for which ℓ^k n = f(m) belongs to the image of M.",
       "correction": "… for any x ∈ N there is some minimal k such that ℓ^k x = f(m) lies in the image of M.",
       "reason": "The element of N is named x in the same sentence; n is never introduced.",
       "id": "GeometricSatakeAndFusion/E4",
@@ -2566,7 +2566,7 @@
     {
       "kind": "misprint",
       "affects": "nothing",
-      "printed": "The source considers minimal Levi subgroups M_a ⊂ G that strictly contain T and associates to them a parabolic P_a ⊂ B.",
+      "printed": "The source considers the associated minimal Levi subgroups M_a ⊂ G that properly contain T, together with parabolic P_a ⊂ B.",
       "correction": "… with parabolic P_a ⊃ B.",
       "reason": "A parabolic with Levi M_a ⊋ T strictly contains a Borel, so P_a ⊂ B is impossible. Page 239 writes it correctly: 'the corresponding parabolic P_a ⊃ B, with Levi M_a'.",
       "id": "GeometricSatakeAndFusion/E5",
@@ -2604,7 +2604,7 @@
     {
       "kind": "misprint",
       "affects": "nothing",
-      "printed": "For an algebraically closed field Λ = L, the source takes Schur-irreducible A₁, A₂ ∈ D_lis(Bun_G, L) and a Schur-irreducible constituent A of A₁ ⊠ A₂. It assigns φ_A = (φ_{A₁}, φ_{A₂}) : W_E → Ĝ(L) ≅ Ĝ₁(L) × Ĝ₂(L).",
+      "printed": "For an algebraically closed field Λ = L, the source takes Schur-irreducible A₁, A₂ ∈ D_lis(Bun_G, L). If A occurs as a Schur-irreducible constituent in A₁ ⊠ A₂, it asserts φ_A = (φ_{A₁}, φ_{A₂}) : W_E → Ĝ(L) ≅ Ĝ₁(L) × Ĝ₂(L).",
       "correction": "A₁ ∈ D_lis(Bun_{G₁}, L), A₂ ∈ D_lis(Bun_{G₂}, L)",
       "reason": "A₁ ⊠ A₂ lies on Bun_G = Bun_{G₁} × Bun_{G₂}, and φ_{A_i} has values in Ĝ_i. So A_i must be a sheaf on Bun_{G_i}, as in Proposition VII.7.10.",
       "id": "GeometricSatakeAndFusion/E7",

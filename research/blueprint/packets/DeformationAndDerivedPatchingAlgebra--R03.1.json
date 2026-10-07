@@ -6185,7 +6185,7 @@
       "source": "BIP-23",
       "kind": "error",
       "locator": "Lemma3.35, printed p.24, version of record, Forum of Mathematics, Pi 11 (2023), e30",
-      "printed": "The source asserts that κ(𝔭) is finite over κ(𝔭′).",
+      "printed": "The source claims that the extension of κ(𝔭′) given by κ(𝔭) is finite.",
       "correction": "Add κ(p)/κ(p₀) finite, or restrict p to a closed point of the indicated finite-type fibre. Keep this added condition in the planned theorem.",
       "reason": "Finite type does not force finite residue extension at an arbitrary prime: take R=F_p[[t]], A=R[x], p=p₀=(0). Then κ(p)=F_p((t))(x) is transcendental over κ(p₀)=F_p((t)). In the diagonal residue calculation the independent p-basis directions t and x give at least two cotangent directions, contradicting the printed one-variable comparison when completion(A_p) is a field.",
       "affects": "a stated result",

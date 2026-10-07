@@ -15499,7 +15499,7 @@
       "source": "bennett-siksek-2020",
       "kind": "error",
       "locator": "Published §8.1 p.378 and its reuse on p.379; known source issue E2.",
-      "printed": "The source claims τ(q) ≤ q^(1/log log 3q) whenever q ≥ 1.",
+      "printed": "The source asserts τ(q) ≤ q^(1/log log 3q) whenever q ≥ 1.",
       "correction": "Use the uniform explicit bound and eventual threshold supplied by the AN.5 chain; retain the constant for all positive n.",
       "reason": "At q=120, τ(q)=16 while the printed power is about14.89222. The local-to-global construction supplies a valid replacement.",
       "affects": "a stated result",

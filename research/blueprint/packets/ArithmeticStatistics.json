@@ -32636,7 +32636,7 @@
       "source": "lipnowski-ag-2018",
       "kind": "gap",
       "locator": "arXiv:1511.02212v1, Theorem 0.2 (p.2) and proof of Corollary 5.13 (pp.33–34)",
-      "printed": "The source derives the bound for bad A using Conjecture 5.2 together with Proposition 5.10.",
+      "printed": "The source derives the bound for bad A from Proposition 5.10 together with Conjecture 5.2.",
       "correction": "Assume also the analogue of Conjecture 5.2 for classes with factors B_0 (Frobenius ±√p, End⁰ the definite quaternion algebra over ℚ(√p)) and conclude a large factor E^h or B_0^{h/2}, h ≥ 0.99g.",
       "reason": "Conjecture 5.2 covers only CM endomorphism fields; principal polarizations on B_0^m have log count 2m² log m + O(m²), the same leading term per dimension as E^g.",
       "affects": "a stated result",

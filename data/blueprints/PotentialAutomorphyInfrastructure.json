@@ -9650,7 +9650,7 @@
       "reason": "P̃_{v,σ}(X) is the characteristic polynomial of σ on a 2n-dimensional representation. On p. 926 it is defined as the product P_{v^c,σ^{−c}}(X)P_{v,σ}(X) of two monic polynomials of degree n. With X^{n−i} the sums would contain negative powers of X. The analogous (2.2.17) on p. 931 correctly has X^{2n−i}.",
       "id": "PotentialAutomorphyInfrastructure/E10",
       "sourceIssue": "PAPER-ALLEN-ETAL-23/E8",
-      "printed": "The source writes P̃_{v,σ}(X) = Σ_{i=0}^{2n} (−1)^i ẽ_{v,i}(σ) X^{n−i}, using that same equation to define ẽ_{v,i}(σ). It also gives the characteristic polynomial of r_v(σ) as Σ_{i=0}^{2n} (−1)^i ẽ_{v,i}(σ, π̃_v̄) X^{n−i}.",
+      "printed": "The source writes P̃_{v,σ}(X) = Σ_{i=0}^{2n} (−1)^i ẽ_{v,i}(σ) X^{n−i}. It also uses P̃_{v,σ}(X) = Σ_{i=0}^{2n} (−1)^i ẽ_{v,i}(σ) X^{n−i} to define ẽ_{v,i}(σ), and identifies the characteristic polynomial for r_v(σ) with Σ_{i=0}^{2n} (−1)^i ẽ_{v,i}(σ, π̃_v̄) X^{n−i}.",
       "known": "Recorded in the reviewed ACC extraction; its erratum searches are dated 23 September 2026. No newer published correction was established in this run.",
       "searched": [
         "Supplied reviewed ACC sourceIssue PAPER-ALLEN-ETAL-23/E8",
@@ -9671,7 +9671,7 @@
       "reason": "Theorem 2.4.2 identifies the localized boundary cohomology with the cohomology of the stratum X̃^P_K̃ ⊂ ∂X̃_K̃, and (2.4.5) passes from that stratum to its component X^P_{K̃_P}. The symbol ∂X̃^P is defined nowhere (read literally it would be the boundary of the stratum). The same step in the proof of Theorem 2.4.8 (p. 947) writes RΓ(X̃^P_K̃, 𝒪).",
       "id": "PotentialAutomorphyInfrastructure/E11",
       "sourceIssue": "PAPER-ALLEN-ETAL-23/E18",
-      "printed": "Invoking Theorem 2.4.2, the source reduces to showing that 𝒮 induces T̃^S(RΓ(∂X̃^P_K̃, 𝒱_λ̃)) → T^S(RΓ(X_K, 𝒱_λ)). It displays (2.4.5) as T̃^S(RΓ(∂X̃^P_K̃, 𝒱_λ̃)) → T̃^S(RΓ(X^P_{K̃_P}, 𝒱_λ̃)).",
+      "printed": "Invoking Theorem 2.4.2, the proof says it is enough for 𝒮 to induce the homomorphism T̃^S(RΓ(∂X̃^P_K̃, 𝒱_λ̃)) → T^S(RΓ(X_K, 𝒱_λ)). It then gives (2.4.5) as T̃^S(RΓ(∂X̃^P_K̃, 𝒱_λ̃)) → T̃^S(RΓ(X^P_{K̃_P}, 𝒱_λ̃)).",
       "known": "Recorded in the reviewed ACC extraction; its erratum searches are dated 23 September 2026. No newer published correction was established in this run.",
       "searched": [
         "Supplied reviewed ACC sourceIssue PAPER-ALLEN-ETAL-23/E18",
@@ -9692,7 +9692,7 @@
       "reason": "A good subgroup is a neat open compact subgroup of G(A_F^∞) (§2.1.1). T^S(K, λ) is defined only for K ⊂ GL_n(A_F^∞) (§2.2.1), and (π^∞)^K requires K to act on π^∞.",
       "id": "PotentialAutomorphyInfrastructure/E12",
       "sourceIssue": "PAPER-ALLEN-ETAL-23/E19",
-      "printed": "The source assumes a good subgroup K ⊂ GL_n(A_F) with (π^∞)^K ≠ 0. Part (2) again takes K ⊂ GL_n(A_F) to be good.",
+      "printed": "The theorem assumes a good subgroup K ⊂ GL_n(A_F) with (π^∞)^K ≠ 0. In part (2), it again takes K ⊂ GL_n(A_F) to be good.",
       "known": "Recorded in the reviewed ACC extraction; its erratum searches are dated 23 September 2026. No newer published correction was established in this run.",
       "searched": [
         "Supplied reviewed ACC sourceIssue PAPER-ALLEN-ETAL-23/E19",
@@ -9713,7 +9713,7 @@
       "reason": "At this point π denotes the cuspidal representation of the Levi L_Q(A) from the Franke–Schwermer discussion, which has no n-dimensional Galois representation attached. The argument compares the reduction of r_ι(𝔐) = ⊕_i r_ι(π_i) ⊗ ε^{−(n_{i+1}+⋯+n_r)}, 𝔐 being in the support of the localization at 𝔪, with ρ̄_𝔪: it is reducible, while ρ̄_𝔪 is absolutely irreducible. The wording seems copied from part (2) of the theorem.",
       "id": "PotentialAutomorphyInfrastructure/E13",
       "sourceIssue": "PAPER-ALLEN-ETAL-23/E20",
-      "printed": "The source says that r_ι(𝔐) is reducible in this situation and asserts the isomorphism r̄_ι(π) ≅ ρ̄_𝔪.",
+      "printed": "The proof asserts reducibility of r_ι(𝔐) in this case, while also asserting the isomorphism r̄_ι(π) ≅ ρ̄_𝔪.",
       "known": "Recorded in the reviewed ACC extraction; its erratum searches are dated 23 September 2026. No newer published correction was established in this run.",
       "searched": [
         "Supplied reviewed ACC sourceIssue PAPER-ALLEN-ETAL-23/E20",
@@ -9734,7 +9734,7 @@
       "reason": "On M_τ = M ⊗_{𝒪_{F_v}⊗𝒪, τ⊗1} 𝒪 the element a ⊗ 1 acts as τ(a). If Φ((a⊗1)m) = (Frob_p^{−1}(a)⊗1)Φ(m) and m ∈ M_τ, then (b⊗1)Φ(m) = τ(Frob_p(b))Φ(m), so Φ(M_τ) ⊂ M_{τ∘Frob_p}; for M = 𝒪_{F_v} ⊗ 𝒪 = ∏_σ 𝒪 the map Frob_p^{−1} ⊗ 1 moves the σ-coordinate to the σ∘Frob_p-coordinate. The components Φ^i_τ are used only to define M(a), where the direction plays no role.",
       "id": "PotentialAutomorphyInfrastructure/E14",
       "sourceIssue": "PAPER-ALLEN-ETAL-23/E31",
-      "printed": "The source makes Φ^i : Fil^i M → M linear relative to Frob_p^{−1} ⊗ 1. For M ∈ MF_𝒪 it writes Fil^i M = ∏_τ Fil^i M_τ while Φ^i = ∏_τ Φ^i_τ, where Φ^i_τ : Fil^i M_τ → M_{τ∘Frob_p^{−1}}.",
+      "printed": "The source specifies Frob_p^{−1} ⊗ 1-linearity for Φ^i : Fil^i M → M. For M ∈ MF_𝒪, it gives the decompositions Fil^i M = ∏_τ Fil^i M_τ; Φ^i = ∏_τ Φ^i_τ. The component maps are Φ^i_τ : Fil^i M_τ → M_{τ∘Frob_p^{−1}}.",
       "known": "Recorded in the reviewed ACC extraction; its erratum searches are dated 23 September 2026. No newer published correction was established in this run.",
       "searched": [
         "Supplied reviewed ACC sourceIssue PAPER-ALLEN-ETAL-23/E31",
@@ -9755,7 +9755,7 @@
       "reason": "The result of [CS19] quoted two lines earlier gives vanishing only after localization at 𝔪̃ (H^i(X̃_K̃, 𝒱_λ̃/ϖ)_𝔪̃ = 0 for i < d, H^i_c(X̃_K̃, 𝒱_λ̃/ϖ)_𝔪̃ = 0 for i > d), and every other group in the argument is localized. The localized H^{d+1}_c(X̃_K̃, 𝒱_λ̃)_𝔪̃ vanishes by Nakayama, since its reduction mod ϖ injects into H^{d+1}_c(X̃_K̃, 𝒱_λ̃/ϖ)_𝔪̃ = 0.",
       "id": "PotentialAutomorphyInfrastructure/E15",
       "sourceIssue": "PAPER-ALLEN-ETAL-23/E32",
-      "printed": "The proof concludes H^d(X̃_K̃, 𝒱_λ̃)_𝔪̃[ϖ] = 0 from H^{d−1}(X̃_K̃, 𝒱_λ̃/ϖ) = 0. It also claims that the cokernel of H^d(X̃_K̃, 𝒱_λ̃)_𝔪̃ → H^d(∂X̃_K̃, 𝒱_λ̃)_𝔪̃ embeds in H^{d+1}_c(X̃_K̃, 𝒱_λ̃) = 0.",
+      "printed": "The proof deduces H^d(X̃_K̃, 𝒱_λ̃)_𝔪̃[ϖ] = 0 from H^{d−1}(X̃_K̃, 𝒱_λ̃/ϖ) = 0. It also claims that the cokernel of H^d(X̃_K̃, 𝒱_λ̃)_𝔪̃ → H^d(∂X̃_K̃, 𝒱_λ̃)_𝔪̃ embeds in H^{d+1}_c(X̃_K̃, 𝒱_λ̃) = 0.",
       "known": "Recorded in the reviewed ACC extraction; its erratum searches are dated 23 September 2026. No newer published correction was established in this run.",
       "searched": [
         "Supplied reviewed ACC sourceIssue PAPER-ALLEN-ETAL-23/E32",
@@ -9776,7 +9776,7 @@
       "reason": "Theorem 4.2.1 (p. 968) assumes 'for each v̄ ∈ S̄_p, K̃_{U,v̄} = U(𝒪_{F⁺_v̄})', and its claim (2), which produces the shift by l(w) at v̄ ∈ S̄_2, rests on Lemmas 4.2.2–4.2.3 about RΓ(U(𝒪_K), 𝒪/ϖ^m). Proposition 4.3.4 drops this hypothesis, so the one-line proof does not cover the stated generality, and no other argument is given. The only application, in the proof of Proposition 4.4.1, satisfies it: there U(𝒪_{F⁺_{v̄″}}) ⊂ K̃_{v̄″} ⊂ G̃(𝒪_{F⁺_{v̄″}}) for v̄″ ≠ v̄ and K̃_v̄ = G̃(𝒪_{F⁺_v̄}), so nothing downstream is affected.",
       "id": "PotentialAutomorphyInfrastructure/E16",
       "sourceIssue": "PAPER-ALLEN-ETAL-23/E33",
-      "printed": "Proposition 4.3.4 assumes [F⁺ : Q] > 1 and takes a good K̃ ⊂ G̃(𝔸^∞_{F⁺}) decomposing with respect to P. Its proof cites the combination of Theorems 4.3.3 and 4.2.1.",
+      "printed": "Proposition 4.3.4 assumes [F⁺ : Q] > 1 and a good subgroup K̃ ⊂ G̃(𝔸^∞_{F⁺}) decomposed with respect to P. Its proof claims the result follows by combining Theorems 4.3.3 and 4.2.1.",
       "known": "Recorded in the reviewed ACC extraction; its erratum searches are dated 23 September 2026. No newer published correction was established in this run.",
       "searched": [
         "Supplied reviewed ACC sourceIssue PAPER-ALLEN-ETAL-23/E33",
@@ -9797,7 +9797,7 @@
       "reason": "Weights of G̃ are indexed by the embeddings of F⁺ (§2.2.1), and λ_w = w(λ̃ + ρ) − ρ with ρ ∈ X^*((Res_{F⁺/ℚ} T)_E) only makes sense for such λ̃. Proposition 4.3.4 and Lemma 4.3.6, which the definition serves, both take λ̃ ∈ (ℤ^{2n}_+)^{Hom(F⁺,E)}.",
       "id": "PotentialAutomorphyInfrastructure/E17",
       "sourceIssue": "PAPER-ALLEN-ETAL-23/E34",
-      "printed": "Definition 4.3.5 introduces the designation CTG for a weight λ̃ ∈ (ℤ^{2n}_+)^{Hom(F,E)}.",
+      "printed": "Definition 4.3.5 introduces the term CTG for a weight λ̃ ∈ (ℤ^{2n}_+)^{Hom(F,E)}.",
       "known": "Recorded in the reviewed ACC extraction; its erratum searches are dated 23 September 2026. No newer published correction was established in this run.",
       "searched": [
         "Supplied reviewed ACC sourceIssue PAPER-ALLEN-ETAL-23/E34",
@@ -9818,7 +9818,7 @@
       "reason": "Since λ^∨_{σ,i} = −λ_{σ,n+1−i} (§2.2.1), a w violating CTG (Definition 4.3.5) has λ_{w,σ,i} + λ_{w,σc,n+1−i} = i_0 for all σ and i, hence Σ_i(λ_{w,σ,i} + λ_{w,σc,i}) = n·i_0 for every σ, so the '+' inequality implies CTG. With '−', the dictionary (2.2.2) makes Σ_i(μ_{w,τ̃,i} − μ_{w,τ̃c,i}) the sum of all 2n entries of w(μ̃_τ + ρ_τ) − ρ_τ, i.e. of μ̃_τ, for every w, and the printed criterion is false: for n = 1, [F⁺ : Q] = 2, μ̃_{τ_0} = (1, 1), μ̃_τ = (0, 0) it holds for all w (2 ≠ 0), but for w = 1 one gets μ_{τ̃_0} = 1, μ_{τ̃_0c} = −1, μ_{τ̃} = μ_{τ̃c} = 0, so λ_{w,σ} − λ^∨_{w,σc} = (0) for every σ and μ̃ is not CTG. With '+', raising λ̃_{τ_0,1} by a moves the right-hand side by ±a for each of the finitely many w, so the proof's last sentence goes through and Lemma 4.3.6 stands.",
       "id": "PotentialAutomorphyInfrastructure/E18",
       "sourceIssue": "PAPER-ALLEN-ETAL-23/E35",
-      "printed": "The source gives a sufficient condition for a dominant μ̃ ∈ (ℤ^{2n}_+)^{Hom(F⁺,E)} to be CTG: every w ∈ W^P must satisfy (4.3.7) Σ_{i=1}^n (μ_{w,τ̃,i} − μ_{w,τ̃c,i}) ≠ Σ_{i=1}^n (μ_{w,τ̃_0,i} − μ_{w,τ̃_0c,i}).",
+      "printed": "The proof gives a sufficient criterion for CTG: a weight μ̃ ∈ (ℤ^{2n}_+)^{Hom(F⁺,E)} that is dominant qualifies if every w ∈ W^P satisfies (4.3.7) Σ_{i=1}^n (μ_{w,τ̃,i} − μ_{w,τ̃c,i}) ≠ Σ_{i=1}^n (μ_{w,τ̃_0,i} − μ_{w,τ̃_0c,i}).",
       "known": "Recorded in the reviewed ACC extraction; its erratum searches are dated 23 September 2026. No newer published correction was established in this run.",
       "searched": [
         "Supplied reviewed ACC sourceIssue PAPER-ALLEN-ETAL-23/E35",
@@ -9839,7 +9839,7 @@
       "reason": "As printed the last clause contradicts λ̃′_τ = λ̃_τ for the embedding τ ≠ τ_0 fixed at the start of the proof, and leaves λ̃′_{τ_0,i} (i > 1) undefined. The intended λ̃′ changes only the first entry of λ̃_{τ_0}, as condition (1) of the lemma requires.",
       "id": "PotentialAutomorphyInfrastructure/E19",
       "sourceIssue": "PAPER-ALLEN-ETAL-23/E36",
-      "printed": "The source defines λ̃′ ∈ (ℤ^{2n}_+)^{Hom(F⁺,E)} using λ̃′_τ = λ̃_τ for τ ≠ τ_0, λ̃′_{τ_0,1} = λ̃_{τ_0,1} + a, and λ̃′_{τ,i} = λ̃_{τ_0,i} for i > 1.",
+      "printed": "The proof constructs λ̃′ ∈ (ℤ^{2n}_+)^{Hom(F⁺,E)} by setting λ̃′_τ = λ̃_τ when τ ≠ τ_0, setting λ̃′_{τ_0,1} = λ̃_{τ_0,1} + a, and setting λ̃′_{τ,i} = λ̃_{τ_0,i} when i > 1.",
       "known": "Recorded in the reviewed ACC extraction; its erratum searches are dated 23 September 2026. No newer published correction was established in this run.",
       "searched": [
         "Supplied reviewed ACC sourceIssue PAPER-ALLEN-ETAL-23/E36",
@@ -9860,7 +9860,7 @@
       "reason": "Each step proves the proposition in degree q from degrees q + 1, …, d − 1. As printed the last step is q = ⌊d/2⌋ + 1, so the induction reaches only degrees [⌊d/2⌋ + 1, d − 1] and never degree ⌊d/2⌋, which the proposition asserts and Corollary 4.4.8 uses ('if q − i ≥ ⌊d/2⌋, there is nothing to do'). The step works for q = ⌊d/2⌋: it needs w ∈ W^P_{S̄_2} of length d − ⌊d/2⌋, and the proof itself checks this for 'q ∈ [⌊d/2⌋, d]'.",
       "id": "PotentialAutomorphyInfrastructure/E20",
       "sourceIssue": "PAPER-ALLEN-ETAL-23/E37",
-      "printed": "Hypothesis 4.4.2 takes q ∈ [⌊d/2⌋, d − 1] and requires the proposition in all degrees i ∈ [q + 1, d − 1] for every m ∈ ℤ_{≥1}. The induction then assumes this hypothesis at q ∈ [⌊d/2⌋ + 1, d − 1] and aims to establish it at q − 1.",
+      "printed": "Hypothesis 4.4.2 takes q ∈ [⌊d/2⌋, d − 1] and assumes the proposition in all degrees i ∈ [q + 1, d − 1] for all m ∈ ℤ_{≥1}. The induction step takes q ∈ [⌊d/2⌋ + 1, d − 1], assumes this hypothesis at q, and claims to establish it at q − 1.",
       "known": "Recorded in the reviewed ACC extraction; its erratum searches are dated 23 September 2026. No newer published correction was established in this run.",
       "searched": [
         "Supplied reviewed ACC sourceIssue PAPER-ALLEN-ETAL-23/E37",
@@ -9881,7 +9881,7 @@
       "reason": "The notation is defined on p. 975 as A(K, λ, q, m) = T^S(H^q(X_K, 𝒱_λ/ϖ^m)_𝔪), and the surrounding lines of each passage use that order ('Ã(K̃(m″), λ̃) → A(K, λ, q, m)/J', 'A = A(K, λ, q, m)'). Only the order of the arguments is wrong.",
       "id": "PotentialAutomorphyInfrastructure/E21",
       "sourceIssue": "PAPER-ALLEN-ETAL-23/E38",
-      "printed": "On p. 977 the source says reduction to A(q + 1, K, λ′(q), m), the Hecke algebra is unavailable. On p. 978 it defines J as an ideal’s image in A(K, q, λ, m); on p. 980 it specifies a nilpotent J_0 ⊂ A(q, K, λ, m) with J_0^{N_0} = 0.",
+      "printed": "The source says reduction to A(q + 1, K, λ′(q), m), the Hecke algebra, is unavailable (p. 977). On p. 978, J is the ideal’s image in A(K, q, λ, m); on p. 980, it introduces J_0 ⊂ A(q, K, λ, m), a nilpotent ideal with J_0^{N_0} = 0.",
       "known": "Recorded in the reviewed ACC extraction; its erratum searches are dated 23 September 2026. No newer published correction was established in this run.",
       "searched": [
         "Supplied reviewed ACC sourceIssue PAPER-ALLEN-ETAL-23/E38",
@@ -9902,7 +9902,7 @@
       "reason": "Conclusion (c) concerns only ρ̄_𝔪̃, and 𝔪 is an arbitrary non-Eisenstein maximal ideal of the abstract Hecke algebra T^S, so ρ̄_𝔪 can be any absolutely irreducible representation unramified outside S with ρ̄_𝔪̃ decomposed generic, including one that is not Fontaine–Laffaille with these weights at v; for such 𝔪, A(K, λ, q, m) = 0, (a) and (b) hold vacuously and (c) fails. The proof reads (c) off a lattice in Ã^{2n}, which needs Ã ≠ 0, and A ≠ 0 forces this because T̃^S → Ã → A/J_0 is a ring map with J_0 nilpotent. Proposition 4.3.4, by contrast, assumes 𝔪 in the support. Corollary 4.4.8 and Theorem 4.5.1 are unaffected: there 𝔪 ⊂ T^S(K, λ) is in the support of the cohomology, and (c) does not depend on q.",
       "id": "PotentialAutomorphyInfrastructure/E22",
       "sourceIssue": "PAPER-ALLEN-ETAL-23/E39",
-      "printed": "Condition (6) takes a non-Eisenstein maximal ideal 𝔪 ⊂ T^S and requires ρ̄_𝔪̃ to be decomposed generic. Part (c) asserts that every v|v̄ of F admits N̄ ∈ MF_k satisfying ρ̄_𝔪̃|_{G_{F_v}} ≅ G(N̄), together with FL_τ(N̄) = {−λ_{τc,n} + 2n − 1, …, −λ_{τc,1} + n, λ_{τ,1} + (n − 1), …, λ_{τ,n}}.",
+      "printed": "Condition (6) requires a maximal non-Eisenstein ideal 𝔪 ⊂ T^S with decomposed generic ρ̄_𝔪̃. Part (c) asserts, at every place v|v̄ of F, the existence of N̄ ∈ MF_k such that ρ̄_𝔪̃|_{G_{F_v}} ≅ G(N̄) and FL_τ(N̄) = {−λ_{τc,n} + 2n − 1, …, −λ_{τc,1} + n, λ_{τ,1} + (n − 1), …, λ_{τ,n}}.",
       "known": "Recorded in the reviewed ACC extraction; its erratum searches are dated 23 September 2026. No newer published correction was established in this run.",
       "searched": [
         "Supplied reviewed ACC sourceIssue PAPER-ALLEN-ETAL-23/E39",
@@ -9944,7 +9944,7 @@
       "reason": "Theorem 2.3.5 (p. 937) gives only the residual representation ρ̄_𝔪 : G_{F,S} → GL_n(T^S(K, λ)/𝔪). Condition (a) is about ρ_𝔪 with coefficients in A(K, λ, q, m)/J, resp. T^S(K, λ)_𝔪/J, which is Theorem 2.3.7 (p. 938: 'ρ_𝔪 : G_{F,S} → GL_n(T^S(K, λ)_𝔪/I)'). The paper cites Theorem 2.3.7 for this fact in §4.1 (p. 965) and in the proof of Proposition 4.4.6 (p. 981).",
       "id": "PotentialAutomorphyInfrastructure/E24",
       "sourceIssue": "PAPER-ALLEN-ETAL-23/E41",
-      "printed": "The source cites Theorem 2.3.5 as already providing a ρ_𝔪 with condition (a) alone, namely compatibility between local and global data at unramified places. The same existence claim and citation recur on p. 985.",
+      "printed": "The proof cites Theorem 2.3.5 as already establishing existence of ρ_𝔪 subject just to (a), namely compatibility between local and global data at unramified places. On p. 985 it again attributes existence with condition (a) alone to Theorem 2.3.5.",
       "known": "Recorded in the reviewed ACC extraction; its erratum searches are dated 23 September 2026. No newer published correction was established in this run.",
       "searched": [
         "Supplied reviewed ACC sourceIssue PAPER-ALLEN-ETAL-23/E41",
@@ -9965,7 +9965,7 @@
       "reason": "Here K is the level subgroup of GL_n(𝔸_F^∞), so 𝒪_K means nothing; the local field K = F⁺_v̄ belongs to Lemmas 4.2.2–4.2.3. The condition being arranged is Proposition 4.4.6(3), 'U(𝒪_{F⁺_{v̄″}}) ⊂ K̃_{v̄″}'.",
       "id": "PotentialAutomorphyInfrastructure/E25",
       "sourceIssue": "PAPER-ALLEN-ETAL-23/E42",
-      "printed": "The source asserts U(𝒪_K) ⊂ K̃_{v̄″} at every place v̄″|p of F⁺.",
+      "printed": "The source requires U(𝒪_K) ⊂ K̃_{v̄″} at every F⁺-place v̄″|p.",
       "known": "Recorded in the reviewed ACC extraction; its erratum searches are dated 23 September 2026. No newer published correction was established in this run.",
       "searched": [
         "Supplied reviewed ACC sourceIssue PAPER-ALLEN-ETAL-23/E42",
@@ -10007,7 +10007,7 @@
       "reason": "If I is the intersection of the pre-images, then I^{N_0} kills each H^{q−i}(X_{K′}, 𝒱_λ/ϖ^m)_𝔪, and the inclusion displayed just before, ∏_{i=0}^{q} Ann_{T^S} H^{q−i}(X_{K′}, 𝒱_λ/ϖ^m)_𝔪 ⊂ Ann_{T^S} H^q(X_K, 𝒱_λ/ϖ^m)_𝔪, has q + 1 factors, so J^{(q+1)N_0} = 0. For q = 0 the printed value is N = 0, contradicting 'N ≥ 1' (J^0 = 0 would force A(K, λ, 0, m) = 0). The corollary only needs some N depending on [F⁺ : Q] and n, so nothing else changes.",
       "id": "PotentialAutomorphyInfrastructure/E27",
       "sourceIssue": "PAPER-ALLEN-ETAL-23/E44",
-      "printed": "For i = 0, …, q the source specifies J_i ⊂ A(K′, λ, q−i, m) with J_i^{N_0} = 0. It proposes obtaining J by intersecting the pre-images in T^S of J_0, …, J_q and taking the image in A(K, λ, q, m), claiming the corollary with N = qN_0.",
+      "printed": "For every i = 0, …, q, the proof introduces J_i ⊂ A(K′, λ, q−i, m) with J_i^{N_0} = 0. It claims the corollary follows by intersecting the inverse images in T^S of J_0, …, J_q, taking their image in A(K, λ, q, m) as J, and setting N = qN_0.",
       "known": "Recorded in the reviewed ACC extraction; its erratum searches are dated 23 September 2026. No newer published correction was established in this run.",
       "searched": [
         "Supplied reviewed ACC sourceIssue PAPER-ALLEN-ETAL-23/E44",
@@ -10028,7 +10028,7 @@
       "reason": "K is the level subgroup here and det(g) is an idèle of F, while Art_K denotes the Artin map of a field K (§1.2). The twisting map f_ψ of §2.2.20 is written with Art_F, as are the two analogous displays on p. 984 ('ψ(Art_F(det(g)))[K′^S g K′^S]') and p. 986.",
       "id": "PotentialAutomorphyInfrastructure/E28",
       "sourceIssue": "PAPER-ALLEN-ETAL-23/E45",
-      "printed": "The source invokes Propositions 2.2.21 and 2.2.23 to assert that T^S → T^S, [K^S g K^S] ↦ ε(Art_K(det(g)))^{−n_0}[K^S g^{−1} K^S] induces an isomorphism on the algebras under discussion.",
+      "printed": "The source invokes Propositions 2.2.21 and 2.2.23 to claim that T^S → T^S, [K^S g K^S] ↦ ε(Art_K(det(g)))^{−n_0}[K^S g^{−1} K^S], induces an isomorphism on the relevant quotients.",
       "known": "Recorded in the reviewed ACC extraction; its erratum searches are dated 23 September 2026. No newer published correction was established in this run.",
       "searched": [
         "Supplied reviewed ACC sourceIssue PAPER-ALLEN-ETAL-23/E45",
@@ -10049,7 +10049,7 @@
       "reason": "K′ is a normal subgroup of K, as the same sentence says, so the quotient is K/K′. On p. 984 the next sentence uses that K/K′ has order prime to p to get the surjection A(K′, λ, q, m) → A(K, λ, q, m).",
       "id": "PotentialAutomorphyInfrastructure/E29",
       "sourceIssue": "PAPER-ALLEN-ETAL-23/E46",
-      "printed": "The source chooses a good normal subgroup K′ ⊂ K and requires K′/K to be abelian with order prime to p. On p. 986 it again requires the quotient K′/K to be abelian.",
+      "printed": "The source chooses a good subgroup K′ ⊂ K that is normal, then requires K′/K to be abelian with order coprime to p. On p. 986 it again requires the quotient K′/K to be abelian.",
       "known": "Recorded in the reviewed ACC extraction; its erratum searches are dated 23 September 2026. No newer published correction was established in this run.",
       "searched": [
         "Supplied reviewed ACC sourceIssue PAPER-ALLEN-ETAL-23/E46",
@@ -10070,7 +10070,7 @@
       "reason": "The integer N introduced in the same sentence is otherwise unused, and the case of the corollary already established gives an ideal with J′^N = 0; the exponent n (the dimension) plays no role. The conclusion J = f(J′) needs exactly J^N = 0.",
       "id": "PotentialAutomorphyInfrastructure/E30",
       "sourceIssue": "PAPER-ALLEN-ETAL-23/E47",
-      "printed": "The source claims an integer N ≥ 1 can be chosen using only [F⁺ : Q] and n, along with an ideal J′ ⊂ T^{S′}(H^q(X_{K′}, 𝒱_λ/ϖ^m)_{𝔪(ψ)}) for which J′^n = 0.",
+      "printed": "The source asserts existence of N ≥ 1, determined solely by [F⁺ : Q] and n, together with an ideal J′ ⊂ T^{S′}(H^q(X_{K′}, 𝒱_λ/ϖ^m)_{𝔪(ψ)}) for which J′^n = 0.",
       "known": "Recorded in the reviewed ACC extraction; its erratum searches are dated 23 September 2026. No newer published correction was established in this run.",
       "searched": [
         "Supplied reviewed ACC sourceIssue PAPER-ALLEN-ETAL-23/E47",
@@ -10091,7 +10091,7 @@
       "reason": "a′ is a tuple of integers indexed by the embeddings, as in Proposition 4.4.6(b) and Corollary 4.4.8(b) ('a = (λ_{τ,n}) ∈ ℤ^{Hom_{Q_p}(F_v,E)}').",
       "id": "PotentialAutomorphyInfrastructure/E31",
       "sourceIssue": "PAPER-ALLEN-ETAL-23/E48",
-      "printed": "Part (b′) places ρ_{𝔪(ψ)}|_{G_{F_v}} in the essential image of G^{a′} for each v|v̄ of F, specifying a′ = (λ′_{τ,n}) ∈ Hom_{Q_p}(F_v, E).",
+      "printed": "Condition (b′) asserts that, at every F-place v|v̄, the representation ρ_{𝔪(ψ)}|_{G_{F_v}} belongs to the essential image of G^{a′}, with a′ = (λ′_{τ,n}) ∈ Hom_{Q_p}(F_v, E).",
       "known": "Recorded in the reviewed ACC extraction; its erratum searches are dated 23 September 2026. No newer published correction was established in this run.",
       "searched": [
         "Supplied reviewed ACC sourceIssue PAPER-ALLEN-ETAL-23/E48",
@@ -10133,7 +10133,7 @@
       "reason": "The standing hypothesis a few lines earlier is K_v = Iw_v for every v | p, which the printed second clause contradicts. The clause defines the p-part of K(b, c), as the next sentences (K(0, 1) = K, K(0, c)/K(b, c) ≅ ∏_{v|p} T_n(𝒪_{F_v}/ϖ_v^b)) and the G̃ analogue on p. 1001 ('K̃(b, c)_v̄ = Ĩw_v̄(b, c) otherwise') show.",
       "id": "PotentialAutomorphyInfrastructure/E33",
       "sourceIssue": "PAPER-ALLEN-ETAL-23/E50",
-      "printed": "The source defines a good K(b, c) ⊂ K by K(b, c)_v = K_v for v ∤ p while K_v = Iw_v(b, c) for v|p. It concludes K(0, 1) = K.",
+      "printed": "The source defines the good subgroup K(b, c) ⊂ K using K(b, c)_v = K_v for v ∤ p, but K_v = Iw_v(b, c) for v|p, and concludes K(0, 1) = K.",
       "known": "Recorded in the reviewed ACC extraction; its erratum searches are dated 23 September 2026. No newer published correction was established in this run.",
       "searched": [
         "Supplied reviewed ACC sourceIssue PAPER-ALLEN-ETAL-23/E50",
@@ -10154,7 +10154,7 @@
       "reason": "𝒱_λ, the ordinary summand, 𝐓^S(K(b, c), λ)^ord and the characters χ_{λ,v,i} in conclusions (b) and (c) are defined in §5.1 only for λ ∈ (ℤ^n_+)^{Hom(F,E)} (p. 989). The proof changes the weight with Corollary 5.2.18, which is stated for dominant λ, λ′.",
       "id": "PotentialAutomorphyInfrastructure/E34",
       "sourceIssue": "PAPER-ALLEN-ETAL-23/E51",
-      "printed": "The source takes integers c ≥ b ≥ 0 with c ≥ 1, a weight λ ∈ (ℤ^n)^{Hom(F,E)}, and a non-Eisenstein maximal ideal 𝔪 ⊂ 𝐓^S(K(b, c), λ)^ord.",
+      "printed": "The theorem takes integers c ≥ b ≥ 0 subject to c ≥ 1, a weight λ ∈ (ℤ^n)^{Hom(F,E)}, and a maximal non-Eisenstein ideal 𝔪 ⊂ 𝐓^S(K(b, c), λ)^ord.",
       "known": "Recorded in the reviewed ACC extraction; its erratum searches are dated 23 September 2026. No newer published correction was established in this run.",
       "searched": [
         "Supplied reviewed ACC sourceIssue PAPER-ALLEN-ETAL-23/E51",
@@ -10196,7 +10196,7 @@
       "reason": "A dropped variable: the same hypothesis reads 'K̃_v̄ = Ĩw_v̄ for each v̄ ∈ S̄_p' on pp. 1001–1002 and in Proposition 5.4.13.",
       "id": "PotentialAutomorphyInfrastructure/E36",
       "sourceIssue": "PAPER-ALLEN-ETAL-23/E54",
-      "printed": "The source takes a good K̃ ⊂ G̃(𝔸^∞_{F^+}), requiring K̃_v̄ = Ĩw_v̄ at each S̄_p, together with K̃^S = G̃(𝒪̂^S_{F^+}).",
+      "printed": "The proposition takes a good subgroup K̃ ⊂ G̃(𝔸^∞_{F^+}), imposing K̃_v̄ = Ĩw_v̄ “for each S̄_p” and K̃^S = G̃(𝒪̂^S_{F^+}).",
       "known": "Recorded in the reviewed ACC extraction; its erratum searches are dated 23 September 2026. No newer published correction was established in this run.",
       "searched": [
         "Supplied reviewed ACC sourceIssue PAPER-ALLEN-ETAL-23/E54",
@@ -10217,7 +10217,7 @@
       "reason": "The same paragraph defines ^rW^P = ∏_{v̄∈S̄_p} ^rW^P_v̄ with ^rW_v̄ ≅ S_{2n} and ^rW_{P,v̄} ≅ S_n × S_n, so the longest element has relative length n² at each p-adic place of F^+ (Lemma 5.4.8(3)(b) with i = 0 gives l_r(w_{0,v̄}) = n²). S_p is the set of p-adic places of F (p. 918), and every p-adic place of F^+ splits in F, so |S_p| = 2|S̄_p| and the printed value is twice the right one. The value is not used later.",
       "id": "PotentialAutomorphyInfrastructure/E37",
       "sourceIssue": "PAPER-ALLEN-ETAL-23/E55",
-      "printed": "The source identifies w_0^P as the longest element in W^P, equivalently in ^rW^P, and assigns l_r(w_0^P) = |S_p|n² together with l(w_0^P) = [F^+ : ℚ]n².",
+      "printed": "The source identifies w_0^P as longest in W^P, or equivalently ^rW^P, and assigns it lengths l_r(w_0^P) = |S_p|n² and l(w_0^P) = [F^+ : ℚ]n².",
       "known": "Recorded in the reviewed ACC extraction; its erratum searches are dated 23 September 2026. No newer published correction was established in this run.",
       "searched": [
         "Supplied reviewed ACC sourceIssue PAPER-ALLEN-ETAL-23/E55",
@@ -10259,7 +10259,7 @@
       "reason": "Iw_v is defined only for places v of F, as a subgroup of GL_n(𝒪_{F_v}) (§2.2.5). The Iwahori subgroup of G̃(F^+_v̄) is Ĩw_v̄, which is what Proposition 5.2.28, used in the proof, and Proposition 5.4.13, which applies the theorem, require.",
       "id": "PotentialAutomorphyInfrastructure/E39",
       "sourceIssue": "PAPER-ALLEN-ETAL-23/E57",
-      "printed": "The source takes a good K̃ ⊂ G̃(𝔸^∞_{F^+}) that decomposes with respect to P and satisfies K̃_v̄ = Iw_v̄ at every v̄ ∈ S̄_p.",
+      "printed": "The theorem assumes a good subgroup K̃ ⊂ G̃(𝔸^∞_{F^+}) decomposed relative to P, with K̃_v̄ = Iw_v̄ at every place v̄ ∈ S̄_p.",
       "known": "Recorded in the reviewed ACC extraction; its erratum searches are dated 23 September 2026. No newer published correction was established in this run.",
       "searched": [
         "Supplied reviewed ACC sourceIssue PAPER-ALLEN-ETAL-23/E57",
@@ -10322,7 +10322,7 @@
       "reason": "For n = 1 the lemma's weight is λ_τ = (−M) for τ ∈ Ĩ_p and λ_τ = (0) for τc ∈ Ĩ_p, and (3)(c) says λ_{w_i} = λ(a_i); then λ(a_i)_τ − λ(a_i)^∨_{τc} = λ(a_i)_τ + λ(a_i)_{τc} = −M + 2a_i for every τ, which is exactly what Definition 4.3.5 forbids, so λ̃_i is not CTG. No other choice helps: for n = 1, part (2) of the lemma (in Proposition 5.4.13, triviality of 𝒱_λ on a finite-index subgroup of 𝒪_F^×) forces λ_τ + λ_{τc} to be independent of τ, and then λ_{w_i} = λ(a_i) is again pure. The proof's last claim fails as well, since for n = 1 the multiset I′ is a single element of multiplicity 1 = n.",
       "id": "PotentialAutomorphyInfrastructure/E42",
       "sourceIssue": "PAPER-ALLEN-ETAL-23/E60",
-      "printed": "Lemma 5.4.8(3) claims that every i = 0, …, n² admits a dominant λ̃_i ∈ (ℤ^{2n}_+)^{Hom(F^+,E)} satisfying the listed conditions, including (a), that λ̃_i is CTG. The proof concludes that each element of I′ has multiplicity less than n.",
+      "printed": "Lemma 5.4.8(3) asserts that every i = 0, …, n² admits a dominant weight λ̃_i ∈ (ℤ^{2n}_+)^{Hom(F^+,E)} satisfying, among its conditions, (a): λ̃_i is CTG. The proof concludes that each element of I′ has multiplicity strictly below n.",
       "known": "Recorded in the reviewed ACC extraction; its erratum searches are dated 23 September 2026. No newer published correction was established in this run.",
       "searched": [
         "Supplied reviewed ACC sourceIssue PAPER-ALLEN-ETAL-23/E60",
@@ -10343,7 +10343,7 @@
       "reason": "For i = 0, nx + n − r = n² with 1 ≤ r ≤ n forces x = r = n; the displayed tuple then has 2n + 1 entries, among them n + x + 1 = 2n + 1, and (5.4.10)–(5.4.12) compare entries of λ̃(a_i) at positions such as n + x + 1 = 2n + 1 that do not exist. The definition w_{i,v̄} = σ_{X_i} is fine for i = 0, the display agrees with σ_{X_i} for every i ≥ 1, and the chosen interval for a_0 lies in the half-line that dominance requires, so the lemma is unaffected.",
       "id": "PotentialAutomorphyInfrastructure/E43",
       "sourceIssue": "PAPER-ALLEN-ETAL-23/E61",
-      "printed": "(w_{i,v̄}(1), …, w_{i,v̄}(2n)) = (n + 1, n + 2, …, n + x, 1, 2, …, r, n + x + 1, r + 1, r + 2, …, n, n + x + 2, n + x + 3, …, 2n). … (5.4.10) (n − r)M − a_i ≥ −n(x + 1)M + a_i,",
+      "printed": "The source specifies (w_{i,v̄}(1), …, w_{i,v̄}(2n)) = (n + 1, n + 2, …, n + x, 1, 2, …, r, n + x + 1, r + 1, r + 2, …, n, n + x + 2, n + x + 3, …, 2n). It also gives (5.4.10) as (n − r)M − a_i ≥ −n(x + 1)M + a_i.",
       "known": "Recorded in the reviewed ACC extraction; its erratum searches are dated 23 September 2026. No newer published correction was established in this run.",
       "searched": [
         "Supplied reviewed ACC sourceIssue PAPER-ALLEN-ETAL-23/E61",
@@ -10385,7 +10385,7 @@
       "reason": "m is already fixed in the first sentence, and λ, the λ̃_i and the a_i depend on it through conclusion (1), 𝒪(λ)/ϖ^m ≅ 𝒪/ϖ^m (Lemma 5.4.8 takes M divisible by #(𝒪/ϖ^m)^×). Read with a new m, conclusion (1) would in general be false.",
       "id": "PotentialAutomorphyInfrastructure/E45",
       "sourceIssue": "PAPER-ALLEN-ETAL-23/E63",
-      "printed": "The proposition first fixes an integer m ≥ 1 and asserts existence of a dominant λ ∈ (ℤ^n_+)^{Hom(F,E)}. It later fixes c ≥ b ≥ 0 with c ≥ 1, together with an integer m ≥ 1 again.",
+      "printed": "The statement takes an integer m ≥ 1 and asserts existence of a dominant weight λ ∈ (ℤ^n_+)^{Hom(F,E)}. The proof fixes c ≥ b ≥ 0 with c ≥ 1, then also fixes an integer m ≥ 1.",
       "known": "Recorded in the reviewed ACC extraction; its erratum searches are dated 23 September 2026. No newer published correction was established in this run.",
       "searched": [
         "Supplied reviewed ACC sourceIssue PAPER-ALLEN-ETAL-23/E63",
@@ -10406,7 +10406,7 @@
       "reason": "Theorem 5.4.3 yields degree i[F^+:ℚ] = d − l(w) and weight λ_w = λ(a_i) only for w the w_i of Lemma 5.4.8 (l(w_i) = [F^+:ℚ](n² − i), w_i(λ̃_i + ρ) − ρ = λ(a_i)), and then the twist is 𝒪(α_{w_0^G w_i w_0^{G̃}}) ⊗ τ^{−1}_{w_0^G w_i w_0^{G̃}}. Since l(w_0^G w w_0^{G̃}) = [F^+:ℚ]n² − l(w) (p. 1014), the two elements differ unless n² = 2i. The proposition only asserts that some w_i exists, so nothing false is stated, but its λ̃_i and a_i are the lemma's while its w_i is not.",
       "id": "PotentialAutomorphyInfrastructure/E46",
       "sourceIssue": "PAPER-ALLEN-ETAL-23/E64",
-      "printed": "The proposition chooses a Weyl element w_i ∈ ^rW^P and uses in (2) the expression 𝐓^{S,ord}(𝒪(α_{w_i}) ⊗_𝒪 τ^{−1}_{w_i} H^{i[F^+:ℚ]}(X_{K(b,c)}, 𝒱_{λ(a_i)})^ord_𝔪). Its proof invokes Theorems 4.3.3 and 5.4.3 together with Lemma 5.4.8.",
+      "printed": "The source chooses a Weyl element w_i ∈ ^rW^P and uses, in (2), 𝐓^{S,ord}(𝒪(α_{w_i}) ⊗_𝒪 τ^{−1}_{w_i} H^{i[F^+:ℚ]}(X_{K(b,c)}, 𝒱_{λ(a_i)})^ord_𝔪). The proof attributes this to Theorems 4.3.3 and 5.4.3 together with Lemma 5.4.8.",
       "known": "Recorded in the reviewed ACC extraction; its erratum searches are dated 23 September 2026. No newer published correction was established in this run.",
       "searched": [
         "Supplied reviewed ACC sourceIssue PAPER-ALLEN-ETAL-23/E64",
@@ -10427,7 +10427,7 @@
       "reason": "The characters χ_{λ,v,j} take values in 𝐓^{S,ord}(…)^× (they involve U_{v,j} and ⟨u⟩; see the reminder just before the proposition), J_i is an ideal of 𝐓^{S,ord}(…) by part (2), and ρ_𝔪 has coefficients in 𝐓^{S,ord}(…)/J_i, as in (a). J_i is not an ideal of the unramified algebra 𝐓^S(…), so the printed quotient is not defined.",
       "id": "PotentialAutomorphyInfrastructure/E47",
       "sourceIssue": "PAPER-ALLEN-ETAL-23/E66",
-      "printed": "The source asserts that ρ_𝔪 sends (g_1 − χ_{λ,v,1}(g_1))(g_2 − χ_{λ,v,2}(g_2)) … (g_n − χ_{λ,v,n}(g_n)), regarded as an element of 𝐓^S(H^i(X_{K(b,c)}, 𝒱_λ)^ord_𝔪)[G_{F_v}], to zero in M_n(𝐓^S(H^i(X_{K(b,c)}, 𝒱_λ)^ord_𝔪)/J_i).",
+      "printed": "The source claims that ρ_𝔪 sends (g_1 − χ_{λ,v,1}(g_1))(g_2 − χ_{λ,v,2}(g_2)) … (g_n − χ_{λ,v,n}(g_n)) in 𝐓^S(H^i(X_{K(b,c)}, 𝒱_λ)^ord_𝔪)[G_{F_v}] to zero in M_n(𝐓^S(H^i(X_{K(b,c)}, 𝒱_λ)^ord_𝔪)/J_i).",
       "known": "Recorded in the reviewed ACC extraction; its erratum searches are dated 23 September 2026. No newer published correction was established in this run.",
       "searched": [
         "Supplied reviewed ACC sourceIssue PAPER-ALLEN-ETAL-23/E66",
@@ -10469,7 +10469,7 @@
       "reason": "Both rings are defined just above, so there is nothing to 'let', and as printed the lemma asserts nothing. The proof proves finiteness ('It is enough to show that R̃_v^{det,ord} is a finite R_v^□-algebra … This follows from the relation (6.2.7)'), and the proof of Proposition 6.2.12 uses it as a statement ('By Lemma 6.2.9, s lifts to a point s′ : Spec K → Spec R̃_v^{det,ord}').",
       "id": "PotentialAutomorphyInfrastructure/E49",
       "sourceIssue": "PAPER-ALLEN-ETAL-23/E70",
-      "printed": "Lemma 6.2.9 introduces R̃_v^{det,ord} by asking that it be a finite algebra over R_v^{det,ord}.",
+      "printed": "Lemma 6.2.9 assumes that R̃_v^{det,ord} is an algebra finite over R_v^{det,ord}.",
       "known": "Recorded in the reviewed ACC extraction; its erratum searches are dated 23 September 2026. No newer published correction was established in this run.",
       "searched": [
         "Supplied reviewed ACC sourceIssue PAPER-ALLEN-ETAL-23/E70",
@@ -10490,7 +10490,7 @@
       "reason": "j is not bound. The definition of the ordinary functor on p. 1034 has I_{F_v} act on Fil^i/Fil^{i−1} through χ_i^univ, and the variant R_v^{△,σ} in the proof of Proposition 6.2.12 uses χ_{σ(i)}^univ.",
       "id": "PotentialAutomorphyInfrastructure/E50",
       "sourceIssue": "PAPER-ALLEN-ETAL-23/E71",
-      "printed": "The source asserts that ρ ⊗_R K has a G_{F_v}-stable filtration specified by 0 = Fil^0 ⊂ ⋯ ⊂ Fil^n = K^n. On Fil^i/Fil^{i−1} for i = 1, …, n, it specifies the I_{F_v}-action via the universal character χ_j^univ pushed forward to R.",
+      "printed": "The source asserts a G_{F_v}-stable filtration 0 = Fil^0 ⊂ ⋯ ⊂ Fil^n = K^n of ρ ⊗_R K. For each i = 1, …, n, it specifies the I_{F_v}-action on Fil^i/Fil^{i−1} via the universal character χ_j^univ pushed forward to R.",
       "known": "Recorded in the reviewed ACC extraction; its erratum searches are dated 23 September 2026. No newer published correction was established in this run.",
       "searched": [
         "Supplied reviewed ACC sourceIssue PAPER-ALLEN-ETAL-23/E71",
@@ -10511,7 +10511,7 @@
       "reason": "Item (3) puts the R′^loc-algebra structure on 𝒯 ⊗̂_Λ R′_N, not on 𝒯 ⊗̂_Λ R_N, and item (5) itself makes I′_N an ideal of T′_N, so T_N/I′_N is not defined. Every later use has the primed targets: the level-0 compatibility on p. 1054 ('R′_N ⊗_{Λ[Δ_N]} Λ → (T′_0/I′_0)/I′_{N,0}') and the verification of the set-up in the proof of Theorem 6.5.4 (p. 1069, 'R′_N → T′_N/I′_N').",
       "id": "PotentialAutomorphyInfrastructure/E51",
       "sourceIssue": "PAPER-ALLEN-ETAL-23/E79",
-      "printed": "Item (4) supplies R^loc- and R′^loc-algebra surjections, respectively R_∞ → 𝒯 ⊗̂_Λ R_N and, for the primed map, R′_∞ → 𝒯 ⊗̂_Λ R_N, compatible modulo ϖ. Item (5) specifies nilpotent ideals I_N ⊂ T_N and I′_N ⊂ T′_N, and requires continuous surjectivity of R_N → T_N/I_N as well as R′_N → T_N/I′_N.",
+      "printed": "Part (4) gives surjections R_∞ → 𝒯 ⊗̂_Λ R_N and R′_∞ → 𝒯 ⊗̂_Λ R_N as R^loc- and R′^loc-algebra maps, agreeing modulo ϖ. Part (5) introduces nilpotent ideals I_N in T_N and I′_N in T′_N, with continuous surjections R_N → T_N/I_N and R′_N → T_N/I′_N.",
       "known": "Recorded in the reviewed ACC extraction; its erratum searches are dated 23 September 2026. No newer published correction was established in this run.",
       "searched": [
         "Supplied reviewed ACC sourceIssue PAPER-ALLEN-ETAL-23/E79",
@@ -10532,7 +10532,7 @@
       "reason": "In the last term d and J are free, and for y ∈ R_∞/ϖ the element α(y) is only defined in (lim_{d,J} R(d, J, ∞))/ϖ, the ring in the display just above; z lies in the limit, not in one R(d, J, ∞). With the corrected term the sequence is exact: if α(ỹ) − z = ϖα(u) (α is surjective), then x = ỹ − ϖu maps to (y, z). That exactness is what lets the lifts S_∞ → R_∞, R′_∞ be chosen compatibly mod ϖ.",
       "id": "PotentialAutomorphyInfrastructure/E52",
       "sourceIssue": "PAPER-ALLEN-ETAL-23/E80",
-      "printed": "The source claims exactness for R_∞ → R_∞/ϖ × lim_{d,J} R(d, J, ∞) → R(d, J, ∞)/ϖ, where the first map is x ↦ (x mod ϖ, α(x)), while the second is (y, z) ↦ α(y) − z mod ϖ. It claims the same for the corresponding sequence involving R′_∞.",
+      "printed": "The proof asserts exactness of R_∞ → R_∞/ϖ × lim_{d,J} R(d, J, ∞) → R(d, J, ∞)/ϖ, using x ↦ (x mod ϖ, α(x)) and (y, z) ↦ α(y) − z mod ϖ, and of the corresponding sequence for R′_∞.",
       "known": "Recorded in the reviewed ACC extraction; its erratum searches are dated 23 September 2026. No newer published correction was established in this run.",
       "searched": [
         "Supplied reviewed ACC sourceIssue PAPER-ALLEN-ETAL-23/E80",
@@ -10553,7 +10553,7 @@
       "reason": "The first morphism is RΓ(X_K, 𝒱_λ(χ^{−1}))_{𝔪^Q} → RΓ(X_K, 𝒱_λ(χ^{−1}))_𝔪, at level K on both sides. 𝔪 is a maximal ideal of 𝐓^S(K, ·) (p. 1062), and 𝔪^Q is its pullback to 𝐓^{S∪Q}(K, ·) ⊂ 𝐓^S(K, ·) (p. 1065); it is not an ideal of a Hecke algebra at level K_0(Q). What the proof of Lemma 6.5.8 shows, that H^*(X_K, 𝒱_λ(χ^{−1}))[𝔪^Q] is killed by a power of 𝔪, is exactly the uniqueness of 𝔪 over 𝔪^Q in 𝐓^S(K, ·).",
       "id": "PotentialAutomorphyInfrastructure/E53",
       "sourceIssue": "PAPER-ALLEN-ETAL-23/E83",
-      "printed": "The source says the first morphism requires only uniqueness of 𝔪 among maximal ideals of 𝐓^{S∪Q}(K_0(Q), 𝒱_λ(χ^{−1})) above 𝔪^Q, and attributes that uniqueness to the proof of Lemma 6.5.8.",
+      "printed": "For the first morphism, the proof reduces the claim to uniqueness of 𝔪 among maximal ideals of 𝐓^{S∪Q}(K_0(Q), 𝒱_λ(χ^{−1})) over 𝔪^Q, saying this was established while proving Lemma 6.5.8.",
       "known": "Recorded in the reviewed ACC extraction; its erratum searches are dated 23 September 2026. No newer published correction was established in this run.",
       "searched": [
         "Supplied reviewed ACC sourceIssue PAPER-ALLEN-ETAL-23/E83",
@@ -10574,7 +10574,7 @@
       "reason": "The proof fixes a Taylor–Wiles datum Q_N for each N ≥ 1 and never sets Q = Q_N; T_N is written with 𝐓^{S∪Q_N} but with the levels K_i(Q) and the ideal 𝔫_1^Q in the same formula. Harmless.",
       "id": "PotentialAutomorphyInfrastructure/E54",
       "sourceIssue": "PAPER-ALLEN-ETAL-23/E84",
-      "printed": "The source places the surjection’s kernel inside (p^N ℤ_p)^{nq}, citing q_v ≡ 1 mod p^N for every v ∈ Q. Its definitions are 𝒞_N = R Hom_{𝒪[Δ_N]}(RΓ_{K_0(Q)/K_1(Q)}(X_{K_1(Q)}, 𝒱_λ(1))_{𝔫_1^Q}, 𝒪[Δ_N])[−d]; the other object is T_N = _{K_0(Q)/K_1(Q)}𝐓^{S∪Q_N}(RΓ_{K_0(Q)/K_1(Q)}(X_{K_1(Q)}, 𝒱_λ(1))_{𝔫_1^Q}).",
+      "printed": "The source places the surjection’s kernel inside (p^N ℤ_p)^{nq}, citing q_v ≡ 1 mod p^N for all v ∈ Q. It defines 𝒞_N = R Hom_{𝒪[Δ_N]}(RΓ_{K_0(Q)/K_1(Q)}(X_{K_1(Q)}, 𝒱_λ(1))_{𝔫_1^Q}, 𝒪[Δ_N])[−d] and T_N = _{K_0(Q)/K_1(Q)}𝐓^{S∪Q_N}(RΓ_{K_0(Q)/K_1(Q)}(X_{K_1(Q)}, 𝒱_λ(1))_{𝔫_1^Q}).",
       "known": "Recorded in the reviewed ACC extraction; its erratum searches are dated 23 September 2026. No newer published correction was established in this run.",
       "searched": [
         "Supplied reviewed ACC sourceIssue PAPER-ALLEN-ETAL-23/E84",
@@ -10595,7 +10595,7 @@
       "reason": "In the published numbering 6.2.32 is Lemma 6.2.32 (p. 1045). It only produces Taylor–Wiles data with #Q_N = q, q_v ≡ 1 mod p^N and h^1_{𝒮^⊥_{Q_N},T}(ad ρ̄(1)) = 0, and gives no surjection. The surjection R^{T,loc}_𝒮⟦X_1, …, X_g⟧ → R^T_{𝒮_{Q_N}} with g = qn − n²[F^+ : ℚ] is Proposition 6.2.33(3) (p. 1047), which the same paragraph already uses to choose Q_N. The TeX cites a lemma environment as 'Proposition'.",
       "id": "PotentialAutomorphyInfrastructure/E55",
       "sourceIssue": "PAPER-ALLEN-ETAL-23/E85",
-      "printed": "The source asserts that R_∞ → R_N and, on the primed side, R′_∞ → R′_N are surjective local 𝒪-algebra maps for every N ≥ 0. It invokes Proposition 6.2.25 for N = 0, with H^0(F_S/F, ad ρ̄_𝔪(1)) = 0, and Proposition 6.2.32 for N ≥ 1.",
+      "printed": "The proof invokes Proposition 6.2.25 for N = 0, citing H^0(F_S/F, ad ρ̄_𝔪(1)) = 0, and Proposition 6.2.32 for N ≥ 1, to obtain local 𝒪-algebra surjections R_∞ → R_N and R′_∞ → R′_N for every N ≥ 0.",
       "known": "Recorded in the reviewed ACC extraction; its erratum searches are dated 23 September 2026. No newer published correction was established in this run.",
       "searched": [
         "Supplied reviewed ACC sourceIssue PAPER-ALLEN-ETAL-23/E85",
@@ -10637,7 +10637,7 @@
       "reason": "As printed the first claim compares T_∞ with itself and equates endomorphism rings taken in two different derived categories. This bullet is the input to §6.3.5(3) and (5), which have T_∞ and T′_∞, End_{D(S_∞/ϖ)} on both sides, and H^*(C_∞ ⊗^L_{S_∞} S_∞/ϖ). The intended meaning is clear.",
       "id": "PotentialAutomorphyInfrastructure/E57",
       "sourceIssue": "PAPER-ALLEN-ETAL-23/E87",
-      "printed": "The source compares T_∞ with T_∞ and gives their coinciding image the name T̄_∞, using End_{D(S_∞/ϖ)}(𝒞_∞ ⊗^L_{S_∞} S_∞/ϖ) = End_{D(S_∞)}(𝒞′_∞ ⊗^L_{S_∞} S_∞/ϖ). It next describes R_∞/ϖ ≅ R′_∞/ϖ as acting on H^*(𝒞_∞ ⊗^L_{S_∞} ϖ)/(Ī_∞ + Ī′_∞) ≅ H^*(𝒞′_∞ ⊗^L_{S_∞} S_∞/ϖ)/(Ī_∞ + Ī′_∞).",
+      "printed": "The source claims T_∞ and T_∞ have common image T̄_∞ in End_{D(S_∞/ϖ)}(𝒞_∞ ⊗^L_{S_∞} S_∞/ϖ) = End_{D(S_∞)}(𝒞′_∞ ⊗^L_{S_∞} S_∞/ϖ). It then considers the R_∞/ϖ ≅ R′_∞/ϖ actions on H^*(𝒞_∞ ⊗^L_{S_∞} ϖ)/(Ī_∞ + Ī′_∞) ≅ H^*(𝒞′_∞ ⊗^L_{S_∞} S_∞/ϖ)/(Ī_∞ + Ī′_∞).",
       "known": "Recorded in the reviewed ACC extraction; its erratum searches are dated 23 September 2026. No newer published correction was established in this run.",
       "searched": [
         "Supplied reviewed ACC sourceIssue PAPER-ALLEN-ETAL-23/E87",
@@ -10679,7 +10679,7 @@
       "reason": "The weight λ of π is indexed by Hom(F, ℂ), and restricting an embedding τ : E ↪ ℂ to E does nothing; part (2) uses the matching convention λ_{F,τ} = λ_{τ′} for an extension τ′ of τ to E. In (2) the left side is a representation of W_{E_w} and the right side one of W_{F_v}; part (1) states the same relation with the restriction.",
       "id": "PotentialAutomorphyInfrastructure/E59",
       "sourceIssue": "PAPER-ALLEN-ETAL-23/E89",
-      "printed": "Part (1) asserts existence of a regular algebraic, cuspidal automorphic representation π_E on GL_n(𝔸_E), with weight λ_{E,τ} = λ_{τ|_E} and r_ι(π_E) ≅ r_ι(π)|_{G_E}. Part (2) asserts rec_{E_w}(π) = rec_{F_v}(π_F) whenever a finite place w of E lies over a place v of F.",
+      "printed": "Part (1) asserts existence of a regular algebraic, cuspidal automorphic π_E on GL_n(𝔸_E), with weight λ_{E,τ} = λ_{τ|_E} and r_ι(π_E) ≅ r_ι(π)|_{G_E}. Part (2) asserts rec_{E_w}(π) = rec_{F_v}(π_F) whenever a finite E-place w lies over the F-place v.",
       "known": "Recorded in the reviewed ACC extraction; its erratum searches are dated 23 September 2026. No newer published correction was established in this run.",
       "searched": [
         "Supplied reviewed ACC sourceIssue PAPER-ALLEN-ETAL-23/E89",
@@ -10763,7 +10763,7 @@
       "reason": "The first argument of A(·, χ, Q) is a weight: the preceding sentence defines A(μ, χ, Q) = A_1(μ, χ, Q) ⊗^L_{Λ_1} Λ, and Λ is the coefficient ring. The target of f_{𝒮_{χ,Q}} in the same proposition is written with A(μ, χ, Q).",
       "id": "PotentialAutomorphyInfrastructure/E63",
       "sourceIssue": "PAPER-ALLEN-ETAL-23/E93",
-      "printed": "The source describes an action on A(Λ, χ, Q)_{𝔫^Q} through the stated identifications and calls _{Δ_Q}𝐓^{S∪Q,Λ_1}(A(Λ, χ, Q)_{𝔫^Q}) a local Λ[Δ_Q]-algebra. In Proposition 6.6.9 the ideal is specified by J ⊂ _{Δ_Q}𝐓^{S∪Q,Λ_1}(A(Λ, χ, Q)_{𝔫^Q} ⊗_𝒪 𝒪(ν + w_0^G μ)^{−1}).",
+      "printed": "The source says its identifications give an action on A(Λ, χ, Q)_{𝔫^Q}, making _{Δ_Q}𝐓^{S∪Q,Λ_1}(A(Λ, χ, Q)_{𝔫^Q}) a local Λ[Δ_Q]-algebra. Proposition 6.6.9 introduces an ideal J ⊂ _{Δ_Q}𝐓^{S∪Q,Λ_1}(A(Λ, χ, Q)_{𝔫^Q} ⊗_𝒪 𝒪(ν + w_0^G μ)^{−1}).",
       "known": "Recorded in the reviewed ACC extraction; its erratum searches are dated 23 September 2026. No newer published correction was established in this run.",
       "searched": [
         "Supplied reviewed ACC sourceIssue PAPER-ALLEN-ETAL-23/E93",
@@ -10784,7 +10784,7 @@
       "reason": "The map in the statement is f_{𝒮_{χ,Q}} : R_{𝒮_{χ,Q}} → …. For v ∈ Q, P_v(X) has coefficients in the spherical Hecke algebra at v (2.2.6), which is not part of 𝐓^{S∪Q}, so its image in the target is not defined. The proof itself says 'satisfying the given condition at finite places v ∉ S ∪ Q', and the Fontaine–Laffaille analogue, Proposition 6.5.11 (pp. 1066–1067), has v ∉ S ∪ Q and f_{𝒮_{χ,Q}} ∘ ρ_{𝒮_{χ,Q}}.",
       "id": "PotentialAutomorphyInfrastructure/E64",
       "sourceIssue": "PAPER-ALLEN-ETAL-23/E94",
-      "printed": "The source asserts, for every finite v ∉ S of F, that f_{𝒮_χ} ∘ ρ_{𝒮_χ}(Frob_v) has characteristic polynomial obtained by mapping P_v(X) into _{Δ_Q}𝐓^{S∪Q,Λ_1}(A(μ, χ, Q)_{𝔫^Q} ⊗_𝒪 𝒪(ν + w_0^G μ)^{−1})/J.",
+      "printed": "The source asserts, for every finite F-place v ∉ S, that f_{𝒮_χ} ∘ ρ_{𝒮_χ}(Frob_v) has characteristic polynomial equal to P_v(X) mapped into _{Δ_Q}𝐓^{S∪Q,Λ_1}(A(μ, χ, Q)_{𝔫^Q} ⊗_𝒪 𝒪(ν + w_0^G μ)^{−1})/J.",
       "known": "Recorded in the reviewed ACC extraction; its erratum searches are dated 23 September 2026. No newer published correction was established in this run.",
       "searched": [
         "Supplied reviewed ACC sourceIssue PAPER-ALLEN-ETAL-23/E94",
@@ -10805,7 +10805,7 @@
       "reason": "Only the level-c complexes A_1(μ, χ, c) take three arguments. A(μ, χ) = A_1(μ, χ) ⊗^L_{Λ_1} Λ takes two, and the third argument of A(μ, χ, Q) is a set of places. Corollary 6.6.6, which is being applied, outputs A_1(μ′, χ, 1) ⊗_𝒪 𝒪(ν + w_0^G μ′)^{−1}, and the next display is cohomology at level K(1, 1), i.e. c = 1.",
       "id": "PotentialAutomorphyInfrastructure/E65",
       "sourceIssue": "PAPER-ALLEN-ETAL-23/E95",
-      "printed": "The source invokes Corollary 6.6.6 to conclude that H^*(A(λ, 1, 1)_𝔪 ⊗_𝒪 𝒪(ν + w_0^G λ)^{−1})[1/p] has support containing ker f.",
+      "printed": "The proof invokes Corollary 6.6.6 to conclude that the support of H^*(A(λ, 1, 1)_𝔪 ⊗_𝒪 𝒪(ν + w_0^G λ)^{−1})[1/p] contains ker f.",
       "known": "Recorded in the reviewed ACC extraction; its erratum searches are dated 23 September 2026. No newer published correction was established in this run.",
       "searched": [
         "Supplied reviewed ACC sourceIssue PAPER-ALLEN-ETAL-23/E95",
@@ -10847,7 +10847,7 @@
       "reason": "Definition 4.3.1 needs a prime p ≠ l with r̄|_{G_{F_v}} unramified at each v | p. Splitting completely in M, the normal closure of the field cut out by ad r̄, only makes ad r̄ unramified there, and p = l is not excluded by the printed condition.",
       "id": "PotentialAutomorphyInfrastructure/E67",
       "sourceIssue": "PAPER-ALLEN-ETAL-23/E98",
-      "printed": "The source calls a rational prime p decomposed generic for r whenever it splits completely in M but fails to split completely in M(ζ_l).",
+      "printed": "The source claims p is decomposed generic for r whenever the rational prime p splits completely in M and fails to split completely in M(ζ_l).",
       "known": "Recorded in the reviewed ACC extraction; its erratum searches are dated 23 September 2026. No newer published correction was established in this run.",
       "searched": [
         "Supplied reviewed ACC sourceIssue PAPER-ALLEN-ETAL-23/E98",
@@ -10868,7 +10868,7 @@
       "reason": "F̃ ∩ F̄^{ker ad r̄} is a subfield of F̄^{ker ad r̄}, so the printed degree is not defined. The argument needs the index of ad r̄(G_{F̃ ∩ F̄^{ker ad r̄}}) in ad r̄(G_F) to be less than l, and that index is [F̃ ∩ F̄^{ker ad r̄} : F], bounded by the hypothesis l > [F̃ : F].",
       "id": "PotentialAutomorphyInfrastructure/E68",
       "sourceIssue": "PAPER-ALLEN-ETAL-23/E99",
-      "printed": "For assertion (5), the source uses [F̃ ∩ F̄^{ker ad r̄} : F̄^{ker ad r̄}] < l to deduce (ad r̄)(G_{F̃ ∩ F̄^{ker ad r̄}}) ⊃ PSL_2(F_l).",
+      "printed": "For (5), the proof uses [F̃ ∩ F̄^{ker ad r̄} : F̄^{ker ad r̄}] < l to deduce (ad r̄)(G_{F̃ ∩ F̄^{ker ad r̄}}) ⊃ PSL_2(F_l).",
       "known": "Recorded in the reviewed ACC extraction; its erratum searches are dated 23 September 2026. No newer published correction was established in this run.",
       "searched": [
         "Supplied reviewed ACC sourceIssue PAPER-ALLEN-ETAL-23/E99",
@@ -10889,7 +10889,7 @@
       "reason": "**How the proof goes.** On p. 1274, Theorem 1.1 is used to make r̄|G_{F'} ι-ordinarily automorphic, and then ACC+ Theorem 6.1.2 is applied at p = l to ρ = r|G_{F'}. The paper says that conditions (3) and (4) of that theorem, apart from decomposed genericity, \"follow from the corresponding conditions of r̄\".\n\n**The missing condition.** Condition (4) of ACC+ Theorem 6.1.2 reads: \"There exists σ ∈ G_F − G_F(ζ_p) such that ρ̄(σ) is a scalar. We have p > n.\" This is the published text on p. 1030, and it is the same in arXiv v1, p. 109. The fourth hypothesis of Theorem 1.4 reproduces the first sentence and drops the second. Nothing in the hypotheses of Theorem 1.4 implies l > n:\n- The enormity hypothesis excludes only l | n. ACC+ notes after Definition 6.2.29 that ad⁰ contains the scalars when p | n.\n- Enormity puts no lower bound on l in terms of n. For l ∤ n, large subgroups such as SL_n(F_{l^r}) with r large are enormous.\n- The other hypotheses (ordinarity, decomposed genericity, the scalar element) do not involve n.\n\n**The bound is needed in ACC+.** The bound p > n is not a removable formality. It is used in the proof of Theorem 6.1.2 in §6.6: at the Ihara-avoidance places, n pairwise distinct characters trivial modulo the uniformiser are chosen, and §6.2.15 on level-raising deformations assumes p > n.\n\n**What is affected.** For odd primes l < n with l ∤ n, Theorem 1.4 is asserted without proof. The first such case is n = 4, l = 3. No counterexample is known, and the statement may well be true there. So this is a gap in the range of a stated result, not a false statement.\n\n**What is not affected.** With l > n added, the published argument proves the theorem. Theorem 1.1 is also unaffected: there ACC+ Theorem 6.1.2 is applied at the auxiliary prime l′, which Proposition 4.1 (p. 1269) chooses with l′ > 2ln + 5 > n.\n\n**Defence considered.** The introduction (p. 1241) says Theorem 1.4 is obtained by combining Theorem 1.1 with ACC+ Theorem 6.1.2. One could read that as importing the cited theorem's hypotheses implicitly. This reading does not hold up: Theorem 1.4 lists its hypotheses explicitly, copying conditions (1)–(4) of the cited theorem except for this one sentence, and the proof asserts outright that those conditions follow.\n\n**Version history and later use.** arXiv v1 has the same omission, and there Theorem 1.4 says only \"Let l be a prime number\". The journal version added \"odd\" but not l > n. One later paper applies Theorem 1.4 as printed under the sole restriction p ∤ 2n (A'Campo, Rigidity of automorphic Galois representations over CM fields, arXiv:2202.14022v4, Corollary 1.0.5), so it inherits the gap for odd p < n.",
       "id": "PotentialAutomorphyInfrastructure/E69",
       "sourceIssue": "PAPER-QIAN-23/E2",
-      "printed": "Theorem 1.4 assumes that l is odd. Its proof claims that the corresponding hypotheses on r̄ imply every required condition apart from decomposed genericity.",
+      "printed": "Theorem 1.4 (p. 1241) takes an odd prime l. Its proof (p. 1274) asserts that the corresponding properties of r̄ imply every required condition other than decomposed genericity.",
       "known": "Recorded in the reviewed Qian extraction; no newer published correction independently established here.",
       "searched": [
         "Reviewed Qian sourceIssue PAPER-QIAN-23/E2",
@@ -10973,7 +10973,7 @@
       "reason": "Lemma 4.3 assumes only that V_{λ,t} is automorphic. In the sense of Definition 1.3 this means V_{λ,t} ≅ r_{l,ι}(π). Comparing Frobenius polynomials across the compatible system then gives only V_{λ′,t}^{ss} ≅ r_{l′,ι′}(π).\n\nThe representation r_{l′,ι′}(π) is semisimple by construction (p. 1240; Varma, Introduction). But V_{λ′,t} is not known to be semisimple, since semisimplicity of the étale cohomology of the Dwork fibre is not known.\n\nMaximal monodromy does not pass to the semisimplification. A nonzero proper G_{F′}-stable subspace W of V_{λ′,t} is inertia-stable, hence N-stable, so it is some ker N^k. Then N on W ⊕ V_{λ′,t}/W has two Jordan blocks. So the printed claim that WD(r_{l′,ι′}(π)|G_{F′_v}) has maximally nilpotent N is equivalent to V_{λ′,t} being irreducible. Nothing in the statement or proof of the lemma supplies this. With a smaller N on the Galois side, Varma's bound ≺ gives no information, so the printed deduction fails in the generality of the lemma.\n\nAttempts to defend the paper:\n- V_{λ,t} ≅ r_{l,ι}(π) does not imply irreducibility of r_{l,ι}(π). The non-polarizable case is exactly the setting of the paper.\n- Monodromy density for the family gives irreducibility only for generic t, not for every t with v(t) < 0.\n- The gap is filled only at the lemma's application in the proof of Theorem 1.1. There the residual representation of V_{λ′,t} ⊗ χ̃_2^{−1} is stated on p. 1272 to be absolutely irreducible, and Theorem 6.1.2 of ACC+ even gives V_{λ′,t} ≅ r_{ι′}(π′) directly.\n\nThe lemma remains true as stated, by the repair above. Its ingredients are:\n- Lemma 3.12, which gives the Weil-group semisimplification as a single segment;\n- Varma's semisimplified compatibility at v ∤ l′;\n- Shalika's genericity of the local components of a cuspidal π;\n- Zelevinsky's classification of generic representations, which forces the twisted Steinberg representation.\n\nThe remainder of the proof uses only V_{λ,t} ≅ r_{l,ι}(π), the Hodge–Tate weights of Lemma 3.11 and the central character, so it is unchanged. Lemma 4.3 and Theorems 1.1 and 1.4 are therefore unaffected; only the written proof needs repair.",
       "id": "PotentialAutomorphyInfrastructure/E73",
       "sourceIssue": "PAPER-QIAN-23/E41",
-      "printed": "The proof invokes Lemma 3.12 to give WD(V_{λ′,t}|G_{F′_v}) ≅ WD(r_{l′,ι′}(π)|G_{F′_v}) a maximally nilpotent N, concluding that it is Steinberg.",
+      "printed": "The proof invokes Lemma 3.12 to assert that WD(V_{λ′,t}|G_{F′_v}) ≅ WD(r_{l′,ι′}(π)|G_{F′_v}) has maximally nilpotent N, concluding it is Steinberg.",
       "known": "Recorded in the reviewed Qian extraction; no newer published correction independently established here.",
       "searched": [
         "Reviewed Qian sourceIssue PAPER-QIAN-23/E41",
@@ -11036,7 +11036,7 @@
       "reason": "[1, Theorem 5.5.1] is stated on p. 991 and restated on pp. 1026–1027 of the Annals version. It concerns Galois representations valued in ordinary Hecke algebras. It carries the standing hypothesis that F contains an imaginary quadratic field in which l splits, and it assumes [F^+:ℚ] > 1, a non-Eisenstein maximal ideal (by Definition 2.3.6, an absolutely irreducible residual representation) and a decomposed generic residual representation. The version for a single automorphic representation is [1, Corollary 5.5.2] on p. 1028. It requires the residual representation to be decomposed generic and irreducible. That corollary was added at a referee's request and appears first in the June 2022 arXiv revision; it is not in the December 2018 version that the paper cites.\n\nThe remark presents its conclusion as a consequence of the proof of Theorem 1.1, where r̄ is only semisimple. For a reducible r̄, or one that is not decomposed generic, the residual representation χ̄_1 ⊗ r̄|G_{F′} fails these hypotheses. A polarized local–global result such as Geraghty's cannot replace them, because V_{λ,t} is deliberately not self-dual. Irreducibility also matters for a second step. Transfer from the auxiliary prime l′ gives only V_{λ,t}^{ss} ≅ r_{l,ι}(π), and ordinarity of the semisimplification does not imply ordinarity of V_{λ,t}, because the order of the characters in the ordinary flag is prescribed. An absolutely irreducible residual representation makes V_{λ,t} irreducible and so closes this step.\n\nDefence: in the setting of Theorem 1.4 the remark is correct. The proof of that theorem on p. 1274 shows that r̄|G_{F′} is absolutely irreducible, using linear disjointness from F^{avoid}, and decomposed generic, using [1, Lemma 7.1.7]. The remark, however, is not restricted to that setting.\n\nThe phrase \"another way of proving the main result of [14]\" overstates what is shown. [14, Theorem 1.1] (arXiv:2103.00106v1, p. 2) proves ordinarity for every t of negative valuation over every finite extension of a local field containing ζ_N. The remark covers only the global points given by Moret-Bailly's theorem.\n\nThe remark is not used anywhere. [1, Theorem 6.1.2(5)] (p. 1030) needs π to be ι-ordinary, which Lemma 4.3 supplies, and does not need Galois ordinarity of r_ι(π).",
       "id": "PotentialAutomorphyInfrastructure/E76",
       "sourceIssue": "PAPER-QIAN-23/E45",
-      "printed": "The source invokes “Theorem 5.5.1 or [1]” for ordinarity of V_{λ,t} as a G_{F′_v}-representation at every l-adic place v of F, and calls this another proof of the principal result of [14].",
+      "printed": "The remark invokes the main local-global compatibility result, cited as Theorem 5.5.1 or [1], to claim ordinary V_{λ,t} as a G_{F′_v}-representation at every l-adic place v of F. It says this provides a further proof of [14]’s main result.",
       "known": "Recorded in the reviewed Qian extraction; no newer published correction independently established here.",
       "searched": [
         "Reviewed Qian sourceIssue PAPER-QIAN-23/E45",

@@ -4876,7 +4876,7 @@
       "id": "PAPER-ALLEN-ETAL-23/E43",
       "kind": "misprint",
       "locator": "§4.4, proof of Corollary 4.4.8, choice of K̃, p. 982 (also in arXiv v2)",
-      "printed": "• K̃_v̄ = G(𝒪_{F⁺_v̄}).",
+      "printed": "The source specifies K̃_v̄ = G(𝒪_{F⁺_v̄}).",
       "correction": "K̃_v̄ = G̃(𝒪_{F⁺_v̄})",
       "reason": "G(𝒪_{F⁺_v̄}) ≅ GL_n(𝒪_{F_ṽ}) × GL_n(𝒪_{F_{ṽ^c}}) is the Levi part and is not open in G̃(F⁺_v̄), so K̃ would not be a good subgroup. The next step says that K̃′ satisfies the hypotheses of Proposition 4.4.6, whose condition (3) includes 'K̃_v̄ = G̃(𝒪_{F⁺_v̄})'.",
       "affects": "nothing",

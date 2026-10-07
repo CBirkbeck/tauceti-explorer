@@ -3453,7 +3453,7 @@
    "source": "RJW-PADIC-L",
    "kind": "misprint",
    "locator": "§13.5.2, step (3), p. 71 (arXiv v2); published p. 197",
-   "printed": "The source declares the local condition at p empty when n ≥ 1, while for n ≥ 0 it requires σ to be unramified also at p.",
+   "printed": "The source says that n ≥ 1 makes the condition at p empty, whereas n ≥ 0 requires σ to be unramified also at p.",
    "correction": "for n ≤ 0 the local condition at p means σ is also unramified at p. In steps (3)–(4) the Selmer group written H^1_{L^Gr}(F_∞, W_n) is the one over F = F_∞^+ (as in Example 13.22).",
    "reason": "The display just above gives L^Gr_{v_p} = H^1_ur(K_∞^+, W_n) exactly for n ≤ 0; for n ≥ 1 it is all of H^1. The equivariance under {±1} used in step (4) only makes sense over F_∞^+.",
    "affects": "nothing",

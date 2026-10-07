@@ -5055,7 +5055,7 @@
       "source": "Tsimerman",
       "kind": "error",
       "locator": "Published Lemma 4.1 proof, p.384",
-      "printed": "The source claims rigidity of A after choosing a basis of A[3].",
+      "printed": "The source claims rigidity for A when a basis of A[3] is specified.",
       "correction": "Use a polarization-preserving full-level moduli problem. An unpolarized abelian variety with full level 3 need not have trivial automorphisms. For forgetting polarization, supply a separate bounded field-of-definition argument; CM.2 does not infer the absolute unmarked degree equality.",
       "reason": "Take a CM abelian surface whose CM field has an infinite unit group. Infinite-order integral units congruent to 1 modulo 3 act as origin-preserving automorphisms and act trivially on A[3]. Polarization-preserving automorphisms are finite and level at least 3 kills their torsion. This distinction is exactly why the polarized stabilizer cannot be exported as an unmarked absolute field-degree identity.",
       "affects": "the proof",

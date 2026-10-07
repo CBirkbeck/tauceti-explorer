@@ -7076,7 +7076,7 @@
    "source": "sch15",
    "kind": "gap",
    "locator": "§4.1, Theorem 4.1.1(i) and its proof, pp. 1019–1020",
-   "printed": "The source says that following the argument and applying (i) to G′ readily yields (i) for G.",
+   "printed": "The source says that reviewing the argument and applying part (i) to G′ readily yields part (i) for G.",
    "correction": "The identification of R⁺_{J,∞} with the p-adic completion of the colimit of the finite-level plus rings needs the Zariski-closed tilde-limit argument (PerfectoidSpaces:P8/closed-loci-in-towers).",
    "reason": "The proof constructs R⁺ as a completion of plus rings of Zariski closed subspaces of the Siegel space, not of the Hodge-type finite levels.",
    "affects": "the proof",

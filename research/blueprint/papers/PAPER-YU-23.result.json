@@ -9175,7 +9175,7 @@
       "id": "PAPER-YU-23/E15",
       "kind": "misprint",
       "locator": "Yu arXiv:1807.04659v5, 18 July2022: Corollary6.1.2 p43, two-case statement",
-      "printed": "Π1 not inertially equivalent to Π2; Π1=Π2",
+      "printed": "The corollary distinguishes two cases: Π1 and Π2 are not inertially equivalent; or Π1=Π2.",
       "correction": "Specify the good-representative assumption, or give the missing case of unequal but inertially equivalent unitary constituents.",
       "reason": "The two printed alternatives do not exhaust arbitrary pairs. The application in §6.4 uses good representatives and is covered; no failure of that application is claimed. For equal segment lengths a unitary twist rotates the poles and leaves the extra stabilizer contribution.",
       "affects": "nothing",

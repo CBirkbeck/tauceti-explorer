@@ -44841,7 +44841,7 @@
     {
       "kind": "error",
       "locator": "Proposition 3.1, p. 10 (arXiv v3, identical to the author version of 19 July 2022; the published pagination was not seen)",
-      "printed": "Proposition 3.1 asserts that Γ(S_ā) → Γ(S_a) is an isomorphism of graphs preserving edge labels, with (i)⇒(ii)⇔(iii), where (i) means S_ā is geometrically reducible, (ii) means the closed point a ∈ B is rational, and (iii) means each irreducible component of the schematic fiber S_a is birational to P¹.",
+      "printed": "The source asserts that Γ(S_ā) → Γ(S_a) is an isomorphism of graphs preserving labels on edges, and that (i)⇒(ii)⇔(iii), where (i) S_ā, the geometric fiber, is reducible; (ii) a ∈ B is a closed point that is rational; and (iii) each irreducible component of S_a, the schematic fiber, is birational to P¹.",
       "correction": "Assume in addition that the fiber is singular (f^{−1}_ind(ā) singular) for (ii)⇒(iii).",
       "reason": "A smooth elliptic fiber over a rational point, for instance in E × P¹ over F_q, satisfies (ii) but not (iii). The proof of (ii)⇒(iii) uses that the geometric components are rational curves, which holds for singular fibers. Every application in the paper (Propositions 9.2, 9.3 and 11.1) concerns singular fibers. /14 states the corrected proposition.",
       "affects": "a stated result",
@@ -44865,7 +44865,7 @@
     {
       "kind": "misprint",
       "locator": "proof of Proposition 6.1, p. 18 (arXiv v3, identical to the author version of 19 July 2022; the published pagination was not seen)",
-      "printed": "The proof scales the equation on U by t^{−6} = (t₀/t₁)^6, compares its coefficients against those on U′, and obtains a′_i = a_i/t^i.",
+      "printed": "The source scales the equation on U by t^{−6} = (t₀/t₁)^6, then obtains a′_i = a_i/t^i by matching its coefficients against those on U′.",
       "correction": "t^{−6} = (t₁/t₀)^6.",
       "reason": "t = t₀/t₁, so t^{−6} = (t₁/t₀)^6. The conclusion a′_i = a_i/t^i is right; /71 uses it.",
       "affects": "nothing",
@@ -44889,7 +44889,7 @@
     {
       "kind": "error",
       "locator": "proof of Proposition 6.1, p. 18 (arXiv v3, identical to the author version of 19 July 2022; the published pagination was not seen)",
-      "printed": "The source calls L = O_X(3E) a relatively very ample invertible sheaf and says it gives the closed immersion Z ⊂ P(E).",
+      "printed": "The source describes L = O_X(3E) as an invertible sheaf that is very ample relative to the base and produces the closed embedding Z ⊂ P(E).",
       "correction": "O_J(3E) is relatively base-point free and defines the contraction J → Z; the sheaf O_Z(3E) on the Weierstrass model is relatively very ample and embeds Z in P(E).",
       "reason": "O_J(3E) is trivial on the vertical curves disjoint from E, which Z contracts, so it is not relatively very ample on J. The subscript X also stands for J here.",
       "affects": "nothing",
@@ -44913,7 +44913,7 @@
     {
       "kind": "error",
       "locator": "proof of Proposition 9.3(v), p. 25 (arXiv v3, identical to the author version of 19 July 2022; the published pagination was not seen)",
-      "printed": "The source writes MW(J/P¹) = J(F) = Pic⁰_{Y_F/F}(F) = Pic⁰(Y_F), taking F to be the function field of P¹. It justifies the last identification by Br(F) = 0, attributed to Tsen's Theorem.",
+      "printed": "The source asserts MW(J/P¹) = J(F) = Pic⁰_{Y_F/F}(F) = Pic⁰(Y_F), taking F to be the projective line's function field. It justifies the final equality by citing Tsen's Theorem for Br(F) = 0.",
       "correction": "Br(F) ≠ 0 for F = F₂(t). Instead: over F̄₂(t) Tsen's theorem holds, so L ↦ (L − (deg(L|Y_F̄)/2)R)|Y_F̄ is a surjective Galois-equivariant map Pic(Ȳ) → MW(J̄/P̄¹) for an F₂-rational two-section R. Since Pic(Ȳ) has trivial Galois action (constant Picard scheme), so does MW(J̄/P̄¹), and Galois-fixed sections descend: MW(J/P¹) = MW(J̄/P̄¹).",
       "reason": "Tsen's theorem concerns k(t) with k algebraically closed. Br(F₂(t)) is non-zero: the cyclic algebra of F₄(t)/F₂(t) and t is non-split, since norms from F₄(t) have even valuation at t = 0. So Pic⁰_{Y_F/F}(F) = Pic⁰(Y_F) is not justified as printed. The statement (v) itself survives by the correction; /94 records it.",
       "affects": "the proof",
@@ -44937,7 +44937,7 @@
     {
       "kind": "gap",
       "locator": "proof of Proposition 9.5, p. 27 (arXiv v3, identical to the author version of 19 July 2022; the published pagination was not seen)",
-      "printed": "The proof says the maps in (10) send (P − O) − (1 + (P · O))J_ā ∈ W to Θ₁^* ∈ W_ā^*, the dual basis element. Preservation of the intersection pairing is then used to assert that (Θ₁^* · Θ₁^*) ∈ ℚ lies in 2ℤ.",
+      "printed": "The source says the maps in (10) send (P − O) − (1 + (P · O))J_ā ∈ W to Θ₁^* ∈ W_ā^*, a dual basis element. It claims preservation of the intersection form by these maps implies that (Θ₁^* · Θ₁^*) ∈ ℚ lies in 2ℤ.",
       "correction": "The restriction W → W_ā^* is not an isometry. Argue instead: under the hypothesis, the image of W in W_ā^* is W_ā + ℤΘ₁^*; since W is unimodular, every x ∈ W_ā ⊗ ℚ pairing integrally with W lies in W, and Θ₁^* does. So Θ₁^* ∈ W, and (Θ₁^*)² = −1 contradicts the evenness of W.",
       "reason": "Orthogonal projection onto W_ā ⊗ ℚ does not preserve the form, so evenness of W says nothing directly about the norm of the image of an element. The dual-lattice argument gives the stated contradiction; /97 records it.",
       "affects": "the proof",
@@ -44961,7 +44961,7 @@
     {
       "kind": "error",
       "locator": "proof of Proposition 10.3, p. 29 (arXiv v3, identical to the author version of 19 July 2022; the published pagination was not seen)",
-      "printed": "The source characterizes instability of J_x by the vanishing of c₄ ∈ F₂[T] at x, citing Proposition 5.1 of Deligne 1975.",
+      "printed": "The source cites Deligne 1975, Proposition 5.1 for the equivalence between instability of a fiber J_x and vanishing at x of c₄ ∈ F₂[T].",
       "correction": "A singular fiber J_x is unstable if and only if c₄ vanishes at x.",
       "reason": "In characteristic 2, c₄ = a₁⁴ also vanishes at a smooth supersingular fiber (j = 0). The argument only needs that an unstable fiber lies over a zero of c₄, which the correction gives; /102 and /199 record it.",
       "affects": "nothing",
@@ -44985,7 +44985,7 @@
     {
       "kind": "error",
       "locator": "Introduction, p. 3 (third displayed theorem); the same claim opens §10, p. 27 (arXiv v3 = author version of 19 July 2022)",
-      "printed": "The theorem, citing Thm. 10.4 and Thm. 10.5, counts exactly eleven isomorphism classes of Weierstraß equations y²+a₁xy+… = x³+a₂x²+… with a_i ∈ F₂[t]. They define geometrically rational elliptic surfaces with fibration φ : J → P¹ and constant Pic_{J/F₂}, and at most one rational a ∈ P¹ whose fiber J_a is semistable or supersingular.",
+      "printed": "The theorem, citing Thm. 10.4 and Thm. 10.5, counts eleven isomorphism classes of Weierstraß equations y²+a₁xy+… = x³+a₂x²+… with a_i ∈ F₂[t] defining geometrically rational elliptic surfaces φ : J → P¹. Their Picard scheme Pic_{J/F₂} is constant, and at most one rational a ∈ P¹ has J_a semistable or supersingular.",
       "correction": "There are exactly fourteen such Weierstraß equations up to isomorphism: the eleven of Theorems 10.4 and 10.5 and the three recorded in the Theorem 10.4 issue. The paper shows only that every such surface is among its eleven, not that each has constant Picard scheme; the review's exhaustive search confirms that all fourteen do (for geometrically rational J, constant Picard scheme is equivalent to #J(F₂) = 25).",
       "reason": "Theorems 10.4 and 10.5 say that under assumptions (i)–(ii) of §10 the fibration 'is given by exactly one of' the listed equations, and their proofs derive only necessary conditions. The converse would need Theorem 9.4, whose hypotheses include descent of every geometric Mordell–Weil section, and that is never checked. The TeX never cites Theorem 9.4 (\\ref{constant pic}). The main theorem uses only the necessary direction, which /115 and /117 state correctly. Moreover the list itself is incomplete (Theorem 10.4 issue), so the count 'eleven' is wrong, not only unproved.",
       "affects": "a stated result",
@@ -45008,7 +45008,7 @@
     {
       "kind": "error",
       "locator": "Theorem 10.4, p. 29, and its proof, p. 31 (twisted semistable case); the count in the introduction to Section 10, p. 28 (arXiv v3 = author version of 19 July 2022)",
-      "printed": "The source claims φ:J→P¹ has exactly one of eight listed Weierstraß equations modulo coordinate changes and automorphisms of P¹. For a twisted semistable fiber it states r_c≤2, n_c=2r_c+2 and (11): r_a+i+r_c=11, hence r_c≥11−i−r_a≥7. It lists I₁*+E₄+I₄, III*+E₄+I₂, III*+E₂+Ĩ₂, II*+E₄+I₁, II*+E₂+Ĩ₁ as the possibilities, and on p. 28 counts exactly eleven such equations.",
+      "printed": "The source gives eight Weierstraß equations for φ:J→P¹, uniquely up to changes of coordinates and projective-line automorphisms. A twisted semistable fiber gives r_c≤2 and n_c=2r_c+2; (11) reads r_a+i+r_c=11, hence r_c≥11−i−r_a≥7, with a similar argument. It lists I₁*+E₄+I₄, III*+E₄+I₂, III*+E₂+Ĩ₂, II*+E₄+I₁, II*+E₂+Ĩ₁ as the possibilities. On p. 28 it counts exactly eleven such Weierstraß equations.",
       "correction": "The twisted case also gives I₂*+E₄+Ĩ₂, I₃*+E₄+Ĩ₁ and IV*+E₄+Ĩ₂. Theorem 10.4 has eleven models, not eight, and §10 has fourteen equations in all. The additional models, with fibres over t=0, 1, ∞, are: y²+txy+t³y=x³+x² [I₂*+E₄+Ĩ₂, Δ=t¹⁰, j=t²]; y²+txy+t³y=x³+tx² [I₃*+E₄+Ĩ₁, Δ=t¹¹, j=t]; y²+txy+t²y=x³+t²x² [IV*+E₄+Ĩ₂, Δ=t⁸(t²+t+1), j=t⁴/(t²+t+1), plus I₁ over t²+t+1=0]. Theorem 10.5 is correct. Proposition 11.1 (p. 33) and the key-reduction proposition of §11 take their elliptic column from Theorem 10.4. The proof of Theorem 15.1 reduces every fibration to I₁*+I₄ or I₂*+III+III. All of these must treat the three configurations; I₃* is never mentioned in §§11–15. On an Enriques surface Y, the multiple fibres would lie over the unstable and the E₄ points, because Ĩ₁ and Ĩ₂ are semistable. Until then the proof of the main theorem has a gap at this point. Whether the configurations occur on a non-exceptional Enriques surface over F₂ with constant Picard scheme is not settled here.",
       "reason": "Checked by hand for y²+txy+t³y=x³+x². Δ=t¹⁰. At t=0 (Tate's algorithm): the reduction y²=x³+x² is singular at (0,0), and b₂=t², so the fibre is additive; v(a₆)=∞, v(b₈)=6, v(b₆)=6. The change y↦y+x gives a₂=t, a₄=t³ and P(T)=T³+T²=T²(T+1). Then a_{3,2}=a_{6,4}=0, and a_{2,1}X²+a_{4,3}X+a_{6,5}=X²+X has distinct rational roots. So I₂* with c=4, all seven components defined over F₂, 15 points. At ∞: y²+xy+y=x³+s²x², Δ′=s², node at (1,1) with tangent polynomial T²+T+1, so non-split I₂, 6 points. At t=1: y²+xy+y=x³+x² is smooth ordinary with 4 points (E₄). Total 25, so the trace of Frobenius on NS(J̄) is 10 and Pic_{J/F₂} is constant. Condition (ii) holds: only Ĩ₂ is semistable, and E₄ is ordinary. The other two models are checked the same way: I₃* at t=0 after three steps of the I_n* loop, and IV* at t=0 (Y²+Y distinct roots, c=3). Independent checks (scripts S/tate2.py, brute.py, classify.py, lcheck.py): (1) all 2²¹ equations were enumerated through their 2¹⁸ representatives with a₂=0 (every equation becomes one via x↦x+a₂), with Tate's algorithm at every place; this gives exactly 14 isomorphism classes, taken modulo the 512 coordinate changes of degree ≤(2,1,3) and PGL₂(F₂), that satisfy (i) and (ii); these are the 11 printed and the 3 above, one class per configuration; (2) for every class, the L-function of the generic fibre was computed from naive point counts at all places of degree ≤8; it equals (1−2T)^r with r=8−Σ(m_v−1), which confirms the component counts and the Galois-trivial Mordell–Weil action independently of Tate's algorithm; (3) for all 2¹⁸ normalised equations, Ogg's formula (v(Δ)≥e, δ=0 for I_n, IV, IV*) and Σ deg(v)·v(Δ)=12 hold. The proof's other claims were also reproduced: II*+E₂+E₄, I₃*+E₄+E₄ and IV*+E₄+I₃ are excluded, d₁=1 and 1+t are equivalent in the I₄* case, the second I₁* solution is twisted, and α=1 gives E₂. The error is the unexamined twisted case ('the argument is similar'): the tuples (r_a,i,r_c)=(7,2,2) and (8,2,1) yield these configurations.",
       "affects": "a stated result",
@@ -45054,7 +45054,7 @@
     {
       "kind": "error",
       "locator": "proof of Proposition 9.5, p. 26 (arXiv v3 = author version of 19 July 2022)",
-      "printed": "The source says that a sole additional terminal vertex must also be fixed, and claims this resolves Kodaira types III, III* and II*.",
+      "printed": "The source says that any sole additional terminal vertex is necessarily fixed, thereby resolving the Kodaira cases III, III* or II*.",
       "correction": "For III* (Ẽ₇) and II* (Ẽ₈) there are two further terminal vertices, of multiplicities 1 and 2, resp. 2 and 3. They are fixed because the Galois action preserves multiplicities, or equivalently because these graphs have no non-trivial automorphism fixing v₀. The count 'at most one further' is right for the multiplicity-one vertices only.",
       "reason": "Ẽ₇ has three terminal vertices (multiplicities 1, 1, 2) and Ẽ₈ has three (1, 2, 3).",
       "affects": "nothing",
@@ -45077,7 +45077,7 @@
     {
       "kind": "misprint",
       "locator": "Proof of Theorem 10.4, p. 30 (arXiv v3 = author version of 19 July 2022)",
-      "printed": "The source deduces r_a ≥ 3 in the case r_a = 7.",
+      "printed": "The source derives r_a ≥ 3 when r_a = 7.",
       "correction": "For r_a = 7 we get r_c ≥ 3.",
       "reason": "The bound r_c≥10−r_a yields r_c≥3 when r_a=7; repeating r_a is the wrong variable.",
       "affects": "nothing",

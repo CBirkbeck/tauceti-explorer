@@ -438,7 +438,7 @@
       "source": "YUAN-ARXIV",
       "kind": "misprint",
       "locator": "Lemma4.9 proof, arXiv2108.05625v4 printed p.75 (PDF75); original packet page76 was incorrect.",
-      "printed": "The source identifies J as the Jacobian of X over K.",
+      "printed": "The source identifies J as the Jacobian attached to X, with base field K.",
       "correction": "J is the Jacobian of C over K.",
       "reason": "The lemma introduces C and subsequently applies the curve criterion to C; no X is introduced here.",
       "affects": "nothing",

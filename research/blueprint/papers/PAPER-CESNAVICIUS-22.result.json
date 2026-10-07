@@ -8563,7 +8563,7 @@
       "id": "PAPER-CESNAVICIUS-22/E12",
       "kind": "misprint",
       "locator": "CTHK97 Lemma 3.5.1 proof, author-hosted bo.pdf p.19, first display and following sentence",
-      "printed": "The source asserts that the map is an isomorphism.",
+      "printed": "The proof declares the displayed map to be an isomorphism.",
       "correction": "The displayed map k[U_1,…,U_d]/a k[U_1,…,U_d]→B/aB is surjective. That suffices to kill the finite cokernel by Nakayama.",
       "reason": "Already with d=1, X=A1, Z={0}, marked point 0, and φ the identity, the displayed map is k[U]→k, evaluation at zero. It is surjective and not injective. The printed proof’s next step only needs surjectivity; the geometric-presentation statement is unchanged.",
       "affects": "nothing",

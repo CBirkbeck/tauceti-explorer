@@ -279,7 +279,7 @@
       "id": "PAPER-BENNETT-SIKSEK-20/E14",
       "kind": "misprint",
       "locator": "Proof of Lemma 6.6, p.371, in the published version, Annals of Mathematics 191 (2020), 355–392 (publisher PDF, SHA-256 3920a7524a37870942fe3591ac858db23cb604f4331bccd2a6dc5f11a1671fbf) Compared with arXiv:1709.01022v1, pp.14–15.",
-      "printed": "The source gives P = (4ivt + 2λ, (128iv⁵ − 64iv³)t − 128v⁶ + 96v⁴ − 16v²) ∈ E(F_p), asserts 2P = (2λ,0), and concludes that the order of P is 4.",
+      "printed": "The source places P = (4ivt + 2λ, (128iv⁵ − 64iv³)t − 128v⁶ + 96v⁴ − 16v²) ∈ E(F_p), gives 2P = (2λ,0), and concludes that P has order 4.",
       "correction": "P=(4itv+2λ,8itv(t+iv)) belongs to F′_λ(F_p), not the undefined E(F_p) in this display. Its double is (2λ,0). The x-coordinate and θ′₃(P)=4itv remain unchanged.",
       "reason": "For the local coordinate identity take p=5, t=v=2, i=3, λ=3. Then 2t²+2v²=1, but the printed point is (4,4), with y²=1 and x(x−2)(x−2λ)=4. This is a counterexample to that formula, not to all global hypotheses of the lemma. With r=2t and s=2iv, r²=2λ and s²=2λ−2, the point x=r²+rs, y=rs(r+s) lies on the curve and doubles to (2λ,0), as verified symbolically. Its x-coordinate and descent coordinate are unchanged, so the intended argument is preserved.",
       "affects": "nothing",

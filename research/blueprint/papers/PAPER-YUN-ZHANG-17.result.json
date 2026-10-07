@@ -1067,7 +1067,7 @@
       "id": "PAPER-YUN-ZHANG-17/E1",
       "kind": "misprint",
       "locator": "Proposition B.1, p. 902, and §B.2, p. 903 (published; also arXiv v3) — both verified on rendered page images, since a text layer drops the superscript",
-      "printed": "\"φ^{(r)}(0) := (d/ds)|_{s=0}φ(s) ≥ 0\" (Proposition B.1) and \"Λ^{(r)}(π, 1/2) := (d/ds)|_{s=1/2}Λ(π, s)\" (§B.2)",
+      "printed": "Proposition B.1 writes φ^{(r)}(0) := (d/ds)|_{s=0}φ(s) ≥ 0, while §B.2 defines Λ^{(r)}(π, 1/2) := (d/ds)|_{s=1/2}Λ(π, s).",
       "correction": "(d/ds)^r|_{s=0}φ(s) and (d/ds)^r|_{s=1/2}Λ(π, s).",
       "reason": "The superscript (r) on the left-hand side is the r-th derivative — this is the whole point of \"super-positivity\", and both statements quantify over all r ≥ 0 and compare φ^{(r_0)} with φ^{(r_0+2i)}. As printed, the definitions say that every φ^{(r)}(0) is the first derivative. The proofs use the genuine r-th derivative (the Taylor coefficients of the product expansion in the proof of Proposition B.1, and the even-degree coefficients of A_i(s) in Remark B.4).",
       "affects": "nothing",

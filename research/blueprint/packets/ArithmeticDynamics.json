@@ -30395,7 +30395,7 @@
       "id": "ArithmeticDynamics/E703",
       "source": "demarco-krieger-ye-2020",
       "locator": "Proof of Theorem 1.5, p. 37 (arXiv v2); p. 986 of the published version (Theorem 1.6)",
-      "printed": "The source invokes the product formula to conclude max{h(s_n − t_n), h(s_n, t_n), h(s_n − 1, t_n − 1)} > (1/8) log(1/δ).",
+      "printed": "The source invokes the product formula to obtain max{h(s_n − t_n), h(s_n, t_n), h(s_n − 1, t_n − 1)} > (1/8) log(1/δ).",
       "kind": "misprint",
       "correction": "The bound is (1/16) log(1/δ).",
       "reason": "In the case where the small coordinate alternates between places of total weight ≥ 1/8, h(s_n, t_n) ≥ max{h(s_n), h(t_n)} gives only (1/16) log(1/δ); the argument needs only a bound tending to ∞.",

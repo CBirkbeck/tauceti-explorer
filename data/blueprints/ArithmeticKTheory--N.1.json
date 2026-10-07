@@ -5089,7 +5089,7 @@
    "source": "Kbook.2013",
    "kind": "misprint",
    "locator": "V.6.6.1, the paragraph after (6.6.1), PDF p. 417 (book p. 409)",
-   "printed": "The source says that, in this situation, ∂ has K∗(R)-linearity.",
+   "printed": "The source asserts K∗(R)-linearity of ∂, using “in” to connect ∂ with “K∗(R)-linear”.",
    "correction": "In this case, we know that ∂ is K∗(R)-linear",
    "reason": "Grammar; the reviewed K2SymbolsBrauer packet reads it the same way in a match note but records no issue.",
    "affects": "nothing",

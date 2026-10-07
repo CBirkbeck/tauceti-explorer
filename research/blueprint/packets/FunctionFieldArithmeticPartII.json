@@ -43087,7 +43087,7 @@
       "id": "FunctionFieldArithmeticPartII/E7",
       "kind": "misprint",
       "locator": "Proposition A.11, proof, display before (A.8) and (A.9), p. 523",
-      "printed": "The source writes L^Pic_{d1+d2} ≅ t^*_{D1+D2} L_{d1+d2+n1+n2} ⊗ L^{⊗−1}_{D1+D2} and deduces mult^*_{d1,d2}L^Pic_{d1+d2} ≅ mult^*_{d1,d2} t^*_{D1+D2} L_{d1+d2+n1+n2} ⊗ … ≅ ((t_{D1}×t_{D2})^* mult^*_{d1+n1,d2+n2} L_{d1+d2+n1+n2}) ⊗ …",
+      "printed": "The source gives L^Pic_{d1+d2} ≅ t^*_{D1+D2} L_{d1+d2+n1+n2} ⊗ L^{⊗−1}_{D1+D2}. It then obtains mult^*_{d1,d2}L^Pic_{d1+d2} ≅ mult^*_{d1,d2} t^*_{D1+D2} L_{d1+d2+n1+n2} ⊗ … ≅ ((t_{D1}×t_{D2})^* mult^*_{d1+n1,d2+n2} L_{d1+d2+n1+n2}) ⊗ …",
       "correction": "L^Pic_{d1+d2+n1+n2} in all three places.",
       "reason": "Checked on the page image. t_{D1+D2} and mult act on Pic^√R_X, where L^Pic lives. L_{…} lives on X^√R_{…}. §A.2.2 defines L^Pic_d = t_D^*L^Pic_{d+d′} ⊗ L_D^{⊗−1}, and (A.8) correctly uses L^Pic.",
       "affects": "nothing",

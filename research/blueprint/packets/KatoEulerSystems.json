@@ -3420,7 +3420,7 @@
       "id": "KatoEulerSystems/E6",
       "kind": "misprint",
       "locator": "Appendix A, before Lemma A.3 and in its statement, p. 268",
-      "printed": "The source takes V′_1(f)_A to be the maximal quotient of H¹(Y(N_f), 𝒱^*_{k/A})(1). Lemma A.3 gives H¹(Y(N_f), 𝒱^*_{k/A})(2 − k) ≅ H¹(Y(N_f), 𝒱_{k/A}).",
+      "printed": "The source takes V′_1(f)_A as the maximal quotient of H¹(Y(N_f), 𝒱^*_{k/A})(1), and Lemma A.3 states … H¹(Y(N_f), 𝒱^*_{k/A})(2 − k) ≅ H¹(Y(N_f), 𝒱_{k/A}).",
       "correction": "H¹(Y_1(N_f), 𝒱^*_{k/A})(1) (and Y_1(N_f) in Lemma A.3)",
       "reason": "V_1(f)_E is Kato's quotient of H¹(Y_1(N_f), 𝒱_{k/E}) (p. 265), and §3.3 describes V′_1(f)_A as a quotient of H¹(Y_1(N), 𝒱^*_{k/A}). For the full-level curve Y(N_f) the f-eigenquotient is ρ_f^* ⊗ π̃(f)^{K(N_f)} (39), of dimension 2·dim π(f)^{K(N_f)}, not the two-dimensional V′_1(f) ≅ ρ_f^*.",
       "affects": "nothing",

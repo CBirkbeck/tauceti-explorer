@@ -4783,7 +4783,7 @@
       "kind": "misprint",
       "affects": "nothing",
       "locator": "Bibliography, reference [33], p. 96 of the author's preprint proofs.pdf",
-      "printed": "The bibliography locates the paper on the level one case of Serre’s modularity conjecture in Duke Math. J., volume 134, issue (3), year (2006), pages 534–567.",
+      "printed": "The bibliography places the work on Serre’s modularity conjecture for level one in Duke Math. J., volume 134 (3), year 2006, pages 534–567.",
       "correction": "Duke Math. J. 134 (3) (2006), 557–589.",
       "reason": "Khare's level-one paper occupies pp. 557–589 of Duke Math. J. 134 (2006), no. 3; Dieulefait–Pacetti's bibliography ([Kha06]) gives 557–589, and KW I's own citation of the paper does not conflict with it.",
       "known": "new: present in the author's preprint; the Inventiones version was not obtained",
