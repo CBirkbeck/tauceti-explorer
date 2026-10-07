@@ -27945,9 +27945,10 @@
     "REV-RS-05"
    ],
    "prompt": "research/blueprint/prompts/BP-PerfectoidShimuraVarieties.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #972"
+   "note": "deliverables arrived from an external worker on issue #972",
+   "finishedAt": "2026-10-07T00:35:42Z"
   },
   {
    "id": "REV-PerfectoidShimuraVarieties",
@@ -61023,7 +61024,8 @@
     "REV-FIX-RT-AREA-iwasawa-3~2"
    ],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-iwasawa-3~3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5868"
   },
   {
    "id": "REV-FIX-RT-AREA-iwasawa-3~3",
