@@ -25639,8 +25639,9 @@
    ],
    "avoidAccountOf": "BP-GrossZagierAndArithmeticHeights--GZ.0",
    "prompt": "research/blueprint/prompts/REV-GrossZagierAndArithmeticHeights--GZ.0.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #421"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #421",
+   "finishedAt": "2026-10-07T11:57:56Z"
   },
   {
    "id": "BP-GrossZagierAndArithmeticHeights--GZ.8",
@@ -30493,7 +30494,8 @@
    ],
    "avoidAccountOf": "BP-PotentialAutomorphyInfrastructure",
    "prompt": "research/blueprint/prompts/REV-PotentialAutomorphyInfrastructure.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #524"
   },
   {
    "id": "BP-TropicalAndBerkovichArithmetic",
