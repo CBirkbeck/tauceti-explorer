@@ -1,5 +1,9 @@
 /-
-This file is not the roadmap and is not exhaustive. The roadmap document
+This file is not the roadmap and is not exhaustive.
+Independent review REV-HodgeTateAndCanonicalSubgroups--T0: needs_changes.
+The typed algebra below elaborates only a small part of the contracts; the
+geometric signatures, APIs and examples are explicitly missing. A comment
+catalogue is not a substitute for the signatures required by PROTOCOL section 13. The roadmap document
 research/blueprint/readmes/HodgeTateAndCanonicalSubgroups--T0.md is definitive.
 The statements suggest Lean forms so that contributors and reviewers converge on
 names and signatures. Every proposed proof is `sorry`. No implementation is
@@ -14,7 +18,7 @@ How this file prototypes. The pinned libraries have the algebra of the finite-le
 theory but none of its geometry. Tau Ceti has the augmentation cotangent space
 `TauCeti.Bialgebra.CotangentSpace R A = (ker ε)/(ker ε)²` of a commutative bialgebra over
 any commutative ring (this is ω_H for an affine group scheme H = Spec A) and Cartier duality
-`FiniteLocallyFreeCommAffineGroupSchemeCat.cartierDuality`; the shared build used to check
+`TauCeti.FiniteLocallyFreeCommAffineGroupSchemeCat.cartierDuality`; the shared build used to check
 this file does not contain those Tau Ceti modules, so the components below are written
 against Mathlib with the same definitions (`Ideal.Cotangent` of the counit kernel), and a
 formaliser replaces them by the Tau Ceti declarations named in each docstring. Mathlib's
@@ -209,7 +213,7 @@ def integralDifferentialLattice (I : Ideal O) (ψ1 : ω ⧸ (I • (⊤ : Submod
     Submodule O ω :=
   (Submodule.span O {ψ1}).comap (I • (⊤ : Submodule O ω)).mkQ
 
-/-- API `TauCeti.HodgeTate.integralDifferentialLattice_bounds` (component, first half):
+/-- Auxiliary component for `TauCeti.HodgeTate.integralDifferentialLattice`:
 `I_m ω⁺ ⊂ ω^int`. -/
 theorem le_integralDifferentialLattice (I : Ideal O) (ψ1 : ω ⧸ (I • (⊤ : Submodule O ω))) :
     I • (⊤ : Submodule O ω) ≤ integralDifferentialLattice I ψ1 := sorry
@@ -243,13 +247,10 @@ end TauCeti.HodgeTate
 
 /-! ## Contract catalogue
 
-Generated from the packet: every node, and every API item and unit test of every definition
-and construction, under its proposed name. "Component above" means a typed Mathlib-level
-component elaborates earlier in this file; "not stated" means the signature needs carriers
-the pinned libraries lack (abelian and semi-abelian schemes, p-divisible groups, adic spaces,
-Shimura varieties) and is omitted rather than replaced by an uninterpreted proposition.
-Named theorems of T0–T5 are listed with their statements; all are proved by `sorry` once
-stated. -/
+Synchronized with the independently reviewed packet. All entries below are comments,
+not Lean signatures or proofs. A listed typed component supplies only the indicated
+algebra; every other entry is explicitly not stated. No geometric carrier is replaced
+by an uninterpreted proposition. -/
 
 /-
 Node HodgeTateAndCanonicalSubgroups:T0/conormal-module (definition): The conormal module ω_H of a finite locally free group scheme
@@ -267,14 +268,13 @@ free of rank dim G when R is local with residue characteristic p, and ω_{G[p^n]
 rank dim G over R/p^n.
 
 API:
-  TauCeti.HodgeTate.conormal [constructor] (component `conormal` above): ω_H := e*Ω¹_{H/S}, over
-    Spec R the augmentation cotangent space I/I² of the Hopf algebra of H.
-  TauCeti.HodgeTate.conormal_eq_cotangentSpace [compatibility] (component: `conormal` is defined as
-    the counit-kernel cotangent space, Tau Ceti's `TauCeti.Bialgebra.CotangentSpace`): Over Spec R,
-    ω_H is TauCeti.Bialgebra.CotangentSpace R A for H = Spec A (definitional for the affine
-    carrier).
-  TauCeti.HodgeTate.conormal_map [functoriality] (components `conormalMap`, `conormalMap_id` above):
-    A homomorphism f: H → H′ induces f*: ω_{H′} → ω_H, with (id)* = id and (g∘f)* = f*∘g*.
+  TauCeti.HodgeTate.conormal [constructor] (typed component: conormal): ω_H := e*Ω¹_{H/S}, over Spec
+    R the augmentation cotangent space I/I² of the Hopf algebra of H.
+  TauCeti.HodgeTate.conormal_eq_cotangentSpace [compatibility] (typed component: conormal (affine
+    carrier only)): Over Spec R, ω_H is TauCeti.Bialgebra.CotangentSpace R A for H = Spec A
+    (definitional for the affine carrier).
+  TauCeti.HodgeTate.conormal_map [functoriality] (typed component: conormalMap, conormalMap_id): A
+    homomorphism f: H → H′ induces f*: ω_{H′} → ω_H, with (id)* = id and (g∘f)* = f*∘g*.
   TauCeti.HodgeTate.conormal_baseChange [functoriality] (not stated): For R → R′, ω_{H_{R′}} ≅ R′
     ⊗_R ω_H, naturally in H and compatibly with composition of base changes.
   TauCeti.HodgeTate.conormal_rightExact [relation] (not stated): For 0 → H′ → H → H″ → 0 exact
@@ -286,6 +286,7 @@ API:
   TauCeti.HodgeTate.pDivisibleConormal [constructor] (not stated): For a p-divisible group G over a
     p-adically complete R, ω_G := lim ω_{G[p^v]}, with ω_G/p^v ≅ ω_{G[p^v]}; locally free of rank
     dim G when R is local of residue characteristic p.
+
 Unit tests:
   TauCeti.HodgeTate.conormal_constant_eq_zero [degenerate] (not stated): For the constant group
     (ℤ/p^n)_R over any ring R, ω = 0.
@@ -312,13 +313,13 @@ replaced by H(S′) for an S-scheme S′ (for S = Spec O_K, S′ = Spec O_K̄), 
 H(O_K̄) → ω_{H^D} ⊗ O_K̄.
 
 API:
-  TauCeti.HodgeTate.hodgeTateMap [constructor] (component `hodgeTateMap` above): α_H: H(S) →
-    ω_{H^D}, x ↦ x*(dt/t), through Cartier duality.
-  TauCeti.HodgeTate.hodgeTateMap_add [simp] (components `hodgeTateMap_mul`, `hodgeTateMap_one`
-    above): α_H(x + y) = α_H(x) + α_H(y) and α_H(0) = 0.
-  TauCeti.HodgeTate.hodgeTateMap_apply_groupLike [characterisation] (component
-    `hodgeTateMap_apply_groupLike` above): Over Spec R, α_H(x) is the class of g_x − 1 in I/I², g_x
-    the group-like element of the Hopf algebra of H^D attached to x.
+  TauCeti.HodgeTate.hodgeTateMap [constructor] (typed component: hodgeTateMap): α_H: H(S) → ω_{H^D},
+    x ↦ x*(dt/t), through Cartier duality.
+  TauCeti.HodgeTate.hodgeTateMap_add [simp] (typed component: hodgeTateMap_mul, hodgeTateMap_one):
+    α_H(x + y) = α_H(x) + α_H(y) and α_H(0) = 0.
+  TauCeti.HodgeTate.hodgeTateMap_apply_groupLike [characterisation] (typed component:
+    hodgeTateMap_apply_groupLike): Over Spec R, α_H(x) is the class of g_x − 1 in I/I², g_x the
+    group-like element of the Hopf algebra of H^D attached to x.
   TauCeti.HodgeTate.hodgeTateMap_natural [functoriality] (not stated): For f: H → H′ with Cartier
     dual f^D: H′^D → H^D, α_{H′}(f(x)) = (f^D)*(α_H(x)) in ω_{H′^D}, where (f^D)*: ω_{H^D} →
     ω_{H′^D}.
@@ -326,6 +327,7 @@ API:
     restricted to H(R) is α_H followed by ω_{H^D} → R′ ⊗ ω_{H^D}.
   TauCeti.HodgeTate.hodgeTateLinear [constructor] (not stated): The linearisation α_H ⊗ 1: H(R′) ⊗_ℤ
     R′ → R′ ⊗_R ω_{H^D} for an R-algebra R′.
+
 Unit tests:
   TauCeti.HodgeTate.hodgeTateMap_constant [computation] (not stated): For H = (ℤ/p^n)_R, α_H(1) is
     the class of t − 1 in ω_{μ_{p^n}} = R/p^n, a generator.
@@ -350,7 +352,6 @@ A^∨[p^n] → μ_{p^n} for the Weil pairing; then, identifying A[p^n]^D = A^∨
 = λ*(α_{A[p^n]}(x)) for x ∈ A[p^n](S), where λ*: ω_{A^∨} → ω_A; so λ exchanges the Hodge–Tate maps
 of A and A^∨. (4) The same holds for p-divisible groups with a quasi-polarisation λ: G → G^D
 (R07.1/p-divisible-cartier-dual).
-(named result; not stated: it needs the carriers listed in its prerequisites)
 -/
 
 /-
@@ -377,6 +378,7 @@ API:
     polarisation.
   TauCeti.HodgeTate.pDivisibleHodgeTateMap_galois [functoriality] (not stated): For G over O_K, α_G
     ⊗ 1 is Gal(K̄/K)-equivariant.
+
 Unit tests:
   TauCeti.HodgeTate.pDivisibleHodgeTateMap_QpZp [computation] (not stated): For G = ℚ_p/ℤ_p over
     O_C, α_G(1) = dt/t, so α_G ⊗ 1 is an isomorphism ℤ_p ⊗ O_C ≅ ω_{μ_{p^∞}}.
@@ -400,7 +402,6 @@ finite flat commutative group scheme G of p-power order over O_K, the cokernel o
 O_C → ω_{G^D} ⊗ O_C is killed by every element of valuation ≥ 1/(p−1). (2) For a p-divisible group H
 over O_C, the cokernel of α_H ⊗ 1: T_pH ⊗ O_C → ω_{H^D} is killed by every element of valuation ≥
 1/(p−1).
-(named result; not stated: it needs the carriers listed in its prerequisites)
 -/
 
 /-
@@ -420,14 +421,14 @@ API:
     ideal of O_S, for G generically étale over S.
   TauCeti.HodgeTate.farguesDegree [constructor] (not stated): deg G := v(Fitt₀ ω_G) ∈ ℝ_{≥0} for G
     finite flat over O_K.
-  TauCeti.HodgeTate.farguesDegree_eq_sum [characterisation] (components `CyclicPresentation`,
-    `degreeOfPresentation`, `degreeOfPresentation_eq` above): If ω_G ≅ ⊕ O_K/x_i then deg G = Σ
-    v(x_i).
+  TauCeti.HodgeTate.farguesDegree_eq_sum [characterisation] (not stated): If ω_G ≅ ⊕ O_K/x_i then
+    deg G = Σ v(x_i).
   TauCeti.HodgeTate.fargueSlope [constructor] (not stated): μ(G) := deg G / ht G for G ≠ 0.
   TauCeti.HodgeTate.farguesDegree_isogeny [compatibility] (not stated): If G = ker(f: A → B) for an
     isogeny of abelian schemes or p-divisible groups over O_K, deg G = v(det(f*: ω_B → ω_A)).
   TauCeti.HodgeTate.farguesDegree_monogenic [example] (not stated): For G = Spec O_K[T]/(f) with
     unit section T = 0, deg G = v(f′(0)) = Σ_{x ∈ G(O_K̄)∖0} v(x).
+
 Unit tests:
   TauCeti.HodgeTate.farguesDegree_constant [degenerate] (not stated): deg (ℤ/p^n)_{O_K} = 0.
   TauCeti.HodgeTate.farguesDegree_mu [computation] (not stated): deg μ_{p^n, O_K} = n, since ω =
@@ -450,7 +451,6 @@ for a flat S′ → S, δ commutes with pullback. (4) 0 ≤ deg G ≤ ht G; deg 
 G = ht G iff G is of multiplicative type; μ(G^D) = 1 − μ(G). (5) A truncated Barsotti–Tate group of
 level n and dimension d has degree nd; in particular deg G[p^n] = n·dim G for a p-divisible group G,
 and μ(G[p^n]) = dim G / ht G.
-(named result; not stated: it needs the carriers listed in its prerequisites)
 -/
 
 /-
@@ -464,7 +464,6 @@ immersion, the composite zero and G/G′ → G″ a generic isomorphism, deg G �
 equality iff G → G″ is flat (an fppf epimorphism). Over a discrete valuation ring the degree is
 strictly increasing on Raynaud's lattice of prolongations of a given generic group, and it is
 exchanged with ht − deg under Cartier duality.
-(named result; not stated: it needs the carriers listed in its prerequisites)
 -/
 
 /-
@@ -487,6 +486,7 @@ API:
     point) map f: Y → X, D_{f*H} = f*D_H.
   TauCeti.HodgeTate.farguesDivisor_rankOne [compatibility] (not stated): At x: Spec V → X with V
     rank one, v(p) = 1, x*D_H = (a) with v(a) = deg H_x.
+
 Unit tests:
   TauCeti.HodgeTate.farguesDivisor_mu [computation] (not stated): D_{μ_{p^n}} = V(p^n).
   TauCeti.HodgeTate.farguesDivisor_etale [degenerate] (not stated): D_H = 0 for H étale over X.
@@ -504,7 +504,8 @@ modules of the same rank; its determinant det Lie(f) is a section of det Lie(G)^
 and the divisor of f is D_f := div(det Lie(f)). D_f is an effective Cartier divisor, D_{g∘f} = D_f +
 D_g, and over the open where ker f is finite D_f = D_{ker f} (T0/fargues-divisor). Over an analytic
 adic space 𝒳 with such an isogeny on a formal model, δ_H := det Lie(f) for H = ker f is a section
-with v_x(δ_H) = deg H_x at every rank-one point x.
+with v_x(δ_H) = deg H_x at each rank-one point x for which the specialised kernel H_x is finite flat
+over O_{C_x}.
 
 API:
   TauCeti.HodgeTate.isogenyDivisor [constructor] (not stated): D_f := div(det Lie(f)) for an isogeny
@@ -513,15 +514,18 @@ API:
   TauCeti.HodgeTate.isogenyDivisor_eq_farguesDivisor [compatibility] (not stated): Over the open
     where ker f is finite flat, D_f = D_{ker f}.
   TauCeti.HodgeTate.deltaSection [constructor] (not stated): δ_H := det Lie(f) on an analytic adic
-    space with formal model, with v_x(δ_H) = deg H_x at rank-one points.
+    space with a formal model; v_x(δ_H) = deg H_x when H_x is finite flat over the valuation ring at
+    x.
   TauCeti.HodgeTate.isogenyDivisor_mulP [example] (not stated): D_{[p]} = V(p^{dim G}).
+
 Unit tests:
   TauCeti.HodgeTate.isogenyDivisor_id [degenerate] (not stated): D_{id} = 0.
   TauCeti.HodgeTate.isogenyDivisor_mulP_test [computation] (not stated): For [p] on an abelian
     scheme of relative dimension g, D_{[p]} = V(p^g).
-  TauCeti.HodgeTate.isogenyDivisor_kernel_not_finite [non-example] (not stated): For the quotient of
-    the Tate curve by μ_p, D_f = V(p) is defined although the kernel is not finite over the cusp, so
-    D_f cannot be defined as D_{ker f}.
+  TauCeti.HodgeTate.isogenyDivisor_kernel_not_finite [compatibility] (not stated): The quotient of
+    the Tate curve by μ_p extends on the toric chart as t ↦ t^p, has finite flat kernel μ_p, and D_f
+    = V(p). It is not a counterexample to D_f = D_{ker f}; this identity requires finite flatness of
+    the kernel.
 -/
 
 /-
@@ -532,19 +536,18 @@ isomorphic to μ_{p^n}^r (equivalently H^D étale-locally constant (ℤ/p^n)^r).
 H^D(R′) ⊗ R′ → ω_H ⊗ R′ is an isomorphism for every étale R-algebra R′ trivialising H^D, and ω_H is
 locally free of rank r over R/p^n. In particular, for the universal multiplicative subgroup H_n of a
 Siegel or Hilbert–Siegel tower, HT ⊗ O: H_n^D ⊗ O → ω_{H_n} is an isomorphism.
-(named result; not stated: it needs the carriers listed in its prerequisites)
 -/
 
 /-
 Node HodgeTateAndCanonicalSubgroups:T0/normalized-multiplicative-pullback (lemma): Normalised pullback along isogenies of multiplicative p-divisible groups
 
-Let S be a scheme on which p is locally nilpotent or a p-adic formal scheme, and λ: G → G′ an
-isogeny of p-divisible groups of multiplicative type of height h, with T, T′ their (étale) character
-groups. Through the canonical identification det ω_G ≅ (det T)^{-1} ⊗ ω_{μ_{p^∞}}^{⊗h} (and likewise
-for G′), the transpose of p^{−r} det λ₀ (λ₀: T′ → T the map on characters, p^r its determinant up to
-a unit) defines a normalised pullback λ̃*: det ω_{G′} → det ω_G which is an isomorphism; it differs
-from det(λ*) by the factor p^r.
-(named result; not stated: it needs the carriers listed in its prerequisites)
+Let G and G′ be multiplicative p-divisible groups of height h over a base where their conormal
+bundles are defined, with étale character lattices T and T′. Then G = T^∨ ⊗ μ_{p^∞} and ω_G = T ⊗
+ω_{μ_{p^∞}}, hence det ω_G = det T ⊗ ω_{μ_{p^∞}}^{⊗h}. An isogeny λ: G → G′ induces λ₀: T′ → T. If
+det λ₀ has p-adic valuation r, the integral lattice isomorphism p^{−r}det λ₀: det T′ → det T defines
+the normalised pullback λ̃*: det ω_{G′} → det ω_G; det λ* = p^r λ̃*. Division is performed on the
+character lattice before tensoring with O_S, so the definition remains meaningful when p is
+nilpotent on S.
 -/
 
 /-
@@ -576,6 +579,7 @@ API:
   TauCeti.HodgeTate.semiAbelianHodgeTate_toric [compatibility] (not stated): α vanishes on the toric
     piece T[p^n], and the Hodge–Tate map of the dual of T[p^n] is the isomorphism of
     T0/multiplicative-hodge-tate-isomorphism onto ω_{T[p^n]}.
+
 Unit tests:
   TauCeti.HodgeTate.semiAbelianTorsion_abelian [degenerate] (not stated): For r = 0 (G abelian) the
     construction is A[p^n], finite locally free of order p^{2ng}.
@@ -591,13 +595,14 @@ Node HodgeTateAndCanonicalSubgroups:T0/semi-abelian-hasse-invariant (constructio
 
 Let S be an 𝔽_p-scheme and G a semi-abelian scheme of relative dimension g over S, with ω_G =
 e*Ω¹_{G/S} (locally free of rank g) and det ω_G its Hodge line. Let G^{(p)} be the pullback of G
-along the absolute Frobenius of S. The Verschiebung V: G^{(p)} → G (dual to Frobenius on the dual
-semi-abelian scheme, defined on the abelian locus by duality and on degeneration charts through the
-Raynaud extension) induces V*: ω_G → ω_{G^{(p)}} ≅ ω_G^{(p)}, and Ha(G/S) := det V* ∈ H⁰(S, (det
-ω_G)^{⊗(p−1)}). For G = A abelian this is Scholze's Ha(A/S), and it equals
-FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.2's Hasse invariant Ha(A[p]) of the BT₁ A[p] under
-ω_{A[p]} = ω_A/p. On a split torus 𝔾_m^g, V* is an isomorphism and Ha is a unit; on a degeneration
-chart Ha(G) = Ha(B) ⊗ (unit of the torus part) through det ω_G ≅ det ω_T ⊗ det ω_B.
+along the absolute Frobenius of S. The Verschiebung V: G^{(p)} → G (the Verschiebung of the smooth
+commutative group, compatible with Frobenius and multiplication by p; on the abelian locus it can
+also be constructed by duality, and on degeneration charts through the Raynaud extension) induces
+V*: ω_G → ω_{G^{(p)}} ≅ ω_G^{(p)}, and Ha(G/S) := det V* ∈ H⁰(S, (det ω_G)^{⊗(p−1)}). For G = A
+abelian this is Scholze's Ha(A/S), and it equals FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.2's
+Hasse invariant Ha(A[p]) of the BT₁ A[p] under ω_{A[p]} = ω_A/p. On a split torus 𝔾_m^g, V* is an
+isomorphism and Ha is a unit; on a degeneration chart Ha(G) = Ha(B) ⊗ (unit of the torus part)
+through det ω_G ≅ det ω_T ⊗ det ω_B.
 
 API:
   TauCeti.HodgeTate.semiAbelianHasse [constructor] (not stated): Ha(G/S) = det V* ∈ H⁰(S, (det
@@ -612,6 +617,7 @@ API:
     = Ha(B)·u with u a unit, through det ω_G ≅ det ω_T ⊗ det ω_B.
   TauCeti.HodgeTate.semiAbelianHasse_isUnit_iff [characterisation] (not stated): Ha(G/S) is a unit
     iff every geometric fibre is ordinary (T0/hasse-invariant-ordinary-locus).
+
 Unit tests:
   TauCeti.HodgeTate.semiAbelianHasse_tateCurve [computation] (not stated): For the Tate curve over
     𝔽_p((q)), Ha = 1 with respect to the canonical differential dt/t.
@@ -630,7 +636,6 @@ Node HodgeTateAndCanonicalSubgroups:T0/hasse-invariant-ordinary-locus (theorem):
 Let S be an 𝔽_p-scheme and A → S an abelian scheme of dimension g. Then Ha(A/S) is invertible if and
 only if A is ordinary, i.e. for every geometric point x̄ of S, A[p](x̄) has p^g elements. For a
 semi-abelian G with abelian part B on a stratum, Ha(G/S) is invertible at x̄ iff B_x̄ is ordinary.
-(named result; not stated: it needs the carriers listed in its prerequisites)
 -/
 
 /-
@@ -645,19 +650,19 @@ H⁰(X*_{𝔽_p}, ω^{⊗(p−1)}): for g ≥ 2 by Hartogs, the boundary of X* h
 g′ < g, Ha(x) is the Hasse invariant of the abelian part of the Raynaud extension at any preimage of
 x in X^tor (Lemma 3.3.2), so the ordinary locus of X* contains the whole boundary in characteristic
 p's toric directions and is described by the abelian parts.
-(named result; not stated: it needs the carriers listed in its prerequisites)
 -/
 
 /-
 Node HodgeTateAndCanonicalSubgroups:T0/hodge-tate-boundary-extension (theorem): The finite-level Hodge–Tate map over the toroidal boundary
 
-Let 𝔛^tor(p^n) be the normalisation of a toroidal compactification of the Siegel (or Hilbert–Siegel,
-or Hilbert) variety in its full level-p^n generic fibre (C5/higher-level-toroidal-normalization),
-with universal semi-abelian scheme G and universal level structure. The Hodge–Tate map of the finite
-part, HT: G[p^n]^D ⊗ O → ω_G/p^n (T0/finite-hodge-tate-map, T0/semi-abelian-torsion), defined on the
-open part, extends uniquely to 𝔛^tor(p^n), compatibly with the toric/abelian pieces at the boundary.
-For Hilbert–Siegel data with F ≠ ℚ the extension uses the Koecher principle.
-(named result; not stated: it needs the carriers listed in its prerequisites)
+On the normalised full-level p^n toroidal Siegel model, the map on the open abelian locus HT:
+(ℤ/p^n)^{2g} → ω_A/p^n extends to the universal semi-abelian conormal sheaf. On a boundary chart its
+carrier is the principally polarised one-motive [Y → G̃] attached to the degeneration, whose
+p^n-torsion has lattice, torus and abelian pieces; it is not the Cartier dual of the whole quasi-
+finite G[p^n]. Pilloni–Stroh Proposition 1.5 gives the extension and chart compatibility in the
+Siegel case. For Hilbert and GSp₄/F data the intended extension requires the corresponding one-
+motive charts and identification of ω/p^n as a formally canonical coefficient sheaf in Lan Theorem
+8.7; those additional hypotheses are recorded as gaps.
 -/
 
 /-
@@ -673,7 +678,6 @@ Lie A ⊗ C(1) = Lie 𝒢̃ ⊗ C(1) ⊂ T_p(𝒢̃[p^∞]) ⊗ C ⊂ T_pA ⊗ C
 C-linear Hodge–Tate map T_pA^∨ ⊗ C → ω_A is computed on the dual Raynaud extension; the torus part
 T_p(T) = ℤ_p(1)^r of T_pA lies in the Hodge–Tate filtration, and the lattice part Λ ⊗ ℤ_p maps
 isomorphically onto the toric forms of the graded piece.
-(named result; not stated: it needs the carriers listed in its prerequisites)
 -/
 
 /-
@@ -703,6 +707,7 @@ API:
     is formed by the Cartier duals of the quotients G/G_i, with slopes 1 − μ_i.
   TauCeti.HodgeTate.harderNarasimhanFiltration_aut [functoriality] (not stated): Every automorphism
     of G preserves the filtration; it commutes with valued field extensions.
+
 Unit tests:
   TauCeti.HodgeTate.harderNarasimhanFiltration_ordinary [computation] (not stated): For G = μ_p ×
     ℤ/p over O_K the filtration is 0 ⊂ μ_p ⊂ G with slopes 1 and 0.
@@ -717,14 +722,14 @@ Unit tests:
 /-
 Node HodgeTateAndCanonicalSubgroups:T0/degree-different (lemma): The discriminant divisor is the different of the group algebra
 
-Let A be a ring, t ∈ A a regular element and B a finite syntomic A-algebra étale outside V(t). The
-codifferent D^{-1}_{B/A} := {b ∈ B[1/t] | tr_{B/A}(bB) ⊂ A} is an invertible fractional ideal whose
-inverse, the different D_{B/A}, equals the discriminant ideal Δ_{B/A} = Fitt₀ Ω¹_{B/A}. For G = Spec
-B a finite locally free commutative group scheme over S = Spec A, generically étale, with structure
-map f, Δ_{G/S} = f*δ_G; consequently the conormal sheaf of the unit section of G is identified with
-the restriction of the inverse different along e, and for G monogenic, G = Spec O_K[T]/(f) with f(0)
-= 0, deg G = v(f′(0)) = Σ_{x ∈ G(O_K̄)∖0} v(x).
-(named result; not stated: it needs the carriers listed in its prerequisites)
+Let A be a ring, t a regular element, and B a finite syntomic A-algebra étale over A[1/t]. Its trace
+codifferent D^{-1}_{B/A} is an invertible fractional B-ideal, and its inverse D_{B/A} is Fitt₀^B
+Ω¹_{B/A} (Fargues Proposition 1 calls this ideal Δ_{B/A}). The discriminant of the trace pairing
+over A is its norm, rather than this B-ideal itself. For a finite locally free commutative
+generically étale group G = Spec B over S = Spec A, D_{G/S} = f*δ_G, where δ_G = Fitt₀^A ω_G. Thus
+e*D^{-1}_{G/S} = δ_G^{-1} as an invertible fractional A-module; it is not ω_G. In the monogenic
+valuation-ring case B = O_K[T]/(f), f(0) = 0, ω_G = O_K/(f′(0)) and deg G = v(f′(0)) = Σ_{x≠0}v(x),
+counting all geometric roots.
 -/
 
 /-
@@ -744,21 +749,18 @@ CohomologyComparisons CP.0 and ClassicalAdicEtaleCohomology H0): ℤ_p(1) = T_p�
 so V_pA = T_pA ⊗ ℚ_p has Hodge–Tate weights 0 and 1, the weight-1 part being Lie(A) ⊗ C(1). These
 are the twist, weight and tensor-filtration conventions that HodgeTateAndCanonicalSubgroups
 T6:comparison imports from this layer.
-(named result; not stated: it needs the carriers listed in its prerequisites)
 -/
 
 /-
 Node HodgeTateAndCanonicalSubgroups:T1/hodge-tate-graded-comparison (comparison): The graded comparison is the Hodge–Tate map of T0
 
-In the situation of T1/abelian-relative-comparison with X = Spa(C, O_C) a point (C complete
-algebraically closed), the map T_pA^∨ ⊗ C → ω_A obtained from the de Rham comparison by taking gr⁰
-(Fil⁰ OB_dR → OB_dR/Fil¹ = Ô) agrees with the C-linear Hodge–Tate map α_{A^∨[p^∞]} ⊗ C of
-HodgeTateAndCanonicalSubgroups T0 (the map x ↦ x*(dt/t) through the Weil pairing), with no sign, for
-A with good reduction and, through T0/raynaud-hodge-tate-filtration, for all A. In families, the
-relative gr⁰ map T_pA^∨ ⊗ Ô_X → ω_A ⊗ Ô_X agrees with the fibrewise Hodge–Tate maps. In particular
-the local Hodge–Tate map of the p-divisible group and the global one from the comparison agree
-(Caraiani–Scholze, Remark 4.2.8).
-(named result; not stated: it needs the carriers listed in its prerequisites)
+The rational Hodge–Tate quotient T_pA^∨ ⊗ C → ω_A for an abelian variety over a complete
+algebraically closed C agrees with the linearisation of the finite-level character-differential map
+through the Weil pairing. For good reduction this is the integral-to-rational compatibility
+referenced in CS17 Remark 4.2.8; general reduction uses the Raynaud construction. In families the
+quotient is obtained from the two B_dR^+-lattices M and M₀ of CS17 Theorems 2.2.3–2.2.5 and their
+induced Hodge–Tate filtration. This is not the assertion that gr⁰ of the structural period sheaf
+OB_dR is Ô_X on a positive-dimensional base.
 -/
 
 /-
@@ -766,11 +768,10 @@ Node HodgeTateAndCanonicalSubgroups:T1/hodge-tensor-comparison (theorem): Hodge 
 
 Let (G, X) be a Shimura datum of Hodge type with a symplectic embedding G ↪ GSp(V) and tensors (s_α)
 ⊂ V^⊗ cutting out G, and A → Sh_K the induced abelian scheme. The tensors s_α define absolute Hodge
-cycles s_{α,dR} ∈ ℋ^⊗ and s_{α,ét} ∈ (R¹f_*ℤ_p)^⊗ (AutomorphicBundles B1), and under the relative
-comparison of T1/abelian-relative-comparison, s_{α,ét} ⊗ 1 ↦ s_{α,dR} ⊗ 1. Consequently the
-comparison isomorphism and its Hodge–Tate graded piece are compatible with the G-structures, and the
-resulting torsors are G-torsors.
-(named result; not stated: it needs the carriers listed in its prerequisites)
+cycles s_{α,dR} ∈ ℋ^⊗ and s_{α,ét} ∈ (V_pA)^⊗ (using homology, the dual of R¹f_*ℚ_p)
+(AutomorphicBundles B1), and under the relative comparison of T1/abelian-relative-comparison,
+s_{α,ét} ⊗ 1 ↦ s_{α,dR} ⊗ 1. Consequently the comparison isomorphism and its Hodge–Tate graded piece
+are compatible with the G-structures, and the resulting rational frame torsors are G_{ℚ_p}-torsors.
 -/
 
 /-
@@ -782,7 +783,6 @@ height h and dimension d, with Cartier dual G^D. Then the sequence 0 → Lie(G) 
 tate-map) and the first is the C-linearisation of the dual map α_{G^D}^∨ twisted by ℤ_p(1) through
 the Cartier pairing T_pG × T_pG^D → ℤ_p(1). Integrally, α_G ⊗ 1: T_pG ⊗ O_C → ω_{G^D} has cokernel
 killed by p^{1/(p−1)} (T0/fargues-hodge-tate-cokernel) and the composite of the two maps is zero.
-(named result; not stated: it needs the carriers listed in its prerequisites)
 -/
 
 /-
@@ -796,7 +796,6 @@ valued K ⊂ C it is Gal(C/K)-equivariant. Dually, the Hodge–Tate filtration L
 is a Lagrangian subspace for the Weil pairing of any principal polarisation. For A with good
 reduction it is the sequence of T2/p-divisible-hodge-tate-sequence for G = A^∨[p^∞]; in general it
 is obtained through the Raynaud extension (T0/raynaud-hodge-tate-filtration).
-(named result; not stated: it needs the carriers listed in its prerequisites)
 -/
 
 /-
@@ -807,7 +806,6 @@ Let X be a smooth adic space over a complete algebraically closed C/ℚ_p and A 
 T_pA^∨ ⊗_{ℤ_p} Ô_X → ω_A ⊗ Ô_X → 0, with T_pA^∨ the ℤ_p-local system of A^∨, specialising at every
 rank-one point to T2/abelian-hodge-tate-sequence and compatible with pullback, isogenies,
 endomorphisms, polarisations and (for Hodge type) the tensors s_α.
-(named result; not stated: it needs the carriers listed in its prerequisites)
 -/
 
 /-
@@ -818,36 +816,44 @@ an 𝒪-action and hermitian or symplectic form in the PEL case), and Fl the Lag
 rank-g quotients Λ ⊗ C ↠ W with Lagrangian kernel (Fl ⊂ Gr(g, Λ), Mathlib's Module.Grassmannian of
 rank-g quotients). For an abelian variety A over C with a symplectic similitude trivialisation β: Λ
 ≅ T_pA^∨, the Hodge–Tate quotient T_pA^∨ ⊗ C ↠ ω_A defines π_HT(A, β) ∈ Fl(C). Fl carries the
-Plücker coordinates s_J (J ⊂ {1, …, 2g}, |J| = g, J containing exactly one of i, g + i for the
-Lagrangian charts) and the 2^g affinoid charts Fl_J = {|s_{J′}| ≤ |s_J| for all J′}, which cover Fl
-and are permuted transitively by GSp_2g(ℤ_p). The construction is functorial: for γ ∈ GSp(Λ ⊗ ℚ_p)
-with γΛ ⊂ Λ, π_HT(A′, β′) = γ·π_HT(A, β) when (A′, β′) is the corresponding isogenous pair.
+Plücker coordinates s_J (J ⊂ {1, …, 2g}, |J| = g, J any g-element subset) and the
+binomial(2g,g)-indexed affinoid charts Fl_J = {|s_{J′}| ≤ |s_J| for all J′}, which cover Fl. The
+full GSp_2g(ℤ_p) action does not permute this finite chart family. The construction is functorial:
+for γ ∈ GSp(Λ ⊗ ℚ_p) with γΛ ⊂ Λ, π_HT(A′, β′) = γ·π_HT(A, β) when (A′, β′) is the corresponding
+isogenous pair.
 
 API:
-  TauCeti.HodgeTate.hodgeTateFlagPoint [constructor] (component `flagPointOfQuotient` above):
-    π_HT(A, β) ∈ Fl(C), the Hodge–Tate quotient of T_pA^∨ ⊗ C transported by β.
+  TauCeti.HodgeTate.hodgeTateFlagPoint [constructor] (typed component: flagPointOfQuotient (ambient
+    Grassmannian only)): π_HT(A, β) ∈ Fl(C), the Hodge–Tate quotient of T_pA^∨ ⊗ C transported by β.
   TauCeti.HodgeTate.hodgeTateFlagPoint_isLagrangian [characterisation] (not stated): The kernel of
     the quotient is Lagrangian for ψ.
   TauCeti.HodgeTate.plucker [constructor] (not stated): The Plücker coordinates s_J of a rank-g
     quotient of Λ ⊗ C.
-  TauCeti.HodgeTate.lagrangianChart [constructor] (not stated): Fl_J = {|s_{J′}| ≤ |s_J| ∀J′} for
-    the 2^g Lagrangian index sets J.
-  TauCeti.HodgeTate.lagrangianChart_cover [relation] (not stated): The Fl_J cover Fl and GSp_2g(ℤ_p)
-    permutes them transitively.
+  TauCeti.HodgeTate.lagrangianChart [constructor] (not stated): Fl_J = {|s_{J′}| ≤ |s_J| ∀J′}, for
+    every g-element subset J of {1,…,2g}.
+  TauCeti.HodgeTate.lagrangianChart_cover [relation] (not stated): The binomial(2g,g)-indexed Fl_J
+    cover Fl; no permutation action of the full integral symplectic group on this family is
+    asserted.
   TauCeti.HodgeTate.hodgeTateFlagPoint_equivariant [functoriality] (not stated): π_HT(A′, β′) =
     γ·π_HT(A, β) for the isogenous pair attached to γ.
+
 Unit tests:
   TauCeti.HodgeTate.hodgeTateFlagPoint_ordinaryElliptic [computation] (not stated): For E with
     ordinary reduction and β adapted to the connected–étale sequence, π_HT(E, β) is a ℚ_p-rational
     point of ℙ¹.
-  TauCeti.HodgeTate.hodgeTateFlagPoint_grassmannian [compatibility] (example above): π_HT(A, β) is
-    an element of Mathlib's Module.Grassmannian C (C^{2g}) g (rank-g quotients), lying in the
+  TauCeti.HodgeTate.hodgeTateFlagPoint_grassmannian [compatibility] (not stated): π_HT(A, β) is an
+    element of Mathlib's Module.Grassmannian C (C^{2g}) g (rank-g quotients), lying in the
     Lagrangian locus.
-  TauCeti.HodgeTate.lagrangianChart_count [computation] (not stated): There are exactly 2^g
-    Lagrangian charts Fl_J.
-  TauCeti.HodgeTate.hodgeTateFlagPoint_not_line [non-example] (not stated): For g = 1, using the
-    line Lie(A^∨)(1) ⊂ T_pA^∨ ⊗ C instead of the quotient gives the point 'orthogonal' to π_HT; the
-    two agree only after the Weil-pairing identification, so the quotient convention must be fixed.
+  TauCeti.HodgeTate.lagrangianChart_count [computation] (not stated): The chart index set has
+    cardinality binomial(2g,g), hence six for g = 2. Lagrangian relations may identify some indexed
+    chart domains; cardinality here concerns indices.
+  TauCeti.HodgeTate.hodgeTateFlagPoint_not_line [non-example] (not stated): For g = 1 the kernel
+    line Lie(A^∨)(1) is its own symplectic orthogonal and determines exactly the same rank-one
+    quotient point via its kernel. The tautological subbundle is Lie(A^∨)(1), whereas the
+    tautological quotient bundle pulls back to ω_A; confusing these bundles gives the wrong twist.
+  TauCeti.HodgeTate.lagrangianChart_not_permuted [non-example] (not stated): For g = 1, γ = (1 0; 1
+    1) sends the unit-disc chart D₀ by z ↦ z/(z+1). Its image contains 0 and ∞ (images of 0 and −1),
+    so it is neither D₀ nor D∞; the full integral group does not permute the two standard charts.
 -/
 
 /-
@@ -860,7 +866,6 @@ stable Lagrangian quotients with the Kottwitz determinant condition of the Hodge
 (Hodge type) For (G, X) of Hodge type with tensors (s_α) and β: Λ ≅ T_pA^∨ carrying s_α to s_{α,ét},
 π_HT(A, β) lies in Fl_{G,μ} = G/P_μ ⊂ Fl, the flag variety of filtrations of type μ preserved by the
 tensors.
-(named result; not stated: it needs the carriers listed in its prerequisites)
 -/
 
 /-
@@ -868,28 +873,29 @@ Node HodgeTateAndCanonicalSubgroups:T2/hodge-tate-parabolic-reduction (construct
 
 Let (G, X) be a Shimura datum of Hodge (or PEL) type, Sh_K → Spec E its Shimura variety at level K =
 K_pK^p, 𝒮 the adic space over C of Sh_K, and A → 𝒮 the abelian scheme with tensors. On 𝒮_proét, the
-sheaf of trivialisations β: Λ ⊗ ℤ_p ≅ T_pA^∨ respecting tensors (up to the similitude) is a
-G(ℤ_p)-torsor 𝒫_ét, and the relative Hodge–Tate filtration (T2/relative-hodge-tate-sequence) defines
-a reduction of 𝒫_ét ×^{G(ℤ_p)} G_{Ô} to the parabolic P_μ: the P_μ-torsor 𝒫_HT of trivialisations
+sheaf of trivialisations β: Λ ⊗ ℚ_p ≅ V_pA^∨ respecting tensors (up to the similitude) is a
+G(ℚ_p)-torsor 𝒫_ét, and the relative Hodge–Tate filtration (T2/relative-hodge-tate-sequence) defines
+a reduction of 𝒫_ét ×^{G(ℚ_p)} G_{Ô} to the parabolic P_μ: the P_μ-torsor 𝒫_HT of trivialisations
 sending the standard filtration of type μ to the Hodge–Tate filtration. Its Levi quotient ℳ_HT :=
 𝒫_HT ×^{P_μ} M_μ is the Hodge–Tate Levi torsor. Both are functorial in K (finite-level Hecke maps),
 in morphisms of data and in base change of C.
 
 API:
-  TauCeti.HodgeTate.etaleFrameTorsor [constructor] (not stated): 𝒫_ét, the G(ℤ_p)-torsor of tensor-
-    preserving trivialisations of T_pA^∨ on 𝒮_proét.
-  TauCeti.HodgeTate.hodgeTateParabolicReduction [constructor] (not stated): 𝒫_HT ⊂ 𝒫_ét ×^{G(ℤ_p)}
-    G_Ô, the P_μ-reduction given by the Hodge–Tate filtration.
+  TauCeti.HodgeTate.etaleFrameTorsor [constructor] (not stated): 𝒫_ét is the G(ℚ_p)-torsor of
+    rational tensor-preserving trivialisations Λ ⊗ ℚ_p ≅ V_pA^∨.
+  TauCeti.HodgeTate.hodgeTateParabolicReduction [constructor] (not stated): 𝒫_HT is the P_μ-
+    reduction of 𝒫_ét ×^{G(ℚ_p)} G_Ô defined by the relative Hodge–Tate filtration.
   TauCeti.HodgeTate.hodgeTateLeviTorsor [constructor] (not stated): ℳ_HT = 𝒫_HT ×^{P_μ} M_μ.
   TauCeti.HodgeTate.hodgeTateParabolicReduction_hecke [functoriality] (not stated): Compatible with
     the finite-level Hecke maps Sh_{K′} → Sh_K and with prime-to-p Hecke correspondences.
   TauCeti.HodgeTate.hodgeTateParabolicReduction_baseChange [functoriality] (not stated): Compatible
     with base change C → C′ and with morphisms of Shimura data.
+
 Unit tests:
   TauCeti.HodgeTate.hodgeTateLeviTorsor_modularCurve [computation] (not stated): For GL₂ and the
     modular curve, ℳ_HT corresponds to the pair of line bundles (ω^{-1}(1), ω) ⊗ Ô.
   TauCeti.HodgeTate.hodgeTateParabolicReduction_torus [degenerate] (not stated): For a torus datum
-    (G = T, μ central), P_μ = M_μ = T and 𝒫_HT = 𝒫_ét ×^{T(ℤ_p)} T_Ô.
+    with μ central, P_μ = M_μ = T and 𝒫_HT = 𝒫_ét ×^{T(ℚ_p)} T_Ô.
   TauCeti.HodgeTate.hodgeTateParabolicReduction_not_hodge [non-example] (not stated): The Hodge–Tate
     parabolic P_μ is opposite to the parabolic stabilising the Hodge filtration (AutomorphicBundles
     B0/hodge-parabolic-convention); using the Hodge filtration's parabolic gives a different
@@ -903,10 +909,9 @@ In the situation of T2/hodge-tate-parabolic-reduction, let ℳ_dR be the M_μ-to
 Hodge filtration of H¹_dR(A/𝒮) with its tensors (the de Rham Levi torsor of AutomorphicBundles
 B1/filtration-reduction), pulled back to 𝒮_proét and extended to Ô. Then there is a canonical
 isomorphism of M_μ-torsors ℳ_dR ×^{M_μ} M_{μ,Ô} ≅ ℳ_HT, compatible with Hecke maps and morphisms of
-data, given on graded pieces by gr⁰ of the relative comparison (Caraiani–Scholze Lemma 2.3.8,
+data, given by the Tate-normalised graded relative comparison and equivariant descent (Caraiani–Scholze Lemma 2.3.8,
 Proposition 2.3.9). Consequently the automorphic vector bundle 𝒱_ρ of a representation ρ of M_μ
 satisfies 𝒱_ρ ⊗ Ô ≅ ℳ_HT ×^{M_μ} ρ.
-(named result; not stated: it needs the carriers listed in its prerequisites)
 -/
 
 /-
@@ -934,6 +939,7 @@ API:
     frames carrying Fil^•(μ) to the given filtration.
   TauCeti.HodgeTate.ExactTensorFiltration.equivFlag [equivalence] (not stated): Filtrations of type
     μ ≅ (G/P_μ)(R).
+
 Unit tests:
   TauCeti.HodgeTate.ExactTensorFiltration.gl_grassmannian [compatibility] (not stated): For G = GL_n
     and μ of type (1^r, 0^{n−r}), filtrations of type μ are the elements of Mathlib's
@@ -973,6 +979,7 @@ API:
     𝔛(ε) is {|Ha| ≥ |p|^ε}.
   TauCeti.HodgeTate.hasseNeighbourhood_mono [relation] (not stated): 𝔛(ε) → 𝔛(ε′) is an open
     immersion on generic fibres for ε ≤ ε′.
+
 Unit tests:
   TauCeti.HodgeTate.hasseValuation_ordinary [degenerate] (not stated): Ha(μ_{p^∞}[p] ⊕ ℚ_p/ℤ_p[p]) =
     0.
@@ -991,7 +998,6 @@ Let R be a p-adically complete flat ℤ_p^cycl-algebra, G a finite locally free 
 scheme over R and C₁ ⊂ G ⊗_R R/p a finite locally free subgroup. If, for H = (G ⊗ R/p)/C₁,
 multiplication by p^ε on the co-Lie complex ℓ̌_H is homotopic to 0 for some 0 ≤ ε < 1/2, then there
 is a finite locally free subgroup C ⊂ G over R with C ⊗ R/p^{1−ε} = C₁ ⊗ R/p^{1−ε}.
-(named result; not stated: it needs the carriers listed in its prerequisites)
 -/
 
 /-
@@ -999,7 +1005,6 @@ Node HodgeTateAndCanonicalSubgroups:T3/section-rigidity (lemma): Sections agreei
 
 Let R be a p-adically complete flat ℤ_p^cycl-algebra and X/R a scheme with Ω¹_{X/R} killed by p^ε, ε
 ≥ 0. If s, t ∈ X(R) agree in X(R/p^δ) for some δ > ε, then s = t.
-(named result; not stated: it needs the carriers listed in its prerequisites)
 -/
 
 /-
@@ -1030,6 +1035,7 @@ API:
     commutes with base change R → R′ of p-adically complete flat algebras.
   TauCeti.HodgeTate.canonicalSubgroup_level [relation] (not stated): C_{m′} = C_m[p^{m′}] for m′ ≤ m
     (strong subgroups).
+
 Unit tests:
   TauCeti.HodgeTate.canonicalSubgroup_ordinary [degenerate] (not stated): If Ha(A₁) is a unit, C_m =
     A[p^m]^0 (multiplicative).
@@ -1058,7 +1064,6 @@ of G[p^k] and C_k ⊗ O_C/p^{1−p^{k−1}Ha(G)} is the kernel of F^k; C(O_C) = 
 n−((p^n−1)/(p−1))Ha(G)}, the kernel of the Hodge–Tate map of G reduced modulo
 p^{n−((p^n−1)/(p−1))Ha(G)}; and C(O_C)^⊥ ⊂ G^D(O_C) is the corresponding step of G^D. When G =
 A[p^n] for A as in (1) over R = O_C and both apply, the two subgroups coincide.
-(named result; not stated: it needs the carriers listed in its prerequisites)
 -/
 
 /-
@@ -1073,7 +1078,6 @@ isotropic for the Weil pairing on A[p^m], and pointwise C_m(O_C)^⊥ ⊂ A^∨[p
 subgroup of A^∨ at every rank-one point (p ≠ 2: Fargues 2011, Proposition 11 and Corollaire 1). (iv)
 If x̄ is a geometric point of Spec R[1/p], C_m(x̄) ≅ (ℤ/p^m)^g. (v) Formation of C_m commutes with
 base change R → R′.
-(named result; not stated: it needs the carriers listed in its prerequisites)
 -/
 
 /-
@@ -1088,21 +1092,20 @@ canonical subgroup of level 1, Ha(p^{-1}C/C) = p·Ha(G); if 1/(p+1) ≤ Ha(G) < 
 𝔛(ε), ε < 1/2, and D ⊂ A′[p] is a subgroup of order p^g with D ∩ C′ = 0, then A′/D has Hasse
 valuation Ha(A′)/p, and (A′/D)/(A′[p]/D) ≅ A′: dividing by a canonical subgroup multiplies the Hasse
 radius by p, dividing by an anticanonical subgroup divides it by p.
-(named result; not stated: it needs the carriers listed in its prerequisites)
 -/
 
 /-
 Node HodgeTateAndCanonicalSubgroups:T3/canonical-subgroup-hodge-tate (theorem): The Hodge–Tate map of the dual canonical subgroup
 
-Let C be a complete algebraically closed extension of ℚ_p, A/O_C an abelian scheme (or truncated
-BT_n of dimension g) with Hasse valuation w = Ha(A[p]) satisfying the bound of T3/canonical-
-subgroup-theorem (2) (p ≥ 3), and C_n its canonical subgroup of level n. Then C_n(O_C) =
-ker(α_{A[p^n]} mod p^{n−((p^n−1)/(p−1))w}), and the Hodge–Tate map of the Cartier dual of the
-canonical subgroup, α_{C_n^D} ⊗ 1: C_n^D(O_C) ⊗ O_C → ω_{C_n} = ω_A/p^n, induces an isomorphism
-C_n^D(O_C) ⊗ O_C/p^{n−w/(p−1)} ≅ ω_A ⊗ O_C/p^{n−w/(p−1)}, so that ω_A ⊗ O_C contains the O_C-span of
-α(C_n^D(O_C)) with cokernel killed by p^{w/(p−1)}. In families over a Hasse neighbourhood 𝒳(ε) these
-statements hold on O⁺ with w replaced by the radius ε (Andreatta–Iovita–Pilloni).
-(named result; not stated: it needs the carriers listed in its prerequisites)
+Let p ≥ 3, C/ℚ_p complete algebraically closed, and G/O_C a p-divisible group of dimension g with
+Hodge height w in the Fargues–AIP level-n range. Set δ = ((p^n−1)/(p−1))w and let C_n be its
+canonical subgroup. Fargues Theorem 6(7) identifies C_n(O_C) with the kernel of the Hodge–Tate map
+truncated at n−δ. AIP15 Proposition 3.2.1 gives ω_{G[p^n]}/p^{n−δ} ≅ ω_{C_n}/p^{n−δ}, and the
+linearised map C_n^D(O_C) ⊗ O_C → ω_{C_n} has cokernel of degree w/(p−1). It need not be surjective
+when w > 0, and ω_{C_n} need not equal ω_G/p^n. An isomorphism from the dual canonical subgroup is
+obtained after using the modified lattice and its smaller quotient, as in T5/integral-lattice-
+properties. The family version needs the local-freeness and descent theorem of AIP, with explicit
+formal-model hypotheses; it is not deduced solely by checking rank-one points and normality.
 -/
 
 /-
@@ -1118,7 +1121,6 @@ subgroup-properties (ii)); its integral group scheme is finite locally free of r
 and in general not étale (its special fibre may be multiplicative); and at every geometric point x̄
 of the generic fibre C_n(x̄) is a free 𝒪_F/p^n-module of rank one. The Hodge–Tate position bounds of
 HodgeTateAndCanonicalSubgroups T4 use stronger bounds, recorded separately there.
-(named result; not stated: it needs the carriers listed in its prerequisites)
 -/
 
 /-
@@ -1146,10 +1148,11 @@ API:
     X_{Γ₀(p^{n+1})}(ε)_a → X_{Γ₀(p^n)}(ε)_a, (A, D) ↦ (A, D[p^n]), give the anticanonical tower.
   TauCeti.HodgeTate.canonicalLocus_section [relation] (not stated): X(ε) → X_{Γ₀(p^n)}(ε)_c, A ↦ (A,
     C_n), is an isomorphism (T4/canonical-locus-isomorphism).
+
 Unit tests:
   TauCeti.HodgeTate.anticanonicalLocus_ordinary [degenerate] (not stated): At ε = 0 (ordinary
     locus), the anticanonical locus parametrises D étale-locally complementary to A[p]^0, i.e. D ≅
-    (ℤ/p)^g étale-locally.
+    (ℤ/p^n)^g étale-locally.
   TauCeti.HodgeTate.canonicalLocus_modularCurve [computation] (not stated): For the modular curve
     and n = 1 the two loci partition X_{Γ₀(p)}(ε) into the canonical component (degree 1 over X(ε))
     and the anticanonical component (degree p over X(ε)).
@@ -1165,59 +1168,63 @@ In the situation of T4/canonical-anticanonical-loci, A ↦ (A, C_n) defines an i
 X_{Γ₀(p^n)}(ε)_c of adic spaces (and of formal models after normalisation), inverse to the forgetful
 map; it is compatible with the forgetful maps in n, with prime-to-p Hecke correspondences and with
 base change.
-(named result; not stated: it needs the carriers listed in its prerequisites)
 -/
 
 /-
 Node HodgeTateAndCanonicalSubgroups:T4/atkin-lehner-anticanonical (theorem): Atkin–Lehner identifies the anticanonical locus with a smaller Hasse neighbourhood
 
-For n ≥ 1 and ε within the radius of T3/hilbert-canonical-subgroup (Hilbert data) or ε < 1/2 (Siegel
-data), the map AL_n: X_{Γ₀(p^n)}(p^nε)_a → X(ε), (A, D) ↦ A/D, is an isomorphism; its inverse sends
-B ∈ X(ε) to (B/C_n(B), B[p^n]/C_n(B)) up to the identification (B/C_n)/(B[p^n]/C_n) ≅ B.
-Equivalently X(p^{−n}ε) ≅ X_{Γ₀(p^n)}(ε)_a by A ↦ (A/C_n, A[p^n]/C_n). Under these isomorphisms the
-anticanonical tower … → X_{Γ₀(p^{n+1})}(ε)_a → X_{Γ₀(p^n)}(ε)_a corresponds to the Frobenius tower …
-→ X(p^{−n−1}ε) → X(p^{−n}ε) given by division by the canonical subgroup of level 1, which reduces to
-the relative Frobenius modulo p^{1−δ}, δ = ((p+1)/p)ε. The radius changes by the factor p^n:
-dividing by C_n multiplies the Hasse valuation by p^n, dividing by an anticanonical subgroup divides
-it by p^n (T3/quotient-hasse-radius).
-(named result; not stated: it needs the carriers listed in its prerequisites)
+For n ≥ 1, ε ≥ 0 and ambient radius δ = p^nε < 1/2 in the Siegel case (in the Hilbert case require
+the corresponding canonical-subgroup range at each quotient step), the map AL_n: X_{Γ₀(p^n)}(p^nε)_a
+→ X(ε), (A, D) ↦ A/D, is an isomorphism; its inverse sends B ∈ X(ε) to (B/C_n(B), B[p^n]/C_n(B)) up
+to the identification (B/C_n)/(B[p^n]/C_n) ≅ B. Equivalently X(p^{−n}ε) ≅ X_{Γ₀(p^n)}(ε)_a by A ↦
+(A/C_n, A[p^n]/C_n). Under these isomorphisms the anticanonical tower … → X_{Γ₀(p^{n+1})}(ε)_a →
+X_{Γ₀(p^n)}(ε)_a corresponds to the Frobenius tower … → X(p^{−n−1}ε) → X(p^{−n}ε) given by division
+by the canonical subgroup of level 1, which reduces to the relative Frobenius modulo p^{1−δ}, δ =
+((p+1)/p)ε. The radius changes by the factor p^n: dividing by C_n multiplies the Hasse valuation by
+p^n, dividing by an anticanonical subgroup divides it by p^n (T3/quotient-hasse-radius).
 -/
 
 /-
 Node HodgeTateAndCanonicalSubgroups:T4/hodge-tate-coordinate (definition): The Hodge–Tate coordinate, the fractional-linear action and the factor cz + d
 
-Let F be totally real of degree g, 𝒪_p = 𝒪_F ⊗ ℤ_p, and Fl = Res_{𝒪_F/ℤ}ℙ¹ (the flag variety of the
-Hilbert datum; for F = ℚ, Fl = ℙ¹), with Fl(C) = ℙ¹(𝒪_p ⊗ C) for C complete algebraically closed. On
-the affine chart {(z : 1)} = Res_{𝒪_F/ℤ}𝔾_a, z is the Hodge–Tate coordinate: for a point (A, α: 𝒪_p²
-≅ T_pA^∨) of the infinite-level tower, ω_A is a rank-one 𝒪_p ⊗ C-module (on the generic fibre) and
-π_HT(A, α) is the point (HT(α(1, 0)) : HT(α(0, 1))) of ℙ¹(𝒪_p ⊗ C) given by the Hodge–Tate images of
-the two basis vectors (T2/hodge-tate-flag-point); z is its affine coordinate where HT(α(0, 1))
-generates, with BHW's normalisation (Definition 2.3). GL₂(𝒪_p) acts on Fl by fractional-linear
-transformations on the left, z(γx) = (az(x) + b)/(cz(x) + d) for γ = (a b; c d), and j(γ, x) :=
-cz(x) + d satisfies the cocycle law j(γδ, x) = j(γ, δx)·j(δ, x). On the anticanonical tower, where c
-∈ p𝒪_p for γ ∈ Γ₀(p), j(γ, x) ∈ 𝒪_p^× ⊗ (1 + p^x·…) is a unit. Calculations done after splitting F
-in the coefficient field descend to the original coefficient field because z and j are defined over
-ℚ_p ⊗ 𝒪_F-points without choosing embeddings.
+Let 𝒪_p = 𝒪_F ⊗ ℤ_p and Fl = Res_{F/ℚ}ℙ¹. Fix BHW’s kernel-line convention: π_HT(A,α) is the kernel
+of the quotient 𝒪_p² ⊗ C → ω_A. On the chart where HT(α(e₁)) generates, this kernel has coordinates
+(z:1), with z = −HT(α(e₂))/HT(α(e₁)). Convert the tower’s right action explicitly to the left
+fractional-linear action z(γx) = (az+b)/(cz+d), and set j(γ,x) = cz+d. On chart intersections where
+denominators are invertible, j(γδ,x) = j(γ,δx)j(δ,x). The associated quotient-line action is
+det(γ)^{−1}γ; its pullback uses γ^∨ = det(γ)γ^{−1}. Thus the section given by the class of e₁
+transforms by cz+d (BHW Lemma 3.19). Unit and analytic structure-group assertions on anticanonical
+domains require the period estimates of T4/period-map-inclusions; they are not true at every point
+of the affine chart. After splitting F these formulas hold componentwise and descend on the generic
+fibre. Integral descent uses the chosen O⁺-lattice, not an identification of the ramified order with
+its normalisation.
 
 API:
-  TauCeti.HodgeTate.hodgeTateCoordinate [constructor] (not stated): z: the affine coordinate s₁/s₂
-    on the chart {s₂ ≠ 0} of Res_{𝒪_F/ℤ}ℙ¹.
-  TauCeti.HodgeTate.fractionalLinear_action [functoriality] (component `fractionalLinear` above):
-    z(γx) = (az(x) + b)/(cz(x) + d) for γ = (a b; c d) ∈ GL₂(𝒪_p).
-  TauCeti.HodgeTate.automorphyFactor [constructor] (component `automorphyFactor` above): j(γ, x) :=
+  TauCeti.HodgeTate.hodgeTateCoordinate [constructor] (not stated): On the kernel-line chart (z:1),
+    z = −HT(α(e₂))/HT(α(e₁)); HT(α(e₁)) is the quotient-line generator.
+  TauCeti.HodgeTate.fractionalLinear_action [functoriality] (typed component: fractionalLinear
+    (scalar formula only)): For the specified left action, z(γx) = (az+b)/(cz+d) on the domain where
+    cz+d is invertible.
+  TauCeti.HodgeTate.automorphyFactor [constructor] (typed component: automorphyFactor): j(γ, x) :=
     cz(x) + d.
-  TauCeti.HodgeTate.automorphyFactor_cocycle [relation] (component `automorphyFactor_cocycle`
-    above): j(γδ, x) = j(γ, δx)·j(δ, x).
-  TauCeti.HodgeTate.automorphyFactor_unit [relation] (not stated): For γ ∈ Γ₀(p) and x on the
-    anticanonical tower, j(γ, x) is a unit in 𝒪_p ⊗ O⁺.
+  TauCeti.HodgeTate.automorphyFactor_cocycle [relation] (typed component: automorphyFactor_cocycle
+    (scalar algebra only)): j(γδ,x) = j(γ,δx)j(δ,x) on common affine-chart domains with invertible
+    denominators.
+  TauCeti.HodgeTate.automorphyFactor_unit [relation] (not stated): For γ ∈ Γ₀(p), j(γ,x) is an
+    O⁺-unit on the anticanonical period domains satisfying T4/period-map-inclusions; this uses that
+    the coordinates are within radius < 1 of 𝒪_p.
   TauCeti.HodgeTate.hodgeTateCoordinate_descent [compatibility] (not stated): After splitting F, z =
-    (z_σ)_{σ: F → L} with z_σ the coordinate of the σ-factor; the formulas descend to 𝒪_p ⊗ O⁺.
+    (z_σ)_σ and the generic formulas descend over F ⊗ ℚ_p. Integral descent requires the specified
+    O⁺-lattice, not the false ramified product identification.
+
 Unit tests:
-  TauCeti.HodgeTate.automorphyFactor_identity [degenerate] (example above): j(1, x) = 1.
-  TauCeti.HodgeTate.fractionalLinear_upperTriangular [computation] (example above): For γ = (a b; 0
-    d), z(γx) = (a z(x) + b)/d.
-  TauCeti.HodgeTate.automorphyFactor_cocycle_test [characterisation] (example above): For γ = (1 0;
-    c 1), δ = (1 0; c′ 1): j(γδ, x) = (c + c′)z + 1 = j(γ, δx)·j(δ, x).
+  TauCeti.HodgeTate.automorphyFactor_identity [degenerate] (typed component: identity example): j(1,
+    x) = 1.
+  TauCeti.HodgeTate.fractionalLinear_upperTriangular [computation] (typed component: upper-
+    triangular example): For γ = (a b; 0 d), z(γx) = (a z(x) + b)/d.
+  TauCeti.HodgeTate.automorphyFactor_cocycle_test [characterisation] (typed component: lower-
+    unipotent example): For γ = (1 0; c 1), δ = (1 0; c′ 1): j(γδ, x) = (c + c′)z + 1 = j(γ,
+    δx)·j(δ, x).
   TauCeti.HodgeTate.automorphyFactor_not_rightAction [non-example] (not stated): With the right
     action x·γ the factor is cz + d for γ^{-1}, not for γ: the cocycle law fails for the naive
     formula j(γ, x) = cz + d with z(xγ) = (az + b)/(cz + d).
@@ -1230,8 +1237,8 @@ For L a complete extension of ℚ_p, r ∈ (0, 1] ∩ |L^×| and x ∈ Res_{𝒪
 := x + t·Res_{𝒪_F/ℤ}𝔾̂_a with |t| = r is an open affinoid subspace of Res_{𝒪_F/ℤ}ℙ¹ over L; B_0(𝒪_p
 : 1) := 𝒪_p ⊂ ℙ¹(𝒪_p) via a ↦ (a : 1), and B_r(𝒪_p : 1) is the union of the balls of radius r around
 the points of 𝒪_p; analogously B_r(𝒪_p^× : 1) and B_r(1 : p𝒪_p) (around the points (1 : pb)). On
-C-points, B_r(𝒪_p : 1)(C) = 𝒪_p + t·(𝒪_p ⊗ O_C) inside 𝒪_p ⊗ C, where 𝒪_p ⊗ O_C is the integral
-closure (BHW's convention), so the definition is meaningful for p ramified in F.
+C-points, B_r(𝒪_p : 1)(C) = 𝒪_p + t·(𝒪_p ⊗ O_C)^∼ inside 𝒪_p ⊗ C, where (𝒪_p ⊗ O_C)^∼ denotes the
+integral closure (BHW's convention), so the definition is meaningful for p ramified in F.
 
 API:
   TauCeti.HodgeTate.flagBall [constructor] (not stated): B_r(x) = x + t·Res 𝔾̂_a, |t| = r.
@@ -1240,8 +1247,9 @@ API:
   TauCeti.HodgeTate.integralBall_points [characterisation] (not stated): B_r(𝒪_p : 1)(C) = 𝒪_p +
     t(𝒪_p ⊗ O_C)^∼.
   TauCeti.HodgeTate.integralBall_mono [relation] (not stated): B_r ⊂ B_{r′} for r ≤ r′.
-  TauCeti.HodgeTate.integralBall_gamma0 [functoriality] (not stated): Γ₀(p) preserves B_r(𝒪_p : 1)
-    and B_r(1 : p𝒪_p).
+  TauCeti.HodgeTate.integralBall_gamma0 [functoriality] (not stated): For 0 ≤ r < 1, Γ₀(p) preserves
+    B_r(𝒪_p:1) and B_r(1:p𝒪_p). The r = 1 assertion for the second chart is excluded.
+
 Unit tests:
   TauCeti.HodgeTate.integralBall_one [degenerate] (not stated): B_1(ℤ_p : 1) is the closed unit disc
     {|z| ≤ 1} for F = ℚ.
@@ -1260,7 +1268,6 @@ Let 1 > r > 0, m ≥ 1 with p^{−m} ≤ r, and 0 ≤ ε ≤ 1/(c_p p^m) with c_
 B_r(𝒪_p : 1). More precisely, with n = m + 1 and x = n − p^nε/(p−1), every point of the
 anticanonical locus has π_HT ∈ B_{|p^x|}(𝒪_p : 1). The same ε serves all primes above p. The
 inequalities are exactly what is needed to evaluate a locally analytic weight on cz + d.
-(named result; not stated: it needs the carriers listed in its prerequisites)
 -/
 
 /-
@@ -1271,7 +1278,6 @@ anticanonical locus X_{Γ(p^∞)}(ε)_a satisfies π_HT(z) ∈ B_{|p^x|}(𝒪_p 
 p^{m+1}ε/(p−1), with balls defined through the integral closure of 𝒪_F ⊗ O_C (T4/flag-variety-
 balls); likewise for the canonical locus and B_{|p^x|}(1 : p𝒪_p). Consequently the conclusions of
 BHW Proposition 5.18 hold for every rational prime p with the same constants c_p.
-(named result; not stated: it needs the carriers listed in its prerequisites)
 -/
 
 /-
@@ -1300,6 +1306,7 @@ API:
     isomorphism ψ_univ: 𝒪_F/p^m ≅ H_m^∨ over X_{Ig(p^m)}(ε).
   TauCeti.HodgeTate.igusaTorsor_baseChange [functoriality] (not stated): Compatible with base
     change, prime-to-p Hecke correspondences and the 𝒪_F^{×,+}-action on polarisations.
+
 Unit tests:
   TauCeti.HodgeTate.igusaTorsor_degree [computation] (not stated): X_{Ig(p^m)}(ε) → X(ε) is finite
     étale of degree #(𝒪_F/p^m)^×; for F = ℚ, of degree p^{m−1}(p − 1).
@@ -1313,17 +1320,13 @@ Unit tests:
 /-
 Node HodgeTateAndCanonicalSubgroups:T5/igusa-full-level-comparison (comparison): Igusa trivialisations and the full p-level tower
 
-For 0 ≤ ε ≤ ε_m^can, let X_{Γ(p^∞)}(ε)_a be the anticanonical part of the infinite-level tower (the
-diamond of PerfectoidShimuraVarieties S0; its perfectoidness, PerfectoidShimuraVarieties S5, is not
-used), with universal α: 𝒪_p² ≅ T_pA^∨. The map φ: X_{Γ(p^∞)}(ε)_a → X_{Ig(p^m)}(ε), (A, α) ↦
-(𝒪_p/p^m → (𝒪_p/p^m)² → A^∨[p^m] → H_m^∨), the first map e ↦ (e, 0) and the last the quotient by
-H_m^⊥ = canonical subgroup of A^∨, is well defined, equivariant for the action of the diagonal torus
-of Γ₀(p) through (a b; c d) ↦ d mod p^m, and an isomorphism onto the Igusa torsor exactly on the
-anticanonical locus: there α(1, 0) generates a complement of H_m^⊥, so its image in H_m^∨ is a
-generator. Through the quotient by the canonical subgroup, X_{Γ(p^m)}(ε)_a → X_{Ig(p^m)}(ε) factors
-through the Γ₀-level anticanonical locus and the Atkin–Lehner identification of T4/atkin-lehner-
-anticanonical.
-(named result; not stated: it needs the carriers listed in its prerequisites)
+For 0 ≤ ε ≤ ε_m^can, the anticanonical full-level tower with universal α: 𝒪_p² ≅ T_pA^∨ maps to the
+Igusa torsor by the generator ψ: 𝒪_p/p^m → H_m^∨ obtained from α(e₁) followed by the dual canonical-
+subgroup quotient. Anticanonicity makes ψ an isomorphism of finite 𝒪_p/p^m-modules. The resulting
+map of spaces φ: X_{Γ(p^∞)}(ε)_a → X_{Ig(p^m)}(ε) is not claimed to be an isomorphism and does not
+factor through Γ₀-level, which forgets the generator. Under the pullback-frame convention α′ = α ∘
+γ^∨, diagonal γ = diag(a,d) multiplies ψ by d mod p^m. BHW Proposition 7.11 uses φ and Hodge–Tate
+functoriality to lift the Igusa generator to the AIP torsor.
 -/
 
 /-
@@ -1342,19 +1345,21 @@ p, where ω⁺ need not be), Hdg^{1/(p−1)}ω⁺ ⊂ ω^int ⊂ ω⁺, and 1 �
 API:
   TauCeti.HodgeTate.igusaHodgeTateClass [constructor] (not stated): ψ(1) ∈ ω⁺/I_mω⁺, the Hodge–Tate
     image of the universal Igusa generator.
-  TauCeti.HodgeTate.integralDifferentialLattice [constructor] (component
-    `integralDifferentialLattice` above): ω^int := preimage in ω⁺ of the 𝒪_F ⊗ O⁺-span of ψ(1).
+  TauCeti.HodgeTate.integralDifferentialLattice [constructor] (typed component:
+    integralDifferentialLattice): ω^int := preimage in ω⁺ of the 𝒪_F ⊗ O⁺-span of ψ(1).
   TauCeti.HodgeTate.integralDifferentialLattice_locallyFree [instance] (not stated): ω^int is
     locally free of rank one over 𝒪_F ⊗ O⁺.
-  TauCeti.HodgeTate.integralDifferentialLattice_bounds [relation] (component
-    `le_integralDifferentialLattice` above (first inclusion)): Hdg^{1/(p−1)}ω⁺ ⊂ ω^int ⊂ ω⁺.
+  TauCeti.HodgeTate.integralDifferentialLattice_bounds [relation] (not stated): Hdg^{1/(p−1)}ω⁺ ⊂
+    ω^int ⊂ ω⁺.
   TauCeti.HodgeTate.integralDifferentialLattice_hodgeTate [characterisation] (not stated): HT′: 𝒪_F
     ⊗ O⁺/I′_m ≅ ω^int/I′_mω^int, 1 ↦ ψ(1).
   TauCeti.HodgeTate.integralDifferentialLattice_indep [compatibility] (not stated): For m′ ≥ m (and
     ε within both radii) the lattices defined at levels m and m′ agree.
+
 Unit tests:
-  TauCeti.HodgeTate.integralDifferentialLattice_ordinary [degenerate] (example above): On the
-    ordinary locus (ε = 0), ω^int = ω⁺.
+  TauCeti.HodgeTate.integralDifferentialLattice_ordinary [degenerate] (typed component:
+    ordinary cyclic-module example): On the ordinary locus (ε =
+    0), ω^int = ω⁺.
   TauCeti.HodgeTate.integralDifferentialLattice_colength [computation] (not stated): At a rank-one
     point of Hodge height w (F = ℚ), ω⁺/ω^int ≅ O_C/p^{w/(p−1)}.
   TauCeti.HodgeTate.integralDifferentialLattice_ne_plus [non-example] (not stated): At a non-
@@ -1373,7 +1378,6 @@ and satisfies w ≡ HT′(1) modulo I′_m; (5) ω^int is independent of m (for 
 compatible with the transition maps of the Igusa tower, base change and prime-to-p Hecke
 correspondences; (6) on the formal model of the ordinary locus ω^int coincides with the natural
 lattice ω⁺.
-(named result; not stated: it needs the carriers listed in its prerequisites)
 -/
 
 /-
@@ -1386,23 +1390,25 @@ extension). Let ω_𝒢^{mod} ⊂ ω_𝒢 be the subsheaf generated by p^{1/(p�
 image of HT (equivalently, for n ≥ 1, the preimage of the image of HT); after normalising the blow-
 up of the ideal locally generated by the minors of the Hodge–Tate matrix (the 2 × 2 minors at each v
 | p for GSp₄/F; minors of sizes g, …, 1 for GSp_{2g}), giving 𝔛^mod → 𝔛, an isomorphism on generic
-fibres, its pullback ω^mod is locally free (over 𝒪_F ⊗ O_{𝔛^mod} of rank 2 for GSp₄/F; of rank g for
-GSp_{2g}), p^{1/(p−1)}ω ⊂ ω^mod ⊂ ω, and HT factors through a surjection (𝒪_p/p^n)^{2g} ⊗ O_{𝔛^mod}
-→ ω^mod/p^{n−1/(p−1)}.
+fibres, the torsion-free image of its pullback inside the pulled-back ω, denoted ω^mod, is locally
+free (over 𝒪_F ⊗ O_{𝔛^mod} of rank 2 for GSp₄/F; of rank g for GSp_{2g}), p^{1/(p−1)}ω ⊂ ω^mod ⊂ ω,
+and HT factors through a surjection (𝒪_p/p^n)^{2g} ⊗ O_{𝔛^mod} → ω^mod/p^{n−1/(p−1)}.
 
 API:
   TauCeti.HodgeTate.modifiedModel [constructor] (not stated): 𝔛^mod → 𝔛, the normalised blow-up of
     the minor ideal of the Hodge–Tate matrix.
-  TauCeti.HodgeTate.modifiedHodgeBundle [constructor] (component `modifiedHodgeBundle` above (before
-    the blow-up)): ω^mod ⊂ ω on 𝔛^mod, generated by p^{1/(p−1)}ω and lifts of the Hodge–Tate image.
+  TauCeti.HodgeTate.modifiedHodgeBundle [constructor] (typed component: modifiedHodgeBundle
+    (submodule only)): ω^mod ⊂ ω on 𝔛^mod, generated by p^{1/(p−1)}ω and lifts of the Hodge–Tate
+    image.
   TauCeti.HodgeTate.modifiedHodgeBundle_locallyFree [instance] (not stated): ω^mod is locally free
     (over 𝒪_F ⊗ O for Hilbert–Siegel data).
-  TauCeti.HodgeTate.modifiedHodgeBundle_bounds [relation] (component
-    `smul_top_le_modifiedHodgeBundle` above (first inclusion)): p^{1/(p−1)}ω ⊂ ω^mod ⊂ ω (p ≥ 3).
+  TauCeti.HodgeTate.modifiedHodgeBundle_bounds [relation] (not stated): p^{1/(p−1)}ω ⊂ ω^mod ⊂ ω (p
+    ≥ 3).
   TauCeti.HodgeTate.modifiedHodgeBundle_hodgeTate_surjective [characterisation] (not stated): HT ⊗
     1: (𝒪_p/p^n)^{2g} ⊗ O → ω^mod/p^{n−1/(p−1)} is surjective.
   TauCeti.HodgeTate.modifiedModel_generic [compatibility] (not stated): 𝔛^mod → 𝔛 is an isomorphism
     on adic generic fibres.
+
 Unit tests:
   TauCeti.HodgeTate.modifiedHodgeBundle_ordinary [degenerate] (not stated): Over the ordinary locus
     ω^mod = ω and 𝔛^mod = 𝔛.
@@ -1437,12 +1443,15 @@ API:
     ω^mod ⊂ det ω (GSp₄/F).
   TauCeti.HodgeTate.modifiedDetHodge_surjective [characterisation] (not stated): Λ^gHT ⊗ 1 surjects
     onto det ω^mod/p^{n−2[F:ℚ]/(p−1)}.
+
 Unit tests:
   TauCeti.HodgeTate.modifiedMinimalModel_ordinary [degenerate] (not stated): Over the ordinary locus
     𝔛^{*−mod} = 𝔛^* and det ω^mod = det ω.
-  TauCeti.HodgeTate.modifiedDetHodge_factor [computation] (not stated): For F of degree d and
-    GSp₄/F, Λ^{2d}HT factors through ⊗_{v|p} Λ²(𝒪_{F_v}/p^n)^4, which is free of rank 6 over
-    𝒪_{F_v}/p^n at each v | p.
+  TauCeti.HodgeTate.modifiedDetHodge_factor [computation] (not stated): For GSp₄/F each local factor
+    Λ²_{𝒪_{F_v}/p^n}(𝒪_{F_v}/p^n)^4 has rank six over 𝒪_{F_v}/p^n. The determinant of the underlying
+    rank-2[F:ℚ] module is obtained using restriction of scalars and the determinant/norm
+    construction; a tensor of those rank-six modules must not be confused with that determinant
+    line.
   TauCeti.HodgeTate.modifiedMinimalModel_not_toroidal [non-example] (not stated): det ω^mod on
     𝔛^{*−mod} is not ω^mod's determinant pulled back from a toroidal model: it is constructed on the
     minimal side, where ω itself does not descend, only det ω does.
@@ -1467,6 +1476,7 @@ API:
     (p ≥ 3).
   TauCeti.HodgeTate.modifiedPlusSheaf_indep [compatibility] (not stated): Independent of the
     auxiliary level n used to define it.
+
 Unit tests:
   TauCeti.HodgeTate.modifiedPlusSheaf_ordinary [degenerate] (not stated): ω^{mod,+} = ω⁺ over the
     ordinary locus.
@@ -1485,11 +1495,11 @@ In the situation of T5/integral-differential-lattice, let 𝔉_m := {w ∈ ω^in
 1 + I′_m·Res_{𝒪_F/ℤ}𝔾̂_a, and 𝔉_m(ε) → X(ε) is an étale torsor under B_m := 𝒪_p^×·(1 +
 I′_m·Res_{𝒪_F/ℤ}𝔾̂_a) ⊂ Res_{𝒪_F/ℤ}𝔾_m; 𝔉_m(ε) → T(ω) (the total space of ω^×) is an open immersion.
 Over X(ε) and for x := m − εp^m/(p − 1), B_m ⊂ 𝒪_p^×(1 + p^x Res 𝔾̂_a), with equality where |Ha| =
-|p|^ε. For a weight κ: 𝒪_p^× → R^× analytic on B_m, the AIP sheaf ω^κ_AIP is the sheaf of
-κ^{-1}-equivariant functions on 𝔉_m(ε).
+|p|^ε. The associated weight sheaf is constructed by OverconvergentAutomorphicForms O5 from this
+torsor; this node supplies the torsor and its action.
 
 API:
-  TauCeti.HodgeTate.aipTorsor [constructor] (components `aipTorsor`, `mem_aipTorsor_self` above):
+  TauCeti.HodgeTate.aipTorsor [constructor] (typed component: aipTorsor (congruence subset only)):
     𝔉_m(ε) := {w ∈ ω^int : w ≡ HT′(1) mod I′_m}, a torsor under 1 + I′_m Res 𝔾̂_a over
     X_{Ig(p^m)}(ε).
   TauCeti.HodgeTate.aipTorsor_structureGroup [structure] (not stated): 𝔉_m(ε) → X(ε) is an étale
@@ -1498,15 +1508,15 @@ API:
     open immersion.
   TauCeti.HodgeTate.aipTorsor_bound [relation] (not stated): B_m ⊂ 𝒪_p^×(1 + p^x Res 𝔾̂_a) over
     X(ε), x = m − εp^m/(p−1).
-  TauCeti.HodgeTate.aipSheaf [constructor] (not stated): ω^κ_AIP: κ^{-1}-equivariant functions on
-    𝔉_m(ε) for κ analytic on B_m.
   TauCeti.HodgeTate.aipTorsor_lift [relation] (not stated): Every lift in ω⁺ of ψ(1) ∈ ω⁺_{H_m} is a
     section of 𝔉_m (T5/integral-lattice-properties (4)).
+
 Unit tests:
   TauCeti.HodgeTate.aipTorsor_ordinary [degenerate] (not stated): At ε = 0, B_m = 𝒪_p^×(1 + p^m Res
     𝔾̂_a) and 𝔉_m is the torsor of generators of ω⁺ congruent to the Igusa generator mod p^m.
-  TauCeti.HodgeTate.aipSheaf_classical [compatibility] (not stated): For κ = (x ↦ x^k), ω^κ_AIP ≅
-    ω^{⊗k} (the classical Hodge-line power) on X(ε).
+  TauCeti.HodgeTate.aipSheaf_classical [compatibility] (not stated): The O5 sheaf associated to this
+    torsor and an algebraic weight κ=x^k agrees with ω^{⊗k}; this is an imported consumer
+    compatibility test, not a second construction of the weight sheaf.
   TauCeti.HodgeTate.aipTorsor_bound_direction [non-example] (not stated): The reverse inclusion
     𝒪_p^×(1 + p^x Res 𝔾̂_a) ⊂ B_m fails at points where |Ha| > |p|^ε, since there I′_m ⊊ p^xO⁺.
 -/
@@ -1520,9 +1530,9 @@ PerfectoidShimuraVarieties S0, pulled back along T4/canonical-anticanonical-loci
 through 𝔉_m(ε) (T5/aip-torsor), and for γ = (a b; c d) ∈ Γ₀(p) one has γ*s = j(γ, ·)·s with j = cz +
 d (T4/hodge-tate-coordinate), j landing in B_m. Consequently, for a bounded smooth weight κ with ε ≤
 ε_κ and every n ∈ ℤ_{≥0} ∪ {∞}, pullback along s̃ := s ∘ u_n (u_n the action of (p^n 0; 0 1))
-induces a Hecke-equivariant isomorphism of invertible O⁺-modules between the perfectoid sheaf
-ω^{κ,+}_n on X_{Γ₀(p^n)}(ε)_a (functions f with γ*f = κ^{-1}(cz + d)f) and AL_{n*}ω^{κ,+}_AIP; in
-particular ω^κ ≅ ω^κ_AIP. This is the substantive comparison consumed by
+induces a prime-to-p Hecke-equivariant isomorphism of invertible O⁺-modules between the perfectoid
+sheaf ω^{κ,+}_n on X_{Γ₀(p^n)}(ε)_a (functions f with γ*f = κ^{-1}(cz + d)f) and the corresponding
+pullback of ω^{κ,+}_AIP (using AL_n for finite positive n and the structural forgetful map for n =
+∞); in particular ω^κ ≅ ω^κ_AIP. This is the substantive comparison consumed by
 OverconvergentAutomorphicForms O5, not a redefinition of one sheaf as the other.
-(named result; not stated: it needs the carriers listed in its prerequisites)
 -/
