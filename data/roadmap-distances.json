@@ -10,7 +10,7 @@
  },
  "bases": {
   "judged": 203,
-  "measured": 11,
+  "measured": 12,
   "built": 7,
   "children": 1
  },
@@ -68,7 +68,7 @@
   },
   "splitHalfShiftSpearman": 0.483,
   "splitHalfRoadmaps": 136,
-  "distanceVsClassification": 0.865,
+  "distanceVsClassification": 0.857,
   "distanceVsMissingTargets": 0.962,
   "distanceVsMissingLayers": 0.964,
   "distanceVsDepth": 0.948,
@@ -78,7 +78,7 @@
    "tauceti:Completed/IntegralLattices": 0.0,
    "tauceti:Completed/OrthogonalL2Bases": 0.0
   },
-  "declarationsVsDistance": -0.119
+  "declarationsVsDistance": -0.139
  },
  "roadmaps": {
   "AInfCohomology": {
@@ -1434,6 +1434,10 @@
    "basis": "judged",
    "usedBy": [
     {
+     "galaxy": "algebraicgeometry",
+     "roadmaps": 1
+    },
+    {
      "galaxy": "padic",
      "roadmaps": 1
     }
@@ -1672,6 +1676,10 @@
    "basis": "judged",
    "usedBy": [
     {
+     "galaxy": "algebraicgeometry",
+     "roadmaps": 1
+    },
+    {
      "galaxy": "algebraicnt",
      "roadmaps": 1
     },
@@ -1833,6 +1841,10 @@
     {
      "galaxy": "etale",
      "roadmaps": 2
+    },
+    {
+     "galaxy": "algebraicgeometry",
+     "roadmaps": 1
     },
     {
      "galaxy": "automorphic",
@@ -2313,6 +2325,10 @@
     {
      "galaxy": "langlands",
      "roadmaps": 2
+    },
+    {
+     "galaxy": "algebraicgeometry",
+     "roadmaps": 1
     },
     {
      "galaxy": "automorphic",
@@ -3353,6 +3369,39 @@
     {
      "galaxy": "padic",
      "roadmaps": 2
+    }
+   ]
+  },
+  "HodgeStructuresPartII": {
+   "classification": 9,
+   "structure": {
+    "layers": 9,
+    "missingOwn": 9.0,
+    "missingLayers": 38.5,
+    "missingTargets": 206.3,
+    "depth": 13,
+    "suppliers": 16,
+    "declarationLevel": {
+     "source": "blueprint",
+     "reviewed": true,
+     "declarations": 569,
+     "missingDeclarations": 569,
+     "depth": 25,
+     "layersCovered": 1,
+     "layers": 9,
+     "sourcePages": 46
+    }
+   },
+   "measurement": 4.28,
+   "judgements": 0,
+   "distance": 4.28,
+   "low": 3.12,
+   "high": 5.44,
+   "basis": "measured",
+   "usedBy": [
+    {
+     "galaxy": "algebraicnt",
+     "roadmaps": 1
     }
    ]
   },
@@ -5066,14 +5115,14 @@
    ]
   },
   "SemisimpleAlgebrasPartII": {
-   "classification": 8,
+   "classification": 10,
    "structure": {
     "layers": 5,
     "missingOwn": 5.0,
-    "missingLayers": 29.5,
-    "missingTargets": 136.1,
+    "missingLayers": 44.5,
+    "missingTargets": 229.4,
     "depth": 13,
-    "suppliers": 12,
+    "suppliers": 19,
     "declarationLevel": {
      "source": "blueprint",
      "reviewed": true,
@@ -5085,11 +5134,11 @@
      "sourcePages": 0
     }
    },
-   "measurement": 3.98,
+   "measurement": 4.36,
    "judgements": 0,
-   "distance": 3.98,
-   "low": 2.82,
-   "high": 5.13,
+   "distance": 4.36,
+   "low": 3.2,
+   "high": 5.51,
    "basis": "measured",
    "usedBy": []
   },
@@ -5185,6 +5234,10 @@
     {
      "galaxy": "automorphic",
      "roadmaps": 2
+    },
+    {
+     "galaxy": "algebraicgeometry",
+     "roadmaps": 1
     },
     {
      "galaxy": "padic",
@@ -7263,8 +7316,8 @@
  },
  "galaxies": {
   "algebraicgeometry": {
-   "distance": 3.31,
-   "roadmaps": 9,
+   "distance": 3.4,
+   "roadmaps": 10,
    "supplies": [
     {
      "galaxy": "arithmeticgeometry",
@@ -7393,6 +7446,24 @@
      ]
     },
     {
+     "galaxy": "algebraicnt",
+     "links": 4,
+     "examples": [
+      {
+       "supplier": "SchemeAndStackFoundations",
+       "consumer": "HigherLocalFieldsAndHigherClassFieldTheory"
+      },
+      {
+       "supplier": "SchemeAndStackFoundations",
+       "consumer": "SemisimpleAlgebrasPartII"
+      },
+      {
+       "supplier": "tauceti:TauCetiRoadmap/StableReduction",
+       "consumer": "HigherLocalFieldsAndHigherClassFieldTheory"
+      }
+     ]
+    },
+    {
      "galaxy": "automorphic",
      "links": 4,
      "examples": [
@@ -7407,24 +7478,6 @@
       {
        "supplier": "tauceti:TauCetiRoadmap/AnalyticToricGeometry",
        "consumer": "AutomorphicBundles"
-      }
-     ]
-    },
-    {
-     "galaxy": "algebraicnt",
-     "links": 3,
-     "examples": [
-      {
-       "supplier": "SchemeAndStackFoundations",
-       "consumer": "HigherLocalFieldsAndHigherClassFieldTheory"
-      },
-      {
-       "supplier": "SchemeAndStackFoundations",
-       "consumer": "SemisimpleAlgebrasPartII"
-      },
-      {
-       "supplier": "tauceti:TauCetiRoadmap/StableReduction",
-       "consumer": "HigherLocalFieldsAndHigherClassFieldTheory"
       }
      ]
     },
@@ -7531,7 +7584,7 @@
    "upstreamOnly": false
   },
   "algebraicnt": {
-   "distance": 2.68,
+   "distance": 2.71,
    "roadmaps": 15,
    "supplies": [
     {
@@ -8105,19 +8158,19 @@
     },
     {
      "galaxy": "algebraicgeometry",
-     "links": 3,
+     "links": 4,
      "examples": [
       {
        "supplier": "NeronModelsAndSemistableAbelianVarieties",
        "consumer": "SchemeAndStackFoundations"
       },
       {
-       "supplier": "tauceti:TauCetiRoadmap/ModularCurves",
-       "consumer": "AlgebraicModuliForArithmeticGeometry"
+       "supplier": "ShimuraData",
+       "consumer": "HodgeStructuresPartII"
       },
       {
        "supplier": "tauceti:TauCetiRoadmap/ModularCurves",
-       "consumer": "SchemeAndStackFoundations"
+       "consumer": "AlgebraicModuliForArithmeticGeometry"
       }
      ]
     },
@@ -9558,6 +9611,16 @@
      ]
     },
     {
+     "galaxy": "algebraicgeometry",
+     "links": 1,
+     "examples": [
+      {
+       "supplier": "EnhancedDerivedSheaves",
+       "consumer": "HodgeStructuresPartII"
+      }
+     ]
+    },
+    {
      "galaxy": "commutative",
      "links": 1,
      "examples": [
@@ -9706,6 +9769,16 @@
       {
        "supplier": "PadicMeasuresIwasawaAlgebras",
        "consumer": "OrdinaryAutomorphicFormsAndModularityLifting"
+      }
+     ]
+    },
+    {
+     "galaxy": "algebraicgeometry",
+     "links": 1,
+     "examples": [
+      {
+       "supplier": "ColemanPowerSeries",
+       "consumer": "HodgeStructuresPartII"
       }
      ]
     },
@@ -10265,6 +10338,24 @@
      ]
     },
     {
+     "galaxy": "algebraicgeometry",
+     "links": 5,
+     "examples": [
+      {
+       "supplier": "AdicSpacesPartII",
+       "consumer": "AlgebraicModuliForArithmeticGeometry"
+      },
+      {
+       "supplier": "CrystallineCohomology",
+       "consumer": "HodgeStructuresPartII"
+      },
+      {
+       "supplier": "DerivedDeRhamCohomology",
+       "consumer": "HodgeStructuresPartII"
+      }
+     ]
+    },
+    {
      "galaxy": "ktheory",
      "links": 4,
      "examples": [
@@ -10279,24 +10370,6 @@
       {
        "supplier": "DerivedDeRhamCohomology",
        "consumer": "RefinedTraceMethods"
-      }
-     ]
-    },
-    {
-     "galaxy": "algebraicgeometry",
-     "links": 3,
-     "examples": [
-      {
-       "supplier": "AdicSpacesPartII",
-       "consumer": "AlgebraicModuliForArithmeticGeometry"
-      },
-      {
-       "supplier": "DiamondsAndVStacks",
-       "consumer": "AlgebraicModuliForArithmeticGeometry"
-      },
-      {
-       "supplier": "tauceti:TauCetiRoadmap/AdicSpaces",
-       "consumer": "AlgebraicModuliForArithmeticGeometry"
       }
      ]
     },

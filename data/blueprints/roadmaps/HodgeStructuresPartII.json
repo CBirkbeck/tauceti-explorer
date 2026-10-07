@@ -1,0 +1,200 @@
+{
+  "id": "HodgeStructuresPartII",
+  "title": "Hodge structures (pure, mixed, and polarized), Part II: variations, period maps and non-abelian Hodge theory",
+  "area": "algebraicgeometry",
+  "parent": "tauceti:TauCetiRoadmap/HodgeStructures",
+  "summary": "Continuation of the existing fibrewise Hodge theory toward general Higgs and parameter connections, variations, period maps, degeneration and Hodge loci. This finished planning pass develops the conditional H.0 algebraic prefix; the remaining eight stages and all source-route obligations are explicitly open.",
+  "readme": "# Hodge structures, Part II\n\nThe full reader is research/blueprint/readmes/HodgeStructuresPartII.md. This finished planning pass develops the general Higgs/relatively constant parameter-connection prefix on supplied ringed differential sites, with native affine transport, curvature, tensor, monoidal pullback and finite-projective dual signatures.\n\nIndependent review accepts the conditional plans and explicit gaps. H.0 remains partial and H.1–H.8 not_read. Exact global sheaf/connection/Rees suppliers, 36 omitted signatures, universal exterior-power comparison, arbitrary-coefficient tensor-valued shuffles, determinant/Tate/period adapters and remaining source routes are follow-up work. Receiving-ring comparisons do not reflect source curvature without the stated injectivity. All implementation statuses remain unchecked.\n",
+  "prerequisites": [
+    "tauceti:TauCetiRoadmap/HodgeStructures",
+    "CrystallineCohomology",
+    "EnhancedDerivedSheaves",
+    "DerivedDeRhamCohomology",
+    "ShimuraData",
+    "ColemanPowerSeries"
+  ],
+  "stages": [
+    {
+      "key": "H.0",
+      "title": "Higgs fields and parameter connections",
+      "description": "Define finite locally free integrable Higgs and relatively constant λ-connections on supplied ringed differential sites, keeping actual sheaf tensor/exterior operations, locally varying rank and Tate twists. Plan the intrinsic operator, curvature, horizontal maps, tensor, dual, pullback, ordered nilpotence, Griffiths grading and finite Rees parameter family. Native affine plans cover coordinate/gauge/determinant formulas, all-order coefficient and scalar transport, exterior integrability, common-λ tensors, categorical monoidal pullback and finite-projective dual coherence. H.0 remains partial: exact CR.1 ordinary-connection, E1 sheaf and DD.1 finite Rees contracts, 36 omitted global signatures, universal exterior-power comparison, arbitrary-coefficient tensor-valued shuffles, determinant/Tate/period adapters and remaining source decomposition are follow-up obligations. Scalar extension reflects source curvature only with the stated injectivity; sheaf tensor sections are not tensors of global sections.",
+      "requires": [
+        "CrystallineCohomology:CR.1",
+        "EnhancedDerivedSheaves:E1",
+        "DerivedDeRhamCohomology:DD.1",
+        "ColemanPowerSeries:L1"
+      ]
+    },
+    {
+      "key": "H.1",
+      "title": "Stable moduli and complex non-abelian Hodge theory",
+      "description": "Build projective stable Betti, de Rham and Dolbeault moduli with the stated torsion determinant and vanishing-Chern-class component. Establish Riemann–Hilbert, Simpson and Hodge moduli after importing generic moduli foundations. Keep rank, determinant, stability and analytic/algebraic comparison hypotheses explicit. No p-adic correspondence is constructed here.",
+      "requires": [
+        "HodgeStructuresPartII:H.0"
+      ]
+    },
+    {
+      "key": "H.2",
+      "title": "Variations, canonical extensions and fixed parts",
+      "description": "Import the common variation carrier from ShimuraData:D3, including fibrewise opposedness and Griffiths transversality. Add pure/mixed/admissible/graded-polarizable interfaces, canonical logarithmic extensions, Gauss–Manin, fixed-part and connected monodromy results. A complex variation is not assumed to have an integral lattice.",
+      "requires": [
+        "HodgeStructuresPartII:H.0",
+        "ShimuraData:D3"
+      ]
+    },
+    {
+      "key": "H.3",
+      "title": "General period manifolds and period-map derivatives",
+      "description": "Extend the parent's fibrewise period points to compact dual charts, Mumford–Tate orbit subdomains, holomorphic period maps and differential formulas. Keep the full ambient period carrier, tensor constraints and connected-component choices; the orbit equals the ambient domain only in the full-isometry specialization. Supply trace-pairing/Kodaira–Spencer period derivatives without duplicating common variations.",
+      "requires": [
+        "HodgeStructuresPartII:H.2",
+        "tauceti:TauCetiRoadmap/HodgeStructures#milestone-l3--period-domain-points-the-symmetry-group"
+      ]
+    },
+    {
+      "key": "H.4",
+      "title": "Parabolic bounds and unitary deformation vanishing",
+      "description": "Plan Landesman–Litt parabolic weights, degrees, slopes, semistability and exact Clifford/rank bounds. Establish the sublocal-system rank theorem and Artinian unitary deformation vanishing with their separate hypotheses. Import curve Riemann–Roch, Serre duality, Clifford and Grassmannian foundations.",
+      "requires": [
+        "HodgeStructuresPartII:H.1",
+        "HodgeStructuresPartII:H.2",
+        "HodgeStructuresPartII:H.3"
+      ]
+    },
+    {
+      "key": "H.5",
+      "title": "Rigid loci, arithmetic models and integral variations",
+      "description": "Build rigid/cohomologically rigid fixed-determinant loci, End-zero tangent conventions, rigid Higgs nilpotence, equivariant rigid Hodge-moduli splitting, smooth arithmetic models and the zero-graded-Higgs/unitarity criterion. Add rigidity/integrality with quasi-unipotent boundary and finite determinant explicit. Distinguish integral from strongly integral; retain rank-one infinite-image unitary examples. Export to CartierFlows/RigidCompanions without importing those consumers.",
+      "requires": [
+        "HodgeStructuresPartII:H.1",
+        "HodgeStructuresPartII:H.2",
+        "HodgeStructuresPartII:H.4"
+      ]
+    },
+    {
+      "key": "H.6",
+      "title": "Semistable degeneration and logarithmic monodromy",
+      "description": "Plan Qian's proper semistable log-de Rham interface, residue/monodromy comparison exp(−2πiN), finite group actions and ramified base-change normalization. Add BKT multivariable nilpotent orbits, monodromy weight filtrations, limiting mixed Hodge structures and splitting-independent norm estimates. Keep discs away from other singular fibres and use buffered charts covering angular seams.",
+      "requires": [
+        "HodgeStructuresPartII:H.2"
+      ]
+    },
+    {
+      "key": "H.7",
+      "title": "Definable period maps and algebraicity of Hodge loci",
+      "description": "Retain the full BKT continuation: bounded-width positive-height sectors, fixed-canonical-K finite Siegel containment, multigrading estimates, period definability, individual special pullbacks and definable Chow. The exceptional Hodge locus is a countable union of closed irreducible algebraic subvarieties, not itself asserted definable. Untwisted rational tensors have type (0,0); (p,p) tensors require Tate twists.",
+      "requires": [
+        "HodgeStructuresPartII:H.3",
+        "HodgeStructuresPartII:H.6"
+      ]
+    },
+    {
+      "key": "H.8",
+      "title": "Real Noether–Lefschetz variation interfaces",
+      "description": "Retain the mandatory Benoist continuation: geometric weight-two real variations, transported Hodge classes, generic Kodaira–Spencer contraction, Griffiths derivative, normal-boundary factorization, Green open cones and the required Voisin kernel-cone interface. Supply RealSurfacePeriodIndex using common variations and the existing divisor-class supplier. Ordinary integral weak Lefschetz is not replaced by an equivariant variant. Double-cover families and application-specific vanishings remain with the consumer.",
+      "requires": [
+        "HodgeStructuresPartII:H.3"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "EG20",
+      "title": "Rigid connections and F-isocrystals",
+      "authors": "Hélène Esnault and Michael Groechenig",
+      "edition": "Acta Mathematica 225 (2020), 103–158; published PDF",
+      "url": "https://intlpress.com/site/pub/files/_fulltext/journals/acta/2020/0225/0001/ACTA-2020-0225-0001-a002.pdf",
+      "sha256": "0d81a6d3e9be477c58a725096c41f06a8a9262422fe596363c3f04c26ab1cfab",
+      "accessed": "2026-10-02",
+      "readSections": [
+        "p.108 definitions of Higgs fields and flat connections",
+        "pp.131–132 §4.2 definition of λ-connection and Lemma 4.9 including its cited-proof boundary",
+        "p.133 Proposition 4.10 and opening flow notation only"
+      ],
+      "readingExtent": "Selected passages only; not a full paper reading or verification of the referenced Simpson results.",
+      "continuationReading": "Same public bytes freshly retrieved on 2026-10-02 at the recorded SHA-256. EG: PDF pp.6,29–30 definitions/graded passage. LZ: PDF pp.5,7,20–22,24 selected definitions/API/transversality. Heuer: PDF pp.2,7,37 definitions; only those passages reread, not the correspondence proofs."
+    },
+    {
+      "id": "LZ17",
+      "title": "Rigidity and a Riemann–Hilbert correspondence for p-adic local systems",
+      "authors": "Ruochuan Liu and Xinwen Zhu",
+      "edition": "arXiv:1602.06282v3; final author version, 35 PDF pages",
+      "url": "https://arxiv.org/pdf/1602.06282v3",
+      "sha256": "8b11e55bffbfb1835a6da8975272670c9465601c08640e06f3a566a459a1da79",
+      "accessed": "2026-10-02",
+      "readSections": [
+        "PDF p.5 Theorem 1.6 and Remark 1.10",
+        "PDF p.7 Theorem 2.1; p.9 preliminaries",
+        "PDF pp.20–23 definitions 3.5–3.6, connection and Theorem 3.8, not its entire proof",
+        "PDF p.24 Remark 3.2 and preceding proof tail",
+        "PDF p.27 Lemma 3.11 and proof"
+      ],
+      "readingExtent": "Selected passages only; no correspondence or general nilpotence theorem established here.",
+      "continuationReading": "Same public bytes freshly retrieved on 2026-10-02 at the recorded SHA-256. EG: PDF pp.6,29–30 definitions/graded passage. LZ: PDF pp.5,7,20–22,24 selected definitions/API/transversality. Heuer: PDF pp.2,7,37 definitions; only those passages reread, not the correspondence proofs."
+    },
+    {
+      "id": "Heuer25",
+      "title": "A p-adic Simpson correspondence for smooth proper rigid varieties",
+      "authors": "Ben Heuer",
+      "edition": "Inventiones mathematicae 240 (2025), 261–312; published PDF",
+      "url": "https://link.springer.com/content/pdf/10.1007/s00222-025-01321-4.pdf",
+      "sha256": "7608fff18ccbc47b96bd54cfe01f31f8ccd9953889834cc9f6c39787563175cd",
+      "accessed": "2026-10-02",
+      "readSections": [
+        "Printed pp.262–263 (PDF pp.2–3), Definition 1.2 and comparison scope"
+      ],
+      "readingExtent": "Definition and introduction only, not the correspondence proof.",
+      "continuationReading": "Same public bytes freshly retrieved on 2026-10-02 at the recorded SHA-256. EG: PDF pp.6,29–30 definitions/graded passage. LZ: PDF pp.5,7,20–22,24 selected definitions/API/transversality. Heuer: PDF pp.2,7,37 definitions; only those passages reread, not the correspondence proofs."
+    },
+    {
+      "id": "StacksConnection",
+      "title": "Connections",
+      "authors": "The Stacks Project authors",
+      "edition": "Live public tag 07J5, read 2026-10-02",
+      "url": "https://stacks.math.columbia.edu/tag/07J5",
+      "accessed": "2026-10-02",
+      "readSections": [
+        "Opening ordinary connection, extension and integrability definitions; Lemma 60.15.1 and full proof read."
+      ],
+      "readingExtent": "Only this section; the crystal equivalence is neither claimed nor replanned."
+    },
+    {
+      "id": "EG-author-2026",
+      "title": "Rigid connections and F-isocrystals (author-hosted preprint)",
+      "authors": "Hélène Esnault and Michael Groechenig",
+      "edition": "Author-hosted 44-page preprint at the recorded URL, accessed 2026-10-02. Different bytes/pagination from the 56-page Acta published PDF; no complete version collation.",
+      "url": "https://www.mi.fu-berlin.de/users/esnault/preprints/helene/126_esn_gro.pdf",
+      "sha256": "0bfa00b7dbae7a59c193d3523028df826741f15d3e88cb50526f8656a7fb8e35",
+      "accessed": "2026-10-02",
+      "readSections": [
+        "Fresh reading by codex-J6LwjP: §1 p.2 opening fixed-determinant paragraph, Definition 1.1/Remark 1.2; §2.1 pp.5–6 complete selected Higgs/trace-zero definitions and Lemma 2.1 proof; §4.2 pp.23–24 parameter definition and Lemma 4.9 with its printed proof."
+      ],
+      "readingExtent": "Selected passages only. Published PDF retrieval returned HTTP 403; its historical source receipt is preserved. No new correspondence proof, erratum or version-independent theorem claim."
+    },
+    {
+      "id": "LiuZhuTensorBaseChange-a71f92",
+      "title": "Rigidity and a Riemann–Hilbert correspondence for p-adic local systems",
+      "authors": "Ruochuan Liu and Xinwen Zhu",
+      "edition": "arXiv:1602.06282v3; selected passages, not a full correspondence proof",
+      "url": "https://arxiv.org/pdf/1602.06282v3",
+      "sha256": "8b11e55bffbfb1835a6da8975272670c9465601c08640e06f3a566a459a1da79",
+      "accessed": "2026-10-03",
+      "readSections": [
+        "Notations/conventions printed pp.5–6; §2.1 printed pp.6–9, especially Theorem 2.1(iii)–(iv), equations (2.4)–(2.5), and explanations on p.8."
+      ],
+      "readingExtent": "Selected source definitions and tensor/pullback interfaces read. The arbitrary-ring affine scalar-extension proof is an authored deduction from native tensor universal properties; it does not prove the source correspondence, nilpotence, sheaf, Tate or Galois compatibility."
+    },
+    {
+      "id": "LiuZhuContractions-codex-5ebb6f",
+      "title": "Rigidity and a Riemann–Hilbert correspondence for p-adic local systems",
+      "authors": "Ruochuan Liu and Xinwen Zhu",
+      "edition": "arXiv:1602.06282v3",
+      "url": "https://arxiv.org/pdf/1602.06282v3",
+      "sha256": "8b11e55bffbfb1835a6da8975272670c9465601c08640e06f3a566a459a1da79",
+      "readSections": [
+        "Fresh full printed/PDF pp.6–9: §2.1, Theorem 2.1(i)–(iv), tensor/dual equations (2.4)–(2.5), explanations and twisted Higgs complex on p.8. The correspondence proof is not freshly read or established."
+      ]
+    }
+  ],
+  "status": "draft"
+}
