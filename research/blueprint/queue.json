@@ -24697,8 +24697,9 @@
    ],
    "avoidAccountOf": "BP-ExcursionOperatorsAndSpectralAction--ES0",
    "prompt": "research/blueprint/prompts/REV-ExcursionOperatorsAndSpectralAction--ES0.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #403"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #403",
+   "finishedAt": "2026-10-07T05:01:15Z"
   },
   {
    "id": "BP-ExcursionOperatorsAndSpectralAction--ES5",
@@ -25501,7 +25502,8 @@
    ],
    "avoidAccountOf": "BP-GeometricSatakeAndFusion--GS3",
    "prompt": "research/blueprint/prompts/REV-GeometricSatakeAndFusion--GS3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #419"
   },
   {
    "id": "BP-GlobalGaloisDeformations",
