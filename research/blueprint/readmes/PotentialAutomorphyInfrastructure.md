@@ -1,6 +1,6 @@
 # Reusable infrastructure for potential automorphy over CM fields
 
-This is the target-level blueprint for `PotentialAutomorphyInfrastructure:PA.0`–`PA.5`. The [packet](../packets/PotentialAutomorphyInfrastructure.json) records the same declarations, direct prerequisites, source passages, APIs and tests. The [suggested file](../suggested/PotentialAutomorphyInfrastructure.lean) contains the available typed cores and explicitly named dependent-signature obligations. Nothing in this document is formalised. The planning pass is complete; all six stages are **planned**, and none is closed. The nine explicit gaps and supplier extensions at the end determine what is needed for closure.
+This is the target-level blueprint for `PotentialAutomorphyInfrastructure:PA.0`–`PA.5`. The [packet](../packets/PotentialAutomorphyInfrastructure.json) records the same declarations, direct prerequisites, source passages, APIs and tests. The [suggested file](../suggested/PotentialAutomorphyInfrastructure.lean) contains the available typed cores and explicitly named dependent-signature obligations. Nothing in this document is formalised. The planning pass is complete; all six stages are **planned**, and none is closed. The seven explicit gaps and supplier extensions at the end determine what is needed for closure.
 
 The endpoints are ACC’s Fontaine–Laffaille and ordinary automorphy lifting theorems, followed by rank-two compatible-system transport used in potential-automorphy assemblies. General highest-weight theory, smooth induction, deformation functors, abstract patching and general compatible-system operations retain their owners. The declaration names are proposals in the namespace `TauCeti.PotentialAutomorphy`; a short name below uses that namespace. Nodes use stable stage-qualified ids. Each stage has at most six named planets.
 
@@ -37,8 +37,9 @@ The reviewed `data/library-coverage.json` was read on 7 October 2026. It contain
 | `mathlib:Subgroup.goursat_surjective` | `Mathlib/GroupTheory/Goursat` | For a subgroup of G×H with both projections surjective, its image modulo the two Goursat normal subgroups is the graph of a group isomorphism. This does not itself construct arithmetic field composita. |
 | `mathlib:Equiv.Perm.permGroup` | `Mathlib/Algebra/Group/End` | Permutation group multiplication is function composition, implemented by trans in reversed argument order. |
 | `mathlib:finAddFlip` | `Mathlib/Logic/Equiv/Fin/Basic` | The equivalence Fin(m+n)≃Fin(n+m) exchanging the two sum blocks via finSumFinEquiv and sumComm. |
+| `mathlib:Matrix.ProjectiveSpecialLinearGroup.rank_two_simple` | `Mathlib/LinearAlgebra/Projectivization/PSL/PSL2` | PSL(2, F) is a simple group for a finite field F with at least four elements; the Dickson classification and Aut(PSL₂) come from ArithmeticGaloisRepresentations R01.4. |
 
-The six-stage structure has a one-way flow: PA.0 supplies PA.1 and PA.2; PA.0 and the deformation owners supply PA.3; PA.1, PA.2 and PA.3 feed PA.4. PA.5 supplies reusable field and genericity transport to PA.4 and exports its compatible-system consequences downstream. PA.2 imports shared shuffle/CTG combinatorics from PA.1, while its middle-degree concentration is a separate IG.7 import. Neither lifting branch requires the other branch’s patching verification. ML.2 is a downstream assembly and supplies no prerequisite here.
+The six-stage structure has a one-way flow: PA.0 supplies PA.1 and PA.2; PA.0, PA.2 and the deformation owners supply PA.3, which also holds the ordinary Hida complexes; PA.1, PA.2 and PA.3 feed PA.4. PA.5 supplies soluble base change and descent, reusable field checklists and genericity transport to PA.2 and PA.4, and exports its compatible-system consequences downstream; no PA.5 declaration uses PA.2, PA.3 or PA.4. PA.2 imports shared shuffle/CTG combinatorics from PA.1, while its middle-degree concentration is a separate IG.7 import. Neither lifting branch requires the other branch’s patching verification. ML.2 is a downstream assembly and supplies no prerequisite here.
 
 ## Sources and editions
 
@@ -46,19 +47,23 @@ The six-stage structure has a one-way flow: PA.0 supplies PA.1 and PA.2; PA.0 an
 
 **[qian]** Lie Qian, *Potential automorphy for GL_n*. Published Inventiones Mathematicae (2023); NSF public-access copy. [Public copy](https://par.nsf.gov/servlets/purl/10388233), accessed 2026-10-07. Read: Definition 1.3; Lemma 2.6 and its proof; Lemma 4.3 and Remark 4.4; cited Goursat/composita and ordinary base-change passages. PDF SHA-256: `77969caa063c52027dc7274ccef679ce11a2382b8e0b5a8565847922a8d7c0d8`.
 
+**[blggt]** Thomas Barnet-Lamb, Toby Gee, David Geraghty, Richard Taylor, *Potential automorphy and change of weight*. arXiv 1010.2561 (author preprint of Ann. of Math. 179 (2014)). [Public copy](https://arxiv.org/pdf/1010.2561), accessed 2026-10-07. Read: §2.1, the definition of ι-ordinary automorphic representations and its remarks, PDF pp. 33–34. PDF SHA-256: `c953df6229ba8d8b4ae25b1a00cf11592864c74692859d324ff10d3eef645d24`.
+
+**[chenevier]** Gaëtan Chenevier, *The p-adic analytic space of pseudocharacters of a profinite group and pseudorepresentations over arbitrary rings*. arXiv 0809.0415. [Public copy](https://arxiv.org/pdf/0809.0415), accessed 2026-10-07. Read: §1.17, Lemma 1.18(iii), §1.19 and Theorem 2.22. PDF SHA-256: `f3c0e0d86e803301c617d3023d425752e30da46673ed5af932647eb284286953`.
+
 **[bianchi]** George Boxer, Frank Calegari, Toby Gee, James Newton, Jack Thorne, *The Ramanujan and Sato–Tate Conjectures for Bianchi modular forms*. Author-hosted 2025 PDF; Definition 6.1.2 is on author page 58 and Lemmas 6.1.4–6.1.5 on page 59; extraction page numbers refer to another edition. [Public copy](https://www.ma.imperial.ac.uk/~tsg/Index_files/SatoTate.pdf), accessed 2026-10-07. Read: §6.1 Definitions 6.1.1–6.1.2, Lemmas 6.1.4–6.1.5; symmetric-power passages. PDF SHA-256: `cf0c334f106dc17aa39a77d97341ebe96743ac8dd1858006c99936d303efe915`.
 
 **[bcgp]** George Boxer, Frank Calegari, Toby Gee, Vincent Pilloni, *Abelian surfaces over totally real fields are potentially modular*. Author-hosted published manuscript (2021); §9.1 pp. 251–252. [Public copy](https://www.ma.imperial.ac.uk/~gboxer/abeliansurfacesmodular.pdf), accessed 2026-10-07. Read: §9.1 definitions immediately before Lemma 9.1.10 and all three parts of that lemma. PDF SHA-256: `1bbaa5c4f55fd2e15523953d40f41e518695025d758285eabd5ac829932c8051`.
 
-The underlying Henniart/Serre character theorem, Larsen–Pink/Larsen monodromy inputs, Geraghty’s primary definitions and base-change normalization, finite PGL₂ classification references, and full soluble-descent/Varma source statements were not independently read in their cited editions. Their precise uses are supplier requests or gaps. This reader does not claim them as verified baseline results.
+The arXiv versions v1 and v2 of ACC and v1 of Qian were compared only for the numbering and page findings E71 and E72; `sourceVersions` in the packet lists all ten documents read. The Henniart/Serre character theorem, the Larsen–Pink/Larsen monodromy inputs and Geraghty’s Lemmas 5.2 and 5.7 were not read in their cited editions; the ι-ordinary definition is taken from BLGGT §2.1. Arthur–Clozel’s cyclic base change is requested from EndoscopicTransferAndUnitaryTraceComparison ET.7a, Varma’s comparison is the AG2.5 node, and the finite PGL₂ classification is ArithmeticGaloisRepresentations R01.4. Their precise uses are supplier imports, requests or gaps; this reader does not claim them as verified baseline results.
 
 ## PA.0. A common integral cohomology interface
 
 PA.0 fixes an integral interface shared by the Fontaine–Laffaille and ordinary branches. It imports the locally symmetric spaces, arithmetic groupoids, algebraic local systems, boundary triangle and derived Hecke action from ALS. The new assertions identify their coefficient/level comparisons in precisely the GL_n and split unitary situation of ACC. Evaluation at the Siegel Levi is a split map of coefficient lattices; applying derived unipotent invariants and the localized Siegel-stratum comparison makes it a Hecke-equivariant retract. A retract of objects alone does not establish compatibility of the connecting maps, so the boundary comparison is a separate theorem.
 
-The categorical definition adds commutation equations to Mathlib’s actual retract. It does not introduce a second derived category. The unipotent computation is continuous cohomology of Z_p^{n²[K:Q_p]}, with its conjugation action on exterior powers; it is not discrete group cohomology. The weight dictionary reverses and negates the conjugate row. Its rank-two test distinguishes this dictionary from concatenating the two rows without a dual. Finite free O[Δ]-models require free cell actions at the selected neat levels. Good level alone does not provide that freeness.
+The categorical definition adds commutation equations to Mathlib’s actual retract. It does not introduce a second derived category. The unipotent computation is continuous cohomology of Z_p^{n²[K:Q_p]}, with its conjugation action on exterior powers; it is not discrete group cohomology. The weight dictionary reverses and negates the conjugate row. Its rank-two test distinguishes this dictionary from concatenating the two rows without a dual. Finite free O[Δ]-models require free cell actions at the selected neat levels. Good level alone does not provide that freeness. Integral coefficient lattices and their evaluation splitting are imported from the accepted Part II ReductiveGroupsIntegralRepresentationsPartII, which has no stage yet; that is a recorded gap.
 
-**Coverage:** planned. **Remaining:** Fulfil ALS groupoid/cellular coefficient and boundary comparison extensions; supply RG2.6 coefficient lattices and their evaluation splitting.
+**Coverage:** planned. **Remaining:** Fulfil ALS groupoid/cellular coefficient and boundary comparison extensions; obtain the coefficient lattices and their evaluation splitting from ReductiveGroupsIntegralRepresentationsPartII once its design assigns a stage.
 
 **Planets:** Siegel coefficient splitting; Equivariant direct summands; Unipotent exterior cohomology; Integral cohomology comparison; Unitary weight dictionary.
 
@@ -208,7 +213,7 @@ For F CM, the GL_n space and the split-at-p unitary space with their arithmetic 
 
 **Direct prerequisites:** `ArithmeticLocallySymmetricSpaces:ALS.1/finite-complex-model`, `ArithmeticLocallySymmetricSpaces:ALS.1/coefficient-change`, `ArithmeticLocallySymmetricSpaces:ALS.3/derived-hecke-action`, `mathlib:DerivedCategory.Q`, `ArithmeticLocallySymmetricSpaces:ALS.1`.
 
-**Source:** [acc](https://www.math.uchicago.edu/~fcale/papers/Ramanujan.pdf), §§2.1, 2.2, 6.5.1; cohomology models and auxiliary levels. Exact arithmetic specialization of the cited statement, with the hypotheses retained.
+**Source:** [acc](https://www.math.uchicago.edu/~fcale/papers/Ramanujan.pdf), §2.1.2, pp. 910–911 (groupoid/sheaf cohomology and Hecke actions); §2.2; §6.5.1, pp. 1064–1069 (finite normal levels and perfect cellular models). The cited passage supplies the source application; this node makes the indicated coefficient hypotheses or imported general calculation explicit. See the independent review and recorded requests/gaps.
 
 <a id="boundary-level-coefficient-comparison"></a>
 
@@ -279,13 +284,15 @@ For descending Levi rows λ_τ and λ_{τc} of length n and a chosen lift τ abo
 
 ## PA.1. Fontaine–Laffaille weights and degree shifting
 
-PA.1 supplies the arithmetic Fontaine–Laffaille calculation, from the Siegel boundary retract to Theorem 4.5.1. General integral highest-weight theory has the single proposed owner RG2.6. Here the specialized shuffles, bottom-alcove bounds and Kostant constituents are the objects to compute. Shuffles are inverse-increasing on each Levi block, hence representatives for left Levi cosets; replacing inverse-increasing by increasing selects the wrong convention. Their length runs from zero to n² at one embedding.
+PA.1 supplies the arithmetic Fontaine–Laffaille calculation, from the Siegel boundary retract to Theorem 4.5.1. General integral highest-weight theory has the single accepted owner ReductiveGroupsIntegralRepresentationsPartII (no stage yet; recorded gap). Here the specialized shuffles, bottom-alcove bounds and Kostant constituents are the objects to compute. Shuffles are inverse-increasing on each Levi block, hence representatives for left Levi cosets; replacing inverse-increasing by increasing selects the wrong convention. Their length runs from zero to n² at one embedding.
 
-The unipotent derived formality theorem has the source’s p>n² bound and central-character argument. It does not assert that all complexes with torsion-free cohomology are formal. IG.7 supplies unitary middle-degree concentration and the compact-support vanishing needed for boundary surjectivity. No concentration conjecture for torsion GL_n cohomology is introduced. Degree shifting first reaches the upper half of the GL_n range. Universal coefficients multiply annihilators with an exponent depending only on rank and the field degree. Poincaré duality reflects q to d−1−q; the finite character chosen at a split witness removes cross-summand genericity obstructions.
+The unipotent derived formality theorem has the source’s p>n² bound and central-character argument. It does not assert that all complexes with torsion-free cohomology are formal. IG.7 supplies unitary middle-degree concentration and the compact-support vanishing needed for boundary surjectivity. No concentration conjecture for torsion GL_n cohomology is introduced. Degree shifting first reaches the upper half of the GL_n range. Universal coefficients multiply annihilators with an exponent depending only on rank and the field degree. Finite-level duality (ALS.5) reflects q to d−1−q after the non-Eisenstein comparison of compactly supported and ordinary cohomology (ALS.4) and the twisting isomorphism (ALS.3); the finite character chosen at a split witness, an instance of R23.1’s extension of local characters, removes cross-summand genericity obstructions.
 
-CTG is the nonparallel conjugate-dual condition on every computed Kostant Levi row. It is stronger than a trace-only test. The perturbation proof uses the corrected plus sign in the sufficient sum criterion (4.3.7). The two-character-twist argument of Theorem 4.5.1 then recovers the rank-n Fontaine–Laffaille multiset through the separate finite shifted-partition theorem. Coefficients, contravariance, the G^a interval and cyclotomic signs must agree with R07.3; its currently broader general statements are imports with an exact arithmetic extension request.
+The Fontaine–Laffaille transfer to a nilpotent quotient uses the kernel inclusion of Chenevier’s Lemma 1.18(iii) under an arbitrary coefficient map Ã→B: the image of ker D̃ lies in ker D̃_B, so B⊗_Ã M surjects onto B[G]/ker D̃_B. The coefficient map need not be surjective or flat, because the Satake map is not surjective. Burnside, Nakayama and faithfulness of the product determinant identify the quotient with M_n(B)×M_n(B); a generalized matrix algebra alone does not give the product. The transfer is a lemma used by the middle-range theorem, not a consequence of it.
 
-**Coverage:** planned. **Remaining:** Create RG2.6 and export its integral highest-weight API; verify the exact ACC Fontaine–Laffaille interval and twists in R07.3, IG.7 concentration and the prescribed finite/crystalline character leaves.
+CTG is the nonparallel conjugate-dual condition on every computed Kostant Levi row. It is stronger than a trace-only test. The perturbation proof uses the corrected plus sign in the sufficient sum criterion (4.3.7). The two-character-twist argument of Theorem 4.5.1 then recovers the rank-n Fontaine–Laffaille multiset through the separate finite shifted-partition theorem. Coefficients, contravariance, the G^a interval and cyclotomic signs must agree with R07.3; its currently broader general statements are imports with an exact arithmetic extension request. The global crystalline twist of Theorem 4.5.1 is AG2.0’s prescribed crystalline twisting character; the second case needs its exponent as a parameter, which is requested.
+
+**Coverage:** planned. **Remaining:** Obtain the integral highest-weight API from ReductiveGroupsIntegralRepresentationsPartII; verify the exact ACC Fontaine–Laffaille interval and twists in R07.3 and IG.7 concentration; AG2.0 to state the twisting-character exponent as a parameter for case (8b). Fulfil IHG.0/1 arbitrary-coefficient determinant transfer and split-product reconstruction.
 
 **Planets:** Kostant representatives; Boundary degree shifting; Integral Kostant decomposition; CTG weights; Fontaine–Laffaille degree shifting; Fontaine–Laffaille compatibility.
 
@@ -420,7 +427,7 @@ Assume [F^+:Q] > 1. Let K̃ ⊂ G̃(A^∞_{F^+}) be good and decomposed with res
 
 **Acceptance:** All source hypotheses, coefficient rings, twists and degree shifts are retained; a specialization must not silently strengthen the conclusion.
 
-**Direct prerequisites:** [PA.1/boundary-degree-retract](#boundary-degree-retract), `ArithmeticLocallySymmetricSpaces:ALS.3`, `IgusaVarietiesAndTorsionConcentration:IG.7`, `AutomorphicGaloisRepresentationsPartII:AG2.0`.
+**Direct prerequisites:** [PA.1/boundary-degree-retract](#boundary-degree-retract), `IgusaVarietiesAndTorsionConcentration:IG.7`, `AutomorphicGaloisRepresentationsPartII:AG2.0`, `ArithmeticLocallySymmetricSpaces:ALS.5`.
 
 **Source:** [acc](https://www.math.uchicago.edu/~fcale/papers/Ramanujan.pdf), §4.3, Proposition 4.3.4, pp. 973–974. Exact arithmetic specialization of the cited statement, with the hypotheses retained.
 
@@ -523,11 +530,11 @@ Let λ, v̄ ≠ v̄', m ≥ 1 and a good K̃ satisfy (1) −λ_{τc,1} − λ_{�
 
 2. Apply the integral Fontaine–Laffaille interval bound at v and CTG at v′.
 
-3. Separate the two residual summands by the Cayley–Hamilton projector; take the rank-n subquotient in the Fontaine–Laffaille category.
+3. Apply nilpotent-fontaine-laffaille-transfer to the finite Artinian quotient and the two absolutely irreducible non-isomorphic residual summands; obtain the rank-n Fontaine–Laffaille subquotient.
 
 **Acceptance:** All source hypotheses, coefficient rings, twists and degree shifts are retained; a specialization must not silently strengthen the conclusion.
 
-**Direct prerequisites:** [PA.1/fontaine-laffaille-degree-shifting](#fontaine-laffaille-degree-shifting), [PA.1/ctg-weight](#ctg-weight), `FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3/fl-essential-image-subquotients`, `FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3/fl-lattice-correspondence`, `IgusaVarietiesAndTorsionConcentration:IG.7`, `FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3`, `PadicHodgeTheory:R06.4`, `AutomorphicGaloisRepresentationsPartII:AG2.0`.
+**Direct prerequisites:** [PA.1/fontaine-laffaille-degree-shifting](#fontaine-laffaille-degree-shifting), [PA.1/ctg-weight](#ctg-weight), `FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3/fl-essential-image-subquotients`, `FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3/fl-lattice-correspondence`, `IgusaVarietiesAndTorsionConcentration:IG.7`, `FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3`, `PadicHodgeTheory:R06.4`, `AutomorphicGaloisRepresentationsPartII:AG2.0`, [PA.1/nilpotent-fontaine-laffaille-transfer](#nilpotent-fontaine-laffaille-transfer), `AutomorphicGaloisRepresentationsPartII:AG2.2`, `AutomorphicGaloisRepresentationsPartII:AG2.3`, `AutomorphicGaloisRepresentationsPartII:AG2.6`.
 
 **Source:** [acc](https://www.math.uchicago.edu/~fcale/papers/Ramanujan.pdf), §4.4, Proposition 4.4.6, pp. 979–981. Exact arithmetic specialization of the cited statement, with the hypotheses retained.
 
@@ -537,21 +544,21 @@ Let λ, v̄ ≠ v̄', m ≥ 1 and a good K̃ satisfy (1) −λ_{τc,1} − λ_{�
 
 **Node:** `PotentialAutomorphyInfrastructure:PA.1/nilpotent-fontaine-laffaille-transfer`. **Proposed declaration:** `TauCeti.PotentialAutomorphy.nilpotent_fontaine_laffaille_transfer`.
 
-Let Ã be a finite flat O-algebra, D̃ a continuous 2n-dimensional determinant of G_{F,S} valued in Ã ([Che14, Ex. 2.32]) such that for each v | v̄ the G_{F_v}-module Ã[G_{F,S}]/ker D̃ lies in the essential image of G^a. Let Ã → A/J be a homomorphism with D̃ ⊗_Ã A/J = det(ρ ⊕ ρ'), where ρ, ρ': G_{F,S} → GL_n(A/J) have absolutely irreducible, non-isomorphic residual representations. Then (A/J)[G_{F,S}]/ker(D̃_{A/J}) = M_n(A/J) × M_n(A/J), this algebra is a quotient of Ã[G_{F,S}]/ker D̃, and hence ρ|_{G_{F_v}} lies in the essential image of G^a. Inputs: kernels of determinants commute with flat base change; [Che14, §1.17, Thm 2.12, Thm 2.22(i),(ii), Lem. 1.18].
+Let Ã be a finite flat O-algebra, D̃ a continuous 2n-dimensional determinant of G_{F,S} valued in Ã, and M = Ã[G_{F,S}]/ker D̃. Assume the finite O-module M, restricted to each G_{F_v} with v | v̄, lies in the essential image of the integral Fontaine–Laffaille functor G^a in the stated interval. Let Ã → B be an O-algebra homomorphism, where B is a finite Artinian local O-algebra killed by ϖ^m for some m ≥ 1. Suppose D̃_B = det(ρ ⊕ ρ′) for continuous ρ, ρ′: G_{F,S} → GL_n(B), whose residual representations over the residue field of B are absolutely irreducible and non-isomorphic. Then there is a surjection B ⊗_Ã M ↠ B[G_{F,S}]/ker D̃_B, and the latter algebra is isomorphic to M_n(B) × M_n(B). Consequently ρ|_{G_{F_v}} belongs to the essential image of G^a. The coefficient map Ã → B need not be surjective. Kernel inclusion under arbitrary scalar extension, rather than equality under flat scalar extension, gives the displayed surjection; the split matrix-algebra identification requires the residually multiplicity-free reconstruction and faithful determinant argument.
 
 **Construction or proof:**
 
-1. Use the flat determinant to construct its Fontaine–Laffaille representation.
+1. Use Chenevier Lemma 1.18(iii): the image of ker D̃ lies in ker D̃_B. Therefore scalar extension of M surjects onto B[G]/ker D̃_B, without assuming that Ã → B is surjective or flat.
 
-2. Pass through the specified nilpotent quotient using full faithfulness and stability of the essential image under subquotients.
+2. Residual absolute irreducibility and non-isomorphism give surjectivity of the joint representation onto M_n(B) × M_n(B) by Burnside and Nakayama. The kernel of the representation is contained in the determinant kernel; the descended product determinant is faithful, giving equality of these kernels. Import this precise split specialization from IHG.1, not the stronger assertion that every multiplicity-free generalized matrix algebra is a product.
 
-3. Keep the exponent uniform; no natural map from the integral cohomology Hecke image to the torsion cohomology image is assumed.
+3. Since B is finite over Ã, B ⊗_Ã M is a quotient of a finite direct sum of copies of M. Fontaine–Laffaille stability under finite sums and subquotients applies. Projection onto the first matrix factor and then one column gives the rank-n representation ρ as a quotient.
 
 **Acceptance:** All source hypotheses, coefficient rings, twists and degree shifts are retained; a specialization must not silently strengthen the conclusion.
 
-**Direct prerequisites:** [PA.1/middle-range-fontaine-laffaille](#middle-range-fontaine-laffaille), `FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3/fl-essential-image-subquotients`, `FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3/fl-lattice-correspondence`, `FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3`.
+**Direct prerequisites:** `FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3/fl-essential-image-subquotients`, `FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3/fl-lattice-correspondence`, `FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3`, `IntegralHeckeAndGaloisDeterminants:IHG.0`, `IntegralHeckeAndGaloisDeterminants:IHG.1`.
 
-**Source:** [acc](https://www.math.uchicago.edu/~fcale/papers/Ramanujan.pdf), §4.4, proof of Proposition 4.4.6, pp. 980–981 (Remark 4.4.7). Exact arithmetic specialization of the cited statement, with the hypotheses retained.
+**Source:** [acc](https://www.math.uchicago.edu/~fcale/papers/Ramanujan.pdf), §4.4, proof of Proposition 4.4.6, pp. 980–981 (determinant-kernel transfer). The cited passage supplies the source application; this node makes the indicated coefficient hypotheses or imported general calculation explicit. See the independent review and recorded requests/gaps. [chenevier](https://arxiv.org/pdf/0809.0415), §1.17 and Lemma 1.18(iii), PDF p. 16; Theorem 2.22, PDF p. 34. Lemma 1.18(iii) gives arbitrary-base-change kernel inclusion. Theorem 2.22 gives GMA structure; the split-product specialization also uses the explicit IHG.1 Burnside/Nakayama and faithfulness request.
 
 <a id="all-degree-fontaine-laffaille"></a>
 
@@ -589,9 +596,11 @@ Assume K is principal-congruence of level ϖ^m at the p-adic places ≠ v̄, λ_
 
 2. Track the contragredient and ε^{1−2n} twist through the Hecke polynomial; translate the Fontaine–Laffaille weight interval.
 
+3. Finite-level duality relates H^{d−1−q} to compactly supported H_c^q; after localizing at the non-Eisenstein ideal H_c ≅ H by ALS.4/gln-boundary-eisenstein ([NT16, Th. 4.2], as ACC uses on p. 977), and the twisting isomorphism of ALS.3 (ACC Proposition 2.2.23) gives the cyclotomic-twisted Hecke identification.
+
 **Acceptance:** All source hypotheses, coefficient rings, twists and degree shifts are retained; a specialization must not silently strengthen the conclusion.
 
-**Direct prerequisites:** [PA.0/integral-model-comparison](#integral-model-comparison), `ArithmeticLocallySymmetricSpaces:ALS.4`.
+**Direct prerequisites:** [PA.0/integral-model-comparison](#integral-model-comparison), `ArithmeticLocallySymmetricSpaces:ALS.5:finite-level-duality`, `ArithmeticLocallySymmetricSpaces:ALS.4/gln-boundary-eisenstein`, `ArithmeticLocallySymmetricSpaces:ALS.3/twisting-isomorphism`.
 
 **Source:** [acc](https://www.math.uchicago.edu/~fcale/papers/Ramanujan.pdf), §4.4, proof of Corollary 4.4.8, pp. 983–984. Exact arithmetic specialization of the cited statement, with the hypotheses retained.
 
@@ -611,9 +620,11 @@ Assume K is principal-congruence of level ϖ^m at the p-adic places ≠ v̄, λ_
 
 3. Enlarge S only as prescribed and descend through the prime-to-p abelian quotient.
 
+4. The finite-order character is R23.1/cht-character-extension applied to the character that is trivial on ∏_{v∈S} F_v^× and unramified with the prescribed root-of-unity Frobenius values at the split witness places w, w^c; reduce modulo the maximal ideal after enlarging k. This is Chevalley’s approximation, not a Grunwald–Wang statement.
+
 **Acceptance:** All source hypotheses, coefficient rings, twists and degree shifts are retained; a specialization must not silently strengthen the conclusion.
 
-**Direct prerequisites:** `AutomorphicGaloisRepresentationsPartII:AG2.7/existential-decomposed-genericity`, `AutomorphicGaloisRepresentationsPartII:AG2.7/completely-split-generic-prime`.
+**Direct prerequisites:** `AutomorphicGaloisRepresentationsPartII:AG2.7/existential-decomposed-genericity`, `AutomorphicGaloisRepresentationsPartII:AG2.7/completely-split-generic-prime`, `PotentialModularityAndCompatibleSystems:R23.1/cht-character-extension`.
 
 **Source:** [acc](https://www.math.uchicago.edu/~fcale/papers/Ramanujan.pdf), §4.4, proof of Corollary 4.4.8, p. 984. Exact arithmetic specialization of the cited statement, with the hypotheses retained.
 
@@ -657,7 +668,7 @@ Let K ⊂ GL_n(A_F^∞) be a good subgroup, λ ∈ (Z^n_+)^{Hom(F,E)}, S a finit
 
 **Acceptance:** All source hypotheses, coefficient rings, twists and degree shifts are retained; a specialization must not silently strengthen the conclusion.
 
-**Direct prerequisites:** [PA.1/all-degree-fontaine-laffaille](#all-degree-fontaine-laffaille), [PA.1/shifted-partition-recovery](#shifted-partition-recovery), `FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3/fl-essential-image-subquotients`, `FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3/fl-lattice-correspondence`, `FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3`, `PadicHodgeTheory:R06.4`, `AutomorphicGaloisRepresentationsPartII:AG2.0`.
+**Direct prerequisites:** [PA.1/all-degree-fontaine-laffaille](#all-degree-fontaine-laffaille), [PA.1/shifted-partition-recovery](#shifted-partition-recovery), `FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3/fl-essential-image-subquotients`, `FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3/fl-lattice-correspondence`, `FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3`, `PadicHodgeTheory:R06.4`, `AutomorphicGaloisRepresentationsPartII:AG2.0`, `PotentialModularityAndCompatibleSystems:R24.5/character-system`, `AutomorphicGaloisRepresentationsPartII:AG2.0/prescribed-crystalline-twisting-character`, `AutomorphicGaloisRepresentationsPartII:AG2.0/galois-character-of-an-algebraic-hecke-character`.
 
 **Source:** [acc](https://www.math.uchicago.edu/~fcale/papers/Ramanujan.pdf), §4.1, Theorem 4.5.1, p. 967 (restated §4.5, p. 985; proof pp. 985–988). Exact arithmetic specialization of the cited statement, with the hypotheses retained.
 
@@ -671,13 +682,15 @@ Completed/classical control, level control and the lowest-weight projection redu
 
 The relative Bruhat filtration remains a filtration, with compact-induction layers, orientation character, modular character and the shift −d+l(w). It is not replaced by an unconditional direct decomposition. Absolute length incorporates the local degrees; the longest relative length is n² times the number of places of F⁺ above p. The middle-degree quotient imports IG.7 independently of the Fontaine–Laffaille applications. The determinant torus of dimension [F⁺:Q]−1 fills the degree gaps through a neat component product and a trivial central Hecke action.
 
-The ordinary Satake comparison maps onto its image. Extending the characteristic and ordered-product identities to the whole GL_n Hecke coefficient algebra needs an O-flat polynomial-law argument, explicitly recorded as a proof gap. The final local–global statement includes both the characteristic polynomial for every g and the ordered n-factor matrix product for arbitrary g₁,…,g_n. These identities precede the arithmetic-point full-flag conclusion; unit eigenvalues alone do not imply that flag. The CTG construction requires n≥2; the n=1 branch uses Hecke characters.
+The ordinary Satake comparison maps onto its image. Extending the characteristic and ordered-product identities to the whole GL_n Hecke coefficient algebra needs an O-flat polynomial-law argument, explicitly recorded as a proof gap. The final local–global statement includes both the characteristic polynomial for every g and the ordered n-factor matrix product for arbitrary g₁,…,g_n. These identities precede the arithmetic-point full-flag conclusion; unit eigenvalues alone do not imply that flag. The CTG construction requires n≥2; the n=1 branch uses the Hecke-character correspondence of R24.5/character-system.
 
-**Coverage:** planned. **Remaining:** Supply smooth monoid categories at coefficient p, complete the genuine arithmetic functor signatures and test instances, and verify Geraghty normalizations and the unitary full contraction. Establish the O-flat polynomial-law transfer across the Satake image inclusion; handle the ordinary n=1 Hecke-character branch independently of CTG.
+PA.2 also owns the ι-ordinary notions that the Fontaine–Laffaille-free ordinary branch and Qian’s paper use. An automorphic representation is ι-ordinary at v | l when, for some b, the Iw(v^{b,b})-invariants of ι^{-1}π_v have a nonzero ordinary part for the weight-normalized operators U^{(j)}_{λ,ϖ_v} = ∏_τ∏_{i≤j} τ(ϖ_v)^{−λ_{τ,n−i+1}} · [Iw diag(ϖ_v·1_j,1_{n−j}) Iw] (BLGGT §2.1, after Geraghty). No polarization is assumed, the definition is local at v, and it does not depend on ϖ_v. A Galois representation is ι-ordinarily automorphic when it is r_{l,ι}(π) for such a π; ordinarity of the Galois representation at l does not replace this. The twisted-Steinberg criterion carries the corrected sign +jc_τ (E74). ι-ordinarity is preserved by soluble base change and descent: in the split case this follows from locality, while the nonsplit case cites Geraghty’s Lemma 5.7, which was not read (recorded gap). The polarized PL.0 definition and ML.2’s Dwork application import these declarations.
 
-**Planets:** Ordinary parts; Ordinary Bruhat comparison; Ordinary degree shifting; Determinant torus; Ordinary Galois filtration; Ordinary local–global compatibility.
+**Coverage:** planned. **Remaining:** Supply smooth monoid categories at coefficient p, complete the genuine arithmetic functor signatures and test instances, and verify the unitary full contraction. Establish the O-flat polynomial-law transfer across the Satake image inclusion. Read Geraghty’s Lemmas 5.2 and 5.7 in a primary copy (the twisted-Steinberg eigenvalue and the nonsplit soluble base change of ι-ordinarity).
 
-**Declaration inventory:** [iwahori-level-tower](#iwahori-level-tower), [arithmetic-ordinary-summand](#arithmetic-ordinary-summand), [ordinary-galois-characters](#ordinary-galois-characters), [positive-torus-monoid](#positive-torus-monoid), [lowest-weight-character](#lowest-weight-character), [local-ordinary-parts](#local-ordinary-parts), [ordinary-torus-invariants](#ordinary-torus-invariants), [unipotent-invariants-acyclicity](#unipotent-invariants-acyclicity), [ordinary-exact-injective](#ordinary-exact-injective), [iwahori-borel-ordinary-comparison](#iwahori-borel-ordinary-comparison), [derived-ordinary-comparison](#derived-ordinary-comparison), [completed-arithmetic-cohomology](#completed-arithmetic-cohomology), [completed-ordinary-cohomology](#completed-ordinary-cohomology), [completed-classical-ordinary-control](#completed-classical-ordinary-control), [ordinary-level-control](#ordinary-level-control), [completed-ordinary-weight-control](#completed-ordinary-weight-control), [finite-ordinary-weight-control](#finite-ordinary-weight-control), [unitary-ordinary-tower](#unitary-ordinary-tower), [ordinary-satake-homomorphism](#ordinary-satake-homomorphism), [unitary-completed-boundary](#unitary-completed-boundary), [unitary-ordinary-control](#unitary-ordinary-control), [relative-bruhat-cells](#relative-bruhat-cells), [bruhat-cell-induction](#bruhat-cell-induction), [bruhat-filtration](#bruhat-filtration), [bruhat-invariant-filtration](#bruhat-invariant-filtration), [bruhat-unipotent-acyclicity](#bruhat-unipotent-acyclicity), [ordinary-compact-cell-comparison](#ordinary-compact-cell-comparison), [bruhat-unipotent-invariants](#bruhat-unipotent-invariants), [bruhat-evaluation-comparison](#bruhat-evaluation-comparison), [bruhat-orientation-character](#bruhat-orientation-character), [ordinary-unipotent-degree-shift](#ordinary-unipotent-degree-shift), [ordinary-bruhat-piece](#ordinary-bruhat-piece), [completed-boundary-induction-retract](#completed-boundary-induction-retract), [ordinary-boundary-degree-shifting](#ordinary-boundary-degree-shifting), [ordinary-ctg-weight-choice](#ordinary-ctg-weight-choice), [ordinary-middle-degree-quotient](#ordinary-middle-degree-quotient), [determinant-torus](#determinant-torus), [determinant-component-product](#determinant-component-product), [determinant-neat-level-shrinking](#determinant-neat-level-shrinking), [central-torus-cohomology-shifting](#central-torus-cohomology-shifting), [all-degree-ordinary-characteristic-data](#all-degree-ordinary-characteristic-data), [ordinary-automorphic-galois-flag](#ordinary-automorphic-galois-flag), [ordinary-local-global](#ordinary-local-global).
+**Planets:** Ordinary parts; Ordinary degree shifting; Determinant torus; Ordinary Galois filtration; Ordinary local–global compatibility; ι-ordinary automorphic representation.
+
+**Declaration inventory:** [iwahori-level-tower](#iwahori-level-tower), [arithmetic-ordinary-summand](#arithmetic-ordinary-summand), [ordinary-galois-characters](#ordinary-galois-characters), [positive-torus-monoid](#positive-torus-monoid), [lowest-weight-character](#lowest-weight-character), [local-ordinary-parts](#local-ordinary-parts), [ordinary-torus-invariants](#ordinary-torus-invariants), [unipotent-invariants-acyclicity](#unipotent-invariants-acyclicity), [ordinary-exact-injective](#ordinary-exact-injective), [iwahori-borel-ordinary-comparison](#iwahori-borel-ordinary-comparison), [derived-ordinary-comparison](#derived-ordinary-comparison), [completed-arithmetic-cohomology](#completed-arithmetic-cohomology), [completed-ordinary-cohomology](#completed-ordinary-cohomology), [completed-classical-ordinary-control](#completed-classical-ordinary-control), [ordinary-level-control](#ordinary-level-control), [completed-ordinary-weight-control](#completed-ordinary-weight-control), [finite-ordinary-weight-control](#finite-ordinary-weight-control), [unitary-ordinary-tower](#unitary-ordinary-tower), [ordinary-satake-homomorphism](#ordinary-satake-homomorphism), [unitary-completed-boundary](#unitary-completed-boundary), [unitary-ordinary-control](#unitary-ordinary-control), [relative-bruhat-cells](#relative-bruhat-cells), [bruhat-cell-induction](#bruhat-cell-induction), [bruhat-filtration](#bruhat-filtration), [bruhat-invariant-filtration](#bruhat-invariant-filtration), [bruhat-unipotent-acyclicity](#bruhat-unipotent-acyclicity), [ordinary-compact-cell-comparison](#ordinary-compact-cell-comparison), [bruhat-unipotent-invariants](#bruhat-unipotent-invariants), [bruhat-evaluation-comparison](#bruhat-evaluation-comparison), [bruhat-orientation-character](#bruhat-orientation-character), [ordinary-unipotent-degree-shift](#ordinary-unipotent-degree-shift), [ordinary-bruhat-piece](#ordinary-bruhat-piece), [completed-boundary-induction-retract](#completed-boundary-induction-retract), [ordinary-boundary-degree-shifting](#ordinary-boundary-degree-shifting), [ordinary-ctg-weight-choice](#ordinary-ctg-weight-choice), [ordinary-middle-degree-quotient](#ordinary-middle-degree-quotient), [determinant-torus](#determinant-torus), [determinant-component-product](#determinant-component-product), [determinant-neat-level-shrinking](#determinant-neat-level-shrinking), [central-torus-cohomology-shifting](#central-torus-cohomology-shifting), [all-degree-ordinary-characteristic-data](#all-degree-ordinary-characteristic-data), [ordinary-automorphic-galois-flag](#ordinary-automorphic-galois-flag), [ordinary-local-global](#ordinary-local-global), [iota-ordinary-automorphic-representation](#iota-ordinary-automorphic-representation), [ordinarily-automorphic-representation](#ordinarily-automorphic-representation), [twisted-steinberg-ordinarity-criterion](#twisted-steinberg-ordinarity-criterion), [iota-ordinary-soluble-base-change](#iota-ordinary-soluble-base-change).
 
 <a id="iwahori-level-tower"></a>
 
@@ -1700,15 +1713,17 @@ Let K̃ be good, decomposed with respect to P, with K̃_v̄ = Ĩw_v̄ for v̄ �
 
 **Node:** `PotentialAutomorphyInfrastructure:PA.2/ordinary-ctg-weight-choice`. **Proposed declaration:** `TauCeti.PotentialAutomorphy.ordinary_ctg_weight_choice`.
 
-Notation: for λ ∈ (Z^n_+)^{Hom(F,E)} and a ∈ Z, λ(a)_{τ,i} = λ_{τ,i} + a. Assume n ≥ 2 (the statement is printed for n ≥ 1 and fails for n = 1). Fix m ≥ 1. There is λ ∈ (Z^n_+)^{Hom(F,E)} such that (1) O(λ)/ϖ^m ≅ O/ϖ^m as T_n(F_p)-modules; (2) Σ_{i=1}^n (λ_{τ,i} + λ_{τc,i}) is independent of τ ∈ Hom(F,E); (3) for each i = 0,…,n^2 there are w_i = (w_{i,v̄})_{v̄∈S̄_p} ∈ ^rW^P, a_i ∈ (p−1)Z and a dominant λ̃_i ∈ (Z^{2n}_+)^{Hom(F^+,E)} with (a) λ̃_i CTG (Definition 4.3.5); (b) l_r(w_{i,v̄}) = n^2 − i for every v̄ ∈ S̄_p, hence l(w_i) = [F^+:Q](n^2 − i); (c) w_i(λ̃_i + ρ) − ρ = λ(a_i). Construction: M > 16n divisible by 8(p−1)·#(O/ϖ^m)^×; λ_τ = (−nM, −2nM, …, −n^2M) if τ ∈ Ĩ_p and (0, −M, …, (1−n)M) if τc ∈ Ĩ_p, so λ̃(a) = ((n−1)M − a, …, −a, −nM + a, …, −n^2M + a); w_{i,v̄} = σ_{X_i}, X_i = {x+1,…,x+r, x+r+2,…,x+n+1} with nx + n − r = n^2 − i, 1 ≤ r ≤ n; a_i = the unique integer in [(nx+2n−r−1)M/2, (nx+2n−r)M/2] congruent to M/8 mod M/2; λ̃_i = w_i^{-1}(λ̃(a_i) + ρ) − ρ.
+Notation: for λ ∈ (Z^n_+)^{Hom(F,E)} and a ∈ Z, λ(a)_{τ,i} = λ_{τ,i} + a. Assume n ≥ 2 (the statement is printed for n ≥ 1 and fails for n = 1). Fix m ≥ 1. There is λ ∈ (Z^n_+)^{Hom(F,E)} such that (1) O(λ)/ϖ^m ≅ O/ϖ^m as T_n(F_p)-modules; (2) Σ_{i=1}^n (λ_{τ,i} + λ_{τc,i}) is independent of τ ∈ Hom(F,E); (3) for each i = 0,…,n^2 there are w_i = (w_{i,v̄})_{v̄∈S̄_p} ∈ ^rW^P, a_i ∈ (p−1)Z and a dominant λ̃_i ∈ (Z^{2n}_+)^{Hom(F^+,E)} with (a) λ̃_i CTG (Definition 4.3.5); (b) l_r(w_{i,v̄}) = n^2 − i for every v̄ ∈ S̄_p, hence l(w_i) = [F^+:Q](n^2 − i); (c) w_i(λ̃_i + ρ) − ρ = λ(a_i). Construction: M > 16n divisible by 8(p−1)·#(O/ϖ^m)^×; λ_τ = (−nM, −2nM, …, −n^2M) if τ ∈ Ĩ_p and (0, −M, …, (1−n)M) if τc ∈ Ĩ_p, so λ̃(a) = ((n−1)M − a, …, −a, −nM + a, …, −n^2M + a); for i > 0, w_{i,v̄} = σ_{X_i}, X_i = {x+1,…,x+r, x+r+2,…,x+n+1} with nx + n − r = n^2 − i, 1 ≤ r ≤ n; a_i = the unique integer in [(nx+2n−r−1)M/2, (nx+2n−r)M/2] congruent to M/8 mod M/2; λ̃_i = w_i^{-1}(λ̃(a_i) + ρ) − ρ. At i = 0 take the block-exchange shuffle (n+1, …, 2n, 1, …, n), with x = r = n; omit the nonexistent entry n+x+1 in the printed expanded tuple. Its dominance check uses only the actual boundary between the two nonempty blocks, not all four displayed inequalities.
 
 **Construction or proof:**
 
-1. Choose M>16n divisible by 8(p−1)#(O/varpi^m)× and use the explicit weight rows in (5.4.9).
+1. Choose M>16n divisible by 8(p−1)#(O/ϖ^m)×. The displayed weight rows give the constant paired weight sum and trivial torus character modulo ϖ^m.
 
-2. For each i=0,…,n² construct the shuffle of length n²−i; solve the weight identity with a_i∈(p−1)Z.
+2. For 1≤i≤n² use the source’s n-subset shuffle and choose the unique a_i in its length-M/2 interval with a_i≡M/8 (mod M/2). The shifted dominance inequalities differ by at most 2n−1, so M>16n gives the required margins. For i=0 use the block-exchange permutation; only the true boundary inequality is checked. All chosen a_i are divisible by p−1.
 
-3. Check dominance, CTG and congruence of the torus characters, retaining n≥2 and [F⁺:Q]>1.
+3. CTG is a translate-split obstruction, hence a question about equal differences, not equal complementary sums. Before the final permutation, write the first row as A_j=(n−1−j)M−a and the second as B_j=−n(j+1)M+a, with ρ_j=(2n−2j−1)/2. Positive intrablock differences are k(M+1) and k(nM+1), 1≤k≤n−1, and the two families are disjoint. The oriented mixed differences have residues ±M/4 modulo M, with perturbation at most 2n−1; they meet neither intrablock family nor each other. Within each orientation their leading coefficient nk−j (0≤j,k<n) is injective, and M>16n prevents collisions.
+
+4. A translate splitting would pair all 2n entries into n disjoint pairs with the same nonzero positive difference. A mixed difference occurs in only one pair. An intrablock difference cannot occur in the other block, so its pairs cannot cover all 2n entries. This proves CTG for n≥2 and remains true after permutation. The rank-one case must be handled separately, as recorded in E42.
 
 **Acceptance:** All source hypotheses, coefficient rings, twists and degree shifts are retained; a specialization must not silently strengthen the conclusion.
 
@@ -1865,7 +1880,7 @@ Suppose [F^+:Q] > 1. Let K ⊂ GL_n(A_F^∞) be good with K_v = Iw_v for v ∈ S
 
 **Acceptance:** All source hypotheses, coefficient rings, twists and degree shifts are retained; a specialization must not silently strengthen the conclusion.
 
-**Direct prerequisites:** [PA.2/ordinary-middle-degree-quotient](#ordinary-middle-degree-quotient), [PA.2/central-torus-cohomology-shifting](#central-torus-cohomology-shifting), [PA.2/ordinary-galois-characters](#ordinary-galois-characters), `mathlib:Matrix.charpoly`, `PotentialAutomorphyInfrastructurePartII:PL.0`.
+**Direct prerequisites:** [PA.2/ordinary-middle-degree-quotient](#ordinary-middle-degree-quotient), [PA.2/central-torus-cohomology-shifting](#central-torus-cohomology-shifting), [PA.2/ordinary-galois-characters](#ordinary-galois-characters), `mathlib:Matrix.charpoly`, `PotentialModularityAndCompatibleSystems:R24.5/character-system`.
 
 **Source:** [acc](https://www.math.uchicago.edu/~fcale/papers/Ramanujan.pdf), §5.4, Proposition 5.4.18 and (5.4.19)–(5.4.23), pp. 1022–1026. Exact arithmetic specialization of the cited statement, with the hypotheses retained.
 
@@ -1875,19 +1890,19 @@ Suppose [F^+:Q] > 1. Let K ⊂ GL_n(A_F^∞) be good with K_v = Iw_v for v ∈ S
 
 **Node:** `PotentialAutomorphyInfrastructure:PA.2/ordinary-automorphic-galois-flag`. **Proposed declaration:** `TauCeti.PotentialAutomorphy.ordinary_automorphic_galois_flag`.
 
-Let F be an imaginary CM field (the §5 standing hypotheses are dropped), ι: Q̄_p ≅ C, and π a cuspidal automorphic representation of GL_n(A_F), regular algebraic of weight ιλ with λ ∈ (Z^n_+)^{Hom(F,Q̄_p)}. Suppose (1) π is ι-ordinary at every v ∈ S_p ([Ger19, Def. 5.3]); (2) r̄_ι(π) is decomposed generic and irreducible. Then for every v ∈ S_p, r_ι(π)|_{G_{F_v}} is ordinary of weight λ ([Ger19, §5.2]): r_ι(π)|_{G_{F_v}} is conjugate to an upper-triangular representation with diagonal characters ψ_{v,1},…,ψ_{v,n}, where ψ_{v,i}(Art_{F_v}(u)) = ε^{1−i}(Art_{F_v}(u)) ∏_{τ∈Hom_{Q_p}(F_v,Q̄_p)} τ(u)^{−(w_0^G λ)_{τ,i}} ⟨u⟩_{ι,i} (u ∈ O_{F_v}^×) and ψ_{v,i}(Art_{F_v}(ϖ_v)) = ε^{1−i}(Art_{F_v}(ϖ_v)) u^{(i)}_{λ,ϖ_v}/u^{(i−1)}_{λ,ϖ_v}, with ⟨u⟩_{ι,i}, u^{(i)}_{λ,ϖ_v} the Hecke eigenvalues on (ι^{-1}π_v)^ord of [Ger19, Def. 5.5].
+Let F be an imaginary CM field (the §5 standing hypotheses are dropped), ι: Q̄_p ≅ C, and π a cuspidal automorphic representation of GL_n(A_F), regular algebraic of weight ιλ with λ ∈ (Z^n_+)^{Hom(F,Q̄_p)}. Suppose (1) π is ι-ordinary at every v ∈ S_p (PA.2/iota-ordinary-automorphic-representation; [Ger19, Def. 5.3]); (2) r̄_ι(π) is decomposed generic and irreducible. Then for every v ∈ S_p, r_ι(π)|_{G_{F_v}} is ordinary of weight λ ([Ger19, §5.2]): r_ι(π)|_{G_{F_v}} is conjugate to an upper-triangular representation with diagonal characters ψ_{v,1},…,ψ_{v,n}, where ψ_{v,i}(Art_{F_v}(u)) = ε^{1−i}(Art_{F_v}(u)) ∏_{τ∈Hom_{Q_p}(F_v,Q̄_p)} τ(u)^{−(w_0^G λ)_{τ,i}} ⟨u⟩_{ι,i} (u ∈ O_{F_v}^×) and ψ_{v,i}(Art_{F_v}(ϖ_v)) = ε^{1−i}(Art_{F_v}(ϖ_v)) u^{(i)}_{λ,ϖ_v}/u^{(i−1)}_{λ,ϖ_v}, with ⟨u⟩_{ι,i}, u^{(i)}_{λ,ϖ_v} the Hecke eigenvalues on the ordinary part (ι^{-1}π_v)^ord of IotaOrdinary.ordinaryPart ([Ger19, Def. 5.5]).
 
 **Construction or proof:**
 
-1. Make a soluble CM base change disjoint from the residual kernel, with p split completely and the needed imaginary quadratic subfield.
+1. Choose F′ = FE with E/Q soluble Galois and disjoint over Q from the Galois closure of F^{ker r̄_ι(π)}(ζ_p), retaining the source’s prescribed split local completions and imaginary quadratic subfield. Apply genericity-normal-closure-restriction to preserve decomposed genericity and residual-lifting-hypothesis-restriction to preserve irreducibility; disjointness only over F from the residual kernel field does not by itself preserve genericity.
 
-2. Import ordinary automorphic base change and apply Theorem 5.5.1.
+2. Base change π to F′ by PA.5/soluble-base-change-and-descent(1). Every place of S_p splits completely in F′, so π_{F′,w} ≅ π_v and π_{F′} is ι-ordinary at every w | p (PA.2/iota-ordinary-soluble-base-change, split case; ACC cites Geraghty Lemma 5.7). Apply Theorem 5.5.1 over F′.
 
 3. Use the distinct-character flag criterion of L7 to obtain the full ordinary filtration, then descend along the split local completions.
 
 **Acceptance:** All source hypotheses, coefficient rings, twists and degree shifts are retained; a specialization must not silently strengthen the conclusion.
 
-**Direct prerequisites:** [PA.2/ordinary-local-global](#ordinary-local-global), [PA.5/residual-lifting-hypothesis-restriction](#residual-lifting-hypothesis-restriction), `mathlib:Matrix.charpoly`, `LocalGaloisDeformationRings:L7`, `PotentialAutomorphyInfrastructurePartII:PL.0`.
+**Direct prerequisites:** [PA.2/ordinary-local-global](#ordinary-local-global), [PA.5/residual-lifting-hypothesis-restriction](#residual-lifting-hypothesis-restriction), `mathlib:Matrix.charpoly`, `LocalGaloisDeformationRings:L7`, [PA.5/genericity-normal-closure-restriction](#genericity-normal-closure-restriction), [PA.2/iota-ordinary-automorphic-representation](#iota-ordinary-automorphic-representation), [PA.2/iota-ordinary-soluble-base-change](#iota-ordinary-soluble-base-change), [PA.5/soluble-base-change-and-descent](#soluble-base-change-and-descent).
 
 **Source:** [acc](https://www.math.uchicago.edu/~fcale/papers/Ramanujan.pdf), §5.5, Corollary 5.5.2, p. 1028. Exact arithmetic specialization of the cited statement, with the hypotheses retained.
 
@@ -1911,23 +1926,169 @@ Assume the §5 standing hypotheses (F contains an imaginary quadratic field in w
 
 **Acceptance:** All source hypotheses, coefficient rings, twists and degree shifts are retained; a specialization must not silently strengthen the conclusion. For n=2 the ordered identity is (ρ(g₁)−χ₁(g₁))(ρ(g₂)−χ₂(g₂))=0 for arbitrary distinct arguments g₁,g₂; a factorization only at one g is insufficient.
 
-**Direct prerequisites:** [PA.2/all-degree-ordinary-characteristic-data](#all-degree-ordinary-characteristic-data), [PA.2/ordinary-level-control](#ordinary-level-control), [PA.2/finite-ordinary-weight-control](#finite-ordinary-weight-control), `mathlib:Matrix.charpoly`, `PotentialAutomorphyInfrastructurePartII:PL.0`.
+**Direct prerequisites:** [PA.2/all-degree-ordinary-characteristic-data](#all-degree-ordinary-characteristic-data), [PA.2/ordinary-level-control](#ordinary-level-control), [PA.2/finite-ordinary-weight-control](#finite-ordinary-weight-control), `mathlib:Matrix.charpoly`, `PotentialModularityAndCompatibleSystems:R24.5/character-system`.
 
 **Source:** [acc](https://www.math.uchicago.edu/~fcale/papers/Ramanujan.pdf), §5.1, Theorem 5.5.1, p. 991; restated and proved in §5.5, pp. 1026–1027. Exact arithmetic specialization of the cited statement, with the hypotheses retained.
+
+<a id="iota-ordinary-automorphic-representation"></a>
+
+### Definition: ι-ordinary automorphic representations of GL_n (Geraghty Definition 5.3, as restated in BLGGT §2.1)
+
+**Node:** `PotentialAutomorphyInfrastructure:PA.2/iota-ordinary-automorphic-representation`. **Proposed declaration:** `IotaOrdinary`.
+
+Let F be a number field (in the applications imaginary CM or totally real), l a prime, ι: Q̄_l ≅ ℂ, and π a regular algebraic automorphic representation of GL_n(𝔸_F) of weight a ∈ (ℤⁿ₊)^{Hom(F,ℂ)}: π_∞ has the infinitesimal character of Ξ_a^∨ (AG2.0); for λ = ι^{-1}a ∈ (ℤⁿ₊)^{Hom(F,Q̄_l)} this is ACC’s weight ιλ, and HT_τ(r_{l,ι}(π)) = {λ_{τ,i}+n−i} when r_{l,ι}(π) exists. Fix a place v | l, a uniformizer ϖ_v and b ≥ 1, and let Iw(v^{b,b}) = Iw_v(b,b) ⊂ GL_n(O_{F_v}) be the subgroup of matrices that are upper triangular unipotent modulo ϖ_v^b (PA.2/iwahori-level-tower). On (ι^{-1}π_v)^{Iw(v^{b,b})} the double-coset operators U^{(j)}_{ϖ_v} = [Iw(v^{b,b}) diag(ϖ_v·1_j, 1_{n−j}) Iw(v^{b,b})], j = 1,…,n, commute, and the weight-normalized operators are U^{(j)}_{λ,ϖ_v} = (∏_{τ:F_v↪Q̄_l} ∏_{i=1}^{j} τ(ϖ_v)^{−λ_{τ,n−i+1}}) U^{(j)}_{ϖ_v}. The ordinary part (ι^{-1}π_v)^{Iw(v^{b,b}),ord} is the maximal subspace stable under every U^{(j)}_{λ,ϖ_v} on which all their eigenvalues are l-adic units; it does not depend on ϖ_v. π is ι-ordinary at v if this ordinary part is nonzero for some b ≥ 1, and π is ι-ordinary if it is ι-ordinary at every v | l. The diagonal torus T_n(O_{F_v}) normalizes Iw(v^{b,b}) and its diamond operators ⟨u⟩ commute with the U^{(j)}_{λ,ϖ_v}; their common eigenvalues on a nonzero ordinary part are the data u^{(i)}_{λ,ϖ_v} and ⟨u⟩_{ι,i} of Geraghty’s Definition 5.5 used in ACC Corollary 5.5.2. No polarization is assumed; for polarized π this is the notion BLGGT and the Part II PL.0 use.
+
+**Construction or proof:**
+
+1. Act on Iw(v^{b,b})-invariants of the smooth representation ι^{-1}π_v by the SR.1 Hecke algebra; the operators U^{(j)}_{ϖ_v} commute (BLGGT §2.1, citing Geraghty’s thesis Lemma 2.3.3) and are given by sums over N_n(O_{F_v})/α N_n(O_{F_v}) α^{-1} for α = diag(ϖ_v·1_j, 1_{n−j}), the same coset sums at every level of the tower.
+
+2. Rescale by the displayed product of τ(ϖ_v)-powers. Replacing ϖ_v by ϖ_v′ = uϖ_v multiplies U^{(j)}_{ϖ_v} by a diamond operator ⟨u⟩ commuting with it whose b-th power is trivial, so the unit-eigenvalue subspace is unchanged (BLGGT §2.1).
+
+3. The invariants are finite dimensional; the ordinary part is the sum of the common generalized eigenspaces with unit eigenvalues, and nonvanishing is the definition. Qian cites the same definition as Geraghty’s Definition 5.3 with the groups Iw_v(b,c), c ≥ b: since Iw_v(c,c) ⊂ Iw_v(b,c) and the U-operators are the same coset sums, a unit eigenvector at level Iw_v(b,c) is one at level Iw_v(c,c), and level (b,b) is the case c = b.
+
+**Uses that determine the API:**
+
+- ACC Theorem 6.1.2(5) and §6.6.1 hypothesis (8): hypothesis on the residual automorphic lift π at every p-adic place
+
+- ACC Corollary 5.5.2: its normalized eigenvalues u^{(i)}_{λ,ϖ_v} and diamond characters are the diagonal characters of the ordinary Galois filtration
+
+- Qian Definition 1.3 and Lemma 4.3: defines ι-ordinarily automorphic representations; verified for twisted Steinberg components by the PA.2 criterion
+
+- ACC §6.6.10 and the proof of Corollary 5.5.2: transported along soluble base change and descent (PA.2/iota-ordinary-soluble-base-change)
+
+- PotentialAutomorphyInfrastructurePartII PL.0 (BLGGT §2.1): the polarized lifting theorems use the same notion for polarized π; PL.0 imports this definition
+
+**API:**
+
+| Name | Role | Statement |
+| --- | --- | --- |
+| `IotaOrdinary.normalizedOperator` | data | U^{(j)}_{λ,ϖ_v} = (∏_{τ:F_v↪Q̄_l} ∏_{i=1}^{j} τ(ϖ_v)^{−λ_{τ,n−i+1}}) U^{(j)}_{ϖ_v} on (ι^{-1}π_v)^{Iw(v^{b,b})}; these operators commute. |
+| `IotaOrdinary.ordinaryPart` | data | The maximal subspace of (ι^{-1}π_v)^{Iw(v^{b,b})} stable under all U^{(j)}_{λ,ϖ_v} with only l-adic unit eigenvalues; it is the sum of the common generalized unit eigenspaces. |
+| `IotaOrdinary.uniformizer_independent` | compatibility | Changing ϖ_v to uϖ_v multiplies U^{(j)}_{ϖ_v} by a commuting diamond operator of finite order, so the ordinary part and ι-ordinarity are unchanged. |
+| `IotaOrdinary.level_independent` | compatibility | π is ι-ordinary at v if and only if for some c ≥ b ≥ 0 with c ≥ 1 the Iw_v(b,c)-invariants contain a common eigenvector of all U^{(j)}_{λ,ϖ_v} with unit eigenvalues (the formulation cited from Geraghty’s Definition 5.3). |
+| `IotaOrdinary.iff_local` | characterisation | ι-ordinarity at v depends only on ι, π_v and the weights λ_τ for the embeddings τ inducing v. |
+| `IotaOrdinary.twist` | relation | For an algebraic Hecke character ψ of F, π is ι-ordinary if and only if π ⊗ (ψ∘det) is ι-ordinary (with its shifted weight). |
+
+**Unit tests:**
+
+- `IotaOrdinary.gl_one` (computation): For n = 1 every algebraic Hecke character χ of weight λ is ι-ordinary at every v | l: on the one-dimensional space the normalized operator acts by ι^{-1}χ_v(ϖ_v)·∏_{τ:F_v↪Q̄_l} τ(ϖ_v)^{−λ_τ}, which is the value of the l-adic character r_{l,ι}(χ) at Art_{F_v}(ϖ_v), an l-adic unit.
+
+- `IotaOrdinary.supersingular` (non-example): Let π be the cuspidal representation of GL_2(𝔸_Q) of weight (0,0) attached to an elliptic curve E/Q with good reduction at l ≥ 5 and a_l(E) = 0. The eigenvalues of U^{(1)}_{λ,l} on π_l^{Iw(l^{1,1})} are the two roots of X² − a_l(E)X + l = X² + l, of l-adic valuation 1/2, so π is not ι-ordinary at l.
+
+- `IotaOrdinary.unnormalized_fails` (non-example): Omitting the weight normalization is wrong: for n = 1, F_v = Q_l and an algebraic Hecke character of weight λ_τ = 3 at the embedding inducing v, the unnormalized eigenvalue ι^{-1}χ_v(l) has l-adic valuation 3, although χ is ι-ordinary.
+
+- `IotaOrdinary.finite_twist` (compatibility): For a finite-order Hecke character ψ, π ⊗ (ψ∘det) has the same weight and the normalized U^{(j)} eigenvalues of π multiplied by the roots of unity ψ_v(ϖ_v)^j on the same Iw(v^{b,b})-invariants once b exceeds the conductor of ψ_v; hence it is ι-ordinary exactly when π is.
+
+**Acceptance:** All source hypotheses, coefficient rings, twists and degree shifts are retained; a specialization must not silently strengthen the conclusion. For n = 1 every algebraic Hecke character χ of weight λ is ι-ordinary at every v | l: on the one-dimensional space the normalized operator acts by ι^{-1}χ_v(ϖ_v)·∏_{τ:F_v↪Q̄_l} τ(ϖ_v)^{−λ_τ}, which is the value of the l-adic character r_{l,ι}(χ) at Art_{F_v}(ϖ_v), an l-adic unit. Let π be the cuspidal representation of GL_2(𝔸_Q) of weight (0,0) attached to an elliptic curve E/Q with good reduction at l ≥ 5 and a_l(E) = 0. The eigenvalues of U^{(1)}_{λ,l} on π_l^{Iw(l^{1,1})} are the two roots of X² − a_l(E)X + l = X² + l, of l-adic valuation 1/2, so π is not ι-ordinary at l. Omitting the weight normalization is wrong: for n = 1, F_v = Q_l and an algebraic Hecke character of weight λ_τ = 3 at the embedding inducing v, the unnormalized eigenvalue ι^{-1}χ_v(l) has l-adic valuation 3, although χ is ι-ordinary. For a finite-order Hecke character ψ, π ⊗ (ψ∘det) has the same weight and the normalized U^{(j)} eigenvalues of π multiplied by the roots of unity ψ_v(ϖ_v)^j on the same Iw(v^{b,b})-invariants once b exceeds the conductor of ψ_v; hence it is ι-ordinary exactly when π is.
+
+**Direct prerequisites:** [PA.2/iwahori-level-tower](#iwahori-level-tower), [PA.2/positive-torus-monoid](#positive-torus-monoid), `SmoothRepresentationsOfLocalGroups:SR.1`, `AutomorphicGaloisRepresentationsPartII:AG2.0/regular-algebraic-of-weight`.
+
+**Source:** [blggt](https://arxiv.org/pdf/1010.2561), §2.1, definition of ι-ordinary, printed and PDF p. 33. The definition, the normalizing factor of the rescaled Hecke operators and the uniformizer independence are taken from this passage, which is stated for regular algebraic (not necessarily polarized) automorphic π. [qian](https://par.nsf.gov/servlets/purl/10388233), Definition 1.3, p. 1241 (NSF PDF p. 3), citing Geraghty Definition 5.3. Qian’s and ACC’s uses refer to Geraghty’s Definition 5.3; Geraghty’s text itself was not obtained (gap).
+
+<a id="ordinarily-automorphic-representation"></a>
+
+### Definition: ι-ordinarily automorphic Galois representations (Qian Definition 1.3)
+
+**Node:** `PotentialAutomorphyInfrastructure:PA.2/ordinarily-automorphic-representation`. **Proposed declaration:** `OrdinarilyAutomorphic`.
+
+Let E be an imaginary CM or totally real field, l a prime and ι: Q̄_l ≅ ℂ. A continuous representation r: G_E → GL_n(Q̄_l) is ι-ordinarily automorphic (of weight ιλ) if r ≅ r_{l,ι}(π) for a regular algebraic cuspidal automorphic representation π of GL_n(𝔸_E) (of weight ιλ) that is ι-ordinary at every place v | l (PA.2/iota-ordinary-automorphic-representation). A residual representation r̄: G_E → GL_n(F̄_l) is ι-ordinarily automorphic if it has a lift r ≅ r_{l,ι}(π) with π regular algebraic cuspidal and ι-ordinary at every v | l. This is a condition on Hecke eigenvalues of π_v, not on r|G_{E_v}: ordinarity of r|G_{E_v} for v | l does not replace it (Qian Remark 4.4, whose deduction of automorphic ordinarity uses polarizability). The conclusion of ACC Theorem 6.1.2 is that ρ is ι-ordinarily automorphic of weight ιλ.
+
+**Construction or proof:**
+
+1. Combine the AG2.6 attachment π ↦ r_{l,ι}(π) with ι-ordinarity of π at every l-adic place. AG2.6/compatible-system-of-pi constructs r_{l,ι}(π) over CM fields and for polarized π over totally real fields; for a non-polarized π over a totally real field the representation is the one ACC uses, obtained through a quadratic CM base change, and the definition applies wherever r_{l,ι}(π) is supplied.
+
+2. For the residual notion take the semisimplified reduction of r_{l,ι}(π); AG2.7/residual-representation-of-pi defines it independently of the lattice, and only the existence of some ι-ordinary lift is required.
+
+3. Twisting by an algebraic character χ preserves the notion by IotaOrdinary.twist and r_{l,ι}(π ⊗ χ∘det) ≅ r_{l,ι}(π) ⊗ r_{l,ι}(χ); Qian’s proof of Theorem 1.1 uses this for the Teichmüller twist χ_1^{-1}.
+
+**Uses that determine the API:**
+
+- ACC Theorem 6.1.2 and Theorem 6.6.2: the conclusion of the ordinary lifting theorems and hypothesis (5) on the residual representation
+
+- Qian Lemma 4.3 and Theorem 1.1: the Dwork realization is shown ι-ordinarily automorphic and then twisted by χ_1^{-1}
+
+- ModularityAndLanglandsExtensions ML.2: the potential-automorphy assembly consumes the ordinary lifting theorem with this conclusion
+
+**API:**
+
+| Name | Role | Statement |
+| --- | --- | --- |
+| `OrdinarilyAutomorphic.lift` | data | A witness consists of a regular algebraic cuspidal π, ι-ordinary at every v \| l, and an isomorphism r ≅ r_{l,ι}(π). |
+| `OrdinarilyAutomorphic.residual` | relation | If r is ι-ordinarily automorphic then so is its semisimplified reduction r̄, with the same witness π. |
+| `OrdinarilyAutomorphic.twist` | relation | For an algebraic character χ of G_E, r is ι-ordinarily automorphic if and only if r ⊗ χ is. |
+| `OrdinarilyAutomorphic.local_flag` | compatibility | If r is ι-ordinarily automorphic of weight ιλ and r̄ is irreducible and decomposed generic, then r\|G_{E_v} is ordinary of weight λ for every v \| l (PA.2/ordinary-automorphic-galois-flag). |
+
+**Unit tests:**
+
+- `OrdinarilyAutomorphic.gl_one` (computation): For n = 1, the l-adic realization r_{l,ι}(χ) of an algebraic Hecke character χ is ι-ordinarily automorphic, by IotaOrdinary.gl_one.
+
+- `OrdinarilyAutomorphic.supersingular` (non-example): H¹_ét(E_{Q̄}, Q̄_l) for E/Q with good reduction at l ≥ 5 and a_l(E) = 0 is automorphic but not ι-ordinarily automorphic: by strong multiplicity one the only π with r_{l,ι}(π) ≅ H¹(E) is the one attached to E, which is not ι-ordinary at l.
+
+- `OrdinarilyAutomorphic.ordinary_curve` (computation): For E/Q with good ordinary reduction at l ≥ 3 (a_l(E) an l-adic unit), H¹_ét(E_{Q̄}, Q̄_l) is ι-ordinarily automorphic: the Iwahori U_l-eigenvalues of the attached π_l are the two roots of X² − a_l(E)X + l, exactly one of which is a unit.
+
+**Acceptance:** All source hypotheses, coefficient rings, twists and degree shifts are retained; a specialization must not silently strengthen the conclusion. For n = 1, the l-adic realization r_{l,ι}(χ) of an algebraic Hecke character χ is ι-ordinarily automorphic, by IotaOrdinary.gl_one. H¹_ét(E_{Q̄}, Q̄_l) for E/Q with good reduction at l ≥ 5 and a_l(E) = 0 is automorphic but not ι-ordinarily automorphic: by strong multiplicity one the only π with r_{l,ι}(π) ≅ H¹(E) is the one attached to E, which is not ι-ordinary at l. For E/Q with good ordinary reduction at l ≥ 3 (a_l(E) an l-adic unit), H¹_ét(E_{Q̄}, Q̄_l) is ι-ordinarily automorphic: the Iwahori U_l-eigenvalues of the attached π_l are the two roots of X² − a_l(E)X + l, exactly one of which is a unit.
+
+**Direct prerequisites:** [PA.2/iota-ordinary-automorphic-representation](#iota-ordinary-automorphic-representation), `AutomorphicGaloisRepresentationsPartII:AG2.6/compatible-system-of-pi`, `AutomorphicGaloisRepresentationsPartII:AG2.7/residual-representation-of-pi`.
+
+**Source:** [qian](https://par.nsf.gov/servlets/purl/10388233), Definition 1.3, p. 1241 (NSF PDF p. 3). Exact definition for residual representations; the l-adic form is the one used in Lemma 4.3 and in the conclusion of ACC Theorem 6.1.2.
+
+<a id="twisted-steinberg-ordinarity-criterion"></a>
+
+### Theorem: ι-ordinarity criterion for a twisted Steinberg component (Geraghty Lemmas 5.2 and 5.6 in general weight, as used in Qian Lemma 4.3)
+
+**Node:** `PotentialAutomorphyInfrastructure:PA.2/twisted-steinberg-ordinarity-criterion`. **Proposed declaration:** `TauCeti.PotentialAutomorphy.twisted_steinberg_ordinarity_criterion`.
+
+Use geometric Artin reciprocity and HT(ε_l) = {−1}. Let F be a CM field, l a prime, ι: Q̄_l ≅ ℂ, v | l a place of F with uniformizer ϖ_v, and π a regular algebraic cuspidal automorphic representation of GL_n(𝔸_F) of weight ιλ in the ACC convention with λ_{τ,i} = c_τ for all i = 1,…,n and all τ: F_v ↪ Q̄_l (so HT_τ(r_{l,ι}(π)) = {c_τ, c_τ+1, …, c_τ+n−1}). Suppose π_v ≅ Sp_n(ψ_v|·|_v^{(1−n)/2}) for an unramified character ψ_v of F_v^×, and val_l(ι^{-1}ψ_v(det α^{(j)}_{ϖ_v})) = val_l(∏_{τ:F_v↪Q̄_l} τ(ϖ_v)^{+jc_τ}) for every 0 ≤ j ≤ n, where α^{(j)}_{ϖ_v} = diag(ϖ_v·1_j, 1_{n−j}). Then π is ι-ordinary at v. Since det α^{(j)}_{ϖ_v} = ϖ_v^j, the condition for j = n implies it for every j. The signs are the corrected ones of source issue E74; Geraghty’s Lemma 5.6 is the weight-zero case.
+
+**Construction or proof:**
+
+1. Geraghty’s Lemma 5.2, as Qian uses it: on the line of Iwahori-fixed vectors of Sp_n(ψ_v|·|_v^{(1−n)/2}) the operator U^{(j)}_{ϖ_v} acts by a scalar of the same l-adic valuation as ι^{-1}ψ_v(det α^{(j)}_{ϖ_v}). This primary statement was not read (recorded gap).
+
+2. For the constant weight c_τ the normalizing factor of U^{(j)}_{λ,ϖ_v} is ∏_τ τ(ϖ_v)^{−jc_τ}; the displayed valuation identity makes every normalized eigenvalue an l-adic unit, so the ordinary part is nonzero.
+
+3. In Qian’s application the identity for j = n follows from the central-character slope identity val_l(ι^{-1}φ_{π,v}(ϖ_v)) = val_l(∏_τ τ(ϖ_v)^{nc_τ}); dividing by n gives every j.
+
+**Acceptance:** All source hypotheses, coefficient rings, twists and degree shifts are retained; a specialization must not silently strengthen the conclusion. For n = 1 the criterion is IotaOrdinary.gl_one: an unramified character ψ_v with the displayed valuation is ι-ordinary. With c_τ = 0 the hypothesis is val_l(ι^{-1}ψ_v(ϖ_v)^n) = 0, which the central-character identity gives automatically (r_{l,ι}(φ_π) then has Hodge–Tate weight 0); this recovers the weight-zero Steinberg remark of BLGGT §2.1 (Geraghty Lemma 5.1.5). Complex unitarity of ψ_v alone does not give the l-adic condition.
+
+**Direct prerequisites:** [PA.2/iota-ordinary-automorphic-representation](#iota-ordinary-automorphic-representation), `SmoothRepresentationsOfLocalGroups:SR.1`.
+
+**Source:** [qian](https://par.nsf.gov/servlets/purl/10388233), Proof of Lemma 4.3, second paragraph, p. 1273 (NSF PDF p. 35), citing Geraghty Lemmas 5.2 and 5.6. General-weight criterion split out of the proof, with the sign corrected as in source issue E74.
+
+<a id="iota-ordinary-soluble-base-change"></a>
+
+### Theorem: ι-ordinarity under soluble base change and descent (Geraghty Lemma 5.7, as used in ACC)
+
+**Node:** `PotentialAutomorphyInfrastructure:PA.2/iota-ordinary-soluble-base-change`. **Proposed declaration:** `TauCeti.PotentialAutomorphy.iota_ordinary_soluble_base_change`.
+
+Let F be imaginary CM or totally real, E/F a finite soluble Galois extension with E imaginary CM or totally real, ι: Q̄_p ≅ ℂ, and π, π_E regular algebraic cuspidal automorphic representations of GL_n(𝔸_F), GL_n(𝔸_E) of weights ιλ and ιλ_E (λ_{E,τ} = λ_{τ|F}) with rec_{E_w}(π_{E,w}) ≅ rec_{F_v}(π_v)|_{W_{E_w}} for every finite place w | v (as produced by PA.5/soluble-base-change-and-descent). Then π_E is ι-ordinary at w | p if π is ι-ordinary at v = w|_F, and π is ι-ordinary at v if π_E is ι-ordinary at the places w | v. If every p-adic place of F splits completely in E then π_{E,w} ≅ π_v and λ_E at w is λ at v, so the equivalence at w is immediate from IotaOrdinary.iff_local; this is the case of ACC’s proof of Corollary 5.5.2.
+
+**Construction or proof:**
+
+1. Split case: E_w = F_v, so local base change is the identity and the weight components agree; apply IotaOrdinary.iff_local.
+
+2. General case: ACC cites Geraghty’s Lemma 5.7 for both directions (base change of π, and descent of Π_E to Π). Geraghty’s text was not obtained, so this step is a recorded gap leaf, not a reproved statement.
+
+3. The base change and descent themselves, with the local identity of Langlands parameters at every finite place, come from PA.5/soluble-base-change-and-descent.
+
+**Acceptance:** All source hypotheses, coefficient rings, twists and degree shifts are retained; a specialization must not silently strengthen the conclusion. If E/F is split at every p-adic place, ι-ordinarity of π at v and of π_E at each w | v coincide. No ι-ordinarity is asserted for a base change that is not cuspidal; irreducibility of r_ι(π)|G_E is a hypothesis of the supplier theorem.
+
+**Direct prerequisites:** [PA.2/iota-ordinary-automorphic-representation](#iota-ordinary-automorphic-representation), [PA.5/soluble-base-change-and-descent](#soluble-base-change-and-descent).
+
+**Source:** [acc](https://www.math.uchicago.edu/~fcale/papers/Ramanujan.pdf), §6.6.10, proof of Theorem 6.1.2, p. 1084; proof of Corollary 5.5.2, p. 1028. Both directions are used in §6.6.10; the split case is the proof of Corollary 5.5.2.
 
 **Stage acceptance:** Run every definition’s small-case and non-example tests above, compare all degree shifts and character normalizations to the cited source, and fulfil every listed supplier contract used by the stage. A recorded gap remains a failed closure obligation; passing the structural packet checker does not discharge it.
 
 ## PA.3. Derived support and Ihara avoidance
 
-PA.3 verifies the arithmetic hypotheses of abstract derived Ihara avoidance. The deformation functors and their local rings have owners L7, L8, R08.2 and G8; G7 supplies the enormous Taylor–Wiles presentation. PA.3 compares their precise untwisted and χ-twisted arithmetic applications, with the same determinant, framing and coefficient maps. Congruent tame characters give the common mod-varpi complex, while the corresponding local and global reduction diagrams must commute.
+PA.3 verifies the arithmetic hypotheses of abstract derived Ihara avoidance. The deformation functors and their local rings have owners L7, L8, R08.2 and G8; G7 supplies the enormous Taylor–Wiles presentation. PA.3 compares their precise untwisted and χ-twisted arithmetic applications with the same framing and coefficient conventions; as in the source, the global determinant varies, while the ordinary local determinant conditions are kept. A globally fixed-determinant variant cannot inherit the source’s presentation counts. Congruent tame characters give the common mod-varpi complex, while the corresponding local and global reduction diagrams must commute.
 
-The component theorem has different Fontaine–Laffaille and ordinary conclusions: the Fontaine–Laffaille calculation gives the source’s full component/dimension comparison; the ordinary application uses the chosen torus-Iwasawa minimal prime and does not classify all ordinary components. The support theorem is conditional on a patched pair satisfying the P8 inputs. PA.4 constructs and verifies that pair, then applies the PA.3 contract. This direction avoids a dependency from PA.3 back to PA.4. Nilpotent quotient actions preserve prime support; no integral R=T statement follows.
+The component theorem has different Fontaine–Laffaille and ordinary conclusions: the Fontaine–Laffaille calculation gives the source’s full component/dimension comparison; the ordinary application uses the chosen torus-Iwasawa minimal prime and does not classify all ordinary components. The support theorem is conditional on a patched pair satisfying the P8 inputs. PA.4 constructs and verifies that pair, then applies the PA.3 contract. This direction avoids a dependency from PA.3 back to PA.4. Nilpotent quotient actions preserve prime support; no integral R=T statement follows. The ordinary Hida complexes A₁(μ,χ,c), their perfect limit A₁(μ,χ) and A(μ,χ) are defined here, because the ordinary Hecke action of Proposition 6.6.7 is formed on them; PA.4 adds the auxiliary levels.
 
-**Coverage:** planned. **Remaining:** Fulfil L7/L8/R08.2/G7/G8 requests and P9’s complete component-support contract; verify the local-to-global mod-varpi diagrams in the stated coefficient rings.
+**Coverage:** planned. **Remaining:** Fulfil L7/L8/R08.2/G7/G8 requests and P9’s complete component-support contract; verify the local-to-global mod-varpi diagrams in the stated coefficient rings. Retain the source variable global determinant in G8; a globally fixed-determinant variant needs new counts.
 
 **Planets:** Fontaine–Laffaille deformation action; Ordinary deformation action; Local-condition comparison; Arithmetic component comparison; Derived Ihara avoidance.
 
-**Declaration inventory:** [fontaine-laffaille-deformation-hecke-map](#fontaine-laffaille-deformation-hecke-map), [ordinary-deformation-hecke-map](#ordinary-deformation-hecke-map), [local-condition-mod-varpi-comparison](#local-condition-mod-varpi-comparison), [arithmetic-component-dimension-input](#arithmetic-component-dimension-input), [arithmetic-derived-support-contract](#arithmetic-derived-support-contract).
+**Declaration inventory:** [fontaine-laffaille-deformation-hecke-map](#fontaine-laffaille-deformation-hecke-map), [ordinary-hida-complex](#ordinary-hida-complex), [ordinary-deformation-hecke-map](#ordinary-deformation-hecke-map), [local-condition-mod-varpi-comparison](#local-condition-mod-varpi-comparison), [arithmetic-component-dimension-input](#arithmetic-component-dimension-input), [arithmetic-derived-support-contract](#arithmetic-derived-support-contract).
 
 <a id="fontaine-laffaille-deformation-hecke-map"></a>
 
@@ -1953,6 +2114,51 @@ Under §6.5.1, for each χ as above there are an integer δ ≥ 1 depending only
 
 **Source:** [acc](https://www.math.uchicago.edu/~fcale/papers/Ramanujan.pdf), §6.5.1, Proposition 6.5.3, p. 1063. Exact arithmetic specialization of the cited statement, with the hypotheses retained.
 
+<a id="ordinary-hida-complex"></a>
+
+### Definition: The ordinary Hida complexes A_1(μ,χ,c), A_1(μ,χ), A(μ,χ) and (6.6.3), (6.6.4)
+
+**Node:** `PotentialAutomorphyInfrastructure:PA.3/ordinary-hida-complex`. **Proposed declaration:** `OrdinaryHidaComplex`.
+
+For c ≥ 1, Λ_{1,c} = 𝒪[∏_{v∈S_p} ker(T_n(𝒪_{F_v}/ϖ_v^c) → T_n(𝒪_{F_v}/ϖ_v))], a quotient of Λ_1, and A_1(μ,χ,c) = RHom_{Λ_{1,c}}(RΓ(X_{K(c,c)}, 𝒱_μ(χ^{-1}))^{ord}, Λ_{1,c})[−d], a perfect complex in D(Λ_{1,c}) on which T^{S,ord} acts by transpose. (6.6.3): for c′ ≥ c there are T^{S,ord}-equivariant isomorphisms A_1(μ,χ,c′) ⊗^L_{Λ_{1,c′}} Λ_{1,c} ≅ A_1(μ,χ,c) in D(Λ_{1,c}) (Corollary 5.2.16). (6.6.4): canonical T^{S,ord}-equivariant isomorphisms A_1(μ,χ,c) ⊗^L_{Λ_{1,c}} Λ_{1,c}/ϖ ≅ A_1(μ,1,c) ⊗^L_{Λ_{1,c}} Λ_{1,c}/ϖ. By [KT17, Lem. 2.13] there is a perfect A_1(μ,χ) ∈ D(Λ_1) with T^{S,ord}-action and equivariant isomorphisms A_1(μ,χ) ⊗^L_{Λ_1} Λ_{1,c} ≅ A_1(μ,χ,c) (all c ≥ 1) and A_1(μ,χ) ⊗^L_{Λ_1} Λ_1/ϖ ≅ A_1(μ,1) ⊗^L_{Λ_1} Λ_1/ϖ, compatible with (6.6.3) and with (6.6.4) for varying χ; A(μ,χ) = A_1(μ,χ) ⊗^L_{Λ_1} Λ ∈ D(Λ).
+
+**Additional hypotheses:** ordinary-good-level: every one of the fifteen hypotheses in the packet contexts applies, together with the additional hypotheses in this statement.
+
+**Construction or proof:**
+
+1. Construct the objects with the explicit level, coefficient and character formulas at the cited passage.
+
+2. Check the action on generators and its compatibility with coefficient reduction and level transition maps before taking derived invariants.
+
+**Uses that determine the API:**
+
+- ACC Corollary 6.6.6: Specializes at the desired algebraic weight.
+
+- ACC proof of Theorem 6.6.2: Provides the ordinary arithmetic P8 input.
+
+**API:**
+
+| Name | Role | Statement |
+| --- | --- | --- |
+| `OrdinaryHidaComplex.finite` | data | A₁(μ,χ,c)=RHom_{Λ₁,c}(RΓ(X_{K(c,c)},V_μ(χ^{-1}))^ord,Λ₁,c)[−d]. |
+| `OrdinaryHidaComplex.transition` | functoriality | Derived tensor from Λ₁,c′ to Λ₁,c gives the finite c complex for c′≥c. |
+| `OrdinaryHidaComplex.mod_varpi` | compatibility | For χ congruent to 1 modulo varpi, the χ and 1 complexes agree after derived reduction. |
+| `OrdinaryHidaComplex.perfect_limit` | data | The P7 reconstruction supplies a perfect Λ₁-complex with all these compatible finite specializations. |
+
+**Unit tests:**
+
+- `OrdinaryHidaComplex.zero` (degenerate): The dual of the zero ordinary complex is zero.
+
+- `OrdinaryHidaComplex.single_free_term` (computation): For the free module Λ₁,c in degree 0 the dual shifted by −d has its sole cohomology in degree d.
+
+- `OrdinaryHidaComplex.derived_reduction` (compatibility): For a perfect finite complex, specializing the dual equals the dual of the specialized complex; underived reduction of cohomology is not substituted.
+
+**Acceptance:** All source hypotheses, coefficient rings, twists and degree shifts are retained; a specialization must not silently strengthen the conclusion. The dual of the zero ordinary complex is zero. For the free module Λ₁,c in degree 0 the dual shifted by −d has its sole cohomology in degree d. For a perfect finite complex, specializing the dual equals the dual of the specialized complex; underived reduction of cohomology is not substituted.
+
+**Direct prerequisites:** [PA.2/arithmetic-ordinary-summand](#arithmetic-ordinary-summand), [PA.2/ordinary-level-control](#ordinary-level-control), `mathlib:DerivedCategory`, `PadicFamilies:L0a/finite-quotient-system`, `PadicFamilies:L0a/profinite-ordinary-projector`, `PadicFamilies:L0a/ordinary-part-complexes`, `DeformationAndDerivedPatchingAlgebra:P7/p7ii-complete-flat-minimal-model`, `DeformationAndDerivedPatchingAlgebra:P8`, `DeformationAndDerivedPatchingAlgebra:P7`.
+
+**Source:** [acc](https://www.math.uchicago.edu/~fcale/papers/Ramanujan.pdf), §6.6.1, (6.6.3), (6.6.4), pp. 1076–1077. Exact arithmetic specialization of the cited statement, with the hypotheses retained.
+
 <a id="ordinary-deformation-hecke-map"></a>
 
 ### Theorem: Proposition 6.6.7: Galois representations over the ordinary Hecke algebra of A(μ,χ)
@@ -1973,7 +2179,7 @@ Let T^{S,Λ_1} = T^S ⊗_𝒪 Λ_1 ⊂ T^{S,ord}. There are δ ≥ 1 depending o
 
 **Acceptance:** All source hypotheses, coefficient rings, twists and degree shifts are retained; a specialization must not silently strengthen the conclusion.
 
-**Direct prerequisites:** [PA.2/ordinary-local-global](#ordinary-local-global), [PA.4/ordinary-hida-complex](#ordinary-hida-complex), [PA.3/local-condition-mod-varpi-comparison](#local-condition-mod-varpi-comparison), `AutomorphicGaloisRepresentationsPartII:AG2.5`, `LocalGaloisDeformationRings:L8`, `GlobalGaloisDeformations:G8`.
+**Direct prerequisites:** [PA.2/ordinary-local-global](#ordinary-local-global), [PA.3/ordinary-hida-complex](#ordinary-hida-complex), [PA.3/local-condition-mod-varpi-comparison](#local-condition-mod-varpi-comparison), `AutomorphicGaloisRepresentationsPartII:AG2.5`, `LocalGaloisDeformationRings:L8`, `GlobalGaloisDeformations:G8`.
 
 **Source:** [acc](https://www.math.uchicago.edu/~fcale/papers/Ramanujan.pdf), §6.6.1, Proposition 6.6.7, p. 1078. Exact arithmetic specialization of the cited statement, with the hypotheses retained.
 
@@ -1983,7 +2189,7 @@ Let T^{S,Λ_1} = T^S ⊗_𝒪 Λ_1 ⊂ T^{S,ord}. There are δ ≥ 1 depending o
 
 **Node:** `PotentialAutomorphyInfrastructure:PA.3/local-condition-mod-varpi-comparison`. **Proposed declaration:** `TauCeti.PotentialAutomorphy.local_condition_mod_varpi_comparison`.
 
-Under either full good-level hypothesis profile, choose pairwise distinct characters χ_{v,i}:k(v)×→O× at every v∈R, all congruent to 1 modulo varpi. The untwisted and χ-twisted coefficient complexes have a Hecke-equivariant derived isomorphism modulo varpi, and their finite local/global deformation rings reduce to the same deformation problem. At p the FL condition or the ordinary flag/determinant condition is identical on the two sides; away from p the R08.2 unipotent/inertial-type reductions supply the comparison. Framing and the global determinant are kept fixed.
+Under either full good-level hypothesis profile, choose pairwise distinct characters χ_{v,i}:k(v)×→O× at every v∈R, all congruent to 1 modulo varpi. The untwisted and χ-twisted coefficient complexes have a Hecke-equivariant derived isomorphism modulo varpi, and their finite local/global deformation rings reduce to the same deformation problem. At p the FL condition or the ordinary flag/determinant condition is identical on the two sides; away from p the R08.2 unipotent/inertial-type reductions supply the comparison. Framing conventions and coefficient maps are the same on both sides. The global determinant varies, as in the source deformation problems; the ordinary local determinant condition is retained. A separate globally fixed-determinant variant requires its own presentation and dimension counts.
 
 **Construction or proof:**
 
@@ -1997,7 +2203,7 @@ Under either full good-level hypothesis profile, choose pairwise distinct charac
 
 **Direct prerequisites:** [PA.0/boundary-level-coefficient-comparison](#boundary-level-coefficient-comparison), `LocalGaloisDeformationRings:R08.2/ihara-avoidance-components`, `LocalGaloisDeformationRings:L8/determinant-ordinary-ring`, `LocalGaloisDeformationRings:L7`, `LocalGaloisDeformationRings:L8`, `LocalGaloisDeformationRings:R08.2`, `GlobalGaloisDeformations:G8`.
 
-**Source:** [acc](https://www.math.uchicago.edu/~fcale/papers/Ramanujan.pdf), §6.3.5; §6.5.1; §6.6.1 equation (6.6.4). Exact arithmetic specialization of the cited statement, with the hypotheses retained.
+**Source:** [acc](https://www.math.uchicago.edu/~fcale/papers/Ramanujan.pdf), §6.5.1, pp. 1062, 1068–1069 (variable-determinant Sχ and reduced coefficient comparison); §6.6.1, equation (6.6.4), p. 1077. The cited passage supplies the source application; this node makes the indicated coefficient hypotheses or imported general calculation explicit. See the independent review and recorded requests/gaps.
 
 <a id="arithmetic-component-dimension-input"></a>
 
@@ -2019,7 +2225,7 @@ For the FL or ordinary framed global problem and its χ-twist, tensor the local 
 
 **Direct prerequisites:** [PA.3/local-condition-mod-varpi-comparison](#local-condition-mod-varpi-comparison), `LocalGaloisDeformationRings:R08.2/ihara-avoidance-components`, `LocalGaloisDeformationRings:R08.2/unrestricted-away-from-p`, `GlobalGaloisDeformations:G7/enormous-taylor-wiles-presentation`, `LocalGaloisDeformationRings:L7`, `LocalGaloisDeformationRings:L8`, `LocalGaloisDeformationRings:R08.2`, `GlobalGaloisDeformations:G7`, `GlobalGaloisDeformations:G8`, `DeformationAndDerivedPatchingAlgebra:P9`.
 
-**Source:** [acc](https://www.math.uchicago.edu/~fcale/papers/Ramanujan.pdf), Proof of Theorem 6.5.4 pp. 1069–1070; proof of Theorem 6.6.2 pp. 1080–1081. Exact arithmetic specialization of the cited statement, with the hypotheses retained.
+**Source:** [acc](https://www.math.uchicago.edu/~fcale/papers/Ramanujan.pdf), Proof of Theorem 6.5.4 pp. 1069–1070; proof of Theorem 6.6.2 pp. 1080–1081. The cited passage supplies the source application; this node makes the indicated coefficient hypotheses or imported general calculation explicit. See the independent review and recorded requests/gaps.
 
 <a id="arithmetic-derived-support-contract"></a>
 
@@ -2043,7 +2249,7 @@ Given the imported P8 patched perfect complexes C∞,C∞′ for these two arith
 
 **Direct prerequisites:** [PA.3/arithmetic-component-dimension-input](#arithmetic-component-dimension-input), `mathlib:Module.support`, `DeformationAndDerivedPatchingAlgebra:R03.6/nearly-faithful-iff-support-eq-univ`, `DeformationAndDerivedPatchingAlgebra:P9`.
 
-**Source:** [acc](https://www.math.uchicago.edu/~fcale/papers/Ramanujan.pdf), §6.3.5 Proposition 6.3.8 and Corollary 6.3.9. Exact arithmetic specialization of the cited statement, with the hypotheses retained.
+**Source:** [acc](https://www.math.uchicago.edu/~fcale/papers/Ramanujan.pdf), §6.3.5, Proposition 6.3.8 and Corollary 6.3.9, pp. 1052–1053. Exact arithmetic specialization of the cited statement, with the hypotheses retained.
 
 **Stage acceptance:** Run every definition’s small-case and non-example tests above, compare all degree shifts and character normalizations to the cited source, and fulfil every listed supplier contract used by the stage. A recorded gap remains a failed closure obligation; passing the structural packet checker does not discharge it.
 
@@ -2051,17 +2257,17 @@ Given the imported P8 patched perfect complexes C∞,C∞′ for these two arith
 
 PA.4 combines both arithmetic local–global branches with the derived patching contract and states the two automorphy lifting endpoints. General Taylor–Wiles prime selection, diamonds and enormous presentations are imported from G7, and fixed-ultrafilter patching is imported from P8. PA.4 owns the actual auxiliary levels, selected ideals, freeness/augmentation comparisons, uniform nilpotence and bounded-rank verifications. Auxiliary levels retain every original factor outside Q, including at places of S. A chosen ultrafilter is fixed; independence of transition-map choices does not imply independence of ultrafilters.
 
-For Fontaine–Laffaille, the local dimension is combined with g=qn−n²[F⁺:Q] and the framing variables to obtain dim R∞=dim S∞−ℓ₀. Rational GL_n cohomology has lower degree q_GL=n(n−1)[F⁺:Q]/2. The shifted dual complex has lower degree q_patch=q_GL+1. That one-degree shift is part of the interface to P9. The support conclusion gives the good-level lifting theorem and then the global descent theorem.
+For Fontaine–Laffaille, the local dimension is combined with g=qn−n²[F⁺:Q] and the framing variables to obtain dim R∞=dim S∞−ℓ₀. Rational GL_n cohomology has lower degree q_GL=n(n−1)[F⁺:Q]/2. The shifted dual complex has lower degree q_patch=q_GL+1. That one-degree shift is part of the interface to P9. The dimension–amplitude verification uses the patched pair of the preceding patching verification and P9 directly. The reduced patched comparison holds in D(S∞/ϖ), which is what the patching datum needs; forgetting the diamond action to D(S∞) gives a weaker equality (E56). The support conclusion gives the good-level lifting theorem and then the global descent theorem.
 
 For ordinary lifting, the finite A₁(μ,χ,c) duals reconstruct over the Iwasawa algebra. The ν+w₀μ character removes the weight dependence of B. The resulting augmented point lies on a supported maximal-dimensional component; the proof obtains support at that point rather than an ordinary full-support theorem. The finite level-one complex in the specialization is A₁(λ,1,1), not an A complex with a third integer argument.
 
-The endpoint theorems are unpolarized GL_n statements. They retain the scalar element outside the cyclotomic subgroup, absolute irreducibility, decomposed genericity, enormous image, the distinct p-bounds, the regular-weight conditions and the precise unramified conclusions. Polarization is not added. Controlled CM extensions use PA.5’s split test-prime and field checklists. At p, Fontaine–Laffaille unramified descent uses equality of inertia for the unramified extension; at other places the all-place local base-change comparison and the Varma argument are needed. ML.2 consumes these lifting endpoints to assemble potential automorphy.
+The endpoint theorems are unpolarized GL_n statements. They retain the scalar element outside the cyclotomic subgroup, absolute irreducibility, decomposed genericity, enormous image, the distinct p-bounds, the regular-weight conditions and the precise unramified conclusions. Polarization is not added. Controlled CM extensions use PA.5’s split test-prime and field checklists. Descent from the auxiliary field uses PA.5’s soluble base change and descent (ACC Proposition 6.5.13) and, in the ordinary branch, PA.2’s transport of ι-ordinarity. At p, Fontaine–Laffaille unramified descent uses equality of inertia for the unramified extension; at other places the every-place local base-change identity and AG2.5’s semisimplified Varma comparison are needed. ML.2 consumes these lifting endpoints to assemble potential automorphy.
 
-**Coverage:** planned. **Remaining:** Fulfil P8 fixed-ultrafilter and P7/ALS uniform-rank/free-cell reconstruction inputs; independently read soluble unpolarized descent and local compatibility sources before filling the lifting signatures.
+**Coverage:** planned. **Remaining:** Fulfil P8 fixed-ultrafilter and P7/ALS uniform-rank/free-cell reconstruction inputs; Matsushima concentration comes from ALS.5.
 
 **Planets:** Patched-complex comparison; Diamond augmentation; Fontaine–Laffaille full support; Ordinary support at the lifting point; Fontaine–Laffaille automorphy lifting; Ordinary automorphy lifting.
 
-**Declaration inventory:** [patched-arithmetic-mod-varpi-comparison](#patched-arithmetic-mod-varpi-comparison), [taylor-wiles-arithmetic-levels](#taylor-wiles-arithmetic-levels), [taylor-wiles-selected-ideals](#taylor-wiles-selected-ideals), [selected-ideal-properness](#selected-ideal-properness), [diamond-derived-augmentation](#diamond-derived-augmentation), [taylor-wiles-hecke-locality](#taylor-wiles-hecke-locality), [diamond-linear-deformation-hecke-map](#diamond-linear-deformation-hecke-map), [fontaine-laffaille-patching-verification](#fontaine-laffaille-patching-verification), [fontaine-laffaille-dimension-amplitude](#fontaine-laffaille-dimension-amplitude), [fontaine-laffaille-full-support](#fontaine-laffaille-full-support), [fontaine-laffaille-lifting-at-good-level](#fontaine-laffaille-lifting-at-good-level), [neatness-auxiliary-places](#neatness-auxiliary-places), [ordinary-hida-complex](#ordinary-hida-complex), [weight-independent-hida-twist](#weight-independent-hida-twist), [hida-weight-independence](#hida-weight-independence), [hida-weight-specialization](#hida-weight-specialization), [ordinary-taylor-wiles-levels](#ordinary-taylor-wiles-levels), [ordinary-diamond-augmentation](#ordinary-diamond-augmentation), [ordinary-diamond-linear-hecke-map](#ordinary-diamond-linear-hecke-map), [ordinary-patching-verification](#ordinary-patching-verification), [ordinary-support-at-lifting-point](#ordinary-support-at-lifting-point), [ordinary-lifting-at-good-level](#ordinary-lifting-at-good-level), [fontaine-laffaille-lifting-descent](#fontaine-laffaille-lifting-descent), [ordinary-lifting-descent](#ordinary-lifting-descent), [fontaine-laffaille-automorphy-lifting](#fontaine-laffaille-automorphy-lifting), [ordinary-automorphy-lifting](#ordinary-automorphy-lifting).
+**Declaration inventory:** [patched-arithmetic-mod-varpi-comparison](#patched-arithmetic-mod-varpi-comparison), [taylor-wiles-arithmetic-levels](#taylor-wiles-arithmetic-levels), [taylor-wiles-selected-ideals](#taylor-wiles-selected-ideals), [selected-ideal-properness](#selected-ideal-properness), [diamond-derived-augmentation](#diamond-derived-augmentation), [taylor-wiles-hecke-locality](#taylor-wiles-hecke-locality), [diamond-linear-deformation-hecke-map](#diamond-linear-deformation-hecke-map), [fontaine-laffaille-patching-verification](#fontaine-laffaille-patching-verification), [fontaine-laffaille-dimension-amplitude](#fontaine-laffaille-dimension-amplitude), [fontaine-laffaille-full-support](#fontaine-laffaille-full-support), [fontaine-laffaille-lifting-at-good-level](#fontaine-laffaille-lifting-at-good-level), [neatness-auxiliary-places](#neatness-auxiliary-places), [weight-independent-hida-twist](#weight-independent-hida-twist), [hida-weight-independence](#hida-weight-independence), [hida-weight-specialization](#hida-weight-specialization), [ordinary-taylor-wiles-levels](#ordinary-taylor-wiles-levels), [ordinary-diamond-augmentation](#ordinary-diamond-augmentation), [ordinary-diamond-linear-hecke-map](#ordinary-diamond-linear-hecke-map), [ordinary-patching-verification](#ordinary-patching-verification), [ordinary-support-at-lifting-point](#ordinary-support-at-lifting-point), [ordinary-lifting-at-good-level](#ordinary-lifting-at-good-level), [fontaine-laffaille-lifting-descent](#fontaine-laffaille-lifting-descent), [ordinary-lifting-descent](#ordinary-lifting-descent), [fontaine-laffaille-automorphy-lifting](#fontaine-laffaille-automorphy-lifting), [ordinary-automorphy-lifting](#ordinary-automorphy-lifting).
 
 <a id="patched-arithmetic-mod-varpi-comparison"></a>
 
@@ -2069,7 +2275,7 @@ The endpoint theorems are unpolarized GL_n statements. They retain the scalar el
 
 **Node:** `PotentialAutomorphyInfrastructure:PA.4/patched-arithmetic-mod-varpi-comparison`. **Proposed declaration:** `TauCeti.PotentialAutomorphy.patched_arithmetic_mod_varpi_comparison`.
 
-(1) The quasi-isomorphisms 𝒞_N/ϖ ≅ 𝒞′_N/ϖ induce a quasi-isomorphism 𝒞_∞/ϖ ≅ 𝒞′_∞/ϖ. (2) Via this identification T_∞ and T′_∞ have the same image T̄_∞ in the endomorphism algebras of 𝒞_∞/ϖ and 𝒞′_∞/ϖ (in D(S_∞/ϖ); printed D(S_∞)). (3) With Ī_∞, Ī′_∞ the images of I_∞, I′_∞ in T̄_∞, the actions of R_∞/ϖ ≅ R′_∞/ϖ (through T_∞ and T′_∞) on H^*(𝒞_∞/ϖ)/(Ī_∞ + Ī′_∞) and H^*(𝒞′_∞/ϖ)/(Ī_∞ + Ī′_∞) are identified via 𝒞_∞/ϖ ≅ 𝒞′_∞/ϖ.
+(1) The quasi-isomorphisms 𝒞_N/ϖ ≅ 𝒞′_N/ϖ induce a quasi-isomorphism 𝒞_∞/ϖ ≅ 𝒞′_∞/ϖ. (2) Via this identification T_∞ and T′_∞ have the same image T̄_∞ in the endomorphism algebras of 𝒞_∞/ϖ and 𝒞′_∞/ϖ (in D(S_∞/ϖ), as established by the proof; the printed statement in D(S_∞) is also valid by restriction of scalars). (3) With Ī_∞, Ī′_∞ the images of I_∞, I′_∞ in T̄_∞, the actions of R_∞/ϖ ≅ R′_∞/ϖ (through T_∞ and T′_∞) on H^*(𝒞_∞/ϖ)/(Ī_∞ + Ī′_∞) and H^*(𝒞′_∞/ϖ)/(Ī_∞ + Ī′_∞) are identified via 𝒞_∞/ϖ ≅ 𝒞′_∞/ϖ.
 
 **Additional hypotheses:** One of the two arithmetic towers satisfies every imported P8 datum condition; the branch-specific verification is respectively PA.4/fontaine-laffaille-patching-verification or PA.4/ordinary-patching-verification.
 
@@ -2085,7 +2291,7 @@ The endpoint theorems are unpolarized GL_n statements. They retain the scalar el
 
 **Direct prerequisites:** [PA.3/local-condition-mod-varpi-comparison](#local-condition-mod-varpi-comparison), `mathlib:DerivedCategory`, `DeformationAndDerivedPatchingAlgebra:P8`.
 
-**Source:** [acc](https://www.math.uchicago.edu/~fcale/papers/Ramanujan.pdf), §6.4.2, Proposition 6.4.17, pp. 1060–1061. Exact arithmetic specialization of the cited statement, with the hypotheses retained.
+**Source:** [acc](https://www.math.uchicago.edu/~fcale/papers/Ramanujan.pdf), §6.4.2, Proposition 6.4.17, pp. 1060–1061. The proof establishes the stronger reduced-coefficient comparison used here. Its restriction of scalars is the printed statement; E3 is rejected as an erratum.
 
 <a id="taylor-wiles-arithmetic-levels"></a>
 
@@ -2305,7 +2511,7 @@ Applying §6.4.2 to the data of the previous item gives: bounded complexes 𝒞_
 
 **Acceptance:** All source hypotheses, coefficient rings, twists and degree shifts are retained; a specialization must not silently strengthen the conclusion.
 
-**Direct prerequisites:** [PA.3/arithmetic-component-dimension-input](#arithmetic-component-dimension-input), `ArithmeticLocallySymmetricSpaces:ALS.3`, `LocalGaloisDeformationRings:L7`, `LocalGaloisDeformationRings:R08.2`.
+**Direct prerequisites:** [PA.3/arithmetic-component-dimension-input](#arithmetic-component-dimension-input), `LocalGaloisDeformationRings:L7`, `LocalGaloisDeformationRings:R08.2`, `ArithmeticLocallySymmetricSpaces:ALS.5`, [PA.4/fontaine-laffaille-patching-verification](#fontaine-laffaille-patching-verification), `DeformationAndDerivedPatchingAlgebra:P9`.
 
 **Source:** [acc](https://www.math.uchicago.edu/~fcale/papers/Ramanujan.pdf), §6.5.1, proof of Theorem 6.5.4, pp. 1069–1070. Exact arithmetic specialization of the cited statement, with the hypotheses retained.
 
@@ -2353,7 +2559,7 @@ Under (1)–(17) of §6.5.1, let ρ: G_F → GL_n(Q̄_p) be continuous with: (1)
 
 **Acceptance:** All source hypotheses, coefficient rings, twists and degree shifts are retained; a specialization must not silently strengthen the conclusion. The statement accepts non-polarized GL_n representations; neither a conjugate-self-duality assumption nor integral R=T is inserted. Check the n=1 character branch separately and retain the exact p-bound in the higher-rank branch.
 
-**Direct prerequisites:** [PA.4/fontaine-laffaille-full-support](#fontaine-laffaille-full-support), `ArithmeticLocallySymmetricSpaces:ALS.3`.
+**Direct prerequisites:** [PA.4/fontaine-laffaille-full-support](#fontaine-laffaille-full-support), `ArithmeticLocallySymmetricSpaces:ALS.5`.
 
 **Source:** [acc](https://www.math.uchicago.edu/~fcale/papers/Ramanujan.pdf), §6.5.1, Corollary 6.5.5, pp. 1063–1064. Exact arithmetic specialization of the cited statement, with the hypotheses retained.
 
@@ -2378,51 +2584,6 @@ By the Chebotarev density theorem there are infinitely many places v_0 of E of d
 **Direct prerequisites:** Only the concrete finite data and categorical/module operations in the statement; no arithmetic supplier is inferred..
 
 **Source:** [acc](https://www.math.uchicago.edu/~fcale/papers/Ramanujan.pdf), §6.5.12, proof of Theorem 6.1.1, pp. 1073–1074 (and §6.6.10, p. 1084). Exact arithmetic specialization of the cited statement, with the hypotheses retained.
-
-<a id="ordinary-hida-complex"></a>
-
-### Definition: The ordinary Hida complexes A_1(μ,χ,c), A_1(μ,χ), A(μ,χ) and (6.6.3), (6.6.4)
-
-**Node:** `PotentialAutomorphyInfrastructure:PA.4/ordinary-hida-complex`. **Proposed declaration:** `OrdinaryHidaComplex`.
-
-For c ≥ 1, Λ_{1,c} = 𝒪[∏_{v∈S_p} ker(T_n(𝒪_{F_v}/ϖ_v^c) → T_n(𝒪_{F_v}/ϖ_v))], a quotient of Λ_1, and A_1(μ,χ,c) = RHom_{Λ_{1,c}}(RΓ(X_{K(c,c)}, 𝒱_μ(χ^{-1}))^{ord}, Λ_{1,c})[−d], a perfect complex in D(Λ_{1,c}) on which T^{S,ord} acts by transpose. (6.6.3): for c′ ≥ c there are T^{S,ord}-equivariant isomorphisms A_1(μ,χ,c′) ⊗^L_{Λ_{1,c′}} Λ_{1,c} ≅ A_1(μ,χ,c) in D(Λ_{1,c}) (Corollary 5.2.16). (6.6.4): canonical T^{S,ord}-equivariant isomorphisms A_1(μ,χ,c) ⊗^L_{Λ_{1,c}} Λ_{1,c}/ϖ ≅ A_1(μ,1,c) ⊗^L_{Λ_{1,c}} Λ_{1,c}/ϖ. By [KT17, Lem. 2.13] there is a perfect A_1(μ,χ) ∈ D(Λ_1) with T^{S,ord}-action and equivariant isomorphisms A_1(μ,χ) ⊗^L_{Λ_1} Λ_{1,c} ≅ A_1(μ,χ,c) (all c ≥ 1) and A_1(μ,χ) ⊗^L_{Λ_1} Λ_1/ϖ ≅ A_1(μ,1) ⊗^L_{Λ_1} Λ_1/ϖ, compatible with (6.6.3) and with (6.6.4) for varying χ; A(μ,χ) = A_1(μ,χ) ⊗^L_{Λ_1} Λ ∈ D(Λ).
-
-**Additional hypotheses:** ordinary-good-level: every one of the fifteen hypotheses in the packet contexts applies, together with the additional hypotheses in this statement.
-
-**Construction or proof:**
-
-1. Construct the objects with the explicit level, coefficient and character formulas at the cited passage.
-
-2. Check the action on generators and its compatibility with coefficient reduction and level transition maps before taking derived invariants.
-
-**Uses that determine the API:**
-
-- ACC Corollary 6.6.6: Specializes at the desired algebraic weight.
-
-- ACC proof of Theorem 6.6.2: Provides the ordinary arithmetic P8 input.
-
-**API:**
-
-| Name | Role | Statement |
-| --- | --- | --- |
-| `OrdinaryHidaComplex.finite` | data | A₁(μ,χ,c)=RHom_{Λ₁,c}(RΓ(X_{K(c,c)},V_μ(χ^{-1}))^ord,Λ₁,c)[−d]. |
-| `OrdinaryHidaComplex.transition` | functoriality | Derived tensor from Λ₁,c′ to Λ₁,c gives the finite c complex for c′≥c. |
-| `OrdinaryHidaComplex.mod_varpi` | compatibility | For χ congruent to 1 modulo varpi, the χ and 1 complexes agree after derived reduction. |
-| `OrdinaryHidaComplex.perfect_limit` | data | The P7 reconstruction supplies a perfect Λ₁-complex with all these compatible finite specializations. |
-
-**Unit tests:**
-
-- `OrdinaryHidaComplex.zero` (degenerate): The dual of the zero ordinary complex is zero.
-
-- `OrdinaryHidaComplex.single_free_term` (computation): For the free module Λ₁,c in degree 0 the dual shifted by −d has its sole cohomology in degree d.
-
-- `OrdinaryHidaComplex.derived_reduction` (compatibility): For a perfect finite complex, specializing the dual equals the dual of the specialized complex; underived reduction of cohomology is not substituted.
-
-**Acceptance:** All source hypotheses, coefficient rings, twists and degree shifts are retained; a specialization must not silently strengthen the conclusion. The dual of the zero ordinary complex is zero. For the free module Λ₁,c in degree 0 the dual shifted by −d has its sole cohomology in degree d. For a perfect finite complex, specializing the dual equals the dual of the specialized complex; underived reduction of cohomology is not substituted.
-
-**Direct prerequisites:** [PA.2/arithmetic-ordinary-summand](#arithmetic-ordinary-summand), [PA.2/ordinary-level-control](#ordinary-level-control), `mathlib:DerivedCategory`, `PadicFamilies:L0a/finite-quotient-system`, `PadicFamilies:L0a/profinite-ordinary-projector`, `PadicFamilies:L0a/ordinary-part-complexes`, `DeformationAndDerivedPatchingAlgebra:P7/p7ii-complete-flat-minimal-model`, `DeformationAndDerivedPatchingAlgebra:P8`, `DeformationAndDerivedPatchingAlgebra:P7`.
-
-**Source:** [acc](https://www.math.uchicago.edu/~fcale/papers/Ramanujan.pdf), §6.6.1, (6.6.3), (6.6.4), pp. 1076–1077. Exact arithmetic specialization of the cited statement, with the hypotheses retained.
 
 <a id="weight-independent-hida-twist"></a>
 
@@ -2465,7 +2626,7 @@ For c ≥ 1, Λ_{1,c} = 𝒪[∏_{v∈S_p} ker(T_n(𝒪_{F_v}/ϖ_v^c) → T_n(�
 
 **Acceptance:** All source hypotheses, coefficient rings, twists and degree shifts are retained; a specialization must not silently strengthen the conclusion. For n=1, μ=0, ν=0 so the twist is trivial. For n=2, μ=0, ν=(0,1) and the twist is O(0,1)^{-1}, not the trivial character. For μ=(2,0), ν+w₀μ=(0,3), fixing both the reversal and ν shift.
 
-**Direct prerequisites:** [PA.4/ordinary-hida-complex](#ordinary-hida-complex), [PA.2/lowest-weight-character](#lowest-weight-character).
+**Direct prerequisites:** [PA.3/ordinary-hida-complex](#ordinary-hida-complex), [PA.2/lowest-weight-character](#lowest-weight-character).
 
 **Source:** [acc](https://www.math.uchicago.edu/~fcale/papers/Ramanujan.pdf), §6.6.1, p. 1077. Exact arithmetic specialization of the cited statement, with the hypotheses retained.
 
@@ -2554,7 +2715,7 @@ For a Taylor–Wiles datum (Q, (α_{v,i})) for 𝒮_1 whose places have residue 
 
 **Acceptance:** All source hypotheses, coefficient rings, twists and degree shifts are retained; a specialization must not silently strengthen the conclusion. For Q=∅ the complex is A₁(μ,χ,c). For n=2 and Q={v}, the ordinary i=2 generator is U_{v,2}−α₁α₂; the FL factor q_v^{-1} is absent. All places in S outside Q retain K(c,c)_v; the auxiliary modification does not change their levels.
 
-**Direct prerequisites:** [PA.4/taylor-wiles-arithmetic-levels](#taylor-wiles-arithmetic-levels), [PA.4/ordinary-hida-complex](#ordinary-hida-complex), `PadicFamilies:L0a/finite-quotient-system`, `PadicFamilies:L0a/profinite-ordinary-projector`, `PadicFamilies:L0a/ordinary-part-complexes`, `GlobalGaloisDeformations:G7/taylor-wiles-local-diamond`, `GlobalGaloisDeformations:G7/enormous-taylor-wiles-primes`, `GlobalGaloisDeformations:G7/enormous-taylor-wiles-presentation`, `GlobalGaloisDeformations:G7`, `DeformationAndDerivedPatchingAlgebra:P8`, `DeformationAndDerivedPatchingAlgebra:P7`.
+**Direct prerequisites:** [PA.4/taylor-wiles-arithmetic-levels](#taylor-wiles-arithmetic-levels), [PA.3/ordinary-hida-complex](#ordinary-hida-complex), `PadicFamilies:L0a/finite-quotient-system`, `PadicFamilies:L0a/profinite-ordinary-projector`, `PadicFamilies:L0a/ordinary-part-complexes`, `GlobalGaloisDeformations:G7/taylor-wiles-local-diamond`, `GlobalGaloisDeformations:G7/enormous-taylor-wiles-primes`, `GlobalGaloisDeformations:G7/enormous-taylor-wiles-presentation`, `GlobalGaloisDeformations:G7`, `DeformationAndDerivedPatchingAlgebra:P8`, `DeformationAndDerivedPatchingAlgebra:P7`.
 
 **Source:** [acc](https://www.math.uchicago.edu/~fcale/papers/Ramanujan.pdf), §6.6.1, pp. 1078–1079. Exact arithmetic specialization of the cited statement, with the hypotheses retained.
 
@@ -2670,7 +2831,7 @@ Under (1)–(15) of §6.6.1, let ρ: G_F → GL_n(Q̄_p) be continuous and λ �
 
 **Acceptance:** All source hypotheses, coefficient rings, twists and degree shifts are retained; a specialization must not silently strengthen the conclusion. The statement accepts non-polarized GL_n representations; neither a conjugate-self-duality assumption nor integral R=T is inserted. Check the n=1 character branch separately and retain the exact p-bound in the higher-rank branch.
 
-**Direct prerequisites:** [PA.4/ordinary-support-at-lifting-point](#ordinary-support-at-lifting-point), `ArithmeticLocallySymmetricSpaces:ALS.3`.
+**Direct prerequisites:** [PA.4/ordinary-support-at-lifting-point](#ordinary-support-at-lifting-point), `ArithmeticLocallySymmetricSpaces:ALS.5`.
 
 **Source:** [acc](https://www.math.uchicago.edu/~fcale/papers/Ramanujan.pdf), §6.6.1, Theorem 6.6.2, p. 1075; proof pp. 1080–1081. Exact arithmetic specialization of the cited statement, with the hypotheses retained.
 
@@ -2688,13 +2849,13 @@ Let F, ρ, π, λ, ι satisfy the hypotheses of Theorem 6.1.1 ((1) ρ unramified
 
 2. Apply Corollary 6.5.5 over E.
 
-3. Use unpolarized soluble automorphic descent, local-global compatibility and the local unramified-level comparison to descend Π to F.
+3. Descend by PA.5/soluble-base-change-and-descent(2): ρ|G_E is irreducible and ρ|G_E ≅ r_ι(Π_E), so ρ ≅ r_ι(Π) for a cuspidal regular algebraic Π of weight λ with the local identity rec_{E_w}(Π_{E,w}) = rec_{F_v}(Π_v)|_{W_{E_w}} at every finite place.
 
 4. For v|p, the good-level lifting theorem gives Π_{E,w} unramified and the FL checklist makes E_w/F_v unramified. Thus I_{E_w}=I_{F_v}; the all-place local base-change comparison descends unramifiedness. For v∤p use the specified split test primes, finite-inertia comparison and Varma, rather than that inertia equality for ramified extensions.
 
 **Acceptance:** All source hypotheses, coefficient rings, twists and degree shifts are retained; a specialization must not silently strengthen the conclusion. The statement accepts non-polarized GL_n representations; neither a conjugate-self-duality assumption nor integral R=T is inserted. Check the n=1 character branch separately and retain the exact p-bound in the higher-rank branch.
 
-**Direct prerequisites:** [PA.5/fontaine-laffaille-base-change-fields](#fontaine-laffaille-base-change-fields), [PA.4/neatness-auxiliary-places](#neatness-auxiliary-places), [PA.4/fontaine-laffaille-lifting-at-good-level](#fontaine-laffaille-lifting-at-good-level), `PotentialAutomorphyInfrastructurePartII:PL.0`, `ModularityAndLanglandsExtensions:ML.1`.
+**Direct prerequisites:** [PA.5/fontaine-laffaille-base-change-fields](#fontaine-laffaille-base-change-fields), [PA.4/neatness-auxiliary-places](#neatness-auxiliary-places), [PA.4/fontaine-laffaille-lifting-at-good-level](#fontaine-laffaille-lifting-at-good-level), [PA.5/soluble-base-change-and-descent](#soluble-base-change-and-descent), `AutomorphicGaloisRepresentationsPartII:AG2.5/varma-semisimplified-comparison-and-monodromy-bound`.
 
 **Source:** [acc](https://www.math.uchicago.edu/~fcale/papers/Ramanujan.pdf), §6.5.12, proof of Theorem 6.1.1, pp. 1071–1074. Exact arithmetic specialization of the cited statement, with the hypotheses retained.
 
@@ -2712,11 +2873,13 @@ Let F, ρ, λ, π, ι satisfy Theorem 6.1.2 ((1) ρ unramified almost everywhere
 
 2. Apply Theorem 6.6.2 over E.
 
-3. Use soluble ordinary base change/descent with the retained character normalization to descend the ordinarily automorphic conclusion to F.
+3. Descend Π_E to an ι-ordinary Π of weight λ with r_ι(Π) ≅ ρ by PA.5/soluble-base-change-and-descent(2) and PA.2/iota-ordinary-soluble-base-change; π_E is ι-ordinary by the same theorem, as the §6.6.1 hypothesis (8) requires.
+
+4. Unramified places v ∤ p: Π_{E,w} is unramified for w | v by varying v₀, v₀′; the local identity of PA.5/soluble-base-change-and-descent(2) makes rec_{F_v}(Π_v) finitely ramified, and the semisimplified Varma comparison of AG2.5 with ρ unramified at v gives Π_v unramified.
 
 **Acceptance:** All source hypotheses, coefficient rings, twists and degree shifts are retained; a specialization must not silently strengthen the conclusion. The statement accepts non-polarized GL_n representations; neither a conjugate-self-duality assumption nor integral R=T is inserted. Check the n=1 character branch separately and retain the exact p-bound in the higher-rank branch.
 
-**Direct prerequisites:** [PA.5/ordinary-base-change-fields](#ordinary-base-change-fields), [PA.4/neatness-auxiliary-places](#neatness-auxiliary-places), [PA.4/ordinary-lifting-at-good-level](#ordinary-lifting-at-good-level), `PotentialAutomorphyInfrastructurePartII:PL.0`, `ModularityAndLanglandsExtensions:ML.1`.
+**Direct prerequisites:** [PA.5/ordinary-base-change-fields](#ordinary-base-change-fields), [PA.4/neatness-auxiliary-places](#neatness-auxiliary-places), [PA.4/ordinary-lifting-at-good-level](#ordinary-lifting-at-good-level), [PA.5/soluble-base-change-and-descent](#soluble-base-change-and-descent), [PA.2/iota-ordinary-soluble-base-change](#iota-ordinary-soluble-base-change), [PA.2/ordinarily-automorphic-representation](#ordinarily-automorphic-representation), `AutomorphicGaloisRepresentationsPartII:AG2.5/varma-semisimplified-comparison-and-monodromy-bound`.
 
 **Source:** [acc](https://www.math.uchicago.edu/~fcale/papers/Ramanujan.pdf), §6.6.10, proof of Theorem 6.1.2, pp. 1081–1084. Exact arithmetic specialization of the cited statement, with the hypotheses retained.
 
@@ -2730,9 +2893,9 @@ Let F be an imaginary CM or totally real field, c ∈ Aut(F) complex conjugation
 
 **Construction or proof:**
 
-1. For n=1 use the class-field/Hecke-character correspondence.
+1. For n=1 use the class-field/Hecke-character correspondence of R24.5/character-system: a crystalline character unramified almost everywhere is r_ι of an algebraic Hecke character.
 
-2. For totally real F make the controlled imaginary CM base change with the required splitting and disjointness, and descend using soluble base change.
+2. For totally real F make the controlled imaginary CM base change with the required splitting and disjointness, and descend using PA.5/soluble-base-change-and-descent(2).
 
 3. For n≥2 over CM use the corresponding good-level reduction and lifting theorem: Corollary 6.5.5 through the FL field checklist.
 
@@ -2740,7 +2903,7 @@ Let F be an imaginary CM or totally real field, c ∈ Aut(F) complex conjugation
 
 **Acceptance:** All source hypotheses, coefficient rings, twists and degree shifts are retained; a specialization must not silently strengthen the conclusion. The statement accepts non-polarized GL_n representations; neither a conjugate-self-duality assumption nor integral R=T is inserted. Check the n=1 character branch separately and retain the exact p-bound in the higher-rank branch.
 
-**Direct prerequisites:** [PA.4/fontaine-laffaille-lifting-descent](#fontaine-laffaille-lifting-descent), `AutomorphicGaloisRepresentationsPartII:AG2.7/existential-decomposed-genericity`, `AutomorphicGaloisRepresentationsPartII:AG2.7/completely-split-generic-prime`, `ArithmeticLocallySymmetricSpaces:ALS.3`, `AutomorphicGaloisRepresentationsPartII:AG2.5`, `GlobalGaloisDeformations:G7`, `ModularityAndLanglandsExtensions:ML.1`, `PotentialAutomorphyInfrastructurePartII:PL.0`.
+**Direct prerequisites:** [PA.4/fontaine-laffaille-lifting-descent](#fontaine-laffaille-lifting-descent), `AutomorphicGaloisRepresentationsPartII:AG2.7/existential-decomposed-genericity`, `AutomorphicGaloisRepresentationsPartII:AG2.7/completely-split-generic-prime`, `AutomorphicGaloisRepresentationsPartII:AG2.5`, `GlobalGaloisDeformations:G7`, `ArithmeticLocallySymmetricSpaces:ALS.5`, [PA.5/soluble-base-change-and-descent](#soluble-base-change-and-descent), `PotentialModularityAndCompatibleSystems:R24.5/character-system`.
 
 **Source:** [acc](https://www.math.uchicago.edu/~fcale/papers/Ramanujan.pdf), §6.1, Theorem 6.1.1 and Remark 6.1.4, pp. 1029–1030. Exact arithmetic specialization of the cited statement, with the hypotheses retained.
 
@@ -2754,9 +2917,9 @@ Let F be an imaginary CM or totally real field, c complex conjugation, p a prime
 
 **Construction or proof:**
 
-1. For n=1 use the class-field/Hecke-character correspondence.
+1. For n=1 use the class-field/Hecke-character correspondence of R24.5/character-system: a de Rham character unramified almost everywhere is r_ι of an algebraic Hecke character, which is ι-ordinary by IotaOrdinary.gl_one.
 
-2. For totally real F make the controlled imaginary CM base change with the required splitting and disjointness, and descend using soluble base change.
+2. For totally real F make the controlled imaginary CM base change with the required splitting and disjointness, and descend using PA.5/soluble-base-change-and-descent(2).
 
 3. For n≥2 over CM use the corresponding good-level reduction and lifting theorem: Theorem 6.6.2 through the ordinary field checklist.
 
@@ -2764,7 +2927,7 @@ Let F be an imaginary CM or totally real field, c complex conjugation, p a prime
 
 **Acceptance:** All source hypotheses, coefficient rings, twists and degree shifts are retained; a specialization must not silently strengthen the conclusion. The statement accepts non-polarized GL_n representations; neither a conjugate-self-duality assumption nor integral R=T is inserted. Check the n=1 character branch separately and retain the exact p-bound in the higher-rank branch.
 
-**Direct prerequisites:** [PA.4/ordinary-lifting-descent](#ordinary-lifting-descent), `AutomorphicGaloisRepresentationsPartII:AG2.7/existential-decomposed-genericity`, `AutomorphicGaloisRepresentationsPartII:AG2.7/completely-split-generic-prime`, `ArithmeticLocallySymmetricSpaces:ALS.3`, `AutomorphicGaloisRepresentationsPartII:AG2.5`, `GlobalGaloisDeformations:G7`, `PotentialAutomorphyInfrastructurePartII:PL.0`, `ModularityAndLanglandsExtensions:ML.1`.
+**Direct prerequisites:** [PA.4/ordinary-lifting-descent](#ordinary-lifting-descent), `AutomorphicGaloisRepresentationsPartII:AG2.7/existential-decomposed-genericity`, `AutomorphicGaloisRepresentationsPartII:AG2.7/completely-split-generic-prime`, `AutomorphicGaloisRepresentationsPartII:AG2.5`, `GlobalGaloisDeformations:G7`, `ArithmeticLocallySymmetricSpaces:ALS.5`, [PA.5/soluble-base-change-and-descent](#soluble-base-change-and-descent), `PotentialModularityAndCompatibleSystems:R24.5/character-system`, [PA.2/ordinarily-automorphic-representation](#ordinarily-automorphic-representation), [PA.2/iota-ordinary-automorphic-representation](#iota-ordinary-automorphic-representation).
 
 **Source:** [acc](https://www.math.uchicago.edu/~fcale/papers/Ramanujan.pdf), §6.1, Theorem 6.1.2 and Remark 6.1.3, pp. 1029–1030. Exact arithmetic specialization of the cited statement, with the hypotheses retained.
 
@@ -2776,13 +2939,39 @@ PA.5 imports the compatible-system carrier, weak/very/extremely weak variants, m
 
 The rank-two dichotomy and trichotomy apply to the extremely weak systems in ACC. They do not inherit missing rank-one or monodromy hypotheses from a theorem stated only for stronger weak systems. The large-image conclusion contains a conjugate of SL₂(F_l) over the normal closure on a density-one set of rational primes. BCGP’s stronger printed residue-field assertion is false: a quartic twist of a non-CM elliptic-curve system with coefficient field Q(i), at l≡3 mod 4, still has projective image inside PGL₂(F_l), not the required PSL₂(F_{l²}). The real-multiplication use needs a separate argument from the abelian-surface owner.
 
-Qian’s symmetric-power avoidance is an application with m=n−1. The final genericity lemma must use the original pair F,F₁; intermediate Galois replacements are confined to the adjoint-image proof. AG2.7 supplies the existential completely split generic witness. Goursat is a checked baseline declaration, while the remaining finite projective-group inputs are proof leaves. Purity upgrades weak automorphy using Chebotarev, the all-place Weil–Deligne semisimplification comparison and irreducibility of the pure principal series. The density-one crystallinity and large-image sets are intersected, rather than asserting either property for every prime. Symmetric-power transport computes Hodge–Tate multisets and determinant exponents using the general operation owner; a nonregular symmetric power does not acquire automorphy merely by applying that operation.
+ACC Proposition 6.5.13 is owned here: soluble base change of a regular algebraic cuspidal π with r_ι(π)|G_E irreducible, and descent of automorphy, both with the every-place local identity. ET.7a supplies the Arthur–Clozel cyclic steps with local base change at every place (the printed proof records only almost all places, E60); strong multiplicity one and Chebotarev give the Galois-side identifications. It sits in PA.5 rather than ML.5 because ML.5 lies downstream of PA.4.
 
-**Coverage:** planned. **Remaining:** Fulfil R24.5 extremely weak rank-one and monodromy leaves, finite projective-group inputs and AG2.5 purity/local comparison; supply arithmetic weak-automorphy signatures and the separate downstream RM large-image argument.
+The rank-two adjoint monodromy facts (1)–(5) of ACC Lemma 7.1.3 hold over the algebraic closure and (6) is the RG2.0a Weil restriction; facts (7)–(8) need Galois descent of forms of PGL₂^r and uniqueness of the quasi-split inner form, which no layer owns yet (recorded gap). Qian’s symmetric-power avoidance is an application with m=n−1. The final genericity lemma must use the original pair F,F₁; intermediate Galois replacements are confined to the adjoint-image proof. AG2.7 supplies the existential completely split generic witness. Goursat and the simplicity of PSL₂(F_q) are checked baseline declarations; Dickson’s classification, Aut(PSL₂(F_q)) and the cyclotomic restriction lemma are imported from R01.4. Purity upgrades weak automorphy using Chebotarev, the all-place Weil–Deligne semisimplification comparison and irreducibility of the pure principal series. The density-one crystallinity and large-image sets are intersected, rather than asserting either property for every prime. Symmetric-power transport computes Hodge–Tate multisets and determinant exponents using the general operation owner; a nonregular symmetric power does not acquire automorphy merely by applying that operation.
+
+**Coverage:** planned. **Remaining:** Fulfil the R24.5 extremely weak rank-one and monodromy extensions and the ET.7a cyclic base-change contract; supply arithmetic weak-automorphy signatures and the separate downstream RM large-image argument. Obtain an owner for Galois cohomology and forms of reductive groups (unramified forms of PGL₂^r); RG2.0a supplies only the Weil restriction portion.
 
 **Planets:** Rank-two trichotomy; Rank-two large residual image; Symmetric-power genericity; Symmetric-power avoidance; Weak automorphy prime to a set; Pure weak automorphy upgrade.
 
-**Declaration inventory:** [split-test-prime-image-preservation](#split-test-prime-image-preservation), [fontaine-laffaille-base-change-fields](#fontaine-laffaille-base-change-fields), [ordinary-base-change-fields](#ordinary-base-change-fields), [rank-two-reducibility-dichotomy](#rank-two-reducibility-dichotomy), [rank-two-system-trichotomy](#rank-two-system-trichotomy), [rank-two-adjoint-monodromy](#rank-two-adjoint-monodromy), [rank-two-large-residual-image](#rank-two-large-residual-image), [simple-galois-composita](#simple-galois-composita), [symmetric-power-adjoint-genericity](#symmetric-power-adjoint-genericity), [qian-symmetric-power-avoidance](#qian-symmetric-power-avoidance), [genericity-normal-closure-restriction](#genericity-normal-closure-restriction), [residual-lifting-hypothesis-restriction](#residual-lifting-hypothesis-restriction), [weak-automorphy-prime-to-set](#weak-automorphy-prime-to-set), [pure-weak-automorphy-upgrade](#pure-weak-automorphy-upgrade), [density-one-crystalline-large-image](#density-one-crystalline-large-image), [rank-two-symmetric-power-transport](#rank-two-symmetric-power-transport), [rank-two-weight-zero](#rank-two-weight-zero), [rank-two-odd](#rank-two-odd), [rank-two-member-irreducibility-equivalence](#rank-two-member-irreducibility-equivalence), [strong-irreducibility-symmetric-square](#strong-irreducibility-symmetric-square), [corrected-rank-two-large-image](#corrected-rank-two-large-image).
+**Declaration inventory:** [soluble-base-change-and-descent](#soluble-base-change-and-descent), [split-test-prime-image-preservation](#split-test-prime-image-preservation), [fontaine-laffaille-base-change-fields](#fontaine-laffaille-base-change-fields), [ordinary-base-change-fields](#ordinary-base-change-fields), [rank-two-reducibility-dichotomy](#rank-two-reducibility-dichotomy), [rank-two-system-trichotomy](#rank-two-system-trichotomy), [rank-two-adjoint-monodromy](#rank-two-adjoint-monodromy), [rank-two-large-residual-image](#rank-two-large-residual-image), [simple-galois-composita](#simple-galois-composita), [symmetric-power-adjoint-genericity](#symmetric-power-adjoint-genericity), [qian-symmetric-power-avoidance](#qian-symmetric-power-avoidance), [genericity-normal-closure-restriction](#genericity-normal-closure-restriction), [residual-lifting-hypothesis-restriction](#residual-lifting-hypothesis-restriction), [weak-automorphy-prime-to-set](#weak-automorphy-prime-to-set), [pure-weak-automorphy-upgrade](#pure-weak-automorphy-upgrade), [density-one-crystalline-large-image](#density-one-crystalline-large-image), [rank-two-symmetric-power-transport](#rank-two-symmetric-power-transport), [rank-two-weight-zero](#rank-two-weight-zero), [rank-two-odd](#rank-two-odd), [rank-two-member-irreducibility-equivalence](#rank-two-member-irreducibility-equivalence), [strong-irreducibility-symmetric-square](#strong-irreducibility-symmetric-square), [corrected-rank-two-large-image](#corrected-rank-two-large-image).
+
+<a id="soluble-base-change-and-descent"></a>
+
+### Theorem: Proposition 6.5.13: soluble base change and descent for regular algebraic cuspidal GL_n
+
+**Node:** `PotentialAutomorphyInfrastructure:PA.5/soluble-base-change-and-descent`. **Proposed declaration:** `TauCeti.PotentialAutomorphy.soluble_base_change_and_descent`.
+
+Fix n ≥ 2, a prime p and ι: Q̄_p ≅ ℂ. Let F be imaginary CM or totally real and E/F a finite Galois extension with Gal(E/F) soluble and E imaginary CM or totally real. (1) If π is a cuspidal regular algebraic automorphic representation of GL_n(𝔸_F) of weight λ = (λ_τ)_{τ∈Hom(F,ℂ)} with r_ι(π)|G_E irreducible, there is a cuspidal regular algebraic π_E of GL_n(𝔸_E) of weight λ_{E,τ} = λ_{τ|F} (printed λ_{τ|E}) with r_ι(π_E) ≅ r_ι(π)|G_E, and rec_{E_w}(π_{E,w}) = rec_{F_v}(π_v)|_{W_{E_w}} for every finite place w | v. (2) If ρ: G_F → GL_n(Q̄_p) is continuous with ρ|G_E irreducible and ρ|G_E ≅ r_ι(Π) for a cuspidal regular algebraic Π of GL_n(𝔸_E) of weight λ, then λ_{F,τ} = λ_{τ′} (τ′ any extension of τ to E) is well defined and there is a cuspidal regular algebraic π_F of GL_n(𝔸_F) of weight λ_F with ρ ≅ r_ι(π_F) and rec_{E_w}(Π_w) = rec_{F_v}(π_{F,v})|_{W_{E_w}} for every finite w | v (printed without the restriction). The printed proof records the local identities only at almost all places; at every finite place they follow from the Arthur–Clozel local base change at v and its compatibility with the local Langlands correspondence (Harris–Taylor, Ch. VII), supplied with the cyclic base change by ET.7a (source issue E60).
+
+**Construction or proof:**
+
+1. Induct along a composition series to E/F cyclic of prime degree with generator σ and a nontrivial character η of Gal(E/F).
+
+2. (1): π ⊗ (η∘Art_F^{-1}) ≇ π, since otherwise r_ι(π) ⊗ ι^{-1}η ≅ r_ι(π) and r_ι(π)|G_E would be reducible. ET.7a’s Arthur–Clozel cyclic base change ([AC89, Ch. 3, Thms 4.2 and 5.1]) gives a cuspidal regular algebraic Π of weight λ_E whose components lift π at almost all places; Chebotarev and AG2.2’s attachment under soluble base change give r_ι(Π) ≅ r_ι(π)|G_E.
+
+3. (2): strong multiplicity one gives Π^σ ≅ Π, so Π descends by ET.7a to some cuspidal π′ of weight λ_F; Chebotarev gives r_ι(π′)|G_E ≅ ρ|G_E, and irreducibility of ρ|G_E gives a twist π_F = π′ ⊗ (η∘Art_F^{-1})^i with r_ι(π_F) ≅ ρ.
+
+4. Local identities at every finite place: Π_w is the Arthur–Clozel local base change of π_v at every finite w | v, and local base change corresponds to restriction of Langlands parameters to W_{E_w} (Harris–Taylor, Lemma VII.2.6), both from ET.7a. Frobenius agreement at almost all places alone determines rec_{E_w}(Π_w) only up to semisimplification (E60).
+
+**Acceptance:** All source hypotheses, coefficient rings, twists and degree shifts are retained; a specialization must not silently strengthen the conclusion. For E = F both parts are the identity. The cuspidality of π_E needs irreducibility of r_ι(π)|G_E: for a CM quadratic E/F and π automorphically induced from E, the base change is not cuspidal. The weight of the descent is λ_F, independent of the extension τ′ of τ.
+
+**Direct prerequisites:** `EndoscopicTransferAndUnitaryTraceComparison:ET.7a`, `AutomorphicLFunctionsAndLocalFactors:AL.3/strong-multiplicity-one`, `tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev`, `AutomorphicGaloisRepresentationsPartII:AG2.6/compatible-system-of-pi`, `AutomorphicGaloisRepresentationsPartII:AG2.2/attachment-under-solvable-base-change`.
+
+**Source:** [acc](https://www.math.uchicago.edu/~fcale/papers/Ramanujan.pdf), §6.5.12, Proposition 6.5.13 and its proof, pp. 1070–1072. Exact statement with the weight subscript and the restriction in (2) corrected as in the reviewed extraction (items 268–269).
 
 <a id="split-test-prime-image-preservation"></a>
 
@@ -2816,7 +3005,7 @@ Let E_0/F be a soluble CM extension such that: all places of V_0 ∪ V_1 ∪ V_2
 
 **Construction or proof:**
 
-1. First make the soluble CM extension E₀ with prescribed unramified p-completions and local semistable/Iwahori conditions.
+1. First make the soluble CM extension E₀ by PL.0/auxiliary-cm-extensions (BLGGT Lemma A.2.1 and Corollary A.2.3) with prescribed unramified p-completions and local semistable/Iwahori conditions.
 
 2. Adjoin E_a where p and 2 split, then choose E_b and E_c by quadratic congruences so each bad rational prime splits in an imaginary quadratic subfield.
 
@@ -2824,7 +3013,7 @@ Let E_0/F be a soluble CM extension such that: all places of V_0 ∪ V_1 ∪ V_2
 
 **Acceptance:** All source hypotheses, coefficient rings, twists and degree shifts are retained; a specialization must not silently strengthen the conclusion.
 
-**Direct prerequisites:** [PA.5/split-test-prime-image-preservation](#split-test-prime-image-preservation), `PotentialAutomorphyInfrastructurePartII:PL.0`.
+**Direct prerequisites:** [PA.5/split-test-prime-image-preservation](#split-test-prime-image-preservation), `PotentialAutomorphyInfrastructurePartII:PL.0/auxiliary-cm-extensions`.
 
 **Source:** [acc](https://www.math.uchicago.edu/~fcale/papers/Ramanujan.pdf), §6.5.12, proof of Theorem 6.1.1, pp. 1072–1073. Exact arithmetic specialization of the cited statement, with the hypotheses retained.
 
@@ -2838,15 +3027,15 @@ Let E_0/F be a soluble CM extension such that: all places of V_0 ∪ V_1 ∪ V_2
 
 **Construction or proof:**
 
-1. Make E₀ with trivial residual representations at p, degree > n(n+1)/2+1, whole-inertia algebraic characters and the p-power-root condition.
+1. Make E₀ by PL.0/auxiliary-cm-extensions (BLGGT Lemma A.2.1 and Corollary A.2.3): soluble CM, linearly disjoint from the kernel field, with prescribed completions giving trivial residual representations at p, degree > n(n+1)/2+1, whole-inertia algebraic characters and the p-power-root condition.
 
 2. Choose E_a,E_b,E_c with the ordinary congruence constraints, keeping V split.
 
-3. Check all fifteen ordinary patching hypotheses; preserve ordinary automorphic base change by the supplier’s Geraghty-normalized theorem.
+3. Check all fifteen ordinary patching hypotheses for E, π_E and S; ι-ordinarity of π_E is transported in PA.4/ordinary-lifting-descent by PA.2/iota-ordinary-soluble-base-change, not asserted here.
 
 **Acceptance:** All source hypotheses, coefficient rings, twists and degree shifts are retained; a specialization must not silently strengthen the conclusion.
 
-**Direct prerequisites:** [PA.5/split-test-prime-image-preservation](#split-test-prime-image-preservation), `PotentialAutomorphyInfrastructurePartII:PL.0`.
+**Direct prerequisites:** [PA.5/split-test-prime-image-preservation](#split-test-prime-image-preservation), `PotentialAutomorphyInfrastructurePartII:PL.0/auxiliary-cm-extensions`.
 
 **Source:** [acc](https://www.math.uchicago.edu/~fcale/papers/Ramanujan.pdf), §6.6.10, proof of Theorem 6.1.2, pp. 1082–1084. Exact arithmetic specialization of the cited statement, with the hypotheses retained.
 
@@ -2902,15 +3091,15 @@ Over Q̄_l: (1) every morphism PGL_2 → PGL_2 is trivial or conjugation by an e
 
 **Construction or proof:**
 
-1. Use connected subdirect products of the Res PGL₂ factors and Goursat to identify diagonal factors.
+1. Use the adjoint simple type-A1 group structure to identify algebraic endomorphisms of PGL₂ and maps out of products. Classify connected subdirect products over the algebraic closure, with algebraic-group Goursat, giving facts (1)–(5). The finite abstract-group Goursat theorem alone does not supply this algebraic-group statement.
 
-2. Unramified splitting of the relevant field forms and the density-one hyperspecial maximality theorem control reduction.
+2. Import RG2.0a Weil restriction and its splitting-field product isomorphism with the Galois permutation action, giving fact (6).
 
-3. Pass from adjoint factors to the rank-two derived image; this node is the arithmetic rank-two application, not a second general Goursat theorem.
+3. Use Galois descent for forms, the automorphism group PGL₂^r⋊S_r and uniqueness of the quasi-split inner form to identify the unramified forms as products of Weil restrictions of split PGL₂. Combine this with the connected subdirect-product description for facts (7)–(8). The exact forms theorem is a recorded supplier extension gap; density-one hyperspecial maximality belongs to the following residual-image application.
 
 **Acceptance:** All source hypotheses, coefficient rings, twists and degree shifts are retained; a specialization must not silently strengthen the conclusion.
 
-**Direct prerequisites:** [PA.5/simple-galois-composita](#simple-galois-composita), `PotentialModularityAndCompatibleSystems:R24.5/weakened-compatible-data`, `PotentialModularityAndCompatibleSystems:R24.5/compatible-system-predicates`, `PotentialModularityAndCompatibleSystems:R24.5:operations`.
+**Direct prerequisites:** `tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory`, `ReductiveGroupsPartII:RG2.0a`.
 
 **Source:** [acc](https://www.math.uchicago.edu/~fcale/papers/Ramanujan.pdf), §7.1, proof of Lemma 7.1.3, facts (1)–(8), pp. 1088–1089. Exact arithmetic specialization of the cited statement, with the hypotheses retained.
 
@@ -2954,9 +3143,9 @@ Let k be a field, Δ a finite simple group, and K_1, …, K_s finite Galois exte
 
 **Acceptance:** All source hypotheses, coefficient rings, twists and degree shifts are retained; a specialization must not silently strengthen the conclusion.
 
-**Direct prerequisites:** `mathlib:Subgroup.goursat_surjective`.
+**Direct prerequisites:** `mathlib:Subgroup.goursat_surjective`, `ArithmeticGaloisRepresentations:R01.4/normal-subgroups-and-automorphisms-of-psl2-pgl2`.
 
-**Source:** [qian](https://par.nsf.gov/servlets/purl/10388233), Proof of Lemma 2.6(2), pp. 1251–1252 (the claims 'Gal(Ẽ/E) = (Z/2Z)^r' and 'Gal(F̃′_i/F̃′_{i−1}) … is of form Δ_i^m', both attributed to Goursat's lemma). Exact arithmetic specialization of the cited statement, with the hypotheses retained.
+**Source:** [qian](https://par.nsf.gov/servlets/purl/10388233), Proof of Lemma 2.6(2), pp. 1251–1252 (the claims 'Gal(Ẽ/E) = (Z/2Z)^r' and 'Gal(F̃′_i/F̃′_{i−1}) … is of form Δ_i^m', both attributed to Goursat's lemma); NSF online-first PDF pp. 13–14 (journal pagination inferred from 1239–1275). The cited passage supplies the source application; this node makes the indicated coefficient hypotheses or imported general calculation explicit. See the independent review and recorded requests/gaps.
 
 <a id="symmetric-power-adjoint-genericity"></a>
 
@@ -2976,7 +3165,7 @@ Let F/Q be finite with normal closure F̃, m a positive integer, l > 2m + 3 a pr
 
 **Acceptance:** All source hypotheses, coefficient rings, twists and degree shifts are retained; a specialization must not silently strengthen the conclusion.
 
-**Direct prerequisites:** [PA.5/simple-galois-composita](#simple-galois-composita), `AutomorphicGaloisRepresentationsPartII:AG2.7/existential-decomposed-genericity`, `AutomorphicGaloisRepresentationsPartII:AG2.7/completely-split-generic-prime`, `GlobalGaloisDeformations:G7`.
+**Direct prerequisites:** [PA.5/simple-galois-composita](#simple-galois-composita), `AutomorphicGaloisRepresentationsPartII:AG2.7/existential-decomposed-genericity`, `AutomorphicGaloisRepresentationsPartII:AG2.7/completely-split-generic-prime`, `ArithmeticGaloisRepresentations:R01.4/dickson-classification-and-the-dyadic-refinement`, `ArithmeticGaloisRepresentations:R01.4/normal-subgroups-and-automorphisms-of-psl2-pgl2`, `ArithmeticGaloisRepresentations:R01.4/restriction-to-the-cyclotomic-field`, `mathlib:Matrix.ProjectiveSpecialLinearGroup.rank_two_simple`, `tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev`.
 
 **Source:** [acc](https://www.math.uchicago.edu/~fcale/papers/Ramanujan.pdf), Lemma 7.1.6(3), pp. 1090–1091. Exact arithmetic specialization of the cited statement, with the hypotheses retained.
 
@@ -2998,9 +3187,9 @@ Let F/Q be a finite extension with normal closure F̃, n a positive integer, l >
 
 **Acceptance:** All source hypotheses, coefficient rings, twists and degree shifts are retained; a specialization must not silently strengthen the conclusion.
 
-**Direct prerequisites:** [PA.5/simple-galois-composita](#simple-galois-composita), [PA.5/symmetric-power-adjoint-genericity](#symmetric-power-adjoint-genericity), `AutomorphicGaloisRepresentationsPartII:AG2.7/existential-decomposed-genericity`, `AutomorphicGaloisRepresentationsPartII:AG2.7/completely-split-generic-prime`.
+**Direct prerequisites:** [PA.5/simple-galois-composita](#simple-galois-composita), [PA.5/symmetric-power-adjoint-genericity](#symmetric-power-adjoint-genericity), `AutomorphicGaloisRepresentationsPartII:AG2.7/existential-decomposed-genericity`, `AutomorphicGaloisRepresentationsPartII:AG2.7/completely-split-generic-prime`, `ArithmeticGaloisRepresentations:R01.4/dickson-classification-and-the-dyadic-refinement`, `ArithmeticGaloisRepresentations:R01.4/normal-subgroups-and-automorphisms-of-psl2-pgl2`, `ArithmeticGaloisRepresentations:R01.4/restriction-to-the-cyclotomic-field`, `mathlib:Matrix.ProjectiveSpecialLinearGroup.rank_two_simple`.
 
-**Source:** [qian](https://par.nsf.gov/servlets/purl/10388233), Lemma 2.6(2), p. 1251; proof pp. 1251–1252. Exact arithmetic specialization of the cited statement, with the hypotheses retained.
+**Source:** [qian](https://par.nsf.gov/servlets/purl/10388233), Lemma 2.6(2), p. 1251; proof pp. 1251–1252; NSF online-first PDF pp. 13–14 (journal pagination inferred from 1239–1275). Exact arithmetic specialization of the cited statement, with the hypotheses retained.
 
 <a id="genericity-normal-closure-restriction"></a>
 
@@ -3008,7 +3197,7 @@ Let F/Q be a finite extension with normal closure F̃, n a positive integer, l >
 
 **Node:** `PotentialAutomorphyInfrastructure:PA.5/genericity-normal-closure-restriction`. **Proposed declaration:** `TauCeti.PotentialAutomorphy.genericity_normal_closure_restriction`.
 
-Let F be a number field and r̄: G_F → GL_n(F̄_l) continuous, absolutely irreducible and decomposed generic. Let K/Q be a Galois extension linearly disjoint over Q from the Galois closure over Q of F̄^{ker r̄}(ζ_l). Then r̄|G_{FK} is absolutely irreducible and decomposed generic. In the proof of Theorem 1.4 this is applied with K = L′LF^suff(ζ_N), which is Galois over Q with K ∩ F^avoid = Q, and FK = F′. The paper asserts the disjointness for F′ itself, which is impossible because both fields contain F (correction E3).
+Let F be a number field and r̄: G_F → GL_n(F̄_l) continuous, absolutely irreducible and decomposed generic. Let K/Q be a Galois extension linearly disjoint over Q from the Galois closure over Q of F̄^{ker r̄}(ζ_l). Then r̄|G_{FK} is absolutely irreducible and decomposed generic. In the proof of Theorem 1.4 this is applied with K = L′LF^suff(ζ_N), which is Galois over Q with K ∩ F^avoid = Q, and FK = F′. The paper asserts the disjointness for F′ itself, which is impossible because both fields contain F (correction E70).
 
 **Construction or proof:**
 
@@ -3044,7 +3233,7 @@ Let F be a number field, l a prime, r: G_F → GL_n(Q̄_l) continuous with resid
 
 **Direct prerequisites:** `AutomorphicGaloisRepresentationsPartII:AG2.7/existential-decomposed-genericity`, `AutomorphicGaloisRepresentationsPartII:AG2.7/completely-split-generic-prime`, `PotentialModularityAndCompatibleSystems:R24.5:operations`.
 
-**Source:** [qian](https://par.nsf.gov/servlets/purl/10388233), Remark after Definition 1.3, p. 1241; proof of Theorem 1.4, p. 1274 ('all conditions except decomposed genericity follows from the corresponding conditions of r̄'). Exact arithmetic specialization of the cited statement, with the hypotheses retained.
+**Source:** [qian](https://par.nsf.gov/servlets/purl/10388233), Remark after Definition 1.3, p. 1241; proof of Theorem 1.4, p. 1274 ('all conditions except decomposed genericity follows from the corresponding conditions of r̄'); NSF online-first PDF pp. 3 and 36. The cited passage supplies the source application; this node makes the indicated coefficient hypotheses or imported general calculation explicit. See the independent review and recorded requests/gaps.
 
 <a id="weak-automorphy-prime-to-set"></a>
 
@@ -3109,7 +3298,7 @@ Let F be CM and R a very weakly compatible system of rank n that is weakly autom
 
 **Acceptance:** All source hypotheses, coefficient rings, twists and degree shifts are retained; a specialization must not silently strengthen the conclusion.
 
-**Direct prerequisites:** [PA.5/weak-automorphy-prime-to-set](#weak-automorphy-prime-to-set), `PotentialModularityAndCompatibleSystems:R24.5/weakened-compatible-data`, `PotentialModularityAndCompatibleSystems:R24.5/compatible-system-predicates`, `AutomorphicGaloisRepresentationsPartII:AG2.5`, `AutomorphicGaloisRepresentationsPartII:AG2.6`, `SmoothRepresentationsOfLocalGroups:SR.3`.
+**Direct prerequisites:** [PA.5/weak-automorphy-prime-to-set](#weak-automorphy-prime-to-set), `PotentialModularityAndCompatibleSystems:R24.5/weakened-compatible-data`, `PotentialModularityAndCompatibleSystems:R24.5/compatible-system-predicates`, `AutomorphicGaloisRepresentationsPartII:AG2.6`, `SmoothRepresentationsOfLocalGroups:SR.3`, `AutomorphicGaloisRepresentationsPartII:AG2.5/varma-semisimplified-comparison-and-monodromy-bound`.
 
 **Source:** [bianchi](https://www.ma.imperial.ac.uk/~tsg/Index_files/SatoTate.pdf), Lemma 6.1.4, author PDF p. 59. Exact arithmetic specialization of the cited statement, with the hypotheses retained.
 
@@ -3153,7 +3342,7 @@ For a very weakly compatible system R of rank 2 with H_τ = {0, m}, Sym^{n−1}R
 
 **Direct prerequisites:** `mathlib:Matrix.charpoly`, `PotentialModularityAndCompatibleSystems:R24.5/weakened-compatible-data`, `PotentialModularityAndCompatibleSystems:R24.5/compatible-system-predicates`, `PotentialModularityAndCompatibleSystems:R24.5/linear-algebra-operations-on-systems`, `PotentialModularityAndCompatibleSystems:R24.5:operations`.
 
-**Source:** [bianchi](https://www.ma.imperial.ac.uk/~tsg/Index_files/SatoTate.pdf), §6.1–6.2 symmetric-power compatible systems; extraction item 145. Exact arithmetic specialization of the cited statement, with the hypotheses retained.
+**Source:** [bianchi](https://www.ma.imperial.ac.uk/~tsg/Index_files/SatoTate.pdf), §6.2, proof discussion after Remark 6.2.2, author PDF p. 60 (parallel HT formula); the determinant formula is the imported symmetric-power calculation. The cited passage supplies the source application; this node makes the indicated coefficient hypotheses or imported general calculation explicit. See the independent review and recorded requests/gaps.
 
 <a id="rank-two-weight-zero"></a>
 
@@ -3317,15 +3506,15 @@ A reference to an existing owner node imports precisely that node’s statement.
 
 For arbitrary good levels provide the arithmetic groupoid/sheaf/cellular comparison with actual algebraic coefficient lattices; for normal sufficiently neat levels prove O[Δ]-free finite cells, compatible pullback/trace, and derived coefficient reduction. Existing finite-complex-model and coefficient-change nodes are imports; their current hypotheses require the source-specific freeness and transition verification, not an assumption that all good levels are free.
 
-**Needed by:** [PA.0/integral-model-comparison](#integral-model-comparison), [PA.4/fontaine-laffaille-patching-verification](#fontaine-laffaille-patching-verification), [PA.4/ordinary-patching-verification](#ordinary-patching-verification).
+**Needed by:** [PA.4/fontaine-laffaille-patching-verification](#fontaine-laffaille-patching-verification), [PA.4/ordinary-patching-verification](#ordinary-patching-verification), [PA.0/integral-model-comparison](#integral-model-comparison).
 
 ### ArithmeticLocallySymmetricSpaces:ALS.4
 
-Provide the precise split coefficient evaluation of ACC (2.4.7) and the localized unitary Siegel stratum, including induced coefficients and connecting maps. For the GL_n component product, provide the determinant pushforward, Poincaré duality with orientation/weight twists, and the local-system descent used by Lemma 5.4.16.
+Provide the precise split coefficient evaluation of ACC (2.4.7) and the localized unitary Siegel stratum, including induced coefficients and connecting maps. For the GL_n component product provide the determinant pushforward and local-system descent used by Lemma 5.4.16. Finite-level duality and its orientation/weight twists are requested separately from ALS.5:finite-level-duality.
 
-**Needed by:** [PA.0/siegel-coefficient-retract](#siegel-coefficient-retract), [PA.0/boundary-level-coefficient-comparison](#boundary-level-coefficient-comparison), [PA.1/degree-reflection-duality](#degree-reflection-duality), [PA.2/determinant-component-product](#determinant-component-product), [PA.2/central-torus-cohomology-shifting](#central-torus-cohomology-shifting).
+**Needed by:** [PA.0/siegel-coefficient-retract](#siegel-coefficient-retract), [PA.2/determinant-component-product](#determinant-component-product), [PA.2/central-torus-cohomology-shifting](#central-torus-cohomology-shifting), [PA.0/boundary-level-coefficient-comparison](#boundary-level-coefficient-comparison).
 
-### ArithmeticLocallySymmetricSpaces:ALS.3
+### ArithmeticLocallySymmetricSpaces:ALS.5
 
 Supply the source’s automorphic realization from rational cohomology (ACC Theorem 2.4.10) and Matsushima concentration [q_GL,q_GL+ℓ₀] at regular characteristic-zero points, q_GL=n(n−1)[F⁺:Q]/2 and ℓ₀=n[F⁺:Q]−1. For the dual complexes RHom(RΓ,O)[−d] the requested range is [q_patch,q_patch+ℓ₀] with q_patch=q_GL+1. No conjectural mod-p GL_n concentration is requested.
 
@@ -3335,7 +3524,7 @@ Supply the source’s automorphic realization from rational cohomology (ACC Theo
 
 Extend positive-monoid Hecke algebras over O/varpi^m: ACC Lemmas 2.1.10–2.1.14, restriction/integration homomorphisms and evaluation splitting with exact double-coset formulas, compatible with integral twisted coefficient actions.
 
-**Needed by:** [PA.0/coefficient-satake-descent](#coefficient-satake-descent), [PA.0/ramified-satake-descent](#ramified-satake-descent), [PA.2/iwahori-level-tower](#iwahori-level-tower), [PA.2/positive-torus-monoid](#positive-torus-monoid), [PA.2/unitary-ordinary-tower](#unitary-ordinary-tower), [PA.2/ordinary-satake-homomorphism](#ordinary-satake-homomorphism).
+**Needed by:** [PA.0/coefficient-satake-descent](#coefficient-satake-descent), [PA.0/ramified-satake-descent](#ramified-satake-descent), [PA.2/iwahori-level-tower](#iwahori-level-tower), [PA.2/positive-torus-monoid](#positive-torus-monoid), [PA.2/unitary-ordinary-tower](#unitary-ordinary-tower), [PA.2/ordinary-satake-homomorphism](#ordinary-satake-homomorphism), [PA.2/iota-ordinary-automorphic-representation](#iota-ordinary-automorphic-representation), [PA.2/twisted-steinberg-ordinarity-criterion](#twisted-steinberg-ordinarity-criterion).
 
 ### SmoothRepresentationsOfLocalGroups:SR.0:derived-extension
 
@@ -3365,11 +3554,11 @@ Specialize the general integral Fontaine–Laffaille owner to ACC §4.1: K/Q_p u
 
 Provide the rational crystalline/HT comparison in the same geometric Artin and HT(ε)=−1 normalization, including the crystalline character-twist calculation used in ACC Theorem 4.5.1.
 
-**Needed by:** [PA.1/fontaine-laffaille-local-global](#fontaine-laffaille-local-global), [PA.1/middle-range-fontaine-laffaille](#middle-range-fontaine-laffaille).
+**Needed by:** [PA.1/middle-range-fontaine-laffaille](#middle-range-fontaine-laffaille), [PA.1/fontaine-laffaille-local-global](#fontaine-laffaille-local-global).
 
 ### AutomorphicGaloisRepresentationsPartII:AG2.0
 
-Provide the split unitary middle-degree Galois representation with its crystalline HT multiset, and GL_n central-character/purity weight sum; provide crystalline algebraic Hecke characters of the required prescribed HT row for the proof of ACC Theorem 4.5.1.
+Supply the geometric Artin and HT(ε)=−1 normalization dictionary, the unitary/Levi highest-weight conversion and central-character weight-sum convention. The global crystalline twisting character of ACC Theorem 4.5.1 is imported from AG2.0/prescribed-crystalline-twisting-character; state its unit exponent as a parameter m ∈ ℤ (or add the instance m = 1), because the second case (8b) of the proof needs ψ∘Art = ∏(τc) on units (source issue E32) while the node displays the exponent λ_{τ₀,1}+λ_{τ₀c,1} of case (8a).
 
 **Needed by:** [PA.1/middle-degree-satake](#middle-degree-satake), [PA.1/middle-range-fontaine-laffaille](#middle-range-fontaine-laffaille), [PA.1/fontaine-laffaille-local-global](#fontaine-laffaille-local-global).
 
@@ -3377,7 +3566,7 @@ Provide the split unitary middle-degree Galois representation with its crystalli
 
 Provide ACC Theorem 3.1.1 inertial compatibility at R and away from p, rational local-global compatibility needed for unramified descent, and the Varma 2024 Theorem 1 Weil–Deligne semisimplification comparison used in Bianchi Lemma 6.1.4.
 
-**Needed by:** [PA.3/fontaine-laffaille-deformation-hecke-map](#fontaine-laffaille-deformation-hecke-map), [PA.4/diamond-linear-deformation-hecke-map](#diamond-linear-deformation-hecke-map), [PA.3/ordinary-deformation-hecke-map](#ordinary-deformation-hecke-map), [PA.4/ordinary-diamond-linear-hecke-map](#ordinary-diamond-linear-hecke-map), [PA.4/fontaine-laffaille-automorphy-lifting](#fontaine-laffaille-automorphy-lifting), [PA.4/ordinary-automorphy-lifting](#ordinary-automorphy-lifting), [PA.5/pure-weak-automorphy-upgrade](#pure-weak-automorphy-upgrade).
+**Needed by:** [PA.3/fontaine-laffaille-deformation-hecke-map](#fontaine-laffaille-deformation-hecke-map), [PA.3/ordinary-deformation-hecke-map](#ordinary-deformation-hecke-map), [PA.4/diamond-linear-deformation-hecke-map](#diamond-linear-deformation-hecke-map), [PA.4/ordinary-diamond-linear-hecke-map](#ordinary-diamond-linear-hecke-map), [PA.4/fontaine-laffaille-automorphy-lifting](#fontaine-laffaille-automorphy-lifting), [PA.4/ordinary-automorphy-lifting](#ordinary-automorphy-lifting).
 
 ### AutomorphicGaloisRepresentationsPartII:AG2.6
 
@@ -3387,9 +3576,9 @@ Import ACC Lemmas 7.1.9–7.1.10: DGI gives very weak compatibility and GL₂ gi
 
 ### PotentialModularityAndCompatibleSystems:R24.5:operations
 
-Supply rank-one extremely weak compatible character classification over arbitrary F: the abelian Henniart/Serre family used in ACC Lemma 7.1.1, with coefficient enlargement and de Rham characters, not merely determinant compatibility. Supply the Larsen–Pink unramified monodromy and Larsen density-one maximality input in the extremely weak rank-two regime. The existing weak rational-system result is a near miss, so its conclusion is not applied without these additional hypotheses. Export the already-owned system-operations, polarized-operations, tensor/dual/character/restriction comparisons with good Frobenius polynomials, labeled HT multisets, local WD monodromy, integral lattice/reduction compatibility and precise preservation hypotheses. Extend linear-algebra-operations-on-systems (currently weak systems) to the very/extremely weak cases required here, with canonical Hodge metadata; no arbitrary full-member HT claim in the extremely weak case. Reconcile the existing weakly-compatible-system-rank-n carrier, which includes all-member de Rham/full HT clauses, with weakened-compatible-data before importing its weakening maps. The AG2.6 review already records this supplier inconsistency.
+Supply rank-one extremely weak compatible character classification over arbitrary F: the abelian Henniart/Serre family used in ACC Lemma 7.1.1, with coefficient enlargement and de Rham characters, not merely determinant compatibility. Supply the Larsen–Pink unramified monodromy and Larsen density-one maximality input in the extremely weak rank-two regime. The existing nodes R24.5/larsen-good-primes and R24.5/rank-two-reducibility-independent-of-lambda (rational weakly compatible systems; the latter over ℚ with Hodge–Tate members) are near misses; generalize them to arbitrary F and extremely weak data and add Henniart’s E-rational-implies-locally-algebraic theorem. The near miss so its conclusion is not applied without these additional hypotheses. Export the already-owned system-operations, polarized-operations, tensor/dual/character/restriction comparisons with good Frobenius polynomials, labeled HT multisets, local WD monodromy, integral lattice/reduction compatibility and precise preservation hypotheses. Extend linear-algebra-operations-on-systems (currently weak systems) to the very/extremely weak cases required here, with canonical Hodge metadata; no arbitrary full-member HT claim in the extremely weak case. Reconcile the existing weakly-compatible-system-rank-n carrier, which includes all-member de Rham/full HT clauses, with weakened-compatible-data before importing its weakening maps. The AG2.6 review already records this supplier inconsistency.
 
-**Needed by:** [PA.5/rank-two-reducibility-dichotomy](#rank-two-reducibility-dichotomy), [PA.5/rank-two-system-trichotomy](#rank-two-system-trichotomy), [PA.5/rank-two-adjoint-monodromy](#rank-two-adjoint-monodromy), [PA.5/rank-two-large-residual-image](#rank-two-large-residual-image), [PA.5/rank-two-symmetric-power-transport](#rank-two-symmetric-power-transport), [PA.5/weak-automorphy-prime-to-set](#weak-automorphy-prime-to-set), [PA.5/rank-two-odd](#rank-two-odd), [PA.5/residual-lifting-hypothesis-restriction](#residual-lifting-hypothesis-restriction).
+**Needed by:** [PA.5/rank-two-reducibility-dichotomy](#rank-two-reducibility-dichotomy), [PA.5/rank-two-system-trichotomy](#rank-two-system-trichotomy), [PA.5/rank-two-large-residual-image](#rank-two-large-residual-image), [PA.5/residual-lifting-hypothesis-restriction](#residual-lifting-hypothesis-restriction), [PA.5/weak-automorphy-prime-to-set](#weak-automorphy-prime-to-set), [PA.5/rank-two-symmetric-power-transport](#rank-two-symmetric-power-transport), [PA.5/rank-two-odd](#rank-two-odd).
 
 ### SmoothRepresentationsOfLocalGroups:SR.3
 
@@ -3401,123 +3590,159 @@ For GL_n at a nonarchimedean good place, purity of the unramified Satake paramet
 
 Supply ACC Fontaine–Laffaille framed local deformation ring (Theorem 6.2.5) with dimension n²+[K:Q_p]n(n−1)/2 and its weight interval; supply the flag criterion from Lemma 6.2.11 turning both the characteristic and ordered n-fold matrix identities into the ordered full flag when characters are distinct. For the ordinary patched application supply the flat reduced trivial-residual ring under [K:Q_p]>n(n+1)/2+1 and its component/dimension assertions, not only the weaker near-ordinary bound.
 
-**Needed by:** [PA.2/ordinary-automorphic-galois-flag](#ordinary-automorphic-galois-flag), [PA.3/local-condition-mod-varpi-comparison](#local-condition-mod-varpi-comparison), [PA.3/arithmetic-component-dimension-input](#arithmetic-component-dimension-input), [PA.4/fontaine-laffaille-dimension-amplitude](#fontaine-laffaille-dimension-amplitude), [PA.4/ordinary-support-at-lifting-point](#ordinary-support-at-lifting-point).
+**Needed by:** [PA.2/ordinary-automorphic-galois-flag](#ordinary-automorphic-galois-flag), [PA.4/fontaine-laffaille-dimension-amplitude](#fontaine-laffaille-dimension-amplitude), [PA.4/ordinary-support-at-lifting-point](#ordinary-support-at-lifting-point), [PA.3/local-condition-mod-varpi-comparison](#local-condition-mod-varpi-comparison), [PA.3/arithmetic-component-dimension-input](#arithmetic-component-dimension-input).
 
 ### LocalGaloisDeformationRings:L8
 
 Supply the determinant-ordinary functor with the stated universal unit characters and its closed points, and ACC §6.2.6 reductions and dimensions over the chosen minimal prime of the completed torus algebra. Existing determinant-ordinary-ring is imported only for its precise functor; verify all coefficient conventions for the arithmetic application.
 
-**Needed by:** [PA.3/local-condition-mod-varpi-comparison](#local-condition-mod-varpi-comparison), [PA.3/arithmetic-component-dimension-input](#arithmetic-component-dimension-input), [PA.3/ordinary-deformation-hecke-map](#ordinary-deformation-hecke-map), [PA.4/ordinary-diamond-linear-hecke-map](#ordinary-diamond-linear-hecke-map), [PA.4/ordinary-support-at-lifting-point](#ordinary-support-at-lifting-point).
+**Needed by:** [PA.3/ordinary-deformation-hecke-map](#ordinary-deformation-hecke-map), [PA.4/ordinary-diamond-linear-hecke-map](#ordinary-diamond-linear-hecke-map), [PA.4/ordinary-support-at-lifting-point](#ordinary-support-at-lifting-point), [PA.3/local-condition-mod-varpi-comparison](#local-condition-mod-varpi-comparison), [PA.3/arithmetic-component-dimension-input](#arithmetic-component-dimension-input).
 
 ### LocalGaloisDeformationRings:R08.2
 
 For trivial residual representation and q_v≡1 mod p at R, supply the untwisted/unipotent and pairwise-distinct χ-type mod-varpi equality, characteristic-zero irreducibility of the χ-type ring, uniqueness of maximal-dimensional generic lifts, and the dimension/drop assertions used by ACC Assumption 6.3.6. Import the existing ihara-avoidance-components node and verify its hypotheses for each local factor.
 
-**Needed by:** [PA.3/local-condition-mod-varpi-comparison](#local-condition-mod-varpi-comparison), [PA.3/arithmetic-component-dimension-input](#arithmetic-component-dimension-input), [PA.4/fontaine-laffaille-dimension-amplitude](#fontaine-laffaille-dimension-amplitude), [PA.4/ordinary-support-at-lifting-point](#ordinary-support-at-lifting-point).
+**Needed by:** [PA.4/fontaine-laffaille-dimension-amplitude](#fontaine-laffaille-dimension-amplitude), [PA.4/ordinary-support-at-lifting-point](#ordinary-support-at-lifting-point), [PA.3/local-condition-mod-varpi-comparison](#local-condition-mod-varpi-comparison), [PA.3/arithmetic-component-dimension-input](#arithmetic-component-dimension-input).
 
 ### GlobalGaloisDeformations:G7
 
-Import the enormous Taylor–Wiles sets, local diamonds and presentations already planned here. Verify their field-splitting, ordered eigenvalue and residual image hypotheses for both arithmetic towers. Additionally export the finite-image symmetric-power enormous/scalar-coset calculation of ACC Lemmas 7.1.4 and 7.1.6(1)–(2),(4)–(5), where needed downstream; do not move auxiliary-set construction into PA.4.
+Import the enormous Taylor–Wiles sets, local diamonds and presentations already planned here. Verify their field-splitting, ordered eigenvalue and residual image hypotheses for both arithmetic towers. Do not move auxiliary-set construction into PA.4. The finite-image symmetric-power calculations of ACC Lemmas 7.1.4 and 7.1.6(1)–(2) are ArithmeticGaloisRepresentations:G7/enormous-symmetric-powers and G7/taylor-wiles-image-lemmas, imported directly by their consumers.
 
-**Needed by:** [PA.3/arithmetic-component-dimension-input](#arithmetic-component-dimension-input), [PA.4/taylor-wiles-arithmetic-levels](#taylor-wiles-arithmetic-levels), [PA.4/fontaine-laffaille-patching-verification](#fontaine-laffaille-patching-verification), [PA.4/ordinary-taylor-wiles-levels](#ordinary-taylor-wiles-levels), [PA.4/ordinary-patching-verification](#ordinary-patching-verification), [PA.4/fontaine-laffaille-automorphy-lifting](#fontaine-laffaille-automorphy-lifting), [PA.4/ordinary-automorphy-lifting](#ordinary-automorphy-lifting), [PA.5/symmetric-power-adjoint-genericity](#symmetric-power-adjoint-genericity).
+**Needed by:** [PA.4/taylor-wiles-arithmetic-levels](#taylor-wiles-arithmetic-levels), [PA.4/fontaine-laffaille-patching-verification](#fontaine-laffaille-patching-verification), [PA.4/ordinary-taylor-wiles-levels](#ordinary-taylor-wiles-levels), [PA.4/ordinary-patching-verification](#ordinary-patching-verification), [PA.4/fontaine-laffaille-automorphy-lifting](#fontaine-laffaille-automorphy-lifting), [PA.4/ordinary-automorphy-lifting](#ordinary-automorphy-lifting), [PA.3/arithmetic-component-dimension-input](#arithmetic-component-dimension-input).
 
 ### GlobalGaloisDeformations:G8
 
-Provide the framed global deformation problems Sχ and Sχ,Q with fixed determinant/coefficient maps, local-to-global mod-varpi identifications, and the diamond-linear universal representations for the same FL and ordinary profiles. Preserve all universal-property diagrams.
+Provide the framed global deformation problems Sχ and Sχ,Q with variable global determinant and identical framing conventions/coefficient maps, local-to-global mod-varpi identifications, and the diamond-linear universal representations for the same FL and ordinary profiles. Preserve all universal-property diagrams.
 
-**Needed by:** [PA.3/local-condition-mod-varpi-comparison](#local-condition-mod-varpi-comparison), [PA.3/arithmetic-component-dimension-input](#arithmetic-component-dimension-input), [PA.3/fontaine-laffaille-deformation-hecke-map](#fontaine-laffaille-deformation-hecke-map), [PA.4/diamond-linear-deformation-hecke-map](#diamond-linear-deformation-hecke-map), [PA.3/ordinary-deformation-hecke-map](#ordinary-deformation-hecke-map), [PA.4/ordinary-diamond-linear-hecke-map](#ordinary-diamond-linear-hecke-map).
+**Needed by:** [PA.3/fontaine-laffaille-deformation-hecke-map](#fontaine-laffaille-deformation-hecke-map), [PA.3/ordinary-deformation-hecke-map](#ordinary-deformation-hecke-map), [PA.4/diamond-linear-deformation-hecke-map](#diamond-linear-deformation-hecke-map), [PA.4/ordinary-diamond-linear-hecke-map](#ordinary-diamond-linear-hecke-map), [PA.3/local-condition-mod-varpi-comparison](#local-condition-mod-varpi-comparison), [PA.3/arithmetic-component-dimension-input](#arithmetic-component-dimension-input).
 
 ### DeformationAndDerivedPatchingAlgebra:P8
 
 Provide ACC §6.4.1–6.4.17 abstract perfect-complex ultrapatching at one fixed nonprincipal ultrafilter: uniform minimal ranks, mod-varpi pair comparison, common Hecke images, compatible quotient R actions and nilpotent bounds, derived augmentation/specialization, and independence of the transition-map choices (Remark 6.4.13). No independence of the ultrafilter is requested. Arithmetic PA.4 verifies each datum condition.
 
-**Needed by:** [PA.4/patched-arithmetic-mod-varpi-comparison](#patched-arithmetic-mod-varpi-comparison), [PA.4/fontaine-laffaille-patching-verification](#fontaine-laffaille-patching-verification), [PA.4/ordinary-hida-complex](#ordinary-hida-complex), [PA.4/ordinary-taylor-wiles-levels](#ordinary-taylor-wiles-levels), [PA.4/ordinary-patching-verification](#ordinary-patching-verification).
+**Needed by:** [PA.4/patched-arithmetic-mod-varpi-comparison](#patched-arithmetic-mod-varpi-comparison), [PA.4/fontaine-laffaille-patching-verification](#fontaine-laffaille-patching-verification), [PA.3/ordinary-hida-complex](#ordinary-hida-complex), [PA.4/ordinary-taylor-wiles-levels](#ordinary-taylor-wiles-levels), [PA.4/ordinary-patching-verification](#ordinary-patching-verification).
 
 ### DeformationAndDerivedPatchingAlgebra:P9
 
 Provide the complete ACC §6.3.5 abstract contract: perfect pair C,C′ over S∞, common mod-varpi Hecke image, quotient R∞/R∞′ actions; Assumption 6.3.6 dimension, unique generic-component lifts, strict lower-component dimension and rational amplitude; Proposition 6.3.8 maximal-component support and Corollary 6.3.9 specialization at a dimension-one characteristic-zero augmentation point. PA.3 verifies the local hypotheses, and PA.4 supplies the actual patched pair.
 
-**Needed by:** [PA.3/arithmetic-derived-support-contract](#arithmetic-derived-support-contract), [PA.3/arithmetic-component-dimension-input](#arithmetic-component-dimension-input), [PA.4/fontaine-laffaille-full-support](#fontaine-laffaille-full-support), [PA.4/ordinary-support-at-lifting-point](#ordinary-support-at-lifting-point).
+**Needed by:** [PA.4/fontaine-laffaille-dimension-amplitude](#fontaine-laffaille-dimension-amplitude), [PA.4/fontaine-laffaille-full-support](#fontaine-laffaille-full-support), [PA.4/ordinary-support-at-lifting-point](#ordinary-support-at-lifting-point), [PA.3/arithmetic-component-dimension-input](#arithmetic-component-dimension-input), [PA.3/arithmetic-derived-support-contract](#arithmetic-derived-support-contract).
 
 ### DeformationAndDerivedPatchingAlgebra:P7
 
 Export splitting of idempotents in D(O), finite-perfect dual/tensor/derived-reduction compatibilities, and compatible perfect inverse-limit reconstruction (KT17 Lemma 2.13) for the Λ₁,c systems. Existing complete-flat-minimal-model is imported, not reproved.
 
-**Needed by:** [PA.0/equivariant-retract](#equivariant-retract), [PA.4/ordinary-hida-complex](#ordinary-hida-complex), [PA.4/ordinary-taylor-wiles-levels](#ordinary-taylor-wiles-levels), [PA.4/fontaine-laffaille-patching-verification](#fontaine-laffaille-patching-verification), [PA.4/ordinary-patching-verification](#ordinary-patching-verification).
-
-### PotentialAutomorphyInfrastructurePartII:PL.0
-
-Extend the single iota-ordinary definition owner to regular algebraic cuspidal GL_n representations without a polarization restriction, with Geraghty’s exact weight-normalized unit-eigenvalue definition, its soluble base-change Lemma 5.7 and twisted-Steinberg valuation criterion (Qian items 134–135). The polarized source of the existing PL.0/iota-ordinary node is a near miss for ACC/Qian. Ordinary automorphy of residual or p-adic rho means an actual iota-ordinary automorphic lift, not a local ordinary flag. Provide the auxiliary CM extensions and characters already owned in PL.0 with the precise prescribed-completion/splitting inputs. Supply the rank-one Hecke-character/class-field branch of ordinary local-global compatibility and lifting; the CTG weight construction has n≥2 and cannot prove the n=1 branch. In the Qian Lemma 4.3 transport, matching Frobenius polynomials initially identifies only the semisimplified member; upgrade to the original representation only with the proved absolute irreducibility hypothesis. Record the corrected +jλτ valuation criterion and the residual irreducibility/genericity conditions for Remark 4.4; its global deduction is not an all-local ordinarity theorem.
-
-**Needed by:** [PA.2/ordinary-automorphic-galois-flag](#ordinary-automorphic-galois-flag), [PA.4/ordinary-automorphy-lifting](#ordinary-automorphy-lifting), [PA.4/fontaine-laffaille-lifting-descent](#fontaine-laffaille-lifting-descent), [PA.4/ordinary-lifting-descent](#ordinary-lifting-descent), [PA.5/fontaine-laffaille-base-change-fields](#fontaine-laffaille-base-change-fields), [PA.5/ordinary-base-change-fields](#ordinary-base-change-fields), [PA.2/ordinary-local-global](#ordinary-local-global), [PA.2/all-degree-ordinary-characteristic-data](#all-degree-ordinary-characteristic-data), [PA.4/fontaine-laffaille-automorphy-lifting](#fontaine-laffaille-automorphy-lifting).
-
-### ModularityAndLanglandsExtensions:ML.1
-
-Provide unpolarized soluble automorphic base change/descent for regular algebraic cuspidal GL_n with residual absolute irreducibility, ordinary base-change compatibility and the rational local comparison needed to retain unramified level (ACC Lemma 6.5.13 and §§6.5.12,6.6.10). This is a class-field/base-change supplier, not the final ML.2 potential-automorphy assembly.
-
-**Needed by:** [PA.4/fontaine-laffaille-lifting-descent](#fontaine-laffaille-lifting-descent), [PA.4/ordinary-lifting-descent](#ordinary-lifting-descent), [PA.4/fontaine-laffaille-automorphy-lifting](#fontaine-laffaille-automorphy-lifting), [PA.4/ordinary-automorphy-lifting](#ordinary-automorphy-lifting).
+**Needed by:** [PA.0/equivariant-retract](#equivariant-retract), [PA.4/fontaine-laffaille-patching-verification](#fontaine-laffaille-patching-verification), [PA.3/ordinary-hida-complex](#ordinary-hida-complex), [PA.4/ordinary-taylor-wiles-levels](#ordinary-taylor-wiles-levels), [PA.4/ordinary-patching-verification](#ordinary-patching-verification).
 
 ### tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory
 
-Import general roots, Weyl groups, parabolics and Levi decompositions; PA.1 only adds the explicit Siegel shuffles and arithmetic length calculations. Integral highest-weight modules remain the separately recorded proposed RG2.6 gap.
+Import general roots, Weyl groups, parabolics and Levi decompositions; PA.1 only adds the explicit Siegel shuffles and arithmetic length calculations. Integral highest-weight modules remain the separately recorded ReductiveGroupsIntegralRepresentationsPartII gap.
 
 **Needed by:** [PA.1/kostant-shuffles](#kostant-shuffles), [PA.1/integral-kostant-decomposition](#integral-kostant-decomposition), [PA.2/relative-bruhat-cells](#relative-bruhat-cells).
 
 ### tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ
 
-Import the pinned split integral group schemes underlying coefficient lattices; the induced/Weyl/dual-Weyl theory extending them has sole proposed owner RG2.6 and is an explicit gap, not a claimed result of this layer.
+Import the pinned split integral group schemes underlying coefficient lattices; the induced/Weyl/dual-Weyl theory extending them belongs to the accepted Part II ReductiveGroupsIntegralRepresentationsPartII (no stage yet) and is an explicit gap, not a claimed result of this layer.
 
 **Needed by:** [PA.0/siegel-coefficient-retract](#siegel-coefficient-retract), [PA.1/integral-kostant-decomposition](#integral-kostant-decomposition), [PA.2/lowest-weight-character](#lowest-weight-character).
 
+### IntegralHeckeAndGaloisDeterminants:IHG.0
+
+Export the determinant kernel of Chenevier §1.17 and Lemma 1.18(iii): for any coefficient homomorphism A → B, the image of ker D lies in ker D_B. Construct B ⊗_A (A[G]/ker D) ↠ B[G]/ker D_B. Do not require the coefficient homomorphism to be surjective or flat; distinguish this inclusion from flat-base-change equality.
+
+**Needed by:** [PA.1/nilpotent-fontaine-laffaille-transfer](#nilpotent-fontaine-laffaille-transfer).
+
+### IntegralHeckeAndGaloisDeterminants:IHG.1
+
+For a finite Artinian local coefficient algebra B and a split representation ρ ⊕ ρ′ with absolutely irreducible non-isomorphic residual summands, prove the joint image is M_n(B) × M_n(B) (Burnside/Nakayama), and that the product matrix determinant is faithful. Deduce B[G]/ker det(ρ ⊕ ρ′) ≅ M_n(B) × M_n(B). Chenevier Theorem 2.22 supplies multiplicity-free GMA structure, but GMA structure alone does not imply a product. Include the rank-n column quotient and compatibility with restriction.
+
+**Needed by:** [PA.1/nilpotent-fontaine-laffaille-transfer](#nilpotent-fontaine-laffaille-transfer).
+
+### ArithmeticLocallySymmetricSpaces:ALS.5:finite-level-duality
+
+Export Hecke-adjoint finite-level Poincaré–Lefschetz/Verdier duality with the actual orientation local system, algebraic coefficient dual/twist and complementary degrees d−1−q. Verify non-neat stabilizer hypotheses rather than applying manifold duality to every quotient. Supply the determinant-component pairing and exterior-product compatibility used in ACC Corollary 4.4.8; this early prefix does not require Matsushima comparison.
+
+**Needed by:** [PA.1/degree-reflection-duality](#degree-reflection-duality).
+
+### AutomorphicGaloisRepresentationsPartII:AG2.2
+
+Supply the characteristic-zero degree-2n Galois representation attached to the cohomological unitary constituent, with the exact split-place Hecke polynomial and algebraic twists in ACC §2.3.3. Preserve the restrictions of the geometric construction; use AG2.3 to remove auxiliary regularity restrictions in the application, not an unsupported unrestricted geometric realization.
+
+**Needed by:** [PA.1/middle-range-fontaine-laffaille](#middle-range-fontaine-laffaille).
+
+### AutomorphicGaloisRepresentationsPartII:AG2.3
+
+Remove the auxiliary geometric/Shin-regularity restrictions in the characteristic-zero unitary representation needed by ACC Proposition 4.4.6, through the owner’s interpolation and descent construction. Retain the coefficient ring and semisimplification conventions; this is not Taylor–Wiles patching.
+
+**Needed by:** [PA.1/middle-range-fontaine-laffaille](#middle-range-fontaine-laffaille).
+
+### AutomorphicGaloisRepresentationsPartII:AG2.6
+
+For the polarized degree-2n unitary representation supplied by AG2.2/AG2.3 at hyperspecial unramified p places, prove crystallinity and the precise labelled HT multiset used in ACC Proposition 4.4.6. Transfer to the specified Fontaine–Laffaille interval using R07.3. Do not assume crystalline local–global compatibility for the nonselfdual rank-n representation whose comparison PA.1 is proving.
+
+**Needed by:** [PA.1/middle-range-fontaine-laffaille](#middle-range-fontaine-laffaille).
+
+### PotentialModularityAndCompatibleSystems:R24.5/character-system
+
+Supply the compatible-system realization and crystalline normalization of an algebraic Hecke character once the global character has been constructed (AG2.0/prescribed-crystalline-twisting-character constructs the ACC Theorem 4.5.1 twist), and the converse that a finitely ramified de Rham l-adic character is the realization of an algebraic Hecke character, used for the rank-one branches of the ordinary local–global compatibility and lifting theorems.
+
+**Needed by:** [PA.1/fontaine-laffaille-local-global](#fontaine-laffaille-local-global), [PA.2/all-degree-ordinary-characteristic-data](#all-degree-ordinary-characteristic-data), [PA.5/rank-two-reducibility-dichotomy](#rank-two-reducibility-dichotomy), [PA.5/rank-two-system-trichotomy](#rank-two-system-trichotomy), [PA.4/fontaine-laffaille-automorphy-lifting](#fontaine-laffaille-automorphy-lifting), [PA.4/ordinary-automorphy-lifting](#ordinary-automorphy-lifting), [PA.2/ordinary-local-global](#ordinary-local-global).
+
+### tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory
+
+Supply the type-A1 algebraic-group specialization used in ACC Lemma 7.1.3: endomorphisms and product automorphisms of adjoint PGL₂, and connected algebraic subdirect-product classification. The subsequent nonclosed-field forms/unique quasi-split theorem is a ReductiveGroups Part II extension gap, not a consequence of a finite abstract Goursat theorem or of the integral dual-group stage RG2.5.
+
+**Needed by:** [PA.5/rank-two-adjoint-monodromy](#rank-two-adjoint-monodromy).
+
+### ReductiveGroupsPartII:RG2.0a
+
+Specialize affine Weil restriction to PGL₂ along finite separable local-field extensions: prove the algebraic-closure product decomposition indexed by embeddings and its Galois permutation action. This supplies ACC Lemma 7.1.3 fact (6), not by itself the classification of unramified forms in facts (7)–(8).
+
+**Needed by:** [PA.5/rank-two-adjoint-monodromy](#rank-two-adjoint-monodromy).
+
+### EndoscopicTransferAndUnitaryTraceComparison:ET.7a
+
+Arthur–Clozel cyclic base change and descent for GL_n over number fields ([AC89, Ch. 3, Theorems 4.2 and 5.1]) for E/F cyclic of prime degree with generator σ and nontrivial character η: a cuspidal π with π ⊗ (η∘Art_F^{-1}) ≇ π has a cuspidal base change Π, regular algebraic of weight λ_E when π is regular algebraic of weight λ; a cuspidal Π with Π^σ ≅ Π descends to a cuspidal π. Include that Π_w is the Arthur–Clozel local base change of π_v at every finite place and its compatibility with the local Langlands correspondence (Harris–Taylor Lemma VII.2.6), as ACC Proposition 6.5.13 needs (source issue E60). The soluble iteration and the Galois-side descent are PA.5/soluble-base-change-and-descent. The confirmed fix of RT-AREA-langlands-1/1 proposes a stage ET.4b for exactly this cyclic base change with local–global compatibility at every place; once it exists this request moves there.
+
+**Needed by:** [PA.5/soluble-base-change-and-descent](#soluble-base-change-and-descent).
+
+### tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev
+
+Dirichlet-density Chebotarev for a finite Galois or profinite extension unramified outside a finite set, in the form used to identify two continuous semisimple l-adic representations of G_E unramified almost everywhere from equality of Frobenius characteristic polynomials on a density-one set of places (Brauer–Nesbitt is the Mathlib/Tau Ceti side). ACC Proposition 6.5.13 uses it to identify r_ι(Π) with r_ι(π)|G_E.
+
+**Needed by:** [PA.5/soluble-base-change-and-descent](#soluble-base-change-and-descent), [PA.5/symmetric-power-adjoint-genericity](#symmetric-power-adjoint-genericity).
+
 ## Gaps and closure obligations
 
-### Single integral highest-weight owner RG2.6 requires atlas creation
+### Integral highest-weight owner ReductiveGroupsIntegralRepresentationsPartII has no stage yet
 
-Propose ReductiveGroupsPartII:RG2.6, extending the existing pinned group-scheme roadmap, as the sole owner of integral induced/Weyl/dual-Weyl modules, Kempf vanishing, Donkin criterion, tensor stability and O(G) good filtrations. RG2.6 is not currently an atlas stage, so it is not forged as a resolvable prerequisite. PA.1 owns only its GL_n linkage/alcove bounds and Kostant application. Until the stage/node exists these four declarations have this explicit prerequisite gap. LP3 must import the same owner and retain only its parameter-scheme assertions.
+The confirmed fix of RT-AREA-geomlanglands/24 names the already accepted Part II ReductiveGroupsIntegralRepresentationsPartII (PAPER-KISIN-PAPPAS-18 route 5, PAPER-KISIN-PAPPAS-ZHOU-26 route 3; its design job is pending) as the sole owner of integral induced/Weyl/dual-Weyl modules over ℤ and over fields, Kempf vanishing, Donkin’s criterion, Donkin–Mathieu tensor stability and the Koppinen/Donkin good filtration of O(G); no new RG2.6 or other Part II is to be created. That roadmap has no stage ids yet, so no prerequisite is forged. PA.1 owns only its GL_n linkage/alcove bounds and the Kostant application; LP3 keeps only its parameter-scheme assertions. Until the design assigns a stage these four declarations carry this explicit prerequisite gap.
 
 **Affected declarations:** [PA.1/integral-kostant-decomposition](#integral-kostant-decomposition), [PA.0/siegel-coefficient-retract](#siegel-coefficient-retract), [PA.2/lowest-weight-character](#lowest-weight-character), [PA.2/ordinary-ctg-weight-choice](#ordinary-ctg-weight-choice).
 
-### Global finite character with prescribed triviality and generic ratios
-
-The class-field approximation/Teichmüller character of ACC Corollary 4.4.8 must be supplied with ψ trivial at S and the forbidden ratios excluded at a split witness prime. PL.0 auxiliary-characters has different algebraic local data; its statement was not silently treated as this exact finite-character result. The missing character construction is a ClassFieldTheory Part II extension, not an assumption that every arbitrary list of local values globalizes.
-
-**Affected declarations:** [PA.1/genericity-making-character-twist](#genericity-making-character-twist).
-
 ### Arithmetic signatures unavailable at the pinned baseline
 
-The pinned libraries do not yet supply the owner-qualified arithmetic spaces, algebraic coefficient lattices, smooth monoid categories, completed Hecke algebra, compatible-system carrier and automorphic representation/reciprocity interfaces needed to type these definitions. The suggested file records their exact names, statements, APIs and test obligations in comments and omits their dependent signatures, as PROTOCOL §13 requires when conditions cannot be stated. It does not use proposition-valued stand-ins or claim those comments elaborate. Supplier requests must be fulfilled before the full signatures can be added. The oddness prototype is its determinant core on actual supplied matrices; the full member/real-place indices require the arithmetic owner. The Hida twist prototype types only ν and its three weight computations; B₁ and B require the supplied perfect complexes. CTG’s cuspidal-exclusion and the lowest-weight lattice projection APIs also require the actual owner interfaces. All arithmetic theorem signatures depending on those carriers are also omitted with their complete mathematical obligations; only the finite shifted-partition theorem has a typed signature. The R24.5 supplier also needs to reconcile its all-member-Hodge carrier with its weakening node (the AG2.6 packet records this contradiction); operation signatures for weakened systems cannot be assumed to follow from its current weak-system node. Integral lattice and local WD exports remain explicit R24.5 requests.
+The pinned libraries do not yet supply the owner-qualified arithmetic spaces, algebraic coefficient lattices, smooth monoid categories, completed Hecke algebra, compatible-system carrier and automorphic representation/reciprocity interfaces needed to type these definitions. The suggested file records their exact names, statements, APIs and test obligations in comments and omits their dependent signatures, as PROTOCOL §13 requires when conditions cannot be stated. It does not use proposition-valued stand-ins or claim those comments elaborate. Supplier requests must be fulfilled before the full signatures can be added. Six further definitions have typed local or numerical cores (IwahoriLevelTower, TaylorWilesArithmeticLevels, ArithmeticOrdinarySummand, RelativeBruhatCells, OrdinaryGaloisCharacters, BruhatOrientationCharacter); their global arithmetic signatures remain omitted. The oddness prototype is its determinant core on actual supplied matrices; the full member/real-place indices require the arithmetic owner. The Hida twist prototype types only ν and its three weight computations; B₁ and B require the supplied perfect complexes. CTG’s cuspidal-exclusion and the lowest-weight lattice projection APIs also require the actual owner interfaces. All arithmetic theorem signatures depending on those carriers are also omitted with their complete mathematical obligations; only the finite shifted-partition theorem has a typed signature. The R24.5 supplier also needs to reconcile its all-member-Hodge carrier with its weakening node (the AG2.6 packet records this contradiction); operation signatures for weakened systems cannot be assumed to follow from its current weak-system node. Integral lattice and local WD exports remain explicit R24.5 requests.
 
-**Affected declarations:** [PA.2/iwahori-level-tower](#iwahori-level-tower), [PA.2/arithmetic-ordinary-summand](#arithmetic-ordinary-summand), [PA.2/ordinary-galois-characters](#ordinary-galois-characters), [PA.2/local-ordinary-parts](#local-ordinary-parts), [PA.2/completed-arithmetic-cohomology](#completed-arithmetic-cohomology), [PA.2/completed-ordinary-cohomology](#completed-ordinary-cohomology), [PA.2/unitary-ordinary-tower](#unitary-ordinary-tower), [PA.2/unitary-completed-boundary](#unitary-completed-boundary), [PA.2/relative-bruhat-cells](#relative-bruhat-cells), [PA.2/bruhat-cell-induction](#bruhat-cell-induction), [PA.2/bruhat-unipotent-invariants](#bruhat-unipotent-invariants), [PA.2/bruhat-orientation-character](#bruhat-orientation-character), [PA.2/determinant-torus](#determinant-torus), [PA.4/taylor-wiles-arithmetic-levels](#taylor-wiles-arithmetic-levels), [PA.4/taylor-wiles-selected-ideals](#taylor-wiles-selected-ideals), [PA.4/ordinary-hida-complex](#ordinary-hida-complex), [PA.4/ordinary-taylor-wiles-levels](#ordinary-taylor-wiles-levels), [PA.5/weak-automorphy-prime-to-set](#weak-automorphy-prime-to-set), [PA.5/rank-two-odd](#rank-two-odd), [PA.4/weight-independent-hida-twist](#weight-independent-hida-twist), [PA.1/ctg-weight](#ctg-weight), [PA.2/lowest-weight-character](#lowest-weight-character).
+**Affected declarations:** [PA.2/iwahori-level-tower](#iwahori-level-tower), [PA.2/arithmetic-ordinary-summand](#arithmetic-ordinary-summand), [PA.2/ordinary-galois-characters](#ordinary-galois-characters), [PA.2/local-ordinary-parts](#local-ordinary-parts), [PA.2/completed-arithmetic-cohomology](#completed-arithmetic-cohomology), [PA.2/completed-ordinary-cohomology](#completed-ordinary-cohomology), [PA.2/unitary-ordinary-tower](#unitary-ordinary-tower), [PA.2/unitary-completed-boundary](#unitary-completed-boundary), [PA.2/relative-bruhat-cells](#relative-bruhat-cells), [PA.2/bruhat-cell-induction](#bruhat-cell-induction), [PA.2/bruhat-unipotent-invariants](#bruhat-unipotent-invariants), [PA.2/bruhat-orientation-character](#bruhat-orientation-character), [PA.2/determinant-torus](#determinant-torus), [PA.4/taylor-wiles-arithmetic-levels](#taylor-wiles-arithmetic-levels), [PA.4/taylor-wiles-selected-ideals](#taylor-wiles-selected-ideals), [PA.3/ordinary-hida-complex](#ordinary-hida-complex), [PA.4/ordinary-taylor-wiles-levels](#ordinary-taylor-wiles-levels), [PA.5/weak-automorphy-prime-to-set](#weak-automorphy-prime-to-set), [PA.5/rank-two-odd](#rank-two-odd), [PA.4/weight-independent-hida-twist](#weight-independent-hida-twist), [PA.1/ctg-weight](#ctg-weight), [PA.2/lowest-weight-character](#lowest-weight-character), [PA.2/iota-ordinary-automorphic-representation](#iota-ordinary-automorphic-representation), [PA.2/ordinarily-automorphic-representation](#ordinarily-automorphic-representation).
 
-### Geraghty primary-source normalization check
+### Geraghty’s Lemmas 5.2 and 5.7 not read in a primary copy
 
-ACC and Qian’s cited statements and uses were read, but a freely accessible author/publisher copy of Geraghty 2019 Definitions 5.3/5.5 and Lemmas 5.6/5.7 was not obtained. PL.0 must verify the exact normalization and general-weight Steinberg valuation sign against that primary source. The present packet records Qian’s positive +jc_τ valuation correction rather than declaring the weight-zero lemma sufficient.
+No freely accessible copy of Geraghty, Math. Ann. 373 (2019), or of his 2010 thesis was obtained. The ι-ordinary definition, its weight normalization and its uniformizer independence are taken from BLGGT §2.1 (arXiv 1010.2561, read), which restates Geraghty’s definition for regular algebraic automorphic representations without polarization. Two primary statements remain unread: Lemma 5.2 (the U^{(j)} eigenvalue on the Iwahori-fixed line of a twisted Steinberg representation), used by Qian’s general-weight criterion, and Lemma 5.7 (ι-ordinarity under soluble base change and descent with nonsplit p-adic places), cited by ACC §6.6.10. The split case of the latter is proved here from the local nature of the definition. Qian’s corrected +jc_τ valuation sign (E74) is used.
 
-**Affected declarations:** [PA.2/ordinary-automorphic-galois-flag](#ordinary-automorphic-galois-flag), [PA.4/ordinary-automorphy-lifting](#ordinary-automorphy-lifting), [PA.5/ordinary-base-change-fields](#ordinary-base-change-fields), [PA.4/ordinary-lifting-descent](#ordinary-lifting-descent).
+**Affected declarations:** [PA.2/twisted-steinberg-ordinarity-criterion](#twisted-steinberg-ordinarity-criterion), [PA.2/iota-ordinary-soluble-base-change](#iota-ordinary-soluble-base-change).
 
 ### Extremely weak monodromy and rank-one source leaves
 
-ACC proofs were read, but the Henniart/Serre character-family theorem and the precise Larsen–Pink/Larsen maximality theorem in their cited editions were not independently read. These are exact R24.5:operations requests; existing weak rational-system nodes cannot discharge the extremely weak rank-two hypotheses.
+ACC proofs were read, but Henniart’s theorem (E-rational abelian representations are locally algebraic), Serre’s rank-one classification in the extremely weak setting and the Larsen–Pink unramified-monodromy and Larsen density-one maximality theorems were not independently read. The nearest supplier nodes, PotentialModularityAndCompatibleSystems:R24.5/larsen-good-primes and R24.5/rank-two-reducibility-independent-of-lambda, are stated for rational weakly compatible systems with Hodge–Tate members (the latter over ℚ only); R24.5/character-system needs de Rham characters. The R24.5:operations request asks for their generalization to arbitrary F and extremely weak data.
 
-**Affected declarations:** [PA.5/rank-two-reducibility-dichotomy](#rank-two-reducibility-dichotomy), [PA.5/rank-two-adjoint-monodromy](#rank-two-adjoint-monodromy), [PA.5/rank-two-large-residual-image](#rank-two-large-residual-image).
+**Affected declarations:** [PA.5/rank-two-reducibility-dichotomy](#rank-two-reducibility-dichotomy), [PA.5/rank-two-large-residual-image](#rank-two-large-residual-image).
 
 ### Uniform arithmetic tower freeness and reconstruction
 
 ALS and P7 imports supply the generic finite-model and minimal-complex technology. The arithmetic free Δ_N-cell model, common bounds on minimal ranks in each degree and compatible derived c-limit reconstruction need the source-qualified supplier extensions requested above. No assertion of freeness is made for an arbitrary non-neat groupoid or arbitrary complete ring.
 
-**Affected declarations:** [PA.0/integral-model-comparison](#integral-model-comparison), [PA.4/fontaine-laffaille-patching-verification](#fontaine-laffaille-patching-verification), [PA.4/ordinary-hida-complex](#ordinary-hida-complex), [PA.4/ordinary-patching-verification](#ordinary-patching-verification).
-
-### Rational unpolarized base-change and local compatibility source leaves
-
-The exact ACC and Bianchi deduction was read, but the underlying unpolarized soluble descent theorem and Varma 2024 Theorem 1 were not independently read. ML.1 and AG2.5 must supply these statements; polarized PL.0 descent and equality only away from finitely many places are insufficient.
-
-**Affected declarations:** [PA.4/fontaine-laffaille-lifting-descent](#fontaine-laffaille-lifting-descent), [PA.4/ordinary-lifting-descent](#ordinary-lifting-descent), [PA.5/pure-weak-automorphy-upgrade](#pure-weak-automorphy-upgrade).
-
-### Rank-two projective-group classification inputs
-
-ACC’s proofs use the classification of finite PGL₂ subgroups containing SL₂(F_l), simplicity/perfection of PSL₂(F_l), its automorphism group and eigenvalue-ratio choices. General Goursat is a checked baseline import. The remaining finite-group representation statements need an owner-qualified node from the finite-group theory development; their cited DDT97/Dieudonné editions were not independently read. The arithmetic applications here retain them as explicit proof leaves.
-
-**Affected declarations:** [PA.5/symmetric-power-adjoint-genericity](#symmetric-power-adjoint-genericity), [PA.5/qian-symmetric-power-avoidance](#qian-symmetric-power-avoidance), [PA.5/rank-two-adjoint-monodromy](#rank-two-adjoint-monodromy).
+**Affected declarations:** [PA.0/integral-model-comparison](#integral-model-comparison), [PA.4/fontaine-laffaille-patching-verification](#fontaine-laffaille-patching-verification), [PA.3/ordinary-hida-complex](#ordinary-hida-complex), [PA.4/ordinary-patching-verification](#ordinary-patching-verification).
 
 ### Ordinary Satake-image polynomial-law transfer
 
@@ -3525,13 +3750,19 @@ ACC Theorem 5.4.3 proves only a map onto the Satake image, not onto the whole GL
 
 **Affected declarations:** [PA.2/all-degree-ordinary-characteristic-data](#all-degree-ordinary-characteristic-data), [PA.2/ordinary-local-global](#ordinary-local-global).
 
+### Unramified forms of products of adjoint PGL₂
+
+ACC Lemma 7.1.3 facts (1)–(5) hold over the algebraic closure and fact (6) is the RG2.0a Weil restriction computation; facts (7)–(8) need Galois descent of forms (Aut(PGL₂^r) = PGL₂^r ⋊ S_r), the classification of forms by H¹(Q_l, Aut PGL₂^r), and the statement that a form which is quasi-split and split over an unramified extension is ∏_i Res_{N_i/Q_l} PGL₂ with N_i/Q_l unramified. No atlas layer owns the Galois cohomology and forms of reductive groups: the upstream ReductiveGroups layers 7–9 give structure, split classification and pinned automorphisms, AdelicAlgebraicGroups AA.4 has torsors and Kneser’s theorem for simply connected groups only, and the PELModuli packet records the same missing owner for its twisting classification. EndoscopicTransferAndUnitaryTraceComparison ET.0 transports conjugacy under inner twists but does not classify forms. The accepted candidate ReductiveGroupsArithmeticPartII (arithmetic forms and cohomological transfer) is the natural owner; the restructure proposal asks that its brief include this classification. Until it exists the closure of the three consuming declarations rests on this gap.
+
+**Affected declarations:** [PA.5/rank-two-adjoint-monodromy](#rank-two-adjoint-monodromy), [PA.5/rank-two-large-residual-image](#rank-two-large-residual-image), [PA.5/corrected-rank-two-large-image](#corrected-rank-two-large-image).
+
 ## Source corrections used by this blueprint
 
 Each correction below has its full printed fragment, reason and search provenance in `sourceIssues` in the packet. The short corrections here identify the exact mathematical change. Corrections attributed to the reviewed extractions retain that attribution; their 23 September 2026 erratum searches are not represented as new searches by this worker. Statements above use the corrected forms. The dual-complex degree distinction is a normalization check, not a newly claimed error in the paper’s abstract q₀ notation.
 
 - **PotentialAutomorphyInfrastructure/E1** (error, affects a stated result): BCGP author PDF §9.1 Lemma 9.1.10(3), pp. 251–252. For strongly irreducible systems, without regularity, the normal-closure image contains a conjugate of SL₂(F_l), not necessarily SL₂(O_M/λ). Recorded in PAPER-BOXER-CALEGARI-GEE-PILLONI-21/E136 and the present issue; no published erratum was established.
 
-- **PotentialAutomorphyInfrastructure/E2** (error, affects the proof): Qian NSF copy, proof of Lemma 2.6(2), ACC Lemma 7.1.6(3) application. Use intermediate fields only to establish the adjoint image over the normal closure, then apply ACC Lemma 7.1.6(3) to the original F,F₁ with m=n−1. Recorded in PAPER-QIAN-23/E22; no independently verified published correction.
+- **PotentialAutomorphyInfrastructure/E2** (error, affects the proof): Qian NSF copy, proof of Lemma 2.6(2), ACC Lemma 7.1.6(3) application; finding scoped to the NSF Springer online-first copy; journal pages are a concordance, not printed in that PDF; physical NSF PDF pages 13–14.. Use intermediate fields only to establish the adjoint image over the normal closure, then apply ACC Lemma 7.1.6(3) to the original F,F₁ with m=n−1. Recorded in PAPER-QIAN-23/E22; no independently verified published correction.
 
 - **PotentialAutomorphyInfrastructure/E3** (misprint, affects nothing): ACC published Proposition 6.4.17, pp. 1060–1061. The common reduced endomorphism image lives in D(S∞/varpi). Recorded in the supplied ACC extraction; no separate published erratum established.
 
@@ -3639,7 +3870,7 @@ Each correction below has its full printed fragment, reason and search provenanc
 
 - **PotentialAutomorphyInfrastructure/E55** (misprint, affects nothing): §6.5.1, proof of Theorem 6.5.4, p. 1068 (also in arXiv v2, which reads 'Proposition 6.2.31', a lemma there too). Proposition 6.2.33(3) when N ≥ 1 (equivalently, Proposition 6.2.25 combined with Lemma 6.2.32) Source record: PAPER-ALLEN-ETAL-23/E85. Recorded in the reviewed ACC extraction; its erratum searches are dated 23 September 2026. No newer published correction was established in this run.
 
-- **PotentialAutomorphyInfrastructure/E56** (misprint, affects nothing): §6.5.1, proof of Theorem 6.5.4, verification of the patching set-up, p. 1069 (also in arXiv v2). End_{D(k[Δ_N])}(𝒞_N ⊗^L_{𝒪[Δ_N]} k[Δ_N]) = End_{D(k[Δ_N])}(𝒞′_N ⊗^L_{𝒪[Δ_N]} k[Δ_N]); 𝒪[Δ_N]; T′_0/I′_0 Source record: PAPER-ALLEN-ETAL-23/E86. Recorded in the reviewed ACC extraction; its erratum searches are dated 23 September 2026. No newer published correction was established in this run.
+- **PotentialAutomorphyInfrastructure/E56** (gap, affects the proof): §6.5.1, proof of Theorem 6.5.4, verification of the patching set-up, p. 1069 (also in arXiv v2). End_{D(k[Δ_N])}(𝒞_N ⊗^L_{𝒪[Δ_N]} k[Δ_N]) = End_{D(k[Δ_N])}(𝒞′_N ⊗^L_{𝒪[Δ_N]} k[Δ_N]); 𝒪[Δ_N]; T′_0/I′_0 Source record: PAPER-ALLEN-ETAL-23/E86. Recorded in the reviewed ACC extraction; its erratum searches are dated 23 September 2026. No newer published correction was established in this run.
 
 - **PotentialAutomorphyInfrastructure/E57** (misprint, affects nothing): §6.5.1, proof of Theorem 6.5.4, list of patched outputs, pp. 1069–1070 (also in arXiv v2). T_∞ and T′_∞ have the same image T̄_∞ in End_{D(S_∞/ϖ)}(𝒞_∞ ⊗^L_{S_∞} S_∞/ϖ) = End_{D(S_∞/ϖ)}(𝒞′_∞ ⊗^L_{S_∞} S_∞/ϖ); H^*(𝒞_∞ ⊗^L_{S_∞} S_∞/ϖ) Source record: PAPER-ALLEN-ETAL-23/E87. Recorded in the reviewed ACC extraction; its erratum searches are dated 23 September 2026. No newer published correction was established in this run.
 
@@ -3665,11 +3896,11 @@ Each correction below has its full printed fragment, reason and search provenanc
 
 - **PotentialAutomorphyInfrastructure/E68** (misprint, affects nothing): §7.1, proof of Lemma 7.1.6(5), p. 1091 (also in arXiv v2). [F̃ ∩ F̄^{ker ad r̄} : F] ≤ [F̃ : F] < l Source record: PAPER-ALLEN-ETAL-23/E99. Recorded in the reviewed ACC extraction; its erratum searches are dated 23 September 2026. No newer published correction was established in this run.
 
-- **PotentialAutomorphyInfrastructure/E69** (gap, affects a stated result): Theorem 1.4, p. 1241, and its proof in the final paragraph of §4 (after Remark 4.4), p. 1274. The cited result is ACC+ Theorem 6.1.2(4): Ann. of Math. 197 (2023), p. 1030, and arXiv:1812.09999v1, p. 109. The v1 numbering (Definition 6.2.28) is the one Qian cites.. Add the hypothesis l > n to Theorem 1.4. This is the second sentence of condition (4) of ACC+ Theorem 6.1.2; the fourth hypothesis of Theorem 1.4 copies only the first sentence. With l > n added, the proof on p. 1274 works as written. For odd primes l < n with l ∤ n, the paper does not prove Theorem 1.4 (the case l | n is already excluded by the enormity hypothesis). Proving it there would need an ordinary automorphy lifting theorem for such l. Neither ACC+ Theorem 6.1.2 nor its subsequent adequate-image version (Miagkov–Thorne, arXiv:2203.04520v2, Theorem 1.3) provides one: both require p > n. Source record: PAPER-QIAN-23/E2. Recorded in the reviewed Qian extraction; no newer published correction independently established here.
+- **PotentialAutomorphyInfrastructure/E69** (gap, affects a stated result): Theorem 1.4, p. 1241, and its proof in the final paragraph of §4 (after Remark 4.4), p. 1274. The cited result is ACC+ Theorem 6.1.2(4): Ann. of Math. 197 (2023), p. 1030, and arXiv:1812.09999v1, p. 109. The v1 numbering (Definition 6.2.28) is the one Qian cites.; finding scoped to the NSF Springer online-first copy; journal pages are a concordance, not printed in that PDF; physical NSF PDF pages 3 and 36.. Add the hypothesis l > n to Theorem 1.4. This is the second sentence of condition (4) of ACC+ Theorem 6.1.2; the fourth hypothesis of Theorem 1.4 copies only the first sentence. With l > n added, the proof on p. 1274 works as written. For odd primes l < n with l ∤ n, the paper does not prove Theorem 1.4 (the case l | n is already excluded by the enormity hypothesis). Proving it there would need an ordinary automorphy lifting theorem for such l. Neither ACC+ Theorem 6.1.2 nor its subsequent adequate-image version (Miagkov–Thorne, arXiv:2203.04520v2, Theorem 1.3) provides one: both require p > n. Source record: PAPER-QIAN-23/E2. Recorded in the reviewed Qian extraction; no newer published correction independently established here.
 
-- **PotentialAutomorphyInfrastructure/E70** (misprint, affects nothing): Proof of Theorem 1.4, the final paragraph of §4 (after Remark 4.4), p. 1274. The same sentence appears in arXiv v1, p. 26, where it cites Lemma 7.1.6 of the arXiv version of ACC+; the published version cites it as Lemma 7.1.7.. Replace F′ by K = L′LF^{suff}(ζ_N). The sentence should read: "the Galois closure H of \overline{F}^{\ker\bar r}(ζ_l) over ℚ is linearly disjoint over ℚ from K = L′LF^{suff}(ζ_N)". K is Galois over ℚ, being the compositum of the Galois extensions L′, L, F^{suff} and ℚ(ζ_N). The displayed chain shows K ∩ F^{avoid} = ℚ, so K is linearly disjoint over ℚ from F^{avoid}, which contains H. Since F′ = FK, ACC+ Lemma 7.1.7 with E = K then shows that \bar r|_{G_{F′}} is absolutely irreducible and decomposed generic. Source record: PAPER-QIAN-23/E3. Recorded in the reviewed Qian extraction; no newer published correction independently established here.
+- **PotentialAutomorphyInfrastructure/E70** (misprint, affects nothing): Proof of Theorem 1.4, the final paragraph of §4 (after Remark 4.4), p. 1274. The same sentence appears in arXiv v1, p. 26, where it cites Lemma 7.1.6 of the arXiv version of ACC+; the published version cites it as Lemma 7.1.7.; finding scoped to the NSF Springer online-first copy; journal pages are a concordance, not printed in that PDF; physical NSF PDF pages 36.. Replace F′ by K = L′LF^{suff}(ζ_N). The sentence should read: "the Galois closure H of \overline{F}^{\ker\bar r}(ζ_l) over ℚ is linearly disjoint over ℚ from K = L′LF^{suff}(ζ_N)". K is Galois over ℚ, being the compositum of the Galois extensions L′, L, F^{suff} and ℚ(ζ_N). The displayed chain shows K ∩ F^{avoid} = ℚ, so K is linearly disjoint over ℚ from F^{avoid}, which contains H. Since F′ = FK, ACC+ Lemma 7.1.7 with E = K then shows that \bar r|_{G_{F′}} is absolutely irreducible and decomposed generic. Source record: PAPER-QIAN-23/E3. Recorded in the reviewed Qian extraction; no newer published correction independently established here.
 
-- **PotentialAutomorphyInfrastructure/E71** (gap, affects the proof): arXiv v1 (arXiv:2104.09761v1): Definition 1.3, p. 2; proof of Theorem 1.1, p. 24 (the step for the auxiliary prime l′ and the last sentence); proof of Theorem 1.4, p. 26. Corrected in the published version: Definition 1.3, p. 1241; proof of Theorem 1.1 and Lemma 4.3, p. 1273; Remark 4.4 and proof of Theorem 1.4, p. 1274. Remark 3.13, p. 1268, gives related context.. Hypothesis (5) of ACC+ Theorem 6.1.2 needs a regular algebraic cuspidal π that is ι-ordinary at every place above the prime, in the sense of Geraghty's Definition 5.3. An automorphic lift that is only ordinary as a Galois representation is not enough. So "ordinarily automorphic" has to be defined on the automorphic side, as in the published Definition 1.3 (p. 1241), and both applications of Theorem 6.1.2 need that input.
+- **PotentialAutomorphyInfrastructure/E71** (gap, affects the proof): Historical claim: Qian arXiv:2104.09761v1, Definition 1.3 on physical PDF p. 2, proof of Theorem 1.1 on p. 24, proof of Theorem 1.4 on p. 26. Repair checked in the NSF Springer online-first publisher copy: Definition 1.3 on PDF p. 3, proof of Theorem 1.1 and Lemma 4.3 on PDF p. 35, Remark 4.4 and proof of Theorem 1.4 on PDF p. 36. Journal pp. 1241, 1273–1274 are only a concordance for the publisher copy.. Hypothesis (5) of ACC+ Theorem 6.1.2 needs a regular algebraic cuspidal π that is ι-ordinary at every place above the prime, in the sense of Geraghty's Definition 5.3. An automorphic lift that is only ordinary as a Galois representation is not enough. So "ordinarily automorphic" has to be defined on the automorphic side, as in the published Definition 1.3 (p. 1241), and both applications of Theorem 6.1.2 need that input.
 
 (i) The auxiliary prime l′. Sym^{n−1} r_{E,l′}|G_{F′} is polarizable and ordinary above l′, because E has good ordinary reduction at l′. Geraghty's Lemma 5.9 then gives ι′-ordinary automorphy (published, p. 1273).
 
@@ -3682,9 +3913,9 @@ Each correction below has its full printed fragment, reason and search provenanc
 
 So V_{λ,t} ⊗ χ_1^{−1} is ι-ordinarily automorphic, and hypothesis (5) holds in the proof of Theorem 1.4. The Galois-side ordinarity taken from the companion preprint (v1 Lemma 3.10(4)) is then no longer needed, and the published version drops it. The conclusions "ordinarily automorphic" in the published Theorems 1.1 and 1.4 are to be read as ι-ordinary automorphy in the sense of the revised Definition 1.3. Source record: PAPER-QIAN-23/E13. Recorded in the reviewed Qian extraction; no newer published correction independently established here.
 
-- **PotentialAutomorphyInfrastructure/E72** (misprint, affects nothing): Citations of reference [1] (Allen et al., Potential automorphy over CM fields): Theorem 1.4, p. 1241; proof of Lemma 2.6(1),(2), p. 1251; proof of Proposition 4.1, pp. 1269–1270; last paragraph of the proof of Theorem 1.4, p. 1274; reference [1], p. 1274. Cite [1] in one version and give every location in that version. For the published version, Ann. of Math. 197 (2023), 897–1113 (arXiv:1812.09999): the enormous-image definition is Definition 6.2.29 (p. 1044); Lemmas 7.1.6 and 7.1.7, Definition 4.3.1, Theorems 5.5.1 and 6.1.2, Proposition 7.2.3 and Corollary 7.2.4 keep their numbers; the choice F_1^avoid = Q̄^{ker ∏_i r̄′_i}(ζ_{l′}), with l′ ∉ ℒ and the r̄′_i unramified above ℒ, is at the foot of p. 1099; the first paragraph of the proof of Corollary 7.2.4, with the choice of l and of the imaginary quadratic field L, is on p. 1100; the properties of ψ_m run over pp. 1100–1101; L_2 and L_3 = L_2 Q̄^{ker r̄_{E,l}} are on p. 1101; the application of Proposition 7.2.3 to F^avoid L_3 and the choice F_2^avoid = F_1^avoid L_3 are on p. 1102. Alternatively cite arXiv:1812.09999v2 (2022) explicitly; then Definition 6.2.28 and all lemma numbers are correct, and the page references 180, 181, 182 (both occurrences) and 183 become 205, 206, 206 and 208. If the 2018 arXiv version is meant, the lemma references become Lemma 7.1.5(2), Lemma 7.1.5(3) and Lemma 7.1.6, and pages 206 and 208 become 182 and 183. In every case the entry for [1] should name the version (arXiv identifier or journal) instead of “Cornell University, New York (2018)”. Source record: PAPER-QIAN-23/E16. Recorded in the reviewed Qian extraction; no newer published correction independently established here.
+- **PotentialAutomorphyInfrastructure/E72** (misprint, affects nothing): Citations of reference [1] (Allen et al., Potential automorphy over CM fields): Theorem 1.4, p. 1241; proof of Lemma 2.6(1),(2), p. 1251; proof of Proposition 4.1, pp. 1269–1270; last paragraph of the proof of Theorem 1.4, p. 1274; reference [1], p. 1274; finding scoped to the NSF Springer online-first copy; journal pages are a concordance, not printed in that PDF; physical NSF PDF pages 3, 13, 31–32 and 36.. Cite [1] in one version and give every location in that version. For the published version, Ann. of Math. 197 (2023), 897–1113 (arXiv:1812.09999): the enormous-image definition is Definition 6.2.29 (p. 1044); Lemmas 7.1.6 and 7.1.7, Definition 4.3.1, Theorems 5.5.1 and 6.1.2, Proposition 7.2.3 and Corollary 7.2.4 keep their numbers; the choice F_1^avoid = Q̄^{ker ∏_i r̄′_i}(ζ_{l′}), with l′ ∉ ℒ and the r̄′_i unramified above ℒ, is at the foot of p. 1099; the first paragraph of the proof of Corollary 7.2.4, with the choice of l and of the imaginary quadratic field L, is on p. 1100; the properties of ψ_m run over pp. 1100–1101; L_2 and L_3 = L_2 Q̄^{ker r̄_{E,l}} are on p. 1101; the application of Proposition 7.2.3 to F^avoid L_3 and the choice F_2^avoid = F_1^avoid L_3 are on p. 1102. Alternatively cite arXiv:1812.09999v2 (2022) explicitly; then Definition 6.2.28 and all lemma numbers are correct, and the page references 180, 181, 182 (both occurrences) and 183 become 205, 206, 206 and 208. If the 2018 arXiv version is meant, the lemma references become Lemma 7.1.5(2), Lemma 7.1.5(3) and Lemma 7.1.6, and pages 206 and 208 become 182 and 183. In every case the entry for [1] should name the version (arXiv identifier or journal) instead of “Cornell University, New York (2018)”. Source record: PAPER-QIAN-23/E16. Recorded in the reviewed Qian extraction; no newer published correction independently established here.
 
-- **PotentialAutomorphyInfrastructure/E73** (gap, affects the proof): Proof of Lemma 4.3, first paragraph, p. 1273. Under the hypotheses of Lemma 4.3, the only comparison available is V_{λ′,t}^{ss} ≅ r_{l′,ι′}(π). Here ι′ is chosen so that ι′ (through λ′) and ι (through λ) induce the same complex embedding of ℚ(ζ_N). The comparison follows from the equality of Frobenius characteristic polynomials across the compatible system, together with Chebotarev and Brauer–Nesbitt, because r_{l′,ι′}(π) is semisimple.
+- **PotentialAutomorphyInfrastructure/E73** (gap, affects the proof): Proof of Lemma 4.3, first paragraph, p. 1273; finding scoped to the NSF Springer online-first copy; journal pages are a concordance, not printed in that PDF; physical NSF PDF pages 35.. Under the hypotheses of Lemma 4.3, the only comparison available is V_{λ′,t}^{ss} ≅ r_{l′,ι′}(π). Here ι′ is chosen so that ι′ (through λ′) and ι (through λ) induce the same complex embedding of ℚ(ζ_N). The comparison follows from the equality of Frobenius characteristic polynomials across the compatible system, together with Chebotarev and Brauer–Nesbitt, because r_{l′,ι′}(π) is semisimple.
 
 Replace the sentence by the following argument, which needs no new hypothesis.
 1. By Lemma 3.12 (with v(t) < 0), the Frobenius-semisimplified Weil–Deligne representation of V_{λ′,t}|G_{F′_v} is Sp_n(ψ) for a character ψ of W_{F′_v}. Its Weil-group semisimplification is therefore the segment ψ, ψ|·|, …, ψ|·|^{n−1}.
@@ -3695,11 +3926,11 @@ Replace the sentence by the following argument, which needs no new hypothesis.
 
 Alternatively, at the one place where the lemma is applied, in the proof of Theorem 1.1 (pp. 1272–1273), V_{λ′,t} is irreducible. This is because ρ = V_{λ′,t} ⊗ χ̃_2^{−1} has absolutely irreducible reduction Symm^{n−1} r̄_{E,l′}|G_{F′}. So V_{λ′,t} ≅ r_{l′,ι′}(π), and the printed isomorphism holds there. Source record: PAPER-QIAN-23/E41. Recorded in the reviewed Qian extraction; no newer published correction independently established here.
 
-- **PotentialAutomorphyInfrastructure/E74** (error, affects the proof): Proof of Lemma 4.3, second paragraph, p. 1273. In the conventions the paper uses, π has weight (λ_τ)_τ, that is, λ_{τ,i} = +λ_τ for all i. Both the identity to be shown and the identity obtained should read val_l(ι^{−1}φ_{π,v}(ϖ_v)) = val_l(∏_{τ:F′_v↪Q̄_l} τ(ϖ_v)^{nλ_τ}), where ψ_v(det α^{(n)}_{ϖ_v}) = ψ_v(ϖ_v)^n = φ_{π,v}(ϖ_v). For general j the condition is val_l(ι^{−1}ψ_v(ϖ_v)^j) = val_l(∏_τ τ(ϖ_v)^{jλ_τ}). Once both signs are corrected, dividing by n and multiplying by j works as before, the argument closes, and Lemma 4.3 holds. Source record: PAPER-QIAN-23/E43. Recorded in the reviewed Qian extraction; no newer published correction independently established here.
+- **PotentialAutomorphyInfrastructure/E74** (error, affects the proof): Proof of Lemma 4.3, second paragraph, p. 1273; finding scoped to the NSF Springer online-first copy; journal pages are a concordance, not printed in that PDF; physical NSF PDF pages 35.. In the conventions the paper uses, π has weight (λ_τ)_τ, that is, λ_{τ,i} = +λ_τ for all i. Both the identity to be shown and the identity obtained should read val_l(ι^{−1}φ_{π,v}(ϖ_v)) = val_l(∏_{τ:F′_v↪Q̄_l} τ(ϖ_v)^{nλ_τ}), where ψ_v(det α^{(n)}_{ϖ_v}) = ψ_v(ϖ_v)^n = φ_{π,v}(ϖ_v). For general j the condition is val_l(ι^{−1}ψ_v(ϖ_v)^j) = val_l(∏_τ τ(ϖ_v)^{jλ_τ}). Once both signs are corrected, dividing by n and multiplying by j works as before, the argument closes, and Lemma 4.3 holds. Source record: PAPER-QIAN-23/E43. Recorded in the reviewed Qian extraction; no newer published correction independently established here.
 
-- **PotentialAutomorphyInfrastructure/E75** (misprint, affects nothing): Remark 4.4, p. 1274. Read “Theorem 5.5.1 of [1]” (whose form for a single ι-ordinary automorphic representation is [1, Corollary 5.5.2]), “for any l-adic place v of F′”, and “ordinary as l-adic representation”, meaning ordinary at the l-adic places of F′. Source record: PAPER-QIAN-23/E44. Recorded in the reviewed Qian extraction; no newer published correction independently established here.
+- **PotentialAutomorphyInfrastructure/E75** (misprint, affects nothing): Remark 4.4, p. 1274; finding scoped to the NSF Springer online-first copy; journal pages are a concordance, not printed in that PDF; physical NSF PDF pages 36.. Read “Theorem 5.5.1 of [1]” (whose form for a single ι-ordinary automorphic representation is [1, Corollary 5.5.2]), “for any l-adic place v of F′”, and “ordinary as l-adic representation”, meaning ordinary at the l-adic places of F′. Source record: PAPER-QIAN-23/E44. Recorded in the reviewed Qian extraction; no newer published correction independently established here.
 
-- **PotentialAutomorphyInfrastructure/E76** (gap, affects nothing): Remark 4.4, p. 1274. First fix the misprints: "Theorem 5.5.1 or [1]" should read "of [1]", and "l-adic places v of F" should read "of F′". Then make the deduction only when the residual representation V[λ]_t ≅ χ̄_1 ⊗ r̄|G_{F′} of V_{λ,t} is absolutely irreducible and decomposed generic. Twisting by a character preserves both properties, so this is the same as asking that r̄|G_{F′} be absolutely irreducible and decomposed generic. That holds in the setting of Theorem 1.4, but not in general in Theorem 1.1. Under this condition, cite the single-representation result [1, Corollary 5.5.2], or equivalently [1, Theorem 5.5.1] together with [1, Lemma 6.2.11] after the soluble base change used in that corollary's proof. The conclusion then covers only the global points t produced in the proof, and only on the decomposition groups of F′ at places above l. For those points it gives the conclusion of the main theorem of [14]. It does not give it for every t of negative valuation over every finite extension of an l-adic field containing ζ_N. Source record: PAPER-QIAN-23/E45. Recorded in the reviewed Qian extraction; no newer published correction independently established here.
+- **PotentialAutomorphyInfrastructure/E76** (gap, affects nothing): Remark 4.4, p. 1274; finding scoped to the NSF Springer online-first copy; journal pages are a concordance, not printed in that PDF; physical NSF PDF pages 36.. First fix the misprints: "Theorem 5.5.1 or [1]" should read "of [1]", and "l-adic places v of F" should read "of F′". Then make the deduction only when the residual representation V[λ]_t ≅ χ̄_1 ⊗ r̄|G_{F′} of V_{λ,t} is absolutely irreducible and decomposed generic. Twisting by a character preserves both properties, so this is the same as asking that r̄|G_{F′} be absolutely irreducible and decomposed generic. That holds in the setting of Theorem 1.4, but not in general in Theorem 1.1. Under this condition, cite the single-representation result [1, Corollary 5.5.2], or equivalently [1, Theorem 5.5.1] together with [1, Lemma 6.2.11] after the soluble base change used in that corollary's proof. The conclusion then covers only the global points t produced in the proof, and only on the decomposition groups of F′ at places above l. For those points it gives the conclusion of the main theorem of [14]. It does not give it for every t of negative valuation over every finite extension of an l-adic field containing ζ_N. Source record: PAPER-QIAN-23/E45. Recorded in the reviewed Qian extraction; no newer published correction independently established here.
 
 ## Stage structure and red-team dispositions
 
@@ -3709,13 +3940,17 @@ Alternatively, at the one place where the lemma is applied, in the proof of Theo
 
 **RT-AREA-langlands-1/22: derived support needs actual deformation inputs.** Add L7→PA.3, L8→PA.3, R08.2→PA.3, G7→PA.3 and G8→PA.3, as witnessed by the exact requests and component nodes. Add L7→DeformationAndDerivedPatchingAlgebra:P9 to export its component hypotheses. PA.3 has a conditional support contract; PA.4 constructs the patched inputs and applies it, so no PA.4→PA.3 dependency is introduced.
 
-**RT-AREA-geomlanglands/24: integral highest-weight theory must have one owner independent of parameter stacks.** Create ReductiveGroupsPartII:RG2.6 for integral induced/Weyl/dual-Weyl modules, Kempf vanishing, Donkin criterion, Donkin–Mathieu tensor stability and the Koppinen/Donkin good filtration of O(G), building on upstream pinned integral group schemes. Add RG2.6→PA.1 and RG2.6→LP3. PA.1 retains only GL_n alcove/linkage bounds, Kostant and arithmetic weight calculations. LP3 retains LP1-dependent cocycle-scheme good filtrations, invariant cohomology, fixed-point and Donkin-subgroup assertions. Until RG2.6 exists the explicit gap remains.
+**RT-AREA-geomlanglands/24: integral highest-weight theory must have one owner independent of parameter stacks.** Use the already accepted Part II ReductiveGroupsIntegralRepresentationsPartII (PAPER-KISIN-PAPPAS-18 route 5, PAPER-KISIN-PAPPAS-ZHOU-26 route 3) as the single owner of integral induced/Weyl/dual-Weyl modules over ℤ and fields, Kempf vanishing, Donkin’s criterion, Donkin–Mathieu tensor stability and the Koppinen/Donkin good filtration of O(G), as the confirmed fix says; add these to its design brief with edges to PA.1 (and PA.0, PA.2 for the coefficient lattices) and to LP3. Do not create RG2.6. PA.1 retains only GL_n alcove/linkage bounds, Kostant and arithmetic weight calculations; LP3 retains its LP1-dependent cocycle-scheme assertions. Until the design assigns stage ids the explicit gap remains.
 
-**General compatible-system operations and iota-ordinary definitions already have owners.** R24.5:operations owns arbitrary-rank weak/very/extremely weak carriers and general operations; PA.5 owns rank-two transport theorems and weak automorphy prime to T. Broaden PL.0/iota-ordinary to the unpolarized RAC GL_n interface used by ACC and Qian, retaining a single definition owner and adapters to its polarized applications. PA.2 proves ordinary local-global compatibility in this broader setting.
+**General compatible-system operations have owners; ι-ordinary notions are owned by PA.2.** R24.5:operations owns arbitrary-rank weak/very/extremely weak carriers and general operations; PA.5 owns rank-two transport theorems and weak automorphy prime to T. As the routing of Qian items 005, 134 and 135 says, PA.2 owns the ι-ordinary automorphic representation (BLGGT §2.1 after Geraghty, without polarization), ι-ordinary automorphy, the twisted-Steinberg criterion and soluble base change of ι-ordinarity. PotentialAutomorphyInfrastructurePartII:PL.0/iota-ordinary should import PA.2/iota-ordinary-automorphic-representation and keep only its polarized consequences (PL.0 is not yet an atlas stage, so this adds no cycle); ModularityAndLanglandsExtensions:ML.2/steinberg-ordinarity-lemma should cite PA.2/twisted-steinberg-ordinarity-criterion.
 
 **The corrected prime-field large-image theorem does not justify the real-multiplication residue-field assertion.** AbelianSurfacesPotentialModularity supplies the separate real-multiplication large-image argument for BCGP Lemma 9.2.2 type B[C₂]. It imports the corrected PA.5 theorem rather than reinstating SL₂(O_M/λ).
 
-These are proposals for the maintainer to apply. No atlas, supplier packet or existing Tau Ceti roadmap is edited by this job. Until RG2.6 is created, its highest-weight dependency remains the named gap; an unresolved stage id is not presented as an existing supplier node.
+**ACC Proposition 6.5.13 (soluble base change and descent for GL_n) is owned at PA.5.** The ACC extraction placed items 268–269 at ML.5, but ML.5 lies after ML.2 and ML.3, which consume PA.4; PA.4 needs the proposition, so importing it from ML.5 would close the cycle PA.4 → ML.2 → ML.3 → ML.5 → PA.4. PA.5/soluble-base-change-and-descent owns the soluble iteration and the Galois-side descent; ET.7a supplies the Arthur–Clozel cyclic steps with local base change at every place. ModularityAndLanglandsExtensions:ML.5/cyclic-base-change-gln should import the PA.5 node for its soluble iteration and descent rather than restate them. The former request to ML.1 is withdrawn: ML.1/imaginary-quadratic-elliptic-modularity requires PA.4, so it formed a two-stage cycle, and ML.1’s nodes concern weight-one and Artin modularity.
+
+**Galois cohomology and forms of reductive groups have no owner.** Give one layer the nonabelian H¹(k, G) of linear algebraic groups over local and global fields, the twisting classification of forms by H¹(k, Aut G), Aut(G) = G_ad ⋊ Out(G) for split G, uniqueness of the quasi-split inner form, and Lang’s theorem with its consequence that a form split by an unramified extension of a p-adic field is quasi-split. The accepted candidate ReductiveGroupsArithmeticPartII (arithmetic forms and cohomological transfer, from the Klevdal–Patrikis and Kisin–Zhou routes) is the natural owner; ReductiveGroupsPartII after RG2.0a or an extension of AdelicAlgebraicGroups AA.4 would also serve; PA.5 (ACC Lemma 7.1.3 facts (7)–(8)) and PELModuli (its recorded twisting-classification gap) both need it.
+
+These are proposals for the maintainer to apply. No atlas, supplier packet or existing Tau Ceti roadmap is edited by this job. Until ReductiveGroupsIntegralRepresentationsPartII receives a stage, its highest-weight dependency remains the named gap; until an owner of forms of reductive groups exists, so does the PGL₂ forms dependency. An unresolved stage id is not presented as an existing supplier node.
 
 ## Target coverage
 
@@ -3723,7 +3958,7 @@ This target map distinguishes new arithmetic declarations from targets whose def
 
 **PotentialAutomorphyInfrastructure:PA.0: Integral coefficients, finite/groupoid cohomology and coefficient/level/boundary comparisons.** Own declarations: [PA.0/integral-model-comparison](#integral-model-comparison), [PA.0/boundary-level-coefficient-comparison](#boundary-level-coefficient-comparison), [PA.0/coefficient-satake-descent](#coefficient-satake-descent), [PA.0/siegel-coefficient-retract](#siegel-coefficient-retract), [PA.0/ramified-satake-descent](#ramified-satake-descent), [PA.0/equivariant-retract](#equivariant-retract). Imports: `ArithmeticLocallySymmetricSpaces:ALS.1/finite-complex-model`, `ArithmeticLocallySymmetricSpaces:ALS.1/coefficient-change`, `ArithmeticLocallySymmetricSpaces:ALS.4/boundary-triangle`.
 
-**PotentialAutomorphyInfrastructure:PA.1: Integral coefficient/highest-weight modules, reductions and filtrations.** Own declarations: [PA.0/unitary-levi-weight-dictionary](#unitary-levi-weight-dictionary), [PA.1/kostant-shuffles](#kostant-shuffles), [PA.1/integral-kostant-decomposition](#integral-kostant-decomposition). Imports: `tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ`.  Gap: Single integral highest-weight owner RG2.6 requires atlas creation.
+**PotentialAutomorphyInfrastructure:PA.1: Integral coefficient/highest-weight modules, reductions and filtrations.** Own declarations: [PA.0/unitary-levi-weight-dictionary](#unitary-levi-weight-dictionary), [PA.1/kostant-shuffles](#kostant-shuffles), [PA.1/integral-kostant-decomposition](#integral-kostant-decomposition). Imports: `tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ`.  Gap: Integral highest-weight owner ReductiveGroupsIntegralRepresentationsPartII has no stage yet.
 
 **PotentialAutomorphyInfrastructure:PA.1: Degree-shift connecting maps, linkage/interval bounds and Fontaine–Laffaille transfer.** Own declarations: [PA.1/boundary-degree-retract](#boundary-degree-retract), [PA.1/unipotent-derived-formality](#unipotent-derived-formality), [PA.1/middle-degree-satake](#middle-degree-satake), [PA.1/ctg-weight](#ctg-weight), [PA.1/ctg-one-embedding-perturbation](#ctg-one-embedding-perturbation), [PA.1/fontaine-laffaille-degree-shifting](#fontaine-laffaille-degree-shifting), [PA.1/middle-range-fontaine-laffaille](#middle-range-fontaine-laffaille), [PA.1/nilpotent-fontaine-laffaille-transfer](#nilpotent-fontaine-laffaille-transfer), [PA.1/all-degree-fontaine-laffaille](#all-degree-fontaine-laffaille), [PA.1/degree-reflection-duality](#degree-reflection-duality), [PA.1/genericity-making-character-twist](#genericity-making-character-twist), [PA.1/shifted-partition-recovery](#shifted-partition-recovery), [PA.1/fontaine-laffaille-local-global](#fontaine-laffaille-local-global). Imports: `FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3`, `PadicHodgeTheory:R06.4`, `IgusaVarietiesAndTorsionConcentration:IG.7`.
 
@@ -3731,17 +3966,19 @@ This target map distinguishes new arithmetic declarations from targets whose def
 
 **PotentialAutomorphyInfrastructure:PA.2: Parabolic induction, Bruhat ordinary filtration, central torus shifting and local–global full flag.** Own declarations: [PA.2/relative-bruhat-cells](#relative-bruhat-cells), [PA.2/bruhat-cell-induction](#bruhat-cell-induction), [PA.2/bruhat-filtration](#bruhat-filtration), [PA.2/bruhat-invariant-filtration](#bruhat-invariant-filtration), [PA.2/bruhat-unipotent-acyclicity](#bruhat-unipotent-acyclicity), [PA.2/ordinary-compact-cell-comparison](#ordinary-compact-cell-comparison), [PA.2/bruhat-unipotent-invariants](#bruhat-unipotent-invariants), [PA.2/bruhat-evaluation-comparison](#bruhat-evaluation-comparison), [PA.2/bruhat-orientation-character](#bruhat-orientation-character), [PA.2/ordinary-unipotent-degree-shift](#ordinary-unipotent-degree-shift), [PA.2/ordinary-bruhat-piece](#ordinary-bruhat-piece), [PA.2/completed-boundary-induction-retract](#completed-boundary-induction-retract), [PA.2/ordinary-boundary-degree-shifting](#ordinary-boundary-degree-shifting), [PA.2/ordinary-ctg-weight-choice](#ordinary-ctg-weight-choice), [PA.2/ordinary-middle-degree-quotient](#ordinary-middle-degree-quotient), [PA.2/determinant-torus](#determinant-torus), [PA.2/determinant-component-product](#determinant-component-product), [PA.2/determinant-neat-level-shrinking](#determinant-neat-level-shrinking), [PA.2/central-torus-cohomology-shifting](#central-torus-cohomology-shifting), [PA.2/all-degree-ordinary-characteristic-data](#all-degree-ordinary-characteristic-data), [PA.2/ordinary-local-global](#ordinary-local-global), [PA.2/ordinary-automorphic-galois-flag](#ordinary-automorphic-galois-flag). Imports: `IgusaVarietiesAndTorsionConcentration:IG.7`, `SmoothRepresentationsOfLocalGroups:SR.2`, `LocalGaloisDeformationRings:L7`.
 
-**PotentialAutomorphyInfrastructure:PA.3: Mod-varpi local-condition/action comparison, components, amplitude and support.** Own declarations: [PA.3/local-condition-mod-varpi-comparison](#local-condition-mod-varpi-comparison), [PA.3/arithmetic-component-dimension-input](#arithmetic-component-dimension-input), [PA.3/arithmetic-derived-support-contract](#arithmetic-derived-support-contract), [PA.3/fontaine-laffaille-deformation-hecke-map](#fontaine-laffaille-deformation-hecke-map), [PA.3/ordinary-deformation-hecke-map](#ordinary-deformation-hecke-map). Imports: `LocalGaloisDeformationRings:L7`, `LocalGaloisDeformationRings:L8`, `LocalGaloisDeformationRings:R08.2`, `GlobalGaloisDeformations:G7`, `GlobalGaloisDeformations:G8`, `DeformationAndDerivedPatchingAlgebra:P9`.
+**PotentialAutomorphyInfrastructure:PA.2: ι-ordinary automorphic representations, ordinary automorphy and their transport.** Own declarations: [PA.2/iota-ordinary-automorphic-representation](#iota-ordinary-automorphic-representation), [PA.2/ordinarily-automorphic-representation](#ordinarily-automorphic-representation), [PA.2/twisted-steinberg-ordinarity-criterion](#twisted-steinberg-ordinarity-criterion), [PA.2/iota-ordinary-soluble-base-change](#iota-ordinary-soluble-base-change). Imports: `AutomorphicGaloisRepresentationsPartII:AG2.0/regular-algebraic-of-weight`, `AutomorphicGaloisRepresentationsPartII:AG2.6/compatible-system-of-pi`. Owned here as the issue routes Qian items 005, 134 and 135; the polarized PL.0 definition and ML.2’s Dwork applications import these declarations.
+
+**PotentialAutomorphyInfrastructure:PA.3: Mod-varpi local-condition/action comparison, components, amplitude and support.** Own declarations: [PA.3/local-condition-mod-varpi-comparison](#local-condition-mod-varpi-comparison), [PA.3/arithmetic-component-dimension-input](#arithmetic-component-dimension-input), [PA.3/arithmetic-derived-support-contract](#arithmetic-derived-support-contract), [PA.3/fontaine-laffaille-deformation-hecke-map](#fontaine-laffaille-deformation-hecke-map), [PA.3/ordinary-deformation-hecke-map](#ordinary-deformation-hecke-map), [PA.3/ordinary-hida-complex](#ordinary-hida-complex). Imports: `LocalGaloisDeformationRings:L7`, `LocalGaloisDeformationRings:L8`, `LocalGaloisDeformationRings:R08.2`, `GlobalGaloisDeformations:G7`, `GlobalGaloisDeformations:G8`, `DeformationAndDerivedPatchingAlgebra:P9`.
 
 **PotentialAutomorphyInfrastructure:PA.4: Taylor–Wiles set/diamond construction.** Own declarations: [PA.4/taylor-wiles-arithmetic-levels](#taylor-wiles-arithmetic-levels), [PA.4/ordinary-taylor-wiles-levels](#ordinary-taylor-wiles-levels). Imports: `GlobalGaloisDeformations:G7/enormous-taylor-wiles-primes`, `GlobalGaloisDeformations:G7/taylor-wiles-local-diamond`. General construction imported; nodes construct only its arithmetic auxiliary levels.
 
-**PotentialAutomorphyInfrastructure:PA.4: Fixed-ultrafilter arithmetic boundedness, comparison and specialization.** Own declarations: [PA.4/patched-arithmetic-mod-varpi-comparison](#patched-arithmetic-mod-varpi-comparison), [PA.4/taylor-wiles-selected-ideals](#taylor-wiles-selected-ideals), [PA.4/selected-ideal-properness](#selected-ideal-properness), [PA.4/diamond-derived-augmentation](#diamond-derived-augmentation), [PA.4/taylor-wiles-hecke-locality](#taylor-wiles-hecke-locality), [PA.4/diamond-linear-deformation-hecke-map](#diamond-linear-deformation-hecke-map), [PA.4/fontaine-laffaille-patching-verification](#fontaine-laffaille-patching-verification), [PA.4/fontaine-laffaille-dimension-amplitude](#fontaine-laffaille-dimension-amplitude), [PA.4/fontaine-laffaille-full-support](#fontaine-laffaille-full-support), [PA.4/fontaine-laffaille-lifting-at-good-level](#fontaine-laffaille-lifting-at-good-level), [PA.4/ordinary-hida-complex](#ordinary-hida-complex), [PA.4/weight-independent-hida-twist](#weight-independent-hida-twist), [PA.4/hida-weight-independence](#hida-weight-independence), [PA.4/hida-weight-specialization](#hida-weight-specialization), [PA.4/ordinary-diamond-augmentation](#ordinary-diamond-augmentation), [PA.4/ordinary-diamond-linear-hecke-map](#ordinary-diamond-linear-hecke-map), [PA.4/ordinary-patching-verification](#ordinary-patching-verification), [PA.4/ordinary-support-at-lifting-point](#ordinary-support-at-lifting-point), [PA.4/ordinary-lifting-at-good-level](#ordinary-lifting-at-good-level). Imports: `DeformationAndDerivedPatchingAlgebra:P8`, `DeformationAndDerivedPatchingAlgebra:P7`.
+**PotentialAutomorphyInfrastructure:PA.4: Fixed-ultrafilter arithmetic boundedness, comparison and specialization.** Own declarations: [PA.4/patched-arithmetic-mod-varpi-comparison](#patched-arithmetic-mod-varpi-comparison), [PA.4/taylor-wiles-selected-ideals](#taylor-wiles-selected-ideals), [PA.4/selected-ideal-properness](#selected-ideal-properness), [PA.4/diamond-derived-augmentation](#diamond-derived-augmentation), [PA.4/taylor-wiles-hecke-locality](#taylor-wiles-hecke-locality), [PA.4/diamond-linear-deformation-hecke-map](#diamond-linear-deformation-hecke-map), [PA.4/fontaine-laffaille-patching-verification](#fontaine-laffaille-patching-verification), [PA.4/fontaine-laffaille-dimension-amplitude](#fontaine-laffaille-dimension-amplitude), [PA.4/fontaine-laffaille-full-support](#fontaine-laffaille-full-support), [PA.4/fontaine-laffaille-lifting-at-good-level](#fontaine-laffaille-lifting-at-good-level), [PA.4/weight-independent-hida-twist](#weight-independent-hida-twist), [PA.4/hida-weight-independence](#hida-weight-independence), [PA.4/hida-weight-specialization](#hida-weight-specialization), [PA.4/ordinary-diamond-augmentation](#ordinary-diamond-augmentation), [PA.4/ordinary-diamond-linear-hecke-map](#ordinary-diamond-linear-hecke-map), [PA.4/ordinary-patching-verification](#ordinary-patching-verification), [PA.4/ordinary-support-at-lifting-point](#ordinary-support-at-lifting-point), [PA.4/ordinary-lifting-at-good-level](#ordinary-lifting-at-good-level). Imports: `DeformationAndDerivedPatchingAlgebra:P8`, `DeformationAndDerivedPatchingAlgebra:P7`.
 
-**PotentialAutomorphyInfrastructure:PA.4: Fontaine–Laffaille and ordinary lifting endpoints and their soluble descent.** Own declarations: [PA.4/fontaine-laffaille-lifting-descent](#fontaine-laffaille-lifting-descent), [PA.4/ordinary-lifting-descent](#ordinary-lifting-descent), [PA.4/fontaine-laffaille-automorphy-lifting](#fontaine-laffaille-automorphy-lifting), [PA.4/ordinary-automorphy-lifting](#ordinary-automorphy-lifting), [PA.4/neatness-auxiliary-places](#neatness-auxiliary-places). Imports: `ModularityAndLanglandsExtensions:ML.1`, `PotentialAutomorphyInfrastructurePartII:PL.0`.
+**PotentialAutomorphyInfrastructure:PA.4: Fontaine–Laffaille and ordinary lifting endpoints and their soluble descent.** Own declarations: [PA.4/fontaine-laffaille-lifting-descent](#fontaine-laffaille-lifting-descent), [PA.4/ordinary-lifting-descent](#ordinary-lifting-descent), [PA.4/fontaine-laffaille-automorphy-lifting](#fontaine-laffaille-automorphy-lifting), [PA.4/ordinary-automorphy-lifting](#ordinary-automorphy-lifting), [PA.4/neatness-auxiliary-places](#neatness-auxiliary-places). Imports: `EndoscopicTransferAndUnitaryTraceComparison:ET.7a`, `AutomorphicGaloisRepresentationsPartII:AG2.5/varma-semisimplified-comparison-and-monodromy-bound`, `PotentialAutomorphyInfrastructurePartII:PL.0/auxiliary-cm-extensions`.
 
 **PotentialAutomorphyInfrastructure:PA.5: Compatible-system carrier, tensor/dual/character/restriction operations and their Frobenius, Hodge, purity, polarization, WD and lattice comparisons.** Own declarations: [PA.5/rank-two-symmetric-power-transport](#rank-two-symmetric-power-transport), [PA.5/residual-lifting-hypothesis-restriction](#residual-lifting-hypothesis-restriction), [PA.5/genericity-normal-closure-restriction](#genericity-normal-closure-restriction). Imports: `PotentialModularityAndCompatibleSystems:R24.5/weakened-compatible-data`, `PotentialModularityAndCompatibleSystems:R24.5/linear-algebra-operations-on-systems`, `PotentialModularityAndCompatibleSystems:R24.5/system-operations`, `PotentialModularityAndCompatibleSystems:R24.5/polarized-operations`, `PotentialModularityAndCompatibleSystems:R24.5/character-system`. General definitions and operation comparisons imported; extend the owner to the weakened regimes and integral/WD exports, rather than planning them again.
 
-**PotentialAutomorphyInfrastructure:PA.5: Controlled base-change lifting-input checklists.** Own declarations: [PA.5/split-test-prime-image-preservation](#split-test-prime-image-preservation), [PA.5/fontaine-laffaille-base-change-fields](#fontaine-laffaille-base-change-fields), [PA.5/ordinary-base-change-fields](#ordinary-base-change-fields), [PA.5/genericity-normal-closure-restriction](#genericity-normal-closure-restriction), [PA.5/residual-lifting-hypothesis-restriction](#residual-lifting-hypothesis-restriction), [PA.5/simple-galois-composita](#simple-galois-composita), [PA.5/symmetric-power-adjoint-genericity](#symmetric-power-adjoint-genericity), [PA.5/qian-symmetric-power-avoidance](#qian-symmetric-power-avoidance). Imports: `AutomorphicGaloisRepresentationsPartII:AG2.7`.
+**PotentialAutomorphyInfrastructure:PA.5: Controlled base-change lifting-input checklists.** Own declarations: [PA.5/split-test-prime-image-preservation](#split-test-prime-image-preservation), [PA.5/fontaine-laffaille-base-change-fields](#fontaine-laffaille-base-change-fields), [PA.5/ordinary-base-change-fields](#ordinary-base-change-fields), [PA.5/genericity-normal-closure-restriction](#genericity-normal-closure-restriction), [PA.5/residual-lifting-hypothesis-restriction](#residual-lifting-hypothesis-restriction), [PA.5/simple-galois-composita](#simple-galois-composita), [PA.5/symmetric-power-adjoint-genericity](#symmetric-power-adjoint-genericity), [PA.5/qian-symmetric-power-avoidance](#qian-symmetric-power-avoidance), [PA.5/soluble-base-change-and-descent](#soluble-base-change-and-descent). Imports: `AutomorphicGaloisRepresentationsPartII:AG2.7`, `PotentialAutomorphyInfrastructurePartII:PL.0/auxiliary-cm-extensions`, `EndoscopicTransferAndUnitaryTraceComparison:ET.7a`, `ArithmeticGaloisRepresentations:R01.4/dickson-classification-and-the-dyadic-refinement`, `ArithmeticGaloisRepresentations:R01.4/normal-subgroups-and-automorphisms-of-psl2-pgl2`, `ArithmeticGaloisRepresentations:R01.4/restriction-to-the-cyclotomic-field`.
 
 **PotentialAutomorphyInfrastructure:PA.5: Rank-two trichotomy, large image, weak automorphy and pure upgrade.** Own declarations: [PA.5/rank-two-reducibility-dichotomy](#rank-two-reducibility-dichotomy), [PA.5/rank-two-system-trichotomy](#rank-two-system-trichotomy), [PA.5/rank-two-large-residual-image](#rank-two-large-residual-image), [PA.5/rank-two-adjoint-monodromy](#rank-two-adjoint-monodromy), [PA.5/weak-automorphy-prime-to-set](#weak-automorphy-prime-to-set), [PA.5/pure-weak-automorphy-upgrade](#pure-weak-automorphy-upgrade), [PA.5/density-one-crystalline-large-image](#density-one-crystalline-large-image), [PA.5/rank-two-weight-zero](#rank-two-weight-zero), [PA.5/rank-two-odd](#rank-two-odd), [PA.5/rank-two-member-irreducibility-equivalence](#rank-two-member-irreducibility-equivalence), [PA.5/strong-irreducibility-symmetric-square](#strong-irreducibility-symmetric-square), [PA.5/corrected-rank-two-large-image](#corrected-rank-two-large-image). Imports: `PotentialModularityAndCompatibleSystems:R24.5/compatible-system-predicates`.
 
@@ -3756,7 +3993,7 @@ Every supplied extraction item is accounted for here. “Owned” means the decl
 | `PAPER-ALLEN-ETAL-23/31` | import-or-request | SmoothRepresentationsOfLocalGroups:SR.1 | §2.1.9, Lemma 2.1.11, p. 914 |
 | `PAPER-ALLEN-ETAL-23/34` | import-or-request | SmoothRepresentationsOfLocalGroups:SR.1 | §2.1.9, Lemma 2.1.14, p. 915 |
 | `PAPER-ALLEN-ETAL-23/35` | import-or-request | SmoothRepresentationsOfLocalGroups:SR.1 | §2.1.9, pp. 915–916 |
-| `PAPER-ALLEN-ETAL-23/37` | gap | gap:RG2.6 | §2.2.1, pp. 917–918 |
+| `PAPER-ALLEN-ETAL-23/37` | gap | gap:ReductiveGroupsIntegralRepresentationsPartII | §2.2.1, pp. 917–918 |
 | `PAPER-ALLEN-ETAL-23/38` | owned | PotentialAutomorphyInfrastructure:PA.0/unitary-levi-weight-dictionary | §2.2.1, eq. (2.2.2), pp. 918–919 |
 | `PAPER-ALLEN-ETAL-23/45` | owned | PotentialAutomorphyInfrastructure:PA.2/iwahori-level-tower | §2.2.5, pp. 922–923 |
 | `PAPER-ALLEN-ETAL-23/46` | owned | PotentialAutomorphyInfrastructure:PA.2/unitary-ordinary-tower | §2.2.5, pp. 923–924 |
@@ -3782,7 +4019,7 @@ Every supplied extraction item is accounted for here. “Owned” means the decl
 | `PAPER-ALLEN-ETAL-23/120` | owned | PotentialAutomorphyInfrastructure:PA.1/ctg-one-embedding-perturbation | §4.3, Lemma 4.3.6 and (4.3.7), pp. 974–975 |
 | `PAPER-ALLEN-ETAL-23/122` | owned | PotentialAutomorphyInfrastructure:PA.1/fontaine-laffaille-degree-shifting | §4.4, Proposition 4.4.1 (with Hypothesis 4.4.2 and (4.4.3)–(4.4.5) in its proof), pp. 975–978 |
 | `PAPER-ALLEN-ETAL-23/125` | owned | PotentialAutomorphyInfrastructure:PA.1/middle-range-fontaine-laffaille | §4.4, Proposition 4.4.6, pp. 979–981 |
-| `PAPER-ALLEN-ETAL-23/126` | owned | PotentialAutomorphyInfrastructure:PA.1/nilpotent-fontaine-laffaille-transfer | §4.4, proof of Proposition 4.4.6, pp. 980–981 (Remark 4.4.7) |
+| `PAPER-ALLEN-ETAL-23/126` | owned | PotentialAutomorphyInfrastructure:PA.1/nilpotent-fontaine-laffaille-transfer | §4.4, proof of Proposition 4.4.6, pp. 980–981 (determinant-kernel transfer) |
 | `PAPER-ALLEN-ETAL-23/127` | owned | PotentialAutomorphyInfrastructure:PA.1/all-degree-fontaine-laffaille | §4.4, Corollary 4.4.8, pp. 981–984 |
 | `PAPER-ALLEN-ETAL-23/129` | owned | PotentialAutomorphyInfrastructure:PA.1/degree-reflection-duality | §4.4, proof of Corollary 4.4.8, pp. 983–984 |
 | `PAPER-ALLEN-ETAL-23/130` | owned | PotentialAutomorphyInfrastructure:PA.1/genericity-making-character-twist | §4.4, proof of Corollary 4.4.8, p. 984 |
@@ -3864,7 +4101,7 @@ Every supplied extraction item is accounted for here. “Owned” means the decl
 | `PAPER-ALLEN-ETAL-23/273` | owned | PotentialAutomorphyInfrastructure:PA.4/neatness-auxiliary-places | §6.5.12, proof of Theorem 6.1.1, pp. 1073–1074 (and §6.6.10, p. 1084) |
 | `PAPER-ALLEN-ETAL-23/275` | hypothesis-context | context:ordinary-good-level | §6.6.1 (Application of the patching argument, ordinary case), pp. 1074–1076 |
 | `PAPER-ALLEN-ETAL-23/276` | owned | PotentialAutomorphyInfrastructure:PA.4/ordinary-lifting-at-good-level | §6.6.1, Theorem 6.6.2, p. 1075; proof pp. 1080–1081 |
-| `PAPER-ALLEN-ETAL-23/279` | owned | PotentialAutomorphyInfrastructure:PA.4/ordinary-hida-complex | §6.6.1, (6.6.3), (6.6.4), pp. 1076–1077 |
+| `PAPER-ALLEN-ETAL-23/279` | owned | PotentialAutomorphyInfrastructure:PA.3/ordinary-hida-complex | §6.6.1, (6.6.3), (6.6.4), pp. 1076–1077 |
 | `PAPER-ALLEN-ETAL-23/280` | owned | PotentialAutomorphyInfrastructure:PA.4/weight-independent-hida-twist | §6.6.1, p. 1077 |
 | `PAPER-ALLEN-ETAL-23/281` | owned | PotentialAutomorphyInfrastructure:PA.4/hida-weight-independence | §6.6.1, Lemma 6.6.5, p. 1077 |
 | `PAPER-ALLEN-ETAL-23/282` | owned | PotentialAutomorphyInfrastructure:PA.4/hida-weight-specialization | §6.6.1, Corollary 6.6.6, pp. 1077–1078 |
@@ -3886,15 +4123,15 @@ Every supplied extraction item is accounted for here. “Owned” means the decl
 | `PAPER-ALLEN-ETAL-23/307` | import-or-request | PotentialModularityAndCompatibleSystems:R24.5/compatible-system-predicates | §7.1, p. 1092 |
 | `PAPER-ALLEN-ETAL-23/312` | import-or-request | AutomorphicGaloisRepresentationsPartII:AG2.6/very-weak-compatibility-under-dgi | §7.1, Lemma 7.1.9, pp. 1093–1094 |
 | `PAPER-ALLEN-ETAL-23/313` | import-or-request | AutomorphicGaloisRepresentationsPartII:AG2.6/compatible-system-of-pi | §7.1, Lemma 7.1.10, p. 1094 |
-| `PAPER-QIAN-23/005` | import-or-request | PotentialAutomorphyInfrastructurePartII:PL.0 | Definition 1.3, p. 1241 (last sentence, citing [8] = Geraghty, Definition 5.3); l-adic use in Lemma 4.3 and its proof, p. 1273, and in the conclusion of Theorem 1.4, p. 1241; Remark 4.4, p. 1274; compare the conclusion of ACC+ Theorem 6.1.2, p. 1030 |
-| `PAPER-QIAN-23/027` | owned | PotentialAutomorphyInfrastructure:PA.5/qian-symmetric-power-avoidance | Lemma 2.6(2), p. 1251; proof pp. 1251–1252 |
+| `PAPER-QIAN-23/005` | owned | PotentialAutomorphyInfrastructure:PA.2/ordinarily-automorphic-representation | Definition 1.3, p. 1241 (last sentence, citing [8] = Geraghty, Definition 5.3); l-adic use in Lemma 4.3 and its proof, p. 1273, and in the conclusion of Theorem 1.4, p. 1241; Remark 4.4, p. 1274; compare the conclusion of ACC+ Theorem 6.1.2, p. 1030 |
+| `PAPER-QIAN-23/027` | owned | PotentialAutomorphyInfrastructure:PA.5/qian-symmetric-power-avoidance | Lemma 2.6(2), p. 1251; proof pp. 1251–1252; NSF online-first PDF pp. 13–14 (journal pagination inferred from 1239–1275) |
 | `PAPER-QIAN-23/072` | owned | PotentialAutomorphyInfrastructure:PA.4/ordinary-automorphy-lifting | ACC+ (Allen et al., Ann. of Math. 197 (2023)), Theorem 6.1.2, pp. 1029–1030; applied in the proofs of Theorem 1.1 (pp. 1272–1273) and Theorem 1.4 (p. 1274) |
 | `PAPER-QIAN-23/089` | owned | PotentialAutomorphyInfrastructure:PA.5/genericity-normal-closure-restriction | ACC+ (Allen et al., Ann. of Math. 197 (2023)), Lemma 7.1.7, p. 1091; applied in the proof of Theorem 1.4 (last paragraph of §4), p. 1274, with correction E3 |
-| `PAPER-QIAN-23/115` | owned | PotentialAutomorphyInfrastructure:PA.5/residual-lifting-hypothesis-restriction | Remark after Definition 1.3, p. 1241; proof of Theorem 1.4, p. 1274 ('all conditions except decomposed genericity follows from the corresponding conditions of r̄') |
+| `PAPER-QIAN-23/115` | owned | PotentialAutomorphyInfrastructure:PA.5/residual-lifting-hypothesis-restriction | Remark after Definition 1.3, p. 1241; proof of Theorem 1.4, p. 1274 ('all conditions except decomposed genericity follows from the corresponding conditions of r̄'); NSF online-first PDF pp. 3 and 36 |
 | `PAPER-QIAN-23/121` | owned | PotentialAutomorphyInfrastructure:PA.5/symmetric-power-adjoint-genericity | Allen–Calegari–Caraiani–Gee–Helm–Le Hung–Newton–Scholze–Taylor–Thorne, Potential automorphy over CM fields, Ann. of Math. 197 (2023), Lemma 7.1.6(3), pp. 1090–1091; used in the proof of Lemma 2.6(2), p. 1251 |
-| `PAPER-QIAN-23/122` | owned | PotentialAutomorphyInfrastructure:PA.5/simple-galois-composita | Proof of Lemma 2.6(2), pp. 1251–1252 (the claims 'Gal(Ẽ/E) = (Z/2Z)^r' and 'Gal(F̃′_i/F̃′_{i−1}) … is of form Δ_i^m', both attributed to Goursat's lemma) |
-| `PAPER-QIAN-23/134` | import-or-request | PotentialAutomorphyInfrastructurePartII:PL.0 | Geraghty, Math. Ann. 373 (2019), Definition 5.3 (reference [8]); cited in Definition 1.3, p. 1241; used in Lemma 4.3, p. 1273, and in ACC+ Theorem 6.1.2(5) (p. 1030) and Corollary 5.5.2 (p. 1028); the groups Iw_v(b,c) as recalled in ACC+, p. 922 |
-| `PAPER-QIAN-23/135` | import-or-request | PotentialAutomorphyInfrastructurePartII:PL.0 | Proof of Lemma 4.3, second paragraph, p. 1273, citing Lemmas 5.2 and 5.6 of Geraghty [8] |
+| `PAPER-QIAN-23/122` | owned | PotentialAutomorphyInfrastructure:PA.5/simple-galois-composita | Proof of Lemma 2.6(2), pp. 1251–1252 (the claims 'Gal(Ẽ/E) = (Z/2Z)^r' and 'Gal(F̃′_i/F̃′_{i−1}) … is of form Δ_i^m', both attributed to Goursat's lemma); NSF online-first PDF pp. 13–14 (journal pagination inferred from 1239–1275) |
+| `PAPER-QIAN-23/134` | owned | PotentialAutomorphyInfrastructure:PA.2/iota-ordinary-automorphic-representation | Geraghty, Math. Ann. 373 (2019), Definition 5.3 (reference [8]); cited in Definition 1.3, p. 1241; used in Lemma 4.3, p. 1273, and in ACC+ Theorem 6.1.2(5) (p. 1030) and Corollary 5.5.2 (p. 1028); the groups Iw_v(b,c) as recalled in ACC+, p. 922 |
+| `PAPER-QIAN-23/135` | owned | PotentialAutomorphyInfrastructure:PA.2/twisted-steinberg-ordinarity-criterion | Proof of Lemma 4.3, second paragraph, p. 1273, citing Lemmas 5.2 and 5.6 of Geraghty [8] |
 | `PAPER-BOXER-CALEGARI-GEE-ETAL-25/88` | import-or-request | PotentialModularityAndCompatibleSystems:R24.5/weakened-compatible-data | §6.1, Definition 6.1.1, pp. 50–51 |
 | `PAPER-BOXER-CALEGARI-GEE-ETAL-25/89` | import-or-request | PotentialModularityAndCompatibleSystems:R24.5/compatible-system-predicates | §6.1, Definition 6.1.2, pp. 51–52 |
 | `PAPER-BOXER-CALEGARI-GEE-ETAL-25/90` | owned | PotentialAutomorphyInfrastructure:PA.5/weak-automorphy-prime-to-set | §6.1, Definition 6.1.2(3), p. 52 |
@@ -3904,9 +4141,11 @@ Every supplied extraction item is accounted for here. “Owned” means the decl
 | `PAPER-BOXER-CALEGARI-GEE-ETAL-25/97` | owned | PotentialAutomorphyInfrastructure:PA.5/rank-two-system-trichotomy | §7.1, proof of Theorem 7.1.1, p. 61; proof of Theorem 7.2.1, pp. 61–62 |
 | `PAPER-BOXER-CALEGARI-GEE-ETAL-25/145` | owned | PotentialAutomorphyInfrastructure:PA.5/rank-two-symmetric-power-transport | Used throughout §6, pp. 52–62 |
 | `PAPER-BOXER-CALEGARI-GEE-PILLONI-21/122` | split between definitions, imported predicates and three corrected theorem parts | PotentialAutomorphyInfrastructure:PA.5/rank-two-weight-zero, PotentialAutomorphyInfrastructure:PA.5/rank-two-odd, PotentialModularityAndCompatibleSystems:R24.5/compatible-system-predicates, PotentialAutomorphyInfrastructure:PA.5/rank-two-member-irreducibility-equivalence, PotentialAutomorphyInfrastructure:PA.5/strong-irreducibility-symmetric-square, PotentialAutomorphyInfrastructure:PA.5/corrected-rank-two-large-image | BCGP §9.1, split across definitions and three theorem parts |
+| `PAPER-ALLEN-ETAL-23/268` | owned (extraction planned it at ML.5, which is downstream of PA.4; see restructure) | PotentialAutomorphyInfrastructure:PA.5/soluble-base-change-and-descent | §6.5.12, Proposition 6.5.13(1), pp. 1070–1071 |
+| `PAPER-ALLEN-ETAL-23/269` | owned (extraction planned it at ML.5, which is downstream of PA.4; see restructure) | PotentialAutomorphyInfrastructure:PA.5/soluble-base-change-and-descent | §6.5.12, Proposition 6.5.13(2), p. 1071 |
 
 ## Prototype and validation boundary
 
-The suggested file types the eight concrete definition cores `EquivariantRetract`, `KostantShuffle`, `CTGWeight`, `PositiveTorusMonoid`, `LowestWeightCharacter`, `UnitaryLeviWeight`, `RankTwoWeightZero`, `RankTwoOdd`, the numeric ν part of the Hida twist and the finite shifted-partition theorem. Its API lemmas and examples test these actual finite, matrix, monoid-character and categorical types. The owner-dependent cuspidal-exclusion, lattice-projection and automorphic-oddness API items cannot yet be typed. All remaining arithmetic declaration, API and test names occur in a comment carrying the complete mathematical obligation and its missing supplier dependencies. These comments are not elaborated signatures, and compilation of the available cores does not verify the arithmetic interface.
+The suggested file types fourteen definition cores: the eight concrete cores `EquivariantRetract`, `KostantShuffle`, `CTGWeight`, `PositiveTorusMonoid`, `LowestWeightCharacter`, `UnitaryLeviWeight`, `RankTwoWeightZero`, `RankTwoOdd`, and six local or numerical cores, `IwahoriLevelTower` (the subgroups Iw_v(b,c) ⊂ GL_n(O) and the diamond quotient), `TaylorWilesArithmeticLevels` (the auxiliary local pair and the index scalar ≡ (n!)^{#Q} mod p), `ArithmeticOrdinarySummand` (the stable image of an endomorphism of an Artinian and Noetherian module and its comparison with localization), `RelativeBruhatCells` (relative and absolute lengths and the cells P·w·N), `OrdinaryGaloisCharacters` (the uniformizer values and their telescoping product) and `BruhatOrientationCharacter` (a(t)^{-1}/|a(t)|_p over ℚ_p); it also types the numeric ν part of the Hida twist and the finite shifted-partition theorem. Its API lemmas and examples test these actual finite, matrix, monoid-character, local-subgroup and categorical types; the global levels, Hecke operators, cohomology and Galois characters of those six definitions remain obligations. The owner-dependent cuspidal-exclusion, lattice-projection and automorphic-oddness API items cannot yet be typed. All remaining arithmetic declaration, API and test names occur in a comment carrying the complete mathematical obligation and its missing supplier dependencies. These comments are not elaborated signatures, and compilation of the available cores does not verify the arithmetic interface.
 
-The arithmetic types must come from the owners named above before those dependent signatures are added. A proposition-valued placeholder would allow meaningless signatures, so none is introduced. Every node retains `implementationStatus: unchecked`. The [handoff](../handoff/BP-PotentialAutomorphyInfrastructure.md) records the exact packet and compilation checks and the next steps for closure.
+The arithmetic types must come from the owners named above before those dependent signatures are added. A proposition-valued placeholder would allow meaningless signatures, so none is introduced. Every node retains `implementationStatus: unchecked`. The [handoff](../handoff/BP-PotentialAutomorphyInfrastructure~2.md) records the exact packet and compilation checks and the next steps for closure.
