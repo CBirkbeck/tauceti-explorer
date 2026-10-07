@@ -513,10 +513,10 @@ from the missing interface.
 
 The [suggested file](../suggested/HabiroCohomologyFoundations--HQ.1-2.lean)
 gives `torusScale`, its five API lemmas and four tests as native signatures.
-The [independent review](../reviews/REV-HabiroCohomologyFoundations--HQ.1-2.md)
+The [independent review](../reviews/REV-HabiroCohomologyFoundations--HQ.1-2~2.md)
 records successful elaboration of this scaling subset against pinned Mathlib,
-with ten expected placeholder-proof warnings. This revision checks agreement
-without claiming a new compilation. The file uses no Tau Ceti imports.
+with ten expected placeholder-proof warnings, and verifies agreement with the
+packet and reader. The file uses no Tau Ceti imports.
 
 Six enhanced nodes cannot yet be expressed at the pins: the global qΩ functor,
 complete E∞ target, enhanced action limit and quotient/QCoh functor are absent.
@@ -534,10 +534,11 @@ prototype does not establish elaboration of the entire plan.
 
 ## Sources read
 
-The public sources, versions, hashes and access dates checked in the
-completed independent review are recorded in the packet. Revision 2 preserves
-that source provenance; its additional reads and access limits are recorded
-in the [revision handoff](../handoff/BP-HabiroCohomologyFoundations--HQ.1-2~2.md).
+The public sources, versions, hashes and access dates freshly checked in the
+[completed independent review](../reviews/REV-HabiroCohomologyFoundations--HQ.1-2~2.md)
+are recorded in the packet. All three PDF hashes match the preceding review's
+source versions. The [revision handoff](../handoff/BP-HabiroCohomologyFoundations--HQ.1-2~2.md)
+records the earlier reader corrections and that author session's access limits.
 The central readings are Wagner arXiv:2510.04782v2 Appendix A,
 Theorem A.1 and its proof, and Scholze arXiv:1606.01796 §7, Definition 7.3,
 Remark 7.4 and Conjecture 7.5. Lurie's *DAG VIII*, dated November 5, 2011,
@@ -552,7 +553,7 @@ readings were tag 091N (complete limits and derived Nakayama), tag 03OY
 (ordinary affine Čech descent), and tag 06WT (ordinary groupoid QCoh).
 No current error was found in the passages used; `sourceIssues` is empty.
 
-The upstream HodgeStructures and AdicSpaces documents were read for the
+The upstream HodgeStructures and DGAInfinity documents were read for the
 standard of exact conventions, reusable APIs, examples and ownership
 boundaries. The accepted earlier packet, the reviewed library audit,
 PLAN-HABIRO §6.5, accepted RS-10 round 2 and the relevant supplier stage
