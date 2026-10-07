@@ -1815,7 +1815,8 @@
       "prerequisites": [
         "GeneralAlgebraicKTheory:K.3/resolution-theorem",
         "GeneralAlgebraicKTheory:K.3/additivity-for-exact-categories",
-        "GeneralAlgebraicKTheory:K.1/elementary-properties-of-K-groups"
+        "GeneralAlgebraicKTheory:K.1/elementary-properties-of-K-groups",
+        "GeneralAlgebraicKTheory:K.7/products-from-biexact-functors"
       ],
       "sources": [
         {
