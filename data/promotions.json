@@ -1226,6 +1226,17 @@
     "data/blueprints/roadmaps/InductionRestrictionPartII.json"
    ]
   },
+  "research/blueprint/packets/IntegralHeckeAndGaloisDeterminants.json": {
+   "promotedAt": "2026-10-07T16:43:23Z",
+   "review": "d6b756819c8fbb5a",
+   "reviewDate": "2026-10-07",
+   "reviewer": "independent-review-REV-IntegralHeckeAndGaloisDeterminants~2",
+   "sha256": "b4e5ac25e18c48bad1292cf796e5ed83c61c02d8e388a8a5cd1fb56ca9b6d4c8",
+   "to": [
+    "data/blueprints/IntegralHeckeAndGaloisDeterminants.json",
+    "data/blueprints/IntegralHeckeAndGaloisDeterminants.md"
+   ]
+  },
   "research/blueprint/packets/JacobianChallengePartII.json": {
    "promotedAt": "2026-10-05T00:41:27Z",
    "review": "d9a3b59097af94b5",
