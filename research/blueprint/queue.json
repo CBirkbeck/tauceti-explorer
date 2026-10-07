@@ -25458,9 +25458,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-GeometricSatakeAndFusion--GS0.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #741"
+   "note": "claimed on GitHub issue #741"
   },
   {
    "id": "REV-GeometricSatakeAndFusion--GS0",
@@ -30452,7 +30452,7 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-PotentialAutomorphyInfrastructure.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [
     "BP-ArithmeticLocallySymmetricSpaces",
     "BP-AutomorphicGaloisRepresentationsPartII--AG2.0",
@@ -30472,7 +30472,8 @@
     "BP-TorsionCohomologyInfrastructure",
     "BP-WeightsInEtaleCohomology"
    ],
-   "note": "claimed on GitHub issue #1018"
+   "note": "deliverables arrived from an external worker on issue #1018",
+   "finishedAt": "2026-10-07T11:34:47Z"
   },
   {
    "id": "REV-PotentialAutomorphyInfrastructure",
