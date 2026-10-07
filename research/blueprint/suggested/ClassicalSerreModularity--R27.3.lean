@@ -80,6 +80,10 @@ warnings are the 23 `declaration uses sorry` of the round-3 statements.
 Independent review REV-FIX-RT-AREA-langlands-2~3: Claude claude-hd6PQ0, 7 October 2026, Refs #5871;
 accepted; its declarations are unchanged by that review. The file elaborates with `lake env lean` against Mathlib `082e2d3` with
 no errors and the same 23 warnings.
+Completed continuation: Codex codex-t0EaB3, 7 October 2026, Refs #5871; accepted.
+Source and test-classification corrections are recorded in the review report. The active Mathlib-only
+file was checked with lean-check: no errors, 23 declaration-uses-sorry warnings. Supplier sketches
+inside comments remain unelaborated; this receipt does not certify their APIs or arithmetic.
 
 ```
 -- R27.1/lemma-8-2-chebotarev-choice-of-auxiliary-primes  (𝔽_p coefficients, not 𝔽̄_p):
@@ -499,7 +503,7 @@ def katzBaseChange (N : ℕ) (k : ℤ) (A B : Type u) [CommRing A] [CommRing B] 
 
 /-- `ClassicalSerreModularity:R27.6/weight-one-descent-from-infinitely-many-primes`, imported from Tau Ceti
 ModularForms, Layer 4 (stand-in, opaque): the normalised cuspidal newforms of weight one, of all levels and characters. At the Tau Ceti pin the type is
-`Σ N, HeckeRing.GL2.Newform N 1`. -/
+`Σ N : ℕ+, HeckeRing.GL2.Newform (N : ℕ) 1`. -/
 def WeightOneNewform : Type := sorry
 
 namespace WeightOneNewform
