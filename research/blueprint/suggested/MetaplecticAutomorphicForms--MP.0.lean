@@ -2,6 +2,9 @@
 This file is not the roadmap and is not exhaustive. The roadmap document is
 definitive. These signatures suggest Lean forms so contributors and reviewers
 can converge on names and signatures. Proof placeholders are not implementations.
+Independent review REV-MetaplecticAutomorphicForms--MP.0: needs_changes.
+The report records unresolved carrier/signature contradictions in the advanced
+fragments. This file has not been certified to elaborate or agree throughout.
 -/
 import TauCeti.RepresentationTheory.ProjectiveRepresentation.Extension
 import TauCeti.LinearAlgebra.BilinearForm.Isometry
@@ -294,7 +297,7 @@ The Q₂ product-topology test is generalized to native topological field/module
 def heisenbergTopology (B : LinearMap.BilinForm F V) [TopologicalSpace F] [TopologicalSpace V] : TopologicalSpace (bilinearFactorSet B).Extension := by sorry
 def heisenbergCoordinates (B : LinearMap.BilinForm F V) [TopologicalSpace F] [TopologicalSpace V] : letI := heisenbergTopology B; (bilinearFactorSet B).Extension ≃ₜ F × V := by sorry
 lemma heisenberg_continuous_mul (B : LinearMap.BilinForm F V) [TopologicalSpace F] [TopologicalSpace V] [IsTopologicalAddGroup F] [IsTopologicalAddGroup V] (hB : Continuous (fun p : V × V => B p.1 p.2)) : letI := heisenbergTopology B; Continuous (fun p : (bilinearFactorSet B).Extension × (bilinearFactorSet B).Extension => p.1*p.2) := by sorry
-lemma heisenberg_continuous_action (B : LinearMap.BilinForm F V) [TopologicalSpace F] [TopologicalSpace V] [TopologicalSpace (TauCeti.BilinForm.isometryGroup B)] : letI := heisenbergTopology B; Continuous (fun p : TauCeti.BilinForm.isometryGroup B × (bilinearFactorSet B).Extension => extensionIsometryAction B p.1 p.2) := by sorry
+lemma heisenberg_continuous_action (B : LinearMap.BilinForm F V) [TopologicalSpace F] [TopologicalSpace V] [TopologicalSpace (TauCeti.BilinForm.isometryGroup B)] (hEval : Continuous (fun p : TauCeti.BilinForm.isometryGroup B × V => (p.1 : V ≃ₗ[F] V) p.2)) : letI := heisenbergTopology B; Continuous (fun p : TauCeti.BilinForm.isometryGroup B × (bilinearFactorSet B).Extension => extensionIsometryAction B p.1 p.2) := by sorry
 -- Test: TauCeti.Metaplectic.heisenbergTopology_zero
 example : let B : LinearMap.BilinForm ℝ (Fin 0 → ℝ) := 0; letI := heisenbergTopology B; (bilinearFactorSet B).Extension ≃ₜ ℝ := by sorry
 -- Test: TauCeti.Metaplectic.heisenbergTopology_q2
@@ -452,10 +455,10 @@ Prototype: native fragment; the packet records the omitted supplier and analytic
 theorem weil_characterChange (z : ℂˣ) : z*z*(z^2)⁻¹ = 1 ∧ z⁻¹*z^2 = z := by sorry
 /- MetaplecticAutomorphicForms:MP.2/quadratic-uncertainty
 Native support conclusion with valuation(0)=top, so isotropic points are retained. The actual nonarchimedean valuation, nondegenerate quadratic/Hermitian datum, self-dual Fourier transform and local-field hypotheses are required by the packet. No statement for arbitrary FT or valuation is claimed. -/
-theorem weil_quadraticUncertainty (q : QuadraticMap F V F) (valuation : F → WithTop ℤ) (FT : (V → ℂ) →ₗ[ℂ] (V → ℂ)) (φ : V → ℂ) (h : Function.support φ ⊆ {x | 0 < valuation (q x)}) (hh : Function.support (FT φ) ⊆ {x | 0 ≤ valuation (q x)}) : φ = 0 := by sorry
+theorem weil_quadraticUncertainty [Nontrivial V] (q : QuadraticMap F V F) (valuation : F → WithTop ℤ) (FT : (V → ℂ) →ₗ[ℂ] (V → ℂ)) (φ : V → ℂ) (h : Function.support φ ⊆ {x | 0 < valuation (q x)}) (hh : Function.support (FT φ) ⊆ {x | 0 ≤ valuation (q x)}) : φ = 0 := by sorry
 /- MetaplecticAutomorphicForms:MP.2/hermitian-uncertainty
 Native support conclusion with valuation(0)=top, so isotropic points are retained. The actual nonarchimedean valuation, nondegenerate quadratic/Hermitian datum, self-dual Fourier transform and local-field hypotheses are required by the packet. No statement for arbitrary FT or valuation is claimed. -/
-theorem weil_hermitianUncertainty (q : QuadraticMap F V F) (valuation : F → WithTop ℤ) (FT : (V → ℂ) →ₗ[ℂ] (V → ℂ)) (φ : V → ℂ) (h : Function.support φ ⊆ {x | 0 < valuation (q x)}) (hh : Function.support (FT φ) ⊆ {x | 0 ≤ valuation (q x)}) : φ = 0 := by sorry
+theorem weil_hermitianUncertainty [Nontrivial V] (q : QuadraticMap F V F) (valuation : F → WithTop ℤ) (FT : (V → ℂ) →ₗ[ℂ] (V → ℂ)) (φ : V → ℂ) (h : Function.support φ ⊆ {x | 0 < valuation (q x)}) (hh : Function.support (FT φ) ⊆ {x | 0 ≤ valuation (q x)}) : φ = 0 := by sorry
 /- MetaplecticAutomorphicForms:MP.2/hermitian-operator-normalizations
 Prototype: native fragment; the packet records the omitted supplier and analytic conditions. -/
 theorem weil_hermitianNormalizations (FT : (V → ℂ) →ₗ[ℂ] (V → ℂ)) (φ : V → ℂ) (x : V) : FT (FT φ) x = φ (-x) := by sorry
@@ -557,13 +560,13 @@ theorem theta_archimedeanFirstOccurrence (n₁ n₂ dimU d : ℕ) : n₁+n₂ = 
 Prototype: native fragment; the packet records the omitted supplier and analytic conditions. -/
 theorem orthogonalCover_parity (m : ℕ) (centralAction : ℕ → ℂ) : centralAction m = (-1 : ℂ)^m := by sorry
 /- MetaplecticAutomorphicForms:MP.3/unitary-splitting
-Unitary splitting fragment. χV and χW must satisfy the quadratic-character restrictions on the native F× inclusion. ξ denotes the quotient character pulled back by the determinant. The zero tensor-space test specializes the actual oscillator carrier to ℂ. Local field, extension, dimensions, polarization and determinant bridges remain the packet hypotheses. -/
+Unitary splitting fragment. χV and χW must satisfy the quadratic-character restrictions on the native F× inclusion. ξ denotes the quotient character pulled back by the determinant. The zero tensor-space test specializes the actual carrier to ℂ with trivial auxiliary characters. In general GQT (2.2) gives a determinant-character line. Local field, extension, dimensions, polarization and determinant bridges remain the packet hypotheses. -/
 def unitaryWeilRepresentation (χV χW : G →* ℂˣ) : Representation ℂ (G × H) U := by sorry
 lemma unitarySplitting_cocycle (c : G → G → ℂˣ) (s : G → ℂˣ) (g h : G) : s (g*h) = s g*s h*c g h := by sorry
 lemma unitarySplitting_character_change (ρ σ : Representation ℂ G V) (χ : G →* ℂˣ) : ∀ g v, σ g v = (χ g : ℂ) • ρ g v := by sorry
 lemma unitarySplitting_delta (ρ : Representation ℂ G V) (σ : Representation ℂ G W) : Nonempty (Representation.Equiv ρ σ) := by sorry
 -- Test: TauCeti.Metaplectic.unitarySplitting_zero
-example (χV χW : G →* ℂˣ) (g : G × H) (z : ℂ) : (unitaryWeilRepresentation χV χW : Representation ℂ (G × H) ℂ) g z = z := by sorry
+example (g : G × H) (z : ℂ) : (unitaryWeilRepresentation (1 : G →* ℂˣ) 1 : Representation ℂ (G × H) ℂ) g z = z := by sorry
 -- Test: TauCeti.Metaplectic.unitarySplitting_restriction
 example (included : Subgroup G) (χ δ : G →* ℂˣ) (m : ℕ) (g : included) (h : χ g.val ≠ δ g.val^m) : χ.comp included.subtype ≠ (δ^m).comp included.subtype := by sorry
 -- Test: TauCeti.Metaplectic.unitarySplitting_twist
@@ -723,15 +726,15 @@ end GlobalCover
 section FiniteOscillator
 variable {D G : Type*} [Fintype D] [DecidableEq D] [Group G]
 /- MetaplecticAutomorphicForms:MP.4/finite-weil-representation
-Function-space realization of C[D]; q and pairing are lifts of the completed IntegralLattices finite quadratic module values. Period/lift independence and the metaplectic generator relations require that native AddCircle/QuadraticMap bridge. -/
+AGHMP omega_L convention: T has the negative phase, S the positive pairing exponential; rho_L is its conjugate. Function-space realization of C[D]; q and pairing are lifts of the completed IntegralLattices finite quadratic module values. Period/lift independence and the metaplectic generator relations require that native AddCircle/QuadraticMap bridge. -/
 def finiteWeil (q : D → ℝ) (pairing : D → D → ℝ) (phase : ℂ) : Representation ℂ G (D → ℂ) := by sorry
-lemma finiteWeil_T (q : D → ℝ) (pairing : D → D → ℝ) (phase : ℂ) (T : G) (μ ν : D) : finiteWeil q pairing phase T (Pi.single μ 1) ν = Complex.exp (2*Real.pi*Complex.I*q μ) * ((Pi.single μ (1:ℂ) : D → ℂ) ν) := by sorry
-lemma finiteWeil_S (q : D → ℝ) (pairing : D → D → ℝ) (phase : ℂ) (S : G) (φ : D → ℂ) (ν : D) : finiteWeil q pairing phase S φ ν = phase/(Real.sqrt (Fintype.card D) : ℂ) * ∑ μ, Complex.exp (-2*Real.pi*Complex.I*pairing μ ν)*φ μ := by sorry
-lemma finiteWeil_conjugate (q : D → ℝ) (pairing : D → D → ℝ) (phase : ℂ) (T : G) (μ ν : D) : star (finiteWeil q pairing phase T (Pi.single μ 1) ν) = Complex.exp (-2*Real.pi*Complex.I*q μ) * ((Pi.single μ (1:ℂ) : D → ℂ) ν) := by sorry
+lemma finiteWeil_T (q : D → ℝ) (pairing : D → D → ℝ) (phase : ℂ) (T : G) (μ ν : D) : finiteWeil q pairing phase T (Pi.single μ 1) ν = Complex.exp (-2*Real.pi*Complex.I*q μ) * ((Pi.single μ (1:ℂ) : D → ℂ) ν) := by sorry
+lemma finiteWeil_S (q : D → ℝ) (pairing : D → D → ℝ) (phase : ℂ) (S : G) (φ : D → ℂ) (ν : D) : finiteWeil q pairing phase S φ ν = phase/(Real.sqrt (Fintype.card D) : ℂ) * ∑ μ, Complex.exp (2*Real.pi*Complex.I*pairing μ ν)*φ μ := by sorry
+lemma finiteWeil_conjugate (q : D → ℝ) (pairing : D → D → ℝ) (phase : ℂ) (T : G) (μ ν : D) : star (finiteWeil q pairing phase T (Pi.single μ 1) ν) = Complex.exp (2*Real.pi*Complex.I*q μ) * ((Pi.single μ (1:ℂ) : D → ℂ) ν) := by sorry
 -- Test: TauCeti.Metaplectic.finiteWeil_unimodular
 example [Unique D] : Module.finrank ℂ (D → ℂ) = 1 := by sorry
 -- Test: TauCeti.Metaplectic.finiteWeil_Tbasis
-example (q : D → ℝ) (pairing : D → D → ℝ) (phase : ℂ) (T : G) (μ : D) : finiteWeil q pairing phase T (Pi.single μ 1) μ = Complex.exp (2*Real.pi*Complex.I*q μ) := by sorry
+example (q : D → ℝ) (pairing : D → D → ℝ) (phase : ℂ) (T : G) (μ : D) (hq : q μ = 1/4) : finiteWeil q pairing phase T (Pi.single μ 1) μ = -Complex.I ∧ star (finiteWeil q pairing phase T (Pi.single μ 1) μ) = Complex.I := by sorry
 -- Test: TauCeti.Metaplectic.finiteWeil_conjugation
 example (a : ℂ) (h : a.im ≠ 0) : star a ≠ a := by sorry
 end FiniteOscillator
@@ -961,7 +964,7 @@ lemma jacobiGroup_mul (act : G →* MulAut N) (a b : N ⋊[act] G) : a*b = ⟨a.
 lemma schroedingerWeil_apply (act : G →* MulAut N) (ρ : Representation ℂ N (X → ℂ)) (ω : Representation ℂ G (X → ℂ)) (p : N ⋊[act] G) (φ : X → ℂ) : schroedingerWeil act ρ ω p φ = ρ p.left (ω p.right φ) := by sorry
 lemma jacobiGroup_similitude (ψ : Z →* ℂˣ) (a : Z →* Z) (z : Z) : ψ (a z) = (ψ.comp a) z := by sorry
 -- Test: TauCeti.Metaplectic.jacobiGroup_identity
-example (act : ↥(rootsOfUnity 2 ℂ) →* MulAut (Multiplicative ℝ)) : (Multiplicative ℝ) ⋊[act] ↥(rootsOfUnity 2 ℂ) ≃* (Multiplicative ℝ) × ↥(rootsOfUnity 2 ℂ) := by sorry
+example (act : ↥(rootsOfUnity 2 ℂ) →* MulAut (Multiplicative ℝ)) (hact : act = 1) : (Multiplicative ℝ) ⋊[act] ↥(rootsOfUnity 2 ℂ) ≃* (Multiplicative ℝ) × ↥(rootsOfUnity 2 ℂ) := by sorry
 -- Test: TauCeti.Metaplectic.jacobiGroup_translation
 example (act : G →* MulAut N) (ρ : Representation ℂ N (X → ℂ)) (ω : Representation ℂ G (X → ℂ)) (n : N) (φ : X → ℂ) : schroedingerWeil act ρ ω (SemidirectProduct.inl n) φ = ρ n φ := by sorry
 -- Test: TauCeti.Metaplectic.jacobiGroup_covariance
@@ -1187,7 +1190,7 @@ example (s : ℂ) : poincarePrefactor 1 s = Complex.Gamma (s-1/4)/(4*Real.pi*Com
 -- Test: TauCeti.Metaplectic.halfWeightPoincare_test2
 example (s : ℂ) : (4*Real.pi*abs (0:ℝ)*Complex.Gamma (2*s):ℂ) = 0 := by sorry
 -- Test: TauCeti.Metaplectic.halfWeightPoincare_test3
-example (s : ℂ) : poincarePrefactor 1 s*(4*Real.pi*Complex.Gamma (2*s)) = Complex.Gamma (s-1/4) := by sorry
+example (s : ℂ) (hs : 1 < s.re) : poincarePrefactor 1 s*(4*Real.pi*Complex.Gamma (2*s)) = Complex.Gamma (s-1/4) := by sorry
 /- MetaplecticAutomorphicForms:MP.7/poincare-residues
 Prototype: native fragment; the packet records the omitted supplier and analytic conditions. -/
 theorem halfWeightPoincare_residue (M : ℝ → ℂ → ℝ → ℂ) (residue : (ℂ → ℂ) → ℂ → ℂ) (n : ℤ) (r : ℝ) (b : Finset (ℍ → ℂ)) (coeff : (ℍ → ℂ) → ℤ → ℂ) (z : ℍ) : residue (fun s => (2*s-1)*halfWeightPoincare M n s z) (1/2+Complex.I*r/2) = ∑ F ∈ b, star (coeff F n)*F z := by sorry
@@ -1336,17 +1339,34 @@ example (measure : Measure ℍ) (φ : ℍ → ℂ) : geometricTrace measure φ 0
 -- Test: TauCeti.Metaplectic.geometricTrace_norm
 example (measure : Measure ℍ) (φ : ℍ → ℂ) (rawTrace : ℂ) (h : (∫ z, ‖φ z‖^2 ∂measure : ℝ) = 1) : geometricTrace measure φ rawTrace = rawTrace := by sorry
 /- MetaplecticAutomorphicForms:MP.7/biro-shintani-lift
-Prototype: native fragment; the packet records the omitted supplier and analytic conditions. -/
-def biroLift (K : ℂ → ℝ → ℂ) (b : ℤ → ℂ) (χ : ℕ → ℂ) (D : ℤ) (t : ℝ) (z : ℍ) : ℂ := shimuraSeries K (fun k => ∑ a ∈ k.divisors, χ a*(a:ℂ)^(-1/2:ℂ)*b (D*((k/a):ℤ)^2)) (2*t) z
-lemma biroLift_coeff (K : ℂ → ℝ → ℂ) (b : ℤ → ℂ) (χ : ℕ → ℂ) (D : ℤ) (t : ℝ) (z : ℍ) : biroLift K b χ D t z = shimuraSeries K (fun k => ∑ a ∈ k.divisors, χ a*(a:ℂ)^(-1/2:ℂ)*b (D*((k/a):ℤ)^2)) (2*t) z := by sorry
-lemma biroLift_spectral (t : ℝ) : (2*t)^2 = 4*t^2 := by sorry
-lemma biroLift_kernel (K : ℂ → ℝ → ℂ) (b : ℤ → ℂ) (χ : ℕ → ℂ) (D : ℤ) (t : ℝ) (z : ℍ) (hb : ∀ k : ℕ, b (D*(k:ℤ)^2) = 0) : biroLift K b χ D t z = 0 := by sorry
+Biró's source Fourier series, not a theta-kernel construction. N>0 and D>0
+fundamental, V*_{1/2}(4N), convergence and equation (14) are packet conditions.
+The complex spectral parameter retains the source complementary range.
+W is the source weight-zero Whittaker function W_s(z). Keeping W_s(kz) avoids
+silently dropping its |k|^(1/2) factor in a conversion to shimuraSeries. -/
+def biroCoefficientSequence (b : ℤ → ℂ) (χ : ℕ → ℂ) (N : ℕ) (D : ℤ) (k : ℕ) : ℂ :=
+ ∑ P ∈ k.divisors, if Nat.Coprime N P then
+   (Real.sqrt (k/P : ℕ) : ℂ)/(P:ℂ)*χ P*b (D*((k/P):ℤ)^2) else 0
+def biroLift (W : ℂ → ℂ → ℂ) (b : ℤ → ℂ) (χ : ℕ → ℂ) (N : ℕ) (D : ℤ) (t : ℂ) (z : ℍ) : ℂ :=
+ ∑' k : ℤ, if k = 0 then 0 else
+   biroCoefficientSequence b χ N D k.natAbs * W (1/2+2*Complex.I*t) (k*(z:ℂ))
+lemma biroLift_coeff (W : ℂ → ℂ → ℂ) (b : ℤ → ℂ) (χ : ℕ → ℂ) (N : ℕ) (D : ℤ) (t : ℂ) (z : ℍ) :
+ biroLift W b χ N D t z = ∑' k : ℤ, if k = 0 then 0 else
+   biroCoefficientSequence b χ N D k.natAbs * W (1/2+2*Complex.I*t) (k*(z:ℂ)) := by sorry
+lemma biroLift_spectral (t : ℂ) : (2*t)^2 = 4*t^2 := by sorry
+lemma biroLift_kernel (W : ℂ → ℂ → ℂ) (b : ℤ → ℂ) (χ : ℕ → ℂ) (N : ℕ) (D : ℤ) (t : ℂ) (z : ℍ)
+ (hb : ∀ k : ℕ, b (D*(k:ℤ)^2) = 0) : biroLift W b χ N D t z = 0 := by sorry
 -- Test: TauCeti.Metaplectic.biroLift_zero
-example (K : ℂ → ℝ → ℂ) (χ : ℕ → ℂ) (D : ℤ) (t : ℝ) (z : ℍ) : biroLift K 0 χ D t z = 0 := by sorry
+example (W : ℂ → ℂ → ℂ) (χ : ℕ → ℂ) (N : ℕ) (D : ℤ) (t : ℂ) (z : ℍ) :
+ biroLift W 0 χ N D t z = 0 := by sorry
 -- Test: TauCeti.Metaplectic.biroLift_kernelTest
-example (K : ℂ → ℝ → ℂ) (b : ℤ → ℂ) (χ : ℕ → ℂ) (D : ℤ) (t : ℝ) (z : ℍ) (hb : ∀ k : ℕ, b (D*(k:ℤ)^2) = 0) : biroLift K b χ D t z = 0 := by sorry
+example (W : ℂ → ℂ → ℂ) (b : ℤ → ℂ) (χ : ℕ → ℂ) (N : ℕ) (D : ℤ) (t : ℂ) (z : ℍ)
+ (hb : ∀ k : ℕ, b (D*(k:ℤ)^2) = 0) : biroLift W b χ N D t z = 0 := by sorry
 -- Test: TauCeti.Metaplectic.biroLift_parameter
-example (t : ℝ) (h : t ≠ 0) : (2*t)^2 ≠ t^2 := by sorry
+example (t : ℂ) (h : t ≠ 0) : (2*t)^2 ≠ t^2 := by sorry
+-- Test: TauCeti.Metaplectic.biroLift_coefficientTwo
+example (b : ℤ → ℂ) (χ : ℕ → ℂ) (D : ℤ) (hb : b D = 1) (hb4 : b (D*4) = 0)
+ (hχ1 : χ 1 = 1) (hχ2 : χ 2 = 1) : biroCoefficientSequence b χ 1 D 2 = 1/2 := by sorry
 /- MetaplecticAutomorphicForms:MP.7/adelic-classical-half-weight
 Equivalence target only, between the actual compatible finite-level genuine adelic and classical spaces. The Iwasawa/multiplier/Whittaker/Laplacian matching conditions are omitted until their native suppliers arrive. -/
 def halfWeight_adelicClassical (adelicFunctions classicalFunctions : Type*) [AddCommGroup adelicFunctions] [Module ℂ adelicFunctions] [AddCommGroup classicalFunctions] [Module ℂ classicalFunctions] : adelicFunctions ≃ₗ[ℂ] classicalFunctions := by sorry
