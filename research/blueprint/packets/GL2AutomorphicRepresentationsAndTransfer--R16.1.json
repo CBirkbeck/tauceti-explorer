@@ -3953,11 +3953,10 @@
     {
       "kind": "misprint",
       "locator": "§1.3 (speculative remarks on geometric doubling), p. 805, last paragraph and display at the foot of the page. arXiv:1907.08691v1 has the same wording and display: the sentence starts on p. 4 and the display is on p. 5.",
-      "correction": "Replace \"which is not trivial\" with \"which is not one-dimensional\" (equivalently \"infinite-dimensional\" or \"generic\"). Then π_p is an irreducible unramified principal series Ind_B^G(χ1⊗χ2), with χ1, χ2 unramified and χ1χ2^{-1} ≠ |·|^{±1}, and the display holds. This one-word change is the minimal fix.",
+      "correction": "Assume π_p is not one-dimensional, equivalently infinite-dimensional or generic, rather than merely nontrivial. Then π_p is an irreducible unramified principal series Ind_B^G(χ₁⊗χ₂), with χ₁,χ₂ unramified and χ₁χ₂⁻¹≠|·|^{±1}, and the display holds. This is the minimal hypothesis correction.",
       "affects": "nothing",
       "id": "GL2AutomorphicRepresentationsAndTransfer/E13",
       "source": "cg20",
-      "printed": "which is not trivial",
       "reason": "A nontrivial unramified χ∘det satisfies the printed hypothesis and has both fixed spaces of dimension one.",
       "known": "Previously recorded and confirmed as PAPER-CALEGARI-GERAGHTY-20/E8 by REV-PAPER-CALEGARI-GERAGHTY-20",
       "searched": [

@@ -3427,7 +3427,7 @@
         },
         {
           "sourceId": "gross-zagier-1986",
-          "locator": "published Invent. Math. 84 (1986), Chapter IV, §5, p. 292 (‘in accordance with Waldspurger's theorem, they are all squares’)",
+          "locator": "published Invent. Math.84(1986), ChapterIV §5, p.292, discussion of the squares furnished by Waldspurger’s theorem",
           "match": "Primary scanned passage read through GDZ OCR; the normalized statement follows the amended extraction. Formula corrections and proof gates are recorded separately; OCR is not used to certify ambiguous symbols.",
           "independentReview": {
             "verdict": "unverifiable",
@@ -4187,7 +4187,7 @@
         {
           "sourceId": "yzz-gross-zagier-shimura-curves-2013",
           "locator": "Chapter 1, Sec. 1.5.8, printed p. 17",
-          "match": "Gives the two degeneracy classes verbatim with their defining conditions. Reviewed decomposition supplies this locator/excerpt; the full book proof was not independently acquired in this run.",
+          "match": "Gives the two degeneracy classes and their defining conditions. The locator is inherited from the reviewed decomposition; this session did not independently acquire the full book proof.",
           "independentReview": {
             "verdict": "unverifiable",
             "by": "REV-GrossZagierAndArithmeticHeights--GZ.0",
@@ -13982,7 +13982,7 @@
       "sources": [
         {
           "sourceId": "gross-zagier-1986",
-          "locator": "published Invent. Math. 84 (1986), Chapter IV, (0.2), p. 267; proof: §4, pp. 282–283 (‘This completes the proof of the functional equation’)",
+          "locator": "published Invent. Math.84(1986), ChapterIV (0.2), p.267; completion of the functional-equation proof in §4, pp.282–283",
           "match": "Primary scanned passage read through GDZ OCR; the normalized statement follows the amended extraction. Formula corrections and proof gates are recorded separately; OCR is not used to certify ambiguous symbols.",
           "independentReview": {
             "verdict": "unverifiable",
@@ -14549,7 +14549,7 @@
       ],
       "title": "Central-value genus-sum filter",
       "kind": "theorem",
-      "statement": "Standing notation of Chapter IV (pp. 267–282): K = ℚ(√D) imaginary quadratic with fundamental discriminant D < 0, assumed odd from §2 on (so D ≡ 1 mod 4, squarefree); δ = |D|; ε(n) = (D/n), the odd primitive quadratic character mod δ; h = #Cl_K; w = 2u = #O_K^×; A ∈ Cl_K a fixed ideal class; r_A(n) = number of integral ideals of norm n in A (n ≥ 1), r_A(0) = 1/w; N ≥ 1 an integer prime to D; k ≥ 1; f = Σ a(n)qⁿ ∈ S_2k^new(Γ₀(N)); L_A(f,s) = L^(N)(2s−2k+1, ε)·Σ_{n≥1} a(n) r_A(n) n^{−s} (0.1); Petersson product (f,g) = ∫_{Γ₀(N)\\𝔥} f(z) \\overline{g(z)} y^{2k} dx dy/y² (linear in f, antilinear in g); Φ̃_s ∈ M̃_2k(Γ₀(N)) the Rankin kernel of Prop. (1.2), (4π)^{−s−2k+1} N^s Γ(s+2k−1) L_A(f, s+2k−1) = (f, Φ̃_s); e_s(n,y) the n-th Fourier coefficient of 𝓔_s (§3), so that Φ̃_s(z) = Σ_{n∈ℤ, l≥0, Nn+l≡0 (mod D)} e_s(n, Ny/δ) r_A(l) e^{−2πly/δ} e((Nn+l)x/δ) (3.1); for n ≠ 0 and 0 < d | n, ε_A(n,d) = 0 if (d, n/d, D) ≠ 1 and ε_A(n,d) = ε_{D₁}(d) ε_{D₂}(−Nn/d) χ_{D₁·D₂}(A) otherwise, where D = D₁D₂ with |D₂| = (d, D) and χ_{D₁·D₂} is the genus character (Prop. (3.2)); V_s(t), V*_s(t) = (π|t|)^{−s−2k+1}Γ(s+2k−1)V_s(t), p_{k,r}(t) and q_{k−1}(t) = ∫_1^∞ (x−1)^{k−1}x^{−k}e^{−xt}dx as in Prop. (3.3). For n, l ∈ ℕ: Σ_A R_{A𝔫}(n) r_A(l) = Σ_{genera G} R_{G𝔫}(n) R_G(l), which equals R(n)R(l) if the genus of an ideal of norm nl (if any) is {𝔫}, and 0 otherwise; here R(n) = Σ_{d|n} ε(d). If ε(N) = −1 (so N(𝔫) ≡ −N mod D) and l = m|D| − nN > 0, the genus conditions at the primes p | D with p ∤ n are automatic (l ≡ N(𝔫)n mod p), and δ(n) Σ_A R_{A𝔫}(n) r_A(m|D| − nN) = R(n) R(m|D| − nN) ∏_{p|(n,D)} (1 + ε̂_p((nN − m|D|)/(nN))), where ε̂_p : ℚ^× → {±1} is the homomorphism with ε̂_p(q) = (q/p) for primes q ≠ p, ε̂_p(−1) = (−1/p), and ε̂_p(p) = ((|D|/p)/p). [Printed: ‘the values of genus characters associated to the primes p dividing N’ — read D; issue PAPER-GROSS-ZAGIER-86/E44.]",
+      "statement": "Standing notation of Chapter IV (pp. 267–282): K = ℚ(√D) imaginary quadratic with fundamental discriminant D < 0, assumed odd from §2 on (so D ≡ 1 mod 4, squarefree); δ = |D|; ε(n) = (D/n), the odd primitive quadratic character mod δ; h = #Cl_K; w = 2u = #O_K^×; A ∈ Cl_K a fixed ideal class; r_A(n) = number of integral ideals of norm n in A (n ≥ 1), r_A(0) = 1/w; N ≥ 1 an integer prime to D; k ≥ 1; f = Σ a(n)qⁿ ∈ S_2k^new(Γ₀(N)); L_A(f,s) = L^(N)(2s−2k+1, ε)·Σ_{n≥1} a(n) r_A(n) n^{−s} (0.1); Petersson product (f,g) = ∫_{Γ₀(N)\\𝔥} f(z) \\overline{g(z)} y^{2k} dx dy/y² (linear in f, antilinear in g); Φ̃_s ∈ M̃_2k(Γ₀(N)) the Rankin kernel of Prop. (1.2), (4π)^{−s−2k+1} N^s Γ(s+2k−1) L_A(f, s+2k−1) = (f, Φ̃_s); e_s(n,y) the n-th Fourier coefficient of 𝓔_s (§3), so that Φ̃_s(z) = Σ_{n∈ℤ, l≥0, Nn+l≡0 (mod D)} e_s(n, Ny/δ) r_A(l) e^{−2πly/δ} e((Nn+l)x/δ) (3.1); for n ≠ 0 and 0 < d | n, ε_A(n,d) = 0 if (d, n/d, D) ≠ 1 and ε_A(n,d) = ε_{D₁}(d) ε_{D₂}(−Nn/d) χ_{D₁·D₂}(A) otherwise, where D = D₁D₂ with |D₂| = (d, D) and χ_{D₁·D₂} is the genus character (Prop. (3.2)); V_s(t), V*_s(t) = (π|t|)^{−s−2k+1}Γ(s+2k−1)V_s(t), p_{k,r}(t) and q_{k−1}(t) = ∫_1^∞ (x−1)^{k−1}x^{−k}e^{−xt}dx as in Prop. (3.3). For n, l ∈ ℕ: Σ_A R_{A𝔫}(n) r_A(l) = Σ_{genera G} R_{G𝔫}(n) R_G(l), which equals R(n)R(l) if the genus of an ideal of norm nl (if any) is {𝔫}, and 0 otherwise; here R(n) = Σ_{d|n} ε(d). If ε(N) = −1 (so N(𝔫) ≡ −N mod D) and l = m|D| − nN > 0, the genus conditions at the primes p | D with p ∤ n are automatic (l ≡ N(𝔫)n mod p), and δ(n) Σ_A R_{A𝔫}(n) r_A(m|D| − nN) = R(n) R(m|D| − nN) ∏_{p|(n,D)} (1 + ε̂_p((nN − m|D|)/(nN))), where ε̂_p : ℚ^× → {±1} is the homomorphism with ε̂_p(q) = (q/p) for primes q ≠ p, ε̂_p(−1) = (−1/p), and ε̂_p(p) = ((|D|/p)/p). [The printed prime-divisor condition uses p|N where p|D is required; issue PAPER-GROSS-ZAGIER-86/E44.]",
       "hypotheses": [
         "K=ℚ(√D), D<0 a fundamental discriminant; ε=(D/·), h=#Cl(K), w=#O_K×=2u; A an ideal class; r_A(n) counts integral ideals of norm n and r_A(0)=1/w.",
         "N≥1 is prime to D; f is a weight-2k newform, k≥1, with a(1)=1 where eigenform normalization is used. Petersson pairing is linear in the first argument, with y^(2k)dxdy/y² and no implicit volume division."
@@ -16974,7 +16974,6 @@
       "source": "conrad-2004",
       "kind": "misprint",
       "locator": "§1, 'Some conventions', p. 69 (SLMath PDF p. 4); against §9, p. 119 (PDF p. 54)",
-      "printed": "The source sets u_x equal to the count of roots of unity of the CM field K attached to a Heegner point x. It gives 2 as the usual value, with exceptions K=ℚ(√−1),ℚ(√−3).",
       "correction": "u_x is half that cardinality (u_x = 1 unless K = Q(√−1), Q(√−3), where it is 2, 3), as p. 119 uses it and as in Gross–Zagier's u = #O_K^×/2.",
       "reason": "On p. 119 the same symbol appears in 'The group AutF(x) … has order 2ux with ux ∈ {1, 2, 3}'. Aut_F(x) is the unit group of the CM order, of order #μ(K) ∈ {2, 4, 6}, so there u_x = #μ(K)/2. The two uses differ by a factor of 2, which becomes 4 in any formula with u_x².",
       "affects": "nothing",
@@ -16993,7 +16992,6 @@
     {
       "kind": "error",
       "locator": "Chapter II, §1, p. 234 (cusps of X₀(N)), Invent. Math. 84 (1986), published version (GDZ scan)",
-      "printed": "The source gives m/n (m, n∈ℤ, (m, n)=1) ↦ (n/d)⁻¹ m(mod f_d), with d=(n, N). It claims coprimality of n/d with f_d and says the result is determined solely by the class of m/n modulo Γ.",
       "correction": "m/n ↦ (n/d)·m (mod f_d) (equivalently m⁻¹(n/d)⁻¹); the printed map is Γ₀(N)-invariant only when (ℤ/f_dℤ)^× has exponent ≤ 2, i.e. f_d | 24.",
       "reason": "Prior reviewed extraction check: For γ = (a b; c d′) ∈ Γ₀(N): m′ = am + bn, n′ = cm + d′n, (n′, N) = d, n′/d ≡ d′(n/d) and m′ ≡ am (mod f_d), ad′ ≡ 1 (mod N); hence m′(n′/d) ≡ m(n/d) but (n′/d)⁻¹m′ ≡ a²(n/d)⁻¹m (mod f_d). Example N = 25: γ = (−2 1; −25 12) ∈ Γ₀(25) sends 2/5 to 1/10; the printed invariant gives 2 and 2⁻¹ = 3 (mod 5), the corrected one 2 and 2. Brute force (SCR/t_cusp.py): violations of the printed invariant for N = 25, 49, 50, none of the corrected one for N ∈ {8, 9, 16, 25, 27, 32, 45, 49, 50, 72}. Checked on the page image (zoomed): the exponent −1 is printed. Reach: the bijection with ∐(ℤ/f_dℤ)^× and the cusp count Σφ(f_d) = ∏(p^{[ν/2]} + p^{[(ν−1)/2]}) are correct with the corrected map; the map is not used later.",
       "affects": "nothing",
@@ -17022,7 +17020,6 @@
     {
       "kind": "error",
       "locator": "Chapter II, §1, pp. 235–236 (action of w_d on Heegner points, and (i)), Invent. Math. 84 (1986), published version (GDZ scan)",
-      "printed": "On p. 235, the source says w_d (d‖N) sends a Heegner point to one with class 𝒜[𝔡] in place of 𝒜, where 𝔡=(d, 𝔫); the new 𝔫 uses the other choice of 𝔭_i at every p_i dividing d. On p. 236, (i) gives the action of w_N as (𝒜, 𝔫)→(𝒜[𝔫], 𝔫̄).",
       "correction": "𝒜 is replaced by 𝒜[𝔡]⁻¹ (= 𝒜[𝔡̄]); (i) w_N : (𝒜, 𝔫) → (𝒜[𝔫]⁻¹, 𝔫̄) = (𝒜[𝔫̄], 𝔫̄). This is the rule the paper itself uses on p. 243: τ_{𝒜,𝔫} ↦ τ_{𝒜[𝔡]⁻¹, 𝔫𝔡⁻¹𝔡̄}.",
       "reason": "Prior reviewed extraction check: Chap. I (2.2): w_d(x) = (E/D → E′/D′) with D ⊂ ker φ of order d. For x = (ℂ/𝔞 → ℂ/𝔞𝔫⁻¹): D = 𝔞𝔡⁻¹/𝔞, E/D = ℂ/𝔞𝔡⁻¹ of class 𝒜[𝔡]⁻¹, and the new kernel gives 𝔫𝔡⁻¹𝔡̄. For w_N (dual isogeny, Chap. I (2.1)): ℂ/𝔞𝔫⁻¹ → ℂ/𝔞N⁻¹ = ℂ/(𝔞𝔫⁻¹)𝔫̄⁻¹, i.e. ([𝔞𝔫⁻¹], 𝔫̄). In coordinates: −1/(Nτ) is the root of [CN, −B, A/N], whose (1.5)-ideal is 𝔫̄·(ℤC + ℤ(−B+√D)/2) ~ 𝔞𝔫̄; numerically class(𝔞′) = class(𝔞𝔫̄) ≠ class(𝔞𝔫) for (D, N) = (−23, 2), (−23, 3), (−47, 2), (−71, 2) (SCR/t_wN.py). The rule is independent of the labelling convention of PAPER-GROSS-ZAGIER-86/E3. The p. 243 claim that the substitution fixes 𝒜₁𝒜₂[𝔫]⁻¹ holds only with [𝔡]⁻¹. Reach: p. 243 states and uses the correct rule; statement (ii) is true either way.",
       "affects": "nothing",
@@ -17051,7 +17048,6 @@
     {
       "kind": "misprint",
       "locator": "Chapter II, §1, (1.3)–(1.5), p. 236, Invent. Math. 84 (1986), published version (GDZ scan)",
-      "printed": "The source specifies (1.3) β∈ℤ/2Nℤ, β²≡D(mod 4N) and 𝔫=(N, (β+√D)/2)=ℤN+ℤ(β+√D)/2. For x=(ℂ/𝔞→ℂ/𝔞𝔫⁻¹), with 𝔞𝔫⁻¹ integral, it identifies the corresponding τ in 𝔥 by (1.4) Aτ²+Bτ+C=0, A>0, B²−4AC=D, A≡0(mod N), B≡β(mod 2N). It gives (1.5) 𝔞=ℤ·A+ℤ(B+√D)/2, 𝔞𝔫⁻¹=ℤ·AN⁻¹+ℤ(B+√D)/2, N_{K/ℚ}(𝔞)=A.",
       "correction": "With √D = i√|D| (the branch §3 uses: \"τ_i∈A_i⁻¹𝔞̄_i=𝔞_i⁻¹\" in (3.7) and \"cτ₁+d=(β−α)/(τ₂−τ̄₂)=(A₂/√D)(β−α)\" on p. 245) the root τ ∈ 𝔥 represents (ℂ/𝔞̄ → ℂ/𝔞̄𝔫̄⁻¹) = c(x), i.e. the pair (𝒜⁻¹, 𝔫̄); x itself is −τ̄ = (B+√D)/(2A). Consistent fixes: read (β+√D)/2, (B+√D)/2 as (−β+√D)/2, (−B+√D)/2 in (1.3), (1.5) (then (3.7) reads τ_i ∈ 𝔞̄_i⁻¹), or keep (1.3)–(1.5) and read τ_{𝒜,𝔫} in §3 as the Heegner point (𝒜⁻¹, 𝔫̄), on which σ_𝒜 acts by 𝒜₁ ↦ 𝒜₁𝒜.",
       "reason": "Prior reviewed extraction check: §1 dictionary (p. 234): z = ω₁/ω₂ for an oriented basis ⟨ω₁, ω₂⟩ of L with ⟨ω₁, ω₂/N⟩ a basis of L′. For L = 𝔞 = ℤA + ℤ(B+√D)/2 and L′ = 𝔞𝔫⁻¹ = ℤA/N + ℤ(B+√D)/2 this is ω₁ = (B+√D)/2, ω₂ = A (Im(ω₁ω̄₂) = A√|D|/2 > 0), z = (B+√D)/(2A), a root of Az² − Bz + C with B-invariant −β (mod 2N), which differs from β for N > 1 because (β, N) = 1; equivalently Aτ = (−B+√D)/2 ∈ 𝔞̄, so ⟨τ, 1⟩ ~ 𝔞̄ (checked numerically for D = −7, −23: Aτ ∈ 𝔞̄, Aτ ∉ 𝔞). The paper states that 'this invariant corresponds to the choice of 𝔫 as in (1.3)'; under the dictionary it corresponds to 𝔫̄. Reach: every result of Chapter II depends on the classes only through r_𝒜, r_𝔅, δ(n) and the genera {𝒜}, {𝔅𝔫}, all invariant under (𝒜, 𝔅, 𝔫) ↦ (𝒜⁻¹, 𝔅⁻¹, 𝔫̄); (3.14)/(3.17) were verified numerically in the τ-labelling. Chunks reading §4–§5 and Chapter V (individual terms (3.1), χ-components) should keep the labelling in mind: it swaps χ and χ⁻¹, which the paper's final formulas pair symmetrically.",
       "affects": "nothing",
@@ -17109,7 +17105,6 @@
     {
       "kind": "error",
       "locator": "Chapter II, §3, (3.11) Proposition and the converse step on p. 245, Invent. Math. 84 (1986), published version (GDZ scan)",
-      "printed": "Proposition (3.11) takes classes 𝒜₁, 𝒜₂ of K, primitive 𝔫 of norm N, and integral 𝔞_i in 𝒜_i (i=1, 2), with 𝔫|𝔞_i, N(𝔞_i)=A_i. For m∈ℕ, r_{𝒜₁𝒜₂⁻¹}(m)=0, it gives ρ^m(n) = #{(α, β)∈(𝔞₁⁻¹𝔞̄₂⁻¹×𝔞₁⁻¹𝔞₂⁻¹𝔫)/{±1} | N(α)=(Nn+m|D|)/(A₁A₂), N(β)=Nn/(A₁A₂), A₁A₂α≡A₁A₂β(mod 𝔡)}. On p. 245 it claims (3.7), (3.10) put their right sides respectively in 𝔫𝔞₁⁻¹=Nℤτ₁+ℤ and 𝔞₁⁻¹=ℤτ₁+ℤ.",
       "correction": "Add the hypothesis that 𝔞₁, 𝔞₂ are prime to D (possible in every class, keeping 𝔫 | 𝔞_i), or replace (3.10) by the exact conditions (A₂/√D)(β − α) ∈ 𝔫𝔞₁⁻¹ and (A₂/√D)(τ̄₂β − τ₂α) ∈ 𝔞₁⁻¹.",
       "reason": "Prior reviewed extraction check: The converse divides by √D; at a ramified 𝔭 | 𝔞₁ (or 𝔞₂) the numbers A₁A₂α, A₁A₂β lie in 𝔭 automatically, so (3.10) carries no information there. Counterexample (SCR/t_rho.py, t_rho2.py; recomputed independently by the reviewer): D = −7, N = 2, β = 1, m = 3 (3 inert, h = 1), τ₂ from [2, 1, 1], 𝔞₁ = ℤ14 + ℤ(21+√−7)/2 from [14, 21, 8] (N(𝔞₁) = 14, 𝔞₁ ⊂ (√−7)): the true γ-counts are ρ(1), ρ(2), ρ(4), ρ(8) = 2, 2, 6, 8 while the (α, β)-set of (3.11) has 4, 4, 12, 16 elements (every n with 7 ∤ n doubles; n = 14, 28 agree); with 𝔞₁ from [2, 1, 1] (prime to 7) the two counts agree for all n ≤ 29. The p. 246 argument for (3.13) ('exactly half of the pairs') also presupposes 𝔞ᵢ prime to D. Reach: Proposition (3.11) is false in its stated generality; nothing downstream is affected, because (3.12)–(3.17) are statements about classes and follow with representatives prime to D (verified numerically).",
       "affects": "a stated result",
@@ -17138,8 +17133,7 @@
     {
       "kind": "misprint",
       "locator": "Chapter II, §2, p. 239 (before (2.15)), Invent. Math. 84 (1986), published version (GDZ scan)",
-      "printed": "The source says G_{N,s}(z, z′) should have both −4πE(w_N z, s) and −4πE(z′, s) subtracted from it.",
-      "correction": "\"−4πE_N(w_N z, s) and −4πE_N(z′, s)\", as in (2.15); the unsubscripted E is the SL₂(ℤ) series E₁ of (2.16).",
+      "correction": "Use the level-N Eisenstein terms −4πE_N(w_Nz,s) and −4πE_N(z′,s), as in(2.15); the unsubscripted E denotes the level-one E₁ of(2.16).",
       "reason": "Prior reviewed extraction check: The preceding sentence introduces −4πE_N(z, s) and (2.15) uses E_N; with E = E₁ the pole would be −4π·(3/π)/(s−1) ≠ κ_N/(s−1) for N > 1.",
       "affects": "nothing",
       "known": "new",
@@ -17167,7 +17161,6 @@
     {
       "kind": "misprint",
       "locator": "Chapter II, §3, p. 243 (after (3.3)), Invent. Math. 84 (1986), published version (GDZ scan)",
-      "printed": "The source says (3.3) suffices to calculate Σ_{v|∞}⟨c, d^σ⟩_v, the entire archimedean contribution to the global height pairing.",
       "correction": "Σ_{v|∞}⟨c, T_m d^σ⟩_v (the quantity named in the first line of §3 and computed in §4, p. 248).",
       "reason": "Prior reviewed extraction check: (3.3) is built from G^m_{N,s}, i.e. from Proposition (2.23) for T_m; for m = 1 the two coincide only formally (and r_𝒜(1) = 0 fails for 𝒜 = 1).",
       "affects": "nothing",
@@ -17196,7 +17189,6 @@
     {
       "kind": "misprint",
       "locator": "Chapter II, §3, (3.14), p. 246, Invent. Math. 84 (1986), published version (GDZ scan)",
-      "printed": "(3.14) Σ_{𝒜₁,𝒜₂∈Cl_K, 𝒜₁𝒜₂⁻¹=𝒜, 𝒜₁𝒜₂[𝔫]⁻¹=𝔅} ρ_{𝒜₁,𝒜₂,𝔫}(n) = ...",
       "correction": "ρ^m_{𝒜₁,𝒜₂,𝔫}(n) (the superscript m of (3.11)–(3.13) is dropped; the right side depends on m).",
       "reason": "Prior reviewed extraction check: Notation of (3.11)–(3.13); the right-hand side r_𝒜(nN + m|D|) depends on m.",
       "affects": "nothing",
@@ -17225,7 +17217,6 @@
     {
       "kind": "misprint",
       "locator": "Chapter II, §1, p. 235 (Heegner points over ℂ), Invent. Math. 84 (1986), published version (GDZ scan)",
-      "printed": "The source chooses L′⊃L, φ=id and L/L′≃ℤ/Nℤ, and concludes that 𝔫=LL′⁻¹ is integral with norm N.",
       "correction": "L′/L ≃ ℤ/Nℤ (as on p. 234: \"Then L′/L≃ℤ/Nℤ\").",
       "reason": "Prior reviewed extraction check: L ⊂ L′, so L/L′ is not defined as a quotient; p. 234, to which 'as before' refers, has L′/L.",
       "affects": "nothing",
@@ -17341,7 +17332,6 @@
     {
       "kind": "error",
       "locator": "Chapter III, §1, definition of 𝓜_{Γ₀(N)} (p. 254) and the description of the cusps (p. 255), Invent. Math. 84 (1986), published version (GDZ scan)",
-      "printed": "The source defines 𝓜_{Γ₀(N)} as the algebraic stack of cyclic degree N isogenies (1.1) φ: E → E′ between generalized elliptic curves over S, requiring A = ker φ to meet all irreducible components in every geometric fibre. It takes X as the coarse moduli scheme of 𝓜_{Γ₀(N)}. It describes Cusp(d) using Néron polygon diagrams with A = ker φ isomorphic to μ_d × dℤ/Nℤ.",
       "correction": "'A = ker φ is isomorphic to μ_d × dℤ/Nℤ' holds only when gcd(d, N/d) = 1. In general, at the cuspidal points of Cusp(d) the kernel A is a cyclic group scheme of order N that is an extension of dℤ/Nℤ ≅ ℤ/(N/d)ℤ by μ_d, and it is non-split when f = gcd(d, N/d) > 1 (on a Néron polygon, e.g. ⟨(ζ_N, 1)⟩ ⊂ G_m × ℤ/(N/d)ℤ). The coarse moduli scheme X of (1.1)–(1.2) is still the Deligne–Rapoport and Katz–Mazur model of X₀(N) (Česnavičius 2017, §1.1), so the model itself needs no change; but for N not squarefree the stack 𝓜_{Γ₀(N)} of (1.1)–(1.2) differs from the Deligne–Rapoport stack at these cusps, and Česnavičius' refined Γ₀(N)-structures give the correct moduli description there.",
       "reason": "Prior reviewed extraction check: (i) Check: Cusp(d) ≅ Spec ℤ[μ_f] is flat over ℤ, so its geometric points include characteristic-0 points; there μ_d × dℤ/Nℤ ≅ ℤ/d × ℤ/(N/d) is not cyclic when f = gcd(d, N/d) > 1, contradicting the cyclicity condition (1.2) that defines 𝓜_{Γ₀(N)}. On a Néron polygon a cyclic A of order N meeting every component is e.g. ⟨(ζ_N, 1)⟩ ⊂ G_m × ℤ/(N/d), a non-split extension. (ii) Česnavičius, 'A modular description of X₀(n)', Algebra & Number Theory 11 (2017) (arXiv:1511.07475), abstract: 'when a positive integer n is not squarefree, even over ℂ the moduli stack that parametrizes generalized elliptic curves equipped with an ample cyclic subgroup of order n does not agree at the cusps with the Γ₀(n)-level modular stack'. The stack of (1.1)–(1.2) is exactly that naive stack. Katz–Mazur [21] treat [Γ₀(N)] only for elliptic curves and compactify by normalization, so the generalized-elliptic-curve description is not in the cited sources for non-squarefree N. Wording re-checked on imgHR/p254.jpg and p255.jpg ('A = ker φ is isomorphic to μ_d × dℤ/Nℤ'). (Also recorded by an earlier worker: Česnavičius 2017 (for the moduli description at the cusps); the inconsistency with the stated group structure μ_d × dℤ/Nℤ is new. The atlas stage ModularCurvesPartII:R13.2 already routes around it ('Follow Česnavičius' refined description when the naive cyclic-subgroup formulation fails')..)",
       "affects": "nothing",
@@ -17371,7 +17361,6 @@
     {
       "kind": "error",
       "locator": "Chapter III, §2, paragraph after (2.1), p. 256, Invent. Math. 84 (1986), published version (GDZ scan)",
-      "printed": "The source uses algebraic closedness of k to claim that Hom_S(y, x) does not depend on which diagrams represent x and y.",
       "correction": "True for S = W (a complete DVR of characteristic 0 with algebraically closed residue field: two W-diagrams inducing the same W-point are isomorphic, Conrad Theorem 2.6) and hence for the reductions to W/πⁿ of fixed W-diagrams, which is the only way §§4–9 use it; false for general complete local S (e.g. artinian S) at points with Aut_k ≠ ⟨±1⟩, where Hom_S must be defined for chosen diagrams.",
       "reason": "Prior reviewed extraction check: Counterexample: p ≥ 5, N = 2, E: y² = x³ − x over 𝔽̄_p with p ≡ 1 (mod 4) (ordinary, j = 1728), A = ⟨(0,0)⟩, which is stable under [i]: (x, y) ↦ (−x, iy); so Aut_k(x₀) = μ₄. The universal deformation ring is W[[T]] with Aut/±1 = ℤ/2 acting faithfully (Conrad p. 12), linearizably T ↦ −T, so the complete local ring of X is W[[T²]] (Conrad Lemma 4.2). Over S = k[ε]/(ε²) the deformations T ↦ 0 (constant) and T ↦ ε both give T² ↦ 0, i.e. the same S-point of X, but they are not isomorphic: the constant one has Aut_S = μ₄, while [i] carries T ↦ ε to T ↦ −ε ≠ ε, so the other has Aut_S = ±1. Hence Card Hom_S(y, y)_{deg 1} is 4 or 2 depending on the representing diagram. Wording re-checked on imgHR/p256.jpg. (Also recorded by an earlier worker: new (Conrad 2004 restricts to W-diagrams: Theorem 2.6 and Lemma 4.2, conrad.txt pp. 6 and 11).)",
       "affects": "nothing",
@@ -17487,7 +17476,6 @@
     {
       "kind": "error",
       "locator": "Chapter III, §8, sentence before Proposition (8.6), p. 264, Invent. Math. 84 (1986), published version (GDZ scan)",
-      "printed": "The source invokes the action of w_N on ω to claim that, when v|n̄, the vector ∂/∂t generates the submodule (N)^u T_x X.",
       "correction": "∂/∂t spans (N)^{−u} T_x X when v|n̄, i.e. ∂/∂t = N^{−u}·(generator). Equivalently ω_x is N^u times a generator of the cotangent line. With the corrected (8.1) (see PAPER-GROSS-ZAGIER-86/E16) this gives (x·x) = −u·ord_v(N), and hence Proposition (8.6) as printed.",
       "reason": "Prior reviewed extraction check: When v|n̄ the kernel of φ is étale at p, and x lies on the fibral component through the cusp 0 = Cusp(1) (Prop. 3.1). Near that cusp the integral parameter is q′ = e^{2πiτ′}, τ′ = −1/(Nτ), attached to the Tate curve Tate(q′^N) with subgroup ⟨q′⟩. From η(−1/(Nτ′)) = (Nτ′/i)^{1/2}η(Nτ′) one gets ω = 2πiη⁴(τ)dτ = −N·η⁴(q′^N)dq′/q′. So ω vanishes to order ord_p(N) along that component: it is N times a generator. Equivalently, on the étale-kernel component the forgetful map (E→E′) ↦ E is inseparable (Frobenius), so ω = π_1^*ω_1 ≡ 0 mod p. The dual vector ∂/∂t is therefore N^{−1}·(generator) when u = 1; for u > 1 the normalisation ω = (g^{1/u}+…)dg/g raises this to N^{−u}. Conrad's Lemma 10.1 independently gives ord_{v,x}(Δ) = 6u·ord_v(N) in exactly this étale case, i.e. Δ(dq/q)^{⊗6} = ω^6 is N^6 times a generator. The printed (8.6) value −u r_𝒜(m) ord_p(N) is correct (Conrad Thm 10.4). It is obtained from the printed '(N)^u' only together with the literal (inverted) wording of (8.1), so the two misstatements cancel. (Also recorded by an earlier worker: new (the underlying fact is Conrad 2004, Lemma 10.1 and Theorem 10.4, which do not comment on GZ's sentence).)",
       "affects": "the proof",
@@ -17516,7 +17504,6 @@
     {
       "kind": "error",
       "locator": "Chapter III, §9, choice of the auxiliary prime q and the order S, p. 265 (inert case), and the ramified analogue (9.8), p. 266, Invent. Math. 84 (1986), published version (GDZ scan)",
-      "printed": "The source chooses an auxiliary prime q satisfying (q/l) = (−p/l) at every prime l|D, and sets S = {α+βj: α∈𝔡^{-1}, β∈𝔡^{-1}𝔮^{-1}𝔫, α≡β mod O_𝔣}. In the ramified case it requires (q/p′) = (−1/p′) at each p′≠p dividing D, together with (−q/p) = −1.",
       "correction": "For S (with the congruence α ≡ β) to be an order one needs −pq ≡ 1 (mod l) for every prime l|D, i.e. −pq ≡ 1 (mod D); in the ramified case one needs −q ≡ 1 (mod D/p). Both can be imposed alongside GZ's conditions and still met by Dirichlet's theorem. Alternatively use the congruence α ≡ Xβ with N(X) ≡ −pq (mod D) (Mann's S_X, (A.5)/(A.6)). The sign bookkeeping α ≡ ±β in (9.3), (9.8) and in the proof of (9.7) then applies verbatim.",
       "reason": "Prior reviewed extraction check: Let l|D and let 𝔣 be the prime over l. Take α = β ∈ 𝔡^{-1} with a simple pole at 𝔣; then α+βj ∈ S. Its reduced norm is N(α)+pqN(β) = (1+pq)N(β), and ord_l N(β) = −1. So the norm is l-integral only if l | 1+pq. GZ's condition says only that −pq is a square mod l (e.g. −pq ≡ 4 mod l is allowed), so S can contain elements of non-integral reduced norm, and is then not an order. The proof of (9.7) also uses −pq ≡ 1 mod l when it concludes that integrality of mN𝔞 = Nα + pqNβ forces α ≡ ±β mod O_𝔣. With −pq ≡ X² one gets only α ≡ ±Xβ. (Also recorded by an earlier worker: Mann, appendix to Conrad 2004, p. 57 ('certainly one does not get an order in (A.5) using X = 1 unless −pq ≡ 1 mod D'; ramified case: 'take X = 1 (as in [GZ]) by also requiring −q ≡ 1 mod D/p'), and Remark A.7.)",
       "affects": "the proof",
@@ -17545,7 +17532,6 @@
     {
       "kind": "misprint",
       "locator": "Chapter III, §9, (9.3), p. 265 (and (9.5), (9.8), (9.9)), Invent. Math. 84 (1986), published version (GDZ scan)",
-      "printed": "The source asserts the existence of an O-ideal 𝔟 with R𝔟 = 𝔟S in B. It gives (9.3) R𝔞 = {α+βj: α∈𝔡^{-1}𝔞, β∈𝔡^{-1}𝔮^{-1}𝔫𝔟̄𝔟^{-1}𝔞̄, α ≡ (−1)^{ord_𝔣(𝔟)}β mod O_𝔣}.",
       "correction": "From R𝔟 = 𝔟S we get R = 𝔟S𝔟^{-1}. Since jb = b̄j, this puts β in 𝔡^{-1}𝔮^{-1}𝔫𝔟𝔟̄^{-1}𝔞̄, not 𝔡^{-1}𝔮^{-1}𝔫𝔟̄𝔟^{-1}𝔞̄. The printed (9.3) (and the class 𝒜𝔅²[𝔮𝔫^{-1}] of 𝔠′ in (9.5)) holds if 'R𝔟 = 𝔟S' is read as '𝔟R = S𝔟', or equivalently if 𝔟 is replaced by 𝔟̄.",
       "reason": "Prior reviewed extraction check: For b1 ∈ 𝔟, b2 ∈ 𝔟^{-1} and α+βj ∈ S: b1(α+βj)b2 = b1αb2 + b1βb̄2 j, and right multiplication by a ∈ 𝔞 gives the factor ā. The β-ideal is therefore 𝔡^{-1}𝔮^{-1}𝔫·𝔟·𝔟̄^{-1}·𝔞̄. Since 𝔟 is only asserted to exist, and its class 𝔅 runs over all of Cl_K as v varies and 'drops out of the final formulas', the swap 𝔟 ↔ 𝔟̄ changes nothing downstream. The sign (−1)^{ord_𝔣(𝔟)} is unaffected because 𝔣̄ = 𝔣.",
       "affects": "nothing",
@@ -17603,7 +17589,6 @@
     {
       "kind": "error",
       "locator": "Chapter III, §9, proof of Proposition (9.7), p. 266, Invent. Math. 84 (1986), published version (GDZ scan)",
-      "printed": "The source counts 2·u²·δ(n) elements arising from the pair, explaining that b is counted modulo sign.",
       "correction": "The number is u²·δ(n): elements b ∈ ⊔_{v|p} R_v𝔞/±1, taken over the 2^{t−1} places v attached to the pair (𝔠, 𝔠′).",
       "reason": "Prior reviewed extraction check: Each element has weight ½(1+ord_p Nb_−) = ½ord_p(pn) in (x·T_mx^σ)_v, and ⟨c,T_md^σ⟩_v = −2 log p (x·T_mx^σ)_v. A pair therefore contributes −(#elements)·ord_p(pn)·log p, and the stated (9.7) needs #elements = u²δ(n). The printed 2u²δ(n) would double the second term. Direct count for D = −7 (h = 1, u = 1, one ramified prime 𝔣 ∤ n): the four generator pairs (±α0, ±β0) contain exactly two with α ≡ ±β of the required sign, giving one element up to sign, i.e. u²δ(n) = 1, not 2. In general there are 4u² generator pairs; up to sign they give 2u²; each lies in the models for δ(n) of the 2^t orders R(𝔟I) (I | 𝔡); and these orders cover each isomorphism class, i.e. each place, twice. Total u²δ(n). The final formula (9.7) is correct (Mann, Theorem A.17). (Also recorded by an earlier worker: new (consistent with Mann's count in the proof of Theorem A.17 and his Remark A.19, which divide out exactly this double overcount).)",
       "affects": "the proof",
@@ -17632,7 +17617,6 @@
     {
       "kind": "misprint",
       "locator": "Chapter III, §9, ramified case, p. 266, Invent. Math. 84 (1986), published version (GDZ scan)",
-      "printed": "The source says 𝔭 has h/f factors v in H and assigns residual degree p^f to each.",
       "correction": "each of residual degree f, i.e. with residue field of order q_v = p^f",
       "reason": "Prior reviewed extraction check: 𝔭 has residue field F_p and splits in the unramified extension H/K into h/f primes of residual degree f = order of [𝔭] in Cl_K. Corollary (7.4)(2) states q_v = p^k with k that order, and the degree count (h/f)·f = h is what makes Σ_{v|p} log q_v = h log p.",
       "affects": "nothing",
@@ -17690,7 +17674,6 @@
     {
       "kind": "gap",
       "locator": "Chapter III, §8, proof of Lemma (8.2), p. 263, Invent. Math. 84 (1986), published version (GDZ scan)",
-      "printed": "The source omits the argument at primes dividing 2 and 3, describing it as more complicated.",
       "correction": "Lemma (8.2) at places v | 6 (v ∤ N) needs a proof. Conrad 2004 §9 (Theorem 9.2, (9.9), Definition 9.5, Remark 9.3) gives a deformation-theoretic proof valid in all residue characteristics for non-elliptic x. At elliptic points, and when v | N, his local terms differ from GZ's and only the global sums agree.",
       "reason": "Prior reviewed extraction check: The proof sketch works only for v ∤ 6N, where Y′ has good reduction and ω is a Néron differential on it. For v | 6 the authors omit the argument; they check only N = 1 via (8.3), and even there by explicit formula rather than proof. This is an acknowledged omission, not a false statement. (Also recorded by an earlier worker: Conrad 2004, §1 (aim: 'treat ... all residue characteristics, and all j-invariants on an equal footing') and §9, Theorem 9.2 with Remark 9.3.)",
       "affects": "the proof",
@@ -17719,7 +17702,6 @@
     {
       "kind": "misprint",
       "locator": "Chapter III, §6, proof of Proposition (4.4), inert case, p. 260, Invent. Math. 84 (1986), published version (GDZ scan)",
-      "printed": "The proof sums over z ∈ T_r x and invokes (5.1), assuming r prime to p.",
       "correction": "Summing over all z ∈ T_r x^σ ...",
       "reason": "Prior reviewed extraction check: The points z are those of the divisor T_r x^σ (p. 259: 'The points z in the divisor T_r x^σ'), and the resulting display is stated in terms of h_n(x^σ, x)_{deg r}. The parallel sentence in the ramified case (p. 261) correctly reads 'z ∈ T_r x^σ'. Read on the GDZ high-resolution image (IIIF crop).",
       "affects": "nothing",
@@ -17748,7 +17730,6 @@
     {
       "kind": "misprint",
       "locator": "Chapter IV, introduction, p. 268 (twice: 'the presence of the factor L^{(N)}(2s+2k−1, ε) in (0.1)' and 'equals L^{(N)}(2s+2k−1, ε)^{−1} times the product'), Invent. Math. 84 (1986), published version (GDZ scan)",
-      "printed": "The source discusses the factor L^{(N)}(2s+2k−1, ε) appearing in (0.1). It says convolution with L_K(s, χ) gives the product of two twisted Hecke L-series multiplied by L^{(N)}(2s+2k−1, ε)^{−1}.",
       "correction": "L^{(N)}(2s−2k+1, ε) in both places, as in (0.1) itself on p. 267 ('L_𝒜(f,s) = L^{(N)}(2s−2k+1, ε) Σ a(n)r_𝒜(n)n^{−s}').",
       "reason": "Prior reviewed extraction check: The factor in (0.1) is printed as L^{(N)}(2s−2k+1, ε) on p. 267 (read on the 1400 px page and a zoomed IIIF crop), and that is the normalising factor of a Rankin convolution of weights 2k and 1: at a prime p ∤ ND the Euler factor of Σ a(n)r(n)n^{−s} is completed by (1 − ε(p)p^{2k−1−2s})^{−1}, i.e. by L_p(2s−2k+1, ε), so that the product is the degree-4 factor (1−α_p γ p^{−s})(1−α_p γ̄ p^{−s})(1−β_p γ p^{−s})(1−β_p γ̄ p^{−s}) with α_pβ_p = p^{2k−1}. With 2s+2k−1 the identity (0.4) fails already at k = 1 for the Euler factors at p ∤ ND. (Also recorded by an earlier worker: new (found at integration).)",
       "affects": "nothing",
@@ -17777,7 +17758,6 @@
     {
       "kind": "misprint",
       "locator": "Chapter IV, §1, p. 271, parenthetical remark after the definition of E_s; Invent. Math. 84 (1986), published version (GDZ scan; formulas read from the GDZ IIIF 1400px crops of the page images)",
-      "printed": "The source says the explanation is now apparent for the factor L^{(N)}(s−2k+1, ε) used in definition (0.1).",
       "correction": "L^{(N)}(2s−2k+1, ε)",
       "reason": "Prior reviewed extraction check: (0.1) on p. 267 reads L_𝒜(f,s) = L^{(N)}(2s−2k+1, ε) Σ a(n) r_𝒜(n) n^{−s}. The factor that the unfolding absorbs into E_s is L^{(N)}(2s+2k−1, ε), which is the (0.1) factor evaluated at s+2k−1: 2(s+2k−1)−2k+1 = 2s+2k−1. The printed argument drops the factor 2 on s.",
       "affects": "nothing",
@@ -17835,7 +17815,6 @@
     {
       "kind": "misprint",
       "locator": "Chapter IV, §2, (2.3) Lemma, p. 274; Invent. Math. 84 (1986), published version (GDZ scan; formulas read from the GDZ IIIF 1400px crops of the page images)",
-      "printed": "Lemma (2.3) asserts θ_𝒜|₁γ = … under the assumptions γ = (a b; c d) ∈ PSL₂(ℤ), (c, D) = |D₂| and D₁·D₂ = D.",
       "correction": "γ = (a b; c d) ∈ SL₂(ℤ)",
       "reason": "Prior reviewed extraction check: In odd weight 1, θ_𝒜|₁(−γ) = −θ_𝒜|₁γ, so the left side is not a function of the image of γ in PSL₂(ℤ). The right side also changes sign under γ ↦ −γ: ε_{D₁}(−1)ε_{D₂}(−1) = ε(−1) = −1 because exactly one of D₁, D₂ is negative, and c*d is unchanged. So the identity holds for every matrix of SL₂(ℤ) (either lift). This is what the proof uses ('an arbitrary element of SL₂(ℤ)') and what (2.2) states.",
       "affects": "nothing",
@@ -17893,7 +17872,6 @@
     {
       "kind": "misprint",
       "locator": "Chapter IV, §2, p. 276, first line; Invent. Math. 84 (1986), published version (GDZ scan; formulas read from the GDZ IIIF 1400px crops of the page images)",
-      "printed": "The proof cites (2.3) together with (2.4) to derive its expression under the assumptions γ = (a b; c d) ∈ Γ₀(N), (c, D) = δ₂.",
       "correction": "From (2.2) and (2.3) we find …",
       "reason": "Prior reviewed extraction check: The display that follows applies (2.2) (the transformation of E_s^{(1)} under (a bN; c/N d)) and (2.3) (the transformation of θ_𝒜 under γ). (2.4) is the Proposition being derived, stated at the bottom of the same page.",
       "affects": "nothing",
@@ -17922,7 +17900,6 @@
     {
       "kind": "misprint",
       "locator": "Chapter IV, §2, remark after (2.4), p. 277; Invent. Math. 84 (1986), published version (GDZ scan; formulas read from the GDZ IIIF 1400px crops of the page images)",
-      "printed": "The source assumes k = 1, a prime |D| = p and ε(N) = 1, and gives ℰ_s(z) as E_s^{(1)}(pz) − i p^{−s−1/2} E_s^{(p)}(z).",
       "correction": "E_s^{(1)}(pz) − i p^{−s−1/2} E_s^{(−p)}(z), i.e. E_s^{(D)}(z) with D = −p",
       "reason": "Prior reviewed extraction check: The superscript of E_s^{(D₁)} in (2.1) is the discriminant D₁ of the decomposition D = D₁·D₂. When |D| = p is prime, D = −p with p ≡ 3 (mod 4), so p is not a discriminant, and the decompositions are (1, D) and (D, 1). The (D, 1) term of ℰ_s is ε_D(N)χ_{D·1}(𝒜)/(κ(D)p^{s+1/2}) E_s^{(D)}(z) = −i p^{−s−1/2} E_s^{(D)}(z), because ε(N) = 1, χ_{D·1} is trivial and κ(D) = i. The value is right; only the label is off.",
       "affects": "nothing",
@@ -17951,7 +17928,6 @@
     {
       "kind": "misprint",
       "locator": "Chapter IV, §3, proof of (3.3a), p. 279, last paragraph; Invent. Math. 84 (1986), published version (GDZ scan; formulas read from the GDZ IIIF 1400px crops of the page images)",
-      "printed": "The source says manual checking works for small “valves” of k.",
       "correction": "small values of k",
       "reason": "Prior reviewed extraction check: Spelling slip. (The identity itself, Σ_{j=0}^{k−1} (−1/4)^{k−1−j}(2k−1)!/((2j+1)!(k−1−j)!) (s+k−½)…(s+k+j−3/2) = s(s+1)…(s+k−2), was checked here for k = 1, 2, 3.)",
       "affects": "nothing",
@@ -18040,7 +18016,7 @@
       "locator": "Chapter IV, §4, (4.6) Proposition b), p. 285, Invent. Math. 84 (1986), published version (GDZ scan)",
       "printed": "Part b) asserts, assuming n>0 and ε(N)=1, that σ′_𝒜(n) = Σ_{p|n} a_p(n) log p, where a_p(n) = { 0 if ε(p)=1; (ord_p(n)+1) δ(n) R_{{𝒜𝔫𝔠}}(n/p) if ε(p)=−1; ord_p(n) δ(n) R_{{𝒜𝔫𝔠}}(n/p) if ε(p)=0 }.",
       "correction": "b) Suppose n > 0 satisfies (4.2) and ε(N) = 1. Then σ′_𝒜(n) = Σ_{p|n} a_p(n) log p with a_p(n) as printed.",
-      "reason": "Prior reviewed extraction check: Part a) assumes (4.2) explicitly; part b) does not, but its proof (p. 287: ‘this was shown at the beginning of the section to be zero under the hypotheses of (b)’) uses Σ_{d|n} ε_𝒜(n,d) = 0, which follows from (4.3) only for n satisfying (4.2); Remark 2 uses the same vanishing. Without (4.2) the formula is false: D = −15, N = 1, 𝒜 principal, n = 7 (inert): (4.2) fails (the principal genus has norms ≡ 1, 4 mod 15, and −7 ≡ 8), σ′_𝒜(7) = ε(1)log 7 + ε(7)log(1/7) = 2 log 7, while the formula gives a_7(7) = 2·δ(7)·R_{{𝒜𝔫𝔠}}(1) = 0 because N(𝔠) ≡ −7 puts {𝒜𝔫𝔠} in the non-principal genus. Machine check over D ∈ {−15, −35, −39, −55, −195, −231}, N ≤ 41, all classes, n ≤ 120: with (4.2) all 6 237 cases agree; without it the formula fails in hundreds of cases for every D with more than one genus (never for D = −7, one genus). Re-checked on imgHR/p285.jpg.",
+      "reason": "Prior reviewed extraction check: Part a) assumes (4.2) explicitly; part b) does not, but its proof (p.287 attributes the vanishing to the assumptions of part(b) and the opening argument of the section) uses Σ_{d|n} ε_𝒜(n,d) = 0, which follows from (4.3) only for n satisfying (4.2); Remark 2 uses the same vanishing. Without (4.2) the formula is false: D = −15, N = 1, 𝒜 principal, n = 7 (inert): (4.2) fails (the principal genus has norms ≡ 1, 4 mod 15, and −7 ≡ 8), σ′_𝒜(7) = ε(1)log 7 + ε(7)log(1/7) = 2 log 7, while the formula gives a_7(7) = 2·δ(7)·R_{{𝒜𝔫𝔠}}(1) = 0 because N(𝔠) ≡ −7 puts {𝒜𝔫𝔠} in the non-principal genus. Machine check over D ∈ {−15, −35, −39, −55, −195, −231}, N ≤ 41, all classes, n ≤ 120: with (4.2) all 6 237 cases agree; without it the formula fails in hundreds of cases for every D with more than one genus (never for D = −7, one genus). Re-checked on imgHR/p285.jpg.",
       "affects": "a stated result",
       "known": "new",
       "searched": [
@@ -18067,9 +18043,8 @@
     {
       "kind": "error",
       "locator": "Chapter IV, §4, (4.5) Proposition, third term of the Fourier expansion, p. 284; the same term in the display on p. 293 and in (5.8) Theorem, p. 294, Invent. Math. 84 (1986), published version (GDZ scan); the same term recurs, and needs the same correction, in §6 (p. 303, the coefficient C_mn), in Theorem (6.9)(ii) (p. 305) and in the archimedean height formula of Chapter V §1 (p. 307); and in Chapter V §4, p. 315, in the formula for γ^m_{N,s}(𝒜) 'expressed using Proposition (4.6a) of Chap. IV'",
-      "printed": "The source gives − Σ_{n=1}^{∞} σ_𝒜(n) r_𝒜(mδ + Nn) q_{k−1}(4πnNy/δ)   (p. 284; the source says its third term for the m-th Fourier coefficient uses −n in place of n); − Σ_{n=1}^∞ σ_𝒜(n) r_𝒜(mδ + nN) ∫_0^∞ q_{k−1}(4πnNy/δ) y^{k−1} e^{−4πmy} dy (p. 293); −2 Σ_{n=1}^∞ σ_𝒜(n) r_𝒜(m|D| + nN) Q_{k−1}(1 + 2nN/(m|D|)) (p. 294); γ^m_{N,s}(𝒜) = −2u² Σ_{n=1}^∞ σ_𝒜(n) r_𝒜(nN + m|D|) Q_{s−1}(1 + 2nN/(m|D|)) + 2hu r_𝒜(m)(Γ′/Γ(s) − log 2π + ½ log|D| + L′/L(1, ε)) (p. 315)",
       "correction": "σ_𝒜(−n) in all three places, i.e. −Σ_{n≥1} σ_𝒜(−n) r_𝒜(mδ + Nn) q_{k−1}(4πnNy/δ) and −2 Σ_{n≥1} σ_𝒜(−n) r_𝒜(m|D| + nN) Q_{k−1}(1 + 2nN/(m|D|)); by (4.6a) σ_𝒜(−n) = δ(n) R_{{𝒜𝔫}}(n). The same correction applies on pp. 303, 305 and 307, and on p. 315: γ^m_{N,s}(𝒜) = −2u² Σ_{n≥1} σ_𝒜(−n) r_𝒜(nN + m|D|) Q_{s−1}(1 + 2nN/(m|D|)) + 2hu r_𝒜(m)(Γ′/Γ(s) − log 2π + ½ log|D| + L′/L(1, ε)), which is Chap. II Corollary (3.17) with δ(n)R_{{𝒜𝔫}}(n) = σ_𝒜(−n).",
-      "reason": "Prior reviewed extraction check: The third term comes from the coefficients e_s(n, Ny/δ) with n < 0, which carry Σ_{d|n} ε_𝒜(n,d) = σ_𝒜(n) at the negative index; after n ↦ −n this is σ_𝒜(−n). σ_𝒜 is not even: ε_𝒜(−n,d) = ε_{D₂}(−1) ε_𝒜(n,d). For n > 0 satisfying (4.2) with ε(N) = +1, σ_𝒜(n) = 0 by (4.3), so the printed term would vanish for such n. Example: D = −p (p ≡ 3 mod 4 prime), N = 1, n = p: σ_𝒜(p) = 1 − 1 = 0, σ_𝒜(−p) = 1 + 1 = 2 = δ(p)R(p). Numerical test of (5.8) with N = 1, f = Δ, k = 6, D = −7: with σ_𝒜(−n) the a_{m,𝒜} satisfy a₂/a₁ = −24.0000000000, a₃/a₁ = 252.000000000 and L′_𝒜(Δ,6) = L(Δ,6)L′(Δ⊗χ₋₇,6) = 1.46317630872… equals 2^{23}π^{12}/(10!√7)·a_{1,𝒜}·(Δ,Δ) with the known (Δ,Δ) = 1.0353620568043·10⁻⁶; with the printed σ_𝒜(n) the ratios are −23.9895…, 253.770… (not a modular form). A second check at N = 3, f = (η(z)η(3z))⁶, k = 3, D = −11 (with σ_𝒜(−n)) gives coefficients proportional to f and reproduces L′_𝒜(f,3) to 6·10⁻⁸. The paper's own later use confirms the intended reading: Chap. V, p. 307 rewrites the archimedean height term (in δ(n)R_{{𝒜𝔫}}(n)) ‘by using the first part of Proposition (4.6)’ as σ_𝒜(n) r_𝒜(m|D| + nN) with n > 0 and ε(N) = 1, but (4.6a) evaluates σ_𝒜 only at arguments with ε(N)n < 0. Re-checked on imgHR/p284.jpg, p293.jpg, p294.jpg. At integration the recurrences on pp. 303–305 and 307 were checked on the page images: each prints σ_𝒜(n) r_𝒜(m|D| + nN) in the same role. Review (reader R7): p. 315 has the same slip; Chap. II Corollary (3.17) (p. 247) has δ(n)R_{{𝒜𝔫}}(n), and by (4.6a) this is σ_𝒜(−n) for n > 0 and ε(N) = 1 (for D = −7, N = 1: n = 7 gives δR = 2 = σ_𝒜(−7) while σ_𝒜(7) = 0; n = 14 gives 4 = σ_𝒜(−14) while σ_𝒜(14) = 0). For k = 1 the reviewer confirmed the sign independently through the pole in (6.9)(ii): the s⁻¹ terms cancel only if the mean value of the coefficient of r_𝒜(m|D| + nN) is −hκσ₁(m)N/(u²m|D|), which is 12/7 = 1.71429 (m = 1) and 18/7 = 2.57143 (m = 2) for D = −7, N = 1; summing n ≤ 3·10⁶ gives 1.71430 and 2.57174 with σ_𝒜(−n), but 1.50009 and 2.25062 with σ_𝒜(n).",
+      "reason": "Prior reviewed extraction check: The third term comes from the coefficients e_s(n, Ny/δ) with n < 0, which carry Σ_{d|n} ε_𝒜(n,d) = σ_𝒜(n) at the negative index; after n ↦ −n this is σ_𝒜(−n). σ_𝒜 is not even: ε_𝒜(−n,d) = ε_{D₂}(−1) ε_𝒜(n,d). For n > 0 satisfying (4.2) with ε(N) = +1, σ_𝒜(n) = 0 by (4.3), so the printed term would vanish for such n. Example: D = −p (p ≡ 3 mod 4 prime), N = 1, n = p: σ_𝒜(p) = 1 − 1 = 0, σ_𝒜(−p) = 1 + 1 = 2 = δ(p)R(p). Numerical test of (5.8) with N = 1, f = Δ, k = 6, D = −7: with σ_𝒜(−n) the a_{m,𝒜} satisfy a₂/a₁ = −24.0000000000, a₃/a₁ = 252.000000000 and L′_𝒜(Δ,6) = L(Δ,6)L′(Δ⊗χ₋₇,6) = 1.46317630872… equals 2^{23}π^{12}/(10!√7)·a_{1,𝒜}·(Δ,Δ) with the known (Δ,Δ) = 1.0353620568043·10⁻⁶; with the printed σ_𝒜(n) the ratios are −23.9895…, 253.770… (not a modular form). A second check at N = 3, f = (η(z)η(3z))⁶, k = 3, D = −11 (with σ_𝒜(−n)) gives coefficients proportional to f and reproduces L′_𝒜(f,3) to 6·10⁻⁸. The paper's own later use confirms the intended reading: Chap. V, p. 307 rewrites the archimedean height term (in δ(n)R_{{𝒜𝔫}}(n)) by invoking part(a) of Proposition(4.6) as σ_𝒜(n) r_𝒜(m|D| + nN) with n > 0 and ε(N) = 1, but (4.6a) evaluates σ_𝒜 only at arguments with ε(N)n < 0. Re-checked on imgHR/p284.jpg, p293.jpg, p294.jpg. At integration the recurrences on pp. 303–305 and 307 were checked on the page images: each prints σ_𝒜(n) r_𝒜(m|D| + nN) in the same role. Review (reader R7): p. 315 has the same slip; Chap. II Corollary (3.17) (p. 247) has δ(n)R_{{𝒜𝔫}}(n), and by (4.6a) this is σ_𝒜(−n) for n > 0 and ε(N) = 1 (for D = −7, N = 1: n = 7 gives δR = 2 = σ_𝒜(−7) while σ_𝒜(7) = 0; n = 14 gives 4 = σ_𝒜(−14) while σ_𝒜(14) = 0). For k = 1 the reviewer confirmed the sign independently through the pole in (6.9)(ii): the s⁻¹ terms cancel only if the mean value of the coefficient of r_𝒜(m|D| + nN) is −hκσ₁(m)N/(u²m|D|), which is 12/7 = 1.71429 (m = 1) and 18/7 = 2.57143 (m = 2) for D = −7, N = 1; summing n ≤ 3·10⁶ gives 1.71430 and 2.57174 with σ_𝒜(−n), but 1.50009 and 2.25062 with σ_𝒜(n).",
       "affects": "a stated result",
       "known": "new",
       "searched": [
@@ -18096,7 +18071,6 @@
     {
       "kind": "misprint",
       "locator": "Chapter IV, §4, Remark 1 after (4.6), p. 285, Invent. Math. 84 (1986), published version (GDZ scan)",
-      "printed": "The source claims the genus of 𝔠 in b) is unambiguous: ε(p) = −1 makes −p coprime to N, so the usual correspondence assigns it a genus.",
       "correction": "… then −p is prime to D and determines a genus …",
       "reason": "Prior reviewed extraction check: The correspondence {genera of K} ↔ {x ∈ (ℤ/Dℤ)^× | ε(x) = 1}/(ℤ/Dℤ)^{×2} needs −p to be a unit modulo D (and ε(−p) = ε(−1)ε(p) = +1); ε(p) = −1 gives p ∤ D. Coprimality with N is irrelevant (p may divide N). Re-checked on imgHR/p285.jpg.",
       "affects": "nothing",
@@ -18125,7 +18099,6 @@
     {
       "kind": "misprint",
       "locator": "Chapter IV, §4, remark after the proof of (4.6), p. 288, Invent. Math. 84 (1986), published version (GDZ scan)",
-      "printed": "The source gives 0 when multiple primes inert in K divide n to odd powers. With exactly one such prime p, it gives (ord_p(n) + 1) δ(n) R_{{𝒜𝔫}}(p) log p.",
       "correction": "… equals (ord_p(n) + 1) δ(n) R_{{𝒜𝔫𝔠}}(n/p) log p if there is a unique such prime p (𝔠 as in (4.6b)).",
       "reason": "Prior reviewed extraction check: By (4.6b) only a_p(n) can be non-zero in this case, and a_p(n) = (ord_p(n)+1)δ(n)R_{{𝒜𝔫𝔠}}(n/p). As printed the value is always 0, since an inert prime p is not the norm of any ideal (R_{{𝒜𝔫}}(p) = 0). Re-checked on imgHR/p288.jpg.",
       "affects": "nothing",
@@ -18241,7 +18214,6 @@
     {
       "kind": "misprint",
       "locator": "Chapter IV, (6.9) Theorem, p. 305, Invent. Math. 84 (1986), published version (GDZ scan)",
-      "printed": "The source asserts the existence of Φ_𝒜(z) = Σ a_{m,𝒜} e^{2πimz}, describing it as a holomorphic “cusp cusp” form.",
       "correction": "Then there exists a holomorphic cusp form Φ_𝒜(z) = …",
       "reason": "Prior reviewed extraction check: Duplicated word (high-resolution page). The constant 8π²/√δ on the same line is correct: δ := |D| is Chap. IV notation (p. 273); it is consistent with Chap. I (6.2) after g_𝒜 ≡ u²Φ_𝒜 mod oldforms. (Also recorded by an earlier worker: new (also flagged by the Chapter I extractor via the coordinator).)",
       "affects": "nothing",
@@ -18270,7 +18242,6 @@
     {
       "kind": "misprint",
       "locator": "Chapter V, §1, p. 306 (last paragraph), Invent. Math. 84 (1986), published version (GDZ scan)",
-      "printed": "The source invokes the Manin-Drinfeld theorem, citing ([4], Cor. 3.6).",
       "correction": "by the Manin-Drinfeld theorem ([41], Cor. 3.6)",
       "reason": "Prior reviewed extraction check: [4] is Birch–Stephens, 'Heegner's construction of points on the curve y²=x³−1728e³'. The Manin–Drinfeld theorem (degree-0 cuspidal divisor classes are torsion) is Corollary 3.6 of Manin, 'Parabolic points and zeta functions of modular curves' = [41] (p. 320), which is otherwise uncited (the late-added [40] is cited in Chap. III as [31, 40]; the OCR has no other [41]). The '1' was lost. (Also recorded by an earlier worker: new (also flagged by the Chapter I extractor via the coordinator).)",
       "affects": "nothing",
@@ -18300,7 +18271,6 @@
     {
       "kind": "misprint",
       "locator": "Chapter IV, §6, proof of (6.2), definition of E_{2,s}, p. 296, Invent. Math. 84 (1986), published version (GDZ scan)",
-      "printed": "The source gives Re(s)>2 as the range of absolute convergence and says the result is a modular function on SL_2(Z), non-holomorphic and of weight 2.",
       "correction": "No correction required to the printed sufficient half-plane. Re(s)>0 is a stronger convergence result.",
       "reason": "Prior reviewed extraction check: Σ_{(c,d)=1} |cz+d|^{−2−2σ} y^σ converges iff σ > 0. The printed range is true but not the one used: p. 297 defines E = E_{2,s}|_{s=0} 'by holomorphic continuation or simply as the limit for s↘0', which needs the series for small s > 0, and the parallel series P_{m,s} on the same page is stated for Re(s) > 0.",
       "affects": "nothing",
@@ -18330,7 +18300,6 @@
       "kind": "error",
       "affects": "nothing",
       "locator": "Chapter II, §2, p. 241, last paragraph (the sentence leading to the display before (2.23)), Invent. Math. 84 (1986), published version (GDZ scan)",
-      "printed": "The source bases the following conclusion on the claim that T_m fixes every cusp.",
       "correction": "Since T_m((∞)) = σ₁(m)(∞) and T_m((0)) = σ₁(m)(0) for (m, N) = 1, we have … (the displayed identity is unchanged). T_m does not fix the other cusps in general: it fixes every cusp for all m prime to N if and only if every f_d = (d, N/d) is at most 2, i.e. if and only if N is divisible neither by 9, nor by 16, nor by p² for a prime p ≥ 5.",
       "reason": "Prior reviewed extraction check: For a cusp u/v in lowest terms with d = (v, N) and f = f_d, the Γ₀(N)-class is determined by d and the label (v/d)·u mod f (the corrected label of PAPER-GROSS-ZAGIER-86/E1). For a coset representative (a b; 0 δ) of Γ₀(N)\\{γ ∈ R_N : det γ = m}, aδ = m, the image (au + bv)/(δv) reduces by g = gcd(au + bv, δv), which is prime to N; the new denominator has the same d, and since f | v the label becomes (m/g²)·(v/d)·u mod f. Taking the representative (m 0; 0 1) with m prime to v gives the factor m, which is not 1 mod f for suitable m once f ≥ 3. Brute force (plain Python: Γ₀(N)-equivalence tested through γ = M′T^kM⁻¹, all k mod N and both signs): N = 9, m = 2: T₂(1/3) = 3·(2/3), and 1/3, 2/3 are inequivalent cusps of Γ₀(9); N = 25, m = 2: T₂(1/5) = 2·(2/5) + (3/5); N = 16, m = 3: T₃ swaps 1/4 and 3/4; N = 6, 8, 12: every cusp fixed. The cusps ∞ and 0 have f = 1 and are always fixed, and they are the only cusps the argument uses (c = (x) − (∞), T_m((x′) − (0))), so nothing downstream changes.",
       "known": "new",
@@ -18355,7 +18324,6 @@
       "kind": "misprint",
       "affects": "nothing",
       "locator": "Chapter II, §4, p. 248, sentence after the first display ('where 𝔫 is any integral ideal of K of norm N'), Invent. Math. 84 (1986), published version (GDZ scan)",
-      "printed": "The source allows 𝔫 to be any integral K-ideal with norm N, and identifies τ_{𝒜,𝔫} with the points of 𝔥 specified in § 1.",
       "correction": "where 𝔫 is any primitive integral ideal of K of norm N (𝒪/𝔫 ≅ ℤ/Nℤ), as in §1 (p. 235) and §3 (p. 243).",
       "reason": "Prior reviewed extraction check: The points τ_{𝒜,𝔫} of §1 exist only for primitive 𝔫: a Heegner point (ℂ/𝔞 → ℂ/𝔞𝔫⁻¹) has cyclic kernel 𝔞𝔫⁻¹/𝔞 ≅ 𝒪/𝔫, and (1.3) parametrises exactly the primitive 𝔫 = ℤN + ℤ(β + √D)/2. When p² | N for a prime p split in K, the ideal (p)·𝔫′ with N(𝔫′) = N/p² is an integral ideal of norm N with 𝒪/𝔫 not cyclic (e.g. N = 9, K = ℚ(√−23), 𝔫 = (3), 𝒪/(3) ≅ (ℤ/3)²), for which no τ_{𝒜,𝔫} is defined. For squarefree N every integral ideal of norm N prime to D is primitive, so the slip matters only for non-squarefree N; the intended meaning is clear from §§1 and 3.",
       "known": "new",
@@ -18380,7 +18348,6 @@
       "kind": "error",
       "affects": "a stated result",
       "locator": "Chapter III, §1, (1.4) Proposition, p. 255, and the first sentence of the proof of (3.3), p. 257, Invent. Math. 84 (1986), published version (GDZ scan)",
-      "printed": "Proposition (1.4) claims regularity of X over ℤ away from supersingular x in characteristics p|N with Aut_k(x) ≠ ⟨±1⟩. The proof of (3.3) says that resolving quotient singularities at the supersingular points of X over ℤ produces a regular model X^reg.",
       "correction": "For p>3, resolve also ordinary exceptional points on internal components F_{a,b} with a,b>=1: see Edixhoven 1990 §1.1.3 and table1.4.4. The analogous complete classification at p=2,3 is not asserted in this review.",
       "reason": "Prior reviewed extraction check: Take N = p², p ≡ 1 (mod 4), and x = (E, A) with E ordinary over k = 𝔽̄_p, j(E) = 1728, on the component 𝓕_{1,1} (A ≅ μ_p × ℤ/p, multiplicity φ(p) = p − 1). The connected and étale parts of A are characteristic, so [i] preserves A and Aut_k(x) = μ₄ ≠ ⟨±1⟩, although x is ordinary. Over the Serre–Tate deformation ring W[[T]], q = 1 + T, the cyclic subgroups of order p² reducing to A are ⟨(x, p)⟩ with x^p = qζ, ζ a primitive p-th root of unity, so the complete local ring of the (regular) stack at x is W[ζ_p][[T]]. The automorphism [i] acts on E[p^∞] by u on the connected part and ū = −u on the étale part (u² = −1 in ℤ_p), hence by q ↦ q^{−1} (T ↦ −T + O(T²)) and ζ ↦ ζ^{−1}: it acts as −1 on the cotangent space ⟨ζ − 1, T⟩, which is not generated by pseudo-reflections. By Serre's criterion (2 invertible) the complete local ring of X at x, the invariant ring, is not regular; explicitly it is W⁺[[X, Y]]/(Y² − ϖ₊X) with X = T′², Y = (ζ − ζ^{−1})T′, T′ = (q − q^{−1})/2, W⁺ = W[ζ + ζ^{−1}], ϖ₊ = (ζ − ζ^{−1})², of embedding dimension 3. The same happens for j = 0, p ≡ 1 (mod 3), where the automorphism of order 3 acts by a primitive cube root of unity on both cotangent directions.",
       "known": "Edixhoven, 'Minimal resolution and stable reduction of X₀(N)', Ann. Inst. Fourier 40 (1990) 31–67 (https://www.numdam.org/item/10.5802/aif.1202.pdf, SHA-256 cff6a257adcae5ca95a9859ec7a0319a363718bac3a40fe8afe146e59da5926a), §1.1.3, p. 35: the points 'which have extra automorphisms, and are supersingular or have a ≠ 0 ≠ b … must be singular in the surface X₀(pⁿN)'; resolved in §§1.3.3, 1.3.6 and 1.4.4–1.4.5. Edixhoven states the correct locus but does not comment on GZ.",
@@ -18405,7 +18372,6 @@
       "kind": "error",
       "affects": "the proof",
       "locator": "Chapter III, introduction, choice of q and the order R before (0.5), p. 253, Invent. Math. 84 (1986), published version (GDZ scan)",
-      "printed": "The source chooses a prime q with q ≡ −p(mod D), says (q) = 𝔮·𝔮̄ splits in K, and describes B as K+Kj. For α∈K it gives jα = ᾱj, together with j² = −pq. It claims reduction theory gives a place v dividing p where R consists of α+βj∈B satisfying α∈𝔡⁻¹, β∈𝔡⁻¹𝔮⁻¹𝔫, with α−β integral at every prime dividing 𝔡.",
       "correction": "Choose q with pq ≡ −1 (mod D), i.e. −pq ≡ 1 (mod D) (this still gives (q/l) = (−p/l) for l | D, so q splits and B = (D, −pq) is ramified exactly at p and ∞); then the displayed set is an Eichler order of level N and (0.5) holds as printed. Equivalently, keep q ≡ −p (mod D) and replace 'α − β integral at 𝔡' by 'α − pβ integral at 𝔡' in R and in (0.5).",
       "reason": "Prior reviewed extraction check: With q ≡ −p (mod D), −pq ≡ p² (mod l) for each prime l | D. Take α = β ∈ 𝔡⁻¹ with a simple pole at the prime 𝔣 | l (and β ∈ 𝔡⁻¹𝔮⁻¹𝔫); then α − β = 0 is integral, and the reduced norm is N(α) + pqN(β) = (1 + pq)N(β) with ord_l N(β) = −1, which is l-integral only if l | 1 + pq, i.e. p² ≡ 1 (mod l). Exact check for D = −7, p = 3 (inert), N = 2, 𝔫 = ((1+√−7)/2), q = 11 ≡ −3 (mod 7), 𝔮 = (2+√−7): the lattice has basis elements of reduced norm 10/7 and 13/7 and is not closed under multiplication, so it is not an order, let alone End_{W/π}(x). With q = 23 (−69 ≡ 1 mod 7), 𝔮 = (4+√−7), it is closed, has integral norms and Gram determinant 36 = (pN)². (0.6)–(0.7) use only norms and are unaffected.",
       "known": "new (the analogous defect in §9's choice of q is PAPER-GROSS-ZAGIER-86/E19; Mann's Remark A.7 and the sentence after (A.5), gzfinal.pdf p. 57, treat §9 only: 'certainly one does not get an order in (A.5) using X = 1 unless −pq ≡ 1 mod D')",
@@ -18453,7 +18419,6 @@
       "kind": "misprint",
       "affects": "nothing",
       "locator": "Chapter III, §3, Corollary (3.2), p. 256, and the proof of (3.3), p. 257, Invent. Math. 84 (1986), published version (GDZ scan)",
-      "printed": "Corollary (3.2) claims that among the divisors c = (x)−(∞), d = (x^σ)−(0), one has intersection zero against all fibral components 𝓕_{a,b} of X⊗Λ_v. The proof invokes this to assert that c or d meets each fibral component with intersection zero, and extends the assertion to c and T_m d.",
       "correction": "d^σ = (x^σ) − (0) (and T_m d^σ in the proof of (3.3)); d = (x) − (0) in the paper's notation (Ch. I).",
       "reason": "Prior reviewed extraction check: Read on a crop of the GDZ page image of p. 256. The paper defines d = (x) − (0) and pairs c with T_m d^σ throughout ((0.2), (3.3), §9); (3.2) and the first lines of the proof of (3.3) use 'd' for d^σ, and the proof then writes (c · T_m d^σ) again. The mathematics is unaffected: when v | 𝔫̄ it is x^σ (hence (x^σ) − (0)) that reduces to 𝓕_{0,n} ∋ 0.",
       "known": "new",
@@ -18502,7 +18467,6 @@
       "kind": "misprint",
       "affects": "nothing",
       "locator": "Chapter V, §2, p. 312, sentence after 'By the theory of modular symbols [25], we have L(E′,1) = α′Ω′', Invent. Math. 84 (1986), published version (GDZ scan)",
-      "printed": "The source identifies Ω′ as the fundamental real period on E′ for the Néron differential ω′ = ω/√|D|.",
       "correction": "ω′ = ω/√D, with ω transported to E′ by the K-isomorphism E′ ≅ E, (x, y) ↦ (x, √D·y), and √D = ±i√|D|.",
       "reason": "Prior reviewed extraction check: For E′: Dy² = x³ + ax + b and φ(x, y) = (x, √D·y), φ*(dx/2y) = (dx/2y)/√D, and a Galois element moving √D changes the sign of both φ*ω and √D, so φ*ω/√D is ℚ-rational while φ*ω/√|D| = ±i·φ*ω/√D is not. Up to sign φ*ω/√D is the Néron differential of E′ (unramified at p ∤ 2D and at 2 since D ≡ 1 mod 4; at odd p | D compare the I₀*-minimal model, v_p(Δ) = 6, with the good model over ℤ_p[√D]). The identity ‖ω‖²/|D|^{1/2} = [E(ℝ):E(ℝ)⁰]·Ω·Ω′ on the same page holds for this Ω′ (checked with mpmath for E = 11a1, D = −7, −19, −43; for D = −7, Ω′ = 0.183794), whereas the periods of ω/√|D| are those of E scaled by 1/√7 (real period 0.079953) and the identity would fail.",
       "known": "new",
@@ -18611,7 +18575,6 @@
     {
       "kind": "error",
       "locator": "§7.2, existence of 𝔧_v when B_v is split, p. 591",
-      "printed": "The proof chooses any nonzero m0 ∈ M and asserts that t ↦ t∘m0 defines an O_{F_v}-module isomorphism O_{E_v} → M.",
       "correction": "Choose an OE-module generator of the free rank-one OE lattice M, not an arbitrary nonzero vector.",
       "reason": "Prior reviewed extraction check: Multiplying a generator by π gives a nonzero vector whose image is πM, not M. In the split algebra a vector zero in one factor may even fail injectivity. Freeness supplies the correct primitive choice.",
       "affects": "the proof",
@@ -18638,7 +18601,6 @@
     {
       "kind": "misprint",
       "locator": "§6.3, proof of Lemma 6.1, p. 583",
-      "printed": "The proof claims that choosing any n + 1 distinct values of N forces all f_k(g0) = 0 by the Vandermonde determinant.",
       "correction": "Choose distinct positive sufficiently divisible integers N; their absolute values then make the displayed powers distinct.",
       "reason": "Prior reviewed extraction check: For degree4 and N=±1, both fourth powers equal −4. The proof only needs a suitable selection, so positive choices repair it. This test addresses the printed arbitrary-distinct claim, not failure of the lemma.",
       "affects": "nothing",
@@ -18665,7 +18627,6 @@
     {
       "kind": "error",
       "locator": "[YZZ13, Prop. 6.10(1)], case a = 0; corrected in print in this paper, §7.3, proof of Lemma 7.6, pp. 599–600",
-      "printed": "On pp. 599–600, the source restricts [YZZ13, Prop. 6.10(1)] to a ∈ F_v^× because W°_{0,v}(0,1,u,φ_{2,v}) uses a different normalization. It says the proof instead yields W_{0,v}(s,1,u,φ_{2,v}) = γ_{u,v}|d_v|^{1/2}(1−N_v^{−s})Σ_n N_v^{−ns+n}∫_{D_n}φ_{2,v}(x2,u)d_ux2.",
       "correction": "Use the separately normalized zero-index Whittaker coefficient derived here; the cited formula applies to a≠0.",
       "reason": "Prior reviewed extraction check: The main authors explicitly explain the normalization mismatch and redo W0. The external book was not re-read here; finding is attributed to this published correction.",
       "affects": "a stated result",
@@ -18692,7 +18653,6 @@
     {
       "kind": "misprint",
       "locator": "§7.3, proof of Lemma 7.6, case v ∈ S2 (ψ2 paragraph), p. 604",
-      "printed": "For q(y) ∉ O_{F_v}, the proof concludes c_{ψ1}(1,y,u)=0. It repeats c_{ψ1}(1,y,u) = 0 in the next case and again gives c_{ψ1}(1,y,u)=0 after a computation compared with the earlier one.",
       "correction": "Replace ψ1 by ψ2 in the three conclusions of the ψ2 computation.",
       "reason": "Prior reviewed extraction check: The displayed series being differentiated is c-tilde_ψ2; the substitution zi=π^−1 zi' is its case, while ψ1 was completed in the preceding paragraph.",
       "affects": "nothing",
@@ -18719,7 +18679,6 @@
     {
       "kind": "error",
       "locator": "Yuan–Zhang 2018, §8.3, proof of Lemma 8.7, p. 618, correcting [YZZ13, Lemma 8.6; Prop. 8.7(1), ramified case] and [Zha01, Lemma 5.5.2] (author's PDF gl2-ajm.pdf, p. 85)",
-      "printed": "Zha01, Lemma 5.5.2 gives m(g1,g2) = ½ord(πξ(g1)) when c = 0, for both unramified and ramified K_℘/F_℘. Its proof uses B_℘ = K_℘ + K_℘ε with ord(ε²) = … 0 in the ramified case, and g1 = a + π_K^{m−1}bε, a ∈ O_K, b ∈ O_K^×, effectively assuming O_B = O_K + O_Kε. Yuan–Zhang, p. 618, identifies an error for wildly ramified E_v over F_v, inherited through [YZZ13, Lemma 8.6] from [Zha01, Lemma 5.5.2].",
       "correction": "Use m(b,β)=½v(Dv λ(b)) on the stated unit-norm support, including wild ramification.",
       "reason": "Prior reviewed extraction check: The main authors explicitly identify the inherited wild-ramification error and point to Gross's canonical lifting. This checkpoint records that correction but has not reconstructed Gross's original proof.",
       "affects": "a stated result",
@@ -18746,7 +18705,6 @@
     {
       "kind": "misprint",
       "locator": "§8.2, ordinary case, pp. 614–615",
-      "printed": "On p. 614, the source places the support of m_{ν̄2} on N^t(F_v)U_v/U_v but labels its formula m_{ν̄1}([[1,0],[b,1]]) = …. On p. 615, it asserts a similar extension for i_{ν̄1}(β1,t2), and gives m_v̄ = ½(m_{ν̄2} + m_{ν̄2}), i_v̄ = ½(i_{ν̄1} + i_{ν̄2}).",
       "correction": "Use ½(m_ν̄1+m_ν̄2); label the lower-unipotent formula m_ν̄2 and its following extension i_ν̄2.",
       "reason": "Prior reviewed extraction check: There are two distinct split primes and upper/lower supports. Proposition8.5 itself uses the correct half-sum.",
       "affects": "nothing",
@@ -18773,7 +18731,6 @@
     {
       "kind": "error",
       "locator": "§8.3, proof of Lemma 8.9, p. 623",
-      "printed": "The proof uses (t_2^{-1}γ^{-1}t_1z_0·Ṽ) = (γ^{-1}z_0·Ṽ) and (t_2^{-1}γ^{-1}z_0·Ṽ) = (γ^{-1}z_0·t_2Ṽ). It claims t_2Ṽ = Ṽ because t_2 ∈ F_v^×GL_2(O_{F_v}) acts trivially on each irreducible component in the special fiber belonging to Ω̂ ×_{Spf O_{F_v}} Spf O_{F_v^ur}.",
       "correction": "Retain t1,t2 in the direct kernel from p.623 instead of making the invalid invariance substitution; alternatively prove an appropriate equivariant lift/descent identity.",
       "reason": "Prior reviewed extraction check: Fv*GL2(OFv) fixes the standard tree vertex, not all vertices. An unramified quadratic torus unit reducing to [[0,1],[1,1]] over F2 cyclically permutes its three neighbors. A finite arbitrarily selected lift of components is not automatically invariant. No claim is made that Lemma8.9 itself is false.",
       "affects": "the proof",
@@ -18800,7 +18757,6 @@
     {
       "kind": "error",
       "locator": "§9.2, paragraph after Lemma 9.4, p. 633",
-      "printed": "The source calls π étale and infers that 𝒫′ is a section of 𝒳_{U′,R} over R. It assigns ramification index e to P and states that, for sufficiently small U′^v, 𝒫′ occurs with multiplicity e in π^{-1}𝒫.",
       "correction": "π ramifies at P' with index e. The section property holds because U'_v = U_v: the CM point P' is then defined over a class field of E that is unramified at w over H, so P' is H_w^ur-rational. Its closure in the proper R-scheme X_{U',R} is therefore the image of a section Spec R → X_{U',R}.",
       "reason": "Prior reviewed extraction check: The same paragraph assigns multiplicity e to P' in π*P. At elliptic CM points e>1, this is ramification, incompatible with étaleness. The section assertion needs its own justification. (cc-442dc5) The correction now gives the section argument; Lemma 9.4 is not affected.",
       "affects": "the proof",
@@ -18827,7 +18783,6 @@
     {
       "kind": "misprint",
       "locator": "§6.1, p. 578",
-      "printed": "The source takes (V, q) to be a quadratic space over ℝ with positive definite form.",
       "correction": "Take the quadratic space over F, positive definite at every real place; its local real fibers are over R.",
       "reason": "Prior reviewed extraction check: V(F), V(A) and the rational theta sum require an F-space, as stated explicitly again in §6.2.",
       "affects": "nothing",
@@ -18854,7 +18809,6 @@
     {
       "kind": "misprint",
       "locator": "§7.3, proof of Lemma 7.4(2), p. 598",
-      "printed": "The source says the behavior of k_{φ_v}(1,y,u) in the range −v(d_v) − v(D_v) + 1 ≤ v(a) < 0 affects the final result. It then restricts the subsequent argument to v(a) ≥ 0.",
       "correction": "Insert 'not': the negative-valuation range does not affect the near-diagonal restriction being computed.",
       "reason": "Prior reviewed extraction check: The immediately following step discards that range and assumes v(a)≥0. The desired restriction concerns a→0, hence large positive valuation; the omitted bounded valuation range only changes a Schwartz function away from the diagonal.",
       "affects": "nothing",
@@ -18881,7 +18835,6 @@
     {
       "kind": "gap",
       "locator": "Hypothesis of Theorem 1.6 (§1.2, p. 536) and of Theorem 1.7 (§1.3, p. 539); the step used is in §7.2, p. 591, and §5.3, p. 576 assumes the stronger condition",
-      "printed": "Assume that U = ∏U_v is a maximal compact subgroup of 𝔹_f^× containing Ô_E^×. (p. 536); Let U = ∏_v U_v be a maximal open compact subgroup of 𝔹_f^× containing the image of Ô_E^× (p. 539); Furthermore, the inclusion O_{E_v}^× ⊂ U_v induces O_{E_v} ⊂ O_{𝔹_v}. (p. 591); Recall that we have fixed a maximal order O_𝔹 of 𝔹_f including O_Ê (p. 576)",
       "correction": "In Theorems 1.6 and 1.7 (and §§1.2–1.3), take U = Ô_𝔹^× for a maximal order Ô_𝔹 of 𝔹_f containing Ô_E. This follows from 'U maximal ⊇ Ô_E^×' unless some place v | 2 of F with residue field F_2 splits in E. Theorem 1.1 is unaffected, since such a U can always be chosen.",
       "reason": "Prior reviewed extraction check: At a split place v with residue field F_2, O_{E_v}^× = O_v^× × O_v^× spans only {(a, b) : a ≡ b mod ϖ_v}. Counterexample to the p. 591 inference: F = Q and E = Q(√−7), so 2 splits; embed E_2 = Q_2 × Q_2 diagonally in M_2(Q_2) and let L = {(x, y) ∈ Z_2² : x ≡ y mod 2}. U_2 = GL(L) is maximal compact and contains every diag(a, b) with a, b ∈ Z_2^×, but End(L) ∌ diag(1, 0), which sends (1, 1) to (1, 0) ∉ L. Part I needs O_E ⊂ O_B (p. 576; the O_E-action on the CM abelian variety; Erratum §1's Λ1 = O_E ⊂ Λ0 = O_B), and Part II needs it on p. 591, so neither theorem is proved for such U. There P_U corresponds, via X_U ≅ X_{g^{-1}Ug}, to a CM point whose order at v is O_v + ϖ_v O_{E_v}. The right side of Theorem 1.7 does not see this conductor, while CM heights do change with it (g = 1: at a split prime the conductor-2 CM elliptic curve's Faltings height differs by ½ log 2, Nakkajima–Taguchi), so the literal statement is not expected to hold. Checked on the page images of pp. 536, 576 and 591; unchanged in arXiv v3 and not addressed by the erratum. Searched: Erratum5.pdf (18 December 2022), arXiv v3. (Coordinator: recorded as a gap, not an error. The inference on p. 591 is false, so Theorems 1.6 and 1.7 are unproved for such U; that they fail there is expected from the conductor comparison but is not proved here.)",
       "affects": "a stated result",
@@ -18907,7 +18860,6 @@
     {
       "kind": "error",
       "locator": "§7.3, Lemma 7.6(2) for v ∈ S2; proof pp. 603–604",
-      "printed": "On p. 603, the source identifies the desired conclusion as c_{φv}(1,y,u) = 0 and predicts 0 for each of the two functions. On p. 604, for ψ2 with q(y) ∈ O_{F_v}^×, it substitutes z_i = ϖ_v^{−1}z_i′ and claims that a calculation like the preceding one again yields c_{ψ1}(1,y,u)=0.",
       "correction": "For v ∈ S2, u ∈ O_{F_v}^×: c_{ψ1}(1,y,u) = 0, but c_{ψ2}(1,y,u) = 2 log N_v when y ∈ ϖ_v^{−1}O_{E_v} and q(y) ∈ O_{F_v}^× (0 otherwise). Hence c_{φ_v}(1,y,u) = −(2 log N_v/(1+N_v+N_v²))·1_{ϖ_v^{−1}(O_{B_v})_2}(y)·1_{O_{F_v}^×}(u), not 0, and Lemma 7.6(2)'s 'split: 0' fails at S2. Theorems 9.1 and 1.7 still hold. Prop. 9.2(2) at S2 needs only d_{φ_v} = 2n_{φ_v}log N_v − c_{φ_v} + log|uq(y)|φ_v = 0, and Lemma 8.7(2) at S2 is off by the compensating amount (next issue).",
       "reason": "Prior reviewed extraction check: With X = N_v^{−s}, the ψ2 sum for n ≥ 1 is (1−X)²/(1−X/N)·Σ_{n≥1}X^n(1+(1−N^{−1})(n+2)), using vol{z′ ∈ O²: z′1z′2 ∈ p^k} = N^{−k}(1+(1−N^{−1})k). The ψ1 sum Σ_{n≥1}X^n(1+(1−N^{−1})n) has s-derivative 0 after multiplication. The ψ2 sum has the extra 2(1−N^{−1})X/(1−X), which is only a simple pole, so the product 2(1−N^{−1})X(1−X)/(1−X/N) has s-derivative 2 log N_v at s = 0. Equivalently, the substitution turns the sum into N_v^{2s} times a ψ1-type tail, and the factor N_v^{2s} contributes 2 log N_v. Directly for y = 1: the extra region x2 ∈ ϖ^{−1}O_E𝔧 − O_E𝔧 with z1z2 ∈ p^n has volume 2(1−N^{−1})N^{−n}. Checked by exact counting mod 3^6 (volumes for n = 1, 2, 3 match) and by sympy (derivative 0 for ψ1, 2 log N for ψ2). Searched: Annals 2018 article and the 2023 erratum (author revision Erratum5.pdf, 18 Dec 2022), which treats only §2 (Theorem 2.7); no correction to §§6–7 found. Independent second check (checker 4): After the substitution the n-th volume is N^{-n}(1+(1−N^{-1})(n+2)); the ψ1 case has n in place of n+2. With X = N^{-s}, c̃_{ψ2} = (1−X)²/(1−X/N)·[V0 + (1+2b)X/(1−X) + bX/(1−X)²], b = 1−N^{-1}. Its X-derivative at X = 1 is −2, so c = 2log N_v; the same formula with shift 0 gives 0 for ψ1. Checked in exact arithmetic for N = 2, 3, 5 and numerically by direct series summation (slopes 1.3863 and 2.1972 = 2log2 and 2log3). This confirms checker 3's entry on Lemma 7.6(2); record it once. Unchanged in arXiv 1507.06903v3 (checked); not addressed by Erratum5 (Dec 2022), which concerns only Theorem 2.7.",
       "affects": "a stated result",
@@ -18959,7 +18911,6 @@
     {
       "kind": "misprint",
       "locator": "§6.3, proof of Lemma 6.1, p. 583",
-      "printed": "The source writes ρ∞(g_N)δ∞(g_N) = (1 + iN)^{−n}, with n = [F : ℚ], and then Σ_{k=0}^{n}(1 + iN)^{−nk}δ_f(g0)^k f_k(g0) = 0. It proceeds by choosing n + 1 distinct values for N.",
       "correction": "Use a separate symbol, e.g. d_F = [F:ℚ]. The equation is Σ_{k=0}^{n}(1+iN)^{−d_F k}δ_f(g0)^k f_k(g0) = 0, with n the top power from (6.3.1), and one needs n + 1 admissible N giving distinct (1+iN)^{−d_F}.",
       "reason": "Prior reviewed extraction check: Image-checked. The symbol n already denotes the number of powers in (6.3.1); the Vandermonde count is the number of unknowns f_0, …, f_n, not [F:ℚ] + 1.",
       "affects": "nothing",
@@ -18985,7 +18936,6 @@
     {
       "kind": "misprint",
       "locator": "§6.3, proof of Lemma 6.1, p. 582",
-      "printed": "The source claims that K_S GL2(A^S) ∩ g0 GL2(Ô_F) g0^{−1} remains an open compact subgroup in GL2(A).",
       "correction": "… an open compact subgroup of GL2(A_f).",
       "reason": "Prior reviewed extraction check: g0GL2(Ô_F)g0^{−1} ⊂ GL2(A_f), and GL2(A) has no open compact subgroups.",
       "affects": "nothing",
@@ -19089,7 +19039,6 @@
     {
       "kind": "misprint",
       "locator": "§7.3, proof of Lemma 7.6, case v ∈ S2, ψ1 with q(y) ∈ p_v, p. 604",
-      "printed": "The source says exactly one summand is nonzero, with value 1.",
       "correction": "The single (n = 0) term equals vol{(z1,z2) : z1z2 ∈ O_{F_v}^×} = (1−N_v^{−1})².",
       "reason": "Prior reviewed extraction check: With vol(O_{E_v}𝔧_v) = 1, the term is vol(O^×)². Its value is irrelevant: it is killed by the double zero of (1−N_v^{−s})².",
       "affects": "nothing",
@@ -19115,7 +19064,6 @@
     {
       "kind": "error",
       "locator": "§8.3, Lemma 8.7(2) and its proof, case v ∈ S2, pp. 617 and 619",
-      "printed": "Lemma 8.7(2) asserts n_{φ_v}(y,u) = φ_v(y,u)·½v(q(y)) for every non-archimedean place v of F and every (y,u) ∈ E_v^×× F_v^×. Its proof on p. 619 says that the analogous computation for v ∈ S2 yields 0 everywhere.",
       "correction": "For v ∈ S2, write φ_v = ψ1 − (1+N_v+N_v²)^{-1}ψ2 with ψ1 = 1_{O_{𝔹_v}^×}⊗1_{O^×} and ψ2 = 1_{ϖ_v^{-1}(O_{𝔹_v})_2}⊗1_{O^×}. Then n_{φ_v}(y,u) = −(1+N_v+N_v²)^{-1}ψ2(y,u) on E_v^××F_v^×, which is not 0; for example n_{φ_v}(1,1) = −1/(1+N_v+N_v²). The printed value is φ_v(1,1)·0 = 0. The lemma is correct for v ∉ S2. Prop. 9.2(2) and Theorem 9.1 still hold, because Lemma 7.6(2) fails at S2 by exactly the compensating amount: c_{φ_v}(1,y,u) = −(2log N_v/(1+N_v+N_v²))ψ2(y,u). Hence d_{φ_v}(1,y,u) = 2n_{φ_v}log N_v − c_{φ_v} + log|uq(y)|_vφ_v = 0 = −log|d_vq(𝗃_v)|_vφ_v(y,u). The proof of Prop. 9.2(2) at S2 must use both corrected values.",
       "reason": "Prior reviewed extraction check: Use the formula of Prop. 8.5 with U_v = GL2(O_{F_v}) (Assumption 7.1), r = 0, so m_ν̄1(n(b)) = 1/(N_v^{−v(b)−1}(N_v−1)) and each shell v(b) = −i contributes 1. For b ∉ O, y·n(b) ∉ GL2(O), so the ψ1 part is 0. For y = diag(a,d), y·n(b) ∈ ϖ^{-1}(O_{𝔹_v})_2 if and only if v(a),v(d) ≥ −1, v(a)+v(d) = 0 and v(ab) ≥ −1. So the upper sum is 1+v(a), the lower 1+v(d), and n_{ψ2} = ½(2+v(ad)) = 1 on supp ψ2|_E. A brute-force enumeration for p = 2 and p = 3 (y = 1, diag(p^{-1},p), diag(p,p^{-1})) gives n = −1/7 and −1/13, against 0 printed. Checked on the page image. Checker 3 found the same error independently (as an out-of-range entry); merge the two. Unchanged in arXiv 1507.06903v3 (checked); not addressed by Erratum5 (Dec 2022), which concerns only Theorem 2.7. Independent second check (checker 3): Apply Prop. 8.5 with U_v = GL2(O_v) (r = 0): m_{ν1}(n(b)) = 1/(N^{−v(b)−1}(N−1)), so each shell v(b) = −i ≤ −1 contributes 1. ψ1(y n(b)) = 0 for b ∉ O. For y = diag(a,d) with a, d ∈ p^{−1} and ad ∈ O^×, ψ2(y n(b)) = 1 iff v(ab) ≥ −1, which gives v(a)+1 shells; the lower-triangular sum gives v(d)+1; the total is 2 + v(ad) = 2. So n_{ψ2} = 1, and n_{φ_v} = −1/(1+N+N²).",
       "affects": "a stated result",
@@ -19141,7 +19089,6 @@
     {
       "kind": "error",
       "locator": "§9.1, end of proof of Theorem 9.1, p. 628",
-      "printed": "The source claims a local calculation gives r_E(g)φ(0,1) > 0, together with r_E(g)φ(0,u) ≥ 0 for every u ∈ F^×, making the finite sum over u strictly positive.",
       "correction": "At v ∈ Σ_f (E_v/F_v inert, g_v = w), r_E(w)φ_v(0,u) = λ(E_v/F_v,ψ_v)·vol(O_{E_v}^×)·1_{O^×}(u), with Weil index λ = η_v(d_v) = (−1)^{v(d_v)}. So every u-term has the common sign ε = Π_{v∈Σ_f}(−1)^{v(d_v)}, and |r_E(g)φ(0,1)| > 0. The constant term is ε times a positive number: nonzero, as needed, but not always positive.",
       "reason": "Prior reviewed extraction check: The Weil index of the norm form of an unramified quadratic extension, taken with respect to ψ_v of conductor d_v^{-1}, is η_v(d_v). Here η_v(u) = 1 for units u, and the index is −1 when F_v/Q_p has odd different exponent, for example at a place above 2 of Q(√2) inert in E. At S2 (split, d_v = 1) the factor is ∫φ_v|_E = (1−N^{-1})²(1−3/(1+N+N²)) > 0. At other places the factor is φ_v(0,u) ≥ 0. The conclusion θ_{Ω,1} ≢ 0 is unaffected. Unchanged in arXiv 1507.06903v3 (checked); not addressed by Erratum5 (Dec 2022), which concerns only Theorem 2.7.",
       "affects": "nothing",
@@ -19167,7 +19114,6 @@
     {
       "kind": "misprint",
       "locator": "§8.3, proof of Lemma 8.9, p. 622",
-      "printed": "For arbitrary t_2 ∈ 𝔸_f^×, the source writes the vertical divisor as (Ṽ,t_2) = Σ_i a_i(W̃_i,t_2) … .",
       "correction": "t_2 ∈ E^×(𝔸_f), a representative of a point of C_U. The context is [t2]_U ∈ C_U and later t2 ∈ F_v^×GL2(O_{F_v}) at v.",
       "reason": "Prior reviewed extraction check: Checked on the page image. 𝔸_f^× denotes the finite ideles of F, which are central and would make t2 trivial on the tree; the argument concerns CM points [t2]_U ∈ C_U. Unchanged in arXiv 1507.06903v3 (checked); not addressed by Erratum5 (Dec 2022), which concerns only Theorem 2.7.",
       "affects": "nothing",
@@ -19193,7 +19139,6 @@
     {
       "kind": "misprint",
       "locator": "§8.3, end of proof of Lemma 8.9, p. 624",
-      "printed": "The source uses α_iF_v^×GL_2(O_{F_v}) for the coset associated with W_i in Ṽ = Σ_i a_iW_i, and refers to the support of γ in l_{φ_v}(1,γ,u).",
       "correction": "Read 'the component W̃_i of Ṽ = Σ_i a_iW̃_i' (components of Ω̂, not of X_U) and 'l_{φ_v}(γ,u)'.",
       "reason": "Prior reviewed extraction check: Checked on the page image. The cosets index components of Ω̂⊗O_{F_v^ur}, that is the lifts W̃_i, and l_{φ_v} was defined with two arguments on p. 623.",
       "affects": "nothing",
@@ -19245,7 +19190,6 @@
     {
       "kind": "misprint",
       "locator": "Section A.1, p. 102 (the condition equivalent to admissibility of a Green function)",
-      "printed": "The source identifies the condition with the current equation (i/pi) ddbar g_D = dmu_Ar - delta_D on C.",
       "correction": "(i/pi) ddbar g_D = deg(D) dmu_Ar - delta_D",
       "reason": "Prior reviewed extraction check: The identity fails on total mass for every divisor of degree other than 1. The left side is exact, so it integrates to 0 over the compact surface C. The paper's own normalization makes mu_Ar a probability measure: dmu_Ar = (i/2g) sum_j alpha_j wedge alpha_j-bar for an orthonormal basis of the pairing <alpha,beta> = (i/2) integral alpha wedge beta-bar, so its total mass is (1/g) times g, namely 1; and delta_D has total mass deg(D). As printed the right side integrates to 1 - deg(D). The factor is also forced by the two neighbouring definitions: admissibility of a metric is defined three lines earlier as c_1(L,||.||) = deg(L) dmu_Ar, and Poincare-Lelong for ||1|| = exp(-g_D), the paper's own convention, gives c_1(O(D),||.||) = (i/pi) ddbar g_D + delta_D, so substituting admissibility produces the deg(D). The non-archimedean twin, Proposition A.2 on p. 108, correctly carries deg(L). Nothing downstream breaks, because every subsequent use is for a divisor D = x_0 of degree 1.",
       "affects": "nothing",
@@ -19297,7 +19241,6 @@
     {
       "kind": "misprint",
       "locator": "Proof of Theorem A.1, p. 114",
-      "printed": "The source concludes that Theorem A.1, part (2), remains valid up to multiplicative constants.",
       "correction": "up to additive constants",
       "reason": "Prior reviewed extraction check: The plan of this proof, set out on p. 111, distinguishes the two: 'It suffices to prove that (2) holds for (||.||'_Delta, ||.||'_a) up to an additive constant independent of x, and that (3) holds ... up to a multiplicative constant independent of x.' Property (2) is an equation on the Green function g_{Delta,a}, which shifts additively, whereas property (3) is a metric identity, which shifts multiplicatively. So the closing sentence contradicts the plan three pages earlier.",
       "affects": "nothing",
