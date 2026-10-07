@@ -13,7 +13,7 @@
   "estimatedRoadmaps": 0,
   "distanceBases": {
     "judged": 203,
-    "measured": 11,
+    "measured": 12,
     "built": 7,
     "children": 1
   },
@@ -46,6 +46,12 @@
       "roadmap": "AbelianVarietiesIsogenousToNoJacobian",
       "nodes": 95,
       "reviewer": "independent-review-REV-DESIGN-AbelianVarietiesIsogenousToNoJacobian"
+    },
+    {
+      "file": "AdicCoefficientsAndComparisons",
+      "roadmap": "AdicCoefficientsAndComparisons",
+      "nodes": 46,
+      "reviewer": "independent-review-REV-AdicCoefficientsAndComparisons"
     },
     {
       "file": "AdicEtaleGeometry",
@@ -330,6 +336,12 @@
       "reviewer": "independent-review-REV-FiniteFieldsAndCharacterSums"
     },
     {
+      "file": "GL2AutomorphicRepresentationsAndTransfer--R16.1",
+      "roadmap": "GL2AutomorphicRepresentationsAndTransfer",
+      "nodes": 55,
+      "reviewer": "independent-review-REV-GL2AutomorphicRepresentationsAndTransfer--R16.1"
+    },
+    {
       "file": "GL2AutomorphicRepresentationsAndTransfer--R17.3",
       "roadmap": "GL2AutomorphicRepresentationsAndTransfer",
       "nodes": 57,
@@ -510,6 +522,24 @@
       "reviewer": "independent-review-REV-HeegnerPointEulerSystems--HE.0~2"
     },
     {
+      "file": "HilbertModularVarietiesAndShimuraCurves--H0",
+      "roadmap": "HilbertModularVarietiesAndShimuraCurves",
+      "nodes": 75,
+      "reviewer": "independent-review-REV-HilbertModularVarietiesAndShimuraCurves--H0"
+    },
+    {
+      "file": "HilbertModularVarietiesAndShimuraCurves--R18.2",
+      "roadmap": "HilbertModularVarietiesAndShimuraCurves",
+      "nodes": 58,
+      "reviewer": "independent-review-REV-HilbertModularVarietiesAndShimuraCurves--R18.2"
+    },
+    {
+      "file": "HodgeStructuresPartII",
+      "roadmap": "HodgeStructuresPartII",
+      "nodes": 569,
+      "reviewer": "independent-review-REV-DESIGN-HodgeStructuresPartII"
+    },
+    {
       "file": "InductionRestrictionPartII",
       "roadmap": "InductionRestrictionPartII",
       "nodes": 109,
@@ -606,6 +636,12 @@
       "reviewer": "independent-review-REV-PadicHodgeRegulators--L3"
     },
     {
+      "file": "PerfectoidQuotients",
+      "roadmap": "PerfectoidQuotients",
+      "nodes": 61,
+      "reviewer": "independent-review-REV-PerfectoidQuotients"
+    },
+    {
       "file": "PerfectoidSpaces--P8",
       "roadmap": "PerfectoidSpaces",
       "nodes": 66,
@@ -691,8 +727,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 12037349,
-  "htmlSha256": "2f908f4dc60dbb17f5286298e864b1be6cad13359eda644c8d9a6da3bb615d5a",
+  "htmlBytes": 12036870,
+  "htmlSha256": "3842c996e5769ba6bb412e7950c678be28b44ed64347e78485542a4e24860a45",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -712,7 +748,7 @@
     "src/app.js": "d7c71df704e82afbfa6cddb2bf3eff67dd0a98ba68138895f0a5952af92566a8",
     "data/atlas.json": "62ab6c2ccb94ee9c4d99813da02b69656941721d30fc29384e2b7e6e86361c56",
     "data/status.json": "7b9fe0072201b427ed600ee7066bd729d34b2632450823e1f877a8d5d3f7ad2e",
-    "data/tauceti-progress.json": "ec0783c6b5cbbc826ca03fbc4a74a10559fd1ebea819ce23efced85a20fb9085",
+    "data/tauceti-progress.json": "c0f81f86842886b83554b987cd358c4664bbe8153e9bda798c2c00dc2f4ab4e5",
     "data/tauceti-new-roadmaps.json": "c7f3f1944428628aaa2330ea78f3e6441b750599f57d107e4ccfdffaf048d1b2",
     "data/galaxies.json": "90d5131f4073e762260faa5614e53cbe41f194012b424f81db67afac16610599",
     "data/roadmap-retirements.json": "d572bc6f66332331ea507db17f12bdad008f73228b2dc9b5197f7e4c86334c9f",
@@ -724,8 +760,8 @@
     "data/roadmap-summaries.json": "c8bdd0a9105f5d3c4a858c8b635990729f8e94497dee784a71fae659b8c05b9f",
     "data/roadmap-classification.json": "2641dbc97eb2566c715162d011b46890d1635629181ef8126ac7aed9e24a3b13",
     "data/classification-estimates.json": "625d35fe6121bf099dc5de9e6a9111793596f9b664e3fbd439841434bb4a57d6",
-    "data/roadmap-distances.json": "3a4ffdc6b761c5f0dcd65f8b535ea7c430ff3bfdcd6252e7111f667728aa1060",
-    "data/galaxy-layout.json": "4bc55de9850ed0e34908dac04de78359a83a28b54f179dc4acfb942f5a8683d2",
+    "data/roadmap-distances.json": "c6679ae7288592d8c8dfc5760efcd41a792e9307b9d2b7106086ad7c6134a079",
+    "data/galaxy-layout.json": "95d22d0d152602a054dadfada90511f6b0fb8538a1e5530c4d93412c18a51e02",
     "data/bibliography.json": "bef230a41fad22d6b790c7564061c4d05c2ae5b78cab53d005eb404afab2b122",
     "NOTICE": "a285b95d5adbf5c2bcc82db36e2a77b797f84a2c5cbb30292efd0bae17cc4f34",
     "LICENSE": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1",
@@ -786,6 +822,8 @@
     "data/blueprints/AbelianSchemesAndArithmeticModuliPartII.md": "5653c26d4d6dec80f1fedb795d7f7a11b2e4f4c2257c0b671d9b8a6fe7e3d365",
     "data/blueprints/AbelianVarietiesIsogenousToNoJacobian.json": "9de60585cfbbd64b4668c4a9697e673e9f0307ba3e97085eff0c30d38a6f13c3",
     "data/blueprints/AbelianVarietiesIsogenousToNoJacobian.md": "9258a7772a96c3e40de4c254235abe86727cede0ae9d75feb41a06cd94580143",
+    "data/blueprints/AdicCoefficientsAndComparisons.json": "ddde2f1c6b16d120043a81c50afeb9f3433d45a04a2e24d549b5ffb9ab7c956c",
+    "data/blueprints/AdicCoefficientsAndComparisons.md": "a0f8b9b0be2315107b504a25ddfd08481f018f1f2c2183979ec5d192cd10abc8",
     "data/blueprints/AdicEtaleGeometry.json": "99497353570273dc940038827e1a5eef68adcf05099ff390767a11a2f7cc8d45",
     "data/blueprints/AdicEtaleGeometry.md": "d580cd34ef211625d8012c497854b46ee450aa7ac374676e1bf668406e0d86cc",
     "data/blueprints/AdicSpacesPartII.json": "e45a2b12a1dba869acdbe200a2e6034876ace6c72b51a1fa40114c27c12ea6c4",
@@ -880,6 +918,8 @@
     "data/blueprints/FiniteFieldsAndCharacterSums--FF.3.md": "5fc0e2a65c83aa28d33bacdf80329730db3a51e46cf0cfbfed1166714c87d98b",
     "data/blueprints/FiniteFieldsAndCharacterSums.json": "ea64ec0f7a0888da20c74fbcb2c0b0b7d58184f7a411ab147b9db3fcae4fb711",
     "data/blueprints/FiniteFieldsAndCharacterSums.md": "280948019fed01a8fc773fc58a7eec61fd477cd2d5e59b93c83d430f4d9fda57",
+    "data/blueprints/GL2AutomorphicRepresentationsAndTransfer--R16.1.json": "6f74e1be2d91b4609f5d9b62b9ded611e10794aa71cd4ab3b714c128d4fc57b5",
+    "data/blueprints/GL2AutomorphicRepresentationsAndTransfer--R16.1.md": "50526e38e7e53ddebace36b612fb6fd28c515c4aaec761380556e802b47b7528",
     "data/blueprints/GL2AutomorphicRepresentationsAndTransfer--R17.3.json": "709249a3f59fff67bbca04dce74a947a6aa9f7c15c327c884ba043de873026e3",
     "data/blueprints/GL2AutomorphicRepresentationsAndTransfer--R17.3.md": "9fd9a231c1e609034020ca69e533b1df2651e6e0a83a27d2bfebff357ed84e49",
     "data/blueprints/GeneralAlgebraicKTheory--K.1.json": "6d99ed94515665f97711483d11547ac5f74fdecc5ab4f73270602feea1ead6b4",
@@ -940,6 +980,12 @@
     "data/blueprints/HabiroRings.md": "160228b0864d6bc3f4ce34b83994e5cda0e423f1127f1b39d61e4fd735e0560c",
     "data/blueprints/HeegnerPointEulerSystems--HE.0.json": "ac5a9ab99f4f5cc015231379961433746521211ed1b844f9b4ff05f3b07fcd33",
     "data/blueprints/HeegnerPointEulerSystems--HE.0.md": "7d5303017cfc58865957e91dba0f044491b693554de8f02fa3ec40bc69db8ce1",
+    "data/blueprints/HilbertModularVarietiesAndShimuraCurves--H0.json": "92d921eb5fe91b1dacbc2d89d5714a3789fe3c7b60dd04ff0308a4f3815e9c96",
+    "data/blueprints/HilbertModularVarietiesAndShimuraCurves--H0.md": "f7a0a5cd964d960a45ccda52b2f99208f4769d5baef71c27fc3d716ee8c0197d",
+    "data/blueprints/HilbertModularVarietiesAndShimuraCurves--R18.2.json": "2bfb96947e41cf78c40a01e574b87c3e46b116ec823db4fb507a348816fa17ee",
+    "data/blueprints/HilbertModularVarietiesAndShimuraCurves--R18.2.md": "81d48de4514ac6dba529650c1d8c4162ac17c95cfd1c8838bb0a2e022885d358",
+    "data/blueprints/HodgeStructuresPartII.json": "5a31ff30c1e64b361b9bfcdc864bdd8c1eff62a4b3056d5889d1d8ceae23f9a6",
+    "data/blueprints/HodgeStructuresPartII.md": "a0767cc10c8b1a31a8ee89ee6626c5dd35ca747db752905beb81d1d4f70e207c",
     "data/blueprints/InductionRestrictionPartII.json": "0db4b3e80ab6e85338b576ea40139b9cde93c466049c714d359abb50181af1a2",
     "data/blueprints/InductionRestrictionPartII.md": "62bab3a7d7a78e2b81f254fdb13b351108bd5ad2d51a12a409e8c8ff9eddb7e3",
     "data/blueprints/JacobianChallengePartII.json": "fe5ba0926b48925f60ff4f689dad88c54a684b257f9318c41d878e0543484b82",
@@ -972,6 +1018,8 @@
     "data/blueprints/OverconvergentAutomorphicForms--O8.md": "7a5fc90512b7767e1f2ec288ff063618496f9613a88f47c441ebcaf9de6e0fd8",
     "data/blueprints/PadicHodgeRegulators--L3.json": "505bfd2c0cbc830506f8d5b89c0094bf45d6f29a7c154584ed6b137e824ea621",
     "data/blueprints/PadicHodgeRegulators--L3.md": "8dd3fc2f5600687e571a3d03889bc9118e77d2f48a033d17456898cacce5ea61",
+    "data/blueprints/PerfectoidQuotients.json": "f0533cd66bdd1cd6fc975e38fc19418da573eb4d3a247132602c16c64ec3aafc",
+    "data/blueprints/PerfectoidQuotients.md": "037e9c4c8b0b33c11911bdf2841e9d94967991ca638519d60d8a3af779ce6fe7",
     "data/blueprints/PerfectoidSpaces--P8.json": "0dd66671f24d7eb8736b68ac49e379af83e80008b3093e4474048417c7be67df",
     "data/blueprints/PerfectoidSpaces--P8.md": "0c0001c59783b0a5e593cedc530eecda7d1ee55db43cb70af851d21d95d53cc2",
     "data/blueprints/Polylogarithms--P.2.json": "e5553f574b76c7e941f29e9cfa10f2f25eca3110a614cddb000ee9cf218cfade",
@@ -1007,6 +1055,7 @@
     "data/blueprints/roadmaps/EllipticModularityEffectiveComparisons.json": "eb4db731fe7f417cc957ac93c0780bc678b4cbdbd6b3008645c09d06c5a24f25",
     "data/blueprints/roadmaps/ErdosProgressionPowers.json": "98585384723f4c1baf2746a8b245f602916b416f80aed06b20836a2d8c250c24",
     "data/blueprints/roadmaps/GenericDoublePointInterpolation.json": "bea51793a161eba89a41cd1b9296431a0feec87374a8009e0ee3c9f008f0ddaf",
+    "data/blueprints/roadmaps/HodgeStructuresPartII.json": "6278e8297e4f9c134a64529a6ea2ac2648efdf823dee4fcf86c0404f01450e93",
     "data/blueprints/roadmaps/InductionRestrictionPartII.json": "610f6d9d6d58360ee2e0f342c5a27188ba677510f9f294f621675be04172ed16",
     "data/blueprints/roadmaps/JacobianChallengePartII.json": "9125c2f7116f65188ada8a2d42c9c4220297bf09ac49d4de1235728506276698",
     "data/blueprints/roadmaps/MordellLawrenceVenkatesh.json": "6a5cc42ef2a4a3f3d2e5daa0f4e89143a08cb55604fabaa7ef3215081a04eb5c",
@@ -1104,13 +1153,13 @@
     "data/restructure/RS-33.result.json": "f9e95d0edcb3f28b9821335eb9d879a57466bed358835b428b338deb97b4369f"
   },
   "taucetiProgress": {
-    "exportedAt": "2026-10-06T22:52:43Z",
+    "exportedAt": "2026-10-07T06:21:20Z",
     "roadmaps": 70,
     "unplaced": 0,
     "layers": {
-      "done": 296,
-      "partial": 215,
-      "untouched": 68,
+      "done": 299,
+      "partial": 213,
+      "untouched": 67,
       "unassessed": 13,
       "total": 592
     },
