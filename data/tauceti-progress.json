@@ -1,14 +1,14 @@
 {
  "collected_at": null,
- "cutoff": "2026-10-06T22:52:43Z",
- "exported_at": "2026-10-06T22:52:43Z",
+ "cutoff": "2026-10-07T06:21:20Z",
+ "exported_at": "2026-10-07T06:21:20Z",
  "global": {
   "first_merge": "2026-06-03T00:19:04Z",
-  "open": 257,
-  "recent": 5984,
-  "total": 11185,
+  "open": 244,
+  "recent": 6050,
+  "total": 11275,
   "unattributed": {
-   "no_label": 1267,
+   "no_label": 1275,
    "several_labels": 0,
    "unknown_area": 0
   },
@@ -28,20 +28,20 @@
    1080,
    1649,
    2267,
-   326
+   416
   ]
  },
  "prs_source": "snapshot pr-snapshot.json",
  "recent_days": 30,
- "roadmap_head": "44d5c9b8820e650b932d83ff6ee973d8cd5b8e64",
+ "roadmap_head": "25f159244c802e526729b84e6ac3c9e4bff2e1ca",
  "rows": [
   {
    "activity": {
-    "last": "2026-10-06T01:13:46Z",
-    "open": 3,
-    "recent": 155,
-    "since_report": 2,
-    "total": 415,
+    "last": "2026-10-07T03:16:06Z",
+    "open": 1,
+    "recent": 154,
+    "since_report": 3,
+    "total": 416,
     "weekly": [
      0,
      0,
@@ -58,7 +58,7 @@
      19,
      42,
      61,
-     2
+     3
     ]
    },
    "assessment": {
@@ -400,11 +400,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-05T17:11:54Z",
-    "open": 6,
-    "recent": 83,
-    "since_report": 0,
-    "total": 83,
+    "last": "2026-10-07T05:59:29Z",
+    "open": 3,
+    "recent": 86,
+    "since_report": 3,
+    "total": 86,
     "weekly": [
      0,
      0,
@@ -421,7 +421,7 @@
      18,
      22,
      39,
-     2
+     5
     ]
    },
    "assessment": {
@@ -640,11 +640,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-04T19:02:02Z",
+    "last": "2026-10-07T03:40:50Z",
     "open": 2,
-    "recent": 73,
-    "since_report": 0,
-    "total": 75,
+    "recent": 74,
+    "since_report": 1,
+    "total": 76,
     "weekly": [
      0,
      0,
@@ -661,7 +661,7 @@
      14,
      21,
      29,
-     0
+     1
     ]
    },
    "assessment": {
@@ -764,7 +764,7 @@
    "activity": {
     "last": "2026-10-05T23:45:50Z",
     "open": 1,
-    "recent": 96,
+    "recent": 95,
     "since_report": 3,
     "total": 125,
     "weekly": [
@@ -883,11 +883,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-06T00:47:58Z",
-    "open": 3,
-    "recent": 98,
-    "since_report": 4,
-    "total": 98,
+    "last": "2026-10-07T03:18:00Z",
+    "open": 2,
+    "recent": 99,
+    "since_report": 5,
+    "total": 99,
     "weekly": [
      0,
      0,
@@ -904,7 +904,7 @@
      24,
      18,
      47,
-     4
+     5
     ]
    },
    "assessment": {
@@ -1033,11 +1033,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-05T23:21:56Z",
+    "last": "2026-10-07T05:42:42Z",
     "open": 3,
-    "recent": 76,
-    "since_report": 3,
-    "total": 158,
+    "recent": 79,
+    "since_report": 7,
+    "total": 162,
     "weekly": [
      0,
      0,
@@ -1054,7 +1054,7 @@
      32,
      19,
      13,
-     1
+     5
     ]
    },
    "assessment": {
@@ -1281,11 +1281,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-06T01:06:35Z",
+    "last": "2026-10-07T05:58:55Z",
     "open": 5,
-    "recent": 236,
-    "since_report": 0,
-    "total": 240,
+    "recent": 241,
+    "since_report": 5,
+    "total": 245,
     "weekly": [
      0,
      0,
@@ -1302,7 +1302,7 @@
      23,
      84,
      104,
-     17
+     22
     ]
    },
    "assessment": {
@@ -1433,11 +1433,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-06T00:52:43Z",
-    "open": 5,
-    "recent": 121,
-    "since_report": 0,
-    "total": 213,
+    "last": "2026-10-07T03:04:14Z",
+    "open": 4,
+    "recent": 122,
+    "since_report": 1,
+    "total": 214,
     "weekly": [
      21,
      5,
@@ -1454,7 +1454,7 @@
      21,
      19,
      65,
-     11
+     12
     ]
    },
    "assessment": {
@@ -1544,11 +1544,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-05T18:21:55Z",
+    "last": "2026-10-07T03:27:30Z",
     "open": 1,
-    "recent": 91,
-    "since_report": 4,
-    "total": 270,
+    "recent": 92,
+    "since_report": 5,
+    "total": 271,
     "weekly": [
      0,
      8,
@@ -1565,7 +1565,7 @@
      21,
      30,
      27,
-     4
+     5
     ]
    },
    "assessment": {
@@ -1655,11 +1655,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-05T18:45:14Z",
+    "last": "2026-10-07T05:33:17Z",
     "open": 4,
-    "recent": 83,
-    "since_report": 2,
-    "total": 107,
+    "recent": 84,
+    "since_report": 3,
+    "total": 108,
     "weekly": [
      0,
      0,
@@ -1676,7 +1676,7 @@
      19,
      25,
      32,
-     2
+     3
     ]
    },
    "assessment": {
@@ -2010,11 +2010,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-05T23:47:49Z",
-    "open": 2,
-    "recent": 176,
-    "since_report": 7,
-    "total": 454,
+    "last": "2026-10-07T05:20:32Z",
+    "open": 1,
+    "recent": 177,
+    "since_report": 9,
+    "total": 456,
     "weekly": [
      0,
      0,
@@ -2031,7 +2031,7 @@
      24,
      36,
      48,
-     6
+     8
     ]
    },
    "assessment": {
@@ -2154,11 +2154,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-03T04:25:32Z",
+    "last": "2026-10-07T03:40:50Z",
     "open": 0,
-    "recent": 84,
-    "since_report": 0,
-    "total": 297,
+    "recent": 85,
+    "since_report": 1,
+    "total": 298,
     "weekly": [
      9,
      29,
@@ -2175,7 +2175,7 @@
      15,
      37,
      23,
-     0
+     1
     ]
    },
    "assessment": {
@@ -2263,11 +2263,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-05T23:02:20Z",
+    "last": "2026-10-07T04:58:12Z",
     "open": 2,
-    "recent": 93,
-    "since_report": 5,
-    "total": 93,
+    "recent": 94,
+    "since_report": 6,
+    "total": 94,
     "weekly": [
      0,
      0,
@@ -2284,7 +2284,7 @@
      16,
      24,
      46,
-     5
+     6
     ]
    },
    "assessment": {
@@ -2382,11 +2382,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-06T01:58:16Z",
-    "open": 11,
-    "recent": 168,
-    "since_report": 0,
-    "total": 246,
+    "last": "2026-10-07T05:33:16Z",
+    "open": 17,
+    "recent": 173,
+    "since_report": 5,
+    "total": 251,
     "weekly": [
      11,
      5,
@@ -2403,7 +2403,7 @@
      24,
      19,
      80,
-     26
+     31
     ]
    },
    "assessment": {
@@ -2526,11 +2526,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-05T17:35:26Z",
-    "open": 2,
-    "recent": 104,
-    "since_report": 6,
-    "total": 107,
+    "last": "2026-10-07T05:49:45Z",
+    "open": 1,
+    "recent": 105,
+    "since_report": 7,
+    "total": 108,
     "weekly": [
      0,
      0,
@@ -2547,7 +2547,7 @@
      12,
      41,
      37,
-     6
+     7
     ]
    },
    "assessment": {
@@ -2799,11 +2799,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-05T17:46:46Z",
-    "open": 1,
-    "recent": 80,
-    "since_report": 4,
-    "total": 115,
+    "last": "2026-10-07T04:28:09Z",
+    "open": 4,
+    "recent": 82,
+    "since_report": 6,
+    "total": 117,
     "weekly": [
      0,
      0,
@@ -2820,7 +2820,7 @@
      19,
      20,
      32,
-     4
+     6
     ]
    },
    "assessment": {
@@ -2917,11 +2917,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-06T01:10:46Z",
-    "open": 2,
-    "recent": 86,
-    "since_report": 0,
-    "total": 207,
+    "last": "2026-10-07T05:42:42Z",
+    "open": 5,
+    "recent": 87,
+    "since_report": 1,
+    "total": 208,
     "weekly": [
      11,
      9,
@@ -2938,7 +2938,7 @@
      11,
      33,
      31,
-     5
+     6
     ]
    },
    "assessment": {
@@ -3034,103 +3034,6 @@
    },
    "title": "Heegaard Floer homology, analytically",
    "topic": "Geometry and topology"
-  },
-  {
-   "activity": {
-    "last": "2026-10-02T08:00:14Z",
-    "open": 1,
-    "recent": 42,
-    "since_report": 0,
-    "total": 69,
-    "weekly": [
-     0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     3,
-     12,
-     11,
-     1,
-     4,
-     19,
-     9,
-     10,
-     0
-    ]
-   },
-   "assessment": {
-    "detail": null,
-    "notes": {},
-    "readme_changed": false,
-    "reason": "ok",
-    "remaining": {},
-    "source": "marker"
-   },
-   "completed": false,
-   "id": "TauCetiRoadmap/HodgeStructures",
-   "layer_ids": [
-    "L0",
-    "L1",
-    "L2",
-    "L3"
-   ],
-   "layer_lines": [
-    272,
-    300,
-    325,
-    377
-   ],
-   "layers": [
-    "L0 — Pure Hodge structures; the Hodge decomposition",
-    "L1 — Polarization & Hodge–Riemann; semisimplicity (summit of the pure theory)",
-    "L2 — Mixed Hodge structures; strictness (Deligne)",
-    "L3 — Period-domain points; the symmetry group"
-   ],
-   "links": [],
-   "name": "HodgeStructures",
-   "parent": null,
-   "parent_id": null,
-   "readme": "TauCetiRoadmap/HodgeStructures/README.md",
-   "readme_sha": "11ab7306fedb91d80b4035283d0a436e9fc5bdb76e52d1ea6316cbb9735351ff",
-   "retired": null,
-   "states": [
-    "done",
-    "done",
-    "done",
-    "done"
-   ],
-   "status": {
-    "frontier": [
-     {
-      "name": "Variations of Hodge structure",
-      "text": "— the successor roadmap: period domains as complex manifolds, Griffiths transversality, period maps and monodromy. It consumes the fiber datum, the period-domain points and the isometry group built here."
-     },
-     {
-      "name": "Tensor products and duals of mixed Hodge structures",
-      "text": "— the mixed category has kernels, cokernels and products, but no dual, tensor product or internal Hom yet. This goes beyond the README."
-     },
-     {
-      "name": "A monoidal structure on the polarizable category",
-      "text": "— tensor products, duals and internal Homs preserve polarizability, but the bundled category does not yet carry them as a monoidal or rigid structure. This also goes beyond the README."
-     },
-     {
-      "name": "Specializing onto Mathlib's filtration API",
-      "text": "— the README's hook for `opposed`, `gradedF` and `gradedComplexEquiv` applies only if that in-progress Mathlib work lands."
-     }
-    ],
-    "glance": "All four milestones are proved, and on the evidence here no target the README sets remains open. The latest work extends the pure theory beyond the README: polarizability now passes to duals and internal Homs, and the standard weight-one example is a point of its period domain. The mixed theory still has no tensor products or duals, and the successor roadmap on variations has not begun.",
-    "inherited": false,
-    "path": "TauCetiRoadmap/HodgeStructures/STATUS.md",
-    "progress_path": "TauCetiRoadmap/HodgeStructures/PROGRESS.md",
-    "report_sha": "43fa63a179577dc25aa6bc8fcdfe1a78f6104e638e2d0aadc80ed9d8d52a6765",
-    "to_sha": "1d095894ac25298eb2a23398826c0f867b6d3164",
-    "ts": "2026-10-05T01:07:53Z"
-   },
-   "title": "Hodge structures (pure, mixed, and polarized)",
-   "topic": "Algebraic geometry"
   },
   {
    "activity": {
@@ -3587,7 +3490,7 @@
     "last": "2026-10-06T00:14:43Z",
     "open": 1,
     "recent": 62,
-    "since_report": 8,
+    "since_report": 0,
     "total": 62,
     "weekly": [
      0,
@@ -3615,13 +3518,10 @@
     "reason": "ok",
     "remaining": {
      "Layer 0": "named surjectivity of the Q_p cyclotomic character and the index bound range_localCyclotomicCharacter_le_ratPadic",
-     "Layer 1": "H2 finiteness, H2 = F_p or vanishing, Euler characteristic count N+1, cup nondegeneracy",
-     "Layer 2": "twisted degree-one inflation, degree-two inflation surjectivity, transport of dimensions and cup nondegeneracy to G_K(p)",
-     "Layer 3": "the rank N+1 when mu_p is not in K",
-     "Layer 4": "free case via cd_p at most 1 and the Demushkin structure when mu_p is in K",
-     "Layer 5": "demushkinQ, demushkinRank and demushkinCharacter for G_K(p), prescription property, Artin-map evaluations, general image",
-     "Layer 6": "all marked presentation theorems and the unmarked even-degree corollary",
-     "Layer 7": "reciprocity identification of A(L), stable-to-isomorphism step, Tate module and its decomposition, Lyndon, Steps 5-7",
+     "Layer 1": "the Euler-characteristic identity dim H1 = 1 + dim H2 + N as a stated theorem",
+     "Layer 5": "Artin-map evaluations at units and at a uniformizer of general K, and the general image theorem range_localCyclotomicCharacter",
+     "Layer 6": "functoriality of the marked presentations under isomorphism and compatibility with finite extensions",
+     "Layer 7": "Tate module via Tate's theorem, reciprocity identification of A(L), Lyndon, class generation, H2-compatibility, Steps 5-7",
      "Layer 8": "marked normal form for Q_p(mu_p) and the Q_2 and Q_2(sqrt -2) marked instances"
     },
     "source": "marker"
@@ -3671,9 +3571,9 @@
    "states": [
     "partial",
     "partial",
-    "partial",
-    "partial",
-    "untouched",
+    "done",
+    "done",
+    "done",
     "partial",
     "partial",
     "partial",
@@ -3682,44 +3582,44 @@
    "status": {
     "frontier": [
      {
-      "name": "From stable isomorphism to isomorphism",
-      "text": ": `linearEquiv_prod_free_of_stable` is the last missing piece of the cancellation library, and Krull–Schmidt and Swan now supply both of its inputs."
+      "name": "The Tate module of a tame layer",
+      "text": ": construct `Y` with projective dimension at most one from Tate's theorem carried to `A(L)`. This needs the reciprocity identification of Step 1. It would make `(∗∗)` and the relation-module surjection unconditional."
      },
      {
-      "name": "Degree-two local cohomology (Layer 1)",
-      "text": ": `H² ≃ 𝔽_p` or `Subsingleton H²`, the Euler-characteristic count and cup nondegeneracy. This would give the `N+1` rank, `H²` inflation surjectivity and the free case of Layer 4 at once."
+      "name": "Lyndon, class generation and `H²`-compatibility",
+      "text": ": these are the remaining inputs for lifting `β` to group extensions in Step 5, which would lead to the rank of the full `G_K`."
      },
      {
-      "name": "The Tate module `Y` and `Y ≃ M₀ ⊕ ℤ_p[G]^N`",
-      "text": ": both tame-frame inputs and the torsion criterion are in place. It needs Tate's theorem carried to `A(L)`, and with it the reciprocity identification of Step 1."
+      "name": "The Artin-map evaluations and the image theorem (Layer 5)",
+      "text": ": `χ_cyc(Art_K(u)) = N(u)⁻¹`, the uniformizer value over general `K`, and `range_localCyclotomicCharacter`. These depend on CFT Layers 10–11. They would pin `f` in the even dyadic branches."
      },
      {
-      "name": "The Demushkin invariants of `G_K(p)` (Layer 5)",
-      "text": ": `demushkinRank = N+2` should follow once Layer 4 constructs `IsDemushkin`. `demushkinQ = q(K)` and the prescription property of the orientation are independent of the rank."
+      "name": "The acceptance instances (Layer 8)",
+      "text": ": the marked normal form for `ℚ_p(μ_p)` and the `ℚ₂` instance should now follow from the marked theorems. The `ℚ₂(√-2)` instance needs the image `U^[2]`, and so the evaluations above."
      },
      {
-      "name": "Pinning `f` in the even dyadic branches",
-      "text": ": the images are known up to an existential `f ≥ 2`. The `ℚ₂(√-2)` instance needs `f = 2` in the principal branch, which requires the reciprocity evaluations, including the uniformizer value."
+      "name": "Loose ends",
+      "text": ": the Layer 0 index bound and named surjectivity, the stated Euler-characteristic identity, and the functoriality of the marked presentations."
      }
     ],
-    "glance": "`G_K(p)` is now known to be finitely generated, with exactly `N+2` generators when `μ_p ⊆ K`, and the integral machinery behind the rank of the full `G_K` is well advanced. The tame frame is complete, and the cancellation library lacks only one step. The free case of the rank count, degree-two cohomology, the Shafarevich–Demushkin dichotomy, every marked presentation and the full-group rank theorem itself have not landed.",
+    "glance": "The pro-`p` summit is essentially reached. The library proves the Shafarevich–Demushkin dichotomy for `G_K(p)`, with both generator ranks, the invariants `q`, rank and canonical character, and the marked presentations in every branch. The rank of the full `G_K` is partial: the integral decomposition is proved, but only conditionally on the Tate module. Steps 5–7 of Layer 7 and the dyadic acceptance instances have not begun.",
     "inherited": false,
     "path": "TauCetiRoadmap/LocalGaloisGroups/STATUS.md",
     "progress_path": "TauCetiRoadmap/LocalGaloisGroups/PROGRESS.md",
-    "report_sha": "3e7162f0846d2f1052dcf5ce4b745d19cd0ea8740da65b586e7913ceca1f4758",
-    "to_sha": "41e5e4923e49435450084dd38f558165776282ff",
-    "ts": "2026-10-04T21:34:46Z"
+    "report_sha": "5096830c2c853c47727e2da6dae34d6105743226dbe9abf5086721def259f7cf",
+    "to_sha": "9048b60276c749034cc0b3632d0601266ca3d42c",
+    "ts": "2026-10-06T21:24:45Z"
    },
    "title": "local Galois groups of p-adic fields",
    "topic": "Unsorted"
   },
   {
    "activity": {
-    "last": "2026-10-06T00:43:01Z",
-    "open": 3,
-    "recent": 9,
-    "since_report": 4,
-    "total": 9,
+    "last": "2026-10-07T05:20:33Z",
+    "open": 2,
+    "recent": 12,
+    "since_report": 7,
+    "total": 12,
     "weekly": [
      0,
      0,
@@ -3736,7 +3636,7 @@
      0,
      0,
      5,
-     4
+     7
     ]
    },
    "assessment": {
@@ -3847,11 +3747,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-06T01:15:05Z",
+    "last": "2026-10-07T03:49:05Z",
     "open": 3,
-    "recent": 204,
-    "since_report": 6,
-    "total": 513,
+    "recent": 202,
+    "since_report": 7,
+    "total": 514,
     "weekly": [
      0,
      0,
@@ -3868,7 +3768,7 @@
      53,
      48,
      37,
-     6
+     7
     ]
    },
    "assessment": {
@@ -3999,7 +3899,7 @@
    "activity": {
     "last": "2026-10-03T22:45:13Z",
     "open": 0,
-    "recent": 56,
+    "recent": 53,
     "since_report": 0,
     "total": 210,
     "weekly": [
@@ -4088,7 +3988,7 @@
    "activity": {
     "last": "2026-10-04T18:02:22Z",
     "open": 0,
-    "recent": 123,
+    "recent": 122,
     "since_report": 0,
     "total": 132,
     "weekly": [
@@ -4196,7 +4096,7 @@
   {
    "activity": {
     "last": "2026-10-05T09:16:13Z",
-    "open": 3,
+    "open": 4,
     "recent": 61,
     "since_report": 2,
     "total": 185,
@@ -4443,11 +4343,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-06T00:02:10Z",
-    "open": 5,
-    "recent": 80,
-    "since_report": 6,
-    "total": 80,
+    "last": "2026-10-07T06:09:04Z",
+    "open": 3,
+    "recent": 85,
+    "since_report": 11,
+    "total": 85,
     "weekly": [
      0,
      0,
@@ -4464,7 +4364,7 @@
      0,
      33,
      41,
-     6
+     11
     ]
    },
    "assessment": {
@@ -4548,11 +4448,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-05T23:11:05Z",
-    "open": 7,
-    "recent": 107,
-    "since_report": 8,
-    "total": 201,
+    "last": "2026-10-07T05:33:16Z",
+    "open": 4,
+    "recent": 110,
+    "since_report": 11,
+    "total": 204,
     "weekly": [
      13,
      13,
@@ -4569,7 +4469,7 @@
      18,
      34,
      36,
-     9
+     12
     ]
    },
    "assessment": {
@@ -4767,7 +4667,7 @@
   {
    "activity": {
     "last": "2026-10-05T13:27:19Z",
-    "open": 1,
+    "open": 0,
     "recent": 87,
     "since_report": 2,
     "total": 95,
@@ -4960,11 +4860,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-06T01:48:00Z",
-    "open": 9,
-    "recent": 148,
-    "since_report": 0,
-    "total": 185,
+    "last": "2026-10-07T06:07:13Z",
+    "open": 4,
+    "recent": 151,
+    "since_report": 3,
+    "total": 188,
     "weekly": [
      0,
      0,
@@ -4981,7 +4881,7 @@
      17,
      51,
      65,
-     10
+     13
     ]
    },
    "assessment": {
@@ -5112,11 +5012,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-06T01:32:42Z",
-    "open": 2,
-    "recent": 248,
-    "since_report": 1,
-    "total": 255,
+    "last": "2026-10-07T03:04:13Z",
+    "open": 1,
+    "recent": 249,
+    "since_report": 2,
+    "total": 256,
     "weekly": [
      0,
      0,
@@ -5133,7 +5033,7 @@
      16,
      96,
      125,
-     1
+     2
     ]
    },
    "assessment": {
@@ -5237,11 +5137,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-06T00:54:55Z",
+    "last": "2026-10-07T04:04:20Z",
     "open": 3,
-    "recent": 119,
-    "since_report": 3,
-    "total": 120,
+    "recent": 120,
+    "since_report": 4,
+    "total": 121,
     "weekly": [
      0,
      0,
@@ -5258,7 +5158,7 @@
      18,
      40,
      50,
-     3
+     4
     ]
    },
    "assessment": {
@@ -5372,11 +5272,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-06T01:01:03Z",
-    "open": 11,
-    "recent": 80,
-    "since_report": 3,
-    "total": 80,
+    "last": "2026-10-07T05:11:33Z",
+    "open": 9,
+    "recent": 89,
+    "since_report": 12,
+    "total": 89,
     "weekly": [
      0,
      0,
@@ -5393,7 +5293,7 @@
      0,
      5,
      53,
-     22
+     31
     ]
    },
    "assessment": {
@@ -5495,11 +5395,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-06T01:43:56Z",
-    "open": 12,
-    "recent": 363,
-    "since_report": 8,
-    "total": 1099,
+    "last": "2026-10-07T05:33:15Z",
+    "open": 15,
+    "recent": 370,
+    "since_report": 17,
+    "total": 1108,
     "weekly": [
      19,
      4,
@@ -5516,7 +5416,7 @@
      73,
      69,
      132,
-     24
+     33
     ]
    },
    "assessment": {
@@ -5626,11 +5526,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-06T01:54:02Z",
-    "open": 51,
-    "recent": 559,
-    "since_report": 0,
-    "total": 1295,
+    "last": "2026-10-07T05:44:20Z",
+    "open": 53,
+    "recent": 570,
+    "since_report": 13,
+    "total": 1308,
     "weekly": [
      0,
      0,
@@ -5647,7 +5547,7 @@
      62,
      150,
      247,
-     31
+     44
     ]
    },
    "assessment": {
@@ -7067,11 +6967,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-06T00:56:24Z",
-    "open": 5,
-    "recent": 74,
-    "since_report": 3,
-    "total": 74,
+    "last": "2026-10-07T04:45:59Z",
+    "open": 4,
+    "recent": 75,
+    "since_report": 4,
+    "total": 75,
     "weekly": [
      0,
      0,
@@ -7088,7 +6988,7 @@
      20,
      21,
      30,
-     3
+     4
     ]
    },
    "assessment": {
@@ -7196,11 +7096,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-06T01:48:54Z",
-    "open": 6,
-    "recent": 80,
-    "since_report": 5,
-    "total": 80,
+    "last": "2026-10-07T03:43:30Z",
+    "open": 2,
+    "recent": 81,
+    "since_report": 6,
+    "total": 81,
     "weekly": [
      0,
      0,
@@ -7217,7 +7117,7 @@
      20,
      24,
      23,
-     5
+     6
     ]
    },
    "assessment": {
@@ -7336,7 +7236,7 @@
   {
    "activity": {
     "last": "2026-09-29T23:49:41Z",
-    "open": 1,
+    "open": 0,
     "recent": 103,
     "since_report": 0,
     "total": 180,
@@ -7436,11 +7336,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-05T23:15:38Z",
+    "last": "2026-10-07T04:09:12Z",
     "open": 4,
-    "recent": 84,
-    "since_report": 3,
-    "total": 113,
+    "recent": 85,
+    "since_report": 4,
+    "total": 114,
     "weekly": [
      0,
      0,
@@ -7457,7 +7357,7 @@
      22,
      20,
      33,
-     3
+     4
     ]
    },
    "assessment": {
@@ -7761,6 +7661,103 @@
    },
    "title": "effective arithmetic bounds and geometry of numbers",
    "topic": "Number theory"
+  },
+  {
+   "activity": {
+    "last": "2026-10-02T08:00:14Z",
+    "open": 1,
+    "recent": 42,
+    "since_report": 0,
+    "total": 69,
+    "weekly": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     3,
+     12,
+     11,
+     1,
+     4,
+     19,
+     9,
+     10,
+     0
+    ]
+   },
+   "assessment": {
+    "detail": "the README changed after this report, so these states assess it as it was then",
+    "notes": {},
+    "readme_changed": true,
+    "reason": "ok",
+    "remaining": {},
+    "source": "marker"
+   },
+   "completed": true,
+   "id": "Completed/HodgeStructures",
+   "layer_ids": [
+    "L0",
+    "L1",
+    "L2",
+    "L3"
+   ],
+   "layer_lines": [
+    273,
+    301,
+    326,
+    378
+   ],
+   "layers": [
+    "L0 — Pure Hodge structures; the Hodge decomposition",
+    "L1 — Polarization & Hodge–Riemann; semisimplicity (summit of the pure theory)",
+    "L2 — Mixed Hodge structures; strictness (Deligne)",
+    "L3 — Period-domain points; the symmetry group"
+   ],
+   "links": [],
+   "name": "HodgeStructures",
+   "parent": null,
+   "parent_id": null,
+   "readme": "Completed/HodgeStructures/README.md",
+   "readme_sha": "2ba1d4ad57f219809922551802cbde9c77cc7789bc67efa410724afdc814079c",
+   "retired": null,
+   "states": [
+    "done",
+    "done",
+    "done",
+    "done"
+   ],
+   "status": {
+    "frontier": [
+     {
+      "name": "Variations of Hodge structure",
+      "text": "— the successor roadmap: period domains as complex manifolds, Griffiths transversality, period maps and monodromy. It consumes the fiber datum, the period-domain points and the isometry group built here."
+     },
+     {
+      "name": "Tensor products and duals of mixed Hodge structures",
+      "text": "— the mixed category has kernels, cokernels and products, but no dual, tensor product or internal Hom yet. This goes beyond the README."
+     },
+     {
+      "name": "A monoidal structure on the polarizable category",
+      "text": "— tensor products, duals and internal Homs preserve polarizability, but the bundled category does not yet carry them as a monoidal or rigid structure. This also goes beyond the README."
+     },
+     {
+      "name": "Specializing onto Mathlib's filtration API",
+      "text": "— the README's hook for `opposed`, `gradedF` and `gradedComplexEquiv` applies only if that in-progress Mathlib work lands."
+     }
+    ],
+    "glance": "All four milestones are proved, and on the evidence here no target the README sets remains open. The latest work extends the pure theory beyond the README: polarizability now passes to duals and internal Homs, and the standard weight-one example is a point of its period domain. The mixed theory still has no tensor products or duals, and the successor roadmap on variations has not begun.",
+    "inherited": false,
+    "path": "Completed/HodgeStructures/STATUS.md",
+    "progress_path": "Completed/HodgeStructures/PROGRESS.md",
+    "report_sha": "43fa63a179577dc25aa6bc8fcdfe1a78f6104e638e2d0aadc80ed9d8d52a6765",
+    "to_sha": "1d095894ac25298eb2a23398826c0f867b6d3164",
+    "ts": "2026-10-05T01:07:53Z"
+   },
+   "title": "Hodge structures (pure, mixed, and polarized)",
+   "topic": "Algebraic geometry"
   },
   {
    "activity": {
