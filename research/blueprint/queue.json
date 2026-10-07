@@ -21325,9 +21325,10 @@
     "REV-RS-01"
    ],
    "prompt": "research/blueprint/prompts/BP-AInfCohomology--AI.0.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #664"
+   "note": "deliverables arrived from an external worker on issue #664",
+   "finishedAt": "2026-10-07T03:26:27Z"
   },
   {
    "id": "REV-AInfCohomology--AI.0",
@@ -25016,8 +25017,9 @@
     "REV-RS-21"
    ],
    "prompt": "research/blueprint/prompts/BP-GL2AutomorphicRepresentationsAndTransfer--R16.1.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #733"
   },
   {
    "id": "REV-GL2AutomorphicRepresentationsAndTransfer--R16.1",
