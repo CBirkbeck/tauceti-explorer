@@ -52,6 +52,25 @@ import Mathlib.RingTheory.KrullDimension.Basic
 import Mathlib.Algebra.Module.Torsion.Basic
 import Mathlib.RingTheory.LocalRing.ResidueField.Defs
 import Mathlib.NumberTheory.Padics.PadicNorm
+import Mathlib.Algebra.MonoidAlgebra.Basic
+import Mathlib.RingTheory.HopfAlgebra.MonoidAlgebra
+import Mathlib.RingTheory.HopfAlgebra.Convolution
+import Mathlib.LinearAlgebra.ExteriorPower.Basis
+import Mathlib.LinearAlgebra.Matrix.Adjugate
+import Mathlib.Order.Hom.PowersetCard
+import Mathlib.LinearAlgebra.Matrix.ToLin
+import Mathlib.RingTheory.IntegralDomain
+import Mathlib.Algebra.Module.FinitePresentation
+import Mathlib.LinearAlgebra.Dual.Defs
+import Mathlib.RingTheory.Spectrum.Prime.FreeLocus
+import Mathlib.RingTheory.AdicCompletion.Basic
+import Mathlib.RingTheory.PowerSeries.Basic
+import Mathlib.NumberTheory.Padics.PadicIntegers
+import Mathlib.RingTheory.RootsOfUnity.PrimitiveRoots
+import Mathlib.LinearAlgebra.FreeModule.PID
+import Mathlib.GroupTheory.Complement
+import Mathlib.GroupTheory.Index
+import TauCeti.Algebra.Module.AuslanderReiten.Transpose
 
 /-!
 # Suggested Lean forms: Amice moments and admissible pseudomeasure evaluation
@@ -3152,6 +3171,880 @@ example {A : Type*} [CommRing A] [IsLocalRing A] [IsAdicComplete (IsLocalRing.ma
 end L4Tests
 
 end TauCeti.Iwasawa
+
+/-!
+# PadicMeasuresIwasawaAlgebras L6: character group rings, quadratic presentations, compound
+# matrices and transposes (FIX-RT-AREA-iwasawa-2~2, finding RT-AREA-iwasawa-2/4)
+
+These declarations suggest Lean forms for the Dasgupta–Kakde ring theory that L6 owns
+(arXiv:2010.00657v3, §§2.2–2.3, Lemma 3.9, §6.1, Remark A.7 and (171)). They are signatures and
+tests only: every proof is `sorry`, and nothing is claimed formalised.
+
+* `TauCeti.Module.fittingIdeal` stands for the Fitting ideals of a finitely generated module, which
+  this roadmap requests from the Tau Ceti roadmap StableReduction, Layer 1 (accepted RS-16). It
+  is written out by minors of relations, exactly as in `AdicSpacesPartII.lean`, so that the
+  statements below can be stated; L6 does not own it.
+* The transpose of a presentation reuses the pinned `TauCeti.AuslanderReitenTranspose`
+  (`TauCeti/Algebra/Module/AuslanderReiten/Transpose.lean`, Tau Ceti f790474).
+* Characters are group homomorphisms `G →* Oˣ`; `ψ(x)` for `x ∈ O[G]` is `charEval ψ x`. The
+  coefficient hypotheses of Dasgupta–Kakde (odd `p`, `O` the valuation ring of a finite extension
+  of `ℚ_p` containing all character values) are carried as hypotheses where a statement needs
+  them: `[IsDomain O] [CharZero O]`, a finite residue field, and `HasEnoughCharacters O G`
+  (written `Nat.card (G →* Oˣ) = Nat.card G`).
+-/
+
+section L6
+
+noncomputable section
+
+open scoped Pointwise
+
+namespace TauCeti
+
+/-! ## PadicMeasuresIwasawaAlgebras:L6/character-evaluation (construction) -/
+
+section CharacterEvaluation
+
+variable {O G : Type*} [CommRing O] [CommGroup G]
+
+/-- `L6/character-evaluation`: the evaluation `ev_ψ : O[G] → O`, `Σ a_g g ↦ Σ a_g ψ(g)`, of the
+group ring at a character `ψ : G →* Oˣ`; the lift of `g ↦ ψ g` through `MonoidAlgebra.lift`. -/
+def charEval (ψ : G →* Oˣ) : MonoidAlgebra O G →ₐ[O] O :=
+  MonoidAlgebra.lift O O G ((Units.coeHom O).comp ψ)
+
+/-- `ev_ψ(a • g) = a ψ(g)`. -/
+@[simp] theorem charEval_single (ψ : G →* Oˣ) (g : G) (a : O) :
+    charEval ψ (MonoidAlgebra.single g a) = a * ψ g := sorry
+
+/-- `ev_ψ(g) = ψ(g)`. -/
+@[simp] theorem charEval_of (ψ : G →* Oˣ) (g : G) :
+    charEval ψ (MonoidAlgebra.of O G g) = ψ g := sorry
+
+/-- The trivial character evaluates by the augmentation `Σ a_g g ↦ Σ a_g`. -/
+theorem charEval_one (g : G) (a : O) :
+    charEval (1 : G →* Oˣ) (MonoidAlgebra.single g a) = a := sorry
+
+/-- Orthogonality: over a domain, a nontrivial character sums to zero over a finite group, so
+`ev_ψ(N_G) = 0`. -/
+theorem charEval_sum_eq_zero [IsDomain O] [Fintype G] (ψ : G →* Oˣ) (hψ : ψ ≠ 1) :
+    charEval ψ (∑ g : G, MonoidAlgebra.of O G g) = 0 := sorry
+
+/-- `ev_ψ` is the `MonoidAlgebra.lift` of `ψ` followed by the inclusion of units. -/
+theorem charEval_eq_lift (ψ : G →* Oˣ) :
+    charEval ψ = MonoidAlgebra.lift O O G ((Units.coeHom O).comp ψ) := rfl
+
+/-- `L6/character-evaluation`: the joint evaluation `ev_Ψ : O[G] → ∏_{ψ ∈ Ψ} O`. -/
+def jointEval (Ψ : Set (G →* Oˣ)) : MonoidAlgebra O G →ₐ[O] (Ψ → O) :=
+  AlgHom.pi (fun ψ : Ψ => charEval ψ.1)
+
+@[simp] theorem jointEval_apply (Ψ : Set (G →* Oˣ)) (x : MonoidAlgebra O G) (ψ : Ψ) :
+    jointEval Ψ x ψ = charEval ψ.1 x := rfl
+
+/-- Joint evaluation at all characters is injective when `#G ≠ 0` in the domain `O` and `O` has
+`#G` characters. -/
+theorem jointEval_injective [IsDomain O] [Fintype G] (hG : (Fintype.card G : O) ≠ 0)
+    (hchar : Nat.card (G →* Oˣ) = Fintype.card G) :
+    Function.Injective (jointEval (Set.univ : Set (G →* Oˣ))) := sorry
+
+-- test charEval_sign (computation) [L6/character-evaluation]
+example [IsDomain O] (h : G) (hh : h ≠ 1) (hh2 : h * h = 1) (ψ : G →* Oˣ)
+    (hψ : (ψ h : O) = -1) :
+    charEval ψ (MonoidAlgebra.of O G 1 + MonoidAlgebra.of O G h) = 0 ∧
+      charEval ψ (MonoidAlgebra.of O G 1 - MonoidAlgebra.of O G h) = 2 := sorry
+
+-- test charEval_trivialGroup (degenerate) [L6/character-evaluation]
+example [Subsingleton G] : Function.Bijective (charEval (1 : G →* Oˣ)) := sorry
+
+-- test charEval_not_injective (non-example) [L6/character-evaluation]
+example [Nontrivial O] (h : G) (hh : h ≠ 1) (ψ : G →* Oˣ) :
+    ¬ Function.Injective (charEval ψ) := sorry
+
+-- test charEval_lift (compatibility) [L6/character-evaluation]
+example (ψ : G →* Oˣ) (g : G) :
+    charEval ψ (MonoidAlgebra.of O G g) =
+      MonoidAlgebra.lift O O G ((Units.coeHom O).comp ψ) (MonoidAlgebra.of O G g) := rfl
+
+end CharacterEvaluation
+
+/-! ## PadicMeasuresIwasawaAlgebras:L6/character-group-ring (definition) -/
+
+section CharacterGroupRing
+
+variable {O G : Type*} [CommRing O] [CommGroup G]
+
+/-- `L6/character-group-ring`: the character group ring `R_Ψ`, the image of
+`ev_Ψ : O[G] → ∏_{ψ ∈ Ψ} O` (Dasgupta–Kakde §2.2). It is in general a proper, non-maximal
+order in the product and is never replaced by it. -/
+def charGroupRing (Ψ : Set (G →* Oˣ)) : Subalgebra O (Ψ → O) := (jointEval Ψ).range
+
+namespace charGroupRing
+
+/-- The canonical surjection `α_Ψ : O[G] ↠ R_Ψ`. -/
+def proj (Ψ : Set (G →* Oˣ)) : MonoidAlgebra O G →ₐ[O] charGroupRing Ψ :=
+  (jointEval Ψ).rangeRestrict
+
+theorem proj_surjective (Ψ : Set (G →* Oˣ)) : Function.Surjective (proj Ψ) :=
+  AlgHom.rangeRestrict_surjective _
+
+/-- `ker α_Ψ = ⋂_{ψ ∈ Ψ} ker ev_ψ`. -/
+theorem ker_proj (Ψ : Set (G →* Oˣ)) (x : MonoidAlgebra O G) :
+    proj Ψ x = 0 ↔ ∀ ψ ∈ Ψ, charEval ψ x = 0 := sorry
+
+/-- The `ψ`-coordinate of `α_Ψ(x)` is `ψ(x)`. -/
+@[simp] theorem coord_proj (Ψ : Set (G →* Oˣ)) (x : MonoidAlgebra O G) (ψ : Ψ) :
+    ((proj Ψ x : charGroupRing Ψ) : Ψ → O) ψ = charEval ψ.1 x := rfl
+
+/-- Elements of `R_Ψ` are equal when all their character values are. -/
+theorem ext {Ψ : Set (G →* Oˣ)} {y z : charGroupRing Ψ}
+    (h : ∀ ψ : Ψ, (y : Ψ → O) ψ = (z : Ψ → O) ψ) : y = z := Subtype.ext (funext h)
+
+/-- For `Ψ ⊆ Ψ'`, restriction of coordinates `R_{Ψ'} ↠ R_Ψ`. -/
+def restrict {Ψ Ψ' : Set (G →* Oˣ)} (h : Ψ ⊆ Ψ') : charGroupRing Ψ' →ₐ[O] charGroupRing Ψ :=
+  sorry
+
+@[simp] theorem restrict_proj {Ψ Ψ' : Set (G →* Oˣ)} (h : Ψ ⊆ Ψ') (x : MonoidAlgebra O G) :
+    restrict h (proj Ψ' x) = proj Ψ x := sorry
+
+theorem restrict_id (Ψ : Set (G →* Oˣ)) :
+    restrict (subset_refl Ψ) = AlgHom.id O (charGroupRing Ψ) := sorry
+
+theorem restrict_comp {Ψ Ψ' Ψ'' : Set (G →* Oˣ)} (h : Ψ ⊆ Ψ') (h' : Ψ' ⊆ Ψ'') :
+    (restrict h).comp (restrict h') = restrict (h.trans h') := sorry
+
+/-- `O[G] ≅ R_Ĝ` when joint evaluation at all characters is injective. -/
+def equivGroupRing [IsDomain O] [Fintype G] (hG : (Fintype.card G : O) ≠ 0)
+    (hchar : Nat.card (G →* Oˣ) = Fintype.card G) :
+    MonoidAlgebra O G ≃ₐ[O] charGroupRing (Set.univ : Set (G →* Oˣ)) := sorry
+
+/-- `R_∅` is the zero ring. -/
+theorem subsingleton_empty : Subsingleton (charGroupRing (∅ : Set (G →* Oˣ))) := sorry
+
+/-- `R_{1} ≅ O` through the augmentation. -/
+def equivOfSingletonOne : charGroupRing ({1} : Set (G →* Oˣ)) ≃ₐ[O] O := sorry
+
+/-- `α_Ψ(Σ_g ψ(g)⁻¹ g) = #G · δ_ψ`, so `#G · ∏_{ψ ∈ Ψ} O ⊆ R_Ψ`. -/
+theorem card_smul_single_mem [IsDomain O] [Fintype G] [DecidableEq (G →* Oˣ)]
+    (Ψ : Set (G →* Oˣ)) (ψ : Ψ) :
+    (Fintype.card G : O) • (Pi.single ψ 1 : Ψ → O) ∈ charGroupRing Ψ := sorry
+
+end charGroupRing
+
+-- test charGroupRing_cyclic_proper (non-example) [L6/character-group-ring]
+example [IsDomain O] [Fintype G] [DecidableEq (G →* Oˣ)] (p : ℕ) [Fact p.Prime]
+    (hG : Fintype.card G = p) (hp : ¬ IsUnit (p : O)) (hchar : Nat.card (G →* Oˣ) = p)
+    (ψ : G →* Oˣ) :
+    (Pi.single ⟨ψ, Set.mem_univ ψ⟩ 1 : ↥(Set.univ : Set (G →* Oˣ)) → O) ∉
+      charGroupRing (Set.univ : Set (G →* Oˣ)) := sorry
+
+-- test charGroupRing_not_gorenstein (non-example) [L6/character-group-ring]
+/- For `G = ⟨g⟩ × ⟨h⟩ ≅ C_p × C_p`, `O = ℤ_p[ζ_p]`, `λ = ζ_p - 1` and `Ψ = {1, ψ₁, ψ₂}` with
+`ψ₁(g) = ζ_p, ψ₁(h) = 1, ψ₂(g) = 1, ψ₂(h) = ζ_p`, the maximal ideal of `R_Ψ/λR_Ψ` squares to zero
+and is not principal; stated for any `O` with a primitive `p`-th root of unity. -/
+example [IsDomain O] [IsLocalRing O] (p : ℕ) [Fact p.Prime] (ζ : O) (hζ : IsPrimitiveRoot ζ p)
+    (hlam : IsLocalRing.maximalIdeal O = Ideal.span {ζ - 1}) (g h : G) (ψ₁ ψ₂ : G →* Oˣ) (h₁g : (ψ₁ g : O) = ζ) (h₁h : (ψ₁ h : O) = 1)
+    (h₂g : (ψ₂ g : O) = 1) (h₂h : (ψ₂ h : O) = ζ) (hgen : ∀ x : G, ∃ i j : ℕ, x = g ^ i * h ^ j) :
+    let Ψ : Set (G →* Oˣ) := {1, ψ₁, ψ₂}
+    let I : Ideal (charGroupRing Ψ) := Ideal.span {algebraMap O (charGroupRing Ψ) (ζ - 1)}
+    ∀ [IsLocalRing (charGroupRing Ψ ⧸ I)],
+      (IsLocalRing.maximalIdeal (charGroupRing Ψ ⧸ I)) ^ 2 = ⊥ ∧
+        ¬ (IsLocalRing.maximalIdeal (charGroupRing Ψ ⧸ I)).IsPrincipal := sorry
+
+-- test charGroupRing_empty (degenerate) [L6/character-group-ring]
+example : Subsingleton (charGroupRing (∅ : Set (G →* Oˣ))) := charGroupRing.subsingleton_empty
+
+-- test charGroupRing_trivial (degenerate) [L6/character-group-ring]
+example (g : G) (a : O) :
+    charGroupRing.equivOfSingletonOne (charGroupRing.proj {1} (MonoidAlgebra.single g a)) = a :=
+  sorry
+
+-- test charGroupRing_full (compatibility) [L6/character-group-ring]
+example [IsDomain O] [Fintype G] (hG : (Fintype.card G : O) ≠ 0)
+    (hchar : Nat.card (G →* Oˣ) = Fintype.card G) :
+    Function.Bijective (charGroupRing.proj (Set.univ : Set (G →* Oˣ))) := sorry
+
+end CharacterGroupRing
+
+/-! ## Theorems on character group rings: L6/character-group-ring-lattice,
+L6/character-group-ring-nonzerodivisor, L6/norm-element-kernel, L6/component-character-group-ring,
+L6/component-norm-quotient, L6/character-group-ring-unit-criterion,
+L6/character-group-ring-local and L6/character-group-ring-index -/
+
+section CharacterGroupRingTheory
+
+variable {O G : Type*} [CommRing O] [IsDomain O] [CharZero O] [CommGroup G] [Fintype G]
+
+/-- `L6/character-group-ring-lattice` (ii): `R_Ψ` is free over `O` of rank `#Ψ` when `O` is a
+principal ideal domain. -/
+theorem charGroupRing.free [IsPrincipalIdealRing O] (Ψ : Set (G →* Oˣ)) [Finite Ψ] :
+    Module.Free O (charGroupRing Ψ) ∧ Module.finrank O (charGroupRing Ψ) = Nat.card Ψ := sorry
+
+/-- `L6/character-group-ring-lattice` (ii): the index of `R_Ψ` in `∏_{ψ ∈ Ψ} O` is finite when the
+residue rings `O/(n)` are finite. -/
+theorem charGroupRing.finite_quotient (Ψ : Set (G →* Oˣ)) [Finite Ψ]
+    (hfin : ∀ n : ℕ, n ≠ 0 → Finite (O ⧸ Ideal.span {(n : O)})) :
+    Finite ((Ψ → O) ⧸ Subalgebra.toSubmodule (charGroupRing Ψ)) := sorry
+
+/-- `L6/character-group-ring-nonzerodivisor`: `x ∈ R_Ψ` is a non-zerodivisor iff every value
+`ψ(x)` is nonzero. -/
+theorem charGroupRing.mem_nonZeroDivisors_iff (Ψ : Set (G →* Oˣ)) (x : charGroupRing Ψ) :
+    x ∈ nonZeroDivisors (charGroupRing Ψ) ↔ ∀ ψ : Ψ, (x : Ψ → O) ψ ≠ 0 := sorry
+
+/-- `L6/norm-element-kernel` (Dasgupta–Kakde Lemma 2.2): for a subgroup `I` and
+`Ψ = {ψ : ψ(I) ≠ 1}`, the kernel of `α_Ψ` is the principal ideal generated by `N_I`. -/
+theorem charGroupRing.ker_proj_eq_span_norm (I : Subgroup G) [Fintype I]
+    (hG : (Fintype.card G : O) ≠ 0) (hchar : Nat.card (G →* Oˣ) = Fintype.card G) :
+    RingHom.ker (charGroupRing.proj {ψ : G →* Oˣ | ¬ ∀ σ ∈ I, ψ σ = 1}).toRingHom =
+      Ideal.span {∑ σ : I, MonoidAlgebra.of O G σ} := sorry
+
+/-- `L6/component-character-group-ring`: for a subgroup `G'` of order invertible in `O`, a
+character `χ` of `G'` with idempotent `e_χ = #G'⁻¹ Σ_a χ(a)⁻¹ a` (the L4 character idempotent)
+and `Ψ_χ` the characters restricting to `χ`, the kernel of `α_{Ψ_χ}` is generated by `1 - e_χ`,
+so `R_{Ψ_χ} ≅ e_χ O[G] = R_χ`. -/
+theorem charGroupRing.ker_proj_component (G' : Subgroup G) [Fintype G'] (u : Oˣ)
+    (hu : (u : O) = Fintype.card G') (χ : G' →* Oˣ)
+    (hG : (Fintype.card G : O) ≠ 0) (hchar : Nat.card (G →* Oˣ) = Fintype.card G) :
+    let e : MonoidAlgebra O G :=
+      ((u⁻¹ : Oˣ) : O) • ∑ a : G', ((χ a⁻¹ : Oˣ) : O) • MonoidAlgebra.of O G a
+    RingHom.ker (charGroupRing.proj {ψ : G →* Oˣ | ψ.comp G'.subtype = χ}).toRingHom =
+      Ideal.span {1 - e} := sorry
+
+/-- `L6/component-character-group-ring`: with a complement `Gp` of `G'` (`G = Gp × G'`),
+`R_{Ψ_χ}` is the group ring `O[Gp]` with `g = g' gp` acting by `χ(g') gp` (`O[G_p]_χ`). -/
+def charGroupRing.componentEquiv (G' Gp : Subgroup G) [Fintype G'] (hcompl : G'.IsComplement' Gp)
+    (hG' : IsUnit (Fintype.card G' : O)) (χ : G' →* Oˣ) (hG : (Fintype.card G : O) ≠ 0)
+    (hchar : Nat.card (G →* Oˣ) = Fintype.card G) :
+    charGroupRing {ψ : G →* Oˣ | ψ.comp G'.subtype = χ} ≃ₐ[O] MonoidAlgebra O Gp := sorry
+
+/-- `L6/component-norm-quotient` (Dasgupta–Kakde Corollary 2.3): with `e_χ` and `Ψ_χ` as above
+and a subgroup `I`, the kernel of `α_Ψ` for `Ψ = {ψ ∈ Ψ_χ : ψ(I) ≠ 1}` is generated by `1 - e_χ`
+and `N_I`, so `R_χ/N_I R_χ ≅ R_Ψ`. -/
+theorem charGroupRing.ker_proj_component_norm (G' : Subgroup G) [Fintype G'] (u : Oˣ)
+    (hu : (u : O) = Fintype.card G') (χ : G' →* Oˣ) (I : Subgroup G) [Fintype I]
+    (hG : (Fintype.card G : O) ≠ 0) (hchar : Nat.card (G →* Oˣ) = Fintype.card G) :
+    let e : MonoidAlgebra O G :=
+      ((u⁻¹ : Oˣ) : O) • ∑ a : G', ((χ a⁻¹ : Oˣ) : O) • MonoidAlgebra.of O G a
+    RingHom.ker (charGroupRing.proj
+        {ψ : G →* Oˣ | ψ.comp G'.subtype = χ ∧ ¬ ∀ σ ∈ I, ψ σ = 1}).toRingHom =
+      Ideal.span {1 - e, ∑ σ : I, MonoidAlgebra.of O G σ} := sorry
+
+/-- `L6/character-group-ring-unit-criterion`: `x ∈ R_Ψ` is a unit iff every value `ψ(x)` is a
+unit of `O` (`R_Ψ ⊆ ∏ O` is an integral extension). -/
+theorem charGroupRing.isUnit_iff (Ψ : Set (G →* Oˣ)) [Finite Ψ]
+    (x : charGroupRing Ψ) : IsUnit x ↔ ∀ ψ : Ψ, IsUnit ((x : Ψ → O) ψ) := sorry
+
+/-- `L6/character-group-ring-unit-criterion`: for characters that belong to one `χ` (pairwise
+quotients of `p`-power order, `O` local with residue characteristic `p`), one unit value suffices. -/
+theorem charGroupRing.isUnit_iff_exists [IsLocalRing O] (p : ℕ)
+    [Fact p.Prime] [CharP (IsLocalRing.ResidueField O) p] (Ψ : Set (G →* Oˣ)) [Finite Ψ]
+    (hΨ : ∀ ψ ∈ Ψ, ∀ ψ' ∈ Ψ, ∃ n : ℕ, (ψ' / ψ) ^ (p ^ n) = 1) (x : charGroupRing Ψ) :
+    IsUnit x ↔ ∃ ψ : Ψ, IsUnit ((x : Ψ → O) ψ) := sorry
+
+/-- `L6/character-group-ring-local`: for nonempty `Ψ` belonging to one `χ`, `R_Ψ` is local. -/
+theorem charGroupRing.isLocalRing [IsLocalRing O] (p : ℕ) [Fact p.Prime]
+    [CharP (IsLocalRing.ResidueField O) p] (Ψ : Set (G →* Oˣ)) [Finite Ψ] (hne : Ψ.Nonempty)
+    (hΨ : ∀ ψ ∈ Ψ, ∀ ψ' ∈ Ψ, ∃ n : ℕ, (ψ' / ψ) ^ (p ^ n) = 1) :
+    IsLocalRing (charGroupRing Ψ) := sorry
+
+/-- `L6/character-group-ring-local`: completeness, when `O` is complete. -/
+theorem charGroupRing.isAdicComplete [IsLocalRing O] [IsNoetherianRing O]
+    [IsAdicComplete (IsLocalRing.maximalIdeal O) O] (p : ℕ) [Fact p.Prime]
+    [CharP (IsLocalRing.ResidueField O) p] (Ψ : Set (G →* Oˣ)) [Finite Ψ] (hne : Ψ.Nonempty)
+    (hΨ : ∀ ψ ∈ Ψ, ∀ ψ' ∈ Ψ, ∃ n : ℕ, (ψ' / ψ) ^ (p ^ n) = 1) [IsLocalRing (charGroupRing Ψ)] :
+    IsAdicComplete (IsLocalRing.maximalIdeal (charGroupRing Ψ)) (charGroupRing Ψ) := sorry
+
+/-- `L6/character-group-ring-index` (Dasgupta–Kakde Lemma 2.5):
+`#(R_Ψ/(x)) = #(O/(∏_{ψ ∈ Ψ} ψ(x)))` for a non-zerodivisor `x`. -/
+theorem charGroupRing.card_quotient_span [IsPrincipalIdealRing O] (Ψ : Set (G →* Oˣ))
+    [Fintype Ψ] (hfin : ∀ a : O, a ≠ 0 → Finite (O ⧸ Ideal.span {a}))
+    (x : charGroupRing Ψ) (hx : x ∈ nonZeroDivisors (charGroupRing Ψ)) :
+    Nat.card (charGroupRing Ψ ⧸ Ideal.span {x}) =
+      Nat.card (O ⧸ Ideal.span {∏ ψ : Ψ, (x : Ψ → O) ψ}) := sorry
+
+end CharacterGroupRingTheory
+
+/-! ## PadicMeasuresIwasawaAlgebras:L6/sharp-involution (construction) -/
+
+section Sharp
+
+variable {O G : Type*} [CommRing O] [CommGroup G]
+
+/-- `L6/sharp-involution`: the involution `#` of `O[G]`, `g ↦ g⁻¹`; the antipode of the
+commutative Hopf algebra `O[G]`. -/
+def sharp : MonoidAlgebra O G →ₐ[O] MonoidAlgebra O G :=
+  HopfAlgebra.antipodeAlgHom O (MonoidAlgebra O G)
+
+@[simp] theorem sharp_of (g : G) : sharp (MonoidAlgebra.of O G g) = MonoidAlgebra.of O G g⁻¹ :=
+  sorry
+
+@[simp] theorem sharp_sharp (x : MonoidAlgebra O G) : sharp (sharp x) = x := sorry
+
+/-- `#` as a self-inverse `O`-algebra automorphism of `O[G]`. -/
+def sharpAlgEquiv : MonoidAlgebra O G ≃ₐ[O] MonoidAlgebra O G :=
+  AlgEquiv.ofAlgHom sharp sharp (by ext; simp) (by ext; simp)
+
+/-- `ψ(x^#) = ψ⁻¹(x)`. -/
+theorem charEval_sharp (ψ : G →* Oˣ) (x : MonoidAlgebra O G) :
+    charEval ψ (sharp x) = charEval ψ⁻¹ x := sorry
+
+/-- `#` is also the map of group rings induced by inversion. -/
+theorem sharp_eq_mapDomain :
+    (sharp : MonoidAlgebra O G →ₐ[O] MonoidAlgebra O G) =
+      MonoidAlgebra.mapDomainAlgHom O O (invMonoidHom : G →* G) := sorry
+
+/-- `L6/sharp-involution`: `#` induces `R_Ψ ≅ R_{Ψ⁻¹}` (`R^# = R_{Ψ^#}`). -/
+def charGroupRing.sharpEquiv (Ψ : Set (G →* Oˣ)) :
+    charGroupRing Ψ ≃ₐ[O] charGroupRing (Ψ⁻¹) := sorry
+
+@[simp] theorem charGroupRing.sharpEquiv_proj (Ψ : Set (G →* Oˣ)) (x : MonoidAlgebra O G) :
+    charGroupRing.sharpEquiv Ψ (charGroupRing.proj Ψ x) = charGroupRing.proj (Ψ⁻¹) (sharp x) :=
+  sorry
+
+/-- On coordinates, `(# y)(ψ⁻¹) = y(ψ)`. -/
+theorem charGroupRing.coord_sharpEquiv (Ψ : Set (G →* Oˣ)) (y : charGroupRing Ψ) (ψ : Ψ) :
+    ((charGroupRing.sharpEquiv Ψ y : charGroupRing (Ψ⁻¹)) : ↥(Ψ⁻¹) → O)
+        ⟨ψ.1⁻¹, Set.inv_mem_inv.mpr ψ.2⟩ = (y : Ψ → O) ψ := sorry
+
+/-- Principal ideals transport: `#(x R) = x^# R^#`. -/
+theorem charGroupRing.map_sharp_span (Ψ : Set (G →* Oˣ)) (x : charGroupRing Ψ) :
+    Ideal.map (charGroupRing.sharpEquiv Ψ) (Ideal.span {x}) =
+      Ideal.span {charGroupRing.sharpEquiv Ψ x} := sorry
+
+-- test sharp_component (computation) [L6/sharp-involution]
+example [IsDomain O] (τ : G) (ψ : G →* Oˣ) (ζ : O) (hζ : IsPrimitiveRoot ζ 3)
+    (hψ : (ψ τ : O) = ζ) :
+    charEval ψ (sharp (MonoidAlgebra.of O G τ)) = ζ ^ 2 := sorry
+
+-- test sharp_not_endomorphism (non-example) [L6/sharp-involution]
+example [IsDomain O] [CharZero O] (τ : G) (ψ : G →* Oˣ) (ζ : O) (hζ : IsPrimitiveRoot ζ 3)
+    (hψ : (ψ τ : O) = ζ) :
+    charGroupRing.proj {ψ} (MonoidAlgebra.of O G τ - algebraMap O _ ζ) = 0 ∧
+      charGroupRing.proj {ψ} (sharp (MonoidAlgebra.of O G τ - algebraMap O _ ζ)) ≠ 0 := sorry
+
+-- test sharp_trivialGroup (degenerate) [L6/sharp-involution]
+example [Subsingleton G] (x : MonoidAlgebra O G) : sharp x = x := sorry
+
+-- test sharp_full (compatibility) [L6/sharp-involution]
+example : (Set.univ : Set (G →* Oˣ))⁻¹ = Set.univ := Set.inv_univ
+
+end Sharp
+
+/-! ## PadicMeasuresIwasawaAlgebras:L6/contragredient-dual (construction) -/
+
+section Contragredient
+
+variable {R S M N P : Type*} [CommRing R] [CommRing S] [AddCommGroup M] [Module R M]
+  [AddCommGroup N] [Module R N] [AddCommGroup P] [Module R P]
+
+/-- `L6/contragredient-dual`: `M^* = Hom_R(M, R)` as an `S`-module along a ring isomorphism
+`σ : S ≃+* R`, `(s · φ)(x) = φ(σ(s) · x)`. For `R = R_Ψ`, `S = R^#` and `σ = #`, this is
+Dasgupta–Kakde (80). -/
+def ContragredientDual (_σ : S ≃+* R) (M : Type*) [AddCommGroup M] [Module R M] : Type _ :=
+  Module.Dual R M
+
+namespace ContragredientDual
+
+variable (σ : S ≃+* R)
+
+instance : AddCommGroup (ContragredientDual σ M) := inferInstanceAs (AddCommGroup (Module.Dual R M))
+
+instance : Module S (ContragredientDual σ M) :=
+  Module.compHom (Module.Dual R M) σ.toRingHom
+
+/-- The underlying functional. -/
+def toDual : ContragredientDual σ M ≃+ Module.Dual R M := AddEquiv.refl _
+
+@[simp] theorem smul_apply (s : S) (φ : ContragredientDual σ M) (x : M) :
+    toDual σ (s • φ) x = toDual σ φ (σ s • x) := sorry
+
+/-- A linear map induces the `S`-linear precomposition `f^* : N^* → M^*`. -/
+def map (f : M →ₗ[R] N) : ContragredientDual σ N →ₗ[S] ContragredientDual σ M := sorry
+
+theorem map_id : map σ (LinearMap.id : M →ₗ[R] M) = LinearMap.id := sorry
+
+theorem map_comp (f : M →ₗ[R] N) (g : N →ₗ[R] P) :
+    map σ (g ∘ₗ f) = map σ f ∘ₗ map σ g := sorry
+
+/-- For `M = R^m` the contragredient dual is free over `S` on the dual basis. -/
+def equivPi (m : ℕ) : ContragredientDual σ (Fin m → R) ≃ₗ[S] (Fin m → S) := sorry
+
+end ContragredientDual
+
+-- test contragredient_smul_group (computation) [L6/contragredient-dual]
+example {O G : Type*} [CommRing O] [CommGroup G] (g : G) :
+    let σ : MonoidAlgebra O G ≃+* MonoidAlgebra O G := (sharpAlgEquiv (O := O) (G := G)).toRingEquiv
+    ContragredientDual.toDual σ (MonoidAlgebra.of O G g •
+        (ContragredientDual.toDual σ).symm LinearMap.id) 1 = MonoidAlgebra.of O G g⁻¹ := sorry
+
+-- test contragredient_trivial (degenerate) [L6/contragredient-dual]
+example (s : R) (φ : ContragredientDual (RingEquiv.refl R) M) (x : M) :
+    ContragredientDual.toDual _ (s • φ) x = s • ContragredientDual.toDual _ φ x := sorry
+
+-- test contragredient_not_ordinary (non-example) [L6/contragredient-dual]
+example {O G : Type*} [CommRing O] [Nontrivial O] [CommGroup G] (g : G) (hg : g⁻¹ ≠ g) :
+    let σ : MonoidAlgebra O G ≃+* MonoidAlgebra O G := (sharpAlgEquiv (O := O) (G := G)).toRingEquiv
+    ContragredientDual.toDual σ (MonoidAlgebra.of O G g •
+        (ContragredientDual.toDual σ).symm LinearMap.id) 1 ≠ MonoidAlgebra.of O G g := sorry
+
+end Contragredient
+
+/-! ## The Fitting ideal requested from StableReduction, Layer 1 (stand-in, not an L6 node) -/
+
+/-- Stand-in for the Fitting ideals of the Tau Ceti roadmap StableReduction, Layer 1 (requested
+by this roadmap; RS-16): for a finite `A`-module `M` with chosen generators `x₁, …, x_n`,
+`Fitt_r(M)` is generated by the `(n - r) × (n - r)` minors of all matrices whose columns are
+relations among the `xᵢ`; it is `A` when `n ≤ r`. Same form as in `AdicSpacesPartII.lean`. -/
+def Module.fittingIdeal (A M : Type*) [CommRing A] [AddCommGroup M] [Module A M]
+    [Module.Finite A M] (r : ℕ) : Ideal A :=
+  let n := (Module.Finite.exists_fin (R := A) (M := M)).choose
+  let x : Fin n → M := (Module.Finite.exists_fin (R := A) (M := M)).choose_spec.choose
+  Ideal.span {a | ∃ φ : Matrix (Fin n) (Fin (n - r)) A, (∀ j, ∑ i, φ i j • x i = 0) ∧
+    ∃ f : Fin (n - r) → Fin n, a = (φ.submatrix f id).det}
+
+/-! ## PadicMeasuresIwasawaAlgebras:L6/quadratic-presentation (definition) and
+L6/fitting-quadratic (theorem) -/
+
+section Quadratic
+
+variable {R R' N N' : Type*} [CommRing R] [CommRing R'] [Algebra R R'] [AddCommGroup N]
+  [Module R N] [AddCommGroup N'] [Module R N']
+
+/-- `L6/quadratic-presentation`: a quadratic presentation `R^m →φ R^m → N → 0`, `m ≥ 1`
+(Dasgupta–Kakde §2.3). -/
+structure QuadraticPresentation (R N : Type*) [CommRing R] [AddCommGroup N] [Module R N] where
+  /-- the common number `m ≥ 1` of generators and relations -/
+  size : ℕ
+  size_pos : 0 < size
+  /-- the square relation matrix `φ` -/
+  rel : Matrix (Fin size) (Fin size) R
+  /-- the generators `π : R^m ↠ N` -/
+  gen : (Fin size → R) →ₗ[R] N
+  gen_surjective : Function.Surjective gen
+  range_rel_eq_ker : LinearMap.range (Matrix.toLin' rel) = LinearMap.ker gen
+
+/-- `N` is quadratically presented over `R`. -/
+def IsQuadraticallyPresented (R N : Type*) [CommRing R] [AddCommGroup N] [Module R N] : Prop :=
+  Nonempty (QuadraticPresentation R N)
+
+namespace QuadraticPresentation
+
+/-- A quadratically presented module is finitely presented. -/
+theorem finitePresentation (P : QuadraticPresentation R N) : Module.FinitePresentation R N :=
+  sorry
+
+/-- Transport along `N ≅ N'`. -/
+def ofLinearEquiv (P : QuadraticPresentation R N) (e : N ≃ₗ[R] N') :
+    QuadraticPresentation R N' := sorry
+
+/-- The cokernel of a square matrix of size `m ≥ 1` is quadratically presented. -/
+def cokernel {m : ℕ} (hm : 0 < m) (φ : Matrix (Fin m) (Fin m) R) :
+    QuadraticPresentation R ((Fin m → R) ⧸ LinearMap.range (Matrix.toLin' φ)) := sorry
+
+/-- Base change `N ⊗_R R'` is presented by the image of the matrix. -/
+def baseChange (P : QuadraticPresentation R N) :
+    QuadraticPresentation R' (TensorProduct R R' N) := sorry
+
+theorem baseChange_size (P : QuadraticPresentation R N) :
+    (P.baseChange (R' := R')).size = P.size := sorry
+
+theorem baseChange_rel (P : QuadraticPresentation R N) :
+    (P.baseChange (R' := R')).rel = (P.rel.map (algebraMap R R')).submatrix
+      (Fin.cast P.baseChange_size) (Fin.cast P.baseChange_size) := sorry
+
+/-- Direct sums: block-diagonal relation matrix. -/
+def prod (P : QuadraticPresentation R N) (P' : QuadraticPresentation R N') :
+    QuadraticPresentation R (N × N') := sorry
+
+/-- The zero module, presented by `R →(1) R`. -/
+def zero : QuadraticPresentation R PUnit := sorry
+
+/-- `R/(a)`, presented by `R →(a) R`. -/
+def cyclic (a : R) : QuadraticPresentation R (R ⧸ Ideal.span {a}) := sorry
+
+theorem cyclic_det (a : R) : (cyclic a).rel.det = a := sorry
+
+/-- `L6/fitting-quadratic`: `Fitt_R(N) = (det φ)` (Dasgupta–Kakde §2.3). -/
+theorem fittingIdeal_eq (P : QuadraticPresentation R N) [Module.Finite R N] :
+    Module.fittingIdeal R N 0 = Ideal.span {P.rel.det} := sorry
+
+end QuadraticPresentation
+
+-- test quadratic_cyclic (computation) [L6/quadratic-presentation]
+example (a : R) : (QuadraticPresentation.cyclic a).size = 1 ∧
+    (QuadraticPresentation.cyclic a).rel.det = a := sorry
+
+-- test quadratic_zero (degenerate) [L6/quadratic-presentation]
+example : IsQuadraticallyPresented R PUnit := ⟨QuadraticPresentation.zero⟩
+
+-- test quadratic_free (degenerate) [L6/quadratic-presentation]
+example (m : ℕ) (hm : 0 < m) : ∃ P : QuadraticPresentation R (Fin m → R), P.rel = 0 := sorry
+
+-- test not_quadratic_residue_field (non-example) [L6/quadratic-presentation]
+example (p : ℕ) [Fact p.Prime] :
+    ¬ IsQuadraticallyPresented (PowerSeries (PadicInt p))
+      (PowerSeries (PadicInt p) ⧸ (Ideal.span {(p : PowerSeries (PadicInt p)),
+        PowerSeries.X})) := sorry
+
+-- test quadratic_baseChange (compatibility) [L6/quadratic-presentation]
+example (a : R) : IsQuadraticallyPresented R' (TensorProduct R R' (R ⧸ Ideal.span {a})) :=
+  ⟨(QuadraticPresentation.cyclic a).baseChange⟩
+
+end Quadratic
+
+/-! ## PadicMeasuresIwasawaAlgebras:L6/locally-quadratic-presentation (definition) -/
+
+section LocallyQuadratic
+
+variable {R M P₀ P₁ : Type*} [CommRing R] [AddCommGroup M] [Module R M]
+  [AddCommGroup P₀] [Module R P₀] [AddCommGroup P₁] [Module R P₁]
+
+/-- `L6/locally-quadratic-presentation`: `P₁ →f P₀ →π M → 0` exact, with `P₀, P₁` finitely
+generated projective of the same constant rank (Dasgupta–Kakde Lemma A.5, Remark A.7). -/
+structure IsLocallyQuadraticPresentation (f : P₁ →ₗ[R] P₀) (π : P₀ →ₗ[R] M) : Prop where
+  projective₀ : Module.Projective R P₀
+  projective₁ : Module.Projective R P₁
+  finite₀ : Module.Finite R P₀
+  finite₁ : Module.Finite R P₁
+  surjective : Function.Surjective π
+  exact : LinearMap.range f = LinearMap.ker π
+  rank_eq : ∃ r : ℕ, ∀ 𝔭 : PrimeSpectrum R,
+    Module.rankAtStalk P₀ 𝔭 = r ∧ Module.rankAtStalk P₁ 𝔭 = r
+
+/-- A quadratic presentation is locally quadratic. -/
+theorem QuadraticPresentation.isLocallyQuadraticPresentation (P : QuadraticPresentation R M) :
+    IsLocallyQuadraticPresentation (Matrix.toLin' P.rel) P.gen := sorry
+
+/-- Over a local ring (and hence factorwise over a finite product of local rings), a locally
+quadratic presentation gives a quadratic one. -/
+theorem IsLocallyQuadraticPresentation.isQuadraticallyPresented [IsLocalRing R]
+    {f : P₁ →ₗ[R] P₀} {π : P₀ →ₗ[R] M} (h : IsLocallyQuadraticPresentation f π) :
+    IsQuadraticallyPresented R M := sorry
+
+/-- Finite products of local rings: factorwise freeness. -/
+theorem IsLocallyQuadraticPresentation.isQuadraticallyPresented_pi {ι : Type*} [Fintype ι]
+    {A : ι → Type*} [∀ i, CommRing (A i)] [∀ i, IsLocalRing (A i)] {M P₀ P₁ : Type*}
+    [AddCommGroup M] [Module (∀ i, A i) M] [AddCommGroup P₀] [Module (∀ i, A i) P₀]
+    [AddCommGroup P₁] [Module (∀ i, A i) P₁]
+    {f : P₁ →ₗ[∀ i, A i] P₀} {π : P₀ →ₗ[∀ i, A i] M} (h : IsLocallyQuadraticPresentation f π) :
+    IsQuadraticallyPresented (∀ i, A i) M := sorry
+
+-- test lq_quadratic (compatibility) [L6/locally-quadratic-presentation]
+example (P : QuadraticPresentation R M) :
+    IsLocallyQuadraticPresentation (Matrix.toLin' P.rel) P.gen :=
+  P.isLocallyQuadraticPresentation
+
+-- test lq_unequal_rank (non-example) [L6/locally-quadratic-presentation]
+/- Over `R = ℤ_p × ℤ_p`, the inclusion of the ideal `I = ℤ_p × 0` presents `R/I ≅ 0 × ℤ_p` by
+projectives of ranks `(1, 0)` and `(1, 1)` at the two primes: not locally quadratic. -/
+example (p : ℕ) [Fact p.Prime] :
+    let I : Ideal (PadicInt p × PadicInt p) := Ideal.span {((1 : PadicInt p), (0 : PadicInt p))}
+    ¬ IsLocallyQuadraticPresentation I.subtype I.mkQ := sorry
+
+-- test lq_rank_zero (degenerate) [L6/locally-quadratic-presentation]
+example : IsLocallyQuadraticPresentation (0 : PUnit →ₗ[R] PUnit) (0 : PUnit →ₗ[R] PUnit) := sorry
+
+end LocallyQuadratic
+
+/-! ## Fitting ideals of extensions: L6/fitting-extension, L6/fitting-fibre-product and
+L6/quadratic-cardinality -/
+
+section FittingExtension
+
+variable {R A B C A' B' : Type*} [CommRing R] [AddCommGroup A] [Module R A] [AddCommGroup B]
+  [Module R B] [AddCommGroup C] [Module R C] [AddCommGroup A'] [Module R A'] [AddCommGroup B']
+  [Module R B']
+
+/-- `L6/fitting-extension` (Dasgupta–Kakde Lemma 2.6, first part): for `0 → A → B → C → 0` exact
+with `C` quadratically presented and `A` finitely generated, `Fitt(B) = Fitt(A) Fitt(C)`. -/
+theorem fittingIdeal_eq_mul_of_exact [Module.Finite R A] [Module.Finite R B] [Module.Finite R C]
+    {i : A →ₗ[R] B} {q : B →ₗ[R] C} (hi : Function.Injective i) (hq : Function.Surjective q)
+    (hex : Function.Exact i q) (hC : IsQuadraticallyPresented R C) :
+    Module.fittingIdeal R B 0 = Module.fittingIdeal R A 0 * Module.fittingIdeal R C 0 := sorry
+
+/-- `L6/fitting-extension` (Lemma 2.6, second part): extensions of quadratically presented
+modules are quadratically presented (block upper-triangular relation matrix). -/
+theorem isQuadraticallyPresented_of_exact {i : A →ₗ[R] B} {q : B →ₗ[R] C}
+    (hi : Function.Injective i) (hq : Function.Surjective q) (hex : Function.Exact i q)
+    (hA : IsQuadraticallyPresented R A) (hC : IsQuadraticallyPresented R C) :
+    IsQuadraticallyPresented R B := sorry
+
+/-- `L6/fitting-fibre-product` (Dasgupta–Kakde Lemma 2.7). -/
+theorem fittingIdeal_mul_comm_of_exact [Module.Finite R A] [Module.Finite R B]
+    [Module.Finite R A'] [Module.Finite R B'] {i : A →ₗ[R] B} {q : B →ₗ[R] C} {i' : A' →ₗ[R] B'}
+    {q' : B' →ₗ[R] C} (hi : Function.Injective i) (hq : Function.Surjective q)
+    (hex : Function.Exact i q) (hi' : Function.Injective i') (hq' : Function.Surjective q')
+    (hex' : Function.Exact i' q') (hB : IsQuadraticallyPresented R B)
+    (hB' : IsQuadraticallyPresented R B') :
+    Module.fittingIdeal R A 0 * Module.fittingIdeal R B' 0 =
+      Module.fittingIdeal R A' 0 * Module.fittingIdeal R B 0 := sorry
+
+/-- `L6/quadratic-cardinality` (Dasgupta–Kakde Lemma 2.4): `B` a subring of finite index of a
+finite product of characteristic-zero PIDs, `N` quadratically presented with `Fitt(N) = (x)`,
+`x` a non-zerodivisor and `B/(x)` finite: `N` is finite and `#N = #(B/(x))`. -/
+theorem QuadraticPresentation.card_eq {ι : Type*} [Fintype ι] {D : ι → Type*}
+    [∀ i, CommRing (D i)] [∀ i, IsDomain (D i)] [∀ i, IsPrincipalIdealRing (D i)]
+    [∀ i, CharZero (D i)] (S : Subring (∀ i, D i)) [S.toAddSubgroup.FiniteIndex]
+    {N : Type*} [AddCommGroup N] [Module S N] [Module.Finite S N] (P : QuadraticPresentation S N)
+    (x : S) (hx : x ∈ nonZeroDivisors S) (hfitt : Module.fittingIdeal S N 0 = Ideal.span {x})
+    (hfin : Finite (S ⧸ Ideal.span {x})) :
+    Finite N ∧ Nat.card N = Nat.card (S ⧸ Ideal.span {x}) := sorry
+
+end FittingExtension
+
+end TauCeti
+
+/-! ## PadicMeasuresIwasawaAlgebras:L6/compound-matrix and L6/higher-adjugate (constructions) -/
+
+section Compound
+
+open Set.powersetCard
+
+variable {R : Type*} [CommRing R]
+
+namespace Matrix
+
+/-- `L6/compound-matrix`: the `r`-th compound matrix `C_r(A)`, whose `(S, T)` entry is the minor of
+`A` on the rows `S` and columns `T` (both in increasing order). -/
+def compound {ι κ : Type*} [LinearOrder ι] [LinearOrder κ] (A : Matrix ι κ R) (r : ℕ) :
+    Matrix (Set.powersetCard ι r) (Set.powersetCard κ r) R :=
+  fun S T => (A.submatrix (ofFinEmbEquiv.symm S) (ofFinEmbEquiv.symm T)).det
+
+variable {ι κ ν : Type*} [LinearOrder ι] [LinearOrder κ] [LinearOrder ν]
+  [Fintype ι] [Fintype κ] [Fintype ν] [DecidableEq κ] [DecidableEq ν]
+
+/-- `C_r(A)` is the matrix of `⋀^r A` in the exterior-power bases of the standard bases. -/
+theorem compound_eq_toMatrix (A : Matrix ι κ R) (r : ℕ) :
+    LinearMap.toMatrix (Module.Basis.exteriorPower r (Pi.basisFun R κ))
+      (Module.Basis.exteriorPower r (Pi.basisFun R ι)) (exteriorPower.map r (Matrix.toLin' A)) =
+      A.compound r := sorry
+
+/-- Cauchy–Binet: `C_r(AB) = C_r(A) C_r(B)`. -/
+theorem compound_mul (A : Matrix ι κ R) (B : Matrix κ ν R) (r : ℕ) :
+    (A * B).compound r = A.compound r * B.compound r := sorry
+
+theorem compound_one [DecidableEq ι] (r : ℕ) : (1 : Matrix ι ι R).compound r = 1 := sorry
+
+/-- `C_1(A)` is `A` under `ι ≃ powersetCard ι 1`. -/
+theorem compound_one_eq (A : Matrix ι κ R) (i : ι) (k : κ) :
+    A.compound 1 (ofSingleton i) (ofSingleton k) = A i k := sorry
+
+/-- Restriction to the columns `J`: `C_r(A) ∘ ι_J = C_r(A_J)` on `r`-subsets of `J`. -/
+theorem compound_submatrix_col (A : Matrix ι κ R) {J : Type*} [LinearOrder J] (e : J ↪o κ)
+    (r : ℕ) (S : Set.powersetCard ι r) (T : Set.powersetCard J r) :
+    (A.submatrix id e).compound r S T = A.compound r S (Set.powersetCard.map r e.toEmbedding T) :=
+  sorry
+
+/-- For square `A` of size `m`, `C_m(A)` is the `1 × 1` matrix `(det A)`. -/
+theorem compound_card {m : ℕ} (A : Matrix (Fin m) (Fin m) R) (S T : Set.powersetCard (Fin m) m) :
+    A.compound m S T = A.det := sorry
+
+/-- `L6/higher-adjugate`: the `r`-th higher adjugate of a square matrix, with
+`adj_r(A)_{T,S} = (-1)^{ΣS + ΣT} det A[Sᶜ, Tᶜ]`. -/
+def higherAdjugate {m : ℕ} (A : Matrix (Fin m) (Fin m) R) (r : ℕ) (hr : r ≤ m) :
+    Matrix (Set.powersetCard (Fin m) r) (Set.powersetCard (Fin m) r) R :=
+  fun T S => (-1) ^ (∑ i ∈ (S : Finset (Fin m)), (i : ℕ) + ∑ j ∈ (T : Finset (Fin m)), (j : ℕ)) *
+    (A.submatrix (ofFinEmbEquiv.symm (compl (m := m - r) (by simp; omega) S))
+      (ofFinEmbEquiv.symm (compl (m := m - r) (by simp; omega) T))).det
+
+/-- The right-sided identity used for Lemma 3.9: `C_r(A) adj_r(A) = det(A) I`. -/
+theorem compound_mul_higherAdjugate {m : ℕ} (A : Matrix (Fin m) (Fin m) R) (r : ℕ) (hr : r ≤ m) :
+    A.compound r * A.higherAdjugate r hr = A.det • (1 : Matrix _ _ R) := sorry
+
+/-- The left-sided identity: `adj_r(A) C_r(A) = det(A) I`. -/
+theorem higherAdjugate_mul_compound {m : ℕ} (A : Matrix (Fin m) (Fin m) R) (r : ℕ)
+    (hr : r ≤ m) : A.higherAdjugate r hr * A.compound r = A.det • (1 : Matrix _ _ R) := sorry
+
+/-- `adj_1` is the adjugate. -/
+theorem higherAdjugate_one_eq {m : ℕ} (A : Matrix (Fin m) (Fin m) R) (hm : 1 ≤ m) (i j : Fin m) :
+    A.higherAdjugate 1 hm (ofSingleton j) (ofSingleton i) = A.adjugate j i := sorry
+
+/-- `adj_m(A) = (1)`. -/
+theorem higherAdjugate_self {m : ℕ} (A : Matrix (Fin m) (Fin m) R)
+    (S T : Set.powersetCard (Fin m) m) : A.higherAdjugate m le_rfl T S = 1 := sorry
+
+end Matrix
+
+-- test compound_one_by_one (degenerate) [L6/compound-matrix]
+example (A : Matrix (Fin 2) (Fin 3) R) (i : Fin 2) (k : Fin 3) :
+    A.compound 1 (Set.powersetCard.ofSingleton i) (Set.powersetCard.ofSingleton k) = A i k :=
+  Matrix.compound_one_eq A i k
+
+-- test compound_two_by_two (computation) [L6/compound-matrix]
+example (a b c d : R) (S T : Set.powersetCard (Fin 2) 2) :
+    (!![a, b; c, d] : Matrix (Fin 2) (Fin 2) R).compound 2 S T = a * d - b * c := sorry
+
+-- test compound_too_large (degenerate) [L6/compound-matrix]
+example (A : Matrix (Fin 2) (Fin 3) R) : IsEmpty (Set.powersetCard (Fin 2) 3) := sorry
+
+-- test compound_not_additive (non-example) [L6/compound-matrix]
+example : ∃ A B : Matrix (Fin 2) (Fin 2) ℤ,
+    (A + B).compound 2 ≠ A.compound 2 + B.compound 2 := sorry
+
+-- test higherAdjugate_one (compatibility) [L6/higher-adjugate]
+example (A : Matrix (Fin 3) (Fin 3) R) (i j : Fin 3) :
+    A.higherAdjugate 1 (by omega) (Set.powersetCard.ofSingleton j)
+      (Set.powersetCard.ofSingleton i) = A.adjugate j i := A.higherAdjugate_one_eq (by omega) i j
+
+-- test higherAdjugate_top (degenerate) [L6/higher-adjugate]
+example (A : Matrix (Fin 3) (Fin 3) R) (S T : Set.powersetCard (Fin 3) 3) :
+    A.higherAdjugate 3 le_rfl T S = 1 := A.higherAdjugate_self S T
+
+-- test higherAdjugate_identity (computation) [L6/higher-adjugate]
+example (r : ℕ) (hr : r ≤ 3) :
+    (1 : Matrix (Fin 3) (Fin 3) R).higherAdjugate r hr = 1 := sorry
+
+-- test higherAdjugate_not_compound (non-example) [L6/higher-adjugate]
+example : ∃ A : Matrix (Fin 3) (Fin 3) ℤ, A.higherAdjugate 1 (by omega) ≠ A.compound 1 := sorry
+
+end Compound
+
+namespace TauCeti
+
+/-! ## PadicMeasuresIwasawaAlgebras:L6/exterior-cokernel-annihilator (theorem) -/
+
+section ExteriorCokernel
+
+variable {R M : Type*} [CommRing R] [AddCommGroup M] [Module R M]
+
+/-- `L6/exterior-cokernel-annihilator` (Dasgupta–Kakde Lemma 3.9, proof corrected by
+`PadicMeasuresIwasawaAlgebras/E17`): for `N ⊆ M` with `N` finitely generated and `M` finitely
+presented, `Fitt(M/N)` annihilates the cokernel of `⋀^r N → ⋀^r M` for every `r ≥ 1`. -/
+theorem fittingIdeal_le_annihilator_exteriorPower_cokernel (N : Submodule R M)
+    [Module.FinitePresentation R M] [Module.Finite R N] [Module.Finite R (M ⧸ N)] (r : ℕ)
+    (hr : 1 ≤ r) :
+    Module.fittingIdeal R (M ⧸ N) 0 ≤
+      Module.annihilator R (↥(⋀[R]^r M) ⧸ LinearMap.range (exteriorPower.map r N.subtype)) :=
+  sorry
+
+/-- The free core: for an `m × n` matrix `A` and an `m × m` column submatrix `A_J`, `det(A_J) x`
+lies in the image of `C_r(A)` for every `x`, via `C_r(A) ι_J(adj_r(A_J) x)`. -/
+theorem _root_.Matrix.det_smul_mem_range_compound {m n : ℕ} (A : Matrix (Fin m) (Fin n) R)
+    (e : Fin m ↪o Fin n) (r : ℕ) (hr : r ≤ m)
+    (x : Set.powersetCard (Fin m) r → R) :
+    (A.submatrix id e).det • x ∈ LinearMap.range (Matrix.toLin' (A.compound r)) := sorry
+
+end ExteriorCokernel
+
+/-! ## PadicMeasuresIwasawaAlgebras:L6/presentation-transpose (construction),
+L6/transpose-stable-equivalence, L6/transpose-fitting and L6/transpose-higher-fitting -/
+
+section Transpose
+
+variable {R S M P₀ P₁ : Type*} [CommRing R] [CommRing S] [AddCommGroup M] [Module R M]
+  [AddCommGroup P₀] [Module R P₀] [AddCommGroup P₁] [Module R P₁]
+
+/-- `L6/presentation-transpose`: the transpose `coker(f^* : P₀^* → P₁^*)` of a presentation
+`P₁ →f P₀ → M → 0`, as an `S`-module along `σ : S ≃+* R` (for `R = R_Ψ`, `S = R^#`, `σ = #`).
+The carrier is the pinned `TauCeti.AuslanderReitenTranspose f`. -/
+def PresentationTranspose (_σ : S ≃+* R) (f : P₁ →ₗ[R] P₀) : Type _ :=
+  AuslanderReitenTranspose f
+
+namespace PresentationTranspose
+
+variable (σ : S ≃+* R) (f : P₁ →ₗ[R] P₀)
+
+instance : AddCommGroup (PresentationTranspose σ f) :=
+  inferInstanceAs (AddCommGroup (AuslanderReitenTranspose f))
+
+instance : Module S (PresentationTranspose σ f) :=
+  Module.compHom (AuslanderReitenTranspose f)
+    ((RingEquiv.toOpposite R).toRingHom.comp σ.toRingHom)
+
+/-- The quotient map from `P₁^*`. -/
+def mk : ContragredientDual σ P₁ →ₗ[S] PresentationTranspose σ f := sorry
+
+theorem mk_eq_zero_iff (φ : Module.Dual R P₁) :
+    mk σ f ((ContragredientDual.toDual σ).symm φ) = 0 ↔
+      φ ∈ LinearMap.range (f.lcomp Rᵐᵒᵖ R) := sorry
+
+/-- The underlying additive group is the Auslander–Reiten transpose. -/
+def toARTranspose : PresentationTranspose σ f ≃+ AuslanderReitenTranspose f := AddEquiv.refl _
+
+/-- Isomorphic presentations have isomorphic transposes (reuses
+`AuslanderReitenTranspose.linearEquiv`). -/
+def equivOfIso {Q₀ Q₁ : Type*} [AddCommGroup Q₀] [Module R Q₀] [AddCommGroup Q₁] [Module R Q₁]
+    {g : Q₁ →ₗ[R] Q₀} (e₀ : P₀ ≃ₗ[R] Q₀) (e₁ : P₁ ≃ₗ[R] Q₁)
+    (hsq : e₀.toLinearMap ∘ₗ f = g ∘ₗ e₁.toLinearMap) :
+    PresentationTranspose σ f ≃ₗ[S] PresentationTranspose σ g := sorry
+
+/-- Adding an identity summand `Q →id Q` does not change the transpose. -/
+def equivAddId (Q : Type*) [AddCommGroup Q] [Module R Q] :
+    PresentationTranspose σ (f.prodMap (LinearMap.id : Q →ₗ[R] Q)) ≃ₗ[S]
+      PresentationTranspose σ f := sorry
+
+/-- Adding a summand `Q → 0` to the relations adds `Q^*` to the transpose. -/
+def equivAddZero (Q : Type*) [AddCommGroup Q] [Module R Q] :
+    PresentationTranspose σ (f.coprod (0 : Q →ₗ[R] P₀)) ≃ₗ[S]
+      PresentationTranspose σ f × ContragredientDual σ Q := sorry
+
+/-- For a square matrix presentation, the transpose is the cokernel of the `#`-transposed
+matrix over `S`. -/
+def quadraticPresentation (P : QuadraticPresentation R M) :
+    QuadraticPresentation S (PresentationTranspose σ (Matrix.toLin' P.rel)) := sorry
+
+theorem quadraticPresentation_size (P : QuadraticPresentation R M) :
+    (quadraticPresentation σ P).size = P.size := sorry
+
+/-- The relation matrix of the transpose is `(a_ji^#)`. -/
+theorem quadraticPresentation_rel (P : QuadraticPresentation R M) :
+    (quadraticPresentation σ P).rel = (Matrix.transpose (P.rel.map σ.symm)).submatrix
+      (Fin.cast (quadraticPresentation_size σ P)) (Fin.cast (quadraticPresentation_size σ P)) :=
+  sorry
+
+end PresentationTranspose
+
+/-- `L6/transpose-stable-equivalence` (Dasgupta–Kakde §6.1, after Jannsen): transposes of two
+finite projective presentations of `M` agree after adding finitely generated projective
+summands. -/
+theorem PresentationTranspose.stableEquiv (σ : S ≃+* R) {Q₀ Q₁ : Type*} [AddCommGroup Q₀]
+    [Module R Q₀] [AddCommGroup Q₁] [Module R Q₁] [Module.Projective R P₀]
+    [Module.Projective R P₁] [Module.Projective R Q₀] [Module.Projective R Q₁]
+    [Module.Finite R P₀] [Module.Finite R P₁] [Module.Finite R Q₀] [Module.Finite R Q₁]
+    (f : P₁ →ₗ[R] P₀) (π : P₀ →ₗ[R] M) (g : Q₁ →ₗ[R] Q₀) (ρ : Q₀ →ₗ[R] M)
+    (hπ : Function.Surjective π) (hf : LinearMap.range f = LinearMap.ker π)
+    (hρ : Function.Surjective ρ) (hg : LinearMap.range g = LinearMap.ker ρ) :
+    Nonempty (PresentationTranspose σ f × ContragredientDual σ (Q₁ × P₀) ≃ₗ[S]
+      PresentationTranspose σ g × ContragredientDual σ (P₁ × Q₀)) := sorry
+
+/-- `L6/transpose-fitting` (Dasgupta–Kakde Lemma 6.1): the transpose attached to a quadratic
+presentation is quadratically presented over `S = R^#` and `Fitt_S(M^tr) = σ⁻¹(Fitt_R(M))`. -/
+theorem PresentationTranspose.fittingIdeal_eq (σ : S ≃+* R) (P : QuadraticPresentation R M)
+    [Module.Finite R M] [Module.Finite S (PresentationTranspose σ (Matrix.toLin' P.rel))] :
+    Module.fittingIdeal S (PresentationTranspose σ (Matrix.toLin' P.rel)) 0 =
+      Ideal.map σ.symm (Module.fittingIdeal R M 0) := sorry
+
+/-- `L6/transpose-higher-fitting` (Dasgupta–Kakde (171)): for a free presentation
+`R^t → R^{t+s} → M → 0`, `Fitt⁰_S(M^tr) = σ⁻¹(Fitt^s_R(M))`. -/
+theorem PresentationTranspose.fittingIdeal_eq_excess (σ : S ≃+* R) {t s : ℕ}
+    (A : Matrix (Fin (t + s)) (Fin t) R) (π : (Fin (t + s) → R) →ₗ[R] M)
+    (hπ : Function.Surjective π) (hA : LinearMap.range (Matrix.toLin' A) = LinearMap.ker π)
+    [Module.Finite R M] [Module.Finite S (PresentationTranspose σ (Matrix.toLin' A))] :
+    Module.fittingIdeal S (PresentationTranspose σ (Matrix.toLin' A)) 0 =
+      Ideal.map σ.symm (Module.fittingIdeal R M s) := sorry
+
+-- test transpose_iso_presentation (degenerate) [L6/presentation-transpose]
+example (σ : S ≃+* R) : Subsingleton
+    (PresentationTranspose σ (LinearMap.id : (Fin 1 → R) →ₗ[R] (Fin 1 → R))) := sorry
+
+-- test transpose_depends_on_presentation (non-example) [L6/presentation-transpose]
+example [Nontrivial R] (σ : S ≃+* R) :
+    Nonempty (PresentationTranspose σ (LinearMap.fst R R R) ≃ₗ[S] S) := sorry
+
+-- test transpose_cyclic (computation) [L6/presentation-transpose]
+example (σ : S ≃+* R) (a : R) :
+    Nonempty (PresentationTranspose σ (Matrix.toLin' (!![a] : Matrix (Fin 1) (Fin 1) R)) ≃ₗ[S]
+      S ⧸ Ideal.span {σ.symm a}) := sorry
+
+-- test transpose_reuses_AR (compatibility) [L6/presentation-transpose]
+example (σ : S ≃+* R) (f : P₁ →ₗ[R] P₀) :
+    PresentationTranspose σ f = AuslanderReitenTranspose f := rfl
+
+end Transpose
+
+end TauCeti
+
+end
+
+end L6
 
 /-!
 Independent review REV-PadicMeasuresIwasawaAlgebras: needs_changes.
