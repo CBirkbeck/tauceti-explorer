@@ -12700,7 +12700,8 @@
    "avoidAccountOf": "DESIGN-EllipticCurveModularityPartII",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-EllipticCurveModularityPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3521"
   },
   {
    "id": "DESIGN-EllipticCurvesPartII",
@@ -27972,8 +27973,9 @@
    ],
    "avoidAccountOf": "BP-PerfectoidShimuraVarieties",
    "prompt": "research/blueprint/prompts/REV-PerfectoidShimuraVarieties.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #469"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #469",
+   "finishedAt": "2026-10-07T01:25:12Z"
   },
   {
    "id": "BP-PerfectoidSpaces--P0",
