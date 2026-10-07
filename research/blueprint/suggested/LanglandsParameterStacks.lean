@@ -6,7 +6,8 @@ This file is not the roadmap and is not exhaustive. The roadmap document is
 Pinned Mathlib: 082e2d37e8b0463410cdb532e111cd43d5a66174.
 Pinned Tau Ceti: f790474821cf4256814db967cb154e7af3d0c369.
 
-The algebraic signatures below elaborate against that baseline. They accept
+The algebraic signatures below elaborate at the pinned Mathlib. The Tau Ceti
+source checks are recorded below; its missing object file is not rebuilt. They accept
  supplier-owned group actions and invariant-ring diagrams as explicit inputs.
 LParameter below is the continuous-group shadow: the relatively discrete
  condensed coefficient functor has not been fabricated. WeilDeligneParameter
@@ -153,6 +154,9 @@ def LParameter (α : Γ →* MulAut H) := {c : CrossedCocycle α // Continuous c
 
 namespace LParameter
 variable {α : Γ →* MulAut H}
+
+@[ext] theorem ext {c d : LParameter α} (h : ∀ x, c.val x = d.val x) :
+    c = d := by sorry
 def asSection (c : LParameter α) : CrossedCocycle.Sections α :=
   (CrossedCocycle.sectionEquiv α) c.val
 
@@ -289,11 +293,14 @@ def wildEnhancementGroup {L : Type u} [Group L] (C : Subgroup L)
 
 section Invariants
 variable {R : Type u} {A : Type v} [CommRing R] [CommRing A] [Algebra R A]
-  {G : Type w} [Group G]
+  {B : Type w} [CommRing B] [Algebra R B]
 
-/-- The actual algebraic invariant equaliser after the supplier provides its action. -/
-def ParameterInvariantAlgebra (ρ : G →* (A ≃ₐ[R] A)) : Subalgebra R A where
-  carrier := {a | ∀ g, ρ g a = a}
+/-- Equaliser of a supplied coaction and the canonical map a ↦ a ⊗ 1.
+For the group-scheme instance B is A ⊗ O(H), δ is the coaction and ι is
+the canonical map. Their geometric construction is supplied by RG/SF.1.
+Invariants of the abstract group H(R) do not suffice over finite fields. -/
+def ParameterInvariantAlgebra (δ ι : A →ₐ[R] B) : Subalgebra R A where
+  carrier := {a | δ a = ι a}
   zero_mem' := by sorry
   one_mem' := by sorry
   add_mem' := by sorry
@@ -301,28 +308,29 @@ def ParameterInvariantAlgebra (ρ : G →* (A ≃ₐ[R] A)) : Subalgebra R A whe
   algebraMap_mem' := by sorry
 
 namespace ParameterInvariantAlgebra
-variable (ρ : G →* (A ≃ₐ[R] A))
-def inclusion : ParameterInvariantAlgebra ρ →ₐ[R] A := (ParameterInvariantAlgebra ρ).val
+variable (δ ι : A →ₐ[R] B)
+def inclusion : ParameterInvariantAlgebra δ ι →ₐ[R] A :=
+  (ParameterInvariantAlgebra δ ι).val
 
-theorem mem_iff (a : A) : a ∈ ParameterInvariantAlgebra ρ ↔ ∀ g, ρ g a = a := by sorry
+theorem mem_iff (a : A) : a ∈ ParameterInvariantAlgebra δ ι ↔ δ a = ι a := by sorry
 
-def lift {B : Type w} [CommRing B] [Algebra R B]
-    (f : B →ₐ[R] A) (hf : ∀ g b, ρ g (f b) = f b) :
-    B →ₐ[R] ParameterInvariantAlgebra ρ := by sorry
+def lift {C : Type z} [CommRing C] [Algebra R C]
+    (f : C →ₐ[R] A) (hf : ∀ c, δ (f c) = ι (f c)) :
+    C →ₐ[R] ParameterInvariantAlgebra δ ι := by sorry
 
-theorem lift_comp {B : Type w} [CommRing B] [Algebra R B]
-    (f : B →ₐ[R] A) (hf : ∀ g b, ρ g (f b) = f b) :
-    (inclusion ρ).comp (lift ρ f hf) = f := by sorry
+theorem lift_comp {C : Type z} [CommRing C] [Algebra R C]
+    (f : C →ₐ[R] A) (hf : ∀ c, δ (f c) = ι (f c)) :
+    (inclusion δ ι).comp (lift δ ι f hf) = f := by sorry
 end ParameterInvariantAlgebra
 
 -- coarse_trivial_group, and the torus case when its action is trivial.
-example (ρ : G →* (A ≃ₐ[R] A)) (hρ : ρ = 1) : ParameterInvariantAlgebra ρ = ⊤ := by sorry
+example (ι : A →ₐ[R] B) : ParameterInvariantAlgebra ι ι = ⊤ := by sorry
 
 -- coarse_affine_universal
-example (ρ : G →* (A ≃ₐ[R] A)) {B : Type w} [CommRing B] [Algebra R B]
-    (f : B →ₐ[R] A) (hf : ∀ g b, ρ g (f b) = f b) :
-    ∃! g : B →ₐ[R] ParameterInvariantAlgebra ρ,
-      (ParameterInvariantAlgebra.inclusion ρ).comp g = f := by sorry
+example (δ ι : A →ₐ[R] B) {C : Type z} [CommRing C] [Algebra R C]
+    (f : C →ₐ[R] A) (hf : ∀ c, δ (f c) = ι (f c)) :
+    ∃! g : C →ₐ[R] ParameterInvariantAlgebra δ ι,
+      (ParameterInvariantAlgebra.inclusion δ ι).comp g = f := by sorry
 end Invariants
 
 section Reducibility
@@ -572,7 +580,8 @@ variable {W : Type u} [Group W] [TopologicalSpace W]
   {K : Type v} [Field K] [TopologicalSpace K] [DiscreteTopology K] (n : ℕ)
 
 /-- Split GL_n prototype. The source's general dual group and finite-Q action
-remain absent rather than being encoded by unverified fields. -/
+remain absent rather than being encoded by unverified fields. With geometric
+degree, norm(σ) = q⁻¹ for σ⁻¹ τ σ = τ^q; arithmetic Frobenius has norm q. -/
 structure WeilDeligneParameter (norm : W →* Kˣ) where
   cocycle : W →* (Matrix (Fin n) (Fin n) K)ˣ
   continuous : Continuous (fun w => (cocycle w : Matrix (Fin n) (Fin n) K))
@@ -582,6 +591,10 @@ structure WeilDeligneParameter (norm : W →* Kˣ) where
     ((cocycle w)⁻¹).val = (norm w : K) • monodromy
 
 namespace WeilDeligneParameter
+@[ext] theorem ext {norm : W →* Kˣ} {φ ψ : WeilDeligneParameter n norm}
+    (hφ : φ.cocycle = ψ.cocycle) (hN : φ.monodromy = ψ.monodromy) :
+    φ = ψ := by sorry
+
 noncomputable def zeroMonodromy (norm : W →* Kˣ)
     (ρ : W →* (Matrix (Fin n) (Fin n) K)ˣ)
     (hρ : Continuous (fun w => (ρ w : Matrix (Fin n) (Fin n) K))) :
@@ -612,6 +625,14 @@ example (norm : W →* Kˣ) (ρ : W →* (Matrix (Fin n) (Fin n) K)ˣ)
 -- WD_torus, for GL_1.
 example (norm : W →* Kˣ) (φ : WeilDeligneParameter 1 norm) : φ.monodromy = 0 := by sorry
 end WeilDeligneParameter
+
+-- WD_geometric_frobenius: the matrix computation fixing the scaling convention
+-- for q = 3 and N = E₁₂. The full Weil-group/logarithm comparison remains omitted.
+example :
+    let N : Matrix (Fin 2) (Fin 2) ℚ := fun i j => if i = 0 ∧ j = 1 then 1 else 0
+    let F := Matrix.diagonal (fun i : Fin 2 => if i = 0 then (1 / 3 : ℚ) else 1)
+    let FInv := Matrix.diagonal (fun i : Fin 2 => if i = 0 then (3 : ℚ) else 1)
+    F * N * FInv = (1 / 3 : ℚ) • N := by sorry
 end WeilDeligneGL
 
 section DualGL
@@ -676,6 +697,8 @@ TEST parameter_split_torus [computation]: For H=G_m with trivial action, paramet
 TEST parameter_char_l [computation]: For an F_l-algebra Λ the relatively discrete condensed structure is discrete; inertia restrictions are locally constant. Full example omitted pending the carriers named in Scope.
 TEST parameter_section [compatibility]: The projection of asSection(φ)(w) equals w, and its first coordinate equals φ(w). Typed example above for the stated prototype scope.
 TEST parameter_not_discrete_Ql [non-example]: For Λ=Q_l the convention admits continuous infinite-image Z_l-valued inertia characters; imposing discrete coefficients would exclude them. Full example omitted pending the carriers named in Scope.
+API LParameter.ext [extensionality]: Equality of the underlying condensed cocycle on every test object and section implies equality of parameters. Typed continuous-group extensionality below its prototype; the full condensed version uses test-object extensionality.
+API LParameter.gauge [functoriality]: The dual group acts by h·φ(w)=hφ(w)(w·h)⁻¹; this preserves the relatively discrete coefficient and continuous cocycle conditions, with identity and multiplication laws. Full signature omitted pending the enhanced/condensed carriers named in Scope.
 
 LanglandsParameterStacks:LP0/finite-wild-ramification
 Finite wild ramification (definition).
@@ -691,12 +714,12 @@ TEST wild_finite_image [compatibility]: For coefficients in a finite extension o
 LanglandsParameterStacks:LP0/discretization-and-unique-extension
 Discrete Weil groups and unique extension (theorem).
 Target statement (not an elaborated theorem signature): For open normal P as above choose tame τ and geometric Frobenius σ. The dense group W⊂W_E/P generated by P_E/P, τ^{Z[1/p]} and σ is finitely presented, with σ⁻¹τσ=τ^q and the finite-wild conjugation relations. Restriction identifies condensed parameters trivial on P with crossed cocycles on W whose wild restriction is continuous (automatic for finite P_E/P).
-Required full carriers: tauceti:TauCetiRoadmap/ClassFieldTheory#layer-9-the-local-weil-group, tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-4-the-tame-quotient-of-the-absolute-galois-group, ReductiveGroupsPartII:RG2.5. See G1/G3/G4 where applicable.
+Required full carriers: tauceti:TauCetiRoadmap/ClassFieldTheory#layer-9-the-local-weil-group; tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-4-the-tame-quotient-of-the-absolute-galois-group; ReductiveGroupsPartII:RG2.5. See G1/G3/G4/G5/G6 where applicable.
 
 LanglandsParameterStacks:LP0/change-of-discretization
 Change of discrete Weil model (comparison).
 Target statement (not an elaborated theorem signature): Any two choices of dense discrete W₁,W₂ inside the same W_E/P yield canonically equivalent cocycle functors over Z_l: extend to W_E/P, then restrict. The comparisons obey identity and composition. Over Z[1/p] the framed models need not be canonically choice independent; only their Z_l base changes have this universal continuous extension comparison.
-Required full carriers: the full source carriers of the local prerequisites listed in the packet. See G1/G3/G4 where applicable.
+Required full carriers: the full source carriers of the local prerequisites listed in the packet. See G1/G3/G4/G5/G6 where applicable.
 
 LanglandsParameterStacks:LP0/wild-inertial-parameter
 Wild inertial parameters (definition).
@@ -705,7 +728,7 @@ API WildInertialParameter [data]: A wild homomorphism together with existence of
 API WildInertialParameter.conjugate [functoriality]: H-conjugation preserves extendibility. Named prototype above; scope limited as stated.
 API WildInertialParameter.ofLanglands [constructor]: Restrict an admissible complex Langlands parameter. Named prototype above; scope limited as stated.
 API WildInertialParameter.ext [extensionality]: The underlying homomorphism determines this subtype; the extension is not chosen data. Named prototype above; scope limited as stated.
-TEST wild_inertial_trivial [degenerate]: The trivial wild homomorphism is extendible by an unramified admissible parameter. Typed example above for the stated prototype scope.
+TEST wild_inertial_trivial [degenerate]: The wild parameter with trivial dual-group component, ρ(p)=(1,p), is extendible by the standard unramified admissible parameter. Typed example above for the stated prototype scope.
 TEST wild_inertial_conjugate [compatibility]: Restriction of hφh⁻¹ equals hρh⁻¹. Typed example above for the stated prototype scope.
 TEST wild_inertial_extension_not_data [characterisation]: Two admissible extensions with the same ρ define the same WildInertialParameter. Typed example above for the stated prototype scope.
 
@@ -717,7 +740,7 @@ API twistedWildCentralizer.mem_iff [characterisation]: Membership is the twisted
 API twistedWildCentralizer.projection [projection]: The group projection to W_F. Named prototype above; scope limited as stated.
 API twistedWildCentralizer.kernel [characterisation]: Its kernel is C_H(ρ). Named prototype above; scope limited as stated.
 API twistedWildCentralizer.splitEquiv [equivalence]: A chosen extension gives C_H(ρ)⋊_{Ad φ}W_F. Named prototype above; scope limited as stated.
-TEST wild_centralizer_trivial [degenerate]: For ρ=1 the twisted centralizer is the whole L-group. Typed example above for the stated prototype scope.
+TEST wild_centralizer_trivial [degenerate]: For ρ(p)=(1,p) and trivial P_F-action on H, the twisted centralizer is the whole L-group; this is not the constant homomorphism into a group projecting to P_F. Typed example above for the stated prototype scope.
 TEST wild_centralizer_kernel [compatibility]: Elements above w=1 are exactly the usual dual-group centralizer. Typed example above for the stated prototype scope.
 TEST wild_centralizer_twist [non-example]: For any extension φ, φ(w) lies in the twisted centralizer even when it does not commute with every ρ(p). Typed example above for the stated prototype scope.
 
@@ -728,7 +751,7 @@ API wildEnhancementGroup [data]: The quotient of the intrinsic twisted centraliz
 API wildEnhancementGroup.centerIdentification [equivalence]: Using φ identifies it with Z(C_H(ρ))^{φ(W_F)}/Z(H)^{W_F}. Full signature omitted pending the carriers named in Scope.
 API wildEnhancementGroup.restrictRep [functoriality]: Inflate from S_φ and restrict to the centre, descending to S_ρ. Full signature omitted pending the carriers named in Scope.
 API wildEnhancementGroup.conjugateEquiv [equivalence]: Dual-group conjugation transports the quotient and its representations. Full signature omitted pending the carriers named in Scope.
-TEST wild_enhancement_trivial_rho [computation]: For ρ=1 the numerator is Z(H)^{W_F}, so S_ρ is trivial. Full example omitted pending the carriers named in Scope.
+TEST wild_enhancement_trivial_rho [computation]: For the trivial dual-group component ρ(p)=(1,p), the numerator is Z(H)^{W_F}, so S_ρ is trivial. Full example omitted pending the carriers named in Scope.
 TEST wild_enhancement_center_quotient [characterisation]: The restricted representation is trivial on Z(H)^{W_F}. Full example omitted pending the carriers named in Scope.
 TEST wild_enhancement_conjugacy [compatibility]: Conjugating φ and ρ transports the restricted representation by the induced S_ρ equivalence. Full example omitted pending the carriers named in Scope.
 
@@ -760,27 +783,27 @@ TEST scheme_l_adic [compatibility]: Its Z_l-points functor on Z_l-algebras agree
 LanglandsParameterStacks:LP1/decomposition-by-wild-kernel
 Clopen finite-wild pieces (lemma).
 Target statement (not an elaborated theorem signature): Z¹(W_E,H) is the filtered union of its finite-wild pieces Z¹(W_E/P,H). For P′⊂P these are open and closed subschemes inside the P′-piece; the union is a disjoint union of affine finite-type schemes after separating the clopen wild-kernel strata.
-Required full carriers: the full source carriers of the local prerequisites listed in the packet. See G1/G3/G4 where applicable.
+Required full carriers: the full source carriers of the local prerequisites listed in the packet. See G1/G3/G4/G5/G6 where applicable.
 
 LanglandsParameterStacks:LP1/weil-cohomological-dimension-and-euler-characteristic
 Weil cohomology dimension and Euler characteristic (theorem).
 Target statement (not an elaborated theorem signature): For a finite-rank free relatively discrete Λ-module M with condensed W_E-action and l≠p, RΓ(W_E,M) has perfect amplitude [0,2] and Euler characteristic zero. For field coefficients dim H⁰−dim H¹+dim H²=0. The same calculation on a finite-wild dense W gives the derived deformation complex.
-Required full carriers: tauceti:TauCetiRoadmap/ClassFieldTheory#layer-9-the-local-weil-group, tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-4-the-tame-quotient-of-the-absolute-galois-group. See G1/G3/G4 where applicable.
+Required full carriers: tauceti:TauCetiRoadmap/ClassFieldTheory#layer-9-the-local-weil-group; tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-4-the-tame-quotient-of-the-absolute-galois-group; tauceti:TauCeti.ContinuousCohomology.continuousCohomologyFunctor; EnhancedDerivedSheaves:E5:presentability. See G1/G3/G4/G5/G6 where applicable.
 
 LanglandsParameterStacks:LP1/dimension-bound-lemma
 Frobenius-tame dimension bound (lemma).
 Target statement (not an elaborated theorem signature): Let H/F_l be smooth with reductive identity component. For the prescribed action of σ on Z/l^mZ, the variety Hom(Z/l^mZ⋊σZ,H) has dimension at most dim H. Consequently each geometric fibre of the finite-wild cocycle scheme has dimension at most dim H of the dual group.
-Required full carriers: ReductiveGroupsPartII:RG2.5. See G1/G3/G4 where applicable.
+Required full carriers: ReductiveGroupsPartII:RG2.5. See G1/G3/G4/G5/G6 where applicable.
 
 LanglandsParameterStacks:LP1/representability-flatness-and-lci
 Flat complete-intersection parameter schemes (theorem).
 Target statement (not an elaborated theorem signature): Each finite-wild Z¹(W,H) over Z[1/p] is flat and a relative local complete intersection of relative dimension dim H; its total dimension is dim H+1. After base change to Z_l these schemes represent finite-wild parameters, and their clopen union represents all condensed L-parameters. The quotient [Z¹/H] has expected relative dimension zero.
-Required full carriers: DeformationAndDerivedPatchingAlgebra:R03.3, SchemeAndStackFoundations:SF.1. See G1/G3/G4 where applicable.
+Required full carriers: DeformationAndDerivedPatchingAlgebra:R03.3; SchemeAndStackFoundations:SF.1. See G1/G3/G4/G5/G6 where applicable.
 
 LanglandsParameterStacks:LP1/independent-source-and-dimension-normalisation
 DHKM and FS integral models (comparison).
 Target statement (not an elaborated theorem signature): DHKM W_F^0 uses arithmetic Frobenius and the same dense tame subgroup as FS W after σ=Fr⁻¹. The finite-presentation cocycle schemes agree for matched choices over Z[1/p]; FS Z_l models are their base changes. Canonical independence of choices follows over Z_l from continuous extension, not for the framed Z[1/p]-models. DHKM dimension dim H+1 is absolute; FS dim H is relative.
-Required full carriers: the full source carriers of the local prerequisites listed in the packet. See G1/G3/G4 where applicable.
+Required full carriers: the full source carriers of the local prerequisites listed in the packet. See G1/G3/G4/G5/G6 where applicable.
 
 LanglandsParameterStacks:LP1/derived-parameter-stack
 Derived parameter stacks (construction).
@@ -797,22 +820,22 @@ TEST derived_stack_gauge [compatibility]: Changing a base-point framing by h act
 LanglandsParameterStacks:LP1/derived-comparison-with-the-classical-scheme
 Classicality of the derived cocycle scheme (theorem).
 Target statement (not an elaborated theorem signature): The derived framed cocycle scheme of a finite-wild W is classical and equals IntegralCocycleScheme base changed to Z_l. The unframed derived stack equals [Z¹(W,H)/H].
-Required full carriers: DerivedDeRhamCohomology:DD.0, EnhancedDerivedSheaves:E5:animation. See G1/G3/G4 where applicable.
+Required full carriers: DerivedDeRhamCohomology:DD.0; EnhancedDerivedSheaves:E5:animation. See G1/G3/G4/G5/G6 where applicable.
 
 LanglandsParameterStacks:LP1/local-tate-duality
 Local Tate duality for Weil cochains (theorem).
 Target statement (not an elaborated theorem signature): For a finite-rank free Λ-module M with condensed W_E-action, RΓ(W_E,M) is perfect and there is a natural duality RΓ(W_E,M)^∨ ≃ RΓ(W_E,M^∨(1))[2].
-Required full carriers: tauceti:TauCetiRoadmap/ClassFieldTheory#layer-9-the-local-weil-group, tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-4-the-tame-quotient-of-the-absolute-galois-group, EnhancedDerivedSheaves:E5:presentability. See G1/G3/G4 where applicable.
+Required full carriers: tauceti:TauCetiRoadmap/ClassFieldTheory#layer-9-the-local-weil-group; tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-4-the-tame-quotient-of-the-absolute-galois-group; EnhancedDerivedSheaves:E5:presentability. See G1/G3/G4/G5/G6 where applicable.
 
 LanglandsParameterStacks:LP1/cotangent-complex-and-deformation-theory
 Cotangent complexes of parameter stacks (theorem).
 Target statement (not an elaborated theorem signature): At φ over Λ the tangent complex of [Z¹(W_E,H)/H] is RΓ(W_E,Lie(H)_{Ad φ})[1]. Its dual, the pullback cotangent complex, is RΓ(W_E,Lie(H)^*_{Ad φ}(1))[1]. Thus H⁰ of the adjoint cochains gives infinitesimal automorphisms, H¹ gives deformations and H² gives obstructions.
-Required full carriers: DerivedDeRhamCohomology:DD.0, ReductiveGroupsPartII:RG2.5. See G1/G3/G4 where applicable.
+Required full carriers: DerivedDeRhamCohomology:DD.0; ReductiveGroupsPartII:RG2.5. See G1/G3/G4/G5/G6 where applicable.
 
 LanglandsParameterStacks:LP1/weil-deligne-parameters
 Weil–Deligne parameters (definition).
 Scope: The typed structure is the split GL_n shadow with discrete continuous cocycle, nilpotent matrix and the supplied norm scaling law. A general integral L-group, Lie action and condensed-to-discrete monodromy comparison require RG2.5/ArithmeticGaloisRepresentations. The gauge test currently proves the zero-monodromy part and its pointwise formula, not a general-group equivalence.
-API WeilDeligneParameter [data]: A discrete-inertia cocycle and nilpotent monodromy satisfying the scaling law. Named prototype above; scope limited as stated.
+API WeilDeligneParameter [data]: A discrete-inertia cocycle and nilpotent monodromy with scaling q^{−deg(w)} for geometric degree; the split GL_n prototype takes this norm as an explicit homomorphism. Named prototype above; scope limited as stated.
 API WeilDeligneParameter.cocycle [projection]: The discrete cocycle φ₀. Named prototype above; scope limited as stated.
 API WeilDeligneParameter.monodromy [projection]: N, with its nilpotence and equivariance. Named prototype above; scope limited as stated.
 API WeilDeligneParameter.gauge [functoriality]: Gauge conjugates N as well as φ₀. Named prototype above; scope limited as stated.
@@ -821,10 +844,13 @@ TEST WD_unramified [degenerate]: For unramified φ₀ and N=0 one obtains a Weil
 TEST WD_torus [computation]: For a torus in characteristic zero the nilpotent cone is zero, so every Weil–Deligne parameter has N=0. Typed example above for the stated prototype scope.
 TEST WD_gauge [compatibility]: Gauge of zeroMonodromy(φ₀) is zeroMonodromy(h·φ₀). Typed example above for the stated prototype scope.
 
+TEST WD_geometric_frobenius [computation]: In split GL₂ with q=3, N=E₁₂ and φ₀(σ)=diag(1/3,1), conjugation sends N to N/3. This is compatible with σ⁻¹τσ=τ³ and excludes the reciprocal scaling convention. The full inertia parameter is exp(xN). Typed matrix computation above; the full Weil/exp comparison requires the carriers named in Scope.
+API WeilDeligneParameter.ext [extensionality]: Equality of the discrete cocycle and of monodromy implies equality of Weil–Deligne parameters; proof fields do not introduce extra data. Named algebraic prototype above; scope limited as stated.
+
 LanglandsParameterStacks:LP2:integral-invariants/weil-deligne-and-the-monodromy-map
 Monodromy and the Weil–Deligne comparison (comparison).
 Target statement (not an elaborated theorem signature): For chosen tame coordinate and Frobenius there is an H-equivariant isomorphism Z¹(W_E,H)_{Q_l}≃Par_WD. On sufficiently small l-primary tame inertia φ(x)=exp(xN). A unipotent power of tame τ gives N=m⁻¹log φ(τ^m); subtracting its exponential gives φ₀ with finite inertia. This constructs the algebraic monodromy morphism to the Lie(H) nilpotent cone.
-Required full carriers: ArithmeticGaloisRepresentations:R01.2, ReductiveGroupsPartII:RG2.5. See G1/G3/G4 where applicable.
+Required full carriers: ArithmeticGaloisRepresentations:R01.2; ReductiveGroupsPartII:RG2.5. See G1/G3/G4/G5/G6 where applicable.
 
 LanglandsParameterStacks:LP1/singularities-and-singular-support
 Singularities of parameter stacks (definition).
@@ -843,17 +869,17 @@ TEST singularities_dual [compatibility]: If a specified invariant perfect Lie pa
 LanglandsParameterStacks:LP1/hochshild-action-and-support
 Hochschild action on parameter complexes (theorem).
 Target statement (not an elaborated theorem signature): On any affine syntomic parameter chart B/Z_l, The commutative square-zero-extension map H¹(L^∨)→HH²(B/Z_l) and the Hochschild action give H¹(L^∨)→Ext²_B(N,N), naturally in N. For bounded coherent N the resulting graded Sym_B H¹(L^∨)-module is coherent; its conical support descends to the parameter stack. N is perfect precisely when this support lies in the zero section, and the projection of nonzero support is the complement of its largest perfectness open.
-Required full carriers: tauceti:TauCetiRoadmap/DGAInfinity#layer-8-hochschild-cochains-deformations-massey-products-and-formality, DeformationAndDerivedPatchingAlgebra:R03.3, SchemeKTheoryOperations:S.1, EnhancedDerivedSheaves:E5:animation. See G1/G3/G4 where applicable.
+Required full carriers: tauceti:TauCetiRoadmap/DGAInfinity#layer-8-hochschild-cochains-deformations-massey-products-and-formality; DeformationAndDerivedPatchingAlgebra:R03.3; SchemeKTheoryOperations:S.1; EnhancedDerivedSheaves:E5:animation. See G1/G3/G4/G5/G6 where applicable.
 
 LanglandsParameterStacks:LP1/banal-case-and-the-nilpotent-cone
 Nilpotence of singularity fibres (theorem).
 Target statement (not an elaborated theorem signature): At φ over a Z_l-field L, the fibre of ParameterSingularities is contained in the dual nilpotent cone if either L is a Q_l-field, or l∤q^{en}−1 for every homogeneous Chevalley invariant degree e, where n is the residue degree of the extension cutting out the outer action. This is an inclusion, not equality.
-Required full carriers: ReductiveGroupsPartII:RG2.5, tauceti:TauCetiRoadmap/ClassFieldTheory#layer-9-the-local-weil-group. See G1/G3/G4 where applicable.
+Required full carriers: ReductiveGroupsPartII:RG2.5; tauceti:TauCetiRoadmap/ClassFieldTheory#layer-9-the-local-weil-group. See G1/G3/G4/G5/G6 where applicable.
 
 LanglandsParameterStacks:LP2:excursion-presentation/coarse-quotient
 Coarse parameter quotients (construction).
-Scope: The typed fixed Subalgebra and its universal lift concern an explicitly supplied abstract algebra action. Rational/algebraic group invariants, the representing affine quotient, inflation and flat base-change theorem need RG2.5/SF.1. The coarse test examples check the invariant-algebra shadow, not arbitrary quotient-stack base change.
-API ParameterInvariantAlgebra [data]: The algebraic H-invariant subalgebra of O(Z¹). Named prototype above; scope limited as stated.
+Scope: The typed Subalgebra equalises two supplied algebra homomorphisms, representing the coaction and a↦a⊗1. Their Hopf-algebra/geometric construction, representing affine quotient, inflation and flat base-change theorem require RG2.5/SF.1. Abstract H(base)-point invariants are insufficient; the F₂ scaling example detects the distinction. The typed lift checks the equaliser universal property.
+API ParameterInvariantAlgebra [data]: The equaliser of the algebraic coaction A→A⊗O(H) and a↦a⊗1, as a subalgebra of A=O(Z¹); taking fixed elements only under H(base) is insufficient. Named prototype above; scope limited as stated.
 API ParameterCoarseQuotient [data]: Its spectrum, separately on each affine finite-wild piece. Full signature omitted pending the carriers named in Scope.
 API ParameterCoarseQuotient.quotientMap [projection]: The affine map induced by the invariant inclusion. Full signature omitted pending the carriers named in Scope.
 API ParameterCoarseQuotient.lift [universal-property]: Invariant maps to affine schemes factor uniquely, with lift and uniqueness laws. Full signature omitted pending the carriers named in Scope.
@@ -864,10 +890,15 @@ TEST coarse_torus [computation]: For a torus with trivial W-action the gauge act
 TEST coarse_affine_universal [characterisation]: An invariant affine scalar function descends uniquely, and pulls back to itself. Typed example above for the stated prototype scope.
 TEST coarse_not_orbit_set [non-example]: For the SL₂ tuple (nontrivial upper unipotent), its coarse image equals the image of the identity tuple although the two tuples are not conjugate. Full example omitted pending the carriers named in Scope.
 
+TEST coarse_scheme_invariants [non-example]: For the scaling action of the group scheme G_m/F₂ on A=F₂[x], coaction invariants are F₂, while the abstract group G_m(F₂) is trivial and its fixed algebra is all A. The invariant construction must use the coaction. Full example omitted pending the coaction/Hopf-algebra carriers named in Scope.
+API ParameterInvariantAlgebra.mem_iff [characterisation]: An element belongs to the invariant subalgebra exactly when its coaction equals a↦a⊗1. Named algebraic prototype above; scope limited as stated.
+API ParameterInvariantAlgebra.inclusion [projection]: The canonical algebra injection into the coordinate algebra is injective. Named algebraic prototype above; scope limited as stated.
+API ParameterInvariantAlgebra.lift [universal-property]: An algebra map whose image equalises the coaction and a↦a⊗1 factors uniquely through the invariant subalgebra; composing with inclusion recovers the map. Named algebraic prototype above; scope limited as stated.
+
 LanglandsParameterStacks:LP2:excursion-presentation/quotients-over-fields-and-DVRs
 Reductive quotient properties over fields and DVRs (theorem).
 Target statement (not an elaborated theorem signature): For an integral affine finite-type X over a field with reductive G, X//G is integral finite type and normal if X is normal. Over an excellent coefficient DVR O, assume additionally X is flat; the same properties hold. For every algebraically closed O-field K, coarse K-points are closed G_K-orbits, each fibre has one closed orbit, and invariant closed sets have closed, separated images. Invariants commute with flat O-base change; invariant principal neighbourhoods exist about closed residual orbits.
-Required full carriers: ReductiveGroupsPartII:RG2.5, SchemeAndStackFoundations:SF.1. See G1/G3/G4 where applicable.
+Required full carriers: ReductiveGroupsPartII:RG2.5; SchemeAndStackFoundations:SF.1. See G1/G3/G4/G5/G6 where applicable.
 
 LanglandsParameterStacks:LP2:excursion-presentation/complete-reducibility
 Complete reducibility and strong reductivity (definition).
@@ -887,7 +918,7 @@ TEST cr_trivial [degenerate]: The trivial subgroup is completely reducible. Type
 LanglandsParameterStacks:LP2:excursion-presentation/closed-orbit-criterion
 Closed tuples and Levi semisimplification (theorem).
 Target statement (not an elaborated theorem signature): For a tuple x∈G(k)^n, with G connected reductive and k algebraically closed of any characteristic, its orbit is closed iff its generated Zariski subgroup is strongly reductive iff it is G-completely reducible. It is stable iff this subgroup is G-irreducible. Projection along a minimal containing parabolic to a Levi gives a cocharacter limit in the unique closed orbit in the closure. For a completely reducible subgroup, a containing Levi in a minimal parabolic is irreducible; all minimal containing parabolics have the same dimension.
-Required full carriers: ReductiveGroupsPartII:RG2.5. See G1/G3/G4 where applicable.
+Required full carriers: ReductiveGroupsPartII:RG2.5. See G1/G3/G4/G5/G6 where applicable.
 
 LanglandsParameterStacks:LP2:semisimple-characters/semisimple-parameters-and-closed-orbits
 Semisimple L-parameters (definition).
@@ -903,7 +934,7 @@ TEST semisimple_unipotent [non-example]: A nontrivial unipotent generator repres
 LanglandsParameterStacks:LP2:excursion-presentation/parameter-closed-orbits
 Closed parameter orbits (theorem).
 Target statement (not an elaborated theorem signature): For every finite-wild component over algebraically closed L, closed H(L)-orbits of cocycles are exactly semisimple parameters, equivalently parameters conjugate to every applicable Levi projection. Consequently the coarse L-points classify semisimple gauge classes without assuming l∤|π₁(H)_tors|.
-Required full carriers: ReductiveGroupsPartII:RG2.5. See G1/G3/G4 where applicable.
+Required full carriers: ReductiveGroupsPartII:RG2.5. See G1/G3/G4/G5/G6 where applicable.
 
 LanglandsParameterStacks:LP2:excursion-presentation/free-cocycle-index
 Finite free-group indexing (definition).
@@ -915,6 +946,7 @@ API FreeCocycleIndex.sifted [structure]: The index is sifted, with the zero-gene
 TEST index_zero [degenerate]: The zero-generator map is initial. Typed example above for the stated prototype scope.
 TEST index_coproduct [computation]: The coproduct of n- and m-generator tuples is the n+m-generator concatenation. Typed example above for the stated prototype scope.
 TEST index_direction [characterisation]: A word map F_n→F_m induces O(Z¹(F_n,H))→O(Z¹(F_m,H)), not the reverse ring map. Full example omitted pending the carriers named in Scope.
+API FreeCocycleIndex.ofTuple [constructor]: A finite tuple in Γ extends uniquely to a homomorphism F_n→Γ and hence gives an indexing object; evaluation on free generators recovers the tuple. Named algebraic prototype above; scope limited as stated.
 
 LanglandsParameterStacks:LP2:excursion-presentation/excursion-algebra-and-universal-homeomorphism
 Excursion algebras (construction).
@@ -931,22 +963,22 @@ TEST excursion_lift_eval [characterisation]: For a compatible cone ξ, lift(ξ)�
 LanglandsParameterStacks:LP2:excursion-presentation/universal-homeomorphism
 Excursion comparison as a universal homeomorphism (theorem).
 Target statement (not an elaborated theorem signature): For a finite-wild W, Spec(O(Z¹(W,H))^H)→Spec Exc(W,H) is a universal homeomorphism, and the algebra comparison is an isomorphism after inverting l. Its proof is independent of l∤|π₁(H)_tors|.
-Required full carriers: ReductiveGroupsPartII:RG2.5. See G1/G3/G4 where applicable.
+Required full carriers: ReductiveGroupsPartII:RG2.5. See G1/G3/G4/G5/G6 where applicable.
 
 LanglandsParameterStacks:LP2:excursion-presentation/universal-property-of-the-excursion-algebra
 The universal excursion relations (theorem).
 Target statement (not an elaborated theorem signature): Maps Exc(Γ,H)→A correspond to families of Z_l-algebra maps Θ_n:O((H⋊Q)^n//H)→Map(Γ^n,A), n≥1, linear over O(Q^n) via Γ→Q, compatible with coordinate reindexing and with ordered multiplication in fibres of every map between finite ordered sets. Empty products are units. These relations imply insertion of identities and inversion/word substitution, yielding the full free-group diagram compatibility.
-Required full carriers: ReductiveGroupsPartII:RG2.5. See G1/G3/G4 where applicable.
+Required full carriers: ReductiveGroupsPartII:RG2.5. See G1/G3/G4/G5/G6 where applicable.
 
 LanglandsParameterStacks:LP2:integral-invariants/transition-and-continuity
 Continuous torsion-free excursion characters (theorem).
 Target statement (not an elaborated theorem signature): The l-torsion-free quotient Exc(W,H)_tf is flat over Z_l and has the universal property of the Θ families of VIII.3.7 for flat test algebras A when those families are maps of condensed sets on (W_E/P)^n. The torsion-free quotient is canonically independent of the dense discrete W. Inflation on finite-wild pieces is compatible with evaluation and the invariant comparison. Geometric field-valued characters do not change under removal of l-power torsion because that torsion is nilpotent.
-Required full carriers: the full source carriers of the local prerequisites listed in the packet. See G1/G3/G4 where applicable.
+Required full carriers: the full source carriers of the local prerequisites listed in the packet. See G1/G3/G4/G5/G6 where applicable.
 
 LanglandsParameterStacks:LP2:excursion-presentation/categorical-hecke-datum
 Categorical Hecke data (definition).
 Scope: E5 supplies stable linear categories, exact tensor functors, actions, anima of natural transformations and all finite-set coherence; RG2.5 supplies finite-projective algebraic representation categories. An ordinary abstract Representation does not encode this categorical datum.
-API CategoricalHeckeDatum [data]: Finite-set monoidal representation functors with Γ^I-equivariance and fusion coherence. Full signature omitted pending the carriers named in Scope.
+API CategoricalHeckeDatum [data]: Coherent finite-set monoidal representation functors with Γ^I-equivariance and fusion; exact in the stable infinity-category version, whose operator centre is π₀End(id_C). Full signature omitted pending the carriers named in Scope.
 API CategoricalHeckeDatum.unit [simp]: The trivial representation acts as identity. Full signature omitted pending the carriers named in Scope.
 API CategoricalHeckeDatum.reindex [compatibility]: Finite-set pullback and fusion commute coherently with the Γ-action. Full signature omitted pending the carriers named in Scope.
 API CategoricalHeckeDatum.create [constructor]: A diagonal invariant α:1→V creates a transformation id_C→T_V. Full signature omitted pending the carriers named in Scope.
@@ -959,7 +991,7 @@ LanglandsParameterStacks:LP2:excursion-presentation/excursion-datum
 Excursion data (definition).
 Scope: The typed structure expresses the module, representation, diagonal invariant vector/form and group tuple. Algebraic regularity and finite-projectivity are omitted; RG2.5 supplies them. The operator/reindex/tensor signatures require the full categorical Hecke datum and E5. The matrix coefficient unit and zero tests check its linear-algebra shadow.
 API ExcursionDatum [data]: Finite I, V, invariant α,β and Γ-tuple. Named prototype above; scope limited as stated.
-API ExcursionDatum.operator [constructor]: The natural endomorphism S_D. Full signature omitted pending the carriers named in Scope.
+API ExcursionDatum.operator [constructor]: The natural endomorphism S_D, with its class in π₀End(id_C) for a stable infinity-category. Full signature omitted pending the carriers named in Scope.
 API ExcursionDatum.reindex [functoriality]: Reindex tuples and pull back the representation; the resulting operator is unchanged. Full signature omitted pending the carriers named in Scope.
 API ExcursionDatum.tensor [constructor]: External tensor product on I⊔J with tensor α,β and concatenated tuple. Full signature omitted pending the carriers named in Scope.
 TEST datum_unit [degenerate]: For the unit representation and α=β=id, S_D=id_C. Full example omitted pending the carriers named in Scope.
@@ -981,12 +1013,12 @@ TEST coefficient_biinvariant [characterisation]: For diagonal a,b∈H, f_D(a g_i
 
 LanglandsParameterStacks:LP2:excursion-presentation/map-to-a-bernstein-center
 Abstract excursion centre maps (theorem).
-Target statement (not an elaborated theorem signature): Every categorical Hecke datum for Γ over Q induces a natural Z_l-algebra map Exc(Γ,H)→End(id_C), sending an invariant function evaluated at a Γ-tuple to its excursion operator. This is group-agnostic and has no π₁ good-prime condition. The Bun_G and Bernstein-centre comparisons are consumer applications.
-Required full carriers: the full source carriers of the local prerequisites listed in the packet. See G1/G3/G4 where applicable.
+Target statement (not an elaborated theorem signature): Every categorical Hecke datum for Γ over Q induces a natural Z_l-algebra map Exc(Γ,H)→π₀End(id_C), sending an invariant function evaluated at a Γ-tuple to its excursion operator. This is group-agnostic and has no π₁ good-prime condition. The Bun_G and Bernstein-centre comparisons are consumer applications.
+Required full carriers: the full source carriers of the local prerequisites listed in the packet. See G1/G3/G4/G5/G6 where applicable.
 
 LanglandsParameterStacks:LP2:semisimple-characters/reductive-pseudocharacters
 Reductive-group pseudocharacters (definition).
-Scope: The typed Theta families, relations, coefficient map, group precomposition, extensionality and continuity predicate use supplied actual AlgHom reindex/multiplication maps. The identification D(n)=integral regular-function invariants, representation evaluation, finite-Q linearity, and the four geometric examples require RG2.5. The auxiliary Unit-tuple example above is not the trivial-representation evaluation test.
+Scope: The typed Theta families, relations, coefficient map, group precomposition, extensionality and continuity predicate use supplied actual AlgHom reindex/multiplication maps. The identification D(n)=integral regular-function invariants, representation evaluation, finite-Q linearity, and the four geometric examples require the algebraic group interface. Import the general pseudocharacter carrier from the existing IHG.0 node and impose the given Γ→Q projection; this prototype does not create a second general owner (G6). The auxiliary Unit-tuple example above is not the trivial-representation evaluation test.
 API ReductivePseudocharacter [data]: The integral-invariant family with the stated relations. Named prototype above; scope limited as stated.
 API ReductivePseudocharacter.ofRepresentation [constructor]: Evaluate invariant functions on tuples of a representation. Full signature omitted pending the carriers named in Scope.
 API ReductivePseudocharacter.map [functoriality]: Coefficient base change with identity and composition laws. Named prototype above; scope limited as stated.
@@ -997,40 +1029,45 @@ TEST pseudocharacter_rank_one [computation]: For H=G_m, evaluation of a characte
 TEST pseudocharacter_conjugate [compatibility]: Conjugate representations have equal pseudocharacters. Full example omitted pending the carriers named in Scope.
 TEST pseudocharacter_trivial_group [degenerate]: For Γ=1, the pseudocharacter of the trivial representation evaluates f at (1,…,1). Full example omitted pending the carriers named in Scope.
 TEST pseudocharacter_unipotent [non-example]: For Γ=Z and H=SL₂, a nontrivial unipotent generator representation and the trivial representation have the same pseudocharacter but are not conjugate; pseudocharacters classify their semisimplifications. Full example omitted pending the carriers named in Scope.
+Ownership: the general pseudocharacter carrier is imported from IHG.0; only its prescribed Γ→Q adapter belongs here. G6 records the remaining API/reader alignment.
 
 LanglandsParameterStacks:LP2:semisimple-characters/characteristic-zero-anchor
 Finite anchors in characteristic zero (theorem).
 Target statement (not an elaborated theorem signature): For compatible invariant families of an arbitrary Γ over Q and algebraically closed characteristic-zero L, choose an anchor tuple maximising the dimension of its reductive generated Zariski closure, then minimising centralizer dimension, then centralizer component count. There is a closed-orbit representative ḡ such that each γ has a unique g(γ) with (ḡ,g(γ)) in the prescribed closed orbit and with centralizer unchanged. The elements g(γ) lie in the double centralizer of ḡ.
-Required full carriers: ReductiveGroupsPartII:RG2.5. See G1/G3/G4 where applicable.
+Required full carriers: ReductiveGroupsPartII:RG2.5; IntegralHeckeAndGaloisDeterminants:IHG.1/reductive-reconstruction. See G1/G3/G4/G5/G6 where applicable.
+Ownership: this generic anchor evidence is retained pending coordinated alignment with the existing IHG.1 reconstruction owner, not accepted as a second LP proof (G6).
 
 LanglandsParameterStacks:LP2:semisimple-characters/positive-characteristic-anchor
 Finite anchors in arbitrary characteristic (theorem).
-Target statement (not an elaborated theorem signature): For a compatible pseudocharacter over algebraically closed k, choose an anchor minimising the dimension of a containing parabolic, then centralizer dimension and component count. Its closed-orbit representative uniquely determines each appended element by its prescribed invariant values and unchanged centralizer. The resulting representation is completely reducible. This uses minimal parabolics and Levi irreducibility, rather than identifying complete reducibility with reductivity of the image in characteristic p.
-Required full carriers: ReductiveGroupsPartII:RG2.5. See G1/G3/G4 where applicable.
+Target statement (not an elaborated theorem signature): For a compatible pseudocharacter over algebraically closed k, let d(γ̄) be the dimension of a minimal parabolic containing a representative of the prescribed closed tuple orbit. Choose an anchor maximising d(γ̄) over all tuples, then minimising centralizer dimension and component count. Its closed-orbit representative uniquely determines each appended element by its prescribed invariant values and unchanged centralizer. The resulting representation is completely reducible. This uses minimal parabolics and Levi irreducibility, rather than identifying complete reducibility with reductivity of the image in characteristic p.
+Required full carriers: ReductiveGroupsPartII:RG2.5; IntegralHeckeAndGaloisDeterminants:IHG.1/reductive-stable-tuple; IntegralHeckeAndGaloisDeterminants:IHG.1/reductive-reconstruction. See G1/G3/G4/G5/G6 where applicable.
+Ownership: this generic anchor evidence is retained pending coordinated alignment with the existing IHG.1 reconstruction owner, not accepted as a second LP proof (G6).
 
 LanglandsParameterStacks:LP2:semisimple-characters/proof-of-the-character-bijection
 Group-agnostic semisimple reconstruction (theorem).
 Target statement (not an elaborated theorem signature): For any group Γ→Q, H/Z_l with action of finite Q and algebraically closed Z_l-field L, compatible Θ families as in the excursion universal property correspond bijectively to H(L)-conjugacy classes of semisimple crossed cocycles Γ→H(L). The forward family evaluates invariant functions on the associated lifts Γ→H(L)⋊Q. This theorem is algebraic; continuity is a separate clause.
-Required full carriers: the full source carriers of the local prerequisites listed in the packet. See G1/G3/G4 where applicable.
+Required full carriers: IntegralHeckeAndGaloisDeterminants:IHG.1/reductive-reconstruction. See G1/G3/G4/G5/G6 where applicable.
+Ownership: use the existing IHG nodes listed above; the packet gives the group/projection/Weil or excursion specialisation. G6 records residual reader alignment.
 
 LanglandsParameterStacks:LP2:semisimple-characters/characteristic-zero-continuity
 Continuity from characteristic-zero anchors (theorem).
 Target statement (not an elaborated theorem signature): In Lafforgue11.7, for profinite Γ and split H° over finite E/Q_l (possibly disconnected H), continuous invariant families over E reconstruct a continuous representation Γ→H(E′) for a finite extension E′/E, unique up to H°(Q_l-bar)-conjugation, with reductive Zariski image. For algebraically closed rank-one valued characteristic-zero coefficients the analogous reconstructed semisimple representation is continuous. For relatively discrete condensed Q_l-fields the argument is applied locally to their finite-type coefficient modules.
-Required full carriers: ReductiveGroupsPartII:RG2.5. See G1/G3/G4 where applicable.
+Required full carriers: ReductiveGroupsPartII:RG2.5; IntegralHeckeAndGaloisDeterminants:IHG.1/reductive-valued-continuity. See G1/G3/G4/G5/G6 where applicable.
 
 LanglandsParameterStacks:LP2:semisimple-characters/discrete-coefficient-continuity
 Continuity with discrete coefficients (theorem).
 Target statement (not an elaborated theorem signature): For profinite Γ and algebraically closed discrete k, continuous pseudocharacter values imply continuity of the reconstructed completely reducible representation. More generally the finite-anchor proof works locally on profinite parameter sets in a condensed group with discrete coefficients. In characteristic l the relatively discrete Z_l-field convention is discrete, so it supplies this continuity clause for W_E.
-Required full carriers: ReductiveGroupsPartII:RG2.5, tauceti:TauCetiRoadmap/ClassFieldTheory#layer-9-the-local-weil-group. See G1/G3/G4 where applicable.
+Required full carriers: ReductiveGroupsPartII:RG2.5; tauceti:TauCetiRoadmap/ClassFieldTheory#layer-9-the-local-weil-group; IntegralHeckeAndGaloisDeterminants:IHG.1/reductive-discrete-continuity. See G1/G3/G4/G5/G6 where applicable.
 
 LanglandsParameterStacks:LP2:semisimple-characters/character-bijection
 Continuous semisimple parameter characters (theorem).
 Target statement (not an elaborated theorem signature): For algebraically closed Z_l-field L there are canonical bijections between (i) semisimple condensed L-parameters up to H(L)-conjugation, (ii) L-points of the piecewise coarse parameter quotient, and (iii) condensed Θ families on W_E^n with the reindexing and ordered multiplication relations. All primes l≠p are allowed.
-Required full carriers: the full source carriers of the local prerequisites listed in the packet. See G1/G3/G4 where applicable.
+Required full carriers: IntegralHeckeAndGaloisDeterminants:IHG.1/reductive-reconstruction. See G1/G3/G4/G5/G6 where applicable.
+Ownership: use the existing IHG nodes listed above; the packet gives the group/projection/Weil or excursion specialisation. G6 records residual reader alignment.
 
 LanglandsParameterStacks:LP2:semisimple-characters/GL-trace-pseudocharacters
 GL trace pseudocharacters (definition).
-Scope: The complete algebraic trace identity and all four test goals are expressed, including fixed one-cycles. The characteristic-zero reconstruction comparison itself needs the RG2.5 Procesi/invariant-generation extension.
+Scope: The complete algebraic trace identity and all four test goals are expressed, including fixed one-cycles. The full trace carrier is the group-algebra adapter of IHG.0/pseudocharacter; the characteristic-zero comparison imports the existing IHG determinant-trace and reconstruction nodes. This prototype does not create a second trace-theory owner (G6).
 API TracePseudocharacter [data]: Normalised central trace function satisfying the alternating identity. Named prototype above; scope limited as stated.
 API TracePseudocharacter.ofRepresentation [constructor]: Trace of an r-dimensional representation. Named prototype above; scope limited as stated.
 API TracePseudocharacter.cycleValue [data]: The product of trace values along a permutation’s cycles. Named prototype above; scope limited as stated.
@@ -1043,16 +1080,17 @@ TEST trace_not_rank_one_constant [non-example]: The constant function 1 is not r
 LanglandsParameterStacks:LP2:semisimple-characters/GL-trace-comparison
 Trace and excursion character comparison (theorem).
 Target statement (not an elaborated theorem signature): For algebraically closed characteristic-zero L, GL_r-pseudocharacters, r-dimensional trace pseudocharacters and conjugacy classes of semisimple representations Γ→GL_r(L) correspond. The invariant functions on tuples are generated by permutation cycle-trace functions (and inverse-determinant functions on GL_r); Cayley–Hamilton/Newton identities and group inverses express these using traces of words.
-Required full carriers: ReductiveGroupsPartII:RG2.5. See G1/G3/G4 where applicable.
+Required full carriers: ReductiveGroupsPartII:RG2.5; IntegralHeckeAndGaloisDeterminants:IHG.0/determinant-trace-bijective-rational; IntegralHeckeAndGaloisDeterminants:IHG.1/algebraically-closed-reconstruction. See G1/G3/G4/G5/G6 where applicable.
+Ownership: use the existing IHG nodes listed above; the packet gives the group/projection/Weil or excursion specialisation. G6 records residual reader alignment.
 
 LanglandsParameterStacks:LP2:semisimple-characters/schur-object-parameter
 Parameters of Schur objects (theorem).
-Target statement (not an elaborated theorem signature): If L is algebraically closed and a categorical Hecke datum acts on C, every object X with End_C(X)=L receives a unique semisimple cocycle Γ→H(L), up to H(L)-conjugation, whose invariant evaluations equal the excursion action on X.
-Required full carriers: the full source carriers of the local prerequisites listed in the packet. See G1/G3/G4 where applicable.
+Target statement (not an elaborated theorem signature): If L is algebraically closed and a categorical Hecke datum acts on C, every object X with π₀End_C(X)=L receives a unique semisimple cocycle Γ→H(L), up to H(L)-conjugation, whose invariant evaluations equal the excursion action on X.
+Required full carriers: the full source carriers of the local prerequisites listed in the packet. See G1/G3/G4/G5/G6 where applicable.
 
 LanglandsParameterStacks:LP3/good-filtration-t-structure
 Good-filtration t-structures (construction).
-Scope: RG2.5/its proposed RG2.6 extension supplies general induced/Weyl modules, cohomological criteria and tensor stability; E5 supplies stable IndPerf, rational algebraic cohomology and truncations. Ordinary triangulated TStructure does not supply these enhanced carriers.
+Scope: The accepted ReductiveGroupsIntegralRepresentationsPartII candidate, through its parent Layer9 request, supplies general induced/Weyl modules, cohomological criteria and tensor stability; E5 supplies stable IndPerf, rational algebraic cohomology and truncations. Ordinary triangulated TStructure does not supply these enhanced carriers. Highest-weight inputs extend the already accepted ReductiveGroupsIntegralRepresentationsPartII candidate through the registered parent Layer9 request; they are not supplied by current RG2.5.
 API goodFiltrationTStructure [data]: The t-structure on IndPerf(BG) with its connective convention. Full signature omitted pending the carriers named in Scope.
 API goodFiltrationTStructure.connective_iff [characterisation]: Vanishing of H^i(G°,M⊗∇_λ) for all i>0 and λ. Full signature omitted pending the carriers named in Scope.
 API goodFiltrationTStructure.coconnective_iff [characterisation]: Vanishing with Δ_λ for i<0. Full signature omitted pending the carriers named in Scope.
@@ -1066,12 +1104,12 @@ TEST good_shift_sign [non-example]: For a nonzero torus representation V, V[−1
 LanglandsParameterStacks:LP3/good-filtration-separatedness-and-OG
 Separatedness of good filtrations (theorem).
 Target statement (not an elaborated theorem signature): The good-filtration t-structure on IndPerf(BG) is separated: an infinitely connective object and an infinitely coconnective object are zero. The induced test modules detect zero.
-Required full carriers: ReductiveGroupsPartII:RG2.5. See G1/G3/G4 where applicable.
+Required full carriers: ReductiveGroupsPartII:RG2.5; tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ. See G1/G3/G4/G5/G6 where applicable.
 
 LanglandsParameterStacks:LP3/free-cocycle-good-filtration
 Good filtrations of free cocycle algebras (theorem).
 Target statement (not an elaborated theorem signature): For every action F_n→Aut(G), O(Z¹(F_n,G)) with twisted diagonal G°-conjugation has a good G°-filtration. Hence its higher rational G°-cohomology vanishes; for prime-to-l π₀G the corresponding G-cohomology also vanishes.
-Required full carriers: ReductiveGroupsPartII:RG2.5. See G1/G3/G4 where applicable.
+Required full carriers: ReductiveGroupsPartII:RG2.5; tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ. See G1/G3/G4/G5/G6 where applicable.
 
 LanglandsParameterStacks:LP3/induced-perfect-complexes
 Perfect complexes generated from the classifying stack (definition).
@@ -1089,134 +1127,136 @@ TEST induced_not_all_bad_prime [non-example]: For X=G with conjugation and l div
 LanglandsParameterStacks:LP3/bar-criterion
 The induced-perfect bar criterion (theorem).
 Target statement (not an elaborated theorem signature): For M∈Perf(X/G), M lies in Perf^ind iff the canonical bar map colim[…→M⊗_L A⊗_L M^∨→M⊗_L M^∨]→M⊗_A M^∨ is an isomorphism in IndPerf(BG). All tensor products on the left and its geometric realisation are formed in IndPerf(BG).
-Required full carriers: ReductiveGroupsPartII:RG2.5, EnhancedDerivedSheaves:E5:presentability, SchemeKTheoryOperations:S.1, tauceti:TauCetiRoadmap/DGAInfinity#layer-8-hochschild-cochains-deformations-massey-products-and-formality. See G1/G3/G4 where applicable.
+Required full carriers: ReductiveGroupsPartII:RG2.5; EnhancedDerivedSheaves:E5:presentability; SchemeKTheoryOperations:S.1; tauceti:TauCetiRoadmap/DGAInfinity#layer-8-hochschild-cochains-deformations-massey-products-and-formality; tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ. See G1/G3/G4/G5/G6 where applicable.
 
 LanglandsParameterStacks:LP3/equivariant-vector-bundles-and-Perf-ind
 Tensor-connectivity criterion for induced perfectness (theorem).
 Target statement (not an elaborated theorem signature): Assume A has a good G°-filtration and M∈Perf(X/G) is connective in the good-filtration t-structure after forgetting its A-action. Then M∈Perf^ind iff for every similarly connective N∈Perf(X/G), M⊗_A N remains connective.
-Required full carriers: ReductiveGroupsPartII:RG2.5. See G1/G3/G4 where applicable.
+Required full carriers: ReductiveGroupsPartII:RG2.5; tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ. See G1/G3/G4/G5/G6 where applicable.
 
 LanglandsParameterStacks:LP3/adjoint-unit-generation
 Adjoint perfect generation and its prime restriction (theorem).
 Target statement (not an elaborated theorem signature): For G acting on itself by conjugation, let i:Spec L→G be the unit. With G° reductive and π₀G prime to l, the following are equivalent: l∤|π₁(G°)_tors|; i_*L∈Perf^ind(G/G); Perf^ind(G/G)=Perf(G/G).
-Required full carriers: ReductiveGroupsPartII:RG2.5, SchemeKTheoryOperations:S.1, SchemeAndStackFoundations:SF.1. See G1/G3/G4 where applicable.
+Required full carriers: ReductiveGroupsPartII:RG2.5; SchemeKTheoryOperations:S.1; SchemeAndStackFoundations:SF.1; tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ. See G1/G3/G4/G5/G6 where applicable.
 
 LanglandsParameterStacks:LP3/twisted-free-generation
 Twisted free-group perfect generation (theorem).
 Target statement (not an elaborated theorem signature): If G° is reductive and the orders of π₀G and π₁(G°)_tors are prime to l, then for any action F_n→Aut(G), Perf(Z¹(F_n,G)/G) is generated under cones and retracts by Perf(BG).
-Required full carriers: SchemeKTheoryOperations:S.1. See G1/G3/G4 where applicable.
+Required full carriers: SchemeKTheoryOperations:S.1; tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ. See G1/G3/G4/G5/G6 where applicable.
 
 LanglandsParameterStacks:LP3/derived-unit-fibre
 Derived unit fibres and generation (theorem).
 Target statement (not an elaborated theorem signature): For a G-equivariant map X̃→G with conjugation action on G, put X=X̃×^R_G Spec L at the unit and Ã=O(X̃), A=O(X). If G° is reductive and π₀G, π₁(G°)_tors have prime-to-l orders, then L⊗_{O(G)}Ã→A is an isomorphism in IndPerf(BG). If additionally Perf(X̃/G)=Perf^ind and Ã is connective for the good-filtration t-structure, then A is connective and Perf(X/G)=Perf^ind.
-Required full carriers: ReductiveGroupsPartII:RG2.5, EnhancedDerivedSheaves:E5:animation, EnhancedDerivedSheaves:E5:presentability. See G1/G3/G4 where applicable.
+Required full carriers: ReductiveGroupsPartII:RG2.5; EnhancedDerivedSheaves:E5:animation; EnhancedDerivedSheaves:E5:presentability; tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ. See G1/G3/G4/G5/G6 where applicable.
 
 LanglandsParameterStacks:LP3/surface-and-tame-relations
 Surface and tame relation fibres (comparison).
 Target statement (not an elaborated theorem signature): The derived character stack of a compact oriented surface with relation ∏[a_i,b_i]=1 and the tame Weil parameter stack with relation σ⁻¹τσ=τ^q are unit fibres of equivariant maps G^{2g}→G and G²→G respectively. Under the good π₁ and component hypotheses their coordinate algebras are connective and their Perf categories are generated from BG. The surface comparison is an application of the same mechanism; no new surface roadmap is created here.
-Required full carriers: the full source carriers of the local prerequisites listed in the packet. See G1/G3/G4 where applicable.
+Required full carriers: the full source carriers of the local prerequisites listed in the packet. See G1/G3/G4/G5/G6 where applicable.
 
 LanglandsParameterStacks:LP3/fixed-points-of-prime-to-l-group-actions
 Prime-to-l components of fixed groups (theorem).
 Target statement (not an elaborated theorem signature): Let L be algebraically closed of characteristic l, G smooth affine with G° reductive and π₀G of order prime to l, and P finite of order prime to l acting on G. For H=G^P, the order of π₀H is prime to l. Smoothness and reductivity of H° are imported from the RG2.6 fixed-point request; this LP3 theorem owns only the component-order assertion.
-Required full carriers: ReductiveGroupsPartII:RG2.5. See G1/G3/G4 where applicable.
+Required full carriers: ReductiveGroupsPartII:RG2.5; tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ. See G1/G3/G4/G5/G6 where applicable.
 
 LanglandsParameterStacks:LP3/cyclic-fixed-locus-resolution
 Cyclic fixed-locus resolutions (theorem).
 Target statement (not an elaborated theorem signature): Let Θ have prime order r≠l on G with G° reductive and π₀G prime to l. Put X={(g₀,…,g_{r−1}):g₀Θ(g₁)⋯Θ^{r−1}(g_{r−1})=1}, with G twisted conjugation and C_r cyclic permutation. For the augmented cosimplicial G-space X^{C_r}→X⇒∏_{C_r}X→…, the coordinate-algebra realisation is O(X^{C_r}) in IndPerf(BG).
-Required full carriers: EnhancedDerivedSheaves:E5:presentability, SchemeAndStackFoundations:SF.4, ReductiveGroupsPartII:RG2.5. See G1/G3/G4 where applicable.
+Required full carriers: EnhancedDerivedSheaves:E5:presentability; SchemeAndStackFoundations:SF.4; ReductiveGroupsPartII:RG2.5; tauceti:TauCeti.fixedSubgroup; tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ. See G1/G3/G4/G5/G6 where applicable.
 
 LanglandsParameterStacks:LP3/donkin-subgroup-and-generation
 Solvable fixed groups as Donkin subgroups (theorem).
 Target statement (not an elaborated theorem signature): If P is finite solvable of order prime to l acting on G with G° reductive and π₀G prime to l, then H°=(G^P)° is a Donkin subgroup of G°: restriction of a good G°-filtered representation has a good H°-filtration. Equivalently induction of a good H°-filtered representation has a good G°-filtration.
-Required full carriers: ReductiveGroupsPartII:RG2.5. See G1/G3/G4 where applicable.
+Required full carriers: ReductiveGroupsPartII:RG2.5; tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ. See G1/G3/G4/G5/G6 where applicable.
 
 LanglandsParameterStacks:LP3/fixed-induction-and-counit
 Fixed-group induction and good counit kernels (theorem).
 Target statement (not an elaborated theorem signature): In the solvable prime-to-l fixed-group setting H=G^P, a representation W of H° has good H°-filtration iff Ind_{H°}^{G°}W has good G°-filtration, and a representation of H has good H°-filtration iff Ind_H^G W has good G°-filtration. For good W the respective restriction–induction counit kernels also have good H°-filtrations.
-Required full carriers: ReductiveGroupsPartII:RG2.5, EnhancedDerivedSheaves:E5:presentability. See G1/G3/G4 where applicable.
+Required full carriers: ReductiveGroupsPartII:RG2.5; EnhancedDerivedSheaves:E5:presentability; tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ. See G1/G3/G4/G5/G6 where applicable.
 
 LanglandsParameterStacks:LP3/fixed-restriction-generation
 Generation by restriction to fixed groups (theorem).
 Target statement (not an elaborated theorem signature): In the same solvable prime-to-l setting, Perf(BH°) is generated under cones and retracts by restrictions from Perf(BG°), and Perf(BH) is generated by restrictions from Perf(BG). No π₁ good-prime hypothesis is added.
-Required full carriers: ReductiveGroupsPartII:RG2.5, EnhancedDerivedSheaves:E5:presentability, SchemeKTheoryOperations:S.1. See G1/G3/G4 where applicable.
+Required full carriers: ReductiveGroupsPartII:RG2.5; EnhancedDerivedSheaves:E5:presentability; SchemeKTheoryOperations:S.1; tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ. See G1/G3/G4/G5/G6 where applicable.
 
 LanglandsParameterStacks:LP3/bad-prime-fixed-counterexample
 The central-character fixed-group counterexample (comparison).
 Target statement (not an elaborated theorem signature): In characteristic2, for G=(SL₂×SL₂)/μ₂ with factor-swap P=C₂, the fixed group is H=PGL₂×(μ₂×μ₂)/μ₂. The nontrivial central character of H is not generated by restrictions of Perf(BG) under cones and retracts. Thus prime-to-l cannot be replaced by preserving a Borel, torus or pinning.
-Required full carriers: ReductiveGroupsPartII:RG2.5, EnhancedDerivedSheaves:E5:abstract, EnhancedDerivedSheaves:E5:presentability. See G1/G3/G4 where applicable.
+Required full carriers: ReductiveGroupsPartII:RG2.5; EnhancedDerivedSheaves:E5:abstract; EnhancedDerivedSheaves:E5:presentability; tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ. See G1/G3/G4/G5/G6 where applicable.
 
 LanglandsParameterStacks:LP3/fixed-fundamental-group
 Fundamental groups of solvable fixed groups (theorem).
 Target statement (not an elaborated theorem signature): If G° is reductive, P is finite solvable of order prime to l and l∤|π₁(G°)_tors|, then l∤|π₁((G^P)°)_tors|.
-Required full carriers: ReductiveGroupsPartII:RG2.5. See G1/G3/G4 where applicable.
+Required full carriers: ReductiveGroupsPartII:RG2.5. See G1/G3/G4/G5/G6 where applicable.
 
 LanglandsParameterStacks:LP3/mapping-approximation
 Sifted parameter mapping approximations (construction).
-Scope: E5 supplies anima over BGamma, finite torsors, sifted animation/left Kan extension and stable linear Perf/IndPerf; SF.1 supplies gerbes and quotient stacks. This is a category-valued approximation, not an assumed representing stack.
+Scope: E5 supplies anima over BGamma, finite sets equipped with Gamma-torsors (finite bases, potentially infinite total torsors), sifted animation/left Kan extension and stable linear Perf/IndPerf; SF.1 supplies gerbes and quotient stacks. This is a category-valued approximation, not an assumed representing stack.
 API ParameterMappingApproximation [data]: The left Kan extension category denoted Perf(Map^Σ). Full signature omitted pending the carriers named in Scope.
 API ParameterMappingApproximation.compare [projection]: Natural comparison to the actual Perf mapping category. Full signature omitted pending the carriers named in Scope.
-API ParameterMappingApproximation.finiteTorsor [compatibility]: It agrees with the defining Perf category on finite torsors. Full signature omitted pending the carriers named in Scope.
-API ParameterMappingApproximation.leftKan [universal-property]: Restriction to finite torsors classifies sifted-colimit-preserving extensions. Full signature omitted pending the carriers named in Scope.
+API ParameterMappingApproximation.finiteTorsor [compatibility]: It agrees with the defining Perf category on finite sets with Γ-torsors. Full signature omitted pending the carriers named in Scope.
+API ParameterMappingApproximation.leftKan [universal-property]: Restriction to finite sets with Γ-torsors classifies sifted-colimit-preserving extensions. Full signature omitted pending the carriers named in Scope.
 API ParameterMappingApproximation.ind [functoriality]: Ind-completion of the compact category diagram. Full signature omitted pending the carriers named in Scope.
-TEST approx_point [degenerate]: On the base one-point torsor the category equals Perf of the gerbe fibre. Full example omitted pending the carriers named in Scope.
-TEST approx_coproduct [characterisation]: A finite coproduct of torsors maps to the tensor product of their linear Perf categories. Full example omitted pending the carriers named in Scope.
+TEST approx_point [degenerate]: On a one-point base equipped with its Γ-torsor (whose total set can be infinite), the category equals Perf of the gerbe fibre. Full example omitted pending the carriers named in Scope.
+TEST approx_coproduct [characterisation]: A finite disjoint union of bases equipped with Γ-torsors maps to the tensor product of their linear Perf categories. Full example omitted pending the carriers named in Scope.
 TEST approx_bad_prime [non-example]: Over F_l-bar with G=PGL_l and Γ=Z, the free-group approximation has induced-perfect image and excludes the unit skyscraper in Perf(G/G); it is not the actual mapping category. Full example omitted pending the carriers named in Scope.
 
 LanglandsParameterStacks:LP3/free-gerbe-comparison
 Free-group gerbe comparisons (theorem).
 Target statement (not an elaborated theorem signature): For a gerbe 𝒢 over BΓ banded by G with G° reductive and π₀G prime to l, the comparison IndPerf(Map^Σ_{BΓ}(BF_n,𝒢))→IndPerf(Map_{BΓ}(BF_n,𝒢)) is fully faithful, with image generated by IndPerf(BG). For a connected gerbe and extension E_G→Γ its source is modules over O(∏π⁻¹(γ_i)) in IndPerf(BG). It is an equivalence if π₁(G°)_tors has prime-to-l order; finite unions of gerbes satisfy the analogous statement.
-Required full carriers: EnhancedDerivedSheaves:E5:presentability, ReductiveGroupsPartII:RG2.5. See G1/G3/G4 where applicable.
+Required full carriers: EnhancedDerivedSheaves:E5:presentability; ReductiveGroupsPartII:RG2.5. See G1/G3/G4/G5/G6 where applicable.
 
 LanglandsParameterStacks:LP3/wild-gerbe-elimination
 Solvable wild gerbe elimination (theorem).
 Target statement (not an elaborated theorem signature): For finite solvable normal P⊂Γ of order prime to l, and a stack 𝒢 over BΓ with fibre a finite union of BG with G° reductive and π₀G prime to l, its pushforward along BΓ→B(Γ/P) has fibre Map_{BΓ}(BP,𝒢), a finite union of BH with H° reductive and π₀H prime to l. The Map^Σ(BP) comparison is an equivalence. Prime-to-l π₁ torsion of every input G° is preserved in every H°.
-Required full carriers: ReductiveGroupsPartII:RG2.5, EnhancedDerivedSheaves:E5:presentability. See G1/G3/G4 where applicable.
+Required full carriers: ReductiveGroupsPartII:RG2.5; EnhancedDerivedSheaves:E5:presentability. See G1/G3/G4/G5/G6 where applicable.
 
 LanglandsParameterStacks:LP3/tame-case-and-the-wild-remainder
 Tame reduction of finite-wild parameter categories (comparison).
 Target statement (not an elaborated theorem signature): For a finite-wild discrete W with finite normal p-group P and tame W/P, the gerbe pushforward and Map^Σ comparison reduce the characteristic-l cocycle algebra and Perf generation assertions to the tame relation-fibre case. Consequently colim free-cocycle algebras→O(Z¹(W,H)) is an isomorphism in IndPerf(BH), its algebra is connective in the good-filtration t-structure, and Perf(Z¹(W,H)/H) is generated from Perf(BH), under the good π₁ restriction.
-Required full carriers: the full source carriers of the local prerequisites listed in the packet. See G1/G3/G4 where applicable.
+Required full carriers: the full source carriers of the local prerequisites listed in the packet. See G1/G3/G4/G5/G6 where applicable.
 
 LanglandsParameterStacks:LP3/separable-centralizers
 Very-good and reductive-pair centralizers (theorem).
 Target statement (not an elaborated theorem signature): Over algebraically closed k, every closed subgroup of reductive G has smooth scheme-theoretic centralizer if char(k) is very good for G in the BMRT sense, or if G has a faithful V with G-equivariant splitting Lie(G)⊂Lie(GL(V)). Its tuple orbit maps are then separable. For simple root systems the very-good exclusions are l∤n+1 for A_n, l≠2 for B,C,D,E,F,G, l≠3 for E,F,G, and l≠5 for E₈. A positive characteristic prime to |W_G| is sufficient.
-Required full carriers: ReductiveGroupsPartII:RG2.5. See G1/G3/G4 where applicable.
+Required full carriers: ReductiveGroupsPartII:RG2.5. See G1/G3/G4/G5/G6 where applicable.
 
 LanglandsParameterStacks:LP3/quotient-etale-descent
 Descent of étaleness to reductive quotients (theorem).
 Target statement (not an elaborated theorem signature): Let G/O be reductive and X,Y normal integral affine flat finite-type O-schemes, with a finite equivariant φ:Y→X. If y∈Y(k) and x=φ(y) have closed residual orbits, φ is étale at y, and its map on these orbits is injective on geometric points, then φ//G is étale at π(y).
-Required full carriers: SchemeAndStackFoundations:SF.4, ReductiveGroupsPartII:RG2.5. See G1/G3/G4 where applicable.
+Required full carriers: SchemeAndStackFoundations:SF.4; ReductiveGroupsPartII:RG2.5. See G1/G3/G4/G5/G6 where applicable.
+Source repair E9: on the quotient normalise in the finite relative algebraic closure L₀ of Frac(O[X]^G) inside L, using the image Galois group; L itself may be transcendental over the quotient field.
 
 LanglandsParameterStacks:LP3/formal-etale-slice
 Formal quotient slices over coefficient DVRs (theorem).
 Target statement (not an elaborated theorem signature): Let G/O be reductive, X integral affine smooth finite type over O, and x∈X(k) have closed residual orbit and scheme-theoretically trivial stabilizer. For Artin local O-algebras with residue field k, the formal G-identity neighbourhood acts freely on X̂_x, and X̂_x/Ĝ≃(X//G)̂_{π(x)} as deformation functors.
-Required full carriers: SchemeAndStackFoundations:SF.4, ReductiveGroupsPartII:RG2.5, SchemeAndStackFoundations:SF.1. See G1/G3/G4 where applicable.
+Required full carriers: SchemeAndStackFoundations:SF.4; ReductiveGroupsPartII:RG2.5; SchemeAndStackFoundations:SF.1. See G1/G3/G4/G5/G6 where applicable.
+Source repair E10: the action map point is (1,x); the quotient map point is π(i(1,x)).
 
 LanglandsParameterStacks:LP3/integral-chevalley-restriction
 Integral Chevalley restriction for Levi groups (theorem).
 Target statement (not an elaborated theorem signature): For a split reductive standard dual Levi M over Z, maximal split torus T and Weyl group W(M,T), restriction gives an isomorphism Z[M]^M≃Z[T]^{W(M,T)}. This is integral over Z with no good-prime hypothesis.
-Required full carriers: ReductiveGroupsPartII:RG2.5. See G1/G3/G4 where applicable.
+Required full carriers: ReductiveGroupsPartII:RG2.5; tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ. See G1/G3/G4/G5/G6 where applicable.
 
 LanglandsParameterStacks:LP2:excursion-presentation/free-derived-cocycle-colimit
 Derived free-cocycle presentations (theorem).
 Target statement (not an elaborated theorem signature): For finite-wild W the natural map colim_{F_n→W} O(Z¹(F_n,H))→O(Z¹(W,H)) is an isomorphism in D(Z_l), indeed of animated algebras. This underlying derived statement has no π₁ good-prime restriction.
-Required full carriers: EnhancedDerivedSheaves:E5:animation, EnhancedDerivedSheaves:E5:presentability. See G1/G3/G4 where applicable.
+Required full carriers: EnhancedDerivedSheaves:E5:animation; EnhancedDerivedSheaves:E5:presentability. See G1/G3/G4/G5/G6 where applicable.
 
 LanglandsParameterStacks:LP2:integral-invariants/integral-invariant-theorem
 Integral invariant comparison (theorem).
 Target statement (not an elaborated theorem signature): Assume l∤|π₁(H)_tors|. Then colim_{F_n→W}O(Z¹(F_n,H))→O(Z¹(W,H)) is an isomorphism in IndPerf(BH) over Z_l. In particular Exc(W,H)≃O(Z¹(W,H))^H as Z_l-algebras.
-Required full carriers: EnhancedDerivedSheaves:E5:presentability, ReductiveGroupsPartII:RG2.5. See G1/G3/G4 where applicable.
+Required full carriers: EnhancedDerivedSheaves:E5:presentability; ReductiveGroupsPartII:RG2.5; tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ. See G1/G3/G4/G5/G6 where applicable.
 
 LanglandsParameterStacks:LP2:integral-invariants/cohomology-and-base-change
 Cohomology vanishing and invariant base change (theorem).
 Target statement (not an elaborated theorem signature): Under the same good-prime hypotheses, the cocycle algebra has no higher rational H-cohomology, its invariant algebra is Z_l-flat, and for a Z_l-algebra Λ the canonical map O(Z¹(W,H))^H⊗Λ→O(Z¹(W,H)_Λ)^{H_Λ} is an isomorphism, with the derived base-change form supplied by the equivariant colimit.
-Required full carriers: ReductiveGroupsPartII:RG2.5, EnhancedDerivedSheaves:E5:presentability. See G1/G3/G4 where applicable.
+Required full carriers: ReductiveGroupsPartII:RG2.5; EnhancedDerivedSheaves:E5:presentability; tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ. See G1/G3/G4/G5/G6 where applicable.
 
 LanglandsParameterStacks:LP2/three-way-separation
 The three excursion comparisons (comparison).
 Target statement (not an elaborated theorem signature): At every l≠p the excursion comparison is a universal homeomorphism and classifies semisimple geometric parameters; after inverting l it is a ring isomorphism. Under l∤|π₁(H)_tors| it is an integral ring isomorphism with higher-cohomology vanishing and coefficient base change. These are three distinct mathematical strengths.
-Required full carriers: the full source carriers of the local prerequisites listed in the packet. See G1/G3/G4 where applicable.
+Required full carriers: the full source carriers of the local prerequisites listed in the packet. See G1/G3/G4/G5/G6 where applicable.
 
 LanglandsParameterStacks:LP4/rep-action-on-perf
 Universal representation bundles (construction).
@@ -1229,51 +1269,52 @@ API UniversalRepresentationBundle.act [functoriality]: Tensoring defines the exa
 TEST rep_bundle_unit [degenerate]: The trivial representation acts by identity on Perf(X). Full example omitted pending the carriers named in Scope.
 TEST rep_bundle_at_parameter [computation]: The fibre at φ is V with the W-action supplied by φ. Full example omitted pending the carriers named in Scope.
 TEST rep_bundle_tensor [compatibility]: The fibre of the tensor product is the tensor product of the two parameter representations. Full example omitted pending the carriers named in Scope.
+API UniversalRepresentationBundle.baseChange [compatibility]: Pullback along coefficient change carries the bundle associated to V to the bundle associated to its scalar extension, compatibly with W-action, tensor and unit; no invariant-ring base-change isomorphism is assumed. Full signature omitted pending the enhanced/condensed carriers named in Scope.
 
 LanglandsParameterStacks:LP4/generation-and-module-comparison
 Perfect generation on parameter stacks (theorem).
 Target statement (not an elaborated theorem signature): For finite-wild W and l∤|π₁(H)_tors|, Perf(Z¹(W,H)/H) over Z_l is generated under cones and retracts by the image of Perf(BH). The analogous characteristic-l statement holds over F_l-bar, and over a characteristic-zero field no restriction on l is needed.
-Required full carriers: SchemeKTheoryOperations:S.1, EnhancedDerivedSheaves:E5:presentability, ReductiveGroupsPartII:RG2.5. See G1/G3/G4 where applicable.
+Required full carriers: SchemeKTheoryOperations:S.1; EnhancedDerivedSheaves:E5:presentability; ReductiveGroupsPartII:RG2.5; tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ. See G1/G3/G4/G5/G6 where applicable.
 
 LanglandsParameterStacks:LP4/module-comparison
 Parameter IndPerf module comparison (theorem).
 Target statement (not an elaborated theorem signature): Under integral good-prime generation, IndPerf(Z¹(W,H)/H)≃Mod_{O(Z¹(W,H))}(IndPerf(BH)), compatibly with pullback, tensor products and the representation bundles. Over characteristic-zero fields the same comparison holds without a π₁ restriction.
-Required full carriers: EnhancedDerivedSheaves:E5:presentability, SchemeKTheoryOperations:S.1. See G1/G3/G4 where applicable.
+Required full carriers: EnhancedDerivedSheaves:E5:presentability; SchemeKTheoryOperations:S.1. See G1/G3/G4/G5/G6 where applicable.
 
 LanglandsParameterStacks:LP4/rational-all-colimits
 Rational mapping-stack Perf colimits (theorem).
 Target statement (not an elaborated theorem signature): Let H/L be reductive over characteristic-zero L, with finite Q-action. The functor S↦Perf(Map_{BQ}(S,B(H⋊Q))) from anima over BQ to L-linear symmetric monoidal small stable idempotent-complete categories preserves all colimits; in particular it preserves sifted colimits after forgetting the monoidal structure.
-Required full carriers: EnhancedDerivedSheaves:E5:animation, EnhancedDerivedSheaves:E5:abstract, EnhancedDerivedSheaves:E5:presentability, SchemeAndStackFoundations:SF.1, SchemeKTheoryOperations:S.1, ReductiveGroupsPartII:RG2.5. See G1/G3/G4 where applicable.
+Required full carriers: EnhancedDerivedSheaves:E5:animation; EnhancedDerivedSheaves:E5:abstract; EnhancedDerivedSheaves:E5:presentability; SchemeAndStackFoundations:SF.1; SchemeKTheoryOperations:S.1; ReductiveGroupsPartII:RG2.5; tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ. See G1/G3/G4/G5/G6 where applicable.
 
 LanglandsParameterStacks:LP4/colimit-theorem-and-monoidal-universal-property
 Rational categorical parameter actions (theorem).
 Target statement (not an elaborated theorem signature): For any anima S→BQ, reductive H over characteristic-zero L with finite Q-action, and small idempotent-complete stable L-linear C, the anima of L-linear Perf(Map_{BQ}(S,B(H⋊Q)))-actions on C is equivalent to the anima of finite-set-functorial exact Rep_L(Q^I)-linear monoidal functors Rep_L((H⋊Q)^I)→End_L(C)^{S^I}. The comparison is given by universal representation bundles.
-Required full carriers: ReductiveGroupsPartII:RG2.5, EnhancedDerivedSheaves:E5:abstract, EnhancedDerivedSheaves:E5:presentability. See G1/G3/G4 where applicable.
+Required full carriers: ReductiveGroupsPartII:RG2.5; EnhancedDerivedSheaves:E5:abstract; EnhancedDerivedSheaves:E5:presentability; tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ. See G1/G3/G4/G5/G6 where applicable.
 
 LanglandsParameterStacks:LP4/integral-universal-property
 Integral categorical parameter actions (theorem).
 Target statement (not an elaborated theorem signature): For split reductive H over a coefficient DVR R with finite Q-action, anima S→BQ and small idempotent-complete stable R-linear C, the same finite-set monoidal datum classifies R-linear actions of ParameterMappingApproximation(S)=Perf(Map^Σ_{BQ}(S,B(H⋊Q))). No π₁ restriction is needed for this approximation theorem.
-Required full carriers: ReductiveGroupsPartII:RG2.5, EnhancedDerivedSheaves:E5:abstract, EnhancedDerivedSheaves:E5:presentability. See G1/G3/G4 where applicable.
+Required full carriers: ReductiveGroupsPartII:RG2.5; EnhancedDerivedSheaves:E5:abstract; EnhancedDerivedSheaves:E5:presentability; tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ. See G1/G3/G4/G5/G6 where applicable.
 
 LanglandsParameterStacks:LP4/approximation-all-colimits
 Colimits of integral parameter approximations (theorem).
 Target statement (not an elaborated theorem signature): Over a coefficient DVR R the functor S↦Perf(Map^Σ_{BQ}(S,B(H⋊Q))) preserves all colimits into symmetric monoidal idempotent-complete small stable R-linear categories.
-Required full carriers: ReductiveGroupsPartII:RG2.5, EnhancedDerivedSheaves:E5:presentability. See G1/G3/G4 where applicable.
+Required full carriers: ReductiveGroupsPartII:RG2.5; EnhancedDerivedSheaves:E5:presentability; tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ. See G1/G3/G4/G5/G6 where applicable.
 
 LanglandsParameterStacks:LP4/integral-free-group-comparison
 Integral free-group approximation comparison (theorem).
 Target statement (not an elaborated theorem signature): For S=BF_n→BQ, the integral approximation-to-actual Perf comparison is fully faithful and its image is the stable retract closure of Rep_R(H). Its Ind category is modules over O(H^n), with pulled-back twisted conjugation, in IndPerf(BH); compact objects give the approximation.
-Required full carriers: EnhancedDerivedSheaves:E5:presentability, ReductiveGroupsPartII:RG2.5, SchemeKTheoryOperations:S.1. See G1/G3/G4 where applicable.
+Required full carriers: EnhancedDerivedSheaves:E5:presentability; ReductiveGroupsPartII:RG2.5; SchemeKTheoryOperations:S.1; tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ. See G1/G3/G4/G5/G6 where applicable.
 
 LanglandsParameterStacks:LP4/sifted-approximation
 Discrete-group approximation algebras (theorem).
 Target statement (not an elaborated theorem signature): For any discrete Γ→Q, BΓ is the sifted colimit of BF_n over FreeCocycleIndex(Γ) in anima. The integral approximation Perf(Map^Σ_{BQ}(BΓ,B(H⋊Q))) is the compact-object category of modules over colim_{F_n→Γ}O(H^n) in IndPerf(BH), with the tuple-dependent twisted action.
-Required full carriers: EnhancedDerivedSheaves:E5:animation, EnhancedDerivedSheaves:E5:presentability. See G1/G3/G4 where applicable.
+Required full carriers: EnhancedDerivedSheaves:E5:animation; EnhancedDerivedSheaves:E5:presentability. See G1/G3/G4/G5/G6 where applicable.
 
 LanglandsParameterStacks:LP4/weil-approximation-equivalence
 Weil approximation and categorical actions (theorem).
 Target statement (not an elaborated theorem signature): For finite-wild W, coefficient ring Λ the integers of a finite Q_l-extension and l∤|π₁(H)_tors|, the comparison Perf(Map^Σ_{BQ}(BW,B(H⋊Q)))_Λ→Perf(Z¹(W,H)_Λ/H) is an equivalence. Thus finite-set exact monoidal representation data classify Λ-linear actions of the actual finite-wild parameter Perf category on any small idempotent-complete stable C. Over a Q_l-field this holds at every l.
-Required full carriers: EnhancedDerivedSheaves:E5:presentability. See G1/G3/G4 where applicable.
+Required full carriers: EnhancedDerivedSheaves:E5:presentability. See G1/G3/G4/G5/G6 where applicable.
 
 LanglandsParameterStacks:LP4/compactly-supported-actions
 Compactly supported parameter actions (definition).
