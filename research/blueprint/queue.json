@@ -16790,8 +16790,9 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-EllipticCurveModularityImaginaryQuadratic.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6898"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6898",
+   "finishedAt": "2026-10-07T16:51:34Z"
   },
   {
    "id": "REV-DESIGN-EllipticCurveModularityImaginaryQuadratic",
