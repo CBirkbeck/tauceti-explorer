@@ -26784,9 +26784,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-LanglandsParameterStacks.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #767"
+   "note": "claimed on GitHub issue #767"
   },
   {
    "id": "REV-LanglandsParameterStacks",
@@ -28708,8 +28708,9 @@
    ],
    "avoidAccountOf": "BP-RelativeFarguesFontaine--RF0",
    "prompt": "research/blueprint/prompts/REV-RelativeFarguesFontaine--RF0.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #482"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #482",
+   "finishedAt": "2026-10-07T08:38:06Z"
   },
   {
    "id": "BP-RelativeFarguesFontaine--RF4",
