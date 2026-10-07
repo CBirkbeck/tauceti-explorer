@@ -37680,7 +37680,8 @@
     "REV-RankZeroOneBSD--BSD.7"
    ],
    "prompt": "research/blueprint/prompts/ASM-RankZeroOneBSD.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #255"
   },
   {
    "id": "ASM-RefinedTraceMethods",
@@ -37888,7 +37889,8 @@
     "REV-OverconvergentAutomorphicForms--O8"
    ],
    "prompt": "research/blueprint/prompts/ASM-OverconvergentAutomorphicForms.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #248"
   },
   {
    "id": "ASM-AnabelianGeometryAndNonabelianChabauty",
