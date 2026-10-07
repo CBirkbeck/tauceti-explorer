@@ -560,7 +560,6 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "III.5.1 (PDF p. 225)",
-          "excerpt": "Definition 5.1. For n >= 3 the Steinberg group St_n(R) of a ring R is the group defined by generators x_ij(r), with i, j a pair of distinct integers between 1 and n and r in R, subject to",
           "match": "The definition and the three relations, as displayed."
         }
       ],
@@ -685,7 +684,6 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "III.5.1.2 (PDF p. 225)",
-          "excerpt": "As observed in 1.3.1, the Steinberg relations are also satisfied by the elementary matrices e_ij(r) which generate the subgroup E_n(R) of GL_n(R). Hence there is a canonical group surjection phi_n : St_n(R) -> E_n(R) sending x_ij(r) to e_ij(r).",
           "match": "The observation and the resulting surjection, as displayed."
         }
       ],
@@ -725,7 +723,6 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "III.5.1.2 (PDF p. 225)",
-          "excerpt": "The Steinberg relations for n + 1 include the Steinberg relations for n, so there is an obvious map St_n(R) -> St_{n+1}(R). We write St(R) for the colimit of the St_n(R), and observe that by stabilizing the phi_n induce a surjection phi : St(R) -> E(R).",
           "match": "The stabilisation and the stable surjection, as displayed."
         }
       ],
@@ -833,7 +830,6 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "III.5.2 (PDF p. 225)",
-          "excerpt": "Definition 5.2. The group K_2(R) is the kernel of phi : St(R) -> E(R). Thus there is an exact sequence of groups 1 -> K_2(R) -> St(R) -> GL(R) -> K_1(R) -> 1.",
           "match": "The definition and the exact sequence, as displayed."
         }
       ],
@@ -939,7 +935,6 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "III.5.2.1 (PDF p. 225)",
-          "excerpt": "Theorem 5.2.1. (Steinberg) K_2(R) is an abelian group. In fact it is precisely the center of St(R).",
           "match": "The theorem, with the proof of the source followed step by step."
         }
       ],
@@ -979,7 +974,6 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "III.5.3 (PDF p. 226)",
-          "excerpt": "Let G be a group and A an abelian group. A central extension of G by A is a short exact sequence of groups 1 -> A -> X -> G -> 1 such that A is in the center of X. We say that a central extension is split if it is isomorphic to an extension of the form 1 -> A -> A x G -> G -> 1.",
           "match": "The definitions, as displayed."
         }
       ],
@@ -1078,7 +1072,6 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "III.5.3.1 (PDF p. 227)",
-          "excerpt": "Definition 5.3.1. A universal central extension of G is a central extension X -> G such that for every other central extension Y -> G there is a unique homomorphism f over G from X to Y. Clearly a universal central extension is unique up to isomorphism over G, provided it exists.",
           "match": "The definition, as displayed."
         }
       ],
@@ -1176,7 +1169,6 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "III.5.3.2 (PDF p. 227)",
-          "excerpt": "Universality forces both the source and the quotient to be perfect.",
           "match": "Paraphrase of the indicated passage; checked in the author copy, not a quotation from the published edition."
         }
       ],
@@ -1218,13 +1210,11 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "III.5.3.4 and III.5.3.5 (PDF p. 227)",
-          "excerpt": "The group (R intersect [F, F]) / [R, F] in (5.3.5) is the homology group H_2(G; Z); this identity was discovered in 1941 by Hopf.",
           "match": "Hopf's formula and the two extensions, as displayed."
         },
         {
           "sourceId": "Loeh.GroupCohomology.2019",
           "locator": "Theorem 3.2.18 (printed p. 129; PDF p. 137)",
-          "excerpt": "Theorem 3.2.18 (Hopf's formula). Let F be a free group, let N ⊂ F be a normal subgroup, and let G := F/N. Then there is an exact sequence 0 → H2(G; Z) → H1(N; Z)G → H1(F; Z) → H1(G; Z) → 0",
           "match": "The route from the four-term sequence to the formula, followed in the proof steps."
         }
       ],
@@ -1274,19 +1264,16 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "III.5.4, statement (PDF p. 227, printed p. 219)",
-          "excerpt": "Recognition Theorem 5.4. Every perfect group G has a universal central extension, namely the extension (5.3.5): 1 → H2(G; Z) → [F, F]/[R, F] → G → 1.",
           "match": "The existence statement and the extension (5.3.5)."
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "III.5.4, equivalent conditions and proof (PDF p. 228, printed p. 220)",
-          "excerpt": "Let X be any central extension of G, the following are equivalent: (1) X is a universal central extension; (2) X is perfect, and every central extension of X splits; (3) H1(X; Z) = H2(X; Z) = 0.",
           "match": "The three equivalent conditions."
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "III.5.4, equivalent conditions and proof (PDF p. 228, printed p. 220)",
-          "excerpt": "The implication (1)⇒(2) is Lemma 5.3.2 and Ex. 5.7, and (2) ⇒ (1) is immediate.",
           "match": "The source's own division of the implications, which the proof steps refine into separate nodes."
         }
       ],
@@ -1332,7 +1319,6 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "III.5.5 (PDF p. 228)",
-          "excerpt": "Theorem 5.5. (Kervaire, Steinberg) The Steinberg group St(R) is the universal central extension of E(R). Hence K_2(R) = H_2(E(R); Z).",
           "match": "The theorem, as displayed."
         }
       ],
@@ -1376,7 +1362,6 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "III.5.5.1 (PDF p. 228)",
-          "excerpt": "Proposition 5.5.1. If n >= 5, every central extension Y -> St_n(R) is split. Hence St_n(R) is the universal central extension of E_n(R).",
           "match": "The splitting assertion and its proof. The printed finite-rank universality consequence requires the separate centrality input recorded in source issue K2SymbolsBrauer/E2."
         }
       ],
@@ -1413,7 +1398,6 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "III.5.2.1 and III.5.5.2 (PDF pp. 226, 229)",
-          "excerpt": "The source separates stable centrality from stabilization assertions; injectivity on the unstable kernel is an extra input to the finite-rank deduction.",
           "match": "Paraphrase of the indicated passage; checked in the author copy, not a quotation from the published edition."
         }
       ],
@@ -1455,7 +1439,6 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "III.5.5 (PDF p. 228)",
-          "excerpt": "Hence K_2(R) = H_2(E(R); Z).",
           "match": "The identification, as displayed."
         }
       ],
@@ -1500,7 +1483,6 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "IV.1.7.1 and Exercise IV.1.8 (PDF pp. 273, 282)",
-          "excerpt": "Classical K2 agrees with the second homotopy group of BGL(R)+; BE(R)+ supplies its simply connected covering model.",
           "match": "Paraphrase of the indicated passage; checked in the author copy, not a quotation from the published edition."
         }
       ],
@@ -1543,7 +1525,6 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "III.5 Steinberg symbols (PDF p. 233)",
-          "excerpt": "If two matrices A, B in E(R) commute, we can construct an element in K_2(R) by lifting their commutator to St(R). ... This definition is independent of the choice of a and b because any other lift will equal ac, bc' for central elements c, c', and [ac, bc'] = [a, b].",
           "match": "The construction and its independence of lifts, as displayed."
         }
       ],
@@ -1651,7 +1632,6 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "III.5.10 and III.5.10.1 (PDF p. 233)",
-          "excerpt": "Definition 5.10. If r, s are commuting units in a ring R, we define the Steinberg symbol {r, s} in K_2(R) to be the star product of the two displayed diagonal matrices. ... For any unit r",
           "match": "The definition and the two descriptions, as displayed."
         }
       ],
@@ -1762,7 +1742,6 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "III.5.10.2, III.5.10.3 and III.5.10.4 (PDF pp. 233-234)",
-          "excerpt": "Lemma 5.10.2. If both r and 1 - r are units of R, then in K_2(R) we have: {r, 1 - r} = 1 and {r, -r} = 1. ... Remark 5.10.4. The equation {r, -r} = 1 holds more generally for every unit r, even if 1 - r is not a unit.",
           "match": "The lemma and the remark, as displayed, with the computation of the cited proof."
         }
       ],
@@ -1803,7 +1782,6 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "III.6.1 (PDF p. 239)",
-          "excerpt": "Note that the calculation (5.10.3) implies that {x, -x} = 1 for all x, and this implies that the Steinberg symbols are skew-symmetric: {x, y}{y, x} = {x, -xy}{y, -xy} = {xy, -xy} = 1.",
           "match": "The derivation of skew-symmetry, as displayed; the value of the symbol of a unit with itself follows from the same identity."
         }
       ],
@@ -1839,7 +1817,6 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "III.5.10.5 (PDF p. 234)",
-          "excerpt": "Theorem 5.10.5. If R is a field, division ring, local ring, or even a semilocal ring, then K_2(R) is generated by the Steinberg symbols {r, s}.",
           "match": "The theorem and its hypotheses, as displayed."
         }
       ],
@@ -1878,7 +1855,6 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "III.6.1 (PDF p. 239)",
-          "excerpt": "Matsumoto's Theorem 6.1. If F is a field then K_2(F) is the abelian group generated by the set of Steinberg symbols {x, y} with x, y in F^x, subject only to the relations: (Bilinearity)",
           "match": "The theorem and its reformulation, as displayed."
         }
       ],
@@ -1921,7 +1897,6 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "III.6.1.1 (PDF p. 239)",
-          "excerpt": "Corollary 6.1.1. K_2(F_q) = 1 for every finite field F_q.",
           "match": "The corollary, with the counting proof of the source."
         }
       ],
@@ -1958,7 +1933,6 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "III.6.1.2 (PDF p. 239)",
-          "excerpt": "A rational function extension splits by sending each symbol to its leading coefficients.",
           "match": "Paraphrase of the indicated passage; checked in the author copy, not a quotation from the published edition."
         }
       ],
@@ -2001,7 +1975,6 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "III.7.1 (PDF p. 253)",
-          "excerpt": "Definition 7.1. The graded ring K^M_*(F) is defined to be the quotient of T(F^x) by the ideal generated by the homogeneous elements l(x) tensor l(1 - x) with x not 0, 1. The Milnor K-group K^M_n(F) is defined to be the subgroup of elements of degree n.",
           "match": "The definition, as displayed."
         }
       ],
@@ -2134,13 +2107,11 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "III.7.1 (PDF p. 253)",
-          "excerpt": "Since {x_i, x_{i+1}} + {x_{i+1}, x_i} = 0 in K^M_2(F), we see that interchanging two entries in {x_1, ..., x_n} yields the inverse. It follows that these symbols are alternating.",
           "match": "The derivation, as displayed."
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "III.6.3 (PDF p. 242)",
-          "excerpt": "The tame-symbol formula sends {t,-1} at the t-adic valuation to -1, detecting its nonzero class.",
           "match": "Paraphrase of the indicated passage; checked in the author copy, not a quotation from the published edition."
         }
       ],
@@ -2176,7 +2147,6 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "III.7.2(a) (PDF p. 253)",
-          "excerpt": "All Milnor groups of a finite field in degrees at least two vanish.",
           "match": "Paraphrase of the indicated passage; checked in the author copy, not a quotation from the published edition."
         }
       ],
@@ -2218,13 +2188,11 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "IV.1.10.1 (PDF p. 274), III.7.1 (PDF p. 253)",
-          "excerpt": "Products of unit classes define the graded Milnor-to-Quillen ring map; degree-two products agree with classical Steinberg symbols.",
           "match": "Paraphrase of the indicated passage; checked in the author copy, not a quotation from the published edition."
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "VI.4.3.2 and VI.5.2.1 (PDF pp. 490, 496)",
-          "excerpt": "The integral degree-three map is injective; Q gives a non-surjective example with source Z/2 and target Z/48.",
           "match": "Paraphrase of the indicated passage; checked in the author copy, not a quotation from the published edition."
         }
       ],
@@ -2335,7 +2303,6 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "IV.1.10.1 and VI.4.3.2 (PDF pp. 274, 490)",
-          "excerpt": "The graded product map has an injective integral degree-three component for every field; its cokernel is studied in VI.5.",
           "match": "Paraphrase of the indicated passage; checked in the author copy, not a quotation from the published edition."
         }
       ],
@@ -2369,7 +2336,6 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "III.5.1.1 (PDF p. 225)",
-          "excerpt": "The presentation maps onto the elementary subgroup by sending each generator to its elementary matrix.",
           "match": "Paraphrase of the indicated passage; checked in the author copy, not a quotation from the published edition."
         }
       ],
@@ -2447,7 +2413,6 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "III.5.2 (PDF p. 225)",
-          "excerpt": "The classical kernel lies in the low-degree exact sequence through stable GL and K1.",
           "match": "Paraphrase of the indicated passage; checked in the author copy, not a quotation from the published edition."
         }
       ],
@@ -2480,7 +2445,6 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "III.5.3.1 (PDF p. 226)",
-          "excerpt": "Universality quantifies over maps of central extensions commuting with projection to G.",
           "match": "Paraphrase of the indicated passage; checked in the author copy, not a quotation from the published edition."
         }
       ],
@@ -2552,7 +2516,6 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "III.5.3 (PDF pp. 226-227)",
-          "excerpt": "For the fixed abelian kernel A, central extensions are classified by degree-two cohomology with trivial action.",
           "match": "Paraphrase of the indicated passage; checked in the author copy, not a quotation from the published edition."
         }
       ],
@@ -2588,7 +2551,6 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "III.5.3.3 (PDF p. 227)",
-          "excerpt": "A perfect central extension has at most one homomorphism over the common quotient to another central extension.",
           "match": "Paraphrase of the indicated passage; checked in the author copy, not a quotation from the published edition."
         }
       ],
@@ -2622,7 +2584,6 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "III.5.3.4 (PDF p. 227)",
-          "excerpt": "The first central extension has total group F/[S,F] and kernel S/[S,F].",
           "match": "Paraphrase of the indicated passage; checked in the author copy, not a quotation from the published edition."
         }
       ],
@@ -2698,7 +2659,6 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "III.5.3.5 (PDF p. 227)",
-          "excerpt": "The second central extension has total group [F,F]/[S,F] and the Hopf intersection as kernel.",
           "match": "Paraphrase of the indicated passage; checked in the author copy, not a quotation from the published edition."
         }
       ],
@@ -2776,7 +2736,6 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "III.5.4, equivalent conditions and proof (PDF p. 228, printed p. 220)",
-          "excerpt": "The implication (1)⇒(2) is Lemma 5.3.2 and Ex. 5.7, and (2) ⇒ (1) is immediate.",
           "match": "The source calls (2) ⇒ (1) immediate: a central extension Y → G is pulled back along X → G to a central extension of X, which condition (2) splits. The pullback is not displayed in the source; this node makes it a declaration."
         }
       ],
@@ -2883,7 +2842,6 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "Exercise III.5.7 (PDF p. 237, printed p. 229)",
-          "excerpt": "If Y →ρ X and X →π G are central extensions, show that the “composition” Y →πρ G is also a central extension. If X is a universal central extension of G, conclude that every central extension Y →ρ X splits.",
           "match": "The first sentence, with the perfectness hypothesis the printed exercise omits: the D_8 example shows the printed statement is false without it (recorded as K3BlochGroups/E2 in the K3BlochGroups packet, where this lemma was first planned as V.1/central-extension-comp). The second sentence is uce-extensions-split."
         }
       ],
@@ -2922,7 +2880,6 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "Exercise III.5.7 (PDF p. 237, printed p. 229)",
-          "excerpt": "If Y →ρ X and X →π G are central extensions, show that the “composition” Y →πρ G is also a central extension. If X is a universal central extension of G, conclude that every central extension Y →ρ X splits.",
           "match": "The second sentence; the proof steps are the intended solution, using the first sentence with the perfectness of X that Lemma III.5.3.2 supplies."
         }
       ],
@@ -2970,13 +2927,11 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "III.5.3 (PDF p. 227, printed p. 219)",
-          "excerpt": "It is well-known that the equivalence classes of central extensions of G by a fixed group A are in 1–1 correspondence with the elements of the cohomology group H2(G; A)",
           "match": "The classification of central extensions by H² used in the third step, with the trivial action on T."
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "III.5.4, equivalent conditions and proof (PDF p. 228, printed p. 220)",
-          "excerpt": "Let X be any central extension of G, the following are equivalent: (1) X is a universal central extension; (2) X is perfect, and every central extension of X splits; (3) H1(X; Z) = H2(X; Z) = 0.",
           "match": "The implication (2) ⇒ (3) in degree two that this lemma supplies. First planned as K3BlochGroups:V.1/split-extensions-kill-h2 (review REV-K3BlochGroups); moved here by FIX-RT-AREA-ktheory-1."
         }
       ],
@@ -3021,13 +2976,11 @@
         {
           "sourceId": "Loeh.GroupCohomology.2019",
           "locator": "Corollary 1.4.6 (printed p. 23; PDF p. 31)",
-          "excerpt": "Corollary 1.4.6 (homological characterisation of perfect groups). Let G be a group. Then G is perfect if and only if H1(G; Z) ≅ 0.",
           "match": "The characterisation of perfectness, which is what the Recognition Theorem's H_1 = 0 means."
         },
         {
           "sourceId": "Loeh.GroupCohomology.2019",
           "locator": "Theorem 1.4.1 (printed p. 20; PDF p. 28)",
-          "excerpt": "Theorem 1.4.1 (group homology in degree 1). Let G be a group. Then (where Z carries the trivial G-action) there is a canonical isomorphism H1(G; Z) ≅ Gab.",
           "match": "The natural isomorphism with the abelianisation; at the pin Mathlib supplies it as H1AddEquivOfIsTrivial up to the unit isomorphism of the tensor product."
         }
       ],
@@ -3068,7 +3021,6 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "III.5.4, equivalent conditions and proof (PDF p. 228, printed p. 220)",
-          "excerpt": "Let X be any central extension of G, the following are equivalent: (1) X is a universal central extension; (2) X is perfect, and every central extension of X splits; (3) H1(X; Z) = H2(X; Z) = 0.",
           "match": "Condition (3). The source does not use the word 'superperfect'; it is the standard name for this condition and the one the consuming roadmaps use."
         }
       ],
@@ -3179,7 +3131,6 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "III.5.4, equivalent conditions and proof (PDF p. 228, printed p. 220)",
-          "excerpt": "Given any central extension X of G, the map F → G lifts to a map h : F → X because F is free. Since h(R) is in the center of X, h([R, F]) = 1. Thus h induces a map from [F, F]/[R, F] to X over G. This map is unique by Lemma 5.3.3.",
           "match": "Lemma 5.3.3 applies only to a perfect source, here [F, F]/[R, F]; the source uses its perfectness without comment, and this node supplies it."
         }
       ],
@@ -3225,13 +3176,11 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "III.5.4, statement (PDF p. 227, printed p. 219)",
-          "excerpt": "Recognition Theorem 5.4. Every perfect group G has a universal central extension, namely the extension (5.3.5): 1 → H2(G; Z) → [F, F]/[R, F] → G → 1.",
           "match": "The existence half of the theorem, with the extension (5.3.5)."
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "III.5.4, equivalent conditions and proof (PDF p. 228, printed p. 220)",
-          "excerpt": "Given any central extension X of G, the map F → G lifts to a map h : F → X because F is free. Since h(R) is in the center of X, h([R, F]) = 1. Thus h induces a map from [F, F]/[R, F] to X over G. This map is unique by Lemma 5.3.3.",
           "match": "The proof, followed step by step; the perfectness that Lemma 5.3.3 needs is hopf-extension-perfect."
         }
       ],
@@ -3274,7 +3223,6 @@
         {
           "sourceId": "Loeh.GroupCohomology.2019",
           "locator": "Corollary 1.6.23 with Proposition 1.6.21 (printed pp. 56-57; PDF pp. 64-65)",
-          "excerpt": "Corollary 1.6.23 ((co)homology of free groups). Let S be a set, let F be the free group freely generated by S, and let A be a ZF-module. Then, for all k ∈ N≥2, Hk(F; A) ≅ 0 and H^k(F; A) ≅ 0.",
           "match": "The vanishing statement with the length-one free resolution of Proposition 1.6.21 that proves it; the proof steps follow Löh's."
         }
       ],
@@ -3316,13 +3264,11 @@
         {
           "sourceId": "Loeh.GroupCohomology.2019",
           "locator": "Theorem 3.2.18 (printed p. 129; PDF p. 137)",
-          "excerpt": "Theorem 3.2.18 (Hopf's formula). Let F be a free group, let N ⊂ F be a normal subgroup, and let G := F/N. Then there is an exact sequence 0 → H2(G; Z) → H1(N; Z)G → H1(F; Z) → H1(G; Z) → 0",
           "match": "The four-term sequence, with H1(N; Z)_G rewritten as N/[F, N] as Löh does at the start of the proof."
         },
         {
           "sourceId": "Loeh.GroupCohomology.2019",
           "locator": "Proof of Theorem 3.2.18 (printed pp. 130-131; PDF pp. 138-139)",
-          "excerpt": "As subgroup of the free group F, also N is a free group (Theorem AT.2.3.52). Therefore, by Corollary 1.6.23, for all k ∈ N≥2, Hk(F; Z) ≅ 0 and Hk(N; Z) ≅ 0.",
           "match": "Löh gives a spectral-sequence proof using free-group vanishing. This packet instead specializes its explicitly constructed bar-kernel five-term sequence, for which only the vanishing of H₂(F,Z) is needed; no spectral sequence construction is attributed to this passage."
         }
       ],
@@ -3363,13 +3309,11 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "III.5.4, statement (PDF p. 227, printed p. 219)",
-          "excerpt": "Recognition Theorem 5.4. Every perfect group G has a universal central extension, namely the extension (5.3.5): 1 → H2(G; Z) → [F, F]/[R, F] → G → 1.",
           "match": "The kernel of the displayed universal central extension is H_2(G; Z)."
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "Before Proposition IV.1.7 (PDF p. 272, printed p. 264)",
-          "excerpt": "Recall from III.5.4 that every perfect group P has a universal central extension E → P, and that the kernel of this extension is the abelian group H2(P; Z).",
           "match": "The form in which the plus-construction chapter uses the statement, for an arbitrary universal central extension of a perfect group."
         }
       ],
@@ -3409,13 +3353,11 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "III.5.4, equivalent conditions and proof (PDF p. 228, printed p. 220)",
-          "excerpt": "Let X be any central extension of G, the following are equivalent: (1) X is a universal central extension; (2) X is perfect, and every central extension of X splits; (3) H1(X; Z) = H2(X; Z) = 0.",
           "match": "The implication (1) ⇒ (3), by the route (1) ⇒ (2) ⇒ (3) the source indicates. First planned as K3BlochGroups:V.1/uce-superperfect; moved here by FIX-RT-AREA-ktheory-1 so that V.1 imports it."
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "Exercise IV.1.9 (PDF p. 282, printed p. 274)",
-          "excerpt": "Suppose that A → S → P is a universal central extension (III.5.3.1). In particular, S and P are perfect groups.",
           "match": "The perfectness half, in the form the plus-construction exercise uses."
         }
       ],
@@ -3455,7 +3397,6 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "III.5.4, equivalent conditions and proof (PDF p. 228, printed p. 220)",
-          "excerpt": "Let X be any central extension of G, the following are equivalent: (1) X is a universal central extension; (2) X is perfect, and every central extension of X splits; (3) H1(X; Z) = H2(X; Z) = 0.",
           "match": "The implication (3) ⇒ (2), which the source obtains from the existence half and the identification of the kernel with H_2."
         }
       ],
@@ -3495,7 +3436,6 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "III.5.4, equivalent conditions and proof (PDF p. 228, printed p. 220)",
-          "excerpt": "The implication (1)⇒(2) is Lemma 5.3.2 and Ex. 5.7, and (2) ⇒ (1) is immediate.",
           "match": "The implication (2) ⇒ (1), which the source calls immediate; the proof steps make the pullback explicit."
         }
       ],
@@ -3536,7 +3476,6 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "III.5.3.1 (PDF p. 227, printed p. 219)",
-          "excerpt": "Definition 5.3.1. A universal central extension of G is a central extension X → G such that for every other central extension Y → G there is a unique homomorphism f over G from X to Y.",
           "match": "The universal property from which the lift is derived. The source states uniqueness up to isomorphism over G but not the lift along a homomorphism of bases or its functoriality; they are derived here through the pullback."
         }
       ],
@@ -3651,13 +3590,11 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "III.5.3.4 (PDF p. 227, printed p. 219)",
-          "excerpt": "Example 5.3.4. Every presentation of G gives rise to two natural central extensions as follows.",
           "match": "The source calls the two extensions natural but does not prove the naturality of the Hopf identification."
         },
         {
           "sourceId": "Loeh.GroupCohomology.2019",
           "locator": "Proof of Theorem 3.2.18 (printed p. 131; PDF p. 139)",
-          "excerpt": "By the naturality of the Hochschild-Serre spectral sequence (Remark 3.2.14), this leads to a corresponding transformation between the associated Hochschild-Serre spectral sequences",
           "match": "Löh identifies degree-one maps by spectral-sequence naturality. This packet supplies the required degree-two compatibility by the pinned connecting-map naturality and the explicit bar-kernel isomorphism; it does not claim that Löh constructs the spectral sequence here."
         }
       ],
@@ -3696,7 +3633,6 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "Theorem III.5.5 (PDF p. 228, printed p. 220)",
-          "excerpt": "Theorem 5.5. (Kervaire, Steinberg) The Steinberg group St(R) is the universal central extension of E(R). Hence K2(R) ≅ H2(E(R); Z).",
           "match": "The identification whose naturality in the ring the later chapters use; the source does not state the naturality, which is derived here from uce-lift and hopf-formula-natural."
         }
       ],
@@ -3733,7 +3669,6 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "III.5.1 relations and III.5.5 (PDF pp. 225, 228)",
-          "excerpt": "The three-index commutator relation expresses every Steinberg generator as a commutator.",
           "match": "Paraphrase of the indicated passage; checked in the author copy, not a quotation from the published edition."
         }
       ],
@@ -3771,7 +3706,6 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "III.5.10.1 (PDF p. 233)",
-          "excerpt": "The source defines two indexed words and computes their elementary matrix images.",
           "match": "Paraphrase of the indicated passage; checked in the author copy, not a quotation from the published edition."
         }
       ],
@@ -3844,7 +3778,6 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "III.5.10.3-.4 (PDF p. 234)",
-          "excerpt": "The general negative-unit relation follows by first working in the universal Laurent polynomial ring.",
           "match": "Paraphrase of the indicated passage; checked in the author copy, not a quotation from the published edition."
         }
       ],
@@ -3881,7 +3814,6 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "III.6.1.3 (PDF p. 239)",
-          "excerpt": "Restriction to an arbitrary field extension has a torsion kernel, by finite extension transfer after a transcendence basis.",
           "match": "Paraphrase of the indicated passage; checked in the author copy, not a quotation from the published edition."
         }
       ],
@@ -3917,7 +3849,6 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "III.7.2(b) and Exercise III.7.3 (PDF pp. 253, 265)",
-          "excerpt": "The algebraically closed calculation must be restricted to degrees at least two to exclude Z and the torsion in F×.",
           "match": "Paraphrase of the indicated passage; checked in the author copy, not a quotation from the published edition."
         }
       ],
@@ -3953,7 +3884,6 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "III.7.2(c) (PDF p. 253)",
-          "excerpt": "The real sign map detects the all-negative symbol and the positive-degree torsion summand.",
           "match": "Paraphrase of the indicated passage; checked in the author copy, not a quotation from the published edition."
         }
       ],
@@ -3989,13 +3919,11 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "III.7.2(d) (PDF p. 254)",
-          "excerpt": "The sign maps give the Bass-Tate isomorphism in degrees at least three for a number field.",
           "match": "Paraphrase of the indicated passage; checked in the author copy, not a quotation from the published edition."
         },
         {
           "sourceId": "Kbook.III.chapter",
           "locator": "III.7.2(a),(d), PDF pp.61–62",
-          "excerpt": "The general global-field Milnor theorem is already owned here; its original Bass–Tate proof remains the existing gap.",
           "match": "Paraphrase of the inspected passage, not a quotation. The general global-field Milnor theorem is already owned here; its original Bass–Tate proof remains the existing gap."
         }
       ],
@@ -4028,13 +3956,11 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "III.7.2(a) (PDF p. 253)",
-          "excerpt": "Milnor groups of a positive-characteristic global field vanish in degrees at least three.",
           "match": "Paraphrase of the indicated passage; checked in the author copy, not a quotation from the published edition."
         },
         {
           "sourceId": "Kbook.III.chapter",
           "locator": "III.7.2(a),(d), PDF pp.61–62",
-          "excerpt": "The general global-field Milnor theorem is already owned here; its original Bass–Tate proof remains the existing gap.",
           "match": "Paraphrase of the inspected passage, not a quotation. The general global-field Milnor theorem is already owned here; its original Bass–Tate proof remains the existing gap."
         }
       ],
@@ -4067,7 +3993,6 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "III.5.10.1 (PDF p. 233)",
-          "excerpt": "The source defines two indexed words and computes their elementary matrix images.",
           "match": "Paraphrase of the indicated passage; checked in the author copy, not a quotation from the published edition."
         }
       ],
@@ -4139,7 +4064,6 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "III.5.1 relations and III.5.5 (PDF pp. 225, 228)",
-          "excerpt": "The three-index commutator relation expresses every Steinberg generator as a commutator.",
           "match": "Paraphrase of the indicated passage; checked in the author copy, not a quotation from the published edition."
         }
       ],
@@ -4182,7 +4106,6 @@
         {
           "sourceId": "Weibel.HA.Groups",
           "locator": "§6.8, Low Degree Terms6.8.3, printed p.196/PDF37; read text and image 2026-10-02",
-          "excerpt": "H₂(E) → H₂(Q) → H₁(N)_Q → H₁(E) → H₁(Q) → 0",
           "match": "The integral trivial-coefficient five-term result. The packet gives a direct kernel-of-bar-chains proof rather than claiming that this argument is printed in the source; differential and connecting-map conventions are checked against the pinned Lean statements."
         }
       ],
@@ -4286,7 +4209,6 @@
         {
           "sourceId": "Weibel.HA.Groups",
           "locator": "§6.8, Low Degree Terms6.8.3, printed p.196/PDF37; read text and image 2026-10-02",
-          "excerpt": "H₂(E) → H₂(Q) → H₁(N)_Q → H₁(E) → H₁(Q) → 0",
           "match": "The integral trivial-coefficient five-term result. The packet gives a direct kernel-of-bar-chains proof rather than claiming that this argument is printed in the source; differential and connecting-map conventions are checked against the pinned Lean statements."
         }
       ],
@@ -4330,7 +4252,6 @@
         {
           "sourceId": "Weibel.HA.Groups",
           "locator": "§6.8, Low Degree Terms6.8.3, printed p.196/PDF37; read text and image 2026-10-02",
-          "excerpt": "H₂(E) → H₂(Q) → H₁(N)_Q → H₁(E) → H₁(Q) → 0",
           "match": "The integral trivial-coefficient five-term result. The packet gives a direct kernel-of-bar-chains proof rather than claiming that this argument is printed in the source; differential and connecting-map conventions are checked against the pinned Lean statements."
         }
       ],
@@ -4421,7 +4342,6 @@
         {
           "sourceId": "Weibel.HA.Groups",
           "locator": "§6.8, Low Degree Terms6.8.3, printed p.196/PDF37; read text and image 2026-10-02",
-          "excerpt": "H₂(E) → H₂(Q) → H₁(N)_Q → H₁(E) → H₁(Q) → 0",
           "match": "The integral trivial-coefficient five-term result. The packet gives a direct kernel-of-bar-chains proof rather than claiming that this argument is printed in the source; differential and connecting-map conventions are checked against the pinned Lean statements."
         }
       ],

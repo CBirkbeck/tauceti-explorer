@@ -912,7 +912,6 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "Lemma III.6.3 (PDF p. 242)",
-     "excerpt": "Lemma 6.3. For every discrete valuation v on F there is a Steinberg symbol K2(F) −∂v→ k×v, defined by ∂v({r, s}) = (−1)^{v(r)v(s)} \\overline{(s^{v(r)}/r^{v(s)})}. This symbol is called the tame symbol of the valuation v. The tame symbol is onto, because if u ∈ R× then v(u) = 0 and ∂v(π, u) = ū.",
      "match": "The source's tame symbol, with r, s in the roles of f, g. Its formula is the inverse of the roadmap's (it has s^{v(r)}/r^{v(s)} where the roadmap has f^{v(g)}/g^{v(f)}); this node defines the roadmap's and records the inversion. Surjectivity is proved in T.3/tame-symbol-hom."
     }
    ],
@@ -953,7 +952,6 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "Lemma III.6.3, proof (PDF p. 242)",
-     "excerpt": "Proof. Writing r = u1π^{v1} and s = u2π^{v2} with u1, u2 ∈ R×, we must show that ∂v(r, s) = (−1)^{v1v2} ū2^{v1}/ū1^{v2} is a Steinberg symbol. By inspection, ∂v(r, s) is an element of k×v, and ∂v is bilinear.",
      "match": "The source computes the symbol through unit parts against one parameter π and never discusses another; the uniformiser-free form of this node is what makes the choice irrelevant. The source's ū2^{v1}/ū1^{v2} is the inverse of the roadmap's ū_f^{ord g}ū_g^{−ord f}."
     }
    ],
@@ -999,13 +997,11 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "Lemma III.6.3, proof (PDF p. 242)",
-     "excerpt": "To see that ∂v(r, s) = 1 when r + s = 1 we consider several cases. If v1 > 0 then r is in the maximal ideal, so s = 1 − r is a unit and ∂v(r, s) = s̄^{v1} = 1. The proof when v2 > 0 is the same, and the case v1 = v2 = 0 is trivial.",
      "match": "The first three cases. In the roadmap's normalisation the value in the case v1 > 0 is s̄^{−v1}, the inverse of the source's."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "Lemma III.6.3, proof (PDF p. 242)",
-     "excerpt": "If v1 < 0 then v(1/r) > 0 and (1−r)/r = −1 + 1/r is congruent to −1 (mod π). Since v(r) = v(1 − r), we have ∂v(r, 1 − r) = (−1)^{v1} ((1 − r)/r)^{v1} = (−1)^{v1}(−1)^{v1} = 1.",
      "match": "The case of negative valuation, where the two orders agree and the sign cancels the residue −1."
     }
    ],
@@ -1047,19 +1043,16 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "Remark III.6.3.1 (PDF p. 242)",
-     "excerpt": "Remark 6.3.1 (Ramification). Suppose that E is a finite extension of F, and that w is a valuation on E over the valuation v on F. Then there is an integer e, called the ramification index, such that w(r) = e · v(r) for every r ∈ F.",
      "match": "The ramification index. The embedding-general statement is derived here from the order/unit calculation, not quoted from the finite source."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "Remark III.6.3.1 (PDF p. 242)",
-     "excerpt": "The natural map K2(F) → K2(E) is compatible with the tame symbols in the sense that for every r1, r2 ∈ F× we have ∂w(r1, r2) = ∂v(r1, r2)^e in k×w.",
      "match": "The formula, stated in the source's normalisation; inverting both sides gives it in the roadmap's. The embedding-general statement is derived here from the order/unit calculation, not quoted from the finite source."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "Remark III.6.3.1, continued (PDF p. 243)",
-     "excerpt": "We say that S is unramified over R if the ramification indices e1, ..., en are all 1; in this case the diagonal inclusion ∆: k×v ↪ ∏i k×wi is compatible with the tame symbols in the sense that ∆∂v(r1, r2) is the product of the ∂wi(r1, r2).",
      "match": "The unramified refinement."
     }
    ],
@@ -1099,13 +1092,11 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "Localization Theorem III.6.5 (PDF p. 244)",
-     "excerpt": "Localization Theorem 6.5. Let R be a Dedekind domain, with field of fractions F. Then the tame symbols K2(F) −∂p→ (R/p)× associated to the prime ideals of R fit into a long exact sequence ∐p K2(R/p) → K2(R) → K2(F) −∂=∐∂p→ ∐p (R/p)× → SK1(R) → 1",
      "match": "The sum of the tame symbols lands in the coproduct over the primes; that presupposes the finite support this node proves."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "Theorem III.7.4 (PDF p. 255)",
-     "excerpt": "Theorem 7.4. (Milnor) There is a split exact sequence for each n, natural in the field F, and split by the map λ: 0 → KMn(F) → KMn F(t) −∂=∐∂p→ ∐p KMn−1(F[t]/p) → 0.",
      "match": "The same presupposition for the higher residues, in every degree."
     }
    ],
@@ -1277,19 +1268,16 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "Theorem III.7.3 (PDF p. 254)",
-     "excerpt": "Theorem 7.3 (Specialization maps and higher tame symbols). For every discrete valuation v on F, there are two surjections KMn(F) −∂v→ KMn−1(kv) and KMn(F) −λ→ KMn(kv) satisfying the following conditions.",
      "match": "The two surjections."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "Theorem III.7.3 (PDF p. 254)",
-     "excerpt": "If ui ∈ R×, and ūi denotes the image of ui in kv = R/(π) then λ{u1π^{i1}, . . . , unπ^{in}} = {ū1, . . . , ūn}, ∂v{π, u2, . . . , un} = {ū2, . . . , ūn}. In particular, ∂v : KM2(F) → k×v is the tame symbol of Lemma 6.3",
      "match": "The formulas on symbols in the source's normalisation (Π on the left); the roadmap's residue is (−1)^{n−1} times it, and equals T.3's tame symbol in degree two."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "Theorem III.7.3, proof (PDF p. 254)",
-     "excerpt": "If so, the presentation of KM∗(F) shows that d extends to a graded ring homomorphism d: KM∗(F) → L. Since Ln is the direct sum of KMn(kv) and KMn−1(kv), we get two maps: λ: KMn(F) → KMn(kv) and ∂v : KMn(F) → KMn−1(kv).",
      "match": "The extension of d to K^M_*(F) and the splitting into λ and ∂_v."
     }
    ],
@@ -1334,13 +1322,11 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "Corollary III.7.3.1 (PDF p. 254)",
-     "excerpt": "Corollary 7.3.1 (Rigidity). Suppose that F is complete with respect to the valuation v, with residue field k = kv. For every integer q prime to char(k), the maps λ ⊕ ∂v : KMn(F)/q → KMn(k)/q ⊕ KMn−1(k)/q are isomorphisms for all n.",
      "match": "The corollary, with the source's hypotheses."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "Corollary III.7.3.1, proof (PDF p. 255)",
-     "excerpt": "Proof. Since the valuation ring R is complete, Hensel’s Lemma implies that the group 1 + πR is q-divisible. It follows that l(1 + πR) · KMn−1(F) is also q-divisible. But by Ex. 7.2 this is the kernel of the map d: KMn(F) → Ln ≅ KMn(kv) ⊕ KMn−1(kv).",
      "match": "The proof: Hensel's lemma and the kernel of d (Ex. III.7.2, node T.3/serre-map-kernel)."
     }
    ],
@@ -1414,19 +1400,16 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "Ex. III.7.9 (PDF p. 266)",
-     "excerpt": "7.9. If E/F is a normal extension of prime degree p, and v is a valuation on F(t) trivial on F, show that ∂v NE(t)/F(t) = ∑w NE(w)/F(v) ∂w, where the sum is over all the valuations w of E(t) over v.",
      "match": "The constant normal-prime-degree special case, a regression of the general GS theorem."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "Corollary III.7.6.3 (PDF p. 257)",
-     "excerpt": "Corollary 7.6.3. If in addition F is a complete discrete valuation field with residue field kv, and the residue field of E is kw, the following diagram commutes.",
      "match": "The complete case for a normal extension of prime degree (node T.4/kato-complete-residue)."
     },
     {
      "sourceId": "GilleSzamuely.2006",
      "locator": "Corollary 7.4.3, p. 205; Corollary 7.3.11, p. 202; Appendix A.6.4",
-     "excerpt": "commutes",
      "match": "General finite-integral-closure formula in every degree and its completion/base-change proof. The earlier K-book special cases are retained as checks, not cited as the full theorem."
     }
    ],
@@ -1471,19 +1454,16 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "V.6.6.1 (PDF p. 417)",
-     "excerpt": "We claim that ∂ is the tame symbol of III.6.3 and that the above continues the sequence of III.6.5.",
      "match": "The source's claim that the localisation boundary is its tame symbol."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "V.6.6.1, proof (PDF p. 417)",
-     "excerpt": "In this case, we know that ∂ in K∗(R)-linear, so if u ∈ R× has image ū ∈ R/p then ∂{π, u} = [ū] in R/p×. Similarly, ∂ sends {π, π} = {π, −1} to {∂π, −1} = [R/π] · [−1], which is the class of the unit −1.",
      "match": "The computation: with the K_*(R)-linearity the source uses (on the right, since ∂{π, u} = ∂(π)·[u]), the boundary is the K-book's tame symbol, the inverse of the roadmap's. ('∂ in K∗(R)-linear' is the source's 'is'.)"
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "Example V.6.1.2 (PDF p. 414)",
-     "excerpt": "Example 6.1.2. It is useful to observe that any s ∈ S determines an element [s] of K1(R[1/s]) and hence G1(R[1/s]), and that ∂(s) ∈ G0(R/sR) is [R/sR] − [I], where I = {r ∈ R : sr = 0}. This formula is immediate from Ex. 5.1. In particular, when R is a domain we have ∂(s) = [R/sR].",
      "match": "The degree-one normalisation ∂[π] = [R/πR] used in the computation."
     }
    ],
@@ -1539,25 +1519,21 @@
     {
      "sourceId": "Weibel.KBook.III",
      "locator": "III.6.5, Localization Theorem 6.5 (p. 52)",
-     "excerpt": "The following result will be proven in chapter V, but we find it useful to quote this result now. If p is a nonzero prime ideal of a Dedekind domain R, the local ring Rp is a discrete valuation ring, and hence determines a tame symbol.",
      "match": "The statement is quoted in chapter III and proved in chapter V; the local rings R_𝔭 give the tame symbols."
     },
     {
      "sourceId": "Weibel.KBook.V",
      "locator": "V.6.6 (p. 41)",
-     "excerpt": "Hence the localization sequence of 6.1 with S = R − {0} becomes the long exact sequence:",
      "match": "The Dedekind sequence as the localisation sequence of V.6.1 with S = R ∖ {0}, after resolution."
     },
     {
      "sourceId": "Weibel.KBook.V",
      "locator": "V.6.6.1 and the claim after it (p. 41)",
-     "excerpt": "We claim that ∂ is the tame symbol of III.6.3 and that the above continues the sequence of III.6.5. Since the p-component of ∂ factors through the localization K2 (R) → K2 (Rp ) and the localization sequence for Rp , we may suppose that R is a DVR with parameter π.",
      "match": "The reduction to the discrete valuation ring R_𝔭; the source's 'K2(R) → K2(Rp)' is read as the morphism of localisation sequences induced by R → R_𝔭, which is how the proof uses it."
     },
     {
      "sourceId": "Weibel.KBook.V",
      "locator": "V.6.1 (p. 38)",
-     "excerpt": "We saw in II.6.4.1 that the category MS (R) of finitely generated S-torsion modules is a Serre subcategory of M(R) with quotient category M(S −1 R).",
      "match": "The Serre quotient identification used in the first step."
     }
    ],
@@ -1604,19 +1580,16 @@
     {
      "sourceId": "Weibel.KBook.V",
      "locator": "V.(6.6.3)-(6.6.4) (p. 42)",
-     "excerpt": "Suppose that R ⊂ R′ is an inclusion of Dedekind domains, with R′ finitely generated as an R-module. Then the fraction field F ′ of R′ is finite over F , so the exact functors M(R′ ) → M(R) and M(F ′ ) → M(F ) inducing the transfer maps (IV.6.3.3) are compatible.",
      "match": "The compatibility of the transfers with the localisation sequences; the diagram (6.6.4) has the residue transfers N_{p′/p} as its third column."
     },
     {
      "sourceId": "Weibel.KBook.III",
      "locator": "III.1.7.1 and the paragraph after it (p. 9)",
-     "excerpt": "When j : F → E is a finite field extension, it is easy to see from 1.1.2 that the transfer map j∗ : E × → F × is the classical norm map.",
      "match": "The K_1-transfer of a finite field extension is the field norm."
     },
     {
      "sourceId": "Weibel.KBook.III",
      "locator": "III.5.6.3 (p. 39)",
-     "excerpt": "If R is commutative, so that K2 (R) is a K0 (R)-module by Ex. 5.4, the composition f∗ f ∗ : K2 (R) → K2 (S) → K2 (R) is multiplication by [S] ∈ K0 (R). In particular, if S is free of rank n, then f∗ f ∗ is multiplication by n.",
      "match": "Restriction followed by transfer in degree two."
     }
    ],
@@ -1667,31 +1640,26 @@
     {
      "sourceId": "Weibel.KBook.III",
      "locator": "III.6.1.5, Corollary 6.1.5 (p. 49)",
-     "excerpt": "Corollary 6.1.5. If E = F (u) is a quadratic field extension of F , then K2 (E) is generated by elements coming from K2 (F ), together with elements of the form {c, u − d}. Thus the transfer map NE/F : K2 (E) → K2 (F ) is completely determined by the formulas",
      "match": "The quadratic case: the K_2 transfer is determined by the projection formula and the norm."
     },
     {
      "sourceId": "Weibel.KBook.III",
      "locator": "III, Exercise 5.6 (p. 46)",
-     "excerpt": "the case i = 1 yields the useful formula f∗ {r, s} = {r, N s} for Steinberg symbols in K2 (R), where r ∈ R× , s ∈ S × and N s = f∗ (s) ∈ R× is the norm of s.",
      "match": "The projection formula for the finite K_2 transfer."
     },
     {
      "sourceId": "Weibel.KBook.III",
      "locator": "III.7.6, Definition 7.6 and Theorem 7.6.1 (p. 64)",
-     "excerpt": "The transfer map is well-defined by the following result of K. Kato.",
      "match": "The Milnor norm compared here is the Bass–Tate/Kato one, defined in chapter III without reference to Quillen's transfer."
     },
     {
      "sourceId": "GilleSzamuely.2006",
      "locator": "Lemma 7.3.6–7.3.7 and proof of Theorem 7.3.2, pp. 198–203",
-     "excerpt": "commutes",
      "match": "Prime-to-p descent, arbitrary-base-change multiplicities and degree-p towers; the comparison of two transfers is derived here from these and the K.3 exact-functor contract, not quoted as a GS theorem."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "V.1.2/1.2.1; V.3.7.2 and Exercise V.3.11",
-     "excerpt": "Additivity Theorem",
      "match": "Additivity and base-change functoriality supporting the requested Quillen field-transfer contract."
     }
    ],
@@ -1807,13 +1775,11 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "Lemma III.6.3 (PDF p. 242)",
-     "excerpt": "Lemma 6.3. For every discrete valuation v on F there is a Steinberg symbol K2(F) −∂v→ k×v, defined by ∂v({r, s}) = (−1)^{v(r)v(s)} \\overline{(s^{v(r)}/r^{v(s)})}. This symbol is called the tame symbol of the valuation v. The tame symbol is onto, because if u ∈ R× then v(u) = 0 and ∂v(π, u) = ū.",
      "match": "The source's Steinberg symbol K_2(F) → k_v^× and its surjectivity; the value ∂_v(π, u) = ū is the source's normalisation, whose roadmap counterpart is ∂_v{ũ, t} = u."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "III.7.1 (PDF p. 253)",
-     "excerpt": "By Matsumoto’s Theorem 6.1 we also have KM2(F) = K2(F), the elements {x, y} being the usual Steinberg symbols, except that the group operation in KM2(F) is written additively.",
      "match": "The identification K^M_2(F) = K_2(F) through which the homomorphism is transported."
     }
    ],
@@ -1962,13 +1928,11 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "Theorem III.7.3, proof (PDF p. 254)",
-     "excerpt": "Proof. (Serre) Let L denote the graded KM∗(kv)-algebra generated by an indeterminate Π in L1, with the relation {Π, Π} = {−1, Π}. We claim that the group homomorphism d: F× → L1 = l(k×v) ⊕ Z · Π, d(uπ^i) = l(ū) + iΠ satisfies the relation: for r ≠ 0, 1, d(r)d(1 − r) = 0 in L2.",
      "match": "The algebra L and the map d; this node constructs L explicitly."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "Theorem III.7.3, proof (PDF p. 254)",
-     "excerpt": "If so, the presentation of KM∗(F) shows that d extends to a graded ring homomorphism d: KM∗(F) → L. Since Ln is the direct sum of KMn(kv) and KMn−1(kv), we get two maps: λ: KMn(F) → KMn(kv) and ∂v : KMn(F) → KMn−1(kv).",
      "match": "The direct-sum decomposition of L_n that the construction provides."
     }
    ],
@@ -2010,13 +1974,11 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "Theorem III.7.3, proof (PDF p. 254)",
-     "excerpt": "If 1 ≠ r ∈ R×, then either 1 − r ∈ R× and d(r)d(1 − r) = {r̄, 1 − r̄} = 0, or else v(1 − r) = i > 0 and d(r) = l(1) + 0 · Π = 0 so d(r)d(1 − r) = 0 · d(1 − r) = 0. If v(r) > 0 then 1 − r ∈ R× and the previous argument implies that d(1 − r)d(r) = 0.",
      "match": "The cases r ∈ R^× and v(r) > 0."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "Theorem III.7.3, proof (PDF p. 254)",
-     "excerpt": "If r ∉ R then 1/r ∈ R, and we see from (5.10.3) and the above that d(r)d(1 − r) = d(1/r)d(−1/r). Therefore it suffices to show that d(r)d(−r) = 0 for every r ∈ R. If r = π this is the given relation upon L, and if r ∈ R× then d(r)d(−r) = {r, −r} = 0 by (5.10.3).",
      "match": "The reduction of r ∉ R to d(x)d(−x) = 0 and the use of the relation on Π; the source's '{r, −r}' is {r̄, −r̄} in K^M_2(k_v)."
     }
    ],
@@ -2057,7 +2019,6 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "Ex. III.7.2 (PDF p. 265)",
-     "excerpt": "7.2. Continuing Exercise 7.1, show that the kernel of the map d: KMn(F) → Ln of Theorem 7.3 is exactly l(1 + πR) · KMn−1(F). Conclude that the kernel of the map λ is exactly l(1 + πR) · KMn−1(F) + l(π) · KMn−1(F).",
      "match": "The source leaves this as an exercise and uses it in the proof of Corollary III.7.3.1; this node supplies the proof."
     }
    ],
@@ -2095,7 +2056,6 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "Ex. III.7.10 (PDF p. 266)",
-     "excerpt": "7.10. If v is a valuation on F, and x ∈ KMi(F), y ∈ KMj(F), show that ∂v(xy) = λ(x)∂v(y) + (−1)^j ∂v(x)ρ(y) where ρ: KM∗(F) → KM∗(kv) is a ring homomorphism characterized by the formula ρ(l(uπ^i)) = l((−1)^i ū).",
      "match": "The product formula; it holds as printed for the roadmap's normalisation and needs the sign (−1)^i on the first term for Theorem III.7.3's (source issue)."
     }
    ],
@@ -2134,7 +2094,6 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "Ex. III.7.1 (PDF p. 265)",
-     "excerpt": "7.1. Let v be a discrete valuation on a field F. Show that the maps λ: KMn(F) → KMn(kv) and ∂v : KMn(F) → KMn−1(kv) of Theorem 7.3 are independent of the choice of parameter π, and that they vanish on l(u) · KMn−1(F) whenever u ∈ (1 + πR).",
      "match": "The exercise's claim for ∂_v is right; its claim for λ is false (the example above), and Weibel's errata to GSM 145 (p. 280, Ex. 7.1) state that λ depends on the choice. Recorded as a source issue with that erratum as known."
     }
    ],
@@ -2177,7 +2136,6 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "Ex. III.7.8 (PDF p. 265)",
-     "excerpt": "7.8. Ramification and ∂v. Suppose that E is a finite extension of F, and that w is a valuation on E over the valuation v on F, with ramification index e. (See 6.3.1.) Use the formulas for ∂v and ∂w in Theorem 7.3 to show that for every x ∈ KMn(F) we have ∂w(x) = e · ∂v(x) in KMn−1(kw).",
      "match": "The statement, left as an exercise in the source. The arbitrary-embedding extension is derived by the displayed uniformiser/unit calculation; the printed exercise only assumes a finite extension."
     }
    ],
@@ -2242,19 +2200,16 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "III.7.4, Theorem 7.4 (PDF p. 255; book p. 247)",
-     "excerpt": "Theorem 7.4. (Milnor) There is a split exact sequence for each n, natural in the field F, and split by the map λ: 0 → K^M_n(F) → K^M_n F(t) −∂=∐∂p→ ∐p K^M_{n−1}(F[t]/p) → 0.",
      "match": "The theorem, attributed by the source to Milnor."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "III.7.4, proof of Theorem 7.4 (PDF p. 255; book p. 247)",
-     "excerpt": "Let Ld denote the subgroup of K^M_n F(t) generated by those symbols {f1, . . . , fr} such that all the polynomials fi have degree ≤ d. By Example 7.3.2, L0 is a summand isomorphic to K^M_n(F). Since K^M_n F(t) is the union of the subgroups Ld, the theorem will follow from Lemma 7.4.2",
      "match": "The proof by the degree filtration, whose steps are the lemmas above; 'fr' is a misprint for 'fn'."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "III.6.5.2, Application 6.5.2 (PDF p. 244; book p. 236)",
-     "excerpt": "Application 6.5.2 (Function fields). If R is the polynomial ring F[t] for some field F, we know that K2(F[t]) = K2(F) (see 5.2.3). Moreover, the natural map K2(F) → K2F(t) is split by the leading coefficient symbol λ of Example 6.1.2. Therefore we have a split exact sequence",
      "match": "The degree-two case (the display 1 → K2(F) → K2F(t) → ∐(F[t]/p)× → 1 follows it)."
     }
    ],
@@ -2302,19 +2257,16 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "III.7.6, Definition 7.6 (PDF p. 257; book p. 249)",
-     "excerpt": "Definition 7.6. Let E = F(a1, . . . , ar) be a finite field extension of F. The transfer map NE/F : K^M_∗(E) → K^M_∗(F) is defined to be the composition of the transfer maps defined in 7.5",
      "match": "The definition by composition along generators."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "III.7.6.1, Theorem 7.6.1 (PDF p. 257; book p. 249)",
-     "excerpt": "Theorem 7.6.1. (Kato) The transfer map NE/F is independent of the choice of elements a1, . . . , ar such that E = F(a1, . . . , ar). In particular, if F ⊂ F′ ⊂ E then NE/F = NF′/F NE/F′.",
      "match": "Kato's theorem."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "III.7.6.1, proof of Theorem 7.6.1 (PDF p. 258; book p. 250)",
-     "excerpt": "Using the key trick of passing to a larger field, we may assume that the degree of every finite extension of F is a power of a fixed prime p. Let us call a tower of intermediate fields F = F0 ⊂ F1 ⊂ · · · ⊂ Fr = E maximal if [Fi : Fi−1] = p for all i.",
      "match": "The reduction to towers of degree-p steps."
     }
    ],
@@ -2370,37 +2322,31 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "V.6.12.1, Weil Reciprocity Formula 6.12.1 (PDF p. 424; book p. 416), proof on PDF p. 425",
-     "excerpt": "Weil Reciprocity Formula 6.12.1. Let X be a projective curve over a field k, with function field F. For every a ∈ Kn+1(F) we have the following formula in Kn(k): Σx∈X Nk(x)/k ∂x(a) = 0.",
      "match": "The curve formula in Quillen K-theory, proved by Gillet's argument; for n + 1 = 2 it is this node's statement, and in higher degrees the Milnor form is proved by the transfer argument of the proof steps."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "V.6.12, the paragraph before 6.12.1 (PDF p. 424; book p. 416)",
-     "excerpt": "The following result, due to Gillet, generalizes the Weil Reciprocity of III.6.5.3 for symbols {f, g} ∈ K2(F). We write ∂x for the component Kn+1(F) → Kn(x) of the map ∂ in 6.12.",
      "match": "The source presents it as the generalisation of III.6.5.3."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "III.7.5.1, Weil Reciprocity Formula 7.5.1 (PDF p. 256; book p. 248)",
-     "excerpt": "If we let N∞ denote the identity map on K^M_n(F), and sum over the set of all discrete valuations on F(t) which are trivial on F, the definition of the Nv yields the: Weil Reciprocity Formula 7.5.1. Σv Nv∂v(x) = 0 for all x ∈ K^M_n F(t).",
      "match": "The projective-line case in Milnor K-theory."
     },
     {
      "sourceId": "Weibel.KBook.III",
      "locator": "III.7.6.1, Theorem 7.6.1 (p. 64)",
-     "excerpt": "Theorem 7.6.1 (Kato). The transfer map NE/F is independent of the choice of elements a1 , . . . , ar such that E = F (a1 , . . . , ar ). In particular, if F ⊂ F ′ ⊂ E then NE/F = NF ′ /F NE/F ′ .",
      "match": "Kato's norm is defined for every finite extension E/F, with no separability hypothesis; the residue-field norms of the reciprocity law are these."
     },
     {
      "sourceId": "GilleSzamuely.2006",
      "locator": "Corollary 7.4.3 and Proposition 7.4.4, pp. 205–206",
-     "excerpt": "commutes",
      "match": "Valuation-level proof and its smooth-projective special case; regular/imperfect extension follows by the explicit imported normalization argument."
     },
     {
      "sourceId": "Stacks.Japanese",
      "locator": "Tags 032N, 032L and 032O",
-     "excerpt": "finite",
      "match": "Normal-hull pure-first reduction and finite normalization over a polynomial ring."
     }
    ],
@@ -2444,13 +2390,11 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "V.6.12, Smooth Curves 6.12 (PDF p. 424; book p. 416)",
-     "excerpt": "Smooth Curves 6.12. Suppose that X is an irreducible curve over a field k, with function field F. For each closed point x ∈ X, the field k(x) is a finite field extension of k.",
      "match": "The closed points and their residue fields, as the source uses them for Weil reciprocity."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "III.6.3 (PDF p. 242; book p. 234)",
-     "excerpt": "By convention, v(0) = ∞, so that the ring R of all r with v(r) ≥ 0 is a discrete valuation ring (DVR).",
      "match": "The valuation-theoretic side: the tame symbol is attached to a discrete valuation ring."
     }
    ],
@@ -2486,13 +2430,11 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "Projection Formula III.7.5.2 (PDF p. 256)",
-     "excerpt": "Projection Formula 7.5.2. Let E = F(a). Then for x ∈ KM∗(F) and y ∈ KM∗(E) the map N = Na/F satisfies N{x, y} = {x, N(y)}.",
      "match": "The statement."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "Projection Formula III.7.5.2, proof (PDF p. 256)",
-     "excerpt": "It follows from Theorem 7.4 that each ∂p is a graded module homomorphism of degree −1. This remark also applies to v∞ and ∂∞, because F(t) = F(t−1). Therefore each Np is a graded module homomorphism of degree 0.",
      "match": "The source's proof; the module property of ∂_p is the product formula with a unit factor (T.3/milnor-residue-product-formula), not Theorem III.7.4 itself."
     }
    ],
@@ -2527,7 +2469,6 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "Corollary III.7.5.3 (PDF p. 256)",
-     "excerpt": "Corollary 7.5.3. If the extension E/F has degree d, then the composition KM∗(F) → KM∗(E) −N→ KM∗(F) is multiplication by d. In particular, the kernel of KM∗(F) → KM∗(E) is annihilated by d.",
      "match": "The statement."
     }
    ],
@@ -2569,13 +2510,11 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "III.7.3.2, Example 7.3.2 (PDF p. 255; book p. 247)",
-     "excerpt": "Example 7.3.2 (Leading Coefficients). As in Example 6.1.2, K^M_n(F) is a direct summand of K^M_n F(t). To see this, we consider the valuation v∞(f) = −deg(f) on F(t) of Example 6.5.3. Since t^{−1} is a parameter, each polynomial f = ut^{−i} has lead(f) = ū.",
      "match": "The statement, with the place at infinity and its parameter t^{−1}; here f = u·t^{−i} with i = v∞(f) = −deg f."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "III.7.3.2, Example 7.3.2 (PDF p. 255; book p. 247)",
-     "excerpt": "The map λ: K^M_n F(t) → K^M_n(F), given by λ{f1, . . . , fn} = {lead(f1), . . . , lead(fn)}, is clearly inverse to the natural map K^M_n(F) → K^M_n F(t).",
      "match": "The formula for λ and the splitting."
     }
    ],
@@ -2614,25 +2553,21 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "III, Exercise 6.2 (PDF p. 251; book p. 243)",
-     "excerpt": "6.2. (Bass-Tate) If E = F(u) is a field extension of F, and e1, e2 ∈ E are monic polynomials in u of some fixed degree d > 0, show that {e1, e2} is a product of symbols {e1, e′2} and {e, e′′2} with e, e′2, e′′2 polynomials of degree < d. This generalizes Lemma 6.1.4.",
      "match": "The exercise the proof of Lemma III.7.4.2 cites. As printed it is false (see the source issue recorded by this review); the node states the corrected form."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "III.6.1.4, Lemma 6.1.4 and its proof (PDF p. 240; book p. 232)",
-     "excerpt": "Lemma 6.1.4. (Bass-Tate) If E = F(u) is a field extension of F, then every symbol of the form {b1u − a1, b2u − a2} (ai, bi ∈ F) is a product of symbols {ci, di} and {ci, u − di} with ci, di ∈ F.",
      "match": "The case d = 1, which is correct as printed."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "III.6.1.4, Lemma 6.1.4 and its proof (PDF p. 240; book p. 232)",
-     "excerpt": "Set x = u − a1, y = u − a2 and a = a2 − a1, so x = a + y. Then 1 = a/x + y/x yields the relation 1 = {a/x, y/x}. Using {x, x} = {−1, x}, this expands to the desired expression: {x, y} = {a, y}{−1, x}{a^{−1}, x}.",
      "match": "The computation that (i) generalises."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "III.7.4.2, proof of Lemma 7.4.2 (PDF p. 256; book p. 248)",
-     "excerpt": "By Ex. 6.2, Ld is generated by Ld−1 and symbols {π, a2, . . . , an} where π has degree d and the ai have degree < d. But each such symbol is hπ of an element of K^M_{n−1}(kπ), so ⊕hπ is onto.",
      "match": "How the source uses the exercise: only the generation statement (ii) is needed."
     }
    ],
@@ -2673,13 +2608,11 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "III.7.4.1, Lemma 7.4.1 and the paragraph before it (PDF p. 255; book p. 247)",
-     "excerpt": "Then each element ā of k is represented by a unique polynomial a ∈ F[t] of degree < d. Lemma 7.4.1. There is a unique homomorphism h = hπ : K^M_{n−1}(k) → Ld/Ld−1 carrying {ā2, . . . , ān} to the class of {π, a2, . . . , an} modulo Ld−1.",
      "match": "The statement, with the choice of representatives of degree < d."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "III.7.4.1, proof of Lemma 7.4.1 (PDF p. 255; book p. 247)",
-     "excerpt": "If a2 ≠ a′2a′′2 then there is a nonzero polynomial f of degree < d with a2 = a′2a′′2 + fπ. Since fπ/a2 = 1 − a′2a′′2/a2 we have {fπ/a2, a′2a′′2/a2} = 0. Multiplying by {a3, . . . , an} gives {π, a′2a′′2/a2, a3, . . . , an} ≡ 0 modulo Ld−1.",
      "match": "The linearity argument; its last step 'ai + ai+1 = 1 in F' should read 'in F[t]' (see the source issue)."
     }
    ],
@@ -2719,19 +2652,16 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "III.7.4.2, Lemma 7.4.2 (PDF p. 255; book p. 247)",
-     "excerpt": "Lemma 7.4.2. The homomorphisms ∂(π) and hπ induce an isomorphism between Ld/Ld−1 and the direct sum ⊕π K^M_{n−1}(kπ) as π ranges over all monic irreducible polynomials of degree d in F[t].",
      "match": "The statement."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "III.7.4.2, proof of Lemma 7.4.2 (PDF p. 256; book p. 248)",
-     "excerpt": "Proof. Since π cannot divide any polynomial of degree < d, the maps ∂(π) vanish on Ld−1 and induce maps ∂̄(π) : Ld/Ld−1 → K^M_{n−1}(kπ). By inspection, the composition of ⊕hπ with the direct sum of the ∂̄(π) is the identity on ⊕π K^M_{n−1}(kπ).",
      "match": "The proof, first half."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "III.7.4.2, proof of Lemma 7.4.2 (PDF p. 256; book p. 248)",
-     "excerpt": "By Ex. 6.2, Ld is generated by Ld−1 and symbols {π, a2, . . . , an} where π has degree d and the ai have degree < d. But each such symbol is hπ of an element of K^M_{n−1}(kπ), so ⊕hπ is onto.",
      "match": "The proof, second half: surjectivity through Exercise 6.2, here T.4/degree-reduction."
     }
    ],
@@ -2879,31 +2809,26 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "III.7.5, paragraph before Definition 7.5 (PDF p. 256; book p. 248)",
-     "excerpt": "Let v∞ be the valuation on F(t) with parameter t^{−1}. The formulas in Theorem 7.3 defining ∂∞ show that it vanishes on K^M_∗(F). By Theorem 7.4, there are unique homomorphisms Np : K^M_n(F[t]/p) → K^M_n(F) so that −∂∞ = Σp Np∂p.",
      "match": "The unique N_p through −∂∞ = Σ Np∂p."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "III.7.5, Definition 7.5 (PDF p. 256; book p. 248)",
-     "excerpt": "Definition 7.5. Let E be a finite field extension of F generated by an element a. Then the transfer map, or norm map N = Na/F : K^M_∗(E) → K^M_∗(F), is the unique map Np defined above, associated to the kernel p of the map F[t] → E sending t to a.",
      "match": "The definition."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "III.7.5, after Definition 7.5 (PDF p. 256; book p. 248)",
-     "excerpt": "We can calculate the norm of an element x ∈ K^M_n(E) as Np(x) = −∂v∞(y), where y ∈ K^M_{n+1}F(t) is such that ∂p(y) = x and ∂p′(y) = 0 for all p′ ≠ p. If n = 0, the transfer map N : Z → Z is multiplication by the degree [E : F] of the field extension",
      "match": "The computation formula and the degree-zero case."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "III.7.5.2, Projection Formula 7.5.2 (PDF p. 256; book p. 248)",
-     "excerpt": "Projection Formula 7.5.2. Let E = F(a). Then for x ∈ K^M_∗(F) and y ∈ K^M_∗(E) the map N = Na/F satisfies N{x, y} = {x, N(y)}.",
      "match": "The projection formula for N_{a/F}."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "III.7.5.3, Corollary 7.5.3 (PDF p. 256; book p. 248)",
-     "excerpt": "Corollary 7.5.3. If the extension E/F has degree d, then the composition K^M_∗(F) → K^M_∗(E) −N→ K^M_∗(F) is multiplication by d. In particular, the kernel of K^M_∗(F) → K^M_∗(E) is annihilated by d.",
      "match": "Restriction followed by transfer."
     }
    ],
@@ -2944,13 +2869,11 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "III, Exercise 7.5 (PDF p. 265; book p. 257)",
-     "excerpt": "7.5. Let E = F(a) be a finite extension of F, and consider the transfer map N = Na/F in Definition 7.5. Use Weil’s Formula (7.5.1) to show that when n = 0 the transfer map N : Z → Z is multiplication by [E : F], and that when n = 1 the transfer map N : E× → F× is the usual norm map.",
      "match": "The exercise; the source leaves the proof to the reader, and the node's steps supply it."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "III.7.5, after Definition 7.5 (PDF p. 256; book p. 248)",
-     "excerpt": "We can calculate the norm of an element x ∈ K^M_n(E) as Np(x) = −∂v∞(y), where y ∈ K^M_{n+1}F(t) is such that ∂p(y) = x and ∂p′(y) = 0 for all p′ ≠ p. If n = 0, the transfer map N : Z → Z is multiplication by the degree [E : F] of the field extension",
      "match": "The degree-zero case, stated after Definition 7.5."
     }
    ],
@@ -2994,19 +2917,16 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "III.7.5.1, Weil Reciprocity Formula 7.5.1 (PDF p. 256; book p. 248)",
-     "excerpt": "If we let N∞ denote the identity map on K^M_n(F), and sum over the set of all discrete valuations on F(t) which are trivial on F, the definition of the Nv yields the: Weil Reciprocity Formula 7.5.1. Σv Nv∂v(x) = 0 for all x ∈ K^M_n F(t).",
      "match": "The statement in all degrees, as a consequence of Definition 7.5."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "III.6.5.3, Weil Reciprocity Formula 6.5.3 (PDF p. 244; book p. 236)",
-     "excerpt": "The appropriate reciprocity formula first appeared in Weil’s 1940 paper on the Riemann Hypothesis for curves: (f, g)∞ · ∏p Np(f, g)p = 1 in F×. In Weil’s formula, ‘Np’ denotes the usual norm map (F[t]/p)× → F×.",
      "match": "The degree-two form with field norms."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "III.6.5.3, proof of the Weil Reciprocity Formula (PDF p. 244; book p. 236)",
-     "excerpt": "Thus we may assume that F is algebraically closed. By Example 6.1.7, K2F(t) is generated by linear symbols of the form {a, t−b}. But (a, t−b)∞ = a and ∂t−b(a, t−b) = a^{−1}, so the formula is clear.",
      "match": "The source's proof of the degree-two form."
     }
    ],
@@ -3050,13 +2970,11 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "V.6.12, the paragraph before 6.12.1 (PDF p. 424; book p. 416)",
-     "excerpt": "The following result, due to Gillet, generalizes the Weil Reciprocity of III.6.5.3 for symbols {f, g} ∈ K2(F). We write ∂x for the component Kn+1(F) → Kn(x) of the map ∂ in 6.12.",
      "match": "The source states the curve formula as the generalisation of III.6.5.3 for symbols {f, g} ∈ K_2(F): n = 1 in V.6.12.1."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "III.6.5.3, Weil Reciprocity Formula 6.5.3 (PDF p. 244; book p. 236)",
-     "excerpt": "The appropriate reciprocity formula first appeared in Weil’s 1940 paper on the Riemann Hypothesis for curves: (f, g)∞ · ∏p Np(f, g)p = 1 in F×. In Weil’s formula, ‘Np’ denotes the usual norm map (F[t]/p)× → F×.",
      "match": "The projective-line case with field norms."
     }
    ],
@@ -3104,7 +3022,6 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "III.6.5.3, Weil Reciprocity Formula 6.5.3 (PDF p. 244; book p. 236)",
-     "excerpt": "The appropriate reciprocity formula first appeared in Weil’s 1940 paper on the Riemann Hypothesis for curves: (f, g)∞ · ∏p Np(f, g)p = 1 in F×. In Weil’s formula, ‘Np’ denotes the usual norm map (F[t]/p)× → F×.",
      "match": "The degree-two reciprocity with residue-field norms, of which this node is the disjoint-support case; EllipticCurves Layer 2's milestone is read in the atlas's stage text, not in this source."
     }
    ],
@@ -3143,7 +3060,6 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "III.7.6.1, the paragraph after Theorem 7.6.1 (PDF p. 257; book p. 249)",
-     "excerpt": "The key trick used in the proof of this theorem is to fix a prime p and pass from F to a union F′ of finite extensions of F of degree prime to p such that the degree of every finite extension of F′ is a power of p. By Corollary 7.5.3 the kernel of K^M_n(F) → K^M_n(F′) has no p-torsion.",
      "match": "The trick, as the source states it."
     }
    ],
@@ -3184,7 +3100,6 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "III, Exercise 7.7 (PDF p. 265; book p. 257)",
-     "excerpt": "7.7. Ramification and the transfer. Let F′ and E = F(a) be finite field extensions of F, and suppose that the irreducible polynomial π ∈ F[t] of a has a decomposition π = ∏ πi^ei in F′[t]. Let Ei denote F′(ai), where each ai has minimal polynomial πi. Show that the following diagram commutes.",
      "match": "The exercise, for finite F′; the argument uses only the naturality of Theorem III.7.4 and the ramification formula, so the node states it for any F′, which Exercise III.7.9 needs for completions."
     }
    ],
@@ -3221,13 +3136,11 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "III, Exercise 7.6 (PDF p. 265; book p. 257)",
-     "excerpt": "7.6. Suppose that the degree of every finite extension of a field F is a power of some fixed prime p. If E is an extension of degree p and n > 0, use Ex. 6.2 to show that K^M_n(E) is generated by elements of the form {y, x2, . . . , xn}, where y ∈ E× and the xi are in F×.",
      "match": "The exercise; it cites Exercise 6.2, whose correct case d = 1 (Lemma III.6.1.4) is what is used."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "III.6.1.4, Lemma 6.1.4 and its proof (PDF p. 240; book p. 232)",
-     "excerpt": "Lemma 6.1.4. (Bass-Tate) If E = F(u) is a field extension of F, then every symbol of the form {b1u − a1, b2u − a2} (ai, bi ∈ F) is a product of symbols {ci, di} and {ci, u − di} with ci, di ∈ F.",
      "match": "The linear case."
     }
    ],
@@ -3269,13 +3182,11 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "III.7.6.2, Lemma 7.6.2 (PDF p. 257; book p. 249)",
-     "excerpt": "Lemma 7.6.2. (Kato) If E is a normal extension of F, and [E : F] is a prime number p, then the map NE/F = Na/F : K^M_∗(E) → K^M_∗(F) does not depend upon the choice of a such that E = F(a).",
      "match": "The statement."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "III.7.6.2, proof of Lemma 7.6.2 (PDF p. 257; book p. 249)",
-     "excerpt": "Proof. If also E = F(b), then from Corollary 7.5.3 and Ex. 7.7 with F′ = E we see that δ(x) = Na/F(x) − Nb/F(x) is annihilated by p.",
      "match": "The first step of the proof."
     }
    ],
@@ -3322,19 +3233,16 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "III.7.6.3, Corollary 7.6.3 (PDF p. 257; book p. 249)",
-     "excerpt": "Corollary 7.6.3. If in addition F is a complete discrete valuation field with residue field kv, and the residue field of E is kw, the following diagram commutes.",
      "match": "The statement (the diagram ∂_v ∘ N = N ∘ ∂_w)."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "III.7.6.3, proof of Corollary 7.6.3 (PDF p. 257; book p. 249)",
-     "excerpt": "By Ex. 7.7 and Ex. 7.8 it suffices to prove that Nkw/kv∂w(u) = ∂v(NEF′/F′u) for every element u of this form. But this is an easy computation.",
      "match": "The reduction and the computation, as the source gives them."
     },
     {
      "sourceId": "GilleSzamuely.2006",
      "locator": "Proposition 7.3.9, pp. 199–202",
-     "excerpt": "commutes",
      "match": "Finite descent of the generated-symbol expression, p/p² annihilation and prime-to-p detection. Ramification factors are displayed rather than treating the infinite algebraic closure as discrete."
     }
    ],
@@ -3376,7 +3284,6 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "III, Exercise 7.9 (PDF p. 266; book p. 258)",
-     "excerpt": "7.9. If E/F is a normal extension of prime degree p, and v is a valuation on F(t) trivial on F, show that ∂vNE(t)/F(t) = Σw NE(w)/F(v)∂w, where the sum is over all the valuations w of E(t) over v. Hint: If F(t)v and E(t)w denote the completions of F(t) and E(t) at v and w, respectively, use Ex. 7.7",
      "match": "The exercise and its hint, which the node follows."
     }
    ],
@@ -3414,13 +3321,11 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "III.7.6.4, Proposition 7.6.4 (PDF p. 258; book p. 250)",
-     "excerpt": "Proposition 7.6.4. (Kato) Let E and F′ = F(a) be extensions of F with E/F normal of prime degree p. If E′ = E(a) denotes the composite field, the following diagram commutes.",
      "match": "The statement."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "III.7.6.4, proof of Proposition 7.6.4 (PDF p. 258; book p. 250)",
-     "excerpt": "Two applications of Definition 7.5 give the desired calculation: Na/F(NE′/F′x) = −∂∞(NE(t)/F(t)y) = −NE/F(∂∞y) = NE/F(Na/F x).",
      "match": "The final computation, whose last term is corrected in the author's errata list (p. 272 of the published edition)."
     }
    ],
@@ -3578,13 +3483,11 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "III.6.3, Lemma 6.3 (PDF p. 242; book p. 234)",
-     "excerpt": "Lemma 6.3. For every discrete valuation v on F there is a Steinberg symbol K2(F) −∂v→ k×v, defined by ∂v({r, s}) = (−1)^{v(r)v(s)} overline(s^{v(r)}/r^{v(s)}). This symbol is called the tame symbol of the valuation v.",
      "match": "The symbols whose simultaneous vanishing defines the subgroup."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "III.6.5, Localization Theorem 6.5 (PDF p. 244; book p. 236)",
-     "excerpt": "Localization Theorem 6.5. Let R be a Dedekind domain, with field of fractions F. Then the tame symbols K2(F) −∂p→ (R/p)× associated to the prime ideals of R fit into a long exact sequence ∐p K2(R/p) → K2(R) → K2(F) −∂=∐∂p→ ∐p (R/p)× → SK1(R) → 1",
      "match": "The kernel of the residue sum, which the localisation theorem identifies with the image of K_2(R) modulo the image of ∐ K_2(R/p)."
     }
    ],
@@ -3629,19 +3532,16 @@
     {
      "sourceId": "Weibel.KBook.III",
      "locator": "III.6.5, Localization Theorem 6.5 (p. 52)",
-     "excerpt": "Localization Theorem 6.5. Let R be a Dedekind domain with field of fractions F . Then the tame symbols K2 (F ) −→ (R/p)× associated to the prime ideals of R fit into a long exact sequence",
      "match": "The localisation theorem for any Dedekind domain, applied to O_{F,S}, whose primes are those of O_F outside S."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "V.6.8, Theorem 6.8 (PDF p. 420; book p. 412)",
-     "excerpt": "Theorem 6.8. (Soulé [171]) Let R be a Dedekind domain whose field of fractions F is a global field. Then Kn(R) ≅ Kn(F) for all odd n ≥ 3; for even n ≥ 2 the localization sequence breaks up into exact sequences: 0 → Kn(R) → Kn(F) → ⊕p Kn−1(R/p) → 0.",
      "match": "Soulé's theorem for n = 2 applies to every Dedekind domain with global fraction field, in particular to O_{F,S} as well as O_F."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "V.6.8, proof of Theorem 6.8 (PDF p. 420; book p. 412)",
-     "excerpt": "Let SKn(R) denote the kernel of Kn(R) → Kn(F); from (6.6), it suffices to prove that SKn(R) = 0 for n ≥ 1. For n = 1 this is the Bass-Milnor-Serre Theorem III.2.5 (and III.2.5.1).",
      "match": "Where Bass–Milnor–Serre enters."
     }
    ],
@@ -3684,25 +3584,21 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "III.6.5, Localization Theorem 6.5 (PDF p. 244; book p. 236)",
-     "excerpt": "Localization Theorem 6.5. Let R be a Dedekind domain, with field of fractions F. Then the tame symbols K2(F) −∂p→ (R/p)× associated to the prime ideals of R fit into a long exact sequence ∐p K2(R/p) → K2(R) → K2(F) −∂=∐∂p→ ∐p (R/p)× → SK1(R) → 1",
      "match": "The localisation sequence for a Dedekind domain: the cokernel of the residue sum is SK_1(R)."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "V.6.8, Theorem 6.8 (PDF p. 420; book p. 412)",
-     "excerpt": "Theorem 6.8. (Soulé [171]) Let R be a Dedekind domain whose field of fractions F is a global field. Then Kn(R) ≅ Kn(F) for all odd n ≥ 3; for even n ≥ 2 the localization sequence breaks up into exact sequences: 0 → Kn(R) → Kn(F) → ⊕p Kn−1(R/p) → 0.",
      "match": "The case of a global field."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "V.6.8, proof of Theorem 6.8 (PDF p. 420; book p. 412)",
-     "excerpt": "Let SKn(R) denote the kernel of Kn(R) → Kn(F); from (6.6), it suffices to prove that SKn(R) = 0 for n ≥ 1. For n = 1 this is the Bass-Milnor-Serre Theorem III.2.5 (and III.2.5.1).",
      "match": "Where Bass–Milnor–Serre enters."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "III.1.5.4, Example 1.5.4 (PDF p. 193; book p. 185)",
-     "excerpt": "The ring R = ℝ[x, y]/(x2 + y2 − 1) may be embedded in the ring ℝ^{S1} by x ↦ cos(θ), y ↦ sin(θ). Since the matrix (x −y; y x) maps to A, it represents a nontrivial element of SK1(R).",
      "match": "A Dedekind domain with nonzero SK_1: per-prime surjectivity does not give surjectivity of the sum."
     }
    ],
@@ -3740,7 +3636,6 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "V.6.8, Theorem 6.8 (PDF p. 420; book p. 412)",
-     "excerpt": "Theorem 6.8. (Soulé [171]) Let R be a Dedekind domain whose field of fractions F is a global field. Then Kn(R) ≅ Kn(F) for all odd n ≥ 3; for even n ≥ 2 the localization sequence breaks up into exact sequences: 0 → Kn(R) → Kn(F) → ⊕p Kn−1(R/p) → 0.",
      "match": "The case of a global field."
     }
    ],
@@ -3857,19 +3752,16 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "III.6.2.1, Example 6.2.1 (PDF p. 240; book p. 232)",
-     "excerpt": "Example 6.2.1. There is a Steinberg symbol (x, y)∞ on the field R with values in the group {±1}. Define (x, y)∞ to be: −1 if both x and y are negative, and +1 otherwise. The Steinberg identity (x, 1 − x)∞ = +1 holds because x and 1 − x cannot be negative at the same time.",
      "match": "The definition and the Steinberg identity."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "III.6.2.1, Example 6.2.1, continued (PDF p. 240; book p. 232)",
-     "excerpt": "The resulting map K2(R) → {±1} is onto because (−1, −1)∞ = −1. This shows that the symbol {−1, −1} in K2(Z) is nontrivial, as promised in 5.2.2, and even shows that K2(Z) is a direct summand in K2(R).",
      "match": "Surjectivity and the consequence for K_2(ℤ)."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "III, Exercise 6.4 (PDF p. 251; book p. 243)",
-     "excerpt": "6.4. If F is a number field with r1 distinct embeddings F ↪ R, show that the r1 symbols ( , )∞ on F define a surjection K2(F) → {±1}^{r1}.",
      "match": "The sign symbols at the real places of a number field."
     }
    ],
@@ -3912,25 +3804,21 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "III.5.2.2, Example 5.2.2 (PDF p. 226; book p. 218)",
-     "excerpt": "Example 5.2.2. The group K2(Z) is cyclic of order 2. This calculation uses the Euclidean algorithm to rewrite elements of St(Z), and is given in §10 of Milnor [131]. ... We will see in Example 6.2.1 below that {−1, −1} is still nonzero in K2(R).",
      "match": "The statement and its cited proof; the source does not prove the upper bound."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "III.6.2.1, Example 6.2.1, continued (PDF p. 240; book p. 232)",
-     "excerpt": "The resulting map K2(R) → {±1} is onto because (−1, −1)∞ = −1. This shows that the symbol {−1, −1} in K2(Z) is nontrivial, as promised in 5.2.2, and even shows that K2(Z) is a direct summand in K2(R).",
      "match": "The non-triviality and the splitting."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "III.5.2.2, Example 5.2.2, second paragraph (PDF p. 226; book p. 218)",
-     "excerpt": "Tate has used the same Euclidean algorithm type techniques to show that K2(Z[√−7]) and K2(Z[√−15]) are also cyclic of order 2, generated by the symbol {−1, −1}, while K2(R) = 1 for the imaginary quadratic rings R = Z[i], Z[√−3], Z[√−2] and Z[√−11].",
      "match": "The imaginary quadratic examples used in the acceptance."
     },
     {
      "sourceId": "Milnor.1971",
      "locator": "Corollary 10.2, p. 81, derived from Theorem 10.1 proved on p. 92",
-     "excerpt": "cyclic of order 2",
      "match": "Actual upper-bound proof, separately from the real sign lower bound."
     }
    ],
@@ -3974,7 +3862,6 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "III.6.5.1, Application 6.5.1 (PDF p. 244; book p. 236)",
-     "excerpt": "Application 6.5.1 (K2Q). If R = Z then, since K2(Z/p) = 1 and SK1(Z) = 1, we have an exact sequence 1 → K2(Z) → K2(Q) −∂→ ∐ F×p → 1. As noted in Example 6.2.1, this sequence is split by the symbol (r, s)∞, so we have K2(Q) ≅ K2(Z) ⊕ ∐ F×p.",
      "match": "The computation with its splitting."
     }
    ],
@@ -4127,13 +4014,11 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "III.5.11 (PDF p. 234)",
-     "excerpt": "Definition 5.11 (Dennis-Stein symbols). If r, s ∈ R commute and 1 − rs is a unit then the element ... of St(R) belongs to K2(R), because φ⟨r, s⟩ = 1. By Ex. 5.11, it is independent of the choice of i ≠ j, and if r is a unit of R then ⟨r, s⟩ = {r, 1 − rs}.",
      "match": "The definition, membership in K2, independence of the indices and the unit case; the displayed word is written out in the statement."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "III.5.11 (PDF p. 234)",
-     "excerpt": "We warn the reader that the meaning of the symbol ⟨r, s⟩ changed circa 1980. We use the modern definition of this symbol, which equals ⟨−r, s⟩−1 in the old literature, including that of loc. cit.",
      "match": "The modern convention and its translation from the pre-1980 one, which the stage text's 1 + ab hypothesis belongs to."
     }
    ],
@@ -4172,13 +4057,11 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "III.5.11.1(a) (PDF p. 234)",
-     "excerpt": "Theorem 5.11.1. (a) Let R be a commutative local ring, or a field. Then K2(R) may be presented as the abelian group generated by the symbols ⟨r, s⟩ with r, s ∈ R such that 1 − rs is a unit, subject only to the relations (D1), (D2) and (D3).",
      "match": "The theorem with its hypotheses, verbatim."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "III.5.11 (PDF p. 234)",
-     "excerpt": "The following result is essentially due to Maazen, Stienstra and van der Kallen. However, their work preceded the correct definition of K2(R, I) so the correct historical reference is [103].",
      "match": "The attribution; the source gives no proof. [103] is F. Keune, The relativization of K2, J. Algebra 54 (1978), 159–177."
     }
    ],
@@ -4226,25 +4109,21 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "III.5.11.1(b) (PDF p. 235)",
-     "excerpt": "Let I be a radical ideal, contained in a commutative ring R. Then K2(R, I) may be presented as the abelian group generated by the symbols ⟨r, s⟩ with either r ∈ R and s ∈ I, or else r ∈ I and s ∈ R. ... subject only to the relations (D1), (D2), and the relation (D3) whenever r, s, or t is in I.",
      "match": "Part (b) of the theorem with its hypotheses; stated, not proved."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "Ex. III.5.14(a) (PDF p. 237)",
-     "excerpt": "(a) If I is a radical ideal of R, show that there is a surjection from K2(R, I) onto I ⊗R Ω1 R/I, sending ⟨x, r⟩ to x ⊗ dr (r ∈ R, x ∈ I).",
      "match": "The Kähler-differential lower bound, stated as an exercise."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "Ex. III.5.14(b),(c) (PDF p. 238)",
-     "excerpt": "(b) If I2 = 0, show that the kernel of the map in (a) is generated by the Dennis-Stein symbols ⟨x, y⟩ with x, y ∈ I. (c) (Van der Kallen) The dual numbers over R is the ring R[ε] with ε2 = 0. If 1 2 ∈ R, show that the map K2(R[ε], ε) → Ω1 R of part (a) is an isomorphism.",
      "match": "The square-zero and dual-number test values, stated as exercises ('1 2' is the printed fraction 1/2)."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "Ex. III.5.13 (PDF p. 237)",
-     "excerpt": "If n ≥ 2, show that K2(Z/2n) ∼= K2(Z/4) ∼= {±1} on {−1, −1} = ⟨−1, −2⟩ = ⟨2, 2⟩.",
      "match": "The nilpotent relative example; the identity of the three elements is derived in dennis-stein-relations."
     }
    ],
@@ -4282,19 +4161,16 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "III.5.11 (PDF p. 234)",
-     "excerpt": "These elements are called Dennis-Stein symbols because they were first studied in [48], where the following identities were established. (D1) ⟨r, s⟩⟨s, r⟩= 1 (D2) ⟨r, s⟩⟨r, t⟩= ⟨r, s + t −rst⟩ (D3) ⟨r, st⟩= ⟨rs, t⟩⟨tr, s⟩(this holds in K2(R, I) if any of r, s, or t are in I.)",
      "match": "The three relations, which the source cites to Dennis and Stein without proof."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "III.5.11 (PDF p. 234)",
-     "excerpt": "By (D3) of our definition, ⟨r, 1⟩=0 for all r.",
      "match": "The consequence of (D3); the printed '=0' is a misprint for '= 1' (source issue), valid when 1 − r is a unit."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "Ex. III.5.13 (PDF p. 237)",
-     "excerpt": "If n ≥ 2, show that K2(Z/2n) ∼= K2(Z/4) ∼= {±1} on {−1, −1} = ⟨−1, −2⟩ = ⟨2, 2⟩.",
      "match": "The nilpotent relative example; the identity of the three elements is derived in dennis-stein-relations."
     }
    ],
@@ -4428,37 +4304,31 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "III.5.7 (PDF p. 230)",
-     "excerpt": "Let St′(R, I) denote the normal subgroup of St(R ⊕ I) generated by all xij(0, v) with v ∈ I.",
      "match": "The subgroup St′(R, I) of the double ring's Steinberg group."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "III.5.7 (PDF p. 230)",
-     "excerpt": "Definition 5.7. The relative Steinberg group St(R, I) is defined to be the quotient of St′(R, I) by the normal subgroup generated by all “cross-commutators” [xij(0, u), xkl(v, −v)] with u, v ∈ I.",
      "match": "The definition, verbatim (Keune and Loday's, modifying Milnor's)."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "III.5.7 (PDF p. 230)",
-     "excerpt": "We define K2(R, I) to be the kernel of the map St(R, I) → E(R, I).",
      "match": "The relative K2."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "III.5.7.1 (PDF p. 231)",
-     "excerpt": "Theorem 5.7.1. If I is an ideal of a ring R, then the exact sequence of Proposition 2.3 extends to an exact sequence K2(R, I) → K2(R) → K2(R/I) → K1(R, I) → K1(R) → K1(R/I) → K0(I) · · ·",
      "match": "The exact sequence, proved in the source by the Snake Lemma."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "III.5.11 (PDF p. 234)",
-     "excerpt": "If I is an ideal of R and s ∈ I then we can even consider ⟨r, s⟩ as an element of K2(R, I); see 5.7.",
      "match": "The relative Dennis-Stein symbol."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "IV.1.11 (PDF p. 276)",
-     "excerpt": "Keune and Loday have shown that K2(R, I) agrees with the relative group defined in III. 5.7.",
      "match": "The comparison of the homotopy-fibre relative K2 with Definition III.5.7, cited, not proved."
     }
    ],
@@ -4500,19 +4370,16 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "III.5.11.1(b) (PDF p. 235)",
-     "excerpt": "Let I be a radical ideal, contained in a commutative ring R. Then K2(R, I) may be presented as the abelian group generated by the symbols ⟨r, s⟩ with either r ∈ R and s ∈ I, or else r ∈ I and s ∈ R. ... subject only to the relations (D1), (D2), and the relation (D3) whenever r, s, or t is in I.",
      "match": "Part (b) of the theorem with its hypotheses; stated, not proved."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "III.5.11 (PDF p. 234)",
-     "excerpt": "The following result is essentially due to Maazen, Stienstra and van der Kallen. However, their work preceded the correct definition of K2(R, I) so the correct historical reference is [103].",
      "match": "The attribution; the source gives no proof. [103] is F. Keune, The relativization of K2, J. Algebra 54 (1978), 159–177."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "Exercise III.5.14(a), PDF p. 237 (printed p. 229)",
-     "excerpt": "sending ⟨x, r⟩ to x ⊗ dr (r ∈ R, x ∈ I).",
      "match": "Primary-source differential detector δ⟨i,a⟩ = i⊗dā for the relative-D3 non-example; the F_3² tensor calculation and exhaustive finite-ring checks are derived here, not quoted as a worked example from the source."
     }
    ],
@@ -4596,13 +4463,11 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "III.6.10.2 (PDF p. 250)",
-     "excerpt": "There are also natural cup products in cohomology, such as the product F× ⊗ F× → H1 et(F; µm) ⊗ H1 et(F; µm) ∪ −→ H2 et(F; µ⊗2 m ) (6.10.2)",
      "match": "The cup product of two Kummer classes into the twice-twisted module."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "III.6.10.3 (PDF p. 250)",
-     "excerpt": "Proposition 6.10.3 (Galois symbol). The bilinear pairing (6.10.2) induces a Steinberg symbol K2(F)/mK2(F) → H2 et(F; µ⊗2 m ) for every m prime to char(F).",
      "match": "The symbol formula and its Steinberg property; the proof (factor t^m − a, projection formula) follows on pp. 250-251."
     }
    ],
@@ -4744,19 +4609,16 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "III.6.2.3 (PDF p. 241)",
-     "excerpt": "Because F ×m has finite index in F ×, there is a finite “Kummer” extension K containing the mth roots of every element of F. The Galois group GF = Gal(K/F) is canonically isomorphic to Hom(F ×, µm)",
      "match": "The Kummer half of the construction."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "III.6.2.3 (PDF p. 241)",
-     "excerpt": "The composite F × −→F ×/NK× ∼= GF ∼= Hom(F ×, µm), written as x 7→(x, −)F , is adjoint to a nondegenerate bilinear map ( , )F : F × ⊗ F × →µm.",
      "match": "The definition of the pairing through local reciprocity, with its variable order."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "III.6.2.3 (PDF p. 241)",
-     "excerpt": "The Steinberg identity (a, 1 −a)F = 1 is proven by noting that (1 −a) is a norm from the intermediate field E = F(x), xm = a.",
      "match": "The Steinberg identity and the norm argument."
     }
    ],
@@ -4876,13 +4738,11 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "III.6.10 (PDF p. 250)",
-     "excerpt": "the tensor product µ⊗2 m = µm ⊗ µm is also a G-discrete module. Note that the three G-modules Z/m, µm and µ⊗2 m have the same underlying abelian group, but are isomorphic GF-modules only when µm ⊂ F.",
      "match": "The twisted module with the diagonal action and the reason a trivialisation needs a root of unity in F."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "III.6.10.4 (PDF p. 251)",
-     "excerpt": "If we identify Z/m with µm via 1 ↦ ζ, we have a natural isomorphism mBr(F) ∼= mBr(F) ⊗ Z/m ∼= mBr(F) ⊗ µm ∼= H2 et(F; µ⊗2 m ). Tate showed in [198] that this isomorphism identifies the Galois symbol of Proposition 6.10.3 with the mth power norm residue symbol of Proposition 6.9.2.",
      "match": "The trivialisation by a chosen root and the comparison with the cyclic-algebra symbol, cited to Tate [198] (On the torsion in K2 of fields, Kyoto 1976)."
     }
    ],
@@ -4993,19 +4853,16 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "III.6.2.2 (PDF p. 241)",
-     "excerpt": "Let F be a local field containing 1 2. The Hilbert (quadratic residue) symbol on F is defined by setting cF (r, s) ∈ {±1} equal to +1 or −1, depending on whether or not the equation rx2 + sy2 = 1 has a solution in F. Bilinearity is classical when F is local; see [147, p. 164].",
      "match": "The definition by the conic, verbatim ('1 2' is the printed 1/2); bilinearity is cited to O'Meara."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "III.6.2.2 (PDF p. 241)",
-     "excerpt": "Of course, the definition of cF (r, s) makes sense for any field of characteristic ≠ 2, but it will not always be a Steinberg symbol because it can fail to be bilinear in r. It is a Steinberg symbol when F = R, because the Hilbert symbol cR(r, s) is the same as the symbol (r, s)∞",
      "match": "The general-field caveat and the real case."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "III.6.2.5 (PDF p. 242)",
-     "excerpt": "Since x2 + y2 = −1 has no solution in F = ˆQ2 we see from definition (6.2.2) that the Hilbert symbol cF (−1, −1) = −1.",
      "match": "The 2-adic worked example."
     }
    ],
@@ -5113,19 +4970,16 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "III.6.10.1 (PDF p. 250)",
-     "excerpt": "1 →µm(F) →F × m −→F × →H1 et(F; µm) →1 1 →H2 et(F; µm) →Br(F) m −→Br(F) This yields isomorphisms H1 et(F; µm) ∼= F ×/F ×m and H2 et(F; µm) ∼= mBr(F).",
      "match": "The Kummer sequences identifying H2(F, µm) with the m-torsion of the Brauer group."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "III.6.10.4 (PDF p. 251)",
-     "excerpt": "If we identify Z/m with µm via 1 ↦ ζ, we have a natural isomorphism mBr(F) ∼= mBr(F) ⊗ Z/m ∼= mBr(F) ⊗ µm ∼= H2 et(F; µ⊗2 m ). Tate showed in [198] that this isomorphism identifies the Galois symbol of Proposition 6.10.3 with the mth power norm residue symbol of Proposition 6.9.2.",
      "match": "The trivialisation by a chosen root and the comparison with the cyclic-algebra symbol, cited to Tate [198] (On the torsion in K2 of fields, Kyoto 1976)."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "III.6.9.2 (PDF p. 249)",
-     "excerpt": "Proposition 6.9.2 (nth power norm residue symbol). If F contains ζ, a primitive nth root of unity, there is a homomorphism K2(F) → Br(F) sending {α, β} to the class of the cyclic algebra Aζ(α, β).",
      "match": "The Brauer-valued symbol in its cyclic-algebra form."
     }
    ],
@@ -5169,13 +5023,11 @@
     {
      "sourceId": "Milne.CFT.4.03",
      "locator": "III Proposition 3.6(a), pp. 108–109; III.4 Steps 2–4 and Remark 4.5, pp. 112–114",
-     "excerpt": "skew-symmetric",
      "match": "The arithmetic Artin/invariant evaluation, ordered cup-product definition and Artin(b) acting on a root of a; inversion is the derived conversion to this packet’s opposite argument order."
     },
     {
      "sourceId": "Milne.CFT.4.03",
      "locator": "III Proposition 3.6 and its proof, p. 109",
-     "excerpt": "PROPOSITION 3.6 For every χ ∈ Hom_cts(G, Q/Z) and a ∈ K^×, χ(φ_{L/K}(a)) = inv_K(a ∪ δχ). PROOF. See Serre 1962, “Annexe” to Chapter XI, and Serre 1967a, p. 140.",
      "match": "The character-evaluation identity of proof step 2, verbatim (formula transcribed from the text layer); Milne gives no proof of his own, so the identity is an import, not a decomposed step."
     }
    ],
@@ -5229,7 +5081,6 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "Ex. III.6.8 (PDF p. 252)",
-     "excerpt": "Quadratic Reciprocity. If r, s ∈ Q×, and (r, s)2 is the 2-adic symbol of Ex. 6.6, show that (r, s)∞(r, s)2 ∏ p≠2((r, s))p = +1.",
      "match": "The only reciprocity law the source states: the quadratic case over Q, as an exercise."
     }
    ],
@@ -5285,19 +5136,16 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "V.11.10 (PDF p. 464)",
-     "excerpt": "This yields a theory of ´etale Chern classes and hence (by 11.8) Chern class maps ci,n : Kn(X; Z/m) → H2i−n(X, Rπ∗µ⊗i m ) = H2i−n et (X, µ⊗i m ).",
      "match": "Grothendieck's étale Chern classes on K-theory with finite coefficients."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "V.11.10 (PDF p. 464)",
-     "excerpt": "Therefore the Chern class c1,1 : K1(R) → H1 et(Spec(R), µm) is the determinant K1(R) → R× followed by the Kummer map.",
      "match": "The degree-one Chern class is the Kummer map."
     },
     {
      "sourceId": "Soule.Thesis.1978",
      "locator": "Proposition 2.2.2.3 (Structure multiplicative), pp. 42–44",
-     "excerpt": "Structure multiplicative",
      "match": "Actual étale Chern product rule with hypothesis (M); i=j=1 gives −1. This is the thesis source, not an unverified locator in the 1979 article."
     }
    ],
@@ -5340,7 +5188,6 @@
     {
      "sourceId": "GilleSzamuely.2006",
      "locator": "Proposition 7.4.1, p. 204; Proposition 7.3.9, pp. 200–202",
-     "excerpt": "commutes",
      "match": "Complete arbitrary-extension square, with inseparable steps and prime-to-p descent. The henselian stages in the source reduction are explicitly distinguished from complete base fields."
     }
    ],
@@ -5380,7 +5227,6 @@
     {
      "sourceId": "GilleSzamuely.2006",
      "locator": "Lemma 7.3.10, pp. 200–201; Appendix A.6.8(2), p. 313",
-     "excerpt": "The compatibility of the proposition holds for symbols",
      "match": "The four cases, including both uniformizers and the Eisenstein constant-term normalization."
     }
    ],
@@ -5416,7 +5262,6 @@
     {
      "sourceId": "Milnor.1971",
      "locator": "Definition 10.4, p. 82; setup for Lemma 10.6, p. 85; Lemmas 9.2–9.4, pp. 71–72",
-     "excerpt": "standard basis vectors",
      "match": "Rank-two presentation, row-vector norm, signed permutation action and conjugation."
     }
    ],
@@ -5505,7 +5350,6 @@
     {
      "sourceId": "Milnor.1971",
      "locator": "Lemma 10.6 and its seven-case proof, pp. 85–90",
-     "excerpt": "Steinberg generators",
      "match": "Silvester word reduction, with a well-founded peak pair and actual Steinberg-word rewrites."
     }
    ],
@@ -5541,7 +5385,6 @@
     {
      "sourceId": "Milnor.1971",
      "locator": "Lemma 10.7, pp. 90–92; Lemma 9.1, p. 71",
-     "excerpt": "kernel of the natural homomorphism",
      "match": "Norm-one prefix argument, last-column rearrangement and induction; it does not assert the false two-torsion bound for S₂."
     }
    ],
@@ -5579,7 +5422,6 @@
     {
      "sourceId": "Milnor.1971",
      "locator": "Theorem 10.1 and Corollary 10.2, p. 81; final proof, p. 92; Theorem 9.11, pp. 77–78",
-     "excerpt": "cyclic group of order 2",
      "match": "Stable upper generation from finite-rank kernel containment and the monomial-kernel theorem."
     }
    ],
