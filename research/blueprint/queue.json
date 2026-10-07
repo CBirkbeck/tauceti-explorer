@@ -22573,8 +22573,9 @@
    ],
    "avoidAccountOf": "BP-AutomorphicLFunctionsAndLocalFactors",
    "prompt": "research/blueprint/prompts/REV-AutomorphicLFunctionsAndLocalFactors.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #363"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #363",
+   "finishedAt": "2026-10-07T07:09:15Z"
   },
   {
    "id": "BP-AutomorphicPadicLFunctions",
@@ -37486,7 +37487,8 @@
     "REV-HilbertModularVarietiesAndShimuraCurves--R18.2"
    ],
    "prompt": "research/blueprint/prompts/ASM-HilbertModularVarietiesAndShimuraCurves.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #239"
   },
   {
    "id": "ASM-HodgeTateAndCanonicalSubgroups",
