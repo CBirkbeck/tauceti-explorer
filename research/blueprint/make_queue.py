@@ -1666,8 +1666,10 @@ def main():
                      "before it was split by layer. Take from them only what no part carried over, and do not edit them.")
         # The handoff note is the one output that cannot exist before the assembly runs: the
         # document and suggested file may be a part's own, which would make the job look finished.
+        # Reconciling the parts' cross-part prerequisites edits their packets, so those are deliverables too:
+        # without them the intake refused every assembly that touched a part (2026-10-07).
         add({"id": job_id, "kind": "assembly", "priority": 2, "order": 5000, "roadmapIds": [rid],
-             "outputs": [readme, suggested, f"research/blueprint/handoff/{job_id}.md"],
+             "outputs": [readme, suggested, f"research/blueprint/handoff/{job_id}.md"] + [p[1] for p in parts if p[1] not in (readme, suggested)],
              # A part sent back by its review is joined once its latest revision is reviewed.
              "after": [latest_review.get(p[0], review_job(p[0])) for p in parts]}, text)
     # Priority 1: name the planets drawn today (research/expansion/naming/PLANETS.json).
