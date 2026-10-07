@@ -4757,7 +4757,8 @@ Let (R, R+) be a perfectoid Tate pair of characteristic p. (a) Every primitive e
 
 *Acceptance.*
 - p − [p♭] ∈ W(𝒪_{ℂ_p♭}) is a nonzerodivisor (PadicHodgeTheory:R06.1/explicit-generator-of-ker-theta).
-- p − [p♭] and Σ_{i<p}[ε]^{i/p} generate different ideals, so neither divides the other.
+- With p♭ a compatible system of p-power roots of p and ε a compatible system of primitive p-power roots of unity, p − [p♭] and ξ_cyc = Σ_{i<p}[ε]^{i/p} both generate ker θ in W(𝒪_{ℂ_p♭}); hence they are associates and each divides the other by a unit (P1/fontaine-theta-and-primitive-kernel; Scholze 2013 Lemma 6.3).
+- Negative example: μ = [ε] − 1 = ([ε]^{1/p} − 1)·ξ_cyc lies in ker θ but does not generate it. The factor [ε]^{1/p} − 1 is not a unit: its zeroth Witt coefficient ε^{1/p} − 1 lies in the maximal ideal of 𝒪_{ℂ_p♭} (P1/witt-vectors-of-perfect-plus-ring (d)). Regularity of ξ_cyc implies (μ) is strictly smaller than (ξ_cyc), so μ is not primitive. Membership in ker θ alone does not imply primitivity.
 
 *Depends on:* `primitive-degree-one-ideals`, `witt-vectors-of-perfect-plus-ring`.
 
