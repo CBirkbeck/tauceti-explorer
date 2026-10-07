@@ -22507,7 +22507,8 @@
    ],
    "avoidAccountOf": "BP-AutomorphicGaloisRepresentationsPartII--AG2.6",
    "prompt": "research/blueprint/prompts/REV-AutomorphicGaloisRepresentationsPartII--AG2.6.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #362"
   },
   {
    "id": "BP-AutomorphicLFunctionsAndLocalFactors",
@@ -22995,9 +22996,10 @@
     "REV-RS-01"
    ],
    "prompt": "research/blueprint/prompts/BP-CohomologyComparisons.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #697"
+   "note": "deliverables arrived from an external worker on issue #697",
+   "finishedAt": "2026-10-07T01:57:50Z"
   },
   {
    "id": "REV-CohomologyComparisons",
