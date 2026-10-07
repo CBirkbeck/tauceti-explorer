@@ -7,7 +7,7 @@
   "ArithmeticKTheory:N.7",
   "ArithmeticKTheory:N.8"
  ],
- "summary": "The blueprint for the last two layers of the K-theory of number fields and S-integers: N.7, regular primes and Bernoulli numbers, and N.8, certified examples. Twenty nodes. The main source is Weibel's K-book in the author-hosted draft of 29 August 2013, whose hash reproduces the one three other packets of this programme already record, so this is the same file they cite; N.8's generation proofs also use Tate's 1976 Inventiones paper, Browkin's 2000 and Zhang–Xu's 2016 Mathematics of Computation papers. The reviewed audit AUDIT-27 was read first. It records both layers as not built and the pinned index confirms it: Mathlib has the Bernoulli numbers in both conventions with the conversion lemma, cyclotomic extensions, class numbers, ramification and inertia, the unit rank, the places and the Dedekind zeta function, and Tau Ceti has an extensive quadratic-field development; but neither library defines a regular prime, neither mentions Vandiver, and no K-group above the zeroth exists in either. The audit also records three duplications for N.8, against SpecialValuesBirchTate B.3, K2SymbolsBrauer T.5 and K3BlochGroups V.5, and every computation those layers own is imported here with its owner named: the second K-group of the integers and of the rationals, the vanishing for a finite field, the third K-group of the integers and of the Gaussian rationals; the Birch–Tate check itself is B.3's, which imports N.8's certificate. What this packet owns is what is left: the convention discipline for the Bernoulli numbers, the invariant w_i and its value over the rationals, the definition of a regular prime with Kummer's criterion and the eigenspace decomposition, the vanishing of the l-primary tame kernel at an odd regular prime with the ramification argument that answers the S-integer question, the torsion consequences with their explicit degrees, Vandiver's conjecture kept separate from every unconditional statement, and for N.8 the format of a certified example, which instantiates ArithmeticKTheory N.6's certificate engine (independent upper and lower bounds) and carries the labelling rule that an order deduced from the Birch-Tate formula is a corollary and not a test of it; the certified examples N.8 keeps — K₂(ℤ[i]) = 0, the tame kernel of the real quadratic field ℚ(√5), exported to SpecialValuesBirchTate B.3 for its Birch–Tate check, and the localisation sequence of ℤ ⊂ ℤ[1/p] in every degree — while K₀(ℤ), K₁(ℤ), K₂(ℤ) and K₂(ℚ) are imported from KTheoryLowDegrees Z.6, U.6 and K2SymbolsBrauer T.5 (RT-AREA-ktheory-1/9, /11). Nothing is claimed to be formalised and every implementationStatus is unchecked. FIX-RT-BP-ArithmeticKTheory--N.7: honest signatures for available arithmetic carriers, exact supplier-labelled comments for unavailable K-theory and class-action interfaces, a separate residue-unit lemma, and the L3 Vandiver import contract. All prior source/certificate gaps and the needs_changes review are retained. FIX-RT-BP-ArithmeticKTheory--N.7~2 (round two): the two generation proofs the review asked for. K₂(ℤ[i]) = 0 by Tate's method — the filtration by symbols of S_m-units, Tate's criterion for the graded tame symbol, and its verification at every Gaussian place — and the generation of K₂(𝓞_{ℚ(√5)}) by {−1, −1} and {−1, ε}, from Zhang–Xu's vanishing of the tame kernel of ℚ(ζ₅) by restriction and transfer and from Tate's description of two-torsion. Both certificates are complete and independent of the Birch–Tate formula; N.8 is source-decomposed, with Skalba's generalised Thue theorem, an input of Zhang–Xu, as a recorded gap.",
+ "summary": "The blueprint for the last two layers of the K-theory of number fields and S-integers: N.7, regular primes and Bernoulli numbers, and N.8, certified examples. Twenty nodes. The main source is Weibel's K-book in the author-hosted draft of 29 August 2013, whose hash reproduces the one three other packets of this programme already record, so this is the same file they cite; N.8's generation proofs also use Tate's 1976 Inventiones paper, Browkin's 2000 and Zhang–Xu's 2016 Mathematics of Computation papers. The reviewed audit AUDIT-27 was read first. It records both layers as not built and the pinned index confirms it: Mathlib has the Bernoulli numbers in both conventions with the conversion lemma, cyclotomic extensions, class numbers, ramification and inertia, the unit rank, the places and the Dedekind zeta function, and Tau Ceti has an extensive quadratic-field development; but neither library defines a regular prime, neither mentions Vandiver, and no K-group above the zeroth exists in either. The audit also records three duplications for N.8, against SpecialValuesBirchTate B.3, K2SymbolsBrauer T.5 and K3BlochGroups V.5, and every computation those layers own is imported here with its owner named: the second K-group of the integers and of the rationals, the vanishing for a finite field, the third K-group of the integers and of the Gaussian rationals; the Birch–Tate check itself is B.3's, which imports N.8's certificate. What this packet owns is what is left: the convention discipline for the Bernoulli numbers, the Bernoulli denominator comparison for N.4’s invariant w_i, the definition of a regular prime with Kummer's criterion and the eigenspace decomposition, the vanishing of the l-primary tame kernel at an odd regular prime with the ramification argument that answers the S-integer question, the torsion consequences with their explicit degrees, Vandiver's conjecture kept separate from every unconditional statement, and for N.8 the format of a certified example, which instantiates ArithmeticKTheory N.6's certificate engine (independent upper and lower bounds) and carries the labelling rule that an order deduced from the Birch-Tate formula is a corollary and not a test of it; the certified examples N.8 keeps — K₂(ℤ[i]) = 0, the tame kernel of the real quadratic field ℚ(√5), exported to SpecialValuesBirchTate B.3 for its Birch–Tate check, and the localisation sequence of ℤ ⊂ ℤ[1/p] in every degree — while K₀(ℤ), K₁(ℤ), K₂(ℤ) and K₂(ℚ) are imported from KTheoryLowDegrees Z.6, U.6 and K2SymbolsBrauer T.5 (RT-AREA-ktheory-1/9, /11). Nothing is claimed to be formalised and every implementationStatus is unchecked. FIX-RT-BP-ArithmeticKTheory--N.7: honest signatures for available arithmetic carriers, exact supplier-labelled comments for unavailable K-theory and class-action interfaces, a separate residue-unit lemma, and the L3 Vandiver import contract. All prior source/certificate gaps and the needs_changes review are retained. FIX-RT-BP-ArithmeticKTheory--N.7~2 (round two): the two generation proofs the review asked for. K₂(ℤ[i]) = 0 by Tate's method — the filtration by symbols of S_m-units, Tate's criterion for the graded tame symbol, and its verification at every Gaussian place — and the generation of K₂(𝓞_{ℚ(√5)}) by {−1, −1} and {−1, ε}, from Zhang–Xu's vanishing of the tame kernel of ℚ(ζ₅) by restriction and transfer and from Tate's description of two-torsion. Both certificates are complete and independent of the Birch–Tate formula; N.8 is source-decomposed, with Skalba's generalised Thue theorem, an input of Zhang–Xu, as a recorded gap.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -491,32 +491,32 @@
    "realises": [
     "ArithmeticKTheory:N.7"
    ],
-   "title": "The invariant w_i(F), and its value over the rationals",
-   "kind": "construction",
-   "statement": "For a number field F and a positive integer i, the invariant w_i(F) is the largest integer m such that the absolute Galois group acts trivially on the i-th Tate twist of the m-th roots of unity; equivalently, the order of the group of roots of unity in the fixed field of that action. Over the rationals it is 2 for odd i, and for i = 2k it is the DENOMINATOR of B_{2k}/4k in the arithmetic convention (the source's 'B_k/4k' with its topologists' B_k); so w_2(Q) = 24 and w_4(Q) = 240; a prime divides w_i(Q) exactly when it is one more than a divisor of i. The invariant is what the torsion of the odd K-groups of a ring of integers is measured by, so it is the arithmetic half of the connection between Bernoulli numbers and K-theory that this layer exists to make precise.",
+   "title": "The Bernoulli denominator comparison for N.4’s invariant",
+   "kind": "theorem",
+   "statement": "Use N.4’s W_i(F) = H⁰(F, ℚ/ℤ(i)) and w_i(F) = |W_i(F)|, finite for a number field F and a positive integer i. This node introduces no second invariant. For Q, w_i(Q) = 2 when i is odd. For i = 2k with k ≥ 1, w_{2k}(Q) is the denominator of B_{2k}/(4k), with B_1 = −1/2; equivalently it is the denominator of B_k^top/(4k), where B_k^top = |B_{2k}|. Thus w_2(Q) = 24 and w_4(Q) = 240. For a positive even i and a prime l, l divides w_i(Q) if and only if l−1 divides i. The cyclotomic definition and the prime-power computations belong to N.4; N.7 compares them with its Bernoulli convention.",
    "hypotheses": [
-    "F is a number field; i is a positive integer; the Bernoulli numbers are in the arithmetic convention of the previous node.",
-    "The twisted module of roots of unity is the one K2SymbolsBrauer T.7 constructs; neither pinned library has it, and this layer imports it rather than building a second one.",
-    "The statement over the rationals is a theorem about the denominator, not a definition."
+    "F is a number field and i is positive; N.4 supplies the invariant and its finiteness.",
+    "For the Bernoulli denominator formula F = Q, i = 2k and k ≥ 1. B_{2k} is Mathlib’s arithmetic Bernoulli number, not bernoulli' k.",
+    "The statement over Q is a comparison theorem about the denominator, not a definition."
    ],
    "proofSteps": [
-    "Define the invariant by the largest-m characterisation and prove that the maximum exists, using that the Galois action on the roots of unity of order m factors through a finite quotient.",
-    "Prove the elementary properties: the invariant is even, it is divisible by the order of the roots of unity in F, and it is multiplicative in the evident sense under a field extension only up to the stated index.",
-    "Prove the value 2 for odd i over the rationals, which is the source's earlier computation.",
-    "Prove the value for even i over the rationals: the invariant is the denominator of B_k/4k, and a prime divides it exactly when one less than the prime divides i.",
-    "Record the two places where the invariant is used: the order of the torsion of the odd K-groups, and the Birch-Tate formula of N.8."
+    "Import N.4/the-w-invariant and N.4/finiteness-of-the-w-invariant. The largest-m description is N.4/exponent-criterion applied to the finite cyclic fixed-point group.",
+    "Import the odd value and the even prime-power product from N.4/w2-of-the-rationals-and-the-divisibility-tests; do not repeat their cyclotomic proofs.",
+    "Compare that product with the denominator of B_{2k}/(4k), using the convention of N.7/bernoulli-conventions and K-book VI.2.4. The sign of B_{2k} does not change its denominator.",
+    "The odd-prime factors are exactly those with l−1 dividing 2k, and the two-primary factor is 2^{2+v_2(2k)}. This gives the prime-divisibility criterion in positive even weight.",
+    "N.5 supplies the odd K-group torsion measured by w_i; SpecialValuesBirchTate B.3 consumes N.4’s invariant and N.8’s independent certificate. Neither result defines w_i."
    ],
    "acceptance": [
-    "Over the rationals the invariant at i = 2 is 24, which is the denominator of B_1/8 in the arithmetic convention and is the number that appears in the Birch-Tate formula.",
+    "Over Q, w_2(Q) = 24 is the denominator of B_2/4 = (1/6)/4 = 1/24 in the arithmetic convention. The source’s B_1^top is B_2 = 1/6.",
     "For odd i over the rationals the invariant is 2, so the odd twists contribute only two-torsion.",
     "For the Gaussian rationals the invariant at i = 2 is again 24, which is what makes the third K-group of that field have a cyclic summand of order 24."
    ],
    "prerequisites": [
     "ArithmeticKTheory:N.7/bernoulli-conventions",
-    "K2SymbolsBrauer:T.7",
-    "mathlib:rootsOfUnity",
-    "mathlib:IsPrimitiveRoot",
-    "mathlib:NumberField"
+    "ArithmeticKTheory:N.4/the-w-invariant",
+    "ArithmeticKTheory:N.4/exponent-criterion",
+    "ArithmeticKTheory:N.4/finiteness-of-the-w-invariant",
+    "ArithmeticKTheory:N.4/w2-of-the-rationals-and-the-divisibility-tests"
    ],
    "sources": [
     {
@@ -528,18 +528,18 @@
    ],
    "implementationStatus": "unchecked",
    "planet": {
-    "name": "The invariant w_i(F)"
+    "name": "Bernoulli denominator comparison"
    },
    "api": [
     {
      "name": "wInvariant",
      "role": "data",
-     "statement": "The invariant w_i(F)."
+     "statement": "Reuse TauCeti.wInvariant from N.4/the-w-invariant; no new data declaration."
     },
     {
      "name": "wInvariant_even",
      "role": "characterisation",
-     "statement": "The invariant is even."
+     "statement": "For a number field F and positive weight i, 2 divides N.4’s w_i(F)."
     },
     {
      "name": "wInvariant_odd_rat",
@@ -554,7 +554,7 @@
     {
      "name": "wInvariant_prime_divides",
      "role": "characterisation",
-     "statement": "A prime divides it exactly when one less than the prime divides i."
+     "statement": "For a positive even i and a prime l, l divides w_i(Q) if and only if l−1 divides i."
     },
     {
      "name": "wInvariant_two_rat",
@@ -564,8 +564,8 @@
    ],
    "uses": [
     {
-     "where": "N.8, the Birch-Tate example",
-     "how": "The formula is the quotient of the order of the tame kernel by this invariant, so the worked example needs its value."
+     "where": "SpecialValuesBirchTate B.3",
+     "how": "The Birch–Tate check consumes w_2 and N.8’s independently certified tame kernel; it does not provide either certificate bound."
     },
     {
      "where": "N.7, the torsion consequences",
@@ -965,7 +965,11 @@
    "prerequisites": [
     "ArithmeticKTheory:N.7/tame-kernel-vanishing-at-a-regular-prime",
     "ArithmeticKTheory:N.7/w-invariant",
-    "K3BlochGroups:V.5"
+    "K3BlochGroups:V.5",
+    "ArithmeticKTheory:N.5/harris-segal-summand",
+    "ArithmeticKTheory:N.5/odd-torsion-at-a-prime-where-cd-is-two",
+    "ArithmeticKTheory:N.6/even-groups-at-odd-primes",
+    "ArithmeticKTheory:N.6/even-groups-modulo-l"
    ],
    "sources": [
     {
@@ -1022,7 +1026,10 @@
     "ArithmeticKTheory:N.7/regular-prime-torsion-consequences",
     "IntegralIwasawaTheory:L3",
     "mathlib:NumberField.maximalRealSubfield",
-    "mathlib:NumberField.of_subfield"
+    "mathlib:NumberField.of_subfield",
+    "ArithmeticKTheory:N.5/the-real-case-modulo-eight",
+    "ArithmeticKTheory:N.6/even-groups-at-odd-primes",
+    "ArithmeticKTheory:N.6/the-two-primary-corrections"
    ],
    "sources": [
     {
@@ -1857,9 +1864,11 @@
  "coverage": [
   {
    "stageId": "ArithmeticKTheory:N.7",
-   "status": "source_decomposed",
-   "remaining": [],
-   "note": "Nine nodes. The arithmetic residue-unit lemma is separated from the tame-kernel application and needs only primality. Vandiver's predicate is imported from IntegralIwasawaTheory L3, not duplicated. The arithmetic Bernoulli convention with the conversion from the other numbering, which Mathlib pins on both sides; the invariant w_i with its value over the rationals in both parities, which is where the Bernoulli numbers enter K-theory; regular and irregular primes with Iwasawa's equivalent form and the data the source gives; Kummer's criterion converting the class-number condition into a finite check on numerators; the eigenspace decomposition of the cyclotomic class group with the denominator restriction the layer's text demands and the Herbrand-Ribet theorem; the vanishing of the l-primary tame kernel at an odd regular prime, with the three inputs the stage text names and with the S-integer question answered by the ramification data, the unique prime above l having residue field the prime field whose unit group has order prime to l; the torsion consequences at a regular prime with their explicit degrees and generator counts; and Vandiver's conjecture kept strictly separate, with the unconditional statement about the groups in degrees divisible by four recorded alongside the conditional table. The reviewed audit AUDIT-27 records the whole layer as not built and the pinned index confirms it: neither library defines a regular prime, and neither mentions Vandiver."
+   "status": "planned",
+   "remaining": [
+    "Finite-coefficient Bott-module input for the regular-prime consequence has no supplier stage"
+   ],
+   "note": "Nine nodes. The arithmetic residue-unit lemma is separated from the tame-kernel application and needs only primality. Vandiver's predicate is imported from IntegralIwasawaTheory L3, not duplicated. The arithmetic Bernoulli convention with the conversion from the other numbering, which Mathlib pins on both sides; N.4’s invariant w_i imported by node id, with its Bernoulli denominator comparison, which is where the Bernoulli numbers enter K-theory; regular and irregular primes with Iwasawa's equivalent form and the data the source gives; Kummer's criterion converting the class-number condition into a finite check on numerators; the eigenspace decomposition of the cyclotomic class group with the denominator restriction the layer's text demands and the Herbrand-Ribet theorem; the vanishing of the l-primary tame kernel at an odd regular prime, with the three inputs the stage text names and with the S-integer question answered by the ramification data, the unique prime above l having residue field the prime field whose unit group has order prime to l; the torsion consequences at a regular prime with their explicit degrees and generator counts; and Vandiver's conjecture kept strictly separate, with the unconditional statement about the groups in degrees divisible by four recorded alongside the conditional table. The reviewed audit AUDIT-27 records the whole layer as not built and the pinned index confirms it: neither library defines a regular prime, and neither mentions Vandiver."
   },
   {
    "stageId": "ArithmeticKTheory:N.8",
@@ -1889,6 +1898,13 @@
     "ArithmeticKTheory:N.8/tame-kernel-of-q-zeta-five"
    ],
    "detail": "Zhang and Xu construct the sets G_m of small elements whose residues generate k(v)^× at the places of ℚ(ζ₅) of norm at least (2/π)⁴·125 ≈ 20.53 from M. Skalba's generalisation of Thue's theorem (J. Number Theory 46 (1994), 303–322), and their Theorem 3.5, condition (2) of Tate's criterion for the places of norm above 364, rests on it. The publisher's page refused access (HTTP 403) on 6 October 2026, and Browkin's Mathematics of Computation paper states the theorem only for imaginary quadratic fields. Everything else in N.8/tame-kernel-of-q-zeta-five is decomposed from the paper, which also prints the data of its machine-checked cases. NEXT SOURCE ACTION: obtain Skalba's paper, state the generalised Thue theorem for ℚ(ζ₅) with its constant, and decompose the construction of G_m (the proof of Skalba's Lemma 1.2 that Zhang–Xu cite)."
+  },
+  {
+   "title": "Finite-coefficient Bott-module input for the regular-prime consequence has no supplier stage",
+   "neededBy": [
+    "ArithmeticKTheory:N.7/regular-prime-torsion-consequences"
+   ],
+   "detail": "The graded statement of K-book VI.10.6 needs higher K-theory with ℤ/l coefficients, products and the Bott action, not just the integral Harris–Segal summand or the degree-two tame-kernel vanishing theorem. N.1’s gap “K-theory with finite coefficients has no supplier stage” applies to this consumer as well. The new N.5/N.6 node references supply integral torsion and arithmetic comparisons, but do not close this input. NEXT ACTION: assign the finite-coefficient product/Bott interface once and decompose the regular-prime graded-module proof at VI.10.6 against that interface."
   }
  ],
  "requests": [
@@ -1898,7 +1914,7 @@
   },
   {
    "supplier": "K2SymbolsBrauer:T.7",
-   "need": "The twisted coefficient modules and the norm residue symbol. The invariant w_i is defined with the twisted modules. Tate's comparison K₂/m ≅ H² is no longer requested from T.7: MotivicEtaleKTheory M.3 owns it (RT-AREA-ktheory-1/8), and N.7's tame-kernel vanishing theorem imports it from there (request to M.3)."
+   "need": "The twisted coefficient modules and the norm residue symbol. N.4’s invariant uses the twisted modules; N.7 imports that invariant by node id. Tate's comparison K₂/m ≅ H² is no longer requested from T.7: MotivicEtaleKTheory M.3 owns it (RT-AREA-ktheory-1/8), and N.7's tame-kernel vanishing theorem imports it from there (request to M.3)."
   },
   {
    "supplier": "K3BlochGroups:V.5",
@@ -1912,10 +1928,6 @@
     "ArithmeticKTheory:N.8/tame-kernel-of-q-zeta-five",
     "ArithmeticKTheory:N.8/real-quadratic-upper-generation"
    ]
-  },
-  {
-   "supplier": "ArithmeticKTheory:N.5",
-   "need": "The odd K-groups with their Harris-Segal summands, which is where the torsion consequences of N.7 live."
   },
   {
    "supplier": "K2SymbolsBrauer:T.2",
