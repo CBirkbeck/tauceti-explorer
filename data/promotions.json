@@ -549,6 +549,17 @@
     "data/blueprints/DiamondEtaleCohomology--C8.md"
    ]
   },
+  "research/blueprint/packets/DiamondsAndVStacks.json": {
+   "promotedAt": "2026-10-07T12:14:53Z",
+   "review": "fcf32562aac8a265",
+   "reviewDate": "2026-10-07",
+   "reviewer": "independent-review-REV-DiamondsAndVStacks",
+   "sha256": "a8e9550f50c6ffd8d713eec483d322a1b6c6700357af2b1cea6d53ee599c6a23",
+   "to": [
+    "data/blueprints/DiamondsAndVStacks.json",
+    "data/blueprints/DiamondsAndVStacks.md"
+   ]
+  },
   "research/blueprint/packets/DirichletPadicLFunctions--L0.json": {
    "promotedAt": "2026-10-05T01:11:10Z",
    "review": "847ec0dc0bb9a2b0",

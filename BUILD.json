@@ -1,8 +1,8 @@
 {
   "roadmaps": 233,
-  "stages": 4129,
+  "stages": 4170,
   "originalStages": 2138,
-  "sourceRefinements": 1991,
+  "sourceRefinements": 2032,
   "reviewedDecompositions": [
     {
       "roadmap": "AInfCohomology",
@@ -299,14 +299,14 @@
   "editedRoadmapSummaries": 181,
   "curatedStagePresentations": 339,
   "administrativeStages": 101,
-  "mathematicalStars": 4028,
+  "mathematicalStars": 4069,
   "plainTextPlanetLabels": 398,
   "hiddenPlanets": 600,
   "mappedStageStatuses": 350,
   "libraryAuditStatuses": 19,
   "bibliographicSources": 46,
-  "roadmapEdges": 1980,
-  "stageEdges": 10750,
+  "roadmapEdges": 1982,
+  "stageEdges": 10833,
   "reviewedLinkPackets": 25,
   "promotedBlueprints": [
     {
@@ -464,6 +464,12 @@
       "roadmap": "DiamondEtaleCohomology",
       "nodes": 65,
       "reviewer": "independent-review-REV-DiamondEtaleCohomology--C8"
+    },
+    {
+      "file": "DiamondsAndVStacks",
+      "roadmap": "DiamondsAndVStacks",
+      "nodes": 90,
+      "reviewer": "independent-review-REV-DiamondsAndVStacks"
     },
     {
       "file": "DirichletPadicLFunctions--L0",
@@ -1001,8 +1007,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 34235038,
-  "htmlSha256": "7713a160342e6c40f2bb5855731b138e11548a2ee84de97bbb5b5e5a2d6f8372",
+  "htmlBytes": 34353871,
+  "htmlSha256": "cb72f45c3095c733fadd7a35d1467e6c6dd646364aa0f4186503489cd920b927",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -1034,7 +1040,7 @@
     "data/roadmap-summaries.json": "c8bdd0a9105f5d3c4a858c8b635990729f8e94497dee784a71fae659b8c05b9f",
     "data/roadmap-classification.json": "2641dbc97eb2566c715162d011b46890d1635629181ef8126ac7aed9e24a3b13",
     "data/classification-estimates.json": "625d35fe6121bf099dc5de9e6a9111793596f9b664e3fbd439841434bb4a57d6",
-    "data/roadmap-distances.json": "c6679ae7288592d8c8dfc5760efcd41a792e9307b9d2b7106086ad7c6134a079",
+    "data/roadmap-distances.json": "e66a5e296159c9bd852f2fce30467f74d4160df77e441d8863f9a3bd92ae8b95",
     "data/galaxy-layout.json": "95d22d0d152602a054dadfada90511f6b0fb8538a1e5530c4d93412c18a51e02",
     "data/bibliography.json": "bef230a41fad22d6b790c7564061c4d05c2ae5b78cab53d005eb404afab2b122",
     "NOTICE": "a285b95d5adbf5c2bcc82db36e2a77b797f84a2c5cbb30292efd0bae17cc4f34",
@@ -1144,6 +1150,8 @@
     "data/blueprints/DeligneWeightsAndPurity--DWP.7.md": "ae5f5743868613d9bfe9487219e4595591694b60ac985dac3756a61f9b2a1e90",
     "data/blueprints/DiamondEtaleCohomology--C8.json": "d996232364ba0d0ace9760ea92ace0a9dff3cf7493a9c732d2df793ad1327ede",
     "data/blueprints/DiamondEtaleCohomology--C8.md": "283cd6c3f9c75db4c08d0c53877e7522630f1501f5b73ba0b9dc698af3699c52",
+    "data/blueprints/DiamondsAndVStacks.json": "a8e9550f50c6ffd8d713eec483d322a1b6c6700357af2b1cea6d53ee599c6a23",
+    "data/blueprints/DiamondsAndVStacks.md": "b932a48cb629f7d75e56e415381ad7382debf1e0696790aa9cbf5020202e9f67",
     "data/blueprints/DirichletPadicLFunctions--L0.json": "f2445a2a9748de37d37916a1138dffa2d71c1c77e7cef8e643898bf87fd990f5",
     "data/blueprints/DirichletPadicLFunctions--L0.md": "f4b72a43a58c23643a880c6de3d4ace1819e28d4618955d8616bddb74d9ef25c",
     "data/blueprints/DirichletPadicLFunctions--L1.json": "d8af3bdf180b010dd961ecb66a26232856dfc4a083cbc1f2f4cd7b1a0036be54",
