@@ -21323,9 +21323,9 @@
     "REV-RS-01"
    ],
    "prompt": "research/blueprint/prompts/BP-AInfCohomology--AI.0.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #664"
+   "note": "claimed on GitHub issue #664"
   },
   {
    "id": "REV-AInfCohomology--AI.0",
@@ -23019,7 +23019,8 @@
    ],
    "avoidAccountOf": "BP-CohomologyComparisons",
    "prompt": "research/blueprint/prompts/REV-CohomologyComparisons.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #372"
   },
   {
    "id": "BP-ColemanIntegration",
@@ -25314,9 +25315,10 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-GeneralizedHeegnerCycles--GH.0.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #739"
+   "note": "deliverables arrived from an external worker on issue #739",
+   "finishedAt": "2026-10-07T02:04:08Z"
   },
   {
    "id": "REV-GeneralizedHeegnerCycles--GH.0",
