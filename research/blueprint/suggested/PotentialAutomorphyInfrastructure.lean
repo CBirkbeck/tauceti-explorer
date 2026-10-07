@@ -83,6 +83,9 @@ lemma idempotent (h : EquivariantRetract A B fA fB) :
 
 def refl (A : C) (f : I → (A ⟶ A)) : EquivariantRetract A A f f := by sorry
 
+lemma ext (h h' : EquivariantRetract A B fA fB)
+    (hi : h.i = h'.i) (hr : h.toRetract.r = h'.toRetract.r) : h = h' := by sorry
+
 -- EquivariantRetract.identity
 example (A : C) (f : I → (A ⟶ A)) :
     ∃ h : EquivariantRetract A A f f, h.i = 𝟙 A ∧ h.toRetract.r = 𝟙 A := by sorry
@@ -150,7 +153,8 @@ lemma reindex {W' Emb' : Type*} (eW : W' ≃ W) (eE : Emb' ≃ Emb)
     CTGWeight c' (fun w τ i => μ (eW w) (eE τ) i) ↔ CTGWeight c μ := by sorry
 lemma not_parallel (w : W) (a : ℤ)
     (h : ∀ τ i, μ w τ i + μ w (c τ) i.rev = a) : ¬ CTGWeight c μ := by sorry
--- CTGWeight.no_cuspidal_levi_weight requires the RG2.6 and AG2 purity interfaces.
+-- CTGWeight.no_cuspidal_levi_weight needs the pending integral highest-weight
+-- interface of ReductiveGroupsIntegralRepresentationsPartII and AG2 purity.
 -- CTGWeight.zero
 example [Nonempty W] : ¬ CTGWeight (W := W) (n := n) c (fun _ _ _ => 0) := by sorry
 -- CTGWeight.empty_w
@@ -216,7 +220,8 @@ lemma uniformizer_eval (a : Fin n → ℤ) :
 lemma add (μ : Emb → Fin n → ℤ) (t : SplitTorus n U) :
     LowestWeightCharacter n σ (lam + μ) t =
       LowestWeightCharacter n σ lam t * LowestWeightCharacter n σ μ t := by sorry
--- LowestWeightCharacter.projection needs the actual integral RG2.6 lattice.
+-- LowestWeightCharacter.projection needs the actual integral lattice from
+-- ReductiveGroupsIntegralRepresentationsPartII, whose stage is still pending.
 -- LowestWeightCharacter.zero
 example (t : SplitTorus n U) : LowestWeightCharacter n σ 0 t = 1 := by sorry
 -- LowestWeightCharacter.rank_one_square
@@ -663,6 +668,10 @@ API EquivariantRetract.map (functoriality)
 A functor carries the retract to the image retract, with the image endomorphisms; it preserves both commuting equations.
 API EquivariantRetract.idempotent (relation)
 The endomorphism of B given by retraction followed by inclusion is an idempotent commuting with every action operator.
+API EquivariantRetract.refl (constructor)
+Identity inclusion and retraction give an equivariant retract for any indexed action on A; forgetting it gives Retract.refl A.
+API EquivariantRetract.ext (extensionality)
+Two equivariant retracts for the same objects and indexed actions are equal if their inclusion and retraction maps are equal.
 EXAMPLE EquivariantRetract.identity (degenerate)
 Identity maps on A give an equivariant retract of A into itself.
 EXAMPLE EquivariantRetract.forget_identity (compatibility)
@@ -1283,12 +1292,12 @@ Recorded gap: Arithmetic signatures unavailable at the pinned baseline
 PotentialAutomorphyInfrastructure:PA.4/selected-ideal-properness
 THEOREM TauCeti.PotentialAutomorphy.selected_ideal_properness
 Each of 𝔪^Q, 𝔪_0^Q, 𝔪_1^Q, 𝔫_0^Q, 𝔫_1^Q is a (proper) maximal ideal. The content is that 𝔫_0^Q is proper, i.e. H^*(X_{K_0(Q)}, 𝒱_λ(χ^{-1})/ϖ)[𝔪_0^Q] contains a nonzero vector on which every U_{v,i} (v ∈ Q) acts by α_{v,1}⋯α_{v,i}; this follows from (the proof of) [KT17, Lem. 5.3] once H^*(X_K, 𝒱_λ(χ^{-1}))[𝔪^Q] is killed by a power of 𝔪, which follows from the existence of ρ̄_𝔪 and its local–global compatibility at v ∈ Q.
-Direct dependencies: PotentialAutomorphyInfrastructure:PA.4/taylor-wiles-selected-ideals
+Direct dependencies: PotentialAutomorphyInfrastructure:PA.4/taylor-wiles-selected-ideals; SmoothRepresentationsOfLocalGroups:SR.1; ArithmeticLocallySymmetricSpaces:ALS.3/derived-hecke-action
 
 PotentialAutomorphyInfrastructure:PA.4/diamond-derived-augmentation
 THEOREM TauCeti.PotentialAutomorphy.diamond_derived_augmentation
 The natural morphisms RΓ(X_K, 𝒱)_{𝔪^Q} → RΓ(X_K, 𝒱)_𝔪, RΓ(X_{K_0(Q)}, 𝒱)_{𝔫_0^Q} → RΓ(X_K, 𝒱)_{𝔪^Q} (trace), and RΓ(Δ_Q, RΓ_{K_0(Q)/K_1(Q)}(X_{K_1(Q)}, 𝒱)_{𝔫_1^Q}) → RΓ(X_{K_0(Q)}, 𝒱)_{𝔫_0^Q} are isomorphisms in D(𝒪) (𝒱 = 𝒱_λ(χ^{-1})). (Proof: the first because 𝔪 is the unique maximal ideal of T^S(K, 𝒱) above 𝔪^Q (printed: of T^{S∪Q}(K_0(Q), 𝒱)), shown in the proof of Lemma 6.5.8; the second reduces after ⊗^L_𝒪 k to tr_{K/K_0(Q)}: H^*(X_{K_0(Q)}, 𝒱/ϖ)_{𝔫_0^Q} ≅ H^*(X_K, 𝒱/ϖ)_{𝔪^Q}, which is [KT17, Lem. 5.4]; the third is clear from the definitions.)
-Direct dependencies: PotentialAutomorphyInfrastructure:PA.4/selected-ideal-properness; PotentialAutomorphyInfrastructure:PA.0/integral-model-comparison
+Direct dependencies: PotentialAutomorphyInfrastructure:PA.4/selected-ideal-properness; PotentialAutomorphyInfrastructure:PA.0/integral-model-comparison; SmoothRepresentationsOfLocalGroups:SR.1
 
 PotentialAutomorphyInfrastructure:PA.4/taylor-wiles-hecke-locality
 THEOREM TauCeti.PotentialAutomorphy.taylor_wiles_hecke_locality
@@ -1329,8 +1338,8 @@ Direct dependencies: PotentialAutomorphyInfrastructure:PA.4/fontaine-laffaille-f
 
 PotentialAutomorphyInfrastructure:PA.4/neatness-auxiliary-places
 THEOREM TauCeti.PotentialAutomorphy.neatness_auxiliary_places
-By the Chebotarev density theorem there are infinitely many places v_0 of E of degree 1 over ℚ with odd residue characteristic, ρ̄(Frob_{v_0}) scalar, q_{v_0} ≢ 1 mod p and v_0 ∉ S′ ∪ R^c; for them H²(E_{v_0}, ad ρ̄) = H⁰(E_{v_0}, ad ρ̄(1))^∨ = 0. Choosing two such places v_0, v′_0 with distinct residue characteristics l_0 ≠ l′_0 and S = S′ ∪ {v_0, v′_0}, l_0 and l′_0 split in every imaginary quadratic subfield of E, and hypotheses (1)–(17) of §6.5.1 hold for E, π_E and S (resp. (1)–(15) of §6.6.1 in the ordinary case, §6.6.10).
-Direct dependencies: Concrete categorical/finite data only.
+Let E be an imaginary CM field, n ≥ 2, p an odd prime, and ρ̄: G_E → GL_n(k) continuous and unramified outside a finite set S′ containing the p-adic places. Assume some σ ∈ G_E − G_{E(ζ_p)} has scalar ρ̄(σ), and fix a finite forbidden set R^c of places. Then infinitely many degree-one places v of E have odd residue characteristic different from p, avoid S′ ∪ R^c and the primes ramified in E/ℚ, have scalar ρ̄(Frob_v), and satisfy q_v ≢ 1 mod p. At such v, local Tate duality gives H²(E_v, ad ρ̄) = H⁰(E_v, ad ρ̄(1))^∨ = 0. Choose two of distinct residue characteristics and put S = S′ ∪ {v_0,v′_0}; pro-v Iwahori factors at these two places make the resulting level neat (ACC Lemma 6.5.2). Their underlying rational primes split in every imaginary quadratic subfield of E. If π_E is unramified outside S′ and all other Fontaine–Laffaille seventeen-clause (respectively ordinary fifteen-clause) profile hypotheses have already been arranged, this completes the auxiliary unramified, H²-vanishing, two-prime and neat-level requirements; it does not establish the other profile hypotheses.
+Direct dependencies: tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev; tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality; ArithmeticLocallySymmetricSpaces:ALS.1
 
 PotentialAutomorphyInfrastructure:PA.4/weight-independent-hida-twist
 DEFINITION WeightIndependentHidaTwist
@@ -1434,7 +1443,7 @@ Direct dependencies: PotentialAutomorphyInfrastructure:PA.5/split-test-prime-ima
 
 PotentialAutomorphyInfrastructure:PA.5/ordinary-base-change-fields
 THEOREM TauCeti.PotentialAutomorphy.ordinary_base_change_fields
-Let E_0/F be a soluble CM extension such that: all places of V_0 ∪ V_1 ∪ V_2 split in E_0; π_{E_0,w}^{Iw_w} ≠ 0 for every finite w; at each finite prime-to-p w, either π_{E_0,w} and ρ|_{G_{E_0,w}} are unramified, or ρ|_{G_{E_0,w}} is unipotently ramified, q_w ≡ 1 mod p and ρ̄|_{G_{E_0,w}} trivial; for w | p, ρ̄|_{G_{E_0,w}} is trivial and [E_{0,w}:ℚ_p] > n(n+1)/2 + 1; for v | p, w | v and each i, ψ_{v,i} agrees with σ ↦ ∏_{τ∈Hom(F_v,Q̄_p)} τ(Art_{F_v}^{-1}(σ))^{−(λ_{τ,n−i+1}+i−1)} on all of I_{E_0,w}; and, with μ the weight of π_{E_0}, ψ_{v,i}(Art_{E_0,w}(x)) · ∏_{τ∈Hom(E_{0,w},Q̄_p)} τ(x)^{μ_{ιτ,n−i+1}+i−1} = 1 for every w | p and every p-power root of unity x ∈ E_{0,w}. Choose imaginary quadratic E_a, E_b, E_c as in the FL case but without requiring p unramified (p_c ≡ 1 mod 4p_b and p_b ≡ p_c ≡ −1 mod every rational prime below V_0∪V_1∪V_2). Then E = E_0E_aE_bE_c is soluble CM, V-split, and: every prime below S′ = S_p ∪ R or ramified in E splits in an imaginary quadratic subfield of E; ρ̄|_{G_{E_w}} trivial and q_w ≡ 1 mod p for w ∈ R; ρ̄|_{G_{E(ζ_p)}} enormous, ρ̄|_{G_E} decomposed generic, some σ ∈ G_E − G_{E(ζ_p)} with ρ̄(σ) scalar; ρ̄|_{G_{E_w}} trivial and [E_w:ℚ_p] > n(n+1)/2 + 1 for w | p; and the base change π_E (Prop. 6.5.13) is ι-ordinary by [Ger19, Lem. 5.7].
+Let E_0/F be a soluble CM extension such that: all places of V_0 ∪ V_1 ∪ V_2 split in E_0; π_{E_0,w}^{Iw_w} ≠ 0 for every finite w; at each finite prime-to-p w, either π_{E_0,w} and ρ|_{G_{E_0,w}} are unramified, or ρ|_{G_{E_0,w}} is unipotently ramified, q_w ≡ 1 mod p and ρ̄|_{G_{E_0,w}} trivial; for w | p, ρ̄|_{G_{E_0,w}} is trivial and [E_{0,w}:ℚ_p] > n(n+1)/2 + 1; for v | p, w | v and each i, ψ_{v,i} agrees with σ ↦ ∏_{τ∈Hom(F_v,Q̄_p)} τ(Art_{F_v}^{-1}(σ))^{−(λ_{τ,n−i+1}+i−1)} on all of I_{E_0,w}; and, with μ the weight of π_{E_0}, ψ_{v,i}(Art_{E_0,w}(x)) · ∏_{τ∈Hom(E_{0,w},Q̄_p)} τ(x)^{μ_{ιτ,n−i+1}+i−1} = 1 for every w | p and every p-power root of unity x ∈ E_{0,w}. Choose imaginary quadratic E_a, E_b, E_c as in the FL case but without requiring p unramified (p_c ≡ 1 mod 4p_b and p_b ≡ p_c ≡ −1 mod every rational prime below V_0∪V_1∪V_2). Then E = E_0E_aE_bE_c is soluble CM, V-split, and: every prime below S′ = S_p ∪ R or ramified in E splits in an imaginary quadratic subfield of E; ρ̄|_{G_{E_w}} trivial and q_w ≡ 1 mod p for w ∈ R; ρ̄|_{G_{E(ζ_p)}} enormous, ρ̄|_{G_E} decomposed generic, some σ ∈ G_E − G_{E(ζ_p)} with ρ̄(σ) scalar; ρ̄|_{G_{E_w}} trivial and [E_w:ℚ_p] > n(n+1)/2 + 1 for w | p. These are the field and residual/local arithmetic conditions. Construction of π_E uses PA.5/soluble-base-change-and-descent; transport of its ι-ordinarity is the separate PA.2/iota-ordinary-soluble-base-change obligation used by PA.4/ordinary-lifting-descent.
 Direct dependencies: PotentialAutomorphyInfrastructure:PA.5/split-test-prime-image-preservation; PotentialAutomorphyInfrastructurePartII:PL.0/auxiliary-cm-extensions
 
 PotentialAutomorphyInfrastructure:PA.5/rank-two-reducibility-dichotomy
@@ -1490,13 +1499,13 @@ Recorded gap: Ordinary Satake-image polynomial-law transfer
 PotentialAutomorphyInfrastructure:PA.2/iota-ordinary-automorphic-representation
 DEFINITION IotaOrdinary
 Let F be a number field (in the applications imaginary CM or totally real), l a prime, ι: Q̄_l ≅ ℂ, and π a regular algebraic automorphic representation of GL_n(𝔸_F) of weight a ∈ (ℤⁿ₊)^{Hom(F,ℂ)}: π_∞ has the infinitesimal character of Ξ_a^∨ (AG2.0); for λ = ι^{-1}a ∈ (ℤⁿ₊)^{Hom(F,Q̄_l)} this is ACC’s weight ιλ, and HT_τ(r_{l,ι}(π)) = {λ_{τ,i}+n−i} when r_{l,ι}(π) exists. Fix a place v | l, a uniformizer ϖ_v and b ≥ 1, and let Iw(v^{b,b}) = Iw_v(b,b) ⊂ GL_n(O_{F_v}) be the subgroup of matrices that are upper triangular unipotent modulo ϖ_v^b (PA.2/iwahori-level-tower). On (ι^{-1}π_v)^{Iw(v^{b,b})} the double-coset operators U^{(j)}_{ϖ_v} = [Iw(v^{b,b}) diag(ϖ_v·1_j, 1_{n−j}) Iw(v^{b,b})], j = 1,…,n, commute, and the weight-normalized operators are U^{(j)}_{λ,ϖ_v} = (∏_{τ:F_v↪Q̄_l} ∏_{i=1}^{j} τ(ϖ_v)^{−λ_{τ,n−i+1}}) U^{(j)}_{ϖ_v}. The ordinary part (ι^{-1}π_v)^{Iw(v^{b,b}),ord} is the maximal subspace stable under every U^{(j)}_{λ,ϖ_v} on which all their eigenvalues are l-adic units; it does not depend on ϖ_v. π is ι-ordinary at v if this ordinary part is nonzero for some b ≥ 1, and π is ι-ordinary if it is ι-ordinary at every v | l. The diagonal torus T_n(O_{F_v}) normalizes Iw(v^{b,b}) and its diamond operators ⟨u⟩ commute with the U^{(j)}_{λ,ϖ_v}; their common eigenvalues on a nonzero ordinary part are the data u^{(i)}_{λ,ϖ_v} and ⟨u⟩_{ι,i} of Geraghty’s Definition 5.5 used in ACC Corollary 5.5.2. No polarization is assumed; for polarized π this is the notion BLGGT and the Part II PL.0 use.
-Direct dependencies: PotentialAutomorphyInfrastructure:PA.2/iwahori-level-tower; PotentialAutomorphyInfrastructure:PA.2/positive-torus-monoid; SmoothRepresentationsOfLocalGroups:SR.1; AutomorphicGaloisRepresentationsPartII:AG2.0/regular-algebraic-of-weight
+Direct dependencies: PotentialAutomorphyInfrastructure:PA.2/iwahori-level-tower; PotentialAutomorphyInfrastructure:PA.2/positive-torus-monoid; SmoothRepresentationsOfLocalGroups:SR.1; AutomorphicGaloisRepresentationsPartII:AG2.0/regular-algebraic-of-weight; AutomorphicGaloisRepresentationsPartII:AG2.0/galois-character-of-an-algebraic-hecke-character
 API IotaOrdinary.normalizedOperator (data)
 U^{(j)}_{λ,ϖ_v} = (∏_{τ:F_v↪Q̄_l} ∏_{i=1}^{j} τ(ϖ_v)^{−λ_{τ,n−i+1}}) U^{(j)}_{ϖ_v} on (ι^{-1}π_v)^{Iw(v^{b,b})}; these operators commute.
 API IotaOrdinary.ordinaryPart (data)
 The maximal subspace of (ι^{-1}π_v)^{Iw(v^{b,b})} stable under all U^{(j)}_{λ,ϖ_v} with only l-adic unit eigenvalues; it is the sum of the common generalized unit eigenspaces.
 API IotaOrdinary.uniformizer_independent (compatibility)
-Changing ϖ_v to uϖ_v multiplies U^{(j)}_{ϖ_v} by a commuting diamond operator of finite order, so the ordinary part and ι-ordinarity are unchanged.
+For ϖ_v′=uϖ_v the normalized j-th operator changes by the weight unit ∏_τ∏_{i=1}^j τ(u)^{−λ_{τ,n−i+1}} times the commuting diamond operator ⟨diag(u·1_j,1_{n−j})⟩. The diamond order divides the exponent of (O_{F_v}/ϖ_v^b)^×; both factors have unit eigenvalues, so the ordinary part and ι-ordinarity are unchanged.
 API IotaOrdinary.level_independent (compatibility)
 π is ι-ordinary at v if and only if for some c ≥ b ≥ 0 with c ≥ 1 the Iw_v(b,c)-invariants contain a common eigenvector of all U^{(j)}_{λ,ϖ_v} with unit eigenvalues (the formulation cited from Geraghty’s Definition 5.3).
 API IotaOrdinary.iff_local (characterisation)
@@ -1511,20 +1520,22 @@ EXAMPLE IotaOrdinary.unnormalized_fails (non-example)
 Omitting the weight normalization is wrong: for n = 1, F_v = Q_l and an algebraic Hecke character of weight λ_τ = 3 at the embedding inducing v, the unnormalized eigenvalue ι^{-1}χ_v(l) has l-adic valuation 3, although χ is ι-ordinary.
 EXAMPLE IotaOrdinary.finite_twist (compatibility)
 For a finite-order Hecke character ψ, π ⊗ (ψ∘det) has the same weight and the normalized U^{(j)} eigenvalues of π multiplied by the roots of unity ψ_v(ϖ_v)^j on the same Iw(v^{b,b})-invariants once b exceeds the conductor of ψ_v; hence it is ι-ordinary exactly when π is.
+EXAMPLE IotaOrdinary.tame_uniformizer_change (non-example)
+Take n=1, F=ℚ, l=5, b=1, weight zero and a quartic finite-order Hecke character of conductor 5. On its Iw(5^{1,1})-invariants, changing the uniformizer 5 to 10 multiplies the operator by the character value at 2, a primitive fourth root of unity. The diamond operator therefore has order 4, not dividing b=1; ordinarity is unchanged.
 Recorded gap: Arithmetic signatures unavailable at the pinned baseline
 
 PotentialAutomorphyInfrastructure:PA.2/ordinarily-automorphic-representation
 DEFINITION OrdinarilyAutomorphic
-Let E be an imaginary CM or totally real field, l a prime and ι: Q̄_l ≅ ℂ. A continuous representation r: G_E → GL_n(Q̄_l) is ι-ordinarily automorphic (of weight ιλ) if r ≅ r_{l,ι}(π) for a regular algebraic cuspidal automorphic representation π of GL_n(𝔸_E) (of weight ιλ) that is ι-ordinary at every place v | l (PA.2/iota-ordinary-automorphic-representation). A residual representation r̄: G_E → GL_n(F̄_l) is ι-ordinarily automorphic if it has a lift r ≅ r_{l,ι}(π) with π regular algebraic cuspidal and ι-ordinary at every v | l. This is a condition on Hecke eigenvalues of π_v, not on r|G_{E_v}: ordinarity of r|G_{E_v} for v | l does not replace it (Qian Remark 4.4, whose deduction of automorphic ordinarity uses polarizability). The conclusion of ACC Theorem 6.1.2 is that ρ is ι-ordinarily automorphic of weight ιλ.
-Direct dependencies: PotentialAutomorphyInfrastructure:PA.2/iota-ordinary-automorphic-representation; AutomorphicGaloisRepresentationsPartII:AG2.6/compatible-system-of-pi; AutomorphicGaloisRepresentationsPartII:AG2.7/residual-representation-of-pi
+Let E be an imaginary CM or totally real field, l a prime and ι: Q̄_l ≅ ℂ. For an attached representation r_{l,ι}(π) supplied with its attachment contract, a continuous representation r: G_E → GL_n(Q̄_l) is ι-ordinarily automorphic (of weight ιλ) if r ≅ r_{l,ι}(π) for a regular algebraic cuspidal automorphic representation π of GL_n(𝔸_E) (of weight ιλ) that is ι-ordinary at every place v | l (PA.2/iota-ordinary-automorphic-representation). A residual representation r̄: G_E → GL_n(F̄_l) is ι-ordinarily automorphic if it has a lift r ≅ r_{l,ι}(π) with π regular algebraic cuspidal and ι-ordinary at every v | l. This is a condition on Hecke eigenvalues of π_v, not on r|G_{E_v}: ordinarity of r|G_{E_v} for v | l does not replace it (Qian Remark 4.4, whose deduction of automorphic ordinarity uses polarizability). The conclusion of ACC Theorem 6.1.2 is that ρ is ι-ordinarily automorphic of weight ιλ.
+Direct dependencies: PotentialAutomorphyInfrastructure:PA.2/iota-ordinary-automorphic-representation; AutomorphicGaloisRepresentationsPartII:AG2.6/compatible-system-of-pi; AutomorphicGaloisRepresentationsPartII:AG2.7/residual-representation-of-pi; AutomorphicGaloisRepresentationsPartII:AG2.0/galois-character-of-an-algebraic-hecke-character; PotentialAutomorphyInfrastructure:PA.2/ordinary-automorphic-galois-flag
 API OrdinarilyAutomorphic.lift (data)
 A witness consists of a regular algebraic cuspidal π, ι-ordinary at every v | l, and an isomorphism r ≅ r_{l,ι}(π).
 API OrdinarilyAutomorphic.residual (relation)
 If r is ι-ordinarily automorphic then so is its semisimplified reduction r̄, with the same witness π.
 API OrdinarilyAutomorphic.twist (relation)
-For an algebraic character χ of G_E, r is ι-ordinarily automorphic if and only if r ⊗ χ is.
+For χ=r_{l,ι}(ψ) supplied as the l-adic realization of an algebraic Hecke character ψ of E, with the attachment/tensor compatibility, r is ι-ordinarily automorphic if and only if r ⊗ χ is, with the shifted weight.
 API OrdinarilyAutomorphic.local_flag (compatibility)
-If r is ι-ordinarily automorphic of weight ιλ and r̄ is irreducible and decomposed generic, then r|G_{E_v} is ordinary of weight λ for every v | l (PA.2/ordinary-automorphic-galois-flag).
+For E imaginary CM, if r is ι-ordinarily automorphic of weight ιλ and r̄ is irreducible and decomposed generic, then r|G_{E_v} is ordinary of weight λ for every v | l by PA.2/ordinary-automorphic-galois-flag (ACC Corollary 5.5.2). This API item does not assert a totally real local–global theorem.
 EXAMPLE OrdinarilyAutomorphic.gl_one (computation)
 For n = 1, the l-adic realization r_{l,ι}(χ) of an algebraic Hecke character χ is ι-ordinarily automorphic, by IotaOrdinary.gl_one.
 EXAMPLE OrdinarilyAutomorphic.supersingular (non-example)
@@ -1589,8 +1600,8 @@ Direct dependencies: PotentialAutomorphyInfrastructure:PA.5/simple-galois-compos
 
 PotentialAutomorphyInfrastructure:PA.5/genericity-normal-closure-restriction
 THEOREM TauCeti.PotentialAutomorphy.genericity_normal_closure_restriction
-Let F be a number field and r̄: G_F → GL_n(F̄_l) continuous, absolutely irreducible and decomposed generic. Let K/Q be a Galois extension linearly disjoint over Q from the Galois closure over Q of F̄^{ker r̄}(ζ_l). Then r̄|G_{FK} is absolutely irreducible and decomposed generic. In the proof of Theorem 1.4 this is applied with K = L′LF^suff(ζ_N), which is Galois over Q with K ∩ F^avoid = Q, and FK = F′. The paper asserts the disjointness for F′ itself, which is impossible because both fields contain F (correction E70).
-Direct dependencies: AutomorphicGaloisRepresentationsPartII:AG2.7/existential-decomposed-genericity; AutomorphicGaloisRepresentationsPartII:AG2.7/completely-split-generic-prime
+Let F be a number field and r̄: G_F → GL_n(F̄_l) continuous, absolutely irreducible and decomposed generic. Let K/Q be a finite Galois extension linearly disjoint over Q from the Galois closure over Q of F̄^{ker r̄}(ζ_l). Then r̄|G_{FK} is absolutely irreducible and decomposed generic. In the proof of Theorem 1.4 this is applied with K = L′LF^suff(ζ_N), which is Galois over Q with K ∩ F^avoid = Q, and FK = F′. The paper asserts the disjointness for F′ itself, which is impossible because both fields contain F (correction E70).
+Direct dependencies: AutomorphicGaloisRepresentationsPartII:AG2.7/existential-decomposed-genericity; AutomorphicGaloisRepresentationsPartII:AG2.7/completely-split-generic-prime; tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev
 
 PotentialAutomorphyInfrastructure:PA.5/residual-lifting-hypothesis-restriction
 THEOREM TauCeti.PotentialAutomorphy.residual_lifting_hypothesis_restriction
@@ -1692,7 +1703,7 @@ DEFINITION UnitaryLeviWeight
 For descending Levi rows λ_τ and λ_{τc} of length n and a chosen lift τ above an embedding of F⁺, define the unitary row by concatenating −reverse(λ_{τc}) with λ_τ. It is descending exactly when −λ_{τc,1}≥λ_{τ,1}. This is the character-lattice identification (2.2.2); it does not assert that the integral dual-Weyl lattice is the dual of the integral lattice of the dual weight.
 Direct dependencies: Concrete categorical/finite data only.
 API UnitaryLeviWeight.first_block (simp)
-The i-th entry of the first block is −λ_{τc,n−i} with zero-based indexing.
+The i-th entry of the first block is −λ_{τc,n−1−i} for 0≤i<n with zero-based indexing.
 API UnitaryLeviWeight.second_block (simp)
 The i-th entry of the second block is λ_{τ,i}.
 API UnitaryLeviWeight.dominant_iff (characterisation)
