@@ -25958,8 +25958,9 @@
    ],
    "avoidAccountOf": "BP-HeckeStacksAndLocalShtukas",
    "prompt": "research/blueprint/prompts/REV-HeckeStacksAndLocalShtukas.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #427"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #427",
+   "finishedAt": "2026-10-07T13:41:07Z"
   },
   {
    "id": "BP-HeegnerPointEulerSystems--HE.0",
@@ -52744,7 +52745,8 @@
     "FIX-RT-RS-05"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-RS-05.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5708"
   },
   {
    "id": "RT-RS-06",
@@ -60657,8 +60659,9 @@
     "FIX-RT-AREA-automorphic-1~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-automorphic-1~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6215"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6215",
+   "finishedAt": "2026-10-07T13:41:11Z"
   },
   {
    "id": "RT-AREA-automorphic-2",
@@ -61019,7 +61022,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
