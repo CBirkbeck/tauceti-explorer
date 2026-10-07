@@ -12700,8 +12700,9 @@
    "avoidAccountOf": "DESIGN-EllipticCurveModularityPartII",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-EllipticCurveModularityPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3521"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3521",
+   "finishedAt": "2026-10-07T01:40:11Z"
   },
   {
    "id": "DESIGN-EllipticCurvesPartII",
@@ -28712,9 +28713,9 @@
     "REV-RS-18"
    ],
    "prompt": "research/blueprint/prompts/BP-SchemeKTheoryOperations.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #987"
+   "note": "claimed on GitHub issue #987"
   },
   {
    "id": "REV-SchemeKTheoryOperations",
