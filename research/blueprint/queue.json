@@ -10407,7 +10407,8 @@
    "avoidAccountOf": "DESIGN-PotentialAutomorphyInfrastructurePartII",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-PotentialAutomorphyInfrastructurePartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3592"
   },
   {
    "id": "DESIGN-ModularityAndLanglandsExtensionsPartII",
@@ -25046,8 +25047,9 @@
    ],
    "avoidAccountOf": "BP-GL2AutomorphicRepresentationsAndTransfer--R16.1",
    "prompt": "research/blueprint/prompts/REV-GL2AutomorphicRepresentationsAndTransfer--R16.1.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #410"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #410",
+   "finishedAt": "2026-10-07T04:53:46Z"
   },
   {
    "id": "BP-GL2AutomorphicRepresentationsAndTransfer--R17.3",
