@@ -14,7 +14,7 @@ Selective source rechecks also repair three explanatory details: in (3.27), p.56
 
 The MP.6 ownership proposal follows the verified RT-AREA-automorphic-1 finding 20. Its confirmed unitary consumer is `AutomorphicCongruences:L2s`, requesting a separately source-qualified unitary Jacobi instance; existing MP.6 adelic contracts supply no general unitary theorem. The incoming round-3 proposal is retained. An additional L2 edge requires a verified separate Fouquet–Wan use; embedding L2s in the L2 extraction alone supplies none. No other packet or atlas stage is edited.
 
-Under the user's standing source rule, the schema's `excerpt` and `printed` fields contain explicitly labelled authored evidence/problem summaries, not quotations. The reader is organized by mathematical objects and dependency flow, not by source sections.
+Under the user's standing source rule and the updated protocol, legacy `excerpt` fields are removed. Source relationships remain in authored `match` descriptions, and `printed` fields contain explicitly labelled authored problem summaries, not quotations. The reader is organized by mathematical objects and dependency flow, not by source sections.
 
 ## What the next mathematical work must establish
 
