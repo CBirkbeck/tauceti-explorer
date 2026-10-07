@@ -489,7 +489,7 @@
     "ArithmeticKTheory:N.7"
    ],
    "title": "The Bernoulli denominator formula for w_i(ℚ)",
-   "kind": "construction",
+   "kind": "theorem",
    "statement": "For a number field F and a positive integer i, import N.4/the-w-invariant and N.4/finiteness-of-the-w-invariant: w_i(F) is the largest integer m such that the absolute Galois group acts trivially on the i-th Tate twist of the m-th roots of unity; equivalently, the order of the group of roots of unity in the fixed field of that action. Over the rationals it is 2 for odd i, and for i = 2k it is the DENOMINATOR of B_{2k}/4k in the arithmetic convention (the source's 'B_k/4k' with its topologists' B_k); so w_2(Q) = 24 and w_4(Q) = 240; a prime divides w_i(Q) exactly when it is one more than a divisor of i. The invariant is what the torsion of the odd K-groups of a ring of integers is measured by, so it is the arithmetic half of the connection between Bernoulli numbers and K-theory that this layer exists to make precise.",
    "hypotheses": [
     "F is a number field; i is a positive integer; the Bernoulli numbers are in the arithmetic convention of the previous node.",
@@ -532,12 +532,12 @@
     {
      "name": "wInvariant",
      "role": "data",
-     "statement": "The invariant w_i(F)."
+     "statement": "Reuse TauCeti.wInvariant from N.4/the-w-invariant; no new data declaration."
     },
     {
      "name": "wInvariant_even",
      "role": "characterisation",
-     "statement": "The invariant is even."
+     "statement": "For a number field F and positive weight i, 2 divides N.4’s w_i(F)."
     },
     {
      "name": "wInvariant_odd_rat",
@@ -552,7 +552,7 @@
     {
      "name": "wInvariant_prime_divides",
      "role": "characterisation",
-     "statement": "A prime divides it exactly when one less than the prime divides i."
+     "statement": "For a positive even i and a prime l, l divides w_i(Q) if and only if l−1 divides i."
     },
     {
      "name": "wInvariant_two_rat",
@@ -562,8 +562,8 @@
    ],
    "uses": [
     {
-     "where": "N.8, the Birch-Tate example",
-     "how": "The formula is the quotient of the order of the tame kernel by this invariant, so the worked example needs its value."
+     "where": "SpecialValuesBirchTate B.3",
+     "how": "The Birch–Tate check consumes w_2 and N.8’s independently certified tame kernel; it does not provide either certificate bound."
     },
     {
      "where": "N.7, the torsion consequences",
@@ -953,7 +953,11 @@
    "prerequisites": [
     "ArithmeticKTheory:N.7/tame-kernel-vanishing-at-a-regular-prime",
     "ArithmeticKTheory:N.7/w-invariant",
-    "K3BlochGroups:V.5"
+    "K3BlochGroups:V.5",
+    "ArithmeticKTheory:N.5/harris-segal-summand",
+    "ArithmeticKTheory:N.5/odd-torsion-at-a-prime-where-cd-is-two",
+    "ArithmeticKTheory:N.6/even-groups-at-odd-primes",
+    "ArithmeticKTheory:N.6/even-groups-modulo-l"
    ],
    "sources": [
     {
@@ -1007,7 +1011,10 @@
     "ArithmeticKTheory:N.7/regular-prime-torsion-consequences",
     "IntegralIwasawaTheory:L3",
     "mathlib:NumberField.maximalRealSubfield",
-    "mathlib:NumberField.of_subfield"
+    "mathlib:NumberField.of_subfield",
+    "ArithmeticKTheory:N.5/the-real-case-modulo-eight",
+    "ArithmeticKTheory:N.6/even-groups-at-odd-primes",
+    "ArithmeticKTheory:N.6/the-two-primary-corrections"
    ],
    "sources": [
     {
@@ -1858,6 +1865,13 @@
     "ArithmeticKTheory:N.8/real-quadratic-example-and-birch-tate"
    ],
    "detail": "The 25/16 rounding bound recorded for ℚ(ζ₅) does not prove that its residue representatives lie in U_m, an explicit hypothesis of Tate’s criterion. For a place of norm 11, the nonzero integer 2 has norm 16 within the bound, but is supported at the later inert prime (2). The construction must specify the selection of a full set C_m ⊆ U_m, handle equal-norm ordering, establish condition (3), and expose the finite data and checks used in Theorems 3.4 and 3.6. This reviewer obtained neither the AMS publisher PDF nor an equivalent public full text on 7 October 2026 (HTTP 403); its quoted locators and tables are therefore inherited fixer evidence, not independently verified. NEXT SOURCE ACTION: obtain and read Zhang–Xu §§2–3, decompose the U_m-compatible representative selection and finite verification into checkable obligations, and then re-review the resulting unit-symbol generation. Alternatively independently validate the direct real-quadratic route retained at commit 52d782e2, noted in RT-AREA-ktheory-1.fixes-2.md; it is not adopted or certified by this review."
+  },
+  {
+   "title": "Finite-coefficient Bott-module input for the regular-prime consequence has no supplier stage",
+   "neededBy": [
+    "ArithmeticKTheory:N.7/regular-prime-torsion-consequences"
+   ],
+   "detail": "The graded statement of K-book VI.10.6 needs higher K-theory with ℤ/l coefficients, products and the Bott action, not just the integral Harris–Segal summand or the degree-two tame-kernel vanishing theorem. N.1’s gap “K-theory with finite coefficients has no supplier stage” applies to this consumer as well. The new N.5/N.6 node references supply integral torsion and arithmetic comparisons, but do not close this input. NEXT ACTION: assign the finite-coefficient product/Bott interface once and decompose the regular-prime graded-module proof at VI.10.6 against that interface."
   }
  ],
  "requests": [
@@ -1867,7 +1881,7 @@
   },
   {
    "supplier": "K2SymbolsBrauer:T.7",
-   "need": "The twisted coefficient modules and the norm residue symbol. The invariant w_i is defined with the twisted modules. Tate's comparison K₂/m ≅ H² is no longer requested from T.7: MotivicEtaleKTheory M.3 owns it (RT-AREA-ktheory-1/8), and N.7's tame-kernel vanishing theorem imports it from there (request to M.3)."
+   "need": "The twisted coefficient modules and the norm residue symbol. N.4’s invariant uses the twisted modules; N.7 imports that invariant by node id. Tate's comparison K₂/m ≅ H² is no longer requested from T.7: MotivicEtaleKTheory M.3 owns it (RT-AREA-ktheory-1/8), and N.7's tame-kernel vanishing theorem imports it from there (request to M.3)."
   },
   {
    "supplier": "K3BlochGroups:V.5",
@@ -1881,10 +1895,6 @@
     "ArithmeticKTheory:N.8/tame-kernel-of-q-zeta-five",
     "ArithmeticKTheory:N.8/real-quadratic-upper-generation"
    ]
-  },
-  {
-   "supplier": "ArithmeticKTheory:N.5",
-   "need": "The odd K-groups with their Harris-Segal summands, which is where the torsion consequences of N.7 live."
   },
   {
    "supplier": "K2SymbolsBrauer:T.2",
