@@ -283,7 +283,7 @@
       ],
       "title": "Finite endomorphisms and torsion obstructions",
       "kind": "lemma",
-      "declarationName": "TauCeti.HabiroNumberFields.finiteEndomorphism_torsionKernel_eq_zero",
+      "declarationName": "TauCeti.HabiroNF.finiteEndomorphism_torsionKernel_eq_zero",
       "statement": "Let A be a finite abelian group, f:A→A an additive endomorphism and n a natural number. If every x∈A has x=f(y)+n·z for some y,z∈A, then ker(f)∩A[n]=0. For a finite class group A with cyclic G-action and a generator γ, take f=γ−a on A, where a is an integer lift of χ(γ)⁻¹ modulo n. The χ⁻¹-twisted coinvariants of A/n vanish precisely when this surjectivity hypothesis holds, and then (A[n])^{χ⁻¹}=0.",
       "hypotheses": [
         "A is finite, not just finitely generated.",
@@ -323,7 +323,7 @@
       ],
       "title": "Vanishing of the cyclotomic Picard obstruction",
       "kind": "application",
-      "declarationName": "TauCeti.HabiroNumberFields.picard_inverseCyclotomicEigen_torsion_eq_zero",
+      "declarationName": "TauCeti.HabiroNF.picard_inverseCyclotomicEigen_torsion_eq_zero",
       "statement": "Let F be a number field, p an odd prime, m≥1, n=p^m, L=F(ζ_n), G=Gal(L/F) and χ:G→(ℤ/n)ˣ its root-exponent character. Assume p∤disc(F) and p∤#K₂(𝓞 F). Subject to the exact Keune supplier contract, (Pic(𝓞 L[1/p])[n])^{χ⁻¹}=0. This is the actual right-hand obstruction in the Kummer sequence.",
       "hypotheses": [
         "The class group of 𝓞 L[1/p] is finite, using the pinned integer-ring Fintype and finite_integer_classGroup for the S-integers at primes over p.",
@@ -371,7 +371,7 @@
       ],
       "title": "Cyclotomic ramification and the valuation action",
       "kind": "theorem",
-      "declarationName": "TauCeti.HabiroNumberFields.cyclotomic_primePrimes_fixed",
+      "declarationName": "TauCeti.HabiroNF.cyclotomic_primePrimes_fixed",
       "statement": "Let F be a number field, p an odd prime unramified in F, m≥1, n=p^m and L=F(ζ_n). Then [L:F]=φ(n) and χ:G≃(ℤ/n)ˣ. Each prime 𝔭 of 𝓞 F above p has a unique prime 𝔓 of 𝓞 L above it, with e(𝔓/𝔭)=φ(n) and f(𝔓/𝔭)=1. Thus G fixes every prime above p and acts trivially on the integer valuation group ℤ^{S_p} and on its sublattice D=ord_{S_p}(𝓞 L[1/p]ˣ).",
       "hypotheses": [
         "p∤disc(F); no assumption on the Galois closure of F.",
@@ -425,7 +425,7 @@
       ],
       "title": "Unique eigenclass lifts through an exact map",
       "kind": "lemma",
-      "declarationName": "TauCeti.HabiroNumberFields.eigenclass_existsUnique_lift",
+      "declarationName": "TauCeti.HabiroNF.eigenclass_existsUnique_lift",
       "statement": "Let R be a commutative ring, G a group, and U,M,C R-linear representations with an injective equivariant map i:U→M and equivariant δ:M→C satisfying im(i)=ker(δ). Let η:G→Rˣ be a character and suppose C^η=0. For every x∈M^η there is a unique u∈U^η with i(u)=x. This uses no inverse of |G| and holds for an infinite G as well.",
       "hypotheses": [
         "Injectivity, middle exactness and equivariance are required; surjectivity of δ is not.",
@@ -466,7 +466,7 @@
       ],
       "title": "Ordinary unit lifts of cyclotomic étale eigenclasses",
       "kind": "application",
-      "declarationName": "TauCeti.HabiroNumberFields.etale_inverseCyclotomicEigen_unitLift",
+      "declarationName": "TauCeti.HabiroNF.etale_inverseCyclotomicEigen_unitLift",
       "statement": "Under the hypotheses of keune-picard-eigen-obstruction, every χ⁻¹-eigenclass of H¹_ét(𝓞 L[1/p],μ_n) has a unique preimage in (𝓞 Lˣ/(𝓞 Lˣ)^n)^{χ⁻¹} under the Kummer map followed by inclusion. Hence the inherited Chern map c_ζ, whose twisted restriction is such an étale eigenclass, factors through ordinary unit classes. The conclusion is about unit classes, not eigenunit representatives.",
       "hypotheses": [
         "F number field, p odd, n=p^m with m≥1; p∤disc(F) and p∤#K₂(𝓞 F).",
@@ -521,7 +521,7 @@
       ],
       "title": "Odd-character multiplicity of ordinary units",
       "kind": "theorem",
-      "declarationName": "TauCeti.HabiroNumberFields.oddCharacter_unitMultiplicity",
+      "declarationName": "TauCeti.HabiroNF.oddCharacter_unitMultiplicity",
       "statement": "Let L/F be a finite Galois extension of number fields, L totally complex, and η:G→ℂˣ a nontrivial one-dimensional character. Suppose η(c_w)=−1 for the nonidentity stabilizer element c_w at every infinite place w of L over a real place of F. For the natural action on U_L=(𝓞 L)ˣ and trivial action on ℂ, dim_ℂ(ℂ⊗_ℤ Additive(U_L))^η=r₂(F). In particular this gives the required rank for L=F(ζ_p), p odd, and the inverse Teichmüller character after embedding its finite roots of unity in ℂ. It uses no assertion about the disjointness of the Galois closure of F.",
       "hypotheses": [
         "η must be a genuine complex character; χ valued in (ℤ/n)ˣ is not itself a complex character for arbitrary composite n.",
@@ -594,7 +594,7 @@
       ],
       "title": "The torsion correction in the prime unit eigenspace",
       "kind": "theorem",
-      "declarationName": "TauCeti.HabiroNumberFields.unit_inverseCyclotomicEigen_torsionSequence",
+      "declarationName": "TauCeti.HabiroNF.unit_inverseCyclotomicEigen_torsionSequence",
       "statement": "Let F be a number field, p odd and p∤disc(F), L=F(ζ_p), G=Gal(L/F), χ:G≃(ℤ/p)ˣ, U=(𝓞 L)ˣ and T=NumberField.Units.torsion L. The canonical maps give an exact sequence 0→(T/T^p)^{χ⁻¹}→(U/U^p)^{χ⁻¹}→((U/T)/(U/T)^p)^{χ⁻¹}→0 of ℤ/p-vector spaces. The right term has dimension r₂(F); the left term has dimension 1 for p=3 and 0 for p≥5. Therefore dim(U/U^p)^{χ⁻¹}=r₂(F)+[p=3].",
       "hypotheses": [
         "Unramifiedness gives full G of order p−1 and μ_{p^∞}(L)=μ_p. In particular χ=χ⁻¹ exactly for p=3 in this regime.",

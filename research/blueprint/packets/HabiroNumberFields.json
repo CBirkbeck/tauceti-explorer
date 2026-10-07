@@ -2,14 +2,14 @@
   "roadmapId": "HabiroNumberFields",
   "protocol": "blueprint-v1",
   "part": null,
-  "status": "partial",
+  "status": "complete",
   "scope": [
     "HabiroNumberFields:HB.1",
     "HabiroNumberFields:HB.2",
     "HabiroNumberFields:HB.6",
     "HabiroNumberFields:HB.7"
   ],
-  "summary": "Corrected by REV-HabiroNumberFields. The blueprint for the four layers of the number-field Habiro roadmap in scope: the integral Bloch conventions with the finite Chern class (HB.1), the cyclic quantum dilogarithm (HB.2), the Habiro ring of a number field (HB.6) and its modules indexed by K_3 (HB.7). Sources, all hash-recorded: Garoufalidis, Scholze, Wheeler and Zagier, 'The Habiro ring of a number field' (arXiv v2), for Definitions 1.1, 1.3 and 1.4, Theorems 1 and 2, Proposition 1.5 and the proofs in §§2.1, 3 and 5.1-5.2; Calegari, Garoufalidis and Zagier (arXiv v3) for the cyclic quantum dilogarithm and its comparison with the Chern class up to a universal scalar; Hutchinson (arXiv v4 source) for the square of the Chern class for odd orders. The pinned libraries supply the carriers (cyclotomic polynomials, AdjoinRoot, adic completions, localisation, power series and their coefficient maps, the discriminant-ramification criterion and linear disjointness by coprime discriminants); PowerSeries.subst needs a NILPOTENT constant term and is used only for q ↦ q^γ, while the shift x ↦ x + ζ_pm − ζ_m is HabiroCyclotomicCompletions HC.3's p-adic re-expansion. Imported by node id or request: Suslin's sequence and the Bloch group (K3BlochGroups V.3, V.4), étale comparisons and Chern classes (MotivicEtaleKTheory M.7, M.8), S-integers and odd K-groups (ArithmeticKTheory N.1, N.5), the p-adic regulator and the unramified p > 3 theorem (PadicHodgeRegulators D.3, D.4), the Frobenius lift of étale algebras (HabiroRings HR.1), and the classical completion, Taylor maps, re-expansion and inverted-prime decomposition (HabiroCyclotomicCompletions HC.1-HC.5). HB.6 fixes GSWZ's compatible roots of unity, without which the gluing is undefined; proves that for F = Q the glued ring is Habiro's Z[1/Δ][q]^N; and records that H_R has no constant R-algebra structure, is a product over classes of orders (a domain only for Δ = 1), and keeps the full coefficient algebras p-adically. HB.7 defines invertible L_p(ξ)-sections with the corrected shape of GSWZ (195), proves the local modules free of rank one, and states Theorem 2 with a recorded gap in its proof; the modules are invertible but not claimed free, and multiplication by a single element need not be an isomorphism. Twelve mistakes and gaps in GSWZ are recorded under sourceIssues. HB.1 now imports the three Bloch conventions and their comparison from K3BlochGroups V.3–V.6 (they differ by elementary abelian 2-groups, not 'two- and six-primary' groups) and decomposes CGZ §3: the cyclotomic character (Mathlib's autToPow), eigenspaces in kernel form, Sah's lemma, CGZ's Chern class map c_ζ, Lemmas 3.1 and 3.3–3.5, Proposition 2.12 and Theorem 1.5, with the explicit excluded integer M_F. HB.2 decomposes the cyclic quantum dilogarithm, its descent to R_ζ, the KMS identity, the local maps and CGZ Theorem 1.6, and Hutchinson's computation of c_ζ(η_ζ); the change of root is R_{ζ^k} = R_ζ^{k^{−1}}, the exported units are GSWZ's ε_m = c_{ζ_m}² for every m, the sign of the comparison scalar depends on conventions the sources do not fix, and the final equality R_ζ = c_ζ² needs CGZ Theorem 7.4, whose proof runs through HabiroNahmSeries HB.4 (gap and restructure entry). Thirty mistakes in three of the sources (CGZ, Hutchinson and GSWZ) are recorded.",
+  "summary": "A full target-level plan of HB.1, HB.2, HB.6 and HB.7, assembled with their exact refinement nodes. All declarations remain unchecked; source and supplier proof gaps are retained explicitly.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -410,6 +410,19 @@
       ],
       "authors": "Kevin Hutchinson",
       "edition": "2104.14413v4; arXiv preprint, not a separately inspected published edition."
+    },
+    {
+      "id": "CGZ.published",
+      "title": "Bloch groups, algebraic K-theory, units, and Nahm’s conjecture",
+      "authors": "Frank Calegari, Stavros Garoufalidis, Don Zagier",
+      "edition": "Ann. Sci. Éc. Norm. Supér. 56 (2023), 383–426; author-hosted version of record, DOI 10.24033/asens.2537",
+      "url": "https://math.uchicago.edu/~fcale/papers/CGZ.pdf",
+      "sha256": "8003ee09bfec725127f4b5c2058c5516834a91a160d9c4428d962b1e5a1f0212",
+      "accessed": "2026-10-06",
+      "readSections": [
+        "§2.5, Theorem 2.11, p.398; §§4.2–5.1, pp.406–410; §5.3, pp.411–413; §7.2, Theorem 7.4 and proof (36),(47)–(54), pp.419–422.",
+        "§2.1, Definition 2.1 and Lemma 2.2, published p.391 (PDF p.9): inspected modified boundary and surjection; exact small-field qualification and comparison to the old exterior convention imported from V.3."
+      ]
     }
   ],
   "nodes": [
@@ -421,24 +434,23 @@
       ],
       "title": "The Bloch conventions of this layer, imported from K3BlochGroups, and their identification modulo odd n",
       "kind": "comparison",
-      "statement": "Three Bloch groups occur in the sources of this layer, all owned by K3BlochGroups V.3: Suslin's B(F), the kernel of [x] ↦ x ⊗ (1 − x) from the pre-Bloch group P(F) on the generators F − {0, 1} to the antisymmetric quotient Fˣ ⊗ Fˣ/⟨x ⊗ y + y ⊗ x⟩ (this is Hutchinson's B(F)); the group B̃(F) of CGZ Definition 2.1, with the same generators and boundary into the exterior square ⋀²Fˣ; and CGZ's Bloch group B_CGZ(F) of Definition 1.1, with generators P¹(F) = F ∪ {∞}, boundary into ⋀²Fˣ and five-term relations over P¹(F). They differ in their generators, in the target of the boundary and in the relations. The comparisons run one way: B(F) ⊆ B̃(F) ↠ B_CGZ(F), whose composite κ : B(F) → B_CGZ(F) sends c = [x] + [1 − x] to [0]. The kernel and cokernel of κ, and the kernel of B̃(F) ↠ B_CGZ(F), are elementary abelian 2-groups, and in general neither ker κ nor coker κ vanishes (over F₁₁ both are ℤ/2). No map B_CGZ(F) → B(F) is defined integrally. This layer uses only the consequence modulo n. Let F be a number field and n an odd integer with gcd(n, w_F) = 1, i.e. F contains no primitive p-th root of unity for any p | n. Then K₃(F)/n ≅ K₃^ind(F)/n ≅ B(F)/n ≅ B_CGZ(F)/n, via K₃^M(F) ≅ (ℤ/2)^{r₁}, Suslin's exact sequence 0 → μ̃(F) → K₃^ind(F) → B(F) → 0 and κ. Every statement of HB.1 and HB.2 about the Bloch group modulo n means B_CGZ(F)/n transported along this chain and carries the hypotheses n odd and gcd(n, w_F) = 1. Integrally the three groups are never identified.",
+      "statement": "For a field F with at least four elements, import Suslin’s B(F), the published CGZ group B_new(F), and the repaired arXiv-v3 exterior-kernel group B_old(F), all from K3BlochGroups V.3. The published modified boundary is into Q_neg=(F×⊗_Z F×)/⟨a⊗(−a) : a∈F×⟩ and its cycle quotient is defined by cgz-published-bloch-group; B_old retains the inherited id cgz-bloch-group. The canonical maps B(F) → B_new(F) → B_old(F) have respectively a kernel killed by 2 and zero cokernel, and zero kernel and cokernel killed by 2. The first sends c=[x]+[1−x] to [0]. Thus both maps induce isomorphisms modulo every positive odd n, without requiring gcd(n,w_F)=1 for this convention comparison. Separately, for a number field F and positive odd n prime to w_F, import the chain K₃(F)/n ≅ K₃^ind(F)/n ≅ B(F)/n ≅ B_new(F)/n ≅ B_old(F)/n. The Milnor and Suslin steps have their own arithmetic hypotheses and inherited proof obligations. HB.2’s exterior formulas use B_old and A_old(F;Z/n) as in arXiv v3; their published interpretation uses these specified coefficient maps. No integral identification of B_new and B_old is made.",
       "hypotheses": [
-        "F is a number field (in particular infinite, as K3BlochGroups:V.4/suslin-exact-sequence requires); w_F = NumberField.Units.torsionOrder F is the number of roots of unity in F.",
-        "For the identification modulo n: n odd and gcd(n, w_F) = 1. For even n, or when F contains a primitive p-th root of unity for some p | n, no identification is asserted.",
-        "The three groups, κ, Suslin's sequence and the comparison modulo n are owned by K3BlochGroups (V.2, V.3, V.4, V.6) and are imported by node id; nothing here redefines them."
+        "F is a field with at least four elements for the integral convention comparisons; number fields satisfy this.",
+        "The coefficient comparison requires n>0 odd. Transport from K₃(F)/n also requires F a number field and gcd(n,w_F)=1.",
+        "Retain the V.2 Milnor-K₃ arithmetic proof obligation; a convention comparison does not supply it."
       ],
       "proofSteps": [
-        "Import the three conventions and κ from K3BlochGroups:V.3/cgz-convention-comparison and K3BlochGroups:V.3/cgz-degenerate-relations, with the F₁₁ example showing that ker κ and coker κ can be non-zero.",
-        "Import K₃^M(F) ≅ (ℤ/2)^{r₁} (K3BlochGroups:V.2/milnor-k3-number-field), so K₃(F)/n = K₃^ind(F)/n for odd n.",
-        "Import Suslin's exact sequence (K3BlochGroups:V.4/suslin-exact-sequence). μ̃(F) is cyclic of order 2w_F, so μ̃(F)/n = 0 when n is odd and gcd(n, w_F) = 1, and hence K₃^ind(F)/n ≅ B(F)/n.",
-        "Import K3BlochGroups:V.6/comparison-finite-coefficients: for odd n, κ induces B(F)/n ≅ B_CGZ(F)/n, and the whole chain holds under the hypothesis on roots of unity.",
-        "State the rule: a statement about B_CGZ(F)/n is transported to K₃(F)/n only along this chain and only under its hypotheses."
+        "Import the actual published cycle quotient and published Lemma 2.2 from V.3.",
+        "Import the canonical inclusion of B_new into B_old and its exact 2-primary correction.",
+        "Apply V.3/convention-coefficient-exports to both specified maps at odd n.",
+        "Apply V.2/milnor-k3-number-field, V.4/suslin-exact-sequence and V.6/comparison-finite-coefficients only under the separate arithmetic hypotheses."
       ],
       "acceptance": [
-        "For odd n with gcd(n, w_F) = 1 the chain K₃(F)/n ≅ K₃^ind(F)/n ≅ B(F)/n ≅ B_CGZ(F)/n is the one of K3BlochGroups:V.6/comparison-finite-coefficients.",
         "F = ℚ, n = 3: w_ℚ = 2 is prime to 3; K₃(ℚ)/3 ≅ (ℤ/48)/3 ≅ ℤ/3 and B(ℚ)/3 ≅ (ℤ/6)/3 ≅ ℤ/3, from Suslin's sequence 0 → ℤ/4 → ℤ/24 → ℤ/6 → 0 (K3BlochGroups:V.6/comparison-integral).",
-        "Integrally κ is in general neither injective nor surjective (F₁₁), so no integral identification of the conventions is made.",
-        "Nothing in this node constructs a Bloch group; all three are imported."
+        "Over F₁₁, B_new=Z/3 injects into B_old=Z/6 with index 2; published κ_new is surjective, unlike the older composite.",
+        "Odd coefficient comparison of the conventions does not require gcd(n,w_F)=1; the K₃ transport does.",
+        "The objects and maps are imported rather than reconstructed here."
       ],
       "prerequisites": [
         "K3BlochGroups:V.3/cgz-convention-comparison",
@@ -446,18 +458,22 @@
         "K3BlochGroups:V.2/milnor-k3-number-field",
         "K3BlochGroups:V.4/suslin-exact-sequence",
         "K3BlochGroups:V.6/comparison-finite-coefficients",
-        "mathlib:NumberField.Units.torsionOrder"
+        "mathlib:NumberField.Units.torsionOrder",
+        "K3BlochGroups:V.3/cgz-published-bloch-group",
+        "K3BlochGroups:V.3/cgz-published-lemma-two-two",
+        "K3BlochGroups:V.3/cgz-published-to-older",
+        "K3BlochGroups:V.3/convention-coefficient-exports"
       ],
       "sources": [
         {
           "sourceId": "CGZ.BlochUnits.2021",
           "locator": "Remark after Definition 1.1, §1.1, p. 2 (arXiv v3)",
-          "match": "The difference between CGZ's group and the group CGZ call Suslin's is of exponent 2; the 6-torsion refers to other conventions in the literature."
+          "match": "The historical arXiv exterior convention; import its repaired comparison from V.3 and distinguish the published modified-boundary group."
         },
         {
           "sourceId": "CGZ.BlochUnits.2021",
           "locator": "Lemma 2.2, §2.1, p. 9 (arXiv v3)",
-          "match": "The one-directional comparison B̃ ↠ B_CGZ. Its kernel is B̃(F) ∩ ⟨Fˣ⟩ as corrected in K3BlochGroups/E14."
+          "match": "The arXiv surjection claim needs the V.3/E14 convention correction. The published Lemma 2.2 instead gives the specified surjection B → B_new."
         },
         {
           "sourceId": "CGZ.BlochUnits.2021",
@@ -468,6 +484,11 @@
           "sourceId": "Hutchinson.ChernQuantumDilog.2024",
           "locator": "Theorem 2.8 (label thm:suslin), Corollary 2.9 (cor:suslin) and Remark 2.7, §2.2 (arXiv v4)",
           "match": "Suslin's sequence and the odd-N isomorphism; Hutchinson's B(F) is Suslin's (his Remark 2.7)."
+        },
+        {
+          "sourceId": "CGZ.published",
+          "locator": "§2.1, Definition 2.1 and Lemma 2.2, published p.391 (PDF p.9); exact version comparison imported from K3BlochGroups V.3",
+          "match": "Published modified-boundary convention, distinguished from the arXiv-v3 exterior convention."
         }
       ],
       "implementationStatus": "unchecked"
@@ -1206,13 +1227,13 @@
       "statement": "Let F be a number field and n ≥ 1 such that every prime p | n is odd and divides neither Δ_F nor |K₂(O_F)|. Then the image of c_ζ on K₃(F)/n is contained in the image of O_nˣ/(O_nˣ)^n, so c_ζ : K₃(F)/n → (O_nˣ/(O_nˣ)^n)^{χ^{−1}}.",
       "hypotheses": [
         "Every p | n is odd, p ∤ Δ_F and p ∤ |K₂(O_F)|; in particular gcd(n, M′_F) = 1.",
-        "Keune's injection (Pic(O_{F(ζ)}[1/p])/p^m)_{χ^{−1}} → K₂(O_F)/p^m is imported; no roadmap plans it (gap)."
+        "Use HB.1/ordinary-unit-eigenclass-lift, including the exact N.6 Keune supplier and its original-proof gap."
       ],
       "proofSteps": [
-        "Reduce to n = p^m (Chinese remainder theorem for c_ζ; CGZ cite Lemma 2.8, which is the analogue for R_ζ).",
-        "Since p ∤ Δ_F, F(ζ)/F is totally ramified at p and ζ_p ∉ F. The image of c_ζ factors through H¹_ét(O_{F(ζ)}[1/p], μ_n)^{χ^{−1}}.",
-        "Import M.3’s equivariant Kummer sequence O_L[1/p]×/p^m → H¹(O_L[1/p],μ_n) → Pic(O_L[1/p])[p^m]. Apply N.6/keune-cyclotomic-picard-injection to the twisted COINVARIANTS of Pic/p^m. Since p∤#K₂(O_F), that quotient vanishes; the finite-module vanishing criterion then kills the twisted invariants in Pic[p^m]. Thus the Chern class has a p-unit representative. The injection and finite-module proof remain the named N.6 gap.",
-        "Valuation sequence O_{F(ζ)}ˣ/n → O_{F(ζ)}[1/p]ˣ/n → ⊕_{v|p} ℤ/n: G acts trivially on the last term (total ramification) and χ^{−1} is non-trivial, so its χ^{−1}-part vanishes and the classes are unit classes."
+        "Reduce by coefficient CRT to n=p^m with p odd unramified and p∤#K₂(O_F).",
+        "Apply ordinary-unit-eigenclass-lift: the equivariant weight-one Kummer interface belongs to M.1, the finite Picard obstruction is killed through keune-picard-eigen-obstruction, and the Chern class lifts uniquely to a p-unit class.",
+        "Use cyclotomic-prime-valuation-action and injective-exact-map-eigenclass-lift on the actual valuation image D. The quotient D/n is a free trivial G-module with zero χ⁻¹-part; no saturation of D inside the full coordinate module is assumed.",
+        "Combine prime-power ordinary-unit classes by CRT. This is a lift of an eigenclass, not a choice of an eigenunit."
       ],
       "acceptance": [
         "F = ℚ, n = 3: 3 is odd, 3 ∤ Δ_ℚ = 1 and 3 ∤ |K₂(ℤ)| = 2; the image lies in (ℤ[ζ₃]ˣ/3)^{χ^{−1}} = ⟨ζ₃⟩.",
@@ -1225,7 +1246,7 @@
         "tauceti:IsDedekindDomain.selmerGroup.ker_toClassGroup",
         "ArithmeticKTheory:N.3/finiteness-and-ranks-combined",
         "ArithmeticKTheory:N.6/keune-cyclotomic-picard-injection",
-        "MotivicEtaleKTheory:M.3"
+        "HabiroNumberFields:HB.1/ordinary-unit-eigenclass-lift"
       ],
       "sources": [
         {
@@ -1248,26 +1269,27 @@
       "realises": [
         "HabiroNumberFields:HB.1"
       ],
-      "title": "The χ^{−1}-part of the units of F_n has rank r₂(F) (CGZ Proposition 2.12(a))",
+      "title": "Ordinary units: multiplicity of a nontrivial odd complex character",
       "kind": "theorem",
-      "statement": "Let F be a number field, n ≥ 3 and ζ_n ∉ F (G ≠ 1). Then (O_nˣ ⊗ ℂ)^{χ^{−1}} ≅ ℂ^{r₂(F)}. CGZ state this under 'F is disjoint from ℚ(ζ_n)', but their proof uses the stronger F̃ ∩ ℚ(ζ_n) = ℚ for the Galois closure F̃ (E6). The statement holds under ζ_n ∉ F by the Galois-module structure of units for F_n/F: O_nˣ ⊗ ℂ ⊕ ℂ ≅ ⊕_{v|∞ of F} ℂ[G/G_w] with G_w the decomposition group at w | v. χ^{−1} occurs once for each complex v, and never for real v, where G_w is generated by complex conjugation and χ^{−1}(c) = −1.",
+      "statement": "Let F be a number field, n≥3, L=F(ζ_n), G=Gal(L/F), and η:G→C× an actual nontrivial complex character. Assume η is odd on every real-place stabilizer (η(c_v)=−1). Then the η-eigenspace in O_L×⊗_Z C has dimension r₂(F). The weighted equivariant logarithmic embedding identifies this representation with the augmentation hyperplane of the permutation module on infinite places; each complex-place orbit contributes once and each real-place orbit contributes zero. For p an odd prime unramified in F, η may be the inverse complex lift of the Teichmüller character of Gal(F(ζ_p)/F). A character valued in (Z/n)× for composite n is not itself a complex character and is not inserted into this formula.",
       "hypotheses": [
-        "n ≥ 3 and ζ_n ∉ F.",
-        "The Galois-module structure of O_Lˣ ⊗ ℂ (Herbrand's unit theorem, from the equivariant logarithmic embedding) is not in Mathlib and no roadmap plans it (gap)."
+        "η is an actual nontrivial complex character, odd on real-place stabilizers.",
+        "Use odd-cyclotomic-unit-multiplicity for the weighted logarithm, integral lattice, scalar extension and place action."
       ],
       "proofSteps": [
-        "Import the equivariant unit theorem for the abelian extension F_n/F (gap).",
-        "The multiplicity of χ^{−1} in ℂ[G/G_w] is 1 if χ^{−1} is trivial on G_w and 0 otherwise: G_w = 1 at complex places; G_w = ⟨c⟩ with χ(c) = −1 at real places, since n ≥ 3 makes F_n totally complex.",
-        "χ^{−1} is non-trivial on G, so the trivial summand ℂ contributes nothing."
+        "Apply HB.1/odd-cyclotomic-unit-multiplicity with the stated η.",
+        "For prime p, specialize by the inverse Teichmüller lift. Pass to the residual quotient only through prime-unit-torsion-exact-sequence."
       ],
       "acceptance": [
-        "F = ℚ(√−7), n = 5: dim_{F₅}(O₅ˣ/(O₅ˣ)^5)^{χ^{−1}} = 1 = r₂ (PARI/GP).",
-        "F = ℚ(∛2), n = 5: dimension 1 = r₂ (PARI/GP); n = 3: dimension 2 = r₂ + 1, the extra 1 being μ₃ since χ = χ^{−1} (PARI/GP). Here F ∩ ℚ(ζ₃) = ℚ but F̃ ⊇ ℚ(ζ₃)."
+        "F=Q and odd p: the inverse odd-character complex multiplicity is zero.",
+        "F=Q(√−7), p=5: multiplicity r₂(F)=1.",
+        "The residual p=3 eigenspace has one additional torsion dimension; it is a separate assertion."
       ],
       "prerequisites": [
         "HabiroNumberFields:HB.1/cyclotomic-character-and-eigenspaces",
         "mathlib:NumberField.Units.rank",
-        "mathlib:NumberField.InfinitePlace.nrComplexPlaces"
+        "mathlib:NumberField.InfinitePlace.nrComplexPlaces",
+        "HabiroNumberFields:HB.1/odd-cyclotomic-unit-multiplicity"
       ],
       "sources": [
         {
@@ -1293,9 +1315,9 @@
         "The passage from ℤ_p to ℤ/p uses exactness of the eigenspace functor, valid because |G| divides p − 1 (HB.1/the-eigenspace-and-division-by-a-group-order)."
       ],
       "proofSteps": [
-        "Part (a) (HB.1/equivariant-unit-rank) gives the ℤ_p-rank.",
-        "The torsion of O_pˣ is the roots of unity, which lie in the χ-eigenspace; if χ ≠ χ^{−1} they meet the χ^{−1}-part trivially.",
-        "Tensor with ℤ/p using exactness (|G| invertible mod p)."
+        "Use odd-cyclotomic-unit-multiplicity and the integral torsion-free unit basis to compute the inverse Teichmüller multiplicity over Z_p. The actual G is a subgroup of (Z/p)×, and its order divides p−1.",
+        "Use the legal integral idempotents and the exact sequence 0 → T/T^p → U/U^p → (U/T)/(U/T)^p → 0; the torsion quotient has residual character χ, so it contributes to χ⁻¹ exactly when χ=χ⁻¹.",
+        "In the unramified case p∤disc(F), apply prime-unit-torsion-exact-sequence directly: G has order p−1, μ_(p^∞)(L)=μ_p and the extra dimension occurs exactly at p=3. Do not assert full G or p=3 as the only torsion case without unramifiedness."
       ],
       "acceptance": [
         "F = ℚ, p = 5, 7: dimension 0 = r₂(ℚ) (PARI/GP).",
@@ -1305,7 +1327,9 @@
       "prerequisites": [
         "HabiroNumberFields:HB.1/equivariant-unit-rank",
         "HabiroNumberFields:HB.1/the-eigenspace-and-division-by-a-group-order",
-        "mathlib:NumberField.Units.torsionOrder"
+        "mathlib:NumberField.Units.torsionOrder",
+        "HabiroNumberFields:HB.1/prime-unit-torsion-exact-sequence",
+        "HabiroNumberFields:HB.1/odd-cyclotomic-unit-multiplicity"
       ],
       "sources": [
         {
@@ -1509,20 +1533,22 @@
       ],
       "title": "The Kashaev–Mangazeev–Stroganov identity for D_ζ",
       "kind": "lemma",
-      "statement": "Let K be a field, ζ ∈ K a primitive n-th root of unity, and x, y, z ∈ K^× with (1 − y^n) z^n = 1 − x^n and (ζx; ζ)_k ≠ 0 for 0 ≤ k < n. Put f(x, y | z) = Σ_{k=0}^{n−1} (ζy; ζ)_k/(ζx; ζ)_k z^k, where (a; q)_k = ∏_{j<k}(1 − a q^j). Then (ζy)^{n(1−n)/2} f(x, y | z)^n = D_ζ(1) D_ζ(yζ/x) D_ζ(x/(yz)) / (D_ζ(1/x) D_ζ(yζ) D_ζ(ζ/z)) (KMS (C.7) as quoted by CGZ), for every choice of the roots x, y, z.",
+      "statement": "Let K be a field, n≥3 odd and invertible in K, ζ primitive of order n, and x,y,z∈K×. Write X=x^n,Y=y^n,Z=z^n. Assume X≠1, Y≠1, X≠Y and (1−Y)Z=1−X. With T=n(n−1)/2 and the parent D_ζ, f_{n,ζ}(x,y|z)^n D_ζ(1/x)D_ζ(ζy)D_ζ(ζ/z)=(ζy)^T D_ζ(1)D_ζ(ζy/x)D_ζ(x/(yz)). The three D factors on the left are nonzero under these hypotheses, so this is exactly CGZ’s quoted (C.7), after division. For n=1 both sides are one. This node supplies the odd-order proof used by the parent five-term theorem; it does not broaden that theorem to even orders.",
       "hypotheses": [
-        "The identity is exact, not modulo n-th powers.",
-        "Denominators are assumed nonzero; the relation (1 − Y)Z = 1 − X makes the sum over k well defined modulo n."
+        "No division by n occurs in the final cleared identity.",
+        "Positive characteristic is obtained by integral specialization, not by embedding K into C."
       ],
       "proofSteps": [
-        "Source proof: Kashaev–Mangazeev–Stroganov 1993, Appendix C, equation (C.7), which this packet has not read; the alternative proof by cyclic algebras (Gangl–Kontsevich, CGZ Remark 1.9) is unpublished.",
-        "NEXT SOURCE ACTION: obtain KMS (Int. J. Mod. Phys. A 8 (1993) 1399–1409) and decompose the proof of (C.7)."
+        "Apply HB.2/kms-odd-order-proof, which supplies the corrected analytic proof route and integral specialization.",
+        "The n=1 empty-product identity is checked separately; the finite five-term consumer uses positive odd n. No even-order extension is asserted."
       ],
       "acceptance": [
-        "The identity holds exactly for all root choices: checked in F_{q^2} for (n, q) ∈ {(3,5),(5,19),(7,13),(9,17),(11,43)} over all n^3 choices of (x, y, z), and over C to 10^{−74} for 2 ≤ n ≤ 9 (PARI/GP)."
+        "The cleared odd-order identity is exact for every admissible choice of roots.",
+        "Use the four cyclic-hypergeometric-sum tests and the analytic witness (X,Y)=(1/5,2); 0<X<1<Y alone is insufficient."
       ],
       "prerequisites": [
-        "HabiroNumberFields:HB.2/the-cyclic-quantum-dilogarithm"
+        "HabiroNumberFields:HB.2/the-cyclic-quantum-dilogarithm",
+        "HabiroNumberFields:HB.2/kms-odd-order-proof"
       ],
       "sources": [
         {
@@ -1655,7 +1681,8 @@
       "hypotheses": [
         "H^1(Φ, H^×) = 0 (Hilbert 90 for the finite Galois extension H/F_n).",
         "The identification F^×/F^{×n} ≅ Hom(Φ, μ_n) is Kummer theory for H/F_n, X ↦ (σ ↦ σx/x).",
-        "The sign of the connecting map is a convention; the source leaves it ('or its inverse, depending on one's convention')."
+        "The sign of the connecting map is a convention; the source leaves it ('or its inverse, depending on one's convention').",
+        "Exterior-boundary notation B_CGZ and A(F;Z/n) denotes B_old and A_old from arXiv v3. Use HB.1/bloch-group-conventions for the exact published odd-coefficient comparison; retain [0]."
       ],
       "proofSteps": [
         "Write the inflation–restriction sequence H^1(Φ, μ) → H^1(F_n, μ) → H^1(H, μ)^Φ → H^2(Φ, μ).",
@@ -1671,7 +1698,8 @@
         "HabiroNumberFields:HB.2/kummer-value-P",
         "mathlib:groupCohomology.isMulCoboundary₁_of_isMulCocycle₁_of_aut_to_units",
         "tauceti:TauCeti.kummerClassMap",
-        "K3BlochGroups:V.3/cgz-bloch-group"
+        "K3BlochGroups:V.3/cgz-bloch-group",
+        "HabiroNumberFields:HB.1/bloch-group-conventions"
       ],
       "sources": [
         {
@@ -1700,7 +1728,8 @@
       "hypotheses": [
         "(n, w_F) = 1; for a number field this forces n odd, since −1 ∈ F.",
         "ξ ∈ A(F; Z/n): without this P_ζ(ξ) does not descend (lifting-obstruction-is-a-cup-product).",
-        "The target is the χ^{−1}-eigenspace, defined integrally (kernel formulation) as in HB.1."
+        "The target is the χ^{−1}-eigenspace, defined integrally (kernel formulation) as in HB.1.",
+        "Exterior-boundary notation B_CGZ and A(F;Z/n) denotes B_old and A_old from arXiv v3. Use HB.1/bloch-group-conventions for the exact published odd-coefficient comparison; retain [0]."
       ],
       "proofSteps": [
         "Existence of a lift: lifting-obstruction-is-a-cup-product.",
@@ -1718,7 +1747,8 @@
         "HabiroNumberFields:HB.1/sahs-lemma",
         "HabiroNumberFields:HB.1/the-eigenspace-and-division-by-a-group-order",
         "tauceti:TauCeti.powerClassQuotient",
-        "K3BlochGroups:V.3/cgz-bloch-group"
+        "K3BlochGroups:V.3/cgz-bloch-group",
+        "HabiroNumberFields:HB.1/bloch-group-conventions"
       ],
       "sources": [
         {
@@ -1813,7 +1843,8 @@
       "hypotheses": [
         "(n, w_F) = 1 and n prime to the characteristic; for a number field n is then odd.",
         "The Bloch group is CGZ's (K3BlochGroups:V.3/cgz-bloch-group, with C(F) read as A(F) ∩ ⟨ξ⟩ as that node records); for n odd, B_CGZ(F)/n and B_CGZ(F; Z/n) coincide with Suslin's versions modulo n (K3BlochGroups:V.3/cgz-convention-comparison), which reduces the statement to X, Y ∉ {0, 1, ∞}, X ≠ Y.",
-        "The distribution relation, the dependence on ζ and the change of field are separate nodes."
+        "The distribution relation, the dependence on ζ and the change of field are separate nodes.",
+        "Exterior-boundary notation B_CGZ and A(F;Z/n) denotes B_old and A_old from arXiv v3. Use HB.1/bloch-group-conventions for the exact published odd-coefficient comparison; retain [0]."
       ],
       "proofSteps": [
         "Reduce to generic X, Y by K3BlochGroups:V.3/cgz-convention-comparison (CGZ Lemma 2.2, n odd).",
@@ -1831,7 +1862,8 @@
         "HabiroNumberFields:HB.2/the-map-R-zeta",
         "K3BlochGroups:V.3/cgz-bloch-group",
         "K3BlochGroups:V.3/cgz-convention-comparison",
-        "K3BlochGroups:V.3/five-term-relation"
+        "K3BlochGroups:V.3/five-term-relation",
+        "HabiroNumberFields:HB.1/bloch-group-conventions"
       ],
       "sources": [
         {
@@ -1981,7 +2013,8 @@
       "statement": "Let F be a field of characteristic prime to n containing no p-th root of unity for p | n. The étale Bloch group B_CGZ(F; Z/n) = A(F; Z/n)/(nZ(F) + C(F)) sits in an exact sequence 0 → B_CGZ(F)/n → B_CGZ(F; Z/n) → K_2(F)[n] → 0, where the connecting map sends [x] with d x = n y in ∧^2 F^× to the image of y in K_2(F). For a number field and n = p^m prime to w_2(F), R_ζ : B_CGZ(F; Z/n) → (F_n^×/F_n^{×n})^{χ^{−1}} ≅ H^1(F, Z/n(2)) is an isomorphism (CGZ (37)–(38), using Tate's theorem on K_2).",
       "hypotheses": [
         "No p-th root of unity in F for p | n.",
-        "The isomorphism statement needs n prime to w_2(F) and imports Tate's K_2 theorem (MotivicEtaleKTheory:M.3) and CGZ Theorem 3.2 (HB.1)."
+        "The isomorphism statement needs n prime to w_2(F) and imports Tate's K_2 theorem (MotivicEtaleKTheory:M.3) and CGZ Theorem 3.2 (HB.1).",
+        "Exterior-boundary notation B_CGZ and A(F;Z/n) denotes B_old and A_old from arXiv v3. Use HB.1/bloch-group-conventions for the exact published odd-coefficient comparison; retain [0]."
       ],
       "proofSteps": [
         "Tensor 0 → R → ∧^2 F^× → K_2(F) → 0 with Z/n; Tor_1(Z/n, ∧^2 F^×) = 0 by the hypothesis.",
@@ -1998,7 +2031,8 @@
         "K3BlochGroups:V.3/cgz-bloch-group",
         "MotivicEtaleKTheory:M.3",
         "HabiroNumberFields:HB.1/finite-coefficient-K3-and-the-chern-class",
-        "HabiroNumberFields:HB.1/the-chern-class-map-c-zeta"
+        "HabiroNumberFields:HB.1/the-chern-class-map-c-zeta",
+        "HabiroNumberFields:HB.1/bloch-group-conventions"
       ],
       "sources": [
         {
@@ -2021,7 +2055,8 @@
       "statement": "For n odd and ζ a primitive n-th root of unity, η_ζ = Σ_{k mod n} [1 − ((ζ − ζ^{−1})/(ζ^k − ζ^{−k}))^2] ∈ B_CGZ(Q(ζ)^+) (CGZ (34)), with the degenerate terms k = 0 ↦ [∞] and k = ±1 ↦ [0]. Equivalently (Hutchinson §3) η_ζ = Σ_{k mod n} [(t(∞) − t^{k+1}(∞))/(t(∞) − t^{k+2}(∞))] for t = t_ζ = (0 1; −1 ζ+ζ^{−1}) ∈ SL_2(Q(ζ)^+) acting on P^1. It lies in the Bloch group and is n-torsion; that it generates the p-part (CGZ Lemma 5.1) is eta-generates, and η_{ζ^k} = k^2 η_ζ is eta-galois-scaling.",
       "hypotheses": [
         "n odd; the element lies in B_CGZ(Q(ζ)^+) and is n-torsion.",
-        "K_3(Q(ζ)^+) ⊗ Z_p ≅ Z/n uses w_2(Q(ζ_{p^m})^+) = 24p^m (p ≠ 3), 8·3^m (p = 3) and K_3 of a number field with r_1 ≥ 1."
+        "K_3(Q(ζ)^+) ⊗ Z_p ≅ Z/n uses w_2(Q(ζ_{p^m})^+) = 24p^m (p ≠ 3), 8·3^m (p = 3) and K_3 of a number field with r_1 ≥ 1.",
+        "Exterior-boundary notation B_CGZ and A(F;Z/n) denotes B_old and A_old from arXiv v3. Use HB.1/bloch-group-conventions for the exact published odd-coefficient comparison; retain [0]."
       ],
       "proofSteps": [
         "Define η_ζ by (34) with the P^1 conventions.",
@@ -2036,7 +2071,8 @@
       "prerequisites": [
         "K3BlochGroups:V.3/cgz-bloch-group",
         "K3BlochGroups:V.5/k3-number-field",
-        "K3BlochGroups:V.6/comparison-finite-coefficients"
+        "K3BlochGroups:V.6/comparison-finite-coefficients",
+        "HabiroNumberFields:HB.1/bloch-group-conventions"
       ],
       "sources": [
         {
@@ -2364,7 +2400,7 @@
       ],
       "title": "η̄_ζ = ζ ∗ β in K_3(Q(ζ); Z/N) (Hutchinson Proposition 4.6)",
       "kind": "theorem",
-      "statement": "Let N = ℓ^m, ℓ odd, and η_ζ ∈ K_3(Q(ζ)^+)/N the image of [α_3(t_ζ)] ∈ H_3(⟨t_ζ⟩, Z) under H_3(SL(Q(ζ)^+), Z) ≅ K̄_3(Q(ζ)^+) → K_3(Q(ζ)^+)/N. Its image η̄_ζ in K_3(Q(ζ); Z/N) equals ζ ∗ β(ζ). The identification of this η_ζ with the Bloch-group element of the-element-eta under Suslin's map uses the formula of Hutchinson (J. K-Theory 12 (2013), §6.4) for the image of [α_3(t)] in RP(F) → P(F), which this packet has not read.",
+      "statement": "Let N = ℓ^m, ℓ an odd prime and m≥1, and η_ζ ∈ K_3(Q(ζ)^+)/N the image of [α_3(t_ζ)] ∈ H_3(⟨t_ζ⟩, Z) under H_3(SL(Q(ζ)^+), Z) ≅ K̄_3(Q(ζ)^+) → K_3(Q(ζ)^+)/N. Its image η̄_ζ in K_3(Q(ζ); Z/N) equals ζ ∗ β(ζ). The identification of this η_ζ with the Bloch-group element of the-element-eta under Suslin's map uses the formula of Hutchinson (J. K-Theory 12 (2013), §6.4) for the image of [α_3(t)] in RP(F) → P(F), whose explicit specialization is HB.2/eta-bar-bloch-specialization.",
       "hypotheses": [
         "t_ζ is conjugate in SL_2(Q(ζ)) to diag(ζ^{−1}, ζ).",
         "N odd, so K_3/N = K̄_3/N."
@@ -2382,7 +2418,8 @@
         "HabiroNumberFields:HB.2/cyclic-bar-chains",
         "HabiroNumberFields:HB.2/bott-element",
         "HabiroNumberFields:HB.2/hurewicz-mod-odd-N",
-        "HabiroNumberFields:HB.2/the-element-eta"
+        "HabiroNumberFields:HB.2/the-element-eta",
+        "HabiroNumberFields:HB.2/eta-bar-bloch-specialization"
       ],
       "sources": [
         {
@@ -2407,15 +2444,15 @@
       ],
       "title": "The sign conventions that fix c_ζ",
       "kind": "comparison",
-      "statement": "The comparison scalar is only meaningful once c_ζ is fixed up to sign. This node fixes and compares: (i) the Kummer map δ : F^×/F^{×n} → H^1(F, μ_n), δ(a)(σ) = σ(a^{1/n})/a^{1/n} (Tau Ceti's kummerMap); (ii) the trivialisation t_ζ : Z/n(1) → Z/n(2), ζ ↦ ζ ⊗ ζ (CGZ §3.1), equivalently cup product with ζ ∈ H^0(F_n, μ_n) (GSWZ (17)); (iii) the Chern class c : K_3(F) → H^1(F, Z/n(2)) — CGZ's (étale-K-theory boundary map) and Soulé's c̄_{2,1} (Hutchinson) — and whether they agree or differ by −1; (iv) the sign of Suslin's map K_3 → B used to transport η_ζ. Keeping the minus sign of Soulé's formula, with (i) and c̄_{1,0}(β) = ζ and Hutchinson's other steps as printed, the computation gives c̄_{2,1}(η̄_ζ) = −(ζ ⊗ ζ), i.e. c_ζ(η_ζ) = ζ^{−1} (soule-formula-in-degree-three), and then R_ζ = c_ζ^{−2}; with the opposite convention in exactly one of (i)–(iv), c_ζ(η_ζ) = ζ and R_ζ = c_ζ^2. The packet adopts: c_ζ := the convention for which c_ζ(η_ζ) = ζ, and proves which of (i)–(iv) that is; GSWZ's ε_m = c^2_{ζ_m} is then independent of the choice only if ε_m is normalised against R_ζ (the-exported-interface).",
+      "statement": "Fix the positive Kummer cocycle δ(a)(σ)=σ(a^(1/n))/a^(1/n), the positive cyclic bar orientation and the Bott element with Bockstein ζ and c̄_(1,0)(β)=ζ. Import Soulé’s raw finite Chern classes, whose degree-(2,1) product formula is c̄_(2,1)(a*β)=−δ(a)∪ζ. Define c_plus independently as the negative of this raw degree-(2,1) class. Fix the CGZ/GSWZ boundary/edge map and compare its actual normalization, including Suslin/Hurewicz compatibility, with the raw and plus maps. This source-normalization comparison remains a gap. The signed eta evaluations are the later target eta-chern-signed-evaluation, under its odd-prime-power hypotheses; they are not assumptions used to define the fixed source map. The every-order export ε_m is the square of the fixed GSWZ Chern map, so replacing that map by its inverse inverts ε_m.",
       "hypotheses": [
-        "The conventions are choices; the theorem 'R_ζ = c_ζ^2' is a statement about the chosen normalisation.",
-        "CGZ state their conjecture 'up to sign'; neither source fixes (iii) or (iv) against the other."
+        "Raw and independently negated Chern maps are distinct specified maps.",
+        "The published CGZ/GSWZ normalization comparison remains an obligation of the early finite-Chern supplier and HB.1/hutchinson-chern-class-agrees."
       ],
       "proofSteps": [
-        "State (i)–(iv) as definitions with their sources.",
-        "Compare CGZ's c with Soulé's c̄_{2,1} on the image of K_1 ∗ β (both are determined there by c̄_{1,1} and the product formula).",
-        "Record the resulting sign of c_ζ(η_ζ)."
+        "Pin the positive Kummer, bar and Bott conventions and import the raw Soulé product formula from the requested early M.8 prefix.",
+        "Define the separately negated degree-(2,1) class without prescribing an eta evaluation.",
+        "Compare the fixed CGZ/GSWZ edge/boundary map with the two specified maps through the actual Suslin/Hurewicz convention; retain the source-sign gap. The signed eta proof is later and does not feed this construction back."
       ],
       "acceptance": [
         "Every later statement about γ names the conventions it uses."
@@ -2453,9 +2490,9 @@
       ],
       "title": "Soulé's product formula in degree three, with its sign",
       "kind": "lemma",
-      "statement": "Let E be a field containing a primitive N-th root of unity, N = ℓ^m with ℓ odd invertible in E. Soulé's formula (imported: c̄_{i,k}(a ∗ b) = Σ −((i−1)!/((i'−1)!(i''−1)!)) c̄_{i',k'}(a) ∪ c̄_{i'',k''}(b)) specialises, for a ∈ K_1(E; Z/N), b ∈ K_2(E; Z/N), to c̄_{2,1}(a ∗ b) = −c̄_{1,1}(a) ∪ c̄_{1,0}(b), the only index solution being (i', k', i'', k'') = (1, 1, 1, 0). With c̄_{1,1} = Kummer map and c̄_{1,0}(β) = ζ this gives c̄_{2,1}(x ∗ β) = −(δx ∪ ζ), i.e. −(x ⊗ ζ) under H^1(E, μ_N^{⊗2}) ≅ E^×/E^{×N} ⊗ μ_N. Hutchinson's Lemma 4.1 records +(x ⊗ ζ); the discrepancy must be resolved by the conventions of chern-sign-conventions before the sign of Theorem 3.1 is used.",
+      "statement": "Let E be a field containing a primitive N-th root of unity, N = ℓ^m with ℓ an odd prime invertible in E. Soulé's formula (imported: c̄_{i,k}(a ∗ b) = Σ −((i−1)!/((i'−1)!(i''−1)!)) c̄_{i',k'}(a) ∪ c̄_{i'',k''}(b)) specialises, for a ∈ K_1(E; Z/N), b ∈ K_2(E; Z/N), to c̄_{2,1}(a ∗ b) = −c̄_{1,1}(a) ∪ c̄_{1,0}(b), the only index solution being (i', k', i'', k'') = (1, 1, 1, 0). With c̄_{1,1} = Kummer map and c̄_{1,0}(β) = ζ this gives c̄_{2,1}(x ∗ β) = −(δx ∪ ζ), i.e. −(x ⊗ ζ) under H^1(E, μ_N^{⊗2}) ≅ E^×/E^{×N} ⊗ μ_N. Hutchinson's Lemma 4.1 records +(x ⊗ ζ); the discrepancy must be resolved by the conventions of chern-sign-conventions before the sign of Theorem 3.1 is used.",
       "hypotheses": [
-        "ℓ odd and invertible; E ⊃ μ_N.",
+        "ℓ an odd prime, m≥1, ℓ invertible in E and E⊃μ_N.",
         "The general formula and the normalisations c̄_{1,1} = Kummer, c̄_{1,0}(β) = ζ are imported (MotivicEtaleKTheory:M.8; Weibel V.11.10)."
       ],
       "proofSteps": [
@@ -2494,19 +2531,17 @@
       ],
       "title": "Hutchinson's theorem: the Chern class of η_ζ",
       "kind": "theorem",
-      "statement": "Let N = ℓ^m, ℓ an odd prime, ζ a primitive N-th root of unity, F = Q(ζ)^+, F_N = Q(ζ). Then c_ζ(η_ζ) = ζ in F_N^×/F_N^{×N}; equivalently c̄_{2,1}(η_ζ) = ζ ⊗ ζ in F_N^×/F_N^{×N} ⊗ μ_N — with c_ζ normalised as in chern-sign-conventions (with Kummer map and Soulé's c̄_{2,1} unmodified the computation gives ζ^{−1}; sourceIssues).",
+      "statement": "Let N=ℓ^m, ℓ an odd prime, m≥1, ζ primitive of order N and F=Q(ζ)^+. With the positive Kummer, cyclic bar and Bott conventions, c_raw,ζ(η_ζ)=[ζ⁻¹]; for the independently negated degree-(2,1) Chern class c_plus,ζ(η_ζ)=[ζ]. This is the signed evaluation of HB.2/eta-chern-signed-evaluation. Identifying the fixed CGZ/GSWZ Chern map with one of them remains a separate source-normalization gap.",
       "hypotheses": [
-        "N an odd prime power; the field is Q(ζ)^+, not a general F.",
-        "Sign conventions of chern-sign-conventions."
+        "The odd-prime-power hypotheses and fixed maps of HB.2/eta-chern-signed-evaluation.",
+        "Do not define the published Chern class by demanding an eta evaluation."
       ],
       "proofSteps": [
-        "Reduce to K_3(Q(ζ))/N by the commutative diagram of restriction (injective on K_3/N since [Q(ζ) : Q(ζ)^+] = 2 is prime to N).",
-        "η̄_ζ = ζ ∗ β (eta-is-zeta-times-bott).",
-        "c̄_{2,1}(ζ ∗ β) = ±ζ ⊗ ζ (soule-formula-in-degree-three).",
-        "Fix the sign by chern-sign-conventions."
+        "Apply HB.2/eta-chern-signed-evaluation to the actual bar/Bott eta class and convention comparisons."
       ],
       "acceptance": [
-        "c_ζ(η_ζ) = ζ (in the adopted convention)."
+        "Raw gives [ζ⁻¹] and the independently negated degree-(2,1) class gives [ζ].",
+        "Retain ℓ prime and m≥1; source compatibility is a separate obligation."
       ],
       "prerequisites": [
         "HabiroNumberFields:HB.2/eta-is-zeta-times-bott",
@@ -2514,7 +2549,8 @@
         "HabiroNumberFields:HB.2/chern-sign-conventions",
         "HabiroNumberFields:HB.1/finite-coefficient-K3-and-the-chern-class",
         "HabiroNumberFields:HB.1/the-chern-class-map-c-zeta",
-        "HabiroNumberFields:HB.1/hutchinson-chern-class-agrees"
+        "HabiroNumberFields:HB.1/hutchinson-chern-class-agrees",
+        "HabiroNumberFields:HB.2/eta-chern-signed-evaluation"
       ],
       "sources": [
         {
@@ -2955,7 +2991,7 @@
       ],
       "title": "The early conditional implication giving exponent two",
       "kind": "theorem",
-      "statement": "For a number field F and n prime to M_F, assume the compatible prime-power evaluations R_ζ(η_ζ)=ζ² and c_ζ(η_ζ)=ζ in the chosen Chern convention, together with their Chinese-remainder compatibility. Then scalar-from-eta and the unknown-power comparison imply R_ζ=c_ζ² on B_CGZ(F)/n≅K₃(F)/n, hence ε_n=R_ζ. This stable node is only the algebraic conditional implication; the unconditional evaluation and its assembly belong after HabiroNahmSeries HB.4 (proposed HB.5). The unresolved source-sign comparison is retained.",
+      "statement": "For a number field F and n prime to M_F, assume the compatible prime-power evaluations R_ζ(η_ζ)=ζ² and c_ζ(η_ζ)=ζ in the chosen Chern convention, together with their Chinese-remainder compatibility. Then scalar-from-eta and the unknown-power comparison imply R_ζ=c_ζ² on B_CGZ(F)/n≅K₃(F)/n, hence ε_n=R_ζ. This stable node is only the algebraic conditional implication; the unconditional evaluation and its assembly belong after HabiroNahmSeries HB.4 (existing HB.5). The unresolved source-sign comparison is retained.",
       "hypotheses": [
         "n prime to M_F; for every odd prime-power factor N of n, the two stated η-evaluations in matching Chern/Kummer/Bloch conventions are explicit hypotheses.",
         "Chinese-remainder and root-change compatibility as in distribution-in-the-order. The published sign discrepancy is not resolved by assuming an evaluation."
@@ -2963,7 +2999,7 @@
       "proofSteps": [
         "For each prime-power factor apply scalar-from-eta with a=2 and b=1; no Nahm-sum theorem is used inside this implication.",
         "Use the unknown-power comparison and Chinese-remainder compatibility to obtain R=c² at n.",
-        "Apply the definition ε=c². The actual R(η)=ζ² proof is the accepted HabiroNahmSeries:HB.4/acceptance-andrews-gordon and must be used only downstream."
+        "Apply the definition ε=c². The actual R(η)=ζ² proof is HabiroNahmSeries:HB.4/acceptance-andrews-gordon and must be used only downstream."
       ],
       "acceptance": [
         "Under the explicitly stated evaluation and compatibility hypotheses, R=c² and ε=R.",
@@ -2988,9 +3024,6 @@
         }
       ],
       "implementationStatus": "unchecked",
-      "planet": {
-        "name": "Hutchinson's refinement"
-      },
       "addedBy": "REV-HabiroNumberFields"
     },
     {
@@ -3792,10 +3825,9 @@
         "HC.4/rootwise-taylor-injectivity does not apply at ζ_m directly when m has an odd prime factor ℓ ≠ p (Z_p is not ℓ-adically separated); the argument goes through the (p, Φ_m)-adic topology instead."
       ],
       "proofSteps": [
-        "HC.5/chinese-remainder-for-disconnected-collections over A = Z_p splits A[q]^N into the factors over the classes {mp^k : k ≥ 0}, p ∤ m.",
-        "Each A[q]/(f), f a product of the Φ_{mp^k}, is a finite free Z_p-module in which p and Φ_m(q) are topologically nilpotent (Φ_m(ζ_{mp^k}) has a factor ζ_{mp^k} − ζ_m of positive valuation), so A[q] → A[q]/(f) extends to the (p, Φ_m)-adic completion; conversely, since Φ_{mp^k} ≡ Φ_m^{φ(p^k)} (mod p), a product of n factors Φ_{mp^k} with φ(p^k) ≥ n lies in (p^n, Φ_m^n). Hence A[q]^{{mp^k}} is the (p, Φ_m)-adic completion of A[q] (the two inverse systems are mutually cofinal as quotients; compare HC.1/completion-along-a-cofinal-family).",
-        "Φ_m is separable modulo p, so by Hensel's lemma the (p, Φ_m)-adic completion of Z_p[q] is Z_p[ζ_m][[q − ζ_m]], the isomorphism being the Taylor map at ζ_m.",
-        "Glued families: the family on {mp^k} is determined by g_m through re-expansion (HC.3/re-expansion-of-taylor-expansions), and every g_m is a Taylor expansion by step 3."
+        "Apply HB.6/prime-to-p-taylor-equivalence, using HC.5 infinite CRT, HB.6/p-chain-mixed-adic-comparison and the exact HR.5/the-ell-adic-taylor-comparison on every cyclotomic factor.",
+        "The p-chain proof compares finite monic quotients after reducing modulo p^a and interchanges the two complete inverse limits. Raw cyclotomic and mixed-adic ideals are not asserted cofinal.",
+        "Apply HB.6/untwisted-families-are-classical-taylor-families for the all-order image and uniqueness, reconstructing the forward p-chain through coefficient inclusions."
       ],
       "acceptance": [
         "Z_p[q]^N ≅ ∏_{(m,p)=1} Z_p[ζ_m][[x]] by the Taylor maps.",
@@ -3806,7 +3838,9 @@
         "HabiroCyclotomicCompletions:HC.5/chinese-remainder-for-disconnected-collections",
         "HabiroCyclotomicCompletions:HC.1/completion-along-a-cofinal-family",
         "HabiroCyclotomicCompletions:HC.3/the-taylor-map",
-        "HabiroCyclotomicCompletions:HC.3/re-expansion-of-taylor-expansions"
+        "HabiroCyclotomicCompletions:HC.3/re-expansion-of-taylor-expansions",
+        "HabiroNumberFields:HB.6/prime-to-p-taylor-equivalence",
+        "HabiroNumberFields:HB.6/untwisted-families-are-classical-taylor-families"
       ],
       "sources": [
         {
@@ -3833,12 +3867,10 @@
         "The description of the image is not in Habiro's paper, which GSWZ §1.3 cites for it; it is proved here from GSWZ (14) and the lattice argument of GSWZ §5.1 (source issue HabiroNumberFields/E22)."
       ],
       "proofSteps": [
-        "ι is a ring homomorphism into P: each σ_{ζ_m} is (HC.3/the-taylor-map), and the family is Galois-equivariant because the Taylor maps are natural in the root.",
-        "The image satisfies (13) with φ_p = id: ζ_{pm} = ζ_m ω with ω of p-power order (HB.6/compatible-roots-of-unity), so HC.3/re-expansion-of-taylor-expansions gives rex_{ζ_pm − ζ_m}(σ_{ζ_m} F) = σ_{ζ_pm} F.",
-        "Injectivity: for Δ = 1, the Taylor map at ζ_1 = 1 is injective on Z[q]^N (HC.4/rootwise-taylor-injectivity, n = 1, S = N); for Δ > 1, evaluation at all roots is injective (HC.5/inverting-a-prime-and-the-rational-case (2)), and evaluation factors through ι.",
-        "Surjectivity onto H_{Z[1/Δ]}, local step: for p ∤ Δ, the image of an element of H_{Z[1/Δ]} in P_{Z_p} is untwisted-glued at p, hence the Taylor family of an element of Z_p[q]^N (HB.6/the-p-adic-classical-ring).",
-        "Surjectivity, global step (GSWZ §5.1): on the finite quotients, ι^N is represented by an integer matrix M_N independent of the coefficient ring, with non-zero determinant because the graded pieces are P ↦ ⊕_{mℓ=N} D_{m,ℓ} u^{ℓ−1} P(ζ_m), D_{m,ℓ} = m^{2ℓ−1}(ℓ−1)! (requested from HabiroCyclotomicCompletions:HC.4, see requests). So H lies in ι(Z[1/Δ][q]^N) iff M_N^{−1}(coordinates of H) is integral at every p ∤ Δ for every N, which the local step gives.",
-        "Consequences: the product decomposition and the domain factors are HC.5/inverting-a-prime-and-the-rational-case and HC.5/components-over-a-localised-integer-ring-are-domains transported along ι."
+        "Apply HB.6/rational-gluing-image-criterion for every Δ≥1. Frobenius is the identity over Z[1/Δ].",
+        "Use HB.6/additive-and-multiplicative-taylor-coordinates to match x=q−ζ_m with q=ζ_m(1−u); coefficient l−1 rescales by (−ζ_m)^(l−1).",
+        "The global image test uses exact accepted HC.4/local-integrality-detection and HC.4/global-taylor-injective, plus the prime-to-p splitting. The finite bound is m*(k+1)<N.",
+        "Transport HC.5’s component and domain statements. The parity idempotent after completing Z[1/2][q] separates this ring from localizing the completed Z-Habiro ring."
       ],
       "acceptance": [
         "K = Q, Δ = 1: ι(Σ_n (q;q)_n) has f_1 = 1 − x + 2x^2 − 5x^3 + 15x^4 − 53x^5 + 217x^6 + O(x^7) and f_2 = 3 + 11x + 72x^2 + O(x^3), and lies in H_Z.",
@@ -3858,7 +3890,7 @@
         "HabiroCyclotomicCompletions:HC.4/rootwise-taylor-injectivity",
         "HabiroCyclotomicCompletions:HC.5/inverting-a-prime-and-the-rational-case",
         "HabiroCyclotomicCompletions:HC.5/components-over-a-localised-integer-ring-are-domains",
-        "HabiroCyclotomicCompletions:HC.4"
+        "HabiroNumberFields:HB.6/rational-gluing-image-criterion"
       ],
       "sources": [
         {
@@ -4448,7 +4480,7 @@
       ],
       "title": "The Habiro module H_{R,ξ} of a class in K₃(K)",
       "kind": "definition",
-      "statement": "Fix ξ ∈ K_3(K). The H_R-module H_{R,ξ} consists of the families f = (f_m(x))_{m≥1} with f_m(x) ∈ ε_m(ξ)^{1/m}·K[ζ_m][[x]] (rational coefficients; integrality comes only from the conditions) such that (1) for every prime p ∤ Δ, the image of (f_m)_{(m,p)=1} under K → K_p LIES IN THE LOCAL MODULE H_{R^_p,ξ} (the span of the invertible sections — elements of H_{R,ξ} need not be invertible sections, e.g. 0 and p·f), and (2) for every γ ∈ Z_{>0}, the PRODUCT f(q^γ)^γ · f(q^{−1}) lies in the restricted ring H_{R[1/γ]}|γ of the LOCALISATION R[1/γ] (GSWZ (24)). Here f(q^γ) and f(q^{−1}) at q = ζ_m + x, (m, γ) = 1, are the expansions of f at ζ_m^γ and ζ_m^{−1}; they are defined up to the choice of m-th roots of the Galois-conjugate units, and the χ^{−1}-equivariance of ε_m (σ_γ(ε_m(ξ))^γ/ε_m(ξ) is canonically an m-th power) makes the product in (24) independent of these choices. The condition (24) needs no meaning for ξ/γ; that issue concerns the separate operation γ* (HB.7/operations-on-the-modules). H_R acts componentwise and preserves both conditions; closure under ADDITION is not routine, because (24) is not additive in f, and it is part of HB.7/the-ring-case-and-tensor-products. For γ ≥ 1 the restricted module H_{R,ξ}|γ uses only orders prime to γ; H_{R,ξ}|Δ is the target of GSWZ Theorem 5.",
+      "statement": "Fix ξ ∈ K_3(K). The set H_{R,ξ}, equipped with its H_R-module structure by followup-effective-global-descent, consists of the families f = (f_m(x))_{m≥1} with f_m(x) ∈ ε_m(ξ)^{1/m}·K[ζ_m][[x]] (rational coefficients; integrality comes only from the conditions) such that (1) for every prime p ∤ Δ, the image of (f_m)_{(m,p)=1} under K → K_p LIES IN THE LOCAL MODULE H_{R^_p,ξ} (the span of the invertible sections — elements of H_{R,ξ} need not be invertible sections, e.g. 0 and p·f), and (2) for every γ ∈ Z_{>0}, the PRODUCT f(q^γ)^γ · f(q^{−1}) lies in the restricted ring H_{R[1/γ]}|γ of the LOCALISATION R[1/γ] (GSWZ (24)). Here f(q^γ) and f(q^{−1}) at q = ζ_m + x, (m, γ) = 1, are the expansions of f at ζ_m^γ and ζ_m^{−1}; they are defined up to the choice of m-th roots of the Galois-conjugate units, and the χ^{−1}-equivariance of ε_m (σ_γ(ε_m(ξ))^γ/ε_m(ξ) is canonically an m-th power) makes the product in (24) independent of these choices. The condition (24) needs no meaning for ξ/γ; that issue concerns the separate operation γ* (HB.7/operations-on-the-modules). H_R acts componentwise and preserves both conditions; closure under ADDITION is not routine, because (24) is not additive in f, and it is the target of HB.7/followup-effective-global-descent. For γ ≥ 1 the restricted module H_{R,ξ}|γ uses only orders prime to γ; H_{R,ξ}|Δ is the target of GSWZ Theorem 5.",
       "hypotheses": [
         "disc(K) | Δ and 6 | Δ. The local condition is imposed for every prime p ∤ Δ; for p | Δ, R^_p = 0 and GSWZ's identification K_p = R^_p[1/p] = K ⊗ Q_p (19) fails (the left side is 0), so the condition must be read as void there (Definition 1.4 leaves p unquantified; source issue HabiroNumberFields/E28). p = 2, 3 are inverted so that (24) determines the local gluing (HB.7/extension-to-all-roots).",
         "ε_m(ξ) and the χ^{−1}-equivariance datum are HB.2's exported interface; D_p(ξ) enters only through the local condition.",
@@ -4459,7 +4491,7 @@
         "State the local condition through K[ζ_m] → K_p[ζ_m] and HB.7/invertible-local-sections.",
         "Define the expansions f(q^γ), f(q^{−1}) and state (24) in H_{R[1/γ]}|γ (HB.6/the-gluing-condition for the ring R[1/γ]).",
         "Show independence of the choices of m-th roots of the conjugate units, using χ^{−1}-equivariance.",
-        "Check stability under multiplication by H_R: the local condition because H_R → H_{R^_p}, and (24) because (af)(q^γ)^γ(af)(q^{−1}) = a(q^γ)^γ a(q^{−1})·f(q^γ)^γ f(q^{−1}) with the first factor in H_{R[1/γ]}|γ. Closure under addition is deferred to HB.7/the-ring-case-and-tensor-products."
+        "Check stability under multiplication by H_R: the local condition because H_R → H_{R^_p}, and (24) because (af)(q^γ)^γ(af)(q^{−1}) = a(q^γ)^γ a(q^{−1})·f(q^γ)^γ f(q^{−1}) with the first factor in H_{R[1/γ]}|γ. Additive closure is the precise target HB.7/followup-effective-global-descent."
       ],
       "acceptance": [
         "The local condition is membership in the span H_{R^_p,ξ}, so H_{R,ξ} is an H_R-submodule containing 0.",
@@ -4569,25 +4601,23 @@
       "realises": [
         "HabiroNumberFields:HB.7"
       ],
-      "title": "H_{R,0} = H_R, and multiplication H_{R,ξ} ⊗ H_{R,ξ'} ≅ H_{R,ξ+ξ'} (Theorem 2)",
+      "title": "The ring case and multiplication of global families",
       "kind": "theorem",
-      "statement": "(0) H_{R,ξ} is closed under addition, hence an H_R-module: at each p ∤ Δ an element is a·s̃ on all orders, with s̃ the extension (Corollary 3.7) of an invertible section and a ∈ H_{R^_p}, and (24) can be checked prime by prime; the source gives no argument for this (gap). (1) H_{R,0} = H_R. (2) Multiplication of families defines an H_R-bilinear map H_{R,ξ} × H_{R,ξ'} → H_{R,ξ+ξ'}, and GSWZ Theorem 2 asserts that the induced map H_{R,ξ} ⊗_{H_R} H_{R,ξ'} → H_{R,ξ+ξ'} is a canonical isomorphism, so that each H_{R,ξ} is an invertible H_R-module and ξ ↦ H_{R,ξ} is a homomorphism K_3(K) → Pic(H_R) (to line bundles, not only to isomorphism classes). The printed proof establishes (1) and the well-definedness of the multiplication map; it does not show that the tensor map is surjective or injective, nor that H_{R,ξ} is non-zero for arbitrary ξ (gap 'Theorem 2 beyond the multiplication map' and source issue HabiroNumberFields/E23).",
+      "statement": "Under HB.7’s corrected local shape, H_{R,0}=H_R as sets of full rational families. Multiplication of families sends H_{R,ξ}×H_{R,η} to H_{R,ξ+η}, using the actual multiplicative Kummer-line identifications, additivity of D_p and multiplicativity of ε_m and the global condition. Once HB.7/followup-effective-global-descent supplies additive closure, this same map is H_R-bilinear. The tensor isomorphism, inverse-line certificate and Picard character are the separate exact targets followup-tensor-bijectivity and followup-picard-character; this node provides only the ring-case and multiplication input to them.",
       "hypotheses": [
-        "disc(K) | Δ and 6 | Δ.",
-        "The proof of (1) uses Corollary 3.7 (HB.7/extension-to-all-roots) and the intersection description of HB.6/the-p-completed-ring.",
-        "Statement (2) beyond the existence of the multiplication map is carried as a gap until a proof is supplied."
+        "Δ is positive and divisible by 6 and |disc K|.",
+        "Use the exact root-line identifications of HB.2/the-exported-interface, not arbitrary maps between Kummer algebras.",
+        "The module structure and global tensor conclusions require G-global-descent; they are not consequences of local freeness alone."
       ],
       "proofSteps": [
         "(1) ⊇: f ∈ H_R lies in H_{R^_p} = H_{R^_p,0} for every p, and f(q^γ)^γ f(q^{−1}) ∈ H_{R[1/γ]}|γ because H_R is stable under q ↦ q^γ (into H_{R[1/γ]}|γ) and q ↦ q^{−1}.",
         "(1) ⊆: for f ∈ H_{R,0} and p ∤ Δ, the local condition and Corollary 3.7 with (24) give f ∈ H_{R^_p} on all orders; then mem_habiroRing_iff_twist and mem_families_of_forall_padic of HB.6/the-p-completed-ring give f ∈ H_R.",
-        "(2) the map: ε_m is multiplicative and D_p additive, so (21), the shape condition and (24) are multiplicative (HB.7/invertible-local-sections, IsInvertibleSection.mul).",
-        "(0) closure under addition: write f = a s̃, g = b s̃ at each p ∤ Δ using HB.7/local-freeness and Corollary 3.7, so f + g = (a + b)s̃ satisfies the local form of (24); conclude with the intersection description. Not in the source; recorded as a gap.",
-        "(2) bijectivity and non-vanishing: not proved in the source; recorded as a gap."
+        "(2) the map: ε_m is multiplicative and D_p additive, so (21), the shape condition and (24) are multiplicative (HB.7/invertible-local-sections, IsInvertibleSection.mul)."
       ],
       "acceptance": [
-        "H_{R,0} = H_R.",
-        "fg ∈ H_{R,ξ+ξ'} for f ∈ H_{R,ξ}, g ∈ H_{R,ξ'}.",
-        "Taking ξ' = −ξ, the isomorphism would require elements f_i ∈ H_{R,ξ}, g_i ∈ H_{R,−ξ} with Σ f_i g_i = 1; no such elements are constructed for general ξ in the source."
+        "H_{R,0}=H_R on all orders.",
+        "Actual family multiplication preserves the grade, local sections and the global condition.",
+        "Additive closure, tensor bijectivity and Picard invertibility are discharged through the named descent and tensor refinements."
       ],
       "prerequisites": [
         "HabiroNumberFields:HB.7/the-global-module",
@@ -4608,9 +4638,6 @@
         }
       ],
       "implementationStatus": "unchecked",
-      "planet": {
-        "name": "K₃(K) → Pic(H_R) (Theorem 2)"
-      },
       "addedBy": "REV-HabiroNumberFields"
     },
     {
@@ -4836,7 +4863,7 @@
       ],
       "title": "Invertible does not mean free, and multiplication by an element need not be an isomorphism",
       "kind": "comparison",
-      "statement": "The local modules H_{R^_p,ξ} are FREE of rank one (Theorem 1) and, by Theorem 2 as stated, the global modules are invertible (rank one, locally free), and the tensor multiplication H_{R,ξ} ⊗ H_{R,ξ'} → H_{R,ξ+ξ'} is an isomorphism. Two things do NOT follow: (1) H_{R,ξ} need not be free (GSWZ: 'not necessarily free'); freeness is known in the abelian case only for ξ = Σ n_j[ζ^j] Galois-invariant, with generator ∏_j (q^{1/2}ζ^j; q)_∞^{n_j}, a claim the source does not prove (source issue HabiroNumberFields/E26). (2) Multiplication by a single element, g ↦ gf from H_R to H_{R,ξ}, is an isomorphism only when f generates H_{R,ξ}; e.g. for ξ = 0, f = 1 − q ∈ H_Z, g ↦ (1 − q)g is injective but not surjective, since 1 − q is not a unit (its value at q = 1 is 0). Any global statement cites a global theorem (Theorem 2, or a freeness theorem), never the local description.",
+      "statement": "The local modules H_{R^_p,ξ} are FREE of rank one (Theorem 1) and, once followup-effective-global-descent and followup-tensor-bijectivity are proved, the global modules are invertible (rank one, locally free), and the tensor multiplication H_{R,ξ} ⊗ H_{R,ξ'} → H_{R,ξ+ξ'} is an isomorphism. Two things do NOT follow: (1) H_{R,ξ} need not be free (GSWZ: 'not necessarily free'); the source asserts freeness in the abelian case for ξ = Σ n_j[ζ^j] Galois-invariant, with generator ∏_j (q^{1/2}ζ^j; q)_∞^{n_j}, a claim the source does not prove (source issue HabiroNumberFields/E26). (2) Multiplication by a single element, g ↦ gf from H_R to H_{R,ξ}, is an isomorphism only when f generates H_{R,ξ}; e.g. for ξ = 0, f = 1 − q ∈ H_Z, g ↦ (1 − q)g is injective but not surjective, since 1 − q is not a unit (its value at q = 1 is 0). Any global statement cites a global theorem (Theorem 2, or a freeness theorem), never the local description.",
       "hypotheses": [
         "Theorem 2's isomorphism is carried with the gap recorded at HB.7/the-ring-case-and-tensor-products.",
         "Invertible = finitely generated projective of rank one; free would mean isomorphic to H_R."
@@ -4855,7 +4882,9 @@
       "prerequisites": [
         "HabiroNumberFields:HB.7/local-freeness",
         "HabiroNumberFields:HB.7/the-ring-case-and-tensor-products",
-        "HabiroNumberFields:HB.6/ring-operations-and-the-classical-comparison"
+        "HabiroNumberFields:HB.6/ring-operations-and-the-classical-comparison",
+        "HabiroNumberFields:HB.7/followup-tensor-bijectivity",
+        "HabiroNumberFields:HB.7/followup-picard-character"
       ],
       "sources": [
         {
@@ -4875,43 +4904,37 @@
   "coverage": [
     {
       "stageId": "HabiroNumberFields:HB.1",
-      "status": "partial",
-      "note": "CGZ §§1–3 read in full (arXiv v3), with Hutchinson §2. The Bloch conventions are imported from K3BlochGroups V.3/V.6 and used only modulo odd n prime to w_F (bloch-group-conventions). The finite-coefficient K₃ and Levine's isomorphism are imported from StableHomotopyKTheory H.6 and MotivicEtaleKTheory M.7/M.8 (finite-coefficient-K3-and-the-chern-class). CGZ's c_ζ is constructed from Soulé's classes and t_ζ (the-chern-class-map-c-zeta) and compared with Hutchinson's (hutchinson-chern-class-agrees). Lemma 3.1 with Sah's lemma, Theorem 3.2 (imported), Lemmas 3.3–3.5, Proposition 2.12(a),(b), and Theorem 1.5 with the corrected count for 3 | n each have a node. M_F is defined explicitly (the-excluded-primes). The cyclotomic character is Mathlib's autToPow, with the kernel-form eigenspace (cyclotomic-character-and-eigenspaces). The projector is used only when |G| is invertible, with the n = 9 counterexample (the-eigenspace-and-division-by-a-group-order). Theorem 1.2's injectivity for R_ζ is HB.2's. Revised by REV-HabiroNumberFields.",
+      "status": "planned",
+      "note": "Finite Chern and unit interfaces use the exact HB.1 refinements, published/preprint Bloch coefficient maps and the actual complex odd-character specialization.",
       "remaining": [
-        "Keune's injection (gap) for HabiroNumberFields:HB.1/units-realise-c-zeta.",
-        "The equivariant unit theorem (gap) for HabiroNumberFields:HB.1/equivariant-unit-rank."
+        "The N.6 original Keune proof gap.",
+        "The accepted early finite-Chern M.8 prefix and the profinite Kummer/weight-one interfaces."
       ]
     },
     {
       "stageId": "HabiroNumberFields:HB.2",
-      "status": "partial",
-      "note": "Rebuilt from CGZ §§1–7 and Hutchinson v4 §§1–4, read in full. The construction is split into D_ζ, P_ζ in the Kummer extension, the descent to R_ζ (with the cup-product obstruction and Sah's lemma), the KMS identity and the five-term relation, the dependence on ζ, the distribution in n, change of field, the étale Bloch group, the local maps at primes of norm ≡ −1 with CGZ Theorem 5.2 and Proposition 4.2, CGZ Theorem 1.6 with a field-independence proof through the local maps, the remaining statements of Theorem 1.2, the element η_ζ, and Hutchinson's argument (cyclic bar chains, Bott element, Soulé's formula with its sign, the mod-N Hurewicz isomorphism, η̄_ζ = ζ ∗ β, the Chern class of η_ζ). The exported interface is ε_m = c_{ζ_m}^2 for all m, as GSWZ (16) defines it. Revised by REV-HabiroNumberFields.",
+      "status": "planned",
+      "note": "Finite cyclic identities, bar specialization and signed Chern evaluation use the HB.2 refinements. The unconditional scalar-two assembly belongs to existing HabiroNahmSeries HB.5.",
       "remaining": [
-        "Proof of the KMS identity (C.7) (gap).",
-        "Hutchinson 2013 §6.4: the bar-cycle image of [α_3(t)] in the Bloch group (gap).",
-        "The sign conventions of the Chern class, hence the sign of the scalar (gap).",
-        "The final equality R_ζ = c_ζ^2 needs CGZ Theorem 7.4 from HabiroNahmSeries:HB.4 and cannot be an HB.2 node without a stage cycle; it is proposed as stage HB.2 (restructure)."
+        "QM.0 analytic bilateral/product estimates, QM.1 eta phase and P.1 classical complex five-term exports.",
+        "Early finite-Chern source-sign compatibility and inherited Bass–Tate closure.",
+        "Unconditional scalar-two comparison at HabiroNahmSeries HB.5."
       ]
     },
     {
       "stageId": "HabiroNumberFields:HB.6",
-      "status": "partial",
-      "note": "Ten nodes: the compatible roots (7); the full cyclotomic coefficient algebras R ⊗ Z[ζ_m], their p-adic completions and the Frobenius in both GSWZ conventions; the convergent shift (via HC.3's re-expansion, not PowerSeries.subst); Definition 1.1 with the restricted rings; the p-completed ring (14)-(15) with the intersection description; the Z_p splitting behind (14); the F = Q, Δ ≥ 1 comparison with Habiro's Z[1/Δ][q]^N; the decomposition into classes (Remark 1.2, corrected); the abelian embedding and base change (footnote 1, corrected); and the three negative statements. RS-10's 'keeps' for HB.6 are all realised. Revised by REV-HabiroNumberFields.",
-      "remaining": [
-        "The request to HabiroCyclotomicCompletions:HC.4 for the lattice description of GSWZ §5.1 (global step of the F = Q comparison) is open.",
-        "Gap: no source proof of (14) for Z_p.",
-        "The finite étale / rank-[K:Q] description of H_R over H_{Z[1/Δ]} (GSWZ §1.4) is stated by the source without proof and is not planned; it is HabiroRings HR.5-number-field-comparison's (Wagner Corollary 2.13) and is not an input to HB.6."
-      ]
+      "status": "planned",
+      "note": "The local splitting and rational gluing image targets use all five HB.6 refinements and exact accepted HC.4/HR.5 suppliers. No first global-completion isomorphism of GSWZ (14) is claimed.",
+      "remaining": []
     },
     {
       "stageId": "HabiroNumberFields:HB.7",
-      "status": "partial",
-      "note": "Thirteen nodes: Definition 1.3 (corrected shape) with the formal completion and the local module; Dwork's lemma and Corollary 3.5; Lemma 2.1 and Proposition 2.2; the Pochhammer sections (Definition 3.9, Theorem 10, Corollary 3.10); Theorem 1; Lemma 3.6 and Corollary 3.7; Definition 1.4 (product and R[1/γ] in (24)); Theorem 2 with its gap; the operations γ*, τ and Proposition 1.5 (a)-(f); and the comparison node stating what the local picture does not give. Independence of permitted choices is an API item of the local sections and Corollary 3.10. Revised by REV-HabiroNumberFields.",
+      "status": "planned",
+      "note": "The global module targets use the eleven HB.7 refinements. Ring-case multiplication precedes effective descent, tensor bijectivity and Picard coherence; arithmetic naturality remains explicit.",
       "remaining": [
-        "Requests to PadicHodgeRegulators D.3 and D.4 are open.",
-        "Gap: Theorem 2 beyond the multiplication map.",
-        "Gap: scalar extension, Galois action and transfer compatibility have no source.",
-        "Gap: Theorem 10 with the corrected shape."
+        "G-global-descent: additive closure, effective finite-projective descent and conservative actual charts.",
+        "G-arithmetic-naturality: full-factor torsor/Frobenius/trace compatibility.",
+        "G-inherited-local-inputs: higher half-shift defect and valid presentation independence."
       ]
     }
   ],
@@ -4921,30 +4944,7 @@
       "neededBy": [
         "HabiroNumberFields:HB.1/units-realise-c-zeta"
       ],
-      "detail": "Now routed to ArithmeticKTheory:N.6/keune-cyclotomic-picard-injection with an explicit source/proof gap there. CGZ Lemma 3.5 was re-read in v3, PDF p.20: the injection is on twisted coinvariants of Pic/p^m, followed by finite-module vanishing, Kummer p-units and total-ramification valuation descent. Keune’s original proof has not been read; no completed proof is claimed."
-    },
-    {
-      "title": "The Galois-module structure of the units (Herbrand's unit theorem)",
-      "neededBy": [
-        "HabiroNumberFields:HB.1/equivariant-unit-rank"
-      ],
-      "detail": "For a Galois extension L/K of number fields with group G, O_Lˣ ⊗ ℂ ⊕ ℂ ≅ ⊕_{v | ∞ of K} ℂ[G/G_w]. CGZ Proposition 2.12 derives its statement from this (their proof says 'From the proof of Dirichlet's unit theorem'). Mathlib has Dirichlet's theorem (NumberField.Units.rank) but not the equivariant form, and no roadmap plans it. NEXT ACTION: route to the roadmap that owns the analytic class number formula or Dirichlet's theorem (a Tau Ceti number-theory roadmap, or ArithmeticKTheory N.1's units node). Added by REV-HabiroNumberFields."
-    },
-    {
-      "title": "The Kashaev–Mangazeev–Stroganov identity is quoted, not proved",
-      "neededBy": [
-        "HabiroNumberFields:HB.2/kms-identity",
-        "HabiroNumberFields:HB.2/five-term-distribution-and-galois"
-      ],
-      "detail": "CGZ prove the five-term relation for R_ζ from equation (C.7) of Kashaev–Mangazeev–Stroganov, Int. J. Mod. Phys. A 8 (1993) 1399–1409, which is not on the arXiv and was not read; the alternative cyclic-algebra proof of Gangl and Kontsevich (CGZ Remark 1.9) is unpublished. The identity as CGZ quote it was checked exactly (all n^3 root choices in F_{q^2} for n ≤ 11, and over C to 1e−74 for n ≤ 9), so the statement is right; the proof is missing. NEXT SOURCE ACTION: obtain KMS 1993, Appendix C, or write a direct proof (both sides are rational functions of x, y subject to one relation). Added by REV-HabiroNumberFields."
-    },
-    {
-      "title": "The identification of Hutchinson's bar-cycle element with the Bloch-group element η_ζ",
-      "neededBy": [
-        "HabiroNumberFields:HB.2/eta-is-zeta-times-bott",
-        "HabiroNumberFields:HB.2/the-element-eta"
-      ],
-      "detail": "Hutchinson defines η_ζ in K_3(Q(ζ)^+)/N as the image of [α_3(t_ζ)] and identifies it with CGZ's (34) through the formula of Hutchinson, 'A Bloch–Wigner complex for SL_2', J. K-Theory 12 (2013), §6.4, for the image of H_3 of a cyclic subgroup of SL_2(F) in RP(F) → P(F). That paper was not read. The two Bloch-group expressions were checked to agree as multisets (n ≤ 11), but the sign and normalisation of the map H_3(SL_2(F), Z) → B(F) against Suslin's map (K3BlochGroups:V.4) are not established here. The same source is the open K3BlochGroups gap 'The finite-field inputs of CGZ §4.2 beyond Suslin's sequence are unowned', whose neededBy names HabiroNumberFields:HB.2. Added by REV-HabiroNumberFields. FIX-RT-AREA-ktheory-2~2 inspected the 2013 preprint v2 §6.4 cyclic formula on PDF p.33 and the finite-field comparison, now routed through V.5. This does not settle the full infinite-field comparison with Suslin or the Chern sign; those remain open."
+      "detail": "ArithmeticKTheory:N.6/keune-cyclotomic-picard-injection supplies the required contract on twisted Pic/p^m coinvariants. Its original-source proof and exact hypothesis translation remain obligations there. Finite-module vanishing, weight-one Kummer p-units and total-ramification valuation descent are the exact HB.1 refinement targets."
     },
     {
       "title": "The sign of the comparison scalar",
@@ -4953,15 +4953,7 @@
         "HabiroNumberFields:HB.2/chern-class-of-eta",
         "HabiroNumberFields:HB.2/hutchinson-refinement"
       ],
-      "detail": "Hutchinson's Lemma 4.1 writes −c̄_{1,1}(x) ∪ c̄_{1,0}(β) = −x ∪ ζ = x ⊗ ζ; with c̄_{1,1} the Kummer map (his §2.3) and c̄_{1,0}(β) = ζ (his §4; Weibel V.11.10.1) the middle term is −(x ⊗ ζ), so as printed the computation gives c_ζ(η_ζ) = ζ^{−1} and R_ζ = c_ζ^{−2}. Whether another convention (the sign of Soulé's c̄_{1,1}, CGZ's Chern class versus Soulé's, Suslin's map, Hutchinson 2013) compensates is not settled by either paper; CGZ's conjecture is itself 'up to sign'. Soulé 1979 (Invent. Math. 55) was not accessible (publisher paywall; the EuDML record served no text). NEXT SOURCE ACTION: read Soulé 1979 §§II.2–II.3 for the sign conventions of c_{i,k} and of the product formula, and fix the convention in chern-sign-conventions. Added by REV-HabiroNumberFields."
-    },
-    {
-      "title": "No source proof of the p-adic splitting (14) of the classical ring",
-      "neededBy": [
-        "HabiroNumberFields:HB.6/the-p-adic-classical-ring",
-        "HabiroNumberFields:HB.6/ring-operations-and-the-classical-comparison"
-      ],
-      "detail": "GSWZ (14) asserts Z_p[q]^N ≅ ∏_{(m,p)=1} Z_p[ζ_m][[q − ζ_m]] ('because there are no gluing constraints between the expansions around different roots of unity of order prime to p') without proof, and GSWZ §1.3 attributes the gluing description of the image of Z[q]^N to Habiro [27], which proves only injectivity. The node HB.6/the-p-adic-classical-ring carries a proof sketch (Chinese remainder over Z_p, (p, Φ_m)-adic completion, Hensel) that no source in the packet contains. NEXT SOURCE ACTION: read Wagner, arXiv 2410.23078v5 §2.1, and Scholze, 'Canonical q-deformations in arithmetic geometry' §§ on the Habiro ring, for a published proof; otherwise have the sketch checked as the packet's own. Added by REV-HabiroNumberFields."
+      "detail": "Raw Soulé and the independently negated degree-(2,1) map are fixed by HB.2/eta-chern-signed-evaluation. The actual CGZ/GSWZ edge/boundary map and Suslin/Hurewicz compatibility still require the separate source comparison recorded in the HB.2 supplement. Squaring an inverted class inverts ε_m; its normalization cannot be chosen by the eta value."
     },
     {
       "title": "Theorem 2 beyond the multiplication map",
@@ -4969,29 +4961,30 @@
         "HabiroNumberFields:HB.7/the-ring-case-and-tensor-products",
         "HabiroNumberFields:HB.7/what-the-local-picture-does-not-give"
       ],
-      "detail": "The printed proof of GSWZ Theorem 2 (§3.3) proves H_{R,0} = H_R and that multiplication maps H_{R,ξ} × H_{R,ξ'} into H_{R,ξ+ξ'}. It does not prove (i) that H_{R,ξ} is closed under addition (Definition 1.4 calls it a module, but (24) is not additive in f), (ii) that H_{R,ξ} ⊗_{H_R} H_{R,ξ'} → H_{R,ξ+ξ'} is surjective or injective, or (iii) that H_{R,ξ} ≠ 0 for arbitrary ξ (for ξ' = −ξ surjectivity needs Σ f_i g_i = 1). Global elements are constructed only for ξ from Nahm data (Theorem 5, in H_{R[δ^{−1/2}],ξ}|Δ). NEXT SOURCE ACTION: look for a proof of invertibility by patching (the abstract definition of H_R by gluing base changes along Frobenius twists, §1.4) in a later version or in Wagner's thesis; until then the tensor isomorphism and K_3(K) → Pic(H_R) are carried as conditional. Added by REV-HabiroNumberFields."
+      "detail": "The parent ring-case node supplies equality at degree zero and actual multiplication. Effective additive descent, finite projectivity, actual chart base changes and conservativity are HB.7/followup-effective-global-descent. Tensor bijectivity and Σ f_i g_i=1 depend on that exact target; Picard coherence then follows. G-global-descent remains open and E23 is not resolved."
     },
     {
       "title": "Scalar extension, Galois action and transfer compatibility have no source",
       "neededBy": [
         "HabiroNumberFields:HB.7/operations-on-the-modules"
       ],
-      "detail": "The HB.7 stage text asks for extension of scalars, the Galois action and the compatibility of the Frobenius gluing with the K_3 transfer 'with exactly the invertibility/localisation hypotheses proved in GSWZ'. GSWZ states and proves none of these (the only Galois statements are Remark 1.9 about √δ and the Galois invariance of P_R; there is no transfer). The packet's operations node asserted all three. NEXT SOURCE ACTION: find a source (HabiroRings HR.6 plans 'the scalar-extension and Picard comparisons'), or plan the statements as this roadmap's own with full proofs. Added by REV-HabiroNumberFields."
+      "detail": "The exact own targets are HB.7/followup-field-pullback, followup-scalar-equivalence, followup-galois-action, followup-local-norm-defect and followup-transfer-norm. G-arithmetic-naturality and the requested D.1/D.4/early-M.8 comparisons remain explicit. HR.6 consumes HB.7 and is not a supplier of these missing proofs."
     },
     {
       "title": "Theorem 10 and the corrected shape of invertible sections",
       "neededBy": [
         "HabiroNumberFields:HB.7/pochhammer-sections",
-        "HabiroNumberFields:HB.7/local-freeness"
+        "HabiroNumberFields:HB.7/local-freeness",
+        "HabiroNumberFields:HB.7/followup-integral-linear-jet"
       ],
-      "detail": "Theorem 10 is proved in one sentence ('A slight variation of Proposition 2.2 of Section 2.1 and equation (56), to include the factor of q^{1/2}'). After Definition 1.3 is corrected to the shape (195) (linear coefficient integral, source issue HabiroNumberFields/E5), Theorem 10 also needs the linear coefficient of Ψ_{[ζ],p,m} to be p-integral, which the source does not check. NEXT SOURCE ACTION: carry out the variation of Proposition 2.2 with the factor q^{m/2} and the level-m decomposition (59), or use the telescoping construction (209)-(210), whose shape can be controlled directly. Added by REV-HabiroNumberFields."
+      "detail": "HB.7/followup-half-shift-first-jet and followup-integral-linear-jet give the branch-one integral linear coefficient, including even-root tests. The higher half-shift Frobenius-defect proof and valid presentation independence remain G-inherited-local-inputs in the HB.7 supplement. Keep the corrected integral linear shape and source issue E24."
     },
     {
       "title": "CGZ Theorem 7.4, R_ζ(η_ζ) = ζ², is proved only through Nahm-sum asymptotics",
       "neededBy": [
         "HabiroNumberFields:HB.2/hutchinson-refinement"
       ],
-      "detail": "The R(η)=ζ² proof is now present in the accepted HabiroNahmSeries packet at HB.4/acceptance-andrews-gordon, supported by HB.4/andrews-gordon-radial-constant. CGZ v3 pp.37–39 were freshly read. HB.4 depends on HB.2, so the final unconditional R=c² must be assembled at HB.5 or another accepted later owner. HB.2/hutchinson-refinement now exposes only the conditional implication. In particular the external HabiroNahmSeries:HB.9/constant-term-is-the-unit must discharge that premise or be repointed to the later comparison. That packet is outside this issue’s allowlist; exact handoff is in the fix report."
+      "detail": "HabiroNahmSeries:HB.4/acceptance-andrews-gordon supplies R(η)=ζ² through HB.4/andrews-gordon-radial-constant. Since HB.4 consumes HB.2, assemble the unconditional R=c² conclusion at existing HB.5 with the actual source-sign comparison and CRT. HB.2/hutchinson-refinement supplies only the conditional algebraic implication. HB.9/constant-term-is-the-unit consumes the late result or discharges those premises; its integration is a request to the Nahm owner."
     },
     {
       "title": "Early M.8 supplier must be split before it can be a dependency",
@@ -5012,13 +5005,6 @@
       "need": "Graded-commutative products K_n(A; Z/N) × K_m(A; Z/N) → K_{n+m}(A; Z/N) for N odd and commutative A, compatible with the Hurewicz maps h_n : K_n(A; Z/N) → H_n(GL(A), Z/N), where the product on homology is induced by the tensor product of matrices (the Pontryagin product on H_*(GL_1(A), Z/N)).",
       "neededBy": [
         "HabiroNumberFields:HB.2/hurewicz-mod-odd-N"
-      ]
-    },
-    {
-      "supplier": "HabiroCyclotomicCompletions:HC.4",
-      "need": "GSWZ §5.1 for R = Z[1/Δ] and Z_p: the finite-level maps ι^N : R[q]/((q;q)_{N−1}) → P_R^N are given by an integer matrix M_N independent of R, injective with non-zero determinant (graded pieces D_{m,ℓ} = m^{2ℓ−1}(ℓ − 1)!, (310)-(311)), and Proposition 5.2: H ∈ ι(R[q]^N) iff M_N^* applied to its coordinates is ≡ 0 mod D(N) for all N. PLAN-HABIRO places GSWZ §5.1 in HC.4 (recorded as remaining by REV-HabiroCyclotomicCompletions).",
-      "neededBy": [
-        "HabiroNumberFields:HB.6/ring-operations-and-the-classical-comparison"
       ]
     },
     {
@@ -5060,7 +5046,7 @@
     },
     {
       "supplier": "MotivicEtaleKTheory:M.8",
-      "need": "Soulé's étale Chern classes c̄_{i,k} : K_{2i−k}(A; ℤ/ℓ^ν) → H^k(A, μ_{ℓ^ν}^{⊗i}) for rings A with ℓ invertible, and their ℓ-adic limits c : K_{2m−1}(F) → H¹(F, ℤ_ℓ(m)). Needed with: compatibility with reduction modulo ℓ^ν and with K_m(A)/ℓ^ν → K_m(A; ℤ/ℓ^ν); base change along finite extensions; c̄_{1,1} = the Kummer map on K₁(F; ℤ/N) = Fˣ/(Fˣ)^N; and Soulé's product formula (Hutchinson Theorem 2.12, Soulé II.3 Théorème 1(i)) with its specialisation c̄_{2,1}(a∗b) = −c̄_{1,1}(a) ∪ c̄_{1,0}(b) (Hutchinson Corollary 2.13). FIX-RT-AREA-ktheory-2~2: require an EARLY finite-coefficient étale Chern classes interface, before D.2 and BorelRegulators:R.7. The current atlas M.8 remains unsplit and depends on those later comparisons; this request is not a dependency on all of M.8 and does not claim the prefix already exists.",
+      "need": "Soulé's étale Chern classes c̄_{i,k} : K_{2i−k}(A; ℤ/ℓ^ν) → H^k(A, μ_{ℓ^ν}^{⊗i}) for rings A with ℓ invertible, and their ℓ-adic limits c : K_{2m−1}(F) → H¹(F, ℤ_ℓ(m)). Needed with: compatibility with reduction modulo ℓ^ν and with K_m(A)/ℓ^ν → K_m(A; ℤ/ℓ^ν); base change along finite extensions; c̄_{1,1} = the Kummer map on K₁(F; ℤ/N) = Fˣ/(Fˣ)^N; and Soulé's product formula (Hutchinson Theorem 2.12, Soulé II.3 Théorème 1(i)) with its specialisation c̄_{2,1}(a∗b) = −c̄_{1,1}(a) ∪ c̄_{1,0}(b) (Hutchinson Corollary 2.13). Require an early finite-coefficient étale Chern classes interface, before D.2 and BorelRegulators:R.7. The current atlas M.8 remains unsplit and depends on those later comparisons; this request is not a dependency on all of M.8 and does not claim the prefix already exists.",
       "neededBy": [
         "HabiroNumberFields:HB.1/finite-coefficient-K3-and-the-chern-class",
         "HabiroNumberFields:HB.1/the-chern-class-map-c-zeta",
@@ -5142,9 +5128,9 @@
         "HabiroNumberFields",
         "K3BlochGroups"
       ],
-      "title": "HB.1's Bloch-convention comparison is K3BlochGroups V.3/V.6's; HB.1's stage text should say so and name its real inputs",
-      "detail": "The HB.1 stage text says 'Compare CGZ's Bloch group with V's Suslin convention. Define the actual maps and identify the bounded 2-/6-primary differences'. K3BlochGroups:V.3/cgz-convention-comparison (accepted) does exactly that, and finds kernel and cokernel elementary abelian 2-groups. The stage text also says 'χ^{−1}-eigenspace in cyclotomic units', but CGZ's eigenspaces are in the units and power classes of the cyclotomic extension F_n = F(ζ). Finally, the HB.1 stage `requires` N.5, V.4 and M.7, but its inputs also include M.8 (Chern classes), M.1 (twists) and Tau Ceti ProfiniteCohomology layers 5 and 9 (RS-10 links M.1 and layer 9 to HB.1). RS-10's 'keep' of 'Bloch/Suslin conventions' in HB.1 conflicts with the accepted K3BlochGroups ownership. Added by REV-HabiroNumberFields.",
-      "proposal": "HB.1 stage text: replace the first two sentences by 'Import the Bloch conventions and their comparison κ (kernel and cokernel elementary abelian 2-groups) from K3BlochGroups V.3, and the identification K₃(F)/n ≅ B_CGZ(F)/n for odd n prime to w_F from V.6; no integral identification.' Replace 'χ^{−1}-eigenspace in cyclotomic units' by 'χ^{−1}-eigenspace of the units (and power classes) of F_n = F(ζ_n)'. Add MotivicEtaleKTheory:M.8 and M.1 to HB.1's requires."
+      "title": "HB.1 imports both published and arXiv Bloch conventions from V.3",
+      "detail": "The accepted V.3 published comparison and the HB.1 supplement supersede the older single-map description. RS-10 ownership means use of V.3, not reconstruction. The units are ordinary units and their power classes in F(ζ_n).",
+      "proposal": "Use B → B_new → B_old with the distinct kernel/cokernel corrections and odd coefficient maps from V.3. Retain the additional arithmetic hypotheses for K₃/n. Use ordinary units rather than only cyclotomic units. Add the weight-one M.1 and continuous ProfiniteCohomology inputs to HB.1; request an early finite-Chern prefix of M.8 with M.7 prerequisite, never the whole late stage."
     },
     {
       "kind": "propose-split",
@@ -5153,9 +5139,9 @@
         "HabiroNumberFields",
         "HabiroNahmSeries"
       ],
-      "title": "Hutchinson's refinement cannot be closed inside HB.2: add a stage HB.2b after HabiroNahmSeries:HB.4",
-      "detail": "R_ζ = c_ζ^2 is deduced from Hutchinson's c_ζ(η_ζ) = ζ AND CGZ Theorem 7.4, R_ζ(η_ζ) = ζ^2 (Hutchinson §1: 'One of the main results of their paper is that R_ζ(η_ζ)=ζ^2 ... from which it follows that R_ζ=c_ζ^2'). Theorem 7.4 is proved only through the radial asymptotics of Nahm sums (CGZ §7.2 via Theorem 7.1), which HabiroNahmSeries:HB.4 owns (node HB.4/acceptance-andrews-gordon), and HabiroNahmSeries:HB.4's nodes cyclic-dilogarithm-interface and simplified-form-and-the-unit require HabiroNumberFields:HB.2. An HB.2 node citing HB.4/acceptance-andrews-gordon therefore closes a stage cycle HB.2 → HN:HB.4 → HB.2. Added by REV-HabiroNumberFields.",
-      "proposal": "New stage HabiroNumberFields:HB.2b 'Hutchinson's refinement', requires HabiroNumberFields:HB.2 and HabiroNahmSeries:HB.4; it holds the single node HB.2b/hutchinson-refinement (R_ζ = c_ζ^2 for n prime to M_F, hence ε_m = R_{ζ_m} for m prime to M_K). Consumers: HabiroNahmSeries:HB.9 (node constant-term-is-the-unit, GSWZ's use of 'Theorem 1.6 ... combined with Hutchinson') and HabiroNumberFields:KU-finitereg. HB.2 keeps CGZ Theorem 1.6 (R_ζ = c_ζ^γ, γ invertible and field-independent), Hutchinson's Theorem 3.1 and the conditional scalar-from-eta. HB.7 does not need HB.2b: it uses ε_m = c^2 by definition."
+      "title": "Unconditional scalar-two assembly belongs to existing HabiroNahmSeries HB.5",
+      "detail": "HB.4/acceptance-andrews-gordon consumes HB.2, so its eta evaluation cannot be an HB.2 prerequisite. The reviewed HB.2 supplement and the later red-team correction agree on the existing HB.5 owner.",
+      "proposal": "Keep HB.2/hutchinson-refinement as the conditional implication with compatible prime-power evaluations and CRT. Assemble the unconditional scalar-two comparison at existing HabiroNahmSeries HB.5 using HB.4/acceptance-andrews-gordon and the fixed Chern-sign comparison; HB.9 consumes that result. Add QM.0/QM.1 → HB.5 and HB.5 → HB.9. Do not create HB.2b or add HB.4 → HB.2. Move the old refinement landmark to HB.5; HB.2 uses the KMS landmark instead. ε_m=c_m² is defined at every order independently of this comparison."
     },
     {
       "kind": "rescope",
@@ -5165,7 +5151,7 @@
       ],
       "title": "HB.2 stage text: the 'weaker comparison outside the refinement' is vacuous, the exported units are c^2 for every m, and Soulé's formula is imported",
       "detail": "(1) For a number field, (n, w_F) = 1 forces n odd, and n prime to M_F (the hypothesis of CGZ Theorem 1.6) implies n odd and μ_n(F) = 1; so there is no n for which Theorem 1.6 holds but Hutchinson's hypotheses fail, and 'outside the refinement's hypotheses retain the source's weaker comparison' has no content. Conversely Hutchinson states R_ζ = c_ζ^2 for all odd N with μ_N(F) = 1 but proves it through Theorem 1.6, i.e. for n prime to M_F. (2) GSWZ (16) defines ε_m = c^2_{ζ_m} on K_3(K) for every m ≥ 1, including m with μ_m ⊂ K where R_ζ does not exist; 'the units ε_m(ξ)' of the stage text must be these. (3) 'Construct ... Soulé's Chern-product formula' duplicates MotivicEtaleKTheory:M.8 ('Prove compatibility with ... products'). Added by REV-HabiroNumberFields.",
-      "proposal": "Replace the second paragraph's last two sentences by: 'This does not set the scalar to one. CGZ's comparison and the refinement are both stated for n prime to M_F, which forces n odd and μ_n(F) = 1; for other n no comparison between R_ζ and c_ζ is available and none is used. The sign of the scalar depends on the conventions for the Kummer map and the Chern class, which are fixed explicitly.' Replace 'Construct cyclic bar cycles, the Bott element and Soulé's Chern-product formula' by 'Construct cyclic bar cycles and the Bott element, and specialise Soulé's Chern-product formula (imported from MotivicEtaleKTheory M.8) to degree three with its sign.' Replace the first sentence of the third paragraph by: 'The interface exported to GSWZ is ε_m(ξ) = c_{ζ_m}(ξ)^2 for ξ ∈ K_3(K) and every m ≥ 1, as a χ^{-1}-class of K(ζ_m)^×/m unramified away from m, with its Kummer class, its root line, χ^{-1}-equivariance, multiplicativity and coherence under m | m'; for m prime to M_K it equals R_{ζ_m} of the Bloch class.'"
+      "proposal": "HB.2 exports ε_m(ξ)=c_ζm(ξ)² for every m≥1, with inverse-character Kummer class, root line, multiplicativity and coherence. Equality with R_ζm requires m prime to M_K and the late HB.5 comparison with a proved source-sign match. Keep the unknown-power comparison and conditional scalar-from-eta early. Import generic Soulé products only from the requested early M.8 prefix; specialize bar cycles, Bott and degree-three signed evaluation here."
     },
     {
       "kind": "note-ownership",
@@ -5174,11 +5160,12 @@
         "HabiroNumberFields",
         "HabiroNahmSeries",
         "HabiroCyclotomicCompletions",
-        "Polylogarithms"
+        "Polylogarithms",
+        "QSeriesPartitionsAndMockModularForms"
       ],
-      "title": "Root-of-unity Pochhammer asymptotics: RS-10 assigns them to HB.2, HabiroNahmSeries plans them in HB.4",
-      "detail": "RS-10 (not accepted; ownership analysis judged sound) keeps HB.2 with 'PLAN-HABIRO root-Pochhammer asymptotics use HC.1 and Polylogarithms P.1' and adds links HC.1 → HB.2 and P.1 → HB.2 'for the root-Pochhammer application'. HabiroNahmSeries requests 'the asymptotics of the Pochhammer symbol at roots of unity that GSWZ Section 2.1 develops' from HB.2, yet plans the same in its own node HabiroNahmSeries:HB.4/pochhammer-radial-asymptotics. Neither the HB.2 stage text nor this packet plans them. This packet conflicts with RS-10 on this point. Added by REV-HabiroNumberFields.",
-      "proposal": "Owner: HabiroNahmSeries:HB.4 (the only consumer; its node already exists). Drop the RS-10 links HabiroCyclotomicCompletions:HC.1 → HabiroNumberFields:HB.2 and Polylogarithms:P.1 → HabiroNumberFields:HB.2 (HB.2 uses neither), or retarget them to HabiroNahmSeries:HB.4; withdraw HabiroNahmSeries's request to HB.2 for GSWZ §2.1."
+      "title": "Common complex q-product estimates belong to QM.0; Nahm asymptotics remain HB.4",
+      "detail": "The HB.2 KMS proof needs regulator-independent leading q-product and bilateral estimates, eta phase and the branch-qualified complex five-term identity. These are distinct from HB.4’s regulator-dependent Nahm asymptotics and from HB.7’s p-adic defect.",
+      "proposal": "Extract the precise leading complex q-product and bilateral uniform-tail exports requested by HB.2 into QM.0, eta phase into QM.1, and complex five-term into P.1. HB.2 and HB.4 consume those suppliers independently. Keep HabiroNahmSeries:HB.4/pochhammer-radial-asymptotics as the Nahm specialization. Withdraw a blanket HB.2 request for all GSWZ §2.1 asymptotics; retain P.1 → HB.2 for the actual KMS proof, rather than deleting it."
     },
     {
       "kind": "note-cross-packet",
@@ -5187,9 +5174,9 @@
         "HabiroNahmSeries",
         "HabiroNumberFields"
       ],
-      "title": "HabiroNahmSeries consumes HB.2 under wrong names and one false normalisation",
-      "detail": "(1) HabiroNahmSeries:HB.4/cyclic-dilogarithm-interface defines D_ζ(x) = ∏(1 − ζ^t x)^t (CGZ's normalisation) and states D_ζ(1)^{24m} = m^{12m}; in that normalisation D_ζ(1)^{24} = m^{12m} and D_ζ(1)^{24m} ≠ m^{12m} for m ≥ 2 (PARI/GP, m = 2..16). GSWZ's (125) is for D_{ζm}(z) = ∏(1 − ζ_m^ℓ z)^{ℓ/m}, the m-th root. (2) HabiroNahmSeries nodes attribute P_ζ, R_ζ and the injectivity of CGZ Theorem 1.2 to HabiroNumberFields HB.1 (simplified-form-and-the-unit, unit-corollary-and-nonvanishing, modularity-implies-torsion, request to HB.1); they are HB.2's (kummer-value-P, the-map-R-zeta, R-injectivity-and-image). (3) HabiroNahmSeries:HB.9/constant-term-is-the-unit needs the refinement ε_m = R_{ζ_m}, which is HB.2b's. Added by REV-HabiroNumberFields.",
-      "proposal": "HabiroNahmSeries replaces the stage prerequisite HabiroNumberFields:HB.2 by the node ids HabiroNumberFields:HB.2/the-cyclic-quantum-dilogarithm (API gswzDilog and cyclicQuantumDilog_eval_one_pow_24), HB.2/kummer-value-P, HB.2/the-map-R-zeta, HB.2/R-injectivity-and-image, HB.2/eta-galois-scaling, and HabiroNumberFields:HB.2b/hutchinson-refinement for HB.9; and corrects the value statement to D_ζ(1)^{24} = m^{12m} (CGZ normalisation) or (D_ζ(1)^{1/m})^{24m} = m^{12m} (GSWZ normalisation)."
+      "title": "HabiroNahmSeries uses exact HB.2 exports and the late HB.5 comparison",
+      "detail": "The CGZ polynomial and the analytic GSWZ n-th root have different powers at one. The R/P/injectivity exports are HB.2, while the unconditional scalar-two result is downstream. The excluded Nahm owner must check its current references against these interfaces.",
+      "proposal": "Use exact HB.2/the-cyclic-quantum-dilogarithm, kummer-value-P, the-map-R-zeta, R-injectivity-and-image and eta-galois-scaling exports. Keep D_CGZ(1)^24=m^(12m) and (D_GSWZ(1))^(24m)=m^(12m). HB.9/constant-term-is-the-unit consumes the existing HB.5 unconditional assembly or discharges the conditional HB.2 premises; never reference nonexistent HB.2b. Other packets are not edited here."
     },
     {
       "kind": "note-ownership",
@@ -5211,7 +5198,7 @@
       ],
       "title": "HB.6 imports the Frobenius lift of étale algebras from HR.1",
       "detail": "RS-10 (not accepted; ownership judged sound by REV-RS-10) has 'HR.1 builds the early Taylor ring, HB.6 specializes it arithmetically'. The packet constructed φ_p itself and cited HR.5 (the wrong direction). HabiroRings:HR.1/the-etale-frobenius-lift supplies exactly the unique Frobenius lift on the p-completion of an étale algebra over a perfectly covered base; Z[1/Δ] with trivial Adams operations and R = O_K[1/Δ] is such a pair. No cycle: HR.1 requires only PrismaticCohomology:PR.0. Added by REV-HabiroNumberFields.",
-      "proposal": "HB.6/coefficient-rings-and-frobenius cites HabiroRings:HR.1/the-etale-frobenius-lift; HB.6 keeps the arithmetic specialisation (root orders, p-completed decomposition, intersection description, class decomposition, abelian case, F = Q comparison), as RS-10 lists. If the orchestrator prefers HB.6 to stay independent of HR.1 (the atlas text says HB.6 'can be constructed first'), the node keeps its own Hensel construction from GSWZ §5.2 instead and this entry records the duplication."
+      "proposal": "HB.6/coefficient-rings-and-frobenius imports HabiroRings:HR.1/the-etale-frobenius-lift. HB.6 owns root-order arithmetic specialization, full-factor p-completed decomposition, rational comparison, class decomposition and the abelian case. Add HR.1 → HB.6 and HR.1 → KU-habiroring; do not duplicate the generic lift."
     },
     {
       "kind": "stage-edge",
@@ -5222,7 +5209,7 @@
       ],
       "title": "HB.6 does not use MotivicEtaleKTheory M.1",
       "detail": "The atlas lists MotivicEtaleKTheory:M.1 among HB.6's requires, but no HB.6 node needs continuous arithmetic cohomology; RS-10 also drops it. REV-RS-10 notes that §15 has no mechanism to remove an edge. Added by REV-HabiroNumberFields.",
-      "proposal": "Remove the M.1 → HB.6 edge when a removal mechanism exists; until then it is a harmless over-approximation (no cycle: M.1 reaches no HabiroNumberFields stage)."
+      "proposal": "Maintainer action: remove MotivicEtaleKTheory:M.1 -> HabiroNumberFields:HB.6; remove MotivicEtaleKTheory:KU-continuous and StableHomotopyKTheory:KU-existing from the prerequisites of HabiroNumberFields:KU-habiroring; do not apply RS-08's three forwarded Galois-cohomology links to HB.6, but attach them to HB.1. Add HabiroRings:HR.1 -> HB.6 and HR.1 -> KU-habiroring, and the HC.4 -> HB.6 lattice dependency. Preserve HB.6 -> HR.5-number-field-comparison; only HR.5/the-ell-adic-taylor-comparison is imported in the reverse direction, and that node has exclusively baseline prerequisites. No atlas/data/content file is changed by this packet."
     },
     {
       "kind": "note-hypothesis-boundary",
@@ -5238,22 +5225,24 @@
       "kind": "note-source-boundary",
       "action": "rescope",
       "roadmaps": [
-        "HabiroNumberFields"
+        "HabiroNumberFields",
+        "HabiroRings"
       ],
-      "title": "The HB.7 stage text asks for operations GSWZ does not treat",
-      "detail": "Scalar extension, the Galois action on H_{R,ξ} and transfer compatibility are not in GSWZ (gap 'Scalar extension, Galois action and transfer compatibility have no source'); HabiroRings HR.6 plans 'the scalar-extension and Picard comparisons'. Added by REV-HabiroNumberFields.",
-      "proposal": "Either move scalar extension and the Picard comparison to HR.6 and say so in HB.7's text, or name a source; the transfer compatibility needs a source before it can be a target."
+      "title": "HB.7 owns arithmetic naturality targets; HR.6 consumes them",
+      "detail": "The HB.7 supplement provides explicit field-pullback, scalar-equivalence, Galois and whole-series norm targets, with G-arithmetic-naturality and exact supplier requests. These are additional targets rather than theorems attributed to GSWZ.",
+      "proposal": "Keep HB.7/followup-field-pullback, followup-scalar-equivalence, followup-galois-action, followup-local-norm-defect and followup-transfer-norm as the source of the number-field module interfaces. HR.6 imports those results and Picard coherence downstream. Retain G-arithmetic-naturality until D.1/D.4 and early finite-Chern comparisons prove the full-factor transport. Do not use HR.6 as a reverse supplier."
     },
     {
       "kind": "ownership",
       "action": "rescope",
       "roadmaps": [
         "HabiroNumberFields",
-        "HabiroNahmSeries"
+        "HabiroNahmSeries",
+        "QSeriesPartitionsAndMockModularForms"
       ],
-      "title": "Who owns GSWZ §2.1 (the Pochhammer symbol at roots of unity)",
-      "detail": "HabiroNahmSeries requests 'the asymptotics of the Pochhammer symbol at roots of unity that GSWZ Section 2.1 develops' from HB.2; this packet plans Lemma 2.1 and Proposition 2.2 in HB.7 (HB.7/pochhammer-dwork-difference), the only place this roadmap uses them. Added by REV-HabiroNumberFields.",
-      "proposal": "If HabiroNahmSeries HB.4 or HB.8 needs §2.1 before HB.7, move HB.7/pochhammer-dwork-difference to HB.2 (no new edge: HB.7 requires HB.2) and redirect the HabiroNahmSeries request to that node."
+      "title": "Keep the p-adic defect distinct from common complex radial estimates",
+      "detail": "HB.7/pochhammer-dwork-difference is a p-adic logarithmic Frobenius-defect specialization. The HB.2 and HB.4 analytic proofs need common complex estimates from QM.0/QM.1, rather than importing this late HB.7 node.",
+      "proposal": "Keep the p-adic section-defect theorem in HB.7 and the Nahm specialization in HB.4. Extract their regulator-independent complex leading estimates to QM.0 before HB.2/HB.4, with eta phase from QM.1. Do not move the p-adic HB.7 node wholesale into HB.2."
     },
     {
       "kind": "note-duplicate-boundary",
