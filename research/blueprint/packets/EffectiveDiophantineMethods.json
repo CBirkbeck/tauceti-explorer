@@ -294,7 +294,7 @@
     "ref": "mathlib:IsDedekindDomain.HeightOneSpectrum.valuation",
     "kind": "def",
     "module": "Mathlib/RingTheory/DedekindDomain/AdicValuation.lean",
-    "provides": "The v-adic valuation K → ℤᵐ⁰ of a height-one prime v of a Dedekind domain, with uniformisers of value exp(−1).",
+    "provides": "The v-adic valuation K → ℤᵐ⁰, where a uniformiser has value WithZero.exp(-1), the negative-one exponent in the multiplicative integers; an adapter is required to obtain positive additive ord_v and a real absolute value exp(−ord_v).",
     "checked": "statement read at the pinned commit"
    },
    {
@@ -1050,7 +1050,7 @@
     "ref": "mathlib:InnerProductSpace.volume_ball",
     "kind": "theorem",
     "module": "Mathlib/MeasureTheory/Measure/Lebesgue/VolumeOfBalls.lean",
-    "provides": "volume of a Euclidean ball: r^n π^{n/2}/Γ(n/2+1)",
+    "provides": "Euclidean volume of a ball in a nontrivial finite-dimensional real inner-product space with Borel measurable structure; the radius enters as ENNReal.ofReal, so negative radii give zero. The dimension-zero case must be treated separately.",
     "checked": "statement read at the pinned commit"
    },
    {
@@ -1969,12 +1969,22 @@
     {
      "name": "TauCeti.EffectiveDiophantine.ED0.RealRootIsolation",
      "role": "structure",
-     "statement": "A rational interval containing exactly one real root of g."
+     "statement": "A nonzero rational polynomial g and a rational interval containing exactly one real root of g; the record stores polynomial_ne_zero : g ≠ 0."
     },
     {
      "name": "TauCeti.EffectiveDiophantine.ED0.RealRootIsolation.root",
      "role": "projection",
      "statement": "The isolated real root."
+    },
+    {
+     "name": "TauCeti.EffectiveDiophantine.ED0.RealRootIsolation.root_spec",
+     "role": "characterisation",
+     "statement": "g(I.root) = 0 and I.root lies in I.interval."
+    },
+    {
+     "name": "TauCeti.EffectiveDiophantine.ED0.RealRootIsolation.root_unique",
+     "role": "extensionality",
+     "statement": "Any real root u of g lying in I.interval equals I.root."
     },
     {
      "name": "TauCeti.EffectiveDiophantine.ED0.RealRootIsolation.refine",
@@ -2027,6 +2037,11 @@
      "name": "refine_toEnclosure",
      "kind": "compatibility",
      "statement": "(refine I n).toEnclosure is a RealEnclosure of I.root of width at most 2^(−n)·width(I)."
+    },
+    {
+     "name": "isolation_zero_polynomial",
+     "kind": "non-example",
+     "statement": "RealRootIsolation (0 : ℚ[X]) is empty, including for a singleton interval: the polynomial must be nonzero."
     }
    ],
    "library": {
@@ -2282,13 +2297,13 @@
    ],
    "title": "p-adic embeddings pinned by Hensel certificates",
    "kind": "construction",
-   "statement": "Let K be a number field with a power basis pb over ℚ whose generator θ is integral over ℤ, so that f = minpoly ℚ θ has integer coefficients and is monic, and let p be prime. A p-adic embedding certificate is an integer a with f′(a) ≠ 0 and v_p(f(a)) > 2·v_p(f′(a)), an exact check on two integers. By hensels_lemma there is a unique z ∈ ℤ_p with f(z) = 0 and ‖z − a‖ < ‖f′(a)‖; the embedding σ_a : K →+* ℚ_p is PowerBasis.lift pb z, the unique embedding with σ_a(θ) = z, and σ_a is the only embedding sending θ into the open disc of radius ‖f′(a)‖ about a. Approximation contract: given N, Newton iteration in ℤ/p^(N+2v_p(f′(a)))ℤ produces an integer b with ‖b − a‖ < ‖f′(a)‖ and v_p(f(b)) ≥ N + v_p(f′(a)), and then z ≡ b (mod p^N) (EffectiveDiophantineMethods:ED.0/hensel-root-distance). For α ∈ K with power-basis coordinates (a_0, …, a_{d−1}) ∈ ℚ^d put e = max(0, −min_j v_p(a_j)); then (Σ_j a_j b^j, N − e) is a PadicEnclosure of σ_a(α), so N = n + e gives absolute precision n. Two certificates a, a′ define different embeddings when ‖a − a′‖ ≥ max(‖f′(a)‖, ‖f′(a′)‖). The embeddings K →+* ℚ_p correspond exactly to the roots of f in ℚ_p (PowerBasis.liftEquiv'); a simple root of f modulo p gives a certificate with v_p(f′(a)) = 0.",
+   "statement": "Let K be a number field with a power basis pb over ℚ whose generator θ is integral over ℤ, so that f = minpoly ℚ θ has integer coefficients and is monic, and let p be prime. A p-adic embedding certificate is an integer a with f′(a) ≠ 0 and either f(a) = 0 or v_p(f(a)) > 2·v_p(f′(a)), an exact check on two integers. By hensels_lemma there is a unique z ∈ ℤ_p with f(z) = 0 and ‖z − a‖ < ‖f′(a)‖; the embedding σ_a : K →+* ℚ_p is PowerBasis.lift pb z, the unique embedding with σ_a(θ) = z, and σ_a is the only embedding sending θ into the open disc of radius ‖f′(a)‖ about a. Approximation contract: given N, Newton iteration in ℤ/p^(N+2v_p(f′(a)))ℤ produces an integer b with ‖b − a‖ < ‖f′(a)‖ and either f(b) = 0 or v_p(f(b)) ≥ N + v_p(f′(a)), and then z ≡ b (mod p^N) (EffectiveDiophantineMethods:ED.0/hensel-root-distance). For α ∈ K with power-basis coordinates (a_0, …, a_{d−1}) ∈ ℚ^d put e = max(0, −min_j v_p(a_j)); then (Σ_j a_j b^j, N − e) is a PadicEnclosure of σ_a(α), so N = n + e gives absolute precision n. Two certificates a, a′ define different embeddings when ‖a − a′‖ ≥ max(‖f′(a)‖, ‖f′(a′)‖). The embeddings K →+* ℚ_p correspond exactly to the roots of f in ℚ_p (PowerBasis.liftEquiv'); a simple root of f modulo p gives a certificate with v_p(f′(a)) = 0. Here v_p is Mathlib padicValRat, whose value at zero is 0; exact zero residuals are therefore handled by the explicit disjunction, rather than by treating that value as +∞.",
    "hypotheses": [
     "K a number field, pb : PowerBasis ℚ K with IsIntegral ℤ pb.gen; f = minpoly ℚ pb.gen viewed in ℤ[X].",
-    "p prime; a ∈ ℤ with v_p(f(a)) > 2·v_p(f′(a)); α given by its rational coordinates pb.basis.repr α."
+    "p prime; a ∈ ℤ with f′(a) ≠ 0 and either f(a) = 0 or v_p(f(a)) > 2·v_p(f′(a)); α given by its rational coordinates pb.basis.repr α."
    ],
    "proofSteps": [
-    "The integer check v_p(f(a)) > 2·v_p(f′(a)) is ‖f(a)‖ < ‖f′(a)‖² in ℤ_p (Padic.norm_eq_zpow_neg_valuation), so hensels_lemma gives the root z and its uniqueness in the disc.",
+    "The integer check f′(a) ≠ 0 and (f(a) = 0 or v_p(f(a)) > 2·v_p(f′(a))) is ‖f(a)‖ < ‖f′(a)‖² in ℤ_p (Padic.norm_eq_zpow_neg_valuation), so hensels_lemma gives the root z and its uniqueness in the disc.",
     "PowerBasis.lift pb z is a ring homomorphism K → ℚ_p with θ ↦ z; any σ with ‖σ(θ) − a‖ < ‖f′(a)‖ sends θ to a root in the disc, hence to z, hence equals σ_a (PowerBasis.liftEquiv').",
     "EffectiveDiophantineMethods:ED.0/hensel-root-distance applied to the Newton iterate b gives ‖z − b‖ = ‖f(b)‖/‖f′(a)‖ ≤ p^(−N).",
     "z, b ∈ ℤ_p and z ≡ b (mod p^N) give z^j ≡ b^j (mod p^N); multiplying by a_j with v_p(a_j) ≥ −e gives ‖σ_a(α) − Σ_j a_j b^j‖ ≤ p^(e−N).",
@@ -2332,7 +2347,7 @@
     {
      "name": "TauCeti.EffectiveDiophantine.ED0.PadicEmbeddingCertificate",
      "role": "structure",
-     "statement": "An integer a with f′(a) ≠ 0 and v_p(f(a)) > 2·v_p(f′(a)) for f = minpoly ℚ pb.gen."
+     "statement": "An integer a with f′(a) ≠ 0 and either f(a) = 0 or v_p(f(a)) > 2·v_p(f′(a)) for f = minpoly ℚ pb.gen."
     },
     {
      "name": "TauCeti.EffectiveDiophantine.ED0.PadicEmbeddingCertificate.root",
@@ -2357,7 +2372,7 @@
     {
      "name": "TauCeti.EffectiveDiophantine.ED0.PadicEmbeddingCertificate.root_sub_mem",
      "role": "characterisation",
-     "statement": "For an integer b with ‖b − a‖ < ‖f′(a)‖ and v_p(f(b)) ≥ N + v_p(f′(a)), ‖z − b‖ ≤ p^(−N)."
+     "statement": "For an integer b with ‖b − a‖ < ‖f′(a)‖ and either f(b) = 0 or v_p(f(b)) ≥ N + v_p(f′(a)), ‖z − b‖ ≤ p^(−N)."
     },
     {
      "name": "TauCeti.EffectiveDiophantine.ED0.PadicEmbeddingCertificate.evalEnclosure",
@@ -3688,7 +3703,7 @@
     {
      "name": "exclusion_integral_target",
      "kind": "non-example",
-     "statement": "If s = (AU)^(−1)y ∈ ℤ^n then y ∈ Γ, the LLL witness is rejected, and no lower bound for the distance exists."
+     "statement": "If s = (AU)^(−1)y ∈ ℤ^n then y ∈ Γ, the LLL witness is rejected, and no positive lower bound for the distance exists."
     },
     {
      "name": "exclusion_padic_one_dim",
@@ -4228,7 +4243,7 @@
    ],
    "title": "Discrete-logarithm certificates for p-adic multiplicative forms",
    "kind": "construction",
-   "statement": "Let p be a prime and 𝒪 either ℤ_p or the ring of integers of a finite extension L of ℚ_p, with maximal ideal 𝔓 and a fixed exact presentation of the finite rings 𝒪/𝔓^t (for L given by a defining polynomial over ℚ_p, through the ED.0 p-adic embedding certificates of the relevant elements: EffectiveDiophantineMethods:ED.0/padic-embedding-certificate). Let γ_0, γ_1, …, γ_n ∈ 𝒪^× be units, known modulo 𝔓^t. A discrete-logarithm certificate at level t consists of an exponent e ≥ 1, an element g ∈ 𝒪 with g ≡ 1 (mod 𝔓), an integer M ≥ 1, and integers ℓ_0, …, ℓ_n ∈ [0, p^M), such that the following exact congruences hold in 𝒪/𝔓^t: g^{p^M} ≡ 1, g^{p^{M−1}} ≢ 1, and γ_i^e ≡ g^{ℓ_i} for i = 0, …, n. Its congruence lattice is Γ := {b ∈ ℤ^n : Σ_{i≥1} b_iℓ_i ≡ 0 (mod p^M)} and its target coset is Γ_0 := {b ∈ ℤ^n : ℓ_0 + Σ_{i≥1} b_iℓ_i ≡ 0 (mod p^M)}; both are presented by EffectiveDiophantineMethods:ED.1/padic-linear-form-lattice after normalisation: let κ := min_{i≥1} v_p(ℓ_i) < M, attained at i = k; if v_p(ℓ_0) < κ then Γ_0 = ∅; otherwise b ∈ Γ_0 exactly when p^{M−κ} divides Λ′(b) := b_k − β_0 − Σ_{i≠k} b_iβ_i with the p-adic integers β_0 := −ℓ_0/ℓ_k and β_i := −ℓ_i/ℓ_k, which is ED.1's normalised form at level m = M − κ (de Weger's μ_0 is this κ). If every ℓ_i (i ≥ 1) is divisible by p^M then Γ = ℤ^n and the certificate carries no information. Soundness: for b ∈ ℤ^n and ζ ∈ 𝒪^× with ζ^e = 1 (for instance ζ = ±1 when e is even), if ζγ_0∏_{i≥1}γ_i^{b_i} ≡ 1 (mod 𝔓^t), equivalently ord_𝔓(ζγ_0∏γ_i^{b_i} − 1) ≥ t, then b ∈ Γ_0. Standard data over ℚ_p: for odd p, g = 1 + p, t = M + 1, e = p − 1; for p = 2, g = 5, t = M + 2, e = 2; the order conditions then hold by lifting the exponent, and ℓ_i exists for every rational p-adic unit γ_i. In a finite extension the certificate exists whenever the γ_i^e generate a cyclic subgroup of (𝒪/𝔓^t)^× of p-power order, as for the norm-one elements of a quadratic extension that occur in the Thue–Mahler reduction. No p-adic logarithm and no approximation enters: every check is modular exponentiation in a finite ring.",
+   "statement": "Let p be a prime and 𝒪 either ℤ_p or the ring of integers of a finite extension L of ℚ_p, with maximal ideal 𝔓 and a fixed exact presentation of the finite rings 𝒪/𝔓^t (for L given by a defining polynomial over ℚ_p, through the ED.0 p-adic embedding certificates of the relevant elements: EffectiveDiophantineMethods:ED.0/padic-embedding-certificate). Let γ_0, γ_1, …, γ_n ∈ 𝒪^× be units, known modulo 𝔓^t. A discrete-logarithm certificate at level t consists of an exponent e ≥ 1, an element g ∈ 𝒪 with g ≡ 1 (mod 𝔓), an integer M ≥ 1, and integers ℓ_0, …, ℓ_n ∈ [0, p^M), such that the following exact congruences hold in 𝒪/𝔓^t: g^{p^M} ≡ 1, g^{p^{M−1}} ≢ 1, and γ_i^e ≡ g^{ℓ_i} for i = 0, …, n. Its congruence lattice is Γ := {b ∈ ℤ^n : Σ_{i≥1} b_iℓ_i ≡ 0 (mod p^M)} and its target coset is Γ_0 := {b ∈ ℤ^n : ℓ_0 + Σ_{i≥1} b_iℓ_i ≡ 0 (mod p^M)}; both are presented by EffectiveDiophantineMethods:ED.1/padic-linear-form-lattice after normalisation: let κ := min_{i≥1, ℓ_i ≠ 0} v_p(ℓ_i) < M, attained at a nonzero ℓ_k; if ℓ_0 ≠ 0 and v_p(ℓ_0) < κ then Γ_0 = ∅; otherwise b ∈ Γ_0 exactly when p^{M−κ} divides Λ′(b) := b_k − β_0 − Σ_{i≠k} b_iβ_i with the p-adic integers β_0 := −ℓ_0/ℓ_k and β_i := −ℓ_i/ℓ_k, which is ED.1's normalised form at level m = M − κ (de Weger's μ_0 is this κ). If every ℓ_i (i ≥ 1) is zero (equivalently divisible by p^M under the exponent ranges), then Γ = ℤ^n; Γ_0 is all of ℤ^n if ℓ_0 = 0, and empty otherwise. This also handles n = 0 without taking an empty pivot minimum. Soundness: for b ∈ ℤ^n and ζ ∈ 𝒪^× with ζ^e = 1 (for instance ζ = ±1 when e is even), if ζγ_0∏_{i≥1}γ_i^{b_i} ≡ 1 (mod 𝔓^t), equivalently ord_𝔓(ζγ_0∏γ_i^{b_i} − 1) ≥ t, then b ∈ Γ_0. Standard data over ℚ_p: for odd p, g = 1 + p, t = M + 1, e = p − 1; for p = 2, g = 5, t = M + 2, e = 2; the order conditions then hold by lifting the exponent, and ℓ_i exists for every rational p-adic unit γ_i. In a finite extension the certificate exists whenever the γ_i^e generate a cyclic subgroup of (𝒪/𝔓^t)^× of p-power order, as for the norm-one elements of a quadratic extension that occur in the Thue–Mahler reduction. No p-adic logarithm and no approximation enters: every check is modular exponentiation in a finite ring. Zero coefficients are omitted when choosing κ, and ℓ_0 = 0 always satisfies p^κ ∣ ℓ_0; this is essential because Mathlib padicValRat p 0 = 0. The prime hypothesis is stored in the certificate, as are 0 ≤ ℓ_i < p^M.",
    "hypotheses": [
     "γ_i are 𝔓-adic units; the certificate is a finite list of integers checked by exact arithmetic modulo 𝔓^t",
     "Only the implication 'congruence ⇒ lattice membership' is claimed; the lattice may be larger than the set of exponent vectors with the congruence, which keeps every reduction based on it sound"
@@ -4271,7 +4286,7 @@
     {
      "name": "TauCeti.EffectiveDiophantine.PadicDiscreteLogCertificate",
      "role": "structure",
-     "statement": "Data p, t, e, g, M, ℓ : Fin (n+1) → ℤ with the exact congruences of the statement as fields (in ZMod (p^t) for 𝒪 = ℤ_p)."
+     "statement": "Data p, t, e, g, M, ℓ : Fin (n+1) → ℤ with the exact congruences of the statement as fields (in ZMod (p^t) for 𝒪 = ℤ_p). The prime hypothesis p.Prime and the ranges 0 ≤ ℓ_i < p^M are fields."
     },
     {
      "name": "TauCeti.EffectiveDiophantine.PadicDiscreteLogCertificate.lattice",
@@ -4324,6 +4339,16 @@
      "name": "discreteLog_compat_two",
      "kind": "compatibility",
      "statement": "p = 2, M = 3, t = 5: 5 has order 8 modulo 32 (5⁴ = 625 ≡ 17, 5⁸ ≡ 1), agreeing with Mathlib's orderOf in ZMod 32."
+    },
+    {
+     "name": "discreteLog_composite_nonexample",
+     "kind": "non-example",
+     "statement": "At the composite modulus parameter p = 6, g = 19 ≡ 1 mod 6 has order 2 modulo 36, so g^6 = 1 and g ≠ 1 do not imply order 6. No PadicDiscreteLogCertificate with p = 6 exists: p must be prime."
+    },
+    {
+     "name": "discreteLog_zero_coefficient",
+     "kind": "degenerate",
+     "statement": "At p = 5 and M = 2, ℓ = (0, 5, 0): κ = 1 with pivot ℓ_1 = 5 and the coset is {b : 5 ∣ b_1}, including b = 0. The zero coefficient is not a pivot and the zero constant does not make the coset empty."
     }
    ],
    "planet": {
@@ -5001,7 +5026,8 @@
     "ED.2/certified-linear-form-lower-bound with B* ≤ (r + 2)max(1, A): for A ≥ 1, |Λ| > exp(−C_7(1 + Real.log(r + 2) + Real.log A)) ≥ exp(−C_7(Ĉ_8 + log A)) (TdW Lemma 2.3 with C_8′ = Ĉ_8).",
     "Combined with ED.2/thue-exponent-bound (Lemma 2.2): (n/ĉ_5)A < log ĉ_6 + C_7Ĉ_8 + C_7 log A, i.e. A < a + b log A.",
     "DiophantineApproximationAndTranscendence:DT.4/log-linear-inequality-bound gives A ≤ 2a + 2b(log(2b) − 1) ≤ K_3 (TdW instead cite Pethő–de Weger, Lemma 2.3, with C_9 = (2C_5/n)(log C_6 + C_7C_8′ + C_7 log(C_5C_7/n))); for A < 1 the bound K_3 ≥ 1 holds trivially.",
-    "Heights: Height.logHeight₁_sub_le, Height.logHeight₁_mul_le and Height.logHeight₁_inv, divided by the field degree (NumberField.totalWeight_eq_finrank: totalWeight K = [K : ℚ]), give h(x − y) ≤ log 2 + h(x) + h(y), h(xy) ≤ h(x) + h(y), h(x^{−1}) = h(x); conjugates have the same absolute height (DiophantineApproximationAndTranscendence:DT.0/abs-mul-height-eq-of-minpoly-eq)."
+    "Heights: Height.logHeight₁_sub_le, Height.logHeight₁_mul_le and Height.logHeight₁_inv, divided by the field degree (NumberField.totalWeight_eq_finrank: totalWeight K = [K : ℚ]), give h(x − y) ≤ log 2 + h(x) + h(y), h(xy) ≤ h(x) + h(y), h(x^{−1}) = h(x); conjugates have the same absolute height (DiophantineApproximationAndTranscendence:DT.0/abs-mul-height-eq-of-minpoly-eq).",
+    "Degree bound: for the three distinct conjugate roots ξ_i, ξ_j, ξ_k of the separable degree-n polynomial, successively adjoin ξ_i, then a root of g/(X−ξ_i), then a root of g/((X−ξ_i)(X−ξ_j)). The extension degrees are at most n, n−1, n−2, respectively. Thus the compositum containing the logarithm arguments has degree ≤ n(n−1)(n−2); three independent degree-n adjunction bounds would give only n³."
    ],
    "acceptance": [
     "For a quartic totally real field as in TdW §III (r = 3), with Matveev's constant for r + 1 = 4 logarithms and D ≤ 24, K_3 is of the order 10^{20}–10^{30}; TdW's Waldschmidt-based bound was of size 10^{40} (p. 111)."
@@ -7720,7 +7746,7 @@
    "kind": "theorem",
    "statement": "(a) Let A be an abelian group and, for primes q₁,…,q_k, ρ_i : A → B_i homomorphisms into finite groups that are injective on torsion of order prime to q_i. Then for every prime ℓ, v_ℓ(#A_tors) ≤ min{v_ℓ(#B_i) : q_i ≠ ℓ}; if an explicit finite subgroup T₀ ≤ A_tors attains these bounds for all ℓ, then A_tors = T₀. (b) For E/ℚ in the model y² = x³ + ax² + bx + c (a = b₂, b = 8b₄, c = 16b₆, integral), every torsion point has x, y ∈ ℤ and y = 0 or y² | Δ₀ = 27c² + 4a³c + 4b³ − a²b² − 18abc; enumerating these candidates and computing orders gives E(ℚ)_tors exactly (Cremona's algorithm). Reduction at good odd q is injective on E(ℚ)_tors (EllipticCurves Layer 6); for Jacobians of curves over ℚ with good reduction at q, reduction is injective on torsion of order prime to q, and on all torsion for q ≥ 3 (requested from RP.1).",
    "hypotheses": [
-    "(a) A abelian, B_i finite; (b) W over ℚ elliptic, coefficients integral."
+    "(a) A abelian, B_i finite, and for every prime ℓ there is at least one i with q_i ≠ ℓ; this makes each displayed minimum nonempty and bounds every primary torsion subgroup. (b) W over ℚ elliptic, coefficients integral."
    ],
    "proofSteps": [
     "(a) The ℓ-primary part of A_tors embeds into B_i whenever q_i ≠ ℓ (Subgroup.card_dvd_of_injective).",
@@ -8441,7 +8467,7 @@
    ],
    "title": "The p-adic abelian logarithm and the integration pairing",
    "kind": "construction",
-   "statement": "Let K be a finite extension of ℚ_p with ring of integers O_K, residue field k and ramification index e, and A an abelian variety of dimension g over K. Write Lie(A) for its tangent space at 0 (a K-vector space of dimension g) and Ω_A := H⁰(A, Ω¹) for its space of regular 1-forms, which are the translation-invariant forms; evaluation at 0 identifies Ω_A with the dual Module.Dual K Lie(A). The abelian logarithm log_A : A(K) → Lie(A) is the unique group homomorphism that agrees with the formal logarithm on some open subgroup, constructed as follows. Let 𝒜 be the Néron model of A over O_K (an abelian scheme when A has good reduction), F̂ its formal group, the completion of 𝒜 along the zero section, a g-dimensional commutative formal Lie group over O_K once formal parameters s = (s₁, …, s_g) are chosen, and A¹(K) := ker(𝒜(O_K) → 𝒜(k)) = F̂(m_K). Let log_F̂ ∈ (K[[s]])^g be the formal logarithm, the unique homomorphism of formal groups F̂ → Ĝ_a^g over K whose linear term is the identity; its coordinates are the formal primitives of a basis of invariant differentials and converge on m_K^g. Put N := #𝒜(k) = [A(K) : A¹(K)] and log_A(x) := N⁻¹ log_F̂(s(N x)), identifying K^g with Lie(A) by ds at 0. The integration pairing is ⟨x, ω⟩ := ω(log_A x) ∈ K for x ∈ A(K), ω ∈ Ω_A. Properties: (a) log_A is a homomorphism, independent of the choices of formal parameters and of N among multiples of the exponent of 𝒜(k); (b) ker log_A = A(K)_tors, which is finite; (c) log_A is continuous, its differential at 0 is the identity, and for n > e/(p − 1) it maps the subgroup F̂(m_K^n) isomorphically onto the lattice (m_K^n)^g; (d) for a homomorphism φ : A → B of abelian varieties over K, log_B ∘ φ = dφ ∘ log_A, i.e. ⟨φ(x), ω⟩ = ⟨x, φ*ω⟩; for a finite extension K'/K, log_{A_{K'}} restricts to log_A on A(K); (e) the pairing A(K) × Ω_A → K is ℤ-bilinear and K-linear in ω, its kernel in Ω_A, {ω : ⟨x, ω⟩ = 0 ∀x}, is 0 and its kernel in A(K) is A(K)_tors; for each ω, x ↦ ⟨x, ω⟩ is the unique locally analytic homomorphism A(K) → K whose differential at 0 is ω. Over ℂ_p, log_A is defined on A(ℂ_p) as the union of the log_{A_{K'}}.",
+   "statement": "Let K be a finite extension of ℚ_p with ring of integers O_K, residue field k and ramification index e, and A an abelian variety of dimension g over K. Write Lie(A) for its tangent space at 0 (a K-vector space of dimension g) and Ω_A := H⁰(A, Ω¹) for its space of regular 1-forms, which are the translation-invariant forms; evaluation at 0 identifies Ω_A with the dual Module.Dual K Lie(A). The abelian logarithm log_A : A(K) → Lie(A) is the unique group homomorphism that agrees with the formal logarithm on some open subgroup, constructed as follows. Let 𝒜 be the Néron model of A over O_K (an abelian scheme when A has good reduction), F̂ its formal group, the completion of 𝒜 along the zero section, a g-dimensional commutative formal Lie group over O_K once formal parameters s = (s₁, …, s_g) are chosen, and A¹(K) := ker(𝒜(O_K) → 𝒜(k)) = F̂(m_K). Let log_F̂ ∈ (K[[s]])^g be the formal logarithm, the unique homomorphism of formal groups F̂ → Ĝ_a^g over K whose linear term is the identity; its coordinates are the formal primitives of a basis of invariant differentials and converge on m_K^g. Put N := #𝒜(k) = [A(K) : A¹(K)] and log_A(x) := N⁻¹ log_F̂(s(N x)), identifying K^g with Lie(A) by ds at 0. The integration pairing is ⟨x, ω⟩ := ω(log_A x) ∈ K for x ∈ A(K), ω ∈ Ω_A. Properties: (a) log_A is a homomorphism, independent of the choices of formal parameters and of N among multiples of the exponent of 𝒜(k); (b) ker log_A = A(K)_tors, which is finite; (c) log_A is continuous, its differential at 0 is the identity, and for n > e/(p − 1) it maps the subgroup F̂(m_K^n) isomorphically onto the lattice (m_K^n)^g; (d) for a homomorphism φ : A → B of abelian varieties over K, log_B ∘ φ = dφ ∘ log_A, i.e. ⟨φ(x), ω⟩ = ⟨x, φ*ω⟩; for a finite extension K'/K, log_{A_{K'}} restricts to log_A on A(K); (e) the pairing A(K) × Ω_A → K is ℤ-bilinear and K-linear in ω, its kernel in Ω_A, {ω : ⟨x, ω⟩ = 0 ∀x}, is 0 and its kernel in A(K) is A(K)_tors; for each ω, x ↦ ⟨x, ω⟩ is the unique locally analytic homomorphism A(K) → K whose differential at 0 is ω. The compatible logarithms over finite K'/K first define log_A on A(ℚ̄_p). Over ℂ_p use the analytic logarithm of the ℂ_p-Lie group, extending this map continuously; the union over finite extensions alone does not define it on all A(ℂ_p) (KRZB Definition 3.8 and Proposition 3.16).",
    "hypotheses": [
     "K finite over ℚ_p; A an abelian variety over K. Good reduction is not assumed; when A has good reduction 𝒜 is the abelian scheme extending A and 𝒜(k) is the group of points of its special fibre.",
     "Normalisation: Lie(A) = T₀A and the pairing is evaluation of an invariant differential on a tangent vector; no sign or scaling is inserted."
@@ -8452,7 +8478,7 @@
     "Extension: A(K)/A¹(K) is finite of order N and Lie(A) is uniquely divisible, so x ↦ N⁻¹ log_F̂(s(N x)) is the unique homomorphism extending log_F̂|A¹(K); a change of parameters composes F̂ with a formal isomorphism, which log_F̂ absorbs (McCallum–Poonen §4.1 and Remark 4.1).",
     "Kernel and local isomorphism: for n > e/(p − 1) the formal exponential converges on (m_K^n)^g and inverts log_F̂ there, so F̂(m_K^n) is torsion-free and ker log_A consists of elements with a multiple in a torsion-free group mapping to 0, i.e. A(K)_tors; A(K) is compact, so A(K)_tors is finite.",
     "Functoriality: φ extends to the Néron models and induces a homomorphism of formal groups whose linear term is dφ; log_B ∘ φ̂ = dφ ∘ log_A by uniqueness of the formal logarithm (Katz–Rabinoff–Zureick-Brown §3.3).",
-    "Pairing: left non-degeneracy because log_A(A(K)) contains a lattice spanning Lie(A); uniqueness of the locally analytic homomorphism because the difference of two has zero differential, so it vanishes on an open subgroup of finite index and takes values in a torsion-free group."
+    "Pairing: trivial kernel in Ω_A for the displayed order A(K) × Ω_A because log_A(A(K)) contains a lattice spanning Lie(A); uniqueness of the locally analytic homomorphism because the difference of two has zero differential, so it vanishes on an open subgroup of finite index and takes values in a torsion-free group."
    ],
    "acceptance": [
     "For the Jacobian of C₀(5) over ℚ_3, D' = 9·[∞⁺ − ∞⁻] lies in J¹(ℚ_3) and its logarithm in Flynn's parameters is ≡ (36, 3) (mod 3⁴) (Flynn–Poonen–Schaefer p.22).",
@@ -9250,7 +9276,7 @@
    ],
    "title": "Zero bounds for integrals on a residue disc, including exceptional discs",
    "kind": "theorem",
-   "statement": "Let p be a prime and f = Σ_{i≥0} a_i t^i ∈ ℚ_p[[t]] with f' ∈ ℤ_p[[t]]. Then f converges on pℤ_p and f(pT) = Σ a_i p^i T^i has coefficients tending to 0. Define the disc Strassmann index N_p(f) := the largest i with v(a_i) + i = min_j (v(a_j) + j), for f ≠ 0. (a) If f ≠ 0, f has at most N_p(f) zeros in pℤ_p. (b) (McCallum–Poonen Lemma 5.1) If m := ord_{t=0}(f' mod p) < p − 2, then N_p(f) ≤ m + 1. (c) (McCallum–Poonen Remark 5.2) If the coefficient of t^{p−1} in f' lies in pℤ_p and m < 2p − 2, then N_p(f) ≤ m + 1. (d) (certified index) If an index N and an integer μ satisfy v(a_N) + N = μ and v(a_i) + i > μ for all i > N, then f has at most N zeros in pℤ_p. Because v(a_i) ≥ −v_p(i) for i ≥ 1, the inequality for i > N holds automatically once i − v_p(i) > μ, so only finitely many indices need checking; if each coefficient a_i with i − v_p(i) ≤ μ is known modulo p^{k_i} with k_i + i > μ and the approximations satisfy both conditions, then the true coefficients satisfy them, and the bound holds for the true series. (e) Exceptional discs, m ≥ p − 2 or m unknown, are treated by (a) and (d): the bound is N_p(f) for the actual series, not m + 1. Applied to f = I_B on a residue disc (ED.4/tiny-integral-expansion, ED.4/disc-integration-constant), (a)–(e) bound the zeros of η on that disc.",
+   "statement": "Let p be a prime and f = Σ_{i≥0} a_i t^i ∈ ℚ_p[[t]] with f' ∈ ℤ_p[[t]]. Then f converges on pℤ_p and f(pT) = Σ a_i p^i T^i has coefficients tending to 0. Use the extended valuation v(0) = +∞ throughout this node; in an implementation using Padic.valuation (which assigns 0 to zero), restrict minima to nonzero coefficients. Define the disc Strassmann index N_p(f) := the largest i with v(a_i) + i = min_j (v(a_j) + j), for f ≠ 0. (a) If f ≠ 0, f has at most N_p(f) zeros in pℤ_p. (b) (McCallum–Poonen Lemma 5.1) If m := ord_{t=0}(f' mod p) < p − 2, then N_p(f) ≤ m + 1. (c) (McCallum–Poonen Remark 5.2) If the coefficient of t^{p−1} in f' lies in pℤ_p and m < 2p − 2, then N_p(f) ≤ m + 1. (d) (certified index) If an index N and an integer μ satisfy a_N ≠ 0, v(a_N) + N = μ, and, for every i > N, either a_i = 0 or v(a_i) + i > μ, then f has at most N zeros in pℤ_p. Because v(a_i) ≥ −v_p(i) for i ≥ 1, the inequality for i > N holds automatically once i − v_p(i) > μ, so only finitely many indices need checking; if each coefficient a_i with i − v_p(i) ≤ μ is known modulo p^{k_i} with k_i + i > μ and the approximations satisfy both conditions, then the true coefficients satisfy them, and the bound holds for the true series. (e) Exceptional discs, m ≥ p − 2 or m unknown, are treated by (a) and (d): the bound is N_p(f) for the actual series, not m + 1. Applied to f = I_B on a residue disc (ED.4/tiny-integral-expansion, ED.4/disc-integration-constant), (a)–(e) bound the zeros of η on that disc.",
    "hypotheses": [
     "p prime; f' ∈ ℤ_p[[t]] (scale ω so that it is integral with nonzero reduction); zeros counted as distinct points of pℤ_p.",
     "In (d), 'known modulo p^{k_i}' means a certified rational approximation (ED.0/valuation-certificate)."
@@ -9260,7 +9286,8 @@
     "(b) v(a_{m+1}) = 0 and, for i > m + 1, v(a_i) ≥ −v_p(i) > m + 1 − i, because i − v_p(i) > m + 1 when m + 1 < p − 1; so the minimum of v(a_i) + i is attained at an index ≤ m + 1 (McCallum–Poonen Lemma 5.1 proof).",
     "(c) The hypothesis excludes m = p − 1; for p ≤ i ≤ 2p − 1 only i = p has v_p(i) = 1, and there v(a_p) = v(w_{p−1}) − 1 ≥ 0; for i ≥ 2p one has i − v_p(i) > m + 1 (for p ≥ 3 because i − v_p(i) ≥ 2p − 1; for p = 2 the hypotheses force m = 0 and i − v_2(i) ≥ 2); so again no index beyond m + 1 is dominant.",
     "(d) If the largest dominant index N' exceeded N, then v(a_{N'}) + N' ≤ v(a_N) + N = μ, contradicting v(a_{N'}) + N' > μ; so N_p(f) ≤ N and (a) applies. Perturbations of size p^{k_i} with k_i + i > μ do not change these inequalities.",
-    "(e) restates (a) and (d) for the discs excluded from (b), (c)."
+    "(e) restates (a) and (d) for the discs excluded from (b), (c).",
+    "Zero coefficients have weight +∞ and never win the minimum. Regression: f(t) = t has N_p(f) = 1 although its constant coefficient is zero; do not use Padic.valuation 0 = 0 as its weight."
    ],
    "acceptance": [
     "McCallum–Poonen Example 2: on the disc of (0, 1) of C₀(5) at p = 3, m = 1 = p − 2, the coefficient of t² in w vanishes mod 3, so (c) gives at most 2 zeros; the rescaled series has v(a_i) + i = ∞, 2, 2, 5, 4, … for i = 0, 1, 2, 3, 4, so N_3 = 2.",
@@ -13372,15 +13399,15 @@
    ],
    "title": "Algorithm for the Hodge filtration data (η, b_Fil, γ_Fil)",
    "kind": "construction",
-   "statement": "Input: an explicit set-up with exact data over Q and L (the differentials as elements of the function field of Y, the points of D with Galois-equivariant parameters t_x) and an admissible Tate matrix Z. Steps: (i) for each x ∈ D compute the Laurent expansions of ω_0, …, ω_{2g+d−2} at x to order t_x^{d_x}, d_x the largest pole order occurring, and formal primitives Ω_x with dΩ_x = −ω; compute η = Σ_k c_k ω_{2g+k} as the unique solution of Σ_k c_k Res_x(ω_{2g+k}) = Res_x(Ω_xᵀ Z dΩ_x) for all x ∈ D (condition (30), not the printed step (i), E2); (ii) solve dg_x = Ω_xᵀ Z dΩ_x − η for the principal part of g_x in L((t_x))/L[[t_x]]; (iii) compute the principal parts of Ω_xᵀZNNᵀΩ_x and solve the finite linear system for b_Fil ∈ Q^g and γ_Fil in a finite-dimensional space of functions on Y with poles bounded by the d_x (for X_s(13): H⁰(X, O(2D))) with γ_Fil(b) = 0, as in hodge-filtration-explicit (32); output (η, b_Fil, γ_Fil) and β_Fil = (0, b_Fil). All steps are exact linear algebra over L and terminate; the output is checked by substituting into (30) and (32), which is the certificate.",
+   "statement": "Input: an explicit set-up with exact data over Q and L (the differentials as elements of the function field of Y, the points of D with Galois-equivariant parameters t_x) and an admissible Tate matrix Z. Steps: (i) for each x ∈ D compute the Laurent expansions of ω_0, …, ω_{2g+d−2} at x to certified orders sufficient for every residue and principal part below; these orders must account for products of primitives, not just the largest pole order of an individual differential, and formal primitives Ω_x with dΩ_x = −ω; compute η = Σ_k c_k ω_{2g+k} as the unique solution of Σ_k c_k Res_x(ω_{2g+k}) = Res_x(Ω_xᵀ Z dΩ_x) for all x ∈ D (condition (30), not the printed step (i), E2); (ii) solve dg_x = Ω_xᵀ Z dΩ_x − η for the principal part of g_x in L((t_x))/L[[t_x]]; (iii) compute the principal parts of Ω_xᵀZNNᵀΩ_x and solve the finite linear system for b_Fil ∈ Q^g and γ_Fil in a finite-dimensional space of functions on Y with certified pole bounds derived from those principal parts (for X_s(13): H⁰(X, O(2D))) with γ_Fil(b) = 0, as in hodge-filtration-explicit (32); output (η, b_Fil, γ_Fil) and β_Fil = (0, b_Fil). Given these sufficient truncation and pole bounds, all steps are finite exact linear algebra over L and terminate; the output is checked by substituting into (30) and (32), which is the certificate.",
    "hypotheses": [
-    "Exact input data over Q and L; the pole orders d_x are known.",
-    "A finite-dimensional space of functions containing γ_Fil is known (a Riemann–Roch space L(mD) with m ≥ max d_x suffices)."
+    "Exact input data over Q and L; certified sufficient Laurent truncation orders for the residue and product/principal-part computations are supplied.",
+    "A finite-dimensional Riemann–Roch space containing γ_Fil is supplied with a certified pole bound for the expressions in (32); a bound from the individual differential poles alone is not claimed sufficient."
    ],
    "proofSteps": [
     "Step (i) is a linear system of d equations (one per x ∈ D) in the d − 1 unknowns c_k; it has rank d − 1 by explicit-setup's residue injectivity and is consistent because η exists (explicit-connection), so its solution is unique.",
     "Step (ii) determines the principal part of g_x because the residue of its derivative vanishes by (i).",
-    "Step (iii) has a unique solution by hodge-filtration-explicit (i); γ_Fil has poles only at D of order at most max d_x, so it lies in L(mD).",
+    "Step (iii) has a unique solution by hodge-filtration-explicit (i) once the chosen finite-dimensional function space contains γ_Fil. A sufficient pole bound must be deduced from g_x, Ω_xᵀZNNᵀΩ_x and b_FilᵀNᵀΩ_x; the maximum pole order of the individual ω_i does not justify this. The general bound and its certified computation are recorded as a gap.",
     "Verification: the output satisfies (30) and (32) by exact arithmetic over L; no p-adic precision enters, so the Hodge data are exact rational data."
    ],
    "acceptance": [
@@ -13486,7 +13513,7 @@
    ],
    "title": "Left and right multiplication matrices and parallel transport",
    "kind": "construction",
-   "statement": "Let Z be an antisymmetric 2g × 2g matrix over a commutative ring R. The algebra A_Z(R) = R ⊕ R^{2g} ⊕ R (the quotient of the truncated tensor algebra of V_dR by the kernel of Z on degree two) has multiplication (a, b, c)·(a', b', c') = (aa', ab' + a'b, ac' + a'c + bᵀZb'). In the ordered basis 1, T_0, …, T_{2g−1}, S, left multiplication by u = (a, b, c) has matrix L(u) = [[a, 0, 0], [b, a·1, 0], [c, bᵀZ, a]] and right multiplication has matrix R(u) = [[a, 0, 0], [b, a·1, 0], [c, −bᵀZ, a]] (44). For points b, b_0, x, x_0 in residue discs, with I(x_1, x_2) = 1 + Σ_w ∫_{x_1}^{x_2} w(ω_0, …, ω_{2g+d−2}) the iterated integrals of words of length ≤ 2 (the index range corrected as in E1) pushed to A_Z, the transport τ_{b,x} : A_Z^dR(b_0, x_0) → A_Z^dR(b, x) is v ↦ I(x_0, x) · v · I(b, b_0) (41), so its matrix is L(I(x_0, x)) · R(I(b, b_0)), with Coleman (Besser) integrals between different discs and power-series integrals inside a disc. The Frobenius operators satisfy φ_Z(b_0, x_0) = x_0^* Φ_Z and φ_Z(b, x) = τ_{b,x} ∘ φ_Z(b_0, x_0) ∘ τ_{b,x}^(−1) (43).",
+   "statement": "Let Z be an antisymmetric 2g × 2g matrix over a commutative ring R. The algebra A_Z(R) = R ⊕ R^{2g} ⊕ R (the quotient of the truncated tensor algebra of V_dR by the kernel of Z on degree two) has multiplication (a, b, c)·(a', b', c') = (aa', ab' + a'b, ac' + a'c + bᵀZb'). In the ordered basis 1, T_0, …, T_{2g−1}, S, left multiplication by u = (a, b, c) has matrix L(u) = [[a, 0, 0], [b, a·1, 0], [c, bᵀZ, a]] and right multiplication has matrix R(u) = [[a, 0, 0], [b, a·1, 0], [c, −bᵀZ, a]] (44). For points b, b_0, x, x_0 in residue discs, with I(x_1, x_2) = 1 + Σ_w ∫_{x_1}^{x_2} w(ω_0, …, ω_{2g+d−2}) the iterated integrals of words of length ≤ 2 (the index range corrected as in EffectiveDiophantineMethods/E24) pushed to A_Z, the transport τ_{b,x} : A_Z^dR(b_0, x_0) → A_Z^dR(b, x) is v ↦ I(x_0, x) · v · I(b, b_0) (41), so its matrix is L(I(x_0, x)) · R(I(b, b_0)), with Coleman (Besser) integrals between different discs and power-series integrals inside a disc. The Frobenius operators satisfy φ_Z(b_0, x_0) = x_0^* Φ_Z and φ_Z(b, x) = τ_{b,x} ∘ φ_Z(b_0, x_0) ∘ τ_{b,x}^(−1) (43).",
    "hypotheses": [
     "Z antisymmetric (condition (d)); R commutative.",
     "Iterated integrals are Coleman integrals (ColemanIntegration L1), normalised as in (40)–(41) with the orientation of E3."
@@ -13850,7 +13877,7 @@
    ],
    "title": "Provable determination of roots in a residue disc",
    "kind": "theorem",
-   "statement": "(BDMTV 2021 Lemma 4.7.) Let F(x) = Σ_{i≥0} F_i x^i ∈ Q_p[[x]] and integers k, m, n with min_i{ord_p(F_i) + i} = k and ord_p(F_i) + i ≥ n for every i ≥ m (that is, max{i : ord_p(F_i) + i < n} < m; the printed condition max{i : ord_p(F_i) + i = n} < m is too weak, EffectiveDiophantineMethods/E21), and suppose F has at most d roots in the closed disc {ord_p(x) ≥ 1}. Then the roots of F in {ord_p(x) ≥ 1}, with multiplicity, are determined to precision (n − k)/d by F_0, …, F_{m−1} modulo p^n: every root of the polynomial truncation modulo p^(n−k) lifts to a cluster of roots of F of total multiplicity at least its multiplicity within that precision. With d = 1 after recentring and rescaling (BDMTV 2021 Remark 4.8), each simple root is isolated in a ball containing no other root, which is the (unique) condition of qc-disc-certificate; the number d itself is bounded by the residue-disc zero bound of ED.4 (Strassmann).",
+   "statement": "(BDMTV 2021 Lemma 4.7.) Let F(x) = Σ_{i≥0} F_i x^i ∈ Q_p[[x]] such that F(pT) is restricted (its coefficients tend to zero), and integers k, m, n with n > k, m ≥ 1, min_i{ord_p(F_i) + i} = k, using ord_p(0)=+∞, and ord_p(F_i) + i ≥ n for every i ≥ m (that is, max{i : ord_p(F_i) + i < n} < m; the printed condition max{i : ord_p(F_i) + i = n} < m is too weak, EffectiveDiophantineMethods/E21), and suppose F has at most d roots counted with multiplicity over ℂ_p in the closed disc {ord_p(x) ≥ 1}, where d ≥ 1. Then the roots of F over ℂ_p in {ord_p(x) ≥ 1}, with multiplicity, are determined to precision (n − k)/d by F_0, …, F_{m−1} modulo p^n: every root of the polynomial truncation modulo p^(n−k) lifts to a cluster of roots of F of total multiplicity at least its multiplicity within that precision. With d = 1 after recentring and rescaling (BDMTV 2021 Remark 4.8), each simple root is isolated in a ball containing no other root, which is the (unique) condition of qc-disc-certificate; the number d itself is bounded by the residue-disc zero bound of ED.4 (Strassmann).",
    "hypotheses": [
     "F converges on the closed disc ord_p(x) ≥ 1 (ensured by height-series-valuation-bound).",
     "The hypotheses on k, m, n are checked from certified coefficient valuations (ED.0)."
@@ -15598,6 +15625,89 @@
     "EffectiveDiophantineMethods:ED.6/xs13-p0-disc"
    ],
    "detail": "BDMTV 2019 §6.6 computes the single integrals ∫_b^{P0} ω on the residue disc of P0 = (1:1:1), where the Frobenius lift of the first chart is not defined, by overconvergence over highly ramified extensions (Balakrishnan–Tuitman 2017, Propositions 3.8 and 4.3). ED.6 owns the integration and precision certificate for this step (stage text: 'implement its integration/precision certificates'); its source, Balakrishnan–Tuitman, 'Explicit Coleman integration for hyperelliptic and general curves', was not read for this blueprint, so the precision bound of that computation is not decomposed. ColemanIntegration L1 supplies the Coleman integral itself; PadicDifferentialEquationsAndRigidCohomology RD.7 supplies only the Frobenius data."
+  },
+  {
+   "title": "Geometric tiny-integral signature",
+   "neededBy": [
+    "EffectiveDiophantineMethods:ED.4/good-reduction-chabauty-datum",
+    "EffectiveDiophantineMethods:ED.4/abelian-integral",
+    "EffectiveDiophantineMethods:ED.4/tiny-integral-expansion",
+    "EffectiveDiophantineMethods:ED.4/kernel-of-reduction-evaluation",
+    "EffectiveDiophantineMethods:ED.4/coleman-abelian-comparison"
+   ],
+   "detail": "The suggested GoodReductionChabautyDatum has arbitrary carriers, a set map abelJacobi and no regular-differential or analytic compatibility. Its previous abelianIntegral_eq_primitive was false and is omitted under PROTOCOL §13. Construct the actual smooth proper curve/Jacobian datum, identify Abel–Jacobi pullback on regular differentials and its formal completion with supplier carriers, and then derive the primitive identity and convergence. An arbitrary discontinuous map from the disc pℤ_p to the additive group ℚ_p with zero reduction meets the old abstract fields but has no analytic primitive."
+  },
+  {
+   "title": "Prime-ideal valuation and completion adapters",
+   "neededBy": [
+    "EffectiveDiophantineMethods:ED.0/valuation-certificate",
+    "EffectiveDiophantineMethods:ED.2/certified-padic-lower-bound",
+    "EffectiveDiophantineMethods:ED.3/local-descent-image"
+   ],
+   "detail": "Identify the height-one-prime valuation K → ℤᵐ⁰ at the pinned Mathlib with additive ord_𝔭, the chosen completed local field and its normalisation ord_𝔭(p)=e_𝔭. Even the split ℚ_p embedding needs the e=f=1 identification. ED.0’s stated finite-extension remaining work is additional, not supplied by a bare Padic.valuation call or CN.2 prime decomposition."
+  },
+  {
+   "title": "Raw finite certificate checkers and concrete producers",
+   "neededBy": [
+    "EffectiveDiophantineMethods:ED.1/exclusion-certificate",
+    "EffectiveDiophantineMethods:ED.2/thue-factor-covering",
+    "EffectiveDiophantineMethods:ED.3/local-descent-image",
+    "EffectiveDiophantineMethods:ED.3/two-selmer-certificate",
+    "EffectiveDiophantineMethods:ED.4/chabauty-coleman-certificate",
+    "EffectiveDiophantineMethods:ED.5/sieve-certificate",
+    "EffectiveDiophantineMethods:ED.6/qc-disc-certificate",
+    "EffectiveDiophantineMethods:ED.6/qc-modular-algorithm"
+   ],
+   "detail": "Separate raw finite rational/integer/residue data from mathematical validity, give executable checker → Valid soundness, and construct Valid from supplier algorithms. In the suggested file several checkers accept proof-bearing records, real inequalities or universally quantified predicates rather than checking raw finite data. The Chabauty rank constructor assumes finite index and the local descent producer assumes its local map and class isomorphism. The sieve checker quantifies over every natural j although only j<length is relevant. Abstract conditional soundness is useful but does not establish these promised certificate producers."
+  },
+  {
+   "title": "Arbitrary-element characteristic polynomial bridge",
+   "neededBy": [
+    "EffectiveDiophantineMethods:ED.0/height-enclosure"
+   ],
+   "detail": "The pinned charpoly_leftMulMatrix theorem identifies multiplication by a power-basis generator with its minimal polynomial. To justify χ_x=minpoly(x)^[K:ℚ(x)] for arbitrary x in the supplied K basis, supply the restriction-of-scalars/tower characteristic-polynomial identity and basis invariance, or cite an exact stronger supplier statement. The pinned generator theorem alone is insufficient."
+  },
+  {
+   "title": "General Jacobian height and finite torsion fibres",
+   "neededBy": [
+    "EffectiveDiophantineMethods:ED.3/height-lower-bound-by-search",
+    "EffectiveDiophantineMethods:ED.3/index-bound",
+    "EffectiveDiophantineMethods:ED.5/height-bounded-points",
+    "EffectiveDiophantineMethods:ED.5/integral-points-completeness"
+   ],
+   "detail": "RP.0 supplies general heights, not a certified positive-definite canonical-height form on a Mordell–Weil group modulo its finite torsion subgroup. RP.1 and ED.5’s existing explicit genus-two height gap cover parts of the need but do not discharge it. Show positivity on the free quotient, construct torsion representatives and control finite torsion fibres of every bounded search; a semidefinite form on an arbitrary additive group does not imply finite enumeration."
+  },
+  {
+   "title": "Certified Hodge truncation and pole bounds",
+   "neededBy": [
+    "EffectiveDiophantineMethods:ED.6/hodge-filtration-algorithm"
+   ],
+   "detail": "Derive sufficient Laurent truncation orders for ΩᵀZdΩ and ΩᵀZNNᵀΩ and a finite-dimensional function space containing γ_Fil. A bound by the largest individual differential pole order is unjustified because primitives are multiplied. State and certify the exact bound before claiming the general finite algorithm; the explicit X_s(13) space H⁰(X,O(2D)) is a separate concrete case."
+  },
+  {
+   "title": "Root clusters and multiplicity under perturbation",
+   "neededBy": [
+    "EffectiveDiophantineMethods:ED.6/root-determination-precision",
+    "EffectiveDiophantineMethods:ED.6/qc-disc-certificate"
+   ],
+   "detail": "Give the Newton polygon/Weierstrass perturbation theorem over ℂ_p with multiplicity, restricted-series convergence, positive n−k, nonzero normalisation and a positive root bound. Polynomial.roots only enumerates actual roots in its coefficient field; it supplies neither roots modulo p^n nor clusters over ℂ_p. The suggested lemma proves only a necessary congruence for an existing root, and does not establish existence, lift counts or isolation."
+  },
+  {
+   "title": "Independent access to two cited primary texts",
+   "neededBy": [
+    "EffectiveDiophantineMethods:ED.1/short-vector-enumeration",
+    "EffectiveDiophantineMethods:ED.1/short-vector-enumeration-complete",
+    "EffectiveDiophantineMethods:ED.3/explicit-height-difference-bound"
+   ],
+   "detail": "This independent review could not retrieve Fincke–Pohst (1985) or Silverman (1990): AMS journal and non-journal URLs returned 403 and the alternative JSTOR endpoints did not supply text. Their claimed PDF hashes/read histories remain the planners’ records, not independently verified. Obtain these exact statements or replace the Silverman citation by Cremona Chapter III Proposition 3.5.1 p.77, checking the 1.922 constant and doubled canonical-height convention. Other cited source texts were independently read; Matveev was readable in the web PDF extraction, but its claimed byte hash was not verified."
+  },
+  {
+   "title": "Modular rank-one application over ℚ",
+   "neededBy": [
+    "EffectiveDiophantineMethods:ED.6/xs13-rank-three",
+    "EffectiveDiophantineMethods:ED.6/x0plus-genus-three-points"
+   ],
+   "detail": "GZ.8 gives the CM/quadratic-field Gross–Zagier trace formula and HE.7 gives a maximal-RM Heegner/Kolyvagin conclusion under admissibility hypotheses. Exhibit an admissible imaginary quadratic field, twisting/rank-one factorisation and the passage back to ℚ (or import a supplier theorem with exactly the ℚ modular rank-one conclusion). The existing request for this conclusion is not a proof of it. Also certify the nonzero analytic derivative numerically; assuming weak BSD alone does not certify a reported nonzero L-derivative."
   }
  ],
  "restructure": [
@@ -15703,7 +15813,12 @@
     "Publisher article page and version-of-record PDF, DOI 10.1112/S1461157009000187, accessed 2026-09-27; no separate corrigendum found on the article page.",
     "arXiv 0906.1934 version history checked: v1 and v2 dated 10 June and 30 November 2009; no subsequent version listed. The v2 PDF was not read.",
     "Michael Stoll’s publications page AG31 and Magma directory, accessed 2026-09-27; the author-copy formula agrees with the published kernel notation, while the downloaded implementation already uses the quotient target."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Version-of-record pp.277–279 defines the maps before target quotienting. For Z→Z/4 and target 2Z the literal kernel is 4Z, violating the descending-chain invariant. The independently downloaded author code with the recorded SHA takes the target quotient first (lines 2480–2493). This confirms the notation defect, not an implementation bug.",
+    "by": "REV-EffectiveDiophantineMethods"
+   }
   },
   {
    "id": "EffectiveDiophantineMethods/E2",
@@ -15719,7 +15834,12 @@
     "de Weger's publication page https://math.deweger.net/ (the CWI Tract is listed without an erratum)",
     "CWI repository record https://ir.cwi.nl/pub/13190 (no erratum attached)",
     "Tzanakis–de Weger 1992, §15 (a 1992 paper by the same author with the correct sign; it does not mention the thesis slip)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Rendered printed p.65 has the positive beta target and the proof also prints the unprimed theta and p^mu threshold. Direct reduction mod 3 with beta=1 and theta=3 gives the opposite coset; the negative target on Tzanakis–de Weger 1992 p.260 agrees with the corrected congruence.",
+    "by": "REV-EffectiveDiophantineMethods"
+   }
   },
   {
    "id": "EffectiveDiophantineMethods/E3",
@@ -15734,7 +15854,12 @@
    "searched": [
     "de Weger's publication page https://math.deweger.net/ (the CWI Tract is listed without an erratum)",
     "CWI repository record https://ir.cwi.nl/pub/13190 (no erratum attached)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Rendered Figure 2 p.52 uses dimension n in all initialisations but upper limit m only in U_i; replacing it by n is the required index correction.",
+    "by": "REV-EffectiveDiophantineMethods"
+   }
   },
   {
    "id": "EffectiveDiophantineMethods/E4",
@@ -15748,7 +15873,12 @@
    "known": "new",
    "searched": [
     "de Weger's publication page https://math.deweger.net/ (lists the paper without an erratum; the erratum in J. Number Theory 31(1), 88–89 listed there concerns de Weger's J. Number Theory 26 paper)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Rendered printed p.115 has > where the argument excludes the upper estimate <; Proposition 3.2 on p.114 is consistent with the correction.",
+    "by": "REV-EffectiveDiophantineMethods"
+   }
   },
   {
    "id": "EffectiveDiophantineMethods/E5",
@@ -15763,7 +15893,12 @@
    "searched": [
     "Tzanakis–de Weger, Compositio Math. 84 (1992), Lemma 6, p. 239 (uses the corrected orientation without comment)",
     "the University of Twente repository record of the 1989 article (no erratum attached)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Rendered pp.107–108 print units as rows but multiply by the exponent column; the transpose correction is necessary. The supplied 2×2 inverse-norm counterexample checks.",
+    "by": "REV-EffectiveDiophantineMethods"
+   }
   },
   {
    "id": "EffectiveDiophantineMethods/E6",
@@ -15778,7 +15913,12 @@
    "searched": [
     "the CWI repository record ir.cwi.nl/pub/13190 (no errata attached)",
     "de Weger's Chapter 6 (pp. 118–119), which avoids the issue by choosing p_0 a primitive root"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Rendered Lemma 3.17(i) p.67 asserts equality of all lattices for p=2 and unconditional residue indices for p>=3. The supplied alpha=(3,5) mod 4 and alpha=(6,11) mod 5 counterexamples disprove these assertions; exact indices require surjectivity of the residue character.",
+    "by": "REV-EffectiveDiophantineMethods"
+   }
   },
   {
    "id": "EffectiveDiophantineMethods/E7",
@@ -15793,7 +15933,12 @@
    "searched": [
     "the University of Twente repository record of the article (no erratum attached)",
     "de Weger 1989, Chapter 3 (the thesis restates the reduction, not this test)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Rendered pp.117–118 establish a shared convergent but bound the next partial quotient of the exact root. Applying that bound to the approximation’s next quotient is unsupported; direct equation tests avoid it.",
+    "by": "REV-EffectiveDiophantineMethods"
+   }
   },
   {
    "id": "EffectiveDiophantineMethods/E8",
@@ -15807,7 +15952,12 @@
    "known": "new",
    "searched": [
     "Numdam article page CM_1992__84_3_223_0 (no erratum linked)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Read printed pp.232–233: the first corollary (i) is the at-most-one-prime assertion, while (ii) supplies the residue-degree/ramification condition used in the next sentence.",
+    "by": "REV-EffectiveDiophantineMethods"
+   }
   },
   {
    "id": "EffectiveDiophantineMethods/E9",
@@ -15821,7 +15971,12 @@
    "known": "new",
    "searched": [
     "Numdam article page CM_1992__84_3_223_0 (no erratum linked)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Read pp.240–241 including page images. The step bounding a product of differently powered positive factors by the Nth power of their product needs each factor >=1; conjugate factors need not satisfy that. The positive-part sum bounds each exponent separately and repairs the estimate.",
+    "by": "REV-EffectiveDiophantineMethods"
+   }
   },
   {
    "id": "EffectiveDiophantineMethods/E10",
@@ -15837,7 +15992,12 @@
     "arXiv abstract page (only v1)",
     "author's web version public.csusm.edu/aitken_html/CounterHasse.pdf (same sign)",
     "web search for an erratum to Amer. Math. Monthly 118 (2011) 610–628"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Read Appendix B pp.16–17. Its own preceding general Jacobian formula gives (b²-4ac)d²=272 for (a,b,c,d)=(1,0,-17,2), hence the normalized coefficient is +17.",
+    "by": "REV-EffectiveDiophantineMethods"
+   }
   },
   {
    "id": "EffectiveDiophantineMethods/E11",
@@ -15852,7 +16012,12 @@
    "searched": [
     "Poonen, 'Remarks and errata' (https://math.mit.edu/~poonen/papers/errata.pdf, dated August 14, 2025): its entry for this paper lists the (2, √33) sign error and a typo on p. 22, not this one",
     "arXiv listing of math/9512217: only v1 exists"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Rendered arXiv v1 p.15 and read the point definitions: R=(0,±1) has distinct reductions mod 3, while S=(1,±3) reduces to (1,0). Finding restricted to that preprint; no claim about unread published text.",
+    "by": "REV-EffectiveDiophantineMethods"
+   }
   },
   {
    "id": "EffectiveDiophantineMethods/E12",
@@ -15867,7 +16032,12 @@
    "searched": [
     "Bruin–Stoll arXiv:0906.1934v2 and the author copy of 20 May 2009: the same text.",
     "The publisher article page (doi:10.1112/S1461157009000187) and Stoll's publication page were searched for a corrigendum on 2026-09-27; none is listed. No other correction was found in the references read here."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Read published Lemma 4.1 p.281. Its stated estimate bounds three terms by one term; coefficient example (1,-1,1), a=b=1 gives 3 rather than 1. Triangle inequality proves the factor-3 replacement. The coordinate example diagnoses the proof estimate, without asserting these coordinates arise on every Kummer surface.",
+    "by": "REV-EffectiveDiophantineMethods"
+   }
   },
   {
    "id": "EffectiveDiophantineMethods/E13",
@@ -15882,7 +16052,12 @@
    "searched": [
     "Bruin–Stoll arXiv:0906.1934v2 and the author copy of 20 May 2009: the same text.",
     "The publisher article page (doi:10.1112/S1461157009000187) and Stoll's publication page were searched for a corrigendum on 2026-09-27; none is listed. No other correction was found in the references read here."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Read Lemma 5.3 p.288 with Definition 5.1 p.287: projection sends Kummer (x1,x2,x3,x4) to (a0,a1,a2)=(x3,-x2,x1), and A=a2X²+a1XZ+a0Z². Evaluation at (a:b) therefore gives x1a²-x2ab+x3b².",
+    "by": "REV-EffectiveDiophantineMethods"
+   }
   },
   {
    "id": "EffectiveDiophantineMethods/E14",
@@ -15897,7 +16072,12 @@
    "searched": [
     "Bruin–Stoll arXiv:0906.1934v2 and the author copy of 20 May 2009: the same text.",
     "The publisher article page (doi:10.1112/S1461157009000187) and Stoll's publication page were searched for a corrigendum on 2026-09-27; none is listed. No other correction was found in the references read here."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Read pp.277–279: the required final survivor threshold and termination discussion use epsilon1; the code prints epsilon. The intended success test is epsilon1.",
+    "by": "REV-EffectiveDiophantineMethods"
+   }
   },
   {
    "id": "EffectiveDiophantineMethods/E15",
@@ -15913,7 +16093,12 @@
     "arXiv:2101.01862v4 (the version read); the arXiv listing records v1–v4 and the Compositio publication, neither of which was opened here",
     "BDMTV 2019 (published) (29)–(32), p.915–916, which §4.1 of the 2021 paper says it recalls",
     "research/errata/REGISTER.md and PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/E2, whose note records only the repetition of the (4.1) residue condition"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Rendered arXiv v4 p.18 and independently read published 2019 (28)–(29), p.915. The gauge equation gives dg=Omega-transpose Z dOmega-eta; dOmega-transpose Z dOmega is zero for antisymmetric Z. The gauge entries can have poles and belong to Laurent series.",
+    "by": "REV-EffectiveDiophantineMethods"
+   }
   },
   {
    "id": "EffectiveDiophantineMethods/E16",
@@ -15929,7 +16114,12 @@
     "arXiv:2101.01862v4 (the version read); the arXiv listing records v1–v4 and the Compositio publication, neither of which was opened here",
     "BDMTV 2019 (published) (29)–(32), p.915–916, which §4.1 of the 2021 paper says it recalls",
     "research/errata/REGISTER.md and PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/E2, whose note records only the repetition of the (4.1) residue condition"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Same primary passages: 2019 (29) explicitly has dOmega=-omega, forced by the displayed negative connection matrix. Reversing Omega changes the linear term of (32); the quadratic term stays fixed.",
+    "by": "REV-EffectiveDiophantineMethods"
+   }
   },
   {
    "source": "bruin-stoll-2010",
@@ -15944,7 +16134,12 @@
     "Bruin–Stoll arXiv:0906.1934v2 and the author copy of 20 May 2009: the same text.",
     "The publisher article page (doi:10.1112/S1461157009000187) and Stoll's publication page: no corrigendum listed."
    ],
-   "id": "EffectiveDiophantineMethods/E17"
+   "id": "EffectiveDiophantineMethods/E17",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Read published p.281. On the second effective-divisor branch, reducing P to the conjugate of P0 makes Q reduce to zero and pass the curve test at a separating prime. One separating prime cannot exclude that branch. A separating-prime product exceeding the coordinate bound forces all first three coordinates to vanish, hence Q=0, contradicting the nonzero branch.",
+    "by": "REV-EffectiveDiophantineMethods"
+   }
   },
   {
    "source": "tzanakis-de-weger-1989",
@@ -15959,7 +16154,12 @@
     "The author copy at ris.utwente.nl (the version read)",
     "B. M. M. de Weger, Algorithms for Diophantine Equations (CWI Tract 65, 1989), which reprints the method"
    ],
-   "id": "EffectiveDiophantineMethods/E18"
+   "id": "EffectiveDiophantineMethods/E18",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Rendered p.123 and read the forms on p.122. The minimal polynomial of theta has no X³Y term and has -8XY³, so its norm form is (2.2), not (2.1).",
+    "by": "REV-EffectiveDiophantineMethods"
+   }
   },
   {
    "source": "tzanakis-de-weger-1989",
@@ -15974,7 +16174,12 @@
     "The author copy at ris.utwente.nl (the version read)",
     "de Weger, CWI Tract 65, Chapter 5"
    ],
-   "id": "EffectiveDiophantineMethods/E19"
+   "id": "EffectiveDiophantineMethods/E19",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Rendered p.106: |sin(Lambda/2)|<1/4 permits Lambda/2 up to arcsin(1/4), which exceeds 1/4. The printed factor fails near that endpoint; 4 arcsin(1/4)<1.02 proves the unchanged final bound.",
+    "by": "REV-EffectiveDiophantineMethods"
+   }
   },
   {
    "source": "flynn-poonen-schaefer-1997",
@@ -15989,7 +16194,12 @@
     "arXiv:math/9508211 (the version read)",
     "The published version (Duke Math. J. 90 (1997)) was not opened"
    ],
-   "id": "EffectiveDiophantineMethods/E20"
+   "id": "EffectiveDiophantineMethods/E20",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Rendered p.16 and independently read Table 3 p.14 and Lemma 5 p.18. Norm(u3 beta1 beta3)=-3701^4 is not a rational square, whereas Norm(u3 beta1 beta2)=3701² is. The corrected generator agrees with both surrounding statements. Finding restricted to the arXiv version read.",
+    "by": "REV-EffectiveDiophantineMethods"
+   }
   },
   {
    "source": "bdmtv-2021",
@@ -16004,7 +16214,76 @@
     "arXiv:2101.01862v4 (the version read)",
     "The published version (Compositio Math. 2023) was not opened"
    ],
-   "id": "EffectiveDiophantineMethods/E21"
+   "id": "EffectiveDiophantineMethods/E21",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Rendered v4 p.25. Coefficients of p^(-k)F(pT) vanish mod p^(n-k) in the tail exactly when ord(F_i)+i>=n. Testing equality to n alone misses coefficients below n; F=p²-pT, n=5 supplies the stated counterexample. Positive precision and convergence are additional prerequisites of a corrected usable interface.",
+    "by": "REV-EffectiveDiophantineMethods"
+   }
+  },
+  {
+   "id": "EffectiveDiophantineMethods/E22",
+   "source": "siksek-2010",
+   "kind": "misprint",
+   "locator": "Algebra & Number Theory 7 (2013), version of record, p.770, immediately after pairing (4); also arXiv:1010.2603v2, §3.3, p.5.",
+   "printed": "The source describes pairing (4) as having zero kernel on the right, while J(K_v)_tors is its kernel on the left.",
+   "correction": "For the displayed order Ω × J(K_v), the left kernel is 0 and the right kernel is J(K_v)_tors.",
+   "reason": "The right carrier is J(K_v), which contains its torsion, and the left carrier is a characteristic-zero vector space. Both the published p.770 and preprint p.5 reverse the kernels for pairing (4); the same paper correctly gives them for pairing (3) on published p.769/preprint p.4. Stoll arXiv:1307.1773v4 p.7 uses the correct Ω × J order.",
+   "affects": "nothing",
+   "known": "new; no correction found in the searches below (not a claim that no correction exists)",
+   "searched": [
+    "arXiv abstract/version history: v2 is the latest listed version on 2026-10-07.",
+    "Samir Siksek author publications page https://samirsiksek.github.io/siksek.github.io/index.html and linked arXiv entry, checked 2026-10-07; no separate correction linked for this paper.",
+    "Publisher article page https://msp.org/ant/2013/7-4/p01.xhtml checked 2026-10-07; no correction linked. The downloaded version of record https://msp.org/ant/2013/7-4/ant-v7-n4-p01-p.pdf retains the reversed kernels on p.770."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The right carrier is J(K_v), which contains its torsion, and the left carrier is a characteristic-zero vector space. Both the published p.770 and preprint p.5 reverse the kernels for pairing (4); the same paper correctly gives them for pairing (3) on published p.769/preprint p.4. Stoll arXiv:1307.1773v4 p.7 uses the correct Ω × J order.",
+    "by": "REV-EffectiveDiophantineMethods"
+   }
+  },
+  {
+   "id": "EffectiveDiophantineMethods/E23",
+   "source": "flynn-poonen-schaefer-1997",
+   "kind": "misprint",
+   "locator": "arXiv:math/9508211v1, p.23, proof of Theorem 6, θ₂ branch. Also printed in the Oxford repository author copy, p.15.",
+   "printed": "n = −1, −2",
+   "correction": "n = −1, 1",
+   "reason": "Lemma 8 on p.20 lists (0,−1) and (−3,1) in the two known-point expressions, giving n=−1,+1. The displayed θ₂ series modulo 81 is 36+27n+18n²+54n³+27n⁴; it is 0 at ±1 and 54 at −2. This repairs the named known roots in the proof; the two-root conclusion is unaffected.",
+   "affects": "the proof",
+   "known": "new; no correction found in the searches below (scoped to the preprint and author copy)",
+   "searched": [
+    "arXiv version history lists v1 only on 2026-10-07.",
+    "Poonen Remarks and errata, 14 August 2025, all seven pages read; no entry for this sign.",
+    "Oxford Research Archive author copy https://ora.ox.ac.uk/objects/uuid%3A9cb08053-2efc-4f8a-9c94-0abc196f62be/files/mcbaffabb86f4c7f2fe5bf6f1e5c565c6; same sign on p.15. The journal version was not obtained; this finding does not assert its wording.",
+    "Journal DOI https://doi.org/10.1215/S0012-7094-97-09011-6 attempted 2026-10-07; retrieval failed. Published wording remains unverified."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Lemma 8 on p.20 lists (0,−1) and (−3,1) in the two known-point expressions, giving n=−1,+1. The displayed θ₂ series modulo 81 is 36+27n+18n²+54n³+27n⁴; it is 0 at ±1 and 54 at −2. This repairs the named known roots in the proof; the two-root conclusion is unaffected.",
+    "by": "REV-EffectiveDiophantineMethods"
+   }
+  },
+  {
+   "id": "EffectiveDiophantineMethods/E24",
+   "source": "bdmtv-2019",
+   "kind": "misprint",
+   "locator": "Annals version of record, p.921, equation (40), final differential index.",
+   "printed": "ω_{2g+2d−2}",
+   "correction": "ω_{2g+d−2}",
+   "reason": "The word alphabet and its differential substitution immediately below (40) both end at 2g+d−2. The basis has dimension 2g+d−1, so the extra d indices in the displayed expression are outside that basis. The packet already uses the correct range but incorrectly attributes it to the unrelated Bruin–Stoll E1.",
+   "affects": "nothing",
+   "known": "new; no correction found in the searches below",
+   "searched": [
+    "Annals article page https://annals.math.princeton.edu/2019/189-3/p06 checked 2026-10-07; no correction linked.",
+    "arXiv:1711.05846 version history lists v1 only; this finding uses the published PDF, not that preprint.",
+    "Searches restricted to Annals and the authors’ Oxford/Boston University pages for this title and errata/corrigenda returned no correction."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The word alphabet and its differential substitution immediately below (40) both end at 2g+d−2. The basis has dimension 2g+d−1, so the extra d indices in the displayed expression are outside that basis. The packet already uses the correct range but incorrectly attributes it to the unrelated Bruin–Stoll E1.",
+    "by": "REV-EffectiveDiophantineMethods"
+   }
   }
  ],
  "sourceVersions": [
@@ -16201,6 +16480,984 @@
    "url": "https://arxiv.org/abs/2101.01862v4",
    "read": "2026-10-07",
    "sha256": "738f0ec0cd588e20a569bc029fe2bb9611abc5d16fee7d36f9e966357c25f61d"
+  },
+  {
+   "kind": "published",
+   "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/29EFF630FD2859F8C79DFD48E1A33926/S1461157009000187a.pdf/the-mordell-weil-sieve-proving-non-existence-of-rational-points-on-curves.pdf",
+   "citation": "Independent REV-EffectiveDiophantineMethods: all cited passages, pp.272–291, 294–299; other pages not claimed read in full.",
+   "read": "2026-10-07",
+   "sha256": "fc3ee470dbd356cf1f2b4e7a04eb29a7c2ad3d9bbd06e9f9f307b7f18a785477"
+  },
+  {
+   "kind": "published",
+   "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v189-n3-p06-s.pdf",
+   "citation": "Independent REV-EffectiveDiophantineMethods: cited passages in §§1–6, including all of §4–§5 and §§6.1,6.3–6.6; equation (40) checked on rendered p.921.",
+   "read": "2026-10-07",
+   "sha256": "e1aa5f9662b4875404e25e45dd808e2b73223d562191018242ef357a13dff1f8"
+  },
+  {
+   "kind": "author copy",
+   "url": "https://ora.ox.ac.uk/objects/uuid%3A9cb08053-2efc-4f8a-9c94-0abc196f62be/files/mcbaffabb86f4c7f2fe5bf6f1e5c565c6",
+   "citation": "Independent REV-EffectiveDiophantineMethods: only p.15 θ₂ known-root sign compared with arXiv v1 p.23. Not identified as the journal version.",
+   "read": "2026-10-07",
+   "sha256": "e476d04209c57f36fd80c6468d5ec1e8156a81a044bfea030f4600385ec727d9"
+  },
+  {
+   "kind": "published",
+   "url": "https://msp.org/ant/2013/7-4/ant-v7-n4-p01-p.pdf",
+   "citation": "Siksek, Explicit Chabauty over number fields, Algebra & Number Theory 7 (2013), 765–793; only pp.769–770 read for comparison of pairings (3)–(4).",
+   "read": "2026-10-07",
+   "sha256": "8aa0005e0674a42f266e536fdcb644a810df856ea9785301b51885fa28d85937"
   }
- ]
+ ],
+ "upstreamNotes": [
+  {
+   "roadmap": "TauCetiRoadmap/EllipticCurves",
+   "locator": "Layer 6 canonical-height convention; pinned TauCeti/AlgebraicGeometry/EllipticCurve/CanonicalHeight.lean",
+   "detail": "The upstream reader defines ĥ as the limit h_x(2^n P)/4^n. The pinned code defines canonicalHeight as half that limit, with bounded difference from naiveHeight/2. ED.3 correctly uses twice the pinned canonicalHeight for Cremona/Silverman’s convention. Reconcile the upstream reader and code before importing a height API; this review does not edit upstream."
+  }
+ ],
+ "review": {
+  "status": "needs_changes",
+  "reviewer": "independent-review-REV-EffectiveDiophantineMethods",
+  "date": "2026-10-07",
+  "notes": "Completed independent review of all 187 nodes, 194 pinned baseline declarations, 34 requests, all APIs/tests/planets and all 21 original source issues. Clear corrections applied, three missed source misprints added and confirmed, and nine additional gaps recorded. The suggested file elaborates with zero errors and 710 permitted proof-placeholder warnings, but several signatures/tests assume or omit the promised geometric/computational construction. Fincke–Pohst and Silverman primary statements remain independently inaccessible. See research/blueprint/reviews/REV-EffectiveDiophantineMethods.md findings F1–F13, per-node and baseline inventories, and the reader synchronization checklist. All stages remain planned; no formal implementation or closed stage is claimed.",
+  "checked": [
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.0/certified-enclosure",
+    "verdict": "unverifiable",
+    "note": "Enclosure width, arithmetic and monotonicity contracts are coherent; toPadicApproximation only proves membership of a ball, not construction of the CN.0 supplier carrier (F1)."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.0/isolating-interval-refinement",
+    "verdict": "corrected",
+    "note": "Added polynomial_ne_zero, root_spec/root_unique and the zero-polynomial rejection regression; singleton intervals must not certify the zero polynomial (F1)."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.0/archimedean-embedding-certificate",
+    "verdict": "verified",
+    "note": "The power-basis generator identifies the embedding; box refinement and real/complex conjugation tests preserve that identification. Complete enumeration of embeddings is a separate input."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.0/hensel-root-distance",
+    "verdict": "verified",
+    "note": "Norm hypotheses allow exact roots and the derivative condition is strict; the distance assertion matches the pinned Hensel root specification."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.0/padic-embedding-certificate",
+    "verdict": "corrected",
+    "note": "Zero residuals are explicitly allowed in the integer-valuation tests. Rational split-prime factory is coherent; finite extensions and completion adapters remain open (F1)."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.0/certified-nonvanishing",
+    "verdict": "verified",
+    "note": "Exact zero is distinguished from inconclusive finite precision; eventual nonvanishing is conditional on a genuine nonzero algebraic value, with an explicit bound left as remaining work."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.0/valuation-certificate",
+    "verdict": "unverifiable",
+    "note": "Enclosure-based valuation stability is valid for nonzero Q_p values, but the prime-ideal/completion normalization for K is missing (F1)."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.0/height-enclosure",
+    "verdict": "unverifiable",
+    "note": "Relative height, the golden-ratio test and the sqrt-two relative/absolute distinction are correct. The arbitrary-element characteristic-polynomial tower identity is not supplied by the pinned generator theorem (F1)."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.0/bounded-height-enumeration",
+    "verdict": "verified",
+    "note": "The finite candidate superset and final exact comparison give the stated completeness contract. The Q(i), D=1 boundary test is consistent; efficient unit-based generation is honestly left open."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.1/linear-form-lattice",
+    "verdict": "verified",
+    "note": "Column orientation, rounding error, C scaling and the real target vector agree with de Weger; degenerate and nearest-integer tests exercise the relevant contract."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.1/reduced-basis-distance-lower-bound",
+    "verdict": "verified",
+    "note": "Reduced Gram-Schmidt lengths and the nearest-integer distance give the stated lower bound; the target-in-lattice branch has no positive distance certificate."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.1/homogeneous-reduction",
+    "verdict": "verified",
+    "note": "The strict squared-distance separation and nonzero final coefficient give the exponential improvement; no conclusion is claimed if the separation test fails."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.1/inhomogeneous-reduction",
+    "verdict": "verified",
+    "note": "The beta target and inhomogeneous distance estimate retain the rounding error and strict separation assumptions."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.1/padic-linear-form-lattice",
+    "verdict": "verified",
+    "note": "Weights, modulus and negative target sign agree with corrected E2; nonzero coefficient and p-adic normalization assumptions are essential."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.1/padic-reduction",
+    "verdict": "verified",
+    "note": "Divisibility of the lattice coordinate gives the valuation bound after the shortest-vector inequality; exact-zero forms are excluded where needed."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.1/short-vector-enumeration",
+    "verdict": "unverifiable",
+    "note": "Positive-definite ellipsoid and boundary inclusion give a plausible finite enumeration contract, but Fincke-Pohst primary text could not be obtained (F2)."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.1/short-vector-enumeration-complete",
+    "verdict": "unverifiable",
+    "note": "The recursive ellipsoid completeness proof needs independent verification of the inaccessible Fincke-Pohst algorithm (F2)."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.1/short-vector-reduction",
+    "verdict": "verified",
+    "note": "Residual enumeration tests actual linear forms on all short candidates and preserves soundness; it depends on the preceding unverified enumerator."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.1/exclusion-certificate",
+    "verdict": "corrected",
+    "note": "Added nonnegative box bounds in both Lean records and corrected integral targets to no positive lower bound. The claimed raw finite Boolean checker is still missing (F2)."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.1/exclusion-certificate-sound",
+    "verdict": "verified",
+    "note": "Conditional exclusion follows from the stored valid separation estimate; this proves soundness of valid data, not execution of a raw verifier (F2)."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.2/logarithm-enclosure",
+    "verdict": "verified",
+    "note": "Nonzero inputs, branch-compatible complex arguments, and real/argument precision have explicit validity contracts. Zero logarithms must be deleted before the later Matveev family."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.2/certified-linear-form-constant",
+    "verdict": "verified",
+    "note": "Degree, height/log majorants and B-star normalization match Matveev Corollary 2.3; the source text was read through the primary web PDF, its byte hash not verified."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.2/certified-linear-form-lower-bound",
+    "verdict": "verified",
+    "note": "Admissibility and nonvanishing are explicit. The family of zero logarithms is removed by the Thue construction; do not apply a positive logarithmic height condition to an undeleted zero term."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.2/certified-padic-linear-form-constant",
+    "verdict": "verified",
+    "note": "Yu's residue-degree, ramification, height and normalized valuation factors are retained; certificate validity is stated rather than silently assumed absent."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.2/certified-padic-lower-bound",
+    "verdict": "unverifiable",
+    "note": "The numerical Yu bound matches the source, but converting the chosen prime-ideal valuation to the local field used by ED.0 requires the missing normalization adapter (F1)."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.2/padic-discrete-logarithm-certificate",
+    "verdict": "corrected",
+    "note": "Added p.Prime and exponent ranges; pivots now exclude zero coefficients and zero constant bypasses the incompatible-valuation case. Composite-modulus and zero-coefficient regressions added; the all-zero branch distinguishes an empty constant coset from the whole lattice. Finite extensions remain open (F3)."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.2/exponent-reduction-chain",
+    "verdict": "unverifiable",
+    "note": "The scalar Lean bound does not represent the packet's componentwise boxes and per-prime updates; specify the vector chain and its monotonicity invariant (F3)."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.2/thue-equation",
+    "verdict": "verified",
+    "note": "Degree at least three, irreducibility, nonzero right-hand side and homogenization match the source; Pell and reducible nonexamples are appropriate."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.2/thue-factor-covering",
+    "verdict": "unverifiable",
+    "note": "The packet's finite nonzero representatives and unit generation are the right contract. Lean Finset K permits zero and the factory does not identify the full norm/divisor computation (F3)."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.2/thue-analytic-constants",
+    "verdict": "verified",
+    "note": "Validity includes the inverse unit matrix orientation, positive certified constants and the actual root separations; E5 is reflected in the corrected contract."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.2/thue-root-approximation",
+    "verdict": "verified",
+    "note": "The large-Y threshold and selected real conjugate give the source's approximation bound; exceptional bounded Y is handled separately."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.2/thue-linear-form",
+    "verdict": "verified",
+    "note": "The chosen ratios, nonvanishing and deleted zero logarithms match Lemma 1.2, including the corrected arcsine argument of E19."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.2/thue-exponent-bound",
+    "verdict": "verified",
+    "note": "Inverse unit matrix norm controls exponents and yields exponential decay; certified upper endpoints replace transcendental evaluation conservatively."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.2/thue-initial-bound",
+    "verdict": "corrected",
+    "note": "Made the n(n-1)(n-2) compositum-degree argument explicit by successive deflated polynomials; the Matveev constants and log-linear inequality remain conditional on admissibility."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.2/thue-reduced-bound",
+    "verdict": "verified",
+    "note": "Certified rounding and valid exclusion data give the reduced bound; inability to exclude a box is an open computation, not a solution certificate."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.2/thue-convergent-search",
+    "verdict": "verified",
+    "note": "Shared convergents suffice for the finite search; no unsupported bound is imposed on the approximation's next partial quotient (E7)."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.2/thue-small-solutions",
+    "verdict": "verified",
+    "note": "An explicit root/Cauchy bound controls X for bounded Y; exact integer evaluation completes the search and the naive |X|<=|m| bound is correctly rejected."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.2/thue-certificate",
+    "verdict": "unverifiable",
+    "note": "The semantic completeness contract is correct, but factories rely on a supplied factor covering and analytic constants; tests do not construct those missing producers (F3)."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.2/thue-certified-solution-set",
+    "verdict": "verified",
+    "note": "The large, moderate and small branches cover every solution under the certificate hypotheses; no unconditional computation is inferred from an assumed certificate."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.2/thue-mahler-equation",
+    "verdict": "verified",
+    "note": "Primitive and leading-coefficient coprimality conditions are explicit. The v=0 instance covers normalized Thue solutions, not all possibly nonprimitive Thue solutions."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.2/prime-ideal-removing-lemma",
+    "verdict": "verified",
+    "note": "Distinct conjugates, prime decomposition and the common-divisor bound match TdW Lemma 1; the corollary reference is repaired by E8."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.2/thue-mahler-s-unit-covering",
+    "verdict": "verified",
+    "note": "Finite cases and valuation/exponent identities match TdW. toThue is explicitly restricted to coprime solutions; its degree-one Lean test is weaker than the intended zero-exponent computation (F3)."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.2/thue-mahler-initial-bounds",
+    "verdict": "verified",
+    "note": "Archimedean and p-adic bounds retain nonvanishing and corrected positive-part products from E9; finite-extension presentations are still required."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.2/thue-mahler-reduced-bounds",
+    "verdict": "verified",
+    "note": "The two reduction stages preserve each case's exponent identities and normalized solutions; reduction failure does not certify emptiness."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.2/auxiliary-prime-sieve",
+    "verdict": "verified",
+    "note": "Finite residue compatibility is a necessary condition for every global solution; exhaustive exponent filtering does not require surjectivity of a local image."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.2/thue-mahler-certificate",
+    "verdict": "unverifiable",
+    "note": "The certificate combines the correct branches, but its finite-extension/local quotient producer remains missing as recorded in coverage and F3."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.2/thue-mahler-certified-solution-set",
+    "verdict": "verified",
+    "note": "Completeness is conditional on the finite covering, valid bounds and exhaustive residual search; arbitrary nonnormalized solutions are outside the stated set."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.2/s-unit-equation",
+    "verdict": "verified",
+    "note": "Signs, prime exponents and the rational x+y=1 set are explicit; the empty prime set and zero-input nonexamples agree with the definition."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.2/s-unit-initial-bounds",
+    "verdict": "verified",
+    "note": "The chosen nonzero multiplicative form and Yu majorants give the source's initial bound; positivity/normalization are not omitted."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.2/s-unit-padic-reduction",
+    "verdict": "verified",
+    "note": "Weighted p-adic reduction is applied to each chosen prime with valid local data; the case split keeps all solutions."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.2/s-unit-certificate",
+    "verdict": "verified",
+    "note": "Residual integer enumeration and sign choices give a correct semantic certificate, conditional on validated bounds and local data."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.2/s-unit-certified-solution-set",
+    "verdict": "verified",
+    "note": "Soundness and completeness follow from finite exhaustive exponent enumeration and exact equation tests; the certificate does not claim a formal implementation."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.3/local-quotient-cardinality",
+    "verdict": "unverifiable",
+    "note": "Finite and real local cardinalities match descent conventions, but Lean abstracts the quotient and local geometry rather than constructing the exact local elliptic group (F4)."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.3/local-descent-image",
+    "verdict": "unverifiable",
+    "note": "The needed square-class/local-image contract is clear; supplied points and an abstract class isomorphism do not construct local factor fields, residual classes or the descent map (F4)."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.3/local-image-completeness",
+    "verdict": "verified",
+    "note": "An injective descent map and a cardinality-equal finite subgroup prove equality of local images. The difficult injectivity and local quotient computation remain inputs."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.3/good-place-local-image",
+    "verdict": "unverifiable",
+    "note": "The unramified square-class description is correct for good odd places; its actual local-field/descent identification is not realized by the generic Lean carriers (F4)."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.3/two-selmer-certificate",
+    "verdict": "unverifiable",
+    "note": "Finite local conditions are the right Selmer intersection, but selmer_mono fixes the ambient AS rather than constructing the map when S enlarges (F4)."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.3/two-selmer-certificate-sound",
+    "verdict": "verified",
+    "note": "Soundness follows from the exact local image and the upstream Selmer compatibility hypotheses; the proof does not supply those geometric identifications."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.3/rank-upper-bound",
+    "verdict": "verified",
+    "note": "The dimension identity includes rational 2-torsion and Sha[2]; the resulting rank inequality is valid once the computed group is the genuine Selmer group."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.3/quartic-local-solubility",
+    "verdict": "verified",
+    "note": "The recursive Hensel/residue search follows Cremona with the corrected strict inequalities and explicit finite stopping estimates; local-field producer assumptions remain visible."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.3/quartic-local-solubility-correct",
+    "verdict": "verified",
+    "note": "The local branches cover finite and infinite valuations and real solubility; correctness depends on certified residue enumeration and the local geometry supplier."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.3/two-isogeny-descent-map",
+    "verdict": "verified",
+    "note": "Exceptional points, square classes and the dual-isogeny direction agree with the source; the reduction map is mathematical data rather than a raw computation."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.3/two-isogeny-rank-bound",
+    "verdict": "verified",
+    "note": "Both descent image dimensions and the 2-torsion correction are retained; the images must be complete, not just sets of found points."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.3/explicit-height-difference-bound",
+    "verdict": "unverifiable",
+    "note": "Doubled pinned canonical height is the correct convention. Silverman's primary text/hash was not independently accessible; Cremona p.77 gives a possible accessible replacement (F5)."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.3/canonical-height-enclosure",
+    "verdict": "verified",
+    "note": "Doubling and the explicit error bound give convergence to twice the pinned canonicalHeight, with conservative intervals; effectiveness requires a validated comparison constant."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.3/regulator-lower-bound",
+    "verdict": "verified",
+    "note": "Interval determinant bounds and positivity certify independence and a regulator lower bound; a numerical nonzero determinant without enclosure is insufficient."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.3/height-lower-bound-by-search",
+    "verdict": "unverifiable",
+    "note": "The argument needs genuine canonical-height positivity modulo finite torsion and complete finite-height searches; arbitrary semidefinite forms do not give these (F5)."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.3/index-bound",
+    "verdict": "verified",
+    "note": "Minkowski applied to the positive-definite free quotient gives the stated index estimate; dimension zero is separate from the cited volume_ball theorem (F5)."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.3/p-saturated",
+    "verdict": "verified",
+    "note": "The subgroup definition includes division modulo the subgroup and distinguishes torsion from free saturation; the quotient and functoriality API are coherent."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.3/saturation-certificate",
+    "verdict": "verified",
+    "note": "Jointly injective reductions modulo p exclude p-divisibility outside the subgroup; the chosen finite local groups must have certified maps."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.3/reduction-rank-lower-bound",
+    "verdict": "verified",
+    "note": "Finite reductions detect independent integer relations through the stated rank/minor criterion; no full Mordell-Weil basis is inferred from a lower bound alone."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.3/torsion-by-reduction",
+    "verdict": "corrected",
+    "note": "Added the nonempty auxiliary-prime hypothesis for every primary minimum, already present in Lean. Source torsion counts and Lutz-Nagell branches agree."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.3/finite-index-subgroup-certificate",
+    "verdict": "verified",
+    "note": "Rank equality plus independent generators and torsion/index certificates give finite index; conditional rank hypotheses remain labels, not unconditional proof."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.3/mordell-weil-basis-certificate",
+    "verdict": "verified",
+    "note": "Saturation at every possible index prime and the torsion certificate complete a finite-index subgroup; a rank certificate alone is not a basis certificate."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.3/genus-two-descent-rank-bound",
+    "verdict": "unverifiable",
+    "note": "The x-T descent requires genuine étale algebra and local class maps plus the Jacobian identification; existing suppliers and source outline do not yet realize that full prototype (F4)."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.3/lind-reichardt-torsor",
+    "verdict": "verified",
+    "note": "The normalized Jacobian sign is +17 (E10); local solubility and the torsor/Sha interpretation remain separate explicitly requested inputs."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.3/fermigier-rank-thirteen",
+    "verdict": "unverifiable",
+    "note": "A valid conditional descent outline is present, but explicit homogeneous-space points are an existing gap; the advertised concrete certificate is not constructed."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.3/rank-zero-curves",
+    "verdict": "unverifiable",
+    "note": "The E11 and genus-two rank computations are existing explicit gaps. Torsion/rank-zero consequences must retain those missing certificate inputs."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.3/fps-genus-two-mordell-weil",
+    "verdict": "verified",
+    "note": "The source's finite-index rank-one subgroup, torsion counts and generator identities support the conditional application; it does not silently assert an unproved full basis."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.3/poonen-genus-two-mordell-weil",
+    "verdict": "unverifiable",
+    "note": "The preprint square-class generator is corrected by E20 and the published rank statement has known errata; corrected full descent remains an existing gap."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.3/stoll-genus-four-subgroup",
+    "verdict": "unverifiable",
+    "note": "The source's generators and torsion counts are recorded correctly, but the conditional rank upper bound also needs a certified nonzero analytic derivative, not weak BSD alone (F11)."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.4/good-reduction-chabauty-datum",
+    "verdict": "unverifiable",
+    "note": "The abstract datum lacks actual curve/differential carriers; toGoodReductionPair is a product, the P1 test violates genus>=1 and Option Z_p collapses the infinity disc (F6)."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.4/abelian-logarithm",
+    "verdict": "corrected",
+    "note": "Fixed the C_p extension: the finite-extension union gives Q_p-bar points, then analytic/continuous extension is required. Clarified the differential kernel for the displayed pairing order; genuine construction remains a supplier bridge (F6)."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.4/abelian-integral",
+    "verdict": "unverifiable",
+    "note": "The abstract pairing formula is valid, but the prototype proves only base-point independence of pullback, not the required Abel-Jacobi pullback isomorphism on regular differentials (F6)."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.4/tiny-integral-expansion",
+    "verdict": "corrected",
+    "note": "Removed the false abstract Lean primitive theorem and recorded the exact geometric/analytic carrier gap under PROTOCOL §13. The source theorem for genuine smooth curves remains correct (F6)."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.4/kernel-of-reduction-evaluation",
+    "verdict": "verified",
+    "note": "Additivity gives the sum-of-tiny-integrals identity once the geometric primitive identity is supplied; the Lean h-lambda assumption explicitly carries that unconstructed input."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.4/coleman-abelian-comparison",
+    "verdict": "unverifiable",
+    "note": "The abstract locally-constant/Frobenius argument is valid, but the key Frobenius relation and genuine Coleman/abelian carriers must be derived from suppliers (F6)."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.4/disc-integration-constant",
+    "verdict": "verified",
+    "note": "Subtracting a Mordell-Weil class of the same reduction gives the Wetherell constant by additivity; source and signs agree."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.4/padic-closure-dimension",
+    "verdict": "verified",
+    "note": "The p-adic logarithm spans at most the Mordell-Weil rank; finite torsion contributes zero. Actual finite generation is the open RP.1 input."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.4/annihilating-differentials",
+    "verdict": "verified",
+    "note": "The annihilator is a linear subspace, is unchanged by finite-index saturation and behaves functorially; a small unsaturated subgroup cannot identify the full rational annihilator without finite index."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.4/annihilator-precision",
+    "verdict": "verified",
+    "note": "Rank-certified p-adic matrices and valuation bounds control annihilators; a truncated matrix whose rank is not certified cannot justify a unique kernel."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.4/residue-disc-zero-bound",
+    "verdict": "corrected",
+    "note": "Made valuation(0)=infinity explicit mathematically, excluded zero dominant coefficients and added f=T with index one as a Lean regression (F7)."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.4/chabauty-finiteness",
+    "verdict": "verified",
+    "note": "Small logarithmic closure and a nonzero annihilator give the standard finite-zero argument on all residue discs, conditional on the genuine analytic primitives."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.4/coleman-bound",
+    "verdict": "verified",
+    "note": "Good reduction, p>2g and rank below g retain the source hypotheses; exceptional discs and differential orders are accounted for."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.4/bad-reduction-bound",
+    "verdict": "verified",
+    "note": "Regular-model multiplicities and differential vanishing enter the bad-reduction bound; the model and relative-canonical-sheaf request is correctly visible."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.4/hyperelliptic-residue-discs",
+    "verdict": "unverifiable",
+    "note": "The packet needs a genuine integral basis and local orders; the Lean sketch only provides coefficient/coordinate identities and does not establish that basis (F6)."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.4/residue-disc-verdict",
+    "verdict": "verified",
+    "note": "Unknown, empty and complete zero lists are distinguished; validity requires every possible zero accounted for, including multiplicities and rational identification."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.4/chabauty-coleman-certificate",
+    "verdict": "unverifiable",
+    "note": "The finite disc list and conditional-rank label are good contracts, but the rank factory assumes finite index and does not construct nonzero annihilators or enforce all geometric genus/rank restrictions (F8)."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.4/chabauty-coleman-completeness",
+    "verdict": "verified",
+    "note": "If each genuine disc verdict is valid and the reduction list is complete, their finite union is X(Q); the theorem must inherit the certificate's rank condition."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.4/number-field-chabauty-criterion",
+    "verdict": "verified",
+    "note": "Siksek's stacked local matrix, unramified odd primes and full-rank unit-ball condition are retained; pairing kernel typo E22 does not change this criterion."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.4/symmetric-square-chabauty-datum",
+    "verdict": "unverifiable",
+    "note": "Box's relative fibre and reduced differential data are the right target, but symmetric powers and Abel-Jacobi differential carriers are still requested from SF.3 (F6)."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.4/symmetric-chabauty",
+    "verdict": "verified",
+    "note": "The source's rank condition and residue class distinguish equal-point divisors from two distinct points; the criterion is mathematical and conditional on geometric input."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.4/relative-symmetric-chabauty",
+    "verdict": "unverifiable",
+    "note": "The Lean theorem accepts the main Box good-class criterion as an input; it does not prove that criterion from the reduced differential matrix (F6)."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.4/fps-quintic-cycle-curve",
+    "verdict": "verified",
+    "note": "The six points and disc bounds 1,1,2,2 agree with FPS; E23 repairs the known-root sign in the proof, not the resulting point set."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.4/poonen-type-three-two-curve",
+    "verdict": "unverifiable",
+    "note": "Disc calculations and the preprint point-label correction E11 are consistent, but the corrected descent/rank certificate is still an explicit gap."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.4/stoll-six-cycle-curve",
+    "verdict": "unverifiable",
+    "note": "The p=5 disc computation is valid only under the recorded rank bound and its certified analytic evaluation; preserve the conditional label (F11)."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.4/strassmann-bound",
+    "verdict": "verified",
+    "note": "The single-owner general nonarchimedean statement uses restrictedness and a nonzero series; dominant coefficient is the largest index attaining the Gauss norm."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.5/admissible-classes",
+    "verdict": "verified",
+    "note": "The finite quotient intersection is well typed and handles no places and top subgroup correctly; it is algebraic sieve data, not evidence of a rational point."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.5/membership",
+    "verdict": "verified",
+    "note": "The membership equivalence follows directly from the quotient sieve definition; retain as API rather than a separate target-level node (F9)."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.5/representative-congruences",
+    "verdict": "verified",
+    "note": "Representative invariance is exactly quotient congruence; this is API granularity (F9)."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.5/constraint-monotonicity",
+    "verdict": "verified",
+    "note": "Adding a local constraint shrinks the surviving set; move this routine result into the definition's API (F9)."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.5/local-overapproximations",
+    "verdict": "verified",
+    "note": "Replacing exact images by supersets preserves global survival, without proving local sufficiency; API granularity (F9)."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.5/global-soundness",
+    "verdict": "verified",
+    "note": "Every globally compatible element passes every local test; the direction is necessary only and does not assert the Hasse principle."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.5/empty-sieve-obstruction",
+    "verdict": "verified",
+    "note": "An empty finite intersection obstructs global compatibility, including the abstract no-point specialization."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.5/top-initialization",
+    "verdict": "verified",
+    "note": "At the top subgroup the quotient has one class, provided all local tests allow it; this is API bookkeeping (F9)."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.5/quotient-refinement",
+    "verdict": "verified",
+    "note": "Projection of surviving classes under a smaller subgroup is sound; equality needs the later exact lift conditions."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.5/coset-lift",
+    "verdict": "verified",
+    "note": "A section plus all kernel classes exhausts the fibre, and filtering keeps precisely the local survivors; section existence is an input for finite quotient data."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.5/lift-membership",
+    "verdict": "verified",
+    "note": "The congruence/filter characterization is correct but belongs in cosetLift API (F9)."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.5/lift-correctness",
+    "verdict": "verified",
+    "note": "Full lift enumeration and every required changed local test give the exact refined sieve set."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.5/unchanged-local-image",
+    "verdict": "verified",
+    "note": "Equal subgroup images make the local test unchanged; this is a routine API lemma (F9)."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.5/relevant-tests",
+    "verdict": "verified",
+    "note": "Omitted tests are safe exactly when their image subgroup is unchanged; the explicit equality condition avoids a heuristic completeness claim."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.5/lift-cardinality",
+    "verdict": "verified",
+    "note": "The fibre index bounds the number of candidates; this deterministic bound should be API (F9)."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.5/prepared-step-target",
+    "verdict": "verified",
+    "note": "The corrected quotient-target kernel contains the target subgroup, preserving the descending chain (E1); API granularity (F9)."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.5/prepared-step-progress",
+    "verdict": "verified",
+    "note": "Strict containment is conditional on an actual changing quotient test, not a heuristic score; routine progress lemma (F9)."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.5/subgroup-covers-quotient",
+    "verdict": "verified",
+    "note": "Coprime subgroup index and quotient exponent imply surjectivity by Bezout; modulus one and trivial quotient cases are consistent."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.5/certified-map-obstruction",
+    "verdict": "verified",
+    "note": "Commuting maps and global-to-local image containment transfer an empty sieve obstruction to the original point type."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.5/known-points-completeness",
+    "verdict": "verified",
+    "note": "Every surviving residue fibre must be certified to contain only known points; nonempty survivors alone prove nothing."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.5/jacobian-reduction-data",
+    "verdict": "unverifiable",
+    "note": "The abstract commuting square is correct but actual Jacobian finite group presentations, point enumeration and reduction maps remain existing gaps (F10)."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.5/curve-sieve-soundness",
+    "verdict": "verified",
+    "note": "Every rational point survives the correctly normalized degree-one Abel-Jacobi reduction; proof is conditional on the geometric reduction datum."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.5/padic-quotient-sieve-datum",
+    "verdict": "verified",
+    "note": "Finite quotients of the local Jacobian give necessary local constraints; a quotient-level overapproximation is sufficient for soundness, not local exactness."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.5/coprime-index-transfer",
+    "verdict": "verified",
+    "note": "Coprime-index surjectivity allows computation on the known subgroup modulo N; no assumption of full global generation is inserted."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.5/kernel-level-exactness",
+    "verdict": "verified",
+    "note": "Being below every local kernel makes representative-level tests exact in the finite quotient; this does not turn local compatibility into global existence."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.5/exponent-relevance",
+    "verdict": "verified",
+    "note": "Only places whose exponent sees the prime step can change the test; this is routine API rather than a separate target (F9)."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.5/sieve-chain",
+    "verdict": "verified",
+    "note": "Descending subgroups and lift/filter data define the finite chain; the packet has the correct target-level construction."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.5/sieve-chain-correct",
+    "verdict": "verified",
+    "note": "Induction gives the exact sieve at each finite level under complete lift and unchanged-image conditions."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.5/subgroup-from-membership-test",
+    "verdict": "verified",
+    "note": "GetSubgroup assumes a genuine subgroup predicate and a terminating finite-index search; it does not claim decidable membership alone proves finite index."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.5/height-coset-separation",
+    "verdict": "verified",
+    "note": "The positive quadratic form and a sufficiently large modulus imply at most one bounded-height free class per coset; torsion fibres must be handled separately (F10)."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.5/height-bounded-points",
+    "verdict": "unverifiable",
+    "note": "The ED.1 positive-definite enumerator needs a free quotient with finite torsion representatives and the existing Jacobian height-comparison gap; an arbitrary semidefinite form does not provide finite enumeration (F10)."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.5/kummer-curve-test",
+    "verdict": "unverifiable",
+    "note": "Corrected projection, factor-3 estimate and separating-prime product repair E12/E13/E17. Genuine Cassels-Flynn model and height constants remain gaps."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.5/siksek-lattice-step",
+    "verdict": "verified",
+    "note": "The lattice step refines a known-point subgroup by exact local containment tests; it does not assert unbounded sieve termination."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.5/integral-points-completeness",
+    "verdict": "unverifiable",
+    "note": "The source gives a conditional height/exponent obstruction, but actual Kummer coordinates and effective Jacobian height constants remain missing (F10)."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.5/chabauty-sieve-combination",
+    "verdict": "verified",
+    "note": "Local zero bounds and globally surviving classes cover all rational points; completeness requires certified one-point fibres, not just a nonzero annihilator."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.5/relative-symmetric-sieve",
+    "verdict": "verified",
+    "note": "Box and Caraiani-Newton supply the relative-fibre conclusion under their good-class criterion; special pullback families are not incorrectly declared finite."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.5/genus-two-bad-information",
+    "verdict": "unverifiable",
+    "note": "The regular-model/Neron component maps and Kummer recognition need explicit models and finite presentations; upstream AlgebraicCurves Layer 10 alone does not supply them (F10)."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.5/genus-two-deep-information",
+    "verdict": "unverifiable",
+    "note": "Deep local quotients and formal logarithms are appropriate, but the Pic^1 translation is not an inverse of the curve embedding; explicit Kummer producers remain open (F10)."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.5/sieve-certificate",
+    "verdict": "unverifiable",
+    "note": "Semantic checked-chain soundness is correct; Lean Checked quantifies over all natural j rather than the finite j<length and lacks a raw finite checker (F8)."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.5/sieve-certificate-sound",
+    "verdict": "verified",
+    "note": "Each conclusion mode is conditional on the corresponding empty, Chabauty or height certificate; no unconditional finite termination is claimed."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.5/small-genus-two-nonexistence",
+    "verdict": "unverifiable",
+    "note": "The published experiment is correctly sourced, but the exact curve list and replayable certificates are an existing gap."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.6/certified-solution-set",
+    "verdict": "verified",
+    "note": "Soundness, completeness labels and failure are separated; conditional inputs propagate to the certified solution set and CN.5 interoperability remains a request."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.6/padic-candidate-comparison",
+    "verdict": "verified",
+    "note": "Certified reduction/candidate containment plus rational identification transfers completeness; an arbitrary p-adic candidate is not automatically rational."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.6/qc-disc-certificate",
+    "verdict": "unverifiable",
+    "note": "The semantic unique-zero condition is appropriate, but arbitrary function fields lack genuine QC analytic semantics and finite coefficient/tail producers (F8/F12)."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.6/qc-certificate-sound",
+    "verdict": "verified",
+    "note": "Coverage of every rational point and valid disc certificates imply the solution-set conclusion; these are conditional hypotheses rather than an executed QC algorithm."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.6/explicit-setup",
+    "verdict": "unverifiable",
+    "note": "The geometric de Rham basis, trace-zero Tate class, connection and comparison inputs are clear, but NC.2/NC.5 suppliers are not yet planned in sufficient detail (F12)."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.6/explicit-connection",
+    "verdict": "unverifiable",
+    "note": "The signs and residue criterion match BDMTV, but the actual universal connection and NC.2/NC.5 interpretation are assumed by the prototype (F12)."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.6/gauge-transformation",
+    "verdict": "verified",
+    "note": "The block gauge calculation, Laurent carrier and dOmega=-omega sign agree with corrected E15/E16; the algebraic formula is valid for the stated commutative-ring data."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.6/hodge-filtration-explicit",
+    "verdict": "unverifiable",
+    "note": "The local regularity and normalization characterization matches Theorem 4.11, but actual filtered connection carriers and the claimed concrete regression are not realized (F12)."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.6/hodge-filtration-algorithm",
+    "verdict": "corrected",
+    "note": "Removed the unsupported maximum-individual-pole-order bound; sufficient product/truncation bounds are now explicit inputs and a recorded gap (F12)."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.6/transport-matrices",
+    "verdict": "corrected",
+    "note": "The multiplication matrices and path orientation are correct; corrected the differential index attribution to new E24 rather than unrelated E1."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.6/frobenius-structure-matrix",
+    "verdict": "unverifiable",
+    "note": "Formula (45) and corrected path orientation agree with the paper; actual Frobenius lift, overconvergence and Tuitman certification remain supplier obligations (F12)."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.6/frobenius-equivariant-splitting",
+    "verdict": "verified",
+    "note": "Invertibility of the Frobenius blocks gives the unique fixed splitting and transport to general points; precision and genuine Frobenius data are explicit inputs."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.6/local-height-at-p",
+    "verdict": "verified",
+    "note": "The Hodge/Frobenius coordinate formula agrees with Lemma 5.5, conditional on the compatible filtered connection, splitting and precision data."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.6/base-point-change",
+    "verdict": "verified",
+    "note": "Left/right multiplication and path composition give the correct conjugation and height transformation; the orientation agrees with E1 of the source extraction, not Bruin-Stoll E1."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.6/height-series-valuation-bound",
+    "verdict": "verified",
+    "note": "The logarithmic coefficient bound gives an effective tail once constants are validated; zero coefficients must use infinite mathematical valuation."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.6/root-determination-precision",
+    "verdict": "corrected",
+    "note": "Added restrictedness, n>k, d>=1, multiplicity over C_p and valuation-zero convention. The Lean necessary congruence still does not prove root clusters or isolation (F12)."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.6/qc-modular-algorithm",
+    "verdict": "unverifiable",
+    "note": "Algorithm failure conditions and coverage are recorded honestly, but the Lean input assumes semantic coverage and arbitrary functions instead of constructing the paper's QC data (F8/F12)."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.6/xs13-plane-model",
+    "verdict": "unverifiable",
+    "note": "Polynomial substitution and all seven point equations are correct; Lean only states these, omitting the modular identification, good-reduction certificate and full twenty-disc enumeration (F13)."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.6/xs13-endomorphism-algebra",
+    "verdict": "unverifiable",
+    "note": "The cubic field and Picard number agree with the paper; a generated cubic field of dimension three is not a proof identifying End(J_s(13)) or its Neron-Severi rank (F13)."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.6/xs13-analytic-rank-certificate",
+    "verdict": "unverifiable",
+    "note": "Certified positive intervals prove L' nonzero, but the Lean theorem does not prove L(f,1)=0, analytic continuation or the claimed analytic-rank-one conclusion (F11/F13)."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.6/xs13-rank-three",
+    "verdict": "unverifiable",
+    "note": "The generic dimension consequence assumes a Gross-Zagier/Kolyvagin conclusion; the actual admissible quadratic field and passage to Q remain missing (F11)."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.6/xs13-tate-classes",
+    "verdict": "unverifiable",
+    "note": "The printed matrices and trace-zero conditions match the source; actual Hecke action/correspondence compatibility and Tuitman data remain requested (F13)."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.6/xs13-first-chart-hodge-data",
+    "verdict": "unverifiable",
+    "note": "The exact displayed beta/gamma data match p.931, but the suggested polynomial-ring test assumes the quartic relation without passing to its coordinate-ring quotient (F13)."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.6/xs13-first-chart-frobenius",
+    "verdict": "unverifiable",
+    "note": "The Hensel uniqueness formula requires the curve relation and unit derivative; abstract Hensel data do not construct the certified Tuitman/Frobenius matrices (F13)."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.6/xs13-equivariant-height-matrices",
+    "verdict": "unverifiable",
+    "note": "The packet's E1 is already the p-adic logarithm vector, not merely a nonzero torsion class. Its certified nonzero value, inert field and determinant require genuine computed data (F13)."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.6/xs13-first-chart-points",
+    "verdict": "unverifiable",
+    "note": "The source's chart computation is represented by a conditional certificate theorem; exact zero tables and certified analytic data are not constructed (F13)."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.6/xs13-second-chart-points",
+    "verdict": "unverifiable",
+    "note": "The second chart requires its actual basis/Frobenius/zero certificates and all points at infinity, not a supplied finite candidate list alone (F13)."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.6/xs13-p0-disc",
+    "verdict": "unverifiable",
+    "note": "The missing P0 disc is correctly singled out; integration over the ramified extension and its certified precision remain an existing gap."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.6/xs13-rational-points",
+    "verdict": "unverifiable",
+    "note": "The seven-point conclusion matches Theorem 1.1, but its prototype assumes the chart certificates and the ramified P0-disc computation (F13)."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.6/small-prime-split-cartan",
+    "verdict": "verified",
+    "note": "The small-prime cases are retained separately from the l>7 theorem and rely on the modular-curve interpretation and CM exclusion supplier."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.6/split-cartan-classification",
+    "verdict": "unverifiable",
+    "note": "The l=13 case is conditional on preceding chart certificates, and Bilu-Parent-Rebolledo for l>7, l!=13 is an existing source gap."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.6/nonsplit-cartan-13",
+    "verdict": "unverifiable",
+    "note": "The rational-point conclusion requires Baran's model/isomorphism and the completed split-Cartan point certificate; the model input is an existing gap."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.6/class-number-one",
+    "verdict": "verified",
+    "note": "The CM interpretation yields the known class-number-one list once the modular-curve point theorem and CM reciprocity inputs hold; those dependencies remain explicit."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.6/xs4-13-rational-points",
+    "verdict": "unverifiable",
+    "note": "The eight-point application retains its isogeny and potential-good-reduction gap; arXiv v4 was read, not the Compositio version of record."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.6/x0plus-genus-three-points",
+    "verdict": "unverifiable",
+    "note": "The eight prime-level cases agree with Theorem 5.6 in arXiv v4; certified rank, height and zero-table computations remain required (F11/F13)."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.6/thue-example-tdw89",
+    "verdict": "verified",
+    "note": "The two norm forms and their fields use the corrected (2.1)/(2.2) labels E18; the listed finite sets are conditional on genuine certificates."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.6/elliptic-integral-points-tdw89",
+    "verdict": "verified",
+    "note": "The reduction to quartic Thue equations and the integral-point list agree with Theorem A; exact arithmetic and exhaustiveness depend on the Thue certificates."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.6/s-unit-example-deweger",
+    "verdict": "verified",
+    "note": "The six-prime instance and numerical final bounds/counts agree with the source; output is a certified finite enumeration, conditional on its input certificates."
+   },
+   {
+    "nodeId": "EffectiveDiophantineMethods:ED.6/thue-mahler-example-tdw92",
+    "verdict": "verified",
+    "note": "The normalized cubic instance and published final solution table agree with the source; primitive/sign conventions and the missing finite-extension factory remain explicit dependencies."
+   }
+  ]
+ }
 }
