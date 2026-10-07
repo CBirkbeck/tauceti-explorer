@@ -16926,8 +16926,9 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6899"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6899",
+   "finishedAt": "2026-10-07T17:57:17Z"
   },
   {
    "id": "REV-DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties",
@@ -39580,8 +39581,9 @@
    ],
    "revisionOf": "BP-KTheoryFiniteLocalFields",
    "prompt": "research/blueprint/prompts/BP-KTheoryFiniteLocalFields~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6973"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6973",
+   "finishedAt": "2026-10-07T17:57:18Z"
   },
   {
    "priority": 2,
@@ -39834,7 +39836,8 @@
     "BP-KTheoryLowDegrees--Z.3~3"
    ],
    "prompt": "research/blueprint/prompts/REV-KTheoryLowDegrees--Z.3~3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7070"
   },
   {
    "kind": "blueprint",
@@ -42317,7 +42320,8 @@
     "BP-HabiroCohomologyFoundations--HQ.1-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-HabiroCohomologyFoundations--HQ.1-2~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7055"
   },
   {
    "kind": "blueprint",
