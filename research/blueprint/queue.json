@@ -25610,11 +25610,12 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-GrossZagierAndArithmeticHeights--GZ.0.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "claimed on GitHub issue #744"
+   "note": "deliverables arrived from an external worker on issue #744",
+   "finishedAt": "2026-10-07T10:09:42Z"
   },
   {
    "id": "REV-GrossZagierAndArithmeticHeights--GZ.0",
@@ -26813,7 +26814,8 @@
    ],
    "avoidAccountOf": "BP-LanglandsParameterStacks",
    "prompt": "research/blueprint/prompts/REV-LanglandsParameterStacks.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #444"
   },
   {
    "id": "BP-LefschetzPencilsAndVanishingCycles--LPV.0",
@@ -30441,7 +30443,7 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-PotentialAutomorphyInfrastructure.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-ArithmeticLocallySymmetricSpaces",
     "BP-AutomorphicGaloisRepresentationsPartII--AG2.0",
@@ -30461,7 +30463,7 @@
     "BP-TorsionCohomologyInfrastructure",
     "BP-WeightsInEtaleCohomology"
    ],
-   "note": "claimed on GitHub issue #1018"
+   "note": "released on GitHub issue #1018"
   },
   {
    "id": "REV-PotentialAutomorphyInfrastructure",
