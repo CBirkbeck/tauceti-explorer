@@ -16920,7 +16920,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6899"
   },
   {
    "id": "REV-DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties",
@@ -41526,8 +41527,9 @@
    ],
    "revisionOf": "BP-PotentialAutomorphyInfrastructure",
    "prompt": "research/blueprint/prompts/BP-PotentialAutomorphyInfrastructure~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6934"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6934",
+   "finishedAt": "2026-10-07T14:43:09Z"
   },
   {
    "priority": 2,
