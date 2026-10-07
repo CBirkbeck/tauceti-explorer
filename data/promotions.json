@@ -660,6 +660,18 @@
     "data/blueprints/EllipticCurveModularity.md"
    ]
   },
+  "research/blueprint/packets/EllipticCurveModularityImaginaryQuadratic.json": {
+   "promotedAt": "2026-10-07T20:37:02Z",
+   "review": "cb6fad64bae4a187",
+   "reviewDate": "2026-10-07",
+   "reviewer": "independent-review-REV-DESIGN-EllipticCurveModularityImaginaryQuadratic",
+   "sha256": "5c2fd40b64b02e99beb8474ca7d034ce23a2f35565ed391e44ff022cf007e644",
+   "to": [
+    "data/blueprints/EllipticCurveModularityImaginaryQuadratic.json",
+    "data/blueprints/EllipticCurveModularityImaginaryQuadratic.md",
+    "data/blueprints/roadmaps/EllipticCurveModularityImaginaryQuadratic.json"
+   ]
+  },
   "research/blueprint/packets/EllipticKTheory--E.5.json": {
    "promotedAt": "2026-10-06T03:50:36Z",
    "review": "699bceb00a988101",
@@ -937,6 +949,17 @@
    "to": [
     "data/blueprints/GlobalGaloisDeformations.json",
     "data/blueprints/GlobalGaloisDeformations.md"
+   ]
+  },
+  "research/blueprint/packets/HabiroCohomologyFoundations--HQ.1-2.json": {
+   "promotedAt": "2026-10-07T20:37:02Z",
+   "review": "99c4b7c5cc040398",
+   "reviewDate": "2026-10-07",
+   "reviewer": "independent-review-REV-HabiroCohomologyFoundations--HQ.1-2~2",
+   "sha256": "ec25c9bff62a305094192bd2bd6fefce2e7cd167b0f217dba189bc88cc95a0ed",
+   "to": [
+    "data/blueprints/HabiroCohomologyFoundations--HQ.1-2.json",
+    "data/blueprints/HabiroCohomologyFoundations--HQ.1-2.md"
    ]
   },
   "research/blueprint/packets/HabiroCohomologyFoundations--HQ.1.json": {
@@ -1225,6 +1248,18 @@
     "data/blueprints/HilbertModularVarietiesAndShimuraCurves--R18.2.md"
    ]
   },
+  "research/blueprint/packets/HodgeStructuresPartII--H.1.json": {
+   "promotedAt": "2026-10-07T20:37:02Z",
+   "review": "e6e07d2010dc313c",
+   "reviewDate": "2026-10-07",
+   "reviewer": "independent-review-REV-HodgeStructuresPartII--H.1",
+   "sha256": "63ebc4dec2e501964883c46c072dc12f56a4b73d29a172a38f7b9e00b5e868db",
+   "to": [
+    "data/blueprints/HodgeStructuresPartII--H.1.json",
+    "data/blueprints/HodgeStructuresPartII--H.1.md",
+    "data/blueprints/roadmaps/HodgeStructuresPartII.json"
+   ]
+  },
   "research/blueprint/packets/HodgeStructuresPartII.json": {
    "promotedAt": "2026-10-07T02:51:19Z",
    "review": "dbcb90fe7b0fc7c0",
@@ -1261,11 +1296,11 @@
    ]
   },
   "research/blueprint/packets/IntegralHeckeAndGaloisDeterminants.json": {
-   "promotedAt": "2026-10-07T16:43:23Z",
-   "review": "d6b756819c8fbb5a",
+   "promotedAt": "2026-10-07T20:37:02Z",
+   "review": "b9e7c6fefbfed4bd",
    "reviewDate": "2026-10-07",
-   "reviewer": "independent-review-REV-IntegralHeckeAndGaloisDeterminants~2",
-   "sha256": "b4e5ac25e18c48bad1292cf796e5ed83c61c02d8e388a8a5cd1fb56ca9b6d4c8",
+   "reviewer": "independent-review-REV-FIX-RT-AREA-automorphic-1~3",
+   "sha256": "f3b3c7f149d037909c82caa182ad7fceec5e1e4e5acccc0ca7fdd712d697c91f",
    "to": [
     "data/blueprints/IntegralHeckeAndGaloisDeterminants.json",
     "data/blueprints/IntegralHeckeAndGaloisDeterminants.md"
@@ -1369,6 +1404,28 @@
    "to": [
     "data/blueprints/K3BlochGroups.json",
     "data/blueprints/K3BlochGroups.md"
+   ]
+  },
+  "research/blueprint/packets/KTheoryFiniteLocalFields.json": {
+   "promotedAt": "2026-10-07T20:37:02Z",
+   "review": "1d0f74e36b1ad1ad",
+   "reviewDate": "2026-10-07",
+   "reviewer": "independent-review-REV-KTheoryFiniteLocalFields~2",
+   "sha256": "87d462145c89afcdeb1470a0cde6a8f057c315bc9d9fae20c45158ecf8382451",
+   "to": [
+    "data/blueprints/KTheoryFiniteLocalFields.json",
+    "data/blueprints/KTheoryFiniteLocalFields.md"
+   ]
+  },
+  "research/blueprint/packets/KTheoryLowDegrees--Z.3.json": {
+   "promotedAt": "2026-10-07T20:37:02Z",
+   "review": "8b99c67e66672678",
+   "reviewDate": "2026-10-07",
+   "reviewer": "independent-review-REV-KTheoryLowDegrees--Z.3~3",
+   "sha256": "5d57377ed8730c6c7e0435f29a665054f016cbbf32975109a50b60933de327a4",
+   "to": [
+    "data/blueprints/KTheoryLowDegrees--Z.3.json",
+    "data/blueprints/KTheoryLowDegrees--Z.3.md"
    ]
   },
   "research/blueprint/packets/LefschetzPencilsAndVanishingCycles--LPV.7.json": {
