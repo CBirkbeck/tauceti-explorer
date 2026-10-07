@@ -25907,9 +25907,9 @@
     "REV-RS-22"
    ],
    "prompt": "research/blueprint/prompts/BP-HeckeStacksAndLocalShtukas.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #750"
+   "note": "claimed on GitHub issue #750"
   },
   {
    "id": "REV-HeckeStacksAndLocalShtukas",
@@ -26062,9 +26062,10 @@
     "REV-RS-23"
    ],
    "prompt": "research/blueprint/prompts/BP-HilbertModularVarietiesAndShimuraCurves--H0.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #753"
+   "note": "deliverables arrived from an external worker on issue #753",
+   "finishedAt": "2026-10-07T05:58:17Z"
   },
   {
    "id": "REV-HilbertModularVarietiesAndShimuraCurves--H0",
