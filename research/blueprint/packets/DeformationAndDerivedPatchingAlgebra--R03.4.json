@@ -1,0 +1,1270 @@
+{
+  "protocol": "blueprint-v1",
+  "roadmapId": "DeformationAndDerivedPatchingAlgebra",
+  "part": "R03.4",
+  "scope": [
+    "DeformationAndDerivedPatchingAlgebra:R03.4"
+  ],
+  "status": "complete",
+  "summary": "Complete scoped planning pass with fifteen declaration-sized additions. Imports the accepted P7 algebraic point nodes; splits completed residual-fibre finiteness, the faithful patched-module argument, finite-cardinality trace tail, nonnilpotent-uniformizer criterion, integer-ring topology transport and framed local continuous lifting. All stage targets are planned with two precise supplier requests and two gaps. No implementation or proof closure is claimed.",
+  "baseline": {
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "declarations": [
+      {
+        "ref": "mathlib:surjective_of_mkQ_comp_surjective",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/AdicCompletion/Functoriality.lean",
+        "provides": "An R-linear map from an I-precomplete module to an I-Hausdorff module is surjective if its composite with the quotient by I is surjective; no finiteness of the target is assumed.",
+        "checked": "Statement and ambient hypotheses read in the source at the recorded Mathlib pin; 2026-10-05."
+      },
+      {
+        "ref": "mathlib:IsHausdorff.of_map",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/AdicCompletion/Basic.lean",
+        "provides": "Under an algebra and scalar tower, I mapped into J and J-Hausdorffness imply I-Hausdorffness.",
+        "checked": "Statement and ambient hypotheses read in the source at the recorded Mathlib pin; 2026-10-05."
+      },
+      {
+        "ref": "mathlib:IsHausdorff.of_isLocalRing",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/AdicCompletion/Noetherian.lean",
+        "provides": "A finite module over a Noetherian local ring is Hausdorff for any proper ideal.",
+        "checked": "Statement and ambient hypotheses read in the source at the recorded Mathlib pin; 2026-10-05."
+      },
+      {
+        "ref": "mathlib:IsLocalRing.map_maximalIdeal_le",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/LocalRing/RingHom/Basic.lean",
+        "provides": "A local ring map sends the source maximal ideal into the target maximal ideal.",
+        "checked": "Statement and ambient hypotheses read in the source at the recorded Mathlib pin; 2026-10-05."
+      },
+      {
+        "ref": "mathlib:Module.Finite.exists_fin'",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/Finiteness/Cardinality.lean",
+        "provides": "A finite module has a surjection from a finite coordinate module Fin n → R.",
+        "checked": "Statement and ambient hypotheses read in the source at the recorded Mathlib pin; 2026-10-05."
+      },
+      {
+        "ref": "mathlib:Module.Finite.of_surjective",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Finiteness/Basic.lean",
+        "provides": "Finite generation descends along a surjective semilinear map, with the declared coefficient ring homomorphism.",
+        "checked": "Statement and ambient hypotheses read in the source at the recorded Mathlib pin; 2026-10-05."
+      },
+      {
+        "ref": "mathlib:Module.Finite.quotient",
+        "kind": "instance",
+        "module": "Mathlib/RingTheory/Finiteness/Basic.lean",
+        "provides": "Quotients of finite modules remain finite, with the scalar tower explicitly required.",
+        "checked": "Statement and ambient hypotheses read in the source at the recorded Mathlib pin; 2026-10-05."
+      },
+      {
+        "ref": "mathlib:Module.finite_of_finite",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/Finiteness/Cardinality.lean",
+        "provides": "A finite module over a ring of finite cardinality has finite cardinality.",
+        "checked": "Statement and ambient hypotheses read in the source at the recorded Mathlib pin; 2026-10-05."
+      },
+      {
+        "ref": "mathlib:Module.finite_iff_finite",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/Finiteness/Cardinality.lean",
+        "provides": "Over a finite coefficient ring, module finiteness and finite cardinality are equivalent.",
+        "checked": "Statement and ambient hypotheses read in the source at the recorded Mathlib pin; 2026-10-05."
+      },
+      {
+        "ref": "mathlib:isNoetherian_of_isNoetherianRing_of_finite",
+        "kind": "instance",
+        "module": "Mathlib/RingTheory/Noetherian/Basic.lean",
+        "provides": "A finite module over a Noetherian ring is Noetherian.",
+        "checked": "Statement and ambient hypotheses read in the source at the recorded Mathlib pin; 2026-10-05."
+      },
+      {
+        "ref": "mathlib:isNoetherian_linearMap",
+        "kind": "instance",
+        "module": "Mathlib/RingTheory/Noetherian/Basic.lean",
+        "provides": "Hom_R(N,M) is Noetherian when M is Noetherian and N finite; used for End_S(M).",
+        "checked": "Statement and ambient hypotheses read in the source at the recorded Mathlib pin; 2026-10-05."
+      },
+      {
+        "ref": "mathlib:Module.Finite.of_injective",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Noetherian/Basic.lean",
+        "provides": "A module admitting an injective linear map into a Noetherian module is finite; the semilinear version requires inverse coefficient maps.",
+        "checked": "Statement and ambient hypotheses read in the source at the recorded Mathlib pin; 2026-10-05."
+      },
+      {
+        "ref": "mathlib:Algebra.lsmul",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Algebra/Tower.lean",
+        "provides": "The scalar action gives an algebra homomorphism into module endomorphisms; scalar towers and commuting actions are required.",
+        "checked": "Statement and ambient hypotheses read in the source at the recorded Mathlib pin; 2026-10-05."
+      },
+      {
+        "ref": "mathlib:IsNoetherianRing.isArtinianRing_of_krullDimLE_zero",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/HopkinsLevitzki.lean",
+        "provides": "A Noetherian commutative ring of Krull dimension at most zero is Artinian.",
+        "checked": "Statement and ambient hypotheses read in the source at the recorded Mathlib pin; 2026-10-05."
+      },
+      {
+        "ref": "mathlib:isArtinianRing_iff_isNilpotent_maximalIdeal",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/HopkinsLevitzki.lean",
+        "provides": "For a Noetherian local commutative ring, Artinianity is equivalent to nilpotence of its maximal ideal.",
+        "checked": "Statement and ambient hypotheses read in the source at the recorded Mathlib pin; 2026-10-05."
+      },
+      {
+        "ref": "mathlib:Ring.krullDimLE_zero_iff",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/KrullDimension/Basic.lean",
+        "provides": "Dimension at most zero is equivalent to every prime being maximal.",
+        "checked": "Statement and ambient hypotheses read in the source at the recorded Mathlib pin; 2026-10-05."
+      },
+      {
+        "ref": "mathlib:Ring.krullDimLE_iff",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/KrullDimension/Basic.lean",
+        "provides": "The KrullDimLE class is equivalent to the inequality for ringKrullDim.",
+        "checked": "Statement and ambient hypotheses read in the source at the recorded Mathlib pin; 2026-10-05."
+      },
+      {
+        "ref": "mathlib:Finite.isField_of_domain",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/IntegralDomain.lean",
+        "provides": "A commutative domain of finite cardinality is a field.",
+        "checked": "Statement and ambient hypotheses read in the source at the recorded Mathlib pin; 2026-10-05."
+      },
+      {
+        "ref": "mathlib:Ideal.Quotient.maximal_of_isField",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Quotient/Basic.lean",
+        "provides": "A field quotient forces its defining ideal to be maximal.",
+        "checked": "Statement and ambient hypotheses read in the source at the recorded Mathlib pin; 2026-10-05."
+      },
+      {
+        "ref": "mathlib:Finite.of_ideal_quotient",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/Ideal/Quotient/Basic.lean",
+        "provides": "A ring is finite if an ideal and its quotient are finite.",
+        "checked": "Statement and ambient hypotheses read in the source at the recorded Mathlib pin; 2026-10-05."
+      },
+      {
+        "ref": "mathlib:IsDiscreteValuationRing.irreducible_iff_uniformizer",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/DiscreteValuationRing/Basic.lean",
+        "provides": "An irreducible element of a DVR generates its maximal ideal.",
+        "checked": "Statement and ambient hypotheses read in the source at the recorded Mathlib pin; 2026-10-05."
+      },
+      {
+        "ref": "mathlib:nilpotent_iff_mem_prime",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Nilpotent/Lemmas.lean",
+        "provides": "An element is nilpotent precisely when it lies in every prime ideal.",
+        "checked": "Statement and ambient hypotheses read in the source at the recorded Mathlib pin; 2026-10-05."
+      },
+      {
+        "ref": "mathlib:Ideal.hasBasis_nhds_zero_adic",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Algebra/Nonarchimedean/AdicTopology.lean",
+        "provides": "Powers of I form the basis of neighborhoods of zero for I.adicTopology.",
+        "checked": "Statement and ambient hypotheses read in the source at the recorded Mathlib pin; 2026-10-05."
+      },
+      {
+        "ref": "mathlib:IsAdicComplete.liftAlgHom",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/AdicCompletion/RingHom.lean",
+        "provides": "A compatible family of algebra homomorphisms to all I-power quotients lifts to an algebra homomorphism into an I-adically complete ring.",
+        "checked": "Statement and ambient hypotheses read in the source at the recorded Mathlib pin; 2026-10-05."
+      },
+      {
+        "ref": "mathlib:IsAdicComplete.mkₐ_comp_liftAlgHom",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/AdicCompletion/RingHom.lean",
+        "provides": "The reduction of the lifted algebra map at each level equals that level map.",
+        "checked": "Statement and ambient hypotheses read in the source at the recorded Mathlib pin; 2026-10-05."
+      },
+      {
+        "ref": "mathlib:isLocalHom_of_comp",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/LocalRing/RingHom/Basic.lean",
+        "provides": "If a composite ring homomorphism reflects units then its first map reflects units.",
+        "checked": "Statement and ambient hypotheses read in the source at the recorded Mathlib pin; 2026-10-05."
+      },
+      {
+        "ref": "mathlib:MvPowerSeries.isUnit_iff_constantCoeff",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/MvPowerSeries/Inverse.lean",
+        "provides": "A power series over a ring is a unit exactly when its constant coefficient is a unit.",
+        "checked": "Statement and ambient hypotheses read in the source at the recorded Mathlib pin; 2026-10-05."
+      },
+      {
+        "ref": "mathlib:MvPowerSeries.coeff_X_pow",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/MvPowerSeries/Basic.lean",
+        "provides": "The coefficient of X_s^n at a multi-index is 1 at the corresponding single index and 0 elsewhere.",
+        "checked": "Statement and ambient hypotheses read in the source at the recorded Mathlib pin; 2026-10-05."
+      },
+      {
+        "ref": "mathlib:Algebra.finite_iff_isIntegral_and_finiteType",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/IntegralClosure/IsIntegralClosure/Basic.lean",
+        "provides": "A module-finite algebra is integral and of finite type; conversely integral and finite type gives module finiteness.",
+        "checked": "Statement and ambient hypotheses read in the source at the recorded Mathlib pin; 2026-10-05."
+      },
+      {
+        "ref": "mathlib:Module.Finite.trans",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Finiteness/Basic.lean",
+        "provides": "Module finiteness composes along the explicitly compatible scalar tower.",
+        "checked": "Statement and ambient hypotheses read in the source at the recorded Mathlib pin; 2026-10-05."
+      },
+      {
+        "ref": "mathlib:AdicCompletion.maximalIdeal_eq_map",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/AdicCompletion/LocalRing.lean",
+        "provides": "For a Noetherian local source, the maximal ideal of its completion is the image of its maximal ideal.",
+        "checked": "Statement and ambient hypotheses read in the source at the recorded Mathlib pin; 2026-10-05."
+      },
+      {
+        "ref": "mathlib:AdicCompletion.isLocalRing_of_fg",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/AdicCompletion/LocalRing.lean",
+        "provides": "Completion of a local ring with finitely generated maximal ideal is local.",
+        "checked": "Statement and ambient hypotheses read in the source at the recorded Mathlib pin; 2026-10-05."
+      },
+      {
+        "ref": "mathlib:AdicCompletion.isAdicComplete_of_fg",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/AdicCompletion/LocalRing.lean",
+        "provides": "Such a completion is complete for its maximal ideal; the theorem does not assert Noetherianity of the completion.",
+        "checked": "Statement and ambient hypotheses read in the source at the recorded Mathlib pin; 2026-10-05."
+      },
+      {
+        "ref": "mathlib:isArtinianRing_iff_krullDimLE_zero",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/HopkinsLevitzki.lean",
+        "provides": "For a Noetherian commutative ring, Artinianity is equivalent to dimension at most zero; supplies both directions of the dimension test.",
+        "checked": "Statement and ambient hypotheses read in the source at the recorded Mathlib pin; 2026-10-05."
+      },
+      {
+        "ref": "mathlib:isNoetherian_of_tower",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Noetherian/Basic.lean",
+        "provides": "Noetherianity passes upward along a scalar tower, so an O-Noetherian finite algebra is Noetherian over itself.",
+        "checked": "Statement and ambient hypotheses read in the source at the recorded Mathlib pin; 2026-10-05."
+      },
+      {
+        "ref": "mathlib:isNoetherian_def",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Noetherian/Defs.lean",
+        "provides": "Every submodule of a Noetherian module is finitely generated; in particular every ideal power in a Noetherian ring.",
+        "checked": "Statement and ambient hypotheses read in the source at the recorded Mathlib pin; 2026-10-05."
+      },
+      {
+        "ref": "mathlib:MvPowerSeries.constantCoeff",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/MvPowerSeries/Basic.lean",
+        "provides": "The native constant coefficient ring homomorphism; composing with the coefficient map gives the zero-variable point.",
+        "checked": "Statement and ambient hypotheses read in the source at the recorded Mathlib pin; 2026-10-05."
+      },
+      {
+        "ref": "mathlib:MvPowerSeries.constantCoeff_C",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/MvPowerSeries/Basic.lean",
+        "provides": "Constant coefficient evaluation fixes constants, furnishing the required algebra-hom compatibility.",
+        "checked": "Statement and ambient hypotheses read in the source at the recorded Mathlib pin; 2026-10-05."
+      },
+      {
+        "ref": "mathlib:Module.Finite.of_restrictScalars_finite",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Finiteness/Basic.lean",
+        "provides": "If M is finite over R, then it is finite over an acting semiring A whenever the R/A/M scalar tower is compatible. Used to pass from O to its residue field on the special fibre.",
+        "checked": "Statement and ambient hypotheses read at the pinned commit on 2026-10-05, lines 298–303."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "MB1",
+      "title": "Mathlib/RingTheory/AdicCompletion/Functoriality.lean",
+      "authors": "Judith Ludwig, Christian Merten",
+      "edition": "Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/AdicCompletion/Functoriality.lean",
+      "sha256": "95f772d331c3d70ac6cc7b6990e1c4cf5e6186600f10748d6934b6fe9e7bf591",
+      "readSections": [
+        "surjective_of_mkQ_comp_surjective and ambient variables, line 448"
+      ]
+    },
+    {
+      "id": "MB2",
+      "title": "Mathlib/RingTheory/AdicCompletion/Basic.lean",
+      "authors": "Kenny Lau, Judith Ludwig, Christian Merten, Jiedong Jiang",
+      "edition": "Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/AdicCompletion/Basic.lean",
+      "sha256": "ea71c61be774fd579bad7f9faa3477a8cbc637daa36832c0813d733fe02703ba",
+      "readSections": [
+        "IsHausdorff.of_map and ambient variables, line 80"
+      ]
+    },
+    {
+      "id": "MB3",
+      "title": "Mathlib/RingTheory/AdicCompletion/Noetherian.lean",
+      "authors": "Andrew Yang",
+      "edition": "Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/AdicCompletion/Noetherian.lean",
+      "sha256": "74f44a68b7468a48529c816e799b6b4b2ddf911dcdda5fe891986d09d5c6e858",
+      "readSections": [
+        "IsHausdorff.of_isLocalRing and ambient variables, line 26"
+      ]
+    },
+    {
+      "id": "MB4",
+      "title": "Mathlib/RingTheory/LocalRing/RingHom/Basic.lean",
+      "authors": "Kenny Lau, Chris Hughes, Mario Carneiro",
+      "edition": "Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/LocalRing/RingHom/Basic.lean",
+      "sha256": "5b55f038bcbe64d45dab1df9d1882bb93f8e63f884b8608fc731bb83b8b1b218",
+      "readSections": [
+        "IsLocalRing.map_maximalIdeal_le and ambient variables, line 98",
+        "isLocalHom_of_comp and ambient variables, line 43"
+      ]
+    },
+    {
+      "id": "MB5",
+      "title": "Mathlib/RingTheory/Finiteness/Cardinality.lean",
+      "authors": "Johan Commelin",
+      "edition": "Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Finiteness/Cardinality.lean",
+      "sha256": "808833f0748ffa443763b92903926591cbac4d982b6cc64907aa70249bf3ddb9",
+      "readSections": [
+        "Module.Finite.exists_fin' and ambient variables, line 59",
+        "Module.finite_of_finite and ambient variables, line 72",
+        "Module.finite_iff_finite and ambient variables, line 78"
+      ]
+    },
+    {
+      "id": "MB6",
+      "title": "Mathlib/RingTheory/Finiteness/Basic.lean",
+      "authors": "Johan Commelin",
+      "edition": "Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Finiteness/Basic.lean",
+      "sha256": "33a377162fbc237ea7d67c74f9eeaee015fe5c08f72a41817826fbd5272e3fb1",
+      "readSections": [
+        "Module.Finite.of_surjective and ambient variables, line 247",
+        "Module.Finite.quotient and ambient variables, line 261",
+        "Module.Finite.trans and ambient variables, line 366",
+        "Module.Finite.of_restrictScalars_finite and ambient variables, line 298"
+      ]
+    },
+    {
+      "id": "MB7",
+      "title": "Mathlib/RingTheory/Noetherian/Basic.lean",
+      "authors": "Mario Carneiro, Kevin Buzzard, María Inés de Frutos-Fernández",
+      "edition": "Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Noetherian/Basic.lean",
+      "sha256": "a2958992b94516a8e662e789d508c776c04dc0ea0600bd23a55700d2a54bb656",
+      "readSections": [
+        "isNoetherian_of_isNoetherianRing_of_finite and ambient variables, line 324",
+        "isNoetherian_linearMap and ambient variables, line 230",
+        "Module.Finite.of_injective and ambient variables, line 136",
+        "isNoetherian_of_tower and ambient variables, line 320"
+      ]
+    },
+    {
+      "id": "MB8",
+      "title": "Mathlib/Algebra/Algebra/Tower.lean",
+      "authors": "Kenny Lau, Anne Baanen",
+      "edition": "Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Algebra/Tower.lean",
+      "sha256": "80c681c1674d180828b520f3533b549f302153ee5042c2e65ea7733c8c8c9e38",
+      "readSections": [
+        "Algebra.lsmul and ambient variables, line 68"
+      ]
+    },
+    {
+      "id": "MB9",
+      "title": "Mathlib/RingTheory/HopkinsLevitzki.lean",
+      "authors": "Junyan Xu",
+      "edition": "Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/HopkinsLevitzki.lean",
+      "sha256": "572b9db69b76b14296dec889eadeac2dc8d109be09bf7a44f372ec6a779675e1",
+      "readSections": [
+        "IsNoetherianRing.isArtinianRing_of_krullDimLE_zero and ambient variables, line 161",
+        "isArtinianRing_iff_isNilpotent_maximalIdeal and ambient variables, line 184",
+        "isArtinianRing_iff_krullDimLE_zero and ambient variables, line 180"
+      ]
+    },
+    {
+      "id": "MB10",
+      "title": "Mathlib/RingTheory/KrullDimension/Basic.lean",
+      "authors": "Fangming Li, Jujian Zhang",
+      "edition": "Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/KrullDimension/Basic.lean",
+      "sha256": "8f13add369eccc487e8a64924cf065dc198bce4c7eb9207649f571349e008998",
+      "readSections": [
+        "Ring.krullDimLE_zero_iff and ambient variables, line 104",
+        "Ring.krullDimLE_iff and ambient variables, line 38"
+      ]
+    },
+    {
+      "id": "MB11",
+      "title": "Mathlib/RingTheory/IntegralDomain.lean",
+      "authors": "Johan Commelin, Chris Hughes",
+      "edition": "Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/IntegralDomain.lean",
+      "sha256": "723960ecf8ab7e5e2cc89827fb415212c6e4a55310e89bf606a3b9553abc2bd8",
+      "readSections": [
+        "Finite.isField_of_domain and ambient variables, line 112"
+      ]
+    },
+    {
+      "id": "MB12",
+      "title": "Mathlib/RingTheory/Ideal/Quotient/Basic.lean",
+      "authors": "Kenny Lau, Chris Hughes, Mario Carneiro, Anne Baanen",
+      "edition": "Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Ideal/Quotient/Basic.lean",
+      "sha256": "a187e3f7ca24aedd960683c29e0d4bd5e3419fa3abf98d332cfcd55860849d76",
+      "readSections": [
+        "Ideal.Quotient.maximal_of_isField and ambient variables, line 151",
+        "Finite.of_ideal_quotient and ambient variables, line 226"
+      ]
+    },
+    {
+      "id": "MB13",
+      "title": "Mathlib/RingTheory/DiscreteValuationRing/Basic.lean",
+      "authors": "Kevin Buzzard",
+      "edition": "Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/DiscreteValuationRing/Basic.lean",
+      "sha256": "c387c5c09535a4a01efe29cbcf28a92295c29a13afb2f70a0163d0110077663e",
+      "readSections": [
+        "IsDiscreteValuationRing.irreducible_iff_uniformizer and ambient variables, line 93"
+      ]
+    },
+    {
+      "id": "MB14",
+      "title": "Mathlib/RingTheory/Nilpotent/Lemmas.lean",
+      "authors": "Oliver Nash",
+      "edition": "Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Nilpotent/Lemmas.lean",
+      "sha256": "7c05c907a3db86ee76da584c85ac1395eae1ce24babd87586ba723b9232fc5ca",
+      "readSections": [
+        "nilpotent_iff_mem_prime and ambient variables, line 58"
+      ]
+    },
+    {
+      "id": "MB15",
+      "title": "Mathlib/Topology/Algebra/Nonarchimedean/AdicTopology.lean",
+      "authors": "Patrick Massot",
+      "edition": "Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Algebra/Nonarchimedean/AdicTopology.lean",
+      "sha256": "7a9d03e2065576a3f08da00120e618b5076d8e143497239830366e80fe7de92e",
+      "readSections": [
+        "Ideal.hasBasis_nhds_zero_adic and ambient variables, line 98"
+      ]
+    },
+    {
+      "id": "MB16",
+      "title": "Mathlib/RingTheory/AdicCompletion/RingHom.lean",
+      "authors": "Jiedong Jiang",
+      "edition": "Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/AdicCompletion/RingHom.lean",
+      "sha256": "77b07e459e2639c3496cd91c31d681b92542ba98e90e4f8ee412802c3fb64229",
+      "readSections": [
+        "IsAdicComplete.liftAlgHom and ambient variables, line 108",
+        "IsAdicComplete.mkₐ_comp_liftAlgHom and ambient variables, line 123"
+      ]
+    },
+    {
+      "id": "MB17",
+      "title": "Mathlib/RingTheory/MvPowerSeries/Inverse.lean",
+      "authors": "Johan Commelin, Kenny Lau",
+      "edition": "Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/MvPowerSeries/Inverse.lean",
+      "sha256": "fd1a532f929b64b0a28a31eefd69e4c3e1d4e38c7571eafbcf21343e087198e2",
+      "readSections": [
+        "MvPowerSeries.isUnit_iff_constantCoeff and ambient variables, line 138"
+      ]
+    },
+    {
+      "id": "MB18",
+      "title": "Mathlib/RingTheory/MvPowerSeries/Basic.lean",
+      "authors": "Johan Commelin, Kenny Lau",
+      "edition": "Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/MvPowerSeries/Basic.lean",
+      "sha256": "fb6303b35ede9edf896a799d46d5656faca3e55f7f05cbfb02b86e3c7bb9b865",
+      "readSections": [
+        "MvPowerSeries.coeff_X_pow and ambient variables, line 415",
+        "MvPowerSeries.constantCoeff and ambient variables, line 435",
+        "MvPowerSeries.constantCoeff_C and ambient variables, line 451"
+      ]
+    },
+    {
+      "id": "MB19",
+      "title": "Mathlib/RingTheory/IntegralClosure/IsIntegralClosure/Basic.lean",
+      "authors": "Kenny Lau",
+      "edition": "Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/IntegralClosure/IsIntegralClosure/Basic.lean",
+      "sha256": "93c72646554b01f2e8ae6657a656b07e0b6aa6b9c792e7d0d3cef0de5dbc653e",
+      "readSections": [
+        "Algebra.finite_iff_isIntegral_and_finiteType and ambient variables, line 102"
+      ]
+    },
+    {
+      "id": "MB20",
+      "title": "Mathlib/RingTheory/AdicCompletion/LocalRing.lean",
+      "authors": "Nailin Guan",
+      "edition": "Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/AdicCompletion/LocalRing.lean",
+      "sha256": "f3719324a0fb37466ef0a5785743c6917c48732e7a9de7b3b5385a747c6496ba",
+      "readSections": [
+        "AdicCompletion.maximalIdeal_eq_map and ambient variables, line 95",
+        "AdicCompletion.isLocalRing_of_fg and ambient variables, line 78",
+        "AdicCompletion.isAdicComplete_of_fg and ambient variables, line 120"
+      ]
+    },
+    {
+      "id": "KWII",
+      "title": "Serre’s modularity conjecture (II)",
+      "authors": "Chandrashekhar Khare; Jean-Pierre Wintenberger",
+      "edition": "Author final preprint, UCLA proofs.pdf; publication Invent. Math. 178 (2009), 505–586. Locators below use printed author-preprint pages, not journal pagination.",
+      "url": "https://www.math.ucla.edu/~shekhar/papers/proofs.pdf",
+      "sha256": "53f45f8be3b3c7de19f42417920d34a809e908412826490ebed90f07c8e86ed4",
+      "readSections": [
+        "§2.1 pp.5–6: coefficient category",
+        "§2.2 Proposition 2.1 pp.7–8: framed comparison and small extensions",
+        "§4.1 Corollary 4.7 pp.45–46: finite unframed ring and characteristic-zero point",
+        "§9.1 end of proof, p.88: faithful patched module and variable specializations",
+        "§9.2 Proposition 9.3 pp.89–90",
+        "§10.1 Theorem 10.1 pp.90–92: restriction, finite mod-p image, finiteness"
+      ]
+    },
+    {
+      "id": "KWearly",
+      "title": "On Serre’s reciprocity conjecture for 2-dimensional mod p representations of the Galois group of Q",
+      "authors": "Chandrashekhar Khare; Jean-Pierre Wintenberger",
+      "edition": "arXiv:math/0412076 PDF retrieved 2026-10-05, Lemma 2.4 p.10. This version is not the published Lemma 3.6 and its numbering is not substituted silently.",
+      "url": "https://arxiv.org/pdf/math/0412076",
+      "sha256": "bbb14357e34811b1a3459ef62d61be9e9803c21a63613da9469088c16ee17274",
+      "readSections": [
+        "p.10 Lemma 2.4 and its proof",
+        "pp.14–15 restriction and finite mod-p image argument"
+      ]
+    },
+    {
+      "id": "LFR",
+      "title": "Local fields and ramification: accepted Tau Ceti roadmap",
+      "authors": "Tau Ceti roadmap contributors",
+      "edition": "Repository source at the worker checkout, Layer 0; roadmap ownership, not a library implementation.",
+      "url": "https://github.com/CBirkbeck/tauceti-explorer/blob/main/content/tau-ceti/LocalFieldsRamification/README.md",
+      "readSections": [
+        "Whole document; in particular Layer 0 finite extensions I–III and intermediate-field adapters"
+      ]
+    },
+    {
+      "id": "MB21",
+      "title": "Mathlib/RingTheory/Noetherian/Defs.lean",
+      "authors": "Mario Carneiro, Kevin Buzzard",
+      "edition": "Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Noetherian/Defs.lean",
+      "sha256": "ce511ff7d53f22d21f2f9ee85d8ccf173aff76f85b03126692d94d5df1fea72b",
+      "readSections": [
+        "isNoetherian_def and ambient variables, line 76"
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.4/residual-fibre-finite-over-complete-subring",
+      "title": "Finite residual fibre over a complete local subring",
+      "kind": "theorem",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.4",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.4"
+      ],
+      "statement": "Let A be a commutative local ring complete for m_A, and B a Noetherian commutative local A-algebra whose coefficient map is local. If B/m_A B is finite as an A-module (equivalently as a k_A-vector space), then B is finite as an A-module. The target need not be complete and the coefficient map need not be injective.",
+      "hypotheses": [
+        "A is m_A-adically complete, including separatedness.",
+        "B is Noetherian local; A→B is local.",
+        "The residual fibre is finite-dimensional; its equality with k_B is not assumed."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.1",
+        "mathlib:surjective_of_mkQ_comp_surjective",
+        "mathlib:IsHausdorff.of_map",
+        "mathlib:IsHausdorff.of_isLocalRing",
+        "mathlib:IsLocalRing.map_maximalIdeal_le",
+        "mathlib:Module.Finite.exists_fin'",
+        "mathlib:Module.Finite.of_surjective"
+      ],
+      "proofSteps": [
+        "Choose finitely many lifts in B of a generating family of B/m_A B and form the A-linear map A^r→B. Its composite with the quotient is surjective.",
+        "Import finite-free m_A-precompleteness from R03.1. Since m_A B⊆m_B, Noetherian local separation of B over B and IsHausdorff.of_map give m_A-Hausdorffness as an A-module.",
+        "Apply the pinned topological Nakayama surjectivity theorem, then finite generation descends from A^r. No assertion of finite B over A is used in the separation argument."
+      ],
+      "acceptance": [
+        "Test B=A, B=A/I for a proper ideal, and B=A[[X]]: the first two satisfy the criterion; the last has infinite residual fibre.",
+        "Removing Noetherian local separation must leave a stated Hausdorff hypothesis; never infer separation from desired finiteness."
+      ],
+      "sources": [
+        {
+          "sourceId": "MB1",
+          "locator": "surjective_of_mkQ_comp_surjective (line 448)",
+          "excerpt": "surjective_of_mkQ_comp_surjective",
+          "match": "Derived ring specialization of the existing module surjectivity theorem; finite-free completeness is an explicit owner input."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Finite residual-fibre criterion"
+      }
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.4/completed-residual-fibre-criterion",
+      "title": "Finiteness for the completed local rings",
+      "kind": "theorem",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.4",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.4"
+      ],
+      "statement": "Let A,B be Noetherian local commutative rings. Put Â=completion of A at m_A and B̂=completion of B at m_B. Given a local algebra map Â→B̂, assume B̂ is Noetherian and B̂/m_Â B̂ is finite over Â. Then B̂ is finite over Â. If the input is a local map A→B, its induced completed map and the residual-fibre comparison are supplied by R03.1.",
+      "hypotheses": [
+        "The algebra structure between completions is specified, not inferred from two independent algebra structures.",
+        "Noetherianity of B̂ is explicit until supplied by R03.1; completeness and locality alone do not supply it."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.4/residual-fibre-finite-over-complete-subring",
+        "mathlib:AdicCompletion.isLocalRing_of_fg",
+        "mathlib:AdicCompletion.maximalIdeal_eq_map",
+        "mathlib:AdicCompletion.isAdicComplete_of_fg",
+        "DeformationAndDerivedPatchingAlgebra:R03.1"
+      ],
+      "proofSteps": [
+        "Use baseline locality and maximal-ideal completeness for Â and B̂.",
+        "Apply the preceding residual-fibre criterion to the declared local map of completions.",
+        "To use a map A→B, import its continuous extension and the comparison B̂/m_A B̂≅B/m_A B when the latter is finite-dimensional; this comparison is an owner obligation, not an extra hypothesis erased in a prototype."
+      ],
+      "acceptance": [
+        "The Lean signature keeps Noetherianity of B̂ and its algebra structure visible.",
+        "A completion does not make the infinite residual fibre of A[[X]] finite."
+      ],
+      "sources": [
+        {
+          "sourceId": "MB20",
+          "locator": "AdicCompletion.isAdicComplete_of_fg (line 120)",
+          "excerpt": "AdicCompletion.isAdicComplete_of_fg",
+          "match": "Combines existing completeness/locality with the new finiteness criterion; does not read Noetherianity into the module header."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.4/finite-dvr-algebra-iff-finite-special-fibre",
+      "title": "Finite DVR algebra and its special fibre",
+      "kind": "theorem",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.4",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.4"
+      ],
+      "statement": "Let O be a complete DVR with finite residue field k and A a Noetherian local O-algebra with local coefficient map. Then A is module-finite over O iff A/πA has finite cardinality, where π is any uniformizer. No flatness is asserted.",
+      "hypotheses": [
+        "The residue field is finite; O is complete.",
+        "π generates m_O; A need not be O-flat or reduced."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.4/residual-fibre-finite-over-complete-subring",
+        "mathlib:Module.Finite.quotient",
+        "mathlib:Module.finite_iff_finite",
+        "mathlib:IsDiscreteValuationRing.irreducible_iff_uniformizer",
+        "mathlib:Module.Finite.of_restrictScalars_finite"
+      ],
+      "proofSteps": [
+        "For finite A, quotient finiteness descends and scalars factor through k, so the special fibre is a finite k-module and hence a finite set.",
+        "For a finite special fibre, finite cardinality gives finite generation over O. Apply the residual-fibre criterion and replace m_O A by πA."
+      ],
+      "acceptance": [
+        "O/π² is allowed and is not flat.",
+        "k is finite over O but supplies no characteristic-zero point.",
+        "Keep cardinal finiteness distinct from module finiteness in signatures."
+      ],
+      "sources": [
+        {
+          "sourceId": "MB5",
+          "locator": "Module.finite_iff_finite (line 78)",
+          "excerpt": "Module.finite_iff_finite",
+          "match": "The conversion is made over the finite residue field, rather than over the infinite DVR."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Finite special-fibre criterion"
+      }
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.4/finiteness-of-deformation-rings-criteria",
+      "title": "Finiteness from a faithful finite patched module",
+      "kind": "theorem",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.4",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.4"
+      ],
+      "statement": "Let S be a Noetherian commutative ring, R a commutative S-algebra and M an R-module with a compatible S-module structure and commuting scalar actions. If M is finite over S and faithful over R, then R is finite over S. For KW II, S=O[[y₁,…,y_{h+j}]].",
+      "hypotheses": [
+        "S is Noetherian.",
+        "The action R→End_S(M) is S-linear and faithful; finiteness over R alone is insufficient."
+      ],
+      "prerequisites": [
+        "mathlib:Algebra.lsmul",
+        "mathlib:isNoetherian_linearMap",
+        "mathlib:Module.Finite.of_injective",
+        "mathlib:isNoetherian_of_isNoetherianRing_of_finite"
+      ],
+      "proofSteps": [
+        "The native Algebra.lsmul action gives R→ₐ[S]End_S(M). Faithfulness makes this map injective by evaluating equality on each vector.",
+        "End_S(M) is Noetherian over S by the existing Hom theorem. Apply Module.Finite.of_injective to the action map.",
+        "This retains the integrated node ID only for its faithful-module assertion; its former cardinal, completed and arithmetic assertions are separated or imported."
+      ],
+      "acceptance": [
+        "A finite nonfaithful module must not force R finite: k=R/(π,X) for R=O[[X]].",
+        "The zero module works only for the zero ring R under faithfulness.",
+        "No freeness, flatness or patching arithmetic is asserted."
+      ],
+      "sources": [
+        {
+          "sourceId": "KWII",
+          "locator": "§9.1, printed p.88, after the patching limit",
+          "excerpt": "R∞ is a finite O[[y1, . . . , yh+j]]-module",
+          "match": "The faithful-module argument in the source; the statement generalizes its coefficient ring to any Noetherian S."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Faithful-module finiteness"
+      }
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.4/finite-maximal-power-quotients",
+      "title": "Finite quotients by powers of the maximal ideal",
+      "kind": "lemma",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.4",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.4"
+      ],
+      "statement": "If R is Noetherian local and k_R has finite cardinality, then R/m_R^n has finite cardinality for every n≥0.",
+      "hypotheses": [
+        "Noetherian local R; finite residue field.",
+        "n=0 is included and gives the zero ring."
+      ],
+      "prerequisites": [
+        "mathlib:isNoetherian_of_isNoetherianRing_of_finite",
+        "mathlib:Module.Finite.of_surjective",
+        "mathlib:Module.finite_of_finite",
+        "mathlib:Finite.of_ideal_quotient",
+        "mathlib:isNoetherian_def"
+      ],
+      "proofSteps": [
+        "Induct on n. Each ideal m_R^n is finitely generated because R is Noetherian.",
+        "The kernel of R/m^(n+1)→R/m^n is m^n/m^(n+1). Choose generators of m^n; their images give a surjection from a finite power of k_R onto this kernel, since m annihilates it. This quotient presentation also specifies the kernel identification.",
+        "A finite kernel and finite quotient give a finite middle ring by Finite.of_ideal_quotient."
+      ],
+      "acceptance": [
+        "n=0 gives one element; n=1 gives the prescribed residue field.",
+        "For k[[X]], the quotient by (X)^n is finite although the ring itself is infinite."
+      ],
+      "sources": [
+        {
+          "sourceId": "MB5",
+          "locator": "Module.finite_of_finite (line 72)",
+          "excerpt": "Module.finite_of_finite",
+          "match": "Finitely generated layers annihilated by m are finite over the finite residue field."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.4/finite-local-ring-of-dimension-zero",
+      "title": "A zero-dimensional Noetherian local ring with finite residue field is finite",
+      "kind": "lemma",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.4",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.4"
+      ],
+      "statement": "If R is Noetherian local of Krull dimension at most zero and k_R is finite, then R has finite cardinality.",
+      "hypotheses": [
+        "Noetherian local R, finite residue field, KrullDimLE 0 R.",
+        "Completeness and a coefficient-field embedding are not required."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.4/finite-maximal-power-quotients",
+        "mathlib:IsNoetherianRing.isArtinianRing_of_krullDimLE_zero",
+        "mathlib:isArtinianRing_iff_isNilpotent_maximalIdeal"
+      ],
+      "proofSteps": [
+        "Dimension zero and Noetherianity give Artinianity by the pinned theorem.",
+        "Its maximal ideal is nilpotent. Choose n with m^n=0 and identify R with R/m^n. Apply finite-maximal-power-quotients."
+      ],
+      "acceptance": [
+        "Nonreduced rings such as Z/9Z satisfy the conclusion.",
+        "Finite residue field without dimension zero fails for k[[X]]."
+      ],
+      "sources": [
+        {
+          "sourceId": "MB9",
+          "locator": "IsNoetherianRing.isArtinianRing_of_krullDimLE_zero (line 161)",
+          "excerpt": "IsNoetherianRing.isArtinianRing_of_krullDimLE_zero",
+          "match": "Adds finite cardinality by the finite maximal-ideal filtration; does not replan the existing Artinianity theorem."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.4/finite-local-ring-of-finite-prime-quotients",
+      "title": "Finite prime quotients imply finiteness of a local ring",
+      "kind": "lemma",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.4",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.4"
+      ],
+      "statement": "If R is Noetherian local and R/q has finite cardinality for every prime ideal q, then R has finite cardinality.",
+      "hypotheses": [
+        "Noetherian local R; all prime quotients finite, including the maximal quotient."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.4/finite-local-ring-of-dimension-zero",
+        "mathlib:Ring.krullDimLE_zero_iff",
+        "mathlib:Finite.isField_of_domain",
+        "mathlib:Ideal.Quotient.maximal_of_isField"
+      ],
+      "proofSteps": [
+        "A prime quotient is a finite domain and hence a field. Thus every prime of R is maximal and its Krull dimension is at most zero.",
+        "The hypothesis at m_R gives a finite residue field. Apply the previous lemma."
+      ],
+      "acceptance": [
+        "This isolates the commutative-algebra tail of the finite-image trace argument; trace generation and torsion eigenvalues remain with the Galois owner."
+      ],
+      "sources": [
+        {
+          "sourceId": "KWearly",
+          "locator": "Lemma 2.4, printed p.10, proof",
+          "excerpt": "dimension 0",
+          "match": "The source concludes finite prime quotients, then dimension zero and finiteness; this node makes the last implication explicit."
+        },
+        {
+          "sourceId": "MB10",
+          "locator": "Ring.krullDimLE_zero_iff (line 104)",
+          "excerpt": "Ring.krullDimLE_zero_iff",
+          "match": "Converts the verified field-quotient condition into dimension zero."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.4/dimension-one-iff-nonnilpotent-uniformizer",
+      "title": "Positive dimension detects a surviving uniformizer",
+      "kind": "lemma",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.4",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.4"
+      ],
+      "statement": "Let O be a DVR and A a finite local O-algebra with local coefficient map. For a uniformizer π, 1≤dim A iff π_A is not nilpotent.",
+      "hypotheses": [
+        "The coefficient map is local, so π_A lies in m_A.",
+        "A is module-finite over O. No reducedness, torsion-freeness or completeness is assumed."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.4/nilpotent-uniformizer-artinian",
+        "mathlib:isNoetherian_of_isNoetherianRing_of_finite",
+        "mathlib:IsNoetherianRing.isArtinianRing_of_krullDimLE_zero",
+        "mathlib:isArtinianRing_iff_isNilpotent_maximalIdeal",
+        "mathlib:Ring.krullDimLE_iff",
+        "mathlib:IsDiscreteValuationRing.irreducible_iff_uniformizer",
+        "mathlib:IsLocalRing.map_maximalIdeal_le",
+        "mathlib:isArtinianRing_iff_krullDimLE_zero",
+        "mathlib:isNoetherian_of_tower"
+      ],
+      "proofSteps": [
+        "Nilpotent π_A makes A Artinian by the accepted predecessor; Artinian rings have dimension at most zero.",
+        "Conversely, if dim A<1 then the extended-natural dimension inequality gives dim A≤0. A is Noetherian because O is Noetherian and A finite, so it is Artinian. Its maximal ideal is nilpotent, and π_A lies in that ideal by locality."
+      ],
+      "acceptance": [
+        "For A=k or O/π² the left side fails.",
+        "A=O[ε]/ε² has a surviving π and is permitted.",
+        "Coefficient locality is explicit so that π_A belongs to m_A; no such dimension equivalence is asserted for arbitrary nonfinite algebras."
+      ],
+      "sources": [
+        {
+          "sourceId": "MB9",
+          "locator": "isArtinianRing_iff_isNilpotent_maximalIdeal (line 184)",
+          "excerpt": "isArtinianRing_iff_isNilpotent_maximalIdeal",
+          "match": "The reverse direction uses maximal-ideal nilpotence, not a nonexistent torsion-free consequence."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.4/characteristic-zero-point-of-nonnilpotent-uniformizer",
+      "title": "Characteristic-zero integral point from a surviving uniformizer",
+      "kind": "theorem",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.4",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.4"
+      ],
+      "statement": "Let O be a DVR, K its fraction field of characteristic zero, Ω an algebraically closed K-extension, and A a finite local O-algebra with local coefficient map. If π_A is not nilpotent, there exist a finite intermediate field E/K in Ω and a local O-algebra map A→integralClosure(O,E), whose target is finite over O. This is the algebraic unit-reflecting point; no topology or fixed target residue field is part of this conclusion.",
+      "hypotheses": [
+        "All O→K→Ω scalar towers commute.",
+        "π is a uniformizer and π_A is not nilpotent."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.4/dimension-one-iff-nonnilpotent-uniformizer",
+        "DeformationAndDerivedPatchingAlgebra:R03.4/characteristic-zero-points-from-finiteness-and-dimension"
+      ],
+      "proofSteps": [
+        "Use the preceding dimension equivalence and apply the accepted point theorem without altering its carrier or scalar towers.",
+        "For the direct construction, the accepted generic-prime, algebraic-point and finite-field-of-values nodes supply its internal steps; no new copies of those nodes are created."
+      ],
+      "acceptance": [
+        "A=k and O/π² fail the hypothesis.",
+        "A=O is a point over K.",
+        "A=O[t]/(t(t−π)) has two branches; reduction alone does not distinguish their characteristic-zero points."
+      ],
+      "sources": [
+        {
+          "sourceId": "KWII",
+          "locator": "§4.1 Corollary 4.7, printed pp.45–46",
+          "excerpt": "p is not nilpotent",
+          "match": "The source uses finiteness and positive dimension to choose a generic prime avoiding p; our formulation allows any uniformizer."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.4/local-hom-continuous-for-maximal-adic-topologies",
+      "title": "Continuity of a local map in the maximal-adic topologies",
+      "kind": "lemma",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.4",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.4"
+      ],
+      "statement": "Every local ring homomorphism f:A→B between commutative local rings is continuous when A and B have their respective maximal-ideal adic topologies.",
+      "hypotheses": [
+        "The topologies are explicitly m_A-adic and m_B-adic.",
+        "No completeness, Noetherianity or finite generation is needed."
+      ],
+      "prerequisites": [
+        "mathlib:IsLocalRing.map_maximalIdeal_le",
+        "mathlib:Ideal.hasBasis_nhds_zero_adic"
+      ],
+      "proofSteps": [
+        "Locality gives f(m_A)⊆m_B. Multiplicativity gives f(m_A^n)⊆m_B^n for every n.",
+        "Use the pinned neighborhood bases at zero to prove continuity there, and translate by additivity to every point."
+      ],
+      "acceptance": [
+        "The conclusion does not apply to arbitrary independently assigned topologies.",
+        "For a compatible local-field integer topology, first import the equality with the maximal-adic topology."
+      ],
+      "sources": [
+        {
+          "sourceId": "MB15",
+          "locator": "Ideal.hasBasis_nhds_zero_adic (line 98)",
+          "excerpt": "Ideal.hasBasis_nhds_zero_adic",
+          "match": "Specializes the native adic neighborhood basis to both maximal ideals."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.4/integer-ring-point-with-topology",
+      "title": "A point in the integers of a finite local-field extension",
+      "kind": "theorem",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.4",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.4"
+      ],
+      "statement": "Let K be a characteristic-zero nonarchimedean local field, O=𝒪[K], Ω an algebraically closed K-extension, and A a finite local O-algebra with 1≤dim A. There is a finite E:IntermediateField K Ω, equipped with the induced finite-extension valuation and topology from LocalFieldsRamification Layer 0, and a local continuous O-algebra map A→𝒪[E]. The source has its maximal-adic topology and 𝒪[E] its induced local-field topology. Its residue field is allowed to extend that of A.",
+      "hypotheses": [
+        "The actual integer-ring comparison is an O-algebra equivalence integralClosure(O,E)≃𝒪[E].",
+        "The finite-extension topology is constructed on E, not postulated as an arbitrary topology."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.4/characteristic-zero-points-from-finiteness-and-dimension",
+        "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-0-local-fields-and-their-finite-extensions",
+        "DeformationAndDerivedPatchingAlgebra:R03.4/local-hom-continuous-for-maximal-adic-topologies",
+        "mathlib:isLocalHom_of_comp"
+      ],
+      "proofSteps": [
+        "Apply the accepted algebraic point theorem with O=𝒪[K].",
+        "Import the actual finite intermediate-field topology, valuation, completeness and integer-ring comparison. Compose the point with the O-algebra equivalence; equivalences reflect units, so locality is preserved.",
+        "Use the local-map continuity lemma and the supplier equality of the integer-ring topology with its maximal-adic topology."
+      ],
+      "acceptance": [
+        "The prototype supplies only the genuine AlgEquiv transport adapter. The unconditional constructed-valuation signature remains an exact supplier obligation.",
+        "For Z₃[t]/(t²−18), any point forces the unit t/3 to have square 2; a target residue field equal to F₃ is impossible."
+      ],
+      "sources": [
+        {
+          "sourceId": "LFR",
+          "locator": "Layer 0, finite extensions III, API",
+          "excerpt": "integerRing_eq_integralClosure",
+          "match": "Imports the existing roadmap’s ownership of finite-extension structures and comparison, rather than replanning them."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.4/compatible-artinian-limit-is-local",
+      "title": "Locality of a compatible Artinian limit map",
+      "kind": "lemma",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.4",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.4"
+      ],
+      "statement": "Let B be an A-algebra and E a complete local A-algebra. For a compatible family f_n:B→E/m_E^n of A-algebra maps, if f_1 reflects units then the native lifted map B→E reflects units. Its reductions are exactly f_n.",
+      "hypotheses": [
+        "Compatibility is equality after the canonical quotient maps for every m≤n.",
+        "E is m_E-adically complete, including Hausdorffness."
+      ],
+      "prerequisites": [
+        "mathlib:IsAdicComplete.liftAlgHom",
+        "mathlib:IsAdicComplete.mkₐ_comp_liftAlgHom",
+        "mathlib:isLocalHom_of_comp"
+      ],
+      "proofSteps": [
+        "Use the existing liftAlgHom and its reduction identity at n=1.",
+        "The composite of the lift with E→E/m_E is f_1; apply isLocalHom_of_comp. No new inverse-limit carrier or existence theorem is introduced."
+      ],
+      "acceptance": [
+        "The level n=0 is the zero ring and gives no locality information.",
+        "Only one compatible family can be realized; separately chosen lifts at each n are insufficient."
+      ],
+      "sources": [
+        {
+          "sourceId": "MB16",
+          "locator": "IsAdicComplete.mkₐ_comp_liftAlgHom (line 123)",
+          "excerpt": "IsAdicComplete.mkₐ_comp_liftAlgHom",
+          "match": "The existing equality at level 1 allows the existing composite-locality criterion."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.4/framed-point-from-artinian-lifting",
+      "title": "A local continuous framed point from Artinian lifting",
+      "kind": "theorem",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.4",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.4"
+      ],
+      "statement": "Let A→B be a local continuous formally smooth morphism in the complete Noetherian local coefficient category, and f:A→O′ a local continuous point in a complete DVR target after the required finite residue-field extension. Given a compatible local residue point B→O′/m′ over f, there exists a local continuous lift B→O′ over f. The R03.1 lifting interface must apply to the O′/m′^n tower after residue change. Equivalently the concrete consumer takes an initial local algebra map at level 1 and local successor lifts over the canonical quotient maps.",
+      "hypotheses": [
+        "A and B are objects of the declared complete-local category.",
+        "Formal smoothness is tested on the actual target quotient category after compatible residue change.",
+        "A starting residue map and compatibility with f are supplied. Bare algebraic formal smoothness without these inputs is not the asserted hypothesis."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.1",
+        "DeformationAndDerivedPatchingAlgebra:R03.4/compatible-artinian-limit-is-local",
+        "DeformationAndDerivedPatchingAlgebra:R03.4/local-hom-continuous-for-maximal-adic-topologies"
+      ],
+      "proofSteps": [
+        "The successor kernels m′^n/m′^(n+1), n≥1, are square-zero; for a DVR they are one-dimensional over its residue field. Import the complete-local smooth lifting interface at these small extensions.",
+        "Choose f_1 and recursively choose f_(n+1) lifting f_n. Composite quotient compatibility at all m≤n follows by induction; add the unique level-0 map. This is dependent recursive choice, not independent levelwise choice.",
+        "Apply the native complete-target lift. Its A-algebra structure ensures the extension of f. Apply locality at level 1 and the adic continuity lemma."
+      ],
+      "acceptance": [
+        "The native signature exposes the concrete AlgHom successor-lifting quantifier; it does not define a new Prop containing the desired conclusion.",
+        "The lift preserves the chosen residue point. No fixed original residue field is promised."
+      ],
+      "sources": [
+        {
+          "sourceId": "KWII",
+          "locator": "§2.2 Proposition 2.1 pp.7–8 and Corollary 4.7 pp.45–46",
+          "excerpt": "small extension",
+          "match": "The proof uses the complete-local category’s lifting squares; this node spells out compatibility and the complete limit."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Framed point lifting"
+      }
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.4/framed-point-from-power-series-presentation",
+      "title": "Framed point from a power series presentation",
+      "kind": "lemma",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.4",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.4"
+      ],
+      "statement": "Let A,B,E be commutative local rings, B an A-algebra, f:A→E a local ring map defining the A-algebra structure on E, and e:B≃ₐ[A]A[[X₁,…,X_d]]. Then B has a local continuous A-algebra map to E obtained by sending every X_i to zero. The presentation, when needed for deformation rings, comes from GlobalGaloisDeformations; this lemma does not prove it.",
+      "hypotheses": [
+        "The presentation is an actual A-algebra equivalence.",
+        "Both topologies are the respective maximal-adic topologies.",
+        "d=0 is included. No completeness of E is needed for zero evaluation."
+      ],
+      "prerequisites": [
+        "mathlib:MvPowerSeries.isUnit_iff_constantCoeff",
+        "DeformationAndDerivedPatchingAlgebra:R03.4/local-hom-continuous-for-maximal-adic-topologies",
+        "mathlib:isLocalHom_of_comp",
+        "mathlib:MvPowerSeries.constantCoeff",
+        "mathlib:MvPowerSeries.constantCoeff_C"
+      ],
+      "proofSteps": [
+        "Compose e with constant-coefficient evaluation and then f. Constant-coefficient evaluation is A-linear and multiplicative by the native API.",
+        "The power series unit criterion and locality of f show that the composite reflects units. Apply local-map continuity."
+      ],
+      "acceptance": [
+        "For d=0 this is the base point.",
+        "Each framing variable has image zero.",
+        "Zero evaluation is continuous in maximal-adic topologies even when E is not complete."
+      ],
+      "sources": [
+        {
+          "sourceId": "MB17",
+          "locator": "MvPowerSeries.isUnit_iff_constantCoeff (line 138)",
+          "excerpt": "MvPowerSeries.isUnit_iff_constantCoeff",
+          "match": "Uses the native constant coefficient map and its unit criterion, so no new power series evaluator is defined."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.4/positive-framing-is-not-module-finite",
+      "title": "Positive framing variables prevent module finiteness",
+      "kind": "lemma",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.4",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.4"
+      ],
+      "statement": "For any nontrivial commutative O-algebra A and d>0, A[[X₁,…,X_d]] is not finite as an O-module. Thus a nonzero finite unframed O-algebra acquires points under framing, but loses O-module finiteness when at least one framing variable is added.",
+      "hypotheses": [
+        "A is nontrivial; no Noetherianity or completeness is needed.",
+        "The O-algebra structure on the power series ring is the constant-coefficient one."
+      ],
+      "prerequisites": [
+        "mathlib:Algebra.finite_iff_isIntegral_and_finiteType",
+        "mathlib:MvPowerSeries.coeff_X_pow"
+      ],
+      "proofSteps": [
+        "If the power series ring were O-finite, its variable X₁ would be integral over O. Choose a monic polynomial relation.",
+        "In its evaluation at X₁, the coefficient at the monic polynomial’s degree in the X₁ direction is 1_A: all lower-degree terms have zero coefficient there. This contradicts the relation being zero and 1_A≠0."
+      ],
+      "acceptance": [
+        "A=0 is excluded.",
+        "d=0 is excluded and can be finite.",
+        "A=k with d=1 is the simplest counterexample to transferring unframed finiteness to the framed ring."
+      ],
+      "sources": [
+        {
+          "sourceId": "MB18",
+          "locator": "MvPowerSeries.coeff_X_pow (line 415)",
+          "excerpt": "MvPowerSeries.coeff_X_pow",
+          "match": "Coefficient extraction proves the obstruction without an assumed dimension formula."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "DeformationAndDerivedPatchingAlgebra:R03.1",
+      "need": "Supply finite-free m_A-adic completeness over a complete local A; Noetherianity of maximal-ideal completions of Noetherian local rings; the induced local algebra map of completions and its residual-fibre comparison when B/m_A B is finite-dimensional. Also supply the formally smooth complete-local lifting interface after finite residue extension, including the starting residue point and local lifts for the O′/m′^(n+1)→O′/m′^n small extensions. These are separate exports, not a single predicate storing the conclusion.",
+      "neededBy": [
+        "DeformationAndDerivedPatchingAlgebra:R03.4/residual-fibre-finite-over-complete-subring",
+        "DeformationAndDerivedPatchingAlgebra:R03.4/completed-residual-fibre-criterion",
+        "DeformationAndDerivedPatchingAlgebra:R03.4/framed-point-from-artinian-lifting"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-0-local-fields-and-their-finite-extensions",
+      "need": "For the actual finite IntermediateField E/K supplied by the predecessor, construct its induced finite-extension topology and valuation, completeness and IsNonarchimedeanLocalField, compatible integer-ring algebra structure, the O-algebra equivalence integralClosure(O,E)≃𝒪[E], and equality of the integer-ring topology with its maximal-adic topology. Reuse Layer 0 intermediate-field adapters. No general finite-extension theory is defined here.",
+      "neededBy": [
+        "DeformationAndDerivedPatchingAlgebra:R03.4/integer-ring-point-with-topology"
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "Complete-local foundational exports remain supplier work",
+      "detail": "The R03.1 exports in the request are mathematically specified and needed for the unqualified complete-base and induced-completion versions; they are not yet implemented in the pins. In particular the LocalRing completion file proves locality and completeness, not the Noetherianity claimed by its informal header.",
+      "neededBy": [
+        "DeformationAndDerivedPatchingAlgebra:R03.4/residual-fibre-finite-over-complete-subring",
+        "DeformationAndDerivedPatchingAlgebra:R03.4/completed-residual-fibre-criterion",
+        "DeformationAndDerivedPatchingAlgebra:R03.4/framed-point-from-artinian-lifting"
+      ]
+    },
+    {
+      "title": "Actual integer-ring and topology transport",
+      "detail": "LocalFieldsRamification Layer 0 must supply the finite-intermediate-field structures and comparison. The native adapter signature elaborates once the genuine AlgEquiv is supplied; it does not construct that comparison. The new request is attached to integer-ring-point-with-topology, not to the inherited algebraic point theorem.",
+      "neededBy": [
+        "DeformationAndDerivedPatchingAlgebra:R03.4/integer-ring-point-with-topology"
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "DeformationAndDerivedPatchingAlgebra:R03.4",
+      "status": "planned",
+      "remaining": [
+        "Implement the proposed declarations and the inherited point lemmas; all proof bodies remain unchecked.",
+        "Obtain the R03.1 completion and residue-compatible smooth-lifting exports.",
+        "Obtain LocalFieldsRamification Layer 0 finite-intermediate-field structures and topology/integers comparison."
+      ],
+      "notes": "Target closure is a planning closure: completed finiteness, finite-over-subring criteria and framed/local points all have explicit chains. The unframed finite-image theorem and the arithmetic applications are owned by PotentialModularityAndCompatibleSystems R24.1/R24.2."
+    }
+  ],
+  "upstreamNotes": [
+    {
+      "roadmap": "LocalFieldsRamification",
+      "note": "Attach its existing Layer 0 intermediate-field comparison to the new integer-ring topology consumer; the algebraic point needs no topology. The promotion should derive this prerequisite stage path. No upstream roadmap edits are made."
+    }
+  ],
+  "imports": [
+    {
+      "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.4/nilpotent-uniformizer-artinian",
+      "reason": "Accepted P7 algebraic point chain, reused without changing its statement or implementation status."
+    },
+    {
+      "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.4/generic-prime-coefficient-injection",
+      "reason": "Accepted P7 algebraic point chain, reused without changing its statement or implementation status."
+    },
+    {
+      "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.4/algebraic-point-of-generic-prime",
+      "reason": "Accepted P7 algebraic point chain, reused without changing its statement or implementation status."
+    },
+    {
+      "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.4/finite-field-of-point-values",
+      "reason": "Accepted P7 algebraic point chain, reused without changing its statement or implementation status."
+    },
+    {
+      "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.4/characteristic-zero-points-from-finiteness-and-dimension",
+      "reason": "Accepted P7 algebraic point chain, reused without changing its statement or implementation status."
+    }
+  ],
+  "ownership": {
+    "arithmeticFiniteness": "PotentialModularityAndCompatibleSystems:R24.1/kw-ii-theorem-10-1-finiteness-of-the-unframed-global-ring",
+    "arithmeticPointApplication": "PotentialModularityAndCompatibleSystems:R24.2/characteristic-zero-points-of-R-bar-S-psi-give-lifts-of-required-type",
+    "traceGeneration": "GlobalGaloisDeformations:R04.2/carayol-trace-theorem",
+    "framedPresentation": "GlobalGaloisDeformations:R04.2/framed-unframed-comparison"
+  },
+  "suggestedLean": {
+    "path": "research/blueprint/suggested/DeformationAndDerivedPatchingAlgebra--R03.4.lean",
+    "correspondence": "Fourteen direct theorem signatures and one native integer-ring transport adapter, plus nine discrimination examples. The integer-ring-point-with-topology target awaits its actual upstream constructed valuation/topology signature. The framed lifting signature exposes the concrete successor-lifting contract supplied by R03.1.",
+    "implementationStatus": "unchecked",
+    "elaboration": {
+      "date": "2026-10-05",
+      "method": "lean-check on existing shared build; Mathlib-only import",
+      "mathlibCommit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "exitCode": 0,
+      "warnings": "Only declarations using admitted proofs. No theorem proved; no Tau Ceti import or finite-extension constructor checked."
+    }
+  },
+  "inheritedPlanets": [
+    {
+      "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.4/characteristic-zero-points-from-finiteness-and-dimension",
+      "name": "Characteristic-zero points",
+      "reason": "Reuse the accepted P7 display; no second planet for the nonnilpotent reformulation."
+    }
+  ]
+}
