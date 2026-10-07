@@ -37562,8 +37562,9 @@
    ],
    "revisionOf": "BP-ArithmeticGaloisRepresentations",
    "prompt": "research/blueprint/prompts/BP-ArithmeticGaloisRepresentations~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6918"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6918",
+   "finishedAt": "2026-10-07T20:53:59Z"
   },
   {
    "priority": 2,
@@ -43571,8 +43572,9 @@
     "REV-K2SymbolsBrauer--T.3"
    ],
    "prompt": "research/blueprint/prompts/ASM-K2SymbolsBrauer.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #242"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #242",
+   "finishedAt": "2026-10-07T20:54:01Z"
   },
   {
    "id": "ASM-KTheoryLowDegrees",
@@ -43690,8 +43692,9 @@
     "REV-MotivicEtaleKTheory--M.5d~2"
    ],
    "prompt": "research/blueprint/prompts/ASM-MotivicEtaleKTheory.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #247"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #247",
+   "finishedAt": "2026-10-07T20:54:05Z"
   },
   {
    "id": "ASM-PadicHodgeRegulators",
