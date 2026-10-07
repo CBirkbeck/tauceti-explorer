@@ -1,137 +1,98 @@
-# Handoff — BP-GeometricSatakeAndFusion--GS3 (issue #742)
+# BP-GeometricSatakeAndFusion--GS3 handoff
 
-Agent: Claude Code, session `cc-7b31c4`. Branch `cc-7b31c4-bp-gs3`.
+Issue #742; worker Codex, session codex-68Sdy9; 7 October 2026. The bot
+confirmed the claim in issue comment 6030627907. Branch:
+`codex-68Sdy9-geometric-satake-gs3`.
 
-## Deliverables
+This is a complete target-level planning pass under PROTOCOL §0, continuing the
+seven-node checkpoint. All six scoped stages are **planned**, none **closed**.
+The packet contains 29 nodes: 3 definitions, 6 constructions and 20 theorems,
+46 API items, 27 unit-test specifications, 16 planets, 23 baseline declarations,
+16 supplier requests and 9 explicit gaps. All implementation statuses remain
+unchecked. Its mathematical reader and signature prototype cover the same nodes.
+No formalisation is claimed.
 
-- `research/blueprint/packets/GeometricSatakeAndFusion--GS3.json` — 7 nodes
-  (6 theorems, 1 construction), 8 API items, 5 unit tests, 7 planets, 21 baseline
-  declarations, 9 gaps, 15 requests, 2 structural proposals. `"part": "GS3"`,
-  `"status": "partial"`.
-- `research/blueprint/readmes/GeometricSatakeAndFusion--GS3.md` — 603 lines.
-- `research/blueprint/suggested/GeometricSatakeAndFusion--GS3.lean` — 331 lines.
-- This note.
+The existing seven node IDs are retained. Fusion now has disjoint restriction,
+parity, finite-set coherence, Drinfeld realization, constant terms and duality.
+The reconstruction chain imports the four precise relative MC.6 nodes rather
+than duplicating abstract Tannaka. Generic recognition, rank-one recovery,
+integral Prasad–Yu application, geometric pinning, normalized naturality,
+Chevalley involution and enhanced Perf export are separated. The classical
+trace branch includes both parity and half-Tate normalization.
 
-## Checks run
+Confirmed red-team findings /1, /16, /17 and /19 are addressed. The packet
+proposes reversing the closure/fusion dependency; requests the general
+Prasad–Yu theorem from RG2.3 and retains the characteristic-two adjoint
+reduction; imports MC.6's reconstruction and recognition; and assigns the
+Satake Perf export here with general LP3/LP4 inputs at all primes ℓ≠p.
+The source correction E1 replaces the purported torus with the diagonalizable
+component-grading group when its character group has torsion.
 
-- `python3 scripts/check_blueprint.py research/blueprint/packets/GeometricSatakeAndFusion--GS3.json --index $TAUCETI_BASELINE/declarations.tsv`
-  → **0 errors, 0 warnings**, with the pinned declaration index in place.
-- `python3 -m unittest discover -s tests` → 268 tests, OK.
-- `python3 research/blueprint/intake.py check-files` on the four changed paths →
-  0 problems.
+## What remains and where to resume
 
-**The Lean file was not compiled.** No Lean was run; the Mathlib build here is a
-shared cache that must not be rebuilt. Every `implementationStatus` is
-`unchecked`.
+Independent review should check the full source matches, normalization and
+supplier contracts before accepting the plan. Its stage-specific remaining
+lists name the following refinements; none is hidden as an implementation.
 
-## Scope, and why the API is one block
+- **Formal geometric and enhanced carriers in the suggested signatures.** Pinned libraries lack Div¹ local Hecke diamonds, flat-perverse ULA Satake categories, continuous Weil local systems, affine root-pinned integral dual identification and the stable enhanced D■/Perf(BG) carriers. The suggested file uses the imported carriers as category/type parameters, with every missing geometric or enhanced hypothesis explicitly omitted and named in comments. It gives no replacement Prop certificate. Actual formal carrier and condition signatures remain a refinement for each node; the numerical locus/parity/trace conventions can already be expressed.
+- **Drinfeld and Frobenius convention adapter.** VS1 has ULA nodes but no finer IV7.3 node matching the full locally constant perfect Drinfeld statement. Request that exact statement and the action of the Tate root line under its equivalence. Check the contravariant stalk-action convention against the positive-power parameter formula in IX7.1 before a formal normalized Levi comparison; do not silently equate the two actions.
+- **Bounded adjunction coefficient and coequalizer verification.** The source VI10.1 proof uses standard/costandard objects and a uniform coefficient-independent ℓ-torsion bound in VI7.5; the early Satake node supplies their carrier but does not isolate this bound or the full ℓ-adic adapter. The outlined proof here must be refined to establish the bound, coefficient inverse-limit compatibility and preservation (not just reflection) of F-split coequalizers required by the MC executable adapter.
+- **RG2.3 needs the general Prasad–Yu scope addition.** Current RG2.3 scope is parahoric/congruence models and does not yet explicitly own the general affine finite-type closed-immersion theorem. The request records its exact no-normal-SO-odd hypothesis and proposes this single owner. The GS application retains its G_ad reduction for ℓ=2.
+- **General relative Perf(BG) suppliers at all primes.** LP3 existing Donkin nodes require a prime-to-ℓ solvable group; LP4 existing parameter-stack generation/colimit nodes require the dual fundamental-group exclusion. Neither supplies the general FS IX2 p321 relative classifying-stack base-change and free stable completion used here. Requested LP3/LP4 additions must be proved with their all-ℓ≠p scope and Q-equivariant coefficient hypotheses.
+- **Enhanced convolution and coefficient duality adapter.** D■ convolution is an enhanced monoidal structure using pullback/tensor/π♮, and its relation to ordinary perverse convolution is A↦D(A)^∨ with specified relative Verdier duality. S6/VS3 need the exact general coefficient adapter. Symmetry is carried by the Satake image, not asserted on the whole enhanced convolution category.
+- **Classical comparison on unramified nonsplit groups.** Gross supplies the split transform normalization and Zhu the split Witt IC calculation. The source-to-node proof for the unramified nonsplit Frobenius/relative Weyl version is not established from those excerpts alone. SR4 supplies the classical nonsplit transform; refine its geometric trace-descent comparison with the pinned Weil action and relative weights, without using this comparison as an input to either theorem.
+- **Finite-model Frobenius trace handoff.** The classical bridge requires a Frobenius-equivariant finite-type special-fibre model and the existing ordinary constructible trace theorem, not only geometric ULA equivalence. SF.2 integrates these suppliers but no exact trace/model transport node is isolated in its current packet; the request records the needed contract and the missing source-level adapter.
+- **Weil-restriction local tensor comparison.** IX6.3 gives the precise chosen-embedding inflation/induction and local Grassmannian map. A detailed compatibility of that procedure with the field-specific half-root choices and multi-leg factorization remains to be refined. Finite-index induction is not itself a strong monoidal functor; the comparison must retain the conjugate-leg geometric diagram.
 
-This is the second of the roadmap's two parts: `GS3` with its substage and the
-four `GS4` stages. `GS0`, `GS1` and `GS2` belong to
-`BP-GeometricSatakeAndFusion--GS0` (issue #741, PR #2849) and are consumed here
-as requests. The roadmap is not a member of any restructured family.
+The packet's sixteen requests give each supplier, required statement and exact
+consumers. In particular the unresolved Drinfeld convention and coefficient
+adapter are not consequences of the known-Hopf baseline theorem. Normalized
+Levi maps are expressed in the root-line character convention, and must be
+translated to the positive-power parameter convention in FS IX.7.1.
 
-Of the decomposition's seven nodes in this scope, **six are theorems and one is a
-construction** — the fusion product. PROTOCOL §§4 and 12 ask for an API outline
-and unit tests for definitions and constructions, so there is one API block, with
-eight items and five unit tests. Nothing was invented to pad it: the `remaining`
-lists name Propositions VI.10.2, VI.10.3, Lemmas VI.11.2–VI.11.4 and the proof of
-VI.12.1 as located but unread, and PROTOCOL forbids writing nodes for unread
-content.
+## Validation
 
-## Source verification
+`python3 scripts/check_blueprint.py research/blueprint/packets/GeometricSatakeAndFusion--GS3.json --index "$TAUCETI_BASELINE/declarations.tsv"`
+reports **0 errors and 0 warnings**. All 46 API names and 27 named tests appear
+in the suggested file; all 27 tests are examples. Source excerpts and E1's
+quotation were compared against the normalized downloaded text. Only the four
+issue deliverables are changed.
 
-All four sources were downloaded again in this session and **all four SHA-256
-hashes reproduce byte for byte**: Geometrization `9ab9efbd…`, Berkeley
-`225505171e…`, Bhatt–Scholze arXiv:1507.06490 `b4d5a4e0…`, Keel
-arXiv:math/9901149 `2ec4141a…`. Only Fargues–Scholze is cited by the nodes of
-this part; the other three are carried because they are the roadmap's sources and
-are cited by the other part.
+**The full suggested file did not compile.** The existing shared build has the
+pinned Mathlib commit but lacks the compiled object for
+`TauCeti.Algebra.AlgebraicGroup.Representation.Tannaka.GroupFunctor`. The
+full-file `lean-check` stopped at that import. Other available builds use
+different Mathlib pins and were not used. No library build, cache fetch,
+Lake project or language server was started.
 
-## The library finding
+A scratch projection removing the unavailable Tau Ceti imports and affine
+carrier section, while retaining the Mathlib F-split-coequalizer and binary
+tensor statements, elaborated with `lean-check` at Mathlib 082e2d3. Its only
+warnings were admitted proofs. This checked syntax and the expressible types,
+not the omitted geometry, not the affine group section, and not the full file.
+Memory availability exceeded 100 GB; all checks ran sequentially and finished
+within the wrapper's twenty-minute limit. No compile remains running.
 
-`data/library-coverage.json` has no reviewed audit entry for this roadmap, so the
-pinned index was searched directly.
+## Sources and baseline read
 
-**Tau Ceti already has Tannaka reconstruction.** 125 declarations across twelve
-files under `TauCeti/Algebra/AlgebraicGroup/Representation/Tannaka/`, including
-`tensorAutFunctor : CommAlgCat R ⥤ GrpCat` — the tensor-automorphism functor of
-the fibre functor, which *is* the Tannakian group functor —
-`pointsFunctorIsoTensorAutFunctor`, the reconstruction isomorphism, and
-`reconstructedPoint`. Mathlib adds `HopfAlgebra`, `Bialgebra`,
-`BraidedCategory`, `SymmetricCategory` and `Functor.Braided`. None of that is
-planned here; all of it is cited.
+The packet records public URLs, SHA-256 hashes, editions and exact read sections
+for all five sources. Read FS VI.8–VI.12 in full, IV.7, VI.0, VI.6.5–6.8,
+VI.7.5/7.7/7.10/7.12–13, IX.2 p321, IX.6.1–6.3 and IX.7.1; Zhu §2.1 and
+§2.2 through the IC/classical equations; Gross §2, §3, §4 through (4.4) and §8;
+Prasad–Yu's author preprint introduction/Corollary 1.3 and §5.3–5.4; and
+Deligne–Milne's revised 2012 notes §2, Propositions 2.20/2.22/2.23 and proofs.
+The author-hosted FS file matches the checkpoint hash. The published
+Prasad–Yu text was unavailable (publisher access refused); its published
+Corollary 5.2 is cited by FS, while our quotations use author-preprint
+Corollary 1.3. No quotation is attributed to an unread edition.
 
-**What it does not give** is the statement `GS4:integral-dual-group` exists for.
-Tau Ceti's reconstruction is over a *field*, for finitely generated comodules
-over a Hopf algebra. Fargues–Scholze identify a group scheme over `ℤ_ℓ`,
-recovered from the torus and the rank-one Levi maps through the fact that
-`Ĝ(ℤ_ℓ)` is a maximal compact open subgroup of `Ĝ(Q_ℓ)` generated by the
-rank-one Levis. The roadmap says *"rational reductivity alone does not identify
-the integral group scheme"*, and the library search says the same of the pinned
-reconstruction. This is recorded as a gap so a reviewer can check that no node
-re-plans the field-level statement.
+The two upstream documents, ReductiveGroups and
+RepresentationTheory/RootSystems, were read in full. AUDIT-21, every touching
+blueprint link record, all six target descriptions and the actual statements of
+every listed baseline declaration were checked. Zhu's original geometry is
+imported from the early owner; the separately routed rational Gelfand proof
+belongs to its Part II. These imports do not replan those sources here.
 
-**Absent at both pins:** any Weil group and any Langlands dual group. Both are
-requested — the first from Tau Ceti's ClassFieldTheory roadmap, layer 9 (as a
-request only, never a prerequisite, because `check_blueprint.py` parses any
-`tauceti:` identifier as a baseline declaration), the second from
-`ReductiveGroupsPartII:RG2.4`.
-
-## GS4:classical-Satake-comparison gets no node
-
-Its coverage stays `not_read`. The decomposition inspected the section list of
-Fargues–Scholze Chapter VI, which ends at VI.12 with the Chevalley involution,
-and found no passage comparing the Frobenius trace of a Satake object on a
-finite-type special-fibre model with the spherical Hecke function. The stage's
-own text calls it *"a downstream comparison, not an input"*, and its only atlas
-supplier is `SmoothRepresentationsOfLocalGroups:SR.4`. The first structural
-proposal asks for a source route — Zhu's mixed-characteristic Satake paper §2 is
-in the reference library and unread — or for the comparison to move to the
-roadmap that owns the classical Satake transform.
-
-## What remains
-
-No layer is closed. The decomposition's seven gaps are carried forward and two
-added. In rough order of how much they block:
-
-1. **FS IV.7 (Drinfeld's lemma) is unread**, and it is the entire proof of
-   Proposition VI.9.2, the identification of `LocSys((Div¹_X)^I)` with continuous
-   `W_E^I`-representations — which is what makes the Weil action exist at all.
-   Requested from `VStackSheavesAndLisseCategories:VS1`. Shared with the other
-   part and with `HeckeStacksAndLocalShtukas`.
-2. **The proof of Theorem VI.11.1 was read only through the torus case, the
-   closed-immersion step and the generic-fibre discussion.** The rank-one/PGL₂
-   analysis, the pinning-independence argument and the Galois descent for
-   nonsplit `G` (printed pp. 236–239) were not read, nor were Lemmas VI.11.2–4.
-   That is the bulk of the integral identification.
-3. **Three-leg coherence of the collision maps** is an explicit obligation of the
-   stage's completion contract and no coherence proof was read; the source
-   asserts functoriality and compatibility with composition.
-4. **Propositions VI.10.2 and VI.10.3** (the abstract Tannakian criterion and the
-   exterior tensor product) and the construction of the one-element left adjoint
-   in VI.10.1 were located but not read.
-5. **The proof of Proposition VI.12.1** (the Chevalley involution) was not read;
-   only the statements VI.0.3, VI.12.1 and Remark VI.12.2.
-
-## Structural proposals
-
-1. **`GS4:classical-Satake-comparison` needs a source route or a move** — see
-   above.
-2. **The atlas edge `GS3:fusion → GS2:Satake-closure` points the wrong way.**
-   This part consumes `GS2:Satake-closure` in three places: Corollary VI.9.5
-   opens by invoking Proposition VI.8.2's dualizability, the fusion construction
-   uses the monoidal structure convolution provides, and the Tannakian left
-   adjoint is taken on the Satake category. Propositions VI.8.1(iii) and VI.8.2
-   are proved without fusion, in §VI.8, before §VI.9. The companion packet makes
-   the same proposal from the other side; it is repeated here because this is the
-   part that actually consumes the edge.
-
-## Where to resume
-
-The packet is complete against the decomposition for this part. The next real
-work is source reading: FS IV.7 first, then printed pp. 236–239 of VI.11 with
-Lemmas VI.11.2–4, which together are the unread bulk of the integral
-identification, then VI.10.2–VI.10.3 and the proof of VI.12.1. Zhu's paper is the
-candidate source for `GS4:classical-Satake-comparison` and is independent of all
-of that.
+Review and follow-up work can resume entirely from the four committed files
+and their public sources. Scratch downloads and compilation logs are temporary
+and are not required for the next worker.
