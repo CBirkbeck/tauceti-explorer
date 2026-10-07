@@ -25307,9 +25307,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-GeneralizedHeegnerCycles--GH.0.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #739"
+   "note": "claimed on GitHub issue #739"
   },
   {
    "id": "REV-GeneralizedHeegnerCycles--GH.0",
@@ -37657,8 +37657,9 @@
     "REV-PotentialModularityAndCompatibleSystems--R24.3"
    ],
    "prompt": "research/blueprint/prompts/ASM-PotentialModularityAndCompatibleSystems.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #253"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #253",
+   "finishedAt": "2026-10-07T01:04:13Z"
   },
   {
    "id": "ASM-PrismaticCohomology",
