@@ -75,7 +75,7 @@ import TauCeti.RingTheory.RootsOfUnity.Henselian
 # Suggested Lean forms for `KTheoryFiniteLocalFields` (stages L.1–L.7)
 
 This file is not the roadmap and is not exhaustive. The roadmap document
-`research/blueprint/readmes/KTheoryFiniteLocalFields.md` needs reconciliation with the independent
+`research/blueprint/readmes/KTheoryFiniteLocalFields.md` is definitive and agrees with the independent
 review corrections in the packet and `reviews/REV-KTheoryFiniteLocalFields.md`. The statements below
 suggest Lean forms so that contributors and reviewers converge on names and signatures; they claim
 no implementation, and `implementationStatus` stays `"unchecked"` for every node.
@@ -83,10 +83,9 @@ no implementation, and `implementationStatus` stays `"unchecked"` for every node
 Pinned commits: Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti
 `f790474821cf4256814db967cb154e7af3d0c369`.
 
-A preceding version has a historical successful compilation record. This version's
-`lean-check` stopped before elaboration because the shared build lacks
-`TauCeti/CategoryTheory/GrothendieckGroup/Abelian.olean`. This version was not compiled;
-that older result does not certify this file. The shared Mathlib pin agrees, but
+The revision's `lean-check` stopped before elaboration because the shared build lacks
+`TauCeti/CategoryTheory/GrothendieckGroup/Abelian.olean`. This version was not compiled.
+The shared Mathlib pin agrees, but
 its Tau Ceti checkout is not at the packet's Tau Ceti pin.
 No build, cache download, update or Lean language server was used in this pass.
 
@@ -5648,7 +5647,8 @@ Unresolved supplier: MotivicEtaleKTheory:M.8 early Chern export. The whole regul
 /-! Independent review concordance — REV-KTheoryFiniteLocalFields, 2026-10-06.
 
 The corrected packet meets the target-level checks with named supplier gaps.
-The review remains needs_changes until its accompanying reader is reconciled.
+The reader has been reconciled in BP-KTheoryFiniteLocalFields~2. The recorded
+needs_changes verdict is preserved for the independent re-review to replace.
 These are corrected planning requirements, not extra Lean declarations or proofs.
 The completed-comparison sketches now use finite-level/pro-system arguments. Every
 spectrum interface marked unavailable earlier still needs its named supplier.

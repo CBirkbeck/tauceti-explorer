@@ -1411,6 +1411,34 @@
       "url": "https://www.math.ias.edu/~akshay/research/RT.pdf",
       "read": "2026-10-06",
       "sha256": "4bc8373b4252837b98a3c90a9adf8d75408a7a5ff7b39cd7ef39bdfcc7e0d4c8"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf",
+      "read": "2026-10-07",
+      "sha256": "a04f53c9393b20672fab2a6818279b2f9996dbc7cf74735789ed13804b058845",
+      "scope": "Revision reread only: IV.2.8/Scholium2.8.1 and VI.7.3–7.5; not a fresh reading of the entire book."
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/math/9910186v2",
+      "read": "2026-10-07",
+      "sha256": "38f4919e35a7afedc8503c921929ac892fb1fe102d461724ce464d6923e44d0e",
+      "scope": "Revision reread only: Proposition3.4.1 and proof, Remark4.1.4, TheoremC proof and Remark6.1.5."
+    },
+    {
+      "kind": "author copy",
+      "url": "https://www.math.nagoya-u.ac.jp/~larsh/papers/005/acta.pdf",
+      "read": "2026-10-07",
+      "sha256": "bb4677d93dee666e4906c574877f111d3e69ea4317f7797d09335edab2f8af81",
+      "scope": "Revision reread only: Corollary2.4.7 and its Milnor/pro-zero argument."
+    },
+    {
+      "kind": "author copy",
+      "url": "https://www.math.nagoya-u.ac.jp/~larsh/papers/011/paper.pdf",
+      "read": "2026-10-07",
+      "sha256": "c797fdbf1f97d0cf401d0561028ea317bb2f517289db6922c25f91e8ab4eadfe",
+      "scope": "Revision reread only: §3 Theorem3.1 and proof; degree-preserving R−F and finite-level filtration argument."
     }
   ],
   "nodes": [
@@ -20529,5 +20557,39 @@
         "note": "The finite-rank Chern theorem is composed through the stable plus/Hurewicz and K₃ comparison; it retains all finite-rank and early-Chern supplier boundaries."
       }
     ]
+  },
+  "revisionAudit": {
+    "job": "BP-KTheoryFiniteLocalFields~2",
+    "agent": "Codex — codex-qRK3zy",
+    "date": "2026-10-07",
+    "claimComment": 6043158785,
+    "claimConfirmation": 6043161270,
+    "scope": "Reconcile the definitive reader with the independent review corrections. All 280 node IDs, mathematical fields, API/test contracts, source findings, supplier ownership and the needs_changes review are preserved.",
+    "readerReconciliation": {
+      "nodeBlocksCompared": 280,
+      "staleBlocksReplaced": 60,
+      "otherBlocksRetained": 220,
+      "sourceFindings": 48,
+      "gaps": 39,
+      "requests": 34,
+      "supplierSpecifications": 5,
+      "structuralProposals": 26,
+      "baselineDeclarations": 102
+    },
+    "sourceReads": [
+      "K-book 2013 public PDF: IV.2.8 and Scholium2.8.1; VI.7.3–7.5, including completion, lattice and integral-group distinctions.",
+      "Hesselholt–Madsen arXiv9910186v2: Proposition3.4.1 and proof; Remark4.1.4; proof of TheoremC and Remark6.1.5.",
+      "Hesselholt 1996 public author copy: Corollary2.4.7 and Milnor/pro-zero proof.",
+      "Geisser–Hesselholt 2006 public author copy: §3, Theorem3.1 and its finite-level/filtration proof."
+    ],
+    "baselineRead": "Read the 102 cited declaration statements from existing git objects at both exact baseline pins, including instance declarations and ambient hypotheses. No new baseline declarations or missing-library claims added.",
+    "completionCriterion": "Complete revision under PROTOCOL §0: the review acceptance blocker is reconciled; all seven stages remain planned with named gaps, none closed. Independent re-review remains necessary.",
+    "leanCheck": {
+      "result": "Both input and final-file attempts failed before elaboration; final executable declarations unchanged",
+      "reason": "The shared build lacks TauCeti/CategoryTheory/GrothendieckGroup/Abelian.olean and its Tau Ceti checkout does not match the packet pin. The Mathlib pin matches.",
+      "availableMemoryGB": 100,
+      "buildActions": "No build, update, cache download or language server used.",
+      "finalAvailableMemoryGB": 92
+    }
   }
 }
