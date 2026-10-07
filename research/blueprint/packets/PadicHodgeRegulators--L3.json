@@ -1661,7 +1661,8 @@
         "V is E-linear crystalline with nonnegative weights r_1<=...<=r_d and no trivial quotient; T is a G_Qp-stable O_E-lattice. Lambda_E=O_E[[G]][1/varpi], H_E is the locally analytic distribution algebra, with convolution."
       ],
       "prerequisites": [
-        "PadicHodgeRegulators:L2",
+        "PadicHodgeRegulators:L2/fontaine-iwasawa-map",
+        "PadicHodgeRegulators:L2/wach-psi-fixed-vectors",
         "PhiGammaModulesAndIwasawaCohomology:PG.4/psi-one-to-zero",
         "PhiGammaModulesAndIwasawaCohomology:PG.5",
         "PhiGammaModulesAndIwasawaCohomology:PG.6",
@@ -1750,7 +1751,7 @@
         "V is crystalline; h>=1 and Fil^(-h)D_cris(V)=D_cris(V)."
       ],
       "prerequisites": [
-        "PadicHodgeRegulators:L0",
+        "PadicHodgeRegulators:L0/hodge-tate-and-twist-conventions",
         "PhiGammaModulesAndIwasawaCohomology:PG.4",
         "LocallyAnalyticDistributions:L1"
       ],
@@ -1829,7 +1830,7 @@
       ],
       "prerequisites": [
         "PadicHodgeRegulators:L3/big-exponential-obstruction",
-        "PadicHodgeRegulators:L2",
+        "PadicHodgeRegulators:L2/fontaine-iwasawa-map",
         "PadicHodgeRegulators:L3/logarithmic-factors"
       ],
       "proofSteps": [
@@ -1959,7 +1960,8 @@
         "PadicHodgeRegulators:L3/crystalline-regulator",
         "PadicHodgeRegulators:L3/auxiliary-h-comparison",
         "PadicHodgeRegulators:L3/logarithmic-factors",
-        "PadicHodgeRegulators:L2"
+        "PadicHodgeRegulators:L2/local-iwasawa-twist",
+        "PadicHodgeRegulators:L2/twist-compatibility"
       ],
       "proofSteps": [
         "Use LZ4.4 and the one-step twisting relation to compare m with m+1; telescope the denominator factors. Localize at their nonzero-divisors."
@@ -2038,8 +2040,10 @@
       "prerequisites": [
         "PadicHodgeRegulators:L3/crystalline-regulator",
         "PadicHodgeRegulators:L3/gamma-leading-factor",
-        "PadicHodgeRegulators:L1",
-        "PadicHodgeRegulators:L2"
+        "PadicHodgeRegulators:L1/bloch-kato-logarithm",
+        "PadicHodgeRegulators:L1/dual-exponential",
+        "PadicHodgeRegulators:L1/twist-and-change-of-field",
+        "PadicHodgeRegulators:L2/character-specialisation"
       ],
       "proofSteps": [
         "LZ B.1 expresses the BK maps by p^-n times constant coefficients of phi^-n partial^j x. B.2 applies the unnormalized omega^-1 trace and identifies it with tau(omega)phi^-n times evaluation.",
@@ -2075,7 +2079,8 @@
       "prerequisites": [
         "PadicHodgeRegulators:L3/ramified-interpolation",
         "PadicHodgeRegulators:L3/crystalline-regulator",
-        "PadicHodgeRegulators:L1"
+        "PadicHodgeRegulators:L1/bloch-kato-logarithm",
+        "PadicHodgeRegulators:L1/dual-exponential"
       ],
       "proofSteps": [
         "Apply LZ B.1 at n=0 and B.2 at the origin. The commuting Euler polynomials give the stated product; invert B_j only using its explicit bijectivity hypothesis."
@@ -2187,7 +2192,9 @@
       "prerequisites": [
         "PadicHodgeRegulators:L3/crystalline-regulator",
         "PadicHodgeRegulators:L4/good-wach-basis",
-        "PadicHodgeRegulators:L2",
+        "PadicHodgeRegulators:L2/lattice-and-coefficient-squares",
+        "PadicHodgeRegulators:L2/generator-independence",
+        "PadicHodgeRegulators:L2/root-change",
         "LocallyAnalyticDistributions:L3"
       ],
       "proofSteps": [
@@ -2229,8 +2236,12 @@
         "PadicHodgeRegulators:L3/meromorphic-twist-extension",
         "PadicHodgeRegulators:L3/big-exponential",
         "PadicHodgeRegulators:L3/logarithmic-factors",
-        "PadicHodgeRegulators:L1",
-        "PadicHodgeRegulators:L2",
+        "PadicHodgeRegulators:L1/dual-exponential",
+        "PadicHodgeRegulators:L1/local-duality-of-conditions",
+        "PadicHodgeRegulators:L1/twist-and-change-of-field",
+        "PadicHodgeRegulators:L2/fontaine-iwasawa-map",
+        "PadicHodgeRegulators:L2/local-iwasawa-twist",
+        "PadicHodgeRegulators:L2/character-specialisation",
         "PadicHodgeRegulators:L3/unramified-interpolation"
       ],
       "proofSteps": [
@@ -2276,7 +2287,8 @@
         "PadicHodgeRegulators:L3/auxiliary-h-comparison",
         "PadicHodgeRegulators:L3/explicit-reciprocity",
         "PadicHodgeRegulators:L3/logarithmic-factors",
-        "PadicHodgeRegulators:L2",
+        "PadicHodgeRegulators:L2/fontaine-iwasawa-map",
+        "PadicHodgeRegulators:L2/lattice-and-coefficient-squares",
         "PadicMeasuresIwasawaAlgebras:L5"
       ],
       "proofSteps": [
@@ -2398,7 +2410,8 @@
       "prerequisites": [
         "PadicHodgeRegulators:L3/crystalline-regulator",
         "PadicHodgeRegulators:L3/logarithmic-factors",
-        "PadicHodgeRegulators:L2",
+        "PadicHodgeRegulators:L2/kummer-coleman-comparison",
+        "PadicHodgeRegulators:L2/root-change",
         "ColemanPowerSeries:L2/raw-coleman-map",
         "ColemanPowerSeries:L2/normalized-coleman-map",
         "ColemanPowerSeries:L3/principal-coleman-sequence",
@@ -2435,8 +2448,9 @@
         "p is odd; A has the stated reduction; use Rubin cyclotomic Z_p-extension indexing Q_n and compatible p-power roots. omega_A is the specified Neron differential; local finite quotients and integral H^1_s are inherited from L1/Selmer."
       ],
       "prerequisites": [
-        "PadicHodgeRegulators:L1",
-        "PadicHodgeRegulators:L2",
+        "PadicHodgeRegulators:L1/bloch-kato-subgroups",
+        "PadicHodgeRegulators:L1/dual-exponential",
+        "PadicHodgeRegulators:L2/character-specialisation",
         "SelmerIwasawaCohomology:L3",
         "PadicHodgeRegulators:L3/tate-coleman-comparison"
       ],
@@ -2556,7 +2570,7 @@
         "V is crystalline, initially with nonpositive weights -s_i. Repeated weights are allowed."
       ],
       "prerequisites": [
-        "PadicHodgeRegulators:L0",
+        "PadicHodgeRegulators:L0/hodge-tate-and-twist-conventions",
         "PadicHodgeTheory:R06.2"
       ],
       "proofSteps": [
@@ -2712,7 +2726,7 @@
         "PadicHodgeRegulators:L3/ramified-interpolation",
         "PadicHodgeRegulators:L4/logarithmic-elementary-divisors",
         "PadicHodgeRegulators:L4/logarithmic-matrix",
-        "PadicHodgeRegulators:L0"
+        "PadicHodgeRegulators:L0/hodge-tate-and-twist-conventions"
       ],
       "proofSteps": [
         "LLZ4.8 derives the filtration condition from reciprocity and the fact that the BK exponential vanishes on Fil^0. Corollaries4.9-4.10 identify the isotypical specialization.",
@@ -2962,7 +2976,9 @@
         "PadicHodgeRegulators:L4/coleman-coordinates",
         "PadicHodgeRegulators:L4/good-wach-basis",
         "PadicHodgeRegulators:L4/constant-basis-covariance",
-        "PadicHodgeRegulators:L2",
+        "PadicHodgeRegulators:L2/fontaine-iwasawa-map",
+        "PadicHodgeRegulators:L2/wach-psi-fixed-vectors",
+        "PadicHodgeRegulators:L2/lattice-and-coefficient-squares",
         "mathlib:LinearMap.ker"
       ],
       "proofSteps": [
@@ -3199,7 +3215,7 @@
         "PadicHodgeRegulators:L4/derham-character-domain",
         "PhiGammaModulesAndIwasawaCohomology:PG.2",
         "PhiGammaModulesAndIwasawaCohomology:PG.5",
-        "PadicHodgeRegulators:L2",
+        "PadicHodgeRegulators:L2/fontaine-iwasawa-map",
         "PadicHodgeTheory:P7"
       ],
       "proofSteps": [
@@ -3292,8 +3308,10 @@
       "prerequisites": [
         "PadicHodgeRegulators:L4/derham-regulator",
         "PadicHodgeRegulators:L3/gamma-leading-factor",
-        "PadicHodgeRegulators:L1",
-        "PadicHodgeRegulators:L2",
+        "PadicHodgeRegulators:L1/bloch-kato-exponential",
+        "PadicHodgeRegulators:L1/bloch-kato-logarithm",
+        "PadicHodgeRegulators:L1/dual-exponential",
+        "PadicHodgeRegulators:L2/character-specialisation",
         "PadicHodgeTheory:P7",
         "LocallyAnalyticDistributions:L1"
       ],
@@ -3333,7 +3351,8 @@
         "PadicHodgeRegulators:L3/ramified-interpolation",
         "PadicHodgeRegulators:L3/crystalline-regulator",
         "LocallyAnalyticDistributions:L3",
-        "PadicHodgeRegulators:L2"
+        "PadicHodgeRegulators:L2/fontaine-iwasawa-map",
+        "PadicHodgeRegulators:L2/character-specialisation"
       ],
       "proofSteps": [
         "RJ IC9 identifies N_rig(D) with the crystalline period module; under negative slopes the psi-one vectors lie in the positive Robba part. In an eigenbasis apply PropositionI.28’s Amice integral expression, which is analytic on the whole weight space.",
@@ -3411,25 +3430,6 @@
       "neededBy": [
         "PadicHodgeRegulators:L3/big-exponential-obstruction",
         "PadicHodgeRegulators:L4/analytic-differential-powers"
-      ]
-    },
-    {
-      "supplier": "PadicHodgeRegulators:L2",
-      "need": "Regulator-specific h_Iw and twist, roots, lattice, scalar-extension and generator squares with the PG.5 comparison; establish N(V)^psi1=full D(V)^psi1 in the no-trivial-quotient nonnegative range.",
-      "neededBy": [
-        "PadicHodgeRegulators:L3/crystalline-regulator",
-        "PadicHodgeRegulators:L3/big-exponential",
-        "PadicHodgeRegulators:L3/meromorphic-twist-extension",
-        "PadicHodgeRegulators:L3/ramified-interpolation",
-        "PadicHodgeRegulators:L3/naturality-and-lattice",
-        "PadicHodgeRegulators:L3/explicit-reciprocity",
-        "PadicHodgeRegulators:L3/regulator-determinant",
-        "PadicHodgeRegulators:L3/tate-coleman-comparison",
-        "PadicHodgeRegulators:L3/rubin-coleman-map",
-        "PadicHodgeRegulators:L4/signed-local-condition",
-        "PadicHodgeRegulators:L4/derham-regulator",
-        "PadicHodgeRegulators:L4/derham-interpolation-growth",
-        "PadicHodgeRegulators:L4/crystalline-derham-comparison"
       ]
     },
     {
@@ -3534,6 +3534,14 @@
         "PadicHodgeRegulators:L4/derham-character-domain",
         "PadicHodgeRegulators:L4/analytic-differential-powers"
       ]
+    },
+    {
+      "supplier": "SelmerIwasawaCohomology:L3",
+      "need": "The actual local Iwasawa cup-product pairing on inverse-corestriction H^1(Q_p(mu_{p^n}),T) and its Tate dual, with values in Lambda, coefficient extension and finite-level specialization. Specify the inverse-action involution in the second variable and the local invariant/trace normalization, using ArithmeticGaloisDuality D7 local pairings. The read L3 cohomology, Shapiro, descent and twist nodes do not by themselves supply this pairing or its normalized specialization identity (LZ Section 2.6 and Appendix B.6).",
+      "neededBy": [
+        "PadicHodgeRegulators:L3/explicit-reciprocity",
+        "PadicHodgeRegulators:L3/regulator-determinant"
+      ]
     }
   ],
   "coverage": [
@@ -3631,6 +3639,31 @@
         "PadicHodgeRegulators:L3/meromorphic-twist-extension"
       ],
       "detail": "StageL3 prints H_E-valued output for all crystalline V. LZ Section4.4 equation(10) constructs the normalized map for arbitrary weights into Frac(H_E) via logarithmic-factor division. Extra H_E-valued cancellation is not proved here and must not be asserted for every V. The packet proposes an explicit scope qualification and retains this target gap."
+    },
+    {
+      "title": "Cross-part Kummer sign in the Tate–Coleman comparison",
+      "neededBy": [
+        "PadicHodgeRegulators:L3/tate-coleman-comparison",
+        "PadicHodgeRegulators:L3/rubin-coleman-map"
+      ],
+      "detail": "L2/kummer-coleman-comparison supplies h_Iw(Delta(f_u) tensor e_1)=s kappa(u) with s in {+1,-1}, not the normalized equality used by the L3 Tate comparison. CC99 Proposition V.3.2 proof writes its Kummer representative with (1-tau), whereas the declared Selmer Kummer map uses tau(alpha)/alpha. Compare the actual period lift, Tate basis and h_Iw cocycle of I.4.1/IV.2.1 with LZ Section 6.4.2 before transporting the ell_0 Col_0=-ell_0 Col formula to this kappa. Its source-normalized target is retained; no sign is selected by assembly. Rubin’s separate source theorem is retained, but comparison through this Tate node inherits the gap."
+    },
+    {
+      "title": "Normalized local Iwasawa pairing and dual-exponential adjunction",
+      "neededBy": [
+        "PadicHodgeRegulators:L3/explicit-reciprocity",
+        "PadicHodgeRegulators:L3/regulator-determinant"
+      ],
+      "detail": "The L1 nodes provide the finite-level dual exponential and local-duality contract; the L2 nodes provide h_Iw, twists and character specialization. None defines the Lambda-valued Iwasawa pairing asserted in L3/explicit-reciprocity. Supply the inverse-action pairing and its normalized specialization, and check the order/sign of the L1 adjunction against Berger II.5–II.6 and LZ Appendix B.6. LZ’s source formula retains -sigma_-1 ell_0 and antilinearity in the second variable. A stage reference or finite-level perfectness alone cannot discharge this comparison."
+    },
+    {
+      "title": "Representation-level L2 comparison versus general de Rham Robba modules",
+      "neededBy": [
+        "PadicHodgeRegulators:L4/derham-regulator",
+        "PadicHodgeRegulators:L4/derham-interpolation-growth",
+        "PadicHodgeRegulators:L4/crystalline-derham-comparison"
+      ],
+      "detail": "The new precise dependency L2/fontaine-iwasawa-map applies to etale D(T) attached to a representation. L2/character-specialisation likewise specializes representation Iwasawa classes. These nodes support only that specialization of the L4 construction. RJ’s general de Rham D and N_rig(D) need the separately requested PG.5 Nakamura comparison and its localization/exponential interface; no etaleness or representation realization is inferred from the new node reference. Retain the existing N_rig/exponential and crystalline normalization gaps."
     }
   ],
   "sourceIssues": [
