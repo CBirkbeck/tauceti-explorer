@@ -36789,8 +36789,9 @@
     "REV-AInfCohomology--AI.6"
    ],
    "prompt": "research/blueprint/prompts/ASM-AInfCohomology.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #211"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #211",
+   "finishedAt": "2026-10-07T05:31:34Z"
   },
   {
    "id": "ASM-AlgebraicModuliForArithmeticGeometry",
