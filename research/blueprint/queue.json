@@ -39453,8 +39453,9 @@
    ],
    "revisionOf": "BP-IgusaVarietiesAndTorsionConcentration",
    "prompt": "research/blueprint/prompts/BP-IgusaVarietiesAndTorsionConcentration~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6931"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6931",
+   "finishedAt": "2026-10-07T16:15:22Z"
   },
   {
    "priority": 2,
@@ -69854,7 +69855,8 @@
     "REV-FIX-RT-AREA-automorphic-1~2"
    ],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-automorphic-1~3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6900"
   },
   {
    "id": "REV-FIX-RT-AREA-automorphic-1~3",
