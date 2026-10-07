@@ -21348,7 +21348,8 @@
    ],
    "avoidAccountOf": "BP-AInfCohomology--AI.0",
    "prompt": "research/blueprint/prompts/REV-AInfCohomology--AI.0.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #338"
   },
   {
    "id": "BP-AInfCohomology--AI.6",
@@ -26184,9 +26185,10 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-HodgeTateAndCanonicalSubgroups--T6.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #756"
+   "note": "deliverables arrived from an external worker on issue #756",
+   "finishedAt": "2026-10-07T03:42:02Z"
   },
   {
    "id": "REV-HodgeTateAndCanonicalSubgroups--T6",
