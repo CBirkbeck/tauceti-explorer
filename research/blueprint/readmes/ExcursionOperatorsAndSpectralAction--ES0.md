@@ -1,2319 +1,1576 @@
-# Excursion operators and the spectral action — layers ES0 to ES4
+# Excursion operators and the spectral action: ES0–ES4
 
-*A blueprint packet for the Tau Ceti Atlas roadmap `ExcursionOperatorsAndSpectralAction`,
-part `ES0` (layers ES0, ES0:classical-center, ES1, ES1:finite-ramification,
-ES1:spectral-center, ES2, ES3, ES4). Written by Claude Code, session `cc-7b31c4`,
-24 September 2026, for issue #726.*
+This is the completed target-level plan for part ES0 of the roadmap. All eight stages are **planned**; none is closed. The packet records five explicit gaps and twenty supplier requests. Every mathematical node is unchecked. The source and the node specifications below are definitive for this part.
 
-## What this document is
+The source is Fargues–Scholze, [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), identified by the recorded SHA-256 and read on 7 October 2026. Its exact statements and the additional roadmap obligations are distinguished in each node’s source match. The document follows the mathematical-definition/API/test style of the upstream AdicSpaces and CharacterTheory roadmaps.
 
-Centres, excursion operators and the spectral action, layers ES0 to ES4. This roadmap
-has NO integrated decomposition - no file in data/decompositions/, no draft, no external
-contribution - so every one of the twenty-six nodes of this packet was written from
-Fargues-Scholze read directly in this session, from a file whose SHA-256 reproduces the
-recorded value byte for byte, with the text extracted by inflating the PDF's object
-streams and every printed page read off the running heads. The sections read are VIII.4
-in full, VIII.5's statements, IX.4, IX.5 in full, the head of IX.6, IX.7 in full and the
-whole of Chapter X. The packet covers: the Bernstein centre of a category as End(id_C),
-with the distinction between a natural endomorphism of the identity and an endomorphism
-of one object; excursion data and operators, the invariant function they factor through,
-the reindexing, multiplication and unit-insertion relations, and Theorem VIII.4.1's
-algebra map Exc(W,G-hat) -> End(id_C); the discretisation route by which a theory stated
-for a DISCRETE group reaches W_E, through the wild cutoff of IX.5.1 and a discretisation
-of the tame inertia; the map from the geometric centre to the classical Bernstein centre
-and the description of the latter as a limit over levels; the spectral centre, the
-geometric centre and the Hecke-compatible part; Proposition IX.5.1 with its proof in
-full and the component decomposition it produces, a sum on compact objects and a product
-on Ind-categories; Theorem IX.5.2 and the excursion-algebra fallback that survives
-without its coefficient hypothesis; compact support over a parameter stack that is an
-infinite disjoint union; Theorem X.1.1 and Lemma X.1.2 each with its proof in full, and
-Corollary X.1.3, the rational spectral action; the failure of X.1.2 integrally, the
-sifted-colimit approximation that replaces it, Propositions X.3.1 to X.3.4 and Theorems
-X.0.1 and X.0.2; and, for ES4, the duality square of IX.5.3 and the elliptic material of
-X.2 with its decomposition over the basic elements of B(G). Several statements a reader
-might expect here are deliberately NOT planned, because the roadmap assigns them
-elsewhere: FS Definition/Proposition IX.4.1 and its abstract form Corollary VIII.4.3
-belong to ES5, the representation-level consequences of IX.5.3 to ES6:duality, and
-Definition IX.7.1 with Theorems IX.7.2, IX.7.3 and IX.7.4 to ES7:parabolic and ES7:GLn-
-comparison. All of them were read in this session and their locators are recorded in the
-handoff note for whoever takes those layers. Twenty-six baseline declarations, all read
-at the pinned commits. Eleven gaps, each with a next source action. Seventeen requests.
-Three structural findings. A reviewed library audit DOES exist for this roadmap:
-AUDIT-20, reviewed as REV-AUDIT-20 on 17 September 2026 (240 targets checked, 89
-corrections), covers every layer of ExcursionOperatorsAndSpectralAction and returns the
-verdict NOT BUILT for each of them. Two targets are recorded as PARTIAL and are cited
-here rather than planned: ES0's algebra of natural endomorphisms of the identity, which
-is Mathlib's `CategoryTheory.CatCenter`, and ES3's coefficient hypothesis, which the
-pinned root pairings can state.
+## Conventions and coefficient ranges
 
-Nothing here is formalised. Every node carries `implementationStatus: "unchecked"`,
-no Lean was compiled for this job, and the suggested file is a set of signatures and
-`example` statements, not a development.
+E is a nonarchimedean local field of residue characteristic p and residue cardinality q; ell != p. Fix a square root of q in each coefficient algebra used for the normalized Hecke family.
 
-## The source, and how it was read
+G/E is connected reductive, H = dual G is its split pinned dual group over Z_ell, and W_E -> Q is the finite quotient defining the pinned action on H. All nonsplit formulas use H semidirect Q and the prescribed projection to Q.
 
-- **Geometrization of the local Langlands correspondence**, Laurent Fargues, Peter Scholze.
-- `https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf`
-- SHA-256 `9ab9efbd0df251bfa3b610d1d1d88a8dfb1bdf7c397bd04f4c277280d98ae905`, accessed 2026-09-24.
-- Author-hosted 356-page PDF (MPIM Bonn); corresponds to arXiv:2102.13459v4 by metadata and contents, not by byte comparison. PDF page = printed page.
+D denotes D_lis(Bun_G,Lambda); D^omega is its compact subcategory. Z^P=[Z^1(W_E/P,H)_Lambda/H]. End and functor categories in mathematical statements are enhanced unless explicitly called ordinary.
 
-The file was downloaded and hashed in this session and the hash reproduces the value
-recorded in `references/CATALOGUE.json` byte for byte. The text was extracted by
-inflating the PDF's object streams and reading its text operators; printed pages were
-recovered from the running heads. Sections read:
+The center-order condition |pi_0 Z(G)| invertible is distinct from the DVR integral-action condition ell not dividing |pi_1(H)_tors|. The rational action has no latter restriction; the excursion route and ES5 work at excluded primes.
 
-- VIII.4 Excursion operators, printed pp. 290-293: the categorical hypotheses including
-  that W is taken DISCRETE, Theorem VIII.4.1 with its attribution to V. Lafforgue,
-  Definition VIII.4.2, the relation S_D = S_{D'}, the invariant function
-  f(V,alpha,beta), the cartesian reindexing square, the fusion argument for
-  multiplicativity, the unit-insertion identification and the maps Theta_n, and
-  Corollary VIII.4.3.
-- VIII.5, printed p. 293: Theorem VIII.5.1 and Theorem VIII.5.2, read for their
-  statements only, because the proof of IX.5.2 and the proof of X.0.2 both invoke
-  VIII.5.1. Their own decomposition belongs to LanglandsParameterStacks.
-- IX.4, printed p. 327: Definition/Proposition IX.4.1 with its one-line proof, read
-  because ES5 owns it and because this packet must not duplicate it.
-- IX.5 The Bernstein center, printed pp. 327-330: the non-quasicompactness of the
-  parameter stack, Proposition IX.5.1 with its proof in full, the definition of D^P_lis,
-  the universal homeomorphism and the component decomposition on compact objects and on
-  Ind-categories, the remark that a Schur-irreducible object lies in one factor, the map
-  Z^geom -> Z(G(E),Lambda) with its attribution to Helm-Moss, Theorem IX.5.2 with its
-  proof, the construction of D^geom and D^spec, and Proposition IX.5.3 with its proof.
-- IX.6, printed p. 330 (head of section only): the standing hypothesis on pi_0 Z(G) and
-  the statement that all results admit a variant with an excursion algebra when it is
-  omitted. The rest of IX.6 - isogenies, products, Weil restriction and tori - was read
-  but belongs to ES6:functoriality and is NOT planned here.
-- IX.7, printed pp. 334-338: Definition IX.7.1, Theorem IX.7.2 with its proof, Corollary
-  IX.7.3 with its proof, and Theorem IX.7.4 with its proof. These were read to route
-  them, and they belong to ES7:parabolic and ES7:GLn-comparison; only the description of
-  the classical Bernstein centre as a limit over levels, quoted from the proof of
-  IX.7.2, is taken into this packet.
-- X.0, printed pp. 339-340: the non-quasicompactness of Z^1(W_E,G-hat), the definition
-  of a compactly supported action, Theorem X.0.1, the reduction using the proof of
-  IX.5.1 and a discretisation, and Theorem X.0.2.
-- X.1 Rational coefficients, printed pp. 340-346: the construction of Map_{/BQ}(S,B(H
-  semidirect Q)) and its presentation as a quotient of an affine derived scheme, Theorem
-  X.1.1 with its proof in full, Lemma X.1.2 with its proof in full, Corollary X.1.3 with
-  its proof, Conjecture X.1.4, Remark X.1.5, Examples X.1.6 and X.1.7 and Remark X.1.8,
-  and the construction of the eigensheaf Aut_phi.
-- X.2 Elliptic parameters, printed pp. 346-348: Definition X.2.1 with its deformation-
-  theoretic footnote, the vanishing on non-basic strata, the decomposition over basic
-  elements, the supercuspidality statement, the description when Z(G-hat)^Gamma is
-  finite, Conjecture X.2.2, and the Hecke formula T_V(pi) = sum of Act_{W_i}(pi) tensor
-  sigma_i.
-- X.3 Integral coefficients, printed pp. 348-350: the failure of the analogue of Lemma
-  X.1.2, the definition of the sifted-colimit approximation, Propositions X.3.1, X.3.2,
-  X.3.3 and X.3.4 each with its proof, the closing sentence combining them with Theorem
-  VIII.5.1, and Conjecture X.3.5.
-
-## What this packet does not plan, and why
-
-Three bodies of material inside the sections read belong to layers outside this part,
-and are deliberately left to them rather than duplicated here (PROTOCOL.md section 15).
-Their locators are recorded in the handoff note so that whoever takes those layers does
-not have to find them again.
-
-| Statement | Printed page | Owner |
-| --- | --- | --- |
-| Corollary VIII.4.3, the abstract semisimple parameter of a Schur object | 292–293 | `ES5` |
-| Definition/Proposition IX.4.1, the same statement for `D_lis(Bun_G,L)` | 327 | `ES5` |
-| IX.5.3's second sentence, on duals of irreducible smooth representations | 329 | `ES6:duality` |
-| IX.6.1–IX.6.5, isogenies, products, Weil restriction and tori | 330–333 | `ES6:functoriality` |
-| Definition IX.7.1 and Theorems IX.7.2, IX.7.3 | 334–338 | `ES7:parabolic` |
-| Theorem IX.7.4, the `GL_n` comparison | 338 | `ES7:GLn-comparison` |
-| Conjectures X.1.4, X.2.2 and X.3.5 | 344, 347, 350 | conjectural; no layer plans them |
-
-## ES0 — Centers and excursion algebra
-
-*Coverage: **partial**. 6 nodes.*
-
-The Bernstein centre of a category as End(id_C) with its centrality and scalar
-structure; excursion data and operators (VIII.4.2); the invariant function
-f(V,alpha,beta) and the independence of the realising representation; the reindexing,
-multiplication and unit-insertion relations; Theorem VIII.4.1; and the discretisation
-route by which the discrete theory reaches W_E. This roadmap has NO integrated
-decomposition, so every node was written from Fargues-Scholze read in this session.
-
-### The Bernstein centre of a category: what Mathlib already has, and the enhanced version that is missing
-
-`ExcursionOperatorsAndSpectralAction:ES0/bernstein-center-of-a-category` — *definition* · planet **The Bernstein centre of a category**
-
-**Statement.**
-
-For a Lambda-linear category C the BERNSTEIN CENTRE of C is End(id_C). Mathlib ALREADY
-HAS THIS at the pinned commit: `CategoryTheory.CatCenter C` is by definition `End
-(1_C)`, it is commutative, `CatCenter.app` evaluates a central element at an object,
-`CatCenter.naturality` records the naturality from which centrality follows, and
-`Linear.toCatCenter` gives the ring map R -> CatCenter C for an R-linear category.
-Fargues-Scholze use exactly this name for exactly this object: Theorem VIII.4.1 produces
-a map of algebras to 'the Bernstein center of C (i.e., the algebra of endomorphisms of
-the identity of C)'. WHAT IS MISSING, and what this node owns, is the ENHANCED version:
-for a stable Lambda-linear enhancement the relevant object is the DEGREE-ZERO part pi_0
-End(id), which the proof of IX.5.1 writes Z(D^P_lis(Bun_G,Lambda)^omega) = pi_0 End(id),
-together with its condensed structure. The reviewed audit AUDIT-20 records this target
-as PARTIAL for precisely this reason.
-
-**Hypotheses and warnings.**
-
-- The 1-categorical construction is NOT planned here: it is `CategoryTheory.CatCenter`
-  at Mathlib 082e2d3, together with its `app`, `naturality`, `ext` and `mul_app` lemmas
-  and the scalar map `Linear.toCatCenter`. The reviewed audit AUDIT-20 calls this target
-  partial, and PROTOCOL.md section 15 forbids planning it again
-- What is missing at the pins is the enhanced version: pi_0 of the endomorphism spectrum
-  of the identity of a STABLE Lambda-linear infinity-category, and its condensed
-  structure. That is what the excursion algebra maps to and what this node owns
-- The centre is an invariant of the CATEGORY, not of any group; the comparison with the
-  classical Bernstein centre of a locally profinite group is ES0:classical-center's, and
-  AUDIT-20 records that the classical Bernstein centre does not exist in either library
-- Centrality is automatic from naturality, and is already proved at the pins as
-  `CatCenter.naturality`
-- Lambda is a Z_l[sqrt q]-algebra throughout this roadmap, and C is Lambda-linear, so
-  the scalar structure is `Linear.toCatCenter`
-
-**Proof outline.**
-
-1. Cite the pinned `CategoryTheory.CatCenter` for the 1-categorical notion, its
-   commutativity, `app` and the scalar map.
-2. Define the degree-zero centre of a stable Lambda-linear enhancement as pi_0 of the
-   endomorphisms of the identity, and check that it recovers the pinned notion on the
-   homotopy category.
-3. Record the condensed structure it inherits from the condensed enhancement of
-   D_lis(Bun_G,Lambda), which is what makes the excursion character continuous.
-
-**Planning API.**
-
-| Name | Role | Statement |
-| --- | --- | --- |
-| `CatCenter` | data | PINNED. `CategoryTheory.CatCenter C = End (1_C)`, commutative, at Mathlib 082e2d3. Cited, not planned. |
-| `CatCenter.app` | projection | PINNED. Evaluation at an object; this is the pinned form of the one-object/all-objects distinction. |
-| `CatCenter.naturality` | structure | PINNED. Naturality, from which centrality follows. |
-| `Linear.toCatCenter` | structure | PINNED. `R ->+* CatCenter C` for an R-linear category; the Lambda-algebra structure of the centre. |
-| `centreOfStableEnhancement` | data | MISSING: pi_0 End(id) for a stable Lambda-linear enhancement, which is what Theorem VIII.4.1's target is in the geometric setting. |
-| `centreOfStableEnhancement.toCatCenter` | compatibility | MISSING: it agrees with the pinned `CatCenter` of the homotopy category; this is the compatibility the audit's partial verdict asks for. |
-| `centreOfStableEnhancement.condensed` | structure | MISSING: the condensed structure inherited from the condensed enhancement of D_lis(Bun_G,Lambda), without which no excursion character is continuous. |
-
-**Where it is used.**
-
-- `ExcursionOperatorsAndSpectralAction:ES0/excursion-algebra-to-bernstein-center` — the excursion algebra maps into it
-- `ExcursionOperatorsAndSpectralAction:ES1/spectral-and-geometric-centers` — the geometric centre is this construction applied to D_lis(Bun_G,Lambda)
-- `ExcursionOperatorsAndSpectralAction:ES0:classical-center/map-to-the-classical-bernstein-center` — the comparison with the classical Bernstein centre starts from it
-
-**Unit tests.**
-
-- `agrees_with_pinned_CatCenter` — On the homotopy category the degree-zero centre of a stable enhancement is the pinned `CategoryTheory.CatCenter`; a definition that does not is wrong.
-- `naturality_is_required` — A family of endomorphisms that is not natural is not central; `CatCenter.app` and `CatCenter.naturality` already make this precise at the pins.
-- `scalar_at_a_schur_object` — If End(X) = Lambda then evaluation at X gives an algebra map out of the centre; this is the mechanism the parameter assignment of ES5 uses.
-- `degree_zero` — For a stable C the target of Theorem VIII.4.1 is pi_0 of the endomorphisms of the identity; using the whole spectrum changes the statement.
-
-**Acceptance.**
-
-- Check that the 1-categorical notion is the pinned `CatCenter` and is cited rather than redefined
-- Check that the degree-zero centre of a stable enhancement recovers `CatCenter` of the homotopy category
-- Check that an endomorphism of one object does not give a central element, which `CatCenter.app` already makes precise
-- Check that evaluation at a Schur-irreducible object gives a character of the centre, the mechanism ES5 uses
-
-**Prerequisites.** `EnhancedDerivedSheaves:E5:abstract`, `VStackSheavesAndLisseCategories:VS4`, `SmoothRepresentationsOfLocalGroups:SR.0`, `mathlib:CategoryTheory.CatCenter`, `mathlib:CategoryTheory.CatCenter.app`, `mathlib:CategoryTheory.CatCenter.naturality`, `mathlib:CategoryTheory.Linear.toCatCenter`, `mathlib:CategoryTheory.Functor`, `mathlib:CategoryTheory.NatTrans`, `mathlib:CategoryTheory.Preadditive`, `mathlib:Module.End`, `mathlib:Condensed`
-
-**Sources.**
-
-- *Theorem VIII.4.1, printed p. 291.* “there is a natural map of algebras Exc(W, G-hat) -> End(id_C) to the Bernstein center of C (i.e., the algebra of endomorphisms of the identity of C).”
-  Fargues-Scholze's own name for End(id_C). Read directly from Geometrization.pdf in
-  this session; the file's SHA-256 reproduces the value recorded in
-  references/CATALOGUE.json.
-- *Proof of Proposition IX.5.1, printed p. 328.* “Theorem VIII.4.1 gives a canonical map of algebras Exc(W, G-hat) -> Z(D^P_lis(Bun_G,Lambda)^omega) = pi_0 End(id_{D^P_lis(Bun_G,Lambda)^omega}).”
-  The degree-zero part, and the notation Z(-) for it, exactly as the excursion
-  algebra's target.
-- *Proof of Proposition IX.5.1, printed p. 328.* “Exc(W, G-hat) -> Z(D^P_lis(Bun_G,Lambda)^omega) = pi_0 End(id_{D^P_lis(Bun_G,Lambda)^omega})”
-  The degree-zero part, which is the enhanced notion this node owns. The 1-categorical
-  notion is already `CategoryTheory.CatCenter` at the pins and is cited, not planned.
-
-### FS VIII.4.2: excursion data and the excursion operators S_D
-
-`ExcursionOperatorsAndSpectralAction:ES0/excursion-datum-and-operator` — *definition* · planet **Excursion data and operators**
-
-**Statement.**
-
-An EXCURSION DATUM is a tuple D = (I, V, alpha, beta, (gamma_i)_{i in I}) consisting of
-a finite set I, an object V in Rep_{Z_l}((G-hat semidirect Q)^I) with maps alpha : 1 ->
-V restricted to Rep_{Z_l}(G-hat) and beta : V restricted to Rep_{Z_l}(G-hat) -> 1, and
-elements gamma_i in W for i in I; the restriction Rep_{Z_l}((G-hat semidirect Q)^I) ->
-Rep_{Z_l}(G-hat) is the restriction to the DIAGONAL copy of G-hat inside G-hat^I inside
-(G-hat semidirect Q)^I. Such a datum gives an endomorphism of the identity functor of C,
-S_D : id = T_1 --T_alpha--> T_V --(gamma_i)_{i in I}--> T_V --T_beta--> T_1 = id.
-Varying the gamma_i, this gives a map W^I -> End(id_C).
-
-**Hypotheses and warnings.**
-
-- V is a representation of the I-FOLD product (G-hat semidirect Q)^I, but alpha and beta
-  are maps to and from the restriction to the DIAGONAL copy of G-hat; conflating the two
-  makes the datum meaningless
-- W is a DISCRETE group. Fargues-Scholze say so explicitly: 'In order to avoid
-  topological problems, we work in the setting of the discrete subgroup W inside W_E/P;
-  in fact, we can take here any discrete group W.' The passage to the Weil group itself
-  is not part of this definition
-- The categorical datum is a monoidal Rep_{Z_l}(Q^I)-linear functor Rep_{Z_l}((G-hat
-  semidirect Q)^I) -> End(C)^{BW^I}, given FUNCTORIALLY IN FINITE SETS I; a family of
-  functors without that functoriality is not the datum, and the finite-set functoriality
-  is HeckeStacksAndLocalShtukas:HS4's
-- The middle arrow is the action of the tuple (gamma_i) through the W^I-equivariant
-  structure of T_V, which in the geometric application is the CONDENSED Weil action of
-  HS1
-
-**Proof outline.**
-
-1. Fargues-Scholze isolate the categorical data - a Lambda-linear category C with a
-   monoidal Hecke action functorial in finite sets, over a DISCRETE group W - and define
-   the excursion datum against it.
-2. The operator is the composite of T_alpha, the action of the tuple (gamma_i) and
-   T_beta.
-3. Varying the gamma_i gives a map W^I -> End(id_C).
-
-**Planning API.**
-
-| Name | Role | Statement |
-| --- | --- | --- |
-| `ExcursionDatum` | data | (I, V, alpha, beta, (gamma_i)) with V in Rep((G-hat semidirect Q)^I), alpha and beta unit and counit for the DIAGONAL restriction, and gamma_i in the discrete group W. |
-| `ExcursionDatum.diagonalRestriction` | structure | alpha and beta are maps to and from the restriction of V to the diagonal copy of G-hat; this is what makes the composite an endomorphism of the identity. |
-| `excursionOperator` | data | S_D = T_beta o (gamma_i)_* o T_alpha : id -> id, the four-step composite through T_V. |
-| `excursionOperator.varyGamma` | functoriality | Varying the gamma_i gives W^I -> End(id_C); this is the map the excursion algebra is built from. |
-| `heckeDatum` | data | The categorical input: a monoidal Rep(Q^I)-linear functor Rep((G-hat semidirect Q)^I) -> End(C)^{BW^I}, functorial in finite sets I. |
-| `heckeDatum.discreteW` | structure | W is a discrete group in the abstract theory; topology enters only through the discretisation of ES0's comparison node. |
-
-**Where it is used.**
-
-- `ExcursionOperatorsAndSpectralAction:ES0/invariant-function-attached-to-a-datum` — the function is extracted from (V,alpha,beta)
-- `ExcursionOperatorsAndSpectralAction:ES0/excursion-algebra-to-bernstein-center` — the algebra map is assembled from these operators
-- `ExcursionOperatorsAndSpectralAction:ES1:finite-ramification/uniform-wild-subgroup` — the wild subgroup is chosen so that all these operators factor
-
-**Unit tests.**
-
-- `trivial_datum` — For I a point and V the unit, S_D is the identity; anything else is a normalisation error.
-- `two_leg_std_dual` — For I of size two, V = std tensor std-dual with the unit and counit, the operators determine the trace of the associated representation.
-- `diagonal_not_product` — alpha and beta are maps to and from the DIAGONAL restriction; using the full product representation gives maps that do not compose to an endomorphism of the identity.
-- `discrete_group` — W is discrete in this definition; a version quantifying over all of W_E with its topology is the statement of a different, later, step.
-
-**Acceptance.**
-
-- Check the trivial datum I a point, V = 1: the operator is the identity
-- Check the two-leg datum with V = std tensor std-dual and the unit and counit, the datum that determines a trace
-- Check that alpha and beta are maps to and from the DIAGONAL restriction, not the whole product
-- Check that W is taken discrete here, and that nothing in this definition mentions a topology
-
-**Prerequisites.** `ExcursionOperatorsAndSpectralAction:ES0/bernstein-center-of-a-category`, `HeckeStacksAndLocalShtukas:HS1`, `HeckeStacksAndLocalShtukas:HS4`, `GeometricSatakeAndFusion:GS4:integral-dual-group`, `EnhancedDerivedSheaves:E5:abstract`, `SmoothRepresentationsOfLocalGroups:SR.0`, `mathlib:Representation`, `mathlib:CategoryTheory.MonoidalCategory`, `mathlib:CategoryTheory.Functor.Monoidal`, `mathlib:CategoryTheory.Adjunction`
-
-**Sources.**
-
-- *Definition VIII.4.2, printed p. 291.* “An excursion datum is a tuple D = (I,V,alpha,beta,(gamma_i)_{i in I}) consisting of a finite set I, an object V in Rep_{Z_l}((G-hat semidirect Q)^I) with maps alpha : 1 -> V|_{Rep_{Z_l}(G-hat)}, beta : V|_{Rep_{Z_l}(G-hat)} -> 1 and elements gamma_i in W, i in I. Here, the restriction ... is the restriction to the diagonal copy of G-hat inside G-hat^I inside (G-hat semidirect Q)^I.”
-  The definition, quoted with the diagonal restriction. Read directly from the hash-
-  verified PDF in this session.
-- *After Definition VIII.4.2, printed p. 291.* “These give rise to an endomorphism of the identity functor of C, as follows. S_D : id = T_1 --T_alpha--> T_V --(gamma_i)_{i in I}--> T_V --T_beta--> T_1 = id. Varying the gamma_i, this gives a map W^I -> End(id_C) to the endomorphisms of the identity functor on C.”
-  The operator as a four-step composite, and the resulting map out of W^I.
-- *Before Theorem VIII.4.1, printed pp. 290-291.* “In order to avoid topological problems, we work in the setting of the discrete subgroup W inside W_E/P; in fact, we can take here any discrete group W. Let Lambda be a discrete Z_l-algebra and let C be a Lambda-linear category. Assume that functorially in finite sets I, we are given a monoidal Rep_{Z_l}(Q^I)-linear functor Rep_{Z_l}((G-hat semidirect Q)^I) -> End(C)^{BW^I} : V -> T_V.”
-  The exact categorical hypotheses, including that W is DISCRETE and that the functor
-  is given functorially in finite sets.
-
-### FS VIII.4: the operator depends only on the invariant function f(V,alpha,beta), not on V
-
-`ExcursionOperatorsAndSpectralAction:ES0/invariant-function-attached-to-a-datum` — *construction* · planet **The invariant function of an excursion datum**
-
-**Statement.**
-
-A triple (V, alpha, beta) determines an element f = f(V,alpha,beta) in O(G-hat \ (G-hat
-semidirect Q)^I / G-hat), the functions on the quotient by diagonal left and right
-multiplication: for g_i in G-hat semidirect Q, i in I, the composite 1 --alpha--> V
---(g_i)_{i in I}--> V --beta--> 1 is an element of the base ring, and since alpha and
-beta are equivariant for the diagonal G-hat-action this is a function on the double
-quotient. If two excursion data D = (I,V,alpha,beta,(gamma_i)) and D' =
-(I,V',alpha',beta',(gamma_i)) share I and the gamma_i and there is a map g : V -> V'
-taking alpha to alpha' and beta' to beta, then S_D = S_{D'}. Hence the assignment
-factors through f and defines Theta_I : O(G-hat \ (G-hat semidirect Q)^I / G-hat) ->
-Map(W^I, End(id_C)).
-
-**Hypotheses and warnings.**
-
-- The double quotient is by DIAGONAL left and right multiplication; f is not a function
-  on (G-hat semidirect Q)^I itself
-- The comparison of D and D' requires a map g : V -> V' carrying alpha to alpha' AND
-  beta' back to beta - one arrow in each direction of composition - and the proof is
-  that the resulting ladder of squares commutes
-- This is the step the roadmap calls 'independence of the representation realizing the
-  function': two representations realising the same invariant function give the same
-  operator
-- The presentation of the invariant ring is LanglandsParameterStacks:LP2:excursion-
-  presentation's, not this roadmap's
-
-**Proof outline.**
-
-1. Given (V,alpha,beta), evaluate the composite 1 -> V -> V -> 1 at a tuple (g_i) to get
-   an element of the base ring.
-2. Use equivariance of alpha and beta under the diagonal G-hat-action to see that this is
-   a function on the double quotient.
-3. Given g : V -> V' as above, write the ladder of four squares comparing S_D and S_{D'}
-   and observe that it commutes, so S_D = S_{D'}.
-4. Conclude that the assignment D -> S_D factors through f, giving Theta_I.
-
-**Planning API.**
-
-| Name | Role | Statement |
-| --- | --- | --- |
-| `invariantFunction` | data | f(V,alpha,beta) in O(G-hat \ (G-hat semidirect Q)^I / G-hat), obtained by evaluating the composite on a tuple. |
-| `invariantFunction.doubleQuotient` | structure | f lives on the quotient by DIAGONAL left and right multiplication, which is what the equivariance of alpha and beta buys. |
-| `operatorDependsOnlyOnF` | characterisation | S_D depends only on I, the gamma_i and f; two realisations related by g : V -> V' give the same operator. |
-| `Theta` | data | Theta_I : O(G-hat \ (G-hat semidirect Q)^I / G-hat) -> Map(W^I, End(id_C)), the factored assignment. |
-| `Theta.presentation` | structure | The source of Theta_I is the invariant ring whose presentation LanglandsParameterStacks:LP2:excursion-presentation owns; this roadmap consumes it. |
-
-**Where it is used.**
-
-- `ExcursionOperatorsAndSpectralAction:ES0/excursion-relations-and-the-algebra-map` — the relations are stated for Theta, not for individual data
-- `ExcursionOperatorsAndSpectralAction:ES0/excursion-algebra-to-bernstein-center` — the algebra map is Theta assembled over all I
-- `ExcursionOperatorsAndSpectralAction:ES1:finite-ramification/component-decomposition` — the idempotents that cut out the components are invariant functions
-
-**Unit tests.**
-
-- `independence_of_realisation` — Two triples with a map g as in the source give the same operator; a construction that depends on V is not this one.
-- `double_quotient` — f is a function on the double quotient; a function on the plain product is not invariant and does not descend.
-- `trivial_function` — The constant function 1 gives the identity endomorphism.
-- `needs_both_directions` — The comparison needs g to carry alpha forward AND beta backward; assuming only one direction does not give S_D = S_{D'}.
-
-**Acceptance.**
-
-- Check that f is well defined on the double quotient and not merely on the product
-- Check the comparison D against D' on a concrete pair of representations realising the same function
-- Check that Theta_I is a map of sets before any algebra structure is claimed
-
-**Prerequisites.** `ExcursionOperatorsAndSpectralAction:ES0/excursion-datum-and-operator`, `LanglandsParameterStacks:LP2:excursion-presentation`, `LanglandsParameterStacks:LP0`, `GeometricSatakeAndFusion:GS4:integral-dual-group`, `mathlib:Representation`, `mathlib:MvPolynomial`, `mathlib:CommRing`
-
-**Sources.**
-
-- *After Definition VIII.4.2, printed p. 291.* “We note that if we have two excursion data D = (I,V,alpha,beta,(gamma_i)) and D' = (I,V',alpha',beta',(gamma_i)) with same finite set I and elements gamma_i in W, and a map g : V -> V' taking alpha to alpha' and beta' to beta (by post- and pre-composition), then S_D = S_{D'}.”
-  The independence statement, quoted verbatim. Read directly from the hash-verified
-  PDF in this session.
-- *After Definition VIII.4.2, printed p. 291.* “Now note that (V,alpha,beta) give rise to an element f = f(V,alpha,beta) in O(G-hat \ (G-hat semidirect Q)^I / G-hat), the quotient under diagonal left and right multiplication. Indeed, given any g_i in G-hat semidirect Q, one can form the composite 1 -> V -> V -> 1, giving an element of the base ring; as alpha and beta are equivariant for the diagonal G-hat-action, this indeed gives an element f.”
-  The construction of the invariant function, quoted verbatim.
-
-### FS VIII.4: reindexing, multiplication and unit insertion for the excursion operators
-
-`ExcursionOperatorsAndSpectralAction:ES0/excursion-relations-and-the-algebra-map` — *theorem* · planet **The excursion relations**
-
-**Statement.**
-
-The maps Theta_I are compatible with REINDEXING: for a map g : I -> J of finite sets the
-square relating Theta_I and Theta_J, induced by pullback along g, is CARTESIAN. They are
-compatible with MULTIPLICATION: for f_1, f_2 in O(G-hat \ (G-hat semidirect Q)^I /
-G-hat) with exterior product f_1 box f_2 in O(G-hat \ (G-hat semidirect Q)^{I disjoint
-I} / G-hat) one has Theta_{I disjoint I}(f_1 box f_2)((gamma_i, gamma'_i)) =
-Theta_I(f_1)((gamma_i)) Theta_I(f_2)((gamma'_i)), and pulling back along the fold map I
-disjoint I -> I gives Theta_I(f_1 f_2) = Theta_I(f_1) Theta_I(f_2). Finally UNIT
-INSERTION: for each n there is an identification of O(G-hat \ (G-hat semidirect
-Q)^{{0,...,n}} / G-hat) tensored down over O(Q^{{0,...,n}}) with O((G-hat semidirect
-Q)^n // G-hat) by pullback along (g_1,...,g_n) -> (1,g_1,...,g_n), translating
-Theta_{{0,...,n}} into maps of Z_l-algebras Theta_n : O((G-hat semidirect Q)^n // G-hat)
--> Map(W^n, End(id_C)) over O(Q^n) -> Map(W^n, Lambda), compatible with pullback and
-with the multiplication maps induced by maps g : {1,...,m} -> {1,...,n}.
-
-**Hypotheses and warnings.**
-
-- The reindexing square is CARTESIAN, which is stronger than commutativity and is what
-  makes the colimit presentation work
-- The multiplicativity argument is a version of 'convolution product = fusion product':
-  the product of two functions is computed on a DISJOINT UNION of leg sets and then
-  pulled back along the fold map. This is the geometric input and is
-  HeckeStacksAndLocalShtukas' fusion
-- Unit insertion is the identification (g_1,...,g_n) -> (1,g_1,...,g_n); it is what
-  turns the I-indexed family into an algebra over the invariants of a power of the
-  L-group
-- The last compatibility - with the multiplication maps induced by g : {1,...,m} ->
-  {1,...,n} - is quoted by Fargues-Scholze from V. Lafforgue's Lemma 10.1 and equation
-  (10.5) and the resulting Proposition 10.8(iii) and Definition-Proposition 11.3(d).
-  THOSE REFERENCES WERE NOT READ HERE
-- The roadmap asks in addition for twisted conjugation for nonsplit G; in the source
-  that is carried by the semidirect factor Q throughout, and is not a separate statement
-
-**Proof outline.**
-
-1. Reindexing: pull back along g : I -> J and check that the resulting square of function
-   rings and of maps out of W^I and W^J is cartesian.
-2. Multiplication: form the exterior product on I disjoint I, evaluate on a pair of
-   tuples, and pull back along the fold map.
-3. Unit insertion: identify the function ring on {0,...,n} legs with the invariants on n
-   legs by inserting 1 in the zeroth slot, obtaining the algebra maps Theta_n.
-4. Compatibility with multiplication maps: quote V. Lafforgue's relations.
-
-**Acceptance.**
-
-- Check that the reindexing square is cartesian and not merely commutative
-- Check multiplicativity on a pair of explicit functions on one leg
-- Check unit insertion by comparing Theta_1 with Theta_{{0,1}}
-- Check that the Lafforgue relations are an external input, not proved in this source
-
-**Prerequisites.** `ExcursionOperatorsAndSpectralAction:ES0/invariant-function-attached-to-a-datum`, `ExcursionOperatorsAndSpectralAction:ES0/excursion-datum-and-operator`, `LanglandsParameterStacks:LP2:excursion-presentation`, `HeckeStacksAndLocalShtukas:HS4`, `HeckeStacksAndLocalShtukas:HS1`, `GeometricSatakeAndFusion:GS4:integral-dual-group`, `mathlib:CommRing`, `mathlib:MvPolynomial`, `mathlib:RingHom`
-
-**Sources.**
-
-- *Proof of Theorem VIII.4.1, printed p. 292.* “... Map(W^I, End(id_C)) ... O(G-hat \ (G-hat semidirect Q)^J / G-hat) --Theta_J--> Map(W^J, End(id_C)), induced by pullback along g, is cartesian.”
-  The reindexing square, with the word 'cartesian'. Read directly from the hash-
-  verified PDF in this session; the surrounding display is damaged in the text
-  extraction and only the assertion of cartesianness was recovered cleanly.
-- *Proof of Theorem VIII.4.1, printed p. 292.* “We want to check that Theta_I is a map of algebras. For this, we use a version of 'convolution product = fusion product' in this situation. Namely, given f_1, f_2 in O(G-hat \ (G-hat semidirect Q)^I / G-hat), we can build their exterior product f_1 box f_2 in O(G-hat \ (G-hat semidirect Q)^{I disjoint I} / G-hat). Then one easily checks Theta_{I disjoint I}(f_1 box ...”
-  Multiplicativity through fusion, quoted verbatim. The excerpt is truncated at a word
-  boundary; the full passage is on the printed page named in the locator.
-- *Proof of Theorem VIII.4.1, printed p. 292.* “For any n >= 0, we can identify O(G-hat \ (G-hat semidirect Q)^{{0,...,n}} / G-hat) tensor_{O(Q^{{0,...,n}})} O(Q^{{1,...,n}}) = O((G-hat semidirect Q)^n // G-hat) via pullback under (g_1,...,g_n) -> (1,g_1,...,g_n). This translates Theta_{{0,...,n}} into maps of Z_l-algebras Theta_n : O((G-hat semidirect Q)^n // G-hat) -> Map(W^n, End(id_C)) over O(Q^n) -> Map(W^n, Lambda).”
-  Unit insertion, quoted verbatim.
-- *Proof of Theorem VIII.4.1, printed p. 292.* “Arguing also as in [Laf18, Lemma 10.1, equation (10.5)] and the resulting [Laf18, Proposition 10.8(iii), Definition-Proposition 11.3(d)], one sees that the maps Theta_n are also compatible with the multiplication maps induced by such maps g, thus finishing the proof of Theorem VIII.4.1.”
-  The external input. V. Lafforgue's paper was NOT read in this session, and this
-  packet records that as a gap.
-
-### FS VIII.4.1: the excursion algebra maps to the Bernstein centre
-
-`ExcursionOperatorsAndSpectralAction:ES0/excursion-algebra-to-bernstein-center` — *theorem* · planet **Exc(W,G-hat) acts on the Bernstein centre**
-
-**Statement.**
-
-Given the categorical data - a Lambda-linear category C with a monoidal
-Rep_{Z_l}(Q^I)-linear functor Rep_{Z_l}((G-hat semidirect Q)^I) -> End(C)^{BW^I} given
-functorially in finite sets I, for a DISCRETE group W - there is a natural map of
-algebras Exc(W, G-hat) = colim over (n, F_n -> W) of O(Z^1(F_n, G-hat))^{G-hat} ->
-End(id_C) to the Bernstein centre of C, that is, the algebra of endomorphisms of the
-identity of C. Fargues-Scholze attribute the result essentially to V. Lafforgue.
-
-**Hypotheses and warnings.**
-
-- Exc(W,G-hat) is the COLIMIT over pairs (n, F_n -> W) of a free group on n generators
-  mapping to W, of the G-hat-invariant functions on the scheme of 1-cocycles; that
-  presentation is LanglandsParameterStacks:LP2:excursion-presentation's content and is
-  imported here
-- W is DISCRETE; the passage to W_E is separate
-- The target is the Bernstein centre of C in the categorical sense, End(id_C); the
-  comparison with the classical Bernstein centre of a group is ES0:classical-center
-- The map is an ALGEBRA map, which is the content of the relation node, not a formal
-  consequence of the construction
-- The theorem is essentially due to V. Lafforgue [Laf18], as the source says
-
-**Proof outline.**
-
-1. Construct the excursion operators from excursion data (Definition VIII.4.2).
-2. Factor the assignment through the invariant function, giving Theta_I.
-3. Prove the reindexing, multiplication and unit-insertion relations, so that the Theta_n
-   assemble into an algebra map out of the colimit presentation of Exc(W,G-hat).
-
-**Acceptance.**
-
-- Check that the map is an algebra map and not merely a map of sets
-- Check the colimit presentation on a free group of rank one, where Z^1(F_1,G-hat) is G-hat itself
-- Check naturality in C by comparing two categories with compatible Hecke data
-
-**Prerequisites.** `ExcursionOperatorsAndSpectralAction:ES0/excursion-relations-and-the-algebra-map`, `ExcursionOperatorsAndSpectralAction:ES0/invariant-function-attached-to-a-datum`, `ExcursionOperatorsAndSpectralAction:ES0/bernstein-center-of-a-category`, `LanglandsParameterStacks:LP2:excursion-presentation`, `HeckeStacksAndLocalShtukas:HS1`, `HeckeStacksAndLocalShtukas:HS4`, `EnhancedDerivedSheaves:E5:abstract`, `mathlib:FreeGroup`, `mathlib:Representation`, `mathlib:CommRing`
-
-**Sources.**
-
-- *Theorem VIII.4.1, printed p. 291.* “Given the above categorical data, there is a natural map of algebras Exc(W, G-hat) = colim over (n, F_n -> W) of O(Z^1(F_n, G-hat))^{G-hat} -> End(id_C) to the Bernstein center of C (i.e., the algebra of endomorphisms of the identity of C).”
-  The statement with the colimit presentation spelled out. Read directly from the
-  hash-verified PDF in this session.
-- *Before Theorem VIII.4.1, printed p. 291.* “The goal of this section is to prove the following theorem; this is essentially due to V. Lafforgue [Laf18].”
-  The attribution, which the packet carries so that a reader knows the external
-  dependence.
-- *After Theorem VIII.4.1, printed p. 291.* “To prove Theorem VIII.4.1, we construct explicit 'excursion operators'. These are associated to the following data.”
-  That the proof is by explicit construction, which is the preceding three nodes.
-
-### How the discrete theory reaches W_E: discretisation of the tame inertia after a wild cutoff
-
-`ExcursionOperatorsAndSpectralAction:ES0/discretisation-of-the-weil-group` — *comparison*
-
-**Statement.**
-
-The abstract excursion formalism of FS VIII.4 is stated for a DISCRETE group W,
-explicitly in order to avoid topological problems. It is applied to the Weil group in
-two steps. First, for an open subgroup P of the wild inertia of W_E one restricts to the
-full subcategory D^P_lis(Bun_G,Lambda)^omega of compact objects on which P^I acts
-trivially on every T_V, which is possible for every compact object by Proposition
-IX.5.1. Second, one PICKS A DISCRETE DENSE SUBGROUP W inside W_E/P, 'by discretizing the
-tame inertia, as before'. Theorem VIII.4.1 then gives the canonical map Exc(W, G-hat) ->
-Z(D^P_lis(Bun_G,Lambda)^omega). This is how the roadmap's requirement of continuity in
-the Weil variables is met in the source: not by a continuity theorem about a map out of
-W_E, but by a cutoff followed by a discretisation.
-
-**Hypotheses and warnings.**
-
-- A discrete dense subgroup W inside W_E/P is CHOSEN; the source says the choice is by
-  discretising the tame inertia. Independence of the choice is not proved here and is
-  not claimed
-- The cutoff by P depends on the compact object, by Proposition IX.5.1, so the
-  discretisation is available only after restricting to D^P_lis(Bun_G,Lambda)^omega
-- The condensed structure is still what makes the cutoff argument work: the proof of
-  IX.5.1 uses that a relatively discrete condensed animated Z_l-algebra receiving
-  Z_l[W_E] factors over Z_l[W_E/P] for some P
-- Chapter X repeats the same two steps: 'the proof of Proposition IX.5.1 shows that we
-  may replace W_E by W_E/P in the statement of Theorem X.0.1. Choosing moreover a
-  discretization W inside W_E/P, we reduce to the following variant'
-
-**Proof outline.**
-
-1. Restrict to D^P_lis(Bun_G,Lambda)^omega for an open subgroup P of the wild inertia,
-   using Proposition IX.5.1.
-2. Choose a discrete dense subgroup W inside W_E/P by discretising the tame inertia.
-3. Apply Theorem VIII.4.1 over W and take the union over P.
-
-**Acceptance.**
-
-- Check that the discrete theory is not applied directly to W_E
-- Check that the cutoff precedes the discretisation and that its existence is Proposition IX.5.1
-- Check that the same two steps are what reduce Theorem X.0.1 to Theorem X.0.2
-
-**Prerequisites.** `ExcursionOperatorsAndSpectralAction:ES0/excursion-algebra-to-bernstein-center`, `ExcursionOperatorsAndSpectralAction:ES1:finite-ramification/uniform-wild-subgroup`, `HeckeStacksAndLocalShtukas:HS1`, `VStackSheavesAndLisseCategories:VS2`, `VStackSheavesAndLisseCategories:VS4`, `LanglandsParameterStacks:LP0`, `mathlib:Condensed`, `mathlib:ProfiniteGrp`, `mathlib:Subgroup`
-
-**Sources.**
-
-- *Before Theorem VIII.4.1, printed pp. 290-291.* “In order to avoid topological problems, we work in the setting of the discrete subgroup W inside W_E/P; in fact, we can take here any discrete group W.”
-  Why the abstract theory is discrete. Read directly from the hash-verified PDF in
-  this session.
-- *Proof of Proposition IX.5.1, printed p. 328.* “Pick W inside W_E/P a discrete dense subgroup, by discretizing the tame inertia, as before. Then Theorem VIII.4.1 gives a canonical map of algebras Exc(W, G-hat) -> Z(D^P_lis(Bun_G,Lambda)^omega).”
-  The discretisation step and the resulting map, quoted verbatim.
-- *Before Theorem X.0.2, printed p. 340.* “Before starting the proof, we note that the proof of Proposition IX.5.1 shows that we may replace W_E by W_E/P in the statement of Theorem X.0.1. Choosing moreover a discretization W inside W_E/P, we reduce to the following variant.”
-  The same two steps used again in Chapter X.
-
-**What remains in this layer.**
-
-- V. Lafforgue's [Laf18] Lemma 10.1 and equation (10.5), and the resulting Proposition
-  10.8(iii) and Definition-Proposition 11.3(d), on which the last compatibility in the
-  proof of Theorem VIII.4.1 rests, were NOT read. The packet records the dependence and
-  does not reproduce the argument.
-- Proposition VIII.3.8, which the proof of IX.4.1 invokes to produce the parameter from
-  the excursion data, was not read; it belongs to LanglandsParameterStacks and is
-  consumed by ES5, not here.
-- The display defining Theta_I and the cartesian square on printed p. 292 is damaged in
-  the text extraction used here; only the assertion of cartesianness was recovered
-  cleanly, and a reviewer should confirm the diagram against the printed page.
-- Corollary VIII.4.3, the abstract Schur-irreducibility statement, was read but is NOT
-  planned here: the roadmap assigns FS Definition/Proposition IX.4.1 and its abstract
-  form to ES5. This packet deliberately leaves that node to ES5 rather than duplicating
-  it.
-- The roadmap also asks this layer to compare the degree-zero centre with the ordinary
-  smooth-representation Bernstein centre 'in the exact domain where used'. The map
-  itself is planned in ES0:classical-center; what is not established anywhere read is a
-  description of its image.
-
-## ES0:classical-center — A coefficient-qualified comparison return
-
-*Coverage: **partial**. 2 nodes.*
-
-The map Z^geom(G,Lambda) -> Z(G(E),Lambda) induced by the fully faithful embedding of
-the open stratum's category, presented by Fargues-Scholze as a generalisation of Helm-
-Moss; and the description of the classical Bernstein centre as the limit over levels of
-the centres of the Hecke algebras, with its l-adic separatedness.
-
-### FS IX.5: the geometric centre maps to the classical Bernstein centre of G(E)
-
-`ExcursionOperatorsAndSpectralAction:ES0:classical-center/map-to-the-classical-bernstein-center` — *theorem* · planet **The geometric centre maps to the classical one**
-
-**Statement.**
-
-By the FULLY FAITHFUL functor D(G(E),Lambda) -> D_lis(Bun_G,Lambda) there is a map of
-algebras Z^geom(G,Lambda) -> Z(G(E),Lambda) to the usual Bernstein centre of smooth
-G(E)-representations on Lambda-modules. Fargues-Scholze present the resulting theory as
-a GENERALISATION OF RESULTS OF HELM-MOSS [HM18]; in the GL_n case the induced map on
-spectral centres is shown in IX.7.3 to agree with the usual one and to refine to the
-integral Bernstein centre, recovering Helm-Moss.
-
-**Hypotheses and warnings.**
-
-- The fully faithful embedding D(G(E),Lambda) = D_lis(Bun^1_G,Lambda) ->
-  D_lis(Bun_G,Lambda) is VStackSheavesAndLisseCategories:VS4's theorem and is imported,
-  not proved here
-- The source of the map is the GEOMETRIC centre Z^geom(G,Lambda) = End(id) of
-  D_lis(Bun_G,Lambda); the composite from the SPECTRAL centre, which Fargues-Scholze
-  call Psi_G, is Definition IX.7.1 and belongs to ES7:parabolic, not to this layer
-- The target is the classical Bernstein centre of a locally profinite group, which
-  SmoothRepresentationsOfLocalGroups owns
-- The comparison is stated for arbitrary Lambda over Z_l[sqrt q]; the characteristic-
-  zero block dictionary this stage is named for is the separate statement of the next
-  node
-
-**Proof outline.**
-
-1. Take the fully faithful embedding of the open stratum's category.
-2. An endomorphism of the identity of D_lis(Bun_G,Lambda) restricts to one of the
-   identity of the essential image, hence gives an element of the classical Bernstein
-   centre.
-3. Check that the assignment is a map of algebras.
-
-**Acceptance.**
-
-- Check that full faithfulness is what makes the restriction well defined
-- Check that the source is the geometric and not the spectral centre
-- Check the GL_n case, where the resulting map is identified with the classical one in IX.7.3
-
-**Prerequisites.** `ExcursionOperatorsAndSpectralAction:ES0/bernstein-center-of-a-category`, `VStackSheavesAndLisseCategories:VS4`, `VStackSheavesAndLisseCategories:VS3`, `SmoothRepresentationsOfLocalGroups:SR.0`, `SmoothRepresentationsOfLocalGroups:SR.3`, `mathlib:Representation`, `tauceti:TauCeti.IsSmoothDiscrete`, `tauceti:TauCeti.SmoothDiscreteTopRep`
-
-**Sources.**
-
-- *Before Theorem IX.5.2, printed p. 329.* “Using excursion operators, we get the following result on the 'Bernstein center'. This is a generalization of results of Helm-Moss, [HM18], noting that by the fully faithful functor D(G(E),Lambda) -> D_lis(Bun_G,Lambda), there is a map of algebras Z^geom(G,Lambda) -> Z(G(E),Lambda) to the usual Bernstein center of smooth G(E)-representations on Lambda-modules.”
-  The map and its attribution, quoted verbatim. Read directly from the hash-verified
-  PDF in this session.
-- *Proof of Theorem IX.7.4, printed p. 338.* “In particular, it follows that the map Z^spec(GL_n, Q-bar_l) -> Z(GL_n(E), Q-bar_l) to the Bernstein center agrees with the usual map. But this refines to a map Z^spec(GL_n, Z_l[sqrt q]) -> Z(GL_n(E), Z_l[sqrt q]) to the integral Bernstein center, recovering a result of Helm-Moss [HM18].”
-  What the comparison delivers in the one case where it is identified with the
-  classical map. The GL_n theorem itself is ES7:GLn-comparison's, not this layer's.
-
-### FS IX.7.2: the classical Bernstein centre is the limit of the centres of the Hecke algebras, and is l-adically separated
-
-`ExcursionOperatorsAndSpectralAction:ES0:classical-center/the-classical-center-as-a-limit-over-levels` — *theorem* · planet **The classical centre as a limit over levels**
-
-**Statement.**
-
-For a locally profinite group G_b(E) the centre of the derived category of smooth
-representations is the limit over compact open subgroups of the centres of the level
-Hecke algebras, Z(D(G_b(E),Lambda)) = lim over K inside G_b(E) of Z(Lambda[K \ G_b(E) /
-K]). When Lambda is killed by a power of l this ring is l-ADICALLY SEPARATED, and
-Fargues-Scholze use exactly that to reduce statements about the centres to torsion
-coefficients and 'to avoid the subtleties of D_lis in place of D_et'. Over complex
-coefficients this limit is the classical Bernstein centre whose block description
-SmoothRepresentationsOfLocalGroups:SR.3 owns, and the coefficient dictionary between the
-two descriptions is what this layer must supply.
-
-**Hypotheses and warnings.**
-
-- The identification is of the centre of the DERIVED category with the limit of the
-  centres of the Hecke algebras; over a field of characteristic zero this is Bernstein's
-  description, which is NOT proved in Fargues-Scholze and must come from
-  SmoothRepresentationsOfLocalGroups:SR.3
-- l-adic separatedness is asserted for Lambda killed by a power of l and is what
-  licenses the reduction to torsion coefficients
-- The reduction is used in the source to avoid the difference between D_lis and D_et; a
-  formalisation that does not carry the coefficient hypothesis loses that licence
-- This layer is a RETURN: the roadmap says neither the ES0 operator construction nor the
-  characteristic-l parameter theorem of ES5 imports it
-
-**Proof outline.**
-
-1. Identify the centre of the derived category of smooth representations with the limit
-   over levels of the centres of the Hecke algebras.
-2. Observe that for Lambda killed by a power of l the limit is l-adically separated.
-3. Over complex coefficients, match the limit with the block description of the classical
-   Bernstein centre imported from SR.3.
-
-**Acceptance.**
-
-- Check that the limit is over compact open subgroups and that the transition maps are the idempotent truncations
-- Check l-adic separatedness for Lambda killed by a power of l
-- Check that the complex block description is imported and not reproved
-- Check that nothing in ES0 or ES5 depends on this node
-
-**Prerequisites.** `ExcursionOperatorsAndSpectralAction:ES0:classical-center/map-to-the-classical-bernstein-center`, `SmoothRepresentationsOfLocalGroups:SR.0`, `SmoothRepresentationsOfLocalGroups:SR.2`, `SmoothRepresentationsOfLocalGroups:SR.3`, `mathlib:Representation`, `mathlib:MonoidAlgebra`, `mathlib:Module.End`, `tauceti:TauCeti.IsSmoothDiscrete`
-
-**Sources.**
-
-- *Proof of Theorem IX.7.2, printed p. 335.* “... we can assume that Lambda is killed by a power of l ..., as the result for Lambda = Z_l[sqrt q] implies it in general, and the right-hand side Z(D(G_b(E),Lambda)) = lim over K inside G_b(E) of Z(Lambda[K \ G_b(E) / K]) is l-adically separated in that case. This means we can avoid the subtleties of D_lis in place of D_et.”
-  The identification and the separatedness, quoted verbatim. Read directly from the
-  hash-verified PDF in this session. The theorem whose proof this is belongs to
-  ES7:parabolic; only this description of the classical centre is taken here.
-- *Section IX.6.4, printed p. 333.* “Z(T(E),Lambda) = lim over K inside T(E) of Lambda[T(E)/K], where K runs over open subgroups of T(E).”
-  The same description in the torus case, where it is explicit. The torus statements
-  themselves are IX.6.4-IX.6.5 and belong to ES6:functoriality.
-
-**What remains in this layer.**
-
-- The complex block description of the classical Bernstein centre is Bernstein's
-  theorem. It is NOT proved in anything read here, and the roadmap routes it to
-  SmoothRepresentationsOfLocalGroups:SR.3. Until SR.3 supplies it, the characteristic-
-  zero dictionary this layer is named for has an unproved half.
-- Helm-Moss [HM18] was not read. Fargues-Scholze describe their result as a
-  generalisation of it and recover it for GL_n in IX.7.4; neither statement was checked
-  against the original.
-- Definition IX.7.1's maps Psi_G and Psi^b_G, which compose this layer's map with the
-  spectral-to-geometric one, belong to ES7:parabolic. They were read in this session and
-  are recorded in the handoff for that job, but are not planned here.
-- No statement about the image or the kernel of the map to the classical centre was
-  located in anything read.
-
-## ES1 — Spectral center and finite ramification
-
-*Coverage: **partial**. 1 node.*
-
-The spectral centre as functions on the parameter stack, the geometric centre as End(id)
-of D_lis(Bun_G,Lambda), the Hecke-compatible part, and the decomposition of both along
-the connected components of a stack that is explicitly not quasicompact.
-
-### The spectral centre, the geometric centre and the Hecke-compatible part
-
-`ExcursionOperatorsAndSpectralAction:ES1/spectral-and-geometric-centers` — *definition* · planet **The spectral and geometric centres**
-
-**Statement.**
-
-For a Z_l[sqrt q]-algebra Lambda the SPECTRAL CENTRE Z^spec(G,Lambda) is the ring of
-global functions on the stack of L-parameters, O(Z^1(W_E,G-hat)_Lambda / G-hat),
-presented through the excursion algebra Exc(W,G-hat) = colim over (n, F_n -> W) of
-O(Z^1(F_n,G-hat))^{G-hat}. The GEOMETRIC CENTRE Z^geom(G,Lambda) is the Bernstein centre
-of D_lis(Bun_G,Lambda), that is End(id) of that category. The HECKE-COMPATIBLE PART
-Z^geom_Hecke(G,Lambda) inside Z^geom(G,Lambda) consists of those central elements z for
-which, for every finite set I, every V in Rep(G-hat^I) and every A, the actions of z on
-A and on T_V(A) agree. Both centres decompose according to the connected components of
-Z^1(W_E,G-hat), and Theorem IX.5.2 says the spectral-to-geometric map respects that
-decomposition and factors over the Hecke-compatible part.
-
-**Hypotheses and warnings.**
-
-- The spectral centre is functions on the parameter STACK, and its excursion
-  presentation is LanglandsParameterStacks' content; this node fixes notation and the
-  component decomposition, and plans neither
-- The geometric centre is the CATEGORICAL Bernstein centre End(id) of
-  D_lis(Bun_G,Lambda), not the classical Bernstein centre of a group
-- The Hecke-compatible part is a subring cut out by a commutation condition; that the
-  spectral map lands in it is a theorem (IX.5.2) and not a definition
-- Lambda is a Z_l[sqrt q]-algebra with l different from p; the square root of q is what
-  trivialises the cyclotomic twist in the Satake normalisation
-- Z^1(W_E,G-hat) is NOT quasicompact: it is an infinite disjoint union, written as the
-  increasing union of the open and closed quasicompact Z^1(W_E/P,G-hat). Every statement
-  about its functions must respect that
-
-**Proof outline.**
-
-1. Import the excursion presentation of the spectral centre from
-   LanglandsParameterStacks.
-2. Define the geometric centre as End(id) of D_lis(Bun_G,Lambda) and the Hecke-compatible
-   part by the commutation condition.
-3. Record the decomposition of both according to the connected components of the
-   parameter stack.
-
-**Planning API.**
-
-| Name | Role | Statement |
-| --- | --- | --- |
-| `Zspec` | data | Z^spec(G,Lambda) = O(Z^1(W_E,G-hat)_Lambda / G-hat), presented through Exc(W,G-hat). |
-| `Zgeom` | data | Z^geom(G,Lambda) = End(id) of D_lis(Bun_G,Lambda), the CATEGORICAL Bernstein centre. |
-| `ZgeomHecke` | data | The subring of elements whose action commutes with every Hecke operator. |
-| `ZgeomHecke.isSubring` | structure | It is a subring of Z^geom; that the spectral map lands in it is Theorem IX.5.2 and not part of this definition. |
-| `componentDecomposition` | structure | Both centres decompose over pi_0 of Z^1(W_E,G-hat), which is infinite. |
-| `coefficients` | structure | Lambda is a Z_l[sqrt q]-algebra with l different from p. |
-
-**Where it is used.**
-
-- `ExcursionOperatorsAndSpectralAction:ES1:spectral-center/spectral-to-geometric-center-map` — the map between them is Theorem IX.5.2
-- `ExcursionOperatorsAndSpectralAction:ES0:classical-center/map-to-the-classical-bernstein-center` — the composite to the classical centre starts from Z^geom
-- `ExcursionOperatorsAndSpectralAction:ES4/elliptic-parameters-and-components` — the summands are indexed by connected components of the parameter stack
-
-**Unit tests.**
-
-- `geometric_is_categorical` — Z^geom is End(id) of a category, not Z(G(E)); the comparison is a separate theorem.
-- `hecke_compatible_is_proper` — Z^geom_Hecke is in general a proper subring; the factorisation through it is content.
-- `sqrt_q_needed` — Lambda must contain a square root of q; without it the cyclotomic twist is not trivialised.
-- `not_quasicompact` — Z^1(W_E,G-hat) is an infinite disjoint union; a construction that assumes quasicompactness is wrong, and this is why compact support appears in ES2.
-
-**Acceptance.**
-
-- Check that the geometric centre is End(id) and not the classical Bernstein centre
-- Check that the Hecke-compatible part is a subring and is proper in general
-- Check the component decomposition on a torus, where the components are indexed by the characters of the level quotients
-- Check that the parameter stack is not quasicompact
-
-**Prerequisites.** `ExcursionOperatorsAndSpectralAction:ES0/bernstein-center-of-a-category`, `LanglandsParameterStacks:LP2:excursion-presentation`, `LanglandsParameterStacks:LP2:integral-invariants`, `LanglandsParameterStacks:LP0`, `VStackSheavesAndLisseCategories:VS4`, `VStackSheavesAndLisseCategories:VS3`, `HeckeStacksAndLocalShtukas:HS1`, `HeckeStacksAndLocalShtukas:HS4`, `EnhancedDerivedSheaves:E5:abstract`, `mathlib:Representation`, `mathlib:CommRing`, `mathlib:AlgebraicGeometry.Scheme`
-
-**Sources.**
-
-- *Before Proposition IX.5.1, printed p. 327.* “As before, there is the problem that the stack Z^1(W_E,G-hat)/G-hat of L-parameters is not quasicompact, but an infinite disjoint union. We can now actually decompose D_lis(Bun_G,Lambda) into a direct product according to the connected components of Z^1(W_E,G-hat).”
-  The non-quasicompactness and the resulting decomposition, quoted verbatim. Read
-  directly from the hash-verified PDF in this session.
-- *Theorem IX.5.2, printed p. 329.* “There is a natural map Z^spec(G,Lambda) -> Z^geom(G,Lambda) compatible with the above decomposition into connected components. Moreover, for all finite sets I, all V in Rep(G-hat^I), and all A in D_lis(Bun_G,Lambda), the diagram commutes, so the map factors over Z^geom_Hecke(G,Lambda) inside Z^geom(G,Lambda).”
-  The statement in which all three objects appear and which fixes their relation.
-- *Theorem VIII.4.1, printed p. 291.* “Exc(W, G-hat) = colim over (n, F_n -> W) of O(Z^1(F_n, G-hat))^{G-hat}”
-  The excursion presentation of the spectral centre.
-
-**What remains in this layer.**
-
-- The excursion presentation of the spectral centre and the universal homeomorphism onto
-  the invariant functions are LanglandsParameterStacks:LP2:excursion-presentation's and
-  LP0's; they are cited and not proved.
-- This layer has no external suppliers in the atlas at all - its only recorded inputs
-  are its own two sub-layers - although its content quotes LanglandsParameterStacks and
-  VStackSheavesAndLisseCategories throughout. That is recorded as a structural finding.
-- Nothing read describes pi_0 of Z^1(W_E,G-hat) explicitly for a general group, so the
-  index set of the decomposition is named and not computed.
-
-## ES1:finite-ramification — Objectwise cutoffs and components
-
-*Coverage: **partial**. 2 nodes.*
-
-Proposition IX.5.1 with its proof in full - the uniform open wild-inertia subgroup for
-each compact object - and the component decomposition it produces: a direct sum on
-compact objects, a direct product on the Ind-categories, with the source's own warning
-about the difference between the two.
-
-### FS IX.5.1: one open wild-inertia subgroup works for all legs and all representations
-
-`ExcursionOperatorsAndSpectralAction:ES1:finite-ramification/uniform-wild-subgroup` — *theorem* · planet **The uniform wild-inertia subgroup**
-
-**Statement.**
-
-Let A in D_lis(Bun_G,Lambda)^omega be any COMPACT object. Then there is an OPEN SUBGROUP
-P of W_E, contained in the WILD INERTIA subgroup, such that for all finite sets I and
-all V in Rep((G-hat semidirect Q)^I), the object T_V(A) in D_lis(Bun_G,Lambda)^{B W_E^I}
-lies in the full infinity-subcategory D_lis(Bun_G,Lambda)^{B(W_E/P)^I} inside
-D_lis(Bun_G,Lambda)^{B W_E^I}.
-
-**Hypotheses and warnings.**
-
-- P depends on the compact object A but is UNIFORM in I and in V; that uniformity is the
-  content, and it is what the roadmap warns must not be asserted for noncompact objects
-- P is an open subgroup OF THE WILD INERTIA, not merely of W_E
-- Full faithfulness of D_lis(Bun_G,Lambda)^{B(W_E/P)^I} -> D_lis(Bun_G,Lambda)^{B W_E^I}
-  follows from full faithfulness of f^* for f : Bun_G x [*/W_E^I] -> Bun_G x
-  [*/(W_E/P)^I], hence from f_sharp Lambda = Lambda with the projection formula, which
-  after pullback to a v-cover Spa C amounts to the VANISHING OF THE Lambda-HOMOLOGY OF
-  P^I - and that uses P pro-p and l different from p
-- The reduction to a single V uses that if P^I acts trivially on T_V(A) and on T_W(A)
-  then it acts trivially on T_{V tensor W}(A) = T_V(T_W(A)), by looking at the W_E^{I
-  disjoint I}-action and restricting to the diagonal; one then takes V a tensor
-  generator and reduces to I a point
-- The existence of P then comes from the CONDENSED structure: for any relatively
-  discrete condensed animated Z_l-algebra R with a map Z_l[W_E] -> R, the map factors
-  over Z_l[W_E/P] for some P. The argument restricts to the inertia I_E, uses
-  compactness to land in a finitely generated Z_l-submodule, and then that Aut_{Z_l}(R)
-  is profinite and locally pro-l
-- This layer is the canonical owner of the statement: the HeckeStacksAndLocalShtukas
-  packet filed it here as a request rather than planning it
-
-**Proof outline.**
-
-1. Show that the equivariant subcategory for W_E/P is full inside the one for W_E, via
-   f_sharp Lambda = Lambda and the projection formula, which reduces to the vanishing of
-   the Lambda-homology of the pro-p group P^I.
-2. Show that the set of V for which P^I acts trivially on T_V(A) is closed under tensor
-   product, using T_{V tensor W} = T_V o T_W and the diagonal restriction of the W_E^{I
-   disjoint I}-action.
-3. Reduce to exterior tensor products and then to I a point, and take V a tensor
-   generator of Rep_{Z_l}(G-hat semidirect Q).
-4. Produce P from the condensed structure: (D_lis(Bun_G,Lambda)^omega)^{BW_E} is the
-   union over P of the (W_E/P)-equivariant subcategories, because a relatively discrete
-   condensed animated Z_l-algebra receiving Z_l[W_E] receives it through some Z_l[W_E/P].
-
-**Acceptance.**
-
-- Check that P depends on A but not on I or V
-- Check that the homology vanishing needs P pro-p and l different from p
-- Check the tensor-closure step, which is what allows the reduction to a generator
-- Check that the statement is for COMPACT objects only
-
-**Prerequisites.** `ExcursionOperatorsAndSpectralAction:ES0/excursion-datum-and-operator`, `HeckeStacksAndLocalShtukas:HS1`, `HeckeStacksAndLocalShtukas:HS4`, `VStackSheavesAndLisseCategories:VS2`, `VStackSheavesAndLisseCategories:VS4`, `LanglandsParameterStacks:LP0`, `mathlib:Condensed`, `mathlib:CondensedMod`, `mathlib:ProfiniteGrp`, `mathlib:CategoryTheory.Adjunction`, `mathlib:Module.Projective`
-
-**Sources.**
-
-- *Proposition IX.5.1, printed p. 327.* “Let A in D_lis(Bun_G,Lambda)^omega be any compact object. Then there is an open subgroup P inside W_E of the wild inertia subgroup such that for all finite sets I and all V in Rep((G-hat semidirect Q)^I), the object T_V(A) in D_lis(Bun_G,Lambda)^{B W_E^I} lies in the full infinity-subcategory D_lis(Bun_G,Lambda)^{B(W_E/P)^I} inside D_lis(Bun_G,Lambda)^{B W_E^I}.”
-  The statement with the uniformity in I and V, quoted verbatim. Read directly from
-  the hash-verified PDF in this session. This node is the canonical owner: the
-  HeckeStacksAndLocalShtukas packet of this session filed it here as a request rather
-  than planning it.
-- *Proof of Proposition IX.5.1, printed pp. 327-328.* “First, note that indeed the functor D_lis(Bun_G,Lambda)^{B(W_E/P)^I} -> D_lis(Bun_G,Lambda)^{B W_E^I} is fully faithful; this follows from fully faithfulness of the pullback functor f^*, which in turn follows from f_sharp Lambda = Lambda (and the projection formula for f_sharp), which can be deduced via base change from the case of [*/W_E^I] -> [*/(W_E/P)^I], or after pullback ...”
-  The full-faithfulness step, which is where l different from p enters. The excerpt is
-  truncated at a word boundary; the full passage is on the printed page named in the
-  locator.
-- *Proof of Proposition IX.5.1, printed p. 328.* “Now note that if P^I acts trivially on T_V(A) and on T_W(A) for two V,W, then it also acts trivially on T_{V tensor W}(A) = T_V(T_W(A)) = T_W(T_V(A)). Using reductions to exterior tensor products, we can also reduce to I a point. Then if V is a tensor generator, it follows that it suffices that P acts trivially on T_V(A).”
-  The tensor-closure and generator reduction.
-- *Proof of Proposition IX.5.1, printed p. 328.* “as for any relatively discrete condensed animated Z_l-algebra R with a map Z_l[W_E] -> R, the map factors over Z_l[W_E/P] for some P. Indeed, we may restrict to Z_l[I_E], and then (as I_E is compact) the image is contained in some finitely generated Z_l-submodule R_0 inside R, so we can assume that R is finite over Z_l; but then Aut_{Z_l}(R) is profinite, and locally pro-l.”
-  Where P comes from: the condensed structure of the endomorphisms, not a finiteness
-  assumption on the parameter stack.
-
-### FS IX.5: the component decomposition of the compact objects, and the product on Ind-categories
-
-`ExcursionOperatorsAndSpectralAction:ES1:finite-ramification/component-decomposition` — *theorem* · planet **The component decomposition**
-
-**Statement.**
-
-Fix an open subgroup P of the wild inertia of W_E and let D^P_lis(Bun_G,Lambda)^omega
-inside D_lis(Bun_G,Lambda)^omega be the full subcategory of all A such that P^I acts
-trivially on T_V(A) for all V in Rep((G-hat semidirect Q)^I). Picking a discrete dense W
-inside W_E/P, Theorem VIII.4.1 gives Exc(W,G-hat) -> Z(D^P_lis(Bun_G,Lambda)^omega).
-Since Exc(W,G-hat) -> O(Z^1(W_E/P,G-hat)_Lambda)^{G-hat} is a UNIVERSAL HOMEOMORPHISM
-there are idempotents corresponding to the connected components of
-Z^1(W_E/P,G-hat)_Lambda, and their action gives D^P_lis(Bun_G,Lambda)^omega = direct sum
-over c in pi_0 Z^1(W_E/P,G-hat)_Lambda of D^c_lis(Bun_G,Lambda)^omega. Taking the union
-over all P gives D_lis(Bun_G,Lambda)^omega = direct sum over c in pi_0
-Z^1(W_E,G-hat)_Lambda of D^c_lis(Bun_G,Lambda)^omega, and on Ind-categories a DIRECT
-PRODUCT D_lis(Bun_G,Lambda) = product over c of D^c_lis(Bun_G,Lambda). Any Schur-
-irreducible object necessarily lies in ONE of these factors, and its L-parameter lies in
-that connected component.
-
-**Hypotheses and warnings.**
-
-- That Exc(W,G-hat) -> O(Z^1(W_E/P,G-hat)_Lambda)^{G-hat} is a UNIVERSAL HOMEOMORPHISM
-  is imported from LanglandsParameterStacks; it is what supplies the idempotents, since
-  a universal homeomorphism induces a bijection on connected components
-- The decomposition is a DIRECT SUM on compact objects and a DIRECT PRODUCT on the Ind-
-  categories. The roadmap is explicit that one must not assert a single finite-wild
-  cutoff for every noncompact object
-- The union over P is an increasing union, matching the increasing union of quasicompact
-  opens in the parameter stack
-- The statement that a Schur-irreducible object lies in a single factor is what lets ES5
-  speak of the component of its parameter
-
-**Proof outline.**
-
-1. For fixed P, transport the idempotents of the invariant ring through the universal
-   homeomorphism and through Theorem VIII.4.1's algebra map.
-2. Split D^P_lis(Bun_G,Lambda)^omega by those idempotents.
-3. Take the union over P, using Proposition IX.5.1 to see that every compact object lies
-   in some D^P_lis.
-4. Pass to Ind-categories, where the direct sum becomes a direct product.
-
-**Acceptance.**
-
-- Check that the idempotents come from connected components and that a universal homeomorphism suffices for this
-- Check that the decomposition is a sum on compacts and a product on Ind-categories
-- Check that a Schur-irreducible object lies in exactly one factor
-- Check that no claim is made about a single cutoff for noncompact objects
-
-**Prerequisites.** `ExcursionOperatorsAndSpectralAction:ES1:finite-ramification/uniform-wild-subgroup`, `ExcursionOperatorsAndSpectralAction:ES0/excursion-algebra-to-bernstein-center`, `ExcursionOperatorsAndSpectralAction:ES0/discretisation-of-the-weil-group`, `LanglandsParameterStacks:LP0`, `LanglandsParameterStacks:LP2:excursion-presentation`, `VStackSheavesAndLisseCategories:VS2`, `VStackSheavesAndLisseCategories:VS4`, `EnhancedDerivedSheaves:E5:abstract`, `mathlib:CategoryTheory.Idempotents.Karoubi`, `mathlib:CommRing`
-
-**Sources.**
-
-- *Proof of Proposition IX.5.1, printed p. 328.* “Fix some open subgroup P of the wild inertia subgroup of W_E, and let D^P_lis(Bun_G,Lambda)^omega inside D_lis(Bun_G,Lambda)^omega be the full infinity-subcategory of all A such that P^I acts trivially on T_V(A) for all V in Rep((G-hat semidirect Q)^I).”
-  The definition of the finite-wild piece, quoted verbatim. Read directly from the
-  hash-verified PDF in this session.
-- *Proof of Proposition IX.5.1, printed p. 328.* “As Exc(W,G-hat) -> O(Z^1(W_E/P,G-hat)_Lambda)^{G-hat} is a universal homeomorphism, there are in particular idempotents corresponding to the connected components of Z^1(W_E/P,G-hat)_Lambda. Their action on D^P_lis(Bun_G,Lambda)^omega then induces a direct sum decomposition.”
-  Where the idempotents come from, quoted verbatim.
-- *Proof of Proposition IX.5.1, printed p. 328.* “Taking now a union over all P, we get a direct sum decomposition D_lis(Bun_G,Lambda)^omega = sum over c in pi_0 Z^1(W_E,G-hat)_Lambda of D^c_lis(Bun_G,Lambda)^omega. On the level of Ind-categories, this gives a direct product D_lis(Bun_G,Lambda) = product over c of D^c_lis(Bun_G,Lambda).”
-  The sum and the product, quoted verbatim - the distinction the roadmap insists on.
-- *After the decomposition, printed p. 329.* “Note in particular that any Schur-irreducible object A in D_lis(Bun_G,Lambda) necessarily lies in one of these factors, given by some connected component c of Z^1(W_E,G-hat)_Lambda; and then the L-parameter phi_A of A necessarily lies in this connected component.”
-  The consequence ES5 and ES4 both use.
-
-**What remains in this layer.**
-
-- The vanishing of the Lambda-homology of P^I, on which the full-faithfulness step
-  rests, is quoted rather than proved; it needs P pro-p and l different from p.
-- That Exc(W,G-hat) -> O(Z^1(W_E/P,G-hat)_Lambda)^{G-hat} is a universal homeomorphism
-  is imported from LanglandsParameterStacks and was not read in this session.
-- The roadmap asks for the component decomposition of the Ind-category as a product AND
-  a warning that noncompact objects need not have a single finite-wild cutoff. The
-  source gives the product; the warning is the roadmap's own and no counterexample was
-  located.
-
-## ES1:spectral-center — The conditional invariant-coordinate map
-
-*Coverage: **partial**. 2 nodes.*
-
-Theorem IX.5.2 - the natural map from the spectral to the geometric centre when the
-order of pi_0 Z(G) is invertible, compatible with components and factoring through the
-Hecke-compatible part - together with the excursion-algebra fallback that survives when
-the hypothesis is dropped.
-
-### FS IX.5.2: the spectral centre acts, compatibly with components and with the Hecke operators
-
-`ExcursionOperatorsAndSpectralAction:ES1:spectral-center/spectral-to-geometric-center-map` — *theorem* · planet **The spectral centre acts**
-
-**Statement.**
-
-Assume that the order of pi_0 Z(G) is INVERTIBLE IN Lambda. There is a natural map
-Z^spec(G,Lambda) -> Z^geom(G,Lambda) compatible with the decomposition into connected
-components. Moreover, for all finite sets I, all V in Rep(G-hat^I) and all A in
-D_lis(Bun_G,Lambda), the triangle relating the actions of Z^spec(G,Lambda) on End(A) and
-on End(T_V(A)) commutes, so the map factors over Z^geom_Hecke(G,Lambda) inside
-Z^geom(G,Lambda).
-
-**Hypotheses and warnings.**
-
-- The hypothesis that the order of pi_0 Z(G) be invertible in Lambda is essential; the
-  roadmap says the spectral-centre tests must retain it, and the variant without it is
-  the next node
-- The map is deduced from the component decomposition, from the map Exc(W,G-hat) ->
-  Z(D^P_lis(Bun_G,Lambda)^omega) of the previous layer, and from THEOREM VIII.3.6, which
-  is the modular-representation-theoretic input of Chapter VIII. Theorem VIII.3.6 is
-  proved in FS VIII.5, in the refined form of Theorem VIII.5.1, and belongs to
-  LanglandsParameterStacks
-- Commutation with the Hecke operators follows from the construction of the excursion
-  operators and from the commutation of the Hecke operators among themselves
-- Nothing here asserts that the map is injective or surjective; only that it exists,
-  respects components and is Hecke-compatible
-
-**Proof outline.**
-
-1. Assemble the component decomposition of the previous layer.
-2. Use the map Exc(W,G-hat) -> Z(D^P_lis(Bun_G,Lambda)^omega) on each finite-wild piece
-   together with Theorem VIII.3.6, which identifies the colimit of invariant rings with
-   the functions on the parameter stack.
-3. Deduce commutation with the Hecke operators from the construction of the excursion
-   operators.
-
-**Acceptance.**
-
-- Check that the invertibility hypothesis is used and locate where
-- Check the commutation square on a compactly induced object
-- Check that the map factors over the Hecke-compatible part and that no surjectivity is claimed
-- Check that Theorem VIII.3.6 is an imported input
-
-**Prerequisites.** `ExcursionOperatorsAndSpectralAction:ES1/spectral-and-geometric-centers`, `ExcursionOperatorsAndSpectralAction:ES1:finite-ramification/component-decomposition`, `ExcursionOperatorsAndSpectralAction:ES1:finite-ramification/uniform-wild-subgroup`, `ExcursionOperatorsAndSpectralAction:ES0/excursion-algebra-to-bernstein-center`, `LanglandsParameterStacks:LP2:integral-invariants`, `LanglandsParameterStacks:LP3`, `HeckeStacksAndLocalShtukas:HS1`, `HeckeStacksAndLocalShtukas:HS4`, `VStackSheavesAndLisseCategories:VS4`, `mathlib:Representation`, `mathlib:CategoryTheory.Functor.Monoidal`
-
-**Sources.**
-
-- *Theorem IX.5.2, printed p. 329.* “Assume that the order of pi_0 Z(G) is invertible in Lambda. There is a natural map Z^spec(G,Lambda) -> Z^geom(G,Lambda) compatible with the above decomposition into connected components. Moreover, for all finite sets I, all V in Rep(G-hat^I), and all A in D_lis(Bun_G,Lambda), the diagram commutes, so the map factors over Z^geom_Hecke(G,Lambda) inside Z^geom(G,Lambda).”
-  The statement with the coefficient hypothesis, quoted verbatim. Read directly from
-  the hash-verified PDF in this session.
-- *Proof of Theorem IX.5.2, printed p. 329.* “This follows from the decomposition into connected components, the map Exc(W,G-hat) -> Z(D^P_lis(Bun_G,Lambda)^omega) above, and Theorem VIII.3.6. The statement about commutation with Hecke operators follows from the construction of excursion operators and the commutation of Hecke operators.”
-  The whole proof: three lines, naming Theorem VIII.3.6, which is Chapter VIII's
-  modular-representation input and is not this roadmap's.
-- *Theorem VIII.5.1, printed p. 293.* “Assume that l does not divide the order of pi_1(G-hat)_tors. Then the map colim over (n, F_n -> W) of O(Z^1(F_n,G-hat)) -> O(Z^1(W,G-hat)) is an isomorphism in the presentable stable infinity-category IndPerf(*/G-hat). Moreover, Perf(Z^1(W,G-hat)/G-hat) is generated under cones and retracts by Perf(*/G-hat), and IndPerf(Z^1(W,G-hat)/G-hat) identifies with the modules over ...”
-  The refinement of Theorem VIII.3.6 proved in FS VIII.5, quoted because the proof of
-  IX.5.2 rests on it and because ES3 rests on it again. It belongs to
-  LanglandsParameterStacks:LP3 and is not planned here. The excerpt is truncated at a
-  word boundary; the full passage is on the printed page named in the locator.
-
-### Without the invertibility hypothesis the excursion-algebra map survives
-
-`ExcursionOperatorsAndSpectralAction:ES1:spectral-center/excursion-algebra-without-the-coefficient-condition` — *comparison*
-
-**Statement.**
-
-Every result of this circle admits a variant in which the spectral Bernstein centre
-Z^spec(G,Lambda) is replaced by an ALGEBRA OF EXCURSION OPERATORS when the hypothesis
-that the order of pi_0 Z(G) be invertible in Lambda is omitted; Fargues-Scholze say so
-in as many words at the head of IX.6, and use the same replacement inside the proof of
-Theorem IX.7.2 when l divides the order of pi_0 Z(G). In particular the map Exc(W,G-hat)
--> Z(D^P_lis(Bun_G,Lambda)^omega) of ES1:finite-ramification exists with no hypothesis
-on pi_0 Z(G), and the claims about L-parameters of Schur-irreducible objects work in any
-characteristic different from p. This is the fallback the roadmap requires be kept
-available for ES5.
-
-**Hypotheses and warnings.**
-
-- The fallback replaces the SOURCE of the map, not its target: one keeps Exc(W,G-hat)
-  rather than O(Z^1(W_E,G-hat)_Lambda / G-hat)
-- It is the identification of the two, not the existence of the map, that needs the
-  coefficient hypothesis
-- Fargues-Scholze state the variant as a general remark and do not write out any of the
-  variants; a formalisation must therefore restate each one it uses
-- The parameter statements for Schur-irreducible objects hold in every characteristic
-  different from p; that is ES5's, and this node only records that they do not depend on
-  the hypothesis
-
-**Proof outline.**
-
-1. Note that ES1:finite-ramification's map out of Exc(W,G-hat) is constructed with no
-   hypothesis on pi_0 Z(G).
-2. Restate each consequence with Exc(W,G-hat) in place of the spectral centre.
-3. Record that it is the comparison of Exc(W,G-hat) with the functions on the parameter
-   stack that carries the hypothesis.
-
-**Acceptance.**
-
-- Check that the construction of the map does not use the hypothesis
-- Check that ES5's parameter assignment does not use it
-- Check that the variant statements are not written out in the source and must be restated
-
-**Prerequisites.** `ExcursionOperatorsAndSpectralAction:ES1:spectral-center/spectral-to-geometric-center-map`, `ExcursionOperatorsAndSpectralAction:ES1:finite-ramification/component-decomposition`, `LanglandsParameterStacks:LP2:excursion-presentation`, `LanglandsParameterStacks:LP2:integral-invariants`, `mathlib:CommRing`, `mathlib:FreeGroup`
-
-**Sources.**
-
-- *Head of Section IX.6, printed p. 330.* “Throughout, we assume for simplicity that the order of pi_0 Z(G) is invertible in Lambda. All results admit an obvious variant replacing the spectral Bernstein center by an excursion algebra when this assumption is omitted, and in particular the claims about L-parameters of Schur-irreducible objects work in any characteristic (different from p, of course).”
-  The fallback, quoted verbatim. Read directly from the hash-verified PDF in this
-  session.
-- *Proof of Theorem IX.7.2, printed p. 335.* “we can assume that Lambda is killed by a power of l (if l divides the order of pi_0 Z(G), replacing the left-hand side with an algebra of excursion operators)”
-  The same replacement used in practice.
-
-**What remains in this layer.**
-
-- Theorem VIII.3.6, which the three-line proof of IX.5.2 invokes, was read only in the
-  refined form of Theorem VIII.5.1 and only as a statement. It belongs to
-  LanglandsParameterStacks:LP3.
-- The roadmap asks in addition for compatibility with coefficient change and for passage
-  between finite-wild pieces. Neither was located as a statement in anything read; the
-  source proves the map exists and is Hecke-compatible and says no more.
-- Fargues-Scholze state the excursion-algebra fallback as a general remark and write out
-  none of the variants; each variant a formalisation uses must be restated and reproved.
-- No injectivity or surjectivity statement for the map was located.
-
-## ES2 — Rational categorical action
-
-*Coverage: **partial**. 4 nodes.*
-
-The definition of a compactly supported action over a parameter stack that is an
-infinite disjoint union; Theorem X.1.1 with its proof in full; Lemma X.1.2 with its
-proof in full; and Corollary X.1.3, the rational spectral action, with its uniqueness
-characterisation.
-
-### FS X.0: the parameter stack is not quasicompact, and what a compactly supported action is
-
-`ExcursionOperatorsAndSpectralAction:ES2/compactly-supported-actions` — *definition* · planet **Compactly supported spectral actions**
-
-**Statement.**
-
-Z^1(W_E,G-hat) is NOT quasicompact: it has infinitely many connected components. It can
-be written as the INCREASING UNION of the open and closed quasicompact subschemes
-Z^1(W_E/P,G-hat), indexed by the open subgroups P of the wild inertia. An action of
-Perf(Z^1(W_E,G-hat)/G-hat) on a stable infinity-category C is COMPACTLY SUPPORTED if for
-all X in C the functor Perf(Z^1(W_E,G-hat)/G-hat) -> C induced by acting on X factors
-over some Perf(Z^1(W_E/P,G-hat)/G-hat). The condition is OBJECT BY OBJECT: no single P
-is asked to work for all of C.
-
-**Hypotheses and warnings.**
-
-- Compact support is a condition on each object separately; a uniform P over all of C is
-  a strictly stronger and false condition
-- The exhausting subschemes Z^1(W_E/P,G-hat) are OPEN AND CLOSED and quasicompact; the
-  union is increasing as P shrinks
-- The indexing by open subgroups of the wild inertia is the same indexing as the finite-
-  wild pieces of ES1:finite-ramification, and the two are matched by Proposition IX.5.1
-- The notion is what makes the equivalence of Theorem X.0.1 correct: without it the two
-  sides do not match, because a Perf-action on a non-quasicompact stack carries more
-  data than a Hecke family
-
-**Proof outline.**
-
-1. Record the non-quasicompactness of Z^1(W_E,G-hat) and its exhaustion by the
-   quasicompact open and closed Z^1(W_E/P,G-hat).
-2. Define a compactly supported action by the object-by-object factorisation condition.
-3. Match the indexing with the finite-wild pieces of ES1:finite-ramification.
-
-**Planning API.**
-
-| Name | Role | Statement |
-| --- | --- | --- |
-| `parameterStack.notQuasicompact` | structure | Z^1(W_E,G-hat) has infinitely many connected components. |
-| `parameterStack.exhaustion` | data | The increasing union of the open, closed and quasicompact Z^1(W_E/P,G-hat) over open P inside the wild inertia. |
-| `IsCompactlySupported` | data | For every X in C, the functor Perf(Z^1(W_E,G-hat)/G-hat) -> C given by acting on X factors over some Perf(Z^1(W_E/P,G-hat)/G-hat). |
-| `IsCompactlySupported.objectwise` | structure | The subgroup P may depend on X; a uniform P is a different and stronger condition. |
-| `matchesFiniteWild` | compatibility | The indexing matches the finite-wild pieces of ES1:finite-ramification through Proposition IX.5.1. |
-
-**Where it is used.**
-
-- `ExcursionOperatorsAndSpectralAction:ES2/spectral-action-rational` — the rational action is asserted to be compactly supported
-- `ExcursionOperatorsAndSpectralAction:ES3/integral-spectral-action` — the integral theorem is an equivalence with compactly supported actions
-- `ExcursionOperatorsAndSpectralAction:ES4/elliptic-parameters-and-components` — a single component is one piece of the exhaustion
-
-**Unit tests.**
-
-- `objectwise_not_uniform` — The factorisation is required per object; a uniform P over all of C is false in general.
-- `open_and_closed` — The exhausting subschemes are open AND closed, so the idempotents of ES1:finite-ramification exist.
-- `matches_IX51` — On D_lis(Bun_G,Lambda)^omega compact support is exactly the conclusion of Proposition IX.5.1.
-- `needed_for_the_equivalence` — Dropping compact support breaks Theorem X.0.1: a Perf-action on the whole non-quasicompact stack is more data than a Hecke family.
-
-**Acceptance.**
-
-- Check that the condition is object by object and not uniform
-- Check that the exhausting subschemes are open and closed as well as quasicompact
-- Check that the corresponding condition on D_lis(Bun_G,Lambda)^omega is exactly Proposition IX.5.1
-
-**Prerequisites.** `ExcursionOperatorsAndSpectralAction:ES1/spectral-and-geometric-centers`, `ExcursionOperatorsAndSpectralAction:ES1:finite-ramification/uniform-wild-subgroup`, `LanglandsParameterStacks:LP0`, `LanglandsParameterStacks:LP4`, `EnhancedDerivedSheaves:E5:abstract`, `EnhancedDerivedSheaves:E5:presentability`, `mathlib:AlgebraicGeometry.Scheme`, `mathlib:CategoryTheory.Idempotents.Karoubi`, `mathlib:CategoryTheory.MonoidalCategory`
-
-**Sources.**
-
-- *Head of Chapter X, printed p. 339.* “Note that Z^1(W_E,G-hat) is not quasicompact, as it has infinitely many connected components; it can be written as the increasing union of open and closed quasicompact subschemes Z^1(W_E/P,G-hat). We say that an action of Perf(Z^1(W_E,G-hat)/G-hat) on a stable infinity-category C is compactly supported if for all X in C the functor Perf(Z^1(W_E,G-hat)/G-hat) -> C (induced by ...”
-  The definition, quoted verbatim. Read directly from the hash-verified PDF in this
-  session. The excerpt is truncated at a word boundary; the full passage is on the
-  printed page named in the locator.
-
-### FS X.1.1: a Hecke family functorial in finite sets IS an action of Perf of the mapping stack
-
-`ExcursionOperatorsAndSpectralAction:ES2/universal-action-theorem` — *theorem* · planet **The universal action theorem**
-
-**Statement.**
-
-Let H be a reductive group over a field L of characteristic 0 with an action of a finite
-group Q, and let S be any anima over BQ. Let C be an idempotent-complete small stable
-L-linear infinity-category. Giving, FUNCTORIALLY IN FINITE SETS I, an exact
-Rep_L(Q^I)-linear monoidal functor Rep_L((H semidirect Q)^I) -> End_L(C)^{S^I} is
-EQUIVALENT to giving an L-linear action of Perf(Map_{/BQ}(S, B(H semidirect Q))) on C.
-Given such an action one recovers the functors by precomposing the exact monoidal
-functor Perf(Map_{/BQ}(S, B(H semidirect Q))) -> End_L(C) with the natural exact
-Rep_L(Q^I)-linear symmetric monoidal functor given by the I-fold tensor product of the
-functor Rep_L(H semidirect Q) -> Perf(Map_{/BQ}(S, B(H semidirect Q)))^S that assigns to
-each s in S pullback along evaluation at s.
-
-**Hypotheses and warnings.**
-
-- L has CHARACTERISTIC ZERO. The integral analogue is false as stated, because Lemma
-  X.1.2 fails; that is ES3
-- The equivalence is of ANIMA of data, not a bijection of isomorphism classes: the proof
-  compares the anima F_1(S) of actions with the anima F_2(S) of functorial monoidal
-  functors. The roadmap insists on exactly this
-- 'Functorially in the finite set I' means a map on total spaces over Fin of the
-  corresponding coCartesian fibrations, as the source says at the head of Chapter X
-- The mapping stack Map_{/BQ}(S,B(H semidirect Q)) is the fpqc quotient of an affine
-  derived scheme by a power of H; for S = BW this recovers [Z^1(W,G-hat)_L / G-hat] by
-  Proposition VIII.3.5, which is LanglandsParameterStacks' statement
-- A key formal input is that for an idempotent-complete small stable L-linear C, exact
-  L-linear functors out of Rep_L((H semidirect Q)^I) are the same as exact functors out
-  of Perf(B(H semidirect Q)^I), since perfect complexes are freely generated by the
-  exact category of representations
-
-**Proof outline.**
-
-1. Both F_1 and F_2 take sifted colimits in S to limits: for F_2 because S -> S^I
-   commutes with sifted colimits, for F_1 by Lemma X.1.2.
-2. Reduce to S a finite set, where the map S -> BQ factors over a point and Map_{/BQ}(S,
-   B(H semidirect Q)) = B H^S.
-3. Use Perf(B(H semidirect Q)^I) tensor over Perf(BQ^I) with Perf(L) = Perf(BH^I), which
-   follows from highest weight theory, to replace Rep_L((H semidirect Q)^I) by
-   Rep_L(H^I).
-4. Observe that the data is a map Hom(I,S) = S^I -> Fun^{ex,mon}_L(Rep_L(H^I), End_L(C))
-   functorial in I; the left-hand side is representable, so by the Yoneda lemma the data
-   is an exact L-linear monoidal functor Rep_L(H^S) -> End_L(C), which extends uniquely
-   to Perf(BH^S).
-
-**Acceptance.**
-
-- Check the theorem for C the perfect complexes on a point, where both sides are representations
-- Check that the functoriality in I is coCartesian and not a compatible family
-- Check that the comparison is of anima and not of sets of isomorphism classes
-- Check that the theorem is stated for an abstract C and is independent of Bun_G
-
-**Prerequisites.** `ExcursionOperatorsAndSpectralAction:ES2/compactly-supported-actions`, `EnhancedDerivedSheaves:E5:abstract`, `EnhancedDerivedSheaves:E5:presentability`, `LanglandsParameterStacks:LP4`, `HeckeStacksAndLocalShtukas:HS4`, `GeometricSatakeAndFusion:GS4:integral-dual-group`, `mathlib:CategoryTheory.MonoidalCategory`, `mathlib:CategoryTheory.Functor.Monoidal`, `mathlib:CategoryTheory.Equivalence`, `mathlib:CategoryTheory.Idempotents.Karoubi`, `mathlib:Representation`
-
-**Sources.**
-
-- *Theorem X.1.1, printed p. 341.* “Let C be an idempotent-complete small stable L-linear infinity-category. Giving, functorially in finite sets I, an exact Rep_L(Q^I)-linear monoidal functor Rep_L((H semidirect Q)^I) -> End_L(C)^{S^I} is equivalent to giving an L-linear action of Perf(Map_{/BQ}(S, B(H semidirect Q))) on C.”
-  The universal action theorem, quoted verbatim. Read directly from the hash-verified
-  PDF in this session.
-- *Proof of Theorem X.1.1, printed pp. 341-342.* “For any S, we have the anima F_1(S) of L-linear actions of Perf(Map_{/BQ}(S,B(H semidirect Q))) on C, and the anima F_2(S) of functorial exact monoidal functors ... and a natural map F_1(S) -> F_2(S) functorial in S. Both functors take sifted colimits in S to limits.”
-  That the comparison is of ANIMA and how the reduction runs.
-- *Proof of Theorem X.1.1, printed p. 342.* “The latter data is equivalent to maps Hom(I,S) = S^I -> Fun^{ex,mon}_L(Rep_L(H^I), End_L(C)) functorially in I. Both sides here are functors in I, and on the left-hand side we have a representable functor. By the Yoneda lemma, it follows that this data is equivalent to L-linear exact monoidal functors Rep_L(H^S) -> End_L(C).”
-  The Yoneda step, which is the heart of the proof.
-- *Head of Chapter X, printed p. 339.* “Below, 'functorially in the finite set I' means a map on total spaces over Fin of the corresponding coCartesian fibrations.”
-  What the functoriality means, which the roadmap warns must not be weakened to a
-  compatible family.
-
-### FS X.1.2: in characteristic zero, Perf of the mapping stack commutes with all colimits
-
-`ExcursionOperatorsAndSpectralAction:ES2/mapping-stack-commutes-with-sifted-colimits` — *lemma*
-
-**Statement.**
-
-The functor taking an anima S over BQ to Perf(Map_{/BQ}(S, B(H semidirect Q))), regarded
-as an idempotent-complete stable infinity-category, commutes with SIFTED COLIMITS; more
-precisely, as a functor into L-linear symmetric monoidal idempotent-complete stable
-infinity-categories, it commutes with ALL COLIMITS.
-
-**Hypotheses and warnings.**
-
-- This is the step that FAILS integrally, and its failure is the whole reason ES3 needs
-  a different statement
-- Sifted colimits agree with or without the symmetric monoidal structure by Lurie's
-  Corollary 3.2.3.2, which the source cites
-- The filtered case is proved by presenting Map_{/BQ}(S_i, B(H semidirect Q)) as X_i/G_i
-  with X_i an affine derived L-scheme and G_i = H^{S'_i} PRO-REDUCTIVE, so that Rep(G_i)
-  is SEMISIMPLE; characteristic zero enters exactly there
-- The pushout case uses Barr-Beck-Lurie to identify IndPerf(X_i/G) with the
-  O(X_i)-modules in IndPerf(BG), and then that O(X_1) tensor_{O(X_0)} O(X_2) -> O(X) is
-  an isomorphism, checked after the conservative forgetful functor to D(L)
-
-**Proof outline.**
-
-1. Filtered colimits: write Map_{/BQ}(S_i,B(H semidirect Q)) = X_i/G_i for affine derived
-   X_i and pro-reductive G_i, and show colim Perf(X_i/G_i) -> Perf(X/G) is an
-   equivalence. For X a point this is the filtered colimit of Rep(G_i), which is
-   semisimple. In general Perf(X/G) is generated by Rep(G): take the top nonvanishing
-   cohomology sheaf, lift a surjection from a representation using semisimplicity, and
-   reduce the projective amplitude until the object is a vector bundle, where the
-   sequence splits because the obstruction lies in an H^1 that vanishes.
-2. Disjoint unions are immediate.
-3. Pushouts: identify the tensor product of the Ind-categories with modules over O(X_1)
-   tensor_{O(X_0)} O(X_2) in IndPerf(BG), and check that this maps isomorphically to O(X)
-   after the conservative forgetful functor.
-
-**Acceptance.**
-
-- Check that semisimplicity of Rep(G) is used and that it needs characteristic zero
-- Check the generation argument, which is where the perfect amplitude is reduced
-- Check that the pushout case uses Barr-Beck-Lurie and conservativity
-- Check that the analogous integral statement fails
-
-**Prerequisites.** `ExcursionOperatorsAndSpectralAction:ES2/universal-action-theorem`, `EnhancedDerivedSheaves:E5:abstract`, `EnhancedDerivedSheaves:E5:presentability`, `LanglandsParameterStacks:LP4`, `mathlib:CategoryTheory.Equivalence`, `mathlib:CategoryTheory.MonoidalCategory`, `mathlib:Module.Projective`, `mathlib:Representation`
-
-**Sources.**
-
-- *Lemma X.1.2, printed p. 342.* “The functor taking an anima S over BQ to Perf(Map_{/BQ}(S, B(H semidirect Q))), regarded as an idempotent-complete stable infinity-category, commutes with sifted colimits. More precisely, as a functor into L-linear symmetric monoidal idempotent-complete stable infinity-categories, it commutes with all colimits.”
-  The lemma, quoted verbatim. Read directly from the hash-verified PDF in this
-  session.
-- *Proof of Lemma X.1.2, printed p. 342.* “Assume first that all X_i = Spec L are a point. Then note that Perf(BG) is generated by Rep(G), which is easily seen to be the filtered colimit colim Rep(G_i), and (by writing it as a limit of reductive groups) is seen to be semisimple.”
-  Where characteristic zero enters: semisimplicity of the representation theory of a
-  pro-reductive group.
-- *Proof of Lemma X.1.2, printed p. 343.* “On the level of Ind-categories, IndPerf(X_i/G) is the infinity-category of O(X_i)-modules in IndPerf(BG): This is a consequence of Barr-Beck-Lurie and the fact observed above that Perf(BG) generates Perf(X_i/G), so that the forgetful functor IndPerf(X_i/G) -> IndPerf(BG) is conservative.”
-  The pushout step.
-- *Head of Section X.3, printed p. 348.* “Unfortunately, the naive analogue of Theorem X.1.1 is not true, the problem being that the analogue of Lemma X.1.2 fails.”
-  The source's own statement that this lemma is the obstruction integrally.
-
-### FS X.1.3: the rational spectral action of Perf of the stack of L-parameters
-
-`ExcursionOperatorsAndSpectralAction:ES2/spectral-action-rational` — *theorem* · planet **The rational spectral action**
-
-**Statement.**
-
-Let L be a field over Q_l(sqrt q). There is a natural COMPACTLY SUPPORTED L-linear
-action of Perf(Z^1(W_E,G-hat)_L / G-hat) on D_lis(Bun_G,L)^omega, UNIQUELY CHARACTERISED
-by the requirement that restricting along the Rep_L(Q^I)-linear maps Rep_L((G-hat
-semidirect Q)^I) -> Perf(Z^1(W_E,G-hat)_L / G-hat)^{B W_E^I} it induces the HECKE
-ACTION, which gives functorially in the finite set I exact Rep_L(Q^I)-linear functors
-Rep_L((G-hat semidirect Q)^I) -> End_L(D_lis(Bun_G,L)^omega)^{B W_E^I}.
-
-**Hypotheses and warnings.**
-
-- The action is on the COMPACT objects D_lis(Bun_G,L)^omega and is COMPACTLY SUPPORTED
-  in the sense of ES2's definition node
-- Uniqueness is by the characterisation through the Hecke action; the roadmap warns
-  against asserting a spectral action with unproved properties, and this is precisely
-  what forbids it
-- The proof reduces to the subcategories D^P_lis(Bun_G,L)^omega for open subgroups P of
-  the wild inertia of W_E ACTING TRIVIALLY ON G-hat - so P is chosen to satisfy two
-  conditions, not one - and then replaces W_E by W_E/P throughout and restricts to a
-  discretisation W
-- One uses Z^1(W,G-hat) = Z^1(W_E/P,G-hat) for the discretisation W inside W_E/P, so
-  that Theorem X.1.1's output is an action of Perf of the right stack
-- L is a FIELD over Q_l(sqrt q); the ring-of-integers and general integral statements
-  are ES3
-
-**Proof outline.**
-
-1. Reduce to D^P_lis(Bun_G,L)^omega for P an open subgroup of the wild inertia acting
-   trivially on G-hat, using Proposition IX.5.1.
-2. Replace W_E by W_E/P and restrict the Hecke action to a discretisation W inside W_E/P.
-3. Apply Theorem X.1.1 to get an action of Perf(Z^1(W,G-hat)_L/G-hat), and use
-   Z^1(W,G-hat) = Z^1(W_E/P,G-hat) to read it as an action of
-   Perf(Z^1(W_E/P,G-hat)_L/G-hat).
-4. Assemble over P; the result is compactly supported by construction.
-
-**Acceptance.**
-
-- Check that the action is on compact objects and is compactly supported
-- Check that the uniqueness characterisation determines it, so that no further property may be asserted freely
-- Check the reduction to D^P_lis, which is where the finite-ramification layer is consumed
-- Check that P is required to act trivially on G-hat as well as to be open in the wild inertia
-
-**Prerequisites.** `ExcursionOperatorsAndSpectralAction:ES2/universal-action-theorem`, `ExcursionOperatorsAndSpectralAction:ES2/mapping-stack-commutes-with-sifted-colimits`, `ExcursionOperatorsAndSpectralAction:ES2/compactly-supported-actions`, `ExcursionOperatorsAndSpectralAction:ES1:finite-ramification/uniform-wild-subgroup`, `ExcursionOperatorsAndSpectralAction:ES1:spectral-center/spectral-to-geometric-center-map`, `ExcursionOperatorsAndSpectralAction:ES0/discretisation-of-the-weil-group`, `LanglandsParameterStacks:LP4`, `LanglandsParameterStacks:LP2:integral-invariants`, `VStackSheavesAndLisseCategories:VS4`, `HeckeStacksAndLocalShtukas:HS1`, `HeckeStacksAndLocalShtukas:HS4`, `mathlib:CategoryTheory.MonoidalCategory`, `mathlib:Representation`
-
-**Sources.**
-
-- *Corollary X.1.3, printed p. 343.* “Let L be a field over Q_l(sqrt q). There is a natural compactly supported L-linear action of Perf(Z^1(W_E,G-hat)_L/G-hat) on D_lis(Bun_G,L)^omega, uniquely characterized by the requirement that by restricting along the Rep_L(Q^I)-linear maps Rep_L((G-hat semidirect Q)^I) -> Perf(Z^1(W_E,G-hat)_L/G-hat)^{B W_E^I} it induces the Hecke action.”
-  The rational spectral action with its uniqueness characterisation, quoted verbatim.
-  Read directly from the hash-verified PDF in this session.
-- *Proof of Corollary X.1.3, printed p. 343.* “We can reduce to the subcategories D^P_lis(Bun_G,L)^omega inside D_lis(Bun_G,L) for open subgroups P of the wild inertia of W_E, acting trivially on G-hat. Then we can replace W_E by W_E/P throughout. In that case, restricting the given Hecke action to W inside W_E/P, Theorem X.1.1 gives an action of Perf(Z^1(W,G-hat)_L/G-hat), and Z^1(W,G-hat) = Z^1(W_E/P,G-hat), so we get the desired action.”
-  The proof in full: three sentences, and exactly where Proposition IX.5.1 is
-  consumed.
-
-**What remains in this layer.**
-
-- The roadmap also asks for the agreement of the degree-zero part of the action with the
-  map of ES1, and for a comparison of representation bundles with the Satake and Hecke
-  operations. Neither is stated separately in anything read: Corollary X.1.3's
-  uniqueness characterisation is the only link between the action and the Hecke data,
-  and the degree-zero comparison is left implicit. Those obligations are open.
-- Proposition VIII.3.5, which identifies Map_{/BQ}(BW,B(G-hat semidirect Q)) with
-  [Z^1(W,G-hat)_L/G-hat], was read only as a citation; it is LanglandsParameterStacks'.
-- Conjecture X.1.4, the categorical form of the geometric Langlands conjecture, and
-  Examples X.1.6 and X.1.7 were read but are conjectural and are deliberately not
-  planned. The roadmap says the existence of the action does not construct an
-  equivalence.
-- The eigensheaf construction Aut_phi = E_phi * W_psi, and the fact that it is a Hecke
-  eigensheaf, were read; they are consequences of the action and belong with the
-  elliptic material of ES4 and with the conjectural part, and no node claims them.
-
-## ES3 — Integral categorical action
-
-*Coverage: **partial**. 6 nodes.*
-
-The failure of Lemma X.1.2 integrally and the sifted-colimit approximation that replaces
-it; Propositions X.3.1, X.3.2, X.3.3 and X.3.4 each with its proof; and Theorems X.0.1
-and X.0.2, the integral spectral action, under the hypothesis that l does not divide the
-order of pi_1(G-hat)_tors.
-
-### FS X.3: the sifted-colimit approximation Perf(Map)-natural, and why the naive integral statement is false
-
-`ExcursionOperatorsAndSpectralAction:ES3/sifted-colimit-approximation` — *definition* · planet **The sifted-colimit approximation**
-
-**Statement.**
-
-Over a discrete valuation ring R the naive analogue of Theorem X.1.1 is NOT TRUE,
-because the analogue of Lemma X.1.2 fails: the functor S -> Perf(Map_{/BQ}(S, B(H
-semidirect Q))) does not commute with sifted colimits in S. One therefore replaces it by
-its BEST APPROXIMATION THAT DOES. The infinity-category of anima over BQ is the
-animation of the category of sets equipped with a Q-torsor, and is freely generated
-under sifted colimits by the FINITE sets equipped with a Q-torsor; so the sifted-colimit
-approximation is the animation of the restriction of S -> Perf(Map_{/BQ}(S, B(H
-semidirect Q))) to those finite sets. It is written Perf(Map_{/BQ}(S, B(H semidirect
-Q)))-natural, is an R-linear idempotent-complete small stable infinity-category, and
-maps to Perf(Map_{/BQ}(S, B(H semidirect Q))).
-
-**Hypotheses and warnings.**
-
-- This is a DEFINITION by animation of a restriction, not a stack-theoretic
-  construction: the source says it is 'like the infinity-category of perfect complexes
-  on some (nonexistent) derived stack'
-- H is a SPLIT reductive group over a discrete valuation ring R, with an action of a
-  finite group Q; the rational statement allowed any reductive H over a characteristic-
-  zero field
-- The freeness statement - anima over BQ is freely generated under sifted colimits by
-  finite sets with a Q-torsor - is what makes the animation well defined
-- The comparison map Perf(Map)-natural -> Perf(Map) is not an equivalence in general;
-  finding the cases where it is, is the work of X.3.2 and X.3.3
-- The superscript in the source refers to the notation of Lurie's Section 5.5.8 for
-  sifted colimits
-
-**Proof outline.**
-
-1. Restrict S -> Perf(Map_{/BQ}(S,B(H semidirect Q))) to finite sets equipped with a
-   Q-torsor.
-2. Animate that restriction, using that anima over BQ is freely generated under sifted
-   colimits by those finite sets.
-3. Record the comparison functor to the unapproximated Perf(Map).
-
-**Planning API.**
-
-| Name | Role | Statement |
-| --- | --- | --- |
-| `PerfNatural` | data | Perf(Map_{/BQ}(S,B(H semidirect Q)))-natural, the animation of the restriction of Perf(Map) to finite sets with a Q-torsor. |
-| `PerfNatural.onFiniteSets` | characterisation | On a finite set with a Q-torsor it agrees with Perf(Map) by construction; everything else is determined by animation. |
-| `PerfNatural.siftedColimits` | structure | It commutes with sifted colimits in S by construction; Perf(Map) does not. |
-| `PerfNatural.compare` | data | The comparison functor Perf(Map)-natural -> Perf(Map), not an equivalence in general. |
-| `PerfNatural.notAStack` | structure | There is no derived stack whose perfect complexes these are; the notation is deliberate. |
-| `splitH` | structure | H is SPLIT reductive over a discrete valuation ring R, unlike the rational statement. |
-
-**Where it is used.**
-
-- `ExcursionOperatorsAndSpectralAction:ES3/integral-universal-action` — the integral universal theorem is stated for this approximation
-- `ExcursionOperatorsAndSpectralAction:ES3/free-group-case` — the free-group case is where the comparison functor is fully faithful
-- `ExcursionOperatorsAndSpectralAction:ES3/integral-spectral-action` — the final theorem needs the comparison to be an equivalence for the parameter stack
-
-**Unit tests.**
-
-- `finite_sets_agree` — On finite sets with a Q-torsor the approximation is Perf(Map); a definition that differs there is wrong.
-- `differs_in_general` — The comparison functor is not an equivalence in general, which is exactly why X.3.3 has content.
-- `reason_is_X12` — The approximation exists because Lemma X.1.2 fails integrally; a treatment that does not say so has not identified the difficulty.
-- `split_over_a_dvr` — H is split reductive over a discrete valuation ring here; the rational theorem's hypotheses are different.
-
-**Acceptance.**
-
-- Check that the approximation agrees with Perf(Map) on finite sets with a Q-torsor, by construction
-- Check that the two differ in general, and that this is why the integral theorem is stated for the approximation
-- Check that the failure of Lemma X.1.2 is the reason
-
-**Prerequisites.** `ExcursionOperatorsAndSpectralAction:ES2/mapping-stack-commutes-with-sifted-colimits`, `ExcursionOperatorsAndSpectralAction:ES2/universal-action-theorem`, `EnhancedDerivedSheaves:E5:abstract`, `EnhancedDerivedSheaves:E5:presentability`, `LanglandsParameterStacks:LP3`, `LanglandsParameterStacks:LP4`, `GeometricSatakeAndFusion:GS4:integral-dual-group`, `mathlib:CategoryTheory.Idempotents.Karoubi`, `mathlib:CategoryTheory.MonoidalCategory`, `mathlib:CategoryTheory.Functor`, `mathlib:Representation`
-
-**Sources.**
-
-- *Head of Section X.3, printed p. 348.* “We want to construct the spectral action with integral coefficients. Unfortunately, the naive analogue of Theorem X.1.1 is not true, the problem being that the analogue of Lemma X.1.2 fails. However, the rest of the argument still works, and gives the following result.”
-  Why the integral statement must differ. Read directly from the hash-verified PDF in
-  this session.
-- *Head of Section X.3, printed p. 348.* “However, we can consider the best approximation to it that does commute with sifted colimits. Note that the infinity-category of anima over BQ is the animation of the category of sets equipped with a Q-torsor; it is freely generated under sifted colimits by the category of finite sets equipped with a Q-torsor. Thus, the sifted-colimit approximation to S -> Perf(Map_{/BQ}(S,B(H ...”
-  The definition, quoted verbatim. The excerpt is truncated at a word boundary; the
-  full passage is on the printed page named in the locator.
-- *Head of Section X.3, printed p. 348.* “with the idea in mind that it is like the infinity-category of perfect complexes on some (nonexistent) derived stack Map_{/BQ}(S,B(H semidirect Q))-natural, gotten as a (co-)sifted limit approximation. Thus Perf(Map_{/BQ}(S,B(H semidirect Q)))-natural is an R-linear idempotent-complete small stable infinity-category, mapping to Perf(Map_{/BQ}(S,B(H semidirect Q))).”
-  That the approximation is not the perfect complexes of any stack, and the comparison
-  functor.
-
-### FS X.3.1: the universal action theorem over a discrete valuation ring
-
-`ExcursionOperatorsAndSpectralAction:ES3/integral-universal-action` — *theorem* · planet **The integral universal action theorem**
-
-**Statement.**
-
-Let C be an R-linear idempotent-complete small stable infinity-category. Giving,
-FUNCTORIALLY IN FINITE SETS I, an exact Rep_R(Q^I)-linear monoidal functor Rep_R((H
-semidirect Q)^I) -> End_R(C)^{S^I} is EQUIVALENT to giving an R-linear action of
-Perf(Map_{/BQ}(S, B(H semidirect Q)))-natural on C. Given such an action one gets the
-functors by composing the exact monoidal functor Perf(Map)-natural -> End_R(C) with the
-natural exact Rep_R(Q^I)-linear symmetric monoidal functor given by the I-fold tensor
-product of Rep_R(H semidirect Q) -> Perf(Map)-natural^S, defined by pullback along
-evaluation at s when S is a finite set, and in general by ANIMATION.
-
-**Hypotheses and warnings.**
-
-- The target of the action is the APPROXIMATION Perf(Map)-natural, not Perf(Map); with
-  Perf(Map) the statement is false
-- The comparison functor Rep_R(H semidirect Q) -> Perf(Map)-natural^S is defined by
-  evaluation only for FINITE S, and in general by animation; this is not a formality
-- Fargues-Scholze prove the statement by citing the proof of Theorem X.1.1: 'This
-  follows from the proof of Theorem X.1.1.' Every step of that proof that did not use
-  characteristic zero is reused, and the only step that did - Lemma X.1.2 - has been
-  designed away by the approximation
-- R is a discrete valuation ring and H is split reductive over it
-
-**Proof outline.**
-
-1. Rerun the proof of Theorem X.1.1 with the approximation in place of Perf(Map).
-2. The reduction to finite S is now definitional, since the approximation is the
-   animation of the restriction to finite sets.
-3. The Yoneda step and the identification of exact functors out of Rep_R with exact
-   functors out of Perf are unchanged.
-
-**Acceptance.**
-
-- Check that the statement is about the approximation and not about Perf(Map)
-- Check that the comparison functor is defined by animation for general S
-- Check that the proof reuses X.1.1 and that the only step avoided is Lemma X.1.2
-
-**Prerequisites.** `ExcursionOperatorsAndSpectralAction:ES3/sifted-colimit-approximation`, `ExcursionOperatorsAndSpectralAction:ES2/universal-action-theorem`, `EnhancedDerivedSheaves:E5:abstract`, `EnhancedDerivedSheaves:E5:presentability`, `LanglandsParameterStacks:LP3`, `LanglandsParameterStacks:LP4`, `mathlib:CategoryTheory.MonoidalCategory`, `mathlib:CategoryTheory.Functor.Monoidal`, `mathlib:CategoryTheory.Equivalence`, `mathlib:CategoryTheory.Idempotents.Karoubi`, `mathlib:Representation`
-
-**Sources.**
-
-- *Proposition X.3.1, printed p. 348.* “Let C be an R-linear idempotent-complete small stable infinity-category. Giving, functorially in finite sets I, an exact Rep_R(Q^I)-linear monoidal functor Rep_R((H semidirect Q)^I) -> End_R(C)^{S^I} is equivalent to giving an R-linear action of Perf(Map_{/BQ}(S, B(H semidirect Q)))-natural on C.”
-  The integral universal action theorem, quoted verbatim with the approximation. Read
-  directly from the hash-verified PDF in this session.
-- *Proposition X.3.1, printed p. 349.* “assigning to each s in S pullback along evaluation at s, Map_{/BQ}(S,B(H semidirect Q)) -> B(H semidirect Q); more precisely, it is defined in this way if S is a finite set, and in general by animation.”
-  The qualification on the comparison functor.
-- *Proof of Proposition X.3.1, printed p. 349.* “This follows from the proof of Theorem X.1.1.”
-  The whole proof.
-
-### FS X.3.2: the approximation commutes with all colimits, by highest weight theory
-
-`ExcursionOperatorsAndSpectralAction:ES3/approximation-commutes-with-colimits` — *theorem* · planet **The approximation commutes with colimits**
-
-**Statement.**
-
-The functor S -> Perf(Map_{/BQ}(S, B(H semidirect Q)))-natural, from anima over BQ to
-symmetric monoidal idempotent-complete stable R-linear infinity-categories, commutes
-with ALL COLIMITS.
-
-**Hypotheses and warnings.**
-
-- It commutes with sifted colimits BY DEFINITION; the content is disjoint unions, and
-  for those one may factor S -> BQ over a point, so that Map_{/BQ}(S,B(H semidirect Q))
-  = B H^S
-- The content is then that Perf(BH^{S_1}) tensor_{Perf(R)} Perf(BH^{S_2}) ->
-  Perf(BH^{S_1 disjoint S_2}) is an equivalence, and this follows from HIGHEST WEIGHT
-  THEORY: for any split reductive H, highest weight theory filters Perf(BH) in terms of
-  copies of Perf(R) enumerated by highest weights
-- Highest weight theory over R is where the integral argument needs input the rational
-  one did not; it is LanglandsParameterStacks:LP3's good-filtration and Donkin material,
-  and is not planned here
-- H must be SPLIT for highest weight theory to apply in this form
-
-**Proof outline.**
-
-1. Sifted colimits hold by definition of the approximation.
-2. Reduce to disjoint unions of finite sets with a Q-torsor, where the map to BQ factors
-   over a point and the mapping stack is B H^S.
-3. Show that Perf(BH^{S_1}) tensor_{Perf(R)} Perf(BH^{S_2}) -> Perf(BH^{S_1 disjoint
-   S_2}) is an equivalence by highest weight theory.
-
-**Acceptance.**
-
-- Check that sifted colimits are definitional and disjoint unions are the content
-- Check that highest weight theory is the input and that it needs H split
-- Check that the corresponding rational statement used semisimplicity instead
-
-**Prerequisites.** `ExcursionOperatorsAndSpectralAction:ES3/sifted-colimit-approximation`, `ExcursionOperatorsAndSpectralAction:ES3/integral-universal-action`, `LanglandsParameterStacks:LP3`, `LanglandsParameterStacks:LP4`, `GeometricSatakeAndFusion:GS4:integral-dual-group`, `mathlib:Representation`, `mathlib:RootPairing`, `mathlib:CategoryTheory.MonoidalCategory`, `mathlib:Module.Free`
-
-**Sources.**
-
-- *Proposition X.3.2, printed p. 349.* “The functor S -> Perf(Map_{/BQ}(S, B(H semidirect Q)))-natural from anima over BQ to symmetric monoidal idempotent-complete stable R-linear infinity-categories commutes with all colimits.”
-  The statement, quoted verbatim. Read directly from the hash-verified PDF in this
-  session.
-- *Proof of Proposition X.3.2, printed p. 349.* “As the functor commutes with sifted colimits by definition, it suffices to show that when restricted to finite sets S equipped with Q-torsors, it commutes with disjoint unions. ... Thus, one has to see that for two finite sets S_1, S_2, the functor Perf(BH^{S_1}) tensor_{Perf(R)} Perf(BH^{S_2}) -> Perf(BH^{S_1 disjoint S_2}) is an equivalence. But this follows easily from ...”
-  The proof, and the appeal to highest weight theory that the rational argument did
-  not need. The excerpt is truncated at a word boundary; the full passage is on the
-  printed page named in the locator.
-
-### FS X.3.3: for a free group the approximation is fully faithful with image generated by Rep_R(H)
-
-`ExcursionOperatorsAndSpectralAction:ES3/free-group-case` — *theorem* · planet **The free-group case**
-
-**Statement.**
-
-Assume S = BF_n is the classifying space of a free group. Then the functor
-Perf(Map_{/BQ}(S, B(H semidirect Q)))-natural -> Perf(Map_{/BQ}(S, B(H semidirect Q)))
-is FULLY FAITHFUL, and its essential image is the idempotent-complete stable infinity-
-subcategory GENERATED BY THE IMAGE OF Rep_R(H). Concretely, representing BF_n -> BQ by a
-map F_n -> Q with images sigma_1,...,sigma_n, the mapping stack is [H^n / H] for the
-(sigma_1,...,sigma_n)-TWISTED DIAGONAL CONJUGATION action, and the approximation is the
-compact objects in the modules over O(H^n) in IndPerf(BH).
-
-**Hypotheses and warnings.**
-
-- The conjugation action on H^n is TWISTED by the images sigma_i of the generators in Q;
-  the untwisted diagonal conjugation is the split case only
-- The identification of the approximation with compact modules over O(H^n) in
-  IndPerf(BH) is EQUIVALENT to the claim, by Barr-Beck-Lurie, which gives a description
-  of the full subcategory of Perf([H^n/H]) generated by Perf(BH)
-- The reduction to n = 1 uses O(H^n) = O(H) tensor ... tensor O(H) in IndPerf(BH); the
-  case n = 1 is the circle, presented as a pushout of a point along two maps
-- For n = 1 one computes Perf(BH) tensor_{Perf(BH^2)} Perf(BH) where the two implicit
-  maps H -> H^2 are the diagonal and the sigma_1-twisted diagonal
-
-**Proof outline.**
-
-1. Represent BF_n -> BQ by F_n -> Q and identify the mapping stack with [H^n/H] for the
-   twisted diagonal conjugation.
-2. Reduce to n = 1 by writing O(H^n) as a tensor product in IndPerf(BH).
-3. For n = 1, present the circle BF_1 as a pushout of a point over two copies of a point,
-   compute Perf(BH) tensor_{Perf(BH^2)} Perf(BH) with the diagonal and the twisted
-   diagonal, and compare with Perf([H/H]) = Perf([H x H / H^2]), both described as
-   compact modules in IndPerf(BH^2).
-
-**Acceptance.**
-
-- Check that the conjugation is twisted by the images of the generators
-- Check the case n = 1, where the circle is presented as a pushout
-- Check that the essential image is the subcategory generated by Rep_R(H), not all of Perf
-
-**Prerequisites.** `ExcursionOperatorsAndSpectralAction:ES3/sifted-colimit-approximation`, `ExcursionOperatorsAndSpectralAction:ES3/approximation-commutes-with-colimits`, `LanglandsParameterStacks:LP3`, `LanglandsParameterStacks:LP4`, `mathlib:FreeGroup`, `mathlib:Representation`, `mathlib:CategoryTheory.Idempotents.Karoubi`, `mathlib:CategoryTheory.Equivalence`, `mathlib:AlgebraicGeometry.Scheme`
-
-**Sources.**
-
-- *Proposition X.3.3, printed p. 349.* “Assume that S = BF_n is the classifying space of a free group. Then the functor Perf(Map_{/BQ}(S, B(H semidirect Q)))-natural -> Perf(Map_{/BQ}(S, B(H semidirect Q))) is fully faithful, and the essential image is the idempotent-complete stable infinity-subcategory generated by the image of Rep_R(H).”
-  The statement, quoted verbatim. Read directly from the hash-verified PDF in this
-  session.
-- *Proof of Proposition X.3.3, printed p. 349.* “Represent BF_n -> BQ by a map F_n -> Q, and let sigma_1,...,sigma_n in Q be the images of the generators. Then Map_{/BQ}(S,B(H semidirect Q)) can be identified with [H^n/H], where H acts on H^n via the (sigma_1,...,sigma_n)-twisted diagonal conjugation action. We claim that Perf(Map)-natural is the infinity-category of compact objects in the infinity-category of modules over ...”
-  The identification, with the twist, quoted verbatim. The excerpt is truncated at a
-  word boundary; the full passage is on the printed page named in the locator.
-- *Proof of Proposition X.3.3, printed p. 350.* “As O(H^n) = O(H) tensor ... tensor O(H) in IndPerf(BH), one reduces to the case n = 1. In that case S = BF_1 is a circle, which we can present as a pushout of a point. Thus, we have to compute Perf(BH) tensor_{Perf(BH^2)} Perf(BH) where the two implicit maps H -> H^2 are given by the diagonal and the sigma_1-twisted diagonal, respectively.”
-  The reduction to the circle.
-
-### FS X.3.4: the approximation over the classifying space of a discrete group
-
-`ExcursionOperatorsAndSpectralAction:ES3/discrete-group-presentation` — *theorem* · planet **The discrete-group presentation**
-
-**Statement.**
-
-Let S = BGamma, where Gamma is any DISCRETE group, and lift the map S -> BQ to a map
-Gamma -> Q. One can write BGamma = colim over (n, F_n -> Gamma) of BF_n as a SIFTED
-COLIMIT in anima. Then Perf(Map_{/BQ}(S, B(H semidirect Q)))-natural is the infinity-
-category of COMPACT OBJECTS in the modules over colim over (n, F_n -> Gamma) of O(H^n)
-in IndPerf(BH), where O(H^n) is equipped with the diagonal conjugation of H TWISTED via
-the map F_n -> Gamma -> Q.
-
-**Hypotheses and warnings.**
-
-- That BGamma is the sifted colimit of the BF_n holds because E_1-groups in anima are
-  equivalent to ANIMATED GROUPS, whose compact projective generators are the free groups
-  F_n; this is the structural fact the presentation rests on
-- The colimit index category is the same (n, F_n -> Gamma) that indexes the excursion
-  algebra Exc(Gamma,H); this is why the excursion presentation and the spectral action
-  are presentations of the same object
-- The twist of the conjugation action is by the composite F_n -> Gamma -> Q and varies
-  with the index
-- The statement is about the APPROXIMATION; whether it agrees with Perf(Map) is the
-  free-group case plus X.3.2
-
-**Proof outline.**
-
-1. Write BGamma as the sifted colimit of the BF_n, using that E_1-groups in anima are
-   animated groups with the free groups as compact projective generators.
-2. Apply the free-group case and its proof to each BF_n.
-3. Conclude by the commutation of the approximation with sifted colimits.
-
-**Acceptance.**
-
-- Check that the colimit is sifted and that the index category is the excursion one
-- Check that the twist varies with the index
-- Check that the statement concerns the approximation
-
-**Prerequisites.** `ExcursionOperatorsAndSpectralAction:ES3/free-group-case`, `ExcursionOperatorsAndSpectralAction:ES3/approximation-commutes-with-colimits`, `LanglandsParameterStacks:LP3`, `LanglandsParameterStacks:LP2:excursion-presentation`, `LanglandsParameterStacks:LP4`, `mathlib:FreeGroup`, `mathlib:Representation`, `mathlib:CategoryTheory.Idempotents.Karoubi`, `mathlib:CommRing`
-
-**Sources.**
-
-- *Proposition X.3.4, printed p. 350.* “Let S = BGamma, where Gamma is any discrete group, and lift the map S -> BQ to a map Gamma -> Q. One can write BGamma = colim over (n, F_n -> Gamma) of BF_n as a sifted colimit (in anima). Then Perf(Map_{/BQ}(S, B(H semidirect Q)))-natural is the infinity-category of compact objects in the infinity-category of modules over colim over (n, F_n -> Gamma) of O(H^n) in IndPerf(BH), ...”
-  The presentation, quoted verbatim. Read directly from the hash-verified PDF in this
-  session. The excerpt is truncated at a word boundary; the full passage is on the
-  printed page named in the locator.
-- *Proof of Proposition X.3.4, printed p. 350.* “As E_1-groups in anima are equivalent to animated groups, with compact projective generators the free groups F_n, it follows that BGamma is the sifted colimit colim over (n, F_n -> Gamma) of BF_n. Now the result follows from the previous proposition (and its proof), together with the commutation with sifted colimits.”
-  The proof, and the structural fact that licenses the sifted presentation.
-
-### FS X.0.1-X.0.2: the integral spectral action, assuming l does not divide the torsion of pi_1 of the dual group
-
-`ExcursionOperatorsAndSpectralAction:ES3/integral-spectral-action` — *theorem* · planet **The integral spectral action**
-
-**Statement.**
-
-Let Lambda be the ring of integers in a finite extension of Q_l(sqrt q), and assume that
-l DOES NOT DIVIDE THE ORDER OF pi_1(G-hat)_tors. Let C be a small idempotent-complete
-Lambda-linear stable infinity-category. Then giving, functorially in the finite set I,
-an exact Rep_Lambda(Q^I)-linear monoidal functor Rep_Lambda((G-hat semidirect Q)^I) ->
-End_Lambda(C)^{B W_E^I} is EQUIVALENT to giving a COMPACTLY SUPPORTED Lambda-linear
-action of Perf(Z^1(W_E,G-hat)_Lambda / G-hat). The same holds if Lambda is a field over
-Q_l(sqrt q), for any prime l. Applied to C = D_lis(Bun_G,Lambda)^omega with its Hecke
-action, this gives the spectral action on D_lis(Bun_G).
-
-**Hypotheses and warnings.**
-
-- The hypothesis l not dividing the order of pi_1(G-hat)_tors is the one the roadmap
-  says must be carried at every step that needs it; it is exactly the hypothesis of
-  Theorem VIII.5.1, which the proof invokes
-- By the proof of Proposition IX.5.1 one may replace W_E by W_E/P in the statement, and
-  then choose a DISCRETISATION W inside W_E/P; that is the reduction of Theorem X.0.1 to
-  Theorem X.0.2
-- The proof is finished by COMBINING the propositions of X.3 with THEOREM VIII.5.1,
-  which says that under the same hypothesis the colimit of the O(Z^1(F_n,G-hat))
-  computes O(Z^1(W,G-hat)) in IndPerf(*/G-hat), that Perf(Z^1(W,G-hat)/G-hat) is
-  generated under cones and retracts by Perf(*/G-hat), and that
-  IndPerf(Z^1(W,G-hat)/G-hat) is the modules over O(Z^1(W,G-hat)) in IndPerf(*/G-hat).
-  Theorem VIII.5.1 is LanglandsParameterStacks' and is NOT proved here
-- The equivalence is stated with COMPACTLY SUPPORTED actions on the left of the
-  correspondence; dropping that is the error the ES2 definition node guards against
-- The Lambda of this statement is the ring of integers in a finite extension of Q_l(sqrt
-  q), not an arbitrary ring
-
-**Proof outline.**
-
-1. Reduce Theorem X.0.1 to Theorem X.0.2 by replacing W_E with W_E/P, using the proof of
-   Proposition IX.5.1, and choosing a discretisation W.
-2. Apply Proposition X.3.1 to get an action of the approximation Perf(Map_{/BQ}(BW,
-   B(G-hat semidirect Q)))-natural.
-3. Use Propositions X.3.2, X.3.3 and X.3.4 to present the approximation as compact
-   modules over the colimit of the O(G-hat^n) in IndPerf(B G-hat).
-4. Combine with Theorem VIII.5.1 to identify that with Perf(Z^1(W,G-hat)_Lambda/G-hat),
-   which finishes the proof of Theorem X.0.2 and hence of X.0.1.
-
-**Acceptance.**
-
-- Check that the torsion hypothesis is carried and is the same one as in Theorem VIII.5.1
-- Check that the equivalence is with COMPACTLY SUPPORTED actions
-- Check the reduction from W_E to a discretisation of W_E/P
-- Check that Theorem VIII.5.1 is imported and not reproved
-
-**Prerequisites.** `ExcursionOperatorsAndSpectralAction:ES3/discrete-group-presentation`, `ExcursionOperatorsAndSpectralAction:ES3/integral-universal-action`, `ExcursionOperatorsAndSpectralAction:ES3/approximation-commutes-with-colimits`, `ExcursionOperatorsAndSpectralAction:ES2/compactly-supported-actions`, `ExcursionOperatorsAndSpectralAction:ES1:finite-ramification/uniform-wild-subgroup`, `ExcursionOperatorsAndSpectralAction:ES0/discretisation-of-the-weil-group`, `LanglandsParameterStacks:LP3`, `LanglandsParameterStacks:LP4`, `LanglandsParameterStacks:LP2:integral-invariants`, `GeometricSatakeAndFusion:GS4:integral-dual-group`, `HeckeStacksAndLocalShtukas:HS4`, `VStackSheavesAndLisseCategories:VS4`, `mathlib:Representation`, `mathlib:CategoryTheory.Equivalence`, `mathlib:CategoryTheory.MonoidalCategory`
-
-**Sources.**
-
-- *Theorem X.0.1, printed p. 339.* “Assume that l does not divide the order of pi_1(G-hat)_tors. Let C be a small idempotent-complete Lambda-linear stable infinity-category. Then giving, functorially in the finite set I, an exact Rep_Lambda(Q^I)-linear monoidal functor Rep_Lambda((G-hat semidirect Q)^I) -> End_Lambda(C)^{B W_E^I} is equivalent to giving a compactly supported Lambda-linear action of ...”
-  The integral theorem, quoted verbatim with its hypothesis. Read directly from the
-  hash-verified PDF in this session. The excerpt is truncated at a word boundary; the
-  full passage is on the printed page named in the locator.
-- *Theorem X.0.2, printed p. 340.* “Assume that l does not divide the order of pi_1(G-hat)_tors. ... giving, functorially in the finite set I, an exact Rep_Lambda(Q^I)-linear monoidal functor Rep_Lambda((G-hat semidirect Q)^I) -> End_Lambda(C)^{BW^I} is equivalent to giving a Lambda-linear action of Perf(Z^1(W,G-hat)_Lambda/G-hat), with the same compatibility as above.”
-  The discretised variant the proof actually establishes.
-- *End of Section X.3, printed p. 350.* “Combining this with Theorem VIII.5.1, we have finished the proof of Theorem X.0.2. In particular, this gives the spectral action on D_lis(Bun_G).”
-  How the chapter closes, and the single imported input.
-
-**What remains in this layer.**
-
-- Theorem VIII.5.1, with which the propositions of X.3 are combined to finish the proof,
-  was read as a statement only. Its proof occupies FS VIII.5 and rests on good
-  filtrations, Donkin's theorem on O(G) and the good-filtration t-structure; that
-  material is LanglandsParameterStacks:LP3's and was not read.
-- Highest weight theory over a discrete valuation ring, which the proof of X.3.2 invokes
-  in one sentence, was not read anywhere; it is the integral input the rational argument
-  did not need.
-- The roadmap asks for the compatibility maps for change of coefficient extension, for a
-  finite pinned action quotient and for the finite-wild cutoff, and for a check that all
-  comparisons use the same universal parameter and the same normalised Hecke kernels.
-  None of these is a statement in the source; they are obligations the roadmap adds and
-  no node claims them.
-- Conjecture X.3.5, the integral categorical conjecture, was read and is not planned.
-
-## ES4 — Spectral support and reusable consequences
-
-*Coverage: **partial**. 3 nodes.*
-
-The commuting duality square of Proposition IX.5.3 with the Chevalley involution;
-Definition X.2.1 of an elliptic parameter and the connected component its unramified
-twists span; and the decomposition of that component's summand over the basic elements
-of B(G), with the supercuspidality statement and the explicit description when the
-connected split centre of G is trivial.
-
-### FS IX.5.3: the two centres are compatible with duality and the Chevalley involution
-
-`ExcursionOperatorsAndSpectralAction:ES4/duality-and-the-chevalley-involution` — *theorem* · planet **Duality of the centres**
-
-**Statement.**
-
-The Bernstein-Zelevinsky duality functor D_BZ on D_lis(Bun_G,Lambda) induces an
-involution D^geom of Z^geom(G,Lambda). On Z^1(W_E,G-hat), the CHEVALLEY INVOLUTION of
-G-hat induces an involution; after passing to the quotient by the conjugation action of
-G-hat one may also FORGET ABOUT THE INNER AUTOMORPHISM appearing in Proposition VI.12.1.
-Let D^spec be the induced involution of Z^spec(G,Lambda). Then the square relating
-Z^spec(G,Lambda) -> Z^geom(G,Lambda) to itself through D^spec and D^geom COMMUTES.
-
-**Hypotheses and warnings.**
-
-- Only the square is this layer's. The consequence for L-parameters of irreducible
-  smooth representations - compatibility with Bernstein-Zelevinsky duals and with smooth
-  duals - is ES6:duality's, and the roadmap assigns it there explicitly
-- The involution on the spectral side is the Chevalley involution; the inner
-  automorphism of Proposition VI.12.1 may be discarded only AFTER passing to the
-  quotient by conjugation, and Proposition VI.12.1 - the identification of the switching
-  involution sw of Rep(G-hat^I) - is GeometricSatakeAndFusion's
-- The commutation 'follows easily from the construction of excursion operators and
-  Proposition VI.12.1'; the proof is one sentence and its substance is in the Satake
-  input
-- D_BZ is VStackSheavesAndLisseCategories:VS5's duality, and the compatibility
-  D_BZ(T_V(A)) = T_{sw V-dual}(D_BZ(A)) is Theorem IX.2.2, which belongs to
-  HeckeStacksAndLocalShtukas
-
-**Proof outline.**
-
-1. Note that D_BZ induces an involution of the geometric centre and the Chevalley
-   involution one of the spectral centre.
-2. Compare the two on excursion operators, using Proposition VI.12.1 to identify the
-   switching involution with the Chevalley involution up to the inner automorphism.
-3. Observe that after passing to the quotient by conjugation the inner automorphism is
-   invisible.
-
-**Acceptance.**
-
-- Check that the inner automorphism may be discarded only after passing to the quotient
-- Check the compatibility of D_BZ with Hecke operators, which is the imported Theorem IX.2.2
-- Check that the representation-level consequences are not claimed here
-
-**Prerequisites.** `ExcursionOperatorsAndSpectralAction:ES1:spectral-center/spectral-to-geometric-center-map`, `ExcursionOperatorsAndSpectralAction:ES1/spectral-and-geometric-centers`, `VStackSheavesAndLisseCategories:VS5`, `VStackSheavesAndLisseCategories:VS4`, `GeometricSatakeAndFusion:GS4:integral-dual-group`, `HeckeStacksAndLocalShtukas:HS1`, `mathlib:CategoryTheory.LeftRigidCategory`, `mathlib:Representation`, `mathlib:RootPairing`
-
-**Sources.**
-
-- *Before Proposition IX.5.3, printed p. 329.* “Before going on, we make the following observation regarding duality. The Bernstein-Zelevinsky duality functor D_BZ on D_lis(Bun_G,Lambda) induces an involution D^geom of Z^geom(G,Lambda). On the other hand, on Z^1(W_E,G-hat), the Chevalley involution of G-hat induces an involution; after passing to the quotient by the conjugation action of G-hat, we can also forget about the ...”
-  How the two involutions are defined, quoted verbatim. Read directly from the hash-
-  verified PDF in this session. The excerpt is truncated at a word boundary; the full
-  passage is on the printed page named in the locator.
-- *Proposition IX.5.3, printed p. 329.* “The diagram Z^spec(G,Lambda) --D^spec--> Z^spec(G,Lambda) over Z^geom(G,Lambda) --D^geom--> Z^geom(G,Lambda) commutes.”
-  The square, which is this layer's. The second sentence of the source's statement,
-  about L-parameters of irreducible smooth representations, is ES6:duality's and is
-  deliberately not planned here.
-- *Proof of Proposition IX.5.3, printed p. 330.* “The commutation follows easily from the construction of excursion operators and Proposition VI.12.1.”
-  The proof of the square.
-
-### FS X.2.1: elliptic L-parameters and the connected component they span
-
-`ExcursionOperatorsAndSpectralAction:ES4/elliptic-parameters-and-components` — *definition* · planet **Elliptic parameters and their components**
-
-**Statement.**
-
-An L-parameter phi : W_E -> G-hat(Q-bar_l) is ELLIPTIC if it is SEMISIMPLE and the
-centraliser S_phi inside G-hat_{Q-bar_l} has the property that S_phi /
-Z(G-hat)^{Gamma}_{Q-bar_l} is FINITE. By deformation theory the UNRAMIFIED TWISTS of phi
-define a CONNECTED COMPONENT C_phi inside [Z^1(W_E,G-hat)_{Q-bar_l} / G-hat]. The
-spectral action - in fact the EXCURSION OPERATORS ARE ENOUGH for this - then gives a
-corresponding DIRECT SUMMAND D^{C_phi}_lis(Bun_G,Q-bar_l)^omega inside
-D_lis(Bun_G,Q-bar_l)^omega, explicitly the objects on which the excursion operator
-corresponding to the function that is 1 on C_phi and 0 elsewhere acts via the identity.
-
-**Hypotheses and warnings.**
-
-- Ellipticity requires BOTH semisimplicity AND finiteness of S_phi modulo the Galois
-  invariants of the centre of G-hat; dropping either changes the class
-- That the unramified twists form a whole connected component is by DEFORMATION THEORY:
-  the source's footnote says H^2(W_E, ad phi) = 0 by Tate duality and H^0 reduces to the
-  Lie algebra of Z(G-hat)^Gamma, so H^1 must have the same dimension and is accounted
-  for by the unramified twists. The deformation theory of the parameter stack is
-  LanglandsParameterStacks' content
-- The excursion operators alone suffice for the direct-summand decomposition; the source
-  says so, pointing back to the discussion around Theorem IX.5.2. A construction that
-  needs the full spectral action has overstated its input
-- Coefficients are Q-bar_l here, taken 'for simplicity'
-
-**Proof outline.**
-
-1. Define ellipticity by semisimplicity together with finiteness of S_phi modulo
-   Z(G-hat)^Gamma.
-2. By deformation theory - H^2 vanishing by Tate duality and the H^0 computation - the
-   unramified twists of phi form a connected component C_phi.
-3. The idempotent function supported on C_phi gives, through the excursion operators of
-   ES1:finite-ramification, a direct summand of the compact objects.
-
-**Planning API.**
-
-| Name | Role | Statement |
-| --- | --- | --- |
-| `IsElliptic` | data | phi is elliptic iff it is SEMISIMPLE and S_phi/Z(G-hat)^Gamma is FINITE. |
-| `IsElliptic.needsBoth` | structure | Both conditions are part of the definition. |
-| `centraliser` | data | S_phi, the centraliser of phi inside G-hat over Q-bar_l. |
-| `componentOfEllipticParameter` | data | C_phi, the connected component of [Z^1(W_E,G-hat)/G-hat] spanned by the unramified twists of phi. |
-| `componentOfEllipticParameter.deformation` | structure | The component claim rests on H^2(W_E, ad phi) = 0 by Tate duality and the H^0 computation; that deformation theory is imported. |
-| `idempotentSummand` | data | D^{C_phi}_lis(Bun_G,Q-bar_l)^omega, the objects on which the excursion operator of the indicator function of C_phi acts as the identity. |
-
-**Where it is used.**
-
-- `ExcursionOperatorsAndSpectralAction:ES4/basic-decomposition-of-an-elliptic-component` — the summand is then decomposed over the basic elements of B(G)
-- `ExcursionOperatorsAndSpectralAction:ES5` — the proved parameter assignment is read component by component
-- `ExcursionOperatorsAndSpectralAction:ES1:finite-ramification/component-decomposition` — this is one piece of that decomposition, for a component of a special shape
-
-**Unit tests.**
-
-- `semisimplicity_is_required` — A non-semisimple parameter with finite S_phi modulo the centre is not elliptic.
-- `torus_case` — For a torus S_phi is the whole group, so ellipticity becomes a condition on the centre; a definition making every torus parameter elliptic is wrong.
-- `excursion_alone` — The summand needs only the excursion operators; the full spectral action is a stronger input than required.
-- `unramified_twists_are_a_component` — For an elliptic phi the unramified twists exhaust a connected component; for a general parameter they need not.
-
-**Acceptance.**
-
-- Check that a non-semisimple parameter with finite centraliser quotient is not elliptic
-- Check the deformation-theoretic count that makes the unramified twists a whole component
-- Check that the excursion operators alone give the summand
-
-**Prerequisites.** `ExcursionOperatorsAndSpectralAction:ES1:finite-ramification/component-decomposition`, `ExcursionOperatorsAndSpectralAction:ES2/spectral-action-rational`, `ExcursionOperatorsAndSpectralAction:ES1:spectral-center/spectral-to-geometric-center-map`, `LanglandsParameterStacks:LP4`, `LanglandsParameterStacks:LP0`, `VStackSheavesAndLisseCategories:VS4`, `mathlib:Representation`, `mathlib:RootPairing`, `mathlib:CategoryTheory.Idempotents.Karoubi`
-
-**Sources.**
-
-- *Definition X.2.1, printed p. 346.* “An L-parameter phi : W_E -> G-hat(Q-bar_l) is elliptic if it is semisimple and the centralizer S_phi inside G-hat_{Q-bar_l} has the property that S_phi/Z(G-hat)^{Gamma}_{Q-bar_l} is finite.”
-  The definition, quoted verbatim with both conditions. Read directly from the hash-
-  verified PDF in this session.
-- *After Definition X.2.1, printed p. 346.* “By deformation theory, it follows that the unramified twists of phi define a connected component C_phi inside [Z^1(W_E,G-hat)_{Q-bar_l}/G-hat]. Thus, the spectral action (in fact, the excursion operators are enough for this, see the discussion around Theorem IX.5.2) implies that there is a corresponding direct summand D^{C_phi}_lis(Bun_G,Q-bar_l)^omega inside ...”
-  The component and the summand, with the source's own note that the excursion
-  operators suffice. The excerpt is truncated at a word boundary; the full passage is
-  on the printed page named in the locator.
-- *Footnote 3 to Section X.2, printed p. 346.* “One has H^2(W_E, ad phi) = 0 using Tate duality, and the H^0 reduces to the Lie algebra of Z(G-hat)^Gamma. The H^1 must thus be of the same dimension and be accounted for by the unramified twists.”
-  The deformation-theoretic argument behind the component claim, which the source puts
-  in a footnote.
-
-### FS X.2: an elliptic component is supported on the basic strata and on supercuspidal blocks
-
-`ExcursionOperatorsAndSpectralAction:ES4/basic-decomposition-of-an-elliptic-component` — *theorem* · planet **Elliptic components live on the basic strata**
-
-**Statement.**
-
-Let phi be elliptic with component C_phi. For any A in
-D^{C_phi}_lis(Bun_G,Q-bar_l)^omega and any b in B(G) that is NOT BASIC, the restriction
-i_b^* A is ZERO. Hence D^{C_phi}_lis(Bun_G,Q-bar_l)^omega = direct sum over b in B(G)
-basic of D^{C_phi}(G_b(E),Q-bar_l)^omega. Moreover all A in
-D^{C_phi}(G_b(E),Q-bar_l)^omega lie in SUPERCUSPIDAL components of the Bernstein centre.
-If Z(G-hat)^Gamma is finite - equivalently, if the connected split centre of G is
-trivial - then C_phi = [*/S_phi] is a point and every such A is a finite direct sum of
-shifts of supercuspidal representations of G_b(E), so that
-D^{C_phi}_lis(Bun_G,Q-bar_l)^omega = direct sum over basic b and over supercuspidal pi
-of G_b(E) with phi_pi = phi of Perf(Q-bar_l).
-
-**Hypotheses and warnings.**
-
-- Both the vanishing on non-basic strata and the supercuspidality use COMPATIBILITY WITH
-  PARABOLIC INDUCTION, which is FS IX.7.3 and belongs to ES7:parabolic; this node
-  imports it and does not prove it
-- The argument for the vanishing is: for a Schur-irreducible A in the component the
-  excursion operators act by scalars determined by an unramified twist of phi, hence so
-  they do on i_b^* A; if i_b^* A were nonzero for non-basic b one could find an
-  irreducible subquotient to which the argument applies, contradicting parabolic-
-  induction compatibility
-- The point-like description of C_phi needs Z(G-hat)^Gamma FINITE, equivalently the
-  connected split centre of G trivial; in general one fixes central characters instead
-- Everything here is over Q-bar_l and concerns the elliptic case only; Conjecture X.2.2,
-  which would make the resulting functor an equivalence, is a CONJECTURE and is not
-  planned
-
-**Proof outline.**
-
-1. For Schur-irreducible A in the component, the excursion operators act by the scalars
-   of an unramified twist of phi, and likewise on i_b^* A for every b.
-2. By compatibility with parabolic induction, i_b^* A = 0 for non-basic b, passing to an
-   irreducible subquotient if necessary.
-3. Deduce the decomposition over basic b, and that the pieces lie in supercuspidal
-   components, again by parabolic induction.
-4. If Z(G-hat)^Gamma is finite, C_phi = [*/S_phi] is a point, and the pieces are finite
-   direct sums of shifts of supercuspidal representations.
-
-**Acceptance.**
-
-- Check that the vanishing on non-basic strata is an import from parabolic induction and not proved here
-- Check the subquotient step in the vanishing argument
-- Check that the point-like description needs the connected split centre to be trivial
-- Check that Conjecture X.2.2 is a conjecture and is not used
-
-**Prerequisites.** `ExcursionOperatorsAndSpectralAction:ES4/elliptic-parameters-and-components`, `ExcursionOperatorsAndSpectralAction:ES1:finite-ramification/component-decomposition`, `ExcursionOperatorsAndSpectralAction:ES2/spectral-action-rational`, `VStackSheavesAndLisseCategories:VS4`, `VStackSheavesAndLisseCategories:VS5`, `SmoothRepresentationsOfLocalGroups:SR.0`, `SmoothRepresentationsOfLocalGroups:SR.2`, `LanglandsParameterStacks:LP4`, `mathlib:Representation`, `mathlib:CategoryTheory.Idempotents.Karoubi`
-
-**Sources.**
-
-- *Section X.2, printed p. 346.* “For any Schur-irreducible A in D^{C_phi}_lis(Bun_G,Q-bar_l)^omega, the excursion operators act via scalars on A, as determined by an unramified twist of phi. In particular, they act in this way on i_b^* A for any b in B(G). By compatibility with parabolic induction, it follows that for any A in D^{C_phi}_lis(Bun_G,Q-bar_l)^omega, the restriction i_b^* A is equal to 0 if b is ...”
-  The vanishing on non-basic strata, quoted verbatim. Read directly from the hash-
-  verified PDF in this session. The excerpt is truncated at a word boundary; the full
-  passage is on the printed page named in the locator.
-- *Section X.2, printed p. 346.* “Thus, D^{C_phi}_lis(Bun_G,Q-bar_l)^omega = direct sum over b in B(G) basic of D^{C_phi}(G_b(E),Q-bar_l)^omega. Moreover, all A in D^{C_phi}(G_b(E),Q-bar_l)^omega must lie in only supercuspidal components of the Bernstein center, again by compatibility with parabolic induction.”
-  The decomposition and the supercuspidality.
-- *Section X.2, printed p. 346.* “If Z(G-hat)^Gamma is finite (equivalently, if the connected split center of G is trivial), then C_phi = [*/S_phi] is a point and it follows that all A are finite direct sums of shifts of supercuspidal representations of G_b(E), and so D^{C_phi}_lis(Bun_G,Q-bar_l)^omega = direct sum over b basic, over pi, of Perf(Q-bar_l), where pi runs over supercuspidal ...”
-  The explicit description when the connected split centre is trivial. The excerpt is
-  truncated at a word boundary; the full passage is on the printed page named in the
-  locator.
-
-**What remains in this layer.**
-
-- The vanishing i_b^* A = 0 for non-basic b and the supercuspidality both rest on
-  compatibility with parabolic induction, which is FS IX.7.3 and belongs to
-  ES7:parabolic. This packet imports it. Until ES7:parabolic is planned, the two
-  statements of this layer rest on an unplanned supplier.
-- The roadmap asks this layer for a general notion of SPECTRAL SUPPORT via annihilators
-  and central functions on finite-wild pieces, with functoriality under exact triangles,
-  retracts and coefficient change. Nothing read defines such a support: the source works
-  with the idempotents of connected components only, and the elliptic case is the only
-  one spelled out. No node was written for the general notion, because writing one would
-  mean inventing a definition the source does not give.
-- The roadmap also asks for the local-shtuka consequences - commuting excursion
-  operators on the cohomology of moduli of local shtukas and their compatibility with
-  the two smooth group actions - through HS3. Section IX.3 on the cohomology of local
-  Shimura varieties was read in passing and Theorem IX.3.1 was noted, but no node is
-  written: the atlas records no edge from HS3 to ES4 and the roadmap's own text names
-  HS3 as an input that the link graph does not have.
-- Conjecture X.2.2, the parametrisation of L-packets, was read and is conjectural; the
-  roadmap says identifying a particular classical packet is outside its acceptance
-  conditions, and no node claims it.
-- Proposition VI.12.1, which identifies the switching involution with the Chevalley
-  involution up to an inner automorphism, was not read; it is
-  GeometricSatakeAndFusion's.
-
-## Baseline: what the pinned libraries already have
-
-Mathlib `082e2d3`, Tau Ceti `f790474`. The reviewed audit **AUDIT-20** (reviewed as
-`REV-AUDIT-20`, 17 September 2026, 240 targets checked, 89 corrections) covers every
-layer of this roadmap and returns **not built** for each. Two of its targets are
-recorded as *partial*, and both are cited below rather than planned: `ES0`'s algebra
-of natural endomorphisms of the identity, which is Mathlib's `CategoryTheory.CatCenter`,
-and `ES3`'s coefficient hypothesis, which the pinned root pairings can state. Every
-declaration below was read at the pins before being cited.
-
-| Declaration | Module | Why it is baseline |
-| --- | --- | --- |
-| `mathlib:Representation` | `Mathlib/RepresentationTheory/Basic.lean` | Representations of a group on a module. V in Rep((G-hat semidirect Q)^I), the representations realising excursion data, and the Rep_Lambda(Q^I)-linearity of every functor of Chapters VIII and X are all this notion; the packet cites it and does not plan it. |
-| `mathlib:CategoryTheory.Functor` | `Mathlib/CategoryTheory/Functor/Basic.lean` | Functors. The identity functor of C, whose endomorphisms are the Bernstein centre, and the Hecke functors T_V are objects of this type. |
-| `mathlib:CategoryTheory.NatTrans` | `Mathlib/CategoryTheory/NatTrans.lean` | Natural transformations. An element of the Bernstein centre is a natural endomorphism of the identity; the pinned definition already carries the naturality that this roadmap insists distinguishes it from an endomorphism of one object. |
-| `mathlib:CategoryTheory.Preadditive` | `Mathlib/CategoryTheory/Preadditive/Basic.lean` | Preadditive categories. End(id_C) is a ring because C is additive; the pinned class supplies that structure on hom-sets. |
-| `mathlib:CategoryTheory.MonoidalCategory` | `Mathlib/CategoryTheory/Monoidal/Category.lean` | Monoidal categories. Rep((G-hat semidirect Q)^I), Perf of the parameter stack and End(C) are all monoidal, and the Hecke datum is a monoidal functor between them. |
-| `mathlib:CategoryTheory.Functor.Monoidal` | `Mathlib/CategoryTheory/Monoidal/Functor.lean` | Monoidal functors. The Hecke datum V -> T_V and the spectral action are monoidal functors; the pinned definition is what the packet's statements quantify over. |
-| `mathlib:CategoryTheory.Equivalence` | `Mathlib/CategoryTheory/Equivalence.lean` | Equivalences of categories. Theorems X.0.1, X.1.1 and X.3.1 all assert that two data are equivalent, and Proposition X.3.3 asserts full faithfulness with a named essential image. |
-| `mathlib:CategoryTheory.Adjunction` | `Mathlib/CategoryTheory/Adjunction/Basic.lean` | Adjunctions. The unit and counit alpha and beta of an excursion datum, the adjoints T_{V-dual} of the Hecke operators, and the left adjoint to i_b^* used for the stratum embeddings are adjunction data. |
-| `mathlib:CategoryTheory.Idempotents.Karoubi` | `Mathlib/CategoryTheory/Idempotents/Karoubi.lean` | The Karoubi envelope. Every category in Chapter X is IDEMPOTENT-COMPLETE by hypothesis, and the component decomposition of IX.5 splits objects along idempotents of the centre; the pinned construction is the ambient notion. |
-| `mathlib:CategoryTheory.LeftRigidCategory` | `Mathlib/CategoryTheory/Monoidal/Rigid/Basic.lean` | Rigid monoidal categories. Dualisability of V in the Satake category, which is what gives T_V its adjoints, and the duality involutions of IX.5.3 live here. |
-| `mathlib:Module.End` | `Mathlib/Algebra/Module/LinearMap/End.lean` | Endomorphism rings of modules. End(A) for an object A, and the scalar End(A) = L of a Schur-irreducible object, are of this form once the category is concrete. |
-| `mathlib:Module.Projective` | `Mathlib/LinearAlgebra/Projective.lean` | Projective modules. The vanishing of the Lambda-homology of the pro-p group P^I in the proof of IX.5.1, and the splitting arguments in the proof of X.1.2, are statements about projectivity. |
-| `mathlib:Module.Free` | `Mathlib/LinearAlgebra/FreeModule/Basic.lean` | Free modules. The good filtrations of highest weight theory, which X.3.2 invokes, filter Perf(BH) by copies of Perf(R); the pinned notion is the local model for those pieces. |
-| `mathlib:CommRing` | `Mathlib/Algebra/Ring/Defs.lean` | Commutative rings. O(Z^1(F_n,G-hat))^{G-hat}, the excursion algebra, the spectral centre and the classical Bernstein centre are all commutative rings. |
-| `mathlib:RingHom` | `Mathlib/Algebra/Ring/Hom/Defs.lean` | Ring homomorphisms. Theorem VIII.4.1 and Theorem IX.5.2 both assert that a specific map is a map of ALGEBRAS; the pinned notion is what has to be produced. |
-| `mathlib:MvPolynomial` | `Mathlib/Algebra/MvPolynomial/Basic.lean` | Polynomial algebras. O(Z^1(F_n,G-hat)) is the coordinate ring of an affine scheme cut out inside a power of G-hat, and the invariant functions f(V,alpha,beta) are elements of such a ring. |
-| `mathlib:FreeGroup` | `Mathlib/GroupTheory/FreeGroup/Basic.lean` | Free groups. The excursion algebra is a colimit over pairs (n, F_n -> W), and Propositions X.3.3 and X.3.4 are stated for BF_n and for a sifted colimit of them; the pinned construction is the indexing object. |
-| `mathlib:Subgroup` | `Mathlib/Algebra/Group/Subgroup/Defs.lean` | Subgroups. The open subgroup P of the wild inertia, the discrete dense W inside W_E/P and the compact open K used for the classical Bernstein centre are subgroups. |
-| `mathlib:ProfiniteGrp` | `Mathlib/Topology/Algebra/Category/ProfiniteGrp/Basic.lean` | Profinite groups. The inertia I_E is compact and P is pro-p; the proof of IX.5.1 uses that Aut_{Z_l}(R) is profinite and locally pro-l. The Weil group itself is NOT profinite and is not in the pinned libraries. |
-| `mathlib:Condensed` | `Mathlib/Condensed/Basic.lean` | Condensed objects. Schur-irreducibility is End(A) = L AS CONDENSED ALGEBRAS, and the existence of the wild cutoff P rests on the relatively discrete condensed structure; the pinned definition is the ambient one and the condensed enhancement of D_lis is VStackSheavesAndLisseCategories' and HeckeStacksAndLocalShtukas'. |
-| `mathlib:CondensedMod` | `Mathlib/Condensed/Module.lean` | Condensed modules. The relatively discrete condensed animated Z_l-algebras of the proof of IX.5.1 are objects of this kind after truncation. |
-| `mathlib:MonoidAlgebra` | `Mathlib/Algebra/MonoidAlgebra/Defs.lean` | Monoid algebras. The level Hecke algebras Lambda[K \ G_b(E) / K] whose centres exhaust the classical Bernstein centre are of this shape. |
-| `mathlib:RootPairing` | `Mathlib/LinearAlgebra/RootSystem/Defs.lean` | Root pairings. The Chevalley involution of G-hat, the highest weights indexing the filtration of Perf(BH), and the dominant weights of the dual group are root-datum notions; the dual group itself is GeometricSatakeAndFusion:GS4's. |
-| `mathlib:AlgebraicGeometry.Scheme` | `Mathlib/AlgebraicGeometry/Scheme.lean` | Schemes. Z^1(W_E/P,G-hat) is an affine scheme, the quasicompact open and closed pieces exhausting Z^1(W_E,G-hat) are schemes, and [H^n/H] is a quotient of one. |
-| `tauceti:TauCeti.IsSmoothDiscrete` | `TauCeti/RepresentationTheory/SmoothDiscrete.lean` | Smooth discrete actions. The smooth representations of G_b(E) whose Bernstein centre is the target of ES0:classical-center's map are of this kind at the pins; this is a genuine baseline, and is NOT the equivalence with sheaves on a stratum, which is VStackSheavesAndLisseCategories:VS4's. |
-| `tauceti:TauCeti.SmoothDiscreteTopRep` | `TauCeti/RepresentationTheory/SmoothDiscrete.lean` | The category of smooth discrete representations. The classical Bernstein centre is End(id) of its derived category, so the pinned category is where that statement would be made. |
-| `mathlib:CategoryTheory.CatCenter` | `Mathlib/CategoryTheory/Center/Basic.lean` | THE BERNSTEIN CENTRE OF A CATEGORY, ALREADY IN MATHLIB: `abbrev CatCenter := End (1_C)`. This is exactly the object Theorem VIII.4.1 calls the Bernstein centre of C, and the reviewed audit AUDIT-20 records this target as PARTIAL for that reason. This packet therefore cites it and plans only what is missing: the enhanced, degree-zero version on D_lis(Bun_G,Lambda). |
-| `mathlib:CategoryTheory.CatCenter.app` | `Mathlib/CategoryTheory/Center/Basic.lean` | Evaluation of a central element at an object. This is the pinned form of the distinction the roadmap insists on, between a natural endomorphism of the identity and an endomorphism of one object. |
-| `mathlib:CategoryTheory.CatCenter.naturality` | `Mathlib/CategoryTheory/Center/Basic.lean` | Naturality of a central element, from which centrality follows. Already proved at the pins, so this packet does not plan it. |
-| `mathlib:CategoryTheory.Linear.toCatCenter` | `Mathlib/CategoryTheory/Center/Linear.lean` | `def toCatCenter [Linear R C] : R ->+* CatCenter C`, the scalar structure on the centre of an R-linear category. The Lambda-algebra structure on the Bernstein centre is this map and is not planned again. |
-| `mathlib:RootPairing.flip` | `Mathlib/LinearAlgebra/RootSystem/Defs.lean` | The dual root pairing. AUDIT-20 records that although the dual group does not exist as a group scheme at the pins, the hypothesis of Theorem X.0.1 CAN be stated with what does: pi_1(G-hat) is the quotient of the character lattice by the root lattice, which the pinned root pairings express. ES3's coefficient hypothesis is therefore statable today. |
-
-Confirmed **absent** at both pins by AUDIT-20 and by direct search, and therefore not
-cited: the Bernstein centre of a locally profinite group, the Weil group of a local
-field as a topological group, the Langlands dual group, stable infinity-categories and
-their Ind-completions, perfect complexes on a stack, animated rings and animated groups,
-anima, derived mapping stacks, good filtrations and Donkin's theorem, and the Bernstein
-decomposition. Everything this packet needs from those notions is requested from another
-roadmap rather than cited as baseline.
-
-## Gaps
-
-Twelve. The first two are the standing caveats on this packet; the rest each carry a
-next source action.
-
-### 1. This roadmap has no integrated decomposition; every node was written from the source read in this session
-
-There is no file for ExcursionOperatorsAndSpectralAction in data/decompositions/, no
-draft in research/expansion/drafts/, no external contribution. All twenty-six nodes of
-this packet were therefore written from Fargues-Scholze read directly in this session,
-from Geometrization.pdf whose SHA-256 reproduces the recorded value byte for byte; the
-text was extracted by inflating the PDF's object streams and reading its text operators,
-and every printed page was read off the running heads. The sections read are listed in
-the source record. A reviewer of this packet is checking a first reading and not a
-refinement of a reviewed one, and should treat every locator as unconfirmed by anyone
-else.
-
-### 2. CORRECTION: this roadmap does have a reviewed library audit, and the first version of this packet said it did not
-
-The first version of this packet, merged as pull request #2862, stated that there is 'no
-reviewed audit in data/library-coverage.json' for this roadmap. That is wrong. AUDIT-20,
-reviewed as REV-AUDIT-20 on 17 September 2026 with 240 targets checked and 89
-corrections, covers all seventeen layers of ExcursionOperatorsAndSpectralAction and
-returns NOT BUILT for every one. The verdicts do not overturn anything planned here -
-nothing in this packet duplicates a built target - but two of the audit's target notes
-do change the packet, and both corrections are applied in this version. First, ES0's
-target 'the algebra of natural endomorphisms of the identity of the enhanced category,
-its centrality and scalar structure' is recorded as PARTIAL, because Mathlib at the
-pinned commit already has `CategoryTheory.CatCenter C = End (1_C)` with `CatCenter.app`,
-`CatCenter.naturality` and `Linear.toCatCenter`; the node ES0/bernstein-center-of-a-
-category now cites those declarations and owns only the enhanced degree-zero version,
-which is what the audit says is missing. Second, ES3's target records that although the
-dual group is absent, the hypothesis that l not divide the order of pi_1(G-hat)_tors IS
-statable at the pins through `RootPairing.flip`, since pi_1(G-hat) is the quotient of
-the character lattice by the root lattice; that declaration is now cited. The audit's
-duplicate records are also acted on: ES0 duplicates
-GlobalShtukasAndFunctionFieldLanglands:GS.5, which constructs excursion operators
-indexed by invariant functions and Galois tuples with the same relations globally over a
-function field, and a request to it is added.
-
-### 3. V. Lafforgue's relations, on which the last step of Theorem VIII.4.1 rests, were not read
-
-The proof of Theorem VIII.4.1 finishes with: 'Arguing also as in [Laf18, Lemma 10.1,
-equation (10.5)] and the resulting [Laf18, Proposition 10.8(iii), Definition-Proposition
-11.3(d)], one sees that the maps Theta_n are also compatible with the multiplication
-maps induced by such maps g.' V. Lafforgue, Chtoucas pour les groupes reductifs et
-parametrisation de Langlands globale, J. Amer. Math. Soc. 31 (2018), was NOT read in
-this session. Everything else in the proof - the cartesian reindexing square, the fusion
-argument for multiplicativity and the unit-insertion identification - was read and is
-planned. NEXT SOURCE ACTION: read [Laf18] Sections 10 and 11 and either plan the
-relations there or record them as an external dependence of ES0.
-
-### 4. The display defining Theta_I on printed page 292 is damaged in the text extraction
-
-The extraction used here renders the commutative square that defines Theta_I and asserts
-its cartesianness as a broken run of fragments; what was recovered cleanly is the word
-'cartesian', the two function rings and the two mapping spaces. The node ES0/excursion-
-relations-and-the-algebra-map therefore states cartesianness on the strength of a
-partially recovered display. NEXT SOURCE ACTION: read printed page 292 of
-Geometrization.pdf in a viewer and confirm the shape of the square. Nothing else in this
-packet depends on that wording.
-
-### 5. Theorem VIII.3.6 and Theorem VIII.5.1 were read as statements only
-
-The three-line proof of Theorem IX.5.2 invokes Theorem VIII.3.6, and the closing
-sentence of Section X.3 invokes Theorem VIII.5.1, which FS call a slight refinement of
-VIII.3.6 concerning perfect complexes. Their statements were read (printed p. 293) and
-are quoted in the packet; the proof, which occupies the rest of Section VIII.5 and rests
-on the good-filtration t-structure on IndPerf(BG), Donkin's theorem that O(G) admits a
-good filtration, and a reduction to characteristic l, was NOT read. This material
-belongs to LanglandsParameterStacks:LP3 and is requested from it. NEXT SOURCE ACTION:
-read FS VIII.5, printed pp. 293-300.
-
-### 6. Highest weight theory over a discrete valuation ring, which Proposition X.3.2 turns on, has no source in anything read
-
-The whole proof of Proposition X.3.2 is: 'But this follows easily from highest weight
-theory, which for any split reductive group H filters Perf(BH) in terms of copies of
-Perf(R) enumerated by highest weights.' No reference is given at that point and nothing
-read here establishes it. This is precisely the input the rational argument did not
-need, so it is the mathematical content of the integral case. NEXT SOURCE ACTION: locate
-the statement in FS VIII.5, where the good-filtration formalism is developed, or in
-Donkin and Jantzen, and route it to LanglandsParameterStacks:LP3.
-
-### 7. The complex block description of the classical Bernstein centre is not in Fargues-Scholze
-
-ES0:classical-center is described by the roadmap as a comparison with 'SR.3's classical
-Bernstein-block description over complex coefficients, through the stipulated
-characteristic-zero coefficient dictionary'. What Fargues-Scholze supply is the map
-Z^geom(G,Lambda) -> Z(G(E),Lambda) and the description Z(D(G_b(E),Lambda)) = lim over K
-of Z(Lambda[K \ G_b(E) / K]). Bernstein's decomposition of that ring into blocks is
-neither stated nor proved in anything read. The layer therefore has an unproved half
-until SmoothRepresentationsOfLocalGroups:SR.3 supplies it. NEXT SOURCE ACTION: none in
-this source; the statement must come from SR.3.
-
-### 8. Helm-Moss was not read, although the whole of IX.5's Bernstein-centre discussion is presented as generalising it
-
-Fargues-Scholze write 'This is a generalization of results of Helm-Moss, [HM18]' before
-Theorem IX.5.2, and close IX.7.4 with 'recovering a result of Helm-Moss [HM18]'. D. Helm
-and G. Moss, Converse theorems and the local Langlands correspondence in families,
-Invent. Math. 214 (2018), was not read. Nothing in this packet depends on it, but a
-reviewer cannot check the word 'generalization' without it. NEXT SOURCE ACTION: read
-[HM18]'s main theorem and record in ES0:classical-center's node what exactly is
-generalised.
-
-### 9. The general notion of spectral support that ES4's stage text asks for has no source
-
-ES4's text asks for 'support of an object via annihilators/central functions on finite-
-wild pieces, functoriality under exact triangles, retracts and coefficient change, and
-the associated localization/decomposition operations'. Fargues-Scholze define no such
-support. What they give is the decomposition along connected components of the parameter
-stack (IX.5, planned in ES1:finite-ramification) and, for an elliptic parameter, the
-summand cut out by the indicator function of the component (X.2.1, planned here). No
-node was written for the general notion, because writing one would mean inventing a
-definition the source does not give. NEXT SOURCE ACTION: either narrow ES4's text to the
-component decomposition and the elliptic case, or name a source - the natural candidate
-is the singular-support formalism of FS VIII.2.2, which was not read - and route the
-general notion there.
-
-### 10. The local-shtuka consequences that ES4's text asks for have no supplier edge and no node
-
-ES4's text names 'HS3 for local-shtuka applications' among its inputs and asks to
-'recover the resulting commuting excursion operators and their compatibility with the
-two smooth group actions through the Hecke comparison'. The atlas records no edge from
-HeckeStacksAndLocalShtukas:HS3 to ES4; ES4's recorded inputs are ES2, ES3, LP4 and VS4
-only. FS IX.3, on the cohomology of local Shimura varieties, was read in passing in this
-session - Theorem IX.3.1 says the complex is naturally one of smooth
-G_b(Q_p)-representations, compact in D(G_b(Q_p),Z_l) for K pro-p, with continuous W_E-
-action - but no node is written here, because the statement belongs to the Hecke roadmap
-and the edge does not exist. NEXT SOURCE ACTION: read FS IX.3 in full and route Theorem
-IX.3.1 to HeckeStacksAndLocalShtukas:HS3; then a kind:link job should draw HS3 -> ES4.
-
-### 11. Proposition VI.12.1 was not read
-
-The involution D^spec of the spectral centre is defined using the Chevalley involution
-'after passing to the quotient by the conjugation action of G-hat, we can also forget
-about the inner automorphism appearing in Proposition VI.12.1', and the proof of
-Proposition IX.5.3 says the commutation 'follows easily from the construction of
-excursion operators and Proposition VI.12.1'. Proposition VI.12.1 identifies the
-switching involution sw of Rep(G-hat^I) and lives in the geometric Satake chapter; it
-was not read here and belongs to GeometricSatakeAndFusion. So the only substantive input
-to ES4's duality node is imported unread. NEXT SOURCE ACTION: read FS VI.12, printed pp.
-240-245.
-
-### 12. The agreement of the degree-zero spectral action with the centre map of ES1 is not a statement in the source
-
-ES2's text asks to 'prove agreement of the degree-zero action with ES1'. Corollary X.1.3
-characterises the spectral action uniquely by the requirement that it induce the Hecke
-action, and Theorem IX.5.2 constructs the centre map independently; nothing read states
-that the degree-zero part of the former is the latter. The two constructions share the
-excursion operators, so the statement is presumably routine, but it is an obligation the
-roadmap adds rather than a theorem of the source, and no node claims it. NEXT SOURCE
-ACTION: none in this source; the statement has to be formulated and proved as part of
-ES2's own work, and a reviewer should not expect a locator for it.
-
-## Requests to other roadmaps
-
-| Supplier | What is needed |
+| Construction | Coefficient requirement |
 | --- | --- |
-| `HeckeStacksAndLocalShtukas:HS1` | The condensed enhancement of D_lis(Bun_G,Lambda) and its W_E^I-equivariant objects. Every excursion operator's middle arrow is the action of a tuple of Weil elements through that condensed structure, Schur-irreducibility is an identity of CONDENSED algebras, and the existence of the wild cutoff P in IX.5.1 is proved from the relatively discrete condensed structure of the endomorphisms. A discrete action does not suffice anywhere here. |
-| `HeckeStacksAndLocalShtukas:HS4` | The Hecke functors T_V given coCartesianly in the finite set I, in the strong sense the source states at the head of Chapter X: a map on total spaces over Fin of the corresponding coCartesian fibrations. Both sides of Theorem X.1.1 are stated in terms of it, the tensor-closure step of IX.5.1 uses T_{V tensor W} = T_V o T_W with the diagonal restriction of the W_E^{I disjoint I}-action, and the multiplicativity of the excursion operators is proved on a disjoint union of leg sets. |
-| `LanglandsParameterStacks:LP2:excursion-presentation` | The excursion algebra Exc(W,G-hat) with its presentation as the colimit over (n, F_n -> W) of O(Z^1(F_n,G-hat))^{G-hat}, and the invariant ring O(G-hat \ (G-hat semidirect Q)^I / G-hat) on which the operators are defined. Theorem VIII.4.1's source is this object; this packet consumes the presentation and plans none of it. |
-| `LanglandsParameterStacks:LP2:integral-invariants` | The integral invariant-function theory of the parameter stack: the functions O(Z^1(W_E,G-hat)_Lambda / G-hat) that make up the spectral centre, over a general Z_l[sqrt q]-algebra Lambda. Theorem IX.5.2's source is this ring and its component decomposition. |
-| `LanglandsParameterStacks:LP0` | The scheme of 1-cocycles Z^1(W_E,G-hat) itself, its non-quasicompactness, its exhaustion by the open, closed and quasicompact Z^1(W_E/P,G-hat), and the fact that Exc(W,G-hat) -> O(Z^1(W_E/P,G-hat)_Lambda)^{G-hat} is a UNIVERSAL HOMEOMORPHISM. The last is what supplies the idempotents that cut out the components in ES1:finite-ramification. |
-| `LanglandsParameterStacks:LP3` | Theorem VIII.5.1 and its proof: assuming l does not divide the order of pi_1(G-hat)_tors, the colimit of the O(Z^1(F_n,G-hat)) computes O(Z^1(W,G-hat)) in IndPerf(*/G-hat), Perf(Z^1(W,G-hat)/G-hat) is generated under cones and retracts by Perf(*/G-hat), and IndPerf(Z^1(W,G-hat)/G-hat) is the modules over O(Z^1(W,G-hat)) in IndPerf(*/G-hat). Also the highest weight theory over a discrete valuation ring - good filtrations and Donkin's theorem - that the proof of X.3.2 invokes. Both the proof of IX.5.2 and the proof of X.0.2 rest on this and nothing in this packet reproves it. |
-| `LanglandsParameterStacks:LP4` | The stack of L-parameters [Z^1(W_E,G-hat)/G-hat] as a geometric object, its Perf and IndPerf, and the identification Map_{/BQ}(BW, B(G-hat semidirect Q)) = [Z^1(W,G-hat)_L/G-hat] of Proposition VIII.3.5, together with the deformation theory - H^2(W_E, ad phi) = 0 by Tate duality - behind the component claim for an elliptic parameter. |
-| `SmoothRepresentationsOfLocalGroups:SR.0` | The category of smooth representations of a locally profinite group over the allowed coefficients, which is the C of the abstract theory in its classical incarnation and the target of the comparison of ES0:classical-center. |
-| `SmoothRepresentationsOfLocalGroups:SR.2` | Parabolic induction for p-adic groups and the normalisation conventions. This packet's ES4 imports compatibility with parabolic induction from ES7:parabolic, which in turn rests on SR.2's dictionary between the source's unnormalised induction and the local-group owner's normalised one. |
-| `SmoothRepresentationsOfLocalGroups:SR.3` | The classical Bernstein decomposition: the block description of Z(G(E),C) over complex coefficients. It is NOT proved in Fargues-Scholze, and ES0:classical-center's coefficient dictionary has an unproved half until this is supplied. |
-| `VStackSheavesAndLisseCategories:VS2` | The lisse categories D_lis(Bun_G,Lambda), their compact objects, and the solid formalism they rest on. Proposition IX.5.1 is a statement about compact objects of D_lis and its proof uses the v-descent that VS2 owns. |
-| `VStackSheavesAndLisseCategories:VS3` | The Ind-category of D_lis(Bun_G,Lambda) and the relation between its compact objects and the whole category: the component decomposition of IX.5 is a direct SUM on compact objects and a direct PRODUCT on the Ind-category, and the distinction has to be available before it can be stated. |
-| `VStackSheavesAndLisseCategories:VS4` | The identification D(G_b(E),Lambda) = D_lis(Bun^b_G,Lambda) and the fully faithful embeddings of the strata's categories into D_lis(Bun_G,Lambda). ES0:classical-center's map to the classical Bernstein centre is induced by the embedding for b = 1, and ES4's decomposition over the basic elements uses the general ones. |
-| `VStackSheavesAndLisseCategories:VS5` | Bernstein-Zelevinsky duality D_BZ on D_lis(Bun_G,Lambda). The involution D^geom of the geometric centre in Proposition IX.5.3 is induced by it. The atlas records no edge from VS5 to ES4 although the roadmap's own ES4 text names VS5 as an input; that is filed as a structural finding. |
-| `EnhancedDerivedSheaves:E5:abstract` | The abstract theory of small idempotent-complete Lambda-linear stable infinity-categories, their endofunctor categories End_Lambda(C), and equivariant objects C^{S} for an anima S. Every statement of Chapters VIII and X quantifies over such a C. |
-| `EnhancedDerivedSheaves:E5:presentability` | Presentability and Ind-completion: IndPerf of a stack, Barr-Beck-Lurie for the comparison of IndPerf(X/G) with modules over O(X) in IndPerf(BG), and the compact objects inside a presentable category. The proofs of X.1.2, X.3.3 and X.3.4 all run through these. |
-| `GeometricSatakeAndFusion:GS4:integral-dual-group` | The dual group G-hat with its Q-action and the category Rep((G-hat semidirect Q)^I) over the integral coefficients used here, together with the Chevalley involution and Proposition VI.12.1's identification of the switching involution. Every excursion datum is built from an object of that category. The atlas records no edge from GS4 to ES0, ES2 or ES3 although all three are stated in terms of Rep((G-hat semidirect Q)^I); that is filed as a structural finding. |
-| `GlobalShtukasAndFunctionFieldLanglands:GS.5` | The GLOBAL excursion operators: indexed by invariant functions and tuples of Galois elements, with the same reindexing, multiplication and unit-insertion relations, over the function field of a curve. The reviewed audit AUDIT-20 records GS.5 as a duplicate of ES0, and PROTOCOL.md section 15 says a construction two layers share is planned once. The relations are identical; what differs is that GS.5 works with the Galois group of a function field and a global Hecke stack, while ES0 works with the local Weil group and the condensed enhancement. A restructuring job should decide which layer owns the shared algebra and which imports it. |
+| Excursions, wild cutoff, component idempotents | Z_ell[sqrt(q)]-algebra; ell != p |
+| Invariant-coordinate center map | Additionally order of pi_0 Z(G) invertible in Lambda |
+| Rational categorical action | Field over Q_ell(sqrt(q)); every ell != p |
+| Integral actual-Perf action | DVR integers in a finite extension; ell does not divide order of pi_1(H)_tors |
+| Integral approximation action | DVR split-reductive setup; no good-prime restriction at this step |
 
-## Structural findings
+## Ownership and imported inputs
 
-### 1. This roadmap's parent layers are wired in two opposite directions, and ES1 ends up with no external suppliers
+The reviewed audit already finds the ordinary Mathlib center. It is imported. The verifier’s primary fix for RT-AREA-geomlanglands/6 overrides the older overlapping LP4 action-universality draft: this part owns Chapter X, while LP4 supplies VIII.5.1 generation and module comparison. LP2 retains the full abstract excursion construction; SR.1 owns the ordinary ring-valued smooth center; ES7 owns the general spectral stratum composites. No other packet or atlas data is edited.
 
-*Kind: `link-direction`.*
+A complete planning pass can contain requested inputs and exact gaps. “Planned” below means every target is specified with its prerequisite chain ending in a library declaration, a precise imported node, a requested stage, or a stated gap. It does not mean proof closure or formalization.
 
-ES0's recorded inputs are EnhancedDerivedSheaves:E5:abstract,
-HeckeStacksAndLocalShtukas:HS1 and HS4, LanglandsParameterStacks:LP2:excursion-
-presentation, SmoothRepresentationsOfLocalGroups:SR.0 and
-VStackSheavesAndLisseCategories:VS4, and ES0 SUPPLIES its child ES0:classical-center.
-ES1's recorded inputs, by contrast, are its own two children ES1:finite-ramification and
-ES1:spectral-center, and it has no external supplier at all; its only consumer is
-SmoothRepresentationsOfLocalGroups:SR.6. So within one roadmap a parent layer supplies
-its child in one case and is supplied by its children in the other. The consequence is
-not cosmetic: ES1's content - the definitions of the spectral centre, the geometric
-centre and the Hecke-compatible part - quotes LanglandsParameterStacks and
-VStackSheavesAndLisseCategories throughout, and a reader following the link graph would
-conclude that it rests on nothing outside this roadmap. The nodes of this packet that
-realise ES1 name LP2:excursion-presentation, LP2:integral-invariants, LP0, VS4, VS3,
-HS1, HS4 and E5:abstract as prerequisites, and all eight are filed as requests here. A
-kind:link or kind:restructure job should settle the convention for parent layers and,
-whichever way it settles it, give ES1 the external edges its own text needs.
+## ES0
 
-### 2. ES4's stage text names four inputs that the atlas does not record
+The first construction is the enhanced Bernstein center, the degree-zero endomorphism algebra of the identity exact functor. The ordinary categorical center and its elementary API already exist in Mathlib. The enhancement supplies an E_2 structure and therefore a commutative degree-zero algebra; taking object components only gives a natural map to the center of the homotopy category. There is no general isomorphism assertion.
 
-*Kind: `missing-links`.*
+LP2 owns the abstract excursion datum, its invariant function, coefficient independence and finite-leg relations. Here its inputs are instantiated by the actual HS1/HS4 normalized Hecke kernels on Bun_G. Creation and annihilation are diagonal-invariant maps; an arbitrary pair is not an adjunction unit and counit. Their coherent composite gives the enhanced lift. The completed Weil-variable continuity uses condensed enrichment, rather than treating a dense discrete subgroup as the full topological group.
 
-ES4's text begins 'Inputs: ES1's eligible center map, ES2 or ES3 according to
-coefficients, VS5, GS4 duality, and HS3 for local-shtuka applications.' The atlas
-records ES4's inputs as ExcursionOperatorsAndSpectralAction:ES2 and ES3,
-LanglandsParameterStacks:LP4 and VStackSheavesAndLisseCategories:VS4. Four of the five
-named inputs are therefore absent from the link graph: ES1:spectral-center,
-VStackSheavesAndLisseCategories:VS5, GeometricSatakeAndFusion:GS4:integral-dual-group
-and HeckeStacksAndLocalShtukas:HS3. Every one of them is used by the nodes of this
-packet that realise ES4: the duality node cannot be stated without VS5's D_BZ and GS4's
-Chevalley involution, the elliptic node consumes ES1's component decomposition, and the
-local-shtuka obligation cannot be met at all without HS3. A kind:link job should draw
-all four edges. The same check finds a fifth missing edge elsewhere in this roadmap:
-every excursion datum is built from an object of Rep((G-hat semidirect Q)^I), so
-GS4:integral-dual-group is an input of ES0, ES2 and ES3 as well, and the atlas records
-no edge from it to any of them.
+The comparison of discretizations is qualified: LP’s continuous universal property canonically identifies the ell-torsion-free excursion quotient; the full excursion algebra is identified at good primes or rationally. Nilpotent torsion can still leave the same idempotents and points. No unrestricted integral algebra identification is built into this stage.
 
-### 3. ES4's demand for a general spectral support asks for a definition the source does not give
+Coverage: **planned**. Refinement contract: E5/HS1 enhanced center and coherent relation signatures; preserve the qualified comparison to ordinary CatCenter.
 
-*Kind: `narrow-text`.*
+### Enhanced Bernstein center
 
-ES4's text asks for 'support of an object via annihilators/central functions on finite-
-wild pieces, functoriality under exact triangles, retracts and coefficient change, and
-the associated localization/decomposition operations in the cases justified by the
-parameter-stack geometry'. Read against the source, that sentence describes two
-different things, only one of which exists. The decomposition along the connected
-components of Z^1(W_E,G-hat), with its idempotents and its distinction between a sum on
-compact objects and a product on Ind-categories, is proved in FS IX.5 and is planned in
-this packet - but it belongs to ES1:finite-ramification, whose text already claims it.
-What is left for ES4 is the elliptic case of FS X.2, which is a special case of the same
-decomposition rather than a general support theory. A general annihilator-based support
-with the listed functoriality is not defined anywhere in Chapters VIII to X. Either
-ES4's text should be narrowed to the elliptic case plus the duality square plus the
-local-shtuka consequences, or the general support should be named as a new obligation
-with a source; the natural candidate is the nilpotent singular support of FS VIII.2.2,
-which Conjecture X.3.5 invokes and which no roadmap of this family currently owns.
+`ExcursionOperatorsAndSpectralAction:ES0/bernstein-center-of-a-category` · definition · proposed name `enhancedCenter`
 
+For a Lambda-linear stable infinity-category C, define Z_enh(C) = pi_0 Map_Fun^ex_Lambda(C,C)(id_C,id_C), with addition from stability and multiplication from composition. Its E_2 structure makes pi_0 a commutative Lambda-algebra. When C is condensed enriched, retain the induced condensed endomorphism algebra. For D_lis use its given condensed enhancement and identify the center of compact objects with that of Ind(C) through the colimit-preserving extension.
+
+Hypotheses and interfaces:
+
+- C is small and idempotent complete, or presentable and compactly generated with its specified compact subcategory.
+- The functor category and mapping object are enhanced; ordinary CatCenter is only an imported comparison target.
+
+Construction or proof:
+
+1. Form the enhanced exact endofunctor category and the endomorphisms of its monoidal unit.
+2. Use composition and the interchange law to obtain the E_2 structure, then take pi_0 and its scalar map.
+3. Use the universal property of Ind to extend exact endofunctors and natural transformations; retain condensed enrichment from HS1.
+
+Uses:
+
+- IX.5: Receives the excursion map and its component idempotents.
+- ES5: Evaluation at a Schur object supplies an excursion character.
+
+API:
+
+- `enhancedCenter_eval` (projection): Each object X has a Lambda-algebra map Z_enh(C) -> pi_0 End_C(X).
+- `enhancedCenter_scalars` (structure): The scalar lambda evaluates to lambda times id_X at every X.
+- `enhancedCenter_ind` (equivalence): Restriction from colimit-preserving natural endomorphisms on Ind(C) to C is an equivalence of mapping objects, hence of degree-zero centers.
+- `enhancedCenter_naturality` (relation): For u:X->Y, u composed with z_X equals z_Y composed with u, with the coherent enhanced naturality inherited from z.
+
+Unit tests:
+
+- `center_scalar_eval` (computation): For lambda in Lambda, evaluation of its scalar central class on X is lambda id_X.
+- `center_zero_category` (degenerate): For the zero stable category the enhanced center is the zero ring.
+- `center_module_category` (characterisation): For C = Perf(A), A an ordinary commutative Lambda-algebra, Z_enh(C) identifies with A through multiplication, and evaluation at A is that identification.
+
+Acceptance:
+
+- Verify the full statement, including its coefficient and continuity hypotheses.
+- Check the displayed construction on the unit and its compatibility with the cited supplier maps.
+
+Direct prerequisites: `EnhancedDerivedSheaves:E5:abstract`, `EnhancedDerivedSheaves:E5:presentability`, `HeckeStacksAndLocalShtukas:HS1/condensed-enrichment`, `mathlib:CategoryTheory.CatCenter`, `mathlib:CategoryTheory.CatCenter.app`, `mathlib:CategoryTheory.CatCenter.naturality`, `mathlib:CategoryTheory.Linear.toCatCenter`.
+
+Source: IX.1 pp. 320–321; IX.5 p. 328; VIII.4.1 p. 291. FS specifies the enhanced center pi_0 End(id). The E_2 and Ind mapping-object facts are requested from E5; the Perf(A) test uses Hochschild cohomology in degree zero, not an asserted comparison with all homotopy-category centers.
+
+Atlas planet: **Enhanced Bernstein center**.
+
+### Comparison with the homotopy-category center
+
+`ExcursionOperatorsAndSpectralAction:ES0/enhanced-to-homotopy-center` · theorem · proposed name `enhanced_to_homotopy_center`
+
+Evaluation of an enhanced central class on objects induces a natural Lambda-algebra map Z_enh(C) -> CatCenter(hC). It commutes with scalar maps and evaluation. No injectivity or surjectivity is asserted for general stable C.
+
+Hypotheses and interfaces:
+
+- C and hC carry the supplied Lambda-linear enhancement.
+
+Construction or proof:
+
+1. Take pi_0 of the coherent natural transformation.
+2. Check naturality in hC and the additive/multiplicative identities using the enhanced composition laws.
+
+Acceptance:
+
+- Check the square of scalar maps and the square of evaluation maps.
+- Reject the checkpoint’s unsupported claim that this comparison is always an isomorphism.
+
+Direct prerequisites: `ExcursionOperatorsAndSpectralAction:ES0/bernstein-center-of-a-category`, `mathlib:CategoryTheory.CatCenter`, `mathlib:CategoryTheory.CatCenter.app`, `mathlib:CategoryTheory.CatCenter.naturality`, `mathlib:CategoryTheory.Linear.toCatCenter`.
+
+Source: IX.5 p. 328; Mathlib Center/Basic and Center/Linear at the pins. The stated source result supplies this target with the hypotheses listed here.
+
+### Excursion operators on Bun_G
+
+`ExcursionOperatorsAndSpectralAction:ES0/excursion-datum-and-operator` · construction · proposed name `bunExcursionOperator`
+
+Apply the imported LP2 excursion-datum construction to the HS1/HS4 coherent Hecke family. For D=(I,V,alpha,beta,gamma), with alpha:1->V restricted to diagonal H and beta:V restricted to diagonal H->1, define S_D(A)=T_beta(A) composed with gamma acting on T_V(A) composed with T_alpha(A), using fusion and T_1 = id. It is a coherent natural endomorphism of the identity on the relevant finite-wild compact category.
+
+Hypotheses and interfaces:
+
+- The matrix-coefficient datum, the invariant function and its abstract relations are imported from LP2. Alpha and beta are arbitrary diagonal-invariant maps, not necessarily adjunction units/counits.
+
+Construction or proof:
+
+1. Insert the actual HS kernels and their unit/fusion identifications into LP2’s abstract construction.
+2. Use HS1’s condensed Weil action for the middle arrow.
+3. Keep creation and annihilation natural at the enhanced level rather than checking only objectwise endomorphisms.
+
+Uses:
+
+- ES0 enhanced algebra map: Supplies each generator of the excursion map.
+- ES4 local shtukas: Naturality makes the operators commute with smooth group actions.
+
+API:
+
+- `bunExcursionOperator_app` (projection): The component on A is T_alpha(A), then gamma, then T_beta(A), with the specified unit identifications.
+- `bunExcursionOperator_naturality` (relation): For u:A->B, u followed by S_D(B) equals S_D(A) followed by u.
+- `bunExcursionOperator_function` (characterisation): Data with the same invariant function and Weil tuple induce the same operator, by the imported LP2 independence theorem.
+- `bunExcursionOperator_fusion` (compatibility): Pulling legs together along a map I->J agrees with HS4 fusion and the LP2 reindexing relation.
+
+Unit tests:
+
+- `excursion_trivial_rep` (degenerate): For V=1 and alpha=beta=id, S_D=id for every Weil tuple.
+- `excursion_identity_tuple` (computation): If all gamma_i=1 then S_D=T_(beta alpha); in particular a duality coevaluation/evaluation pair gives dim(V) id, rather than automatically id.
+- `excursion_two_leg_trace` (computation): For H=GL_n, V=std external tensor std-dual and its usual creation/annihilation maps, evaluation on a parameter phi gives tr(phi(gamma_1) phi(gamma_2)^(-1)).
+- `excursion_nonsplit` (compatibility): On a nonsplit torus, the one-cocycle equation is phi(uv)=phi(u) u(phi(v)); the construction uses twisted, rather than ordinary, conjugation.
+
+Acceptance:
+
+- Verify the full statement, including its coefficient and continuity hypotheses.
+- Check the displayed construction on the unit and its compatibility with the cited supplier maps.
+
+Direct prerequisites: `LanglandsParameterStacks:LP2:excursion-presentation/map-to-a-bernstein-center`, `LanglandsParameterStacks:LP2:excursion-presentation/invariant-function-and-independence`, `HeckeStacksAndLocalShtukas:HS4/monoidal-and-finite-set-functoriality`, `HeckeStacksAndLocalShtukas:HS1/condensed-enrichment`, `EnhancedDerivedSheaves:E5:abstract`, `ExcursionOperatorsAndSpectralAction:ES0/bernstein-center-of-a-category`.
+
+Source: VIII.4.2 pp. 291–292; IX.2 pp. 321–324. Only the Bun_G kernel/condensed specialization is owned here. LP2 owns Definition VIII.4.2 and its abstract independence and relation proofs.
+
+Atlas planet: **Excursion operators**.
+
+### Enhanced excursion algebra action
+
+`ExcursionOperatorsAndSpectralAction:ES0/excursion-algebra-to-bernstein-center` · theorem · proposed name `excursion_algebra_to_bernstein_center`
+
+For a finite-wild compact Hecke category D^P, the LP2 algebra Exc(W,H) tensor Lambda maps naturally to Z_enh(D^P) by f_D,gamma |-> [S_D]. Its projection to CatCenter(hD^P) is the imported VIII.4.1 map. Relations are enforced on enhanced natural transformations before pi_0; no Perf action or good-prime hypothesis is needed.
+
+Hypotheses and interfaces:
+
+- P is open normal in wild inertia, acts trivially on the pinned H action, and D^P consists of compact A whose entire Hecke family descends to W_E/P.
+- W is a dense discrete tame discretization of W_E/P.
+
+Construction or proof:
+
+1. Use the LP2 presentation and relations on the coherent HS4 family.
+2. Lift the composites and their comparisons using the supplied enhanced natural transformations.
+3. Take pi_0 to obtain the algebra map and verify its homotopy-center projection.
+
+Acceptance:
+
+- Check additivity, multiplication and unit on the LP2 generators.
+- For a noninjective leg map check the same HS4 fusion diagram, not a separately assumed relation.
+- At a forbidden integral prime retain this algebra map without asserting an invariant-ring isomorphism.
+
+Direct prerequisites: `ExcursionOperatorsAndSpectralAction:ES0/excursion-datum-and-operator`, `ExcursionOperatorsAndSpectralAction:ES0/bernstein-center-of-a-category`, `ExcursionOperatorsAndSpectralAction:ES0/enhanced-to-homotopy-center`, `LanglandsParameterStacks:LP2:excursion-presentation/excursion-algebra-and-universal-homeomorphism`, `LanglandsParameterStacks:LP2:excursion-presentation/universal-property-of-the-excursion-algebra`, `LanglandsParameterStacks:LP2:excursion-presentation/map-to-a-bernstein-center`, `HeckeStacksAndLocalShtukas:HS4/monoidal-and-finite-set-functoriality`, `EnhancedDerivedSheaves:E5:abstract`, `ExcursionOperatorsAndSpectralAction:ES1:finite-ramification/finite-wild-Hecke-category`.
+
+Source: VIII.4.1 pp. 291–293; IX.5 p. 328. The stated source result supplies this target with the hypotheses listed here.
+
+Atlas planet: **Excursion algebra action**.
+
+### Condensed continuity of excursions
+
+`ExcursionOperatorsAndSpectralAction:ES0/continuity-of-excursion-evaluations` · theorem · proposed name `continuity_of_excursion_evaluations`
+
+For every compact A and each fixed finite-leg invariant coefficient, the map (W_E/P)^I -> pi_0 End(A) given by the creation–Weil–annihilation operator is a map of condensed sets, whenever P is the uniform cutoff of A. Evaluation along a Schur scalar identification is therefore continuous. The full excursion algebra need not be canonically independent of discretization at bad primes.
+
+Construction or proof:
+
+1. Compose the condensed action on T_V(A) with the condensed natural creation and annihilation morphisms.
+2. Use the relatively discrete Hom structure from IX.1.2 and the cutoff theorem.
+3. For comparisons of presentations invoke LP2’s continuous universal property with its flatness restriction.
+
+Acceptance:
+
+- Continuity is on the completed Weil quotient, rather than only its dense subgroup.
+- Check a nonsplit torus with its prescribed projection to Q.
+- Do not infer a canonical representative of a Schur parameter.
+
+Direct prerequisites: `ExcursionOperatorsAndSpectralAction:ES0/excursion-datum-and-operator`, `ExcursionOperatorsAndSpectralAction:ES1:finite-ramification/uniform-wild-subgroup`, `HeckeStacksAndLocalShtukas:HS1/condensed-enrichment`, `HeckeStacksAndLocalShtukas:HS1`, `LanglandsParameterStacks:LP2:integral-invariants/transition-and-continuity`.
+
+Source: IX.1.2 pp. 320–321; IX.5.1 pp. 327–328; VIII.3.7 pp. 288–290. The stated source result supplies this target with the hypotheses listed here.
+
+### Comparison of discretizations
+
+`ExcursionOperatorsAndSpectralAction:ES0/discretisation-of-the-weil-group` · comparison · proposed name `discretisation_of_the_weil_group`
+
+Two choices of tame discretization yield canonically identified cocycle schemes by restriction and unique continuous extension. Their excursion evaluations on flat relatively discrete targets agree through the ell-torsion-free quotient of Exc, which is independent of discretization. At good primes (ell not dividing |pi_1(H)_tors|) or after inverting ell, Exc itself identifies with the invariant algebra, so the corresponding comparison is an isomorphism. At other primes full-algebra independence is not asserted; condensed operator evaluation and component idempotents remain intrinsic.
+
+Construction or proof:
+
+1. Identify the two cocycle schemes through W_E/P.
+2. Use LP2’s continuous universal property only on flat targets.
+3. Use the invariant comparison in its exact coefficient range and the universal homeomorphism for idempotents outside it.
+
+Acceptance:
+
+- Retain the ell-torsion-free qualification in the general comparison.
+- The change of Frobenius/tame generator composes through the intrinsic cocycle functor.
+
+Direct prerequisites: `LanglandsParameterStacks:LP0/discretization-and-unique-extension`, `LanglandsParameterStacks:LP0/change-of-discretization`, `LanglandsParameterStacks:LP2:integral-invariants/transition-and-continuity`, `LanglandsParameterStacks:LP2:integral-invariants/integral-invariant-theorem`, `ExcursionOperatorsAndSpectralAction:ES0/excursion-algebra-to-bernstein-center`.
+
+Source: VIII.3.7 pp. 288–290; IX.5 p. 328. The stated source result supplies this target with the hypotheses listed here.
+
+## ES0:classical-center
+
+Restrict a central enhanced transformation along the fully faithful trivial-stratum embedding. It then acts on the enhanced derived smooth category and on its ordinary heart. SR.1 owns the abelian ring-valued Bernstein center, its pro-p Hecke-corner inverse limit, and its ell-adic separatedness. SR.3 owns the complex block classification. These are distinct exports.
+
+The complex return uses a specified abstract field isomorphism from Qbar_ell to C and transports ordinary smooth representations and their centers. It depends on that choice and carries no condensed Weil topology across the field isomorphism. The characteristic-ell Schur assignment does not use this return. General b-stratum spectral composites belong to ES7:parabolic; they are not reconstructed here.
+
+Coverage: **planned**. Refinement contract: SR.1 abelian ring-valued center/Hecke-corner export and SR.3 field-transport block dictionary.
+
+### Restriction to the smooth Bernstein center
+
+`ExcursionOperatorsAndSpectralAction:ES0:classical-center/map-to-the-classical-bernstein-center` · theorem · proposed name `map_to_the_classical_bernstein_center`
+
+For the fully faithful stratum embedding j_!:D(G(E),Lambda)->D_lis(Bun_G,Lambda), restrict an enhanced central class to its essential image and transport it back to the enhanced derived smooth category. Evaluation on degree-zero smooth representations gives a Lambda-algebra map to the ordinary abelian Bernstein center Z(Sm_Lambda(G(E))). This last step uses t-exactness of the identity transformation and SR.1’s abelian center; no general center-of-homotopy-category isomorphism is used.
+
+Hypotheses and interfaces:
+
+- Use the specified b=1 stratum embedding and its fully faithful enhanced adjunction.
+- SR.1 supplies the abelian center over rings with a cofinal family of compact opens of invertible pro-order.
+
+Construction or proof:
+
+1. Restrict along j_! and use full faithfulness on enhanced mapping objects.
+2. Take pi_0 and restrict to the heart of the derived smooth category.
+3. Compose with the SR.1 abelian center/Hecke-corner dictionary.
+
+Acceptance:
+
+- At G=1 the restriction and heart maps give the ordinary scalar action.
+- No complex block decomposition is required for the ring-valued comparison.
+- General b-stratum spectral composites Psi_G^b remain ES7:parabolic’s constructions.
+
+Direct prerequisites: `ExcursionOperatorsAndSpectralAction:ES0/bernstein-center-of-a-category`, `ExcursionOperatorsAndSpectralAction:ES0/enhanced-to-homotopy-center`, `VStackSheavesAndLisseCategories:VS4/strata-are-classifying-stacks`, `VStackSheavesAndLisseCategories:VS4`, `SmoothRepresentationsOfLocalGroups:SR.0:derived-extension`, `SmoothRepresentationsOfLocalGroups:SR.1`.
+
+Source: IX.5 p. 329; VII.7.2 pp. 271–273. The stated source result supplies this target with the hypotheses listed here.
+
+Atlas planet: **Smooth center comparison**.
+
+### Characteristic-zero block comparison
+
+`ExcursionOperatorsAndSpectralAction:ES0:classical-center/complex-block-comparison` · comparison · proposed name `complex_block_comparison`
+
+Choose an abstract field isomorphism iota:Qbar_ell ≃ C and transport smooth algebraic representations by scalar extension along iota. This gives an equivalence of ordinary smooth representation categories and hence an isomorphism of their CatCenter rings. Composing the Qbar_ell excursion/center action with it gives SR.3’s complex blockwise action. The comparison depends on iota; it does not transport the condensed Weil topology or provide an ell-independent block map.
+
+Hypotheses and interfaces:
+
+- Coefficients are Qbar_ell and C as abstract fields, with a specified isomorphism.
+- SR.3 supplies the complex Bernstein decomposition and its identification of the block centers.
+
+Construction or proof:
+
+1. Use SR.0’s smooth category and its field-transport equivalence.
+2. Transport natural endomorphisms along the equivalence.
+3. Apply the SR.3 complex block description to the composite from the preceding node.
+
+Acceptance:
+
+- Check that a scalar lambda maps to iota(lambda) on each block.
+- State dependence on iota and keep this comparison out of the characteristic-ell ES5 route.
+
+Direct prerequisites: `ExcursionOperatorsAndSpectralAction:ES0:classical-center/map-to-the-classical-bernstein-center`, `SmoothRepresentationsOfLocalGroups:SR.3`, `SmoothRepresentationsOfLocalGroups:SR.0:abelian-category`.
+
+Source: IX.5 p. 329; roadmap ES0:classical-center coefficient dictionary. FS supplies the map to the smooth center, not the complex block theorem. SR.3 and the requested coefficient dictionary supply this roadmap-added comparison.
+
+## ES1
+
+Write the spectral and geometric centers using the already supplied LP global-function algebra and ES0 enhanced center. The Hecke-compatible center imposes the stronger equality between the central action after a Hecke functor and the Hecke functor applied to the original action. A natural transformation on the category need not commute with every endofunctor: switching the factors of Perf(k) × Perf(k) reduces the product center to its diagonal subalgebra.
+
+Finite ramification and the conditional coordinate action are proved in the two sublayers. Their coefficient requirements are carried at those sublayers rather than imposed on every excursion construction.
+
+Coverage: **planned**. Refinement contract: Complete the supplier enhanced center and finite-wild coordinate interfaces.
+
+### Spectral, geometric and Hecke-compatible centers
+
+`ExcursionOperatorsAndSpectralAction:ES1/spectral-and-geometric-centers` · definition · proposed name `heckeCenter`
+
+Write Z_spec = Gamma([Z^1(W_E,H)_Lambda/H],O) and Z_geom = Z_enh(D_lis(Bun_G,Lambda)), using LP’s function ring and ES0’s enhanced center. Define Z_geom,Hecke as the subalgebra of z such that z_(T_V A)=T_V(z_A) for every finite I,V,A. The general geometric center need not satisfy this stronger condition.
+
+Hypotheses and interfaces:
+
+- Use the imported global-function ring; do not identify its infinite parameter union with one finite-type affine scheme.
+
+Construction or proof:
+
+1. Name the two already supplied algebras.
+2. Define the Hecke-compatible subalgebra by the displayed equality.
+3. Check closure under addition, multiplication and scalars from the exact Lambda-linear functors.
+
+Uses:
+
+- IX.5.2: Specifies the target of the conditional spectral center map.
+- ES2 center agreement: Receives degree-zero functions from the categorical action.
+
+API:
+
+- `heckeCenter_mem` (characterisation): z lies in the Hecke-compatible subalgebra iff every T_V carries z_A to z_(T_V A).
+- `heckeCenter_inclusion` (coercion): The inclusion Z_geom,Hecke -> Z_geom is an injective Lambda-algebra map.
+- `heckeCenter_scalars` (structure): Every Lambda scalar lies in Z_geom,Hecke.
+- `heckeCenter_comp` (relation): Compatibility with two functors implies compatibility with their composite.
+
+Unit tests:
+
+- `heckeCenter_identity` (degenerate): For the family consisting only of the identity, the compatible subalgebra is the whole center.
+- `heckeCenter_product_switch` (non-example): For C=Perf(k)×Perf(k) and the switching functor, Z_geom=k×k while Z_geom,Hecke is the diagonal copy of k.
+- `heckeCenter_scalar` (computation): A scalar lambda has the same lambda id action before and after every Lambda-linear T_V.
+
+Acceptance:
+
+- Verify the full statement, including its coefficient and continuity hypotheses.
+- Check the displayed construction on the unit and its compatibility with the cited supplier maps.
+
+Direct prerequisites: `ExcursionOperatorsAndSpectralAction:ES0/bernstein-center-of-a-category`, `LanglandsParameterStacks:LP1/decomposition-by-wild-kernel`, `LanglandsParameterStacks:LP2:integral-invariants/integral-invariant-theorem`, `HeckeStacksAndLocalShtukas:HS4/monoidal-and-finite-set-functoriality`.
+
+Source: IX.5 pp. 328–329. The stated source result supplies this target with the hypotheses listed here.
+
+Atlas planet: **Spectral center**.
+
+## ES1:finite-ramification
+
+For a compact object, choose one open normal wild subgroup that works for every representation and every finite leg set. The tensor-generator reduction is essential: selecting a different subgroup for each representation does not prove the statement. The proof uses relatively discrete condensed endomorphisms, compact inertia image and the incompatibility between an infinite pro-p image and a locally pro-ell automorphism group.
+
+The resulting full subcategory D^P has all its Hecke images in the quotient-equivariant category. A universal homeomorphism of coordinate spectra transports the clopen component idempotents even where the rings are not isomorphic. Split these on compact objects and pass through the finite-wild union. The compact category is a direct sum of component categories; its Ind completion is their product. A compact object has finitely many components, while a noncompact product object can have unbounded wild conductor.
+
+Coverage: **planned**. Refinement contract: HS1 relatively discrete Hom and quotient-equivariant full faithfulness, and E5 Ind sum/product comparison.
+
+### Uniform finite wild ramification
+
+`ExcursionOperatorsAndSpectralAction:ES1:finite-ramification/uniform-wild-subgroup` · theorem · proposed name `uniform_wild_subgroup`
+
+For every compact A in D_lis(Bun_G,Lambda), there is an open normal subgroup P of wild inertia, contained in the kernel of W_E->Q, such that for every finite set I and every V in Rep((H semidirect Q)^I), T_V(A) descends to an object equivariant for (W_E/P)^I. The subgroup depends on A and works simultaneously for all I,V.
+
+Construction or proof:
+
+1. Use vanishing of the Lambda-homology of pro-p P^I to prove quotient-equivariant pullback fully faithful.
+2. Choose a tensor generator; a relatively discrete condensed endomorphism algebra has compact inertia image inside a finite Z_ell-module, whose automorphism group is locally pro-ell. Shrink P to kill its pro-p image.
+3. Tensor/fusion identifies independent leg actions; close under duals, subquotients and extensions as justified by exact representations, then exterior tensors and reindexing.
+4. Replace P by its normal core and intersect with the finite pinned-action kernel.
+
+Acceptance:
+
+- Quantifiers are for every compact A, there exists P, for all I,V.
+- Test a compactly induced representation through its stratum embedding.
+- A noncompact sum with unbounded wild conductors need not have any common P.
+- The coefficient condition is ell != p, not the integral-action good-prime restriction.
+
+Direct prerequisites: `HeckeStacksAndLocalShtukas:HS4/monoidal-and-finite-set-functoriality`, `HeckeStacksAndLocalShtukas:HS1/condensed-enrichment`, `HeckeStacksAndLocalShtukas:HS1`, `VStackSheavesAndLisseCategories:VS4/compact-generation-and-compact-objects`, `LanglandsParameterStacks:LP0`, `EnhancedDerivedSheaves:E5:abstract`, `ExcursionOperatorsAndSpectralAction:ES1:finite-ramification/finite-wild-Hecke-category`.
+
+Source: IX.5.1 pp. 327–328. The stated source result supplies this target with the hypotheses listed here.
+
+Atlas planet: **Finite wild ramification**.
+
+### Component decomposition
+
+`ExcursionOperatorsAndSpectralAction:ES1:finite-ramification/component-decomposition` · theorem · proposed name `component_decomposition`
+
+For D^P consisting of compact A with the uniform P-Hecke cutoff, the enhanced excursion map and LP2’s universal homeomorphism identify component idempotents. Splitting them gives D^P = direct sum_c D^c over pi_0 Z^1(W_E/P,H)_Lambda. Taking the union over P gives the direct sum decomposition of D_lis^omega by parameter components; its Ind-category is the product of the Ind(D^c). Every compact has finitely many nonzero components. A Schur object has exactly one nonzero component.
+
+Construction or proof:
+
+1. Use the component idempotents of the invariant quotient and transport them uniquely through the universal homeomorphism.
+2. Split finitely many idempotents on each compact object in the idempotent-complete category.
+3. Glue as P shrinks using the same continuous excursions and LP’s open-and-closed transition maps.
+4. Extend to Ind; the Ind of a sum of small compact categories is the product of their Ind-categories.
+
+Acceptance:
+
+- Check finite support of compact objects and the possibility of infinitely supported Ind objects.
+- Use ring idempotents for clopen components, not characteristic functions of arbitrary subsets.
+- No invariant-algebra isomorphism at bad primes is needed for the idempotents.
+
+Direct prerequisites: `ExcursionOperatorsAndSpectralAction:ES1:finite-ramification/uniform-wild-subgroup`, `ExcursionOperatorsAndSpectralAction:ES0/excursion-algebra-to-bernstein-center`, `LanglandsParameterStacks:LP2:excursion-presentation/excursion-algebra-and-universal-homeomorphism`, `LanglandsParameterStacks:LP1/decomposition-by-wild-kernel`, `EnhancedDerivedSheaves:E5:presentability`, `ExcursionOperatorsAndSpectralAction:ES1:finite-ramification/finite-wild-Hecke-category`.
+
+Source: IX.5 pp. 328–329. The stated source result supplies this target with the hypotheses listed here.
+
+Atlas planet: **Component decomposition**.
+
+### Compatibility of finite-wild centers
+
+`ExcursionOperatorsAndSpectralAction:ES1:finite-ramification/center-on-finite-wild-pieces` · theorem · proposed name `center_on_finite_wild_pieces`
+
+If P′⊂P are eligible wild subgroups, the inclusion D^P⊂D^P′ intertwines the excursion evaluation maps through restriction of the universal parameter and the dense discretizations. In the coefficient range of the invariant-ring comparison it also intertwines the spectral function actions. The component summands consequently glue independently of choices. Every compact is evaluated on some D^P; no common P for all Ind objects is required.
+
+Construction or proof:
+
+1. Compare each excursion coefficient and Weil tuple using HS4.
+2. Use LP’s intrinsic cocycle transitions; at bad primes use only idempotents or qualified torsion-free comparisons.
+3. Use the generator presentation to identify the ring maps.
+
+Acceptance:
+
+- Check the identity transition and composition for P″⊂P′⊂P.
+- Retain the qualified comparison at forbidden integral primes.
+
+Direct prerequisites: `ExcursionOperatorsAndSpectralAction:ES1:finite-ramification/uniform-wild-subgroup`, `ExcursionOperatorsAndSpectralAction:ES0/excursion-algebra-to-bernstein-center`, `ExcursionOperatorsAndSpectralAction:ES1:finite-ramification/component-decomposition`, `LanglandsParameterStacks:LP2:integral-invariants/transition-and-continuity`, `LanglandsParameterStacks:LP2:integral-invariants/integral-invariant-theorem`.
+
+Source: IX.5 pp. 328–329; VIII.3.7 pp. 288–290. The stated source result supplies this target with the hypotheses listed here.
+
+### Finite-wild Hecke subcategory
+
+`ExcursionOperatorsAndSpectralAction:ES1:finite-ramification/finite-wild-Hecke-category` · definition · proposed name `finiteWildCategory`
+
+For eligible P, define D^P as the full subcategory of compact D_lis objects A such that every T_V(A), for every finite I and V, belongs to the fully faithful image of quotient-equivariant objects for (W_E/P)^I. The image condition uses the enhanced equivariant functor category, including its homotopies. If P′⊂P then D^P⊂D^P′.
+
+Hypotheses and interfaces:
+
+- P is open normal in wild inertia and lies in the pinned action kernel.
+
+Construction or proof:
+
+1. Use quotient-equivariant pullback and its full faithfulness from the IX.5.1 pro-p homology argument.
+2. Define the simultaneous full subcategory.
+3. Check closure under finite stable operations and retracts because each quotient-equivariant image is stable and idempotent complete.
+
+Uses:
+
+- IX.5: Subject of the enhanced excursion map and component decomposition.
+- X.0.1: Provides the categorical finite-wild pieces for gluing the action.
+
+API:
+
+- `finiteWild_mem` (characterisation): Membership means simultaneous descent of all I,V Hecke images through (W_E/P)^I.
+- `finiteWild_inclusion` (functoriality): For P′⊂P the full inclusion D^P->D^P′ is exact and fully faithful.
+- `finiteWild_stable` (structure): D^P is closed under zero, shifts, cofibers and retracts.
+- `finiteWild_refine_comp` (relation): The inclusions for P″⊂P′⊂P compose to the inclusion for P″⊂P.
+
+Unit tests:
+
+- `finiteWild_zero` (degenerate): The zero compact object lies in D^P for every eligible P.
+- `finiteWild_tensor_generator` (characterisation): Trivial P action on the single-leg tensor generator implies membership in D^P by the IX.5.1 tensor/exterior-tensor argument.
+- `finiteWild_regular_action` (non-example): For a nontrivial finite wild quotient F acting on its regular representation over coefficients with p invertible, an element of P with nontrivial image in F does not act trivially; such an equivariant orbit does not descend through W_E/P.
+
+Acceptance:
+
+- Verify the full statement, including its coefficient and continuity hypotheses.
+- Check the displayed construction on the unit and its compatibility with the cited supplier maps.
+
+Direct prerequisites: `HeckeStacksAndLocalShtukas:HS4/monoidal-and-finite-set-functoriality`, `HeckeStacksAndLocalShtukas:HS1/condensed-enrichment`, `EnhancedDerivedSheaves:E5:abstract`, `EnhancedDerivedSheaves:E5:presentability`, `VStackSheavesAndLisseCategories:VS4/compact-generation-and-compact-objects`.
+
+Source: IX.5 pp. 327–328. The stated source result supplies this target with the hypotheses listed here.
+
+## ES1:spectral-center
+
+The invariant-coordinate center map carries the exact hypothesis that |pi_0 Z(G)| be invertible in Lambda. Compare it with the excursion construction on each finite-wild piece and glue by component idempotents. It lands in the Hecke-compatible geometric center.
+
+Coefficient, pinned-quotient and cutoff comparisons are commutative diagrams between the supplied functors, established on the same excursion coefficients. This does not assert that every invariant algebra commutes with every scalar tensor product. At excluded center primes the excursion route and component decomposition remain available. Conjecture I.9.5 on ell-independence is registered below as a statement; it is not an acceptance target.
+
+Coverage: **planned**. Refinement contract: LP and HS coefficient/pinned-quotient comparison interfaces; retain the exact center-order condition.
+
+### Spectral center action
+
+`ExcursionOperatorsAndSpectralAction:ES1:spectral-center/spectral-to-geometric-center-map` · theorem · proposed name `spectral_to_geometric_center_map`
+
+Assume |pi_0 Z(G)| is invertible in Lambda. There is a natural Lambda-algebra map Z_spec -> Z_geom,Hecke -> Z_geom, compatible with component decomposition. On each compact A it factors through functions on one sufficiently small finite-wild piece. This is IX.5.2, obtained from the excursion map and the invariant-coordinate comparison. General Psi_G^b composites are imported from ES7:parabolic rather than constructed again here.
+
+Hypotheses and interfaces:
+
+- Use the exact center-order condition from IX.5.2; GS supplies its relation to the dual root datum.
+
+Construction or proof:
+
+1. Apply the invariant comparison on each eligible finite-wild compact category.
+2. Glue via the component decomposition and the finite-wild compatibility.
+3. Commute the insertion of a Hecke kernel with the creation–Weil–annihilation composite.
+
+Acceptance:
+
+- Check the scalar and component idempotent images.
+- Check z_(T_V A)=T_V(z_A).
+- The statement stops at the Hecke-compatible center; b-stratum Psi maps are ES7’s.
+
+Direct prerequisites: `ExcursionOperatorsAndSpectralAction:ES1/spectral-and-geometric-centers`, `ExcursionOperatorsAndSpectralAction:ES1:finite-ramification/component-decomposition`, `ExcursionOperatorsAndSpectralAction:ES1:finite-ramification/center-on-finite-wild-pieces`, `ExcursionOperatorsAndSpectralAction:ES0/excursion-algebra-to-bernstein-center`, `LanglandsParameterStacks:LP2:integral-invariants/integral-invariant-theorem`, `HeckeStacksAndLocalShtukas:HS4/monoidal-and-finite-set-functoriality`.
+
+Source: IX.5.2 p. 329. The stated source result supplies this target with the hypotheses listed here.
+
+Atlas planet: **Spectral center action**.
+
+### Center compatibility under change of data
+
+`ExcursionOperatorsAndSpectralAction:ES1:spectral-center/center-change-of-data` · theorem · proposed name `center_change_of_data`
+
+For an extension Lambda->Lambda′ in the eligible IX.5.2 range, the scalar-extended excursion evaluation agrees with evaluation of the same coefficient after derived scalar extension of A and the HS kernels. Therefore the two Z_spec actions agree via the LP coefficient map. A refinement of the finite quotient Q inducing the same pinned W_E action yields the same diagram. Finite-wild transition squares are those of ES1:finite-ramification. This asserts commutativity, not that tensoring with Lambda′ commutes with all invariant rings.
+
+Hypotheses and interfaces:
+
+- Use supplier coefficient-change functors, their normalized kernel comparisons, and the same square root of q.
+
+Construction or proof:
+
+1. Compare creation, Weil action and annihilation individually under each comparison functor.
+2. Use the excursion generating functions and the conditional invariant comparison to identify the composites.
+3. Check identity and composition of each change of data.
+
+Acceptance:
+
+- State the necessary supplier comparison functor for derived scalar extension.
+- Do not infer base-change isomorphisms of unrestricted invariant rings.
+
+Direct prerequisites: `ExcursionOperatorsAndSpectralAction:ES1:spectral-center/spectral-to-geometric-center-map`, `LanglandsParameterStacks:LP2:excursion-presentation/invariant-function-and-independence`, `HeckeStacksAndLocalShtukas:HS4/monoidal-and-finite-set-functoriality`, `LanglandsParameterStacks:LP2:integral-invariants/integral-invariant-theorem`, `LanglandsParameterStacks:LP0/functoriality-of-cocycles`, `HeckeStacksAndLocalShtukas:HS1`.
+
+Source: IX.5.2 p. 329; VIII.4.2 pp. 291–293. Roadmap compatibility obligation derived from the shared excursion construction and the imported normalized kernel comparisons, rather than a separately numbered FS theorem.
+
+### Excursions at excluded center primes
+
+`ExcursionOperatorsAndSpectralAction:ES1:spectral-center/excursion-algebra-without-the-coefficient-condition` · comparison · proposed name `excursion_algebra_without_the_coefficient_condition`
+
+Without |pi_0 Z(G)| invertible, retain the enhanced excursion action on each D^P and its compatible component idempotents. No Z_spec -> Z_geom map is asserted by this route. These operators suffice for the characteristic-ell Schur parameter theorem of ES5 and for its operator-level compatibility diagrams.
+
+Construction or proof:
+
+1. Keep the excursion construction and universal homeomorphism unchanged.
+2. Use idempotents for components and scalar evaluations for Schur objects.
+3. Apply the eligible invariant-coordinate map only when its hypotheses hold.
+
+Acceptance:
+
+- At a forbidden good-prime/center-order prime, the excursion construction and ES5 route remain available.
+- Do not turn a universal homeomorphism into an algebra isomorphism.
+
+Direct prerequisites: `ExcursionOperatorsAndSpectralAction:ES0/excursion-algebra-to-bernstein-center`, `LanglandsParameterStacks:LP2:excursion-presentation/excursion-algebra-and-universal-homeomorphism`, `ExcursionOperatorsAndSpectralAction:ES1:finite-ramification/component-decomposition`.
+
+Source: IX.6 opening p. 330. The stated source result supplies this target with the hypotheses listed here.
+
+## ES2
+
+Over a characteristic-zero field, universal evaluation on the derived mapping stack recovers the coherent representation-valued Hecke family. The central theorem is an equivalence of anima of actions and coherent finite-set data. Its inverse comparisons include the higher homotopies, not just a bijection of isomorphism classes.
+
+The proof reduces along sifted colimits to finite Q-torsor sets. The colimit theorem also needs its pushout half: for equivariant affine derived schemes and a pro-reductive group, relative tensor product of Perf quotient categories computes the derived fiber-product quotient. It uses characteristic-zero representation generation and exact invariants.
+
+On Bun_G, the uniform wild cutoff and intrinsic cocycle comparison make the action compactly supported object by object. The action and IX.5.2 induce the same degree-zero center map because both evaluate every invariant coefficient by the same excursion composite. The Whittaker sheaf is constructed from SR’s closed-subgroup compact induction and the trivial-stratum extension. It is not assumed compact. The categorical equivalence, packet interpretation and nonvanishing of Aut_phi remain the source statements listed below.
+
+Coverage: **planned**. Refinement contract: E5 action anima/relative tensor constructions and LP derived quotient descent; inspect the full higher inverse comparisons.
+
+### Compactly supported categorical actions
+
+`ExcursionOperatorsAndSpectralAction:ES2/compactly-supported-actions` · definition · proposed name `compactlySupportedAction`
+
+An action of Perf(Z/H) on a small stable category C is compactly supported if for each X in C, its orbit functor M |-> Act_M(X) factors, up to coherent equivalence, through restriction Perf(Z/H)->Perf(Z^1(W_E/P,H)/H) for some eligible P depending on X. This is a property of the action and its orbit functors, not a choice of one subgroup for the entire category.
+
+Hypotheses and interfaces:
+
+- Use the open-and-closed finite-wild exhaustion of the parameter stack.
+
+Construction or proof:
+
+1. Form each orbit functor.
+2. Require a factorization and coherent comparison on that object.
+3. Use the common refinement of finitely many cutoffs to compare choices.
+
+Uses:
+
+- X.0.1: Necessary support condition for the Weil-group universal theorem.
+- X.1.3: Qualifies the Bun_G rational action.
+
+API:
+
+- `compactAction_factor` (characterisation): For each X there exist P, an exact orbit functor from Perf(Z^P/H) and an equivalence of its composite with the original orbit functor.
+- `compactAction_refine` (functoriality): A factorization through P induces one through every smaller eligible P′ by restriction to the open-and-closed P piece.
+- `compactAction_finite_sum` (compatibility): Finitely many compactly supported orbit functors have a common refined cutoff; in an exact action the direct sum orbit functor has that cutoff.
+
+Unit tests:
+
+- `compactAction_zero` (degenerate): The zero object orbit functor factors through every eligible piece.
+- `compactAction_single_piece` (characterisation): An action obtained by restriction from a single finite-wild piece has compactly supported orbit functors for all objects.
+- `compactAction_unbounded_family` (non-example): For the direct sum of categories Perf(k), indexed by parameters with unbounded wild conductor, finite-support objects have cutoffs but no one cutoff works for every object; its Ind product also has objects with no cutoff.
+
+Acceptance:
+
+- Verify the full statement, including its coefficient and continuity hypotheses.
+- Check the displayed construction on the unit and its compatibility with the cited supplier maps.
+
+Direct prerequisites: `LanglandsParameterStacks:LP1/decomposition-by-wild-kernel`, `EnhancedDerivedSheaves:E5:abstract`, `EnhancedDerivedSheaves:E5:presentability`.
+
+Source: X opening p. 339. The verifier of RT-AREA-geomlanglands/6 assigns Chapter X universal action mathematics to ES2/ES3. The duplicate LP4 compact-support node is proposed for removal, while LP1 retains the geometric exhaustion.
+
+Atlas planet: **Compactly supported action**.
+
+### Hecke family from the universal parameter
+
+`ExcursionOperatorsAndSpectralAction:ES2/universal-parameter-hecke-family` · construction · proposed name `universalHeckeFamily`
+
+For H reductive over a characteristic-zero field L with finite Q action, and an anima S->BQ, evaluation S×Map_(BQ)(S,B(H semidirect Q))->B(H semidirect Q) produces, functorially in finite I, an exact Rep_L(Q^I)-linear monoidal functor Rep_L((H semidirect Q)^I)->Perf(Map_(BQ)(S,B(H semidirect Q)))^(S^I). Composition with an action yields its coherent Hecke family.
+
+Hypotheses and interfaces:
+
+- The target mapping stack and its Perf are the derived stacky constructions supplied by LP1; C is small stable idempotent complete L-linear.
+- Use coherent total-space functoriality over Fin, not unrelated functors for each I.
+
+Construction or proof:
+
+1. Pull a representation bundle back along universal evaluation.
+2. Take the I-fold tensor family and its coCartesian finite-set transport.
+3. Compose with the exact monoidal action functor to recover the equivariant endofunctor family.
+
+Uses:
+
+- X.1.1: Defines the forward map from actions to coherent Hecke data.
+- ES2/ES3 center agreement: Identifies the same excursion matrix coefficients in both constructions.
+
+API:
+
+- `universalHecke_eval` (projection): At (s,rho), the representation bundle is V evaluated on rho(s).
+- `universalHecke_unit` (simp): The trivial representation produces the monoidal unit family.
+- `universalHecke_fusion` (compatibility): The universal evaluation families intertwine tensoring legs along every finite-set map.
+- `universalHecke_pullback` (functoriality): For S′->S over BQ the families agree under restriction of the universal parameter.
+
+Unit tests:
+
+- `universalHecke_empty` (degenerate): The empty-leg family is the tensor unit.
+- `universalHecke_point` (compatibility): For Q=1 and S a point, the family is the tautological representation bundle on BH.
+- `universalHecke_free_loop` (computation): For S=BF_1 with generator mapping to sigma in Q, the family on [H/H]_sigma has generator action h sigma on the representation, with twisted conjugation.
+
+Acceptance:
+
+- Verify the full statement, including its coefficient and continuity hypotheses.
+- Check the displayed construction on the unit and its compatibility with the cited supplier maps.
+
+Direct prerequisites: `LanglandsParameterStacks:LP1`, `LanglandsParameterStacks:LP4/rep-action-on-perf`, `EnhancedDerivedSheaves:E5:abstract`, `GeometricSatakeAndFusion:GS4:integral-dual-group`.
+
+Source: X.1.1 pp. 340–342. The stated source result supplies this target with the hypotheses listed here.
+
+### Rational universal action theorem
+
+`ExcursionOperatorsAndSpectralAction:ES2/universal-action-theorem` · theorem · proposed name `universal_action_theorem`
+
+For H reductive over a characteristic-zero field L with finite Q action, S any anima over BQ and C small idempotent-complete stable L-linear, the anima of L-linear actions of Perf(Map_(BQ)(S,B(H semidirect Q))) on C is equivalent to the anima of coherent finite-set exact Rep_L(Q^I)-linear monoidal families Rep_L((H semidirect Q)^I)->End_L(C)^(S^I). The forward map is universal evaluation; both composites are equivalent to the identity as maps of anima.
+
+Hypotheses and interfaces:
+
+- Exact representation categories freely generate their perfect-complex extensions as used in the source.
+- Coherence is on the total coCartesian fibrations over Fin.
+
+Construction or proof:
+
+1. Both constructions send sifted colimits in S to limits of anima, using the rational colimit lemma.
+2. Reduce to finite S and trivialize its Q-torsor to describe Perf(BH^S).
+3. Use semisimplicity in characteristic zero and Yoneda to identify monoidal Rep(H^S) functors with the action.
+4. Recover unit, tensor, finite-set and higher homotopy coherences by the universal property, then descend the Q-torsor.
+
+Acceptance:
+
+- Check S a point, S=BF_1 and a nontrivial Q-torsor.
+- Prove equivalence of full coherent-data anima, rather than only their sets of isomorphism classes.
+- No integral conclusion follows by inverting ell.
+
+Direct prerequisites: `ExcursionOperatorsAndSpectralAction:ES2/universal-parameter-hecke-family`, `ExcursionOperatorsAndSpectralAction:ES2/mapping-stack-commutes-with-sifted-colimits`, `EnhancedDerivedSheaves:E5:abstract`, `EnhancedDerivedSheaves:E5:presentability`, `LanglandsParameterStacks:LP1`.
+
+Source: X.1.1 pp. 340–343. The stated source result supplies this target with the hypotheses listed here.
+
+Atlas planet: **Universal action theorem**.
+
+### Colimits of rational mapping-stack Perf
+
+`ExcursionOperatorsAndSpectralAction:ES2/mapping-stack-commutes-with-sifted-colimits` · theorem · proposed name `mapping_stack_commutes_with_sifted_colimits`
+
+For the rational H,Q hypotheses, F(S)=Perf(Map_(BQ)(S,B(H semidirect Q))) preserves sifted colimits as a functor to L-linear small idempotent-complete stable infinity-categories, and preserves all colimits as a functor to symmetric monoidal such categories.
+
+Hypotheses and interfaces:
+
+- L has characteristic zero and H is reductive; pro-reductive quotient presentations are used only in the proof’s affine-quotient comparison.
+
+Construction or proof:
+
+1. Reduce to the untwisted Q case by the torsor description.
+2. Express the mapping stacks by inverse limits of affine quotients with pro-reductive groups.
+3. Use representation generation and vanishing higher cohomology of pro-reductive groups to compare Perf with the filtered colimit.
+4. Check finite coproducts and pushouts using the separate affine-quotient pushout theorem.
+
+Acceptance:
+
+- Retain the distinction between the two target categories and their two colimit claims.
+- The integral analogue for actual Perf(mapping stack) is not asserted.
+
+Direct prerequisites: `ExcursionOperatorsAndSpectralAction:ES2/pushout-of-affine-quotients`, `LanglandsParameterStacks:LP1`, `EnhancedDerivedSheaves:E5:presentability`, `LanglandsParameterStacks:LP3`.
+
+Source: X.1.2 pp. 342–343. The stated source result supplies this target with the hypotheses listed here.
+
+Atlas planet: **Rational colimit theorem**.
+
+### Tensor product for affine quotient pushouts
+
+`ExcursionOperatorsAndSpectralAction:ES2/pushout-of-affine-quotients` · theorem · proposed name `pushout_of_affine_quotients`
+
+Let G be a pro-reductive affine group over a characteristic-zero field L acting on affine derived L-schemes X_0,X_1,X_2, with G-equivariant maps X_1->X_0<-X_2. The natural symmetric monoidal comparison Perf(X_1/G) tensor_(Perf(X_0/G)) Perf(X_2/G) -> Perf((X_1 times^derived_(X_0) X_2)/G) is an equivalence. The tensor product is the pushout in L-linear symmetric monoidal small stable idempotent-complete infinity-categories.
+
+Hypotheses and interfaces:
+
+- Use derived fiber products and the relative tensor product in the named target category.
+- Pro-reductivity and characteristic zero supply the representation generation and exact invariants used by the proof.
+
+Construction or proof:
+
+1. Pass to Ind module categories over the equivariant coordinate algebras in IndPerf(BG).
+2. Compute the relative tensor product by derived tensor product of these algebras.
+3. Identify the compact objects using generation by representations; recover the symmetric monoidal equivalence.
+
+Acceptance:
+
+- For G=1 this is Perf(A_1) tensor_Perf(A_0) Perf(A_2) = Perf(A_1 tensor^derived_A0 A_2).
+- For X_i=Spec L all maps are identities and the comparison is the unit equivalence.
+
+Direct prerequisites: `EnhancedDerivedSheaves:E5:presentability`, `LanglandsParameterStacks:LP1`, `LanglandsParameterStacks:LP4`, `LanglandsParameterStacks:LP3`.
+
+Source: X.1.2 proof p. 343. The stated source result supplies this target with the hypotheses listed here.
+
+Atlas planet: **Affine quotient pushout**.
+
+### Rational spectral action on Bun_G
+
+`ExcursionOperatorsAndSpectralAction:ES2/spectral-action-rational` · theorem · proposed name `spectral_action_rational`
+
+For any field L over Q_ell(sqrt(q)), the coherent HS4 Hecke family gives a natural compactly supported L-linear action of Perf([Z^1(W_E,H)_L/H]) on D_lis(Bun_G,L)^omega, uniquely characterized as coherent data by its restriction along the universal representation families being the HS Hecke action.
+
+Hypotheses and interfaces:
+
+- No ell restriction involving pi_1(H)_tors is imposed in this rational theorem.
+
+Construction or proof:
+
+1. For each compact A use the uniform wild cutoff, and restrict the family to a dense discrete W.
+2. Apply the rational universal theorem and identify its mapping stack with the intrinsic cocycle quotient through LP.
+3. Glue the finite-wild action using uniqueness and the open-and-closed transitions.
+4. The orbit of each A factors through its cutoff, giving compact support.
+
+Acceptance:
+
+- Test the unit representation and a torus character.
+- Test the direct sum of two compacts using a common refined cutoff.
+- Do not infer full faithfulness of the action functor or categorical LLC.
+
+Direct prerequisites: `ExcursionOperatorsAndSpectralAction:ES2/universal-action-theorem`, `ExcursionOperatorsAndSpectralAction:ES2/compactly-supported-actions`, `ExcursionOperatorsAndSpectralAction:ES1:finite-ramification/uniform-wild-subgroup`, `LanglandsParameterStacks:LP0/discretization-and-unique-extension`, `LanglandsParameterStacks:LP1`, `HeckeStacksAndLocalShtukas:HS4/monoidal-and-finite-set-functoriality`, `LanglandsParameterStacks:LP4/generation-and-module-comparison`.
+
+Source: X.1.3 pp. 343–344. The stated source result supplies this target with the hypotheses listed here.
+
+Atlas planet: **Rational spectral action**.
+
+### Agreement of action and excursion centers
+
+`ExcursionOperatorsAndSpectralAction:ES2/degree-zero-center-agreement` · theorem · proposed name `degree_zero_center_agreement`
+
+In the rational coefficient range, the map from degree-zero functions on the parameter stack to Z_enh(D_lis) induced by the spectral action equals the IX.5.2 spectral-center map. Pulling representation bundles along universal evaluation recovers exactly the normalized Satake/Hecke operations, including the chosen square root of q.
+
+Construction or proof:
+
+1. On every finite-wild piece compare the action of each universal invariant matrix coefficient with its creation–Weil–annihilation operator.
+2. Use the LP invariant presentation to conclude equality of algebra maps.
+3. Glue along component and cutoff comparisons and extend to Ind via the enhanced-center restriction equivalence.
+
+Acceptance:
+
+- Check the scalar and component idempotent maps.
+- Use the ES1:spectral-center prerequisite explicitly.
+
+Direct prerequisites: `ExcursionOperatorsAndSpectralAction:ES2/spectral-action-rational`, `ExcursionOperatorsAndSpectralAction:ES2/universal-parameter-hecke-family`, `ExcursionOperatorsAndSpectralAction:ES1:spectral-center/spectral-to-geometric-center-map`, `LanglandsParameterStacks:LP2:excursion-presentation/invariant-function-and-independence`, `LanglandsParameterStacks:LP2:integral-invariants/integral-invariant-theorem`, `HeckeStacksAndLocalShtukas:HS4/monoidal-and-finite-set-functoriality`, `ExcursionOperatorsAndSpectralAction:ES0/bernstein-center-of-a-category`.
+
+Source: X.1.3 p. 344; IX.5.2 p. 329. A roadmap-added comparison deduced from FS’s uniqueness and the two constructions’ shared excursion generators; not a separately numbered assertion in FS.
+
+### Whittaker sheaf
+
+`ExcursionOperatorsAndSpectralAction:ES2/whittaker-sheaf` · construction · proposed name `whittakerSheaf`
+
+For G quasisplit with a specified Whittaker datum (B,U,psi) imported from SR, define W_psi=j_! [c-Ind_(U(E))^(G(E)) psi] in D_lis(Bun_G,Lambda), supported on the open trivial stratum Bun_G^1. Compact induction means support compact modulo the closed unipotent subgroup, not induction from a compact open subgroup. The construction alone does not assert compactness of W_psi or categorical LLC.
+
+Hypotheses and interfaces:
+
+- Use coefficients containing the values of the smooth generic character psi. The rational source uses Qbar_ell; the integral conjectural context uses O_L[1/|pi_0 Z(G)|].
+
+Construction or proof:
+
+1. Use SR.2’s compact induction for the closed subgroup U(E).
+2. Apply the VS4 stratum equivalence and its j_! embedding.
+3. Record its restriction and supported extension; extend the spectral action to W_psi via Ind in its eligible range.
+
+Uses:
+
+- X.1.4 and X.3.5 statement register: Specifies the object on which the conjectural spectral-to-geometric equivalence is based.
+- X.1 pp. 345–346: The source defines Aut_phi as E_phi acting on this sheaf.
+
+API:
+
+- `whittakerSheaf_restrict` (projection): Restriction to Bun_G^1 is c-Ind_U(E)^G(E) psi via the smooth-stratum equivalence.
+- `whittakerSheaf_support` (characterisation): Its restriction to the complement of the trivial stratum is zero.
+- `whittakerSheaf_datum_iso` (functoriality): An isomorphism of the imported Whittaker data inducing the SR compact-induction intertwiner yields the corresponding sheaf isomorphism.
+- `whittakerSheaf_ind_action` (compatibility): The colimit-preserving extension of an eligible compact spectral action acts on W_psi; no compactness assertion is needed.
+
+Unit tests:
+
+- `whittakerSheaf_torus` (computation): For a torus U=1 and psi=1, W_psi is extension by zero of the regular compactly supported smooth function representation c-Ind_1^T(E) Lambda, not the one-dimensional trivial representation.
+- `whittakerSheaf_trivial_group` (degenerate): For G=1, W_psi is the constant rank-one Lambda object on its unique stratum.
+- `whittakerSheaf_stratum` (compatibility): Applying j^* to W_psi returns exactly the SR compact induction, including its right-translation convention.
+
+Acceptance:
+
+- Verify the full statement, including its coefficient and continuity hypotheses.
+- Check the displayed construction on the unit and its compatibility with the cited supplier maps.
+
+Direct prerequisites: `SmoothRepresentationsOfLocalGroups:SR.2`, `SmoothRepresentationsOfLocalGroups:SR.0:abelian-category`, `VStackSheavesAndLisseCategories:VS4/strata-are-classifying-stacks`, `VStackSheavesAndLisseCategories:VS4`, `EnhancedDerivedSheaves:E5:presentability`.
+
+Source: X.1 pp. 343–344; X.3.5 p. 350. The stated source result supplies this target with the hypotheses listed here.
+
+Atlas planet: **Whittaker sheaf**.
+
+## ES3
+
+Integrally, actual Perf of the mapping stack need not preserve sifted colimits. Animate the finite Q-torsor-set functor to obtain F^natural and its canonical comparison to actual Perf. This categorical approximation already has the universal Hecke-data theorem without the good-prime restriction.
+
+Highest-weight theory over the DVR proves the approximation preserves all colimits. For a free group its comparison is fully faithful with image generated by representations, and the quotient action is twisted by the generator images in Q. The animated free-group resolution computes the discrete-group approximation as compact modules over its equivariant coordinate colimit. Only then does LP4’s integral generation theorem identify this approximation with all Perf in the good-prime range.
+
+Apply the discrete result to each finite-wild quotient and glue to obtain X.0.1, including its Bun_G specialization. The DVR hypothesis ell not dividing |pi_1(H)_tors| stays at this comparison step and at the resulting integral action. Rationalization compares to ES2. Derived reduction has its own explicit Perf and geometric-category comparison hypotheses; an arbitrary coefficient ring is not asserted to satisfy X.0.1. The coefficient, pinned quotient and wild cutoff diagrams compare the same normalized universal kernels.
+
+Coverage: **planned**. Refinement contract: LP3 DVR highest-weight filtration, E5 animated free-group resolution, and qualified LP/VS/HS derived scalar-extension comparisons.
+
+### Sifted-colimit approximation
+
+`ExcursionOperatorsAndSpectralAction:ES3/sifted-colimit-approximation` · definition · proposed name `perfApprox`
+
+Over a discrete valuation ring R and a split reductive H/R with finite Q action, let F^natural be the sifted-colimit-preserving extension to anima/BQ of the restriction S |-> Perf(Map_(BQ)(S,B(H semidirect Q))) on finite sets with Q-torsors. There is a canonical comparison kappa_S:F^natural(S)->F(S). This is a categorical approximation, not an asserted new mapping scheme, and need not equal F(S) integrally.
+
+Hypotheses and interfaces:
+
+- The animation/Lan construction takes values in R-linear symmetric monoidal small stable idempotent-complete infinity-categories.
+
+Construction or proof:
+
+1. Use the free sifted-colimit presentation of anima/BQ by finite Q-torsor sets.
+2. Extend the finite-set functor by its sifted left Kan extension.
+3. The universal property induces kappa to the actual mapping-stack Perf functor.
+
+Uses:
+
+- X.3.1: The correct universal category for integral coherent Hecke data.
+- X.3.3–X.3.4: Computed by equivariant coordinate-algebra modules before the good-prime comparison.
+
+API:
+
+- `perfApprox_finite` (equivalence): For S a finite Q-torsor set, kappa_S is the prescribed identification with F(S).
+- `perfApprox_compare` (projection): kappa is a natural symmetric monoidal comparison to actual mapping-stack Perf.
+- `perfApprox_lift` (universal-property): For a sifted-colimit-preserving target functor, transformations out of F^natural are uniquely determined as anima by their restriction to finite Q-torsor sets.
+- `perfApprox_evaluation` (compatibility): Universal representation evaluation extends by animation and recovers its finite-set version.
+
+Unit tests:
+
+- `perfApprox_empty` (degenerate): At the empty anima, F^natural is Perf(R), the monoidal unit category.
+- `perfApprox_point` (compatibility): For Q=1 and S a point, kappa identifies F^natural(S) with Perf(BH).
+- `perfApprox_rational` (characterisation): After the valid characteristic-zero scalar extension, the approximation agrees with actual mapping-stack Perf by X.1.2.
+
+Acceptance:
+
+- Verify the full statement, including its coefficient and continuity hypotheses.
+- Check the displayed construction on the unit and its compatibility with the cited supplier maps.
+
+Direct prerequisites: `EnhancedDerivedSheaves:E5:abstract`, `EnhancedDerivedSheaves:E5:presentability`, `LanglandsParameterStacks:LP1`, `EnhancedDerivedSheaves:E5:animation`.
+
+Source: X.3 pp. 348–349. The stated source result supplies this target with the hypotheses listed here.
+
+Atlas planet: **Sifted-colimit approximation**.
+
+### Integral universal action on the approximation
+
+`ExcursionOperatorsAndSpectralAction:ES3/integral-universal-action` · theorem · proposed name `integral_universal_action`
+
+For the DVR H,Q,S hypotheses of F^natural and C small stable idempotent-complete R-linear, the anima of R-linear F^natural(S)-actions on C is equivalent to the anima of coherent finite-set exact Rep_R(Q^I)-linear monoidal families Rep_R((H semidirect Q)^I)->End_R(C)^(S^I). Evaluation is defined on finite sets and then animated. No good-prime hypothesis is needed for this approximation theorem.
+
+Hypotheses and interfaces:
+
+- Do not replace F^natural by actual Perf(mapping stack) before applying the generation theorem.
+
+Construction or proof:
+
+1. Repeat the rational universal argument on finite Q-torsor sets using the exact representation-category perfect extension.
+2. Animate both sides; mapping into C turns sifted colimits into limits.
+3. Identify the two coherent-data maps and their higher inverse comparisons.
+
+Acceptance:
+
+- Compare the point and empty-leg cases.
+- At an excluded good-prime the approximation still has this universal property.
+
+Direct prerequisites: `ExcursionOperatorsAndSpectralAction:ES3/sifted-colimit-approximation`, `EnhancedDerivedSheaves:E5:abstract`, `EnhancedDerivedSheaves:E5:presentability`, `LanglandsParameterStacks:LP3`.
+
+Source: X.3.1 pp. 348–349. The stated source result supplies this target with the hypotheses listed here.
+
+Atlas planet: **Integral universal action**.
+
+### Colimits of the integral approximation
+
+`ExcursionOperatorsAndSpectralAction:ES3/approximation-commutes-with-colimits` · theorem · proposed name `approximation_commutes_with_colimits`
+
+F^natural preserves all colimits from anima/BQ to R-linear symmetric monoidal small stable idempotent-complete infinity-categories. In addition to its defining sifted-colimit property, the required finite coproduct comparison is Perf(BH^S1) tensor_Perf(R) Perf(BH^S2) ≃ Perf(BH^(S1 disjoint union S2)).
+
+Hypotheses and interfaces:
+
+- R is a DVR and H/R split reductive.
+- The highest-weight filtration over the DVR is requested from LP3, not inferred from the rational semisimplicity proof.
+
+Construction or proof:
+
+1. Use the sifted Kan-extension description.
+2. For finite sets prove the disjoint-union tensor identity by the highest-weight filtration of Perf(BH) into copies of Perf(R).
+3. Use the animation universal property to deduce all colimits in the symmetric monoidal target.
+
+Acceptance:
+
+- The argument uses DVR highest-weight theory without inverting ell.
+- At H=1 the functor is constantly Perf(R), the initial symmetric monoidal R-linear category.
+
+Direct prerequisites: `ExcursionOperatorsAndSpectralAction:ES3/sifted-colimit-approximation`, `LanglandsParameterStacks:LP3`, `EnhancedDerivedSheaves:E5:presentability`.
+
+Source: X.3.2 p. 349. The stated source result supplies this target with the hypotheses listed here.
+
+Atlas planet: **Integral colimit theorem**.
+
+### Free-group comparison
+
+`ExcursionOperatorsAndSpectralAction:ES3/free-group-case` · theorem · proposed name `free_group_case`
+
+For S=BF_n->BQ with generator images sigma_1,...,sigma_n, kappa_S is fully faithful with image the thick idempotent-complete stable subcategory generated by Rep_R(H). The actual mapping quotient is [H^n/H] with h acting by (g_i |-> h g_i sigma_i(h)^(-1)); F^natural(BF_n) identifies with compact modules over O(H^n) in IndPerf(BH) with that twisted action. No assertion that this image is all actual Perf is made without the generation input named in its prerequisites.
+
+Hypotheses and interfaces:
+
+- Use the DVR and split reductive hypotheses; n can be zero.
+
+Construction or proof:
+
+1. Present BF_n by circles and the all-colimits theorem.
+2. For one circle compute the relative tensor of Perf(BH) over Perf(BH^2) along the diagonal and twisted diagonal.
+3. Use the supplied module-category/Barr–Beck comparison and extend to n generators.
+4. Read off full faithfulness and the representation-generated essential image.
+
+Acceptance:
+
+- At n=0 obtain Perf(BH).
+- At n=1 with nontrivial sigma check twisted rather than ordinary conjugation.
+- Fully faithful comparison here is not full faithfulness of the Bun_G action functor.
+
+Direct prerequisites: `ExcursionOperatorsAndSpectralAction:ES3/approximation-commutes-with-colimits`, `EnhancedDerivedSheaves:E5:presentability`, `LanglandsParameterStacks:LP3`, `LanglandsParameterStacks:LP1`.
+
+Source: X.3.3 pp. 349–350. The stated source result supplies this target with the hypotheses listed here.
+
+Atlas planet: **Free-group comparison**.
+
+### Discrete-group module presentation
+
+`ExcursionOperatorsAndSpectralAction:ES3/discrete-group-presentation` · theorem · proposed name `discrete_group_presentation`
+
+For a discrete group Gamma->Q, present BGamma as the sifted colimit of BF_n over homomorphisms F_n->Gamma in anima/BQ. Then F^natural(BGamma) is the category of compact modules over colim_(n,F_n->Gamma) O(H^n) in IndPerf(BH), with the generator twists induced by Gamma->Q.
+
+Hypotheses and interfaces:
+
+- The colimit algebra is computed in the animated equivariant algebra category; a degree-zero invariant-ring colimit does not substitute for it.
+
+Construction or proof:
+
+1. Use the free-group sifted resolution of the group anima.
+2. Apply the approximation colimit theorem.
+3. Use the free-group module comparison and the compatibility of compact module categories with the filtered/sifted algebra presentation as supplied by E5.
+
+Acceptance:
+
+- For Gamma=F_n recover the free-group case.
+- For a nontrivial relation use the animated colimit, retaining derived information.
+
+Direct prerequisites: `ExcursionOperatorsAndSpectralAction:ES3/free-group-case`, `ExcursionOperatorsAndSpectralAction:ES3/approximation-commutes-with-colimits`, `EnhancedDerivedSheaves:E5:presentability`, `EnhancedDerivedSheaves:E5:animation`.
+
+Source: X.3.4 p. 350. The stated source result supplies this target with the hypotheses listed here.
+
+Atlas planet: **Discrete-group presentation**.
+
+### Integral discrete-group action comparison
+
+`ExcursionOperatorsAndSpectralAction:ES3/discrete-integral-spectral-action` · theorem · proposed name `discrete_integral_spectral_action`
+
+Let Lambda be the integers of a finite extension of Q_ell(sqrt(q)), and ell not divide |pi_1(H)_tors|. For the discrete tame W with its pinned map to Q, kappa_BW identifies F^natural(BW) with Perf([Z^1(W,H)_Lambda/H]). Consequently its action anima is equivalent to the coherent finite-set Hecke-data anima of X.0.2.
+
+Hypotheses and interfaces:
+
+- This comparison is the point where the good-prime integral generation input is used.
+
+Construction or proof:
+
+1. Identify the animated coordinate colimit in the discrete-group presentation with LP4’s cocycle module algebra.
+2. Use VIII.5.1 generation/module comparison to identify all Perf, not just the representation-generated image.
+3. Compose with the approximation universal action theorem.
+
+Acceptance:
+
+- Record ell not dividing the dual fundamental-group torsion in the theorem signature.
+- No proof step rationalizes to establish integral generation.
+
+Direct prerequisites: `ExcursionOperatorsAndSpectralAction:ES3/discrete-group-presentation`, `ExcursionOperatorsAndSpectralAction:ES3/integral-universal-action`, `LanglandsParameterStacks:LP4/generation-and-module-comparison`, `LanglandsParameterStacks:LP2:integral-invariants/integral-invariant-theorem`, `LanglandsParameterStacks:LP0/discretization-and-unique-extension`.
+
+Source: X.0.2 p. 340; X.3 closing p. 350; VIII.5.1 p. 293. The stated source result supplies this target with the hypotheses listed here.
+
+### Integral spectral action on Bun_G
+
+`ExcursionOperatorsAndSpectralAction:ES3/integral-spectral-action` · theorem · proposed name `integral_spectral_action`
+
+Under the X.0.1 coefficient hypotheses (Lambda the integers of a finite extension of Q_ell(sqrt(q)), ell != p and ell not dividing |pi_1(H)_tors|), the anima of compactly supported Perf([Z^1(W_E,H)_Lambda/H])-actions on a small idempotent-complete stable Lambda-linear C is equivalent to its coherent continuous Weil-equivariant finite-set Hecke-data anima. Applied to HS4 on C=D_lis(Bun_G,Lambda)^omega, it constructs the integral spectral action. The rational variant holds for all ell != p.
+
+Hypotheses and interfaces:
+
+- For the general C version, use its relatively discrete condensed enrichment as in the reduction via IX.5.1; E5 must supply the finite-wild factorization of its Hecke orbit data.
+
+Construction or proof:
+
+1. Factor each compact Hecke orbit through a uniform finite-wild quotient by the IX.5.1 argument.
+2. Choose W and use the discrete integral action comparison.
+3. Use intrinsic cocycle restriction/extension and glue over finite-wild pieces with coherent uniqueness.
+4. Specialize to the actual HS family and its normalized kernels.
+
+Acceptance:
+
+- Give both the abstract equivalence and its Bun_G specialization.
+- Test rationalization against X.1.3 using the same Hecke family.
+- At an excluded prime retain the approximation and excursions, without asserting this comparison.
+
+Direct prerequisites: `ExcursionOperatorsAndSpectralAction:ES3/discrete-integral-spectral-action`, `ExcursionOperatorsAndSpectralAction:ES2/compactly-supported-actions`, `ExcursionOperatorsAndSpectralAction:ES1:finite-ramification/uniform-wild-subgroup`, `LanglandsParameterStacks:LP0/discretization-and-unique-extension`, `HeckeStacksAndLocalShtukas:HS4/monoidal-and-finite-set-functoriality`, `EnhancedDerivedSheaves:E5:abstract`, `LanglandsParameterStacks:LP4/generation-and-module-comparison`.
+
+Source: X.0.1 pp. 339–340; X.3 closing p. 350. The stated source result supplies this target with the hypotheses listed here.
+
+Atlas planet: **Integral spectral action**.
+
+### Compatibility of integral action comparisons
+
+`ExcursionOperatorsAndSpectralAction:ES3/action-change-of-data` · theorem · proposed name `action_change_of_data`
+
+For the integral action, extension of DVR coefficient rings satisfying X.0.1, refinement of the finite pinned quotient, and shrinking finite-wild cutoffs induce the corresponding comparison functors. Whenever the LP stack/Perf base-change and HS kernel comparison functors are supplied, the two actions are coherently equivalent because their universal representation families coincide. These comparisons satisfy identity, composition and pairwise commutation. The induced degree-zero function action agrees with IX.5.2 in its eligible center range.
+
+Hypotheses and interfaces:
+
+- Both integral endpoints retain ell not dividing |pi_1(H)_tors|.
+- This is a comparison of actions through the supplied base-change functors, not an unrestricted assertion Perf commutes with every scalar tensor product.
+
+Construction or proof:
+
+1. Compare the normalized HS kernels and universal evaluation on generators.
+2. Apply the equivalence of coherent-data anima to lift that comparison uniquely to the action.
+3. Use its functorial inverse to prove coherence of identity and composite comparisons.
+4. For degree zero repeat the generator proof of the rational center agreement in the eligible invariant range.
+
+Acceptance:
+
+- Check the identity extension, a tower of extensions and changing Q before/after shrinking P.
+- Retain the separate center-order hypothesis when comparing centers.
+
+Direct prerequisites: `ExcursionOperatorsAndSpectralAction:ES3/integral-spectral-action`, `ExcursionOperatorsAndSpectralAction:ES3/integral-universal-action`, `ExcursionOperatorsAndSpectralAction:ES2/universal-parameter-hecke-family`, `ExcursionOperatorsAndSpectralAction:ES1:spectral-center/spectral-to-geometric-center-map`, `LanglandsParameterStacks:LP2:integral-invariants/integral-invariant-theorem`, `HeckeStacksAndLocalShtukas:HS4/monoidal-and-finite-set-functoriality`, `LanglandsParameterStacks:LP4/generation-and-module-comparison`.
+
+Source: X.0.1 pp. 339–340; X.3.1 pp. 348–349. The roadmap asks for these coherence diagrams. FS provides their universal action characterization; the precise LP and HS base-change interfaces are requested.
+
+### Derived coefficient reduction and rationalization
+
+`ExcursionOperatorsAndSpectralAction:ES3/derived-reduction-and-rationalization` · theorem · proposed name `derived_reduction_and_rationalization`
+
+Let the integral action be given. For a coefficient map Lambda->B and the supplied relative tensor-product category C_B and pullback functor Perf(Z_Lambda/H)->Perf(Z_B/H), when the stacky Perf scalar-extension comparison is an equivalence, tensoring the action constructs a B-linear action on C_B that induces the scalar-extended HS family. This includes rationalization and, with the supplied derived reduction/Perf comparisons, B=Lambda/ell. It does not assert X.0.1 anew for arbitrary B or identify C_B with the geometric D_lis(Bun_G,B) without its supplier comparison.
+
+Hypotheses and interfaces:
+
+- Use derived tensor products. Identify the scalar-extended geometric category only in the cases established by VS and HS.
+
+Construction or proof:
+
+1. Tensor the exact monoidal action as a module-category action.
+2. Use the assumed supplier comparison of parameter-stack Perf and universal representations.
+3. For rationalization apply uniqueness in X.1.3; for derived reduction identify the restricted Hecke family via the explicit HS comparison.
+
+Acceptance:
+
+- Do not substitute ordinary reduction for derived reduction.
+- Record precisely the required scalar-extension equivalences before identifying either geometric category.
+
+Direct prerequisites: `ExcursionOperatorsAndSpectralAction:ES3/action-change-of-data`, `ExcursionOperatorsAndSpectralAction:ES2/spectral-action-rational`, `EnhancedDerivedSheaves:E5:presentability`, `LanglandsParameterStacks:LP1`, `VStackSheavesAndLisseCategories:VS3`, `HeckeStacksAndLocalShtukas:HS1`.
+
+Source: X.0.1 pp. 339–340; IX.2 pp. 321–322. A conditional roadmap coefficient-comparison target; the supplied higher-category base-change equivalences are open requests rather than unproved theorem fields.
+
+## ES4
+
+The support here is reduced central support V(Ann(A)) in the spectrum of a finite-wild invariant coordinate ring. It is an added infrastructure definition built from the center action and pinned prime-spectrum operations. It is neither support in the full derived stack nor nilpotent singular support.
+
+In an exact triangle, the product of the endpoint annihilator ideals kills the middle object; their intersection alone need not. This gives the support-union bound. A compatible coefficient extension gives a support containment. Equality needs flatness and the actual endomorphism base-change isomorphism. Single-function localization is obtained through the Ind telescope; compactness turns vanishing there into a power of the function killing the identity. Idempotent localization recovers the already constructed component factors.
+
+Duality uses the lisse BZ equivalence and Satake switching/Chevalley comparison, including its inner correction before quotienting. For local shtukas, transport excursions through HS3’s multi-leg Hecke comparison and keep the two smooth group actions in their level and tower domains. Compactness at pro-p level does not give a common wild cutoff on the whole tower.
+
+Ellipticity requires semisimplicity and a finite centralizer modulo the fixed dual center. Its unramified twists form a parameter component, retaining its stabilizer stack. The basic/supercuspidal structural consequence imports ES7’s proved parabolic factorization. The proposed packet bijection and t-exact equivalence are recorded conjectures, not conclusions of the action theorem.
+
+Coverage: **planned**. Refinement contract: Lisse VS5 duality, full multi-leg HS3 comparison, elliptic deformation proof refinement and qualified endomorphism base-change.
+
+### Finite-wild central support
+
+`ExcursionOperatorsAndSpectralAction:ES4/finite-wild-central-support` · definition · proposed name `centralSupport`
+
+For a compact A with eligible cutoff P in the invariant-coordinate range, let R_P=Gamma([Z^1(W_E/P,H)_Lambda/H],O) act through the center. Define Ann_P(A)={f in R_P : f_A=0 in pi_0 End(A)} and Supp_P(A)=V(Ann_P(A)) in Spec R_P. This is reduced support on the affine invariant quotient, not support in the full derived stack and not nilpotent singular support. A smaller cutoff compares these supports by the open-and-closed parameter embedding and the compatible center action.
+
+Hypotheses and interfaces:
+
+- The center-order condition is imposed whenever R_P is used. Without it an analogous support can be formed for the excursion algebra, with comparison of underlying points through the universal homeomorphism.
+
+Construction or proof:
+
+1. Evaluate the central ring action on A and take its kernel ideal.
+2. Take its zero locus using pinned PrimeSpectrum.
+3. Use the LP finite-wild coordinate comparison to transport the underlying closed set between eligible pieces.
+
+Uses:
+
+- ES4 support laws: Defines support for the exact-operation and localization claims.
+- ES1 component decomposition: Tests support against the already proved component idempotents.
+
+API:
+
+- `centralAnnihilator_mem` (characterisation): f belongs to Ann_P(A) iff the central endomorphism f_A is zero.
+- `centralSupport_mem` (characterisation): x belongs to Supp_P(A) iff Ann_P(A) is contained in the prime ideal x.
+- `centralSupport_iso` (functoriality): Isomorphic objects have the same annihilator ideal and support.
+- `centralSupport_idempotent` (compatibility): For an idempotent e, support of the e-summand lies in the clopen locus where e=1, and support of the (1-e)-summand lies where e=0.
+
+Unit tests:
+
+- `centralSupport_zero` (degenerate): The zero object has annihilator R_P and empty support.
+- `centralSupport_free` (computation): For C=Perf(R_P) with its scalar action, the rank-one module R_P has annihilator zero and support all Spec R_P.
+- `centralSupport_nilpotent` (computation): For R=k[epsilon]/(epsilon^2) and A=k, Ann(A)=(epsilon) but Supp(A)=Spec R as an underlying set; the support does not retain the nilpotent thickening.
+
+Acceptance:
+
+- Verify the full statement, including its coefficient and continuity hypotheses.
+- Check the displayed construction on the unit and its compatibility with the cited supplier maps.
+
+Direct prerequisites: `ExcursionOperatorsAndSpectralAction:ES1:spectral-center/spectral-to-geometric-center-map`, `ExcursionOperatorsAndSpectralAction:ES1:finite-ramification/center-on-finite-wild-pieces`, `mathlib:Ideal`, `mathlib:PrimeSpectrum`, `mathlib:PrimeSpectrum.zeroLocus`, `mathlib:PrimeSpectrum.mem_zeroLocus`, `mathlib:RingHom.ker`, `mathlib:RingHom.mem_ker`.
+
+Source: IX.5 pp. 328–329; Mathlib RingTheory/Spectrum/Prime/Basic.lean at 082e2d3. This is a roadmap-added central annihilator support built from the FS center action and the pinned zero-locus definition. It is not attributed to FS VIII.2’s singular-support formalism.
+
+Source: zeroLocus, mem_zeroLocus, zeroLocus_mul, zeroLocus_inf, zeroLocus_radical. Supplies the existing closed-set and radical ideal operations used by this central support, not enhanced sheaf geometry.
+
+Atlas planet: **Central support**.
+
+### Support under exact operations
+
+`ExcursionOperatorsAndSpectralAction:ES4/support-exact-operations` · theorem · proposed name `support_exact_operations`
+
+For the fixed central R_P action, support is invariant under isomorphism and shifts, support of a finite direct sum is the union, and a retract has support contained in that of its source. For an exact triangle A->B->C->A[1], Supp(B)⊂Supp(A) union Supp(C), and the cyclic variants hold. Algebraically Ann(A) Ann(C)⊂Ann(B), rather than an assertion that Ann(A) intersect Ann(C) annihilates B.
+
+Hypotheses and interfaces:
+
+- The stable action is exact and the central transformations commute coherently with suspension and triangles.
+
+Construction or proof:
+
+1. Use naturality and retract maps for the annihilator comparison.
+2. For f annihilating A and g annihilating C, use exactness of Hom and the commuting natural transformations to factor f_B through C; then g_B f_B=0.
+3. Pass from the product-ideal containment to zero loci and use the pinned radical/product formulas.
+4. Use the biproduct projections/inclusions to identify the direct-sum annihilator intersection.
+
+Acceptance:
+
+- For 0->k->k[epsilon]/epsilon^2->k->0 over k[epsilon]/epsilon^2, epsilon kills the endpoints but need not kill the middle; epsilon^2 does.
+- Check zero and finite direct sums.
+
+Direct prerequisites: `ExcursionOperatorsAndSpectralAction:ES4/finite-wild-central-support`, `EnhancedDerivedSheaves:E5:abstract`, `mathlib:PrimeSpectrum.zeroLocus_mul`, `mathlib:PrimeSpectrum.zeroLocus_inf`.
+
+Source: IX.5 p. 329; Mathlib Prime/Basic zeroLocus_mul and zeroLocus_inf. Elementary consequences of the defined central action, not a separate source theorem. The triangle product-ideal argument is supplied explicitly.
+
+Source: zeroLocus, mem_zeroLocus, zeroLocus_mul, zeroLocus_inf, zeroLocus_radical. Supplies the existing closed-set and radical ideal operations used by this central support, not enhanced sheaf geometry.
+
+### Support under coefficient change
+
+`ExcursionOperatorsAndSpectralAction:ES4/support-coefficient-change` · theorem · proposed name `support_coefficient_change`
+
+Given compatible central actions for a ring map R->S and an exact scalar-extension functor A |-> A_S, the ideal Ann_R(A)S annihilates A_S, hence Supp_S(A_S) is contained in the inverse image of Supp_R(A). If S is flat over R and the natural degree-zero endomorphism base-change map End(A) tensor_R S -> End(A_S) is an isomorphism carrying id_A to id_(A_S), then Ann_S(A_S)=Ann_R(A)S and the support containment is equality. In the derived nonflat case only the compatible-action containment is asserted.
+
+Hypotheses and interfaces:
+
+- The End comparison is an explicit supplier hypothesis, not inferred for every lisse object.
+
+Construction or proof:
+
+1. Apply the comparison functor to an annihilating central transformation.
+2. For the equality case tensor the kernel sequence R->End(A) with the flat S module.
+3. Identify the resulting evaluation map S->End(A_S) and use the inverse-image formula for Spec.
+
+Acceptance:
+
+- Keep the flatness and actual endomorphism comparison hypotheses in the equality statement.
+- For reduction modulo ell do not assert equality merely from exactness of the categorical action.
+
+Direct prerequisites: `ExcursionOperatorsAndSpectralAction:ES4/finite-wild-central-support`, `ExcursionOperatorsAndSpectralAction:ES1:spectral-center/center-change-of-data`, `ExcursionOperatorsAndSpectralAction:ES3/derived-reduction-and-rationalization`, `EnhancedDerivedSheaves:E5:presentability`.
+
+Source: IX.5.2 p. 329; X.0.1 pp. 339–340. Roadmap-added elementary support comparison. The stronger equality is deliberately qualified by the exact algebraic kernel hypotheses.
+
+Source: zeroLocus, mem_zeroLocus, zeroLocus_mul, zeroLocus_inf, zeroLocus_radical. Supplies the existing closed-set and radical ideal operations used by this central support, not enhanced sheaf geometry.
+
+### Central localization and component summands
+
+`ExcursionOperatorsAndSpectralAction:ES4/central-localization` · theorem · proposed name `central_localization`
+
+For a small idempotent-complete stable R-linear action category C and f in R, localize Ind(C) at the telescope of multiplication by f and take compact objects, with the necessary idempotent completion. A compact A maps to zero iff f^n id_A=0 for some n, equivalently Supp_R(A)⊂V(f). The localized center action sends f to an invertible transformation. For idempotent e the localization is the e-summand already supplied by component decomposition. This does not identify arbitrary closed substacks with a category of sheaves on them.
+
+Hypotheses and interfaces:
+
+- E5 supplies the exact central localization/relative tensor product and telescope mapping formula.
+
+Construction or proof:
+
+1. Extend the action to Ind(C), then form the f-inverting localization.
+2. Compactness identifies Hom(A,A[f^-1]) with the f-directed colimit, so the image of id vanishes iff some f^n id does.
+3. Use the pinned radical zero-locus criterion to identify support in V(f).
+4. For e^2=e compare with the split idempotent projector.
+
+Acceptance:
+
+- For C=Perf(R), localization agrees with Perf(R[f^-1]).
+- For f=1 the kernel is zero; for f=0 every object maps to zero.
+- For an idempotent recover the two component factors.
+
+Direct prerequisites: `ExcursionOperatorsAndSpectralAction:ES4/finite-wild-central-support`, `ExcursionOperatorsAndSpectralAction:ES4/support-exact-operations`, `ExcursionOperatorsAndSpectralAction:ES1:finite-ramification/component-decomposition`, `EnhancedDerivedSheaves:E5:presentability`, `mathlib:PrimeSpectrum.zeroLocus_radical`, `mathlib:PrimeSpectrum.zeroLocus_subset_zeroLocus_iff`.
+
+Source: IX.5 pp. 328–329; X.0 p. 339; Mathlib Prime/Basic zero-locus radical criterion. The source supplies the idempotent case; general single-function localization is the explicit E5-backed roadmap obligation.
+
+Atlas planet: **Central localization**.
+
+### Duality of the center action
+
+`ExcursionOperatorsAndSpectralAction:ES4/duality-and-the-chevalley-involution` · theorem · proposed name `duality_and_the_chevalley_involution`
+
+In the eligible center range, Bernstein–Zelevinsky duality induces D_geom on the enhanced geometric center. The pinned Chevalley involution induces D_spec on the spectral center. The square D_geom composed with Z_spec->Z_geom equals Z_spec->Z_geom composed with D_spec commutes. The inner correction by rho-hat(-1) in VI.12.1 disappears on the conjugation quotient. This proves the center diagram; general smooth-dual parameter compatibility imports the ES7 parabolic return.
+
+Hypotheses and interfaces:
+
+- Use the lisse compact BZ-duality equivalence, not only the etched-sheaf Verdier statements currently written in the supplier packet.
+
+Construction or proof:
+
+1. Pull creation, annihilation and the Weil action through BZ duality.
+2. Use the geometric Satake switching comparison VI.12.1, retaining the inner correction before taking the quotient.
+3. Evaluate invariant coefficients and conclude equality on the spectral generators.
+
+Acceptance:
+
+- For GL_n the parameter involution is contragredient.
+- Retain the inner correction before quotienting.
+- Do not use the unproved general center/homotopy-center isomorphism.
+
+Direct prerequisites: `ExcursionOperatorsAndSpectralAction:ES1:spectral-center/spectral-to-geometric-center-map`, `ExcursionOperatorsAndSpectralAction:ES0/excursion-datum-and-operator`, `VStackSheavesAndLisseCategories:VS5`, `GeometricSatakeAndFusion:GS4:integral-dual-group`, `LanglandsParameterStacks:LP2:excursion-presentation/invariant-function-and-independence`.
+
+Source: IX.5.3 pp. 329–330; VI.12.1 pp. 239–241. The stated source result supplies this target with the hypotheses listed here.
+
+Atlas planet: **Duality and Chevalley involution**.
+
+### Excursions on local shtuka cohomology
+
+`ExcursionOperatorsAndSpectralAction:ES4/local-shtuka-excursion-compatibility` · theorem · proposed name `local_shtuka_excursion_compatibility`
+
+For HS3’s local-shtuka complex identified as i_b^* T_V(j_! c-Ind_K^G(E) Lambda), with the stated normalization and K pro-p for compactness, transport the ES0 excursion operators through that comparison. At each level they commute with the smooth G_b(E) action, and under the tower’s Hecke transition correspondences they commute with the G(E) action on the tower colimit. Their products commute with each other by the excursion algebra, and their Weil action retains the HS3 continuity. No assertion of one finite-wild cutoff for the noncompact tower colimit is made.
+
+Hypotheses and interfaces:
+
+- HS3 supplies the general multi-leg local-shtuka/Hecke comparison IX.3.2, not only the minuscule E=Q_p compactness theorem IX.3.1.
+
+Construction or proof:
+
+1. Apply the natural central transformations to the HS compact induced Hecke object.
+2. Restrict through the stratum comparison; naturality implies equivariance for the smooth G_b(E) action.
+3. Use compatibility of the level/tower correspondences with the HS kernels to obtain the G(E) commutation.
+4. Use the algebra map and the condensed enrichment for commuting products and continuity.
+
+Acceptance:
+
+- Test the trivial Hecke representation and level transition for a pro-p K.
+- State both smooth group actions in their correct level/tower domains.
+- No unrestricted compactness or wild cutoff on the whole tower is inferred.
+
+Direct prerequisites: `ExcursionOperatorsAndSpectralAction:ES0/excursion-datum-and-operator`, `ExcursionOperatorsAndSpectralAction:ES0/excursion-algebra-to-bernstein-center`, `ExcursionOperatorsAndSpectralAction:ES1:finite-ramification/uniform-wild-subgroup`, `HeckeStacksAndLocalShtukas:HS3`, `HeckeStacksAndLocalShtukas:HS3/compactness-of-shtuka-cohomology`, `HeckeStacksAndLocalShtukas:HS3/admissibility-duality-and-adjunction`, `HeckeStacksAndLocalShtukas:HS4/monoidal-and-finite-set-functoriality`, `VStackSheavesAndLisseCategories:VS4/strata-are-classifying-stacks`.
+
+Source: IX.3.1–IX.3.2 pp. 324–327; I.9 pp. 35–36. The stated source result supplies this target with the hypotheses listed here.
+
+Atlas planet: **Local shtuka excursions**.
+
+### Elliptic L-parameters
+
+`ExcursionOperatorsAndSpectralAction:ES4/elliptic-parameters-and-components` · definition · proposed name `ellipticParameter`
+
+For an algebraically closed characteristic-zero coefficient field L, a continuous parameter phi with the prescribed pinned Weil projection is elliptic if it is semisimple and S_phi/Z(H)^Gamma is finite, where S_phi is the H-centralizer of the full twisted parameter. The centralizer is a group scheme; quotienting by the fixed center removes central unramified twists. The connected-component assertion is a separate theorem.
+
+Hypotheses and interfaces:
+
+- Use LP2’s semisimplicity/G-complete reducibility notion, not merely that Frobenius is diagonalizable.
+
+Construction or proof:
+
+1. Form the twisted parameter centralizer supplied by LP.
+2. Take its quotient by the Weil-fixed center and require finiteness in addition to semisimplicity.
+
+Uses:
+
+- X.2: Defines the unramified-twist component and its basic-stratum consequences.
+- X.2.2 statement register: States precisely the conjectural elliptic packet equivalence.
+
+API:
+
+- `ellipticParameter_iff` (characterisation): Ellipticity means semisimplicity and finiteness of the specified centralizer quotient.
+- `ellipticParameter_conjugate` (functoriality): Conjugation of phi identifies its centralizer quotient and preserves ellipticity.
+- `ellipticParameter_central_twist` (compatibility): An eligible unramified central twist has the same centralizer and preserves ellipticity.
+
+Unit tests:
+
+- `ellipticParameter_torus` (computation): For a torus with its pinned Weil action, S_phi=H^Gamma, so every semisimple parameter has trivial centralizer quotient and is elliptic.
+- `ellipticParameter_GL2_trivial` (non-example): For split GL_2 and the trivial two-dimensional parameter, S_phi/Z(H)=PGL_2 is positive dimensional, so the parameter is not elliptic.
+- `ellipticParameter_GLn_irreducible` (characterisation): For split GL_n over L, an irreducible Weil representation has scalar centralizer and is elliptic; a semisimple reducible representation has a positive-dimensional centralizer modulo scalars.
+
+Acceptance:
+
+- Verify the full statement, including its coefficient and continuity hypotheses.
+- Check the displayed construction on the unit and its compatibility with the cited supplier maps.
+
+Direct prerequisites: `LanglandsParameterStacks:LP2:semisimple-characters/semisimple-parameters-and-closed-orbits`, `LanglandsParameterStacks:LP1`, `GeometricSatakeAndFusion:GS4:integral-dual-group`.
+
+Source: X.2.1 p. 346. The stated source result supplies this target with the hypotheses listed here.
+
+Atlas planet: **Elliptic L-parameters**.
+
+### Component of an elliptic parameter
+
+`ExcursionOperatorsAndSpectralAction:ES4/elliptic-parameter-component` · theorem · proposed name `elliptic_parameter_component`
+
+For elliptic phi over Qbar_ell, its unramified central twists form the connected component C_phi of the parameter stack. The associated clopen idempotent in the excursion/invariant coordinate ring defines the summand D_lis^(C_phi), on which that idempotent acts as identity. If Z(H)^Gamma is finite then C_phi=BS_phi as a stack, not an ordinary point with trivial stabilizer.
+
+Hypotheses and interfaces:
+
+- Use the LP deformation complex and local Tate duality in its exact Weil-group coefficient range.
+
+Construction or proof:
+
+1. Show H^2(W_E,ad phi)=0 by Tate duality and ellipticity.
+2. Use H^0=Lie Z(H)^Gamma and the unramified-twist tangent calculation to identify the full component; quotient by the centralizer retains stack inertia.
+3. Apply the component idempotent theorem and its excursion-only variant.
+
+Acceptance:
+
+- For GL_n irreducible phi, retain the scalar unramified-twist direction.
+- When the fixed center is finite retain BS_phi, rather than deleting its stabilizer.
+
+Direct prerequisites: `ExcursionOperatorsAndSpectralAction:ES4/elliptic-parameters-and-components`, `LanglandsParameterStacks:LP1/cotangent-complex-and-deformation-theory`, `ExcursionOperatorsAndSpectralAction:ES1:finite-ramification/component-decomposition`, `LanglandsParameterStacks:LP2:excursion-presentation/excursion-algebra-and-universal-homeomorphism`.
+
+Source: X.2.1 pp. 346–347. The stated source result supplies this target with the hypotheses listed here.
+
+### Basic decomposition of an elliptic component
+
+`ExcursionOperatorsAndSpectralAction:ES4/basic-decomposition-of-an-elliptic-component` · theorem · proposed name `basic_decomposition_of_an_elliptic_component`
+
+For elliptic phi and A in D_lis^(C_phi), restriction to any nonbasic b is zero. Hence its compact category decomposes over basic b; its smooth representations lie in supercuspidal Bernstein components. If Z(H)^Gamma is finite, the component category is the direct sum of copies of Perf(Qbar_ell), indexed by basic b and supercuspidal pi of G_b(E) with parameter phi. This proved structural description does not establish the conjectural bijection with irreducible S_phi representations.
+
+Hypotheses and interfaces:
+
+- Import the proved ES7 parabolic parameter compatibility and SR supercuspidal block structure in characteristic zero.
+
+Construction or proof:
+
+1. A nonbasic stratum forces the parameter through a proper Levi by ES7; that contradicts ellipticity.
+2. Use compact generation/stratum restriction to decompose the remaining basic summands.
+3. Apply parabolic compatibility to exclude nonsupercuspidal components.
+4. When the fixed center is finite, use the discrete supercuspidal-block Ext calculation to split into finite sums of shifted irreducibles.
+
+Acceptance:
+
+- Do not identify the indexing representations with Irr(S_phi) without Conjecture X.2.2.
+- The finite-center case retains possible automorphism groups of parameters.
+
+Direct prerequisites: `ExcursionOperatorsAndSpectralAction:ES4/elliptic-parameter-component`, `ExcursionOperatorsAndSpectralAction:ES7:parabolic`, `VStackSheavesAndLisseCategories:VS4/compact-generation-and-compact-objects`, `VStackSheavesAndLisseCategories:VS4/strata-are-classifying-stacks`, `SmoothRepresentationsOfLocalGroups:SR.3`.
+
+Source: X.2 pp. 346–348. The stated source result supplies this target with the hypotheses listed here.
+
+Atlas planet: **Basic elliptic decomposition**.
+
+## Source statements outside acceptance
+
+These statements are recorded because the added source route requires them. They are not new implementation targets. Proved action consequences are distinguished from conjectural equivalences and nonvanishing claims.
+
+### I.9.5
+
+I.9.5 pp. 35–36 · conjecture; not a target.
+
+There is a unique Q(sqrt(q))-algebra map Z_spec(G,Q(sqrt(q)))->Z(G(E),Q(sqrt(q))) whose extension to every Q_ell(sqrt(q)), ell != p, recovers the geometric spectral-center composite. This is not proved here. Haines’ stable-center conjecture is routed to the accepted StableCenter Part II, not to ES acceptance.
+
+### X.1.4
+
+X.1.4 p. 344 · conjecture; not a target.
+
+For quasisplit G over Qbar_ell with W_psi, the colimit-preserving functor D_qcoh(Z/H)->D_lis, M |-> M*W_psi, has right adjoint fully faithful on compact objects and induces D_lis^omega ≃ D_coh^(b,qc)(Z/H). Neither full faithfulness nor the equivalence follows from the constructed action.
+
+### X.1.5
+
+X.1.5 p. 344 · source remark; not a target.
+
+The compact geometric category decomposes by pi_1(G)_Gamma=pi_0(Bun_G), while coherent spectral sheaves decompose by characters of Z(H)^Gamma. With pi_1(G)_Gamma=X^*(Z(H)^Gamma), the categorical conjecture predicts these gradings match. Bun_G component geometry is requested from BG3, not redefined here.
+
+### X.1.6
+
+X.1.6 p. 344 · conditional consequence; not a target.
+
+Under categorical full faithfulness, End(W_psi)=Z_spec. This equality is not obtained merely by evaluation of the center at W_psi.
+
+### X.1.7
+
+X.1.7 pp. 344–345 · conditional consequence; not a target.
+
+For an L-morphism f:^L H -> ^L G of quasisplit reductive groups over E, the induced parameter-stack map gives pushforward on Ind(D_coh^(b,qc)). Under the conjectural categorical equivalences this yields D_lis(Bun_H,Qbar_ell)->D_lis(Bun_G,Qbar_ell). BZ self-duality and VII.7.10 express it by a kernel A_f in D_lis(Bun_H times Bun_G,Qbar_ell); up to the source’s stated minor twists, its spectral image should be the structure sheaf of the graph. Restriction to the trivial strata predicts classical functoriality. The singularity-handling qualification and quasisplit Whittaker normalization of X.1.8 are retained; no kernel is constructed here from the action alone.
+
+### Aut_phi
+
+X.1 pp. 345–346 · source construction and conditional nonvanishing; not a target.
+
+For i:Spec Qbar_ell->Z/H with parameter phi, set E_phi=i_* Qbar_ell in D_qcoh, with its S_phi action, and Aut_phi=E_phi*W_psi using the Ind extension. The projection formula proves the Hecke eigenvalue phi, but Aut_phi may be zero; nonvanishing and packet conclusions require the categorical conjecture.
+
+### elliptic-action-shift
+
+X.2 pp. 347–348 · proved source consequence; recorded, not a target.
+
+Assume phi elliptic and Z(H)^Gamma finite. For basic b, a supercuspidal pi_b with parameter phi, and W in Rep(S_phi) isotypic on Z(H)^Gamma with character chi, Act_W(pi_b) is concentrated on b′=b+b_chi under pi_1(G)_Gamma=X^*(Z(H)^Gamma)=B(G)_basic. It is a sum of perfect multiplicity complexes tensored with supercuspidals of G_b′(E) having parameter phi. This does not prove the conjectural packet bijection.
+
+### elliptic-Hecke-compatibility
+
+X.2 p. 348 · proved source consequence; recorded, not a target.
+
+In the finite-fixed-center elliptic setting, restriction V|S_phi carries the commuting Weil action phi. If it decomposes as direct sum_i W_i tensor sigma_i as S_phi times W_E representation, then T_V(pi) is the direct sum_i Act_W_i(pi) tensor sigma_i. This is proved spectral-action compatibility; interpreting the W_i as packet constituents additionally uses X.2.2.
+
+### X.2.2
+
+X.2.2 pp. 347–348 · conjecture; not a target.
+
+For quasisplit G, fixed Whittaker datum and finite Z(H)^Gamma, an elliptic phi has a unique generic supercuspidal pi and W |-> Act_W(pi) gives a t-exact equivalence Perf(BS_phi) ≃ D_lis^(C_phi), normalized to send the trivial S_phi representation to the generic member. This is not proved by basic-stratum vanishing.
+
+### I.10.2-and-X.3.5
+
+I.10.2 p. 38; X.3.5 p. 350 · conjecture; not a target.
+
+For quasisplit G, integral Whittaker data and Lambda=O_L[1/n], n=|pi_0 Z(G)|, M |-> M*W_psi on IndPerf^qc(Z/H) has a right adjoint fully faithful on compact objects and induces D_lis^omega ≃ D_coh,Nilp^(b,qc)(Z/H). Nilpotent singular support and the bad-prime caveat are retained. This is not ES4’s reduced central support and is not an action-existence theorem.
+
+## Pinned library baseline
+
+The exact declaration statements were read at the recorded pins. The Tau Ceti source/index search and reviewed audit were also checked; its smoothness predicates do not supply the missing locally profinite smooth category or enhanced center.
+
+- `mathlib:CategoryTheory.CatCenter` — THE BERNSTEIN CENTRE OF A CATEGORY, ALREADY IN MATHLIB: `abbrev CatCenter := End (1_C)`. This is exactly the object Theorem VIII.4.1 calls the Bernstein centre of C, and the reviewed audit AUDIT-20 records this target as PARTIAL for that reason. This packet therefore cites it and plans only what is missing: the enhanced, degree-zero version on D_lis(Bun_G,Lambda). (Mathlib/CategoryTheory/Center/Basic.lean)
+- `mathlib:CategoryTheory.CatCenter.app` — Evaluation of a central element at an object. This is the pinned form of the distinction the roadmap insists on, between a natural endomorphism of the identity and an endomorphism of one object. (Mathlib/CategoryTheory/Center/Basic.lean)
+- `mathlib:CategoryTheory.CatCenter.naturality` — Naturality of a central element, from which centrality follows. Already proved at the pins, so this packet does not plan it. (Mathlib/CategoryTheory/Center/Basic.lean)
+- `mathlib:CategoryTheory.Linear.toCatCenter` — `def toCatCenter [Linear R C] : R ->+* CatCenter C`, the scalar structure on the centre of an R-linear category. The Lambda-algebra structure on the Bernstein centre is this map and is not planned again. (Mathlib/CategoryTheory/Center/Linear.lean)
+- `mathlib:CategoryTheory.Functor` — Functors. The identity functor of C, whose endomorphisms are the Bernstein centre, and the Hecke functors T_V are objects of this type. (Mathlib/CategoryTheory/Functor/Basic.lean)
+- `mathlib:CategoryTheory.NatTrans` — Natural transformations. An element of the Bernstein centre is a natural endomorphism of the identity; the pinned definition already carries the naturality that this roadmap insists distinguishes it from an endomorphism of one object. (Mathlib/CategoryTheory/NatTrans.lean)
+- `mathlib:CategoryTheory.Preadditive` — Preadditive categories. End(id_C) is a ring because C is additive; the pinned class supplies that structure on hom-sets. (Mathlib/CategoryTheory/Preadditive/Basic.lean)
+- `mathlib:CategoryTheory.CatCenter.ext` — Equality from all object components; applies to the ordinary homotopy-category comparison only. (Mathlib/CategoryTheory/Center/Basic.lean)
+- `mathlib:Ideal` — Left ideals as submodules; in commutative coordinate rings these give annihilator ideals. (Mathlib/RingTheory/Ideal/Defs.lean)
+- `mathlib:PrimeSpectrum` — Prime ideals of a commutative ring, used for reduced central support on the invariant quotient. (Mathlib/RingTheory/Spectrum/Prime/Defs.lean)
+- `mathlib:PrimeSpectrum.zeroLocus` — V(s) is the set of prime ideals containing s. (Mathlib/RingTheory/Spectrum/Prime/Basic.lean)
+- `mathlib:PrimeSpectrum.mem_zeroLocus` — Membership in V(s) iff s is contained in the prime ideal. (Mathlib/RingTheory/Spectrum/Prime/Basic.lean)
+- `mathlib:PrimeSpectrum.zeroLocus_radical` — The zero locus of the radical of an ideal equals its zero locus. (Mathlib/RingTheory/Spectrum/Prime/Basic.lean)
+- `mathlib:PrimeSpectrum.zeroLocus_inf` — V(I intersect J)=V(I) union V(J), used for finite direct sums. (Mathlib/RingTheory/Spectrum/Prime/Basic.lean)
+- `mathlib:PrimeSpectrum.zeroLocus_mul` — V(I J)=V(I) union V(J), used after the exact-triangle product-ideal argument. (Mathlib/RingTheory/Spectrum/Prime/Basic.lean)
+- `mathlib:RingHom.ker` — The kernel of an evaluated central ring map is an ideal. (Mathlib/RingTheory/Ideal/Maps.lean)
+- `mathlib:RingHom.mem_ker` — Membership in the kernel is equivalent to evaluation being zero. (Mathlib/RingTheory/Ideal/Maps.lean)
+- `mathlib:PrimeSpectrum.zeroLocus_subset_zeroLocus_iff` — V(I) subset V(J) iff J is contained in the radical of I, supplying the principal support/localization criterion. (Mathlib/RingTheory/Spectrum/Prime/Basic.lean)
+
+## Supplier contracts
+
+- `EnhancedDerivedSheaves:E5:abstract`: Enhanced exact endofunctor/mapping categories, Lambda-linear E_2 endomorphisms of the identity and their commutative pi_0, coherent finite-set action anima; no equivalence of underlying types substitutes for a higher equivalence.
+- `EnhancedDerivedSheaves:E5:animation`: Animation of finite Q-torsor sets over BQ and the sifted free-group resolution BGamma = colim_(F_n->Gamma) BF_n with its animated algebra compatibility.
+- `EnhancedDerivedSheaves:E5:presentability`: Ind mapping-object equivalence for exact functors, relative tensor/base-change module categories, Barr–Beck comparisons, compact objects under coordinate-algebra colimits, and the f-localization telescope Hom formula. For support equality provide the stated endomorphism scalar-extension isomorphism in its valid range.
+- `ExcursionOperatorsAndSpectralAction:ES7:parabolic`: Proved nonbasic-stratum and unnormalized parabolic parameter factorization, retaining the twisted Levi inclusion, used to deduce elliptic support and supercuspidality.
+- `GeometricSatakeAndFusion:GS4:integral-dual-group`: Pinned dual group/semidirect action and normalized representation categories, the center-order/dual torsion relation in its exact scope, and VI.12.1 switching equals Chevalley up to conjugation by rho-hat(-1).
+- `HeckeStacksAndLocalShtukas:HS1`: IX.1.2 relatively discrete condensed animated Hom(A,B) for compact A, and the pro-p quotient-equivariant pullback full faithfulness used in IX.5.1. Also derived coefficient-change of the normalized HS kernels and their square-root-q convention.
+- `HeckeStacksAndLocalShtukas:HS3`: The full IX.3.2 multi-leg local-shtuka/Hecke identification, with level transitions, two smooth group actions in the appropriate level/tower domains, and condensed Weil actions. Current named nodes cover IX.3.1 and its minuscule adjunction application, not this whole comparison.
+- `LanglandsParameterStacks:LP0`: The actual Weil group/wild inertia carriers and eligibility of open normal P, tensor-compatible dense discretizations, and pro-p versus pro-ell image argument used by IX.5.1.
+- `LanglandsParameterStacks:LP1`: Derived quotient-stack mapping presentations, universal evaluation and perfect representation bundles, their fpqc descent, and the exact coefficient-extension/derived reduction comparison functors on Perf. Ordinary Scheme does not supply stacky derived Perf.
+- `LanglandsParameterStacks:LP3`: DVR highest-weight filtration of Perf(BH) by copies of Perf(R), exact representation-category free stable extension, and characteristic-zero pro-reductive representation generation/exact invariants for X.1.2. Existing good-filtration field nodes do not state the DVR tensor identity of X.3.2.
+- `LanglandsParameterStacks:LP4`: The general affine-quotient Ind module-category/compact comparison used by X.1.2, and the algebraic base-change interfaces. Retain VIII.5.1 generation/module comparison, but remove the duplicated Chapter X action universality as resolved by the verifier.
+- `SmoothRepresentationsOfLocalGroups:SR.0:abelian-category`: Smooth categories over the allowed rings and scalar transport along a chosen abstract Qbar_ell-to-C field isomorphism, with an explicit center transport equivalence.
+- `SmoothRepresentationsOfLocalGroups:SR.0:derived-extension`: Enhanced derived smooth category and its heart, with the supplied stratum equivalence and ordinary-heart restriction of enhanced central transformations.
+- `SmoothRepresentationsOfLocalGroups:SR.1`: Define the abelian Lambda-linear Bernstein center as CatCenter(Sm_Lambda(G(E))). Identify it with the inverse limit of centers of pro-p Hecke corners when pro-orders are units, and prove ell-adic separatedness for Z_ell[sqrt(q)]. SR.1 owns this ordinary abelian target; enhanced restriction/heart comparison is ES0’s (verifier’s correction to RT finding 9).
+- `SmoothRepresentationsOfLocalGroups:SR.2`: Whittaker datum (B,U,psi), generic character and compact induction from closed U(E) with support compact modulo U(E), including intertwining under isomorphism of data. This is distinct from compact induction from compact open pro-p levels.
+- `SmoothRepresentationsOfLocalGroups:SR.3`: Complex Bernstein block center description and its field-transport dictionary; characteristic-zero supercuspidal block/Ext decomposition used in X.2, with finite fixed-center hypotheses retained.
+- `VStackSheavesAndLisseCategories:VS3`: Identify the eligible relative scalar-extension category of D_lis with the geometric coefficient-change category, including the exact derived reduction range. No unrestricted Perf/D_lis tensor identity is assumed.
+- `VStackSheavesAndLisseCategories:VS4`: The enhanced fully faithful b-stratum adjunction of VII.7.2, especially j_! at b=1, and the precise restriction functors used for local-shtuka comparison. The named compact-generation and classifying-stack nodes alone do not specify this embedding.
+- `VStackSheavesAndLisseCategories:VS5`: The lisse compact Bernstein–Zelevinsky duality of VII.7.6–VII.7.10 needed by IX.5.3; the packet’s currently etched-sheaf duality nodes are insufficient (RT-AREA-geomlanglands/29).
+- `BunGAndNewtonStrata:BG3`: For the recorded X.1.5 grading statement, pi_0(Bun_G)=pi_1(G)_Gamma via the Kottwitz map (IV.1.23), and the basic-class grading shift used in X.2. This supports recorded source statements, not a new ES target.
+
+## Exact gaps and refinement
+
+### Enhanced signatures at the pins
+
+Pinned Mathlib has ordinary categories and quasicategories, but no supplied Lambda-linear stable infinity-category/action anima or condensed enhanced functor mapping objects. The suggested Lean file must identify every unavailable higher signature rather than insert True or arbitrary Prop fields. Compilable ordinary observable signatures are distinguished from the complete mathematical statements. Resume after E5 and HS1 supply the exact enhanced types.
+
+### DVR representation filtration
+
+X.3.2 invokes highest-weight theory without spelling out the DVR filtration/tensor statement. Its exact export is requested from LP3; field good-filtration statements alone do not close this input. Inspect the integral highest-weight source and prove the displayed finite-set tensor equivalence there.
+
+### Geometric derived scalar-extension interfaces
+
+Conditional action base-change is stated with the explicit Perf and D_lis comparison equivalences it needs. LP1, VS3, HS1 and E5 must determine the exact derived-reduction range; no unrestricted identification with the geometric coefficient-changed category or equality of supports is asserted.
+
+### Elliptic component deformation argument
+
+LP1 supplies the deformation complex and local Tate duality statement. The proof-interior identification of the unramified twists with the entire connected component in X.2’s footnote needs expansion, including H^0, H^1 and H^2 calculations and the residual stack stabilizer. It is an explicit refinement of the stated target, not a conjectural packet equivalence.
+
+### Supplier lisse duality and multi-leg shtukas
+
+The current VS5 nodes concern etched sheaves, while this target needs VII.7’s lisse BZ duality. HS3’s named nodes give minuscule compactness and adjunction, while the local-shtuka target needs full multi-leg IX.3.2 with tower transition compatibility. Both missing exports are precisely requested.
+
+## Suggested Lean and validation
+
+The pins lack E5/HS/LP enhanced and stacky types. The file contains concrete ordinary-category, orbit-factorization, quotient-action and prime-spectrum observations, with full mathematical statements and every proposed name in an explicit higher-signature register. These observations do not encode the full higher action theorems. The enhancedCenter/perfApprox/finiteWildCategory/ellipticParameter full definitions and dependent higher APIs/tests await supplier types; see the enhanced-signature gap. Elaborating the file does not assert those full signatures were checked.
+
+The suggested file’s named register contains every node, API item and unit test, including the full mathematical statement for each unavailable higher signature. Its ordinary declarations use real natural transformations, additive functors, ring kernels, prime zero loci and functor factorizations. An omitted higher condition is identified explicitly. Checking these signatures is syntax/type validation, not a proof of any target.
+
+The packet checker uses the pinned declaration index and currently reports zero errors and zero warnings. The handoff records the final Lean elaboration result and its limitations.
+
+## Structural proposals and verification
+
+### Abstract excursions remain in LP2
+
+RT-AREA-geomlanglands/5: LP2 owns VIII.4.1–VIII.4.2, coefficient realization, independence and all abstract relations. ES0 only specializes the HS1/HS4 family and constructs the enhanced lift/continuous evaluation. Remove the old ES0 invariant-function and abstract-relation nodes. Global shtuka applications consume LP2’s same abstract algebra, so no global/local relation owner is newly duplicated.
+
+### Chapter X belongs to ES2 and ES3
+
+RT-AREA-geomlanglands/6 verifier says apply only the primary fix: ES2 owns X.1.1–X.1.3 and X.1.2’s pushout half; ES3 owns X.3.1–X.3.4 and X.0.1–X.0.2. LP4 retains VIII.5.1 generation/module comparison. Remove LP4/compactly-supported-actions and LP4/colimit-theorem-and-monoidal-universal-property as duplicated Chapter X planning, and narrow its prose accordingly. ES imports the genuine LP4 generation node, not these duplicates.
+
+### Conditional center and geometric suppliers
+
+RT-AREA-geomlanglands/7: add ES1:spectral-center to ES2 and ES4’s required inputs, VS5 and HS3 to ES4; the node prerequisites here already record these. The same conditional center input is needed by ES6:functoriality, ES6:duality and ES7:parabolic, outside this part. Preserve the existing excursion-only route at excluded primes. Propose no direct edits to the atlas.
+
+### Ring-valued smooth center in SR1
+
+RT-AREA-geomlanglands/9 verifier correction: SR.1 owns the abelian CatCenter of the smooth Lambda category, its pro-p corner inverse limit and ell-adic separatedness. ES0 owns the enhanced restriction and heart comparison, not a general pi_0-center isomorphism. SR.3 retains the complex block theorem. Remove the checkpoint’s ES0 level-limit theorem and request the exact SR.1 export.
+
+### General stratum center composites in ES7
+
+RT-AREA-geomlanglands/34: ES1:spectral-center stops at Z_geom,Hecke and imports finite ramification; ES7:parabolic owns IX.7.1’s general Psi_G^b composites. ES0:classical-center’s ordinary b=1 restriction is a separate early comparison. The stronger general composite is not replanned here.
+
+### Confirmed red-team handling
+
+- `RT-AREA-geomlanglands/5`: Imported abstract LP2 construction and removed two duplicate ES nodes; enhanced Bun_G specialization remains.
+- `RT-AREA-geomlanglands/6`: Verified primary ownership fix followed; Chapter X stays in ES2/ES3 and LP4 keeps VIII.5.1.
+- `RT-AREA-geomlanglands/7`: Added precise node prerequisites and supplier requests; atlas link changes recorded as proposals.
+- `RT-AREA-geomlanglands/9`: Applied verifier correction to abelian SR1 ownership; removed ES0 corner-limit duplication.
+- `RT-AREA-geomlanglands/34`: Kept general Psi composites in ES7 and imported finite ramification.
+- `RT-AREA-geomlanglands/35`: Rejection respected: the enhanced center remains an owned construction, with only a natural map to ordinary CatCenter.
+
+### Checkpoint continuity
+
+Preserved 23 correct checkpoint node identifiers. The three removed duplicates are routed as follows:
+
+- `ExcursionOperatorsAndSpectralAction:ES0/invariant-function-attached-to-a-datum` → `LanglandsParameterStacks:LP2:excursion-presentation/invariant-function-and-independence`: Abstract coefficient realization and independence belong to LP2.
+- `ExcursionOperatorsAndSpectralAction:ES0/excursion-relations-and-the-algebra-map` → `LanglandsParameterStacks:LP2:excursion-presentation/map-to-a-bernstein-center`: Abstract relation/algebra-map ownership remains in LP2; ES owns only its enhanced Bun_G lift.
+- `ExcursionOperatorsAndSpectralAction:ES0:classical-center/the-classical-center-as-a-limit-over-levels` → `SmoothRepresentationsOfLocalGroups:SR.1`: The verifier assigns the ordinary smooth-center/Hecke-corner theorem to SR.1.
+
+No new source issue was found in this part’s inspected passages. The checkpoint’s invalid stronger claims were planning errors; they are corrected here rather than entered as paper errata.
