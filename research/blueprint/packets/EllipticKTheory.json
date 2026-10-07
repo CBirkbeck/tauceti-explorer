@@ -2518,7 +2518,12 @@
         "KTheoryFiniteLocalFields:L.1",
         "MotivicEtaleKTheory:M.6",
         "EllipticKTheory:E.5/harder-finiteness",
-        "MotivicEtaleKTheory:M.7"
+        "MotivicEtaleKTheory:M.7",
+        "EllipticKTheory:E.5/geometric-elliptic-k-modules",
+        "EllipticKTheory:E.5/finite-elliptic-k-descent",
+        "EllipticKTheory:E.5/positive-odd-elliptic-k-groups",
+        "EllipticKTheory:E.5/positive-even-elliptic-k-groups",
+        "EllipticKTheory:E.5/elliptic-k-group-orders"
       ],
       "sources": [
         {
@@ -2937,7 +2942,8 @@
         "EllipticKTheory:E.6/the-integral-part",
         "EllipticKTheory:E.6/model-independence",
         "EllipticKTheory:E.5/an-elliptic-curve-over-a-finite-field",
-        "SchemeKTheoryOperations:S.3"
+        "SchemeKTheoryOperations:S.3",
+        "EllipticKTheory:E.5/positive-odd-elliptic-k-groups"
       ],
       "sources": [
         {
@@ -3775,21 +3781,18 @@
         "E is smooth, projective and geometrically connected over F_q with its rational origin; F_q is its full constant field."
       ],
       "proofSteps": [
-        "For n=1, use localization and Weil reciprocity: K₁(E)≅F_q×⊕F_q×. For n=2, use the finite prime-to-p global-function-field tame kernel of Bass–Tate. These low degrees are separate inputs.",
-        "For n≥3 import T.2:symbols/milnor-global-positive-characteristic: K_n^M(F_q(E))=0.",
+        "For n=1 use the exact normed reciprocity sequence and the origin splitting; for n=2 use the finite prime-to-p global-function-field tame kernel. These are the two distinct low-degree contracts of E.5/harder-elliptic-input-closure.",
+        "For n≥3 use the Bass–Tate higher Milnor vanishing contract of E.5/harder-elliptic-input-closure, requested as a global-function-field extension from K2SymbolsBrauer T.5: K_n^M(F_q(E))=0.",
         "Apply Geisser–Levine VI.4.7(c) to conclude that K_n(F_q(E)) is uniquely p-divisible. Merely knowing mod-p vanishing does not replace this comparison statement.",
         "Use the five-term closed-point localization segment K_{n+1}(F_q(E)) → ⊕K_n(k(x)) → K_n(E) → K_n(F_q(E)) → ⊕K_{n−1}(k(x)). Multiplication by p is an automorphism on the two field terms by Geisser–Levine and on both residue sums by finite-field K-theory. The five-lemma diagram chase gives unique p-divisibility of K_n(E).",
-        "Apply N.3:finite-generation/proper-curve-finite-generation. A finitely generated p-divisible abelian group has no free part or p-primary torsion and is finite of order prime to p."
+        "Use the affine-complement finite-generation and localization argument of E.5/harder-elliptic-input-closure, requested from ArithmeticKTheory N.3:finite-generation. A finitely generated abelian group with bijective multiplication by p is finite of order prime to p."
       ],
       "acceptance": [
         "The affine example F_q[t,t⁻¹] has an infinite K₁, so properness cannot be removed.",
         "Finite generation alone does not exclude p-torsion; Geisser–Levine and localization supply that step."
       ],
       "prerequisites": [
-        "ArithmeticKTheory:N.3:finite-generation/proper-curve-finite-generation",
-        "K2SymbolsBrauer:T.2:symbols/milnor-global-positive-characteristic",
-        "EllipticKTheory:E.3/localisation-sequence-for-a-curve",
-        "KTheoryFiniteLocalFields:L.1"
+        "EllipticKTheory:E.5/harder-elliptic-input-closure"
       ],
       "sources": [
         {
@@ -3843,17 +3846,15 @@
       "stageId": "EllipticKTheory:E.5",
       "status": "partial",
       "remaining": [
-        "Geisser-Levine and the étale cohomology of curves over F_q with Weil's theorem have no owner (gap)"
+        "Discharge the precise supplier extensions and coefficient/cohomology interfaces recorded in EllipticKTheory--E.5."
       ],
-      "note": "Five nodes. Pullback and pushforward (S.2), the projection formula, the class of f_*O for an isogeny with its integral non-example, the projective line (S.5), and the finite-field computation with its inputs cited. Corrected by REV-EllipticKTheory. FIX-RT-AREA-ktheory-2~2 adds explicit supplier/application nodes; their named source and interface gaps remain open."
+      "note": "Six parent targets, including Harder finiteness. The eleven E.5 refinement nodes specify their operations and finite-field computation. Supplier gaps remain explicit in the E.5 packet."
     },
     {
       "stageId": "EllipticKTheory:E.6",
-      "status": "partial",
-      "remaining": [
-        "Uniqueness of the minimal regular model over O_{F,S} (gap; not needed for the integral part)"
-      ],
-      "note": "Seven nodes. Regular proper models over O_{F,S} with the Weierstrass and Néron criteria, their existence, the rational integral part with its S-variant, the blow-up link between regular models, model independence without a blow-up formula, the vanishing of conditions at good primes, and the vertical-residue description. The local model theory is imported from Tau Ceti StableReduction layers 4 and 5. Corrected by REV-EllipticKTheory."
+      "status": "source_decomposed",
+      "remaining": [],
+      "note": "Seven regular-model and integral-part targets. The six arithmetic minimal-model nodes in EllipticKTheory--E.6 supply the global uniqueness target through finite contractions, terminality and the local criterion. These are planned results with explicit StableReduction inputs, not implementations."
     },
     {
       "stageId": "EllipticKTheory:E.7",
@@ -3874,14 +3875,7 @@
       "neededBy": [
         "EllipticKTheory:E.5/an-elliptic-curve-over-a-finite-field"
       ],
-      "detail": "FIX-RT-AREA-ktheory-2~2 routes function-field finite generation to new N.3 nodes, higher Milnor vanishing to existing T.2:symbols, Geisser–Levine to M.5d and the geometric étale/Frobenius package to M.6/M.7 plus the existing Tau Ceti elliptic-curve request. The separate low-degree tame-kernel request goes to T.4. A route is not an implemented theorem; the N.3 [GQ82] proof and these supplier interfaces remain explicit obligations."
-    },
-    {
-      "title": "Uniqueness of the minimal regular model over O_{F,S}",
-      "neededBy": [
-        "EllipticKTheory:E.6/existence-of-a-regular-proper-model"
-      ],
-      "detail": "Stacks 0C6B, Conrad Theorem 3.10 and Tau Ceti StableReduction layer 5 give existence and uniqueness of the minimal regular model over a DVR; the global statement over O_{F,S} (glue the local minimal models along the open set where E has good reduction) is not in a source read. It is not needed for the integral part, which any regular proper model computes (E.6/model-independence). NEXT SOURCE ACTION: Liu, Algebraic Geometry and Arithmetic Curves, 9.3 and 10.1, or Chinburg, 'Minimal models for curves over Dedekind rings' (1986). Replaces the packet's gaps on arithmetic surfaces and on the blow-up formula: the first is now imported from StableReduction layers 4 and 5 with Stacks 0ADX and 0C5S for the Dedekind base, the second is not needed. Added by REV-EllipticKTheory."
+      "detail": "E.5/harder-elliptic-input-closure gives the exact N.3:finite-generation global-function-field extension, T.5 higher Milnor vanishing/tame-kernel extension and M.5d Geisser–Levine contracts. E.5/geometric-elliptic-k-modules, E.5/elliptic-cohomology-frobenius-descent and E.5/finite-elliptic-k-descent give the remaining coefficient, cohomology and Frobenius interfaces, including H.6, EDC.2, R01.1, R34.2 and upstream elliptic inputs. The three gap records of the E.5 packet retain these supplier obligations; no route is an implemented theorem."
     }
   ],
   "requests": [
@@ -4148,8 +4142,8 @@
       ]
     },
     {
-      "supplier": "K2SymbolsBrauer:T.4",
-      "need": "Global-function-field Bass–Tate tame-kernel finiteness of order prime to p and reciprocity, as used in K-book VI.6.1 in degrees 1–2. T.2:symbols already owns general Milnor vanishing in degrees ≥3; do not reprove it here.",
+      "supplier": "K2SymbolsBrauer:T.5",
+      "need": "Global-function-field Bass–Tate higher Milnor vanishing and tame-kernel finiteness of order prime to p, as the extension specified in E.5/harder-elliptic-input-closure. Exact normed reciprocity and affine SK₁ vanishing remain the distinct T.4 request of that node. T.2:graded-map supplies the Milnor-to-Quillen comparison map; it does not supply higher Milnor vanishing.",
       "neededBy": [
         "EllipticKTheory:E.5/harder-finiteness"
       ]
