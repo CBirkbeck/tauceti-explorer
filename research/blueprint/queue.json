@@ -25459,9 +25459,10 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-GeometricSatakeAndFusion--GS0.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #741"
+   "note": "deliverables arrived from an external worker on issue #741",
+   "finishedAt": "2026-10-07T12:49:27Z"
   },
   {
    "id": "REV-GeometricSatakeAndFusion--GS0",
@@ -29534,8 +29535,9 @@
    ],
    "avoidAccountOf": "BP-VStackSheavesAndLisseCategories",
    "prompt": "research/blueprint/prompts/REV-VStackSheavesAndLisseCategories.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #499"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #499",
+   "finishedAt": "2026-10-07T12:49:28Z"
   },
   {
    "id": "BP-VectorBundlesAndIsocrystals--VB0",
@@ -55936,7 +55938,8 @@
     "FIX-RT-BP-EllipticCurveModularity~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-BP-EllipticCurveModularity~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5718"
   },
   {
    "id": "RT-BP-EllipticKTheory",
@@ -56509,7 +56512,8 @@
     "FIX-RT-BP-K2SymbolsBrauer--T.3~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-BP-K2SymbolsBrauer--T.3~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5722"
   },
   {
    "id": "RT-BP-NeronModelsAndSemistableAbelianVarieties",
