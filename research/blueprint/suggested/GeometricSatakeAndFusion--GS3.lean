@@ -142,7 +142,9 @@ example {n : ℕ} (A B : Sat n) :
       (fibreFusionIso Sat Loc F A B).hom ≫ (β_ ((F n).obj A) ((F n).obj B)).hom :=
   by sorry
 
--- Omitted: the functor is actual diagonal pullback/fusion with units at empty fibres.
+-- Omitted: diagonal pullback to Gr^I ×_(Div^I) Div^J, followed by pushforward
+-- along its closed immersion into Gr^J, with the descended loop equivariance.
+-- The closed immersion is on Grassmannians, not on quotient Hecke stacks.
 def collisionFunctor {n m : ℕ} (α : Fin n → Fin m) : Sat n ⥤ Sat m := by sorry
 
 def collisionFunctor_id (n : ℕ) : collisionFunctor Sat (id : Fin n → Fin n) ≅ 𝟭 (Sat n) :=
@@ -152,21 +154,38 @@ def collisionFunctor_comp {n m k : ℕ} (α : Fin n → Fin m) (β : Fin m → F
     collisionFunctor Sat (β ∘ α) ≅ collisionFunctor Sat α ⋙ collisionFunctor Sat β :=
   by sorry
 
--- Omitted: the block-sum leg map, its finite-set coherence and source category.
+-- The map is the actual block sum of α and β; an unrelated sumMap is invalid.
 def collisionFunctor_union {n m n' m' : ℕ}
     (α : Fin n → Fin n') (β : Fin m → Fin m')
-    (sumMap : Fin (n + m) → Fin (n' + m')) (A : Sat n) (B : Sat m) :
-    (collisionFunctor Sat sumMap).obj (fusionProduct Sat A B) ≅
+    (A : Sat n) (B : Sat m) :
+    (collisionFunctor Sat (Fin.addCases (fun i => Fin.castAdd m' (α i))
+      (fun j => Fin.natAdd n' (β j)))).obj (fusionProduct Sat A B) ≅
       fusionProduct Sat ((collisionFunctor Sat α).obj A) ((collisionFunctor Sat β).obj B) :=
+  by sorry
+
+-- Expressible composition coherence; the enhanced finite-set coherence is omitted.
+theorem collisionFunctor_comp_assoc {n m k l : ℕ}
+    (α : Fin n → Fin m) (β : Fin m → Fin k) (γ : Fin k → Fin l) :
+    (collisionFunctor_comp Sat (β ∘ α) γ).hom ≫
+      (isoWhiskerRight (collisionFunctor_comp Sat α β) (collisionFunctor Sat γ)).hom ≫
+      (Functor.associator (collisionFunctor Sat α) (collisionFunctor Sat β)
+        (collisionFunctor Sat γ)).hom =
+    (collisionFunctor_comp Sat α (γ ∘ β)).hom ≫
+      (isoWhiskerLeft (collisionFunctor Sat α) (collisionFunctor_comp Sat β γ)).hom :=
   by sorry
 
 def collisionFunctor_unitInsertion (n : ℕ) :
     (collisionFunctor Sat (Fin.elim0 : Fin 0 → Fin n)).obj (𝟙_ (Sat 0)) ≅ 𝟙_ (Sat n) :=
   by sorry
 
--- test_collision_threeLegs: composition for the actual 3→2→1 collision maps.
-example (α : Fin 3 → Fin 2) (β : Fin 2 → Fin 1) :
-    collisionFunctor Sat (β ∘ α) ≅ collisionFunctor Sat α ⋙ collisionFunctor Sat β := by sorry
+-- test_collision_threeLegs: the two different 3→2→1 merging orders.
+-- Their canonical comparison is induced by collisionFunctor_comp. The packet's
+-- fusion pentagon still needs the geometric associator and its enhanced coherence.
+example :
+    collisionFunctor Sat (![0, 0, 1] : Fin 3 → Fin 2) ⋙
+      collisionFunctor Sat (![0, 0] : Fin 2 → Fin 1) ≅
+    collisionFunctor Sat (![0, 1, 1] : Fin 3 → Fin 2) ⋙
+      collisionFunctor Sat (![0, 0] : Fin 2 → Fin 1) := by sorry
 -- test_collision_permutation
 example (e : Equiv.Perm (Fin 2)) :
     collisionFunctor Sat e ⋙ collisionFunctor Sat e.symm ≅ 𝟭 (Sat 2) := by sorry
@@ -214,8 +233,10 @@ def boundedLeftAdjoint_tensor (V : Base) :
 
 -- For product bounds, imported singleton generators and their fusion are parameters.
 def boundedGenerator_fusion (Xproduct Xfusion : Bounded) : Xproduct ≅ Xfusion := by sorry
--- Enlarge a bound: the map comes from the adjunction, not an arbitrary chosen arrow.
-def boundedGenerator_enlarge (XW XW' : Bounded) : XW ⟶ XW' := by sorry
+-- W ⊆ W': representability gives X_W' → X_W. Dualizing its fibre reverses
+-- this to (F X_W)^∨ → (F X_W')^∨ in the coordinate-coalgebra diagram.
+-- The actual two bounds and their inclusion remain omitted.
+def boundedGenerator_enlarge (XW XW' : Bounded) : XW' ⟶ XW := by sorry
 
 -- test_generator_zeroBound: omitted hypothesis W={0}, with its unit comparison.
 example : boundedGenerator Bounded Base FBound ≅ 𝟙_ Bounded := by sorry
@@ -401,9 +422,12 @@ variable (weilInduce : Rep' ⥤ Rep) (divisorPush : Sat' ⥤ Sat)
 def weilRestrictionNaturality : E'.inverse ⋙ divisorPush ≅
     weilInduce ⋙ (normalizedSatakeEquivalence Sat Rep).inverse := by sorry
 -- Node chevalley-involution: use a group-level formula, with actual affine-group
--- point functor and pinning omitted. theta and rho(-1) are supplied geometric data.
+-- point functor and pinning omitted. rho(-1) lies in the ADJOINT group: its
+-- conjugation acts on G, without requiring a lift of that element to G.
 theorem chevalleyInvolution {G : Type u} [Group G] (sw theta : G ≃* G)
-    (rhoMinusOne : G) (g : G) : sw g = rhoMinusOne * theta g * rhoMinusOne⁻¹ := by sorry
+    (adjointConjugation : G ≃* G) (g : G) :
+    sw g = adjointConjugation (theta g) := by sorry
+-- Omitted: adjointConjugation is precisely Ad(rho(-1)) for the actual pinned data.
 end NormalizedEquivalence
 
 section PerfectExtension
@@ -436,10 +460,14 @@ variable (collisionPerf : Perf ⥤ Perf') (collisionEnhanced : Enhanced ⥤ Enha
 def perfectSatake_finiteSets : collisionPerf ⋙ extension' ≅
     perfectSatakeFunctor Perf Enhanced ⋙ collisionEnhanced := by sorry
 
--- Omitted: U has the SAME representation restriction and is exact/linear/monoidal.
+-- Omitted: U is exact/linear/monoidal; restriction below is an isomorphism of
+-- those structures. Equality of object values alone does not determine a functor.
 -- The universal property comes from LP4, not a Prop-valued universal-property field.
-def perfectSatake_unique (U : Perf ⥤ Enhanced) :
+def perfectSatake_unique (U : Perf ⥤ Enhanced)
+    (_restriction : embed ⋙ U ≅ satake ⋙ relativeDualKernel) :
     U ≅ perfectSatakeFunctor Perf Enhanced := by sorry
+-- No full faithfulness or equality of the essential image with its stable
+-- idempotent closure is asserted by the source extension theorem.
 
 -- test_perfect_unit
 example : (perfectSatakeFunctor Perf Enhanced).obj (𝟙_ Perf) ≅ 𝟙_ Enhanced := by sorry
@@ -467,7 +495,7 @@ theorem normalizedTrace_add (p : G → ZMod 2) (f h : G → Λ) :
       fun g => normalizedTraceFunction p f g + normalizedTraceFunction p h g := by sorry
 
 theorem normalizedTrace_halfTwist (p : G → ZMod 2) (f : G → Λ)
-    (r : Λˣ) (d : ℕ) :
+    (r : Λˣ) (d : ℤ) :
     normalizedTraceFunction p (fun g => (↑(r⁻¹) : Λ)^d * f g) =
       fun g => (↑(r⁻¹) : Λ)^d * normalizedTraceFunction p f g := by sorry
 
@@ -487,13 +515,15 @@ theorem normalizedTrace_minuscule (r : Λˣ) (d : ℕ) (c : G → Λ) :
       (fun g => (-1 : Λ)^d * (↑(r⁻¹) : Λ)^d * c g) =
       fun g => (↑(r⁻¹) : Λ)^d * c g := by sorry
 
--- test_trace_unit: coefficient +1 at the zero-modification point.
+-- test_trace_unit: canonical constant-sheaf Frobenius descent, coefficient +1.
 example : normalizedTraceFunction (fun _ : Unit => 0) (fun _ => (1 : Λ)) () = 1 := by sorry
--- test_trace_torusWeight: a weight point contributes an indicator, rho=0.
+-- test_trace_torusWeight: canonical descent of the constant sheaf on the weight
+-- point contributes an indicator, rho=0. A scaled descent scales the function.
 example (n : ℤ) :
     normalizedTraceFunction (fun _ : ℤ => 0) (fun m => if m = n then (1 : Λ) else 0) =
       fun m => if m = n then (1 : Λ) else 0 := by sorry
--- test_trace_oddMinuscule: odd perverse shift changes raw sign, half twist r^{-1}.
+-- test_trace_oddMinuscule: canonical IC descent; odd perverse shift changes raw
+-- sign, half twist r^{-1}. An arbitrary Frobenius descent has a different trace.
 example (r : Λˣ) :
     normalizedTraceFunction (fun _ : Unit => 1) (fun _ => -(↑(r⁻¹) : Λ)) () = ↑(r⁻¹) :=
   by sorry
