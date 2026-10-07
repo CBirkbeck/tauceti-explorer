@@ -18,9 +18,11 @@ All geometric modular curves are smooth proper models of coarse moduli curves. T
 
 Rational divisor classes represented by rational divisors and rational points of a Jacobian are distinct objects. IQ.5 gives an explicit two-element rational Picard image inside a four-element rational Jacobian group. A rational basepoint is not assumed for that genus-one curve. In the genus-two argument the canonical degree-two class moves in a projective line of effective divisors, while a noncanonical effective degree-two class has a unique representative. The bielliptic argument works in Sym², including rational sums and irreducible quadratic pairs.
 
-The accepted paper split assigns CN §§2–5 and Theorem 5.2 to `CrystallineLocalGlobalCompatibilityCM`, and Q-curve modularity through GL₂-type abelian varieties over ℚ to `EllipticCurveModularityPartIIGL2TypeAbelianVarieties`. Neither sibling has a written stage or reserved node at this checkout. G5 and G10 specify their contracts without inventing IDs. General residual-image classification is imported from R01.4; general relative symmetric Chabauty and the sieve are imported from ED.4–ED.5. The Bennett–Siksek effective-comparison sibling is separate.
+The accepted paper split assigns CN §§2–5 and Theorem 5.2 to `CrystallineLocalGlobalCompatibilityCM`, and Q-curve modularity through GL₂-type abelian varieties over ℚ to `EllipticCurveModularityPartIIGL2TypeAbelianVarieties`. The crystalline sibling now plans `CL.9/thm-5-2`; its qualified theorem is imported, with the p=3,5 qualification discharged explicitly. Its review and formalization remain open (G5). The GL₂-type sibling still has no written stage or reserved node at this checkout; G10 records its exact contract. General residual-image classification is imported from R01.4; general relative symmetric Chabauty and the sieve are imported from ED.4–ED.5. The Bennett–Siksek effective-comparison sibling is separate.
 
 The reusable Cartan/mixed compactification extension is proposed once in `ModularCurvesPartII` after R13.4a. IQ.4 owns the source-specific adapter and coordinate comparisons. Chen/de Smit–Edixhoven Jacobian comparison and the weak rank-equal pullback index theorem belong after R14.2. The independent CM ordinary/dihedral seed requires an `OrdinaryAutomorphicFormsAndModularityLifting` Part II extension. The current ℚ/Hilbert cohomological-weight stage R16.6 needs a CM extension. These proposals preserve one owner for each general construction.
+
+Review routing note: The strengthened switching interface needs the existing geometric-CM carrier from Layer 1 together with a Layer 4 extension proving geometric CM implies potentially good reduction everywhere and Tate reduction gives nonintegral j. Retained Tate places then exclude CM of the auxiliary curve. Route this general theorem once in the local-reduction layer; the application does not prove a private CM/reduction theorem.
 
 ## Layer overview
 
@@ -181,7 +183,7 @@ Source: CN, Proofs of Theorem 6.1, Corollaries 7.1.2, 7.2.5 and 7.3.4.
 
 The fixed-pairing twist is a genuine number-field adapter of upstream’s level-moduli construction. Its genus-zero completion need not have a rational point until local preparation supplies one. Selection on the resulting open projective line must simultaneously satisfy all local open conditions and avoid thin exceptional sets. The p=5 proposition does not require ζ5∉F; the p=3 proposition does. The 2–3 seed has no imposed 5-adic reduction condition, which makes prescribed supersingular reduction at 5 possible.
 
-Direct layer dependencies: `ArithmeticGaloisRepresentations:R01.4`, `ArithmeticGaloisRepresentations:R01.6/elliptic-tate-module-comparison`, `ArithmeticGaloisRepresentations:R01.6/torsion-and-residual-representation`, `EllipticCurveModularityImaginaryQuadratic:IQ.1`, `InverseGaloisAndArithmeticFundamentalGroups:IG.2`, `ModularCurvesPartII:R12.4`, `PotentialAutomorphyInfrastructure:PA.5/split-test-prime-image-preservation`, `tauceti:TauCetiRoadmap/EllipticCurves#layer-2-torsion-the-weil-pairing-and-the-tate-module-aec-iii68`, `tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv`, `tauceti:TauCetiRoadmap/GlobalNumberFields#layer-1-weak-approximation-and-multiplicative-congruences`, `tauceti:TauCetiRoadmap/ModularCurves#5c-the-twisted-curve-yρ`.
+Direct layer dependencies: `ArithmeticGaloisRepresentations:R01.4`, `ArithmeticGaloisRepresentations:R01.6/elliptic-tate-module-comparison`, `ArithmeticGaloisRepresentations:R01.6/torsion-and-residual-representation`, `AutomorphicGaloisRepresentationsPartII:AG2.7/infinitely-many-decomposed-generic-primes`, `EllipticCurveModularityImaginaryQuadratic:IQ.1`, `InverseGaloisAndArithmeticFundamentalGroups:IG.2`, `ModularCurvesPartII:R12.4`, `tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv`, `tauceti:TauCetiRoadmap/EllipticCurves#layer-2-torsion-the-weil-pairing-and-the-tate-module-aec-iii68`, `tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv`, `tauceti:TauCetiRoadmap/GlobalNumberFields#layer-1-weak-approximation-and-multiplicative-congruences`, `tauceti:TauCetiRoadmap/ModularCurves#5c-the-twisted-curve-yρ`.
 
 ### `symplecticTwist` — Number-field symplectic level twists
 
@@ -228,12 +230,14 @@ Construction or proof:
 1. Choose one decomposed-generic rational q and require all q-adic places to split, so the same local Frobenius eigenvalue ratios survive.
 2. Construct solvable local extensions trivializing the finite residual images and p-torsion of ordinary/supersingular local curves; make the required places split over the real subfield.
 3. Globalize the finite local conditions with disjointness from Favoid and the indicated cyclotomic field; the exact CM globalization theorem is G3.
+4. Preserve the finite residual/cyclotomic image by disjointness from its field in Favoid. Do not invoke PA.5/split-test-prime-image-preservation: its enormousness and scalar hypotheses are stronger than the switching hypotheses, particularly at p=3.
 
-Direct prerequisites: `tauceti:TauCetiRoadmap/GlobalNumberFields#layer-1-weak-approximation-and-multiplicative-congruences`, `InverseGaloisAndArithmeticFundamentalGroups:IG.2`, `ArithmeticGaloisRepresentations:R01.4`, `tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv`, `PotentialAutomorphyInfrastructure:PA.5/split-test-prime-image-preservation`.
+Direct prerequisites: `tauceti:TauCetiRoadmap/GlobalNumberFields#layer-1-weak-approximation-and-multiplicative-congruences`, `InverseGaloisAndArithmeticFundamentalGroups:IG.2`, `ArithmeticGaloisRepresentations:R01.4`, `tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv`, `AutomorphicGaloisRepresentationsPartII:AG2.7/infinitely-many-decomposed-generic-primes`.
 
 Acceptance:
 - The witness q is one rational prime and every place above it is retained, not only one selected place.
 - Disjointness from Favoid preserves residual image only if the required residual field was included in Favoid.
+- A retained q supplies genericity; full image preservation separately requires the residual field in the avoidance datum. No enormousness assumption is inserted at p=3.
 
 Source: CN, Proof of Proposition 6.1.5, p.89; proof of Proposition 6.1.6, p.90, compared with AKT 9.13–9.15.
 
@@ -262,11 +266,11 @@ Open inputs: `EllipticCurveModularityImaginaryQuadratic/G4`.
 
 ### `hilbert_local_selection` — Simultaneous local and residual specialization
 
-**Theorem.** After solvable_preparation has made Yρ̄ an open subcurve of ℙ¹L, given nonempty open subsets Ωw⊂Yρ̄(Lw) at all the finitely many selected places and the finite covers encoding auxiliary large mod-3 or mod-5 image, there is an L-point in every Ωw outside the relevant thin exceptional sets. In the p=5 construction impose the AKT 9.7 discriminant-conjugacy, Tate valuation and large mod-3 conditions for seed_modular; independently choose at every w|5 ordinary, supersingular or split multiplicative local prototypes according to the prescribed partition. In the p=3 construction impose ordinary mod-5 seed conditions without constraining the prescribed 3-adic ordinary/supersingular/multiplicative choices.
+**Theorem.** After solvable_preparation has made Yρ̄ an open subcurve of ℙ¹L, given nonempty open subsets Ωw⊂Yρ̄(Lw) at all the finitely many selected places and the finite covers encoding auxiliary large mod-3 or mod-5 image, there is an L-point in every Ωw outside the relevant thin exceptional sets. In the p=5 construction impose the AKT 9.7 discriminant-conjugacy, Tate valuation and large mod-3 conditions for seed_modular; independently choose at every w|5 ordinary, supersingular or split multiplicative local prototypes according to the prescribed partition. In the p=3 construction impose Tate reduction at every place above 5 for the ordinary mod-5 seed without constraining the prescribed 3-adic ordinary/supersingular/multiplicative choices.
 
 Construction or proof:
 1. Show each reduction condition is locally open on the affine parameter curve and nonempty using the selected prototypes.
-2. Use AKT 9.7 to couple discriminant conditions at 2 and 3, and Hilbert specialization to avoid residual image drops.
+2. Use AKT 9.7 to retain the Tate/discriminant conditions at 2 and 3 for p=5; for p=3 choose Tate prototypes at every place above 5. Hilbert specialization avoids auxiliary residual image drops without changing the prescribed p-adic partition.
 3. Apply the number-field Hilbert irreducibility theorem with weak approximation; preserve the fixed q witness and the avoidance field.
 
 Direct prerequisites: `EllipticCurveModularityImaginaryQuadratic:IQ.2/symplectic-twist`, `EllipticCurveModularityImaginaryQuadratic:IQ.2/solvable-preparation`, `tauceti:TauCetiRoadmap/GlobalNumberFields#layer-1-weak-approximation-and-multiplicative-congruences`, `InverseGaloisAndArithmeticFundamentalGroups:IG.2`, `tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv`.
@@ -281,7 +285,7 @@ Open inputs: `EllipticCurveModularityImaginaryQuadratic/G3`.
 
 ### `switch_five` — Mod-5 switching with prescribed reduction
 
-**Theorem.** Let F be imaginary CM, ρ̄:GF→GL₂(𝔽5) continuous with det=ε̄5 and decomposed generic, and partition the places v|5 as S5st⊔S5ord⊔S5ss. For every finite Galois Favoid/F there exist a finite Galois solvable CM extension L/F and a modular elliptic curve A/L such that L∩Favoid=F, A/Lw has respectively split multiplicative, good ordinary or good supersingular reduction for every w|v in the corresponding part, r̄A,5≅ρ̄|GL, and ρ̄|GL remains decomposed generic. ζ5∉F is not a hypothesis of this proposition.
+**Theorem.** Let F be imaginary CM, ρ̄:GF→GL₂(𝔽5) continuous with det=ε̄5 and decomposed generic, and partition the places v|5 as S5st⊔S5ord⊔S5ss. For every finite Galois Favoid/F there exist a finite Galois solvable CM extension L/F and a non-CM modular elliptic curve A/L such that L∩Favoid=F, A/Lw has respectively split multiplicative, good ordinary or good supersingular reduction for every w|v in the corresponding part, r̄A,5≅ρ̄|GL, and ρ̄|GL remains decomposed generic. ζ5∉F is not a hypothesis of this proposition. The construction also retains Tate reduction at every place above 2 and 3, independently of the prescribed 5-adic partition. These Tate places force A to be non-CM because a CM elliptic curve has potentially good reduction everywhere.
 
 Hypotheses: F imaginary CM.; ρ̄ continuous, det=ε̄5, decomposed generic.; The three sets partition every place above 5.; Favoid/F finite Galois.
 
@@ -289,12 +293,14 @@ Construction or proof:
 1. Perform solvable preparation and simultaneous selection on Yρ̄ with the specified 5-adic prototypes.
 2. Obtain modularity from the independent 2–3 seed; match residual mod-5 representation via the symplectic level identification.
 3. Retain the q witness and disjointness; read A over Lw, correcting the printed Fw.
+4. Retain the seed’s Tate places above 2 and 3 and deduce non-CM from the CM potentially-good-reduction theorem; the congruence alone does not imply non-CM.
 
-Direct prerequisites: `EllipticCurveModularityImaginaryQuadratic:IQ.2/solvable-preparation`, `EllipticCurveModularityImaginaryQuadratic:IQ.2/hilbert-local-selection`, `EllipticCurveModularityImaginaryQuadratic:IQ.2/seed-modularity`.
+Direct prerequisites: `EllipticCurveModularityImaginaryQuadratic:IQ.2/solvable-preparation`, `EllipticCurveModularityImaginaryQuadratic:IQ.2/hilbert-local-selection`, `EllipticCurveModularityImaginaryQuadratic:IQ.2/seed-modularity`, `tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv`, `tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv`.
 
 Acceptance:
 - Taking S5ss to be all 5-adic places yields an auxiliary curve with good supersingular reduction everywhere above 5.
 - The modularity argument never invokes the target CN Theorem 6.1, avoiding a cycle.
+- The auxiliary curve is non-CM even when every prescribed 5-adic place is supersingular: retain its Tate places above 2 and 3.
 
 Source: CN, Proposition 6.1.5, pp.88–89.
 
@@ -304,20 +310,22 @@ Open inputs: `EllipticCurveModularityImaginaryQuadratic/G3`.
 
 ### `switch_three` — Mod-3 switching with prescribed reduction
 
-**Theorem.** Let F be imaginary CM with ζ5∉F, ρ̄:GF→GL₂(𝔽3) continuous with det=ε̄3 and decomposed generic, and partition all places v|3 as S3st⊔S3ord⊔S3ss. For every finite Galois Favoid/F there exist a finite Galois solvable CM extension L/F and a modular elliptic curve A/L such that L∩Favoid=F, A/Lw has respectively split multiplicative, good ordinary or good supersingular reduction for every w|v in the corresponding part, r̄A,3≅ρ̄|GL, and ρ̄|GL remains decomposed generic.
+**Theorem.** Let F be imaginary CM with ζ5∉F, ρ̄:GF→GL₂(𝔽3) continuous with det=ε̄3 and decomposed generic, and partition all places v|3 as S3st⊔S3ord⊔S3ss. For every finite Galois Favoid/F there exist a finite Galois solvable CM extension L/F and a non-CM modular elliptic curve A/L such that L∩Favoid=F, A/Lw has respectively split multiplicative, good ordinary or good supersingular reduction for every w|v in the corresponding part, r̄A,3≅ρ̄|GL, and ρ̄|GL remains decomposed generic. The construction also retains Tate reduction at every place above 5, independently of the prescribed 3-adic partition. These Tate places force A to be non-CM because a CM elliptic curve has potentially good reduction everywhere.
 
 Hypotheses: F imaginary CM and ζ5∉F.; ρ̄ continuous, det=ε̄3, decomposed generic.; The three sets partition every place above 3.; Favoid/F finite Galois.
 
 Construction or proof:
 1. Add F(ζ5) and the relevant residual fields to avoidance.
-2. Construct an auxiliary curve on Yρ̄ with the prescribed 3-adic local prototypes, good ordinary or Tate 5-adic behavior and large mod-5 image.
+2. Construct an auxiliary curve on Yρ̄ with the prescribed 3-adic local prototypes, Tate reduction at every 5-adic place and large mod-5 image.
 3. Use the independent ordinary mod-5 AKT 9.14 seed (Theorem 8.1) to prove the auxiliary curve modular, retaining disjointness and the 3-adic generic witness.
+4. The retained Tate places above 5 force A to be non-CM; export this witness before choosing its cuspidal representation.
 
-Direct prerequisites: `EllipticCurveModularityImaginaryQuadratic:IQ.2/solvable-preparation`, `EllipticCurveModularityImaginaryQuadratic:IQ.2/hilbert-local-selection`, `EllipticCurveModularityImaginaryQuadratic:IQ.2/switch-five`, `EllipticCurveModularityImaginaryQuadratic:IQ.2/seed-modularity`, `ArithmeticGaloisRepresentations:R01.4`.
+Direct prerequisites: `EllipticCurveModularityImaginaryQuadratic:IQ.2/solvable-preparation`, `EllipticCurveModularityImaginaryQuadratic:IQ.2/hilbert-local-selection`, `EllipticCurveModularityImaginaryQuadratic:IQ.2/switch-five`, `EllipticCurveModularityImaginaryQuadratic:IQ.2/seed-modularity`, `ArithmeticGaloisRepresentations:R01.4`, `tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv`, `tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv`.
 
 Acceptance:
 - The ζ5 condition belongs here and is kept when invoking the ordinary mod-5 seed.
 - Supersingular at 3 is allowed; ordinary modularity lifting is used at 5, not incorrectly at 3.
+- The auxiliary curve is non-CM even when every prescribed 3-adic place is supersingular: retain its Tate places above 5.
 
 Source: CN, Proposition 6.1.6, pp.89–90; AKT 9.14–9.15.
 
@@ -327,17 +335,19 @@ Open inputs: `EllipticCurveModularityImaginaryQuadratic/G3`, `EllipticCurveModul
 
 ### `auxiliary_local_types` — Local factors of the auxiliary representation
 
-**Theorem.** For A/L supplied by switch_five (p=5) or switch_three (p=3), let π be its non-CM weight-zero modular representation with rπ,ι≅rA,p∨. For every w|p above v of F, π is ι-ordinary if v∈Spst; πw is unramified if v∈Spord∪Spss. In the latter case the associated p-adic representation is crystalline with N=0 and is potentially ordinary precisely in the ordinary case. The prime order printed in CN Lemma 6.1.7 is reversed and corrected here.
+**Theorem.** For A/L supplied by switch_five (p=5) or switch_three (p=3), A is non-CM by its retained Tate places; let π be its weight-zero cuspidal modular representation with rπ,ι≅rA,p∨. For every w|p above v of F, π is ι-ordinary if v∈Spst; πw is unramified if v∈Spord∪Spss. In the latter case the associated p-adic representation is crystalline with N=0 and is potentially ordinary precisely in the ordinary case. The prime order printed in CN Lemma 6.1.7 is reversed and corrected here.
 
 Construction or proof:
-1. Apply full WD compatibility at an auxiliary ℓ≠p to identify good reduction with the unramified local factor and split multiplicative with Steinberg.
-2. Use local p-adic Hodge theory of elliptic curves to distinguish good ordinary from good supersingular reduction.
-3. Apply potentially-multiplicative ordinarity; if A is CM, handle the final modularity goal directly rather than choose a nonexistent cuspidal π.
+1. Use the retained Tate places in the switching output. CM implies potentially good reduction everywhere, whereas Tate reduction has nonintegral j; hence A is non-CM and has the required cuspidal π.
+2. Apply full WD compatibility at an auxiliary ℓ≠p to identify good reduction with the unramified local factor and split multiplicative with Steinberg.
+3. Use local p-adic Hodge theory of elliptic curves to distinguish good ordinary from good supersingular reduction.
+4. Apply potentially-multiplicative ordinarity to this non-CM A. CM of an auxiliary curve would not establish modularity of the unrelated target E.
 
-Direct prerequisites: `EllipticCurveModularityImaginaryQuadratic:IQ.2/switch-five`, `EllipticCurveModularityImaginaryQuadratic:IQ.2/switch-three`, `EllipticCurveModularityImaginaryQuadratic:IQ.1/weil-deligne`, `EllipticCurveModularityImaginaryQuadratic:IQ.1/multiplicative-ordinary`, `tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv`.
+Direct prerequisites: `EllipticCurveModularityImaginaryQuadratic:IQ.2/switch-five`, `EllipticCurveModularityImaginaryQuadratic:IQ.2/switch-three`, `EllipticCurveModularityImaginaryQuadratic:IQ.1/weil-deligne`, `EllipticCurveModularityImaginaryQuadratic:IQ.1/multiplicative-ordinary`, `tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv`, `tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv`.
 
 Acceptance:
 - Verify every quantified hypothesis and the stated comparison against the cited passage.
+- A Tate place excludes CM of A; no inference from CM of A to modularity of the target E is used.
 
 Source: CN, Lemma 6.1.7, p.90, and Theorem 6.1 proof.
 
@@ -345,22 +355,27 @@ Source: CN, Lemma 6.1.7, p.90, and Theorem 6.1 proof.
 
 The lifting supplier consumes the dual Tate representation, a residual automorphic point and exactly matching potentially ordinary/crystalline partitions. The theorem keeps ζ5∉F. Its quadratic corollary imports the genericity implication instead of imposing a new genericity assumption. The density theorem counts integral short equations, not curve isomorphism classes: (0,1) and (0,64) count separately despite defining isomorphic curves. Quantitative large-image control is stronger than qualitative Hilbert irreducibility.
 
-Direct layer dependencies: `ArithmeticGaloisRepresentations:R01.4`, `ArithmeticGaloisRepresentations:R01.4/restriction-to-the-cyclotomic-field`, `ArithmeticGaloisRepresentations:R01.6/determinant-and-oddness`, `ArithmeticGaloisRepresentations:R01.6/elliptic-tate-module-comparison`, `ArithmeticStatistics:ST.0`, `ArithmeticStatistics:ST.2`, `AutomorphicGaloisRepresentationsPartII:AG2.7/existential-decomposed-genericity`, `EllipticCurveModularityImaginaryQuadratic:IQ.1`, `EllipticCurveModularityImaginaryQuadratic:IQ.2`, `PadicHodgeTheory:R06.5`, `PadicHodgeTheory:R06.6`, `mathlib:WeierstrassCurve`, `mathlib:WeierstrassCurve.IsElliptic`, `mathlib:WeierstrassCurve.Δ`, `tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv`.
+Direct layer dependencies: `ArithmeticGaloisRepresentations:R01.4`, `ArithmeticGaloisRepresentations:R01.4/restriction-to-the-cyclotomic-field`, `ArithmeticGaloisRepresentations:R01.6/determinant-and-oddness`, `ArithmeticGaloisRepresentations:R01.6/elliptic-tate-module-comparison`, `ArithmeticStatistics:ST.0`, `ArithmeticStatistics:ST.2`, `AutomorphicGaloisRepresentationsPartII:AG2.7/existential-decomposed-genericity`, `AutomorphicGaloisRepresentationsPartII:AG2.7/infinitely-many-decomposed-generic-primes`, `CrystallineLocalGlobalCompatibilityCM:CL.9/thm-5-2`, `EllipticCurveModularityImaginaryQuadratic:IQ.1`, `EllipticCurveModularityImaginaryQuadratic:IQ.2`, `PadicHodgeTheory:R06.5`, `PadicHodgeTheory:R06.6`, `mathlib:WeierstrassCurve`, `mathlib:WeierstrassCurve.IsElliptic`, `mathlib:WeierstrassCurve.Δ`, `tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv`.
+
+Open inputs: `EllipticCurveModularityImaginaryQuadratic/G3`.
 
 ### `elliptic_lifting_data` — Elliptic data for CM lifting
 
-**Comparison.** For an elliptic curve E over an imaginary CM field F and p∈{3,5}, ρ=rE,p∨ is continuous, det ρ=εp⁻¹ and unramified at almost all finite places. At every v|p it is potentially semistable with the source-normalized labeled Hodge–Tate weights {0,1}; after a finite solvable CM extension chosen with the avoidance field and generic witness, the potentially good places are Barsotti–Tate (ordinary exactly at the potentially ordinary ones), while the potentially multiplicative places become split multiplicative and the dual local representation is a noncrystalline extension of εp⁻¹ by 1. Translate the imported convention HT(εp)=+1 to CN’s HT(εp)=−1 when using R06; do not swap the covariant Tate module with its dual.
+**Comparison.** For an elliptic curve E over an imaginary CM field F and p∈{3,5}, ρ=rE,p∨ is continuous, det ρ=εp⁻¹ and unramified at almost all finite places. At every v|p it is potentially semistable with the source-normalized labeled Hodge–Tate weights {0,1}. For the extension assertion additionally assume the selected residual representation is decomposed generic, fix a witnessing rational prime q>5, and fix a finite Galois avoidance field containing the residual and cyclotomic fields. Then after a finite Galois solvable CM extension disjoint from that avoidance field and splitting every place above q, the potentially good places are Barsotti–Tate (ordinary exactly at the potentially ordinary ones), while the potentially multiplicative places become split multiplicative and the dual local representation is a noncrystalline extension of εp⁻¹ by 1. Translate the imported convention HT(εp)=+1 to CN’s HT(εp)=−1 when using R06; do not swap the covariant Tate module with its dual.
+
+Hypotheses: The determinant, ramification and potentially semistable weight assertions require only E/F elliptic, F imaginary CM and p∈{3,5}.; The witness-preserving extension assertion additionally requires residual decomposed genericity, a fixed witnessing rational q>5 and a specified finite Galois avoidance field.
 
 Construction or proof:
 1. Use the Weil pairing for det rE,p and dualize; apply geometric p-adic comparison to E.
 2. Classify local reduction into potentially ordinary good, supersingular good and multiplicative.
-3. Use solvable_preparation with the needed residual/cyclotomic avoidance fields to reach the local shapes required by the CM lifting supplier.
+3. For the conditional extension assertion, choose a generic q>5 using infinitely-many-decomposed-generic-primes, then apply solvable_preparation with that witness and the specified residual/cyclotomic avoidance field. The local comparison assertions themselves remain unconditional.
 
-Direct prerequisites: `mathlib:WeierstrassCurve`, `mathlib:WeierstrassCurve.IsElliptic`, `tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv`, `PadicHodgeTheory:R06.5`, `PadicHodgeTheory:R06.6`, `EllipticCurveModularityImaginaryQuadratic:IQ.2/solvable-preparation`, `ArithmeticGaloisRepresentations:R01.6/elliptic-tate-module-comparison`, `ArithmeticGaloisRepresentations:R01.6/determinant-and-oddness`.
+Direct prerequisites: `mathlib:WeierstrassCurve`, `mathlib:WeierstrassCurve.IsElliptic`, `tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv`, `PadicHodgeTheory:R06.5`, `PadicHodgeTheory:R06.6`, `EllipticCurveModularityImaginaryQuadratic:IQ.2/solvable-preparation`, `ArithmeticGaloisRepresentations:R01.6/elliptic-tate-module-comparison`, `ArithmeticGaloisRepresentations:R01.6/determinant-and-oddness`, `AutomorphicGaloisRepresentationsPartII:AG2.7/infinitely-many-decomposed-generic-primes`.
 
 Acceptance:
 - For the source convention the dual, not the covariant Tate module, has weights {0,1}.
 - The potentially multiplicative case has N≠0 and cannot enter the crystalline set.
+- A curve with no supplied generic witness still has the unconditional local comparison; the witness-preserving extension clause cannot be invoked for it.
 
 Source: CN, Proof of Theorem 6.1, p.90, with Theorem 5.2, p.74.
 
@@ -373,14 +388,15 @@ Hypotheses: F imaginary CM with ζ5∉F.; E elliptic.; There exists p=3 or p=5 w
 Construction or proof:
 1. Handle geometric CM directly. For a non-CM E choose a p satisfying both residual conditions and include the residual field and F(ζ5) in avoidance.
 2. Produce a modular auxiliary A/L with matching residual representation and reduction partition; auxiliary_local_types supplies the unramified/ordinary local π conditions.
-3. Apply CN Theorem 5.2 from CrystallineLocalGlobalCompatibilityCM to rE,p∨|GL, using the imported R01.4 Lemma 6.1.4 to discharge the exceptional p=5 projective-field condition.
+3. Apply CrystallineLocalGlobalCompatibilityCM:CL.9/thm-5-2 (potentially_barsotti_tate_lifting_qualified) to rE,p∨|GL. Its E12 qualification is automatic here: [L(ζp):L] divides p−1, hence cannot equal 3 for p=3 or 5. Use R01.4 Lemma 6.1.4 for the exceptional p=5 projective-field condition, preserving the full residual/cyclotomic avoidance datum.
 4. Descend modularity through the finite solvable CM extension using modularity_transport.
 
-Direct prerequisites: `EllipticCurveModularityImaginaryQuadratic:IQ.1/modular`, `EllipticCurveModularityImaginaryQuadratic:IQ.3/elliptic-lifting-data`, `EllipticCurveModularityImaginaryQuadratic:IQ.2/switch-five`, `EllipticCurveModularityImaginaryQuadratic:IQ.2/switch-three`, `EllipticCurveModularityImaginaryQuadratic:IQ.2/auxiliary-local-types`, `EllipticCurveModularityImaginaryQuadratic:IQ.1/modularity-invariance`, `ArithmeticGaloisRepresentations:R01.4/restriction-to-the-cyclotomic-field`, `AutomorphicGaloisRepresentationsPartII:AG2.7/existential-decomposed-genericity`.
+Direct prerequisites: `EllipticCurveModularityImaginaryQuadratic:IQ.1/modular`, `EllipticCurveModularityImaginaryQuadratic:IQ.3/elliptic-lifting-data`, `EllipticCurveModularityImaginaryQuadratic:IQ.2/switch-five`, `EllipticCurveModularityImaginaryQuadratic:IQ.2/switch-three`, `EllipticCurveModularityImaginaryQuadratic:IQ.2/auxiliary-local-types`, `EllipticCurveModularityImaginaryQuadratic:IQ.1/modularity-invariance`, `ArithmeticGaloisRepresentations:R01.4/restriction-to-the-cyclotomic-field`, `AutomorphicGaloisRepresentationsPartII:AG2.7/existential-decomposed-genericity`, `CrystallineLocalGlobalCompatibilityCM:CL.9/thm-5-2`.
 
 Acceptance:
 - Theorem applies to non-Galois CM fields when the residual conditions are given.
 - The final statement is never extended to ζ5∈F by deleting that hypothesis.
+- The supplier’s extra condition d_cyc≠3 or projective image not A4 is discharged by d_cyc|p−1 for p=3,5; its general odd-prime theorem is not silently strengthened.
 
 Source: CN, Theorem 6.1 and proof, pp.87,90.
 
@@ -1045,18 +1061,19 @@ Open inputs: `EllipticCurveModularityImaginaryQuadratic/G11`.
 
 ### `genus_one_points_modular` — Modularity from genus-one quadratic points
 
-**Theorem.** For every quadratic number field F, every elliptic E/F giving a noncuspidal point of X(ns3°,b5) is modular. In the imaginary case: rational x gives rational j through the degree-two quotient; otherwise σP=w5P, so E is a degree-5 Q-curve (up to the fixed coarse orbit) and the Q-curve modularity supplier applies. Infinite-coordinate points are treated by the same quotient/cusp dictionary. The real-quadratic branch uses the already established FLHS modularity theorem from the general totally-real modularity owner, rather than assuming an imaginary-CM theorem over a real field.
+**Theorem.** For every quadratic number field F, every elliptic E/F giving a noncuspidal point P of X(ns3°,b5) is modular. In the imaginary case rational x gives rational j through the degree-two quotient. For a nonrational affine x the classification gives x(P)x(σP)=5, so the images of P and σP in X(ns3,b5) are related by its specified Fricke w5. The quotient moduli dictionary gives a geometric degree-5 isogeny between E and its conjugate and hence a Q-curve; the Q-curve modularity supplier applies. This does not assert σP=w5P for a chosen lift on the genus-one double cover. Infinite-coordinate points use the quotient/cusp dictionary. For real quadratic F use the imported FLHS modularity theorem.
 
 Construction or proof:
 1. Separate cusps and the infinity charts using the j-map.
 2. For rational j use a ℚ-curve with that j, base change and quadratic twisting (the CM cases j=0,1728 use Modular.of_cm).
-3. For nonrational x, prove the conjugate point is the Fricke image and invoke the concurrent GL₂-type/Q-curve supplier.
+3. For nonrational affine x, use the norm-five equation only on the quotient X(ns3,b5), where Fricke is x↦5/x. The modular interpretation gives the geometric 5-isogeny and Q-curve endpoint without selecting either sign of a Fricke lift to the quartic.
 4. For real quadratic F invoke the imported FLHS theorem; G10 records the exact owner extension needed.
 
 Direct prerequisites: `EllipticCurveModularityImaginaryQuadratic:IQ.5/genus-one-quadratic-points`, `EllipticCurveModularityImaginaryQuadratic:IQ.5/genus-one-identification`, `EllipticCurveModularityImaginaryQuadratic:IQ.4/cartan-curves`, `EllipticCurveModularityImaginaryQuadratic:IQ.1/modularity-invariance`, `EllipticCurveModularity:R29.6/modularity-theorem`.
 
 Acceptance:
-- Verify every quantified hypothesis and the stated comparison against the cited passage.
+- On the quartic h(x)=−3(x⁴+2x³−x²+10x+25), both (x,y)↦(5/x,±5y/x²) induce the same quotient action. The norm-five equation alone does not choose a sign.
+- For P=(1+2i,3+6i), σP equals the plus lift and differs from the minus lift; this is a regression against an inference from x alone, not identification of the actual modular lift.
 
 Source: CN, Corollary 7.2.5, p.97.
 
@@ -1068,7 +1085,7 @@ Open inputs: `EllipticCurveModularityImaginaryQuadratic/G10`.
 
 The sextic has two rational infinity points and a finite twenty-element rational Jacobian. Riemann–Roch isolates the moving canonical class; the nineteen nonzero classes are then enumerated by effective divisors. Only two nonzero classes have imaginary quadratic support, over ℚ(√−11). The exceptional elliptic curve needs a full nonsplit-normalizer mod-5 image certificate. Containment alone would not prove cyclotomic absolute irreducibility.
 
-Direct layer dependencies: `ArithmeticGaloisRepresentations:R01.4/cartan-subgroups-and-normalisers`, `EffectiveDiophantineMethods:ED.3`, `EffectiveDiophantineMethods:ED.6`, `EllipticCurveModularityImaginaryQuadratic:IQ.1`, `EllipticCurveModularityImaginaryQuadratic:IQ.3`, `EllipticCurveModularityImaginaryQuadratic:IQ.4`, `ModularCurvesPartII:R13.4a`, `mathlib:Polynomial.X`, `mathlib:Polynomial.eval`, `mathlib:WeierstrassCurve`, `mathlib:WeierstrassCurve.IsElliptic`, `mathlib:WeierstrassCurve.baseChange`, `mathlib:WeierstrassCurve.j`, `mathlib:WeierstrassCurve.Δ`, `tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-line-bundles-divisors-picard-group-degree`, `tauceti:TauCetiRoadmap/JacobianChallenge#layer-b-coherent-cohomology-over-k-genus-riemannroch-serre-duality`, `tauceti:TauCetiRoadmap/JacobianChallenge#layer-c-relative-coherent-cohomology-and-base-change`, `tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme`.
+Direct layer dependencies: `ArithmeticGaloisRepresentations:R01.4/cartan-subgroups-and-normalisers`, `EffectiveDiophantineMethods:ED.3`, `EffectiveDiophantineMethods:ED.6`, `EllipticCurveModularity:R29.6/modularity-theorem`, `EllipticCurveModularityImaginaryQuadratic:IQ.1`, `EllipticCurveModularityImaginaryQuadratic:IQ.3`, `EllipticCurveModularityImaginaryQuadratic:IQ.4`, `ModularCurvesPartII:R13.4a`, `mathlib:Polynomial.X`, `mathlib:Polynomial.eval`, `mathlib:WeierstrassCurve`, `mathlib:WeierstrassCurve.IsElliptic`, `mathlib:WeierstrassCurve.baseChange`, `mathlib:WeierstrassCurve.j`, `mathlib:WeierstrassCurve.Δ`, `tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-line-bundles-divisors-picard-group-degree`, `tauceti:TauCetiRoadmap/JacobianChallenge#layer-b-coherent-cohomology-over-k-genus-riemannroch-serre-duality`, `tauceti:TauCetiRoadmap/JacobianChallenge#layer-c-relative-coherent-cohomology-and-base-change`, `tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme`.
 
 ### `b3ns5Sextic` — The genus-two Cartan sextic
 
@@ -1227,17 +1244,18 @@ Open inputs: `EllipticCurveModularityImaginaryQuadratic/G13`.
 
 ### `genus_two_points_modular` — Modularity from genus-two quadratic points
 
-**Theorem.** For every quadratic number field F, every elliptic E/F giving a noncuspidal point of X(b3,ns5) is modular. For imaginary F, the rational-x and infinity cases have σP=w3P and are degree-3 Q-curves, while the ℚ(√−11) exceptions are covered by eleven_exceptional_modular. The real-quadratic branch uses the imported FLHS endpoint and is not deduced from Proposition 7.3.3, whose hypothesis is imaginary.
+**Theorem.** For every quadratic number field F, every elliptic E/F giving a noncuspidal point P of X(b3,ns5) is modular. For imaginary F first handle rational P, including both infinity points, by the rational j-map and rational modularity, base change and twisting. A nonrational affine P of exact degree two with rational x satisfies σP=w3P and gives a geometric degree-3 Q-curve. The ℚ(√−11) exceptions are covered by eleven_exceptional_modular. The real-quadratic branch uses the imported FLHS endpoint, not Proposition 7.3.3 outside its imaginary hypothesis.
 
 Construction or proof:
-1. Use the certified Fricke identification in the rational-x and infinity cases; invoke the concurrent Q-curve modularity theorem.
+1. If P is rational, including either infinity point, its noncuspidal j-value is rational; use the parent rational modularity theorem and twisting/base change, handling j=0,1728 through CM. If P is nonrational affine with rational x, exact degree two gives y(σP)=−y(P), so the certified Fricke dictionary gives the geometric 3-isogeny and Q-curve modularity.
 2. Handle the imaginary exceptional orbit by eleven_exceptional_modular and isogeny/conjugacy/twist invariance.
 3. For real F invoke the external FLHS modularity theorem through G10.
 
-Direct prerequisites: `EllipticCurveModularityImaginaryQuadratic:IQ.6/genus-two-quadratic-points`, `EllipticCurveModularityImaginaryQuadratic:IQ.6/genus-two-model`, `EllipticCurveModularityImaginaryQuadratic:IQ.6/eleven-exceptional-comparison`, `EllipticCurveModularityImaginaryQuadratic:IQ.4/cartan-curves`, `EllipticCurveModularityImaginaryQuadratic:IQ.1/modularity-invariance`.
+Direct prerequisites: `EllipticCurveModularityImaginaryQuadratic:IQ.6/genus-two-quadratic-points`, `EllipticCurveModularityImaginaryQuadratic:IQ.6/genus-two-model`, `EllipticCurveModularityImaginaryQuadratic:IQ.6/eleven-exceptional-comparison`, `EllipticCurveModularityImaginaryQuadratic:IQ.4/cartan-curves`, `EllipticCurveModularityImaginaryQuadratic:IQ.1/modularity-invariance`, `EllipticCurveModularity:R29.6/modularity-theorem`.
 
 Acceptance:
-- Verify every quantified hypothesis and the stated comparison against the cited passage.
+- At infinity t=1/x,v=y/x³ gives v=±3 at t=0. Each point is rational and Galois-fixed, while w3 exchanges them. The proof must use rational j there.
+- For nonrational affine P with x∈ℚ, σ sends y to −y; do not apply this assertion to an arbitrary rational P in C(F).
 
 Source: CN, Corollary 7.3.4, p.98.
 
@@ -1284,7 +1302,7 @@ Atlas planet: Bielliptic plane quartic C1.
 
 ### `quartic1Coordinates` — The bielliptic involution w1
 
-**Definition.** For a commutative ℚ-algebra K, define quartic1Coordinates: (Fin 3→K)→(Fin 3→K) by (X,−Y−Z,Z). Its square is 1 times the identity and quartic1(quartic1Coordinates(v))=1quartic1(v). Thus it induces an order-two automorphism w1 of C1. For i=2 the linear map does not square to the identity: projectivization removes the nonzero scalar 25. The characteristic-zero hypothesis is essential for its inverse.
+**Definition.** For a commutative ℚ-algebra K, define quartic1Coordinates: (Fin 3→K)→(Fin 3→K) by (X,−Y−Z,Z). Its square is 1 times the identity and quartic1(quartic1Coordinates(v))=quartic1(v). Thus it induces an order-two automorphism w1 of C1. For i=2 the linear map does not square to the identity: projectivization removes the nonzero scalar 25. The characteristic-zero hypothesis is essential for its inverse.
 
 Construction or proof:
 1. Check the coordinate substitution and square as polynomial identities.
@@ -1481,7 +1499,7 @@ Open inputs: `EllipticCurveModularityImaginaryQuadratic/G15`.
 Construction or proof:
 1. Certify smooth good reductions and finite Jacobian group orders at the three primes.
 2. Use prime-to-p torsion injectivity at multiple primes to get the full rational torsion bound.
-3. Use the 13-primary comparison for C1 and the independent twenty-element subgroup for C2.
+3. Use the 2-primary comparison at the good prime 13 for C1 and the independent twenty-element subgroup for C2.
 
 Direct prerequisites: `EllipticCurveModularityImaginaryQuadratic:IQ.7/quartic-models`, `EllipticCurveModularityImaginaryQuadratic:IQ.7/quartic-torsion-classes`, `EffectiveDiophantineMethods:ED.3`, `EffectiveDiophantineMethods:ED.6`.
 
@@ -1497,7 +1515,7 @@ Open inputs: `EllipticCurveModularityImaginaryQuadratic/G15`.
 **Theorem.** Choose a saturated generator D of B(ℚ)≅ℤ, viewed in Jac(B)(ℚ), and set Gi=⟨πi*D⟩⊂Jac(Ci)(ℚ). Then 2Jac(Ci)(ℚ)⊂⟨Gi,Jac(Ci)(ℚ)tors⟩ for i=1,2. Consequently 4Jac(C1)(ℚ)⊂2G1 and 10Jac(C2)(ℚ)⊂⟨5G2,Jac(C2)(ℚ)[2]⟩. The source prints G1 in the second inclusion; the correct group is G2.
 
 Construction or proof:
-1. Import only the general weak inclusion required from the rank-equal degree-two pullback/norm theorem. On the free quotient the involution acts as +1 and π*π*=1+w, so twice a class is a pullback modulo torsion.
+1. Import only the general weak inclusion required from the rank-equal degree-two pullback/norm theorem. On the free quotient the involution acts as +1 and π^*π_*=1+w, so twice a class is a pullback modulo torsion.
 2. Use the torsion exponents 2 and 10 to obtain the two displayed inclusions.
 3. Keep each generator inside its own Jacobian; do not identify G1 and G2.
 
@@ -1616,7 +1634,7 @@ Hypotheses: F imaginary quadratic.; X₀(15)(F) finite.
 Construction or proof:
 1. By imaginary_quadratic_residual_modularity only X(b3,b5)=X₀(15) and X(s3,b5) remain.
 2. Use the rational isogeny between their elliptic models to transfer rank zero and finiteness. Every F-point is torsion.
-3. Use quadratic_torsion_growth: imaginary torsion growth for X₀(15) occurs only at ℚ(i), while X(s3,b5) has no imaginary growth. Rational points give rational j; the eight new Gaussian points are handled by gaussian_torsion_modular.
+3. Use quadratic_torsion_growth: imaginary torsion growth for X₀(15) occurs only at ℚ(i), while X(s3,b5) has no imaginary growth. Rational points give rational j; the eight new Gaussian points are handled by gaussian_exceptional_modular.
 4. Handle geometric CM separately and transport each non-CM geometric coarse class by its quadratic twist.
 
 Direct prerequisites: `EllipticCurveModularityImaginaryQuadratic:IQ.8/residual-image-modularity`, `EllipticCurveModularityImaginaryQuadratic:IQ.5/level-fifteen-identification`, `EllipticCurveModularityImaginaryQuadratic:IQ.5/quadratic-torsion-growth`, `EllipticCurveModularityImaginaryQuadratic:IQ.5/gaussian-modularity`, `EllipticCurveModularityImaginaryQuadratic:IQ.1/modular`, `EllipticCurveModularityImaginaryQuadratic:IQ.1/modularity-invariance`, `tauceti:TauCetiRoadmap/EllipticCurves#layer-6-the-mordellweil-theorem-aec-viii`.
@@ -1625,7 +1643,7 @@ Acceptance:
 - Cusps are discarded when associating an elliptic curve but remain in the finite point set.
 - The Gaussian exception is tied to the full eight-point orbit certificate and Faltings–Serre comparison, not an unsupported database label.
 
-Source: CN, Theorem 1.1, p.1; Corollary 7.1.2 and proof, p.93.
+Source: CN, Theorem 1.1, p.2; Corollary 7.1.2 and proof, p.93.
 
 Atlas planet: Imaginary-quadratic modularity theorem.
 
@@ -1643,7 +1661,7 @@ Direct prerequisites: `EllipticCurveModularityImaginaryQuadratic:IQ.8/finite-lev
 Acceptance:
 - Rank computations use algebraic rank bounds; a finite search or numerical L-value is insufficient.
 
-Source: CN, §1 after Theorem 1.1, p.1.
+Source: CN, §1 after Theorem 1.1, p.2.
 
 Open inputs: `EllipticCurveModularityImaginaryQuadratic/G16`.
 
@@ -1688,9 +1706,9 @@ Consumers: `EllipticCurveModularityImaginaryQuadratic:IQ.1/weil-deligne`.
 
 ### `tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv`
 
-Local Tate uniformization, good ordinary/supersingular reduction, potential reduction trichotomy and the associated elliptic WD representations over finite extensions of p-adic fields.
+Local Tate uniformization, good ordinary/supersingular reduction, potential reduction trichotomy and the associated elliptic WD representations over finite extensions of p-adic fields. Required extension: geometric CM implies potentially good reduction at every finite place; a Tate place has nonintegral j and therefore excludes CM. This supplies the non-CM auxiliary witness independently of the prescribed p-adic partition.
 
-Consumers: `EllipticCurveModularityImaginaryQuadratic:IQ.1/weil-deligne`, `EllipticCurveModularityImaginaryQuadratic:IQ.1/multiplicative-ordinary`.
+Consumers: `EllipticCurveModularityImaginaryQuadratic:IQ.1/weil-deligne`, `EllipticCurveModularityImaginaryQuadratic:IQ.1/multiplicative-ordinary`, `EllipticCurveModularityImaginaryQuadratic:IQ.2/switch-five`, `EllipticCurveModularityImaginaryQuadratic:IQ.2/switch-three`, `EllipticCurveModularityImaginaryQuadratic:IQ.2/auxiliary-local-types`.
 
 ### `tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1`
 
@@ -1712,9 +1730,9 @@ Consumers: `EllipticCurveModularityImaginaryQuadratic:IQ.1/modularity-invariance
 
 ### `tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv`
 
-An isogeny induces an isomorphism of rational Tate modules over the number field; use the upstream isogeny carrier.
+An isogeny induces an isomorphism of rational Tate modules over the number field; use the upstream isogeny carrier. Expose the geometric CM endomorphism predicate and its isogeny compatibility. The CM potentially-good-reduction theorem is requested from EllipticCurves Layer 4; these are interfaces to the same CM carrier.
 
-Consumers: `EllipticCurveModularityImaginaryQuadratic:IQ.1/modularity-invariance`.
+Consumers: `EllipticCurveModularityImaginaryQuadratic:IQ.1/modularity-invariance`, `EllipticCurveModularityImaginaryQuadratic:IQ.2/switch-five`, `EllipticCurveModularityImaginaryQuadratic:IQ.2/switch-three`, `EllipticCurveModularityImaginaryQuadratic:IQ.2/auxiliary-local-types`.
 
 ### `tauceti:TauCetiRoadmap/ModularCurves#5c-the-twisted-curve-yρ`
 
@@ -1834,7 +1852,7 @@ Consumers: `EllipticCurveModularityImaginaryQuadratic:IQ.5/genus-one-jacobian`, 
 
 Unconditional modularity over ℚ, used only for rational-j representatives and the parent comparison, with the dual Tate-module normalization.
 
-Consumers: `EllipticCurveModularityImaginaryQuadratic:IQ.5/genus-one-modularity`.
+Consumers: `EllipticCurveModularityImaginaryQuadratic:IQ.5/genus-one-modularity`, `EllipticCurveModularityImaginaryQuadratic:IQ.6/genus-two-modularity`.
 
 ### `ModularCurvesPartII:R14.2`
 
@@ -1878,6 +1896,12 @@ Register the source-scoped endpoints proved here by citation; supply or route se
 
 Consumers: `EllipticCurveModularityImaginaryQuadratic:IQ.5/genus-one-modularity`, `EllipticCurveModularityImaginaryQuadratic:IQ.6/genus-two-modularity`.
 
+### `CrystallineLocalGlobalCompatibilityCM:CL.9/thm-5-2`
+
+Import CL.9/thm-5-2 (CrystallineCM.potentially_barsotti_tate_lifting_qualified), now written but not independently accepted or formalized at this checkout. The d_cyc=3/A4 qualification is automatic for p=3,5; G5 retains the carrier/formalization gap.
+
+Consumers: `EllipticCurveModularityImaginaryQuadratic:IQ.3/cm-modularity`.
+
 ### `EllipticCurveModularityImaginaryQuadratic/G1` — Automorphic and geometric-CM carriers
 
 The pinned libraries have the Weierstrass curve but no complete number-field GL₂ automorphic representation/rπ carrier, weight-zero predicate or geometric-CM comparison needed for Modular. R16.4, the requested CM extension of R16.6, AG2.7, R01.6 and EllipticCurves are imported; the suggested file records the full declarations as named comments until those genuine carriers exist. No arbitrary proposition fields or phantom representation types are introduced.
@@ -1892,9 +1916,9 @@ Consumers: `EllipticCurveModularityImaginaryQuadratic:IQ.1/multiplicative-ordina
 
 ### `EllipticCurveModularityImaginaryQuadratic/G3` — CM globalization and Hilbert local conditions
 
-Supply a proof-level globalization lemma for finite solvable local extensions and split CM places, avoiding a specified finite Galois field while splitting the retained generic prime. IG.2 supplies Hilbert specialization but its current stage alone does not establish this local CM globalization. Also supply nonemptiness/openness for the AKT 9.7 discriminant conditions with each prescribed p-adic prototype. The conditions and consumers above specify the exact work; a formaliser cannot replace this by unconstrained solvable base change.
+Supply a proof-level globalization lemma for finite solvable local extensions and split CM places, avoiding a specified finite Galois field while splitting the retained generic prime. IG.2 supplies Hilbert specialization but its current stage alone does not establish this local CM globalization. Also supply nonemptiness/openness for the AKT 9.7 discriminant conditions with each prescribed p-adic prototype. The conditions and consumers above specify the exact work; a formaliser cannot replace this by unconstrained solvable base change. The retained Tate places must exclude CM of each switching output. Request the general CM-potentially-good-everywhere theorem and the Tate nonintegral-j criterion from EllipticCurves Layers 1/4; neither a congruence nor the Tate carrier alone proves non-CM.
 
-Consumers: `EllipticCurveModularityImaginaryQuadratic:IQ.2/hilbert-local-selection`, `EllipticCurveModularityImaginaryQuadratic:IQ.2/solvable-preparation`, `EllipticCurveModularityImaginaryQuadratic:IQ.2/switch-five`, `EllipticCurveModularityImaginaryQuadratic:IQ.2/switch-three`.
+Consumers: `EllipticCurveModularityImaginaryQuadratic:IQ.2/hilbert-local-selection`, `EllipticCurveModularityImaginaryQuadratic:IQ.2/solvable-preparation`, `EllipticCurveModularityImaginaryQuadratic:IQ.2/switch-five`, `EllipticCurveModularityImaginaryQuadratic:IQ.2/switch-three`, `EllipticCurveModularityImaginaryQuadratic:IQ.2/auxiliary-local-types`.
 
 ### `EllipticCurveModularityImaginaryQuadratic/G4` — Independent AKT CM lifting seed
 
@@ -1902,9 +1926,9 @@ The AKT Theorem 7.1 CM dihedral 2-adic theorem is not supplied by the classical 
 
 Consumers: `EllipticCurveModularityImaginaryQuadratic:IQ.2/seed-modularity`, `EllipticCurveModularityImaginaryQuadratic:IQ.2/switch-three`.
 
-### `EllipticCurveModularityImaginaryQuadratic/G5` — Concurrent CM lifting contract
+### `EllipticCurveModularityImaginaryQuadratic/G5` — Planned qualified CM lifting supplier
 
-CrystallineLocalGlobalCompatibilityCM has no written roadmap or reserved node at this checkout. Its accepted split owns CN Theorem 5.2. Required contract: p odd; F imaginary CM; continuous almost-unramified ρ with det εp⁻¹, potentially semistable labeled weights {0,1}; residual decomposed generic and absolutely irreducible over F(ζp); if p=5 and the projective restricted image is PSL₂(𝔽5), the projective field excludes ζ5. Residual π on PGL₂(𝔸F) has weight 0 and matching residual representation; at potentially crystalline places rπ is potentially ordinary iff ρ is, with monodromy zero; at other p-adic places π is ordinary and rπ is not potentially crystalline. Then ρ is automorphic of weight 0. No theorem or proof of §§2–5 is replanned here. Replace this gap by the supplier’s eventual declaration ID and verify its exact hypotheses; source extraction E12 affects wider odd-prime projective-image arguments, whereas this application uses only p=3,5. The printed source states irreducibility of the Q̄p-residual cyclotomic restriction; in this coefficient field this is absolute irreducibility. Its residual automorphic match is ρ̄≅r̄π, and monodromy-zero in the crystalline clause refers to recFv(πv). The output is cuspidal on PGL₂ with rΠ≅ρ. Only the p=3,5 specializations are required here.
+CrystallineLocalGlobalCompatibilityCM now plans CL.9/thm-5-2, Lean name CrystallineCM.potentially_barsotti_tate_lifting_qualified. Its packet has no accepted independent review at this checkout and is not formalized. Import its exact CN Theorem 5.2 contract: odd p, imaginary CM F, continuous almost-unramified ρ with determinant εp⁻¹ and potentially semistable labeled weights {0,1}; residual decomposed generic and absolutely irreducible on GF(ζp); exceptional p=5 projective-field condition; matching weight-zero cuspidal PGL₂ residual lift with the stipulated crystalline monodromy-zero/potential ordinarity equivalence and noncrystalline ordinary conditions elsewhere. The supplier adds the E12 qualification [F(ζp):F]≠3 or full projective residual image not A4. For this application p=3,5 its cyclotomic degree divides p−1 and is never 3. Preserve the complete residual/cyclotomic avoidance field. No CN §§2–5 proof is replanned here; the remaining gap is realizing the named planned supplier, not inventing a missing roadmap.
 
 Consumers: `EllipticCurveModularityImaginaryQuadratic:IQ.3/cm-modularity`.
 
@@ -1976,7 +2000,7 @@ Consumers: `EllipticCurveModularityImaginaryQuadratic:IQ.8/finite-level-fifteen-
 
 ## Source corrections
 
-These six corrections are scoped to arXiv:2301.10509v3, whose page images and accompanying scripts were checked where indicated. The packet records the short printed fragment, corrected statement, reason and search for an existing correction. Findings E4, E5, E9 and E17 were also confirmed by the earlier independent paper extraction review. This packet carries no self-review verdict. E18 and E19 require independent review. The differing ℚ(√−11) database labels are a comparison gap, not a claimed source mistake.
+These seven corrections are scoped to arXiv:2301.10509v3, whose page images and accompanying scripts were checked where indicated. The packet records the short printed fragment, corrected statement, reason and search for an existing correction. Findings E4, E5, E9 and E17 were also confirmed by the earlier independent paper extraction review. This completed independent review confirms all seven findings, including E18–E20. The differing ℚ(√−11) database labels are a comparison gap, not a claimed source mistake.
 
 - `EllipticCurveModularityImaginaryQuadratic/E4` (Propositions 6.1.5 (3) and 6.1.6 (3), pp.89–90, in arXiv:2301.10509v3 (27 March 2025); page image checked): E_{L_w} E is an elliptic curve over L, so its reduction type is that of E_{L_w}; the proof itself speaks of E_{L_w}.
 
@@ -1989,6 +2013,8 @@ These six corrections are scoped to arXiv:2301.10509v3, whose page images and ac
 - `EllipticCurveModularityImaginaryQuadratic/E18` (Lemma 6.1.7 opening, p.90, arXiv:2301.10509v3; page image checked): Read p=5 or 3 respectively, when referring to Propositions 6.1.5 and 6.1.6. The propositions have prescribed primes 5 and 3 respectively; the local partition and residual isomorphism in the lemma must use that same prime.
 
 - `EllipticCurveModularityImaginaryQuadratic/E19` (Proof of Proposition 7.2.2, displayed Riemann–Roch basis on p.96, arXiv:2301.10509v3; page image and ns3ob5.m checked): Remove the final y from this numerator term, giving f₀=(y+sx²+5s)/x. Apply the same correction to the terms with −5s in f₁,f₂. The following quadratic fiber equations (7.2.1)–(7.2.3) require addition of sx²±5s to y. The author’s Magma functions use precisely this additive numerator, and substitution in the quartic verifies those equations.
+
+- `EllipticCurveModularityImaginaryQuadratic/E20` (Corollary 7.3.4 proof, printed p.98, arXiv:2301.10509v3 (27 March 2025); read with Proposition 7.3.1 on p.97. Both page images inspected 2026-10-07.): Handle rational points, including both infinity points, through rational j. Use σ(P)=w₃(P) only for nonrational affine points of exact degree two with rational x-coordinate. For f(x)=9x^6−6x^5−35x^4+40x^2+12x−8, the infinity chart t=1/x, v=y/x^3 has v^2=9−6t−35t^2+40t^4+12t^5−8t^6. Its smooth infinity points (0,3),(0,−3) are Q-rational. Galois fixes each, whereas w3 sends v to −v. Thus the asserted equality fails there; the rational-j branch repairs the proof without changing its endpoint.
 
 ## Source versions and verification
 

@@ -1,66 +1,33 @@
 # Handoff: REV-DESIGN-EllipticCurveModularityImaginaryQuadratic
 
-Refs #6905. ChatGPT Pro, session `chatgpt-20261007-c7a942`, 7 October 2026.
+Refs #6905. Codex, session `codex-BaAQGd`, 7 October 2026.
 
-**Partial independent-review checkpoint.** The [report](../reviews/REV-DESIGN-EllipticCurveModularityImaginaryQuadratic.md) contains the established findings and their proofs. Neither the report nor this handoff is an acceptance. This submission changes only these two Markdown files. The live definition, packet, reader, suggested Lean file and their review metadata are unchanged.
+**Completed independent review; accepted planning pass.** This replaces the earlier partial checkpoint. All 68 nodes are assessed in the [report](../reviews/REV-DESIGN-EllipticCurveModularityImaginaryQuadratic.md) and packet review object: 54 verified, 14 corrected, no added/deleted nodes. All fifteen baseline references are confirmed; 69 API entries and 69 unit tests cover all 23 definition/construction nodes. The roadmap, packet, reader and complete suggested ledger are synchronized. Seven source issues are independently confirmed, including the newly registered preprint-scoped E20.
 
-## Exact input identifiers
+F1–F4 are applied: retained Tate places export non-CM auxiliaries; witness-preserving preparation has its explicit residual genericity input; the genus-one argument uses Fricke on the quotient; rational genus-two points, including infinity, use rational j. The actual qualified CL.9 lifting node is imported, and stronger enormous-image prerequisites are removed from the arbitrary residual-data route. The report records all other notation, source-locator and dependency fixes.
 
-- Packet: `c065d00784447d1bfe4df873ed7cb6ca17ffc5c0`.
-- Reader: `d9a74a3d028165501a2910aa7149b9c98cd4cc7e`.
-- Suggested Lean: `30e853defd7e3c7db97239034327a3cda968cff5`.
+The review task is finished. There is no unfinished review step for the next worker to resume. **Eight stages remain planned, zero closed, sixteen implementation/certificate gaps remain, all implementations unchecked.** The report's orchestrator questions route the general owner extensions and missing sibling/certificates. Do not close those gaps on the strength of these checks.
 
-The input files were read through the connector on the job branch. These are returned Git blob identifiers, not independently reconstructed local hashes. Check current inputs before applying the corrections.
+## Reproducibility and validation
 
-## Resume and apply
+The packet and reader retain the exact PDF URLs/SHA-256 values and author-script commit/hashes. Six source PDFs and five scripts were freshly fetched and hash matched. Scripts and external packages were read where available, not executed. Kwon/DGP originals and the √−11 database pages were not independently obtained; the associated gaps remain. Source findings concern CN arXiv v3, not a verified version of record. No inaccessible scratch file is needed to identify the inputs.
 
-Reclaim the issue normally after checkpoint intake releases it. Read current WORKERS, PROTOCOL and the issue first. Then apply the following in the packet and synchronize the reader and the actual withheld-contract comments in the suggested file.
+Checks completed:
 
-**F1 — switching outputs and non-CM witness.** Strengthen the output of `IQ.2/switch-five` by retaining Tate reduction above 2 and 3, and that of `IQ.2/switch-three` by retaining Tate reduction above 5. Say explicitly that the output A is non-CM. In the mod-3 selection/proof replace the good-ordinary-or-Tate alternative at 5 by this Tate choice; the prescribed 3-adic partition remains unchanged. In `auxiliary-local-types`, delete the branch that claims CM of A settles modularity of E. Derive A's non-CM property from the Tate place and the CM potentially-good-reduction input; make the latter supplier explicit. The source locators and exact distinction are in the report.
+- Final blueprint checker: 0 errors, 0 warnings.
+- Seven-record errata projection: ok.
+- All 68 node contracts, proof sketches, hypotheses, dependencies, acceptance conditions and API/tests agree across packet/reader/Lean ledger; all eight stage dependency sets agree.
+- Exact arithmetic program below: 68 assertions passed under SymPy 1.14.0 (mpmath 1.3.0).
+- Final `lean-check research/blueprint/suggested/EllipticCurveModularityImaginaryQuadratic.lean`: exit 0 with only `sorry` warnings.
+- Executable Lean expressions are unchanged by this review; the full comment ledger was synchronized and then elaborated again to check the final file.
 
-**F2 — conditional extension assertion.** In `IQ.3/elliptic-lifting-data`, keep the determinant, ramification and local Hodge–Tate conclusions unconditional. Introduce residual decomposed genericity and a fixed rational-prime witness before the witness-preserving solvable-extension assertion. Keep the finite Galois avoidance field visible. Its `cm-modularity` consumer already provides genericity; do not turn a source-preserving step into an unexplained existence of a witness.
+The existing shared build has Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` exactly, but Tau Ceti `cf386627e9176a3827c1a5fe804989fd94a4d216` rather than the declared `f790474821cf4256814db967cb154e7af3d0c369`. Because the suggested file imports only Mathlib, the elaboration claim covers its existing algebraic carriers/signatures, not absent or differently pinned Tau Ceti suppliers. All missing full signatures remain explicit contracts in comments.
 
-**F3 — quotient-level Fricke comparison.** Replace the genus-one modularity statement's `σP=w5P` by the relation of their images in `X(ns3,b5)` under the specified Fricke involution on that quotient. Replace proof step 3 accordingly. The equation x(P)x(σP)=5 supplies this quotient relation; the modular interpretation then gives the geometric 5-isogeny. Do not silently choose one of the two possible lifts to the quartic. No new lift theorem is needed for the existing modularity goal.
+To repeat the errata check, construct a scratch JSON named `EllipticCurveModularityImaginaryQuadratic.json` containing `roadmapId`, `sourceIssues`, and `sourceVersions` copied from the packet, with `protocol` set to `errata-v1`; run `python3 scripts/check_errata.py` on that scratch file. The errata checker does not accept blueprint-v1 input directly.
 
-**F4 — rational versus exact-quadratic points.** Replace the genus-two modularity node's rational-x/infinity branch by: rational P, including infinity, has rational j and uses the existing rational-j modularity input; a nonrational affine P with rational x has exact degree two and satisfies σP=w3P. Preserve the exceptional imaginary orbit and the separate real-quadratic FLHS branch. Add the rational infinity points as a discriminating acceptance test: σ fixes each, w3 exchanges them. The actual sextic has leading coefficient 9 and infinity values ±3; do not replace it by a different model.
+## Exact arithmetic program
 
-The source issue below is proposed for the packet. It has **not** been registered by this checkpoint. Existing sourceIssues E4, E5, E9, E17, E18 and E19 and their provenance must remain intact. Preserve the existing sourceVersions; do not claim the designer's PDF hash as a fresh download verification.
-
-```json
-{
-  "id": "EllipticCurveModularityImaginaryQuadratic/E20",
-  "source": "CN",
-  "kind": "error",
-  "locator": "Corollary 7.3.4 proof, printed p.98, arXiv:2301.10509v3 (27 March 2025); read with Proposition 7.3.1 on p.97. Both page images inspected 2026-10-07.",
-  "printed": "(and the points at infinity) have σ(P) = w₃(P).",
-  "correction": "Handle rational points, including both infinity points, through rational j. Use σ(P)=w₃(P) only for nonrational affine points of exact degree two with rational x-coordinate.",
-  "reason": "For f(x)=9x^6−6x^5−35x^4+40x^2+12x−8, the infinity chart t=1/x, v=y/x^3 has v^2=9−6t−35t^2+40t^4+12t^5−8t^6. Its smooth infinity points (0,3),(0,−3) are Q-rational. Galois fixes each, whereas w3 sends v to −v. Thus the asserted equality fails there; the rational-j branch repairs the proof without changing its endpoint.",
-  "affects": "the proof",
-  "known": "new",
-  "searched": [
-    "2026-10-07: arXiv 2301.10509 version history and v3 were checked.",
-    "2026-10-07: James Newton's public publications page was checked for the paper and a correction link.",
-    "2026-10-07: targeted queries for the arXiv identifier with erratum/corrigendum and the corollary number did not identify a correction. This is not an exhaustive novelty claim."
-  ],
-  "review": {
-    "verdict": "confirmed",
-    "reason": "The preprint's rendered display and the rational infinity-chart calculation give the contradiction. The corrected argument separates rational points from exact-degree-two points. This finding is scoped to the preprint, not a verified version of record.",
-    "by": "REV-DESIGN-EllipticCurveModularityImaginaryQuadratic"
-  }
-}
-```
-
-A source-issue verdict takes effect only through the completed review workflow. Do not mark the overall review accepted merely by adding this record.
-
-## Remaining full review
-
-Complete the fifteen-declaration pinned baseline audit and reviewed library-coverage audit. Finish every node's source/proof/API assessment, the cross-roadmap supplier statements and ownership, all source-issue verdicts and route coverage. In particular, read the crystalline-lifting sibling as it now exists rather than inheriting a stale claim that its blueprint is unwritten. IQ.7's actual genus-three quartics, projective involutions, Jacobian/torsion data and finite symmetric-power sieve need their own direct source check. Do not infer their correctness from the genus-one/genus-two calculations below.
-
-Run `scripts/check_blueprint.py` on the actual edited packet before a completed submission. It was **not run in this checkpoint**. No matching existing Lean build was available, so Lean was not compiled and no dependency build, cache download or language server was started. The existing signatures and omissions remain unverified as a whole. The report distinguishes the few pinned Weierstrass definitions read from the uncompleted baseline audit.
-
-## Exact regression program actually run
-
-The following SymPy program reproduces the 40 passing arithmetic assertions. It needs no internet, Magma or Lean. Run in the worker's scratch space. These tests do not certify rank, saturation, modular identifications, exhaustive quadratic points or any modularity theorem. The polynomial factors are explicit and checked, not presumed.
+Save this block as a Python file in scratch and run with SymPy 1.14.0 available. It performs exact polynomial/field calculations, not numerical approximations. It does not certify exhaustive points, Jacobian group orders, ranks, saturation, residual images, modular model dictionaries or sieves. In particular, both possible genus-one lifts are tested without claiming which one is the modular Fricke lift.
 
 ```python
 import sympy as s
@@ -74,8 +41,8 @@ def check(name, condition):
     checked.append(name)
 
 def reduce_a(expr, modulus):
-    return s.rem(s.Poly(s.expand(expr), a, domain=s.QQ),
-                 s.Poly(modulus, a, domain=s.QQ)).as_expr()
+    return s.rem(s.Poly(s.expand(expr), a, domain=s.EX),
+                 s.Poly(modulus, a, domain=s.EX)).as_expr()
 
 f = 9*x**6 - 6*x**5 - 35*x**4 + 40*x**2 + 12*x - 8
 check('genus_two_degree', s.degree(f, x) == 6)
@@ -145,7 +112,43 @@ check('E15_discriminant', delta == 207360000)
 delta, _ = invariants([0, 17, 0, 16, 0])
 check('Es35_discriminant', delta == 921600)
 assert len(checked) == 40
+# Independently checked quartic, local-chart and model regressions.
+X,Y,Z,alpha = s.symbols('X Y Z alpha')
+q1=9*X**4+19*X**2*Y**2+Y**4+9*X**3*Z+19*X**2*Y*Z+22*X*Y**2*Z+2*Y**3*Z+10*X**2*Z**2+22*X*Y*Z**2+13*Y**2*Z**2+7*X*Z**3+12*Y*Z**3+11*Z**4
+q2=-X**4+2*X**3*Y+X**2*Y**2+8*X**3*Z+2*X**2*Y*Z-2*X*Y**2*Z-Y**3*Z-3*X**2*Z**2-3*X*Y*Z**2+3*Y**2*Z**2+2*X*Z**3-3*Y*Z**3+Z**4
+for idx,(q,M,k) in enumerate([(q1,s.Matrix([[1,0,0],[0,-1,-1],[0,0,1]]),1),(q2,s.Matrix([[3,1,2],[8,1,-8],[4,-2,1]]),25)],1):
+    check('quartic_'+str(idx)+'_homogeneous', all(sum(m)==4 for m in s.Poly(q,X,Y,Z).monoms()))
+    check('involution_'+str(idx)+'_square',M*M==k*s.eye(3))
+    vv=M*s.Matrix([X,Y,Z])
+    check('quartic_'+str(idx)+'_invariant',s.expand(q.subs(dict(zip([X,Y,Z],vv)), simultaneous=True)-k**2*q)==0)
+    check('involution_'+str(idx)+'_invertible',M.det()!=0)
+for idx,(xx,yy) in enumerate([((1+a)/28,(27-a)/56),((3-a)/4,(3+3*a)/4)],1):
+    check('minus_fifty_five_point_'+str(idx),reduce_a(q2.subs({X:xx,Y:yy,Z:1}),a*a+55)==0)
+for tag,poly,yy in [('Pl1',x*x-5*x+1,1-2*x),('Pl2',x*x+x-1,3-3*x)]:
+    check(tag+'_quartic_support',s.rem(s.Poly(q2.subs({X:x,Y:yy,Z:1}),x),s.Poly(poly,x)).is_zero)
+    check(tag+'_irreducible',not s.polys.polytools.intervals(poly,eps=s.Rational(1,100))==[] and not s.sqrt(s.discriminant(poly,x)).is_rational)
+for xx,yy,zz in [(0,1,1),(-3,7,1),(0,1,0),(s.Rational(-1,2),s.Rational(-1,2),1)]:
+    check('torsion_support_'+str((xx,yy,zz)),q2.subs({X:xx,Y:yy,Z:zz})==0)
+# Exact Gaussian and -11 Weierstrass invariants (no arithmetic-image inference).
+delta,j=invariants([s.I,1,1,6+s.I,10-15*s.I])
+check('gaussian_delta',s.expand(delta)==58752+107136*s.I)
+check('gaussian_j',s.simplify(j-(-47709+15363*s.I)/256)==0)
+delta,j=invariants([a,0,1+a,-24-6*a,56+13*a])
+check('eleven_delta',reduce_a(delta-(4512-736*a),a*a-a+3)==0)
+num,den=s.fraction(s.together(j-(11155375*a+3126750)/32))
+check('eleven_j',reduce_a(num,a*a-a+3)==0 and reduce_a(den,a*a-a+3)!=0)
+# Mixed elliptic dense-open identity: source U,V,W land on B after x^3=ns5(t).
+A=t*t+t-1;D=(2*t+1)*(2*t*t+7*t+8);U=-x*A*A/5;V=D;W=t*D
+lhs=s.expand(V*V*W-V*W*W-U**3-W**3)
+check('mixed_map_identity',s.cancel(lhs.subs(x**3,125*t*D**3/A**5))==0)
+# Corrected Riemann--Roch fibers. Reduce s^2=-3 using variable a.
+for idx,(shift,sign,c0) in enumerate([(0,1,30-10*a*alpha),(2,-1,2*alpha**2+10*a*alpha),(s.Rational(5,2),-1,s.Rational(5,2)*alpha**2+10*a*alpha)]):
+    yy=alpha*(x+shift)-a*(x*x+sign*5)
+    fiber=(6-2*a*alpha)*x*x+(alpha**2+[-33,15,12][idx])*x+c0
+    check('corrected_RR_fiber_'+str(idx),reduce_a(s.expand(yy*yy-h-(x+shift)*fiber),a*a+3)==0)
+check('E0_conic_rational_point',3**2+3*2**2+6*2-33==0)
+check('minus_ten_point', (6*a)**2-(-1)*(-1+16)*(-1+25)==36*(a*a+10))
 print(f'{len(checked)} exact arithmetic checks passed')
 ```
 
-No inaccessible scratch file is needed to resume. The next worker must apply the corrections and complete the audit; this checkpoint deliberately leaves the live review verdict unchanged.
+No Magma replay or full arithmetic certificate is implied. Once intake has accepted this review, future implementation work should begin from the precisely enumerated G1–G16 supplier/certificate outputs in the packet and report, rather than from the former partial checkpoint's resume instructions.
