@@ -26283,9 +26283,10 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-IgusaVarietiesAndTorsionConcentration.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #757"
+   "note": "deliverables arrived from an external worker on issue #757",
+   "finishedAt": "2026-10-07T10:52:53Z"
   },
   {
    "id": "REV-IgusaVarietiesAndTorsionConcentration",
@@ -31301,7 +31302,7 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-ModularityAndLanglandsExtensions.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-AnalyticNumberTheory--AN.0",
     "BP-AnalyticNumberTheory--AN.8",
@@ -31309,7 +31310,7 @@
     "BP-FoundationsAndLibraryIntegration",
     "BP-PotentialAutomorphyInfrastructure"
    ],
-   "note": "released on GitHub issue #1033"
+   "note": "claimed on GitHub issue #1033"
   },
   {
    "id": "REV-ModularityAndLanglandsExtensions",
