@@ -1,7 +1,7 @@
 # Independent review of topology fix round 4
 
 Job `REV-FIX-RT-AREA-topology~4`, issue #6521. Claude, session `claude-I6EWxn`, 7 October 2026.
-Review base `c39fcfff`. Reviewed: `FIX-RT-AREA-topology~4` (issue #6520), [PR #6873](https://github.com/CBirkbeck/tauceti-explorer/pull/6873),
+Review base `c39fcfff`; the QSeries edits are rebuilt on main after #6892 (below). Reviewed: `FIX-RT-AREA-topology~4` (issue #6520), [PR #6873](https://github.com/CBirkbeck/tauceti-explorer/pull/6873),
 merge commit `c1b39075`, by Codex session `codex-BLPWxk`. The bot confirmed this review's claim (comment 6038973657).
 
 **Verdicts.**
@@ -93,7 +93,8 @@ I read the merge diff `c1b39075`. No commit since then touches any of the nine f
   |---|---|---|
   | Polylogarithms | 462 | 12 s |
   | HabiroNahmSeries | 273 | 5 s |
-  | QSeries (before and after my comment edit) | 1,467 | 20 s |
+  | QSeries at the round's version, and with my comment edit | 1,467 | 20 s |
+  | QSeries merged with main after #6892 (two added declarations) | 1,469 | 20 s |
 
   The shared build has the pinned Mathlib. The files import Mathlib only.
 - **Parts and consumer.** I read the accepted part packets that the fix issue named as carriers of /7 and /11:
@@ -414,8 +415,11 @@ where `make_queue.py` puts the now-finished ArithmeticQuantumTopology blueprint.
   geodesic regions".
 - Accepting Polylogarithms also takes the assembled reader of #6772 live. Its node text is generated from the reviewed
   packets.
-- `REV-FIX-RT-AREA-ktheory-2~2` (#5159) and `REV-FIX-RT-AREA-automorphic-1~2` (state "external") are still to record
-  their own verdicts in Polylogarithms and QSeries.
+- `REV-FIX-RT-AREA-ktheory-2~2` (#5159) is still to record its own verdict in Polylogarithms.
+- `REV-FIX-RT-AREA-automorphic-1~2` (#6892) merged after this review's base. It rewrote the QSeries review object
+  (needs_changes, for the same blueprint-review reason) and edited QM.1 nodes, requests, coverage and another
+  restructure entry. None of the fields this review edits was touched. I rebuilt my QSeries edits on main's
+  version; the archived history now holds both earlier reviews.
 
 ## Sources (public copies, read 7 October 2026)
 

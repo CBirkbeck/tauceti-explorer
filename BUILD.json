@@ -1,8 +1,8 @@
 {
   "roadmaps": 233,
-  "stages": 4170,
+  "stages": 4208,
   "originalStages": 2138,
-  "sourceRefinements": 2032,
+  "sourceRefinements": 2070,
   "reviewedDecompositions": [
     {
       "roadmap": "AInfCohomology",
@@ -299,14 +299,14 @@
   "editedRoadmapSummaries": 181,
   "curatedStagePresentations": 339,
   "administrativeStages": 101,
-  "mathematicalStars": 4069,
+  "mathematicalStars": 4107,
   "plainTextPlanetLabels": 398,
   "hiddenPlanets": 600,
   "mappedStageStatuses": 350,
   "libraryAuditStatuses": 19,
   "bibliographicSources": 46,
-  "roadmapEdges": 1983,
-  "stageEdges": 10836,
+  "roadmapEdges": 1988,
+  "stageEdges": 10908,
   "reviewedLinkPackets": 25,
   "promotedBlueprints": [
     {
@@ -408,8 +408,8 @@
     {
       "file": "ClassicalSerreModularity--R27.3",
       "roadmap": "ClassicalSerreModularity",
-      "nodes": 32,
-      "reviewer": "independent-review-REV-FIX-RT-PAPER-KHARE-WINTENBERGER-09-I"
+      "nodes": 37,
+      "reviewer": "independent-review-REV-FIX-RT-BP-ClassicalSerreModularity--R27.3"
     },
     {
       "file": "ClassicalSerreModularity--R33.5",
@@ -458,6 +458,12 @@
       "roadmap": "DeligneWeightsAndPurity",
       "nodes": 52,
       "reviewer": "independent-review-REV-DeligneWeightsAndPurity--DWP.7"
+    },
+    {
+      "file": "DiamondEtaleCohomology--C0",
+      "roadmap": "DiamondEtaleCohomology",
+      "nodes": 119,
+      "reviewer": "independent-review-REV-DiamondEtaleCohomology--C0"
     },
     {
       "file": "DiamondEtaleCohomology--C8",
@@ -1007,8 +1013,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 34360635,
-  "htmlSha256": "704609c0b1077e1db7521ecb23a0d2c8335aadc9dd59be9dca2a76764b011f2f",
+  "htmlBytes": 34468457,
+  "htmlSha256": "4b133196a2e72c187bda96c000aabd8f150e2e79d18d9206324f1179ffb4ccb9",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -1040,7 +1046,7 @@
     "data/roadmap-summaries.json": "c8bdd0a9105f5d3c4a858c8b635990729f8e94497dee784a71fae659b8c05b9f",
     "data/roadmap-classification.json": "2641dbc97eb2566c715162d011b46890d1635629181ef8126ac7aed9e24a3b13",
     "data/classification-estimates.json": "625d35fe6121bf099dc5de9e6a9111793596f9b664e3fbd439841434bb4a57d6",
-    "data/roadmap-distances.json": "53af2dc8aeef8d05f3c3843f1fd3a66b4a2ff5e4d566a307dd8def250ce9d358",
+    "data/roadmap-distances.json": "016de2400ad902efdeb7037e4e696b9ecb794d016869ea12143a932933efd0d7",
     "data/galaxy-layout.json": "932ee55b48af97dd9edcf3eae954717060ba0bf228420046e5fe56e53138a1f5",
     "data/bibliography.json": "bef230a41fad22d6b790c7564061c4d05c2ae5b78cab53d005eb404afab2b122",
     "NOTICE": "a285b95d5adbf5c2bcc82db36e2a77b797f84a2c5cbb30292efd0bae17cc4f34",
@@ -1130,8 +1136,8 @@
     "data/blueprints/AutomorphicBundles--B5.md": "0bfed27f079e9112d55bba1fc7cd761527e424c7a4236b51c0c15d7a3d763eec",
     "data/blueprints/ClassicalArithmeticCompletion.json": "2589a720bbb305491a1f319eaec20874d0f35ca786febe8625bdf7c8f960682e",
     "data/blueprints/ClassicalArithmeticCompletion.md": "eaa6512cd30fe16e148b6e2f8d6607297174066d96839eacf97b3cb427e41b7d",
-    "data/blueprints/ClassicalSerreModularity--R27.3.json": "b248659c4698e9ad2c0adc3439f688f82e104297b69292fdd3ae1008544bb074",
-    "data/blueprints/ClassicalSerreModularity--R27.3.md": "065d11b977a14df5a67d62820bfeb223730332e27f3683fc66045ad5df0f503d",
+    "data/blueprints/ClassicalSerreModularity--R27.3.json": "6df18b8cf988f62e164952ee0690b2a164e8f07d086df3adee3ee96df11de44f",
+    "data/blueprints/ClassicalSerreModularity--R27.3.md": "864dc2351c1de7f6765c8d8cc2b8d8d91c2fa7b55bf8131b92e059a1224239b4",
     "data/blueprints/ClassicalSerreModularity--R33.5.json": "5763d16595d69e1a5f2f4a220c03127950801a2dc45bbf9f01cf741fa517276f",
     "data/blueprints/ClassicalSerreModularity--R33.5.md": "99edb64836667376d2ab5f016e2103f7025733514c844da969a0f8f37f816756",
     "data/blueprints/ColemanIntegration.json": "7365c824bd2e583603741ca94647250a4b41365a776b822aa58e196bfbe1eba5",
@@ -1148,6 +1154,8 @@
     "data/blueprints/DeformationAndDerivedPatchingAlgebra--R03.6.md": "5cb32739e0e0e2d6b2a7497f810abcee961f72e8c8cbb434012ef9811e3649c4",
     "data/blueprints/DeligneWeightsAndPurity--DWP.7.json": "6cfde71a1c71c36ed5063e937131fd4a3db302c7a9adf980b980286795e53140",
     "data/blueprints/DeligneWeightsAndPurity--DWP.7.md": "ae5f5743868613d9bfe9487219e4595591694b60ac985dac3756a61f9b2a1e90",
+    "data/blueprints/DiamondEtaleCohomology--C0.json": "abed59ec21738d12ab252903b1923d8e99ecb39fdf1ddbcf70c7d4fed0497c0f",
+    "data/blueprints/DiamondEtaleCohomology--C0.md": "7045ad4ad27a6124997adda21b34f8e931ae345d60bfe8eb728049ac6ea53760",
     "data/blueprints/DiamondEtaleCohomology--C8.json": "d996232364ba0d0ace9760ea92ace0a9dff3cf7493a9c732d2df793ad1327ede",
     "data/blueprints/DiamondEtaleCohomology--C8.md": "283cd6c3f9c75db4c08d0c53877e7522630f1501f5b73ba0b9dc698af3699c52",
     "data/blueprints/DiamondsAndVStacks.json": "a8e9550f50c6ffd8d713eec483d322a1b6c6700357af2b1cea6d53ee599c6a23",

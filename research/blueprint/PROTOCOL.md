@@ -386,6 +386,12 @@ decides on them, and re-plans the affected jobs. Families of roadmaps that
 overlap one another are restructured before they are blueprinted, by the
 restructuring jobs of section 15.
 
+A design job given several Part II directions of one roadmap (section 16) may
+plan one of them and propose the others as roadmaps of their own. When the
+orchestrator accepts such a split, it is recorded in
+`research/blueprint/splits.json`, and each direction it names gets a design job
+of its own, with the paper routes that propose it.
+
 ## 10. Links between roadmaps
 
 Links are dependencies between stages of different roadmaps, recorded carefully

@@ -9899,7 +9899,7 @@
       ],
       "title": "Classical Jacobi forms of weight k and index m",
       "kind": "definition",
-      "statement": "The scalar-index, full-level case of the Jacobi forms with multiplier systems that belong to MetaplecticAutomorphicForms (request to MetaplecticAutomorphicForms:MP.6). QM.1/jacobi-rank-one-specialisation (c) identifies J_{k,m}(v, 1), m ∈ ℕ, m ≥ 1, with the supplier's space for n = 1 and F = m, and (c′) places the spaces of half-integral index inside its spaces of index 4m. The description below is the form in which QM.1 and QM.4 use these spaces; no general space of Jacobi forms is constructed here. J_{k,m}(v, χ) is the ℂ-subspace of functions φ : ℍ × ℂ → ℂ holomorphic (jointly, as a function on {Im τ > 0} × ℂ), with φ|_{k,m}γ = v(γ)·φ for all γ ∈ SL(2, ℤ) and φ|_m[l, μ] = χ(l, μ)·φ for all (l, μ) ∈ ℤ², where k, m ∈ ½ℤ, v has unit norm and satisfies the weight-k principal-branch cocycle consistency law on SL(2, ℤ) (MetaplecticAutomorphicForms:MP.7). Its value at −I matches the parity in z; do not impose the scalar modular-form normalization v(−I) = e^{−πik} here. For trivial multiplier and integral weight v ≡ 1 and χ : ℤ² → ℂ^× a character (χ ≡ 1 for Eichler–Zagier forms), such that for all α, β ∈ ℚ the function τ ↦ e(mα²τ)·φ(τ, ατ + β) is bounded as Im τ → ∞. The Eichler–Zagier space of (holomorphic) Jacobi forms on SL(2, ℤ) ⋉ ℤ² is J_{k,m} := J_{k,m}(1, 1) with k ∈ ℤ, m ∈ ℕ; for these, membership is equivalent to c(n, r) = 0 unless 4nm ≥ r² (QM.1/jacobi-fourier-support, DMZ (4.5)). Convention (pinned): the growth condition is DMZ's second characterisation (bounded along all rational torsion points), which makes sense with multipliers; the Fourier condition is a theorem.",
+      "statement": "The scalar-index, full-level case of the Jacobi forms with multiplier systems that belong to MetaplecticAutomorphicForms (request to MetaplecticAutomorphicForms:MP.6). QM.1/jacobi-rank-one-specialisation (c) identifies J_{k,m}(v, 1), m ∈ ℕ, m ≥ 1, with the supplier's space for n = 1 and F = m, and (c′) places the spaces of half-integral index inside its spaces of index 4m. The description below is the form in which QM.1 and QM.4 use these spaces; no general space of Jacobi forms is constructed here. J_{k,m}(v, χ) is the ℂ-subspace of functions φ : ℍ × ℂ → ℂ holomorphic (jointly, as a function on {Im τ > 0} × ℂ), with φ|_{k,m}γ = v(γ)·φ for all γ ∈ SL(2, ℤ) and φ|_m[l, μ] = χ(l, μ)·φ for all (l, μ) ∈ ℤ², where k, m ∈ ½ℤ, v has unit norm and satisfies the weight-k principal-branch cocycle consistency law on SL(2, ℤ) (MetaplecticAutomorphicForms:MP.7). Its value at −I matches the parity in z; do not impose the scalar modular-form normalization v(−I) = e^{−πik} here. χ : ℤ² → ℂ^× is a character (v ≡ 1 for trivial multiplier and integral weight, and χ ≡ 1 for Eichler–Zagier forms); and, for every such v and χ, φ is required to satisfy: for all α, β ∈ ℚ the function τ ↦ e(mα²τ)·φ(τ, ατ + β) is bounded as Im τ → ∞. The Eichler–Zagier space of (holomorphic) Jacobi forms on SL(2, ℤ) ⋉ ℤ² is J_{k,m} := J_{k,m}(1, 1) with k ∈ ℤ, m ∈ ℕ; for these, membership is equivalent to c(n, r) = 0 unless 4nm ≥ r² (QM.1/jacobi-fourier-support, DMZ (4.5)). Convention (pinned): the growth condition is DMZ's second characterisation (bounded along all rational torsion points), which makes sense with multipliers; the Fourier condition is a theorem.",
       "hypotheses": [
         "k, m ∈ ℚ with 2k, 2m ∈ ℤ; v : SL(2, ℤ) → ℂ; χ : ℤ² → ℂ.",
         "For index m ≥ 1 and trivial v, χ, the space is Eichler–Zagier's; index 0 gives M_k(SL(2, ℤ))."
@@ -10016,7 +10016,7 @@
       ],
       "title": "Jacobi cusp forms",
       "kind": "definition",
-      "statement": "The scalar-index, full-level case of the Jacobi cusp forms that belong to MetaplecticAutomorphicForms (request to MetaplecticAutomorphicForms:MP.6; QM.1/jacobi-rank-one-specialisation (c)), in the form QM.1 uses. J⁰_{k,m}(v, χ) is the ℂ-subspace of functions φ : ℍ × ℂ → ℂ holomorphic (jointly, as a function on {Im τ > 0} × ℂ), with φ|_{k,m}γ = v(γ)·φ for all γ ∈ SL(2, ℤ) and φ|_m[l, μ] = χ(l, μ)·φ for all (l, μ) ∈ ℤ², where k, m ∈ ½ℤ, v has unit norm and satisfies the weight-k principal-branch cocycle consistency law on SL(2, ℤ) (MetaplecticAutomorphicForms:MP.7). Its value at −I matches the parity in z; do not impose the scalar modular-form normalization v(−I) = e^{−πik} here. For trivial multiplier and integral weight v ≡ 1 and χ : ℤ² → ℂ^× a character (χ ≡ 1 for Eichler–Zagier forms), such that for all α, β ∈ ℚ, e(mα²τ)·φ(τ, ατ + β) → 0 as Im τ → ∞. For v, χ trivial and k ∈ ℤ, m ≥ 1: membership ⟺ c(n, r) = 0 unless 4nm > r² (DMZ (4.6)).",
+      "statement": "The scalar-index, full-level case of the Jacobi cusp forms that belong to MetaplecticAutomorphicForms (request to MetaplecticAutomorphicForms:MP.6; QM.1/jacobi-rank-one-specialisation (c)), in the form QM.1 uses. J⁰_{k,m}(v, χ) is the ℂ-subspace of functions φ : ℍ × ℂ → ℂ holomorphic (jointly, as a function on {Im τ > 0} × ℂ), with φ|_{k,m}γ = v(γ)·φ for all γ ∈ SL(2, ℤ) and φ|_m[l, μ] = χ(l, μ)·φ for all (l, μ) ∈ ℤ², where k, m ∈ ½ℤ, v has unit norm and satisfies the weight-k principal-branch cocycle consistency law on SL(2, ℤ) (MetaplecticAutomorphicForms:MP.7). Its value at −I matches the parity in z; do not impose the scalar modular-form normalization v(−I) = e^{−πik} here. χ : ℤ² → ℂ^× is a character (v ≡ 1 for trivial multiplier and integral weight, and χ ≡ 1 for Eichler–Zagier forms); and, for every such v and χ, φ is required to satisfy: for all α, β ∈ ℚ, e(mα²τ)·φ(τ, ατ + β) → 0 as Im τ → ∞. For v, χ trivial and k ∈ ℤ, m ≥ 1: membership ⟺ c(n, r) = 0 unless 4nm > r² (DMZ (4.6)).",
       "hypotheses": [
         "As for QM.1/jacobi-form."
       ],
@@ -10101,7 +10101,7 @@
       ],
       "title": "Weak Jacobi forms",
       "kind": "definition",
-      "statement": "J̃_{k,m}(v, χ) is the ℂ-subspace of functions φ : ℍ × ℂ → ℂ holomorphic (jointly, as a function on {Im τ > 0} × ℂ), with φ|_{k,m}γ = v(γ)·φ for all γ ∈ SL(2, ℤ) and φ|_m[l, μ] = χ(l, μ)·φ for all (l, μ) ∈ ℤ², where k, m ∈ ½ℤ, v has unit norm and satisfies the weight-k principal-branch cocycle consistency law on SL(2, ℤ) (MetaplecticAutomorphicForms:MP.7). Its value at −I matches the parity in z; do not impose the scalar modular-form normalization v(−I) = e^{−πik} here. For trivial multiplier and integral weight v ≡ 1 and χ : ℤ² → ℂ^× a character (χ ≡ 1 for Eichler–Zagier forms), such that for every fixed z ∈ ℂ the function τ ↦ φ(τ, z) is bounded as Im τ → ∞. For v, χ trivial and k ∈ ℤ: membership ⟺ c(n, r) = 0 unless n ≥ 0 (DMZ (4.7)).",
+      "statement": "J̃_{k,m}(v, χ) is the ℂ-subspace of functions φ : ℍ × ℂ → ℂ holomorphic (jointly, as a function on {Im τ > 0} × ℂ), with φ|_{k,m}γ = v(γ)·φ for all γ ∈ SL(2, ℤ) and φ|_m[l, μ] = χ(l, μ)·φ for all (l, μ) ∈ ℤ², where k, m ∈ ½ℤ, v has unit norm and satisfies the weight-k principal-branch cocycle consistency law on SL(2, ℤ) (MetaplecticAutomorphicForms:MP.7). Its value at −I matches the parity in z; do not impose the scalar modular-form normalization v(−I) = e^{−πik} here. χ : ℤ² → ℂ^× is a character (v ≡ 1 for trivial multiplier and integral weight, and χ ≡ 1 for Eichler–Zagier forms); and, for every such v and χ, φ is required to satisfy: for every fixed z ∈ ℂ the function τ ↦ φ(τ, z) is bounded as Im τ → ∞. For v, χ trivial and k ∈ ℤ: membership ⟺ c(n, r) = 0 unless n ≥ 0 (DMZ (4.7)).",
       "hypotheses": [
         "As for QM.1/jacobi-form."
       ],
@@ -10190,7 +10190,7 @@
       ],
       "title": "Weakly holomorphic Jacobi forms",
       "kind": "definition",
-      "statement": "J^!_{k,m}(v, χ) is the ℂ-subspace of functions φ : ℍ × ℂ → ℂ holomorphic (jointly, as a function on {Im τ > 0} × ℂ), with φ|_{k,m}γ = v(γ)·φ for all γ ∈ SL(2, ℤ) and φ|_m[l, μ] = χ(l, μ)·φ for all (l, μ) ∈ ℤ², where k, m ∈ ½ℤ, v has unit norm and satisfies the weight-k principal-branch cocycle consistency law on SL(2, ℤ) (MetaplecticAutomorphicForms:MP.7). Its value at −I matches the parity in z; do not impose the scalar modular-form normalization v(−I) = e^{−πik} here. For trivial multiplier and integral weight v ≡ 1 and χ : ℤ² → ℂ^× a character (χ ≡ 1 for Eichler–Zagier forms), such that for some N ∈ ℕ and every fixed z ∈ ℂ, τ ↦ e(Nτ)·φ(τ, z) is bounded as Im τ → ∞. For v, χ trivial: membership ⟺ c(n, r) = 0 unless n ≥ n₀ for some n₀ ∈ ℤ.",
+      "statement": "J^!_{k,m}(v, χ) is the ℂ-subspace of functions φ : ℍ × ℂ → ℂ holomorphic (jointly, as a function on {Im τ > 0} × ℂ), with φ|_{k,m}γ = v(γ)·φ for all γ ∈ SL(2, ℤ) and φ|_m[l, μ] = χ(l, μ)·φ for all (l, μ) ∈ ℤ², where k, m ∈ ½ℤ, v has unit norm and satisfies the weight-k principal-branch cocycle consistency law on SL(2, ℤ) (MetaplecticAutomorphicForms:MP.7). Its value at −I matches the parity in z; do not impose the scalar modular-form normalization v(−I) = e^{−πik} here. χ : ℤ² → ℂ^× is a character (v ≡ 1 for trivial multiplier and integral weight, and χ ≡ 1 for Eichler–Zagier forms); and, for every such v and χ, φ is required to satisfy: for some N ∈ ℕ and every fixed z ∈ ℂ, τ ↦ e(Nτ)·φ(τ, z) is bounded as Im τ → ∞. For v, χ trivial: membership ⟺ c(n, r) = 0 unless n ≥ n₀ for some n₀ ∈ ℤ.",
       "hypotheses": [
         "As for QM.1/jacobi-form."
       ],
@@ -36668,7 +36668,7 @@
     },
     {
       "supplier": "MetaplecticAutomorphicForms:MP.6",
-      "need": "The Jacobi theory that the verified finding RT-AREA-automorphic-1/20 gives to MetaplecticAutomorphicForms, planned once and before MP.7: the Jacobi group H(W) ⋊ Sp(W) with its metaplectic cover and unitary analogue, its Schrödinger–Weil representation, Jacobi forms of given weight and index with multiplier systems and cusp conditions, and the theta decomposition. The fix proposes a sub-stage of MP.6 for it (research/blueprint/redteam/RT-AREA-automorphic-1.fixes.md, 'MP.6:jacobi'); the request names MP.6 because that sub-stage is not yet an atlas stage. QM.1 needs the instance in which Sp(W) = SL₂ and the index is a positive definite half-integral n × n matrix F (2F integral with even diagonal), as in Skoruppa, arXiv:0707.0718, §4; QM.1 itself uses n = 1 and F = m. (a) Group. For Γ ≤ SL(2, ℤ), J_n(Γ) = Γ ⋉ (ℤⁿ × ℤⁿ) with (A, (λ, μ))(A′, (λ′, μ′)) = (AA′, (λ, μ)A′ + (λ′, μ′)) and (λ, μ)A = (λa + μc, λb + μd) for A = (a b; c d); the same for Γ ≤ Mp₂(ℤ), acting through its image in SL(2, ℤ); and its relation to the Jacobi group H(W) ⋊ Sp(W), whose lattice points act on functions of index F through J_n(Γ) up to the central scalars of the Heisenberg group. (b) Action. For k ∈ ℤ, the right action of J_n(Γ) on functions φ on ℍ × ℂⁿ: (φ|_{k,F}A)(τ, z) = (cτ + d)^{−k}·e(−cF[z]/(cτ + d))·φ(Aτ, z/(cτ + d)) and (φ|_{k,F}[λ, μ])(τ, z) = e(τF[λ] + 2zᵗFλ)·φ(τ, z + λτ + μ), with F[x] = xᵗFx and e(x) = e^{2πix}; for k ∈ ½ + ℤ the same with (cτ + d)^{−k} replaced by w(τ)^{−2k} for (A, w) ∈ Mp₂(ℤ) (MP.7's group). (c) Forms. For Γ of finite index in Mp₂(ℤ), a finite-dimensional Γ-module V and k ∈ ½ℤ: the space J_{k,F}(Γ, V) of holomorphic φ : ℍ × ℂⁿ → V with φ|_{k,F}g = g·φ for all g ∈ J_n(Γ) (ℤⁿ × ℤⁿ acting trivially on V), such that for every α ∈ Mp₂(ℤ) the function φ|_{k,F}α has a Fourier expansion Σ c(l, r)·q^l·e(zᵗr) over l ∈ ℚ, r ∈ ℤⁿ with 4l − F⁻¹[r] ≥ 0; and its subspace of cusp forms, with 4l − F⁻¹[r] > 0. For V = ℂ(ψ), ψ a character of Mp₂(ℤ), the multiplier in QM.1's sense is v(A) = ψ(A, w_A), w_A the principal branch of (cτ + d)^{1/2}; no value of v(−I) is imposed. (d) Half-integral scalar index, n = 1 and m ∈ ½ + ℤ: a treatment under which Zwegers' ϑ(z; τ) is a Jacobi form of weight 1/2 and index 1/2 with multiplier v_η³. Either of two forms serves: through the centre of the Heisenberg group, where the operators U_m[λ, μ]φ(τ, z) = e(m(λ²τ + 2λz + λμ))·φ(τ, z + λτ + μ) satisfy U_m[X′]∘U_m[X] = e(m(λμ′ − λ′μ))·U_m[X + X′] and (U_m[X]φ)|_{k,m}A = U_m[XA](φ|_{k,m}A) for all real m and X; or through φ(τ, z) ↦ φ(τ, 2z), which multiplies the index by 4, so that ϑ(2z; τ) lies in J_{1/2,2}(Mp₂(ℤ), ℂ(ε³)) with ε(A, w) = η(Aτ)/(w(τ)η(τ)). (e) Theta decomposition, at the level of the Heisenberg group: for each τ, every entire function of z ∈ ℂⁿ invariant under all |_{k,F}[λ, μ] is, uniquely, Σ_{x ∈ ℤⁿ/2Fℤⁿ} h_x·ϑ_{F,x}(τ, z), where ϑ_{F,x}(τ, z) = Σ_{r ∈ ℤⁿ, r ≡ x mod 2Fℤⁿ} e(τF⁻¹[r]/4 + rᵗz); and for Jacobi forms, when Γ acts on V through a finite quotient, the resulting isomorphism J_{k,F}(Γ, V) ≅ M_{k−n/2} ⊗ W(F)* ⊗_{ℂ[Mp₂(ℤ)]} Ind V, where M_κ is the Mp₂(ℤ)-module of modular forms of weight κ on subgroups of finite index and W(F) is the Weil representation of the discriminant module (ℤⁿ/2Fℤⁿ, x ↦ F⁻¹[x]/4) (Skoruppa, Theorem 5). QM.1 does not ask the supplier for, and keeps: the eta and theta multipliers, ϑ(z; τ) and its laws, weak and weakly holomorphic Jacobi forms, the Fourier-coefficient and theta-coefficient integrals, φ_{−2,1}, the heat operators and index raising.",
+      "need": "The Jacobi theory that the verified finding RT-AREA-automorphic-1/20 gives to MetaplecticAutomorphicForms, planned once and before MP.7: the Jacobi group H(W) ⋊ Sp(W) with its metaplectic cover and unitary analogue, its Schrödinger–Weil representation, Jacobi forms of given weight and index with multiplier systems and cusp conditions, Fourier–Jacobi coefficients and the theta decomposition. The fix proposes a sub-stage of MP.6 for it (research/blueprint/redteam/RT-AREA-automorphic-1.fixes.md, 'MP.6:jacobi'); the request names MP.6 because that sub-stage is not yet an atlas stage. QM.1 needs the instance in which Sp(W) = SL₂ and the index is a positive definite half-integral n × n matrix F (2F integral with even diagonal), as in Skoruppa, arXiv:0707.0718, §4; QM.1 itself uses n = 1 and F = m. (a) Group. For Γ ≤ SL(2, ℤ), J_n(Γ) = Γ ⋉ (ℤⁿ × ℤⁿ) with (A, (λ, μ))(A′, (λ′, μ′)) = (AA′, (λ, μ)A′ + (λ′, μ′)) and (λ, μ)A = (λa + μc, λb + μd) for A = (a b; c d); the same for Γ ≤ Mp₂(ℤ), acting through its image in SL(2, ℤ); and its relation to the Jacobi group H(W) ⋊ Sp(W), whose lattice points act on functions of index F through J_n(Γ) up to the central scalars of the Heisenberg group. (b) Action. For k ∈ ℤ, the right action of J_n(Γ) on functions φ on ℍ × ℂⁿ: (φ|_{k,F}A)(τ, z) = (cτ + d)^{−k}·e(−cF[z]/(cτ + d))·φ(Aτ, z/(cτ + d)) and (φ|_{k,F}[λ, μ])(τ, z) = e(τF[λ] + 2zᵗFλ)·φ(τ, z + λτ + μ), with F[x] = xᵗFx and e(x) = e^{2πix}; for k ∈ ½ + ℤ the same with (cτ + d)^{−k} replaced by w(τ)^{−2k} for (A, w) ∈ Mp₂(ℤ) (MP.7's group). (c) Forms. For Γ of finite index in Mp₂(ℤ), a finite-dimensional Γ-module V and k ∈ ½ℤ: the space J_{k,F}(Γ, V) of holomorphic φ : ℍ × ℂⁿ → V with φ|_{k,F}g = g·φ for all g ∈ J_n(Γ) (ℤⁿ × ℤⁿ acting trivially on V), such that for every α ∈ Mp₂(ℤ) the function φ|_{k,F}α has a Fourier expansion Σ c(l, r)·q^l·e(zᵗr) over l ∈ ℚ, r ∈ ℤⁿ with 4l − F⁻¹[r] ≥ 0; and its subspace of cusp forms, with 4l − F⁻¹[r] > 0. For V = ℂ(ψ), ψ a character of Mp₂(ℤ), the multiplier in QM.1's sense is v(A) = ψ(A, w_A), w_A the principal branch of (cτ + d)^{1/2}; no value of v(−I) is imposed. (d) Half-integral scalar index, n = 1 and m ∈ ½ + ℤ: a treatment under which Zwegers' ϑ(z; τ) is a Jacobi form of weight 1/2 and index 1/2 with multiplier v_η³. Either of two forms serves: through the centre of the Heisenberg group, where the operators U_m[λ, μ]φ(τ, z) = e(m(λ²τ + 2λz + λμ))·φ(τ, z + λτ + μ) satisfy U_m[X′]∘U_m[X] = e(m(λμ′ − λ′μ))·U_m[X + X′] and (U_m[X]φ)|_{k,m}A = U_m[XA](φ|_{k,m}A) for all real m and X; or through φ(τ, z) ↦ φ(τ, 2z), which multiplies the index by 4, so that ϑ(2z; τ) lies in J_{1/2,2}(Mp₂(ℤ), ℂ(ε³)) with ε(A, w) = η(Aτ)/(w(τ)η(τ)). (e) Theta decomposition, at the level of the Heisenberg group: for each τ, every entire function of z ∈ ℂⁿ invariant under all |_{k,F}[λ, μ] is, uniquely, Σ_{x ∈ ℤⁿ/2Fℤⁿ} h_x·ϑ_{F,x}(τ, z), where ϑ_{F,x}(τ, z) = Σ_{r ∈ ℤⁿ, r ≡ x mod 2Fℤⁿ} e(τF⁻¹[r]/4 + rᵗz); and for Jacobi forms, when Γ acts on V through a finite quotient, the resulting isomorphism J_{k,F}(Γ, V) ≅ M_{k−n/2} ⊗ W(F)* ⊗_{ℂ[Mp₂(ℤ)]} Ind V, where M_κ is the Mp₂(ℤ)-module of modular forms of weight κ on subgroups of finite index and W(F) is the Weil representation of the discriminant module (ℤⁿ/2Fℤⁿ, x ↦ F⁻¹[x]/4) (Skoruppa, Theorem 5). QM.1 does not ask the supplier for, and keeps: the eta and theta multipliers, ϑ(z; τ) and its laws, weak and weakly holomorphic Jacobi forms, the Fourier-coefficient and theta-coefficient integrals, φ_{−2,1}, the heat operators and index raising. Supplier state, checked on 2026-10-07 (REV-FIX-RT-AREA-automorphic-1~2): the packet MetaplecticAutomorphicForms--MP.0 (status complete, review needs_changes) plans MetaplecticAutomorphicForms:MP.6/jacobi-group (J(W) = H(W) ⋊ Mp(W) for a local or adelic symplectic space, with the Schrödinger–Weil representation), MP.6/jacobi-spaces (adelic smooth sections of integral central index m), MP.6/fourier-jacobi-extraction and MP.6/jacobi-theta-decomposition-interface (positive integral index, theta components through the finite Weil module). These nodes do not yet state (a) the discrete group J_n(Γ) and its relation to H(W) ⋊ Sp(W); (b) and (c) the action |_{k,F} on functions on ℍ × ℂⁿ for a matrix index F, the spaces of typus (Γ, V) and the Fourier form 4l − F⁻¹[r] ≥ 0 of the cusp condition; (d) half-integral scalar index; or, in (e), the decomposition of every entire function with the elliptic law and the isomorphism of Skoruppa's Theorem 5. Until they do, this request and the stage prerequisite stand.",
       "neededBy": [
         "QSeriesPartitionsAndMockModularForms:QM.1/jacobi-modular-slash",
         "QSeriesPartitionsAndMockModularForms:QM.1/jacobi-elliptic-slash",
@@ -36703,7 +36703,7 @@
         "DMZ §4.4: V_(k,t), its modified Möbius combination, W_(m₁) for exact divisors, the lowering operators u_t and projections U_t, their composition laws and primitive decomposition (4.37)–(4.46). Distinguish the lower-case index-raising U_s of (4.36), now covered, from the capitalized projection notation. Prove separately which operators preserve each growth condition; the source says W_(m₁) and u_t need not preserve weakness.",
         "Eichler–Zagier's Jacobi–Eisenstein series E_{k,m} and the finiteness bound dim J_{k,m} ≤ Σ_{ν=0}^{m} dim M_{k+2ν}: no public source with proofs was located in this pass.",
         "The Knopp–Petersson Jacobi-symbol formula for v_η on all of SL(2, ℤ) (Matsuda (2.1), stated there without proof): QM.1 plans only Savitt's Γ₀(4) version (QM.1/eta-multiplier-gamma0-four); the full formula needs Rademacher–Grosswald's congruences for 12c·s(d, c), for which no public proof source was found.",
-        "RT-AREA-automorphic-1/20, after the migration. The supplier is addressed as the stage MetaplecticAutomorphicForms:MP.6: the Jacobi sub-stage proposed for it is not yet an atlas stage, and no node of MetaplecticAutomorphicForms plans the Jacobi group or Jacobi forms. When those nodes exist, replace the stage prerequisite of the seven importing nodes and of QM.1/jacobi-rank-one-specialisation by their ids, and check the dictionary against the supplier's conventions: the cocycle of the Heisenberg group and its central character in index m, row or column vectors, the treatment of half-integral scalar index (centre, or z ↦ 2z), and the form of the cusp condition for forms with multiplier."
+        "RT-AREA-automorphic-1/20, after the migration. The supplier is addressed as the stage MetaplecticAutomorphicForms:MP.6: the Jacobi sub-stage proposed for it is not yet an atlas stage. Since 7 October 2026 the packet MetaplecticAutomorphicForms--MP.0 (review needs_changes) plans the nodes MetaplecticAutomorphicForms:MP.6/jacobi-group, MP.6/jacobi-spaces, MP.6/fourier-jacobi-extraction and MP.6/jacobi-theta-decomposition-interface, in adelic form and for integral central index; they do not yet supply items (a)–(e) of the request to MP.6, which says what is missing. When the supplier's nodes supply them, replace the stage prerequisite of the seven importing nodes and of QM.1/jacobi-rank-one-specialisation by their ids, and check the dictionary against the supplier's conventions: the cocycle of the Heisenberg group and its central character in index m, row or column vectors, the treatment of half-integral scalar index (centre, or z ↦ 2z), and the form of the cusp condition for forms with multiplier."
       ]
     },
     {
@@ -38664,7 +38664,12 @@
       "searched": [
         "https://arxiv.org/abs/0707.0718, 2026-10-06: the submission history lists v1 only.",
         "The published version (Modular Forms on Schiermonnikoog, Cambridge University Press, 2008) was not obtained, so the finding is scoped to the arXiv text; no errata list was looked for beyond the arXiv page."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read at p. 5 of arXiv:0707.0718v1 (SHA-256 a4cc378e…, the file round 2 read): the glossary entry prints w_A(τ) = √(aτ + b). The same glossary defines Mp(2, ℤ) by w(τ)² = cτ + d, and §3 uses (T, w_T) and (S, w_S) as its elements; with aτ + b, w_T(τ)² = τ + 1 ≠ 1. Misprint for √(cτ + d); affects nothing.",
+        "by": "REV-FIX-RT-AREA-automorphic-1~2"
+      }
     },
     {
       "id": "QSeriesPartitionsAndMockModularForms/E211",
@@ -38679,7 +38684,12 @@
       "searched": [
         "https://arxiv.org/abs/0707.0718, 2026-10-06: the submission history lists v1 only.",
         "The published version (Modular Forms on Schiermonnikoog, Cambridge University Press, 2008) was not obtained, so the finding is scoped to the arXiv text; no errata list was looked for beyond the arXiv page."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read at p. 11: the sentence after the Definition says 'in condition (i) of the definition, for all α, the stronger inequality 4l − F^{−1}[r] > 0'. Condition (i) is the transformation law; α and the inequality occur only in condition (ii), and the proof of Theorem 5 (p. 13) cites condition (ii). Condition (i) also reads 'For all J_n(Γ)' without its variable g. Misprints; affect nothing.",
+        "by": "REV-FIX-RT-AREA-automorphic-1~2"
+      }
     },
     {
       "id": "QSeriesPartitionsAndMockModularForms/E212",
@@ -38694,7 +38704,12 @@
       "searched": [
         "https://arxiv.org/abs/0707.0718, 2026-10-06: the submission history lists v1 only.",
         "The published version (Modular Forms on Schiermonnikoog, Cambridge University Press, 2008) was not obtained, so the finding is scoped to the arXiv text; no errata list was looked for beyond the arXiv page."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read at p. 4: the glossary entry for ℂ(χ) prints the action (g, z) ↦ χ(z)g, which is undefined for z ∈ ℂ; the module is used in footnote 2 of §4 as ℂ(ε³), where g acts by the scalar ε(g)³. Misprint for (g, z) ↦ χ(g)z; affects nothing.",
+        "by": "REV-FIX-RT-AREA-automorphic-1~2"
+      }
     }
   ],
   "restructure": [
@@ -38714,7 +38729,7 @@
         "MetaplecticAutomorphicForms"
       ],
       "detail": "Verified finding RT-AREA-automorphic-1/20: the Jacobi group and Jacobi forms had no single owner. MP.8 defines Jacobi forms inside the BFH genus-two cover; QM.1 constructed them again on SL(2, ℤ) ⋉ ℤ², although it imports MP.7 and MP.8; and AutomorphicCongruences:L2s imports Jacobi structures from MP.0–MP.6, where none is stated. This packet no longer constructs them: QM.1/jacobi-modular-slash, QM.1/jacobi-elliptic-slash, QM.1/jacobi-group-law, QM.1/jacobi-form, QM.1/jacobi-cusp-form, QM.1/jacobi-theta-index and QM.1/theta-decomposition are the scalar-index case of the supplier's objects, with prerequisite MetaplecticAutomorphicForms:MP.6 and one request, and QM.1/jacobi-rank-one-specialisation states the dictionary. The earlier proposal of this packet, to make QM.1 the owner and to reverse the edge MP.8 → QM.1, is withdrawn.",
-      "proposal": "MetaplecticAutomorphicForms plans once, before MP.7 (a sub-stage of MP.6 after MP.5; 'MP.6:jacobi' in research/blueprint/redteam/RT-AREA-automorphic-1.fixes.md): the Jacobi group H(W) ⋊ Sp(W) with its metaplectic cover and unitary analogue, the Schrödinger–Weil representation, Jacobi forms of given weight and index with multiplier systems and cusp conditions, Fourier–Jacobi coefficients and the theta decomposition, in the generality of the request recorded here. QM.1 imports it and keeps the classical scalar-index specialisations with its eta, theta and q-series material; MP.8 specialises it to the BFH cover of GSp(4); AutomorphicCongruences:L2s imports its unitary instance. Stage edge: MetaplecticAutomorphicForms:MP.6 → QSeriesPartitionsAndMockModularForms:QM.1, which is acyclic, since QM.1 already requires MP.7 and MP.8 and no stage of MetaplecticAutomorphicForms requires a stage of this roadmap. When the sub-stage exists, the request and the eight prerequisites are retargeted to it. No edge to AutomorphicCongruences:L2 is proposed: the verifier found no use of Jacobi forms in L2's own text."
+      "proposal": "MetaplecticAutomorphicForms plans once, before MP.7 (a sub-stage of MP.6 after MP.5; 'MP.6:jacobi' in research/blueprint/redteam/RT-AREA-automorphic-1.fixes.md): the Jacobi group H(W) ⋊ Sp(W) with its metaplectic cover and unitary analogue, the Schrödinger–Weil representation, Jacobi forms of given weight and index with multiplier systems and cusp conditions, Fourier–Jacobi coefficients and the theta decomposition, in the generality of the request recorded here. QM.1 imports it and keeps the classical scalar-index specialisations with its eta, theta and q-series material; MP.8 specialises it to the BFH cover of GSp(4); AutomorphicCongruences:L2s imports its unitary instance. Stage edge: MetaplecticAutomorphicForms:MP.6 → QSeriesPartitionsAndMockModularForms:QM.1, which is acyclic, since QM.1 already requires MP.7 and MP.8 and no stage of MetaplecticAutomorphicForms requires a stage of this roadmap. That holds in the atlas's stage graph, and the edge is implied by MP.6 → MP.7 → QM.1, so it adds no cycle. Packets merged on 2026-10-07 do induce one that this edge neither creates nor removes: in MetaplecticAutomorphicForms--MP.0, MP.7/theta-multiplier and MP.7/theta-residue-normalization cite QM.1/jacobi-theta-nonvanishing, four MP.7 nodes cite the stage QM.2 and two cite QM.3/weight-k-hyperbolic-laplacian, and nodes of AutomorphicSpectralTheory AS.0–AS.2 (which MP.5–MP.7 nodes cite) cite the stage QM.2; with QM.2 → QM.1 → MP.7 this closes stage cycles through QM.1. Citing the QM.2 nodes those uses need, rather than the whole stage, removes the cycles through QM.2 wherever the cited nodes do not themselves depend on QM.1; that is for the revisions of those packets. When the sub-stage exists, the request and the eight prerequisites are retargeted to it. No edge to AutomorphicCongruences:L2 is proposed: the verifier found no use of Jacobi forms in L2's own text."
     },
     {
       "action": "rescope",
@@ -39530,7 +39545,7 @@
       "proposal": "QM.1 owns the classical Jacobi forms on SL(2, ℤ) ⋉ ℤ² of weight k ∈ ½ℤ and index m ∈ ½ℤ with multiplier system and character (nodes QM.1/jacobi-modular-slash … QM.1/theta-decomposition-weil-representation). MP.8 keeps the GSp(4)-cover Jacobi group, cover-specific Jacobi forms and Fourier–Jacobi expansions, and imports QM.1's slash operators, Fourier characterisation and theta decomposition wherever its objects restrict to SL(2, ℤ) ⋉ ℤ². Replace the edge MP.8 → QM.1 by QM.1 → MP.8 (no cycle arises: MP.7 → QM.1 → MP.8 and MP.7 → MP.8)."
     },
     "appliedGraphChanges": false,
-    "nodeMigration": "Applied on 2026-10-06 by FIX-RT-AREA-automorphic-1~2 (see migration); it awaits REV-FIX-RT-AREA-automorphic-1~2. All inherited node objects are retained.",
+    "nodeMigration": "Applied on 2026-10-06 by FIX-RT-AREA-automorphic-1~2 (see migration) and accepted as the fix of RT-AREA-automorphic-1/20 by REV-FIX-RT-AREA-automorphic-1~2 on 2026-10-07 (see review). All inherited node objects are retained.",
     "migration": {
       "by": "Claude — claude-B2lUdi",
       "date": "2026-10-06",
@@ -39577,7 +39592,7 @@
     "status": "needs_changes",
     "reviewer": "independent-review-REV-FIX-RT-AREA-topology~4",
     "date": "2026-10-07",
-    "notes": "Review of FIX-RT-AREA-topology~4 (#6520, PR #6873, Codex codex-BLPWxk) for RT-AREA-topology/13; the preceding review of this file, REV-QSeriesPartitionsAndMockModularForms (needs_changes, 2026-10-05), is archived in reviewHistory and stays in force for its own findings: its revision BP-QSeriesPartitionsAndMockModularForms~2 is pending, and accepting here would promote the whole packet past it. /13: the owner split is right (QM.5 owns the definition, the strange identity and the Lawrence-Zagier examples; QT.7 the knot statements), and Zagier, Quantum modular forms, Example 5 (pp. 12-16) does put the knot cocycle outside the canonical definition. The round wrote its contracts as if QT.7 were unplanned; the ArithmeticQuantumTopology packet was complete at its base and imports QM.5/quantum-modular-cocycle (not among the eight) and the stage QM.5, with an open request for matrix-valued multiplicative cocycles. Corrected in place: a QT.7 use on QM.5/quantum-modular-cocycle; precise wording of seven contracts (the multiplier of Kontsevich's phi is the inverse of the eta multiplier; the trefoil-Kashaev obligation, the Poincare-sphere subgroup attribution, the normalised coefficients and the rescaled WRT values); the restructure detail and proposal brought up to date with the written consumer; a QM.5 coverage item for the unanswered matrix-valued request. Remaining: decide who plans that interface (QM.5, a QSeries Part II, or QT.7); sync the reader's export table and its stale QT.7 bullet with the packet. Checker 0 errors, 0 warnings; suggested file compiled with lean-check: 1467 warnings, all for proofs left open, no errors. Details: research/blueprint/reviews/REV-FIX-RT-AREA-topology~4.md."
+    "notes": "Review of FIX-RT-AREA-topology~4 (#6520, PR #6873, Codex codex-BLPWxk) for RT-AREA-topology/13. Follows independent-review-REV-FIX-RT-AREA-automorphic-1~2 (needs_changes, 2026-10-07), archived in reviewHistory after the blueprint review REV-QSeriesPartitionsAndMockModularForms (needs_changes, 2026-10-05). That blueprint review stays in force for its own findings: its revision BP-QSeriesPartitionsAndMockModularForms~2 is pending, and accepting here would promote the whole packet past it. /13: the owner split is right (QM.5 owns the definition, the strange identity and the Lawrence-Zagier examples; QT.7 the knot statements), and Zagier, Quantum modular forms, Example 5 (pp. 12-16) does put the knot cocycle outside the canonical definition. The round wrote its contracts as if QT.7 were unplanned; the ArithmeticQuantumTopology packet was complete at its base and imports QM.5/quantum-modular-cocycle (not among the eight) and the stage QM.5, with an open request for matrix-valued multiplicative cocycles. Corrected in place: a QT.7 use on QM.5/quantum-modular-cocycle; precise wording of seven contracts (the multiplier of Kontsevich's phi is the inverse of the eta multiplier; the trefoil-Kashaev obligation, the Poincare-sphere subgroup attribution, the normalised coefficients and the rescaled WRT values); the restructure detail and proposal brought up to date with the written consumer; a QM.5 coverage item for the unanswered matrix-valued request. Remaining: decide who plans that interface (QM.5, a QSeries Part II, or QT.7); sync the reader's export table and its stale QT.7 bullet with the packet. Checker 0 errors, 0 warnings; suggested file (merged with #6892) compiled with lean-check: 1469 warnings, all for proofs left open, no errors. Details: research/blueprint/reviews/REV-FIX-RT-AREA-topology~4.md."
   },
   "reviewHistory": [
     {
@@ -42265,6 +42280,69 @@
           "nodeId": "QSeriesPartitionsAndMockModularForms:QM.1/index-raising-weakly-holomorphic",
           "verdict": "verified",
           "note": "DMZ lower-case U_s index raising, composition and theta reindexing were checked. Positive s is distinguished from the native totalized s=0 value; this does not supply the distinct capitalized projection operators."
+        }
+      ]
+    },
+    {
+      "status": "needs_changes",
+      "reviewer": "independent-review-REV-FIX-RT-AREA-automorphic-1~2",
+      "date": "2026-10-07",
+      "notes": "Follows independent-review-REV-QSeriesPartitionsAndMockModularForms (needs_changes, archived in reviewHistory). Scoped review of FIX-RT-AREA-automorphic-1~2 (claude-B2lUdi, #6664) by Claude, session claude-e5obk8, who did none of the red team, its verification, either fix round, the blueprint or its review. Only RT-AREA-automorphic-1/20 concerns this packet. Its fix is right and is accepted as a fix: seven QM.1 nodes import the Jacobi theory of MetaplecticAutomorphicForms through one precise request to MP.6, QM.1/jacobi-rank-one-specialisation states the dictionary, and nothing general is constructed here. Checked against Skoruppa arXiv:0707.0718v1 (same SHA-256), every identity by hand or numerically; E210–E212 confirmed. Corrected: the sentence of the four classical space definitions that had lost its subject (growth now imposed for every v, χ); the request and QM.1's remaining item now record the MP.6 Jacobi nodes planned on 2026-10-07 and what they lack; the suggested file states the classical half of part (c′). Stage edge MP.6 → QM.1 adds no cycle (QM.1 already requires MP.7); the restructure entry now records the stage cycles through QM.1 that the MP.0 and AutomorphicSpectralTheory packets merged on 2026-10-07 induce. Checker 0 errors, 0 warnings; the suggested file elaborates with no error. The packet keeps needs_changes because its blueprint review did not accept it and the revision BP-QSeriesPartitionsAndMockModularForms~2 (#6517) carries that review's corrections; nothing of /20 remains to fix except syncing the reader with these corrections.",
+      "checked": [
+        {
+          "nodeId": "QSeriesPartitionsAndMockModularForms:QM.1/jacobi-modular-slash",
+          "verdict": "verified",
+          "note": "Import sentence, first proof step and the MP.6 prerequisite are right: the operator is Skoruppa's φ|_{k,F}A at n = 1, F = m (p. 11), with w(τ)^{−2k} for half-integral k. Formula, API and tests unchanged."
+        },
+        {
+          "nodeId": "QSeriesPartitionsAndMockModularForms:QM.1/jacobi-elliptic-slash",
+          "verdict": "verified",
+          "note": "The operator is Skoruppa's φ|_{k,F}[λ, μ] at n = 1, F = m (p. 11). The factor e(mlμ) relating it to U_m was checked numerically."
+        },
+        {
+          "nodeId": "QSeriesPartitionsAndMockModularForms:QM.1/jacobi-group-law",
+          "verdict": "verified",
+          "note": "The law (A, X)(A′, X′) = (AA′, XA′ + X′) is Skoruppa's composition law (p. 10). The integral-index restriction and the m = 1/2 counterexample (factor −1) were rechecked numerically."
+        },
+        {
+          "nodeId": "QSeriesPartitionsAndMockModularForms:QM.1/jacobi-form",
+          "verdict": "corrected",
+          "note": "Import and planet rename right; the use by MP.8, which described a cycle, is correctly replaced. Corrected the sentence that had lost its subject in the preceding review's edit (bc1464c2): the growth condition is imposed for every multiplier v and character χ, as in the reader, the suggested JacobiForm and part (c) of the comparison, which needs it for general v."
+        },
+        {
+          "nodeId": "QSeriesPartitionsAndMockModularForms:QM.1/jacobi-cusp-form",
+          "verdict": "corrected",
+          "note": "Import right. The same sentence repaired: the cusp condition holds for every v and χ."
+        },
+        {
+          "nodeId": "QSeriesPartitionsAndMockModularForms:QM.1/jacobi-fourier-expansion",
+          "verdict": "verified",
+          "note": "Annotation, not import, is right: the lemma is about every doubly periodic holomorphic function, and QM.1's weak and QM.4's meromorphic Jacobi forms need it."
+        },
+        {
+          "nodeId": "QSeriesPartitionsAndMockModularForms:QM.1/jacobi-theta-index",
+          "verdict": "verified",
+          "note": "ϑ_{m,μ} is Skoruppa's ϑ_{F,x} at n = 1, F = m (p. 5): F⁻¹[r]/4 = r²/(4m), r ≡ x mod 2Fℤ."
+        },
+        {
+          "nodeId": "QSeriesPartitionsAndMockModularForms:QM.1/theta-decomposition",
+          "verdict": "verified",
+          "note": "The case n = 1, F = m of the expansion ψ = Σ h_x ϑ_{F,x} in the proof of Skoruppa's Theorem 5 (p. 13); stated for every entire function with the elliptic law, which QM.4 needs."
+        },
+        {
+          "nodeId": "QSeriesPartitionsAndMockModularForms:QM.1/jacobi-rank-one-specialisation",
+          "verdict": "verified",
+          "note": "(a)–(e) checked against Skoruppa pp. 4–5, 10–13: composition law, action, Definition (i)–(ii), footnote 2, Theorem 5. The multiplier bijection, growth ⇔ support argument, (c′) and the T-law of W(m) were rechecked by hand; the U_m laws, the S-, T- and −I-laws of ϑ(2z; τ) in index 2 with v_η³, its lattice and half-lattice laws, and Skoruppa's ϑ = −i·ϑ(z; τ) numerically. Comparison: no API or tests required."
+        },
+        {
+          "nodeId": "QSeriesPartitionsAndMockModularForms:QM.1/weak-jacobi-form",
+          "verdict": "corrected",
+          "note": "Not a round-2 node; the same broken sentence from bc1464c2 repaired so that the weak growth condition holds for every v and χ, as the suggested WeakJacobiForm has it."
+        },
+        {
+          "nodeId": "QSeriesPartitionsAndMockModularForms:QM.1/weakly-holomorphic-jacobi-form",
+          "verdict": "corrected",
+          "note": "Not a round-2 node; the same repair."
         }
       ]
     }
