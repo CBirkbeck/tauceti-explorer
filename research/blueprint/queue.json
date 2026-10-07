@@ -24695,7 +24695,8 @@
    ],
    "avoidAccountOf": "BP-ExcursionOperatorsAndSpectralAction--ES0",
    "prompt": "research/blueprint/prompts/REV-ExcursionOperatorsAndSpectralAction--ES0.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #403"
   },
   {
    "id": "BP-ExcursionOperatorsAndSpectralAction--ES5",
@@ -26313,8 +26314,9 @@
    ],
    "avoidAccountOf": "BP-IntegralHeckeAndGaloisDeterminants",
    "prompt": "research/blueprint/prompts/REV-IntegralHeckeAndGaloisDeterminants.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #435"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #435",
+   "finishedAt": "2026-10-07T04:39:36Z"
   },
   {
    "id": "BP-IntegralIwasawaTheory--I.1",
