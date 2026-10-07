@@ -1,8 +1,8 @@
 {
   "roadmaps": 233,
-  "stages": 4091,
+  "stages": 4129,
   "originalStages": 2138,
-  "sourceRefinements": 1953,
+  "sourceRefinements": 1991,
   "reviewedDecompositions": [
     {
       "roadmap": "AInfCohomology",
@@ -299,14 +299,14 @@
   "editedRoadmapSummaries": 181,
   "curatedStagePresentations": 339,
   "administrativeStages": 101,
-  "mathematicalStars": 3990,
+  "mathematicalStars": 4028,
   "plainTextPlanetLabels": 398,
   "hiddenPlanets": 600,
   "mappedStageStatuses": 350,
   "libraryAuditStatuses": 19,
   "bibliographicSources": 46,
-  "roadmapEdges": 1978,
-  "stageEdges": 10696,
+  "roadmapEdges": 1980,
+  "stageEdges": 10750,
   "reviewedLinkPackets": 25,
   "promotedBlueprints": [
     {
@@ -796,6 +796,12 @@
       "reviewer": "independent-review-REV-HeegnerPointEulerSystems--HE.0~2"
     },
     {
+      "file": "HilbertModularVarietiesAndShimuraCurves--H0",
+      "roadmap": "HilbertModularVarietiesAndShimuraCurves",
+      "nodes": 75,
+      "reviewer": "independent-review-REV-HilbertModularVarietiesAndShimuraCurves--H0"
+    },
+    {
       "file": "HilbertModularVarietiesAndShimuraCurves--R18.2",
       "roadmap": "HilbertModularVarietiesAndShimuraCurves",
       "nodes": 58,
@@ -995,8 +1001,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 34144861,
-  "htmlSha256": "dfce6b77e1ac2c318a4662f6761c1216955669741f8792051ed79f30cabcf82f",
+  "htmlBytes": 34236461,
+  "htmlSha256": "ff729a7049f7ffdd1b9856bf38bb88fdb5a33e0254739f81e04ce106c482e593",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -1028,7 +1034,7 @@
     "data/roadmap-summaries.json": "c8bdd0a9105f5d3c4a858c8b635990729f8e94497dee784a71fae659b8c05b9f",
     "data/roadmap-classification.json": "2641dbc97eb2566c715162d011b46890d1635629181ef8126ac7aed9e24a3b13",
     "data/classification-estimates.json": "625d35fe6121bf099dc5de9e6a9111793596f9b664e3fbd439841434bb4a57d6",
-    "data/roadmap-distances.json": "f22a0e750b45778b1422493b9a95fce797f7af19666c900a366e61d1068a1ade",
+    "data/roadmap-distances.json": "c6679ae7288592d8c8dfc5760efcd41a792e9307b9d2b7106086ad7c6134a079",
     "data/galaxy-layout.json": "95d22d0d152602a054dadfada90511f6b0fb8538a1e5530c4d93412c18a51e02",
     "data/bibliography.json": "bef230a41fad22d6b790c7564061c4d05c2ae5b78cab53d005eb404afab2b122",
     "NOTICE": "a285b95d5adbf5c2bcc82db36e2a77b797f84a2c5cbb30292efd0bae17cc4f34",
@@ -1248,6 +1254,8 @@
     "data/blueprints/HabiroRings.md": "160228b0864d6bc3f4ce34b83994e5cda0e423f1127f1b39d61e4fd735e0560c",
     "data/blueprints/HeegnerPointEulerSystems--HE.0.json": "ac5a9ab99f4f5cc015231379961433746521211ed1b844f9b4ff05f3b07fcd33",
     "data/blueprints/HeegnerPointEulerSystems--HE.0.md": "7d5303017cfc58865957e91dba0f044491b693554de8f02fa3ec40bc69db8ce1",
+    "data/blueprints/HilbertModularVarietiesAndShimuraCurves--H0.json": "92d921eb5fe91b1dacbc2d89d5714a3789fe3c7b60dd04ff0308a4f3815e9c96",
+    "data/blueprints/HilbertModularVarietiesAndShimuraCurves--H0.md": "f7a0a5cd964d960a45ccda52b2f99208f4769d5baef71c27fc3d716ee8c0197d",
     "data/blueprints/HilbertModularVarietiesAndShimuraCurves--R18.2.json": "2bfb96947e41cf78c40a01e574b87c3e46b116ec823db4fb507a348816fa17ee",
     "data/blueprints/HilbertModularVarietiesAndShimuraCurves--R18.2.md": "81d48de4514ac6dba529650c1d8c4162ac17c95cfd1c8838bb0a2e022885d358",
     "data/blueprints/HodgeStructuresPartII.json": "5a31ff30c1e64b361b9bfcdc864bdd8c1eff62a4b3056d5889d1d8ceae23f9a6",
