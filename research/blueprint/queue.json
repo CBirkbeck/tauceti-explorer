@@ -22088,8 +22088,9 @@
     "REV-RS-09~2"
    ],
    "prompt": "research/blueprint/prompts/BP-ArithmeticLocallySymmetricSpaces.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #679"
   },
   {
    "id": "REV-ArithmeticLocallySymmetricSpaces",
