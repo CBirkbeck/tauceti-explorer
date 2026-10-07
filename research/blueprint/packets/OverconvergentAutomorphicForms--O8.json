@@ -512,8 +512,8 @@
       "prerequisites": [
         "OverconvergentAutomorphicForms:O8/hodge-frame-transformation",
         "OverconvergentAutomorphicForms:O8/determinant-character-cocycle",
-        "OverconvergentAutomorphicForms:O0",
-        "OverconvergentAutomorphicForms:O1"
+        "OverconvergentAutomorphicForms:O0/finite-analytic-coefficients",
+        "OverconvergentAutomorphicForms:O1/equivariant-coefficient-sheaf"
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Overconvergent/Siegel/Coefficients",
@@ -564,8 +564,10 @@
       "prerequisites": [
         "OverconvergentAutomorphicForms:O8/scalar-coefficient-identification",
         "OverconvergentAutomorphicForms:O8/determinant-frame-transformation",
-        "OverconvergentAutomorphicForms:O0",
-        "OverconvergentAutomorphicForms:O1",
+        "OverconvergentAutomorphicForms:O0/finite-analytic-coefficients",
+        "OverconvergentAutomorphicForms:O0/coefficient-tensor-dual",
+        "OverconvergentAutomorphicForms:O1/equivariant-coefficient-sheaf",
+        "OverconvergentAutomorphicForms:O1/coefficient-descent-functoriality",
         "mathlib:mul_zpow",
         "AutomorphicBundles:B4/siegel-coefficient",
         "AutomorphicBundles:B0/sections-equivariant"
@@ -621,8 +623,9 @@
         "OverconvergentAutomorphicForms:O8/hodge-frame-transformation",
         "OverconvergentAutomorphicForms:O8/factor-composition",
         "OverconvergentAutomorphicForms:O8/antidiagonal-dual-factor",
-        "OverconvergentAutomorphicForms:O0",
-        "OverconvergentAutomorphicForms:O1",
+        "OverconvergentAutomorphicForms:O0/finite-analytic-coefficients",
+        "OverconvergentAutomorphicForms:O1/equivariant-coefficient-sheaf",
+        "OverconvergentAutomorphicForms:O1/coefficient-descent-functoriality",
         "AutomorphicBundles:B4/siegel-coefficient",
         "AutomorphicBundles:B0/sections-equivariant",
         "AutomorphicBundles:B2/levi-highest-weight-convention"
@@ -785,8 +788,8 @@
         "OverconvergentAutomorphicForms:O8/factor-composition",
         "OverconvergentAutomorphicForms:O8/determinant-line-map",
         "OverconvergentAutomorphicForms:O8/scalar-coefficient-identification",
-        "OverconvergentAutomorphicForms:O0",
-        "OverconvergentAutomorphicForms:O1"
+        "OverconvergentAutomorphicForms:O0/analytic-induced-coefficients",
+        "OverconvergentAutomorphicForms:O1/equivariant-coefficient-sheaf"
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Overconvergent/Siegel/Coefficients",
@@ -836,8 +839,9 @@
         "OverconvergentAutomorphicForms:O8/siegel-analytic-instance",
         "AutomorphicBundles:B2/levi-highest-weight-convention",
         "AutomorphicBundles:B4/siegel-coefficient",
-        "OverconvergentAutomorphicForms:O0",
-        "OverconvergentAutomorphicForms:O1"
+        "OverconvergentAutomorphicForms:O0/algebraic-induced-comparison",
+        "OverconvergentAutomorphicForms:O1/equivariant-coefficient-sheaf",
+        "OverconvergentAutomorphicForms:O1/coefficient-descent-functoriality"
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Overconvergent/Siegel/Coefficients",
@@ -921,8 +925,10 @@
       "prerequisites": [
         "PerfectoidShimuraVarieties:S6",
         "HodgeTateAndCanonicalSubgroups:T6:comparison",
-        "OverconvergentAutomorphicForms:O0",
-        "OverconvergentAutomorphicForms:O1",
+        "OverconvergentAutomorphicForms:O0/finite-analytic-coefficients",
+        "OverconvergentAutomorphicForms:O0/analytic-induced-coefficients",
+        "OverconvergentAutomorphicForms:O1/equivariant-coefficient-sheaf",
+        "OverconvergentAutomorphicForms:O1/coefficient-descent-functoriality",
         "AutomorphicBundles:B0/hodge-parabolic-convention",
         "AutomorphicBundles:B0/sections-equivariant"
       ],
@@ -1016,8 +1022,10 @@
         "An arbitrary unitary datum without a supplied analytic reduction is outside the hypotheses."
       ],
       "prerequisites": [
-        "OverconvergentAutomorphicForms:O0",
-        "OverconvergentAutomorphicForms:O1",
+        "OverconvergentAutomorphicForms:O0/finite-analytic-coefficients",
+        "OverconvergentAutomorphicForms:O0/analytic-induced-coefficients",
+        "OverconvergentAutomorphicForms:O1/equivariant-coefficient-sheaf",
+        "OverconvergentAutomorphicForms:O1/coefficient-descent-functoriality",
         "AutomorphicBundles:B0/sections-equivariant",
         "AutomorphicBundles:B4",
         "PerfectoidShimuraVarieties:S6",
@@ -1066,8 +1074,10 @@
       "prerequisites": [
         "OverconvergentAutomorphicForms:O8/supplied-domain-instance",
         "PerfectoidShimuraVarieties:S6",
-        "OverconvergentAutomorphicForms:O0",
-        "OverconvergentAutomorphicForms:O1",
+        "OverconvergentAutomorphicForms:O0/analytic-induced-coefficients",
+        "OverconvergentAutomorphicForms:O0/algebraic-induced-comparison",
+        "OverconvergentAutomorphicForms:O1/equivariant-coefficient-sheaf",
+        "OverconvergentAutomorphicForms:O1/coefficient-descent-functoriality",
         "AutomorphicBundles:B2/levi-highest-weight-convention",
         "AutomorphicBundles:B4"
       ],
@@ -1113,7 +1123,7 @@
     },
     {
       "supplier": "OverconvergentAutomorphicForms:O0",
-      "need": "Export uniform analytic characters and full GL_g/Levi Iwahori induced coefficient modules, transpose-left actions, bounded family/radius maps, Gauss lattices, the coefficient module structure (not a fixed-weight algebra: E-O8-16), analytic restriction of finite algebraic representations, and injectivity of restriction of regular full-Borel-equivariant functions. For BP retain κ=−w0,M wν−(w0,M wρ+ρ). The current O0 packet treats Hilbert unit/norm characters and does not provide these higher-rank interfaces.",
+      "need": "The exact O0/finite-analytic-coefficients, O0/analytic-induced-coefficients and O0/algebraic-induced-comparison nodes supply the general finite/Levi coefficient definitions and BP regular-function injection. Remaining refinement: specialize compact-torus character extension to the Siegel determinant/diagonal torus; identify the BP inverse-left, Weyl-conjugated induction with DRW full-Borel equivariance and transpose-left action on the actual analytic Iwahori charts, retaining w>1+r, bounded family/radius maps and the analytic Gauss lattice. Prove the converted algebraic restriction is equivariant and injective. Fixed weight gives a coefficient module; multiplication lands in the product-weight module (E-O8-16). For BP retain κ=−w0,M wν−(w0,M wρ+ρ). No second general induction is requested.",
       "neededBy": [
         "OverconvergentAutomorphicForms:O8/scalar-coefficient-identification",
         "OverconvergentAutomorphicForms:O8/determinant-hodge-specialisation",
@@ -1127,7 +1137,7 @@
     },
     {
       "supplier": "OverconvergentAutomorphicForms:O1",
-      "need": "Export the genuine coefficient-sheaf/associated-torsor functor with open restriction, bounded family maps, equivariant monomorphism descent and effective finite-rank descent on the supplied analytic, pro-Kummer-étale and diamond/v-site categories. Retain Jγδ(x)=Jγ(x)Jδ(xγ), hence inverse coefficient order ρ(Jδ(xγ))⁻¹ρ(Jγ(x))⁻¹. No effectivity of arbitrary Banach pro-étale descent may be assumed.",
+      "need": "The exact O1/right-automorphy-cocycle, O1/equivariant-coefficient-sheaf and O1/coefficient-descent-functoriality nodes supply the right/inverse convention, analytic/v-site equalizer, coefficient maps and conditional finite descent. Remaining refinement: establish the completed coefficient-function carrier and effective descent/monomorphism transport on these specific Siegel analytic, pro-Kummer-étale and toroidal diamond/v-sites, with the actual covers and integral lattices. Retain Jγδ(x)=Jγ(x)Jδ(xγ), hence inverse coefficient order ρ(Jδ(xγ))⁻¹ρ(Jγ(x))⁻¹. Equalizer existence is not arbitrary Banach pro-étale descent effectivity; the latter needs its own supplied theorem.",
       "neededBy": [
         "OverconvergentAutomorphicForms:O8/scalar-coefficient-identification",
         "OverconvergentAutomorphicForms:O8/determinant-hodge-specialisation",
@@ -1173,7 +1183,7 @@
       "stageId": "OverconvergentAutomorphicForms:O8",
       "status": "planned",
       "remaining": [
-        "Implement/export the exact higher-rank O0/O1 and S1/S3/S6/T6 supplier interfaces; replace stage prerequisites by verified node IDs as those owners supply them.",
+        "Refine the exact O0/O1 node imports with the recorded higher-rank chart adapters and site-specific completed descent; implement/export S1/S3/S6/T6 interfaces. The generic coefficient and equalizer constructions already have node IDs and are not planned again.",
         "Resolve the uniform quantitative Siegel canonical-domain gap; collate the confirmed preprint findings against the version of record when its full text is accessible.",
         "State the eleven genuine geometric suggested signatures once supplier types exist; the finite prototype is not a sheaf implementation.",
         "Validate the declared highest-weight, opposite-parabolic, central-character and cyclotomic conventions in the assembled owner interfaces."
@@ -1213,6 +1223,35 @@
         "OverconvergentAutomorphicForms:O8/algebraic-induced-injection"
       ],
       "detail": "O0/O1 must export the full analytic Iwahori module with the correct Gauss lattice and Borel action. The finite associated-bundle comparison is specified independently of DRW Proposition 3.3.10; its printed antidiagonal intertwiners and unipotent normalization are not treated as verified proofs. All sixteen source findings are independently confirmed in the hashed arXiv v3; their presence in the published version is unverified. O0 must retain a fixed-weight coefficient module, with multiplication landing in the product-weight module (E-O8-16). The corrected intertwiners and the uniform-domain argument still need supplier proofs. No AIP sheaf equivalence or classicality theorem is included in the O8 targets."
+    },
+    {
+      "title": "O0 higher-rank analytic chart adapters",
+      "neededBy": [
+        "OverconvergentAutomorphicForms:O8/scalar-coefficient-identification",
+        "OverconvergentAutomorphicForms:O8/determinant-hodge-specialisation",
+        "OverconvergentAutomorphicForms:O8/algebraic-levi-specialisation",
+        "OverconvergentAutomorphicForms:O8/siegel-analytic-instance",
+        "OverconvergentAutomorphicForms:O8/algebraic-induced-injection",
+        "OverconvergentAutomorphicForms:O8/toroidal-coefficient-instance",
+        "OverconvergentAutomorphicForms:O8/supplied-domain-instance",
+        "OverconvergentAutomorphicForms:O8/bruhat-reduced-family"
+      ],
+      "detail": "The exact O0/finite-analytic-coefficients, O0/analytic-induced-coefficients and O0/algebraic-induced-comparison nodes supply the general finite/Levi coefficient definitions and BP regular-function injection. Remaining refinement: specialize compact-torus character extension to the Siegel determinant/diagonal torus; identify the BP inverse-left, Weyl-conjugated induction with DRW full-Borel equivariance and transpose-left action on the actual analytic Iwahori charts, retaining w>1+r, bounded family/radius maps and the analytic Gauss lattice. Prove the converted algebraic restriction is equivariant and injective. Fixed weight gives a coefficient module; multiplication lands in the product-weight module (E-O8-16). For BP retain κ=−w0,M wν−(w0,M wρ+ρ). No second general induction is requested."
+    },
+    {
+      "title": "O1 site-specific completed coefficient descent",
+      "neededBy": [
+        "OverconvergentAutomorphicForms:O8/scalar-coefficient-identification",
+        "OverconvergentAutomorphicForms:O8/determinant-hodge-specialisation",
+        "OverconvergentAutomorphicForms:O8/algebraic-levi-specialisation",
+        "OverconvergentAutomorphicForms:O8/siegel-analytic-instance",
+        "OverconvergentAutomorphicForms:O8/algebraic-induced-injection",
+        "OverconvergentAutomorphicForms:O8/toroidal-coefficient-instance",
+        "OverconvergentAutomorphicForms:O8/toroidal-algebraic-comparison",
+        "OverconvergentAutomorphicForms:O8/supplied-domain-instance",
+        "OverconvergentAutomorphicForms:O8/bruhat-reduced-family"
+      ],
+      "detail": "The exact O1/right-automorphy-cocycle, O1/equivariant-coefficient-sheaf and O1/coefficient-descent-functoriality nodes supply the right/inverse convention, analytic/v-site equalizer, coefficient maps and conditional finite descent. Remaining refinement: establish the completed coefficient-function carrier and effective descent/monomorphism transport on these specific Siegel analytic, pro-Kummer-étale and toroidal diamond/v-sites, with the actual covers and integral lattices. Retain Jγδ(x)=Jγ(x)Jδ(xγ), hence inverse coefficient order ρ(Jδ(xγ))⁻¹ρ(Jγ(x))⁻¹. Equalizer existence is not arbitrary Banach pro-étale descent effectivity; the latter needs its own supplied theorem."
     }
   ],
   "sourceIssues": [
@@ -1596,7 +1635,7 @@
   "baselineSearch": {
     "date": "2026-10-06",
     "result": "Reviewed AUDIT-15 O8 row reconfirmed. Complete pinned source trees searched: no actual Siegel varieties, canonical/anticanonical domains, analytic Iwahori coefficient module or toroidal Shimura diamond. Complex modular-form slash actions, complex Hodge Tate structures, symplectic algebra and knot-theoretic toroidal grids are different objects. All imported baseline statements reread; no Tau Ceti declaration is restated as a new node.",
-    "suppliersChecked": "Current O0 packet read: Hilbert weight/unit/norm results do not supply general GL_g analytic induction. Current B0 packet exact B0/sections-equivariant, B2/levi-highest-weight-convention, B4/siegel-coefficient and B3.general/general-canonical-extension nodes imported after reading their full statements. S1/S3/S6 and T3/T6 stage contracts read; no exact implementing packet IDs present. Reserved IDs and reviewed decompositions searched; no O8 reservation or existing O8 decomposition to import.",
+    "suppliersChecked": "Assembly reconciliation: the current O0 packet supplies exact O0/finite-analytic-coefficients, O0/coefficient-tensor-dual, O0/analytic-induced-coefficients and O0/algebraic-induced-comparison nodes; O1 supplies the exact coefficient equalizer and functoriality nodes. O8 imports those nodes without replanning general induction or descent. The DRW/BP chart/action adapters and site-specific completed descent remain explicit O8 gaps and refined owner requests. B0/sections-equivariant, B2/levi-highest-weight-convention, B4/siegel-coefficient and B3.general/general-canonical-extension remain exact imports; S1/S3/S6 and T3/T6 interfaces remain stage contracts where implementing node IDs are absent.",
     "links": "All 27 stage edges of the roadmap inspected. No link-map record names an OverconvergentAutomorphicForms stage; the 28 roadmap-only none-screen entries introduce no dependency.",
     "upstreamScreen": "Public searches for Mathlib and Lean Zulip Siegel/cocycle work found no matching pinned declaration or usable design decision; absence from search is not a proof of absence."
   },
