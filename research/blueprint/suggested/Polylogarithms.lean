@@ -515,6 +515,7 @@ example (z : ℂ) : blochWigner z⁻¹ = -blochWigner z := by sorry
 
 -- P.2/hyperbolic-volume: P.2 is the sole owner of the ideal-tetrahedron identity vol I = D(r).
 -- GeometricTopology layer 7 supplies metric/volume foundations; layer 8 supplies the model.
+-- Both layers are explicit stage prerequisites of this node, with separate supplier requests.
 -- The ideal boundary, oriented ideal tetrahedra and finite-region-volume interface require
 -- an early GeometricTopology Part II extension (packet gap), before P.2 and QT.5.
 -- Milnor's Lobachevsky-volume formula is P.2's own separate proof gap. The geometric theorem

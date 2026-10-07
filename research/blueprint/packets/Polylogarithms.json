@@ -1774,7 +1774,9 @@
     "Polylogarithms:P.1/bloch-wigner-five-term",
     "Polylogarithms:P.1/bloch-wigner-positivity",
     "Polylogarithms:P.2/lobachevsky-identity",
-    "K3BlochGroups:V.4/cross-ratio"
+    "K3BlochGroups:V.4/cross-ratio",
+    "tauceti:TauCetiRoadmap/GeometricTopology#layer-7-riemannian-geometric-structures-and-volume",
+    "tauceti:TauCetiRoadmap/GeometricTopology#layer-8-thurston-geometries-and-the-jsj--geometric-decomposition"
    ],
    "sources": [
     {

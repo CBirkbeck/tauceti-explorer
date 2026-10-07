@@ -23552,7 +23552,7 @@
         },
         {
           "where": "ArithmeticQuantumTopology:QT.7",
-          "how": "quantum modularity statements for knot invariants import this definition"
+          "how": "Imports the canonical weak definition and its lower-boundary slash convention. Knot modularity is a separate theorem or conjecture; a discontinuous knot cocycle does not satisfy this definition merely by being called quantum modular."
         }
       ],
       "tests": [
@@ -24632,6 +24632,10 @@
         {
           "where": "HabiroCyclotomicCompletions:HC.4",
           "how": "F is determined by its values at roots of unity, so it is the unique Habiro element whose values are the radial limits of −½H"
+        },
+        {
+          "where": "ArithmeticQuantumTopology:QT.7",
+          "how": "Imports the terminating root-of-unity values of F(q) and its formal Habiro interpretation. Identification with a trefoil Kashaev invariant requires QT.2/QT.7 to prove the colour, orientation and normalization comparison."
         }
       ],
       "tests": [
@@ -25108,7 +25112,13 @@
           "match": "The case ξ = 1."
         }
       ],
-      "implementationStatus": "unchecked"
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "ArithmeticQuantumTopology:QT.7",
+          "how": "Imports the exact twisted-L-value formula and Taylor coefficients for Kontsevich F; no new copy of this q-series example is built in the knot roadmap."
+        }
+      ]
     },
     {
       "id": "QSeriesPartitionsAndMockModularForms:QM.5/kontsevich-quantum-modular",
@@ -25163,7 +25173,13 @@
           "match": "The cocycle as a period integral of η (eichler-period-integral)."
         }
       ],
-      "implementationStatus": "unchecked"
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "ArithmeticQuantumTopology:QT.7",
+          "how": "Imports the weight-3/2 scalar transformation theorem for Kontsevich phi with its eta multiplier and retained analytic proof gap. It does not imply the knot modularity conjecture for other knots."
+        }
+      ]
     },
     {
       "id": "QSeriesPartitionsAndMockModularForms:QM.5/cohen-sigma-values",
@@ -25603,7 +25619,13 @@
           "match": "The normalisation W = ξ(ξ − 1)Z."
         }
       ],
-      "implementationStatus": "unchecked"
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "ArithmeticQuantumTopology:QT.7",
+          "how": "Imports the equality of the analytic radial limit with the specified Poincare-sphere WRT values, conditional on QT.4 supplying its exact normalized invariant formula."
+        }
+      ]
     },
     {
       "id": "QSeriesPartitionsAndMockModularForms:QM.5/lawrence-zagier-ohtsuki-expansion",
@@ -25652,7 +25674,13 @@
           "match": "The identification with the Ohtsuki series."
         }
       ],
-      "implementationStatus": "unchecked"
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "ArithmeticQuantumTopology:QT.7",
+          "how": "Imports the Poincare-sphere asymptotic/Taylor comparison, conditional on the separately requested normalized Ohtsuki-series formula from QT.4."
+        }
+      ]
     },
     {
       "id": "QSeriesPartitionsAndMockModularForms:QM.5/poincare-sphere-unified-invariant-radial-limit",
@@ -25702,7 +25730,13 @@
           "match": "The Poincaré-sphere example (Example 4) as a Habiro-ring function."
         }
       ],
-      "implementationStatus": "unchecked"
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "ArithmeticQuantumTopology:QT.7",
+          "how": "Imports the comparison of HC.3 evaluations with analytic radial limits using the QT.3/QT.4 unified invariant and HC.4 rigidity; formal evaluation alone gives no radial-limit theorem."
+        }
+      ]
     },
     {
       "id": "QSeriesPartitionsAndMockModularForms:QM.5/lawrence-zagier-theta-transformation",
@@ -25801,7 +25835,13 @@
           "match": "The quantum modularity of f."
         }
       ],
-      "implementationStatus": "unchecked"
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "ArithmeticQuantumTopology:QT.7",
+          "how": "Imports the Lawrence-Zagier weight-1/2 example with its stated subgroup and multiplier, retaining the finite-Weil-image and character/multiplier proof gaps."
+        }
+      ]
     },
     {
       "id": "QSeriesPartitionsAndMockModularForms:QM.5/partition-crank",
@@ -37788,7 +37828,7 @@
         "ArithmeticQuantumTopology"
       ],
       "detail": "The reviewed audit records ArithmeticQuantumTopology:QT.7 as owner of 'the quantum-modularity statements … which QM.5 imports'. QT.7 has no nodes (its packet coverage is not_read) and its stage text is about knot invariants and conjectures, while the definition of quantum modular form, Eichler integrals of half-integral weight and the proved q-series examples (Kontsevich, Lawrence–Zagier, radial limits of mock theta functions) are q-series mathematics that QM.5 decomposes here.",
-      "proposal": "QM.5 owns the definition QSeriesPartitionsAndMockModularForms:QM.5/quantum-modular-form and the q-series examples; QT.7 keeps the quantum-modularity statements for knot invariants (Kashaev invariants, Zagier's Example 5 and its conjecture) and imports the definition, with a new stage link QM.5 → QT.7 (no cycle: QT.4 → QM.5 and QT.4 → QT.6 → QT.7 already hold)."
+      "proposal": "QM.5 owns the canonical quantum-modular definition, the Kontsevich-Zagier strange identity and its scalar transformation theorem, and the Lawrence-Zagier Poincare-sphere false-theta/radial-limit examples. QT.7 imports the exact QM.5 nodes listed in their uses and keeps the knot-specific targets: Zagier's Kashaev modularity conjecture, the Garoufalidis-Zagier matrix-valued cocycle, and separately sourced proved cases. Zagier Quantum modular forms Example 5 explicitly distinguishes its knot cocycle from the canonical real-analytic definition; QT.7 must state the actual asymptotic/matrix transformation law and cannot assert IsQuantumModularForm without proving its analytic discrepancy hypothesis. Record the supplier direction QM.5 -> QT.7 in the QT.7 consumer packet when written; the reverse QT.7 -> QM.5 is not an input. QT.4 still supplies the normalized WRT/unified invariants to QM.5, which owns the analytic radial-limit comparison. The prospective stage link is acyclic (QT.4 -> QM.5 and QT.4 -> QT.6 -> QT.7)."
     },
     {
       "action": "rescope",
