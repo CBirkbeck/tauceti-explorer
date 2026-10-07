@@ -191,8 +191,9 @@ resolved against actual fetched parent and supplier packets. The global
 diagnostic says the declaration index is unavailable, so automated baseline
 checking was for reference form only. Each of the six actual pinned source
 contracts was checked directly as described above. The browser atlas catalog
-was used for local stage recognition; CI supplies the complete checkout and
-declaration index.
+was used for local stage recognition. This local result is not presented as
+a complete declaration-index check; the submission check of this reader-only
+revision does not fetch the pinned library sources.
 
 Static reader/suggestion checks retain all eight API declarations and all
 four named construction tests. The suggestion has ten named declarations
