@@ -77,6 +77,10 @@ Refs #5716. It names Newform's nebentypus field `χ` in the `serre_strong` sketc
 names there. The file elaborates with `lake env lean` against Mathlib `082e2d3` with no errors; its only
 warnings are the 23 `declaration uses sorry` of the round-3 statements.
 
+Independent review REV-FIX-RT-AREA-langlands-2~3: Claude claude-hd6PQ0, 7 October 2026, Refs #5871;
+accepted; its declarations are unchanged by that review. The file elaborates with `lake env lean` against Mathlib `082e2d3` with
+no errors and the same 23 warnings.
+
 ```
 -- R27.1/lemma-8-2-chebotarev-choice-of-auxiliary-primes  (𝔽_p coefficients, not 𝔽̄_p):
 -- stated in Lean at the end of the file (`lemma_8_2`, `lemma_8_2_trace_eq_zero`).
