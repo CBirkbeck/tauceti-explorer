@@ -36,7 +36,7 @@ KIND_TITLE = {"blueprint": "Blueprint", "design": "New roadmap", "link": "Links"
 LOCAL_ONLY = {"PLAN-HABIRO", "REV-PLAN-HABIRO"}
 LABEL_COLOURS = {"swarm": "5b6b7a", "state:available": "2da44e", "state:blocked": "c5c9ce", "state:claimed": "bf8700",
                  "state:running": "1f6feb", "state:submitted": "8250df", "state:done": "57606a", "local-only": "b60205",
-                 "owns-key-definitions": "0e8a16", "focus": "d93f0b"}
+                 "owns-key-definitions": "0e8a16", "focus": "d93f0b", "top": "b60205"}
 
 
 def publicize(text):
@@ -345,13 +345,15 @@ def key_definition_owners():
         return set()
 
 
-def focus_roadmaps():
-    """The roadmaps the maintainer wants finished next (research/blueprint/focus.json)."""
+def focus_roadmaps(top=False):
+    """The roadmaps the maintainer wants finished next (research/blueprint/focus.json); with top, only those of
+    the areas the maintainer put ahead of the rest (its "top" list)."""
     try:
-        areas = json.loads((BP / "focus.json").read_text()).get("areas", {})
+        focus = json.loads((BP / "focus.json").read_text())
     except (OSError, ValueError):
         return set()
-    return {rid for ids in areas.values() for rid in ids}
+    areas = focus.get("areas", {})
+    return {rid for name in (focus.get("top", []) if top else areas) for rid in areas.get(name, [])}
 
 
 def is_focus(job, focus=None):
@@ -380,6 +382,8 @@ def labels_for(job, roadmaps, by_id):
         out.append("owns-key-definitions")
     if is_focus(job):
         out.append("focus")
+    if is_focus(job, focus_roadmaps(top=True)):
+        out.append("top")
     return out
 
 
@@ -633,8 +637,8 @@ def set_state(number, wanted, current):
 FOCUS_EDITS_PER_SYNC = 60
 
 
-def set_focus(number, wanted):
-    command = ["gh", "issue", "edit", str(number), "--add-label" if wanted else "--remove-label", "focus"]
+def set_focus(number, wanted, label="focus"):
+    command = ["gh", "issue", "edit", str(number), "--add-label" if wanted else "--remove-label", label]
     return subprocess.run(command, capture_output=True, text=True, cwd=REPO).returncode == 0
 
 
@@ -645,7 +649,7 @@ def sync(mapping):
     lock = open(BP / ".queue.lock", "a+")
     fcntl.flock(lock, fcntl.LOCK_EX)
     changed_queue, edits, closed, focus_edits = 0, 0, 0, 0
-    focus = focus_roadmaps()
+    tiers = (("focus", focus_roadmaps()), ("top", focus_roadmaps(top=True)))
     try:
         queue = json.loads((BP / "queue.json").read_text())
         by_id = {j["id"]: j for j in queue["jobs"]}
@@ -666,10 +670,11 @@ def sync(mapping):
                     job["finishedAt"] = __import__("datetime").datetime.now(__import__("datetime").timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
             if wanted and wanted not in labels:
                 edits += set_state(number, wanted, labels)
-            if (item["state"] == "OPEN" and wanted != "state:done" and focus_edits < FOCUS_EDITS_PER_SYNC
-                    and is_focus(job, focus) != ("focus" in labels)):
-                focus_edits += 1
-                edits += set_focus(number, "focus" not in labels)
+            for label, members in tiers:
+                if (item["state"] == "OPEN" and wanted != "state:done" and focus_edits < FOCUS_EDITS_PER_SYNC
+                        and is_focus(job, members) != (label in labels)):
+                    focus_edits += 1
+                    edits += set_focus(number, label not in labels, label)
             if wanted == "state:done" and item["state"] == "OPEN":
                 note = "Finished by the local swarm." if job.get("account") else "Finished."
                 subprocess.run(["gh", "issue", "close", str(number), "--comment", note], capture_output=True, cwd=REPO)
