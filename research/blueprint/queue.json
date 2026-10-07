@@ -42289,8 +42289,9 @@
    ],
    "revisionOf": "BP-HabiroCohomologyFoundations--HQ.1-2",
    "prompt": "research/blueprint/prompts/BP-HabiroCohomologyFoundations--HQ.1-2~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6968"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6968",
+   "finishedAt": "2026-10-07T17:42:12Z"
   },
   {
    "priority": 2,
@@ -71077,8 +71078,8 @@
     "FIX-RT-AREA-langlands-2~3"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-langlands-2~3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5871"
+   "state": "pending",
+   "note": "released on GitHub issue #5871"
   },
   {
    "id": "RT-AREA-langlands-3",
