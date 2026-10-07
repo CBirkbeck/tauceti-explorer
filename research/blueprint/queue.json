@@ -22090,9 +22090,10 @@
     "REV-RS-09~2"
    ],
    "prompt": "research/blueprint/prompts/BP-ArithmeticLocallySymmetricSpaces.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #679"
+   "note": "deliverables arrived from an external worker on issue #679",
+   "finishedAt": "2026-10-07T05:10:08Z"
   },
   {
    "id": "REV-ArithmeticLocallySymmetricSpaces",
@@ -26155,8 +26156,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-HodgeTateAndCanonicalSubgroups--T0.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #755"
   },
   {
    "id": "REV-HodgeTateAndCanonicalSubgroups--T0",
@@ -28563,9 +28565,10 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-RefinedTraceMethods--RT.1.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #983"
+   "note": "deliverables arrived from an external worker on issue #983",
+   "finishedAt": "2026-10-07T05:10:09Z"
   },
   {
    "id": "REV-RefinedTraceMethods--RT.1",
@@ -37245,7 +37248,8 @@
     "REV-GL2AutomorphicRepresentationsAndTransfer--R17.3"
    ],
    "prompt": "research/blueprint/prompts/ASM-GL2AutomorphicRepresentationsAndTransfer.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #231"
   },
   {
    "id": "ASM-GL2ModularityLifting",
