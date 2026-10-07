@@ -1655,9 +1655,13 @@
    "prerequisites": [
     "PerfectoidShimuraVarieties:S0.general/general-infinite-level-diamond",
     "PerfectoidShimuraVarieties:S0/infinite-level-diamond",
-    "ShimuraCompactifications:C3.general",
-    "ShimuraCompactifications:C2.general",
-    "ShimuraCompactifications:C3",
+    "ShimuraCompactifications:C2.general/general-toroidal-descent",
+    "ShimuraCompactifications:C2/minimal-boundary-map",
+    "ShimuraCompactifications:C3/refinement-map",
+    "ShimuraCompactifications:C3/level-datum-functoriality",
+    "ShimuraCompactifications:C3/hecke-span",
+    "ShimuraCompactifications:C3/choice-comparison",
+    "ShimuraCompactifications:C3.general/general-map-descent",
     "DiamondsAndVStacks:D5/limits-and-finite-stage-comparisons"
    ],
    "api": [
@@ -1736,7 +1740,7 @@
     "𝒳_{K_p} is the locus of good reduction (the preimage of 𝒳 = 𝔛_η), which is strictly smaller than the analytification of the open Shimura variety X_{K_pK^p}; the boundary 𝒵_{K_p} is the preimage of the boundary of 𝒳*."
    ],
    "proofSteps": [
-    "Siegel moduli and the integral minimal compactification are imported (PELModuli:M5/siegel-moduli; ShimuraCompactifications C5 by request), with ampleness of ω and normality of geometric fibres.",
+    "Siegel moduli and the integral minimal compactification are imported (PELModuli:M5/siegel-moduli; ShimuraCompactifications:C5/integral-minimal-space, C5/minimal-hodge-ampleness, C5/integral-toroidal-space and C5/valuative-properness), with ampleness of ω and normality of geometric fibres.",
     "The Hasse invariant on X_{𝔽_p} extends to X*_{𝔽_p} by Hartogs for g ≥ 2 (boundary of codimension g ≥ 2) and by inspection at the cusps for g = 1 (request to HodgeTateAndCanonicalSubgroups T0).",
     "Apply AdicSpacesPartII:R2/hasse-domain to (𝔛*, ω, Ha) over ℤ_p^cycl, which contains p^ε for ε ∈ ℤ[1/p]·(1/(p−1)); flatness of the local charts uses that the image of H̃a in R/p is a nonzerodivisor (Lemma 3.2.10).",
     "Finite levels: X*_{K_pK^p} is the level-K_pK^p member of the algebraic Siegel tower of S0; it lives over ℚ(ζ_{pᵐ}) through the root ζ_{pᵐ} := e(η(e_1), η(e_{g+1}))^{p^{n−m}} of a level structure η: (ℤ/pⁿ)^{2g} ≅ A[pⁿ] at a level Γ(pⁿ) ⊆ K_p, which is K_p-invariant because c(K_p) ⊆ 1 + pᵐℤ_p. Since the cyclotomic polynomial Φ_{pᵐ} is irreducible over ℚ, ℚ(ζ_{pᵐ}) ⊗_ℚ C ≅ ∏_{a ∈ (ℤ/pᵐ)^×} C (ζ_{pᵐ} ⊗ 1 ↦ (ζ_{pᵐ}^a)_a), which gives the decomposition of S*_{K^pK_p} after analytification."
@@ -1792,7 +1796,10 @@
    ],
    "prerequisites": [
     "PELModuli:M5/siegel-moduli",
-    "ShimuraCompactifications:C5",
+    "ShimuraCompactifications:C5/integral-minimal-space",
+    "ShimuraCompactifications:C5/minimal-hodge-ampleness",
+    "ShimuraCompactifications:C5/integral-toroidal-space",
+    "ShimuraCompactifications:C5/valuative-properness",
     "HodgeTateAndCanonicalSubgroups:T0",
     "AdicSpacesPartII:R2/hasse-domain",
     "AdicSpacesPartII:R2/hasse-domain-transition-maps",
@@ -2572,7 +2579,9 @@
    "prerequisites": [
     "PerfectoidShimuraVarieties:S1/siegel-finite-level-spaces",
     "TorsionCohomologyInfrastructure:TC.0",
-    "ShimuraCompactifications:C5",
+    "ShimuraCompactifications:C5/integral-minimal-space",
+    "ShimuraCompactifications:C5/integral-toroidal-space",
+    "ShimuraCompactifications:C5/valuative-properness",
     "PerfectoidSpaces:P7/perfection-tilde-limit"
    ],
    "sources": [
@@ -3205,8 +3214,11 @@
     "PerfectoidShimuraVarieties:S1/siegel-main-theorem",
     "PerfectoidShimuraVarieties:S0.general/toroidal-tower-diamond",
     "PerfectoidShimuraVarieties:S0/perfectoid-representative",
-    "ShimuraCompactifications:C3",
-    "ShimuraCompactifications:C5",
+    "ShimuraCompactifications:C3/refinement-map",
+    "ShimuraCompactifications:C3/level-datum-functoriality",
+    "ShimuraCompactifications:C5/integral-toroidal-space",
+    "ShimuraCompactifications:C5/higher-level-toroidal-normalization",
+    "ShimuraCompactifications:C5/integral-minimal-space",
     "PerfectoidSpaces:P7/represented-functor-comparison",
     "PerfectoidSpaces:P7/tilde-limit-cofinal-change"
    ],
@@ -4547,7 +4559,9 @@
     "PerfectoidShimuraVarieties:S2/genuine-to-image-comparison",
     "PerfectoidShimuraVarieties:S1/perfectoid-toroidal-siegel-tower",
     "PerfectoidShimuraVarieties:S1/siegel-hodge-tate-period-map",
-    "ShimuraCompactifications:C3",
+    "ShimuraCompactifications:C3/level-datum-functoriality",
+    "ShimuraCompactifications:C3/refinement-map",
+    "ShimuraCompactifications:C3.general/general-map-descent",
     "ShimuraCompactifications:C3.general",
     "AutomorphicBundles:B3/canonical-and-subcanonical-extensions",
     "AutomorphicBundles:B3.general/general-boundary-functoriality"
@@ -6040,7 +6054,9 @@
     "PerfectoidShimuraVarieties:S6/general-toroidal-period-map",
     "PerfectoidShimuraVarieties:S6/bruhat-levi-reduction",
     "PerfectoidShimuraVarieties:S0.general/toroidal-tower-diamond",
-    "ShimuraCompactifications:C3.general",
+    "ShimuraCompactifications:C3/hecke-span",
+    "ShimuraCompactifications:C3/choice-comparison",
+    "ShimuraCompactifications:C3.general/general-map-descent",
     "AutomorphicBundles:B3.general/general-boundary-functoriality"
    ],
    "sources": [
@@ -6111,7 +6127,8 @@
     "ShimuraData:D4/central-isogeny-lift",
     "ShimuraVarieties:V6/abelian-canonical",
     "PerfectoidShimuraVarieties:S0/connected-component-tower",
-    "ShimuraCompactifications:C3.general"
+    "ShimuraCompactifications:C2.general/general-toroidal-descent",
+    "ShimuraCompactifications:C3.general/general-map-descent"
    ],
    "api": [
     {
@@ -6531,7 +6548,7 @@
    "stageId": "PerfectoidShimuraVarieties:S0.general",
    "status": "planned",
    "remaining": [
-    "The requests to ShimuraCompactifications C2.general and C3.general (toroidal models with fixed cone decompositions at all levels) are open."
+    "The toroidal tower diamond cites the planned supplier nodes ShimuraCompactifications C2.general/general-toroidal-descent, C2/minimal-boundary-map, C3/refinement-map, C3/level-datum-functoriality, C3/hecke-span, C3/choice-comparison and C3.general/general-map-descent, whose packet has not yet been independently reviewed; their condition that level maps send cones into cones is the admissibility of the fixed Σ at all levels K′_p ⊆ K_p."
    ]
   },
   {
@@ -6539,7 +6556,7 @@
    "status": "planned",
    "remaining": [
     "Gap: the boundary-strata argument of Lemma 3.2.35 for general ε (PerfectoidShimuraVarieties/E9).",
-    "Open requests to HodgeTateAndCanonicalSubgroups T0, T2, T3, TorsionCohomologyInfrastructure TC.0 and ShimuraCompactifications C3, C5 for the Hasse invariant, canonical subgroups, flag charts and Hodge–Tate filtrations, the Hebbarkeitssatz and the Siegel compactifications."
+    "Open requests to HodgeTateAndCanonicalSubgroups T0, T2, T3, TorsionCohomologyInfrastructure TC.0 and ShimuraCompactifications C5 (the boundary strata at level Γ(pᵐ)) for the Hasse invariant, canonical subgroups, flag charts and Hodge–Tate filtrations, the Hebbarkeitssatz and the Siegel compactifications."
    ]
   },
   {
@@ -6554,7 +6571,7 @@
    "stageId": "PerfectoidShimuraVarieties:S3",
    "status": "planned",
    "remaining": [
-    "Requests to HodgeTateAndCanonicalSubgroups T2 and T5 (finite-level Hodge–Tate sequence and torsor reduction; normalised models with ω^mod) are open."
+    "Requests to HodgeTateAndCanonicalSubgroups T2 and T5 (finite-level Hodge–Tate sequence and torsor reduction; normalised models with ω^mod) and to ShimuraCompactifications C3.general (Lan's closed immersion of Hodge-type toroidal compactifications into Siegel ones) are open."
    ]
   },
   {
@@ -6593,7 +6610,7 @@
     "PerfectoidShimuraVarieties:S4/preabelian-minimal-perfectoid",
     "PerfectoidShimuraVarieties:S6/abelian-minimal-period-map"
    ],
-   "detail": "Hansen–Johansson Lemma 5.10 (PerfectoidSpaces:P8/integral-extension-of-perfectoid-pair) uses the universal perfectoidization of an integral algebra over a perfectoid ring; through Lemma 5.9 (P8/finite-tower-over-perfectoid-tower) it enters Proposition 5.14 (genuine Hodge-type minimal tower), Propositions 5.18–5.19 and Theorem 5.20. No layer plans it: PerfectoidQuotients Q2/Q4 stop at semiperfectoid quotients, and the red-team finding RT-AREA-padic-1/1 asks for a late stage 'Perfectoidization of integral algebras and J-almost purity' (the pending design job DESIGN-PerfectoidQuotientsPartII). The PerfectoidSpaces P8 packet records the same gap; this packet cites P8's nodes and records the dependence here so that the S2 and S4 nodes are not mistaken for closed. The open Hodge-type tower and Scholze's image-compactified tower do not need it."
+   "detail": "Hansen–Johansson Lemma 5.10 (PerfectoidSpaces:P8/integral-extension-of-perfectoid-pair) uses the universal perfectoidization of an integral algebra over a perfectoid ring; through Lemma 5.9 (P8/finite-tower-over-perfectoid-tower) it enters Proposition 5.14 (genuine Hodge-type minimal tower), Propositions 5.18–5.19 and Theorem 5.20. No layer plans it: PerfectoidQuotients Q2/Q4 stop at semiperfectoid quotients and defer integral algebras to a separate late Q5 proposal (PerfectoidQuotients:Q4/completed-integral-closed-quotient), and the red-team finding RT-AREA-padic-1/1 asks for a late stage 'Perfectoidization of integral algebras and J-almost purity' (the pending design job DESIGN-PerfectoidQuotientsPartII). The PerfectoidSpaces P8 packet records the same gap; this packet cites P8's nodes and records the dependence here so that the S2 and S4 nodes are not mistaken for closed. The open Hodge-type tower and Scholze's image-compactified tower do not need it."
   },
   {
    "title": "Boundary strata and finite étaleness in Scholze's Lemma 3.2.35 for general ε",
@@ -6614,12 +6631,9 @@
  "requests": [
   {
    "supplier": "ShimuraCompactifications:C5",
-   "need": "For the Siegel moduli space X = X_{g,K^p} over ℤ_(p) (principal polarization, K^p contained in a level-N subgroup, N ≥ 3 prime to p): the integral minimal compactification X* (Faltings–Chai) with the ample Hodge line ω, normal geometric fibres and boundary of codimension g, and X* = Proj ⊕_k H⁰(X, ω^{⊗k}) for g ≥ 2; smooth projective toroidal compactifications of X over ℤ_(p) mapping to X*, used as resolutions of X* ⊗ 𝔽_p; and, at level K^pΓ(pᵐ) over ℚ, the description of the boundary strata of the minimal compactification X*_{Γ(pᵐ)} and of the map X*_{Γ(pᵐ)} → X*_{Γ₁(pᵐ)} on them through lower-genus Siegel spaces (Faltings–Chai V.2; Pilloni–Stroh Théorème A.11), as used in Scholze, torsion paper, Lemmas 3.2.27 and 3.2.35.",
+   "need": "At level K^pΓ(pᵐ) over ℚ for the Siegel datum (K^p contained in a level-N subgroup, N ≥ 3 prime to p): the description of the boundary strata of the minimal compactification X*_{Γ(pᵐ)} and of the map X*_{Γ(pᵐ)} → X*_{Γ₁(pᵐ)} on them through lower-genus Siegel spaces (Faltings–Chai V.2; Pilloni–Stroh Théorème A.11), with the constancy of inertia along each stratum, as used in Scholze, torsion paper, Lemma 3.2.35. The integral minimal and toroidal compactifications at good level are cited from the existing nodes C5/integral-minimal-space, C5/minimal-hodge-ampleness, C5/integral-toroidal-space, C5/valuative-properness and C5/higher-level-toroidal-normalization.",
    "neededBy": [
-    "PerfectoidShimuraVarieties:S1/siegel-finite-level-spaces",
-    "PerfectoidShimuraVarieties:S1/characteristic-p-base-triples-good",
-    "PerfectoidShimuraVarieties:S1/full-level-anticanonical-perfectoid",
-    "PerfectoidShimuraVarieties:S1/perfectoid-toroidal-siegel-tower"
+    "PerfectoidShimuraVarieties:S1/full-level-anticanonical-perfectoid"
    ]
   },
   {
@@ -6672,22 +6686,10 @@
    ]
   },
   {
-   "supplier": "ShimuraCompactifications:C3",
-   "need": "For the Siegel datum (and every datum with integral PEL models), toroidal compactifications S^tor_{K^pK_p,Σ} for a fixed K^pK_p-admissible smooth projective cone decomposition Σ at all levels K'_p ⊆ K_p, with the proper transition maps S^tor_{K^pK''_p,Σ} → S^tor_{K^pK'_p,Σ}, the maps to the minimal compactifications, the refinement maps for Σ'' refining Σ, and Hecke translations defined on common refinements of Σ and gΣ.",
-   "neededBy": [
-    "PerfectoidShimuraVarieties:S0.general/toroidal-tower-diamond",
-    "PerfectoidShimuraVarieties:S1/perfectoid-toroidal-siegel-tower",
-    "PerfectoidShimuraVarieties:S3/hodge-compactified-period-maps"
-   ]
-  },
-  {
    "supplier": "ShimuraCompactifications:C3.general",
-   "need": "The toroidal compactifications of C3 for an arbitrary pure datum over the reflex field: for fixed admissible Σ, the tower K'_p ↦ S^tor_{K^pK'_p,Σ} with proper transition maps, maps to the general minimal compactifications, refinement maps and Hecke translations on common refinements. For a Hodge-type datum with a Siegel embedding (G, X) ↪ (G̃, X̃): for a cofinal set of admissible Σ there are Σ̃ and closed immersions S^tor_{K^pK_p,Σ} ↪ S̃^tor_{K̃^pK̃_p,Σ̃} for all small K_p, compatible with the level transition maps, the closed immersion of the open Shimura varieties and the maps to the minimal compactifications (Lan, Closed immersions of toroidal compactifications of Shimura varieties, Math. Res. Lett. 29 (2022), Theorem 2.2, as used in Boxer–Pilloni §4.4.25 of the revised manuscript).",
+   "need": "For a Hodge-type datum with a Siegel embedding (G, X) ↪ (G̃, X̃): for a cofinal set of admissible cone decompositions Σ there are Σ̃ and closed immersions S^tor_{K^pK_p,Σ} ↪ S̃^tor_{K̃^pK̃_p,Σ̃} for all small K_p, compatible with the level transition maps, the closed immersion of the open Shimura varieties and the maps to the minimal compactifications (Lan, Closed immersions of toroidal compactifications of Shimura varieties, Math. Res. Lett. 29 (2022), Theorem 2.2, as used in Boxer–Pilloni §4.4.25 of the revised manuscript). The existing node C3/level-datum-functoriality and C3.general/general-map-descent give the maps; the request is for the closed-immersion property.",
    "neededBy": [
-    "PerfectoidShimuraVarieties:S0.general/toroidal-tower-diamond",
-    "PerfectoidShimuraVarieties:S3/hodge-compactified-period-maps",
-    "PerfectoidShimuraVarieties:S6/toroidal-hecke-correspondences",
-    "PerfectoidShimuraVarieties:S6/abelian-auxiliary-data"
+    "PerfectoidShimuraVarieties:S3/hodge-compactified-period-maps"
    ]
   },
   {
@@ -6771,13 +6773,6 @@
    "neededBy": [
     "PerfectoidShimuraVarieties:S5/modular-tower-comparison",
     "PerfectoidShimuraVarieties:S5/hilbert-f-equals-q-check"
-   ]
-  },
-  {
-   "supplier": "ShimuraCompactifications:C2.general",
-   "need": "The canonical models over E(D) of the toroidal compactifications of an arbitrary pure datum at neat level, with the open immersion of the Shimura variety and the map to the minimal compactification.",
-   "neededBy": [
-    "PerfectoidShimuraVarieties:S0.general/toroidal-tower-diamond"
    ]
   }
  ],

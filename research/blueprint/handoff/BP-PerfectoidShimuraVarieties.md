@@ -11,7 +11,7 @@ The [packet](../packets/PerfectoidShimuraVarieties.json), [roadmap document](../
 - 90 nodes: 4 definitions, 20 constructions, 51 theorems, 7 lemmas and 8 comparisons; per layer S0 9, S0.general 2, S1 26, S2 10, S3 13, S4 7, S5 11, S6 12. Every implementationStatus is `unchecked`.
 - 154 API items and 97 unit tests (at least three for every definition and construction).
 - 27 planets: S0 4, S0.general 1, S1 6, S2 2, S3 6, S4 3, S5 3, S6 2.
-- 21 pinned baseline declarations (20 Mathlib at 082e2d3, one Tau Ceti at f790474; each statement read at its pin), 15 sources, 3 gaps, 18 requests, 3 restructuring proposals and 39 source issues.
+- 21 pinned baseline declarations (20 Mathlib at 082e2d3, one Tau Ceti at f790474; each statement read at its pin), 15 sources, 3 gaps, 16 requests, 3 restructuring proposals and 39 source issues.
 - Packet status `complete`: all eight stages have coverage `planned` with explicit remaining lists; no stage is closed.
 
 The plan starts from the leads of the extraction EXT-12 draft (41 nodes for S1–S4; S0, S5 and S6 were empty) and from the accepted restructuring RS-05 (P7 owns tilde-limits and the Frobenius tower criterion, P8 the finite quotients and closed-locus gluing, Q4 the closed perfectoid quotient, D6 diamondification). Every EXT-12 lead was checked against the source and either rewritten as a node, merged, or routed to its owner below.
@@ -38,6 +38,18 @@ Before submitting, two independent checking agents read every node against its s
 
 One reviewer finding was rejected after reading the PDF page: the claimed slip in Boxer–Pilloni v1, p. 95 is an artefact of the text extraction (the page prints `x₂ = x′₂wh₂`, which is consistent).
 
+## Rebase on main
+
+Before submission the branch was rebased on main (2026-10-07). Two packets merged in the meantime changed this plan.
+
+- ShimuraCompactifications--C0 now plans C2.general, C3, C3.general and C5. Its nodes replaced the stage prerequisites in S0.general/toroidal-tower-diamond, S1/siegel-finite-level-spaces, S1/characteristic-p-base-triples-good, S1/perfectoid-toroidal-siegel-tower, S3/hodge-compactified-period-maps and S6's toroidal nodes. The nodes used are C2.general/general-toroidal-descent, C2/minimal-boundary-map, C3/refinement-map, C3/level-datum-functoriality, C3/hecke-span, C3/choice-comparison, C3.general/general-map-descent, C5/integral-minimal-space, C5/minimal-hodge-ampleness, C5/integral-toroidal-space, C5/valuative-properness and C5/higher-level-toroidal-normalization.
+  - The requests to C2.general and C3 are withdrawn.
+  - The request to C5 is narrowed to the boundary strata at level Γ(pᵐ) (Scholze Lemma 3.2.35).
+  - The request to C3.general is narrowed to Lan's closed-immersion property.
+- PerfectoidQuotients now has the integral-algebra foundations (Q0:integral-algebra). Its Q4/completed-integral-closed-quotient defers integral algebras to a separate late Q5 proposal, so the Bhatt–Scholze 10.11 gap stands.
+
+The Hilbert packet merged meanwhile (R18.2–R18.6, quaternionic) does not touch the requests to H1, H3, H4 and H5.
+
 ## Red-team findings handed to this job
 
 - RT-AREA-padic-1/22: S3 is planned as the single owner of the Hodge-type period map on the tower; the packet's first `restructure` entry proposes the owners entries and the narrowing of T2.
@@ -54,7 +66,7 @@ The packet's `gaps` entries give the detail: what is verified, what is not, and 
 
 ## Requests
 
-The requests go to roadmaps that have no packet (HodgeTateAndCanonicalSubgroups, HilbertModularVarietiesAndShimuraCurves, TorsionCohomologyInfrastructure) or whose packets do not yet contain the needed node (ShimuraCompactifications C2.general, C3, C3.general, C5; ShimuraVarieties V2, V8; ShimuraData D4). Each states the exact statement needed and the consuming nodes.
+The requests go to roadmaps that have no packet (HodgeTateAndCanonicalSubgroups, HilbertModularVarietiesAndShimuraCurves, TorsionCohomologyInfrastructure) or whose packets do not yet contain the needed node (ShimuraCompactifications C3.general and C5, narrowed as above; ShimuraVarieties V2, V8; ShimuraData D4). Each states the exact statement needed and the consuming nodes.
 
 ## Mistakes found in the sources
 
