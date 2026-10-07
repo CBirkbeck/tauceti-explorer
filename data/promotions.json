@@ -1158,6 +1158,17 @@
     "data/blueprints/HeegnerPointEulerSystems--HE.0.md"
    ]
   },
+  "research/blueprint/packets/HilbertModularVarietiesAndShimuraCurves--H0.json": {
+   "promotedAt": "2026-10-07T06:32:04Z",
+   "review": "ef3b99b04b982798",
+   "reviewDate": "2026-10-07",
+   "reviewer": "independent-review-REV-HilbertModularVarietiesAndShimuraCurves--H0",
+   "sha256": "92d921eb5fe91b1dacbc2d89d5714a3789fe3c7b60dd04ff0308a4f3815e9c96",
+   "to": [
+    "data/blueprints/HilbertModularVarietiesAndShimuraCurves--H0.json",
+    "data/blueprints/HilbertModularVarietiesAndShimuraCurves--H0.md"
+   ]
+  },
   "research/blueprint/packets/HilbertModularVarietiesAndShimuraCurves--R18.2.json": {
    "promotedAt": "2026-10-06T23:35:30Z",
    "review": "19bdb23b6c134ccb",
