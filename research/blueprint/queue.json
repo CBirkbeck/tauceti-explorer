@@ -11615,8 +11615,8 @@
    "avoidAccountOf": "DESIGN-HodgeStructuresPartII",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-HodgeStructuresPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3548"
+   "state": "pending",
+   "note": "released on GitHub issue #3548"
   },
   {
    "id": "DESIGN-MotivicStructuresInModuliOfCurves",
@@ -22403,8 +22403,9 @@
    ],
    "avoidAccountOf": "BP-AutomorphicGaloisRepresentations",
    "prompt": "research/blueprint/prompts/REV-AutomorphicGaloisRepresentations.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #360"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #360",
+   "finishedAt": "2026-10-07T01:36:30Z"
   },
   {
    "id": "BP-AutomorphicGaloisRepresentationsPartII--AG2.0",
@@ -26926,9 +26927,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-MetaplecticAutomorphicForms--MP.0.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #771"
+   "note": "claimed on GitHub issue #771"
   },
   {
    "id": "REV-MetaplecticAutomorphicForms--MP.0",
