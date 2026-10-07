@@ -28,6 +28,9 @@ not an implementation. Every packet node has implementationStatus = "unchecked".
 Mathlib pin: 082e2d37e8b0463410cdb532e111cd43d5a66174.
 Tau Ceti pin: f790474821cf4256814db967cb154e7af3d0c369.
 This revision was not compiled: no existing shared build at both pins was found.
+The independent revision-2 review attempted lean-check; it stopped at the missing
+TauCeti.NumberTheory.HeckeRing.Associativity prebuilt object, before elaboration.
+No build, cache download or language server was started.
 
 The generic quotient, congruence-preimage, representation and ring-image forms
 below use actual library types. `Datum` packages quotient inputs only; it is not
@@ -836,7 +839,8 @@ ArithmeticLocallySymmetricSpaces:ALS.0/symmetric-space-contractible;
 AdelicAlgebraicGroups:AA.4/level-quotient-groupoid;
 AdelicAlgebraicGroups:AA.1/rational-points-discrete; mathlib:ProperlyDiscontinuousSMul;
 mathlib:CategoryTheory.ActionCategory; AdelicAlgebraicGroups:AA.3/real-siegel-finite-overlap;
-AdelicAlgebraicGroups:AA.3/real-siegel-finite-cover
+AdelicAlgebraicGroups:AA.3/real-siegel-finite-cover;
+ArithmeticLocallySymmetricSpaces:ALS.2/borel-serre-bordification
 -/
 
 /-!
@@ -1010,7 +1014,12 @@ If G(F_∞) is connected (e.g. GL_n or PGL_n over an imaginary CM field), ε is 
 every K.
 
 OMITTED FULL EXAMPLE: orientationSystem_GL_formula (characterisation)
-For γ ∈ GL_m(O_F), ε(γ) = sign(N_{F/ℚ} det γ)^{m−1}; for m odd ε is trivial.
+For γ ∈ GL_m(O_F), ε(γ) = sign(N_{F/ℚ} det γ)^{m−1}; for m odd ε is trivial. Distinguish neatness
+over F from neatness of the restriction of scalars over ℚ: take F=ℚ(√5), u=682+305√5 with N(u)=−1,
+and γ=diag(u,1). At v=(11,√5−7) and w=(31,√5−6), u reduces to 1. Principal congruence at v and w,
+maximal integral level elsewhere, is F-neat by the two-distinct-residue-characteristics criterion,
+contains γ, and has ε(γ)=−1. The same γ is not neat in Res_{F/ℚ}GL_2: its eigenvalues over ℚ include
+u and its conjugate u′, whose product is −1.
 
 OMITTED FULL EXAMPLE: orientation_not_trivial_at_neat_PGL2 (non-example)
 Neat level does not force orientability: for G = PGL_{2,ℚ} and K = K(5)K(13)∏_{p≠5,13}PGL_2(Z_p),
@@ -1041,8 +1050,11 @@ antiholomorphically for det < 0. Let K = K(5)·K(13)·∏_{p≠5,13} PGL_2(Z_p) 
 57·I mod 65 with 57² ≡ −1 mod 65) lies in Γ_{1,K} = PGL_2(ℚ) ∩ K and reverses orientation. Hence the
 component Γ_{1,K}\ℍ of X_K is a nonorientable surface and o_K is nontrivial. In contrast, at the
 non-neat level GL_2(Ẑ) for GL_{2,ℚ}, the orbifold X_K has nontrivial orientation character det on
-GL_2(ℤ), while every neat level of GL_{2,ℚ} (or of Res_{F/ℚ}GL_m) gives an orientable X_K, since
-neatness forces N_{F/ℚ} det γ = 1.
+GL_2(ℤ), while every neat level of GL_{2,ℚ} gives an orientable X_K. For GL_m over F the same norm
+argument applies when each arithmetic subgroup is neat for Res_{F/ℚ}GL_m as an algebraic group over
+ℚ: then N_{F/ℚ} det γ = 1. Neatness defined using faithful F-representations of GL_m alone does not
+imply this stronger hypothesis; the real-quadratic regression in orientationSystem_GL_formula is
+F-neat and orientation-reversing.
 
 OMITTED theorem signature: LocallySymmetric.nonorientable_neat_example.
 
@@ -1282,7 +1294,7 @@ mathlib:Rep
 Mathematical specification:
 Suppose the Borel–Serre closure of X^G × G(A^∞)^δ has a G(F) × K-invariant cell structure with
 finitely many cell orbits and trivial cell stabilizers for the full group G(F) × K, as at good neat
-K. For K′ normal in K, its cellular chains C_• are bounded finite free ℤ[G(F) × K]-modules. For
+K. For K′ open normal in K, its cellular chains C_• are bounded finite free ℤ[G(F) × K]-modules. For
 finite projective R-coefficients V, RΓ_{K/K′}(X_{K′}, V) is computed by Hom_{ℤ[G(F)×K′]}(C_•, V), a
 bounded finite projective R[K/K′]-complex. Hence it is perfect over R[K/K′]; for K′ = K, RΓ(X_K, V)
 is perfect over R with amplitude in [0,d_G]. The analogous relative cell model computes RΓ_c.
@@ -1665,8 +1677,8 @@ Open/closed localization gives F_{p−1}→F_p→A_p→F_{p−1}[1]. Its exact c
 D_1^{p,q}=H^{p+q}_c(O_p,V), E_1^{p,q}=⊕_{rk P=p+1}H^{p+q}_c(X^P_K,V), i of bidegree (1,−1), j of
 bidegree (0,0), k of bidegree (−1,2). Thus d_r has bidegree (−r,r+1), and finite convergence gives
 H^{p+q}(B,V) with the filtration induced by the O_p. Reindexing (s,t)=(−p,q+2p) preserves s+t=p+q
-and gives the usual differential bidegree (r,1−r). Separately, for G=Res_{F/ℚ}GL_N, the ordinary
-closed-cover/flag resolution of Harder–Raghuram §4.1 gives E_1^{p,q}=⊕_{[P],rk
+and gives the usual differential bidegree (r,1−r). Separately, for G=Res_{F/ℚ}GL_N with F totally
+real, the ordinary closed-cover/flag resolution of Harder–Raghuram §4.1 gives E_1^{p,q}=⊕_{[P],rk
 P=p+1}H^q(X^P_K,V)⇒H^{p+q}(B,V), d_1:(p,q)→(p+1,q). Order maximal standard parabolics; its d_1 is
 the alternating restriction to intersections, with sign (−1)^j when the j-th vertex is deleted.
 Compactified strata and all arithmetic translates/transported levels are included in this
@@ -1689,9 +1701,9 @@ OMITTED SIGNATURE: LocallySymmetric.BorelSerre.stratSpectralSequence_map
 Natural in V and compatible with π_{K′,K} and r_g.
 
 OMITTED SIGNATURE: LocallySymmetric.BorelSerre.mayerVietorisSpectralSequence
-For Res_{F/ℚ}GL_N the ordinary flag/closed-cover sequence has E₁^{p,q}=⊕_{rk P=p+1}H^q(X^P_K,V), d₁
-of bidegree (1,0), with alternating restriction signs (−1)^j from deletion in the ordered
-maximal-parabolic simplex. Its global strata include all transported levels.
+For Res_{F/ℚ}GL_N with F totally real the ordinary flag/closed-cover sequence has E₁^{p,q}=⊕_{rk
+P=p+1}H^q(X^P_K,V), d₁ of bidegree (1,0), with alternating restriction signs (−1)^j from deletion in
+the ordered maximal-parabolic simplex. Its global strata include all transported levels.
 
 OMITTED FULL EXAMPLE: stratSS_SL2 (computation)
 For SL_{2,ℚ} at neat level with c cusps, E_1 = E_∞ = ⊕_{c} H^*(S^1, V), so H^0(∂X̄_K, ℤ) = ℤ^c and
@@ -1727,15 +1739,15 @@ tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifol
 ### ArithmeticLocallySymmetricSpaces:ALS.3/hecke-action-on-invariants — Hecke rings acting on invariants and on derived invariants
 
 Mathematical specification:
-Let Δ be a group (or monoid), U ⊂ Δ a subgroup with (Δ, U) a Hecke pair (IsHeckeTriple Δ U U), and
-𝕋(Δ, U) = 𝕋 Δ U ℤ the Hecke ring (Mathlib's HeckeRing with Tau Ceti's convolution ring structure).
-For a ℤ[Δ]-module M define the 𝕋(Δ, U)-module structure on M^U by [UαU]·m = Σ_i α_i m where UαU =
-⊔_i α_iU; equivalently [UαU] acts as M^U → M^{U∩αUα⁻¹} → M^U, m ↦ α·m followed by the trace
-tr_{U/U∩αUα⁻¹}. This defines a left exact functor Γ_U : Mod(ℤ[Δ]) → Mod(𝕋(Δ, U)) whose composite
-with the forgetful functor is U-invariants, and its right derived functor RΓ_U : D⁺(ℤ[Δ]) → D⁺(𝕋(Δ,
-U)) lifts RΓ(U, −). For a locally profinite G and compact open U, 𝕋(G, U) is the ring H(G, U) of
-compactly supported U-biinvariant ℤ-valued functions under convolution for the Haar measure with
-vol(U) = 1; over R, H(G, U) ⊗ R.
+Let Δ be a group, or a submonoid of an ambient group G, and U ⊂ Δ a subgroup of G with (Δ, U) a
+Hecke pair (IsHeckeTriple Δ U U), and 𝕋(Δ, U) = 𝕋 Δ U ℤ the Hecke ring (Mathlib's HeckeRing with Tau
+Ceti's convolution ring structure). For a ℤ[Δ]-module M define the 𝕋(Δ, U)-module structure on M^U
+by [UαU]·m = Σ_i α_i m where UαU = ⊔_i α_iU; equivalently [UαU] acts as M^U → M^{U∩αUα⁻¹} → M^U, m ↦
+α·m followed by the trace tr_{U/U∩αUα⁻¹}. This defines a left exact functor Γ_U : Mod(ℤ[Δ]) →
+Mod(𝕋(Δ, U)) whose composite with the forgetful functor is U-invariants, and its right derived
+functor RΓ_U : D⁺(ℤ[Δ]) → D⁺(𝕋(Δ, U)) lifts RΓ(U, −). For a locally profinite G and compact open U,
+𝕋(G, U) is the ring H(G, U) of compactly supported U-biinvariant ℤ-valued functions under
+convolution for the Haar measure with vol(U) = 1; over R, H(G, U) ⊗ R.
 
 GENERIC SIGNATURE ABOVE: LocallySymmetric.Hecke.invariantsModule
 M^U is a module over 𝕋(Δ, U) via [UαU]·m = Σ α_i m.
@@ -1951,9 +1963,11 @@ ArithmeticLocallySymmetricSpaces:ALS.1/betti-complexes
 
 Mathematical specification:
 The endomorphism action T_K:H(G^S,K^S)⊗R→End_{D(R)}(RΓ(X_K,V)) preserves Tau Ceti convolution: if
-[KgK][KhK]=Σ_jc_j[Kγ_jK], then θ(g)∘θ(h)=Σ_jc_jθ(γ_j). With the compatible discrete derived
-Hecke-invariants lift, this holds in D(H⊗R). For K′⊂K with K′^S=K^S, pullback and trace intertwine
-all these operators; the coherent enhancement lifts those maps simultaneously, with their
+[KgK][KhK]=Σ_jc_j[Kγ_jK], then θ(g)∘θ(h)=Σ_jc_jθ(γ_j). The equality is in End_{D(R)} even when the
+complex has a compatible D(H⊗R) lift: multiplication by a general noncentral Hecke element is not
+H-linear. For a commutative acting Hecke algebra (or central elements), the individual operators are
+H-linear and the equality also holds in D(H⊗R). For K′⊂K with K′^S=K^S, pullback and trace
+intertwine all these operators; the coherent enhancement lifts those maps simultaneously, with their
 Mackey/composition identities. The same statements for compact support and boundary use the
 compactified equivariant support model and trace. At non-neat level the endomorphism identities hold
 on groupoid complexes; a stronger strict lift is the specified enhancement obligation, not a
@@ -2096,7 +2110,10 @@ Exact prerequisite references:
 ArithmeticLocallySymmetricSpaces:ALS.3/derived-hecke-action;
 ArithmeticLocallySymmetricSpaces:ALS.2/borel-serre-finite-triangulation;
 IntegralHeckeAndGaloisDeterminants:IHG.2/derived-hecke-image;
-DeformationAndDerivedPatchingAlgebra:P7/perfect-object
+DeformationAndDerivedPatchingAlgebra:P7/perfect-object;
+IntegralHeckeAndGaloisDeterminants:IHG.2/derived-hecke-image-finite;
+IntegralHeckeAndGaloisDeterminants:IHG.2/ghost-nilpotence;
+IntegralHeckeAndGaloisDeterminants:IHG.2/ghost-maximal-ideals
 -/
 
 /-!
@@ -2227,7 +2244,7 @@ V) given by the homotopy equivalence j_K.
 OMITTED theorem signature: LocallySymmetric.boundary_triangle.
 
 Earlier interface needed:
-SR.2/SR.4 and RG2.4 exact parabolic/Iwasawa and monoid Satake carriers; AF.1 Lie algebra
+SR.2/SR.4 and RG2.4 exact parabolic/Iwasawa and monoid Satake carriers; AF.1a absolute Lie algebra
 cochains/Kostant modules; transported boundary RΓ/localization from earlier ALS nodes; IHG.2
 spectral idempotents; AG residual Galois systems indexed by finite Hecke-image maximal ideals.
 Reducibility of an arbitrary representation is only an adapter for the arithmetic predicate.
@@ -2294,7 +2311,7 @@ For p > 1, p[diag(p,1)] + [diag(1,p)] is not invariant under swapping diagonal e
 δ_B^{1/2}·S(T_p) is Weyl-invariant.
 
 Earlier interface needed:
-SR.2/SR.4 and RG2.4 exact parabolic/Iwasawa and monoid Satake carriers; AF.1 Lie algebra
+SR.2/SR.4 and RG2.4 exact parabolic/Iwasawa and monoid Satake carriers; AF.1a absolute Lie algebra
 cochains/Kostant modules; transported boundary RΓ/localization from earlier ALS nodes; IHG.2
 spectral idempotents; AG residual Galois systems indexed by finite Hecke-image maximal ideals.
 Reducibility of an arbitrary representation is only an adapter for the arithmetic predicate.
@@ -2326,7 +2343,7 @@ through S=r_M∘r_P.
 OMITTED theorem signature: LocallySymmetric.boundary_stratum_hecke_comparison.
 
 Earlier interface needed:
-SR.2/SR.4 and RG2.4 exact parabolic/Iwasawa and monoid Satake carriers; AF.1 Lie algebra
+SR.2/SR.4 and RG2.4 exact parabolic/Iwasawa and monoid Satake carriers; AF.1a absolute Lie algebra
 cochains/Kostant modules; transported boundary RΓ/localization from earlier ALS nodes; IHG.2
 spectral idempotents; AG residual Galois systems indexed by finite Hecke-image maximal ideals.
 Reducibility of an arbitrary representation is only an adapter for the arithmetic predicate.
@@ -2356,14 +2373,14 @@ characteristic-zero statement: for integral or mod-p coefficients H^*(Γ_N, V) i
 OMITTED theorem signature: LocallySymmetric.nomizu_van_est.
 
 Earlier interface needed:
-SR.2/SR.4 and RG2.4 exact parabolic/Iwasawa and monoid Satake carriers; AF.1 Lie algebra
+SR.2/SR.4 and RG2.4 exact parabolic/Iwasawa and monoid Satake carriers; AF.1a absolute Lie algebra
 cochains/Kostant modules; transported boundary RΓ/localization from earlier ALS nodes; IHG.2
 spectral idempotents; AG residual Galois systems indexed by finite Hecke-image maximal ideals.
 Reducibility of an arbitrary representation is only an adapter for the arithmetic predicate.
 
 Exact prerequisite references:
 ArithmeticLocallySymmetricSpaces:ALS.2/stratum-nilmanifold-fibration; AdditiveCombinatorics:AC.3;
-AutomorphicFormsOnReductiveGroups:AF.1; mathlib:groupCohomology
+AutomorphicFormsOnReductiveGroups:AF.1a; mathlib:groupCohomology
 -/
 
 /-!
@@ -2371,24 +2388,26 @@ AutomorphicFormsOnReductiveGroups:AF.1; mathlib:groupCohomology
 
 Mathematical specification:
 Let G be connected reductive over F, P=M⋉N proper, K good neat, E characteristic 0 containing all
-coefficient embeddings, and V_λ algebraic. For each transported decomposed level L_g from
-stratum-nilmanifold-fibration, Leray/Hochschild–Serre gives
+coefficient embeddings and splitting the chosen restriction-of-scalars root datum, with a
+highest-weight Borel contained in P, and V_λ algebraic. For each transported decomposed level L_g
+from stratum-nilmanifold-fibration, Leray/Hochschild–Serre gives
 E₂^{a,b}=H^a(X^M_{L_{M,g}},H^b(𝔫,V_λ)~)⇒H^{a+b}(Y^P_{L_g},V_λ), by Nomizu–van Est. Kostant
 identifies H^b(𝔫,V_λ)=⊕_{w∈W^P,ℓ(w)=b}V^M_{w(λ+ρ)−ρ}; this describes the E₂ page for general
-reductive G and does not assert degeneration. For G=Res_{F/ℚ}GL_N, Harder–Raghuram §4.2, (4.2) and
-Proposition 4.3 supply the degeneration and the natural cohomological decomposition
-H^q(X^P_K,V_λ)=⊕_g⊕_{w∈W^P}H^{q−ℓ(w)}(X^M_{L_{M,g}},V^M_{w·λ}), with the transported-component and
-real-component invariants of that source. Over all levels this is its algebraic unnormalized
-induction from π₀(P(ℝ))×P(A^∞) to π₀(G(ℝ))×G(A^∞). At eligible hyperspecial components the Hecke
-action is through the integral unnormalized S=r_M∘r_P; conversion to normalized induction multiplies
-by the explicit modulus half-character. A general reductive direct-sum/derived splitting requires a
-separate Levi-equivariant nilpotent-cochain formality theorem; E₂ degeneration alone would give only
-an associated graded, not a canonical splitting. No integral Kostant decomposition is asserted.
+reductive G and does not assert degeneration. For G=Res_{F/ℚ}GL_N with F totally real,
+Harder–Raghuram §4.2, (4.2) and Proposition 4.3 supply the degeneration and the natural
+cohomological decomposition H^q(X^P_K,V_λ)=⊕_g⊕_{w∈W^P}H^{q−ℓ(w)}(X^M_{L_{M,g}},V^M_{w·λ}), with the
+transported-component and real-component invariants of that source. Over all levels this is its
+algebraic unnormalized induction from π₀(P(ℝ))×P(A^∞) to π₀(G(ℝ))×G(A^∞). At eligible hyperspecial
+components the Hecke action is through the integral unnormalized S=r_M∘r_P; conversion to normalized
+induction multiplies by the explicit modulus half-character. Beyond that totally real GL_N setting,
+a direct-sum/derived splitting requires a separate Levi-equivariant nilpotent-cochain formality
+theorem; E₂ degeneration alone would give only an associated graded, not a canonical splitting. No
+integral Kostant decomposition is asserted.
 
 OMITTED theorem signature: LocallySymmetric.boundary_stratum_cohomology_formula.
 
 Earlier interface needed:
-SR.2/SR.4 and RG2.4 exact parabolic/Iwasawa and monoid Satake carriers; AF.1 Lie algebra
+SR.2/SR.4 and RG2.4 exact parabolic/Iwasawa and monoid Satake carriers; AF.1a absolute Lie algebra
 cochains/Kostant modules; transported boundary RΓ/localization from earlier ALS nodes; IHG.2
 spectral idempotents; AG residual Galois systems indexed by finite Hecke-image maximal ideals.
 Reducibility of an arbitrary representation is only an adapter for the arithmetic predicate.
@@ -2398,7 +2417,7 @@ ArithmeticLocallySymmetricSpaces:ALS.4/nomizu-van-est;
 ArithmeticLocallySymmetricSpaces:ALS.4/boundary-stratum-hecke-comparison;
 ArithmeticLocallySymmetricSpaces:ALS.4/parabolic-hecke-maps;
 ArithmeticLocallySymmetricSpaces:ALS.2/stratum-nilmanifold-fibration;
-AutomorphicFormsOnReductiveGroups:AF.1; SmoothRepresentationsOfLocalGroups:SR.2
+AutomorphicFormsOnReductiveGroups:AF.1a; SmoothRepresentationsOfLocalGroups:SR.2
 -/
 
 /-!
@@ -2421,7 +2440,7 @@ general discrete/profinite comparison is claimed here.
 OMITTED theorem signature: LocallySymmetric.levi_hochschild_serre.
 
 Earlier interface needed:
-SR.2/SR.4 and RG2.4 exact parabolic/Iwasawa and monoid Satake carriers; AF.1 Lie algebra
+SR.2/SR.4 and RG2.4 exact parabolic/Iwasawa and monoid Satake carriers; AF.1a absolute Lie algebra
 cochains/Kostant modules; transported boundary RΓ/localization from earlier ALS nodes; IHG.2
 spectral idempotents; AG residual Galois systems indexed by finite Hecke-image maximal ideals.
 Reducibility of an arbitrary representation is only an adapter for the arithmetic predicate.
@@ -2447,14 +2466,14 @@ use the individual early Verdier duality and Hecke-adjoint nodes: H^*(X^P_K,V^�
 H^*_c(X^P_K,V)_𝔪=0, where 𝔪^∨ is transported through the inverse-double-coset involution. Over O
 first reduce coefficients modulo ϖ, use this field duality and finite-perfectness, then derived
 Nakayama. Ordinary vanishing for V at 𝔪 is sufficient only when an additional argument supplies the
-required dual-coefficient/inverse-ideal vanishing (as in NT16 Lemmas 4.1 and 4.4). For GL_N the
-separate ordinary flag sequence also converges, with alternating-restriction d₁:(p,q)→(p+1,q); it is
-not substituted for the support argument in NT16’s proof.
+required dual-coefficient/inverse-ideal vanishing (as in NT16 Lemmas 4.1 and 4.4). For Res_{F/ℚ}GL_N
+with F totally real the separate ordinary flag sequence also converges, with alternating-restriction
+d₁:(p,q)→(p+1,q); it is not substituted for the support argument in NT16’s proof.
 
 OMITTED theorem signature: LocallySymmetric.boundary_gluing_convergence.
 
 Earlier interface needed:
-SR.2/SR.4 and RG2.4 exact parabolic/Iwasawa and monoid Satake carriers; AF.1 Lie algebra
+SR.2/SR.4 and RG2.4 exact parabolic/Iwasawa and monoid Satake carriers; AF.1a absolute Lie algebra
 cochains/Kostant modules; transported boundary RΓ/localization from earlier ALS nodes; IHG.2
 spectral idempotents; AG residual Galois systems indexed by finite Hecke-image maximal ideals.
 Reducibility of an arbitrary representation is only an adapter for the arithmetic predicate.
@@ -2513,7 +2532,7 @@ specified compatible lift to D(T^S), derived tensor with T^S_𝔪 computes local
 relative ring action alone does not provide this lift.
 
 Earlier interface needed:
-SR.2/SR.4 and RG2.4 exact parabolic/Iwasawa and monoid Satake carriers; AF.1 Lie algebra
+SR.2/SR.4 and RG2.4 exact parabolic/Iwasawa and monoid Satake carriers; AF.1a absolute Lie algebra
 cochains/Kostant modules; transported boundary RΓ/localization from earlier ALS nodes; IHG.2
 spectral idempotents; AG residual Galois systems indexed by finite Hecke-image maximal ideals.
 Reducibility of an arbitrary representation is only an adapter for the arithmetic predicate.
@@ -2521,7 +2540,10 @@ Reducibility of an arbitrary representation is only an adapter for the arithmeti
 Exact prerequisite references:
 ArithmeticLocallySymmetricSpaces:ALS.3/derived-hecke-algebra;
 IntegralHeckeAndGaloisDeterminants:IHG.2/derived-idempotent-splitting;
-mathlib:CategoryTheory.IsIdempotentComplete; DeformationAndDerivedPatchingAlgebra:P7/perfect-object
+mathlib:CategoryTheory.IsIdempotentComplete; DeformationAndDerivedPatchingAlgebra:P7/perfect-object;
+IntegralHeckeAndGaloisDeterminants:IHG.2/finite-hecke-local-factors;
+IntegralHeckeAndGaloisDeterminants:IHG.2/hecke-localized-complex;
+IntegralHeckeAndGaloisDeterminants:IHG.2/hecke-support
 -/
 
 /-!
@@ -2575,7 +2597,7 @@ Res_{F/F⁺}GL_n), boundary cohomology localized at a non-Eisenstein 𝔪̃ can 
 2.4.2).
 
 Earlier interface needed:
-SR.2/SR.4 and RG2.4 exact parabolic/Iwasawa and monoid Satake carriers; AF.1 Lie algebra
+SR.2/SR.4 and RG2.4 exact parabolic/Iwasawa and monoid Satake carriers; AF.1a absolute Lie algebra
 cochains/Kostant modules; transported boundary RΓ/localization from earlier ALS nodes; IHG.2
 spectral idempotents; AG residual Galois systems indexed by finite Hecke-image maximal ideals.
 Reducibility of an arbitrary representation is only an adapter for the arithmetic predicate.
@@ -2590,17 +2612,21 @@ ArithmeticLocallySymmetricSpaces:ALS.3/derived-hecke-algebra; mathlib:Matrix.Gen
 
 Mathematical specification:
 Let K be neat and decomposed with respect to the standard parabolics, V finite projective over O and
-𝔪 ⊂ T^S_G a maximal ideal. Suppose that for every proper standard parabolic P = M ⋉ N and every
-maximal ideal 𝔪_M of T^S_M in the support of the Levi complexes RΓ(X^M_{K_M}, A) (A running over the
-finitely many K_{M,S}-subquotients of the fibre cohomology H^b(Γ_N, V ⊗ k)), the pullback S^*(𝔪_M) =
-S⁻¹(𝔪_M) ≠ 𝔪. Then RΓ(∂X̄_K, V)_𝔪 = 0, and (RΓ_c(X_K, V))_𝔪 → (RΓ(X_K, V))_𝔪 is an isomorphism. The
-hypothesis is an actual eigenvalue condition on Levi Hecke eigensystems transported by the
-unnormalized Satake map; the label non-Eisenstein proves nothing without it.
+𝔪 ⊂ T^S_G a maximal ideal. For every proper P=M⋉N and every transported component g of the global
+P-stratum, use its actual level L_g, Levi level L_{M,g}, and lattice Γ_{N,g}. For W=V⊗k at 𝔪 and
+also W=(V⊗k)^∨⊗o_{P,g} at the inverse-double-coset ideal 𝔪^∨, impose the following eigenvalue
+exclusion: no maximal ideal 𝔪_M in the support of any Levi complex RΓ(X^M_{L_{M,g}},A), with A a
+finite local-coefficient subquotient arising from H^b(Γ_{N,g},W), pulls back through the
+unnormalized Satake map to the corresponding G-ideal. Then RΓ(∂X̄_K,V)_𝔪=0 and
+RΓ_c(X_K,V)_𝔪→RΓ(X_K,V)_𝔪 is an isomorphism. The dual exclusion can equivalently be replaced by
+direct vanishing of every compact-support stratum complex at 𝔪. It is not inferred from the ordinary
+exclusion alone. These are actual conditions on all transported Levi eigensystems; the label
+non-Eisenstein alone proves nothing.
 
 OMITTED theorem signature: LocallySymmetric.boundary_eigenvalue_criterion.
 
 Earlier interface needed:
-SR.2/SR.4 and RG2.4 exact parabolic/Iwasawa and monoid Satake carriers; AF.1 Lie algebra
+SR.2/SR.4 and RG2.4 exact parabolic/Iwasawa and monoid Satake carriers; AF.1a absolute Lie algebra
 cochains/Kostant modules; transported boundary RΓ/localization from earlier ALS nodes; IHG.2
 spectral idempotents; AG residual Galois systems indexed by finite Hecke-image maximal ideals.
 Reducibility of an arbitrary representation is only an adapter for the arithmetic predicate.
@@ -2610,7 +2636,9 @@ ArithmeticLocallySymmetricSpaces:ALS.4/boundary-gluing-convergence;
 ArithmeticLocallySymmetricSpaces:ALS.4/levi-hochschild-serre;
 ArithmeticLocallySymmetricSpaces:ALS.4/boundary-triangle;
 ArithmeticLocallySymmetricSpaces:ALS.4/localization-at-maximal-ideal;
-ArithmeticLocallySymmetricSpaces:ALS.4/parabolic-hecke-maps
+ArithmeticLocallySymmetricSpaces:ALS.4/parabolic-hecke-maps;
+ArithmeticLocallySymmetricSpaces:ALS.5:finite-level-duality/verdier-poincare-duality;
+ArithmeticLocallySymmetricSpaces:ALS.5:finite-level-duality/hecke-adjoint-duality
 -/
 
 /-!
@@ -2619,19 +2647,23 @@ ArithmeticLocallySymmetricSpaces:ALS.4/parabolic-hecke-maps
 Mathematical specification:
 Let F be a number field, G = GL_{n,F}, S ⊃ S_p, U ∈ J_{G,U^S} (neat, U_v = GL_n(O_{F_v}) for v ∉ S).
 Assume ♠: for every 1 ≤ m ≤ n and every such level for GL_m, RΓ(X^U_{GL_m}, k) is of S-Galois type
-(true for F totally real or imaginary CM by Scholze's theorem, supplied outside this roadmap). Then
-for every smooth O[U_S]-module A, finite over O, RΓ(∂X̄^U_G, A) is Eisenstein; hence for every
-non-Eisenstein maximal ideal 𝔪 ⊂ T^S(RΓ(X^U_G, A)), (RΓ_c(X^U_G, A))_𝔪 → (RΓ(X^U_G, A))_𝔪 is a
-quasi-isomorphism. Variants: (a) for G = PGL_{n,F}, F imaginary CM, at the levels Y(K), Y_0(Q),
-Y_1(Q) of CG18 §9 and O/ϖ^n coefficients, if r̄_𝔪 is absolutely irreducible then H^*(∂Y_?, O/ϖ^n)_𝔪
-= 0 (the hypothesis omitted from the statement of CG20 Theorem 3.2/A.4,
+(the ordinary-coefficient Galois attachment is supplied outside this roadmap). In addition assume
+the orientation-compatible form of this input: for every such GL_m level and finite smooth
+k[U_S]-module B, RΓ(X^U_{GL_m}, B^∨⊗o_U) is of S-Galois type with the same rank-m unnormalized
+Hecke-polynomial convention. At orientable levels this extra condition follows from the ordinary
+finite-coefficient input; at general real-place levels it is an explicit additional hypothesis, not
+a consequence of neatness. Then for every smooth O[U_S]-module A, finite over O, RΓ(∂X̄^U_G, A) is
+Eisenstein; hence for every non-Eisenstein maximal ideal 𝔪 ⊂ T^S(RΓ(X^U_G, A)), (RΓ_c(X^U_G, A))_𝔪 →
+(RΓ(X^U_G, A))_𝔪 is a quasi-isomorphism. Variants: (a) for G = PGL_{n,F}, F imaginary CM, at the
+levels Y(K), Y_0(Q), Y_1(Q) of CG18 §9 and O/ϖ^n coefficients, if r̄_𝔪 is absolutely irreducible
+then H^*(∂Y_?, O/ϖ^n)_𝔪 = 0 (the hypothesis omitted from the statement of CG20 Theorem 3.2/A.4,
 PAPER-CALEGARI-GERAGHTY-20/E140); (b) for PGL_2 over imaginary quadratic F and non-Eisenstein 𝔪 in
 the sense of CG18 Definition 5.5, H_i(Y_0(Q), μ)_𝔪 ≅ H_i^{BM}(Y_0(Q), μ)_𝔪 (CG18 Lemma 5.9(3)).
 
 OMITTED theorem signature: LocallySymmetric.gln_boundary_eisenstein.
 
 Earlier interface needed:
-SR.2/SR.4 and RG2.4 exact parabolic/Iwasawa and monoid Satake carriers; AF.1 Lie algebra
+SR.2/SR.4 and RG2.4 exact parabolic/Iwasawa and monoid Satake carriers; AF.1a absolute Lie algebra
 cochains/Kostant modules; transported boundary RΓ/localization from earlier ALS nodes; IHG.2
 spectral idempotents; AG residual Galois systems indexed by finite Hecke-image maximal ideals.
 Reducibility of an arbitrary representation is only an adapter for the arithmetic predicate.
@@ -2660,7 +2692,7 @@ Levi subgroups (S-Galois type for Res_{F/F⁺}GL_m, m ≤ n), as in gln-boundary
 OMITTED theorem signature: LocallySymmetric.siegel_stratum_localization.
 
 Earlier interface needed:
-SR.2/SR.4 and RG2.4 exact parabolic/Iwasawa and monoid Satake carriers; AF.1 Lie algebra
+SR.2/SR.4 and RG2.4 exact parabolic/Iwasawa and monoid Satake carriers; AF.1a absolute Lie algebra
 cochains/Kostant modules; transported boundary RΓ/localization from earlier ALS nodes; IHG.2
 spectral idempotents; AG residual Galois systems indexed by finite Hecke-image maximal ideals.
 Reducibility of an arbitrary representation is only an adapter for the arithmetic predicate.
@@ -2971,7 +3003,9 @@ modules; AG2.2/AG2.3 unitary parameter systems and AG2.4 GL systems. An arbitrar
 cannot define cuspidal cohomology.
 
 Exact prerequisite references:
-ArithmeticLocallySymmetricSpaces:ALS.5/de-rham-comparison; AutomorphicSpectralTheory:AS.5
+ArithmeticLocallySymmetricSpaces:ALS.5/de-rham-comparison;
+AutomorphicSpectralTheory:AS.5/franke-comparison;
+AutomorphicSpectralTheory:AS.5/franke-schwermer-support
 -/
 
 /-!
@@ -3025,8 +3059,11 @@ modules; AG2.2/AG2.3 unitary parameter systems and AG2.4 GL systems. An arbitrar
 cannot define cuspidal cohomology.
 
 Exact prerequisite references:
-ArithmeticLocallySymmetricSpaces:ALS.5/automorphic-comparison; AutomorphicSpectralTheory:AS.5;
-AutomorphicFormsOnReductiveGroups:AF.1a/relative-lie-cochain-complex; AutomorphicSpectralTheory:AS.4
+ArithmeticLocallySymmetricSpaces:ALS.5/automorphic-comparison;
+AutomorphicSpectralTheory:AS.5/franke-comparison;
+AutomorphicSpectralTheory:AS.5/franke-schwermer-support;
+AutomorphicFormsOnReductiveGroups:AF.1a/relative-lie-cochain-complex;
+AutomorphicFormsOnReductiveGroups:AF.3/cuspidal-spectrum-discrete
 -/
 
 /-!
@@ -3053,7 +3090,10 @@ cannot define cuspidal cohomology.
 Exact prerequisite references:
 ArithmeticLocallySymmetricSpaces:ALS.5/cuspidal-cohomology;
 ArithmeticLocallySymmetricSpaces:ALS.5/automorphic-comparison;
-AutomorphicFormsOnReductiveGroups:AF.4; ArithmeticLocallySymmetricSpaces:ALS.0/symmetric-space
+AutomorphicFormsOnReductiveGroups:AF.4/algebraic-weight;
+AutomorphicFormsOnReductiveGroups:AF.4/c-l-algebraic;
+AutomorphicFormsOnReductiveGroups:AF.4/cohomological-representation;
+ArithmeticLocallySymmetricSpaces:ALS.0/symmetric-space
 -/
 
 /-!
@@ -3082,7 +3122,11 @@ ArithmeticLocallySymmetricSpaces:ALS.5/automorphic-comparison;
 ArithmeticLocallySymmetricSpaces:ALS.5/cuspidal-cohomology;
 ArithmeticLocallySymmetricSpaces:ALS.4/eisenstein-maximal-ideal;
 ArithmeticLocallySymmetricSpaces:ALS.4/localization-at-maximal-ideal;
-AutomorphicGaloisRepresentationsPartII:AG2.4; AutomorphicFormsOnReductiveGroups:AF.4
+AutomorphicGaloisRepresentationsPartII:AG2.4;
+AutomorphicFormsOnReductiveGroups:AF.4/algebraic-weight;
+AutomorphicFormsOnReductiveGroups:AF.4/c-l-algebraic;
+AutomorphicFormsOnReductiveGroups:AF.4/cohomological-representation;
+AutomorphicFormsOnReductiveGroups:AF.4/borel-wallach-tempered-range
 -/
 
 /-!
@@ -3240,6 +3284,8 @@ mathlib:CongruenceSubgroup.Gamma1; mathlib:UpperHalfPlane
 -/
 
 end TauCeti.LocallySymmetric
+
+
 
 /-
 ALS.4 supplier correction: AF.1a is the unique cochain owner.
