@@ -1,1172 +1,2625 @@
-# Geometric Satake over the Fargues–Fontaine curve (part from GS0)
-
-Blueprint for the roadmap `GeometricSatakeAndFusion`, job `BP-GeometricSatakeAndFusion--GS0` (issue #741).
-Packet: `research/blueprint/packets/GeometricSatakeAndFusion--GS0.json` (`"part": "GS0"`). Suggested Lean file:
-`research/blueprint/suggested/GeometricSatakeAndFusion--GS0.lean`. Handoff:
-`research/blueprint/handoff/BP-GeometricSatakeAndFusion--GS0.md`.
+# Geometric Satake over the Fargues–Fontaine curve: GS0–GS2
+
+This document is the definitive mathematical plan for the first part of
+`GeometricSatakeAndFusion`. It covers Beilinson–Drinfeld Grassmannians, early
+Schubert smoothness, integral Witt geometry, semi-infinite geometry, relative
+perversity, and convolution with duals. The packet beside this document records
+the same declarations and their direct dependencies. The suggested Lean file
+prototypes their algebraic and categorical interfaces against the pinned libraries.
+Its comments specify which geometric hypotheses cannot yet be expressed.
+
+The target-level pass is complete. Every target of the eight stages in scope is
+planned, and none is closed. There are 59 nodes: 21 constructions, 2 definitions,
+27 theorems, 8 comparisons and 1 application. The 23 objects have 71 API items and
+69 unit tests. There are 25 planets, 29 pinned baseline declarations, 20 supplier
+requests and 8 explicit gaps. Every implementation status is unchecked. Here
+“planned” means that the target has a stated contract and its prerequisite chains
+end in a library declaration, an existing roadmap node, a requested supplier
+stage or a named gap. It does not mean that those suppliers are implemented or
+that the suggested signatures prove the geometric theorem.
+
+The second part owns symmetric fusion, tensor compatibility of the fibre
+functor, rational Tannakian reductivity and dual-group reconstruction. They are
+outside this document. Convolution closure and both duals precede symmetric
+fusion: FS VI.8 proves them, and VI.9 uses them. The elementary two-leg collision
+family in VI.8.1(ii) is an ingredient of the early closure proof and is included
+here. It does not import the coherent symmetric fusion construction.
+
+## Conventions and the library boundary
+
+Fix a nonarchimedean local field E of residue characteristic p and a coefficient
+prime ℓ different from p. Write O_E for its valuation ring. An integral reductive
+model is fixed whenever a construction is made over integral divisors. A general
+possibly ramified reductive group over E is handled on generic divisors by a
+splitting extension and Galois descent; this does not produce a reductive O_E-model.
+Parahoric and Iwahori integral models are distinct inputs. Their definitions,
+root data, affine Weyl groups, Bruhat order, admissible sets and Kottwitz maps
+belong to `ReductiveGroupsPartII:RG2.3`, `RG2.4` and `RG2.5`.
+
+For an integral degree-d divisor D, B⁺_D and B_D are the completed and punctured
+rings supplied by `RelativeFarguesFontaine:RF2:integral-divisors`. On the X version
+of the divisor base use the affinoid basis on which D_S is affinoid. The ideal I
+of the Cartier divisor is retained throughout finite congruence quotients. The
+full positive loop group is an inverse limit. Finite jet quotients and its graded
+pieces have finite cohomological dimensions; no finite dimension is assigned to
+the whole inverse-limit group.
+
+For a finite set of ordered legs, add their Cartier divisors. At a geometric
+point with r distinct untilts there are r local factors, even when there are more
+than r labelled legs. Bounds on legs with the same untilt add. The perverse shift
+is the sum of the dimensions of these r local Schubert factors. On a single cell
+labelled μ it is d_μ=⟨2ρ,μ⟩. This avoids counting a collision twice in the local
+product while forgetting its summed relative-position bound.
+
+A perfect-base GL_n Witt lattice Λ is an embedded finite projective W(R)-module
+spanning W(R)[1/p]^n. Pole bounds are locally uniform. For a positive bound use
+the quotient W(R)^n/Λ, whose determinant has the positive quotient convention.
+Its geometric type is a sorted partition with fixed total length. Dominance is
+equal total length together with all initial partial-sum inequalities; coordinatewise
+comparison is different. Coordinate-ring perfection is the direct Frobenius
+colimit. Mathlib’s `Perfection` is an inverse-limit construction and cannot supply
+that interface. A pfp perfect scheme has finite-type models up to Frobenius, with
+compatible dimensions and étale topoi supplied by SF.0.
+
+The pins are Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti
+`f790474821cf4256814db967cb154e7af3d0c369`. The reviewed `AUDIT-21` entries of
+`data/library-coverage.json` are the starting point. Their missing geometric
+Satake targets are distinct from the abstract algebraic and categorical
+substrates in those pins. The declaration statements cited below were inspected
+at these commits. Witt vectors, ordinary module flatness, submodules, quotients,
+t-structures and hearts, full subcategories, action categories and rigid categories
+are reused. This part does not plan those notions again.
+
+Tau Ceti’s `InvertibleSheaf` is the scheme line-bundle carrier, with its trivial
+object. That carrier alone supplies neither positivity nor the needed Picard
+tensor/descent calculus. Likewise the field-based `ReductiveAffineGroupSchemeCat`
+does not provide an integral parahoric model, and `LeftRigidCategory` does not
+assert right rigidity. The plan requests the missing interfaces from their owners.
+The analytic scheme/adic comparisons are imported from L1/L3 and D6. Before
+representability has been proved, a nonanalytic scheme-associated v-sheaf is not
+called a diamond simply because its analytic restriction is one.
+
+The initial coefficient setting is prime-to-p torsion, with compatible derived
+adic systems supplied by L0. A Satake object is bounded, ULA, relative perverse
+and coefficient-flat. Flatness means that derived tensor with every coefficient
+module remains perverse. It does not follow from perversity or from a rational
+cycle computation. The category of flat objects is used with its additive/exact
+structure; it is not asserted to be abelian for integral coefficients. Rational
+IC, decomposition and semisimplicity are imported where explicitly stated.
+
+## Order of construction and ownership
+
+The loop and torsor functors are constructed first using RF2’s existing completed
+rings and bundle descent. RF4 supplies Beauville–Laszlo gluing for G-torsors and
+the punctured A_inf extension used in the parahoric integral comparison. RF2’s
+finite-projective completed-ring descent is cited by its existing node and is
+not reconstructed under a different name.
+
+Early generic bounded properness uses the generic divisor geometry. Integral
+bounded properness also needs the special Witt fibre. It is therefore owned
+only by GS0:Witt-geometry and follows the projectivity argument there; it is not
+proved a second time in loop geometry. Smooth open-cell geometry is computed
+from the opposite parabolic and finite congruence layers. The minuscule
+Bialynicki–Birula identification matches the CS and FS sign conventions and
+imports the period-sheaf connection and the finite-projectivity criterion where
+its source proof needs them.
+
+Witt projectivity follows the geometric determinant route of BS §§6–8. First
+construct the filtration/Demazure resolution and prove connected cohomologically
+trivial fibres. Descend the product of graded quotient determinants using the
+supplier’s fibral line-bundle criterion. On fixed finite models apply the
+Witt-specific positivity calculation and then Keel’s general criterion. SF.5
+owns the general positivity vocabulary, exceptional locus, Kodaira decomposition,
+Keel lemmas, Frobenius extension and Stein contraction. The two duplicate Keel
+aliases in the routed paper extraction refer to that same supplier. GS owns the
+application, not a second general positivity library.
 
-This part covers the eight stages up to the Satake closure. `GS3:fusion` and the `GS4` substages belong to the
-other part of this roadmap (`BP-GeometricSatakeAndFusion--GS3`, issue #742) and are not planned here.
+One prerequisite of that induction needs a precise repair: before applying
+Keel on the lower-bound union, construct its pfp proper representative using
+closed intersections and finite pinching. This is an SF.1 request and a named
+gap. The packet consequently does not treat the union’s representability as a
+consequence of the very projectivity theorem being proved. Canonical weakly
+normal models and the rank-two cone chart are separate source targets. Their
+announced Hodge determinant comparison and corrected right-factor integrality
+are stated as obligations. Normal/Cohen–Macaulay conjectures for nonperfect
+canonical Schubert models are not assumptions of the established perfect-bound
+projectivity target.
 
-**Status: partial.** All eight layers in scope are decomposed, none is closed. The packet has 16 nodes
-(3 constructions, one definition, 10 theorems, one lemma, one comparison), 26 API items, 16 unit tests and
-14 planets; it cites 25 declarations of the pinned libraries, records 10 gaps, makes 15 requests and 2
-structural proposals.
+Semi-infinite strata and hyperbolic localization give normalized constant-term
+functors. VS1 owns Braden’s comparison and the enhanced proper-relative ULA
+kernel formalism. The Witt affine intersections, ULA criterion and one-leg
+restriction comparison then supply the relative perverse structure. The early
+scheme perversity/recollement supplier is EDC.5; EDC.4 is not its owner. GS1
+receives L1/L3 directly for the scheme-to-v-sheaf comparisons. The lisse-category
+stage VS3 is not needed for these torsion étale Satake constructions. EDC.7
+occurs in the explicitly rational standard/costandard and weight refinements,
+without being put in front of GS0 smoothness.
 
-Pinned baseline: Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`, Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`.
+Finally define the full Satake subcategory and its total-cohomology fibre functor.
+The semi-infinite filtration proves finite projectivity and exact faithfulness;
+over a general leg base it does not give a canonical splitting or tensor
+identification. Define convolution by the bounded proper Hecke correspondence.
+EDS and VS supply coherent composition and the Ind extension, including the
+associator, units and higher compatibility. ULA kernels compose, the elementary
+collision family gives the nonpositive perverse bound, and duality supplies the
+other aisle. Testing all coefficient modules proves flatness. Kernel adjunctions
+then give evaluation and coevaluation with both triangle identities, and hence
+both duals. Symmetry and the tensor fibre comparison have their specified owner
+in the second part.
 
-## Sources
+## Sources and passage ledger
 
-All four sources are freely available, and **all four were downloaded again in this session and their SHA-256
-hashes reproduce the recorded values byte for byte.** Every locator therefore rests on the same files the
-independent review of the decomposition checked.
+The following public versions fix every locator. The listed passages were read
+for the target pass; no claim of a full-paper reading is made beyond them. The
+packet keeps the full SHA-256 values, source versions and short printed labels
+identifying each declaration passage. Statements and proofs below are
+paraphrased with the corrected hypotheses. Source findings remain candidates
+for independent verification, with their original extraction provenance retained.
 
-- **`FS-geometrization`** — Laurent Fargues, Peter Scholze, *Geometrization of the local Langlands correspondence*. Author-hosted 356-page PDF (MPIM Bonn), inspected 2026-09-15; corresponds to arXiv:2102.13459v4 by metadata and contents, not by byte comparison. PDF page = printed page.
-  <https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf>, read 2026-09-16.
-  SHA-256 `9ab9efbd0df251bfa3b610d1d1d88a8dfb1bdf7c397bd04f4c277280d98ae905` — reproduced 24 September 2026.
-- **`BS17-witt-grassmannian`** — Bhargav Bhatt, Peter Scholze, *Projectivity of the Witt vector affine Grassmannian*. arXiv:1507.06490v3 [math.AG], 21 February 2017 (published Invent. Math. 209 (2017)); library PDF, printed page = PDF page
-  <https://arxiv.org/abs/1507.06490>, read 2026-09-16.
-  SHA-256 `b4d5a4e0a6591971c6b8521d790e5db6e61112f1350a0e4a05a8d98b6e0b961e` — reproduced 24 September 2026.
-- **`Keel99-basepoint`** — Sean Keel, *Basepoint freeness for nef and big line bundles in positive characteristic*. Annals of Mathematics 149 (1999), 253-286; library copy is arXiv:math/9901149v1 (1 January 1999) with the Annals pagination printed. Printed page = PDF page + 252.
-  <https://arxiv.org/abs/math/9901149>, read 2026-09-16.
-  SHA-256 `2ec4141aea36ad77e5b504f01617ffbbe17de0af27f8b2c5f4a1f4ee6afde398` — reproduced 24 September 2026.
-- **`SW20-berkeley`** — Peter Scholze, Jared Weinstein, *Berkeley Lectures on p-adic Geometry*. Annals of Mathematics Studies 207; PDF dated 'March 27, 2020'. Printed page = PDF page - 10.
-  <https://www.math.uni-bonn.de/people/scholze/Berkeley.pdf>, read 2026-09-16.
-  SHA-256 `225505171ef809aa0070c023c881ff1da844923775f2d631474c0b42eea4bffc` — reproduced 24 September 2026.
+**FS-geometrization** — Laurent Fargues, Peter Scholze. [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). Author-hosted 356-page PDF; PDF page = printed page. Re-fetched and passages inspected 2026-10-07.
 
-## What the pinned libraries have, and what they do not
+- VI.1–VI.8, printed pp. 190–226, including proofs.
+- IV.2.23–IV.2.26, printed pp. 124–126; IV.6.1–IV.6.8 and IV.6.11–IV.6.14, pp. 155–159, 162–163.
 
-`data/library-coverage.json` has **no reviewed audit entry for this roadmap**, so the pinned declaration index was
-searched directly. The search cut both ways.
+**BS17-witt-grassmannian** — Bhargav Bhatt, Peter Scholze. [Projectivity of the Witt vector affine Grassmannian](https://arxiv.org/abs/1507.06490). arXiv:1507.06490v3, 61-page PDF; PDF page = printed page.
 
-**Present, and cited rather than planned:**
+- §§2–4, 6–10 (geometric determinant route; §5 only a cited alternative), printed pp. 4–18, 21–39.
 
-- `mathlib:CategoryTheory.Triangulated.TStructure`, with `IsLE`, `IsGE` and a `Heart`. The abstract notion of a
-  t-structure is pinned, so GS1 plans only the relative perverse *normalisation*.
-- `mathlib:PerfectRing` and `mathlib:Perfection` — the perfect `F_p`-algebras and the perfection functor that
-  Bhatt–Scholze work with throughout, and the reason their hypothesis cannot be dropped.
-- `mathlib:AlgebraicGeometry.IsProper` and `mathlib:ValuationRing` — properness, and the rings the fibral descent
-  criterion reduces to.
-- `mathlib:CoxeterSystem` and `tauceti:TauCeti.TitsSystem.bruhatCell` for the Bruhat and dominance combinatorics;
-  `mathlib:RootPairing` for `ρ`, the dominance order, `P_μ^-` and the weight decomposition of `Lie G`.
-- `mathlib:CategoryTheory.LeftRigidCategory` — the pinned form of the dualizability conclusion that
-  `HeckeStacksAndLocalShtukas` consumes.
-- `tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf` for the line bundles `L`, `L̃` and `I_S^m/I_S^{m+1}`.
+Publisher PDF endpoint returned an HTML paywall with access=No on 2026-10-07; final arXiv v3 is the source read. No published-text equivalence is asserted. The BS source findings are scoped to that final preprint.
 
-**Absent, at both pins:**
+**SW20-berkeley** — Peter Scholze, Jared Weinstein. [Berkeley Lectures on p-adic Geometry](https://www.math.uni-bonn.de/people/scholze/Berkeley.pdf). Author-hosted Berkeley Lectures PDF dated March 27, 2020; PDF page = printed page + 10.
 
-- Any **ampleness, nefness or semiampleness** in the algebro-geometric sense. The only declaration whose name
-  contains `Ample` is `AmpleSet` in `Mathlib/Analysis/Convex/AmpleSet.lean`, the convex-analysis notion, which is
-  unrelated. There is no `IsNef`, no semiample, no basepoint-freeness and no `Proj` of a graded ring. And no
-  roadmap of the atlas owns projective or birational algebraic geometry. So the Keel criterion is planned here by
-  default, and the second structural proposal asks whether that is right.
-- Any loop group, affine Grassmannian, perfectoid space, diamond or shtuka.
+- Lectures 18–20, especially §§19.2–19.4 and 20.3–20.5; Lecture 21 §§21.1–21.5, printed pp. 191–197; Appendix 21.6 opening pp. 198–200.
 
-## What is deliberately absent
+**Zhu17** — Xinwen Zhu. [Affine Grassmannians and the geometric Satake in mixed characteristic](https://annals.math.princeton.edu/wp-content/uploads/annals-v185-n2-p02-p.pdf). Published Annals 185 (2017), pp. 403–492; PDF page = printed page − 402.
 
-FS IV.6 (hyperbolic localization and Braden's theorem) and IV.7 (Drinfeld's lemma), Bhatt–Scholze sections 2–7
-and 8.2–8.3, Keel beyond 1.7–1.9, Zhu's mixed-characteristic Satake paper in its entirety, and Berkeley 19–21 were
-**not read** by the decomposition, and several of them are load-bearing. No node is invented for them: they are
-carried as gaps with a *next source action* naming exact printed pages, and the nodes that depend on them say so
-in their own hypotheses.
+- §§1.1–1.4, 2.1–2.2, Appendices A and B, printed pp. 412–440, 464–488.
 
-## GS0. Beilinson–Drinfeld Grassmannians and loop groups
+**CS17** — Ana Caraiani, Peter Scholze. [On the generic part of the cohomology of compact unitary Shimura varieties](https://annals.math.princeton.edu/wp-content/uploads/annals-v186-n3-p01-p.pdf). Published Annals 186 (2017); PDF page = printed page − 648.
 
-An aggregate layer with no node of its own: its three substages carry the mathematics
-and its coverage is the union of theirs.
+- §3 setup p. 675; §3.4 pp. 684–686.
 
-**Coverage: `partial`.** Aggregate layer over the three GS0 substages; it has no node of its own and its coverage is the union of theirs.
+**GLX26** — Ian Gleason, Dong Gyu Lim, Yujie Xu. [The connected components of affine Deligne–Lusztig varieties](https://link.springer.com/content/pdf/10.1007/s00222-025-01386-1.pdf). Published Inventiones 243 (2026), pp. 805–861; PDF page = printed page − 804.
 
-Remaining in this layer:
+- §1.1 p. 806; §3.2–3.3 pp. 822–824.
 
-- Aggregate stage; inherits the remaining items of the three GS0 substages.
+**VH24** — Pol van Hoften. [Mod p points on Shimura varieties of parahoric level](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/EC6F7AD8C8B489FEB8FC4D64485ABE1D/S2050508624000222a.pdf/mod_p_points_on_shimura_varieties_of_parahoric_level.pdf). Published Cambridge PDF, PDF pages used as locators.
 
-## GS0:Schubert-smoothness. Early geometric return to Bun_G
+- §2.2.6–§2.2.15, PDF pp. 13–16 (Witt flags, admissible strata and torsor adapters).
 
-Two statements, and the first is the one the rest of the atlas
-actually consumes. `Gr_{G,Div¹,μ} = L⁺G/(L⁺G)_μ` is cohomologically smooth of `ℓ`-dimension `⟨2ρ,μ⟩`. Fargues–Scholze
-state it twice: as Proposition IV.1.18, where they write *"We defer the proof to Proposition VI.2.4 as we do not want to
-make a digression on `Gr_G` here"*, and as VI.2.4 itself. So the `Bun_G` chart of
-`VStackSheavesAndLisseCategories` really does rest on this layer.
+**He21** — Xuhua He. [Cordial elements and dimensions of affine Deligne–Lusztig varieties](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/5A27DBF48CAEF6DA56A313061848574C/S205050862100010Xa.pdf/cordial-elements-and-dimensions-of-affine-delignelusztig-varieties.pdf). Published Forum of Mathematics Pi 9 (2021), e9; PDF page = printed page.
 
-The stabilizer is computed explicitly: `(L⁺G)_μ/(L⁺G)^{≥1}_μ = (P_μ^-)^◊` inside `G^◊`, and the higher graded pieces are
-the weight-`≤ m` parts of `Lie G` under the adjoint `μ`-action. The GL_n case is a lattice computation; the general case
-embeds `G → GL_n` compatibly with torus and Borel and forces the inclusions to be equalities.
+- §2.2 p. 5; §§5.3–5.4 pp. 9–12.
 
-The second statement is the **truncation lemma**, and it is small but load-bearing: the action of `L⁺G` on a bounded
-locus factors through `(L⁺G)^{<m}` where `m` bounds the weights of `μ = Σ_j μ_j` on `Lie G`. The bound is by the weights
-on the Lie algebra, not by `⟨2ρ,μ⟩`. It is what puts the bounded loci in the Artin-stack setting, and the proof of
-VI.6.4 records that it is used — *"Implicitly, we pass here to a bounded part of `Hck` and replace the quotient by `L⁺G`
-by a finite-dimensional quotient in order to be in the setting of Artin stacks."*
+The Keel paper is an SF.5 supplier source rather than a GS-owned general-theory source. The projectivity nodes read BS’s application and name the required Keel interface. BS §5’s higher K-theoretic determinant construction is an alternative to the geometric route and is not a prerequisite of that proof.
 
-**Coverage: `partial`.** Cohomological smoothness of the open Schubert cell of l-dimension <2rho,mu>, with the explicit stabilizer computation, and the truncation lemma saying the loop action on a bounded locus factors through a finite congruence quotient. The first is the same statement as Proposition IV.1.18, whose proof Fargues-Scholze defer to here, so the Bun_G chart of VStackSheavesAndLisseCategories really does consume this layer. The second is what puts the bounded loci in the Artin-stack setting, and it is consumed by name in the proof of VI.6.4.
+The `routedCoverage` ledger accounts for all 236 items handed to this job by the six routed papers. Its records retain the extraction item id, name and locator and name the covering node, supplier or part boundary. A source proof step shares its target’s node; it does not become a duplicate definition. The ledger is a coverage reconciliation, not acceptance of an extraction’s unverified implementation claim.
 
-Remaining in this layer:
+| Paper | Routed items |
+| --- | ---: |
+| PAPER-BHATT-SCHOLZE-17 | 95 |
+| PAPER-CARAIANI-SCHOLZE-17 | 6 |
+| PAPER-GLEASON-LIM-XU-26 | 2 |
+| PAPER-HE-21 | 14 |
+| PAPER-VANHOFTEN-24 | 7 |
+| PAPER-ZHU-17 | 112 |
 
-- SW20 Proposition 19.4.2, used in the GL_n lattice computation of VI.2.4, was not read.
-- The stage text also asks for truncated positive loop groups and their congruence filtration by VECTOR-GROUP quotients with cohomological smoothness; VI.1.11 gives the graded pieces and their smoothness, but the truncated groups (L^+G)^{<m} themselves were not separately analysed.
-- The descent of the Galois-orbit cells Gr_{G,mu-bar} was not read.
+The two canonical-model conjectures and BS’s representation-theoretic open question retain their status. Alternative rational Chern-class and equivariant monoidality proofs are identified as alternatives, with their owning interfaces, rather than silently supplying an early geometric prerequisite.
 
-### `open-cell-stabilizer-and-smoothness` — FS VI.2.4 (= IV.1.18): the open Schubert cell is cohomologically smooth of l-dimension <2rho,mu>
+## Coverage and acceptance
 
-*theorem.* **Planet: Smoothness of the open Schubert cell.**
-
-**Statement.** The section [mu] : Div^1_Y-curly -> Hck_{G,Div^1,mu} given by mu(xi) for a local generator xi of I_S is a v-cover, giving Hck_{G,Div^1,mu} = [Div^1/(L^+G)_mu] where (L^+G)_mu is the closed stabilizer of [mu]. Its congruence quotients are (L^+G)_mu/(L^+G)^{>=1}_mu = (P_mu^-)^diamond inside L^+G/(L^+G)^{>=1} = G^diamond, and (L^+G)_mu^{>=m}/(L^+G)_mu^{>=m+1} = (Lie G)^diamond_{mu <= m}{m}, where P_mu^- is the parabolic with Lie algebra (Lie G)_{mu<=0} and (Lie G)_{mu<=m} is the weight-<=m part for the adjoint mu-action. Consequently Gr_{G,Div^1,mu} = L^+G/(L^+G)_mu is cohomologically smooth of l-dimension <2rho,mu> over Div^1_Y-curly.
-
-**Hypotheses that must not be dropped.**
-
-- [mu] is independent of the choice of local generator xi only up to the action of L^+G
-- The l-dimension is <2rho,mu> with the standard half-sum-of-positive-roots normalization
-- The GL_n case is proved by an explicit lattice computation using [SW20, Proposition 19.4.2] to see that the filtration steps Fil^i_Xi (R^sharp)^n are finite projective of rank the multiplicity of -i among k_1,...,k_n; SW20 19.4.2 was NOT read
-- The general case is reduced to GL_n; Fargues-Scholze use this to prove Proposition IV.1.18, which is stated in Chapter IV with the proof deferred to here
-- The proof of VI.2.4 additionally imports [SW20, Proposition 20.3.7] (Gr_{G,mu} closed in Gr_{GL_n,mu}) and [Sch17a, Lemma 12.5] (a qcqs closed immersion that is bijective on geometric points is an isomorphism); neither was read.
-
-**Proof outline.**
-
-1. Show [mu] is surjective on geometric points: for GL_n and S = Spa(R,R^+) with untilt S^sharp, localize so that the Fil^i_Xi (R^sharp)^n are free, choose a compatible basis e_1,...,e_n, lift to f_j and set g_j = xi^{k_j} f_j; then the f_j form a B_dR-basis and the g_j a B^+_dR-basis of Xi, moving Xi to the standard lattice xi^{k_1}B^+_dR + ... + xi^{k_n}B^+_dR.
-2. Compute the stabilizer: matrices A with A_{ij} in xi^{k_i - k_j} B^+ for i < j; this gives the identification of the first congruence quotient with (P_mu^-)^diamond and of the higher ones with the weight-truncated Lie algebra.
-3. Pass from GL_n to a general split G: pick a closed immersion G -> GL_n compatible with the torus and the Borel; the congruence subquotients of (L^+G)_mu embed into those for GL_n, and containment of L^+P_mu^- and of (L^+U_a)^{>=mu(a)} for every positive root a forces those inclusions to be equalities. Consequently L^+G/(L^+G)_mu -> L^+GL_n/(L^+GL_n)_mu is a closed immersion; its target is Gr_{GL_n,Div^1,mu}, which contains Gr_{G,Div^1,mu} as a closed subspace BY [SW20, PROPOSITION 20.3.7] (not read), and the two closed subspaces have the same geometric points, hence agree BY [Sch17a, LEMMA 12.5] (not read).
-4. Deduce cohomological smoothness of L^+G/(L^+G)_mu of l-dimension <2rho,mu> from the graded-piece computation of Propositions VI.1.10-VI.1.12.
-
-**Acceptance.**
-
-- Check <2rho,mu> for a minuscule mu of GL_2 (should be 1)
-- Check the parabolic P_mu^- appearing at level 1 for a nonminuscule mu
-- Check that the section [mu] is independent of xi only up to L^+G
-
-**Prerequisites.** `GeometricSatakeAndFusion:GS0:loop-geometry/congruence-filtration-and-graded-pieces`, `DiamondSixOperations:S4`, `DiamondSixOperations:S5`, `ReductiveGroupsPartII:RG2.3`, `mathlib:RootPairing`, `mathlib:Module.Free`, `mathlib:Module.Projective`
-
-**Sources.**
-
-- `FS-geometrization` — Laurent Fargues, Peter Scholze, *Geometrization of the local Langlands correspondence*, Proposition VI.2.4, printed pp. 198-199.
-
-  > In particular, Gr_{G,Div^1_Y-curly,mu} = L^+_{Div^1}G/(L^+_{Div^1}G)_mu is cohomologically smooth of l-dimension <2rho,mu> over Div^1_Y-curly.
-
-  The exact smoothness and dimension statement, which is the stage's deliverable to BG2.
-- `FS-geometrization` — Laurent Fargues, Peter Scholze, *Geometrization of the local Langlands correspondence*, Proposition VI.2.4, printed p. 198.
-
-  > (L^+G)_mu/(L^+G)^{>=1}_mu = (P_mu^-)^diamond in L^+G/(L^+G)^{>=1} = G^diamond and (L^+G)^{>=m}_mu/(L^+G)^{>=m+1}_mu = (Lie G)^diamond_{mu<=m}{m}, where P_mu^- in G is the parabolic with Lie algebra (Lie G)_{mu<=0}, and (Lie G)_{mu<=m} in Lie G is the subspace on which mu acts via weights <= m via the adjoint action.
-
-  The parabolic-flag base and unipotent-fibre description the stage text asks for.
-- `FS-geometrization` — Laurent Fargues, Peter Scholze, *Geometrization of the local Langlands correspondence*, Proposition IV.1.18 and the sentence after it, printed p. 112.
-
-  > For any mu in X_*(T)^+, the open Schubert cell Gr_{G,mu}/Spd E' is cohomologically smooth of l-dimension <2rho,mu>. We defer the proof to Proposition VI.2.4 as we do not want to make a digression on Gr_G here.
-
-  Confirms that IV.1.18 and VI.2.4 are the same statement, so the Bun_G chart really consumes this stage.
-
-### `truncation-of-the-loop-action` — FS VI.2.8: the loop action on a bounded locus factors through a finite truncation, with an explicit congruence bound
-
-*lemma.*
-
-**Statement.** For mu_bullet = (mu_j)_{j in J}, the action of L^+_{Div^d}G on Gr_{G,Div^d,<=mu_bullet} factors over (L^+G)^{<m} = L^+G/(L^+G)^{>=m}, where m is chosen so that for mu = sum_j mu_j all weights of mu on Lie G are <= m.
-
-**Hypotheses that must not be dropped.**
-
-- The bound m is determined by the WEIGHTS OF mu = sum_j mu_j ON Lie G under the adjoint action, not by the cocharacter's pairing with 2rho
-- The verification is on geometric points, legitimate because everything is separated
-- The reduction to d = 1 is by a decomposition into products at a geometric point
-
-**Proof outline.**
-
-1. Show that (L^+G)^{>=m} acts trivially; since everything is separated this may be checked on geometric points.
-2. At a geometric point decompose into products to reduce to d = 1.
-3. Apply Proposition VI.2.4, whose congruence description (L^+G)^{>=m}_mu/(L^+G)^{>=m+1}_mu = (Lie G)_{mu<=m}{m} shows that (L^+G)^{>=m} is contained in the stabilizer once all weights of mu on Lie G are <= m.
-
-**Acceptance.**
-
-- Compute the bound m explicitly for GL_2 and mu = (1,0), and for a nonminuscule mu
-- Check that the truncated group (L^+G)^{<m} is a finite-dimensional-type object as needed to be in the Artin-stack setting
-- Check that the bound depends on sum_j mu_j and not on the individual mu_j
-
-**Prerequisites.** `GeometricSatakeAndFusion:GS0:Schubert-smoothness/open-cell-stabilizer-and-smoothness`, `GeometricSatakeAndFusion:GS0:loop-geometry/schubert-bounds-and-properness`, `mathlib:RootPairing`
-
-**Sources.**
-
-- `FS-geometrization` — Laurent Fargues, Peter Scholze, *Geometrization of the local Langlands correspondence*, Proposition VI.2.8 and proof, printed p. 201.
-
-  > For any mu_bullet = (mu_j)_{j in J} as above, the action of L^+_{Div^d_Y-curly} G on Gr_{G,Div^d,<=mu_bullet} factors over (L^+_{Div^d}G)^{<m} where m is chosen so that for mu = sum_{j in J} mu_j, all weights of mu on Lie G are <= m.
-
-  Exact statement including the explicit congruence bound the stage text demands.
-
-## GS0:Witt-geometry. Projectivity and the special-fibre comparison
-
-The Witt vector affine Grassmannian is representable by the **perfection
-of a projective variety**. Two things about that are worth keeping straight, and the packet's node statement keeps them
-apart: Bhatt–Scholze's Theorem 8.3 is about the type-`≤λ` functor on `Perf`, the category of perfect qcqs `F_p`-schemes,
-while the introduction's Theorem 1.1 is about `Gr^{Waff,[a,b]}` on perfect *rings*. The translation between them was not
-read.
-
-`R` must be **perfect**: for a general `F_p`-algebra `W(R)` may have `p`-torsion and `W(R)/p → R` may fail to be an
-isomorphism. And *perfectly finitely presented* is not finite type — Bhatt–Scholze call it an open question whether a
-natural finite-type structure exists beyond the minuscule cells.
-
-The proof runs on two legs. The line bundle `L` is descended from a Demazure resolution using **h-descent for vector
-bundles on perfect schemes** and the fibral criterion: `E` descends iff it is trivial on every geometric fibre. (The
-hypothesis moved between versions — Theorem 6.8 asks `Rf_*O_X = O_Y`, the published Theorem 1.3 asks only for connected
-geometric fibres; Remark 1.4 records the change.) Then ampleness comes from **Keel's semiampleness criterion**, by
-induction on `λ`. Bhatt–Scholze are explicit that there is no alternative:
-
-> contrary to the situation in equal characteristic, we are not able to give a direct construction of enough sections of
-> `L` which would give a projective embedding.
-
-Keel's Theorem 1.9 needs `X` projective over a field of **positive characteristic** — it is false in characteristic
-zero — and it applies only to projective schemes, so it is applied to the Demazure resolution and not to
-`Gr_{≤λ}` directly.
-
-**None of that positivity theory exists at the pins, and no roadmap of the atlas owns it.** The only `Ample` in Mathlib
-is `AmpleSet` in convex analysis. Tau Ceti has the carrier, `InvertibleSheaf`, and nothing more. This layer also has no
-incoming stage edge in the atlas at all. Both facts are recorded as gaps, and the second structural proposal asks
-whether Keel's criterion should really be owned inside a layer about the Witt vector affine Grassmannian.
-
-The layer closes with the Mirković–Vilonen cycles: `S_λ ∩ Gr^{Witt}_{G,≤μ}` is affine and equidimensional of dimension
-`⟨ρ, μ+λ⟩`. The affineness proof *starts* from the ample bundle, which is exactly why this layer owns the projectivity
-input.
-
-**Coverage: `partial`.** The Witt vector affine Grassmannian as an ind-(perfection of a projective variety), the h-descent and fibral criterion that descends the Demazure line bundle, the ampleness argument through Keel's semiampleness criterion, and the affineness and equidimensionality of the Mirkovic-Vilonen cycles. This layer has no incoming stage edge in the atlas at all, and none of the projective algebraic geometry it needs - ampleness, nefness, semiampleness - exists in either pinned library or in any other roadmap. That is recorded as a gap and as a structural proposal rather than papered over.
-
-Remaining in this layer:
-
-- Bhatt-Scholze sections 2-7 were NOT read: the h-topology and abstract blowup squares (Thm. 2.9), perfect schemes and the perfection functor (section 3), the proof of Theorem 1.2 (section 4), the K-theoretic determinant (section 5, which the roadmap explicitly excludes), the rest of section 6 (Props. 6.1, 6.2, Lemmas 6.4, 6.11, Rem. 6.12) and section 7 (families of torsion W(k)-modules, Lemma 7.9).
-- Bhatt-Scholze section 8.2 (the Demazure resolution) and 8.3 (the construction of L, Theorem 8.8), and Lemmas 8.9, 8.10, 8.11 used in the ampleness induction, were located but NOT read.
-- Keel's sections 1-2 beyond Lemmas 1.7-1.8 and Theorem 1.9 were not read; in particular 1.4, 1.5, 1.6 and the EWM theory, and the Frobenius-power extension/descent of sections that the roadmap names as a sub-obligation.
-- Zhu sections 1.1-1.4 and Appendix A, which the roadmap names for the perfect-space carrier, were NOT read (Zhu_MixedCharacteristicSatake.pdf is in the library, unread).
-- Berkeley Lectures 19.2-19.3, 20.3-20.5 and Lecture 21, named for the integral family and bounded properness, were NOT read.
-- The identification of the v-sheaf attached to the perfections with the fibre of GS0:loop-geometry over the characteristic-p point of Div^1_Y-curly was not located as a proved statement.
-
-### `witt-lattice-functor-and-representability` — Bhatt-Scholze Theorem 8.3 (the section-8 form used to prove Theorem 1.1): the Witt vector affine Grassmannian is an ind-(perfection of a projective variety)
-
-*theorem.* **Planet: The Witt vector affine Grassmannian.**
-
-**Statement.** For a sequence lambda = (lambda_1,...,lambda_n,0,...) of non-negative integers, let Gr_{<=lambda} be the functor on Perf - the category of PERFECT QCQS F_p-SCHEMES with the v-topology (their Definition 3.2) - sending X in Perf to the set of finite projective W(O_X)-submodules E in W(O_X)^n such that the defining inclusion is an isogeny and the cokernel Q has type <= lambda. Then Gr_{<=lambda} is representable by a PROPER PERFECTLY FINITELY PRESENTED F_p-scheme carrying a natural AMPLE line bundle L; in particular it is the perfection of a projective F_p-scheme. The introduction's Theorem 1.1 is the corresponding statement for the functor Gr^{Waff,[a,b]} ON PERFECT RINGS R, parametrizing W(R)-lattices M in W(R)[1/p]^n lying between p^a W(R)^n and p^b W(R)^n: it is representable by the perfection of a projective algebraic variety over F_p, and consequently Gr^{Waff} is representable by an inductive limit of perfections of projective varieties.
-
-**Hypotheses that must not be dropped.**
-
-- R must be PERFECT: for a general F_p-algebra W(R) may have p-torsion and W(R)/p -> R may fail to be an isomorphism; for perfect R, W(R) is the unique p-adically complete flat Z_p-algebra lifting R
-- A perfectly finitely presented scheme is NOT finite type; Bhatt-Scholze note it is an open question whether a natural finite-type structure exists beyond the minuscule cells, which are canonically perfections of classical Grassmannians
-- Gr_{<=lambda} is a v-sheaf by their Theorem 4.1 and Corollary 4.4; Gr_lambda = Gr_{<=lambda} minus the union of Gr_{<=mu} for mu < lambda is open, and Gr_{<=mu} is a closed immersion for mu <= lambda (Lemma 7.9)
-- Their proof is INDEPENDENT of Zhu's Theorem 8.2 (representability by the perfection of a proper algebraic space)
-- Theorem 8.3 and Theorem 1.1 are NOT literally the same statement: 8.3 is about the type-<=lambda functor on Perf (perfect schemes), 1.1 about the functor Gr^{Waff,[a,b]} on perfect rings; Bhatt-Scholze say the results of sections 2-7 'are exploited to prove Theorem 1.1 in section 8'. The translation between 'cokernel of type <= lambda' and 'lattice between p^a W(R)^n and p^b W(R)^n' was NOT read.
-
-**Proof outline.**
-
-1. Construct the line bundle L on Gr_{<=lambda}. Two constructions are given (introduction, printed pp. 2-3): a K-theoretic one, extending det : K(R) -> Pic^Z(R) along the forgetful map alpha : K(R) -> K(W(R) on R) - easy when R is the perfection of a regular F_p-algebra by Quillen devissage, and in general reduced to that case 'using de Jong's alterations and h-descent for line bundles'; and a geometric one on the Demazure resolution Gr-tilde^{Waff,[a,b]} -> Gr^{Waff,[a,b]} parametrizing filtrations of p^a W(R)^n/M with gradeds finite projective R-modules, where L-tilde exists by definition and the problem becomes descending it.
-2. Prove L is ample by induction on lambda, using Keel's semiampleness criterion applied to an h-cover (Keel applies only to projective schemes, so it is applied to the Demazure resolution, not to Gr_{<=lambda} directly).
-3. Conclude representability by a proper perfectly finitely presented scheme with an ample line bundle, hence the perfection of a projective variety.
-
-**Acceptance.**
-
-- Check the minuscule cells against perfections of classical Grassmannians
-- Check that the K-theoretic construction of L is optional, as the roadmap requires the geometric route
-- Check the type-<=lambda condition and the closed/open stratification
-
-**Prerequisites.** `GeometricSatakeAndFusion:GS0:Witt-geometry/ampleness-via-keel`, `GeometricSatakeAndFusion:GS0:Witt-geometry/h-descent-and-fibral-criterion`, `mathlib:WittVector`, `mathlib:PerfectRing`, `mathlib:Perfection`, `mathlib:AlgebraicGeometry.Scheme`, `mathlib:AlgebraicGeometry.IsProper`, `mathlib:Module.Projective`, `tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf`
-
-**Sources.**
-
-- `BS17-witt-grassmannian` — Bhargav Bhatt, Peter Scholze, *Projectivity of the Witt vector affine Grassmannian*, Theorem 8.3 and the paragraph after it, printed p. 32.
-
-  > The functor Gr_{<=lambda} is representable by a proper perfectly finitely presented F_p-scheme, and there is a natural ample line bundle L in Pic(Gr_{<=lambda}). In particular, Gr_{<=lambda} is the perfection of a projective F_p-scheme. ... Our proof of Theorem 8.3 is independent of Theorem 8.2.
-
-  Exact statement and the independence from Zhu's earlier result.
-- `BS17-witt-grassmannian` — Bhargav Bhatt, Peter Scholze, *Projectivity of the Witt vector affine Grassmannian*, Theorem 1.1, printed p. 2.
-
-  > The functor Gr^{Waff,[a,b]} on perfect rings R, parametrizing W(R)-lattices M in W(R)[1/p]^n lying between p^a W(R)^n and p^b W(R)^n, is representable by the perfection of a projective algebraic variety over F_p. Consequently, Gr^{Waff} is representable by an inductive limit of perfections of projective varieties.
-
-  The introduction's form of the result, on perfect RINGS, which is what supplies the ind-limit clause; distinguished here from the section-8 form (Theorem 8.3).
-- `BS17-witt-grassmannian` — Bhargav Bhatt, Peter Scholze, *Projectivity of the Witt vector affine Grassmannian*, 1.2 Introduction, printed p. 2.
-
-  > The primary issue is that for a general F_p-algebra R, its ring of Witt vectors W(R) is pathological: it may contain p-torsion, and the natural map W(R)/p -> R may not be an isomorphism. However, if R is perfect ... W(R) may be characterized as the unique (up to unique isomorphism) p-adically complete flat Z_p-algebra lifting R.
-
-  Records why the perfect hypothesis is essential, and connects to the same characterisation used for W_{O_E} in RF0.
-- `BS17-witt-grassmannian` — Bhargav Bhatt, Peter Scholze, *Projectivity of the Witt vector affine Grassmannian*, 1.2, printed p. 3.
-
-  > We remark that it is a very interesting question whether there is a natural 'finite-type' structure on the Witt vector affine Grassmannian. For example, all minuscule Schubert cells ... are canonically the perfections of classical Grassmannians; it is natural to wonder if such a story extends deeper into the stratification.
-
-  Confirms the roadmap's warning that a perfect scheme need not itself be finite type.
-
-### `h-descent-and-fibral-criterion` — Bhatt-Scholze Theorems 1.2 and 6.8/1.3: h-descent for vector bundles on perfect schemes and the fibral descent criterion
-
-*theorem.* **Planet: h-descent for vector bundles.**
-
-**Statement.** Any vector bundle E on a perfect F_p-scheme X gives an h-sheaf on perfect schemes over X via pullback, with H^i_h(X,E) = H^i(X,E) for all i, and effective descent for vector bundles holds along h-covers of perfect schemes. Moreover, if f : X -> Y is a proper perfectly finitely presented map in Perf with Rf_* O_X = O_Y (equivalently, in the published form, the perfection of a proper surjective map of F_p-schemes with connected geometric fibres), then E in Vect(X) descends to Y if and only if E is trivial on every geometric fibre X_{y-bar}.
-
-**Hypotheses that must not be dropped.**
-
-- X must be a PERFECT F_p-scheme; the h-topology is subcanonical on perfect schemes but not in general
-- Theorem 1.2's first part is attributed to Gabber (cf. [BST13, Section 3]); the second part extends to the full derived category in their Section 11
-- Theorem 6.8 is stated with the hypothesis Rf_* O_X = O_Y; Remark 1.4 records that an earlier version used this stronger hypothesis and that the published Theorem 1.3 weakens it to connectedness of the geometric fibres
-- The proof of 6.8 uses v-descent for vector bundles and their Proposition 6.1, reduces by Lemma 6.2 to Y affine with connected components spectra of valuation rings, and concludes by Lemma 6.4
-
-**Proof outline.**
-
-1. Establish the h-sheaf property and cohomology comparison for vector bundles on perfect schemes (Theorem 1.2), using the criterion for an fppf sheaf to be an h-sheaf in terms of abstract blowup squares (their Theorem 2.9).
-2. For the fibral criterion: one direction is clear; for the converse, reduce by v-descent and Proposition 6.1 to a v-cover, by Lemma 6.2 to Y affine with valuation-ring components, spread a trivialization over a clopen neighbourhood, and reduce to Y = Spec(V) for a valuation ring, where Lemma 6.4 applies.
-3. Apply this to descend the Demazure line bundle L-tilde from the Demazure resolution to Gr_{<=lambda}.
-
-**Acceptance.**
-
-- Check the fibral criterion on the Demazure resolution used for the line bundle
-- Check that the h-topology statement fails for non-perfect schemes
-- Check the difference between the Rf_* O_X = O_Y hypothesis and the connected-geometric-fibres hypothesis
-
-**Prerequisites.** `mathlib:PerfectRing`, `mathlib:CategoryTheory.GrothendieckTopology`, `mathlib:CategoryTheory.Sheaf`, `mathlib:ValuationRing`, `mathlib:Module.Projective`
-
-**Sources.**
-
-- `BS17-witt-grassmannian` — Bhargav Bhatt, Peter Scholze, *Projectivity of the Witt vector affine Grassmannian*, Theorem 1.2, printed p. 2.
-
-  > Any vector bundle E on a perfect F_p-scheme X gives a sheaf for the h-topology on perfect schemes over X via pullback, and one has H^i_h(X,E) = H^i(X,E) for all i. Moreover, one has effective descent for vector bundles along h-covers of perfect schemes.
-
-  The descent input the roadmap names as BS17 sections 2-4.
-- `BS17-witt-grassmannian` — Bhargav Bhatt, Peter Scholze, *Projectivity of the Witt vector affine Grassmannian*, Theorem 6.8, printed p. 23.
-
-  > Let f : X -> Y be a proper perfectly finitely presented map in Perf such that Rf_* O_X = O_Y; in particular, all geometric fibres of f are connected. Let E in Vect(X). Then E descends to Y if and only if for all geometric points y-bar of Y, E is trivial on the fibre X_{y-bar}.
-
-  The trivial-on-geometric-fibres descent criterion the roadmap requires (BS17 6.8/6.12).
-- `BS17-witt-grassmannian` — Bhargav Bhatt, Peter Scholze, *Projectivity of the Witt vector affine Grassmannian*, Remark 1.4, printed p. 3.
-
-  > In a previous version this theorem was stated under the stronger hypothesis Rf_* O_X = O_Y.
-
-  Records the hypothesis change between versions, which matters when citing 1.3 versus 6.8.
-
-### `ampleness-via-keel` — Bhatt-Scholze section 8.4 and Keel 1.7-1.9: ampleness of L by induction using the semiampleness criterion
-
-*theorem.* **Planet: Ampleness by Keel semiampleness.**
-
-**Statement.** Keel's criterion: for a nef line bundle L on a scheme X projective over a field of positive characteristic, L is semi-ample (resp. EWM) if and only if L restricted to the exceptional locus E(L) is semi-ample (resp. EWM), where E(L) is the closure of the union of the irreducible subvarieties Z with L^{dim Z} . Z = 0. Two auxiliary lemmas are used: if L = A + D with A ample and D effective Cartier then E(L) is contained in D (Lemma 1.7), and if X = X_1 union X_2 with L|_{X_i} semi-ample and E(L) contained in X_1 then L is semi-ample (Lemma 1.8). Bhatt-Scholze use these to prove ampleness of L on Gr_{<=lambda} by induction on lambda: L-tilde is nef on the Demazure resolution, E(L-tilde) is contained in the preimage of the union of the Gr_{<=mu} with mu < lambda, the inductive hypothesis plus Lemma 1.8 makes L-tilde|_{E(L-tilde)} semiample, hence L-tilde is semiample by Theorem 1.9, and the Stein factorisation then yields the ample bundle downstairs.
-
-**Hypotheses that must not be dropped.**
-
-- Keel's Theorem 1.9 requires X PROJECTIVE over a field of POSITIVE CHARACTERISTIC; it is false in characteristic zero. Bhatt-Scholze note it 'only applies to projective schemes, so we cannot apply it directly to Gr_{<=lambda}; instead, we will apply it to a suitable h-cover'
-- L must be NEF for the criterion to apply; nefness of L-tilde is their Lemma 8.10
-- Bigness of L-tilde and the containment of the exceptional locus use the factorisation L-tilde^{tensor N} = A(D) with A ample and D effective missing a chosen point x in Gr_lambda, plus Keel Lemma 1.7
-- Bhatt-Scholze say explicitly that, unlike in equal characteristic, they are NOT able to give a direct construction of enough sections of L giving a projective embedding
-
-**Proof outline.**
-
-1. Keel 1.7: if Z is not contained in D then D|_Z is effective Cartier and L^k . Z >= A^k . Z > 0; so E(L) is contained in D, and the finiteness of the union of exceptional subvarieties is by induction on dim X.
-2. Keel 1.9: induct on dim X, reduce by 1.8 to L big and by 1.4-1.5 to X reduced, write L = A + D by Kodaira's lemma, apply induction to L|_D and conclude by 1.6.
-3. Bhatt-Scholze: by induction assume L|_{Gr_{<=mu}} ample for mu < lambda; L-tilde is nef; E(L-tilde) is contained in psi^{-1}(union_{mu<lambda} Gr_{<=mu}); by Keel Lemma 1.8 the restriction is semiample; by Keel Theorem 1.9 L-tilde is semiample; take the Stein factorisation phi : Gr-tilde_lambda -> X of L-tilde, which is a proper surjective perfectly finitely presented map with geometrically connected fibres (hence a v-cover) with L-tilde^{tensor N} = phi^* M for M ample.
-
-**Acceptance.**
-
-- Check nefness of L-tilde (their Lemma 8.10) independently
-- Check the base case lambda minimal, where Gr_{<=lambda} is a classical Grassmannian
-- Check that Keel's criterion genuinely needs positive characteristic, e.g. via the standard counterexample
-
-**Prerequisites.** `mathlib:AlgebraicGeometry.Scheme`, `mathlib:AlgebraicGeometry.IsProper`, `tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf`, `mathlib:PerfectRing`
-
-**Sources.**
-
-- `Keel99-basepoint` — Sean Keel, *Basepoint freeness for nef and big line bundles in positive characteristic*, 1.9 Theorem, printed p. 262.
-
-  > Let L be a nef line bundle on a scheme X, projective over a field of positive characteristic. L is semi-ample (resp. EWM) if and only if L|_{E(L)} is semi-ample (resp. EWM).
-
-  The exact criterion actually invoked by Bhatt-Scholze (note: their citation is to Theorem 1.9 and Lemmas 1.7, 1.8, not to Theorem 0.2).
-- `Keel99-basepoint` — Sean Keel, *Basepoint freeness for nef and big line bundles in positive characteristic*, 0.1 Definition, printed p. 253.
-
-  > An irreducible subvariety Z in X is called exceptional for L if L|_Z is not big, i.e. if L^{dim Z} . Z = 0. If L is nef the exceptional locus of L, denoted by E(L), is the closure, with reduced structure, of the union of all exceptional subvarieties.
-
-  The definition of the exceptional locus that the roadmap names as a sub-obligation.
-- `BS17-witt-grassmannian` — Bhargav Bhatt, Peter Scholze, *Projectivity of the Witt vector affine Grassmannian*, Proof of Theorem 8.3, printed p. 35.
-
-  > First, we prove that L-tilde is semiample on Gr-tilde_lambda. Note that L-tilde is nef by Lemma 8.10. Using Keel's [Kee99, Theorem 1.9], it is enough to check that L-tilde|_{E(L-tilde)} is semiample. By Lemma 8.11, the locus E(L-tilde) is contained in psi^{-1}(Gr_{<=lambda} minus Gr_lambda) = psi^{-1}(union_{mu<lambda} Gr_{<=mu}). By induction, we know that L|_{Gr_{<=mu}} is ample for mu ...
-
-  The exact inductive argument, naming the three Keel results used. The excerpt is truncated here; the full quotation is in data/decompositions/GeometricSatakeAndFusion.json, where the independent review checked it against the source.
-- `BS17-witt-grassmannian` — Bhargav Bhatt, Peter Scholze, *Projectivity of the Witt vector affine Grassmannian*, 1.2, printed p. 3.
-
-  > Having constructed the line bundle L, we prove that it is ample by using a fundamental result of Keel, [Kee99], on semiample line bundles in positive characteristic. Unfortunately, contrary to the situation in equal characteristic, we are not able to give a direct construction of enough sections of L which would give a projective embedding.
-
-  Confirms that no direct section-theoretic route is available, so Keel's criterion is not optional.
-
-### `semi-infinite-intersections-and-MV-cycles` — FS VI.3.7-VI.3.8: affineness and equidimensionality of Mirkovic-Vilonen cycles in the Witt Grassmannian
-
-*theorem.* **Planet: Mirkovic-Vilonen cycles.**
-
-**Statement.** In the Witt vector affine Grassmannian Gr^{Witt}_G over F-bar_q, an increasing union of perfections of projective varieties by Bhatt-Scholze, let S_lambda = LU . [lambda] be the semi-infinite orbit. Then for any dominant mu, the intersection S_lambda intersect Gr^{Witt}_{G,<=mu} is representable by an AFFINE scheme, and it is equidimensional of dimension <rho, mu + lambda>.
-
-**Hypotheses that must not be dropped.**
-
-- The ambient object is the WITT vector affine Grassmannian over an algebraically closed field of characteristic p, not the B^+_dR Grassmannian
-- The proof picks a closed immersion G -> GL_n to reduce to GL_n, and uses the ample line bundle L on Gr^{Witt}_G constructed in Bhatt-Scholze; without that ample bundle the affineness argument does not start
-- The equidimensionality argument is a dimension-drop count: at each step the dimension can drop by at most 1, and in <2rho,mu> steps it drops by <2rho,mu>
-- Fargues-Scholze annotate Corollary VI.3.8 with 'cf. [MV07, Theorem 3.2], and [GHKR10], [Zhu17, Corollary 2.8] for a different proof based on point counting, the classical Satake isomorphism, and the Kato-Lusztig formula [Kat82], [Lus83]'
-
-**Proof outline.**
-
-1. Reduce to G = GL_n by a closed immersion.
-2. Use the ample line bundle L on Gr^{Witt}_G from Bhatt-Scholze; show its pullback to Gr^{Witt}_B is trivial (the universal filtration of Xi over Gr^{Witt}_B has locally constant gradeds, trivializing det(pi^{-m}W_{O_E}(R)/Xi) on each connected component S_lambda), then extend the resulting section over the closed union of the S_{lambda'} with lambda' <= lambda so that it vanishes off S_lambda, which forces the intersection with each Gr^{Witt}_{G,<=mu} to be affine. The valuative check uses the v-descent results of [BS17] and the finite projectivity of the integral filtration steps Xi_i, quoted from [SW20, Lemma 14.2.3]; neither was read.
-3. Run the dimension-drop count along the stratification to get equidimensionality of dimension <rho, mu+lambda>.
-
-**Acceptance.**
-
-- Check the dimension formula <rho,mu+lambda> on GL_2
-- Check that the ample line bundle input is genuinely used (the roadmap identifies this as the reason GS0:Witt-geometry owns the projectivity input to VI.3.7)
-- Compare with the Kato-Lusztig/point-counting proof to cross-check
-
-**Prerequisites.** `GeometricSatakeAndFusion:GS0:Witt-geometry/witt-lattice-functor-and-representability`, `ReductiveGroupsPartII:RG2.3`, `mathlib:WittVector`, `tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf`, `mathlib:RootPairing`
-
-**Sources.**
-
-- `FS-geometrization` — Laurent Fargues, Peter Scholze, *Geometrization of the local Langlands correspondence*, Proposition VI.3.7 and the start of its proof, printed pp. 205-206.
-
-  > For any mu in X_*(T)^+, the intersection S_lambda intersect Gr^{Witt}_{G,<=mu} is representable by an affine scheme. Proof. Picking a closed immersion G -> GL_n, one can reduce to G = GL_n. In that case, there is an ample line bundle L on Gr^{Witt}_G constructed in [BS17].
-
-  Shows that the Bhatt-Scholze ample line bundle is a named input, confirming the roadmap's claim that this stage owns the projectivity input to VI.3.7.
-- `FS-geometrization` — Laurent Fargues, Peter Scholze, *Geometrization of the local Langlands correspondence*, Corollary VI.3.8, printed p. 207.
-
-  > The scheme S_lambda intersect Gr^{Witt}_{G,<=mu} is equidimensional of dimension <rho, mu + lambda>.
-
-  The Mirkovic-Vilonen dimension statement used later for the weight functors.
-
-## GS0:loop-geometry. Integral divisors and bounded modifications
-
-Everything here is over the **integral** divisor space `Div^d_𝒴`, and that
-is the point of the whole roadmap. Remark VI.2.1 says it in one sentence:
-
-> Since we work over `𝒴` and do not restrict ourselves to `Y`, we include the case of the Cartier divisor `π = 0`. For
-> this divisor, `C^♯ = C` and `B^+_dR(C^♯) = W_{O_E}(C)`.
-
-That characteristic-`p` fibre is the Witt vector affine Grassmannian, and keeping it is what makes the special-fibre
-comparison of GS1 a theorem rather than an analogy.
-
-The loop spaces are defined for **affine** `Z` only — affineness is what makes them v-sheaves, and Fargues–Scholze say
-they do not pursue the general case. The double-quotient presentations `Hck = L⁺G \ LG / L⁺G` and `Gr = LG/L⁺G` hold
-for the **étale** topology, obtained after étale-local trivialisation; they are not v-stack presentations. Over
-`Div^d_X` the functors are defined only on a **basis**, the affinoid `S` with `D_S` affinoid.
-
-The congruence filtration then gives the smoothness. For `m ≥ 1` the exponential identifies
-`(L⁺G)^{≥m}/(L⁺G)^{≥m+1}` with `Lie G ⊗ I_S^m/I_S^{m+1}`, where `I_S^m/I_S^{m+1}` is a **line bundle** on `D_S` and need
-not be trivial — hence the Breuil–Kisin twist. Coincident legs are handled by pulling back along
-`(Div¹_𝒴)^d → Div^d_𝒴` and filtering `O_{D_S}` by the partial products of the `d` ideal sheaves.
-
-Finally the Schubert bounds: closed subfunctors indexed by the dominance order, an ind-presentation whose index category
-is a **disjoint union over `π₁(G)`** of filtered posets rather than one filtered poset, and properness of
-`Gr_{G,Div^d,≤μ∙} → Div^d_𝒴`.
-
-**Coverage: `partial`.** Loop and positive loop spaces over the INTEGRAL divisor space, the local Hecke stack and the Beilinson-Drinfeld Grassmannian with their etale double-quotient presentations, the congruence filtration with its graded pieces and their cohomological smoothness, and the Schubert bounds with closedness, the ind-presentation and properness. The integral space is the point: Remark VI.2.1 says in terms that the Cartier divisor pi = 0 is included and that there B^+_dR(C^sharp) = W_{O_E}(C), which is the characteristic-p fibre the whole degeneration argument needs.
-
-Remaining in this layer:
-
-- SW20 Propositions 19.4.2, 20.3.6 and 20.5.4, which supply the lattice filtration, the closedness/ind-presentation of the bounded loci and the multi-leg properness, were NOT read.
-- FS VI.5 (affine flag variety, Demazure varieties: Def. VI.5.1, Prop. VI.5.2, VI.5.3, Def. VI.5.4, Thm. VI.5.5, Def. VI.5.6, Prop. VI.5.7) was read only at the level of statements located in the section listing; the parahoric-model inputs from ReductiveGroupsPartII were not inspected.
-- The agreement of the torsor-modification and loop-quotient descriptions via Beauville-Laszlo is used implicitly; the explicit comparison is the RelativeFarguesFontaine RF4 material and was decomposed there, not re-verified here.
-- Descent of the bounded loci under the pinned Galois action for nonsplit G, and the closure relations under finite extension of E, were not located as separate statements.
-
-### `loop-groups-and-local-hecke` — FS VI.1.5-VI.1.9: loop groups, the local Hecke stack and the Beilinson-Drinfeld Grassmannian
-
-*construction.* **Planet: Loop groups and the local Hecke stack.**
-
-**Statement.** For Z an AFFINE scheme over O_E, define L^+_{Div^d_Y-curly} Z(S) = Z(B^+_{Div^d_Y-curly}(S)) and L_{Div^d}Z(S) = Z(B_{Div^d}(S)); similarly over E and over X. For G reductive, the local Hecke stack Hck_{G,Div^d} sends an affinoid perfectoid S -> Div^d (with D_S affinoid) to pairs of G-bundles E_1, E_2 on Spec B^+ with an isomorphism over Spec B; the Beilinson-Drinfeld Grassmannian Gr_{G,Div^d} sends S to a G-bundle on Spec B^+ with a trivialization over Spec B. Both are small v-stacks/v-sheaves, and as ETALE stacks/sheaves over Div^d one has Hck = (L^+G) \ (LG) / (L^+G) and Gr = (LG)/(L^+G).
-
-**Hypotheses that must not be dropped.**
-
-- Z must be AFFINE for L^+Z and LZ to be v-sheaves; Fargues-Scholze say affinity is what allows the reduction to the v-sheaf property of the structure sheaf, and explicitly do not pursue the general case
-- In the Div^d_X case the functors are defined only on the full subcategory of affinoid perfectoid S -> Div^d_X for which D_S is affinoid; this is a BASIS, not all of them
-- G-bundles are taken in the algebraic sense on the spectrum of the ring, and in Tannakian terms as exact tensor functors from Rep_E G to vector bundles
-- The quotient presentations are as ETALE stacks/sheaves, obtained after etale-local trivialization; they are not v-stack presentations
-- G is REDUCTIVE over O_E (resp. E); the roadmap's warning applies - a ramified group has no reductive integral O_E-model, so the integral statements are for split (or unramified) models after the splitting extension
-
-**Proof outline.**
-
-1. Define loop and positive loop spaces from the completed rings B^+ and B of RF2.
-2. For the v-stack property: vector bundles over B^+ satisfy v-descent by checking modulo powers of I_S and applying Proposition VI.1.4; by Tannaka, G-bundles do too; the isomorphism over B is a section of an affine scheme, which again satisfies v-descent. Smallness follows as in Proposition III.1.3.
-3. For the presentation: any G-bundle over B^+(S) is etale-locally trivial - at a geometric point B^+ is a product of complete discrete valuation rings with algebraically closed residue field so all torsors are trivial, and in general triviality modulo I_S lifts along nilpotent thickenings (with [GR03, Prop. 5.4.21] for the spreading step).
-4. Trivializing E_1 and E_2 etale-locally produces the double-quotient presentation.
-
-**Planning API.**
-
-| name | role | statement |
+| Stage | Status | Remaining obligations |
 | --- | --- | --- |
-| `positiveLoopSpace` | data | L^+_{Div^d}Z(S) = Z(B^+(S)) for Z an AFFINE scheme over O_E; affineness is what makes this a v-sheaf, and Fargues-Scholze do not pursue the general case. |
-| `loopSpace` | data | L_{Div^d}Z(S) = Z(B(S)), the loop space. |
-| `localHecke` | data | Hck_{G,Div^d}: pairs of G-bundles on Spec B^+ with an isomorphism over Spec B. A small v-stack. |
-| `grassmannian` | data | Gr_{G,Div^d}: a G-bundle on Spec B^+ with a trivialization over Spec B. |
-| `localHecke.presentation` | characterisation | As ETALE stacks over Div^d, Hck = (L^+G) \ (LG) / (L^+G) and Gr = (LG)/(L^+G). The presentation is etale, not v-local, and comes from etale-local triviality of G-bundles over B^+. |
-| `localHecke.basis` | structure | In the Div^d_X case the functor is defined only on the affinoid perfectoid S -> Div^d_X with D_S affinoid; that is a basis, not all of them. |
-| `bundle.tannakian` | structure | G-bundles are taken algebraically on the spectrum of the ring, and in Tannakian terms as exact tensor functors from Rep_E G to vector bundles. |
+| `GeometricSatakeAndFusion:GS0` | planned | Resolve the SF/RF/RG supplier refinements inherited from the three substages. |
+| `GeometricSatakeAndFusion:GS0:Schubert-smoothness` | planned | RG Lie-weight/parabolic computation and the CS finite-projectivity/period-sheaf supplier interfaces. |
+| `GeometricSatakeAndFusion:GS0:Witt-geometry` | planned | Boundary pinching before Keel; corrected cone-factor integrality; sketch-only canonical Hodge determinant comparison.; Compatible bounded pfp flag models, local-model functoriality and componentwise adjoint fibre-dimension transfer. |
+| `GeometricSatakeAndFusion:GS0:loop-geometry` | planned | RF4 torsor gluing/Anschütz extension and integral/parahoric RG refinements.; Exact geometric Lean signatures after supplier carriers are available. |
+| `GeometricSatakeAndFusion:GS1` | planned | Model-dependent rational MV trace normalization and corrected quasi-minuscule/minimal-generation argument.; VS1 hyperbolic/ULA enhancement and EDS Ind t-structure extension. |
+| `GeometricSatakeAndFusion:GS2` | planned | Resolve the coherent correspondence/stack-kernel refinements inherited from the two substages. |
+| `GeometricSatakeAndFusion:GS2:Satake-closure` | planned | Proper-relative ULA evaluation/coevaluation with both triangle identities and the compatible one-leg comparison. |
+| `GeometricSatakeAndFusion:GS2:correspondences` | planned | Enhanced associator/unit coherence and filtered finite-projective fibre comparison, with no canonical tensor splitting yet. |
 
-Derived from where the object is used:
+Each layer is accepted only when its statements, hypotheses, direct dependencies, APIs and discriminating tests below agree with the specified sources. Closure additionally requires every named gap and supplier refinement to be resolved. The suggested file is a typed core prototype; narrowing away unsupported geometric hypotheses is recorded explicitly for each node and cannot satisfy this mathematical acceptance criterion by itself.
 
-- in `GeometricSatakeAndFusion:GS0:loop-geometry/congruence-filtration-and-graded-pieces` — the filtration is of the positive loop group defined here
-- in `GeometricSatakeAndFusion:GS0:loop-geometry/schubert-bounds-and-properness` — the bounded loci are subfunctors of these
-- in `GeometricSatakeAndFusion:GS2:correspondences/convolution-diagram` — convolution is composition in a 2-category whose objects are quotients by the positive loop group
+## Beilinson–Drinfeld Grassmannians and loop groups
 
-**Unit tests.** A plausible wrong definition fails one of these.
+`GeometricSatakeAndFusion:GS0`
 
-- `affineness_is_needed` — Z must be affine for L^+Z and LZ to be v-sheaves; the proof reduces to the v-sheaf property of the structure sheaf, and the source declines the general case.
-- `etale_not_v_presentation` — The double-quotient presentation holds for the ETALE topology; a v-stack presentation is a different and stronger statement.
-- `basis_only_over_X` — Over Div^d_X the functor is defined on a basis of the site, and Proposition VI.1.2 is what says every S admits an open cover by such; treating it as defined on all S is wrong.
-- `tannakian_agreement` — Against a faithful representation of G the Tannakian description agrees with the naive one; a definition that does not is not the source's.
+This is the aggregate geometric target. Its nodes are owned by the loop-geometry, Schubert-smoothness and Witt-geometry substages and also realise GS0. The aggregate imports their existing targets; it does not create second Grassmannian, smoothness or properness nodes. Acceptance checks all three families, including the two-leg collision bound and the generic/integral properness distinction.
 
-**Acceptance.**
+## Loop spaces and bounded modifications
 
-- Check that the presentation is as etale stacks, by exhibiting a v-locally but not etale-locally trivial situation if one exists
-- Check that the definition on Div^d_X really only uses a basis of affinoid-divisor loci
-- Check the Tannakian formulation against a faithful representation of G
+`GeometricSatakeAndFusion:GS0:loop-geometry`
 
-**Prerequisites.** `RelativeFarguesFontaine:RF0:integral-Y`, `RelativeFarguesFontaine:RF2:integral-divisors`, `RelativeFarguesFontaine:RF2:untilts`, `RelativeFarguesFontaine:RF4:G-torsors`, `ReductiveGroupsPartII:RG2.3`, `BunGAndNewtonStrata:BG0`, `tauceti:TauCeti.ReductiveAffineGroupSchemeCat`, `mathlib:CategoryTheory.Sheaf`, `mathlib:CategoryTheory.GrothendieckTopology`, `mathlib:AlgebraicGeometry.Scheme`
+The three moduli objects are separated: loop evaluation, the Hecke groupoid with automorphisms, and the Grassmannian quotient sheaf with a chosen punctured trivialization. Ordered legs, generic Galois descent and generic bounded properness use these objects. The affine flag resolution is retained as a distinct construction. Finite congruence layers connect the moduli to Lie data without attributing a finite dimension to the complete positive loop group. Acceptance includes the diagonal stabilizer of the identity Hecke modification, the unit Grassmannian section, the GL₂ equal-degree dominance counterexample, and the empty reduced-word flag resolution.
 
-**Sources.**
+### Positive and full loop spaces
 
-- `FS-geometrization` — Laurent Fargues, Peter Scholze, *Geometrization of the local Langlands correspondence*, Definition VI.1.5 and the remark after it, printed p. 192.
+`GeometricSatakeAndFusion:GS0:loop-geometry/loop-groups-and-local-hecke` — construction. Proposed declaration: `TauCeti.Suggested.GeometricSatake.positiveLoopSpace`.
 
-  > Let Z be an affine scheme over O_E. The positive loop space L^+_{Div^d_Y-curly} Z (resp. loop space L_{Div^d_Y-curly} Z) of Z is the v-sheaf over Div^d_Y-curly given by S -> Z(B^+_{Div^d_Y-curly}(S)) (resp. S -> Z(B_{Div^d_Y-curly}(S))). ... We note that we use affinity of Z to see that these are actually v-sheaves.
+For an affine O_E-scheme Z and a divisor D in Div^d_𝒴, L⁺Z(S)=Z(B⁺_D(S)) and LZ(S)=Z(B_D(S)) are v-sheaves over Div^d_𝒴. The generic E-scheme version is defined over Div^d_Y or Div^d_X. For X use the basis of affinoid S for which D_S is affinoid. For a group scheme these are group v-sheaves, with the natural inclusion L⁺G→LG.
 
-  The construction with its affineness hypothesis made explicit.
-- `FS-geometrization` — Laurent Fargues, Peter Scholze, *Geometrization of the local Langlands correspondence*, Proposition VI.1.7, printed p. 193.
+**Hypotheses and conventions.** Z affine; d≥1; integral G is a split reductive O_E-model; generic G/E can be ramified.
 
-  > The local Hecke stack Hck_{G,Div^d} is a small v-stack. There is a natural isomorphism of etale stacks over Div^d_Y-curly: Hck_{G,Div^d} = (L^+ G) \ (L G) / (L^+ G).
+**Construction or proof.**
 
-  The torsor interpretation, stated for the ETALE topology as the stage text requires.
-- `FS-geometrization` — Laurent Fargues, Peter Scholze, *Geometrization of the local Langlands correspondence*, Definition VI.1.6, printed p. 193.
+1. Import completed rings, their functoriality and v-descent from RF2.
+2. Evaluate the affine functor of points on those rings; v-descent of sections follows from affine equations and the structure sheaf.
+3. Restrict to the affinoid-divisor basis over X and descend across its open covers.
 
-  > Also note that in the case of Div^d_X, the local Hecke functor is only defined on a certain full subcategory of affinoid perfectoid S -> Div^d_X, namely those where D_S is affinoid; but any S -> Div^d_X admits an open cover by such by Proposition VI.1.2, so we have still defined the functor on a basis.
+**Direct prerequisites.** `RelativeFarguesFontaine:RF2:integral-divisors/completed-rings-B-plus-and-B`, `RelativeFarguesFontaine:RF2:integral-divisors/v-descent-of-bundles-on-the-divisor`, `RelativeFarguesFontaine:RF2:integral-divisors/product-equation-and-affineness`, `ReductiveGroupsPartII:RG2.3`, `AdicCoefficientsAndComparisons:L1/char-p-scheme-diamond-and-comparison-functor`, `DiamondsAndVStacks:D6/pre-adic-topological-comparison`.
 
-  The scope caveat for the X-case.
+**Sources.** [FS-geometrization](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), VI.1.5, p. 192.
 
-### `congruence-filtration-and-graded-pieces` — FS VI.1.10-VI.1.12: principal congruence subgroups, their graded pieces, and cohomological smoothness
+**Consumers and design of the API.**
 
-*theorem.* **Planet: The congruence filtration of L+G.**
+- FS VI.1.7–VI.1.9: Loop maps present both modification moduli.
+- HeckeStacksAndLocalShtukas:HS0: Local modifications form the relative Hecke correspondence.
 
-**Statement.** L^+_{Div^d} G carries the filtration by principal congruence subgroups (L^+ G)^{>=m} = ker(G(B^+) -> G(B^+/I_S^m)). For d = 1, L^+G/(L^+G)^{>=1} = G^diamond and (L^+G)^{>=m}/(L^+G)^{>=m+1} = (Lie G)^diamond{m}, a Breuil-Kisin twist by I_S^m/I_S^{m+1}. For general d, (L^+G)^{>=m}/(L^+G)^{>=m+1} sends S -> Div^d_Y-curly to (Lie G tensor_{O_E} I_S^m/I_S^{m+1})(S), where I_S^m/I_S^{m+1} is a LINE BUNDLE on D_S; this is representable in locally spatial diamonds, partially proper, and cohomologically smooth of l-dimension d times dim G. Moreover L^+G/(L^+G)^{>=1} -> Div^d_Y-curly parametrizes maps D_S -> G, and for any quasiprojective SMOOTH Z over O_E the sheaf T_Z of maps D_S -> Z is representable in locally spatial diamonds, partially proper and cohomologically smooth of l-dimension d dim Z.
-
-**Hypotheses that must not be dropped.**
-
-- The identification of the graded pieces uses the EXPONENTIAL, hence needs the congruence level m >= 1
-- I_S^m/I_S^{m+1} is a line bundle on D_S and need not be trivial; the twist {m} is the Breuil-Kisin twist by it
-- For the filtration argument one pulls back along the QUASI-PRO-ETALE SURJECTIVE map (Div^1_Y-curly)^d -> Div^d_Y-curly, where d ideal sheaves I_1,...,I_d are available and O_{D_S} is filtered by O/I_1, I_1/I_1 I_2, ..., I_1...I_{d-1}/I_1...I_d, each isomorphic to O_{S_i^sharp} after pullback to an affinoid perfectoid S
-- Z must be QUASIPROJECTIVE and SMOOTH over O_E for the T_Z statement; the proof starts from affine space and propagates along separated etale maps, using Lemma VI.1.13 to see that T_{Z'} -> T_Z is separated etale
-
-**Proof outline.**
-
-1. Define the congruence filtration by the kernels of reduction modulo I_S^m.
-2. For d = 1: the m = 0 quotient is G^diamond by definition; the higher graded pieces come from the exponential.
-3. For general d and m >= 1: the exponential identifies the graded piece with Lie G tensor I_S^m/I_S^{m+1}; representability, partial properness and cohomological smoothness are checked after pullback along (Div^1_Y-curly)^d -> Div^d_Y-curly using the filtration of O_{D_S} by the partial products of the ideals, each subquotient being O_{S_i^sharp}.
-4. For T_Z: the affine-space case is the previous step; separated etale Z' -> Z gives separated etale T_{Z'} -> T_Z by Lemma VI.1.13; every geometric point of T_Z has finite image so T_Z is covered by T_{Z'} for affine Z', and affine Z admitting etale maps to A^d_{O_E} reduce to the affine-space case.
-
-**Acceptance.**
-
-- Check the d = 2 case at coincident legs, where the filtration of O_{D_S} still has O_{S_i^sharp} subquotients
-- Check that the Breuil-Kisin twist is nontrivial on a base where I_S^m/I_S^{m+1} is not free
-- Check cohomological smoothness of L^+G/(L^+G)^{>=1} -> Div^d via T_G
-
-**Prerequisites.** `GeometricSatakeAndFusion:GS0:loop-geometry/loop-groups-and-local-hecke`, `ReductiveGroupsPartII:RG2.5`, `DiamondSixOperations:S4`, `tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf`, `mathlib:Module.Projective`
-
-**Sources.**
-
-- `FS-geometrization` — Laurent Fargues, Peter Scholze, *Geometrization of the local Langlands correspondence*, Proposition VI.1.11, printed p. 195.
-
-  > sends a perfectoid space S -> Div^d_Y-curly with corresponding Cartier divisor D_S in Y-curly_S with ideal sheaf I_S to (Lie G tensor_{O_E} I_S^m/I_S^{m+1})(S) where I_S^m/I_S^{m+1} is a line bundle on D_S. This is representable in locally spatial diamonds, partially proper, and cohomologically smooth of l-dimension equal to d times the dimension of G.
-
-  Exact statement of the graded pieces with the line-bundle caveat.
-- `FS-geometrization` — Laurent Fargues, Peter Scholze, *Geometrization of the local Langlands correspondence*, Proof of Proposition VI.1.11, printed p. 195.
-
-  > For this in turn, note that over (Div^1_Y-curly)^d, we have d ideal sheaves I_1, ..., I_d, and one can filter O_{D_S} by O_{D_S}/I_1, I_1/I_1 I_2, ..., I_1 ... I_{d-1}/I_1 ... I_d, each of which is, after pullback to an affinoid perfectoid space S, isomorphic to O_{S_i^sharp}.
-
-  The explicit filtration that handles coincident legs.
-- `FS-geometrization` — Laurent Fargues, Peter Scholze, *Geometrization of the local Langlands correspondence*, Proposition VI.1.12, printed p. 195.
-
-  > For any quasiprojective smooth scheme Z over O_E, the sheaf T_Z -> Div^d_Y-curly taking a perfectoid S over Div^d_Y-curly to maps D_S -> Z (of locally ringed spaces) is representable in locally spatial diamonds, partially proper, and cohomologically smooth over Div^d_Y-curly of l-dimension equal to d times the dimension of Z.
-
-  The statement with its quasiprojectivity and smoothness hypotheses.
-
-### `schubert-bounds-and-properness` — FS VI.2.2-VI.2.7: bounded relative position, closedness, ind-presentation and properness of Schubert diamonds
-
-*theorem.* **Planet: Schubert bounds and properness.**
-
-**Statement.** Assume G split over O_E with T in B in G. By the Cartan decomposition over a geometric point, Hck_{G,Div^1_Y-curly}(S)/iso = X_*(T)^+. For mu dominant, Hck_{G,Div^1,<=mu} is the subfunctor of points whose relative position at every geometric point is some mu' <= mu in the dominance order; it is a CLOSED subfunctor, Hck_{G,Div^1} = colim_mu Hck_{G,Div^1,<=mu}, and Gr_{G,Div^1,<=mu} -> Div^1_Y-curly is proper and representable in spatial diamonds. For several legs and mu_bullet, Hck_{G,Div^d,<=mu_bullet} is closed and Gr_{G,Div^d,<=mu_bullet} -> Div^d_Y-curly is proper, representable in spatial diamonds and of finite dim.trg.
-
-**Hypotheses that must not be dropped.**
-
-- G is assumed SPLIT over O_E in this section; a general G is handled by a finite etale extension of O_E resp. E, and the results are then 'useful in the general case' by descent, not by a reductive integral model for a ramified group
-- The whole of Y-curly is used, so the Cartier divisor pi = 0 is INCLUDED; at that divisor C^sharp = C and B^+_dR(C^sharp) = W_{O_E}(C) - this is the special fibre the roadmap insists on retaining
-- The index category of the mu is a disjoint union over pi_1(G) of filtered partially ordered sets, not a single filtered poset
-- Surjectivity of the colimit uses that for quasicompact S only finitely many strata are met, since the meromorphic isomorphism of G-bundles has bounded poles, together with separatedness of Gr -> Div^1 and properness of Gr_{<=mu} -> Div^1
-- The properness and representability statements themselves are quoted from SW20 Propositions 20.3.6 and 20.5.4, which were NOT read
-
-**Proof outline.**
-
-1. Over a geometric point S = Spa(C,C^+) of Div^1_Y-curly = Spd O_E with untilt C^sharp, the ring B^+_dR(C^sharp) is a complete discrete valuation ring with residue field C^sharp and uniformizer xi, so the Cartan decomposition gives Hck(S)/iso = X_*(T)^+.
-2. Define the bounded subfunctors by the pointwise dominance condition; closedness and the ind-presentation are SW20 20.3.6, checked after passing to Gr, which is a v-cover of Hck.
-3. The colimit statement is proved by the boundedness-of-poles argument plus the v-cover assembled from the proper Gr_{<=mu}.
-4. For several legs, pull back to (Div^1_Y-curly)^d and quote SW20 20.5.4.
-
-**Acceptance.**
-
-- Check the pi = 0 divisor case, where B^+_dR(C^sharp) = W_{O_E}(C), against the roadmap's requirement to keep the characteristic-p fibre
-- Check the dominance-order closure relations on GL_2 with a nonminuscule mu
-- Check that the index poset is a disjoint union over pi_1(G) of filtered posets
-
-**Prerequisites.** `RelativeFarguesFontaine:RF2:integral-divisors`, `ReductiveGroupsPartII:RG2.3`, `mathlib:CoxeterSystem`, `tauceti:TauCeti.TitsSystem.bruhatCell`, `mathlib:WittVector`
-
-**Sources.**
-
-- `FS-geometrization` — Laurent Fargues, Peter Scholze, *Geometrization of the local Langlands correspondence*, Remark VI.2.1, printed p. 197.
-
-  > Since we work over Y-curly and do not restrict ourselves to Y, we include the case of the Cartier divisor pi = 0. For this divisor, C^sharp = C and B^+_dR(C^sharp) = W_{O_E}(C).
-
-  Confirms that the integral divisor space retains the ramified Witt special fibre, which the roadmap identifies as the supplier of the Satake degeneration.
-- `FS-geometrization` — Laurent Fargues, Peter Scholze, *Geometrization of the local Langlands correspondence*, Proposition VI.2.3 and proof, printed p. 197.
-
-  > For surjectivity, note that for any quasicompact S with a map S -> Gr_{G,Div^1_Y-curly}, only finitely many strata can be met, as the meromorphic isomorphism of G-bundles necessarily has bounded poles.
-
-  The finiteness argument behind the ind-presentation.
-- `FS-geometrization` — Laurent Fargues, Peter Scholze, *Geometrization of the local Langlands correspondence*, Proposition VI.2.7 and proof, printed p. 201.
-
-  > The map Gr_{G,Div^d,<=mu_bullet} -> Div^d_Y-curly is proper, representable in spatial diamonds, and of finite dim. trg. Proof. This can be checked after pullback to (Div^1_Y-curly)^d. Then it follows from [SW20, Proposition 20.5.4].
-
-  The multi-leg properness with its imported source, which is an unread boundary.
-
-## GS1. Semi-infinite geometry and constructibility
-
-The semi-infinite orbits stratify `Gr`, the `G_m`-action via `λ` extends to an
-`A¹`-action whose fixed points are the Levi Grassmannian, and on `G_m`-**monodromic** bounded complexes the two
-hyperbolic-localization correspondences agree, defining `CT_B`. Conservativity — `CT_B(A) = 0` forces `A = 0` — needs
-`B` a Borel and the support quasicompact over `S`.
-
-The relative perverse t-structure is normalised by the shift `- Σ_{i=1}^r ⟨2ρ, μ_i⟩`, where `r` is the number of
-**distinct** untilts. Coincident legs are counted once. Existence and uniqueness come from Lurie's criterion applied on
-each bounded closed subset and glued along t-exact inclusions; `CT_B[deg]` is t-exact and conservative, which is what
-makes `^pD^{≥0}` describable at all. The pinned Mathlib already has `CategoryTheory.Triangulated.TStructure` with its
-heart, so only the normalisation is planned here.
-
-ULA sheaves on `Hck` are defined as bounded objects whose pullback to `Gr` is ULA; the condition is invariant under the
-switching involution, and for one leg and split `G` there is a **stalkwise criterion**: `A` is ULA iff its restriction
-along every section `[μ]` is locally constant with perfect fibres.
-
-And then the comparison the roadmap exists for: over a complete algebraically closed `C` with residue field `k`, the
-restriction functors
-`D^{ULA}(Hck_{G,Spd C}) ← D^{ULA}(Hck_{G,Spd O_C}) → D^{ULA}(Hck_{G,Spd k})` are **equivalences**. The middle term is
-over the integral divisor space; replacing `𝒴` by `Y` deletes the right-hand term. Fargues–Scholze's proof is two lines,
-and the packet says so rather than inventing a specialization argument.
-
-**Coverage: `partial`.** The semi-infinite stratification with the A^1-extension of the G_m-action, the hyperbolic-localization constant term and its conservativity, the relative perverse t-structure with its hyperbolic characterisation, the ULA sheaves on the Hecke stack with the one-leg stalkwise criterion, and the equivalence of the ULA categories over Spd O_C, Spd C and Spd k. That last equivalence is the special-fibre comparison the roadmap is built around, and it is exactly what the integral divisor space of GS0:loop-geometry makes possible.
-
-Remaining in this layer:
-
-- FS IV.6 (hyperbolic localization, Braden's theorem, Prop. IV.6.11's definition of G_m-monodromic, Prop. IV.6.13) was NOT read; it is imported at several points of VI.3-VI.7.
-- FS IV.7 (Drinfeld's lemma, Prop. IV.7.3) was NOT read; it is what identifies LocSys((Div^1_X)^I) with Rep_{W_E^I}.
-- The scheme-side perverse/recollement foundation (EtaleDualityAndPerverseSheaves EDC.4-EDC.5) was not inspected; it is another roadmap's stage.
-- Lurie's Higher Algebra Proposition 1.4.4.11, used for the existence of the t-structure, was not read.
-- FS VI.5 (affine flag variety and Demazure resolutions), used in the proof of VI.6.5, was read only at statement level.
-- Propositions VI.6.1-VI.6.3 and VI.7.2-VI.7.3 (the ULA/ind-properness and Rf_!Rf^! lemmas that VI.6.4 and VI.7.1 rest on) were located but not decomposed; Proposition IV.2.28, used for the final clause of VI.6.4, was not read.
-
-### `semi-infinite-orbits-and-hyperbolic-localization` — FS VI.3.1, VI.3.5 and VI.4.2: semi-infinite strata, the hyperbolic-localization constant term, and conservativity
-
-*theorem.* **Planet: Hyperbolic localization and CT_B.**
-
-**Statement.** For a cocharacter lambda with parabolic P_lambda and Levi M_lambda, the map Gr_{P_lambda,Div^d} = disjoint union over nu of Gr^nu_{P_lambda,Div^d} -> Gr_{G,Div^d} is bijective on geometric points and a locally closed immersion on each piece; the union over nu' <= nu has closed image; the G_m-action via lambda extends to an A^1-action whose fixed points are Gr_{M_lambda,Div^d}. On G_m-monodromic bounded complexes the natural map from the !-pullback-star-pushforward correspondence to the star-pullback-!-pushforward one is an isomorphism, defining CT_B. If B is a Borel and A is a bounded complex on Hck_{G,S/Div^d} with support quasicompact over S and CT_B(A) = 0, then A = 0.
-
-**Hypotheses that must not be dropped.**
-
-- The comparison map is only asserted on the G_m-MONODROMIC bounded subcategory in the sense of Definition IV.6.11
-- Conservativity (VI.4.2) needs B to be a BOREL and the support of A to be quasicompact over S
-- The proof of VI.4.2 reduces to S = Spa(C,C^+) strictly local, then removes double points to assume d distinct untilts, then lifts to a splitting unramified extension E'|E - this last step uses that one works over Y-curly where the splitting extension can be taken unramified
-- Formation of CT_B commutes with any base change in S by Corollary VI.3.5
-
-**Proof outline.**
-
-1. Establish the stratification by semi-infinite orbits and the A^1-extension of the G_m-action with fixed points the Levi Grassmannian (VI.3.1).
-2. Prove the hyperbolic-localization comparison on G_m-monodromic complexes (VI.3.5), which also gives base-change compatibility.
-3. For conservativity: reduce to a strictly local S with d distinct untilts and split G; stratify Hck by tuples (mu_1,...,mu_d) of dominant cocharacters with strata the classifying stacks of the stabilizers; take a maximal stratum on which A is nonzero and apply hyperbolic localization there.
-
-**Acceptance.**
-
-- Check conservativity on a single nonminuscule Schubert stratum
-- Check base-change compatibility of CT_B
-- Check that G_m-monodromicity is needed for the comparison map
-
-**Prerequisites.** `VStackSheavesAndLisseCategories:VS0`, `VStackSheavesAndLisseCategories:VS1`, `mathlib:RootPairing`, `mathlib:DerivedCategory`
-
-**Sources.**
-
-- `FS-geometrization` — Laurent Fargues, Peter Scholze, *Geometrization of the local Langlands correspondence*, Proposition VI.3.1, printed p. 202.
-
-  > The map Gr_{P_lambda,Div^d} = disjoint union over nu of Gr^nu_{P_lambda,Div^d} -> Gr_{G,Div^d} is bijective on geometric points, and it is a locally closed immersion on each Gr^nu. The union over nu' <= nu of Gr^{nu'} has closed image in Gr_{G,Div^d}. The action of G_m via lambda on Gr_{P_lambda,Div^d} extends to an action of the monoid A^1, and the G_m-fixed points agree with Gr_{M_lambda,Div^d}.
-
-  The semi-infinite stratification and the attractor/fixed-point structure.
-- `FS-geometrization` — Laurent Fargues, Peter Scholze, *Geometrization of the local Langlands correspondence*, Proposition VI.4.2 and proof, printed p. 208.
-
-  > Assume that B in G is a Borel. Let S -> Div^d_Y-curly be any small v-sheaf. Let A in D_et(Hck_{G,S/Div^d}, Lambda) with support quasicompact over S. Assume that the hyperbolic localization CT_B(A) = 0 of the pullback of A to Gr_{G,S/Div^d} vanishes. Then A = 0.
-
-  The conservativity statement with its exact hypotheses.
-
-### `relative-perverse-t-structure` — FS VI.7.1-VI.7.4: the relative perverse t-structure on the local Hecke stack and its hyperbolic characterisation
-
-*construction.* **Planet: The relative perverse t-structure.**
-
-**Statement.** For S -> Div^d_Y-curly a small v-stack there is a unique t-structure on D_et(Hck_{G,S/Div^d},Lambda)^{bd} with A in ^p D^{<=0} if and only if for every geometric point Spa(C,C^+) -> S and every open Schubert cell parametrized by mu_1,...,mu_r (r the number of distinct untilts) the pullback of A sits in cohomological degrees <= - sum_i <2rho,mu_i>. On the heart Perv, pullback to Gr is fully faithful, and if A in ^p D^{<=0}, B in ^p D^{>=0} then RHom(A,B) is in D^{>=0}. Pullback along S' -> S is t-exact, and for split G the shifted constant term CT_B[deg] is t-exact and conservative from the perverse t-structure to the standard one on Gr_T.
-
-**Hypotheses that must not be dropped.**
-
-- The t-structure is defined on BOUNDED complexes, and its existence uses a presentable stable infinity-categorical refinement on each bounded closed Z inside Hck, with Lurie's Proposition 1.4.4.11 for existence and uniqueness; t-exactness of the inclusions as Z grows lets these glue
-- The shift is by sum over the r DISTINCT untilts of <2rho,mu_i>, so coincident legs are handled by the number of distinct points, not by d
-- Full faithfulness of Perv -> D_et(Gr)^{bd} rests on Lemma VI.7.3 about connected group actions, applied to a finite-dimensional approximation of Gr x_{Div^d} L^+G -> Gr
-- deg : Gr_T -> Z is the locally constant map obtained by pairing the sum of relative positions with 2rho
-
-**Proof outline.**
-
-1. Existence and uniqueness of the t-structure by Lurie's criterion on each bounded closed subset, glued along t-exact inclusions.
-2. Full faithfulness on the heart: first show RHom(A,B) is in D^{>=0} for A in ^pD^{<=0}, B in ^pD^{>=0}, using that C tensor A is in ^pD^{<=-1} for C in D^{<=-1}; then by descent reduce to showing that any map between pullbacks to Gr is automatically L^+G-equivariant, which is Lemma VI.7.3.
-3. t-exactness of pullback in S and of CT_B[deg] is VI.7.4; conservativity of CT_B[deg] is VI.4.2.
-
-**Planning API.**
-
-| name | role | statement |
+| API declaration | Role | Mathematical contract |
 | --- | --- | --- |
-| `relativePerverse` | data | The unique t-structure on D_et(Hck_{G,S/Div^d},Lambda)^{bd} with A in ^pD^{<=0} iff at every geometric point and every open Schubert cell the pullback sits in degrees <= - sum_i <2rho, mu_i>. |
-| `relativePerverse.shift` | structure | The shift runs over the r DISTINCT untilts, not over d; coincident legs are handled by the number of distinct points. |
-| `relativePerverse.bounded` | structure | The t-structure is on BOUNDED complexes; existence and uniqueness come from Lurie's criterion applied on each bounded closed subset and glued along t-exact inclusions. |
-| `Perv` | data | The heart. Pullback Perv -> D_et(Gr)^{bd} is fully faithful, by Lemma VI.7.3 on connected group actions. |
-| `relativePerverse.hom_positive` | characterisation | For A in ^pD^{<=0} and B in ^pD^{>=0}, RHom(A,B) lies in D^{>=0}. |
-| `relativePerverse.baseChange` | compatibility | Pullback along S' -> S is t-exact. |
-| `constantTerm.exact` | characterisation | For split G the shifted constant term CT_B[deg] is t-exact from this t-structure to the standard one on Gr_T, and conservative; deg pairs the sum of relative positions with 2rho. |
-
-Derived from where the object is used:
-
-- in `GeometricSatakeAndFusion:GS2:correspondences/satake-category-and-fibre-functor` — the Satake category is cut out of the heart by flatness and universal local acyclicity
-- in `GeometricSatakeAndFusion:GS2:correspondences/convolution-diagram` — convolution is shown to preserve ^pD^{<=0}, which is a statement about this t-structure
-- in `GeometricSatakeAndFusion:GS3:fusion/disjoint-leg-factorization-and-full-faithfulness` — the fusion construction of the second part of this roadmap is stated for this t-structure
-
-**Unit tests.** A plausible wrong definition fails one of these.
-
-- `shift_on_a_minuscule_cell` — On a single minuscule cell of GL_2 the shift is <2rho,mu> = 1; any other normalisation moves the whole Satake category.
-- `distinct_untilts_not_d` — At coincident legs the shift uses the number of distinct untilts r, not the number of legs d.
-- `CT_needs_the_shift` — CT_B[deg] is t-exact but CT_B alone is not; dropping the shift breaks the characterisation of ^pD^{>=0}.
-- `mathlib_tstructure` — The pinned Mathlib has CategoryTheory.Triangulated.TStructure with its heart, so the abstract notion is cited and only the relative perverse normalisation is planned here.
-
-**Acceptance.**
-
-- Check the shift convention on a single minuscule cell of GL_2
-- Check that CT_B[deg] is t-exact but CT_B alone is not
-- Check t-exactness of pullback along a geometric point
-
-**Prerequisites.** `GeometricSatakeAndFusion:GS1/semi-infinite-orbits-and-hyperbolic-localization`, `EtaleDualityAndPerverseSheaves:EDC.4`, `EtaleDualityAndPerverseSheaves:EDC.5`, `EnhancedDerivedSheaves:E5:abstract`, `VStackSheavesAndLisseCategories:VS1`, `mathlib:CategoryTheory.Triangulated.TStructure`, `mathlib:CategoryTheory.Triangulated.TStructure.Heart`, `mathlib:CategoryTheory.Pretriangulated`, `mathlib:DerivedCategory`, `mathlib:RootPairing`
-
-**Sources.**
-
-- `FS-geometrization` — Laurent Fargues, Peter Scholze, *Geometrization of the local Langlands correspondence*, Definition/Proposition VI.7.1, printed p. 215.
-
-  > the pullback of A to this open Schubert cell sits in cohomological degrees <= - sum_{i=1}^r <2rho, mu_i>.
-
-  The exact normalization of the relative perverse t-structure, with r the number of DISTINCT untilts.
-- `FS-geometrization` — Laurent Fargues, Peter Scholze, *Geometrization of the local Langlands correspondence*, Proposition VI.7.4, printed p. 217.
-
-  > Then CT_B[deg] is t-exact for the perverse t-structure on the source, and the standard t-structure on the right. As CT_B[deg] is conservative, this implies in particular that ...
-
-  The hyperbolic characterisation of the t-structure, which is how ^p D^{>=0} becomes describable.
-
-### `ULA-sheaves-on-the-hecke-stack` — FS VI.6.1-VI.6.6: ULA sheaves on Hck, switching invariance, and the one-leg stalkwise criterion
-
-*theorem.* **Planet: ULA sheaves on the Hecke stack.**
-
-**Statement.** A in D_et(Hck_{G,S/Div^d},Lambda) is ULA over S if it is bounded and its pullback to Gr_{G,S/Div^d} is ULA over S. This condition is invariant under the switching involution sw. For a Borel B with torus quotient T, a bounded A is ULA over S if and only if CT_B(A) is ULA over S, equivalently if and only if R pi_{T,S,*} CT_B(A) is locally constant with perfect fibres. For split G and d = 1, a bounded A is ULA over S if and only if for every dominant mu the restriction of A along the section [mu] : S -> Hck_{G,S/Div^1} is locally constant with perfect fibres. The ULA subcategory is stable under Verdier duality, tensor, internal Hom and the four functors j_! j^*, Rj_* j^*, j_! Rj^!, Rj_* Rj^! for a Schubert-cell immersion j, all commuting with pullback in S.
-
-**Hypotheses that must not be dropped.**
-
-- Boundedness is part of the definition of ULA on Hck
-- sw-invariance (VI.6.2) is proved by comparing the two pro-systems (L G)_U/(L^+G)^{>=m} and (L^+G)^{>=m} \ (L G)_U, which are pro-isomorphic with cohomologically smooth transition maps (Lemma VI.6.3)
-- The proof of VI.6.4 passes to a bounded part of Hck and replaces the quotient by L^+G by a FINITE-DIMENSIONAL quotient in order to be in the Artin-stack setting - this is exactly the truncation supplied by VI.2.8
-- VI.6.5 is stated for SPLIT G; for general G one applies it etale-locally on S
-- The stability statements of VI.6.6 are for d = 1 (S -> Div^1_Y-curly)
-
-**Proof outline.**
-
-1. Definition VI.6.1 and Proposition VI.6.2 (sw-invariance via the pro-isomorphic congruence towers and Lemma VI.6.3's two-out-of-six argument).
-2. VI.6.4 forward direction: Corollary VI.3.5, ind-properness of pi_T,S and Corollary IV.2.12. Converse: assume S strictly totally disconnected and G split; use the dualizability criterion Theorem IV.2.23; apply Proposition VI.4.2 to G x G to reduce to CT_{B^- x B}; use that hyperbolic localization commutes with exterior tensor products and Proposition IV.6.13.
-3. VI.6.5 forward: reduce to j_{mu!}Lambda, argue v-locally over Div^1, base change to S = Spd O_C, use Proposition VI.5.2 and Proposition IV.2.13 to pass to the affine flag variety, and conclude by Proposition VI.5.7 (Demazure). Converse: induct on the support, using that on a maximal Schubert cell the stratum is the classifying space of a pro-cohomologically-smooth group.
-4. VI.6.6 follows from Corollary IV.2.25 for duality and base change, and from the stalkwise criterion plus the six functors for the rest.
-
-**Acceptance.**
-
-- Check the stalkwise criterion on j_{mu!}Lambda[d_mu]
-- Check sw-invariance on a non-symmetric example
-- Check that the finite-dimensional truncation used in the proof of VI.6.4 is the one from VI.2.8
-
-**Prerequisites.** `GeometricSatakeAndFusion:GS0:Schubert-smoothness/truncation-of-the-loop-action`, `GeometricSatakeAndFusion:GS1/semi-infinite-orbits-and-hyperbolic-localization`, `VStackSheavesAndLisseCategories:VS1`, `mathlib:Module.Projective`, `mathlib:DerivedCategory`
-
-**Sources.**
-
-- `FS-geometrization` — Laurent Fargues, Peter Scholze, *Geometrization of the local Langlands correspondence*, Proposition VI.6.5, printed p. 214.
-
-  > Then A is universally locally acyclic over S if and only if for all mu in X_*(T)^+, the restriction of A to the section [mu] : S -> Hck_{G,S/Div^1} is locally constant with perfect fibres in D_et(S,Lambda).
-
-  The stalkwise one-leg criterion, which is the practical characterisation used throughout.
-- `FS-geometrization` — Laurent Fargues, Peter Scholze, *Geometrization of the local Langlands correspondence*, Proof of Proposition VI.6.4, printed p. 213.
-
-  > (Implicitly, we pass here to a bounded part of Hck_{G,Div^d} and replace the quotient by L^+_{Div^d}G by a finite-dimensional quotient in order to be in the setting of Artin stacks.)
-
-  Records that the Artin-stack machinery is applied only after the truncation of VI.2.8.
-
-### `integral-family-comparison` — FS VI.6.7: equivalence of ULA categories over Spd O_C, Spd C and Spd k
-
-*comparison.*
-
-**Statement.** For C a complete algebraically closed extension of E with residue field k, taking S = Spd O_C, Spd C and Spd k, the restriction functors D^{ULA}_et(Hck_{G,Spd C/Div^1},Lambda) <- D^{ULA}_et(Hck_{G,Spd O_C/Div^1},Lambda) -> D^{ULA}_et(Hck_{G,Spd k/Div^1},Lambda) are EQUIVALENCES.
-
-**Hypotheses that must not be dropped.**
-
-- The middle term is over Spd O_C, i.e. over the INTEGRAL divisor space Div^1_Y-curly = Spd O_E, which retains the characteristic-p point; replacing Y-curly by Y would delete the right-hand term
-- The statement is about the ULA subcategories, not about all of D_et
-- G is not assumed split here (Fargues-Scholze say 'In the following corollaries, we no longer assume that G is split')
-- The printed proof (p. 215) is two lines and gives no further detail: base change of RHom in S, plus the equivalence between locally constant sheaves with perfect fibres on such an S and perfect Lambda-modules. No specialization argument along Spd O_C is spelled out.
-
-**Proof outline.**
-
-1. Fargues-Scholze's proof is two lines and is printed on p. 215: 'Use that the formation of RHom commutes with any base change in S, and that the category of locally constant sheaves with perfect fibres on any such S is equivalent to the category of perfect Lambda-modules.'
-2. The first ingredient is base change for RHom in S, which Corollary VI.6.6 records for the ULA subcategory; the second identifies LocSys with perfect Lambda-modules over each of Spd O_C, Spd C and Spd k.
-3. The stalkwise criterion VI.6.5 is what makes ULA objects detectable by their restrictions along the sections [mu], but Fargues-Scholze do not route the proof of VI.6.7 through it.
-
-**Acceptance.**
-
-- Check the equivalence on j_{mu!}Lambda[d_mu] over the three bases
-- Check that the special fibre is the Witt Grassmannian side and the generic fibre the B^+_dR side
-- Check that a formal analogy between the two Grassmannians does not give this equivalence, as the roadmap warns
-
-**Prerequisites.** `GeometricSatakeAndFusion:GS1/ULA-sheaves-on-the-hecke-stack`, `VStackSheavesAndLisseCategories:VS3`, `mathlib:Module.Projective`, `mathlib:CategoryTheory.Equivalence`
-
-**Sources.**
-
-- `FS-geometrization` — Laurent Fargues, Peter Scholze, *Geometrization of the local Langlands correspondence*, Corollary VI.6.7, printed p. 214.
-
-  > For a complete algebraically closed extension C of E with residue field k, taking S = Spd O_C, S = Spd C and S = Spd k, the functors D^{ULA}_et(Hck_{G,Spd C/Div^1}, Lambda) <- D^{ULA}_et(Hck_{G,Spd O_C/Div^1}, Lambda) -> D^{ULA}_et(Hck_{G,Spd k/Div^1}, Lambda) are equivalences.
-
-  The special/generic fibre comparison the stage text calls for, stated exactly.
-
-## GS2. Satake objects and convolution
-
-An aggregate layer with no node of its own.
-
-**Coverage: `partial`.** Aggregate layer over GS2:correspondences and GS2:Satake-closure; no node of its own.
-
-Remaining in this layer:
-
-- Aggregate stage; inherits the remaining items of GS2:correspondences and GS2:Satake-closure.
-
-## GS2:Satake-closure. Closure after fusion
-
-Convolution preserves `Sat`, and every object of `Sat` is left and
-right dualizable with right dual `sw^* D(A)`. That single sentence is the hypothesis from which every formal property of
-the Hecke operators in `HeckeStacksAndLocalShtukas` follows: monoidality plus dualizability gives `T_V` a left and a
-right adjoint, and preservation of limits, colimits, compact objects and ULA objects is then automatic.
-
-**And the atlas records the dependency backwards.** `data/atlas.json` has the edge
-`GS3:fusion → GS2:Satake-closure`. But VI.8.1(iii) is proved from (i), (ii) and the commutation of convolution with
-Verdier duality, and VI.8.2 from Propositions IV.2.24, VI.6.2 and VI.7.12. Fusion is used in neither. Both live in
-section VI.8, *before* VI.9 on fusion, and it is VI.9 that consumes them — the proof of Corollary VI.9.5 opens *"By
-Proposition VI.8.2, all `A ∈ Sat^I_G(Λ)` are dualizable, with dual `sw^* D(A)`."* The reviewed decomposition's own link
-graph runs the other way too. This is the packet's first structural proposal.
-
-**Coverage: `partial`.** Convolution preserves the Satake category, and every object of it is left and right dualizable with right dual sw^* D(A). This is the single hypothesis from which every formal property of the Hecke operators in HeckeStacksAndLocalShtukas follows, and the source proves it in section VI.8, BEFORE the fusion of VI.9, which is the opposite of the order the atlas records.
-
-Remaining in this layer:
-
-- Proposition IV.2.24, used for dualizability, was not read.
-- The semi-infinite/hyperbolic-localization estimates the stage text names are those of VI.3 and IV.6; IV.6 was not read.
-- The exact place where coefficient flatness excludes the Tor obstruction to t-exactness was not isolated in the source; FS record flatness as part of Definition VI.7.8 but do not display the obstruction.
-
-### `convolution-preserves-satake-and-dualizability` — FS VI.8.1(iii) and VI.8.2: convolution preserves the Satake category, and all its objects are dualizable
-
-*theorem.* **Planet: Convolution preserves Satake.**
-
-**Statement.** If A_1, A_2 lie in Sat(Hck_{G,S/Div^d},Lambda) then so does A_1 star A_2. Moreover every object of the monoidal category Sat(Hck_{G,S/Div^d},Lambda) is left and right dualizable, with right dual sw^* D(A), where sw is the switching isomorphism induced by inversion on L_{Div^d}G.
-
-**Hypotheses that must not be dropped.**
-
-- Part (iii) is deduced from (i), (ii) and the observation that CONVOLUTION COMMUTES WITH VERDIER DUALITY; flatness is preserved because both the object and its dual are perverse
-- The dualizability statement is proved for all of D^{ULA}(Hck), using Proposition IV.2.24, 'modulo the technical nuisance that everything is only ind-representable here; everything adapts to that setting'
-- sw-invariance of the ULA condition is Proposition VI.6.2, and stability of Sat under Verdier duality is Proposition VI.7.12
-- Fargues-Scholze remark that in the classical setting dualizability is asserted without proof at the end of [MV07, Section 11]
-
-**Proof outline.**
-
-1. (iii) from (i) and (ii) plus compatibility of convolution with Verdier duality: if A_1, A_2 are ULA and flat perverse, then A_1 star A_2 is ULA and lies in ^pD^{<=0}; applying the same to the duals gives ^pD^{>=0}, hence perversity, and flatness follows.
-2. Dualizability: all ULA objects are left dualizable with right dual sw^* D(A) by Proposition IV.2.24 adapted to the ind-representable setting; sw^* D preserves Sat by VI.6.2 and VI.7.12.
-
-**Acceptance.**
-
-- Check that the right dual of ^p j_{mu!}Lambda[d_mu] is the expected object for the dual cocharacter
-- Check the Tor obstruction: exhibit a nonflat perverse object whose convolution is not perverse, or record that none is given in the source
-- Check that this closure is used only AFTER the fusion construction, as the roadmap requires
-
-**Prerequisites.** `GeometricSatakeAndFusion:GS2:correspondences/convolution-diagram`, `VStackSheavesAndLisseCategories:VS1`, `mathlib:CategoryTheory.LeftRigidCategory`, `mathlib:CategoryTheory.MonoidalCategory`, `mathlib:Module.Flat`
-
-**Sources.**
-
-- `FS-geometrization` — Laurent Fargues, Peter Scholze, *Geometrization of the local Langlands correspondence*, Proposition VI.8.1 (iii) and the end of its proof, printed p. 225.
-
-  > (iii) If A_1, A_2 are in Sat(Hck_{G,S/Div^d},Lambda), then also A_1 star A_2 is in Sat(Hck_{G,S/Div^d},Lambda). ... Finally, part (iii) easily follows from (i), (ii), and the observation that convolution commutes with Verdier duality.
-
-  The closure statement and the exact mechanism.
-- `FS-geometrization` — Laurent Fargues, Peter Scholze, *Geometrization of the local Langlands correspondence*, Proposition VI.8.2 and proof, printed pp. 225-226.
-
-  > All objects of the monoidal category Sat(Hck_{G,S/Div^d},Lambda) are (left and right) dualizable. The right dual of A in Sat is given by sw^* D(A) where sw : Hck_{G,Div^d} = Hck_{G,Div^d} is the switching isomorphism (induced by inversion on L_{Div^d}G).
-
-  Dualizability with the explicit dual, needed for Tannakian reconstruction.
-
-## GS2:correspondences. Objects and convolution before t-exactness
-
-`Sat` is the full subcategory of objects that are universally locally
-acyclic **and flat perverse**. Both conditions are part of the definition, and the source gives the reason for choosing
-this normalisation: *"This definition has the virtue that it is invariant under switching `sw^*`."* Flatness over `Λ` is
-what excludes the Tor obstruction to t-exactness — though the source records it in the definition without displaying the
-obstruction, which the packet notes as remaining.
-
-The fibre functor `F_{G,S} = ⊕_i H^i(Rπ_{G,S*})` is exact, faithful and conservative, and the `H^i` are local systems of
-**finite projective** `Λ`-modules. That finite projectivity is a conclusion of Definition/Proposition VI.7.10, not an
-extra hypothesis.
-
-One locating remark is worth keeping: the decomposition theorem — and with it the degeneration to the Witt vector affine
-Grassmannian — enters **only** in the `ℓ^{a(μ)}` bound on the kernel and cokernel of the map from the standard to the
-costandard object. The source flags it: *"the final statement ultimately makes use of the decomposition theorem (and
-thus requires the degeneration to the Witt vector affine Grassmannian)."* A plan that needs it earlier has mislocated
-it.
-
-Convolution is defined by pull–push, and formally as composition in the 2-category `C_T` of FS IV.2.3.3. That
-formalism is built for **representable** compactifiable maps and `Hck → Div^d` is only ind-representable, so it has to
-be extended to ind-representable maps with closed immersions in the ind-system, using bounded sheaves as morphisms —
-a correction the source makes explicitly. Before the closure theorem, convolution is known only to preserve ULA and
-`^pD^{≤0}`.
-
-**Coverage: `partial`.** The Satake category of universally locally acyclic FLAT PERVERSE objects with its exact faithful conservative fibre functor, and the convolution product, defined as composition in the 2-category of cohomological correspondences extended to ind-representable maps. Before the closure theorem, convolution is known only to preserve universal local acyclicity and ^pD^{<=0}.
-
-Remaining in this layer:
-
-- The proof of Proposition VI.7.5 was read only in its first half; the Verdier-duality half and the l^{a(mu)} bound (which uses the decomposition theorem) were not fully read.
-- Propositions VI.7.6, VI.7.7, VI.7.11 and VI.7.13 (constant terms for a parabolic) were located but not read.
-- The 'ambient associativity and unit with coherent maps' that the stage text requires were not located as explicit statements in FS; convolution associativity is inherited from composition in the 2-category C_T, whose coherence was not verified.
-
-### `satake-category-and-fibre-functor` — FS VI.7.8-VI.7.12: the Satake category of ULA flat perverse sheaves and its exact faithful fibre functor
-
-*definition.* **Planet: The Satake category and its fibre functor.**
-
-**Statement.** Sat(Hck_{G,S/Div^d},Lambda) is the full subcategory of objects that are universally locally acyclic AND flat perverse; this definition is invariant under sw^*. For split G and dominant mu with d_mu = <2rho,mu>, the objects ^p j_{mu!}Lambda[d_mu] = ^p H^0(j_{mu!}Lambda[d_mu]) and ^p R j_{mu*}Lambda[d_mu] lie in Sat. The functor R pi_{G,S*} takes values in complexes all of whose H^i are local systems of FINITE PROJECTIVE Lambda-modules, each H^i(R pi_{G,S*}) is exact, and F_{G,S} = the direct sum over i of H^i(R pi_{G,S*}) is exact, faithful and conservative; it detects kernels and cokernels whose F-image kernel is a direct summand. The image of Sat in D_et(Gr) is stable under Verdier duality, and D is an equivalence with D^2 = id.
-
-**Hypotheses that must not be dropped.**
-
-- FLATNESS of the perverse object over Lambda is part of the definition and is what excludes the Tor obstruction to t-exactness
-- The finite-projectivity of the H^i of R pi_{G,S*} is part of Definition/Proposition VI.7.10, not an extra assumption
-- For VI.7.5 (the properties of ^p j_{mu!}Lambda[d_mu]) Fargues-Scholze state that the FINAL statement - that the kernel and cokernel of ^p H^0(j_{mu!}Lambda[d_mu]) -> ^p H^0(R j_{mu*}Lambda[d_mu]) are killed by l^{a(mu)} - 'ultimately makes use of the decomposition theorem (and thus requires the degeneration to the Witt vector affine Grassmannian)'
-- The degree-0 part of CT_B(A)[deg] is locally finite free because it is computed by the top compactly supported cohomology of the Mirkovic-Vilonen cycles S_lambda intersect Gr^{Witt}_{G,mu}, which is finite free for any separated variety
-
-**Proof outline.**
-
-1. Define Sat by the two conditions and note sw-invariance from VI.6.2 and the sw-invariance of flat perversity.
-2. For VI.7.5: A = j_{mu!}Lambda[d_mu] is in ^pD^{<=0} and ULA; CT_B(A)[deg] sits in degrees <= 0 with degree-0 part locally finite free by the MV-cycle computation; t-exactness of CT_B[deg] transfers this to ^pH^0(A); Verdier duality and Proposition IV.6.13 give the dual statement and the isomorphism ^p Rj_{mu*}Lambda[d_mu](d_mu) = D(^p j_{mu!}Lambda[d_mu]).
-3. VI.7.10's exactness and faithfulness use conservativity (VI.4.2) and a Barr-Beck type assertion.
-4. VI.7.12 gives Verdier duality on Sat.
-
-**Planning API.**
-
-| name | role | statement |
+| `TauCeti.Suggested.GeometricSatake.positiveLoopSpace_eval` | characterisation | At a completed ring A, the positive loop space is the affine functor of points F(A); the full loop space uses A[1/ξ]. |
+| `TauCeti.Suggested.GeometricSatake.positiveLoopSpace_map` | functoriality | A ring map induces the map F(f); identity and composition agree with those in the affine functor. |
+| `TauCeti.Suggested.GeometricSatake.positiveLoopSpace_map_comp` | relation | Positive loop maps compose in the same order as ring maps. |
+
+| Unit test | Kind | Required outcome |
 | --- | --- | --- |
-| `Sat` | data | The full subcategory of D_et(Hck_{G,S/Div^d},Lambda) of objects that are universally locally acyclic AND flat perverse. Both conditions are part of the definition. |
-| `Sat.sw_invariant` | structure | The definition is invariant under the switching involution sw^*; this is the virtue for which flat perversity is chosen over other normalisations. |
-| `Sat.flat` | structure | Flatness over Lambda is what excludes the Tor obstruction to t-exactness; the source records it in the definition but does not display the obstruction. |
-| `Sat.standard` | constructor | For split G and dominant mu with d_mu = <2rho,mu>, the objects ^p j_{mu!}Lambda[d_mu] and ^p Rj_{mu*}Lambda[d_mu] lie in Sat. |
-| `fibreFunctor` | data | F_{G,S} = the direct sum over i of H^i(R pi_{G,S*}), exact, faithful and conservative. |
-| `fibreFunctor.finiteProjective` | structure | R pi_{G,S*} takes values in complexes all of whose H^i are local systems of FINITE PROJECTIVE Lambda-modules, and each H^i is exact. |
-| `Sat.verdier` | structure | The image of Sat in D_et(Gr) is stable under Verdier duality, and D is an equivalence with D^2 = id. |
+| `TauCeti.Suggested.GeometricSatake.loop_gm_units` | computation | For G_m the evaluation at A agrees with the unit group of A. |
+| `TauCeti.Suggested.GeometricSatake.loop_trivial` | degenerate | The trivial affine group has one loop at every ring. |
+| `TauCeti.Suggested.GeometricSatake.loop_affine_evaluation` | compatibility | Affine evaluation uses the existing CommRingCat functor, not an underlying-set functor on schemes. |
 
-Derived from where the object is used:
+**Acceptance.** For G=G_m the two groups are (B⁺)ˣ and Bˣ; for G=GL_n they are invertible matrices.
 
-- in `GeometricSatakeAndFusion:GS2:Satake-closure/convolution-preserves-satake-and-dualizability` — the closure theorem says this category is monoidal
-- in `GeometricSatakeAndFusion:GS4:integral-dual-group/tannakian-left-adjoint` — Tannakian reconstruction is applied to this category with this fibre functor
-- in `GeometricSatakeAndFusion:GS3:fusion/finite-set-functoriality-and-constant-terms` — the constant-term functors are compared with this fibre functor
+**Unclosed obligations.** Typed geometric signatures and unavailable prebuilt line module.
 
-**Unit tests.** A plausible wrong definition fails one of these.
+**Prototype boundary.** This signature retains affine functor evaluation; completed-ring assignment, divisor sites, v-descent and group-valued structure are supplied by RF2/RG. Full loop evaluation is the same signature at the localized input ring.
 
-- `flatness_is_not_automatic` — Over Lambda = Z/l^2 a perverse ULA object need not be flat; dropping flatness from the definition changes the category and breaks sw-invariance.
-- `fibre_functor_faithful_not_full` — F_{G,S} is exact, faithful and conservative, but not full; a Tannakian argument that assumes fullness is not the source's.
-- `finite_projective_is_part_of_the_statement` — The H^i of R pi_{G,S*} are local systems of finite projective modules by Definition/Proposition VI.7.10; this is a conclusion of the definition, not an extra hypothesis.
-- `decomposition_theorem_only_for_the_bound` — The decomposition theorem, and with it the degeneration to the Witt vector affine Grassmannian, enters only in the l^{a(mu)} bound on the kernel and cokernel of the map from the standard to the costandard object; a plan that needs it earlier has mislocated it.
+**Planet:** Loop spaces.
 
-**Acceptance.**
+### Local Hecke stack
 
-- Check flatness over Lambda = Z/l^2 on an example with nonsemisimple reduction
-- Check that F_{G,S} is faithful but not full
-- Check the l^{a(mu)} bound and confirm that the decomposition theorem enters only there
+`GeometricSatakeAndFusion:GS0:loop-geometry/local-hecke-stack` — construction. Proposed declaration: `TauCeti.Suggested.GeometricSatake.localHeckeAction`.
 
-**Prerequisites.** `GeometricSatakeAndFusion:GS0:Witt-geometry/semi-infinite-intersections-and-MV-cycles`, `GeometricSatakeAndFusion:GS1/ULA-sheaves-on-the-hecke-stack`, `GeometricSatakeAndFusion:GS1/relative-perverse-t-structure`, `VStackSheavesAndLisseCategories:VS1`, `VStackSheavesAndLisseCategories:VS3`, `mathlib:Module.Flat`, `mathlib:Module.Projective`, `mathlib:CategoryTheory.Triangulated.TStructure.Heart`, `mathlib:DerivedCategory`
+Hck_G(S) is the groupoid of two G-torsors on Spec B⁺_D(S), together with an isomorphism of their B_D-restrictions. It is a small v-stack; its étale-stack presentation is [L⁺G\LG/L⁺G].
 
-**Sources.**
+**Hypotheses and conventions.** The same divisor basis and group-model conditions as loop spaces.
 
-- `FS-geometrization` — Laurent Fargues, Peter Scholze, *Geometrization of the local Langlands correspondence*, Definition VI.7.8, printed p. 221.
+**Construction or proof.**
 
-  > Let Sat(Hck_{G,S/Div^d},Lambda) in D_et(Hck_{G,S/Div^d},Lambda) be the full subcategory of all objects that are universally locally acyclic and flat perverse. This definition has the virtue that it is invariant under switching sw^*.
+1. Import descent of finite projective B⁺-modules from RF2; transfer it to G-torsors through the faithful exact tensor description.
+2. Trivialize torsors étale-locally using the geometric DVR and smooth finite-level lifting/spreading.
+3. Changes of the two trivializations give the double quotient; keep automorphisms, rather than taking only isomorphism classes.
 
-  Verbatim definition with both conditions.
-- `FS-geometrization` — Laurent Fargues, Peter Scholze, *Geometrization of the local Langlands correspondence*, Proposition VI.7.9, printed p. 222.
+**Direct prerequisites.** `GeometricSatakeAndFusion:GS0:loop-geometry/loop-groups-and-local-hecke`, `RelativeFarguesFontaine:RF2:integral-divisors/v-descent-of-bundles-on-the-divisor`, `RelativeFarguesFontaine:RF2:untilts/geometric-divisor-complete-dvr`, `RelativeFarguesFontaine:RF4:G-torsors`, `ReductiveGroupsPartII:RG2.3`, `mathlib:CategoryTheory.ActionCategory`.
 
-  > The perverse sheaves ^p j_{mu!}Lambda[d_mu] = ^p H^0(j_{mu!}Lambda[d_mu]), ^p Rj_{mu*}Lambda[d_mu] = ^p H^0(Rj_{mu*}Lambda[d_mu]) lie in the Satake category Sat(Hck_{G,Div^1_Y-curly}, Lambda). Proof. This follows from Proposition VI.7.7 and Proposition VI.7.5.
+**Sources.** [FS-geometrization](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), VI.1.6–VI.1.7, p. 193.
 
-  Anchors the packet's claim that the standard and costandard objects lie in Sat, and names its two inputs.
-- `FS-geometrization` — Laurent Fargues, Peter Scholze, *Geometrization of the local Langlands correspondence*, Definition/Proposition VI.7.10, printed p. 222.
+**Consumers and design of the API.**
 
-  > takes values in complexes C in D_et(S,Lambda) such that all H^i(C) are local systems of finite projective Lambda-modules, and each functor H^i(R pi_{G,S*}) : Sat(Hck_{G,S/Div^d},Lambda) -> LocSys(S,Lambda) is exact. ... The functor F_{G,S} is exact, faithful, and conservative.
+- FS VI.1.7: The double quotient must keep stabilizers.
+- FS VI.8: The middle positive-loop action is divided out in convolution.
 
-  The fibre functor with its exactness and finite-projectivity properties.
-- `FS-geometrization` — Laurent Fargues, Peter Scholze, *Geometrization of the local Langlands correspondence*, After Proposition VI.7.5, printed p. 219.
-
-  > We remark that the final statement ultimately makes use of the decomposition theorem (and thus requires the degeneration to the Witt vector affine Grassmannian).
-
-  Isolates exactly where the decomposition theorem - the late GS4:rational-reductivity input - is needed.
-- `FS-geometrization` — Laurent Fargues, Peter Scholze, *Geometrization of the local Langlands correspondence*, Proposition VI.7.12, printed p. 223.
-
-  > The image of the fully faithful functor Sat(Hck_{G,S/Div^d},Lambda) -> D_et(Gr_{G,S/Div^d},Lambda) is stable under Verdier duality D. The induced functor D : Sat(...)^op -> Sat(...) is an equivalence, with D^2 = id.
-
-  Anchors the Verdier-duality clause of the node statement, which was previously unsourced.
-
-### `convolution-diagram` — FS VI.8: convolution on bounded sheaves on the local Hecke stack, via the 2-category of correspondences
-
-*construction.* **Planet: Convolution on the Hecke stack.**
-
-**Statement.** The convolution product on D_et(Hck_{S/Div^d},Lambda)^{bd} is defined by pull-push along the convolution diagram; formally, D_et(Hck_{S/Div^d},Lambda)^{bd} is the category of endomorphisms of [Div^d/L^+G] x_{Div^d} S in the 2-category C_T of Subsection IV.2.3.3, for T = [Div^d/L G] x_{Div^d} S, after extending that formalism to maps that are IND-representable in locally spatial diamonds with closed immersions in the ind-system and using bounded sheaves as morphisms. Convolution preserves universal local acyclicity, and preserves ^p D^{<=0}.
-
-**Hypotheses that must not be dropped.**
-
-- The 2-category C_T of IV.2.3.3 is set up for REPRESENTABLE compactifiable maps; Hck -> Div^d is only ind-representable, so the formalism has to be extended, using closed immersions in the ind-system and bounded sheaves as the morphism categories. Fargues-Scholze flag this as a correction that 'is corrected by passing to bounded sheaves'
-- Part (i) (preservation of ULA) uses Proposition IV.2.11 (proper pushforward) and Proposition IV.2.26
-- Part (ii) (preservation of ^pD^{<=0}) is checked for S = Spa(C,C^+) strictly local and G split, after a devissage to !-extensions of constant sheaves on open Schubert cells (which are ULA), and by the Kunneth formula reduces to d = 1; one then passes to the universal situation over (Div^1_Y-curly)^2 and uses density of the complement of the diagonal plus Proposition VI.7.4
-
-**Proof outline.**
-
-1. Set up the convolution diagram and the pull-push operation with proper-support pushforward.
-2. Identify the monoidal structure with composition in the extended 2-category C_T.
-3. Prove ULA-preservation from IV.2.11 and IV.2.26.
-4. Prove ^pD^{<=0}-preservation by the devissage, Kunneth reduction to d = 1, and the density argument over (Div^1)^2 followed by restriction to the diagonal, which is exactly A_1 star A_2.
-
-**Planning API.**
-
-| name | role | statement |
+| API declaration | Role | Mathematical contract |
 | --- | --- | --- |
-| `convolution` | data | A_1 star A_2 = pull-push along the convolution diagram, a monoidal structure on D_et(Hck_{S/Div^d},Lambda)^{bd}. |
-| `convolution.as2category` | characterisation | Formally the bounded sheaf category is the endomorphism category of [Div^d/L^+G] x_{Div^d} S in the 2-category C_T of FS IV.2.3.3, with T = [Div^d/LG] x_{Div^d} S; convolution is composition there. |
-| `convolution.indExtension` | structure | C_T is set up for REPRESENTABLE compactifiable maps, and Hck -> Div^d is only ind-representable; the formalism has to be extended to maps ind-representable in locally spatial diamonds with closed immersions in the ind-system, using bounded sheaves as morphisms. The source flags this as a correction. |
-| `convolution.preservesULA` | compatibility | If A_1 and A_2 are universally locally acyclic, so is A_1 star A_2 (Proposition VI.8.1 (i)). |
-| `convolution.rightExact` | compatibility | If A_1 and A_2 lie in ^pD^{<=0}, so does A_1 star A_2 (Proposition VI.8.1 (ii)); the proof reduces by Kunneth to d = 1 and uses density of the complement of the diagonal in (Div^1)^2. |
+| `TauCeti.Suggested.GeometricSatake.localHeckeAction_formula` | characterisation | The double action is (h₁,h₂)·g=h₁gh₂⁻¹, and the quotient is an action groupoid. |
+| `TauCeti.Suggested.GeometricSatake.localHeckeAction_groupoid` | compatibility | For the double action, the local quotient uses Mathlib ActionCategory with its Groupoid instance. |
+| `TauCeti.Suggested.GeometricSatake.localHeckeAction_unit_stabilizer` | characterisation | The automorphism labels of the identity are exactly pairs (h,h), retaining the diagonal positive-loop group. |
 
-Derived from where the object is used:
+| Unit test | Kind | Required outcome |
+| --- | --- | --- |
+| `TauCeti.Suggested.GeometricSatake.hecke_trivial_group` | degenerate | For the trivial group there is one modification and one automorphism. |
+| `TauCeti.Suggested.GeometricSatake.hecke_identity_automorphisms` | non-example | For the subgroup of all integer additive units encoded multiplicatively, the identity modification retains nontrivial diagonal automorphisms; the quotient is not the orbit set. |
+| `TauCeti.Suggested.GeometricSatake.hecke_double_action` | computation | For G=H, (h,1) sends the identity to h, whereas (1,h) sends it to h inverse. |
 
-- in `GeometricSatakeAndFusion:GS2:Satake-closure/convolution-preserves-satake-and-dualizability` — the closure statement is about this operation
-- in `GeometricSatakeAndFusion:GS3:fusion/fusion-product-and-sign-rule` — the fusion product of the second part of this roadmap is built from this convolution
-- in `GeometricSatakeAndFusion:GS4:integral-dual-group/tannakian-left-adjoint` — Tannakian reconstruction is applied to this monoidal structure
+**Acceptance.** At the trivial modification automorphisms are the diagonal L⁺G; for the trivial group the stack is the base.
 
-**Unit tests.** A plausible wrong definition fails one of these.
+**Unclosed obligations.** Typed geometric signatures and unavailable prebuilt line module.
 
-- `associativity_and_unit` — Associativity and the unit are inherited from composition in the 2-category, on three minuscule objects; the coherence of that 2-category is itself recorded as remaining.
-- `not_yet_satake_closed` — Before the Satake closure, convolution is known only to preserve ULA and ^pD^{<=0}; asserting that it preserves the Satake category here is premature - that is the next node.
-- `kunneth_reduction` — The reduction to d = 1 is by the Kunneth formula; a proof that works only for d = 1 without that reduction does not establish the multi-leg statement.
-- `ind_representability` — The 2-category has to be extended to ind-representable maps; applying the representable formalism directly is the error the source explicitly corrects.
+**Prototype boundary.** The action groupoid is the local presentation. Stackification, ring-valued torsors and étale-local trivialization are not encoded by a new unknown predicate.
 
-**Acceptance.**
+**Planet:** Local Hecke stack.
 
-- Check associativity and unit on three minuscule objects
-- Check that convolution before GS3 is NOT yet known to preserve Sat (that is GS2:Satake-closure)
-- Check the Kunneth reduction to one leg
+### Beilinson–Drinfeld Grassmannian
 
-**Prerequisites.** `VStackSheavesAndLisseCategories:VS1`, `VStackSheavesAndLisseCategories:VS3`, `EnhancedDerivedSheaves:E5:abstract`, `mathlib:CategoryTheory.MonoidalCategory`, `mathlib:CategoryTheory.Functor.Monoidal`, `mathlib:CategoryTheory.Comma`, `mathlib:DerivedCategory`
+`GeometricSatakeAndFusion:GS0:loop-geometry/grassmannian` — construction. Proposed declaration: `TauCeti.Suggested.GeometricSatake.grassmannianQuotient`.
 
-**Sources.**
+Gr_G(S) classifies a G-torsor on Spec B⁺_D(S) with a B_D-trivialization. It is a small v-sheaf and the étale sheafification of LG/L⁺G. Its map to Hck_G fixes the second torsor as trivial.
 
-- `FS-geometrization` — Laurent Fargues, Peter Scholze, *Geometrization of the local Langlands correspondence*, VI.8, printed p. 224.
+**Hypotheses and conventions.** Integral and generic group and divisor conventions as above.
 
-  > the category D_et(Hck_{S/Div^d},Lambda)^{bd} is precisely the category of endomorphisms of [Div^d_Y-curly/L^+_{Div^d}G] x_{Div^d} S in the 2-category C_T defined in Subsection IV.2.3.3 ... This problem is corrected by passing to bounded sheaves - one can extend the formalism to the case of maps that are ind-representable in locally spatial diamonds, with closed immersions in the ...
+**Construction or proof.**
 
-  The exact formal setting of convolution and the extension that has to be made. The excerpt is truncated here; the full quotation is in data/decompositions/GeometricSatakeAndFusion.json, where the independent review checked it against the source.
-- `FS-geometrization` — Laurent Fargues, Peter Scholze, *Geometrization of the local Langlands correspondence*, Proposition VI.8.1 (i),(ii) and proof, printed p. 225.
+1. Use the same effective torsor descent as Hck_G.
+2. The B-trivialization kills all automorphisms; étale-local trivialization gives the quotient sheaf.
+3. Apply imported Beauville–Laszlo gluing for the identification with modifications off D on the relative curve.
 
-  > (i) If A_1 and A_2 are universally locally acyclic, then A_1 star A_2 is universally locally acyclic. (ii) If A_1 and A_2 lie in ^p D^{<=0}, then A_1 star A_2 is in ^p D^{<=0}. ... By the Kunneth formula one can then reduce to the case d = 1.
+**Direct prerequisites.** `GeometricSatakeAndFusion:GS0:loop-geometry/local-hecke-stack`, `RelativeFarguesFontaine:RF4:G-torsors`, `AdicCoefficientsAndComparisons:L1/char-p-scheme-diamond-and-comparison-functor`, `DiamondsAndVStacks:D6/pre-adic-topological-comparison`.
 
-  The two preservation statements available before the Satake closure.
+**Sources.** [FS-geometrization](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), VI.1.8–VI.1.9, pp. 193–194.
 
-## Requests to other roadmaps
+**Consumers and design of the API.**
 
-- **`RelativeFarguesFontaine:RF0:integral-Y`** — The integral period space Y-curly before removing the special fibre. Everything in this part turns on keeping the Cartier divisor pi = 0, where B^+_dR(C^sharp) = W_{O_E}(C); without the integral space the special-fibre comparison of GS1 has no right-hand term.
-- **`RelativeFarguesFontaine:RF2:integral-divisors`** — Integral divisors Div^d_Y-curly, the base of every loop space, Hecke stack and Grassmannian here, together with the ideal sheaf I_S whose powers give the congruence filtration.
-- **`RelativeFarguesFontaine:RF2:untilts`** — Untilts and the local de Rham rings B^+ and B, in which the positive loop space and the loop space are defined.
-- **`RelativeFarguesFontaine:RF4:G-torsors`** — G-torsors on the curve and their modifications, with the Beauville-Laszlo comparison between the torsor-modification and loop-quotient descriptions, which this layer uses implicitly.
-- **`ReductiveGroupsPartII:RG2.3`** — Reductive group schemes with their Borel, torus and parabolic subgroups, the root datum, the dominance order on cocharacters and the Cartan decomposition over a complete discrete valuation ring. The split hypothesis and the descent to a nonsplit G along a finite etale extension are statements about this layer's objects.
-- **`ReductiveGroupsPartII:RG2.5`** — The Lie algebra with its adjoint action and weight decomposition, which is what the graded pieces of the congruence filtration are built from and what the truncation bound is stated in terms of.
-- **`BunGAndNewtonStrata:BG0`** — Torsors with reductive structure group, the ambient notion of G-bundle used throughout, in the Tannakian form as exact tensor functors from Rep_E G.
-- **`DiamondSixOperations:S4`** — Cohomological smoothness with its descent hypotheses. The graded pieces of the congruence filtration and the open Schubert cell are asserted to be cohomologically smooth, of l-dimension d dim G and <2rho,mu> respectively.
-- **`DiamondSixOperations:S5`** — The worked examples of cohomological smoothness, in particular quotients by group diamonds, which is the form the open Schubert cell L^+G/(L^+G)_mu takes.
-- **`EtaleDualityAndPerverseSheaves:EDC.4`** — The perverse t-structure and recollement on the scheme side, the model the relative perverse t-structure of GS1 is built after. The decomposition records that the scheme-side foundation was not inspected here.
-- **`EtaleDualityAndPerverseSheaves:EDC.5`** — Duality and the decomposition theorem on the scheme side. The l^{a(mu)} bound on the kernel and cokernel of the map from the standard to the costandard object is the one place the decomposition theorem enters this part, and the source says so explicitly.
-- **`VStackSheavesAndLisseCategories:VS0`** — Artin v-stacks and the operations eligible on them. Hck and Gr are Artin v-stacks after the truncation of GS0:Schubert-smoothness, and the hyperbolic-localization correspondence is stated with those operations.
-- **`VStackSheavesAndLisseCategories:VS1`** — Universal local acyclicity with its perfect-constructibility condition, the dualizability criterion IV.2.23 whose 2-category this layer extends to ind-representable maps, and hyperbolic localization with Braden's theorem (FS IV.6). The decomposition records IV.6 as entirely unread, and it is imported at Corollary VI.3.5 and in the proofs of VI.6.4 and VI.7.5.
-- **`VStackSheavesAndLisseCategories:VS3`** — The lisse and solid coefficient categories with their coefficient convention, in which the ULA and Satake categories are compared across Spd O_C, Spd C and Spd k.
-- **`EnhancedDerivedSheaves:E5:abstract`** — The monoidal stable infinity-categorical baseline. The existence and uniqueness of the relative perverse t-structure uses a presentable stable infinity-categorical refinement on each bounded closed subset together with Lurie's Higher Algebra Proposition 1.4.4.11, and the convolution 2-category is an infinity-categorical object. The atlas links this layer into GS4:integral-dual-group but not into GS1 or GS2:correspondences, where it is actually consumed.
+- FS VI.2: Schubert cells live in the quotient sheaf.
+- FS VI.7.9: Pullback from Hecke sheaves is fully faithful on the Grassmannian.
 
-## Gaps
+| API declaration | Role | Mathematical contract |
+| --- | --- | --- |
+| `TauCeti.Suggested.GeometricSatake.grassmannianQuotient_eq` | compatibility | The trivialized local presentation is the existing right-coset carrier G/H; H need not be normal. |
+| `TauCeti.Suggested.GeometricSatake.grassmannianQuotient_mk` | constructor | Every full loop gives its right-coset class and hence a trivialized modification. |
+| `TauCeti.Suggested.GeometricSatake.grassmannianQuotient_eq_iff` | characterisation | Two trivializations define the same point precisely when g⁻¹g′ lies in H. |
+| `TauCeti.Suggested.GeometricSatake.grassmannianQuotient_unit` | constructor | The unit section is the class of the identity full loop. |
 
-### Zhu's mixed-characteristic Satake paper is in the library and entirely unread
+| Unit test | Kind | Required outcome |
+| --- | --- | --- |
+| `TauCeti.Suggested.GeometricSatake.grassmannian_zero` | degenerate | The unit section is the coset of the identity full loop. |
+| `TauCeti.Suggested.GeometricSatake.grassmannian_all_subgroup` | computation | When H=G, the local quotient has exactly one point. |
+| `TauCeti.Suggested.GeometricSatake.grassmannian_non_normal` | compatibility | Grassmannian cosets do not require H normal; the quotient is the existing set quotient even without a quotient-group structure. |
 
-The roadmap names 'Zhu sections 1-2 and Appendix A' as a primary source for the perfect-space carrier of the Witt vector affine Grassmannian and its relation to finite-type models, and warns that 'Zhu's independent commutativity proof is not silently imported instead of FS fusion, nor are its inputs to equal-characteristic Satake made circular here'. VERIFIED PRESENT: references/papers/Zhu_MixedCharacteristicSatake.pdf, 'Affine Grassmannians and the geometric Satake in mixed characteristic', arXiv:1407.8519v3 (20 July 2016), 63 pages, sha256 2c23e397d21e84812daec2c637e2a763eec54ef0d784748eb74e3b2093de1e5b. Its first page and table of contents were inspected to confirm the title and edition; NOTHING ELSE WAS READ. NEXT SOURCE ACTION: read Zhu sections 1.1-1.4 (p-adic loop groups, affine Grassmannians for GL_n, the Demazure resolution, affine flag varieties), section 2 (the geometric Satake) and Appendix A. Note that FS's Theorem 8.2 attribution to Zhu (representability by the perfection of a proper algebraic space) is weaker than Bhatt-Scholze Theorem 8.3, and FS's proof is independent of it.
+**Acceptance.** The unit section is the trivial torsor with identity trivialization.
 
-### Bhatt-Scholze sections 2-7 and 8.2-8.3 are unread, so the line bundle L is a read STATEMENT with an unread construction
+**Unclosed obligations.** Typed geometric signatures and unavailable prebuilt line module.
 
-The roadmap makes the geometric construction of L an explicit obligation: 'use the GEOMETRIC determinant line construction on a Demazure resolution and the trivial-on-geometric-fibres descent criterion (BS17 section 6, especially 6.8/6.12); prove its positivity/ampleness by the semiampleness criterion used in BS17 sections 7-8'. What was actually read: the introduction (Theorems 1.1, 1.2, 1.3, Remark 1.4, the outline), Theorem 6.8 with its proof, the statements of Definition 8.1, Theorems 8.2 and 8.3 with the strategy paragraph, and the proof of Theorem 8.3 in section 8.4 including the three Keel citations. NOT READ: section 2 (h-topology, Theorem 2.9), section 3 (perfect schemes), section 4 (proof of Theorem 1.2), section 6 apart from 6.8 (Propositions 6.1, 6.2, Lemmas 6.4, 6.11, Remark 6.12), section 7 (families of torsion W(k)-modules, Lemma 7.9 giving the closed immersions Gr_{<=mu} in Gr_{<=lambda}), section 8.2 (the Demazure resolution) and section 8.3 (Theorem 8.8, the construction of L) and the auxiliary Lemmas 8.9, 8.10 (nefness), 8.11 (the exceptional locus). NEXT SOURCE ACTION: read BS17 printed pp. 4-22 and pp. 32-35 in full. Until then the existence of the ample line bundle is an unread import, not an input package.
+**Prototype boundary.** Only the coset presentation is typed; étale sheafification and the Beauville–Laszlo comparison require the RF4 supplier. The unit example tests its naming, while the nonnormal API prevents imposing an incorrect normality requirement.
 
-### Keel's semiampleness machinery beyond 1.7-1.9 is unread
+**Planet:** Beilinson–Drinfeld Grassmannian.
 
-The roadmap makes the Keel criterion a sub-obligation: 'construct the exceptional locus of a nef line bundle, its restriction criterion, Frobenius-power extension/descent of sections, and the reduction yielding semiampleness; verify the positivity assumptions before the projectivity conclusion'. READ: Abstract, 0.0 Definition-Lemma, 0.1 Definition (exceptional locus), 0.2 Theorem, 0.3 Corollary (printed pp. 253-254), and 1.7 Lemma with proof, 1.8 Lemma with sketch, 1.9 Theorem with proof (printed pp. 262-263). NOT READ: 1.1-1.6 (including Kodaira's lemma application 1.6 and the reductions 1.4, 1.5), the whole of Section 2 (which Keel says contains the complete proof of 1.8, e.g. 2.10.1 and 2.12), and the Frobenius-power section-extension arguments that carry the positive-characteristic content. NEXT SOURCE ACTION: read Keel printed pp. 255-262 and Section 2. Note that Keel's 1.8 is only SKETCHED in Section 1 ('Sketch of Proof. This follows easily from [Kol95,8.4] and [Ar70,6.1]'), so the complete proof genuinely requires Section 2.
+### Ordered legs and divisor base change
 
-### FS IV.6 and IV.7 are unread but are imported throughout Chapter VI
+`GeometricSatakeAndFusion:GS0:loop-geometry/ordered-leg-base-change` — theorem. Proposed declaration: `TauCeti.Suggested.GeometricSatake.orderedLegCollision`.
 
-Section IV.6 (hyperbolic localization / Braden's theorem, including Definition IV.6.11 of G_m-monodromic and Proposition IV.6.13 on compatibility with Verdier duality) and Section IV.7 (Drinfeld's lemma, Proposition IV.7.3) were NOT opened. They are used at: Corollary VI.3.5 (the hyperbolic-localization comparison), the proofs of VI.6.4 and VI.7.5 (IV.6.13), and Proposition VI.9.2 (IV.7.3, which is what turns local systems on (Div^1_X)^I into W_E^I-representations and hence supplies the Weil action of the final Satake theorem). FS themselves caution in the Chapter IV introduction: 'The theme here is the idea pi_1((Div^1)^I) = W_E^I. Unfortunately, we know no definition of pi_1 making this true, but for example it becomes true when considering Lambda-local systems for any Lambda.' NEXT SOURCE ACTION: read FS printed pp. 155-166. This gap is shared with the VStackSheavesAndLisseCategories packet of this job, where it is recorded for stage VS1.
+For finite I, pull back Gr_G and Hck_G along (Div¹_𝒴)^I→Div^{∣I∣}_𝒴 given by addition of Cartier divisors. Formation commutes with base change. Over disjoint divisors the completed rings split as products and Gr factors as the product of the individual Grassmannians. Equal untilts are counted once in the product, but their cocharacters add in the bound.
 
-### GS4:classical-Satake-comparison has no corresponding passage in FS VI
+**Hypotheses and conventions.** Split integral model; restrict to generic Y/X for a general G/E.
 
-Chapter VI of Fargues-Scholze ends with VI.12 (the Chevalley involution); the section list VI.1-VI.12 was inspected and contains no Frobenius-trace/spherical-Hecke-function comparison. The stage's content - comparing the trace of Frobenius on a Satake object over a finite-type special-fibre model with the spherical Hecke function, with Haar volume of the hyperspecial subgroup, geometric Frobenius, q^{<rho,mu>} and the half twist - therefore has no source in the primary reference for this roadmap. NEXT SOURCE ACTION: look in Zhu, 'Affine Grassmannians and the geometric Satake in mixed characteristic' section 2 (in the library, unread) and in the classical Satake literature (Gross, 'On the Satake isomorphism'; Haines-Kottwitz-Prasad). Also check SmoothRepresentationsOfLocalGroups SR.4, which the stage text says supplies the classical Satake transform and which belongs to another roadmap. This stage is marked not_read in coverage.
+**Construction or proof.**
 
-### Imported results invoked inside the inspected proofs but not named in any node
+1. Import divisor addition, disjointness and completion base change from RF2.
+2. Apply product decomposition of torsors and trivializations to the functor of points.
+3. At a collision the ideal has repeated factors but its completion is the same adic ring; the relative-position bound is the sum.
 
-Added by independent review after reading the printed proofs. Each item is cited inside a proof that this packet decomposes, and none of the cited texts was read. (a) Proof of VI.1.7, printed p. 193: [GR03, Proposition 5.4.21] (already named) and, one page earlier in the proof of VI.1.4 on which it rests, [dJvdP96, Proposition 3.2.2] / [KL15, Proposition 8.2.20] and [SW20, Lemma 17.1.8]. (b) Proposition VI.1.10, printed p. 194: G^diamond is defined by [Sch17a, Section 27, before Proposition 27.5]. (c) Proof of VI.1.13, printed p. 196: [Sch17a, Propositions 9.7, 11.23, Lemma 15.6] and [Hub94, Proposition 3.8]. (d) Proof of VI.2.4, printed p. 199: [SW20, Proposition 20.3.7] and [Sch17a, Lemma 12.5]. (e) Proof of VI.3.7, printed p. 206: [SW20, Lemma 14.2.3] and 'the v-descent results of [BS17]'. (f) Proof of VI.7.5, printed p. 220: [Zhu17, Lemma 2.1], cf. [Gai01, Proposition 1], [Lus83]; [Zhu17, Section 1.4.2] for the Demazure-Bott-Samuelson fibres; and the decomposition theorem itself. (g) p. 236: [DM82, Proposition 2.20, Corollary 2.22, Proposition 2.23] and [MV07, Section 7]. (h) Keel's proof of 1.9, printed p. 263: Kodaira's lemma [Kol96, VI.2.16] and Keel's own 1.4, 1.5, 1.6, 1.8; Keel's 1.8 is only sketched, citing [Kol95, 8.4] and [Ar70, 6.1]. (i) Bhatt-Scholze proof of 8.3, printed pp. 34-35: Lemmas 8.9, 8.10, 8.11, Proposition 6.1 and Lemma 7.9. NEXT SOURCE ACTION: read (d), (e) and (g) first - they are the imports that carry actual mathematical content into nodes of this packet rather than routine descent bookkeeping.
+**Direct prerequisites.** `GeometricSatakeAndFusion:GS0:loop-geometry/grassmannian`, `RelativeFarguesFontaine:RF2:integral-divisors/addition-and-disjoint-divisor-loci`, `RelativeFarguesFontaine:RF2:untilts/divisor-completion-base-change`.
 
-### Atlas substage order is the reverse of the source's proof order: GS2:Satake-closure -> GS3:fusion (link convolution-preserves-satake-and-dualizability -> finite-set-functoriality-and-constant-terms), while the atlas has GS3:fusion -> GS2:Satake-closure
+**Sources.** [FS-geometrization](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), VI.2.6 and preceding discussion, pp. 199–200.
 
-Added by independent review. The link is source-correct at NODE level: the proof of Corollary VI.9.5 (printed p. 229) opens 'By Proposition VI.8.2, all A in Sat^I_G(Lambda) are dualizable, with dual sw^* D(A)'. And Proposition VI.8.2 is proved (printed p. 226) from Proposition IV.2.24, Proposition VI.6.2 and Proposition VI.7.12 - fusion is NOT used - just as Proposition VI.8.1(iii) is proved from (i), (ii) and the commutation of convolution with Verdier duality. In Fargues-Scholze both live in section VI.8, BEFORE section VI.9 on fusion. The atlas, however, says GeometricSatakeAndFusion:GS2:Satake-closure REQUIRES GS3:fusion, and its stage text says 'Using GS3:fusion ... prove perversity, flatness and ULA preservation ... This return is after GS3's geometric fusion construction, as in FS VI.8-VI.9'. So lifting this node link to stages contradicts the atlas edge and would create a two-cycle. The node itself bundles two things with different positions in the source's order: VI.8.1(iii), the closure theorem that GS2:Satake-closure owns, and VI.8.2, dualizability, which is prior to fusion and is what VI.9.5 consumes. CONSEQUENCE AND DECISION NEEDED. The node-level link graph of all thirteen packets of this job is ACYCLIC (197 nodes, 210 edges, checked). The cycle appears only if node links are lifted to stage edges and unioned with data/atlas.json stageEdges. Nothing was reversed here, because reversing would misstate the source. The orchestrator must choose: (i) treat these as node-level edges only and do not lift them to stage edges at integration; (ii) re-parent the offending node (or split it) so that its stage matches the source's order; or (iii) revise the atlas substage ordering. Option (iii) is the one the source actually supports in each case.
+**Acceptance.** Two equal legs have a single local factor bounded by μ₁+μ₂; two distinct legs have two factors.
 
-### Neither pinned library has ampleness, nefness or semiampleness, and no roadmap of the atlas owns them
+**Unclosed obligations.** Typed geometric signatures and unavailable prebuilt line module.
 
-data/library-coverage.json has no reviewed audit entry for this roadmap, so the pinned declaration index was searched directly at Mathlib 082e2d3 and Tau Ceti f790474. The entire positivity theory that the ampleness node rests on is absent: the only declaration whose name contains Ample is AmpleSet in Mathlib/Analysis/Convex/AmpleSet.lean, which is the convex-analysis notion and is unrelated; there is no IsNef, no semiample, no basepoint-freeness, and no Proj of a graded ring. Tau Ceti does have the carrier, TauCeti.AlgebraicGeometry.InvertibleSheaf in TauCeti/AlgebraicGeometry/LineBundle/Basic.lean, so line bundles exist and positivity does not. A search of the atlas's roadmap owners found none for projective or birational algebraic geometry either. So Keel's criterion, its exceptional locus, and the ampleness of L on the Witt vector affine Grassmannian have neither a library citation nor a supplier stage, and this packet plans them here by default. A maintainer should decide whether that is right; the packet's second structural proposal says why it may not be.
+**Prototype boundary.** The typed coweight core adds labels at collisions; divisor-completion base change and disjoint-product v-sheaf isomorphisms need RF2.
 
-### What the pinned libraries do supply, and is therefore cited rather than planned
+### Generic Schubert bounds
 
-The same index search found several carriers that this packet cites instead of planning. mathlib:CategoryTheory.Triangulated.TStructure exists, with IsLE, IsGE and a Heart, so the abstract notion of a t-structure is pinned and only the relative perverse normalisation - the shift by the sum of <2rho,mu_i> over the DISTINCT untilts - is planned in GS1. mathlib:PerfectRing and mathlib:Perfection give the perfect F_p-algebras and the perfection functor that Bhatt-Scholze work with throughout. mathlib:AlgebraicGeometry.IsProper and mathlib:ValuationRing give properness and the valuation rings the fibral descent criterion reduces to. mathlib:CoxeterSystem and tauceti:TauCeti.TitsSystem.bruhatCell give the Bruhat and dominance combinatorics, and mathlib:RootPairing the root datum with rho and the weight decomposition. mathlib:CategoryTheory.LeftRigidCategory is the pinned form of the dualizability conclusion of GS2:Satake-closure. Absent, and therefore genuine dependencies: any loop group, affine Grassmannian, perfectoid space or diamond, at either pin.
+`GeometricSatakeAndFusion:GS0:loop-geometry/schubert-bounds-and-properness` — construction. Proposed declaration: `TauCeti.Suggested.GeometricSatake.dominanceBound`.
 
-### GS0:Witt-geometry has no incoming stage edge in the atlas, and GS1 and GS2 have none from EnhancedDerivedSheaves
+After a splitting extension and choices T⊂B⊂G, define Gr_{≤μ} by geometric rank-one points whose Cartan coweight is ≤μ; Gr_μ has exact relative position μ. Over generic Div^d_Y and Div^d_X the bounded inclusions are closed and the projections proper and representable in spatial diamonds. Their filtered union in each π₁(G)-component is Gr. Bounds for a tuple of legs sum at collisions.
 
-The stage edges of data/atlas.json give GS0:loop-geometry seven suppliers and GS0:Schubert-smoothness three, but GS0:Witt-geometry none at all, although it is where perfect schemes, properness, h-descent and the whole positivity argument are used. And EnhancedDerivedSheaves:E5:abstract is linked into GS4:integral-dual-group and GS4:rational-reductivity but not into GS1, whose t-structure existence uses a presentable stable infinity-categorical refinement and Lurie's Higher Algebra Proposition 1.4.4.11, nor into GS2:correspondences, whose convolution is composition in an infinity-categorical 2-category. Both are filed as requests here, but a kind:link job should add the edges, since a request is a note and an edge is what the atlas draws.
+**Hypotheses and conventions.** μ dominant; μ−λ is a sum of positive coroots with the same π₁-class. General G/E descends its Galois-stable orbit of bounds.
 
-## Structural proposals
+**Construction or proof.**
 
-### The atlas has GS3:fusion supplying GS2:Satake-closure; the source proves it the other way round (`reorder-links`)
+1. Import Cartan decomposition and its functorial descent from RG2.4.
+2. Use SW 19.2–19.4 and 20.4.5 for generic properness: the successive bounded convolution tower surjects, giving quasicompactness in addition to partial properness.
+3. Detect closedness on geometric points; ordered covers and finite splitting descent give the Div^d versions. Integral properness is the distinct Witt node.
 
-data/atlas.json contains the stage edge GeometricSatakeAndFusion:GS3:fusion -> GeometricSatakeAndFusion:GS2:Satake-closure. The source order is the reverse. Proposition VI.8.1(iii), that convolution preserves the Satake category, is proved from VI.8.1(i), (ii) and the commutation of convolution with Verdier duality; Proposition VI.8.2, that every object of the Satake category is dualizable with right dual sw^* D(A), is proved from Proposition IV.2.24, Proposition VI.6.2 and Proposition VI.7.12. Fusion is used in neither. Both are in section VI.8, BEFORE section VI.9 on fusion, and it is VI.9 that consumes them: the proof of Corollary VI.9.5 opens 'By Proposition VI.8.2, all A in Sat^I_G(Lambda) are dualizable, with dual sw^* D(A)'. The reviewed decomposition's own link graph agrees, running GS2:Satake-closure/convolution-preserves-satake-and-dualizability -> GS3:fusion/finite-set-functoriality-and-constant-terms. The decomposition records the discrepancy as its last gap; this packet repeats it as a proposal, because an edge in the wrong direction makes the atlas assert that the dualizability the Hecke roadmap consumes depends on fusion, which the source does not claim.
+**Direct prerequisites.** `GeometricSatakeAndFusion:GS0:loop-geometry/grassmannian`, `ReductiveGroupsPartII:RG2.4`, `DiamondSixOperations:S2/lower-shriek`, `DiamondSixOperations:S2/lower-shriek-base-change`, `DiamondSixOperations:S2/projection-formula`, `DiamondsAndVStacks:D6/pre-adic-diamondification`, `AdicCoefficientsAndComparisons:L1/char-p-scheme-diamond-and-comparison-functor`, `DiamondsAndVStacks:D6/pre-adic-topological-comparison`.
 
-### The positivity theory that GS0:Witt-geometry needs has no owner and probably should not be owned here (`new-owner`)
+**Sources.** [FS-geometrization](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), VI.2.2–VI.2.3, pp. 196–197.
 
-The ampleness node of this layer needs nef and semiample line bundles, the exceptional locus of a nef bundle, Keel's semiampleness criterion in positive characteristic and Kodaira's lemma. None of it is in either pinned library, and no roadmap of the atlas owns projective or birational algebraic geometry: a search of the roadmap owners for Ample, Positivity, Birational, MinimalModel, Projective, LineBundle, Divisor or Vanishing returned nothing relevant. So this packet plans the Keel material inside a layer whose subject is the Witt vector affine Grassmannian, which is where it is used but not where it belongs: Keel's criterion is a general theorem about projective schemes over a field of positive characteristic and, as PROTOCOL section 15 puts it for the Koszul complex, a general notion that is missing should be planned once, as generally as its uses require, in the roadmap that owns it. Two remedies are possible: a sub-layer of GS0:Witt-geometry that owns positivity explicitly and is linked from wherever else the atlas needs it, or a new roadmap for positivity in algebraic geometry. The second is likely right if any other roadmap needs ampleness; the packet cannot tell, because the search found no other consumer either, which may only mean that no other decomposition has reached that point yet.
+**Consumers and design of the API.**
 
-## Planets
+- FS VI.2.2–VI.2.3: Bounds require Cartan labels and the same component.
+- FS VI.8: Bounded convolution lands in the summed cocharacter bound.
 
-At most six per layer; only definitions, constructions and named theorems.
+| API declaration | Role | Mathematical contract |
+| --- | --- | --- |
+| `TauCeti.Suggested.GeometricSatake.dominanceBound_iff` | characterisation | For GL_n, dominance means equal total degree and every initial partial sum of ν at most the corresponding sum of μ. |
+| `TauCeti.Suggested.GeometricSatake.dominanceBound_refl` | relation | Every dominant cocharacter lies in its own bound. |
+| `TauCeti.Suggested.GeometricSatake.dominanceBound_trans` | relation | Bounds are nested by transitivity of the dominance relation. |
 
-| layer | planets |
-| --- | --- |
-| `GS0` | — |
-| `GS0:Schubert-smoothness` | Smoothness of the open Schubert cell |
-| `GS0:Witt-geometry` | The Witt vector affine Grassmannian; h-descent for vector bundles; Ampleness by Keel semiampleness; Mirkovic-Vilonen cycles |
-| `GS0:loop-geometry` | Loop groups and the local Hecke stack; The congruence filtration of L+G; Schubert bounds and properness |
-| `GS1` | Hyperbolic localization and CT_B; The relative perverse t-structure; ULA sheaves on the Hecke stack |
-| `GS2` | — |
-| `GS2:Satake-closure` | Convolution preserves Satake |
-| `GS2:correspondences` | The Satake category and its fibre functor; Convolution on the Hecke stack |
+| Unit test | Kind | Required outcome |
+| --- | --- | --- |
+| `TauCeti.Suggested.GeometricSatake.bound_zero_component` | degenerate | For a torus of rank one the bound is equality, not the usual integer order. |
+| `TauCeti.Suggested.GeometricSatake.bound_gl2` | computation | GL₂ coweight (1,1) is below (2,0). |
+| `TauCeti.Suggested.GeometricSatake.bound_wrong_degree` | non-example | The cocharacter (1,0) is not below (2,0), despite its smaller partial sums. |
 
-## Nothing here is formalised
+**Acceptance.** μ=0 is the unit section; a bound in one component does not include a coweight with another π₁-class.
 
-No Lean was compiled for this job and no statement in this packet is claimed to be formalised. The suggested file
-is a set of signatures whose only proof is `sorry`; every `implementationStatus` is `unchecked`.
+**Unclosed obligations.** Typed geometric signatures and unavailable prebuilt line module.
+
+**Prototype boundary.** The GL_n combinatorial core is a fully stated predicate, not a placeholder. Geometric relative-position maps, closedness and properness have their own theorem nodes and supplier requests.
+
+**Planet:** Schubert bounds.
+
+### Galois descent of bounded modifications
+
+`GeometricSatakeAndFusion:GS0:loop-geometry/generic-galois-descent` — comparison. Proposed declaration: `TauCeti.Suggested.GeometricSatake.genericGaloisDescent`.
+
+For finite E′/E splitting G, base change identifies loop spaces, torsor-modification functors and each Galois-stable union of Schubert strata with the split constructions over E′. Descent returns the orbit-labelled cell Gr_{μ̄} and bound Gr_{≤μ̄}; this asserts no reductive O_E-model for a ramified G.
+
+**Hypotheses and conventions.** Generic divisors on Y or X; μ̄ a finite Galois orbit.
+
+**Construction or proof.**
+
+1. Import finite étale/v-descent of affine group data.
+2. Apply descent to geometric Cartan labels and their stable unions.
+3. Properness, local spatiality and cohomological smoothness descend along the splitting cover.
+
+**Direct prerequisites.** `GeometricSatakeAndFusion:GS0:loop-geometry/schubert-bounds-and-properness`, `ReductiveGroupsPartII:RG2.3`, `DiamondSixOperations:S4/cohomologically-smooth`, `DiamondSixOperations:S4/smooth-composition`, `DiamondSixOperations:S4/smooth-stable-under-base-change`, `DiamondSixOperations:S4/smooth-descent-along-smooth-surjection`, `DiamondSixOperations:S5/ball-smooth`, `DiamondSixOperations:S5/analytic-smooth-is-cohomologically-smooth`.
+
+**Sources.** [FS-geometrization](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), VI.2 opening and VI.8 final paragraphs, pp. 196, 226.
+
+**Acceptance.** An individual μ not defined over E is retained only after splitting; its orbit descends.
+
+**Unclosed obligations.** Typed geometric signatures and unavailable prebuilt line module.
+
+**Prototype boundary.** Only isomorphism detection is typed. Effective Galois descent and split orbit-bound data are omitted.
+
+### Affine flags and Demazure spaces over Spd O_C
+
+`GeometricSatakeAndFusion:GS0:loop-geometry/affine-flag-demazure` — construction. Proposed declaration: `TauCeti.Suggested.GeometricSatake.demazureChains`.
+
+For split G and an Iwahori model 𝓘⊂G, Fl_G=LG/L⁺𝓘 over Spd O_C. Its projection to Gr has v-locally fibre (G/B)^⋄ and is proper and cohomologically smooth. For w=s₁⋯s_rω reduced in the extended affine Weyl group, the Demazure space is the contracted product of the minimal parahorics divided by L⁺𝓘, followed by ω. It is an iterated (P¹)^⋄-bundle, proper over the bound, and isomorphic over the open w-cell.
+
+**Hypotheses and conventions.** Parahoric models and affine Weyl group from RG2.3–RG2.4.
+
+**Construction or proof.**
+
+1. Construct torsor quotients and their changes of trivialization.
+2. Use each minimal parahoric quotient P_i/𝓘=(P¹)^perf on the special fibre and the corresponding integral flag diamond.
+3. Multiply the factors; reducedness gives the open-cell isomorphism and the boundary normal-crossing strata needed for ULA generation.
+
+**Direct prerequisites.** `GeometricSatakeAndFusion:GS0:loop-geometry/grassmannian`, `ReductiveGroupsPartII:RG2.3`, `ReductiveGroupsPartII:RG2.4`, `DiamondSixOperations:S4/cohomologically-smooth`, `DiamondSixOperations:S4/smooth-composition`, `DiamondSixOperations:S4/smooth-stable-under-base-change`, `DiamondSixOperations:S4/smooth-descent-along-smooth-surjection`, `DiamondSixOperations:S5/ball-smooth`, `DiamondSixOperations:S5/analytic-smooth-is-cohomologically-smooth`, `GeometricSatakeAndFusion:GS0:Witt-geometry/parahoric-ind-projectivity`.
+
+**Sources.** [FS-geometrization](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), VI.5.1–VI.5.7, pp. 209–211.
+
+**Consumers and design of the API.**
+
+- FS VI.5: Demazure pushforwards generate the ULA category.
+- Zhu 1.4: Reduced-word towers prove parahoric projectivity.
+
+| API declaration | Role | Mathematical contract |
+| --- | --- | --- |
+| `TauCeti.Suggested.GeometricSatake.demazureChains_points` | characterisation | The point core consists of chains x₀,…,x_r with each consecutive pair in the specified simple-step relation. |
+| `TauCeti.Suggested.GeometricSatake.demazureChains_endpoint` | projection | Multiplication forgets the intermediate flags and keeps the endpoints. |
+| `TauCeti.Suggested.GeometricSatake.demazureChains_base_change` | functoriality | A map of flag spaces preserving each simple-step relation acts on every vertex of a Demazure chain. |
+
+| Unit test | Kind | Required outcome |
+| --- | --- | --- |
+| `TauCeti.Suggested.GeometricSatake.demazure_empty` | degenerate | An empty chain is one flag; its two endpoints coincide. |
+| `TauCeti.Suggested.GeometricSatake.demazure_one_step` | computation | A one-step chain is the given simple-step incidence relation. |
+| `TauCeti.Suggested.GeometricSatake.demazure_not_product` | non-example | If a simple-step relation is empty, there is no chain, even if the flag space is nonempty. |
+
+**Acceptance.** The empty word gives the ω-cell; a simple reflection gives P¹ with its open A¹ cell.
+
+**Unclosed obligations.** Typed geometric signatures and unavailable prebuilt line module.
+
+**Prototype boundary.** The typed chain is the functor-of-points incidence core; contracted products, parahoric torsors and the iterated P¹-bundle structures need RG/SF/VS suppliers. This core does not prove representability.
+
+**Planet:** Demazure spaces.
+
+### Smooth scheme loops over a divisor
+
+`GeometricSatakeAndFusion:GS0:loop-geometry/smooth-scheme-loops` — theorem. Proposed declaration: `TauCeti.Suggested.GeometricSatake.smoothSchemeLoopDimension`.
+
+For a smooth quasiprojective Z→O_E of relative dimension n, the functor of maps D_S→Z is representable in locally spatial diamonds, partially proper and ℓ-cohomologically smooth of dimension dn over Div^d_𝒴. Étale maps to Z give representable étale maps of these functors.
+
+**Hypotheses and conventions.** D_S affinoid on the chosen basis; ℓ≠p.
+
+**Construction or proof.**
+
+1. Étale-local coordinates reduce to affine space.
+2. Use formal lifting over D and the filtration by successive vector groups.
+3. Spread the étale lift near geometric points and descend through the divisor basis.
+
+**Direct prerequisites.** `RelativeFarguesFontaine:RF2:integral-divisors/completed-rings-B-plus-and-B`, `RelativeFarguesFontaine:RF2:untilts/geometric-divisor-complete-dvr`, `DiamondSixOperations:S4/cohomologically-smooth`, `DiamondSixOperations:S4/smooth-composition`, `DiamondSixOperations:S4/smooth-stable-under-base-change`, `DiamondSixOperations:S4/smooth-descent-along-smooth-surjection`, `DiamondSixOperations:S5/ball-smooth`, `DiamondSixOperations:S5/analytic-smooth-is-cohomologically-smooth`, `ReductiveGroupsPartII:RG2.3`.
+
+**Sources.** [FS-geometrization](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), VI.1.12–VI.1.13, pp. 195–196.
+
+**Acceptance.** For A¹ and degree d the dimension is d.
+
+**Unclosed obligations.** Typed geometric signatures and unavailable prebuilt line module.
+
+**Prototype boundary.** Only the degree-times-relative-dimension arithmetic is typed; representability, partial properness and ℓ-cohomological smoothness are missing supplier notions.
+
+### Congruence filtration of positive loops
+
+`GeometricSatakeAndFusion:GS0:loop-geometry/congruence-filtration-and-graded-pieces` — theorem. Proposed declaration: `TauCeti.Suggested.GeometricSatake.congruenceFiltration`.
+
+L⁺_mG=ker(L⁺G→G(B⁺/I^m)), m≥1, has successive quotients Lie(G)⊗_{O_E}I^m/I^{m+1}. For degree d these are vector-group diamonds of ℓ-dimension d·dim G. The reduction L⁺G/L⁺_1G is the functor of maps D_S→G; in degree one it is G^⋄. The geometry assertion is for the finite quotients and graded pieces, not for the entire inverse-limit group with a finite dimension.
+
+**Hypotheses and conventions.** G split reductive O_E-model; ℓ≠p; I is the ideal of the degree-d divisor.
+
+**Construction or proof.**
+
+1. Linearize the group law modulo successive powers of I using smoothness of G.
+2. Import the Cartier-module and geometric DVR descriptions.
+3. Reduce degree d on the ordered-leg cover to vector-group layers; apply DSO smoothness and descent.
+
+**Direct prerequisites.** `GeometricSatakeAndFusion:GS0:loop-geometry/loop-groups-and-local-hecke`, `RelativeFarguesFontaine:RF2:integral-divisors/completed-rings-B-plus-and-B`, `RelativeFarguesFontaine:RF2:untilts/cartier-filtration-and-breuil-kisin-lines`, `ReductiveGroupsPartII:RG2.5`, `DiamondSixOperations:S4/cohomologically-smooth`, `DiamondSixOperations:S4/smooth-composition`, `DiamondSixOperations:S4/smooth-stable-under-base-change`, `DiamondSixOperations:S4/smooth-descent-along-smooth-surjection`, `DiamondSixOperations:S5/ball-smooth`, `DiamondSixOperations:S5/analytic-smooth-is-cohomologically-smooth`.
+
+**Sources.** [FS-geometrization](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), VI.1.10–VI.1.11, pp. 194–195.
+
+**Acceptance.** For GL_n the graded piece is M_n⊗I^m/I^{m+1}, with addition as group law.
+
+**Unclosed obligations.** Typed geometric signatures and unavailable prebuilt line module.
+
+**Prototype boundary.** The group kernel is concrete. The Lie/Cartier-line graded-piece isomorphism and finite-quotient smoothness require RG/RF/DSO interfaces.
+
+**Planet:** Congruence filtration.
+
+## Early Schubert smoothness
+
+`GeometricSatakeAndFusion:GS0:Schubert-smoothness`
+
+Work with finite jets on a bounded locus. Reduce the open-cell stabilizer to the opposite parabolic and its congruence pieces to Lie weights. Truncation at a sufficiently large positive depth removes the deep positive-loop action. The resulting smoothness calculation gives dimension ⟨2ρ,μ⟩. For minuscule μ its unipotent fibres disappear, yielding the flag-variety identification. Acceptance must reconcile μ(ξ) with CS’s μ(ξ⁻¹), retain the one-leg normalization, and use the finite-projectivity and connection inputs rather than declaring pointwise detection automatic.
+
+### Truncated positive loop groups
+
+`GeometricSatakeAndFusion:GS0:Schubert-smoothness/truncated-positive-loops` — construction. Proposed declaration: `TauCeti.Suggested.GeometricSatake.truncatedPositiveLoop`.
+
+For m≥1, L^{+,<m}G(S)=G(B⁺_D(S)/I^m) is the finite congruence quotient of L⁺G as a v-sheaf. Reduction has smooth vector-group kernels Lie(G)⊗I^j/I^{j+1}, 1≤j<m. These quotients provide finite-dimensional group actions on bounded Hecke loci.
+
+**Hypotheses and conventions.** Split smooth integral model; degree-d divisor; ℓ≠p.
+
+**Construction or proof.**
+
+1. Use smooth lifting across nilpotent thickenings to identify the quotient, not only its naive pointwise image.
+2. Linearize each finite step and apply DSO smoothness.
+3. Factor bounded actions using VI.2.8.
+
+**Direct prerequisites.** `GeometricSatakeAndFusion:GS0:loop-geometry/congruence-filtration-and-graded-pieces`, `ReductiveGroupsPartII:RG2.3`, `DiamondSixOperations:S4/cohomologically-smooth`, `DiamondSixOperations:S4/smooth-composition`, `DiamondSixOperations:S4/smooth-stable-under-base-change`, `DiamondSixOperations:S4/smooth-descent-along-smooth-surjection`, `DiamondSixOperations:S5/ball-smooth`, `DiamondSixOperations:S5/analytic-smooth-is-cohomologically-smooth`.
+
+**Sources.** [FS-geometrization](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), VI.1.10–VI.1.11 and VI.2.8, pp. 194–195, 201.
+
+**Consumers and design of the API.**
+
+- FS VI.2.8: Bounded actions factor through this quotient.
+- FS VI.7: Perverse descent uses smooth finite truncations.
+
+| API declaration | Role | Mathematical contract |
+| --- | --- | --- |
+| `TauCeti.Suggested.GeometricSatake.truncatedPositiveLoop_eval` | characterisation | The finite loop quotient evaluates F on the ring A/I^m, rather than the subgroup ker(F(A)→F(A/I^m)). |
+| `TauCeti.Suggested.GeometricSatake.truncatedPositiveLoop_reduction` | functoriality | Reduction of a positive loop gives a point in the m-th quotient; smoothness makes this locally surjective. |
+| `TauCeti.Suggested.GeometricSatake.truncatedPositiveLoop_transition` | functoriality | For a≤b, reduction modulo I^b maps to reduction modulo I^a. |
+
+| Unit test | Kind | Required outcome |
+| --- | --- | --- |
+| `TauCeti.Suggested.GeometricSatake.truncation_one` | computation | At m=1 the quotient is G(A/I), not the congruence kernel. |
+| `TauCeti.Suggested.GeometricSatake.truncation_trivial_group` | degenerate | Every finite quotient of the trivial group is trivial. |
+| `TauCeti.Suggested.GeometricSatake.truncation_ring_quotient` | compatibility | The ring input is Mathlib Ideal.Quotient, preserving the ideal and its exponent. |
+
+**Acceptance.** At m=1 only the reduction group remains.
+
+**Unclosed obligations.** Typed geometric signatures and unavailable prebuilt line module.
+
+**Prototype boundary.** Nilpotent lifting, v-local surjectivity and finite-dimensional smoothness are omitted from the core type; no finite dimension is assigned to the entire positive loop group.
+
+**Planet:** Truncated positive loops.
+
+### Open Schubert cell smoothness
+
+`GeometricSatakeAndFusion:GS0:Schubert-smoothness/open-cell-stabilizer-and-smoothness` — theorem. Proposed declaration: `TauCeti.Suggested.GeometricSatake.schubertCellDimension`.
+
+Gr_{G,μ} is ℓ-cohomologically smooth of dimension ⟨2ρ,μ⟩ over the degree-one divisor base. Its stabilizer in L⁺G reduces to P⁻_μ (weights ≤0); the m-th graded piece consists of Lie weights ≤m. The quotient maps to (G/P⁻_μ)^⋄ with successive positive-loop unipotent fibres. Galois-orbit cells descend over the generic base.
+
+**Hypotheses and conventions.** G split for the computation; μ dominant; ℓ≠p. Integral statement requires the reductive model.
+
+**Construction or proof.**
+
+1. Compute L⁺G∩μ(ξ)L⁺Gμ(ξ)⁻¹ in a faithful representation; in GL_n, the upper entry A_ij is divisible by ξ^{k_i−k_j}.
+2. Use SW 19.4.2 for the lattice subbundle test, then the root-weight stabilizer and DSO vector-group smoothness.
+3. Sum positive weights for dimension; apply splitting descent for μ̄. No perverse or decomposition theorem enters.
+
+**Direct prerequisites.** `GeometricSatakeAndFusion:GS0:loop-geometry/congruence-filtration-and-graded-pieces`, `GeometricSatakeAndFusion:GS0:Schubert-smoothness/truncated-positive-loops`, `GeometricSatakeAndFusion:GS0:loop-geometry/generic-galois-descent`, `ReductiveGroupsPartII:RG2.5`, `DiamondSixOperations:S4/cohomologically-smooth`, `DiamondSixOperations:S4/smooth-composition`, `DiamondSixOperations:S4/smooth-stable-under-base-change`, `DiamondSixOperations:S4/smooth-descent-along-smooth-surjection`, `DiamondSixOperations:S5/ball-smooth`, `DiamondSixOperations:S5/analytic-smooth-is-cohomologically-smooth`.
+
+**Sources.** [FS-geometrization](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), VI.2.4–VI.2.5, pp. 197–199; IV.1.18.
+
+**Acceptance.** For GL₂, μ=(a,b), a≥b, the dimension is a−b; μ=0 has dimension zero.
+
+**Unclosed obligations.** Typed geometric signatures and unavailable prebuilt line module.
+
+**Prototype boundary.** Only the GL₂ root-pairing core is typed; cell stabilization and cohomological smoothness are not a predicate placeholder.
+
+**Planet:** Schubert cell smoothness.
+
+### Finite truncation of bounded actions
+
+`GeometricSatakeAndFusion:GS0:Schubert-smoothness/truncation-of-the-loop-action` — theorem. Proposed declaration: `TauCeti.Suggested.GeometricSatake.boundedLoopActionTrivial`.
+
+If m>0 is at least every weight of μ on Lie G, then L⁺_mG acts trivially on Gr_{≤μ}. For ordered legs use the corresponding bound for the sum at each collision. The action and equivariant complexes on the bound therefore factor through L^{+,<m}G.
+
+**Hypotheses and conventions.** Split G; dominant μ; finite Schubert bound.
+
+**Construction or proof.**
+
+1. Use normality of the congruence kernel and the stabilizer weight calculation on the open orbit.
+2. For ν≤μ the maximum root pairing does not increase; conclude for all lower strata.
+3. Check on geometric points and descend the trivial action on the v-sheaf.
+
+**Direct prerequisites.** `GeometricSatakeAndFusion:GS0:Schubert-smoothness/open-cell-stabilizer-and-smoothness`, `GeometricSatakeAndFusion:GS0:Schubert-smoothness/truncated-positive-loops`, `ReductiveGroupsPartII:RG2.5`.
+
+**Sources.** [FS-geometrization](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), VI.2.8, p. 201.
+
+**Acceptance.** For GL₂ μ=(a,b), m≥a−b and m>0 suffices.
+
+**Unclosed obligations.** Typed geometric signatures and unavailable prebuilt line module.
+
+**Prototype boundary.** K must be the specified deep congruence subgroup on the specified bound; those absent geometric hypotheses are omitted.
+
+### Minuscule Bialynicki–Birula isomorphism
+
+`GeometricSatakeAndFusion:GS0:Schubert-smoothness/minuscule-bialynicki-birula` — comparison. Proposed declaration: `TauCeti.Suggested.GeometricSatake.minusculeBialynickiBirula`.
+
+If μ has Lie weights in {−1,0,1}, the Bialynicki–Birula map Gr_μ→(G/P⁻_μ)^⋄ is an isomorphism. In GL_n it sends a B⁺_dR-lattice Λ to the ascending filtration Fil^m=((B⁺)^n∩ξ^{-m}Λ)/(ξ(B⁺)^n∩ξ^{-m}Λ). CS uses μ(ξ^{-1}); matching FS uses inversion of the coweight or of the chosen parabolic convention.
+
+**Hypotheses and conventions.** Generic characteristic-zero untilt; minuscule μ; ℓ≠p for the smoothness consequence.
+
+**Construction or proof.**
+
+1. The stabilizer filtration has no additional fibre when μ is minuscule.
+2. Alternatively use CS 3.4.4 on field points, 3.4.6 for pointwise detection and KL finite-projectivity to prove injectivity over reduced bases.
+3. Surjectivity is supplied by the filtered integrable universal connection and Griffiths transversality; import its period-sheaf realization from P8.
+
+**Direct prerequisites.** `GeometricSatakeAndFusion:GS0:Schubert-smoothness/open-cell-stabilizer-and-smoothness`, `ReductiveGroupsPartII:RG2.5`, `RelativeFarguesFontaine:RF4:vector-bundles`, `PadicHodgeTheory:P8:local-rational`.
+
+**Sources.** [CS17](https://annals.math.princeton.edu/wp-content/uploads/annals-v186-n3-p01-p.pdf), 3.4.4–3.4.6, pp. 685–686.
+
+**Acceptance.** For GL_n μ=(1^r,0^{n−r}) the cell is the Grassmannian of r-planes, with the sign dictionary fixed.
+
+**Unclosed obligations.** Typed geometric signatures and unavailable prebuilt line module.
+
+**Prototype boundary.** Cell/Flag must be the minuscule Grassmannian and its flag functor; the geometric minuscule hypotheses are omitted.
+
+## Witt Grassmannians, determinant lines and perfect models
+
+`GeometricSatakeAndFusion:GS0:Witt-geometry`
+
+The lattice/type interface is the entry point. It supports the finite determinant-jet presentation, the original algebraic-space quotient, the Demazure filtration and its connected cohomological fibres. The geometric determinant line has a fibre-triviality descent proof, followed by the Witt-specific positivity and Keel application. Integral reductive and parahoric properness consume this projectivity; their coefficient and group-model hypotheses remain distinct. Canonical models, the cone chart, normalized SL_n determinants and section growth are separate targets. The routed flag work adds finite admissible unions, incidence correspondences and their ordinary/Demazure fibre estimates. Acceptance tests determinant sign, h>N, zero quotient type, a genuine nonempty dominance boundary, normalized base factors and bounded componentwise dimension transfer.
+
+### Witt lattice functor
+
+`GeometricSatakeAndFusion:GS0:Witt-geometry/witt-lattice-functor-and-representability` — construction. Proposed declaration: `TauCeti.Suggested.GeometricSatake.WittLattice`.
+
+For a perfect F_p-algebra R let Λ be a finite projective W(R)-submodule of W(R)[1/p]^n with Λ[1/p]=W(R)[1/p]^n. Gr^W_GL_n is the v-sheaf of such lattices; a positive bounded piece Gr_{≤λ} has Λ⊂W(R)^n and quotient of type ≤λ. Negative bounds are obtained by translating by p^a. For O_E coefficients use RF0’s ramified Witt ring; for a general smooth model 𝓖 use 𝓖-torsors with a punctured trivialization.
+
+**Hypotheses and conventions.** The two pole bounds on a lattice are locally uniform; coefficients perfect; quotient type has fixed total length.
+
+**Construction or proof.**
+
+1. Use finite projectivity and bounded denominators to define the functor.
+2. Apply SF’s Witt vector-bundle v-descent to both finite levels and the formal limit.
+3. Use the quotient/torsor comparison of BS 9.5 and Zhu 1.3; this construction does not assume projectivity.
+
+**Direct prerequisites.** `mathlib:WittVector`, `mathlib:PerfectRing`, `mathlib:Module.Projective`, `RelativeFarguesFontaine:RF0:integral-Y/ramified-coefficient-comparison`, `SchemeAndStackFoundations:SF.4`, `ReductiveGroupsPartII:RG2.3`, `mathlib:Module.Finite`.
+
+**Sources.** [BS17-witt-grassmannian](https://arxiv.org/abs/1507.06490), 8.1 and 9.4–9.5, pp. 32, 36–37.
+
+**Consumers and design of the API.**
+
+- BS 7–8: Positive quotient-type bounds and their resolution use these embedded lattices.
+- Zhu 1.2: The lattice functor is the GL_n affine Grassmannian.
+
+| API declaration | Role | Mathematical contract |
+| --- | --- | --- |
+| `TauCeti.Suggested.GeometricSatake.WittLattice_module` | projection | A lattice is a finite projective B-submodule of K^n whose K-span is the whole module. |
+| `TauCeti.Suggested.GeometricSatake.WittLattice_standard` | constructor | The image of B^n in K^n gives the standard lattice when B→K is injective. |
+| `TauCeti.Suggested.GeometricSatake.WittLattice_ext` | extensionality | Lattices are equal when their embedded submodules are equal; finite-projectivity proofs carry no extra moduli. |
+
+| Unit test | Kind | Required outcome |
+| --- | --- | --- |
+| `TauCeti.Suggested.GeometricSatake.lattice_rank_zero` | degenerate | There is only one rank-zero lattice. |
+| `TauCeti.Suggested.GeometricSatake.lattice_standard_field` | compatibility | Over B=K the standard lattice agrees with the top Submodule of K^n. |
+| `TauCeti.Suggested.GeometricSatake.lattice_span` | non-example | A purported rank-one lattice with zero embedded submodule is excluded over a nonzero field. |
+
+**Acceptance.** For n=1 lattices are p^aW(R) locally on components; Λ=W(R)^n is the unit.
+
+**Unclosed obligations.** Typed geometric signatures and unavailable prebuilt line module.
+
+**Prototype boundary.** The generic imported coefficient algebra B→K is the ramified Witt ring and its localization in the intended application. The finite/projective/span conditions are concrete. A separate structure below records them; representing schemes are not defined by this point core.
+
+**Planet:** Witt vector affine Grassmannian.
+
+### Witt torsion module types
+
+`GeometricSatakeAndFusion:GS0:Witt-geometry/witt-types-and-bounds` — construction. Proposed declaration: `TauCeti.Suggested.GeometricSatake.wittTypeBound`.
+
+A finite p-power-torsion isogeny cokernel Q over W(R) has geometric type λ=(λ₁≥⋯≥λ_n≥0), meaning Q_x≅⊕W(k_x)/p^{λ_j}. Its row lengths are n_λ(i)=#{j:λ_j>i}. Dominance means equal total length and all partial sums bounded. Type ≤λ is a closed locus; on a constant-type locus the modules p^iQ/p^{i+1}Q are finite projective of ranks n_λ(i). An isogeny is a map of finite projective W-modules invertible after p-inversion.
+
+**Hypotheses and conventions.** R perfect; a uniform p-power kills Q; the isogeny-cokernel criterion is projective dimension at most one, including Q=0.
+
+**Construction or proof.**
+
+1. Import projective module algebra, Fitting-ideal tests and reducedness of perfect rings from SF.
+2. Apply BS 7.3, 7.5 and 7.7–7.9 to ranks of powers of p and the dominance inequalities.
+3. Use the finite-rank argument in source correction E37; do not infer finite generation from projectivity alone without constant finite rank.
+
+**Direct prerequisites.** `GeometricSatakeAndFusion:GS0:Witt-geometry/witt-lattice-functor-and-representability`, `SchemeAndStackFoundations:SF.0`, `mathlib:Module.Projective`.
+
+**Sources.** [BS17-witt-grassmannian](https://arxiv.org/abs/1507.06490), 7.1–7.9, pp. 27–32.
+
+**Consumers and design of the API.**
+
+- BS 7.2–7.13: Column ranks control the Demazure filtration.
+- BS 8.3: Dominance induction controls the closed boundary.
+
+| API declaration | Role | Mathematical contract |
+| --- | --- | --- |
+| `TauCeti.Suggested.GeometricSatake.wittTypeBound_dominance` | compatibility | The quotient-type relation is GL_n dominance after embedding nonnegative parts in the integer coweight lattice. |
+| `TauCeti.Suggested.GeometricSatake.wittTypeBound_columns` | data | The i-th graded quotient has rank equal to the number of parts λ_j exceeding i. |
+| `TauCeti.Suggested.GeometricSatake.wittTypeBound_closed_under_dominance` | relation | A lower quotient type remains in any larger bound. |
+
+| Unit test | Kind | Required outcome |
+| --- | --- | --- |
+| `TauCeti.Suggested.GeometricSatake.witt_type_zero` | degenerate | The zero bound admits only zero nonnegative quotient parts. |
+| `TauCeti.Suggested.GeometricSatake.witt_type_210` | computation | For λ=(2,1,0), the successive column ranks are two and one. |
+| `TauCeti.Suggested.GeometricSatake.witt_type_not_component_order` | non-example | The quotient type (1,0,0) is not below (2,1,0), since its length is one rather than three. |
+
+**Acceptance.** For Q=W(k)/p²⊕W(k)/p the type is (2,1), rows (2,1); a different total length is never a dominance comparison.
+
+**Unclosed obligations.** Typed geometric signatures and unavailable prebuilt line module.
+
+**Prototype boundary.** The type relation and column counts are concrete; elementary divisors for a finitely presented isogeny cokernel over a perfect family are an RG/SF refinement.
+
+**Planet:** Witt module types.
+
+### Zhu finite-jet presentation
+
+`GeometricSatakeAndFusion:GS0:Witt-geometry/zhu-finite-jet-presentation` — construction. Proposed declaration: `TauCeti.Suggested.GeometricSatake.jetDeterminantLocus`.
+
+For λ=(N,0,…,0), V_N parametrizes W-matrices with determinant p^N times a unit. For h>N, V_{N,h} is the perfection of the truncated determinant locus det₀=⋯=det_{N−1}=0, det_N invertible. Gr̄_{N,h} adds a W_h-trivialization of the lattice and is an L^hGL_n-torsor over Gr̄_N. The stabilizer J={(A,γ):Aγ=A} gives Gr̄_{N,h}≅J after a chosen normalized lift.
+
+**Hypotheses and conventions.** The isomorphism uses a choice of lifting; h>N, not h=N. Nonperfect Greenberg test rings use the ring scheme of O_E/ϖ^h, not a naive tensor formula.
+
+**Construction or proof.**
+
+1. Import Greenberg realization and perfect finite models from SF.
+2. Zhu 1.9 produces the matrix cover; choose lifts as in 1.10–1.11.
+3. Identify the stabilizer and verify the corrected compositions βε=A and γ=ε_A⁻¹α⁻¹ε. This is the original algebraic-space route.
+
+**Direct prerequisites.** `GeometricSatakeAndFusion:GS0:Witt-geometry/witt-lattice-functor-and-representability`, `SchemeAndStackFoundations:SF.0`, `ReductiveGroupsPartII:RG2.3`.
+
+**Sources.** [Zhu17](https://annals.math.princeton.edu/wp-content/uploads/annals-v185-n2-p02-p.pdf), 1.9–1.11, pp. 418–421.
+
+**Consumers and design of the API.**
+
+- Zhu 1.9–1.12: Finite-jet torsor quotients represent lattice bounds.
+- Zhu B.4/B.11: The determinant equations define canonical models and the cone chart.
+
+| API declaration | Role | Mathematical contract |
+| --- | --- | --- |
+| `TauCeti.Suggested.GeometricSatake.jetDeterminantLocus_mem` | characterisation | The matrix jet lies on the determinant locus when det(A)=uπ^N for a unit u; the finite truncation and bound h>N are retained in the application. |
+| `TauCeti.Suggested.GeometricSatake.jetDeterminantLocus_right_invariance` | relation | Right multiplication by an invertible matrix preserves the determinant locus. |
+| `TauCeti.Suggested.GeometricSatake.jetDeterminantLocus_ring_map` | functoriality | A ring map takes the determinant locus to the corresponding locus with the image uniformizer. |
+
+| Unit test | Kind | Required outcome |
+| --- | --- | --- |
+| `TauCeti.Suggested.GeometricSatake.jet_level_zero` | degenerate | For N=0 the determinant is a unit. |
+| `TauCeti.Suggested.GeometricSatake.jet_identity` | computation | The identity matrix is in the N=0 locus. |
+| `TauCeti.Suggested.GeometricSatake.jet_zero_excluded` | non-example | A zero rank-one matrix is excluded at N=0 over a nonzero field. |
+
+**Acceptance.** For N=0 the trivial lattice with a jet trivialization is L^hGL_n; the determinant-zero equations disappear.
+
+**Unclosed obligations.** Typed geometric signatures and unavailable prebuilt line module.
+
+**Prototype boundary.** The determinant equation is the matrix core. Finite Greenberg representability, the lift-kernel quotient and its perfect torsor are imported, not represented by an arbitrary smoothness predicate.
+
+### Original perfect algebraic-space construction
+
+`GeometricSatakeAndFusion:GS0:Witt-geometry/zhu-original-algebraic-space` — theorem. Proposed declaration: `TauCeti.Suggested.GeometricSatake.zhuBoundPresentation`.
+
+Each Gr̄_N and hence each bounded GL_n Witt Grassmannian is a perfectly finitely presented separated proper algebraic space; Gr is an increasing union of such pieces. For general reductive G a faithful representation with quasi-affine quotient gives a locally closed embedding into the GL_n Grassmannian; an affine quotient gives a closed embedding.
+
+**Hypotheses and conventions.** Zhu published edition; perfect fields/rings; integral model assumptions pinned.
+
+**Construction or proof.**
+
+1. Use the affine jet presentation and effective quotient theorem A.29.
+2. Import the published flatness proof A.30–A.31 from SF; the torsor fibre-product identity alone does not prove flatness.
+3. Demazure properness supplies properness of the bounded spaces. No BS determinant/projectivity theorem is used in this original construction.
+
+**Direct prerequisites.** `GeometricSatakeAndFusion:GS0:Witt-geometry/zhu-finite-jet-presentation`, `GeometricSatakeAndFusion:GS0:Witt-geometry/witt-demazure-resolution`, `SchemeAndStackFoundations:SF.1`, `ReductiveGroupsPartII:RG2.3`.
+
+**Sources.** [Zhu17](https://annals.math.princeton.edu/wp-content/uploads/annals-v185-n2-p02-p.pdf), 1.12, 1.19–1.20; A.29–A.31, pp. 421, 425–426, 476–477.
+
+**Acceptance.** The target is a perfect algebraic space before the separate projectivity proof.
+
+**Unclosed obligations.** Typed geometric signatures and unavailable prebuilt line module.
+
+**Prototype boundary.** Presentation must be Zhu's smooth determinant-jet cover. The quotient algebraic-space carrier is not available and is omitted; this signature asserts only the cover's affineness.
+
+### Witt Demazure filtration space
+
+`GeometricSatakeAndFusion:GS0:Witt-geometry/witt-demazure-resolution` — construction. Proposed declaration: `TauCeti.Suggested.GeometricSatake.wittFiltration`.
+
+For Q of type ≤λ, Dem_λ(Q) classifies Q=Q₀⊃Q₁⊃⋯⊃0 with Q_i/Q_{i+1} locally free over R of rank n_λ(i). The global resolution Gr̃_λ classifies a lattice together with such a filtration of W(R)^n/Λ. It is a proper pfp perfect scheme obtained by successive perfected Grassmannian bundles. Its image is Gr_{≤λ}; over exact type the filtration is the p-adic filtration and the map is an isomorphism.
+
+**Hypotheses and conventions.** λ sorted nonnegative; total length fixed; all quotient maps respect the Witt action; zero λ gives the vanishing locus.
+
+**Construction or proof.**
+
+1. Use SF’s perfected Quot/Grassmann bundles; recurse on the first quotient Q/pQ of rank n_λ(0), then λ shifted by one column.
+2. BS 7.13 gives image, uniqueness and properness. Zhu 1.13–1.18 gives the lattice-chain presentation, including reversed dual bounds for reversed chains.
+3. BS 8.6 produces a smooth projective finite-type model for the global tower.
+
+**Direct prerequisites.** `GeometricSatakeAndFusion:GS0:Witt-geometry/witt-types-and-bounds`, `SchemeAndStackFoundations:SF.0`, `SchemeAndStackFoundations:SF.1`, `CrystallineCohomology:CR.1`.
+
+**Sources.** [BS17-witt-grassmannian](https://arxiv.org/abs/1507.06490), 7.10–7.13 and 8.4–8.6, pp. 29–34.
+
+**Consumers and design of the API.**
+
+- BS 7.13–7.14: Filtration fibres supply connectedness and structure-sheaf cohomology.
+- BS 8.8: The determinant is the product of graded quotient determinants.
+
+| API declaration | Role | Mathematical contract |
+| --- | --- | --- |
+| `TauCeti.Suggested.GeometricSatake.wittFiltration_eval` | characterisation | The typed filtration consists of a decreasing chain of submodules starting at M and ending at zero. |
+| `TauCeti.Suggested.GeometricSatake.wittFiltration_piece` | projection | Evaluation gives the i-th submodule in the chain. |
+| `TauCeti.Suggested.GeometricSatake.wittFiltration_ext` | extensionality | Two filtration points are equal if all their submodules agree. |
+
+| Unit test | Kind | Required outcome |
+| --- | --- | --- |
+| `TauCeti.Suggested.GeometricSatake.filtration_length_zero` | degenerate | A length-zero filtration forces the module to be zero. |
+| `TauCeti.Suggested.GeometricSatake.filtration_one_step` | computation | A length-one filtration has first piece top and all subsequently pieces zero. |
+| `TauCeti.Suggested.GeometricSatake.filtration_direction` | non-example | The filtration decreases; increasing kernels of p must first be reverse-indexed. |
+
+**Acceptance.** λ=0 gives the unit; λ=(1^r) is the perfected ordinary Grassmannian; λ=(2,1,0) has a P² boundary fibre.
+
+**Unclosed obligations.** Typed geometric signatures and unavailable prebuilt line module.
+
+**Prototype boundary.** The submodule-chain core omits prescribed locally free quotient ranks, annihilation by p, perfect-scheme representability and its lattice map. These conditions are written in the packet, not replaced by unknown proposition fields.
+
+**Planet:** Witt Demazure resolution.
+
+### Fibres of the Witt resolution
+
+`GeometricSatakeAndFusion:GS0:Witt-geometry/connected-cohomological-fibres` — theorem. Proposed declaration: `TauCeti.Suggested.GeometricSatake.wittResolutionConnectedFibres`.
+
+The fibres of Gr̃_λ→Gr_{≤λ} are geometrically connected and have RΓ(O)=k at geometric perfect fields. The resolution is an isomorphism over exact type. In Zhu’s full ω₁-chain resolution of Gr̄_N every lower-type fibre has positive dimension.
+
+**Hypotheses and conventions.** Nonempty geometric fibres; Q an isogeny cokernel.
+
+**Construction or proof.**
+
+1. Apply BS 7.14 to filtered Grassmann incidence parameters; reverse the increasing kernels of multiplication by p to match its decreasing-filtration convention.
+2. Induct on the filtration length for cohomology and connectedness.
+3. For the full ω₁ resolution, use Λ_λ+p^iΛ₀, not the erroneous intersections in Zhu 1.18; projection to a nontrivial projective space detects positive dimension.
+
+**Direct prerequisites.** `GeometricSatakeAndFusion:GS0:Witt-geometry/witt-demazure-resolution`, `SchemeAndStackFoundations:SF.0`, `SchemeAndStackFoundations:SF.3`.
+
+**Sources.** [BS17-witt-grassmannian](https://arxiv.org/abs/1507.06490), 7.13–7.14, pp. 30–32; Zhu 1.18, pp. 424–425.
+
+**Acceptance.** For λ=(2,1,0), fibre above (1,1,1) is P²; exact-type fibres are points.
+
+**Unclosed obligations.** Typed geometric signatures and unavailable prebuilt line module.
+
+**Prototype boundary.** X/Y/f must be the Witt resolution and bound; perfect structure-sheaf cohomology is omitted.
+
+### Descent on Witt resolution fibres
+
+`GeometricSatakeAndFusion:GS0:Witt-geometry/h-descent-and-fibral-criterion` — application. Proposed declaration: `TauCeti.Suggested.GeometricSatake.wittFibralDescent`.
+
+Apply the supplier’s v-descent for finite/formal Witt bundles and its proper pfp connected-fibre criterion to Gr̃_λ→Gr_{≤λ}. Pullback on line bundles is fully faithful; a line bundle trivial on every geometric fibre descends. The stronger Rψ_*O=O criterion applies to the same resolution and commutes with base change.
+
+**Hypotheses and conventions.** Proper surjective pfp perfect morphism; geometric connectedness alone is the weaker sufficient criterion, not an equivalence with Rψ_*O=O.
+
+**Construction or proof.**
+
+1. Import BS 4.1 and 6.1, 6.8, 6.13 from SF rather than reproduce their general theory.
+2. Verify the proper pfp hypotheses and fibre computation from the resolution node.
+3. Use the fibre criterion and full faithfulness for effective descent and uniqueness.
+
+**Direct prerequisites.** `GeometricSatakeAndFusion:GS0:Witt-geometry/connected-cohomological-fibres`, `SchemeAndStackFoundations:SF.4`, `SchemeAndStackFoundations:SF.3`.
+
+**Sources.** [BS17-witt-grassmannian](https://arxiv.org/abs/1507.06490), 6.1, 6.8, 6.13 and 8.5, pp. 21–26, 33.
+
+**Acceptance.** Apply to λ=0, where descent is the identity; keep pfp in the statement.
+
+**Unclosed obligations.** Typed geometric signatures and unavailable prebuilt line module.
+
+**Prototype boundary.** Only the line-bundle full-faithfulness core is typed; effective fibre-trivial descent and proper pfp hypotheses belong to SF.
+
+### Geometric determinant line
+
+`GeometricSatakeAndFusion:GS0:Witt-geometry/geometric-determinant-line` — construction. Proposed declaration: `TauCeti.Suggested.GeometricSatake.geometricDeterminantLine`.
+
+There is a unique line bundle L on Gr_{≤λ} whose pullback to Gr̃_λ is ⊗_i det_R(Q_i/Q_{i+1}); these lines agree under lower bounds and hence form the determinant line on Gr_GL_n. Construct it geometrically using complete-flag refinements and fibre triviality, without the K-theoretic determinant.
+
+**Hypotheses and conventions.** Positive quotient convention W(R)^n/Λ; determinant of a sublattice would reverse the line.
+
+**Construction or proof.**
+
+1. Refine filtrations to full flag towers as in BS 6.11 and 8.8.
+2. On each geometric fibre the product of graded determinants identifies with the fixed determinant of the associated R-gradeds of Q.
+3. Apply the fibral descent node and its full faithfulness to descend and reconcile lower-bound restrictions.
+
+**Direct prerequisites.** `GeometricSatakeAndFusion:GS0:Witt-geometry/h-descent-and-fibral-criterion`, `GeometricSatakeAndFusion:GS0:Witt-geometry/witt-demazure-resolution`, `SchemeAndStackFoundations:SF.3`, `KTheoryLowDegrees:Z.3`.
+
+**Sources.** [BS17-witt-grassmannian](https://arxiv.org/abs/1507.06490), 6.11 and 8.8, pp. 25, 33–34.
+
+**Consumers and design of the API.**
+
+- BS 8.9–8.11: Positive degrees and boundary sections prove projectivity.
+- BS 10.1: The normalized SL_n line is built from these determinants.
+
+| API declaration | Role | Mathematical contract |
+| --- | --- | --- |
+| `TauCeti.Suggested.GeometricSatake.geometricDeterminantLine_pullback` | compatibility | On the Demazure resolution, the pulled-back line is the tensor product of the determinants of the graded quotients, with the positive quotient convention. |
+| `TauCeti.Suggested.GeometricSatake.geometricDeterminantLine_unique` | characterisation | Fibre-trivial descent is unique through the fully faithful pullback of invertible sheaves. |
+| `TauCeti.Suggested.GeometricSatake.geometricDeterminantLine_lower_bound` | functoriality | Restriction to a lower bound agrees with that bound’s determinant line. |
+
+| Unit test | Kind | Required outcome |
+| --- | --- | --- |
+| `TauCeti.Suggested.GeometricSatake.determinant_zero` | degenerate | The zero bound has the trivial invertible sheaf. |
+| `TauCeti.Suggested.GeometricSatake.determinant_existing_carrier` | compatibility | The descended geometric line uses Tau Ceti InvertibleSheaf, rather than a rank-one module at a point. |
+| `TauCeti.Suggested.GeometricSatake.determinant_quotient_sign` | computation | On a one-step quotient Grassmannian, the descended line pulls back to the graded quotient determinant; its sign is the quotient sign. |
+
+**Acceptance.** For λ=(1,0,…), the line is O(1) on the projective Grassmannian; λ=0 gives the trivial line.
+
+**Unclosed obligations.** Typed geometric signatures and unavailable prebuilt line module.
+
+**Prototype boundary.** Only the existing invertible-sheaf carrier is typed. X must be the specified bounded Witt scheme, pull the specified resolution/restriction, and gradedDet its graded determinant. Those missing geometric conditions are omitted in these signatures and are not arbitrary new predicates.
+
+**Planet:** Determinant line.
+
+### Positivity of the determinant line
+
+`GeometricSatakeAndFusion:GS0:Witt-geometry/determinant-positivity` — theorem. Proposed declaration: `TauCeti.Suggested.GeometricSatake.determinantCurveDegree`.
+
+On Gr̃_λ, ⊗det(Q_i/Q_{i+1})^{a_i} is ample for a₀≫a₁≫⋯>0. Each determinant factor has sections nonvanishing on the exact-type open locus. The unweighted descended line has positive degree on every nonconstant proper curve in Gr_{≤λ}; its resolution pullback is nef and big, with exceptional locus contained in the lower-type boundary.
+
+**Hypotheses and conventions.** Finite-type models fixed up to Frobenius; a_i integers with successive domination; effective divisors interpreted on these models.
+
+**Construction or proof.**
+
+1. Use BS 8.9 and Grassmann-bundle induction for weighted ampleness and explicit nonvanishing sections.
+2. If the sum of nonnegative determinant degrees on a lifted curve were zero, all weighted degrees would be zero, contradicting ampleness (8.10).
+3. Use an effective decomposition with ample weighted part to place the exceptional locus in the boundary (8.11); invoke only the supplier’s positivity notions.
+
+**Direct prerequisites.** `GeometricSatakeAndFusion:GS0:Witt-geometry/geometric-determinant-line`, `SchemeAndStackFoundations:SF.5`.
+
+**Sources.** [BS17-witt-grassmannian](https://arxiv.org/abs/1507.06490), 8.9–8.11, pp. 34–35.
+
+**Acceptance.** For a one-step projective Grassmannian the line has degree one on a Schubert line.
+
+**Unclosed obligations.** Typed geometric signatures and unavailable prebuilt line module.
+
+**Prototype boundary.** degree must be the determinant degree on a nonconstant proper curve in the specified bound. The missing curve/intersection API and hypotheses are omitted.
+
+### Projectivity of the Witt Grassmannian
+
+`GeometricSatakeAndFusion:GS0:Witt-geometry/ampleness-via-keel` — theorem. Proposed declaration: `TauCeti.Suggested.GeometricSatake.wittProjectiveBound`.
+
+For every dominant positive λ, Gr_{≤λ} is the perfection of a projective F_p-scheme and its determinant line is ample on a finite Frobenius model. Consequently all pole-bounded GL_n lattice pieces are perfections of projective varieties.
+
+**Hypotheses and conventions.** Use BS’s geometric determinant construction. Keel’s criterion, exceptional locus and Frobenius extension/descent are imported from SF.5; pfp/model theory from SF.0.
+
+**Construction or proof.**
+
+1. Induct on dominance. Realize the lower boundary as an iterated finite pushout of lower bounds along closed intersections, importing the missing representability argument from SF.1 (source E39).
+2. The determinant is ample on boundary pieces; Keel’s union lemma and strict curve positivity make it ample on the boundary. Keel’s restriction criterion then makes ψ*L semiample because its exceptional locus lies there.
+3. Take its Stein contraction on a finite model. Strict curve positivity and fibre triviality identify its equivalence relation with the Demazure quotient; hence the contraction is Gr_{≤λ}. Its descended line is ample.
+
+**Direct prerequisites.** `GeometricSatakeAndFusion:GS0:Witt-geometry/determinant-positivity`, `GeometricSatakeAndFusion:GS0:Witt-geometry/h-descent-and-fibral-criterion`, `SchemeAndStackFoundations:SF.1`, `SchemeAndStackFoundations:SF.5`.
+
+**Sources.** [BS17-witt-grassmannian](https://arxiv.org/abs/1507.06490), 8.3 proof, pp. 35–36.
+
+**Acceptance.** No Zhu representability input in this independent route; λ=(1) recovers projective space.
+
+**Unclosed obligations.** Boundary representability before Keel; Typed geometric signatures and unavailable prebuilt line module.
+
+**Prototype boundary.** Only scheme properness is typed; X/f must be the finite model of the bound over the base field. Projectivity/ample line notions are imported from SF5 and omitted.
+
+**Planet:** Witt projectivity theorem.
+
+### Perfect models and étale realization
+
+`GeometricSatakeAndFusion:GS0:Witt-geometry/perfect-model-and-etale-comparison` — comparison. Proposed declaration: `TauCeti.Suggested.GeometricSatake.wittEtaleComparison`.
+
+Pass from each pfp perfect bounded scheme or algebraic space to compatible finite-type models up to Frobenius. Perfection preserves fibre products and underlying topological dimension, and induces an equivalence of étale topoi. The associated v-sheaf maps by scheme diamondification to the special fibre of the integral Grassmannian.
+
+**Hypotheses and conventions.** Coordinate perfection is a direct Frobenius colimit; Mathlib Perfection is an inverse-limit carrier and is not cited for this construction. Trace/cycle normalizations require a fixed model.
+
+**Construction or proof.**
+
+1. Import Zhu A.3, A.15–A.17 and BS 3 from SF.0–SF.1.
+2. Import the characteristic-p scheme-diamond comparison from L1.
+3. Evaluate the torsor/lattice functor on perfectoid R; B⁺ at a characteristic-p untilt is W_{O_E}(R), so both sheaves have the same functor of points.
+
+**Direct prerequisites.** `GeometricSatakeAndFusion:GS0:Witt-geometry/witt-lattice-functor-and-representability`, `SchemeAndStackFoundations:SF.0`, `SchemeAndStackFoundations:SF.1`, `AdicCoefficientsAndComparisons:L1/char-p-scheme-diamond-and-comparison-functor`, `DiamondsAndVStacks:D6/pre-adic-diamondification`.
+
+**Sources.** [SW20-berkeley](https://www.math.uni-bonn.de/people/scholze/Berkeley.pdf), 20.3.1–20.3.4, p. 185.
+
+**Acceptance.** A¹_perf has dimension one but is not finite type as an ordinary scheme.
+
+**Unclosed obligations.** Typed geometric signatures and unavailable prebuilt line module.
+
+**Prototype boundary.** These categories must be the specified étale categories of a perfect Witt bound and its scheme diamond; supplier geometry is omitted.
+
+### Integral bounded Grassmannian families
+
+`GeometricSatakeAndFusion:GS0:Witt-geometry/integral-family-bounded-properness` — comparison. Proposed declaration: `TauCeti.Suggested.GeometricSatake.integralWittGenericComparison`.
+
+The integral BD Grassmannian over Spd O_E (or Div^d_𝒴) interpolates between the generic B⁺_dR Grassmannian and the v-sheaf of the Witt Grassmannian. For a split reductive model, the geometric relative-position bounds are closed and proper and representable in spatial diamonds, also for ordered multiple legs with summed collision bounds; their componentwise filtered union is the full functor.
+
+**Hypotheses and conventions.** Fixed integral reductive model; unramified cocharacter reflex extensions in SW 20.3–20.5; no ramified reductive O_E-model asserted.
+
+**Construction or proof.**
+
+1. Use SW 20.3.2 for the torsor/étale quotient description and the explicit characteristic-p comparison.
+2. BS projectivity provides the special-fibre compact bounds; generic bounded properness and SW 20.3.6, 20.5.4 give proper relative diamonds.
+3. For multiple legs build the bounded convolution tower and use its surjective multiplication map to establish quasicompactness and closedness.
+
+**Direct prerequisites.** `GeometricSatakeAndFusion:GS0:Witt-geometry/ampleness-via-keel`, `GeometricSatakeAndFusion:GS0:Witt-geometry/perfect-model-and-etale-comparison`, `GeometricSatakeAndFusion:GS0:loop-geometry/ordered-leg-base-change`, `GeometricSatakeAndFusion:GS0:loop-geometry/schubert-bounds-and-properness`, `DiamondSixOperations:S2/lower-shriek`, `DiamondSixOperations:S2/lower-shriek-base-change`, `DiamondSixOperations:S2/projection-formula`.
+
+**Sources.** [SW20-berkeley](https://www.math.uni-bonn.de/people/scholze/Berkeley.pdf), 20.3.6 and 20.5.4, pp. 186, 190.
+
+**Acceptance.** At equal legs the bound is the sum, not their maximum.
+
+**Unclosed obligations.** Typed geometric signatures and unavailable prebuilt line module.
+
+**Prototype boundary.** Only the two functor-of-points fibre identifications are typed; the diamond base change and proper bounds are omitted.
+
+### Witt affine flags and components
+
+`GeometricSatakeAndFusion:GS0:Witt-geometry/parahoric-ind-projectivity` — theorem. Proposed declaration: `TauCeti.Suggested.GeometricSatake.parahoricGeometricComponents`.
+
+For a smooth affine O_E-model 𝓖 of a reductive generic fibre, the Witt affine Grassmannian is an ind-pfp perfect space with locally closed embedding into a GL_n Grassmannian and ind-quasiprojective bounds. If 𝓖 is parahoric its bounds are projective. Over k̄ its components are π₁(G)_I via Kottwitz, with residual Frobenius action retained. For an Iwahori, Schubert cells have dimension ℓ(w), closures are the Bruhat unions and reduced-word Demazure spaces are iterated perfected P¹-bundles.
+
+**Hypotheses and conventions.** Parahoric/Iwahori notions supplied by RG2.3; inertia I, not the full absolute Galois group, labels geometric components.
+
+**Construction or proof.**
+
+1. Use the faithful representation with quasi-affine quotient and Zhu 1.20.
+2. Zhu 1.4 and SW 21.1.1 use Iwahori Demazure towers; properness descends to other parahorics.
+3. Use Zhu 1.21 and the corrected BS 9.7/SW 21.1.4 component identification.
+
+**Direct prerequisites.** `GeometricSatakeAndFusion:GS0:Witt-geometry/zhu-original-algebraic-space`, `GeometricSatakeAndFusion:GS0:Witt-geometry/ampleness-via-keel`, `ReductiveGroupsPartII:RG2.3`, `ReductiveGroupsPartII:RG2.4`.
+
+**Sources.** [SW20-berkeley](https://www.math.uni-bonn.de/people/scholze/Berkeley.pdf), 21.1.1–21.1.4, pp. 191–192.
+
+**Acceptance.** For a torus the geometric flag space is the discrete inertia-coinvariant coweight scheme with Frobenius action.
+
+**Unclosed obligations.** Typed geometric signatures and unavailable prebuilt line module.
+
+**Prototype boundary.** Only the Kottwitz label equivalence is typed, with geometric inertia coinvariants rather than full Galois coinvariants. Model representability and properness are omitted.
+
+**Planet:** Parahoric Witt Grassmannians.
+
+### Integral parahoric ind-properness
+
+`GeometricSatakeAndFusion:GS0:Witt-geometry/integral-parahoric-properness` — theorem. Proposed declaration: `TauCeti.Suggested.GeometricSatake.integralParahoricProperBounds`.
+
+If 𝓖° is parahoric, Gr_{𝓖,Spd O_E} is an increasing union of closed proper subfunctors. A closed representation 𝓖→GL_n induces a closed immersion of integral Grassmannians. For minuscule bounds the closure is unchanged on replacing 𝓖 by 𝓖°, and central quasiparahoric isogenies identify the corresponding closures after reflex-field base change.
+
+**Hypotheses and conventions.** Quasiparahoric models and component maps as in SW 21.2–21.5; minuscule hypothesis only for the closure comparisons.
+
+**Construction or proof.**
+
+1. Import Anschütz’s extension/triviality of torsors on punctured A_inf from RF4:G-torsors.
+2. Use SW 21.2.3 to extend each geometric lattice and take products of uniformly bounded trivializations to obtain quasicompactness.
+3. Apply the geometric-point and component tests in 21.4.3 and 21.5.1; do not claim the local-model conjecture from this argument.
+
+**Direct prerequisites.** `GeometricSatakeAndFusion:GS0:Witt-geometry/parahoric-ind-projectivity`, `RelativeFarguesFontaine:RF4:G-torsors`, `ReductiveGroupsPartII:RG2.3`, `ReductiveGroupsPartII:RG2.4`, `DiamondSixOperations:S2/lower-shriek`, `DiamondSixOperations:S2/lower-shriek-base-change`, `DiamondSixOperations:S2/projection-formula`.
+
+**Sources.** [SW20-berkeley](https://www.math.uni-bonn.de/people/scholze/Berkeley.pdf), 21.2.1–21.2.3, 21.4.3, 21.5.1, pp. 192–197.
+
+**Acceptance.** For a torus the integral flag is the diamondification of the integral coweight scheme; special labels are inertia coinvariants.
+
+**Unclosed obligations.** Typed geometric signatures and unavailable prebuilt line module.
+
+**Prototype boundary.** Only topological properness is typed; spaces/map must be a closed parahoric bound over the integral base. Spatial-diamond representability is omitted.
+
+### Canonical determinant models
+
+`GeometricSatakeAndFusion:GS0:Witt-geometry/canonical-witt-models` — construction. Proposed declaration: `TauCeti.Suggested.GeometricSatake.canonicalWittModel`.
+
+For h>N, the finite-type truncated matrix locus det₀=⋯=det_{N−1}=0 with det_N invertible is a normal complete intersection. The normalized finite-jet quotient supplies Zhu’s canonical weakly normal model Gr′_μ. Compatible transition maps between these models may require Frobenius twists. The canonical Demazure model Gr̃′_N is a smooth projective model obtained from chains of p-divisible groups, with determinant comparison to the product of their Hodge lines.
+
+**Hypotheses and conventions.** Fix model and Frobenius levels; do not infer normal Cohen–Macaulayness of every canonical Schubert model (Conjecture III). Dieudonné/crystal and p-divisible-group theory is imported.
+
+**Construction or proof.**
+
+1. Use Zhu B.4’s codimension and Serre-criterion argument for the matrix complete intersection, with the SF model API.
+2. Descend the normalized jet quotient using SF effective quotients; use twisted transitions as in B.6.
+3. Import B.7–B.9’s Dieudonné realization from the p-divisible-group owner and check the pullback of the Hodge determinant; the sketch-only comparison remains an explicit gap.
+
+**Direct prerequisites.** `GeometricSatakeAndFusion:GS0:Witt-geometry/zhu-finite-jet-presentation`, `GeometricSatakeAndFusion:GS0:Witt-geometry/witt-demazure-resolution`, `SchemeAndStackFoundations:SF.0`, `SchemeAndStackFoundations:SF.1`, `SchemeAndStackFoundations:SF.4`, `FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2`, `FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.6`, `CrystallineCohomology:CR.1`, `CrystallineCohomology:CR.7`.
+
+**Sources.** [Zhu17](https://annals.math.princeton.edu/wp-content/uploads/annals-v185-n2-p02-p.pdf), B.4–B.9, pp. 484–486.
+
+**Consumers and design of the API.**
+
+- Zhu Appendix B: Canonical models fix trace and Hodge determinant normalizations.
+- GS1 rational weight concentration: Cycle traces depend on a chosen model rather than perfection alone.
+
+| API declaration | Role | Mathematical contract |
+| --- | --- | --- |
+| `TauCeti.Suggested.GeometricSatake.canonicalWittModel_transition` | functoriality | A sufficiently deep finite-jet level has a transition to a shallower canonical model; compatibility can require a Frobenius twist. |
+| `TauCeti.Suggested.GeometricSatake.canonicalWittModel_normalized_quotient` | compatibility | The canonical model is identified with the normalized jet quotient, not an arbitrary scheme having the same perfection. |
+| `TauCeti.Suggested.GeometricSatake.canonicalWittModel_perfection` | compatibility | Its scheme perfection is the specified Witt Schubert bound. |
+
+| Unit test | Kind | Required outcome |
+| --- | --- | --- |
+| `TauCeti.Suggested.GeometricSatake.canonical_model_zero` | degenerate | The N=0 canonical bound agrees with its point model. |
+| `TauCeti.Suggested.GeometricSatake.canonical_model_not_choice` | non-example | The comparison fixes the normalized quotient model; sharing a perfection does not specify the canonical model. |
+| `TauCeti.Suggested.GeometricSatake.canonical_model_existing_scheme` | compatibility | The canonical model is an ordinary Mathlib Scheme, not a newly invented perfect-scheme carrier. |
+
+**Acceptance.** For N=0 the canonical model is a point; a canonical model is not an arbitrary deperfection.
+
+**Unclosed obligations.** Sketch-only canonical determinant and crystal comparison; Typed geometric signatures and unavailable prebuilt line module.
+
+**Prototype boundary.** Finite-type, normalization, model perfection and Frobenius-twisted transition conditions are supplied by SF0/SF1. The typed target carrier and morphisms omit those conditions. The sketch-only Dieudonné comparison is a recorded gap; Conjecture III is not a theorem.
+
+### Rank-two quadratic cone model
+
+`GeometricSatakeAndFusion:GS0:Witt-geometry/rank-two-cone-chart` — comparison. Proposed declaration: `TauCeti.Suggested.GeometricSatake.rankTwoConeClosedOrbit`.
+
+For p>2, GL₂ and N=2, Gr̄₂ has an open chart equal to the perfection of Spec k[x,y,z]/(x²−yz), via A=((p+[x],−[y]),([z],p−[x])). Together with the open exact-type orbit it covers Gr̄₂. Its Demazure resolution is the perfection of P(O(1)⊕O(−1)). The open decomposition locus of W₃-matrices X with [λ]det X=p² is characterized by X=Ag with g∈GL₂(W₃); the representative A is unique.
+
+**Hypotheses and conventions.** p>2; finite Witt truncation h=3; correct order g̃=Ã⁻¹X̃ and determinant det X=p²[λ]⁻¹.
+
+**Construction or proof.**
+
+1. Use the projective-bundle extension E/p and its splitting to identify the resolution model.
+2. Use the determinant equations B.3.1 to solve uniquely for x,y,z on the locus det(X₁) invertible, then saturate by the right GL₂(W₃)-action.
+3. Repair the displayed inverse order in B.11 and verify integrality of Ã⁻¹X̃ on this locus; source proof of this repair is recorded as a precise refinement gap. The jet torsor then identifies the open chart.
+
+**Direct prerequisites.** `GeometricSatakeAndFusion:GS0:Witt-geometry/canonical-witt-models`, `GeometricSatakeAndFusion:GS0:Witt-geometry/zhu-finite-jet-presentation`, `SchemeAndStackFoundations:SF.0`.
+
+**Sources.** [Zhu17](https://annals.math.princeton.edu/wp-content/uploads/annals-v185-n2-p02-p.pdf), B.10–B.11, pp. 486–488.
+
+**Acceptance.** At x=y=z=0, A=p·Id has determinant p² and maps to the unique closed orbit.
+
+**Unclosed obligations.** Zhu B.11 corrected right-factor integrality; Sketch-only canonical determinant and crystal comparison; Typed geometric signatures and unavailable prebuilt line module.
+
+**Prototype boundary.** Only the closed-orbit equation is typed. The perfect cone open immersion and the corrected W₃ right-factor integrality are recorded separately as a gap.
+
+### Normalized determinant on SL_n lattices
+
+`GeometricSatakeAndFusion:GS0:Witt-geometry/sl-determinant-normalization` — construction. Proposed declaration: `TauCeti.Suggested.GeometricSatake.normalizedDeterminant`.
+
+On Gr_SL_n over the ramified Witt coefficient ring, lattices have determinant trivialization. For a≪0 define L_M as det̃(p^aW_{O_E}(R)^n/M)⊗det̃(p^aW_{O_E}(R)^n/W_{O_E}(R)^n)⁻¹, independent of a. It is ample on every proper bound. Translations differ from L only by a line on the base, giving a G_m-central extension of the loop group acting on L.
+
+**Hypotheses and conventions.** The ordinary geometric determinant on filtered torsion modules agrees with the imported determinant calculus; the normalization factor is retained. This does not assert an honest LG-linearization.
+
+**Construction or proof.**
+
+1. Reduce the ramified coefficient module to W(R)^{ne} using a fixed coefficient basis, then use the GL_{ne} bound and determinant line.
+2. Use tensor multiplicativity of determinants to cancel the standard-lattice factor under changing a.
+3. Apply the finite embedding into a GL_{ne} bound for ampleness; compose translation-line isomorphisms for the central extension. The tame K₂ identification belongs to its supplier.
+
+**Direct prerequisites.** `GeometricSatakeAndFusion:GS0:Witt-geometry/geometric-determinant-line`, `GeometricSatakeAndFusion:GS0:Witt-geometry/ampleness-via-keel`, `RelativeFarguesFontaine:RF0:integral-Y/ramified-coefficient-comparison`, `KTheoryLowDegrees:Z.3`.
+
+**Sources.** [BS17-witt-grassmannian](https://arxiv.org/abs/1507.06490), 10.1 and discussion through 10.4, pp. 37–39.
+
+**Consumers and design of the API.**
+
+- BS 10.1: Ramified SL_n bounds inherit ampleness from GL_ne.
+- BS 10.3–10.4: Translation lines form a loop-group central extension.
+
+| API declaration | Role | Mathematical contract |
+| --- | --- | --- |
+| `TauCeti.Suggested.GeometricSatake.normalizedDeterminant_trivial` | simp | At the standard lattice, the normalized determinant line is the tensor unit. |
+| `TauCeti.Suggested.GeometricSatake.normalizedDeterminant_comparison` | compatibility | Normalization retains the inverse standard-lattice determinant factor. |
+| `TauCeti.Suggested.GeometricSatake.normalizedDeterminant_translation` | relation | Translation gives a line from the base tensored with the original line; the compatible lines form a central extension rather than an honest action on the line. |
+
+| Unit test | Kind | Required outcome |
+| --- | --- | --- |
+| `TauCeti.Suggested.GeometricSatake.normalized_standard` | degenerate | The standard lattice has normalized determinant R. |
+| `TauCeti.Suggested.GeometricSatake.normalized_zero_quotient` | computation | Two zero truncation quotients have the unit determinant. |
+| `TauCeti.Suggested.GeometricSatake.normalized_tensor_carrier` | compatibility | Tensor products and determinant duals use existing ModuleCat and TensorProduct. |
+
+**Acceptance.** For the standard lattice the normalized line is canonically trivial; translation by the identity gives the identity extension element.
+
+**Unclosed obligations.** Typed geometric signatures and unavailable prebuilt line module.
+
+**Prototype boundary.** This is the pointwise module carrier for the normalized line. M and M₀ must be the specified finite filtered torsion quotients, and the geometric sheaf gluing is not yet typed. The translation statement omits that geometry, while keeping the indispensable base-line factor.
+
+### Sections of the Witt determinant line
+
+`GeometricSatakeAndFusion:GS0:Witt-geometry/sections-on-witt-bounds` — theorem. Proposed declaration: `TauCeti.Suggested.GeometricSatake.determinantSectionsRestriction`.
+
+For the ample determinant line on Gr_SL_n, restriction of global sections to any proper closed bound is surjective, and the global section space is infinite dimensional whenever the Grassmannian has positive-dimensional bounds.
+
+**Hypotheses and conventions.** Pass to fixed finite models and arbitrarily large Frobenius powers of their ample lines. This gives no answer to BS Question 10.6 about canonical modules or embeddings.
+
+**Construction or proof.**
+
+1. Use SF’s section-colimit description of line bundles on perfections.
+2. Serre vanishing on finite models at large p^r powers gives restriction surjectivity.
+3. Apply the same Frobenius powers to positive-dimensional bounds to obtain unbounded section dimensions.
+
+**Direct prerequisites.** `GeometricSatakeAndFusion:GS0:Witt-geometry/sl-determinant-normalization`, `SchemeAndStackFoundations:SF.5`, `SchemeAndStackFoundations:SF.0`.
+
+**Sources.** [BS17-witt-grassmannian](https://arxiv.org/abs/1507.06490), 10.5 and 10.6, pp. 39–40.
+
+**Acceptance.** Zero-dimensional bounds have finite section spaces; the infinite-dimensional assertion has a dimension hypothesis.
+
+**Unclosed obligations.** Typed geometric signatures and unavailable prebuilt line module.
+
+**Prototype boundary.** The modules/map must be determinant global sections and restriction to the specified proper bound. Serre vanishing/Frobenius section-colimit hypotheses are omitted.
+
+### Bounded admissible affine flag loci
+
+`GeometricSatakeAndFusion:GS0:Witt-geometry/bounded-admissible-flags` — construction. Proposed declaration: `TauCeti.Suggested.GeometricSatake.admissibleFlagLocus`.
+
+For a parahoric 𝓚 and a dominant cocharacter class μ, the admissible locus A_{𝓚,μ} is the finite closed union of affine Schubert strata labelled by the parahoric image of Adm(μ). Its reduced perfect structure is determined by geometric points. Under a morphism of parahoric models f:𝓚₁→𝓚₂ sending μ₁ to μ₂, the map of affine flags carries A_{𝓚₁,μ₁} into A_{𝓚₂,μ₂}.
+
+**Hypotheses and conventions.** Admissible sets and affine Bruhat order from RG2.4; integral v-sheaf local-model existence/functoriality is an imported refinement, not inferred from Satake.
+
+**Construction or proof.**
+
+1. Use finite Bruhat unions and the representable flag spaces.
+2. Identify this union with the reduced special fibre of the imported local model.
+3. GLX 3.4 applies functoriality of local models and checks the containment on geometric points; GS supplies the ambient flag morphism.
+
+**Direct prerequisites.** `GeometricSatakeAndFusion:GS0:Witt-geometry/parahoric-ind-projectivity`, `ReductiveGroupsPartII:RG2.4`, `SchemeAndStackFoundations:SF.4`.
+
+**Sources.** [GLX26](https://link.springer.com/content/pdf/10.1007/s00222-025-01386-1.pdf), 3.2–3.4, pp. 822–823; van Hoften §3.1.
+
+**Consumers and design of the API.**
+
+- GLX 3.4: Admissible special-fibre containment is functorial in the group model.
+- van Hoften §2.2.6–2.2.15: The ambient parahoric flag space supplies the admissible locus.
+
+| API declaration | Role | Mathematical contract |
+| --- | --- | --- |
+| `TauCeti.Suggested.GeometricSatake.admissibleFlagLocus_mem` | characterisation | A flag lies in the admissible locus precisely when it is in one of the finitely many admissible Schubert strata. |
+| `TauCeti.Suggested.GeometricSatake.admissibleFlagLocus_mono` | functoriality | Increasing the admissible label set enlarges the locus. |
+| `TauCeti.Suggested.GeometricSatake.admissibleFlagLocus_map` | compatibility | An ambient flag morphism whose local-model comparison sends all admissible strata into the target locus restricts to the admissible locus. |
+
+| Unit test | Kind | Required outcome |
+| --- | --- | --- |
+| `TauCeti.Suggested.GeometricSatake.admissible_empty` | degenerate | The empty label set gives the empty locus. |
+| `TauCeti.Suggested.GeometricSatake.admissible_singleton` | computation | A singleton label gives exactly its Schubert stratum. |
+| `TauCeti.Suggested.GeometricSatake.admissible_nonlabel` | non-example | A point belonging to no admissible stratum is excluded, even when it lies in a different connected component. |
+
+**Acceptance.** The zero admissible set in the torus is its corresponding component; identity group map fixes the locus.
+
+**Unclosed obligations.** Typed geometric signatures and unavailable prebuilt line module; Bounded affine-flag dimension and adjoint transfer.
+
+**Prototype boundary.** This finite-union core records only membership and maps. Bruhat downward closure, reduced perfect structure and local-model functoriality belong to RG/SF suppliers.
+
+### Relative-position flag correspondences
+
+`GeometricSatakeAndFusion:GS0:Witt-geometry/flag-incidence-correspondences` — construction. Proposed declaration: `TauCeti.Suggested.GeometricSatake.flagIncidence`.
+
+For affine flags define O_w⊂Fl×Fl by relative position w. The two-step incidence C_{u,v}={(x,z,y):(x,z)∈O_u,(z,y)∈O_v} maps by forgetting z to Fl×Fl; pull back to O_{uv} or O_{u*v} to get the product and Demazure-product correspondences. Work on finite Schubert bounds over the first flag; these give pfp perfect models and compatible base changes.
+
+**Hypotheses and conventions.** Relative position and Demazure product from RG2.4. The bounded twisted product is not an untwisted Cartesian product.
+
+**Construction or proof.**
+
+1. Construct the fibre-product incidence and its projection from the affine flag moduli.
+2. Apply finite Bruhat closure bounds to z and y after an étale-local choice of the first flag, producing the proper bounded convolution tower.
+3. Use SF compatible perfection models and dimension invariance for all pullbacks, including He’s X₂→X₃ and X₄→X₅.
+
+**Direct prerequisites.** `GeometricSatakeAndFusion:GS0:Witt-geometry/parahoric-ind-projectivity`, `ReductiveGroupsPartII:RG2.4`, `SchemeAndStackFoundations:SF.0`, `SchemeAndStackFoundations:SF.1`.
+
+**Sources.** [He21](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/5A27DBF48CAEF6DA56A313061848574C/S205050862100010Xa.pdf/cordial-elements-and-dimensions-of-affine-delignelusztig-varieties.pdf), 5.3–5.4, pp. 9–12.
+
+**Consumers and design of the API.**
+
+- He 5.6: Ordinary-product and Demazure-product fibre estimates apply to these projections.
+- He proof of 5.5: Bounded pullbacks give X₂→X₃ and X₄→X₅.
+
+| API declaration | Role | Mathematical contract |
+| --- | --- | --- |
+| `TauCeti.Suggested.GeometricSatake.flagIncidence_points` | characterisation | Two-step incidence consists of (x,z,y) with (x,z) in the first relative-position orbit and (z,y) in the second. |
+| `TauCeti.Suggested.GeometricSatake.flagIncidence_projection` | projection | The product projection forgets z and returns (x,y). |
+| `TauCeti.Suggested.GeometricSatake.flagIncidence_fibre` | characterisation | The fibre over (x,y) is the set of middle flags satisfying both relative-position conditions. |
+
+| Unit test | Kind | Required outcome |
+| --- | --- | --- |
+| `TauCeti.Suggested.GeometricSatake.incidence_identity_left` | computation | If the first relation is the diagonal, z is uniquely x. |
+| `TauCeti.Suggested.GeometricSatake.incidence_empty` | degenerate | An empty first relation gives empty incidence. |
+| `TauCeti.Suggested.GeometricSatake.incidence_no_unrestricted_middle` | non-example | For both diagonal relations, a middle flag different from x cannot occur. |
+
+**Acceptance.** C_{1,v} and C_{u,1} have a uniquely determined middle flag; finite bounds are required before dimension arguments.
+
+**Unclosed obligations.** Typed geometric signatures and unavailable prebuilt line module; Bounded affine-flag dimension and adjoint transfer.
+
+**Prototype boundary.** The geometric fibre products, bounded pfp models and their dimensions are omitted from this pointwise core; no dimension is asserted for an unbounded ind-space.
+
+### Affine flag convolution fibre bounds
+
+`GeometricSatakeAndFusion:GS0:Witt-geometry/flag-convolution-fibres` — theorem. Proposed declaration: `TauCeti.Suggested.GeometricSatake.flagConvolutionFibreBound`.
+
+If ℓ(uv)=ℓ(u)+ℓ(v), the product-incidence projection C_{u,v}∣_{O_{uv}}→O_{uv} is an isomorphism. In general it is surjective with each geometric fibre of dimension ≥(ℓ(u)+ℓ(v)−ℓ(uv))/2. The Demazure-product projection is surjective with fibres of dimension ≥ℓ(u)+ℓ(v)−ℓ(u*v). These statements transfer to compatible pfp perfect models and their bounded pullbacks.
+
+**Hypotheses and conventions.** Nonempty fibres and bounded pfp models; ordinary and Demazure products kept distinct. Adjoint transfer is componentwise and needs the corrected GHN hypothesis.
+
+**Construction or proof.**
+
+1. Use rank-one A¹/G_m convolution strata and induction on affine reduced words, as in GH10 2.4–2.5 cited by He 5.6.
+2. Length-additive factors give uniqueness of the middle flag.
+3. Transfer surjectivity and dimensions along perfected fibre products; for He’s dimension inequality use a finite cover of bounded components, not an unproved finite-component claim for the whole ind-space.
+
+**Direct prerequisites.** `GeometricSatakeAndFusion:GS0:Witt-geometry/flag-incidence-correspondences`, `ReductiveGroupsPartII:RG2.4`, `SchemeAndStackFoundations:SF.0`, `SchemeAndStackFoundations:SF.4`.
+
+**Sources.** [He21](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/5A27DBF48CAEF6DA56A313061848574C/S205050862100010Xa.pdf/cordial-elements-and-dimensions-of-affine-delignelusztig-varieties.pdf), 5.6 and proof 5.5, pp. 10–12.
+
+**Acceptance.** For u=v=s, ℓ(s)=1 and s*s=s: the Demazure fibre has dimension at least one, while the ordinary-product fibre lower bound is one.
+
+**Unclosed obligations.** Typed geometric signatures and unavailable prebuilt line module; Bounded affine-flag dimension and adjoint transfer.
+
+**Prototype boundary.** Only the ordinary-product length/dimension inequality is typed; the bounded nonempty geometric fibre and length interpretations are omitted. The Demazure-product factor differs and is stated in the document.
+
+## Semi-infinite geometry, ULA and relative perversity
+
+`GeometricSatakeAndFusion:GS1`
+
+Constant term is the plus pull–push functor with Braden’s minus comparison on eligible monodromic objects. Semi-infinite affineness and the rational MV description are geometric inputs, while integral ULA and flatness are proved through FS’s constant-term criterion. The relative perverse structure uses distinct geometric untilts and their cell shifts. EDC.5 supplies scheme perversity; L1/L3 transport the perfect scheme charts; EDS supplies the generated/Ind extension. Standard and costandard objects keep their integral map, with rational torsion comparison isolated. The MV node retains its integrated id beginning GS0:Witt-geometry for compatibility, but its parent stage and realised target are GS1. Acceptance includes the torus shift, a nonflat coefficient module, nonempty intersections, the quasi-minuscule infinity term and fixed-model trace normalization.
+
+### Semi-infinite strata and constant terms
+
+`GeometricSatakeAndFusion:GS1/semi-infinite-orbits-and-hyperbolic-localization` — construction. Proposed declaration: `TauCeti.Suggested.GeometricSatake.constantTerm`.
+
+For a parabolic P⁺⊂G with Levi M and opposite P⁻, Hck_{P±}→Hck_G and Hck_{P±}→Hck_M give CT_P=R(p⁺)_!(q⁺)*. On bounded monodromic objects it identifies with R(p⁻)_*R(q⁻)!. For a Borel the geometric strata are S_λ=L U·λ(ξ), and the union of strata with cocenter weight ν′≤ν is closed as in VI.3.1; for a Borel this is the coroot order on all coweights, without requiring dominance; the attracting and repelling decompositions come from a regular central cocharacter of M.
+
+**Hypotheses and conventions.** G split for labels; bounded quasicompact Schubert support; coefficients killed by an integer prime to p initially, with derived adic passage supplied by L0.
+
+**Construction or proof.**
+
+1. Use RG’s parabolic/Levi and Iwasawa decompositions to construct the locally closed strata.
+2. Verify FS IV.6.1’s finite attracting/repelling decomposition on each bound.
+3. Import the diamond hyperbolic-localization theorem, base change, duality and ULA preservation from VS1; apply it to the maps of Hecke stacks.
+
+**Direct prerequisites.** `GeometricSatakeAndFusion:GS0:loop-geometry/schubert-bounds-and-properness`, `ReductiveGroupsPartII:RG2.4`, `VStackSheavesAndLisseCategories:VS0/artin-v-stack-definition`, `VStackSheavesAndLisseCategories:VS1`, `DiamondSixOperations:S3/upper-shriek`, `DiamondSixOperations:S3/adjunction-calculus`, `DiamondSixOperations:S3/verdier-duality-lower-shriek`, `AdicCoefficientsAndComparisons:L0/derived-I-complete-etale-category`, `AdicCoefficientsAndComparisons:L0/adic-coefficient-limit`, `AdicCoefficientsAndComparisons:L0/completed-tensor-and-colimits`, `AdicCoefficientsAndComparisons:L0/six-operations-for-adic-coefficients`, `VStackSheavesAndLisseCategories:VS0`.
+
+**Sources.** [FS-geometrization](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), VI.3.1–VI.3.5, pp. 201–206.
+
+**Consumers and design of the API.**
+
+- FS VI.6.1: ULA is detected by constant terms after the weight shifts.
+- FS VI.7.4/VI.7.7: Constant terms recognize perversity and coefficient flatness.
+
+| API declaration | Role | Mathematical contract |
+| --- | --- | --- |
+| `TauCeti.Suggested.GeometricSatake.constantTerm_formula` | characterisation | The plus constant-term functor is q-plus pullback followed by p-plus shriek pushforward. |
+| `TauCeti.Suggested.GeometricSatake.constantTerm_minus_comparison` | equivalence | On bounded monodromic complexes the plus formula is naturally isomorphic to q-minus exceptional pullback followed by p-minus star pushforward. |
+| `TauCeti.Suggested.GeometricSatake.constantTerm_map_comp` | functoriality | Constant term preserves composition of morphisms as a genuine functor. |
+
+| Unit test | Kind | Required outcome |
+| --- | --- | --- |
+| `TauCeti.Suggested.GeometricSatake.ct_torus` | degenerate | For G=T with identity correspondence, constant term is the identity functor. |
+| `TauCeti.Suggested.GeometricSatake.ct_point_evaluation` | computation | The plus formula evaluates to p-shriek of q-star on every object. |
+| `TauCeti.Suggested.GeometricSatake.ct_order` | compatibility | Composition agrees with Mathlib Functor.comp in pullback-then-pushforward order. |
+
+**Acceptance.** For G=T the constant term is the identity; plus and minus formulas need monodromicity.
+
+**Unclosed obligations.** Typed geometric signatures and unavailable prebuilt line module.
+
+**Prototype boundary.** The plus/minus comparison omits monodromicity and the geometric correspondence hypotheses. The functor type and plus composition are concrete; hyperbolic localization is imported from VS1.
+
+**Planet:** Constant term functor.
+
+### Affine semi-infinite intersections
+
+`GeometricSatakeAndFusion:GS1/semi-infinite-affineness` — theorem. Proposed declaration: `TauCeti.Suggested.GeometricSatake.semiInfiniteBoundAffine`.
+
+On the Witt special fibre, S_λ∩Gr_{≤μ} is affine and perfectly finitely presented. It is the nonvanishing locus of a section of a positive power of the ample determinant line on the appropriate closed weight-bound union. Nonempty intersections with the exact μ-cell are equidimensional of dimension ⟨ρ,μ+λ⟩.
+
+**Hypotheses and conventions.** Split group; fixed perfect field; nonempty for the dimension assertion; integral coefficient freeness does not follow from cycle counting.
+
+**Construction or proof.**
+
+1. Use the faithful representation and a highest-weight determinant section to express the semi-infinite weight condition as a nonvanishing locus (VI.3.7).
+2. Import A_inf lattice extension needed to define the section; then apply the GS0 determinant ampleness theorem.
+3. Use VI.3.8 and the minimal convolution/flag argument for equidimensionality, keeping empty intersections separate.
+
+**Direct prerequisites.** `GeometricSatakeAndFusion:GS1/semi-infinite-orbits-and-hyperbolic-localization`, `GeometricSatakeAndFusion:GS0:Witt-geometry/ampleness-via-keel`, `RelativeFarguesFontaine:RF4:G-torsors`, `ReductiveGroupsPartII:RG2.5`, `SchemeAndStackFoundations:SF.5`.
+
+**Sources.** [FS-geometrization](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), VI.3.7–VI.3.8, pp. 206–207.
+
+**Acceptance.** For a torus the nonempty intersection is a point; λ outside the weights gives an empty intersection.
+
+**Unclosed obligations.** Typed geometric signatures and unavailable prebuilt line module.
+
+**Prototype boundary.** X must be the specified nonempty semi-infinite intersection on its pfp model. General perfect-space affineness requires the SF model interface.
+
+### Mirković–Vilonen intersections
+
+`GeometricSatakeAndFusion:GS0:Witt-geometry/semi-infinite-intersections-and-MV-cycles` — theorem. Proposed declaration: `TauCeti.Suggested.GeometricSatake.mvCycleDimension`.
+
+For the rational special-fibre category over k̄, the top-dimensional irreducible components of the nonempty S_λ∩Gr_μ give the weight-cycle description of H_c^{⟨2ρ,λ⟩}(S_λ,IC_μ). The intersection dimension is ⟨ρ,μ+λ⟩; unshifted constant coefficients on its open top-dimensional pieces occur in degree ⟨2ρ,μ+λ⟩. Cycle normalization is relative to a fixed finite model, since different perfection models can rescale trace classes by powers of p.
+
+**Hypotheses and conventions.** Rational ℓ-adic coefficients; IC perverse normalization [⟨2ρ,μ⟩]; choose model; no assertion of a canonical integral cycle basis.
+
+**Construction or proof.**
+
+1. Use semi-infinite dimensions and the rational concentration theorem.
+2. Apply top compact-support cohomology on fixed finite-type models and étale-topos invariance.
+3. Normalize fundamental classes on those models; Zhu A.3.3 does not supply a model-independent trace under Frobenius.
+
+**Direct prerequisites.** `GeometricSatakeAndFusion:GS1/semi-infinite-affineness`, `GeometricSatakeAndFusion:GS1/rational-weight-concentration`, `EtaleDualityAndPerverseSheaves:EDC.5/intersection-complex`, `GeometricSatakeAndFusion:GS0:Witt-geometry/perfect-model-and-etale-comparison`.
+
+**Sources.** [Zhu17](https://annals.math.princeton.edu/wp-content/uploads/annals-v185-n2-p02-p.pdf), 2.8–2.9, pp. 434–436; A.3.3, pp. 479–480.
+
+**Acceptance.** The nonempty torus case has one component and weight dimension one.
+
+**Unclosed obligations.** Rational MV trace normalization on perfect models; Typed geometric signatures and unavailable prebuilt line module.
+
+**Prototype boundary.** Only the normalized dimension equality is typed; the nonempty Schubert/semi-infinite intersection, MV components and rational trace model are omitted.
+
+**Planet:** Mirković–Vilonen cycles.
+
+### Prounipotent equivariance invariance
+
+`GeometricSatakeAndFusion:GS1/prounipotent-equivariance` — theorem. Proposed declaration: `TauCeti.Suggested.GeometricSatake.prounipotentEquivariance`.
+
+For a group with a finite congruence filtration whose graded pieces are affine vector-group diamonds, forgetting equivariance gives an equivalence on bounded constructible derived categories with prime-to-p coefficients. Applied to L⁺_mG on a bounded Schubert locus, sufficiently deep congruence equivariance adds no data.
+
+**Hypotheses and conventions.** Finite truncation/filtration and bounded support; torsion coefficients of order prime to p, then derived adic limit.
+
+**Construction or proof.**
+
+1. Use S-trivial compact-support cohomology of affine space and the equivariant descent nerve.
+2. Induct on the finite filtration, then on degree-one layers in the ordered cover.
+3. Apply the finite action truncation; do not apply finite-dimensional arguments directly to the full loop group.
+
+**Direct prerequisites.** `GeometricSatakeAndFusion:GS0:Schubert-smoothness/truncation-of-the-loop-action`, `GeometricSatakeAndFusion:GS0:loop-geometry/congruence-filtration-and-graded-pieces`, `DiamondSixOperations:S4/cohomologically-smooth`, `DiamondSixOperations:S4/smooth-composition`, `DiamondSixOperations:S4/smooth-stable-under-base-change`, `DiamondSixOperations:S4/smooth-descent-along-smooth-surjection`, `DiamondSixOperations:S5/ball-smooth`, `DiamondSixOperations:S5/analytic-smooth-is-cohomologically-smooth`, `AdicCoefficientsAndComparisons:L0/derived-I-complete-etale-category`, `AdicCoefficientsAndComparisons:L0/adic-coefficient-limit`, `AdicCoefficientsAndComparisons:L0/completed-tensor-and-colimits`, `AdicCoefficientsAndComparisons:L0/six-operations-for-adic-coefficients`, `DiamondSixOperations:S3/upper-shriek`, `DiamondSixOperations:S3/adjunction-calculus`, `DiamondSixOperations:S3/verdier-duality-lower-shriek`.
+
+**Sources.** [FS-geometrization](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), VI.4.1, pp. 207–208.
+
+**Acceptance.** A vector group has only the trivial bounded prime-to-p equivariant local system; this fails as an unrestricted p-torsion assertion.
+
+**Unclosed obligations.** Typed geometric signatures and unavailable prebuilt line module.
+
+**Prototype boundary.** D/DEq must be the supplied bounded complex and prounipotent-equivariant categories. Smoothness and pro-unipotent hypotheses are omitted.
+
+### Conservativity of constant terms
+
+`GeometricSatakeAndFusion:GS1/constant-term-conservativity` — theorem. Proposed declaration: `TauCeti.Suggested.GeometricSatake.constantTermConservative`.
+
+For split G and a Borel B, CT_B is conservative on bounded Hecke complexes with quasicompact Schubert support. After a splitting extension this supplies the corresponding criterion for general G/E.
+
+**Hypotheses and conventions.** Bounded support and monodromic/positive-loop equivariance; prime-to-p coefficients.
+
+**Construction or proof.**
+
+1. Use the closed semi-infinite filtration and choose an extremal nonzero stratum.
+2. Prounipotent invariance and hyperbolic localization identify its detecting constant term.
+3. Descend conservativity along the splitting cover.
+
+**Direct prerequisites.** `GeometricSatakeAndFusion:GS1/semi-infinite-orbits-and-hyperbolic-localization`, `GeometricSatakeAndFusion:GS1/prounipotent-equivariance`, `GeometricSatakeAndFusion:GS0:loop-geometry/generic-galois-descent`.
+
+**Sources.** [FS-geometrization](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), VI.4.2, pp. 208–209.
+
+**Acceptance.** For a torus the detecting functor is identity; arbitrary unbounded support is excluded.
+
+**Unclosed obligations.** Typed geometric signatures and unavailable prebuilt line module.
+
+**Prototype boundary.** CT must be the geometric torus constant term on the bounded-support category; its geometric hypotheses are omitted.
+
+### ULA Hecke complexes
+
+`GeometricSatakeAndFusion:GS1/ULA-sheaves-on-the-hecke-stack` — construction. Proposed declaration: `TauCeti.Suggested.GeometricSatake.ulaHeckeCategory`.
+
+D^ULA(Hck_G/S,Λ) is the full subcategory of complexes with bounded quasicompact Schubert support whose pullback to Gr_G is universally locally acyclic over S. Switching the two torsors preserves this condition. On one leg over Spd O_C this is equivalent to requiring that every open-cell restriction along a geometric section is locally constant with perfect fibre.
+
+**Hypotheses and conventions.** Support can be locally bounded on the base; a fixed bound is used in each argument. General ULA and stack formalism imported from VS1.
+
+**Construction or proof.**
+
+1. Use the smooth truncated positive-loop quotient charts and VS1’s ULA descent.
+2. VI.6.4 identifies ULA via constant terms. VI.6.5 reduces one-leg ULA to stratum restrictions.
+3. Demazure generators and prounipotent invariance prove the reverse implication; no arbitrary collision-version of 6.5 is asserted.
+
+**Direct prerequisites.** `GeometricSatakeAndFusion:GS1/prounipotent-equivariance`, `GeometricSatakeAndFusion:GS0:loop-geometry/affine-flag-demazure`, `VStackSheavesAndLisseCategories:VS1/ula-for-artin-v-stacks`, `GeometricSatakeAndFusion:GS0:Schubert-smoothness/truncation-of-the-loop-action`, `mathlib:Action`.
+
+**Sources.** [FS-geometrization](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), VI.6.1–VI.6.5, pp. 211–214.
+
+**Consumers and design of the API.**
+
+- FS VI.6.1–VI.6.5: CT criterion and Demazure generation control ULA objects.
+- FS VI.8.1(i): Convolution composes proper relative ULA kernels.
+
+| API declaration | Role | Mathematical contract |
+| --- | --- | --- |
+| `TauCeti.Suggested.GeometricSatake.ulaHeckeCategory_finite_action` | compatibility | The typed equivariant-object core is Action DU H, where DU is the supplied ULA category and H is a finite jet group on the chosen bound. |
+| `TauCeti.Suggested.GeometricSatake.ulaHeckeCategory_forget` | projection | Forget positive-loop equivariance to the underlying ULA object, keeping its intertwining morphisms. |
+| `TauCeti.Suggested.GeometricSatake.ulaHeckeCategory_trivial_action` | constructor | A ULA object has the trivial finite-jet action whenever this is the desired equivariance. |
+
+| Unit test | Kind | Required outcome |
+| --- | --- | --- |
+| `TauCeti.Suggested.GeometricSatake.ula_trivial_group` | degenerate | For the trivial group, an equivariant object has no additional automorphism labels. |
+| `TauCeti.Suggested.GeometricSatake.ula_intertwining` | non-example | A morphism between equivariant ULA objects must intertwine every group element; an arbitrary underlying morphism is insufficient. |
+| `TauCeti.Suggested.GeometricSatake.ula_action_identity` | compatibility | The finite-jet action obeys the existing Action identity law. |
+
+**Acceptance.** The unit complex is ULA; a locally constant but nonperfect coefficient complex is excluded; one-leg stratum recognition is not asserted at collisions.
+
+**Unclosed obligations.** Stack enhancement and coherent Ind convolution; Typed geometric signatures and unavailable prebuilt line module.
+
+**Prototype boundary.** DU is imported as the ULA category, not defined by an unknown proposition. Action DU H is only the discrete equivariant-object core at a chosen level; smooth geometric action/descent, bounded supports, and enhanced ULA kernels are not encoded.
+
+**Planet:** ULA Hecke complexes.
+
+### ULA recognition by constant terms
+
+`GeometricSatakeAndFusion:GS1/ula-constant-term-criterion` — theorem. Proposed declaration: `TauCeti.Suggested.GeometricSatake.ulaConstantTermPerfect`.
+
+For a bounded Hecke complex A, the following are equivalent: A is ULA; CT_B A is ULA; for every D→Div^d the torus constant-term pushforward over D is locally constant with perfect stalks. On one-leg or disjoint-leg bases the ULA category is stable under Verdier duality, tensor and internal Hom, cell !/* extensions and cell !/* restrictions.
+
+**Hypotheses and conventions.** Split G and Borel for labels; the disjoint-leg restriction is essential for the complete cell calculus.
+
+**Construction or proof.**
+
+1. Use VI.6.3’s smooth recognition and finite truncated actions.
+2. Prounipotent invariance, Demazure generators and conservative CT prove VI.6.4.
+3. Apply VI.6.6 one leg at a time on the disjoint locus for VI.6.8.
+
+**Direct prerequisites.** `GeometricSatakeAndFusion:GS1/ULA-sheaves-on-the-hecke-stack`, `GeometricSatakeAndFusion:GS1/constant-term-conservativity`, `VStackSheavesAndLisseCategories:VS1`, `VStackSheavesAndLisseCategories:VS1/ula-for-artin-v-stacks`, `DiamondSixOperations:S3/upper-shriek`, `DiamondSixOperations:S3/adjunction-calculus`, `DiamondSixOperations:S3/verdier-duality-lower-shriek`.
+
+**Sources.** [FS-geometrization](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), VI.6.4–VI.6.6, VI.6.8, pp. 212–215.
+
+**Acceptance.** No claim that all four cell functors preserve ULA over an arbitrary collision family.
+
+**Unclosed obligations.** Typed geometric signatures and unavailable prebuilt line module.
+
+**Prototype boundary.** Only the locally finite-projective coefficient core is typed; the bounded constant-term perfect complex, étale locality and ULA criterion are omitted.
+
+### One-leg ULA special/generic comparison
+
+`GeometricSatakeAndFusion:GS1/integral-family-comparison` — comparison. Proposed declaration: `TauCeti.Suggested.GeometricSatake.oneLegULAComparison`.
+
+For a split integral model and one leg, restriction induces equivalences D^ULA(Hck_{Spd O_C},Λ)≃D^ULA(Hck_{Spd C},Λ)≃D^ULA(Hck_{Spd k̄},Λ), compatible with finite Schubert bounds and coefficient change. The special side is identified with perfected scheme charts by the L1/L3 comparison; this is an actual restriction equivalence, not a formal analogy between lattice rings.
+
+**Hypotheses and conventions.** Algebraically closed complete untilt C; split integral model; bounded quasicompact support; prime-to-p/derived adic coefficients.
+
+**Construction or proof.**
+
+1. Use the cellwise locally constant perfect criterion, whose restriction over the strictly local trait is an equivalence.
+2. Induct on finite Schubert stratifications with gluing; Demazure generators give essential surjectivity.
+3. Use VI.6.7, L1/L3 and perfection invariance to identify the scheme-valued special category.
+
+**Direct prerequisites.** `GeometricSatakeAndFusion:GS1/ula-constant-term-criterion`, `GeometricSatakeAndFusion:GS0:Witt-geometry/integral-family-bounded-properness`, `AdicCoefficientsAndComparisons:L1/char-p-scheme-diamond-and-comparison-functor`, `AdicCoefficientsAndComparisons:L3/rf-shriek-comparison-27-4`, `EtaleDualityAndPerverseSheaves:EDC.5/perverse-recollement`, `AdicCoefficientsAndComparisons:L3/full-faithfulness-27-2`, `AdicCoefficientsAndComparisons:L3/commutation-and-adjoints-27-1-27-3`.
+
+**Sources.** [FS-geometrization](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), VI.6.7, p. 214; VI.7.4, pp. 217–219.
+
+**Acceptance.** An arbitrary non-ULA complex is not transported by this equivalence; split model fixed throughout.
+
+**Unclosed obligations.** Typed geometric signatures and unavailable prebuilt line module.
+
+**Prototype boundary.** The supplied categories must be the one-leg ULA categories with compatible finite supports. Arbitrary multi-leg collisions are excluded in the document.
+
+### Relative perverse t-structure
+
+`GeometricSatakeAndFusion:GS1/relative-perverse-t-structure` — construction. Proposed declaration: `TauCeti.Suggested.GeometricSatake.relativePerverse`.
+
+On the bounded-support derived category over a leg base S, define perverse ≤0 by the condition that at each geometric point with r distinct untilts and open-cell labels μ₁,…,μ_r, the restriction lies in ordinary degrees ≤−Σ⟨2ρ,μ_i⟩. The opposite aisle is obtained by the glued costalk inequalities. These form a t-structure; pullback in S is t-exact. On ULA objects the relative condition is detected on geometric fibres.
+
+**Hypotheses and conventions.** Use distinct local factors at collisions; bounded support and locally finite Schubert stratification. Stable enhancement and presentability are imported from EDS.
+
+**Construction or proof.**
+
+1. Use the stable enhanced category and Lurie HA 1.4.4.11 to generate the aisle and right orthogonal.
+2. Glue finite Schubert pieces; compare on special finite models with EDC.5 via L1/L3.
+3. Use hyperbolic localization and ULA to prove the geometric-fibre criterion and base-change t-exactness.
+
+**Direct prerequisites.** `GeometricSatakeAndFusion:GS1/semi-infinite-affineness`, `GeometricSatakeAndFusion:GS1/integral-family-comparison`, `EtaleDualityAndPerverseSheaves:EDC.5/perverse-t-structure`, `EtaleDualityAndPerverseSheaves:EDC.5/perverse-recollement`, `EnhancedDerivedSheaves:E5:abstract/stable-infinity-category`, `EnhancedDerivedSheaves:E5:presentability/ind-completion`, `EnhancedDerivedSheaves:E5:presentability`, `mathlib:CategoryTheory.Triangulated.TStructure`, `AdicCoefficientsAndComparisons:L3/full-faithfulness-27-2`, `AdicCoefficientsAndComparisons:L3/commutation-and-adjoints-27-1-27-3`.
+
+**Sources.** [FS-geometrization](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), VI.7.1–VI.7.4, pp. 215–219.
+
+**Consumers and design of the API.**
+
+- FS VI.7.7–VI.7.8: Flat objects and Satake are defined in this relative heart.
+- FS VI.8.1(ii): t-exact constant terms detect convolution bounds.
+
+| API declaration | Role | Mathematical contract |
+| --- | --- | --- |
+| `TauCeti.Suggested.GeometricSatake.relativePerverse_le` | characterisation | On ULA complexes, the nonpositive aisle is detected by the normalized torus constant term in nonpositive ordinary degrees. |
+| `TauCeti.Suggested.GeometricSatake.relativePerverse_ge` | characterisation | On ULA complexes, the nonnegative aisle is detected by normalized torus constant term in nonnegative ordinary degrees. |
+| `TauCeti.Suggested.GeometricSatake.relativePerverse_existing_heart` | compatibility | Its heart is the intersection of the two degree-zero aisles, using Mathlib TStructure.heart. |
+
+| Unit test | Kind | Required outcome |
+| --- | --- | --- |
+| `TauCeti.Suggested.GeometricSatake.perverse_torus` | degenerate | For a torus, normalized constant term is the identity and the relative perverse structure is the ordinary one. |
+| `TauCeti.Suggested.GeometricSatake.perverse_zero` | computation | The zero object belongs to the relative perverse heart. |
+| `TauCeti.Suggested.GeometricSatake.perverse_shifted_cell` | compatibility | A smooth d-dimensional cell uses the normalization Λ[d], and on a normalized torus constant term its degree is zero. |
+
+**Acceptance.** On a smooth μ-cell the constant sheaf shifted by ⟨2ρ,μ⟩ is perverse; colliding legs use the cell label of their sum.
+
+**Unclosed obligations.** Typed geometric signatures and unavailable prebuilt line module.
+
+**Prototype boundary.** D and DT denote the imported ULA categories with their triangulated structures; CT denotes the conservative normalized constant-term functor. The assumptions asserting that these data arise from the geometric Hecke family are omitted. This is an actual TStructure signature, not a proposition-valued stand-in.
+
+**Planet:** Relative perverse t-structure.
+
+### Equivariant perverse descent and constant terms
+
+`GeometricSatakeAndFusion:GS1/perverse-descent-and-shifted-ct` — theorem. Proposed declaration: `TauCeti.Suggested.GeometricSatake.perverseConstantTermExact`.
+
+Pullback of perverse Hecke objects to Gr is fully faithful. For A≤0 and B≥0 the derived Hom is connective. Shifted CT_B[deg⟨2ρ,−⟩] is t-exact and conservative, and the relative t-structure commutes with base change.
+
+**Hypotheses and conventions.** Finite bounded charts and positive-loop equivariance; ordinary scheme perverse input is EDC.5, not EDC.7.
+
+**Construction or proof.**
+
+1. Use FS 7.3: for a connected cohomologically smooth map with section, H⁰Rf_*f*A→H⁰A is an isomorphism in the connective range.
+2. Combine finite action truncation with perverse gluing for full faithfulness.
+3. Apply MV dimensions and early affine perverse vanishing on the special fibre, then the one-leg comparison and general geometric-point criterion.
+
+**Direct prerequisites.** `GeometricSatakeAndFusion:GS1/relative-perverse-t-structure`, `GeometricSatakeAndFusion:GS1/constant-term-conservativity`, `GeometricSatakeAndFusion:GS0:Schubert-smoothness/truncation-of-the-loop-action`, `EtaleDualityAndPerverseSheaves:EDC.5/affine-perverse-artin-vanishing`, `AdicCoefficientsAndComparisons:L3/rf-shriek-comparison-27-4`.
+
+**Sources.** [FS-geometrization](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), VI.7.2–VI.7.4, pp. 216–219.
+
+**Acceptance.** For a torus the shift is zero; signs must make the μ-cell constant sheaf in perverse degree zero.
+
+**Unclosed obligations.** Typed geometric signatures and unavailable prebuilt line module.
+
+**Prototype boundary.** CT must include the root-degree shift, and D the geometric ULA category. Smooth finite-jet stack descent and that identification are omitted.
+
+### Flat perverse objects
+
+`GeometricSatakeAndFusion:GS1/flat-perverse-objects` — definition. Proposed declaration: `TauCeti.Suggested.GeometricSatake.flatPerverse`.
+
+A perverse object A is coefficient-flat if A⊗^L_Λ M is perverse for every Λ-module M. Among ULA objects this is equivalent to shifted torus constant terms having finite projective fibres concentrated in degree zero. Flatness defines a full subcategory; it is not automatic for integral perverse objects.
+
+**Hypotheses and conventions.** Prime-to-p torsion rings and compatible adic systems; the ordinary tensor test uses every module, not just Λ itself.
+
+**Construction or proof.**
+
+1. Use t-exact conservative shifted CT and its compatibility with derived coefficient tensors.
+2. Reduce to the algebraic condition that a perfect Λ-complex remains concentrated in degree zero after every tensor.
+3. Use Module.Flat/projectivity on finite perfect fibres; retain the all-module test.
+
+**Direct prerequisites.** `GeometricSatakeAndFusion:GS1/perverse-descent-and-shifted-ct`, `GeometricSatakeAndFusion:GS1/ula-constant-term-criterion`, `mathlib:Module.Flat`, `mathlib:Module.Projective`, `mathlib:Module.Flat.iff_lTensor_preserves_injective_linearMapₛ`.
+
+**Sources.** [FS-geometrization](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), VI.7.7, pp. 220–221.
+
+**Consumers and design of the API.**
+
+- FS VI.7.7–VI.7.8: Satake imposes coefficient flatness in addition to perversity.
+- FS VI.8.1(iii): Tensoring by arbitrary modules tests flatness after convolution.
+
+| API declaration | Role | Mathematical contract |
+| --- | --- | --- |
+| `TauCeti.Suggested.GeometricSatake.flatPerverse_iff` | characterisation | An object is flat perverse when it is in the heart and remains there after derived coefficient tensor with every R-module. |
+| `TauCeti.Suggested.GeometricSatake.flatPerverse_module` | compatibility | On the one-point torus, coefficient flatness is Module.Flat: tensoring any injective linear map stays injective. |
+| `TauCeti.Suggested.GeometricSatake.flatPerverse_heart` | projection | A flat-perverse object belongs to the Mathlib t-structure heart. |
+
+| Unit test | Kind | Required outcome |
+| --- | --- | --- |
+| `TauCeti.Suggested.GeometricSatake.flat_perverse_zero` | degenerate | The zero object is flat perverse when coefficient tensors preserve zero. |
+| `TauCeti.Suggested.GeometricSatake.flat_module_field` | computation | Every vector space over a coefficient field is flat, agreeing with the point-torus test. |
+| `TauCeti.Suggested.GeometricSatake.flat_module_integral_nonexample` | non-example | Z/2 as a Z-module is not flat; being concentrated in perverse degree zero does not suffice. |
+
+**Acceptance.** Over Z/ℓ² the module Λ/ℓ has higher Tor and is not coefficient-flat.
+
+**Unclosed obligations.** Typed geometric signatures and unavailable prebuilt line module.
+
+**Prototype boundary.** The all-module derived tensor functors come from the coefficient supplier. The predicate is fully stated using the existing t-structure heart; the module compatibility specializes it to the existing injectivity characterization of Module.Flat. Derived tensor is not identified with ordinary tensor without flatness.
+
+**Planet:** Flat perversity.
+
+### Standard and costandard objects
+
+`GeometricSatakeAndFusion:GS1/standard-costandard-objects` — construction. Proposed declaration: `TauCeti.Suggested.GeometricSatake.standardCostandard`.
+
+For a one-leg μ-cell of dimension d_μ, Δ_μ=pH⁰j_{μ!}Λ[d_μ] and ∇_μ=pH⁰Rj_{μ*}Λ[d_μ]. These objects are ULA and flat perverse, commute with base/coefficients, and Verdier duality interchanges them with Tate twist d_μ. The canonical map Δ_μ→∇_μ is retained integrally.
+
+**Hypotheses and conventions.** One-leg base, split model; IC has perverse normalization [d_μ], not [2d_μ].
+
+**Construction or proof.**
+
+1. Apply cell ULA calculus and perverse gluing.
+2. Use shifted CT and affine perverse vanishing to prove finite free fibres.
+3. Use relative duality on the smooth open cell for the Tate twist. The rational isomorphism and uniform torsion bound are a separate target.
+
+**Direct prerequisites.** `GeometricSatakeAndFusion:GS1/flat-perverse-objects`, `GeometricSatakeAndFusion:GS1/ula-constant-term-criterion`, `GeometricSatakeAndFusion:GS1/relative-perverse-t-structure`, `EtaleDualityAndPerverseSheaves:EDC.5/affine-perverse-artin-vanishing`, `DiamondSixOperations:S3/upper-shriek`, `DiamondSixOperations:S3/adjunction-calculus`, `DiamondSixOperations:S3/verdier-duality-lower-shriek`.
+
+**Sources.** [FS-geometrization](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), VI.7.5 and VI.7.9, pp. 219–222.
+
+**Consumers and design of the API.**
+
+- FS VI.7.16–VI.7.19: Uniform bounded torsion compares standard and costandard objects.
+- Zhu 2.2.2: Rational IC generation uses normalized minimal objects.
+
+| API declaration | Role | Mathematical contract |
+| --- | --- | --- |
+| `TauCeti.Suggested.GeometricSatake.standardCostandard_formula` | characterisation | The standard and costandard objects are perverse H⁰ of j-shriek and j-star of the shifted constant local system Λ[d], respectively. |
+| `TauCeti.Suggested.GeometricSatake.standardCostandard_map` | data | Adjunction gives the standard-to-costandard map; its perverse image is the IC object. |
+| `TauCeti.Suggested.GeometricSatake.standardCostandard_restriction` | compatibility | Both restrict to the same normalized local system on the open cell. |
+
+| Unit test | Kind | Required outcome |
+| --- | --- | --- |
+| `TauCeti.Suggested.GeometricSatake.standard_zero_cell` | degenerate | For a point cell with identity inclusions the pair is the same constant object. |
+| `TauCeti.Suggested.GeometricSatake.standard_open_restriction` | computation | The costandard object restricts to Λ[d] on its own cell. |
+| `TauCeti.Suggested.GeometricSatake.standard_h0_normalization` | non-example | The construction takes perverse H⁰ and the geometric dimension shift before forming the standard-to-costandard map; unshifted ordinary H⁰ is not substituted. |
+
+**Acceptance.** At μ=0 both are the unit; over integral coefficients their canonical map need not be an isomorphism.
+
+**Unclosed obligations.** Typed geometric signatures and unavailable prebuilt line module.
+
+**Prototype boundary.** jshriek/jstar, jpull, h0 and constant must be the indicated geometric functors and local system. Their geometric identities are omitted, while the existing shift/functor/object types fix the construction order.
+
+**Planet:** Standard Satake objects.
+
+### Rational parity and integral torsion bounds
+
+`GeometricSatakeAndFusion:GS1/standard-costandard-torsion-bound` — theorem. Proposed declaration: `TauCeti.Suggested.GeometricSatake.standardCostandardBoundedTorsion`.
+
+For fixed μ, Δ_μ→∇_μ is an isomorphism after rationalization, and over Z_ℓ its kernel and cokernel are killed by some ℓ^a uniformly under base change. The rational special-fibre equivariant perverse category is semisimple with simple IC_μ indexed by dominant coweights and constant equivariant local systems.
+
+**Hypotheses and conventions.** Rational statement requires decomposition/parity and connected stabilizers; the integral category is not semisimple.
+
+**Construction or proof.**
+
+1. Import EDC.7’s rational proper direct-image decomposition and parity on Demazure generators.
+2. Connected stabilizers rule out additional equivariant simple local systems.
+3. Finite-generation and base-change compatibility of fixed-bound CT detect a uniform torsion exponent; this late result is not a prerequisite of early geometric smoothness or the ULA criterion.
+
+**Direct prerequisites.** `GeometricSatakeAndFusion:GS1/standard-costandard-objects`, `EtaleDualityAndPerverseSheaves:EDC.7/proper-direct-image-decomposition`, `ReductiveGroupsPartII:RG2.3`, `GeometricSatakeAndFusion:GS0:Witt-geometry/perfect-model-and-etale-comparison`.
+
+**Sources.** [FS-geometrization](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), VI.7.5 end, pp. 219–220; Zhu 2.1, pp. 429–430.
+
+**Acceptance.** The assertion does not set a=0 and does not make integral extensions split.
+
+**Unclosed obligations.** Typed geometric signatures and unavailable prebuilt line module.
+
+**Prototype boundary.** M must be the indicated finite cone cohomology on a fixed bound after rational comparison. Uniformity in coefficients/degree and the geometry are omitted.
+
+### Rational special-fibre weights
+
+`GeometricSatakeAndFusion:GS1/rational-weight-concentration` — theorem. Proposed declaration: `TauCeti.Suggested.GeometricSatake.rationalWeightsFinite`.
+
+For rational equivariant perverse A on the Witt Grassmannian, H_c^i(S_λ,A)=0 unless i=⟨2ρ,λ⟩. The resulting weight functors are exact. For μ minuscule the weight multiplicities are one at Weyl orbit weights; for quasi-minuscule μ the zero-weight multiplicity is the number of simple roots of the relevant highest-root length. General concentration follows by generation from minimal convolutions.
+
+**Hypotheses and conventions.** k algebraically closed; rational coefficients only; CT normalization uses compact support.
+
+**Construction or proof.**
+
+1. Use Zhu 2.11’s minuscule flag and quasi-minuscule parahoric P¹ resolution; retain the section-at-infinity term missing in 2.2.13.
+2. Use the corrected twisted external product and finite-jet U-torsor descent in 2.17.
+3. Apply generation by minimal objects (2.16) and exact summands, plus early scheme semismallness for minimal convolution.
+
+**Direct prerequisites.** `GeometricSatakeAndFusion:GS1/semi-infinite-affineness`, `GeometricSatakeAndFusion:GS0:loop-geometry/affine-flag-demazure`, `GeometricSatakeAndFusion:GS1/standard-costandard-torsion-bound`, `EtaleDualityAndPerverseSheaves:EDC.5/semismall-pushforward-perverse`, `ReductiveGroupsPartII:RG2.4`.
+
+**Sources.** [Zhu17](https://annals.math.princeton.edu/wp-content/uploads/annals-v185-n2-p02-p.pdf), 2.7 and 2.11–2.17, pp. 434, 436–440.
+
+**Acceptance.** For the SL₃ highest root, the zero-weight dimension is two; the missing infinity contribution would give the wrong answer.
+
+**Unclosed obligations.** Rational MV trace normalization on perfect models; Quasi-minuscule infinity contribution and minimal generation; Typed geometric signatures and unavailable prebuilt line module.
+
+**Prototype boundary.** W must be the concentrated rational weight module of the specified IC object. Its MV basis and the degree-vanishing assertions require enhanced cohomology interfaces and are omitted.
+
+## Satake objects and convolution
+
+`GeometricSatakeAndFusion:GS2`
+
+This aggregate has two substages: the objects/correspondences and their closure/duals. Every underlying target is recorded once with the substage as parent and GS2 in its realised stages. The aggregate accepts coherent bounded convolution and its restriction to all three Satake conditions. It neither imports symmetric fusion to prove closure nor asserts that the total-cohomology filtration has a canonical tensor splitting.
+
+## Satake category, fibre functor and Hecke correspondences
+
+`GeometricSatakeAndFusion:GS2:correspondences`
+
+The full subcategory retains boundedness, ULA, relative perversity and coefficient flatness. Its fibre functor takes total cohomology in every integer degree and has finite projective locally constant fibres. The filtration by semi-infinite weights gives exact faithfulness. Verdier duality and normalized Levi constant terms preserve these objects. Convolution is first constructed in the enhanced ambient category, with proper finite bounds, a twisted external tensor and coherent associator/unit maps. The rational Witt special-fibre adapter proves semismallness and perversity with rational coefficients. Acceptance includes the zero object, exclusion of an object outside the heart, the torus sum of skyscraper labels, and the distinction between a bounded twisted product and an untwisted product.
+
+### Satake category
+
+`GeometricSatakeAndFusion:GS2:correspondences/satake-category-and-fibre-functor` — definition. Proposed declaration: `TauCeti.Suggested.GeometricSatake.satakeCategory`.
+
+Sat^I_G(S,Λ) is the full subcategory of the bounded-support Hecke derived category consisting of ULA, relative perverse, coefficient-flat objects. Equivariance is encoded by the Hecke stack. Pullback to Gr is fully faithful and the switch involution preserves the category. The category is additive and exact under sequences whose terms remain flat; it is not asserted to be abelian.
+
+**Hypotheses and conventions.** Split integral or generic descended setting; all three conditions are required.
+
+**Construction or proof.**
+
+1. Intersect the ULA subcategory with the relative perverse heart and the all-module flatness condition.
+2. Use VI.7.7 and perverse descent to obtain the finite-projective constant-term characterization.
+3. Use the switch and relative duality for the involution.
+
+**Direct prerequisites.** `GeometricSatakeAndFusion:GS1/ULA-sheaves-on-the-hecke-stack`, `GeometricSatakeAndFusion:GS1/flat-perverse-objects`, `GeometricSatakeAndFusion:GS1/perverse-descent-and-shifted-ct`, `mathlib:CategoryTheory.Triangulated.TStructure.Heart`, `mathlib:CategoryTheory.ObjectProperty.FullSubcategory`.
+
+**Sources.** [FS-geometrization](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), VI.7.8–VI.7.9, pp. 221–222.
+
+**Consumers and design of the API.**
+
+- FS VI.8: Convolution must preserve all three conditions.
+- HeckeStacksAndLocalShtukas:HS2: Satake complexes provide the Hecke kernel coefficients.
+
+| API declaration | Role | Mathematical contract |
+| --- | --- | --- |
+| `TauCeti.Suggested.GeometricSatake.satakeCategory_full_subcategory` | compatibility | Satake is the full subcategory of the supplied bounded ULA category whose underlying object is flat perverse. |
+| `TauCeti.Suggested.GeometricSatake.satakeCategory_inclusion` | projection | The full-subcategory inclusion forgets only the Satake flat-perverse condition and is fully faithful. |
+| `TauCeti.Suggested.GeometricSatake.satakeCategory_morphisms` | characterisation | A Satake morphism is the same underlying ULA morphism; no separate morphism condition is imposed. |
+
+| Unit test | Kind | Required outcome |
+| --- | --- | --- |
+| `TauCeti.Suggested.GeometricSatake.satake_zero` | degenerate | A zero ULA object whose underlying object is zero belongs to Satake. |
+| `TauCeti.Suggested.GeometricSatake.satake_inclusion_fully_faithful` | compatibility | Morphisms agree with those in the existing Mathlib ObjectProperty full-subcategory construction. |
+| `TauCeti.Suggested.GeometricSatake.satake_wrong_degree` | non-example | A ULA object outside the relative perverse heart is excluded from Satake. |
+
+**Acceptance.** A ULA object in the wrong perverse degree is excluded; Λ/ℓ over Λ=Z/ℓ² is excluded by flatness; the unit lies in Satake.
+
+**Unclosed obligations.** Typed geometric signatures and unavailable prebuilt line module.
+
+**Prototype boundary.** DU denotes the imported bounded-support ULA category and forgetULA its geometric inclusion. Boundedness is encoded in that input category, not in a new unknown proposition. The actual three-condition Satake subcategory uses Mathlib FullSubcategory.
+
+**Planet:** Satake category.
+
+### Satake cohomology functor
+
+`GeometricSatakeAndFusion:GS2:correspondences/satake-fibre-functor` — construction. Proposed declaration: `TauCeti.Suggested.GeometricSatake.satakeFibre`.
+
+F^I(A)=⊕_i H^iRπ_*(A∣Gr^I_G) is a locally constant sheaf of finite projective Λ-modules on the leg base. It is exact, faithful and conservative on Satake objects. It has the semi-infinite filtration whose graded pieces are shifted constant terms; over a general base this does not yet give a canonical splitting or a switch-invariant tensor identification.
+
+**Hypotheses and conventions.** Bounded support; A Satake; locally constant finite projectivity is part of the result.
+
+**Construction or proof.**
+
+1. Use proper support, CT filtration and flat-perverse recognition.
+2. The associated graded is finite projective concentrated in the normalized degrees, so the filtration proves finite projectivity and exactness.
+3. Conservative CT proves faithfulness/conservativity; preserve the filtration until the GS3 tensor comparison.
+
+**Direct prerequisites.** `GeometricSatakeAndFusion:GS2:correspondences/satake-category-and-fibre-functor`, `GeometricSatakeAndFusion:GS1/constant-term-conservativity`, `GeometricSatakeAndFusion:GS1/flat-perverse-objects`, `DiamondSixOperations:S2/lower-shriek`, `DiamondSixOperations:S2/lower-shriek-base-change`, `DiamondSixOperations:S2/projection-formula`, `mathlib:Module.Projective`, `AdicCoefficientsAndComparisons:L0/rational-constructible-coefficients`, `mathlib:Module.Finite`.
+
+**Sources.** [FS-geometrization](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), VI.7.10–VI.7.11, pp. 222–223.
+
+**Consumers and design of the API.**
+
+- FS VI.7.10–VI.7.11: The filtered constant-term comparison proves finite projectivity and exact faithfulness.
+- GS3 and GS4: The next part equips this functor with tensor compatibility and Tannakian reconstruction.
+
+| API declaration | Role | Mathematical contract |
+| --- | --- | --- |
+| `TauCeti.Suggested.GeometricSatake.satakeFibre_cohomology` | characterisation | The fibre at A is the direct sum of all integer-degree cohomology modules; bounded support makes only finitely many degrees nonzero. |
+| `TauCeti.Suggested.GeometricSatake.satakeFibre_finite_projective` | structure | The total cohomology module is finite and projective over the coefficient ring. |
+| `TauCeti.Suggested.GeometricSatake.satakeFibre_faithful` | structure | Conservative exact constant terms imply that total cohomology is a faithful functor on Satake. |
+
+| Unit test | Kind | Required outcome |
+| --- | --- | --- |
+| `TauCeti.Suggested.GeometricSatake.fibre_torus_rank_one` | computation | A torus skyscraper with one rank-one cohomology module has total cohomology R. |
+| `TauCeti.Suggested.GeometricSatake.fibre_zero` | degenerate | If all cohomology modules vanish, total cohomology is the zero module. |
+| `TauCeti.Suggested.GeometricSatake.fibre_existing_module` | compatibility | The fibre functor targets existing ModuleCat, and projectivity is the existing Module.Projective predicate. |
+
+**Acceptance.** For a torus skyscraper at λ, F is Λ of rank one; a noncanonical filtration splitting is not advertised as canonical.
+
+**Unclosed obligations.** Typed geometric signatures and unavailable prebuilt line module.
+
+**Prototype boundary.** S must be the actual Satake category and H the geometric cohomology functors. Finite support in degree and the CT filtration hypotheses are omitted from the finite-projectivity/faithfulness signatures. No canonical splitting or tensor identification is stated.
+
+**Planet:** Satake cohomology functor.
+
+### Verdier duality of Satake objects
+
+`GeometricSatakeAndFusion:GS2:correspondences/satake-verdier-duality` — theorem. Proposed declaration: `TauCeti.Suggested.GeometricSatake.satakeVerdierBiduality`.
+
+Relative Verdier duality preserves Satake, the biduality map A→D(D(A)) is an isomorphism, and F(D(A)) identifies with the Λ-linear dual of F(A). Normalized Levi constant terms CT_P[deg⟨2ρ_G−2ρ_M,−⟩] preserve Satake and are transitive for nested Levis.
+
+**Hypotheses and conventions.** ULA, flat perverse and bounded proper support; the normalization depends on the chosen parabolic.
+
+**Construction or proof.**
+
+1. Use ULA dualizability and biduality from VS1.
+2. Use reversed hyperbolic action, the shifted CT characterization and finite-projective module duality.
+3. Use proper relative duality for F and compose parabolic correspondences for transitivity.
+
+**Direct prerequisites.** `GeometricSatakeAndFusion:GS2:correspondences/satake-fibre-functor`, `GeometricSatakeAndFusion:GS1/flat-perverse-objects`, `VStackSheavesAndLisseCategories:VS1`, `VStackSheavesAndLisseCategories:VS1/ula-for-artin-v-stacks`, `DiamondSixOperations:S3/upper-shriek`, `DiamondSixOperations:S3/adjunction-calculus`, `DiamondSixOperations:S3/verdier-duality-lower-shriek`, `ReductiveGroupsPartII:RG2.5`.
+
+**Sources.** [FS-geometrization](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), VI.7.12–VI.7.13, pp. 223–224.
+
+**Acceptance.** On a one-leg smooth cell the dual of Λ[d] is Λ[d](d); the normalized Levi shift is zero for M=G.
+
+**Unclosed obligations.** Typed geometric signatures and unavailable prebuilt line module.
+
+**Prototype boundary.** S must be Satake and dual the relative Verdier duality. Levi normalization and geometric coefficient hypotheses are omitted.
+
+### Ambient Hecke convolution
+
+`GeometricSatakeAndFusion:GS2:correspondences/convolution-diagram` — construction. Proposed declaration: `TauCeti.Suggested.GeometricSatake.heckeConvolution`.
+
+The two-step Hecke stack has maps a:Hck×^{L⁺G}Hck→Hck×Hck (an L⁺G-torsor) and b to Hck (composition of modifications). On bounded support b is ind-proper with proper finite bounds. Define A⋆B=Rb_*a*(A⊠B), equivalently Rb_! for those bounds. Composition in the enhanced correspondence 2-category and Ind-extension give a coherent ambient monoidal structure with the unit supported on the trivial modification.
+
+**Hypotheses and conventions.** Use the stack quotient, not a naive product; derived external tensor over Λ; bounds required for pushforward. General correspondence coherence is supplied by EDS and VS0.
+
+**Construction or proof.**
+
+1. Build the stack of three torsors and two punctured isomorphisms; multiplication composes them.
+2. Trivialize the intermediate torsor only locally; descent gives a and proper bounded b via GS0.
+3. Apply proper base change and projection formula in the enhanced correspondence calculus, then extend across filtered support bounds.
+
+**Direct prerequisites.** `GeometricSatakeAndFusion:GS2:correspondences/satake-category-and-fibre-functor`, `GeometricSatakeAndFusion:GS0:loop-geometry/local-hecke-stack`, `GeometricSatakeAndFusion:GS0:Witt-geometry/integral-family-bounded-properness`, `GeometricSatakeAndFusion:GS0:Witt-geometry/flag-incidence-correspondences`, `DiamondSixOperations:S3/upper-shriek`, `DiamondSixOperations:S3/adjunction-calculus`, `DiamondSixOperations:S3/verdier-duality-lower-shriek`, `DiamondSixOperations:S2/lower-shriek`, `DiamondSixOperations:S2/lower-shriek-base-change`, `DiamondSixOperations:S2/projection-formula`, `VStackSheavesAndLisseCategories:VS0/artin-v-stack-definition`, `EnhancedDerivedSheaves:E5:presentability/universal-property-of-ind`, `EnhancedDerivedSheaves:E3`, `VStackSheavesAndLisseCategories:VS0`, `DiamondSixOperations:S2/exchange-pasting-coherence`.
+
+**Sources.** [FS-geometrization](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), VI.8 opening, pp. 224–225.
+
+**Consumers and design of the API.**
+
+- FS VI.8.1: ULA, perversity and flatness are proved for this ambient operation.
+- FS VI.8.2 and HS1: Proper ULA kernels provide convolution adjoints and Hecke functors.
+
+| API declaration | Role | Mathematical contract |
+| --- | --- | --- |
+| `TauCeti.Suggested.GeometricSatake.heckeConvolution_obj` | characterisation | A⋆B is b-star of a-pullback of the derived external product of A and B, with b proper on the chosen bounds. |
+| `TauCeti.Suggested.GeometricSatake.heckeConvolution_associator` | structure | The coherent correspondence calculus supplies the associator for convolution. |
+| `TauCeti.Suggested.GeometricSatake.heckeConvolution_unit` | structure | The unit is the identity-modification kernel and its left and right unit maps are isomorphisms. |
+| `TauCeti.Suggested.GeometricSatake.torusConvolutionLabels` | data | On a torus, convolution support is the Minkowski sum of the two finite coweight supports. |
+
+| Unit test | Kind | Required outcome |
+| --- | --- | --- |
+| `TauCeti.Suggested.GeometricSatake.convolution_unit` | degenerate | Convolving with the identity kernel returns the other kernel. |
+| `TauCeti.Suggested.GeometricSatake.convolution_torus_labels` | computation | For a torus, two skyscraper labels convolve to the skyscraper at their sum. |
+| `TauCeti.Suggested.GeometricSatake.convolution_twisted_diagram` | compatibility | The typed object formula keeps both a-star descent and b-star pushforward; substituting the external product alone does not satisfy it. |
+
+**Acceptance.** The unit acts on either side; changing an intermediate trivialization does not change the resulting complex.
+
+**Unclosed obligations.** Stack enhancement and coherent Ind convolution; Typed geometric signatures and unavailable prebuilt line module.
+
+**Prototype boundary.** The input functors must arise from the bounded torsor correspondence. Their properness, external derived tensor, support bounds, coherent correspondence composition, and unit-kernel identifications are omitted. The arbitrary input symbols are functors, not proposition placeholders.
+
+**Planet:** Hecke convolution.
+
+### Associativity and unit of convolution
+
+`GeometricSatakeAndFusion:GS2:correspondences/convolution-associativity-and-unit` — theorem. Proposed declaration: `TauCeti.Suggested.GeometricSatake.convolutionPentagon`.
+
+Iterated composition supplies associator (A⋆B)⋆C≅A⋆(B⋆C), left/right unit isomorphisms, and the pentagon and triangle identities in the ambient bounded-support category, compatible with coefficient and base change when the six operations are defined.
+
+**Hypotheses and conventions.** Enhanced coherence, rather than equality of iterated objects; proper finite bounds and derived tensors.
+
+**Construction or proof.**
+
+1. Use the common three-step Hecke stack and proper base-change/projection-formula isomorphisms.
+2. Import coherent composition of correspondences from EDS rather than choosing unrelated associators.
+3. The identity modification gives the diagonal kernel and the triangle identities.
+
+**Direct prerequisites.** `GeometricSatakeAndFusion:GS2:correspondences/convolution-diagram`, `EnhancedDerivedSheaves:E3`, `DiamondSixOperations:S3/upper-shriek`, `DiamondSixOperations:S3/adjunction-calculus`, `DiamondSixOperations:S3/verdier-duality-lower-shriek`, `DiamondSixOperations:S2/exchange-pasting-coherence`, `VStackSheavesAndLisseCategories:VS0`.
+
+**Sources.** [FS-geometrization](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), VI.8 opening, pp. 224–225.
+
+**Acceptance.** Four-fold composition must satisfy the pentagon; associativity alone is not the full monoidal API.
+
+**Unclosed obligations.** Stack enhancement and coherent Ind convolution; Typed geometric signatures and unavailable prebuilt line module.
+
+**Prototype boundary.** Only the standard monoidal pentagon is typed; the ambient convolution monoidal instance must be supplied by the enhanced correspondence calculus.
+
+### Rational Witt convolution and semismallness
+
+`GeometricSatakeAndFusion:GS2:correspondences/rational-special-fibre-convolution` — comparison. Proposed declaration: `TauCeti.Suggested.GeometricSatake.rationalConvolutionSemismall`.
+
+On the rational Witt special fibre, the n-fold unbounded convolution Grassmannian is identified with Gr^n by cumulative modifications, but a bounded convolution locus is a twisted product. The bounded multiplication map to Gr_{≤Σμ_i} is proper and stratified semismall: over the λ-stratum fibre dimension is ≤⟨ρ,Σμ_i−λ⟩. Hence twisted convolution of rational equivariant perverse sheaves is perverse.
+
+**Hypotheses and conventions.** k algebraically closed; dominant bounds; rational coefficients; no integral coefficient-flatness inferred from this statement.
+
+**Construction or proof.**
+
+1. Use the lattice-chain Demazure and bounded proper map.
+2. Apply Zhu 2.3’s semi-infinite intersection estimate and EDC.5 semismall pushforward.
+3. Identify the torsor descent of the twisted external product with the special-fibre restriction of the ambient Hecke convolution.
+
+**Direct prerequisites.** `GeometricSatakeAndFusion:GS2:correspondences/convolution-diagram`, `GeometricSatakeAndFusion:GS1/rational-weight-concentration`, `GeometricSatakeAndFusion:GS0:Witt-geometry/witt-demazure-resolution`, `EtaleDualityAndPerverseSheaves:EDC.5/semismall-pushforward-perverse`, `AdicCoefficientsAndComparisons:L3/rf-shriek-comparison-27-4`.
+
+**Sources.** [Zhu17](https://annals.math.princeton.edu/wp-content/uploads/annals-v185-n2-p02-p.pdf), 2.1.2 and 2.2–2.4, pp. 431–432.
+
+**Acceptance.** For minuscule one-step bounds, twisted convolution still need not be the product of the two flag varieties.
+
+**Unclosed obligations.** Typed geometric signatures and unavailable prebuilt line module.
+
+**Prototype boundary.** These dimensions must come from the bounded rational Witt convolution map and a target stratum. Properness and coefficient restrictions are omitted.
+
+## Convolution closure and both duals
+
+`GeometricSatakeAndFusion:GS2:Satake-closure`
+
+Compose proper relative ULA kernels to preserve ULA. Prove the nonpositive aisle bound through the elementary two-leg collision family and normalized constant terms. Use duality for the opposite bound and every coefficient-module tensor for flatness. Proper-kernel adjunction then supplies sw*D(A) as a right dual, with evaluation and coevaluation satisfying both triangle identities; the switch produces the left dual. The one-leg restriction equivalence respects these bounded convolution diagrams. Acceptance is both rigidity structures and the compatible comparison, without symmetry or a fibre-functor tensor isomorphism.
+
+### ULA preservation by convolution
+
+`GeometricSatakeAndFusion:GS2:Satake-closure/convolution-ula` — theorem. Proposed declaration: `TauCeti.Suggested.GeometricSatake.convolutionULAKernelDual`.
+
+If A and B are ULA bounded Hecke complexes, A⋆B is ULA over the leg base.
+
+**Hypotheses and conventions.** Finite proper bounds; derived tensor; split and generic descended versions.
+
+**Construction or proof.**
+
+1. Use the VS1 ULA criterion as adjointability of kernels, including the proper-relative IV.2.24 variant.
+2. Compose adjointable kernels; Verdier duality commutes with bounded proper convolution.
+3. Descend across the positive-loop quotient and compatible support bounds.
+
+**Direct prerequisites.** `GeometricSatakeAndFusion:GS2:correspondences/convolution-diagram`, `VStackSheavesAndLisseCategories:VS1/ula-for-artin-v-stacks`, `VStackSheavesAndLisseCategories:VS1`, `DiamondSixOperations:S3/upper-shriek`, `DiamondSixOperations:S3/adjunction-calculus`, `DiamondSixOperations:S3/verdier-duality-lower-shriek`, `DiamondSixOperations:S2/lower-shriek`, `DiamondSixOperations:S2/lower-shriek-base-change`, `DiamondSixOperations:S2/projection-formula`.
+
+**Sources.** [FS-geometrization](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), VI.8.1(i), p. 225.
+
+**Acceptance.** ULA preservation does not alone imply perversity.
+
+**Unclosed obligations.** Typed geometric signatures and unavailable prebuilt line module.
+
+**Prototype boundary.** The typed core is dualizability of composed proper relative ULA kernels, using the existing rigid-category API; geometric ULA conditions are omitted.
+
+### Nonpositive perverse convolution
+
+`GeometricSatakeAndFusion:GS2:Satake-closure/convolution-perverse-nonpositive` — theorem. Proposed declaration: `TauCeti.Suggested.GeometricSatake.convolutionPerverseNonpositive`.
+
+For ULA A,B in relative perverse degrees ≤0, A⋆B is perverse ≤0. The proof uses an elementary two-leg collision family: away from the diagonal it is the external product, and its torus constant terms are locally constant perfect complexes, so the nonpositive bound extends to the collision fibre.
+
+**Hypotheses and conventions.** Coefficient derived tensor and correct cell dimensions; this elementary family is distinct from the coherent symmetric fusion construction of VI.9.
+
+**Construction or proof.**
+
+1. Apply perverse tensor bounds on disjoint legs.
+2. Use VI.8.1(ii)’s two-leg family and CT-local constancy to carry the bound across the diagonal.
+3. Use conservative t-exact shifted CT to return to G. No GS3:fusion prerequisite is introduced.
+
+**Direct prerequisites.** `GeometricSatakeAndFusion:GS2:Satake-closure/convolution-ula`, `GeometricSatakeAndFusion:GS1/perverse-descent-and-shifted-ct`, `GeometricSatakeAndFusion:GS0:loop-geometry/ordered-leg-base-change`, `GeometricSatakeAndFusion:GS0:Witt-geometry/integral-family-bounded-properness`.
+
+**Sources.** [FS-geometrization](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), VI.8.1(ii), pp. 225–226.
+
+**Acceptance.** A collision is tested by summed cocharacters; the proof has a geometric family but not a symmetric monoidal Satake theorem.
+
+**Unclosed obligations.** Typed geometric signatures and unavailable prebuilt line module.
+
+**Prototype boundary.** D/conv must be the ULA Hecke category and its convolution. The two-leg family and geometric hypotheses are omitted; GS3 fusion is not assumed.
+
+### Closure of Satake under convolution
+
+`GeometricSatakeAndFusion:GS2:Satake-closure/convolution-preserves-satake-and-dualizability` — theorem. Proposed declaration: `TauCeti.Suggested.GeometricSatake.convolutionFlatPerverse`.
+
+Convolution of two Satake objects is Satake: it remains ULA, relative perverse and coefficient-flat. Derived tensors against arbitrary coefficient modules remain perverse, so the operation restricts to the flat subcategory.
+
+**Hypotheses and conventions.** All Satake conditions retained; coefficients need not be fields.
+
+**Construction or proof.**
+
+1. ULA follows from VI.8.1(i). Apply the nonpositive result to A,B and their relative Verdier duals.
+2. Bounded proper convolution commutes with relative duality, so the dual nonpositive bound yields the nonnegative bound.
+3. Tensor by arbitrary coefficient modules and use the flat-perverse criterion to prove coefficient flatness.
+
+**Direct prerequisites.** `GeometricSatakeAndFusion:GS2:Satake-closure/convolution-ula`, `GeometricSatakeAndFusion:GS2:Satake-closure/convolution-perverse-nonpositive`, `GeometricSatakeAndFusion:GS2:correspondences/satake-verdier-duality`, `GeometricSatakeAndFusion:GS1/flat-perverse-objects`.
+
+**Sources.** [FS-geometrization](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), VI.8.1(iii), pp. 225–226.
+
+**Acceptance.** Over Λ=Z/ℓ² a nonflat perverse object is not admitted as a factor.
+
+**Unclosed obligations.** Typed geometric signatures and unavailable prebuilt line module.
+
+**Prototype boundary.** D/conv/tensor must be the ULA Hecke category, geometric convolution and derived coefficient tensors. Those supplier conditions are omitted.
+
+**Planet:** Satake convolution closure.
+
+### Duals of Satake objects
+
+`GeometricSatakeAndFusion:GS2:Satake-closure/satake-rigidity` — theorem. Proposed declaration: `TauCeti.Suggested.GeometricSatake.satakeRigid`.
+
+Every Satake object has both left and right duals for convolution. The right dual is sw*D(A); evaluation and coevaluation come from the adjunction of proper relative ULA kernels and satisfy the two triangle identities. Switching gives the other dual.
+
+**Hypotheses and conventions.** Proper bounded support; ULA; use both left and right rigid structures in the library. No symmetry or fibre-functor monoidality is assumed.
+
+**Construction or proof.**
+
+1. Apply FS IV.2.24 to the bounded Hecke kernel, using the proper target.
+2. Use VI.6.2 switch invariance and VI.7.12 Satake Verdier duality.
+3. Restrict the resulting unit/counit to Satake using convolution closure and verify adjunction triangles; conclude VI.8.2.
+
+**Direct prerequisites.** `GeometricSatakeAndFusion:GS2:Satake-closure/convolution-preserves-satake-and-dualizability`, `GeometricSatakeAndFusion:GS2:correspondences/satake-verdier-duality`, `VStackSheavesAndLisseCategories:VS1`, `mathlib:CategoryTheory.RigidCategory`.
+
+**Sources.** [FS-geometrization](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), VI.8.2, p. 226; IV.2.24, pp. 125–126.
+
+**Acceptance.** The dual is sw*D(A), not D(A) without switching; it supplies GS3’s subsequently fusion argument.
+
+**Unclosed obligations.** Stack enhancement and coherent Ind convolution; Typed geometric signatures and unavailable prebuilt line module.
+
+**Prototype boundary.** S must be the actual Satake category with its convolution structure. Both duals are asserted; the switch-pullback Verdier formula is in the document.
+
+**Planet:** Satake rigidity.
+
+### One-leg Satake equivalence
+
+`GeometricSatakeAndFusion:GS2:Satake-closure/one-leg-satake-comparison` — comparison. Proposed declaration: `TauCeti.Suggested.GeometricSatake.oneLegSatakeComparison`.
+
+The one-leg ULA restriction equivalence over Spd O_C restricts to equivalences of flat-perverse Satake categories on the generic and Witt special fibres. The functors commute with coefficient change, finite bounds and bounded convolution diagrams and carry the unit and the convolution duals to their corresponding objects.
+
+**Hypotheses and conventions.** Split integral model; chosen C and k̄; the comparison is not asserted for arbitrary multi-leg collision ULA categories.
+
+**Construction or proof.**
+
+1. Use t-exact base change and the all-module tensor criterion on the ULA equivalence.
+2. Compare the actual torsor convolution diagrams through the integral family and proper base change.
+3. Compare switch, Verdier duality and the unit by their functorial constructions.
+
+**Direct prerequisites.** `GeometricSatakeAndFusion:GS1/integral-family-comparison`, `GeometricSatakeAndFusion:GS1/perverse-descent-and-shifted-ct`, `GeometricSatakeAndFusion:GS2:Satake-closure/satake-rigidity`, `GeometricSatakeAndFusion:GS2:correspondences/convolution-associativity-and-unit`, `AdicCoefficientsAndComparisons:L3/rf-shriek-comparison-27-4`, `AdicCoefficientsAndComparisons:L3/full-faithfulness-27-2`, `AdicCoefficientsAndComparisons:L3/commutation-and-adjoints-27-1-27-3`.
+
+**Sources.** [FS-geometrization](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), VI.6.7, VI.7.4–VI.7.8 and VI.8, pp. 214, 217–226.
+
+**Acceptance.** The special-fibre comparison imports early L1/L3, without requiring VS3 lisse categories.
+
+**Unclosed obligations.** Typed geometric signatures and unavailable prebuilt line module.
+
+**Prototype boundary.** These are the indicated one-leg flat-perverse ULA categories; the base change geometry and diagram compatibility are omitted.
+
+## Baseline declarations reused
+
+The following are baseline substrates, not already-built geometric Satake targets. Each entry records the exact pinned module and the limited interface it supplies. A similarly named carrier is not evidence for the missing geometric property.
+
+| Declaration | Module at the pin | Interface reused |
+| --- | --- | --- |
+| `mathlib:WittVector` | `Mathlib/RingTheory/WittVector/Defs.lean` | The type of p-typical Witt vectors, indexed by a natural p. Its ring laws and perfect-ring properties are reused; ramified Witt coefficient comparison is RF0’s node, not a new definition here. |
+| `mathlib:PerfectRing` | `Mathlib/FieldTheory/Perfect.lean` | Perfect rings of characteristic p. Bhatt-Scholze work throughout with perfect F_p-algebras, because for a general F_p-algebra W(R) has p-torsion and W(R)/p -> R need not be an isomorphism; this is the pinned carrier for that hypothesis. |
+| `mathlib:AlgebraicGeometry.Scheme` | `Mathlib/AlgebraicGeometry/Scheme.lean` | The ordinary scheme carrier and category. Being a perfection of a projective model is a missing target; the existence of Scheme does not establish BS representability. |
+| `mathlib:AlgebraicGeometry.IsProper` | `Mathlib/AlgebraicGeometry/Morphisms/Proper.lean` | Properness of a morphism of schemes. The representing object is a proper perfectly finitely presented scheme, and the fibral descent criterion is for proper maps. |
+| `mathlib:ValuationRing` | `Mathlib/RingTheory/Valuation/ValuationRing.lean` | Valuation rings. The proof of the fibral descent criterion reduces to a base whose connected components are spectra of valuation rings. |
+| `tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf` | `TauCeti/AlgebraicGeometry/LineBundle/Basic.lean` | Invertible sheaves on a scheme. The line bundle L on the Witt vector affine Grassmannian, the Demazure bundle it descends from, and the line bundle I_S^m/I_S^{m+1} on the divisor are all of this type. Tau Ceti has the carrier; what it does not have is ampleness. |
+| `mathlib:CoxeterSystem` | `Mathlib/GroupTheory/Coxeter/Basic.lean` | Abstract Coxeter-system combinatorics only. Affine root data, Cartan/Iwasawa decomposition and parahoric geometry require RG2.4. |
+| `tauceti:TauCeti.TitsSystem.bruhatCell` | `TauCeti/GroupTheory/TitsSystem/Bruhat/Basic.lean` | Bruhat cells of a Tits system. Tau Ceti already has the Bruhat decomposition, which is the combinatorial shadow of the Schubert stratification this layer builds geometrically. |
+| `mathlib:RootPairing` | `Mathlib/LinearAlgebra/RootSystem/Defs.lean` | The abstract paired roots/coroots and their module dualities, not a built split reductive group, Lie-weight decomposition or affine Cartan theorem. |
+| `tauceti:TauCeti.ReductiveAffineGroupSchemeCat` | `TauCeti/AlgebraicGeometry/AffineGroupScheme/Reductive.lean` | Reductive affine group schemes over a FIELD k, using [Field k]. This does not provide an integral O_E-model or parahoric group scheme; those are requested from RG2.3. |
+| `mathlib:CategoryTheory.Triangulated.TStructure` | `Mathlib/CategoryTheory/Triangulated/TStructure/Basic.lean` | t-structures on a triangulated category, already in the pinned library with IsLE and IsGE. The relative perverse t-structure of GS1 is one of these, so the abstract notion is cited and only its normalisation is planned. |
+| `mathlib:CategoryTheory.Triangulated.TStructure.Heart` | `Mathlib/CategoryTheory/Triangulated/TStructure/Heart.lean` | The Heart typeclass identifies a heart with a full subcategory of a pretriangulated category; TStructure.heart is the underlying object property. No generic abelian-heart theorem is claimed. |
+| `mathlib:CategoryTheory.Pretriangulated` | `Mathlib/CategoryTheory/Triangulated/Pretriangulated.lean` | Pretriangulated categories, the level at which the t-structure and the recollement of the Schubert stratification are stated. |
+| `mathlib:DerivedCategory` | `Mathlib/Algebra/Homology/DerivedCategory/Basic.lean` | The Verdier-localization carrier for the derived category of an abelian category, not the stable enhanced sheaf categories or six-operation coherence; EDS owns those extensions. |
+| `mathlib:CategoryTheory.Sheaf` | `Mathlib/CategoryTheory/Sites/Sheaf.lean` | Sheaves valued in a category on a Grothendieck site; the diamond/v-site topology and geometric representability are not provided by this carrier. |
+| `mathlib:CategoryTheory.GrothendieckTopology` | `Mathlib/CategoryTheory/Sites/Grothendieck.lean` | Abstract Grothendieck topologies; actual v/h/étale topologies and their descent properties are supplier work. |
+| `mathlib:CategoryTheory.MonoidalCategory` | `Mathlib/CategoryTheory/Monoidal/Category.lean` | Monoidal categories, the structure convolution puts on the bounded sheaf category and on the Satake category. |
+| `mathlib:CategoryTheory.LeftRigidCategory` | `Mathlib/CategoryTheory/Monoidal/Rigid/Basic.lean` | Left duals only. The conclusion that all Satake objects have both duals uses the separate RigidCategory carrier. |
+| `mathlib:CategoryTheory.Equivalence` | `Mathlib/CategoryTheory/Equivalence.lean` | Equivalences of categories, the form of the special-fibre comparison of the ULA categories over Spd O_C, Spd C and Spd k. |
+| `mathlib:CategoryTheory.Comma` | `Mathlib/CategoryTheory/Comma/Basic.lean` | Comma categories, the pinned form of the slice and correspondence categories over which the convolution 2-category is indexed. |
+| `mathlib:Module.Flat` | `Mathlib/RingTheory/Flat/Basic.lean` | Flatness. Flat perversity is half the definition of the Satake category, and it is what excludes the Tor obstruction to t-exactness of convolution. |
+| `mathlib:Module.Projective` | `Mathlib/Algebra/Module/Projective.lean` | Projective modules. Finite projectivity of the cohomology of the fibre functor, of the graded pieces of the lattice filtration and of the local systems appearing in the ULA criterion are all statements at this level. |
+| `mathlib:Module.Free` | `Mathlib/LinearAlgebra/FreeModule/Basic.lean` | Free modules. The lattice computation in the GL_n case of the open-cell stabilizer chooses a compatible basis, which is a freeness statement after localisation. |
+| `mathlib:CategoryTheory.RigidCategory` | `Mathlib/CategoryTheory/Monoidal/Rigid/Basic.lean` | Both left and right rigid structures. LeftRigidCategory alone cannot state VI.8.2. |
+| `mathlib:CategoryTheory.ActionCategory` | `Mathlib/CategoryTheory/Action.lean` | The category of elements of a monoid action, with Groupoid for group actions. This is the local quotient presentation, not stackification. |
+| `mathlib:Action` | `Mathlib/CategoryTheory/Action/Basic.lean` | Objects with a monoid homomorphism into their endomorphisms; morphisms intertwine the action. Only the discrete equivariant-object core. |
+| `mathlib:CategoryTheory.ObjectProperty.FullSubcategory` | `Mathlib/CategoryTheory/ObjectProperty/FullSubcategory.lean` | Full subcategories with the existing fully faithful inclusion; their object property must be stated mathematically. |
+| `mathlib:Module.Finite` | `Mathlib/RingTheory/Finiteness/Defs.lean` | Finitely generated modules; paired with Module.Projective for lattice and fibre-functor finiteness. |
+| `mathlib:Module.Flat.iff_lTensor_preserves_injective_linearMapₛ` | `Mathlib/RingTheory/Flat/Basic.lean` | Flatness characterized by injectivity preservation of linear maps after tensor; the smallness universe condition is part of the source statement. |
+
+## Supplier requests
+
+The direct stage prerequisites below end the backward chain at their mathematical owner. Where an existing node supplies only part of an interface, the request names the strengthening, and closure remains open. The requested theory is not duplicated in this part.
+
+### CrystallineCohomology:CR.1
+
+Evaluate a locally free crystal on perfect Witt thickenings and obtain its finite projective values and quotient mod p, functorially in perfect bases; the sublattice Grassmannian construction uses this evaluation (Zhu 1.14).
+
+Consumers: `GeometricSatakeAndFusion:GS0:Witt-geometry/witt-demazure-resolution`, `GeometricSatakeAndFusion:GS0:Witt-geometry/canonical-witt-models`.
+
+### CrystallineCohomology:CR.7
+
+The Dieudonné-crystal and Hodge-determinant family interface for Zhu’s canonical Demazure models, compatible with R07’s conventions and the ramified coefficient summands. It does not reprove the classification in R07.2.
+
+Consumers: `GeometricSatakeAndFusion:GS0:Witt-geometry/canonical-witt-models`.
+
+### EnhancedDerivedSheaves:E3
+
+Enhanced coherent composition of pull–push correspondences with external tensor, higher associativity/unit maps and Ind extension, compatible with DSO exchange/pasting and VS0 Artin descent. A homotopy-category pentagon statement alone does not give the needed coherent ambient convolution.
+
+Consumers: `GeometricSatakeAndFusion:GS2:correspondences/convolution-diagram`, `GeometricSatakeAndFusion:GS2:correspondences/convolution-associativity-and-unit`.
+
+### EnhancedDerivedSheaves:E5:presentability
+
+Lurie HA 1.4.4.11 extension of a generated t-structure to the Ind category, with the small stable generators, closure and accessibility hypotheses checked for the relative perverse category. Existing universal-property-of-ind alone does not prove this extension.
+
+Consumers: `GeometricSatakeAndFusion:GS1/relative-perverse-t-structure`.
+
+### FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2
+
+Dieudonné realization for the specified isogeny chains over perfect residue fields, with covariance, distinguished τ₀-summand, heights and Hodge filtration fixed as in Zhu B.7–B.8. General family crystal theory is requested separately.
+
+Consumers: `GeometricSatakeAndFusion:GS0:Witt-geometry/canonical-witt-models`.
+
+### FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.6
+
+P-divisible-group deformation and Hodge-line comparison on the smooth projective canonical Demazure family in Zhu B.8–B.9; prove the scheme-map comparison stated only as an appendix sketch.
+
+Consumers: `GeometricSatakeAndFusion:GS0:Witt-geometry/canonical-witt-models`.
+
+### KTheoryLowDegrees:Z.3
+
+Determinant of finite projective graded quotients, multiplicativity for short exact sequences and its Picard tensor comparison. This is the elementary determinant interface only; GS projectivity uses the geometric BS §6/§8 route, without BS §5’s K-theoretic determinant construction.
+
+Consumers: `GeometricSatakeAndFusion:GS0:Witt-geometry/geometric-determinant-line`, `GeometricSatakeAndFusion:GS0:Witt-geometry/sl-determinant-normalization`.
+
+### PadicHodgeTheory:P8:local-rational
+
+Corrected relative O𝔅⁺_dR period sheaf, filtered integrable universal connection and Griffiths transversality on minuscule flag varieties, with [Sch13c, 7.9] and its corrigendum conventions, yielding the CS 3.4.5 surjectivity construction.
+
+Consumers: `GeometricSatakeAndFusion:GS0:Schubert-smoothness/minuscule-bialynicki-birula`.
+
+### ReductiveGroupsPartII:RG2.3
+
+Smooth affine integral/parahoric/Iwahori group models; faithful representations with quasi-affine quotient; compatible Greenberg jets, dilatations, finite-level torsor lifting and Weil-restriction comparisons. The field-only pinned reductive-group category is insufficient. Sources: Zhu 1.1/1.20; SW 19.4, 21.1–21.2; BS 9.2–9.6.
+
+Consumers: `GeometricSatakeAndFusion:GS0:loop-geometry/loop-groups-and-local-hecke`, `GeometricSatakeAndFusion:GS0:loop-geometry/local-hecke-stack`, `GeometricSatakeAndFusion:GS0:loop-geometry/generic-galois-descent`, `GeometricSatakeAndFusion:GS0:loop-geometry/affine-flag-demazure`, `GeometricSatakeAndFusion:GS0:loop-geometry/smooth-scheme-loops`, `GeometricSatakeAndFusion:GS0:Schubert-smoothness/truncated-positive-loops`, `GeometricSatakeAndFusion:GS0:Witt-geometry/witt-lattice-functor-and-representability`, `GeometricSatakeAndFusion:GS0:Witt-geometry/zhu-finite-jet-presentation`, `GeometricSatakeAndFusion:GS0:Witt-geometry/zhu-original-algebraic-space`, `GeometricSatakeAndFusion:GS0:Witt-geometry/parahoric-ind-projectivity`, `GeometricSatakeAndFusion:GS0:Witt-geometry/integral-parahoric-properness`, `GeometricSatakeAndFusion:GS1/standard-costandard-torsion-bound`.
+
+### ReductiveGroupsPartII:RG2.4
+
+Affine Weyl and extended Weyl data, length/Bruhat order, admissible sets, Cartan and Iwasawa decompositions, rank-one ordinary/Demazure convolution, Kottwitz inertia-component labels, and componentwise adjoint flag comparison with p prime to ∣π₁(G_ad)∣ when required by the corrected GHN theorem. Sources: Zhu 1.4, He 5.6 and its GH10/GHN imports. These strengthen this stage’s existing direction.
+
+Consumers: `GeometricSatakeAndFusion:GS0:loop-geometry/schubert-bounds-and-properness`, `GeometricSatakeAndFusion:GS0:loop-geometry/affine-flag-demazure`, `GeometricSatakeAndFusion:GS0:Witt-geometry/parahoric-ind-projectivity`, `GeometricSatakeAndFusion:GS0:Witt-geometry/integral-parahoric-properness`, `GeometricSatakeAndFusion:GS0:Witt-geometry/bounded-admissible-flags`, `GeometricSatakeAndFusion:GS0:Witt-geometry/flag-incidence-correspondences`, `GeometricSatakeAndFusion:GS0:Witt-geometry/flag-convolution-fibres`, `GeometricSatakeAndFusion:GS1/semi-infinite-orbits-and-hyperbolic-localization`, `GeometricSatakeAndFusion:GS1/rational-weight-concentration`.
+
+### ReductiveGroupsPartII:RG2.5
+
+Lie G decomposition under a cocharacter, root-pairing conventions, weights of the stabilizer (≤m), opposite parabolics/Levis and dimension sum ⟨2ρ,μ⟩. Minuscule means Lie weights in {−1,0,1}; CS and FS use opposite signs.
+
+Consumers: `GeometricSatakeAndFusion:GS0:loop-geometry/congruence-filtration-and-graded-pieces`, `GeometricSatakeAndFusion:GS0:Schubert-smoothness/open-cell-stabilizer-and-smoothness`, `GeometricSatakeAndFusion:GS0:Schubert-smoothness/truncation-of-the-loop-action`, `GeometricSatakeAndFusion:GS0:Schubert-smoothness/minuscule-bialynicki-birula`, `GeometricSatakeAndFusion:GS1/semi-infinite-affineness`, `GeometricSatakeAndFusion:GS2:correspondences/satake-verdier-duality`.
+
+### RelativeFarguesFontaine:RF4:G-torsors
+
+Beauville–Laszlo gluing and effective étale/v-descent for G-torsors on the completed divisor using the already-planned RF2 finite-projective descent, plus Anschütz’s punctured A_inf extension/triviality theorem in SW 21.2.2 with its group-model hypotheses. Do not define another completed divisor ring or another finite-projective descent node.
+
+Consumers: `GeometricSatakeAndFusion:GS0:loop-geometry/local-hecke-stack`, `GeometricSatakeAndFusion:GS0:loop-geometry/grassmannian`, `GeometricSatakeAndFusion:GS0:Witt-geometry/integral-parahoric-properness`, `GeometricSatakeAndFusion:GS1/semi-infinite-affineness`.
+
+### RelativeFarguesFontaine:RF4:vector-bundles
+
+The uniform Banach algebra finite-projectivity criterion [KL15, 2.8.4] used in CS 3.4.3–3.4.6: a finitely presented module with the required locally constant fibre rank is finite projective, and compatible sublattices are detected on geometric field points.
+
+Consumers: `GeometricSatakeAndFusion:GS0:Schubert-smoothness/minuscule-bialynicki-birula`.
+
+### SchemeAndStackFoundations:SF.0
+
+Pfp perfect schemes/algebraic spaces and compatible finite-type models up to Frobenius, dimensions, base change and étale-topos invariance (BS 3; Zhu A.1–A.17), plus finite Greenberg realization and perfected Grassmann/Quot bundles. Coordinate-ring perfection is the DIRECT Frobenius colimit, not Mathlib’s inverse-limit Perfection.
+
+Consumers: `GeometricSatakeAndFusion:GS0:Witt-geometry/witt-types-and-bounds`, `GeometricSatakeAndFusion:GS0:Witt-geometry/zhu-finite-jet-presentation`, `GeometricSatakeAndFusion:GS0:Witt-geometry/witt-demazure-resolution`, `GeometricSatakeAndFusion:GS0:Witt-geometry/connected-cohomological-fibres`, `GeometricSatakeAndFusion:GS0:Witt-geometry/perfect-model-and-etale-comparison`, `GeometricSatakeAndFusion:GS0:Witt-geometry/canonical-witt-models`, `GeometricSatakeAndFusion:GS0:Witt-geometry/rank-two-cone-chart`, `GeometricSatakeAndFusion:GS0:Witt-geometry/sections-on-witt-bounds`, `GeometricSatakeAndFusion:GS0:Witt-geometry/flag-incidence-correspondences`, `GeometricSatakeAndFusion:GS0:Witt-geometry/flag-convolution-fibres`.
+
+### SchemeAndStackFoundations:SF.1
+
+Effective quotients of separated pfp perfect spaces by smooth perfect affine torsors (Zhu A.29–A.31), normalized finite-jet quotients, and finite pushouts/pinching of a finite union of lower Schubert bounds along closed representable intersections BEFORE applying Keel. This repairs BS E39’s boundary representability gap.
+
+Consumers: `GeometricSatakeAndFusion:GS0:Witt-geometry/zhu-original-algebraic-space`, `GeometricSatakeAndFusion:GS0:Witt-geometry/witt-demazure-resolution`, `GeometricSatakeAndFusion:GS0:Witt-geometry/ampleness-via-keel`, `GeometricSatakeAndFusion:GS0:Witt-geometry/perfect-model-and-etale-comparison`, `GeometricSatakeAndFusion:GS0:Witt-geometry/canonical-witt-models`, `GeometricSatakeAndFusion:GS0:Witt-geometry/flag-incidence-correspondences`.
+
+### SchemeAndStackFoundations:SF.3
+
+Proper pfp perfect connected-fibre full faithfulness/effective vector-bundle descent (BS 6.1, 6.8, 6.13), including the weaker connected-fibre criterion and compatibility with geometric base change; relative Grassmann structure cohomology, determinant/Picard tensor pullbacks and fibre-trivial line descent.
+
+Consumers: `GeometricSatakeAndFusion:GS0:Witt-geometry/connected-cohomological-fibres`, `GeometricSatakeAndFusion:GS0:Witt-geometry/h-descent-and-fibral-criterion`, `GeometricSatakeAndFusion:GS0:Witt-geometry/geometric-determinant-line`.
+
+### SchemeAndStackFoundations:SF.4
+
+Finite/formal Witt vector-bundle v-descent and acyclicity (BS 4.1, 4.4, 4.6), with repaired blowup reduction; integral local-model existence and functoriality identifying the finite admissible Schubert union with the reduced special fibre (GLX 3.3–3.4), and compatible bounded pfp fibre-product models. Local models are an extension in SF’s moduli direction, not an ADLV or shtuka replanning.
+
+Consumers: `GeometricSatakeAndFusion:GS0:Witt-geometry/witt-lattice-functor-and-representability`, `GeometricSatakeAndFusion:GS0:Witt-geometry/h-descent-and-fibral-criterion`, `GeometricSatakeAndFusion:GS0:Witt-geometry/canonical-witt-models`, `GeometricSatakeAndFusion:GS0:Witt-geometry/bounded-admissible-flags`, `GeometricSatakeAndFusion:GS0:Witt-geometry/flag-convolution-fibres`.
+
+### SchemeAndStackFoundations:SF.5
+
+General nef/big/ample/semiample line bundles, exceptional locus, Kodaira decomposition, Keel’s characteristic-p criterion and union/exceptional-locus lemmas, Frobenius-power extension/descent of sections, Stein contraction, Serre vanishing and section growth on perfections. GS keeps only the BS 8.9–8.11 application; all general positivity has this single owner.
+
+Consumers: `GeometricSatakeAndFusion:GS0:Witt-geometry/determinant-positivity`, `GeometricSatakeAndFusion:GS0:Witt-geometry/ampleness-via-keel`, `GeometricSatakeAndFusion:GS0:Witt-geometry/sections-on-witt-bounds`, `GeometricSatakeAndFusion:GS1/semi-infinite-affineness`.
+
+### VStackSheavesAndLisseCategories:VS0
+
+Enhanced six operations and smooth equivariant descent for Artin v-stacks, including nonrepresentable quotient-stack maps, finite congruence charts and coherent proper-kernel correspondences. DSO’s eligible representable operations alone do not cover [*/L⁺G].
+
+Consumers: `GeometricSatakeAndFusion:GS1/semi-infinite-orbits-and-hyperbolic-localization`, `GeometricSatakeAndFusion:GS2:correspondences/convolution-diagram`, `GeometricSatakeAndFusion:GS2:correspondences/convolution-associativity-and-unit`.
+
+### VStackSheavesAndLisseCategories:VS1
+
+FS IV.6 hyperbolic localization for bounded monodromic Hecke correspondences, its base change/duality/ULA preservation, and FS IV.2.24’s proper-relative ULA-kernel adjointability/biduality refinement beyond the IV.2.23 criterion already in ula-dualizability-criterion. Include pro-unipotent equivariant invariance (VI.4), without confusing geometric unipotent groups with DSO S5’s profinite prime-to-ℓ averaging.
+
+Consumers: `GeometricSatakeAndFusion:GS1/semi-infinite-orbits-and-hyperbolic-localization`, `GeometricSatakeAndFusion:GS1/ula-constant-term-criterion`, `GeometricSatakeAndFusion:GS2:correspondences/satake-verdier-duality`, `GeometricSatakeAndFusion:GS2:Satake-closure/convolution-ula`, `GeometricSatakeAndFusion:GS2:Satake-closure/satake-rigidity`.
+
+## Gaps and exact refinement work
+
+### Boundary representability before Keel
+
+BS 8.3’s induction calls the lower-bound union a pfp proper perfect algebraic space before proving it. The SF1 finite-pushout/model request must construct closed intersections and effective pinching in the chosen model, then prove it is the image v-sheaf. This proof must precede the positivity application.
+
+Applies to `GeometricSatakeAndFusion:GS0:Witt-geometry/ampleness-via-keel`.
+
+### Zhu B.11 corrected right-factor integrality
+
+X=Ag requires g=A⁻¹X; the printed order XA⁻¹ is incorrect. Verify divisibility of A*X by p² on the displayed open W₃ determinant locus, and compatibility of arbitrary Witt lifts, before claiming that the corrected factor is integral/invertible. The cone statement is a source target with this exact open proof obligation.
+
+Applies to `GeometricSatakeAndFusion:GS0:Witt-geometry/rank-two-cone-chart`.
+
+### Sketch-only canonical determinant and crystal comparison
+
+Zhu B.1, B.9 and the closing B.3 paragraph are announced without proofs. The R07/CR7 interfaces and the map between the normalized jet model and the p-divisible chain model must prove the Hodge-line determinant comparison; no conjectural normal Cohen–Macaulay property is assumed.
+
+Applies to `GeometricSatakeAndFusion:GS0:Witt-geometry/canonical-witt-models`, `GeometricSatakeAndFusion:GS0:Witt-geometry/rank-two-cone-chart`.
+
+### Rational MV trace normalization on perfect models
+
+Fix a finite model and its Frobenius power for fundamental classes; Zhu A.3.3’s model-independent scalar trace omits p-power degree. Require nonempty geometric intersections, geometrically irreducible components for a scalar trace, and the spreading step in the finite-field point-count route. The integral CT/perverse criterion uses FS instead of a rational MV basis.
+
+Applies to `GeometricSatakeAndFusion:GS0:Witt-geometry/semi-infinite-intersections-and-MV-cycles`, `GeometricSatakeAndFusion:GS1/rational-weight-concentration`.
+
+### Quasi-minuscule infinity contribution and minimal generation
+
+For the quasi-minuscule P¹ resolution retain the section-at-infinity term absent from Zhu (2.2.13); in SL₃ the zero-weight multiplicity is two. Check the corrected parahoric in type A_n, the finite U-jet torsor/twisted external product in 2.17 and 2.16’s minimal-generation argument with the RG/EDC interfaces.
+
+Applies to `GeometricSatakeAndFusion:GS1/rational-weight-concentration`.
+
+### Stack enhancement and coherent Ind convolution
+
+VS0/VS1 must supply Artin quotient descent and proper-relative ULA adjointability at the enhanced level; EDS3/5 supplies coherent correspondence and Ind t-structure extension. Verify common bounded correspondences, unit/counit triangles and support filtrations; choosing binary natural isomorphisms does not close this obligation.
+
+Applies to `GeometricSatakeAndFusion:GS1/ULA-sheaves-on-the-hecke-stack`, `GeometricSatakeAndFusion:GS2:correspondences/convolution-diagram`, `GeometricSatakeAndFusion:GS2:correspondences/convolution-associativity-and-unit`, `GeometricSatakeAndFusion:GS2:Satake-closure/satake-rigidity`.
+
+### Typed geometric signatures and unavailable prebuilt line module
+
+The suggested file gives concrete algebraic/category cores and identifies every omitted supplier-dependent geometric condition in prototypeNotes. It has no unknown Prop fields. The full file cannot elaborate in the provided shared build because TauCeti.AlgebraicGeometry.LineBundle.Basic has no prebuilt object; the Mathlib-only projection is checked separately. Once supplier carriers and the pinned Tau Ceti object are present, replace the narrowed signatures by the exact geometric statements, including dimensions, properness, ULA, perfect models and locally constant coefficients.
+
+Applies to all 59 nodes.
+
+### Bounded affine-flag dimension and adjoint transfer
+
+The He/GH10 imported fibre argument must be proved on compatible bounded pfp models; the unbounded ind-space need not have finitely many components. RG2.4 supplies rank-one induction and corrected componentwise adjoint comparison; SF4 supplies local-model functoriality for GLX admissible containment. These are precise supplier obligations, not a whole affine-flag isomorphism.
+
+Applies to `GeometricSatakeAndFusion:GS0:Witt-geometry/flag-incidence-correspondences`, `GeometricSatakeAndFusion:GS0:Witt-geometry/flag-convolution-fibres`, `GeometricSatakeAndFusion:GS0:Witt-geometry/bounded-admissible-flags`.
+
+## Source corrections to verify independently
+
+The statements above use corrected conventions. These 19 findings preserve their original extraction ids and record the checked version. They are candidates, with no independent verdict added by this worker. Short printed fragments identify the fault; the correction and check explain its mathematical effect. BS findings are scoped to arXiv v3 because the publisher did not serve its PDF.
+
+### GeometricSatakeAndFusion/E1 — misprint
+
+Source: `Zhu17`, p412, coweight order. Provenance: `PAPER-ZHU-17/E2`.
+
+Printed fragment/expression: positive roots
+
+Correction: Use positive coroots in the coweight dominance order.
+
+Check: The order is on X_*(T); roots belong to the dual character space. (cc-442dc5) Reclassified to affect nothing: a misprint whose intended form, given in the correction, is fixed by the types and conventions of the surrounding argument; the argument goes through with it.
+
+Effect: nothing. Existing correction search: Previously recorded as PAPER-ZHU-17/E2. The corresponding source passage was checked in this run; no separate published correction verified here.
+
+Search record: The exact source version and passages listed in sources.readSections.; The existing atlas paper extraction and its recorded correction/provenance: PAPER-ZHU-17/E2.
+
+### GeometricSatakeAndFusion/E2 — misprint
+
+Source: `Zhu17`, p. 424, proof of Lemma 1.17, definition of X(R′). Provenance: `PAPER-ZHU-17/E8`.
+
+Printed fragment/expression: Inv(𝓕_i ⇢ 𝓕_{i+1}) = μ_i^*
+
+Correction: Inv(𝓕_i ⇢ 𝓕_{i−1}) = μ_{N+1−i}^* for i = 1, …, N, with maps oriented 𝓕_N ⇢ ⋯ ⇢ 𝓕_0 as in the quasi-isogeny 𝓕_N ⇢ 𝓕_0 used next. Equivalently, keeping the displayed orientation, Inv(𝓕_{i−1} ⇢ 𝓕_i) = μ_{N+1−i}.
+
+Check: (Gr_{μ•})_R consists of chains 𝓔 = 𝓔_N ⇢ 𝓔_{N−1} ⇢ ⋯ ⇢ 𝓔_0 with Inv(β_i) = μ_i. Building it from 𝓕_0 = 𝓔 gives 𝓕_i = 𝓔_{N−i}. Then 𝓕_{i−1} ⇢ 𝓕_i is β_{N+1−i}, of position μ_{N+1−i}, and its inverse has position μ_{N+1−i}^*. The printed condition indexes by μ_i (μ_0 is undefined for i = 0, and the order is not reversed) and attaches the star to the displayed direction 𝓕_i ⇢ 𝓕_{i+1}. That is wrong even when all μ_i are equal: for μ_i = ω_1 the displayed map has position ω_1, not ω_1^*. The rest of the argument (the quasi-isogeny 𝓕_N ⇢ 𝓕_0 = 𝓔 ⇢ 𝓔_0 and the closed locus X_{ω_0}) goes through with the correction. The ledger's 'printed' field was a paraphrase; the quotation above is exact. The same text is in v2 and v3.
+
+Effect: nothing. Existing correction search: Previously recorded as PAPER-ZHU-17/E8. The corresponding source passage was checked in this run; no separate published correction verified here.
+
+Search record: The exact source version and passages listed in sources.readSections.; The existing atlas paper extraction and its recorded correction/provenance: PAPER-ZHU-17/E8.
+
+### GeometricSatakeAndFusion/E3 — misprint
+
+Source: `Zhu17`, p488, determinant unit inB.11. Provenance: `PAPER-ZHU-17/E32`.
+
+Printed fragment/expression: p²[λ]
+
+Correction: Use p²[λ]⁻¹.
+
+Check: Solving the defining equation for detX requires the inverse; for p=5 and unit2, 25·2 and 25·3 differ modulo125. (cc-442dc5) Reclassified to affect nothing: a misprint whose intended form, given in the correction, is fixed by the types and conventions of the surrounding argument; the argument goes through with it.
+
+Effect: nothing. Existing correction search: Previously recorded as PAPER-ZHU-17/E32. The corresponding source passage was checked in this run; no separate published correction verified here.
+
+Search record: The exact source version and passages listed in sources.readSections.; The existing atlas paper extraction and its recorded correction/provenance: PAPER-ZHU-17/E32.
+
+### GeometricSatakeAndFusion/E4 — misprint
+
+Source: `Zhu17`, p. 488, proof of the claim in Lemma B.11 (display defining g̃). Provenance: `PAPER-ZHU-17/E33`.
+
+Printed fragment/expression: g̃ := X̃Ã^{−1} = p^{−2}X̃Ã^*
+
+Correction: g̃ := Ã^{−1}X̃ = p^{−2}Ã^*X̃ ∈ LGL_2. Then X̃ = Ãg̃, and g = (g̃ mod p³) satisfies X = Ag.
+
+Check: Confirmed; the correction should fix both expressions in the display. With the printed order, X̃ = g̃Ã, which contradicts the conclusion X = Ag. The existing counterexample works: A = (p −1; 0 p) is of cone form (x = z = 0, y = 1), g = (1 0; 1 1), X = Ag = (p−1 −1; p p). X lies in W̃ (a_1d_1 − b_1c_1 = 1), and X A^{−1} has entry −1/p². With the corrected order, integrality follows from (B.3.2): X^*A ≡ 0 mod p² gives A^*X = adj(X^*A) ≡ 0 mod p² (for 2×2 matrices adj(adj X) = X), so p^{−2}Ã^*X̃ is integral. Its determinant is a unit.
+
+Effect: nothing. Existing correction search: Previously recorded as PAPER-ZHU-17/E33. The corresponding source passage was checked in this run; no separate published correction verified here.
+
+Search record: The exact source version and passages listed in sources.readSections.; The existing atlas paper extraction and its recorded correction/provenance: PAPER-ZHU-17/E33.
+
+### GeometricSatakeAndFusion/E5 — gap
+
+Source: `Zhu17`, p. 482, Appendix B opening paragraph (not p. 484). Provenance: `PAPER-ZHU-17/E34`.
+
+Printed fragment/expression: Proofs are generally omitted in this section.
+
+Correction: Stated without proof: Prop. B.1, Lemma B.9, and the final paragraph of B.3 (Conjecture I for GL_2, N = 2). Prop. B.2 has a one-sentence justification. It also needs \tilde L_det to be trivial on the fibres of π, which follows from base-point-freeness and the second part of Prop. B.1. Lemma B.4, Lemma B.7 and Prop. B.8 ('Details are left to readers') have only sketches. Also unproved: the claims on p. 485 (that M_{N,h} is an irreducible component of the RZ-type space) and p. 486 (\mathring M_{N,h} ≃ Gr′_N), and the claim in Remark B.6. Lemmas B.10 and B.11 are proved in full on pp. 487–488, apart from the misprints E32 and E33; the appeal to Lemma 1.10 for surjectivity goes through. Bhatt–Scholze prove Conjectures I–II. The main results of §§1–3 do not depend on Appendix B.
+
+Check: The quoted sentence is on p. 482. The existing correction wrongly lists B.10 and B.11 as unproved. Specific points: Prop. B.2's sentence ('the pushforward of \tilde L_det gives L_det') also needs \tilde L_det trivial on the fibres of π. That follows from base-point-freeness together with Prop. B.1's second part (degree 0 on fibre curves) and π_*O = O (Lemma A.21). The hint for B.4 also needs the fibres of V_{N,h} → \overline{Gr}_N to have constant dimension; this holds, since the stabilizer {γ: Aγ = A} has dimension nN everywhere. The main theorems do not depend on Appendix B. Remarks 1.15 and 1.16 point to B.3 and B.8, but they are remarks.
+
+Effect: a stated result. Existing correction search: Previously recorded as PAPER-ZHU-17/E34. The corresponding source passage was checked in this run; no separate published correction verified here.
+
+Search record: The exact source version and passages listed in sources.readSections.; The existing atlas paper extraction and its recorded correction/provenance: PAPER-ZHU-17/E34.
+
+### GeometricSatakeAndFusion/E6 — misprint
+
+Source: `Zhu17`, p. 425, proof of Lemma 1.18 (positive dimension of fibres); also p. 425, proof of Lemma 1.18 (last paragraph). Provenance: `PAPER-ZHU-17/E44`.
+
+Printed fragment/expression: some i; dim_k(Λ_λ ∩ p^iΛ_0/Λ_λ ∩ p^{i+1}Λ_0) > 1
+
+Correction: Replace ∩ by +: for λ < Nω_1, dim_k((Λ_λ + p^iΛ_0)/(Λ_λ + p^{i+1}Λ_0)) > 1 for some i (e.g. i = 0). Every hyperplane 𝓔_1 ⊂ Λ_0 containing Λ_λ + pΛ_0 extends to a point of π^{−1}(p^λ), so the fibre surjects onto ℙ^{d−1,p^{−∞}} with d = #{j : l_j ≥ 1} ≥ 2. Also: Replace ∩ by + in both places: dim_k (Λ_λ + p^iΛ_0)/(Λ_λ + p^{i+1}Λ_0) > 1 (this holds at i = 0 when λ < Nω_1), and lines L in this space give the lattices Λ_λ + p^{i+1}Λ_0 + L̃, which extend to full chains. Equivalently, dim (p^{-1}Λ_λ ∩ Λ_0)/Λ_λ = #{j : m_j ≥ 1} ≥ 2, the fibre of π_2 from the preceding paragraph.
+
+Check: For λ = (l_1 ≥ … ≥ l_n ≥ 0) with Σ l_j = N, Λ_λ ⊂ Λ_0 and Λ_λ ∩ p^iΛ_0 = ⟨p^{max(l_j,i)}e_j⟩, so the printed dimension is #{j : l_j ≤ i}. For n ≥ 2 this exceeds 1 for every λ once i ≥ l_1, including λ = Nω_1, whose fibre is a single point by the first part of the lemma. Moreover these subquotients lie inside Λ_λ, while points of π^{−1}(p^λ) are chains of lattices between Λ_λ and Λ_0, so lines in them do not give points of the fibre. With + the dimension is #{j : l_j ≥ i+1}, which for i = 0 is at least 2 exactly when l_2 ≥ 1, i.e. λ ≠ Nω_1. The intended argument is then correct. The same text is in v2 (with 𝓔_λ) and v3. It is classified as a misprint (∩ for +); a verifier could argue for 'error', since the step fails as printed.
+
+Effect: nothing. Existing correction search: Previously recorded as PAPER-ZHU-17/E44. The corresponding source passage was checked in this run; no separate published correction verified here.
+
+Search record: The exact source version and passages listed in sources.readSections.; The existing atlas paper extraction and its recorded correction/provenance: PAPER-ZHU-17/E44.
+
+### GeometricSatakeAndFusion/E7 — error
+
+Source: `Zhu17`, p. 433, Proposition 2.5 (second sentence). Provenance: `PAPER-ZHU-17/E46`.
+
+Printed fragment/expression: overline(S_λ ∩ Gr_{≤μ}) = ⋃_{λ′≤λ} S_{λ′} ∩ Gr_{≤μ}
+
+Correction: Replace the second sentence by S̄_λ ∩ Gr_{≤μ} = ∪_{λ′≤λ}(S_{λ′} ∩ Gr_{≤μ}), which follows from the first. Or restrict to λ a weight of V_μ (equivalently S_λ ∩ Gr_{≤μ} ≠ ∅) and supply a proof of closure(S_λ ∩ Gr_{≤μ}) = S̄_λ ∩ Gr_{≤μ}.
+
+Check: If S_λ ∩ Gr_{≤μ} = ∅ but some λ′ ≤ λ has S_{λ′} ∩ Gr_{≤μ} ≠ ∅, the left side is empty and the right side is not. Example: G = GL_2, μ = (1,0), Gr_{≤μ} = P^1, λ = (2,−1) = (1,0) + α^∨. S_{(2,−1)} ∩ Gr_{≤μ} = ∅, since its lattices contain p^{-1}(xe_1 + e_2) ∉ Λ_0. The right side is S_{(1,0)} ∩ P^1 ∪ S_{(0,1)} ∩ P^1 = P^1. The proof only cites [Zhu16, Prop. 5.3.6], which I checked: it proves S̄_λ = ∪_{λ′≤λ} S_{λ′} and says nothing about closures of the intersections with Gr_{≤μ}. For weights λ the refinement is plausible (I checked GL_2, μ = (2,0) and GL_3, μ = (1,0,−1) by hand) but it is not proved. subsequently arguments (Corollary 2.10, (2.2.11)) only use S̄_λ. The same wording is in arXiv v2 (Lemma 2.5) and v3.
+
+Effect: a stated result. Existing correction search: Previously recorded as PAPER-ZHU-17/E46. The corresponding source passage was checked in this run; no separate published correction verified here.
+
+Search record: The exact source version and passages listed in sources.readSections.; The existing atlas paper extraction and its recorded correction/provenance: PAPER-ZHU-17/E46.
+
+### GeometricSatakeAndFusion/E8 — misprint
+
+Source: `Zhu17`, p. 434, Corollary 2.8; p. 439, Corollary 2.14. Provenance: `PAPER-ZHU-17/E47`.
+
+Printed fragment/expression: equidimensional; dim(S_λ ∩ Gr_{≤μ}) = (ρ, λ + μ)
+
+Correction: Add 'if nonempty, i.e. if λ is a weight of V_μ' to the dimension clause of Cor. 2.8, and 'if nonempty, i.e. if each λ_i is a weight of V_{μ_i}' to Cor. 2.14.
+
+Check: For λ not a weight of V_μ (e.g. λ = μ + α^∨) the scheme is empty, so the dimension formula fails literally. The component count dim V_μ(λ) = 0 remains correct. This is the same kind of missing nonemptiness hypothesis as the recorded E19; keep the classifications consistent (I lean to misprint, since the intended reading is clear).
+
+Effect: nothing. Existing correction search: Previously recorded as PAPER-ZHU-17/E47. The corresponding source passage was checked in this run; no separate published correction verified here.
+
+Search record: The exact source version and passages listed in sources.readSections.; The existing atlas paper extraction and its recorded correction/provenance: PAPER-ZHU-17/E47.
+
+### GeometricSatakeAndFusion/E9 — misprint
+
+Source: `Zhu17`, p. 435, Corollary 2.9. Provenance: `PAPER-ZHU-17/E49`.
+
+Printed fragment/expression: cycle classes; H^i_c(S_λ, IC_μ)
+
+Correction: …form a basis of H_c^{(2ρ,λ)}(S_λ, IC_μ) = CT_λ(IC_μ).
+
+Check: The index i is free. The cycle classes live in degree (2ρ,λ), which by Proposition 2.7 is the only nonzero degree.
+
+Effect: nothing. Existing correction search: Previously recorded as PAPER-ZHU-17/E49. The corresponding source passage was checked in this run; no separate published correction verified here.
+
+Search record: The exact source version and passages listed in sources.readSections.; The existing atlas paper extraction and its recorded correction/provenance: PAPER-ZHU-17/E49.
+
+### GeometricSatakeAndFusion/E10 — error
+
+Source: `Zhu17`, p. 436, proof of Corollary 2.10. Provenance: `PAPER-ZHU-17/E51`.
+
+Printed fragment/expression: Fil′_{<λ}H^*(A) = Im(H^*_{S⁻_{<λ}}(A) → H^*(A)); H^* = ⊕_λ H_c^*(S_λ, −)
+
+Correction: Use Im(H^*_{S̄^-_λ}(A) → H^*(A)), as in [MV07, Th. 3.6]. Fix k = (2ρ,λ). Parity and degree give H^k_{S̄^-_λ}(A) = H^k_{S^-_λ}(A) and H^k(S̄_λ,A) = H^k_c(S_λ,A). The composite H^k_{S̄^-_λ}(A) → H^k(A) → H^k(S̄_{λ′},A) is the isomorphism of (2.2.10) (hyperbolic localization at ϖ^λ) for λ′ = λ. It is zero for λ′ ≠ λ of the same degree, since a nonempty closed G_m-stable S̄^-_λ ∩ S̄_{λ′} contains some ϖ^η with λ ≤ η ≤ λ′. Hence H^k(A) = ⊕_{(2ρ,λ)=k} Im(H^k_{S̄^-_λ}(A) → H^k(A)), which gives H^* ≅ ⊕_λ H^*_c(S_λ,−).
+
+Check: By Proposition 2.5, S̄^−_λ − S^−_λ = ∪_{λ′>λ} S^−_{λ′}. By (2.2.10) and Proposition 2.7, H^k_{S^−_{λ′}}(A) = 0 unless k = (2ρ,λ′) > (2ρ,λ). So the printed Fil′_{<λ} vanishes in degree (2ρ,λ) and cannot split off the λ-piece. Morally it is ⊕_{λ′>λ}, which lies inside Fil_{≥λ} instead of complementing it. Counterexample to the claimed complementarity: GL_2, A = IC_{(1,0)} = Q̄_ℓ[1] on P^1, λ = (0,1). Here Fil_{≥λ} = H^*(A), because S_{<λ} ∩ P^1 = ∅. But Fil′_{<λ} is the image of H^*_{pt}(A) with pt = ϖ^{(1,0)}, which is H^1 ≠ 0. The corollary is right by the MV argument the proof cites. Same text in arXiv v3.
+
+Effect: the proof. Existing correction search: Previously recorded as PAPER-ZHU-17/E51. The corresponding source passage was checked in this run; no separate published correction verified here.
+
+Search record: The exact source version and passages listed in sources.readSections.; The existing atlas paper extraction and its recorded correction/provenance: PAPER-ZHU-17/E51.
+
+### GeometricSatakeAndFusion/E11 — error
+
+Source: `Zhu17`, p. 437, item (2) before Lemma 2.12. Provenance: `PAPER-ZHU-17/E52`.
+
+Printed fragment/expression: a maximal parahoric
+
+Correction: Delete item (2), or state: Q_{1/2} is the parahoric of −θ/2, whose reductive quotient contains the SL_2 of the affine roots ±(θ^∨+1). It is maximal unless the simple factor containing θ is of type A_n with n ≥ 2.
+
+Check: Q_{1/2} is the parahoric of −θ/2 (v2: 'the point −μ/2 is a vertex'). The affine roots vanishing there are ±(θ^∨ + 1) and the roots orthogonal to θ. These have full rank only if the roots orthogonal to the highest root have rank r − 1, which fails in type A_n, n ≥ 2, where they have rank n − 2. For SL_3, θ = (1,0,−1) pairs to 1 or 2 with every positive root. So −θ/2 lies on the single wall θ^∨ + 1 = 0, inside an edge, and Q_{1/2} is properly contained in the parahorics of the edge's two vertices. Type A is covered by the paper: θ ∈ M (p. 439) and Lemma 2.11 includes it. The claim is not used in any proof.
+
+Effect: nothing. Existing correction search: Previously recorded as PAPER-ZHU-17/E52. The corresponding source passage was checked in this run; no separate published correction verified here.
+
+Search record: The exact source version and passages listed in sources.readSections.; The existing atlas paper extraction and its recorded correction/provenance: PAPER-ZHU-17/E52.
+
+### GeometricSatakeAndFusion/E12 — error
+
+Source: `Zhu17`, p. 439, proof of Lemma 2.11 (μ = θ): display for π^{-1}(S_0 ∩ Gr_{≤μ}) and (2.2.13). Provenance: `PAPER-ZHU-17/E53`.
+
+Printed fragment/expression: RΓ_c(π⁻¹(S_0 ∩ Gr_{≤μ}), Q̄_ℓ[d]) = RΓ_c(⋃_{wμ<0} ŪwP̄_μ/P̄_μ, Q̄_ℓ[d − 2])
+
+Correction: With Y = ∪_{wμ<0} ŪwP̄_μ/P̄_μ, π^{-1}(S_0 ∩ Gr_{≤μ}) = [φ^{-1}(Y) \ π^{-1}(∪_{wμ<0} S_{wμ} ∩ Gr_{≤μ})] ⊔ [π^{-1}(Gr_0) ∩ φ^{-1}(Ḡ/P̄_μ − Y)], where π^{-1}(Gr_0) ≅ Ḡ/P̄_μ is the section at infinity. So (2.2.13) should read RΓ_c(π^{-1}(S_0 ∩ Gr_{≤μ}), Q̄_ℓ[d]) = RΓ_c(Y, Q̄_ℓ[d−2]) ⊕ RΓ_c(Ḡ/P̄_μ − Y, Q̄_ℓ[d]); the sequence splits since all terms are in even degrees. Comparison with (2.2.12) then gives H^i(𝒞) = H^i_c(π^{-1}(S_0 ∩ Gr_{≤μ}), Q̄_ℓ[d]) for i ≠ 0 and H^0_c(S_0, IC_μ) ≅ Q̄_ℓ^{∣Δ_θ∣}.
+
+Check: Cells of Ḡ/P̄_θ: for β = wθ > 0 the dimension is ht θ + ht β − 1; for β < 0 it is ht θ − ht(−β); and d = 2 ht θ. With the printed (2.2.13), H^i_c vanishes for i > 0, yet H^i(C) = H^{i+d}(Ḡ/P̄_μ) ≠ 0 whenever some positive β ∈ Wθ has height 1 + i/2. In degree 0 both sides have dimension ∣Δ_θ∣, which would give H^0_c(S_0, IC_μ) = 0. Check for SL_3: Ḡ/P̄_θ is the flag variety and C = Q̄_ℓ[2] ⊕ Q̄_ℓ^2 ⊕ Q̄_ℓ[−2]. The printed (2.2.13) gives Q̄_ℓ[2] ⊕ Q̄_ℓ^2, so H^0_c(S_0, IC_θ) = 0 and the degree-2 term would be negative. The corrected formula gives H^0_c = Q̄_ℓ^2 = V_θ(0). The final conclusion (and the [NP01, §8] computation it defers to) is right. The same display is in arXiv v2 and v3.
+
+Effect: the proof. Existing correction search: Previously recorded as PAPER-ZHU-17/E53. The corresponding source passage was checked in this run; no separate published correction verified here.
+
+Search record: The exact source version and passages listed in sources.readSections.; The existing atlas paper extraction and its recorded correction/provenance: PAPER-ZHU-17/E53.
+
+### GeometricSatakeAndFusion/E13 — misprint
+
+Source: `Zhu17`, A.3.5, last paragraph, p. 482. Provenance: `PAPER-ZHU-17/E71`.
+
+Printed fragment/expression: pro-unipotent pro-algebraic group
+
+Correction: Require J_1 to be connected (as for the congruence subgroups L^+G^{(h)} used in the paper). Two admissible choices J_1, J_1' are then compared through the connected, normal, pro-unipotent subgroup J_1J_1' (or through J_1 ∩ J_1'), applying (A.3.4) to the connected groups J_1J_1'/J_1 and J_1J_1'/J_1', and (A.3.6) for cohomology.
+
+Check: (A.3.4) is stated only for connected J_1, but the condition allows disconnected unipotent J_1 (finite p-groups are unipotent in characteristic p). Counterexample: J = Z/p (constant), X = Spec k. Both J_1 = J and J_1' = {1} satisfy the condition, but P_{J/J}(X) = Vect while P_{J/{1}}(X) = Rep_{Qlbar}(Z/p), which has p simple objects. This also conflicts with the earlier definition of P_J for pfp J. The cohomology half is fine, since (A.3.6) holds for any unipotent J_1 (l != p). In the paper J_1 is always a connected congruence subgroup, so nothing downstream is affected.
+
+Effect: nothing. Existing correction search: Previously recorded as PAPER-ZHU-17/E71. The corresponding source passage was checked in this run; no separate published correction verified here.
+
+Search record: The exact source version and passages listed in sources.readSections.; The existing atlas paper extraction and its recorded correction/provenance: PAPER-ZHU-17/E71.
+
+### GeometricSatakeAndFusion/E14 — misprint
+
+Source: `BS17-witt-grassmannian`, arXivv3 Lemmas7.7–7.8 pp28–29; Definition7.10 convention. Provenance: `PAPER-BHATT-SCHOLZE-17/E10`.
+
+Printed fragment/expression: projective dimension 1
+
+Correction: Use projective dimension at most one, or separately exclude Q=0 when claiming equality one.
+
+Check: The identity isogeny has cokernel zero and the zero R-module is projective; its projective dimension is not exactly one under the usual conventions. (cc-442dc5) Reclassified to affect nothing: 'projective dimension 1' is used as 'at most one' throughout Lemmas 7.7–7.8 and Definition 7.10, and the zero module causes no problem in the determinant construction.
+
+Effect: nothing. Existing correction search: Previously recorded as PAPER-BHATT-SCHOLZE-17/E10. The corresponding source passage was checked in this run; no separate published correction verified here.
+
+Search record: The exact source version and passages listed in sources.readSections.; The existing atlas paper extraction and its recorded correction/provenance: PAPER-BHATT-SCHOLZE-17/E10.; Springer PDF endpoint for doi:10.1007/s00222-016-0710-4, 2026-10-07: HTML paywall, not the published PDF.
+
+### GeometricSatakeAndFusion/E15 — misprint
+
+Source: `BS17-witt-grassmannian`, arXiv v3, Lemma 7.9, p. 29. Provenance: `PAPER-BHATT-SCHOLZE-17/E12`.
+
+Printed fragment/expression: Spec(R)_{≤λ} ⊂ {x ∈ Spec(R) ∣ λ(Q ⊗ W(k(x))) ≤ λ}
+
+Correction: Spec(R)_{≤λ} := {x ∈ Spec(R) ∣ λ(Q ⊗ W(k(x))) ≤ λ} is a closed subset of Spec(R).
+
+Check: The display defines the locus, and the proof on p. 32 shows that this whole set is closed (it is the image of Dem_λ(Q)). With '⊂' the statement would say nothing about which subset. The verdict is 'revised' only because the recorded 'printed' text paraphrased the display; the substance of E12 stands. Present in v1 and v2.
+
+Effect: nothing. Existing correction search: Previously recorded as PAPER-BHATT-SCHOLZE-17/E12. The corresponding source passage was checked in this run; no separate published correction verified here.
+
+Search record: The exact source version and passages listed in sources.readSections.; The existing atlas paper extraction and its recorded correction/provenance: PAPER-BHATT-SCHOLZE-17/E12.; Springer PDF endpoint for doi:10.1007/s00222-016-0710-4, 2026-10-07: HTML paywall, not the published PDF.
+
+### GeometricSatakeAndFusion/E16 — gap
+
+Source: `BS17-witt-grassmannian`, p. 35, proof of Theorem 8.3, second paragraph. Provenance: `PAPER-BHATT-SCHOLZE-17/E39`.
+
+Printed fragment/expression: By induction; L∣⋃_{μ<λ}Gr_{≤μ}
+
+Correction: Before invoking Keel, show that Y = ∪_{μ<λ}Gr_{≤μ} is the perfection of a proper algebraic space. Here Y is the image sheaf of ⊔_{μ<λ}Gr_{≤μ}, equivalently the closed complement of Gr_λ. The map ⊔Gr_{≤μ} → Y is a v-cover. Its equivalence relation is given by the closed intersections Gr_{≤μ} ×_{Gr_{≤λ}} Gr_{≤μ'}. So Y is the iterated pushout of the Gr_{≤μ} along these intersections. Affine-locally this pushout is A1 ×_{A12} A2, which is perfect and satisfies A1 ⊗_A A2 = A12. On finite-type models the pushout is a proper algebraic space by [Ar70, 6.1]. Next, every subvariety of Y lies in some Gr_{≤μ}, where L is ample, so E(L∣_Y) = ∅. Keel's Lemma 1.8, applied inductively over the pieces, then makes L∣_Y semiample. Its morphism contracts no curve, hence is finite, so L∣_Y is ample. Alternatively, cite Zhu's Theorem 8.2, which makes Y a closed subspace of a proper perfect algebraic space; but then the proof is no longer independent of Zhu as claimed (p. 32).
+
+Check: Keel's Lemma 1.8 is a gluing statement for semiampleness on a proper algebraic space X = X_1 ∪ X_2 with E(L) ⊂ X_1. To obtain ampleness it has to be combined with E(L) = ∅ and Nakai. Applying it requires Y = ∪_{μ<λ} Gr_{≤μ} to be (the perfection of) a proper algebraic space. The induction hypothesis makes each Gr_{≤μ} a projective perfect scheme, but not their union inside the v-sheaf Gr_{≤λ}, whose representability is what is being proved. The union is not a single Gr_{≤μ} in general: for n = 3, λ = (4,2,0), both (3,3,0) and (4,1,1) are maximal below λ and are incomparable. Applying Keel's lemma on the scheme ψ^{-1}(Y) instead does not work, since the exceptional locus there does not lie in one piece. Defence: the missing step is standard and fillable (pinching of perfect schemes along closed subschemes, or gluing sections as above). Theorem 8.3 itself is not in doubt.
+
+Effect: the proof. Existing correction search: Previously recorded as PAPER-BHATT-SCHOLZE-17/E39. The corresponding source passage was checked in this run; no separate published correction verified here.
+
+Search record: The exact source version and passages listed in sources.readSections.; The existing atlas paper extraction and its recorded correction/provenance: PAPER-BHATT-SCHOLZE-17/E39.; Springer PDF endpoint for doi:10.1007/s00222-016-0710-4, 2026-10-07: HTML paywall, not the published PDF.
+
+### GeometricSatakeAndFusion/E17 — error
+
+Source: `BS17-witt-grassmannian`, p. 37, the sentence introducing Kottwitz' map and Proposition 9.7 ([Zhu14, Proposition 1.21]). Provenance: `PAPER-BHATT-SCHOLZE-17/E41`.
+
+Printed fragment/expression: π₁(G)_{Gal_K}
+
+Correction: Add the hypothesis 'k algebraically closed' (as in [Zhu14, §1.5.2]); then Gal_K is the inertia group. For a general perfect k: Kottwitz's map is κ: LG(k̄) = G(W_{O_K}(k̄)[1/p]) → π1(G)_{I_K}, where I_K ⊂ Gal_K is the inertia subgroup. It induces Gal(k̄/k)-equivariant bijections π0(LG_{k̄}) ≅ π0(Gr_{𝒢,k̄}) ≅ π1(G)_{I_K}. The connected components over k are the Gal(k̄/k)-orbits on π1(G)_{I_K}.
+
+Check: §9 fixes only a perfect residue field k, but Zhu states Prop. 1.21 in a subsection (§1.5.2 of arXiv v1/v2, §1.4.2 of v3) that opens 'We assume that k is algebraically closed'. Kottwitz's map for the field W_{O_K}(k̄)[1/p] = K̆ lands in the inertia coinvariants π1(G)_{I_K}, not in π1(G)_{Gal_K}. Counterexample for finite k: let K'/K be unramified quadratic with residue field k', T = Res_{K'/K} G_m, and 𝒢 = Res_{O_K'/O_K} G_m its connected Néron model (parahoric). Then Gr_𝒢 = Res_{k'/k}(Z), whose geometric components form Z² with Frobenius swapping the factors, while π1(T)_{Gal_K} = Z²/(e1−e2) = Z. Neither the k-components (Frobenius orbits, e.g. {(0,0)} and {(1,−1),(−1,1)} both lying over 0) nor the geometric components (Z²) are in bijection with Z. Defence: for k algebraically closed, the case of Zhu's source, the statement is correct. The only subsequently use, in the proof of Proposition 10.3 for SL_n where π1 = 0, is unaffected. The same text appears in v1 and v2.
+
+Effect: a stated result. Existing correction search: Previously recorded as PAPER-BHATT-SCHOLZE-17/E41. The corresponding source passage was checked in this run; no separate published correction verified here.
+
+Search record: The exact source version and passages listed in sources.readSections.; The existing atlas paper extraction and its recorded correction/provenance: PAPER-BHATT-SCHOLZE-17/E41.; Springer PDF endpoint for doi:10.1007/s00222-016-0710-4, 2026-10-07: HTML paywall, not the published PDF.
+
+### GeometricSatakeAndFusion/E18 — gap
+
+Source: `BS17-witt-grassmannian`, p. 37, Proposition 10.1 (second assertion) and its proof. Provenance: `PAPER-BHATT-SCHOLZE-17/E42`.
+
+Printed fragment/expression: L = det̃_R(p^a W_{O_K}(R)^n/M)
+
+Correction: Add the argument. Choose a W(k)-basis of O_K, so that W_{O_K}(R)^n = W(R)^{ne}. On a bounded piece X ⊂ Gr_{SL_n} (proper by Corollary 9.6), for a ≪ 0 the map M ↦ p^{-a}M ⊂ W(R)^{ne} sends X into some Gr_{≤λ} for GL_{ne}. The cokernel is Q = W(R)^{ne}/p^{-a}M ≅ p^aW_{O_K}(R)^n/M, killed by a bounded power of p, of constant length −ane. This map is proper and injective on points, hence finite (pass to finite-type models). By definition of det̃ on K(W_{O_K}(R) on R), L∣_X is the pullback of the Theorem 8.3 bundle det̃(Q). So L∣_X is ample by Theorem 8.3.
+
+Check: The proof constructs L and notes independence of a, but never addresses the asserted ampleness. For ramified O_K the lattices are W_{O_K}(R)-lattices, and Theorem 8.3 (stated for W(R)-lattices in W(R)^n) does not apply without the restriction-of-scalars comparison. Proposition 10.5 (Serre vanishing, infinite-dimensionality) depends on this ampleness. The missing argument is short and the statement is true.
+
+Effect: the proof. Existing correction search: Previously recorded as PAPER-BHATT-SCHOLZE-17/E42. The corresponding source passage was checked in this run; no separate published correction verified here.
+
+Search record: The exact source version and passages listed in sources.readSections.; The existing atlas paper extraction and its recorded correction/provenance: PAPER-BHATT-SCHOLZE-17/E42.; Springer PDF endpoint for doi:10.1007/s00222-016-0710-4, 2026-10-07: HTML paywall, not the published PDF.
+
+### GeometricSatakeAndFusion/E19 — misprint
+
+Source: `BS17-witt-grassmannian`, p. 37, last paragraph (after Proposition 10.1). Provenance: `PAPER-BHATT-SCHOLZE-17/E43`.
+
+Printed fragment/expression: det_R(p^a W_{O_K}(R)^n/gW_{O_K}(R)^n)
+
+Correction: det̃_R(p^aW_{O_K}(R)^n/gW_{O_K}(R)^n) (up to the canonically trivial factor det̃_R(p^aW_{O_K}(R)^n/W_{O_K}(R)^n)^{-1})
+
+Check: p^a W_{O_K}(R)^n / g W_{O_K}(R)^n is not killed by p, hence not an R-module, so det_R is undefined. The extended determinant det̃_R of Theorem 5.7 and Proposition 10.1 is meant. The normalizing factor is a trivial line bundle, and the proof of Proposition 10.4 uses det̃_k correctly.
+
+Effect: nothing. Existing correction search: Previously recorded as PAPER-BHATT-SCHOLZE-17/E43. The corresponding source passage was checked in this run; no separate published correction verified here.
+
+Search record: The exact source version and passages listed in sources.readSections.; The existing atlas paper extraction and its recorded correction/provenance: PAPER-BHATT-SCHOLZE-17/E43.; Springer PDF endpoint for doi:10.1007/s00222-016-0710-4, 2026-10-07: HTML paywall, not the published PDF.
+
+## Proposed structure and upstream observations
+
+These changes are proposals in the packet. The atlas base and other roadmaps are not edited by this job.
+
+- Make SF0/SF1 the single owner of perfect pfp models/effective quotient and boundary pinching theory, SF3/SF4 the owner of general bundle descent and SF5 the owner of all general positivity/Keel theory. GS0:Witt-geometry owns their determinant-line and projectivity application. Remove the old text “sub-obligation here” and add the supplier edges. RF2’s completed-ring descent is imported by its existing node, never reconstructed.
+- GS0 imports L1 scheme diamondification and D6 pre-adic diamondification/topological comparison; do not declare nonanalytic v-sheaves diamonds without an additional representability theorem. GS1 imports early L1/L3 and EDC5 perversity/recollement. Drop EDC4 and VS3 lisse-category prerequisites here. EDC7 appears only in rational standard/costandard torsion refinement; it does not precede GS0 smoothness.
+- Reverse the atlas edge GS3:fusion→GS2:Satake-closure. FS VI.8.1–VI.8.2 prove closure and duals first; VI.9 then uses dualizability. VI.8.1(ii) uses an elementary two-leg collision family, which is explicitly planned here, but not VI.9’s coherent symmetric fusion. Keep GS2:correspondences before closure and closure before GS3; generic bounded properness and integral Witt properness remain distinct targets.
+- Refine existing supplier directions by the exact requests in this packet. In particular Scheme and stack foundations, Part II: perfect models, pinching and integral local-model functoriality extends SF0/SF1/SF4; Relative Fargues–Fontaine, Part II: punctured A_inf torsors extends RF4; V-stack sheaves and lisse categories, Part II: hyperbolic localization and proper relative ULA kernels extends VS1; Enhanced derived sheaves, Part II: coherent kernel correspondences extends E3/E5; Reductive groups, Part II already owns parahoric/affine-root and adjoint comparisons. These are extensions of the named owners, not new GS-owned general theories.
+
+- `Mathlib/RingTheory/Perfection.lean at 082e2d3`: The existing Perfection carrier is the inverse limit under Frobenius; Zhu/BS coordinate perfection is the direct colimit. This is a baseline distinction for the maintainer, with no requested edit to an upstream Tau Ceti roadmap.
+- `TauCeti/AlgebraicGeometry/AffineGroupScheme/Reductive.lean at f790474`: ReductiveAffineGroupSchemeCat is field-based. Integral reductive/parahoric models used here require the proposed RG2.3 extension; no change to an upstream roadmap is proposed.
+
+## Suggested-file validation
+
+The full suggested file imports the pinned Tau Ceti scheme line-bundle module. The supplied shared build lacks its prebuilt object, so the complete file has not elaborated. A projection retaining every Mathlib-supported block and excluding just that import and the two blocks using `InvertibleSheaf` elaborates at the Mathlib pin with only admitted-proof warnings. This validates the remaining core signatures and examples; it does not validate the two omitted blocks or their geometric hypotheses. No library build is required or attempted by this plan.
