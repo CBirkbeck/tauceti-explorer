@@ -2,9 +2,9 @@
 
 This roadmap constructs integral quantum invariants of links and integral homology spheres, then relates selected hyperbolic knot invariants to Bloch classes, perturbative series and quantum modular transformations. Its central objects are the even integral quantum group, Habiro’s cyclotomic color lattice, the unified invariant, geometric extended Bloch classes and triangulation-derived formal state integrals. Analytic knot integrals and quantum modular conjectures have their own hypotheses and normalization data.
 
-The accepted RS-10 restructuring keeps QT.0–QT.7. This is the definitive reader for the complete **target-level planning pass**: all eight stages are planned, with eight explicit gaps and eighteen open supplier contracts. Every declaration remains implementation-unchecked. A source theorem, a concrete computation and a conjecture are mathematical statuses, not claims that a library implementation exists. The suggested file elaborates concrete interfaces against Mathlib; the absent carriers and conditions are identified there by name.
+The accepted RS-10 restructuring keeps QT.0–QT.7. This is the definitive reader for the complete **target-level planning pass**: all eight stages are planned, with eight explicit gaps and nineteen open supplier contracts. Every declaration remains implementation-unchecked. A source theorem, a concrete computation and a conjecture are mathematical statuses, not claims that a library implementation exists. The suggested file elaborates concrete interfaces against Mathlib; the absent carriers and conditions are identified there by name.
 
-The packet retains all 54 identifiers of the preceding pass and contains 106 nodes, 206 definition/construction API items, 158 definition/construction unit tests and 36 planets. The older Kashaev identifier beginning QT.6 is retained for compatibility but its parent is QT.2, where the colored-Jones evaluation is constructed. Stage order is dependency order where appropriate: the cusped geometry of QT.5 starts independently of closed surgery in QT.0–QT.4.
+The packet retains all 54 identifiers of the preceding pass and contains 106 nodes, 206 definition/construction API items, 159 definition/construction unit tests and 36 planets. The older Kashaev identifier beginning QT.6 is retained for compatibility but its parent is QT.2, where the colored-Jones evaluation is constructed. Stage order is dependency order where appropriate: the cusped geometry of QT.5 starts independently of closed surgery in QT.0–QT.4.
 
 ## Conventions and ownership
 
@@ -16,7 +16,7 @@ GeometricTopology owns framed links, their ordinary diagram and braid relations,
 
 K3BlochGroups owns ordinary pre-Bloch and Bloch groups, their boundary conventions, Suslin fibres and K₃ interfaces. Polylogarithms owns dilogarithm branches, Bloch–Wigner and regulator machinery. QT.5 supplies geometric flattenings, the full extended group needed by these manifolds, and the normalization comparisons. Neumann’s regulator is iVol−CS in ℂ/π²ℤ; GZ’s complex volume is iVol+CS, so the comparison is −complex conjugation with the period and lift recorded. A trace-field class needs verified algebraicity and boundary cancellation; a diagram alone does not supply it.
 
-HabiroNahmSeries owns formal Gaussian contraction and the integral Nahm/module theorem. HabiroNumberFields supplies the early Frobenius coefficient ring and the twisted K₃-indexed module. The NZ bridge requires a symmetric **integral** Nahm matrix, parity compatibility, nondegenerate shapes and the exact arithmetic coefficient ring; invertibility of B alone gives a rational matrix and is insufficient. QT.6 contributes the geometric series and the comparison of its classical, one-loop and phase factors. Generic operator functional calculus comes from AutomorphicSpectralTheory; the analytic Faddeev pentagon differs from the formal noncommutative pentagon already owned by the cyclotomic-completion roadmap.
+HabiroNahmSeries owns formal Gaussian contraction and the integral Nahm/module theorem. HabiroNumberFields supplies the early Frobenius coefficient ring and the twisted K₃-indexed module. The QT comparison retains HB.9’s coefficient-transfer, signed Kummer, integral-gluing and full quadratic finite étale descent obligations, including split components. The NZ bridge requires a symmetric **integral** Nahm matrix, parity compatibility, nondegenerate shapes and the exact arithmetic coefficient ring; invertibility of B alone gives a rational matrix and is insufficient. QT.6 contributes the geometric series and the comparison of its classical, one-loop and phase factors. Generic operator functional calculus comes from AutomorphicSpectralTheory; the analytic Faddeev pentagon differs from the formal noncommutative pentagon already owned by the cyclotomic-completion roadmap.
 
 QSeriesPartitionsAndMockModularForms owns generic scalar quantum modular and cocycle theory. Its matrix multiplicative and branch-aware extension is requested as Part II. QT.7 owns the selected knot rows, matrices and comparisons. Its algebraic cocycle identity is conditional on invertibility and the automorphy-factor identity; real analyticity is a separate conjecture. A general resurgence or Borel-summation framework is outside this roadmap. Wheeler’s two-variable knot invariant and its MMR/Alexander and relative-Habiro comparison are routed to ArithmeticQuantumTopology, Part II, using HabiroRings HR.1/HR.5 for the generic relative-completion interfaces.
 
@@ -24,7 +24,7 @@ QSeriesPartitionsAndMockModularForms owns generic scalar quantum modular and coc
 
 The baseline is Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. The reviewed library-coverage catalogue has no QT row. The twenty-four cited declarations were checked by reading their actual statements at these pins. Braided and rigid monoidal categories and ordinary Hopf algebras exist; the needed ribbon twist and topological quantum algebra do not follow merely from those class names. Mathlib’s Bochner integral is total, so an integrability theorem is required before it represents a convergent contour integral. Its rectangle Cauchy–Goursat theorem supplies finite contour deformation; unbounded tails require estimates.
 
-Two complete upstream readers, GeometricTopology and RepresentationTheory/LieHighestWeight, determine the level of definitions, interfaces and boundaries used here. Each item below records its direct prerequisites, proof route, source locator, API, tests and acceptance conditions. The packet and reader give own-word mathematical specifications, numbered source results and page locators. Source hashes identify the versions checked. All twenty-two source findings carry their retained independent verdicts and version limits.
+Two complete upstream readers, GeometricTopology and RepresentationTheory/LieHighestWeight, determine the level of definitions, interfaces and boundaries used here. Each item below records its direct prerequisites, proof route, source locator, API, tests and acceptance conditions. The packet and reader give own-word mathematical specifications, numbered source results and page locators. Source hashes identify the versions checked. All twenty-two source findings were independently rechecked for REV-ArithmeticQuantumTopology~2; their version limits remain explicit.
 
 ## QT.0 — Framed links, surgery and normalization
 
@@ -329,7 +329,7 @@ Every closed connected oriented integral homology 3-sphere admits surgery on an 
 
 **Identifier:** `ArithmeticQuantumTopology:QT.0/admissible-band-slide-calculus`. **Kind:** theorem. **Mathematical status:** proved-source.
 
-A band slide is an algebraically cancelling pair of handle slides and preserves the linking matrix. Two admissible links with the same oriented surgery result become related by band slides and isotopy after split ±1 stabilizations. This is Habiro theorem t1; its Main Lemma applies to an oriented ordered move sequence with φ(S)=I.
+A band slide is an algebraically cancelling pair of handle slides and preserves the linking matrix. Two admissible links with the same oriented surgery result become related by band slides and isotopy after split ±1 stabilizations. This is Habiro theorem Theorem 1.1; its Main Lemma applies to an oriented ordered move sequence with φ(S)=I.
 
 **Proof/construction route:**
 
@@ -341,7 +341,7 @@ A band slide is an algebraically cancelling pair of handle slides and preserves 
 
 **Acceptance:**
 
-- A band slide is an algebraically cancelling pair of handle slides and preserves the linking matrix. Two admissible links with the same oriented surgery result become related by band slides and isotopy after split ±1 stabilizations. This is Habiro theorem t1; its Main Lemma applies to an oriented ordered move sequence with φ(S)=I.
+- A band slide is an algebraically cancelling pair of handle slides and preserves the linking matrix. Two admissible links with the same oriented surgery result become related by band slides and isotopy after split ±1 stabilizations. This is Habiro theorem Theorem 1.1; its Main Lemma applies to an oriented ordered move sequence with φ(S)=I.
 
 **Sources:**
 
@@ -647,7 +647,7 @@ A topological ribbon Hopf algebra over ℂ[[h]] is topologically free of countab
 | `trivialRibbonHopf` | degenerate | The ground ring itself, with trivial R-matrix and ribbon element, is a topological ribbon Hopf algebra whose universal invariant is constant; this is the degenerate case. |
 | `twist_unit` | computation | The twist on the tensor unit is the identity, which is the statement that the ribbon element acts trivially on the trivial module. |
 | `braiding_not_symmetric` | non-example | For the quantised enveloping algebra the braiding is not a symmetry: its square on a two-dimensional module is not the identity, which is exactly what makes the invariant see the knotting. |
-| `groupAlgebra_symmetric` | non-example | The completed group algebra of an abelian group with trivial R-matrix gives a symmetric, not merely braided, category; its universal invariant cannot distinguish a knot from the unknot. |
+| `groupAlgebra_symmetric` | non-example | The completed group algebra of a countable abelian group with trivial R-matrix gives a symmetric, not merely braided, category; its universal invariant cannot distinguish a knot from the unknot. |
 
 **Acceptance:**
 
@@ -663,7 +663,7 @@ A topological ribbon Hopf algebra over ℂ[[h]] is topologically free of countab
 
 **Identifier:** `ArithmeticQuantumTopology:QT.1/core-subalgebras-and-twist-forms`. **Kind:** definition. **Mathematical status:** proved-source.
 
-A core subalgebra X of a topological ribbon Hopf algebra is topologically free with continuous Δ(X)⊂completed X⊗X, S±1(X)⊂X, adjoint stability, and R and the pivotal element in the appropriate closures. For the clasp c=Σ c′_i⊗c″_i, both families are zero-convergent topological bases of X. If x=Σ x″_ic″_i lies in its ambient closure and y=Σ y′_ic′_i lies in X, define ⟨x,y⟩=Σ x″_iy′_i; its convergence follows from these basis conditions. Twist forms are T±(y)=⟨r±1,y⟩. Their normalization is T±(1)=1. Construction of an integral invariant also needs the integral K_n stability conditions, separately planned. No arbitrary scalar Gauss denominator is inserted.
+A core subalgebra X of a topological ribbon Hopf algebra is topologically free with continuous Δ(X)⊂completed X⊗X, S±1(X)⊂X, adjoint stability, and R in the ambient h-adic closure of X⊗X and the pivotal element g in X itself. For the clasp c=Σ c′_i⊗c″_i, both families are zero-convergent topological bases of X. If x=Σ x″_ic″_i lies in its ambient closure and y=Σ y′_ic′_i lies in X, define ⟨x,y⟩=Σ x″_iy′_i; its convergence follows from these basis conditions. Twist forms are T±(y)=⟨r±1,y⟩. Their normalization is T±(1)=1. Construction of an integral invariant also needs the integral K_n stability conditions, separately planned. No arbitrary scalar Gauss denominator is inserted.
 
 **Proof/construction route:**
 
@@ -703,7 +703,7 @@ A core subalgebra X of a topological ribbon Hopf algebra is topologically free w
 
 **Sources:**
 
-- [Unified quantum invariants for integral homology spheres associated with simple Lie algebras](https://arxiv.org/abs/1503.03549v2), §§2.14–2.16, pp. 28–35, core and twist systems. This fixed-version locus supplies the abstract data that turns a ribbon hopf algebra into an invariant of homology spheres. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route.
+- [Unified quantum invariants for integral homology spheres associated with simple Lie algebras](https://arxiv.org/abs/1503.03549v2), Definition 3, §2.14, p. 28; §§2.15–2.16, pp. 29–35, core and twist systems. This fixed-version locus supplies the abstract data that turns a ribbon hopf algebra into an invariant of homology spheres. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route.
 
 ### What specialising at a root of unity does and does not give
 
@@ -1417,7 +1417,7 @@ Set C=(v−v⁻¹)²FE+vK+v⁻¹K⁻¹ and σ_n=∏_(i=1)^n(C²−q^i−2−q⁻
 
 1. Compute the polynomial center from PBW and the quantum Casimir.
 2. Use the induced e-power ideals and the monic σ_n basis to identify the completed center.
-3. Restrict the graded q-form to its even part; use center theorem thm:38.
+3. Restrict the graded q-form to its even part; use center theorem Theorem 11.2.
 
 **Direct prerequisites:** `ArithmeticQuantumTopology:QT.1/quantized-enveloping-algebra`, `ArithmeticQuantumTopology:QT.1/universal-invariant-integrality`.
 
@@ -1947,7 +1947,7 @@ For each finite-dimensional simple complex g there is a unique invariant J_M^g�
 
 **Proof/construction route:**
 
-1. Build the abstract Hoste-invariant core formula using T_(−f_i).
+1. Build the abstract Hoste-invariant core formula using T_(f_i).
 2. Apply AL1/AL2 to place it in K̃₀=Habiro.
 3. Use the admissible WRT comparison and an injective infinite family of root evaluations for uniqueness.
 
@@ -2237,7 +2237,7 @@ The extended Rogers map descends to ℂ/π²ℤ and computes iVol−CS. Its comp
 
 **Identifier:** `ArithmeticQuantumTopology:QT.5/ideal-tetrahedron-and-shape`. **Kind:** definition. **Mathematical status:** proved-source.
 
-The supplier’s ordered ideal hyperbolic tetrahedron with four distinct boundary vertices has cross-ratio z∈ℂ∖{0,1}, with ordering normalized by (∞,0,1,z)↦z. Its companions are z′=1/(1−z), z″=1−1/z and zz′z″=−1. Im z>0 is positive orientation; real nondegenerate shapes are flat and may occur in refinement arguments. QT records the shape coordinate interface and imports the geometric carrier/isometry classification; it does not construct hyperbolic space again.
+The supplier’s ordered ideal hyperbolic tetrahedron with four distinct boundary vertices has cross-ratio z∈ℂ∖{0,1}, with ordering normalized by (0,∞,1,z)↦z. Its companions are z′=1/(1−z), z″=1−1/z and zz′z″=−1. Im z>0 is positive orientation; real nondegenerate shapes are flat and may occur in refinement arguments. QT records the shape coordinate interface and imports the geometric carrier/isometry classification; it does not construct hyperbolic space again.
 
 **Proof/construction route:**
 
@@ -2326,7 +2326,7 @@ For an actual ideal face-pairing triangulation of the interior of a compact orie
 
 **Sources:**
 
-- [Perturbative invariants of cusped hyperbolic 3-manifolds](https://arxiv.org/abs/2305.14884v2), §2.3, pp. 8–9, regular geometric triangulations. This fixed-version locus supplies gluing and completeness equations of an ideal triangulation. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route.
+- [Perturbative invariants of cusped hyperbolic 3-manifolds](https://arxiv.org/abs/2305.14884v2), §2.2, equations (14)–(15), pp. 6–7, edge/peripheral equations; §2.2, equations (14)–(15), pp. 6–7, edge/peripheral equations; §2.3, pp. 8–9, regular geometric triangulations. This fixed-version locus supplies gluing and completeness equations of an ideal triangulation. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route.
 
 ### Combinatorial flattenings and the extended pre-Bloch group
 
@@ -2710,7 +2710,7 @@ For analytic work, Faddeev’s dilogarithm starts with a strip integral passing 
 - ArithmeticQuantumTopology/G3: Jones/root convention comparison — Prove the exact variable/mirror convention linking geometric Jones(t), Habiro J_K(V₁)/[2], MM’s positive-q reduced polynomial and GZ’s negative-q definition. At roots reduce before specializing, retain fourth-root lifts and distinguish strong Kirby admissibility from semisimple/modular alcove hypotheses.
 - ArithmeticQuantumTopology/G4: Cusped ordered geometry and trace-field descent — Supplier closed Mostow material alone does not provide complete cusped ideal face-pairings, EP/refinement connectivity, strong ordered hybrid flattenings or geometric NZ local rigidity. A general claim that the signed Bloch class descends to the invariant trace field needs a separate algebraicity/boundary argument; only the explicitly checked figure-eight field example is used without it.
 - ArithmeticQuantumTopology/G5: Integral and extended Bloch comparisons — Neumann’s factor-two ordinary boundary, exterior kernel, antisymmetric tensor and published CGZ convention must be compared with the named supplier maps. The full extended group needs its actual cut cover, lifted component, transfer relations and strong normal-path conditions. A Suslin lift retains torsion ambiguity; no canonical lift follows from a B̂(ℂ) class.
-- ArithmeticQuantumTopology/G6: NZ-to-Habiro normalization — HB.9 applies to symmetric integral Nahm matrices, not every rational NZ matrix. Verify B unimodular, parity compatibility, isolated nondegenerate shapes, arithmetic R/Δ and the correct Bloch index, then compare GSW unit formal series with the HB.8 collection’s classical exponential, phase and one-loop factor. General module membership remains a comparison obligation. Root-refined DG2 arithmetic must use the filtered diagram definition and actual Kummer translations; reconcile E17–E21 and match the τ factor with the HB.8 normalization before claiming the rootwise Habiro collection comparison. The imported HB.8 refinement-gaussian-identification is conditional on its own G1 global-prefactor and G2 regularity gaps and the coprime auxiliary order; those conditions must be retained. Also compare the full cyclotomic coefficient tensor algebra with the chosen F(ζ) component before identifying collections.
+- ArithmeticQuantumTopology/G6: NZ-to-Habiro normalization — HB.9 applies to symmetric integral Nahm matrices, not every rational NZ matrix. Verify B unimodular, parity compatibility, isolated nondegenerate shapes, arithmetic R/Δ and the correct Bloch index, then compare GSW unit formal series with the HB.8 collection’s classical exponential, phase and one-loop factor. General module membership remains a comparison obligation. Root-refined DG2 arithmetic must use the filtered diagram definition and actual Kummer translations; reconcile E17–E21 and match the τ factor with the HB.8 normalization before claiming the rootwise Habiro collection comparison. The imported HB.8 refinement-gaussian-identification is conditional on its own G1 global-prefactor and G2 regularity gaps and the coprime auxiliary order; those conditions must be retained. Also compare the full cyclotomic coefficient tensor algebra with the chosen F(ζ) component before identifying collections. HB.9 also retains coefficient-transfer, HB.8 all-order identification, signed Kummer-orientation and all-order integral-gluing obligations. Membership uses the full quadratic finite étale B=R[T]/(δT²−1), including split components, with effective HB.7 descent on that algebra. A number-field component or the formal source theorem alone does not discharge these supplier contracts. The DG2 canonical-root exponential must be transported together with the finite products for another primitive root. HB.9 also retains coefficient-transfer, HB.8 all-order identification, signed Kummer-orientation and all-order integral-gluing obligations. Membership uses the full quadratic finite étale B=R[T]/(δT²−1), including split components, with effective HB.7 descent on that algebra. A number-field component or the formal source theorem alone does not discharge these supplier contracts. The DG2 canonical-root exponential must be transported together with the finite products for another primitive root. HB.9 also retains coefficient-transfer, HB.8 all-order identification, signed Kummer-orientation and all-order integral-gluing obligations. Membership uses the full quadratic finite étale B=R[T]/(δT²−1), including split components, with effective HB.7 descent on that algebra. A number-field component or the formal source theorem alone does not discharge these supplier contracts. The DG2 canonical-root exponential must be transported together with the finite products for another primitive root. HB.9 also retains coefficient-transfer, HB.8 all-order identification, signed Kummer-orientation and all-order integral-gluing obligations. Membership uses the full quadratic finite étale B=R[T]/(δT²−1), including split components, with effective HB.7 descent on that algebra. A number-field component or the formal source theorem alone does not discharge these supplier contracts. The DG2 canonical-root exponential must be transported together with the finite products for another primitive root. HB.9 also retains coefficient-transfer, HB.8 all-order identification, signed Kummer-orientation and all-order integral-gluing obligations. Membership uses the full quadratic finite étale B=R[T]/(δT²−1), including split components, with effective HB.7 descent on that algebra. A number-field component or the formal source theorem alone does not discharge these supplier contracts. The DG2 canonical-root exponential must be transported together with the finite products for another primitive root. HB.9 also retains coefficient-transfer, HB.8 all-order identification, signed Kummer-orientation and all-order integral-gluing obligations. Membership uses the full quadratic finite étale B=R[T]/(δT²−1), including split components, with effective HB.7 descent on that algebra. A number-field component or the formal source theorem alone does not discharge these supplier contracts. The DG2 canonical-root exponential must be transported together with the finite products for another primitive root.
 - ArithmeticQuantumTopology/G7: Analytic contour and operator closure — Prove the prescribed Faddeev strip integral/continuation and large-argument estimates; import the self-adjoint Schrödinger/functional-calculus interface. For AK’s selected n=2,3 contours supply explicit uniform tails, deformation and O(ℏ) estimates: its short steepest-descent argument is not yet a Lean proof. The BD theorem needs its actual reciprocal Pochhammer errors and selected stationary-phase arithmeticity input, not the formal Gaussian theorem alone. For the general AK theorem establish the nuclear-kernel and microlocal contraction interface on pinned TemperedDistribution: wavefront transversality, product and extension to the enlarged Schwartz space before pushforward. Supply the geometric H₂ exclusion and exponential decay estimate rather than treating every distribution product as defined. A general AK/NZ all-orders analytic comparison needs the matched saddle, branch, action and one-loop factor plus uniform remainder estimates; it is not asserted proved.
 - Import contract tauceti:TauCetiRoadmap/GeometricTopology#layer-4-knot-theory-done-properly-owned-here: Import the framed oriented multi-component link/tangle carrier, finite component set, pairwise linking number, integer Seifert framing, diagram/braid comparison and framed isotopy. Supply the exact normalized Jones polynomial (unknot 1, t=A⁻⁴) and prove its relation to J_K(V₁)/[2], including q versus q⁻¹ and mirror/orientation conventions. Tau Gauss codes describe one knot; unframed MarkovEquiv does not discharge framed links.
 - Import contract tauceti:TauCetiRoadmap/GeometricTopology#layer-5-dehn-surgery: Import oriented surgery with slope fμ+λ, H₁≅coker linking matrix, IHS iff det=±1, and ordinary Kirby/Fenn–Rourke presentation calculus. Supply stable diagonalization of the integral unimodular form and its realization by ordinary moves used in admissible-presentation existence. QT proves only the admissible band-slide/Hoste refinements.
@@ -2723,11 +2723,13 @@ For analytic work, Faddeev’s dilogarithm starts with a strip integral passing 
 - Import contract HabiroNahmSeries:HB.4: Import the filtered formal Gaussian bracket and its finiteness/valuation hypotheses. Extend the analytic toolkit, where absent, with source-level finite Pochhammer reciprocity (BD §2), prescribed branches and holomorphic error uniform on the domains used in BD §3, plus uniform steepest-descent/tail/deformation estimates for AK’s selected contours. No analytic remainder follows from the formal bracket.
 - Import contract HabiroNahmSeries:HB.8: Use the corrected reviewed refined Gaussian collection and normalization, including its classical logarithmic term, shift convention and phase. Supply the precise comparison needed to strip the NZ classical exponential/one-loop factors in the qualified integral-Nahm bridge.
 - Import contract HabiroNumberFields:HB.6: Supply the early Frobenius coefficient ring R with its nondegeneracy/unit/bad-prime conditions in the integral-NZ example, using the HB.6 stage’s exact arithmetic scope.
-- Import contract HabiroNumberFields:HB.7: Supply the K₃-indexed twisted Habiro module over R[δ⁻¹/²], roots of order prime to Δ, and its index in the checked Bloch convention. Do not substitute the untwisted ordinary ring.
+- Import contract HabiroNumberFields:HB.7: Supply the K₃-indexed twisted Habiro module on the full quadratic finite étale B=R[T]/(δT²−1), including split components, roots of order prime to Δ, and its index in the checked Bloch convention. Extend Frobenius, Kummer torsors and effective global descent componentwise as required by HB.9/followup-etale-module-contract. A chosen number-field component or untwisted ring is insufficient.
 - Import contract QSeriesPartitionsAndMockModularForms:QM.0: Supply Bernoulli/Pochhammer and convergent infinite-product identities with their convergence/branch domains for the formal vertex series, Faddeev product and finite reciprocal knot sums.
 - Import contract AutomorphicSpectralTheory:AS.0: Supply the general unbounded self-adjoint spectral calculus, Schrödinger position/momentum on L²(ℝ), their common Schwartz core and the self-adjoint closure of p+q, including the extension from core equalities to bounded unitary functional-calculus operators. QT proves the Faddeev operator identity on that imported interface. Also supply the nuclear Schwartz-kernel theorem for continuous maps S(ℝⁿ)→S′(ℝᵐ), partial Fourier/polarization transforms and their action on kernels. Generic wavefront pullback/product and the enlarged-test-space pushforward extension are an additional microlocal distribution input, proposed as PDE, Part II in upstreamNotes; AS.0 is not claimed to contain them already.
 - Import contract Polylogarithms:P.1: Import the actual dilogarithm branch/continuation, Bloch–Wigner function and nonpositive polylogarithm rational functions needed by the Rogers and formal vertex formulas; exact branch conventions are part of the interface.
 - Import contract tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-3-enveloping-algebra-verma-modules-and-lλ: Import the classical enveloping algebra/PBW, highest-weight modules and rank-one calculations; root-space/root-datum inputs are the upstream layers 1–2. QT constructs the quantized Drinfeld–Jimbo algebra, its integral form and quantum PBW/core, rather than re-plan the classical theory.
+
+- Import contract HabiroNahmSeries:HB.9: Supply followup-integral-gluing-contract, followup-kummer-orientation-contract and followup-etale-module-contract after discharging faithful coefficient transfer and all-order HB.8 identification. Retain the signed finite-Chern/Kummer index, full quadratic finite étale coefficient algebra, effective HB.7 descent and root orders prime to Δ. Descendant and unrestricted bad-order corollaries are not imported here.
 
 **Planets:** Neumann–Zagier datum, Formal state integral, Formal state-integral invariance, Faddeev quantum dilogarithm, Quantum dilogarithm pentagon, Knot state integral.
 
@@ -2753,7 +2755,7 @@ The formal GSW geometric NZ series exists and is invariant under its hypotheses,
 
 **Sources:**
 
-- [Knots, perturbative series and quantum modularity](https://arxiv.org/abs/2111.06645v3), §1, equations (1.3)–(1.4), p. 10; §2.2, pp. 12–14. This fixed-version locus supplies the conjectural asymptotic expansion, its normalisation, and the field its coefficients lie in. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route.
+- [Knots, perturbative series and quantum modularity](https://arxiv.org/abs/2111.06645v3), §1, equations (1.3)–(1.4), pp. 9–10; §2.2, pp. 12–14. This fixed-version locus supplies the conjectural asymptotic expansion, its normalisation, and the field its coefficients lie in. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route.
 
 ### The comparisons with the Habiro ring that are actually proved, and the ones that are not
 
@@ -2807,12 +2809,12 @@ A formal series is an element of a coefficient ring [[h]], with no domain or err
 
 **Identifier:** `ArithmeticQuantumTopology:QT.6/neumann-zagier-datum`. **Kind:** definition. **Mathematical status:** proved-source.
 
-An NZ datum Ξ=(A,B,ν,z,f,f″) comes from an actual ideal triangulation with a selected edge equation removed and a peripheral equation added. (A|B) is an integral upper symplectic half, hence ABᵀ=BAᵀ and rank(A|B)=N. Shapes z_j∉{0,1} solve ∏_j z_j^A_ij(1−1/z_j)^B_ij=(−1)^ν_i. Integer flattening vectors satisfy Af+Bf″=ν (and f′=1−f−f″ with the full incidence equations). For the formal Gaussian route impose det B≠0 and det Λ≠0, Λ=−B⁻¹A+diag(1/(1−z_j)). Λ is symmetric over ℚ(z). This is more than arbitrary integer matrices.
+An NZ datum Ξ=(A,B,ν,z,f,f″) comes from an actual ideal triangulation with r redundant edge equations removed and one peripheral equation per cusp added (r=1 in the knot case). The integral block (A|B) has a symplectic completion over ℤ[1/2]; a completion over ℤ additionally requires the appropriate integral peripheral-row normalization. In particular ABᵀ=BAᵀ and rank(A|B)=N. Shapes z_j∉{0,1} solve ∏_j z_j^A_ij(1−1/z_j)^B_ij=(−1)^ν_i. Integer flattening vectors satisfy Af+Bf″=ν (and f′=1−f−f″ with the full incidence equations). For the formal Gaussian route impose det B≠0 and det Λ≠0, Λ=−B⁻¹A+diag(1/(1−z_j)). Λ is symmetric over ℚ(z). This is more than arbitrary integer matrices.
 
 **Proof/construction route:**
 
 1. Extract the matrices and ν from the imported edge/peripheral incidence system.
-2. Use symplectic completion to establish ABᵀ symmetry and full rank.
+2. Use the source symplectic completion over ℤ[1/2] to establish ABᵀ symmetry and full rank; do not infer an integral lower half without its extra peripheral-row condition.
 3. Check the chosen flattening and both determinant conditions before defining Gaussian coefficients.
 
 **Direct prerequisites:** `ArithmeticQuantumTopology:QT.5/gluing-and-completeness-equations`, `ArithmeticQuantumTopology:QT.5/strong-flattening`, `mathlib:Matrix.det`.
@@ -2847,7 +2849,7 @@ An NZ datum Ξ=(A,B,ν,z,f,f″) comes from an actual ideal triangulation with a
 
 **Sources:**
 
-- [Perturbative invariants of cusped hyperbolic 3-manifolds](https://arxiv.org/abs/2305.14884v2), §§2.1–2.2, pp. 5–8, NZ matrices and formal series. This fixed-version locus supplies neumann–zagier datum. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route.
+- [Perturbative invariants of cusped hyperbolic 3-manifolds](https://arxiv.org/abs/2305.14884v2), §2.2, equations (14)–(19), pp. 6–8, NZ matrices and symplectic completion. This fixed-version locus supplies neumann–zagier datum. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route.
 - [The quantum content of the gluing equations](https://arxiv.org/abs/1202.6268v2), §1.2, pp. 4–5; §§2.1–2.3, pp. 11–13. DG defines the geometric datum and one-loop normalization underlying the root construction; the GSW notation is retained in the formal unit-series node.
 
 ### Formal NZ state integral
@@ -2895,7 +2897,7 @@ For nondegenerate Ξ define ψ_h(x,z)=exp(−Σ_(k,ℓ≥0;k+ℓ/2>1) B_k x^ℓ 
 
 **Sources:**
 
-- [Perturbative invariants of cusped hyperbolic 3-manifolds](https://arxiv.org/abs/2305.14884v2), §§2.1–2.2, pp. 5–8, equations (2.1)–(2.6); Gaussian evaluation in §3.1, pp. 9–10. This fixed-version locus supplies formal nz state integral. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route.
+- [Perturbative invariants of cusped hyperbolic 3-manifolds](https://arxiv.org/abs/2305.14884v2), §1, equations (1), (4)–(7), pp. 3–4; §2.2, equations (16)–(19), pp. 7–8; Gaussian evaluation in §3.1, pp. 9–10. This fixed-version locus supplies formal nz state integral. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route.
 
 ### Formal state-integral invariance
 
@@ -2945,19 +2947,19 @@ If B is unimodular over ℤ, N=I−B⁻¹A is symmetric integral. If additionall
 
 **Identifier:** `ArithmeticQuantumTopology:QT.6/topological-habiro-module-comparison`. **Kind:** comparison. **Mathematical status:** comparison-obligation.
 
-For a nondegenerate isolated solution of the symmetric integral N Nahm equations obtained by the preceding qualified bridge, import the HB.8 refined Gaussian collection only after its G1 global-prefactor and G2 regularity conditions are discharged (and retaining its coprime auxiliary root-order condition) and HB.9 theorem giving Φ_(N,z)∈H_(R[δ^(−1/2)],ξ) at root orders prime to Δ, where ξ=Σ_j[z_j] in the checked CGZ convention. The coefficient ring R is the arithmetic ring of the chosen number field with the required units and bad-prime localization; HNF HB.6/HB.7 supply the Frobenius ring and K₃-indexed module. Identifying this collection with the normalized geometric NZ series requires the explicit phase/one-loop and classical-exponential comparison. It is a separate obligation, not an automatic assertion that every formal NZ series is in that module. At primitive order k the geometric input is the root-refined DG2 series, with the finite cyclic average and one-loop factor above. Its matching with HB.8’s refined Gaussian collection is a normalization obligation under the integral/parity hypotheses, not mere evaluation of the k=1 series.
+For a nondegenerate isolated solution of the symmetric integral N Nahm equations obtained by the preceding qualified bridge, import the HB.8 refined Gaussian collection only after its G1 global-prefactor and G2 regularity conditions are discharged (and retaining its coprime auxiliary root-order condition) and the HB.9 module-membership contract only after its coefficient-transfer, HB.8 all-order identification, Kummer-orientation and all-order gluing obligations are discharged. Its coefficient algebra is the full quadratic finite étale B=R[T]/(δT²−1), including split components, and the target is Φ_(N,z)∈H_(B,ξ|B) at root orders prime to Δ, where ξ=Σ_j[z_j] in the checked CGZ convention. The coefficient ring R is the arithmetic ring of the chosen number field with the required units and bad-prime localization; HNF HB.6/HB.7 supply the Frobenius ring and K₃-indexed module, subject to HB.7 effective global descent extended to this full finite étale algebra; a selected number-field component does not prove membership on all components. Identifying this collection with the normalized geometric NZ series requires the explicit phase/one-loop and classical-exponential comparison. It is a separate obligation, not an automatic assertion that every formal NZ series is in that module. At primitive order k the geometric input is the root-refined DG2 series, with the finite cyclic average and one-loop factor above. Its matching with HB.8’s refined Gaussian collection is a normalization obligation under the integral/parity hypotheses, not mere evaluation of the k=1 series.
 
 **Proof/construction route:**
 
 1. Verify symmetry/integrality, nondegeneracy and the coefficient localization.
-2. Import the generic collection, its exact module index and root-order restriction unchanged.
+2. Import the generic collection only with HB.9 coefficient-transfer, all-order HB.8 identification, signed Kummer orientation and integral gluing contracts; preserve the full quadratic finite étale coefficient algebra and HB.7 effective descent, the exact module index and restricted root orders.
 3. Compare the geometric normalization with the supplied collection, stripping the principal logarithmic part exactly as HB.9; record any unmatched phase as a gap.
 
 **Direct prerequisites:** `ArithmeticQuantumTopology:QT.6/nz-to-integral-nahm`, `HabiroNahmSeries:HB.8/refinement-gaussian-identification`, `HabiroNahmSeries:HB.9/module-membership`, `HabiroNumberFields:HB.6`, `HabiroNumberFields:HB.7`, `K3BlochGroups:V.3/cgz-published-bloch-group`, `ArithmeticQuantumTopology:QT.6/root-series-arithmetic`.
 
 **Acceptance:**
 
-- For a nondegenerate isolated solution of the symmetric integral N Nahm equations obtained by the preceding qualified bridge, import the HB.8 refined Gaussian collection only after its G1 global-prefactor and G2 regularity conditions are discharged (and retaining its coprime auxiliary root-order condition) and HB.9 theorem giving Φ_(N,z)∈H_(R[δ^(−1/2)],ξ) at root orders prime to Δ, where ξ=Σ_j[z_j] in the checked CGZ convention. The coefficient ring R is the arithmetic ring of the chosen number field with the required units and bad-prime localization; HNF HB.6/HB.7 supply the Frobenius ring and K₃-indexed module. Identifying this collection with the normalized geometric NZ series requires the explicit phase/one-loop and classical-exponential comparison. It is a separate obligation, not an automatic assertion that every formal NZ series is in that module. At primitive order k the geometric input is the root-refined DG2 series, with the finite cyclic average and one-loop factor above. Its matching with HB.8’s refined Gaussian collection is a normalization obligation under the integral/parity hypotheses, not mere evaluation of the k=1 series.
+- For a nondegenerate isolated solution of the symmetric integral N Nahm equations obtained by the preceding qualified bridge, import the HB.8 refined Gaussian collection only after its G1 global-prefactor and G2 regularity conditions are discharged (and retaining its coprime auxiliary root-order condition) and the HB.9 module-membership contract only after its coefficient-transfer, HB.8 all-order identification, Kummer-orientation and all-order gluing obligations are discharged. Its coefficient algebra is the full quadratic finite étale B=R[T]/(δT²−1), including split components, and the target is Φ_(N,z)∈H_(B,ξ|B) at root orders prime to Δ, where ξ=Σ_j[z_j] in the checked CGZ convention. The coefficient ring R is the arithmetic ring of the chosen number field with the required units and bad-prime localization; HNF HB.6/HB.7 supply the Frobenius ring and K₃-indexed module, subject to HB.7 effective global descent extended to this full finite étale algebra; a selected number-field component does not prove membership on all components. Identifying this collection with the normalized geometric NZ series requires the explicit phase/one-loop and classical-exponential comparison. It is a separate obligation, not an automatic assertion that every formal NZ series is in that module. At primitive order k the geometric input is the root-refined DG2 series, with the finite cyclic average and one-loop factor above. Its matching with HB.8’s refined Gaussian collection is a normalization obligation under the integral/parity hypotheses, not mere evaluation of the k=1 series.
 
 **Sources:**
 
@@ -3303,12 +3305,12 @@ For every positively shaped pseudo-3-manifold X satisfying H₂(X∖vertices;ℤ
 
 **Identifier:** `ArithmeticQuantumTopology:QT.6/root-nz-data`. **Kind:** definition. **Mathematical status:** proved-source.
 
-Fix a geometric NZ datum Ξ with B∈GL_N(ℤ), symmetric Q=B⁻¹A, nonzero determinant of Λ=−Q+diag(z′), a primitive k-th root ζ, k>0, and choices θ_i^k=z_i. Put F=ℚ(z), F_k=F(ζ), E=F_k(θ); the actual Kummer Galois group embeds into (ℤ/kℤ)^N and need not be the whole product. For m represented by integers 0≤m_i<k, put a_m(θ)=exp(−πi mᵀQm) exp(πi(mᵀQm+mᵀB⁻¹ν)/k) ∏_i θ_i^(−(Qm)_i)/(ζθ_i⁻¹;ζ)_(m_i). These denominators are nonzero since z_i≠1. Assume S=Σ_m a_m≠0 and set Av(g)=Σ_m a_m g(m)/S. Put D*_k(x)=∏_(s=1)^(k−1)(1−ζ⁻ˢx)^s. With chosen roots, τ_(Ξ,k)=k^(−N/2)[det(A diag(z″)+B diag(z⁻¹)) z^(f″/k)(z″)^(−f/k)]^(−1/2)∏_i D*_k(θ_i⁻¹)^(1/k) S. The displayed fractional monomials use the chosen θ_i and roots of z″_i, not unspecified powers. The invariant scalar is qualified modulo its 2k-th-root ambiguity; it is not canonically an element of F_k.
+Fix a geometric NZ datum Ξ with B∈GL_N(ℤ), symmetric Q=B⁻¹A, nonzero determinant of Λ=−Q+diag(z′), the canonical primitive k-th root ζ=exp(2πi/k), k>0, and choices θ_i^k=z_i. Put F=ℚ(z), F_k=F(ζ), E=F_k(θ); the actual Kummer Galois group embeds into (ℤ/kℤ)^N and need not be the whole product. For m represented by integers 0≤m_i<k, put a_m(θ)=exp(−πi mᵀQm) exp(πi(mᵀQm+mᵀB⁻¹ν)/k) ∏_i θ_i^(−(Qm)_i)/(ζθ_i⁻¹;ζ)_(m_i). These denominators are nonzero since z_i≠1. Assume S=Σ_m a_m≠0 and set Av(g)=Σ_m a_m g(m)/S. Put D*_k(x)=∏_(s=1)^(k−1)(1−ζ⁻ˢx)^s. With chosen roots, τ_(Ξ,k)=k^(−N/2)[det(A diag(z″)+B diag(z⁻¹)) z^(f″/k)(z″)^(−f/k)]^(−1/2)∏_i D*_k(θ_i⁻¹)^(1/k) S. The displayed fractional monomials use the chosen θ_i and roots of z″_i, not unspecified powers. The invariant scalar is qualified modulo its 2k-th-root ambiguity; it is not canonically an element of F_k. For another primitive root ζ^u, transport the complete descended formula by the cyclotomic Galois action, including its phase and a compatible extension to the coefficient and shape-root data; this action need not fix the original shape field. Keeping the displayed canonical exponential while replacing ζ only in the finite products is incorrect.
 
 **Proof/construction route:**
 
 1. Use the integer unimodular B and invertible Hessian domain, and representatives for m before proving k-periodicity.
-2. Define the finite weights, cyclic products and nonzero weighted-average denominator.
+2. Define the finite weights at the canonical root, cyclic products and nonzero weighted-average denominator. After arithmetic descent, use DG2 Remark 2.7 for other primitive roots, transporting the full phase together with the products.
 3. Retain each root choice in τ. Use the root-independence theorem for powers rather than asserting a canonical scalar.
 
 **Direct prerequisites:** `ArithmeticQuantumTopology:QT.6/neumann-zagier-datum`, `HabiroNahmSeries:HB.4/formal-gaussian-integration`, `QSeriesPartitionsAndMockModularForms:QM.0`.
@@ -3333,6 +3335,7 @@ Fix a geometric NZ datum Ξ with B∈GL_N(ℤ), symmetric Q=B⁻¹A, nonzero det
 | `rootNZ_k_one` | degenerate | For k=1, the finite average has one summand, D*₁=1 and θ=z. |
 | `rootNZ_denominator` | non-example | If the weighted sum S is zero, the normalized average is outside the constructor’s domain. |
 | `rootNZ_kummer_relations` | non-example | Repeated shapes θ₁=θ₂ cannot admit an independent automorphism rotating only θ₁ in their actual splitting field. |
+| `rootNZ_primitive_root_transport` | compatibility | For k=3 and the scalar weight Q=−1, r=1, θ=2, m=2, the canonical numerator is 4ζ⁻¹. Complex conjugation transports the entire weight to numerator 4ζ with the conjugated Pochhammer denominator. Replacing ζ by ζ² only in that denominator retains the wrong numerator. This is a scalar phase test, not a claim that these inputs form a geometric NZ datum. |
 
 **Acceptance:**
 
@@ -3342,7 +3345,7 @@ Fix a geometric NZ datum Ξ with B∈GL_N(ℤ), symmetric Q=B⁻¹A, nonzero det
 
 **Sources:**
 
-- [Quantum modularity and complex Chern–Simons theory](https://arxiv.org/abs/1511.05628v1), §§2.1–2.2, pp. 4–6, root data and Definition 2.1. The finite weights and one-loop formula occur immediately before this root-ambiguity qualification; the Kummer overstatement is corrected in E18.
+- [Quantum modularity and complex Chern–Simons theory](https://arxiv.org/abs/1511.05628v1), §§2.1–2.2, equations (7), (10)–(12), pp. 5–6; Definition 2.1 and Remark 2.7, pp. 6–7. The finite weights and one-loop formula occur immediately before this root-ambiguity qualification; the Kummer overstatement is corrected in E18.
 
 ### Root-refined perturbative series
 
@@ -3429,7 +3432,7 @@ There are concrete outputs here. Integral figure-eight descendants Hₘ satisfy 
 - ArithmeticQuantumTopology/G3: Jones/root convention comparison — Prove the exact variable/mirror convention linking geometric Jones(t), Habiro J_K(V₁)/[2], MM’s positive-q reduced polynomial and GZ’s negative-q definition. At roots reduce before specializing, retain fourth-root lifts and distinguish strong Kirby admissibility from semisimple/modular alcove hypotheses.
 - ArithmeticQuantumTopology/G4: Cusped ordered geometry and trace-field descent — Supplier closed Mostow material alone does not provide complete cusped ideal face-pairings, EP/refinement connectivity, strong ordered hybrid flattenings or geometric NZ local rigidity. A general claim that the signed Bloch class descends to the invariant trace field needs a separate algebraicity/boundary argument; only the explicitly checked figure-eight field example is used without it.
 - ArithmeticQuantumTopology/G5: Integral and extended Bloch comparisons — Neumann’s factor-two ordinary boundary, exterior kernel, antisymmetric tensor and published CGZ convention must be compared with the named supplier maps. The full extended group needs its actual cut cover, lifted component, transfer relations and strong normal-path conditions. A Suslin lift retains torsion ambiguity; no canonical lift follows from a B̂(ℂ) class.
-- ArithmeticQuantumTopology/G6: NZ-to-Habiro normalization — HB.9 applies to symmetric integral Nahm matrices, not every rational NZ matrix. Verify B unimodular, parity compatibility, isolated nondegenerate shapes, arithmetic R/Δ and the correct Bloch index, then compare GSW unit formal series with the HB.8 collection’s classical exponential, phase and one-loop factor. General module membership remains a comparison obligation. Root-refined DG2 arithmetic must use the filtered diagram definition and actual Kummer translations; reconcile E17–E21 and match the τ factor with the HB.8 normalization before claiming the rootwise Habiro collection comparison. The imported HB.8 refinement-gaussian-identification is conditional on its own G1 global-prefactor and G2 regularity gaps and the coprime auxiliary order; those conditions must be retained. Also compare the full cyclotomic coefficient tensor algebra with the chosen F(ζ) component before identifying collections.
+- ArithmeticQuantumTopology/G6: NZ-to-Habiro normalization — HB.9 applies to symmetric integral Nahm matrices, not every rational NZ matrix. Verify B unimodular, parity compatibility, isolated nondegenerate shapes, arithmetic R/Δ and the correct Bloch index, then compare GSW unit formal series with the HB.8 collection’s classical exponential, phase and one-loop factor. General module membership remains a comparison obligation. Root-refined DG2 arithmetic must use the filtered diagram definition and actual Kummer translations; reconcile E17–E21 and match the τ factor with the HB.8 normalization before claiming the rootwise Habiro collection comparison. The imported HB.8 refinement-gaussian-identification is conditional on its own G1 global-prefactor and G2 regularity gaps and the coprime auxiliary order; those conditions must be retained. Also compare the full cyclotomic coefficient tensor algebra with the chosen F(ζ) component before identifying collections. HB.9 also retains coefficient-transfer, HB.8 all-order identification, signed Kummer-orientation and all-order integral-gluing obligations. Membership uses the full quadratic finite étale B=R[T]/(δT²−1), including split components, with effective HB.7 descent on that algebra. A number-field component or the formal source theorem alone does not discharge these supplier contracts. The DG2 canonical-root exponential must be transported together with the finite products for another primitive root. HB.9 also retains coefficient-transfer, HB.8 all-order identification, signed Kummer-orientation and all-order integral-gluing obligations. Membership uses the full quadratic finite étale B=R[T]/(δT²−1), including split components, with effective HB.7 descent on that algebra. A number-field component or the formal source theorem alone does not discharge these supplier contracts. The DG2 canonical-root exponential must be transported together with the finite products for another primitive root. HB.9 also retains coefficient-transfer, HB.8 all-order identification, signed Kummer-orientation and all-order integral-gluing obligations. Membership uses the full quadratic finite étale B=R[T]/(δT²−1), including split components, with effective HB.7 descent on that algebra. A number-field component or the formal source theorem alone does not discharge these supplier contracts. The DG2 canonical-root exponential must be transported together with the finite products for another primitive root. HB.9 also retains coefficient-transfer, HB.8 all-order identification, signed Kummer-orientation and all-order integral-gluing obligations. Membership uses the full quadratic finite étale B=R[T]/(δT²−1), including split components, with effective HB.7 descent on that algebra. A number-field component or the formal source theorem alone does not discharge these supplier contracts. The DG2 canonical-root exponential must be transported together with the finite products for another primitive root. HB.9 also retains coefficient-transfer, HB.8 all-order identification, signed Kummer-orientation and all-order integral-gluing obligations. Membership uses the full quadratic finite étale B=R[T]/(δT²−1), including split components, with effective HB.7 descent on that algebra. A number-field component or the formal source theorem alone does not discharge these supplier contracts. The DG2 canonical-root exponential must be transported together with the finite products for another primitive root. HB.9 also retains coefficient-transfer, HB.8 all-order identification, signed Kummer-orientation and all-order integral-gluing obligations. Membership uses the full quadratic finite étale B=R[T]/(δT²−1), including split components, with effective HB.7 descent on that algebra. A number-field component or the formal source theorem alone does not discharge these supplier contracts. The DG2 canonical-root exponential must be transported together with the finite products for another primitive root.
 - ArithmeticQuantumTopology/G7: Analytic contour and operator closure — Prove the prescribed Faddeev strip integral/continuation and large-argument estimates; import the self-adjoint Schrödinger/functional-calculus interface. For AK’s selected n=2,3 contours supply explicit uniform tails, deformation and O(ℏ) estimates: its short steepest-descent argument is not yet a Lean proof. The BD theorem needs its actual reciprocal Pochhammer errors and selected stationary-phase arithmeticity input, not the formal Gaussian theorem alone. For the general AK theorem establish the nuclear-kernel and microlocal contraction interface on pinned TemperedDistribution: wavefront transversality, product and extension to the enlarged Schwartz space before pushforward. Supply the geometric H₂ exclusion and exponential decay estimate rather than treating every distribution product as defined. A general AK/NZ all-orders analytic comparison needs the matched saddle, branch, action and one-loop factor plus uniform remainder estimates; it is not asserted proved.
 - ArithmeticQuantumTopology/G8: Conjectural knot refinements and normalization discrepancies — General GQMC, lifts, quadratic/coefficient relations, matrix RQMC, invertibility and analytic cocycle extensions remain conjectural. Resolve the scalar-versus-matrix weight sign and the large-order coefficient phase in the fixed GZ source before a normalized matrix theorem. Conditional algebraic cocycle composition is proved independently of these conjectures.
 - Import contract tauceti:TauCetiRoadmap/GeometricTopology#layer-4-knot-theory-done-properly-owned-here: Import the framed oriented multi-component link/tangle carrier, finite component set, pairwise linking number, integer Seifert framing, diagram/braid comparison and framed isotopy. Supply the exact normalized Jones polynomial (unknot 1, t=A⁻⁴) and prove its relation to J_K(V₁)/[2], including q versus q⁻¹ and mirror/orientation conventions. Tau Gauss codes describe one knot; unframed MarkovEquiv does not discharge framed links.
@@ -3443,7 +3446,7 @@ There are concrete outputs here. Integral figure-eight descendants Hₘ satisfy 
 - Import contract HabiroNahmSeries:HB.4: Import the filtered formal Gaussian bracket and its finiteness/valuation hypotheses. Extend the analytic toolkit, where absent, with source-level finite Pochhammer reciprocity (BD §2), prescribed branches and holomorphic error uniform on the domains used in BD §3, plus uniform steepest-descent/tail/deformation estimates for AK’s selected contours. No analytic remainder follows from the formal bracket.
 - Import contract HabiroNahmSeries:HB.8: Use the corrected reviewed refined Gaussian collection and normalization, including its classical logarithmic term, shift convention and phase. Supply the precise comparison needed to strip the NZ classical exponential/one-loop factors in the qualified integral-Nahm bridge.
 - Import contract HabiroNumberFields:HB.6: Supply the early Frobenius coefficient ring R with its nondegeneracy/unit/bad-prime conditions in the integral-NZ example, using the HB.6 stage’s exact arithmetic scope.
-- Import contract HabiroNumberFields:HB.7: Supply the K₃-indexed twisted Habiro module over R[δ⁻¹/²], roots of order prime to Δ, and its index in the checked Bloch convention. Do not substitute the untwisted ordinary ring.
+- Import contract HabiroNumberFields:HB.7: Supply the K₃-indexed twisted Habiro module on the full quadratic finite étale B=R[T]/(δT²−1), including split components, roots of order prime to Δ, and its index in the checked Bloch convention. Extend Frobenius, Kummer torsors and effective global descent componentwise as required by HB.9/followup-etale-module-contract. A chosen number-field component or untwisted ring is insufficient.
 - Import contract QSeriesPartitionsAndMockModularForms:QM.0: Supply Bernoulli/Pochhammer and convergent infinite-product identities with their convergence/branch domains for the formal vertex series, Faddeev product and finite reciprocal knot sums.
 - Import contract QSeriesPartitionsAndMockModularForms:QM.5: Extend the scalar period-cocycle interface to matrix-valued multiplicative cocycles on common pole-free domains, with branch-aware weights and smooth/holomorphic extension criteria. QT owns only its knot matrices and comparisons. Generic formal/noncommutative q-dilogarithm pentagon remains HC.1; no dependency from QM.5 back to QT.7 is needed.
 - Import contract AutomorphicSpectralTheory:AS.0: Supply the general unbounded self-adjoint spectral calculus, Schrödinger position/momentum on L²(ℝ), their common Schwartz core and the self-adjoint closure of p+q, including the extension from core equalities to bounded unitary functional-calculus operators. QT proves the Faddeev operator identity on that imported interface. Also supply the nuclear Schwartz-kernel theorem for continuous maps S(ℝⁿ)→S′(ℝᵐ), partial Fourier/polarization transforms and their action on kernels. Generic wavefront pullback/product and the enlarged-test-space pushforward extension are an additional microlocal distribution input, proposed as PDE, Part II in upstreamNotes; AS.0 is not claimed to contain them already.
@@ -3522,7 +3525,7 @@ The ledger records exact knot/root/normalization/representation/shape-field data
 
 **Sources:**
 
-- [Knots, perturbative series and quantum modularity](https://arxiv.org/abs/2111.06645v3), §1, equations (1.3)–(1.4), p. 10; producing nodes cite the selected proved cases. This fixed-version locus supplies a reproducible ledger linking the four kinds of data, for two knots. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route.
+- [Knots, perturbative series and quantum modularity](https://arxiv.org/abs/2111.06645v3), §1, equations (1.3)–(1.4), pp. 9–10; producing nodes cite the selected proved cases. This fixed-version locus supplies a reproducible ledger linking the four kinds of data, for two knots. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route.
 
 ### The labelling discipline, and what the suggested Lean file contains
 
@@ -3606,7 +3609,7 @@ For γ=(a b;c d)∈PSL₂(ℤ), x=r/s∈ℚ in lowest terms with s>0 and cr+ds�
 
 1. Use the determinant-one relation to compute reduced numerator/denominator under γ.
 2. Prove the displayed rational identity by clearing its nonzero denominators.
-3. In the source proof of Lemma lem.lambda subtract the second fraction, rather than its printed plus sign (E11), before composing the diagonal factors.
+3. In the source proof of Lemma 3.1 subtract the second fraction, rather than its printed plus sign (E11), before composing the diagonal factors.
 
 **Direct prerequisites:** `ArithmeticQuantumTopology:QT.7/representation-indexed-perturbative-family`, `QSeriesPartitionsAndMockModularForms:QM.5/quantum-modular-cocycle`.
 
@@ -3686,7 +3689,7 @@ Conjecture (GZ §§3.2): put ℏ=h/(2πi), x=X−ℏ and h*=h/[(cx+d)(cX+d)]. Th
 
 **Sources:**
 
-- [Knots, perturbative series and quantum modularity](https://arxiv.org/abs/2111.06645v3), §3.2, equations (3.9)–(3.10), pp. 17–18. This fixed-version locus supplies lift to knot power series. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route.
+- [Knots, perturbative series and quantum modularity](https://arxiv.org/abs/2111.06645v3), §3.2, equations (3.9), (3.12)–(3.13), pp. 17–18. This fixed-version locus supplies lift to knot power series. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route.
 
 ### Quadratic relations of knot series
 
@@ -3708,13 +3711,13 @@ Conjecture (GZ): Σ_(σ∈P_K∖{σ₀})Φ_ασ(h)Φ_(−α)^σ(−h)=0, with th
 
 **Sources:**
 
-- [Knots, perturbative series and quantum modularity](https://arxiv.org/abs/2111.06645v3), §3.3, equations (3.11)–(3.14), pp. 18–20. This fixed-version locus supplies quadratic relations of knot series. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route.
+- [Knots, perturbative series and quantum modularity](https://arxiv.org/abs/2111.06645v3), §3.3, equation (3.14), pp. 18–19. This fixed-version locus supplies quadratic relations of knot series. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route.
 
 ### Knot coefficient asymptotics
 
 **Identifier:** `ArithmeticQuantumTopology:QT.7/coefficient-asymptotics`. **Kind:** comparison. **Mathematical status:** conjectural.
 
-GZ’s experimental large-n expansion couples A_ασ(n)=[h^n]Φ_ασ to all other representations through Γ(n−ℓ+κσ)/(Vσ−Vσ′)^(n−ℓ+κσ), an integer matrix M_K and a phase-dependent prefactor. The printed CoeffAsymp uses (2π)^(κσ−1) and M₄₁=((0,1,−1),(0,0,−3),(0,3,0)); its phase must be reconciled with the adjacent coupled formulas containing 1/(2πi), as recorded in sourceIssues. A verified figure-eight target is AnFirst: A(n)∼(3/(2π))Σ_ℓ(−1)^ℓ A(ℓ)(n−ℓ−1)!/(2Vgeo)^(n−ℓ). Distinct action differences, branches and truncation meanings are required. These are conjectural knot statements; general resurgence/Borel summation theory is outside QT.
+GZ’s experimental large-n expansion couples A_ασ(n)=[h^n]Φ_ασ to all other representations through Γ(n−ℓ+κσ)/(Vσ−Vσ′)^(n−ℓ+κσ), an integer matrix M_K and a phase-dependent prefactor. The printed equation (3.18) uses (2π)^(κσ−1) and M₄₁=((0,1,−1),(0,0,−3),(0,3,0)); its phase must be reconciled with the adjacent coupled formulas containing 1/(2πi), as recorded in sourceIssues. The selected figure-eight asymptotic conjecture is equation (3.16): A(n)∼(3/(2π))Σ_ℓ(−1)^ℓ A(ℓ)(n−ℓ−1)!/(2Vgeo)^(n−ℓ). Distinct action differences, branches and truncation meanings are required. These are conjectural knot statements; general resurgence/Borel summation theory is outside QT.
 
 **Proof/construction route:**
 
@@ -3726,7 +3729,7 @@ GZ’s experimental large-n expansion couples A_ασ(n)=[h^n]Φ_ασ to all othe
 
 **Acceptance:**
 
-- GZ’s experimental large-n expansion couples A_ασ(n)=[h^n]Φ_ασ to all other representations through Γ(n−ℓ+κσ)/(Vσ−Vσ′)^(n−ℓ+κσ), an integer matrix M_K and a phase-dependent prefactor. The printed CoeffAsymp uses (2π)^(κσ−1) and M₄₁=((0,1,−1),(0,0,−3),(0,3,0)); its phase must be reconciled with the adjacent coupled formulas containing 1/(2πi), as recorded in sourceIssues. A verified figure-eight target is AnFirst: A(n)∼(3/(2π))Σ_ℓ(−1)^ℓ A(ℓ)(n−ℓ−1)!/(2Vgeo)^(n−ℓ). Distinct action differences, branches and truncation meanings are required. These are conjectural knot statements; general resurgence/Borel summation theory is outside QT.
+- GZ’s experimental large-n expansion couples A_ασ(n)=[h^n]Φ_ασ to all other representations through Γ(n−ℓ+κσ)/(Vσ−Vσ′)^(n−ℓ+κσ), an integer matrix M_K and a phase-dependent prefactor. The printed equation (3.18) uses (2π)^(κσ−1) and M₄₁=((0,1,−1),(0,0,−3),(0,3,0)); its phase must be reconciled with the adjacent coupled formulas containing 1/(2πi), as recorded in sourceIssues. The selected figure-eight asymptotic conjecture is equation (3.16): A(n)∼(3/(2π))Σ_ℓ(−1)^ℓ A(ℓ)(n−ℓ−1)!/(2Vgeo)^(n−ℓ). Distinct action differences, branches and truncation meanings are required. These are conjectural knot statements; general resurgence/Borel summation theory is outside QT.
 
 **Sources:**
 
@@ -3736,7 +3739,7 @@ GZ’s experimental large-n expansion couples A_ασ(n)=[h^n]Φ_ασ to all othe
 
 **Identifier:** `ArithmeticQuantumTopology:QT.7/matrix-refined-quantum-modularity`. **Kind:** comparison. **Mathematical status:** conjectural.
 
-GZ supplies selected square matrices Φ_α^(σ,σ′)(h) and J(α)=Φ_α(0), indexed by P_K, with row-wise completions (den(α)h/(2πi))^κσ exp(Vσ/[den(α)²h]). Its matrix RQMC asserts Φ̂_(γX)(h*)≈jγ(x)Φ̂_X(h)Φ̂_(a/c)(2πi/[c(cx+d)]), x=X−h/(2πi), h*=h/[(cx+d)(cX+d)], for bounded-denominator X→+∞ and c>0. This is conjectural and also has a normalization obligation: the printed positive row-weight factor must be reconciled with the scalar completed negative factor in GQMChhh, before transporting a single convention. General matrix invertibility, topological well-definedness and analytic completion are not assumptions silently discharged by GSW’s geometric scalar theorem.
+GZ supplies selected square matrices Φ_α^(σ,σ′)(h) and J(α)=Φ_α(0), indexed by P_K, with row-wise completions (den(α)h/(2πi))^κσ exp(Vσ/[den(α)²h]). Its matrix RQMC asserts Φ̂_(γX)(h*)≈jγ(x)Φ̂_X(h)Φ̂_(a/c)(2πi/[c(cx+d)]), x=X−h/(2πi), h*=h/[(cx+d)(cX+d)], for bounded-denominator X→+∞ and c>0. This is conjectural and also has a normalization obligation: the printed positive row-weight factor must be reconciled with the scalar completed negative factor in equation (3.13), before transporting a single convention. General matrix invertibility, topological well-definedness and analytic completion are not assumptions silently discharged by GSW’s geometric scalar theorem.
 
 **Proof/construction route:**
 
@@ -3748,7 +3751,7 @@ GZ supplies selected square matrices Φ_α^(σ,σ′)(h) and J(α)=Φ_α(0), ind
 
 **Acceptance:**
 
-- GZ supplies selected square matrices Φ_α^(σ,σ′)(h) and J(α)=Φ_α(0), indexed by P_K, with row-wise completions (den(α)h/(2πi))^κσ exp(Vσ/[den(α)²h]). Its matrix RQMC asserts Φ̂_(γX)(h*)≈jγ(x)Φ̂_X(h)Φ̂_(a/c)(2πi/[c(cx+d)]), x=X−h/(2πi), h*=h/[(cx+d)(cX+d)], for bounded-denominator X→+∞ and c>0. This is conjectural and also has a normalization obligation: the printed positive row-weight factor must be reconciled with the scalar completed negative factor in GQMChhh, before transporting a single convention. General matrix invertibility, topological well-definedness and analytic completion are not assumptions silently discharged by GSW’s geometric scalar theorem.
+- GZ supplies selected square matrices Φ_α^(σ,σ′)(h) and J(α)=Φ_α(0), indexed by P_K, with row-wise completions (den(α)h/(2πi))^κσ exp(Vσ/[den(α)²h]). Its matrix RQMC asserts Φ̂_(γX)(h*)≈jγ(x)Φ̂_X(h)Φ̂_(a/c)(2πi/[c(cx+d)]), x=X−h/(2πi), h*=h/[(cx+d)(cX+d)], for bounded-denominator X→+∞ and c>0. This is conjectural and also has a normalization obligation: the printed positive row-weight factor must be reconciled with the scalar completed negative factor in equation (3.13), before transporting a single convention. General matrix invertibility, topological well-definedness and analytic completion are not assumptions silently discharged by GSW’s geometric scalar theorem.
 
 **Sources:**
 
@@ -3796,7 +3799,7 @@ Given the selected knot matrix J(x) with invertible values and a diagonal tweake
 
 **Sources:**
 
-- [Knots, perturbative series and quantum modularity](https://arxiv.org/abs/2111.06645v3), §5.1, equations (5.1)–(5.3), pp. 31–33. This fixed-version locus supplies knot matrix cocycle. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route.
+- [Knots, perturbative series and quantum modularity](https://arxiv.org/abs/2111.06645v3), §5 introduction, equations (5.1)–(5.3), pp. 30–31. This fixed-version locus supplies knot matrix cocycle. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route.
 
 ### Analytic extension of the knot cocycle
 
@@ -3895,7 +3898,7 @@ Bettin–Drappeau prove positive-q modular asymptotics for the ten hyperbolic kn
 
 **Identifier:** `ArithmeticQuantumTopology:QT.7/ak-knot-comparison-conjecture`. **Kind:** comparison. **Mathematical status:** conjectural.
 
-Conjecture (AK, for a hyperbolic knot K in a closed oriented compact 3-manifold M): there is a smooth J_(M,K)(ℏ,x) on ℝ_>0×ℝ. (1) Every fully balanced positive ideal triangulation X of M∖K has a gauge-invariant real linear angle form λ and a real quadratic angle form φ with Z_ℏ(X)=exp(iφ/ℏ)∫ℝ J_(M,K)(ℏ,x)exp(−xλ/√ℏ)dx. (2) For any positive one-vertex H-triangulation Y approachable by weights tending to τ(K)=0 and τ(other edges)=2π, there is a real quadratic angle form ϕ such that lim_(ω→τ) Φ_b((π−ω(K))/(2πi√ℏ))Z_ℏ(Y)=exp(iϕ/ℏ−iπ/12)J_(M,K)(ℏ,0). (3) lim_(ℏ→0+)2πℏ log|J_(M,K)(ℏ,0)|=−Vol(M∖K). All relevant existence, convergence and limiting conditions are part of the conjecture. AK’s Theorem th:4-1--5-2 proves its three parts for (S³,4₁) and (S³,5₂), using χ₄₁ and χ₅₂. The general analytic/formal NZ identification additionally needs matched saddle, logarithmic branches, classical action, one-loop determinant and all-orders error estimates; no such universal comparison follows from formal Pachner invariance.
+Conjecture (AK, for a hyperbolic knot K in a closed oriented compact 3-manifold M): there is a smooth J_(M,K)(ℏ,x) on ℝ_>0×ℝ. (1) Every fully balanced positive ideal triangulation X of M∖K has a gauge-invariant real linear angle form λ and a real quadratic angle form φ with Z_ℏ(X)=exp(iφ/ℏ)∫ℝ J_(M,K)(ℏ,x)exp(−xλ/√ℏ)dx. (2) For any positive one-vertex H-triangulation Y approachable by weights tending to τ(K)=0 and τ(other edges)=2π, there is a real quadratic angle form ϕ such that lim_(ω→τ) Φ_b((π−ω(K))/(2πi√ℏ))Z_ℏ(Y)=exp(iϕ/ℏ−iπ/12)J_(M,K)(ℏ,0). (3) lim_(ℏ→0+)2πℏ log|J_(M,K)(ℏ,0)|=−Vol(M∖K). All relevant existence, convergence and limiting conditions are part of the conjecture. AK’s Theorem 5 proves its three parts for (S³,4₁) and (S³,5₂), using χ₄₁ and χ₅₂. The general analytic/formal NZ identification additionally needs matched saddle, logarithmic branches, classical action, one-loop determinant and all-orders error estimates; no such universal comparison follows from formal Pachner invariance.
 
 **Proof/construction route:**
 
@@ -3907,7 +3910,7 @@ Conjecture (AK, for a hyperbolic knot K in a closed oriented compact 3-manifold 
 
 **Acceptance:**
 
-- Conjecture (AK, for a hyperbolic knot K in a closed oriented compact 3-manifold M): there is a smooth J_(M,K)(ℏ,x) on ℝ_>0×ℝ. (1) Every fully balanced positive ideal triangulation X of M∖K has a gauge-invariant real linear angle form λ and a real quadratic angle form φ with Z_ℏ(X)=exp(iφ/ℏ)∫ℝ J_(M,K)(ℏ,x)exp(−xλ/√ℏ)dx. (2) For any positive one-vertex H-triangulation Y approachable by weights tending to τ(K)=0 and τ(other edges)=2π, there is a real quadratic angle form ϕ such that lim_(ω→τ) Φ_b((π−ω(K))/(2πi√ℏ))Z_ℏ(Y)=exp(iϕ/ℏ−iπ/12)J_(M,K)(ℏ,0). (3) lim_(ℏ→0+)2πℏ log|J_(M,K)(ℏ,0)|=−Vol(M∖K). All relevant existence, convergence and limiting conditions are part of the conjecture. AK’s Theorem th:4-1--5-2 proves its three parts for (S³,4₁) and (S³,5₂), using χ₄₁ and χ₅₂. The general analytic/formal NZ identification additionally needs matched saddle, logarithmic branches, classical action, one-loop determinant and all-orders error estimates; no such universal comparison follows from formal Pachner invariance.
+- Conjecture (AK, for a hyperbolic knot K in a closed oriented compact 3-manifold M): there is a smooth J_(M,K)(ℏ,x) on ℝ_>0×ℝ. (1) Every fully balanced positive ideal triangulation X of M∖K has a gauge-invariant real linear angle form λ and a real quadratic angle form φ with Z_ℏ(X)=exp(iφ/ℏ)∫ℝ J_(M,K)(ℏ,x)exp(−xλ/√ℏ)dx. (2) For any positive one-vertex H-triangulation Y approachable by weights tending to τ(K)=0 and τ(other edges)=2π, there is a real quadratic angle form ϕ such that lim_(ω→τ) Φ_b((π−ω(K))/(2πi√ℏ))Z_ℏ(Y)=exp(iϕ/ℏ−iπ/12)J_(M,K)(ℏ,0). (3) lim_(ℏ→0+)2πℏ log|J_(M,K)(ℏ,0)|=−Vol(M∖K). All relevant existence, convergence and limiting conditions are part of the conjecture. AK’s Theorem 5 proves its three parts for (S³,4₁) and (S³,5₂), using χ₄₁ and χ₅₂. The general analytic/formal NZ identification additionally needs matched saddle, logarithmic branches, classical action, one-loop determinant and all-orders error estimates; no such universal comparison follows from formal Pachner invariance.
 
 **Sources:**
 
@@ -3938,7 +3941,7 @@ For a hyperbolic knot K⊂S³, put ⟨K⟩_N=J^red_(K,N)(exp(2πi/N)), with dime
 
 ## Exact supplier contracts
 
-A fine supplier node is cited directly when its statement matches. These eighteen open contracts retain the exact requested scope and route.
+A fine supplier node is cited directly when its statement matches. These nineteen open contracts retain the exact requested scope and route.
 
 ### tauceti:TauCetiRoadmap/GeometricTopology#layer-4-knot-theory-done-properly-owned-here
 
@@ -4030,7 +4033,7 @@ Supply the early Frobenius coefficient ring R with its nondegeneracy/unit/bad-pr
 
 ### HabiroNumberFields:HB.7
 
-Supply the K₃-indexed twisted Habiro module over R[δ⁻¹/²], roots of order prime to Δ, and its index in the checked Bloch convention. Do not substitute the untwisted ordinary ring.
+Supply the K₃-indexed twisted Habiro module on the full quadratic finite étale B=R[T]/(δT²−1), including split components, roots of order prime to Δ, and its index in the checked Bloch convention. Extend Frobenius, Kummer torsors and effective global descent componentwise as required by HB.9/followup-etale-module-contract. A chosen number-field component or untwisted ring is insufficient.
 
 **Consumers:** `ArithmeticQuantumTopology:QT.6/topological-habiro-module-comparison`.
 
@@ -4084,6 +4087,14 @@ Import the fixed simple-root datum, root-space decomposition and coroot sl₂ tr
 
 **Status:** open. **Route:** Stage-level supplier contract.
 
+### HabiroNahmSeries:HB.9
+
+Supply followup-integral-gluing-contract, followup-kummer-orientation-contract and followup-etale-module-contract after discharging faithful coefficient transfer and all-order HB.8 identification. Retain the signed finite-Chern/Kummer index, full quadratic finite étale coefficient algebra, effective HB.7 descent and root orders prime to Δ. Descendant and unrestricted bad-order corollaries are not imported here.
+
+**Consumers:** `ArithmeticQuantumTopology:QT.6/topological-habiro-module-comparison`.
+
+**Status:** open. **Route:** Reviewed HB.9 follow-up contracts and HB.7 finite étale descent.
+
 ## Recorded gaps
 
 ### ArithmeticQuantumTopology/G1 — Geometric link/surgery contracts
@@ -4118,7 +4129,7 @@ Neumann’s factor-two ordinary boundary, exterior kernel, antisymmetric tensor 
 
 ### ArithmeticQuantumTopology/G6 — NZ-to-Habiro normalization
 
-HB.9 applies to symmetric integral Nahm matrices, not every rational NZ matrix. Verify B unimodular, parity compatibility, isolated nondegenerate shapes, arithmetic R/Δ and the correct Bloch index, then compare GSW unit formal series with the HB.8 collection’s classical exponential, phase and one-loop factor. General module membership remains a comparison obligation. Root-refined DG2 arithmetic must use the filtered diagram definition and actual Kummer translations; reconcile E17–E21 and match the τ factor with the HB.8 normalization before claiming the rootwise Habiro collection comparison. The imported HB.8 refinement-gaussian-identification is conditional on its own G1 global-prefactor and G2 regularity gaps and the coprime auxiliary order; those conditions must be retained. Also compare the full cyclotomic coefficient tensor algebra with the chosen F(ζ) component before identifying collections.
+HB.9 applies to symmetric integral Nahm matrices, not every rational NZ matrix. Verify B unimodular, parity compatibility, isolated nondegenerate shapes, arithmetic R/Δ and the correct Bloch index, then compare GSW unit formal series with the HB.8 collection’s classical exponential, phase and one-loop factor. General module membership remains a comparison obligation. Root-refined DG2 arithmetic must use the filtered diagram definition and actual Kummer translations; reconcile E17–E21 and match the τ factor with the HB.8 normalization before claiming the rootwise Habiro collection comparison. The imported HB.8 refinement-gaussian-identification is conditional on its own G1 global-prefactor and G2 regularity gaps and the coprime auxiliary order; those conditions must be retained. Also compare the full cyclotomic coefficient tensor algebra with the chosen F(ζ) component before identifying collections. HB.9 also retains coefficient-transfer, HB.8 all-order identification, signed Kummer-orientation and all-order integral-gluing obligations. Membership uses the full quadratic finite étale B=R[T]/(δT²−1), including split components, with effective HB.7 descent on that algebra. A number-field component or the formal source theorem alone does not discharge these supplier contracts. The DG2 canonical-root exponential must be transported together with the finite products for another primitive root. HB.9 also retains coefficient-transfer, HB.8 all-order identification, signed Kummer-orientation and all-order integral-gluing obligations. Membership uses the full quadratic finite étale B=R[T]/(δT²−1), including split components, with effective HB.7 descent on that algebra. A number-field component or the formal source theorem alone does not discharge these supplier contracts. The DG2 canonical-root exponential must be transported together with the finite products for another primitive root.
 
 **Consumers:** `ArithmeticQuantumTopology:QT.6/nz-to-integral-nahm`, `ArithmeticQuantumTopology:QT.6/topological-habiro-module-comparison`, `ArithmeticQuantumTopology:QT.6/root-nz-data`, `ArithmeticQuantumTopology:QT.6/root-refined-nz-series`, `ArithmeticQuantumTopology:QT.6/root-series-arithmetic`.
 
@@ -4398,7 +4409,7 @@ These three published-version records bring the packet’s source-version invent
 
 - [Reshetikhin–Turaev, CMP 127 (1990), 1–26](https://people.math.harvard.edu/~opie/Reshetikhin_Turaev.pdf). Read 2026-10-06. §§2–5 and §6.1 read in browser; no local hash asserted.
 
-- [Dimofte–Garoufalidis, CNTP 12(1) (2018), 1–52](https://people.mpim-bonn.mpg.de/stavros/publications/printed/quantum_modularity_and_complex_chern_simons_theory.pdf). Read 2026-10-06. SHA-256: `93708694a71286338539c7696e884b211bb6a773be29c91c79e0f77e3bca5b0f`. Published pp. 5–16 collated for NZ, Kummer, root-series and cyclic formulas.
+- [Dimofte–Garoufalidis, CNTP 12(1) (2018), 1–52](https://people.mpim-bonn.mpg.de/stavros/publications/printed/quantum_modularity_and_complex_chern_simons_theory.pdf). Read 2026-10-06. SHA-256: `93708694a71286338539c7696e884b211bb6a773be29c91c79e0f77e3bca5b0f`. Published pp. 5–6, 9–10 and 17–19 independently collated for E17–E21; cyclic Lemma 3.3(d) is on pp. 17–18 and the coordinate sign omission is on p. 19.
 
 - [Habiro–Le, Geometry & Topology 20 (2016), 2687–2835, DOI 10.2140/gt.2016.20.2687](https://msp.org/gt/2016/20-5/gt-v20-n5-p04-s.pdf). Read 2026-10-06. SHA-256: `f86c3f0565b7ccbfe36c72289e2376170bcb604b990bf4bb879990f747665a3e`. Independent collation of E3, E4, E5 and E14: (54), p. 2728; (177), p. 2797; Corollaries C.6/C.8, p. 2828; §8C2, p. 2796. These slips remain in this published text.
   Rechecked 2026-10-08: Rechecked (54), p. 2728; (177), p. 2797; Corollaries C.6/C.8, p. 2828; §8C2, p. 2796. All four reviewed corrections remain necessary.
@@ -4415,7 +4426,7 @@ The packet records twenty-two independently confirmed findings. Each entry descr
 
 **Correction:** Replace the final a_p(T) with a_m(T). **Reason:** The preceding sum is Σ_p a_p(T)δ_mp, whose value is a_m(T); p is bound. **Affects:** nothing.
 
-**Independent verdict:** confirmed by REV-ArithmeticQuantumTopology. Confirmed in the coefficient-duality calculation: the Kronecker delta leaves the free m-index, not the summed p-index.
+**Independent verdict:** confirmed by REV-ArithmeticQuantumTopology~2. The coefficient at index m in the proof of Theorem 6.4 on p. 21 is determined by the m-th trace pairing; the isolated p-subscript has no matching summation index.
 
 **Correction-search record:** new.
 
@@ -4431,7 +4442,7 @@ The packet records twenty-two independently confirmed findings. Each entry descr
 
 **Correction:** The second factor is τζ(M′). **Reason:** The surgery split-union calculation and the immediately stated JM formula have the distinct two manifolds. **Affects:** nothing.
 
-**Independent verdict:** confirmed by REV-ArithmeticQuantumTopology. Confirmed: the split-union calculation has M and M′; repeating M in the WRT factor is a transcription slip.
+**Independent verdict:** confirmed by REV-ArithmeticQuantumTopology~2. In Proposition 12.1 on p. 39 the second tensor factor comes from M′. The displayed connected-sum product must therefore use its invariant, as the preceding construction does.
 
 **Correction-search record:** new.
 
@@ -4441,13 +4452,13 @@ The packet records twenty-two independently confirmed findings. Each entry descr
 
 ### ArithmeticQuantumTopology/E3 — misprint
 
-**Source/locus:** habiro-le-unified-simple-lie, §3.1, equation (54), p. 37, fixed arXiv 1503.03549v2; published (54), p. 2728.
+**Source/locus:** habiro-le-unified-simple-lie, §3.1, equation (55), p. 37, fixed arXiv 1503.03549v2; published (54), p. 2728.
 
 **Defect described:** The relation for commuting Kβ past Fα instead has Eα on its right side.
 
 **Correction:** The right-hand side is v^(−(β,α))FαKβ. **Reason:** The stated weight of Fα and the neighboring Eα relation require Fα; the printed relation collapses the intended triangular algebra. **Affects:** nothing.
 
-**Independent verdict:** confirmed by REV-ArithmeticQuantumTopology. Confirmed in arXiv v2 and published (54), p. 2728: the lowering generator must remain Fα. The neighboring weight relations and triangular PBW decomposition rule out Eα.
+**Independent verdict:** confirmed by REV-ArithmeticQuantumTopology~2. Read preprint (55), p. 37, and published (54), p. 2728. Torus conjugation preserves the negative-root generator Fα; the printed Eα in that right-hand side changes its root weight.
 
 **Correction-search record:** new.
 
@@ -4457,13 +4468,13 @@ The packet records twenty-two independently confirmed findings. Each entry descr
 
 ### ArithmeticQuantumTopology/E4 — misprint
 
-**Source/locus:** habiro-le-unified-simple-lie, §8.4.2, equation (177), p. 92, fixed arXiv 1503.03549v2; published (177), p. 2797.
+**Source/locus:** habiro-le-unified-simple-lie, §8.4.2, equation (180), p. 92, fixed arXiv 1503.03549v2; published (177), p. 2797.
 
 **Defect described:** The surgery normalization leaves both unknot signs ambiguous, despite separate positive and negative signatures.
 
 **Correction:** Use (J_U+(Ω))^σ+ (J_U−(Ω))^σ−. **Reason:** Adding a +1 or −1 isolated unknot must cancel the corresponding distinct Gauss factor, respectively. **Affects:** nothing.
 
-**Independent verdict:** confirmed by REV-ArithmeticQuantumTopology. Confirmed in arXiv v2 and published (177), p. 2797: positive and negative surgery stabilizations require their respective nonzero Gauss factors, not an undifferentiated ± in both factors.
+**Independent verdict:** confirmed by REV-ArithmeticQuantumTopology~2. Read preprint (180), p. 92, and published (177), p. 2797. A positive stabilization changes σ+ and a negative stabilization changes σ−; their nonzero Gauss factors must be distinguished.
 
 **Correction-search record:** new.
 
@@ -4479,7 +4490,7 @@ The packet records twenty-two independently confirmed findings. Each entry descr
 
 **Correction:** In both corollaries use the complement of the listed vanishing conditions. **Reason:** The preceding propositions characterize exactly Gauss=0, while admissible strong Kirby colors require nonzero Gauss. For A₁ an order congruent to 2 modulo 4 is on the vanishing list and cannot be admitted. **Affects:** a stated result.
 
-**Independent verdict:** confirmed by REV-ArithmeticQuantumTopology. Confirmed in the version of record, Corollaries C.6/C.8, p. 2828: Propositions C.5(a)/C.7(a) list precisely the zero Gauss sums, whereas the defining Kirby condition (176) requires nonzero sums. The complement is required. The A₁ order-2-mod-4 example gives a direct failure.
+**Independent verdict:** confirmed by REV-ArithmeticQuantumTopology~2. Preprint p. 117 and published p. 2828 list the zero Gauss sums in Propositions C.5/C.7. Kirby admissibility requires nonzero Gauss sums, so Corollaries C.6/C.8 need the complementary cases.
 
 **Correction-search record:** new.
 
@@ -4495,7 +4506,7 @@ The packet records twenty-two independently confirmed findings. Each entry descr
 
 **Correction:** The product factor is z_i(t)^(A_ij), and likewise z_i in the undeformed equation. **Reason:** A Nahm equation uses every coordinate. The source’s own subsequent displayed rational P_i(z) and potential derivative use z_j under the other fixed index, confirming the intended matrix coupling. **Affects:** nothing.
 
-**Independent verdict:** confirmed by REV-ArithmeticQuantumTopology. Confirmed: a coupled matrix Nahm equation varies the product index i. The source potential derivative and subsequent P_i display agree with the corrected z_i factor.
+**Independent verdict:** confirmed by REV-ArithmeticQuantumTopology~2. GSWZ equations (34), (41), pp. 13–14, have a matrix product over varying shape coordinates. Differentiating the stated potential also yields those varying coordinates, not a repeated z_j.
 
 **Correction-search record:** new.
 
@@ -4511,7 +4522,7 @@ The packet records twenty-two independently confirmed findings. Each entry descr
 
 **Correction:** The hyperbolic five-crossing entry is 5₂. **Reason:** The theorem requires hyperbolicity and the surrounding explicit five-crossing calculation is for 5₂; 5₁ is the torus knot T(2,5). **Affects:** nothing.
 
-**Independent verdict:** confirmed by REV-ArithmeticQuantumTopology. Confirmed: the listed five-crossing hyperbolic case and surrounding computations are 5₂; the printed 5₁ is the torus-knot entry and does not satisfy the theorem’s domain.
+**Independent verdict:** confirmed by REV-ArithmeticQuantumTopology~2. Theorem 1 and Figure 1 on p. 2, compared with §3 on p. 3, identify 5₂ as the hyperbolic five-crossing case; 5₁ is a torus knot outside that theorem domain.
 
 **Correction-search record:** new.
 
@@ -4527,7 +4538,7 @@ The packet records twenty-two independently confirmed findings. Each entry descr
 
 **Correction:** Use χ₄₁(0)=ζ_inv⁻¹g₂(ℏ) and χ₅₂(0)=exp(−iπ/3)g₃(ℏ), in the source inversion convention. **Reason:** At x=0 inversion Φ(−y)Φ(y)=ζ_inv⁻¹exp(iπy²) converts χ₄₁’s ratio to ζ_inv⁻¹Φ(y)⁻²exp(iπy²). The defining χ₅₂ formula already has exp(−iπ/3). Both factors have modulus one for real b, leaving the volume limits unchanged. **Affects:** nothing.
 
-**Independent verdict:** confirmed by REV-ArithmeticQuantumTopology. Confirmed by substituting the source inversion identity into χ₄₁ at zero and the explicit χ₅₂ definition. The omitted factors have absolute value one for real b, so the selected volume limit is unaffected.
+**Independent verdict:** confirmed by REV-ArithmeticQuantumTopology~2. Substitution of Appendix A equation (47) into χ₄₁ and of equation (39) into χ₅₂ gives the recorded constant phases. Their modulus is one for real b, preserving the stated volume limit.
 
 **Correction-search record:** new.
 
@@ -4543,7 +4554,7 @@ The packet records twenty-two independently confirmed findings. Each entry descr
 
 **Correction:** Supply pole-free deformation, the vanishing estimates on connecting ends, uniform small-b convergence near the selected saddle, and uniform tail bounds justifying the O(ℏ) expansion. **Reason:** Pointwise quantum-dilogarithm asymptotics do not justify interchange with an unbounded contour integral or prove that a limiting steepest contour has the same integral. The packet retains the source theorem as a target with this explicit proof boundary. **Affects:** the proof.
 
-**Independent verdict:** confirmed by REV-ArithmeticQuantumTopology. Confirmed as a proof gap rather than disproof of the theorem: the asserted unbounded-contour deformation needs pole exclusion, decay of connecting segments and uniform saddle/tail estimates. Pointwise asymptotics alone do not supply these; G7 retains them.
+**Independent verdict:** confirmed by REV-ArithmeticQuantumTopology~2. The §12 contour argument requires pole-free deformation and uniform control on unbounded tails. The displayed pointwise small-b expansion does not establish either. This confirms the proof boundary, without asserting that the volume theorem is false.
 
 **Correction-search record:** new.
 
@@ -4559,7 +4570,7 @@ The packet records twenty-two independently confirmed findings. Each entry descr
 
 **Correction:** The finite-free category is a ribbon category; the stated abelian assertion over A′ needs an enlarged carrier or different hypotheses. **Reason:** For the trivial action on the rank-one free A′-module, multiplication by a nonzero nonunit has zero categorical kernel and cokernel within finite-free modules, but is not an isomorphism. Equivalently its module cokernel has torsion and leaves the carrier. The root-of-unity quotient over a field is not affected by this objection. **Affects:** a stated result.
 
-**Independent verdict:** confirmed by REV-ArithmeticQuantumTopology. Confirmed for the integral finite-free carrier: multiplication by 2 on the trivial rank-one A′-module is both monic and epic in that carrier but has no inverse. An abelian category would force an isomorphism. This does not object to the specialized field-valued tilting quotient.
+**Independent verdict:** confirmed by REV-ArithmeticQuantumTopology~2. Sawin’s integral finite-free A′-module carrier on pp. 18–19 omits cokernels with torsion. Multiplication by a nonunit on its trivial rank-one object is monic and epic but not invertible, contrary to the abelian-category claim. The field-valued tilting quotient is a separate carrier.
 
 **Correction-search record:** new.
 
@@ -4575,7 +4586,7 @@ The packet records twenty-two independently confirmed findings. Each entry descr
 
 **Correction:** The second fraction is subtracted. **Reason:** The left-hand side is λ_(γγ′)−λγ′. Taking γ=identity already contradicts the printed plus sign when λγ′≠0. The lemma itself uses the correct sum formula. **Affects:** nothing.
 
-**Independent verdict:** confirmed by REV-ArithmeticQuantumTopology. Confirmed by setting γ to the identity in the printed difference calculation; the plus sign leaves twice the nonzero λγ′. Subtraction gives the lemma’s correct additive cocycle formula.
+**Independent verdict:** confirmed by REV-ArithmeticQuantumTopology~2. Lemma 3.1 on p. 16 must subtract the second fraction in its difference calculation. Taking the first transformation to be the identity already contradicts the printed plus sign; the lemma’s final cocycle identity is unchanged. The SIGMA text retains this slip.
 
 **Correction-search record:** new.
 
@@ -4589,9 +4600,9 @@ The packet records twenty-two independently confirmed findings. Each entry descr
 
 **Defect described:** The general coefficient-asymptotic prefactor has a phase inconsistent with the neighboring coupled figure-eight formulas.
 
-**Correction:** Resolve the phase normalization in the general conjectural display before applying it. Keep AnFirst and the explicit coupled formulas as separate normalization tests; do not silently transport the printed general prefactor. **Reason:** For κσ=0 the preceding coupled formula has 3/(2πi), whereas the printed matrix M₄₁ has entry −3 and the general prefactor is 1/(2π). With the stated same Aσ and Vσ conventions these are different phases. **Affects:** a stated result.
+**Correction:** Resolve the phase normalization in the general conjectural display before applying it. Keep equation (3.16) and the explicit coupled formulas as separate normalization tests; do not silently transport the printed general prefactor. **Reason:** For κσ=0 the preceding coupled formula has 3/(2πi), whereas the printed matrix M₄₁ has entry −3 and the general prefactor is 1/(2π). With the stated same Aσ and Vσ conventions these are different phases. **Affects:** a stated result.
 
-**Independent verdict:** confirmed by REV-ArithmeticQuantumTopology. Confirmed against both fixed preprint and published SIGMA text: at κ=0 the coupled 4₁ formula has the phase 3/(2πi), while the cited general matrix display supplies −3/(2π). This is a normalization obstruction in a conjectural display, not a disproved theorem.
+**Independent verdict:** confirmed by REV-ArithmeticQuantumTopology~2. Equation (3.18), p. 20, and the adjacent coupled 4₁ formula give different phases after the same action and coefficient conventions are substituted. The SIGMA version retains the discrepancy. The packet correctly leaves normalization reconciliation open.
 
 **Correction-search record:** new.
 
@@ -4601,13 +4612,13 @@ The packet records twenty-two independently confirmed findings. Each entry descr
 
 ### ArithmeticQuantumTopology/E13 — error
 
-**Source/locus:** garoufalidis-zagier-quantum-modularity, §4.5, equations (4.12)–(4.13), p. 30, versus §3.2, equation (3.10), p. 18, fixed arXiv 2111.06645v3 (SIGMA text).
+**Source/locus:** garoufalidis-zagier-quantum-modularity, §4.5, equations (4.12)–(4.13), p. 30, versus §3.2, equation (3.13), p. 18, fixed arXiv 2111.06645v3 (SIGMA text).
 
 **Defect described:** The matrix completion uses a positive row weight while the scalar completed lift uses its negative.
 
 **Correction:** Reconcile the matrix completion/weight convention with the scalar completed formula’s negative exponent before claiming a normalized entrywise lift. **Reason:** The printed scalar completed lift has (cx+d)^(−κσ), while MatQMC0/MatQMC uses the positive row-weight automorphy factor on the same completed scalar entry. Substitution of h*=h/((cx+d)(cX+d)) and den(γX)=den(X)|cX+d| gives the negative scalar power. This is a normalization obstruction to importing both displays unchanged. **Affects:** a stated result.
 
-**Independent verdict:** confirmed by REV-ArithmeticQuantumTopology. Confirmed against both fixed preprint and published SIGMA text: substitution of h* and the denominator transformation into the completed scalar formula produces the negative row weight. The matrix display prints the positive weight on the same completed entry. G8 retains the necessary reconciliation; no normalized matrix theorem is imported.
+**Independent verdict:** confirmed by REV-ArithmeticQuantumTopology~2. Substitute h* into the scalar completed formula (3.13), p. 18. Its row-weight exponent is negative, whereas (4.13), p. 30, prints the positive exponent for that completion. The SIGMA text retains both. This remains an obstruction to an unconditional normalized matrix lift.
 
 **Correction-search record:** new.
 
@@ -4623,7 +4634,7 @@ The packet records twenty-two independently confirmed findings. Each entry descr
 
 **Correction:** The exponent is 1/D: v^(1/D)=ζ implies q=v²=ζ^(2D)=ξ. **Reason:** The evaluation map in the preceding sentence and ξ=ζ^(2D) fix this lift. With the printed exponent q would instead be ζ^(4D). **Affects:** nothing.
 
-**Independent verdict:** confirmed by REV-ArithmeticQuantumTopology. Confirmed in arXiv v2 and published §8C2, p. 2796: q=v² and ξ=ζ^(2D) require v^(1/D)=ζ. The printed 1/(2D) gives q=ζ^(4D).
+**Independent verdict:** confirmed by REV-ArithmeticQuantumTopology~2. Preprint §8.3.2, p. 91, and published §8C2, p. 2796, combine q=v² with ξ=ζ^(2D). Those identities require v^(1/D)=ζ; the printed exponent 1/(2D) gives the wrong q.
 
 **Correction-search record:** new.
 
@@ -4634,13 +4645,13 @@ The packet records twenty-two independently confirmed findings. Each entry descr
 
 ### ArithmeticQuantumTopology/E15 — misprint
 
-**Source/locus:** ak, §1.7, Theorem 4, equation (4), p. 9, fixed arXiv 1109.6295v2.
+**Source/locus:** ak, §1.7, Theorem 4, equation (5), p. 9, fixed arXiv 1109.6295v2.
 
 **Defect described:** The main tetrahedron display uses an undefined α₃ and the wrong denominator angle index.
 
 **Correction:** Use α₂ in the numerator’s linear term and α₀ in the denominator shift, with the printed α_i=α(∂i∂₀T)/π, i=0,1,2. The packet uses the unambiguous charged-T and tet-fun kernel instead. **Reason:** For a=α₀/2, c=α₂/2 and b=α₁/2, ψ̃′_(a,c)=exp(−πi/12)ψ_(c,b). This gives linear term α₂ and denominator shift 1−α₀; its constant equals the printed φ_T. α₃ is undefined in Main. **Affects:** nothing.
 
-**Independent verdict:** confirmed by REV-ArithmeticQuantumTopology. Confirmed by the charged-T identity ψ̃′_(a,c)=exp(−πi/12)ψ_(c,b), with a=α₀/2,c=α₂/2,b=α₁/2. The numerator uses α₂ and denominator 1−α₀; α₃ is undefined in the printed angle assignment. The packet uses the unambiguous charged kernel.
+**Independent verdict:** confirmed by REV-ArithmeticQuantumTopology~2. Theorem 4, equation (5), p. 9, assigns only α₀, α₁, α₂. The charged Fourier identity on pp. 16–17 gives numerator α₂ and denominator shift 1−α₀ under the recorded edge ordering; α₃ is undefined.
 
 **Correction-search record:** new.
 
@@ -4656,7 +4667,7 @@ The packet records twenty-two independently confirmed findings. Each entry descr
 
 **Correction:** Replace K by K₁ in the first factor. **Reason:** The displayed left side is K₁♯K₂ and K has not been specified. **Affects:** nothing.
 
-**Independent verdict:** confirmed by REV-ArithmeticQuantumTopology. Confirmed: the connected-sum input is K₁#K₂ and the first right-hand factor must use K₁; the bare K has no antecedent.
+**Independent verdict:** confirmed by REV-ArithmeticQuantumTopology~2. The §5 formula on p. 15 has input K₁#K₂. Its first product factor is K₁; the bare K has no antecedent in that assertion.
 
 **Correction-search record:** new.
 
@@ -4671,7 +4682,7 @@ The packet records twenty-two independently confirmed findings. Each entry descr
 
 **Correction:** Use integer matrices A,B with (A|B) full rank and ABᵀ symmetric; B invertibility is an extra restriction, and integer invertibility is imposed for the selected root construction. **Reason:** Gluing matrices need not both be unimodular; the same text separately defines ℤ-nondegeneracy by invertibility of B. **Affects:** nothing.
 
-**Independent verdict:** confirmed by REV-ArithmeticQuantumTopology. Confirmed against the published p. 5 statement: the subsequent separate definition of Z-nondegeneracy of B and general gluing linear algebra do not justify A,B∈GL(N,Z). The packet restricts B explicitly for the selected construction.
+**Independent verdict:** confirmed by REV-ArithmeticQuantumTopology~2. DG2 p. 5, in both versions, separately restricts B to be integer-invertible for the selected construction. General NZ data require a full-rank block and symmetric ABᵀ, and do not require both blocks to be unimodular.
 
 **Correction-search record:** new.
 
@@ -4686,7 +4697,7 @@ The packet records twenty-two independently confirmed findings. Each entry descr
 
 **Correction:** The actual Kummer Galois group is a subgroup of (ℤ/kℤ)^N; shape multiplicative relations constrain rotations. Carry simultaneous admissible root rotations, or work in the universal finite étale root algebra before specialization. **Reason:** For repeated shapes and choices θ₁=θ₂, no field automorphism can rotate only θ₁. The arithmetic proof can be repaired by simultaneous translations of m, but the asserted independent generators do not always exist. **Affects:** the proof.
 
-**Independent verdict:** confirmed by REV-ArithmeticQuantumTopology. Confirmed against the published p. 6 statement: repeated shapes with equal chosen roots prohibit an automorphism rotating only one root. The actual Galois group is a subgroup. Simultaneous index translations in the universal root algebra repair the descent argument.
+**Independent verdict:** confirmed by REV-ArithmeticQuantumTopology~2. DG2 preprint p. 5 and published p. 6 overstate the Kummer group. Equal chosen roots of repeated shapes cannot be rotated independently by a field automorphism. Actual simultaneous admissible rotations or the universal root algebra supply the correct descent setting.
 
 **Correction-search record:** new.
 
@@ -4701,7 +4712,7 @@ The packet records twenty-two independently confirmed findings. Each entry descr
 
 **Correction:** The unit-series construction needs the degree-filtered rescaling specified in root-refined-nz-series: h^(n+j/2−1), n+j/2>1, n≥0. Equivalently use the source’s explicit diagram rules with Π=hkΛ⁻¹ and the four Γ valence ranges. **Reason:** As printed the n=1,j=0 term already gives a nontrivial h⁰ exponential; n=0 cubic vertices are missing, and fixed-degree Gaussian evaluation is not finite with the unscaled x-series. This contradicts the stated constant 1 and the subsequent diagram rules. **Affects:** a stated result.
 
-**Independent verdict:** confirmed by REV-ArithmeticQuantumTopology. Confirmed against published (19)–(21): the literal unscaled block has a nontrivial h⁰ term at n=1,j=0 and misses n=0 cubic interactions. The degree-filtered expansion h^(n+j/2−1) with n+j/2>1 agrees with the source’s later valence rules and makes every Gaussian coefficient finite.
+**Independent verdict:** confirmed by REV-ArithmeticQuantumTopology~2. DG2 preprint (19)–(21), pp. 6–7, and published pp. 9–10 have a nontrivial h⁰ term in the unfiltered block and omit n=0 cubic vertices. The subsequent valence rules support the recorded filtered rescaling and finite coefficientwise Gaussian construction.
 
 **Correction-search record:** new.
 
@@ -4710,13 +4721,13 @@ The packet records twenty-two independently confirmed findings. Each entry descr
 
 ### ArithmeticQuantumTopology/E20 — misprint
 
-**Source/locus:** dg2, §3.2, Lemma 3.3(d) and proof, p. 14, fixed arXiv 1511.05628v1; published Lemma 3.3(d).
+**Source/locus:** dg2, §3.2, Lemma 3.3(d) and proof, p. 14, fixed arXiv 1511.05628v1; published Lemma 3.3(d), equations (35d), pp. 17–18.
 
 **Defect described:** The fourth cyclic identity uses a primitive-root prefactor inconsistent with the product of its leading coefficients.
 
 **Correction:** Use the exact prefactor (−1)^(k(k−1)/2)ζ^(k(k−1)(2k−1)/6)x^(k(k−1)/2). In the proof, each (−ζx)^s is (−ζ^s x)^s. The other three cyclic identities are unchanged. **Reason:** At k=3 and ζ=exp(2πi/3), the product of leading coefficients is −ζ^5=exp(πi/3), whereas the printed prefactor is exp(4πi/3). Factoring each (1−ζ^s x)^s proves the exact product for every primitive ζ. **Affects:** a stated result.
 
-**Independent verdict:** confirmed by REV-ArithmeticQuantumTopology. Confirmed against published Lemma 3.3(d) by factoring the k−1 leading terms. For k=3 the exact coefficient −ζ^5 is exp(πi/3), rather than the printed exp(4πi/3). The packet uses the exact ζ-dependent product.
+**Independent verdict:** confirmed by REV-ArithmeticQuantumTopology~2. Directly factoring each term in Lemma 3.3(d) gives (−1)^Σs ζ^Σs² x^Σs. At k=3 the resulting coefficient differs from the printed exponential. The error remains in published (35d), pp. 17–18.
 
 **Correction-search record:** new.
 
@@ -4725,13 +4736,13 @@ The packet records twenty-two independently confirmed findings. Each entry descr
 
 ### ArithmeticQuantumTopology/E21 — misprint
 
-**Source/locus:** dg2, §3.3, proof of Theorem 2.2, pp. 14–16, fixed arXiv 1511.05628v1; published p. 16.
+**Source/locus:** dg2, §3.3, proof of Theorem 2.2, pp. 14–16, fixed arXiv 1511.05628v1; published p. 19.
 
 **Defect described:** The coordinate Neumann–Zagier formula drops the parity sign present in the preceding vector identity.
 
 **Correction:** Retain (−1)^((B⁻¹ν)_j) in the coordinate formula, as in the immediately preceding vector equation. **Reason:** Taking the j-th coordinate of z″=(−1)^(B⁻¹ν) z^(−B⁻¹A) retains the sign. It enters ε_j^k in the compensation identity; odd parity cannot be discarded. **Affects:** the proof.
 
-**Independent verdict:** confirmed by REV-ArithmeticQuantumTopology. Confirmed against published p. 16: the coordinate formula must retain (−1)^((B⁻¹ν)_j). With it the one-loop compensation has a residual sign killed by the stated 2k power; the final arithmetic target remains sound.
+**Independent verdict:** confirmed by REV-ArithmeticQuantumTopology~2. The preprint coordinate gluing formula and published p. 19 omit the sign present in the preceding vector equation. Restoring (−1)^((B⁻¹ν)_j) leaves a residual sign in the one-loop compensation, killed by the stated 2k-th power.
 
 **Correction-search record:** new.
 
@@ -4746,7 +4757,7 @@ The packet records twenty-two independently confirmed findings. Each entry descr
 
 **Correction:** Replace u_q(q) by u_i(q). **Reason:** The preceding sentence chooses the polynomial u_i(q); the subsequent definition of f_i uses that same polynomial. No u_q is defined. **Affects:** nothing.
 
-**Independent verdict:** confirmed by REV-ArithmeticQuantumTopology. The index i labels the Bezout inverse for the i-th cyclotomic polynomial throughout the immediately surrounding argument. The isolated q-subscript is a typographical slip; no change to Proposition 12.3 is needed.
+**Independent verdict:** confirmed by REV-ArithmeticQuantumTopology~2. Habiro §12.2, p. 40, uses a Bezout inverse for the i-th cyclotomic polynomial. The single q-subscript does not label that inverse; replacing it by i preserves Proposition 12.3.
 
 **Correction-search record:** new.
 
@@ -4763,3 +4774,10 @@ ArithmeticQuantumTopology, Part II: the two-variable colored Jones invariant, MM
 A general resurgence/Borel-summation framework is outside QT. Only the named knot coefficient-asymptotic conjecture and its normalization tests are retained; source computations are not proof certificates.
 
 Bouis–Gazda, arXiv:2602.21894, the other relative-Habiro direction in the confirmed finding, is outside QT’s target scope. QT, Part II owns only the Wheeler knot-specific identification and imports the generic relative-completion owners; it does not add a second generic relative-ring development.
+
+## Independent revision-2 review
+
+Accepted as a target-level planning pass by `independent-review-REV-ArithmeticQuantumTopology~2` on 2026-10-08. The review rechecked all 106 nodes, 24 baseline declarations and 22 source findings. Eight stages remain planned, with eight explicit gaps and nineteen supplier contracts; no stage is closed and every declaration is implementation-unchecked. The detailed review and correction ledger are in [REV-ArithmeticQuantumTopology~2](../reviews/REV-ArithmeticQuantumTopology~2.md).
+
+
+The live review has **86 verified** and **20 corrected** node verdicts, with no added or unverifiable nodes. The preceding review is retained in the packet’s `reviewHistory`; its historical audit and the revision audit have not been rewritten. Published DG2 E20/E21 locators are respectively pp. 17–18 and p. 19.
