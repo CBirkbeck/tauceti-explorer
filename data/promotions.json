@@ -1854,6 +1854,17 @@
     "data/blueprints/VectorBundlesAndIsocrystals--VB0.md"
    ]
   },
+  "research/blueprint/packets/VectorBundlesAndIsocrystals--VB3.json": {
+   "promotedAt": "2026-10-08T08:35:15Z",
+   "review": "48ed7b68012c7e1b",
+   "reviewDate": "2026-10-08",
+   "reviewer": "independent-review-REV-VectorBundlesAndIsocrystals--VB3~2",
+   "sha256": "50b2413ab1fafa80c5a7a8790ecaa458c2480df0c497507f583b936dbc0bc868",
+   "to": [
+    "data/blueprints/VectorBundlesAndIsocrystals--VB3.json",
+    "data/blueprints/VectorBundlesAndIsocrystals--VB3.md"
+   ]
+  },
   "research/blueprint/packets/WeightsInEtaleCohomology.json": {
    "promotedAt": "2026-10-08T06:11:19Z",
    "review": "1c2104d2ebb3b2b4",
