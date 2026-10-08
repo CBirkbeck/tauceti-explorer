@@ -37082,8 +37082,9 @@
     "DESIGN-PotentialAutomorphyInfrastructurePartII~2"
    ],
    "prompt": "research/blueprint/prompts/REV-DESIGN-PotentialAutomorphyInfrastructurePartII~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7022"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7022",
+   "finishedAt": "2026-10-08T17:44:04Z"
   },
   {
    "kind": "design",
@@ -37727,7 +37728,8 @@
    ],
    "revisionOf": "BP-AutomorphicFormsOnReductiveGroups",
    "prompt": "research/blueprint/prompts/BP-AutomorphicFormsOnReductiveGroups~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6923"
   },
   {
    "priority": 2,
@@ -38598,7 +38600,8 @@
     "BP-EtaleDualityAndPerverseSheaves--EDC.4~2"
    ],
    "prompt": "research/blueprint/prompts/REV-EtaleDualityAndPerverseSheaves--EDC.4~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7045"
   },
   {
    "kind": "blueprint",
@@ -40973,7 +40976,8 @@
     "BP-SchemeKTheoryOperations~2"
    ],
    "prompt": "research/blueprint/prompts/REV-SchemeKTheoryOperations~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7089"
   },
   {
    "kind": "blueprint",
