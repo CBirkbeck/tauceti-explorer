@@ -32663,7 +32663,8 @@
    ],
    "avoidAccountOf": "BP-HodgeStructuresPartII--H.2",
    "prompt": "research/blueprint/prompts/REV-HodgeStructuresPartII--H.2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7026"
   },
   {
    "id": "BP-HodgeStructuresPartII--H.3",
@@ -41407,8 +41408,9 @@
     "BP-WeightsInEtaleCohomology~2"
    ],
    "prompt": "research/blueprint/prompts/REV-WeightsInEtaleCohomology~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7099"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7099",
+   "finishedAt": "2026-10-08T05:52:24Z"
   },
   {
    "kind": "blueprint",
