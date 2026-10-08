@@ -37909,7 +37909,8 @@
     "BP-AutomorphicGaloisRepresentationsPartII--AG2.6~2"
    ],
    "prompt": "research/blueprint/prompts/REV-AutomorphicGaloisRepresentationsPartII--AG2.6~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6990"
   },
   {
    "kind": "blueprint",
@@ -38829,8 +38830,9 @@
    ],
    "revisionOf": "BP-GL2ModularityLifting--R32.3",
    "prompt": "research/blueprint/prompts/BP-GL2ModularityLifting--R32.3~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6963"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6963",
+   "finishedAt": "2026-10-08T14:12:45Z"
   },
   {
    "priority": 2,
@@ -40520,7 +40522,8 @@
    ],
    "revisionOf": "BP-PotentialModularityAndCompatibleSystems--R24.3",
    "prompt": "research/blueprint/prompts/BP-PotentialModularityAndCompatibleSystems--R24.3~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7000"
   },
   {
    "priority": 2,
