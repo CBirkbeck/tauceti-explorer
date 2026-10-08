@@ -34860,8 +34860,8 @@
    ],
    "followUpOf": "BP-ClassicalAdicEtaleCohomology--H0",
    "prompt": "research/blueprint/prompts/BP-ClassicalAdicEtaleCohomology--H1-valuation-exports.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6929"
+   "state": "pending",
+   "note": "released on GitHub issue #6929"
   },
   {
    "id": "REV-ClassicalAdicEtaleCohomology--H1-valuation-exports",
@@ -39945,7 +39945,8 @@
    ],
    "revisionOf": "BP-KatoEulerSystems",
    "prompt": "research/blueprint/prompts/BP-KatoEulerSystems~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6976"
   },
   {
    "priority": 2,
