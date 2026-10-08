@@ -29,6 +29,8 @@ import Mathlib.LinearAlgebra.TensorProduct.Tower
 import Mathlib.Geometry.Manifold.VectorBundle.Basic
 import Mathlib.Analysis.Complex.Exponential
 import Mathlib.LinearAlgebra.Projectivization.Basic
+import Mathlib.RingTheory.DedekindDomain.FiniteAdeleRing
+import Mathlib.Topology.Algebra.ProperAction.Basic
 import TauCeti.AlgebraicTopology.LocalCoefficient
 import TauCeti.Geometry.Hodge.Decomposition
 import TauCeti.Geometry.Hodge.WeilOperator
@@ -55,6 +57,13 @@ equivalence; complex homogeneous manifolds and bounded symmetric domains; a glue
 holomorphic bundle with a horizontal filtration; rational torus immersions and compatible
 connected adjoint data; and the actual cocharacters, domains and Cartan group of the examples.
 No statement claims implementation or supplier closure.
+
+REV-ShimuraData~2 records nine residual named prototypes in its review report:
+hilbertDeterminantMap, siegelRootConvention, siegelWeylPermutations,
+kostantSequenceGeometry, gsp4CgRoots, gsp4Kostant, gsp4Unitary,
+gsp4PilloniConvention and iwahoriNeat. Their current auxiliary calculations do
+not state the full conclusions assigned to those names in the packet. They must
+be replaced during revision; omitted unavailable hypotheses are a separate matter.
 
 Deligne 1979: type (p,q) means character (-p,-q), μ(z)=h_C(z,1). The diagonal
 restriction acts by t^(-n); inverse diagonal weight acts by t^n. h(i) is inverse to
@@ -186,8 +195,9 @@ lemma conjHodgePiece (ω : Hodge.Conjugation W)
        (TensorProduct.map LinearMap.id π.toLinearMap (Comodule.coact v)) =
        TensorProduct.map LinearMap.id π.toLinearMap (Comodule.coact (ω v)))
     (p q : ℤ) : (hodgePiece π p q).map ω.toEquiv.toLinearMap = hodgePiece π q p := by sorry
-lemma hodgePieceInternal : DirectSum.IsInternal
-    (fun x : ℤ × ℤ => hodgePiece π x.1 x.2) := by sorry
+lemma hodgePieceInternal :
+    DirectSum.IsInternal (fun x : ℤ × ℤ => hodgePiece π x.1 x.2) ∧
+    {x : ℤ × ℤ | hodgePiece π x.1 x.2 ≠ ⊥}.Finite := by sorry
 lemma conjugationPieces (ω : Hodge.Conjugation W)
     (hc : ∀ v, Supplier.splitTensorConjugation ω
        (TensorProduct.map LinearMap.id π.toLinearMap (Comodule.coact v)) =
@@ -333,7 +343,7 @@ namespace Supplier
  abbrev RealSMap (O : CommHopfAlgCat ℚ) :=
    CommHopfAlgCat.baseChange (K := ℝ) O ⟶ deligneCoordinate
  def gmCoordinate (k : Type*) [Field k] : CommHopfAlgCat k := sorry
- def inverseDiagonal : gmCoordinate ℝ ⟶ deligneCoordinate := sorry
+ def inverseDiagonal : deligneCoordinate ⟶ gmCoordinate ℝ := sorry
  def weightMap {O : CommHopfAlgCat ℚ} (h : RealSMap O) :
      CommHopfAlgCat.baseChange (K := ℝ) O ⟶ gmCoordinate ℝ := sorry
  abbrev GL (n : ℕ) := GeneralLinear.coordinateHopfAlgebra ℚ n
@@ -475,7 +485,9 @@ structure BoundedSymmetricDomain (d : ℕ) where
       -ContinuousLinearMap.id ℂ _
 namespace Supplier
  def complexStructureOperator {X : Type*} [TopologicalSpace X] {d : ℕ}
-     (A : ComplexManifoldOn X d) (x : X) : Module.End ℝ (TangentSpace (𝓘(ℝ, ComplexModel d)) x) := sorry
+     (A : ComplexManifoldOn X d) (x : X) :
+     letI := A.charts
+     Module.End ℝ (TangentSpace (𝓘(ℝ, ComplexModel d)) x) := sorry
  def orbitTangent {X : Type*} [TopologicalSpace X] (x : X) : ModuleCat ℝ := sorry
 end Supplier
 
@@ -540,10 +552,21 @@ lemma hodgeIntegrability {X : Type*} [TopologicalSpace X] (d : ℕ) (h : X)
     (h0 : H.piece 0 = ⊥)
     (hother : ∀ p : ℤ, p ≠ -1 → p ≠ 1 → H.piece p = ⊥) :
     ∃ A : ComplexManifoldOn X d,
+      letI := A.charts
       ∃ e : T ≃ₗ[ℝ] TangentSpace (𝓘(ℝ, ComplexModel d)) h,
         ∀ v, e (hodgeTangentOperator H v) = Supplier.complexStructureOperator A h (e v) := by sorry
+-- The orbit has the subspace topology in the function space of real points. The faithful
+-- algebraic representation and local quotient-chart comparison are omitted supplier
+-- hypotheses. Closed-subgroup separation and second countability are already in Mathlib.
+def realHodgeOrbit {G : Type*} [Group G] [TopologicalSpace G] (h : ℂˣ →* G) :=
+  {φ : ℂˣ → G // ∃ g : G, ∀ z, φ z = g * h z * g⁻¹}
 lemma quotientSeparation {G : Type*} [Group G] [TopologicalSpace G] [IsTopologicalGroup G]
-    (K : Subgroup G) (hK : IsClosed (K : Set G)) : T2Space (G ⧸ K) := by sorry
+    [SecondCountableTopology G] (h : ℂˣ →* G)
+    (hK : IsClosed (Subgroup.centralizer (Set.range h) : Set G)) :
+    T2Space (G ⧸ Subgroup.centralizer (Set.range h)) ∧
+    SecondCountableTopology (G ⧸ Subgroup.centralizer (Set.range h)) ∧
+    ∃ e : (G ⧸ Subgroup.centralizer (Set.range h)) ≃ₜ realHodgeOrbit h,
+      ∀ g z, (e (QuotientGroup.mk g)).val z = g * h z * g⁻¹ := by sorry
 lemma compactRealFactor {T : Type*} [AddCommGroup T] [Module ℝ T]
     (J : T →ₗ[ℝ] T) (hJ : J.comp J = -LinearMap.id) (htriv : J = 0) :
     ∀ x : T, x = 0 := by sorry
@@ -913,6 +936,7 @@ lemma compactDualChangePoint {G : Type*} [Group G] (P : Subgroup G) (g : G) :
 lemma compactDualTangent {G : Type*} [Group G] [TopologicalSpace G]
     (P : Subgroup G) {e : ℕ} (A : ComplexManifoldOn (compactDual G P) e)
     {𝔤 : Type*} [AddCommGroup 𝔤] [Module ℂ 𝔤] (F : Submodule ℂ 𝔤) :
+    letI := A.charts
     Nonempty ((𝔤 ⧸ F) ≃ₗ[ℂ] TangentSpace (𝓘(ℂ, ComplexModel e))
       (QuotientGroup.mk 1 : compactDual G P)) := by sorry
 -- TauCeti.Shimura.tests.dualGl2
@@ -935,8 +959,6 @@ lemma cocharacterClassMap {G H A B : Type*} [Group G] [Group H]
     (h : ∀ g a, φ (g • a) = f g • φ a) (μ : A) : φ '' cocharacterClass μ ⊆ cocharacterClass (φ μ) := by sorry
 -- TauCeti.Shimura.tests.classTorus
 example {A : Type*} (μ : A) : @cocharacterClass PUnit A inferInstance inferInstance μ = {μ} := by sorry
--- TauCeti.Shimura.tests.classGl2
-example {G A : Type*} [Group G] [MulAction G A] (μ : A) (g : G) : g • μ ∈ cocharacterClass μ := by sorry
 -- TauCeti.Shimura.tests.classProduct
 example {G H A B : Type*} [Group G] [Group H] [MulAction G A] [MulAction H B]
     (μ : A) (ν : B) : cocharacterClass (G := G×H) (μ,ν) = cocharacterClass μ ×ˢ cocharacterClass ν := by sorry
@@ -1156,9 +1178,6 @@ lemma datumCategoryIso {D E : shimuraDatum} (e : E.coordinate.obj ≅ D.coordina
     Nonempty (D ≅ E) := by sorry
 -- TauCeti.Shimura.tests.categoryTorusIdentity
 example (D : shimuraDatum) (h : ℂˣ →* D.G) : (identityMorphism D).val.comp h = h := by sorry
--- TauCeti.Shimura.tests.categoryProductProjection
-example {G H : Type*} [Group G] [Group H] :
-    (MonoidHom.fst G H).comp (MonoidHom.inl G H) = MonoidHom.id G := by sorry
 -- TauCeti.Shimura.tests.categoryOrbitSame
 example {G : Type*} [Group G] (h : ℂˣ →* G) (g : G) :
     {l | ∃ k, l = conjugateHom k (conjugateHom g h)} = {l | ∃ k, l = conjugateHom k h} := by sorry
@@ -1168,19 +1187,21 @@ lemma productDomain (D E : shimuraDatum) :
     Nonempty (Supplier.datumDomain (productDatum D E) ≃ₜ (Supplier.datumDomain D × Supplier.datumDomain E)) := by sorry
 lemma productMaps (D E : shimuraDatum) :
     ∃ f : datumMorphism (productDatum D E) D, ∃ g : datumMorphism (productDatum D E) E,
-      Function.Bijective (fun x => (f.val x,g.val x)) := by sorry
+      Function.Bijective (fun x => (f.val x,g.val x)) ∧
+      ∀ (F : shimuraDatum) (φ : datumMorphism F D) (ψ : datumMorphism F E),
+        ∃! u : datumMorphism F (productDatum D E),
+          composeMorphism u f = φ ∧ composeMorphism u g = ψ := by sorry
+-- TauCeti.Shimura.tests.categoryProductProjection
+example (D E F : shimuraDatum) (φ : datumMorphism F D) (ψ : datumMorphism F E) :
+    ∃ p₁ : datumMorphism (productDatum D E) D, ∃ p₂ : datumMorphism (productDatum D E) E,
+      ∃ u : datumMorphism F (productDatum D E),
+        composeMorphism u p₁ = φ ∧ composeMorphism u p₂ = ψ := by sorry
 lemma productReflex {A B : Type*} [MulAction (Qbar ≃ₐ[ℚ] Qbar) A]
     [MulAction (Qbar ≃ₐ[ℚ] Qbar) B] (a : A) (b : B)
     (Ka Kb : IntermediateField ℚ Qbar) [FiniteDimensional ℚ Ka] [FiniteDimensional ℚ Kb]
     (ha : MulAction.stabilizer (Qbar ≃ₐ[ℚ] Qbar) a = Ka.fixingSubgroup)
     (hb : MulAction.stabilizer (Qbar ≃ₐ[ℚ] Qbar) b = Kb.fixingSubgroup) :
     reflexField (a,b) = reflexField a ⊔ reflexField b := by sorry
--- TauCeti.Shimura.tests.productTorus
-example {T U : Type*} [CommGroup T] [CommGroup U] (h : ℂˣ →* (T×U)) (g : T×U) : conjugateHom g h = h := by sorry
--- TauCeti.Shimura.tests.productGl2
-example : Fintype.card (Bool × Bool) = 4 := by sorry
--- TauCeti.Shimura.tests.productUnit
-example (D : shimuraDatum) : Nonempty (D.G × Unit ≃* D.G) := by sorry
 
 namespace Supplier
  def adjointCoordinate (D : shimuraDatum) : ReductiveCommHopfAlgCat ℚ := sorry
@@ -1205,12 +1226,6 @@ lemma adjointDomainInjective (D : shimuraDatum) :
       ∀ x ∈ Set.range (Supplier.datumDomainMap f),
         connectedComponent x ⊆ Set.range (Supplier.datumDomainMap f) := by sorry
 lemma adjointIdempotent (D : shimuraDatum) : Nonempty (adjointDatum (adjointDatum D) ≅ adjointDatum D) := by sorry
--- TauCeti.Shimura.tests.adjointTorus
-example {T : Type*} [CommGroup T] (x y : T) : x*y*x⁻¹*y⁻¹ = 1 := by sorry
--- TauCeti.Shimura.tests.adjointGl2
-example : mobius !![1,0;0,-1] Complex.I = -Complex.I := by sorry
--- TauCeti.Shimura.tests.adjointComponentCaveat
-example : ¬ ∃ M : Matrix (Fin 2) (Fin 2) ℝ, M.det = 1 ∧ mobius M Complex.I = -Complex.I := by sorry
 
 structure CentralIsogenyCoordinates (O P : CommHopfAlgCat ℚ) where
   coordinate : P ⟶ O
@@ -1403,13 +1418,25 @@ lemma neatLevelShrink {Q A : Type*} [Group Q] [Group A] (ι : Q →* A)
 lemma neatLevelGamma {Q A : Type*} [Group Q] [Group A] (ι : Q →* A)
     (eigen : Q → Set ℂˣ) (K : Subgroup A) (h : neatLevel ι eigen K) (a : A) :
     ∀ q ∈ K.comap ((MulAut.conj a⁻¹).toMonoidHom.comp ι), neat (eigen q) := by sorry
+abbrev RationalFiniteAdeles := IsDedekindDomain.FiniteAdeleRing ℤ ℚ
+abbrev RationalAdelicGl2 := Matrix.GeneralLinearGroup (Fin 2) RationalFiniteAdeles
+def rationalGl2Diagonal : Matrix.GeneralLinearGroup (Fin 2) ℚ →* RationalAdelicGl2 :=
+  Matrix.GeneralLinearGroup.map (algebraMap ℚ RationalFiniteAdeles)
+def rationalGl2Eigenvalues (M : Matrix.GeneralLinearGroup (Fin 2) ℚ) : Set ℂˣ :=
+  {u | ((M : Matrix (Fin 2) (Fin 2) ℚ).map (algebraMap ℚ ℂ)).charpoly.IsRoot (u : ℂ)}
+namespace Supplier
+ -- AA.1 supplies GL₂(Ẑ): both a matrix and its inverse are integral at every finite place.
+ def gl2IntegralAdelic : Subgroup RationalAdelicGl2 := sorry
+ -- AA.1 supplies the reduction kernel GL₂(Ẑ) → GL₂(ℤ/Nℤ), as a subgroup of GL₂(𝔸f).
+ -- The integrality/reduction comparison and compact openness are omitted supplier conditions.
+ def gl2PrincipalLevel (N : ℕ) : Subgroup RationalAdelicGl2 := sorry
+end Supplier
 -- Principal-level congruence uses the D5 calculation and AA.3 rational lattice comparison.
 -- V0 is a downstream arithmeticity consumer; the signature retains its N≥3 input.
 -- TauCeti.Shimura.tests.levelPrincipal
-example {Q A : Type*} [Group Q] [Group A] (ι : Q →* A) (eigen : Q → Set ℂˣ)
-    (K : ℕ → Subgroup A) (congruence : ∀ N, 3 ≤ N → neatLevel ι eigen (K N)) : neatLevel ι eigen (K 3) := by sorry
+example : neatLevel rationalGl2Diagonal rationalGl2Eigenvalues (Supplier.gl2PrincipalLevel 3) := by sorry
 -- TauCeti.Shimura.tests.levelFullGl2False
-example : ¬ neatLevel (MonoidHom.id ℂˣ) (fun u => {u}) ⊤ := by sorry
+example : ¬ neatLevel rationalGl2Diagonal rationalGl2Eigenvalues Supplier.gl2IntegralAdelic := by sorry
 -- TauCeti.Shimura.tests.levelConjugate
 example {Q A : Type*} [Group Q] [Group A] (ι : Q →* A) (eigen : Q → Set ℂˣ)
     (K : Subgroup A) (h : neatLevel ι eigen K) (a : A) :
@@ -1449,10 +1476,6 @@ lemma componentGammaRepresentative {Q A X : Type*} [Group Q] [Group A] [MulActio
       (componentSubgroup ι K a C).map (MulAut.conj q).toMonoidHom := by sorry
 -- Determinant positivity is the component condition; principal congruence uses the D5
 -- calculation with the AA.3 lattice comparison, before downstream V0 arithmeticity.
--- TauCeti.Shimura.tests.gammaGl2
-example {Q A X : Type*} [Group Q] [Group A] [MulAction Q X]
-    (ι : Q →* A) (K : Subgroup A) (C : Set X) (q : Q) :
-    q ∈ componentSubgroup ι K 1 C ↔ q • C = C ∧ ι q ∈ K := by sorry
 -- TauCeti.Shimura.tests.gammaTorus
 example {Q A : Type*} [Group Q] [Group A] (ι : Q →* A) (K : Subgroup A) :
     componentSubgroup (X := Unit) ι K 1 Set.univ = K.comap ι := by sorry
@@ -1595,6 +1618,9 @@ namespace Supplier
  def gl2Points : Matrix.GeneralLinearGroup (Fin 2) ℝ ≃* Points gl2Coordinate.obj ℝ := sorry
  def gl2SMap : RealSMap gl2Coordinate.obj := sorry
  def gl2Mu : Cocharacter gl2Coordinate.obj := sorry
+ -- R0/R7's point evaluation of the algebraic cocharacter under the standard GL₂ comparison.
+ def gl2CocharacterMatrix (μ : Cocharacter gl2Coordinate.obj) (z : Qbarˣ) :
+     Matrix (Fin 2) (Fin 2) Qbar := sorry
  def gl2AdjointRep : SRep := sorry
  def projectiveTopology : TopologicalSpace (Projectivization ℂ (Fin 2 → ℂ)) := sorry
  def datumDual (D : shimuraDatum) : TopCat := sorry
@@ -1606,6 +1632,11 @@ attribute [local instance] Supplier.projectiveTopology
 -- gl2Points (gl2Hom z)=realSPoints gl2SMap z, and gl2Mu(z)=diag(z,1).
 def gl2Datum : shimuraDatum := pointDatumOfHom Supplier.gl2Coordinate
   Supplier.gl2Reductive Supplier.gl2Points Supplier.gl2SMap
+-- TauCeti.Shimura.tests.classGl2
+example (μ : Supplier.Cocharacter Supplier.gl2Coordinate.obj)
+    (hμ : μ ∈ cocharacterClass Supplier.gl2Mu) (z : Qbarˣ) :
+    (Supplier.gl2CocharacterMatrix μ z).charpoly =
+      (Polynomial.X - Polynomial.C (z : Qbar)) * (Polynomial.X - Polynomial.C 1) := by sorry
 abbrev HalfPlanes := {z : ℂ // z.im ≠ 0}
 lemma gl2Domain : Nonempty (Supplier.datumDomain gl2Datum ≃ₜ HalfPlanes) ∧
     Supplier.datumDimension gl2Datum = 1 ∧
@@ -1750,13 +1781,10 @@ lemma hilbertReflexDual (F : Supplier.TotallyRealField) :
 lemma hilbertDeterminantMap (F : Supplier.TotallyRealField) (z : ℂˣ) (i : Supplier.RealEmbeddings F) :
     (gl2Matrix (z : ℂ)).det = (z : ℂ).re^2 + (z : ℂ).im^2 := by sorry
 -- TauCeti.Shimura.tests.hilbertRational
-example : Supplier.datumDimension (hilbertDatum Supplier.rationalField) = 1 ∧
-    Nonempty (Supplier.datumDomain (hilbertDatum Supplier.rationalField) ≃ₜ HalfPlanes) := by sorry
+example : Nonempty (hilbertDatum Supplier.rationalField ≅ gl2Datum) := by sorry
 -- TauCeti.Shimura.tests.hilbertQuadratic
 example : Supplier.datumDimension (hilbertDatum Supplier.quadraticRealField) = 2 ∧
     Nat.card (ConnectedComponents (Supplier.datumDomain (hilbertDatum Supplier.quadraticRealField))) = 4 := by sorry
--- TauCeti.Shimura.tests.hilbertNonHodge
-example : ¬ hodgeType siegelDatum (hilbertDatum Supplier.quadraticRealField) := by sorry
 
 def hilbertStarGroup (ι : Type) [Fintype ι] : Subgroup (HilbertRealGroup ι) :=
   { carrier := {M | ∃ c : ℝˣ, ∀ i, (M i).det = c}
@@ -1791,7 +1819,7 @@ lemma hilbertStarInclusion (F : Supplier.TotallyRealField) :
     ∃ f : datumMorphism (hilbertStarDatum F) (hilbertDatum F),
       Function.Surjective f.coordinate.hom ∧ ∀ M, f.val M = M.val := by sorry
 -- TauCeti.Shimura.tests.starRational
-example : hilbertStarGroup Unit = ⊤ := by sorry
+example : Nonempty (hilbertStarDatum Supplier.rationalField ≅ gl2Datum) := by sorry
 -- TauCeti.Shimura.tests.starQuadratic
 example : Supplier.datumDimension (hilbertStarDatum Supplier.quadraticRealField) = 2 ∧
     Nat.card (ConnectedComponents (Supplier.datumDomain (hilbertStarDatum Supplier.quadraticRealField))) = 2 := by sorry
@@ -1811,6 +1839,11 @@ lemma traceLinearFormula (M : Matrix.GeneralLinearGroup (Fin 2) F) (x : F×F) :
     traceLinearAction M x = ((M : Matrix _ _ F) 0 0*x.1+(M : Matrix _ _ F) 0 1*x.2,
       (M : Matrix _ _ F) 1 0*x.1+(M : Matrix _ _ F) 1 1*x.2) := by sorry
 lemma traceLinearFaithful : Function.Injective (traceLinearAction (F := F)) := by sorry
+-- TauCeti.Shimura.tests.hilbertNonHodge
+example (M : Matrix.GeneralLinearGroup (Fin 2) Supplier.quadraticRealField.field)
+    (hn : ∀ c : ℚ, (M.det : Supplier.quadraticRealField.field) ≠ algebraMap ℚ _ c) :
+    ¬ ∃ c : ℚ, ∀ x y : Supplier.quadraticRealField.field × Supplier.quadraticRealField.field,
+      tracePsi (traceLinearAction M x) (traceLinearAction M y) = c*tracePsi x y := by sorry
 -- TauCeti.Shimura.tests.traceNonscalarFalse
 example (M : Matrix.GeneralLinearGroup (Fin 2) F)
     (hn : ∀ c : ℚ, (M.det : F) ≠ algebraMap ℚ F c) :
@@ -2119,10 +2152,49 @@ lemma iwahoriNeat {K : Type*} [Field K] (v : AddValuation K (WithTop ℚ)) (eige
 
 -- Rational adelic lattice conjugation and generated eigenvalue identification are omitted.
 -- For det M=1 the two eigenvalues are inverses, so this calculation excludes every torsion product.
-lemma gl2CongruenceNeat (N : ℕ) (hN : 3 ≤ N) (M B : Matrix (Fin 2) (Fin 2) ℤ)
+lemma gl2IntegralTorsionRoot (N : ℕ) (hN : 3 ≤ N) (M B : Matrix (Fin 2) (Fin 2) ℤ)
     (hM : M = 1 + (N : ℤ) • B) (hdet : M.det = 1)
     (λ : ℂ) (hroot : (M.map (algebraMap ℤ ℂ)).charpoly.IsRoot λ)
     (n : ℕ) (hn : 0 < n) (htors : λ^n = 1) : λ = 1 := by sorry
+lemma gl2CongruenceNeat (N : ℕ) (hN : 3 ≤ N) :
+    neatLevel rationalGl2Diagonal rationalGl2Eigenvalues (Supplier.gl2PrincipalLevel N) := by sorry
+
+/- Product and adjoint tests use the actual datum constructors, after their models are defined. -/
+namespace Supplier
+ -- AA.1 and the GL₂ real-points comparison give the rational Möbius action on both half-planes.
+ def rationalGl2Action : MulAction (Matrix.GeneralLinearGroup (Fin 2) ℚ) HalfPlanes := sorry
+end Supplier
+-- TauCeti.Shimura.tests.gammaGl2
+example (N : ℕ) (hN : 0 < N) (q : Matrix.GeneralLinearGroup (Fin 2) ℚ) :
+    letI := Supplier.rationalGl2Action
+    q ∈ componentSubgroup rationalGl2Diagonal (Supplier.gl2PrincipalLevel N) 1
+      {z : HalfPlanes | 0 < z.val.im} ↔
+      0 < (q.det : ℚ) ∧ ∃ M : Matrix.GeneralLinearGroup (Fin 2) ℤ,
+        Matrix.GeneralLinearGroup.map (algebraMap ℤ ℚ) M = q ∧
+        ∀ i j, (N : ℤ) ∣ (M : Matrix _ _ ℤ) i j - (1 : Matrix _ _ ℤ) i j := by sorry
+-- TauCeti.Shimura.tests.productTorus
+example (T U : TorusCommHopfAlgCat ℚ) (h : Supplier.RealSMap T.obj.obj)
+    (k : Supplier.RealSMap U.obj.obj) :
+    Supplier.datumDimension (productDatum (torusDatum T h) (torusDatum U k)) = 0 ∧
+    Subsingleton (Supplier.datumDomain (productDatum (torusDatum T h) (torusDatum U k))) := by sorry
+-- TauCeti.Shimura.tests.productGl2
+example : Supplier.datumDimension (productDatum gl2Datum gl2Datum) = 2 ∧
+    Nat.card (ConnectedComponents (Supplier.datumDomain (productDatum gl2Datum gl2Datum))) = 4 := by sorry
+-- TauCeti.Shimura.tests.productUnit
+example (D : shimuraDatum) :
+    Nonempty (productDatum D (torusDatum Supplier.trivialTorus Supplier.trivialSMap) ≅ D) := by sorry
+-- TauCeti.Shimura.tests.adjointTorus
+example (T : TorusCommHopfAlgCat ℚ) (h : Supplier.RealSMap T.obj.obj) :
+    Nonempty (adjointDatum (torusDatum T h) ≅ torusDatum Supplier.trivialTorus Supplier.trivialSMap) := by sorry
+-- TauCeti.Shimura.tests.adjointGl2
+example : Nonempty (Supplier.datumDomain (adjointDatum gl2Datum) ≃ₜ HalfPlanes) := by sorry
+-- TauCeti.Shimura.tests.adjointComponentCaveat
+example : Nat.card (ConnectedComponents
+      (Supplier.datumDomain (adjointDatum (hilbertStarDatum Supplier.quadraticRealField)))) = 4 ∧
+    ∃ f : datumMorphism (hilbertStarDatum Supplier.quadraticRealField)
+        (adjointDatum (hilbertStarDatum Supplier.quadraticRealField)),
+      Function.Injective (Supplier.datumDomainMap f) ∧
+      ¬ Function.Surjective (Supplier.datumDomainMap f) := by sorry
 
 /- Additional category and morphism APIs expose the carriers used by the comparisons. -/
 def gradedHodgeCatOf {V : Type*} [AddCommGroup V] [Module ℝ V] [Module.Finite ℝ V]
