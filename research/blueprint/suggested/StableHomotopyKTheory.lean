@@ -65,14 +65,14 @@ instead of a placeholder proposition.
 
 Pins: Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; Tau Ceti f790474821cf4256814db967cb154e7af3d0c369.
 
-Build note: the shared build available to this job compiles Mathlib at the pin but only the
-adic-space part of Tau Ceti, so this file imports Mathlib only. The four Tau Ceti declarations it
-needs (`HomotopyGroup.map`, `TauCeti.homotopyGroupMulEquivOfPath`,
-`TauCeti.IsEilenbergMacLaneSpaceOne`, `TauCeti.LocalCoefficientSystem`) appear in the section
-`Stub` below as `sorry`-bodied stand-ins with the same shape; they are to be replaced by the
-Tau Ceti imports, not developed further. Conditions that cannot be stated without missing
-infrastructure (for instance the equivariance axiom of symmetric spectra, which needs smash
-products of maps) are left out and say so; no proposition is replaced by `sorry`.
+Build note: the shared build compiles Mathlib at the pin and only the adic-space part of
+Tau Ceti, so this file imports Mathlib only. The section `Stub` supplies compatibility forms
+for Tau Ceti's homotopy-group map, basepoint transport, fundamental-group action, K(G,1)
+predicate and local coefficient systems. Replace these by the pinned Tau Ceti imports when
+that part of the library is available; do not develop a second implementation. The map and
+transport forms here retain only their underlying functions, as their docstrings specify.
+Symmetric-spectrum equivariance and compatibility of spectrum morphisms are stated explicitly.
+Signatures requiring further infrastructure remain comments with their reasons.
 -/
 
 set_option autoImplicit false
