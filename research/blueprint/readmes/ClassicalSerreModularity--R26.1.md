@@ -4,6 +4,8 @@ This is the target-level blueprint for R26.1–R26.6 and R27.1–R27.2. The eigh
 
 The main conductor-one theorem is Khare's: a continuous odd absolutely irreducible two-dimensional representation of G_Q over an algebraic closure of a finite field, unramified outside its residual characteristic p, arises from a level-one eigenform of its Serre weight. The first part constructs two linked compatible systems, changes a nebentype in a permitted coset, and lowers the weight at the return characteristic. The second part specifies KW's good-dihedral local condition, the image protection it provides, and the implication W_r ⇒ L_r. The latter induction fixes the number r of conductor primes and decreases the residual characteristic. These are different induction measures and different modularity conclusions.
 
+Independent review [REV-ClassicalSerreModularity--R26.1~2](../reviews/REV-ClassicalSerreModularity--R26.1~2.md) accepts this completed planning pass. The eight stages remain planned, with the supplier, source and stage-application obligations below still open.
+
 ## Conventions and existing objects
 
 All representations are continuous. A residual representation over F̄_p has finite image, hence can be defined over a finite field F; changing that field is an explicit scalar-extension operation. Oddness means determinant −1 at complex conjugation. In characteristic two this determinant condition alone imposes no additional sign constraint. S-type means odd and absolutely irreducible, as in KW. A reduction at a different characteristic need not remain irreducible; every use of a compatible system includes the chosen invariant lattice, reduction and semisimplification contract.
@@ -22,7 +24,7 @@ The reviewed library audit and commit-qualified reads at Tau Ceti f790474821cf42
 
 The ownership boundaries of RS-06 are as follows. Generic global deformation presentations are R04.3's work; prescribed lifting and the Böckle application are supplied by R24.3. Generic matrix/image classification is R01.4's work. Odd and dyadic solvable modularity are R17.5 and R17.6's work, with exact level/weight supplied by R20.5. The normalized bad-dihedral weight computation belongs to R15.4. The mixed node `R27.1/dickson-and-the-dyadic-solvable-refinement` is a stable source alias with the component boundaries below. Its components are consumed from their RS-06 owners, never exported as a single early theorem that assumes later modularity results.
 
-The good-dihedral prefix requires a stage split. R27.1a should contain Definition 2.1, Lemma 6.3 and the Chebotarev choice Lemma 8.2; R27.1b should contain the later good-dihedral insertion. Delete R27.1's inherited R26.6 requirement from the early prefix, as well as its unrelated late modularity prerequisites. R27.1a uses R01.4/R01.5, the early R15.4 recipe, the R24.5/R24.6 compatible-system operations and the existing Tau Ceti Chebotarev Layer 10. R26.6 remains an input to R27.3's W₁ initial case. Repoint the RS-06 edges into R33.2, R33.3 and R33.6 from R27.1 to its early prefix. A stage-level ancestor check must then find no R26.x ancestor of R33.1–R33.5.
+The good-dihedral prefix requires a stage split. R27.1a should contain Definition 2.1, Lemma 6.3 and the Chebotarev choice Lemma 8.2; R27.1b should contain the later good-dihedral insertion. Delete R27.1's inherited R26.6 requirement from the early prefix, as well as its unrelated late modularity prerequisites. R27.1a uses R01.2/R01.3/R01.4, the early R15.4 recipe, the R24.5/R24.6 compatible-system operations and the existing Tau Ceti Chebotarev Layer 10. R26.6 remains an input to R27.3's W₁ initial case. Repoint the RS-06 edges into R33.2, R33.3 and R33.6 from R27.1 to its early prefix. A stage-level ancestor check must then find no R26.x ancestor of R33.1–R33.5.
 
 The packet records this stage separation as a restructuring proposal. Its application includes the ancestor check above; node-level independence does not erase a whole-stage prerequisite.
 
@@ -36,7 +38,7 @@ R26.3 is the single owner of the odd auxiliary-prime estimate. R27.2 imports it 
 
 Khare's public arXiv v1 is the 5 April 2005 preprint. Its statements use Propositions 2.1, 2.2 and 3.1; local reduction/lifting uses Lemmas 5.2–5.4 and Corollary 5.5. KW I uses the published Duke numbering when correcting Corollary 1.2: Theorem 5.1(1), Theorem 6.1(2), and the proof of Theorem 5.1(3 ii). These locators cannot be inferred from the preprint's Proposition 3.1. The Duke PDF was not obtained; its edition crosswalk is an open source obligation.
 
-The published KW Annals paper is *On Serre's conjecture for 2-dimensional mod p representations of Gal(Q̄/Q)*, Annals 169 (2009), 229–253. The older Theorem 4.1(ii)/§5.2 references in Khare correspond to published Theorem 5.2(ii)/§6.2. The former is a **semistable**, weight-two nonexistence theorem for p>2 and prime conductor 2,3,5,7,13. It is not a theorem for arbitrary conductor-two inertia. For q=2, the prime-to-p conductor forces p odd. Artin exponent one gives tame inertia with a fixed line; Frobenius stabilises the quotient character and forces χ=χ², hence χ=1. Thus inertia is unipotent of p-power order, as required by Annals Definition4.1. The local inference is requested from R01.5 and the abelian-variety realisation/reduction contract from R25.5. R25.4 supplies Schoof; the conductor-two residual consequence is this stage’s application. The corrected all-characteristic statement is KW Corollary8.1(i).
+The published KW Annals paper is *On Serre's conjecture for 2-dimensional mod p representations of Gal(Q̄/Q)*, Annals 169 (2009), 229–253. The older Theorem 4.1(ii)/§5.2 references in Khare correspond to published Theorem 5.2(ii)/§6.2. The former is a **semistable**, weight-two nonexistence theorem for p>2 and prime conductor 2,3,5,7,13. It is not a theorem for arbitrary conductor-two inertia. For q=2, the prime-to-p conductor forces p odd. Artin exponent one gives tame inertia with a fixed line; Frobenius stabilises the quotient character and forces χ=χ², hence χ=1. Thus inertia is unipotent of p-power order, as required by Annals Definition4.1. The local inference is requested from R01.2/R01.3 and the abelian-variety realisation/reduction contract from R25.5. R25.4 supplies Schoof; the conductor-two residual consequence is this stage’s application. The corrected all-characteristic statement is KW Corollary8.1(i).
 
 | Obligation | Exact result consumed | Owner and boundary |
 | --- | --- | --- |
@@ -201,7 +203,7 @@ The 36 stable declaration ids below specify the mathematical work. All retain im
 
 #### Flatness of the deformation rings of prescribed lifts
 
-**Lemma.** `ClassicalSerreModularity:R26.2/lifting-method-flatness`. (Khare §2.1, after KW Annals §2.) Let p be odd, ρ̄ : G_ℚ → GL₂(F) odd irreducible with non-solvable image, 2 ≤ k(ρ̄) ≤ p + 1 and k(ρ̄) ≠ p, and let R be the global deformation ring of lifts with fixed determinant, unramified outside a fixed finite set, with prescribed local conditions. If (a) each local ring R_ℓ (ℓ ≠ p) is a flat complete intersection over 𝒪 of relative dimension h⁰(D_ℓ, Ad⁰ρ̄) and R_p one of relative dimension h⁰(D_p, Ad⁰ρ̄) + 1, and (b) R/(π) is finite, then R is finite flat and a complete intersection over 𝒪; in particular ρ̄ has a lift of the prescribed type. Finiteness of R/(π) follows from finiteness of R_F/(π) for a totally real Galois F of even degree over which ρ̄|_{G_F} is modular by a suitable cuspidal π (Taylor), through R_F ≅ T_F (KW Annals Lemma 2.4).
+**Lemma.** `ClassicalSerreModularity:R26.2/lifting-method-flatness`. (Khare §2.1, after §2 of the KW preprint cited there, published Annals §3.) Let p be odd, ρ̄ : G_ℚ → GL₂(F) odd irreducible with non-solvable image, 2 ≤ k(ρ̄) ≤ p + 1 and k(ρ̄) ≠ p, and let R be the global deformation ring of lifts with fixed determinant, unramified outside a fixed finite set, with prescribed local conditions. If (a) each local ring R_ℓ (ℓ ≠ p) is a flat complete intersection over 𝒪 of relative dimension h⁰(D_ℓ, Ad⁰ρ̄) and R_p one of relative dimension h⁰(D_p, Ad⁰ρ̄) + 1, and (b) R/(π) is finite, then R is finite flat and a complete intersection over 𝒪; in particular ρ̄ has a lift of the prescribed type. Finiteness of R/(π) follows from finiteness of R_F/(π) for a totally real Galois F of even degree over which ρ̄|_{G_F} is modular by a suitable cuspidal π (Taylor), through R_F ≅ T_F (KW preprint Lemma 2.4, published Annals Lemma 3.6, p.241).
 
 **Input conditions.**
 
@@ -211,7 +213,7 @@ The 36 stable declaration ids below specify the mathematical work. All retain im
 
 1. Import the prescribed-lift and compatible-system contracts from R24 and verify the stated local hypotheses. This node records their application in the level-one argument; generic existence and compatibility remain owned by R24.
 2. Böckle's Proposition 1 turns the local dimension counts into a presentation 𝒪[[X_1, …, X_r]]/(f_1, …, f_s) with s ≤ r.
-3. Taylor's potential modularity gives F and π; R_F ≅ T_F (Fujiwara / Taylor §3) makes R_F finite over 𝒪; the orders of ρ_R(I_ℓ) and ρ̄(I_ℓ) agree for the prescribed lifts, so ρ_R|_{G_F} specialises ρ_{R_F} and R/(π) is finite (KW Annals Lemma 2.4).
+3. Taylor's potential modularity gives F and π; R_F ≅ T_F (Fujiwara / Taylor §3) makes R_F finite over 𝒪; the orders of ρ_R(I_ℓ) and ρ̄(I_ℓ) agree for the prescribed lifts, so ρ_R|_{G_F} specialises ρ_{R_F} and R/(π) is finite (KW preprint Lemma 2.4, published Annals Lemma 3.6, p.241).
 4. A finite 𝒪-algebra with a presentation by at most r relations in r variables is a flat complete intersection.
 
 **Imports.**
@@ -220,17 +222,20 @@ The 36 stable declaration ids below specify the mathematical work. All retain im
 - `PotentialModularityAndCompatibleSystems:R24.3/kw-annals-minimal-lifts`
 - `PotentialModularityAndCompatibleSystems:R24.3/finite-presentation-complete-intersection`
 - `PotentialModularityAndCompatibleSystems:R24.5`
-- `GL2ModularityLifting:R22.1`
+- `GL2ModularityLifting:R22.3/minimal-ring-finite`
+- `GL2ModularityLifting:R22.4/integral-r-equals-t-when-smooth`
 - `PotentialModularityAndCompatibleSystems:R24.3/required-lift-types`
 
 **Acceptance.**
 
 - Existence of a lift comes from flatness, not from an explicit construction.
+- Match the chosen totally real field, determinant and local minimal deformation problem with R22.3/R22.4 before using finiteness or integral R=T. R22.1 only constructs the deformation-to-Hecke map; it does not prove this isomorphism.
 
 **Source locators.**
 
 - khare-level-one: §2.1, p. 8 of the preprint. §2.1.
 - khare-level-one: §2.1, p. 11 of the preprint. The local criterion.
+- kw-annals: §3, Lemma 3.6 and proof, published p.241. The published finite-restriction argument corresponding to preprint Lemma 2.4 cited by Khare §2.1.
 
 **Library destination.** `TauCeti/NumberTheory/SerreConjecture/LevelOneLifts`, namespace `TauCeti.SerreConjecture`
 
@@ -306,13 +311,15 @@ The 36 stable declaration ids below specify the mathematical work. All retain im
 **Construction/proof.**
 
 1. Import the prescribed-lift and compatible-system contracts from R24 and verify the stated local hypotheses. This node records their application in the level-one argument; generic existence and compatibility remain owned by R24.
-2. R_p (crystalline of weight k(ρ̄), fixed determinant) is smooth of relative dimension h⁰(D_p, Ad⁰ρ̄) + 1 (Ramakrishna, Taylor; KW Annals Prop. 2.3 for k = p + 1); R_q by local-ring-at-q-smooth; conclude by lifting-method-flatness.
+2. Verify the crystalline local ring at p case by case using R08.6: the irreducible Fontaine–Laffaille export in weight k≤p, the ramified or distinguished ordinary export, and the residual-weight p+1 endpoint export with compatible determinant. Keep 2≤k≤p+1 and k≠p. The unframed relative dimension is h⁰(D_p, Ad⁰ρ̄)+1; framed dimensions are not substituted for it. The endpoint reference in Khare is KW preprint Proposition 2.3, published Annals Proposition 3.5, pp.240–241. Combine with local-ring-at-q-smooth and lifting-method-flatness.
 
 **Imports.**
 
 - `ClassicalSerreModularity:R26.2/lifting-method-flatness`
 - `ClassicalSerreModularity:R26.2/local-ring-at-q-smooth`
-- `LocalGaloisDeformationRings:R08.3`
+- `LocalGaloisDeformationRings:R08.6/export-fontaine-laffaille-irreducible`
+- `LocalGaloisDeformationRings:R08.6/export-ordinary`
+- `LocalGaloisDeformationRings:R08.6/export-endpoint-weight`
 - `PotentialModularityAndCompatibleSystems:R24.3/required-lift-types`
 
 **Acceptance.**
@@ -621,8 +628,10 @@ The 36 stable declaration ids below specify the mathematical work. All retain im
 - `OrdinaryAutomorphicFormsAndModularityLifting:R21.6`
 - `ClassicalSerreModularity:R26.2/lifting-method-flatness`
 - `OrdinaryAutomorphicFormsAndModularityLifting:R21.5/nearly-ordinary-irreducible-lifting-over-q`
-- `GL2ModularityLifting:R22.6`
-- `LocalGaloisDeformationRings:R08.3`
+- `GL2ModularityLifting:R22.5/kw-i-theorem-4-1-odd-prime`
+- `LocalGaloisDeformationRings:R08.6/export-fontaine-laffaille-irreducible`
+- `LocalGaloisDeformationRings:R08.6/export-ordinary`
+- `LocalGaloisDeformationRings:R08.6/export-endpoint-weight`
 - `PotentialModularityAndCompatibleSystems:R24.3/kw-annals-minimal-lifts`
 - `PotentialModularityAndCompatibleSystems:R24.5/kw-theorem-5-1-systems`
 - `PotentialModularityAndCompatibleSystems:R24.6/residual-members`
@@ -672,7 +681,7 @@ The 36 stable declaration ids below specify the mathematical work. All retain im
 - `OrdinaryAutomorphicFormsAndModularityLifting:R21.6`
 - `ClassicalSerreModularity:R26.4/ordinary-reduction-and-parity`
 - `GL2AutomorphicRepresentationsAndTransfer:R17.6`
-- `GL2ModularityLifting:R22.6`
+- `GL2ModularityLifting:R22.5/kw-i-theorem-4-1-odd-prime`
 - `AlgebraicModularFormsAndSerreWeights:R15.4`
 - `PotentialModularityAndCompatibleSystems:R24.6/linked-systems-modularity-transfer`
 - `FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3`
@@ -773,7 +782,7 @@ The 36 stable declaration ids below specify the mathematical work. All retain im
 
 1. Verify the full determinant and local type at each transition rather than equating weights by numerical arithmetic alone.
 2. At the foil ℓ (including ℓ=3), exclude locally irreducible bad-dihedral weight 2 by the general R15.4 normalized-weight lemma, not the level-one classification: ramification at P may remain. Follow the three solvable branches of degenerate-branches. The residually irreducible ordinary CM case retains its correction gap.
-3. At P, local reducibility gives ordinary up to a Teichmüller twist via R07.5; the potentially BT nonordinary lift uses R22.6 with cyclotomic irreducibility.
+3. At P, local reducibility gives ordinary up to a Teichmüller twist via R07.5; the potentially BT nonordinary lift uses R22.5/kw-i-theorem-4-1-odd-prime with cyclotomic irreducibility.
 4. Check the unipotent/semistable endpoint k=P+1 separately: its admissible exponent coset is 0.
 
 **Imports.**
@@ -989,7 +998,7 @@ The 36 stable declaration ids below specify the mathematical work. All retain im
 - `SerreWeightAndLevelOptimisation:R20.6`
 - `AlgebraicModularFormsAndSerreWeights:R15.6`
 - `PotentialModularityAndCompatibleSystems:R24.6/linked-systems-modularity-transfer`
-- `GL2ModularityLifting:R22.6`
+- `GL2ModularityLifting:R22.5/kw-i-theorem-4-1-odd-prime`
 
 **Acceptance.**
 
@@ -1005,7 +1014,7 @@ The 36 stable declaration ids below specify the mathematical work. All retain im
 
 #### Proof of Corollary 1.2 (conductor a prime, weight 2)
 
-**Theorem.** `ClassicalSerreModularity:R26.6/corollary-1-2-proof`. (Khare §7.1, corrected by KW I §8.3.) Corollary 1.2 holds (for all p, KW I Corollary 8.1(i)): for q = 2 by the semistable weight-two input of KW Annals (old Theorem4.1(ii), published Theorem5.2(ii)), after the conductor-two semistability check from R01.5 and the R25 abelian-variety application; for q odd by killing ramification: a minimal p-adic lift in a compatible system, whose member above q reduces to a mod-q representation unramified outside q, modular by the level-one theorem; then the lifting theorems (Lemmas 5.1, 5.3) make the system modular. KW I replace the reference 'Theorem 5.1(3) of [24]' (insufficient when p ∤ q − 1) by Theorem 6.1(2) of [24] with Skinner–Wiles [39]–[41], via Saito (semistable case) or Theorem 5.1(3 ii) (unramified over ℚ_q(μ_q)).
+**Theorem.** `ClassicalSerreModularity:R26.6/corollary-1-2-proof`. (Khare §7.1, corrected by KW I §8.3.) Corollary 1.2 holds (for all p, KW I Corollary 8.1(i)): for q = 2 by the semistable weight-two input of KW Annals (old Theorem4.1(ii), published Theorem5.2(ii)), after the conductor-two semistability check from R01.2/R01.3 and the R25 abelian-variety application; for q odd by killing ramification: a minimal p-adic lift in a compatible system, whose member above q reduces to a mod-q representation unramified outside q, modular by the level-one theorem; then the lifting theorems (Lemmas 5.1, 5.3) make the system modular. KW I replace the reference 'Theorem 5.1(3) of [24]' (insufficient when p ∤ q − 1) by Theorem 6.1(2) of [24] with Skinner–Wiles [39]–[41], via Saito (semistable case) or Theorem 5.1(3 ii) (unramified over ℚ_q(μ_q)).
 
 **Input conditions.**
 
@@ -1014,7 +1023,7 @@ The 36 stable declaration ids below specify the mathematical work. All retain im
 
 **Construction/proof.**
 
-1. For q=2, prime-to-p conductor forces p odd. Conductor exponent one means inertia has one-dimensional invariants and Swan conductor zero. On the quotient the tame inertia character is Frobenius-stable, so χ=χ² and χ=1; the inertia image is unipotent of p-power order. Together with k=2 this is precisely published Annals Definition4.1 semistability. Request this local inference from R01.5.
+1. For q=2, prime-to-p conductor forces p odd. Conductor exponent one means inertia has one-dimensional invariants and Swan conductor zero. On the quotient the tame inertia character is Frobenius-stable, so χ=χ² and χ=1; the inertia image is unipotent of p-power order. Together with k=2 this is precisely published Annals Definition4.1 semistability. Request this local inference from R01.2/R01.3.
 2. Apply published Annals Theorem5.2(ii). Its proof first handles reducible cyclotomic restriction by known dihedral modularity and weight/level optimisation; otherwise Theorem4.2(ii) realises a weight-two minimal compatible system in a positive-dimensional GL2-type abelian variety with good reduction outside 2 and semistable reduction at 2. Import the compatible-system/realisation contracts and R25.4/schoof-theorem; the abelian variety must be zero, a contradiction. R25 does not itself export an arbitrary conductor-two residual theorem.
 3. For q odd use the required minimal weight-two system and split the q-adic local parameter into semistable with nonzero monodromy or unramified over Q_q(μ_q). Its residual representation is unramified outside q, so the level-one theorem or its reducible convention gives residual modularity.
 4. Identify and apply the published Duke Theorem6.1(2) with the corrected Skinner–Wiles references; this is an explicit source boundary, not inferred from Proposition3.1 of the preprint. Transfer modularity through the system and optimise to weight2, level Γ₁(q).
@@ -1029,7 +1038,8 @@ The 36 stable declaration ids below specify the mathematical work. All retain im
 - `PotentialModularityAndCompatibleSystems:R24.5/kw-theorem-5-1-systems`
 - `OrdinaryAutomorphicFormsAndModularityLifting:R21.5/theorem-a`
 - `OrdinaryAutomorphicFormsAndModularityLifting:R21.5/nearly-ordinary-irreducible-lifting-over-q`
-- `ArithmeticGaloisRepresentations:R01.5`
+- `ArithmeticGaloisRepresentations:R01.2`
+- `ArithmeticGaloisRepresentations:R01.3`
 - `SmallRamificationAndAbelianVarietyBaseCases:R25.4/schoof-theorem`
 - `SmallRamificationAndAbelianVarietyBaseCases:R25.5/gl2-type-abelian-variety`
 - `SmallRamificationAndAbelianVarietyBaseCases:R25.5/descent-of-gl2-type-realisation`
@@ -1058,8 +1068,8 @@ The 36 stable declaration ids below specify the mathematical work. All retain im
 **Construction/proof.**
 
 1. Normalise irreducible weights by the finite cyclotomic-twist set; use the level-one theorem and its weight-2 realisation.
-2. Use finite generation of the integral Hecke algebra and finiteness of its mod-p eigencharacters; residual attached representations are determined up to semisimplification by Frobenius.
-3. Use Kronecker–Weber/abelian character classification for the reducible semisimple branch; unipotent extensions are excluded by semisimplicity.
+2. Use finite generation of the integral Hecke algebra and finiteness of its mod-p eigencharacters; residual attached representations are determined up to semisimplification by Frobenius. R01.5 supplies Frobenius recognition, rather than the conductor or inertia API.
+3. Use Kronecker–Weber/abelian character classification for the reducible semisimple branch; unipotent extensions are excluded by semisimplicity. Import the existing ClassFieldTheory Layer 13 Kronecker–Weber and abelian-conductor comparison; this node applies them to finite prime-to-p character images and does not re-plan class field theory.
 
 **Imports.**
 
@@ -1067,6 +1077,7 @@ The 36 stable declaration ids below specify the mathematical work. All retain im
 - `AlgebraicModularFormsAndSerreWeights:R15.6`
 - `ArithmeticGaloisRepresentations:R01.5`
 - `AlgebraicModularFormsAndSerreWeights:R15.3`
+- `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields`
 
 **Acceptance.**
 
@@ -1137,7 +1148,8 @@ The 36 stable declaration ids below specify the mathematical work. All retain im
 **Imports.**
 
 - `ArithmeticGaloisRepresentations:R01.4`
-- `ArithmeticGaloisRepresentations:R01.5`
+- `ArithmeticGaloisRepresentations:R01.2`
+- `ArithmeticGaloisRepresentations:R01.3`
 - `AlgebraicModularFormsAndSerreWeights:R15.4`
 - `mathlib:Nat.maxPrimeFac`
 - `mathlib:Nat.maxPrimeFac_one`
@@ -1158,7 +1170,7 @@ The 36 stable declaration ids below specify the mathematical work. All retain im
 **Required API.**
 
 - `TauCeti.SerreConjecture.IsGoodDihedralPrime` (constructor): For supplied continuous residual ρ, p, its actual positive conductor N, inertia subgroups I_q and q, return the conjunction of prime/noncharacteristic conditions, a basis conjugating ρ|I_q to diag(ψ,ψ^q), nontrivial exact order t^a (a>0), odd prime t|q+1 with the strict size bound, and the two congruence conditions.
-- `TauCeti.SerreConjecture.IsLocallyGoodDihedral` (characterisation): IsLocallyGoodDihedral ρ iff there exists q with IsGoodDihedralPrime ρ q.
+- `TauCeti.SerreConjecture.IsLocallyGoodDihedral` (non-example): IsLocallyGoodDihedral ρ iff there exists q with IsGoodDihedralPrime ρ q.
 - `TauCeti.SerreConjecture.IsGoodDihedralPrime.inertia` (projection): Extract t,a,ψ and the change of basis, with a>0, exact order t^a and all the size/divisibility conditions. The character is not trivial.
 - `TauCeti.SerreConjecture.IsGoodDihedralPrime.congruences` (projection): q≡1 mod8 and q≡1 mod s for every prime s≤max(Q(N/q²),p). Include equality at the upper endpoint.
 - `TauCeti.SerreConjecture.IsGoodDihedralPrime.conjugate` (compatibility): Replacing ρ by B⁻¹ρB for an invertible B leaves the predicate unchanged (with the same p,N and transported inertia).
@@ -1171,9 +1183,9 @@ The 36 stable declaration ids below specify the mathematical work. All retain im
 
 - `goodDihedral_congruence_fails` (non-example): For any representation, characteristic p and conductor N, q=13 cannot be good-dihedral because 13≢1 mod8.
 - `goodDihedral_trivial_inertia_fails` (degenerate): For any field of characteristic p and q≠p with positive actual conductor N, a representation trivial on I_q is not good-dihedral: exact character order t^a with a>0,t>5 rules out ψ=1.
-- `goodDihedral_upper_endpoint` (characterisation): For p=7, q=241 and N=9·241², Q(N/q²)=3. The congruences at 2,3,5 and modulo8 hold, but 241≢1 mod7. Thus the predicate fails: equality at the upper endpoint s=p is required.
+- `goodDihedral_upper_endpoint` (non-example): For p=7, q=241 and N=9·241², Q(N/q²)=3. The congruences at 2,3,5 and modulo8 hold, but 241≢1 mod7. Thus the predicate fails: equality at the upper endpoint s=p is required.
 - `goodDihedral_basis_change` (compatibility): For any B∈GL₂(F), the predicates at ρ and g↦B⁻¹ρ(g)B are equivalent; the witness basis is composed with B.
-- `locallyGood_single_witness` (characterisation): Given one good prime q, the representation is locally good-dihedral although 13 is never a good candidate. This detects replacing the existential wrapper by a universal quantifier.
+- `locallyGood_single_witness` (non-example): Given one good prime q, the representation is locally good-dihedral although 13 is never a good candidate. This detects replacing the existential wrapper by a universal quantifier.
 - `locallyGood_trivial_inertia_fails` (non-example): If the representation is trivial on every supplied I_q, it is not locally good-dihedral, whatever the conductor parameter; an unconstrained existential prime is insufficient.
 - `locallyGood_basis_change` (compatibility): Global existence of a good-dihedral prime is equivalent before and after any basis change B∈GL₂; the prime witness and local character order must survive.
 
@@ -1209,7 +1221,8 @@ The 36 stable declaration ids below specify the mathematical work. All retain im
 
 - `ClassicalSerreModularity:R27.1/good-dihedral-prime-definition`
 - `ArithmeticGaloisRepresentations:R01.4`
-- `ArithmeticGaloisRepresentations:R01.5`
+- `ArithmeticGaloisRepresentations:R01.2`
+- `ArithmeticGaloisRepresentations:R01.3`
 - `PotentialModularityAndCompatibleSystems:R24.6/residual-members`
 - `mathlib:Nat.maxPrimeFac_mul`
 - `mathlib:Nat.maxPrimeFac_pow`
@@ -1410,7 +1423,7 @@ The 36 stable declaration ids below specify the mathematical work. All retain im
 
 ## Supplier contracts
 
-These 20 requests are open. The consumer imports each exact interface; it does not reconstruct the supplier theorem or treat a stage name as evidence that the theorem exists.
+These 23 requests are open. The consumer imports each exact interface; it does not reconstruct the supplier theorem or treat a stage name as evidence that the theorem exists.
 
 ### 1. `PotentialModularityAndCompatibleSystems:R24.5`
 
@@ -1465,9 +1478,11 @@ These 20 requests are open. The consumer imports each exact interface; it does n
 
 **Status.** open
 
-### 5. `GL2ModularityLifting:R22.1`
+**Supplier note.** Served in part: OrdinaryAutomorphicFormsAndModularityLifting R21.5/theorem-a-over-q (residually reducible) and R21.5/nearly-ordinary-irreducible-lifting-over-q (Skinner–Wiles 2001, residually irreducible, excluding ρ̄ induced from an imaginary quadratic field until its E11 is resolved), both exported by R21.6/exported-ordinary-modularity-over-q.
 
-**Required output.** Minimal R = T over totally real fields (Fujiwara; Taylor §3) for ρ̄|_{G_F} with non-solvable image.
+### 5. `GL2ModularityLifting:R22.4`
+
+**Required output.** Minimal integral R=T over the chosen totally real Galois field F (Fujiwara/Taylor §3), with prescribed determinant and the same local deformation conditions as Khare §2.1. Consume R22.3/minimal-ring-finite and R22.4/integral-r-equals-t-when-smooth only after checking their patching, local smoothness and residual-image hypotheses; specify any further source-compatible export required for this F. R22.1 provides only the surjective map to the Hecke algebra, not R=T.
 
 **Consumers.**
 
@@ -1487,6 +1502,8 @@ These 20 requests are open. The consumer imports each exact interface; it does n
 
 **Status.** open
 
+**Supplier note.** Stage prerequisite; the supplier roadmap is SerreWeightAndLevelOptimisation.
+
 ### 7. `LocalGaloisDeformationRings:R08.2`
 
 **Required output.** Minimally ramified local lifting rings at ℓ ≠ p and their tangent spaces.
@@ -1497,9 +1514,9 @@ These 20 requests are open. The consumer imports each exact interface; it does n
 
 **Status.** open
 
-### 8. `LocalGaloisDeformationRings:R08.3`
+### 8. `LocalGaloisDeformationRings:R08.6`
 
-**Required output.** Crystalline lifting rings of weight k ≤ p + 1 with fixed determinant, smooth of relative dimension h⁰(D_p, Ad⁰ρ̄) + 1.
+**Required output.** For odd p and normalized residual weight 2≤k≤p+1 with k≠p, export the crystalline local-ring cases used in Khare Proposition 2.2: irreducible Fontaine–Laffaille (k≤p), ramified or distinguished ordinary, and residual weight p+1 with compatible determinant. Use R08.6/export-fontaine-laffaille-irreducible, export-ordinary and export-endpoint-weight, respecting each local hypothesis. Recover the unframed relative dimension h⁰(D_p,Ad⁰ρ̄)+1 via the framing comparison. Do not assert smoothness for all crystalline rings solely from the weight bound.
 
 **Consumers.**
 
@@ -1558,13 +1575,12 @@ These 20 requests are open. The consumer imports each exact interface; it does n
 
 **Status.** open
 
-### 13. `ArithmeticGaloisRepresentations:R01.5`
+### 13. `ArithmeticGaloisRepresentations:R01.3`
 
-**Required output.** Supply the canonical inertia/restriction and prime-to-characteristic Artin conductor API. For semisimple residual abelian characters unramified outside p, the Kronecker–Weber/class-field comparison forces factorisation through the prime-to-p quotient of Z_pˣ, hence finitely many F̄_p-valued characters (order divides p−1). For q=2, Artin exponent one in odd residual characteristic gives tame inertia with a fixed line; Frobenius forces the quotient character χ=χ², hence χ=1 and the inertia image is unipotent of p-power order. This supplies the semistability premise for Annals Theorem5.2(ii).
+**Required output.** Supply the prime-to-characteristic Artin/Swan conductor and reduction/support comparison API, using local inclusions from R01.2. Nontrivial tame niveau-two inertia has conductor exponent two. For q=2 in odd residual characteristic, Artin exponent one gives a tame fixed line; the Frobenius-stable quotient character satisfies χ=χ², so it is trivial and inertia is unipotent of p-power order. This is the local application needed for Annals Definition4.1/Theorem5.2(ii), not a Frobenius-recognition result of R01.5.
 
 **Consumers.**
 
-- `ClassicalSerreModularity:R26.6/finiteness-corollary-1-3`
 - `ClassicalSerreModularity:R27.1/good-dihedral-prime-definition`
 - `ClassicalSerreModularity:R27.1/good-dihedral-implies-nonsolvable-image-and-is-preserved`
 - `ClassicalSerreModularity:R26.6/corollary-1-2-proof`
@@ -1605,9 +1621,9 @@ These 20 requests are open. The consumer imports each exact interface; it does n
 
 **Status.** open
 
-### 17. `GL2ModularityLifting:R22.6`
+### 17. `GL2ModularityLifting:R22.5`
 
-**Required output.** Export nonordinary potentially BT modularity over Q for the tame Q_p(μ_p) type, with residual cyclotomic restriction absolutely irreducible, and crystalline lifting in 2≤k≤p+1 with the ordinary endpoint handled explicitly. Include the semistable weight-two transition in the corrected prime-conductor proof.
+**Required output.** Export R22.5/kw-i-theorem-4-1-odd-prime over Q: p>2, modular residual representation absolutely irreducible over Q(μ_p), and a lift crystalline of weight 2≤k≤p+1 or potentially semistable of weight two. Apply its potentially Barsotti–Tate and semistable branches with exact local hypotheses; retain its recorded nonordinary k=p+1/residual-weight-two boundary. Ordinary/reducible and bad-dihedral branches use R21 separately. R22.6 is the dyadic owner and does not supply this odd-prime result.
 
 **Consumers.**
 
@@ -1648,9 +1664,41 @@ These 20 requests are open. The consumer imports each exact interface; it does n
 
 **Status.** open
 
+### 21. `ArithmeticGaloisRepresentations:R01.2`
+
+**Required output.** Supply canonical decomposition/inertia inclusions, restriction and the tame Frobenius conjugation relation used in the good-dihedral predicate, image protection and conductor-two semistability calculation. Artin/Swan exponents are supplied separately by R01.3.
+
+**Consumers.**
+
+- `ClassicalSerreModularity:R27.1/good-dihedral-prime-definition`
+- `ClassicalSerreModularity:R27.1/good-dihedral-implies-nonsolvable-image-and-is-preserved`
+- `ClassicalSerreModularity:R26.6/corollary-1-2-proof`
+
+**Status.** open
+
+### 22. `ArithmeticGaloisRepresentations:R01.5`
+
+**Required output.** Supply Frobenius recognition of continuous semisimple residual representations by their unramified Frobenius characteristic polynomials, to deduce that finitely many residual Hecke eigencharacters give finitely many representation classes. Abelian-character finiteness is the consumer application of the existing Tau Ceti ClassFieldTheory Layer 13, not a new R01.5 conductor theorem.
+
+**Consumers.**
+
+- `ClassicalSerreModularity:R26.6/finiteness-corollary-1-3`
+
+**Status.** open
+
+### 23. `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields`
+
+**Required output.** Import the existing upstream kroneckerWeber and least-cyclotomic-level/abelianConductor comparison for Q, then apply them to finite residual characters unramified outside p. Their prime-to-p image factors through the prime-to-p quotient of Z_pˣ, so its order divides p−1, including the trivial p=2 case. This is an upstream contract and its consumer application, not a new class-field-theory plan.
+
+**Consumers.**
+
+- `ClassicalSerreModularity:R26.6/finiteness-corollary-1-3`
+
+**Status.** open
+
 ## Source findings
 
-All seven findings retain the previous independent reviewer’s confirmation. The passages are not reproduced; the descriptions and corrections below are in our own words. A finding about an unavailable edition is explicitly an author-reported correction.
+All seven findings were independently rechecked for REV-ClassicalSerreModularity--R26.1~2; fresh edition-qualified confirmations are recorded in the packet. The passages are not reproduced; the descriptions and corrections below are in our own words. A finding about an unavailable edition is explicitly an author-reported correction.
 
 ### ClassicalSerreModularity/E1
 
@@ -1669,7 +1717,7 @@ All seven findings retain the previous independent reviewer’s confirmation. Th
 - arXiv math/0504080 (v1 only).
 - The Duke Math. J. version was not obtained.
 
-**Independent review.** confirmed: Confirmed in Khare arXiv v1 §6.1 p.25: the preceding P=29, ℓ=7 construction has support {7,29}; {3,19} belongs to the prior row. No claim about the unavailable Duke text.
+**Independent review.** confirmed: Read Khare v1 §6.1 p.25. The mod-7 companion of the characteristic29 row has support{7,29}, whereas{3,19} is the preceding row. Confirmed the preprint slip only; Duke text not obtained.
 
 ### ClassicalSerreModularity/E2
 
@@ -1688,7 +1736,7 @@ All seven findings retain the previous independent reviewer’s confirmation. Th
 - arXiv math/0504080 (v1 only).
 - The Duke Math. J. version was not obtained.
 
-**Independent review.** confirmed: Confirmed in Khare arXiv v1 §6.1 pp.25–26: for P=31, ℓ^e=5, the exponent coset is 0 modulo 6. The printed 16 fails; 18 satisfies the half-open interval (12,18] and gives weights 20,14. No claim about the unavailable Duke text.
+**Independent review.** confirmed: Read Khare v1 §6.1 pp.25–26 and recomputed the characteristic31/foil5 coset modulo6. The printed exponent16 is unavailable; exponent18 gives weights20/14 and lies in(12,18]. No published-edition assertion.
 
 ### ClassicalSerreModularity/E10
 
@@ -1707,7 +1755,7 @@ All seven findings retain the previous independent reviewer’s confirmation. Th
 - KW I author preprint §7/§8.2
 - Accepted paper extraction and review for PAPER-KHARE-WINTENBERGER-09-I.
 
-**Independent review.** confirmed: Confirmed against KW I author-copy §7 p.12: the exponent in the 2-power estimate is independent of r in L_r/W_r. Use e≥4 throughout the application; retain the existing known correction attribution.
+**Independent review.** confirmed: Read KW I §7–§8.2 pp.12–15. The conductor-prime count r is fixed, independently of the exponent of the selected prime-power divisor. Confirmed the collision and the use of e≥4 for the dyadic estimate, with prior correction attribution retained.
 
 ### ClassicalSerreModularity/E11
 
@@ -1728,7 +1776,7 @@ All seven findings retain the previous independent reviewer’s confirmation. Th
 - Rosser–Schoenfeld 1962 published scan p.69.
 - Duke DOI PDF endpoint returned non-PDF access response.
 
-**Independent review.** confirmed: Confirmed against Khare arXiv v1 §4 p.19: the claimed uniform upper bound with the displayed B=1.2A is false at x=31 and x=100 (π=11,25). The packet instead uses the exact Rosser–Schoenfeld Theorem 2/Corollary 1 domains. This does not assert that the next-prime conclusion fails or that the unavailable Duke edition contains the same wording.
+**Independent review.** confirmed: Read Khare v1 §4 pp.19–20 and computed π(31)=11,π(100)=25. These contradict the proposed uniform upper constant. Rosser–Schoenfeld p.69 supplies the replacement domains; this confirms a proof-input error, not failure of the intended prime-ratio conclusion or an error in the unread Duke edition.
 
 ### ClassicalSerreModularity/E12
 
@@ -1746,7 +1794,7 @@ All seven findings retain the previous independent reviewer’s confirmation. Th
 
 - Savitt arXiv:math/0404327v3 Remark1.7 and Corollary6.15/Remark6.17.
 
-**Independent review.** confirmed: Confirmed as an author-reported correction: Savitt arXiv v3 Remark 1.7 explicitly identifies the published Theorem 6.12(4), i=1 error. Read v3 Theorem 6.11, Corollary 6.15 and Remark 6.17; did not independently obtain the older published text. Use the corrected v3 classification and preserve lattice hypotheses.
+**Independent review.** confirmed: Read Savitt v3 Remark1.7 p.4 and corrected Theorem6.11/Corollary6.15/Remark6.17 pp.34–39. The i=1 case gives coincident niveau-two exponents of niveau one. Confirmed the author-reported published correction; the older published theorem was not independently read.
 
 ### ClassicalSerreModularity/E13
 
@@ -1765,7 +1813,7 @@ All seven findings retain the previous independent reviewer’s confirmation. Th
 - Khare author publication page and public errata search for Proposition 2.2 / the quadratic; no correction found.
 - arXiv math/0504080v1 page image checked; Duke publisher endpoint did not serve a PDF.
 
-**Independent review.** confirmed: Independently multiplied the displayed upper-triangular matrices and verified the printed sign on the rendered PDF page. The correction follows from the source’s two preceding equations.
+**Independent review.** confirmed: Read Khare v1 §2.3 p.15 and independently derived α−β=γ(c−1),αβ=ψ, hence β²+βγ(c−1)−ψ=0. A numerical substitution distinguishes the signs; its derivative reduces to a nonzero twice-eigenvalue in odd characteristic. This is edition-qualified and leaves smoothness unchanged.
 
 ### ClassicalSerreModularity/E14
 
@@ -1784,7 +1832,7 @@ All seven findings retain the previous independent reviewer’s confirmation. Th
 - MSP published PDF, Proposition 2.2 proof, p.280.
 - Public search for Ribet Images of semistable Galois representations errata and the exact center phrase; no correction found.
 
-**Independent review.** confirmed: Checked the published paragraph and the elementary dihedral-group orders. The quadratic quotient uses the index-two rotation subgroup, not the center.
+**Independent review.** confirmed: Read Ribet published Proposition2.2 proof p.280 with its semistable/cyclotomic conventions. Cyclic tame inertia of order p±1 cannot lie in the dihedral center when its order exceeds two; the index-two rotation subgroup gives the stated quadratic quotient. Confirmed the terminology slip without broadening the theorem.
 
 ## Source-version register and reading boundaries
 
@@ -1796,7 +1844,7 @@ The ten hashes identify the public files actually checked for this revision. Loc
 
 **Version.** preprint; checked 2026-10-08; SHA-256 `3012a51759ad10695792bc8a2d1af75890f38d6ebacd37fb61e01bfdb89c9c2f`
 
-**Reading boundary.** Preprint pp.1–3, 8, 11–28: scoped theorem statements, lifting and compatible-system contracts, §4 comparison, local lemmas/corollary and the complete conductor-one induction and terminal rows. Published Duke text not obtained.
+**Reading boundary.** Introduction pp.1–5, complete scoped §§2–6 pp.7–28 and §7.1 pp.28–29; all 36 node applications checked against their source contracts. Duke text not obtained.
 
 ### kw-serre-modularity-I
 
@@ -1804,7 +1852,7 @@ The ten hashes identify the public files actually checked for this revision. Loc
 
 **Version.** author copy; checked 2026-10-08; SHA-256 `3c389dc33e09fe847f5d8189ffd8915b5c1a73424e64e4fed6769829883bad82`
 
-**Reading boundary.** Preprint pp.2–6, 10–16: S-type and modularity conventions, Definition 2.1, L/W/D hypotheses, Theorem 5.1 local contracts, Lemmas 6.1–6.3, §7 estimates, §8.2 weight recursion and §8.3 corrected corollaries. Later conductor/dyadic induction belongs to the sibling packet.
+**Reading boundary.** Definition2.1 pp.5–6, Theorem4.1 p.7, Theorem5.1 and remarks pp.8–10, §§6–7 pp.10–13, complete §8.2 pp.13–15 and §8.3 pp.16–17 including Lemma8.2 proof.
 
 ### bockle-appendix-2003
 
@@ -1812,7 +1860,7 @@ The ten hashes identify the public files actually checked for this revision. Loc
 
 **Version.** author copy; checked 2026-10-08; SHA-256 `67de08f6a1958d6c350d6de0ad70839cc737cc14c9c3636ab68fb1bd638202de`
 
-**Reading boundary.** Appendix pp.1–6: presentation, local tangent-space counts, finite flat complete-intersection criterion and minimal R=T argument; bibliography is not a further proof input.
+**Reading boundary.** Entire seven-page appendix, including all statements and proofs on pp.1–6.
 
 ### savitt-cdt
 
@@ -1820,7 +1868,7 @@ The ten hashes identify the public files actually checked for this revision. Loc
 
 **Version.** preprint; checked 2026-10-08; SHA-256 `e161ac6498c1a75fc8f981c25edd5e9390b19ceb40f174a25a1f6491390c115c`
 
-**Reading boundary.** Corrected arXiv v3 p.4 Remark 1.7; pp.34–35 Theorem 6.11 and proof; pp.38–39 Corollary 6.15, proof and Remark 6.17. Older published Theorem 6.12 was not obtained.
+**Reading boundary.** Remark1.7 p.4, Theorem6.11 pp.34–35, Corollary6.15 pp.38–39 and Remark6.17 p.39. Earlier published correction is author-reported; old edition not obtained.
 
 ### dp-serre
 
@@ -1828,7 +1876,7 @@ The ten hashes identify the public files actually checked for this revision. Loc
 
 **Version.** preprint; checked 2026-10-08; SHA-256 `0c6850dafda032f7a4008947c519b5aef8cc13762207bb67c36810170a8eebe6`
 
-**Reading boundary.** arXiv v2 pp.7–10: Definition 1.12 and Lemmas 1.13–1.15 with their proofs, in particular the normalized bad-dihedral weight split without a conductor-one assumption.
+**Reading boundary.** Definition1.12 and Lemmas1.13–1.15 with proofs/remarks, v2 pp.7–10.
 
 ### ribet-semistable
 
@@ -1836,7 +1884,7 @@ The ten hashes identify the public files actually checked for this revision. Loc
 
 **Version.** published; checked 2026-10-08; SHA-256 `6d37cace879b9abdff0817709db114c93a186db0f2165aaeba443c48bb102443`
 
-**Reading boundary.** PDF pp.2–4, printed pp.278–280: standing semistability/cyclotomic-determinant assumptions, Lemma 2.1 and Proposition 2.2 with the dihedral argument. No extension to arbitrary residual representations.
+**Reading boundary.** Standing §2 conventions, Lemma2.1, Proposition2.2 and complete proof, published pp.278–280.
 
 ### rosser-schoenfeld
 
@@ -1844,7 +1892,7 @@ The ten hashes identify the public files actually checked for this revision. Loc
 
 **Version.** published; checked 2026-10-08; SHA-256 `8e37b06f82e09421bceb2502578c47b61469141f0287e6acedb70e01765ab556`
 
-**Reading boundary.** Printed p.69 (PDF p.6): Theorem 2 and Corollary 1, inequalities (3.3)–(3.6) and domains. Analytic proof and published finite verification tables not read.
+**Reading boundary.** Exact Theorem2 and Corollary1 (3.3)–(3.6) and their domains, published p.69. Analytic proof and tables not read.
 
 ### bcdt-modularity
 
@@ -1852,7 +1900,7 @@ The ten hashes identify the public files actually checked for this revision. Loc
 
 **Version.** author copy; checked 2026-10-08; SHA-256 `cbbdc24c26cdfcbd77f0e084194643e8804a724f004eb02e431ead9d932c498d`
 
-**Reading boundary.** Author-copy introduction pp.1–2, published pp.843–845: residual modularity and strong modularity conventions and the stated equivalence range ell≥3. The remaining proof is outside this job.
+**Reading boundary.** Introduction pp.1–2, modular/strongly-modular distinction and equivalence only for residual characteristic at least three.
 
 ### kw-annals
 
@@ -1860,7 +1908,7 @@ The ten hashes identify the public files actually checked for this revision. Loc
 
 **Version.** published; checked 2026-10-08; SHA-256 `154c0c2a2245e50cb2be3c82705f9176fe0e9b597424236ddca11299d38cdb22`
 
-**Reading boundary.** Printed pp.235, 237, 239, 243–244, 247, 250–251: Theorem 3.3, Definition 4.1, Theorem 4.2 lifting/compatible-system statements and the relevant proof boundary, Theorem 5.2(ii) and proof, and §6.2. The full proof of Theorem 4.2 is imported from R24, not certified by this reading.
+**Reading boundary.** Published Proposition3.2 and Theorem3.3 p.239, Propositions3.4–3.5 pp.240–241 and Lemma3.6/proof p.241; Definition4.1/Theorem4.2 pp.243–245, Theorem5.2(ii) and proof p.247, §6.2 pp.250–251. Distinguished preprint Lemma2.4/Proposition2.3 from their published numbers.
 
 ### breuil-mezard
 
@@ -1868,11 +1916,11 @@ The ten hashes identify the public files actually checked for this revision. Loc
 
 **Version.** author copy; checked 2026-10-08; SHA-256 `ec42c9a450a7f7368a72670a3e9c54b75cad77802f18ac08d4dac6078bf7fa02`
 
-**Reading boundary.** Printed pp.2, 30–31, 67–68: odd-prime convention, Proposition 4.1.1 and proof, §6.1 setup and Proposition 6.1.1 with its references to 6.1.2–6.1.3. The integral calculations in §6 beyond that boundary were not read and remain R07.5 work.
+**Reading boundary.** Odd-prime convention in Introduction p.2; Proposition4.1.1/proof pp.30–31 and §6 introduction/Proposition6.1.1 pp.67–68. The author omits §6 calculations; source access does not discharge R07.5.
 
 ## Existing-library audit
 
-Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`; Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`. Read Mathlib MaxPrimeFac and GeneralLinearGroup/Defs at 082e2d37; inspected Tau Ceti sources at f790474 using commit-qualified reads. The libraries supply matrix groups, prime factors, modular-form carriers and abelian-variety carriers. They do not supply the residual G_Q representation with canonical conductor/Serre-weight/modular-newform witness needed to type the headline statements. R26.1 process bookkeeping is excluded while its mathematical theorem/contracts remain. R26.5 consumes R25 arithmetic results rather than rebuilding the existing abelian-variety carrier. Read Nat.primeCounting at the exact Mathlib pin: its value counts primes ≤n, which fixes the floor adapter for real x. Independent reviewer codex-sHhOXz read all seven original declarations at Mathlib 082e2d3 and added the already existing Nat.exists_prime_lt_and_le_two_mul from Bertrand.lean, with n≠0. Checked all eight scoped reviewed-audit records; no built carrier or generic supplier theorem is newly planned. Full Chebotarev and GlobalNumberFields upstream documents were read; Chebotarev Layer 10 remains an upstream supplier, not a new plan. Revision 2, codex-vmLqNQ: independently rechecked all eight Mathlib declarations at the exact pin, including their nonzero/strict-range premises; inspected the pinned Tau Ceti absolute Galois and abelian-variety carriers and modular-form uses. An absolute Galois carrier exists; the missing interface is its assembled residual-representation/conductor/weight/attached-newform package. The suggested file continues to import Mathlib only.
+Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`; Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`. Read Mathlib MaxPrimeFac and GeneralLinearGroup/Defs at 082e2d37; inspected Tau Ceti sources at f790474 using commit-qualified reads. The libraries supply matrix groups, prime factors, modular-form carriers and abelian-variety carriers. They do not supply the residual G_Q representation with canonical conductor/Serre-weight/modular-newform witness needed to type the headline statements. R26.1 process bookkeeping is excluded while its mathematical theorem/contracts remain. R26.5 consumes R25 arithmetic results rather than rebuilding the existing abelian-variety carrier. Read Nat.primeCounting at the exact Mathlib pin: its value counts primes ≤n, which fixes the floor adapter for real x. Independent reviewer codex-sHhOXz read all seven original declarations at Mathlib 082e2d3 and added the already existing Nat.exists_prime_lt_and_le_two_mul from Bertrand.lean, with n≠0. Checked all eight scoped reviewed-audit records; no built carrier or generic supplier theorem is newly planned. Full Chebotarev and GlobalNumberFields upstream documents were read; Chebotarev Layer 10 remains an upstream supplier, not a new plan. Revision 2, codex-vmLqNQ: independently rechecked all eight Mathlib declarations at the exact pin, including their nonzero/strict-range premises; inspected the pinned Tau Ceti absolute Galois and abelian-variety carriers and modular-form uses. An absolute Galois carrier exists; the missing interface is its assembled residual-representation/conductor/weight/attached-newform package. The suggested file continues to import Mathlib only. Independent review revision 2, codex-mDgRfa: all eight Mathlib declarations re-read at 082e2d37; commit-qualified Tau Ceti reads confirm absolute Galois groups, cusp forms and abelian varieties at f790474. All eight library-audit records and both full upstream examples rechecked; exact supplier contracts, not stage names alone, determine imports.
 
 | Existing declaration | Module | Contract consumed |
 | --- | --- | --- |
@@ -1893,7 +1941,7 @@ Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`; Mathlib `082e2d37e8b0463410
 
 **Problem.** RT-AREA-langlands-2/1: current R27.1 has an inherited R26.6 requirement, defeating the early good-dihedral prefix used by R33. The stage graph cannot erase the edge by adding a link. RT-AREA-langlands-2/7 also requires an integral Savitt supplier at R07.5 and its compatible-system consumer edge.
 
-**Proposed application.** Replace R27.1 by R27.1a (Definition2.1, Lemma6.3, Lemma8.2) and R27.1b (good-dihedral insertion and other late operations). R27.1a requires only R01.4/R01.5, R15.4, R24.5’s compatible-system operations or R24.6 residual-member interface, and Tau Ceti Chebotarev Layer10; delete inherited R26.6 and other late modularity requirements from this prefix. Preserve stable node ids and migrate the sibling R27.1/lemma-8-2-chebotarev-choice-of-auxiliary-primes to R27.1a; its prime-field hypothesis remains. Migrate R27.1/good-dihedral-prime-insertion to R27.1b, with its actual R24 lift dependencies. Keep R26.6→R27.3 for W1. Replace RS-06 links R27.1→R33.2/R33.3/R33.6 by R27.1a→those stages; assign any actual late insertion consumers to R27.1b explicitly. The mixed Dickson/modularity/weight alias keeps its RS-06 component owners, not a new early-prefix dependency. Add the weight-classification dependency R07.5→R24.6 (R07.4 descent precedes R07.5); remove R15.4-as-integral-classification ownership. After application check that no R26.x stage is an ancestor of R33.1–R33.5. Do not create fictitious live stage ids in this packet.
+**Proposed application.** Replace R27.1 by R27.1a (Definition2.1, Lemma6.3, Lemma8.2) and R27.1b (good-dihedral insertion and other late operations). R27.1a requires only R01.2/R01.3/R01.4, R15.4, R24.5’s compatible-system operations or R24.6 residual-member interface, and Tau Ceti Chebotarev Layer10; delete inherited R26.6 and other late modularity requirements from this prefix. Preserve stable node ids and migrate the sibling R27.1/lemma-8-2-chebotarev-choice-of-auxiliary-primes to R27.1a; its prime-field hypothesis remains. Migrate R27.1/good-dihedral-prime-insertion to R27.1b, with its actual R24 lift dependencies. Keep R26.6→R27.3 for W1. Replace RS-06 links R27.1→R33.2/R33.3/R33.6 by R27.1a→those stages; assign any actual late insertion consumers to R27.1b explicitly. The mixed Dickson/modularity/weight alias keeps its RS-06 component owners, not a new early-prefix dependency. Add the weight-classification dependency R07.5→R24.6 (R07.4 descent precedes R07.5); remove R15.4-as-integral-classification ownership. After application check that no R26.x stage is an ancestor of R33.1–R33.5. Do not create fictitious live stage ids in this packet.
 
 **Packet supplier edges.**
 
@@ -2011,3 +2059,13 @@ Current R27.1 inherits R26.6, so node-level early-prefix independence does not r
 
 - `ClassicalSerreModularity:R27.1/good-dihedral-prime-definition`
 - `ClassicalSerreModularity:R27.1/good-dihedral-implies-nonsolvable-image-and-is-preserved`
+
+### Exact supplier exports remain open after routing correction
+
+Independent supplier reads locate inertia at R01.2, conductors at R01.3, Frobenius recognition at R01.5, minimal finiteness/integral R=T at R22.3/R22.4, and odd-prime lifting at R22.5. The direct imports and requests now follow these contracts. Match the totally real deformation problem with the exact R22.3/R22.4 hypotheses; verify the local crystalline case and framing comparison at R08.6. R15.3 currently describes characteristic-p forms and Hecke operators: the requested finite integral weight-two Hecke algebra is an additional export to specify there, not a result already established by its stage name. Reducible-character finiteness imports ClassFieldTheory Layer 13, whose Kronecker–Weber/conductor contract is existing upstream work. No generic supplier theorem is newly planned in this packet.
+
+**Affected declarations.**
+
+- `ClassicalSerreModularity:R26.2/lifting-method-flatness`
+- `ClassicalSerreModularity:R26.2/nebentype-lift-at-q`
+- `ClassicalSerreModularity:R26.6/finiteness-corollary-1-3`
