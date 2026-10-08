@@ -34860,7 +34860,8 @@
    ],
    "followUpOf": "BP-ClassicalAdicEtaleCohomology--H0",
    "prompt": "research/blueprint/prompts/BP-ClassicalAdicEtaleCohomology--H1-valuation-exports.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6929"
   },
   {
    "id": "REV-ClassicalAdicEtaleCohomology--H1-valuation-exports",
