@@ -1,0 +1,13 @@
+# Completed independent review — issue #7034
+
+Codex, session `codex-muAGmz`, 8 October 2026. The independent review is complete and accepts this target-level planning pass. The packet remains `complete` with `planned` coverage, six gaps and six supplier requests; no proof closure or implementation is claimed.
+
+Read the review report of the same job name and the corrected packet/reader/suggested file. Counts: thirteen owned nodes (four verified, six corrected, three added), twenty imported H0 interfaces, seven confirmed pinned Mathlib declarations, five construction API items, four tests and four new planet nominations. The three added nodes promote the consumed inverse, canonical-unit and perfect-constructibility API facts; each carries the review’s `addedBy` marker and uses its existing Lean API name.
+
+The main correction is proof order: Hansen–Scholze Theorem 4.4 uses Theorem 4.1. Prove ambient dualizable generic extension first, then apply the geometric/valuative ULA comparison. SF.2 keeps ownership of the general ULA interfaces; its early and later prefixes must be specified without a reverse-criterion dependency. This is the sixth recorded gap. Lean signatures now use bounded-below constructible input, include total input and j* in the nearby comparison, and assert invertibility of the canonical duality map.
+
+RT-AREA-etale/15 still requires the general normalization and descent applications to stay with their owner. The extracted Yang–Zhao A07 valuation theorem matches H1, but §6.4’s whole-curve normalization, arc descent and finite-cover descent are broader. Abe A14 likewise remains a general coherent-base extension with comparison on AIC valuation tests. L2 owns A10–A11 continuity. No external brief, supplier or atlas was edited.
+
+All five original public PDF hashes matched. Abe v2 and Yang–Zhao v4 were additionally checked only at the exact scopes recorded in the packet. No uncleared Huber copy was accessed. The original Gauss/wild/defectless and controlling-submodule strand remains a source frontier. The locally finite type versus finite-presentation bridge, early alteration/general-nearby ownership and actual supplier implementation remain explicit follow-on work.
+
+Validation: blueprint checker 0 errors/0 warnings; contract, graph, intake and whitespace checks pass. `lean-check` elaborated the revised suggested file with 0 errors and 65 declaration-uses-sorry warnings at pinned Mathlib 082e2d3. It imports no Tau Ceti module. These are admitted planning signatures on native carriers, not formalized results. No compiler or language server remains running. Scratch materials are disposable; all continuation-relevant evidence, public source URLs/hashes and precise frontiers are in the packet and review report.
