@@ -458,7 +458,10 @@
         "HodgeStructuresPartII:H.7/sector-uniformization",
         "ShimuraData:D3/polarized-integral-variation",
         "HodgeStructuresPartII:H.3",
-        "HodgeStructuresPartII:H.6",
+        "HodgeStructuresPartII:H.6/unipotent-normalization",
+        "HodgeStructuresPartII:H.6/untwisted-map",
+        "HodgeStructuresPartII:H.6/untwisted-extension",
+        "HodgeStructuresPartII:H.6/negative-lie-chart",
         "LogicAndDefinabilityInNumberTheory:LD.6",
         "mathlib:Set.Definable",
         "HodgeStructuresPartII:H.3/polarized-compact-dual",
@@ -608,7 +611,9 @@
         "The splitting’s filtration identity gives the refinement of F."
       ],
       "prerequisites": [
-        "HodgeStructuresPartII:H.6",
+        "HodgeStructuresPartII:H.6/cone-weights",
+        "HodgeStructuresPartII:H.6/distributive-family",
+        "HodgeStructuresPartII:H.6/simultaneous-splittings",
         "tauceti:TauCeti.Hodge.HodgeStructureOn"
       ],
       "sources": [
@@ -700,7 +705,8 @@
         "HodgeStructuresPartII:H.7/hodge-adapted-flag",
         "HodgeStructuresPartII:H.7/hodge-form-function",
         "HodgeStructuresPartII:H.3",
-        "HodgeStructuresPartII:H.6",
+        "HodgeStructuresPartII:H.6/negative-lie-chart",
+        "HodgeStructuresPartII:H.6/exterior-power-estimates",
         "LogicAndDefinabilityInNumberTheory:LD.6",
         "HodgeStructuresPartII:H.7/hodge-adapted-flag-refines-filtration"
       ],
@@ -743,7 +749,8 @@
       "prerequisites": [
         "HodgeStructuresPartII:H.7/gram-determinant-formulas",
         "HodgeStructuresPartII:H.7/ordered-sector",
-        "HodgeStructuresPartII:H.6",
+        "HodgeStructuresPartII:H.6/flat-norm-estimate",
+        "HodgeStructuresPartII:H.6/exterior-power-estimates",
         "LogicAndDefinabilityInNumberTheory:LD.6"
       ],
       "sources": [
@@ -790,7 +797,9 @@
       "prerequisites": [
         "HodgeStructuresPartII:H.7/gram-determinant-formulas",
         "HodgeStructuresPartII:H.7/flat-norm-rough-monomial",
-        "HodgeStructuresPartII:H.6",
+        "HodgeStructuresPartII:H.6/moving-norm-estimate",
+        "HodgeStructuresPartII:H.6/perturbed-norm-comparison",
+        "HodgeStructuresPartII:H.6/exterior-power-estimates",
         "LogicAndDefinabilityInNumberTheory:LD.6"
       ],
       "sources": [
@@ -877,7 +886,9 @@
         "HodgeStructuresPartII:H.7/flat-norm-rough-monomial",
         "HodgeStructuresPartII:H.7/hodge-form-function",
         "HodgeStructuresPartII:H.3",
-        "HodgeStructuresPartII:H.6",
+        "HodgeStructuresPartII:H.6/simultaneous-splittings",
+        "HodgeStructuresPartII:H.6/flat-norm-estimate",
+        "HodgeStructuresPartII:H.6/exterior-power-estimates",
         "AdelicAlgebraicGroups:AA.3/reduced-form"
       ],
       "sources": [
@@ -918,7 +929,8 @@
       ],
       "prerequisites": [
         "HodgeStructuresPartII:H.7/determinant-weight-bound",
-        "HodgeStructuresPartII:H.6",
+        "HodgeStructuresPartII:H.6/power-curve-normalization",
+        "HodgeStructuresPartII:H.6/one-variable-siegel",
         "AdelicAlgebraicGroups:AA.3/orbit-map-siegel-image",
         "AdelicAlgebraicGroups:AA.3/reduction-siegel-dictionary",
         "AdelicAlgebraicGroups:AA.3/basis-change-reducedness",
@@ -1059,7 +1071,12 @@
         "HodgeStructuresPartII:H.7/bounded-sector",
         "HodgeStructuresPartII:H.7/sector-uniformization",
         "HodgeStructuresPartII:H.3",
-        "HodgeStructuresPartII:H.6",
+        "HodgeStructuresPartII:H.6/untwisted-extension",
+        "HodgeStructuresPartII:H.6/simultaneous-splittings",
+        "HodgeStructuresPartII:H.6/flat-norm-estimate",
+        "HodgeStructuresPartII:H.6/moving-norm-estimate",
+        "HodgeStructuresPartII:H.6/exterior-power-estimates",
+        "HodgeStructuresPartII:H.6/perturbed-norm-comparison",
         "AdelicAlgebraicGroups:AA.3/real-siegel-translation",
         "HodgeStructuresPartII:H.7/ordered-sector-permutation-cover"
       ],
@@ -1109,7 +1126,9 @@
         "HodgeStructuresPartII:H.7/positive-height-siegel-cover",
         "ShimuraData:D3/polarized-integral-variation",
         "HodgeStructuresPartII:H.3",
-        "HodgeStructuresPartII:H.6",
+        "HodgeStructuresPartII:H.6/quasi-unipotence",
+        "HodgeStructuresPartII:H.6/unipotent-normalization",
+        "HodgeStructuresPartII:H.6/negative-lie-chart",
         "LogicAndDefinabilityInNumberTheory:LD.6",
         "mathlib:Set.Definable",
         "HodgeStructuresPartII:H.3/monodromy-descent",
@@ -1809,7 +1828,8 @@
       "prerequisites": [
         "ShimuraData:D3/polarized-integral-variation",
         "HodgeStructuresPartII:H.3",
-        "HodgeStructuresPartII:H.6",
+        "HodgeStructuresPartII:H.6/quasi-unipotence",
+        "HodgeStructuresPartII:H.6/finite-monodromy-extension",
         "AdelicAlgebraicGroups:AA.3/cocompact-no-unipotents",
         "LogicAndDefinabilityInNumberTheory:LD.6",
         "AlgebraicModuliForArithmeticGeometry:R09.7d"
@@ -2001,43 +2021,6 @@
       ]
     },
     {
-      "supplier": "HodgeStructuresPartII:H.6",
-      "need": "Quasi-unipotent monodromy, finite coordinate power-cover normalization, commuting rational nilpotent logarithms N_i=log T_i, holomorphic untwisted extension Ψ and Φ̃=exp(Σz_iN_i)Ψ(q). Export the negative-Lie big-cell lift γ=exp(zN)exp(v(q)), with shrinking/compact-buffer hypotheses and the correct transversality factor 2πi. Include nondegenerating analytic coordinates as compact parameters and the finite-monodromy case extending the period map into D across the SNC boundary.",
-      "neededBy": [
-        "HodgeStructuresPartII:H.7/sector-lift-definable",
-        "HodgeStructuresPartII:H.7/gram-determinant-formulas",
-        "HodgeStructuresPartII:H.7/local-period-definability",
-        "HodgeStructuresPartII:H.7/positive-height-siegel-cover",
-        "HodgeStructuresPartII:H.7/compact-target-period-definability"
-      ]
-    },
-    {
-      "supplier": "HodgeStructuresPartII:H.6",
-      "need": "Centered partial-sum monodromy weight filtrations, cone-independence, distributivity with the limiting F, a simultaneous complex splitting I and a separate rational weight splitting J. For every compatible splitting and induced exterior power, provide the flat and moving squared-Hodge-norm estimate Σ m_σ(y)|u_σ|² with positive constants, uniform on bounded real widths and compact nondegenerating parameters. Nonzero homogeneous vectors have two-sided monomial estimates. This is Kashiwara §§1.9,2.4,3.4, not merely BKT’s narrower J-only restatement.",
-      "neededBy": [
-        "HodgeStructuresPartII:H.7/hodge-adapted-flag",
-        "HodgeStructuresPartII:H.7/flat-norm-rough-monomial",
-        "HodgeStructuresPartII:H.7/moving-norm-rough-monomial",
-        "HodgeStructuresPartII:H.7/determinant-weight-bound",
-        "HodgeStructuresPartII:H.7/positive-height-siegel-cover"
-      ]
-    },
-    {
-      "supplier": "HodgeStructuresPartII:H.6",
-      "need": "Uniform deep-height comparison h_z(γu)≍h_z(exp(zN)u), including exterior powers, derived from horizontal negative-Lie correction and exponential decay. Give a depth threshold after which the lower bound holds, uniform on each fixed bounded real width and compact parameter set; do not use compactness of a mixed logarithmic-height remainder.",
-      "neededBy": [
-        "HodgeStructuresPartII:H.7/moving-norm-rough-monomial",
-        "HodgeStructuresPartII:H.7/positive-height-siegel-cover"
-      ]
-    },
-    {
-      "supplier": "HodgeStructuresPartII:H.6",
-      "need": "Schmid’s one-variable finite Siegel containment for a polarized integral nilpotent-orbit lift, with the fixed canonical compact, every bounded real width and positive height after a buffer, and finite covers clearing the rational slopes in the LD.6 curve test. Verify the source proof and its uniformity rather than importing the desired multivariable H.7 theorem.",
-      "neededBy": [
-        "HodgeStructuresPartII:H.7/curvewise-reducedness"
-      ]
-    },
-    {
       "supplier": "LogicAndDefinabilityInNumberTheory:LD.6",
       "need": "Finite definable atlases and graph calculus extending native Set.Definable: the real structures R_alg⊂R_an⊂R_an,exp and their o-minimality, coordinate restriction/reindexing, finite gluing, products, definable images/inverse images, finite-cover graph descent, continuous graph-closure extension, and finiteness of connected components. Canonical algebraic definable atlases and restricted-analytic charts on compact buffers must be compared explicitly.",
       "neededBy": [
@@ -2113,7 +2096,7 @@
       "stageId": "HodgeStructuresPartII:H.7",
       "status": "planned",
       "remaining": [
-        "Replace the four H.3, four H.6 and four LD.6 requests with exact supplied nodes after their proof/API passes.",
+        "Close the four H.3 and four LD.6 supplier requests with exact proof/API exports. H.6 prerequisites now use the matching planning nodes, whose gaps G1–G6, including fixed-canonical-compact comparison G5, remain open.",
         "Materialize the routed ArithmeticQuotientDefinability owner and resolve fixed-K quotient/functoriality gap G1.",
         "Close AA.3 proper arithmetic immersion, the ComplexComparisonPartII analytic-image extension and buffered R09.7d chart requests.",
         "Replace the suggested file’s explicitly omitted supplier conditions with the actual supplied carriers, including native analytic/algebraic closed-subset and generic tensor families; re-elaborate at the full pinned baseline."
@@ -2146,8 +2129,8 @@
     },
     {
       "id": "G3",
-      "title": "H.6 degeneration estimates and parameter uniformity need exact suppliers",
-      "detail": "The four H.6 requests are not yet nodes. Kashiwara’s selected statements, splitting proof and norm-comparison reduction were read, including the rendered formulas; the whole §4.3 and Schmid’s Corollary 5.29 proof were not read in this pass. Supplier work must verify centered weights, splitting-independent flat/moving/exterior estimates, bounded-width uniformity, compact nondegenerating parameters and depth thresholds. The finite partial-boundary chart proof of positive-height-siegel-cover is stated explicitly but is not declared source-closed until those parameter/transport contracts are supplied.",
+      "title": "H.6 degeneration estimates and parameter uniformity retain supplier gaps",
+      "detail": "The exact H.6 nilpotent-orbit, simultaneous-splitting, flat/moving/exterior norm, perturbation and curve-normalization planning nodes now exist and are referenced directly. Their analytic carriers and source closure remain conditional on H.6 gaps G1–G6. In particular H.6/one-variable-siegel explicitly records the unproved comparison between Schmid’s torus and AA.3’s canonical Cartan-stable split component; curvewise-reducedness remains conditional on that comparison. H.7 does not supply or assume away these proofs. The H.7 pass read the selected Kashiwara statements, splitting proof and norm-comparison reduction, but did not independently read the whole §4.3 or Schmid’s Corollary 5.29 proof; assembly does not enlarge that source-reading extent.",
       "neededBy": [
         "HodgeStructuresPartII:H.7/hodge-adapted-flag",
         "HodgeStructuresPartII:H.7/flat-norm-rough-monomial",
@@ -3568,6 +3551,78 @@
         "nodeId": "HodgeStructuresPartII:H.7/hodge-adapted-flag-refines-filtration",
         "verdict": "added",
         "note": "Promoted filtration-refinement lemma from the existing API; antitone labels identify the cardinality-defined initial segment, including endpoints."
+      }
+    ]
+  },
+  "assemblyReconciliation": {
+    "job": "ASM-HodgeStructuresPartII",
+    "notes": "Ten coarse H.6 prerequisite entries now name the accepted H.6 planning nodes that state their exact inputs. Statements, proofSteps, reviews, sourceIssues and implementation statuses are unchanged. Imported plans retain their own open gaps, especially the one-variable fixed-canonical-compact comparison in H.6 G5. No supplier proof or global signature is thereby established.",
+    "resolvedRequests": [
+      {
+        "supplier": "HodgeStructuresPartII:H.6",
+        "need": "Quasi-unipotent monodromy, finite coordinate power-cover normalization, commuting rational nilpotent logarithms N_i=log T_i, holomorphic untwisted extension Ψ and Φ̃=exp(Σz_iN_i)Ψ(q). Export the negative-Lie big-cell lift γ=exp(zN)exp(v(q)), with shrinking/compact-buffer hypotheses and the correct transversality factor 2πi. Include nondegenerating analytic coordinates as compact parameters and the finite-monodromy case extending the period map into D across the SNC boundary.",
+        "neededBy": [
+          "HodgeStructuresPartII:H.7/sector-lift-definable",
+          "HodgeStructuresPartII:H.7/gram-determinant-formulas",
+          "HodgeStructuresPartII:H.7/local-period-definability",
+          "HodgeStructuresPartII:H.7/positive-height-siegel-cover",
+          "HodgeStructuresPartII:H.7/compact-target-period-definability"
+        ],
+        "suppliedBy": [
+          "HodgeStructuresPartII:H.6/quasi-unipotence",
+          "HodgeStructuresPartII:H.6/unipotent-normalization",
+          "HodgeStructuresPartII:H.6/untwisted-map",
+          "HodgeStructuresPartII:H.6/untwisted-extension",
+          "HodgeStructuresPartII:H.6/negative-lie-chart",
+          "HodgeStructuresPartII:H.6/finite-monodromy-extension"
+        ],
+        "resolution": "Matching conditional planning nodes exist. This resolves the missing node identifiers only; H.6 gaps G1–G6, especially the fixed-canonical-compact comparison G5, remain open."
+      },
+      {
+        "supplier": "HodgeStructuresPartII:H.6",
+        "need": "Centered partial-sum monodromy weight filtrations, cone-independence, distributivity with the limiting F, a simultaneous complex splitting I and a separate rational weight splitting J. For every compatible splitting and induced exterior power, provide the flat and moving squared-Hodge-norm estimate Σ m_σ(y)|u_σ|² with positive constants, uniform on bounded real widths and compact nondegenerating parameters. Nonzero homogeneous vectors have two-sided monomial estimates. This is Kashiwara §§1.9,2.4,3.4, not merely BKT’s narrower J-only restatement.",
+        "neededBy": [
+          "HodgeStructuresPartII:H.7/hodge-adapted-flag",
+          "HodgeStructuresPartII:H.7/flat-norm-rough-monomial",
+          "HodgeStructuresPartII:H.7/moving-norm-rough-monomial",
+          "HodgeStructuresPartII:H.7/determinant-weight-bound",
+          "HodgeStructuresPartII:H.7/positive-height-siegel-cover"
+        ],
+        "suppliedBy": [
+          "HodgeStructuresPartII:H.6/cone-weights",
+          "HodgeStructuresPartII:H.6/distributive-family",
+          "HodgeStructuresPartII:H.6/simultaneous-splittings",
+          "HodgeStructuresPartII:H.6/flat-norm-estimate",
+          "HodgeStructuresPartII:H.6/moving-norm-estimate",
+          "HodgeStructuresPartII:H.6/exterior-power-estimates"
+        ],
+        "resolution": "Matching conditional planning nodes exist. This resolves the missing node identifiers only; H.6 gaps G1–G6, especially the fixed-canonical-compact comparison G5, remain open."
+      },
+      {
+        "supplier": "HodgeStructuresPartII:H.6",
+        "need": "Uniform deep-height comparison h_z(γu)≍h_z(exp(zN)u), including exterior powers, derived from horizontal negative-Lie correction and exponential decay. Give a depth threshold after which the lower bound holds, uniform on each fixed bounded real width and compact parameter set; do not use compactness of a mixed logarithmic-height remainder.",
+        "neededBy": [
+          "HodgeStructuresPartII:H.7/moving-norm-rough-monomial",
+          "HodgeStructuresPartII:H.7/positive-height-siegel-cover"
+        ],
+        "suppliedBy": [
+          "HodgeStructuresPartII:H.6/negative-lie-chart",
+          "HodgeStructuresPartII:H.6/perturbed-norm-comparison",
+          "HodgeStructuresPartII:H.6/exterior-power-estimates"
+        ],
+        "resolution": "Matching conditional planning nodes exist. This resolves the missing node identifiers only; H.6 gaps G1–G6, especially the fixed-canonical-compact comparison G5, remain open."
+      },
+      {
+        "supplier": "HodgeStructuresPartII:H.6",
+        "need": "Schmid’s one-variable finite Siegel containment for a polarized integral nilpotent-orbit lift, with the fixed canonical compact, every bounded real width and positive height after a buffer, and finite covers clearing the rational slopes in the LD.6 curve test. Verify the source proof and its uniformity rather than importing the desired multivariable H.7 theorem.",
+        "neededBy": [
+          "HodgeStructuresPartII:H.7/curvewise-reducedness"
+        ],
+        "suppliedBy": [
+          "HodgeStructuresPartII:H.6/power-curve-normalization",
+          "HodgeStructuresPartII:H.6/one-variable-siegel"
+        ],
+        "resolution": "Matching conditional planning nodes exist. This resolves the missing node identifiers only; H.6 gaps G1–G6, especially the fixed-canonical-compact comparison G5, remain open."
       }
     ]
   }
