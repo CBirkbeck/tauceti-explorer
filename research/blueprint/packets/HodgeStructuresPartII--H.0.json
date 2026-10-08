@@ -190,6 +190,54 @@
         "module": "Mathlib/LinearAlgebra/Matrix/ToLin.lean",
         "provides": "Matrix/linear-map equivalence on finite coordinate modules; used by the sharp Jordan and characteristic-two acceptance instances.",
         "checked": "Declaration and ambient hypotheses personally read in the Mathlib source at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-07."
+      },
+      {
+        "ref": "mathlib:Module.finBasis",
+        "module": "Mathlib/LinearAlgebra/Dimension/Free.lean",
+        "provides": "A finite free module over a semiring with strong rank condition has a basis indexed by its finrank; applied here only to finite vector spaces.",
+        "checked": "Declaration and ambient hypotheses personally read in the Mathlib source at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-08 during independent review REV-HodgeStructuresPartII--H.0."
+      },
+      {
+        "ref": "mathlib:finrank_span_singleton",
+        "module": "Mathlib/LinearAlgebra/FiniteDimensional/Basic.lean",
+        "provides": "A nonzero vector over a division ring spans a line of finrank one.",
+        "checked": "Declaration and ambient hypotheses personally read in the Mathlib source at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-08 during independent review REV-HodgeStructuresPartII--H.0."
+      },
+      {
+        "ref": "mathlib:Submodule.finrank_quotient_add_finrank",
+        "module": "Mathlib/LinearAlgebra/Dimension/RankNullity.lean",
+        "provides": "For a finite module over a ring with HasRankNullity and strong rank condition, quotient finrank plus submodule finrank is the ambient finrank; fields satisfy these hypotheses.",
+        "checked": "Declaration and ambient hypotheses personally read in the Mathlib source at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-08 during independent review REV-HodgeStructuresPartII--H.0."
+      },
+      {
+        "ref": "mathlib:Module.finrank_eq_card_basis",
+        "module": "Mathlib/LinearAlgebra/Dimension/StrongRankCondition.lean",
+        "provides": "Over a semiring with strong rank condition, finrank equals the cardinality of a displayed finite basis; applied to the prime-quotient fraction field.",
+        "checked": "Declaration and ambient hypotheses personally read in the Mathlib source at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-08 during independent review REV-HodgeStructuresPartII--H.0."
+      },
+      {
+        "ref": "mathlib:Ideal.Quotient.isDomain_iff_prime",
+        "module": "Mathlib/RingTheory/Ideal/Quotient/Basic.lean",
+        "provides": "A quotient ring by a two-sided ideal is a domain exactly when the ideal is prime; all ideals in the commutative-ring application are two-sided.",
+        "checked": "Declaration and ambient hypotheses personally read in the Mathlib source at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-08 during independent review REV-HodgeStructuresPartII--H.0."
+      },
+      {
+        "ref": "mathlib:IsFractionRing.injective",
+        "module": "Mathlib/RingTheory/Localization/FractionRing.lean",
+        "provides": "The algebra map from a commutative ring into its localization at all non-zero-divisors is injective; applied to the domain R/p and its fraction field.",
+        "checked": "Declaration and ambient hypotheses personally read in the Mathlib source at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-08 during independent review REV-HodgeStructuresPartII--H.0."
+      },
+      {
+        "ref": "mathlib:Ideal.Quotient.eq_zero_iff_mem",
+        "module": "Mathlib/RingTheory/Ideal/Quotient/Defs.lean",
+        "provides": "The image of an element under the native quotient-ring map is zero exactly when it belongs to the quotient ideal.",
+        "checked": "Declaration and ambient hypotheses personally read in the Mathlib source at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-08 during independent review REV-HodgeStructuresPartII--H.0."
+      },
+      {
+        "ref": "mathlib:Submodule.mapQ",
+        "module": "Mathlib/LinearAlgebra/Quotient/Basic.lean",
+        "provides": "A compatible semilinear map induces the native map on module quotients; specialized to linear maps, which preserve the image of multiplication by t.",
+        "checked": "Declaration and ambient hypotheses personally read in the Mathlib source at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-08 during independent review REV-HodgeStructuresPartII--H.0."
       }
     ]
   },
@@ -201,7 +249,7 @@
       "edition": "Author-hosted 44-page preprint; selected definitions, not a collation with the Acta version",
       "url": "https://www.mi.fu-berlin.de/users/esnault/preprints/helene/126_esn_gro.pdf",
       "sha256": "0bfa00b7dbae7a59c193d3523028df826741f15d3e88cb50526f8656a7fb8e35",
-      "accessed": "2026-10-07",
+      "accessed": "2026-10-08",
       "readSections": [
         "§2.1, printed pp.5–6: Higgs definition, scaling, determinant convention and Lemma 2.1",
         "§4.2, printed pp.23–24: parameter Leibniz equation, zero/one fibers and Lemma 4.9"
@@ -215,7 +263,7 @@
       "edition": "arXiv:1602.06282v3, 35 pages",
       "url": "https://arxiv.org/pdf/1602.06282v3",
       "sha256": "8b11e55bffbfb1835a6da8975272670c9465601c08640e06f3a566a459a1da79",
-      "accessed": "2026-10-07",
+      "accessed": "2026-10-08",
       "readSections": [
         "Theorem 2.1, printed pp.6–8: nilpotent twisted Higgs object, Galois action, tensor, dual and pullback formulas",
         "Lemma 2.15 and complete printed proof, pp.18–19",
@@ -231,7 +279,7 @@
       "edition": "Inventiones mathematicae 240 (2025), 261–312, published PDF",
       "url": "https://link.springer.com/content/pdf/10.1007/s00222-025-01321-4.pdf",
       "sha256": "7608fff18ccbc47b96bd54cfe01f31f8ccd9953889834cc9f6c39787563175cd",
-      "accessed": "2026-10-07",
+      "accessed": "2026-10-08",
       "readSections": [
         "Definition 1.2(2), printed p.262",
         "Definition 2.1 and following paragraph, printed pp.267–268",
@@ -243,13 +291,14 @@
       "id": "StacksConnection-H0",
       "title": "Connections",
       "authors": "The Stacks Project authors",
-      "edition": "Live section 60.15, tag 07J5, read 2026-10-07",
+      "edition": "Live public Stacks tag 07J5, read 2026-10-08",
       "url": "https://stacks.math.columbia.edu/tag/07J5",
-      "accessed": "2026-10-07",
+      "accessed": "2026-10-08",
       "readSections": [
         "Opening definition of a connection, extension and integrability; Lemma 60.15.1 and displayed proof"
       ],
-      "readingExtent": "The crystalline example is a specialization, not a general-site supplier contract."
+      "readingExtent": "The crystalline example is a specialization, not a general-site supplier contract.",
+      "sha256": "f76cdf52eac191ad0baa040bc0160491838ec725db3579837fac2e60d874ceea"
     }
   ],
   "nodes": [
@@ -561,9 +610,9 @@
         "A positive ordered nilpotence bound exists. Individual nilpotence of chosen contractions is not substituted for it."
       ],
       "proofSteps": [
-        "Choose a finite basis of P and use the parent all-order coefficient criterion: I_N=0 says every coefficient word of length N is zero. This gives joint nilpotence of the finite coefficient family.",
+        "Choose Module.finBasis K P and use the parent all-order coefficient criterion: I_N=0 says every coefficient word of length N is zero. Longer words vanish by factoring off a length-N block. This gives joint nilpotence of the finite coefficient family.",
         "If V is nonzero, choose a nonzero vector and a coefficient word of maximal length whose action on it is nonzero. Lengths are bounded by N−1. Its resulting nonzero vector is killed by every coefficient operator; adding any operator on the left would contradict maximality. The resulting common-kernel line is invariant and killed, without a commutativity assumption.",
-        "Pass to V divided by that line. Every length-N word on the quotient is still zero. Induct on dim V, which drops by one. Words of length dim V−1 take V into the line, and one more operator kills them. The dimension-zero case is the zero module and has positive bound 1.",
+        "Pass each coefficient operator to V divided by the common-kernel line and reconstruct the quotient field with the chosen finite coefficient basis. Every length-N quotient word is zero, so the parent coefficient criterion gives its ordered nilpotence premise. The line has finrank one by finrank_span_singleton, and Submodule.finrank_quotient_add_finrank makes the quotient dimension dim V−1. If dim V=1, the line is all of V and every operator is already zero. If dim V>1, induction gives zero quotient words of length dim V−1; the lifted words therefore land in the line and one more operator kills them. The dimension-zero case is the zero module and has positive bound 1.",
         "Apply the parent basis coefficient criterion in the reverse direction at exponent max(1,dim V). This proves the tensor-valued assertion, not merely powers of a single contraction."
       ],
       "prerequisites": [
@@ -573,7 +622,10 @@
         "mathlib:Module.Basis.coord",
         "mathlib:Module.finrank",
         "mathlib:Submodule.mkQ",
-        "mathlib:Submodule.mkQ_surjective"
+        "mathlib:Submodule.mkQ_surjective",
+        "mathlib:Module.finBasis",
+        "mathlib:finrank_span_singleton",
+        "mathlib:Submodule.finrank_quotient_add_finrank"
       ],
       "acceptance": [
         "A nilpotent field on a one-dimensional space is zero.",
@@ -609,8 +661,8 @@
         "A positive ordered nilpotence bound exists."
       ],
       "proofSteps": [
-        "For each prime ideal p, pass to the fraction field of the domain R/p. Parent scalar-extension transport preserves the given ordered exponent, without reflecting zero back to R. The base-changed bases have ranks r,d.",
-        "Apply h0-field-rank-bound over that field, so every length-max(1,r) coefficient-word matrix entry maps to zero. The injective map R/p into its fraction field shows each source entry belongs to p.",
+        "For each prime ideal p, Ideal.Quotient.isDomain_iff_prime makes R/p a domain; pass to its fraction field. Parent scalar-extension transport preserves the given ordered exponent, without reflecting zero back to R. The transported bases have ranks r,d by Module.finrank_eq_card_basis.",
+        "Apply h0-field-rank-bound over that field, so every length-max(1,r) coefficient-word matrix entry maps to zero. IsFractionRing.injective detects zero in R/p; Ideal.Quotient.eq_zero_iff_mem then puts each source entry in p.",
         "Each entry lies in every prime ideal, hence is nilpotent by nilpotent_iff_mem_prime. IsReduced makes it zero; equivalently use nilradical_eq_zero. The zero ring is handled by subsingleton modules.",
         "Basis coordinates detect zero for the ordered tensor target, or equivalently invoke the parent coefficient criterion after all word matrices vanish. Do not claim that one arbitrary residue map reflects curvature or any other source tensor."
       ],
@@ -623,7 +675,11 @@
         "mathlib:IsReduced",
         "mathlib:nilpotent_iff_mem_prime",
         "mathlib:nilradical_eq_zero",
-        "mathlib:Module.Basis.forall_coord_eq_zero_iff"
+        "mathlib:Module.Basis.forall_coord_eq_zero_iff",
+        "mathlib:Module.finrank_eq_card_basis",
+        "mathlib:Ideal.Quotient.isDomain_iff_prime",
+        "mathlib:IsFractionRing.injective",
+        "mathlib:Ideal.Quotient.eq_zero_iff_mem"
       ],
       "acceptance": [
         "Over Z/4 the rank-one scalar 2 has degree-two zero and degree-one nonzero, so reducedness cannot be removed.",
@@ -661,7 +717,7 @@
       "proofSteps": [
         "Let T=E tensor Q and π:T→T/tT be the native module quotient. The composite πD is additive. Applying the Leibniz equation shows πD(ae)=aπD(e), because t(e tensor d(a)) is in tT; package πD as a genuine R-linear map.",
         "Apply the same formula at a=t: D(te)=tD(e)+t(e tensor d(t)), so πD vanishes on tE even if d(t)≠0. Use Submodule.liftQ to descend the now-linear map.",
-        "The generator equation follows from liftQ. Surjectivity of mkQ gives uniqueness, and Submodule.Quotient.eq gives the comparison criterion for two D with the same parameter and differential.",
+        "The generator equation follows from liftQ. Surjectivity of mkQ gives uniqueness, and Submodule.Quotient.eq gives the comparison criterion for two D with the same parameter and differential. Linear f and f⊗u preserve multiplication-by-t images, so Submodule.mapQ constructs their quotient maps. The intertwining equation and the generator formula give naturality; quotient surjectivity proves equality on the whole module, as well as identity and composition compatibility.",
         "The quotient field cannot be identified with a sheaf tensor of quotients by identifying global-section tensors. E1 supplies the actual quotient/base-change equivalence; exterior integrability requires its wedge compatibility and remains G5."
       ],
       "prerequisites": [
@@ -669,7 +725,8 @@
         "mathlib:Submodule.mkQ_surjective",
         "mathlib:Submodule.liftQ",
         "mathlib:Submodule.Quotient.eq",
-        "HodgeStructuresPartII:H.0/intrinsic-preconnection"
+        "HodgeStructuresPartII:H.0/intrinsic-preconnection",
+        "mathlib:Submodule.mapQ"
       ],
       "acceptance": [
         "At t=0 it is the original linear field under the quotient-by-zero identification.",
@@ -700,6 +757,10 @@
         {
           "where": "HodgeStructuresPartII:H.0/zero-fiber",
           "how": "Relates specialization of a nonzero parameter to the zero-parameter field; the t=1 quotient is zero and must not be mistaken for evaluating the family at 1."
+        },
+        {
+          "where": "HodgeStructuresPartII:H.0/rees-specialization and intrinsic-pullback; Liu–Zhu Remark 3.2, printed p.24",
+          "how": "Naturality compares affine residue maps under genuine intertwining module and coefficient maps; the period, exterior and sheaf identifications remain separate supplier obligations."
         }
       ],
       "api": [
@@ -717,6 +778,11 @@
           "name": "parameterResidue_eq_iff",
           "role": "extensionality",
           "statement": "For fixed t,d and D,D′ with the displayed Leibniz equations, res_t(D)=res_t(D′) iff D(e)−D′(e) lies in t(E tensor Q) for every e."
+        },
+        {
+          "name": "parameterResidue_natural",
+          "role": "functoriality",
+          "statement": "For linear f:E→F and u:Q→P, write f̄:E/tE→F/tF and (f⊗u)̄:(E⊗Q)/t(E⊗Q)→(F⊗P)/t(F⊗P) for native Submodule.mapQ maps. Given parameter operators D,D′ with the same t and their displayed Leibniz equations, if D′(f(e))=(f⊗u)(D(e)) for every e, then res_t(D′)∘f̄=(f⊗u)̄∘res_t(D). Quotient-map identity and composition laws follow on generators."
         }
       ],
       "tests": [
@@ -2295,7 +2361,7 @@
     ],
     "supplierPackets": [
       "CrystallineCohomology--CR.0.json: CR.1/integrable-connection, affine and crystalline statements; review needs_changes",
-      "EnhancedDerivedSheaves--E0.json: E1/presentability-and-derived-tensor; review needs_changes",
+      "EnhancedDerivedSheaves--E0.json: E1/presentability-and-derived-tensor; partial packet with no review object as of 2026-10-08",
       "DerivedDeRhamCohomology.json: DD.1 filtered-modules and rees-description; review needs_changes"
     ],
     "search": "Bounded exact-pin Tau Ceti Geometry/LinearAlgebra/RingTheory and Mathlib LinearAlgebra/ModuleCat searches found no Higgs, parameter-connection or ordered-shuffle implementation. Read TauCeti.Hodge.HodgeStructureOn at the Tau Ceti pin: the fibrewise Hodge carrier is existing work. Existing tensor, indexed tensor, basis, quotient and nilradical declarations are baseline, never new nodes. Open Mathlib PR search for Higgs returned no matches; an indexed Zulip search for Higgs tensor nilpotent shuffle returned no relevant result. These are bounded searches, not a universal absence proof.",
@@ -2382,9 +2448,52 @@
     "date": "2026-10-07",
     "issue": 6937,
     "planningPass": "Complete at target level under PROTOCOL sections 0 and 3; seven precise gaps are endpoints, not claims of proof closure.",
-    "compilation": "Final exact suggested file elaborated with lean-check at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174: exit 0; 35 admission warnings, no other warnings or errors. SHA-256 30b6c6b8289a250a164f355203fe714ca33945c3f07496d76b5f7a22b309e4ca. Types and admitted examples only; no proof implementation or omitted global signature claim.",
+    "compilation": "Independent review 2026-10-08: the final exact suggested file elaborated with lean-check at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, exit 0; 36 admission warnings and no other warnings or errors. SHA-256 ac03e6a498eb19729ef9a013602d1b806473b0eeb66dab17fe51e131f280fedc. Types and admitted examples only; no proof implementation or omitted global signature claim.",
     "implementation": "Every node is unchecked. Only suggested native signatures and admitted acceptance examples are supplied.",
     "sourceScope": "Five exact routed H.0 items examined at their relevant passages; all 149 accepted routed extraction items assigned a scope decision. No sibling H.1–H.8 theorem or whole-paper reading is claimed.",
-    "checks": "check_blueprint: zero errors, zero warnings. Integrity: seven unused parent IDs; all API/test names in reader and Lean; fourteen target groups resolve; 149 unique route dispositions (five H.0); 36 exact parent omissions; reachable imported/new declaration graph acyclic (34 nodes). Submission file and whitespace checks pass."
+    "checks": "Independent review: check_blueprint zero errors/warnings; 38 pinned baseline statements inspected; seven unique new IDs; thirteen API and eleven test names agree in reader and Lean; fourteen target groups and 149 unique extraction IDs resolve (five H.0); 36 exact parent omissions; reachable imported/new declaration graph acyclic (34 nodes)."
+  },
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-HodgeStructuresPartII--H.0",
+    "date": "2026-10-08",
+    "notes": "Independent review of all seven new targets, the exact imported interfaces, four selected public sources and all 38 direct pinned baseline citations. Corrected the rank-one induction edge case and missing proof dependencies; added residue naturality; removed seven source quotations from the reader and corrected the partial unreviewed E0 supplier status. Seven honest gaps and four requests remain. Accepted as a complete target-level planning pass with H.0 planned, not closed; no implementation or full correspondence proof is claimed. Checker: zero errors/warnings. Suggested Lean: exit 0 with 36 admission warnings only. See the review report and handoff for source and validation receipts.",
+    "checked": [
+      {
+        "nodeId": "HodgeStructuresPartII:H.0/h0-tensor-valued-shuffle",
+        "verdict": "verified",
+        "note": "Increasing slot enumeration, native disjoint-sum tensor equivalence and inverse reindex convention match the ordered parent iterates. Arbitrary modules and the empty tensor unit are preserved; nine computational/naturality API items and eight discriminating tests are valid."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.0/h0-shuffle-term-vanishing",
+        "verdict": "verified",
+        "note": "Parent all-order monotonicity kills one factor before tensoring. Native elementary-tensor generation proves full linear-map vanishing, including exponent zero on a zero module."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.0/h0-ordered-shuffle-expansion",
+        "verdict": "verified",
+        "note": "Successor prepends the new coefficient at slot zero. Partitioning subsets by membership of zero gives every ordered summand once, with no commutation or characteristic hypothesis; pure tensors extend to all elements."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.0/h0-arbitrary-coefficient-tensor-bound",
+        "verdict": "verified",
+        "note": "Positive N,M give the cardinal pigeonhole bound N+M−1. This uses tensor-valued expansion and summand vanishing, so neither separating duals nor finite free coefficients are assumed. Global descent remains G2."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.0/h0-field-rank-bound",
+        "verdict": "corrected",
+        "note": "Expanded the common-kernel induction to reconstruct the quotient field and handle dimension one separately; the zero module keeps positive bound one. Added exact finite-basis, line-dimension and quotient-dimension baselines. No individual-nilpotence or commutation premise replaces ordered nilpotence."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.0/h0-reduced-free-rank-bound",
+        "verdict": "corrected",
+        "note": "Added the exact basis-cardinality, prime quotient, fraction-ring injectivity and quotient-kernel baselines used in coefficient detection. The proof distinguishes extension of zero from detection through every prime; reducedness, finite displayed bases and local/global uniformity are retained."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.0/h0-parameter-residue",
+        "verdict": "corrected",
+        "note": "Verified quotient linearity and D(te) descent even without d(t)=0. Added Submodule.mapQ and a native, well-typed naturality API for intertwining module/coefficient maps, with recorded uses. The zero/unit/nonzero tests remain valid and geometric quotient/Tate adapters remain G3/G5."
+      }
+    ]
   }
 }
