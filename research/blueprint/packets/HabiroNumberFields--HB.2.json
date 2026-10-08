@@ -16,42 +16,42 @@
         "kind": "structure",
         "module": "Mathlib/RingTheory/RootsOfUnity/PrimitiveRoots.lean",
         "provides": "Exact order n: ζ^n=1 and n divides every exponent giving one.",
-        "checked": "Statement read at the recorded pinned commit, lines 63–66, on 2026-10-06. Independently confirmed by REV-HabiroNumberFields--HB.2 at the same pin; its stated hypotheses and convention supply the claimed use."
+        "checked": "Statement read at the recorded pinned commit, lines 63–66, on 2026-10-06. Independently confirmed by REV-HabiroNumberFields--HB.2 at the same pin; its stated hypotheses and convention supply the claimed use. Re-read independently by REV-HabiroNumberFields--HB.2~2 on 2026-10-08 at the exact recorded pin; declaration, hypotheses and claimed use confirmed."
       },
       {
         "ref": "mathlib:IsPrimitiveRoot.geom_sum_eq_zero",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/RootsOfUnity/PrimitiveRoots.lean",
         "provides": "For a domain and primitive ζ of order n>1, ∑_{k<n}ζ^k=0.",
-        "checked": "Statement read at the recorded pinned commit, lines 444–447, on 2026-10-06. Independently confirmed by REV-HabiroNumberFields--HB.2 at the same pin; its stated hypotheses and convention supply the claimed use."
+        "checked": "Statement read at the recorded pinned commit, lines 444–447, on 2026-10-06. Independently confirmed by REV-HabiroNumberFields--HB.2 at the same pin; its stated hypotheses and convention supply the claimed use. Re-read independently by REV-HabiroNumberFields--HB.2~2 on 2026-10-08 at the exact recorded pin; declaration, hypotheses and claimed use confirmed."
       },
       {
         "ref": "tauceti:TauCeti.powerClassQuotient",
         "kind": "abbrev",
         "module": "TauCeti/Algebra/Group/PowerClassGroup.lean",
         "provides": "G/G^n for a commutative group; use G=K×, without confusing field units with integral units.",
-        "checked": "Statement read at the recorded pinned commit, lines 43–44, on 2026-10-06. Independently confirmed by REV-HabiroNumberFields--HB.2 at the same pin; its stated hypotheses and convention supply the claimed use."
+        "checked": "Statement read at the recorded pinned commit, lines 43–44, on 2026-10-06. Independently confirmed by REV-HabiroNumberFields--HB.2 at the same pin; its stated hypotheses and convention supply the claimed use. Re-read independently by REV-HabiroNumberFields--HB.2~2 on 2026-10-08 at the exact recorded pin; declaration, hypotheses and claimed use confirmed."
       },
       {
         "ref": "tauceti:TauCeti.powerClassHom",
         "kind": "def",
         "module": "TauCeti/Algebra/Group/PowerClassGroup.lean",
         "provides": "The quotient homomorphism G→G/G^n.",
-        "checked": "Statement read at the recorded pinned commit, lines 47–48, on 2026-10-06. Independently confirmed by REV-HabiroNumberFields--HB.2 at the same pin; its stated hypotheses and convention supply the claimed use."
+        "checked": "Statement read at the recorded pinned commit, lines 47–48, on 2026-10-06. Independently confirmed by REV-HabiroNumberFields--HB.2 at the same pin; its stated hypotheses and convention supply the claimed use. Re-read independently by REV-HabiroNumberFields--HB.2~2 on 2026-10-08 at the exact recorded pin; declaration, hypotheses and claimed use confirmed."
       },
       {
         "ref": "tauceti:TauCeti.kummerClassMap",
         "kind": "def",
         "module": "TauCeti/FieldTheory/GaloisCohomology/Kummer.lean",
         "provides": "For IsUnit(n:K), K×/(K×)^n→H¹(G_K,μ_n), using the cocycle σ(α)/α; only injectivity is baseline.",
-        "checked": "Statement read at the recorded pinned commit, lines 279–284, on 2026-10-06. Independently confirmed by REV-HabiroNumberFields--HB.2 at the same pin; its stated hypotheses and convention supply the claimed use."
+        "checked": "Statement read at the recorded pinned commit, lines 279–284, on 2026-10-06. Independently confirmed by REV-HabiroNumberFields--HB.2 at the same pin; its stated hypotheses and convention supply the claimed use. Re-read independently by REV-HabiroNumberFields--HB.2~2 on 2026-10-08 at the exact recorded pin; declaration, hypotheses and claimed use confirmed."
       },
       {
         "ref": "tauceti:TauCeti.kummerClassMap_injective",
         "kind": "theorem",
         "module": "TauCeti/FieldTheory/GaloisCohomology/Kummer.lean",
         "provides": "Injectivity of that quotient Kummer map; no surjectivity claim.",
-        "checked": "Statement read at the recorded pinned commit, lines 298–300, on 2026-10-06. Independently confirmed by REV-HabiroNumberFields--HB.2 at the same pin; its stated hypotheses and convention supply the claimed use."
+        "checked": "Statement read at the recorded pinned commit, lines 298–300, on 2026-10-06. Independently confirmed by REV-HabiroNumberFields--HB.2 at the same pin; its stated hypotheses and convention supply the claimed use. Re-read independently by REV-HabiroNumberFields--HB.2~2 on 2026-10-08 at the exact recorded pin; declaration, hypotheses and claimed use confirmed."
       }
     ]
   },
@@ -679,7 +679,7 @@
       "source": "GZ.published",
       "kind": "misprint",
       "locator": "Appendix A, p.236, unnumbered Gaussian formula after (58) (published 2021 text; same in inspected arXiv PDF)",
-      "printed": "exp((X−Y)/((1−X)(1−Y)) · j²mε/2)",
+      "printed": "The Gaussian exponent after (58) uses X−Y as its numerator.",
       "correction": "Replace X−Y by Y−X in that exponent.",
       "reason": "The immediately preceding recurrence has coefficient Y/(1−Y)−X/(1−X)=(Y−X)/((1−X)(1−Y)); summing it over successive blocks gives that same sign. For X=.2+i.1, Y=2+i.1 its real part is negative, as required for decay.",
       "affects": "the proof",
@@ -688,12 +688,13 @@
         "2026-10-06: arXiv:1812.07690 PDF, Appendix A (same Gaussian and phase text).",
         "Author-hosted version of record, pp.236–237, rendered images.",
         "Garoufalidis publication index and web searches for a correction/erratum; no correction located.",
-        "Independent review, 2026-10-06: author publication index https://people.mpim-bonn.mpg.de/stavros/publications/, arXiv abstract https://arxiv.org/abs/1812.07690, and web searches for Asymptotics of Nahm sums erratum/correction; no correction located."
+        "Independent review, 2026-10-06: author publication index https://people.mpim-bonn.mpg.de/stavros/publications/, arXiv abstract https://arxiv.org/abs/1812.07690, and web searches for Asymptotics of Nahm sums erratum/correction; no correction located.",
+        "Independent revision review, 2026-10-08: author-hosted published pp.236–237 inspected; author publication index https://people.mpim-bonn.mpg.de/stavros/publications/, arXiv record https://arxiv.org/abs/1812.07690, and searches for the paper title with erratum/correction. No correction to these Appendix A findings located."
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Confirmed in the rendered published p.236. The coefficient Y/(1−Y)−X/(1−X) in the preceding line equals (Y−X)/((1−X)(1−Y)); summing the residue-class recurrence preserves that sign. The corrected coefficient has negative real part in the convergence neighborhood.",
-        "by": "REV-HabiroNumberFields--HB.2"
+        "reason": "Rendered published p.236 confirms the sign mismatch. The block recurrence subtracts X/(1−X) from Y/(1−Y), giving Y−X in the numerator; its sum retains that sign and decays in the specified neighborhood.",
+        "by": "REV-HabiroNumberFields--HB.2~2"
       }
     },
     {
@@ -701,7 +702,7 @@
       "source": "GZ.published",
       "kind": "error",
       "locator": "Appendix A, p.236 (59) and p.237 (60) (published 2021 text; same in inspected arXiv PDF)",
-      "printed": "(59): √(2π/ε)√((1−Y)(1−X)/(X−Y)) f; (60): √(2π/ε) C^(m/2) D exp(B/ε)",
+      "printed": "Equation (59) lacks the inverse square root of the order in its Gaussian mass; (60) retains a square-root eta mass after taking the order-th power, and assigns the opposite sign to the displayed dilogarithm combination.",
       "correction": "The Gaussian prefactor in (59) is √(2π/(mε)); the prefactor of the mth power in (60) is (2π/ε)^(m/2). With the displayed definition of B the product exponent is −B/ε, which still vanishes in the application.",
       "reason": "A residue class has exponent −j²mε/(2S), so its lattice Gaussian sum has mass √(2πS/(mε)). Raising the eta prefactor to m gives the power m/2, not 1/2. Complex computations at m=3,5 and ε=.02,.01,.005 approach the corrected constant with relative errors O(ε); the printed (59) differs by √m.",
       "affects": "the proof",
@@ -710,12 +711,13 @@
         "2026-10-06: arXiv:1812.07690 PDF, Appendix A (same Gaussian and phase text).",
         "Author-hosted version of record, pp.236–237, rendered images.",
         "Garoufalidis publication index and web searches for a correction/erratum; no correction located.",
-        "Independent review, 2026-10-06: author publication index https://people.mpim-bonn.mpg.de/stavros/publications/, arXiv abstract https://arxiv.org/abs/1812.07690, and web searches for Asymptotics of Nahm sums erratum/correction; no correction located."
+        "Independent review, 2026-10-06: author publication index https://people.mpim-bonn.mpg.de/stavros/publications/, arXiv abstract https://arxiv.org/abs/1812.07690, and web searches for Asymptotics of Nahm sums erratum/correction; no correction located.",
+        "Independent revision review, 2026-10-08: author-hosted published pp.236–237 inspected; author publication index https://people.mpim-bonn.mpg.de/stavros/publications/, arXiv record https://arxiv.org/abs/1812.07690, and searches for the paper title with erratum/correction. No correction to these Appendix A findings located."
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Confirmed in published (59)–(60). A residue-class Gaussian exp(−j²nε/(2S)) has mass sqrt(2πS/(nε)); the nth power of the eta factor is (2π/ε)^(n/2). Product numerator/denominator bookkeeping gives exp(−B/ε). Independent numerical product evaluations at n=3,5 and ε=.02,.01,.005 approach the corrected constant.",
-        "by": "REV-HabiroNumberFields--HB.2"
+        "reason": "Published (59) and (60) have the recorded normalization errors. Summing exp(−j²nε/(2S)) gives sqrt(2πS/(nε)); taking the nth eta power gives (2π/ε)^(n/2). Applying the product limits to the stated dilogarithm combination gives exp(−B/ε). Independent n=3,5 product checks converge to these constants.",
+        "by": "REV-HabiroNumberFields--HB.2~2"
       }
     },
     {
@@ -723,7 +725,7 @@
       "source": "GZ.published",
       "kind": "error",
       "locator": "Appendix A, p.237, D in (60) and its use of (57) (published 2021 text; same in inspected arXiv PDF)",
-      "printed": "D = μ24 Dζ(ζx)Dζ(1/y)Dζ(z)Dζ(x/yz) / (Dζ(ζyz)Dζ(1/yz)Dζ(x/y))",
+      "printed": "The leading constant in (60) substitutes root-of-unity-shifted x and yz arguments into the fixed-argument dilogarithm limits without retaining their q-dependent movement.",
       "correction": "Keep q-dependent parameter shifts. Use (qx;q)∞=(x;q)∞/(1−x) and its yz analogue before applying the fixed-argument limit. The corrected D is μ^m Dζ(x)Dζ(1/y)Dζ(z)Dζ(x/yz)/[Dζ(yz)Dζ(1/yz)Dζ(x/y)] times ((1−x)/(1−yz))^m.",
       "reason": "q x approaches ζx at speed ε/m; replacing it with ζx in a 1/ε exponential changes the finite limit. Relative to the printed shifted-D ratio the correction factor is (1−X)/(1−YZ). The exact q-product shift identities show this without numerical inference.",
       "affects": "the proof",
@@ -732,12 +734,13 @@
         "2026-10-06: arXiv:1812.07690 PDF, Appendix A (same Gaussian and phase text).",
         "Author-hosted version of record, pp.236–237, rendered images.",
         "Garoufalidis publication index and web searches for a correction/erratum; no correction located.",
-        "Independent review, 2026-10-06: author publication index https://people.mpim-bonn.mpg.de/stavros/publications/, arXiv abstract https://arxiv.org/abs/1812.07690, and web searches for Asymptotics of Nahm sums erratum/correction; no correction located."
+        "Independent review, 2026-10-06: author publication index https://people.mpim-bonn.mpg.de/stavros/publications/, arXiv abstract https://arxiv.org/abs/1812.07690, and web searches for Asymptotics of Nahm sums erratum/correction; no correction located.",
+        "Independent revision review, 2026-10-08: author-hosted published pp.236–237 inspected; author publication index https://people.mpim-bonn.mpg.de/stavros/publications/, arXiv record https://arxiv.org/abs/1812.07690, and searches for the paper title with erratum/correction. No correction to these Appendix A findings located."
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Confirmed in rendered published p.237. Exact q-product shifts must be applied before the fixed-argument limit. Using D(ζu)/D(u)=(1−u)^n/(1−u^n), the corrected prefactor divided by the printed one (with its phase separately corrected) is (1−X)/(1−YZ), which is generally not one. This is an erroneous leading constant, so classify it as error rather than gap.",
-        "by": "REV-HabiroNumberFields--HB.2"
+        "reason": "The published p.237 leading constant drops the first-order movement of q-dependent arguments. Apply the exact product shift before the limit. The corrected-to-printed ratio, with phase separately corrected, is (1−X)/(1−YZ), generally different from one; this is an error in the leading constant.",
+        "by": "REV-HabiroNumberFields--HB.2~2"
       }
     },
     {
@@ -754,12 +757,13 @@
         "2026-10-06: arXiv:1812.07690 PDF, Appendix A (same Gaussian and phase text).",
         "Author-hosted version of record, pp.236–237, rendered images.",
         "Garoufalidis publication index and web searches for a correction/erratum; no correction located.",
-        "Independent review, 2026-10-06: author publication index https://people.mpim-bonn.mpg.de/stavros/publications/, arXiv abstract https://arxiv.org/abs/1812.07690, and web searches for Asymptotics of Nahm sums erratum/correction; no correction located."
+        "Independent review, 2026-10-06: author publication index https://people.mpim-bonn.mpg.de/stavros/publications/, arXiv abstract https://arxiv.org/abs/1812.07690, and web searches for Asymptotics of Nahm sums erratum/correction; no correction located.",
+        "Independent revision review, 2026-10-08: author-hosted published pp.236–237 inspected; author publication index https://people.mpim-bonn.mpg.de/stavros/publications/, arXiv record https://arxiv.org/abs/1812.07690, and searches for the paper title with erratum/correction. No correction to these Appendix A findings located."
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Confirmed in rendered published p.237. ζ^n=1 cannot be the eta multiplier: for n=3,h=1 the Dedekind sum is 1/18 and μ^n=exp(−πi/6). Independent finite-product checks of D_ζ(1)=n^(n/2)exp(πin s(h,n)) pass for every primitive root of orders 3,5,7,9.",
-        "by": "REV-HabiroNumberFields--HB.2"
+        "reason": "The published phase description is incompatible with the eta multiplier. At n=3,h=1 the Dedekind sum 1/18 gives μ^n=exp(−πi/6), whereas ζ^n=1. Independent Dζ(1) phase checks passed at all 18 primitive roots of orders 3,5,7,9.",
+        "by": "REV-HabiroNumberFields--HB.2~2"
       }
     },
     {
@@ -773,12 +777,13 @@
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "Independent review, 2026-10-06: rendered version-of-record p.236, author publication index https://people.mpim-bonn.mpg.de/stavros/publications/, arXiv abstract https://arxiv.org/abs/1812.07690, and correction/erratum web searches; no correction located."
+        "Independent review, 2026-10-06: rendered version-of-record p.236, author publication index https://people.mpim-bonn.mpg.de/stavros/publications/, arXiv abstract https://arxiv.org/abs/1812.07690, and correction/erratum web searches; no correction located.",
+        "Independent revision review, 2026-10-08: author-hosted published pp.236–237 inspected; author publication index https://people.mpim-bonn.mpg.de/stavros/publications/, arXiv record https://arxiv.org/abs/1812.07690, and searches for the paper title with erratum/correction. No correction to these Appendix A findings located."
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "The rendered p.236 prints (56) twice in this paragraph. Its first use correctly discusses f; the second concerns equality on an open set and must refer to (55). This is a locator slip with no change to the intended theorem.",
-        "by": "REV-HabiroNumberFields--HB.2"
+        "reason": "Published p.236 uses the finite-sum definition number in the sentence about proving equality of rational functions. That equality is (55); (56) defines the sum. This editorial reference error changes no theorem.",
+        "by": "REV-HabiroNumberFields--HB.2~2"
       }
     }
   ],
@@ -972,33 +977,46 @@
         "content/tau-ceti/GrothendieckEulerForms/README.md",
         "content/tau-ceti/ProfiniteCohomology/README.md (including the Layer 9 supplier)"
       ]
+    },
+    "revisionReview": {
+      "by": "REV-HabiroNumberFields--HB.2~2",
+      "date": "2026-10-08",
+      "sources": "Five public PDFs independently downloaded; every recorded SHA-256 matches. All ten node/source locator records checked. Published GZ pp.236–237 also inspected as rendered pages. No additional version-of-record access claimed for Hutchinson or Soulé.",
+      "reader": "Every prior required repair verified in sections 1, 3.1, 4, 5 and 8: explicit convergence witness, odd-prime-power hypothesis, separate Bott citation, left/right resolution compatibility and qualified provenance.",
+      "baseline": "Six actual statements read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and Tau Ceti f790474821cf4256814db967cb154e7af3d0c369. No removed or replaced citation; Kummer surjectivity remains a supplier import.",
+      "math": "6354 fixed-primitive-root admissible finite-field triples passed both KMS and the shifted-z API identity, at orders 3,5,7,9. All 18 primitive-root Dedekind phases passed. Ramanujan-product Gaussian checks at n=3,5 and ε=.02,.01,.005 approach the corrected constant; these experiments do not prove uniform tails. Exact rational convergence and normalization witnesses checked. All eight proposed stage-edge insertions are acyclic in the extracted atlas graph.",
+      "prototype": "Full file not elaborated: lean-check stops at the missing TauCeti.Algebra.Group.PowerClassGroup object file. The existing shared checkout has pinned Mathlib but a different Tau Ceti revision; exact Tau Ceti source statements were read from git objects. No build, cache download, checkout mutation or new Mathlib-only extraction performed.",
+      "styleInputs": [
+        "content/tau-ceti/ProfiniteCohomology/README.md",
+        "content/tau-ceti/GrothendieckEulerForms/README.md"
+      ]
     }
   },
   "review": {
-    "status": "needs_changes",
-    "reviewer": "independent-review-REV-HabiroNumberFields--HB.2",
-    "date": "2026-10-06",
-    "notes": "Four new nodes reviewed; six baseline citations confirmed at the exact pins; 28 parent imports checked for ownership/scope and guarded at the convention-sensitive interfaces. Corrected the KMS convergence neighborhood and supplier requests, made left/right bar-class compatibility explicit, restored the odd-prime-power Chern hypothesis, corrected Proposition 4.6 to p.7, and confirmed all four supplied source issues (reclassifying EHB2.3 as error); added the equation-reference misprint EHB2.5. The packet is a complete target-level planning pass with honest supplier/sign gaps, not a closed proof. Acceptance is withheld because the definitive reader still asserts that 0<X<1<Y implies bilateral convergence and omits the prime hypothesis; this review issue does not authorize editing that reader. The report supplies exact reader corrections. The full Lean file did not elaborate because the existing build lacks its Tau Ceti object file; no build was attempted.",
+    "status": "accepted",
+    "reviewer": "independent-review-REV-HabiroNumberFields--HB.2~2",
+    "date": "2026-10-08",
+    "notes": "Independent revision review: all four new nodes, six exact-pin baseline declarations, 28 parent imports, eight API items, four tests, five source findings, seven supplier requests and all four confirmed red-team findings checked. The definitive reader now incorporates every correction requested by the previous review. No mathematical target or baseline replacement was needed. Complete target-level planning pass accepted with its precise supplier/sign gaps and planned coverage retained; no proof closure or formalisation is claimed. Full suggestion unavailable at both pins: lean-check stops at a missing Tau Ceti object in the existing shared build. Source-finding descriptions are paraphrases, in accordance with the standing source rule.",
     "checked": [
       {
         "nodeId": "HabiroNumberFields:HB.2/cyclic-hypergeometric-sum",
         "verdict": "verified",
-        "note": "Finite expression, all eight API signatures and four discriminating tests checked; periodic recurrence and geometric-sum compatibility have the stated sufficient hypotheses. No duplicated q-product definition."
+        "note": "Checked the total finite expression, all eight API contracts and four tests, including the product start, cancellation hypotheses and shifted-z recurrence."
       },
       {
         "nodeId": "HabiroNumberFields:HB.2/kms-odd-order-proof",
-        "verdict": "corrected",
-        "note": "Finite KMS identity and integral specialization verified as a target with explicitly requested analytic inputs. Corrected the convergence witness to a small neighborhood of (1/5,2), with generic nonreal parameters, and aligned both supplier requests. Reader convergence claim still needs correction."
+        "verdict": "verified",
+        "note": "Checked the odd-order identity, corrected analytic constants, admissible neighborhood and integral specialization. The exact QM.0 and P.1 exports remain explicit supplier obligations."
       },
       {
         "nodeId": "HabiroNumberFields:HB.2/eta-bar-bloch-specialization",
-        "verdict": "corrected",
-        "note": "Checked the 2013 configuration formula and 2024 specialization, correction [0], N=3/5 tests, recurrence and determinant-one conjugation. Added explicit left/right bar and positive Bockstein compatibility."
+        "verdict": "verified",
+        "note": "Checked the refined cross-ratio specialization, retained [0] correction, positive left/right homology-class compatibility and determinant-one conjugation. The generic map stays with V.4."
       },
       {
         "nodeId": "HabiroNumberFields:HB.2/eta-chern-signed-evaluation",
-        "verdict": "corrected",
-        "note": "Restored ℓ an odd prime, m≥1, corrected Proposition 4.6 to p.7, and cited p.6 for the Bott Chern value. The raw negative versus independently negated positive evaluation is sound under the stated conventions; identifying the published fixed map remains an honest gap."
+        "verdict": "verified",
+        "note": "Checked the odd-prime-power hypothesis, positive Bott and standard Kummer conventions, raw negative evaluation and independently defined opposite normalization. The fixed CGZ/GSWZ-map identification remains an explicit gap."
       }
     ]
   }
