@@ -9,7 +9,7 @@
     "HeegnerPointEulerSystems:HE.8c"
   ],
   "status": "complete",
-  "summary": "A target-level planning pass for ordinary anticyclotomic Heegner families, geometric CM nonvanishing, integral specialization defects, and the separately owned anticyclotomic main-conjecture proofs. Classical all-prime descent is imported from the reviewed HE.7 packet. Source bookkeeping layers are accounted for without inventing mathematical declarations. Exact supplier extensions and source-access gaps remain explicit; no formalisation or closure is claimed.",
+  "summary": "Revision 2 completes the target-level HE.7s/8/8b/8c planning pass with 61 declarations. It preserves the independent reviewer’s accepted targets and corrections, repairs the norm-family/corestriction coherence interfaces with fixed continuous data and explicit finite solvability, synchronizes the reader, and leaves all recorded arithmetic/source supplier gaps visible. This is a completed plan, not mathematical closure or formalisation.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -76,12 +76,27 @@
         "module": "Mathlib/Data/ENat/Defs.lean",
         "provides": "Extended naturals ℕ∪{∞}; records zero-system divisibility and empty-stratum minima.",
         "checked": "Statement read at exact Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174, source line 17."
+      },
+      {
+        "ref": "mathlib:Pi.compactSpace",
+        "kind": "instance",
+        "module": "Mathlib/Topology/Compactness/Compact.lean",
+        "provides": "Compactness of a dependent product when every factor is compact; used on the actual supplied inverse-limit modules.",
+        "checked": "Full instance and preceding compact-product theorem read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 1173–1178, on 2026-10-08."
+      },
+      {
+        "ref": "mathlib:IsCompact.inter_iInter_nonempty",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Compactness/Compact.lean",
+        "provides": "A compact set meets the intersection of a family of closed sets when it meets every finite subfamily; used for the simultaneous bottom and auxiliary constraints.",
+        "checked": "Full statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 293–299, on 2026-10-08."
       }
     ],
     "searches": [
       "Full pinned Tau Ceti source name search for Heegner/Kolyvagin/ring-class/Iwasawa/Selmer/Ratner found no matching arithmetic theory; SubringClass occurrences are unrelated.",
       "Pinned Mathlib name search found Heegner numbers in Chudnovsky and group-theoretic Iwasawa simplicity criteria; measure theory includes an abstract measure interpretation, but not this integral completed arithmetic Selmer/Heegner theory. All positive citations were read in source.",
-      "Independent review repeated pinned git-tree searches: Tau Ceti had no Heegner/Kolyvagin/anticyclotomic hits; Mathlib had only Heegner-number commentary in Chudnovsky. All nine positive declarations were independently read and retained."
+      "Independent review repeated pinned git-tree searches: Tau Ceti had no Heegner/Kolyvagin/anticyclotomic hits; Mathlib had only Heegner-number commentary in Chudnovsky. All nine positive declarations were independently read and retained.",
+      "Revision 2 re-read all nine existing positive statements at the exact Mathlib pin and the reviewed AUDIT-25 entries for HE.7s/8/8b/8c. Native compact-product and closed finite-intersection statements already exist and are imported; only their specified Heegner constraint application is added."
     ]
   },
   "sources": [
@@ -91,11 +106,12 @@
       "authors": "Benjamin Howard",
       "edition": "arXiv:1202.6340v1, 28 February 2012; Compositio Math.140 (2004),1439–1472",
       "url": "https://arxiv.org/pdf/1202.6340",
-      "accessed": "2026-10-06",
+      "accessed": "2026-10-08",
       "readSections": [
         "Introduction; §§2.1–2.3, including the height-one control/error proof, the universal-norm construction, local verification and augmentation argument. Finite-level material in Chapter 1 is imported from the reviewed HE.0 part."
       ],
-      "sha256": "d2d06e851d6aa1fdc33a932b69b5c06a8c56dc2d9e05fb10d97c0358d6d6ea9a"
+      "sha256": "d2d06e851d6aa1fdc33a932b69b5c06a8c56dc2d9e05fb10d97c0358d6d6ea9a",
+      "revisionRead": "Revision 2: §2.3, Lemmas 2.3.2–2.3.3 and the complete common-presentation/compactness proof, PDF pp.28–30."
     },
     {
       "id": "cornut",
@@ -103,7 +119,7 @@
       "authors": "Christophe Cornut",
       "edition": "Invent. Math.148 (2002),495–523; author manuscript",
       "url": "https://webusers.imj-prg.fr/~christophe.cornut/papers/mcinv.pdf",
-      "accessed": "2026-10-06",
+      "accessed": "2026-10-08",
       "readSections": [
         "Introduction and the modular CM-trace non-torsion statement used by Howard2.3.7. The more general dynamical proof is read in the companion distribution paper; no claim to have read every proof here."
       ],
@@ -115,11 +131,12 @@
       "authors": "Christophe Cornut; Vinayak Vatsal",
       "edition": "Author manuscript, 1 April 2005; LMS Lecture Note Series320 (2007),121–186",
       "url": "https://personal.math.ubc.ca/~vatsal/research/part1.pdf",
-      "accessed": "2026-10-06",
+      "accessed": "2026-10-08",
       "readSections": [
         "§1 hypothesis/sign/character statements; §4.1 and §§4.3–4.6, including degeneracy injectivity and the Ratner-based proof; §§5.3–5.4 including Theorem 5.10. Order, curve and distribution-recurrence setup in §§2–3/Appendix6 is imported from the reviewed HE.0 part."
       ],
-      "sha256": "bdf258c742a88ce4328dcf3ef1df0dfe1235f1640c06bd66eeaaef2c1c6625e1"
+      "sha256": "bdf258c742a88ce4328dcf3ef1df0dfe1235f1640c06bd66eeaaef2c1c6625e1",
+      "revisionRead": "Revision 2: Lemma 2.7 and Proposition 4.4 proof, PDF pp.22,38; checked the relative-tower torsion scope."
     },
     {
       "id": "cv-dynamics",
@@ -127,7 +144,7 @@
       "authors": "Christophe Cornut; Vinayak Vatsal",
       "edition": "Author manuscript, 3 April 2005; Documenta Math.10 (2005),263–309",
       "url": "https://webusers.imj-prg.fr/~christophe.cornut/papers/part2.pdf",
-      "accessed": "2026-10-06",
+      "accessed": "2026-10-08",
       "readSections": [
         "Theorem 2.9/Corollary 2.10; the reduction to local dynamics in §2.5 and the complete §2.7 uniform-distribution, twisted-diagonal, partition and commensurability argument. General F_P twisted-diagonal input remains a qualified supplier request."
       ],
@@ -139,11 +156,12 @@
       "authors": "Ashay Burungale; Francesc Castella; Giada Grossi; Christopher Skinner",
       "edition": "arXiv:2312.09301v2, January 2026; published CJM14(2) (2026),285–348",
       "url": "https://arxiv.org/pdf/2312.09301v2",
-      "accessed": "2026-10-06",
+      "accessed": "2026-10-08",
       "readSections": [
         "Introduction and §§1–2: construction, near-trivial characters, lattice/logarithm/control factors, error bound, Theorems A/B and generic rigidity/stub statements. The cyclotomic Chapter 3 is outside this scope."
       ],
-      "sha256": "e575367ab8dd9ffdb1850959dde93f205c4007b0e56af4ed30e120079660aee3"
+      "sha256": "e575367ab8dd9ffdb1850959dde93f205c4007b0e56af4ed30e120079660aee3",
+      "revisionRead": "Revision 2: §2.2, Proposition 2.2.1, Theorem 2.2.2, Lemma 2.2.4 and their proof scope, PDF pp.17–19."
     },
     {
       "id": "bcgs-published-author",
@@ -151,7 +169,7 @@
       "authors": "Ashay Burungale; Francesc Castella; Giada Grossi; Christopher Skinner",
       "edition": "Author copy dated 2 January 2026, linked by Castella alongside CJM publication; not certified as the publisher PDF",
       "url": "https://web.math.ucsb.edu/~castella/Kolyvagin.pdf",
-      "accessed": "2026-10-06",
+      "accessed": "2026-10-08",
       "readSections": [
         "Introduction condition(disc) and Lemma 1.1.5 compared with arXiv v2. This copy is used only for collation, not as evidence that the journal version has the same wording.",
         "Proposition2.2.1, Theorem2.2.2, Lemma2.2.4 and the exact-length proof collated independently with arXivv2 for E3."
@@ -164,7 +182,7 @@
       "authors": "Ashay Burungale; Francesc Castella; Christopher Skinner",
       "edition": "arXiv:2405.00270v2, March 2025; theorem numbering belongs to v2",
       "url": "https://arxiv.org/pdf/2405.00270v2",
-      "accessed": "2026-10-06",
+      "accessed": "2026-10-08",
       "readSections": [
         "§1 statements and proof outline, §§2–5 anticyclotomic proof through Theorems1.2.2/1.2.4. The cyclotomic endpoint is not used as a supplier."
       ],
@@ -176,11 +194,12 @@
       "authors": "Francesc Castella; Giada Grossi; Jaehoon Lee; Christopher Skinner",
       "edition": "Invent. Math.227 (2022),517–580; author copy",
       "url": "https://web.math.ucsb.edu/~castella/Eisenstein.pdf",
-      "accessed": "2026-10-06",
+      "accessed": "2026-10-08",
       "readSections": [
         "§§4.1–4.2: weaker tor hypothesis, unit normalization, localized divisibility, formulation equivalence and the source’s additional(Sel) hypothesis. The newer CGS theorem is requested from BSD.7a, not inferred from this older theorem."
       ],
-      "sha256": "2bd32832411151a628136b245eada847f2f1b2e04872391bbe630e8e1a54819b"
+      "sha256": "2bd32832411151a628136b245eada847f2f1b2e04872391bbe630e8e1a54819b",
+      "revisionRead": "Revision 2: §4.1–§4.2, Theorem 4.1.1 proof, Remark 4.1.3 and Proposition 4.2.1, PDF pp.27–29."
     },
     {
       "id": "cs",
@@ -188,11 +207,12 @@
       "authors": "Francesc Castella; Takamichi Sano",
       "edition": "Author manuscript dated 20 January 2026, arXiv:2601.14504v1",
       "url": "https://web.math.ucsb.edu/~castella/Kurihara.pdf",
-      "accessed": "2026-10-06",
+      "accessed": "2026-10-08",
       "readSections": [
         "Introduction TheoremC and all §3: Heegner family, strict ordinary Selmer complexes, determinant formulation, exact specialization factors and both directions of refined-conjecture equivalence. §2 cyclotomic results are not extracted here."
       ],
-      "sha256": "9478dc414299a3821fe4192ef138bb1da96a30b95f8b01beae54895340f903c9"
+      "sha256": "9478dc414299a3821fe4192ef138bb1da96a30b95f8b01beae54895340f903c9",
+      "revisionRead": "Revision 2: §3.1–§3.3, Lemma 3.1.1, strict ordinary cone (3.6)–(3.8), Proposition 3.3.2 and proof, PDF pp.13–15."
     },
     {
       "id": "wuthrich",
@@ -200,7 +220,7 @@
       "authors": "Christian Wüthrich",
       "edition": "Documenta Math.19 (2014),381–402, published PDF",
       "url": "https://www.maths.tcd.ie/EMIS/journals/DMJDMV/vol-19/12.pdf",
-      "accessed": "2026-10-06",
+      "accessed": "2026-10-08",
       "readSections": [
         "Introduction Theorems1–3 and §2 Theorem4 including its distinguished-lattice/étale-isogeny proof. The full integral Kato proof and Eisenstein divisibility remain precise owner requests to KatoL4; no whole-paper proof read claim."
       ],
@@ -212,11 +232,12 @@
       "authors": "Ashay Burungale, Francesc Castella, Chan-Ho Kim",
       "edition": "Published author-served copy, Algebra & Number Theory15(7) (2021),1627–1653, DOI10.2140/ant.2021.15.1627",
       "url": "https://web.math.ucsb.edu/~castella/PRconj-print.pdf",
-      "accessed": "2026-10-06",
+      "accessed": "2026-10-08",
       "readSections": [
         "Standing conventions and §§2,4–5, especially Theorem5.2 and its integral local-length/reciprocity argument."
       ],
-      "sha256": "6380182b4211ad71e8c9a8b8557132902c673ccd69e7a28192ffde9343b44fdd"
+      "sha256": "6380182b4211ad71e8c9a8b8557132902c673ccd69e7a28192ffde9343b44fdd",
+      "revisionRead": "Revision 2: §5, Theorem 5.2 statement and complete proof, PDF pp.20–21, published pp.1646–1647."
     },
     {
       "id": "cgs",
@@ -224,11 +245,12 @@
       "authors": "Francesc Castella, Giada Grossi, Christopher Skinner",
       "edition": "Author-served copy linked to Math. Ann.393(2) (2025),2451–2506; not certified as publisher PDF",
       "url": "https://web.math.ucsb.edu/~castella/Mazur.pdf",
-      "accessed": "2026-10-06",
+      "accessed": "2026-10-08",
       "readSections": [
         "Introduction TheoremsA/C and the anticyclotomic Greenberg reformulation, for the supplier assumptions only; the owner must decompose the independent proof."
       ],
-      "sha256": "4ca65e104b68ce441b2d62ba39af96bc4058fab26947919d5a8d4a6eb929382e"
+      "sha256": "4ca65e104b68ce441b2d62ba39af96bc4058fab26947919d5a8d4a6eb929382e",
+      "revisionRead": "Revision 2: Theorem C, its exact Eisenstein hypotheses and subsequent Greenberg reformulation, PDF pp.3–4."
     }
   ],
   "nodes": [
@@ -259,8 +281,8 @@
       "sources": [
         {
           "sourceId": "howard",
-          "locator": "§2.3, before Lemma 2.3.2",
-          "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
+          "locator": "§2.3, before Lemma 2.3.2; PDF pp.28–29",
+          "match": "The Artin-polynomial product and inert scalar precede the universal-norm proof; augmentation retains a possibly nonunit factor."
         }
       ],
       "implementationStatus": "unchecked",
@@ -298,7 +320,7 @@
         {
           "name": "TauCeti.Heegner.Anticyclotomic.initialFactor_natural",
           "role": "functoriality",
-          "statement": "A coefficient-ring map and compatible Δ-map carry Φ to the corresponding factor."
+          "statement": "A coefficient-ring map and compatible finite ring-class group map carry Φ to the corresponding factor."
         }
       ],
       "tests": [
@@ -350,8 +372,8 @@
       "sources": [
         {
           "sourceId": "cgls",
-          "locator": "Remark 4.1.3",
-          "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
+          "locator": "Remark 4.1.3; PDF pp.28",
+          "match": "The source separates the initial Euler correction from positive-conductor unit-root stabilization and traces from the least containing conductor."
         }
       ],
       "implementationStatus": "unchecked",
@@ -401,7 +423,7 @@
         {
           "name": "TauCeti.Heegner.Anticyclotomic.stabilizedPoint_predecessor",
           "kind": "computation",
-          "statement": "Over ℚ_5 with unit root2 and raw P_1=4,P_0=2, the k=1 stabilized value is3/2, not2 or3."
+          "statement": "Over ℚ with unit 2 and raw P_1=4,P_0=2, the k=1 stabilized value is 3/2, not 2 or 3; this is an algebraic normalization example, not an arithmetic unit-root assertion."
         },
         {
           "name": "TauCeti.Heegner.Anticyclotomic.stabilizedPoint_first_level",
@@ -422,14 +444,15 @@
       "hypotheses": [
         "E/ℚ is modular with conductor N, K imaginary quadratic, all primes dividing N split in K, signed discriminant D_K<0 odd and not −3; p is odd and prime to ND_K, and E has good ordinary reduction at p.",
         "T=T_pE, Γ=Gal(K∞/K)≃ℤ_p, Λ=ℤ_p⟦Γ⟧, ι(γ)=γ⁻¹; imported continuous cohomology and propagated self-dual local conditions are used.",
-        "E(K)[p]=0."
+        "E(K)[p]=0.",
+        "Use the actual linear trace maps on the common ambient point-completion and the compatibly included raw points. The unit root α satisfies α²−a_pα+p=0; at positive level cor[k+1](raw[k+2])=a_p raw[k+1]−raw[k] and cor[k+1](raw[k+1])=p raw[k+1]. At the first step cor[0](raw[1])−α⁻¹cor[0](raw[0])=α·initial, with initial the separately corrected point. Identify anticyclotomic traces using the actual d(k)."
       ],
       "proofSteps": [
-        "Expand the recurrence, use a_p=α_p+β_p and α_pβ_p=p.",
-        "At the first level evaluate the Artin correction; use the actual tower norms."
+        "At positive levels, expand the defined α-stabilized point under the actual linear trace. Substitute the raw norm recurrence and the degree-p equation, and use α²−a_pα+p=0 to obtain the preceding stabilized point.",
+        "At level zero, use the separate first-step equation for the corrected initial point. Compose the actual conductor traces down to K_k with d(k), rather than replacing d(k) by a fixed shift."
       ],
       "acceptance": [
-        "Retain every coefficient, local condition and arithmetic hypothesis stated here; compare the source locator before using the declaration."
+        "The conclusion uses stabilizedPoint α raw initial, not an arbitrary sequence. The unit-root, raw recurrence, degree and first-step correction are expressible hypotheses in the prototype; actual tower identifications remain supplier conditions."
       ],
       "prerequisites": [
         "HeegnerPointEulerSystems:HE.8/ordinary-stabilized-point",
@@ -438,8 +461,8 @@
       "sources": [
         {
           "sourceId": "cgls",
-          "locator": "Remark 4.1.3 and proof of Theorem 4.1.1",
-          "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
+          "locator": "Remark 4.1.3 and proof of Theorem 4.1.1; PDF pp.27–28",
+          "match": "Unit-root stabilization converts the actual raw trace recurrence into compatible norms; the initial correction handles the first step separately."
         }
       ],
       "implementationStatus": "unchecked",
@@ -450,6 +473,53 @@
       "declaration": "stabilized_corestriction"
     },
     {
+      "id": "HeegnerPointEulerSystems:HE.8/compact-universal-norm-lift",
+      "parentStageId": "HeegnerPointEulerSystems:HE.8",
+      "realises": [
+        "HeegnerPointEulerSystems:HE.8"
+      ],
+      "title": "Compact lift of the simultaneous Heegner norm constraints",
+      "kind": "lemma",
+      "statement": "For the actual compact Hausdorff inverse-limit groups L[n], fix the continuous bottom projections π[n], prescribed values Φ[n]P[n], permitted conductor edges j, continuous auxiliary traces tr[j] and integer scalars a[j]. If every finite list of bottom equations π[n]q[n]=Φ[n]P[n] and auxiliary equations tr[j]q[target j]=a[j]q[source j] has a common solution, there is a family q satisfying every equation. This packages the arithmetic constraint application of existing compactness; it does not re-plan the generic inverse-limit or Tychonoff theory.",
+      "hypotheses": [
+        "The indices and actual groups/maps are those of the ordinary Heegner tower; all L[n] are compact Hausdorff topological additive groups, all initial groups P[n] are Hausdorff, and π[n] and tr[j] are continuous.",
+        "Every finite list of the two kinds of constraints is simultaneously solvable. Howard’s common free presentation and its compatible conductor maps establish this arithmetic input; CGLS uses the actual class-number shifts."
+      ],
+      "proofSteps": [
+        "Use the existing compact product theorem for ∏_n L[n]. Each bottom constraint is a closed fibre of a continuous map into a Hausdorff initial group. Each auxiliary equation is a closed equalizer in the Hausdorff limit group at its source.",
+        "Index the closed sets by the disjoint union of conductors and permitted edges. Split any finite index set into its bottom and auxiliary parts and apply the simultaneous finite-solvability hypothesis.",
+        "Apply the existing compact finite-intersection theorem and extract a family in the common intersection."
+      ],
+      "acceptance": [
+        "Import native compactness rather than inventing a compactness predicate. Retain continuity, Hausdorff separation and simultaneous finite solvability in the signature.",
+        "The finite-solvability hypothesis is an explicit lower-level arithmetic obligation; it is not a field asserting global existence or the desired source theorem."
+      ],
+      "prerequisites": [
+        "mathlib:Pi.compactSpace",
+        "mathlib:IsCompact.inter_iInter_nonempty",
+        "PadicMeasuresIwasawaAlgebras:L5"
+      ],
+      "sources": [
+        {
+          "sourceId": "howard",
+          "locator": "Lemmas2.3.2–2.3.3; PDF pp.29–30",
+          "match": "The common free-presentation proof gives simultaneous finite solutions before the source applies compactness to the family of conductor constraints."
+        },
+        {
+          "sourceId": "cgls",
+          "locator": "Theorem 4.1.1, proof and class-number-shift/local-condition adaptation; PDF pp.27–28",
+          "match": "Supplies the weaker E(K)[p]=0 construction and local verification; Howard’s strong image/class-number assumptions are retained only by Howard’s divisibility theorem."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Heegner/Anticyclotomic",
+        "namespace": "TauCeti.Heegner.Anticyclotomic"
+      },
+      "declaration": "universalNormFamily_exists",
+      "promotedFrom": "HeegnerPointEulerSystems:HE.8/universal-norm-heegner-family"
+    },
+    {
       "id": "HeegnerPointEulerSystems:HE.8/universal-norm-heegner-family",
       "parentStageId": "HeegnerPointEulerSystems:HE.8",
       "realises": [
@@ -457,20 +527,27 @@
       ],
       "title": "Howard universal-norm Heegner family",
       "kind": "construction",
-      "statement": "Under the ordinary Heegner conditions and E(K)[p]=0, construct Q[n] in lim_k H_k[n], the inverse limit of the ℤ_p[Gal(K_k[n]/K)]-modules generated by P[n] and P_j[n]. Its level-zero projection is ΦP[n], and Cor_(K∞[nℓ]/K∞[n])Q[nℓ]=a_ℓQ[n] for every permitted auxiliary ℓ. Choices arise from compactness, not uniqueness. Howard proves this under full G_K image and p∤h_K; CGLS Theorem 4.1.1 gives the weaker construction with the actual class-number conductor shifts, without extending Howard’s divisibility theorem.",
+      "statement": "Under the ordinary Heegner conditions and E(K)[p]=0, construct Q[n] in lim_k H_k[n], the inverse limit of the ℤ_p[Gal(K_k[n]/K)]-modules generated by P[n] and P_j[n]. Its level-zero projection is ΦP[n], and Cor_(K∞[nℓ]/K∞[n])Q[nℓ]=a_ℓQ[n] for every permitted auxiliary ℓ. Choices arise from compactness, not uniqueness. Howard proves this under full G_K image and p∤h_K; CGLS Theorem 4.1.1 gives the weaker construction with the actual class-number conductor shifts, without extending Howard’s divisibility theorem. The construction takes these fixed maps and scalars together with finite solvability; its APIs use the same data. For actual level projections pr[n,k] and transitions cor[n,k], require cor[n,k]∘pr[n,k+1]=pr[n,k]. Differences between two choices with these same bottom and auxiliary constraints have zero bottom projection and obey tr[j](Q[target j]−Q′[target j])=a[j](Q[source j]−Q′[source j]).",
       "hypotheses": [
         "E/ℚ is modular with conductor N, K imaginary quadratic, all primes dividing N split in K, signed discriminant D_K<0 odd and not −3; p is odd and prime to ND_K, and E has good ordinary reduction at p.",
         "T=T_pE, Γ=Gal(K∞/K)≃ℤ_p, Λ=ℤ_p⟦Γ⟧, ι(γ)=γ⁻¹; imported continuous cohomology and propagated self-dual local conditions are used.",
-        "E(K)[p]=0."
+        "E(K)[p]=0.",
+        "The conductor index I and permitted auxiliary-edge index J, their source/target maps, actual compact Hausdorff inverse-limit groups L[n], initial groups P[n], continuous bottom projections π[n], Artin-factor actions Φ[n], points P[n], continuous auxiliary traces tr[j], and scalars a[j] are fixed before choosing the family. Every finite list of bottom and auxiliary constraints has a simultaneous solution, as established by the common free-presentation argument; no uniqueness or surjectivity of arbitrary projections is assumed."
       ],
       "proofSteps": [
-        "Use ∩γ_kM=ΦM to lift ΦP[n] in the free presentation.",
-        "Lift finite families with compatible auxiliary norms, then use compactness to select one coherent family."
+        "For each squarefree auxiliary conductor, use Howard’s γ_k recurrence and the finitely generated free presentation to lift Φx. Send the common generators to the modules for its divisors with the same coefficients; the actual conductor trace maps turn this into a simultaneous finite family with the prescribed a_ℓ relations.",
+        "For an arbitrary finite list of conductors and permitted edges, enlarge to the divisors of their common squarefree product. Its finite family proves finite solvability of both sets of constraints, not merely separate surjectivity of each bottom projection.",
+        "Apply compact-universal-norm-lift to the product of the actual compact limit modules: bottom fibres and auxiliary equalizers are closed, and finite solvability gives their finite-intersection property. Choose one point of the common intersection.",
+        "Read bottom and auxiliary APIs from that intersection. Evaluate the supplied inverse-limit transition square for the level API; subtract two feasible families using additive trace linearity for both homogeneous choice relations.",
+        "In the E(K)[p]=0 adaptation, use CGLS’s actual least conductor d(k) and the supplier’s continuous tower/cohomology comparisons. This does not import Howard’s stronger divisibility theorem into the weak-torsion branch."
       ],
       "acceptance": [
-        "Retain every coefficient, local condition and arithmetic hypothesis stated here; compare the source locator before using the declaration."
+        "All expressible topology, finite-solvability and map-compatibility assumptions occur in the prototype. The permitted auxiliary maps and scalars are construction inputs, rather than universally quantified after a family has been chosen.",
+        "The finite-solvability obligation is discharged by the arithmetic common-presentation proof. A global family or the desired theorem must not be hidden in an opaque proposition-valued structure.",
+        "The zero-projection/nonzero-bottom case and the identity-trace/zero-scalar incompatible case fail finite solvability. Choice comparison retains both homogeneous laws and does not assert uniqueness."
       ],
       "prerequisites": [
+        "HeegnerPointEulerSystems:HE.8/compact-universal-norm-lift",
         "HeegnerPointEulerSystems:HE.8/initial-euler-factor",
         "HeegnerPointEulerSystems:HE.2/norm-relation-and-reduction-congruence",
         "PadicMeasuresIwasawaAlgebras:L1",
@@ -479,12 +556,12 @@
       "sources": [
         {
           "sourceId": "howard",
-          "locator": "Lemmas2.3.2–2.3.3",
-          "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
+          "locator": "Lemmas2.3.2–2.3.3; PDF pp.29–30",
+          "match": "The proof lifts the initial Artin-factor multiple in a common free presentation, obtains coherent finite conductor families, and chooses a global family by compactness."
         },
         {
           "sourceId": "cgls",
-          "locator": "Theorem 4.1.1, proof and class-number-shift/local-condition adaptation",
+          "locator": "Theorem 4.1.1, proof and class-number-shift/local-condition adaptation; PDF pp.27–28",
           "match": "Supplies the weaker E(K)[p]=0 construction and local verification; Howard’s strong image/class-number assumptions are retained only by Howard’s divisibility theorem."
         }
       ],
@@ -508,40 +585,56 @@
         {
           "name": "TauCeti.Heegner.Anticyclotomic.universalNormFamily_level_zero",
           "role": "projection",
-          "statement": "Q[n]_0=ΦP[n].",
+          "statement": "For the fixed data and the finite-solvability witness used by the construction, π[n](Q[n])=Φ[n]P[n].",
           "promotedNodeId": "HeegnerPointEulerSystems:HE.8/universal-norm-level-zero"
         },
         {
           "name": "TauCeti.Heegner.Anticyclotomic.universalNormFamily_trace",
           "role": "relation",
-          "statement": "Auxiliary trace Q[nℓ] maps to a_ℓQ[n]."
+          "statement": "For each edge j of the supplied permitted-edge index, the fixed trace tr[j] sends Q[target j] to a[j]Q[source j]."
         },
         {
           "name": "TauCeti.Heegner.Anticyclotomic.universalNormFamily_corestriction",
           "role": "compatibility",
-          "statement": "Each anticyclotomic transition carries Q[n]_(k+1) to Q[n]_k."
+          "statement": "For the actual supplied level projections and transitions, assume cor[n,k]∘pr[n,k+1]=pr[n,k]; then cor[n,k](pr[n,k+1](Q[n]))=pr[n,k](Q[n])."
         },
         {
           "name": "TauCeti.Heegner.Anticyclotomic.universalNormFamily_choice",
           "role": "characterisation",
-          "statement": "Two choices need not be equal; their difference has zero prescribed initial projection and obeys homogeneous norm relations."
+          "statement": "For two families satisfying the same bottom and fixed auxiliary constraints, their difference has zero bottom projection and satisfies the same homogeneous auxiliary trace relations; it need not be zero."
+        },
+        {
+          "name": "TauCeti.Heegner.Anticyclotomic.universalNormFamily_exists",
+          "role": "constructor",
+          "statement": "For the fixed continuous projection/auxiliary data on actual compact Hausdorff limits, simultaneous solvability of every finite list of constraints gives a family satisfying all bottom and auxiliary constraints.",
+          "promotedNodeId": "HeegnerPointEulerSystems:HE.8/compact-universal-norm-lift"
         }
       ],
       "tests": [
         {
           "name": "TauCeti.Heegner.Anticyclotomic.universalNormFamily_bottom",
           "kind": "compatibility",
-          "statement": "At n=1 the bottom projection is ΦP[1], not P[1]."
+          "statement": "On the finite compact group ℤ/7, with one conductor, no auxiliary edges, π=id, Φ=5·id and initial point 1, the chosen bottom is 5 rather than 1; the finite-solvability witness is the constant family 5."
         },
         {
           "name": "TauCeti.Heegner.Anticyclotomic.universalNormFamily_auxiliary",
           "kind": "degenerate",
-          "statement": "For a_ℓ=0 the auxiliary trace is zero; it is not the degree times Q[n]."
+          "statement": "For a fixed permitted auxiliary edge j with a[j]=0, and the same finite-solvability input used by the construction, tr[j](Q[target j])=0."
         },
         {
           "name": "TauCeti.Heegner.Anticyclotomic.universalNormFamily_nonunique",
           "kind": "non-example",
-          "statement": "A supplied inverse-limit module with a nonzero projection kernel permits distinct lifts of the same initial point."
+          "statement": "With one conductor and one self-edge on the finite compact group ℤ/2, bottom projection zero, prescribed bottom zero, trace id and scalar 1, the distinct families 0 and 1 satisfy both constraints, and their difference satisfies both homogeneous laws."
+        },
+        {
+          "name": "TauCeti.Heegner.Anticyclotomic.universalNormFamily_impossible_bottom",
+          "kind": "non-example",
+          "statement": "On ℤ/7 with π=0 and prescribed bottom 1, even the singleton bottom constraint has no solution, so no finite-solvability witness can be passed to the constructor."
+        },
+        {
+          "name": "TauCeti.Heegner.Anticyclotomic.universalNormFamily_incompatible_auxiliary",
+          "kind": "non-example",
+          "statement": "On ℤ/7 with π=id, prescribed bottom 1, a self-edge with trace id and scalar 0, the singleton bottom and auxiliary constraints cannot be solved simultaneously."
         }
       ]
     },
@@ -575,8 +668,8 @@
       "sources": [
         {
           "sourceId": "cgls",
-          "locator": "Theorem 4.1.1 and Remark 4.1.3",
-          "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
+          "locator": "Theorem 4.1.1 and Remark 4.1.3; PDF pp.27–28",
+          "match": "Integral Kummer and the tower cohomology comparison transport the compatible point family into the stated ordinary Iwasawa Selmer group."
         }
       ],
       "implementationStatus": "unchecked",
@@ -665,8 +758,8 @@
       "sources": [
         {
           "sourceId": "cv",
-          "locator": "§1.1, equations(3)–(4), and Lemma 2.8",
-          "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
+          "locator": "§1.1, equations(3)–(4), and Lemma 2.8; PDF pp.3–6,23",
+          "match": "The source fixes exact conductor, restriction to finite ring-class torsion, and central-character compatibility; these select the primitive character stratum."
         }
       ],
       "implementationStatus": "unchecked",
@@ -751,8 +844,8 @@
       "sources": [
         {
           "sourceId": "cv",
-          "locator": "§1.1, Lemma 1.1 and definitions of S,Sχ",
-          "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
+          "locator": "§1.1, Lemma 1.1 and definitions of S,Sχ; PDF pp.4–5",
+          "match": "The exceptional local sign set stabilizes at sufficiently large conductor, yielding the parity formula with the stated splitting exception."
         }
       ],
       "implementationStatus": "unchecked",
@@ -792,8 +885,8 @@
       "sources": [
         {
           "sourceId": "cv-dynamics",
-          "locator": "Theorem 2.9; §§2.5 and2.7",
-          "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
+          "locator": "Theorem 2.9; §§2.5 and2.7; PDF pp.11–12,24–35",
+          "match": "Simultaneous reductions equidistribute in their prescribed component fibres; the proof uses the specified local-product dynamics."
         }
       ],
       "implementationStatus": "unchecked",
@@ -829,8 +922,8 @@
       "sources": [
         {
           "sourceId": "cv-dynamics",
-          "locator": "Corollary 2.10",
-          "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
+          "locator": "Corollary 2.10; PDF pp.12",
+          "match": "At finite level, the positive fibre masses and joint distribution force the actual Galois orbit to cover the prescribed fibre."
         }
       ],
       "implementationStatus": "unchecked",
@@ -870,8 +963,8 @@
       "sources": [
         {
           "sourceId": "cv",
-          "locator": "Theorem 4.1; Theorem 4.10; Lemmas4.12–4.15 and Proposition 4.17",
-          "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
+          "locator": "Theorem 4.1; Theorem 4.10; Lemmas4.12–4.15 and Proposition 4.17; PDF pp.37,41–49",
+          "match": "The P-new degeneracy argument and joint reduction orbit give a non-torsion weighted character point, after controlling torsion in the relative tower."
         }
       ],
       "implementationStatus": "unchecked",
@@ -912,8 +1005,8 @@
       "sources": [
         {
           "sourceId": "cv",
-          "locator": "Proposition 5.6; Corollary 5.7; Proposition 5.8; Lemma 5.9; Theorem 5.10",
-          "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
+          "locator": "Proposition 5.6; Corollary 5.7; Proposition 5.8; Lemma 5.9; Theorem 5.10; PDF pp.55–58",
+          "match": "Nonexceptionality and weighted degeneracy injectivity give a nonconstant toric function and a nonzero primitive-character period."
         }
       ],
       "implementationStatus": "unchecked",
@@ -949,8 +1042,8 @@
       "sources": [
         {
           "sourceId": "cv",
-          "locator": "Theorem 1.4 and §5",
-          "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
+          "locator": "Theorem 1.4 and §5; PDF pp.6,50–58",
+          "match": "The definite character-period theorem, with its central-character and vector hypotheses, gives a central-value nonvanishing character in each deep stratum."
         }
       ],
       "implementationStatus": "unchecked",
@@ -988,8 +1081,8 @@
       "sources": [
         {
           "sourceId": "cv",
-          "locator": "Theorem 1.5 and §4",
-          "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
+          "locator": "Theorem 1.5 and §4; PDF pp.7,37–49",
+          "match": "The indefinite point theorem feeds the height formula under the additional coprimality and trivial-central-character hypotheses, producing a nonzero derivative character."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1030,12 +1123,12 @@
       "sources": [
         {
           "sourceId": "cornut",
-          "locator": "Introduction main theorem",
-          "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
+          "locator": "Introduction main theorem; PDF pp.2–3",
+          "match": "The modular CM-trace result supplies an infinite-order trace somewhere in the tower, rather than nonvanishing of every character."
         },
         {
           "sourceId": "howard",
-          "locator": "Theorem 2.3.7, initial invocation of Cornut",
+          "locator": "Theorem 2.3.7, initial invocation of Cornut; PDF pp.34",
           "match": "The clean Howard proof invokes Cornut at this point; its p∤h_K/image hypotheses are not silently imposed on CGLS’s weaker class construction."
         }
       ],
@@ -1076,8 +1169,8 @@
       "sources": [
         {
           "sourceId": "cgls",
-          "locator": "Theorem 4.1.1 and Remark 4.1.3",
-          "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
+          "locator": "Theorem 4.1.1 and Remark 4.1.3; PDF pp.27–28",
+          "match": "The non-torsion geometric tower input survives the coherent norm-family and unit comparison to give a non-torsion Iwasawa bottom class."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1120,12 +1213,12 @@
       "sources": [
         {
           "sourceId": "howard",
-          "locator": "§2.3, construction following Lemma 2.3.3",
-          "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
+          "locator": "§2.3, construction following Lemma 2.3.3; PDF pp.30",
+          "match": "The actual norm family is differentiated at auxiliary primes and descended using the coefficient ideal, restriction comparison and cyclic-Galois tensor."
         },
         {
           "sourceId": "cgls",
-          "locator": "Theorem 4.1.1, proof and class-number-shift/local-condition adaptation",
+          "locator": "Theorem 4.1.1, proof and class-number-shift/local-condition adaptation; PDF pp.27–28",
           "match": "Supplies the weaker E(K)[p]=0 construction and local verification; Howard’s strong image/class-number assumptions are retained only by Howard’s divisibility theorem."
         }
       ],
@@ -1220,12 +1313,12 @@
       "sources": [
         {
           "sourceId": "howard",
-          "locator": "Lemma 2.3.4",
-          "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
+          "locator": "Lemma 2.3.4; PDF pp.30–32",
+          "match": "The local proof treats the auxiliary, bad and ordinary places separately, including the universal-norm argument at bad primes."
         },
         {
           "sourceId": "cgls",
-          "locator": "Theorem 4.1.1, proof and class-number-shift/local-condition adaptation",
+          "locator": "Theorem 4.1.1, proof and class-number-shift/local-condition adaptation; PDF pp.27–28",
           "match": "Supplies the weaker E(K)[p]=0 construction and local verification; Howard’s strong image/class-number assumptions are retained only by Howard’s divisibility theorem."
         }
       ],
@@ -1265,12 +1358,12 @@
       "sources": [
         {
           "sourceId": "howard",
-          "locator": "Lemmas2.3.5–2.3.6",
-          "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
+          "locator": "Lemmas2.3.5–2.3.6; PDF pp.32–34",
+          "match": "The reciprocity/reduction comparison retains the Frobenius correction and coefficient depth needed by the finite-singular relation."
         },
         {
           "sourceId": "cgls",
-          "locator": "Theorem 4.1.1, proof and class-number-shift/local-condition adaptation",
+          "locator": "Theorem 4.1.1, proof and class-number-shift/local-condition adaptation; PDF pp.27–28",
           "match": "Supplies the weaker E(K)[p]=0 construction and local verification; Howard’s strong image/class-number assumptions are retained only by Howard’s divisibility theorem."
         }
       ],
@@ -1312,8 +1405,8 @@
       "sources": [
         {
           "sourceId": "cgls",
-          "locator": "Remark 4.1.3",
-          "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
+          "locator": "Remark 4.1.3; PDF pp.28",
+          "match": "The two constructed families differ by the displayed u_K and β-unit factors; this does not make the original Artin factor a unit."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1357,8 +1450,8 @@
       "sources": [
         {
           "sourceId": "howard",
-          "locator": "TheoremB; Proposition 2.1.3; Lemma 2.2.7–Theorem 2.2.10",
-          "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
+          "locator": "TheoremB; Proposition 2.1.3; Lemma 2.2.7–Theorem 2.2.10; PDF pp.2–3,23,25–28",
+          "match": "Height-one control and Kolyvagin specialization give rank one, paired torsion and a one-sided characteristic divisibility under Howard’s stronger hypotheses."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1401,8 +1494,8 @@
       "sources": [
         {
           "sourceId": "cgls",
-          "locator": "Theorems4.1.1–4.1.2",
-          "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
+          "locator": "Theorems4.1.1–4.1.2; PDF pp.27–28",
+          "match": "The weakened family gives the stated localized divisibility; removal of augmentation inversion needs the additional corank condition."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1443,8 +1536,8 @@
       "sources": [
         {
           "sourceId": "bcgs",
-          "locator": "Definition 1.2.2",
-          "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
+          "locator": "Definition 1.2.2; PDF pp.10–11",
+          "match": "The split-prime crystalline construction produces nontrivial characters arbitrarily close to the identity; it is an example of, rather than the supplier for, general continuous characters."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1538,12 +1631,12 @@
       "sources": [
         {
           "sourceId": "bcgs",
-          "locator": "Lemma 1.1.5 (split-prime branch)",
-          "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
+          "locator": "Lemma 1.1.5 (split-prime branch); PDF pp.9",
+          "match": "The finite and family derivative classes agree modulo the allowed depth after multiplication by the initial Euler factor; the two splitting types are distinguished."
         },
         {
           "sourceId": "cs",
-          "locator": "Lemma 3.1.1 and equation (3.5), both unramified splitting types",
+          "locator": "Lemma 3.1.1 and equation (3.5), both unramified splitting types; PDF pp.12–13",
           "match": "The paragraph immediately before Lemma 3.1.1 introduces the specialized system; the lemma gives both split and inert congruences. Correct its printed ideal containment as source issue E2 records."
         }
       ],
@@ -1584,8 +1677,8 @@
       "sources": [
         {
           "sourceId": "bcgs",
-          "locator": "Theorem 1.1.6",
-          "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
+          "locator": "Theorem 1.1.6; PDF pp.10",
+          "match": "A non-torsion Iwasawa class has nonzero sufficiently close nontrivial specializations; the identity may still be a zero."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1624,8 +1717,8 @@
       "sources": [
         {
           "sourceId": "bcgs",
-          "locator": "Introduction definitions of M_r,M∞; §2.2",
-          "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
+          "locator": "Introduction definitions of M_r,M∞; §2.2; PDF pp.2–3,17–20",
+          "match": "The divisibility minimum is taken over conductors with an exact number of auxiliary prime factors, and its limiting defect remains distinct from the bottom index."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1714,8 +1807,8 @@
       "sources": [
         {
           "sourceId": "bcgs",
-          "locator": "§1.2.2 and Lemma 1.2.5",
-          "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
+          "locator": "§1.2.2 and Lemma 1.2.5; PDF pp.12",
+          "match": "The distinguished modular-symbol lattice comparison preserves the global isogeny index and finite local cokernel."
         },
         {
           "sourceId": "wuthrich",
@@ -1762,8 +1855,8 @@
       "sources": [
         {
           "sourceId": "bcgs",
-          "locator": "Lemma 1.2.3",
-          "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
+          "locator": "Lemma 1.2.3; PDF pp.11–12",
+          "match": "The regulator index formula retains the chosen lattice, local invariant factor and specialization normalization."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1805,8 +1898,8 @@
       "sources": [
         {
           "sourceId": "bcgs",
-          "locator": "Theorem 1.2.7 (JSW control theorem as used there)",
-          "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
+          "locator": "Theorem 1.2.7 (JSW control theorem as used there); PDF pp.13–14",
+          "match": "The ordinary-to-(0,empty) control formula retains the finite localization cokernel, local torsion square and K-prime Tamagawa product."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1845,8 +1938,8 @@
       "sources": [
         {
           "sourceId": "bcgs",
-          "locator": "Lemma 1.2.8",
-          "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
+          "locator": "Lemma 1.2.8; PDF pp.14",
+          "match": "Congruences sufficiently deep compared with the relevant valuations preserve the p-primary Tamagawa terms at bad primes."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1888,8 +1981,8 @@
       "sources": [
         {
           "sourceId": "bcgs",
-          "locator": "Theorem 1.3.1 and its cited CGS proof",
-          "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
+          "locator": "Theorem 1.3.1 and its cited CGS proof; PDF pp.15",
+          "match": "A common rescaling of the derivative collection permits the Kolyvagin bound with an error uniform in the scalar; the rescaling contract remains explicit."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1931,8 +2024,8 @@
       "sources": [
         {
           "sourceId": "bcgs",
-          "locator": "Proposition 2.2.1; Theorem 2.2.2; Lemma 2.2.4",
-          "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
+          "locator": "Proposition 2.2.1; Theorem 2.2.2; Lemma 2.2.4; PDF pp.17–19",
+          "match": "The uniform stub index identifies the exact paired finite Selmer length. The verified route uses p>3, because the proof imports the stronger-prime stub lemma."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1975,8 +2068,8 @@
       "sources": [
         {
           "sourceId": "bcgs",
-          "locator": "Corollary 1.2.12; Remark 1.2.11",
-          "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
+          "locator": "Corollary 1.2.12; Remark 1.2.11; PDF pp.14",
+          "match": "Integral characteristic equality gives the exact specialization index square with the local torsion and Tamagawa factors; rational equality is insufficient."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2023,8 +2116,8 @@
       "sources": [
         {
           "sourceId": "bcgs",
-          "locator": "TheoremA and §2.1",
-          "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
+          "locator": "TheoremA and §2.1; PDF pp.2,15–16",
+          "match": "The rational main conjecture and deep-prime comparison contradict total finite-system vanishing through the uniform rescaling bound."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2072,8 +2165,8 @@
       "sources": [
         {
           "sourceId": "bcgs",
-          "locator": "TheoremB and §2.2",
-          "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
+          "locator": "TheoremB and §2.2; PDF pp.3,17–20",
+          "match": "The integral conjecture and exact length/index comparison identify the limiting defect with the Tamagawa valuation sum under the stronger prime and residual hypotheses."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2119,8 +2212,8 @@
       "sources": [
         {
           "sourceId": "cs",
-          "locator": "§3.2, equations (3.6)–(3.8), Theorem 3.2.1",
-          "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
+          "locator": "§3.2, equations (3.6)–(3.8), Theorem 3.2.1; PDF pp.13–14",
+          "match": "The source’s cochain cone uses all-p strict ordinary conditions and gives the rank-one discrete-dual determinant setting."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2161,8 +2254,8 @@
       "sources": [
         {
           "sourceId": "cs",
-          "locator": "Conjecture 3.2.2 and preceding determinant isomorphism",
-          "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
+          "locator": "Conjecture 3.2.2 and preceding determinant isomorphism; PDF pp.13–14",
+          "match": "The rational determinant comparison lifts the actual Heegner tensor; integral lattice generation is the further conjectural assertion."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2254,8 +2347,8 @@
       "sources": [
         {
           "sourceId": "cs",
-          "locator": "Proposition 3.2.3",
-          "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
+          "locator": "Proposition 3.2.3; PDF pp.14",
+          "match": "The determinant-basis assertion is equivalent to the product of the Heegner-line index ideal and its involution transform equalling the torsion characteristic ideal."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2296,8 +2389,8 @@
       "sources": [
         {
           "sourceId": "cs",
-          "locator": "Lemma 3.3.3 and proof of TheoremC",
-          "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
+          "locator": "Lemma 3.3.3 and proof of TheoremC; PDF pp.16–17",
+          "match": "The local unramified ordinary-quotient invariants yield the specified reduction-group factors for both twist signs."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2344,7 +2437,7 @@
       "sources": [
         {
           "sourceId": "cs",
-          "locator": "Proposition 3.3.2",
+          "locator": "Proposition 3.3.2; PDF pp.14–15",
           "match": "Actual proposition statement in §3.3, PDF pp.14–15, rather than the introductory mention. Its character need not be crystalline or split-prime; nonzero specialization gives both rank-one lattices."
         }
       ],
@@ -2386,8 +2479,8 @@
       "sources": [
         {
           "sourceId": "cs",
-          "locator": "Corollary 3.3.4",
-          "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
+          "locator": "Corollary 3.3.4; PDF pp.16",
+          "match": "An integral determinant generator, together with the specialized lattice formula, gives the exact twisted index square."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2433,8 +2526,8 @@
       "sources": [
         {
           "sourceId": "cs",
-          "locator": "TheoremC; §3.3 proof",
-          "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
+          "locator": "TheoremC; §3.3 proof; PDF pp.4–5,16–17",
+          "match": "The specialized determinant and exact finite-length identities prove both directions of the refined/main-conjecture equivalence, including the conditional inert case."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2472,12 +2565,12 @@
       "sources": [
         {
           "sourceId": "bcgs",
-          "locator": "Theorem 1.2.1 and Conjecture 1.2.10",
-          "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
+          "locator": "Theorem 1.2.1 and Conjecture 1.2.10; PDF pp.10,14",
+          "match": "The BDP interpolation and Greenberg conjecture provide the square-root convention on the BCGS side; the other source supplies its squared-function convention."
         },
         {
           "sourceId": "bcs",
-          "locator": "Conjecture 1.2.1, following Remark 1.2.3, and Theorem 1.2.4",
+          "locator": "Conjecture 1.2.1, following Remark 1.2.3, and Theorem 1.2.4; PDF pp.3",
           "match": "BCS uses the squared BDP distribution as its single-power function; 1.2.3 is a remark, not a conjecture. Compare ideals only after the GZ.9 normalization gap is discharged."
         }
       ],
@@ -2524,12 +2617,12 @@
       "sources": [
         {
           "sourceId": "cgls",
-          "locator": "Proposition 4.2.1 (rational comparison)",
+          "locator": "Proposition 4.2.1 (rational comparison); PDF pp.28–29",
           "match": "Both opposite divisibilities, only in Λ⊗ℚ_p. This is not the BCS two-variable comparison and does not by itself certify the integral statement."
         },
         {
           "sourceId": "bck",
-          "locator": "Theorem 5.2 and proof, published pp.1646–1647; standing p>3 and §5 split-prime hypotheses",
+          "locator": "Theorem 5.2 and proof, published pp.1646–1647; standing p>3 and §5 split-prime hypotheses; PDF pp.20–21",
           "match": "Integral Heegner/BDP comparison in both directions; use N⁻=1, the exact strict/unrestricted dictionary and H⁰=0. Non-anomalous, surjectivity and Hypothesis ♥ belong to Theorem 5.1, not Theorem 5.2."
         }
       ],
@@ -2571,8 +2664,8 @@
       "sources": [
         {
           "sourceId": "bcs",
-          "locator": "Proposition 5.2.1; Lemma 5.2.3",
-          "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
+          "locator": "Proposition 5.2.1; Lemma 5.2.3; PDF pp.9–11",
+          "match": "The auxiliary real quadratic field is selected with the stated local restrictions and residual disjointness; the p=5 exclusion remains attached."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2614,8 +2707,8 @@
       "sources": [
         {
           "sourceId": "bcs",
-          "locator": "Theorem 4.2.1 (using CGS Theorem 5.5.2)",
-          "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
+          "locator": "Theorem 4.2.1 (using CGS Theorem 5.5.2); PDF pp.8–9",
+          "match": "The two-variable Euler-system bound is imported at the source’s precise local conditions and then used in the anticyclotomic return."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2662,8 +2755,8 @@
       "sources": [
         {
           "sourceId": "bcs",
-          "locator": "§5.1–§5.3; Proposition 5.2.1; proof of Theorems1.2.2/1.2.4",
-          "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
+          "locator": "§5.1–§5.3; Proposition 5.2.1; proof of Theorems1.2.2/1.2.4; PDF pp.9–11",
+          "match": "The Wan/Fujiwara comparison is projected, combined with factorization and μ/control inputs, and cancelled only after the required nonzero factors are established."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2705,8 +2798,8 @@
       "sources": [
         {
           "sourceId": "bcs",
-          "locator": "Theorem 1.2.2(a)",
-          "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
+          "locator": "Theorem 1.2.2(a); PDF pp.3",
+          "match": "Opposite divisibilities yield the Heegner equality after inverting p under the residual-irreducibility branch."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2751,8 +2844,8 @@
       "sources": [
         {
           "sourceId": "bcs",
-          "locator": "Theorem 1.2.2(b)",
-          "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
+          "locator": "Theorem 1.2.2(b); PDF pp.3",
+          "match": "The integral opposite divisibilities yield the Heegner equality under the residual-surjectivity branch."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2795,8 +2888,8 @@
       "sources": [
         {
           "sourceId": "bcs",
-          "locator": "Theorem 1.2.4(a)",
-          "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
+          "locator": "Theorem 1.2.4(a); PDF pp.3",
+          "match": "The exact formulation dictionary transfers the rational Heegner equality to the Greenberg ideal of the squared BDP function."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2839,8 +2932,8 @@
       "sources": [
         {
           "sourceId": "bcs",
-          "locator": "Theorem 1.2.4(b)",
-          "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
+          "locator": "Theorem 1.2.4(b); PDF pp.3",
+          "match": "The integral formulation dictionary transfers the integral Heegner equality with the same coefficient and period normalizations."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2885,12 +2978,12 @@
       "sources": [
         {
           "sourceId": "bcgs",
-          "locator": "Theorem 1.2.13(i), citing CGS TheoremsA/C",
-          "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
+          "locator": "Theorem 1.2.13(i), citing CGS TheoremsA/C; PDF pp.14",
+          "match": "The branch list invokes the independent CGS Eisenstein theorem at its excluded-local-character scope."
         },
         {
           "sourceId": "cgs",
-          "locator": "Theorem C and ensuing Greenberg reformulation, author copy pp.3–4",
+          "locator": "Theorem C and ensuing Greenberg reformulation, author copy pp.3–4; PDF pp.3–4",
           "match": "Integral anticyclotomic equality without the older (Sel) condition. Theorem A is the cyclotomic consequence; Theorem C is the early supplier needed here."
         }
       ],
@@ -2935,8 +3028,8 @@
       "sources": [
         {
           "sourceId": "bcgs",
-          "locator": "Theorem 1.2.13 and TheoremA",
-          "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
+          "locator": "Theorem 1.2.13 and TheoremA; PDF pp.2,14–16",
+          "match": "The acquired main-conjecture branches discharge the conditional nonvanishing theorem with their separate residual and prime hypotheses."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2975,8 +3068,8 @@
       "sources": [
         {
           "sourceId": "bcgs",
-          "locator": "TheoremB and Theorem 1.2.13(iii)",
-          "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
+          "locator": "TheoremB and Theorem 1.2.13(iii); PDF pp.3,14,19–20",
+          "match": "The integral surjective split-prime branch discharges the conditional refined-divisibility theorem."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3017,8 +3110,8 @@
       "sources": [
         {
           "sourceId": "cs",
-          "locator": "TheoremC; Proposition 3.2.3",
-          "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
+          "locator": "TheoremC; Proposition 3.2.3; PDF pp.4–5,14",
+          "match": "The split-prime integral Heegner equality and determinant comparison discharge the determinant formulation under the refined theorem’s hypotheses."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3036,14 +3129,15 @@
       ],
       "title": "Q[n]_0=ΦP[n]",
       "kind": "lemma",
-      "statement": "Q[n]_0=ΦP[n].",
+      "statement": "For the family chosen from the fixed continuous projection and permitted auxiliary-trace data with simultaneous finite solvability, its actual bottom projection satisfies π[n](Q[n])=Φ[n]P[n]. This is the same interface as universalNormFamily_level_zero in the construction API.",
       "hypotheses": [
         "E/ℚ is modular with conductor N, K imaginary quadratic, all primes dividing N split in K, signed discriminant D_K<0 odd and not −3; p is odd and prime to ND_K, and E has good ordinary reduction at p.",
         "T=T_pE, Γ=Gal(K∞/K)≃ℤ_p, Λ=ℤ_p⟦Γ⟧, ι(γ)=γ⁻¹; imported continuous cohomology and propagated self-dual local conditions are used.",
-        "E(K)[p]=0."
+        "E(K)[p]=0.",
+        "The conductor index I and permitted auxiliary-edge index J, their source/target maps, actual compact Hausdorff inverse-limit groups L[n], initial groups P[n], continuous bottom projections π[n], Artin-factor actions Φ[n], points P[n], continuous auxiliary traces tr[j], and scalars a[j] are fixed before choosing the family. Every finite list of bottom and auxiliary constraints has a simultaneous solution, as established by the common free-presentation argument; no uniqueness or surjectivity of arbitrary projections is assumed."
       ],
       "proofSteps": [
-        "Apply the defining construction and the exact supplied projection/comparison, with the arithmetic identifications in the parent node."
+        "Take the bottom equation of the chosen point in the closed common constraint intersection, with the same maps, scalars and finite-solvability witness as the family construction."
       ],
       "acceptance": [
         "The map and its coefficient/tower/local-condition identifications are exactly those in the parent API; the signature is shared with that API item."
@@ -3054,12 +3148,12 @@
       "sources": [
         {
           "sourceId": "howard",
-          "locator": "Lemmas2.3.2–2.3.3",
-          "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
+          "locator": "Lemmas2.3.2–2.3.3; PDF pp.29–30",
+          "match": "The proof lifts the initial Artin-factor multiple in a common free presentation, obtains coherent finite conductor families, and chooses a global family by compactness."
         },
         {
           "sourceId": "cgls",
-          "locator": "Theorem 4.1.1, proof and class-number-shift/local-condition adaptation",
+          "locator": "Theorem 4.1.1, proof and class-number-shift/local-condition adaptation; PDF pp.27–28",
           "match": "Supplies the weaker E(K)[p]=0 construction and local verification; Howard’s strong image/class-number assumptions are retained only by Howard’s divisibility theorem."
         }
       ],
@@ -3097,8 +3191,8 @@
       "sources": [
         {
           "sourceId": "cgls",
-          "locator": "Theorem 4.1.1 and Remark 4.1.3",
-          "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
+          "locator": "Theorem 4.1.1 and Remark 4.1.3; PDF pp.27–28",
+          "match": "Integral Kummer and the tower cohomology comparison transport the compatible point family into the stated ordinary Iwasawa Selmer group."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3135,12 +3229,12 @@
       "sources": [
         {
           "sourceId": "howard",
-          "locator": "§2.3, construction following Lemma 2.3.3",
-          "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
+          "locator": "§2.3, construction following Lemma 2.3.3; PDF pp.30",
+          "match": "The actual norm family is differentiated at auxiliary primes and descended using the coefficient ideal, restriction comparison and cyclic-Galois tensor."
         },
         {
           "sourceId": "cgls",
-          "locator": "Theorem 4.1.1, proof and class-number-shift/local-condition adaptation",
+          "locator": "Theorem 4.1.1, proof and class-number-shift/local-condition adaptation; PDF pp.27–28",
           "match": "Supplies the weaker E(K)[p]=0 construction and local verification; Howard’s strong image/class-number assumptions are retained only by Howard’s divisibility theorem."
         }
       ],
@@ -3179,8 +3273,8 @@
       "sources": [
         {
           "sourceId": "bcgs",
-          "locator": "Definition 1.2.2",
-          "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
+          "locator": "Definition 1.2.2; PDF pp.10–11",
+          "match": "The split-prime crystalline construction produces nontrivial characters arbitrarily close to the identity; it is an example of, rather than the supplier for, general continuous characters."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3218,8 +3312,8 @@
       "sources": [
         {
           "sourceId": "cs",
-          "locator": "Conjecture 3.2.2 and preceding determinant isomorphism",
-          "match": "Literal excerpt from the served edition (PDF whitespace normalized); the stated target and dependencies are matched to the full passage at this locator."
+          "locator": "Conjecture 3.2.2 and preceding determinant isomorphism; PDF pp.13–14",
+          "match": "The rational determinant comparison lifts the actual Heegner tensor; integral lattice generation is the further conjectural assertion."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3276,7 +3370,7 @@
   "requests": [
     {
       "supplier": "PadicMeasuresIwasawaAlgebras:L1",
-      "need": "Completed group-ring inverse limits and the actual compact Λ-modules H_k[n], retaining finite Δ and class-group p-parts.",
+      "need": "Completed group-ring inverse limits and the actual compact Λ-modules H_k[n], retaining the finite ring-class groups G(n), their Artin actions, the separate first-step degree group Δ, and class-group p-parts.",
       "neededBy": [
         "HeegnerPointEulerSystems:HE.8/universal-norm-heegner-family"
       ]
@@ -3621,9 +3715,10 @@
         "HeegnerPointEulerSystems:HE.8/iwasawa-heegner-level-projection",
         "HeegnerPointEulerSystems:HE.8/lambda-derivative-restriction",
         "HeegnerPointEulerSystems:HE.8/near-trivial-character-congruence",
-        "HeegnerPointEulerSystems:HE.8/determinantal-heegner-image"
+        "HeegnerPointEulerSystems:HE.8/determinantal-heegner-image",
+        "HeegnerPointEulerSystems:HE.8/compact-universal-norm-lift"
       ],
-      "detail": "The suggested file uses existing rings, modules, ideals, monoid homomorphisms and tensor products as unbundled supplier data. The actual number fields, continuous Galois modules/cohomology, Λ, Selmer local conditions, characteristic-ideal assignment, CM moduli, derived Selmer determinant and the arithmetic hypotheses in each packet statement are omitted conditions, printed beside each prototype signature. Elaboration checks algebraic shapes with admitted declarations only; it does not certify those identifications or the mathematics. No opaque Prop-valued pseudo-structure is introduced. Production declarations must replace these omissions by the named supplier objects and hypotheses."
+      "detail": "The suggested file uses existing rings, modules, ideals, monoid homomorphisms and tensor products as unbundled supplier data. The actual number fields, continuous Galois modules/cohomology, Λ, Selmer local conditions, characteristic-ideal assignment, CM moduli, derived Selmer determinant and the arithmetic hypotheses in each packet statement are omitted conditions, printed beside each prototype signature. Elaboration checks algebraic shapes with admitted declarations only; it does not certify those identifications or the mathematics. No opaque Prop-valued pseudo-structure is introduced. Production declarations must replace these omissions by the named supplier objects and hypotheses. Revision 2 retains compact topology, finite constraint solvability, transition squares and stabilized norm recurrence as explicit algebraic assumptions; these are no longer omitted arithmetic conditions. The named arithmetic suppliers must still identify the actual modules and discharge finite solvability from the common presentation."
     },
     {
       "title": "HE.8b suggested arithmetic interfaces",
@@ -3653,16 +3748,6 @@
         "HeegnerPointEulerSystems:HE.8/bcgs-conditional-refined-divisibility"
       ],
       "detail": "BCGS Lemma 1.2.3/Remark 1.2.4 and its proof use #H⁰(Q_p,E_•[p∞]) in the regulator/control comparison and compare it to the ordinary unit-root factor. The exact lattice and local-extension hypotheses needed for that identification must be certified by the regulator/Selmer supplier. Full Tate invariants, unramified ordinary-quotient invariants and #Ẽ(F_p)[p∞] are not equated merely by notation in this plan; the BCGS formula is recorded as source-stated, with this specific integral local proof obligation. CS instead computes its local factor from the stated reduction groups."
-    },
-    {
-      "title": "Prototype norm-family coherence",
-      "neededBy": [
-        "HeegnerPointEulerSystems:HE.8/stabilized-corestriction",
-        "HeegnerPointEulerSystems:HE.8/universal-norm-heegner-family",
-        "HeegnerPointEulerSystems:HE.8/universal-norm-level-zero"
-      ],
-      "detail": "Independent review found expressible algebraic coherence missing from the suggested signatures: π may be the zero map with ΦP≠0; auxiliary trace maps are not inputs to the family construction; arbitrary proj/cor maps need compatibility; stabilized_corestriction takes an arbitrary y rather than the defined stabilized family. Retain the arithmetic source targets, but revise these prototypes together using coherent supplied inverse-system data and actual lift existence. This is an unresolved signature contradiction, not an assertion that Howard’s source theorem is false.",
-      "addedBy": "REV-HeegnerPointEulerSystems--HE.7s"
     },
     {
       "title": "Exact-length proof at p=3",
@@ -3908,8 +3993,10 @@
   ],
   "validation": {
     "blueprint": "Final checker results are recorded in the handoff; all declarations remain implementation-unchecked.",
-    "baselineIndex": "The index used for positive-reference validation contains only the nine cited declarations read at the exact pin; it is not a complete library index.",
-    "graph": "Fine-node graph is audited with requested stage boundaries explicit. Coarse atlas extraction defects are proposed separately; no global coarse-stage acyclicity claim is made."
+    "baselineIndex": "Positive-reference validation uses an index containing the eleven cited declarations whose statements were read at the exact pin; it is a citation index, not a complete library inventory.",
+    "graph": "Fine-node graph is audited with requested stage boundaries explicit. Coarse atlas extraction defects are proposed separately; no global coarse-stage acyclicity claim is made.",
+    "revision": "R1 is addressed by the fixed-data compact lift, explicit finite solvability, transition square, both homogeneous difference relations, and the constructed stabilized family’s raw recurrence/first-step inputs. The prior independent-review object is preserved verbatim for the next independent reviewer.",
+    "reader": "The reader is reconciled with all 61 packet declarations, 37 API items, 29 acceptance examples, 30 requests and 10 retained gaps, including the reviewed tower-torsion addition and E3."
   },
   "review": {
     "status": "needs_changes",
