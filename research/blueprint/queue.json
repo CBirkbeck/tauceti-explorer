@@ -39038,7 +39038,8 @@
     "BP-GeometricSatakeAndFusion--GS3~2"
    ],
    "prompt": "research/blueprint/prompts/REV-GeometricSatakeAndFusion--GS3~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7052"
   },
   {
    "kind": "blueprint",
@@ -40560,8 +40561,9 @@
     "BP-PotentialModularityAndCompatibleSystems--R24.3~2"
    ],
    "prompt": "research/blueprint/prompts/REV-PotentialModularityAndCompatibleSystems--R24.3~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7081"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7081",
+   "finishedAt": "2026-10-08T15:32:48Z"
   },
   {
    "kind": "blueprint",
