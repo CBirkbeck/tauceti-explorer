@@ -38,8 +38,10 @@ The algebraic characteristic-zero-point sketches retain the actual DVR, fraction
 finite local algebra and local-map hypotheses and reuse the R03.4 supplier.
 All 36 API names and 22 test names are accounted for below, including named omissions.
 The examples cover only the stated reduced objectwise or arithmetic fragment; the reader
-specifies the full geometric and automorphic tests. Compilation results for this revision
-are recorded in the handoff; no whole-file compilation is claimed here.
+specifies the full geometric and automorphic tests. The round-2 reviewer attempted full lean-check; the shared build lacks the compiled
+TauCeti.AlgebraicGeometry.LineBundle.Class import and its Tau Ceti checkout is not at the
+pin. No fragment compilation or library build was performed by this reviewer. No
+whole-file compilation is certified.
 -/
 
 open CategoryTheory AlgebraicGeometry
@@ -494,7 +496,7 @@ The complete mathematical contract is in the packet and reader. -/
 
 /- Omitted declaration: TauCeti.PotentialModularity.taylorSerreWeightPotentialResidual.
 Packet node: PotentialModularityAndCompatibleSystems:R23.3/taylor-2006-theorem-5-7-serre-weight-at-level-one.
-Taylor Theorem 5.7, pp. 767–768. Requires l>3, odd irreducible residual and irreducibility at l, and an everywhere-unramified cuspidal witness of Serre weight.
+Taylor Theorem 5.7, pp. 770–771. Requires l>3, odd irreducible residual and irreducibility at l, and an everywhere-unramified cuspidal witness of Serre weight.
 The complete mathematical contract is in the packet and reader. -/
 
 /- Omitted declaration: TauCeti.PotentialModularity.auxiliaryModularityTransfer.
@@ -514,7 +516,7 @@ The complete mathematical contract is in the packet and reader. -/
 
 /- Omitted declaration: TauCeti.PotentialModularity.weightReductionHeckeSurjection.
 Packet node: PotentialModularityAndCompatibleSystems:R23.3/taylor-2006-lemma-5-1-corollary-5-2-weight-reduction.
-Taylor 5.1/5.2, pp. 765–766. Requires the actual localized quaternionic Hecke modules, U/V operators and coefficient Symm^i for weight i+2 (E10). Arbitrary rings admit no such surjection.
+Taylor 5.1/5.2, pp. 765–767. Requires the actual localized quaternionic Hecke modules, U/V operators and coefficient Symm^i for weight i+2 (E10). Arbitrary rings admit no such surjection.
 The complete mathematical contract is in the packet and reader. -/
 
 /- Omitted declaration: TauCeti.PotentialModularity.weightAndLevelPotentialResidual.
@@ -607,7 +609,7 @@ The complete mathematical contract is in the packet and reader. -/
 
 /- Omitted declaration: TauCeti.CompatibleSystems.ordinaryGlobalFiniteness.
 Packet node: PotentialModularityAndCompatibleSystems:R24.1/ordinary-global-ring-finiteness.
-Thorne Theorem 10.2, pp. 56–58. Requires the polarized CM problem, adequate cyclotomic residual image, ordinary automorphic lift, fixed Hodge type and local ordinary rings, and the totally-real GL2 adapter.
+Thorne Theorem 10.2, pp. 56–58. Requires the polarized CM problem, adequate cyclotomic residual image, ordinary automorphic lift, fixed regular Hodge type and semistable ordinary local rings R_v^{lambda,ss-ord}, and the finite totally-real GL2 polarized adapter. CG R-dagger and NT selected components need an explicit local/base-change comparison.
 The complete mathematical contract is in the packet and reader. -/
 
 /- Omitted declaration: TauCeti.CompatibleSystems.cgRingFiniteness.
