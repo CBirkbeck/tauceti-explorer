@@ -6,7 +6,7 @@
     "HodgeStructuresPartII:H.8"
   ],
   "status": "complete",
-  "summary": "A target-level plan of the real weight-two Noether–Lefschetz interfaces required by the accepted Benoist route. It extends the common variation carrier by a compatible real action, separates geometric from coefficient conjugation, and supplies transported-class loci, Kodaira–Spencer contraction, the Griffiths formula, normal-boundary factorization, real Green cones, componentwise genericity, lattice cosets, the Voisin pushforward-kernel cone, ordinary integral weak Lefschetz and the affine CW bound. Global geometric typing and several general proof suppliers remain explicit gaps; no implementation or formal closure is claimed.",
+  "summary": "A target-level plan of the real weight-two Noether–Lefschetz interfaces required by the accepted Benoist route. It extends the common variation carrier by a compatible real action, separates geometric from coefficient conjugation, and supplies transported-class loci, Kodaira–Spencer contraction, the Griffiths formula, normal-boundary factorization, Green's criterion over the reals, componentwise genericity, lattice cosets, the Voisin pushforward-kernel cone, ordinary integral weak Lefschetz and the affine CW bound. Global geometric typing and several general proof suppliers remain explicit gaps; no implementation or formal closure is claimed.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -64,7 +64,7 @@
         "ref": "tauceti:TauCeti.Hodge.RationalHodgeSubstructure.isCompl_WQ_orthogonal_WQ",
         "kind": "theorem",
         "module": "TauCeti/Geometry/Hodge/Orthogonal.lean",
-        "provides": "At the pinned baseline, a polarizable rational Hodge substructure is complementary to its rational orthogonal complement; this is a fibre theorem, not a flat-subvariation theorem.",
+        "provides": "For a polarization P of the ambient integral Hodge structure and a rational Hodge substructure W, W.WQ and the rational P-orthogonal complement (orthogonal P W).WQ are complementary. This is the polarized fibre case only: it needs the Hodge–Riemann positivity of P, and says nothing about flat families or about a pairing that is merely nondegenerate on W.",
         "checked": "Declaration and its hypotheses read in the source tree at the pinned commit; not inferred from a name search."
       },
       {
@@ -122,6 +122,69 @@
         "module": "Mathlib/Algebra/Module/ZLattice/Basic.lean",
         "provides": "Over a field with solid norm, the remainder x minus its basis-floor has norm at most the sum of basis-vector norms.",
         "checked": "Declaration and its hypotheses read in the source tree at the pinned commit; not inferred from a name search."
+      },
+      {
+        "ref": "tauceti:TauCeti.Hodge.HodgeStructureOn.IsEffective",
+        "kind": "def",
+        "module": "TauCeti/Geometry/Hodge/Structure.lean",
+        "provides": "The predicate F 0 = ⊤ on a pure Hodge structure; in weight 2 it leaves only the pieces with first index 0, 1, 2.",
+        "checked": "Statement read in the source tree at the pinned commit by REV-HodgeStructuresPartII--H.8."
+      },
+      {
+        "ref": "mathlib:LinearMap.BilinForm.isCompl_orthogonal_of_restrict_nondegenerate",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/BilinearForm/Orthogonal.lean",
+        "provides": "On a finite-dimensional vector space over a field, a subspace W on which a reflexive bilinear form B restricts to a nondegenerate form is complementary to its B-orthogonal complement. No positivity is assumed.",
+        "checked": "Statement read in the source tree at the pinned commit by REV-HodgeStructuresPartII--H.8."
+      },
+      {
+        "ref": "mathlib:HasStrictFDerivAt.map_nhds_eq_of_surj",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Calculus/InverseFunctionTheorem/FDeriv.lean",
+        "provides": "For a map between complete normed spaces with a strict derivative at a whose range is everything, the image of the neighbourhood filter of a is the neighbourhood filter of f a: every neighbourhood of a maps onto a neighbourhood of f a. No complemented-kernel hypothesis.",
+        "checked": "Statement read in the source tree at the pinned commit by REV-HodgeStructuresPartII--H.8."
+      },
+      {
+        "ref": "mathlib:Submodule.eq_of_le_of_finrank_le",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/FiniteDimensional/Basic.lean",
+        "provides": "A submodule S₁ contained in a finite-dimensional submodule S₂ with finrank S₂ ≤ finrank S₁ equals S₂.",
+        "checked": "Statement read in the source tree at the pinned commit by REV-HodgeStructuresPartII--H.8."
+      },
+      {
+        "ref": "tauceti:TauCeti.IsNondegenerateCriticalPoint",
+        "kind": "structure",
+        "module": "TauCeti/Analysis/Calculus/Morse/Basic.lean",
+        "provides": "For a real function on a real normed space: it is twice continuously differentiable at the point, its differential vanishes there, and its second derivative is invertible as a map to the dual.",
+        "checked": "Statement read in the source tree at the pinned commit by REV-HodgeStructuresPartII--H.8."
+      },
+      {
+        "ref": "tauceti:TauCeti.morseIndex",
+        "kind": "def",
+        "module": "TauCeti/Analysis/Calculus/Morse/Index.lean",
+        "provides": "The negative index of inertia of the Hessian quadratic form of a real function at a point of a finite-dimensional real normed space.",
+        "checked": "Statement read in the source tree at the pinned commit by REV-HodgeStructuresPartII--H.8."
+      },
+      {
+        "ref": "tauceti:TauCeti.morseIndex_comp",
+        "kind": "theorem",
+        "module": "TauCeti/Analysis/Calculus/Morse/Index.lean",
+        "provides": "At a critical point the Morse index is unchanged by a twice continuously differentiable change of coordinates with invertible derivative; this is what lets the index be read in a chart of a manifold.",
+        "checked": "Statement read in the source tree at the pinned commit by REV-HodgeStructuresPartII--H.8."
+      },
+      {
+        "ref": "tauceti:TauCeti.ae_hasNondegenerateCriticalPointsOn_sub_inner",
+        "kind": "theorem",
+        "module": "TauCeti/Analysis/Calculus/Morse/Generic.lean",
+        "provides": "On an open subset U of a finite-dimensional real inner product space and for f twice continuously differentiable on U, for almost every vector v every critical point in U of y ↦ f(y) − ⟪v,y⟫ is nondegenerate.",
+        "checked": "Statement read in the source tree at the pinned commit by REV-HodgeStructuresPartII--H.8."
+      },
+      {
+        "ref": "mathlib:ConvexCone",
+        "kind": "structure",
+        "module": "Mathlib/Geometry/Convex/Cone/Basic.lean",
+        "provides": "A subset of a module closed under multiplication by positive scalars and under addition. It is the nearest Mathlib notion; the cones of this layer need not be closed under addition.",
+        "checked": "Statement read in the source tree at the pinned commit by REV-HodgeStructuresPartII--H.8."
       }
     ]
   },
@@ -135,10 +198,11 @@
       "sha256": "8dfc0f221ab510ba1ecfe7c5b5fde12c217019f33d704ea89ce1a0c144398d3b",
       "accessed": "2026-10-08",
       "readSections": [
-        "§1 pp.69–72, Lemmas1.3–1.4, Theorem1.5 and cone/coset argument",
-        "§3.2 Proposition3.2 pp.78–79",
-        "§5.1–5.2 pp.84–90: generic maps and full normal-factorization passage",
-        "§6.2 Proposition6.6 pp.93–95: vanishing VHS, Green criterion and divisor conversion"
+        "§1 pp.69–71, Lemmas 1.3–1.4, Theorem 1.5 and the cone/coset argument of Proposition 1.2",
+        "§3.3 Proposition 3.2 and proof, p.78",
+        "§5.1–5.2 pp.85–89: equation (5.2), Lemma 5.3 and the full normal-factorization passage of Proposition 5.4",
+        "§6.2 Proposition 6.6 pp.93–95: vanishing variation, Green criterion and divisor conversion",
+        "Independent review 2026-10-08 (REV-HodgeStructuresPartII--H.8): the same passages reread in the same file (hash verified); Proposition 3.2 is in §3.3 and is proved on p.78, and the contraction is defined by equation (5.2) on p.86."
       ],
       "readingExtent": "These complete target proof passages were read. Application-specific double-cover construction and period-index conclusions are not reconstructed in this packet."
     },
@@ -151,9 +215,10 @@
       "sha256": "507e29afb63417c50ae995f95a543d80df79b1b61d7fb69de9eca13c4c666367",
       "accessed": "2026-10-08",
       "readSections": [
-        "§1.1 pp.1050–1051 Proposition1.1 and full fixed-locus/submersion proof",
-        "§1.2 pp.1051–1052 Propositions1.2–1.3 and Remarks1.4–1.5",
-        "§2.1 pp.1053–1054 Proposition2.1 and Corollary2.2, including extension-class proof"
+        "§1.1–§1.2 pp.1050–1051: the real action, the Tate convention, Proposition 1.1 and its full fixed-locus/submersion proof",
+        "§1.3–§1.4 pp.1051–1053: Proposition 1.2 with proof, equation (1.3), Proposition 1.3 and Remarks 1.4–1.7",
+        "§2.1 pp.1053–1054: Proposition 2.1 and Corollary 2.2, including the extension-class proof",
+        "Independent review 2026-10-08 (REV-HodgeStructuresPartII--H.8): the same passages reread in the same file (hash verified). The published numbering is §1.1 variations over real varieties, §1.2 the criterion (Proposition 1.1), §1.3 density (Proposition 1.2), §1.4 families (Proposition 1.3); the locators were corrected to it."
       ],
       "readingExtent": "Read all abstract real-variation and generic normal-boundary arguments, including their cited proof inputs."
     },
@@ -169,7 +234,8 @@
         "§1 author PDF pp.3–5 Proposition1, Lemmas2–3",
         "§2 author PDF pp.7–18 Proposition2, nodal/rank proof, Propositions3–7 and all uniruled proof passages",
         "§3 author PDF pp.19–21 Propositions8–9 and kernel-residue proof",
-        "Appendix author PDF pp.22–23 Lemmas8,13 and vanishing argument"
+        "Appendix author PDF pp.22–23 Lemmas8,13 and vanishing argument",
+        "Independent review 2026-10-08 (REV-HodgeStructuresPartII--H.8): §1 pp.3–6 (Proposition 1, Lemmas 2–3 and the real-class argument on p.5), Proposition 4 and Corollaries 4–5 pp.12–14, and §3 pp.19–21 (Propositions 8–9) reread in the same file (hash verified). The supporting estimates of §2 were not rechecked line by line."
       ],
       "readingExtent": "These arguments and the appendix were read. The uniruled/kernel part is used; the Calabi–Yau result is outside H.8. The published chapter could not be retrieved: the DOI and Project Euclid PDF endpoint returned an inaccessible page, so the preprint is not represented as the version of record."
     },
@@ -182,7 +248,8 @@
       "sha256": "31ba5e2631daa5cbbb19a18e72e9f75ae363991f3e5e590eea3d3ac859a94f99",
       "accessed": "2026-10-08",
       "readSections": [
-        "II.1(a) pp.809–815, local transition-function Kodaira–Spencer construction, Proposition(1.20), Theorem(1.23) and full proof"
+        "II.1(a) pp.809–815, local transition-function Kodaira–Spencer construction, Proposition(1.20), Theorem(1.23) and full proof",
+        "Independent review 2026-10-08 (REV-HodgeStructuresPartII--H.8): II.1(a) pp.809–815 reread in the same file (hash verified): equations (1.4)–(1.5), Proposition (1.11), (1.15)–(1.19), Proposition (1.20) and Theorem (1.23)."
       ],
       "readingExtent": "The full derivative/cup-product argument was read, not only the theorem or a textbook citation; other Torelli examples were not used."
     },
@@ -195,9 +262,23 @@
       "sha256": "65731a25d783d01c9e677d26235884289ebfac6960a8dde90ca6be956b7e13a6",
       "accessed": "2026-10-08",
       "readSections": [
-        "§7 pp.39–41 Theorem7.2, quadratic Hessian argument and Corollary7.3; p.42 Theorem7.4 proof"
+        "§7 pp.39–41 Theorem7.2, quadratic Hessian argument and Corollary7.3; p.42 Theorem7.4 proof",
+        "Independent review 2026-10-08 (REV-HodgeStructuresPartII--H.8): §7 pp.39–41 read on the page images (Theorems 7.1 and 7.2 with the proof, Corollary 7.3 with its proof, and the statement of Theorem 7.4), and Theorem 3.5, §3, p.20, which is the handle-to-CW statement the affine bound uses."
       ],
       "readingExtent": "Read the affine CW-bound and integral homology weak Lefschetz proofs in full. General Morse handle and manifold-duality theories are upstream inputs. The source attributes the affine result to Andreotti–Frankel (1959), Theorem1, pp.713–717; that original article was not obtained."
+    },
+    {
+      "id": "BW20",
+      "title": "On the integral Hodge conjecture for real varieties, I",
+      "authors": "Olivier Benoist, Olivier Wittenberg",
+      "edition": "arXiv:1801.00872 (latest version, v3); published in Inventiones Mathematicae 222 (2020), 1–77. Locators use the arXiv numbering.",
+      "url": "https://arxiv.org/abs/1801.00872",
+      "sha256": "9fb55d1d7532b003390f94424ae76ff35d6654658939256e0926ec4f7a33f65f",
+      "accessed": "2026-10-08",
+      "readSections": [
+        "§2.2 Definition 2.2 with the map (2.1), and §2.3.1 with Proposition 2.8 and the remark before it (read by REV-HodgeStructuresPartII--H.8)"
+      ],
+      "readingExtent": "Only the statement of the real integral Hodge conjecture and its divisor case were read, to make the request to MC.7 exact. The proof is by references (Krasnov; Mangolte–van Hamel; van Hamel) that were not obtained. The published version was not collated."
     }
   ],
   "nodes": [
@@ -211,7 +292,7 @@
       "kind": "definition",
       "statement": "On the imported finite-rank effective rational weight-two variation H over a smooth complex base with antiholomorphic involution c, a compatible real action is a rational local-system involution σ_b:H_Q,b→H_Q,c(b), with σ_c(b)σ_b=id, whose complex-linear extension exchanges H^(p,2-p)_b with H^(2-p,p)_c(b). Equivalently the semilinear composite τ_b=σ_C,b∘κ_b preserves Hodge types, where κ is coefficient conjugation. A flat G-stable chart identifies this data with an involutive real-linear σ on V=H_R,b and native fibre Hodge structures on C tensor_R V; it is only the action extension, not another VHS carrier.",
       "hypotheses": [
-        "H is the common rational VHS of ShimuraData:D3, effective of weight2; base involution is antiholomorphic.",
+        "H is the common rational VHS of ShimuraData:D3, of weight 2 and effective in the sense of the native predicate HodgeStructureOn.IsEffective on each fibre. In the source the base is B(C) for a smooth algebraic variety B over R and c is its antiholomorphic involution; the definition uses only a complex manifold with an antiholomorphic involution.",
         "κ is the native conjugation; σ is geometric pullback, extended linearly in complex coefficients."
       ],
       "proofSteps": [
@@ -223,13 +304,14 @@
         "ShimuraData:D3/variation",
         "tauceti:TauCeti.Hodge.HodgeStructureOn",
         "tauceti:TauCeti.Hodge.HodgeStructureOn.conj_piece",
-        "tauceti:TauCeti.Hodge.complexificationConjugation"
+        "tauceti:TauCeti.Hodge.complexificationConjugation",
+        "tauceti:TauCeti.Hodge.HodgeStructureOn.IsEffective"
       ],
       "sources": [
         {
           "sourceId": "B18",
-          "locator": "§1.1, pp.1050–1051",
-          "match": "The rational local-system action together with coefficient conjugation preserves Hodge types, and the sign action on Z(1) gives the invariant real input of Proposition1.1."
+          "locator": "§1.1, p.1050 (the action (1.1) and the Tate convention); equation (1.3), §1.4, p.1052 (its two factors)",
+          "match": "The source lets G act on the rational local system over the base involution, extends it to the complexified fibres by the action on the local system tensored with complex conjugation, and assumes that this antilinear action preserves the Hodge pieces; (1.3) writes it as coefficient conjugation followed by the complex-linear geometric map."
         }
       ],
       "acceptance": [
@@ -243,7 +325,7 @@
       "implementationStatus": "unchecked",
       "suggestedDeclaration": "RealActionOnChart",
       "planet": {
-        "name": "Real structures on variations"
+        "name": "Real structure on a variation of Hodge structure"
       },
       "uses": [
         {
@@ -280,6 +362,21 @@
           "name": "RealActionOnChart.ext",
           "role": "extensionality",
           "statement": "On the same supplied chart, equality of the real-linear geometric action determines equality of the compatible real-action structures."
+        },
+        {
+          "name": "RealActionOnChart.geometric_tmul",
+          "role": "simp",
+          "statement": "σ_C(z ⊗ v) = z ⊗ σ(v) for z∈C, v∈V."
+        },
+        {
+          "name": "RealActionOnChart.combined_tmul",
+          "role": "simp",
+          "statement": "τ(z ⊗ v) = conj(z) ⊗ σ(v) for z∈C, v∈V."
+        },
+        {
+          "name": "RealActionOnChart.geometric_piece",
+          "role": "projection",
+          "statement": "The defining compatibility: for every b and p, σ_C maps H_b^(p,2-p) onto H_c(b)^(2-p,p). It is an equality of native submodules, the image of piece p at b being piece 2−p at c(b)."
         }
       ],
       "tests": [
@@ -302,6 +399,11 @@
           "name": "real_action_combined_square",
           "kind": "characterisation",
           "statement": "For every compatible chart action and vector x, τ(τ(x))=x."
+        },
+        {
+          "name": "real_action_identity_real_point",
+          "kind": "non-example",
+          "statement": "If c is the identity and σ is the identity, compatibility forces H_b^(2,0)=0 (and so H_b^(0,2)=0) at every b: the image of piece 2 is piece 0, and the two meet in zero. So the identity is a real structure only on a variation of type (1,1); a definition asking σ_C to preserve types would accept it on every variation."
         }
       ]
     },
@@ -329,8 +431,8 @@
       "sources": [
         {
           "sourceId": "B18",
-          "locator": "§1.1, pp.1050–1051",
-          "match": "The rational local-system action together with coefficient conjugation preserves Hodge types, and the sign action on Z(1) gives the invariant real input of Proposition1.1."
+          "locator": "§1.1, p.1050; equation (1.3), §1.4, p.1052",
+          "match": "Equation (1.3) factors the antilinear action as coefficient conjugation followed by the geometric map; each exchanges the Hodge pieces, so the composite preserves them."
         }
       ],
       "acceptance": [
@@ -353,7 +455,7 @@
       "kind": "definition",
       "statement": "For the untwisted real geometric involution σ on V, identify V(1)^G with the real submodule ker(σ+id) of V, using the generator 2πi of R(1). This is a coordinate identification of the native Tate twist with its sign action, not a new Tate-object definition. Write J_b for the intersection with the real (1,1) subspace at a real basepoint.",
       "hypotheses": [
-        "The coefficient action on Z(1)=2πi Z is -1.",
+        "The coefficient action on Z(1) is −1. B18 takes Z(1)=2πi·Z and B19 (§2.1, p.72) takes Z(1)=i·Z; both carry the sign action, so the identification with ker(σ+id) is the same.",
         "V carries an involutive real-linear geometric σ."
       ],
       "proofSteps": [
@@ -369,8 +471,8 @@
       "sources": [
         {
           "sourceId": "B18",
-          "locator": "§1.1, pp.1050–1051",
-          "match": "The rational local-system action together with coefficient conjugation preserves Hodge types, and the sign action on Z(1) gives the invariant real input of Proposition1.1."
+          "locator": "§1.1, p.1050 (definition of Z(1) and of M(1), and the embedding of the twisted real (1,1) fibre)",
+          "match": "Z(1) is 2πi·Z with G acting by −1, M(1)=M⊗Z(1), and at a real point the twisted real (1,1) fibre is a G-stable real subspace of the complex fibre; its invariants are the classes used by Proposition 1.1."
         }
       ],
       "acceptance": [
@@ -465,8 +567,8 @@
       "sources": [
         {
           "sourceId": "B18",
-          "locator": "§1.1, pp.1050–1051",
-          "match": "The rational local-system action together with coefficient conjugation preserves Hodge types, and the sign action on Z(1) gives the invariant real input of Proposition1.1."
+          "locator": "§1.1, p.1050",
+          "match": "The sign action on Z(1) is part of the definition of the twisted fibre whose invariants enter Proposition 1.1."
         }
       ],
       "acceptance": [
@@ -487,10 +589,11 @@
       ],
       "title": "Geometric real weight-two variation",
       "kind": "theorem",
-      "statement": "If π:X→B is a smooth projective morphism of smooth algebraic varieties over R with surface fibres, R²π(C)_*Q, its Gauss–Manin bundle and Hodge filtration supplied by H.2 form an effective rational weight-two VHS with the compatible real action of real-action. Fibre H¹(Ω¹) identifies with H^(1,1), H²(O) with H^(0,2), and geometric conjugation sends the former Hodge type to its exchanged type at c(b). Torsion is removed only for the VHS lattice, H²(Z)/tors; ordinary integral topology below retains torsion.",
+      "statement": "If π:X→B is a smooth projective morphism of smooth algebraic varieties over R with surface fibres, the local system R²π_*Q on B(C), its Gauss–Manin bundle and Hodge filtration supplied by H.2 form an effective rational weight-two VHS with the compatible real action of real-action. Fibre H¹(Ω¹) identifies with H^(1,1), H²(O) with H^(0,2), and geometric conjugation sends the former Hodge type to its exchanged type at c(b). Torsion is removed only for the VHS lattice, H²(Z)/tors; ordinary integral topology below retains torsion.",
       "hypotheses": [
         "π is smooth and projective; X and B are smooth over R.",
-        "Use the actual Betti/de Rham and coherent Hodge comparison, not an arbitrary chosen decomposition."
+        "Use the actual Betti/de Rham and coherent Hodge comparison, not an arbitrary chosen decomposition.",
+        "The identification of H¹(Ω¹) with H^(1,1) and of H²(O) with H^(0,2) is the one H.2/geometric-pure constructs; ComplexComparisonPartII:C1 is cited for the coherent cohomology of the fibres only."
       ],
       "proofSteps": [
         "Import the geometric pure variation and Gauss–Manin connection of H.2.",
@@ -508,8 +611,8 @@
       "sources": [
         {
           "sourceId": "B18",
-          "locator": "Proposition1.3 and proof, §1.2, p.1052",
-          "match": "A smooth projective real family satisfies the abstract real-variation hypotheses; the proof separates the two conjugations."
+          "locator": "§1.4, pp.1051–1052: the paragraph containing equation (1.3), before Proposition 1.3",
+          "match": "For a smooth projective morphism of smooth real varieties the source checks the hypothesis of §1.1: the action on R²π_*Q covers the base involution, coefficient conjugation exchanges the Hodge pieces, and so does the map induced by the antiholomorphic involution of the total space."
         }
       ],
       "acceptance": [
@@ -551,8 +654,8 @@
       "sources": [
         {
           "sourceId": "B18",
-          "locator": "Proposition1.1, §1.1, pp.1050–1051",
-          "match": "The cone consists of flatly transported classes acquiring type(1,1) on nearby real fibres."
+          "locator": "Proposition 1.1, §1.2, pp.1050–1051",
+          "match": "The conclusion of the proposition is about classes that, after the identification given by the trivialization, are of type (1,1) at a nearby real point."
         },
         {
           "sourceId": "B19",
@@ -623,7 +726,10 @@
           "kind": "compatibility",
           "statement": "For an arbitrary weight-two native Hodge fibre, the real embedded vector has the same membership in piece1 and F¹."
         }
-      ]
+      ],
+      "planet": {
+        "name": "Noether–Lefschetz locus of a flat class"
+      }
     },
     {
       "id": "HodgeStructuresPartII:H.8/transported-locus-gluing",
@@ -649,8 +755,8 @@
       "sources": [
         {
           "sourceId": "B18",
-          "locator": "§1.1 trivialization and proof of Proposition1.1, p.1051",
-          "match": "The Hodge evaluation uses the local-system marking and is independent of changing that marking coherently."
+          "locator": "§1.2, p.1050 (the trivialization over Δ and its uniqueness); proof of Proposition 1.1, p.1051",
+          "match": "The identification of fibres is the one given by the trivialization of the local system, which is unique on a connected chart; this is what makes the marked statement independent of the chart."
         }
       ],
       "acceptance": [
@@ -688,12 +794,12 @@
       "sources": [
         {
           "sourceId": "G68",
-          "locator": "Proposition(1.20) and Theorem(1.23), II.1(a), pp.814–815",
-          "match": "The derivative of the moving filtration is the Kodaira–Spencer cup product; the fixed-class quotient derivative has the opposite sign."
+          "locator": "Proposition (1.20) and Theorem (1.23), II.1(a), pp.814–815",
+          "match": "The source computes the derivative of the moving filtration as cup product with the Kodaira–Spencer class. The opposite sign for the quotient class of a fixed flat vector is not in the source: it is the graph computation of this node."
         },
         {
           "sourceId": "B18",
-          "locator": "Proposition1.1 proof, p.1051",
+          "locator": "Proposition 1.1 proof, §1.2, p.1051",
           "match": "Surjectivity uses the variation derivative on the class, so this sign does not alter rank."
         }
       ],
@@ -734,13 +840,18 @@
       "sources": [
         {
           "sourceId": "B19",
-          "locator": "§5.1–5.2, equations(5.1)–(5.2), pp.85–86",
-          "match": "The general family map is Kodaira–Spencer followed by contraction with λ."
+          "locator": "§5.2, equation (5.2), p.86",
+          "match": "The map is the Kodaira–Spencer map of the family followed by the contracted cup product with λ coming from the pairing of the tangent sheaf with Ω¹."
         },
         {
           "sourceId": "G68",
           "locator": "II.1(a), equation(1.19), Proposition(1.20), p.814",
           "match": "The ordered contraction cup product is the derivative map on Hodge components."
+        },
+        {
+          "sourceId": "B18",
+          "locator": "§1.4, equation (1.4), p.1052",
+          "match": "The same composite for an arbitrary smooth projective family of surfaces, as the form in which Griffiths' computation is used."
         }
       ],
       "acceptance": [
@@ -823,9 +934,11 @@
       ],
       "title": "Griffiths derivative equals contraction",
       "kind": "theorem",
-      "statement": "For the geometric weight-two VHS of geometric-real-variation, θ_b(v)(λ)=φ_λ(v) in H^(0,2)≅H²(O_X_b), for every λ∈H^(1,1)≅H¹(Ω¹). The period-symbol convention of H.3 is used, so this equality has positive sign; the separate flat-class obstruction has negative sign.",
+      "statement": "Let π:X→B be a smooth projective morphism of smooth complex algebraic varieties with surface fibres, and H the geometric weight-two variation of H.2/geometric-pure on R²π_*Q with its Gauss–Manin connection. Under the natural identifications H_b^(1,1)≅H¹(X_b,Ω¹) and H_b^(0,2)≅H²(X_b,O), θ_b(v)(λ)=φ_λ(v) for every v∈T_bB and λ∈H_b^(1,1), where θ_b is the H.3 period symbol at p=1 restricted to H_b^(1,1) and φ_λ(v)=KS_b(v)∪λ. The equality has positive sign in the H.3 convention; the separate flat-class obstruction has negative sign. No real structure enters: geometric-real-variation uses the formula after complexifying a real family.",
       "hypotheses": [
-        "π is smooth projective over C, B smooth; use the natural coherent Hodge and de Rham/Betti comparisons."
+        "π is smooth projective over C with surface fibres, B smooth; use the natural coherent Hodge and de Rham/Betti comparisons.",
+        "The identifications of H^(1,1) with H¹(Ω¹) and of H^(0,2) with H²(O) are those of H.2/geometric-pure: the graded pieces of the de Rham filtration are the Hodge cohomology groups. The engine behind them (degeneration and the cohomological Hodge decomposition) is gap G9 of that packet and is recorded here in G1; coherent analytic cohomology alone does not give it.",
+        "The source proves the formula for any analytic family of compact Kähler manifolds and any degree; only weight two on surfaces is used here."
       ],
       "proofSteps": [
         "Choose local family coordinates; derivatives of transition maps give the Čech KS cocycle.",
@@ -833,7 +946,8 @@
         "The remaining components lie in F¹ and disappear in H_C/F¹; identify the remaining class by Griffiths Proposition(1.20)."
       ],
       "prerequisites": [
-        "HodgeStructuresPartII:H.8/geometric-real-variation",
+        "HodgeStructuresPartII:H.2/geometric-pure",
+        "HodgeStructuresPartII:H.2/gauss-manin",
         "HodgeStructuresPartII:H.8/kodaira-spencer-contraction",
         "HodgeStructuresPartII:H.3/period-symbol",
         "HodgeStructuresPartII:H.3/derivative-connection",
@@ -875,23 +989,24 @@
       ],
       "title": "Normal-boundary factorization of divisor contraction",
       "kind": "theorem",
-      "statement": "Let C⊂T⊂X be smooth projective complex varieties of dimensions1,2,3, with both embeddings Cartier. Put λ=c₁(O_T(C)) in H¹(T,Ω¹_T). For an embedded first-order deformation n∈H⁰(T,N_T/X), KS(n)∪λ equals δ_div(δ_norm(n|_C)), where δ_norm:H⁰(C,N_T/X|_C)→H¹(C,N_C/T) comes from 0→N_C/T→N_C/X→N_T/X|_C→0, and δ_div:H¹(C,N_C/T)→H²(T,O_T) comes from 0→O_T→O_T(C)→i_*N_C/T→0. For an arbitrary family embedded in X, precompose with its normal characteristic map T_bB→H⁰(T,N_T/X).",
+      "statement": "Let C⊂T⊂X be smooth projective complex varieties of dimensions 1, 2, 3, so that C is an effective Cartier divisor on T and T on X. Let ρ:H⁰(T,N_T/X)→H¹(T,T_T) be the connecting map of 0→T_T→T_X|_T→N_T/X→0, and let λ∈H¹(T,Ω¹_T) be the class of C in Hodge cohomology, the first Chern class of O_T(C) defined through its Atiyah class. Then for every n∈H⁰(T,N_T/X), ρ(n)∪λ=δ_div(δ_norm(n|_C)) in H²(T,O_T), where δ_norm:H⁰(C,N_T/X|_C)→H¹(C,N_C/T) is the connecting map of 0→N_C/T→N_C/X→N_T/X|_C→0 and δ_div:H¹(C,N_C/T)→H²(T,O_T) is that of 0→O_T→O_T(C)→O_T(C)|_C→0, with O_T(C)|_C≅N_C/T. For a family of surfaces in X through T with base B, the Kodaira–Spencer map at T is ρ∘k, where k:T_bB→H⁰(T,N_T/X) classifies the first-order embedded deformations; hence φ_λ=δ_div∘δ_norm∘res_C∘k.",
       "hypotheses": [
-        "C is a smooth Cartier curve in T, and T a smooth Cartier surface in X.",
-        "The Chern class and boundary signs use the same generator of Z(1) and cup ordering."
+        "C, T and X are smooth and projective over C, of dimensions 1, 2 and 3, with C⊂T⊂X.",
+        "The Chern class and the boundary signs use the same generator of Z(1) and the cup ordering of kodaira-spencer-contraction.",
+        "The identity is a statement about coherent cohomology. The source introduces λ as the image of the Betti class of C in H²(T(C),Z(1)); that this is the coherent Chern class is the comparison of first Chern classes under the de Rham–Betti isomorphism, needed only when the factorization is fed to the Griffiths formula, and is part of G1."
       ],
       "proofSteps": [
-        "Compute connecting maps by the extension cocycles formed from differences of local splittings.",
-        "Pull back the divisor extension through T_T→i_*N_C/T; its extension class is λ.",
-        "Compare with the normal extension and cup by naturality; dualizing the Atiyah extension reverses its sign exactly once.",
-        "Compose with the characteristic map for a family. Correct the cohomological degree in B19(5.7) using B18 Proposition2.1."
+        "Compute connecting maps by extension cocycles formed from differences of local splittings; a connecting map is cup product with the extension class.",
+        "Pull the divisor extension back along T_T→N_C/T (extended by zero from C): the resulting extension of T_T by O_T has class λ. The source proves this by twisting by O_T(−C) and identifying the result with the dual of Atiyah's extension, whose class is −λ; dualizing changes the sign once.",
+        "The map of normal sequences from (T_T, T_X|_T, N_T/X) to (N_C/T, N_C/X, N_T/X|_C) and the pull-back diagram give the compatibility of the two connecting maps, hence the identity.",
+        "For a family, compose with the characteristic map: the Kodaira–Spencer map of a family of hypersurfaces is the characteristic map followed by ρ (B19 quotes Sernesi, Proposition 3.2.9(i), for this).",
+        "Use the degree-one group H¹(C,N_C/T) in the middle; B19 (5.7) prints degree zero there (source issue E-H8-1)."
       ],
       "prerequisites": [
         "HodgeStructuresPartII:H.8/kodaira-spencer-contraction",
         "SchemeAndStackFoundations:SF.2",
         "SchemeAndStackFoundations:SF.4",
-        "SchemeAndStackFoundations:SF.5",
-        "MotivesAndAlgebraicCycles:MC.7/tate-and-hodge-known-cases"
+        "SchemeAndStackFoundations:SF.5"
       ],
       "sources": [
         {
@@ -901,8 +1016,8 @@
         },
         {
           "sourceId": "B19",
-          "locator": "Proposition5.4 proof, equations(5.7)–(5.9), p.88",
-          "match": "The generic factorization is applied to the consumer family, with a known degree misprint in(5.7)."
+          "locator": "Proposition 5.4 proof, equations (5.7)–(5.9), p.88",
+          "match": "The factorization is applied to the family of double covers, after describing its Kodaira–Spencer map through the characteristic map; (5.7) has the degree misprint recorded as E-H8-1."
         }
       ],
       "acceptance": [
@@ -914,9 +1029,6 @@
       },
       "implementationStatus": "unchecked",
       "suggestedDeclaration": "normalBoundaryFactorization",
-      "planet": {
-        "name": "Normal-boundary factorization"
-      },
       "suggestedStatus": "omitted:G2"
     },
     {
@@ -976,12 +1088,13 @@
         "A linear equivalence transports the set and all three properties."
       ],
       "prerequisites": [
-        "mathlib:LinearMap.ker"
+        "mathlib:LinearMap.ker",
+        "mathlib:ConvexCone"
       ],
       "sources": [
         {
           "sourceId": "B18",
-          "locator": "Proposition1.1 and proof, pp.1050–1051",
+          "locator": "Proposition 1.1 and proof, §1.2, pp.1050–1051",
           "match": "Positive scaling of the fibrewise linear evaluation map expands its open image into a nonempty open cone."
         },
         {
@@ -1025,6 +1138,11 @@
           "name": "PositiveOpenCone.whole",
           "role": "constructor",
           "statement": "The whole real vector space is a positive open cone, including in dimension zero."
+        },
+        {
+          "name": "PositiveOpenCone.ofConvexCone",
+          "role": "compatibility",
+          "statement": "A Mathlib ConvexCone over R whose carrier is open and nonempty is a positive open cone with the same carrier. The converse fails: a positive open cone need not be closed under addition."
         }
       ],
       "tests": [
@@ -1047,6 +1165,11 @@
           "name": "cone_scaling_inverse",
           "kind": "characterisation",
           "statement": "For every positive a, membership of a•v in Ω is equivalent to membership of v."
+        },
+        {
+          "name": "cone_punctured_line",
+          "kind": "non-example",
+          "statement": "The punctured line {x∈R : x≠0} is a positive open cone. It is not convex and not closed under addition (1+(−1)=0), so a definition through Mathlib's ConvexCone would reject it."
         }
       ]
     },
@@ -1067,7 +1190,7 @@
         "The fibre derivative contributes J_b.",
         "The derivative normal to J_b is the real form of θ_λ and its conjugate; a real tangent vector of the complex base has arbitrary (1,0) component.",
         "Complex surjectivity onto H^(0,2) therefore gives real surjectivity modulo J_b.",
-        "Use the native finite-dimensional implicit-function theorem to obtain local open image."
+        "A submersion has open image near the point: Mathlib's map_nhds_eq_of_surj gives this directly in complete normed spaces; the implicit-function chart is the same statement with a straightening."
       ],
       "prerequisites": [
         "ShimuraData:D3/variation",
@@ -1075,18 +1198,19 @@
         "HodgeStructuresPartII:H.3/derivative-connection",
         "HodgeStructuresPartII:H.8/transported-hodge-locus",
         "mathlib:HasStrictFDerivAt.implicitToOpenPartialHomeomorphOfComplemented",
-        "mathlib:HasStrictFDerivAt.mem_implicitToOpenPartialHomeomorphOfComplemented_target"
+        "mathlib:HasStrictFDerivAt.mem_implicitToOpenPartialHomeomorphOfComplemented_target",
+        "mathlib:HasStrictFDerivAt.map_nhds_eq_of_surj"
       ],
       "sources": [
         {
           "sourceId": "B18",
-          "locator": "Proposition1.1 proof, p.1051",
-          "match": "The Hodge evaluation map has surjective differential under the variation-rank hypothesis."
+          "locator": "Proposition 1.1 proof, §1.2, p.1051",
+          "match": "Under the surjectivity hypothesis the evaluation from the real (1,1) bundle to the fixed real fibre is submersive at (b,λ); the source quotes Voisin's book for this."
         },
         {
           "sourceId": "V06",
-          "locator": "Lemma2 and Proposition1 proof, author PDF pp.3–4; Proposition8 proof p.20",
-          "match": "The evaluation/submersion argument also applies to the pushforward-kernel Hodge bundle."
+          "locator": "Lemma 2 and the proof of Proposition 1, §1, author PDF pp.4–5; Proposition 8 proof, §3, p.20",
+          "match": "Lemma 2 states the equivalence between surjectivity of the contraction and submersivity of the evaluation on F¹; the proof of Proposition 1 passes to the real (1,1) bundle, and Proposition 8 repeats the argument for the push-forward kernel."
         }
       ],
       "acceptance": [
@@ -1125,7 +1249,7 @@
       "sources": [
         {
           "sourceId": "B18",
-          "locator": "Proposition1.1 proof, p.1051",
+          "locator": "Proposition 1.1 proof, §1.2, p.1051",
           "match": "Tangent invariants of the two fixed loci retain surjectivity of the equivariant derivative."
         }
       ],
@@ -1147,16 +1271,17 @@
       ],
       "title": "Real Green open-cone theorem",
       "kind": "theorem",
-      "statement": "Let H be an effective rational weight-two VHS with a compatible real action, b∈B(R), and λ∈H_R,b^(1,1)(1)^G. If θ_λ:T_bB(C)→H_b^(0,2) is surjective, then for every sufficiently small G-stable connected flat trivializing neighbourhood Δ at b with contractible connected Δ(R), there is a positive open cone Ω⊂H_R,b(1)^G such that every ν∈Ω becomes of type(1,1) on some b′∈Δ(R) after flat transport. Openness is relative to H_R,b(1)^G. Shrinking any admissible chart preserves the conclusion.",
+      "statement": "Let H be an effective rational weight-two VHS on B(C), for a smooth algebraic variety B over R, with a compatible real action; let b∈B(R) and λ∈H_R,b^(1,1)(1)^G, and suppose θ_λ:T_bB(C)→H_b^(0,2) is surjective. Let Δ be any G-stable connected analytic neighbourhood of b in B(C) on which the local system is trivial and whose real locus Δ(R)=Δ∩B(R) is connected and contractible. Then there is a positive open cone Ω⊂H_R,b(1)^G such that every ν∈Ω, transported flatly over Δ, lies in H_R,b′^(1,1)(1)^G for some b′∈Δ(R): it is of type (1,1) there and is still twisted-invariant, because the marking of a G-stable chart is G-equivariant. Openness is relative to H_R,b(1)^G. Such neighbourhoods exist inside every neighbourhood of b, so Δ may be taken arbitrarily small; the cone depends on Δ.",
       "hypotheses": [
-        "The base fixed locus and the fixed Hodge bundle are smooth; their tangents are the fixed real tangent spaces.",
-        "λ has the Tate sign and is real of type(1,1); θ_λ is onto the complex (0,2) target."
+        "B is a smooth algebraic variety over R, so B(R) is the fixed locus of an antiholomorphic involution of the complex manifold B(C); the fixed Hodge bundle is a manifold whose tangent spaces are the fixed tangent spaces (the fixed-locus theorem of G3).",
+        "λ has the Tate sign and is real of type (1,1); θ_λ is onto the complex (0,2) target.",
+        "Δ is admissible in the sense of the statement; no smallness is needed beyond that."
       ],
       "proofSteps": [
-        "Apply green-evaluation-submersion to the equivariant evaluation on the Tate-twisted Hodge bundle.",
-        "Use fixed-linear-surjectivity and the fixed-locus tangent identification to restrict to a real submersion.",
-        "The implicit-function theorem gives an open neighbourhood in the twisted invariant fibre.",
-        "The image is stable under positive scaling because evaluation is fibrewise linear; take the scaling saturation of that neighbourhood."
+        "Apply green-evaluation-submersion to the evaluation on the real (1,1) bundle over Δ; it is G-equivariant because the trivialization of a connected G-stable chart is unique.",
+        "Twist by Z(1) and pass to G-invariants: by the fixed-locus theorem and fixed-linear-surjectivity the restricted evaluation from the twisted-invariant (1,1) bundle over Δ(R) to H_R,b(1)^G is a submersion at (b,λ).",
+        "Its image therefore contains a neighbourhood of λ in H_R,b(1)^G (map_nhds_eq_of_surj in charts).",
+        "The image is stable under positive scaling because evaluation is fibrewise linear; the positive saturation of that neighbourhood is the cone, and it contains λ."
       ],
       "prerequisites": [
         "HodgeStructuresPartII:H.8/real-action",
@@ -1164,13 +1289,14 @@
         "HodgeStructuresPartII:H.8/green-evaluation-submersion",
         "HodgeStructuresPartII:H.8/fixed-linear-surjectivity",
         "HodgeStructuresPartII:H.8/positive-open-cone",
-        "tauceti:TauCetiRoadmap/GeometricTopology#layer-1-manifold-library-buildout-general-dimension-general-structure-group"
+        "tauceti:TauCetiRoadmap/GeometricTopology#layer-1-manifold-library-buildout-general-dimension-general-structure-group",
+        "mathlib:HasStrictFDerivAt.map_nhds_eq_of_surj"
       ],
       "sources": [
         {
           "sourceId": "B18",
-          "locator": "Proposition1.1 and full proof, §1.1, pp.1050–1051",
-          "match": "The abstract real criterion produces the stated open cone at nearby real points."
+          "locator": "Proposition 1.1 and its proof, §1.2, pp.1050–1051",
+          "match": "For the neighbourhood chosen at the start of §1.2 the proposition gives an open cone in the twisted-invariant real fibre whose elements are, after the trivialization, twisted-invariant classes of type (1,1) at points of the real locus of the neighbourhood."
         },
         {
           "sourceId": "B19",
@@ -1188,7 +1314,7 @@
       "implementationStatus": "unchecked",
       "suggestedDeclaration": "realGreenOpenCone",
       "planet": {
-        "name": "Real Green criterion"
+        "name": "Green's infinitesimal criterion over ℝ"
       },
       "suggestedStatus": "omitted:G1,G3"
     },
@@ -1219,7 +1345,7 @@
       "sources": [
         {
           "sourceId": "B18",
-          "locator": "Proposition1.2, §1.2, pp.1051–1052",
+          "locator": "Proposition 1.2, §1.3, p.1051",
           "match": "The real criterion locus asks whether some invariant twisted (1,1)-class has surjective derivative."
         }
       ],
@@ -1294,7 +1420,8 @@
       "statement": "For a finite-rank weight-two compatible real VHS over the complex points of a smooth real algebraic variety, Good_R(H) is open, and on each connected component K of B(R) it is either empty or open dense. In particular one good point in K implies density in that K. For a geometric smooth projective real family the condition is equivalently surjectivity of KS contraction on an invariant twisted (1,1)-class.",
       "hypotheses": [
         "The fixed Hodge bundle and derivative family have real-analytic local frames; fibre dimensions are locally constant.",
-        "Connected components are those of the smooth real manifold B(R)."
+        "Connected components are those of the smooth real manifold B(R).",
+        "Openness of the good locus is not in the source's statement; it follows from its proof, which shows that the complement is a closed real-analytic subset."
       ],
       "proofSteps": [
         "In local frames expand maximal-rank minors as finite homogeneous polynomials in the class coordinates.",
@@ -1312,7 +1439,7 @@
       "sources": [
         {
           "sourceId": "B18",
-          "locator": "Proposition1.2 proof and Proposition1.3, §1.2, pp.1051–1052",
+          "locator": "Proposition 1.2 and its proof, §1.3, p.1051; Proposition 1.3, §1.4, p.1052",
           "match": "The real-analytic rank condition has the componentwise empty-or-dense alternative; the next proposition identifies the geometric criterion."
         },
         {
@@ -1340,13 +1467,13 @@
       ],
       "title": "Constant and vanishing weight-two summands",
       "kind": "theorem",
-      "statement": "Suppose an effective rational weight-two VHS has a flat rational bilinear pairing Q and a constant Hodge sub-local-system C with fixed Hodge filtration, such that Q restricted to C is nondegenerate and Q_C(H^(p,q),H^(r,s))=0 unless p+r=q+s=2. Then K=C^⊥ is a flat rational Hodge subvariation, H=C⊕K and the projector to C is flat and a Hodge morphism. A compatible real action preserving C and Q preserves K. In surface-cover applications Q is the full intersection pairing; it is not asserted to be a polarization of all H² without the Lefschetz sign correction.",
+      "statement": "Suppose an effective rational weight-two VHS has a flat rational symmetric bilinear pairing Q and a constant Hodge sub-local-system C with fixed Hodge filtration, such that Q restricted to C is nondegenerate and Q_C(H^(p,q),H^(r,s))=0 unless p+r=q+s=2. Then K=C^⊥ is a flat rational Hodge subvariation, H=C⊕K and the projector to C is flat and a Hodge morphism. A compatible real action preserving C and Q preserves K. In surface-cover applications Q is the full intersection pairing; it is not asserted to be a polarization of all H² without the Lefschetz sign correction.",
       "hypotheses": [
         "Q is flat and nondegenerate on C; C is a subvariation with constant Hodge filtration.",
         "Q is a Hodge pairing of total type(2,2), with the stated vanishing between unmatched Hodge types."
       ],
       "proofSteps": [
-        "Use the native rational orthogonal-complement theorem where a genuine polarization is available, or the corresponding elementary nondegenerate type-compatible pairing argument.",
+        "Fibrewise, Mathlib's isCompl_orthogonal_of_restrict_nondegenerate gives H_b=C_b⊕C_b^⊥ from nondegeneracy of Q on C_b alone (Q symmetric, the fibre finite-dimensional). When Q is a polarization this agrees with the native Tau Ceti complement theorem, which is the polarized special case.",
         "Flatness of Q and C makes the fibre orthogonal spaces locally constant under parallel transport.",
         "Hodge-type orthogonality splits each piece and the filtration; nondegeneracy on C produces the direct sum.",
         "Preservation of the two inputs by real action gives preservation of K."
@@ -1354,12 +1481,13 @@
       "prerequisites": [
         "ShimuraData:D3/variation",
         "ShimuraData:D3",
-        "tauceti:TauCeti.Hodge.RationalHodgeSubstructure.isCompl_WQ_orthogonal_WQ"
+        "tauceti:TauCeti.Hodge.RationalHodgeSubstructure.isCompl_WQ_orthogonal_WQ",
+        "mathlib:LinearMap.BilinForm.isCompl_orthogonal_of_restrict_nondegenerate"
       ],
       "sources": [
         {
           "sourceId": "B19",
-          "locator": "Proposition6.6 proof, pp.93–94",
+          "locator": "Proposition 6.6 proof, p.94",
           "match": "The weight-two variation decomposes as the constant cohomology of the base surface and its cup-product orthogonal vanishing subvariation."
         }
       ],
@@ -1382,7 +1510,7 @@
       ],
       "title": "No derivative into a constant Hodge summand",
       "kind": "theorem",
-      "statement": "For the flat Hodge splitting H=C⊕K with C having constant Hodge filtration, every period symbol on H respects the splitting; its C-part vanishes. In particular θ_λ(T_bB) lies in K_b^(0,2) for every λ∈H_b^(1,1).",
+      "statement": "For the flat Hodge splitting H=C⊕K with C having constant Hodge filtration, the period symbol respects the splitting and its C-part vanishes: θ_b(v) is zero on C_b^(1,1) and maps K_b^(1,1) into K_b^(0,2). Hence, writing λ=λ_C+λ_K for λ∈H_b^(1,1), θ_λ=θ_(λ_K), and θ_λ(T_bB) lies in K_b^(0,2).",
       "hypotheses": [
         "Use the flat Hodge projector of orthogonal-constant-splitting."
       ],
@@ -1431,8 +1559,8 @@
         "Equal dimensions and containment force equality of subspaces."
       ],
       "prerequisites": [
-        "HodgeStructuresPartII:H.8/constant-symbol-zero",
-        "mathlib:LinearMap.range_eq_top"
+        "mathlib:LinearMap.range_eq_top",
+        "mathlib:Submodule.eq_of_le_of_finrank_le"
       ],
       "sources": [
         {
@@ -1459,15 +1587,16 @@
       ],
       "title": "Real Green criterion for the vanishing variation",
       "kind": "application",
-      "statement": "Under constantVanishingSplitting, let b be real and λ∈K_R,b^(1,1)(1)^G. If its geometric contraction has ambient cokernel dimension at most dim_C C_b^(0,2), then every sufficiently small admissible real chart has a positive open cone in K_R,b(1)^G whose classes become of type(1,1) at nearby real points. The cone is open in the vanishing twisted invariant subspace.",
+      "statement": "Under orthogonal-constant-splitting with a compatible real action preserving C and Q, let b be real and let λ∈H_R,b^(1,1)(1)^G be a twisted-invariant real (1,1)-class of the ambient variation; in the source it is the class of a real curve, which does not lie in K. If the cokernel of its geometric contraction φ_λ:T_bB(C)→H_b^(0,2) has dimension at most dim_C C_b^(0,2), then for every admissible neighbourhood Δ of b as in real-green-open-cone, now trivializing K, there is a positive open cone in K_R,b(1)^G whose classes, transported over Δ, are twisted-invariant classes of K of type (1,1) at points of Δ(R). The cone is open in the vanishing twisted-invariant subspace.",
       "hypotheses": [
-        "The constant summand has constant Hodge filtration and the splitting is compatible with real action.",
-        "λ itself lies in the vanishing subspace, not merely in H^(1,1); all geometric comparison suppliers are supplied."
+        "The constant summand has constant Hodge filtration, and the splitting is compatible with the real action.",
+        "λ is any twisted-invariant real (1,1)-class of H at b; the theorem is applied to its K-component λ_K, which is again real, of type (1,1) and twisted-invariant because the Hodge projector is rational, flat and commutes with the real action.",
+        "All geometric comparison suppliers of griffiths-derivative are supplied."
       ],
       "proofSteps": [
-        "Compare contraction with the variation derivative using griffiths-derivative.",
-        "Apply constant-symbol-zero and vanishing-rank-criterion to obtain surjectivity in the K target.",
-        "Apply real-green-open-cone to K as a common-carrier subvariation."
+        "Compare the contraction with the period symbol by griffiths-derivative.",
+        "By constant-symbol-zero, θ_λ=θ_(λ_K) and its image lies in K_b^(0,2); by vanishing-rank-criterion it is onto K_b^(0,2).",
+        "Apply real-green-open-cone to the subvariation K and the class λ_K."
       ],
       "prerequisites": [
         "HodgeStructuresPartII:H.8/orthogonal-constant-splitting",
@@ -1479,8 +1608,8 @@
       "sources": [
         {
           "sourceId": "B19",
-          "locator": "Proposition6.6, pp.93–95, especially p.94",
-          "match": "The proof applies Green to the vanishing summand after converting the ambient codimension bound."
+          "locator": "Proposition 6.6 proof, p.94",
+          "match": "The class of the curve is a twisted-invariant real (1,1)-class of the whole variation; its derivative has cokernel of dimension at most h²(O_S) and image in the vanishing part, hence is onto the vanishing (0,2)-piece, and the real criterion is then applied to the vanishing variation."
         }
       ],
       "acceptance": [
@@ -1602,6 +1731,7 @@
       ],
       "proofSteps": [
         "Flat pushforward defines the kernel local system, with constant rank and induced Hodge filtration.",
+        "Turn the contraction of voisin-infinitesimal-kernel into the period symbol by griffiths-derivative. Push-forward is a morphism of variations, so the symbol of H restricts to K=ker p_*, and surjectivity of φ_λ onto the kernel in H²(O) is surjectivity of θ_λ onto K^(0,2).",
         "The infinitesimal theorem holds on a nonempty open rank locus; existence of some λ is an algebraic open condition by maximal minors in local frames.",
         "The full-rank condition is a nonempty polynomial open set in the complex (1,1) kernel. Its coefficient-conjugation fixed real form is Zariski dense, so a real (1,1) class can be chosen with the same surjectivity.",
         "Apply Green’s evaluation submersion argument within this kernel and saturate the image by positive scaling.",
@@ -1613,7 +1743,8 @@
         "HodgeStructuresPartII:H.8/positive-open-cone",
         "ShimuraData:D3/variation",
         "ShimuraData:D3",
-        "ComplexComparisonPartII:C5/repair-proper-de-rham-betti"
+        "ComplexComparisonPartII:C5/repair-proper-de-rham-betti",
+        "HodgeStructuresPartII:H.8/griffiths-derivative"
       ],
       "sources": [
         {
@@ -1637,7 +1768,7 @@
       "implementationStatus": "unchecked",
       "suggestedDeclaration": "voisinKernelCone",
       "planet": {
-        "name": "Voisin kernel cone"
+        "name": "Voisin's open cone in the push-forward kernel"
       },
       "suggestedStatus": "omitted:G1,G4"
     },
@@ -1649,9 +1780,9 @@
       ],
       "title": "The product-threefold kernel-cone interface",
       "kind": "application",
-      "statement": "Let S be a smooth projective complex surface and A a very ample line bundle with A²>K_S·A. Put X=P¹×S, p=pr_S and H=pr_1^*O(1)⊗pr_S^*A. For all sufficiently large positive m, the smooth members T of |mH| have a nonempty Zariski open parameter set V satisfying the kernel-cone conclusion of voisin-kernel-cone for p:T→S. The integer m is a geometric degree threshold, unrelated here to a Brauer period.",
+      "statement": "Let S be a connected smooth projective complex surface and A a very ample line bundle with A²>K_S·A. Put X=P¹×S, p=pr_S and H=pr_1^*O(1)⊗pr_S^*A. For all sufficiently large positive m, the smooth members T of |mH| have a nonempty Zariski open parameter set V satisfying the kernel-cone conclusion of voisin-kernel-cone for p:T→S. The integer m is a geometric degree threshold, unrelated here to a Brauer period.",
       "hypotheses": [
-        "A very ample; strict numerical inequality A²>K_S·A.",
+        "S connected, smooth and projective; A very ample; strict numerical inequality A²>K_S·A.",
         "The conclusion is a complex nearby-fibre statement."
       ],
       "proofSteps": [
@@ -1694,14 +1825,19 @@
         "Smooth affine of pure complex dimension d; singular affine varieties require a different theorem."
       ],
       "proofSteps": [
-        "Embed the affine variety as a closed complex submanifold of C^N.",
-        "A generic squared-distance exhaustion is proper Morse; the quadratic holomorphic Hessian has real eigenvalues in opposite pairs, so each Morse index is at most d.",
-        "The Morse handle theorem produces a CW model with cells of those indices.",
-        "General smooth Morse/handle infrastructure is an upstream-extension gap, not a Hodge-specific replacement theory."
+        "Embed the affine variety as a closed complex submanifold M of C^N.",
+        "For almost every point p the squared distance from p, restricted to M, has only nondegenerate critical points. In a chart of M formed by 2d of the real ambient coordinates it is a fixed function minus an inner-product term in the chart coordinates, so Tau Ceti's genericity theorem for inner-product perturbations applies chart by chart; countably many charts give almost every p. The function is proper and bounded below because M is closed.",
+        "At a critical point the native Morse index, read in a chart through its invariance under changes of coordinates, is at most d: in a normal direction the second fundamental form of a complex submanifold is the real part of a holomorphic quadratic form, whose eigenvalues occur in opposite pairs, so at most d of the 2d Hessian eigenvalues are negative (Milnor, §7, Assertions 1 and 2).",
+        "The handle theorem for a nondegenerate function with compact sublevel sets (Milnor, Theorem 3.5) gives a CW model with one cell of dimension the index for each critical point. That theorem is stated by no roadmap and is gap G3. Nondegenerate critical points, the Morse index and generic Morse perturbations are already in Tau Ceti at the pin, on normed spaces; their manifold-level form belongs to the Morse homology lane of the upstream Heegaard Floer roadmap, for which they were built."
       ],
       "prerequisites": [
         "tauceti:TauCetiRoadmap/GeometricTopology#layer-1-manifold-library-buildout-general-dimension-general-structure-group",
-        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-4-cw-pairs-cellular-homology-and-cofibrations"
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-4-cw-pairs-cellular-homology-and-cofibrations",
+        "tauceti:TauCetiRoadmap/HeegaardFloer#lane-m-morse-homology-stage-0",
+        "tauceti:TauCeti.IsNondegenerateCriticalPoint",
+        "tauceti:TauCeti.morseIndex",
+        "tauceti:TauCeti.morseIndex_comp",
+        "tauceti:TauCeti.ae_hasNondegenerateCriticalPointsOn_sub_inner"
       ],
       "sources": [
         {
@@ -1711,8 +1847,13 @@
         },
         {
           "sourceId": "B19",
-          "locator": "Proposition3.2 proof, §3.2, p.78, citing Andreotti–Frankel Theorem1",
+          "locator": "Proposition 3.2 proof, §3.3, p.78, citing Andreotti–Frankel, Theorem 1",
           "match": "The surface proof uses the affine CW dimension bound to kill high-degree ordinary integral cohomology."
+        },
+        {
+          "sourceId": "M63",
+          "locator": "§3, Theorem 3.5, p.20",
+          "match": "A manifold with a nondegenerate function all of whose sublevel sets are compact has the homotopy type of a CW complex with one cell of dimension equal to the index for each critical point; this is the handle-to-CW input."
         }
       ],
       "acceptance": [
@@ -1752,7 +1893,7 @@
       "sources": [
         {
           "sourceId": "B19",
-          "locator": "Proposition3.2 proof, pp.78–79",
+          "locator": "Proposition 3.2 proof, §3.3, p.78",
           "match": "Ordinary integral vanishing is proved first for the affine surface and its étale double cover; the sign-coefficient sequence is an additional step."
         }
       ],
@@ -1897,6 +2038,11 @@
           "sourceId": "B18",
           "locator": "Remark1.4, p.1052",
           "match": "The twisted real invariance convention is the convention satisfied by real divisor classes."
+        },
+        {
+          "sourceId": "BW20",
+          "locator": "§2.3.1, Proposition 2.8 (arXiv numbering)",
+          "match": "For a smooth proper variety over R, every class in the equivariant group H²_G(X(C),Z(1)) whose image in ordinary cohomology is a Hodge class is the equivariant cycle class of a line bundle on X; in degree two there is no further topological condition."
         }
       ],
       "acceptance": [
@@ -1922,7 +2068,7 @@
     },
     {
       "supplier": "ComplexComparisonPartII:C1",
-      "need": "Supply the natural relative coherent Hodge comparison for smooth projective surface fibres: H¹(Ω¹)≅H^(1,1), H²(O)≅H^(0,2), holomorphic Hodge subbundles and real-analytic underlying bundles, compatible with cup/contraction, pullback, pushforward, conjugation and flat marking. For Voisin also supply the natural pushforward identification H³(X,Ω¹_X)≅H²(S,O_S) for this rational-generic-fibre morphism, the equality of the surface pushforward kernel with the Gysin kernel into H³(X,Ω¹_X), and the positive-twist/residue-to-Hodge identifications used by Proposition9.",
+      "need": "C1 owns coherent cohomology of analytic sheaves on projective analytic spaces. H.8 needs from it: finite-dimensional coherent cohomology of the fibres of a smooth projective family, locally free and compatible with base change, so that the groups H^q(X_b,Ω^p) form holomorphic bundles; and cup products and the contraction pairing on that cohomology, natural for pull-back and compatible with the algebraic ones. The identification of H^q(X_b,Ω^p) with the graded pieces of the de Rham filtration, hence of H¹(Ω¹) with H^(1,1) and of H²(O) with H^(0,2), is not asked of C1: it is the Hodge-decomposition engine that H.2/geometric-pure uses and records as its gap G9, and H.8 imports it through that node (G1). The push-forward identification H³(X,Ω¹_X)≅H²(S,O_S) and the residue statements of Voisin's Proposition 9 have no located supplier and are in G4.",
       "neededBy": [
         "HodgeStructuresPartII:H.8/geometric-real-variation",
         "HodgeStructuresPartII:H.8/voisin-infinitesimal-kernel"
@@ -1969,7 +2115,7 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/GeometricTopology#layer-1-manifold-library-buildout-general-dimension-general-structure-group",
-      "need": "Within the general manifold-library direction, the needed extension is smooth finite-involution fixed submanifolds with tangent fixed spaces and compatible real-analytic charts, plus proper smooth Morse exhaustion/handle-to-CW theory. These targets are not stated in the current upstream layer; a Geometric topology Part II extension must supply them. H.8 proves only the special Green application and affine complex index bound, not that general infrastructure.",
+      "need": "The layer states tubular neighbourhoods of closed submanifolds, collars and handle attachment; H.8 uses these for the duality of the pair (X,T) and for the handle step. Two statements H.8 needs lie beyond its stated targets and form the proposed Part II: (a) for a finite group acting by C^k or real-analytic diffeomorphisms on a manifold M, the fixed set is an embedded submanifold of the same class and its tangent space at a fixed point is the fixed subspace of the tangent space (average a chart to linearise the action, then apply the inverse function theorem); (b) a manifold with a Morse function all of whose sublevel sets are compact has the homotopy type of a CW complex with one cell of dimension the index for each critical point (Milnor, Morse Theory, Theorem 3.5). H.8 proves only the Green application of (a) and the index bound for affine varieties that feeds (b).",
       "neededBy": [
         "HodgeStructuresPartII:H.8/real-green-open-cone",
         "HodgeStructuresPartII:H.8/real-good-locus-density",
@@ -1995,9 +2141,16 @@
     },
     {
       "supplier": "MotivesAndAlgebraicCycles:MC.7",
-      "need": "Import MC.7/tate-and-hodge-known-cases for the already planned complex integral divisor-class theorem. Extend this same cycle supplier by real Lefschetz(1,1): for a smooth projective real surface, the image of Pic(T) in H²_G(T(C),Z(1)) consists of the classes whose ordinary complexification is of type(1,1). Require the equivariant integral class; no assertion of descent for every invariant ordinary class. Read the precise Benoist–Wittenberg Proposition2.8/Krasnov source when building this extension.",
+      "need": "Import MC.7/tate-and-hodge-known-cases, entry (H1), for the complex integral divisor theorem. Add to the same register the real Lefschetz (1,1) theorem, catalogued as PAPER-BENOIST-WITTENBERG-20/divisor-real-lefschetz (with its definition PAPER-BENOIST-WITTENBERG-20/real-hodge) and PAPER-BENOIST-19/90, both already routed to MC.7: for a smooth proper variety X over R, every class of H²_G(X(C),Z(1)) whose image in H²(X(C),Z(1)) is of type (1,1) is the equivariant cycle class of a line bundle on X (Benoist–Wittenberg, Proposition 2.8, after Krasnov; in degree two the topological condition of their Definition 2.2 is empty). The hypothesis is an equivariant integral class; nothing is asserted for a G-invariant class of ordinary cohomology.",
       "neededBy": [
         "HodgeStructuresPartII:H.8/transported-divisor-export"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/HeegaardFloer#lane-m-morse-homology-stage-0",
+      "need": "The manifold-level form of a Morse function: a smooth function on a manifold whose critical points are nondegenerate in charts, with their indices. The normed-space predicates, the index, its invariance under coordinate changes and generic Morse perturbations are already in Tau Ceti (TauCeti/Analysis/Calculus/Morse) and are cited from the baseline; the lane owns their manifold-level form. The affine bound applies it to a squared-distance function on a closed complex submanifold of affine space. The noncompact handle-to-CW theorem is not among the lane's stated targets (it treats Morse homology); it is statement (b) of the Geometric topology request and gap G3.",
+      "neededBy": [
+        "HodgeStructuresPartII:H.8/affine-cw-bound"
       ]
     }
   ],
@@ -2020,7 +2173,7 @@
         "HodgeStructuresPartII:H.8/voisin-product-surface",
         "HodgeStructuresPartII:H.8/transported-divisor-export"
       ],
-      "detail": "D3/variation, H.2/geometric-pure, H.2/gauss-manin, H.3/period-symbol and the comparison nodes are mathematical plans with missing holomorphic/sheaf/global geometric signatures. The suggested file uses actual native fibre Hodge structures and linear-map chart outputs; it does not define a replacement global variation. Full geometric signatures listed in the omission ledger require these common suppliers."
+      "detail": "D3/variation, H.2/geometric-pure, H.2/gauss-manin, H.3/period-symbol and the comparison nodes are mathematical plans with missing holomorphic/sheaf/global geometric signatures. The suggested file uses actual native fibre Hodge structures and linear-map chart outputs; it does not define a replacement global variation. Full geometric signatures listed in the omission ledger require these common suppliers. In particular the identification of the graded pieces of the de Rham filtration with the Hodge cohomology groups H^q(Ω^p), and with it the agreement of first Chern classes in Betti and in Hodge cohomology, is the cohomological Hodge-decomposition engine that H.2/geometric-pure needs and records as its own gap G9. No atlas stage states it; ComplexComparisonPartII:C1 supplies coherent analytic cohomology, not this."
     },
     {
       "id": "G2",
@@ -2044,7 +2197,7 @@
         "HodgeStructuresPartII:H.8/ordinary-integral-lefschetz-h3",
         "HodgeStructuresPartII:H.8/ordinary-integral-lefschetz-h2"
       ],
-      "detail": "The current GeometricTopology layer1 does not state finite-involution fixed-submanifold or general Morse handle results. They need the proposed Part II extension. AlgebraicTopology stages4 and6 plan cellular cohomology and integral duality but no assembled algebraic analytification/Gysin adapter exists. The ordinary integral results here retain all torsion and cannot be closed using equivariant or étale variants."
+      "detail": "Two general statements are stated by no roadmap. (a) The fixed set of a finite group of diffeomorphisms of a manifold is a submanifold whose tangent spaces are the fixed tangent spaces; B18 quotes it from Audin's book. (b) A proper Morse function with all indices at most d gives a CW model of dimension at most d (Milnor, Theorem 3.5); its local ingredients (nondegenerate critical points, the Morse index, generic perturbations) are in Tau Ceti at the pin, the global theorem is not. Upstream GeometricTopology layer 1 states tubular neighbourhoods, collars and handle attachment but neither (a) nor (b); the upstream Heegaard Floer roadmap plans Morse functions and Morse homology but not (b). They need the proposed Part II extension. AlgebraicTopology stages 4 and 6 plan cellular homology, universal coefficients and Poincaré–Lefschetz duality, but no packet states the adapter from a smooth complex variety to an oriented manifold (the analytification is upstream work tracked by the atlas as an external and used by ComplexComparisonPartII:C0), nor the identification of inclusion on homology with the Gysin map. The ordinary integral results here retain all torsion and cannot be closed using equivariant or étale variants."
     },
     {
       "id": "G4",
@@ -2054,7 +2207,7 @@
         "HodgeStructuresPartII:H.8/voisin-kernel-cone",
         "HodgeStructuresPartII:H.8/voisin-product-surface"
       ],
-      "detail": "The full author-preprint argument was read, including Proposition9’s kernel modification. Missing exact reusable suppliers are: Barth’s node count for generic symmetric determinantal surfaces; the incidence Grass(2,m) Koszul/Bott vanishings of Proposition3 and Appendix Lemmas8,13; Harris uniform position for those node sets; Green/Macaulay low-codimension multiplication (Proposition7); Griffiths Jacobian-ring/residue identifications and the kernel residue exactness of Proposition9. Existing SF/moduli/comparison directions are requested for their portions, but no exact atlas node for the combinatorial linear-series and nodal uniform-position inputs was located. This is source-proof closure work, not an omission of the mandatory kernel-cone target."
+      "detail": "The full author-preprint argument was read, including Proposition9’s kernel modification. Missing exact reusable suppliers are: Barth’s node count for generic symmetric determinantal surfaces; the incidence Grass(2,m) Koszul/Bott vanishings of Proposition3 and Appendix Lemmas8,13; Harris uniform position for those node sets; Green/Macaulay low-codimension multiplication (Proposition7); Griffiths Jacobian-ring/residue identifications and the kernel residue exactness of Proposition9. Existing SF/moduli/comparison directions are requested for their portions, but no exact atlas node for the combinatorial linear-series and nodal uniform-position inputs was located. This is source-proof closure work, not an omission of the mandatory kernel-cone target. The push-forward identification H³(X,Ω¹_X)≅H²(S,O_S) for a morphism with rational generic fibre, used in the first step of Proposition 9, is in the same position."
     },
     {
       "id": "G5",
@@ -2062,7 +2215,7 @@
       "neededBy": [
         "HodgeStructuresPartII:H.8/transported-divisor-export"
       ],
-      "detail": "MC.7/tate-and-hodge-known-cases supplies the complex integral(1,1) theorem. The exact real equivariant refinement of Benoist–Wittenberg Proposition2.8/Krasnov is not planned there yet, and its proof source was not obtained in this run. H.8 exports the twisted real Hodge class; real line-bundle conversion requires the requested refinement and an actual consumer-supplied equivariant integral lift."
+      "detail": "MC.7/tate-and-hodge-known-cases supplies the complex integral (1,1) theorem. The real refinement is Benoist–Wittenberg, Proposition 2.8 (after Krasnov): on a smooth proper variety over R, an equivariant class in H²_G(X(C),Z(1)) with Hodge image is the class of a line bundle. It is catalogued (PAPER-BENOIST-WITTENBERG-20/divisor-real-lefschetz, PAPER-BENOIST-19/90) and routed to MC.7, but no node of MC.7 states it yet. Its statement was read; its proof is by references that were not obtained. H.8 exports the twisted real Hodge class; real line-bundle conversion requires the requested register entry and an actual consumer-supplied equivariant integral lift."
     }
   ],
   "coverage": [
@@ -2072,7 +2225,7 @@
       "remaining": [
         "Resolve G1–G5 through the precise supplier requests and GeometricTopology Part II proposal.",
         "Replace the global-signature omission ledger once the common geometric carriers and comparison maps exist.",
-        "Independently review all target statements, the new preprint-scoped source misprint, the ordinary integral topology interface and the Voisin proof supplier boundary."
+        "Collate the Voisin preprint with the published chapter, and recheck the estimates of its §2 when G4 is closed; they were read by the planner and only spot-checked by the review."
       ]
     }
   ],
@@ -2090,7 +2243,13 @@
       "searched": [
         "The existing confirmed Benoist19 errata register",
         "Published PDF p.88 and B18 published Proposition2.1 pp.1053–1054"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-HodgeStructuresPartII--H.8",
+        "date": "2026-10-08",
+        "reason": "Read at the locator in the published PDF: the third group of (5.7) is printed in degree zero, while it is the target of the connecting map of the sequence (5.8) and the source of that of (5.9), so it is H¹(C,N_C/T), as in B18 Proposition 2.1. Already confirmed in the register as PAPER-BENOIST-19/E12."
+      }
     },
     {
       "id": "HodgeStructuresPartII/E-H8-2",
@@ -2106,7 +2265,35 @@
         "Author-hosted preprint, §2 Corollary4 proof and Corollary5",
         "Publication DOI10.2969/aspm/04510043 and Project Euclid chapter/PDF endpoint; full published text was not served",
         "Existing atlas source-issue and errata files; no entry for this particular preprint symbol was found"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-HodgeStructuresPartII--H.8",
+        "date": "2026-10-08",
+        "reason": "Read at the locator in the author preprint: both alternatives of Corollary 4 name the first projection. The last sentence of its proof derives the alternatives from the generic ranks of the two projections, and case (ii) of Corollary 5 uses the second projection, so (ii) is about pr₂. The finding stays scoped to the preprint; the published chapter was not read."
+      }
+    },
+    {
+      "id": "HodgeStructuresPartII/E-H8-3",
+      "source": "B19",
+      "kind": "gap",
+      "locator": "Published version, Proposition 6.6 proof, p.94 (the application of the real Green criterion to the vanishing variation)",
+      "printed": "The class λ is the class of the curve C on the double cover T. The real infinitesimal criterion of B18, Proposition 1.1, is then applied to the vanishing sub-variation, with the surjectivity of the derivative of λ onto the vanishing (0,2)-part as its hypothesis.",
+      "correction": "Apply the criterion to the vanishing component λ_van of λ, the image of λ under the Hodge projector of the splitting, and note that the derivative of λ_van equals that of λ because the other component is a flat class of the constant summand that stays of type (1,1).",
+      "reason": "The proposition quoted requires a twisted-invariant real (1,1)-class of the variation it is applied to. The class of C is not in the vanishing part: its push-forward to S is the class of the image curve, a nonzero multiple of the class of an ample line bundle. Its vanishing component is again real, of type (1,1) and twisted-invariant, since the projector is rational, flat and G-equivariant, and it has the same derivative.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "The errata register of the atlas for this paper (PAPER-BENOIST-19/E1–E24): no entry at this step; E21 concerns the last step of the same proof",
+        "The published PDF at the recorded URL, pp.93–95, and B18 §1.1–§1.2 for the hypothesis of the criterion",
+        "No search of the arXiv versions or of the author's page for a later correction was made"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-HodgeStructuresPartII--H.8",
+        "date": "2026-10-08",
+        "reason": "Found by this review while checking vanishing-real-green against the source. The step is a one-line omission; the proof is correct once the component is taken, and the node now states the criterion for an ambient class."
+      }
     }
   ],
   "detailLevel": "target",
@@ -2117,7 +2304,7 @@
       "AUDIT-10",
       "AUDIT-01"
     ],
-    "result": "Upstream Hodge L0, L1 and L3 are built; the variation target of ShimuraData:D3 is absent; ComplexComparisonPartII:C5 is partly built. H.8 has no reviewed individual audit. Fresh pinned-name and statement searches found no general Kodaira–Spencer, real Noether–Lefschetz, Green/Voisin cone, ordinary integral weak Lefschetz or Andreotti–Frankel declaration."
+    "result": "Upstream Hodge L0, L1 and L3 are built; the variation target of ShimuraData:D3 is absent; ComplexComparisonPartII:C5 is partly built. H.8 has no reviewed individual audit. Fresh pinned-name and statement searches found no general Kodaira–Spencer, real Noether–Lefschetz, Green/Voisin cone, ordinary integral weak Lefschetz or Andreotti–Frankel declaration. The independent review found that Tau Ceti at the pin does contain Morse-theoretic declarations on normed spaces (nondegenerate critical points, the Morse index, generic Morse perturbations, in TauCeti/Analysis/Calculus/Morse); they are cited in the baseline and are not planned again."
   },
   "upstreamRead": [
     "content/tau-ceti/HodgeStructures/README.md",
@@ -2137,13 +2324,17 @@
         "tauceti:TauCetiRoadmap/GeometricTopology"
       ],
       "proposal": "Geometric topology, Part II: finite-involution fixed manifolds and Morse handle/CW interfaces. Import the existing smooth-manifold buildout; add the exact G3 inputs there, leaving the special complex affine index bound and Green criterion in H.8. No new roadmap file is written by this scoped job.",
-      "detail": "The general fixed-locus and Morse infrastructure needed here is not among the current upstream layer1 targets; recording it as already owned and supplied would conceal a scope gap."
+      "detail": "The general fixed-locus and Morse infrastructure needed here is not among the current upstream layer1 targets; recording it as already owned and supplied would conceal a scope gap. The upstream Heegaard Floer roadmap owns Morse functions and Morse homology; the extension builds on that lane for its Morse statement and does not define Morse functions again."
     }
   ],
   "upstreamNotes": [
     {
+      "roadmaps": [
+        "tauceti:TauCetiRoadmap/GeometricTopology",
+        "tauceti:TauCetiRoadmap/HeegaardFloer"
+      ],
       "where": "tauceti:TauCetiRoadmap/GeometricTopology#layer-1-manifold-library-buildout-general-dimension-general-structure-group",
-      "note": "The current layer1 manifold buildout lacks the fixed-locus tangent and Morse-handle interfaces required by the sources. This packet requests a Part II extension and preserves G3 rather than editing the upstream roadmap."
+      "note": "Layer 1 of Geometric topology states tubular neighbourhoods, collars and handle attachment, and the Morse homology lane of Heegaard Floer states Morse functions and Morse homology. Neither states the fixed-set theorem for a finite group of diffeomorphisms or the handle-to-CW theorem for a proper Morse function (Milnor, Theorem 3.5). This packet requests them as a Part II extension and keeps gap G3; it does not edit an upstream roadmap. If upstream prefers, the Morse statement could sit with the Morse lane rather than with the manifold layer."
     }
   ],
   "sourceVersions": [
@@ -2176,6 +2367,12 @@
       "url": "https://webhomes.maths.ed.ac.uk/~v1ranick/papers/milnmors.pdf",
       "read": "2026-10-08",
       "sha256": "65731a25d783d01c9e677d26235884289ebfac6960a8dde90ca6be956b7e13a6"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/abs/1801.00872",
+      "read": "2026-10-08",
+      "sha256": "9fb55d1d7532b003390f94424ae76ff35d6654658939256e0926ec4f7a33f65f"
     }
   ],
   "routeCoverage": [
@@ -2306,5 +2503,168 @@
         }
       ]
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-HodgeStructuresPartII--H.8",
+    "date": "2026-10-08",
+    "notes": "Accepted as a completed target-level plan with five recorded gaps; nothing is claimed formalised. All 31 nodes were checked against the plan's five sources, whose files match the recorded hashes (a sixth, for the real Lefschetz (1,1) statement, was added), and all sixteen baseline declarations were read at the pinned commits. Corrections made in place: section and page locators in Benoist 2018, Benoist 2019 and the Voisin preprint; the real Green theorem now holds for every admissible neighbourhood and keeps the transported class twisted-invariant; the vanishing application now takes an ambient class, as the source does, and uses its vanishing component; the Griffiths formula is a complex statement and the Voisin cone now depends on it; the normal-boundary factorization names the connecting map it is about and no longer cites the Lefschetz (1,1) register; the request to ComplexComparisonPartII:C1 no longer asks it for the Hodge decomposition, which is gap G9 of the accepted H.2 packet and is now named in G1; the orthogonal splitting rests on the Mathlib complement theorem for a nondegenerate restriction, the Tau Ceti theorem being the polarized case; the rank criterion no longer depends on a global node. Added nine baseline declarations (25 in all), four of them Tau Ceti's Morse-theoretic declarations, which the plan had not found, four API items, two discriminating tests, a request to the upstream Morse lane, the exact statement of the real Lefschetz (1,1) request, a third source issue, and verdicts on the other two. The suggested file had one ill-typed test; with it repaired the whole file elaborates against the pinned signatures of the Tau Ceti Hodge declarations, with proof placeholders as its only warnings (the shared build has no compiled TauCeti.Geometry, so the two Tau Ceti imports themselves could not be loaded). Planets: the Noether–Lefschetz locus replaces the normal-boundary factorization, and three names were redrawn from the sources.",
+    "checked": [
+      {
+        "nodeId": "HodgeStructuresPartII:H.8/real-action",
+        "verdict": "corrected",
+        "note": "Statement agrees with B18 §1.1 and (1.3): the antilinear action σ⊗conj preserves types, equivalently σ_C exchanges them. Locator corrected (§1.1 is p.1050; the two factors are (1.3), p.1052). Effectivity pinned to the native predicate. Added the two pure-tensor simp items the suggested file already had, the field geometric_piece as an API item, and a fifth test that fails for the tempting definition in which σ_C preserves types."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.8/combined-type",
+        "verdict": "verified",
+        "note": "Follows from the field geometric_piece and native conj_piece; equality from the two involutions. Locator corrected."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.8/twisted-invariants",
+        "verdict": "corrected",
+        "note": "σ(2πi·v)=−2πi·σ(v) under the antilinear action, so invariance is σv=−v: verified. Locator corrected; recorded that B19 normalises Z(1) as i·Z, with the same sign action."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.8/twist-sign",
+        "verdict": "verified",
+        "note": "Elementary; recomputed. Locator corrected."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.8/geometric-real-variation",
+        "verdict": "corrected",
+        "note": "Hypotheses as in B18 §1.4 (smooth projective morphism of smooth varieties over R). H.2/geometric-pure and H.2/gauss-manin read: they supply the complex variation for a smooth projective family with a relative ample class. Locator corrected; a garbled symbol in the statement repaired. The Hodge-piece identification is attributed to H.2/geometric-pure, not to coherent analytic cohomology."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.8/transported-hodge-locus",
+        "verdict": "corrected",
+        "note": "Definition and the F¹ characterisation verified against the native piece (piece 1 = F 1 ⊓ conjF 1, and a real vector is fixed by the conjugation). Locator corrected. Made a planet: it is the layer's title object and both Benoist papers name it."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.8/transported-locus-gluing",
+        "verdict": "verified",
+        "note": "Image of a submodule under the base change of a real-linear equivalence; elementary. Locator corrected."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.8/nl-obstruction-derivative",
+        "verdict": "corrected",
+        "note": "Sign recomputed: with F¹ near b the graph of A, the class of a fixed λ∈F¹_b in the quotient is −A(x)λ, so its derivative is −θ. The source match now says that Griffiths gives only the moving-filtration derivative."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.8/kodaira-spencer-contraction",
+        "verdict": "corrected",
+        "note": "Definition agrees with B19 (5.2) and B18 (1.4). Locator corrected: (5.1) is an unrelated isomorphism of line bundles on the curve."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.8/griffiths-derivative",
+        "verdict": "corrected",
+        "note": "Griffiths (1.19), (1.20), (1.23) read: the differential of the filtration step is cup product with the Kodaira–Spencer class, with positive sign. The node is a complex statement, so its prerequisite is now the complex geometric variation (H.2/geometric-pure, H.2/gauss-manin) and no longer the real variation; this lets the Voisin nodes use it. The identification of the Hodge pieces with Hodge cohomology is the one H.2/geometric-pure constructs, whose engine is that packet's open gap G9."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.8/normal-boundary-factorization",
+        "verdict": "corrected",
+        "note": "B18 Proposition 2.1 and its proof read in full. The statement now names the map ρ on normal sections (the source's map is ρ followed by contraction, not a Kodaira–Spencer map of a family) and states the family form separately. Removed the prerequisite MC.7/tate-and-hodge-known-cases: that node is the Lefschetz (1,1) theorem, the converse of what is used; the class of C in Hodge cohomology is the coherent Chern class requested from SF.4, and its agreement with the Betti class is recorded in G1. No longer a planet (see the report)."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.8/normal-vanishing-surjectivity",
+        "verdict": "verified",
+        "note": "B18 Corollary 2.2, p.1054: the three vanishings make restriction, δ_norm and δ_div onto. The extra condition for a smaller family is correct linear algebra and is what B19 checks in (5.10)."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.8/positive-open-cone",
+        "verdict": "corrected",
+        "note": "The image of a fibrewise linear evaluation is stable under positive scaling but not under addition, so the definition rightly asks for neither convexity nor additivity. Added the relation to Mathlib's ConvexCone and a test separating the two notions. Locator corrected."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.8/green-evaluation-submersion",
+        "verdict": "corrected",
+        "note": "Derivative computation checked: modulo the vertical directions the derivative is the symbol on the (1,0) part of the tangent vector, and the real quotient H_R/H_R^(1,1) is H^(0,2). V06 locator corrected (Lemma 2 and the real-class argument are on pp.4–5). Added the Mathlib open-mapping statement for a surjective strict derivative, which needs no complemented kernel."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.8/fixed-linear-surjectivity",
+        "verdict": "verified",
+        "note": "Averaging argument; true over any field in which 2 is invertible. Locator corrected."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.8/real-green-open-cone",
+        "verdict": "corrected",
+        "note": "The source proves the conclusion for every admissible neighbourhood, not only small ones, and its conclusion keeps the transported class twisted-invariant at the nearby real point; the statement now says both. Hypotheses, proof steps and locator rewritten to match B18 §1.2. Planet renamed after the source's section title."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.8/good-real-locus",
+        "verdict": "verified",
+        "note": "The set of Proposition 1.2. The four tests separate it from 'some Hodge class exists'. Locator corrected."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.8/real-good-locus-density",
+        "verdict": "corrected",
+        "note": "Empty-or-dense on each component is Proposition 1.2; openness follows from its proof and is now flagged as such. The finite-coefficient argument replaces the source's intersection over all class vectors and is sound: the minors are polynomial in the class. Locators corrected. The identity theorem cited is the several-variable one, read at the pin."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.8/orthogonal-constant-splitting",
+        "verdict": "corrected",
+        "note": "B19 p.94 read: the constant summand is the pull-back of H²(S), the vanishing part is its cup-product orthogonal. The native Tau Ceti theorem needs a polarization, which the cup product on H² is not; the fibre step now rests on the Mathlib statement for a nondegenerate restriction, read at the pin. Q is now stated symmetric. K is the kernel of the Hodge morphism to the dual of C, so it is a subvariation: checked."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.8/constant-symbol-zero",
+        "verdict": "corrected",
+        "note": "Verified. The statement now records θ_λ=θ_(λ_K), which the vanishing application needs because the class used in B19 is not in K."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.8/vanishing-rank-criterion",
+        "verdict": "corrected",
+        "note": "Pure linear algebra, recomputed. Its prerequisite on constant-symbol-zero was not a logical one (that node supplies the hypothesis in the application, which lists it itself); replaced by the Mathlib dimension lemma the proof uses, so the lemma no longer sits above gap G1."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.8/vanishing-real-green",
+        "verdict": "corrected",
+        "note": "The plan required λ to lie in K. In B19 the class is that of a curve on the double cover, whose component in the pull-back of H²(S) is not zero; the criterion is applied to its K-component, which has the same symbol. The statement, hypotheses and proof now say this (see also the new source issue E-H8-3)."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.8/full-lattice-coset-cone",
+        "verdict": "verified",
+        "note": "B19 pp.71 and 94 use exactly this. Proof recomputed with ZSpan.floor and ZSpan.norm_fract_le, both read at the pin; dimension zero holds."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.8/voisin-infinitesimal-kernel",
+        "verdict": "verified",
+        "note": "Statement is V06 Proposition 9, p.21, in B19's notation (the source's X, Σ, S are X, S, T here): X→S with generic fibre a smooth rational curve, H ample with H²·K_X<0, generic member of |mH| for m large. The kernel modification on p.21 was read. The supporting estimates of §2 were not rechecked line by line; they are gap G4."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.8/voisin-kernel-cone",
+        "verdict": "corrected",
+        "note": "Statement is B19 Theorem 1.5 for the general Voisin setting; V06 Proposition 8 proof (p.20) and the real-class argument (p.5) read. The proof passes from the coherent contraction to the period symbol, which needs griffiths-derivative: added as a prerequisite and as a proof step."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.8/voisin-product-surface",
+        "verdict": "corrected",
+        "note": "B19 §1, p.69 and Theorem 1.5, p.70. The source's surface is connected; added. H²·K_X=2(K_S·A−A²) recomputed."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.8/affine-cw-bound",
+        "verdict": "corrected",
+        "note": "Milnor Theorem 7.2 and its proof read on the page images, and Theorem 3.5, which it uses. The plan treated all of Morse theory as missing. Tau Ceti at the pin already has nondegenerate critical points, the Morse index with its invariance under coordinate changes, and the genericity of Morse perturbations (read in TauCeti/Analysis/Calculus/Morse); these are now baseline prerequisites and the proof steps use them. The upstream Morse homology lane is a prerequisite for the manifold-level form. What remains missing is the handle theorem (G3). B19 locator corrected (§3.3, p.78)."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.8/affine-integral-vanishing",
+        "verdict": "verified",
+        "note": "B19 p.78: the vanishing is used for the affine surface and for its finite cover, then a further sequence handles the twisted coefficients. Cellular cochains of a CW model of dimension at most 2 vanish above degree 2. Locator corrected."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.8/ordinary-integral-lefschetz-h3",
+        "verdict": "verified",
+        "note": "Milnor Corollary 7.3, p.41, with k=3: H_j(X,T;Z)=0 for j≤2, so H₁(T)≅H₁(X); Poincaré duality turns this into the Gysin isomorphism H³(T)→H⁵(X) used in B19 Lemma 1.3, p.70. A multiple of an ample divisor is a hyperplane section, so the complement is affine."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.8/ordinary-integral-lefschetz-h2",
+        "verdict": "verified",
+        "note": "Same vanishing gives H₂(T)→H₂(X) onto, the Gysin surjection H²(T)→H⁴(X) of B19 Lemma 1.4, p.70. No injectivity; the quartic example is right."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.8/transported-divisor-export",
+        "verdict": "corrected",
+        "note": "B19 pp.71 and 94–95 read. The real conversion needs the equivariant integral class and the real Lefschetz (1,1) theorem; its exact statement is now cited from Benoist–Wittenberg, Proposition 2.8, and the request to MC.7 names the two catalogue items already routed there."
+      }
+    ]
+  }
 }
