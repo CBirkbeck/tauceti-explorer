@@ -40133,8 +40133,9 @@
     "BP-KatoEulerSystems~2"
    ],
    "prompt": "research/blueprint/prompts/REV-KatoEulerSystems~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7071"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7071",
+   "finishedAt": "2026-10-08T22:53:55Z"
   },
   {
    "kind": "blueprint",
@@ -46853,7 +46854,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-HabiroCyclotomicCompletions.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7475"
   },
   {
    "id": "REV-PKG-HabiroCyclotomicCompletions",
@@ -77401,8 +77403,8 @@
     "FIX-RT-AREA-langlands-2~3"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-langlands-2~3.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5871"
+   "state": "external",
+   "note": "claimed on GitHub issue #5871"
   },
   {
    "id": "FIX-RT-AREA-langlands-2~4",
@@ -77529,7 +77531,8 @@
     "FIX-RT-AREA-langlands-2~4"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-langlands-2~4.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7451"
   },
   {
    "id": "RT-AREA-langlands-3",
