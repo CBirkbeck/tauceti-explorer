@@ -526,6 +526,17 @@
     "data/blueprints/BorelRegulators.md"
    ]
   },
+  "research/blueprint/packets/ClassicalAdicEtaleCohomology--H1-valuation-nearby-cycles.json": {
+   "promotedAt": "2026-10-08T16:35:52Z",
+   "review": "5cc0fdef23a4b300",
+   "reviewDate": "2026-10-08",
+   "reviewer": "independent-review-REV-ClassicalAdicEtaleCohomology--H1-valuation-nearby-cycles",
+   "sha256": "09d962c455fc01bd885fa6f5d0876479c924ed485e66c21c53bad972279e5204",
+   "to": [
+    "data/blueprints/ClassicalAdicEtaleCohomology--H1-valuation-nearby-cycles.json",
+    "data/blueprints/ClassicalAdicEtaleCohomology--H1-valuation-nearby-cycles.md"
+   ]
+  },
   "research/blueprint/packets/ClassicalArithmeticCompletion.json": {
    "promotedAt": "2026-10-01T20:54:46Z",
    "review": "cee58cf39ff3ce8a",
