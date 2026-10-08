@@ -157,7 +157,7 @@
       ],
       "kind": "construction",
       "title": "Canonical algebraic level tower",
-      "statement": "For actual canonical models M_K, assemble the unique descended forgetful maps pi_{K,L} for K contained in L into the functor CanonicalTower.ofLevelMaps: Level(D) -> Over(Spec E). Level(D) and its inclusion arrows are supplied by V1/D5. Its values are the supplied models, not newly chosen arbitrary schemes. In the suggested file the index category and model family are parameters; the constructor is only the categorical assembly slice of this construction.",
+      "statement": "For actual canonical models M_K, assemble the unique descended forgetful maps pi_{K,L} for K contained in L into the functor CanonicalTower.ofLevelMaps: Level(D) -> Over(Spec E). Level(D) is the compact-open level index category requested from V1; the existing V1 map nodes and D5 neat-level node do not construct it, so this interface remains an explicit gap. Its values are the supplied models, not newly chosen arbitrary schemes. In the suggested file the index category and model family are parameters; the constructor is only the categorical assembly slice of this construction.",
       "hypotheses": [
         "D=(G,X) is a pure Shimura datum; E=E(D) is embedded in C.",
         "Each model M_K is an actual finite-type normal separated E-scheme with a specified complex comparison to V3, satisfying the special-pair reciprocity condition of V4. Existence is supplied by V5 or V6 in the abelian-type lane, or V7 in the general lane.",
@@ -1450,7 +1450,7 @@
       ],
       "kind": "theorem",
       "title": "General-data canonical tower",
-      "statement": "For every pure Shimura datum D and every compact open K, supply the actual canonical models constructed by V7 to V8's conditional functoriality theorems. Obtain the same canonical E(D)-tower, right translations, finite level maps, effective quotients and ordered Hecke correspondences, independent up to the unique comparison of V8 of V7's auxiliary extension and special point. Datum maps are over the specified reflex-field composita.",
+      "statement": "For every pure Shimura datum D and every compact open K, supply the actual canonical models constructed by V7 to V8's conditional functoriality theorems. Obtain the same canonical E(D)-tower, right translations, finite level maps, effective quotients and ordered Hecke correspondences, independent up to the unique comparison of V8 of V7's auxiliary extension and special point. For a datum morphism D -> D′, E(D′) is contained in E(D), so its map is defined over E(D), with the target model extended to that field.",
       "hypotheses": [
         "V7 has proved conjugation, cocycle, continuity and effective descent and has verified V4 on the resulting models. No placeholder existence witness is substituted."
       ],
@@ -1779,84 +1779,84 @@
         "kind": "structure",
         "module": "Mathlib/AlgebraicGeometry/Scheme.lean",
         "provides": "Schemes with native category and structure morphisms",
-        "checked": "Statement and source read at the pinned commit on 2026-10-06."
+        "checked": "Statement and source read at the pinned Mathlib commit on 2026-10-06 and rechecked on 2026-10-08."
       },
       {
         "ref": "mathlib:CategoryTheory.Over",
         "kind": "def",
         "module": "Mathlib/CategoryTheory/Comma/Over/Basic.lean",
         "provides": "Slice category over the actual base scheme",
-        "checked": "Statement and source read at the pinned commit on 2026-10-06."
+        "checked": "Statement and source read at the pinned Mathlib commit on 2026-10-06 and rechecked on 2026-10-08."
       },
       {
         "ref": "mathlib:CategoryTheory.Functor",
         "kind": "structure",
         "module": "Mathlib/CategoryTheory/Functor/Basic.lean",
         "provides": "Objects, maps, identity and composition laws",
-        "checked": "Statement and source read at the pinned commit on 2026-10-06."
+        "checked": "Statement and source read at the pinned Mathlib commit on 2026-10-06 and rechecked on 2026-10-08."
       },
       {
         "ref": "mathlib:CategoryTheory.Over.pullback",
         "kind": "def",
         "module": "Mathlib/CategoryTheory/Comma/Over/Pullback.lean",
         "provides": "Base-change functor on slice categories",
-        "checked": "Statement and source read at the pinned commit on 2026-10-06."
+        "checked": "Statement and source read at the pinned Mathlib commit on 2026-10-06 and rechecked on 2026-10-08."
       },
       {
         "ref": "mathlib:CategoryTheory.Over.pullbackId",
         "kind": "def",
         "module": "Mathlib/CategoryTheory/Comma/Over/Pullback.lean",
         "provides": "Natural isomorphism for identity base change",
-        "checked": "Statement and source read at the pinned commit on 2026-10-06."
+        "checked": "Statement and source read at the pinned Mathlib commit on 2026-10-06 and rechecked on 2026-10-08."
       },
       {
         "ref": "mathlib:CategoryTheory.Over.pullbackComp",
         "kind": "def",
         "module": "Mathlib/CategoryTheory/Comma/Over/Pullback.lean",
         "provides": "Natural isomorphism for successive base changes",
-        "checked": "Statement and source read at the pinned commit on 2026-10-06."
+        "checked": "Statement and source read at the pinned Mathlib commit on 2026-10-06 and rechecked on 2026-10-08."
       },
       {
         "ref": "mathlib:CategoryTheory.Limits.span",
         "kind": "def",
         "module": "Mathlib/CategoryTheory/Limits/Shapes/Pullback/Cospan.lean",
         "provides": "Native ordered WalkingSpan functor",
-        "checked": "Statement and source read at the pinned commit on 2026-10-06."
+        "checked": "Statement and source read at the pinned Mathlib commit on 2026-10-06 and rechecked on 2026-10-08."
       },
       {
         "ref": "mathlib:CategoryTheory.Limits.spanCompIso",
         "kind": "def",
         "module": "Mathlib/CategoryTheory/Limits/Shapes/Pullback/Cospan.lean",
         "provides": "Applying a functor to a span agrees naturally with the span of its images",
-        "checked": "Statement and source read at the pinned commit on 2026-10-06."
+        "checked": "Statement and source read at the pinned Mathlib commit on 2026-10-06 and rechecked on 2026-10-08."
       },
       {
         "ref": "mathlib:AlgebraicGeometry.IsFinite",
         "kind": "class",
         "module": "Mathlib/AlgebraicGeometry/Morphisms/Finite.lean",
         "provides": "Native finite scheme morphism",
-        "checked": "Statement and source read at pinned commit on 2026-10-06."
+        "checked": "Statement and source read at the pinned Mathlib commit on 2026-10-06 and rechecked on 2026-10-08."
       },
       {
         "ref": "mathlib:AlgebraicGeometry.IsProper",
         "kind": "class",
         "module": "Mathlib/AlgebraicGeometry/Morphisms/Proper.lean",
         "provides": "Native proper scheme morphism",
-        "checked": "Statement and source read at pinned commit on 2026-10-06."
+        "checked": "Statement and source read at the pinned Mathlib commit on 2026-10-06 and rechecked on 2026-10-08."
       },
       {
         "ref": "mathlib:AlgebraicGeometry.IsOpenImmersion",
         "kind": "abbrev",
         "module": "Mathlib/AlgebraicGeometry/OpenImmersion.lean",
         "provides": "Native open immersion of schemes",
-        "checked": "Statement and source read at pinned commit on 2026-10-06."
+        "checked": "Statement and source read at the pinned Mathlib commit on 2026-10-06 and rechecked on 2026-10-08."
       },
       {
         "ref": "mathlib:IntermediateField.LinearDisjoint",
         "kind": "abbrev",
         "module": "Mathlib/FieldTheory/LinearDisjoint.lean",
         "provides": "Linear disjointness of actual intermediate fields via subalgebras",
-        "checked": "Statement and source read at pinned commit on 2026-10-06."
+        "checked": "Statement and source read at the pinned Mathlib commit on 2026-10-06 and rechecked on 2026-10-08."
       }
     ]
   },
