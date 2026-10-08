@@ -1,6 +1,6 @@
 # Relative Fargues–Fontaine curves, RF4: patching and modifications
 
-This is the reader for revision `BP-RelativeFarguesFontaine--RF4~2`, issue #7006, following the accepted RS-20 ownership decision. The [packet](../packets/RelativeFarguesFontaine--RF4.json) is the machine-readable plan; [the suggested file](../suggested/RelativeFarguesFontaine--RF4.lean) proposes signatures over available carriers. The [revision handoff](../handoff/BP-RelativeFarguesFontaine--RF4~2.md) records the changes and exact remaining contracts. The earlier independent review remains in the packet for replacement by the next reviewer.
+This is the reader for revision `BP-RelativeFarguesFontaine--RF4~2`, issue #7006, following the accepted RS-20 ownership decision. The [packet](../packets/RelativeFarguesFontaine--RF4.json) is the machine-readable plan; [the suggested file](../suggested/RelativeFarguesFontaine--RF4.lean) proposes signatures over available carriers. The [revision handoff](../handoff/BP-RelativeFarguesFontaine--RF4~2.md) records the changes and exact remaining contracts. Independent review [`REV-RelativeFarguesFontaine--RF4~2`](../reviews/REV-RelativeFarguesFontaine--RF4~2.md), issue #7088, accepts this planning pass on 2026-10-08. It verified all baseline statements and supplier contracts, corrected eight nodes and completed ten algebraic native signatures. The six recorded gaps remain open.
 
 **Status: complete, with all three scope stages planned and none closed.** There are 23 nodes: four definitions, two constructions, sixteen theorems and one comparison; 67 API items, 25 mathematical unit tests, seven planets, 37 baseline declarations, five requests and six gaps. Every implementation status is `unchecked`. A completed planning pass includes conditional targets with explicitly assigned missing inputs; it does not establish those targets or discharge their gaps.
 
@@ -154,7 +154,7 @@ Direct prerequisites: `AdicSpacesPartII:R3/glueing-square`, `mathlib:TensorProdu
 
 Prototype boundary: Morphisms, extensionality, naturality, identity/composition, tensor/dual and corner-base-change signatures are native. The baseChange_can signature uses restriction to the old base; the new-base form follows by tensor cancellation. The twisted-Z test computes the actual sections (k,k/3).
 
-Available-carrier signatures: `ExactSquare`, `GlueingDatum`, `GlueingDatum.Hom`, `GlueingDatum.sections`, `GlueingDatum.sectionsCompare`, `GlueingDatum.can`, `GlueingDatum.canUnit`, `GlueingDatum.sectionsMap`, `GlueingDatum.canMap`, `GlueingDatum.can_sections_adjunction`, `GlueingDatum.tensor`, `GlueingDatum.sectionsTensor`, `GlueingDatum.dual`, `GlueingDatum.baseChange`, `TwistedZariski.datum`, `TwistedZariski.sections_computation`, `TwistedZariski.sectionsEquiv_one`.
+Available-carrier signatures: `ExactSquare`, `GlueingDatum`, `GlueingDatum.Hom`, `GlueingDatum.sections`, `GlueingDatum.sectionsCompare`, `GlueingDatum.can`, `GlueingDatum.canUnit`, `GlueingDatum.sectionsMap`, `GlueingDatum.canMap`, `GlueingDatum.can_sections_adjunction`, `GlueingDatum.tensor`, `GlueingDatum.sectionsTensor`, `GlueingDatum.dual`, `GlueingDatum.baseChange`, `TwistedZariski.datum`, `TwistedZariski.sections_computation`, `TwistedZariski.sectionsEquiv_one`, `GlueingDatum.canMap_tmul`, `GlueingDatum.can_fullyFaithful_of_flat`, `GlueingDatum.sectionsTensor_bijective`, `GlueingDatum.dual_sections`.
 
 Missing native interfaces `ExactSquare.ofGlueingSquare`: The complete Tate glueing-square carrier is a planned R3 interface, not a declaration at the pin.
 
@@ -194,9 +194,9 @@ Acceptance checks:
 
 Direct prerequisites: `RelativeFarguesFontaine:RF4:vector-bundles/glueing-datum-over-exact-square`, `mathlib:Module.FinitePresentation`, `mathlib:Module.Projective`, `mathlib:Module.Finite`.
 
-Prototype boundary: No full geometric signature: the relative curve/divisor/bundle or Frobenius-shtuka categories occurring in this statement are not available at the pinned baseline; algebraic cores above do not supply those carriers.
+Prototype boundary: All three algebraic clauses have native signatures: finite comparison surjectivity and simultaneous generators, finite presentation with both comparisons, and projective effectivity. The Hom adjunction and flat-target unit give full faithfulness. Packaging this as a category equivalence is a routine implementation step; no geometric carrier is needed.
 
-Available-carrier signatures: `finiteProjective_glueing_effective`.
+Available-carrier signatures: `finite_glueing_surjectivity`, `finiteProjective_glueing_finitePresentation`, `finiteProjective_glueing_effective`, `GlueingDatum.can_fullyFaithful_of_flat`.
 
 Sources: [KL15-foundations](https://arxiv.org/abs/1301.0792v5), Lemma 1.3.8, p. 17 — Part (i) in the stated scope.; [KL15-foundations](https://arxiv.org/abs/1301.0792v5), Lemma 1.3.9, pp. 18-19 — Part (ii).; [KL15-foundations](https://arxiv.org/abs/1301.0792v5), Lemma 1.3.9(b), pp. 18-19 — Part (iii)..
 
@@ -228,9 +228,9 @@ Acceptance checks:
 
 Direct prerequisites: `RelativeFarguesFontaine:RF4:vector-bundles/finite-projective-glueing-over-exact-square`, `mathlib:CommAlgCat.FiniteEtale`, `mathlib:Algebra.Etale`, `mathlib:Module.Dual`.
 
-Prototype boundary: No full geometric signature: the relative curve/divisor/bundle or Frobenius-shtuka categories occurring in this statement are not available at the pinned baseline; algebraic cores above do not supply those carriers.
+Prototype boundary: Native signatures give object effectivity with the prescribed transition and unique descent of compatible algebra maps. Together they specify the equivalence; no geometric carrier is needed.
 
-Available-carrier signatures: `finiteEtale_glueing`.
+Available-carrier signatures: `finiteEtale_glueing`, `finiteEtale_can_fullyFaithful`.
 
 Sources: [KL15-foundations](https://arxiv.org/abs/1301.0792v5), Corollary 1.3.10, p. 19 — The statement in the stated scope.; [KL15-foundations](https://arxiv.org/abs/1301.0792v5), Proof of Corollary 1.3.10, p. 19 — The trace pairing step..
 
@@ -356,9 +356,9 @@ Acceptance checks:
 
 Direct prerequisites: `RelativeFarguesFontaine:RF4:vector-bundles/glueing-pair`, `RelativeFarguesFontaine:RF4:vector-bundles/glueing-datum-over-exact-square`, `RelativeFarguesFontaine:RF4:vector-bundles/finite-projective-glueing-over-exact-square`, `mathlib:AdicCompletion`, `mathlib:IsAdicComplete`, `mathlib:IsLocalization.Away`, `mathlib:nonZeroDivisors`, `mathlib:Module.Projective`, `mathlib:Module.Flat`, `mathlib:Module.FinitePresentation`, `mathlib:Module.FaithfullyFlat`.
 
-Prototype boundary: No full geometric signature: the relative curve/divisor/bundle or Frobenius-shtuka categories occurring in this statement are not available at the pinned baseline; algebraic cores above do not supply those carriers.
+Prototype boundary: Native signatures now cover the unit, arbitrary-datum sections and counit, and fully faithful Can on all glueable modules, as well as the finite-projective and flat clauses. The common localization and scalar towers are explicit. No geometric carrier is needed for this theorem.
 
-Available-carrier signatures: `beauvilleLaszlo_effective`, `beauvilleLaszlo_finiteProjective_iff`, `beauvilleLaszlo_flat_iff`, `beauvilleLaszlo_flat_exact`.
+Available-carrier signatures: `beauvilleLaszlo_effective`, `beauvilleLaszlo_finiteProjective_iff`, `beauvilleLaszlo_flat_iff`, `beauvilleLaszlo_flat_exact`, `beauvilleLaszlo_glueable_unit`, `beauvilleLaszlo_sections`, `beauvilleLaszlo_can_fullyFaithful`.
 
 Sources: [SW20-berkeley](https://www.math.uni-bonn.de/people/scholze/Berkeley.pdf), Lemma 5.2.9, printed p. 38 — The statement used throughout the atlas; read again in this session.; [SW20-berkeley](https://www.math.uni-bonn.de/people/scholze/Berkeley.pdf), After Lemma 5.2.9, printed p. 38 — The two non-noetherian subtleties the stage asks to retain.; [Stacks-BL](https://stacks.math.columbia.edu/tag/0BNI), Theorem 15.92.16 (tag 0BP2) — Part (a), with a complete non-noetherian proof; this replaces the unread Beauville-Laszlo note.; [Stacks-BL](https://stacks.math.columbia.edu/tag/0BNI), Lemma 15.92.19 — Part (b), finite projective case.; [KL15-foundations](https://arxiv.org/abs/1301.0792v5), Proposition 1.3.6, pp. 16-17 — Parts (b) effective descent and (c)..
 
@@ -660,7 +660,7 @@ Construction or proof route:
 
 1. Lemma 8.9.3 makes all three schemes affine; the fibre product of affine schemes over a separated scheme is affine.
 
-2. The identification of R_2 with the ker(theta)-adic completion of R-tilde^{int,1}_R uses that Z = Spec(A) and the completion along Z only sees the rings A/ker(theta)^n (KL Definition 8.9.4).
+2. The identification of R_2 with the ker(theta)-adic completion of R-tilde^{int,1}_R uses that Z = Spec(A) and the completion along Z only sees the quotients R-tilde^{int,1}_R/(ker(theta))^n of the ambient period ring (KL Definition 8.9.4).
 
 3. Compatibility with RF2:untilts: both rings are the completion of the structure sheaf along the same Cartier divisor, transported by GAGA (VectorBundlesAndIsocrystals:VB2:ampleness/gaga-equivalence).
 
@@ -768,7 +768,7 @@ Additional hypotheses and scope:
 
 - Hypotheses of Kedlaya-Liu 8.9.1: affinoid perfectoid base over Q_p and unramified coefficients; the general-E relative version is RF4:vector-bundles/meromorphic-modification-at-a-divisor, formulated through modifications
 
-- The triples are of finite projective modules; finite free in the field case only because Pic(Spec B_e) = 0
+- The triples are of finite projective modules; finite free in the field case because B_e is a principal ideal domain (Dedekind with trivial Picard group), rather than from trivial Picard group alone
 
 - The compatibility with short exact sequences is stated by Caraiani-Scholze for this equivalence
 
@@ -1134,7 +1134,7 @@ Additional hypotheses and scope:
 
 Construction or proof route:
 
-1. (a) Scholze-Weinstein, proof of 19.5.3: by the Tannakian description reduce to GL_n; base change to the perfectoid U' = U x_{Spa Z_p} Spa Z_p[p^(1/p^oo)]^; vector bundles on perfectoid spaces satisfy v-descent (SW Proposition 17.1.8, requested from DiamondsAndVStacks D2); descend back along A -> A' split as topological A-modules (finite projectivity descends, Stacks 08XD).
+1. (a) Scholze-Weinstein, proof of 19.5.3: by the Tannakian description reduce to GL_n; base change to the perfectoid U' = U x_{Spa Z_p} Spa Z_p[p^(1/p^oo)]^; vector bundles on perfectoid spaces satisfy v-descent (SW Lemma 17.1.8, requested from DiamondsAndVStacks D2); descend back along A -> A' split as topological A-modules (finite projectivity descends, Stacks 08XD).
 
 2. (b) Fargues-Scholze, proof of VI.1.7: vector bundles over B^+_{Div^d} satisfy v-descent, checked modulo powers of I_S where it is Proposition VI.1.4 (RF2:integral-divisors/v-descent-of-bundles-on-the-divisor); by the Tannakian formalism so do G-bundles; an isomorphism over B_{Div^d}(S) is a section of an affine scheme, which again satisfies v-descent.
 
@@ -1162,7 +1162,7 @@ Prototype boundary: No full geometric signature: the relative curve/divisor/bund
 
 Available-carrier signatures: `henselian_approximation_affine_section`, `formally-smooth section lifting baseline example`.
 
-Sources: [SW20-berkeley](https://www.math.uni-bonn.de/people/scholze/Berkeley.pdf), Proposition 19.5.3 and proof, printed pp. 180-181 — Part (a).; [FS-geometrization](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), Proof of Proposition VI.1.7, printed p. 193 — Part (b).; [FS-geometrization](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), Proof of Proposition VI.1.7, printed p. 193 — Part (c), geometric points.; [FS-geometrization](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), Proof of Proposition VI.1.7, printed p. 193 — Part (c), the general step and its citation.; [GR02-almost](https://arxiv.org/abs/math/0201175v3), Proposition 5.4.21 and Claim 5.4.22, arXiv v3, printed pp. 121-122 — The henselian approximation statement; in the arXiv numbering it is the tool FS's citation needs.; [SW20-berkeley](https://www.math.uni-bonn.de/people/scholze/Berkeley.pdf), Proof of Proposition 19.1.2, printed p. 170 — The degree-one argument..
+Sources: [SW20-berkeley](https://www.math.uni-bonn.de/people/scholze/Berkeley.pdf), Proposition 19.5.3 and proof, printed pp. 180-181 — Part (a).; [FS-geometrization](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), Proof of Proposition VI.1.7, printed p. 193 — Part (b).; [FS-geometrization](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), Proof of Proposition VI.1.7, printed p. 193 — Part (c), geometric points.; [FS-geometrization](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), Proof of Proposition VI.1.7, printed p. 193 — Part (c), the general step and its citation.; [GR02-almost](https://arxiv.org/abs/math/0201175v3), Proposition 5.4.21 and Claim 5.4.22, arXiv v3, printed pp. 121-122 — The henselian approximation statement; in the arXiv numbering it is the tool FS's citation needs.; [SW20-berkeley](https://www.math.uni-bonn.de/people/scholze/Berkeley.pdf), Proof of Proposition 19.1.2, printed p. 170 — The degree-one argument.; [SW20-berkeley](https://www.math.uni-bonn.de/people/scholze/Berkeley.pdf), Lemma 17.1.8 and proof, printed pp. 150-151 — Effective descent of locally finite free modules on the perfectoid v-site, requested from D2; functions and cohomology alone do not supply it. The reference in the proof of 19.5.3 calls this a proposition, but its declaration is a lemma.
 
 ### The modification of a G-bundle by a B^+_dR-lattice
 
@@ -1433,7 +1433,7 @@ All sources were accessed on 8 October 2026. The packet retains the SHA-256 for 
 
 - **[KL15-foundations](https://arxiv.org/abs/1301.0792v5)**: Kiran S. Kedlaya, Ruochuan Liu, *Relative p-adic Hodge theory: foundations*. arXiv:1301.0792v5 (9 May 2015, version to appear in Asterisque 371); the published Asterisque text was not read.
 
-- **[Stacks-BL](https://stacks.math.columbia.edu/tag/0BNI)**: The Stacks project authors, *The Stacks project, More on Algebra, Section 15.92 The Beauville-Laszlo theorem (tag 0BNI), with Sections 15.9 and 15.11*. Online version, tags 0BNI, 0BNR, 0BNS, 0BNW, 0BP2, 07M7 and 0ALJ, accessed 2026-10-06.
+- **[Stacks-BL](https://stacks.math.columbia.edu/tag/0BNI)**: The Stacks project authors, *The Stacks project, More on Algebra, Section 15.92 The Beauville-Laszlo theorem (tag 0BNI), with Sections 15.9 and 15.11*. Online version, tags 0BNI, 0BNR, 0BNS, 0BNW, 0BP2, 07M7 and 0ALJ, accessed 2026-10-08.
 
 - **[CS17-generic](https://arxiv.org/abs/1511.02418v1)**: Ana Caraiani, Peter Scholze, *On the generic part of the cohomology of compact unitary Shimura varieties*. arXiv:1511.02418v1 (8 November 2015); published in Annals of Mathematics 186 (2017), where Theorem 3.5.1 is on p. 687.
 
@@ -1451,4 +1451,10 @@ All sources were accessed on 8 October 2026. The packet retains the SHA-256 for 
 
 - **[BMS18-integral](https://arxiv.org/abs/1602.03148v3)**: Bhargav Bhatt, Matthew Morrow, Peter Scholze, *Integral p-adic Hodge theory*. arXiv:1602.03148v3; published in Publications mathematiques de l'IHES 128 (2018).
 
-No new source erratum is asserted. The corrections concern blueprint statements, supplier scope and proof obligations.
+The independent review records two scoped source findings below, with corrected statements and explicit versions.
+
+## Independently checked source findings
+
+`RelativeFarguesFontaine/E15` records the positive-slope normalization used in the affine-complement proof: in arXiv:1301.0792v5, Definition 8.8.18 and Lemma 8.8.19 (p. 186) assign slope 1 where the conventions give 1/a. Convention 4.1.13 (p. 105), the twist in Definition 6.2.1 (p. 135), and purity in Definition 7.3.1 (p. 147) give this correction directly. Ampleness needs only positivity, so Lemma 8.9.3 (p. 187) is unaffected. This is the portion of the already reviewed extraction finding `PAPER-KEDLAYA-LIU-15/E78` used here. The publisher full text could not be obtained through its restricted SMF route; the finding concerns the exact hashed preprint only. Appendix A of Part II, arXiv:1602.06899v3 (pp. 189–191), and the author publication page were checked for a correction.
+
+`RelativeFarguesFontaine/E16` records an internal reference-name slip in the 27 March 2020 Berkeley author copy. The proof of Proposition 19.5.3 (p. 180) calls 17.1.8 a proposition; its declaration is Lemma 17.1.8 (pp. 150–151), effective descent of vector bundles on the perfectoid v-site. The corrected reference is used above. No mathematical statement changes, and no separate publisher copy was read. Both findings have independent confirmed verdicts and exact source-version records in the packet.
