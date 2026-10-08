@@ -37543,7 +37543,8 @@
    ],
    "revisionOf": "BP-AdelicAlgebraicGroups",
    "prompt": "research/blueprint/prompts/BP-AdelicAlgebraicGroups~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6917"
   },
   {
    "priority": 2,
@@ -38770,7 +38771,8 @@
    ],
    "revisionOf": "BP-ExcursionOperatorsAndSpectralAction--ES7",
    "prompt": "research/blueprint/prompts/BP-ExcursionOperatorsAndSpectralAction--ES7~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6962"
   },
   {
    "priority": 2,
@@ -40840,8 +40842,9 @@
    ],
    "revisionOf": "BP-RelativeFarguesFontaine--RF4",
    "prompt": "research/blueprint/prompts/BP-RelativeFarguesFontaine--RF4~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7006"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7006",
+   "finishedAt": "2026-10-08T12:59:08Z"
   },
   {
    "priority": 2,
@@ -72181,8 +72184,8 @@
     "FIX-RT-AREA-langlands-2~3"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-langlands-2~3.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5871"
+   "state": "external",
+   "note": "claimed on GitHub issue #5871"
   },
   {
    "id": "FIX-RT-AREA-langlands-2~4",
