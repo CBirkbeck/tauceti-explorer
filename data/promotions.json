@@ -308,11 +308,11 @@
    ]
   },
   "research/blueprint/packets/AdelicAlgebraicGroups.json": {
-   "promotedAt": "2026-10-08T16:26:48Z",
-   "review": "465c69c9a3a56ac5",
+   "promotedAt": "2026-10-08T22:43:30Z",
+   "review": "2f6f4d31ab3b333c",
    "reviewDate": "2026-10-08",
-   "reviewer": "independent-review-REV-AdelicAlgebraicGroups~2",
-   "sha256": "1e3c93563be7cfdf63a38c644646e6eb251fd0aae6b0cde00777a3008633ca1b",
+   "reviewer": "independent-review-REV-FIX-RT-AREA-automorphic-1~5",
+   "sha256": "19f4654394be94f0d95500fb2f91ab5a36cf317af82581b0cef913c87029be9b",
    "to": [
     "data/blueprints/AdelicAlgebraicGroups.json",
     "data/blueprints/AdelicAlgebraicGroups.md"
@@ -462,11 +462,11 @@
    ]
   },
   "research/blueprint/packets/ArithmeticLocallySymmetricSpaces.json": {
-   "promotedAt": "2026-10-07T17:30:28Z",
-   "review": "05d722b75994194f",
-   "reviewDate": "2026-10-07",
-   "reviewer": "independent-review-REV-ArithmeticLocallySymmetricSpaces~2",
-   "sha256": "5d7184dac1676759f8d3585cf562ae869de1d820a16367d55542d9db6b440a27",
+   "promotedAt": "2026-10-08T22:43:30Z",
+   "review": "c7a538977f802159",
+   "reviewDate": "2026-10-08",
+   "reviewer": "independent-review-REV-FIX-RT-AREA-automorphic-1~5",
+   "sha256": "07a7fa47da244817c3ada946da98676606379f31851363121ca87c9c113b9293",
    "to": [
     "data/blueprints/ArithmeticLocallySymmetricSpaces.json",
     "data/blueprints/ArithmeticLocallySymmetricSpaces.md"
@@ -550,11 +550,11 @@
    ]
   },
   "research/blueprint/packets/AutomorphicLFunctionsAndLocalFactors.json": {
-   "promotedAt": "2026-10-08T21:34:12Z",
-   "review": "302b1a36c4569656",
+   "promotedAt": "2026-10-08T22:43:30Z",
+   "review": "bfb1f7deda4d4e4a",
    "reviewDate": "2026-10-08",
-   "reviewer": "independent-review-REV-AutomorphicLFunctionsAndLocalFactors~2",
-   "sha256": "7653771c9d2c47341f2e206fce7cbbb99bc275fb1c8b782a2eaee9ed946c2c39",
+   "reviewer": "independent-review-REV-FIX-RT-AREA-automorphic-1~5",
+   "sha256": "9dba00e603e0be890db5e6cff95bbb51fff073c93a891ad02e64e18e45eca6b3",
    "to": [
     "data/blueprints/AutomorphicLFunctionsAndLocalFactors.json",
     "data/blueprints/AutomorphicLFunctionsAndLocalFactors.md"
@@ -1131,22 +1131,22 @@
    ]
   },
   "research/blueprint/packets/GL2AutomorphicRepresentationsAndTransfer--R16.1.json": {
-   "promotedAt": "2026-10-07T04:54:01Z",
-   "review": "4fc0d5f7600f4f96",
-   "reviewDate": "2026-10-07",
-   "reviewer": "independent-review-REV-GL2AutomorphicRepresentationsAndTransfer--R16.1",
-   "sha256": "6f74e1be2d91b4609f5d9b62b9ded611e10794aa71cd4ab3b714c128d4fc57b5",
+   "promotedAt": "2026-10-08T22:43:30Z",
+   "review": "51328efee97ba4c9",
+   "reviewDate": "2026-10-08",
+   "reviewer": "independent-review-REV-FIX-RT-AREA-automorphic-1~5",
+   "sha256": "c1e3b586b2534254b10be3884e88b4c33a3dd6e8e2068f2dc809757bca89ebce",
    "to": [
     "data/blueprints/GL2AutomorphicRepresentationsAndTransfer--R16.1.json",
     "data/blueprints/GL2AutomorphicRepresentationsAndTransfer--R16.1.md"
    ]
   },
   "research/blueprint/packets/GL2AutomorphicRepresentationsAndTransfer--R17.3.json": {
-   "promotedAt": "2026-10-06T20:21:28Z",
-   "review": "cf62d739baa6f6ad",
-   "reviewDate": "2026-10-06",
-   "reviewer": "independent-review-REV-GL2AutomorphicRepresentationsAndTransfer--R17.3",
-   "sha256": "709249a3f59fff67bbca04dce74a947a6aa9f7c15c327c884ba043de873026e3",
+   "promotedAt": "2026-10-08T22:43:30Z",
+   "review": "f4e18f0ca1da1cac",
+   "reviewDate": "2026-10-08",
+   "reviewer": "independent-review-REV-FIX-RT-AREA-automorphic-1~5",
+   "sha256": "2fcb2c938001426f0c1019d99a2bd9ba47cf82ec91ab2ad5305ef7b896301b65",
    "to": [
     "data/blueprints/GL2AutomorphicRepresentationsAndTransfer--R17.3.json",
     "data/blueprints/GL2AutomorphicRepresentationsAndTransfer--R17.3.md"
@@ -1561,11 +1561,11 @@
    ]
   },
   "research/blueprint/packets/HilbertModularVarietiesAndShimuraCurves--R18.2.json": {
-   "promotedAt": "2026-10-06T23:35:30Z",
-   "review": "19bdb23b6c134ccb",
-   "reviewDate": "2026-10-06",
-   "reviewer": "independent-review-REV-HilbertModularVarietiesAndShimuraCurves--R18.2",
-   "sha256": "2bfb96947e41cf78c40a01e574b87c3e46b116ec823db4fb507a348816fa17ee",
+   "promotedAt": "2026-10-08T22:43:30Z",
+   "review": "457a5e7d25f0c5d4",
+   "reviewDate": "2026-10-08",
+   "reviewer": "independent-review-REV-FIX-RT-AREA-automorphic-1~5",
+   "sha256": "0cecf33a794a8a3b401f3f34d328308ca24b1d8c85027ce40e0b1d4028d0feb8",
    "to": [
     "data/blueprints/HilbertModularVarietiesAndShimuraCurves--R18.2.json",
     "data/blueprints/HilbertModularVarietiesAndShimuraCurves--R18.2.md"
@@ -1726,11 +1726,11 @@
    ]
   },
   "research/blueprint/packets/IntegralHeckeAndGaloisDeterminants.json": {
-   "promotedAt": "2026-10-08T05:25:27Z",
-   "review": "a9d011248f593e99",
+   "promotedAt": "2026-10-08T22:43:30Z",
+   "review": "c16d0d136cc3cf2f",
    "reviewDate": "2026-10-08",
-   "reviewer": "independent-review-REV-FIX-RT-AREA-automorphic-1~4",
-   "sha256": "b48049b42b713218b6f01e83819175c721605188ffd575c0b260ca65f778cdd5",
+   "reviewer": "independent-review-REV-FIX-RT-AREA-automorphic-1~5",
+   "sha256": "1d06c30103ac2c17a0c2964e2c7721d66c5e939b6b9898f7441d9abdf01a782b",
    "to": [
     "data/blueprints/IntegralHeckeAndGaloisDeterminants.json",
     "data/blueprints/IntegralHeckeAndGaloisDeterminants.md"
@@ -1892,22 +1892,22 @@
    ]
   },
   "research/blueprint/packets/MetaplecticAutomorphicForms--MP.0.json": {
-   "promotedAt": "2026-10-08T19:24:46Z",
-   "review": "a17f7757e237a425",
+   "promotedAt": "2026-10-08T22:43:30Z",
+   "review": "e96c94023a50708f",
    "reviewDate": "2026-10-08",
-   "reviewer": "independent-review-REV-MetaplecticAutomorphicForms--MP.0~2",
-   "sha256": "552c619f372262ee4ad05d217a3a17af1b2087e8328a377e0f4f85e78ba52644",
+   "reviewer": "independent-review-REV-FIX-RT-AREA-automorphic-1~5",
+   "sha256": "8e8aa8acecc15f8a1018da4242bd8b72a2b242bea7a4fc59aad8e9f9536d5a84",
    "to": [
     "data/blueprints/MetaplecticAutomorphicForms--MP.0.json",
     "data/blueprints/MetaplecticAutomorphicForms--MP.0.md"
    ]
   },
   "research/blueprint/packets/MetaplecticAutomorphicForms--MP.8.json": {
-   "promotedAt": "2026-10-08T06:55:36Z",
-   "review": "4ac3437771a3cacc",
+   "promotedAt": "2026-10-08T22:43:30Z",
+   "review": "58b63755888171e5",
    "reviewDate": "2026-10-08",
-   "reviewer": "independent-review-REV-MetaplecticAutomorphicForms--MP.8~2",
-   "sha256": "14ac04237c5f2e8b17de84de9a1ea010c68577dfcaa1d8a3532953f76131a850",
+   "reviewer": "independent-review-REV-FIX-RT-AREA-automorphic-1~5",
+   "sha256": "88a335033dfe6d776f344d80f5e655759d79c8cb90a64dba47e52e9baec66a9e",
    "to": [
     "data/blueprints/MetaplecticAutomorphicForms--MP.8.json",
     "data/blueprints/MetaplecticAutomorphicForms--MP.8.md"

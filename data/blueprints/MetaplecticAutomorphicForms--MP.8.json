@@ -5584,436 +5584,9 @@
  },
  "review": {
   "status": "accepted",
-  "reviewer": "independent-review-REV-MetaplecticAutomorphicForms--MP.8~2",
+  "reviewer": "independent-review-REV-FIX-RT-AREA-automorphic-1~5",
   "date": "2026-10-08",
-  "notes": "Independent review of #7075 by Codex session codex-ua9lQs. Checked all 85 node statements, source locators, proof routes, prerequisites, API/tests, suggested signatures and reader entries; confirmed all 28 pinned baseline citations, eight source issues, 15 supplier contracts and RT-AREA-automorphic-1/20. Corrected 27 nodes: Whittaker chart matrix, Jacquet section locator, sign-specific y₂ quantifiers, global divisor hypotheses, raw/normalized intertwiner parity, 21 truncated uses and ten test classifications. Reader parity, packet and errata checks, and 2,016 finite root-count checks pass. Revised lean-check elaborates with zero errors and 316 warnings for proof placeholders. Accepted as a complete target-level planning pass; MP.8 is planned, all implementations unchecked, and nine precise proof/source gaps plus supplier/signature refinements remain. Archived the scoped round-4 review without changing its verdict.",
-  "checked": [
-   {
-    "nodeId": "MetaplecticAutomorphicForms:MP.8/fourier-shift",
-    "verdict": "corrected",
-    "note": "Native integral quadratic-form shift has the required two cusp factors; its second-cusp test is a computation, not a library comparison."
-   },
-   {
-    "nodeId": "MetaplecticAutomorphicForms:MP.8/fourier-discriminant",
-    "verdict": "verified",
-    "note": "The invariant retains the full quadratic form 4aQ−c(R·−)²; no positivity is added."
-   },
-   {
-    "nodeId": "MetaplecticAutomorphicForms:MP.8/discriminant-shift",
-    "verdict": "verified",
-    "note": "Expanding the translated quadratic form cancels both mixed and square shift terms."
-   },
-   {
-    "nodeId": "MetaplecticAutomorphicForms:MP.8/residue-shift",
-    "verdict": "verified",
-    "note": "The vector shift changes each residue by a multiple of 2a, for arbitrary integral c."
-   },
-   {
-    "nodeId": "MetaplecticAutomorphicForms:MP.8/recover-quadratic",
-    "verdict": "verified",
-    "note": "Equal vector and discriminant data recover Q by cancelling 4a, using a≠0 over ℤ."
-   },
-   {
-    "nodeId": "MetaplecticAutomorphicForms:MP.8/shift-parameter-injective",
-    "verdict": "verified",
-    "note": "Injectivity of the shift parameter follows by cancelling 2a in the vector coordinate."
-   },
-   {
-    "nodeId": "MetaplecticAutomorphicForms:MP.8/orbit-classification",
-    "verdict": "verified",
-    "note": "The orbit criterion uses both discriminant equality and vector congruence; a≠0 is essential."
-   },
-   {
-    "nodeId": "MetaplecticAutomorphicForms:MP.8/unique-residue-lift",
-    "verdict": "verified",
-    "note": "Congruence supplies an integral shift to the prescribed vector lift; the recovered quadratic form is unique."
-   },
-   {
-    "nodeId": "MetaplecticAutomorphicForms:MP.8/coefficient-invariants",
-    "verdict": "verified",
-    "note": "An orbit-invariant coefficient factors through the two invariants; its analytic application requires the separate contour-shift theorem."
-   },
-   {
-    "nodeId": "MetaplecticAutomorphicForms:MP.8/siegel-space",
-    "verdict": "verified",
-    "note": "Strict symmetric positive-definite imaginary part agrees with native PosDef; the asymmetric and real-matrix tests detect incorrect domains."
-   },
-   {
-    "nodeId": "MetaplecticAutomorphicForms:MP.8/positive-similitudes",
-    "verdict": "corrected",
-    "note": "The positive multiplier and native symplectic restriction are correct; the scalar-action test is reclassified as a computation."
-   },
-   {
-    "nodeId": "MetaplecticAutomorphicForms:MP.8/siegel-action",
-    "verdict": "corrected",
-    "note": "The fractional action and multiplier-divided determinant cocycle fix positive scalars; the scalar test is reclassified."
-   },
-   {
-    "nodeId": "MetaplecticAutomorphicForms:MP.8/similitude-cover",
-    "verdict": "corrected",
-    "note": "Continuous nonzero roots give the double cover; the Fourier lift phase and the positive-scalar splitting remain distinct. Repaired its cut-off use."
-   },
-   {
-    "nodeId": "MetaplecticAutomorphicForms:MP.8/compact-stabilizer",
-    "verdict": "verified",
-    "note": "The Sp stabilizer is U(2); the GSp⁺ stabilizer includes positive scalars. Upper Q with QQᵀ matches the pinned Cholesky boundary."
-   },
-   {
-    "nodeId": "MetaplecticAutomorphicForms:MP.8/arithmetic-subgroup",
-    "verdict": "corrected",
-    "note": "The full lower-left block and two extra entries have the source congruences; native level-one comparison is valid. Repaired three cut-off uses."
-   },
-   {
-    "nodeId": "MetaplecticAutomorphicForms:MP.8/bfh-slash",
-    "verdict": "verified",
-    "note": "The symplectic slash has the inverse-transpose W action and quadratic phase; extension to similitudes requires index transport."
-   },
-   {
-    "nodeId": "MetaplecticAutomorphicForms:MP.8/bfh-translation",
-    "verdict": "corrected",
-    "note": "The translation composition phase is retained and integral on the BFH lattice when N divides m. Repaired its Fourier/carrier uses."
-   },
-   {
-    "nodeId": "MetaplecticAutomorphicForms:MP.8/genus-two-theta",
-    "verdict": "corrected",
-    "note": "The residue theta sum and diagonal jacobiTheta₂ comparison agree with the source. Repaired the projection use and classified negation as characterisation."
-   },
-   {
-    "nodeId": "MetaplecticAutomorphicForms:MP.8/quadratic-matrix",
-    "verdict": "corrected",
-    "note": "Mixed integral polynomial coefficients become half-integral matrix entries; the dictionary is injective. Repaired its three arithmetic/analytic uses."
-   },
-   {
-    "nodeId": "MetaplecticAutomorphicForms:MP.8/fourier-coefficient",
-    "verdict": "verified",
-    "note": "The Fourier extraction retains N^(−3j), both periods and the exponential in Z_g; additive integration has sufficient continuity hypotheses."
-   },
-   {
-    "nodeId": "MetaplecticAutomorphicForms:MP.8/theta-pairing",
-    "verdict": "verified",
-    "note": "The Gaussian pairing has √detY/(2a) and Jacobian detY; the root Gaussian integral is reused with positive parameter."
-   },
-   {
-    "nodeId": "MetaplecticAutomorphicForms:MP.8/coefficient-shift-analytic",
-    "verdict": "verified",
-    "note": "Holomorphy and the elliptic lattice justify the contour shift; the resulting index relation uses the retained integral invariant theorem."
-   },
-   {
-    "nodeId": "MetaplecticAutomorphicForms:MP.8/theta-decomposition",
-    "verdict": "verified",
-    "note": "Finite theta reconstruction uses the pairing and analytic shift, with the cusp-dependent Z and W scales."
-   },
-   {
-    "nodeId": "MetaplecticAutomorphicForms:MP.8/theta-fourier-transform",
-    "verdict": "verified",
-    "note": "Poisson summation gives the 1/(2a) theta Fourier factor and branch positive at iY; residue negation follows on squaring."
-   },
-   {
-    "nodeId": "MetaplecticAutomorphicForms:MP.8/theta-component-fourier-law",
-    "verdict": "verified",
-    "note": "The component Fourier factor is √(−detZ)/(2m), including the N rescaling; both residue phases are retained."
-   },
-   {
-    "nodeId": "MetaplecticAutomorphicForms:MP.8/bfh-jacobi-specialization",
-    "verdict": "corrected",
-    "note": "This is the BFH coordinate instance of MP.6, not a second general Jacobi definition. Repaired the cut-off projection use."
-   },
-   {
-    "nodeId": "MetaplecticAutomorphicForms:MP.8/theta-components",
-    "verdict": "corrected",
-    "note": "Projection is defined before reconstruction, with finite residue indexing and scalar linearity. Repaired the self-referential cut-off description of its reconstruction use."
-   },
-   {
-    "nodeId": "MetaplecticAutomorphicForms:MP.8/theta-coefficient",
-    "verdict": "corrected",
-    "note": "Theta Fourier coefficients vanish for unrepresentable indices and recover B_j for representable U; repaired the truncated dependency account."
-   },
-   {
-    "nodeId": "MetaplecticAutomorphicForms:MP.8/bfh-seed",
-    "verdict": "corrected",
-    "note": "The finite continuous K-type and weight vector are genuine defining inputs, not analytic conclusions; the positive-scalar seed test is a computation."
-   },
-   {
-    "nodeId": "MetaplecticAutomorphicForms:MP.8/induced-seed-family",
-    "verdict": "corrected",
-    "note": "det(Y)^(s/2) uses the positive-base logarithm and gives holomorphic scalar coordinates; repaired its cut-off use in the Eisenstein sum."
-   },
-   {
-    "nodeId": "MetaplecticAutomorphicForms:MP.8/jacobi-eisenstein",
-    "verdict": "verified",
-    "note": "The actual parabolic/arithmetic quotient and lattice sum are specified; inversion identifies native G/H with the required H\\G."
-   },
-   {
-    "nodeId": "MetaplecticAutomorphicForms:MP.8/whittaker-functions",
-    "verdict": "corrected",
-    "note": "BFH (3.2), p.557 uses [[0,w],[−w,0]]n(X), not diag(w,−w). Corrected the proof and Lean comment; reclassified the degenerate scaling test."
-   },
-   {
-    "nodeId": "MetaplecticAutomorphicForms:MP.8/whittaker-majorant",
-    "verdict": "verified",
-    "note": "The three sufficient majorant inequalities match Proposition 3.1; no necessity assertion is introduced."
-   },
-   {
-    "nodeId": "MetaplecticAutomorphicForms:MP.8/whittaker-initial-convergence",
-    "verdict": "verified",
-    "note": "Initial integrability requires Re s>2, positive y₁,y₂ and the actual weight-k compact coefficient."
-   },
-   {
-    "nodeId": "MetaplecticAutomorphicForms:MP.8/jacquet-two-parameter",
-    "verdict": "corrected",
-    "note": "Corrected the section locator to (3.11), p.559; π^(−r)Γ(r+k/2) and the initial convergence chamber are retained. The scalar specialisation test is a computation."
-   },
-   {
-    "nodeId": "MetaplecticAutomorphicForms:MP.8/jacquet-r-reflection",
-    "verdict": "verified",
-    "note": "Proposition 3.3 continues V in the stated cone and reflects gamma-normalized W; raw equality is restricted to its convergence chamber."
-   },
-   {
-    "nodeId": "MetaplecticAutomorphicForms:MP.8/jacquet-weyl-reflection",
-    "verdict": "verified",
-    "note": "The corrected gamma pairs cancel the inverse factors on p.565; torus projection loses the original SO(2) weight condition. The GR proof gap remains."
-   },
-   {
-    "nodeId": "MetaplecticAutomorphicForms:MP.8/whittaker-continuation",
-    "verdict": "verified",
-    "note": "Continuation to Re s>3/2 refers to a continued family agreeing with the original integral for Re s>2; the confluent/convolution inputs remain explicit."
-   },
-   {
-    "nodeId": "MetaplecticAutomorphicForms:MP.8/whittaker-rapid-decay",
-    "verdict": "verified",
-    "note": "Nondegenerate rapid decay is polynomial-times-Schwartz uniformly on compact parameter sets; the JPSS input is recorded as an open proof requirement."
-   },
-   {
-    "nodeId": "MetaplecticAutomorphicForms:MP.8/degenerate-whittaker-continuation",
-    "verdict": "verified",
-    "note": "The zero-character function scales as y₁^(4−s) and has only the asserted y₂ decay. The omitted Annals Bessel calculation remains a gap."
-   },
-   {
-    "nodeId": "MetaplecticAutomorphicForms:MP.8/test-coefficient-algebra",
-    "verdict": "verified",
-    "note": "Actual U(2) matrix coefficients, SO(2) weight and the signed global divisor replace an arbitrary chart-polynomial class; density comes from the named supplier."
-   },
-   {
-    "nodeId": "MetaplecticAutomorphicForms:MP.8/test-coefficient-strip",
-    "verdict": "verified",
-    "note": "The bounded imaginary strip avoids ±i and preserves uniform branch control; the printed one-sided region is independently rejected."
-   },
-   {
-    "nodeId": "MetaplecticAutomorphicForms:MP.8/rotated-whittaker-bound",
-    "verdict": "verified",
-    "note": "The actual compact product and signed divisor are retained on both branches; residual compact transition and full-prefactor domination are explicitly unfinished."
-   },
-   {
-    "nodeId": "MetaplecticAutomorphicForms:MP.8/novodvorsky-transform",
-    "verdict": "corrected",
-    "note": "The transform is iterated and uses dy₁/y₁ with its stated power. Repaired the cut-off continuation use without asserting joint Fubini."
-   },
-   {
-    "nodeId": "MetaplecticAutomorphicForms:MP.8/novodvorsky-continuation",
-    "verdict": "verified",
-    "note": "The continued transform domain retains global φ₁ divisibility and separate small/large-tail arguments; the rotated-bound gap is not silently discharged."
-   },
-   {
-    "nodeId": "MetaplecticAutomorphicForms:MP.8/tau-transform",
-    "verdict": "verified",
-    "note": "The τ kernel uses the actual compact product and branch amplitude, distinct from the degenerate W⁰ Mellin term."
-   },
-   {
-    "nodeId": "MetaplecticAutomorphicForms:MP.8/degenerate-mellin-coefficients",
-    "verdict": "verified",
-    "note": "Both boundary Mellin coefficients use exponent 2s−8 and the continued W⁰ family; linearity and holomorphy need explicit domination."
-   },
-   {
-    "nodeId": "MetaplecticAutomorphicForms:MP.8/local-test-nonzero-f",
-    "verdict": "corrected",
-    "note": "Corrected the quantifiers to choose positive y₂ separately for each sign, matching the Lean sketch; τ vanishes identically and φ₁φ₂ divisibility is retained."
-   },
-   {
-    "nodeId": "MetaplecticAutomorphicForms:MP.8/local-test-nonzero-tau",
-    "verdict": "verified",
-    "note": "Nonzero τ requires a nonzero weighted even pushforward; chart nonzeroness alone is insufficient. That finite K-type construction stays an explicit gap."
-   },
-   {
-    "nodeId": "MetaplecticAutomorphicForms:MP.8/local-test-nonzero-m",
-    "verdict": "verified",
-    "note": "Proposition 3.15 is an existential finite K-type residue test, not a seed assumption; its omitted Bessel/test construction is honestly recorded."
-   },
-   {
-    "nodeId": "MetaplecticAutomorphicForms:MP.8/similitude-heisenberg-comparison",
-    "verdict": "verified",
-    "note": "The center scales by the similitude multiplier; MP.6 owns the general Heisenberg/Jacobi object and fixed-character versus index transport is separated."
-   },
-   {
-    "nodeId": "MetaplecticAutomorphicForms:MP.8/full-real-cover",
-    "verdict": "corrected",
-    "note": "The conjugate-root involution gives a chosen split real extension; it does not establish adelic compatibility. Kernel-fixing is a characterisation test."
-   },
-   {
-    "nodeId": "MetaplecticAutomorphicForms:MP.8/arithmetic-adelic-comparison",
-    "verdict": "verified",
-    "note": "MP.4 must supply the rational splitting, finite vector and dyadic lift before the arithmetic/adelic comparison can be typed; the signature omission is explicit."
-   },
-   {
-    "nodeId": "MetaplecticAutomorphicForms:MP.8/theta-levi-transform",
-    "verdict": "verified",
-    "note": "Levi transport preserves the source Γ⁰(N) conditions and transposed residue action; the suggested native statement is an upper-unipotent specialisation."
-   },
-   {
-    "nodeId": "MetaplecticAutomorphicForms:MP.8/theta-unipotent-transforms",
-    "verdict": "verified",
-    "note": "Upper and lower unipotent theta laws keep their divisibility and cover-root conditions; the Lean upper specialisation is explicitly partial."
-   },
-   {
-    "nodeId": "MetaplecticAutomorphicForms:MP.8/coefficient-levi-transform",
-    "verdict": "verified",
-    "note": "Integral quadratic congruence gives yᵀTy, while full B_j/C_j covariance additionally needs the cusp subgroup and residue transport."
-   },
-   {
-    "nodeId": "MetaplecticAutomorphicForms:MP.8/matrix-mobius",
-    "verdict": "verified",
-    "note": "Matrix Möbius uses scalar native Möbius on positive Smith coefficients; pinned PID bases alone do not supply ordered divisibility."
-   },
-   {
-    "nodeId": "MetaplecticAutomorphicForms:MP.8/primitive-symplectic-pairs",
-    "verdict": "verified",
-    "note": "Primitive completion requires full row rank and CDᵀ=DCᵀ. Maass completion and rank-one normal form remain named unread inputs."
-   },
-   {
-    "nodeId": "MetaplecticAutomorphicForms:MP.8/matrix-mobius-divisor-identity",
-    "verdict": "verified",
-    "note": "The finite lattice-divisor sum is zero for a nonunit determinant and one for a unit; it follows from the matrix Möbius product calculation."
-   },
-   {
-    "nodeId": "MetaplecticAutomorphicForms:MP.8/matrix-mobius-inversion",
-    "verdict": "verified",
-    "note": "Möbius inversion retains the symmetric-pair quotient and translation invariance; the N-restricted version needs the stated adapted Hermite representatives."
-   },
-   {
-    "nodeId": "MetaplecticAutomorphicForms:MP.8/finite-exponential-sums",
-    "verdict": "corrected",
-    "note": "Finite cusp sums have the corrected S₀ modulus D mod C. Repaired two cut-off uses while preserving the first-cusp NC quotient."
-   },
-   {
-    "nodeId": "MetaplecticAutomorphicForms:MP.8/fourier-unfolding-kernel",
-    "verdict": "verified",
-    "note": "The kernel keeps (2mN³)⁻¹, QQᵀ, the positive-base logarithm and the R-discriminant cancellation; its full formula matches p.580."
-   },
-   {
-    "nodeId": "MetaplecticAutomorphicForms:MP.8/cusp-one-unfolding",
-    "verdict": "verified",
-    "note": "First-cusp unfolding uses C₁₂≡0 mod N and all C nonsingular, with the original BFH seed rather than arbitrary scalar data."
-   },
-   {
-    "nodeId": "MetaplecticAutomorphicForms:MP.8/cusp-zero-rank-expansion",
-    "verdict": "verified",
-    "note": "Opposite-cusp unfolding retains rank-two, rank-one and rank-zero terms and the N³ rescaling; no premature rank-one cancellation is made."
-   },
-   {
-    "nodeId": "MetaplecticAutomorphicForms:MP.8/whittaker-coefficient-extraction",
-    "verdict": "verified",
-    "note": "Whittaker extraction uses the two actual theta-coefficient families, correct periods/frequencies and the opposite-cusp zero extension."
-   },
-   {
-    "nodeId": "MetaplecticAutomorphicForms:MP.8/bfh-l-dirichlet-series",
-    "verdict": "corrected",
-    "note": "L uses a(n) of the original f. Repaired the cut-off P-comparison and three-exponent local Möbius use; P has distinct transformed cusp data."
-   },
-   {
-    "nodeId": "MetaplecticAutomorphicForms:MP.8/bfh-p-dirichlet-series",
-    "verdict": "corrected",
-    "note": "P uses actual cusp-transformed coefficients, representable indices and residue periodicity; its periodicity test is characterisation, not native compatibility."
-   },
-   {
-    "nodeId": "MetaplecticAutomorphicForms:MP.8/first-cusp-whittaker-expansion",
-    "verdict": "verified",
-    "note": "The first-cusp expansion has the s-dependent coefficient family and original-f series, with the exact n₂, D and exponential factors."
-   },
-   {
-    "nodeId": "MetaplecticAutomorphicForms:MP.8/opposite-cusp-whittaker-expansion",
-    "verdict": "verified",
-    "note": "The opposite cusp keeps N³, σ(w), P and the rank-zero term; elliptic cuspidality kills only the extracted rank-one contribution."
-   },
-   {
-    "nodeId": "MetaplecticAutomorphicForms:MP.8/local-prime-root-counts",
-    "verdict": "corrected",
-    "note": "The mixed modulus is min(a,d); direct enumeration reproduces six versus two in the concrete case. Repaired the cut-off table use."
-   },
-   {
-    "nodeId": "MetaplecticAutomorphicForms:MP.8/local-root-count-table",
-    "verdict": "verified",
-    "note": "The published root table is unchanged with the corrected congruence; 2,016 finite cases reproduce its applicable N₁/N₂ and N₃ rows."
-   },
-   {
-    "nodeId": "MetaplecticAutomorphicForms:MP.8/local-mobius-factors",
-    "verdict": "verified",
-    "note": "The local inverted sums retain all a,b,d exponents and four divisor coefficients; missing divisors contribute zero."
-   },
-   {
-    "nodeId": "MetaplecticAutomorphicForms:MP.8/unramified-euler-factors",
-    "verdict": "verified",
-    "note": "The beta difference fixes the first exponent in S_p(a,a,d)−S_p(a,a−1,d); the unramified Satake factors and omitted bad-prime boundary match §7."
-   },
-   {
-    "nodeId": "MetaplecticAutomorphicForms:MP.8/squarefactor-polynomial-bound",
-    "verdict": "verified",
-    "note": "The squarefactor polynomial bound uses actual finite Dirichlet polynomials and the original newform coefficient bound; raw functions alone are insufficient."
-   },
-   {
-    "nodeId": "MetaplecticAutomorphicForms:MP.8/theta-normal-convergence",
-    "verdict": "verified",
-    "note": "Compact subsets have a uniform positive eigenvalue lower bound giving a summable Gaussian majorant and the needed derivative refinements."
-   },
-   {
-    "nodeId": "MetaplecticAutomorphicForms:MP.8/genuine-induced-comparison",
-    "verdict": "verified",
-    "note": "Root magnitude contributes −1/2 and half-modulus contributes −3/2, yielding ν=s−2 and reflection 4−s; the adelic comparison remains unfinished."
-   },
-   {
-    "nodeId": "MetaplecticAutomorphicForms:MP.8/genuine-eisenstein-initial-convergence",
-    "verdict": "verified",
-    "note": "The actual BFH induction and finite-cover comparison are required before importing AS.1 convergence; the native raw-function sketch flags those missing interfaces."
-   },
-   {
-    "nodeId": "MetaplecticAutomorphicForms:MP.8/genuine-intertwining-operators",
-    "verdict": "corrected",
-    "note": "Separated raw M from scalar-normalized R in the statement, composition API and Lean comment. The unnormalized constant term and Weyl equation use M."
-   },
-   {
-    "nodeId": "MetaplecticAutomorphicForms:MP.8/genuine-constant-term",
-    "verdict": "verified",
-    "note": "The genuine constant term contains the inducing section and long-Weyl raw M; rank-one cancellation needs elliptic cuspidality and the cover-specific comparison."
-   },
-   {
-    "nodeId": "MetaplecticAutomorphicForms:MP.8/genuine-eisenstein-continuation",
-    "verdict": "corrected",
-    "note": "The Lean Weyl equation now uses raw M, matching the packet. Cover continuation, denominator pole control and the independent P input remain open obligations."
-   },
-   {
-    "nodeId": "MetaplecticAutomorphicForms:MP.8/opposite-cusp-zero-regularity",
-    "verdict": "verified",
-    "note": "Ramified P-regularity uses its independent arithmetic route; deriving it from E-regularity and then proving E-regularity from P is explicitly excluded."
-   },
-   {
-    "nodeId": "MetaplecticAutomorphicForms:MP.8/fourier-residue-interchanges",
-    "verdict": "corrected",
-    "note": "Added the p.601 global-divisor hypothesis for the Mellin tails; common denominators and uniform majorants are required before residue/derivative interchange."
-   },
-   {
-    "nodeId": "MetaplecticAutomorphicForms:MP.8/two-variable-twist-series",
-    "verdict": "corrected",
-    "note": "The two signed D series have the exact integer congruence modulus and initial chamber. Repaired their cut-off polar-formula use."
-   },
-   {
-    "nodeId": "MetaplecticAutomorphicForms:MP.8/two-variable-polar-combination",
-    "verdict": "corrected",
-    "note": "Added the p.601 global φ₁ divisor hypothesis, direct test-algebra/continuation prerequisites and native HasBFHDivisor argument. All transform arguments are N⁻¹y₂; joint charts remain required."
-   },
-   {
-    "nodeId": "MetaplecticAutomorphicForms:MP.8/bsd2-export",
-    "verdict": "verified",
-    "note": "The exact incomplete ratios and quotient derivative belong to the analytic export; BSD.2 owns positivity, noncancellation, local selection and infinitude."
-   }
-  ]
+  "notes": "Independent completed review of FIX-RT-AREA-automorphic-1~5 (issue #7448, PR #7713, Codex codex-vvlCYM) by Codex session codex-zcs4LH, following REV-FIX-RT-AREA-automorphic-1~4 and independent-review-REV-MetaplecticAutomorphicForms--MP.8~2. Finding /20: the newer accepted revision preserves MP.6 as the generic Jacobi owner, keeps MP.8 as the BFH specialization, and retains the finite-Weil/scalar multiplier interface distinctions. Its reader agrees with that direction; this review does not rebuild generic Jacobi theory. All thirteen packet checks pass; exact prerequisite closure is acyclic. No mathematical field or suggested declaration changed in this review. Source receipts, reader checks and Lean limitations are in research/blueprint/reviews/REV-FIX-RT-AREA-automorphic-1~5.md."
  },
  "reviewHistory": [
   {
@@ -6460,6 +6033,439 @@
    "reviewer": "independent-review-REV-FIX-RT-AREA-automorphic-1~4",
    "date": "2026-10-08",
    "notes": "Independent review of FIX-RT-AREA-automorphic-1~4 (issue #7280, PR #7314, Codex codex-Z0ErNN) by Claude session claude-95TvAO, following REV-FIX-RT-AREA-automorphic-1~3 and, for this packet, REV-MetaplecticAutomorphicForms--MP.8 (needs_changes). Finding /20 is correctly fixed and survives the revision BP-MetaplecticAutomorphicForms--MP.8~2 (#7324): MP.8 specializes the MP.6 Jacobi theory to its genus-two cover, names only AutomorphicCongruences:L2s as unitary consumer and adds no L2 edge; reader line 19 is resolved. No correction was needed. Status stays needs_changes because that revision's own review, REV-MetaplecticAutomorphicForms--MP.8~2, is pending; this fix review does not review the revision and must not promote it."
+  },
+  {
+   "status": "accepted",
+   "reviewer": "independent-review-REV-MetaplecticAutomorphicForms--MP.8~2",
+   "date": "2026-10-08",
+   "notes": "Independent review of #7075 by Codex session codex-ua9lQs. Checked all 85 node statements, source locators, proof routes, prerequisites, API/tests, suggested signatures and reader entries; confirmed all 28 pinned baseline citations, eight source issues, 15 supplier contracts and RT-AREA-automorphic-1/20. Corrected 27 nodes: Whittaker chart matrix, Jacquet section locator, sign-specific y₂ quantifiers, global divisor hypotheses, raw/normalized intertwiner parity, 21 truncated uses and ten test classifications. Reader parity, packet and errata checks, and 2,016 finite root-count checks pass. Revised lean-check elaborates with zero errors and 316 warnings for proof placeholders. Accepted as a complete target-level planning pass; MP.8 is planned, all implementations unchecked, and nine precise proof/source gaps plus supplier/signature refinements remain. Archived the scoped round-4 review without changing its verdict.",
+   "checked": [
+    {
+     "nodeId": "MetaplecticAutomorphicForms:MP.8/fourier-shift",
+     "verdict": "corrected",
+     "note": "Native integral quadratic-form shift has the required two cusp factors; its second-cusp test is a computation, not a library comparison."
+    },
+    {
+     "nodeId": "MetaplecticAutomorphicForms:MP.8/fourier-discriminant",
+     "verdict": "verified",
+     "note": "The invariant retains the full quadratic form 4aQ−c(R·−)²; no positivity is added."
+    },
+    {
+     "nodeId": "MetaplecticAutomorphicForms:MP.8/discriminant-shift",
+     "verdict": "verified",
+     "note": "Expanding the translated quadratic form cancels both mixed and square shift terms."
+    },
+    {
+     "nodeId": "MetaplecticAutomorphicForms:MP.8/residue-shift",
+     "verdict": "verified",
+     "note": "The vector shift changes each residue by a multiple of 2a, for arbitrary integral c."
+    },
+    {
+     "nodeId": "MetaplecticAutomorphicForms:MP.8/recover-quadratic",
+     "verdict": "verified",
+     "note": "Equal vector and discriminant data recover Q by cancelling 4a, using a≠0 over ℤ."
+    },
+    {
+     "nodeId": "MetaplecticAutomorphicForms:MP.8/shift-parameter-injective",
+     "verdict": "verified",
+     "note": "Injectivity of the shift parameter follows by cancelling 2a in the vector coordinate."
+    },
+    {
+     "nodeId": "MetaplecticAutomorphicForms:MP.8/orbit-classification",
+     "verdict": "verified",
+     "note": "The orbit criterion uses both discriminant equality and vector congruence; a≠0 is essential."
+    },
+    {
+     "nodeId": "MetaplecticAutomorphicForms:MP.8/unique-residue-lift",
+     "verdict": "verified",
+     "note": "Congruence supplies an integral shift to the prescribed vector lift; the recovered quadratic form is unique."
+    },
+    {
+     "nodeId": "MetaplecticAutomorphicForms:MP.8/coefficient-invariants",
+     "verdict": "verified",
+     "note": "An orbit-invariant coefficient factors through the two invariants; its analytic application requires the separate contour-shift theorem."
+    },
+    {
+     "nodeId": "MetaplecticAutomorphicForms:MP.8/siegel-space",
+     "verdict": "verified",
+     "note": "Strict symmetric positive-definite imaginary part agrees with native PosDef; the asymmetric and real-matrix tests detect incorrect domains."
+    },
+    {
+     "nodeId": "MetaplecticAutomorphicForms:MP.8/positive-similitudes",
+     "verdict": "corrected",
+     "note": "The positive multiplier and native symplectic restriction are correct; the scalar-action test is reclassified as a computation."
+    },
+    {
+     "nodeId": "MetaplecticAutomorphicForms:MP.8/siegel-action",
+     "verdict": "corrected",
+     "note": "The fractional action and multiplier-divided determinant cocycle fix positive scalars; the scalar test is reclassified."
+    },
+    {
+     "nodeId": "MetaplecticAutomorphicForms:MP.8/similitude-cover",
+     "verdict": "corrected",
+     "note": "Continuous nonzero roots give the double cover; the Fourier lift phase and the positive-scalar splitting remain distinct. Repaired its cut-off use."
+    },
+    {
+     "nodeId": "MetaplecticAutomorphicForms:MP.8/compact-stabilizer",
+     "verdict": "verified",
+     "note": "The Sp stabilizer is U(2); the GSp⁺ stabilizer includes positive scalars. Upper Q with QQᵀ matches the pinned Cholesky boundary."
+    },
+    {
+     "nodeId": "MetaplecticAutomorphicForms:MP.8/arithmetic-subgroup",
+     "verdict": "corrected",
+     "note": "The full lower-left block and two extra entries have the source congruences; native level-one comparison is valid. Repaired three cut-off uses."
+    },
+    {
+     "nodeId": "MetaplecticAutomorphicForms:MP.8/bfh-slash",
+     "verdict": "verified",
+     "note": "The symplectic slash has the inverse-transpose W action and quadratic phase; extension to similitudes requires index transport."
+    },
+    {
+     "nodeId": "MetaplecticAutomorphicForms:MP.8/bfh-translation",
+     "verdict": "corrected",
+     "note": "The translation composition phase is retained and integral on the BFH lattice when N divides m. Repaired its Fourier/carrier uses."
+    },
+    {
+     "nodeId": "MetaplecticAutomorphicForms:MP.8/genus-two-theta",
+     "verdict": "corrected",
+     "note": "The residue theta sum and diagonal jacobiTheta₂ comparison agree with the source. Repaired the projection use and classified negation as characterisation."
+    },
+    {
+     "nodeId": "MetaplecticAutomorphicForms:MP.8/quadratic-matrix",
+     "verdict": "corrected",
+     "note": "Mixed integral polynomial coefficients become half-integral matrix entries; the dictionary is injective. Repaired its three arithmetic/analytic uses."
+    },
+    {
+     "nodeId": "MetaplecticAutomorphicForms:MP.8/fourier-coefficient",
+     "verdict": "verified",
+     "note": "The Fourier extraction retains N^(−3j), both periods and the exponential in Z_g; additive integration has sufficient continuity hypotheses."
+    },
+    {
+     "nodeId": "MetaplecticAutomorphicForms:MP.8/theta-pairing",
+     "verdict": "verified",
+     "note": "The Gaussian pairing has √detY/(2a) and Jacobian detY; the root Gaussian integral is reused with positive parameter."
+    },
+    {
+     "nodeId": "MetaplecticAutomorphicForms:MP.8/coefficient-shift-analytic",
+     "verdict": "verified",
+     "note": "Holomorphy and the elliptic lattice justify the contour shift; the resulting index relation uses the retained integral invariant theorem."
+    },
+    {
+     "nodeId": "MetaplecticAutomorphicForms:MP.8/theta-decomposition",
+     "verdict": "verified",
+     "note": "Finite theta reconstruction uses the pairing and analytic shift, with the cusp-dependent Z and W scales."
+    },
+    {
+     "nodeId": "MetaplecticAutomorphicForms:MP.8/theta-fourier-transform",
+     "verdict": "verified",
+     "note": "Poisson summation gives the 1/(2a) theta Fourier factor and branch positive at iY; residue negation follows on squaring."
+    },
+    {
+     "nodeId": "MetaplecticAutomorphicForms:MP.8/theta-component-fourier-law",
+     "verdict": "verified",
+     "note": "The component Fourier factor is √(−detZ)/(2m), including the N rescaling; both residue phases are retained."
+    },
+    {
+     "nodeId": "MetaplecticAutomorphicForms:MP.8/bfh-jacobi-specialization",
+     "verdict": "corrected",
+     "note": "This is the BFH coordinate instance of MP.6, not a second general Jacobi definition. Repaired the cut-off projection use."
+    },
+    {
+     "nodeId": "MetaplecticAutomorphicForms:MP.8/theta-components",
+     "verdict": "corrected",
+     "note": "Projection is defined before reconstruction, with finite residue indexing and scalar linearity. Repaired the self-referential cut-off description of its reconstruction use."
+    },
+    {
+     "nodeId": "MetaplecticAutomorphicForms:MP.8/theta-coefficient",
+     "verdict": "corrected",
+     "note": "Theta Fourier coefficients vanish for unrepresentable indices and recover B_j for representable U; repaired the truncated dependency account."
+    },
+    {
+     "nodeId": "MetaplecticAutomorphicForms:MP.8/bfh-seed",
+     "verdict": "corrected",
+     "note": "The finite continuous K-type and weight vector are genuine defining inputs, not analytic conclusions; the positive-scalar seed test is a computation."
+    },
+    {
+     "nodeId": "MetaplecticAutomorphicForms:MP.8/induced-seed-family",
+     "verdict": "corrected",
+     "note": "det(Y)^(s/2) uses the positive-base logarithm and gives holomorphic scalar coordinates; repaired its cut-off use in the Eisenstein sum."
+    },
+    {
+     "nodeId": "MetaplecticAutomorphicForms:MP.8/jacobi-eisenstein",
+     "verdict": "verified",
+     "note": "The actual parabolic/arithmetic quotient and lattice sum are specified; inversion identifies native G/H with the required H\\G."
+    },
+    {
+     "nodeId": "MetaplecticAutomorphicForms:MP.8/whittaker-functions",
+     "verdict": "corrected",
+     "note": "BFH (3.2), p.557 uses [[0,w],[−w,0]]n(X), not diag(w,−w). Corrected the proof and Lean comment; reclassified the degenerate scaling test."
+    },
+    {
+     "nodeId": "MetaplecticAutomorphicForms:MP.8/whittaker-majorant",
+     "verdict": "verified",
+     "note": "The three sufficient majorant inequalities match Proposition 3.1; no necessity assertion is introduced."
+    },
+    {
+     "nodeId": "MetaplecticAutomorphicForms:MP.8/whittaker-initial-convergence",
+     "verdict": "verified",
+     "note": "Initial integrability requires Re s>2, positive y₁,y₂ and the actual weight-k compact coefficient."
+    },
+    {
+     "nodeId": "MetaplecticAutomorphicForms:MP.8/jacquet-two-parameter",
+     "verdict": "corrected",
+     "note": "Corrected the section locator to (3.11), p.559; π^(−r)Γ(r+k/2) and the initial convergence chamber are retained. The scalar specialisation test is a computation."
+    },
+    {
+     "nodeId": "MetaplecticAutomorphicForms:MP.8/jacquet-r-reflection",
+     "verdict": "verified",
+     "note": "Proposition 3.3 continues V in the stated cone and reflects gamma-normalized W; raw equality is restricted to its convergence chamber."
+    },
+    {
+     "nodeId": "MetaplecticAutomorphicForms:MP.8/jacquet-weyl-reflection",
+     "verdict": "verified",
+     "note": "The corrected gamma pairs cancel the inverse factors on p.565; torus projection loses the original SO(2) weight condition. The GR proof gap remains."
+    },
+    {
+     "nodeId": "MetaplecticAutomorphicForms:MP.8/whittaker-continuation",
+     "verdict": "verified",
+     "note": "Continuation to Re s>3/2 refers to a continued family agreeing with the original integral for Re s>2; the confluent/convolution inputs remain explicit."
+    },
+    {
+     "nodeId": "MetaplecticAutomorphicForms:MP.8/whittaker-rapid-decay",
+     "verdict": "verified",
+     "note": "Nondegenerate rapid decay is polynomial-times-Schwartz uniformly on compact parameter sets; the JPSS input is recorded as an open proof requirement."
+    },
+    {
+     "nodeId": "MetaplecticAutomorphicForms:MP.8/degenerate-whittaker-continuation",
+     "verdict": "verified",
+     "note": "The zero-character function scales as y₁^(4−s) and has only the asserted y₂ decay. The omitted Annals Bessel calculation remains a gap."
+    },
+    {
+     "nodeId": "MetaplecticAutomorphicForms:MP.8/test-coefficient-algebra",
+     "verdict": "verified",
+     "note": "Actual U(2) matrix coefficients, SO(2) weight and the signed global divisor replace an arbitrary chart-polynomial class; density comes from the named supplier."
+    },
+    {
+     "nodeId": "MetaplecticAutomorphicForms:MP.8/test-coefficient-strip",
+     "verdict": "verified",
+     "note": "The bounded imaginary strip avoids ±i and preserves uniform branch control; the printed one-sided region is independently rejected."
+    },
+    {
+     "nodeId": "MetaplecticAutomorphicForms:MP.8/rotated-whittaker-bound",
+     "verdict": "verified",
+     "note": "The actual compact product and signed divisor are retained on both branches; residual compact transition and full-prefactor domination are explicitly unfinished."
+    },
+    {
+     "nodeId": "MetaplecticAutomorphicForms:MP.8/novodvorsky-transform",
+     "verdict": "corrected",
+     "note": "The transform is iterated and uses dy₁/y₁ with its stated power. Repaired the cut-off continuation use without asserting joint Fubini."
+    },
+    {
+     "nodeId": "MetaplecticAutomorphicForms:MP.8/novodvorsky-continuation",
+     "verdict": "verified",
+     "note": "The continued transform domain retains global φ₁ divisibility and separate small/large-tail arguments; the rotated-bound gap is not silently discharged."
+    },
+    {
+     "nodeId": "MetaplecticAutomorphicForms:MP.8/tau-transform",
+     "verdict": "verified",
+     "note": "The τ kernel uses the actual compact product and branch amplitude, distinct from the degenerate W⁰ Mellin term."
+    },
+    {
+     "nodeId": "MetaplecticAutomorphicForms:MP.8/degenerate-mellin-coefficients",
+     "verdict": "verified",
+     "note": "Both boundary Mellin coefficients use exponent 2s−8 and the continued W⁰ family; linearity and holomorphy need explicit domination."
+    },
+    {
+     "nodeId": "MetaplecticAutomorphicForms:MP.8/local-test-nonzero-f",
+     "verdict": "corrected",
+     "note": "Corrected the quantifiers to choose positive y₂ separately for each sign, matching the Lean sketch; τ vanishes identically and φ₁φ₂ divisibility is retained."
+    },
+    {
+     "nodeId": "MetaplecticAutomorphicForms:MP.8/local-test-nonzero-tau",
+     "verdict": "verified",
+     "note": "Nonzero τ requires a nonzero weighted even pushforward; chart nonzeroness alone is insufficient. That finite K-type construction stays an explicit gap."
+    },
+    {
+     "nodeId": "MetaplecticAutomorphicForms:MP.8/local-test-nonzero-m",
+     "verdict": "verified",
+     "note": "Proposition 3.15 is an existential finite K-type residue test, not a seed assumption; its omitted Bessel/test construction is honestly recorded."
+    },
+    {
+     "nodeId": "MetaplecticAutomorphicForms:MP.8/similitude-heisenberg-comparison",
+     "verdict": "verified",
+     "note": "The center scales by the similitude multiplier; MP.6 owns the general Heisenberg/Jacobi object and fixed-character versus index transport is separated."
+    },
+    {
+     "nodeId": "MetaplecticAutomorphicForms:MP.8/full-real-cover",
+     "verdict": "corrected",
+     "note": "The conjugate-root involution gives a chosen split real extension; it does not establish adelic compatibility. Kernel-fixing is a characterisation test."
+    },
+    {
+     "nodeId": "MetaplecticAutomorphicForms:MP.8/arithmetic-adelic-comparison",
+     "verdict": "verified",
+     "note": "MP.4 must supply the rational splitting, finite vector and dyadic lift before the arithmetic/adelic comparison can be typed; the signature omission is explicit."
+    },
+    {
+     "nodeId": "MetaplecticAutomorphicForms:MP.8/theta-levi-transform",
+     "verdict": "verified",
+     "note": "Levi transport preserves the source Γ⁰(N) conditions and transposed residue action; the suggested native statement is an upper-unipotent specialisation."
+    },
+    {
+     "nodeId": "MetaplecticAutomorphicForms:MP.8/theta-unipotent-transforms",
+     "verdict": "verified",
+     "note": "Upper and lower unipotent theta laws keep their divisibility and cover-root conditions; the Lean upper specialisation is explicitly partial."
+    },
+    {
+     "nodeId": "MetaplecticAutomorphicForms:MP.8/coefficient-levi-transform",
+     "verdict": "verified",
+     "note": "Integral quadratic congruence gives yᵀTy, while full B_j/C_j covariance additionally needs the cusp subgroup and residue transport."
+    },
+    {
+     "nodeId": "MetaplecticAutomorphicForms:MP.8/matrix-mobius",
+     "verdict": "verified",
+     "note": "Matrix Möbius uses scalar native Möbius on positive Smith coefficients; pinned PID bases alone do not supply ordered divisibility."
+    },
+    {
+     "nodeId": "MetaplecticAutomorphicForms:MP.8/primitive-symplectic-pairs",
+     "verdict": "verified",
+     "note": "Primitive completion requires full row rank and CDᵀ=DCᵀ. Maass completion and rank-one normal form remain named unread inputs."
+    },
+    {
+     "nodeId": "MetaplecticAutomorphicForms:MP.8/matrix-mobius-divisor-identity",
+     "verdict": "verified",
+     "note": "The finite lattice-divisor sum is zero for a nonunit determinant and one for a unit; it follows from the matrix Möbius product calculation."
+    },
+    {
+     "nodeId": "MetaplecticAutomorphicForms:MP.8/matrix-mobius-inversion",
+     "verdict": "verified",
+     "note": "Möbius inversion retains the symmetric-pair quotient and translation invariance; the N-restricted version needs the stated adapted Hermite representatives."
+    },
+    {
+     "nodeId": "MetaplecticAutomorphicForms:MP.8/finite-exponential-sums",
+     "verdict": "corrected",
+     "note": "Finite cusp sums have the corrected S₀ modulus D mod C. Repaired two cut-off uses while preserving the first-cusp NC quotient."
+    },
+    {
+     "nodeId": "MetaplecticAutomorphicForms:MP.8/fourier-unfolding-kernel",
+     "verdict": "verified",
+     "note": "The kernel keeps (2mN³)⁻¹, QQᵀ, the positive-base logarithm and the R-discriminant cancellation; its full formula matches p.580."
+    },
+    {
+     "nodeId": "MetaplecticAutomorphicForms:MP.8/cusp-one-unfolding",
+     "verdict": "verified",
+     "note": "First-cusp unfolding uses C₁₂≡0 mod N and all C nonsingular, with the original BFH seed rather than arbitrary scalar data."
+    },
+    {
+     "nodeId": "MetaplecticAutomorphicForms:MP.8/cusp-zero-rank-expansion",
+     "verdict": "verified",
+     "note": "Opposite-cusp unfolding retains rank-two, rank-one and rank-zero terms and the N³ rescaling; no premature rank-one cancellation is made."
+    },
+    {
+     "nodeId": "MetaplecticAutomorphicForms:MP.8/whittaker-coefficient-extraction",
+     "verdict": "verified",
+     "note": "Whittaker extraction uses the two actual theta-coefficient families, correct periods/frequencies and the opposite-cusp zero extension."
+    },
+    {
+     "nodeId": "MetaplecticAutomorphicForms:MP.8/bfh-l-dirichlet-series",
+     "verdict": "corrected",
+     "note": "L uses a(n) of the original f. Repaired the cut-off P-comparison and three-exponent local Möbius use; P has distinct transformed cusp data."
+    },
+    {
+     "nodeId": "MetaplecticAutomorphicForms:MP.8/bfh-p-dirichlet-series",
+     "verdict": "corrected",
+     "note": "P uses actual cusp-transformed coefficients, representable indices and residue periodicity; its periodicity test is characterisation, not native compatibility."
+    },
+    {
+     "nodeId": "MetaplecticAutomorphicForms:MP.8/first-cusp-whittaker-expansion",
+     "verdict": "verified",
+     "note": "The first-cusp expansion has the s-dependent coefficient family and original-f series, with the exact n₂, D and exponential factors."
+    },
+    {
+     "nodeId": "MetaplecticAutomorphicForms:MP.8/opposite-cusp-whittaker-expansion",
+     "verdict": "verified",
+     "note": "The opposite cusp keeps N³, σ(w), P and the rank-zero term; elliptic cuspidality kills only the extracted rank-one contribution."
+    },
+    {
+     "nodeId": "MetaplecticAutomorphicForms:MP.8/local-prime-root-counts",
+     "verdict": "corrected",
+     "note": "The mixed modulus is min(a,d); direct enumeration reproduces six versus two in the concrete case. Repaired the cut-off table use."
+    },
+    {
+     "nodeId": "MetaplecticAutomorphicForms:MP.8/local-root-count-table",
+     "verdict": "verified",
+     "note": "The published root table is unchanged with the corrected congruence; 2,016 finite cases reproduce its applicable N₁/N₂ and N₃ rows."
+    },
+    {
+     "nodeId": "MetaplecticAutomorphicForms:MP.8/local-mobius-factors",
+     "verdict": "verified",
+     "note": "The local inverted sums retain all a,b,d exponents and four divisor coefficients; missing divisors contribute zero."
+    },
+    {
+     "nodeId": "MetaplecticAutomorphicForms:MP.8/unramified-euler-factors",
+     "verdict": "verified",
+     "note": "The beta difference fixes the first exponent in S_p(a,a,d)−S_p(a,a−1,d); the unramified Satake factors and omitted bad-prime boundary match §7."
+    },
+    {
+     "nodeId": "MetaplecticAutomorphicForms:MP.8/squarefactor-polynomial-bound",
+     "verdict": "verified",
+     "note": "The squarefactor polynomial bound uses actual finite Dirichlet polynomials and the original newform coefficient bound; raw functions alone are insufficient."
+    },
+    {
+     "nodeId": "MetaplecticAutomorphicForms:MP.8/theta-normal-convergence",
+     "verdict": "verified",
+     "note": "Compact subsets have a uniform positive eigenvalue lower bound giving a summable Gaussian majorant and the needed derivative refinements."
+    },
+    {
+     "nodeId": "MetaplecticAutomorphicForms:MP.8/genuine-induced-comparison",
+     "verdict": "verified",
+     "note": "Root magnitude contributes −1/2 and half-modulus contributes −3/2, yielding ν=s−2 and reflection 4−s; the adelic comparison remains unfinished."
+    },
+    {
+     "nodeId": "MetaplecticAutomorphicForms:MP.8/genuine-eisenstein-initial-convergence",
+     "verdict": "verified",
+     "note": "The actual BFH induction and finite-cover comparison are required before importing AS.1 convergence; the native raw-function sketch flags those missing interfaces."
+    },
+    {
+     "nodeId": "MetaplecticAutomorphicForms:MP.8/genuine-intertwining-operators",
+     "verdict": "corrected",
+     "note": "Separated raw M from scalar-normalized R in the statement, composition API and Lean comment. The unnormalized constant term and Weyl equation use M."
+    },
+    {
+     "nodeId": "MetaplecticAutomorphicForms:MP.8/genuine-constant-term",
+     "verdict": "verified",
+     "note": "The genuine constant term contains the inducing section and long-Weyl raw M; rank-one cancellation needs elliptic cuspidality and the cover-specific comparison."
+    },
+    {
+     "nodeId": "MetaplecticAutomorphicForms:MP.8/genuine-eisenstein-continuation",
+     "verdict": "corrected",
+     "note": "The Lean Weyl equation now uses raw M, matching the packet. Cover continuation, denominator pole control and the independent P input remain open obligations."
+    },
+    {
+     "nodeId": "MetaplecticAutomorphicForms:MP.8/opposite-cusp-zero-regularity",
+     "verdict": "verified",
+     "note": "Ramified P-regularity uses its independent arithmetic route; deriving it from E-regularity and then proving E-regularity from P is explicitly excluded."
+    },
+    {
+     "nodeId": "MetaplecticAutomorphicForms:MP.8/fourier-residue-interchanges",
+     "verdict": "corrected",
+     "note": "Added the p.601 global-divisor hypothesis for the Mellin tails; common denominators and uniform majorants are required before residue/derivative interchange."
+    },
+    {
+     "nodeId": "MetaplecticAutomorphicForms:MP.8/two-variable-twist-series",
+     "verdict": "corrected",
+     "note": "The two signed D series have the exact integer congruence modulus and initial chamber. Repaired their cut-off polar-formula use."
+    },
+    {
+     "nodeId": "MetaplecticAutomorphicForms:MP.8/two-variable-polar-combination",
+     "verdict": "corrected",
+     "note": "Added the p.601 global φ₁ divisor hypothesis, direct test-algebra/continuation prerequisites and native HasBFHDivisor argument. All transform arguments are N⁻¹y₂; joint charts remain required."
+    },
+    {
+     "nodeId": "MetaplecticAutomorphicForms:MP.8/bsd2-export",
+     "verdict": "verified",
+     "note": "The exact incomplete ratios and quotient derivative belong to the analytic export; BSD.2 owns positivity, noncancellation, local selection and infinitude."
+    }
+   ]
   }
  ]
 }
