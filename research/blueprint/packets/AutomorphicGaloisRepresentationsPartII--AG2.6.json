@@ -410,7 +410,10 @@
         "AutomorphicGaloisRepresentationsPartII:AG2.0/expected-hodge-tate-multiset",
         "PadicHodgeTheory:R06.5/crystalline-comparison-good-reduction",
         "PadicHodgeTheory:R06.2/ddr-exact-strict-tensor",
-        "PadicHodgeTheory:R06.5"
+        "PadicHodgeTheory:R06.5",
+        "AutomorphicGaloisRepresentationsPartII:AG2.1a/finite-level-coefficient-cohomology",
+        "AutomorphicGaloisRepresentationsPartII:AG2.1a/coefficient-projector-degree-identity",
+        "AutomorphicGaloisRepresentationsPartII:AG2.1a/hecke-galois-projector-commutation"
       ],
       "sources": [
         {
@@ -454,7 +457,10 @@
       ],
       "prerequisites": [
         "AutomorphicGaloisRepresentationsPartII:AG2.6/geometric-coefficient-prime-comparison",
-        "AutomorphicGaloisRepresentationsPartII:AG2.3",
+        "AutomorphicGaloisRepresentationsPartII:AG2.3/definite-unitary-eigenvariety-instance",
+        "AutomorphicGaloisRepresentationsPartII:AG2.3/definite-family-determinant-interpolation",
+        "AutomorphicGaloisRepresentationsPartII:AG2.3/effective-automorphic-galois-patching",
+        "AutomorphicGaloisRepresentationsPartII:AG2.3/solvable-index-induction",
         "LocallyAnalyticDistributions:L4/fredholm-determinant",
         "LocallyAnalyticDistributions:L4/finite-slope-summands",
         "LocallyAnalyticDistributions:L4/completed-base-change",
@@ -610,9 +616,9 @@
       "prerequisites": [
         "AutomorphicGaloisRepresentationsPartII:AG2.6/polarized-branch-de-rham-and-crystalline",
         "AutomorphicGaloisRepresentationsPartII:AG2.6/log-crystalline-purity-on-the-automorphic-summand",
-        "AutomorphicGaloisRepresentationsPartII:AG2.2",
+        "AutomorphicGaloisRepresentationsPartII:AG2.2/algebraic-character-polarization-twist",
         "AutomorphicGaloisRepresentationsPartII:AG2.5/caraiani-upgrade-away-from-p-and-temperedness",
-        "AutomorphicGaloisRepresentationsPartII:AG2.5",
+        "AutomorphicGaloisRepresentationsPartII:AG2.5/pure-weil-deligne-comparison",
         "EndoscopicTransferAndUnitaryTraceComparison:ET.7a"
       ],
       "sources": [
@@ -663,7 +669,8 @@
         "AutomorphicGaloisRepresentationsPartII:AG2.0/galois-representation-attached-at-good-places",
         "AutomorphicGaloisRepresentationsPartII:AG2.0/expected-hodge-tate-multiset",
         "PadicHodgeTheory:R06.3/weil-deligne-parameter",
-        "AutomorphicGaloisRepresentationsPartII:AG2.4"
+        "AutomorphicGaloisRepresentationsPartII:AG2.4",
+        "AutomorphicGaloisRepresentationsPartII:AG2.4/hltt-construction-of-nonselfdual-systems"
       ],
       "sources": [
         {
@@ -711,7 +718,7 @@
       "prerequisites": [
         "AutomorphicGaloisRepresentationsPartII:AG2.6/all-cm-de-rham-and-semisimplified-coefficient-comparison",
         "AutomorphicGaloisRepresentationsPartII:AG2.5/varma-semisimplified-comparison-and-monodromy-bound",
-        "AutomorphicGaloisRepresentationsPartII:AG2.5"
+        "AutomorphicGaloisRepresentationsPartII:AG2.5/monodromy-order-interface"
       ],
       "sources": [
         {
@@ -1203,7 +1210,8 @@
       "prerequisites": [
         "AutomorphicGaloisRepresentationsPartII:AG2.6/polarized-branch-de-rham-and-crystalline",
         "AutomorphicGaloisRepresentationsPartII:AG2.6/strong-coefficient-field",
-        "ArithmeticGaloisRepresentations:R01.5"
+        "ArithmeticGaloisRepresentations:R01.5",
+        "AutomorphicGaloisRepresentationsPartII:AG2.3/finite-number-field-of-realization"
       ],
       "sources": [
         {
@@ -3089,7 +3097,7 @@
         "The known E10/E11 corrections are respected: constituent rank n_i and q split in 𝒦, not an undefined F₀."
       ],
       "prerequisites": [
-        "AutomorphicGaloisRepresentationsPartII:AG2.2",
+        "AutomorphicGaloisRepresentationsPartII:AG2.2/cs-discrete-polarization-normalization",
         "AutomorphicGaloisRepresentationsPartII:AG2.5",
         "AutomorphicGaloisRepresentationsPartII:AG2.0/galois-character-of-an-algebraic-hecke-character",
         "EndoscopicTransferAndUnitaryTraceComparison:ET.7a",
@@ -3393,7 +3401,7 @@
     },
     {
       "supplier": "AutomorphicGaloisRepresentationsPartII:AG2.5",
-      "need": "Exact Varma §8.2 Jordan-block dominance and generic maximal-orbit theorem, and Taylor–Yoshida Theorem 1.4(4) uniqueness of pure WD parameters from the semisimplified Weil representation. Existing integrated summary does not state these inputs with complete hypotheses.",
+      "need": "Exact Varma §8.2 Jordan-block dominance and generic maximal-orbit theorem, and Taylor–Yoshida Lemma 1.4(4) uniqueness of pure WD parameters from the semisimplified Weil representation. Existing integrated summary does not state these inputs with complete hypotheses.",
       "neededBy": [
         "AutomorphicGaloisRepresentationsPartII:AG2.6/full-polarized-comparison-at-the-coefficient-prime",
         "AutomorphicGaloisRepresentationsPartII:AG2.6/nonselfdual-coefficient-prime-monodromy-bound",
@@ -3554,6 +3562,18 @@
       "detail": "BLGGT §2.1, p.34 states the residual CM 𝒢_n-extension, but the previously cited deformation-problem node assumes it. ArithmeticGaloisRepresentations G7 owns the generic pairing/conjugation API; its exact reduction-and-semisimplification extension is requested here, including the coefficient-characteristic boundary, without importing Schur hypotheses. No self-dual lattice is asserted.",
       "neededBy": [
         "AutomorphicGaloisRepresentationsPartII:AG2.7/residual-representation-of-pi"
+      ]
+    },
+    {
+      "title": "Unresolved cross-part comparison and specialized-export contracts",
+      "detail": "Assembly resolves the AG2.3 family/patching, AG2.2 algebraic twist, AG2.5 pure-WD uniqueness and partition-order components to named nodes. It does not identify the away-prime tensor-square construction with the distinct at-coefficient-prime Caraiani realization requested from AG2.1a. The AHTW characteristic-zero generic maximal-orbit theorem remains an additional AG2.5 contract beyond the Varma partition-order node. The AHTW bounded-torsion/non-Siegel boundary input requested from AG2.4 is additional to the named HLTT construction. The selected two-block unitary export still needs the separate CS Remark 5.5.6 local normalization from AG2.5; a cuspidal RACSDC specialization alone is insufficient. Finally, the GSp4 comparison nodes retain provisional AG2.2/ML.4 requests pending the dedicated GSp4LocalLanglandsAndGaloisRepresentations owner already recorded in the AG2.0 part. No fabricated node id or general theorem closes these contracts.",
+      "neededBy": [
+        "AutomorphicGaloisRepresentationsPartII:AG2.6/log-crystalline-purity-on-the-automorphic-summand",
+        "AutomorphicGaloisRepresentationsPartII:AG2.6/all-cm-de-rham-and-semisimplified-coefficient-comparison",
+        "AutomorphicGaloisRepresentationsPartII:AG2.6/nonselfdual-coefficient-prime-monodromy-bound",
+        "AutomorphicGaloisRepresentationsPartII:AG2.6/gsp4-crystalline-hodge-comparison",
+        "AutomorphicGaloisRepresentationsPartII:AG2.6/pilloni-gsp4-normalization-comparison",
+        "AutomorphicGaloisRepresentationsPartII:AG2.7/unitary-discrete-parameter-export"
       ]
     }
   ],
