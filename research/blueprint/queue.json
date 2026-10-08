@@ -42381,7 +42381,8 @@
    ],
    "revisionOf": "BP-ArithmeticKTheory--N.6",
    "prompt": "research/blueprint/prompts/BP-ArithmeticKTheory--N.6~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6921"
   },
   {
    "priority": 2,
