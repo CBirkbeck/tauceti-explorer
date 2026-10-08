@@ -1403,6 +1403,10 @@ abbrev formalRing (c n : ℕ) (triangular : Finset (Fin n)) : Type :=
 def formalMatrix (c n : ℕ) (triangular : Finset (Fin n)) (i : Fin n) :
     Matrix (Fin 2) (Fin 2) (formalRing c n triangular) :=
   fun j k ↦ Ideal.Quotient.mk _ (MvPolynomial.X (Sum.inr (i,j,k)))
+/-- The coefficient variables in the formal ring; the lower Borel fixes them. -/
+def formalCoefficient (c n : ℕ) (triangular : Finset (Fin n)) (i : Fin c) :
+    formalRing c n triangular :=
+  Ideal.Quotient.mk _ (MvPolynomial.X (Sum.inl i))
 def formalRing_eval (c n : ℕ) (triangular : Finset (Fin n))
     (K : Type u) [CommRing K] (a : Fin c → K) (X : Fin n → Matrix (Fin 2) (Fin 2) K)
     (hX : ∀ i ∈ triangular, X i 0 1=0) : formalRing c n triangular →ₐ[ℤ] K := sorry
@@ -1426,10 +1430,20 @@ def localRelationMatrix (X Y : Matrix (Fin 2) (Fin 2) R) (x y : R) :
     Matrix (Fin 2) (Fin 2) R :=
   !![X 0 1*Y 1 0-(y-Y 1 1)*(x-X 0 0), X 0 1*(y-Y 0 0)-Y 0 1*(x-X 0 0);
      X 1 0*(y-Y 1 1)-Y 1 0*(x-X 1 1), Y 0 1*X 1 0-(x-X 1 1)*(y-Y 0 0)]
-/-- Omitted: the rows are exactly the selected formal relation matrices and the coaction
-is the stated lower-Borel conjugation coaction. Stability is expressed through both quotients. -/
+/-- Universal lower-Borel conjugation, using x,z,y,x⁻¹,z⁻¹ in the coordinate ring. -/
+def lowerBorelConjugate (M : Matrix (Fin 2) (Fin 2) R) :
+    Matrix (Fin 2) (Fin 2) (lowerBorelRing ⊗[ℤ] R) :=
+  let b : Fin 5 → lowerBorelRing ⊗[ℤ] R :=
+    fun i ↦ (Ideal.Quotient.mk _ (MvPolynomial.X i) : lowerBorelRing) ⊗ₜ[ℤ] (1 : R)
+  let P : Matrix (Fin 2) (Fin 2) (lowerBorelRing ⊗[ℤ] R) := !![b 0,0;b 2,b 1]
+  let Pinv : Matrix (Fin 2) (Fin 2) (lowerBorelRing ⊗[ℤ] R) :=
+    !![b 3,0;-(b 4*b 2*b 3),b 4]
+  Pinv * M.map (Algebra.TensorProduct.includeRight : R →ₐ[ℤ] lowerBorelRing ⊗[ℤ] R) * P
+/-- The selected formal relation rows transform by the adjoint action (DKSW Lemma 4.18).
+This covariance, rather than an arbitrary choice of algebra map, implies stability. -/
 theorem relationIdeal_stable {r : ℕ} (rows : Fin r → Matrix (Fin 2) (Fin 2) R)
-    (δ : R →ₐ[ℤ] lowerBorelRing ⊗[ℤ] R) :
+    (δ : R →ₐ[ℤ] lowerBorelRing ⊗[ℤ] R)
+    (hrows : ∀ t, (rows t).map δ=lowerBorelConjugate (rows t)) :
     (∀ a ∈ relationIdeal rows,
       Algebra.TensorProduct.map (AlgHom.id ℤ lowerBorelRing)
         (Ideal.Quotient.mkₐ ℤ (relationIdeal rows)) (δ a)=0) ∧
@@ -1459,11 +1473,10 @@ def borelInvariants (δ : R →ₐ[ℤ] lowerBorelRing ⊗[ℤ] R) : Subalgebra 
   one_mem' := sorry
   add_mem' := sorry
   mul_mem' := sorry
-/-- Omitted: R is the formal ring, δ its specified coaction, and coefficient/X are its generators. -/
-theorem invariantSubring_eq_borel {c n : ℕ} (coefficient : Fin c → R)
-    (X : Fin n → Matrix (Fin 2) (Fin 2) R) (triangular : Finset (Fin n))
-    (δ : R →ₐ[ℤ] lowerBorelRing ⊗[ℤ] R) :
-    invariantSubring coefficient X triangular=borelInvariants δ := sorry
+/-- The formal ring, its generators and its conjugation coaction are fixed together. -/
+theorem invariantSubring_eq_borel (c n : ℕ) (triangular : Finset (Fin n)) :
+    invariantSubring (formalCoefficient c n triangular) (formalMatrix c n triangular) triangular =
+      borelInvariants (formalRing_borel c n triangular) := sorry
 end TauCeti.IntegralRibet
 
 namespace TauCeti.BuchsbaumRim
@@ -2169,10 +2182,11 @@ theorem integral_matrix_invariants (n : ℕ) (C : Subalgebra ℤ (MvPolynomial (
 /-- `IntegralHeckeAndGaloisDeterminants:IHG.6/triangular-borel-invariants`.
 For the formal ring R with the chosen b_τ=0 constraints, H⁰(B,R)=A₀[d_τ], the subring specified above.
 
-Omitted: A is the formal ring, coefficient/mat its generators, triangular its prescribed upper-entry constraints and δ its lower-Borel conjugation coaction. -/
-theorem triangular_borel_invariants {c n : ℕ} (coefficient : Fin c → A) (mat : Fin n → Matrix (Fin 2) (Fin 2) A)
-    (triangular : Finset (Fin n)) (δ : A →ₐ[ℤ] IntegralRibet.lowerBorelRing ⊗[ℤ] A) :
-    IntegralRibet.borelInvariants δ=IntegralRibet.invariantSubring coefficient mat triangular := sorry
+The formal ring, its coefficient/matrix generators and its lower-Borel coaction are explicit. -/
+theorem triangular_borel_invariants (c n : ℕ) (triangular : Finset (Fin n)) :
+    IntegralRibet.borelInvariants (IntegralRibet.formalRing_borel c n triangular) =
+      IntegralRibet.invariantSubring (IntegralRibet.formalCoefficient c n triangular)
+        (IntegralRibet.formalMatrix c n triangular) triangular := sorry
 
 /-- `IntegralHeckeAndGaloisDeterminants:IHG.6/determinantal-exactness-transfer`.
 For every f:Rⁿ→Rᵐ, every R-module E and j>0, if H_i(BR(f)⊗E)=0 for all i≥j, then H_i(DetBR(f)⊗E)=0 for all i≥j.
@@ -2194,10 +2208,17 @@ theorem buchsbaum_rim_exactness {m n : ℕ} (hm : 0 < m) (hmn : m ≤ n)
 /-- `IntegralHeckeAndGaloisDeterminants:IHG.6/ordered-determinantal-tensor-resolution`.
 For maps f_i:R^(n_i)→R^(m_i) with 1 ≤ m_i ≤ n_i, write J_i=I_(m_i)(f_i). If each f_i modulo J₁+…+J_(i−1) is regular, then the finite tensor product ⊗_i DetBR(f_i), with determinant lines trivialized, resolves R/(∑J_i).
 
-Omitted: the ordered regularity after previous image ideals, and tensor=⊗DetBR(f_i) with determinant-line trivializations. The rank bounds are explicit. -/
+Ordered regularity is imposed after quotienting by the preceding maximal-minor ideals.
+Omitted: tensor=⊗DetBR(f_i) with determinant-line trivializations; the tensor-complex interface comes from DD.1. The rank bounds are explicit. -/
 theorem ordered_determinantal_tensor_resolution (s : ℕ) (n m : Fin s → ℕ)
     (hm : ∀ i, 0 < m i) (hmn : ∀ i, m i ≤ n i)
     (f : ∀ i, (Fin (n i) → A) →ₗ[A] (Fin (m i) → A))
+    (hregular : ∀ i : Fin s,
+      let Jprev : Ideal A := ⨆ j : {j : Fin s // j < i}, BuchsbaumRim.maximalMinorIdeal (f j)
+      let S := A ⧸ Jprev
+      let fquot : (Fin (n i) → S) →ₗ[S] (Fin (m i) → S) :=
+        Matrix.mulVecLin (fun k j ↦ Ideal.Quotient.mk Jprev (f i (Pi.single j 1) k))
+      BuchsbaumRim.IsRegular fquot)
     (tensor : ChainComplex (ModuleCat.{u} A) ℕ) :
     Nonempty (tensor.homology 0 ≅ ModuleCat.of A (A ⧸ ⨆ i, BuchsbaumRim.maximalMinorIdeal (f i))) ∧
       ∀ k : ℕ, 0 < k → Limits.IsZero (tensor.homology k) := sorry
