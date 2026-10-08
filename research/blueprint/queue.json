@@ -42491,7 +42491,8 @@
     "BP-HabiroNumberFields--HB.2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-HabiroNumberFields--HB.2~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7056"
   },
   {
    "kind": "blueprint",
