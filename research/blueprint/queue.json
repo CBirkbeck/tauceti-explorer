@@ -37287,7 +37287,8 @@
     "DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties~2"
    ],
    "prompt": "research/blueprint/prompts/REV-DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7452"
   },
   {
    "kind": "blueprint",
@@ -46240,8 +46241,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-CrystallineLocalGlobalCompatibilityCM.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7462"
+   "state": "pending",
+   "note": "released on GitHub issue #7462"
   },
   {
    "id": "REV-PKG-CrystallineLocalGlobalCompatibilityCM",
@@ -46526,8 +46527,9 @@
     "PKG-EllipticCurveModularityImaginaryQuadratic"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-EllipticCurveModularityImaginaryQuadratic.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7482"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7482",
+   "finishedAt": "2026-10-08T21:27:02Z"
   },
   {
    "id": "PKG-EllipticCurveModularityPartII",
@@ -47061,7 +47063,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-IgusaVarietiesAndTorsionConcentration.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7477"
   },
   {
    "id": "REV-PKG-IgusaVarietiesAndTorsionConcentration",
