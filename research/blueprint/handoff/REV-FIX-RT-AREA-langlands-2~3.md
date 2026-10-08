@@ -1,21 +1,35 @@
 # REV-FIX-RT-AREA-langlands-2~3 handoff
 
-## Blocked intake continuation, 8 October 2026 — codex-FXDpCC
+## Blocked intake continuation, 8 October 2026 — codex-CiCHr3
 
-Codex session `codex-FXDpCC` claimed issue #5871 after GitHub Actions confirmed
-[comment 6064556880](https://github.com/CBirkbeck/tauceti-explorer/issues/5871#issuecomment-6064556880).
-Base commit: `4642101e10a075fc258ca4781e463e6b40e80112`.
+Codex session `codex-CiCHr3` claimed issue #5871 after the bot confirmed
+[comment 6070643940](https://github.com/CBirkbeck/tauceti-explorer/issues/5871#issuecomment-6070643940).
+Base commit: `c1083c227a727701522fb930d7082b0fc1286de2`.
 
 The independent review was completed and merged in [PR #7265](https://github.com/CBirkbeck/tauceti-explorer/pull/7265).
-It has been released again after checkpoints #7346, #7397 and #7399. This run
-verified the existing deliverables and diagnosed the intake blocker; it did
-not repeat the mathematical review or replace its verdicts.
+It has been released again after several intake checkpoints. This run
+re-read the findings, confirmations and fix report, reviewed the subsequent
+GL2 supplier changes, rechecked all pinned baseline records, and reproduced
+the intake blocker. The three verdicts are retained, with current review
+objects and their preceding objects preserved in `reviewHistory`.
 
-The current packets, suggested files and review report are byte-for-byte identical
-to the completed-review commit `0ca7bd10c`. The report gives one disposition for
-each of the forty findings. Packet verdicts remain CSM **accepted**, Global
+Before this continuation, the CSM and Global packets and suggested files were
+byte-for-byte identical to completed-review commit `0ca7bd10c`. GL2 had five
+packet edits and an eleven-line comment from [PR #7714](https://github.com/CBirkbeck/tauceti-explorer/pull/7714).
+The affected consumers now name the two fine R23.1 CHT supplier nodes, include
+the proof page in the locator, and keep the deeper supplier requests open.
+Checked the complete suppliers and consumers against fresh matching-hash
+public CHT Lemmas 4.1.1–4.1.2, pp. 116–117, and KW II Definition 7.9/Lemma 7.10,
+pp. 68–69. The finite-order/p-primary character refinement and prescribed
+Galois completion contracts support these consumers. The broader R23.5 side
+of /26 remains outside this review's scope.
+
+The report gives one disposition for each of the forty findings, followed by
+this continuation's evidence. Packet verdicts remain CSM **accepted**, Global
 **accepted**, GL2 **needs_changes**. The latter is a completed review outcome;
-its revision work belongs to a subsequent fix job.
+its typed API/test revision belongs to a subsequent fix job. The historical
+CHT handoff below is superseded: the two supplier nodes are now planned, while
+their reciprocity/S-unit/ray-class interfaces remain open requests.
 
 ### Reproduced blocker
 
@@ -29,12 +43,12 @@ correctly name other jobs; their ten suggested files are also outside this issue
 | --- | --- |
 | AutomorphicGaloisRepresentations | REV-AutomorphicGaloisRepresentations~2 |
 | ClassicalSerreModularity--R26.1 | REV-ClassicalSerreModularity--R26.1~2 |
-| GL2AutomorphicRepresentationsAndTransfer--R17.3 | REV-FIX-RT-AREA-automorphic-1~4 |
+| GL2AutomorphicRepresentationsAndTransfer--R17.3 | REV-FIX-RT-AREA-automorphic-1~5 |
 | GL2ModularityLifting--R32.3 | REV-GL2ModularityLifting--R32.3~2 |
-| HilbertModularVarietiesAndShimuraCurves--R18.2 | REV-FIX-RT-AREA-automorphic-1~4 |
+| HilbertModularVarietiesAndShimuraCurves--R18.2 | REV-FIX-RT-AREA-automorphic-1~5 |
 | LocalGaloisDeformationRings | REV-LocalGaloisDeformationRings~2 |
 | ModularityAndLanglandsExtensions | REV-ModularityAndLanglandsExtensions |
-| PotentialModularityAndCompatibleSystems--R23.1 | REV-PotentialModularityAndCompatibleSystems--R23.1 |
+| PotentialModularityAndCompatibleSystems--R23.1 | REV-PotentialModularityAndCompatibleSystems--R23.1~2 |
 | PotentialModularityAndCompatibleSystems--R24.3 | REV-PotentialModularityAndCompatibleSystems--R24.3~2 |
 | WeightsInEtaleCohomology | REV-WeightsInEtaleCohomology~2 |
 
@@ -58,13 +72,17 @@ review, replacement of another job's reviewer, or acceptance of GL2 is required.
 
 Queue generation must preserve the reconciled round scope. In
 `research/blueprint/make_queue.py`, `fix_rounds` derives review outputs from the
-fix round's `current_outputs` (lines 1827–1831) and can add newly available
-blueprint paths when advancing rounds (lines 1852–1853). The committed parent
+fix round's `current_outputs` (lines 1940–1944 at this base). When `missing` or
+`sent_back` is true, line 1955 declines to reuse `previous_jobs[following]`;
+the fallback at lines 1965–1966 adds newly available blueprints to that round.
+The committed parent
 `FIX-RT-AREA-langlands-2~3` is marked done but now lists 40 outputs, whereas its
 completed fix report explicitly restricts work to these three blueprints.
-Reconcile that historical fix scope too, and verify that regeneration retains
-the seven review outputs. This is the code path to investigate, not a claim
-that this run has tested a generator repair.
+Reconcile that historical fix scope too: its report plus the packet, reader
+and suggested file of these three blueprints (ten files). Verify that
+regeneration retains the fixed historical scopes and seven review outputs.
+This is the code path to investigate, not a claim that this run has tested a
+generator repair.
 
 The queue and generator are outside the issue's editable files. Additionally,
 `intake.ALLOWED` excludes `research/blueprint/queue.json`, so a queue repair needs
@@ -98,12 +116,21 @@ assert deliverables_complete({**job, "outputs": authorized})
 Re-ran `scripts/check_blueprint.py` on all three packets: each has zero errors
 and zero warnings. Checked that all 177 nodes retain `implementationStatus:
 unchecked`, no packet has an `excerpt` field, and each of the forty findings
-has exactly one disposition in the report. No suggested file changed, so
-this run did not recompile Lean. The completed review's successful `lean-check`
-receipts remain below. Scratch is disposable; this note contains the reproduction
-and the next action.
+has exactly one disposition in the report. Re-read all 36 baseline records
+(35 distinct declarations) at the exact pinned commits and the applicable
+CSM library-audit rows. Ran all three `lean-check` commands sequentially:
+zero errors, only `sorry` warnings (CSM 23, GL2 13, Global 18). The GL2 addition
+is a comment; this does not elaborate its missing supplier-dependent APIs/tests.
+The current concrete declaration registry has 28,671 nodes; both precedence
+orders reach no cycles, and the R33.1–R33.4 forbidden-ancestor checks pass.
+All fresh receipts are in the report. The earlier full stage/assembly receipts
+below remain historical. Scratch is disposable; this note contains the
+completion reproduction and the next action.
 
 ## Completed review from the preceding run
+
+The following is the retained 7 October review handoff. The current
+continuation above supersedes its old claim that R23.1 has not planned CHT.
 
 Issue #5871, Codex session `codex-t0EaB3`, 7 October 2026; base `5f858d95`.
 Completed independent review of FIX-RT-AREA-langlands-2~3 (#5870, Claude `claude-c9TlsS`, PR #6724),

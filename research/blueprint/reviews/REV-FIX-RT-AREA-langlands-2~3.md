@@ -1,5 +1,11 @@
 # REV-FIX-RT-AREA-langlands-2~3
 
+Current continuation: Codex session `codex-CiCHr3`, 8 October 2026, issue #5871,
+base `c1083c227a727701522fb930d7082b0fc1286de2`. The verdicts below are retained;
+the final dated audit records the subsequent supplier changes, fresh checks and
+the unresolved intake blocker. The original review evidence remains attributed
+to the preceding reviewer.
+
 Completed independent review for issue #5871 by Codex, session `codex-t0EaB3`, 7 October 2026.
 Base: `5f858d95`. Work reviewed: FIX-RT-AREA-langlands-2~3, Claude `claude-c9TlsS`, #5870,
 PR #6724 (`ea48bbee`). I did none of the fixes or red-team work. This continues the merged
@@ -259,3 +265,101 @@ derives the review list from that fix scope. The handoff now gives the exact
 seven-output correction, a read-only reproduction, the generation code to
 investigate, and the separate intake allowlist restriction on queue edits.
 Only the maintainer can reconcile those files within the current issue scope.
+
+## Supplier continuation and blocked intake, 8 October 2026 — codex-CiCHr3
+
+This continuation follows the completed review in [PR #7265](https://github.com/CBirkbeck/tauceti-explorer/pull/7265)
+and the intervening intake checkpoints. Re-read all forty finding claims,
+their verified evidence, the fix report and the completed finding table. The
+table still gives exactly one disposition for each finding. Compared every
+authorized packet and suggested file against completed-review commit `0ca7bd10c`:
+CSM and Global are unchanged; the only later changes are five GL2 packet edits
+and an eleven-line suggested-file block comment in
+[PR #7714](https://github.com/CBirkbeck/tauceti-explorer/pull/7714).
+This is a continuation of that completed mathematical review, not a claim to
+have fetched and reread all of its unchanged primary sources.
+
+### Current changes for /13 and /26
+
+Read the complete supplier nodes
+`PotentialModularityAndCompatibleSystems:R23.1/cht-character-extension` and
+`R23.1/cht-soluble-prescribed-completions`, and the three GL2 consumers affected
+by the new fine prerequisites. Independently fetched the public CHT and KW II
+PDFs and read CHT Lemmas 4.1.1–4.1.2 with their proofs, pp. 116–117, and KW II
+Definition 7.9 and Lemma 7.10 with its proof, pp. 68–69. Their SHA-256 values
+match the CHT and KW II rows in the source table above.
+
+- `allowable-base-change-existence` and `solvable-base-change-reduction` now
+  name the prescribed-completion node. CHT Lemma 4.1.2 permits a finite soluble
+  Galois extension disjoint from a specified finite Galois avoidance field,
+  with all requested Galois local completions. Real completions give total
+  reality. A separate auxiliary unramified quadratic completion forces even
+  degree; no prescribed global degree is asserted. The quadratic clause
+  remains the consumer's weak-approximation argument, with a place split in
+  the avoidance field and inert in the constructed quadratic field.
+- `lemma-7-10-determinant-adjustment` now names the character-extension node.
+  CHT Lemma 4.1.1 itself states continuous extension. Its proof supplies the
+  finite-order refinement here: for finite local image, the constructed open
+  subgroup has finite-index character kernel, and extension through the
+  resulting finite quotient uses divisible roots of unity. Taking the
+  p-primary component preserves p-primary local data; no bound on the global
+  character order is imposed. For odd p, squaring is invertible on the finite
+  p-primary image. For p = 2, local square roots at the designated places and
+  at Frobenius representatives give a totally real cyclic ratio-kernel field
+  split there and disjoint from the avoidance field, as KW II Lemma 7.10 needs.
+- The allowable-base-change locator now names both the statement page 116
+  and the proof page 117. The request note correctly keeps the supplier's
+  S-unit congruence, reciprocity and ray-class finiteness interfaces open.
+  These are planned contracts; the new references do not certify Lean
+  implementation or discharge those supplier requests.
+
+These changes are right. They supersede the historical statement above that
+R23.1 has not yet planned the two CHT lemmas. The broader /26 finding also has
+R23.5 consumers outside this issue; their full review is not certified here.
+No change to the inherited verdicts is warranted: **CSM accepted**, **Global
+accepted**, **GL2 needs_changes**. The GL2 suggested addition is entirely a
+comment. Its fifteen remaining definitions/constructions still lack the
+**53 active API signatures and 46 tests** listed above, and the used-API
+prerequisite promotions remain necessary. Updated the three top-level review
+objects to this session's date and evidence, preserving their previous objects
+in `reviewHistory`. This run makes no new mathematical correction.
+
+### Fresh validation
+
+- Re-read all 36 baseline records (35 distinct declarations, since
+  `Module.Free` occurs twice) at the exact pinned commits. Confirmed section
+  hypotheses, including Maschke, continuous low-degree cohomology and
+  `HasRankNullity` for the quotient finrank identity. Re-read the applicable
+  reviewed CSM library-audit rows; no GL2 or Global row exists in that audit.
+- All three packet checks: **zero errors and warnings**. All 177 nodes remain
+  unchecked and packets remain partial. No packet contains an `excerpt` key.
+- Sequential fresh `lean-check` runs at pinned Mathlib: **zero errors**, only
+  `sorry` warnings (CSM 23, GL2 13, Global 18). Memory was above the required
+  threshold before each run. Commented supplier sketches were not elaborated.
+- Current declaration registry, forcing the three reviewed packets in both
+  packet/decomposition precedence orders: 28,671 declarations, respectively
+  2,645 and 1,540 concrete nodes reachable from the 177 roots, **no reachable
+  cycles**. No R33.1–R33.4 node acquires a forbidden concrete R26/R27 ancestor.
+  This concrete-node check does not discharge stage references or requests.
+  The earlier full atlas assembly receipts remain historical evidence; this
+  continuation does not claim a fresh stage-graph repair or full assembly.
+
+### Why this submission remains a checkpoint
+
+Reproduced `issues.deliverables_complete`: **false** for the committed review
+job's 27 outputs, **true** with only `outputs` replaced in memory by the live
+issue's seven authorized files. All outputs exist. The ten additional packets
+properly name other review jobs, so their reviewer objects cannot be reassigned
+to this review. A `needs_changes` verdict is a completed review outcome and
+is not the cause of this failure.
+
+The queue and its generator are outside this issue's editable paths. The
+handoff supplies the exact output list and read-only reproduction. At this
+base, `make_queue.py`'s `fix_rounds` begins at line 1909, derives review outputs
+from `current_outputs` at lines 1940–1944, and can recompute a historical round
+instead of keeping `previous_jobs` when `missing` or `sent_back` is true at
+line 1955. The fallback at lines 1965–1966 propagates the enlarged output list.
+The parent fix is already done but now lists 40 files despite its report's
+explicit three-blueprint scope. The maintainer must reconcile both historical
+scopes and preserve them through regeneration. This diagnosis is not a tested
+generator repair. Further checkpoints alone cannot resolve it.
