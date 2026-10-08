@@ -1,8 +1,8 @@
 {
   "roadmaps": 237,
-  "stages": 4975,
+  "stages": 4996,
   "originalStages": 2166,
-  "sourceRefinements": 2809,
+  "sourceRefinements": 2830,
   "reviewedDecompositions": [
     {
       "roadmap": "AInfCohomology",
@@ -243,14 +243,14 @@
   "editedRoadmapSummaries": 181,
   "curatedStagePresentations": 339,
   "administrativeStages": 101,
-  "mathematicalStars": 4874,
+  "mathematicalStars": 4895,
   "plainTextPlanetLabels": 398,
   "hiddenPlanets": 600,
   "mappedStageStatuses": 350,
   "libraryAuditStatuses": 19,
   "bibliographicSources": 46,
-  "roadmapEdges": 2186,
-  "stageEdges": 12934,
+  "roadmapEdges": 2190,
+  "stageEdges": 12996,
   "reviewedLinkPackets": 25,
   "promotedBlueprints": [
     {
@@ -642,6 +642,12 @@
       "roadmap": "EulerSystemsAndKolyvaginSystems",
       "nodes": 35,
       "reviewer": "independent-review-REV-EulerSystemsAndKolyvaginSystems--ES.8"
+    },
+    {
+      "file": "ExcursionOperatorsAndSpectralAction--ES7",
+      "roadmap": "ExcursionOperatorsAndSpectralAction",
+      "nodes": 50,
+      "reviewer": "independent-review-REV-ExcursionOperatorsAndSpectralAction--ES7~2"
     },
     {
       "file": "FarguesFontaineDiamonds",
@@ -1245,8 +1251,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 35861673,
-  "htmlSha256": "89fb6ebcff7c483d0e36b09ee78143b765845130f9f782bd2cfe9a37094036af",
+  "htmlBytes": 35942962,
+  "htmlSha256": "4e5cee035a90b7c41deb39273a1a76cb8b5b693e1d72be030bb1e0fd70835f08",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -1278,7 +1284,7 @@
     "data/roadmap-summaries.json": "c8bdd0a9105f5d3c4a858c8b635990729f8e94497dee784a71fae659b8c05b9f",
     "data/roadmap-classification.json": "2641dbc97eb2566c715162d011b46890d1635629181ef8126ac7aed9e24a3b13",
     "data/classification-estimates.json": "625d35fe6121bf099dc5de9e6a9111793596f9b664e3fbd439841434bb4a57d6",
-    "data/roadmap-distances.json": "8ba9dbdbce4a5e001cadfa93c7a21da450559b01d2280989ccefedb5c50e8cd6",
+    "data/roadmap-distances.json": "cf98475e9560ac86fc7917ba96840b96f639fd0737a3a0833e35a4f179bd1c2c",
     "data/galaxy-layout.json": "7489487a2143484a355b36026c2f7d3dd9384ac5c58ac90d8b061b8dfcab6088",
     "data/bibliography.json": "bef230a41fad22d6b790c7564061c4d05c2ae5b78cab53d005eb404afab2b122",
     "NOTICE": "a285b95d5adbf5c2bcc82db36e2a77b797f84a2c5cbb30292efd0bae17cc4f34",
@@ -1466,6 +1472,8 @@
     "data/blueprints/ErdosProgressionPowers.md": "59f7e5945a0743b3d8cf5c7cc1aa85b7572673182a92ff5ca91ffc3c076689f5",
     "data/blueprints/EulerSystemsAndKolyvaginSystems--ES.8.json": "7f1ce797d1ee849b9868724a97a202a4b409fa4da63664610c6d759205c3ebe9",
     "data/blueprints/EulerSystemsAndKolyvaginSystems--ES.8.md": "cc412816117fece4a7b925cef704cbdf31b49bf58afdb17821279788f59a964a",
+    "data/blueprints/ExcursionOperatorsAndSpectralAction--ES7.json": "418a703221bf324585e54c4c5ec9053a2b151e9495bac670a5051647f6d276d0",
+    "data/blueprints/ExcursionOperatorsAndSpectralAction--ES7.md": "cc2ebde3a19be82f87d53572244a5e7b4617e2bc3da5adc1de3709dec55c0a53",
     "data/blueprints/FarguesFontaineDiamonds.json": "759acfaac4e4d71449a229a346b1172abb9978b19e1a3a05421201b9b03c3308",
     "data/blueprints/FarguesFontaineDiamonds.md": "a76fda18fb0ab1ff1158c9a04c471bc35dd703ed8e53aa15df7378f610a5dbf4",
     "data/blueprints/FiniteFieldsAndCharacterSums--FF.3.json": "fafb745cd0115e16e2530eb213530072bcd97a164e23d76879491632077bf2bf",

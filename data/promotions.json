@@ -985,6 +985,17 @@
     "data/blueprints/EulerSystemsAndKolyvaginSystems--ES.8.md"
    ]
   },
+  "research/blueprint/packets/ExcursionOperatorsAndSpectralAction--ES7.json": {
+   "promotedAt": "2026-10-08T14:23:27Z",
+   "review": "6e310b0e8198e5c2",
+   "reviewDate": "2026-10-08",
+   "reviewer": "independent-review-REV-ExcursionOperatorsAndSpectralAction--ES7~2",
+   "sha256": "09e771a2e793cbc312d89ba868af4908375b8b38d13fdb3fb0011775962d3762",
+   "to": [
+    "data/blueprints/ExcursionOperatorsAndSpectralAction--ES7.json",
+    "data/blueprints/ExcursionOperatorsAndSpectralAction--ES7.md"
+   ]
+  },
   "research/blueprint/packets/FarguesFontaineDiamonds.json": {
    "promotedAt": "2026-10-06T07:59:57Z",
    "review": "78786d3d7d7291af",
