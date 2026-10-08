@@ -46645,7 +46645,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-FarguesFontaineDiamonds.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7472"
   },
   {
    "id": "REV-PKG-FarguesFontaineDiamonds",
@@ -46887,8 +46888,9 @@
     "PKG-HabiroCyclotomicCompletions"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-HabiroCyclotomicCompletions.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7519"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7519",
+   "finishedAt": "2026-10-08T23:44:11Z"
   },
   {
    "id": "PKG-HabiroRings",
