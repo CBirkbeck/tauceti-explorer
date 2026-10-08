@@ -37575,8 +37575,9 @@
     "BP-AdelicAlgebraicGroups~2"
    ],
    "prompt": "research/blueprint/prompts/REV-AdelicAlgebraicGroups~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6985"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6985",
+   "finishedAt": "2026-10-08T16:26:25Z"
   },
   {
    "kind": "blueprint",
@@ -43516,7 +43517,8 @@
     "REV-GeometricSatakeAndFusion--GS3~2"
    ],
    "prompt": "research/blueprint/prompts/ASM-GeometricSatakeAndFusion.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #235"
   },
   {
    "id": "ASM-GrossZagierAndArithmeticHeights",
