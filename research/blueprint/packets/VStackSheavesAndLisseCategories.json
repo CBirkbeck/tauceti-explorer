@@ -478,7 +478,7 @@
       "proofSteps": [
         "Apply enhanced hyperdescent to the Čech hypercover; use the existing coefficient category as carrier.",
         "Compare refinements through the bisimplicial Čech nerve, retaining coherent transition maps.",
-        "Normalize exceptional transitions by the invertible smooth dualizing objects supplied by S4."
+        "Normalize exceptional transitions by the invertible smooth dualizing objects and the canonical twisted-pullback equivalence supplied by S4. Apply its ℓ-power torsion form to the finitely many primary coefficient factors of the prime-to-p annihilator, then assemble the coefficient decomposition."
       ],
       "acceptance": [
         "For an identity atlas the limit identifies with D_et(X,Λ).",
@@ -2517,9 +2517,9 @@
     },
     {
       "id": "VStackSheavesAndLisseCategories:VS2/completed-ula-solid-duality",
-      "parentStageId": "VStackSheavesAndLisseCategories:VS2",
+      "parentStageId": "VStackSheavesAndLisseCategories:VS3",
       "realises": [
-        "VStackSheavesAndLisseCategories:VS2"
+        "VStackSheavesAndLisseCategories:VS3"
       ],
       "title": "Completed ULA and solid kernel duality",
       "kind": "theorem",
@@ -2543,7 +2543,8 @@
         "VStackSheavesAndLisseCategories:VS2/relative-solid-homology",
         "VStackSheavesAndLisseCategories:VS1/ula-dualizability-criterion",
         "VStackSheavesAndLisseCategories:VS1/kernel-correspondence-category",
-        "AdicCoefficientsAndComparisons:L0/adic-coefficient-limit"
+        "AdicCoefficientsAndComparisons:L0/adic-coefficient-limit",
+        "VStackSheavesAndLisseCategories:VS1/perfect-rhom-and-la-characterisation"
       ],
       "sources": [
         {
@@ -2553,7 +2554,7 @@
         }
       ],
       "library": {
-        "module": "TauCeti/AlgebraicGeometry/VStack/VS2",
+        "module": "TauCeti/AlgebraicGeometry/VStack/VS3",
         "namespace": "TauCeti.Blueprint.VStack"
       },
       "implementationStatus": "unchecked",
@@ -2683,9 +2684,9 @@
     },
     {
       "id": "VStackSheavesAndLisseCategories:VS2/constructible-and-geometric-langlands-embedding",
-      "parentStageId": "VStackSheavesAndLisseCategories:VS2",
+      "parentStageId": "VStackSheavesAndLisseCategories:VS3",
       "realises": [
-        "VStackSheavesAndLisseCategories:VS2"
+        "VStackSheavesAndLisseCategories:VS3"
       ],
       "title": "Solid embedding of constructible coefficients",
       "kind": "application",
@@ -2719,7 +2720,7 @@
         }
       ],
       "library": {
-        "module": "TauCeti/AlgebraicGeometry/VStack/VS2",
+        "module": "TauCeti/AlgebraicGeometry/VStack/VS3",
         "namespace": "TauCeti.Blueprint.VStack"
       },
       "implementationStatus": "unchecked",
@@ -3086,7 +3087,8 @@
         "DiamondSixOperations:S4/cohomologically-smooth",
         "DiamondSixOperations:S4/smooth-composition",
         "DiamondSixOperations:S4/smooth-stable-under-base-change",
-        "DiamondSixOperations:S4/smooth-descent-along-smooth-surjection"
+        "DiamondSixOperations:S4/smooth-descent-along-smooth-surjection",
+        "VStackSheavesAndLisseCategories:VS2/torsion-solid-comparisons"
       ],
       "sources": [
         {
@@ -3565,38 +3567,39 @@
       "declaration": "TauCeti.Blueprint.VStack.SolidAb.freeStructure"
     },
     {
-      "id": "VStackSheavesAndLisseCategories:VS2/solid-geometric-base-change-and-drinfeld",
+      "id": "VStackSheavesAndLisseCategories:VS2/solid-geometric-base-change",
       "parentStageId": "VStackSheavesAndLisseCategories:VS2",
       "realises": [
         "VStackSheavesAndLisseCategories:VS2"
       ],
-      "title": "Solid geometric invariance and Drinfeld descent",
+      "title": "Solid geometric field-extension invariance",
       "kind": "theorem",
-      "statement": "Solid pullback is fully faithful after extension of algebraically closed discrete characteristic-p fields; after base change from such k to Spa(C,C⁺); and after surjective algebraically closed valued-field extension with compatible open bounded valuation rings. Hence ψ_X* from X×[*/W_E] to X×Div¹ is fully faithful for every small v-stack X, and is an equivalence if D_solid(X)→D_solid(X×Spd Ebar) is an equivalence. For finite I the product ψ_X^I* is fully faithful.",
+      "statement": "For a small v-stack X and a solid Zhat^p-algebra Λ, solid pullback is fully faithful in each of three cases: (i) X is over an algebraically closed discrete field k of characteristic p and k′/k is an algebraically closed discrete extension; (ii) X is over such k and base change is to Spa(C,C⁺), with C/k complete algebraically closed nonarchimedean and C⁺ an open bounded valuation subring containing k; (iii) X is over Spa(C,C⁺), and base change is along a surjective map Spa(C′,C′⁺)→Spa(C,C⁺), with C′/C complete algebraically closed nonarchimedean and C′⁺ an open bounded valuation subring containing C⁺. The coefficient and site cutoffs must be compatible and large enough for these spaces.",
       "hypotheses": [
         "All hypotheses and coefficient conventions in the statement are part of the signature."
       ],
       "proofSteps": [
-        "Reduce the unit A→Rf*f*A to spatial charts, then Postnikov truncations and finitely presented solid objects.",
-        "For valued-field extension use the existing torsion invariance; for discrete-to-valued extension use the punctured-disc annular exhaustion and finite torsion comparison.",
-        "Descend along the Weil torsor, then iterate over I, retaining the extra hypothesis for essential surjectivity."
+        "Reduce coefficients to Zhat^p by restriction and use spatial-chart descent to test the adjunction unit. Postnikov truncations reduce to degree-zero finitely presented solid sheaves, which have cofiltered constructible torsion presentations.",
+        "For valued-field extension, commute the controlled cofiltered torsion systems with qcqs pushforward and apply ECD Proposition 19.5(iii), retaining the surjectivity and valuation-subring hypotheses.",
+        "For discrete-to-valued base change, work over the completed algebraic closure of k((t)) and use punctured-disc annuli and the torsion invariance proof of ECD Proposition 19.5(ii). Compatible cofiltered and filtered systems recover the solid unit.",
+        "For discrete algebraically closed extensions, choose compatible complete algebraically closed nonarchimedean extensions of the two fields and reduce to the preceding cases. This uses only generic diamond cohomology and solid operations, without the divisor or ULA applications."
       ],
       "acceptance": [
-        "Full faithfulness includes Hom isomorphisms, not merely faithfulness.",
-        "The finite-I assertion is not unrestricted essential surjectivity."
+        "For every pair A,B, pullback induces an equivalence of mapping complexes; injectivity alone is insufficient.",
+        "The identity extension gives the identity pullback. The valued-field case keeps surjectivity of Spa(C′,C′⁺)→Spa(C,C⁺), rather than inferring it merely from the field inclusion."
       ],
       "prerequisites": [
         "VStackSheavesAndLisseCategories:VS2/solid-four-operations",
         "VStackSheavesAndLisseCategories:VS2/solid-sheaf-structure-and-completion",
-        "VStackSheavesAndLisseCategories:VS1/divisor-weil-map",
-        "VStackSheavesAndLisseCategories:VS1/drinfeld-pullback",
-        "VStackSheavesAndLisseCategories:VS1/geometric-divisor-finite-etale"
+        "DiamondEtaleCohomology:C6/invariance-discrete-extension",
+        "DiamondEtaleCohomology:C6/invariance-discrete-to-complete",
+        "DiamondEtaleCohomology:C6/invariance-complete-extension"
       ],
       "sources": [
         {
           "sourceId": "FS-geometrization",
-          "locator": "Proposition VII.2.6; Corollaries VII.2.7–VII.2.8, pp.255–256",
-          "match": "The stated construction and its precise hypotheses are extracted from this passage; the proof steps identify the inputs it uses."
+          "locator": "Proposition VII.2.6 and proof, pp.255–256",
+          "match": "The three field-extension cases and their solid-unit proof are a generic input, separate from the subsequent Drinfeld corollaries."
         }
       ],
       "library": {
@@ -3604,13 +3607,55 @@
         "namespace": "TauCeti.Blueprint.VStack"
       },
       "implementationStatus": "unchecked",
+      "declaration": "TauCeti.Blueprint.VStack.SolidSheaf.geometricBaseChange"
+    },
+    {
+      "id": "VStackSheavesAndLisseCategories:VS2/solid-geometric-base-change-and-drinfeld",
+      "parentStageId": "VStackSheavesAndLisseCategories:VS4",
+      "realises": [
+        "VStackSheavesAndLisseCategories:VS4"
+      ],
+      "title": "Solid Drinfeld descent",
+      "kind": "theorem",
+      "statement": "Fix an algebraically closed field k over F_q and the divisor-to-Weil map ψ:Div¹→[*/W_E]. For a small v-stack X over k and a solid Zhat^p-algebra Λ at compatible adequate cutoffs, ψ_X* : D_solid(X×[*/W_E],Λ)→D_solid(X×Div¹,Λ) is fully faithful. It is an equivalence if the separate geometric pullback D_solid(X,Λ)→D_solid(X×Spd Ē,Λ) is an equivalence, where Ē is the completed algebraic closure used in the Weil-torsor presentation. For each finite index set I, the corresponding product pullback ψ_X^I* is fully faithful.",
+      "hypotheses": [
+        "All hypotheses and coefficient conventions in the statement are part of the signature."
+      ],
+      "proofSteps": [
+        "Use the existing divisor-to-Weil map and its continuous Weil-torsor presentation; do not replace W_E by its profinite completion.",
+        "Apply generic solid geometric field-extension invariance to the torsor charts, then descend the fully faithful unit. Essential surjectivity uses the separately stated geometric-pullback equivalence.",
+        "Iterate the single-factor comparison for finite I and retain the full-faithfulness conclusion of Corollary VII.2.8."
+      ],
+      "acceptance": [
+        "Full faithfulness includes Hom isomorphisms, not merely faithfulness.",
+        "The finite-I assertion is not unrestricted essential surjectivity."
+      ],
+      "prerequisites": [
+        "VStackSheavesAndLisseCategories:VS2/solid-geometric-base-change",
+        "VStackSheavesAndLisseCategories:VS2/solid-four-operations",
+        "VStackSheavesAndLisseCategories:VS1/divisor-weil-map",
+        "VStackSheavesAndLisseCategories:VS1/drinfeld-pullback",
+        "VStackSheavesAndLisseCategories:VS1/geometric-divisor-finite-etale"
+      ],
+      "sources": [
+        {
+          "sourceId": "FS-geometrization",
+          "locator": "Corollaries VII.2.7–VII.2.8, p.256",
+          "match": "Solid divisor/Weil descent follows from the separate generic Proposition VII.2.6 input and the existing torsor presentation."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/VStack/VS4",
+        "namespace": "TauCeti.Blueprint.VStack"
+      },
+      "implementationStatus": "unchecked",
       "declaration": "TauCeti.Blueprint.VStack.SolidSheaf.drinfeld"
     },
     {
       "id": "VStackSheavesAndLisseCategories:VS2/solid-partial-support",
-      "parentStageId": "VStackSheavesAndLisseCategories:VS2",
+      "parentStageId": "VStackSheavesAndLisseCategories:VS4",
       "realises": [
-        "VStackSheavesAndLisseCategories:VS2"
+        "VStackSheavesAndLisseCategories:VS4"
       ],
       "title": "Solid partial compact support",
       "kind": "construction",
@@ -3640,7 +3685,7 @@
         }
       ],
       "library": {
-        "module": "TauCeti/AlgebraicGeometry/VStack/VS2",
+        "module": "TauCeti/AlgebraicGeometry/VStack/VS4",
         "namespace": "TauCeti.Blueprint.VStack"
       },
       "implementationStatus": "unchecked",
@@ -3707,9 +3752,9 @@
     },
     {
       "id": "VStackSheavesAndLisseCategories:VS2/solid-partial-supported-vanishing",
-      "parentStageId": "VStackSheavesAndLisseCategories:VS2",
+      "parentStageId": "VStackSheavesAndLisseCategories:VS4",
       "realises": [
-        "VStackSheavesAndLisseCategories:VS2"
+        "VStackSheavesAndLisseCategories:VS4"
       ],
       "title": "Solid partial-support vanishing",
       "kind": "theorem",
@@ -3743,7 +3788,7 @@
         }
       ],
       "library": {
-        "module": "TauCeti/AlgebraicGeometry/VStack/VS2",
+        "module": "TauCeti/AlgebraicGeometry/VStack/VS4",
         "namespace": "TauCeti.Blueprint.VStack"
       },
       "implementationStatus": "unchecked",
@@ -4018,7 +4063,7 @@
         "All hypotheses and coefficient conventions in the statement are part of the signature."
       ],
       "proofSteps": [
-        "Use the full sheaf-derived inclusions for the naive functor, with the exact pushforward comparison hypotheses.",
+        "Use the fully faithful sheaf-derived inclusion for the naive functor. Check tensor and pullback on qc separated étale j!Λ generators; construct R_Xet by the sheaf-category right adjoint, retaining the bounded-below or finite-cohomological-dimension pushforward range. This VII.4 argument does not assume ULA or the relative tensor-Hom criterion IV.2.19.",
         "On strictly totally disconnected charts identify overconvergent torsion objects with an Ind-category of finite constructibles; solid duality realizes its Pro-category.",
         "Use Breen’s resolution for biduality and the finite-Tor tensor comparison, then proper base change for the pushforward-dual identity."
       ],
@@ -4030,15 +4075,15 @@
         "VStackSheavesAndLisseCategories:VS2/solid-four-operations",
         "VStackSheavesAndLisseCategories:VS2/relative-solid-homology",
         "VStackSheavesAndLisseCategories:VS2/breen-deligne-resolution",
-        "VStackSheavesAndLisseCategories:VS1/perfect-rhom-and-la-characterisation",
         "DiamondSixOperations:S2/lower-shriek",
         "DiamondSixOperations:S2/lower-shriek-base-change",
-        "DiamondSixOperations:S2/projection-formula"
+        "DiamondSixOperations:S2/projection-formula",
+        "VStackSheavesAndLisseCategories:VS2/solid-sheaf-structure-and-completion"
       ],
       "sources": [
         {
           "sourceId": "FS-geometrization",
-          "locator": "VII.4.1; Propositions VII.4.1–VII.4.3, pp.261–264",
+          "locator": "VII.4 opening comparison; Propositions VII.4.1–VII.4.3, pp.261–264",
           "match": "The stated construction and its precise hypotheses are extracted from this passage; the proof steps identify the inputs it uses."
         }
       ],
@@ -4647,7 +4692,7 @@
       "prerequisites": [
         "VStackSheavesAndLisseCategories:VS4/lisse-stratum-left-adjoint",
         "VStackSheavesAndLisseCategories:VS4/strata-are-classifying-stacks",
-        "VStackSheavesAndLisseCategories:VS2/solid-geometric-base-change-and-drinfeld",
+        "VStackSheavesAndLisseCategories:VS2/solid-geometric-base-change",
         "VStackSheavesAndLisseCategories:VS3/lisse-point-semiorthogonal-decomposition",
         "BunGAndNewtonStrata:BG2:smooth-Artin/bun-g-is-smooth-artin",
         "BunGAndNewtonStrata:BG4/chart-to-bun-g",
@@ -4800,7 +4845,7 @@
         "VStackSheavesAndLisseCategories:VS4/classifying-stack-equivalence",
         "VStackSheavesAndLisseCategories:VS4/contractibility-of-connected-banach-colmez-torsors",
         "VStackSheavesAndLisseCategories:VS3/lisse-comparisons",
-        "VStackSheavesAndLisseCategories:VS2/solid-geometric-base-change-and-drinfeld",
+        "VStackSheavesAndLisseCategories:VS2/solid-geometric-base-change",
         "VStackSheavesAndLisseCategories:VS2/relative-solid-homology",
         "BunGAndNewtonStrata:BG3/stratum-is-classifying-stack",
         "BunGAndNewtonStrata:BG3/full-automorphism-v-group",
@@ -5734,8 +5779,7 @@
         "Requested SolidAnalyticRings:SA.3: Finite-type Z-algebra measures R[S]_solid=lim R[S_i] and the restriction criterion for arbitrary R, compared with the pinned finite-type CondensedMod.IsSolid. Separate R-solid and (R,Z)-solid structures.",
         "Requested SolidAnalyticRings:SA.4: For topological nonarchimedean E, the analytic structure with measures E⊗solid_Z Z[S]_solid, its complete closed tensor/Hom and continuous coefficient extension. Classical functional-analysis equivalences are its consumers.",
         "Requested AnalyticStacks:AS.2: AnSpec and !-topology descent for the imported analytic rings, its module-category realization, proper induced analytic localization and open/closed excision, specialized to (A,Z)-solid coefficients.",
-        "Requested AnalyticStacks:AS.3: Scheme gluing and formal completion in the analytic-stack category, including the discrete (A,Z)-solid coefficient variant of BCGP25 §2.4.1. Compare that variant with the R-solid scheme embedding; they are not identified without proof.",
-        "VStackSheavesAndLisseCategories/G-rt30-scope: Verified generic-core ownership and reader revision"
+        "Requested AnalyticStacks:AS.3: Scheme gluing and formal completion in the analytic-stack category, including the discrete (A,Z)-solid coefficient variant of BCGP25 §2.4.1. Compare that variant with the R-solid scheme embedding; they are not identified without proof."
       ]
     },
     {
@@ -5914,15 +5958,11 @@
         "VStackSheavesAndLisseCategories:VS2/solid-sheaf-structure-and-completion",
         "VStackSheavesAndLisseCategories:VS2/solid-four-operations",
         "VStackSheavesAndLisseCategories:VS2/relative-solid-homology",
-        "VStackSheavesAndLisseCategories:VS2/solid-geometric-base-change-and-drinfeld",
-        "VStackSheavesAndLisseCategories:VS2/solid-partial-support",
-        "VStackSheavesAndLisseCategories:VS2/solid-partial-supported-vanishing",
         "VStackSheavesAndLisseCategories:VS2/proper-smooth-solid-poincare",
         "VStackSheavesAndLisseCategories:VS2/torsion-solid-comparisons",
-        "VStackSheavesAndLisseCategories:VS2/completed-ula-solid-duality",
-        "VStackSheavesAndLisseCategories:VS2/constructible-and-geometric-langlands-embedding",
         "VStackSheavesAndLisseCategories:VS2/solid-abelian-groups",
-        "VStackSheavesAndLisseCategories:VS2/solidification"
+        "VStackSheavesAndLisseCategories:VS2/solidification",
+        "VStackSheavesAndLisseCategories:VS2/solid-geometric-base-change"
       ],
       "detail": "The pinned libraries have no common enhanced v-stack/eligible-map, relative kernel 2-category, solid derived operations or lisse/Bun_G carrier supplying these exact signatures. The suggested file lists the declaration, API and test names with their source mathematical statements as explicitly omitted signatures; it never replaces them by uninterpreted propositions. Compile actual condensed abelian full-subcategory and restriction predicates now; replace each omission after the named supplier interfaces and this stage’s concrete carrier exist. For SolidAb.generators the full cutoff-dependent compact-projective family signature remains omitted; for solidification_derived the enhanced derived reflection is omitted. The ordinary category and reflection signatures are present."
     },
@@ -5934,7 +5974,9 @@
         "VStackSheavesAndLisseCategories:VS3/lisse-adjoints-and-operations",
         "VStackSheavesAndLisseCategories:VS3/lisse-comparisons",
         "VStackSheavesAndLisseCategories:VS3/lisse-coefficient-change",
-        "VStackSheavesAndLisseCategories:VS3/lisse-point-semiorthogonal-decomposition"
+        "VStackSheavesAndLisseCategories:VS3/lisse-point-semiorthogonal-decomposition",
+        "VStackSheavesAndLisseCategories:VS2/completed-ula-solid-duality",
+        "VStackSheavesAndLisseCategories:VS2/constructible-and-geometric-langlands-embedding"
       ],
       "detail": "The pinned libraries have no common enhanced v-stack/eligible-map, relative kernel 2-category, solid derived operations or lisse/Bun_G carrier supplying these exact signatures. The suggested file lists the declaration, API and test names with their source mathematical statements as explicitly omitted signatures; it never replaces them by uninterpreted propositions. Compile actual condensed abelian full-subcategory and restriction predicates now; replace each omission after the named supplier interfaces and this stage’s concrete carrier exist."
     },
@@ -5948,7 +5990,10 @@
         "VStackSheavesAndLisseCategories:VS4/strict-locality-of-the-chart",
         "VStackSheavesAndLisseCategories:VS4/lisse-stratum-left-adjoint",
         "VStackSheavesAndLisseCategories:VS4/hn-localization-and-geometric-invariance",
-        "VStackSheavesAndLisseCategories:VS4/compact-generation-and-compact-objects"
+        "VStackSheavesAndLisseCategories:VS4/compact-generation-and-compact-objects",
+        "VStackSheavesAndLisseCategories:VS2/solid-geometric-base-change-and-drinfeld",
+        "VStackSheavesAndLisseCategories:VS2/solid-partial-support",
+        "VStackSheavesAndLisseCategories:VS2/solid-partial-supported-vanishing"
       ],
       "detail": "The pinned libraries have no common enhanced v-stack/eligible-map, relative kernel 2-category, solid derived operations or lisse/Bun_G carrier supplying these exact signatures. The suggested file lists the declaration, API and test names with their source mathematical statements as explicitly omitted signatures; it never replaces them by uninterpreted propositions. Compile actual condensed abelian full-subcategory and restriction predicates now; replace each omission after the named supplier interfaces and this stage’s concrete carrier exist."
     },
@@ -5979,19 +6024,6 @@
       "detail": "FS IV.2.30 imports the algebraic Lu–Zheng criterion. Existing EDC.1 nodes supply exceptional duality, and the actual H5 comparison node supplies Hub96 3.8.1, but no atlas target names algebraic relative-kernel ULA dualizability. Propose EtaleDualityAndPerverseSheaves, Part II, on EDC.1’s carrier; do not route it to the perverse-only EDC.5 or assume that category contains the criterion. This source interface remains open."
     },
     {
-      "id": "VStackSheavesAndLisseCategories/G-rt30-scope",
-      "title": "Verified RT30 generic-core scope not implemented",
-      "detail": "RT30 verification chooses the alternative, not VS0→VS2/VS1→VS2 edges: keep VII.2.1–VII.2.6 and VII.3 generic operations in VS2, move VII.2.9–VII.2.10 to VS4, and move VII.2.7–VII.2.8 to VS4 or HS1. Split the VII.2.6 base-change part from the current combined Drinfeld node. The packet and reader instead put all of these in VS2. A revision authorized to update the reader must reconcile IDs, targetCoverage, dependencies, uses and stage text; also isolate or explicitly reconcile the additional VS1-dependent VII.4/VII.5 applications, so the generic core feeding HabiroRings HR.2 does not inherit ULA/Artin geometry. This review does not silently reparent existing target IDs or edit the unauthorized reader.",
-      "neededBy": [
-        "VStackSheavesAndLisseCategories:VS2/solid-geometric-base-change-and-drinfeld",
-        "VStackSheavesAndLisseCategories:VS2/solid-partial-support",
-        "VStackSheavesAndLisseCategories:VS2/solid-partial-supported-vanishing",
-        "VStackSheavesAndLisseCategories:VS2/completed-ula-solid-duality",
-        "VStackSheavesAndLisseCategories:VS2/constructible-and-geometric-langlands-embedding",
-        "VStackSheavesAndLisseCategories:VS2/torsion-solid-comparisons"
-      ]
-    },
-    {
       "id": "VStackSheavesAndLisseCategories/G-bc-unit-homology",
       "title": "Integral solid unit homology for nonproper BC kernels",
       "detail": "Expand the VII.7.1 proof that connected BC kernel fibres have f♯Λ≃Λ: start integrally, identify the nonproper VII.5.2 torsion comparison with the torsion ball trace, establish the required bounded finitely-presented cone/detection or derived-completion hypotheses for the unit calculation, and extend to solid algebra coefficients via relative homology. Do not apply VII.3.5 proper Poincaré duality to nonproper BC fibres and do not infer an arbitrary rational solid equivalence from mod-ell reductions. V.2.1 supplies torsion full faithfulness; VII.7.1 states the solid conclusion but needs this interface made explicit.",
@@ -6006,7 +6038,7 @@
       "source": "PQ26",
       "kind": "misprint",
       "locator": "Published Appendix A, Lemma A.8 proof, p.91",
-      "printed": "g : Aⁿ → A",
+      "printed": "The proof uses a scalar-valued polynomial map while imposing several equations simultaneously.",
       "correction": "For r polynomial equations use g:Aⁿ→Aʳ and the zero point in Aʳ. For an arbitrary defining ideal use the intersection of all closed zero fibres on each profinite source.",
       "reason": "The source displays g₁,…,gᵣ; their simultaneous value is an r-tuple. A closed immersion need not have finitely many defining equations over an arbitrary R, so the proof also needs the compact-intersection step, supplied in the corrected node.",
       "affects": "the proof",
@@ -6026,7 +6058,7 @@
       "source": "FS-geometrization",
       "kind": "misprint",
       "locator": "356-page author copy, Proposition VII.7.10, p.276",
-      "printed": "A₁ ⊠ A₂ ∈ D_ét(Bun_G, Λ)",
+      "printed": "One sentence places the compact exterior product in the étale category, although the displayed functor and its hypotheses use the lisse category.",
       "correction": "The compact exterior product lies in D_lis(Bun_G,Λ), the target displayed immediately above. Use the lisse Künneth statement for integral/rational coefficients.",
       "reason": "The functor domain, codomain and A_i,B_i hypotheses are lisse; the cited identical proof of V.7.2 uses the lisse chart generators established in VII.7.4. The torsion D_et statement cannot cover Λ=Q_ell.",
       "affects": "nothing",
@@ -6046,7 +6078,7 @@
       "source": "PQ26",
       "kind": "error",
       "locator": "Published Appendix A.1, p.90; inherited PAPER-PASKUNAS-QUAST-26/E10",
-      "printed": "The source describes X ◦ A as a condensed set formed by composition.",
+      "printed": "The paragraph assigns a condensed structure by composing an arbitrary accessible functor with the coefficient ring, without requiring the sheaf products and descent conditions.",
       "correction": "Use affine representable X=Spec B and Hom_Ralg(B,A(S)), which preserves the sheaf products/equalizers. For general accessible functors impose sufficient descent/exactness conditions.",
       "reason": "A constant two-element accessible functor sends the empty profinite set to two elements, violating the sheaf empty-cover condition, and does not preserve disjoint-union products. The affine representation-scheme applications only need the corrected representable construction.",
       "affects": "a stated result",
@@ -6067,7 +6099,7 @@
       "source": "FS-geometrization",
       "kind": "error",
       "locator": "356-page author copy, Remark IV.1.10, p.110",
-      "printed": "The source denies cohomological smoothness except when G is finite.",
+      "printed": "The remark excludes cohomological smoothness of the point atlas for every infinite group, overlooking infinite discrete groups.",
       "correction": "For nondiscrete locally profinite H an infinite compact open subgroup gives the distribution obstruction. Discrete H gives an étale, cohomologically smooth point map even when H is infinite.",
       "reason": "Take H=π^Z, a closed infinite discrete subgroup of GL_1(E). The pullback of *→[*/H] is H→*, a disjoint union of identity maps, so it is separated étale of local dimension zero; the existing theorem that étale maps are cohomologically smooth applies. Its dualizing sheaf is constant F_ell on every discrete point. The source’s distribution argument obstructs infinite compact profinite neighbourhoods, not infinite discrete sets.",
       "affects": "a stated result",
@@ -6111,7 +6143,7 @@
     },
     {
       "id": "RT-AREA-geomlanglands/28",
-      "detail": "VS3 imports only AdicCoefficients L0’s adic interfaces. Drop L1/L3/L4/L5/L6→VS3; add L1→GS0:loop-geometry and L3→GS1 at the actual ECD §27 consumers. Keep L4–L6 at EDC.6. VS1’s separate algebraic/analytic ULA comparison has an actual H5 use and is not a VS3 prerequisite."
+      "detail": "VS3 imports AdicCoefficients L0’s adic interfaces. Drop L1/L3/L4/L5/L6→VS3; add L1→GS0:loop-geometry and L3→GS1 at the actual ECD §27 consumers. Keep L4–L6 at EDC.6. VS3’s preparatory VII.5 constructible-embedding application also consumes the distinct VS1 algebraic/analytic ULA comparison and its H5 input; that dependency does not import the L1/L3/L4–L6 scheme/v-sheaf comparison chain."
     },
     {
       "id": "RT-AREA-geomlanglands/29",
@@ -6119,11 +6151,11 @@
     },
     {
       "id": "RT-AREA-geomlanglands/30",
-      "detail": "Independent review: the verified RT30 decision takes the alternative, not the edges. The present placement of VII.2.7–VII.2.10 in VS2 contradicts that decision; G-rt30-scope records the required revision. Keep VII.2.1–VII.2.6/VII.3 in the generic core; place VII.2.9–VII.2.10 in VS4 and VII.2.7–VII.2.8 in VS4 or HS1. Do not present VS0→VS2/VS1→VS2 as the verified fix."
+      "detail": "Implement the verified generic-core alternative: VII.2.6 has its own VS2 field-extension node; the preserved Drinfeld identifier now realises VS4 and contains only VII.2.7–8; the preserved VII.2.9–10 identifiers also realise VS4. VII.4 stays generic after removing its unsupported VS1 ULA-Hom prerequisite. The actual VII.5 ULA applications realise VS3, before the lisse comparisons that consume them; placing that branch in VS4 would create a VS3/VS4 cycle. No VS0→VS2 or VS1→VS2 edge is proposed. Downstream generic-invariance consumers use the new VII.2.6 node; existing HS1 Drinfeld consumers keep the preserved identifier."
     },
     {
       "id": "RT-AREA-geomlanglands/31",
-      "detail": "Import the actual VB2:classification/finite-etale-constant-algebras node: the supplier already plans SW20 13.5.7. VS1 adds geometric divisor finite-étale comparison and Drinfeld local systems, with VB2→VS1 and ClassFieldTheory layer 9→VS1. The Weil object is upstream existing roadmap work, not a new definition here."
+      "detail": "Import the actual VB2:classification/finite-etale-constant-algebras node supplying SW20 13.5.7 and use SW20 16.3.2 for the geometric divisor finite-étale comparison, without the 16.3.3/16.3.6 product theorem. The Weil object and its topology/degree map are existing ClassFieldTheory layer 9 work, accessed through the existing upstream prerequisite and exact object request; no additional ClassFieldTheory layer-9→VS1 atlas edge is proposed."
     },
     {
       "id": "RS-05-boundary",
@@ -6143,7 +6175,7 @@
       "kind": "split",
       "stage": "VStackSheavesAndLisseCategories:VS2",
       "title": "Split condensed coefficients from solid sheaf operations",
-      "reason": "VS2 combines compact-Hausdorff cohomology, corrected coefficient solidity, analytic coefficient applications and solid operations on small v-stacks. Keep the current stage IDs while proposing readable subdivisions. Independent review: this readable subdivision proposal does not implement the verified RT30 generic-core isolation; reconcile its parts with G-rt30-scope before applying it.",
+      "reason": "VS2 contains the condensed/solid coefficient foundations and generic solid operations, including VII.2.1–6, VII.3 and the ULA-free VII.4 comparison. Readable subdivisions stay inside that generic owner; the divisor/support applications have VS4 ownership and the preparatory VII.5 ULA applications have VS3 ownership through parentStageId/realises. These are concrete ownership changes in this packet, while atlas subdivisions remain proposals.",
       "parts": [
         {
           "title": "Condensed groups and solidification",
@@ -6177,16 +6209,17 @@
             "VStackSheavesAndLisseCategories:VS2/solid-sheaf-structure-and-completion",
             "VStackSheavesAndLisseCategories:VS2/solid-four-operations",
             "VStackSheavesAndLisseCategories:VS2/relative-solid-homology",
-            "VStackSheavesAndLisseCategories:VS2/solid-geometric-base-change-and-drinfeld",
-            "VStackSheavesAndLisseCategories:VS2/solid-partial-support",
-            "VStackSheavesAndLisseCategories:VS2/solid-partial-supported-vanishing",
+            "VStackSheavesAndLisseCategories:VS2/solid-geometric-base-change",
             "VStackSheavesAndLisseCategories:VS2/proper-smooth-solid-poincare",
-            "VStackSheavesAndLisseCategories:VS2/torsion-solid-comparisons",
-            "VStackSheavesAndLisseCategories:VS2/completed-ula-solid-duality",
-            "VStackSheavesAndLisseCategories:VS2/constructible-and-geometric-langlands-embedding"
+            "VStackSheavesAndLisseCategories:VS2/torsion-solid-comparisons"
           ]
         }
       ]
+    },
+    {
+      "kind": "ownership",
+      "title": "Keep ULA comparisons before lisse sheaves and support applications in VS4",
+      "reason": "VS3 includes the preparatory VII.5 completed ULA and constructible-embedding branch feeding lisse comparisons. VS4 includes VII.2.7–10, followed by the lisse stratum adjoint and compact-generation applications. All five existing IDs and declaration names are preserved; parentStageId and realises determine ownership. The new VII.2.6 target separates generic field-extension invariance from the preserved Drinfeld target."
     },
     {
       "kind": "part-II",
@@ -6377,21 +6410,17 @@
     },
     {
       "stageId": "VStackSheavesAndLisseCategories:VS2",
-      "target": "Geometric field/Drinfeld comparison, partial support and proper smooth duality",
+      "target": "Generic geometric field-extension invariance and proper smooth solid duality",
       "nodes": [
-        "VStackSheavesAndLisseCategories:VS2/solid-geometric-base-change-and-drinfeld",
-        "VStackSheavesAndLisseCategories:VS2/solid-partial-support",
-        "VStackSheavesAndLisseCategories:VS2/solid-partial-supported-vanishing",
+        "VStackSheavesAndLisseCategories:VS2/solid-geometric-base-change",
         "VStackSheavesAndLisseCategories:VS2/proper-smooth-solid-poincare"
       ]
     },
     {
       "stageId": "VStackSheavesAndLisseCategories:VS2",
-      "target": "Torsion comparison, completed ULA kernel duality and constructible embedding",
+      "target": "Generic naive and contravariant torsion–solid comparisons",
       "nodes": [
-        "VStackSheavesAndLisseCategories:VS2/torsion-solid-comparisons",
-        "VStackSheavesAndLisseCategories:VS2/completed-ula-solid-duality",
-        "VStackSheavesAndLisseCategories:VS2/constructible-and-geometric-langlands-embedding"
+        "VStackSheavesAndLisseCategories:VS2/torsion-solid-comparisons"
       ]
     },
     {
@@ -6418,6 +6447,14 @@
       ]
     },
     {
+      "stageId": "VStackSheavesAndLisseCategories:VS3",
+      "target": "Preparatory completed ULA duality and constructible coefficient embedding",
+      "nodes": [
+        "VStackSheavesAndLisseCategories:VS2/completed-ula-solid-duality",
+        "VStackSheavesAndLisseCategories:VS2/constructible-and-geometric-langlands-embedding"
+      ]
+    },
+    {
       "stageId": "VStackSheavesAndLisseCategories:VS4",
       "target": "Continuous classifying-stack equivalence and connected-kernel invariance",
       "nodes": [
@@ -6440,6 +6477,15 @@
       "nodes": [
         "VStackSheavesAndLisseCategories:VS4/hn-localization-and-geometric-invariance",
         "VStackSheavesAndLisseCategories:VS4/compact-generation-and-compact-objects"
+      ]
+    },
+    {
+      "stageId": "VStackSheavesAndLisseCategories:VS4",
+      "target": "Solid Drinfeld descent and partial-support construction/vanishing",
+      "nodes": [
+        "VStackSheavesAndLisseCategories:VS2/solid-geometric-base-change-and-drinfeld",
+        "VStackSheavesAndLisseCategories:VS2/solid-partial-support",
+        "VStackSheavesAndLisseCategories:VS2/solid-partial-supported-vanishing"
       ]
     },
     {

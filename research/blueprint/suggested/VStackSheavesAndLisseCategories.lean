@@ -769,15 +769,6 @@ Source: PQ26, Appendix A, Lemma A.8, pp.90–91
 -/
 
 /-
-Packet node: VStackSheavesAndLisseCategories:VS2/completed-ula-solid-duality
-OMITTED signature: TauCeti.Blueprint.VStack.SolidSheaf.ulaDuality
-Contract: For Λ=lim_n Z/n over a specified system of integers prime to p and eligible f:X→S, D_ULA(X/S,Λ) consists of derived-complete compatible torsion reductions that are f-ULA. Write A∨=RHom_solid(A,Λ). For A of bounded Tor amplitude, B∈D_et(X,Z/n), Proposition VII.5.2 gives f♯(D_X/S(A)∨⊗solid B)≃Rf_!(A_n⊗ᴸ B). If f is proper, representable in spatial diamonds and of finite transcendence dimension, then for every solid B, f♯(D_X/S(A)∨⊗solid B)≃Rf*RHom_solid(A∨,B). On proper spatial finite-dimensional finite-Tor kernels, A↦A∨ reverses 2-morphisms and transports !-convolution to ♯-convolution. In particular A∨ is right adjoint to D_X/S(A)∨ in the solid kernel category. Both solid duals and the properness hypothesis in the second formula are essential.
-Gaps: VStackSheavesAndLisseCategories/G-prototype-VS2; VStackSheavesAndLisseCategories/G-rt30-scope
-Direct inputs: VStackSheavesAndLisseCategories:VS2/torsion-solid-comparisons; VStackSheavesAndLisseCategories:VS2/relative-solid-homology; VStackSheavesAndLisseCategories:VS1/ula-dualizability-criterion; VStackSheavesAndLisseCategories:VS1/kernel-correspondence-category; AdicCoefficientsAndComparisons:L0/adic-coefficient-limit
-Source: FS-geometrization, VII.5, Propositions VII.5.2–VII.5.3; Corollary VII.5.4, pp.264–268
--/
-
-/-
 Packet node: VStackSheavesAndLisseCategories:VS2/condensed-cohomology
 OMITTED signature: TauCeti.Blueprint.VStack.CondensedCohomology.compact
 Contract: For compact Hausdorff S, condensed cohomology with discrete integer coefficients agrees with ordinary sheaf/Čech cohomology. Profinite S has H^i(S,Z)=0 for i>0. For the topological condensed reals, H^i(S,R)=0 for i>0 and H⁰=C(S,R). A profinite hypercover computes the latter by the augmented complex 0→C(S,R)→C(S0,R)→C(S1,R)→⋯; for i≥0, a cocycle in C(S_i,R) admits a primitive in the preceding augmented term (C(S,R) when i=0) of norm at most (1+ε) times its norm for each ε>0.
@@ -802,15 +793,6 @@ Contract: For any compact Hausdorff abelian group A, RHom(A,R)=0 in condensed gr
 Gaps: VStackSheavesAndLisseCategories/G-topology; VStackSheavesAndLisseCategories/G-prototype-VS2
 Direct inputs: VStackSheavesAndLisseCategories:VS2/breen-deligne-resolution; VStackSheavesAndLisseCategories:VS2/condensed-cohomology; EnhancedDerivedSheaves:E1/enhanced-derived-category
 Source: Scholze-condensed, Theorem 4.3; Corollary 4.8; Proposition 5.7 proof, pp.24–28,35
--/
-
-/-
-Packet node: VStackSheavesAndLisseCategories:VS2/constructible-and-geometric-langlands-embedding
-OMITTED signature: TauCeti.Blueprint.VStack.SolidSheaf.constructibleEmbedding
-Contract: For the analytification diamond X of a separated finite-type C-scheme over an algebraically closed nonarchimedean C and ell≠p, algebraic Verdier duality followed by solid duality yields a fully faithful covariant embedding D_c^b(X_alg,Z_ell)→D_ULA(X/Spa C,Z_ell)→D_solid(X,Z_ell). Its image consists of compact bounded objects with finitely presented solid cohomology, so it extends to Ind D_c^b(X_alg,Z_ell). The map sends i_*Z_ell at a C-point to i♯Z_ell and intertwines algebraic exceptional pullback with solid ordinary pullback. Thus the inverse limit of these scheme categories over finite-type charts X_alg→Y, with exceptional transition maps, embeds into D_solid(Y◇,Z_ell) as in Example VII.5.1(b), using separated charts and descent. Torsion analogues require finite Tor amplitude over Z/ell^m for the compact-image/Ind assertion; arbitrary bounded constructible torsion complexes are not asserted compact.
-Gaps: VStackSheavesAndLisseCategories/G-prototype-VS2; VStackSheavesAndLisseCategories/G-rt30-scope
-Direct inputs: VStackSheavesAndLisseCategories:VS2/torsion-solid-comparisons; VStackSheavesAndLisseCategories:VS2/completed-ula-solid-duality; EnhancedDerivedSheaves:E5:presentability/ind-completion; VStackSheavesAndLisseCategories:VS1/ula-analytification; EtaleDualityAndPerverseSheaves:EDC.1:biduality/constructible-biduality; EtaleDualityAndPerverseSheaves:EDC.1:biduality/duality-exchange-isomorphisms
-Source: FS-geometrization, Example VII.5.1(a)–(b), pp.264–265
 -/
 
 /-
@@ -904,7 +886,7 @@ Packet node: VStackSheavesAndLisseCategories:VS2/proper-smooth-solid-poincare
 OMITTED signature: TauCeti.Blueprint.VStack.SolidHomology.poincare
 Contract: For f:Y→X proper, representable in spatial diamonds, finite transcendence dimension and cohomologically smooth, Rf* has finite cohomological dimension, commutes with sums and satisfies the solid projection formula. It commutes with arbitrary base-change homology as in VII.3.4. If Δ is the relative diagonal and π₁ the first projection, Rπ₁*Δ♯Λ is invertible with inverse f!Λ=lim_n f!Z/n⊗solid_Zhat^p Λ. Consequently f♯A≃Rf*(A⊗solid f!Λ). All these conclusions retain both properness and smoothness.
 Gaps: VStackSheavesAndLisseCategories/G-prototype-VS2
-Direct inputs: VStackSheavesAndLisseCategories:VS2/relative-solid-homology; VStackSheavesAndLisseCategories:VS2/solid-sheaf-structure-and-completion; DiamondSixOperations:S4/cohomologically-smooth; DiamondSixOperations:S4/smooth-composition; DiamondSixOperations:S4/smooth-stable-under-base-change; DiamondSixOperations:S4/smooth-descent-along-smooth-surjection
+Direct inputs: VStackSheavesAndLisseCategories:VS2/relative-solid-homology; VStackSheavesAndLisseCategories:VS2/solid-sheaf-structure-and-completion; DiamondSixOperations:S4/cohomologically-smooth; DiamondSixOperations:S4/smooth-composition; DiamondSixOperations:S4/smooth-stable-under-base-change; DiamondSixOperations:S4/smooth-descent-along-smooth-surjection; VStackSheavesAndLisseCategories:VS2/torsion-solid-comparisons
 Source: FS-geometrization, Propositions VII.3.2–VII.3.5, pp.258–261
 -/
 
@@ -1030,48 +1012,12 @@ Source: Scholze-condensed, Corollary 5.5; Propositions 5.6–5.7, pp.34–35
 -/
 
 /-
-Packet node: VStackSheavesAndLisseCategories:VS2/solid-geometric-base-change-and-drinfeld
-OMITTED signature: TauCeti.Blueprint.VStack.SolidSheaf.drinfeld
-Contract: Solid pullback is fully faithful after extension of algebraically closed discrete characteristic-p fields; after base change from such k to Spa(C,C⁺); and after surjective algebraically closed valued-field extension with compatible open bounded valuation rings. Hence ψ_X* from X×[*/W_E] to X×Div¹ is fully faithful for every small v-stack X, and is an equivalence if D_solid(X)→D_solid(X×Spd Ebar) is an equivalence. For finite I the product ψ_X^I* is fully faithful.
-Gaps: VStackSheavesAndLisseCategories/G-prototype-VS2; VStackSheavesAndLisseCategories/G-rt30-scope
-Direct inputs: VStackSheavesAndLisseCategories:VS2/solid-four-operations; VStackSheavesAndLisseCategories:VS2/solid-sheaf-structure-and-completion; VStackSheavesAndLisseCategories:VS1/divisor-weil-map; VStackSheavesAndLisseCategories:VS1/drinfeld-pullback; VStackSheavesAndLisseCategories:VS1/geometric-divisor-finite-etale
-Source: FS-geometrization, Proposition VII.2.6; Corollaries VII.2.7–VII.2.8, pp.255–256
--/
-
-/-
-Packet node: VStackSheavesAndLisseCategories:VS2/solid-partial-support
-OMITTED signature: TauCeti.Blueprint.VStack.SolidPartialSupport
-Contract: In the VII.2.9 setup, X is spatial proper over Spd k for algebraically closed characteristic-p k and has finite transcendence dimension; S is spatial. The IV.5 annular systems define Rβ_!+=colim_a Rβ_*j_a! and Rβ_!−=colim_b Rβ_*j_b!, now in solid coefficients, with j_! the left adjoint to open pullback. These are independent of cofinal annular presentations with their two specified ends.
-Gaps: VStackSheavesAndLisseCategories/G-prototype-VS2; VStackSheavesAndLisseCategories/G-rt30-scope
-Direct inputs: VStackSheavesAndLisseCategories:VS0/partial-compact-support; VStackSheavesAndLisseCategories:VS2/solid-four-operations; VStackSheavesAndLisseCategories:VS2/relative-solid-homology
-OMITTED API: TauCeti.Blueprint.VStack.SolidPartialSupport.plus (constructor)
-The plus end is the a-indexed supported pushforward colimit.
-OMITTED API: TauCeti.Blueprint.VStack.SolidPartialSupport.minus (constructor)
-The minus end is the b-indexed supported pushforward colimit.
-OMITTED API: TauCeti.Blueprint.VStack.SolidPartialSupport.transition (data)
-Annular inclusions give the specified extension-by-zero counit transitions.
-OMITTED API: TauCeti.Blueprint.VStack.SolidPartialSupport.cofinal (compatibility)
-Cofinal replacements induce canonical equivalences.
-OMITTED API: TauCeti.Blueprint.VStack.SolidPartialSupport.baseChange (functoriality)
-The solid supported colimits commute with the permitted base changes of this setup.
-OMITTED example: TauCeti.Blueprint.VStack.SolidPartialSupport.zero (degenerate)
-Both end functors send zero to zero.
-OMITTED example: TauCeti.Blueprint.VStack.SolidPartialSupport.empty (computation)
-If X is empty both functors are zero.
-OMITTED example: TauCeti.Blueprint.VStack.SolidPartialSupport.torsion (compatibility)
-On torsion pullback coefficients the resulting vanishing agrees with IV.5 after the solid comparison.
-OMITTED example: TauCeti.Blueprint.VStack.SolidPartialSupport.properBand (computation)
-In the VII.2.9 setup, let S=Spa(C,O_C) and suppose a section i:S→X×k S of β is a proper closed immersion contained in a finite annular band. For the nonzero solid coefficient unit Λ, both end functors send i_*Λ to Λ. Extension by zero is eventually constant on this support and β∘i=id, so the zero functor fails this test.
-Source: FS-geometrization, Definition VII.2.9, p.256
--/
-
-/-
-Packet node: VStackSheavesAndLisseCategories:VS2/solid-partial-supported-vanishing
-OMITTED signature: TauCeti.Blueprint.VStack.SolidPartialSupport.vanish
-Contract: Under the proper finite-dimensional spatial X and spatial S hypotheses of VII.2.9, let α:X×k S→X and C=α*A. If A is bounded below, or X→Spd k is cohomologically smooth, then Rβ_!+C=0=Rβ_!−C in solid coefficients. This is the restricted solid theorem: it does not claim IV.5.3’s arbitrary exterior-product input for all solid complexes.
-Gaps: VStackSheavesAndLisseCategories/G-prototype-VS2; VStackSheavesAndLisseCategories/G-rt30-scope
-Direct inputs: VStackSheavesAndLisseCategories:VS2/solid-partial-support; VStackSheavesAndLisseCategories:VS0/partial-compactly-supported-vanishing; VStackSheavesAndLisseCategories:VS2/solid-sheaf-structure-and-completion; DiamondSixOperations:S4/cohomologically-smooth; DiamondSixOperations:S4/smooth-composition; DiamondSixOperations:S4/smooth-stable-under-base-change; DiamondSixOperations:S4/smooth-descent-along-smooth-surjection
-Source: FS-geometrization, Theorem VII.2.10, pp.256–257
+Packet node: VStackSheavesAndLisseCategories:VS2/solid-geometric-base-change
+OMITTED signature: TauCeti.Blueprint.VStack.SolidSheaf.geometricBaseChange
+Contract: For a small v-stack X and a solid Zhat^p-algebra Λ, solid pullback is fully faithful in each of three cases: (i) X is over an algebraically closed discrete field k of characteristic p and k′/k is an algebraically closed discrete extension; (ii) X is over such k and base change is to Spa(C,C⁺), with C/k complete algebraically closed nonarchimedean and C⁺ an open bounded valuation subring containing k; (iii) X is over Spa(C,C⁺), and base change is along a surjective map Spa(C′,C′⁺)→Spa(C,C⁺), with C′/C complete algebraically closed nonarchimedean and C′⁺ an open bounded valuation subring containing C⁺. The coefficient and site cutoffs must be compatible and large enough for these spaces.
+Gaps: VStackSheavesAndLisseCategories/G-prototype-VS2
+Direct inputs: VStackSheavesAndLisseCategories:VS2/solid-four-operations; VStackSheavesAndLisseCategories:VS2/solid-sheaf-structure-and-completion; DiamondEtaleCohomology:C6/invariance-discrete-extension; DiamondEtaleCohomology:C6/invariance-discrete-to-complete; DiamondEtaleCohomology:C6/invariance-complete-extension
+Source: FS-geometrization, Proposition VII.2.6 and proof, pp.255–256
 -/
 
 /-
@@ -1143,9 +1089,9 @@ Source: Scholze-condensed, Theorem 5.8; Lemmas 5.9–5.10; Theorem 6.2, pp.35–
 Packet node: VStackSheavesAndLisseCategories:VS2/torsion-solid-comparisons
 OMITTED signature: TauCeti.Blueprint.VStack.SolidSheaf.torsionComparison
 Contract: For Λ=Z/n with n prime to p, the naive D_et(X,Λ)→D_solid(X,Λ) is fully faithful, monoidal and pullback-compatible, with right adjoint R_Xet. It matches Rf* for qcqs f on bounded-below objects, or qcqs f of finite cohomological dimension. On overconvergent objects the solid dual A∨=RHom_solid(A,Λ) gives a fully faithful t-exact contravariant embedding with solid biduality and pullback compatibility. Its tensor comparison is an equivalence when one input has finite Tor amplitude. For proper spatial finite-dimensional f, (Rf*A)∨≃f♯A∨ on the overconvergent range.
-Gaps: VStackSheavesAndLisseCategories/G-prototype-VS2; VStackSheavesAndLisseCategories/G-rt30-scope
-Direct inputs: VStackSheavesAndLisseCategories:VS2/solid-four-operations; VStackSheavesAndLisseCategories:VS2/relative-solid-homology; VStackSheavesAndLisseCategories:VS2/breen-deligne-resolution; VStackSheavesAndLisseCategories:VS1/perfect-rhom-and-la-characterisation; DiamondSixOperations:S2/lower-shriek; DiamondSixOperations:S2/lower-shriek-base-change; DiamondSixOperations:S2/projection-formula
-Source: FS-geometrization, VII.4.1; Propositions VII.4.1–VII.4.3, pp.261–264
+Gaps: VStackSheavesAndLisseCategories/G-prototype-VS2
+Direct inputs: VStackSheavesAndLisseCategories:VS2/solid-four-operations; VStackSheavesAndLisseCategories:VS2/relative-solid-homology; VStackSheavesAndLisseCategories:VS2/breen-deligne-resolution; DiamondSixOperations:S2/lower-shriek; DiamondSixOperations:S2/lower-shriek-base-change; DiamondSixOperations:S2/projection-formula; VStackSheavesAndLisseCategories:VS2/solid-sheaf-structure-and-completion
+Source: FS-geometrization, VII.4 opening comparison; Propositions VII.4.1–VII.4.3, pp.261–264
 -/
 
 /-
@@ -1173,7 +1119,25 @@ For A=E taken discretely the definition tests underlying Z-solidity; replacing A
 Source: BCGP25, Remark 2.4.1, pp.30–31
 -/
 
-/- VS3: Lisse categories and coefficients -/
+/- VS3: Completed ULA comparisons and lisse coefficients -/
+
+/-
+Packet node: VStackSheavesAndLisseCategories:VS2/completed-ula-solid-duality
+OMITTED signature: TauCeti.Blueprint.VStack.SolidSheaf.ulaDuality
+Contract: For Λ=lim_n Z/n over a specified system of integers prime to p and eligible f:X→S, D_ULA(X/S,Λ) consists of derived-complete compatible torsion reductions that are f-ULA. Write A∨=RHom_solid(A,Λ). For A of bounded Tor amplitude, B∈D_et(X,Z/n), Proposition VII.5.2 gives f♯(D_X/S(A)∨⊗solid B)≃Rf_!(A_n⊗ᴸ B). If f is proper, representable in spatial diamonds and of finite transcendence dimension, then for every solid B, f♯(D_X/S(A)∨⊗solid B)≃Rf*RHom_solid(A∨,B). On proper spatial finite-dimensional finite-Tor kernels, A↦A∨ reverses 2-morphisms and transports !-convolution to ♯-convolution. In particular A∨ is right adjoint to D_X/S(A)∨ in the solid kernel category. Both solid duals and the properness hypothesis in the second formula are essential.
+Gaps: VStackSheavesAndLisseCategories/G-prototype-VS3
+Direct inputs: VStackSheavesAndLisseCategories:VS2/torsion-solid-comparisons; VStackSheavesAndLisseCategories:VS2/relative-solid-homology; VStackSheavesAndLisseCategories:VS1/ula-dualizability-criterion; VStackSheavesAndLisseCategories:VS1/kernel-correspondence-category; AdicCoefficientsAndComparisons:L0/adic-coefficient-limit; VStackSheavesAndLisseCategories:VS1/perfect-rhom-and-la-characterisation
+Source: FS-geometrization, VII.5, Propositions VII.5.2–VII.5.3; Corollary VII.5.4, pp.264–268
+-/
+
+/-
+Packet node: VStackSheavesAndLisseCategories:VS2/constructible-and-geometric-langlands-embedding
+OMITTED signature: TauCeti.Blueprint.VStack.SolidSheaf.constructibleEmbedding
+Contract: For the analytification diamond X of a separated finite-type C-scheme over an algebraically closed nonarchimedean C and ell≠p, algebraic Verdier duality followed by solid duality yields a fully faithful covariant embedding D_c^b(X_alg,Z_ell)→D_ULA(X/Spa C,Z_ell)→D_solid(X,Z_ell). Its image consists of compact bounded objects with finitely presented solid cohomology, so it extends to Ind D_c^b(X_alg,Z_ell). The map sends i_*Z_ell at a C-point to i♯Z_ell and intertwines algebraic exceptional pullback with solid ordinary pullback. Thus the inverse limit of these scheme categories over finite-type charts X_alg→Y, with exceptional transition maps, embeds into D_solid(Y◇,Z_ell) as in Example VII.5.1(b), using separated charts and descent. Torsion analogues require finite Tor amplitude over Z/ell^m for the compact-image/Ind assertion; arbitrary bounded constructible torsion complexes are not asserted compact.
+Gaps: VStackSheavesAndLisseCategories/G-prototype-VS3
+Direct inputs: VStackSheavesAndLisseCategories:VS2/torsion-solid-comparisons; VStackSheavesAndLisseCategories:VS2/completed-ula-solid-duality; EnhancedDerivedSheaves:E5:presentability/ind-completion; VStackSheavesAndLisseCategories:VS1/ula-analytification; EtaleDualityAndPerverseSheaves:EDC.1:biduality/constructible-biduality; EtaleDualityAndPerverseSheaves:EDC.1:biduality/duality-exchange-isomorphisms
+Source: FS-geometrization, Example VII.5.1(a)–(b), pp.264–265
+-/
 
 /-
 Packet node: VStackSheavesAndLisseCategories:VS3/lisse-adjoints-and-operations
@@ -1259,6 +1223,51 @@ Source: FS-geometrization, Proposition VII.6.7, pp.270–271
 /- VS4: Sheaves on Bun_G strata and compact generation -/
 
 /-
+Packet node: VStackSheavesAndLisseCategories:VS2/solid-geometric-base-change-and-drinfeld
+OMITTED signature: TauCeti.Blueprint.VStack.SolidSheaf.drinfeld
+Contract: Fix an algebraically closed field k over F_q and the divisor-to-Weil map ψ:Div¹→[*/W_E]. For a small v-stack X over k and a solid Zhat^p-algebra Λ at compatible adequate cutoffs, ψ_X* : D_solid(X×[*/W_E],Λ)→D_solid(X×Div¹,Λ) is fully faithful. It is an equivalence if the separate geometric pullback D_solid(X,Λ)→D_solid(X×Spd Ē,Λ) is an equivalence, where Ē is the completed algebraic closure used in the Weil-torsor presentation. For each finite index set I, the corresponding product pullback ψ_X^I* is fully faithful.
+Gaps: VStackSheavesAndLisseCategories/G-prototype-VS4
+Direct inputs: VStackSheavesAndLisseCategories:VS2/solid-geometric-base-change; VStackSheavesAndLisseCategories:VS2/solid-four-operations; VStackSheavesAndLisseCategories:VS1/divisor-weil-map; VStackSheavesAndLisseCategories:VS1/drinfeld-pullback; VStackSheavesAndLisseCategories:VS1/geometric-divisor-finite-etale
+Source: FS-geometrization, Corollaries VII.2.7–VII.2.8, p.256
+-/
+
+/-
+Packet node: VStackSheavesAndLisseCategories:VS2/solid-partial-support
+OMITTED signature: TauCeti.Blueprint.VStack.SolidPartialSupport
+Contract: In the VII.2.9 setup, X is spatial proper over Spd k for algebraically closed characteristic-p k and has finite transcendence dimension; S is spatial. The IV.5 annular systems define Rβ_!+=colim_a Rβ_*j_a! and Rβ_!−=colim_b Rβ_*j_b!, now in solid coefficients, with j_! the left adjoint to open pullback. These are independent of cofinal annular presentations with their two specified ends.
+Gaps: VStackSheavesAndLisseCategories/G-prototype-VS4
+Direct inputs: VStackSheavesAndLisseCategories:VS0/partial-compact-support; VStackSheavesAndLisseCategories:VS2/solid-four-operations; VStackSheavesAndLisseCategories:VS2/relative-solid-homology
+OMITTED API: TauCeti.Blueprint.VStack.SolidPartialSupport.plus (constructor)
+The plus end is the a-indexed supported pushforward colimit.
+OMITTED API: TauCeti.Blueprint.VStack.SolidPartialSupport.minus (constructor)
+The minus end is the b-indexed supported pushforward colimit.
+OMITTED API: TauCeti.Blueprint.VStack.SolidPartialSupport.transition (data)
+Annular inclusions give the specified extension-by-zero counit transitions.
+OMITTED API: TauCeti.Blueprint.VStack.SolidPartialSupport.cofinal (compatibility)
+Cofinal replacements induce canonical equivalences.
+OMITTED API: TauCeti.Blueprint.VStack.SolidPartialSupport.baseChange (functoriality)
+The solid supported colimits commute with the permitted base changes of this setup.
+OMITTED example: TauCeti.Blueprint.VStack.SolidPartialSupport.zero (degenerate)
+Both end functors send zero to zero.
+OMITTED example: TauCeti.Blueprint.VStack.SolidPartialSupport.empty (computation)
+If X is empty both functors are zero.
+OMITTED example: TauCeti.Blueprint.VStack.SolidPartialSupport.torsion (compatibility)
+On torsion pullback coefficients the resulting vanishing agrees with IV.5 after the solid comparison.
+OMITTED example: TauCeti.Blueprint.VStack.SolidPartialSupport.properBand (computation)
+In the VII.2.9 setup, let S=Spa(C,O_C) and suppose a section i:S→X×k S of β is a proper closed immersion contained in a finite annular band. For the nonzero solid coefficient unit Λ, both end functors send i_*Λ to Λ. Extension by zero is eventually constant on this support and β∘i=id, so the zero functor fails this test.
+Source: FS-geometrization, Definition VII.2.9, p.256
+-/
+
+/-
+Packet node: VStackSheavesAndLisseCategories:VS2/solid-partial-supported-vanishing
+OMITTED signature: TauCeti.Blueprint.VStack.SolidPartialSupport.vanish
+Contract: Under the proper finite-dimensional spatial X and spatial S hypotheses of VII.2.9, let α:X×k S→X and C=α*A. If A is bounded below, or X→Spd k is cohomologically smooth, then Rβ_!+C=0=Rβ_!−C in solid coefficients. This is the restricted solid theorem: it does not claim IV.5.3’s arbitrary exterior-product input for all solid complexes.
+Gaps: VStackSheavesAndLisseCategories/G-prototype-VS4
+Direct inputs: VStackSheavesAndLisseCategories:VS2/solid-partial-support; VStackSheavesAndLisseCategories:VS0/partial-compactly-supported-vanishing; VStackSheavesAndLisseCategories:VS2/solid-sheaf-structure-and-completion; DiamondSixOperations:S4/cohomologically-smooth; DiamondSixOperations:S4/smooth-composition; DiamondSixOperations:S4/smooth-stable-under-base-change; DiamondSixOperations:S4/smooth-descent-along-smooth-surjection
+Source: FS-geometrization, Theorem VII.2.10, pp.256–257
+-/
+
+/-
 Packet node: VStackSheavesAndLisseCategories:VS4/classifying-stack-equivalence
 OMITTED signature: TauCeti.Blueprint.VStack.ClassifyingSheaves.equivalence
 Contract: For H locally pro-p and a ring Λ killed by an integer prime to p, there is a symmetric monoidal equivalence D_sm(H,Λ)≃D_et([*/H],Λ). Pullback along *→[*/H] is forgetting the action; structural pushforward is derived continuous invariants and internal RHom(−,Λ) is the imported derived smooth dual. The same category is obtained on [Spa C/H] for complete algebraically closed C/k. In particular D_et(*,Λ)=D(Λ). Smooth representation categories and their enhancement are imported from SR.
@@ -1290,7 +1299,7 @@ Packet node: VStackSheavesAndLisseCategories:VS4/hn-localization-and-geometric-i
 OMITTED signature: TauCeti.Blueprint.VStack.BunCoefficients.localization
 Contract: For qc open U⊂Bun_G the finite HN stratification gives a semiorthogonal decomposition of its lisse category into D_sm(J_b(E),Λ); each stratum piece uses L_b and its restriction adjunction. For arbitrary open U the Spa C-base-change functor is an equivalence, by a justified qc open exhaustion. In torsion coefficients the equivalence holds for any locally closed U as in V.2.3. The infinite stratification is expressed by these compatible exhaustions, not an unspecified infinite direct product.
 Gaps: VStackSheavesAndLisseCategories/G-prototype-VS4
-Direct inputs: VStackSheavesAndLisseCategories:VS4/lisse-stratum-left-adjoint; VStackSheavesAndLisseCategories:VS4/strata-are-classifying-stacks; VStackSheavesAndLisseCategories:VS2/solid-geometric-base-change-and-drinfeld; VStackSheavesAndLisseCategories:VS3/lisse-point-semiorthogonal-decomposition; BunGAndNewtonStrata:BG2:smooth-Artin/bun-g-is-smooth-artin; BunGAndNewtonStrata:BG4/chart-to-bun-g; DiamondSixOperations:S2/lower-shriek; DiamondSixOperations:S2/lower-shriek-base-change; DiamondSixOperations:S2/projection-formula
+Direct inputs: VStackSheavesAndLisseCategories:VS4/lisse-stratum-left-adjoint; VStackSheavesAndLisseCategories:VS4/strata-are-classifying-stacks; VStackSheavesAndLisseCategories:VS2/solid-geometric-base-change; VStackSheavesAndLisseCategories:VS3/lisse-point-semiorthogonal-decomposition; BunGAndNewtonStrata:BG2:smooth-Artin/bun-g-is-smooth-artin; BunGAndNewtonStrata:BG4/chart-to-bun-g; DiamondSixOperations:S2/lower-shriek; DiamondSixOperations:S2/lower-shriek-base-change; DiamondSixOperations:S2/projection-formula
 Source: FS-geometrization, Corollary V.2.3; Proposition VII.7.3, pp.172,273
 -/
 
@@ -1326,7 +1335,7 @@ Packet node: VStackSheavesAndLisseCategories:VS4/strata-are-classifying-stacks
 OMITTED signature: TauCeti.Blueprint.VStack.BunStratum.coefficients
 Contract: Import Bun_G^b≃[*/tildeJ_b] and its split projection to [*/J_b(E)] with positive Banach–Colmez kernel from BG3. Pullback gives D_et(Bun_G^b,Λ)≃D_sm(J_b(E),Λ) for prime-to-p torsion coefficients. For the relative-discrete Z_ell-algebra convention of VS3 the corresponding D_lis equivalences hold, also after base change to Spa C. The connected kernel is retained in the geometry; its sheaf invariance is proved here rather than replacing the nonbasic stack by a locally profinite classifying stack.
 Gaps: VStackSheavesAndLisseCategories/G-prototype-VS4
-Direct inputs: VStackSheavesAndLisseCategories:VS4/classifying-stack-equivalence; VStackSheavesAndLisseCategories:VS4/contractibility-of-connected-banach-colmez-torsors; VStackSheavesAndLisseCategories:VS3/lisse-comparisons; VStackSheavesAndLisseCategories:VS2/solid-geometric-base-change-and-drinfeld; VStackSheavesAndLisseCategories:VS2/relative-solid-homology; BunGAndNewtonStrata:BG3/stratum-is-classifying-stack; BunGAndNewtonStrata:BG3/full-automorphism-v-group; BunGAndNewtonStrata:BG3/positive-automorphism-kernel; SmoothRepresentationsOfLocalGroups:SR.2
+Direct inputs: VStackSheavesAndLisseCategories:VS4/classifying-stack-equivalence; VStackSheavesAndLisseCategories:VS4/contractibility-of-connected-banach-colmez-torsors; VStackSheavesAndLisseCategories:VS3/lisse-comparisons; VStackSheavesAndLisseCategories:VS2/solid-geometric-base-change; VStackSheavesAndLisseCategories:VS2/relative-solid-homology; BunGAndNewtonStrata:BG3/stratum-is-classifying-stack; BunGAndNewtonStrata:BG3/full-automorphism-v-group; BunGAndNewtonStrata:BG3/positive-automorphism-kernel; SmoothRepresentationsOfLocalGroups:SR.2
 Source: FS-geometrization, Proposition V.2.2; Proposition VII.7.1, pp.172,271–272
 -/
 
