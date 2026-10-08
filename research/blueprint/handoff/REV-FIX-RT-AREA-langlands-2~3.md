@@ -2,13 +2,15 @@
 
 ## Blocked continuation, 8 October 2026
 
-Codex session `codex-PS5GOl` claimed issue #5871 after the bot confirmed comment
-[6053655045](https://github.com/CBirkbeck/tauceti-explorer/issues/5871#issuecomment-6053655045).
+Codex session `codex-F7v0hD` claimed issue #5871 after the bot confirmed comment
+[6060152325](https://github.com/CBirkbeck/tauceti-explorer/issues/5871#issuecomment-6060152325).
 The completed review below was already merged in [PR #7265](https://github.com/CBirkbeck/tauceti-explorer/pull/7265)
 on 7 October at 17:29:29 UTC. This continuation changes only this handoff; it does not
 repeat the mathematical review or replace any packet verdict.
 
-The automation blocker is still reproducible at base `58b8deb4a`:
+The automation blocker is still reproducible at base `d0b0c999b4d8f2bd89425ff95e3b0a0b11ba5317`,
+after the previous blocked checkpoint [PR #7346](https://github.com/CBirkbeck/tauceti-explorer/pull/7346)
+merged on 8 October at 06:22:06 UTC:
 
 - `issues.deliverables_complete` returns **true** for the live issue's seven outputs.
 - The same function returns **false** for the committed queue entry's 27 outputs.
@@ -17,11 +19,30 @@ The automation blocker is still reproducible at base `58b8deb4a`:
   fails its requirement that every listed packet name this review job.
 - The three authorized packets already name this review job, dated 7 October:
   CSM and Global are accepted; GL2 needs changes. A negative review verdict counts
-  as a completed review under `issues.py`, lines 561–571.
+  as a completed review under `research/blueprint/issues.py`, lines 561–571.
+
+Re-ran `python3 scripts/check_blueprint.py` on all three authorized packets:
+zero errors and zero warnings for each. Confirmed that none contains an `excerpt`
+field. These are structural checks, not a new mathematical review. No suggested
+file changed, so no new Lean run was needed; the completed review's compilation
+receipts remain below.
 
 The maintainer must reconcile this job's `outputs` in `research/blueprint/queue.json`
 with the seven paths in issue #5871, then let the existing intake/sync process record
-completion. That file is outside this issue's edit scope. Do not expand this review
+completion. The exact authorized output list is:
+
+- `research/blueprint/reviews/REV-FIX-RT-AREA-langlands-2~3.md`
+- `research/blueprint/packets/ClassicalSerreModularity--R27.3.json`
+- `research/blueprint/packets/GL2ModularityLifting--R22.1.json`
+- `research/blueprint/packets/GlobalGaloisDeformations.json`
+- `research/blueprint/suggested/ClassicalSerreModularity--R27.3.lean`
+- `research/blueprint/suggested/GL2ModularityLifting--R22.1.lean`
+- `research/blueprint/suggested/GlobalGaloisDeformations.lean`
+
+After that reconciliation, `deliverables_complete` already has all it needs to
+finish this review; GL2's negative verdict requires its own revision rather than
+continuation of this review. The queue file is outside this issue's edit scope.
+Do not expand this review
 to unrelated packets or overwrite their review objects to satisfy the stale queue.
 Further worker claims cannot resolve this blocker within the authorized deliverables.
 The original completed-review handoff and its next GL2 revision instructions follow.
