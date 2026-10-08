@@ -37954,7 +37954,8 @@
    ],
    "revisionOf": "BP-AutomorphicLFunctionsAndLocalFactors",
    "prompt": "research/blueprint/prompts/BP-AutomorphicLFunctionsAndLocalFactors~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6926"
   },
   {
    "priority": 2,
@@ -38600,8 +38601,9 @@
     "BP-EtaleDualityAndPerverseSheaves--EDC.4~2"
    ],
    "prompt": "research/blueprint/prompts/REV-EtaleDualityAndPerverseSheaves--EDC.4~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7045"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7045",
+   "finishedAt": "2026-10-08T18:53:17Z"
   },
   {
    "kind": "blueprint",
