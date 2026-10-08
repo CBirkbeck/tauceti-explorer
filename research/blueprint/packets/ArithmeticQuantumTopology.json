@@ -188,7 +188,13 @@
         "7.1 Two-variable colored Jones and θ₀ unified Kashaev specialization; the full relative construction is routed to Part II"
       ],
       "accessed": "2026-10-06",
-      "hashOf": "arXiv source download, not the PDF"
+      "hashOf": "arXiv source download, not the PDF",
+      "pdfCheck": {
+        "url": "https://arxiv.org/pdf/math/0605314v1",
+        "sha256": "5fb8b89b432401ea28d10e34d348c5cdebe43cf3ddb95c0475aaee869fa276fc",
+        "read": "2026-10-08",
+        "scope": "Checked the target loci and numbered/page locators cited by this packet; this is a PDF hash, distinct from the retained source-package hash."
+      }
     },
     {
       "id": "neumann2004",
@@ -204,7 +210,13 @@
         "§14 complete finite-volume cusped manifolds, ordered hybrid refinements and Dehn-filling qualification"
       ],
       "accessed": "2026-10-06",
-      "hashOf": "arXiv source download, not the PDF"
+      "hashOf": "arXiv source download, not the PDF",
+      "pdfCheck": {
+        "url": "https://arxiv.org/pdf/math/0307092v2",
+        "sha256": "de2f7ddec49b2ce6ccafd5a9a0be350972ffcf2014a6a3601a6d650df0018650",
+        "read": "2026-10-08",
+        "scope": "Checked the target loci and numbered/page locators cited by this packet; this is a PDF hash, distinct from the retained source-package hash."
+      }
     },
     {
       "id": "habiro-le-unified-simple-lie",
@@ -221,7 +233,13 @@
         "§8.1–8.7 strong Kirby colors and WRT comparison; Appendix C admissibility/Gauss table",
         "Appendices A/B/D consulted at the needed basis/duality proof references; not an assertion that each auxiliary lemma is decomposed."
       ],
-      "hashOf": "arXiv source download, not the PDF"
+      "hashOf": "arXiv source download, not the PDF",
+      "pdfCheck": {
+        "url": "https://arxiv.org/pdf/1503.03549v2",
+        "sha256": "234eae71d85a7b282e9b197ae505edb804d631fe6c33b3d641425de0dc9ae490",
+        "read": "2026-10-08",
+        "scope": "Checked the target loci and numbered/page locators cited by this packet; this is a PDF hash, distinct from the retained source-package hash."
+      }
     },
     {
       "id": "garoufalidis-zagier-quantum-modularity",
@@ -238,7 +256,13 @@
         "§7.1 descendant Habiro elements and recurrence; selected NZ/shape comparison passages",
         "Remaining generic resurgence, summation and new number-field completion machinery is supplier-owned or an explicit non-goal."
       ],
-      "hashOf": "arXiv source download, not the PDF"
+      "hashOf": "arXiv source download, not the PDF",
+      "pdfCheck": {
+        "url": "https://arxiv.org/pdf/2111.06645v3",
+        "sha256": "2a4826bd1c2f0823c99f8e3cccfd835c5044d70d30eb20b36fea38dcb8dd83de",
+        "read": "2026-10-08",
+        "scope": "Checked the target loci and numbered/page locators cited by this packet; this is a PDF hash, distinct from the retained source-package hash."
+      }
     },
     {
       "id": "gsw",
@@ -251,7 +275,13 @@
       "hashOf": "arXiv source download, not the PDF",
       "readSections": [
         "Introduction; §§2–3; geometric invariance route"
-      ]
+      ],
+      "pdfCheck": {
+        "url": "https://arxiv.org/pdf/2305.14884v2",
+        "sha256": "ebc8e64d901c9e4f397ece6170c92d5d65045ef7fbb15d251a268327acf7e1fb",
+        "read": "2026-10-08",
+        "scope": "Checked the target loci and numbered/page locators cited by this packet; this is a PDF hash, distinct from the retained source-package hash."
+      }
     },
     {
       "id": "gswz",
@@ -264,7 +294,13 @@
       "hashOf": "arXiv source download, not the PDF",
       "readSections": [
         "§§1.7–1.8; integral Nahm matrix, NZ bridge, Theorem 5 used through reviewed suppliers"
-      ]
+      ],
+      "pdfCheck": {
+        "url": "https://arxiv.org/pdf/2412.04241v2",
+        "sha256": "308d1dd1c42bd979e5d5c31d9d95215a1808f604031b49c0ce2a1eb767273de9",
+        "read": "2026-10-08",
+        "scope": "Checked the target loci and numbered/page locators cited by this packet; this is a PDF hash, distinct from the retained source-package hash."
+      }
     },
     {
       "id": "ak",
@@ -277,7 +313,13 @@
       "hashOf": "arXiv source download, not the PDF",
       "readSections": [
         "Introduction: shapes, gauges, leveled Pachner equivalence, admissibility, distributional composition, Main and knot Conjecture; §§2–8: reduction, tetrahedral operators, charged pentagon, Fundamental Lemma, gauge, geometric constraints and convergence; selected knot examples and steepest descent; Appendices A–C"
-      ]
+      ],
+      "pdfCheck": {
+        "url": "https://arxiv.org/pdf/1109.6295v2",
+        "sha256": "cbbac2dcec624a2a541fb770f312a5bd2a6051fe79f3ae7cd02a7d19ab9ba24d",
+        "read": "2026-10-08",
+        "scope": "Checked the target loci and numbered/page locators cited by this packet; this is a PDF hash, distinct from the retained source-package hash."
+      }
     },
     {
       "id": "bd",
@@ -290,7 +332,13 @@
       "hashOf": "arXiv source download, not the PDF",
       "readSections": [
         "Introduction and Theorem 1; §2 reciprocal Pochhammer formulas; §3 proof route"
-      ]
+      ],
+      "pdfCheck": {
+        "url": "https://arxiv.org/pdf/1905.02045v2",
+        "sha256": "b4445e018b072843481b6e3756071920ae78e4c5f511c5807c59dabe2ab2be43",
+        "read": "2026-10-08",
+        "scope": "Checked the target loci and numbered/page locators cited by this packet; this is a PDF hash, distinct from the retained source-package hash."
+      }
     },
     {
       "id": "bottom",
@@ -303,7 +351,13 @@
       "hashOf": "arXiv source download, not the PDF",
       "readSections": [
         "Bottom-tangle category, local moves, universal invariant and integral-image results"
-      ]
+      ],
+      "pdfCheck": {
+        "url": "https://arxiv.org/pdf/math/0505219v2",
+        "sha256": "ed52afc409ae4c20186c4fcd2bc286effaf0cd5aaa5a787663592f577f3adfd1",
+        "read": "2026-10-08",
+        "scope": "Checked the target loci and numbered/page locators cited by this packet; this is a PDF hash, distinct from the retained source-package hash."
+      }
     },
     {
       "id": "center",
@@ -316,7 +370,13 @@
       "hashOf": "arXiv source download, not the PDF",
       "readSections": [
         "Integral forms/completions; Theorems labelled thm:27 and thm:38"
-      ]
+      ],
+      "pdfCheck": {
+        "url": "https://arxiv.org/pdf/math/0605313v1",
+        "sha256": "b466d7d47865e3a4e7ef4a7363646cd119ff640785b3ec0423365666ed069c7e",
+        "read": "2026-10-08",
+        "scope": "Checked the target loci and numbered/page locators cited by this packet; this is a PDF hash, distinct from the retained source-package hash."
+      }
     },
     {
       "id": "kirby",
@@ -329,7 +389,13 @@
       "hashOf": "arXiv source download, not the PDF",
       "readSections": [
         "Introduction; Main Lemma; admissible calculus and Hoste corollary proofs"
-      ]
+      ],
+      "pdfCheck": {
+        "url": "https://arxiv.org/pdf/math/0509039v2",
+        "sha256": "d30d9c69b652aa58539d2398f1a8424c968188d94cc2098ee462dd4e53a13416",
+        "read": "2026-10-08",
+        "scope": "Checked the target loci and numbered/page locators cited by this packet; this is a PDF hash, distinct from the retained source-package hash."
+      }
     },
     {
       "id": "murakami",
@@ -342,7 +408,13 @@
       "hashOf": "arXiv source download, not the PDF",
       "readSections": [
         "Colored Jones/Kashaev comparison theorem and normalization"
-      ]
+      ],
+      "pdfCheck": {
+        "url": "https://arxiv.org/pdf/math/9905075v1",
+        "sha256": "1c44f987c72009deae98c9506c8d4f4e487c19488ae3ac51735f422724b1a5da",
+        "read": "2026-10-08",
+        "scope": "Checked the target loci and numbered/page locators cited by this packet; this is a PDF hash, distinct from the retained source-package hash."
+      }
     },
     {
       "id": "wheeler",
@@ -354,8 +426,14 @@
       "sha256": "28db73fb6dc465ded7038fa328aaac410e8858adf5f8648eb19abc7cd7ef7dab",
       "hashOf": "arXiv source download, not the PDF",
       "readSections": [
-        "Introduction/Theorem 1 only, as a Part II routing source"
-      ]
+        "§1.3, Theorem 1.3 and Corollary 1.5, pp. 3–4, knot-specific relative-Habiro routing; the generic relative rings are imported from HabiroRings HR.1/HR.5."
+      ],
+      "pdfCheck": {
+        "url": "https://arxiv.org/pdf/2603.01619v1",
+        "sha256": "5118504bb5d9d4b9bcda509e08ce85f5b29361df5d249b3017c33d56847605c8",
+        "read": "2026-10-08",
+        "scope": "Checked the target loci and numbered/page locators cited by this packet; this is a PDF hash, distinct from the retained source-package hash."
+      }
     },
     {
       "id": "sawin",
@@ -368,7 +446,13 @@
       "hashOf": "arXiv source download, not the PDF",
       "readSections": [
         "Root conventions and alcove; tilting modules; negligible quotient; modularity restrictions"
-      ]
+      ],
+      "pdfCheck": {
+        "url": "https://arxiv.org/pdf/math/0308281v2",
+        "sha256": "c3d929cbbc920627e53dbba011dbc86bf361d4ec6401cf8143ba9fbf0b7556ab",
+        "read": "2026-10-08",
+        "scope": "Checked the target loci and numbered/page locators cited by this packet; this is a PDF hash, distinct from the retained source-package hash."
+      }
     },
     {
       "id": "rt1990",
@@ -380,7 +464,11 @@
       "readSections": [
         "§§2–5; §6.1"
       ],
-      "accessNote": "Published PDF read in browser; no local-file hash asserted."
+      "accessNote": "Published PDF read in browser; no local-file hash asserted.",
+      "locatorCheck": {
+        "read": "2026-10-08",
+        "scope": "Read §§2–5 and §6.1 through the public author PDF; ribbon definitions are in §3.3, p. 7. No downloaded-PDF checksum is asserted."
+      }
     },
     {
       "id": "dg",
@@ -393,7 +481,13 @@
       "accessed": "2026-10-06",
       "readSections": [
         "§§1–3 NZ datum, one-loop and formal perturbation; conventions compared with GSW"
-      ]
+      ],
+      "pdfCheck": {
+        "url": "https://arxiv.org/pdf/1202.6268v2",
+        "sha256": "209af6ae25439050acd32974f2c6eeb4d407661c14b064472346b33807ae019f",
+        "read": "2026-10-08",
+        "scope": "Checked the target loci and numbered/page locators cited by this packet; this is a PDF hash, distinct from the retained source-package hash."
+      }
     },
     {
       "id": "dg2",
@@ -407,10 +501,16 @@
       "readSections": [
         "§1 QMC and volume specialization",
         "§2.1–2.4 root data, one-loop, diagrams",
-        "§2.7 invariance conjecture",
+        "§2.8 invariance conjecture",
         "§3 arithmetic descent and cyclic identities",
         "Published pp. 5–16 corresponding loci collated"
-      ]
+      ],
+      "pdfCheck": {
+        "url": "https://arxiv.org/pdf/1511.05628v1",
+        "sha256": "3b9da2994233882bdb242798fd1a5f85e53f1d0fd66410809de751d056a07d3a",
+        "read": "2026-10-08",
+        "scope": "Checked the target loci and numbered/page locators cited by this packet; this is a PDF hash, distinct from the retained source-package hash."
+      }
     }
   ],
   "nodes": [
@@ -506,8 +606,8 @@
       "sources": [
         {
           "sourceId": "kirby",
-          "locator": "§3.2, Linking matrices",
-          "match": "The quoted fixed-version passage and the stated locator supply framed oriented links and their linking matrix. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
+          "locator": "§2.3, pp. 1290–1291 (PDF pp. 6–7), linking matrices",
+          "match": "This fixed-version locus supplies framed oriented links and their linking matrix. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
         }
       ],
       "implementationStatus": "unchecked",
@@ -596,8 +696,8 @@
       "sources": [
         {
           "sourceId": "habiro2008",
-          "locator": "§10.1",
-          "match": "The quoted fixed-version passage and the stated locator supply surgery on a framed link and the homology of the result. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
+          "locator": "§10.1, pp. 34–35, surgery presentation recalled before Theorem 10.2",
+          "match": "This fixed-version locus supplies surgery on a framed link and the homology of the result. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
         }
       ],
       "implementationStatus": "unchecked",
@@ -680,8 +780,8 @@
       "sources": [
         {
           "sourceId": "kirby",
-          "locator": "§1, admissible links",
-          "match": "The quoted fixed-version passage and the stated locator supply admissible framed links. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
+          "locator": "§1, p. 1286 (PDF p. 2), admissible links",
+          "match": "This fixed-version locus supplies admissible framed links. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
         }
       ],
       "implementationStatus": "unchecked",
@@ -773,8 +873,8 @@
       "sources": [
         {
           "sourceId": "kirby",
-          "locator": "§5, opening paragraph",
-          "match": "The quoted fixed-version passage and the stated locator supply kirby moves and the fenn-rourke move. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
+          "locator": "§5, p. 1309 (PDF p. 25), Kirby and Fenn–Rourke calculus",
+          "match": "This fixed-version locus supplies kirby moves and the fenn-rourke move. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
         }
       ],
       "implementationStatus": "unchecked",
@@ -857,8 +957,8 @@
       "sources": [
         {
           "sourceId": "kirby",
-          "locator": "§5, Hoste move definition and Figure F09",
-          "match": "The quoted fixed-version passage and the stated locator supply hoste moves between admissible links. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
+          "locator": "§5, p. 1309 (PDF p. 25), Hoste moves",
+          "match": "This fixed-version locus supplies hoste moves between admissible links. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
         }
       ],
       "implementationStatus": "unchecked",
@@ -895,8 +995,8 @@
       "sources": [
         {
           "sourceId": "kirby",
-          "locator": "Corollary labelled t2, §5 and its proof",
-          "match": "The quoted fixed-version passage and the stated locator supply refined kirby calculus for admissible links (hoste's conjecture). The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
+          "locator": "Corollary 5.1, §5, pp. 1309–1310 (PDF pp. 25–26)",
+          "match": "This fixed-version locus supplies refined kirby calculus for admissible links (hoste's conjecture). The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
         }
       ],
       "implementationStatus": "unchecked",
@@ -933,8 +1033,8 @@
       "sources": [
         {
           "sourceId": "kirby",
-          "locator": "§1, paragraph immediately before theorem t1",
-          "match": "The quoted fixed-version passage and the stated locator supply every integral homology sphere has an admissible surgery presentation. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
+          "locator": "§1, p. 1286 (PDF p. 2), admissible-presentation existence",
+          "match": "This fixed-version locus supplies every integral homology sphere has an admissible surgery presentation. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1024,8 +1124,8 @@
       "sources": [
         {
           "sourceId": "habiro2008",
-          "locator": "§§2.1–2.6, quantum algebra, integral forms and completions",
-          "match": "The quoted fixed-version passage and the stated locator supply the h-adic quantized enveloping algebra of sl(2) and its integral forms. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
+          "locator": "§§2.1–2.6, pp. 7–11, quantum algebra, integral forms and completions",
+          "match": "This fixed-version locus supplies the h-adic quantized enveloping algebra of sl(2) and its integral forms. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1113,8 +1213,8 @@
       "sources": [
         {
           "sourceId": "habiro2008",
-          "locator": "§3.1, ribbon structure",
-          "match": "The quoted fixed-version passage and the stated locator supply the ribbon structure of u_h(sl(2)). The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
+          "locator": "§3.1, pp. 11–12, ribbon structure",
+          "match": "This fixed-version locus supplies the ribbon structure of u_h(sl(2)). The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1152,8 +1252,8 @@
       "sources": [
         {
           "sourceId": "habiro2008",
-          "locator": "§3.3, integral braided Hopf structure",
-          "match": "The quoted fixed-version passage and the stated locator supply braided hopf algebra structure on the completed even integral form. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
+          "locator": "Theorem 3.1, §3.3, pp. 13–14, integral braided structure",
+          "match": "This fixed-version locus supplies braided hopf algebra structure on the completed even integral form. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1240,8 +1340,8 @@
       "sources": [
         {
           "sourceId": "habiro2008",
-          "locator": "§4.1, bottom tangles",
-          "match": "The quoted fixed-version passage and the stated locator supply bottom tangles and their closure. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
+          "locator": "§4.1, pp. 14–15, bottom tangles and their closure",
+          "match": "This fixed-version locus supplies bottom tangles and their closure. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1333,8 +1433,8 @@
       "sources": [
         {
           "sourceId": "habiro2008",
-          "locator": "§4.2, universal invariant",
-          "match": "The quoted fixed-version passage and the stated locator supply the universal sl(2) invariant of a bottom tangle. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
+          "locator": "§4.2, pp. 15–16, universal invariant",
+          "match": "This fixed-version locus supplies the universal sl(2) invariant of a bottom tangle. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1372,8 +1472,8 @@
       "sources": [
         {
           "sourceId": "habiro2008",
-          "locator": "Theorem 4.1; proof in §4.3, using bottom-tangle braided structure",
-          "match": "The quoted fixed-version passage and the stated locator supply integrality of the universal invariant on 0-framed bottom tangles. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
+          "locator": "Theorem 4.1, p. 16; proof in §4.3, pp. 16–17",
+          "match": "This fixed-version locus supplies integrality of the universal invariant on 0-framed bottom tangles. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1462,8 +1562,8 @@
       "sources": [
         {
           "sourceId": "habiro2008",
-          "locator": "§5.2–5.3 and §6.2",
-          "match": "The quoted fixed-version passage and the stated locator supply coloured jones polynomials from the universal invariant. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
+          "locator": "§§5.2–5.3, pp. 19–20; §6.2, pp. 21–22",
+          "match": "This fixed-version locus supplies coloured jones polynomials from the universal invariant. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1550,8 +1650,8 @@
       "sources": [
         {
           "sourceId": "habiro2008",
-          "locator": "§6.1, definition of P_n and P″_n; §8.1 defines P′ and P̃′",
-          "match": "The quoted fixed-version passage and the stated locator supply the elements p_n and the cyclotomic basis of the representation ring. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
+          "locator": "§6.1, p. 21, P and P″; §8.1, p. 28, P′ and P̃′",
+          "match": "This fixed-version locus supplies the elements p_n and the cyclotomic basis of the representation ring. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1589,8 +1689,8 @@
       "sources": [
         {
           "sourceId": "habiro2008",
-          "locator": "Proposition 6.3 and its proof",
-          "match": "The quoted fixed-version passage and the stated locator supply the quantum trace pairing is dual to the cyclotomic basis. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
+          "locator": "Proposition 6.3, §6.2, p. 21; proof in §6.3, pp. 22–24",
+          "match": "This fixed-version locus supplies the quantum trace pairing is dual to the cyclotomic basis. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1626,8 +1726,8 @@
       "sources": [
         {
           "sourceId": "habiro2008",
-          "locator": "Theorem 6.4 and §6.2",
-          "match": "The quoted fixed-version passage and the stated locator supply cyclotomic expansion of the universal invariant of a bottom knot. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
+          "locator": "Theorem 6.4, §6.2, pp. 21–22",
+          "match": "This fixed-version locus supplies cyclotomic expansion of the universal invariant of a bottom knot. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1718,8 +1818,8 @@
       "sources": [
         {
           "sourceId": "habiro2008",
-          "locator": "§8.1, algebra P and completion",
-          "match": "The quoted fixed-version passage and the stated locator supply the algebra spanned by the cyclotomic elements and its completion. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
+          "locator": "§8.1, p. 28, color algebra and its completion",
+          "match": "This fixed-version locus supplies the algebra spanned by the cyclotomic elements and its completion. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1755,8 +1855,8 @@
       "sources": [
         {
           "sourceId": "habiro2008",
-          "locator": "Theorem 8.2 and Corollary 8.3",
-          "match": "The quoted fixed-version passage and the stated locator supply integrality and divisibility for algebraically split 0-framed links. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
+          "locator": "Theorem 8.2 and Corollary 8.3, §8.2, p. 29",
+          "match": "This fixed-version locus supplies integrality and divisibility for algebraically split 0-framed links. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1791,8 +1891,8 @@
       "sources": [
         {
           "sourceId": "habiro2008",
-          "locator": "Lemma 8.5 and proof in §8.4",
-          "match": "The quoted fixed-version passage and the stated locator supply quantum traces of the integral form in cyclotomic colours are integral. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
+          "locator": "Lemma 8.5, §8.3, p. 29; proof in §8.4, pp. 30–31",
+          "match": "This fixed-version locus supplies quantum traces of the integral form in cyclotomic colours are integral. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1825,8 +1925,8 @@
       "sources": [
         {
           "sourceId": "habiro2008",
-          "locator": "Proposition 6.5, after Theorem 6.4 in §6.2",
-          "match": "The quoted fixed-version passage and the stated locator supply each coloured jones polynomial is determined modulo an explicit ideal by the earlier ones. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
+          "locator": "Proposition 6.5, §6.2, p. 22",
+          "match": "This fixed-version locus supplies each coloured jones polynomial is determined modulo an explicit ideal by the earlier ones. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1915,8 +2015,8 @@
       "sources": [
         {
           "sourceId": "habiro2008",
-          "locator": "§9.1, twist elements; Proposition 9.2 and §9.2 pairing",
-          "match": "The quoted fixed-version passage and the stated locator supply the twist element in the completed cyclotomic algebra. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
+          "locator": "§9.1, Propositions 9.1–9.2, p. 33",
+          "match": "This fixed-version locus supplies the twist element in the completed cyclotomic algebra. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1954,8 +2054,8 @@
       "sources": [
         {
           "sourceId": "habiro2008",
-          "locator": "Theorem 9.4 (label thm:99)",
-          "match": "The quoted fixed-version passage and the stated locator supply twisting theorem: surgery along a unit-framed unknotted component. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
+          "locator": "Theorem 9.4, §9.2, p. 34",
+          "match": "This fixed-version locus supplies twisting theorem: surgery along a unit-framed unknotted component. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2041,8 +2141,8 @@
       "sources": [
         {
           "sourceId": "habiro2008",
-          "locator": "§10.2, definition and Theorem 10.2",
-          "match": "The quoted fixed-version passage and the stated locator supply the unified invariant of an integral homology sphere. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
+          "locator": "§10.2, Theorem 10.2, p. 35",
+          "match": "This fixed-version locus supplies the unified invariant of an integral homology sphere. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2084,8 +2184,8 @@
       "sources": [
         {
           "sourceId": "habiro2008",
-          "locator": "Theorem 10.2 in §10.2; refined calculus recalled in §10.1",
-          "match": "The quoted fixed-version passage and the stated locator supply the unified invariant does not depend on the admissible presentation. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
+          "locator": "Theorem 10.2, §10.2, p. 35; refined calculus in §10.1, pp. 34–35",
+          "match": "This fixed-version locus supplies the unified invariant does not depend on the admissible presentation. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2123,7 +2223,7 @@
       "sources": [
         {
           "sourceId": "habiro2008",
-          "locator": "Lemma 10.3 in §10.3; compare Proposition 12.14 for the stronger result",
+          "locator": "Lemma 10.3, §10.3, p. 36; stronger Proposition 12.14, §12.4.2, p. 44",
           "match": "Lemma 10.3 states precisely the displayed first divisor. Proposition 12.14 adds q⁶−1 using an extra root-value argument."
         }
       ],
@@ -2161,8 +2261,8 @@
       "sources": [
         {
           "sourceId": "habiro2008",
-          "locator": "§12.1, multiplicativity and orientation",
-          "match": "The quoted fixed-version passage and the stated locator supply multiplicativity under connected sum and behaviour under orientation reversal. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
+          "locator": "Proposition 12.1, §12.1, p. 39",
+          "match": "This fixed-version locus supplies multiplicativity under connected sum and behaviour under orientation reversal. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2252,8 +2352,8 @@
       "sources": [
         {
           "sourceId": "habiro2008",
-          "locator": "§11.1, equation e43",
-          "match": "The quoted fixed-version passage and the stated locator supply the witten-reshetikhin-turaev invariant at a root of unity. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
+          "locator": "§11.1, equation (11.2), pp. 36–37",
+          "match": "This fixed-version locus supplies the witten-reshetikhin-turaev invariant at a root of unity. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2292,8 +2392,8 @@
       "sources": [
         {
           "sourceId": "habiro2008",
-          "locator": "Theorem 11.1; proof in §11.3",
-          "match": "The quoted fixed-version passage and the stated locator supply evaluation of the unified invariant at a root of unity. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
+          "locator": "Theorem 11.1, §11.1, p. 36; proof in §11.3, pp. 37–38",
+          "match": "This fixed-version locus supplies evaluation of the unified invariant at a root of unity. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2332,8 +2432,8 @@
       "sources": [
         {
           "sourceId": "habiro2008",
-          "locator": "§1.3, integer and Galois consequences",
-          "match": "The quoted fixed-version passage and the stated locator supply integrality and galois equivariance of the quantum invariants. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
+          "locator": "§1.3, pp. 3–4, integrality and Galois consequences",
+          "match": "This fixed-version locus supplies integrality and galois equivariance of the quantum invariants. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2367,8 +2467,8 @@
       "sources": [
         {
           "sourceId": "habiro2008",
-          "locator": "§12.2, determination theorem and finite-set warning",
-          "match": "The quoted fixed-version passage and the stated locator supply the unified invariant is determined by the family of quantum invariants. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
+          "locator": "Proposition 1.1, §1.2, p. 3; Propositions 12.2–12.3, §12.2, pp. 39–40",
+          "match": "This fixed-version locus supplies the unified invariant is determined by the family of quantum invariants. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2404,8 +2504,8 @@
       "sources": [
         {
           "sourceId": "habiro2008",
-          "locator": "Theorem 12.6, label r52 and preceding definition",
-          "match": "The quoted fixed-version passage and the stated locator supply taylor expansion at q equal to 1 is the ohtsuki series. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
+          "locator": "Theorem 12.6, §12.3.2, p. 41; Casson normalization in §12.4.2, p. 44",
+          "match": "This fixed-version locus supplies taylor expansion at q equal to 1 is the ohtsuki series. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2496,8 +2596,8 @@
       "sources": [
         {
           "sourceId": "neumann2004",
-          "locator": "§3, ideal simplex parameters",
-          "match": "The quoted fixed-version passage and the stated locator supply oriented ideal tetrahedra and their shape parameters. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
+          "locator": "§3, pp. 420–421 (PDF pp. 8–9), ideal simplex parameters",
+          "match": "This fixed-version locus supplies oriented ideal tetrahedra and their shape parameters. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2591,8 +2691,8 @@
       "sources": [
         {
           "sourceId": "gsw",
-          "locator": "§2.3, geometric invariance route",
-          "match": "The quoted fixed-version passage and the stated locator supply gluing and completeness equations of an ideal triangulation. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
+          "locator": "§2.3, pp. 8–9, regular geometric triangulations",
+          "match": "This fixed-version locus supplies gluing and completeness equations of an ideal triangulation. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2675,8 +2775,8 @@
       "sources": [
         {
           "sourceId": "neumann2004",
-          "locator": "Definition flattening and Lemma Cover is flattenings",
-          "match": "The quoted fixed-version passage and the stated locator supply combinatorial flattenings and the extended pre-bloch group. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
+          "locator": "Definition 3.1 and Lemma 3.2, §3, pp. 421–422 (PDF pp. 9–10)",
+          "match": "This fixed-version locus supplies combinatorial flattenings and the extended pre-bloch group. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2710,8 +2810,8 @@
       "sources": [
         {
           "sourceId": "neumann2004",
-          "locator": "Lemma geometric five term and its proof",
-          "match": "The quoted fixed-version passage and the stated locator supply the flattening condition makes a two-three move an instance of the lifted five-term relation. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
+          "locator": "Definition 3.3 and Lemma 3.4, §3, pp. 423–424 (PDF pp. 11–12)",
+          "match": "This fixed-version locus supplies the flattening condition makes a two-three move an instance of the lifted five-term relation. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2795,8 +2895,8 @@
       "sources": [
         {
           "sourceId": "neumann2004",
-          "locator": "Theorems beta exists and th:general hyperbolic",
-          "match": "The quoted fixed-version passage and the stated locator supply the extended bloch element of a hyperbolic 3-manifold. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
+          "locator": "Theorems 4.5–4.6, §4.2, p. 429 (PDF p. 17); Theorem 14.2, p. 465 (PDF p. 53)",
+          "match": "This fixed-version locus supplies the extended bloch element of a hyperbolic 3-manifold. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2833,8 +2933,8 @@
       "sources": [
         {
           "sourceId": "neumann2004",
-          "locator": "Theorem 2.6; §12 Cheeger–Chern–Simons comparison; Theorem 14.2 for complete finite-volume manifolds",
-          "match": "The quoted fixed-version passage and the stated locator supply the rogers dilogarithm computes volume and chern-simons. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
+          "locator": "Theorem 2.6, p. 420 (PDF p. 8); §12, Theorem 12.1, p. 459 (PDF p. 47); Theorem 14.2, p. 465 (PDF p. 53)",
+          "match": "This fixed-version locus supplies the rogers dilogarithm computes volume and chern-simons. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2873,8 +2973,8 @@
       "sources": [
         {
           "sourceId": "habiro-le-unified-simple-lie",
-          "locator": "§§2.1–2.3, completed tensor products, topological Hopf and ribbon algebras",
-          "match": "The quoted fixed-version passage and the stated locator supply ribbon hopf algebras over a formal power series ring, and the category they present. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
+          "locator": "§§2.1–2.3, pp. 12–16; ribbon axioms in §2.2, pp. 14–15",
+          "match": "This fixed-version locus supplies ribbon hopf algebras over a formal power series ring, and the category they present. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2971,8 +3071,8 @@
       "sources": [
         {
           "sourceId": "habiro-le-unified-simple-lie",
-          "locator": "§§2.14–2.16, clasp forms, core subalgebras and twist forms",
-          "match": "The quoted fixed-version passage and the stated locator supply the abstract data that turns a ribbon hopf algebra into an invariant of homology spheres. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
+          "locator": "§§2.14–2.16, pp. 28–35, core and twist systems",
+          "match": "This fixed-version locus supplies the abstract data that turns a ribbon hopf algebra into an invariant of homology spheres. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3056,8 +3156,8 @@
       "sources": [
         {
           "sourceId": "sawin",
-          "locator": "§6, negligible quotient morphism relation; §4 tilting alcoves",
-          "match": "The quoted fixed-version passage and the stated locator supply what specialising at a root of unity does and does not give. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
+          "locator": "§4, pp. 18–22, tilting modules; §6, Theorem 5, pp. 24–26, negligible quotient",
+          "match": "This fixed-version locus supplies what specialising at a root of unity does and does not give. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3093,8 +3193,8 @@
       "sources": [
         {
           "sourceId": "habiro2008",
-          "locator": "§6.2, finite color trace formula",
-          "match": "The quoted fixed-version passage and the stated locator supply finite truncations, integrality of coefficients, and the order of operations. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
+          "locator": "§6.2, pp. 21–22, finite color traces",
+          "match": "This fixed-version locus supplies finite truncations, integrality of coefficients, and the order of operations. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3178,8 +3278,8 @@
       "sources": [
         {
           "sourceId": "habiro2008",
-          "locator": "§§6.2 and 8.2",
-          "match": "The quoted fixed-version passage and the stated locator supply what a cyclotomic expansion is not. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
+          "locator": "§6.2, pp. 21–22; §8.2, p. 29",
+          "match": "This fixed-version locus supplies what a cyclotomic expansion is not. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3214,7 +3314,7 @@
       "sources": [
         {
           "sourceId": "habiro2008",
-          "locator": "§16.4, generalization to rational homology spheres",
+          "locator": "§16.3, pp. 62–63, rational homology spheres",
           "match": "This paragraph discusses extensions with changed completion/coefficient targets; §10.3 only discusses the IHS formula."
         }
       ],
@@ -3252,8 +3352,8 @@
       "sources": [
         {
           "sourceId": "habiro-le-unified-simple-lie",
-          "locator": "§8, evaluation theorem labelled thm030",
-          "match": "The quoted fixed-version passage and the stated locator supply the same theorem for every simple lie algebra, with the restrictions it carries. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
+          "locator": "Theorem 8.1, §8.1, p. 90; Theorem 8.8, §8.5, p. 94",
+          "match": "This fixed-version locus supplies the same theorem for every simple lie algebra, with the restrictions it carries. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3291,8 +3391,8 @@
       "sources": [
         {
           "sourceId": "habiro2008",
-          "locator": "§1.2, comparison of integral and rational completions",
-          "match": "The quoted fixed-version passage and the stated locator supply why the determination theorems do not transfer to other completions. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
+          "locator": "§1.2, pp. 2–3, integral cyclotomic completion",
+          "match": "This fixed-version locus supplies why the determination theorems do not transfer to other completions. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3328,8 +3428,8 @@
       "sources": [
         {
           "sourceId": "neumann2004",
-          "locator": "§14, cusps and Dehn-filling triangulations",
-          "match": "The quoted fixed-version passage and the stated locator supply the four proof obligations between a knot diagram and a number-field bloch class. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
+          "locator": "§14, pp. 464–465 (PDF pp. 52–53), complete cusped geometry and fillings",
+          "match": "This fixed-version locus supplies the four proof obligations between a knot diagram and a number-field bloch class. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3365,12 +3465,12 @@
       "sources": [
         {
           "sourceId": "garoufalidis-zagier-quantum-modularity",
-          "locator": "§1, definition preceding (QMCa)",
-          "match": "The quoted fixed-version passage and the stated locator supply the kashaev invariant, its identification with a colored jones evaluation, and the periodic function it defines. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
+          "locator": "§1, equations (1.1)–(1.2), p. 9, and rational extension on p. 10",
+          "match": "This fixed-version locus supplies the kashaev invariant, its identification with a colored jones evaluation, and the periodic function it defines. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
         },
         {
           "sourceId": "murakami",
-          "locator": "§4, final comparison theorem",
+          "locator": "Theorem 4.9, §4, p. 15",
           "match": "The final theorem directly compares Kashaev and colored Jones; the earlier Alexander=Jones theorem compares ADO instead."
         }
       ],
@@ -3467,8 +3567,8 @@
       "sources": [
         {
           "sourceId": "garoufalidis-zagier-quantum-modularity",
-          "locator": "§1, equations as41 and as52",
-          "match": "The quoted fixed-version passage and the stated locator supply the conjectural asymptotic expansion, its normalisation, and the field its coefficients lie in. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
+          "locator": "§1, equations (1.3)–(1.4), p. 10; §2.2, pp. 12–14",
+          "match": "This fixed-version locus supplies the conjectural asymptotic expansion, its normalisation, and the field its coefficients lie in. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3492,7 +3592,7 @@
       ],
       "acceptance": [
         "Both export points are named.",
-        "The quoted status of the second is recorded.",
+        "The source status of the second is recorded.",
         "The two prohibitions are checkable."
       ],
       "prerequisites": [
@@ -3506,8 +3606,8 @@
       "sources": [
         {
           "sourceId": "garoufalidis-zagier-quantum-modularity",
-          "locator": "§7.1, explicit ordinary Habiro descendants",
-          "match": "The quoted fixed-version passage and the stated locator supply the comparisons with the habiro ring that are actually proved, and the ones that are not. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
+          "locator": "§7.1, pp. 52–56, descendant Habiro-like functions",
+          "match": "This fixed-version locus supplies the comparisons with the habiro ring that are actually proved, and the ones that are not. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3542,8 +3642,8 @@
       "sources": [
         {
           "sourceId": "gsw",
-          "locator": "Introduction, scope of the formal invariance theorem",
-          "match": "The quoted fixed-version passage and the stated locator supply what a formal expansion establishes and what it does not. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
+          "locator": "§1, pp. 2–5; Theorem 1.1, p. 4",
+          "match": "This fixed-version locus supplies what a formal expansion establishes and what it does not. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3578,8 +3678,8 @@
       "sources": [
         {
           "sourceId": "garoufalidis-zagier-quantum-modularity",
-          "locator": "§1, equations QMCa and QMCb",
-          "match": "The quoted fixed-version passage and the stated locator supply the conjecture, with its exact normalisation and its domain. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
+          "locator": "§1, equations (1.5)–(1.6), pp. 10–11",
+          "match": "This fixed-version locus supplies the conjecture, with its exact normalisation and its domain. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3616,8 +3716,8 @@
       "sources": [
         {
           "sourceId": "garoufalidis-zagier-quantum-modularity",
-          "locator": "§1, figure-eight and 5₂ expansions (as41, as52); selected theorem statuses are cited in their producing nodes",
-          "match": "The quoted fixed-version passage and the stated locator supply a reproducible ledger linking the four kinds of data, for two knots. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
+          "locator": "§1, equations (1.3)–(1.4), p. 10; producing nodes cite the selected proved cases",
+          "match": "This fixed-version locus supplies a reproducible ledger linking the four kinds of data, for two knots. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3710,8 +3810,8 @@
       "sources": [
         {
           "sourceId": "habiro2008",
-          "locator": "§7.1, two-variable invariant routed as Part II",
-          "match": "The quoted fixed-version passage and the stated locator supply the labelling discipline, and what the suggested lean file contains. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
+          "locator": "§7.1, pp. 24–26, two-variable invariant and unified Kashaev specialization",
+          "match": "This fixed-version locus supplies the labelling discipline, and what the suggested lean file contains. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3743,8 +3843,8 @@
       "sources": [
         {
           "sourceId": "kirby",
-          "locator": "Theorem t1, Main Lemma r10 and §4 proof",
-          "match": "The quoted fixed-version passage and the stated locator supply admissible band-slide theorem. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
+          "locator": "Theorem 1.1, §1, p. 1287 (PDF p. 3); Main Lemma, Theorem 2.1, §2.2, p. 1290 (PDF p. 6); proof in §4, pp. 1300–1309 (PDF pp. 16–25)",
+          "match": "This fixed-version locus supplies admissible band-slide theorem. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3783,12 +3883,12 @@
       "sources": [
         {
           "sourceId": "habiro2008",
-          "locator": "§§3.1 and 5.2, module ribbon data",
-          "match": "The quoted fixed-version passage and the stated locator supply ribbon category. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
+          "locator": "§3.1, pp. 11–12; §5.2, pp. 19–20",
+          "match": "This fixed-version locus supplies ribbon category. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
         },
         {
           "sourceId": "rt1990",
-          "locator": "§§2.1–2.2; §§3.1–3.2; Theorem 5.1",
+          "locator": "§§2.1–2.2, pp. 2–4; §§3.1–3.3, pp. 4–7; Theorem 5.1, pp. 12–13",
           "match": "Published theorem 5.1 specifies the colored ribbon-graph functor; categorical compatibility uses the definitions in §§2–3."
         }
       ],
@@ -3877,12 +3977,12 @@
       "sources": [
         {
           "sourceId": "habiro2008",
-          "locator": "§5.2, categorical colored Jones definition",
-          "match": "The quoted fixed-version passage and the stated locator supply reshetikhin–turaev functor. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
+          "locator": "§5.2, pp. 19–20",
+          "match": "This fixed-version locus supplies reshetikhin–turaev functor. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
         },
         {
           "sourceId": "rt1990",
-          "locator": "§§2.1–2.2; §§3.1–3.2; Theorem 5.1",
+          "locator": "Theorem 5.1, §5.1, pp. 12–13; proof in §5.4, pp. 15–16; ribbon structure in §3.3, p. 7",
           "match": "Published theorem 5.1 specifies the colored ribbon-graph functor; categorical compatibility uses the definitions in §§2–3."
         }
       ],
@@ -3970,8 +4070,8 @@
       "sources": [
         {
           "sourceId": "sawin",
-          "locator": "§6, negligible quotient morphism relation; §4 tilting alcoves",
-          "match": "The quoted fixed-version passage and the stated locator supply tilting semisimplification. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
+          "locator": "§4, pp. 18–22; §6, Theorem 5, pp. 24–26",
+          "match": "This fixed-version locus supplies tilting semisimplification. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4056,8 +4156,8 @@
       "sources": [
         {
           "sourceId": "habiro-le-unified-simple-lie",
-          "locator": "§3.1–3.4, quantum groups and integral forms",
-          "match": "The quoted fixed-version passage and the stated locator supply drinfeld–jimbo algebra. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
+          "locator": "§§3.1–3.4, pp. 36–40, quantum presentations, gradings and triangular forms",
+          "match": "This fixed-version locus supplies drinfeld–jimbo algebra. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4136,8 +4236,8 @@
       "sources": [
         {
           "sourceId": "habiro-le-unified-simple-lie",
-          "locator": "§§4–5, h-adic and integral core construction",
-          "match": "The quoted fixed-version passage and the stated locator supply integral core subalgebra. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
+          "locator": "§§4–5, pp. 46–67, h-adic and integral cores",
+          "match": "This fixed-version locus supplies integral core subalgebra. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4224,8 +4324,8 @@
       "sources": [
         {
           "sourceId": "habiro2008",
-          "locator": "§§5.1,5.3–5.4",
-          "match": "The quoted fixed-version passage and the stated locator supply finite free sl₂ colors. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
+          "locator": "§5.1, p. 18; §§5.3–5.4, pp. 19–20",
+          "match": "This fixed-version locus supplies finite free sl₂ colors. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4316,8 +4416,8 @@
       "sources": [
         {
           "sourceId": "center",
-          "locator": "Theorem thm:38, even q-form center",
-          "match": "The quoted fixed-version passage and the stated locator supply completed even center. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
+          "locator": "Theorem 11.2, §11, p. 31, even q-form center",
+          "match": "This fixed-version locus supplies completed even center. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4396,8 +4496,8 @@
       "sources": [
         {
           "sourceId": "habiro2008",
-          "locator": "§5.2 and §6.2; comparison to RT §6.1",
-          "match": "The quoted fixed-version passage and the stated locator supply jones normalization comparison. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
+          "locator": "§5.2, pp. 19–20; §6.2, pp. 21–22; RT §6.1, p. 17",
+          "match": "This fixed-version locus supplies jones normalization comparison. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4433,8 +4533,8 @@
       "sources": [
         {
           "sourceId": "habiro2008",
-          "locator": "§11.1, Kirby color and nonzero unknot values",
-          "match": "The quoted fixed-version passage and the stated locator supply sl₂ kirby color. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
+          "locator": "§11.1, pp. 36–37, colors and nonzero unknot normalizations",
+          "match": "This fixed-version locus supplies sl₂ kirby color. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4505,8 +4605,8 @@
       "sources": [
         {
           "sourceId": "habiro2008",
-          "locator": "Lemma 12.7, label lem:8",
-          "match": "The quoted fixed-version passage and the stated locator supply ohtsuki characterization. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
+          "locator": "Lemma 12.7, §12.3.2, p. 42",
+          "match": "This fixed-version locus supplies ohtsuki characterization. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4544,8 +4644,8 @@
       "sources": [
         {
           "sourceId": "habiro-le-unified-simple-lie",
-          "locator": "§7.1–7.3, K_n and AL1/AL2",
-          "match": "The quoted fixed-version passage and the stated locator supply integral core filtration. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
+          "locator": "§§7.1–7.3, pp. 75–77; Proposition 7.1 and Theorem 7.3",
+          "match": "This fixed-version locus supplies integral core filtration. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4627,8 +4727,8 @@
       "sources": [
         {
           "sourceId": "habiro-le-unified-simple-lie",
-          "locator": "§6.1–6.3, noncommutative grading",
-          "match": "The quoted fixed-version passage and the stated locator supply quantum parity grading. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
+          "locator": "§§6.1–6.3, pp. 68–70, noncommutative grading",
+          "match": "This fixed-version locus supplies quantum parity grading. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4704,8 +4804,8 @@
       "sources": [
         {
           "sourceId": "habiro-le-unified-simple-lie",
-          "locator": "§8.4, strong Kirby colors; §8.5 comparison and Appendix C Gauss sums",
-          "match": "The quoted fixed-version passage and the stated locator supply strong kirby colors. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
+          "locator": "§§8.4–8.5, pp. 92–94; Appendix C, pp. 112–117, with E5 correction",
+          "match": "This fixed-version locus supplies strong kirby colors. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4786,8 +4886,8 @@
       "sources": [
         {
           "sourceId": "habiro-le-unified-simple-lie",
-          "locator": "§8, evaluation theorem labelled thm030",
-          "match": "The quoted fixed-version passage and the stated locator supply general lie-type wrt comparison. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
+          "locator": "Theorem 8.8, §8.5, p. 94; comparison to Theorem 8.1, p. 90",
+          "match": "This fixed-version locus supplies general lie-type wrt comparison. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4821,8 +4921,8 @@
       "sources": [
         {
           "sourceId": "neumann2004",
-          "locator": "Definition 2.2, lifted five-term and transfer relation",
-          "match": "The quoted fixed-version passage and the stated locator supply extended pre-bloch group. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
+          "locator": "Definition 2.2, §2, pp. 417–418 (PDF pp. 5–6)",
+          "match": "This fixed-version locus supplies extended pre-bloch group. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4909,8 +5009,8 @@
       "sources": [
         {
           "sourceId": "neumann2004",
-          "locator": "Lemma le:dehn and following definition",
-          "match": "The quoted fixed-version passage and the stated locator supply extended bloch group. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
+          "locator": "Lemma 2.3 and Definition 2.4, §2, p. 418 (PDF p. 6)",
+          "match": "This fixed-version locus supplies extended bloch group. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4992,8 +5092,8 @@
       "sources": [
         {
           "sourceId": "neumann2004",
-          "locator": "Definition def:flattening; theorem flattening exists; theorem th:general hyperbolic",
-          "match": "The quoted fixed-version passage and the stated locator supply strong flattening theorem. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
+          "locator": "Definition 4.4 and Theorem 4.5, §4.2, p. 429 (PDF p. 17); Theorem 14.2, p. 465 (PDF p. 53)",
+          "match": "This fixed-version locus supplies strong flattening theorem. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
         }
       ],
       "implementationStatus": "unchecked",
@@ -5072,8 +5172,8 @@
       "sources": [
         {
           "sourceId": "neumann2004",
-          "locator": "Proposition R and preceding formula",
-          "match": "The quoted fixed-version passage and the stated locator supply extended rogers regulator. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
+          "locator": "Proposition 2.5, §2, pp. 419–420 (PDF pp. 7–8)",
+          "match": "This fixed-version locus supplies extended rogers regulator. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
         }
       ],
       "implementationStatus": "unchecked",
@@ -5151,8 +5251,8 @@
       "sources": [
         {
           "sourceId": "neumann2004",
-          "locator": "§§15–16, manifold examples and other fields",
-          "match": "The quoted fixed-version passage and the stated locator supply geometric number-field bloch class. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
+          "locator": "§15, pp. 470–471 (PDF pp. 58–59); §16, p. 472 (PDF p. 60)",
+          "match": "This fixed-version locus supplies geometric number-field bloch class. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
         }
       ],
       "implementationStatus": "unchecked",
@@ -5187,12 +5287,12 @@
       "sources": [
         {
           "sourceId": "gsw",
-          "locator": "§2.1–2.2, NZ datum and equations lambda/Phidef",
-          "match": "The quoted fixed-version passage and the stated locator supply neumann–zagier datum. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
+          "locator": "§§2.1–2.2, pp. 5–8, NZ matrices and formal series",
+          "match": "This fixed-version locus supplies neumann–zagier datum. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
         },
         {
           "sourceId": "dg",
-          "locator": "§1.2 and §2, Neumann–Zagier datum",
+          "locator": "§1.2, pp. 4–5; §§2.1–2.3, pp. 11–13",
           "match": "DG defines the geometric datum and one-loop normalization underlying the root construction; the GSW notation is retained in the formal unit-series node."
         }
       ],
@@ -5281,8 +5381,8 @@
       "sources": [
         {
           "sourceId": "gsw",
-          "locator": "Equations psih, integrand, lambda and Phidef",
-          "match": "The quoted fixed-version passage and the stated locator supply formal nz state integral. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
+          "locator": "§§2.1–2.2, pp. 5–8, equations (2.1)–(2.6); Gaussian evaluation in §3.1, pp. 9–10",
+          "match": "This fixed-version locus supplies formal nz state integral. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
         }
       ],
       "implementationStatus": "unchecked",
@@ -5373,8 +5473,8 @@
       "sources": [
         {
           "sourceId": "gsw",
-          "locator": "Theorem 1.1; §2.3 and formal move proofs",
-          "match": "The quoted fixed-version passage and the stated locator supply formal state-integral invariance. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
+          "locator": "Theorem 1.1, p. 4; §2.3, pp. 8–9; quad and Pachner proofs in §§5–6, pp. 19–38",
+          "match": "This fixed-version locus supplies formal state-integral invariance. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
         }
       ],
       "implementationStatus": "unchecked",
@@ -5411,8 +5511,8 @@
       "sources": [
         {
           "sourceId": "gswz",
-          "locator": "§1.8, NZ-to-Nahm matrix and figure-eight example",
-          "match": "The quoted fixed-version passage and the stated locator supply nz–nahm comparison. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
+          "locator": "§1.8, pp. 15–17, NZ-to-Nahm comparison and figure-eight example",
+          "match": "This fixed-version locus supplies nz–nahm comparison. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
         }
       ],
       "implementationStatus": "unchecked",
@@ -5449,8 +5549,8 @@
       "sources": [
         {
           "sourceId": "gswz",
-          "locator": "§1.7–1.8, module-membership theorem",
-          "match": "The quoted fixed-version passage and the stated locator supply topological habiro-module comparison. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
+          "locator": "Theorem 5, §1.7, p. 14; §1.8, pp. 15–17",
+          "match": "This fixed-version locus supplies topological habiro-module comparison. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
         }
       ],
       "implementationStatus": "unchecked",
@@ -5485,8 +5585,8 @@
       "sources": [
         {
           "sourceId": "ak",
-          "locator": "Appendix A, defining integral above w=0",
-          "match": "The quoted fixed-version passage and the stated locator supply faddeev quantum dilogarithm. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
+          "locator": "Definition 15, §1.7, p. 9; Appendix A, §13, pp. 34–37",
+          "match": "This fixed-version locus supplies faddeev quantum dilogarithm. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
         }
       ],
       "implementationStatus": "unchecked",
@@ -5565,8 +5665,8 @@
       "sources": [
         {
           "sourceId": "ak",
-          "locator": "Appendix A, eq:inversion and eq:shift",
-          "match": "The quoted fixed-version passage and the stated locator supply faddeev functional equations. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
+          "locator": "Appendix A, §13, equations (47)–(49), pp. 34–35",
+          "match": "This fixed-version locus supplies faddeev functional equations. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
         }
       ],
       "implementationStatus": "unchecked",
@@ -5598,8 +5698,8 @@
       "sources": [
         {
           "sourceId": "ak",
-          "locator": "Appendix A, pentagon equation",
-          "match": "The quoted fixed-version passage and the stated locator supply faddeev operator pentagon. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
+          "locator": "Appendix A, §13, equation (50), p. 35",
+          "match": "This fixed-version locus supplies faddeev operator pentagon. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
         }
       ],
       "implementationStatus": "unchecked",
@@ -5638,8 +5738,8 @@
       "sources": [
         {
           "sourceId": "ak",
-          "locator": "§11 knot formulas and §12 steepest-descent definition",
-          "match": "The quoted fixed-version passage and the stated locator supply selected analytic state integrals. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
+          "locator": "§§11.4–11.7, pp. 28–32; §12, pp. 32–34",
+          "match": "This fixed-version locus supplies selected analytic state integrals. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
         }
       ],
       "implementationStatus": "unchecked",
@@ -5720,8 +5820,8 @@
       "sources": [
         {
           "sourceId": "ak",
-          "locator": "Theorem th:4-1--5-2 and §12 final limit",
-          "match": "The quoted fixed-version passage and the stated locator supply selected state-integral volume theorem. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
+          "locator": "Theorem 5, §1.9, p. 11; §12, pp. 32–34, with E8/E9 boundaries",
+          "match": "This fixed-version locus supplies selected state-integral volume theorem. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
         }
       ],
       "implementationStatus": "unchecked",
@@ -5759,8 +5859,8 @@
       "sources": [
         {
           "sourceId": "garoufalidis-zagier-quantum-modularity",
-          "locator": "§§2.1–2.2 and 3.1, index and weights",
-          "match": "The quoted fixed-version passage and the stated locator supply representation-indexed knot series. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
+          "locator": "§§2.1–2.2, pp. 11–15; §3.1, pp. 15–16",
+          "match": "This fixed-version locus supplies representation-indexed knot series. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
         }
       ],
       "implementationStatus": "unchecked",
@@ -5852,8 +5952,8 @@
       "sources": [
         {
           "sourceId": "garoufalidis-zagier-quantum-modularity",
-          "locator": "Equation tweakdef and Lemma lem.lambda",
-          "match": "The quoted fixed-version passage and the stated locator supply denominator cocycle. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
+          "locator": "§3.1, equation (3.5) and Lemma 3.1, p. 16; use E11 correction",
+          "match": "This fixed-version locus supplies denominator cocycle. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
         }
       ],
       "implementationStatus": "unchecked",
@@ -5942,8 +6042,8 @@
       "sources": [
         {
           "sourceId": "garoufalidis-zagier-quantum-modularity",
-          "locator": "§3.1, equation GQMC",
-          "match": "The quoted fixed-version passage and the stated locator supply generalized quantum modularity. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
+          "locator": "§3.1, equation (3.6), p. 16",
+          "match": "This fixed-version locus supplies generalized quantum modularity. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
         }
       ],
       "implementationStatus": "unchecked",
@@ -5976,8 +6076,8 @@
       "sources": [
         {
           "sourceId": "garoufalidis-zagier-quantum-modularity",
-          "locator": "Equations GQMChh and GQMChhh",
-          "match": "The quoted fixed-version passage and the stated locator supply lift to knot power series. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
+          "locator": "§3.2, equations (3.9)–(3.10), pp. 17–18",
+          "match": "This fixed-version locus supplies lift to knot power series. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
         }
       ],
       "implementationStatus": "unchecked",
@@ -6008,8 +6108,8 @@
       "sources": [
         {
           "sourceId": "garoufalidis-zagier-quantum-modularity",
-          "locator": "§3.3, equation quadrel",
-          "match": "The quoted fixed-version passage and the stated locator supply quadratic relations of knot series. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
+          "locator": "§3.3, equations (3.11)–(3.14), pp. 18–20",
+          "match": "This fixed-version locus supplies quadratic relations of knot series. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
         }
       ],
       "implementationStatus": "unchecked",
@@ -6041,8 +6141,8 @@
       "sources": [
         {
           "sourceId": "garoufalidis-zagier-quantum-modularity",
-          "locator": "§3.4, AnFirst and CoeffAsymp",
-          "match": "The quoted fixed-version passage and the stated locator supply knot coefficient asymptotics. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
+          "locator": "§3.4, equations (3.16)–(3.18), pp. 20–22; E12 records the phase discrepancy",
+          "match": "This fixed-version locus supplies knot coefficient asymptotics. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
         }
       ],
       "implementationStatus": "unchecked",
@@ -6075,8 +6175,8 @@
       "sources": [
         {
           "sourceId": "garoufalidis-zagier-quantum-modularity",
-          "locator": "§4.5, MatQMC and autofactor",
-          "match": "The quoted fixed-version passage and the stated locator supply matrix refined quantum modularity. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
+          "locator": "§4.5, equations (4.12)–(4.14), pp. 28–30; E13 records the weight discrepancy",
+          "match": "This fixed-version locus supplies matrix refined quantum modularity. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
         }
       ],
       "implementationStatus": "unchecked",
@@ -6111,8 +6211,8 @@
       "sources": [
         {
           "sourceId": "garoufalidis-zagier-quantum-modularity",
-          "locator": "§5, equations Wdef and cocycle",
-          "match": "The quoted fixed-version passage and the stated locator supply knot matrix cocycle. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
+          "locator": "§5.1, equations (5.1)–(5.3), pp. 31–33",
+          "match": "This fixed-version locus supplies knot matrix cocycle. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
         }
       ],
       "implementationStatus": "unchecked",
@@ -6190,8 +6290,8 @@
       "sources": [
         {
           "sourceId": "garoufalidis-zagier-quantum-modularity",
-          "locator": "§§5–6, extension conjecture and WRQMC",
-          "match": "The quoted fixed-version passage and the stated locator supply analytic extension of the knot cocycle. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
+          "locator": "§5.2, Conjecture 5.1 and conditional Proposition 5.2, pp. 34–37; §5.4, pp. 40–42; both cut planes specified on p. 7",
+          "match": "This fixed-version locus supplies analytic extension of the knot cocycle. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
         }
       ],
       "implementationStatus": "unchecked",
@@ -6228,8 +6328,8 @@
       "sources": [
         {
           "sourceId": "garoufalidis-zagier-quantum-modularity",
-          "locator": "§7.1, qHol41, rec41 and 41holonomy0",
-          "match": "The quoted fixed-version passage and the stated locator supply figure-eight habiro descendants. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
+          "locator": "§7.1, pp. 52–56, descendant sums and recurrence",
+          "match": "This fixed-version locus supplies figure-eight habiro descendants. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
         }
       ],
       "implementationStatus": "unchecked",
@@ -6326,8 +6426,8 @@
       "sources": [
         {
           "sourceId": "bd",
-          "locator": "Theorem 1 and its conjecture/normalization; §2–3 proof",
-          "match": "The quoted fixed-version passage and the stated locator supply proved quantum modularity cases. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
+          "locator": "Theorem 1, §1, p. 2; reciprocal Pochhammer and knot proofs in §§2–3, pp. 8–30",
+          "match": "This fixed-version locus supplies proved quantum modularity cases. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
         }
       ],
       "implementationStatus": "unchecked",
@@ -6363,7 +6463,7 @@
       "sources": [
         {
           "sourceId": "ak",
-          "locator": "Introduction: shape, weight, balanced, gaugeeq, 3-2PM and admissibility",
+          "locator": "Definitions 1–11, §§1.2–1.6, pp. 2–8",
           "match": "This is the homological admissibility condition of the AK construction; the surrounding definitions fix shapes, levels and allowed moves."
         }
       ],
@@ -6448,7 +6548,7 @@
       "sources": [
         {
           "sourceId": "ak",
-          "locator": "§Charged tetrahedral operators: charged-T and its kernel/Fourier identities",
+          "locator": "§4, pp. 15–16, charged kernels and Fourier identities",
           "match": "The displayed distributional kernel and the following Fourier identity specify the charged tetrahedron, including its phase."
         }
       ],
@@ -6527,7 +6627,7 @@
       "sources": [
         {
           "sourceId": "ak",
-          "locator": "§Charged Pentagon identity, eq:charged-pentagon and pentagonconditions",
+          "locator": "Proposition 2, §5, pp. 16–17",
           "match": "The source gives the exact charged operator ordering and phase, with the five displayed charge equations."
         }
       ],
@@ -6564,7 +6664,7 @@
       "sources": [
         {
           "sourceId": "ak",
-          "locator": "Introduction, distributional composition wftrans and Theorem Main, fh",
+          "locator": "Theorem 4, §1.7, pp. 9–10; Appendix B, §14, pp. 37–39",
           "match": "The level-normalized distribution-valued invariant is stated here; the preceding composition definition retains wavefront and extension hypotheses."
         }
       ],
@@ -6645,7 +6745,7 @@
       "sources": [
         {
           "sourceId": "ak",
-          "locator": "Theorem Main and §Convergence, Theorem convergence and concluding proof",
+          "locator": "Theorem 4, §1.7, pp. 9–10; Theorem 7 and proof of Theorem 4, §10, pp. 24–25",
           "match": "This is the source convergence statement. Its proof uses the H₂ condition to exclude the forbidden wavefront product; Main adds the level-normalized invariance."
         }
       ],
@@ -6680,7 +6780,7 @@
       "sources": [
         {
           "sourceId": "ak",
-          "locator": "Introduction Conjecture conj, parts (1)–(3), and Theorem th:4-1--5-2",
+          "locator": "Conjecture 1 and Theorem 5, §1.9, p. 11",
           "match": "The AK general knot comparison and negative decay-volume limit are conjectural; the following theorem supplies exactly the two stated knot cases."
         }
       ],
@@ -6713,13 +6813,13 @@
       "sources": [
         {
           "sourceId": "ak",
-          "locator": "Introduction, remark after Conjecture conj",
+          "locator": "§1.9, p. 11, volume-conjecture qualification following Conjecture 1",
           "match": "This source explicitly distinguishes its decay conjecture from the usual Kashaev growth conjecture; the GZ QMC source supplies the S specialization."
         },
         {
           "sourceId": "garoufalidis-zagier-quantum-modularity",
-          "locator": "§1, equations QMCa and QMCb",
-          "match": "The quoted fixed-version passage and the stated locator supply the conjecture, with its exact normalisation and its domain. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
+          "locator": "§1, equations (1.1), (1.5)–(1.6), pp. 9–11",
+          "match": "This fixed-version locus supplies the conjecture, with its exact normalisation and its domain. The node states the conventions and any extra hypotheses explicitly; its proofSteps give the source-to-interface route."
         }
       ],
       "implementationStatus": "unchecked",
@@ -6755,7 +6855,7 @@
       "sources": [
         {
           "sourceId": "habiro2008",
-          "locator": "§7.1, θ₀ and unified Kashaev observation after e51",
+          "locator": "§7.1, pp. 24–26, θ₀ specialization",
           "match": "The scalar θ₀ specialization of the central expansion is the unified element, with the preceding displayed root comparison."
         }
       ],
@@ -6836,7 +6936,7 @@
       "sources": [
         {
           "sourceId": "dg2",
-          "locator": "§2.1–2.2, amth and tau; published (10), (12)",
+          "locator": "§§2.1–2.2, pp. 4–6, root data and Definition 2.1",
           "match": "The finite weights and one-loop formula occur immediately before this root-ambiguity qualification; the Kummer overstatement is corrected in E18."
         }
       ],
@@ -6917,12 +7017,12 @@
       "sources": [
         {
           "sourceId": "dg2",
-          "locator": "§2.4, Lemma lem.phih, Γ factors and LD; published (24)–(28)",
+          "locator": "Definition 2.5, §2.3, p. 7; diagrams in §2.4, equations (24)–(28) and Lemma 2.8, pp. 8–9",
           "match": "The diagram definition supplies a filtered finite-coefficient construction; the preceding four valence rules determine the corrected vertex series."
         },
         {
           "sourceId": "dg2",
-          "locator": "§2.7 Conjecture conj.inv; published Conjecture 2.9",
+          "locator": "Conjecture 2.9, §2.8, pp. 11–12",
           "match": "The full topological and analytic comparison is a conjecture, with the preceding ζ^(1/12) and exp(h/(24k)) ambiguities."
         }
       ],
@@ -6999,7 +7099,7 @@
       "sources": [
         {
           "sourceId": "dg2",
-          "locator": "Theorems thm.1loop and thm.1; §3 proofs; published Theorems 2.2 and 2.6",
+          "locator": "Theorems 2.2 and 2.6, §§2.2–2.3, pp. 6–8; proofs in §3, pp. 12–16",
           "match": "This is the coefficient-field theorem; the one-loop power theorem precedes it. The proof’s overly large Kummer group is replaced by the actual simultaneous root translations."
         }
       ],
@@ -7474,7 +7574,7 @@
       "kind": "follow-up",
       "layer": "ArithmeticQuantumTopology:QT.2",
       "detail": "ArithmeticQuantumTopology, Part II: the two-variable colored Jones invariant, MMR/Alexander comparison and Wheeler’s J_K(t,q) relative-Habiro theorem. Inputs: QT.2, GeometricTopology layer 4 Alexander polynomial, HabiroRings HR.1 early relative λ/Frobenius coefficient interface and HR.5 relative inverse-limit construction. Preserve Wheeler’s t=q^(n−1) convention; q=1 gives 1/Δ_K(t). Plan the knot-specific identification once; import generic relative rings and coefficient localization.",
-      "evidence": "Habiro §6.4; Wheeler arXiv:2603.01619v1 introduction and Theorem 1; accepted RS-10 two-variable boundary."
+      "evidence": "Habiro §7.1, pp. 24–26, and §7.2, pp. 26–27; Wheeler arXiv:2603.01619v1, §1.3, Theorem 1.3 and Corollary 1.5, pp. 3–4; accepted RS-10 two-variable boundary."
     },
     {
       "kind": "non-goal",
@@ -7492,8 +7592,8 @@
       "id": "ArithmeticQuantumTopology/E1",
       "source": "habiro2008",
       "kind": "misprint",
-      "locator": "§6.3, proof of coefficient duality, final equality; Public arXiv math/0605314v1 (version explicitly fixed)",
-      "printed": "=a_p(T).",
+      "locator": "§6.2, p. 21, final coefficient equality in the proof of Theorem 6.4, using Proposition 6.3; fixed arXiv math/0605314v1",
+      "printed": "The coefficient-duality calculation ends with the summed index p in its output coefficient.",
       "correction": "Replace the final a_p(T) with a_m(T).",
       "reason": "The preceding sum is Σ_p a_p(T)δ_mp, whose value is a_m(T); p is bound.",
       "affects": "nothing",
@@ -7513,8 +7613,8 @@
       "id": "ArithmeticQuantumTopology/E2",
       "source": "habiro2008",
       "kind": "misprint",
-      "locator": "§12.1, proof of multiplicativity; Public arXiv math/0605314v1 (version explicitly fixed)",
-      "printed": "\\tau _\\zeta (M\\sharp M')=\\tau _\\zeta (M)\\tau _\\zeta (M)",
+      "locator": "§12.1, p. 39, proof of Proposition 12.1; fixed arXiv math/0605314v1",
+      "printed": "The connected-sum calculation repeats the M factor and loses the M′ factor.",
       "correction": "The second factor is τζ(M′).",
       "reason": "The surgery split-union calculation and the immediately stated JM formula have the distinct two manifolds.",
       "affects": "nothing",
@@ -7534,8 +7634,8 @@
       "id": "ArithmeticQuantumTopology/E3",
       "source": "habiro-le-unified-simple-lie",
       "kind": "misprint",
-      "locator": "§3, defining relation for Kβ and Fα; Public arXiv 1503.03549v2 (version explicitly fixed); published (54), p. 2728",
-      "printed": "K_\\beta F_\\alpha =v^{-(\\beta ,\\alpha )}E_\\alpha K_\\beta",
+      "locator": "§3.1, equation (54), p. 37, fixed arXiv 1503.03549v2; published (54), p. 2728",
+      "printed": "The relation for commuting Kβ past Fα instead has Eα on its right side.",
       "correction": "The right-hand side is v^(−(β,α))FαKβ.",
       "reason": "The stated weight of Fα and the neighboring Eα relation require Fα; the printed relation collapses the intended triangular algebra.",
       "affects": "nothing",
@@ -7555,8 +7655,8 @@
       "id": "ArithmeticQuantumTopology/E4",
       "source": "habiro-le-unified-simple-lie",
       "kind": "misprint",
-      "locator": "§8.1, normalization equation n4011; Public arXiv 1503.03549v2 (version explicitly fixed); published (177), p. 2797",
-      "printed": "(J_{U_\\pm}(\\Omega)) ^{\\sigma_+} \\, (J_{U_\\pm}(\\Omega)) ^{\\sigma_-}",
+      "locator": "§8.4.2, equation (177), p. 92, fixed arXiv 1503.03549v2; published (177), p. 2797",
+      "printed": "The surgery normalization leaves both unknot signs ambiguous, despite separate positive and negative signatures.",
       "correction": "Use (J_U+(Ω))^σ+ (J_U−(Ω))^σ−.",
       "reason": "Adding a +1 or −1 isolated unknot must cancel the corresponding distinct Gauss factor, respectively.",
       "affects": "nothing",
@@ -7576,8 +7676,8 @@
       "id": "ArithmeticQuantumTopology/E5",
       "source": "habiro-le-unified-simple-lie",
       "kind": "error",
-      "locator": "Appendix C, corollary cor.Gauss and projective companion; Public arXiv 1503.03549v2 (version explicitly fixed); published Corollaries C.6 and C.8, p. 2828",
-      "printed": "The source asserts that $\\zeta$ meets the condition in Proposition \\ref{pro.Gauss}(a).",
+      "locator": "Appendix C, Corollaries C.6/C.8, p. 117, fixed arXiv 1503.03549v2; published p. 2828",
+      "printed": "The two Gauss-sum corollaries select the listed vanishing conditions as admissible conditions.",
       "correction": "In both corollaries use the complement of the listed vanishing conditions.",
       "reason": "The preceding propositions characterize exactly Gauss=0, while admissible strong Kirby colors require nonzero Gauss. For A₁ an order congruent to 2 modulo 4 is on the vanishing list and cannot be admitted.",
       "affects": "a stated result",
@@ -7597,8 +7697,8 @@
       "id": "ArithmeticQuantumTopology/E6",
       "source": "gswz",
       "kind": "misprint",
-      "locator": "§1.7, deformed and undeformed equations (labels zjt and related Nahm display); Public arXiv 2412.04241v2",
-      "printed": "\\prod_{i=1}^N z_j(t)^{A_{i,j}}",
+      "locator": "§1.7, equations (34)–(35), p. 13, fixed arXiv 2412.04241v2",
+      "printed": "Each product repeats the fixed j-coordinate rather than using its varying i-coordinate.",
       "correction": "The product factor is z_i(t)^(A_ij), and likewise z_i in the undeformed equation.",
       "reason": "A Nahm equation uses every coordinate. The source’s own subsequent displayed rational P_i(z) and potential derivative use z_j under the other fixed index, confirming the intended matrix coupling.",
       "affects": "nothing",
@@ -7618,8 +7718,8 @@
       "id": "ArithmeticQuantumTopology/E7",
       "source": "bd",
       "kind": "misprint",
-      "locator": "Figure nuK, ten-knot table; Public arXiv 1905.02045v2",
-      "printed": "$5_1$",
+      "locator": "§1, Figure 1, p. 2, fixed arXiv 1905.02045v2",
+      "printed": "The hyperbolic ten-knot table names the five-crossing torus knot 5₁.",
       "correction": "The hyperbolic five-crossing entry is 5₂.",
       "reason": "The theorem requires hyperbolicity and the surrounding explicit five-crossing calculation is for 5₂; 5₁ is the torus knot T(2,5).",
       "affects": "nothing",
@@ -7639,8 +7739,8 @@
       "id": "ArithmeticQuantumTopology/E8",
       "source": "ak",
       "kind": "misprint",
-      "locator": "§12, identification of χ with g_n; Public arXiv 1109.6295v2",
-      "printed": "\\chi_{4_1}(0)=g_2(\\hbar),\\quad \\chi_{5_2}(0)=g_3(\\hbar).",
+      "locator": "§12, p. 32, χ-to-g identifications; fixed arXiv 1109.6295v2",
+      "printed": "The identifications of the two χ-values with g₂ and g₃ omit their unit complex phases.",
       "correction": "Use χ₄₁(0)=ζ_inv⁻¹g₂(ℏ) and χ₅₂(0)=exp(−iπ/3)g₃(ℏ), in the source inversion convention.",
       "reason": "At x=0 inversion Φ(−y)Φ(y)=ζ_inv⁻¹exp(iπy²) converts χ₄₁’s ratio to ζ_inv⁻¹Φ(y)⁻²exp(iπy²). The defining χ₅₂ formula already has exp(−iπ/3). Both factors have modulus one for real b, leaving the volume limits unchanged.",
       "affects": "nothing",
@@ -7660,8 +7760,8 @@
       "id": "ArithmeticQuantumTopology/E9",
       "source": "ak",
       "kind": "gap",
-      "locator": "§12, contour lemma and concluding deformation equality; Public arXiv 1109.6295v2",
-      "printed": "The source orients $C_n$ rightward from the left and asserts the subsequent equalities for sufficiently small $\\hbar$.",
+      "locator": "§12, pp. 32–34, contour deformation and steepest-descent argument; fixed arXiv 1109.6295v2",
+      "printed": "The limiting contour deformation is asserted without the uniform end and tail estimates needed for the integral comparison.",
       "correction": "Supply pole-free deformation, the vanishing estimates on connecting ends, uniform small-b convergence near the selected saddle, and uniform tail bounds justifying the O(ℏ) expansion.",
       "reason": "Pointwise quantum-dilogarithm asymptotics do not justify interchange with an unbounded contour integral or prove that a limiting steepest contour has the same integral. The packet retains the source theorem as a target with this explicit proof boundary.",
       "affects": "the proof",
@@ -7681,8 +7781,8 @@
       "id": "ArithmeticQuantumTopology/E10",
       "source": "sawin",
       "kind": "error",
-      "locator": "§6, theorem ribbon_category; Public arXiv math/0308281v2",
-      "printed": "The source describes the ribbon category as abelian.",
+      "locator": "§6, Theorem 3, p. 24, fixed arXiv math/0308281v2",
+      "printed": "The finite-free ribbon carrier over A′ is also asserted to be abelian.",
       "correction": "The finite-free category is a ribbon category; the stated abelian assertion over A′ needs an enlarged carrier or different hypotheses.",
       "reason": "For the trivial action on the rank-one free A′-module, multiplication by a nonzero nonunit has zero categorical kernel and cokernel within finite-free modules, but is not an isomorphism. Equivalently its module cokernel has torsion and leaves the carrier. The root-of-unity quotient over a field is not affected by this objection.",
       "affects": "a stated result",
@@ -7702,8 +7802,8 @@
       "id": "ArithmeticQuantumTopology/E11",
       "source": "garoufalidis-zagier-quantum-modularity",
       "kind": "misprint",
-      "locator": "§3.1, proof of Lemma lem.lambda, first rational equality; Public arXiv 2111.06645v3 (version explicitly fixed)",
-      "printed": "\\frac{c''}{s(c''r+d''s)}+\\frac{c'}{s(c'r+d's)}",
+      "locator": "§3.1, Lemma 3.1 proof, p. 16, fixed arXiv 2111.06645v3 (SIGMA text)",
+      "printed": "The rational calculation for the difference of two λ-values adds its second fraction.",
       "correction": "The second fraction is subtracted.",
       "reason": "The left-hand side is λ_(γγ′)−λγ′. Taking γ=identity already contradicts the printed plus sign when λγ′≠0. The lemma itself uses the correct sum formula.",
       "affects": "nothing",
@@ -7723,8 +7823,8 @@
       "id": "ArithmeticQuantumTopology/E12",
       "source": "garoufalidis-zagier-quantum-modularity",
       "kind": "error",
-      "locator": "§3.4, CoeffAsymp versus the preceding coupled figure-eight formulas; Public arXiv 2111.06645v3 (version explicitly fixed)",
-      "printed": "(2\\pi)^{\\W_\\s-1}",
+      "locator": "§3.4, equation (3.18) versus the coupled formulas (3.15)–(3.16), pp. 20–21, fixed arXiv 2111.06645v3 (SIGMA text)",
+      "printed": "The general coefficient-asymptotic prefactor has a phase inconsistent with the neighboring coupled figure-eight formulas.",
       "correction": "Resolve the phase normalization in the general conjectural display before applying it. Keep AnFirst and the explicit coupled formulas as separate normalization tests; do not silently transport the printed general prefactor.",
       "reason": "For κσ=0 the preceding coupled formula has 3/(2πi), whereas the printed matrix M₄₁ has entry −3 and the general prefactor is 1/(2π). With the stated same Aσ and Vσ conventions these are different phases.",
       "affects": "a stated result",
@@ -7744,8 +7844,8 @@
       "id": "ArithmeticQuantumTopology/E13",
       "source": "garoufalidis-zagier-quantum-modularity",
       "kind": "error",
-      "locator": "§4.5, MatQMC versus §3.2 GQMChhh; Public arXiv 2111.06645v3 (version explicitly fixed)",
-      "printed": "(cx+d)^{\\k(\\s)}",
+      "locator": "§4.5, equations (4.12)–(4.13), p. 30, versus §3.2, equation (3.10), p. 18, fixed arXiv 2111.06645v3 (SIGMA text)",
+      "printed": "The matrix completion uses a positive row weight while the scalar completed lift uses its negative.",
       "correction": "Reconcile the matrix completion/weight convention with the scalar completed formula’s negative exponent before claiming a normalized entrywise lift.",
       "reason": "The printed scalar completed lift has (cx+d)^(−κσ), while MatQMC0/MatQMC uses the positive row-weight automorphy factor on the same completed scalar entry. Substitution of h*=h/((cx+d)(cX+d)) and den(γX)=den(X)|cX+d| gives the negative scalar power. This is a normalization obstruction to importing both displays unchanged.",
       "affects": "a stated result",
@@ -7765,8 +7865,8 @@
       "id": "ArithmeticQuantumTopology/E14",
       "source": "habiro-le-unified-simple-lie",
       "kind": "misprint",
-      "locator": "§8.1, Evaluation at a root of unity, first paragraph; fixed arXiv 1503.03549v2; published §8C2, p. 2796",
-      "printed": "The source asserts $q= \\xi$ whenever $v^{1/2\\cD}=\\zeta$.",
+      "locator": "§8.3.2, p. 91, fixed arXiv 1503.03549v2; published §8C2, p. 2796",
+      "printed": "The evaluation discussion uses the half-sized root-lift exponent, inconsistent with its specified q-value.",
       "correction": "The exponent is 1/D: v^(1/D)=ζ implies q=v²=ζ^(2D)=ξ.",
       "reason": "The evaluation map in the preceding sentence and ξ=ζ^(2D) fix this lift. With the printed exponent q would instead be ζ^(4D).",
       "affects": "nothing",
@@ -7774,7 +7874,7 @@
       "searched": [
         "The fixed source and its correction references.",
         "arXiv version page and title/author erratum search on 2026-10-06; no identified correction.",
-        "No version-of-record collation established; finding scoped to the fixed public preprint.",
+        "Earlier search record (superseded by the published collation below): No version-of-record collation established; finding scoped to the fixed public preprint.",
         "Geometry & Topology version of record and author copy accessed on 2026-10-06; same slip persists at the published locator."
       ],
       "review": {
@@ -7787,8 +7887,8 @@
       "id": "ArithmeticQuantumTopology/E15",
       "source": "ak",
       "kind": "misprint",
-      "locator": "Theorem Main, tet-int-f, fixed arXiv 1109.6295v2",
-      "printed": "\\parfun(T)(x)=\\delta(x_0+x_2-x_1)\\frac{\\exp\\left(2\\pi\\imun (x_3-x_2)\\left(x_0+\\frac{\\alpha_3}{2\\imun\\sqrt{\\hbar}}\\right)+\\pi \\imun\\frac{\\varphi_T}{4\\hbar}\\right)}{\\QDILOG\\left(x_3-x_2+\\frac{1-\\alpha_1}{2\\imun\\sqrt{\\hbar}}\\right)}",
+      "locator": "§1.7, Theorem 4, equation (4), p. 9, fixed arXiv 1109.6295v2",
+      "printed": "The main tetrahedron display uses an undefined α₃ and the wrong denominator angle index.",
       "correction": "Use α₂ in the numerator’s linear term and α₀ in the denominator shift, with the printed α_i=α(∂i∂₀T)/π, i=0,1,2. The packet uses the unambiguous charged-T and tet-fun kernel instead.",
       "reason": "For a=α₀/2, c=α₂/2 and b=α₁/2, ψ̃′_(a,c)=exp(−πi/12)ψ_(c,b). This gives linear term α₂ and denominator shift 1−α₀; its constant equals the printed φ_T. α₃ is undefined in Main.",
       "affects": "nothing",
@@ -7808,8 +7908,8 @@
       "id": "ArithmeticQuantumTopology/E16",
       "source": "murakami",
       "kind": "misprint",
-      "locator": "math/9905075v1, §4, connected-sum formula",
-      "printed": "J_{N}(K) \\,J_{N}(K_2)",
+      "locator": "§5, p. 15, connected-sum formula; fixed arXiv math/9905075v1",
+      "printed": "The connected-sum product has an unspecified K where its first summand is K₁.",
       "correction": "Replace K by K₁ in the first factor.",
       "reason": "The displayed left side is K₁♯K₂ and K has not been specified.",
       "affects": "nothing",
@@ -7828,8 +7928,8 @@
       "id": "ArithmeticQuantumTopology/E17",
       "source": "dg2",
       "kind": "misprint",
-      "locator": "arXiv 1511.05628v1 §2.1(a); published p. 5(a)",
-      "printed": "\\mb A, \\mb B\\in \\mathrm{GL}(N,\\Z)",
+      "locator": "§2.1(a), p. 5, fixed arXiv 1511.05628v1; published p. 5(a)",
+      "printed": "Both Neumann–Zagier blocks are required to be invertible integer matrices in the initial datum description.",
       "correction": "Use integer matrices A,B with (A|B) full rank and ABᵀ symmetric; B invertibility is an extra restriction, and integer invertibility is imposed for the selected root construction.",
       "reason": "Gluing matrices need not both be unimodular; the same text separately defines ℤ-nondegeneracy by invertibility of B.",
       "affects": "nothing",
@@ -7848,8 +7948,8 @@
       "id": "ArithmeticQuantumTopology/E18",
       "source": "dg2",
       "kind": "error",
-      "locator": "arXiv 1511.05628v1 §2.1 after sigma; published p. 6",
-      "printed": "The source specifies the group as $G=(\\BZ/k\\BZ)^N=\\la \\sigma_1,\\dots, \\sigma_N \\ra$.",
+      "locator": "§2.1, p. 5, Kummer group after root rotations; fixed arXiv 1511.05628v1; published p. 6",
+      "printed": "Independent rotations of all chosen shape roots are asserted to generate the full product Kummer Galois group.",
       "correction": "The actual Kummer Galois group is a subgroup of (ℤ/kℤ)^N; shape multiplicative relations constrain rotations. Carry simultaneous admissible root rotations, or work in the universal finite étale root algebra before specialization.",
       "reason": "For repeated shapes and choices θ₁=θ₂, no field automorphism can rotate only θ₁. The arithmetic proof can be repaired by simultaneous translations of m, but the asserted independent generators do not always exist.",
       "affects": "the proof",
@@ -7868,8 +7968,8 @@
       "id": "ArithmeticQuantumTopology/E19",
       "source": "dg2",
       "kind": "error",
-      "locator": "arXiv 1511.05628v1 block/fT; published (19)–(21), pp. 9–10",
-      "printed": "\\hbar^{n-1}(-1)^j",
+      "locator": "§2.3, equations (19)–(21), pp. 6–7, fixed arXiv 1511.05628v1; published pp. 9–10; compare §2.4, pp. 8–9, and Lemma 2.8",
+      "printed": "The unscaled formal block has a nonunit constant contribution and omits the cubic vertices required by the diagram expansion.",
       "correction": "The unit-series construction needs the degree-filtered rescaling specified in root-refined-nz-series: h^(n+j/2−1), n+j/2>1, n≥0. Equivalently use the source’s explicit diagram rules with Π=hkΛ⁻¹ and the four Γ valence ranges.",
       "reason": "As printed the n=1,j=0 term already gives a nontrivial h⁰ exponential; n=0 cubic vertices are missing, and fixed-degree Gaussian evaluation is not finite with the unscaled x-series. This contradicts the stated constant 1 and the subsequent diagram rules.",
       "affects": "a stated result",
@@ -7888,8 +7988,8 @@
       "id": "ArithmeticQuantumTopology/E20",
       "source": "dg2",
       "kind": "misprint",
-      "locator": "arXiv 1511.05628v1 Lemma cyclic cd4 and its proof; published Lemma 3.3(d)",
-      "printed": "e^{\\frac{2 \\pi i}{3} (k^2-1)}",
+      "locator": "§3.2, Lemma 3.3(d) and proof, p. 14, fixed arXiv 1511.05628v1; published Lemma 3.3(d)",
+      "printed": "The fourth cyclic identity uses a primitive-root prefactor inconsistent with the product of its leading coefficients.",
       "correction": "Use the exact prefactor (−1)^(k(k−1)/2)ζ^(k(k−1)(2k−1)/6)x^(k(k−1)/2). In the proof, each (−ζx)^s is (−ζ^s x)^s. The other three cyclic identities are unchanged.",
       "reason": "At k=3 and ζ=exp(2πi/3), the product of leading coefficients is −ζ^5=exp(πi/3), whereas the printed prefactor is exp(4πi/3). Factoring each (1−ζ^s x)^s proves the exact product for every primitive ζ.",
       "affects": "a stated result",
@@ -7908,8 +8008,8 @@
       "id": "ArithmeticQuantumTopology/E21",
       "source": "dg2",
       "kind": "misprint",
-      "locator": "arXiv 1511.05628v1 proof of thm.1loop, after the NZ equation; published p. 16",
-      "printed": "1-z_j^{-1} = \\prod_{i=1}^N z_i^{- (\\mb B^{-1} \\mb A e_j)_i}",
+      "locator": "§3.3, proof of Theorem 2.2, pp. 14–16, fixed arXiv 1511.05628v1; published p. 16",
+      "printed": "The coordinate Neumann–Zagier formula drops the parity sign present in the preceding vector identity.",
       "correction": "Retain (−1)^((B⁻¹ν)_j) in the coordinate formula, as in the immediately preceding vector equation.",
       "reason": "Taking the j-th coordinate of z″=(−1)^(B⁻¹ν) z^(−B⁻¹A) retains the sign. It enters ε_j^k in the compensation identity; odd parity cannot be discarded.",
       "affects": "the proof",
@@ -7928,8 +8028,8 @@
       "id": "ArithmeticQuantumTopology/E22",
       "source": "habiro2008",
       "kind": "misprint",
-      "locator": "§12.2, proof of Proposition 12.3, congruence immediately before the definition of f_i; public arXiv math/0605314v1",
-      "printed": "u_q(q)",
+      "locator": "§12.2, Proposition 12.3 proof, p. 40, congruence before f_i; fixed arXiv math/0605314v1",
+      "printed": "The Bézout congruence uses the index q where the construction requires the coefficient indexed by i.",
       "correction": "Replace u_q(q) by u_i(q).",
       "reason": "The preceding sentence chooses the polynomial u_i(q); the subsequent definition of f_i uses that same polynomial. No u_q is defined.",
       "affects": "nothing",
@@ -7977,7 +8077,13 @@
       "citation": "A unified Witten-Reshetikhin-Turaev invariant for integral homology spheres; Public arXiv math/0605314v1 (version explicitly fixed)",
       "read": "2026-10-06",
       "sha256": "79069d6aa22d8c0b439e79db3348184c6c089336c64f804ded6a99162a72c136",
-      "scope": "Fixed public arXiv version; no claim of collation with the published version."
+      "scope": "Fixed public arXiv version; no claim of collation with the published version.",
+      "pdfCheck": {
+        "url": "https://arxiv.org/pdf/math/0605314v1",
+        "sha256": "5fb8b89b432401ea28d10e34d348c5cdebe43cf3ddb95c0475aaee869fa276fc",
+        "read": "2026-10-08",
+        "scope": "Checked the target loci and numbered/page locators cited by this packet; this is a PDF hash, distinct from the retained source-package hash."
+      }
     },
     {
       "kind": "preprint",
@@ -7985,7 +8091,13 @@
       "citation": "Extended Bloch group and the Cheeger-Chern-Simons class; Public arXiv math/0307092v2 (version explicitly fixed)",
       "read": "2026-10-06",
       "sha256": "0553bc88d84bedfeb05a86e28a3c03ea57fb855e5fad1033d28f1eeeca715889",
-      "scope": "Fixed public arXiv version; no claim of collation with the published version."
+      "scope": "Fixed public arXiv version; no claim of collation with the published version.",
+      "pdfCheck": {
+        "url": "https://arxiv.org/pdf/math/0307092v2",
+        "sha256": "de2f7ddec49b2ce6ccafd5a9a0be350972ffcf2014a6a3601a6d650df0018650",
+        "read": "2026-10-08",
+        "scope": "Checked the target loci and numbered/page locators cited by this packet; this is a PDF hash, distinct from the retained source-package hash."
+      }
     },
     {
       "kind": "preprint",
@@ -7993,7 +8105,13 @@
       "citation": "Unified quantum invariants for integral homology spheres associated with simple Lie algebras; Public arXiv 1503.03549v2 (version explicitly fixed)",
       "read": "2026-10-06",
       "sha256": "26e864007db4145e1a58374432c5eb52901c02cfe47f36194f60a8b7d1292dfd",
-      "scope": "Fixed public arXiv version; E3/E4/E5/E14 also independently collated with the published Geometry & Topology version recorded below."
+      "scope": "Fixed public arXiv version; E3/E4/E5/E14 also independently collated with the published Geometry & Topology version recorded below.",
+      "pdfCheck": {
+        "url": "https://arxiv.org/pdf/1503.03549v2",
+        "sha256": "234eae71d85a7b282e9b197ae505edb804d631fe6c33b3d641425de0dc9ae490",
+        "read": "2026-10-08",
+        "scope": "Checked the target loci and numbered/page locators cited by this packet; this is a PDF hash, distinct from the retained source-package hash."
+      }
     },
     {
       "kind": "preprint",
@@ -8001,7 +8119,13 @@
       "citation": "Knots, perturbative series and quantum modularity; Public arXiv 2111.06645v3 (version explicitly fixed)",
       "read": "2026-10-06",
       "sha256": "e923db265b5ee7a5f97ad132c715b6b3688de56ab68cc225a1e3f46666e199ce",
-      "scope": "Fixed public arXiv version; no claim of collation with the published version."
+      "scope": "Fixed public arXiv version; no claim of collation with the published version.",
+      "pdfCheck": {
+        "url": "https://arxiv.org/pdf/2111.06645v3",
+        "sha256": "2a4826bd1c2f0823c99f8e3cccfd835c5044d70d30eb20b36fea38dcb8dd83de",
+        "read": "2026-10-08",
+        "scope": "Checked the target loci and numbered/page locators cited by this packet; this is a PDF hash, distinct from the retained source-package hash."
+      }
     },
     {
       "kind": "preprint",
@@ -8009,7 +8133,13 @@
       "citation": "Perturbative invariants of cusped hyperbolic 3-manifolds; Public arXiv 2305.14884v2",
       "read": "2026-10-06",
       "sha256": "419c23ec08742107393e1240793fc1a3ab9b2a11c42e5a89658442dd249cb22d",
-      "scope": "Fixed public arXiv version; no claim of collation with the published version."
+      "scope": "Fixed public arXiv version; no claim of collation with the published version.",
+      "pdfCheck": {
+        "url": "https://arxiv.org/pdf/2305.14884v2",
+        "sha256": "ebc8e64d901c9e4f397ece6170c92d5d65045ef7fbb15d251a268327acf7e1fb",
+        "read": "2026-10-08",
+        "scope": "Checked the target loci and numbered/page locators cited by this packet; this is a PDF hash, distinct from the retained source-package hash."
+      }
     },
     {
       "kind": "preprint",
@@ -8017,7 +8147,13 @@
       "citation": "The Habiro ring of a number field; Public arXiv 2412.04241v2",
       "read": "2026-10-06",
       "sha256": "b93170cf809075112bd80fb4e0df299baf96d3dc3eb0c79f37aa60b1a0d8fd66",
-      "scope": "Fixed public arXiv version; no claim of collation with the published version."
+      "scope": "Fixed public arXiv version; no claim of collation with the published version.",
+      "pdfCheck": {
+        "url": "https://arxiv.org/pdf/2412.04241v2",
+        "sha256": "308d1dd1c42bd979e5d5c31d9d95215a1808f604031b49c0ce2a1eb767273de9",
+        "read": "2026-10-08",
+        "scope": "Checked the target loci and numbered/page locators cited by this packet; this is a PDF hash, distinct from the retained source-package hash."
+      }
     },
     {
       "kind": "preprint",
@@ -8025,7 +8161,13 @@
       "citation": "A TQFT from quantum Teichmüller theory; Public arXiv 1109.6295v2",
       "read": "2026-10-06",
       "sha256": "c77c8050459fb78d7b82d8f19ffe6fe44b33fafb500c800e221cffdfa4c921a5",
-      "scope": "Fixed public arXiv version; no claim of collation with the published version."
+      "scope": "Fixed public arXiv version; no claim of collation with the published version.",
+      "pdfCheck": {
+        "url": "https://arxiv.org/pdf/1109.6295v2",
+        "sha256": "cbbac2dcec624a2a541fb770f312a5bd2a6051fe79f3ae7cd02a7d19ab9ba24d",
+        "read": "2026-10-08",
+        "scope": "Checked the target loci and numbered/page locators cited by this packet; this is a PDF hash, distinct from the retained source-package hash."
+      }
     },
     {
       "kind": "preprint",
@@ -8033,7 +8175,13 @@
       "citation": "Modularity and value distribution of quantum invariants of hyperbolic knots; Public arXiv 1905.02045v2",
       "read": "2026-10-06",
       "sha256": "12b5aba4519d26f5a97f1e1a1e766e8e912cff1f8b98da3fcdb6461e5664a240",
-      "scope": "Fixed public arXiv version; no claim of collation with the published version."
+      "scope": "Fixed public arXiv version; no claim of collation with the published version.",
+      "pdfCheck": {
+        "url": "https://arxiv.org/pdf/1905.02045v2",
+        "sha256": "b4445e018b072843481b6e3756071920ae78e4c5f511c5807c59dabe2ab2be43",
+        "read": "2026-10-08",
+        "scope": "Checked the target loci and numbered/page locators cited by this packet; this is a PDF hash, distinct from the retained source-package hash."
+      }
     },
     {
       "kind": "preprint",
@@ -8041,7 +8189,13 @@
       "citation": "Bottom tangles and universal invariants; Public arXiv math/0505219v2",
       "read": "2026-10-06",
       "sha256": "687c7e56ad7fa5a9eb1dff14e9ea17d9c8df3bece26169bc710ab3ca05b9f06b",
-      "scope": "Fixed public arXiv version; no claim of collation with the published version."
+      "scope": "Fixed public arXiv version; no claim of collation with the published version.",
+      "pdfCheck": {
+        "url": "https://arxiv.org/pdf/math/0505219v2",
+        "sha256": "ed52afc409ae4c20186c4fcd2bc286effaf0cd5aaa5a787663592f577f3adfd1",
+        "read": "2026-10-08",
+        "scope": "Checked the target loci and numbered/page locators cited by this packet; this is a PDF hash, distinct from the retained source-package hash."
+      }
     },
     {
       "kind": "preprint",
@@ -8049,7 +8203,13 @@
       "citation": "An integral form of the quantized enveloping algebra of sl2 and its completions; Public arXiv math/0605313v1",
       "read": "2026-10-06",
       "sha256": "74867203519e9d2a0c4169c909b0564ddae61c464a9e4d320d6eea45d1aa11e3",
-      "scope": "Fixed public arXiv version; no claim of collation with the published version."
+      "scope": "Fixed public arXiv version; no claim of collation with the published version.",
+      "pdfCheck": {
+        "url": "https://arxiv.org/pdf/math/0605313v1",
+        "sha256": "b466d7d47865e3a4e7ef4a7363646cd119ff640785b3ec0423365666ed069c7e",
+        "read": "2026-10-08",
+        "scope": "Checked the target loci and numbered/page locators cited by this packet; this is a PDF hash, distinct from the retained source-package hash."
+      }
     },
     {
       "kind": "preprint",
@@ -8057,7 +8217,13 @@
       "citation": "Refined Kirby calculus for integral homology spheres; Public arXiv math/0509039v2",
       "read": "2026-10-06",
       "sha256": "4d5bd3bfa8b3dd982f09638515dd78c57dddbaaf76f5dfb565ef299ff289d208",
-      "scope": "Fixed public arXiv version; no claim of collation with the published version."
+      "scope": "Fixed public arXiv version; no claim of collation with the published version.",
+      "pdfCheck": {
+        "url": "https://arxiv.org/pdf/math/0509039v2",
+        "sha256": "d30d9c69b652aa58539d2398f1a8424c968188d94cc2098ee462dd4e53a13416",
+        "read": "2026-10-08",
+        "scope": "Checked the target loci and numbered/page locators cited by this packet; this is a PDF hash, distinct from the retained source-package hash."
+      }
     },
     {
       "kind": "preprint",
@@ -8065,7 +8231,13 @@
       "citation": "The colored Jones polynomials and the simplicial volume of a knot; Public arXiv math/9905075v1",
       "read": "2026-10-06",
       "sha256": "f6d950a39802a41555a1bb4985925a6d9350fba4210ae474e69383b784f375e1",
-      "scope": "Fixed public arXiv version; no claim of collation with the published version."
+      "scope": "Fixed public arXiv version; no claim of collation with the published version.",
+      "pdfCheck": {
+        "url": "https://arxiv.org/pdf/math/9905075v1",
+        "sha256": "1c44f987c72009deae98c9506c8d4f4e487c19488ae3ac51735f422724b1a5da",
+        "read": "2026-10-08",
+        "scope": "Checked the target loci and numbered/page locators cited by this packet; this is a PDF hash, distinct from the retained source-package hash."
+      }
     },
     {
       "kind": "preprint",
@@ -8073,7 +8245,13 @@
       "citation": "Quantum knot invariants and the Habiro ring; Public arXiv 2603.01619v1",
       "read": "2026-10-06",
       "sha256": "28db73fb6dc465ded7038fa328aaac410e8858adf5f8648eb19abc7cd7ef7dab",
-      "scope": "Fixed public arXiv version; no claim of collation with the published version."
+      "scope": "Fixed public arXiv version; no claim of collation with the published version.",
+      "pdfCheck": {
+        "url": "https://arxiv.org/pdf/2603.01619v1",
+        "sha256": "5118504bb5d9d4b9bcda509e08ce85f5b29361df5d249b3017c33d56847605c8",
+        "read": "2026-10-08",
+        "scope": "Checked the target loci and numbered/page locators cited by this packet; this is a PDF hash, distinct from the retained source-package hash."
+      }
     },
     {
       "kind": "preprint",
@@ -8081,21 +8259,31 @@
       "citation": "Quantum groups at roots of unity and modularity; Public arXiv math/0308281v2",
       "read": "2026-10-06",
       "sha256": "05e7638ebefe517a94f3e1ff82624bde45c961f96bec5a912cb6ae64ab8f856f",
-      "scope": "Fixed public arXiv version; no claim of collation with the published version."
+      "scope": "Fixed public arXiv version; no claim of collation with the published version.",
+      "pdfCheck": {
+        "url": "https://arxiv.org/pdf/math/0308281v2",
+        "sha256": "c3d929cbbc920627e53dbba011dbc86bf361d4ec6401cf8143ba9fbf0b7556ab",
+        "read": "2026-10-08",
+        "scope": "Checked the target loci and numbered/page locators cited by this packet; this is a PDF hash, distinct from the retained source-package hash."
+      }
     },
     {
       "kind": "published",
       "url": "https://www.imath.kiev.ua/~sigma/2024/055/sigma24-055.pdf",
       "citation": "SIGMA 20 (2024), 055, 87 pages",
       "read": "2026-10-06",
-      "scope": "GZ correction loci in §§3.1–3.4 and 4.5 checked against the journal PDF; other source quotations use the fixed TeX version."
+      "scope": "GZ correction loci in §§3.1–3.4 and 4.5 checked against the journal PDF; other node statements and correction loci use the fixed TeX version."
     },
     {
       "kind": "published",
       "url": "https://people.math.harvard.edu/~opie/Reshetikhin_Turaev.pdf",
       "citation": "Reshetikhin–Turaev, CMP 127 (1990), 1–26",
       "read": "2026-10-06",
-      "scope": "§§2–5 and §6.1 read in browser; no local hash asserted."
+      "scope": "§§2–5 and §6.1 read in browser; no local hash asserted.",
+      "locatorCheck": {
+        "read": "2026-10-08",
+        "scope": "Read §§2–5 and §6.1 through the public author PDF; ribbon definitions are in §3.3, p. 7. No downloaded-PDF checksum is asserted."
+      }
     },
     {
       "kind": "preprint",
@@ -8103,7 +8291,13 @@
       "citation": "The quantum content of the gluing equations, arXiv 1202.6268v2",
       "read": "2026-10-06",
       "sha256": "1b55aeb941d883a64c6bc905aad9082ee0264912a311e29ec16591d1c1f9b519",
-      "scope": "Read sections listed in sources; hash is of source download."
+      "scope": "Read sections listed in sources; hash is of source download.",
+      "pdfCheck": {
+        "url": "https://arxiv.org/pdf/1202.6268v2",
+        "sha256": "209af6ae25439050acd32974f2c6eeb4d407661c14b064472346b33807ae019f",
+        "read": "2026-10-08",
+        "scope": "Checked the target loci and numbered/page locators cited by this packet; this is a PDF hash, distinct from the retained source-package hash."
+      }
     },
     {
       "kind": "preprint",
@@ -8111,7 +8305,13 @@
       "citation": "Quantum modularity and complex Chern–Simons theory, arXiv 1511.05628v1",
       "read": "2026-10-06",
       "sha256": "06a7f8d12dcb712cd5a1c6ca46e85f7160f83e2c5983619d1699e782efbf6709",
-      "scope": "Read sections listed in sources; hash is of source download."
+      "scope": "Read sections listed in sources; hash is of source download.",
+      "pdfCheck": {
+        "url": "https://arxiv.org/pdf/1511.05628v1",
+        "sha256": "3b9da2994233882bdb242798fd1a5f85e53f1d0fd66410809de751d056a07d3a",
+        "read": "2026-10-08",
+        "scope": "Checked the target loci and numbered/page locators cited by this packet; this is a PDF hash, distinct from the retained source-package hash."
+      }
     },
     {
       "kind": "published",
@@ -8127,7 +8327,12 @@
       "citation": "Habiro–Le, Geometry & Topology 20 (2016), 2687–2835, DOI 10.2140/gt.2016.20.2687",
       "read": "2026-10-06",
       "sha256": "f86c3f0565b7ccbfe36c72289e2376170bcb604b990bf4bb879990f747665a3e",
-      "scope": "Independent collation of E3, E4, E5 and E14: (54), p. 2728; (177), p. 2797; Corollaries C.6/C.8, p. 2828; §8C2, p. 2796. These slips remain in this published text."
+      "scope": "Independent collation of E3, E4, E5 and E14: (54), p. 2728; (177), p. 2797; Corollaries C.6/C.8, p. 2828; §8C2, p. 2796. These slips remain in this published text.",
+      "collationCheck": {
+        "read": "2026-10-08",
+        "sha256": "f86c3f0565b7ccbfe36c72289e2376170bcb604b990bf4bb879990f747665a3e",
+        "scope": "Rechecked (54), p. 2728; (177), p. 2797; Corollaries C.6/C.8, p. 2828; §8C2, p. 2796. All four reviewed corrections remain necessary."
+      }
     }
   ],
   "upstreamNotes": [
@@ -8673,5 +8878,27 @@
         "note": "Simultaneous root rotations/index translation prove normalized-average descent; retained parity and exact cyclic product make τ^(2k) descend."
       }
     ]
+  },
+  "revisionAudit": {
+    "job": "BP-ArithmeticQuantumTopology~2",
+    "issue": 6935,
+    "agent": "Codex",
+    "session": "codex-OFSOZm",
+    "date": "2026-10-08",
+    "scope": "Synchronize the definitive reader with the independent review; preserve its exact review object and all 106 identifiers. Check the correction ledger, exact pinned baseline signatures and public PDF loci. Keep all target-level implementation and supplier gaps explicit.",
+    "changes": [
+      "Reader statements, hypotheses, prerequisites, proof routes, APIs, tests, acceptance conditions, gaps and requests now agree with the reviewed packet.",
+      "Correct fixed-PDF locators for linking matrices (§2.3), rational homology spheres (§16.3), twist pairings (§9.1), RT ribbon structure (§3.3), even center (Theorem 11.2), and DG2 invariance (Conjecture 2.9 in §2.8). Numbered results and pages replace unresolved TeX labels throughout node citations.",
+      "Separate newly checked PDF hashes from inherited source-package checksums. Recheck the four Habiro–Le published loci; retain all 22 independently confirmed source findings in own-word descriptions.",
+      "Keep HabiroRings HR.1/HR.5 as generic relative-completion owner, and retain HB.8 G1/G2, auxiliary-order and coefficient-component conditions.",
+      "Locate E1 at the coefficient equality in the proof of Theorem 6.4 (§6.2, p. 21), rather than the separate proof of Proposition 6.3; fix the E16 connected-sum discussion to §5, p. 15. Historical reviewer notes remain unchanged."
+    ],
+    "baselineCheck": "All 24 cited declarations were read at the exact Mathlib and Tau Ceti pins. No replacement mathematical carrier is inferred from their names.",
+    "boundary": "This revision does not discharge G1–G8 or the 18 open contracts, prove conjectures, or replace the independent review verdict; all eight stages remain planned and implementation-unchecked.",
+    "validation": {
+      "packet": "check_blueprint.py: 0 errors, 0 warnings; 106 nodes, 206 API items, 158 tests, 36 planets, 24 baseline declarations, 8 planned stages, 8 gaps, 18 requests.",
+      "lean": "lean-check: exit 0 at pinned Mathlib, with admitted-proof warnings only; executable Lean text unchanged, introductory documentation synchronized.",
+      "consistency": "Each reader node contains its packet statement, hypotheses, prerequisites, proof steps, uses, API, tests, acceptance and sources; review, identifiers and mathematical statuses preserved."
+    }
   }
 }
