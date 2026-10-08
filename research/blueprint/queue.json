@@ -32892,7 +32892,8 @@
    ],
    "avoidAccountOf": "BP-HodgeStructuresPartII--H.7",
    "prompt": "research/blueprint/prompts/REV-HodgeStructuresPartII--H.7.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7064"
   },
   {
    "id": "BP-HodgeStructuresPartII--H.8",
@@ -41961,8 +41962,9 @@
     "BP-EffectiveDiophantineMethods~3"
    ],
    "prompt": "research/blueprint/prompts/REV-EffectiveDiophantineMethods~3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7299"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7299",
+   "finishedAt": "2026-10-08T05:34:41Z"
   },
   {
    "kind": "blueprint",
@@ -42177,7 +42179,8 @@
     "BP-Polylogarithms--P.3~2"
    ],
    "prompt": "research/blueprint/prompts/REV-Polylogarithms--P.3~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7066"
   },
   {
    "kind": "blueprint",
