@@ -1,6 +1,6 @@
 # Modularity and modular parametrisations of elliptic curves over Q, Part II: abelian varieties of GL₂-type
 
-Starting where the modularity of elliptic curves over ℚ stops, this Part II proves that every abelian variety over ℚ of GL₂-type is a quotient of a modular Jacobian J₁(N) (Ribet's reduction, made unconditional by Khare–Wintenberger, Corollary 10.2(i)), with the exact level cond(A)^{1/dim A} given by Carayol's conductor theorem. It develops the endomorphism algebra and the two-dimensional λ-adic system of such a variety, the equivalent forms of modularity, the L-function, and Ribet's theory of ℚ-curves: a non-CM elliptic curve isogenous to all its Galois conjugates is a factor of a GL₂-type variety, hence modular over ℚ̄ and, over a solvable Galois field of definition, automorphic of parallel weight two.
+Starting where the modularity of elliptic curves over ℚ stops, this Part II proves that every abelian variety over ℚ of GL₂-type is a quotient of a modular Jacobian J₁(N) (Ribet's reduction, made unconditional by Khare–Wintenberger, Corollary 10.2(i)). For a ℚ-simple variety, Carayol's conductor theorem gives the least modular level cond(A)^{1/dim A}; powers may need additional oldform multiplicity. It develops the endomorphism algebra and the two-dimensional λ-adic system of such a variety, the equivalent forms of modularity, the L-function, and Ribet's theory of ℚ-curves: a non-CM elliptic curve isogenous to all its Galois conjugates is a factor of a GL₂-type variety, hence modular over ℚ̄ and, over a solvable Galois field of definition, automorphic of parallel weight two.
 
 R29 of EllipticCurveModularity supplies the elliptic case. GT.1–GT.4 generalize its endomorphism, residual-witness, newform and isogeny steps. GT.5–GT.6 construct and apply the Q-curve bridge. The GL₂-type definition and Tate components stay with R25.5 and R01.6; general abelian-variety, modular-curve, CM, cohomology and automorphic theory stay with their suppliers.
 
@@ -20,7 +20,7 @@ All six stages have complete target-level plans and status planned. All implemen
 
 Node: `EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.1/lie-algebra-divisibility` (lemma).
 
-Let A be an abelian variety over ℚ and D a division ℚ-algebra with a unital ℚ-algebra map D → End⁰_ℚ(A). Then dim_ℚ D divides dim A. In particular, if A is of GL₂(E)-type (SmallRamificationAndAbelianVarietyBaseCases:R25.5/gl2-type-abelian-variety) and B ⊆ A is a nonzero abelian subvariety over ℚ on which E acts up to isogeny, then B = A.
+Let A be an abelian variety over ℚ and D a finite-dimensional division ℚ-algebra with a unital ℚ-algebra map D → End⁰_ℚ(A). Then dim_ℚ D divides dim A. In particular, if A is of GL₂(E)-type (SmallRamificationAndAbelianVarietyBaseCases:R25.5/gl2-type-abelian-variety) and B ⊆ A is a nonzero abelian subvariety over ℚ on which E acts up to isogeny, then B = A.
 
 Conventions: the map D → End⁰_ℚ(A) sends 1 to the identity; B is stable under E up to isogeny: every e ∈ E has a multiple n·e ∈ End_ℚ(A) mapping B into B
 
@@ -228,7 +228,7 @@ Suggested coverage: omitted. The native A_f with its Hecke coefficient-field act
 
 Atlas planet: Shimura's quotient A_f.
 
-Stage obligations: Resolve the imports from AbelianSchemesAndArithmeticModuli A2/A6 (Rosati, Poincaré, endomorphism algebras), which are planned in a packet not yet reviewed. Implement and check the native A1/A6/R25.5 signatures, coherent field/Rosati actions, and actual Hecke-J₀(23) tests recorded in suggestedCoverage.
+Stage obligations: Obtain the native A2/A6 Rosati, Poincaré and rational-endomorphism exports from their owner; their target-level supplier statements are imported, not implementations. Implement and check the native A1/A6/R25.5 signatures, coherent field/Rosati actions, and actual Hecke-J₀(23) tests recorded in suggestedCoverage.
 
 ## GT.2 — The λ-adic system of a GL₂-type abelian variety
 
@@ -478,7 +478,7 @@ Let A be a ℚ-simple abelian variety over ℚ of GL₂-type with endomorphism f
 Construction or proof:
 
 1. f_p(A) is independent of ℓ ≠ p: the H^i(A) form a ℚ-rational strictly compatible system (NeronModelsAndSemistableAbelianVarieties:R11.6/strict-compatible-system-export), and cond(A) is defined from it (R11.5/conductor-import).
-2. For p ≠ ℓ and E_λ = ℚ_ℓ, V_λ is a direct summand of V_ℓ(A) as a ℚ_ℓ[G_{ℚ_p}]-module, so f_p(ρ_λ) ≤ f_p(V_ℓ(A)) by additivity and nonnegativity of the Artin conductor (R01.3/conductor-of-a-weil-deligne-representation).
+2. For p ≠ ℓ, restriction of scalars of V_λ from E_λ to ℚ_ℓ is a direct summand of V_ℓ(A). The Artin conductor is additive and nonnegative, and restriction of scalars multiplies its exponent by [E_λ : ℚ_ℓ] (each inertia-fixed space, monodromy kernel and Swan term acquires that dimension factor). Thus [E_λ : ℚ_ℓ]·f_p(ρ_λ) ≤ f_p(A), so f_p(ρ_λ) ≤ f_p(A). This applies to every λ; residue degree one alone does not imply E_λ = ℚ_ℓ.
 3. Reduction does not increase the conductor (ArithmeticGaloisRepresentations:R01.3/reduction-does-not-increase-the-conductor).
 
 Acceptance:
@@ -608,7 +608,7 @@ In the situation of GT.3/serre-witnesses there are a normalised newform f of wei
 
 Construction or proof:
 
-1. The newforms of weight two and level dividing cond(A), with any character, form a finite set: they are eigenvectors in the finite-dimensional spaces S₂(Γ₁(M)), M | cond(A) (Tau Ceti ModularForms layers 0 and 4).
+1. The native cusp-form spaces already decompose into diamond-character spaces by isInternal_cuspFormCharSpace. ModularForms Layer 4 must export finiteness of normalized weight-two newforms of positive level dividing cond(A), using finite-dimensionality of the finitely many spaces S₂(Γ₁(M)), M | cond(A). This is finiteness on the existing carrier, rather than a new character decomposition.
 2. λ ↦ g_λ maps the infinite set Λ to this finite set, so some fibre is infinite (EllipticCurveModularity:R29.3/pigeonhole-infinite-fiber). At this point reduction lands in 𝔽_{λ′}, with the good Hecke values in its embedded subfield 𝔽_λ.
 3. Choose finitely many good-prime a_p(f) generating K_f: use GT.1/modular-quotient-is-gl2-type, the Frobenius comparison of ModularCurvesPartII:R14.5/newform-hecke-prime, and GT.2/coefficients-generate applied to A_f. The order they generate has finite index in 𝒪_{K_f}. Delete the finitely many λ whose residue characteristic divides this index or is one of the chosen primes. The remaining Λ_f is infinite, and reduction of every element of 𝒪_{K_f} lies in the embedded 𝔽_λ. Thus φ_λ has the stated codomain 𝔽_λ = 𝔽_ℓ.
 
@@ -617,7 +617,7 @@ Acceptance:
 - For dim A = 1 this is the parent's pigeonhole step.
 - The level of f divides cond(A); its exact value is GT.4/exact-level.
 
-Direct prerequisites: `EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.3/serre-witnesses`, `EllipticCurveModularity:R29.3/pigeonhole-infinite-fiber`, `tauceti:TauCetiRoadmap/ModularForms#layer-4-eigenforms-newforms-primitive-forms-the-conductor`, `tauceti:HeckeRing.GL2.Newform`, `tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus`, `tauceti:cuspFormCharSpace`, `mathlib:CongruenceSubgroup.Gamma1`, `EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.2/coefficients-generate`, `EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.1/modular-quotient-is-gl2-type`, `ModularCurvesPartII:R14.5/newform-hecke-prime`, `tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields`.
+Direct prerequisites: `EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.3/serre-witnesses`, `EllipticCurveModularity:R29.3/pigeonhole-infinite-fiber`, `tauceti:TauCetiRoadmap/ModularForms#layer-4-eigenforms-newforms-primitive-forms-the-conductor`, `tauceti:HeckeRing.GL2.Newform`, `tauceti:isInternal_cuspFormCharSpace`, `tauceti:cuspFormCharSpace`, `mathlib:CongruenceSubgroup.Gamma1`, `EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.2/coefficients-generate`, `EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.1/modular-quotient-is-gl2-type`, `ModularCurvesPartII:R14.5/newform-hecke-prime`, `tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields`.
 
 Source: Ribet92, proof of Theorem 4.4, pp. 8–9 — The finiteness and the choice of a fixed f.
 
@@ -770,24 +770,26 @@ Suggested coverage: omitted. This signature requires ModularCurvesPartII:R14.2/R
 
 Node: `EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.3/modular-parametrisation` (theorem).
 
-Let A be a ℚ-simple abelian variety over ℚ of GL₂-type, modular of level N. There is a nonconstant morphism φ : X₁(N) → A over ℚ with φ(c) = 0 for the rational cusp c of ModularCurvesPartII:R14.6/rational-cusp-abel-jacobi, whose image generates A as an algebraic group; φ is the composite of the Abel–Jacobi map, a quotient J₁(N) → J₁(M) → A_f with the newform level M dividing N and an isogeny A_f → A. If ε = 1, φ can be taken on X₀(N) with φ(∞) = 0. This generalises EllipticCurveModularity:R29.5/modular-parametrisation.
+Let A be a positive-dimensional abelian variety over ℚ, modular of level N. For every surjective homomorphism q : J₁(N) → A, the composite φ = q ∘ AJ_c : X₁(N) → A is a nonconstant morphism over ℚ with φ(c) = 0 for the rational cusp c of ModularCurvesPartII:R14.6/rational-cusp-abel-jacobi, and its image generates A as an algebraic group. If A is also ℚ-simple of GL₂-type, one can choose q as J₁(N) → J₁(M) → A_f → A, where M | N is the newform level and the last map is an isogeny. In this simple case, if ε = 1 one can instead use X₀(N), sending ∞ to 0. This generalises EllipticCurveModularity:R29.5/modular-parametrisation and also applies to modular powers.
 
 Construction or proof:
 
-1. From the surjection J₁(N) → A and the newform decomposition of J₁(N), choose a newform f of level M | N with A_f ~ A (GT.3/modularity-equivalences and GT.1/modular-quotient-is-gl2-type). Compose AJ_c : X₁(N) → J₁(N), a surjective degeneracy map J₁(N) → J₁(M) (R14.2/jacobian-and-functoriality), J₁(M) → A_f and an isogeny A_f → A. Nonconstancy follows from R14.5/abel-jacobi-composite-nonzero. The ambient modular level N need not be the newform level M.
-2. The image of X₁(N) generates J₁(N) (the Jacobian is generated by the curve, Tau Ceti JacobianChallenge layer F), hence its image generates A.
-3. For ε = 1 the chosen f has trivial character, so use J₀(N) → J₀(M) → A_f, with AJ_∞ and the trivial-character quotient (R14.5/trivial-character-J0). This gives the Γ₀ parametrisation at the specified ambient level N, not merely at some other level.
+1. The pointed Abel–Jacobi image generates J₁(N) by JacobianChallenge layer F. Its image under q therefore generates A, and φ(c) = q(0) = 0. If φ were constant, it would be the zero map and could only generate the zero abelian variety; positive dimension excludes this.
+2. In the ℚ-simple GL₂-type case, from the surjection J₁(N) → A and the newform decomposition of J₁(N), choose a newform f of level M | N with A_f ~ A (GT.3/modularity-equivalences and GT.1/modular-quotient-is-gl2-type). Compose AJ_c : X₁(N) → J₁(N), a surjective degeneracy map J₁(N) → J₁(M) (R14.2/jacobian-and-functoriality), J₁(M) → A_f and an isogeny A_f → A. Nonconstancy follows from R14.5/abel-jacobi-composite-nonzero. The ambient modular level N need not be the newform level M.
+3. The image of X₁(N) generates J₁(N) (the Jacobian is generated by the curve, Tau Ceti JacobianChallenge layer F), hence its image generates A.
+4. For ε = 1 the chosen f has trivial character, so use J₀(N) → J₀(M) → A_f, with AJ_∞ and the trivial-character quotient (R14.5/trivial-character-J0). This gives the Γ₀ parametrisation at the specified ambient level N, not merely at some other level.
 
 Acceptance:
 
 - For dim A = 1 and ε = 1 this is the parametrisation X₀(N) → E of R29.5.
 - For J₁(13) the parametrisation is the Abel–Jacobi embedding of X₁(13), a curve of genus 2.
+- For B × B with B = X₀(11), the level-22 oldform quotient J₁(22) → B × B yields a pointed, nonconstant generating curve map even though the target is not ℚ-simple.
 
 Direct prerequisites: `EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.3/modularity-theorem`, `EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.3/trivial-character`, `ModularCurvesPartII:R14.6/rational-cusp-abel-jacobi`, `ModularCurvesPartII:R14.5/abel-jacobi-composite-nonzero`, `tauceti:TauCetiRoadmap/JacobianChallenge#layer-f-abeljacobi-and-the-universal-property`, `EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.3/modularity-equivalences`, `EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.1/modular-quotient-is-gl2-type`, `ModularCurvesPartII:R14.2/jacobian-and-functoriality`, `ModularCurvesPartII:R14.5/trivial-character-J0`.
 
 Source: Ribet92, §1, p. 1 — The parametrisation formulation for elliptic curves, generalised here.
 
-Suggested coverage: omitted. The full pointed curve-morphism signature is omitted until ModularCurvesPartII:R14.2/R14.5/R14.6 native X₁(N), X₀(N), Jacobians, A_f, coefficient fields, Hecke actions, rational cusps and pointed Abel–Jacobi maps and JacobianChallenge Layer F supply native AJ_c and image generation. Required clauses are X₁(N)→A, rational cusp c, φ(c)=0, nonconstancy and generating image, with degeneracy from N to newform level M|N; the Γ₀ branch uses ∞. A nonzero Jacobian Hom is not this signature.
+Suggested coverage: omitted. The full pointed curve-morphism signature is omitted until ModularCurvesPartII:R14.2/R14.5/R14.6 native X₁(N), X₀(N), Jacobians, A_f, coefficient fields, Hecke actions, rational cusps and pointed Abel–Jacobi maps and JacobianChallenge Layer F supply native AJ_c and image generation. Required clauses are X₁(N)→A, rational cusp c, φ(c)=0, nonconstancy and generating image, for every positive-dimensional modular A; the ℚ-simple refinement uses degeneracy from N to newform level M|N and the Γ₀ branch uses ∞. A nonzero Jacobian Hom is not this signature.
 
 Stage obligations: Export R14 modular curves/Jacobians/A_f and R19 representations, then state all omitted modularity and pointed-parametrisation signatures and tests.
 
@@ -1053,7 +1055,7 @@ Suggested coverage: signature-fragment. Vanishing is stated on canonical continu
 
 Node: `EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.5/restriction-of-scalars-endomorphisms` (theorem).
 
-Let C₀ be a non-CM ℚ-curve over a finite Galois K/ℚ with K-isogenies μ_g and cocycle c (GT.5/ribet-cocycle), and B = Res_{K/ℚ} C₀, an abelian variety over ℚ of dimension [K : ℚ], where K is enlarged (Ribet: 'after again enlarging K') so that the splitting α of GT.5/tate-vanishing-qbar factors through Gal(K/ℚ). Then End⁰_ℚ(B) = ⊕_{σ ∈ Gal(K/ℚ)} Hom⁰_K(σC₀, C₀) has a ℚ-basis λ_σ corresponding to μ_σ with λ_σλ_τ = c(σ, τ)λ_{στ}: it is the twisted group algebra R = ℚ^c[Gal(K/ℚ)]. For a splitting α of c (GT.5/tate-vanishing-qbar), ω : R → E_α, λ_σ ↦ α(σ), is a surjective homomorphism of ℚ-algebras, and R is semisimple.
+Let C₀ be a non-CM ℚ-curve over a finite Galois K/ℚ with K-isogenies μ_g and cocycle c (GT.5/ribet-cocycle), and B = Res_{K/ℚ} C₀, an abelian variety over ℚ of dimension [K : ℚ], where K has been enlarged so that the splitting α of GT.5/tate-vanishing-qbar factors through Gal(K/ℚ). Then End⁰_ℚ(B) = ⊕_{σ ∈ Gal(K/ℚ)} Hom⁰_K(σC₀, C₀) has a ℚ-basis λ_σ corresponding to μ_σ with λ_σλ_τ = c(σ, τ)λ_{στ}: it is the twisted group algebra R = ℚ^c[Gal(K/ℚ)]. For a splitting α of c (GT.5/tate-vanishing-qbar), ω : R → E_α, λ_σ ↦ α(σ), is a surjective homomorphism of ℚ-algebras, and R is semisimple.
 
 Construction or proof:
 
@@ -1165,7 +1167,7 @@ Source: Ribet92, §7, p. 15 — The quadratic case; Ribet92, Lemma 7.1, p. 16 �
 
 Suggested coverage: omitted. The actual Weil restriction, endomorphism algebra ℚ[X]/(X²−m), character and descent signature require AbelianSchemesAndArithmeticModuli:A6 restriction of scalars, its product descent, twisted-group-algebra action and the R-equivariant inverse-index isogeny, Native A1 elliptic/abelian equivalence and A6 rational quasi-isogenies, faithful geometric base change and End0/Hom0 functoriality and ArithmeticGaloisRepresentations:R01.6 and SmallRamificationAndAbelianVarietyBaseCases:R25.5 native Tate components, lattices, residual fields and coefficient embeddings. Both square/split and nonsquare/field branches are retained in the mathematical plan.
 
-Stage obligations: Resolve the request to AbelianSchemesAndArithmeticModuli A3 (quotients by finite subgroups), not yet in a packet. Export A1/A6 rational geometric maps and Weil-restriction action; obtain the canonical degree-two cohomology comparison; fill the explicit cocycle/CM/descent omissions.
+Stage obligations: Obtain the A3 native image and finite-subgroup quotient exports required by the projector construction; the supplier packet already plans these objects. Export A1/A6 rational geometric maps and Weil-restriction action; obtain the canonical degree-two cohomology comparison; fill the explicit cocycle/CM/descent omissions.
 
 ## GT.6 — Modularity of ℚ-curves over their fields of definition
 
@@ -1275,8 +1277,7 @@ Stage obligations: Export native automorphic base change and compatible algebrai
 - `tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev`: Chebotarev density for finite Galois extensions of ℚ and of number fields: the Frobenius elements at unramified primes of a density-one set are dense, so continuous semisimple representations are determined by Frobenius traces off a finite set, and infinitely many primes split completely in a number field.
 - `AbelianSchemesAndArithmeticModuli:A3`: Quotient of an abelian variety over a field by a finite subgroup scheme stable under Galois (here a finite étale subgroup of A(ℚ̄)), with the isogeny A → A/K and T_ℓ(A/K) the lattice generated by T_ℓ(A) and the ℓ-part of K; used to build the integral model with End = 𝒪_E (GT.2/integral-model).
 - `AbelianSchemesAndArithmeticModuli:A6`: Complex uniformization and comparison for an abelian variety A over ℚ with ℚ̄ ⊂ ℂ fixed: A(ℂ) ≅ Lie(A_ℂ)/H₁(A(ℂ), ℤ); the Hodge decomposition H₁(A(ℂ), ℚ) ⊗ ℂ = H^{-1,0} ⊕ H^{0,-1}; and the isomorphism T_ℓ(A) ≅ H₁(A(ℂ), ℤ) ⊗ ℤ_ℓ, equivariant for End_ℚ(A) and identifying complex conjugation in G_ℚ with the real Frobenius F_∞ (induced by complex conjugation on A(ℂ)), which interchanges H^{-1,0} and H^{0,-1}. Used for Ribet's oddness Lemma 3.2 (GT.2/odd) and Serre's Proposition 7.2 (GT.5/quadratic-q-curves). No layer of the atlas plans this comparison; A6 extends the field-level API of abelian varieties and is its natural owner.
-- `tauceti:TauCetiRoadmap/ModularForms#layer-4-eigenforms-newforms-primitive-forms-the-conductor`: On the existing HeckeRing.GL2.Newform carrier, export finiteness of normalized weight-two newforms of positive level dividing a fixed integer, using the character-space decomposition. Import coefficient fields from ModularForms Layer 8. The bundled newform itself is pinned baseline, not new work.
-- `tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus`: Character-space decomposition of S₂(Γ₁(N)) over diamond characters, with comparison to the existing cuspFormCharSpace joint eigenspace. The eigenspace definition already exists; the decomposition is the missing input.
+- `tauceti:TauCetiRoadmap/ModularForms#layer-4-eigenforms-newforms-primitive-forms-the-conductor`: On the existing HeckeRing.GL2.Newform carrier, export finiteness of normalized weight-two newforms of positive level dividing a fixed integer, using the pinned isInternal_cuspFormCharSpace decomposition. Import coefficient fields from ModularForms Layer 8. The bundled newform itself is pinned baseline, not new work.
 - `tauceti:TauCetiRoadmap/ModularForms#layer-5-strong-multiplicity-one-and-the-eigenform-characterization`: Cross-level strong multiplicity one from agreement at almost all primes: two normalized newforms with these agreements have the same least level and coincide after identifying their native cusp-form spaces. The pinned fixed-level, fixed-nebentypus theorem on almost all good indices is baseline; this request extends its interface rather than replanning it. Apply also to coefficient-field conjugates.
 - `tauceti:TauCetiRoadmap/JacobianChallenge#layer-f-abeljacobi-and-the-universal-property`: The Abel–Jacobi morphism of a curve with a rational point and the fact that its image generates the Jacobian, used for the modular parametrisation X₁(N) → A.
 - `tauceti:TauCetiRoadmap/ModularForms#layer-7-l-functions`: On the existing native cusp-form L-series, export the normalized newform Euler product (including bad primes) and the functional equation for the normalized Fricke companion, with weight-two factor i²=−1 and its pseudo-eigenvalue. After absorbing these constants, Λ(f,s)=w_f Λ(f̄,2−s), where Λ(f,s)=N^{s/2}(2π)^{−s}Γ(s)L(f,s). Entire continuation of the q-expansion L-series is already pinned baseline and is imported.
@@ -1342,6 +1343,7 @@ Mathlib: `082e2d37e8b0463410cdb532e111cd43d5a66174`; Tau Ceti: `f790474821cf4256
 | `mathlib:WeierstrassCurve.exists_variableChange_of_j_eq` | Two nonsingular Weierstrass curves over a separably closed field with equal j-invariant differ by a native VariableChange. Includes the exceptional j=0 and j=1728 cases. |
 | `tauceti:CuspForm.hasEntireExtension_qExpansion_coeff` | For a positive-weight cusp form on the native finite-index subgroup, the Dirichlet series of its q-expansion coefficients has an entire extension. This does not supply the normalized newform Euler product or the Fricke pseudo-eigenvalue comparison. |
 | `tauceti:HeckeRing.GL2.Newform.eq_of_forall_notMem_eigenvalue_eq` | At fixed positive level, weight and nebentypus, normalized newforms agree if their eigenvalues agree at every index coprime to the level outside a finite set. Cross-level comparison and agreement only at almost all primes need the requested extension. |
+| `tauceti:isInternal_cuspFormCharSpace` | At every natural level N and integer weight k, the native cuspFormCharSpace k χ form an internal direct sum in the Γ₁(N) cusp-form space. Only decidable equality on diamond characters is required; no finite-dimensionality or positive-level hypothesis. |
 
 ## Sources
 

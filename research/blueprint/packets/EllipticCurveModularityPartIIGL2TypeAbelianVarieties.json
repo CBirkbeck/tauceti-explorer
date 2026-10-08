@@ -11,7 +11,7 @@
     "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.6"
   ],
   "status": "complete",
-  "summary": "Part II of EllipticCurveModularity in dimension n: every abelian variety A over ℚ of GL₂-type is modular. GT.1 develops Ribet's structure theory of the endomorphism algebra (Theorem 2.1, the endomorphism field E, totally real or CM with Rosati as canonical involution) and proves that the modular quotients A_f are of GL₂-type with End⁰ = K_f; the GL₂(K)-type definition and its λ-adic representations are imported from SmallRamificationAndAbelianVarietyBaseCases R25.5 and ArithmeticGaloisRepresentations R01.6. GT.2 proves Ribet's §3: E-rational Frobenius polynomials, det ρ_λ = εχ_ℓ, oddness, absolute irreducibility, a_p = ε(p)ā_p, E = ℚ(a_p), residual irreducibility, bounded conductors and crystallinity with weights (1, 0). GT.3 generalises the parent's R29.2–R29.6 step by step (residual Serre witnesses of weight two at bounded level through ClassicalSerreModularity R27.6, one newform for infinitely many λ, exact coefficients K_f ≅ E, Tate-module comparison, Faltings' isogeny criterion) to Ribet's Theorem 4.4 and Khare–Wintenberger's Corollary 10.2(i), with the equivalent forms of modularity, the characterisation of the simple quotients of J₁(N), the Γ₀ case (Serre's Théorème 5) and the parametrisation. GT.4 proves cond(A) = N_f^{dim A} from Carayol's theorem, the exact level, the a posteriori Khare–Wintenberger strict compatibility and L(A, s) = ∏ L(f^σ, s). GT.5 plans Ribet's ℚ-curves (§§6–7: cocycle, Tate's theorem, restriction of scalars, Theorem 6.1, the quadratic case and Serre's Proposition 7.2) and GT.6 their modularity over a solvable Galois field of definition by base change, which EllipticCurveModularityImaginaryQuadratic imports for Caraiani–Newton's quadratic points.",
+  "summary": "Part II of EllipticCurveModularity in dimension n: every abelian variety A over ℚ of GL₂-type is modular. GT.1 develops Ribet's structure theory of the endomorphism algebra (Theorem 2.1, the endomorphism field E, totally real or CM with Rosati as canonical involution) and proves that the modular quotients A_f are of GL₂-type with End⁰ = K_f; the GL₂(K)-type definition and its λ-adic representations are imported from SmallRamificationAndAbelianVarietyBaseCases R25.5 and ArithmeticGaloisRepresentations R01.6. GT.2 proves Ribet's §3: E-rational Frobenius polynomials, det ρ_λ = εχ_ℓ, oddness, absolute irreducibility, a_p = ε(p)ā_p, E = ℚ(a_p), residual irreducibility, bounded conductors and crystallinity with weights (1, 0). GT.3 generalises the parent's R29.2–R29.6 step by step (residual Serre witnesses of weight two at bounded level through ClassicalSerreModularity R27.6, one newform for infinitely many λ, exact coefficients K_f ≅ E, Tate-module comparison, Faltings' isogeny criterion) to Ribet's Theorem 4.4 and Khare–Wintenberger's Corollary 10.2(i), with the equivalent forms of modularity, the characterisation of the simple quotients of J₁(N), the Γ₀ case (Serre's Théorème 5) and the parametrisation. For ℚ-simple A, GT.4 proves cond(A) = N_f^{dim A} from Carayol's theorem, the exact level, the a posteriori Khare–Wintenberger strict compatibility and L(A, s) = ∏ L(f^σ, s). GT.5 plans Ribet's ℚ-curves (§§6–7: cocycle, Tate's theorem, restriction of scalars, Theorem 6.1, the quadratic case and Serre's Proposition 7.2) and GT.6 their modularity over a solvable Galois field of definition by base change, which EllipticCurveModularityImaginaryQuadratic imports for Caraiani–Newton's quadratic points.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -24,8 +24,8 @@
         "checked": "statement read at the pinned commit f790474",
         "review": {
           "verdict": "confirmed",
-          "by": "REV-DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties",
-          "note": "Declaration and hypotheses read at the pinned commit; confirmed for the limited use stated in provides. No larger supplier API is asserted."
+          "by": "REV-DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties~2",
+          "note": "Statement and surrounding hypotheses independently read at the recorded pinned commit. Confirmed for the limited advertised use; the supplier export requests remain separate."
         }
       },
       {
@@ -36,8 +36,8 @@
         "checked": "statement read at the pinned commit f790474",
         "review": {
           "verdict": "confirmed",
-          "by": "REV-DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties",
-          "note": "Declaration and hypotheses read at the pinned commit; confirmed for the limited use stated in provides. No larger supplier API is asserted."
+          "by": "REV-DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties~2",
+          "note": "Statement and surrounding hypotheses independently read at the recorded pinned commit. Confirmed for the limited advertised use; the supplier export requests remain separate."
         }
       },
       {
@@ -48,8 +48,8 @@
         "checked": "statement read at the pinned commit f790474",
         "review": {
           "verdict": "confirmed",
-          "by": "REV-DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties",
-          "note": "Declaration and hypotheses read at the pinned commit; confirmed for the limited use stated in provides. No larger supplier API is asserted."
+          "by": "REV-DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties~2",
+          "note": "Statement and surrounding hypotheses independently read at the recorded pinned commit. Confirmed for the limited advertised use; the supplier export requests remain separate."
         }
       },
       {
@@ -60,8 +60,8 @@
         "checked": "statement read at the pinned commit f790474",
         "review": {
           "verdict": "confirmed",
-          "by": "REV-DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties",
-          "note": "Declaration and hypotheses read at the pinned commit; confirmed for the limited use stated in provides. No larger supplier API is asserted."
+          "by": "REV-DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties~2",
+          "note": "Statement and surrounding hypotheses independently read at the recorded pinned commit. Confirmed for the limited advertised use; the supplier export requests remain separate."
         }
       },
       {
@@ -72,8 +72,8 @@
         "checked": "statement read at the pinned commit f790474",
         "review": {
           "verdict": "confirmed",
-          "by": "REV-DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties",
-          "note": "Declaration and hypotheses read at the pinned commit; confirmed for the limited use stated in provides. No larger supplier API is asserted."
+          "by": "REV-DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties~2",
+          "note": "Statement and surrounding hypotheses independently read at the recorded pinned commit. Confirmed for the limited advertised use; the supplier export requests remain separate."
         }
       },
       {
@@ -84,8 +84,8 @@
         "checked": "statement read at the pinned commit 082e2d3",
         "review": {
           "verdict": "confirmed",
-          "by": "REV-DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties",
-          "note": "Declaration and hypotheses read at the pinned commit; confirmed for the limited use stated in provides. No larger supplier API is asserted."
+          "by": "REV-DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties~2",
+          "note": "Statement and surrounding hypotheses independently read at the recorded pinned commit. Confirmed for the limited advertised use; the supplier export requests remain separate."
         }
       },
       {
@@ -96,8 +96,8 @@
         "checked": "statement read at the pinned commit 082e2d3",
         "review": {
           "verdict": "confirmed",
-          "by": "REV-DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties",
-          "note": "Declaration and hypotheses read at the pinned commit; confirmed for the limited use stated in provides. No larger supplier API is asserted."
+          "by": "REV-DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties~2",
+          "note": "Statement and surrounding hypotheses independently read at the recorded pinned commit. Confirmed for the limited advertised use; the supplier export requests remain separate."
         }
       },
       {
@@ -108,8 +108,8 @@
         "checked": "statement read at the pinned commit 082e2d3",
         "review": {
           "verdict": "confirmed",
-          "by": "REV-DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties",
-          "note": "Declaration and hypotheses read at the pinned commit; confirmed for the limited use stated in provides. No larger supplier API is asserted."
+          "by": "REV-DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties~2",
+          "note": "Statement and surrounding hypotheses independently read at the recorded pinned commit. Confirmed for the limited advertised use; the supplier export requests remain separate."
         }
       },
       {
@@ -120,8 +120,8 @@
         "checked": "statement read at the pinned commit 082e2d3",
         "review": {
           "verdict": "confirmed",
-          "by": "REV-DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties",
-          "note": "Declaration and hypotheses read at the pinned commit; confirmed for the limited use stated in provides. No larger supplier API is asserted."
+          "by": "REV-DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties~2",
+          "note": "Statement and surrounding hypotheses independently read at the recorded pinned commit. Confirmed for the limited advertised use; the supplier export requests remain separate."
         }
       },
       {
@@ -132,8 +132,8 @@
         "checked": "statement read at the pinned commit 082e2d3",
         "review": {
           "verdict": "confirmed",
-          "by": "REV-DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties",
-          "note": "Declaration and hypotheses read at the pinned commit; confirmed for the limited use stated in provides. No larger supplier API is asserted."
+          "by": "REV-DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties~2",
+          "note": "Statement and surrounding hypotheses independently read at the recorded pinned commit. Confirmed for the limited advertised use; the supplier export requests remain separate."
         }
       },
       {
@@ -144,8 +144,8 @@
         "checked": "statement read at the pinned commit 082e2d3",
         "review": {
           "verdict": "confirmed",
-          "by": "REV-DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties",
-          "note": "Declaration and hypotheses read at the pinned commit; confirmed for the limited use stated in provides. No larger supplier API is asserted."
+          "by": "REV-DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties~2",
+          "note": "Statement and surrounding hypotheses independently read at the recorded pinned commit. Confirmed for the limited advertised use; the supplier export requests remain separate."
         }
       },
       {
@@ -156,8 +156,8 @@
         "checked": "statement read at the pinned commit 082e2d3",
         "review": {
           "verdict": "confirmed",
-          "by": "REV-DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties",
-          "note": "Declaration and hypotheses read at the pinned commit; confirmed for the limited use stated in provides. No larger supplier API is asserted."
+          "by": "REV-DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties~2",
+          "note": "Statement and surrounding hypotheses independently read at the recorded pinned commit. Confirmed for the limited advertised use; the supplier export requests remain separate."
         }
       },
       {
@@ -168,8 +168,8 @@
         "checked": "statement read at the pinned commit 082e2d3",
         "review": {
           "verdict": "confirmed",
-          "by": "REV-DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties",
-          "note": "Declaration and hypotheses read at the pinned commit; confirmed for the limited use stated in provides. No larger supplier API is asserted."
+          "by": "REV-DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties~2",
+          "note": "Statement and surrounding hypotheses independently read at the recorded pinned commit. Confirmed for the limited advertised use; the supplier export requests remain separate."
         }
       },
       {
@@ -180,8 +180,8 @@
         "checked": "statement read at the pinned commit 082e2d3",
         "review": {
           "verdict": "confirmed",
-          "by": "REV-DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties",
-          "note": "Declaration and hypotheses read at the pinned commit; confirmed for the limited use stated in provides. No larger supplier API is asserted."
+          "by": "REV-DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties~2",
+          "note": "Statement and surrounding hypotheses independently read at the recorded pinned commit. Confirmed for the limited advertised use; the supplier export requests remain separate."
         }
       },
       {
@@ -192,8 +192,8 @@
         "checked": "statement read at the pinned commit 082e2d3",
         "review": {
           "verdict": "confirmed",
-          "by": "REV-DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties",
-          "note": "Declaration and hypotheses read at the pinned commit; confirmed for the limited use stated in provides. No larger supplier API is asserted."
+          "by": "REV-DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties~2",
+          "note": "Statement and surrounding hypotheses independently read at the recorded pinned commit. Confirmed for the limited advertised use; the supplier export requests remain separate."
         }
       },
       {
@@ -204,8 +204,8 @@
         "checked": "statement read at the pinned commit 082e2d3",
         "review": {
           "verdict": "confirmed",
-          "by": "REV-DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties",
-          "note": "Declaration and hypotheses read at the pinned commit; confirmed for the limited use stated in provides. No larger supplier API is asserted."
+          "by": "REV-DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties~2",
+          "note": "Statement and surrounding hypotheses independently read at the recorded pinned commit. Confirmed for the limited advertised use; the supplier export requests remain separate."
         }
       },
       {
@@ -216,8 +216,8 @@
         "checked": "statement read at the pinned commit 082e2d3",
         "review": {
           "verdict": "confirmed",
-          "by": "REV-DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties",
-          "note": "Declaration and hypotheses read at the pinned commit; confirmed for the limited use stated in provides. No larger supplier API is asserted."
+          "by": "REV-DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties~2",
+          "note": "Statement and surrounding hypotheses independently read at the recorded pinned commit. Confirmed for the limited advertised use; the supplier export requests remain separate."
         }
       },
       {
@@ -228,8 +228,8 @@
         "checked": "statement read at pinned Mathlib 082e2d3, line 131, by independent review REV-DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties",
         "review": {
           "verdict": "confirmed",
-          "by": "REV-DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties",
-          "note": "Declaration and hypotheses read at the pinned commit; confirmed for the limited use stated in provides. No larger supplier API is asserted."
+          "by": "REV-DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties~2",
+          "note": "Statement and surrounding hypotheses independently read at the recorded pinned commit. Confirmed for the limited advertised use; the supplier export requests remain separate."
         }
       },
       {
@@ -240,8 +240,8 @@
         "checked": "statement read at pinned Tau Ceti f790474, line 226, by independent review REV-DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties",
         "review": {
           "verdict": "confirmed",
-          "by": "REV-DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties",
-          "note": "Declaration and hypotheses read at the pinned commit; confirmed for the limited use stated in provides. No larger supplier API is asserted."
+          "by": "REV-DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties~2",
+          "note": "Statement and surrounding hypotheses independently read at the recorded pinned commit. Confirmed for the limited advertised use; the supplier export requests remain separate."
         }
       },
       {
@@ -249,77 +249,144 @@
         "kind": "def",
         "module": "TauCeti/AlgebraicGeometry/AbelianVariety/End/Basic.lean",
         "provides": "Native End A = Additive (A ⟶ A), with Ring operations induced by the pointwise group law and composition; not a Preadditive hom-set assumption.",
-        "checked": "statement and hypotheses read at pinned commit f790474 on 2026-10-08"
+        "checked": "statement and hypotheses read at pinned commit f790474 on 2026-10-08",
+        "review": {
+          "verdict": "confirmed",
+          "by": "REV-DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties~2",
+          "note": "Statement and surrounding hypotheses independently read at the recorded pinned commit. Confirmed for the limited advertised use; the supplier export requests remain separate."
+        }
       },
       {
         "ref": "tauceti:TauCeti.AlgebraicGeometry.AbelianVariety.prod",
         "kind": "def",
         "module": "TauCeti/AlgebraicGeometry/AbelianVariety/Product.lean",
         "provides": "Native categorical product of two abelian varieties; the module provides finite products used for piObj powers.",
-        "checked": "statement and hypotheses read at pinned commit f790474 on 2026-10-08"
+        "checked": "statement and hypotheses read at pinned commit f790474 on 2026-10-08",
+        "review": {
+          "verdict": "confirmed",
+          "by": "REV-DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties~2",
+          "note": "Statement and surrounding hypotheses independently read at the recorded pinned commit. Confirmed for the limited advertised use; the supplier export requests remain separate."
+        }
       },
       {
         "ref": "tauceti:TauCeti.AlgebraicGeometry.AbelianVariety.baseChange",
         "kind": "def",
         "module": "TauCeti/AlgebraicGeometry/AbelianVariety/Basic.lean",
         "provides": "Actual pullback base change of an abelian variety along a field algebra map; not a substitute for rational Hom0 functoriality.",
-        "checked": "statement and hypotheses read at pinned commit f790474 on 2026-10-08"
+        "checked": "statement and hypotheses read at pinned commit f790474 on 2026-10-08",
+        "review": {
+          "verdict": "confirmed",
+          "by": "REV-DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties~2",
+          "note": "Statement and surrounding hypotheses independently read at the recorded pinned commit. Confirmed for the limited advertised use; the supplier export requests remain separate."
+        }
       },
       {
         "ref": "tauceti:TauCeti.Isogeny",
         "kind": "structure",
         "module": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Basic.lean",
         "provides": "Native Weierstrass isogeny via a coordinate-ring pullback into the source function field and the maps-infinity condition. This consumer additionally requires IsElliptic on both curves.",
-        "checked": "statement and hypotheses read at pinned commit f790474 on 2026-10-08"
+        "checked": "statement and hypotheses read at pinned commit f790474 on 2026-10-08",
+        "review": {
+          "verdict": "confirmed",
+          "by": "REV-DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties~2",
+          "note": "Statement and surrounding hypotheses independently read at the recorded pinned commit. Confirmed for the limited advertised use; the supplier export requests remain separate."
+        }
       },
       {
         "ref": "tauceti:TauCeti.Isogeny.map",
         "kind": "def",
         "module": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/BaseChange.lean",
         "provides": "Coefficientwise base change of an actual isogeny along a field ring homomorphism, with identity, composition and iterated-map coherence in the same module.",
-        "checked": "statement and hypotheses read at pinned commit f790474 on 2026-10-08"
+        "checked": "statement and hypotheses read at pinned commit f790474 on 2026-10-08",
+        "review": {
+          "verdict": "confirmed",
+          "by": "REV-DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties~2",
+          "note": "Statement and surrounding hypotheses independently read at the recorded pinned commit. Confirmed for the limited advertised use; the supplier export requests remain separate."
+        }
       },
       {
         "ref": "tauceti:WeierstrassCurve.quadraticTwistOf",
         "kind": "def",
         "module": "TauCeti/AlgebraicGeometry/EllipticCurve/QuadraticTwist.lean",
         "provides": "Explicit twist by trace/norm parameters (t,n); nonsingularity requires t²−4n nonzero over a field. For t=0,n=−d/4 its discriminant parameter is d.",
-        "checked": "statement and hypotheses read at pinned commit f790474 on 2026-10-08"
+        "checked": "statement and hypotheses read at pinned commit f790474 on 2026-10-08",
+        "review": {
+          "verdict": "confirmed",
+          "by": "REV-DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties~2",
+          "note": "Statement and surrounding hypotheses independently read at the recorded pinned commit. Confirmed for the limited advertised use; the supplier export requests remain separate."
+        }
       },
       {
         "ref": "tauceti:TauCeti.ContCohomology.Z2",
         "kind": "def",
         "module": "TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean",
         "provides": "Existing continuous inhomogeneous degree-two cocycles for a continuous action, as continuous cochains intersected with ker d2. Not canonical continuousCohomology without the requested comparison.",
-        "checked": "statement and hypotheses read at pinned commit f790474 on 2026-10-08"
+        "checked": "statement and hypotheses read at pinned commit f790474 on 2026-10-08",
+        "review": {
+          "verdict": "confirmed",
+          "by": "REV-DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties~2",
+          "note": "Statement and surrounding hypotheses independently read at the recorded pinned commit. Confirmed for the limited advertised use; the supplier export requests remain separate."
+        }
       },
       {
         "ref": "tauceti:TauCeti.ContCohomology.explicitInfl2",
         "kind": "def",
         "module": "TauCeti/RepresentationTheory/Homological/ContCohomology/Inflation.lean",
         "provides": "Existing explicit degree-two inflation from a normal-subgroup quotient with fixed-point coefficients to the full group. It still needs natural comparison with canonical continuousCohomology for this application.",
-        "checked": "statement and hypotheses read at pinned commit f790474 on 2026-10-08"
+        "checked": "statement and hypotheses read at pinned commit f790474 on 2026-10-08",
+        "review": {
+          "verdict": "confirmed",
+          "by": "REV-DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties~2",
+          "note": "Statement and surrounding hypotheses independently read at the recorded pinned commit. Confirmed for the limited advertised use; the supplier export requests remain separate."
+        }
       },
       {
         "ref": "mathlib:WeierstrassCurve.exists_variableChange_of_j_eq",
         "kind": "theorem",
         "module": "Mathlib/AlgebraicGeometry/EllipticCurve/IsomOfJ.lean",
         "provides": "Two nonsingular Weierstrass curves over a separably closed field with equal j-invariant differ by a native VariableChange. Includes the exceptional j=0 and j=1728 cases.",
-        "checked": "statement and hypotheses read at pinned commit 082e2d3 on 2026-10-08"
+        "checked": "statement and hypotheses read at pinned commit 082e2d3 on 2026-10-08",
+        "review": {
+          "verdict": "confirmed",
+          "by": "REV-DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties~2",
+          "note": "Statement and surrounding hypotheses independently read at the recorded pinned commit. Confirmed for the limited advertised use; the supplier export requests remain separate."
+        }
       },
       {
         "ref": "tauceti:CuspForm.hasEntireExtension_qExpansion_coeff",
         "kind": "theorem",
         "module": "TauCeti/NumberTheory/ModularForms/LFunction.lean",
         "provides": "For a positive-weight cusp form on the native finite-index subgroup, the Dirichlet series of its q-expansion coefficients has an entire extension. This does not supply the normalized newform Euler product or the Fricke pseudo-eigenvalue comparison.",
-        "checked": "statement and hypotheses read at pinned commit f790474 on 2026-10-08"
+        "checked": "statement and hypotheses read at pinned commit f790474 on 2026-10-08",
+        "review": {
+          "verdict": "confirmed",
+          "by": "REV-DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties~2",
+          "note": "Statement and surrounding hypotheses independently read at the recorded pinned commit. Confirmed for the limited advertised use; the supplier export requests remain separate."
+        }
       },
       {
         "ref": "tauceti:HeckeRing.GL2.Newform.eq_of_forall_notMem_eigenvalue_eq",
         "kind": "theorem",
         "module": "TauCeti/NumberTheory/ModularForms/Newforms/StrongMultiplicityOne.lean",
         "provides": "At fixed positive level, weight and nebentypus, normalized newforms agree if their eigenvalues agree at every index coprime to the level outside a finite set. Cross-level comparison and agreement only at almost all primes need the requested extension.",
-        "checked": "statement and hypotheses read at pinned commit f790474 on 2026-10-08"
+        "checked": "statement and hypotheses read at pinned commit f790474 on 2026-10-08",
+        "review": {
+          "verdict": "confirmed",
+          "by": "REV-DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties~2",
+          "note": "Statement and surrounding hypotheses independently read at the recorded pinned commit. Confirmed for the limited advertised use; the supplier export requests remain separate."
+        }
+      },
+      {
+        "ref": "tauceti:isInternal_cuspFormCharSpace",
+        "kind": "theorem",
+        "module": "TauCeti/NumberTheory/ModularForms/CharacterDecomp.lean",
+        "provides": "At every natural level N and integer weight k, the native cuspFormCharSpace k χ form an internal direct sum in the Γ₁(N) cusp-form space. Only decidable equality on diamond characters is required; no finite-dimensionality or positive-level hypothesis.",
+        "checked": "statement and surrounding hypotheses read at pinned Tau Ceti f790474, line 154, on 2026-10-08",
+        "review": {
+          "verdict": "confirmed",
+          "by": "REV-DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties~2",
+          "note": "Statement and surrounding hypotheses independently read at the recorded pinned commit. Confirmed for the limited advertised use; the supplier export requests remain separate."
+        }
       }
     ]
   },
@@ -413,7 +480,7 @@
       ],
       "title": "The degree of an acting division algebra divides the dimension",
       "kind": "lemma",
-      "statement": "Let A be an abelian variety over ℚ and D a division ℚ-algebra with a unital ℚ-algebra map D → End⁰_ℚ(A). Then dim_ℚ D divides dim A. In particular, if A is of GL₂(E)-type (SmallRamificationAndAbelianVarietyBaseCases:R25.5/gl2-type-abelian-variety) and B ⊆ A is a nonzero abelian subvariety over ℚ on which E acts up to isogeny, then B = A.",
+      "statement": "Let A be an abelian variety over ℚ and D a finite-dimensional division ℚ-algebra with a unital ℚ-algebra map D → End⁰_ℚ(A). Then dim_ℚ D divides dim A. In particular, if A is of GL₂(E)-type (SmallRamificationAndAbelianVarietyBaseCases:R25.5/gl2-type-abelian-variety) and B ⊆ A is a nonzero abelian subvariety over ℚ on which E acts up to isogeny, then B = A.",
       "hypotheses": [
         "the map D → End⁰_ℚ(A) sends 1 to the identity",
         "B is stable under E up to isogeny: every e ∈ E has a multiple n·e ∈ End_ℚ(A) mapping B into B"
@@ -1577,7 +1644,7 @@
       "hypotheses": [],
       "proofSteps": [
         "f_p(A) is independent of ℓ ≠ p: the H^i(A) form a ℚ-rational strictly compatible system (NeronModelsAndSemistableAbelianVarieties:R11.6/strict-compatible-system-export), and cond(A) is defined from it (R11.5/conductor-import).",
-        "For p ≠ ℓ and E_λ = ℚ_ℓ, V_λ is a direct summand of V_ℓ(A) as a ℚ_ℓ[G_{ℚ_p}]-module, so f_p(ρ_λ) ≤ f_p(V_ℓ(A)) by additivity and nonnegativity of the Artin conductor (R01.3/conductor-of-a-weil-deligne-representation).",
+        "For p ≠ ℓ, restriction of scalars of V_λ from E_λ to ℚ_ℓ is a direct summand of V_ℓ(A). The Artin conductor is additive and nonnegative, and restriction of scalars multiplies its exponent by [E_λ : ℚ_ℓ] (each inertia-fixed space, monodromy kernel and Swan term acquires that dimension factor). Thus [E_λ : ℚ_ℓ]·f_p(ρ_λ) ≤ f_p(A), so f_p(ρ_λ) ≤ f_p(A). This applies to every λ; residue degree one alone does not imply E_λ = ℚ_ℓ.",
         "Reduction does not increase the conductor (ArithmeticGaloisRepresentations:R01.3/reduction-does-not-increase-the-conductor)."
       ],
       "acceptance": [
@@ -1946,7 +2013,7 @@
       "statement": "In the situation of GT.3/serre-witnesses there are a normalised newform f of weight two and level N_f dividing cond(A), with coefficient field K_f, and an infinite subset Λ_f ⊆ Λ such that for every λ ∈ Λ_f there is a ring homomorphism φ_λ : 𝒪_{K_f} → 𝔽_λ = 𝔽_ℓ with φ_λ(a_p(f)) = a_p(A) mod λ for all p ∉ S ∪ {ℓ}. This generalises the pigeonhole step of EllipticCurveModularity:R29.3/a-single-newform-for-infinitely-many-p-and-exact-coefficients.",
       "hypotheses": [],
       "proofSteps": [
-        "The newforms of weight two and level dividing cond(A), with any character, form a finite set: they are eigenvectors in the finite-dimensional spaces S₂(Γ₁(M)), M | cond(A) (Tau Ceti ModularForms layers 0 and 4).",
+        "The native cusp-form spaces already decompose into diamond-character spaces by isInternal_cuspFormCharSpace. ModularForms Layer 4 must export finiteness of normalized weight-two newforms of positive level dividing cond(A), using finite-dimensionality of the finitely many spaces S₂(Γ₁(M)), M | cond(A). This is finiteness on the existing carrier, rather than a new character decomposition.",
         "λ ↦ g_λ maps the infinite set Λ to this finite set, so some fibre is infinite (EllipticCurveModularity:R29.3/pigeonhole-infinite-fiber). At this point reduction lands in 𝔽_{λ′}, with the good Hecke values in its embedded subfield 𝔽_λ.",
         "Choose finitely many good-prime a_p(f) generating K_f: use GT.1/modular-quotient-is-gl2-type, the Frobenius comparison of ModularCurvesPartII:R14.5/newform-hecke-prime, and GT.2/coefficients-generate applied to A_f. The order they generate has finite index in 𝒪_{K_f}. Delete the finitely many λ whose residue characteristic divides this index or is one of the chosen primes. The remaining Λ_f is infinite, and reduction of every element of 𝒪_{K_f} lies in the embedded 𝔽_λ. Thus φ_λ has the stated codomain 𝔽_λ = 𝔽_ℓ."
       ],
@@ -1959,7 +2026,7 @@
         "EllipticCurveModularity:R29.3/pigeonhole-infinite-fiber",
         "tauceti:TauCetiRoadmap/ModularForms#layer-4-eigenforms-newforms-primitive-forms-the-conductor",
         "tauceti:HeckeRing.GL2.Newform",
-        "tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus",
+        "tauceti:isInternal_cuspFormCharSpace",
         "tauceti:cuspFormCharSpace",
         "mathlib:CongruenceSubgroup.Gamma1",
         "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.2/coefficients-generate",
@@ -2346,16 +2413,18 @@
       ],
       "title": "Modular parametrisation of a GL₂-type variety",
       "kind": "theorem",
-      "statement": "Let A be a ℚ-simple abelian variety over ℚ of GL₂-type, modular of level N. There is a nonconstant morphism φ : X₁(N) → A over ℚ with φ(c) = 0 for the rational cusp c of ModularCurvesPartII:R14.6/rational-cusp-abel-jacobi, whose image generates A as an algebraic group; φ is the composite of the Abel–Jacobi map, a quotient J₁(N) → J₁(M) → A_f with the newform level M dividing N and an isogeny A_f → A. If ε = 1, φ can be taken on X₀(N) with φ(∞) = 0. This generalises EllipticCurveModularity:R29.5/modular-parametrisation.",
+      "statement": "Let A be a positive-dimensional abelian variety over ℚ, modular of level N. For every surjective homomorphism q : J₁(N) → A, the composite φ = q ∘ AJ_c : X₁(N) → A is a nonconstant morphism over ℚ with φ(c) = 0 for the rational cusp c of ModularCurvesPartII:R14.6/rational-cusp-abel-jacobi, and its image generates A as an algebraic group. If A is also ℚ-simple of GL₂-type, one can choose q as J₁(N) → J₁(M) → A_f → A, where M | N is the newform level and the last map is an isogeny. In this simple case, if ε = 1 one can instead use X₀(N), sending ∞ to 0. This generalises EllipticCurveModularity:R29.5/modular-parametrisation and also applies to modular powers.",
       "hypotheses": [],
       "proofSteps": [
-        "From the surjection J₁(N) → A and the newform decomposition of J₁(N), choose a newform f of level M | N with A_f ~ A (GT.3/modularity-equivalences and GT.1/modular-quotient-is-gl2-type). Compose AJ_c : X₁(N) → J₁(N), a surjective degeneracy map J₁(N) → J₁(M) (R14.2/jacobian-and-functoriality), J₁(M) → A_f and an isogeny A_f → A. Nonconstancy follows from R14.5/abel-jacobi-composite-nonzero. The ambient modular level N need not be the newform level M.",
+        "The pointed Abel–Jacobi image generates J₁(N) by JacobianChallenge layer F. Its image under q therefore generates A, and φ(c) = q(0) = 0. If φ were constant, it would be the zero map and could only generate the zero abelian variety; positive dimension excludes this.",
+        "In the ℚ-simple GL₂-type case, from the surjection J₁(N) → A and the newform decomposition of J₁(N), choose a newform f of level M | N with A_f ~ A (GT.3/modularity-equivalences and GT.1/modular-quotient-is-gl2-type). Compose AJ_c : X₁(N) → J₁(N), a surjective degeneracy map J₁(N) → J₁(M) (R14.2/jacobian-and-functoriality), J₁(M) → A_f and an isogeny A_f → A. Nonconstancy follows from R14.5/abel-jacobi-composite-nonzero. The ambient modular level N need not be the newform level M.",
         "The image of X₁(N) generates J₁(N) (the Jacobian is generated by the curve, Tau Ceti JacobianChallenge layer F), hence its image generates A.",
         "For ε = 1 the chosen f has trivial character, so use J₀(N) → J₀(M) → A_f, with AJ_∞ and the trivial-character quotient (R14.5/trivial-character-J0). This gives the Γ₀ parametrisation at the specified ambient level N, not merely at some other level."
       ],
       "acceptance": [
         "For dim A = 1 and ε = 1 this is the parametrisation X₀(N) → E of R29.5.",
-        "For J₁(13) the parametrisation is the Abel–Jacobi embedding of X₁(13), a curve of genus 2."
+        "For J₁(13) the parametrisation is the Abel–Jacobi embedding of X₁(13), a curve of genus 2.",
+        "For B × B with B = X₀(11), the level-22 oldform quotient J₁(22) → B × B yields a pointed, nonconstant generating curve map even though the target is not ℚ-simple."
       ],
       "prerequisites": [
         "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.3/modularity-theorem",
@@ -2382,12 +2451,12 @@
       },
       "suggestedCoverage": {
         "status": "omitted",
-        "omissions": "The full pointed curve-morphism signature is omitted until ModularCurvesPartII:R14.2/R14.5/R14.6 native X₁(N), X₀(N), Jacobians, A_f, coefficient fields, Hecke actions, rational cusps and pointed Abel–Jacobi maps and JacobianChallenge Layer F supply native AJ_c and image generation. Required clauses are X₁(N)→A, rational cusp c, φ(c)=0, nonconstancy and generating image, with degeneracy from N to newform level M|N; the Γ₀ branch uses ∞. A nonzero Jacobian Hom is not this signature.",
+        "omissions": "The full pointed curve-morphism signature is omitted until ModularCurvesPartII:R14.2/R14.5/R14.6 native X₁(N), X₀(N), Jacobians, A_f, coefficient fields, Hecke actions, rational cusps and pointed Abel–Jacobi maps and JacobianChallenge Layer F supply native AJ_c and image generation. Required clauses are X₁(N)→A, rational cusp c, φ(c)=0, nonconstancy and generating image, for every positive-dimensional modular A; the ℚ-simple refinement uses degeneracy from N to newform level M|N and the Γ₀ branch uses ∞. A nonzero Jacobian Hom is not this signature.",
         "declarations": [
           {
             "name": "GL2Type.modularParametrisation",
             "status": "omitted",
-            "omissions": "The full pointed curve-morphism signature is omitted until ModularCurvesPartII:R14.2/R14.5/R14.6 native X₁(N), X₀(N), Jacobians, A_f, coefficient fields, Hecke actions, rational cusps and pointed Abel–Jacobi maps and JacobianChallenge Layer F supply native AJ_c and image generation. Required clauses are X₁(N)→A, rational cusp c, φ(c)=0, nonconstancy and generating image, with degeneracy from N to newform level M|N; the Γ₀ branch uses ∞. A nonzero Jacobian Hom is not this signature."
+            "omissions": "The full pointed curve-morphism signature is omitted until ModularCurvesPartII:R14.2/R14.5/R14.6 native X₁(N), X₀(N), Jacobians, A_f, coefficient fields, Hecke actions, rational cusps and pointed Abel–Jacobi maps and JacobianChallenge Layer F supply native AJ_c and image generation. Required clauses are X₁(N)→A, rational cusp c, φ(c)=0, nonconstancy and generating image, for every positive-dimensional modular A; the ℚ-simple refinement uses degeneracy from N to newform level M|N and the Γ₀ branch uses ∞. A nonzero Jacobian Hom is not this signature."
           }
         ],
         "tests": []
@@ -3116,7 +3185,7 @@
       ],
       "title": "Ribet's Lemma 6.4: the endomorphism algebra of Res_{K/ℚ} C₀ is a twisted group algebra",
       "kind": "theorem",
-      "statement": "Let C₀ be a non-CM ℚ-curve over a finite Galois K/ℚ with K-isogenies μ_g and cocycle c (GT.5/ribet-cocycle), and B = Res_{K/ℚ} C₀, an abelian variety over ℚ of dimension [K : ℚ], where K is enlarged (Ribet: 'after again enlarging K') so that the splitting α of GT.5/tate-vanishing-qbar factors through Gal(K/ℚ). Then End⁰_ℚ(B) = ⊕_{σ ∈ Gal(K/ℚ)} Hom⁰_K(σC₀, C₀) has a ℚ-basis λ_σ corresponding to μ_σ with λ_σλ_τ = c(σ, τ)λ_{στ}: it is the twisted group algebra R = ℚ^c[Gal(K/ℚ)]. For a splitting α of c (GT.5/tate-vanishing-qbar), ω : R → E_α, λ_σ ↦ α(σ), is a surjective homomorphism of ℚ-algebras, and R is semisimple.",
+      "statement": "Let C₀ be a non-CM ℚ-curve over a finite Galois K/ℚ with K-isogenies μ_g and cocycle c (GT.5/ribet-cocycle), and B = Res_{K/ℚ} C₀, an abelian variety over ℚ of dimension [K : ℚ], where K has been enlarged so that the splitting α of GT.5/tate-vanishing-qbar factors through Gal(K/ℚ). Then End⁰_ℚ(B) = ⊕_{σ ∈ Gal(K/ℚ)} Hom⁰_K(σC₀, C₀) has a ℚ-basis λ_σ corresponding to μ_σ with λ_σλ_τ = c(σ, τ)λ_{στ}: it is the twisted group algebra R = ℚ^c[Gal(K/ℚ)]. For a splitting α of c (GT.5/tate-vanishing-qbar), ω : R → E_α, λ_σ ↦ α(σ), is a surjective homomorphism of ℚ-algebras, and R is semisimple.",
       "hypotheses": [],
       "proofSteps": [
         "B is an abelian variety over ℚ representing S ↦ C₀(S_K) (AbelianSchemesAndArithmeticModuli:A6/finite-etale-weil-restriction-of-abelian-schemes), so Hom_ℚ(X, B) = Hom_K(X_K, C₀) for abelian X/ℚ; with B_K ≅ ∏_σ σC₀ (A6/weil-restriction-over-a-separable-extension-splits) this gives End⁰_ℚ(B) = ⊕_σ Hom⁰_K(σC₀, C₀) = ⊕_σ ℚ·μ_σ.",
@@ -3671,14 +3740,7 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/ModularForms#layer-4-eigenforms-newforms-primitive-forms-the-conductor",
-      "need": "On the existing HeckeRing.GL2.Newform carrier, export finiteness of normalized weight-two newforms of positive level dividing a fixed integer, using the character-space decomposition. Import coefficient fields from ModularForms Layer 8. The bundled newform itself is pinned baseline, not new work.",
-      "neededBy": [
-        "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.3/fixed-newform"
-      ]
-    },
-    {
-      "supplier": "tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus",
-      "need": "Character-space decomposition of S₂(Γ₁(N)) over diamond characters, with comparison to the existing cuspFormCharSpace joint eigenspace. The eigenspace definition already exists; the decomposition is the missing input.",
+      "need": "On the existing HeckeRing.GL2.Newform carrier, export finiteness of normalized weight-two newforms of positive level dividing a fixed integer, using the pinned isInternal_cuspFormCharSpace decomposition. Import coefficient fields from ModularForms Layer 8. The bundled newform itself is pinned baseline, not new work.",
       "neededBy": [
         "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.3/fixed-newform"
       ]
@@ -3834,7 +3896,7 @@
       "stageId": "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.1",
       "status": "planned",
       "remaining": [
-        "Resolve the imports from AbelianSchemesAndArithmeticModuli A2/A6 (Rosati, Poincaré, endomorphism algebras), which are planned in a packet not yet reviewed.",
+        "Obtain the native A2/A6 Rosati, Poincaré and rational-endomorphism exports from their owner; their target-level supplier statements are imported, not implementations.",
         "Implement and check the native A1/A6/R25.5 signatures, coherent field/Rosati actions, and actual Hecke-J₀(23) tests recorded in suggestedCoverage."
       ]
     },
@@ -3864,7 +3926,7 @@
       "stageId": "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.5",
       "status": "planned",
       "remaining": [
-        "Resolve the request to AbelianSchemesAndArithmeticModuli A3 (quotients by finite subgroups), not yet in a packet.",
+        "Obtain the A3 native image and finite-subgroup quotient exports required by the projector construction; the supplier packet already plans these objects.",
         "Export A1/A6 rational geometric maps and Weil-restriction action; obtain the canonical degree-two cohomology comparison; fill the explicit cocycle/CM/descent omissions."
       ]
     },
@@ -3959,12 +4021,13 @@
       "searched": [
         "the sourceIssues of PAPER-KHARE-WINTENBERGER-09-I.result.json (E1–E6) and of the ClassicalSerreModularity packets, 2026-10-07: not recorded",
         "Crossref metadata for doi:10.1007/s00222-009-0205-7 as recorded in PAPER-KHARE-WINTENBERGER-09-I: no erratum registered",
-        "Independent review, 2026-10-07: Khare’s paper list https://www.math.ucla.edu/~shekhar/papers/papers.html and publisher metadata https://link.springer.com/article/10.1007/s00222-009-0205-7 have no linked correction for this passage. The publisher PDF request returned subscription-only article metadata, not published full text; comparison is limited to the recorded author copy."
+        "Independent review, 2026-10-07: Khare’s paper list https://www.math.ucla.edu/~shekhar/papers/papers.html and publisher metadata https://link.springer.com/article/10.1007/s00222-009-0205-7 have no linked correction for this passage. The publisher PDF request returned subscription-only article metadata, not published full text; comparison is limited to the recorded author copy.",
+        "Independent revision-round-2 review, 2026-10-08: reread https://www.math.ucla.edu/~shekhar/papers/papers.html and https://link.springer.com/article/10.1007/s00222-009-0205-7. Neither page links a correction for these passages. The publisher page exposes subscription metadata; no published full-text comparison is claimed."
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "The recorded author copy, §10.2 p. 21, prints “We recall than”; “that” is the grammatical correction. No mathematical content changes. The published text was not accessible for comparison.",
-        "by": "REV-DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties"
+        "reason": "The introductory recall sentence in the recorded author copy, §10.2 p. 21, uses the wrong conjunction. The grammatical repair changes no mathematical condition. This review does not compare the published full text.",
+        "by": "REV-DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties~2"
       }
     },
     {
@@ -3973,20 +4036,21 @@
       "kind": "gap",
       "locator": "§10.2, p. 21 (deduction of Corollary 10.2(i)), with the definition of compatible systems in §5, pp. 7–8, of the authors' copy results.pdf (Invent. Math. 178 (2009) not compared)",
       "printed": "The source derives modularity for abelian varieties over Q of GL2 -type by using Faltings’ isogeny theorem together with Theorem 10.1, part (i), and refers to [33], Theorem 4.4.",
-      "correction": "To apply Theorem 10.1(i), the λ-adic system of A must be a compatible system in the sense of §5, which includes (ii) b): for every prime q not above ℓ, the Frobenius-semisimple Weil–Deligne representation of ρ_ι|_{D_q} is conjugate to an E-rational r_q independent of ι. At the primes of bad reduction this is not verified, and neither KW nor Ribet's Theorem 4.4 (whose 'strictly compatible', p. 4, is Serre's notion at the primes of good reduction) proves it. The corollary follows without it by Ribet's own argument, which uses only the strong Serre theorem, the boundedness of conductors (Grothendieck) and Faltings' theorem; the comparison at bad primes then follows from modularity and Carayol's theorem.",
-      "reason": "Khare–Wintenberger define 'compatible' on pp. 7–8 with (ii) b) imposed for q not above ℓ; Ribet, §3 p. 4, asserts strict compatibility 'whose exceptional set is the set of prime numbers at which A has bad reduction', i.e. no statement at those primes. The E-rationality of the Weil–Deligne representations of V_λ(A) at a prime of bad reduction requires an argument (through Néron models and the E-action on the semi-abelian reduction) that neither text gives.",
+      "correction": "Keep the good-prime Serre/Ribet proof in GT.3 independent of all-place compatibility. Obtain the latter after modularity from Carayol Théorème (A), pp. 410–411, and the coefficient-prime theorem in R19.3, allowing a finite coefficient extension as in Carayol §0.6, p. 410. This is a blueprint dependency clarification, rather than a correction to the source.",
+      "reason": "KW §5, pp. 7–8, requires local Weil–Deligne comparison away from the coefficient prime; Ribet §3, p. 4, describes compatibility through good-prime polynomials. Applying one convention to the other therefore needs a geometric compatibility input. This difference by itself does not establish a defect in the source corollary.",
       "affects": "the proof",
       "known": "new",
       "searched": [
         "the sourceIssues of PAPER-KHARE-WINTENBERGER-09-I.result.json (E1–E6), 2026-10-07: not recorded",
         "research/errata/REGISTER.md, 2026-10-07: no entry for KW I §10.2",
         "Ribet's manuscript korea.pdf §§3–4 (the cited Theorem 4.4)",
-        "Independent review, 2026-10-07: Khare’s paper list https://www.math.ucla.edu/~shekhar/papers/papers.html and publisher metadata https://link.springer.com/article/10.1007/s00222-009-0205-7 have no linked correction for this passage. The publisher PDF request returned subscription-only article metadata, not published full text; comparison is limited to the recorded author copy."
+        "Independent review, 2026-10-07: Khare’s paper list https://www.math.ucla.edu/~shekhar/papers/papers.html and publisher metadata https://link.springer.com/article/10.1007/s00222-009-0205-7 have no linked correction for this passage. The publisher PDF request returned subscription-only article metadata, not published full text; comparison is limited to the recorded author copy.",
+        "Independent revision-round-2 review, 2026-10-08: reread https://www.math.ucla.edu/~shekhar/papers/papers.html and https://link.springer.com/article/10.1007/s00222-009-0205-7. Neither page links a correction for these passages. The publisher page exposes subscription metadata; no published full-text comparison is claimed."
       ],
       "review": {
         "verdict": "rejected",
-        "reason": "The two texts use different compatibility conventions, and Ribet’s good-prime statement alone cannot be substituted for KW §5. That establishes a needed blueprint input, not an error in KW’s corollary: the finding supplies neither a counterexample nor evidence ruling out the standard geometric compatibility argument or a larger coefficient field. A compressed invocation of background results is not by itself a source gap. The roadmap’s Serre/Ribet route remains valid without this allegation. Moreover Carayol §0.6 permits enlarging coefficients to realise local parameters; GT.4 now records that extension explicitly.",
-        "by": "REV-DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties"
+        "reason": "The recorded texts use different compatibility conventions, but that distinction does not demonstrate an error in KW Corollary 10.2(i), p. 21. A geometric compatibility argument can supply the omitted background, and Carayol §0.6 expressly permits a finite coefficient extension. GT.3 has a direct Serre/Ribet proof; GT.4 separately requests the stronger comparison. No source contradiction or counterexample has been established.",
+        "by": "REV-DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties~2"
       }
     }
   ],
@@ -4035,230 +4099,230 @@
   ],
   "upstreamNotes": [],
   "review": {
-    "status": "needs_changes",
-    "reviewer": "independent-review-REV-DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties",
-    "date": "2026-10-07",
-    "notes": "Completed independent target-level review by Codex, session codex-xW1MVH: all 44 source/closure entries, 19 pinned baseline declarations, supplier contracts, 39 API items, 24 tests, 14 planets and six stage targets checked. Applied 15 mathematical/API corrections, added two cohomology baseline references, confirmed author-copy typo E1 and rejected source-gap allegation E2. Blueprint and revised Lean elaboration pass. Needs changes because the unvalidated private AVContext/H² carriers and omitted geometric API/tests prevent verification of nine nodes. All suggested signatures remain fragments, implementationStatus unchecked; see three precise prototype gaps and the review report. This is a finished review, not a checkpoint.",
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties~2",
+    "date": "2026-10-08",
+    "notes": "Completed independent revision-round-2 review by Codex, session codex-F7EyTu. Read all 44 node source locators, all 31 pinned baseline statements, 69 external node supplier statements, 17 remaining requests, all stage targets, 39 API items, 24 tests and 14 planets. Corrected five node/stage entries, added the already-built cusp-form character decomposition to baseline, removed its duplicate request and corrected stale supplier-status prose. Verified the revision removes the private geometric/H² contexts and records native signature omissions honestly. E1 confirmed only in the author copy; E2 rejected. No nodes added or removed; no unresolved mathematical contradiction. All six stages remain planned and implementations unchecked. Blueprint validation passes. Full Lean elaboration is unavailable because the shared build lacks a required native Tau Ceti import; separately elaborated Mathlib fragments are not a full-file check. See the current independent report.",
     "checked": [
       {
         "nodeId": "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.1/lie-algebra-divisibility",
-        "verdict": "verified",
-        "note": "Ribet §2 p.2: faithful division-algebra action on the rational Lie space gives divisibility; tangent carrier and A6 action contract checked."
+        "verdict": "corrected",
+        "note": "Ribet §2 p.2. Made finite dimensionality of the division algebra explicit, matching the native tangent-space fragment and A6 derivative action. Division-module freeness gives the integer divisibility."
       },
       {
         "nodeId": "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.1/primitive",
-        "verdict": "unverifiable",
-        "note": "Power, E-action and basis independence agree with Ribet §2; arbitrary product/dimension stand-ins and weakened J₀(23) example prevent validating the suggested API."
+        "verdict": "verified",
+        "note": "Ribet §2 p.3. Native categorical powers and rational End0 replace the private context. E-equivariance, basis independence and the actual J₀(23)/T₂ test are retained; the matrix-action and Hecke exports are honestly omitted."
       },
       {
         "nodeId": "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.1/ribet-theorem-2-1",
         "verdict": "verified",
-        "note": "Ribet Theorem 2.1: commutant, Poincaré decomposition and dimension divisibility justify the matrix algebra and three equivalences at target level."
+        "note": "Ribet Theorem 2.1 p.3. A6 Poincaré/commutant targets and the Lie bound give the matrix algebra and primitive/simple/field equivalences. The signature states only the documented native fragment."
       },
       {
         "nodeId": "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.1/endomorphism-field",
-        "verdict": "unverifiable",
-        "note": "Ribet §3 field/degree outline is sound; Tate functoriality and actual Hecke T₂ test are omitted from the suggested signatures."
+        "verdict": "verified",
+        "note": "Ribet §3 p.4. End0 is rationalized native End; the degree equation uses native dimension. A6 field transport and R01.6 Tate compatibility are precise omitted exports, with the actual T₂ generator retained in the J₀(23) tests."
       },
       {
         "nodeId": "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.1/totally-real-or-cm",
         "verdict": "verified",
-        "note": "Ribet §3 pp.4,6: Rosati restriction is the canonical involution; pinned totally-real/CM definitions and A2 positivity hypotheses checked."
+        "note": "Ribet §3 pp.4,6. Rosati positivity from A2 and the canonical restriction distinguish the totally real and CM alternatives. Checked the pinned field predicates and the finite-dimension bridge used by the fragment."
       },
       {
         "nodeId": "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.1/modular-quotient-is-gl2-type",
         "verdict": "verified",
-        "note": "Ribet §3: K_f action, dimension and multiplicities use R14.5 and upstream old/new decomposition; no new definition of A_f is planned."
+        "note": "Ribet §3 p.4. R14.5 supplies the native A_f, dimension and good Hecke traces; R19.6/Faltings give End0=K_f. The Layer 3 request supplies the oldform divisor multiplicities used for powers, without redefining A_f."
       },
       {
         "nodeId": "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.2/integral-model",
-        "verdict": "unverifiable",
-        "note": "Ribet p.7 lattice enlargement and A3 quotient request are precise; the private integralEnd/Tate context does not validate the integral-model or residual API."
+        "verdict": "verified",
+        "note": "Ribet §3 p.7. The native A3 finite-subgroup quotient request implements lattice enlargement. Native End and isogenies constrain the fragment; R01.6/R25.5 own all Tate, integral-order and residual identifications omitted from it."
       },
       {
         "nodeId": "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.2/frobenius-polynomial",
         "verdict": "verified",
-        "note": "Ribet p.4 good-prime E-rational polynomial, integrality and purity agree with A6 trace/degree and R01.6 coefficient decomposition."
+        "note": "Ribet §3 p.4. The E-rational good-prime polynomial, integral trace, determinant and purity use the read R01.6/A6 supplier statements. The statement does not assert all-place compatibility at this stage."
       },
       {
         "nodeId": "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.2/determinant-character",
         "verdict": "verified",
-        "note": "Ribet Lemma 3.1 retains finite-order, unramified and totally-real triviality assumptions; Hodge–Tate and character suppliers checked."
+        "note": "Ribet Lemma 3.1 pp.4–5. Finite order, good-prime unramifiedness and totally-real triviality retain their hypotheses. The proof chooses a split coefficient prime, so the R28.2 ℤ_ℓ-valued character theorem applies."
       },
       {
         "nodeId": "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.2/odd",
         "verdict": "verified",
-        "note": "Ribet Lemma 3.2: requested equivariant complex comparison identifies real Frobenius and forces one positive and one negative eigenvalue."
+        "note": "Ribet Lemma 3.2 p.5. The A6 complex/Betti/Tate comparison is explicitly requested with real Frobenius and E-action. Swapping the two Hodge summands gives the determinant −1, including the CM coefficient case."
       },
       {
         "nodeId": "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.2/absolute-irreducibility",
         "verdict": "verified",
-        "note": "Ribet Proposition 3.3 uses Faltings semisimplicity, the coefficient commutant and Schur over the algebraic closure; no unconditional lattice simplicity is asserted."
+        "note": "Ribet Proposition 3.3 p.5. Faltings semisimplicity and the E-component commutant are read supplier inputs; Schur is used only after scalar extension with finite dimension and algebraically closed coefficients."
       },
       {
         "nodeId": "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.2/coefficient-conjugation",
         "verdict": "verified",
-        "note": "Ribet Proposition 3.4 uses a polarisation and duality; the bar convention matches the source’s canonical involution."
+        "note": "Ribet Proposition 3.4 p.6. Polarization duality, canonical coefficient conjugation and the determinant character yield the trace identity with the recorded bar convention."
       },
       {
         "nodeId": "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.2/coefficients-generate",
         "verdict": "verified",
-        "note": "Ribet Proposition 3.5: trace-field descent and the coefficient commutant force the full endomorphism field; omission of any finite set of primes is retained."
+        "note": "Ribet Proposition 3.5 p.6. Semisimple trace-field descent and Faltings force the full coefficient field; the conclusion and proof allow removing any finite set of primes."
       },
       {
         "nodeId": "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.2/inner-twist-field",
-        "verdict": "corrected",
-        "note": "Corrected Proposition 3.6 proof to adjoin all roots of unity as well as square roots of t_p, allowing square roots of ε(p). Added direct determinant prerequisite."
+        "verdict": "verified",
+        "note": "Ribet Proposition 3.6 p.7. Rechecked the earlier correction adjoining all roots of unity, so square roots of the character values exist. The squared-trace field and its total reality follow with the stated direct dependencies."
       },
       {
         "nodeId": "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.2/residual-irreducibility",
         "verdict": "verified",
-        "note": "Ribet Lemma 3.7 uses Faltings finiteness plus coefficient commutants; exceptional set is finite and ramified primes are excluded where required."
+        "note": "Ribet Lemma 3.7 p.7. Faltings finiteness and integral coefficient commutants give the finite exceptional set, retaining the unramified/residue-degree hypotheses used for the modularity argument."
       },
       {
         "nodeId": "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.2/conductor-bound",
-        "verdict": "verified",
-        "note": "Ribet Lemma 4.1 proof consumes Néron conductor independence; a uniform bound on residual prime-to-ℓ conductors is asserted, not equality with cond(A)."
+        "verdict": "corrected",
+        "note": "Ribet Lemma 4.1 p.8. Replaced the invalid residue-degree-one identification E_λ=ℚ_ℓ by restriction of scalars: [E_λ:ℚ_ℓ] f_p(ρ_λ)≤f_p(A). Additivity and nonnegativity give the required residual conductor bound even at ramified λ."
       },
       {
         "nodeId": "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.2/crystalline-at-good-primes",
         "verdict": "verified",
-        "note": "Ribet Lemma 4.2/KW §5 good-prime comparison retains ℓ outside the bad set and Hodge–Tate convention {0,1}."
+        "note": "Ribet Lemma 4.2 p.8 and KW §5 p.8. Good reduction, excluded bad primes and the covariant Tate Hodge–Tate convention {0,1} agree with R06/R01.6 comparison statements."
       },
       {
         "nodeId": "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.3/modular-abelian-variety",
-        "verdict": "unverifiable",
-        "note": "Quotient definition, level monotonicity and Γ₀ comparison agree with KW/FLHS. Private Jacobians and the elliptic API’s missing curve-morphism equivalence prevent prototype verification."
+        "verdict": "verified",
+        "note": "KW §10.2 p.21 and Ribet §1 p.2. The quotient definition, positive level, level monotonicity and elliptic pointed curve-map equivalence are all retained. R14/R29 own the geometry, and all corresponding suggested signatures are explicitly omitted."
       },
       {
         "nodeId": "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.3/serre-witnesses",
-        "verdict": "corrected",
-        "note": "Corrected initial residual comparison to a common algebraic closure, with integral-model and determinant prerequisites; weight two and bounded Serre conductor are justified."
+        "verdict": "verified",
+        "note": "Ribet Lemmas 4.1–4.2 and Theorem 4.4 p.8. The residual fields are compared in a common algebraic closure; integral model, oddness, irreducibility, weight two and bounded conductor are direct inputs. The parent/R27 supplies proved strong Serre."
       },
       {
         "nodeId": "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.3/fixed-newform",
         "verdict": "corrected",
-        "note": "Corrected residue-field descent: after pigeonholing f, finite good-prime generators and their finite order index exclude finitely many ℓ and give O_Kf → F_ℓ."
+        "note": "Ribet Theorem 4.4 pp.8–9. Added pinned isInternal_cuspFormCharSpace and removed the already-fulfilled Layer 0 decomposition request. Layer 4 still supplies normalized-newform finiteness. Rechecked finite-order-index exclusion for descent to 𝔽_ℓ."
       },
       {
         "nodeId": "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.3/coefficient-identification",
-        "verdict": "corrected",
-        "note": "Corrected the character comparison: trace congruences give the characteristic-zero coefficient isomorphism; semisimple recognition then identifies determinants, without assuming missing determinant congruences."
+        "verdict": "verified",
+        "note": "Ribet Theorem 4.4 p.8. Infinite congruences identify integral polynomial relations and the coefficient field. Determinants are identified after characteristic-zero trace recognition, avoiding the earlier unsupported determinant-congruence inference."
       },
       {
         "nodeId": "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.3/tate-module-comparison",
         "verdict": "verified",
-        "note": "Ribet Theorem 4.4 proof and R01.5 recognition yield the comparison under the coefficient identification; Faltings then supplies the isogeny."
+        "note": "Ribet Theorem 4.4 p.8. R01.5 recognition, Schur, Chebotarev and the R19.6 decomposition give the component and full Tate comparisons under the coefficient-field identification; R28.4 then supplies isogeny."
       },
       {
         "nodeId": "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.3/modularity-theorem",
         "verdict": "verified",
-        "note": "Ribet Theorem 4.4 under strong Serre, now supplied by the parent, gives KW Corollary 10.2(i) unconditionally. No reliance on alleged source gap E2."
+        "note": "Ribet Theorem 4.4 p.8 and KW Corollary 10.2 p.21. The direct Serre/Ribet argument gives the simple case. For Bⁿ the proof raises level by 2^{n−1}, obtaining n oldform copies; it does not promise the conductor-root level for powers."
       },
       {
         "nodeId": "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.3/modularity-equivalences",
-        "verdict": "corrected",
-        "note": "Corrected single-λ implication to identify the two embedded trace fields directly, then use Tate comparison and Faltings; removed the inapplicable infinite-congruence prerequisite."
+        "verdict": "verified",
+        "note": "KW §10.2 p.21. Simple quotient/newform/single-λ equivalences use common embedded trace fields and Faltings. The single-λ implication no longer calls the infinite-congruence coefficient-identification argument."
       },
       {
         "nodeId": "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.3/simple-quotients-characterisation",
         "verdict": "verified",
-        "note": "Simple factors of J₁(N) are the A_f factors from its isogeny decomposition; the converse uses modularity. Parent and general coefficients have distinct scope."
+        "note": "KW §10.2 p.21 and Ribet §1 p.2. Simple Jacobian factors are A_f up to isogeny/Galois orbit. Cross-level comparison is explicitly requested; pinned fixed-level strong multiplicity one is used only within its scope."
       },
       {
         "nodeId": "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.3/trivial-character",
         "verdict": "verified",
-        "note": "Ribet/Serre relation ε=1 iff E is totally real, together with the trivial-character J₀ quotient supplier, gives the stated equivalence."
+        "note": "Ribet §3 p.4 and §7 p.16. The canonical coefficient involution and determinant identity give ε=1 exactly for the totally real endomorphism field; R14.5 supplies the J₀ quotient."
       },
       {
         "nodeId": "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.3/modular-parametrisation",
-        "verdict": "unverifiable",
-        "note": "Corrected ambient level N using M|N and degeneracy quotients; suggested file still omits X₁(N), the cusp, the zero value and the generating-image assertion."
+        "verdict": "corrected",
+        "note": "Ribet §1 p.1 and JacobianChallenge Layer F. Expanded to every positive-dimensional modular A: q∘AJ sends the rational cusp to zero and generates A, hence is nonconstant. The simple refinement preserves M|N degeneracy and Γ₀ descent; added the B² oldform example."
       },
       {
         "nodeId": "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.4/conductor-of-gl2-type",
         "verdict": "verified",
-        "note": "Carayol A plus the full R19.4 local statement and restriction-of-scalars multiplicity gives a_p(A)=n·a_p(f); coefficient-prime factors use another auxiliary prime."
+        "note": "Carayol Theorem A pp.410–411 and Corollary 0.8 p.411. R19.4 conductor equality and the sum of coefficient-local degrees give the dimension factor. Another auxiliary prime handles each coefficient-prime local factor."
       },
       {
         "nodeId": "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.4/exact-level",
-        "verdict": "verified",
-        "note": "The conductor identity gives cond(A)=N_f^n and the positive integer root; KW’s larger valid level is correctly distinguished from the least level."
+        "verdict": "corrected",
+        "note": "KW §10.2 p.21 and Carayol Corollary 0.8 p.411. Kept the node’s ℚ-simple hypothesis and made it explicit in the roadmap stage, summary and reader. The conductor-root least level holds there; non-simple powers have separate oldform multiplicity requirements."
       },
       {
         "nodeId": "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.4/strict-compatibility",
-        "verdict": "corrected",
-        "note": "Corrected simultaneous WD realisation to permit finite E′/E as Carayol §0.6/A does; good polynomials remain E-rational, and coefficient-prime compatibility comes from R19.3."
+        "verdict": "verified",
+        "note": "KW §5 pp.7–8 and Carayol §0.6/Theorem A p.410. Good-prime polynomials remain E-rational; finite E′/E is allowed for all WD realizations. R19.3 supplies coefficient-prime compatibility. Rejected E2 does not enter the proof."
       },
       {
         "nodeId": "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.4/l-function",
-        "verdict": "corrected",
-        "note": "Corrected normalised Fricke/sign convention and proof w_A²=1 by applying the product functional equation twice to a nonzero Euler product; local factors include bad primes."
+        "verdict": "verified",
+        "note": "Carayol Corollary 0.8 p.411. The R19.4/R11.5 convention matches H¹ local factors including bad primes. Pinned continuation and requested Fricke/Euler interfaces give the product equation; applying it twice to a nonzero Euler product proves w_A=±1."
       },
       {
         "nodeId": "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.4/parent-compatibility",
-        "verdict": "unverifiable",
-        "note": "The dimension-one comparison follows from the parent and exact level; the suggested fragment does not state the claimed parametrisation compatibility on actual curves."
+        "verdict": "verified",
+        "note": "KW §10.2 p.21. Dimension-one comparison uses the read parent statements, exact level and the R14/R29 pointed curve-map interface. Cusp, zero value and generating image remain in the mathematical target, with the full signature honestly omitted."
       },
       {
         "nodeId": "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.5/q-curve",
-        "verdict": "unverifiable",
-        "note": "Geometric definition includes CM via CM.1. Corrected false unsquared-trace non-example, added opposite-trace twists and dimension-one clause; actual elliptic/base-change carriers remain absent."
+        "verdict": "verified",
+        "note": "Ribet §1 p.2, FLHS §12 p.18 and CN §1 p.7. Native nonsingular Weierstrass curves and actual coefficientwise isogenies replace private carriers. Rational-j uses pinned classification. CM and non-CM squared-trace tests import their owners; geometric isogenies are not claimed K-defined."
       },
       {
         "nodeId": "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.5/ribet-cocycle",
-        "verdict": "unverifiable",
-        "note": "Corrected geometric-isogeny invariance and twist test after finite Galois extension, and added non-CM data hypotheses. Canonical cohomology and coherent scalar extraction remain untyped gaps."
+        "verdict": "verified",
+        "note": "Ribet Theorem 6.1 proof p.13. Non-CM, native quasi-isogeny composition and enlargement of the finite Galois field are explicit. The scalar helper assumes an actual ℚ-algebra equivalence with geometric End0; canonical H² replaces the private quotient. Cocycle/dictionary signatures are precisely omitted."
       },
       {
         "nodeId": "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.5/tate-vanishing-qbar",
         "verdict": "verified",
-        "note": "Ribet Theorem 6.3: Tate vanishing for torsion coefficients plus the uniquely divisible quotient yields H²(G_ℚ,ℚ̄ˣ)=0. Private H² in the suggested file remains covered by the global prototype gap."
+        "note": "Ribet Theorem 6.3 p.13. Trivial-action discrete multiplicative coefficients are converted by ofDiscreteModule to canonical continuousCohomology. Tate torsion vanishing and uniquely divisible vanishing are imported; extracting α and finite quotient descent remain recorded omissions."
       },
       {
         "nodeId": "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.5/restriction-of-scalars-endomorphisms",
         "verdict": "verified",
-        "note": "Ribet Lemma 6.4: non-CM conjugate Hom lines give the crossed-product algebra and α gives its one-dimensional quotient; semisimplicity supplies the product splitting."
+        "note": "Ribet Lemma 6.4 p.14. The finite Galois field must be enlarged until α factors through its quotient. Non-CM Hom lines yield the twisted algebra; semisimplicity gives the quotient-field splitting. Removed a short source quotation without changing the hypothesis."
       },
       {
         "nodeId": "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.5/lie-free-rank-one",
-        "verdict": "unverifiable",
-        "note": "Corrected ι to the σ⁻¹ factor through ^{σ⁻¹}μ_σ and wrote the equivariance and semisimple multiplicity descent. Suggested statement still omits R-equivariance."
+        "verdict": "verified",
+        "note": "Ribet Proposition 6.5 and Corollary 6.6 p.15. Rechecked the inverse-index geometric isogeny and the displayed R-equivariance calculation. Descent uses semisimple module multiplicities, not unrestricted descent of freeness. The geometric signature is explicitly omitted."
       },
       {
         "nodeId": "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.5/ribet-theorem-6-1",
         "verdict": "verified",
-        "note": "Ribet Theorem 6.1: integral multiple of the central projector, Lie rank one, and πRπ=E_α give the primitive factor and its K-isotypic base change."
+        "note": "Ribet Theorem 6.1 pp.12,15. Clearing the projector denominator and taking its native abelian image use A3/A6. The rank-one Lie argument gives [E_α:ℚ]=dim A and primitivity, with the K-isotypic conclusion retained."
       },
       {
         "nodeId": "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.5/q-curves-geometrically-modular",
         "verdict": "verified",
-        "note": "Ribet Corollary 6.2 becomes unconditional using GT.3; it concerns a geometric simple factor and does not identify field-of-definition automorphy without GT.6."
+        "note": "Ribet Corollary 6.2 p.12 and FLHS §12 p.18. GT.3 makes Ribet’s conditional conclusion unconditional. It produces a geometric modular factor; GT.6 separately treats automorphy over the stated field."
       },
       {
         "nodeId": "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.5/quadratic-q-curves",
-        "verdict": "corrected",
-        "note": "Corrected real-quadratic endomorphism conclusion to nonsquare m; square m gives Q×Q. Serre’s imaginary-quadratic positivity argument retains its hypotheses."
+        "verdict": "verified",
+        "note": "Ribet Lemma 7.1 and Proposition 7.2 pp.15–16. Rechecked the squared-degree algebra: nonsquare m gives a field, square m gives ℚ×ℚ. The imaginary-quadratic sign forces m>0 under the non-CM hypotheses."
       },
       {
         "nodeId": "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.6/twisting-lemma",
-        "verdict": "corrected",
-        "note": "Corrected the Hom-line character convention to ψ throughout; Schur and open-normal restriction yield finite-order factorisation and ρ₁≅ρ₂⊗ψ."
+        "verdict": "verified",
+        "note": "Ribet Theorem 5.3 proof p.10. The invariant Hom line uses ψ consistently and gives ρ₁≃ρ₂⊗ψ. Finite quotient, continuity, two-dimensionality and scalar commutant are explicit. The standalone matrix signature elaborated at the Mathlib pin."
       },
       {
         "nodeId": "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.6/q-curve-galois-modularity",
         "verdict": "verified",
-        "note": "Ribet Lemma 7.1 restriction/twist argument uses the non-CM Hom line and an actual GL₂-type factor; no direct equality of untwisted local systems is claimed."
+        "note": "Ribet Lemma 7.1 proof p.16. The actual GL₂-type factor and elliptic Tate/Hom suppliers give the restriction comparison with finite-order twist; untwisted equality is not asserted."
       },
       {
         "nodeId": "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.6/q-curve-automorphy",
-        "verdict": "corrected",
-        "note": "Corrected transport of finite-order twist through algebraic roots of unity and family recognition, then vary auxiliary ℓ for all local factors. Solvable cuspidal base change remains an imported theorem."
+        "verdict": "verified",
+        "note": "FLHS §1 pp.2–3/§12 p.18 and CN §1 p.2. Solvable cuspidal base change and Artin reciprocity are read imports. One algebraic finite character controls all coefficient primes, and varying the auxiliary prime proves every local factor."
       },
       {
         "nodeId": "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.6/quadratic-q-curves-modular",
-        "verdict": "corrected",
-        "note": "Corrected imaginary-quadratic proof’s square/nonsquare split. Real case uses FLHS; CM case uses CN’s definition; both imaginary split factors are Γ₀ quotients at a common level."
+        "verdict": "verified",
+        "note": "FLHS §11 p.17 and CN Corollaries 7.2.5/7.3.4 pp.97–98. Real, imaginary, CM and non-CM cases retain their scopes. Imaginary square m uses two elliptic factors; nonsquare m uses a real endomorphism field. The X₀(5) application selects rational x-coordinate points; not every special-field point is declared a Q-curve."
       }
     ]
   }

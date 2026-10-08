@@ -1,0 +1,13 @@
+# Completed independent review: revision round 2
+
+Job `REV-DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties~2`, issue #7452. Codex, session `codex-F7EyTu`, 2026-10-08. This review is finished, not a checkpoint. This worker reviewed neither design as its author and will claim no second job in this process.
+
+The packet review is **accepted**, naming `independent-review-REV-DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties~2`. All 44 nodes are accounted for (39 verified, 5 corrected); all 31 baseline declarations are independently confirmed. No nodes were added or removed. The report is `research/blueprint/reviews/REV-DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties~2.md` and contains the source, supplier, audit, API/test and per-node evidence.
+
+Corrections include the division algebra's finite dimensionality, conductor restriction of scalars instead of a false completion identification, the existing cusp-form character decomposition (one baseline addition and one fulfilled request removed), parametrisations for all positive-dimensional modular varieties, and the simple-case scope of the conductor-root least level. Corrected a nonexistent tensor-product import and stale supplier-status prose. Reader and suggested omission ledger are synchronized. Source issue E1 is confirmed only in the author copy; E2 is rejected. All retained source explanations are in our own words.
+
+Validation: check_blueprint gives 0 errors/0 warnings; JSON, reader/packet/ledger consistency, allowed-path and whitespace checks pass. The full corrected suggested file was run through lean-check with adequate memory but failed immediately at a missing native Tau Ceti End.Basic object file in the shared build. **It did not compile.** Standalone Mathlib fragments passed with only sorry warnings; they do not check native imports. No build, dependency update or language server was started, and no Lean process remains running.
+
+The blueprint remains a complete target-level pass, with six planned stages, four precise implementation gaps, 17 owner requests and implementationStatus unchecked everywhere. Acceptance does not close those stages. Future implementation must obtain the listed A1/A3/A6, R01/R25, R14/R19/R24/R11, modular-form, cohomology and automorphic exports and elaborate the full native file. There is no unfinished review work and no review-blocking question. Submission automation should intake the accepted review through the normal queue; the worker does not promote, merge, label or close anything manually.
+
+All durable findings are in the packet, reader, report and this note. No scratch files or downloaded source texts are needed for continuation.
