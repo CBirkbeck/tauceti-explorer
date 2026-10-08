@@ -37336,7 +37336,8 @@
     "BP-BorelRegulators~2"
    ],
    "prompt": "research/blueprint/prompts/REV-BorelRegulators~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7028"
   },
   {
    "kind": "blueprint",
@@ -39289,7 +39290,8 @@
    ],
    "revisionOf": "BP-HeegnerPointEulerSystems--HE.7s",
    "prompt": "research/blueprint/prompts/BP-HeegnerPointEulerSystems--HE.7s~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6971"
   },
   {
    "priority": 2,
@@ -40691,8 +40693,9 @@
    ],
    "revisionOf": "BP-RefinedTraceMethods--RT.1",
    "prompt": "research/blueprint/prompts/BP-RefinedTraceMethods--RT.1~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7004"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7004",
+   "finishedAt": "2026-10-08T08:34:50Z"
   },
   {
    "priority": 2,
@@ -41381,8 +41384,9 @@
     "BP-VectorBundlesAndIsocrystals--VB3~2"
    ],
    "prompt": "research/blueprint/prompts/REV-VectorBundlesAndIsocrystals--VB3~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7098"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7098",
+   "finishedAt": "2026-10-08T08:34:52Z"
   },
   {
    "kind": "blueprint",
