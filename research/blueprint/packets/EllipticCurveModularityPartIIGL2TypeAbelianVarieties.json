@@ -243,6 +243,83 @@
           "by": "REV-DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties",
           "note": "Declaration and hypotheses read at the pinned commit; confirmed for the limited use stated in provides. No larger supplier API is asserted."
         }
+      },
+      {
+        "ref": "tauceti:TauCeti.AlgebraicGeometry.AbelianVariety.End",
+        "kind": "def",
+        "module": "TauCeti/AlgebraicGeometry/AbelianVariety/End/Basic.lean",
+        "provides": "Native End A = Additive (A ⟶ A), with Ring operations induced by the pointwise group law and composition; not a Preadditive hom-set assumption.",
+        "checked": "statement and hypotheses read at pinned commit f790474 on 2026-10-08"
+      },
+      {
+        "ref": "tauceti:TauCeti.AlgebraicGeometry.AbelianVariety.prod",
+        "kind": "def",
+        "module": "TauCeti/AlgebraicGeometry/AbelianVariety/Product.lean",
+        "provides": "Native categorical product of two abelian varieties; the module provides finite products used for piObj powers.",
+        "checked": "statement and hypotheses read at pinned commit f790474 on 2026-10-08"
+      },
+      {
+        "ref": "tauceti:TauCeti.AlgebraicGeometry.AbelianVariety.baseChange",
+        "kind": "def",
+        "module": "TauCeti/AlgebraicGeometry/AbelianVariety/Basic.lean",
+        "provides": "Actual pullback base change of an abelian variety along a field algebra map; not a substitute for rational Hom0 functoriality.",
+        "checked": "statement and hypotheses read at pinned commit f790474 on 2026-10-08"
+      },
+      {
+        "ref": "tauceti:TauCeti.Isogeny",
+        "kind": "structure",
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Basic.lean",
+        "provides": "Native Weierstrass isogeny via a coordinate-ring pullback into the source function field and the maps-infinity condition. This consumer additionally requires IsElliptic on both curves.",
+        "checked": "statement and hypotheses read at pinned commit f790474 on 2026-10-08"
+      },
+      {
+        "ref": "tauceti:TauCeti.Isogeny.map",
+        "kind": "def",
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/BaseChange.lean",
+        "provides": "Coefficientwise base change of an actual isogeny along a field ring homomorphism, with identity, composition and iterated-map coherence in the same module.",
+        "checked": "statement and hypotheses read at pinned commit f790474 on 2026-10-08"
+      },
+      {
+        "ref": "tauceti:WeierstrassCurve.quadraticTwistOf",
+        "kind": "def",
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/QuadraticTwist.lean",
+        "provides": "Explicit twist by trace/norm parameters (t,n); nonsingularity requires t²−4n nonzero over a field. For t=0,n=−d/4 its discriminant parameter is d.",
+        "checked": "statement and hypotheses read at pinned commit f790474 on 2026-10-08"
+      },
+      {
+        "ref": "tauceti:TauCeti.ContCohomology.Z2",
+        "kind": "def",
+        "module": "TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean",
+        "provides": "Existing continuous inhomogeneous degree-two cocycles for a continuous action, as continuous cochains intersected with ker d2. Not canonical continuousCohomology without the requested comparison.",
+        "checked": "statement and hypotheses read at pinned commit f790474 on 2026-10-08"
+      },
+      {
+        "ref": "tauceti:TauCeti.ContCohomology.explicitInfl2",
+        "kind": "def",
+        "module": "TauCeti/RepresentationTheory/Homological/ContCohomology/Inflation.lean",
+        "provides": "Existing explicit degree-two inflation from a normal-subgroup quotient with fixed-point coefficients to the full group. It still needs natural comparison with canonical continuousCohomology for this application.",
+        "checked": "statement and hypotheses read at pinned commit f790474 on 2026-10-08"
+      },
+      {
+        "ref": "mathlib:WeierstrassCurve.exists_variableChange_of_j_eq",
+        "kind": "theorem",
+        "module": "Mathlib/AlgebraicGeometry/EllipticCurve/IsomOfJ.lean",
+        "provides": "Two nonsingular Weierstrass curves over a separably closed field with equal j-invariant differ by a native VariableChange. Includes the exceptional j=0 and j=1728 cases.",
+        "checked": "statement and hypotheses read at pinned commit 082e2d3 on 2026-10-08"
+      },
+      {
+        "ref": "tauceti:CuspForm.hasEntireExtension_qExpansion_coeff",
+        "kind": "theorem",
+        "module": "TauCeti/NumberTheory/ModularForms/LFunction.lean",
+        "provides": "For a positive-weight cusp form on the native finite-index subgroup, the Dirichlet series of its q-expansion coefficients has an entire extension. This does not supply the normalized newform Euler product or the Fricke pseudo-eigenvalue comparison.",
+        "checked": "statement and hypotheses read at pinned commit f790474 on 2026-10-08"
+      },
+      {
+        "ref": "tauceti:HeckeRing.GL2.Newform.eq_of_forall_notMem_eigenvalue_eq",
+        "kind": "theorem",
+        "module": "TauCeti/NumberTheory/ModularForms/Newforms/StrongMultiplicityOne.lean",
+        "provides": "At fixed positive level, weight and nebentypus, normalized newforms agree if their eigenvalues agree at every index coprime to the level outside a finite set. Cross-level comparison and agreement only at almost all primes need the requested extension.",
+        "checked": "statement and hypotheses read at pinned commit f790474 on 2026-10-08"
       }
     ]
   },
@@ -259,7 +336,8 @@
         "§1 Introduction (Theorem 1.2), pp. 1–3",
         "§5 Compatible systems of geometric representations, pp. 7–9",
         "§10 Modularity of compatible systems (Theorem 10.1, §10.2, Corollary 10.2), pp. 19–21"
-      ]
+      ],
+      "rechecked": "2026-10-08"
     },
     {
       "id": "Ribet92",
@@ -279,7 +357,8 @@
         "§7 Q-curves over quadratic fields (7.1, 7.2), pp. 15–17",
         "§8 Descent up to isogeny (8.2), pp. 17–18",
         "References, pp. 18–19"
-      ]
+      ],
+      "rechecked": "2026-10-08"
     },
     {
       "id": "Carayol86",
@@ -291,7 +370,8 @@
       "accessed": "2026-10-07",
       "readSections": [
         "§0 Introduction: 0.4–0.8 (normalisations, Hecke correspondence, Théorème (A), Corollaire 0.8), pp. 409–411"
-      ]
+      ],
+      "rechecked": "2026-10-08"
     },
     {
       "id": "FLHS15",
@@ -305,7 +385,8 @@
         "§1 Summary of results (definition of modularity), pp. 2–3",
         "§11 remarks before Lemma 11.1, pp. 17–18",
         "§12 opening paragraph on Q-curves, p. 18"
-      ]
+      ],
+      "rechecked": "2026-10-08"
     },
     {
       "id": "CN23",
@@ -319,7 +400,8 @@
         "§1 Introduction (definition of modular elliptic curves, the modular curves of §7), pp. 2–7",
         "§7.2 Corollary 7.2.5, p. 97",
         "§7.3 Corollary 7.3.4, p. 98"
-      ]
+      ],
+      "rechecked": "2026-10-08"
     }
   ],
   "nodes": [
@@ -365,7 +447,15 @@
       },
       "suggestedCoverage": {
         "status": "signature-fragment",
-        "omissions": "All geometric/automorphic statements in this node use the unvalidated AVContext stand-in. See the recorded prototype gaps; successful elaboration checks syntax and typing of this stand-in only."
+        "omissions": "The divisor conclusion is stated for the actual tangent module and its actual finrank. Omitted: constructing the D-action from the native End0 action, and the E-stable-subvariety consequence; requires AbelianSchemesAndArithmeticModuli:A6 native End0, rational inverse/conjugation, matrix-product action, field transport preserving the existing Ring and ℚ-Algebra, and derivative action. finiteDim_eq_dim explicitly states the native dimension bridge owned by A1.",
+        "declarations": [
+          {
+            "name": "GL2Type.lieAlgebraDivisibility",
+            "status": "signature-fragment",
+            "omissions": "The divisor conclusion is stated for the actual tangent module and its actual finrank. Omitted: constructing the D-action from the native End0 action, and the E-stable-subvariety consequence; requires AbelianSchemesAndArithmeticModuli:A6 native End0, rational inverse/conjugation, matrix-product action, field transport preserving the existing Ring and ℚ-Algebra, and derivative action. finiteDim_eq_dim explicitly states the native dimension bridge owned by A1."
+          }
+        ],
+        "tests": []
       }
     },
     {
@@ -391,7 +481,9 @@
       "prerequisites": [
         "SmallRamificationAndAbelianVarietyBaseCases:R25.5/gl2-type-abelian-variety",
         "AbelianSchemesAndArithmeticModuli:A6/endomorphism-algebra-is-semisimple",
-        "AbelianSchemesAndArithmeticModuli:A6/endomorphisms-of-simple-abelian-varieties"
+        "AbelianSchemesAndArithmeticModuli:A6/endomorphisms-of-simple-abelian-varieties",
+        "tauceti:TauCeti.AlgebraicGeometry.AbelianVariety.prod",
+        "tauceti:TauCeti.AlgebraicGeometry.AbelianVariety.End"
       ],
       "sources": [
         {
@@ -475,49 +567,52 @@
       },
       "suggestedCoverage": {
         "status": "signature-fragment",
-        "omissions": "All geometric/automorphic statements in this node use the unvalidated AVContext stand-in. See the recorded prototype gaps; successful elaboration checks syntax and typing of this stand-in only. Power, E-action and basis independence agree with Ribet §2; arbitrary product/dimension stand-ins and weakened J₀(23) example prevent validating the suggested API.",
+        "omissions": "Native finite product, regular E-action, denominator-cleared E-equivariance and primitivity are stated, with action-compatible degree-one and concrete ℚ(√2) power tests. Omitted: the canonical R25.5 bundle comparison and the actual Hecke-J₀(23) specialization. The action construction imports A6 native matrix-End0; the Jacobian test needs R14.2/R14.5 actual Hecke action.",
         "declarations": [
           {
             "name": "GL2Type.power",
-            "status": "signature-fragment"
+            "status": "signature-fragment",
+            "omissions": "Native product and its separately named powerAction are present. Equality with the owner’s bundled R25.5 construction needs that interface."
           },
           {
             "name": "GL2Type.power_dim",
-            "status": "signature-fragment"
+            "status": "signature"
           },
           {
             "name": "GL2Type.power_basis_indep",
-            "status": "signature-fragment"
+            "status": "signature"
           },
           {
             "name": "GL2Type.IsPrimitive",
-            "status": "signature-fragment"
+            "status": "signature"
           },
           {
             "name": "GL2Type.IsPrimitive.of_isogeny",
-            "status": "signature-fragment"
+            "status": "signature"
           },
           {
             "name": "GL2Type.isPrimitive_iff_isSimple",
-            "status": "signature-fragment"
+            "status": "signature"
           }
         ],
         "tests": [
           {
             "name": "GL2Type.power_degree_one",
-            "status": "example-fragment"
+            "status": "example"
           },
           {
             "name": "GL2Type.power_not_primitive",
-            "status": "example-fragment"
+            "status": "example"
           },
           {
             "name": "GL2Type.J0_23_primitive",
-            "status": "example-fragment"
+            "status": "omitted",
+            "omissions": "The primitive Hecke-J₀(23) example requires the actual R14.2/R14.5 Jacobian and T₂ action, its polynomial T₂²+T₂−1=0, and the native End0=ℚ[T₂] identification. The concrete ℚ(√2) power test is separately present."
           },
           {
             "name": "GL2Type.power_compat_R25_5",
-            "status": "example-fragment"
+            "status": "example-fragment",
+            "omissions": "The actual degree/dimension equation is present. Identifying the result with the canonical R25.5 bundle requires that supplier’s declaration."
           }
         ]
       }
@@ -573,7 +668,15 @@
       },
       "suggestedCoverage": {
         "status": "signature-fragment",
-        "omissions": "All geometric/automorphic statements in this node use the unvalidated AVContext stand-in. See the recorded prototype gaps; successful elaboration checks syntax and typing of this stand-in only."
+        "omissions": "The simple⇒E≃End0 implication is stated on native varieties and the exact R25.5 degree equation. Omitted: the full matrix decomposition and bundled three-way field/primitive equivalence; AbelianSchemesAndArithmeticModuli:A6 native End0, rational inverse/conjugation, matrix-product action, field transport preserving the existing Ring and ℚ-Algebra, and derivative action must export the native matrix decomposition and coherent field structure. isPrimitive_iff_isSimple separately states the primitive/simple equivalence.",
+        "declarations": [
+          {
+            "name": "GL2Type.ribetTheorem21",
+            "status": "signature-fragment",
+            "omissions": "The simple⇒E≃End0 implication is stated on native varieties and the exact R25.5 degree equation. Omitted: the full matrix decomposition and bundled three-way field/primitive equivalence; AbelianSchemesAndArithmeticModuli:A6 native End0, rational inverse/conjugation, matrix-product action, field transport preserving the existing Ring and ℚ-Algebra, and derivative action must export the native matrix decomposition and coherent field structure. isPrimitive_iff_isSimple separately states the primitive/simple equivalence."
+          }
+        ],
+        "tests": []
       }
     },
     {
@@ -691,53 +794,60 @@
       },
       "suggestedCoverage": {
         "status": "signature-fragment",
-        "omissions": "All geometric/automorphic statements in this node use the unvalidated AVContext stand-in. See the recorded prototype gaps; successful elaboration checks syntax and typing of this stand-in only. Ribet §3 field/degree outline is sound; Tate functoriality and actual Hecke T₂ test are omitted from the suggested signatures.",
+        "omissions": "Canonical native End0, the E-algebra equivalence, compatible Field/NumberField existence, degree and isogeny conjugation on integral endomorphisms are stated. Field existence explicitly preserves the original Ring operations. Omitted: a canonical global field-instance API/R25.5 bundle, Rosati restriction and λ-adic transport law, requiring A6/A2 and R01.6. Actual J₀(23) must retain Hecke T₂, T₂²+T₂−1=0 and End0=ℚ[T₂]; R14.2/R14.5 supplies those native objects.",
         "declarations": [
           {
             "name": "GL2Type.endField",
-            "status": "signature-fragment"
+            "status": "signature-fragment",
+            "omissions": "Canonical native End0 and compatible Field/NumberField existence preserving its Ring are present; packaging the canonical global instance is omitted pending the A6 instance interface."
           },
           {
             "name": "GL2Type.endField_numberField",
-            "status": "signature-fragment"
+            "status": "signature"
           },
           {
             "name": "GL2Type.endField_finrank",
-            "status": "signature-fragment"
+            "status": "signature"
           },
           {
             "name": "GL2Type.endField_isGL2Type",
-            "status": "signature-fragment"
+            "status": "omitted",
+            "omissions": "Requires the canonical R25.5 bundled GL₂-type structure and an A6 canonical compatible Field/NumberField instance package on native End0. Compatible field existence and the degree equation are separately present."
           },
           {
             "name": "GL2Type.endField_equiv",
-            "status": "signature-fragment"
+            "status": "signature"
           },
           {
             "name": "GL2Type.endField_isogeny",
-            "status": "signature-fragment"
+            "status": "signature-fragment",
+            "omissions": "Native End0 algebra equivalence and integral-endomorphism conjugation equation are present; λ-adic intertwining is omitted pending R01.6 Tate functoriality."
           },
           {
             "name": "GL2Type.endField_involution",
-            "status": "signature-fragment"
+            "status": "omitted",
+            "omissions": "Requires A2/A6 native polarizations, duality, Rosati restriction and the canonical field involution. The field alternative alone is separately stated as a signature fragment."
           }
         ],
         "tests": [
           {
             "name": "GL2Type.endField_elliptic",
-            "status": "example-fragment"
+            "status": "example-fragment",
+            "omissions": "Native dimension-one AV and End0≃ℚ are present. Identifying it with a Weierstrass elliptic curve uses A1’s equivalence."
           },
           {
             "name": "GL2Type.endField_J0_23",
-            "status": "example-fragment"
+            "status": "omitted",
+            "omissions": "Requires the actual R14.2/R14.5 J₀(23), Hecke T₂ and its End0 identification with ℚ[T₂], including T₂²+T₂−1=0. An abstract quadratic field would not test this action."
           },
           {
             "name": "GL2Type.endField_J1_13",
-            "status": "example-fragment"
+            "status": "omitted",
+            "omissions": "Requires actual R14.2/R14.5 J₁(13), its native Hecke action and identification of its End0 field with ℚ(√−3), together with the corresponding order-six character."
           },
           {
             "name": "GL2Type.endField_not_simple",
-            "status": "example-fragment"
+            "status": "example"
           }
         ]
       }
@@ -788,7 +898,15 @@
       },
       "suggestedCoverage": {
         "status": "signature-fragment",
-        "omissions": "All geometric/automorphic statements in this node use the unvalidated AVContext stand-in. See the recorded prototype gaps; successful elaboration checks syntax and typing of this stand-in only."
+        "omissions": "The totally-real/CM alternative is stated on the actual native End0 action and native dimension equation, using Mathlib’s NumberField predicates. The Rosati restriction on every native polarization is omitted pending the A2/A6 polarization, duality and positive-involution export.",
+        "declarations": [
+          {
+            "name": "GL2Type.totallyRealOrCm",
+            "status": "signature-fragment",
+            "omissions": "The totally-real/CM alternative is stated on the actual native End0 action and native dimension equation, using Mathlib’s NumberField predicates. The Rosati restriction on every native polarization is omitted pending the A2/A6 polarization, duality and positive-involution export."
+          }
+        ],
+        "tests": []
       }
     },
     {
@@ -822,7 +940,8 @@
         "FaltingsFinitenessAndIsogenyTheorems:R28.4/semisimplicity-and-the-tate-homomorphism-comparison",
         "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.1/ribet-theorem-2-1",
         "tauceti:TauCetiRoadmap/ModularForms#layer-3-the-petersson-inner-product-adjoints-oldforms-and-newforms",
-        "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev"
+        "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev",
+        "tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields"
       ],
       "sources": [
         {
@@ -845,8 +964,16 @@
         "namespace": "TauCeti.GL2Type"
       },
       "suggestedCoverage": {
-        "status": "signature-fragment",
-        "omissions": "All geometric/automorphic statements in this node use the unvalidated AVContext stand-in. See the recorded prototype gaps; successful elaboration checks syntax and typing of this stand-in only."
+        "status": "omitted",
+        "omissions": "The native A_f with its Hecke coefficient-field action requires ModularCurvesPartII:R14.2/R14.5/R14.6 native X₁(N), X₀(N), Jacobians, A_f, coefficient fields, Hecke actions, rational cusps and pointed Abel–Jacobi maps and the R25.5 bundle, together with ModularForms Layer 3 old/new decomposition.",
+        "declarations": [
+          {
+            "name": "GL2Type.modularQuotientIsGl2Type",
+            "status": "omitted",
+            "omissions": "The native A_f with its Hecke coefficient-field action requires ModularCurvesPartII:R14.2/R14.5/R14.6 native X₁(N), X₀(N), Jacobians, A_f, coefficient fields, Hecke actions, rational cusps and pointed Abel–Jacobi maps and the R25.5 bundle, together with ModularForms Layer 3 old/new decomposition."
+          }
+        ],
+        "tests": []
       }
     },
     {
@@ -964,49 +1091,56 @@
       },
       "suggestedCoverage": {
         "status": "signature-fragment",
-        "omissions": "All geometric/automorphic statements in this node use the unvalidated AVContext stand-in. See the recorded prototype gaps; successful elaboration checks syntax and typing of this stand-in only. Ribet p.7 lattice enlargement and A3 quotient request are precise; the private integralEnd/Tate context does not validate the integral-model or residual API.",
+        "omissions": "IntegralModel contains an actual variety, native isogeny, rational E-action, denominator-cleared equivariance and an order-to-native-End ring equivalence with its compatibility equation. The same-variety test is stated. Omitted: λ-torsion and all residual representation clauses/tests; requires ArithmeticGaloisRepresentations:R01.6 and SmallRamificationAndAbelianVarietyBaseCases:R25.5 native Tate components, lattices, residual fields and coefficient embeddings and the A3 finite-subgroup quotient/lattice interface.",
         "declarations": [
           {
             "name": "GL2Type.integralModel",
-            "status": "signature-fragment"
+            "status": "signature"
           },
           {
             "name": "GL2Type.integralModel_end",
-            "status": "signature-fragment"
+            "status": "signature"
           },
           {
             "name": "GL2Type.residualRep",
-            "status": "signature-fragment"
+            "status": "omitted",
+            "omissions": "IntegralModel contains an actual variety, native isogeny, rational E-action, denominator-cleared equivariance and an order-to-native-End ring equivalence with its compatibility equation. The same-variety test is stated. Omitted: λ-torsion and all residual representation clauses/tests; requires ArithmeticGaloisRepresentations:R01.6 and SmallRamificationAndAbelianVarietyBaseCases:R25.5 native Tate components, lattices, residual fields and coefficient embeddings and the A3 finite-subgroup quotient/lattice interface."
           },
           {
             "name": "GL2Type.residualRep_finrank",
-            "status": "signature-fragment"
+            "status": "omitted",
+            "omissions": "IntegralModel contains an actual variety, native isogeny, rational E-action, denominator-cleared equivariance and an order-to-native-End ring equivalence with its compatibility equation. The same-variety test is stated. Omitted: λ-torsion and all residual representation clauses/tests; requires ArithmeticGaloisRepresentations:R01.6 and SmallRamificationAndAbelianVarietyBaseCases:R25.5 native Tate components, lattices, residual fields and coefficient embeddings and the A3 finite-subgroup quotient/lattice interface."
           },
           {
             "name": "GL2Type.residualRep_charpoly",
-            "status": "signature-fragment"
+            "status": "omitted",
+            "omissions": "IntegralModel contains an actual variety, native isogeny, rational E-action, denominator-cleared equivariance and an order-to-native-End ring equivalence with its compatibility equation. The same-variety test is stated. Omitted: λ-torsion and all residual representation clauses/tests; requires ArithmeticGaloisRepresentations:R01.6 and SmallRamificationAndAbelianVarietyBaseCases:R25.5 native Tate components, lattices, residual fields and coefficient embeddings and the A3 finite-subgroup quotient/lattice interface."
           },
           {
             "name": "GL2Type.residualRep_ss_indep",
-            "status": "signature-fragment"
+            "status": "omitted",
+            "omissions": "IntegralModel contains an actual variety, native isogeny, rational E-action, denominator-cleared equivariance and an order-to-native-End ring equivalence with its compatibility equation. The same-variety test is stated. Omitted: λ-torsion and all residual representation clauses/tests; requires ArithmeticGaloisRepresentations:R01.6 and SmallRamificationAndAbelianVarietyBaseCases:R25.5 native Tate components, lattices, residual fields and coefficient embeddings and the A3 finite-subgroup quotient/lattice interface."
           }
         ],
         "tests": [
           {
             "name": "GL2Type.residualRep_elliptic",
-            "status": "example-fragment"
+            "status": "omitted",
+            "omissions": "IntegralModel contains an actual variety, native isogeny, rational E-action, denominator-cleared equivariance and an order-to-native-End ring equivalence with its compatibility equation. The same-variety test is stated. Omitted: λ-torsion and all residual representation clauses/tests; requires ArithmeticGaloisRepresentations:R01.6 and SmallRamificationAndAbelianVarietyBaseCases:R25.5 native Tate components, lattices, residual fields and coefficient embeddings and the A3 finite-subgroup quotient/lattice interface."
           },
           {
             "name": "GL2Type.residualRep_det",
-            "status": "example-fragment"
+            "status": "omitted",
+            "omissions": "IntegralModel contains an actual variety, native isogeny, rational E-action, denominator-cleared equivariance and an order-to-native-End ring equivalence with its compatibility equation. The same-variety test is stated. Omitted: λ-torsion and all residual representation clauses/tests; requires ArithmeticGaloisRepresentations:R01.6 and SmallRamificationAndAbelianVarietyBaseCases:R25.5 native Tate components, lattices, residual fields and coefficient embeddings and the A3 finite-subgroup quotient/lattice interface."
           },
           {
             "name": "GL2Type.integralModel_trivial",
-            "status": "example-fragment"
+            "status": "example"
           },
           {
             "name": "GL2Type.residualRep_not_A_l",
-            "status": "example-fragment"
+            "status": "omitted",
+            "omissions": "IntegralModel contains an actual variety, native isogeny, rational E-action, denominator-cleared equivariance and an order-to-native-End ring equivalence with its compatibility equation. The same-variety test is stated. Omitted: λ-torsion and all residual representation clauses/tests; requires ArithmeticGaloisRepresentations:R01.6 and SmallRamificationAndAbelianVarietyBaseCases:R25.5 native Tate components, lattices, residual fields and coefficient embeddings and the A3 finite-subgroup quotient/lattice interface."
           }
         ]
       }
@@ -1051,8 +1185,16 @@
         "namespace": "TauCeti.GL2Type"
       },
       "suggestedCoverage": {
-        "status": "signature-fragment",
-        "omissions": "All geometric/automorphic statements in this node use the unvalidated AVContext stand-in. See the recorded prototype gaps; successful elaboration checks syntax and typing of this stand-in only."
+        "status": "omitted",
+        "omissions": "This signature requires ArithmeticGaloisRepresentations:R01.6 and SmallRamificationAndAbelianVarietyBaseCases:R25.5 native Tate components, lattices, residual fields and coefficient embeddings and AbelianSchemesAndArithmeticModuli:A6 native End0, rational inverse/conjugation, matrix-product action, field transport preserving the existing Ring and ℚ-Algebra, and derivative action. The Frobenius polynomial, character, conjugation and local-condition data must come from those native actions; arbitrary representations with no functorial connection to A are not introduced.",
+        "declarations": [
+          {
+            "name": "GL2Type.frobeniusPolynomial",
+            "status": "omitted",
+            "omissions": "This signature requires ArithmeticGaloisRepresentations:R01.6 and SmallRamificationAndAbelianVarietyBaseCases:R25.5 native Tate components, lattices, residual fields and coefficient embeddings and AbelianSchemesAndArithmeticModuli:A6 native End0, rational inverse/conjugation, matrix-product action, field transport preserving the existing Ring and ℚ-Algebra, and derivative action. The Frobenius polynomial, character, conjugation and local-condition data must come from those native actions; arbitrary representations with no functorial connection to A are not introduced."
+          }
+        ],
+        "tests": []
       }
     },
     {
@@ -1107,8 +1249,16 @@
         "namespace": "TauCeti.GL2Type"
       },
       "suggestedCoverage": {
-        "status": "signature-fragment",
-        "omissions": "All geometric/automorphic statements in this node use the unvalidated AVContext stand-in. See the recorded prototype gaps; successful elaboration checks syntax and typing of this stand-in only."
+        "status": "omitted",
+        "omissions": "This signature requires ArithmeticGaloisRepresentations:R01.6 and SmallRamificationAndAbelianVarietyBaseCases:R25.5 native Tate components, lattices, residual fields and coefficient embeddings and AbelianSchemesAndArithmeticModuli:A6 native End0, rational inverse/conjugation, matrix-product action, field transport preserving the existing Ring and ℚ-Algebra, and derivative action. The Frobenius polynomial, character, conjugation and local-condition data must come from those native actions; arbitrary representations with no functorial connection to A are not introduced.",
+        "declarations": [
+          {
+            "name": "GL2Type.determinantCharacter",
+            "status": "omitted",
+            "omissions": "This signature requires ArithmeticGaloisRepresentations:R01.6 and SmallRamificationAndAbelianVarietyBaseCases:R25.5 native Tate components, lattices, residual fields and coefficient embeddings and AbelianSchemesAndArithmeticModuli:A6 native End0, rational inverse/conjugation, matrix-product action, field transport preserving the existing Ring and ℚ-Algebra, and derivative action. The Frobenius polynomial, character, conjugation and local-condition data must come from those native actions; arbitrary representations with no functorial connection to A are not introduced."
+          }
+        ],
+        "tests": []
       }
     },
     {
@@ -1155,8 +1305,16 @@
         "namespace": "TauCeti.GL2Type"
       },
       "suggestedCoverage": {
-        "status": "signature-fragment",
-        "omissions": "All geometric/automorphic statements in this node use the unvalidated AVContext stand-in. See the recorded prototype gaps; successful elaboration checks syntax and typing of this stand-in only."
+        "status": "omitted",
+        "omissions": "This signature requires ArithmeticGaloisRepresentations:R01.6 and SmallRamificationAndAbelianVarietyBaseCases:R25.5 native Tate components, lattices, residual fields and coefficient embeddings and AbelianSchemesAndArithmeticModuli:A6 native End0, rational inverse/conjugation, matrix-product action, field transport preserving the existing Ring and ℚ-Algebra, and derivative action. The Frobenius polynomial, character, conjugation and local-condition data must come from those native actions; arbitrary representations with no functorial connection to A are not introduced.",
+        "declarations": [
+          {
+            "name": "GL2Type.odd",
+            "status": "omitted",
+            "omissions": "This signature requires ArithmeticGaloisRepresentations:R01.6 and SmallRamificationAndAbelianVarietyBaseCases:R25.5 native Tate components, lattices, residual fields and coefficient embeddings and AbelianSchemesAndArithmeticModuli:A6 native End0, rational inverse/conjugation, matrix-product action, field transport preserving the existing Ring and ℚ-Algebra, and derivative action. The Frobenius polynomial, character, conjugation and local-condition data must come from those native actions; arbitrary representations with no functorial connection to A are not introduced."
+          }
+        ],
+        "tests": []
       }
     },
     {
@@ -1199,8 +1357,16 @@
         "namespace": "TauCeti.GL2Type"
       },
       "suggestedCoverage": {
-        "status": "signature-fragment",
-        "omissions": "All geometric/automorphic statements in this node use the unvalidated AVContext stand-in. See the recorded prototype gaps; successful elaboration checks syntax and typing of this stand-in only."
+        "status": "omitted",
+        "omissions": "This signature requires ArithmeticGaloisRepresentations:R01.6 and SmallRamificationAndAbelianVarietyBaseCases:R25.5 native Tate components, lattices, residual fields and coefficient embeddings and AbelianSchemesAndArithmeticModuli:A6 native End0, rational inverse/conjugation, matrix-product action, field transport preserving the existing Ring and ℚ-Algebra, and derivative action. The Frobenius polynomial, character, conjugation and local-condition data must come from those native actions; arbitrary representations with no functorial connection to A are not introduced.",
+        "declarations": [
+          {
+            "name": "GL2Type.absoluteIrreducibility",
+            "status": "omitted",
+            "omissions": "This signature requires ArithmeticGaloisRepresentations:R01.6 and SmallRamificationAndAbelianVarietyBaseCases:R25.5 native Tate components, lattices, residual fields and coefficient embeddings and AbelianSchemesAndArithmeticModuli:A6 native End0, rational inverse/conjugation, matrix-product action, field transport preserving the existing Ring and ℚ-Algebra, and derivative action. The Frobenius polynomial, character, conjugation and local-condition data must come from those native actions; arbitrary representations with no functorial connection to A are not introduced."
+          }
+        ],
+        "tests": []
       }
     },
     {
@@ -1241,8 +1407,16 @@
         "namespace": "TauCeti.GL2Type"
       },
       "suggestedCoverage": {
-        "status": "signature-fragment",
-        "omissions": "All geometric/automorphic statements in this node use the unvalidated AVContext stand-in. See the recorded prototype gaps; successful elaboration checks syntax and typing of this stand-in only."
+        "status": "omitted",
+        "omissions": "This signature requires ArithmeticGaloisRepresentations:R01.6 and SmallRamificationAndAbelianVarietyBaseCases:R25.5 native Tate components, lattices, residual fields and coefficient embeddings and AbelianSchemesAndArithmeticModuli:A6 native End0, rational inverse/conjugation, matrix-product action, field transport preserving the existing Ring and ℚ-Algebra, and derivative action. The Frobenius polynomial, character, conjugation and local-condition data must come from those native actions; arbitrary representations with no functorial connection to A are not introduced.",
+        "declarations": [
+          {
+            "name": "GL2Type.coefficientConjugation",
+            "status": "omitted",
+            "omissions": "This signature requires ArithmeticGaloisRepresentations:R01.6 and SmallRamificationAndAbelianVarietyBaseCases:R25.5 native Tate components, lattices, residual fields and coefficient embeddings and AbelianSchemesAndArithmeticModuli:A6 native End0, rational inverse/conjugation, matrix-product action, field transport preserving the existing Ring and ℚ-Algebra, and derivative action. The Frobenius polynomial, character, conjugation and local-condition data must come from those native actions; arbitrary representations with no functorial connection to A are not introduced."
+          }
+        ],
+        "tests": []
       }
     },
     {
@@ -1282,8 +1456,16 @@
         "namespace": "TauCeti.GL2Type"
       },
       "suggestedCoverage": {
-        "status": "signature-fragment",
-        "omissions": "All geometric/automorphic statements in this node use the unvalidated AVContext stand-in. See the recorded prototype gaps; successful elaboration checks syntax and typing of this stand-in only."
+        "status": "omitted",
+        "omissions": "This signature requires ArithmeticGaloisRepresentations:R01.6 and SmallRamificationAndAbelianVarietyBaseCases:R25.5 native Tate components, lattices, residual fields and coefficient embeddings and AbelianSchemesAndArithmeticModuli:A6 native End0, rational inverse/conjugation, matrix-product action, field transport preserving the existing Ring and ℚ-Algebra, and derivative action. The Frobenius polynomial, character, conjugation and local-condition data must come from those native actions; arbitrary representations with no functorial connection to A are not introduced.",
+        "declarations": [
+          {
+            "name": "GL2Type.coefficientsGenerate",
+            "status": "omitted",
+            "omissions": "This signature requires ArithmeticGaloisRepresentations:R01.6 and SmallRamificationAndAbelianVarietyBaseCases:R25.5 native Tate components, lattices, residual fields and coefficient embeddings and AbelianSchemesAndArithmeticModuli:A6 native End0, rational inverse/conjugation, matrix-product action, field transport preserving the existing Ring and ℚ-Algebra, and derivative action. The Frobenius polynomial, character, conjugation and local-condition data must come from those native actions; arbitrary representations with no functorial connection to A are not introduced."
+          }
+        ],
+        "tests": []
       }
     },
     {
@@ -1323,8 +1505,16 @@
         "namespace": "TauCeti.GL2Type"
       },
       "suggestedCoverage": {
-        "status": "signature-fragment",
-        "omissions": "All geometric/automorphic statements in this node use the unvalidated AVContext stand-in. See the recorded prototype gaps; successful elaboration checks syntax and typing of this stand-in only."
+        "status": "omitted",
+        "omissions": "This signature requires ArithmeticGaloisRepresentations:R01.6 and SmallRamificationAndAbelianVarietyBaseCases:R25.5 native Tate components, lattices, residual fields and coefficient embeddings and AbelianSchemesAndArithmeticModuli:A6 native End0, rational inverse/conjugation, matrix-product action, field transport preserving the existing Ring and ℚ-Algebra, and derivative action. The Frobenius polynomial, character, conjugation and local-condition data must come from those native actions; arbitrary representations with no functorial connection to A are not introduced.",
+        "declarations": [
+          {
+            "name": "GL2Type.innerTwistField",
+            "status": "omitted",
+            "omissions": "This signature requires ArithmeticGaloisRepresentations:R01.6 and SmallRamificationAndAbelianVarietyBaseCases:R25.5 native Tate components, lattices, residual fields and coefficient embeddings and AbelianSchemesAndArithmeticModuli:A6 native End0, rational inverse/conjugation, matrix-product action, field transport preserving the existing Ring and ℚ-Algebra, and derivative action. The Frobenius polynomial, character, conjugation and local-condition data must come from those native actions; arbitrary representations with no functorial connection to A are not introduced."
+          }
+        ],
+        "tests": []
       }
     },
     {
@@ -1363,8 +1553,16 @@
         "namespace": "TauCeti.GL2Type"
       },
       "suggestedCoverage": {
-        "status": "signature-fragment",
-        "omissions": "All geometric/automorphic statements in this node use the unvalidated AVContext stand-in. See the recorded prototype gaps; successful elaboration checks syntax and typing of this stand-in only."
+        "status": "omitted",
+        "omissions": "This signature requires ArithmeticGaloisRepresentations:R01.6 and SmallRamificationAndAbelianVarietyBaseCases:R25.5 native Tate components, lattices, residual fields and coefficient embeddings and AbelianSchemesAndArithmeticModuli:A6 native End0, rational inverse/conjugation, matrix-product action, field transport preserving the existing Ring and ℚ-Algebra, and derivative action. The Frobenius polynomial, character, conjugation and local-condition data must come from those native actions; arbitrary representations with no functorial connection to A are not introduced.",
+        "declarations": [
+          {
+            "name": "GL2Type.residualIrreducibility",
+            "status": "omitted",
+            "omissions": "This signature requires ArithmeticGaloisRepresentations:R01.6 and SmallRamificationAndAbelianVarietyBaseCases:R25.5 native Tate components, lattices, residual fields and coefficient embeddings and AbelianSchemesAndArithmeticModuli:A6 native End0, rational inverse/conjugation, matrix-product action, field transport preserving the existing Ring and ℚ-Algebra, and derivative action. The Frobenius polynomial, character, conjugation and local-condition data must come from those native actions; arbitrary representations with no functorial connection to A are not introduced."
+          }
+        ],
+        "tests": []
       }
     },
     {
@@ -1407,8 +1605,16 @@
         "namespace": "TauCeti.GL2Type"
       },
       "suggestedCoverage": {
-        "status": "signature-fragment",
-        "omissions": "All geometric/automorphic statements in this node use the unvalidated AVContext stand-in. See the recorded prototype gaps; successful elaboration checks syntax and typing of this stand-in only."
+        "status": "omitted",
+        "omissions": "This signature requires ArithmeticGaloisRepresentations:R01.6 and SmallRamificationAndAbelianVarietyBaseCases:R25.5 native Tate components, lattices, residual fields and coefficient embeddings and AbelianSchemesAndArithmeticModuli:A6 native End0, rational inverse/conjugation, matrix-product action, field transport preserving the existing Ring and ℚ-Algebra, and derivative action. The Frobenius polynomial, character, conjugation and local-condition data must come from those native actions; arbitrary representations with no functorial connection to A are not introduced.",
+        "declarations": [
+          {
+            "name": "GL2Type.conductorBound",
+            "status": "omitted",
+            "omissions": "This signature requires ArithmeticGaloisRepresentations:R01.6 and SmallRamificationAndAbelianVarietyBaseCases:R25.5 native Tate components, lattices, residual fields and coefficient embeddings and AbelianSchemesAndArithmeticModuli:A6 native End0, rational inverse/conjugation, matrix-product action, field transport preserving the existing Ring and ℚ-Algebra, and derivative action. The Frobenius polynomial, character, conjugation and local-condition data must come from those native actions; arbitrary representations with no functorial connection to A are not introduced."
+          }
+        ],
+        "tests": []
       }
     },
     {
@@ -1457,8 +1663,16 @@
         "namespace": "TauCeti.GL2Type"
       },
       "suggestedCoverage": {
-        "status": "signature-fragment",
-        "omissions": "All geometric/automorphic statements in this node use the unvalidated AVContext stand-in. See the recorded prototype gaps; successful elaboration checks syntax and typing of this stand-in only."
+        "status": "omitted",
+        "omissions": "This signature requires ArithmeticGaloisRepresentations:R01.6 and SmallRamificationAndAbelianVarietyBaseCases:R25.5 native Tate components, lattices, residual fields and coefficient embeddings and AbelianSchemesAndArithmeticModuli:A6 native End0, rational inverse/conjugation, matrix-product action, field transport preserving the existing Ring and ℚ-Algebra, and derivative action. The Frobenius polynomial, character, conjugation and local-condition data must come from those native actions; arbitrary representations with no functorial connection to A are not introduced.",
+        "declarations": [
+          {
+            "name": "GL2Type.crystallineAtGoodPrimes",
+            "status": "omitted",
+            "omissions": "This signature requires ArithmeticGaloisRepresentations:R01.6 and SmallRamificationAndAbelianVarietyBaseCases:R25.5 native Tate components, lattices, residual fields and coefficient embeddings and AbelianSchemesAndArithmeticModuli:A6 native End0, rational inverse/conjugation, matrix-product action, field transport preserving the existing Ring and ℚ-Algebra, and derivative action. The Frobenius polynomial, character, conjugation and local-condition data must come from those native actions; arbitrary representations with no functorial connection to A are not introduced."
+          }
+        ],
+        "tests": []
       }
     },
     {
@@ -1485,7 +1699,8 @@
         "ModularCurvesPartII:R14.2/jacobian-and-functoriality",
         "ModularCurvesPartII:R14.5/trivial-character-J0",
         "tauceti:TauCeti.AlgebraicGeometry.AbelianVariety",
-        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-e-abelian-varieties"
+        "tauceti:TauCeti.AlgebraicGeometry.AbelianVariety.IsIsogeny",
+        "tauceti:TauCeti.AlgebraicGeometry.AbelianVariety.baseChange"
       ],
       "sources": [
         {
@@ -1551,7 +1766,7 @@
         {
           "name": "IsModular.zero",
           "kind": "degenerate",
-          "statement": "The zero abelian variety is modular of every level; J₁(N) = 0 for N ≤ 10 and N = 12."
+          "statement": "The zero abelian variety is modular of every positive level; J₁(N) = 0 for 1 ≤ N ≤ 10 and N = 12."
         },
         {
           "name": "IsModular.J1_13_not_gamma0",
@@ -1590,58 +1805,70 @@
         "namespace": "TauCeti.GL2Type"
       },
       "suggestedCoverage": {
-        "status": "signature-fragment",
-        "omissions": "All geometric/automorphic statements in this node use the unvalidated AVContext stand-in. See the recorded prototype gaps; successful elaboration checks syntax and typing of this stand-in only. Quotient definition, level monotonicity and Γ₀ comparison agree with KW/FLHS. Private Jacobians and the elliptic API’s missing curve-morphism equivalence prevent prototype verification.",
+        "status": "omitted",
+        "omissions": "This signature requires ModularCurvesPartII:R14.2/R14.5/R14.6 native X₁(N), X₀(N), Jacobians, A_f, coefficient fields, Hecke actions, rational cusps and pointed Abel–Jacobi maps, ArithmeticGaloisRepresentations:R01.6 and SmallRamificationAndAbelianVarietyBaseCases:R25.5 native Tate components, lattices, residual fields and coefficient embeddings and AutomorphicGaloisRepresentations:R19.3/R19.4 native newform representations and local compatibility; ArithmeticGaloisRepresentations:R01.5 recognition. The normalized newform carrier itself exists; its coefficient field, attached quotient and compatible Galois representation must come from their owners, not private stand-ins.",
         "declarations": [
           {
             "name": "AbelianVariety.IsModularOfLevel",
-            "status": "signature-fragment"
+            "status": "omitted",
+            "omissions": "This signature requires ModularCurvesPartII:R14.2/R14.5/R14.6 native X₁(N), X₀(N), Jacobians, A_f, coefficient fields, Hecke actions, rational cusps and pointed Abel–Jacobi maps, ArithmeticGaloisRepresentations:R01.6 and SmallRamificationAndAbelianVarietyBaseCases:R25.5 native Tate components, lattices, residual fields and coefficient embeddings and AutomorphicGaloisRepresentations:R19.3/R19.4 native newform representations and local compatibility; ArithmeticGaloisRepresentations:R01.5 recognition. The normalized newform carrier itself exists; its coefficient field, attached quotient and compatible Galois representation must come from their owners, not private stand-ins."
           },
           {
             "name": "AbelianVariety.IsModular",
-            "status": "signature-fragment"
+            "status": "omitted",
+            "omissions": "This signature requires ModularCurvesPartII:R14.2/R14.5/R14.6 native X₁(N), X₀(N), Jacobians, A_f, coefficient fields, Hecke actions, rational cusps and pointed Abel–Jacobi maps, ArithmeticGaloisRepresentations:R01.6 and SmallRamificationAndAbelianVarietyBaseCases:R25.5 native Tate components, lattices, residual fields and coefficient embeddings and AutomorphicGaloisRepresentations:R19.3/R19.4 native newform representations and local compatibility; ArithmeticGaloisRepresentations:R01.5 recognition. The normalized newform carrier itself exists; its coefficient field, attached quotient and compatible Galois representation must come from their owners, not private stand-ins."
           },
           {
             "name": "AbelianVariety.IsModularOfLevel.mono",
-            "status": "signature-fragment"
+            "status": "omitted",
+            "omissions": "This signature requires ModularCurvesPartII:R14.2/R14.5/R14.6 native X₁(N), X₀(N), Jacobians, A_f, coefficient fields, Hecke actions, rational cusps and pointed Abel–Jacobi maps, ArithmeticGaloisRepresentations:R01.6 and SmallRamificationAndAbelianVarietyBaseCases:R25.5 native Tate components, lattices, residual fields and coefficient embeddings and AutomorphicGaloisRepresentations:R19.3/R19.4 native newform representations and local compatibility; ArithmeticGaloisRepresentations:R01.5 recognition. The normalized newform carrier itself exists; its coefficient field, attached quotient and compatible Galois representation must come from their owners, not private stand-ins."
           },
           {
             "name": "AbelianVariety.IsModular.of_isogeny",
-            "status": "signature-fragment"
+            "status": "omitted",
+            "omissions": "This signature requires ModularCurvesPartII:R14.2/R14.5/R14.6 native X₁(N), X₀(N), Jacobians, A_f, coefficient fields, Hecke actions, rational cusps and pointed Abel–Jacobi maps, ArithmeticGaloisRepresentations:R01.6 and SmallRamificationAndAbelianVarietyBaseCases:R25.5 native Tate components, lattices, residual fields and coefficient embeddings and AutomorphicGaloisRepresentations:R19.3/R19.4 native newform representations and local compatibility; ArithmeticGaloisRepresentations:R01.5 recognition. The normalized newform carrier itself exists; its coefficient field, attached quotient and compatible Galois representation must come from their owners, not private stand-ins."
           },
           {
             "name": "AbelianVariety.IsModular.quotient",
-            "status": "signature-fragment"
+            "status": "omitted",
+            "omissions": "This signature requires ModularCurvesPartII:R14.2/R14.5/R14.6 native X₁(N), X₀(N), Jacobians, A_f, coefficient fields, Hecke actions, rational cusps and pointed Abel–Jacobi maps, ArithmeticGaloisRepresentations:R01.6 and SmallRamificationAndAbelianVarietyBaseCases:R25.5 native Tate components, lattices, residual fields and coefficient embeddings and AutomorphicGaloisRepresentations:R19.3/R19.4 native newform representations and local compatibility; ArithmeticGaloisRepresentations:R01.5 recognition. The normalized newform carrier itself exists; its coefficient field, attached quotient and compatible Galois representation must come from their owners, not private stand-ins."
           },
           {
             "name": "AbelianVariety.isModular_iff",
-            "status": "signature-fragment"
+            "status": "omitted",
+            "omissions": "This signature requires ModularCurvesPartII:R14.2/R14.5/R14.6 native X₁(N), X₀(N), Jacobians, A_f, coefficient fields, Hecke actions, rational cusps and pointed Abel–Jacobi maps, ArithmeticGaloisRepresentations:R01.6 and SmallRamificationAndAbelianVarietyBaseCases:R25.5 native Tate components, lattices, residual fields and coefficient embeddings and AutomorphicGaloisRepresentations:R19.3/R19.4 native newform representations and local compatibility; ArithmeticGaloisRepresentations:R01.5 recognition. The normalized newform carrier itself exists; its coefficient field, attached quotient and compatible Galois representation must come from their owners, not private stand-ins."
           },
           {
             "name": "AbelianVariety.IsModularOfLevel.gamma0",
-            "status": "signature-fragment"
+            "status": "omitted",
+            "omissions": "This signature requires ModularCurvesPartII:R14.2/R14.5/R14.6 native X₁(N), X₀(N), Jacobians, A_f, coefficient fields, Hecke actions, rational cusps and pointed Abel–Jacobi maps, ArithmeticGaloisRepresentations:R01.6 and SmallRamificationAndAbelianVarietyBaseCases:R25.5 native Tate components, lattices, residual fields and coefficient embeddings and AutomorphicGaloisRepresentations:R19.3/R19.4 native newform representations and local compatibility; ArithmeticGaloisRepresentations:R01.5 recognition. The normalized newform carrier itself exists; its coefficient field, attached quotient and compatible Galois representation must come from their owners, not private stand-ins."
           },
           {
             "name": "AbelianVariety.IsModular.elliptic",
-            "status": "signature-fragment"
+            "status": "omitted",
+            "omissions": "This signature requires ModularCurvesPartII:R14.2/R14.5/R14.6 native X₁(N), X₀(N), Jacobians, A_f, coefficient fields, Hecke actions, rational cusps and pointed Abel–Jacobi maps, ArithmeticGaloisRepresentations:R01.6 and SmallRamificationAndAbelianVarietyBaseCases:R25.5 native Tate components, lattices, residual fields and coefficient embeddings and AutomorphicGaloisRepresentations:R19.3/R19.4 native newform representations and local compatibility; ArithmeticGaloisRepresentations:R01.5 recognition. The normalized newform carrier itself exists; its coefficient field, attached quotient and compatible Galois representation must come from their owners, not private stand-ins."
           }
         ],
         "tests": [
           {
             "name": "IsModular.X0_11",
-            "status": "example-fragment"
+            "status": "omitted",
+            "omissions": "This signature requires ModularCurvesPartII:R14.2/R14.5/R14.6 native X₁(N), X₀(N), Jacobians, A_f, coefficient fields, Hecke actions, rational cusps and pointed Abel–Jacobi maps, ArithmeticGaloisRepresentations:R01.6 and SmallRamificationAndAbelianVarietyBaseCases:R25.5 native Tate components, lattices, residual fields and coefficient embeddings and AutomorphicGaloisRepresentations:R19.3/R19.4 native newform representations and local compatibility; ArithmeticGaloisRepresentations:R01.5 recognition. The normalized newform carrier itself exists; its coefficient field, attached quotient and compatible Galois representation must come from their owners, not private stand-ins."
           },
           {
             "name": "IsModular.zero",
-            "status": "example-fragment"
+            "status": "omitted",
+            "omissions": "This signature requires ModularCurvesPartII:R14.2/R14.5/R14.6 native X₁(N), X₀(N), Jacobians, A_f, coefficient fields, Hecke actions, rational cusps and pointed Abel–Jacobi maps, ArithmeticGaloisRepresentations:R01.6 and SmallRamificationAndAbelianVarietyBaseCases:R25.5 native Tate components, lattices, residual fields and coefficient embeddings and AutomorphicGaloisRepresentations:R19.3/R19.4 native newform representations and local compatibility; ArithmeticGaloisRepresentations:R01.5 recognition. The normalized newform carrier itself exists; its coefficient field, attached quotient and compatible Galois representation must come from their owners, not private stand-ins."
           },
           {
             "name": "IsModular.J1_13_not_gamma0",
-            "status": "example-fragment"
+            "status": "omitted",
+            "omissions": "This signature requires ModularCurvesPartII:R14.2/R14.5/R14.6 native X₁(N), X₀(N), Jacobians, A_f, coefficient fields, Hecke actions, rational cusps and pointed Abel–Jacobi maps, ArithmeticGaloisRepresentations:R01.6 and SmallRamificationAndAbelianVarietyBaseCases:R25.5 native Tate components, lattices, residual fields and coefficient embeddings and AutomorphicGaloisRepresentations:R19.3/R19.4 native newform representations and local compatibility; ArithmeticGaloisRepresentations:R01.5 recognition. The normalized newform carrier itself exists; its coefficient field, attached quotient and compatible Galois representation must come from their owners, not private stand-ins."
           },
           {
             "name": "IsModular.level_not_minimal",
-            "status": "example-fragment"
+            "status": "omitted",
+            "omissions": "This signature requires ModularCurvesPartII:R14.2/R14.5/R14.6 native X₁(N), X₀(N), Jacobians, A_f, coefficient fields, Hecke actions, rational cusps and pointed Abel–Jacobi maps, ArithmeticGaloisRepresentations:R01.6 and SmallRamificationAndAbelianVarietyBaseCases:R25.5 native Tate components, lattices, residual fields and coefficient embeddings and AutomorphicGaloisRepresentations:R19.3/R19.4 native newform representations and local compatibility; ArithmeticGaloisRepresentations:R01.5 recognition. The normalized newform carrier itself exists; its coefficient field, attached quotient and compatible Galois representation must come from their owners, not private stand-ins."
           }
         ]
       }
@@ -1696,8 +1923,16 @@
         "namespace": "TauCeti.GL2Type"
       },
       "suggestedCoverage": {
-        "status": "signature-fragment",
-        "omissions": "All geometric/automorphic statements in this node use the unvalidated AVContext stand-in. See the recorded prototype gaps; successful elaboration checks syntax and typing of this stand-in only."
+        "status": "omitted",
+        "omissions": "This signature requires ModularCurvesPartII:R14.2/R14.5/R14.6 native X₁(N), X₀(N), Jacobians, A_f, coefficient fields, Hecke actions, rational cusps and pointed Abel–Jacobi maps, ArithmeticGaloisRepresentations:R01.6 and SmallRamificationAndAbelianVarietyBaseCases:R25.5 native Tate components, lattices, residual fields and coefficient embeddings and AutomorphicGaloisRepresentations:R19.3/R19.4 native newform representations and local compatibility; ArithmeticGaloisRepresentations:R01.5 recognition. The normalized newform carrier itself exists; its coefficient field, attached quotient and compatible Galois representation must come from their owners, not private stand-ins.",
+        "declarations": [
+          {
+            "name": "GL2Type.serreWitnesses",
+            "status": "omitted",
+            "omissions": "This signature requires ModularCurvesPartII:R14.2/R14.5/R14.6 native X₁(N), X₀(N), Jacobians, A_f, coefficient fields, Hecke actions, rational cusps and pointed Abel–Jacobi maps, ArithmeticGaloisRepresentations:R01.6 and SmallRamificationAndAbelianVarietyBaseCases:R25.5 native Tate components, lattices, residual fields and coefficient embeddings and AutomorphicGaloisRepresentations:R19.3/R19.4 native newform representations and local compatibility; ArithmeticGaloisRepresentations:R01.5 recognition. The normalized newform carrier itself exists; its coefficient field, attached quotient and compatible Galois representation must come from their owners, not private stand-ins."
+          }
+        ],
+        "tests": []
       }
     },
     {
@@ -1729,7 +1964,8 @@
         "mathlib:CongruenceSubgroup.Gamma1",
         "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.2/coefficients-generate",
         "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.1/modular-quotient-is-gl2-type",
-        "ModularCurvesPartII:R14.5/newform-hecke-prime"
+        "ModularCurvesPartII:R14.5/newform-hecke-prime",
+        "tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields"
       ],
       "sources": [
         {
@@ -1744,8 +1980,16 @@
         "namespace": "TauCeti.GL2Type"
       },
       "suggestedCoverage": {
-        "status": "signature-fragment",
-        "omissions": "All geometric/automorphic statements in this node use the unvalidated AVContext stand-in. See the recorded prototype gaps; successful elaboration checks syntax and typing of this stand-in only."
+        "status": "omitted",
+        "omissions": "This signature requires ModularCurvesPartII:R14.2/R14.5/R14.6 native X₁(N), X₀(N), Jacobians, A_f, coefficient fields, Hecke actions, rational cusps and pointed Abel–Jacobi maps, ArithmeticGaloisRepresentations:R01.6 and SmallRamificationAndAbelianVarietyBaseCases:R25.5 native Tate components, lattices, residual fields and coefficient embeddings and AutomorphicGaloisRepresentations:R19.3/R19.4 native newform representations and local compatibility; ArithmeticGaloisRepresentations:R01.5 recognition. The normalized newform carrier itself exists; its coefficient field, attached quotient and compatible Galois representation must come from their owners, not private stand-ins.",
+        "declarations": [
+          {
+            "name": "GL2Type.fixedNewform",
+            "status": "omitted",
+            "omissions": "This signature requires ModularCurvesPartII:R14.2/R14.5/R14.6 native X₁(N), X₀(N), Jacobians, A_f, coefficient fields, Hecke actions, rational cusps and pointed Abel–Jacobi maps, ArithmeticGaloisRepresentations:R01.6 and SmallRamificationAndAbelianVarietyBaseCases:R25.5 native Tate components, lattices, residual fields and coefficient embeddings and AutomorphicGaloisRepresentations:R19.3/R19.4 native newform representations and local compatibility; ArithmeticGaloisRepresentations:R01.5 recognition. The normalized newform carrier itself exists; its coefficient field, attached quotient and compatible Galois representation must come from their owners, not private stand-ins."
+          }
+        ],
+        "tests": []
       }
     },
     {
@@ -1775,7 +2019,8 @@
         "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.1/modular-quotient-is-gl2-type",
         "ModularCurvesPartII:R14.5/newform-hecke-prime",
         "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.2/determinant-character",
-        "ArithmeticGaloisRepresentations:R01.5/recognition-by-characteristic-polynomials-and-coefficient-descent"
+        "ArithmeticGaloisRepresentations:R01.5/recognition-by-characteristic-polynomials-and-coefficient-descent",
+        "tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields"
       ],
       "sources": [
         {
@@ -1790,8 +2035,16 @@
         "namespace": "TauCeti.GL2Type"
       },
       "suggestedCoverage": {
-        "status": "signature-fragment",
-        "omissions": "All geometric/automorphic statements in this node use the unvalidated AVContext stand-in. See the recorded prototype gaps; successful elaboration checks syntax and typing of this stand-in only."
+        "status": "omitted",
+        "omissions": "This signature requires ModularCurvesPartII:R14.2/R14.5/R14.6 native X₁(N), X₀(N), Jacobians, A_f, coefficient fields, Hecke actions, rational cusps and pointed Abel–Jacobi maps, ArithmeticGaloisRepresentations:R01.6 and SmallRamificationAndAbelianVarietyBaseCases:R25.5 native Tate components, lattices, residual fields and coefficient embeddings and AutomorphicGaloisRepresentations:R19.3/R19.4 native newform representations and local compatibility; ArithmeticGaloisRepresentations:R01.5 recognition. The normalized newform carrier itself exists; its coefficient field, attached quotient and compatible Galois representation must come from their owners, not private stand-ins.",
+        "declarations": [
+          {
+            "name": "GL2Type.coefficientIdentification",
+            "status": "omitted",
+            "omissions": "This signature requires ModularCurvesPartII:R14.2/R14.5/R14.6 native X₁(N), X₀(N), Jacobians, A_f, coefficient fields, Hecke actions, rational cusps and pointed Abel–Jacobi maps, ArithmeticGaloisRepresentations:R01.6 and SmallRamificationAndAbelianVarietyBaseCases:R25.5 native Tate components, lattices, residual fields and coefficient embeddings and AutomorphicGaloisRepresentations:R19.3/R19.4 native newform representations and local compatibility; ArithmeticGaloisRepresentations:R01.5 recognition. The normalized newform carrier itself exists; its coefficient field, attached quotient and compatible Galois representation must come from their owners, not private stand-ins."
+          }
+        ],
+        "tests": []
       }
     },
     {
@@ -1835,8 +2088,16 @@
         "namespace": "TauCeti.GL2Type"
       },
       "suggestedCoverage": {
-        "status": "signature-fragment",
-        "omissions": "All geometric/automorphic statements in this node use the unvalidated AVContext stand-in. See the recorded prototype gaps; successful elaboration checks syntax and typing of this stand-in only."
+        "status": "omitted",
+        "omissions": "This signature requires ModularCurvesPartII:R14.2/R14.5/R14.6 native X₁(N), X₀(N), Jacobians, A_f, coefficient fields, Hecke actions, rational cusps and pointed Abel–Jacobi maps, ArithmeticGaloisRepresentations:R01.6 and SmallRamificationAndAbelianVarietyBaseCases:R25.5 native Tate components, lattices, residual fields and coefficient embeddings and AutomorphicGaloisRepresentations:R19.3/R19.4 native newform representations and local compatibility; ArithmeticGaloisRepresentations:R01.5 recognition. The normalized newform carrier itself exists; its coefficient field, attached quotient and compatible Galois representation must come from their owners, not private stand-ins.",
+        "declarations": [
+          {
+            "name": "GL2Type.tateModuleComparison",
+            "status": "omitted",
+            "omissions": "This signature requires ModularCurvesPartII:R14.2/R14.5/R14.6 native X₁(N), X₀(N), Jacobians, A_f, coefficient fields, Hecke actions, rational cusps and pointed Abel–Jacobi maps, ArithmeticGaloisRepresentations:R01.6 and SmallRamificationAndAbelianVarietyBaseCases:R25.5 native Tate components, lattices, residual fields and coefficient embeddings and AutomorphicGaloisRepresentations:R19.3/R19.4 native newform representations and local compatibility; ArithmeticGaloisRepresentations:R01.5 recognition. The normalized newform carrier itself exists; its coefficient field, attached quotient and compatible Galois representation must come from their owners, not private stand-ins."
+          }
+        ],
+        "tests": []
       }
     },
     {
@@ -1888,8 +2149,16 @@
         "namespace": "TauCeti.GL2Type"
       },
       "suggestedCoverage": {
-        "status": "signature-fragment",
-        "omissions": "All geometric/automorphic statements in this node use the unvalidated AVContext stand-in. See the recorded prototype gaps; successful elaboration checks syntax and typing of this stand-in only."
+        "status": "omitted",
+        "omissions": "This signature requires ModularCurvesPartII:R14.2/R14.5/R14.6 native X₁(N), X₀(N), Jacobians, A_f, coefficient fields, Hecke actions, rational cusps and pointed Abel–Jacobi maps, ArithmeticGaloisRepresentations:R01.6 and SmallRamificationAndAbelianVarietyBaseCases:R25.5 native Tate components, lattices, residual fields and coefficient embeddings and AutomorphicGaloisRepresentations:R19.3/R19.4 native newform representations and local compatibility; ArithmeticGaloisRepresentations:R01.5 recognition. The normalized newform carrier itself exists; its coefficient field, attached quotient and compatible Galois representation must come from their owners, not private stand-ins.",
+        "declarations": [
+          {
+            "name": "GL2Type.modularityTheorem",
+            "status": "omitted",
+            "omissions": "This signature requires ModularCurvesPartII:R14.2/R14.5/R14.6 native X₁(N), X₀(N), Jacobians, A_f, coefficient fields, Hecke actions, rational cusps and pointed Abel–Jacobi maps, ArithmeticGaloisRepresentations:R01.6 and SmallRamificationAndAbelianVarietyBaseCases:R25.5 native Tate components, lattices, residual fields and coefficient embeddings and AutomorphicGaloisRepresentations:R19.3/R19.4 native newform representations and local compatibility; ArithmeticGaloisRepresentations:R01.5 recognition. The normalized newform carrier itself exists; its coefficient field, attached quotient and compatible Galois representation must come from their owners, not private stand-ins."
+          }
+        ],
+        "tests": []
       }
     },
     {
@@ -1935,8 +2204,16 @@
         "namespace": "TauCeti.GL2Type"
       },
       "suggestedCoverage": {
-        "status": "signature-fragment",
-        "omissions": "All geometric/automorphic statements in this node use the unvalidated AVContext stand-in. See the recorded prototype gaps; successful elaboration checks syntax and typing of this stand-in only."
+        "status": "omitted",
+        "omissions": "This signature requires ModularCurvesPartII:R14.2/R14.5/R14.6 native X₁(N), X₀(N), Jacobians, A_f, coefficient fields, Hecke actions, rational cusps and pointed Abel–Jacobi maps, ArithmeticGaloisRepresentations:R01.6 and SmallRamificationAndAbelianVarietyBaseCases:R25.5 native Tate components, lattices, residual fields and coefficient embeddings and AutomorphicGaloisRepresentations:R19.3/R19.4 native newform representations and local compatibility; ArithmeticGaloisRepresentations:R01.5 recognition. The normalized newform carrier itself exists; its coefficient field, attached quotient and compatible Galois representation must come from their owners, not private stand-ins.",
+        "declarations": [
+          {
+            "name": "GL2Type.modularityEquivalences",
+            "status": "omitted",
+            "omissions": "This signature requires ModularCurvesPartII:R14.2/R14.5/R14.6 native X₁(N), X₀(N), Jacobians, A_f, coefficient fields, Hecke actions, rational cusps and pointed Abel–Jacobi maps, ArithmeticGaloisRepresentations:R01.6 and SmallRamificationAndAbelianVarietyBaseCases:R25.5 native Tate components, lattices, residual fields and coefficient embeddings and AutomorphicGaloisRepresentations:R19.3/R19.4 native newform representations and local compatibility; ArithmeticGaloisRepresentations:R01.5 recognition. The normalized newform carrier itself exists; its coefficient field, attached quotient and compatible Galois representation must come from their owners, not private stand-ins."
+          }
+        ],
+        "tests": []
       }
     },
     {
@@ -1952,7 +2229,8 @@
       "proofSteps": [
         "⇒: a ℚ-simple quotient of J₁(N) is isogenous to some A_f (proof of GT.3/modularity-equivalences (a) ⇒ (b)), which is of GL₂(K_f)-type (GT.1/modular-quotient-is-gl2-type); GL₂-type is an isogeny invariant (R25.5).",
         "⇐: GT.3/modularity-theorem.",
-        "Bijection: A_f ~ A_g iff V_ℓ(A_f) ≅ V_ℓ(A_g) (Faltings) iff the eigenvalue systems of f and g are Galois-conjugate (Chebotarev, Brauer–Nesbitt), iff g ∈ [f] by strong multiplicity one (Tau Ceti ModularForms layer 5)."
+        "Bijection: A_f ~ A_g iff V_ℓ(A_f) ≅ V_ℓ(A_g) (Faltings) iff the eigenvalue systems of f and g are Galois-conjugate (Chebotarev, Brauer–Nesbitt), iff g ∈ [f] by strong multiplicity one (Tau Ceti ModularForms layer 5).",
+        "Use the pinned fixed-level/nebentypus strong multiplicity-one theorem where its good-index hypotheses apply; comparison across levels from agreement at almost all primes uses the explicit ModularForms Layer 5 request."
       ],
       "acceptance": [
         "Level 11: the only simple quotient up to isogeny of J₁(11) is X₀(11).",
@@ -1965,7 +2243,9 @@
         "SmallRamificationAndAbelianVarietyBaseCases:R25.5/gl2-type-abelian-variety",
         "FaltingsFinitenessAndIsogenyTheorems:R28.4/isogeny-criterion-by-rational-tate-modules-and-local-factors",
         "tauceti:TauCetiRoadmap/ModularForms#layer-5-strong-multiplicity-one-and-the-eigenform-characterization",
-        "ArithmeticGaloisRepresentations:R01.5/recognition-by-characteristic-polynomials-and-coefficient-descent"
+        "ArithmeticGaloisRepresentations:R01.5/recognition-by-characteristic-polynomials-and-coefficient-descent",
+        "tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields",
+        "tauceti:HeckeRing.GL2.Newform.eq_of_forall_notMem_eigenvalue_eq"
       ],
       "sources": [
         {
@@ -1988,8 +2268,16 @@
         "namespace": "TauCeti.GL2Type"
       },
       "suggestedCoverage": {
-        "status": "signature-fragment",
-        "omissions": "All geometric/automorphic statements in this node use the unvalidated AVContext stand-in. See the recorded prototype gaps; successful elaboration checks syntax and typing of this stand-in only."
+        "status": "omitted",
+        "omissions": "This signature requires ModularCurvesPartII:R14.2/R14.5/R14.6 native X₁(N), X₀(N), Jacobians, A_f, coefficient fields, Hecke actions, rational cusps and pointed Abel–Jacobi maps, ArithmeticGaloisRepresentations:R01.6 and SmallRamificationAndAbelianVarietyBaseCases:R25.5 native Tate components, lattices, residual fields and coefficient embeddings and AutomorphicGaloisRepresentations:R19.3/R19.4 native newform representations and local compatibility; ArithmeticGaloisRepresentations:R01.5 recognition. The normalized newform carrier itself exists; its coefficient field, attached quotient and compatible Galois representation must come from their owners, not private stand-ins.",
+        "declarations": [
+          {
+            "name": "GL2Type.simpleQuotientsCharacterisation",
+            "status": "omitted",
+            "omissions": "This signature requires ModularCurvesPartII:R14.2/R14.5/R14.6 native X₁(N), X₀(N), Jacobians, A_f, coefficient fields, Hecke actions, rational cusps and pointed Abel–Jacobi maps, ArithmeticGaloisRepresentations:R01.6 and SmallRamificationAndAbelianVarietyBaseCases:R25.5 native Tate components, lattices, residual fields and coefficient embeddings and AutomorphicGaloisRepresentations:R19.3/R19.4 native newform representations and local compatibility; ArithmeticGaloisRepresentations:R01.5 recognition. The normalized newform carrier itself exists; its coefficient field, attached quotient and compatible Galois representation must come from their owners, not private stand-ins."
+          }
+        ],
+        "tests": []
       }
     },
     {
@@ -2038,8 +2326,16 @@
         "namespace": "TauCeti.GL2Type"
       },
       "suggestedCoverage": {
-        "status": "signature-fragment",
-        "omissions": "All geometric/automorphic statements in this node use the unvalidated AVContext stand-in. See the recorded prototype gaps; successful elaboration checks syntax and typing of this stand-in only."
+        "status": "omitted",
+        "omissions": "This signature requires ModularCurvesPartII:R14.2/R14.5/R14.6 native X₁(N), X₀(N), Jacobians, A_f, coefficient fields, Hecke actions, rational cusps and pointed Abel–Jacobi maps, ArithmeticGaloisRepresentations:R01.6 and SmallRamificationAndAbelianVarietyBaseCases:R25.5 native Tate components, lattices, residual fields and coefficient embeddings and AutomorphicGaloisRepresentations:R19.3/R19.4 native newform representations and local compatibility; ArithmeticGaloisRepresentations:R01.5 recognition. The normalized newform carrier itself exists; its coefficient field, attached quotient and compatible Galois representation must come from their owners, not private stand-ins.",
+        "declarations": [
+          {
+            "name": "GL2Type.trivialCharacter",
+            "status": "omitted",
+            "omissions": "This signature requires ModularCurvesPartII:R14.2/R14.5/R14.6 native X₁(N), X₀(N), Jacobians, A_f, coefficient fields, Hecke actions, rational cusps and pointed Abel–Jacobi maps, ArithmeticGaloisRepresentations:R01.6 and SmallRamificationAndAbelianVarietyBaseCases:R25.5 native Tate components, lattices, residual fields and coefficient embeddings and AutomorphicGaloisRepresentations:R19.3/R19.4 native newform representations and local compatibility; ArithmeticGaloisRepresentations:R01.5 recognition. The normalized newform carrier itself exists; its coefficient field, attached quotient and compatible Galois representation must come from their owners, not private stand-ins."
+          }
+        ],
+        "tests": []
       }
     },
     {
@@ -2085,8 +2381,16 @@
         "namespace": "TauCeti.GL2Type"
       },
       "suggestedCoverage": {
-        "status": "signature-fragment",
-        "omissions": "All geometric/automorphic statements in this node use the unvalidated AVContext stand-in. See the recorded prototype gaps; successful elaboration checks syntax and typing of this stand-in only. Corrected ambient level N using M|N and degeneracy quotients; suggested file still omits X₁(N), the cusp, the zero value and the generating-image assertion."
+        "status": "omitted",
+        "omissions": "The full pointed curve-morphism signature is omitted until ModularCurvesPartII:R14.2/R14.5/R14.6 native X₁(N), X₀(N), Jacobians, A_f, coefficient fields, Hecke actions, rational cusps and pointed Abel–Jacobi maps and JacobianChallenge Layer F supply native AJ_c and image generation. Required clauses are X₁(N)→A, rational cusp c, φ(c)=0, nonconstancy and generating image, with degeneracy from N to newform level M|N; the Γ₀ branch uses ∞. A nonzero Jacobian Hom is not this signature.",
+        "declarations": [
+          {
+            "name": "GL2Type.modularParametrisation",
+            "status": "omitted",
+            "omissions": "The full pointed curve-morphism signature is omitted until ModularCurvesPartII:R14.2/R14.5/R14.6 native X₁(N), X₀(N), Jacobians, A_f, coefficient fields, Hecke actions, rational cusps and pointed Abel–Jacobi maps and JacobianChallenge Layer F supply native AJ_c and image generation. Required clauses are X₁(N)→A, rational cusp c, φ(c)=0, nonconstancy and generating image, with degeneracy from N to newform level M|N; the Γ₀ branch uses ∞. A nonzero Jacobian Hom is not this signature."
+          }
+        ],
+        "tests": []
       }
     },
     {
@@ -2138,8 +2442,16 @@
         "namespace": "TauCeti.GL2Type"
       },
       "suggestedCoverage": {
-        "status": "signature-fragment",
-        "omissions": "All geometric/automorphic statements in this node use the unvalidated AVContext stand-in. See the recorded prototype gaps; successful elaboration checks syntax and typing of this stand-in only."
+        "status": "omitted",
+        "omissions": "Native conductor/Artin-exponent and coefficient-restriction interfaces are required from NeronModelsAndSemistableAbelianVarieties:R11.5, ArithmeticGaloisRepresentations:R01.6 and SmallRamificationAndAbelianVarietyBaseCases:R25.5 native Tate components, lattices, residual fields and coefficient embeddings and AutomorphicGaloisRepresentations:R19.3/R19.4 native newform representations and local compatibility; ArithmeticGaloisRepresentations:R01.5 recognition. No arbitrary natural-valued conductor function is introduced.",
+        "declarations": [
+          {
+            "name": "GL2Type.conductorOfGl2Type",
+            "status": "omitted",
+            "omissions": "Native conductor/Artin-exponent and coefficient-restriction interfaces are required from NeronModelsAndSemistableAbelianVarieties:R11.5, ArithmeticGaloisRepresentations:R01.6 and SmallRamificationAndAbelianVarietyBaseCases:R25.5 native Tate components, lattices, residual fields and coefficient embeddings and AutomorphicGaloisRepresentations:R19.3/R19.4 native newform representations and local compatibility; ArithmeticGaloisRepresentations:R01.5 recognition. No arbitrary natural-valued conductor function is introduced."
+          }
+        ],
+        "tests": []
       }
     },
     {
@@ -2155,7 +2467,8 @@
       "proofSteps": [
         "cond(A) = N_f^n by GT.4/conductor-of-gl2-type, so N(A) = N_f; two newforms f, g with A ~ A_f ~ A_g are Galois conjugate (GT.3/simple-quotients-characterisation) and have the same level.",
         "If N(A) | M, the degeneracy map makes J₁(M) → J₁(N_f) → A surjective (GT.3/modular-abelian-variety).",
-        "If J₁(M) → A is surjective, A ~ A_g for a newform g of level dividing M (GT.3/modularity-equivalences); g ∈ [f] by strong multiplicity one, so N_f = N_g divides M."
+        "If J₁(M) → A is surjective, A ~ A_g for a newform g of level dividing M (GT.3/modularity-equivalences); g ∈ [f] by strong multiplicity one, so N_f = N_g divides M.",
+        "Use the pinned fixed-level/nebentypus strong multiplicity-one theorem where its good-index hypotheses apply; comparison across levels from agreement at almost all primes uses the explicit ModularForms Layer 5 request."
       ],
       "acceptance": [
         "J₀(23): N(A) = 23 and A is modular of level 23 but not of level 1, …, 22.",
@@ -2169,7 +2482,9 @@
         "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.3/simple-quotients-characterisation",
         "tauceti:TauCetiRoadmap/ModularForms#layer-5-strong-multiplicity-one-and-the-eigenform-characterization",
         "ModularCurvesPartII:R14.2/jacobian-and-functoriality",
-        "SmallRamificationAndAbelianVarietyBaseCases:R25.3/fontaine-theorem"
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.3/fontaine-theorem",
+        "tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields",
+        "tauceti:HeckeRing.GL2.Newform.eq_of_forall_notMem_eigenvalue_eq"
       ],
       "sources": [
         {
@@ -2192,8 +2507,16 @@
         "namespace": "TauCeti.GL2Type"
       },
       "suggestedCoverage": {
-        "status": "signature-fragment",
-        "omissions": "All geometric/automorphic statements in this node use the unvalidated AVContext stand-in. See the recorded prototype gaps; successful elaboration checks syntax and typing of this stand-in only."
+        "status": "omitted",
+        "omissions": "The level/conductor signature requires ModularCurvesPartII:R14.2/R14.5/R14.6 native X₁(N), X₀(N), Jacobians, A_f, coefficient fields, Hecke actions, rational cusps and pointed Abel–Jacobi maps and the preceding native conductor interface. No placeholder modularity predicate is introduced.",
+        "declarations": [
+          {
+            "name": "GL2Type.exactLevel",
+            "status": "omitted",
+            "omissions": "The level/conductor signature requires ModularCurvesPartII:R14.2/R14.5/R14.6 native X₁(N), X₀(N), Jacobians, A_f, coefficient fields, Hecke actions, rational cusps and pointed Abel–Jacobi maps and the preceding native conductor interface. No placeholder modularity predicate is introduced."
+          }
+        ],
+        "tests": []
       }
     },
     {
@@ -2247,8 +2570,16 @@
         "namespace": "TauCeti.GL2Type"
       },
       "suggestedCoverage": {
-        "status": "signature-fragment",
-        "omissions": "All geometric/automorphic statements in this node use the unvalidated AVContext stand-in. See the recorded prototype gaps; successful elaboration checks syntax and typing of this stand-in only."
+        "status": "omitted",
+        "omissions": "The full KW strictly-compatible-system signature is omitted until PotentialModularityAndCompatibleSystems:R24.5 and AutomorphicGaloisRepresentations:R19.3/R19.4 native newform representations and local compatibility; ArithmeticGaloisRepresentations:R01.5 recognition provide native local WD parameters, reindexing over finite E′/E and coefficient-prime comparison. Good-prime E-rationality is distinct from the E′-rational all-place realization.",
+        "declarations": [
+          {
+            "name": "GL2Type.strictCompatibility",
+            "status": "omitted",
+            "omissions": "The full KW strictly-compatible-system signature is omitted until PotentialModularityAndCompatibleSystems:R24.5 and AutomorphicGaloisRepresentations:R19.3/R19.4 native newform representations and local compatibility; ArithmeticGaloisRepresentations:R01.5 recognition provide native local WD parameters, reindexing over finite E′/E and coefficient-prime comparison. Good-prime E-rationality is distinct from the E′-rational all-place realization."
+          }
+        ],
+        "tests": []
       }
     },
     {
@@ -2263,6 +2594,7 @@
       "hypotheses": [],
       "proofSteps": [
         "H¹ ⊗ ℚ̄_ℓ = ⊕_ι ρ_ι^∨ and ρ_ι ≅ ρ_{f,ι∘j} (GT.3/tate-module-comparison); the local factor of ρ_{f,λ}^∨ at p ≠ ℓ is that of f at p (AutomorphicGaloisRepresentations:R19.4/conductor-and-local-factors-classical (c)).",
+        "The pinned CuspForm.hasEntireExtension_qExpansion_coeff gives entire continuation of each native cusp-form Dirichlet series. ModularForms Layer 7 identifies that series with the normalized newform Euler product; the finite product over coefficient embeddings is therefore entire.",
         "Use the normalised Fricke companion 𝒲_{N_f} of ModularForms layers 6–7. At weight two its functional equation carries i² = −1; after absorbing the Fricke pseudo-eigenvalue into w_σ it reads Λ(f^σ, s) = w_σ Λ(f^{σ̄}, 2 − s). The embeddings are closed under complex conjugation, so the product is self-dual, and cond(A) = N_f^n gives the displayed completion. Apply this product equation twice to obtain Λ(A, s) = w_A²Λ(A, s). The normalised Euler product is nonzero in its half-plane of absolute convergence, so its continuation is not identically zero and w_A² = 1. Thus w_A = ±1; realness on the real line alone would not prove this."
       ],
       "acceptance": [
@@ -2275,7 +2607,9 @@
         "AutomorphicGaloisRepresentations:R19.4/conductor-and-local-factors-classical",
         "NeronModelsAndSemistableAbelianVarieties:R11.5/local-euler-polynomial",
         "tauceti:TauCetiRoadmap/ModularForms#layer-7-l-functions",
-        "tauceti:TauCetiRoadmap/ModularForms#layer-6-atkinlehner-and-fricke-operators"
+        "tauceti:TauCetiRoadmap/ModularForms#layer-6-atkinlehner-and-fricke-operators",
+        "tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields",
+        "tauceti:CuspForm.hasEntireExtension_qExpansion_coeff"
       ],
       "sources": [
         {
@@ -2290,8 +2624,16 @@
         "namespace": "TauCeti.GL2Type"
       },
       "suggestedCoverage": {
-        "status": "signature-fragment",
-        "omissions": "All geometric/automorphic statements in this node use the unvalidated AVContext stand-in. See the recorded prototype gaps; successful elaboration checks syntax and typing of this stand-in only."
+        "status": "omitted",
+        "omissions": "The equality of all local factors, completed L-functions and the functional equation are omitted until R11.5 and ModularForms Layers 6–7 export native Euler/L-series and normalized Fricke data, plus AutomorphicGaloisRepresentations:R19.3/R19.4 native newform representations and local compatibility; ArithmeticGaloisRepresentations:R01.5 recognition. The mathematical convention keeps i²=−1 at weight two.",
+        "declarations": [
+          {
+            "name": "GL2Type.lFunction",
+            "status": "omitted",
+            "omissions": "The equality of all local factors, completed L-functions and the functional equation are omitted until R11.5 and ModularForms Layers 6–7 export native Euler/L-series and normalized Fricke data, plus AutomorphicGaloisRepresentations:R19.3/R19.4 native newform representations and local compatibility; ArithmeticGaloisRepresentations:R01.5 recognition. The mathematical convention keeps i²=−1 at weight two."
+          }
+        ],
+        "tests": []
       }
     },
     {
@@ -2302,11 +2644,12 @@
       ],
       "title": "Compatibility with the parent in dimension one",
       "kind": "application",
-      "statement": "For an elliptic curve E₀ over ℚ of conductor N_{E₀} (a ℚ-simple abelian variety of GL₂(ℚ)-type), GT.3–GT.4 specialise to the parent's theorem EllipticCurveModularity:R29.6/modularity-theorem: E = ℚ, ε = 1, K_f = ℚ, f is the newform F_{E₀} of level N_f = N_{E₀} (GT.4/exact-level), the isogeny A_f → E₀ is that of R29.5/isogeny-to-E, and the parametrisation of GT.3/modular-parametrisation factors through X₀(N_{E₀}) as in R29.5/modular-parametrisation. The Part II statements are proved compatible with these, not used to reprove them.",
+      "statement": "For an elliptic curve E₀ over ℚ of conductor N_{E₀} (a ℚ-simple abelian variety of GL₂(ℚ)-type), GT.3–GT.4 specialise to the parent's theorem EllipticCurveModularity:R29.6/modularity-theorem: E = ℚ, ε = 1, K_f = ℚ, f is the newform F_{E₀} of level N_f = N_{E₀} (GT.4/exact-level), the isogeny A_f → E₀ and the pointed parametrisation can be chosen to agree with R29.5/isogeny-to-E, and the parametrisation of GT.3/modular-parametrisation factors through X₀(N_{E₀}) as in R29.5/modular-parametrisation. The Part II statements are proved compatible with these, not used to reprove them. Compatibility means equality for choices induced by the same quotient q : J₀(N_{E₀}) → E₀ and the same Abel–Jacobi map: φ = q ∘ AJ_∞; it does not assert uniqueness of arbitrary isogenies or parametrisations.",
       "hypotheses": [],
       "proofSteps": [
         "E = End⁰_ℚ(E₀) = ℚ (R29.1), so ε = 1 (GT.2/determinant-character, E totally real) and the newform of GT.3/modularity-theorem has trivial character and rational coefficients.",
-        "By GT.4/exact-level its level is cond(E₀) = N_{E₀}; by strong multiplicity one it is F_{E₀} of R29.3/newform-of-E, and GT.3/trivial-character gives the quotient of J₀(N_{E₀})."
+        "By GT.4/exact-level its level is cond(E₀) = N_{E₀}; by strong multiplicity one it is F_{E₀} of R29.3/newform-of-E, and GT.3/trivial-character gives the quotient of J₀(N_{E₀}).",
+        "Choose the R29.5 isogeny and quotient q when specializing the Part II construction. Both curve maps are q ∘ AJ_∞ on X₀(N_{E₀}), so their equality and value 0 at ∞ follow from this common construction. Precompose with X₁(N_{E₀}) → X₀(N_{E₀}) for the Γ₁ comparison; this supplies the curve-morphism comparison, not merely equality of newforms."
       ],
       "acceptance": [
         "X₀(11): the Part II statements return J₀(11) → X₀(11), the identity.",
@@ -2335,8 +2678,16 @@
         "namespace": "TauCeti.GL2Type"
       },
       "suggestedCoverage": {
-        "status": "signature-fragment",
-        "omissions": "All geometric/automorphic statements in this node use the unvalidated AVContext stand-in. See the recorded prototype gaps; successful elaboration checks syntax and typing of this stand-in only. The dimension-one comparison follows from the parent and exact level; the suggested fragment does not state the claimed parametrisation compatibility on actual curves."
+        "status": "omitted",
+        "omissions": "The full curve-level comparison is omitted until ModularCurvesPartII:R14.2/R14.5/R14.6 native X₁(N), X₀(N), Jacobians, A_f, coefficient fields, Hecke actions, rational cusps and pointed Abel–Jacobi maps and EllipticCurveModularity:R29.5 export native pointed quotient/parametrisation data. The mathematical statement compares compatible choices through the same quotient, rather than identifying arbitrary isogenies or parametrisations.",
+        "declarations": [
+          {
+            "name": "GL2Type.parentCompatibility",
+            "status": "omitted",
+            "omissions": "The full curve-level comparison is omitted until ModularCurvesPartII:R14.2/R14.5/R14.6 native X₁(N), X₀(N), Jacobians, A_f, coefficient fields, Hecke actions, rational cusps and pointed Abel–Jacobi maps and EllipticCurveModularity:R29.5 export native pointed quotient/parametrisation data. The mathematical statement compares compatible choices through the same quotient, rather than identifying arbitrary isogenies or parametrisations."
+          }
+        ],
+        "tests": []
       }
     },
     {
@@ -2353,7 +2704,7 @@
         "isogenies over ℚ̄ are nonzero homomorphisms; ᵍC is the base change of C along g : ℚ̄ → ℚ̄"
       ],
       "proofSteps": [
-        "The definition only names the property. Its basic properties: it depends only on the ℚ̄-isogeny class of C; conjugates of a ℚ-curve are ℚ-curves; a curve with a model over ℚ is a ℚ-curve; every CM curve is a ℚ-curve, because ᵍC has CM by an order in the same imaginary quadratic field and all such curves are isogenous. The CM assertion uses the ideal-lattice classification and ideal-isogeny API of ComplexMultiplicationAndExplicitReciprocity CM.1; the fixed embedded CM type is adjusted by conjugation before forgetting the action.",
+        "The definition only names the property. Its basic properties: it depends only on the ℚ̄-isogeny class of C; conjugates of a ℚ-curve are ℚ-curves; a curve with a model over ℚ is a ℚ-curve; every CM curve is a ℚ-curve, because ᵍC has CM by an order in the same imaginary quadratic field and all such curves are isogenous. The CM assertion uses the ideal-lattice classification and ideal-isogeny API of ComplexMultiplicationAndExplicitReciprocity CM.1; the fixed embedded CM type is adjusted by conjugation before forgetting the action. For rational j, each conjugate has the same j-invariant; use the pinned WeierstrassCurve.exists_variableChange_of_j_eq, then the induced pointed coordinate pullback to obtain an actual isogeny.",
         "Because ℚ̄-isogenies are defined over a finite extension, a ℚ-curve with a model over K has, after enlarging K to a finite Galois extension of ℚ, isogenies μ_g : ᵍC₀ → C₀ defined over K for all g ∈ Gal(K/ℚ) (Ribet §6)."
       ],
       "acceptance": [
@@ -2367,7 +2718,11 @@
         "tauceti:TauCeti.AlgebraicGeometry.AbelianVariety.IsIsogeny",
         "ComplexMultiplicationAndExplicitReciprocity:CM.1/ideal-lattice-curve",
         "ComplexMultiplicationAndExplicitReciprocity:CM.1/picard-classification",
-        "ComplexMultiplicationAndExplicitReciprocity:CM.1/ideal-isogeny-degree"
+        "ComplexMultiplicationAndExplicitReciprocity:CM.1/ideal-isogeny-degree",
+        "tauceti:TauCeti.Isogeny",
+        "tauceti:TauCeti.Isogeny.map",
+        "tauceti:WeierstrassCurve.quadraticTwistOf",
+        "mathlib:WeierstrassCurve.exists_variableChange_of_j_eq"
       ],
       "sources": [
         {
@@ -2468,49 +2823,53 @@
       },
       "suggestedCoverage": {
         "status": "signature-fragment",
-        "omissions": "All geometric/automorphic statements in this node use the unvalidated AVContext stand-in. See the recorded prototype gaps; successful elaboration checks syntax and typing of this stand-in only. Geometric definition includes CM via CM.1. Corrected false unsquared-trace non-example, added opposite-trace twists and dimension-one clause; actual elliptic/base-change carriers remain absent.",
+        "omissions": "The definition, geometric-isogeny invariance, conjugation, rational-model/rational-j constructors and finite-Galois model/isogeny descent use WeierstrassCurve.IsElliptic and TauCeti.Isogeny with their native map coherence. Concrete rational/CM models, actual quadraticTwistOf and point counts are stated. Omitted: general CM-order constructor and the squared-trace non-example; these require A1/CM.1 geometric endomorphism interfaces and R01.6/R11.5 reduction/Tate comparison. The descent conclusion fixes the coefficients by equality of actual base change. Finite-Galois descent contains any prescribed finite coefficient field. Rational j uses the pinned native classification, not a new supplier theorem.",
         "declarations": [
           {
             "name": "EllipticCurve.IsQCurve",
-            "status": "signature-fragment"
+            "status": "signature"
           },
           {
             "name": "EllipticCurve.IsQCurve.of_isogeny",
-            "status": "signature-fragment"
+            "status": "signature"
           },
           {
             "name": "EllipticCurve.IsQCurve.conj",
-            "status": "signature-fragment"
+            "status": "signature"
           },
           {
             "name": "EllipticCurve.IsQCurve.of_rat",
-            "status": "signature-fragment"
+            "status": "signature"
           },
           {
             "name": "EllipticCurve.IsQCurve.of_cm",
-            "status": "signature-fragment"
+            "status": "omitted",
+            "omissions": "The general CM-order constructor requires the CM.1 ideal-lattice/ideal-isogeny classification on native elliptic curves and its A1 geometric endomorphism comparison. The rational-model and rational-j constructors and finite-Galois descent are separately present."
           },
           {
             "name": "EllipticCurve.IsQCurve.isogenies_over_galois",
-            "status": "signature-fragment"
+            "status": "signature"
           }
         ],
         "tests": [
           {
             "name": "IsQCurve.rational",
-            "status": "example-fragment"
+            "status": "example"
           },
           {
             "name": "IsQCurve.cm",
-            "status": "example-fragment"
+            "status": "example-fragment",
+            "omissions": "Concrete y²=x³−x is nonsingular and is a Q-curve. The CM predicate and every CM-order branch need the A1/CM.1 interface."
           },
           {
             "name": "IsQCurve.twist",
-            "status": "example-fragment"
+            "status": "example-fragment",
+            "omissions": "Native quadraticTwistOf Q-curve example and exact counts 4/12 at 7 are present. Named K=ℚ(√2), reductions and non-CM j-integrality comparison require A1/R11.5/CM interfaces."
           },
           {
             "name": "IsQCurve.not_of_squared_traces",
-            "status": "example-fragment"
+            "status": "omitted",
+            "omissions": "The squared-trace obstruction needs A1/A6 geometric Hom0 and the non-CM identification, with R01.6 Tate representations and R11.5 good-reduction/Frobenius comparison. No trace placeholder is introduced."
           }
         ]
       }
@@ -2542,7 +2901,9 @@
         "tauceti:TauCeti.AlgebraicGeometry.AbelianVariety.IsIsogeny",
         "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
         "mathlib:continuousCohomology",
-        "tauceti:TauCeti.ofDiscreteModule"
+        "tauceti:TauCeti.ofDiscreteModule",
+        "tauceti:TauCeti.ContCohomology.Z2",
+        "tauceti:TauCeti.ContCohomology.explicitInfl2"
       ],
       "sources": [
         {
@@ -2630,50 +2991,60 @@
         "namespace": "TauCeti.GL2Type"
       },
       "suggestedCoverage": {
-        "status": "signature-fragment",
-        "omissions": "All geometric/automorphic statements in this node use the unvalidated AVContext stand-in. See the recorded prototype gaps; successful elaboration checks syntax and typing of this stand-in only. Corrected geometric-isogeny invariance and twist test after finite Galois extension, and added non-CM data hypotheses. Canonical cohomology and coherent scalar extraction remain untyped gaps.",
+        "status": "omitted",
+        "omissions": "Geometric μ composition and rational inverse require Native A1 elliptic/abelian equivalence and A6 rational quasi-isogenies, faithful geometric base change and End0/Hom0 functoriality. The file only gives rationalScalar with an actual ℚ≃End0_ℚ̄ hypothesis on a native abelian variety over ℚ̄, which constrains scalar extraction; it does not substitute that helper for cocycle construction. All six API signatures and four geometric tests are omitted. The canonical class and choice-independence need ProfiniteCohomology Layer 10 canonical degree-two comparison, natural for coefficients and finite-quotient inflation. Explicit continuous cocycles/inflation already exist at the pin and are imported rather than redefined.",
         "declarations": [
           {
             "name": "QCurve.cocycle",
-            "status": "signature-fragment"
+            "status": "omitted",
+            "omissions": "Geometric μ composition and rational inverse require Native A1 elliptic/abelian equivalence and A6 rational quasi-isogenies, faithful geometric base change and End0/Hom0 functoriality. The file only gives rationalScalar with an actual ℚ≃End0_ℚ̄ hypothesis on a native abelian variety over ℚ̄, which constrains scalar extraction; it does not substitute that helper for cocycle construction. All six API signatures and four geometric tests are omitted. The canonical class and choice-independence need ProfiniteCohomology Layer 10 canonical degree-two comparison, natural for coefficients and finite-quotient inflation. Explicit continuous cocycles/inflation already exist at the pin and are imported rather than redefined."
           },
           {
             "name": "QCurve.cocycle_isCocycle",
-            "status": "signature-fragment"
+            "status": "omitted",
+            "omissions": "Geometric μ composition and rational inverse require Native A1 elliptic/abelian equivalence and A6 rational quasi-isogenies, faithful geometric base change and End0/Hom0 functoriality. The file only gives rationalScalar with an actual ℚ≃End0_ℚ̄ hypothesis on a native abelian variety over ℚ̄, which constrains scalar extraction; it does not substitute that helper for cocycle construction. All six API signatures and four geometric tests are omitted. The canonical class and choice-independence need ProfiniteCohomology Layer 10 canonical degree-two comparison, natural for coefficients and finite-quotient inflation. Explicit continuous cocycles/inflation already exist at the pin and are imported rather than redefined."
           },
           {
             "name": "QCurve.cocycleClass",
-            "status": "signature-fragment"
+            "status": "omitted",
+            "omissions": "Geometric μ composition and rational inverse require Native A1 elliptic/abelian equivalence and A6 rational quasi-isogenies, faithful geometric base change and End0/Hom0 functoriality. The file only gives rationalScalar with an actual ℚ≃End0_ℚ̄ hypothesis on a native abelian variety over ℚ̄, which constrains scalar extraction; it does not substitute that helper for cocycle construction. All six API signatures and four geometric tests are omitted. The canonical class and choice-independence need ProfiniteCohomology Layer 10 canonical degree-two comparison, natural for coefficients and finite-quotient inflation. Explicit continuous cocycles/inflation already exist at the pin and are imported rather than redefined."
           },
           {
             "name": "QCurve.cocycleClass_indep",
-            "status": "signature-fragment"
+            "status": "omitted",
+            "omissions": "Geometric μ composition and rational inverse require Native A1 elliptic/abelian equivalence and A6 rational quasi-isogenies, faithful geometric base change and End0/Hom0 functoriality. The file only gives rationalScalar with an actual ℚ≃End0_ℚ̄ hypothesis on a native abelian variety over ℚ̄, which constrains scalar extraction; it does not substitute that helper for cocycle construction. All six API signatures and four geometric tests are omitted. The canonical class and choice-independence need ProfiniteCohomology Layer 10 canonical degree-two comparison, natural for coefficients and finite-quotient inflation. Explicit continuous cocycles/inflation already exist at the pin and are imported rather than redefined."
           },
           {
             "name": "QCurve.cocycle_sq",
-            "status": "signature-fragment"
+            "status": "omitted",
+            "omissions": "Geometric μ composition and rational inverse require Native A1 elliptic/abelian equivalence and A6 rational quasi-isogenies, faithful geometric base change and End0/Hom0 functoriality. The file only gives rationalScalar with an actual ℚ≃End0_ℚ̄ hypothesis on a native abelian variety over ℚ̄, which constrains scalar extraction; it does not substitute that helper for cocycle construction. All six API signatures and four geometric tests are omitted. The canonical class and choice-independence need ProfiniteCohomology Layer 10 canonical degree-two comparison, natural for coefficients and finite-quotient inflation. Explicit continuous cocycles/inflation already exist at the pin and are imported rather than redefined."
           },
           {
             "name": "QCurve.cocycleClass_of_rat",
-            "status": "signature-fragment"
+            "status": "omitted",
+            "omissions": "Geometric μ composition and rational inverse require Native A1 elliptic/abelian equivalence and A6 rational quasi-isogenies, faithful geometric base change and End0/Hom0 functoriality. The file only gives rationalScalar with an actual ℚ≃End0_ℚ̄ hypothesis on a native abelian variety over ℚ̄, which constrains scalar extraction; it does not substitute that helper for cocycle construction. All six API signatures and four geometric tests are omitted. The canonical class and choice-independence need ProfiniteCohomology Layer 10 canonical degree-two comparison, natural for coefficients and finite-quotient inflation. Explicit continuous cocycles/inflation already exist at the pin and are imported rather than redefined."
           }
         ],
         "tests": [
           {
             "name": "QCurve.cocycle_rational",
-            "status": "example-fragment"
+            "status": "omitted",
+            "omissions": "Geometric μ composition and rational inverse require Native A1 elliptic/abelian equivalence and A6 rational quasi-isogenies, faithful geometric base change and End0/Hom0 functoriality. The file only gives rationalScalar with an actual ℚ≃End0_ℚ̄ hypothesis on a native abelian variety over ℚ̄, which constrains scalar extraction; it does not substitute that helper for cocycle construction. All six API signatures and four geometric tests are omitted. The canonical class and choice-independence need ProfiniteCohomology Layer 10 canonical degree-two comparison, natural for coefficients and finite-quotient inflation. Explicit continuous cocycles/inflation already exist at the pin and are imported rather than redefined."
           },
           {
             "name": "QCurve.cocycle_quadratic",
-            "status": "example-fragment"
+            "status": "omitted",
+            "omissions": "Geometric μ composition and rational inverse require Native A1 elliptic/abelian equivalence and A6 rational quasi-isogenies, faithful geometric base change and End0/Hom0 functoriality. The file only gives rationalScalar with an actual ℚ≃End0_ℚ̄ hypothesis on a native abelian variety over ℚ̄, which constrains scalar extraction; it does not substitute that helper for cocycle construction. All six API signatures and four geometric tests are omitted. The canonical class and choice-independence need ProfiniteCohomology Layer 10 canonical degree-two comparison, natural for coefficients and finite-quotient inflation. Explicit continuous cocycles/inflation already exist at the pin and are imported rather than redefined."
           },
           {
             "name": "QCurve.cocycle_twist_after_extension",
-            "status": "example-fragment"
+            "status": "omitted",
+            "omissions": "Geometric μ composition and rational inverse require Native A1 elliptic/abelian equivalence and A6 rational quasi-isogenies, faithful geometric base change and End0/Hom0 functoriality. The file only gives rationalScalar with an actual ℚ≃End0_ℚ̄ hypothesis on a native abelian variety over ℚ̄, which constrains scalar extraction; it does not substitute that helper for cocycle construction. All six API signatures and four geometric tests are omitted. The canonical class and choice-independence need ProfiniteCohomology Layer 10 canonical degree-two comparison, natural for coefficients and finite-quotient inflation. Explicit continuous cocycles/inflation already exist at the pin and are imported rather than redefined."
           },
           {
             "name": "QCurve.cocycle_cm_excluded",
-            "status": "example-fragment"
+            "status": "omitted",
+            "omissions": "Geometric μ composition and rational inverse require Native A1 elliptic/abelian equivalence and A6 rational quasi-isogenies, faithful geometric base change and End0/Hom0 functoriality. The file only gives rationalScalar with an actual ℚ≃End0_ℚ̄ hypothesis on a native abelian variety over ℚ̄, which constrains scalar extraction; it does not substitute that helper for cocycle construction. All six API signatures and four geometric tests are omitted. The canonical class and choice-independence need ProfiniteCohomology Layer 10 canonical degree-two comparison, natural for coefficients and finite-quotient inflation. Explicit continuous cocycles/inflation already exist at the pin and are imported rather than redefined."
           }
         ]
       }
@@ -2726,7 +3097,15 @@
       },
       "suggestedCoverage": {
         "status": "signature-fragment",
-        "omissions": "All geometric/automorphic statements in this node use the unvalidated AVContext stand-in. See the recorded prototype gaps; successful elaboration checks syntax and typing of this stand-in only."
+        "omissions": "Vanishing is stated on canonical continuousCohomology 2 of ofDiscreteModule with trivial G_ℚ-action on discrete Additive ℚ̄ˣ. Omitted: extracting α from the geometric cocycle, finite quotient and ε_C/E_α conclusions; requires the cocycle construction and ProfiniteCohomology Layer 10 canonical degree-two comparison, natural for coefficients and finite-quotient inflation.",
+        "declarations": [
+          {
+            "name": "GL2Type.tateVanishingQbar",
+            "status": "signature-fragment",
+            "omissions": "Vanishing is stated on canonical continuousCohomology 2 of ofDiscreteModule with trivial G_ℚ-action on discrete Additive ℚ̄ˣ. Omitted: extracting α from the geometric cocycle, finite quotient and ε_C/E_α conclusions; requires the cocycle construction and ProfiniteCohomology Layer 10 canonical degree-two comparison, natural for coefficients and finite-quotient inflation."
+          }
+        ],
+        "tests": []
       }
     },
     {
@@ -2775,8 +3154,16 @@
         "namespace": "TauCeti.GL2Type"
       },
       "suggestedCoverage": {
-        "status": "signature-fragment",
-        "omissions": "All geometric/automorphic statements in this node use the unvalidated AVContext stand-in. See the recorded prototype gaps; successful elaboration checks syntax and typing of this stand-in only."
+        "status": "omitted",
+        "omissions": "The concrete restriction-of-scalars object, twisted group algebra and its End0 identification require AbelianSchemesAndArithmeticModuli:A6 restriction of scalars, its product descent, twisted-group-algebra action and the R-equivariant inverse-index isogeny and the typed geometric cocycle. They are not represented by unconstrained functors or actions.",
+        "declarations": [
+          {
+            "name": "GL2Type.restrictionOfScalarsEndomorphisms",
+            "status": "omitted",
+            "omissions": "The concrete restriction-of-scalars object, twisted group algebra and its End0 identification require AbelianSchemesAndArithmeticModuli:A6 restriction of scalars, its product descent, twisted-group-algebra action and the R-equivariant inverse-index isogeny and the typed geometric cocycle. They are not represented by unconstrained functors or actions."
+          }
+        ],
+        "tests": []
       }
     },
     {
@@ -2822,8 +3209,16 @@
         "namespace": "TauCeti.GL2Type"
       },
       "suggestedCoverage": {
-        "status": "signature-fragment",
-        "omissions": "All geometric/automorphic statements in this node use the unvalidated AVContext stand-in. See the recorded prototype gaps; successful elaboration checks syntax and typing of this stand-in only. Corrected ι to the σ⁻¹ factor through ^{σ⁻¹}μ_σ and wrote the equivariance and semisimple multiplicity descent. Suggested statement still omits R-equivariance."
+        "status": "omitted",
+        "omissions": "Both the R-equivariant isogeny of concrete products and Lie(B/ℚ)≃R are omitted until AbelianSchemesAndArithmeticModuli:A6 restriction of scalars, its product descent, twisted-group-algebra action and the R-equivariant inverse-index isogeny. The mathematical proof below specifies source R-action, target structural action and the inverse-index component computation; no arbitrary product map is offered as a substitute.",
+        "declarations": [
+          {
+            "name": "GL2Type.lieFreeRankOne",
+            "status": "omitted",
+            "omissions": "Both the R-equivariant isogeny of concrete products and Lie(B/ℚ)≃R are omitted until AbelianSchemesAndArithmeticModuli:A6 restriction of scalars, its product descent, twisted-group-algebra action and the R-equivariant inverse-index isogeny. The mathematical proof below specifies source R-action, target structural action and the inverse-index component computation; no arbitrary product map is offered as a substitute."
+          }
+        ],
+        "tests": []
       }
     },
     {
@@ -2876,8 +3271,16 @@
         "namespace": "TauCeti.GL2Type"
       },
       "suggestedCoverage": {
-        "status": "signature-fragment",
-        "omissions": "All geometric/automorphic statements in this node use the unvalidated AVContext stand-in. See the recorded prototype gaps; successful elaboration checks syntax and typing of this stand-in only."
+        "status": "omitted",
+        "omissions": "Projector-image and geometric-factor signatures require AbelianSchemesAndArithmeticModuli:A6 restriction of scalars, its product descent, twisted-group-algebra action and the R-equivariant inverse-index isogeny, A3 image/quotient interfaces and Native A1 elliptic/abelian equivalence and A6 rational quasi-isogenies, faithful geometric base change and End0/Hom0 functoriality, together with the native R25.5 bundle. The exact construction and degree/rank proof remain in the mathematical plan.",
+        "declarations": [
+          {
+            "name": "GL2Type.ribetTheorem61",
+            "status": "omitted",
+            "omissions": "Projector-image and geometric-factor signatures require AbelianSchemesAndArithmeticModuli:A6 restriction of scalars, its product descent, twisted-group-algebra action and the R-equivariant inverse-index isogeny, A3 image/quotient interfaces and Native A1 elliptic/abelian equivalence and A6 rational quasi-isogenies, faithful geometric base change and End0/Hom0 functoriality, together with the native R25.5 bundle. The exact construction and degree/rank proof remain in the mathematical plan."
+          }
+        ],
+        "tests": []
       }
     },
     {
@@ -2921,8 +3324,16 @@
         "namespace": "TauCeti.GL2Type"
       },
       "suggestedCoverage": {
-        "status": "signature-fragment",
-        "omissions": "All geometric/automorphic statements in this node use the unvalidated AVContext stand-in. See the recorded prototype gaps; successful elaboration checks syntax and typing of this stand-in only."
+        "status": "omitted",
+        "omissions": "The quotient J₁(N)_ℚ̄→C requires ModularCurvesPartII:R14.2/R14.5/R14.6 native X₁(N), X₀(N), Jacobians, A_f, coefficient fields, Hecke actions, rational cusps and pointed Abel–Jacobi maps and Native A1 elliptic/abelian equivalence and A6 rational quasi-isogenies, faithful geometric base change and End0/Hom0 functoriality so the elliptic curve, abelian variety and geometric quotient have compatible native types.",
+        "declarations": [
+          {
+            "name": "GL2Type.qCurvesGeometricallyModular",
+            "status": "omitted",
+            "omissions": "The quotient J₁(N)_ℚ̄→C requires ModularCurvesPartII:R14.2/R14.5/R14.6 native X₁(N), X₀(N), Jacobians, A_f, coefficient fields, Hecke actions, rational cusps and pointed Abel–Jacobi maps and Native A1 elliptic/abelian equivalence and A6 rational quasi-isogenies, faithful geometric base change and End0/Hom0 functoriality so the elliptic curve, abelian variety and geometric quotient have compatible native types."
+          }
+        ],
+        "tests": []
       }
     },
     {
@@ -2978,8 +3389,16 @@
         "namespace": "TauCeti.GL2Type"
       },
       "suggestedCoverage": {
-        "status": "signature-fragment",
-        "omissions": "All geometric/automorphic statements in this node use the unvalidated AVContext stand-in. See the recorded prototype gaps; successful elaboration checks syntax and typing of this stand-in only."
+        "status": "omitted",
+        "omissions": "The actual Weil restriction, endomorphism algebra ℚ[X]/(X²−m), character and descent signature require AbelianSchemesAndArithmeticModuli:A6 restriction of scalars, its product descent, twisted-group-algebra action and the R-equivariant inverse-index isogeny, Native A1 elliptic/abelian equivalence and A6 rational quasi-isogenies, faithful geometric base change and End0/Hom0 functoriality and ArithmeticGaloisRepresentations:R01.6 and SmallRamificationAndAbelianVarietyBaseCases:R25.5 native Tate components, lattices, residual fields and coefficient embeddings. Both square/split and nonsquare/field branches are retained in the mathematical plan.",
+        "declarations": [
+          {
+            "name": "GL2Type.quadraticQCurves",
+            "status": "omitted",
+            "omissions": "The actual Weil restriction, endomorphism algebra ℚ[X]/(X²−m), character and descent signature require AbelianSchemesAndArithmeticModuli:A6 restriction of scalars, its product descent, twisted-group-algebra action and the R-equivariant inverse-index isogeny, Native A1 elliptic/abelian equivalence and A6 rational quasi-isogenies, faithful geometric base change and End0/Hom0 functoriality and ArithmeticGaloisRepresentations:R01.6 and SmallRamificationAndAbelianVarietyBaseCases:R25.5 native Tate components, lattices, residual fields and coefficient embeddings. Both square/split and nonsquare/field branches are retained in the mathematical plan."
+          }
+        ],
+        "tests": []
       }
     },
     {
@@ -3018,8 +3437,15 @@
         "namespace": "TauCeti.GL2Type"
       },
       "suggestedCoverage": {
-        "status": "signature-fragment",
-        "omissions": "All geometric/automorphic statements in this node use the unvalidated AVContext stand-in. See the recorded prototype gaps; successful elaboration checks syntax and typing of this stand-in only."
+        "status": "signature",
+        "omissions": "The complete two-dimensional continuous matrix representation signature is independent of geometric suppliers and was separately elaborated at the Mathlib pin.",
+        "declarations": [
+          {
+            "name": "GL2Type.twistingLemma",
+            "status": "signature"
+          }
+        ],
+        "tests": []
       }
     },
     {
@@ -3063,8 +3489,16 @@
         "namespace": "TauCeti.GL2Type"
       },
       "suggestedCoverage": {
-        "status": "signature-fragment",
-        "omissions": "All geometric/automorphic statements in this node use the unvalidated AVContext stand-in. See the recorded prototype gaps; successful elaboration checks syntax and typing of this stand-in only."
+        "status": "omitted",
+        "omissions": "The native C Tate module, newform coefficient embedding and finite-order twisting character/family require Native A1 elliptic/abelian equivalence and A6 rational quasi-isogenies, faithful geometric base change and End0/Hom0 functoriality, ArithmeticGaloisRepresentations:R01.6 and SmallRamificationAndAbelianVarietyBaseCases:R25.5 native Tate components, lattices, residual fields and coefficient embeddings and AutomorphicGaloisRepresentations:R19.3/R19.4 native newform representations and local compatibility; ArithmeticGaloisRepresentations:R01.5 recognition. No mirrored representation carrier is used.",
+        "declarations": [
+          {
+            "name": "GL2Type.qCurveGaloisModularity",
+            "status": "omitted",
+            "omissions": "The native C Tate module, newform coefficient embedding and finite-order twisting character/family require Native A1 elliptic/abelian equivalence and A6 rational quasi-isogenies, faithful geometric base change and End0/Hom0 functoriality, ArithmeticGaloisRepresentations:R01.6 and SmallRamificationAndAbelianVarietyBaseCases:R25.5 native Tate components, lattices, residual fields and coefficient embeddings and AutomorphicGaloisRepresentations:R19.3/R19.4 native newform representations and local compatibility; ArithmeticGaloisRepresentations:R01.5 recognition. No mirrored representation carrier is used."
+          }
+        ],
+        "tests": []
       }
     },
     {
@@ -3125,8 +3559,16 @@
         "namespace": "TauCeti.GL2Type"
       },
       "suggestedCoverage": {
-        "status": "signature-fragment",
-        "omissions": "All geometric/automorphic statements in this node use the unvalidated AVContext stand-in. See the recorded prototype gaps; successful elaboration checks syntax and typing of this stand-in only."
+        "status": "omitted",
+        "omissions": "The native cuspidal representation, algebraic finite-order twist, all-place Euler equality and auxiliary-prime transport require GL2AutomorphicRepresentationsAndTransfer:R17.4/R17.6 native automorphic/base-change/twist interface, with R19.4 and NeronModelsAndSemistableAbelianVarieties:R11.5 local factors and ClassFieldTheory Layer 11 Artin reciprocity. Caraiani–Newton modularity retains its separate CM branch.",
+        "declarations": [
+          {
+            "name": "GL2Type.qCurveAutomorphy",
+            "status": "omitted",
+            "omissions": "The native cuspidal representation, algebraic finite-order twist, all-place Euler equality and auxiliary-prime transport require GL2AutomorphicRepresentationsAndTransfer:R17.4/R17.6 native automorphic/base-change/twist interface, with R19.4 and NeronModelsAndSemistableAbelianVarieties:R11.5 local factors and ClassFieldTheory Layer 11 Artin reciprocity. Caraiani–Newton modularity retains its separate CM branch."
+          }
+        ],
+        "tests": []
       }
     },
     {
@@ -3180,8 +3622,16 @@
         "namespace": "TauCeti.GL2Type"
       },
       "suggestedCoverage": {
-        "status": "signature-fragment",
-        "omissions": "All geometric/automorphic statements in this node use the unvalidated AVContext stand-in. See the recorded prototype gaps; successful elaboration checks syntax and typing of this stand-in only."
+        "status": "omitted",
+        "omissions": "The quadratic-field modularity signature requires the geometric and automorphic interfaces of Native A1 elliptic/abelian equivalence and A6 rational quasi-isogenies, faithful geometric base change and End0/Hom0 functoriality and GL2AutomorphicRepresentationsAndTransfer:R17.4/R17.6 native automorphic/base-change/twist interface, with R19.4 and NeronModelsAndSemistableAbelianVarieties:R11.5 local factors. The mathematical plan distinguishes square/nonsquare m and the CM alternative.",
+        "declarations": [
+          {
+            "name": "GL2Type.quadraticQCurvesModular",
+            "status": "omitted",
+            "omissions": "The quadratic-field modularity signature requires the geometric and automorphic interfaces of Native A1 elliptic/abelian equivalence and A6 rational quasi-isogenies, faithful geometric base change and End0/Hom0 functoriality and GL2AutomorphicRepresentationsAndTransfer:R17.4/R17.6 native automorphic/base-change/twist interface, with R19.4 and NeronModelsAndSemistableAbelianVarieties:R11.5 local factors. The mathematical plan distinguishes square/nonsquare m and the CM alternative."
+          }
+        ],
+        "tests": []
       }
     }
   ],
@@ -3220,29 +3670,22 @@
       ]
     },
     {
-      "supplier": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-e-abelian-varieties",
-      "need": "Abelian varieties over ℚ and over number fields with their homomorphisms, isogenies, products and base change, as bundled in TauCeti.AlgebraicGeometry.AbelianVariety.",
-      "neededBy": [
-        "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.3/modular-abelian-variety"
-      ]
-    },
-    {
       "supplier": "tauceti:TauCetiRoadmap/ModularForms#layer-4-eigenforms-newforms-primitive-forms-the-conductor",
-      "need": "Normalised newforms of weight two on Γ₁(N) with character, their finiteness for bounded level (finite-dimensional S₂(Γ₁(M)), M dividing a fixed integer), and the bundled HeckeRing.GL2.Newform.",
+      "need": "On the existing HeckeRing.GL2.Newform carrier, export finiteness of normalized weight-two newforms of positive level dividing a fixed integer, using the character-space decomposition. Import coefficient fields from ModularForms Layer 8. The bundled newform itself is pinned baseline, not new work.",
       "neededBy": [
         "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.3/fixed-newform"
       ]
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus",
-      "need": "S₂(N, χ) as the χ-eigenspace of the diamond operators in S₂(Γ₁(N)) and the decomposition of S₂(Γ₁(N)) over characters, so that newforms with nontrivial character are available.",
+      "need": "Character-space decomposition of S₂(Γ₁(N)) over diamond characters, with comparison to the existing cuspFormCharSpace joint eigenspace. The eigenspace definition already exists; the decomposition is the missing input.",
       "neededBy": [
         "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.3/fixed-newform"
       ]
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/ModularForms#layer-5-strong-multiplicity-one-and-the-eigenform-characterization",
-      "need": "Strong multiplicity one: two newforms whose Hecke eigenvalues agree at almost all primes coincide (in particular have the same level); applied to Galois conjugates of newforms.",
+      "need": "Cross-level strong multiplicity one from agreement at almost all primes: two normalized newforms with these agreements have the same least level and coincide after identifying their native cusp-form spaces. The pinned fixed-level, fixed-nebentypus theorem on almost all good indices is baseline; this request extends its interface rather than replanning it. Apply also to coefficient-field conjugates.",
       "neededBy": [
         "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.3/simple-quotients-characterisation",
         "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.4/exact-level"
@@ -3257,7 +3700,7 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/ModularForms#layer-7-l-functions",
-      "need": "Analytic continuation of L(f, s) for a weight-two newform with character and the functional equation for the normalised Fricke companion 𝒲_N, including the weight-two factor i² = −1 and its pseudo-eigenvalue: after absorbing these constants, Λ(f, s) = w_f Λ(f̄, 2 − s), with Λ(f, s) = N^{s/2}(2π)^{−s}Γ(s)L(f, s).",
+      "need": "On the existing native cusp-form L-series, export the normalized newform Euler product (including bad primes) and the functional equation for the normalized Fricke companion, with weight-two factor i²=−1 and its pseudo-eigenvalue. After absorbing these constants, Λ(f,s)=w_f Λ(f̄,2−s), where Λ(f,s)=N^{s/2}(2π)^{−s}Γ(s)L(f,s). Entire continuation of the q-expansion L-series is already pinned baseline and is imported.",
       "neededBy": [
         "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.4/l-function"
       ]
@@ -3271,14 +3714,19 @@
     },
     {
       "supplier": "AbelianSchemesAndArithmeticModuli:A1",
-      "need": "One-dimensional abelian varieties over a field coincide with Mathlib's elliptic curves (WeierstrassCurve with IsElliptic), compatibly with the group law, so that the ℚ-curves of GT.5 can be stated for either and fed to the abelian-variety results of A6 and Faltings.",
+      "need": "Export the native finite-dimension bridge (finrank_K A.TangentSpace : WithBot ℕ∞) = A.dim, and the equivalence between native dimension-one abelian varieties and nonsingular Weierstrass curves. Require compatibility with homomorphisms/isogenies, identity and composition, field embeddings and coefficientwise conjugation. The native variety, tangent space, products, base change, nonsingular curve and elliptic isogeny carriers already exist.",
       "neededBy": [
-        "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.5/q-curve"
+        "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.5/q-curve",
+        "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.1/lie-algebra-divisibility",
+        "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.1/primitive",
+        "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.1/endomorphism-field",
+        "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.2/integral-model",
+        "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.5/ribet-cocycle"
       ]
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
-      "need": "Use the existing continuousCohomology n (TauCeti.ofDiscreteModule ...) carrier for discrete coefficients; supply its degree-two dictionary with continuous inhomogeneous cocycles modulo coboundaries, inflation from finite quotients, and vanishing in positive degrees for uniquely divisible discrete modules. For GT.5 take the trivial G_ℚ-action on Additive ℚˣ and Additive ℚ̄ˣ; give the comparison and inflation as maps on these canonical carriers, not a second H² definition.",
+      "need": "Export a degree-two equivalence from the existing explicit continuous ContCohomology.DiscreteH2/Z2 cocycle quotient to canonical continuousCohomology 2 (ofDiscreteModule ℤ G M), natural for coefficient maps and finite-quotient inflation. Import the already pinned explicitInfl2 rather than replanning inflation or Z2. The pinned ContinuousCohomologyIso module compares degree zero only; GroupCohomologyIso degree two is for discrete G, not G_ℚ. Also export positive-degree vanishing for uniquely divisible discrete modules. For this consumer use trivial action and discrete topology on Additive ℚˣ/ℚ̄ˣ; the algebraic-unit action is not the natural Galois action.",
       "neededBy": [
         "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.5/ribet-cocycle",
         "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.5/tate-vanishing-qbar"
@@ -3290,64 +3738,10 @@
       "neededBy": [
         "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.6/q-curve-automorphy"
       ]
-    }
-  ],
-  "coverage": [
-    {
-      "stageId": "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.1",
-      "status": "planned",
-      "remaining": [
-        "Resolve the imports from AbelianSchemesAndArithmeticModuli A2/A6 (Rosati, Poincaré, endomorphism algebras), which are planned in a packet not yet reviewed.",
-        "Lemma-level refinement when the roadmap comes near the front of the line: split Ribet's Theorem 2.1 into the commutant lemma, the matrix-algebra structure and the three equivalences.",
-        "Independent review REV-DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties: replace the private signature carriers and restore the omitted API/tests listed in the packet’s prototype gaps before acceptance; this is not merely a later lemma refinement."
-      ]
     },
     {
-      "stageId": "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.2",
-      "status": "planned",
-      "remaining": [
-        "Resolve the request to AbelianSchemesAndArithmeticModuli A6 for the complex uniformization and the comparison V_ℓ(A) ≅ H₁(A(ℂ), ℚ) ⊗ ℚ_ℓ used by GT.2/odd.",
-        "Lemma-level refinement when the roadmap comes near the front of the line: the Hodge–Tate argument for Lemma 3.1 (weight of ⟨χ⟩^a), and the reduction step from the commutant theorem in Lemma 3.7.",
-        "Independent review REV-DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties: replace the private signature carriers and restore the omitted API/tests listed in the packet’s prototype gaps before acceptance; this is not merely a later lemma refinement."
-      ]
-    },
-    {
-      "stageId": "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.3",
-      "status": "planned",
-      "remaining": [
-        "Lemma-level refinement when the roadmap comes near the front of the line: the étale-algebra pigeonhole of GT.3/coefficient-identification and the finiteness of newforms of bounded level as separate lemmas.",
-        "Independent review REV-DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties: replace the private signature carriers and restore the omitted API/tests listed in the packet’s prototype gaps before acceptance; this is not merely a later lemma refinement."
-      ]
-    },
-    {
-      "stageId": "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.4",
-      "status": "planned",
-      "remaining": [
-        "Lemma-level refinement when the roadmap comes near the front of the line: additivity of Artin conductors under restriction of scalars as its own lemma; the sign w_A of the functional equation.",
-        "Independent review REV-DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties: replace the private signature carriers and restore the omitted API/tests listed in the packet’s prototype gaps before acceptance; this is not merely a later lemma refinement."
-      ]
-    },
-    {
-      "stageId": "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.5",
-      "status": "planned",
-      "remaining": [
-        "Resolve the request to AbelianSchemesAndArithmeticModuli A3 (quotients by finite subgroups), not yet in a packet.",
-        "Lemma-level refinement when the roadmap comes near the front of the line: write out the omitted computation of Ribet's Proposition 6.5 and the projector construction of Theorem 6.1.",
-        "Independent review REV-DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties: replace the private signature carriers and restore the omitted API/tests listed in the packet’s prototype gaps before acceptance; this is not merely a later lemma refinement."
-      ]
-    },
-    {
-      "stageId": "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.6",
-      "status": "planned",
-      "remaining": [
-        "Lemma-level refinement when the roadmap comes near the front of the line: the archimedean component of the base change (cohomological of parallel weight two) as its own statement.",
-        "Independent review REV-DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties: replace the private signature carriers and restore the omitted API/tests listed in the packet’s prototype gaps before acceptance; this is not merely a later lemma refinement."
-      ]
-    }
-  ],
-  "gaps": [
-    {
-      "title": "Replace the private AVContext prototype by the pinned geometric and representation carriers",
+      "supplier": "AbelianSchemesAndArithmeticModuli:A6",
+      "need": "AbelianSchemesAndArithmeticModuli:A6 native End0, rational inverse/conjugation, matrix-product action, field transport preserving the existing Ring and ℚ-Algebra, and derivative action. Include End0=ℚ⊗_ℤ native End, common-denominator equivariance, inverse of a native isogeny in Hom0, conjugation/Tate transport, faithful base-change injection, and compatibility of these maps with native Weierstrass isogenies via A1. For Weil restriction export AbelianSchemesAndArithmeticModuli:A6 restriction of scalars, its product descent, twisted-group-algebra action and the R-equivariant inverse-index isogeny. These are signatures of the existing A6 targets, not a second endomorphism/isogeny theory.",
       "neededBy": [
         "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.1/lie-algebra-divisibility",
         "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.1/primitive",
@@ -3355,6 +3749,22 @@
         "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.1/endomorphism-field",
         "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.1/totally-real-or-cm",
         "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.1/modular-quotient-is-gl2-type",
+        "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.2/integral-model",
+        "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.5/q-curve",
+        "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.5/ribet-cocycle",
+        "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.5/tate-vanishing-qbar",
+        "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.5/restriction-of-scalars-endomorphisms",
+        "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.5/lie-free-rank-one",
+        "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.5/ribet-theorem-6-1",
+        "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.5/q-curves-geometrically-modular",
+        "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.5/quadratic-q-curves"
+      ]
+    },
+    {
+      "supplier": "ArithmeticGaloisRepresentations:R01.6",
+      "need": "ArithmeticGaloisRepresentations:R01.6 and SmallRamificationAndAbelianVarietyBaseCases:R25.5 native Tate components, lattices, residual fields and coefficient embeddings. Export the actual V_ℓ and λ-torsion carriers, continuous representations, integral-order action, isogeny intertwining, λ-component decomposition and scalar extension, coherently with the R25.5 GL₂-type bundle. Consumers must be stated on these modules.",
+      "neededBy": [
+        "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.1/endomorphism-field",
         "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.2/integral-model",
         "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.2/frobenius-polynomial",
         "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.2/determinant-character",
@@ -3376,50 +3786,162 @@
         "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.3/simple-quotients-characterisation",
         "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.3/trivial-character",
         "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.3/modular-parametrisation",
+        "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.6/q-curve-galois-modularity"
+      ]
+    },
+    {
+      "supplier": "ModularCurvesPartII:R14.5",
+      "need": "ModularCurvesPartII:R14.2/R14.5/R14.6 native X₁(N), X₀(N), Jacobians, A_f, coefficient fields, Hecke actions, rational cusps and pointed Abel–Jacobi maps. Export the actual Hecke T₂ action on J₀(23), T₂²+T₂−1=0 and End0=ℚ[T₂]≃ℚ(√5); retain this generator in the primitive/endField tests. The low-positive-level Jacobians in these tests require the R14.2 extension to N=1,…,4. Elliptic modularity must use a native nonconstant curve morphism X₁(N) or X₀(N)→E, equivalent to a surjective Jacobian quotient, with rational cusp, zero value, generating image and R29.5 pointed comparison.",
+      "neededBy": [
+        "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.1/primitive",
+        "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.1/endomorphism-field",
+        "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.3/modular-abelian-variety",
+        "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.3/serre-witnesses",
+        "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.3/fixed-newform",
+        "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.3/coefficient-identification",
+        "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.3/tate-module-comparison",
+        "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.3/modularity-theorem",
+        "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.3/modularity-equivalences",
+        "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.3/simple-quotients-characterisation",
+        "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.3/trivial-character",
+        "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.3/modular-parametrisation",
+        "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.4/parent-compatibility"
+      ]
+    },
+    {
+      "supplier": "GL2AutomorphicRepresentationsAndTransfer:R17.4",
+      "need": "GL2AutomorphicRepresentationsAndTransfer:R17.4/R17.6 native automorphic/base-change/twist interface, with R19.4 and NeronModelsAndSemistableAbelianVarieties:R11.5 local factors. Require the same algebraic finite-order character to define the Hecke twist and all coefficient-prime members; specify the parallel-weight-two archimedean component. This is an export of the owner’s solvable base change and compatible-family targets.",
+      "neededBy": [
+        "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.6/q-curve-automorphy",
+        "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.6/quadratic-q-curves-modular"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields",
+      "need": "Export the owner’s CoefficientField on native weight-two Newform, its NumberField instance, integral Fourier coefficients, and coefficient-embedding/Galois-conjugation interfaces. These are the stated Layer 8 migration targets, imported by the R14.5 quotient and this roadmap; no private coefficient-field carrier is introduced.",
+      "neededBy": [
+        "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.1/modular-quotient-is-gl2-type",
+        "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.3/fixed-newform",
+        "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.3/coefficient-identification",
+        "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.3/simple-quotients-characterisation",
+        "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.4/exact-level",
+        "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.4/l-function"
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.1",
+      "status": "planned",
+      "remaining": [
+        "Resolve the imports from AbelianSchemesAndArithmeticModuli A2/A6 (Rosati, Poincaré, endomorphism algebras), which are planned in a packet not yet reviewed.",
+        "Implement and check the native A1/A6/R25.5 signatures, coherent field/Rosati actions, and actual Hecke-J₀(23) tests recorded in suggestedCoverage."
+      ]
+    },
+    {
+      "stageId": "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.2",
+      "status": "planned",
+      "remaining": [
+        "Resolve the request to AbelianSchemesAndArithmeticModuli A6 for the complex uniformization and the comparison V_ℓ(A) ≅ H₁(A(ℂ), ℚ) ⊗ ℚ_ℓ used by GT.2/odd.",
+        "Implement the native A3/A6 integral model and R01.6/R25.5 Tate/residual exports; instantiate all residual tests on the actual modules."
+      ]
+    },
+    {
+      "stageId": "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.3",
+      "status": "planned",
+      "remaining": [
+        "Export R14 modular curves/Jacobians/A_f and R19 representations, then state all omitted modularity and pointed-parametrisation signatures and tests."
+      ]
+    },
+    {
+      "stageId": "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.4",
+      "status": "planned",
+      "remaining": [
+        "Export native conductors, local WD systems and L-series, then check coefficient extension, normalized Fricke sign and the parent’s pointed curve-map comparison."
+      ]
+    },
+    {
+      "stageId": "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.5",
+      "status": "planned",
+      "remaining": [
+        "Resolve the request to AbelianSchemesAndArithmeticModuli A3 (quotients by finite subgroups), not yet in a packet.",
+        "Export A1/A6 rational geometric maps and Weil-restriction action; obtain the canonical degree-two cohomology comparison; fill the explicit cocycle/CM/descent omissions."
+      ]
+    },
+    {
+      "stageId": "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.6",
+      "status": "planned",
+      "remaining": [
+        "Export native automorphic base change and compatible algebraic finite twists; fill the all-place modularity signatures, retaining the separate CM and split/nonsplit branches."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "Native rational-endomorphism and Tate export interfaces",
+      "neededBy": [
+        "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.1/lie-algebra-divisibility",
+        "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.1/primitive",
+        "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.1/ribet-theorem-2-1",
+        "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.1/endomorphism-field",
+        "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.1/totally-real-or-cm",
+        "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.1/modular-quotient-is-gl2-type",
+        "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.2/integral-model",
+        "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.2/frobenius-polynomial",
+        "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.2/determinant-character",
+        "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.2/odd",
+        "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.2/absolute-irreducibility",
+        "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.2/coefficient-conjugation",
+        "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.2/coefficients-generate",
+        "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.2/inner-twist-field",
+        "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.2/residual-irreducibility",
+        "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.2/conductor-bound",
+        "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.2/crystalline-at-good-primes"
+      ],
+      "detail": "The native carriers and finite dimension bridge are now explicit. Remaining omitted signatures are the A6 compatible field/Rosati/action interfaces and the R01.6/R25.5 Tate/residual/bundle exports. Item-level suggestedCoverage states which parts are present; existing pinned products/base change are not gaps."
+    },
+    {
+      "title": "Native modular-geometry and local-system export interfaces",
+      "neededBy": [
+        "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.3/modular-abelian-variety",
+        "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.3/serre-witnesses",
+        "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.3/fixed-newform",
+        "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.3/coefficient-identification",
+        "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.3/tate-module-comparison",
+        "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.3/modularity-theorem",
+        "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.3/modularity-equivalences",
+        "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.3/simple-quotients-characterisation",
+        "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.3/trivial-character",
+        "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.3/modular-parametrisation",
         "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.4/conductor-of-gl2-type",
         "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.4/exact-level",
         "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.4/strict-compatibility",
         "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.4/l-function",
-        "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.4/parent-compatibility",
-        "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.5/q-curve",
+        "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.4/parent-compatibility"
+      ],
+      "detail": "R14.2/R14.5/R14.6 must export the native modular curves/Jacobians/A_f/Hecke actions and pointed parametrisations. R19.3/R19.4, R24.5, R11.5 and ModularForms Layers 6–7 supply representations, local WD/conductors and analytic objects. No replacement objects or Prop-valued placeholder predicates appear in the suggested file."
+    },
+    {
+      "title": "Geometric Q-curve cocycle and canonical cohomology comparison",
+      "neededBy": [
         "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.5/ribet-cocycle",
         "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.5/tate-vanishing-qbar",
         "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.5/restriction-of-scalars-endomorphisms",
         "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.5/lie-free-rank-one",
         "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.5/ribet-theorem-6-1",
         "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.5/q-curves-geometrically-modular",
-        "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.5/quadratic-q-curves",
-        "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.6/twisting-lemma",
+        "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.5/quadratic-q-curves"
+      ],
+      "detail": "A1/A6 must connect native Weierstrass isogenies to rational End0 with faithful base change, rational inverses, the non-CM ℚ-identification and the concrete Weil-restriction action. ProfiniteCohomology must export the canonical degree-two comparison and its naturality. Canonical H² and typed scalar extraction are present; geometric cocycle/class construction is explicitly omitted. Explicit continuous cocycles and inflation are already baseline."
+    },
+    {
+      "title": "Native automorphic finite-twist and all-place comparison exports",
+      "neededBy": [
         "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.6/q-curve-galois-modularity",
         "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.6/q-curve-automorphy",
         "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.6/quadratic-q-curves-modular"
       ],
-      "detail": "The suggested file’s arbitrary ℚ-linear category, dim, intEnd, pi/piEnd, Lie, V/Vemb/rhoEmb, Jacobians, Newform, Af, base change and automorphic fields have no laws connecting them. Thus its signatures are not signatures on TauCeti.AlgebraicGeometry.AbelianVariety, HeckeRing.GL2.Newform or the reviewed ContinuousRep carrier. For example dim(J₀(11))=1 is false for an allowed AVContext with dim constantly 0. The elliptic adapters also accept singular Weierstrass equations. The review adds a dimension-one clause to the Q-curve predicate, but this arbitrary dimension function still does not identify an actual elliptic curve. Import the actual available types, request absent supplier interfaces precisely, and omit unstateable signature parts with suggestedCoverage notes instead of asserting them for arbitrary mirrors. Explicitly bridge the native WithBot ℕ∞ dimension to a finite ℕ dimension."
-    },
-    {
-      "title": "Restore the omitted geometric API and meaningful concrete tests",
-      "neededBy": [
-        "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.1/primitive",
-        "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.1/endomorphism-field",
-        "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.2/integral-model",
-        "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.3/modular-abelian-variety",
-        "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.5/q-curve",
-        "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.5/ribet-cocycle",
-        "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.3/modular-parametrisation",
-        "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.4/parent-compatibility",
-        "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.5/lie-free-rank-one"
-      ],
-      "detail": "The endField isogeny API omits Tate-module compatibility; the J₀(23) tests omit the promised Hecke action and T₂ identification; the elliptic modularity API replaces the specified curve-morphism equivalence by a nonzero Jacobian Hom; parametrisation omits X₁(N), the cusp, its value and the generating image; Proposition 6.5 omits R-equivariance. Restore these against the owners’ actual carriers, and give concrete examples of pinned objects rather than examples universally quantified over an unlawful context. The mathematical outlines and corrected trace test are retained."
-    },
-    {
-      "title": "Use the existing continuous-cohomology carrier and make the non-CM cocycle construction typed",
-      "neededBy": [
-        "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.5/ribet-cocycle",
-        "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.5/tate-vanishing-qbar",
-        "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.5/restriction-of-scalars-endomorphisms",
-        "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.5/ribet-theorem-6-1"
-      ],
-      "detail": "Private Z2/B2/H2 restate the baseline continuousCohomology carrier and its reviewed upstream dictionary. Replace them by continuousCohomology 2 on TauCeti.ofDiscreteModule for Additive ℚˣ/ℚ̄ˣ, importing the explicit degree-two comparison and inflation from ProfiniteCohomology. Supply coherent conjugation/base-change maps and the injection End⁰_K(C)→End⁰_ℚ̄(C). The old cocycle chose a rational scalar with Classical.epsilon even without non-CM input. Data now states dimension one and non-CM explicitly, but the missing geometric laws still prevent validating its scalar extraction or associativity argument. Use the rational End⁰ identification from the non-CM hypothesis on actual elliptic curves."
+      "detail": "R17.4/R17.6, R19.4, R01.6, R11.5 and Artin reciprocity must supply the native automorphic/Tate carriers and coherent algebraic finite twist. Those signatures are omitted; the independent pure matrix twisting lemma is stated and checked."
     }
   ],
   "restructure": [],
@@ -3429,9 +3951,9 @@
       "source": "KW-I",
       "kind": "misprint",
       "locator": "§10.2, p. 21 of the authors' copy results.pdf (Invent. Math. 178 (2009) not compared)",
-      "printed": "The source calls an abelian variety A over Q of GL2 -type when A is simple and a number field E is contained in EndQ (A) ⊗ Q, with [E : Q] = dim(A).",
-      "correction": "We recall that an abelian variety A over ℚ is said to be of GL₂-type if …",
-      "reason": "'than' is a slip for 'that'; the sentence introduces a definition.",
+      "printed": "The introductory definition in §10.2 contains a grammatical conjunction error.",
+      "correction": "Use the declarative conjunction when introducing the definition; its mathematical conditions remain unchanged.",
+      "reason": "A conjunction in the recall sentence is incorrect English; replacing it changes no mathematical assertion.",
       "affects": "nothing",
       "known": "new",
       "searched": [
@@ -3475,35 +3997,40 @@
       "citation": "Khare–Wintenberger, Serre's modularity conjecture (I), authors' copy of Invent. Math. 178 (2009), 485–504",
       "read": "2026-10-07",
       "sha256": "3c389dc33e09fe847f5d8189ffd8915b5c1a73424e64e4fed6769829883bad82",
-      "comparison": "Independent review 2026-10-07 read the recorded author copy. Publisher metadata was accessible at https://link.springer.com/article/10.1007/s00222-009-0205-7, but the PDF request did not provide published full text; no comparison with published pagination is claimed."
+      "comparison": "Independent review 2026-10-07 read the recorded author copy. Publisher metadata was accessible at https://link.springer.com/article/10.1007/s00222-009-0205-7, but the PDF request did not provide published full text; no comparison with published pagination is claimed.",
+      "rechecked": "2026-10-08"
     },
     {
       "kind": "author copy",
       "url": "https://math.berkeley.edu/~ribet/Articles/korea.pdf",
       "citation": "Ribet, Abelian varieties over Q and modular forms (1992), author's manuscript",
       "read": "2026-10-07",
-      "sha256": "4c491a5294d1f4ec1b62855560aaea95cb64802d8fdd80fdd51ae2d2432f66ed"
+      "sha256": "4c491a5294d1f4ec1b62855560aaea95cb64802d8fdd80fdd51ae2d2432f66ed",
+      "rechecked": "2026-10-08"
     },
     {
       "kind": "published",
       "url": "https://www.numdam.org/item/ASENS_1986_4_19_3_409_0.pdf",
       "citation": "Carayol, Ann. Sci. ENS (4) 19 (1986), 409–468",
       "read": "2026-10-07",
-      "sha256": "d4a5fb6b1cd76f944f8948e06df1c7ad5656ae5ee14b9189178ee1e8f2b0dab8"
+      "sha256": "d4a5fb6b1cd76f944f8948e06df1c7ad5656ae5ee14b9189178ee1e8f2b0dab8",
+      "rechecked": "2026-10-08"
     },
     {
       "kind": "preprint",
       "url": "https://arxiv.org/pdf/1310.7088v4",
       "citation": "Freitas–Le Hung–Siksek, arXiv:1310.7088v4",
       "read": "2026-10-07",
-      "sha256": "aea71f7698edac25fedaf03627b7703c0ed6138e4e9c012b06b41822819d0403"
+      "sha256": "aea71f7698edac25fedaf03627b7703c0ed6138e4e9c012b06b41822819d0403",
+      "rechecked": "2026-10-08"
     },
     {
       "kind": "preprint",
       "url": "https://arxiv.org/pdf/2301.10509v3",
       "citation": "Caraiani–Newton, arXiv:2301.10509v3",
       "read": "2026-10-07",
-      "sha256": "57abc79ad46875b0ea432ce1193f517b8dbb0ad0448cb51942bc20ed95ffd0c3"
+      "sha256": "57abc79ad46875b0ea432ce1193f517b8dbb0ad0448cb51942bc20ed95ffd0c3",
+      "rechecked": "2026-10-08"
     }
   ],
   "upstreamNotes": [],
