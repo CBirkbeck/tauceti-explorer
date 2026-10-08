@@ -947,8 +947,10 @@ def continuousDualityMap {F : Type*} [CommRing F] [TopologicalSpace F]
     [IsTopologicalRing F] [LocallyCompactSpace F] (ψ : AddChar F Circle)
     (hψ : Continuous ψ) : Multiplicative F →ₜ* PontryaginDual (Multiplicative F) := by sorry
 
-theorem LocalAdditiveSelfDuality {F : Type*} [NontriviallyNormedField F]
-    [LocallyCompactSpace F] (ψ : AddChar F Circle) (hψ : Continuous ψ) (hne : ψ ≠ 1) :
+/-- Native real specialization of the number-field-completion theorem.
+     The complex and finite-completion signatures remain in the manifest below. -/
+theorem LocalAdditiveSelfDuality (ψ : AddChar ℝ Circle)
+    (hψ : Continuous ψ) (hne : ψ ≠ 1) :
     Function.Bijective (continuousDualityMap ψ hψ) ∧
       IsOpenMap (continuousDualityMap ψ hψ) := by sorry
 
@@ -1192,6 +1194,15 @@ end TauCeti.AutomorphicLFunctions.AL5
 
 /-
 Named signature omissions (the roadmap and packet give the full mathematics).
+
+AutomorphicLFunctionsAndLocalFactors:AL.0/local-additive-self-duality
+TauCeti.AutomorphicLFunctions.AL0.LocalAdditiveSelfDuality
+  The declaration above specializes to the actual native real field. The full
+  theorem also treats C and finite extensions of Q_p, with compact-open dual
+  topology and continuous inverse. The finite-completion carrier and trace-dual
+  comparison are supplier obligations in G1/G2. Positive-characteristic local
+  fields require the separate FA.2 arithmetic supplier; this prototype does not
+  widen the packet's number-field-completion scope.
 
 AutomorphicLFunctionsAndLocalFactors:AL.0/local-schwartz-bruhat-space
 Unavailable full input: SR.1 local-field Schwartz carrier, AA.0 adelic completion/trace topology, or their Fourier duality output.
