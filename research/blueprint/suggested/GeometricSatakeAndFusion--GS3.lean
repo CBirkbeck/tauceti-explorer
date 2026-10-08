@@ -350,8 +350,10 @@ theorem torusRankOneIdentification : Nonempty (reconstructed ≅ pinned) := by s
 -- every ell != p. Omitted: the special-fibre image argument; at ell = 2 it counts
 -- invariants of tensor powers (top Borel-Moore homology of convolution fibres
 -- against SL2 tilting modules), which excludes the normalizer of the diagonal
--- torus and its Frobenius preimages (packet source issue E8), and the flat-module
--- lift VI.11.3.
+-- torus and its Frobenius preimages (packet source issue E8). The modular Hom
+-- calculation and Steinberg-kernel/good-filtration inputs are requested from
+-- GS2:correspondences and LP3 and remain the named rank-one gap. Also omitted:
+-- the flat-module lift VI.11.3.
 theorem rankOneIntegralIdentification : Nonempty (reconstructed ≅ pinned) := by sorry
 -- Node generic-root-datum: the actual weight-functor/root-datum identification
 -- is omitted; this uses the library RootPairing as the target carrier.
