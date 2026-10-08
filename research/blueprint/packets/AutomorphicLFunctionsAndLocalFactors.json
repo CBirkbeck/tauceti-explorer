@@ -22,7 +22,8 @@
         "module": "Mathlib/Algebra/Group/AddChar.lean",
         "provides": "Native additive character from an additive monoid into a multiplicative monoid.",
         "checked": "Actual statement read at the pinned commit; source bytes verified against its pinned tree.",
-        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object."
+        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object.",
+        "independentReviewChecked": "codex-8NVOhA, 2026-10-08: actual declaration statement read at the recorded pinned commit; hypotheses and conventions checked against its consumers."
       },
       {
         "ref": "mathlib:AddChar.map_zero_eq_one",
@@ -30,7 +31,8 @@
         "module": "Mathlib/Algebra/Group/AddChar.lean",
         "provides": "An additive character sends zero to one.",
         "checked": "Actual statement read at the pinned commit; source bytes verified against its pinned tree.",
-        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object."
+        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object.",
+        "independentReviewChecked": "codex-8NVOhA, 2026-10-08: actual declaration statement read at the recorded pinned commit; hypotheses and conventions checked against its consumers."
       },
       {
         "ref": "mathlib:AddChar.map_add_eq_mul",
@@ -38,7 +40,8 @@
         "module": "Mathlib/Algebra/Group/AddChar.lean",
         "provides": "An additive character sends a sum to a product.",
         "checked": "Actual statement read at the pinned commit; source bytes verified against its pinned tree.",
-        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object."
+        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object.",
+        "independentReviewChecked": "codex-8NVOhA, 2026-10-08: actual declaration statement read at the recorded pinned commit; hypotheses and conventions checked against its consumers."
       },
       {
         "ref": "mathlib:AddChar.toAddMonoidHom",
@@ -46,7 +49,8 @@
         "module": "Mathlib/Algebra/Group/AddChar.lean",
         "provides": "Native additive-homomorphism view with codomain Additive M, whose native kernel is an additive subgroup.",
         "checked": "Actual statement read at the pinned commit; source bytes verified against its pinned tree.",
-        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object."
+        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object.",
+        "independentReviewChecked": "codex-8NVOhA, 2026-10-08: actual declaration statement read at the recorded pinned commit; hypotheses and conventions checked against its consumers."
       },
       {
         "ref": "mathlib:AddChar.compAddMonoidHom",
@@ -54,7 +58,8 @@
         "module": "Mathlib/Algebra/Group/AddChar.lean",
         "provides": "Pull back an additive character along an additive homomorphism.",
         "checked": "Actual statement read at the pinned commit; source bytes verified against its pinned tree.",
-        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object."
+        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object.",
+        "independentReviewChecked": "codex-8NVOhA, 2026-10-08: actual declaration statement read at the recorded pinned commit; hypotheses and conventions checked against its consumers."
       },
       {
         "ref": "mathlib:VectorFourier.fourierIntegral",
@@ -62,7 +67,8 @@
         "module": "Mathlib/Analysis/Fourier/FourierTransform.lean",
         "provides": "For a bilinear L:V×W→R and ψ:R→Circle, the native transform is ∫ψ(−L(v,w))•f(v)dμ; R is any commutative ring.",
         "checked": "Actual statement read at the pinned commit; source bytes verified against its pinned tree.",
-        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object."
+        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object.",
+        "independentReviewChecked": "codex-8NVOhA, 2026-10-08: actual declaration statement read at the recorded pinned commit; hypotheses and conventions checked against its consumers."
       },
       {
         "ref": "mathlib:VectorFourier.fourierIntegral_congr_ae",
@@ -70,7 +76,8 @@
         "module": "Mathlib/Analysis/Fourier/FourierTransform.lean",
         "provides": "Almost-everywhere equal inputs have equal Fourier integrals.",
         "checked": "Actual statement read at the pinned commit; source bytes verified against its pinned tree.",
-        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object."
+        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object.",
+        "independentReviewChecked": "codex-8NVOhA, 2026-10-08: actual declaration statement read at the recorded pinned commit; hypotheses and conventions checked against its consumers."
       },
       {
         "ref": "mathlib:VectorFourier.fourierIntegral_const_smul",
@@ -78,7 +85,8 @@
         "module": "Mathlib/Analysis/Fourier/FourierTransform.lean",
         "provides": "A complex scalar factors out, even with the native totalized integral convention.",
         "checked": "Actual statement read at the pinned commit; source bytes verified against its pinned tree.",
-        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object."
+        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object.",
+        "independentReviewChecked": "codex-8NVOhA, 2026-10-08: actual declaration statement read at the recorded pinned commit; hypotheses and conventions checked against its consumers."
       },
       {
         "ref": "mathlib:VectorFourier.fourierIntegral_comp_add_right",
@@ -86,7 +94,8 @@
         "module": "Mathlib/Analysis/Fourier/FourierTransform.lean",
         "provides": "For measurable addition and right-translation-invariant μ, F(f(·+u))(w)=ψ(L(u,w))•Ff(w). This is already general and is imported.",
         "checked": "Actual statement read at the pinned commit; source bytes verified against its pinned tree.",
-        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object."
+        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object.",
+        "independentReviewChecked": "codex-8NVOhA, 2026-10-08: actual declaration statement read at the recorded pinned commit; hypotheses and conventions checked against its consumers."
       },
       {
         "ref": "mathlib:VectorFourier.fourierIntegral_convergent_iff",
@@ -94,7 +103,8 @@
         "module": "Mathlib/Analysis/Fourier/FourierTransform.lean",
         "provides": "With topological-ring, Borel-domain and continuity hypotheses on ψ and L, integrability of the Fourier integrand is equivalent to integrability of f.",
         "checked": "Actual statement read at the pinned commit; source bytes verified against its pinned tree.",
-        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object."
+        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object.",
+        "independentReviewChecked": "codex-8NVOhA, 2026-10-08: actual declaration statement read at the recorded pinned commit; hypotheses and conventions checked against its consumers."
       },
       {
         "ref": "mathlib:VectorFourier.fourierIntegral_continuous",
@@ -102,7 +112,8 @@
         "module": "Mathlib/Analysis/Fourier/FourierTransform.lean",
         "provides": "Under the stated continuous-character/bilinear-form hypotheses, integrable f and first-countable W give a continuous Fourier integral.",
         "checked": "Actual statement read at the pinned commit; source bytes verified against its pinned tree.",
-        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object."
+        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object.",
+        "independentReviewChecked": "codex-8NVOhA, 2026-10-08: actual declaration statement read at the recorded pinned commit; hypotheses and conventions checked against its consumers."
       },
       {
         "ref": "mathlib:LinearMap.flip",
@@ -110,7 +121,8 @@
         "module": "Mathlib/LinearAlgebra/BilinearMap.lean",
         "provides": "Transpose the two arguments of a native bilinear map.",
         "checked": "Actual statement read at the pinned commit; source bytes verified against its pinned tree.",
-        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object."
+        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object.",
+        "independentReviewChecked": "codex-8NVOhA, 2026-10-08: actual declaration statement read at the recorded pinned commit; hypotheses and conventions checked against its consumers."
       },
       {
         "ref": "mathlib:LinearMap.compl₂",
@@ -118,7 +130,8 @@
         "module": "Mathlib/LinearAlgebra/BilinearMap.lean",
         "provides": "Precompose the second argument with a linear map, retaining the native bilinear carrier.",
         "checked": "Actual statement read at the pinned commit; source bytes verified against its pinned tree.",
-        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object."
+        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object.",
+        "independentReviewChecked": "codex-8NVOhA, 2026-10-08: actual declaration statement read at the recorded pinned commit; hypotheses and conventions checked against its consumers."
       },
       {
         "ref": "mathlib:IsLocallyConstant",
@@ -126,7 +139,8 @@
         "module": "Mathlib/Topology/LocallyConstant/Basic.lean",
         "provides": "Native local constancy, expressed by openness of every set preimage.",
         "checked": "Actual statement read at the pinned commit; source bytes verified against its pinned tree.",
-        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object."
+        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object.",
+        "independentReviewChecked": "codex-8NVOhA, 2026-10-08: actual declaration statement read at the recorded pinned commit; hypotheses and conventions checked against its consumers."
       },
       {
         "ref": "mathlib:IsLocallyConstant.isOpen_fiber",
@@ -134,7 +148,8 @@
         "module": "Mathlib/Topology/LocallyConstant/Basic.lean",
         "provides": "Each fiber of a locally constant function is open.",
         "checked": "Actual statement read at the pinned commit; source bytes verified against its pinned tree.",
-        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object."
+        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object.",
+        "independentReviewChecked": "codex-8NVOhA, 2026-10-08: actual declaration statement read at the recorded pinned commit; hypotheses and conventions checked against its consumers."
       },
       {
         "ref": "mathlib:IsLocallyConstant.iff_exists_open",
@@ -142,7 +157,8 @@
         "module": "Mathlib/Topology/LocallyConstant/Basic.lean",
         "provides": "Local constancy is equivalent to having an open constant neighborhood at every point.",
         "checked": "Actual statement read at the pinned commit; source bytes verified against its pinned tree.",
-        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object."
+        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object.",
+        "independentReviewChecked": "codex-8NVOhA, 2026-10-08: actual declaration statement read at the recorded pinned commit; hypotheses and conventions checked against its consumers."
       },
       {
         "ref": "mathlib:generalized_tube_lemma",
@@ -150,7 +166,8 @@
         "module": "Mathlib/Topology/Compactness/Compact.lean",
         "provides": "An open neighborhood of the product of two compact sets contains a product of open neighborhoods.",
         "checked": "Actual statement read at the pinned commit; source bytes verified against its pinned tree.",
-        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object."
+        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object.",
+        "independentReviewChecked": "codex-8NVOhA, 2026-10-08: actual declaration statement read at the recorded pinned commit; hypotheses and conventions checked against its consumers."
       },
       {
         "ref": "mathlib:isClosed_iInter",
@@ -158,7 +175,8 @@
         "module": "Mathlib/Topology/Basic.lean",
         "provides": "An arbitrary intersection of closed sets is closed.",
         "checked": "Actual statement read at the pinned commit; source bytes verified against its pinned tree.",
-        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object."
+        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object.",
+        "independentReviewChecked": "codex-8NVOhA, 2026-10-08: actual declaration statement read at the recorded pinned commit; hypotheses and conventions checked against its consumers."
       },
       {
         "ref": "mathlib:isClosed_eq",
@@ -166,7 +184,8 @@
         "module": "Mathlib/Topology/Separation/Hausdorff.lean",
         "provides": "The equality locus of two continuous maps to a Hausdorff space is closed.",
         "checked": "Actual statement read at the pinned commit; source bytes verified against its pinned tree.",
-        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object."
+        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object.",
+        "independentReviewChecked": "codex-8NVOhA, 2026-10-08: actual declaration statement read at the recorded pinned commit; hypotheses and conventions checked against its consumers."
       },
       {
         "ref": "mathlib:MeasureTheory.integral_congr_ae",
@@ -174,7 +193,8 @@
         "module": "Mathlib/MeasureTheory/Integral/Bochner/Basic.lean",
         "provides": "Almost-everywhere equal integrands have equal native Bochner integrals.",
         "checked": "Actual statement read at the pinned commit; source bytes verified against its pinned tree.",
-        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object."
+        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object.",
+        "independentReviewChecked": "codex-8NVOhA, 2026-10-08: actual declaration statement read at the recorded pinned commit; hypotheses and conventions checked against its consumers."
       },
       {
         "ref": "mathlib:MeasureTheory.integral_indicator_const",
@@ -182,7 +202,8 @@
         "module": "Mathlib/MeasureTheory/Integral/Bochner/Set.lean",
         "provides": "The integral of a measurable-set indicator with constant value c is μ.real(U)•c; no hidden probability normalization.",
         "checked": "Actual statement read at the pinned commit; source bytes verified against its pinned tree.",
-        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object."
+        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object.",
+        "independentReviewChecked": "codex-8NVOhA, 2026-10-08: actual declaration statement read at the recorded pinned commit; hypotheses and conventions checked against its consumers."
       },
       {
         "ref": "mathlib:HasCompactMulSupport",
@@ -190,7 +211,8 @@
         "module": "Mathlib/Topology/Algebra/Support.lean",
         "provides": "Explicit source declaration generating native HasCompactSupport; the latter means compactness of the closure of ordinary support.",
         "checked": "Actual statement read at the pinned commit; source bytes verified against its pinned tree.",
-        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object."
+        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object.",
+        "independentReviewChecked": "codex-8NVOhA, 2026-10-08: actual declaration statement read at the recorded pinned commit; hypotheses and conventions checked against its consumers."
       },
       {
         "ref": "mathlib:HasCompactMulSupport.of_mulSupport_subset_isCompact",
@@ -198,7 +220,8 @@
         "module": "Mathlib/Topology/Algebra/Support.lean",
         "provides": "Explicit source for its generated additive counterpart: ordinary support contained in a compact set gives HasCompactSupport in an R1 space. The suggested file uses the additive notion.",
         "checked": "Actual statement read at the pinned commit; source bytes verified against its pinned tree.",
-        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object."
+        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object.",
+        "independentReviewChecked": "codex-8NVOhA, 2026-10-08: actual declaration statement read at the recorded pinned commit; hypotheses and conventions checked against its consumers."
       },
       {
         "ref": "mathlib:ZMod.toCircle",
@@ -206,7 +229,8 @@
         "module": "Mathlib/Analysis/SpecialFunctions/Complex/CircleAddChar.lean",
         "provides": "Standard circle-valued additive character of Z/N: exp(2πij/N).",
         "checked": "Actual statement read at the pinned commit; source bytes verified against its pinned tree.",
-        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object."
+        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object.",
+        "independentReviewChecked": "codex-8NVOhA, 2026-10-08: actual declaration statement read at the recorded pinned commit; hypotheses and conventions checked against its consumers."
       },
       {
         "ref": "mathlib:ZMod.injective_toCircle",
@@ -214,7 +238,8 @@
         "module": "Mathlib/Analysis/SpecialFunctions/Complex/CircleAddChar.lean",
         "provides": "This standard character is injective for nonzero N.",
         "checked": "Actual statement read at the pinned commit; source bytes verified against its pinned tree.",
-        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object."
+        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object.",
+        "independentReviewChecked": "codex-8NVOhA, 2026-10-08: actual declaration statement read at the recorded pinned commit; hypotheses and conventions checked against its consumers."
       },
       {
         "ref": "mathlib:ZMod.dft",
@@ -222,7 +247,8 @@
         "module": "Mathlib/Analysis/Fourier/ZMod.lean",
         "provides": "Native finite Fourier linear equivalence, with counting-measure normalization.",
         "checked": "Actual statement read at the pinned commit; source bytes verified against its pinned tree.",
-        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object."
+        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object.",
+        "independentReviewChecked": "codex-8NVOhA, 2026-10-08: actual declaration statement read at the recorded pinned commit; hypotheses and conventions checked against its consumers."
       },
       {
         "ref": "mathlib:ZMod.dft_eq_fourier",
@@ -230,7 +256,8 @@
         "module": "Mathlib/Analysis/Fourier/ZMod.lean",
         "provides": "The finite Fourier transform equals the native Fourier integral against counting measure.",
         "checked": "Actual statement read at the pinned commit; source bytes verified against its pinned tree.",
-        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object."
+        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object.",
+        "independentReviewChecked": "codex-8NVOhA, 2026-10-08: actual declaration statement read at the recorded pinned commit; hypotheses and conventions checked against its consumers."
       },
       {
         "ref": "mathlib:Real.fourierChar",
@@ -238,7 +265,8 @@
         "module": "Mathlib/Analysis/Complex/Circle.lean",
         "provides": "The real additive character x↦exp(2πix), valued in Circle.",
         "checked": "Actual statement read at the pinned commit; source bytes verified against its pinned tree.",
-        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object."
+        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object.",
+        "independentReviewChecked": "codex-8NVOhA, 2026-10-08: actual declaration statement read at the recorded pinned commit; hypotheses and conventions checked against its consumers."
       },
       {
         "ref": "mathlib:Subgroup.zpowers",
@@ -246,7 +274,8 @@
         "module": "Mathlib/Algebra/Group/Subgroup/ZPowers/Basic.lean",
         "provides": "Explicit source generating AddSubgroup.zmultiples, the additive subgroup generated by one element; used in the kernel and real-lattice tests.",
         "checked": "Actual statement read at the pinned commit; source bytes verified against its pinned tree.",
-        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object."
+        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object.",
+        "independentReviewChecked": "codex-8NVOhA, 2026-10-08: actual declaration statement read at the recorded pinned commit; hypotheses and conventions checked against its consumers."
       },
       {
         "ref": "mathlib:PontryaginDual",
@@ -254,7 +283,8 @@
         "module": "Mathlib/Topology/Algebra/PontryaginDual.lean",
         "provides": "Existing compact-open space of continuous homomorphisms to Circle. Its existence alone does not give local-field self-duality or double-annihilator equalities.",
         "checked": "Actual statement read at the pinned commit; source bytes verified against its pinned tree.",
-        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object."
+        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object.",
+        "independentReviewChecked": "codex-8NVOhA, 2026-10-08: actual declaration statement read at the recorded pinned commit; hypotheses and conventions checked against its consumers."
       },
       {
         "ref": "mathlib:Complex.Gammaℂ",
@@ -262,7 +292,8 @@
         "module": "Mathlib/Analysis/SpecialFunctions/Gamma/Deligne.lean",
         "provides": "Deligne's Γ_ℂ(s) = 2(2π)^{−s}Γ(s); Kudla's complex L-factor (3.21) is π·Γ_ℂ(s).",
         "checked": "Name, kind and module confirmed in the pinned declaration index (Mathlib 082e2d3); statement read in the pinned source (cc-39fac3, 2026-09-29).",
-        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object."
+        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object.",
+        "independentReviewChecked": "codex-8NVOhA, 2026-10-08: actual declaration statement read at the recorded pinned commit; hypotheses and conventions checked against its consumers."
       },
       {
         "ref": "mathlib:Complex.Gammaℝ",
@@ -270,7 +301,8 @@
         "module": "Mathlib/Analysis/SpecialFunctions/Gamma/Deligne.lean",
         "provides": "Deligne's Γ_ℝ(s) = π^{−s/2}Γ(s/2), Kudla's real L-factor (3.19).",
         "checked": "Name, kind and module confirmed in the pinned declaration index (Mathlib 082e2d3); statement read in the pinned source (cc-39fac3, 2026-09-29).",
-        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object."
+        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object.",
+        "independentReviewChecked": "codex-8NVOhA, 2026-10-08: actual declaration statement read at the recorded pinned commit; hypotheses and conventions checked against its consumers."
       },
       {
         "ref": "mathlib:Complex.Gammaℝ_mul_Gammaℝ_add_one",
@@ -278,7 +310,8 @@
         "module": "Mathlib/Analysis/SpecialFunctions/Gamma/Deligne.lean",
         "provides": "Γ_ℝ(s)Γ_ℝ(s + 1) = Γ_ℂ(s).",
         "checked": "Name, kind and module confirmed in the pinned declaration index (Mathlib 082e2d3); statement read in the pinned source (cc-39fac3, 2026-09-29).",
-        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object."
+        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object.",
+        "independentReviewChecked": "codex-8NVOhA, 2026-10-08: actual declaration statement read at the recorded pinned commit; hypotheses and conventions checked against its consumers."
       },
       {
         "ref": "mathlib:Complex.integral_cpow_mul_exp_neg_mul_Ioi",
@@ -286,7 +319,8 @@
         "module": "Mathlib/Analysis/SpecialFunctions/Gamma/Basic.lean",
         "provides": "∫_0^∞ t^{a−1}e^{−rt}dt = r^{−a}Γ(a), the Gaussian zeta integrals.",
         "checked": "Name, kind and module confirmed in the pinned declaration index (Mathlib 082e2d3); statement read in the pinned source (cc-39fac3, 2026-09-29).",
-        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object."
+        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object.",
+        "independentReviewChecked": "codex-8NVOhA, 2026-10-08: actual declaration statement read at the recorded pinned commit; hypotheses and conventions checked against its consumers."
       },
       {
         "ref": "mathlib:ContinuousMonoidHom",
@@ -294,7 +328,8 @@
         "module": "Mathlib/Topology/Algebra/ContinuousMonoidHom.lean",
         "provides": "Continuous monoid homomorphisms, the carrier of quasi-characters F^× → ℂ^×.",
         "checked": "Name, kind and module confirmed in the pinned declaration index (Mathlib 082e2d3); statement read in the pinned source (cc-39fac3, 2026-09-29).",
-        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object."
+        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object.",
+        "independentReviewChecked": "codex-8NVOhA, 2026-10-08: actual declaration statement read at the recorded pinned commit; hypotheses and conventions checked against its consumers."
       },
       {
         "ref": "mathlib:DirichletCharacter.IsPrimitive.completedLFunction_one_sub",
@@ -302,7 +337,8 @@
         "module": "Mathlib/NumberTheory/LSeries/DirichletContinuation.lean",
         "provides": "Functional equation of primitive Dirichlet L-functions with N^{s−1/2} and the root number.",
         "checked": "Name, kind and module confirmed in the pinned declaration index (Mathlib 082e2d3); statement read in the pinned source (cc-39fac3, 2026-09-29).",
-        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object."
+        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object.",
+        "independentReviewChecked": "codex-8NVOhA, 2026-10-08: actual declaration statement read at the recorded pinned commit; hypotheses and conventions checked against its consumers."
       },
       {
         "ref": "mathlib:Distribution.dsupport",
@@ -310,7 +346,8 @@
         "module": "Mathlib/Analysis/Distribution/Support.lean",
         "provides": "The distributional support, used to say a distribution is supported at 0.",
         "checked": "Name, kind and module confirmed in the pinned declaration index (Mathlib 082e2d3); statement read in the pinned source (cc-39fac3, 2026-09-29).",
-        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object."
+        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object.",
+        "independentReviewChecked": "codex-8NVOhA, 2026-10-08: actual declaration statement read at the recorded pinned commit; hypotheses and conventions checked against its consumers."
       },
       {
         "ref": "mathlib:MeasureTheory.Measure.IsHaarMeasure",
@@ -318,7 +355,8 @@
         "module": "Mathlib/MeasureTheory/Group/Measure.lean",
         "provides": "Native Haar-measure predicate. This does not itself prove uniqueness of invariant continuous distributions on F×; that analytic result is a separate proof obligation.",
         "checked": "Name, kind and module confirmed in the pinned declaration index (Mathlib 082e2d3); statement read in the pinned source (cc-39fac3, 2026-09-29).",
-        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object."
+        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object.",
+        "independentReviewChecked": "codex-8NVOhA, 2026-10-08: actual declaration statement read at the recorded pinned commit; hypotheses and conventions checked against its consumers."
       },
       {
         "ref": "mathlib:NumberField.Units.regulator",
@@ -326,7 +364,8 @@
         "module": "Mathlib/NumberTheory/NumberField/Units/Regulator.lean",
         "provides": "The regulator R of K.",
         "checked": "Name, kind and module confirmed in the pinned declaration index (Mathlib 082e2d3); statement read in the pinned source (cc-39fac3, 2026-09-29).",
-        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object."
+        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object.",
+        "independentReviewChecked": "codex-8NVOhA, 2026-10-08: actual declaration statement read at the recorded pinned commit; hypotheses and conventions checked against its consumers."
       },
       {
         "ref": "mathlib:NumberField.Units.torsionOrder",
@@ -334,7 +373,8 @@
         "module": "Mathlib/NumberTheory/NumberField/Units/Basic.lean",
         "provides": "The number w of roots of unity in K.",
         "checked": "Name, kind and module confirmed in the pinned declaration index (Mathlib 082e2d3); statement read in the pinned source (cc-39fac3, 2026-09-29).",
-        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object."
+        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object.",
+        "independentReviewChecked": "codex-8NVOhA, 2026-10-08: actual declaration statement read at the recorded pinned commit; hypotheses and conventions checked against its consumers."
       },
       {
         "ref": "mathlib:NumberField.classNumber",
@@ -342,7 +382,8 @@
         "module": "Mathlib/NumberTheory/NumberField/ClassNumber.lean",
         "provides": "The class number h of K.",
         "checked": "Name, kind and module confirmed in the pinned declaration index (Mathlib 082e2d3); statement read in the pinned source (cc-39fac3, 2026-09-29).",
-        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object."
+        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object.",
+        "independentReviewChecked": "codex-8NVOhA, 2026-10-08: actual declaration statement read at the recorded pinned commit; hypotheses and conventions checked against its consumers."
       },
       {
         "ref": "mathlib:NumberField.dedekindZeta_residue",
@@ -350,7 +391,8 @@
         "module": "Mathlib/NumberTheory/NumberField/DedekindZeta.lean",
         "provides": "The arithmetic expression 2^r₁(2π)^r₂Rh/(w sqrt(|d|)); the analytic identification as a residue is not proved by this definition.",
         "checked": "Name, kind and module confirmed in the pinned declaration index (Mathlib 082e2d3); statement read in the pinned source (cc-39fac3, 2026-09-29).",
-        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object."
+        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object.",
+        "independentReviewChecked": "codex-8NVOhA, 2026-10-08: actual declaration statement read at the recorded pinned commit; hypotheses and conventions checked against its consumers."
       },
       {
         "ref": "mathlib:NumberField.discr",
@@ -358,7 +400,8 @@
         "module": "Mathlib/NumberTheory/NumberField/Discriminant/Defs.lean",
         "provides": "The discriminant d of K.",
         "checked": "Name, kind and module confirmed in the pinned declaration index (Mathlib 082e2d3); statement read in the pinned source (cc-39fac3, 2026-09-29).",
-        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object."
+        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object.",
+        "independentReviewChecked": "codex-8NVOhA, 2026-10-08: actual declaration statement read at the recorded pinned commit; hypotheses and conventions checked against its consumers."
       },
       {
         "ref": "mathlib:Real.tsum_exp_neg_mul_int_sq",
@@ -366,7 +409,8 @@
         "module": "Mathlib/Analysis/SpecialFunctions/Gaussian/PoissonSummation.lean",
         "provides": "Jacobi's theta transformation Σ e^{−πan²} = a^{−1/2}Σ e^{−πn²/a}.",
         "checked": "Name, kind and module confirmed in the pinned declaration index (Mathlib 082e2d3); statement read in the pinned source (cc-39fac3, 2026-09-29).",
-        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object."
+        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object.",
+        "independentReviewChecked": "codex-8NVOhA, 2026-10-08: actual declaration statement read at the recorded pinned commit; hypotheses and conventions checked against its consumers."
       },
       {
         "ref": "mathlib:SchwartzMap",
@@ -374,7 +418,8 @@
         "module": "Mathlib/Analysis/Distribution/SchwartzSpace/Basic.lean",
         "provides": "Schwartz space 𝓢(E, F) of smooth rapidly decreasing functions: S(ℝ) and S(ℂ).",
         "checked": "Name, kind and module confirmed in the pinned declaration index (Mathlib 082e2d3); statement read in the pinned source (cc-39fac3, 2026-09-29).",
-        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object."
+        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object.",
+        "independentReviewChecked": "codex-8NVOhA, 2026-10-08: actual declaration statement read at the recorded pinned commit; hypotheses and conventions checked against its consumers."
       },
       {
         "ref": "mathlib:SchwartzMap.fourierTransformCLM",
@@ -382,7 +427,8 @@
         "module": "Mathlib/Analysis/Distribution/SchwartzSpace/Fourier.lean",
         "provides": "The Fourier transform as a continuous linear map on 𝓢(V, E) (negative-sign convention).",
         "checked": "Name, kind and module confirmed in the pinned declaration index (Mathlib 082e2d3); statement read in the pinned source (cc-39fac3, 2026-09-29).",
-        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object."
+        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object.",
+        "independentReviewChecked": "codex-8NVOhA, 2026-10-08: actual declaration statement read at the recorded pinned commit; hypotheses and conventions checked against its consumers."
       },
       {
         "ref": "mathlib:TemperedDistribution",
@@ -390,7 +436,8 @@
         "module": "Mathlib/Analysis/Distribution/TemperedDistribution.lean",
         "provides": "Tempered distributions 𝓢′(E, F) = 𝓢(E, ℂ) →L[ℂ] F: S(F)′ at the archimedean places.",
         "checked": "Name, kind and module confirmed in the pinned declaration index (Mathlib 082e2d3); statement read in the pinned source (cc-39fac3, 2026-09-29).",
-        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object."
+        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object.",
+        "independentReviewChecked": "codex-8NVOhA, 2026-10-08: actual declaration statement read at the recorded pinned commit; hypotheses and conventions checked against its consumers."
       },
       {
         "ref": "mathlib:TemperedDistribution.delta",
@@ -398,7 +445,8 @@
         "module": "Mathlib/Analysis/Distribution/TemperedDistribution.lean",
         "provides": "The Dirac distribution δ_x on 𝓢(E, ℂ).",
         "checked": "Name, kind and module confirmed in the pinned declaration index (Mathlib 082e2d3); statement read in the pinned source (cc-39fac3, 2026-09-29).",
-        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object."
+        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object.",
+        "independentReviewChecked": "codex-8NVOhA, 2026-10-08: actual declaration statement read at the recorded pinned commit; hypotheses and conventions checked against its consumers."
       },
       {
         "ref": "mathlib:completedRiemannZeta_eq",
@@ -406,7 +454,8 @@
         "module": "Mathlib/NumberTheory/LSeries/RiemannZeta.lean",
         "provides": "Λ(s) = Λ₀(s) − 1/s − 1/(1 − s): the residues −1 and +1 of Tate's theorem for ℚ.",
         "checked": "Name, kind and module confirmed in the pinned declaration index (Mathlib 082e2d3); statement read in the pinned source (cc-39fac3, 2026-09-29).",
-        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object."
+        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object.",
+        "independentReviewChecked": "codex-8NVOhA, 2026-10-08: actual declaration statement read at the recorded pinned commit; hypotheses and conventions checked against its consumers."
       },
       {
         "ref": "mathlib:completedRiemannZeta_one_sub",
@@ -414,7 +463,8 @@
         "module": "Mathlib/NumberTheory/LSeries/RiemannZeta.lean",
         "provides": "Λ(1 − s) = Λ(s).",
         "checked": "Name, kind and module confirmed in the pinned declaration index (Mathlib 082e2d3); statement read in the pinned source (cc-39fac3, 2026-09-29).",
-        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object."
+        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object.",
+        "independentReviewChecked": "codex-8NVOhA, 2026-10-08: actual declaration statement read at the recorded pinned commit; hypotheses and conventions checked against its consumers."
       },
       {
         "ref": "mathlib:completedRiemannZeta_residue_one",
@@ -422,7 +472,8 @@
         "module": "Mathlib/NumberTheory/LSeries/RiemannZeta.lean",
         "provides": "The residue of Λ(s) at s = 1 is 1.",
         "checked": "Name, kind and module confirmed in the pinned declaration index (Mathlib 082e2d3); statement read in the pinned source (cc-39fac3, 2026-09-29).",
-        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object."
+        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object.",
+        "independentReviewChecked": "codex-8NVOhA, 2026-10-08: actual declaration statement read at the recorded pinned commit; hypotheses and conventions checked against its consumers."
       },
       {
         "ref": "mathlib:fourierIntegral_gaussian",
@@ -430,7 +481,8 @@
         "module": "Mathlib/Analysis/SpecialFunctions/Gaussian/FourierTransform.lean",
         "provides": "The Fourier transform of a Gaussian.",
         "checked": "Name, kind and module confirmed in the pinned declaration index (Mathlib 082e2d3); statement read in the pinned source (cc-39fac3, 2026-09-29).",
-        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object."
+        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object.",
+        "independentReviewChecked": "codex-8NVOhA, 2026-10-08: actual declaration statement read at the recorded pinned commit; hypotheses and conventions checked against its consumers."
       },
       {
         "ref": "mathlib:gaussSum",
@@ -438,7 +490,8 @@
         "module": "Mathlib/NumberTheory/GaussSum.lean",
         "provides": "The Gauss sum of a multiplicative and an additive character of a finite ring.",
         "checked": "Name, kind and module confirmed in the pinned declaration index (Mathlib 082e2d3); statement read in the pinned source (cc-39fac3, 2026-09-29).",
-        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object."
+        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object.",
+        "independentReviewChecked": "codex-8NVOhA, 2026-10-08: actual declaration statement read at the recorded pinned commit; hypotheses and conventions checked against its consumers."
       },
       {
         "ref": "mathlib:gaussSum_mul_gaussSum_eq_card",
@@ -446,7 +499,8 @@
         "module": "Mathlib/NumberTheory/GaussSum.lean",
         "provides": "g(χ, ψ)g(χ^{−1}, ψ^{−1}) = #R for χ ≠ 1 and ψ primitive.",
         "checked": "Name, kind and module confirmed in the pinned declaration index (Mathlib 082e2d3); statement read in the pinned source (cc-39fac3, 2026-09-29).",
-        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object."
+        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object.",
+        "independentReviewChecked": "codex-8NVOhA, 2026-10-08: actual declaration statement read at the recorded pinned commit; hypotheses and conventions checked against its consumers."
       },
       {
         "ref": "mathlib:mellin",
@@ -454,7 +508,8 @@
         "module": "Mathlib/Analysis/MellinTransform.lean",
         "provides": "The Mellin transform, the real-place zeta integral on ℝ_{>0}.",
         "checked": "Name, kind and module confirmed in the pinned declaration index (Mathlib 082e2d3); statement read in the pinned source (cc-39fac3, 2026-09-29).",
-        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object."
+        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object.",
+        "independentReviewChecked": "codex-8NVOhA, 2026-10-08: actual declaration statement read at the recorded pinned commit; hypotheses and conventions checked against its consumers."
       },
       {
         "ref": "mathlib:tsum_geometric_of_norm_lt_one",
@@ -462,49 +517,57 @@
         "module": "Mathlib/Analysis/SpecificLimits/Normed.lean",
         "provides": "Σ ξ^n = (1 − ξ)^{−1} for ‖ξ‖ < 1: the unramified L-factor.",
         "checked": "Name, kind and module confirmed in the pinned declaration index (Mathlib 082e2d3); statement read in the pinned source (cc-39fac3, 2026-09-29).",
-        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object."
+        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object.",
+        "independentReviewChecked": "codex-8NVOhA, 2026-10-08: actual declaration statement read at the recorded pinned commit; hypotheses and conventions checked against its consumers."
       },
       {
         "ref": "mathlib:hasDerivAt_integral_of_dominated_loc_of_deriv_le",
         "module": "Mathlib/Analysis/Calculus/ParametricIntegral.lean",
         "provides": "Differentiation under a Bochner integral from neighbourhood-uniform derivative domination, measurability and integrability; complex parameter specialization.",
-        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object."
+        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object.",
+        "independentReviewChecked": "codex-8NVOhA, 2026-10-08: actual declaration statement read at the recorded pinned commit; hypotheses and conventions checked against its consumers."
       },
       {
         "ref": "mathlib:mellin_differentiableAt_of_isBigO_rpow",
         "module": "Mathlib/Analysis/MellinTransform.lean",
         "provides": "Holomorphy for b < Re(s) < a from local integrability and power bounds at zero and infinity.",
-        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object."
+        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object.",
+        "independentReviewChecked": "codex-8NVOhA, 2026-10-08: actual declaration statement read at the recorded pinned commit; hypotheses and conventions checked against its consumers."
       },
       {
         "ref": "mathlib:mellinInv_mellin_eq",
         "module": "Mathlib/Analysis/MellinInversion.lean",
         "provides": "Inversion at x>0 requires Mellin convergence on the line, integrability of the transform along that line, and continuity at x.",
-        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object."
+        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object.",
+        "independentReviewChecked": "codex-8NVOhA, 2026-10-08: actual declaration statement read at the recorded pinned commit; hypotheses and conventions checked against its consumers."
       },
       {
         "ref": "mathlib:Matrix.charpolyRev",
         "module": "Mathlib/LinearAlgebra/Matrix/Charpoly/Coeff.lean",
         "provides": "det(1−X•M.map C), the native reversed characteristic polynomial; no duplicate construction is planned.",
-        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object."
+        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object.",
+        "independentReviewChecked": "codex-8NVOhA, 2026-10-08: actual declaration statement read at the recorded pinned commit; hypotheses and conventions checked against its consumers."
       },
       {
         "ref": "mathlib:MeromorphicOn.divisor",
         "module": "Mathlib/Analysis/Meromorphic/Divisor.lean",
         "provides": "Locally finitely supported integer orders, zero off the domain and totalized infinite orders.",
-        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object."
+        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object.",
+        "independentReviewChecked": "codex-8NVOhA, 2026-10-08: actual declaration statement read at the recorded pinned commit; hypotheses and conventions checked against its consumers."
       },
       {
         "ref": "mathlib:MeromorphicOn.divisor_fun_mul",
         "module": "Mathlib/Analysis/Meromorphic/Divisor.lean",
         "provides": "Divisors add for meromorphic products with finite orders at every point.",
-        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object."
+        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object.",
+        "independentReviewChecked": "codex-8NVOhA, 2026-10-08: actual declaration statement read at the recorded pinned commit; hypotheses and conventions checked against its consumers."
       },
       {
         "ref": "mathlib:MeromorphicOn.divisor_fun_inv",
         "module": "Mathlib/Analysis/Meromorphic/Divisor.lean",
         "provides": "Inversion negates the meromorphic divisor.",
-        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object."
+        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object.",
+        "independentReviewChecked": "codex-8NVOhA, 2026-10-08: actual declaration statement read at the recorded pinned commit; hypotheses and conventions checked against its consumers."
       },
       {
         "ref": "mathlib:NumberField.tendsto_sub_one_mul_dedekindZeta_nhdsGT",
@@ -512,7 +575,8 @@
         "module": "Mathlib/NumberTheory/NumberField/DedekindZeta.lean",
         "provides": "Real one-sided Dirichlet class number formula: (s−1)ζ_K(s) tends to dedekindZeta_residue K as s→1 from the right. This does not assert full complex meromorphic continuation.",
         "checked": "Full statement freshly read at the pinned commit on 2026-10-07; source verified against the pinned tree.",
-        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object."
+        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object.",
+        "independentReviewChecked": "codex-8NVOhA, 2026-10-08: actual declaration statement read at the recorded pinned commit; hypotheses and conventions checked against its consumers."
       },
       {
         "ref": "tauceti:CuspForm.abscissaOfAbsConv_qExpansion_coeff_le",
@@ -520,7 +584,8 @@
         "module": "TauCeti/NumberTheory/ModularForms/LFunction.lean",
         "provides": "For a cusp form of weight k, the absolute-convergence abscissa of its q-expansion coefficient series is at most k/2+1.",
         "checked": "Full statement freshly read at the pinned commit on 2026-10-07; source verified against the pinned tree.",
-        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object."
+        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object.",
+        "independentReviewChecked": "codex-8NVOhA, 2026-10-08: actual declaration statement read at the recorded pinned commit; hypotheses and conventions checked against its consumers."
       },
       {
         "ref": "tauceti:CuspForm.LSeries_qExpansion_coeff_eq",
@@ -528,7 +593,8 @@
         "module": "TauCeti/NumberTheory/ModularForms/LFunction.lean",
         "provides": "For k>0 and Re s>k/2+1 the coefficient L-series equals width^(−s) times ModularForm.L.",
         "checked": "Full statement freshly read at the pinned commit on 2026-10-07; source verified against the pinned tree.",
-        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object."
+        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object.",
+        "independentReviewChecked": "codex-8NVOhA, 2026-10-08: actual declaration statement read at the recorded pinned commit; hypotheses and conventions checked against its consumers."
       },
       {
         "ref": "tauceti:CuspForm.hasEntireExtension_qExpansion_coeff",
@@ -536,7 +602,8 @@
         "module": "TauCeti/NumberTheory/ModularForms/LFunction.lean",
         "provides": "For a cusp form of positive weight the coefficient L-series has an entire extension.",
         "checked": "Full statement freshly read at the pinned commit on 2026-10-07; source verified against the pinned tree.",
-        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object."
+        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object.",
+        "independentReviewChecked": "codex-8NVOhA, 2026-10-08: actual declaration statement read at the recorded pinned commit; hypotheses and conventions checked against its consumers."
       },
       {
         "ref": "mathlib:meromorphicOrderAt_mul",
@@ -544,7 +611,8 @@
         "kind": "theorem",
         "provides": "For meromorphic f,g at a point x, the native WithTop Z order of their product is the sum of their orders, including infinite-order cases.",
         "checked": "Full statement freshly read at the pinned commit on2026-10-07.",
-        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object."
+        "revisionChecked": "codex-zGTLaB, 2026-10-08: declaration statement read from its exact pinned Git object.",
+        "independentReviewChecked": "codex-8NVOhA, 2026-10-08: actual declaration statement read at the recorded pinned commit; hypotheses and conventions checked against its consumers."
       }
     ]
   },
@@ -560,7 +628,12 @@
       "readSections": [
         "codex-P6nWgb (2026-10-07): entire extracted text of the original thesis, §§1–4 and bibliography. Formula image checks of physical p.24 and p.26 are inherited from codex-1h93kq/cc-39fac3 (2026-09-27/29). The 1967 reprint was not collated.",
         "codex-zGTLaB (2026-10-08): §2.5, physical p.24, subgroup indicator calculation; §4.4, physical pp.49–52, the three conditions on the global test-function class and the continuation/functional-equation proof. OCR was read for these pages; earlier image checks remain attributed."
-      ]
+      ],
+      "independentReviewChecked": {
+        "by": "REV-AutomorphicLFunctionsAndLocalFactors~2",
+        "date": "2026-10-08",
+        "scope": "§2.2; §2.5 physical pp.16–27; §§3–4 physical pp.36–59, including Theorem4.1.4, Poisson, norm-one volume and global FE. Original scan, not the uncollated 1967 reprint. Public bytes match the recorded SHA-256; named proof-source gaps remain open."
+      }
     },
     {
       "id": "Kudla2004",
@@ -574,7 +647,12 @@
       "readSections": [
         "codex-P6nWgb (2026-10-07): entire extracted text; fresh page images of published pp.123–124 and126 for epsilon constants and the factorization converse. Earlier workers read all pp.109–131 on images; their original source findings E1–E5 are retained with attribution.",
         "codex-zGTLaB (2026-10-08): §3, published pp.118–123: unramified normalization (3.4)–(3.9), archimedean Proposition3.5 and the normalized Fourier functional equation (3.23)–(3.25). Changing multiplicative Haar scales z and z/L together; the source standard vector uses unit-volume measure. Original findings and proof-source gaps remain separately attributed."
-      ]
+      ],
+      "independentReviewChecked": {
+        "by": "REV-AutomorphicLFunctionsAndLocalFactors~2",
+        "date": "2026-10-08",
+        "scope": "Public chapter physical pp.1–23, printed pp.109–131; conductor paragraph, local distributions/FE, explicit epsilon and global tensor/Poisson passages. Printed pp.110,121–122,126,128 collated for E1–E4/E6. Public bytes match the recorded SHA-256; named proof-source gaps remain open."
+      }
     },
     {
       "id": "KudlaPreprint",
@@ -586,7 +664,12 @@
       "accessed": "2026-09-27",
       "readSections": [
         "Physical/printed pp.1–9, in batches of at most three pages. Used for version collation; pp.10–19 unread."
-      ]
+      ],
+      "independentReviewChecked": {
+        "by": "REV-AutomorphicLFunctionsAndLocalFactors~2",
+        "date": "2026-10-08",
+        "scope": "Bibliographic overview physical p.1 collated with published p.110 for E2; no full preprint audit is claimed. Public bytes match the recorded SHA-256; named proof-source gaps remain open."
+      }
     },
     {
       "id": "Zhang2021",
@@ -599,7 +682,12 @@
         "§§11.1–11.2 pp.932–934, partial Fourier transform; §12.4 pp.942–943, K-Bessel definition/Lemma12.3 proof; §12.5 pp.946–947 (12.15)–(12.19). Remaining passages not claimed read.",
         "codex-zGTLaB (2026-10-08): §11.1–§11.2, published p.933 (PDF p.71), the second-coordinate partial Fourier transform and its character convention."
       ],
-      "sha256": "6f8ac537b4f95cf26ba907dc1d25c1b9d9157a3a4006a311b114a522177d3b45"
+      "sha256": "6f8ac537b4f95cf26ba907dc1d25c1b9d9157a3a4006a311b114a522177d3b45",
+      "independentReviewChecked": {
+        "by": "REV-AutomorphicLFunctionsAndLocalFactors~2",
+        "date": "2026-10-08",
+        "scope": "Printed pp.933,942–943,946–947: partial Fourier, K-Bessel half-order/derivative and quadratic orbital normalizations. Public bytes match the recorded SHA-256; named proof-source gaps remain open."
+      }
     },
     {
       "id": "Leslie2025",
@@ -611,7 +699,12 @@
       "readSections": [
         "§8.1–8.2 pp.58–60: local/global Whittaker pairings and Rankin–Selberg period factorization; §9.4 Theorem9.8 quoted for its consumer role."
       ],
-      "sha256": "167574c84c7a7e9bed4be72ca08be2769dd1442741fe7ffa6d1024627b682b76"
+      "sha256": "167574c84c7a7e9bed4be72ca08be2769dd1442741fe7ffa6d1024627b682b76",
+      "independentReviewChecked": {
+        "by": "REV-AutomorphicLFunctionsAndLocalFactors~2",
+        "date": "2026-10-08",
+        "scope": "Public version pp.58–60, local pairing/normalized period formulas. Public bytes match the recorded SHA-256; named proof-source gaps remain open."
+      }
     },
     {
       "id": "Ramakrishnan2018",
@@ -623,7 +716,12 @@
       "readSections": [
         "Introduction pp.1–4 including TheoremA, CorollaryB and proof strategy. Full solvable-base-change argument not claimed read."
       ],
-      "sha256": "0f060fb77aefe19622c07dad86e4bf73f17b1906b8463357e4b441caca50c9d1"
+      "sha256": "0f060fb77aefe19622c07dad86e4bf73f17b1906b8463357e4b441caca50c9d1",
+      "independentReviewChecked": {
+        "by": "REV-AutomorphicLFunctionsAndLocalFactors~2",
+        "date": "2026-10-08",
+        "scope": "Public version pp.1–4, TheoremA/CorollaryB and the nested prime-degree normal-extension hypothesis. Public bytes match the recorded SHA-256; named proof-source gaps remain open."
+      }
     },
     {
       "id": "Yu2023",
@@ -636,7 +734,12 @@
         "§5.1.2 normalizing scalars; §5.3.1 pp.36–38 Whittaker conductor shift; §6.1 pp.42–44 rational factors, degree and zero–pole count proofs; §6.2.2 pp.45–46 reflection calculation.",
         "codex-zGTLaB (2026-10-08): §5.1.2, pp.29–30, normalizing scalars (5.1.1)–(5.1.3); §6.1, p.43, Proposition6.1.1 and Corollary6.1.2. This reread does not establish the missing cohomological supplier or collate the journal version."
       ],
-      "sha256": "9383bcdee14777ec647ba2658da3319d7d43864f9481b07c7d9550f1a454de1c"
+      "sha256": "9383bcdee14777ec647ba2658da3319d7d43864f9481b07c7d9550f1a454de1c",
+      "independentReviewChecked": {
+        "by": "REV-AutomorphicLFunctionsAndLocalFactors~2",
+        "date": "2026-10-08",
+        "scope": "Public version pp.29–30,36–38,42–46; conductor shift, formal rational factors, degree/radius counts and corrected reflections. Final journal text remains uncollated. Public bytes match the recorded SHA-256; named proof-source gaps remain open."
+      }
     },
     {
       "id": "YunZhang2017",
@@ -649,7 +752,12 @@
         "AppendixB pp.901–906 read in full: PropositionB.1 proof, TheoremB.2, LemmaB.3 and RemarksB.4–B.7.",
         "codex-zGTLaB (2026-10-08): AppendixB, published pp.902–905, PropositionB.1, TheoremB.2 and LemmaB.3, including the printed derivative notation and the non-polynomial refinement retained in the packet. Original source findings remain attributed."
       ],
-      "sha256": "b02ed5cbe5e6443a59360551cd41048ebb1e589d3c4cbe89f7fcbbbec50fc111"
+      "sha256": "b02ed5cbe5e6443a59360551cd41048ebb1e589d3c4cbe89f7fcbbbec50fc111",
+      "independentReviewChecked": {
+        "by": "REV-AutomorphicLFunctionsAndLocalFactors~2",
+        "date": "2026-10-08",
+        "scope": "AppendixB printed pp.901–906, including order≤1/RH positivity, constant case and attributed correction limits. Public bytes match the recorded SHA-256; named proof-source gaps remain open."
+      }
     },
     {
       "id": "ThornerZaman2017",
@@ -662,7 +770,12 @@
         "§2B p.1141 equations (2-1)–(2-8): Hecke completion, conductor, order1 and functional equation.",
         "codex-zGTLaB (2026-10-08): §2B, published p.1141, (2-3)–(2-4), primitive Hecke completion and the finite-order nontrivial-character entire-function hypotheses."
       ],
-      "sha256": "504512d24db46f933d52f277d2ad3a14da5ed66e0efcda0407c8aceadd008d4c"
+      "sha256": "504512d24db46f933d52f277d2ad3a14da5ed66e0efcda0407c8aceadd008d4c",
+      "independentReviewChecked": {
+        "by": "REV-AutomorphicLFunctionsAndLocalFactors~2",
+        "date": "2026-10-08",
+        "scope": "Printed p.1141 (physical p.9), primitive Hecke completion and finite-order growth. Public bytes match the recorded SHA-256; named proof-source gaps remain open."
+      }
     },
     {
       "id": "GrossZagier1986",
@@ -675,7 +788,12 @@
         "Fresh page images: IV§3 pp.280–281 and IV§6 p.299 (6.2). Only these analytic passages are claimed read.",
         "codex-zGTLaB (2026-10-08): Page image of IV§6, published p.299 (PDF p.76), the gamma-factor evaluation in the proof of Proposition(6.2). No new read of the height formula is claimed."
       ],
-      "sha256": "a9a52cb8662e03f19ace81dcfbf24bf873bf9c46ba89a8c890727b9541abdbf5"
+      "sha256": "a9a52cb8662e03f19ace81dcfbf24bf873bf9c46ba89a8c890727b9541abdbf5",
+      "independentReviewChecked": {
+        "by": "REV-AutomorphicLFunctionsAndLocalFactors~2",
+        "date": "2026-10-08",
+        "scope": "Printed pp.280–281 and299, Bessel parameter work and the unnumbered Laplace–Mellin display in IV §6 Proposition(6.2). Public bytes match the recorded SHA-256; named proof-source gaps remain open."
+      }
     },
     {
       "id": "YuanZhang2018",
@@ -687,7 +805,12 @@
       "readSections": [
         "p.535 finite/completed convention; §7.1 p.590 logarithmic derivative and gamma correction."
       ],
-      "sha256": "29dfd5f19dec401116f1eaf0305305acf5f2fc68aa3c90d4eb6e5222de50d507"
+      "sha256": "29dfd5f19dec401116f1eaf0305305acf5f2fc68aa3c90d4eb6e5222de50d507",
+      "independentReviewChecked": {
+        "by": "REV-AutomorphicLFunctionsAndLocalFactors~2",
+        "date": "2026-10-08",
+        "scope": "Printed pp.535,590, analytic archimedean normalization used by the period consumer. Public bytes match the recorded SHA-256; named proof-source gaps remain open."
+      }
     },
     {
       "id": "DukeImamogluToth2016",
@@ -699,7 +822,12 @@
       "readSections": [
         "§5.2 pp.962–963 (5.7)–(5.9); p.966 (5.17) twist convention."
       ],
-      "sha256": "a67de7157f76ee700bc2e6a0034a920adc390022d4ff528aa80084f829f35f61"
+      "sha256": "a67de7157f76ee700bc2e6a0034a920adc390022d4ff528aa80084f829f35f61",
+      "independentReviewChecked": {
+        "by": "REV-AutomorphicLFunctionsAndLocalFactors~2",
+        "date": "2026-10-08",
+        "scope": "Printed pp.962–963,966, Maass factors/FE and norm comparison. Public bytes match the recorded SHA-256; named proof-source gaps remain open."
+      }
     },
     {
       "id": "HumphriesNordentoft",
@@ -711,7 +839,12 @@
       "readSections": [
         "§4.1.1 pp.21–22 (4.2)–(4.6): Fourier coefficients, Hecke eigenvalues and exact norm formula."
       ],
-      "sha256": "b77f82b7eb2dea80b9bae7ce143cad9dbecc32e6370267e514c57ad91d7d9c07"
+      "sha256": "b77f82b7eb2dea80b9bae7ce143cad9dbecc32e6370267e514c57ad91d7d9c07",
+      "independentReviewChecked": {
+        "by": "REV-AutomorphicLFunctionsAndLocalFactors~2",
+        "date": "2026-10-08",
+        "scope": "Public version pp.21–22, normalized Maass norm factors. Public bytes match the recorded SHA-256; named proof-source gaps remain open."
+      }
     },
     {
       "id": "Sarnak2004",
@@ -723,7 +856,12 @@
       "readSections": [
         "§1 pp.1–3: positive auxiliary Rankin–Selberg products and comparison with Shahidi; later effective spectral proof not claimed read."
       ],
-      "sha256": "f1e1acb1af252fdf5c4dbad1e6bd2eeb7cbefb6eeff10f66dd5cb9ed4402d77d"
+      "sha256": "f1e1acb1af252fdf5c4dbad1e6bd2eeb7cbefb6eeff10f66dd5cb9ed4402d77d",
+      "independentReviewChecked": {
+        "by": "REV-AutomorphicLFunctionsAndLocalFactors~2",
+        "date": "2026-10-08",
+        "scope": "§1 pp.1–3, RS boundary nonvanishing and its cited proof route. Public bytes match the recorded SHA-256; named proof-source gaps remain open."
+      }
     },
     {
       "id": "Raghuram2016",
@@ -736,7 +874,12 @@
         "§2.5.2 pp.24–25: comparison maps, rational structures, periods, twisting law and correction of the signature action. Construction proofs in the cited Raghuram–Shahidi paper were not read.",
         "codex-zGTLaB (2026-10-08): §2.5.2, pp.24–25, (2.37)–(2.39): actual rational structures, comparison scaling, Gauss twisting and corrected signature action. The referred Raghuram–Shahidi construction proofs were not acquired."
       ],
-      "sha256": "ccf394c4e93f69f12dc253b22c40c5d8d42693d9940daa0c6cd981bd3f61c5b7"
+      "sha256": "ccf394c4e93f69f12dc253b22c40c5d8d42693d9940daa0c6cd981bd3f61c5b7",
+      "independentReviewChecked": {
+        "by": "REV-AutomorphicLFunctionsAndLocalFactors~2",
+        "date": "2026-10-08",
+        "scope": "§2.5.2 pp.24–25, Whittaker/cohomological periods and the signature/Gauss twisting comparison. Public bytes match the recorded SHA-256; named proof-source gaps remain open."
+      }
     },
     {
       "id": "RodriguesJacintoWilliams2025",
@@ -749,7 +892,12 @@
         "Appendix B §§B.1–B.2 pp.207–209, TheoremB.1 and the critical-slope exclusions.",
         "codex-zGTLaB (2026-10-08): AppendixB §B.2.1, published pp.208–209, TheoremB.1 and its slope restriction. This is the GL₂/ℚ modular-form interface, not general number-field or general-rank algebraicity."
       ],
-      "sha256": "78d0479b4b7e3f03d2f9c9a75a772ebd75b58091a3b4f8a1558869b8283b44a6"
+      "sha256": "78d0479b4b7e3f03d2f9c9a75a772ebd75b58091a3b4f8a1558869b8283b44a6",
+      "independentReviewChecked": {
+        "by": "REV-AutomorphicLFunctionsAndLocalFactors~2",
+        "date": "2026-10-08",
+        "scope": "AppendixB printed pp.207–209 (physical pp.108–110), TheoremB.1, inverse character and non-critical-slope GL₂/Q range. Public bytes match the recorded SHA-256; named proof-source gaps remain open."
+      }
     },
     {
       "id": "AtobeKondoYasuda2022",
@@ -761,7 +909,12 @@
       "readSections": [
         "Introduction and §2 notation: additive conductor0, standard epsilon conductor and generic newform comparison. Speh newform proofs remain with SR.5."
       ],
-      "sha256": "32326ab828c5cfb524cfb479e337fdd9834496cd9ec39409266c281c49883a6c"
+      "sha256": "32326ab828c5cfb524cfb479e337fdd9834496cd9ec39409266c281c49883a6c",
+      "independentReviewChecked": {
+        "by": "REV-AutomorphicLFunctionsAndLocalFactors~2",
+        "date": "2026-10-08",
+        "scope": "Introduction pp.1–4, notation p.6 and generic application p.7; conductor-zero character, characteristic-zero field and generic conductor scope. Public bytes match the recorded SHA-256; named proof-source gaps remain open."
+      }
     },
     {
       "id": "Liu2022",
@@ -773,7 +926,12 @@
       "readSections": [
         "Introduction §1.1 pp.109–112: tensor motive and Rankin–Selberg weight; no later proof claimed read."
       ],
-      "sha256": "dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97"
+      "sha256": "dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97",
+      "independentReviewChecked": {
+        "by": "REV-AutomorphicLFunctionsAndLocalFactors~2",
+        "date": "2026-10-08",
+        "scope": "§1.1 printed pp.109–112, tensor motive weight2n−1 and unitary/motivic centre. Public bytes match the recorded SHA-256; named proof-source gaps remain open."
+      }
     },
     {
       "id": "ChenevierTaibi2020",
@@ -786,7 +944,12 @@
         "Published pp.274–275 §§2.1,2.3: Weil gamma/epsilon conventions and Rankin–Selberg vertical bounds.",
         "codex-zGTLaB (2026-10-08): Published pp.274–275, §2.1 and footnote6, archimedean gamma/epsilon conventions; §2.3, (2.3.1)–(2.3.3) and the quoted vertical-strip bound. The original Gelbart–Shahidi proof remains unread."
       ],
-      "sha256": "ea90fb0faabeaaa56be15f2c6f9c22450e7891c2181130fd79fe356cd83ba3de"
+      "sha256": "ea90fb0faabeaaa56be15f2c6f9c22450e7891c2181130fd79fe356cd83ba3de",
+      "independentReviewChecked": {
+        "by": "REV-AutomorphicLFunctionsAndLocalFactors~2",
+        "date": "2026-10-08",
+        "scope": "§2.3 printed pp.274–275, canonical gamma/epsilon conventions and cited vertical-strip bound. Public bytes match the recorded SHA-256; named proof-source gaps remain open."
+      }
     },
     {
       "id": "Tsimerman2018",
@@ -798,7 +961,12 @@
       "readSections": [
         "CM quadratic Hecke completion passage, its entirety and conductor convention; remaining geometric arguments not claimed read."
       ],
-      "sha256": "43259ca3cfedfb574bf1fe2f80e1023cb736ea299a76588536fd816340722abc"
+      "sha256": "43259ca3cfedfb574bf1fe2f80e1023cb736ea299a76588536fd816340722abc",
+      "independentReviewChecked": {
+        "by": "REV-AutomorphicLFunctionsAndLocalFactors~2",
+        "date": "2026-10-08",
+        "scope": "Printed p.384 (physical p.6), completed Artin/Hecke consumer conventions; no separate CM-class-number theorem is attributed to AL. Public bytes match the recorded SHA-256; named proof-source gaps remain open."
+      }
     },
     {
       "id": "GanIchino2018",
@@ -808,9 +976,14 @@
       "url": "https://arxiv.org/pdf/1705.10106v3",
       "accessed": "2026-10-07",
       "readSections": [
-        "Isobaric strong multiplicity one application and p.16 almost-tempered exponent bound. Original Jacquet–Shalika proof not read here."
+        "Isobaric strong multiplicity one application and p.17 almost-tempered exponent bound. Original Jacquet–Shalika proof not read here."
       ],
-      "sha256": "5d1408c5f8bc15a5ceec04a465ceb80cb7265da218138d5a746418ee8b4b291d"
+      "sha256": "5d1408c5f8bc15a5ceec04a465ceb80cb7265da218138d5a746418ee8b4b291d",
+      "independentReviewChecked": {
+        "by": "REV-AutomorphicLFunctionsAndLocalFactors~2",
+        "date": "2026-10-08",
+        "scope": "Public pp.11–12,16–17,19; isobaric support and almost-tempered exponent, the latter on p.17. Public bytes match the recorded SHA-256; named proof-source gaps remain open."
+      }
     },
     {
       "id": "CaraianiScholze2017",
@@ -822,7 +995,12 @@
       "readSections": [
         "p.742 Lemma5.5.1 and its residual-support/multiplicity-one argument."
       ],
-      "sha256": "4f9449e5ecfd8fb8b43a04acef73060f531be995babaa9f744f3db36aaa5e61a"
+      "sha256": "4f9449e5ecfd8fb8b43a04acef73060f531be995babaa9f744f3db36aaa5e61a",
+      "independentReviewChecked": {
+        "by": "REV-AutomorphicLFunctionsAndLocalFactors~2",
+        "date": "2026-10-08",
+        "scope": "Printed p.742, Lemma5.5.1 isobaric support consumer. Public bytes match the recorded SHA-256; named proof-source gaps remain open."
+      }
     },
     {
       "id": "AllenEtAl2023",
@@ -834,7 +1012,12 @@
       "readSections": [
         "pp.1096–1097 Corollary7.1.13: the strict Jacquet–Shalika Satake bound used in the consumer."
       ],
-      "sha256": "c5429e4f384384045dbb48502d71547bb21699783c0f77cce27b24e742467f02"
+      "sha256": "c5429e4f384384045dbb48502d71547bb21699783c0f77cce27b24e742467f02",
+      "independentReviewChecked": {
+        "by": "REV-AutomorphicLFunctionsAndLocalFactors~2",
+        "date": "2026-10-08",
+        "scope": "Printed pp.1096–1097, analytic local-factor and automorphic classification consumer. Public bytes match the recorded SHA-256; named proof-source gaps remain open."
+      }
     },
     {
       "id": "CalegariGeraghty2020",
@@ -844,9 +1027,14 @@
       "url": "https://math.uchicago.edu/~fcale/papers/Siegel.pdf",
       "accessed": "2026-10-07",
       "readSections": [
-        "Advance-publication pp.85,87 (journal pp.885,887), AppendixA PropositionA.5 proof and A.3 statement; A.3 proof not read in full."
+        "Advance-publication pp.85,87 (journal pp.885,887), AppendixA LemmaA.5 proof and A.3 statement; A.3 proof not read in full."
       ],
-      "sha256": "fff305877c7e6b9d32ca9a8b4a56f7f3b343695fc737184d1a3a1b78f195cfa5"
+      "sha256": "fff305877c7e6b9d32ca9a8b4a56f7f3b343695fc737184d1a3a1b78f195cfa5",
+      "independentReviewChecked": {
+        "by": "REV-AutomorphicLFunctionsAndLocalFactors~2",
+        "date": "2026-10-08",
+        "scope": "Advance-publication pp.85,87 (journal pp.885,887), AppendixA LemmasA.3/A.5; corrected theorem-kind metadata. Public bytes match the recorded SHA-256; named proof-source gaps remain open."
+      }
     },
     {
       "id": "BeuzartPlessisChaudouardZydor2022",
@@ -858,7 +1046,12 @@
       "readSections": [
         "Published p.284 §6.2.3: Rankin–Selberg nonvanishing inputs quoted from JS/Shahidi; p.321 §10.1.6.1: Ramakrishnan application. No proof of the original analytic inputs is claimed read."
       ],
-      "sha256": "a07a6143d3e71f1eca31b6ba9b774bec325a7de07c7417b7796486a77df13794"
+      "sha256": "a07a6143d3e71f1eca31b6ba9b774bec325a7de07c7417b7796486a77df13794",
+      "independentReviewChecked": {
+        "by": "REV-AutomorphicLFunctionsAndLocalFactors~2",
+        "date": "2026-10-08",
+        "scope": "Printed pp.284,321, RS nonvanishing/pairing consumers. Public bytes match the recorded SHA-256; named proof-source gaps remain open."
+      }
     },
     {
       "id": "BCGP2025",
@@ -871,7 +1064,12 @@
         "§1.8.25 p.16: constituent-specific arithmetic shifts and established exterior-power applications.",
         "codex-zGTLaB (2026-10-08): Definition1.8.25, p.16, constituent-specific arithmetic shifts and the conditional use of known exterior-power transfers."
       ],
-      "sha256": "51d7eacca6eae394943f09ab72dfe09ee9aa6da27f563be8237c416e5da4e95c"
+      "sha256": "51d7eacca6eae394943f09ab72dfe09ee9aa6da27f563be8237c416e5da4e95c",
+      "independentReviewChecked": {
+        "by": "REV-AutomorphicLFunctionsAndLocalFactors~2",
+        "date": "2026-10-08",
+        "scope": "Public p.16 Definition1.8.25, shifted isobaric constituents and conditional transfer factor comparison. Public bytes match the recorded SHA-256; named proof-source gaps remain open."
+      }
     },
     {
       "id": "CogdellFields",
@@ -884,7 +1082,12 @@
         "Lectures 4–9: Fourier expansion, mirabolic Eisenstein series, local integrals and global analytic properties; all corresponding passages read. Lectures 10–13 not claimed read.",
         "codex-zGTLaB (2026-10-08): Lecture4 §2–§3, printed pp.31–34 (PDF pp.35–38), uniqueness/genericity/factorization and ordinary multiplicity one; Lecture5 §1, Proposition5.4, printed pp.41–42 (PDF pp.45–46), character-dependent poles of the mirabolic series."
       ],
-      "sha256": "2c5ec050a6db216dcd2104b7fe266ddc03e4db7c7d300239e60d6ee9c40618a7"
+      "sha256": "2c5ec050a6db216dcd2104b7fe266ddc03e4db7c7d300239e60d6ee9c40618a7",
+      "independentReviewChecked": {
+        "by": "REV-AutomorphicLFunctionsAndLocalFactors~2",
+        "date": "2026-10-08",
+        "scope": "Lecture4 printed pp.29–35 (Fourier/multiplicity); Lecture5 pp.37–46 (projections/mirabolic integrals); Lecture6 pp.47–51 (finite factors); Lectures8–9 pp.57–76 (archimedean/global factors, unitary convergence and SMO). Public bytes match the recorded SHA-256; named proof-source gaps remain open."
+      }
     },
     {
       "id": "CogdellIntegrals",
@@ -897,7 +1100,12 @@
         "§1.1.3: theta-Mellin construction of mirabolic Eisenstein series and its continuation.",
         "codex-zGTLaB (2026-10-08): §1.1.3, pp.4–5, theta-Mellin construction of the mirabolic Eisenstein series, character-dependent poles, Poisson continuation and its Rankin–Selberg use."
       ],
-      "sha256": "af30e11206e1d5c661bb75c9ee938048d9b39cd64463a18893add4321ab7b2b7"
+      "sha256": "af30e11206e1d5c661bb75c9ee938048d9b39cd64463a18893add4321ab7b2b7",
+      "independentReviewChecked": {
+        "by": "REV-AutomorphicLFunctionsAndLocalFactors~2",
+        "date": "2026-10-08",
+        "scope": "§1.1.2–§1.1.3 pp.4–5, unequal-rank projection and character-dependent mirabolic poles/FE. Public bytes match the recorded SHA-256; named proof-source gaps remain open."
+      }
     },
     {
       "id": "HumphriesArch",
@@ -910,7 +1118,12 @@
         "§§2.3–2.4: Godement–Jacquet and Rankin–Selberg integrals, gamma factors and epsilon conventions.",
         "codex-zGTLaB (2026-10-08): §2.3.2–§2.4.1, pp.5–6, shifted Godement–Jacquet integral (2.3), initial convergence and the normalized constant-term-one denominator. The GLₙ scope is retained."
       ],
-      "sha256": "65f97ab8a26952e5a47fd0b38dffa506c229f8b61316b273da656a550291519a"
+      "sha256": "65f97ab8a26952e5a47fd0b38dffa506c229f8b61316b273da656a550291519a",
+      "independentReviewChecked": {
+        "by": "REV-AutomorphicLFunctionsAndLocalFactors~2",
+        "date": "2026-10-08",
+        "scope": "§2.1–§2.4 pp.2–9: measure/character, Whittaker-type induction, integral definitions, exact factor products and inverse-character transpose FE. This is not a full newform-monograph proof audit. Public bytes match the recorded SHA-256; named proof-source gaps remain open."
+      }
     },
     {
       "id": "HumphriesGJ",
@@ -922,7 +1135,12 @@
       "readSections": [
         "Entire paper §§1–5 and bibliography: newform projector, propagation and proof of Theorem1.2."
       ],
-      "sha256": "5c67c966576d4692067a91019fcfc1140d1a75ed68102c2629f3d09d125556dd"
+      "sha256": "5c67c966576d4692067a91019fcfc1140d1a75ed68102c2629f3d09d125556dd",
+      "independentReviewChecked": {
+        "by": "REV-AutomorphicLFunctionsAndLocalFactors~2",
+        "date": "2026-10-08",
+        "scope": "The full public seven-page note: Theorem1.2, spherical/essential tests, propagation and §5 newform proof. Public bytes match the recorded SHA-256; named proof-source gaps remain open."
+      }
     },
     {
       "id": "JacquetArch",
@@ -935,7 +1153,12 @@
         "§§1–2 read in full, §3 through coarse majorization Proposition3.2, §12.1 through Proposition12.2; remaining proof sections not claimed read.",
         "codex-zGTLaB (2026-10-08): §2, author pp.5–6 and8–10: growth-space definition, continuous completed tensor extension, Theorems2.6–2.7 and Remark2.8. These checks concern exact statement scope; §§12–16 proof closure is not claimed."
       ],
-      "sha256": "7a11766eadf25fb7452ce7faa193469791796f572fc654c8fe90a8608bb46afe"
+      "sha256": "7a11766eadf25fb7452ce7faa193469791796f572fc654c8fe90a8608bb46afe",
+      "independentReviewChecked": {
+        "by": "REV-AutomorphicLFunctionsAndLocalFactors~2",
+        "date": "2026-10-08",
+        "scope": "§§1–2 pp.1–10; Proposition3.2/Lemma3.12 pp.19–20; §12.1 Proposition12.2 pp.83–85. Theorem2.6 growth space and Theorem2.7/Remark2.8 restrictions checked; other majorization/induction interiors remain G7. Public bytes match the recorded SHA-256; named proof-source gaps remain open."
+      }
     },
     {
       "id": "Borel1979",
@@ -948,7 +1171,12 @@
         "Page images: pp.27–29 introduction/root datum, pp.46–55 §§10–15 including local factors, convergence and the distinction between theorems and conjectures.",
         "codex-zGTLaB (2026-10-08): Page images of published pp.46–51 and54–55 (two-page scan PDF pp.11–13 and15): archimedean parametrization, standard GLₙ factors, Theorem13.2, the distinction between general-r analytic expectations and standard-factor theorems, and conditional lifting in §16.1."
       ],
-      "sha256": "f4b555981613068bea9c2b2fdda493825e326742f4f987f01ad5b220f7e5a3e0"
+      "sha256": "f4b555981613068bea9c2b2fdda493825e326742f4f987f01ad5b220f7e5a3e0",
+      "independentReviewChecked": {
+        "by": "REV-AutomorphicLFunctionsAndLocalFactors~2",
+        "date": "2026-10-08",
+        "scope": "Printed pp.46–55, especially §§12–14 and §16.1; sideways scan inspected as images for parameter scope, convergence and conditional lifting. Public bytes match the recorded SHA-256; named proof-source gaps remain open."
+      }
     },
     {
       "id": "CogdellConverse",
@@ -961,7 +1189,12 @@
       "readSections": [
         "§2, pp.5–6; §3, Theorems3.1–3.3 and their proof outlines, pp.6–9. Original proof interiors are not claimed read.",
         "codex-zGTLaB (2026-10-08): §2 and §3, pp.5–9: admissible tensor/automorphic central character/initial convergence hypotheses, full-rank Theorem3.1 and reduced-rank Theorem3.3, including the exceptional-set conclusion. Original proof interiors and the highly ramified T variant remain G16."
-      ]
+      ],
+      "independentReviewChecked": {
+        "by": "REV-AutomorphicLFunctionsAndLocalFactors~2",
+        "date": "2026-10-08",
+        "scope": "Full- and reduced-rank PSCT statements and proof outlines, pp.5–9. The original spectral/Fourier proof interiors remain G16. Public bytes match the recorded SHA-256; named proof-source gaps remain open."
+      }
     }
   ],
   "nodes": [
@@ -1754,7 +1987,10 @@
         "AutomorphicLFunctionsAndLocalFactors:AL.0/local-schwartz-bruhat-space",
         "AutomorphicLFunctionsAndLocalFactors:AL.0/local-fourier-inversion",
         "AdelicAlgebraicGroups:AA.0",
-        "mathlib:SchwartzMap"
+        "mathlib:SchwartzMap",
+        "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-5-full-adeles-and-the-additive-quotient",
+        "AdelicAlgebraicGroups:AA.0/restricted-haar-product",
+        "AdelicAlgebraicGroups:AA.0/restricted-haar-split"
       ],
       "acceptance": [
         "Check that the standard function f^o = ⊗ f_v^o with Gaussians at the infinite places lies in S(𝔸) and is self-dual up to the constants N𝔡_v^{−1/2} at the finitely many v with 𝔡_v ≠ O_v (Tate p. 56).",
@@ -1859,17 +2095,21 @@
         "Tate's conditions: continuity and integrability of f and f̂ on 𝔸, uniform convergence of the periodised sums, absolute convergence of Σ f̂."
       ],
       "proofSteps": [
-        "Discreteness of k and compactness of 𝔸/k (GlobalNumberFields Layer 5); k^* ⊇ k and k^*/k is a finite k-vector space, hence k^* = k.",
-        "Lemma 4.2.1: for continuous periodic φ, ∫_D φ = the Haar integral on 𝔸/k normalised to volume 1; the Fourier coefficients of φ are indexed by k.",
-        "Lemma 4.2.2: Fourier inversion on the compact group 𝔸/k when the coefficients are summable. Lemma 4.2.3: the coefficients of Σ_ξ f(x + ξ) are f̂(ξ).",
-        "Combine at x = 0 for (ii). For (iii) apply (ii) to g(x) = f(𝔞x), whose transform is |𝔞|^{−1}f̂(x/𝔞) by the change of variables y ↦ y/𝔞.",
-        "The volume of D is 1: running the argument with an unknown volume μ(D) and iterating gives μ(D)² = 1 (Tate p. 43)."
+        "Use local additive self-duality and restricted-product continuity to identify adelic characters. The annihilator k* contains k; it is discrete, and k*/k is a closed discrete subgroup of the compact additive quotient. Thus k*/k has finite cardinality. It is a k-vector space with k infinite, so it is zero. Finite dimension alone would not give this conclusion (Tate §4.1, Theorem4.1.4, physical p.40).",
+        "Periodize f on the compact group 𝔸/k. Its character Fourier coefficients are the local-to-global transforms f̂(ξ), by integrability, a fundamental-domain integration formula and Tate Lemma4.2.3.",
+        "Import CompactGroups Layer6 completeness of characters for a compact abelian group. Absolute summability gives a uniformly convergent continuous Fourier series with these coefficients; Hilbert-basis uniqueness makes it equal almost everywhere to the periodization, and continuity plus full support of Haar makes the equality pointwise. This proves the summable-coefficient form needed here without constructing a second Peter–Weyl theory.",
+        "The self-dual quotient volume is1: retain an unknown positive covolume in the identity and apply Fourier inversion twice, giving its square equal to1 (Tate physical p.43).",
+        "Evaluate the periodization at zero. For the idele-scaled identity apply this to f(𝔞x); normalized local absolute values and restricted Haar give the factor |𝔞|^(−1)."
       ],
       "prerequisites": [
         "AutomorphicLFunctionsAndLocalFactors:AL.0/adelic-schwartz-bruhat-space",
         "AutomorphicLFunctionsAndLocalFactors:AL.0/local-fourier-inversion",
         "AdelicAlgebraicGroups:AA.0",
-        "mathlib:Real.tsum_exp_neg_mul_int_sq"
+        "mathlib:Real.tsum_exp_neg_mul_int_sq",
+        "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-5-full-adeles-and-the-additive-quotient",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups#layer-6-characters-of-compact-groups",
+        "AutomorphicLFunctionsAndLocalFactors:AL.0/local-additive-self-duality",
+        "AdelicAlgebraicGroups:AA.0/restricted-haar-product"
       ],
       "acceptance": [
         "Check the case k = ℚ with f = 1_Ẑ ⊗ e^{−πx²} and 𝔞 = t ∈ ℝ_{>0}: (iii) becomes θ(1/t²) = t θ(t²) for θ(y) = Σ e^{−πyn²}, Mathlib's Real.tsum_exp_neg_mul_int_sq."
@@ -1882,13 +2122,13 @@
       "sources": [
         {
           "sourceId": "Tate1950",
-          "locator": "§4.2, physical pp. 40–43, Lemmas 4.2.1–4.2.4 and Theorem 4.2.1",
-          "match": "Tate's Riemann–Roch theorem (1/|𝔞|)Σ f̂(ξ/𝔞) = Σ f(𝔞ξ), with Lemmas 4.2.1–4.2.4 (the Poisson formula)."
+          "locator": "§4.1 Theorem4.1.4, physical p.40; §4.2 Lemmas4.2.1–4.2.4 and Theorem4.2.1, physical pp.41–43",
+          "match": "The annihilator calculation, compact-quotient Fourier argument and self-dual covolume yield the number-field Poisson and idele-scaled identities under the stated summability assumptions."
         },
         {
           "sourceId": "Kudla2004",
-          "locator": "§4, printed p. 128 (physical p. 20)",
-          "match": "Kudla reduces Theorem 4.3 to this Poisson argument, citing Tate pp. 339–341 of the reprint."
+          "locator": "§4, printed p.128 (physical p.20)",
+          "match": "The global continuation uses the same adelic Poisson identity."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1959,7 +2199,9 @@
       "prerequisites": [
         "mathlib:ContinuousMonoidHom",
         "AutomorphicLFunctionsAndLocalFactors:AL.0/local-schwartz-bruhat-space",
-        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors"
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors",
+        "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-0-places-completions-and-the-product-formula",
+        "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-10-archimedean-characters-infinity-types-and-cyclotomic-arithmetic"
       ],
       "acceptance": [
         "Check that c(ωω_s) = c(ω) for every s: twisting by an unramified character does not change the conductor.",
@@ -2861,10 +3103,10 @@
         "ω a character (unitary), ramified."
       ],
       "proofSteps": [
-        "f̂^o(x) = ∫_{O^×}ω^{−1}(y)ψ(xy)dy vanishes unless ord x = −ν − c: for ord x ≥ −ν it is ∫_{O^×}ω^{−1} = 0, and for −ν > ord x > −ν − c break O^× into cosets of 1 + P^{−ν−ord x}, on which ψ(x·) is constant and ω^{−1} integrates to 0 (Tate p. 25, cases 1 and 2).",
-        "For ord x = −ν − c substitute y ↦ yu to get (3.31).",
-        "Apply (3.31) twice with f̂̂(x) = f(−x) to get 𝔤·conj 𝔤 = 1 (Kudla p. 125).",
-        "Replacing ϖ by ϖu multiplies ω(ϖ^{ν+c}) by ω(u)^{ν+c} and, after the substitution y ↦ u^{ν+c}y, the integral by ω(u)^{−(ν+c)}; so ω(ϖ^{ν+c})𝔤 is unchanged."
+        "At ord(x)=−ν−c, change the unit variable by the unit part of x and apply the Gauss-sum definition with the chosen self-dual measure.",
+        "If ord(x)>−ν−c, minimality of c gives u∈1+P^(c−1) with ω(u)≠1 (for c=1 use O×). Substitution t↦ut preserves the additive integrand because ord(x)+(c−1)≥−ν, while multiplying the character factor nontrivially; the integral vanishes.",
+        "If ord(x)<−ν−c, split O× into additive cosets modulo P^c. The multiplicative character is constant on each coset, while h↦ψ(xh) on P^c is nontrivial since ord(x)+c<−ν. Translation invariance forces each coset integral to vanish.",
+        "Use conjugation, unitarity and the Gauss-sum product identity to obtain the asserted modulus and normalization."
       ],
       "prerequisites": [
         "AutomorphicLFunctionsAndLocalFactors:AL.1/local-quasicharacter-conductor",
@@ -2969,7 +3211,7 @@
       "proofSteps": [
         "(i): for ν = 0, f̂^o = f^o, so ε = 1 by (3.27); general ν by (3.29) with ψ = ψ₀(ϖ^ν·).",
         "(ii): (3.27) and the Gauss-sum node's (3.31); conj f^o is the standard function for ω^{−1}.",
-        "(iii): f̂_a = i^a f_a by (2πi)^{−a}D_x^a applied to the Gaussian transform (3.33), and f_a is standard for ω^{−1} = ωω₂.",
+        "(iii): f̂_a = i^a f_a by (2πi)^{−a}D_x^a applied to the Gaussian transform (3.33), and f_a is standard for ω^{−1} = ωω_(2a).",
         "(iv): f̂_{a,b} = i^{a+b}f_{b,a} (3.34), f_{b,a} standard for ω^{−1}, and a + b = max(a, b). Tate p. 22 proves f̂_n = i^{|n|}f_n by induction with 𝒟 = (1/4πi)(∂_x + i∂_y)."
       ],
       "prerequisites": [
@@ -3029,7 +3271,8 @@
         "AutomorphicLFunctionsAndLocalFactors:AL.1/local-uniqueness-theorem",
         "AutomorphicLFunctionsAndLocalFactors:AL.1/unramified-local-theory",
         "AutomorphicLFunctionsAndLocalFactors:AL.1/ramified-local-theory",
-        "AutomorphicLFunctionsAndLocalFactors:AL.1/archimedean-local-theory"
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/archimedean-local-theory",
+        "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters"
       ],
       "acceptance": [
         "Check that the product ∏⟨z₀(s, ω_v), f_v^o⟩ = 1 for the standard f^o = ⊗f_v^o, so ⟨z₀(s, ω), f^o⟩ = 1.",
@@ -3078,7 +3321,10 @@
         "AutomorphicLFunctionsAndLocalFactors:AL.1/unramified-local-theory",
         "AutomorphicLFunctionsAndLocalFactors:AL.1/global-eigendistributions",
         "AdelicAlgebraicGroups:AA.0",
-        "AutomorphicLFunctionsAndLocalFactors:AL.0/schwartz-parameter-domination"
+        "AutomorphicLFunctionsAndLocalFactors:AL.0/schwartz-parameter-domination",
+        "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters",
+        "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-3-local-factors-and-euler-products",
+        "AdelicAlgebraicGroups:AA.0/restricted-haar-split"
       ],
       "acceptance": [
         "Check for k = ℚ, ω = 1, f = f^o: z(s, 1; f^o) = Γ_ℝ(s)∏_p(1 − p^{−s})^{−1} = Γ_ℝ(s)ζ(s) = completedRiemannZeta s for Re s > 1."
@@ -3185,7 +3431,8 @@
         "AutomorphicLFunctionsAndLocalFactors:AL.1/unramified-local-theory",
         "AutomorphicLFunctionsAndLocalFactors:AL.1/ramified-local-theory",
         "AutomorphicLFunctionsAndLocalFactors:AL.1/archimedean-local-theory",
-        "AutomorphicLFunctionsAndLocalFactors:AL.1/global-zeta-integral"
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/global-zeta-integral",
+        "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-3-local-factors-and-euler-products"
       ],
       "acceptance": [
         "Check k = ℚ, ω = 1: Λ(s, 1) = Γ_ℝ(s)ζ(s) = completedRiemannZeta s."
@@ -3280,7 +3527,7 @@
       ],
       "title": "The volume κ of the norm-one idele class group (Tate Lemma 4.3.1, Theorem 4.3.2)",
       "kind": "lemma",
-      "statement": "With Tate's measures (d^×α = (N𝔭/(N𝔭 − 1))|α|^{−1}dα at finite v, so vol(O_v^×) = N𝔡_v^{−1/2}; dα/|α| at real v; 2r dr dθ/r² at complex v), the product decomposition 𝔸^× = T × J (T ≅ ℝ_{>0} at a chosen archimedean place, dt/t) and d^×𝔞 = dt·d^×𝔟, the fundamental domain E for J/k^× built from the units and h ideal-class representatives satisfies (1) J = ⊔_{α∈k^×}αE and (2) vol(E) = κ = 2^{r₁}(2π)^{r₂}hR/(w√|d|), where R is the regulator, h the class number, w the number of roots of unity and d the discriminant. κ agrees with the arithmetic expression defining native NumberField.dedekindZeta_residue K; Mathlib already proves its real one-sided residue identification via NumberField.tendsto_sub_one_mul_dedekindZeta_nhdsGT. The extra analytic task is its comparison with this adelic measure and the full complex Tate continuation. Discreteness and compactness are imported from GlobalNumberFields, not reproved here. A change to finite multiplicative unit-volume1 rescales κ by sqrt(|d|).",
+      "statement": "With Tate's measures (d^×α = (N𝔭/(N𝔭 − 1))|α|^{−1}dα at finite v, so vol(O_v^×) = N𝔡_v^{−1/2}; dα/|α| at real v; 2r dr dθ/r² at complex v), the product decomposition 𝔸^× = T × J (T ≅ ℝ_{>0} at a chosen archimedean place, dt/t) and d^×𝔞 = (dt/t)·d^×𝔟, the fundamental domain E for J/k^× built from the units and h ideal-class representatives satisfies (1) J = ⊔_{α∈k^×}αE and (2) vol(E) = κ = 2^{r₁}(2π)^{r₂}hR/(w√|d|), where R is the regulator, h the class number, w the number of roots of unity and d the discriminant. κ agrees with the arithmetic expression defining native NumberField.dedekindZeta_residue K; Mathlib already proves its real one-sided residue identification via NumberField.tendsto_sub_one_mul_dedekindZeta_nhdsGT. The extra analytic task is its comparison with this adelic measure and the full complex Tate continuation. Discreteness and compactness are imported from GlobalNumberFields, not reproved here. A change to finite multiplicative unit-volume1 rescales κ by sqrt(|d|).",
       "hypotheses": [
         "k a number field, 𝔸 = 𝔸_k, 𝔸^× the ideles with |x| = ∏|x_v|_v, J = {|x| = 1}; ω = ⊗ω_v a character of 𝔸^×/k^× (a Hecke character in the sense of GlobalNumberFields Layer 9); ω_s(x) = |x|^s.",
         "Tate's measures, not Kudla's: the value of κ depends on vol(O_v^×) = N𝔡_v^{−1/2}."
@@ -3298,7 +3545,9 @@
         "mathlib:NumberField.Units.torsionOrder",
         "mathlib:NumberField.discr",
         "AdelicAlgebraicGroups:AA.0",
-        "mathlib:NumberField.tendsto_sub_one_mul_dedekindZeta_nhdsGT"
+        "mathlib:NumberField.tendsto_sub_one_mul_dedekindZeta_nhdsGT",
+        "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-0-places-completions-and-the-product-formula",
+        "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-6-additive-strong-approximation-and-ideles"
       ],
       "acceptance": [
         "Check k = ℚ: r₁ = 1, r₂ = 0, h = R = 1, w = 2, d = 1, so κ = 1."
@@ -3624,11 +3873,13 @@
       "proofSteps": [
         "At infinity use exp(−cu/2) times a power of u; after u↦1/u the same bound controls zero, uniformly when ν ranges over a compact set.",
         "Every ν-derivative inserts (log u)^j, still dominated by an integrable function on compact parameter sets.",
-        "Use the checked parametric-integral theorem; substitution u↦1/u proves evenness in ν."
+        "Use the checked parametric-integral theorem; substitution u↦1/u proves evenness in ν.",
+        "For the API value K_(1/2)(c), symmetrize u and u^(−1) in the integral and use t=√(c/2)(√u−1/√u). The paired Jacobians reduce it to the Gaussian integral, giving √(π/(2c)) exp(−c), as recorded before Zhang Lemma12.3 on printed p.942. This value is a proof leaf of the existing definition, not a separate theorem target."
       ],
       "prerequisites": [
         "mathlib:hasDerivAt_integral_of_dominated_loc_of_deriv_le",
-        "mathlib:mellin_differentiableAt_of_isBigO_rpow"
+        "mathlib:mellin_differentiableAt_of_isBigO_rpow",
+        "mathlib:Complex.integral_cpow_mul_exp_neg_mul_Ioi"
       ],
       "acceptance": [
         "K_{1/2}(1)=sqrt(π/2)/e.",
@@ -3993,7 +4244,8 @@
       "proofSteps": [
         "Use the local matrix distribution functional equation.",
         "At finite places exploit the principal fractional ideal; at infinity use the Langlands gamma comparison.",
-        "Normalize γ=ε L(1−s,π∨)/L(s,π); verify the rank-one Tate reduction."
+        "Normalize γ=ε L(1−s,π∨)/L(s,π); verify the rank-one Tate reduction.",
+        "Humphries (2.15) uses the inverse additive character and tr(X·tY), with β̃(g)=β(tg^(−1)). Apply that formula with the inverse of the packet character, then substitute Y↦tY and g↦tg. Transpose preserves the additive and group Haar measures; this gives the packet positive tr(XY) pairing and β̌(g)=β(g^(−1)). The rank-one epsilon becomes i^a with this character convention."
       ],
       "prerequisites": [
         "AutomorphicLFunctionsAndLocalFactors:AL.2/standard-local-l-factor",
@@ -4012,8 +4264,8 @@
       "sources": [
         {
           "sourceId": "HumphriesArch",
-          "locator": "§2.4.4 (2.15)",
-          "match": "The named construction/result in this passage; all normalizations in the statement are explicit."
+          "locator": "§2.4.4, formula(2.15), p.7; additive character convention §2.1.1 p.3",
+          "match": "The source uses inverse-character transpose Fourier transform and transpose-inverse matrix coefficient. Inverting the character and changing variables by transpose gives the positive plain-trace convention in this node."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4042,7 +4294,8 @@
         "AutomorphicLFunctionsAndLocalFactors:AL.2/godement-jacquet-integral",
         "AutomorphicLFunctionsAndLocalFactors:AL.2/standard-local-l-factor",
         "SmoothRepresentationsOfLocalGroups:SR.5",
-        "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-unramified-test"
+        "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-unramified-test",
+        "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-induced-factor-product"
       ],
       "acceptance": [
         "For n=1 and a ramified character the integral reduces to its standard unit-supported test and gives L=1.",
@@ -4344,7 +4597,7 @@
       ],
       "title": "Local convergence and continuity",
       "kind": "theorem",
-      "statement": "For fixed generic π_n,π_m, all Ψ_j converge absolutely in a right half-plane, locally uniformly in s; at infinity they are jointly continuous bilinear forms on the smooth Fréchet models, extending to the completed projective tensor product.",
+      "statement": "For fixed generic π_n,π_m, all Ψ_j converge absolutely in a right half-plane, locally uniformly in s; at infinity they are jointly continuous bilinear forms on the smooth Fréchet models, extending to the completed projective tensor product. If both irreducible generic inputs are unitary, the local integrals converge absolutely for Re(s)≥1; this closed boundary estimate is needed in the strong multiplicity-one argument.",
       "hypotheses": [
         "Parameters in compact sets require the uniform seminorm estimates; a K-finite algebraic tensor statement alone is insufficient."
       ],
@@ -4369,9 +4622,14 @@
       },
       "sources": [
         {
+          "sourceId": "CogdellFields",
+          "locator": "Lecture6 Proposition6.2(i), printed p.47 (physical p.51); Lecture8 Proposition8.2, printed p.63 (physical p.67)",
+          "match": "The finite and archimedean integral estimates give convergence in a right half-plane, and throughout Re(s)≥1 for unitary generic representations."
+        },
+        {
           "sourceId": "JacquetArch",
-          "locator": "Theorems2.1–2.3; §§3–5",
-          "match": "The named construction/result in this passage; all normalizations in the statement are explicit."
+          "locator": "§2 Theorem2.1 p.7 and Proposition3.2, pp.19–20",
+          "match": "Compact-picture estimates supply joint continuity and extension to the completed projective tensor product in the convergence region."
         }
       ],
       "implementationStatus": "unchecked"
@@ -4389,7 +4647,7 @@
         "Generic irreducible inputs; finite fractional ideals and archimedean holomorphic modules are distinct."
       ],
       "proofSteps": [
-        "Finite places: prove rationality, common denominator and independence of j using mirabolic derivatives from SR.3.",
+        "Finite places: prove rationality, common denominator and independence of j using mirabolic derivatives from SR.5’s complex specialization.",
         "Infinite places: compare gamma products under AF.1 classification and analyze polar parts of Schwartz Mellin transforms.",
         "Minimality uses nonvanishing test tensors, including completed tensors where needed."
       ],
@@ -4398,7 +4656,8 @@
         "SmoothRepresentationsOfLocalGroups:SR.3",
         "AutomorphicFormsOnReductiveGroups:AF.1/archimedean-llc-gln",
         "AutomorphicLFunctionsAndLocalFactors:AL.1/local-uniqueness-theorem",
-        "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-local-convergence"
+        "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-local-convergence",
+        "SmoothRepresentationsOfLocalGroups:SR.5"
       ],
       "acceptance": [
         "Two unramified characters give (1−αβq^(−s))^(−1).",
@@ -4415,6 +4674,11 @@
           "sourceId": "JacquetArch",
           "locator": "§2 Theorems2.3–2.7; §12.1",
           "match": "The defining integral or factor in this passage."
+        },
+        {
+          "sourceId": "CogdellFields",
+          "locator": "Lecture6 §2, Proposition6.3 and Corollary6.3.1, printed p.48 (physical p.52)",
+          "match": "Finite-place normalized fractional ideals have a finite test sum realizing L and normalized quotients with no common zero; the original denominator proof remains G6."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4467,6 +4731,53 @@
           "statement": "Two ramified characters can have unramified product; multiplying their separate standard L-factors does not compute the tensor L-factor."
         }
       ]
+    },
+    {
+      "id": "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-induced-factor-product",
+      "parentStageId": "AutomorphicLFunctionsAndLocalFactors:AL.3",
+      "realises": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.3"
+      ],
+      "title": "Nonarchimedean factors under normalized induction",
+      "kind": "theorem",
+      "statement": "Let F be nonarchimedean and π=Ind_P^GL_n(⊠_i π_i) and π′=Ind_Q^GL_m(⊠_j π′_j) be irreducible generic normalized inductions, with every block irreducible essentially square-integrable. Then L(s,π)=∏_i L(s,π_i) and L(s,π×π′)=∏_(i,j)L(s,π_i×π′_j). For a rank-one norm character, L(s,π×|·|^t)=L(s+t,π). These are exact identities of normalized local factors, at this finite place.",
+      "hypotheses": [
+        "Use the induced representations themselves, with δ_P^(1/2), not arbitrary irreducible quotients of reducible induction. The irreducible generic range suffices for the newform application; no general nongeneric quotient product theorem is asserted.",
+        "This target is the finite-place product needed by the ramified Godement–Jacquet newform proof. No archimedean induction-compatibility supplier is inferred from the finite SR.2 contract."
+      ],
+      "proofSteps": [
+        "At finite places use the exact standard-factor induction theorem and JPSS tensor-factor product theorem, stated in Humphries §2.4.1. Cogdell Proposition6.6 only gives gamma multiplicativity and L-divisibility and is insufficient to prove this equality; G5/G6 retain the original common-denominator proof refinements.",
+        "For the rank-one norm twist substitute the scalar |·|^t in the defining convergent integrals and use uniqueness of the normalized factor to continue the identity."
+      ],
+      "prerequisites": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-local-factor",
+        "AutomorphicLFunctionsAndLocalFactors:AL.2/standard-local-l-factor",
+        "SmoothRepresentationsOfLocalGroups:SR.2",
+        "SmoothRepresentationsOfLocalGroups:SR.3"
+      ],
+      "acceptance": [
+        "For π′ an unramified principal series with character blocks |·|^(t_j), the identity is L(s,π×π′)=∏_j L(s+t_j,π), the common factor canceled in Humphries §5.",
+        "A reducible induction followed by an unspecified quotient does not satisfy the stated hypotheses; multiplicativity of gamma factors alone cannot certify the normalized L-factor equality."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/AutomorphicLFunctions/AL3",
+        "namespace": "TauCeti.AutomorphicLFunctions.AL3",
+        "declaration": "TauCeti.AutomorphicLFunctions.AL3.RsInducedFactorProduct"
+      },
+      "sources": [
+        {
+          "sourceId": "HumphriesArch",
+          "locator": "§2.2.1–2.2.3 p.4; §2.4.1 formulas(2.4)–(2.6), p.6",
+          "match": "The source defines induced Whittaker type and states the exact standard/tensor product and rank-one shift formulas. The node retains the irreducible generic subrange already supported by the packet factor carriers."
+        },
+        {
+          "sourceId": "HumphriesGJ",
+          "locator": "§5 proof of Theorem1.2, p.6, invoking JPSS1983 §9.5",
+          "match": "The newform proof cancels the exact product of shifted standard factors furnished by an unramified principal-series auxiliary representation."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "addedBy": "REV-AutomorphicLFunctionsAndLocalFactors~2"
     },
     {
       "id": "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-local-functional-equation",
@@ -4572,7 +4883,8 @@
       "prerequisites": [
         "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-local-factor",
         "SmoothRepresentationsOfLocalGroups:SR.5",
-        "IntegralHeckeAndGaloisDeterminants:IHG.3/gln-satake-coefficients"
+        "IntegralHeckeAndGaloisDeterminants:IHG.3/gln-satake-coefficients",
+        "SmoothRepresentationsOfLocalGroups:SR.4"
       ],
       "acceptance": [
         "For n=m=1 the reciprocal polynomial is1−αβT.",
@@ -4746,18 +5058,26 @@
       "kind": "comparison",
       "statement": "For GL_n standard factors and GL_n×GL_m tensor factors, whenever the supplier supplies the local Langlands correspondence with L/ε compatibility, the analytic factors from AL.2/AL.3 equal the Weil–Deligne factors. At an unramified place this reduces to P=det(1−T Fr). For a general L-group r, ramified factors require an actual parameter and are not defined from a spherical class.",
       "hypotheses": [
-        "At infinity import the proved AF.1 archimedean LLC; at finite places the complete parameter-compatibility theorem is a supplier request."
+        "At infinity import the proved AF.1 archimedean LLC; at finite places the complete parameter-compatibility theorem is a supplier request.",
+        "The cited R01.2 epsilon node is for finite extensions of Q_p, with geometric reciprocity/Frobenius and monodromy invariants. R19.4 classical and Hilbert nodes apply only to their GL₂ arithmetic realizations away from the coefficient prime. They supply conditional instances, not general finite GL_n compatibility or an equal-characteristic epsilon theorem.",
+        "Preserve the arithmetic normalization dictionary: the classical weight-k Euler factor uses M=ρ_f^∨ with geometric Frobenius and converts to unitary normalization by the (k−1)/2 shift. In the cited Hilbert instance WD(ρ_π) corresponds to Rec(π⊗|·|^(−1/2)), hence L(WD(ρ_π),s)=L(s−1/2,π). Neither supplier asserts an unshifted equality for ρ itself."
       ],
       "proofSteps": [
         "Use unramified Satake parameter comparison.",
         "At infinity compare Γ_R/Γ_C products on irreducible real/complex Weil constituents.",
-        "Use the finite-place correspondence compatibility theorem only when supplied; do not infer it from an unramified equality."
+        "Use the finite-place correspondence compatibility theorem only when supplied; do not infer it from an unramified equality.",
+        "For the R19.4 instances first translate the dual representation and norm twist by the stated arithmetic dictionary; only then compare to the AL unitary factors."
       ],
       "prerequisites": [
         "AutomorphicLFunctionsAndLocalFactors:AL.4/l-group-local-factor",
         "AutomorphicLFunctionsAndLocalFactors:AL.2/standard-local-l-factor",
         "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-local-factor",
-        "AutomorphicFormsOnReductiveGroups:AF.1/archimedean-llc-gln"
+        "AutomorphicFormsOnReductiveGroups:AF.1/archimedean-llc-gln",
+        "ArithmeticGaloisRepresentations:R01.2/weil-deligne-representation",
+        "ArithmeticGaloisRepresentations:R01.2/local-euler-factor",
+        "ArithmeticGaloisRepresentations:R01.2/local-epsilon-factor",
+        "AutomorphicGaloisRepresentations:R19.4/conductor-and-local-factors-classical",
+        "AutomorphicGaloisRepresentations:R19.4/all-hilbert-local-global-compatibility"
       ],
       "acceptance": [
         "An unramified standard GL₂ parameter with roots α,β gives1−(α+β)T+αβT².",
@@ -5085,6 +5405,7 @@
       "kind": "definition",
       "statement": "For Φ∈S(𝔸^n), unitary idele-class character η and Re(s)>1, E(g,s,Φ,η)=|det g|^s∫_{K×\\𝔸×}Σ_{ξ∈K^n\\{0}}Φ(aξg)|a|^(ns)η(a)d×a. Equivalently E is the sum over P_{n−1,1}(K)\\GL_n(K) of the section f(g,s)=|det g|^s∫_{𝔸×}Φ(ae_ng)|a|^(ns)η(a)d×a.",
       "hypotheses": [
+        "K is a number field; the function-field correspondence, rational factors and periodic poles use their separate GS.6/FA suppliers.",
         "n≥1; self-dual additive Haar and a specified multiplicative Haar; Schwartz topology uses the completed archimedean factors."
       ],
       "proofSteps": [
@@ -5168,14 +5489,14 @@
       ],
       "title": "Continuation and residues of mirabolic Eisenstein series",
       "kind": "theorem",
-      "statement": "E(g,s,Φ,η)=E(t(g^(−1)),1−s,Φ̂,η^(−1)) meromorphically. If η=|·|^(−inσ), the only possible simple poles are s=iσ and1+iσ. For η=1 and κ=vol(K×\\𝔸¹) with Tate measures, the zero-mode terms are −κ|det g|^sΦ(0)/(ns)+κ|det g|^(s−1)Φ̂(0)/(n(s−1)); otherwise the norm-one character integral vanishes.",
+      "statement": "E(g,s,Φ,η)=E(t(g^(−1)),1−s,Φ̂,η^(−1)) meromorphically over a number field. If η=|·|^(−inσ), its only possible simple poles are s=iσ and1+iσ. With κ=vol(K×\\𝔸¹) in the chosen measures, the zero-mode terms in that case are −κ|det g|^sΦ(0)/(n(s−iσ))+κ|det g|^(s−1)Φ̂(0)/(n(s−1−iσ)). If the restriction of η to the norm-one idele class group is nontrivial, both zero-mode integrals vanish. The case η=1 is σ=0.",
       "hypotheses": [
         "Positive Fourier kernel, additive self-duality; n-fold quotient covolume normalized1."
       ],
       "proofSteps": [
-        "Split the a norm at1 and apply Poisson to the small-norm theta sum.",
-        "Integrate the two zero terms separately: the exponent ns gives the factor1/n.",
-        "The two truncated theta integrals are entire by rapid decay; twist s by iσ for the norm-character case."
+        "Split the norm integral at1 and apply Poisson to the small-norm theta sum.",
+        "For η=|·|^(−inσ), use E(g,s,Φ,η)=|det g|^(iσ)E(g,s−iσ,Φ,1); integrate the zero modes with denominators n(s−iσ) and n(s−1−iσ). A character nontrivial on the norm-one quotient has zero average there.",
+        "Schwartz decay makes the two truncated theta integrals entire; the zero modes give the displayed residues and the dual functional equation."
       ],
       "prerequisites": [
         "AutomorphicLFunctionsAndLocalFactors:AL.3/mirabolic-eisenstein-series",
@@ -5184,7 +5505,8 @@
       ],
       "acceptance": [
         "For η=1, g=1, the polar zero modes are−κΦ(0)/(ns)+κΦ̂(0)/(n(s−1)).",
-        "For η=|·|⁻ⁱⁿσ with σ≠0 the poles move to iσ and1+iσ although η is nontrivial; norm-one nontriviality is the criterion that removes them."
+        "For η=|·|⁻ⁱⁿσ with σ≠0 the poles move to iσ and1+iσ although η is nontrivial; norm-one nontriviality is the criterion that removes them.",
+        "For σ=1 the norm-twist zero terms have poles at i and1+i rather than vanishing merely because η≠1."
       ],
       "library": {
         "module": "TauCeti/NumberTheory/AutomorphicLFunctions/AL3",
@@ -5210,6 +5532,7 @@
       "kind": "theorem",
       "statement": "For unitary cuspidal π_n,π_m and pure tensors, the unequal-rank projected cusp integral and the equal-rank integral ∫_{Z_n(𝔸)GL_n(K)\\GL_n(𝔸)}φ(g)φ′(g)E(g,s,Φ,ω_πω_π′)dg unfold to ∏_v Ψ_v(s). For n>m project φ along the unipotent radical of (m+1,1,…,1), with factor |det|^(−(n−m−1)/2), then integrate against φ′|det|^(s−1/2).",
       "hypotheses": [
+        "K is a number field. The function-field rational/periodic-pole branch is treated by the separate function-field nodes.",
         "Initially Re(s)≫0; global character product trivial on K×. Adjacent rank needs no preliminary projection."
       ],
       "proofSteps": [
@@ -5256,6 +5579,7 @@
       "kind": "theorem",
       "statement": "For unitary cuspidal π_n,π_m the completed Λ(s,π_n×π_m) continues meromorphically. It is entire if n≠m. If n=m, its only poles are simple at s=iσ and1+iσ for real σ with π_n∨≅π_m⊗|det|^(iσ). In particular Λ(s,π×π∨) has simple poles at0 and1, and Λ(s,π×π′∨) has a pole at1 iff π≅π′.",
       "hypotheses": [
+        "K is a number field. The function-field rational/periodic-pole branch is treated by the separate function-field nodes.",
         "Holomorphic normalized local quotients have no common zero; all archimedean factors included."
       ],
       "proofSteps": [
@@ -5281,8 +5605,8 @@
       "sources": [
         {
           "sourceId": "CogdellFields",
-          "locator": "Lecture9 §3, pp.71–72",
-          "match": "The named construction/result in this passage; all normalizations in the statement are explicit."
+          "locator": "Lecture9 opening, printed p.69 (physical p.73); §3 Theorems9.1–9.2, printed pp.74–75 (physical pp.78–79)",
+          "match": "In the number-field unitary cuspidal setting, unequal-rank completion is entire and equal-rank poles have the stated norm-twist criterion."
         }
       ],
       "implementationStatus": "unchecked",
@@ -5300,6 +5624,7 @@
       "kind": "theorem",
       "statement": "Λ(s,π×π′)=ε(s,π×π′)Λ(1−s,π∨×π′∨), with ε the finite product of the local factors at ramified/archimedean places. Central-character signs disappear because ∏_vω_{π′_v}(−1)=ω_{π′}(−1)=1. The global product is independent of the chosen global additive character.",
       "hypotheses": [
+        "K is a number field. The function-field rational/periodic-pole branch is treated by the separate function-field nodes.",
         "Use unitary cuspidal representations and consistent quotient measures."
       ],
       "proofSteps": [
@@ -5324,8 +5649,8 @@
       "sources": [
         {
           "sourceId": "CogdellFields",
-          "locator": "Lecture9 §4, p.72",
-          "match": "The named construction/result in this passage; all normalizations in the statement are explicit."
+          "locator": "Lecture9 §3 Theorems9.1–9.2, printed pp.74–75 (physical pp.78–79); integral-to-factor argument printed pp.71–72",
+          "match": "The completed number-field factors satisfy the dual functional equation; local signs and character changes cancel in the global product."
         }
       ],
       "implementationStatus": "unchecked"
@@ -5340,6 +5665,7 @@
       "kind": "theorem",
       "statement": "The completed Λ(s,π×π′) for unitary cuspidal inputs is bounded on finite vertical strips away from its polar points. For m=n or n−1, finite K-finite test realization reduces this to the global-integral bounds. For arbitrary rank gaps use the general Gelbart–Shahidi theorem with its normalized-intertwining-operator hypothesis verified for GL(n).",
       "hypotheses": [
+        "K is a number field; the function-field correspondence, rational factors and periodic poles use their separate GS.6/FA suppliers.",
         "This is a completed-function bound, not a uniform boundedness assertion for the finite Dirichlet series with gamma factors removed."
       ],
       "proofSteps": [
@@ -5424,6 +5750,7 @@
       "kind": "theorem",
       "statement": "If cuspidal π₁,π₂ of GL_n(𝔸_K) have isomorphic local components at all finite places outside a finite set, then π₁≅π₂ globally, including every omitted finite and infinite place; with AL.3/global-multiplicity-one their cusp realizations coincide.",
       "hypotheses": [
+        "K is a number field; the function-field correspondence, rational factors and periodic poles use their separate GS.6/FA suppliers.",
         "Unitarize the central characters consistently; every excluded finite and archimedean local factor is nonzero and finite at s=1, by the local unitary bounds and gamma calculation. Agreement at infinity is a conclusion."
       ],
       "proofSteps": [
@@ -5434,7 +5761,9 @@
       "prerequisites": [
         "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-global-poles",
         "AutomorphicLFunctionsAndLocalFactors:AL.2/jacquet-shalika-satake-bound",
-        "AutomorphicLFunctionsAndLocalFactors:AL.3/global-multiplicity-one"
+        "AutomorphicLFunctionsAndLocalFactors:AL.3/global-multiplicity-one",
+        "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-local-convergence",
+        "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-local-factor"
       ],
       "acceptance": [
         "The self-pair partial product has a simple pole at1 while the unrelated pair has none; deleting finitely many places preserves that distinction.",
@@ -5467,6 +5796,7 @@
       "kind": "theorem",
       "statement": "Given AF’s existence/classification of isobaric sums π=⊞_iτ_i, equality of unramified components almost everywhere determines the multiset of cuspidal constituents τ_i, including multiplicities and norm twists. Thus two isobaric representations with those components are isomorphic. For arbitrary automorphic constituents the conclusion is equality of cuspidal support, not an unproved assertion that every constituent is itself the same representation.",
       "hypotheses": [
+        "K is a number field; the function-field correspondence, rational factors and periodic poles use their separate GS.6/FA suppliers.",
         "Cuspidal support and normalized induction are supplied by AF.1/AF.3, with no duplicate classification here."
       ],
       "proofSteps": [
@@ -5820,7 +6150,8 @@
       "prerequisites": [
         "AutomorphicLFunctionsAndLocalFactors:AL.0/fractional-ideal-annihilator",
         "AutomorphicLFunctionsAndLocalFactors:AL.0/indicator-inversion",
-        "AdelicAlgebraicGroups:AA.0/local-normalized-haar"
+        "AdelicAlgebraicGroups:AA.0/local-normalized-haar",
+        "mathlib:fourierIntegral_gaussian"
       ],
       "acceptance": [
         "d=0 gives μ(O)=1.",
@@ -6711,7 +7042,8 @@
       ],
       "prerequisites": [
         "AutomorphicLFunctionsAndLocalFactors:AL.3/whittaker-model",
-        "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-unramified-test"
+        "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-unramified-test",
+        "FunctionFieldArithmetic:FA.2"
       ],
       "acceptance": [
         "At n_v=0 the diagonal t_v is the identity.",
@@ -6745,12 +7077,13 @@
       ],
       "proofSteps": [
         "Insert the absolutely convergent K integral; exponential bounds justify Fubini.",
-        "Integrate y first using the native gamma integral; the substitution u↦u/(1+u) yields the beta integral.",
+        "Integrate y using Complex.integral_cpow_mul_exp_neg_mul_Ioi in its positive-rate, positive-real-part range. Derive the beta evaluation by multiplying two such gamma integrals and substituting total radius and fraction on the positive quadrant; Fubini is justified by absolute convergence. Then apply u↦u/(1+u) to the remaining integral.",
         "Use compact-parameter domination to extend to t=0 and differentiate near0."
       ],
       "prerequisites": [
         "AutomorphicLFunctionsAndLocalFactors:AL.0/bessel-k",
-        "AutomorphicLFunctionsAndLocalFactors:AL.0/schwartz-parameter-domination"
+        "AutomorphicLFunctionsAndLocalFactors:AL.0/schwartz-parameter-domination",
+        "mathlib:Complex.integral_cpow_mul_exp_neg_mul_Ioi"
       ],
       "acceptance": [
         "At t=0 and Re(s)>0 the half-order K formula recovers the stated gamma quotient.",
@@ -7728,7 +8061,8 @@
       "prerequisites": [
         "AutomorphicLFunctionsAndLocalFactors:AL.5/finite-euler-correction",
         "ModularSymbolsPadicLFunctions:L1",
-        "ModularSymbolsPadicLFunctions:L2"
+        "ModularSymbolsPadicLFunctions:L1/p-stabilised-euler-factors",
+        "ModularSymbolsPadicLFunctions:L2/p-stabilisation"
       ],
       "acceptance": [
         "k=j=0,χ=1,ε(p)=1 gives(1−1/α)².",
@@ -8152,7 +8486,7 @@
     },
     {
       "supplier": "SmoothRepresentationsOfLocalGroups:SR.5",
-      "need": "Supply the actual complex generic Whittaker/derivative specialization, uniqueness, essential vectors and the conductor/newform theorem. The AKY generic theorem is an owner extension of SR.5; no Speh newform construction is owned by AL.",
+      "need": "Supply the actual complex generic Whittaker/derivative specialization, uniqueness, essential vectors and the conductor/newform theorem. The AKY generic theorem is an owner extension of SR.5; no Speh newform construction is owned by AL. Its complex derivative filtration is the finite-place rationality input for the RS factor.",
       "neededBy": [
         "AutomorphicLFunctionsAndLocalFactors:AL.3/whittaker-model",
         "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-local-factor",
@@ -8206,11 +8540,11 @@
     },
     {
       "supplier": "SmoothRepresentationsOfLocalGroups:SR.3",
-      "need": "Supply complex admissible matrix coefficients and torus exponent/Whittaker asymptotic bounds with compact-parameter seminorm control. The Whittaker derivative filtration is the SR.5 complex specialization; AL proves integration estimates, not a second representation category.",
+      "need": "Supply complex admissible matrix coefficients and torus exponent/Whittaker asymptotic bounds with compact-parameter seminorm control. The Whittaker derivative filtration is the SR.5 complex specialization; AL proves integration estimates, not a second representation category. Supply the finite-place essentially square-integrable block classification in the admitted irreducible generic normalized-induction range. Archimedean estimates belong to AF.1.",
       "neededBy": [
         "AutomorphicLFunctionsAndLocalFactors:AL.2/godement-jacquet-convergence",
-        "AutomorphicLFunctionsAndLocalFactors:AL.3/whittaker-compact-parameter-estimates",
-        "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-local-convergence"
+        "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-local-convergence",
+        "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-induced-factor-product"
       ]
     },
     {
@@ -8265,8 +8599,7 @@
       "supplier": "FunctionFieldArithmetic:FA.2",
       "need": "Supply the residue/differential additive character, its local conductor and sum_v n_v deg(v)=2g−2, global self-dual volume and function-field Fourier/idele arithmetic. AL supplies only the analytic Whittaker conductor-shift adapter.",
       "neededBy": [
-        "AutomorphicLFunctionsAndLocalFactors:AL.3/whittaker-conductor-shift",
-        "AutomorphicLFunctionsAndLocalFactors:AL.3/function-field-rs-euler-product"
+        "AutomorphicLFunctionsAndLocalFactors:AL.3/whittaker-conductor-shift"
       ]
     },
     {
@@ -8282,7 +8615,6 @@
       "supplier": "AnalyticNumberTheory:AN.2",
       "need": "Request an AnalyticNumberTheory extension (provisionally AN.2; its current stage is PNT, not an existing Hadamard theorem) to the corrected order≤1 RH product theorem from Yun–Zhang PropositionB.1. Preserve PAPER-YUN-ZHANG-17/E1,E2,E16; AL applies it to automorphic completions rather than replanning general entire-function theory.",
       "neededBy": [
-        "AutomorphicLFunctionsAndLocalFactors:AL.2/standard-order-one",
         "AutomorphicLFunctionsAndLocalFactors:AL.2/standard-superpositivity"
       ]
     },
@@ -8398,6 +8730,20 @@
       "neededBy": [
         "AutomorphicLFunctionsAndLocalFactors:AL.3/rational-period-comparison"
       ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups#layer-6-characters-of-compact-groups",
+      "need": "For a compact Hausdorff second-countable abelian group with probability Haar, supply continuous characters as a complete orthonormal Hilbert basis of L² (Layer6 centralLp is the whole L² here), and uniqueness from equality of all character coefficients. AL derives pointwise reconstruction for a continuous function with absolutely summable coefficients by uniform convergence and Haar full support. Layer5 Peter–Weyl remains the upstream prerequisite, not a new AL construction.",
+      "neededBy": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.0/adelic-poisson-summation"
+      ]
+    },
+    {
+      "supplier": "SmoothRepresentationsOfLocalGroups:SR.2",
+      "need": "Supply normalized parabolic induction with the specified modulus square root, block tensor realization and contragredient compatibility. SR.3 supplies the essentially square-integrable block classification for an irreducible generic induction; AL proves the exact local-factor product on those carriers.",
+      "neededBy": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-induced-factor-product"
+      ]
     }
   ],
   "coverage": [
@@ -8416,6 +8762,7 @@
       "stageId": "AutomorphicLFunctionsAndLocalFactors:AL.1",
       "status": "planned",
       "remaining": [
+        "G1: actual arithmetic/representation interfaces",
         "G3: point-supported distributions"
       ],
       "notes": "Every target and applicable routed paper item has a declaration-level plan. Remaining entries are explicitly scoped proof-source/supplier refinements; neither source-decomposed nor closed is asserted."
@@ -8487,9 +8834,10 @@
       "neededBy": [
         "AutomorphicLFunctionsAndLocalFactors:AL.0/local-additive-self-duality",
         "AutomorphicLFunctionsAndLocalFactors:AL.0/self-dual-haar",
-        "AutomorphicLFunctionsAndLocalFactors:AL.0/fractional-ideal-annihilator"
+        "AutomorphicLFunctionsAndLocalFactors:AL.0/fractional-ideal-annihilator",
+        "AutomorphicLFunctionsAndLocalFactors:AL.0/adelic-poisson-summation"
       ],
-      "detail": "Tate states local self-duality using general LCA theory. The plan specifies a finite-lattice quotient inverse construction; its continuity/surjectivity proof has not been decomposed from a complete read primary proof. The native PontryaginDual carrier supplies no self-duality theorem. Fractional-ideal inverse-different identities require the GNF/LocalFields arithmetic comparison. The trace-dual conductor input belongs to LocalFieldsRamification Layer3; completed trace compatibility is explicitly requested. The AL.0 local self-duality statement is restricted to number-field completions."
+      "detail": "Tate states local self-duality using general LCA theory. The plan specifies a finite-lattice quotient inverse construction; its continuity/surjectivity proof has not been decomposed from a complete read primary proof. The native PontryaginDual carrier supplies no self-duality theorem. Fractional-ideal inverse-different identities require the GNF/LocalFields arithmetic comparison. The trace-dual conductor input belongs to LocalFieldsRamification Layer3; completed trace compatibility is explicitly requested. The AL.0 local self-duality statement is restricted to number-field completions. The adelic topological self-duality transport from the local inverse maps, including restricted-product character continuity and discreteness of the annihilator of the compact quotient, remains a precise refinement of the Poisson proof. Its finite-cardinality conclusion is not inferred from finite vector-space dimension."
     },
     {
       "title": "G3: point-supported distributions",
@@ -8513,7 +8861,8 @@
         "AutomorphicLFunctionsAndLocalFactors:AL.2/standard-local-l-factor",
         "AutomorphicLFunctionsAndLocalFactors:AL.2/godement-jacquet-functional-equation",
         "AutomorphicLFunctionsAndLocalFactors:AL.2/godement-jacquet-spherical-test",
-        "AutomorphicLFunctionsAndLocalFactors:AL.2/global-godement-jacquet"
+        "AutomorphicLFunctionsAndLocalFactors:AL.2/global-godement-jacquet",
+        "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-induced-factor-product"
       ],
       "detail": "The 1972 Springer LNM260 monograph is restricted; its complete local/global proofs were not read. Fresh Humphries §§2.4 and Borel §§13–14 establish the precise interfaces and Humphries1903.02031v2 supplies the full newform proof. Rationality, bounded common denominators, minimality and the matrix-space global continuation need finer proof-source decomposition; neither a definition of the factor nor an unramified test proves them. The Godement Bourbaki exposition is not misidentified as the matrix-space monograph. The standard Re(s)>1 Euler-product proof also needs the self-pair Schur-positivity coefficient comparison and ADS Layer8 finite-abscissa argument, not merely the local q^(1/2) bound."
     },
@@ -8522,9 +8871,11 @@
       "neededBy": [
         "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-local-factor",
         "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-local-functional-equation",
-        "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-unramified-test"
+        "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-unramified-test",
+        "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-induced-factor-product",
+        "AutomorphicLFunctionsAndLocalFactors:AL.2/godement-jacquet-newform-test"
       ],
-      "detail": "Fresh JPSS1983 images cover the introduction and mirabolic continuation Proposition1.4 (pp.380–381), while Cogdell Lectures6/8 state local theorems with proofs/sketches. JPSS main finite-place proof interiors are not freshly read in full. The SR.5 derivative filtration must be connected to rationality/common denominator, j-independence, uniqueness and exact test normalization, rather than treating those conclusions as definitions."
+      "detail": "Fresh JPSS1983 images cover the introduction and mirabolic continuation Proposition1.4 (pp.380–381), while Cogdell Lectures6/8 state local theorems with proofs/sketches. JPSS main finite-place proof interiors are not freshly read in full. The SR.5 derivative filtration must be connected to rationality/common denominator, j-independence, uniqueness and exact test normalization, rather than treating those conclusions as definitions. The exact local induction product, read in Humphries §2.4.1 and used in the newform cancellation, is now its own target. JPSS §9.5 original product proof is not claimed read; Cogdell gamma multiplicativity/L-divisibility does not replace it."
     },
     {
       "title": "G7: archimedean Rankin–Selberg proof refinement",
@@ -8586,7 +8937,7 @@
         "AutomorphicLFunctionsAndLocalFactors:AL.3/motivic-unitary-shift",
         "AutomorphicLFunctionsAndLocalFactors:AL.5/local-conductor-test-vector-comparison"
       ],
-      "detail": "AF.1 supplies the proved archimedean comparison. R19.4 supplies arithmetic local-global compatibility only in its scope. A general finite-place complex GL_n LLC theorem with L/epsilon/monodromy compatibility is not provided by the currently cited generic SR stages. Keep that comparison conditional; the unramified polynomial equality does not imply the ramified theorem."
+      "detail": "AF.1 supplies the proved archimedean comparison. R19.4 supplies arithmetic local-global compatibility only in its scope. A general finite-place complex GL_n LLC theorem with L/epsilon/monodromy compatibility is not provided by the currently cited generic SR stages. Keep that comparison conditional; the unramified polynomial equality does not imply the ramified theorem. R01.2 supplies the characteristic-zero WD carrier, geometric Frobenius local polynomial and epsilon convention; the cited R19.4 classical/Hilbert GL₂ instances retain their coefficient-prime restrictions. Equal-characteristic epsilon compatibility requires a separate supplier."
     },
     {
       "title": "G14: general Hadamard owner refinement",
@@ -8865,9 +9216,16 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Confirmed at the published conductor paragraph: pullback exists when N₀ divides M. A primitive nontrivial character modulo3 induces modulo6, while it cannot be induced from modulo1.",
-        "by": "REV-AutomorphicLFunctionsAndLocalFactors"
-      }
+        "reason": "Confirmed at the published conductor paragraph: pullback exists when N₀ divides M. A primitive nontrivial character modulo3 induces modulo6, while it cannot be induced from modulo1. Freshly collated at the specified public-version locator in this review; edition limits are retained.",
+        "by": "REV-AutomorphicLFunctionsAndLocalFactors~2"
+      },
+      "reviewHistory": [
+        {
+          "verdict": "confirmed",
+          "reason": "Confirmed at the published conductor paragraph: pullback exists when N₀ divides M. A primitive nontrivial character modulo3 induces modulo6, while it cannot be induced from modulo1.",
+          "by": "REV-AutomorphicLFunctionsAndLocalFactors"
+        }
+      ]
     },
     {
       "id": "AutomorphicLFunctionsAndLocalFactors/E2",
@@ -8884,9 +9242,16 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Confirmed in the specified public preprint: the author text is corrupted. The published chapter p.110 correctly credits Ramakrishnan and Valenza; this finding does not apply to that published wording.",
-        "by": "REV-AutomorphicLFunctionsAndLocalFactors"
-      }
+        "reason": "Confirmed in the specified public preprint: the author text is corrupted. The published chapter p.110 correctly credits Ramakrishnan and Valenza; this finding does not apply to that published wording. Freshly collated at the specified public-version locator in this review; edition limits are retained.",
+        "by": "REV-AutomorphicLFunctionsAndLocalFactors~2"
+      },
+      "reviewHistory": [
+        {
+          "verdict": "confirmed",
+          "reason": "Confirmed in the specified public preprint: the author text is corrupted. The published chapter p.110 correctly credits Ramakrishnan and Valenza; this finding does not apply to that published wording.",
+          "by": "REV-AutomorphicLFunctionsAndLocalFactors"
+        }
+      ]
     },
     {
       "id": "AutomorphicLFunctionsAndLocalFactors/E3",
@@ -8903,9 +9268,16 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Confirmed on published p.128: the continuation argument needs (3.23), Corollary3.7 and Proposition3.8; the printed references (3.13)/Proposition3.7 cannot identify that result.",
-        "by": "REV-AutomorphicLFunctionsAndLocalFactors"
-      }
+        "reason": "Confirmed on published p.128: the continuation argument needs (3.23), Corollary3.7 and Proposition3.8; the printed references (3.13)/Proposition3.7 cannot identify that result. Freshly collated at the specified public-version locator in this review; edition limits are retained.",
+        "by": "REV-AutomorphicLFunctionsAndLocalFactors~2"
+      },
+      "reviewHistory": [
+        {
+          "verdict": "confirmed",
+          "reason": "Confirmed on published p.128: the continuation argument needs (3.23), Corollary3.7 and Proposition3.8; the printed references (3.13)/Proposition3.7 cannot identify that result.",
+          "by": "REV-AutomorphicLFunctionsAndLocalFactors"
+        }
+      ]
     },
     {
       "id": "AutomorphicLFunctionsAndLocalFactors/E4",
@@ -8922,9 +9294,16 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Confirmed against published pp.121–122 and the Gaussian Mellin calculation: Γ_R(s) has poles at s=−r with even r≥0, and the x^(−a) Taylor coefficient has derivative order a+r. The printed parity/order combination is inconsistent for a=1.",
-        "by": "REV-AutomorphicLFunctionsAndLocalFactors"
-      }
+        "reason": "Confirmed against published pp.121–122 and the Gaussian Mellin calculation: Γ_R(s) has poles at s=−r with even r≥0, and the x^(−a) Taylor coefficient has derivative order a+r. The printed parity/order combination is inconsistent for a=1. Freshly collated at the specified public-version locator in this review; edition limits are retained.",
+        "by": "REV-AutomorphicLFunctionsAndLocalFactors~2"
+      },
+      "reviewHistory": [
+        {
+          "verdict": "confirmed",
+          "reason": "Confirmed against published pp.121–122 and the Gaussian Mellin calculation: Γ_R(s) has poles at s=−r with even r≥0, and the x^(−a) Taylor coefficient has derivative order a+r. The printed parity/order combination is inconsistent for a=1.",
+          "by": "REV-AutomorphicLFunctionsAndLocalFactors"
+        }
+      ]
     },
     {
       "id": "AutomorphicLFunctionsAndLocalFactors/E5",
@@ -8941,9 +9320,16 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Confirmed in the 1950 public scan: p.24 explicitly evaluates the unit integral with positive N(d)^(1/2); the contradictory negative exponent in p.26 prose also disagrees with its following displayed expression. No assertion is made about the uncollated 1967 edition.",
-        "by": "REV-AutomorphicLFunctionsAndLocalFactors"
-      }
+        "reason": "Confirmed in the 1950 public scan: p.24 explicitly evaluates the unit integral with positive N(d)^(1/2); the contradictory negative exponent in p.26 prose also disagrees with its following displayed expression. No assertion is made about the uncollated 1967 edition. Freshly collated at the specified public-version locator in this review; edition limits are retained.",
+        "by": "REV-AutomorphicLFunctionsAndLocalFactors~2"
+      },
+      "reviewHistory": [
+        {
+          "verdict": "confirmed",
+          "reason": "Confirmed in the 1950 public scan: p.24 explicitly evaluates the unit integral with positive N(d)^(1/2); the contradictory negative exponent in p.26 prose also disagrees with its following displayed expression. No assertion is made about the uncollated 1967 edition.",
+          "by": "REV-AutomorphicLFunctionsAndLocalFactors"
+        }
+      ]
     },
     {
       "id": "AutomorphicLFunctionsAndLocalFactors/E6",
@@ -8961,9 +9347,16 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Confirmed at published p.126: unrestricted converse tensor factorization fails for a rank-two sum of two independent evaluation tensors. The forward normalized restricted product is valid; the converse must be restricted to the one-dimensional ω-eigenline or to an assumed decomposable distribution.",
-        "by": "REV-AutomorphicLFunctionsAndLocalFactors"
-      }
+        "reason": "Confirmed at published p.126: unrestricted converse tensor factorization fails for a rank-two sum of two independent evaluation tensors. The forward normalized restricted product is valid; the converse must be restricted to the one-dimensional ω-eigenline or to an assumed decomposable distribution. Freshly collated at the specified public-version locator in this review; edition limits are retained.",
+        "by": "REV-AutomorphicLFunctionsAndLocalFactors~2"
+      },
+      "reviewHistory": [
+        {
+          "verdict": "confirmed",
+          "reason": "Confirmed at published p.126: unrestricted converse tensor factorization fails for a rank-two sum of two independent evaluation tensors. The forward normalized restricted product is valid; the converse must be restricted to the one-dimensional ω-eigenline or to an assumed decomposable distribution.",
+          "by": "REV-AutomorphicLFunctionsAndLocalFactors"
+        }
+      ]
     }
   ],
   "restructure": [
@@ -9355,10 +9748,632 @@
     }
   ],
   "review": {
-    "status": "needs_changes",
-    "reviewer": "independent-review-REV-FIX-RT-AREA-automorphic-1~4",
+    "status": "accepted",
+    "reviewer": "independent-review-REV-AutomorphicLFunctionsAndLocalFactors~2",
     "date": "2026-10-08",
-    "notes": "Independent review of FIX-RT-AREA-automorphic-1~4 (issue #7280, PR #7314, Codex codex-Z0ErNN) by Claude session claude-95TvAO, following REV-FIX-RT-AREA-automorphic-1~3 and, for this packet, REV-AutomorphicLFunctionsAndLocalFactors (needs_changes). Findings /1, /2, /8, /9, /10, /13 and /14 are correctly fixed in the packet: full- and reduced-rank converse contracts match Cogdell's PSCT Theorems 3.1 and 3.3; the Fourier expansion precedes factorization and proves genericity; mirabolic poles depend on the character (Cogdell Fields Proposition 5.4); AL.3/global-multiplicity-one is ordinary multiplicity one; every AF, AA and ALS supplier id exists and no AF node is credited with genericity; the GL2/Q period interface is scoped to ModularSymbols L1; AL.0 owns Schwartz–Bruhat functions. No packet correction was needed. Status stays needs_changes because this packet's own blueprint review (REV-AutomorphicLFunctionsAndLocalFactors) did not accept it and its revision BP-AutomorphicLFunctionsAndLocalFactors~2 is pending: accepting a narrow fix would promote the whole packet. The reader, unchanged since round 3, still contradicts the corrected packet at ~15 (Haar change said to cancel from normalized distributions), ~1657/1659 (every entire multiple), ~1691/1709/1713 (genericity assumed; Fourier after factorization), ~1829–1837 (an AF global multiplicity-one theorem), ~2175 (Gauss-period twisting law imported) and ~2354/2356 (GL2/F from ModularSymbols L1). Details in the review report."
+    "notes": "Codex codex-8NVOhA: independent target-level review of revision round2, all124 nodes, all68 actual pinned declaration statements, six coverage/audit rows, supplier contracts, APIs/tests/planets, original review and confirmed RT findings2/8/10/13. Corrected28 existing nodes and added one exact finite-place induction-product target; all six source issues freshly confirmed. Packet/reader/suggested file reconciled. Accepted as a complete planning pass with six planned stages,16 explicit proof/supplier gaps and36 requests; no closed stage or implemented theorem is claimed.",
+    "checked": [
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/pairing-annihilator",
+        "verdict": "verified",
+        "note": "The additive subgroup carrier permits a trivial character and a degenerate pairing; the real integer lattice disproves an R-submodule carrier."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/mem-pairing-annihilator",
+        "verdict": "verified",
+        "note": "Membership is exactly triviality on every element of U, with no topological hypothesis."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/closed-annihilator",
+        "verdict": "verified",
+        "note": "Closedness follows from continuous equality loci and arbitrary intersections, not finite generation of U."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/open-annihilator",
+        "verdict": "verified",
+        "note": "Joint local constancy and compactness allow the tube lemma; an infinite intersection of open fibers would be invalid."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/vanishing-from-period",
+        "verdict": "verified",
+        "note": "The native negative-kernel translation identity forces vanishing when the period phase is nontrivial."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/fourier-support",
+        "verdict": "verified",
+        "note": "Ordinary Fourier support lies in the annihilator; topological support is its closure and needs closedness."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/indicator-transform",
+        "verdict": "verified",
+        "note": "The Haar orthogonality formula remains valid for the native totalized integral; the coefficient is μ.real(U)."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/coset-transform",
+        "verdict": "verified",
+        "note": "For f(v−a), the native transform has phase ψ(−L(a,w)); the sign agrees with the pinned definition."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/modulation",
+        "verdict": "verified",
+        "note": "Multiplication by ψ(L(v,b)) shifts the native transform from w to w−b."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/frequency-periods",
+        "verdict": "verified",
+        "note": "Support in a subgroup gives periods in its annihilator without presupposing biduality."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/locally-constant-transform",
+        "verdict": "verified",
+        "note": "Compact support is bounded in a lattice and hence has an open annihilator; this gives local constancy."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/compact-support-transform",
+        "verdict": "verified",
+        "note": "A common open period lattice gives compact annihilator support; a compact-open carrier is required."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/indicator-inversion",
+        "verdict": "verified",
+        "note": "The lattice volume product gives reflection after two transforms; it does not follow from support alone."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/local-schwartz-bruhat-space",
+        "verdict": "verified",
+        "note": "Finite-place functions reuse the SR.1 carrier; real/complex functions reuse SchwartzMap with the chosen pairing."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/local-fourier-inversion",
+        "verdict": "verified",
+        "note": "Finite period-level inversion precedes the local theorem; archimedean native inversion is transported with reflection and complex factor2."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/adelic-schwartz-bruhat-space",
+        "verdict": "corrected",
+        "note": "Completed archimedean tensor factors require density rather than algebraic spanning; explicit GNF topology and restricted Haar inputs were added."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/adelic-poisson-summation",
+        "verdict": "corrected",
+        "note": "The annihilator quotient needs finite cardinality, not finite dimension; compact character completeness and local/global duality now have explicit routes."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/point-supported-distributions",
+        "verdict": "verified",
+        "note": "The finite-order jet target retains continuous distribution support; the unread original structure proof is G3."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/local-quasicharacter-conductor",
+        "verdict": "corrected",
+        "note": "Continuous real/complex exponents come from GNF Layer10, while attained finite conductor comes from CFT Layer7; both routes are explicit."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/local-zeta-integral",
+        "verdict": "verified",
+        "note": "The character exponent controls the convergence half-plane; scaling multiplicative Haar scales z and z/L equally."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/eigendistribution-space",
+        "verdict": "verified",
+        "note": "The character-eigencondition is imposed on continuous linear functionals, not on arbitrary algebraic duals."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/restriction-to-punctured-line",
+        "verdict": "verified",
+        "note": "Haar-measure uniqueness alone does not give continuous-distribution uniqueness on the punctured line; G3 retains that analytic step."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/eigendistributions-supported-at-zero",
+        "verdict": "verified",
+        "note": "Derivative order and eigencharacter match the x^(−a) convention, including the complex mixed derivatives."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/unramified-local-theory",
+        "verdict": "verified",
+        "note": "The valuation-shell geometric series produces the local denominator and its normalized standard-vector value in the chosen measure."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/invariant-distributions-exceptional-case",
+        "verdict": "verified",
+        "note": "The trivial-eigencharacter exceptional distribution remains separate from the punctured-line eigenline."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/ramified-local-theory",
+        "verdict": "verified",
+        "note": "The least principal-unit conductor controls the support of the ramified standard test; its local L-factor is1."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/archimedean-local-theory",
+        "verdict": "verified",
+        "note": "Taylor subtraction precedes uniqueness and FE; general-test convergence differs from the special Gaussian and real residue order is a+r."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/local-uniqueness-theorem",
+        "verdict": "verified",
+        "note": "Continuation and point-supported eigencharacter analysis yield the one-dimensional local eigenline without using the later FE."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/fourier-transform-eigendistribution",
+        "verdict": "verified",
+        "note": "Fourier covariance changes the multiplicative eigencharacter by the inverse and norm factor in the declared action convention."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/local-epsilon-gamma-factors",
+        "verdict": "verified",
+        "note": "The normalized ratio fixes epsilon; a fixed additive Fourier measure makes the multiplicative Haar scalar cancel from the ratio."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/local-functional-equation",
+        "verdict": "verified",
+        "note": "Meromorphic distribution continuation and the unique normalized eigenline give the local equation, interpreted by continuation at poles."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/local-gauss-sum",
+        "verdict": "corrected",
+        "note": "Both off-shell ranges now vanish: minimality handles lower frequencies, and additive P^c coset orthogonality handles higher frequencies."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/explicit-epsilon-factors",
+        "verdict": "corrected",
+        "note": "The ramified exponent is ν+c, and the real inverse-character identity uses the norm power2a, including a=0."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/global-eigendistributions",
+        "verdict": "corrected",
+        "note": "Local eigenline uniqueness supplies the restricted-product converse only for eigenvectors; arbitrary distributions need not be pure tensors."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/global-zeta-integral",
+        "verdict": "corrected",
+        "note": "Pure-tensor factorization is extended by Schwartz-seminorm domination; the Hecke carrier and ideal Euler product are now direct inputs."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/completed-hecke-l-function",
+        "verdict": "corrected",
+        "note": "Finite and archimedean factors use the same character convention; ADS supplies the ideal Euler-product passage rather than continuation."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/idele-class-volume",
+        "verdict": "corrected",
+        "note": "The norm coordinate uses dt/t; the κ arithmetic expression is compared with, rather than substituted for, native one-sided Dedekind residue."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/tate-lemma-a",
+        "verdict": "verified",
+        "note": "The theta norm splitting retains quotient covolume and a nontrivial norm-one character has zero average."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/tate-lemma-b",
+        "verdict": "verified",
+        "note": "The large-norm theta integral is entire by uniform Schwartz decay; its measure agrees with LemmaA."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/tate-global-functional-equation",
+        "verdict": "verified",
+        "note": "Poisson and the norm split produce continuation with the norm-character exceptional poles, without assuming global entirety."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/global-epsilon-factor",
+        "verdict": "verified",
+        "note": "Almost every local epsilon is1, so the global product is finite; the product formula removes dependence on the global additive character."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/hecke-l-functional-equation",
+        "verdict": "verified",
+        "note": "The completed and ideal-side conventions preserve the inverse-character dictionary and shifted norm-character poles."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/bessel-k",
+        "verdict": "corrected",
+        "note": "The integral defines the actual K-function with order symmetry and differential API; a Gaussian change of variables now explains K_(1/2)."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/bessel-half-order-derivative",
+        "verdict": "verified",
+        "note": "Zhang Lemma12.3 has the stated Ei(−2c) normalization; the original tabulated derivative proof remains G4."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.2/godement-jacquet-integral",
+        "verdict": "verified",
+        "note": "The exponent is s+(n−1)/2, and matrix additive Haar is distinguished from group multiplicative Haar."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.2/godement-jacquet-convergence",
+        "verdict": "verified",
+        "note": "Convergence is a representation-dependent right half-plane; derivatives need logarithmic domination, not just formal differentiation."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.2/standard-local-l-factor",
+        "verdict": "verified",
+        "note": "Finite rational fractional-ideal minimality and archimedean parameter gamma products are distinct constructions; G5 preserves the former proof leaves."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.2/godement-jacquet-functional-equation",
+        "verdict": "corrected",
+        "note": "The source inverse-character transpose transform was explicitly converted to the packet positive plain-trace transform and inverse coefficient."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.2/godement-jacquet-newform-test",
+        "verdict": "corrected",
+        "note": "The projector includes inverse central character and K₀ volume; its cancellation now imports the exact induced RS product."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.2/global-godement-jacquet",
+        "verdict": "verified",
+        "note": "Re(s)>1 convergence needs the self-pair positivity and finite-abscissa Landau route; local q^(1/2) bounds alone do not prove it."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/whittaker-model",
+        "verdict": "verified",
+        "note": "The model is built from the actual unique continuous functional on the generic representation, with SR.5 and CW inputs."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/whittaker-compact-parameter-estimates",
+        "verdict": "verified",
+        "note": "The uniform seminorm bound is archimedean compact-picture work; it is not supplied by the finite-place SR.3 stage."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-local-integrals",
+        "verdict": "verified",
+        "note": "Unequal rank includes the rectangular X integral and the (n−m)/2 shift; equal rank includes Schwartz Φ on the last row."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-local-convergence",
+        "verdict": "corrected",
+        "note": "Cogdell Propositions6.2 and8.2 give the additional Re(s)≥1 unitary bound needed for omitted factors in SMO."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-local-factor",
+        "verdict": "corrected",
+        "note": "Finite minimality is now sourced to Cogdell; the derivative filtration is assigned to SR.5, while Jacquet supplies the archimedean growth module."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-induced-factor-product",
+        "verdict": "added",
+        "note": "Added exact finite-place standard and tensor product formulas for irreducible generic normalized inductions; divisibility or gamma multiplicativity cannot replace the newform cancellation input."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-local-functional-equation",
+        "verdict": "verified",
+        "note": "The long-Weyl/transpose-inverse and central-character sign match the local integral; meromorphic equality is not a totalized value at a pole."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-archimedean-realization",
+        "verdict": "verified",
+        "note": "Jacquet’s strip-bounded L(τ) space, ordered parameters, finite equal-rank sum and irreducible adjacent/equal K-finite range are all retained."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-unramified-test",
+        "verdict": "corrected",
+        "note": "Conductor-zero spherical data gives the exact Cauchy product; the ramified essential-vector test keeps its conductor-dependent Φ."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.4/l-group-local-factor",
+        "verdict": "verified",
+        "note": "The factor is evaluated on the relative Frobenius Satake class; a ramified parameter is additional data, not a spherical substitute."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.4/partial-l-product-convergence",
+        "verdict": "verified",
+        "note": "Borel13.2 supplies a uniform arbitrary-r bound only through the exact SR.4 extension request; it does not follow from the carrier alone."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.4/local-parameter-comparison",
+        "verdict": "corrected",
+        "note": "The comparison remains conditional; WD geometric Frobenius/monodromy and classical/Hilbert GL₂ arithmetic scopes are now explicit direct suppliers. Preserved the classical dual and Hilbert half-power normalization dictionaries."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.5/finite-euler-correction",
+        "verdict": "verified",
+        "note": "Removing a local reciprocal polynomial means multiplying by its polynomial, with finite-set and twist compatibility."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.5/critical-value-period-interface",
+        "verdict": "verified",
+        "note": "The modular-symbol algebraicity input is GL₂/Q; general GL₂/F or higher-rank algebraicity is not credited to it."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.5/central-sign-vanishing",
+        "verdict": "verified",
+        "note": "Odd self-dual FE forces the central value to vanish; it does not force every derivative to vanish."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/global-whittaker-factorization",
+        "verdict": "verified",
+        "note": "Global genericity comes from the preceding Fourier expansion; completed Flath and local uniqueness yield continuous factorization."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/gln-fourier-expansion",
+        "verdict": "verified",
+        "note": "Cuspidality removes degenerate Fourier terms and proves injectivity/global genericity before factorization or multiplicity one."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/mirabolic-eisenstein-series",
+        "verdict": "corrected",
+        "note": "The theta Mellin integral fixes the determinant exponent and central transformation; arithmetic and quotient measures are actual supplier inputs."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/mirabolic-eisenstein-functional-equation",
+        "verdict": "corrected",
+        "note": "Norm twists retain shifted zero modes with denominators s−iσ and s−1−iσ; only nontrivial norm-one restriction makes them vanish."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/global-rs-unfolding",
+        "verdict": "corrected",
+        "note": "The corrected theorem is over number fields, with the unequal-rank projection before integration and the equal-rank Eisenstein factor."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-global-poles",
+        "verdict": "corrected",
+        "note": "Number-field equal-rank poles follow the norm-twist contragredient criterion; function-field periodic poles remain in the separate rational branch."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-global-functional-equation",
+        "verdict": "corrected",
+        "note": "The number-field completed equation follows the factorized integrals; global central-character signs and additive-character changes cancel."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-vertical-strip-bounds",
+        "verdict": "corrected",
+        "note": "Special adjacent/equal K-finite cases and general arbitrary-rank bounds are distinguished; the latter original proof remains G8."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.2/jacquet-shalika-satake-bound",
+        "verdict": "verified",
+        "note": "The unitary standard GL_n exponent bound is requested from classification; it is not an arbitrary-r Satake convergence theorem."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/strong-multiplicity-one",
+        "verdict": "corrected",
+        "note": "Local unitary boundary convergence/minimality are direct inputs; agreement at infinity is a conclusion, followed by ordinary multiplicity one."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/isobaric-strong-multiplicity-one",
+        "verdict": "corrected",
+        "note": "Uniqueness is stated for the admitted isobaric classification range, with the AF.1b extension rather than GL₂ transfer as supplier."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/ramakrishnan-degree-one",
+        "verdict": "verified",
+        "note": "The theorem keeps the nested prime-degree normal chain and the specified degree-one agreement, rather than arbitrary base change."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/normalized-rs-period",
+        "verdict": "verified",
+        "note": "Diagonal GL_m period multiplicity is a separate finite/archimedean supplier, not a consequence of Whittaker uniqueness."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/global-central-period",
+        "verdict": "verified",
+        "note": "The source pairing is the actual normalized quotient period with its local factors and central L-value, not an arbitrary pairing carrier."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/standard-additive-character",
+        "verdict": "verified",
+        "note": "The negative finite rational component and positive real component yield global trace triviality; trace-dual different arithmetic is imported."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/fractional-ideal-annihilator",
+        "verdict": "verified",
+        "note": "The inverse different shifts the annihilator exponent to −m−d, retaining the largest-trivial-ideal convention."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/self-dual-haar",
+        "verdict": "corrected",
+        "note": "The local additive volumes q^(−d/2), dx and2dxdy are separate from multiplicative unit volume; the Gaussian baseline route is now direct."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/finite-schwartz-period-level",
+        "verdict": "verified",
+        "note": "A finite support/period lattice quotient requires N≥−M; Kudla p.115 is the source and the reader now uses its title."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/finite-fourier-inversion",
+        "verdict": "verified",
+        "note": "Finite coset decomposition and volume-normalized indicator inversion are a noncircular route to reflection."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/schwartz-parameter-domination",
+        "verdict": "verified",
+        "note": "Compact parameters need a strict convergence margin; logarithmic derivatives are dominated rather than formally interchanged."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/canonical-archimedean-factor",
+        "verdict": "verified",
+        "note": "Canonical Γ_C differs by π from Kudla’s Gaussian normalization; real parity and complex angular shift are explicit."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/cm-quadratic-completion",
+        "verdict": "verified",
+        "note": "The quadratic root number1 is derived from a quotient of completed Dedekind zeta functions, not asserted for all Hecke characters."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/cm-logarithmic-gamma-correction",
+        "verdict": "verified",
+        "note": "Logarithmic differentiation of the chosen Γ factors retains the conductor, π and2π normalization constants."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/function-field-rs-euler-product",
+        "verdict": "verified",
+        "note": "The formal rational-function variable precedes complex specialization, with normalized degree and finite local factors."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/function-field-cuspidal-polynomial",
+        "verdict": "verified",
+        "note": "The finite-order determinant scope is reached by the degree twist; tensor-cohomological degree is the explicit FA.5 extension G11."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/function-field-self-pair-reflection",
+        "verdict": "verified",
+        "note": "Self-pair zeta poles are kept separate from pure numerator roots, with the alternating duality degree/reflection correction."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/residual-rs-product",
+        "verdict": "verified",
+        "note": "The residual block classification is imported from AF.1b, then the shifted tensor factors are multiplied."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/residual-rs-telescoping",
+        "verdict": "verified",
+        "note": "Adjacent numerator/denominator shifts cancel algebraically with endpoint factors retained."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/open-disc-zero-pole-index",
+        "verdict": "verified",
+        "note": "The index is zeros minus poles in the open disc with multiplicity; roots on the boundary contribute zero."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/residual-rs-index",
+        "verdict": "verified",
+        "note": "Yu’s degree/radius count keeps the corrected endpoint factor and the cohomological degree input."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-normalizing-scalar",
+        "verdict": "verified",
+        "note": "The scalar is a ratio of actual pair L-functions with the conductor factor, not an arbitrary rational function."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/self-pair-normalizer-reflection",
+        "verdict": "verified",
+        "note": "Reflecting the normalized self-pair scalar preserves its degree and conductor conventions and meromorphic divisor orders."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/whittaker-conductor-shift",
+        "verdict": "corrected",
+        "note": "The diagonal exponents change every simple-root character to conductor zero; the canonical degree2g−2 now imports FA.2 directly."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/bessel-laplace-mellin",
+        "verdict": "corrected",
+        "note": "The Gross–Zagier display is extended from integer m to positive real m by rescaling; gamma/beta Fubini and their ranges are explicit."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/partial-fourier-transform",
+        "verdict": "verified",
+        "note": "The source mixed-coordinate transform retains the other variables and positive/negative kernel comparison; no full transform is substituted."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.2/godement-jacquet-spherical-test",
+        "verdict": "verified",
+        "note": "The finite K-volume1 test is distinct from additive self-dual Haar; the spherical Schur evaluation retains unitary Satake normalization."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.2/unitary-self-dual-real-factors",
+        "verdict": "verified",
+        "note": "Conjugate parameters and self-duality make the conductor-balanced completion real on the real axis, with root number±1."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.2/standard-order-one",
+        "verdict": "verified",
+        "note": "Order≤1 follows from Euler/gamma bounds, FE and a recorded strip-growth refinement; AN.2’s Hadamard theorem is not its input."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.2/standard-superpositivity",
+        "verdict": "verified",
+        "note": "RH and order≤1 give the Hadamard application; strict derivative propagation additionally requires non-polynomiality."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.2/trivial-function-field-pole-clearer",
+        "verdict": "verified",
+        "note": "The trivial character pole clearer uses the curve numerator and corrected centered degree; genus-zero constant cases remain explicit."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.2/maass-standard-l-function",
+        "verdict": "verified",
+        "note": "The actual AF.3 Maass carrier supplies parity and normalization; the factor uses Γ_R(s±it+δ)."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.2/maass-standard-functional-equation",
+        "verdict": "verified",
+        "note": "The parity sign in the reflected Mellin integral matches the source Maass FE and conductor convention."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/maass-norm-comparison",
+        "verdict": "verified",
+        "note": "The norm comparison uses Hecke normalization and hyperbolic measure, not an implicit L²-unit vector."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-boundary-nonvanishing",
+        "verdict": "verified",
+        "note": "Nonvanishing on Re(s)=1 uses the JS/Shahidi theorem and pole exceptions; it does not follow merely from right-half-plane absolute convergence."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/motivic-unitary-shift",
+        "verdict": "verified",
+        "note": "Tensor weight w₀+w₁ shifts the motivic variable by half that weight; actual local-global identification is conditional."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.4/satake-factor-operations",
+        "verdict": "verified",
+        "note": "Direct sums multiply and tensor/exterior powers act on the Satake eigenvalues; finite bad-set factors remain separate."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.4/exterior-power-transfer-comparison",
+        "verdict": "verified",
+        "note": "The equality of unramified factors is conditional on an established transfer and does not assert general functoriality."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.5/euler-correction-leading-term",
+        "verdict": "verified",
+        "note": "Local zeros add their meromorphic orders and multiply leading coefficients; an exceptional Euler zero cannot be canceled."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/additive-duality-map",
+        "verdict": "verified",
+        "note": "The map lands in native PontryaginDual with the compact-open topology; continuity does not establish its surjectivity."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/local-additive-self-duality",
+        "verdict": "verified",
+        "note": "The target is limited to number-field completions; the suggested real signature does not claim arbitrary positive-characteristic local fields."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/archimedean-fourier-comparison",
+        "verdict": "verified",
+        "note": "Real positive transform is native negative transform at −y; complex trace and2dxdy require the declared scale2."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/quadratic-orbital-tate-comparison",
+        "verdict": "verified",
+        "note": "Zhang’s rank-two quadratic-orbit normalization is retained with its stabilizer and quotient Haar factors."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/rational-period-comparison",
+        "verdict": "verified",
+        "note": "Finite-part rationality and geometric comparison are inputs; semilinear Whittaker structure, signature and Gauss twisting remain AL obligations in G12."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.5/ordinary-gl2-euler-factor",
+        "verdict": "corrected",
+        "note": "The good-prime two-factor correction and p-level one-factor formula use the actual fine stabilization nodes and inverse-character dictionary."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.5/local-conductor-test-vector-comparison",
+        "verdict": "verified",
+        "note": "For unramified GL₂ twisted by ramified χ, inertia invariants vanish and conductor is2ν; this does not cover arbitrary ramified π."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.2/archimedean-standard-epsilon",
+        "verdict": "verified",
+        "note": "The positive packet character has the parity i-powers; the source inverse-character convention is transported consistently."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/gln-converse-full-rank",
+        "verdict": "verified",
+        "note": "Cogdell full-rank niceness quantifies over completed dual twists of ranks1…n−1; rank2 and the exceptional-set conclusion are retained."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/gln-converse-reduced-rank",
+        "verdict": "verified",
+        "note": "Reduced-rank twists1…n−2 require n≥3 and the stated finite exceptional set; it is distinct from the full-rank theorem."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/global-multiplicity-one",
+        "verdict": "verified",
+        "note": "Ordinary cuspidal multiplicity one follows from injective Fourier reconstruction and local Whittaker uniqueness; it is not imported from AF.3."
+      }
+    ]
   },
   "reviewHistory": [
     {
@@ -9974,6 +10989,12 @@
       "reviewer": "independent-review-REV-FIX-RT-AREA-automorphic-1~3",
       "date": "2026-10-07",
       "notes": "Independent scoped review of RT-AREA-automorphic-1/1,/8,/9,/10,/13,/14, following REV-FIX-RT-AREA-automorphic-1~2 and the archived REV-AutomorphicLFunctionsAndLocalFactors. Corrected the Fourier reconstruction to genericity/factorization to ordinary multiplicity-one order; added AL.3/global-multiplicity-one with source, prerequisites, API and discriminating tests; removed the nonexistent AF global-genericity/multiplicity supplier. Added full/reduced converse tests, distinguished S-unramified from T-highly-ramified twisting, and corrected GL2/Q critical-value scope and the general rational-period ownership/suppliers with a late-suffix proposal. The reader still falsely allows every entire multiple and claims measure cancellation for z/L, and retains obsolete Fourier/period edges. The previous algebraic-spanning reader error has already been cured and is not an outstanding blocker. Original converse/period proof leaves and source-specific signature omissions remain honest gaps. No new baseline declaration reference; no all-baseline recheck or compilation claim."
+    },
+    {
+      "status": "needs_changes",
+      "reviewer": "independent-review-REV-FIX-RT-AREA-automorphic-1~4",
+      "date": "2026-10-08",
+      "notes": "Independent review of FIX-RT-AREA-automorphic-1~4 (issue #7280, PR #7314, Codex codex-Z0ErNN) by Claude session claude-95TvAO, following REV-FIX-RT-AREA-automorphic-1~3 and, for this packet, REV-AutomorphicLFunctionsAndLocalFactors (needs_changes). Findings /1, /2, /8, /9, /10, /13 and /14 are correctly fixed in the packet: full- and reduced-rank converse contracts match Cogdell's PSCT Theorems 3.1 and 3.3; the Fourier expansion precedes factorization and proves genericity; mirabolic poles depend on the character (Cogdell Fields Proposition 5.4); AL.3/global-multiplicity-one is ordinary multiplicity one; every AF, AA and ALS supplier id exists and no AF node is credited with genericity; the GL2/Q period interface is scoped to ModularSymbols L1; AL.0 owns Schwartz–Bruhat functions. No packet correction was needed. Status stays needs_changes because this packet's own blueprint review (REV-AutomorphicLFunctionsAndLocalFactors) did not accept it and its revision BP-AutomorphicLFunctionsAndLocalFactors~2 is pending: accepting a narrow fix would promote the whole packet. The reader, unchanged since round 3, still contradicts the corrected packet at ~15 (Haar change said to cancel from normalized distributions), ~1657/1659 (every entire multiple), ~1691/1709/1713 (genericity assumed; Fourier after factorization), ~1829–1837 (an AF global multiplicity-one theorem), ~2175 (Gauss-period twisting law imported) and ~2354/2356 (GL2/F from ModularSymbols L1). Details in the review report."
     }
   ]
 }
