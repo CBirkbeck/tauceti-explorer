@@ -37839,7 +37839,8 @@
    ],
    "revisionOf": "BP-AutomorphicGaloisRepresentationsPartII--AG2.0",
    "prompt": "research/blueprint/prompts/BP-AutomorphicGaloisRepresentationsPartII--AG2.0~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7301"
   },
   {
    "priority": 2,
