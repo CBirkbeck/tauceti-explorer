@@ -76229,7 +76229,8 @@
     "FIX-RT-AREA-automorphic-1~5"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-automorphic-1~5.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7449"
   },
   {
    "id": "RT-AREA-automorphic-2",
@@ -77471,8 +77472,9 @@
     "FIX-RT-AREA-langlands-2~3"
    ],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-langlands-2~4.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7450"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7450",
+   "finishedAt": "2026-10-08T22:26:50Z"
   },
   {
    "id": "REV-FIX-RT-AREA-langlands-2~4",
