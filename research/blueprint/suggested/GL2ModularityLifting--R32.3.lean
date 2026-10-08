@@ -29,7 +29,8 @@ section GoodComponents
 variable {I X : Type*}
 
 /-- Pan Definition 7.4.1 as seeded reachability on concrete component subsets.
-The intended seed set is the closure of ordinary arithmetic points. A seed must also be nice;
+The parameter `nice` means potentially nice, as in Pan Definition 7.4.1.
+The intended seed set is the closure of ordinary arithmetic points. A seed must be potentially nice;
 reflexivity allows a one-component seeded chain, not an unseeded empty chain. -/
 def panGoodComponent (components : I → Set X) (nice seed : Set X) (i : I) : Prop :=
   ∃ j : I, (∃ x : X, x ∈ nice ∧ x ∈ seed ∧ x ∈ components j) ∧
