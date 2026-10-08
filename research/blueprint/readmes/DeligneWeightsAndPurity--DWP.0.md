@@ -104,7 +104,7 @@ Acceptance checks:
 
 Direct inputs: `mathlib:minpoly.algHom_eq`, `mathlib:IsAlgClosed.lift`.
 
-Sources: [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §1.2, Définition (1.2.1), p. 153; [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §1, Lemme (1.7), p. 276; [Comptage des systèmes locaux ℓ-adiques sur une courbe](https://arxiv.org/pdf/1807.04659v5), §1 pp. 2–3; §7.1 p. 64.
+Sources: [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §1.2, Définition (1.2.1), p. 153. The definition: algebraic, with every complex conjugate of absolute value q^{n/2}. [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §1, Lemme (1.7), p. 276. The same condition on Frobenius eigenvalues in Weil I. [Comptage des systèmes locaux ℓ-adiques sur une courbe](https://arxiv.org/pdf/1807.04659v5), §1 pp. 2–3; §7.1 p. 64. The genus-g Weil root bookkeeping and its paired product; the proof is the shared curve purity and duality theorem, not new automorphic work.
 
 Declaration id: `DeligneWeightsAndPurity:DWP.0/weil-q-number`.
 
@@ -136,7 +136,7 @@ Acceptance checks:
 
 Direct inputs: [DWP.0/weil-q-number](#dwp-0-weil-q-number), `mathlib:IsAlgClosed.lift`, `mathlib:NumberField.Embeddings.pow_eq_one_of_norm_eq_one`.
 
-Sources: [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §1.2, Définition (1.2.12), p. 156; [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §1.2, Remarque (1.2.14), p. 156.
+Sources: [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §1.2, Définition (1.2.12), p. 156. Totally real Frobenius polynomials, reached through α + q^n/α. [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §1.2, Remarque (1.2.14), p. 156. A pure object is a direct factor of a totally real one, V ⊕ V^∨(−n), by (iii).
 
 Declaration id: `DeligneWeightsAndPurity:DWP.0/weil-number-arithmetic`.
 
@@ -163,7 +163,7 @@ Acceptance checks:
 
 Direct inputs: [DWP.0/weil-q-number](#dwp-0-weil-q-number), `mathlib:IsAlgClosed.lift`.
 
-Sources: [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §1, (1.5.1), p. 275; [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §1.1, (1.1.13), p. 152.
+Sources: [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §1, (1.5.1), p. 275. Extension of the finite field replaces F by its iterates. [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §1.1, (1.1.13), p. 152. The Frobenius at a point of degree d maps to the d-th power of the Frobenius substitution.
 
 Declaration id: `DeligneWeightsAndPurity:DWP.0/weil-number-base-extension`.
 
@@ -226,7 +226,7 @@ Acceptance checks:
 
 Direct inputs: [DWP.0/weil-q-number](#dwp-0-weil-q-number).
 
-Sources: [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §1.2, (1.2.6), p. 154; [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §1.2, Remarque (1.2.8), p. 155.
+Sources: [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §1.2, (1.2.6), p. 154. The arguments run one ι at a time, whence the ι-weight (1.2.6.1). [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §1.2, Remarque (1.2.8), p. 155. ι-weights are allowed to be arbitrary real numbers.
 
 Declaration id: `DeligneWeightsAndPurity:DWP.0/iota-weight`.
 
@@ -258,7 +258,7 @@ Acceptance checks:
 
 Direct inputs: `mathlib:IsAlgClosed.cardinal_eq_cardinal_transcendence_basis_of_aleph0_lt`, `mathlib:Cardinal.mk_complex`, `mathlib:IsAlgClosed.lift`, `mathlib:IsAlgClosed.equivOfTranscendenceBasis`, `mathlib:IsAlgClosed.ringEquiv_of_equiv_of_charZero`, `mathlib:Algebra.IsAlgebraic.cardinalMk_le_max`.
 
-Sources: [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §1.2, Remarque (1.2.11), p. 156; [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §1.2, Remarque (1.2.11), p. 156.
+Sources: [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §1.2, Remarque (1.2.11), p. 156. ι is an expository device, and its existence depends on choice. [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §1.2, Remarque (1.2.11), p. 156. Embeddings of the algebraic numbers alone need no choice.
 
 Declaration id: `DeligneWeightsAndPurity:DWP.0/embeddings-into-the-complex-numbers`.
 
@@ -286,7 +286,7 @@ Acceptance checks:
 
 Direct inputs: [DWP.0/weil-q-number](#dwp-0-weil-q-number), [DWP.0/iota-weight](#dwp-0-iota-weight), [DWP.0/embeddings-into-the-complex-numbers](#dwp-0-embeddings-into-the-complex-numbers).
 
-Sources: [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §1.2, (1.2.6), p. 154; [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §1.2, (1.2.6), p. 154.
+Sources: [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §1.2, (1.2.6), p. 154. Purity at every ι forces algebraicity. [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §1.2, (1.2.6), p. 154. For transcendental α, ι(α) could be any transcendental number.
 
 Declaration id: `DeligneWeightsAndPurity:DWP.0/weil-number-iff-iota-pure-for-every-iota`.
 
@@ -336,6 +336,7 @@ Unit tests distinguish the intended object from nearby definitions.
 | `TauCeti.Weights.eigenvalues_rotation` | value | F = [[0, −q], [1, 0]] on ℚ² has characteristic polynomial T² + q, no eigenvalue in ℚ, eigenvalues ±i√q in ℚ̄, and is pure of weight 1. |
 | `TauCeti.Weights.not_isPure_diag` | non-example | F = diag(1, q) is not pure; its weights are {0, 2}. |
 | `TauCeti.Weights.isPure_zero_space` | degenerate | On V = 0, F is pure of every weight and has no weights. |
+| `TauCeti.Weights.iotaWeights_singular_twist_rejection` | non-example | On a one-dimensional zero endomorphism F=0, the total log-based numeric iotaWeights core yields {0}. Multiplication by b=2 leaves F=0, so shifting by w₂(2)=2 would falsely give {2}. All iotaWeights_twist assertions therefore require invertible F; purity itself rejects the zero eigenvalue. |
 
 Proof or construction:
 
@@ -351,7 +352,7 @@ Acceptance checks:
 
 Direct inputs: [DWP.0/weil-q-number](#dwp-0-weil-q-number), [DWP.0/iota-weight](#dwp-0-iota-weight), `mathlib:LinearMap.charpoly_baseChange`, `mathlib:Module.End.hasEigenvalue_iff_isRoot_charpoly`, `mathlib:LinearMap.finrank_maxGenEigenspace_eq`, `mathlib:Module.End.iSup_maxGenEigenspace_eq_top`, `mathlib:Module.End.independent_maxGenEigenspace`.
 
-Sources: [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §2, (2.6), p. 282; [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §1.2, Variante (1.2.4), p. 154; [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §1.2, (1.2.6), p. 154.
+Sources: [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §2, (2.6), p. 282. The multiplicity of an eigenvalue is the dimension of its generalized eigenspace. [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §1.2, Variante (1.2.4), p. 154. The weight terminology for vector spaces with a Frobenius. [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §1.2, (1.2.6), p. 154. Every Frobenius module over a finite field is ι-mixed.
 
 Declaration id: `DeligneWeightsAndPurity:DWP.0/endomorphism-weights`.
 
@@ -375,7 +376,7 @@ Acceptance checks:
 
 Direct inputs: `mathlib:Matrix.charpoly_fromBlocks_zero₂₁`, `mathlib:LinearMap.charpoly_prodMap`.
 
-Sources: [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §1, (1.5.3), p. 276.
+Sources: [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §1, (1.5.3), p. 276. Additivity in short exact sequences, used to prove (1.5.3).
 
 Declaration id: `DeligneWeightsAndPurity:DWP.0/characteristic-polynomial-in-short-exact-sequences`.
 
@@ -400,7 +401,7 @@ Acceptance checks:
 
 Direct inputs: [DWP.0/endomorphism-weights](#dwp-0-endomorphism-weights), [DWP.0/characteristic-polynomial-in-short-exact-sequences](#dwp-0-characteristic-polynomial-in-short-exact-sequences).
 
-Sources: [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §1.2, Stabilités (1.2.5)(i), p. 154.
+Sources: [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §1.2, Stabilités (1.2.5)(i), p. 154. Pointwise purity is stable under quotients, subobjects and extensions.
 
 Declaration id: `DeligneWeightsAndPurity:DWP.0/purity-under-subquotients-and-extensions`.
 
@@ -408,16 +409,16 @@ Declaration id: `DeligneWeightsAndPurity:DWP.0/purity-under-subquotients-and-ext
 
 ### The characteristic power series det(1 − tF) and traces of powers
 
-Let F be an endomorphism of a finite-dimensional vector space V over a field E. (i) det(1 − tF) ∈ E[t] is the reverse of det(T − F): det(1 − tF) = t^{dim V} det(t⁻¹ − F), and over Ē it is ∏(1 − αt) over the eigenvalues α. (ii) In E[[t]], t (d/dt) log det(1 − tF)⁻¹ = Σ_{n≥1} Tr(F^n) t^n. (iii) If E has characteristic 0, the traces Tr(F^n) for 1 ≤ n ≤ dim V determine det(1 − tF), hence the eigenvalue multiset.
+Let F be an endomorphism of a finite-dimensional vector space V over a field E. (i) det(1 − tF) ∈ E[t] is the reverse of det(T − F): det(1 − tF) = t^{dim V} det(t⁻¹ − F), and over Ē it is ∏(1 − αt) over the eigenvalues α. (ii) Writing D(t)=det(1−tF), in E[[t]] one has −tD′(t)/D(t)=Σ_{n≥1}Tr(F^n)t^n in every characteristic. When E has characteristic 0 this is t(d/dt)log D(t)⁻¹. (iii) If E has characteristic 0, the traces Tr(F^n) for 1 ≤ n ≤ dim V determine det(1 − tF), hence the eigenvalue multiset.
 
 (iii) needs characteristic 0 (characteristic greater than dim V suffices). On 𝔽_p^p, the identity and the zero map have equal traces of all powers.
 
-The logarithm is taken of a power series with constant term 1.
+The formal logarithm requires characteristic 0 and constant term 1; the quotient D′/D is defined in every characteristic because D(0)=1.
 
 Proof or construction:
 
 1. (i): mathlib:Matrix.reverse_charpoly identifies the reverse of the characteristic polynomial with det(1 − tM). Over an algebraically closed field the characteristic polynomial is the product of the T − α.
-2. (ii), as in Weil I: both sides are additive in V along a short exact sequence (lemma characteristic-polynomial-in-short-exact-sequences, and additivity of the trace). For dim V = 1 and F = α, the identity is t d/dt log(1 − αt)⁻¹ = Σ α^n t^n. Over Ē, V has a full F-stable flag, which reduces the general case to dimension 1.
+2. (ii): along an F-stable flag over Ē, D(t)=∏(1−αt), so −tD′/D=Σ_α αt/(1−αt)=Σ_{n≥1}Tr(F^n)t^n. Descent is coefficientwise injectivity. Only in characteristic 0 identify this quotient with the formal-log derivative.
 3. (iii): Newton's identities. In characteristic 0 the power sums p_n = Tr(F^n) = Σ α_i^n for n ≤ d determine the elementary symmetric functions of the α_i, which are the coefficients of det(1 − tF) up to sign (mathlib:Matrix.trace_eq_sum_roots_charpoly gives p₁ = Σ α_i).
 
 Acceptance checks:
@@ -427,7 +428,7 @@ Acceptance checks:
 
 Direct inputs: [DWP.0/characteristic-polynomial-in-short-exact-sequences](#dwp-0-characteristic-polynomial-in-short-exact-sequences), `mathlib:Matrix.reverse_charpoly`, `mathlib:Matrix.trace_eq_sum_roots_charpoly`.
 
-Sources: [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §1, (1.5.3), p. 275.
+Sources: [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §1, (1.5.3), p. 275. The identity (1.5.3) between the log-derivative of det(1 − Ft)⁻¹ and the traces of the powers of F.
 
 Declaration id: `DeligneWeightsAndPurity:DWP.0/characteristic-power-series-and-traces`.
 
@@ -453,7 +454,7 @@ Acceptance checks:
 
 Direct inputs: [DWP.0/endomorphism-weights](#dwp-0-endomorphism-weights), `mathlib:LinearMap.charpoly_baseChange`, `mathlib:Module.End.iSup_maxGenEigenspace_eq_top`, `mathlib:Module.End.independent_maxGenEigenspace`, `mathlib:LinearMap.charpoly_prodMap`, `mathlib:LinearMap.finrank_maxGenEigenspace_eq`, `mathlib:Matrix.charpoly_inv`.
 
-Sources: [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §1, (1.5.1), p. 275.
+Sources: [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §1, (1.5.1), p. 275. Traces of the iterates of Frobenius, whose eigenvalues are the powers of those of F.
 
 Declaration id: `DeligneWeightsAndPurity:DWP.0/spectra-of-polynomials-in-an-endomorphism`.
 
@@ -476,7 +477,7 @@ Acceptance checks:
 
 Direct inputs: [DWP.0/weil-number-base-extension](#dwp-0-weil-number-base-extension), [DWP.0/iota-weight](#dwp-0-iota-weight), [DWP.0/spectra-of-polynomials-in-an-endomorphism](#dwp-0-spectra-of-polynomials-in-an-endomorphism).
 
-Sources: [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §1.1, (1.1.13), p. 152.
+Sources: [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §1.1, (1.1.13), p. 152. The Frobenius at a point of degree d maps to the d-th power of the Frobenius substitution.
 
 Declaration id: `DeligneWeightsAndPurity:DWP.0/finite-field-base-extension-of-weights`.
 
@@ -506,9 +507,35 @@ Acceptance checks:
 
 Direct inputs: [DWP.0/endomorphism-weights](#dwp-0-endomorphism-weights), [DWP.0/spectra-of-polynomials-in-an-endomorphism](#dwp-0-spectra-of-polynomials-in-an-endomorphism), [DWP.0/weil-number-arithmetic](#dwp-0-weil-number-arithmetic), `mathlib:Matrix.det_kronecker`, `mathlib:LinearMap.trace_tensorProduct'`, `mathlib:LinearMap.det_dualMap`.
 
-Sources: [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §1.2, Stabilités (1.2.5)(ii), p. 154; [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §1.2, Stabilités (1.2.5)(ii), p. 154.
+Sources: [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §1.2, Stabilités (1.2.5)(ii), p. 154. Tensor products add weights. [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §1.2, Stabilités (1.2.5)(ii), p. 154. The dual of a pure lisse sheaf of weight n is pure of weight −n.
 
 Declaration id: `DeligneWeightsAndPurity:DWP.0/spectra-of-tensor-products-and-duals`.
+
+<a id="dwp-0-eigenvalues-of-exterior-powers"></a>
+
+### Eigenvalues of exterior powers
+
+Let F be an endomorphism of a d-dimensional E-space V, with eigenvalues α₁,…,α_d in an algebraic closure, listed with algebraic multiplicity. The eigenvalue multiset of ∧^k F consists of ∏_{i∈I}α_i for all k-element subsets I⊆{1,…,d}, once per subset of positions. In particular ∧^0 F has sole eigenvalue 1, ∧^d F has sole eigenvalue det F, and ∧^k V=0 for k>d. If F is invertible and pure of weight n, ∧^k F is pure of weight kn; real ι-weights are sums over those positions.
+
+No semisimplicity is assumed; equal eigenvalues in different positions remain distinct choices.
+
+Proof or construction:
+
+1. Extend scalars to the algebraic closure and choose an F-stable full flag, giving an upper triangular matrix with diagonal α₁,…,α_d.
+2. Use the existing exteriorPower.map and Module.Basis.exteriorPower. The wedge basis indexed by k-element subsets has a triangular induced matrix with diagonal the indicated products. Its characteristic roots give the multiset; scalar extension commutes with the alternating universal property.
+3. The empty wedge, top wedge and out-of-range cases follow from the same basis. Products of Weil numbers add weights, and nonzero ι-weights add.
+
+Acceptance checks:
+
+- For diag(1,q,q), ∧² has eigenvalues q,q,q²: positions, rather than distinct scalar values, control multiplicity.
+- For the two-dimensional Jordan block with diagonal q, ∧² has sole eigenvalue q² despite nonsemisimplicity.
+- The empty wedge has eigenvalue 1, while k>d gives an empty spectrum.
+
+Direct inputs: [DWP.0/endomorphism-weights](#dwp-0-endomorphism-weights), [DWP.0/weil-number-arithmetic](#dwp-0-weil-number-arithmetic), [DWP.0/iota-weight](#dwp-0-iota-weight), `mathlib:exteriorPower.map`, `mathlib:Module.Basis.exteriorPower`, `mathlib:LinearMap.charpoly_baseChange`.
+
+Sources: [Abelian Varieties](https://www.jmilne.org/math/CourseNotes/AV.pdf), Chapter II, Corollary 1.5 and Remark 1.6(a), p. 78. The distinct-position products and exterior-power interpretation; the triangular-basis proof supplies the general linear-algebra result. [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §1.5, proof (1.5.3), pp. 164–165. The exterior eigenvalue products used to isolate determinantal weights.
+
+Declaration id: `DeligneWeightsAndPurity:DWP.0/eigenvalues-of-exterior-powers`.
 
 <a id="dwp-0-twisting-by-rank-one-characters"></a>
 
@@ -536,7 +563,7 @@ The API exposes the following operations and characterizations.
 | `TauCeti.Weights.twist` | constructor | Multiply the invertible Frobenius endomorphism by a nonzero scalar b. |
 | `TauCeti.Weights.tateTwist` | constructor | The integer twist multiplies geometric Frobenius by q^(−r). |
 | `TauCeti.Weights.eigenvalues_twist` | characterisation | Multiplication by b multiplies every characteristic root by b. |
-| `TauCeti.Weights.iotaWeights_twist` | characterisation | A scalar twist translates the weight set by the scalar’s ι-weight. |
+| `TauCeti.Weights.iotaWeights_twist` | characterisation | For an invertible endomorphism F, a nonzero scalar twist translates the weight set by the scalar’s ι-weight. The total numeric logarithm at zero does not satisfy this translation rule. |
 | `TauCeti.Weights.IsPure.tateTwist` | compatibility | For a positive integral q, an integer Tate twist shifts a pure weight n to n−2r. |
 | `TauCeti.Weights.twist_tensor` | compatibility | Scalar twists of tensor factors multiply their scalars. |
 | `TauCeti.Weights.twist_twist` | simp | Two successive scalar twists equal the twist by the product. |
@@ -560,9 +587,9 @@ Acceptance checks:
 
 - H²(ℙ¹) = ℚ_ℓ(−1) has F = q and weight 2; its twist H²(ℙ¹)(1) is ℚ_ℓ with F = 1 and weight 0.
 
-Direct inputs: [DWP.0/iota-weight](#dwp-0-iota-weight), [DWP.0/weil-number-arithmetic](#dwp-0-weil-number-arithmetic), [DWP.0/spectra-of-tensor-products-and-duals](#dwp-0-spectra-of-tensor-products-and-duals), `EtaleDualityAndPerverseSheaves:EDC.0`.
+Direct inputs: [DWP.0/iota-weight](#dwp-0-iota-weight), [DWP.0/weil-number-arithmetic](#dwp-0-weil-number-arithmetic), [DWP.0/spectra-of-tensor-products-and-duals](#dwp-0-spectra-of-tensor-products-and-duals), `EtaleDualityAndPerverseSheaves:EDC.0`, `EtaleDualityAndPerverseSheaves:EDC.0/tate-twist`.
 
-Sources: [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §1.2, (1.2.7), p. 154; [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §1.2, Stabilités (1.2.5)(iv), p. 154.
+Sources: [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §1.2, (1.2.7), p. 154. The rank-one Weil sheaf on which F acts by b. [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §1.2, Stabilités (1.2.5)(iv), p. 154. ℚ_ℓ(1) is pointwise pure of weight −2.
 
 Declaration id: `DeligneWeightsAndPurity:DWP.0/twisting-by-rank-one-characters`.
 
@@ -596,7 +623,7 @@ Acceptance checks:
 
 Direct inputs: [DWP.0/endomorphism-weights](#dwp-0-endomorphism-weights), [DWP.0/spectra-of-polynomials-in-an-endomorphism](#dwp-0-spectra-of-polynomials-in-an-endomorphism), [DWP.0/weil-number-arithmetic](#dwp-0-weil-number-arithmetic), `mathlib:Matrix.charpoly_inv`.
 
-Sources: [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §2, (2.5), p. 281; [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §2, (2.5), p. 281; [Comptage des systèmes locaux ℓ-adiques sur une courbe](https://arxiv.org/pdf/1807.04659v5), §1 pp. 2–3; §7.1 p. 64.
+Sources: [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §2, (2.5), p. 281. Cup product commutes with Frobenius: the equivariance hypothesis. [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §2, (2.5), p. 281. The eigenvalues in the complementary degree are q^m α_j⁻¹, as in (2.4). [Comptage des systèmes locaux ℓ-adiques sur une courbe](https://arxiv.org/pdf/1807.04659v5), §1 pp. 2–3; §7.1 p. 64. The genus-g Weil root bookkeeping and its paired product; the proof is the shared curve purity and duality theorem, not new automorphic work.
 
 Declaration id: `DeligneWeightsAndPurity:DWP.0/reciprocal-pairing-of-eigenvalues`.
 
@@ -626,7 +653,7 @@ Acceptance checks:
 
 Direct inputs: [DWP.0/endomorphism-weights](#dwp-0-endomorphism-weights), [DWP.0/weil-q-number](#dwp-0-weil-q-number), [DWP.0/iota-weight](#dwp-0-iota-weight), `mathlib:Polynomial.isCoprime_iff_aeval_ne_zero_of_isAlgClosed`, `mathlib:LinearMap.aeval_self_charpoly`, `mathlib:Polynomial.sup_ker_aeval_eq_ker_aeval_mul_of_coprime`.
 
-Sources: [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §1, preuve de (1.7) ⇒ (1.6), p. 277.
+Sources: [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §1, preuve de (1.7) ⇒ (1.6), p. 277. Factors of different weights are coprime.
 
 Declaration id: `DeligneWeightsAndPurity:DWP.0/disjoint-spectra-no-intertwiner`.
 
@@ -661,7 +688,7 @@ Acceptance checks:
 
 Direct inputs: [DWP.0/endomorphism-weights](#dwp-0-endomorphism-weights), [DWP.0/disjoint-spectra-no-intertwiner](#dwp-0-disjoint-spectra-no-intertwiner), [DWP.0/weil-q-number](#dwp-0-weil-q-number), `mathlib:Polynomial.sup_ker_aeval_eq_ker_aeval_mul_of_coprime`, `mathlib:LinearMap.aeval_self_charpoly`, `mathlib:LinearMap.finrank_maxGenEigenspace_eq`.
 
-Sources: [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §1, preuve de (1.7) ⇒ (1.6), p. 277.
+Sources: [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §1, preuve de (1.7) ⇒ (1.6), p. 277. The eigenvalues of a given weight form a Galois-stable set, so their polynomial has coefficients in the base field.
 
 Declaration id: `DeligneWeightsAndPurity:DWP.0/weight-decomposition`.
 
@@ -709,7 +736,7 @@ Proof or construction:
 2. Naturality: an 𝔽_q-algebra map commutes with x ↦ x^q.
 3. Points: for x ∈ V(𝔽̄_q) with coordinates (x_i), π_V(x) = (x_i^q). The fixed points of π_V^m are the points with coordinates in 𝔽_{q^m}.
 4. d(x^q) = qx^{q−1}dx = 0 in characteristic p.
-5. For A an abelian variety, 0 ∈ A(𝔽_q) is fixed, so π_A is a homomorphism (rigidity, AbelianSchemesAndArithmeticModuli A1). deg π_A = q^g, as P_{π}(0) in the node point-counts-of-abelian-varieties shows.
+5. Naturality with respect to addition and the product identity π_(A×A)=π_A×π_A make π_A a group homomorphism. Independently import SF.0’s degree formula: q-Frobenius on a smooth pure g-dimensional scheme over a perfect finite field is finite locally free of degree q^g, computed étale-locally on affine g-space. This does not use the later point-count theorem.
 
 Acceptance checks:
 
@@ -718,7 +745,7 @@ Acceptance checks:
 
 Direct inputs: [DWP.0/finite-field-base-extension-of-weights](#dwp-0-finite-field-base-extension-of-weights), `SchemeAndStackFoundations:SF.0`.
 
-Sources: [Abelian Varieties](https://www.jmilne.org/math/CourseNotes/AV.pdf), Chapter II, §1, p. 75; [Abelian Varieties](https://www.jmilne.org/math/CourseNotes/AV.pdf), Chapter II, §1, p. 75.
+Sources: [Abelian Varieties](https://www.jmilne.org/math/CourseNotes/AV.pdf), Chapter II, §1, p. 75. π_V is the identity on the space and f ↦ f^q on functions. [Abelian Varieties](https://www.jmilne.org/math/CourseNotes/AV.pdf), Chapter II, §1, p. 75. π_A fixes 0, so it is an endomorphism.
 
 Declaration id: `DeligneWeightsAndPurity:DWP.1/frobenius-endomorphism-over-a-finite-field`.
 
@@ -744,7 +771,7 @@ Acceptance checks:
 
 Direct inputs: [DWP.1/frobenius-endomorphism-over-a-finite-field](#dwp-1-frobenius-endomorphism-over-a-finite-field), `AbelianSchemesAndArithmeticModuli:A2/rosati-involution`, `AbelianSchemesAndArithmeticModuli:A2`.
 
-Sources: [Abelian Varieties](https://www.jmilne.org/math/CourseNotes/AV.pdf), Chapter II, Lemma 1.2, p. 76.
+Sources: [Abelian Varieties](https://www.jmilne.org/math/CourseNotes/AV.pdf), Chapter II, Lemma 1.2, p. 76. Lemma 1.2: π†π = q for the Rosati involution.
 
 Declaration id: `DeligneWeightsAndPurity:DWP.1/rosati-of-the-frobenius-endomorphism`.
 
@@ -771,7 +798,7 @@ Acceptance checks:
 
 Direct inputs: `AbelianSchemesAndArithmeticModuli:A6/rosati-positivity`, `AbelianSchemesAndArithmeticModuli:A6/trace-and-degree-on-a-subfield`, `AbelianSchemesAndArithmeticModuli:A2/rosati-involution`, `AbelianSchemesAndArithmeticModuli:A6/characteristic-polynomial-of-an-endomorphism`.
 
-Sources: [Abelian Varieties](https://www.jmilne.org/math/CourseNotes/AV.pdf), Chapter II, Lemma 1.3, p. 77; [Abelian Varieties](https://www.jmilne.org/math/CourseNotes/AV.pdf), Chapter II, Lemma 1.3, p. 77.
+Sources: [Abelian Varieties](https://www.jmilne.org/math/CourseNotes/AV.pdf), Chapter II, Lemma 1.3, p. 77. Lemma 1.3: α†α = r implies |a|² = r for the roots of P_α. [Abelian Varieties](https://www.jmilne.org/math/CourseNotes/AV.pdf), Chapter II, Lemma 1.3, p. 77. ℚ[α] has no nonzero nilpotents.
 
 Declaration id: `DeligneWeightsAndPurity:DWP.1/absolute-values-from-the-rosati-involution`.
 
@@ -801,7 +828,7 @@ Acceptance checks:
 
 Direct inputs: [DWP.1/rosati-of-the-frobenius-endomorphism](#dwp-1-rosati-of-the-frobenius-endomorphism), [DWP.1/absolute-values-from-the-rosati-involution](#dwp-1-absolute-values-from-the-rosati-involution), `AbelianSchemesAndArithmeticModuli:A6/characteristic-polynomial-on-tate-module`, [DWP.0/weil-q-number](#dwp-0-weil-q-number), [DWP.0/weil-number-base-extension](#dwp-0-weil-number-base-extension), `ArithmeticGaloisRepresentations:R01.6`.
 
-Sources: [Abelian Varieties](https://www.jmilne.org/math/CourseNotes/AV.pdf), Chapter II, Theorem 1.1(b), p. 75; [Abelian Varieties](https://www.jmilne.org/math/CourseNotes/AV.pdf), Chapter II, Remark 1.4, p. 78.
+Sources: [Abelian Varieties](https://www.jmilne.org/math/CourseNotes/AV.pdf), Chapter II, Theorem 1.1(b), p. 75. Theorem 1.1(b): |a_i| = q^{1/2}. [Abelian Varieties](https://www.jmilne.org/math/CourseNotes/AV.pdf), Chapter II, Remark 1.4, p. 78. ℚ[π] is a product of fields, and |σ(π)| = q^{1/2} for every σ.
 
 Declaration id: `DeligneWeightsAndPurity:DWP.1/weil-estimate-for-abelian-varieties`.
 
@@ -811,25 +838,25 @@ Declaration id: `DeligneWeightsAndPurity:DWP.1/weil-estimate-for-abelian-varieti
 
 Let A be an abelian variety of dimension g over 𝔽_q with P_{π_A}(X) = ∏_{i=1}^{2g}(X − a_i). Then for all m ≥ 1, N_m = #A(𝔽_{q^m}) = deg(1 − π^m) = P_{π^m}(1) = ∏_i(1 − a_i^m), and |N_m − q^{mg}| ≤ 2g·q^{m(g−1/2)} + (2^{2g} − 2g − 1)·q^{m(g−1)}. The zeta function is Z(A, t) = ∏_{r=0}^{2g} P_r(t)^{(−1)^{r+1}}, where P_r(t) = ∏(1 − a_{i_1}⋯a_{i_r}t) over 1 ≤ i_1 < … < i_r ≤ 2g, the characteristic polynomial of π on ∧^r T_ℓA.
 
-1 − π^m is separable (its differential is −1) and étale, so its degree is the number of geometric points in its kernel, which is A(𝔽_{q^m}).
+1 − π^m is separable (its differential is +1) and étale, so its degree is the number of geometric points in its kernel, which is A(𝔽_{q^m}).
 
 The bound uses the Weil estimate. The leading term ∏ a_i = deg π = q^g is exact.
 
 Proof or construction:
 
-1. d(π − 1) = dπ − 1 = −1 at the origin, so π − 1 is étale, and ker(π − 1) = A(𝔽_q) with every point of multiplicity one. Hence #A(𝔽_q) = deg(π − 1) = P_π(1) (AbelianSchemesAndArithmeticModuli A6/degree-of-an-endomorphism, A6/characteristic-polynomial-of-an-endomorphism). Replace π by π^m.
+1. d(1−π^m)=1 at the origin, so 1−π^m is étale. Properness and a zero-dimensional kernel make it a finite surjective isogeny. Its geometric kernel is A(𝔽_(q^m)), with multiplicity one. Hence #A(𝔽_(q^m))=deg(1−π^m)=P_(π^m)(1), using the A6 isogeny degree and characteristic-polynomial contracts.
 2. The eigenvalues of π^m are the a_i^m (DWP.0/spectra-of-polynomials-in-an-endomorphism), so P_{π^m}(1) = ∏(1 − a_i^m).
 3. Expand ∏(1 − a_i^m): the term ∏a_i^m = q^{mg}; the 2g terms that are products of 2g − 1 roots have absolute value q^{m(g−1/2)}; the remaining 2^{2g} − 2g − 1 terms have absolute value at most q^{m(g−1)} (Weil estimate).
-4. Zeta function: log Z = Σ N_m t^m/m with N_m = Σ_r (−1)^r Tr(π^m | ∧^r), and the eigenvalues of π on ∧^r T_ℓA are the r-fold products (DWP.0/spectra-of-tensor-products-and-duals).
+4. Zeta function: log Z = Σ N_m t^m/m with N_m = Σ_r (−1)^r Tr(π^m | ∧^r), and the eigenvalues of π on ∧^r T_ℓA are the r-fold products (DWP.0/eigenvalues-of-exterior-powers).
 
 Acceptance checks:
 
 - E: y² = x³ − x over 𝔽_3: N_1 = P_π(1) = 1 + 3 = 4, and |4 − 3| = 1 ≤ 2√3.
 - g = 1: the bound reads |N_m − q^m| ≤ 2q^{m/2} + 1, that is Hasse's |N_m − q^m − 1| ≤ 2q^{m/2}, loosened by the constant term.
 
-Direct inputs: [DWP.1/weil-estimate-for-abelian-varieties](#dwp-1-weil-estimate-for-abelian-varieties), [DWP.1/frobenius-endomorphism-over-a-finite-field](#dwp-1-frobenius-endomorphism-over-a-finite-field), `AbelianSchemesAndArithmeticModuli:A6/degree-of-an-endomorphism`, `AbelianSchemesAndArithmeticModuli:A6/characteristic-polynomial-of-an-endomorphism`, [DWP.0/spectra-of-polynomials-in-an-endomorphism](#dwp-0-spectra-of-polynomials-in-an-endomorphism), [DWP.0/spectra-of-tensor-products-and-duals](#dwp-0-spectra-of-tensor-products-and-duals).
+Direct inputs: [DWP.1/weil-estimate-for-abelian-varieties](#dwp-1-weil-estimate-for-abelian-varieties), [DWP.1/frobenius-endomorphism-over-a-finite-field](#dwp-1-frobenius-endomorphism-over-a-finite-field), `AbelianSchemesAndArithmeticModuli:A6/degree-of-an-endomorphism`, `AbelianSchemesAndArithmeticModuli:A6/characteristic-polynomial-of-an-endomorphism`, [DWP.0/spectra-of-polynomials-in-an-endomorphism](#dwp-0-spectra-of-polynomials-in-an-endomorphism), [DWP.0/spectra-of-tensor-products-and-duals](#dwp-0-spectra-of-tensor-products-and-duals), [DWP.0/eigenvalues-of-exterior-powers](#dwp-0-eigenvalues-of-exterior-powers).
 
-Sources: [Abelian Varieties](https://www.jmilne.org/math/CourseNotes/AV.pdf), Chapter II, Theorem 1.1(a), p. 75; [Abelian Varieties](https://www.jmilne.org/math/CourseNotes/AV.pdf), Chapter II, proof of Theorem 1.1, p. 76.
+Sources: [Abelian Varieties](https://www.jmilne.org/math/CourseNotes/AV.pdf), Chapter II, Theorem 1.1(a), p. 75. Theorem 1.1: N_m = ∏(1 − a_i^m) and the bound. [Abelian Varieties](https://www.jmilne.org/math/CourseNotes/AV.pdf), Chapter II, proof of Theorem 1.1, p. 76. dπ = 0, so π − 1 is étale. [Abelian Varieties](https://www.jmilne.org/math/CourseNotes/AV.pdf), Chapter II, Corollary 1.5 and Remark 1.6(a), p. 78. The zeta factorization and its exterior-power interpretation.
 
 Declaration id: `DeligneWeightsAndPurity:DWP.1/point-counts-of-abelian-varieties`.
 
@@ -860,7 +887,7 @@ Acceptance checks:
 
 Direct inputs: [DWP.1/weil-estimate-for-abelian-varieties](#dwp-1-weil-estimate-for-abelian-varieties), `SchemeAndStackFoundations:SF.2`, `tauceti:TauCetiRoadmap/JacobianChallenge#layer-f-abeljacobi-and-the-universal-property`, [DWP.0/finite-field-base-extension-of-weights](#dwp-0-finite-field-base-extension-of-weights).
 
-Sources: [Abelian Varieties](https://www.jmilne.org/math/CourseNotes/AV.pdf), Chapter III, Theorem 11.1, p. 118; [Abelian Varieties](https://www.jmilne.org/math/CourseNotes/AV.pdf), Chapter III, Corollary 11.4, p. 119.
+Sources: [Abelian Varieties](https://www.jmilne.org/math/CourseNotes/AV.pdf), Chapter III, Theorem 11.1, p. 118. #C(𝔽_q) = 1 − Σa_i + q, and |N − q − 1| ≤ 2g√q. [Abelian Varieties](https://www.jmilne.org/math/CourseNotes/AV.pdf), Chapter III, Corollary 11.4, p. 119. Z(C, t) = P(t)/((1 − t)(1 − qt)).
 
 Declaration id: `DeligneWeightsAndPurity:DWP.1/weil-estimate-for-curves`.
 
@@ -886,7 +913,7 @@ Acceptance checks:
 
 Direct inputs: [DWP.1/weil-estimate-for-abelian-varieties](#dwp-1-weil-estimate-for-abelian-varieties), [DWP.0/twisting-by-rank-one-characters](#dwp-0-twisting-by-rank-one-characters), `ArithmeticGaloisRepresentations:R01.6`, `tauceti:TauCetiRoadmap/JacobianChallenge#layer-f-abeljacobi-and-the-universal-property`, [DWP.0/finite-field-base-extension-of-weights](#dwp-0-finite-field-base-extension-of-weights), `EtaleDualityAndPerverseSheaves:EDC.2:pairings/extreme-degree-cohomology`.
 
-Sources: [Abelian Varieties](https://www.jmilne.org/math/CourseNotes/AV.pdf), Chapter III, Remark 11.5, p. 119; [Comptage des systèmes locaux ℓ-adiques sur une courbe](https://arxiv.org/pdf/1807.04659v5), §1 pp. 2–3; §7.1 p. 64.
+Sources: [Abelian Varieties](https://www.jmilne.org/math/CourseNotes/AV.pdf), Chapter III, Remark 11.5, p. 119. H¹(C) = H¹(J) = (T_ℓJ)^∨ and the cohomological form of the fixed-point formula. [Comptage des systèmes locaux ℓ-adiques sur une courbe](https://arxiv.org/pdf/1807.04659v5), §1 pp. 2–3; §7.1 p. 64. The genus-g Weil root bookkeeping and its paired product; the proof is the shared curve purity and duality theorem, not new automorphic work.
 
 Declaration id: `DeligneWeightsAndPurity:DWP.1/weights-of-the-cohomology-of-curves`.
 
@@ -910,7 +937,7 @@ Acceptance checks:
 
 Direct inputs: [DWP.1/weil-estimate-for-abelian-varieties](#dwp-1-weil-estimate-for-abelian-varieties), [DWP.1/point-counts-of-abelian-varieties](#dwp-1-point-counts-of-abelian-varieties), `tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1`.
 
-Sources: [Abelian Varieties](https://www.jmilne.org/math/CourseNotes/AV.pdf), Chapter III, Theorem 11.1, p. 118.
+Sources: [Abelian Varieties](https://www.jmilne.org/math/CourseNotes/AV.pdf), Chapter III, Theorem 11.1, p. 118. |N − q − 1| ≤ 2g√q, which for g = 1 is Hasse's bound.
 
 Declaration id: `DeligneWeightsAndPurity:DWP.1/compatibility-with-the-hasse-bound`.
 
@@ -933,7 +960,7 @@ Acceptance checks:
 
 Direct inputs: [DWP.1/frobenius-endomorphism-over-a-finite-field](#dwp-1-frobenius-endomorphism-over-a-finite-field), [DWP.0/finite-field-base-extension-of-weights](#dwp-0-finite-field-base-extension-of-weights), [DWP.0/weil-number-base-extension](#dwp-0-weil-number-base-extension).
 
-Sources: [Abelian Varieties](https://www.jmilne.org/math/CourseNotes/AV.pdf), Chapter II, proof of Theorem 1.1, p. 76.
+Sources: [Abelian Varieties](https://www.jmilne.org/math/CourseNotes/AV.pdf), Chapter II, proof of Theorem 1.1, p. 76. Replacing π by π^m.
 
 Declaration id: `DeligneWeightsAndPurity:DWP.1/the-frobenius-and-points-over-extensions`.
 
@@ -968,7 +995,7 @@ Acceptance checks:
 
 Direct inputs: [DWP.5/punctual-purity-and-mixedness](#dwp-5-punctual-purity-and-mixedness), [DWP.0/endomorphism-weights](#dwp-0-endomorphism-weights), [DWP.0/twisting-by-rank-one-characters](#dwp-0-twisting-by-rank-one-characters), `WeilConjectures:WC.1`, `SchemeAndStackFoundations:SF.2`.
 
-Sources: [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §3, (3.1), p. 284; [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §3, (3.1), p. 283.
+Sources: [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §3, (3.1), p. 284. The weight of a lisse sheaf on a curve; ℚ_ℓ(r) has weight −2r. [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §3, (3.1), p. 283. U₀ is the complement in ℙ¹ of finitely many closed points.
 
 Declaration id: `DeligneWeightsAndPurity:DWP.2/weights-and-l-functions-of-lisse-sheaves-on-curves`.
 
@@ -980,7 +1007,7 @@ Let V be a finite-dimensional ℚ_ℓ-vector space with a nondegenerate alternat
 
 Openness is for the ℓ-adic topology. RS-17 keeps it as the hypothesis of Theorem 3.2, rather than any weaker density statement.
 
-Connectedness of Sp is essential: an open subgroup of O(V)(ℚ_ℓ) is dense only in the identity component.
+Connectedness of Sp is essential. An open subgroup of O(V)(ℚ_ℓ) contains an open neighborhood in SO(V), so its closure contains SO(V), but need not contain all components: SO(V)(ℚ_ℓ) itself is an open counterexample to full O-density.
 
 Proof or construction:
 
@@ -995,7 +1022,7 @@ Acceptance checks:
 
 Direct inputs: `tauceti:TauCetiRoadmap/ReductiveGroups#layer-3-subgroups-quotients-components`, `tauceti:TauCetiRoadmap/ReductiveGroups#layer-2-lie-algebra-and-the-adjoint-representation`.
 
-Sources: [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §3, (3.7), p. 285.
+Sources: [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §3, (3.7), p. 285. π₁ is Zariski-dense in Sp.
 
 Declaration id: `DeligneWeightsAndPurity:DWP.2/open-subgroups-of-symplectic-groups-are-zariski-dense`.
 
@@ -1025,7 +1052,7 @@ Acceptance checks:
 
 Direct inputs: `tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl#layer-9-schur-weyl-duality-for-the-orthogonal-and-symplectic-groups-the-brauer-algebra`.
 
-Sources: [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §3, (3.7), p. 285.
+Sources: [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §3, (3.7), p. 285. The coinvariants of π₁ are those of Sp, computed by Weyl's theorem.
 
 Declaration id: `DeligneWeightsAndPurity:DWP.2/symplectic-coinvariants-of-even-tensor-powers`.
 
@@ -1052,9 +1079,9 @@ Acceptance checks:
 
 - For F₀ the first cohomology of a family of elliptic curves with non-constant j (weight 1, rank 2, ψ the Weil pairing into ℚ_ℓ(−1)) and k = 1: H²_c(U, ⊗²F) ≅ ℚ_ℓ(−2), N = 1, with a pole at t = q^{−2}.
 
-Direct inputs: [DWP.2/weights-and-l-functions-of-lisse-sheaves-on-curves](#dwp-2-weights-and-l-functions-of-lisse-sheaves-on-curves), [DWP.2/open-subgroups-of-symplectic-groups-are-zariski-dense](#dwp-2-open-subgroups-of-symplectic-groups-are-zariski-dense), [DWP.2/symplectic-coinvariants-of-even-tensor-powers](#dwp-2-symplectic-coinvariants-of-even-tensor-powers), `SchemeAndStackFoundations:SF.2`, `EtaleDualityAndPerverseSheaves:EDC.2`.
+Direct inputs: [DWP.2/weights-and-l-functions-of-lisse-sheaves-on-curves](#dwp-2-weights-and-l-functions-of-lisse-sheaves-on-curves), [DWP.2/open-subgroups-of-symplectic-groups-are-zariski-dense](#dwp-2-open-subgroups-of-symplectic-groups-are-zariski-dense), [DWP.2/symplectic-coinvariants-of-even-tensor-powers](#dwp-2-symplectic-coinvariants-of-even-tensor-powers), `SchemeAndStackFoundations:SF.2`, `EtaleDualityAndPerverseSheaves:EDC.2:pairings/extreme-degree-cohomology`.
 
-Sources: [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §3, (3.7), p. 285; [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §2, Scholie (2.10), p. 282.
+Sources: [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §3, (3.7), p. 285. Z(U₀, ⊗^{2k}F₀, t) is rational, with poles only at q^{−kβ−1}. [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §2, Scholie (2.10), p. 282. H⁰_c vanishes on an affine curve.
 
 Declaration id: `DeligneWeightsAndPurity:DWP.2/compact-cohomology-of-even-tensor-powers`.
 
@@ -1078,7 +1105,7 @@ Acceptance checks:
 
 Direct inputs: [DWP.0/characteristic-power-series-and-traces](#dwp-0-characteristic-power-series-and-traces), `mathlib:LinearMap.trace_tensorProduct'`.
 
-Sources: [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §3, Lemme (3.3), p. 284.
+Sources: [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §3, Lemme (3.3), p. 284. The log-derivative has nonnegative rational coefficients.
 
 Declaration id: `DeligneWeightsAndPurity:DWP.2/positivity-of-even-tensor-power-traces`.
 
@@ -1102,7 +1129,7 @@ Acceptance checks:
 
 Direct inputs: [DWP.2/positivity-of-even-tensor-power-traces](#dwp-2-positivity-of-even-tensor-power-traces).
 
-Sources: [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §3, Lemme (3.4), p. 284.
+Sources: [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §3, Lemme (3.4), p. 284. The logarithm has no constant term; exponentiate.
 
 Declaration id: `DeligneWeightsAndPurity:DWP.2/positive-local-factors`.
 
@@ -1126,7 +1153,7 @@ Acceptance checks:
 
 Direct inputs: .
 
-Sources: [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §3, Lemme (3.5), p. 284.
+Sources: [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §3, Lemme (3.5), p. 284. Power series with nonnegative real coefficients.
 
 Declaration id: `DeligneWeightsAndPurity:DWP.2/radius-of-convergence-of-positive-products`.
 
@@ -1149,7 +1176,7 @@ Acceptance checks:
 
 Direct inputs: [DWP.2/radius-of-convergence-of-positive-products](#dwp-2-radius-of-convergence-of-positive-products).
 
-Sources: [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §3, Lemme (3.6), p. 284.
+Sources: [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §3, Lemme (3.6), p. 284. The infima are the radii of absolute convergence.
 
 Declaration id: `DeligneWeightsAndPurity:DWP.2/poles-of-positive-products`.
 
@@ -1183,7 +1210,7 @@ Acceptance checks:
 
 Direct inputs: [DWP.2/weights-and-l-functions-of-lisse-sheaves-on-curves](#dwp-2-weights-and-l-functions-of-lisse-sheaves-on-curves), [DWP.2/compact-cohomology-of-even-tensor-powers](#dwp-2-compact-cohomology-of-even-tensor-powers), [DWP.2/positive-local-factors](#dwp-2-positive-local-factors), [DWP.2/poles-of-positive-products](#dwp-2-poles-of-positive-products), [DWP.0/reciprocal-pairing-of-eigenvalues](#dwp-0-reciprocal-pairing-of-eigenvalues), [DWP.0/spectra-of-tensor-products-and-duals](#dwp-0-spectra-of-tensor-products-and-duals), [DWP.0/weil-q-number](#dwp-0-weil-q-number).
 
-Sources: [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §3, Théorème (3.2), p. 284; [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §3, Théorème (3.2), p. 284; [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §3, proof of (3.2), p. 285.
+Sources: [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §3, Théorème (3.2), p. 284. The hypotheses (i)–(iii). [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §3, Théorème (3.2), p. 284. Hypothesis (ii): open symplectic monodromy. [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §3, proof of (3.2), p. 285. The limit k → ∞.
 
 Declaration id: `DeligneWeightsAndPurity:DWP.2/fundamental-estimate-theorem-3-2`.
 
@@ -1206,9 +1233,9 @@ Acceptance checks:
 
 - β = 1 (a family of elliptic curves): every eigenvalue on H¹_c(U, F) satisfies |α| ≤ q^{3/2}.
 
-Direct inputs: [DWP.2/fundamental-estimate-theorem-3-2](#dwp-2-fundamental-estimate-theorem-3-2), [DWP.2/weights-and-l-functions-of-lisse-sheaves-on-curves](#dwp-2-weights-and-l-functions-of-lisse-sheaves-on-curves), [DWP.2/open-subgroups-of-symplectic-groups-are-zariski-dense](#dwp-2-open-subgroups-of-symplectic-groups-are-zariski-dense), `SchemeAndStackFoundations:SF.2`, `EtaleDualityAndPerverseSheaves:EDC.2`.
+Direct inputs: [DWP.2/fundamental-estimate-theorem-3-2](#dwp-2-fundamental-estimate-theorem-3-2), [DWP.2/weights-and-l-functions-of-lisse-sheaves-on-curves](#dwp-2-weights-and-l-functions-of-lisse-sheaves-on-curves), [DWP.2/open-subgroups-of-symplectic-groups-are-zariski-dense](#dwp-2-open-subgroups-of-symplectic-groups-are-zariski-dense), `SchemeAndStackFoundations:SF.2`, `EtaleDualityAndPerverseSheaves:EDC.2:pairings/extreme-degree-cohomology`.
 
-Sources: [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §3, Corollaire (3.8), p. 286.
+Sources: [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §3, Corollaire (3.8), p. 286. Rationality of Z and the convergence argument.
 
 Declaration id: `DeligneWeightsAndPurity:DWP.2/coarse-bound-on-compact-cohomology`.
 
@@ -1229,9 +1256,9 @@ Acceptance checks:
 
 - β = 1: every eigenvalue on H¹(ℙ¹, j_*F) satisfies q^{1/2} ≤ |α| ≤ q^{3/2}. Purity (|α| = q) is DWP.4's sharpening.
 
-Direct inputs: [DWP.2/coarse-bound-on-compact-cohomology](#dwp-2-coarse-bound-on-compact-cohomology), [DWP.0/reciprocal-pairing-of-eigenvalues](#dwp-0-reciprocal-pairing-of-eigenvalues), `EtaleDualityAndPerverseSheaves:EDC.2`.
+Direct inputs: [DWP.2/coarse-bound-on-compact-cohomology](#dwp-2-coarse-bound-on-compact-cohomology), [DWP.0/reciprocal-pairing-of-eigenvalues](#dwp-0-reciprocal-pairing-of-eigenvalues), `EtaleDualityAndPerverseSheaves:EDC.2/curve-poincare-duality-with-j-star-statement`.
 
-Sources: [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §3, Corollaire (3.9), p. 286; [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §3, Corollaire (3.9), p. 287.
+Sources: [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §3, Corollaire (3.9), p. 286. Surjectivity of H¹_c(U, F) → H¹(ℙ¹, j_*F). [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §3, Corollaire (3.9), p. 287. The dual eigenvalue q^{β+1}/α.
 
 Declaration id: `DeligneWeightsAndPurity:DWP.2/coarse-bound-on-cohomology-of-the-projective-line`.
 
@@ -1263,7 +1290,7 @@ Acceptance checks:
 
 Direct inputs: `LefschetzPencilsAndVanishingCycles:LPV.3/existence-of-lefschetz-pencils`, `LefschetzPencilsAndVanishingCycles:LPV.4/vanishing-quotient-and-its-pairing`, `EtaleDualityAndPerverseSheaves:EDC.2:pairings/galois-frobenius-equivariance`, `InverseGaloisAndArithmeticFundamentalGroups:IG.1`.
 
-Sources: [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §6, (6.1), p. 295; [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §6, (6.1), p. 295; [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §6, (6.1), p. 295.
+Sources: [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §6, (6.1), p. 295. The vanishing part ℰ, a local system on U. [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §6, (6.1), p. 295. The alternating cup-product ψ and the induced perfect pairing on ℰ₀/(ℰ₀ ∩ ℰ₀^⊥). [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §6, (6.1), p. 295. X connected of even dimension n + 1.
 
 Declaration id: `DeligneWeightsAndPurity:DWP.3/radical-quotient-of-the-vanishing-system`.
 
@@ -1271,7 +1298,7 @@ Declaration id: `DeligneWeightsAndPurity:DWP.3/radical-quotient-of-the-vanishing
 
 ### Weil I Lemma 6.4: geometrically constant lisse sheaves come from 𝔽_q
 
-Let 𝒢₀ be a lisse ℚ_ℓ-sheaf on U₀ whose pullback 𝒢 to U is constant. Then there are ℓ-adic units α_i ∈ ℚ̄_ℓ with det(1 − F_x t^{deg x}, 𝒢₀) = ∏_i(1 − α_i^{deg x} t^{deg x}) for every x ∈ |U₀|. In fact 𝒢₀ is the pullback of its direct image to Spec 𝔽_q, a representation G₀ of Gal(𝔽̄_q/𝔽_q), and ∏(1 − α_i t) = det(1 − F t, G₀).
+Let U₀ be geometrically connected over 𝔽_q and let 𝒢₀ be a lisse ℚ_ℓ-sheaf on U₀ whose pullback 𝒢 to U is constant. Then there are ℓ-adic units α_i ∈ ℚ̄_ℓ with det(1 − F_x t^{deg x}, 𝒢₀) = ∏_i(1 − α_i^{deg x} t^{deg x}) for every x ∈ |U₀|. In fact 𝒢₀ is the pullback of its direct image to Spec 𝔽_q, a representation G₀ of Gal(𝔽̄_q/𝔽_q), and ∏(1 − α_i t) = det(1 − F t, G₀).
 
 The α_i are ℓ-adic units because Gal(𝔽̄_q/𝔽_q) is compact.
 
@@ -1286,9 +1313,9 @@ Acceptance checks:
 
 - The Tate twist ℚ_ℓ(−1) on U₀: α = q, and det(1 − F_x t^{deg x}) = 1 − q^{deg x} t^{deg x}.
 
-Direct inputs: `LefschetzPencilsAndVanishingCycles:LPV.4`, [DWP.0/finite-field-base-extension-of-weights](#dwp-0-finite-field-base-extension-of-weights).
+Direct inputs: `LefschetzPencilsAndVanishingCycles:LPV.4`, [DWP.0/finite-field-base-extension-of-weights](#dwp-0-finite-field-base-extension-of-weights), `InverseGaloisAndArithmeticFundamentalGroups:IG.1`.
 
-Sources: [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §6, Lemme (6.4), p. 295; [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §6, proof of (6.4), p. 296.
+Sources: [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §6, Lemme (6.4), p. 295. Lemma 6.4. [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §6, proof of (6.4), p. 296. 𝒢₀ is a pullback from Spec 𝔽_q.
 
 Declaration id: `DeligneWeightsAndPurity:DWP.3/geometrically-constant-lisse-sheaves`.
 
@@ -1318,7 +1345,7 @@ Acceptance checks:
 
 Direct inputs: [DWP.3/radical-quotient-of-the-vanishing-system](#dwp-3-radical-quotient-of-the-vanishing-system), [DWP.3/geometrically-constant-lisse-sheaves](#dwp-3-geometrically-constant-lisse-sheaves), [DWP.0/characteristic-polynomial-in-short-exact-sequences](#dwp-0-characteristic-polynomial-in-short-exact-sequences), `WeilConjectures:WC.1`, `SchemeAndStackFoundations:SF.2`.
 
-Sources: [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §6, (6.4), p. 296; [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §1, (1.5.4), p. 276.
+Sources: [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §6, (6.4), p. 296. The factorization of Z(X_x, t). [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §1, (1.5.4), p. 276. The cohomological formula for Z.
 
 Declaration id: `DeligneWeightsAndPurity:DWP.3/zeta-of-the-fibres-and-the-pencil-factorization`.
 
@@ -1344,7 +1371,7 @@ Acceptance checks:
 
 Direct inputs: .
 
-Sources: [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §6, proof of (6.7), p. 297.
+Sources: [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §6, proof of (6.7), p. 297. Induction on the size of the family.
 
 Declaration id: `DeligneWeightsAndPurity:DWP.3/powers-of-a-family-determine-the-family`.
 
@@ -1369,7 +1396,7 @@ Acceptance checks:
 
 Direct inputs: [DWP.3/radical-quotient-of-the-vanishing-system](#dwp-3-radical-quotient-of-the-vanishing-system), `LefschetzPencilsAndVanishingCycles:LPV.5/kazhdan-margulis-open-image`, `InverseGaloisAndArithmeticFundamentalGroups:IG.1`.
 
-Sources: [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §6, (6.10), p. 297; [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §6, (6.10), p. 298.
+Sources: [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §6, (6.10), p. 297. π₁(U₀) acts by symplectic similitudes. [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §6, (6.10), p. 298. The group H.
 
 Declaration id: `DeligneWeightsAndPurity:DWP.3/open-image-in-the-symplectic-similitude-group`.
 
@@ -1397,7 +1424,7 @@ Acceptance checks:
 
 Direct inputs: [DWP.3/open-image-in-the-symplectic-similitude-group](#dwp-3-open-image-in-the-symplectic-similitude-group).
 
-Sources: [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §6, Lemme (6.12), p. 298; [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §6, proof of (6.12), p. 298.
+Sources: [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §6, Lemme (6.12), p. 298. Z is closed of measure zero. [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §6, proof of (6.12), p. 298. Fubini over the projection to ℤ̂.
 
 Declaration id: `DeligneWeightsAndPurity:DWP.3/haar-null-exceptional-eigenvalue-locus`.
 
@@ -1420,9 +1447,9 @@ Acceptance checks:
 
 - For the pencil of plane cubics and δ = 1: 1 is an eigenvalue of F_x on ℱ₀ = H¹(E_x) iff #E_x(k(x)) = det(1 − F_x | H¹) = 0. That is impossible, since E_x has a rational point, so L = ∅.
 
-Direct inputs: [DWP.3/haar-null-exceptional-eigenvalue-locus](#dwp-3-haar-null-exceptional-eigenvalue-locus), [DWP.3/open-image-in-the-symplectic-similitude-group](#dwp-3-open-image-in-the-symplectic-similitude-group), `FunctionFieldArithmetic:FA.5`.
+Direct inputs: [DWP.3/haar-null-exceptional-eigenvalue-locus](#dwp-3-haar-null-exceptional-eigenvalue-locus), [DWP.3/open-image-in-the-symplectic-similitude-group](#dwp-3-open-image-in-the-symplectic-similitude-group), `FunctionFieldArithmetic:FA.5`, `tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups#layer-6-characters-of-compact-groups`.
 
-Sources: [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §6, (6.13), p. 298.
+Sources: [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §6, (6.13), p. 298. Density zero via Chebotarev.
 
 Declaration id: `DeligneWeightsAndPurity:DWP.3/exceptional-frobenius-set-has-density-zero`.
 
@@ -1446,7 +1473,7 @@ Acceptance checks:
 
 Direct inputs: [DWP.3/exceptional-frobenius-set-has-density-zero](#dwp-3-exceptional-frobenius-set-has-density-zero), [DWP.3/powers-of-a-family-determine-the-family](#dwp-3-powers-of-a-family-determine-the-family).
 
-Sources: [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §6, Proposition (6.6), p. 296; [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §6, (6.13), p. 298.
+Sources: [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §6, Proposition (6.6), p. 296. The denominator in lowest terms. [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §6, (6.13), p. 298. The proof of (6.6).
 
 Declaration id: `DeligneWeightsAndPurity:DWP.3/denominators-away-from-the-exceptional-set`.
 
@@ -1469,7 +1496,7 @@ Acceptance checks:
 
 Direct inputs: [DWP.3/denominators-away-from-the-exceptional-set](#dwp-3-denominators-away-from-the-exceptional-set).
 
-Sources: [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §6, Proposition (6.8), p. 297.
+Sources: [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §6, Proposition (6.8), p. 297. The intrinsic characterisation of R(t).
 
 Declaration id: `DeligneWeightsAndPurity:DWP.3/divisibility-criterion`.
 
@@ -1500,7 +1527,7 @@ Acceptance checks:
 
 Direct inputs: [DWP.3/zeta-of-the-fibres-and-the-pencil-factorization](#dwp-3-zeta-of-the-fibres-and-the-pencil-factorization), [DWP.3/denominators-away-from-the-exceptional-set](#dwp-3-denominators-away-from-the-exceptional-set), [DWP.3/divisibility-criterion](#dwp-3-divisibility-criterion), [DWP.3/powers-of-a-family-determine-the-family](#dwp-3-powers-of-a-family-determine-the-family).
 
-Sources: [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §6, Théorème (6.2), p. 295; [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §6, (6.9), p. 297.
+Sources: [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §6, Théorème (6.2), p. 295. Theorem 6.2: rational coefficients. [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §6, (6.9), p. 297. The proof of 6.2 from 6.6–6.8.
 
 Declaration id: `DeligneWeightsAndPurity:DWP.3/rationality-of-pencil-local-factors`.
 
@@ -1521,9 +1548,9 @@ Acceptance checks:
 
 - Plane cubics (n = 1): the eigenvalues on H¹(D, j_*ℱ) satisfy q^{1/2} ≤ |α| ≤ q^{3/2}.
 
-Direct inputs: [DWP.3/rationality-of-pencil-local-factors](#dwp-3-rationality-of-pencil-local-factors), [DWP.3/radical-quotient-of-the-vanishing-system](#dwp-3-radical-quotient-of-the-vanishing-system), [DWP.2/fundamental-estimate-theorem-3-2](#dwp-2-fundamental-estimate-theorem-3-2), [DWP.2/coarse-bound-on-cohomology-of-the-projective-line](#dwp-2-coarse-bound-on-cohomology-of-the-projective-line), `LefschetzPencilsAndVanishingCycles:LPV.5`.
+Direct inputs: [DWP.3/rationality-of-pencil-local-factors](#dwp-3-rationality-of-pencil-local-factors), [DWP.3/radical-quotient-of-the-vanishing-system](#dwp-3-radical-quotient-of-the-vanishing-system), [DWP.2/fundamental-estimate-theorem-3-2](#dwp-2-fundamental-estimate-theorem-3-2), [DWP.2/coarse-bound-on-cohomology-of-the-projective-line](#dwp-2-coarse-bound-on-cohomology-of-the-projective-line), `LefschetzPencilsAndVanishingCycles:LPV.5/kazhdan-margulis-open-image`.
 
-Sources: [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §6, Corollaire (6.3), p. 295.
+Sources: [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §6, Corollaire (6.3), p. 295. Corollary 6.3 from (3.2) and (3.9).
 
 Declaration id: `DeligneWeightsAndPurity:DWP.3/coarse-bound-for-the-pencil`.
 
@@ -1539,9 +1566,9 @@ Atlas landmark: **Half-unit bound**.
 
 Proof or construction:
 
-1. Induct on even d, beginning with dimension zero. After a finite extension choose a pencil, a rational smooth fibre and a smooth hyperplane section Y of that fibre; make exceptional values and vanishing-cycle signs rational. Transfer inequalities back using Frobenius powers and the base-extension weight comparison.
+1. First separate geometric components after a finite extension; Frobenius-power comparison returns the bound on X₀. Induct on even d, beginning with dimension zero. After a further finite extension choose a pencil, a rational smooth fibre and a smooth hyperplane section Y of that fibre; make exceptional values and vanishing-cycle signs rational.
 2. Pullback from X to its blowup along the pencil axis is injective. The degree-d Leray filtration has graded subquotients of A=H²(ℙ¹,R^(d−2)f_*ℚ_ℓ), B=H⁰(ℙ¹,Rᵈf_*ℚ_ℓ), C=H¹(ℙ¹,R^(d−1)f_*ℚ_ℓ). This filtration suffices without any degeneration assertion.
-3. Write n=d−1=2m+1. In the nonzero vanishing-cycle case the outer sheaves are geometrically constant. Weak Lefschetz and its Gysin transpose identify A with H^(d−2)(Y)(−1) and make B a quotient of it. Their eigenvalues have exact modulus q^(d/2) by induction.
+3. Write n=d−1=2m+1. In the nonzero vanishing-cycle case the outer sheaves are geometrically constant. Weak Lefschetz identifies A with H^(d−2)(Y)(−1), and its Gysin transpose makes B a quotient of this same group. Here dim Y=d−2. The induction hypothesis gives the interval q^((d−2)/2−1/2)≤|α|≤q^((d−2)/2+1/2) before twisting; multiplying by q gives the required q^(d/2±1/2) interval. Exact purity is proved only in the following tensor-power node.
 4. In the zero-cycle case B is an extension of the same constant-fibre term by skyscrapers ℚ_ℓ(m−n)=ℚ_ℓ(−d/2); C vanishes because Rⁿ is geometrically constant. Make the skyscrapers rational after extension, so their eigenvalues are q^(d/2).
 5. For nonzero cycles with E/rad ≠0, sequences (7.1.2) and (7.1.3) give a surjection H¹(j_*E)→C and an injection H¹(j_*E)→H¹(j_*(E/rad)); H¹ of the geometrically constant factors on ℙ¹ vanishes. Apply the pencil coarse bound.
 6. If E⊂E⊥, retain (7.1.4) and (7.1.5): C injects into H¹(G), a quotient of the singular-fibre skyscraper sections ℚ_ℓ(−d/2). Thus all cases give the interval. Algebraicity and all conjugates pass through extensions, subquotients and finite-field descent.
@@ -1553,7 +1580,7 @@ Acceptance checks:
 
 Direct inputs: [DWP.3/coarse-bound-for-the-pencil](#dwp-3-coarse-bound-for-the-pencil), [DWP.3/geometrically-constant-lisse-sheaves](#dwp-3-geometrically-constant-lisse-sheaves), [DWP.0/finite-field-base-extension-of-weights](#dwp-0-finite-field-base-extension-of-weights), `LefschetzPencilsAndVanishingCycles:LPV.4/cohomology-sheaves-of-a-lefschetz-pencil`, `LefschetzPencilsAndVanishingCycles:LPV.3/existence-of-lefschetz-pencils`, `EtaleDualityAndPerverseSheaves:EDC.4`, `SchemeAndStackFoundations:SF.2`.
 
-Sources: [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), Weil I §7, Lemme (7.1) and (7.1.1)–(7.1.5), pp. 298–300.
+Sources: [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), Weil I §7, Lemme (7.1) and (7.1.1)–(7.1.5), pp. 298–300. The stated result and proof, with the conventions and supplier boundaries specified here.
 
 Declaration id: `DeligneWeightsAndPurity:DWP.4/middle-cohomology-half-unit-bound`.
 
@@ -1577,7 +1604,7 @@ Acceptance checks:
 
 Direct inputs: [DWP.4/middle-cohomology-half-unit-bound](#dwp-4-middle-cohomology-half-unit-bound), [DWP.0/spectra-of-tensor-products-and-duals](#dwp-0-spectra-of-tensor-products-and-duals), `SchemeAndStackFoundations:SF.2`.
 
-Sources: [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), Weil I §7, Théorème (7.2), (7.3), p. 300.
+Sources: [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), Weil I §7, Lemme (7.2), pp. 300–301; proof (7.3), p. 301. The stated result and proof, with the conventions and supplier boundaries specified here.
 
 Declaration id: `DeligneWeightsAndPurity:DWP.4/middle-cohomology-purity`.
 
@@ -1602,7 +1629,7 @@ Acceptance checks:
 
 Direct inputs: [DWP.4/middle-cohomology-purity](#dwp-4-middle-cohomology-purity), [DWP.0/purity-under-subquotients-and-extensions](#dwp-0-purity-under-subquotients-and-extensions), [DWP.0/finite-field-base-extension-of-weights](#dwp-0-finite-field-base-extension-of-weights), `EtaleDualityAndPerverseSheaves:EDC.4`, `EtaleDualityAndPerverseSheaves:EDC.2:pairings/adic-and-rational-poincare-duality`.
 
-Sources: [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), Weil I §1, Lemme (1.7), p. 276; §7 (7.2)–(7.3), p. 300.
+Sources: [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), Weil I §1, Lemme (1.7), p. 276; §7, Lemme (7.2) and proof (7.3), pp. 300–301. The stated result and proof, with the conventions and supplier boundaries specified here.
 
 Declaration id: `DeligneWeightsAndPurity:DWP.4/smooth-projective-purity`.
 
@@ -1650,7 +1677,7 @@ Acceptance checks:
 
 Direct inputs: `InverseGaloisAndArithmeticFundamentalGroups:IG.1`, `mathlib:MonoidHom.eqLocus`.
 
-Sources: [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §1.1 (1.1.7)–(1.1.13.1), pp. 150–153.
+Sources: [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §1.1 (1.1.7)–(1.1.13.1), pp. 150–153. The stated result and proof, with the conventions and supplier boundaries specified here.
 
 Declaration id: `DeligneWeightsAndPurity:DWP.5/weil-group`.
 
@@ -1672,7 +1699,7 @@ The API exposes the following operations and characterizations.
 | `TauCeti.Weights.WeilSheaf` | data | A geometric constructible sheaf with Weil descent data. |
 | `TauCeti.Weights.WeilSheaf.frobenius` | projection | The invertible action on every closed-point stalk, up to conjugacy. |
 | `TauCeti.Weights.WeilSheaf.ofEtale` | constructor | Restrict an étale sheaf to Weil descent. |
-| `TauCeti.Weights.WeilSheaf.etaleDescent_iff` | characterisation | Étale descent means extension to a continuous arithmetic fundamental-group representation. |
+| `TauCeti.Weights.WeilSheaf.etaleDescent_iff` | characterisation | For a lisse Weil sheaf, étale descent means extension to a continuous arithmetic fundamental-group representation. Constructible non-lisse sheaves instead use sheaf descent data; a single representation does not describe them. |
 | `TauCeti.Weights.WeilSheaf.pullback` | functoriality | Pull back descent along an 𝔽_q-morphism, preserving identity and composition. |
 
 Unit tests distinguish the intended object from nearby definitions.
@@ -1694,7 +1721,7 @@ Acceptance checks:
 
 Direct inputs: [DWP.5/weil-group](#dwp-5-weil-group), `SchemeAndStackFoundations:SF.2`, `EtaleDualityAndPerverseSheaves:EDC.0/coefficient-change`, `ArithmeticGaloisRepresentations:R01.6`.
 
-Sources: [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §1.1 (1.1.6), (1.1.10)–(1.1.14), pp. 150–153.
+Sources: [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §1.1 (1.1.6), (1.1.10)–(1.1.14), pp. 150–153. The stated result and proof, with the conventions and supplier boundaries specified here.
 
 Declaration id: `DeligneWeightsAndPurity:DWP.5/weil-sheaf`.
 
@@ -1750,7 +1777,7 @@ Acceptance checks:
 
 Direct inputs: [DWP.5/weil-sheaf](#dwp-5-weil-sheaf), [DWP.0/endomorphism-weights](#dwp-0-endomorphism-weights), [DWP.0/purity-under-subquotients-and-extensions](#dwp-0-purity-under-subquotients-and-extensions), [DWP.0/spectra-of-tensor-products-and-duals](#dwp-0-spectra-of-tensor-products-and-duals), `EtaleDualityAndPerverseSheaves:EDC.0/coefficient-change`.
 
-Sources: [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §1.2 (1.2.2)–(1.2.8), pp. 153–155.
+Sources: [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §1.2 (1.2.2)–(1.2.8), pp. 153–155. The stated result and proof, with the conventions and supplier boundaries specified here.
 
 Declaration id: `DeligneWeightsAndPurity:DWP.5/punctual-purity-and-mixedness`.
 
@@ -1793,7 +1820,7 @@ Acceptance checks:
 
 Direct inputs: [DWP.5/punctual-purity-and-mixedness](#dwp-5-punctual-purity-and-mixedness), [DWP.0/twisting-by-rank-one-characters](#dwp-0-twisting-by-rank-one-characters), [DWP.0/reciprocal-pairing-of-eigenvalues](#dwp-0-reciprocal-pairing-of-eigenvalues).
 
-Sources: [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §1.2 (1.2.12)–(1.2.14), pp. 155–156.
+Sources: [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §1.2 (1.2.12)–(1.2.14), pp. 155–156. The stated result and proof, with the conventions and supplier boundaries specified here.
 
 Declaration id: `DeligneWeightsAndPurity:DWP.5/real-sheaves`.
 
@@ -1814,9 +1841,9 @@ Acceptance checks:
 - A constant scalar b over 𝔽_q gives local scalar b^(deg x); normalizing over 𝔽_p instead gives b^a at q=pᵃ.
 - Finite determinant does not itself prove the conjectural purity statement (1.2.10)(i).
 
-Direct inputs: [DWP.5/weil-group](#dwp-5-weil-group), [DWP.5/weil-sheaf](#dwp-5-weil-sheaf), [DWP.0/twisting-by-rank-one-characters](#dwp-0-twisting-by-rank-one-characters), `FunctionFieldArithmetic:FA.4`, `InverseGaloisAndArithmeticFundamentalGroups:IG.1`, `LefschetzPencilsAndVanishingCycles:LPV.5/bertini-surjectivity-on-fundamental-groups`, [DWP.5/specialization-of-monodromy](#dwp-5-specialization-of-monodromy).
+Direct inputs: [DWP.5/weil-group](#dwp-5-weil-group), [DWP.5/weil-sheaf](#dwp-5-weil-sheaf), [DWP.0/twisting-by-rank-one-characters](#dwp-0-twisting-by-rank-one-characters), `FunctionFieldArithmetic:FA.4`, `InverseGaloisAndArithmeticFundamentalGroups:IG.1`, `LefschetzPencilsAndVanishingCycles:LPV.5`, [DWP.5/specialization-of-monodromy](#dwp-5-specialization-of-monodromy).
 
-Sources: [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §1.3 (1.3.1), (1.3.4), (1.3.6); §1.11 (1.11.4), pp. 156–158, 184–185.
+Sources: [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §1.3 (1.3.1), (1.3.4), (1.3.6), pp. 156–158; §1.11 (1.11.4), pp. 185–186. The stated result and proof, with the conventions and supplier boundaries specified here.
 
 Declaration id: `DeligneWeightsAndPurity:DWP.5/rank-one-normalization`.
 
@@ -1854,16 +1881,16 @@ Unit tests distinguish the intended object from nearby definitions.
 
 Proof or construction:
 
-1. Rank-one normalization gives a unique real weight for det ℱ; divide it by positive rank. Jordan–Hölder uniqueness gives independence of the multiset.
-2. Jordan–Hölder factors of an extension are the union of those of its subobject and quotient. A rank-one twist multiplies the rank-r determinant by its rth power, adding the twist weight to the normalized determinantal weight. For a pure constituent, tensor spectra identify the determinant weight as r times the punctual weight.
+1. After finite extension of the base field, treat each geometric component using rank-one normalization on its normal geometrically connected model. Finite-field base-extension comparison preserves the normalized real weight. This gives a unique real weight for det ℱ; divide it by positive rank. Jordan–Hölder uniqueness gives independence of the multiset.
+2. Jordan–Hölder factors of an extension are the union of those of its subobject and quotient. A rank-one twist multiplies the rank-r determinant by its rth power, adding the twist weight to the normalized determinantal weight. For a pure constituent, exterior-power spectra identify the determinant weight as r times the punctual weight.
 
 Acceptance checks:
 
 - Vanishing sheaves have the empty multiset; division by rank occurs only for nonzero irreducibles.
 
-Direct inputs: [DWP.5/rank-one-normalization](#dwp-5-rank-one-normalization), [DWP.5/punctual-purity-and-mixedness](#dwp-5-punctual-purity-and-mixedness), [DWP.0/spectra-of-tensor-products-and-duals](#dwp-0-spectra-of-tensor-products-and-duals).
+Direct inputs: [DWP.5/rank-one-normalization](#dwp-5-rank-one-normalization), [DWP.5/punctual-purity-and-mixedness](#dwp-5-punctual-purity-and-mixedness), [DWP.0/spectra-of-tensor-products-and-duals](#dwp-0-spectra-of-tensor-products-and-duals), [DWP.0/eigenvalues-of-exterior-powers](#dwp-0-eigenvalues-of-exterior-powers), [DWP.0/finite-field-base-extension-of-weights](#dwp-0-finite-field-base-extension-of-weights).
 
-Sources: [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §1.3 (1.3.5), (1.3.12)–(1.3.13), pp. 158–160.
+Sources: [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §1.3 Définition (1.3.5), p. 158; Corollaire (1.3.12) and Proposition (1.3.13), p. 161. The stated result and proof, with the conventions and supplier boundaries specified here.
 
 Declaration id: `DeligneWeightsAndPurity:DWP.5/determinantal-weights`.
 
@@ -1886,9 +1913,34 @@ Acceptance checks:
 
 Direct inputs: [DWP.5/rank-one-normalization](#dwp-5-rank-one-normalization), [DWP.5/determinantal-weights](#dwp-5-determinantal-weights), `tauceti:TauCetiRoadmap/ReductiveGroups#layer-6-reductive-and-semisimple-groups`, `ArithmeticGaloisRepresentations:R01.6`.
 
-Sources: [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §1.3 (1.3.7)–(1.3.15), pp. 158–161.
+Sources: [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §1.3 (1.3.7)–(1.3.15), pp. 158–162. The stated result and proof, with the conventions and supplier boundaries specified here.
 
 Declaration id: `DeligneWeightsAndPurity:DWP.5/geometric-monodromy-and-central-degree`.
+
+<a id="dwp-5-determinantal-weight-functoriality"></a>
+
+### Functoriality of determinantal weights
+
+For a dominant morphism f:X′₀→X₀ of normal connected finite-type schemes over 𝔽_q, a lisse Weil sheaf has only determinantal ι-weight β if and only if its pullback does. Tensor products of sheaves having only determinantal weights β and γ have only weight β+γ. If n(β) is the sum of ranks of constituents of weight β, the determinantal weights occurring in ∧^aℱ are exactly Σ_β a(β)β with Σ a(β)=a and 0≤a(β)≤n(β), as a set of occurring weights (not constituent multiplicities).
+
+Use a finite common coefficient model. The zero sheaf and a above total rank have empty weight set; ∧^0 has sole weight 0.
+
+Proof or construction:
+
+1. Pass to the semisimplification and its common algebraic-by-ℤ monodromy group. The central-degree criterion identifies a constituent’s normalized determinant weight with the weight of a central scalar divided by its nonzero degree.
+2. For dominant normal pullback, the fundamental-group image has finite index, so the same connected geometric monodromy and a common positive-degree central power give the same purity criterion before and after pullback. This finite-index contract is an IG.1 request, not the projective-pencil Bertini theorem.
+3. Tensor central eigenvalues multiply. Exterior-power eigenvalues are distinct-position products; group positions by their determinantal weights and count available dimensions n(β). Taking a central element gives the displayed sums; triangularization passes the formula through nonsplit filtrations.
+
+Acceptance checks:
+
+- For ℚ̄_ℓ⊕ℚ̄_ℓ(−1), ∧² has only determinantal weight 2, not 0 or 4.
+- Two copies of a weight-zero line give rank two but only weight zero in ∧²; constituent multiplicity must not be confused with the n(β) rank capacity.
+
+Direct inputs: [DWP.5/determinantal-weights](#dwp-5-determinantal-weights), [DWP.5/geometric-monodromy-and-central-degree](#dwp-5-geometric-monodromy-and-central-degree), [DWP.0/eigenvalues-of-exterior-powers](#dwp-0-eigenvalues-of-exterior-powers), [DWP.0/spectra-of-tensor-products-and-duals](#dwp-0-spectra-of-tensor-products-and-duals), `InverseGaloisAndArithmeticFundamentalGroups:IG.1`.
+
+Sources: [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §1.3, Corollaire (1.3.12) and Proposition (1.3.13)(i)–(iii), p. 161. All three functoriality statements, including the rank constraints on exterior sums.
+
+Declaration id: `DeligneWeightsAndPurity:DWP.5/determinantal-weight-functoriality`.
 
 <a id="dwp-5-generalized-majoration"></a>
 
@@ -1902,15 +1954,15 @@ Proof or construction:
 
 1. Reduce to curves using fundamental-group Bertini and normality. On the curve take even tensor powers; ι-real traces have nonnegative even powers, so local factors have nonnegative real coefficients.
 2. The H²_c coinvariant formula and determinantal tensor weights put global poles at weights ≤2kr+2. Compare the local-factor pole radii to obtain w(α)≤r+1/k, then let k increase.
-3. For the constituent of weight β take the exterior power of degree N+1, where N is the sum of ranks of constituents with larger determinantal weights. Its determinantal upper bound forces each eigenvalue of this constituent to have weight ≤β; the determinant has average β, so all weights are β.
+3. Use descending induction on the distinct determinantal weights. For a constituent of weight β, let N be the sum of ranks already known pure at larger weights. The degree-(N+1) exterior power has maximal determinantal weight equal to the sum of those N larger weights plus β, by determinantal-weight-functoriality. Exterior products preserve ι-reality, so the just-proved upper bound applies. Combining the known larger-weight eigenvalues with any eigenvalue of this constituent forces the latter to have weight ≤β. Its determinant has average weight β, so all its eigenvalues have weight β. Tensor and exterior reality follow by conjugation invariance of characteristic-root multisets.
 
 Acceptance checks:
 
 - The real envelope of a pure sheaf recovers its constituent purity without changing the original object.
 
-Direct inputs: [DWP.5/real-sheaves](#dwp-5-real-sheaves), [DWP.5/determinantal-weights](#dwp-5-determinantal-weights), [DWP.5/geometric-monodromy-and-central-degree](#dwp-5-geometric-monodromy-and-central-degree), [DWP.2/positive-local-factors](#dwp-2-positive-local-factors), [DWP.2/poles-of-positive-products](#dwp-2-poles-of-positive-products), [DWP.0/spectra-of-tensor-products-and-duals](#dwp-0-spectra-of-tensor-products-and-duals), `EtaleDualityAndPerverseSheaves:EDC.2`, `LefschetzPencilsAndVanishingCycles:LPV.5/bertini-surjectivity-on-fundamental-groups`.
+Direct inputs: [DWP.5/real-sheaves](#dwp-5-real-sheaves), [DWP.5/determinantal-weights](#dwp-5-determinantal-weights), [DWP.5/geometric-monodromy-and-central-degree](#dwp-5-geometric-monodromy-and-central-degree), [DWP.2/positive-local-factors](#dwp-2-positive-local-factors), [DWP.2/poles-of-positive-products](#dwp-2-poles-of-positive-products), [DWP.0/spectra-of-tensor-products-and-duals](#dwp-0-spectra-of-tensor-products-and-duals), `LefschetzPencilsAndVanishingCycles:LPV.5`, [DWP.0/eigenvalues-of-exterior-powers](#dwp-0-eigenvalues-of-exterior-powers), [DWP.5/determinantal-weight-functoriality](#dwp-5-determinantal-weight-functoriality), `EtaleDualityAndPerverseSheaves:EDC.2:pairings/extreme-degree-cohomology`.
 
-Sources: [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §1.5 Théorème (1.5.1), Proposition (1.5.2), Corollaire (1.5.3), pp. 163–165.
+Sources: [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §1.5 Théorème (1.5.1), Lemme (1.5.2), proof (1.5.3), pp. 164–165. The stated result and proof, with the conventions and supplier boundaries specified here.
 
 Declaration id: `DeligneWeightsAndPurity:DWP.5/generalized-majoration`.
 
@@ -1929,9 +1981,9 @@ Acceptance checks:
 
 - The bound ≤β+2 is deliberately non-strict; the strict bound comes from (2.2.10).
 
-Direct inputs: [DWP.5/punctual-purity-and-mixedness](#dwp-5-punctual-purity-and-mixedness), [DWP.5/real-sheaves](#dwp-5-real-sheaves), [DWP.5/generalized-majoration](#dwp-5-generalized-majoration), [DWP.2/radius-of-convergence-of-positive-products](#dwp-2-radius-of-convergence-of-positive-products), `EtaleDualityAndPerverseSheaves:EDC.2`, `SchemeAndStackFoundations:SF.2`.
+Direct inputs: [DWP.5/punctual-purity-and-mixedness](#dwp-5-punctual-purity-and-mixedness), [DWP.5/real-sheaves](#dwp-5-real-sheaves), [DWP.5/generalized-majoration](#dwp-5-generalized-majoration), [DWP.2/radius-of-convergence-of-positive-products](#dwp-2-radius-of-convergence-of-positive-products), `SchemeAndStackFoundations:SF.2`, `EtaleDualityAndPerverseSheaves:EDC.2:pairings/extreme-degree-cohomology`.
 
-Sources: [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §1.8 Propositions (1.8.1)–(1.8.2), pp. 171–173.
+Sources: [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §1.8 Lemme (1.8.1) and Remarque (1.8.2), p. 175. The stated result and proof, with the conventions and supplier boundaries specified here.
 
 Declaration id: `DeligneWeightsAndPurity:DWP.5/initial-curve-and-boundary-bounds`.
 
@@ -1954,9 +2006,9 @@ Acceptance checks:
 - For a two-step nodal string with center β=1 the grades have weights 0 and 2 and N maps Gr₁ to Gr₋₁(−1).
 - This asserts no mixed-characteristic weight–monodromy theorem for varieties over p-adic fields.
 
-Direct inputs: [DWP.5/initial-curve-and-boundary-bounds](#dwp-5-initial-curve-and-boundary-bounds), [DWP.0/twisting-by-rank-one-characters](#dwp-0-twisting-by-rank-one-characters), `LefschetzPencilsAndVanishingCycles:LPV.1`, `LefschetzPencilsAndVanishingCycles:LPV.0`, `EtaleDualityAndPerverseSheaves:EDC.2`.
+Direct inputs: [DWP.5/initial-curve-and-boundary-bounds](#dwp-5-initial-curve-and-boundary-bounds), [DWP.0/twisting-by-rank-one-characters](#dwp-0-twisting-by-rank-one-characters), `LefschetzPencilsAndVanishingCycles:LPV.1`, `LefschetzPencilsAndVanishingCycles:LPV.0`.
 
-Sources: [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §1.7 (1.7.1)–(1.7.12), §1.8 Théorème (1.8.4), pp. 169–176.
+Sources: [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §1.7 (1.7.1)–(1.7.12), pp. 170–174; §1.8 Théorème (1.8.4), pp. 175–176. The stated result and proof, with the conventions and supplier boundaries specified here.
 
 Declaration id: `DeligneWeightsAndPurity:DWP.5/local-monodromy-purity`.
 
@@ -1977,9 +2029,9 @@ Acceptance checks:
 - The extension statement concerns underived j_*; it is not the six-operation weight theorem.
 - For a divisor finite étale over the base these grades commute with specialization as needed by DWP.7.
 
-Direct inputs: [DWP.5/local-monodromy-purity](#dwp-5-local-monodromy-purity), [DWP.5/punctual-purity-and-mixedness](#dwp-5-punctual-purity-and-mixedness), `LefschetzPencilsAndVanishingCycles:LPV.1`, `EtaleDualityAndPerverseSheaves:EDC.0`, `SchemeAndStackFoundations:SF.2`.
+Direct inputs: [DWP.5/local-monodromy-purity](#dwp-5-local-monodromy-purity), [DWP.5/punctual-purity-and-mixedness](#dwp-5-punctual-purity-and-mixedness), `LefschetzPencilsAndVanishingCycles:LPV.1`, `EtaleDualityAndPerverseSheaves:EDC.0`, `SchemeAndStackFoundations:SF.2`, `EtaleDualityAndPerverseSheaves:EDC.0/tate-twist`.
 
-Sources: [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §1.8 Corollaires (1.8.5)–(1.8.12), pp. 176–179.
+Sources: [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §1.8 Corollaires (1.8.5)–(1.8.12), pp. 176–179. The stated result and proof, with the conventions and supplier boundaries specified here.
 
 Declaration id: `DeligneWeightsAndPurity:DWP.5/local-weight-corollaries`.
 
@@ -2021,9 +2073,9 @@ Acceptance checks:
 
 - Frobenius powers and the residue-cardinality powers cancel in normalized slopes.
 
-Direct inputs: [DWP.0/spectra-of-tensor-products-and-duals](#dwp-0-spectra-of-tensor-products-and-duals), `mathlib:AddValuation`, `mathlib:Multiset.sort`.
+Direct inputs: [DWP.0/spectra-of-tensor-products-and-duals](#dwp-0-spectra-of-tensor-products-and-duals), `mathlib:AddValuation`, `mathlib:Multiset.sort`, [DWP.0/eigenvalues-of-exterior-powers](#dwp-0-eigenvalues-of-exterior-powers).
 
-Sources: [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §1.10 (1.10.6), pp. 181–182.
+Sources: [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §1.10 (1.10.6), p. 183. The stated result and proof, with the conventions and supplier boundaries specified here.
 
 Declaration id: `DeligneWeightsAndPurity:DWP.5/stalk-newton-polygon`.
 
@@ -2044,9 +2096,9 @@ Acceptance checks:
 - A split ordinary rank-two module has slopes 0,1; specialization can give slopes 1/2,1/2, whose polygon lies above the ordinary one.
 - Unit bounds are a separate nonarchimedean statement; real purity alone does not imply them.
 
-Direct inputs: [DWP.5/stalk-newton-polygon](#dwp-5-stalk-newton-polygon), [DWP.5/local-monodromy-purity](#dwp-5-local-monodromy-purity), [DWP.5/rank-one-normalization](#dwp-5-rank-one-normalization), [DWP.0/spectra-of-tensor-products-and-duals](#dwp-0-spectra-of-tensor-products-and-duals).
+Direct inputs: [DWP.5/stalk-newton-polygon](#dwp-5-stalk-newton-polygon), [DWP.5/local-monodromy-purity](#dwp-5-local-monodromy-purity), [DWP.5/rank-one-normalization](#dwp-5-rank-one-normalization), [DWP.0/spectra-of-tensor-products-and-duals](#dwp-0-spectra-of-tensor-products-and-duals), [DWP.0/eigenvalues-of-exterior-powers](#dwp-0-eigenvalues-of-exterior-powers).
 
-Sources: [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §1.10 (1.10.1)–(1.10.9), pp. 180–183.
+Sources: [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §1.10 (1.10.1)–(1.10.9), pp. 182–184. The stated result and proof, with the conventions and supplier boundaries specified here.
 
 Declaration id: `DeligneWeightsAndPurity:DWP.5/nonarchimedean-boundary-bounds`.
 
@@ -2069,7 +2121,7 @@ Acceptance checks:
 
 Direct inputs: `ArithmeticGaloisRepresentations:R01.6`, `InverseGaloisAndArithmeticFundamentalGroups:IG.1`, `SchemeAndStackFoundations:SF.2`, `LefschetzPencilsAndVanishingCycles:LPV.5/bertini-surjectivity-on-fundamental-groups`.
 
-Sources: [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §1.11 (1.11.1)–(1.11.5), pp. 183–185.
+Sources: [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §1.11 (1.11.1)–(1.11.5), pp. 184–186. The stated result and proof, with the conventions and supplier boundaries specified here.
 
 Declaration id: `DeligneWeightsAndPurity:DWP.5/specialization-of-monodromy`.
 
@@ -2094,7 +2146,7 @@ Acceptance checks:
 
 Direct inputs: [DWP.1/weil-estimate-for-curves](#dwp-1-weil-estimate-for-curves), `tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-8-landau-type-positivity`, `tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups#layer-5-the-peter-weyl-theorem`, `tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups#layer-6-characters-of-compact-groups`, `FunctionFieldArithmetic:FA.5`.
 
-Sources: [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §2.1 (2.1.1)–(2.1.9); §2.2 (2.2.9), pp. 185–191, 196–197.
+Sources: [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §2.1 (2.1.1)–(2.1.9), pp. 187–191; §2.2 Corollaire (2.2.9), pp. 195–196. The stated result and proof, with the conventions and supplier boundaries specified here.
 
 Declaration id: `DeligneWeightsAndPurity:DWP.5/hadamard-de-la-vallee-poussin`.
 
@@ -2102,7 +2154,7 @@ Declaration id: `DeligneWeightsAndPurity:DWP.5/hadamard-de-la-vallee-poussin`.
 
 ### The compact form of Weil monodromy
 
-Let X₀ be a normal geometrically connected scheme over 𝔽_q and G an algebraic-by-ℤ group satisfying Weil II (2.2.4): (a) its algebraic degree-zero kernel G⁰ is an extension of a finite group by a semisimple group; (b) a finite coefficient field E/ℚ_ℓ models G⁰ and the geometric Weil-group homomorphism is continuous and Zariski dense; (c) an algebraic representation gives an ι-mixed Weil sheaf and its restriction to G⁰ has finite kernel. Fix ι. Write Z_c for the center and choose a maximal compact subgroup U of the complex algebraic quotient G/Z_c. Define G_R as its inverse image in G_ℂ, with discrete degree; its degree-zero kernel is compact. Every local ιF_x has semisimple part conjugate to an element of G_R, uniquely up to G_R conjugacy. Restriction gives an equivalence between algebraic finite-dimensional representations of G and continuous finite-dimensional complex representations of G_R. For an irreducible representation r the associated sheaf is ι-pure of weight 2Re(r), where Re(r) is the source’s central norm exponent (a positive scalar q^(τ deg) has weight 2Re(τ)).
+Let X₀ be a normal geometrically connected scheme over 𝔽_q and G an algebraic-by-ℤ group satisfying Weil II (2.2.4): (a) its algebraic degree-zero kernel G⁰ is an extension of a finite group by a semisimple group; (b) a finite coefficient field E/ℚ_ℓ models G⁰ and the geometric Weil-group homomorphism is continuous and Zariski dense; (c) an algebraic representation gives an ι-mixed Weil sheaf and its restriction to G⁰ has finite kernel. Fix ι. Write Z_c for the center and choose a maximal compact subgroup U of the complex algebraic quotient G/Z_c. Define G_R as its inverse image in G_ℂ, with discrete degree; its degree-zero kernel is compact. Every local ιF_x has semisimple part conjugate to an element of G_R, uniquely up to G_R conjugacy. Restriction gives an equivalence between algebraic finite-dimensional representations of G and continuous finite-dimensional complex representations of G_R. For an irreducible representation r, use the source’s convention ω₁(g)=q^(−deg g) and |r(z)|=ω₁(z)^Re(r) for positive-degree central z. Its associated sheaf is ι-pure of weight −2Re(r), correcting the printed sign in (2.2.8)(i) and (3.5.1). Thus the scalar q^(τ deg) has Re(r)=−τ and weight 2τ.
 
 The design is used in:
 
@@ -2119,6 +2171,7 @@ The API exposes the following operations and characterizations.
 | `TauCeti.Weights.compactWeilForm.frobeniusClass` | constructor | The compact conjugacy class of the semisimple Frobenius part in its degree fibre. |
 | `TauCeti.Weights.compactWeilForm.conjugacy_iff` | characterisation | Two elements of G_R conjugate in G_ℂ are conjugate in G_R. |
 | `TauCeti.Weights.compactWeilForm.representationEquivalence` | equivalence | Algebraic representations of G correspond to continuous finite-dimensional representations of G_R, respecting tensor and dual operations. |
+| `TauCeti.Weights.compactWeilForm.normExponent_weight` | compatibility | With ω₁=q^(−deg) as in (2.1.1), an irreducible norm exponent Re(r) gives sheaf weight −2Re(r). In particular ω₁ is the Tate line of weight −2. |
 
 Unit tests distinguish the intended object from nearby definitions.
 
@@ -2127,6 +2180,7 @@ Unit tests distinguish the intended object from nearby definitions.
 | `TauCeti.Weights.compact_constant_weight` | computation | For a constant pure line of weight β, degree n acts by q^(nβ/2) times a unit complex scalar; the degree-zero kernel is trivial. |
 | `TauCeti.Weights.compact_elliptic` | compatibility | For full SL₂ geometric monodromy of H¹ of a nonisotrivial elliptic family, G_R is SU(2)×ℤ and (g,n) acts by q^(n/2)g. |
 | `TauCeti.Weights.compact_jordan_part` | non-example | A unipotent Jordan arithmetic Frobenius of weight zero contributes its semisimple class 1; its unipotent part is not declared unitary. |
+| `TauCeti.Weights.compact_normCharacter_sign` | non-example | The norm character ω₁=q^(−deg) has Re(ω₁)=1 but the associated Tate line has weight −2, excluding the printed +2Re formula. |
 
 Proof or construction:
 
@@ -2140,7 +2194,7 @@ Acceptance checks:
 
 Direct inputs: [DWP.5/geometric-monodromy-and-central-degree](#dwp-5-geometric-monodromy-and-central-degree), [DWP.5/generalized-majoration](#dwp-5-generalized-majoration), [DWP.5/punctual-purity-and-mixedness](#dwp-5-punctual-purity-and-mixedness), `tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups#layer-6-characters-of-compact-groups`, `tauceti:TauCetiRoadmap/ReductiveGroups#layer-6-reductive-and-semisimple-groups`.
 
-Sources: [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §2.2 (2.2.1)–(2.2.8), pp. 193–196.
+Sources: [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §2.2 (2.2.1)–(2.2.8), pp. 192–195; corrected sign in (2.2.8)(i), p. 195. The stated result and proof, with the conventions and supplier boundaries specified here.
 
 Declaration id: `DeligneWeightsAndPurity:DWP.5/compact-weil-form`.
 
@@ -2160,9 +2214,9 @@ Acceptance checks:
 
 - For a pure weight-zero coefficient, a nonconstant constituent of integer weight <2 has weight ≤1; the integer clause must be proved in the pencil application.
 
-Direct inputs: [DWP.5/initial-curve-and-boundary-bounds](#dwp-5-initial-curve-and-boundary-bounds), [DWP.5/hadamard-de-la-vallee-poussin](#dwp-5-hadamard-de-la-vallee-poussin), [DWP.5/compact-weil-form](#dwp-5-compact-weil-form), [DWP.1/weights-of-the-cohomology-of-curves](#dwp-1-weights-of-the-cohomology-of-curves), `SchemeAndStackFoundations:SF.2`, `EtaleDualityAndPerverseSheaves:EDC.2`.
+Direct inputs: [DWP.5/initial-curve-and-boundary-bounds](#dwp-5-initial-curve-and-boundary-bounds), [DWP.5/hadamard-de-la-vallee-poussin](#dwp-5-hadamard-de-la-vallee-poussin), [DWP.5/compact-weil-form](#dwp-5-compact-weil-form), [DWP.1/weights-of-the-cohomology-of-curves](#dwp-1-weights-of-the-cohomology-of-curves), `SchemeAndStackFoundations:SF.2`, `EtaleDualityAndPerverseSheaves:EDC.2:pairings/extreme-degree-cohomology`.
 
-Sources: [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §2.2 Théorème (2.2.9), Corollaire (2.2.10), pp. 196–197.
+Sources: [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §2.2 Corollaire (2.2.9), pp. 195–196; Corollaire (2.2.10), p. 196. The stated result and proof, with the conventions and supplier boundaries specified here.
 
 Declaration id: `DeligneWeightsAndPurity:DWP.5/strict-initial-h1-bound`.
 
@@ -2185,7 +2239,7 @@ Acceptance checks:
 
 Direct inputs: [DWP.5/hadamard-de-la-vallee-poussin](#dwp-5-hadamard-de-la-vallee-poussin), `tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups#layer-6-characters-of-compact-groups`.
 
-Sources: [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §2.1 (2.1.10)–(2.1.13), pp. 191–193.
+Sources: [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §2.1 (2.1.10)–(2.1.13), pp. 191–192. The stated result and proof, with the conventions and supplier boundaries specified here.
 
 Declaration id: `DeligneWeightsAndPurity:DWP.5/abstract-degree-equidistribution`.
 
@@ -2212,7 +2266,7 @@ Acceptance checks:
 
 Direct inputs: `LefschetzPencilsAndVanishingCycles:LPV.2`, `LefschetzPencilsAndVanishingCycles:LPV.3`, `LefschetzPencilsAndVanishingCycles:LPV.4`, `EtaleDualityAndPerverseSheaves:EDC.4`, [DWP.5/local-monodromy-purity](#dwp-5-local-monodromy-purity).
 
-Sources: [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §3.1 (3.1.1)–(3.1.5), pp. 197–200.
+Sources: [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §3.1 (3.1.1)–(3.1.5), pp. 197–200. The stated result and proof, with the conventions and supplier boundaries specified here.
 
 Declaration id: `DeligneWeightsAndPurity:DWP.6/coefficient-specific-vanishing-cycles`.
 
@@ -2233,9 +2287,9 @@ Acceptance checks:
 - The conclusion concerns polynomial coefficients, not real eigenvalues.
 - Using the final sharp curve theorem here would make the square-improvement proof circular.
 
-Direct inputs: [DWP.5/strict-initial-h1-bound](#dwp-5-strict-initial-h1-bound), [DWP.5/real-sheaves](#dwp-5-real-sheaves), [DWP.1/weights-of-the-cohomology-of-curves](#dwp-1-weights-of-the-cohomology-of-curves), `SchemeAndStackFoundations:SF.2`, `EtaleDualityAndPerverseSheaves:EDC.2`.
+Direct inputs: [DWP.5/strict-initial-h1-bound](#dwp-5-strict-initial-h1-bound), [DWP.5/real-sheaves](#dwp-5-real-sheaves), [DWP.1/weights-of-the-cohomology-of-curves](#dwp-1-weights-of-the-cohomology-of-curves), `SchemeAndStackFoundations:SF.2`, `EtaleDualityAndPerverseSheaves:EDC.2:pairings/extreme-degree-cohomology`, `EtaleDualityAndPerverseSheaves:EDC.2:pairings/adic-and-rational-poincare-duality`.
 
-Sources: [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §3.2 Proposition (3.2.1), Remarque (3.2.2), p. 200.
+Sources: [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §3.2 Proposition (3.2.1), Remarque (3.2.2), p. 200. The stated result and proof, with the conventions and supplier boundaries specified here.
 
 Declaration id: `DeligneWeightsAndPurity:DWP.6/real-cohomological-factors`.
 
@@ -2249,7 +2303,7 @@ Atlas landmark: **Square improvement**.
 
 Proof or construction:
 
-1. The initial bound supplies k=0. A finite surjective smooth curve cover makes boundary monodromy tame unipotent; pullback on compact-support cohomology is injective via the trace map over ℚ_ℓ. Finite base extension arranges general position and rational exceptional values; descend the result.
+1. The initial bound supplies k=0. A finite surjective cover by a smooth curve makes boundary monodromy tame unipotent; pullback on compact-support cohomology is injective via the trace map over ℚ_ℓ. Finite base extension arranges general position and rational exceptional values; descend the result.
 2. Put ℋ=ℱ⊠ℱ on the open product surface and blow up the pencil axis. Leray in total degree two has terms H²(ℙ¹,R⁰f_!ℋ), H¹(ℙ¹,R¹f_!ℋ), H⁰(ℙ¹,R²f_!ℋ). Blowup pullback is injective and Künneth embeds H¹_c(U,ℱ)⊗H¹_c(U,ℱ) in the abutment.
 3. The real envelope ℋ⊕ℋ∨ is pure of weight zero and real. Reality of fibre cohomological polynomials makes the lisse R¹ a direct summand of an ι-real sheaf; generalized majoration supplies its finite pure-constituent filtration. The strict H¹ bound gives all constituent weights <2.
 4. The five-term specialization sequence from Φ^a=0 for a≠1 shows R¹ has no sections supported at exceptional values. Intersect its lisse pure filtration with its injection into j_*j*R¹. Every nonconstant graded constituent has a nonzero exceptional quotient somewhere, since otherwise it extends lisse over simply connected ℙ¹ and is geometrically constant.
@@ -2262,9 +2316,9 @@ Acceptance checks:
 - The empty vanishing-cycle case yields a constant constituent and zero H¹, not a failed irreducibility argument.
 - No theorem from DWP.7 is used in the proof of its own curve input.
 
-Direct inputs: [DWP.6/coefficient-specific-vanishing-cycles](#dwp-6-coefficient-specific-vanishing-cycles), [DWP.6/real-cohomological-factors](#dwp-6-real-cohomological-factors), [DWP.5/generalized-majoration](#dwp-5-generalized-majoration), [DWP.5/local-monodromy-purity](#dwp-5-local-monodromy-purity), [DWP.5/strict-initial-h1-bound](#dwp-5-strict-initial-h1-bound), [DWP.0/spectra-of-tensor-products-and-duals](#dwp-0-spectra-of-tensor-products-and-duals), [DWP.0/finite-field-base-extension-of-weights](#dwp-0-finite-field-base-extension-of-weights), `LefschetzPencilsAndVanishingCycles:LPV.3`, `SchemeAndStackFoundations:SF.2`, `EtaleDualityAndPerverseSheaves:EDC.2`, `EtaleDualityAndPerverseSheaves:EDC.4`.
+Direct inputs: [DWP.6/coefficient-specific-vanishing-cycles](#dwp-6-coefficient-specific-vanishing-cycles), [DWP.6/real-cohomological-factors](#dwp-6-real-cohomological-factors), [DWP.5/generalized-majoration](#dwp-5-generalized-majoration), [DWP.5/local-monodromy-purity](#dwp-5-local-monodromy-purity), [DWP.5/strict-initial-h1-bound](#dwp-5-strict-initial-h1-bound), [DWP.0/spectra-of-tensor-products-and-duals](#dwp-0-spectra-of-tensor-products-and-duals), [DWP.0/finite-field-base-extension-of-weights](#dwp-0-finite-field-base-extension-of-weights), `LefschetzPencilsAndVanishingCycles:LPV.3`, `SchemeAndStackFoundations:SF.2`, `EtaleDualityAndPerverseSheaves:EDC.4`, `EtaleDualityAndPerverseSheaves:EDC.2:pairings/extreme-degree-cohomology`, `EtaleDualityAndPerverseSheaves:EDC.2/curve-poincare-duality-with-j-star-statement`.
 
-Sources: [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §3.2 (3.2.4)–(3.2.14), pp. 201–204.
+Sources: [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §3.2 (3.2.4)–(3.2.14), pp. 201–204. The stated result and proof, with the conventions and supplier boundaries specified here.
 
 Declaration id: `DeligneWeightsAndPurity:DWP.6/square-improvement`.
 
@@ -2290,7 +2344,7 @@ Acceptance checks:
 
 Direct inputs: [DWP.6/square-improvement](#dwp-6-square-improvement), [DWP.5/local-monodromy-purity](#dwp-5-local-monodromy-purity), [DWP.5/punctual-purity-and-mixedness](#dwp-5-punctual-purity-and-mixedness), `EtaleDualityAndPerverseSheaves:EDC.2/curve-poincare-duality-with-j-star-statement`, [DWP.0/embeddings-into-the-complex-numbers](#dwp-0-embeddings-into-the-complex-numbers), [DWP.0/weil-number-iff-iota-pure-for-every-iota](#dwp-0-weil-number-iff-iota-pure-for-every-iota).
 
-Sources: [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §3.2 Théorème (3.2.3), (3.2.5), (3.2.15), pp. 200–204; [Comptage des systèmes locaux ℓ-adiques sur une courbe](https://arxiv.org/pdf/1807.04659v5), Proposition 6.1.1 and proof, pp. 42–43.
+Sources: [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §3.2 Théorème (3.2.3), (3.2.5), (3.2.15), pp. 200–204. The stated result and proof, with the conventions and supplier boundaries specified here. [Comptage des systèmes locaux ℓ-adiques sur une courbe](https://arxiv.org/pdf/1807.04659v5), Proposition 6.1.1 and proof, pp. 42–43. Distinct cohomological weights 0,1,2 prevent cancellation of the proper curve coefficient factors; Langlands and unitary purity hypotheses are supplied by the automorphic owner.
 
 Declaration id: `DeligneWeightsAndPurity:DWP.6/sharp-curve-purity`.
 
@@ -2315,7 +2369,7 @@ Acceptance checks:
 
 Direct inputs: [DWP.6/sharp-curve-purity](#dwp-6-sharp-curve-purity), [DWP.5/local-weight-corollaries](#dwp-5-local-weight-corollaries), `EtaleDualityAndPerverseSheaves:EDC.2:pairings/extreme-degree-cohomology`, [DWP.0/purity-under-subquotients-and-extensions](#dwp-0-purity-under-subquotients-and-extensions).
 
-Sources: [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §3.2 (3.2.3); §3.3 proof of (3.3.1), pp. 200, 204–205.
+Sources: [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §3.2 (3.2.3); §3.3 proof of (3.3.1), pp. 200, 204–205. The stated result and proof, with the conventions and supplier boundaries specified here.
 
 Declaration id: `DeligneWeightsAndPurity:DWP.6/compact-support-curve-bound`.
 
@@ -2343,7 +2397,7 @@ Acceptance checks:
 
 Direct inputs: [DWP.0/purity-under-subquotients-and-extensions](#dwp-0-purity-under-subquotients-and-extensions), [DWP.0/spectra-of-tensor-products-and-duals](#dwp-0-spectra-of-tensor-products-and-duals), [DWP.0/twisting-by-rank-one-characters](#dwp-0-twisting-by-rank-one-characters), [DWP.0/weight-decomposition](#dwp-0-weight-decomposition).
 
-Sources: [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), Weil II §1.2 (1.2.2), (1.2.3), (1.2.6)–(1.2.8), pp. 153–155.
+Sources: [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), Weil II §1.2 (1.2.2), (1.2.3), (1.2.6)–(1.2.8), pp. 153–155. The stated result and proof, with the conventions and supplier boundaries specified here.
 
 Declaration id: `DeligneWeightsAndPurity:DWP.10/weight-transport-to-stable-subquotients`.
 
@@ -2366,7 +2420,7 @@ Acceptance checks:
 
 Direct inputs: [DWP.4/smooth-projective-purity](#dwp-4-smooth-projective-purity), [DWP.10/weight-transport-to-stable-subquotients](#dwp-10-weight-transport-to-stable-subquotients), `WeilConjectures:WC.3/degreewise-pure-factor-extraction`, `WeilConjectures:WC.3/integral-factors-and-ell-independence-from-purity`, `WeilConjectures:WC.5/all-extension-point-count-bound`, `WeilConjectures:WC.5/components-and-dimension-zero`.
 
-Sources: [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), Weil I §1 (1.6)–(1.8), pp. 275–277; Weil II §3.3 (3.3.9), p. 207.
+Sources: [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), Weil I §1 (1.6)–(1.8), pp. 275–277; Weil II §3.3 (3.3.9), p. 207. The stated result and proof, with the conventions and supplier boundaries specified here.
 
 Declaration id: `DeligneWeightsAndPurity:DWP.10/compatible-realization-export`.
 
@@ -2390,7 +2444,7 @@ Acceptance checks:
 
 Direct inputs: `LefschetzPencilsAndVanishingCycles:LPV.7:semistable-curves/curve-monodromy-filtration`, `LefschetzPencilsAndVanishingCycles:LPV.7:semistable-curves/curve-normalization-cohomology`, [DWP.1/weights-of-the-cohomology-of-curves](#dwp-1-weights-of-the-cohomology-of-curves), [DWP.0/finite-field-base-extension-of-weights](#dwp-0-finite-field-base-extension-of-weights), [DWP.0/twisting-by-rank-one-characters](#dwp-0-twisting-by-rank-one-characters).
 
-Sources: [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), Weil II §1.8 (1.8.4), pp. 175–176; the LPV.7 semistable-curve supplier identifies the three pieces.
+Sources: [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), Weil II §1.8 (1.8.4), pp. 175–176; the LPV.7 semistable-curve supplier identifies the three pieces. The stated result and proof, with the conventions and supplier boundaries specified here.
 
 Declaration id: `DeligneWeightsAndPurity:DWP.10/finite-residue-semistable-curve-weights`.
 
@@ -2413,7 +2467,7 @@ Acceptance checks:
 
 Direct inputs: `DeligneWeightsAndPurity:DWP.8/nearby-cycles-preserve-mixedness-6-1-13`, `DeligneWeightsAndPurity:DWP.8/variant-over-z-one-over-ell-6-2-7`, `DeligneWeightsAndPurity:DWP.7/newton-couples-3-3-7`, `DeligneWeightsAndPurity:DWP.7/valuation-triangles-3-3-8`, [DWP.0/weil-q-number](#dwp-0-weil-q-number), [DWP.0/iota-weight](#dwp-0-iota-weight).
 
-Sources: [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), Weil II §3.3 (3.3.7)–(3.3.8), pp. 206–207; (6.1.13), (6.2.7), pp. 248, 250–251.
+Sources: [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), Weil II §3.3 (3.3.7)–(3.3.8), pp. 206–207. The stated result and proof, with the conventions and supplier boundaries specified here. [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), Théorème (6.1.13), p. 246. The nearby-cycle cohomology sheaves remain mixed; this does not assert a single pure weight. [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), Variante (6.2.7), p. 248. The modified duality convention and proper-direct-image purity over ℤ[1/ℓ].
 
 Declaration id: `DeligneWeightsAndPurity:DWP.10/mixed-nearby-and-newton-exports`.
 
@@ -2439,7 +2493,7 @@ Acceptance checks:
 
 Direct inputs: [DWP.5/compact-weil-form](#dwp-5-compact-weil-form), [DWP.5/abstract-degree-equidistribution](#dwp-5-abstract-degree-equidistribution), `DeligneWeightsAndPurity:DWP.7/cohomological-bounds-3-3-2-3-3-6`, `DeligneWeightsAndPurity:DWP.8/geometric-semisimplicity-theorem-3-4-1-iii`, `SchemeAndStackFoundations:SF.2`.
 
-Sources: [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §3.5 (3.5.1)–(3.5.3), pp. 210–211.
+Sources: [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §3.5 (3.5.1)–(3.5.3), pp. 210–211. The stated result and proof, with the conventions and supplier boundaries specified here.
 
 Declaration id: `DeligneWeightsAndPurity:DWP.10/frobenius-equidistribution`.
 
@@ -2465,7 +2519,7 @@ Acceptance checks:
 
 Direct inputs: [DWP.10/frobenius-equidistribution](#dwp-10-frobenius-equidistribution), [DWP.5/compact-weil-form](#dwp-5-compact-weil-form), [DWP.1/compatibility-with-the-hasse-bound](#dwp-1-compatibility-with-the-hasse-bound), `tauceti:TauCetiRoadmap/ModularCurves#5b-full-ordered-bases-and-fixed-pairing`, `tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups#layer-6-characters-of-compact-groups`.
 
-Sources: [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §3.5 (3.5.4)–(3.5.7), pp. 211–212.
+Sources: [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §3.5 (3.5.4)–(3.5.7), pp. 211–212. The stated result and proof, with the conventions and supplier boundaries specified here.
 
 Declaration id: `DeligneWeightsAndPurity:DWP.10/finite-field-sato-tate`.
 
@@ -2490,19 +2544,18 @@ Acceptance checks:
 
 Direct inputs: [DWP.1/weights-of-the-cohomology-of-curves](#dwp-1-weights-of-the-cohomology-of-curves), [DWP.6/sharp-curve-purity](#dwp-6-sharp-curve-purity), [DWP.10/weight-transport-to-stable-subquotients](#dwp-10-weight-transport-to-stable-subquotients), [DWP.10/finite-residue-semistable-curve-weights](#dwp-10-finite-residue-semistable-curve-weights), [DWP.10/compatible-realization-export](#dwp-10-compatible-realization-export), `EtaleDualityAndPerverseSheaves:EDC.3`, `WeilConjectures:WC.7`, `WeilConjectures:WC.1`, `EtaleDualityAndPerverseSheaves:EDC.2:pairings/lisse-tensor-hom-duality-on-curves`, [DWP.0/disjoint-spectra-no-intertwiner](#dwp-0-disjoint-spectra-no-intertwiner).
 
-Sources: [Comptage des systèmes locaux ℓ-adiques sur une courbe](https://arxiv.org/pdf/1807.04659v5), Yu §1 pp. 2–3, Proposition 6.1.1 pp. 42–43, §7.1 p. 64; Weil II (3.2.3).
+Sources: [Comptage des systèmes locaux ℓ-adiques sur une courbe](https://arxiv.org/pdf/1807.04659v5), Yu §1 pp. 2–3, Proposition 6.1.1 pp. 42–43, §7.1 p. 64; Weil II (3.2.3). The stated result and proof, with the conventions and supplier boundaries specified here.
 
 Declaration id: `DeligneWeightsAndPurity:DWP.10/weight-acceptance-suite`.
 
 ## Cross-roadmap contracts
 
-A named companion declaration is imported directly in the specifications above. The contracts below identify inputs whose supplier has no declaration at the required generality. They are mathematical inputs with a single owner. The Part II extensions start from the inspected upstream objects rather than defining them again.
+These 28 requests state the additional interfaces needed beyond the named imports. Their owners supply the mathematics; this part imports it.
 
-| Supplier | Required input | Consumers |
+| Supplier | Required statement | Consumers |
 | --- | --- | --- |
-| `EtaleDualityAndPerverseSheaves:EDC.0` | The coefficient conventions: ℚ_ℓ(1) as the Tate twist on which the geometric Frobenius of 𝔽_q acts by q⁻¹, compared with the inverse arithmetic Galois action on ℓ-power roots of unity, and extension of coefficients from finite extensions of ℚ_ℓ to ℚ̄_ℓ. | [DWP.0/twisting-by-rank-one-characters](#dwp-0-twisting-by-rank-one-characters), [DWP.5/local-weight-corollaries](#dwp-5-local-weight-corollaries) |
+| `EtaleDualityAndPerverseSheaves:EDC.0` | The coefficient conventions: ℚ_ℓ(1) as the Tate twist on which the geometric Frobenius of 𝔽_q acts by q⁻¹, compared with the inverse arithmetic Galois action on ℓ-power roots of unity, and extension of coefficients from finite extensions of ℚ_ℓ to ℚ̄_ℓ. Include the actual constructible adic/rational coefficient categories obtained from compatible finite lattices, their finite coefficient extension, and Weil descent. The existing coefficient-change node supplies derived scalar change, not by itself those categories. | [DWP.0/twisting-by-rank-one-characters](#dwp-0-twisting-by-rank-one-characters), [DWP.5/local-weight-corollaries](#dwp-5-local-weight-corollaries), [DWP.5/weil-sheaf](#dwp-5-weil-sheaf), [DWP.5/punctual-purity-and-mixedness](#dwp-5-punctual-purity-and-mixedness) |
 | `SchemeAndStackFoundations:SF.2` | The Grothendieck–Lefschetz trace formula for lisse (and constructible) ℚ_ℓ-sheaves on a curve over 𝔽_q in the form of Weil I (1.14.3), Z(U₀, F₀, t) = ∏_i det(1 − F^*t, H^i_c(U, F))^{(−1)^{i+1}}, with finiteness of H^i_c. This is the CohomologicalPointCounting trace formula (TraceFormula Layer 14) that RS-17 names as DWP.2's supplier. The fixed-point formula for a curve and its Jacobian, #Fix(α) = (Γ_α · Δ) = 1 − Tr(α′ \| T_ℓJ) + deg α (Milne, Abelian Varieties, III.11.2; RS-17 names it the curve and Jacobian trace comparison of TraceFormula Layer 8). Proper base change for the pencil f : X̃ → D (the stalk of R^i f_*ℚ_ℓ at a geometric point over x is H^i(X_x̄)), and the trace formula (1.5.4) for the fibres. Frobenius-equivariant finite-dimensional ℓ-adic Künneth and Leray with an actual finite filtration of the abutment; finite-extension descent of smooth embeddings, pencils and singular-value/sign data. Finite surjective curve-cover pullback and rational trace splitting for compact-support cohomology, including ramified finite covers; Leray/Künneth and finite-field descent in the surface pencil. Closed geometric stalks, pullback and finite pushforward/descent interfaces in the actual étale coefficient categories, with local conjugacy invariance and finite-model compatibility. | [DWP.2/weights-and-l-functions-of-lisse-sheaves-on-curves](#dwp-2-weights-and-l-functions-of-lisse-sheaves-on-curves), [DWP.2/compact-cohomology-of-even-tensor-powers](#dwp-2-compact-cohomology-of-even-tensor-powers), [DWP.2/coarse-bound-on-compact-cohomology](#dwp-2-coarse-bound-on-compact-cohomology), [DWP.1/weil-estimate-for-curves](#dwp-1-weil-estimate-for-curves), [DWP.3/zeta-of-the-fibres-and-the-pencil-factorization](#dwp-3-zeta-of-the-fibres-and-the-pencil-factorization), [DWP.4/middle-cohomology-half-unit-bound](#dwp-4-middle-cohomology-half-unit-bound), [DWP.4/middle-cohomology-purity](#dwp-4-middle-cohomology-purity), [DWP.5/weil-sheaf](#dwp-5-weil-sheaf), [DWP.5/initial-curve-and-boundary-bounds](#dwp-5-initial-curve-and-boundary-bounds), [DWP.5/local-weight-corollaries](#dwp-5-local-weight-corollaries), [DWP.5/specialization-of-monodromy](#dwp-5-specialization-of-monodromy), [DWP.5/strict-initial-h1-bound](#dwp-5-strict-initial-h1-bound), [DWP.6/real-cohomological-factors](#dwp-6-real-cohomological-factors), [DWP.6/square-improvement](#dwp-6-square-improvement), [DWP.10/frobenius-equidistribution](#dwp-10-frobenius-equidistribution) |
-| `EtaleDualityAndPerverseSheaves:EDC.2` | Weil I (2.10): for a smooth connected curve X over an algebraically closed field and a lisse ℚ_ℓ-sheaf F, H⁰_c(X, F) = 0 when X is affine and H²_c(X, F) = (F_x)_{π₁(X, x)}(−1). Weil I (2.12): Poincaré duality H¹(X̄, j_*F) × H¹(X̄, j_*F^∨(1)) → ℚ_ℓ on a smooth projective curve, Frobenius-equivariantly. Poincaré duality on the smooth fibres of the pencil, giving the alternating cup-product pairing into ℚ_ℓ(−n). | [DWP.2/compact-cohomology-of-even-tensor-powers](#dwp-2-compact-cohomology-of-even-tensor-powers), [DWP.2/coarse-bound-on-compact-cohomology](#dwp-2-coarse-bound-on-compact-cohomology), [DWP.2/coarse-bound-on-cohomology-of-the-projective-line](#dwp-2-coarse-bound-on-cohomology-of-the-projective-line), [DWP.5/generalized-majoration](#dwp-5-generalized-majoration), [DWP.5/initial-curve-and-boundary-bounds](#dwp-5-initial-curve-and-boundary-bounds), [DWP.5/local-monodromy-purity](#dwp-5-local-monodromy-purity), [DWP.5/strict-initial-h1-bound](#dwp-5-strict-initial-h1-bound), [DWP.6/real-cohomological-factors](#dwp-6-real-cohomological-factors), [DWP.6/square-improvement](#dwp-6-square-improvement) |
 | `tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl#layer-9-schur-weyl-duality-for-the-orthogonal-and-symplectic-groups-the-brauer-algebra` | The first fundamental theorem for the complex symplectic group: the Sp(V)-invariant multilinear forms on V^{2k} are spanned by the pair contractions ψ_P (Brauer algebra), with the dimension of the invariants. | [DWP.2/symplectic-coinvariants-of-even-tensor-powers](#dwp-2-symplectic-coinvariants-of-even-tensor-powers) |
 | `tauceti:TauCetiRoadmap/ReductiveGroups#layer-3-subgroups-quotients-components` | Zariski closure of a subgroup of the ℚ_ℓ-points of a linear algebraic group as an algebraic subgroup, and connectedness of Sp_{2g}. | [DWP.2/open-subgroups-of-symplectic-groups-are-zariski-dense](#dwp-2-open-subgroups-of-symplectic-groups-are-zariski-dense) |
 | `tauceti:TauCetiRoadmap/ReductiveGroups#layer-2-lie-algebra-and-the-adjoint-representation` | The Lie algebra of an algebraic subgroup over ℚ_ℓ, and the fact that an algebraic subgroup whose ℚ_ℓ-points contain an ℓ-adically open subgroup of G(ℚ_ℓ) has full dimension. Its ℓ-adic analytic open-subgroup dimension comparison is requested in ReductiveGroups, Part II, together with the actual analytic local charts; the algebraic Lie API alone is not asserted to prove it. | [DWP.2/open-subgroups-of-symplectic-groups-are-zariski-dense](#dwp-2-open-subgroups-of-symplectic-groups-are-zariski-dense) |
@@ -2512,29 +2565,29 @@ A named companion declaration is imported directly in the specifications above. 
 | `tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1` | The trace of Frobenius a = q + 1 − #E(𝔽_q) and the Hasse bound \|a\| ≤ 2√q, with which the abelian-variety estimate is compared (not reproved). | [DWP.1/compatibility-with-the-hasse-bound](#dwp-1-compatibility-with-the-hasse-bound) |
 | `LefschetzPencilsAndVanishingCycles:LPV.3` | A Lefschetz pencil of hyperplane sections of a smooth projective variety over 𝔽_q defined over 𝔽_q (after a Veronese embedding and a finite extension if necessary), with its axis, parameter line, blow-up f : X̃ → D and singular set S. Weil II §3.1 general-position pencil on a smooth projective surface with a strict normal-crossings boundary: ordinary node, simple boundary tangency, and transverse crossing, one exceptional point per fibre; in arbitrary characteristic as required in (3.2.14). This is an extension of the already planned constant-coefficient pencil theorem, not its re-planning. | [DWP.6/coefficient-specific-vanishing-cycles](#dwp-6-coefficient-specific-vanishing-cycles), [DWP.6/square-improvement](#dwp-6-square-improvement) |
 | `LefschetzPencilsAndVanishingCycles:LPV.4` | The lisse sheaf R^n f_*ℚ_ℓ on U = D − S, the vanishing part ℰ as a π₁(U₀)-stable subsheaf defined over 𝔽_q, the cup-product pairing into ℚ_ℓ(−n), and geometric constancy of R^i f_*ℚ_ℓ (i ≠ n), R^n/ℰ and ℰ ∩ ℰ^⊥ (Weil I §5). | [DWP.3/geometrically-constant-lisse-sheaves](#dwp-3-geometrically-constant-lisse-sheaves), [DWP.6/coefficient-specific-vanishing-cycles](#dwp-6-coefficient-specific-vanishing-cycles) |
-| `LefschetzPencilsAndVanishingCycles:LPV.5` | Weil I (5.10): for the fixed ℚ_ℓ model, the image of π₁(U, u) in Sp(ℰ/(ℰ ∩ ℰ^⊥), ψ) is open. | [DWP.3/coarse-bound-for-the-pencil](#dwp-3-coarse-bound-for-the-pencil) |
 | `FunctionFieldArithmetic:FA.5` | The function-field Chebotarev density theorem for finite Galois covers of a curve over 𝔽_q, with the constant-field degree congruences, and its per-degree form: the Frobenius elements of the degree-n points equidistribute in the fibre over n, with error tending to 0. Connected finite étale double-cover zeta comparison with the simple pole at q⁻¹, used solely to exclude the quadratic exception. Its finite-cover curve estimate uses the initial curve Weil bound, not the general DWP.10 equidistribution theorem; retain this direction to avoid a proof cycle. | [DWP.3/exceptional-frobenius-set-has-density-zero](#dwp-3-exceptional-frobenius-set-has-density-zero), [DWP.5/hadamard-de-la-vallee-poussin](#dwp-5-hadamard-de-la-vallee-poussin) |
 | `WeilConjectures:WC.1` | Rationality over ℚ of the zeta function Z(V, t) of a variety over a finite field, from the integral point-count series (Weil I §1, the Hankel-determinant and Fatou argument). | [DWP.2/weights-and-l-functions-of-lisse-sheaves-on-curves](#dwp-2-weights-and-l-functions-of-lisse-sheaves-on-curves), [DWP.3/zeta-of-the-fibres-and-the-pencil-factorization](#dwp-3-zeta-of-the-fibres-and-the-pencil-factorization), [DWP.10/weight-acceptance-suite](#dwp-10-weight-acceptance-suite) |
 | `EtaleDualityAndPerverseSheaves:EDC.4` | Weak Lefschetz and its Gysin transpose; blowup pullback injectivity and codimension-two blowup decomposition, all Frobenius-equivariant without hard Lefschetz. | [DWP.4/middle-cohomology-half-unit-bound](#dwp-4-middle-cohomology-half-unit-bound), [DWP.4/smooth-projective-purity](#dwp-4-smooth-projective-purity), [DWP.6/coefficient-specific-vanishing-cycles](#dwp-6-coefficient-specific-vanishing-cycles), [DWP.6/square-improvement](#dwp-6-square-improvement) |
-| `InverseGaloisAndArithmeticFundamentalGroups:IG.1` | Arithmetic/geometric exact sequence, geometric Frobenius degree convention, tame specialization of curve fundamental groups, and connected finite étale cover classification. | [DWP.3/radical-quotient-of-the-vanishing-system](#dwp-3-radical-quotient-of-the-vanishing-system), [DWP.3/open-image-in-the-symplectic-similitude-group](#dwp-3-open-image-in-the-symplectic-similitude-group), [DWP.5/weil-group](#dwp-5-weil-group), [DWP.5/rank-one-normalization](#dwp-5-rank-one-normalization), [DWP.5/specialization-of-monodromy](#dwp-5-specialization-of-monodromy) |
+| `InverseGaloisAndArithmeticFundamentalGroups:IG.1` | Arithmetic/geometric exact sequence, geometric Frobenius degree convention, tame specialization of curve fundamental groups, and connected finite étale cover classification. For dominant morphisms of normal connected finite-type schemes, provide finite-index image of π₁ and invariance of the connected geometric monodromy group, with component and constant-field degree comparisons; used in Weil II (1.3.13)(i). | [DWP.3/radical-quotient-of-the-vanishing-system](#dwp-3-radical-quotient-of-the-vanishing-system), [DWP.3/open-image-in-the-symplectic-similitude-group](#dwp-3-open-image-in-the-symplectic-similitude-group), [DWP.5/weil-group](#dwp-5-weil-group), [DWP.5/rank-one-normalization](#dwp-5-rank-one-normalization), [DWP.5/specialization-of-monodromy](#dwp-5-specialization-of-monodromy), [DWP.3/geometrically-constant-lisse-sheaves](#dwp-3-geometrically-constant-lisse-sheaves), [DWP.5/determinantal-weight-functoriality](#dwp-5-determinantal-weight-functoriality) |
 | `FunctionFieldArithmetic:FA.4` | Finite-field curve geometric abelianized Weil group as finite prime-to-p by pro-p, from idèle class theory, local units and finite Picard group; no number-field replacement. | [DWP.5/rank-one-normalization](#dwp-5-rank-one-normalization) |
 | `LefschetzPencilsAndVanishingCycles:LPV.1` | Quasi-unipotent inertia, N:V→V(−1), centered monodromy filtration, primitive/SL₂ string description, Clebsch–Gordan tensor compatibility, duality and uniqueness/existence criteria for relative monodromy filtration; preserve geometric-Frobenius signs. | [DWP.5/local-monodromy-purity](#dwp-5-local-monodromy-purity), [DWP.5/local-weight-corollaries](#dwp-5-local-weight-corollaries) |
 | `tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-8-landau-type-positivity` | Only the finite 3,4,1 trigonometric nonnegative coefficient combination and the exact-abscissa positivity input needed in Weil II §2; the generalized character/pole-order argument is owned here. | [DWP.5/hadamard-de-la-vallee-poussin](#dwp-5-hadamard-de-la-vallee-poussin) |
 | `tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups#layer-5-the-peter-weyl-theorem` | Uniform density of representative matrix coefficients and the square-character approximation used in the abstract positive pole-order argument. | [DWP.5/hadamard-de-la-vallee-poussin](#dwp-5-hadamard-de-la-vallee-poussin) |
-| `tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups#layer-6-characters-of-compact-groups` | Normalized Haar probability, character orthogonality and density among continuous class functions; conjugacy separation, and the SU(2) engine with chamber density (2/π)sin²θ. Haar disintegration over a compact quotient and continuity of conditional fibre mass for clopen finite-quotient sets; Dini’s theorem gives uniform decay from pointwise null fibres. Proper algebraic subsets of fixed ℓ-adic analytic symplectic cosets are null; if absent, extend CompactGroups, Part II for this analytic-measure input. | [DWP.5/hadamard-de-la-vallee-poussin](#dwp-5-hadamard-de-la-vallee-poussin), [DWP.5/compact-weil-form](#dwp-5-compact-weil-form), [DWP.5/abstract-degree-equidistribution](#dwp-5-abstract-degree-equidistribution), [DWP.10/finite-field-sato-tate](#dwp-10-finite-field-sato-tate) |
+| `tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups#layer-6-characters-of-compact-groups` | Normalized Haar probability, character orthogonality and density among continuous class functions; conjugacy separation, and the SU(2) engine with chamber density (2/π)sin²θ. Haar disintegration over a compact quotient and continuity of conditional fibre mass for clopen finite-quotient sets; Dini’s theorem gives uniform decay from pointwise null fibres. Proper algebraic subsets of fixed ℓ-adic analytic symplectic cosets are null; if absent, extend CompactGroups, Part II for this analytic-measure input. | [DWP.5/hadamard-de-la-vallee-poussin](#dwp-5-hadamard-de-la-vallee-poussin), [DWP.5/compact-weil-form](#dwp-5-compact-weil-form), [DWP.5/abstract-degree-equidistribution](#dwp-5-abstract-degree-equidistribution), [DWP.10/finite-field-sato-tate](#dwp-10-finite-field-sato-tate), [DWP.3/exceptional-frobenius-set-has-density-zero](#dwp-3-exceptional-frobenius-set-has-density-zero) |
 | `tauceti:TauCetiRoadmap/ReductiveGroups#layer-6-reductive-and-semisimple-groups` | Semisimple complex groups: maximal compact subgroup and complexification, finite outer automorphism and compact-normalizer/central-degree criteria of Weil II (1.3.10)–(1.3.15), beyond any currently stated compact-group supplier theorem. | [DWP.5/geometric-monodromy-and-central-degree](#dwp-5-geometric-monodromy-and-central-degree), [DWP.5/compact-weil-form](#dwp-5-compact-weil-form) |
 | `LefschetzPencilsAndVanishingCycles:LPV.2` | The actual vanishing-cycle triangle, five-term specialization sequence, normalization resolution and nodal branch sign line; coefficient-specific weight computations remain in DWP.6. | [DWP.6/coefficient-specific-vanishing-cycles](#dwp-6-coefficient-specific-vanishing-cycles) |
 | `tauceti:TauCetiRoadmap/ModularCurves#5b-full-ordered-bases-and-fixed-pairing` | Weil II (3.5.5) full SL₂ geometric monodromy for a smooth elliptic family with nonconstant j: prime-to-p level n≥3, finite-index image into the universal level curve, and finite-index ℓ-adic SL₂ image. If the roadmap does not supply the exact universal family theorem, add ModularCurves, Part II; no new pencil open-image proof substitutes for it. | [DWP.10/finite-field-sato-tate](#dwp-10-finite-field-sato-tate) |
 | `EtaleDualityAndPerverseSheaves:EDC.3` | Frobenius-equivariant projective-space and multiplicative-group cohomology with compact support and duality, agreeing with the WC.7 examples. | [DWP.10/weight-acceptance-suite](#dwp-10-weight-acceptance-suite) |
 | `WeilConjectures:WC.7` | Only the explicit ℙᴺ and 𝔾_m cohomology examples and their factor conventions used as weight acceptance checks; no independent zeta/point-count proof here. | [DWP.10/weight-acceptance-suite](#dwp-10-weight-acceptance-suite) |
 | `LefschetzPencilsAndVanishingCycles:LPV.0` | The local trait, Weil representation, tame character and branch sign-line conventions used by Weil II §1.8; no second local monodromy definition here. | [DWP.5/local-monodromy-purity](#dwp-5-local-monodromy-purity) |
-| `SchemeAndStackFoundations:SF.0` | Absolute p-Frobenius of characteristic-p schemes, its q=p^a iterate as an 𝔽_q-morphism, base change and naturality; the DWP.1 adapter identifies its geometric-point action and induced abelian-variety endomorphism. | [DWP.1/frobenius-endomorphism-over-a-finite-field](#dwp-1-frobenius-endomorphism-over-a-finite-field) |
+| `SchemeAndStackFoundations:SF.0` | Absolute p-Frobenius of characteristic-p schemes, its q=p^a iterate as an 𝔽_q-morphism, base change and naturality; the DWP.1 adapter identifies its geometric-point action and induced abelian-variety endomorphism. Include compatibility with products and the finite locally free degree q^g theorem for q-Frobenius on smooth pure g-dimensional schemes over 𝔽_q, via étale local coordinates, independent of point counts or weights. | [DWP.1/frobenius-endomorphism-over-a-finite-field](#dwp-1-frobenius-endomorphism-over-a-finite-field) |
+| `LefschetzPencilsAndVanishingCycles:LPV.5` | LPV, Part II: the existing projective-pencil incidence-complement Bertini theorem is insufficient here. For a normal geometrically connected finite-type X over a finite field and a fixed finite ℓ-adic model/lattice, choose a dense smooth quasiprojective open and a relative smooth curve whose geometric generic restriction has the same monodromy image (or surjective geometric π₁); spread and specialize with uniform lattice monodromy. Include reduction of the rank-one abelian quotient to curves. This is the general normal-scheme curve-reduction contract of Weil II (1.3.1), (1.3.4) and (1.11.4), pp. 156–158, 185–186, independent of purity. | [DWP.5/rank-one-normalization](#dwp-5-rank-one-normalization), [DWP.5/generalized-majoration](#dwp-5-generalized-majoration) |
 
 ## Pinned library inputs
 
-The baseline is Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and Tau Ceti f790474821cf4256814db967cb154e7af3d0c369. Each listed statement was checked at that pin. The general étale geometry and coefficient interfaces are supplier inputs, not structures manufactured by the suggested file. The ring equivalence supplied by classification of algebraically closed fields does not by itself prove compatibility with a prescribed embedding of a subfield.
+Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369` are the baseline. The 29 declarations below were rechecked at the Mathlib pin; the provides column states their exact role and limits.
 
-| Declaration | Module | Exact role |
+| Declaration | Module | Provides |
 | --- | --- | --- |
 | `mathlib:minpoly.algHom_eq` | `Mathlib/FieldTheory/Minpoly/Basic.lean` | minpoly A (f x) = minpoly A x for an injective A-algebra map f: the Weil-number predicate, defined through the minimal polynomial over ℚ, is invariant under field homomorphisms. |
 | `mathlib:IsAlgClosed.lift` | `Mathlib/FieldTheory/IsAlgClosed/Basic.lean` | For algebraic torsion-free domain R-algebras S and an algebraically closed field M carrying a torsion-free R-algebra structure, constructs an R-algebra homomorphism S→M. It extends the chosen base algebra map, not an arbitrary embedding without first installing that algebra structure. |
@@ -2563,84 +2616,127 @@ The baseline is Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and Tau Ceti f7
 | `mathlib:AddValuation` | `Mathlib/RingTheory/Valuation/Basic.lean` | For a ring R and a linearly ordered additive commutative monoid with top Γ, AddValuation R Γ is Valuation R with multiplicative order-dual value group; it has v(0)=∞, v(1)=0, v(xy)=v(x)+v(y) and v(x+y)≥min(v(x),v(y)). It supplies the existing valuation object, not a new Newton-polygon definition. |
 | `mathlib:Multiset.sort` | `Mathlib/Data/Multiset/Sort.lean` | For a decidable transitive antisymmetric total relation, sort turns a multiset into its sorted list. The accompanying pairwise_sort and sort_eq statements identify its order and underlying multiset; cumulative normalized slopes use this existing operation. |
 | `mathlib:MonoidHom.eqLocus` | `Mathlib/Algebra/Group/Subgroup/Ker.lean` | The equalizer subgroup of two monoid homomorphisms from a group to a monoid. The Weil-group pullback core is the equality locus of the two projected arithmetic-degree homomorphisms. |
+| `mathlib:exteriorPower.map` | `Mathlib/LinearAlgebra/ExteriorPower/Basic.lean` | For a linear map f:M→ₗ[R]N over a commutative ring, the induced map on nth exterior powers, with map_apply_ιMulti and map_comp. It supplies the construction, not its characteristic polynomial. |
+| `mathlib:Module.Basis.exteriorPower` | `Mathlib/LinearAlgebra/ExteriorPower/Basis.lean` | From a basis indexed by a linearly ordered type, constructs the exterior basis indexed by n-element finsets. It supplies the wedge basis for the triangular-matrix argument, not the spectral theorem. |
 
 ## Boundaries of the source arguments
 
-The conjectures and applications are kept separate from the proved estimates. In particular, finite-determinant normalization is not a proof of all the conclusions conjectured in Weil II (1.2.10).
+**[La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), (1.2.9)–(1.2.10), p. 155: conjectural in the cited source.**
 
-**La conjecture de Weil. II, (1.2.9)–(1.2.10), p. 155.** (1.2.9) every sheaf on a finite-type scheme over 𝔽_p is ι-mixed. (1.2.10), for an irreducible lisse sheaf on normal connected X with finite-order determinant: (i) weight-zero purity; (ii) a common number field for local polynomials; (iii) units at places away from p; (iv) |v(α)/v(N(x))|≤rank(ℱ)/2 at places above p; (v) compatible λ-adic companions after enlarging that field; (vi) crystalline companions. None is introduced here as an unconditional theorem. Finite-determinant normalization proves none of these conjectural conclusions. Their current status is not inferred from the 1980 text.
+(1.2.9) every sheaf on a finite-type scheme over 𝔽_p is ι-mixed. (1.2.10), for an irreducible lisse sheaf on normal connected X with finite-order determinant: (i) weight-zero purity; (ii) a common number field for local polynomials; (iii) units at places away from p; (iv) |v(α)/v(N(x))|≤rank(ℱ)/2 at places above p; (v) compatible λ-adic companions after enlarging that field; (vi) crystalline companions. None is introduced here as an unconditional theorem. Finite-determinant normalization proves none of these conjectural conclusions. Their current status is not inferred from the 1980 text.
 
-**La conjecture de Weil. II, §1.6–§1.7; (1.8.14); §1.9.** LPV.1 owns nilpotent monodromy filtrations and SL₂ strings; (1.8.14) is a Hodge-theoretic analogy, not a second variation-of-Hodge-structure plan. The normal-crossings multivariable estimates of §1.9 are explicitly unused by the subsequent curve/square-improvement targets and require a separate SNC consumer before becoming targets here.
+**[La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §1.6–§1.7; (1.8.14); §1.9: supplied or outside targets.**
 
-**La conjecture de Weil. II, §3.3–§3.4, §4–§6.** DWP.7–DWP.9 own general direct-image bounds, mixed complexes, canonical weight filtrations, geometric semisimplicity and hard Lefschetz. This part imports their existing nodes for the arithmetic/equidistribution exports. Bergström–Faber–Payne’s orientation-corrected stack boundary spectral sequence is covered by the existing DWP.8 companion packet, not replanned here.
+LPV.1 owns nilpotent monodromy filtrations and SL₂ strings; (1.8.14) is a Hodge-theoretic analogy, not a second variation-of-Hodge-structure plan. The normal-crossings multivariable estimates of §1.9 are explicitly unused by the subsequent curve/square-improvement targets and require a separate SNC consumer before becoming targets here.
 
-**Indecomposable vector bundles and stable Higgs bundles over smooth projective curves, Prop. 4.7 and Appendix B.** The full Zariski-density theorem and Katz–Sarnak universal-family monodromy belong to UniversalHypersurfaceMonodromy, the accepted LPV Part II route. Our Frobenius equidistribution theorem supplies its analytic input; it is not a numeric DWP.0 theorem. The published proof uses explicit families, removing the preprint’s unproved moduli-family shortcut.
+**[La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §3.3–§3.4, §4–§6: companion part.**
+
+DWP.7–DWP.9 own general direct-image bounds, mixed complexes, canonical weight filtrations, geometric semisimplicity and hard Lefschetz. This part imports their existing nodes for the arithmetic/equidistribution exports. Bergström–Faber–Payne’s orientation-corrected stack boundary spectral sequence is covered by the existing DWP.8 companion packet, not replanned here.
+
+**[Indecomposable vector bundles and stable Higgs bundles over smooth projective curves](https://annals.math.princeton.edu/wp-content/uploads/annals-v183-n1-p06-p.pdf), Prop. 4.7 and Appendix B: external application.**
+
+The full Zariski-density theorem and Katz–Sarnak universal-family monodromy belong to UniversalHypersurfaceMonodromy, the accepted LPV Part II route. Our Frobenius equidistribution theorem supplies its analytic input; it is not a numeric DWP.0 theorem. The published proof uses explicit families, removing the preprint’s unproved moduli-family shortcut.
 
 ## Source corrections
 
-The mathematical specifications use the corrected conventions below. Published and preprint versions are distinguished. A known source issue is identified by its extraction/review record rather than being presented as a new discovery.
-
 ### DeligneWeightsAndPurity/E1
 
-**Chapter III, proof of Proposition 11.2, p. 119 (footnote 6).** deg f^*((1 × α)^*)L(J × Θ) = L(C · α) (footnote 6: "Needs fixing.")
+**[Abelian Varieties](https://www.jmilne.org/math/CourseNotes/AV.pdf), Chapter III, proof of Proposition 11.2, p. 119 (footnote 6).** Footnote 6 marks the displayed identity for pullback degrees as requiring repair.
 
-Correction: The degree of the pullback of L(J × Θ) along (1 × α) ∘ (f × f) ∘ Δ must be computed from the theta divisor's intersection with f(C) (Milne III.6.12, Lang 1959 IV §3). The step is incomplete as printed. The node weil-estimate-for-curves imports the fixed-point formula from its RS-17 supplier instead of relying on this proof.
+Correction: The pullback-degree/intersection calculation is explicitly unfinished as printed. No repaired theta-divisor calculation is certified here. The curve-bound node requests the fixed-point formula from its trace/Jacobian supplier and does not use this incomplete proof as a supplied theorem.
 
-Reason: The author marks the displayed identity with a footnote reading "Needs fixing"; the degree computation it records is not justified in the printed proof.
+Reason: The author explicitly flags the displayed identity as unfinished in a footnote; the degree computation it records is not justified in the printed proof.
 
-Flagged by the author in the text (footnote 6); not on the author's errata page for v2.00.
+Version status: Flagged by the author in the text (footnote 6); not on the author's errata page for v2.00.
+
+Effect: the proof. Recorded independent verdict: **confirmed** by `REV-DeligneWeightsAndPurity--DWP.0`.
 
 ### DeligneWeightsAndPurity/E2
 
-**arXiv:1406.3839v2, Appendix B pp. 35–36 and bibliography [D1] p. 37; published Appendix B p. 357, [Del74] reference.** [D1] La conjecture de Weil I., Publ. Math. 52 (1981), 313–428; Appendix B cites 3.5.3.
+**[Indecomposable vector bundles and stable Higgs bundles over smooth projective curves](https://annals.math.princeton.edu/wp-content/uploads/annals-v183-n1-p06-p.pdf), arXiv:1406.3839v2, Appendix B pp. 35–36 and bibliography [D1] p. 37; published Appendix B p. 357, [Del74] reference.** The bibliography lists [D1] as La conjecture de Weil I., in Publ. Math., volume 52, year 1981, pages 313–428; the citation in Appendix B points to 3.5.3.
 
 Correction: The equidistribution source is Deligne, La conjecture de Weil II, Publ. Math. IHÉS 52 (1980), 137–252, §3.5.3. The published reference [Del74] names Weil I but its §3.5.3 citation is likewise a Weil II theorem.
 
 Reason: The volume and theorem locator identify Weil II; Weil I has no §3.5.3 equidistribution theorem.
 
-Confirmed RT-AREA-etale/1; no separate author correction found in the versions compared.
+Version status: Confirmed RT-AREA-etale/1; no separate author correction found in the versions compared.
+
+Effect: nothing. Recorded independent verdict: **confirmed** by `REV-DeligneWeightsAndPurity--DWP.0`.
 
 ### DeligneWeightsAndPurity/E3
 
-**arXiv:1406.3839v2, Appendix B p. 35; published Appendix B p. 357.** The preprint uses H¹(−1) while displaying normalized eigenvalues q^(−n/2)σ_i.
+**[Indecomposable vector bundles and stable Higgs bundles over smooth projective curves](https://annals.math.princeton.edu/wp-content/uploads/annals-v183-n1-p06-p.pdf), arXiv:1406.3839v2, Appendix B p. 35; published Appendix B p. 357.** The source writes H¹(−1) and gives q^(−n/2)σ_i as the normalized eigenvalues.
 
 Correction: Choose a square root of q with positive ι-image and tensor with its inverse degree character, the chosen half-weight normalization H¹(1/2). This is a rank-one Weil scalar twist, not the integer twist (−1).
 
 Reason: H¹ has weight 1; an ordinary (−1) twist gives weight 3, whereas the displayed normalized spectrum has weight 0.
 
-PAPER-SCHIFFMANN-16/E6; the published version uses the corrected half twist.
+Version status: PAPER-SCHIFFMANN-16/E6; the published version uses the corrected half twist.
+
+Effect: a stated result. Recorded independent verdict: **confirmed** by `REV-DeligneWeightsAndPurity--DWP.0`.
 
 ### DeligneWeightsAndPurity/E4
 
-**(3.5.6)–(3.5.7), p. 212.** The SU(2) angle density is (1/(2π))sin²θ dθ.
+**[La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), (3.5.6)–(3.5.7), p. 212.** The source gives (1/(2π))sin²θ dθ as the angle density for SU(2).
 
 Correction: Use (2/π)sin²θ dθ on [0,π].
 
 Reason: The printed measure has mass 1/4; normalized Haar pushforward has mass 1.
 
-PAPER-DELIGNE-80/E50, confirmed by REV-PAPER-DELIGNE-80; scan inspected in this run.
+Version status: PAPER-DELIGNE-80/E50, confirmed by REV-PAPER-DELIGNE-80; scan inspected in this run.
+
+Effect: a stated result. Recorded independent verdict: **confirmed** by `REV-DeligneWeightsAndPurity--DWP.0`.
 
 ### DeligneWeightsAndPurity/E5
 
-**(3.5.6), p. 212.** For eigenvalues q^(n/2)e^(±iθ), the point count is given with +2cosθ q^(n/2).
+**[La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), (3.5.6), p. 212.** The source includes +2cosθ q^(n/2) in the point count corresponding to eigenvalues q^(n/2)e^(±iθ).
 
 Correction: The count is 1+q^n−2cosθ q^(n/2).
 
 Reason: The cohomological trace formula subtracts the H¹ trace.
 
-PAPER-DELIGNE-80/E51, confirmed by REV-PAPER-DELIGNE-80; scan inspected in this run.
+Version status: PAPER-DELIGNE-80/E51, confirmed by REV-PAPER-DELIGNE-80; scan inspected in this run.
+
+Effect: a stated result. Recorded independent verdict: **confirmed** by `REV-DeligneWeightsAndPurity--DWP.0`.
 
 ### DeligneWeightsAndPurity/E6
 
-**Yu arXiv v5, (6.1.1)–(6.1.2), pp. 42–43.** H⁰(ℱ₁⊗ℱ₂∨)=Hom(ℱ₁,ℱ₂), with the opposite order likewise in H².
+**[Comptage des systèmes locaux ℓ-adiques sur une courbe](https://arxiv.org/pdf/1807.04659v5), Yu arXiv v5, (6.1.1)–(6.1.2), pp. 42–43.** The source asserts H⁰(ℱ₁⊗ℱ₂∨)=Hom(ℱ₁,ℱ₂) and similarly reverses the order for H².
 
 Correction: Use H⁰=Hom(ℱ₂,ℱ₁) and H²=Hom(ℱ₁,ℱ₂)∨(−1).
 
 Reason: The tensor–Hom identification fixes the order; the self-pair and absence-of-common-constituent uses are symmetric, so this changes no weight input or pole count.
 
-PAPER-YU-23/E14, confirmed by REV-PAPER-YU-23; rechecked in the public v5 proof.
+Version status: PAPER-YU-23/E14, confirmed by REV-PAPER-YU-23; rechecked in the public v5 proof.
+
+Effect: nothing. Recorded independent verdict: **confirmed** by `REV-DeligneWeightsAndPurity--DWP.0`.
+
+### DeligneWeightsAndPurity/E7
+
+**[La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §1.3, Lemme (1.3.10)(iv), p. 160.** The source describes the centre’s image as a finite subgroup of Z.
+
+Correction: Replace finite subgroup by subgroup of finite index in ℤ.
+
+Reason: A finite subgroup of ℤ is zero, contradicting the positive-degree central element used immediately in (1.3.12); the proof constructs a nonzero degree and thus a finite-index image.
+
+Version status: PAPER-DELIGNE-80/E10; independently checked in the Numdam page image.
+
+Effect: a stated result. Recorded independent verdict: **confirmed** by `REV-DeligneWeightsAndPurity--DWP.0`.
+
+### DeligneWeightsAndPurity/E8
+
+**[La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §2.2, Proposition (2.2.8)(i), p. 195; repeated in §3.5 (3.5.1), p. 211.** The source assigns weight +2Re(r) to the associated irreducible sheaf.
+
+Correction: Use −2Re(r) with the source convention ω₁=q^(−deg).
+
+Reason: In (2.1.1), |r(z)|=ω₁(z)^Re(r)=q^(−deg(z)Re(r)); purity therefore gives weight −2Re(r). Taking r=ω₁ gives q⁻¹ and weight −2, while Re(r)=1.
+
+Version status: PAPER-DELIGNE-80/E38 and E72; the accepted paper review records the repeated sign error.
+
+Effect: a stated result. Recorded independent verdict: **confirmed** by `REV-DeligneWeightsAndPurity--DWP.0`.
 
 ## Structure and interfaces
+
 
 The packet keeps the current stage ids. The following proposals give the precise boundaries an assembly or restructuring review must preserve.
 
@@ -2662,37 +2758,43 @@ Upstream observation: Layer F supplies a pointed universal property and base cha
 
 ## Proof and signature obligations
 
-All eight stages have their targets and prerequisite chains specified. Supplier closure remains distinct from coverage. The following two obligations are explicit:
+All eight stages have their targets and prerequisite chains specified: 83 nodes (8 definitions, 4 constructions, 12 lemmas and 59 theorems), 81 API items, 44 tests and 27 planets. All stages are planned. Supplier closure remains distinct from target coverage: 28 contracts and the following two obligations remain explicit.
 
 **Prescribed-base compatibility of the complex isomorphism.** The pinned equivOfTranscendenceBasis returns a ring equivalence, without a theorem that it extends a prescribed σ:k→ℂ. Its polynomial/base-algebra-compatible construction must be traced through the algebraic-closure equivalence, or supplied as an explicit AlgEquiv extension theorem. The cardinal classification alone is insufficient. The target is stated fully and this proof obligation remains visible.
 
-**Unavailable geometric and analytic interfaces in suggested signatures.** The pinned libraries lack the actual constructible ℓ-adic/Weil coefficient categories, closed-stalk descent, compact-support cohomology, vanishing-cycle objects and algebraic-by-discrete Weil-monodromy realization interfaces used by the geometric and representation-Euler-family statements. Their precise theorem/API/test specifications are in the packet and reader; suggested-file entries that require these carriers are explicitly omitted with names and supplier blockers, as PROTOCOL §13 requires. They are not replaced by opaque proposition parameters or fabricated cohomology fields. The file elaborates numerical definitions and genuine subgroup, stalk-family and valuation cores; instantiation as schemes/sheaves or the compact Weil representation category is an owner-interface obligation. Standalone positivity, multiset and error-removal lemmas elaborate without those interfaces.
+Needed by: [DWP.0/embeddings-into-the-complex-numbers](#dwp-0-embeddings-into-the-complex-numbers).
+
+**Unavailable geometric and analytic interfaces in suggested signatures.** The pinned libraries lack the actual constructible ℓ-adic/Weil coefficient categories, closed-stalk descent, compact-support cohomology, vanishing-cycle objects and algebraic-by-discrete Weil-monodromy realization interfaces used by the geometric and representation-Euler-family statements. Their precise theorem/API/test specifications are in the packet and synchronized reader; suggested-file entries that require these carriers are explicitly omitted with names and supplier blockers, as PROTOCOL §13 requires. They are not replaced by opaque proposition parameters or fabricated cohomology fields. The file elaborates numerical definitions and genuine subgroup, stalk-family and valuation cores; instantiation as schemes/sheaves or the compact Weil representation category is an owner-interface obligation. Standalone positivity, multiset and error-removal lemmas elaborate without those interfaces.
+
+Needed by: [DWP.2/weights-and-l-functions-of-lisse-sheaves-on-curves](#dwp-2-weights-and-l-functions-of-lisse-sheaves-on-curves), [DWP.2/open-subgroups-of-symplectic-groups-are-zariski-dense](#dwp-2-open-subgroups-of-symplectic-groups-are-zariski-dense), [DWP.2/symplectic-coinvariants-of-even-tensor-powers](#dwp-2-symplectic-coinvariants-of-even-tensor-powers), [DWP.2/compact-cohomology-of-even-tensor-powers](#dwp-2-compact-cohomology-of-even-tensor-powers), [DWP.2/positivity-of-even-tensor-power-traces](#dwp-2-positivity-of-even-tensor-power-traces), [DWP.2/positive-local-factors](#dwp-2-positive-local-factors), [DWP.2/radius-of-convergence-of-positive-products](#dwp-2-radius-of-convergence-of-positive-products), [DWP.2/poles-of-positive-products](#dwp-2-poles-of-positive-products), [DWP.2/fundamental-estimate-theorem-3-2](#dwp-2-fundamental-estimate-theorem-3-2), [DWP.2/coarse-bound-on-compact-cohomology](#dwp-2-coarse-bound-on-compact-cohomology), [DWP.2/coarse-bound-on-cohomology-of-the-projective-line](#dwp-2-coarse-bound-on-cohomology-of-the-projective-line), [DWP.1/frobenius-endomorphism-over-a-finite-field](#dwp-1-frobenius-endomorphism-over-a-finite-field), [DWP.1/rosati-of-the-frobenius-endomorphism](#dwp-1-rosati-of-the-frobenius-endomorphism), [DWP.1/absolute-values-from-the-rosati-involution](#dwp-1-absolute-values-from-the-rosati-involution), [DWP.1/weil-estimate-for-abelian-varieties](#dwp-1-weil-estimate-for-abelian-varieties), [DWP.1/point-counts-of-abelian-varieties](#dwp-1-point-counts-of-abelian-varieties), [DWP.1/weil-estimate-for-curves](#dwp-1-weil-estimate-for-curves), [DWP.1/weights-of-the-cohomology-of-curves](#dwp-1-weights-of-the-cohomology-of-curves), [DWP.1/compatibility-with-the-hasse-bound](#dwp-1-compatibility-with-the-hasse-bound), [DWP.1/the-frobenius-and-points-over-extensions](#dwp-1-the-frobenius-and-points-over-extensions), [DWP.3/radical-quotient-of-the-vanishing-system](#dwp-3-radical-quotient-of-the-vanishing-system), [DWP.3/geometrically-constant-lisse-sheaves](#dwp-3-geometrically-constant-lisse-sheaves), [DWP.3/zeta-of-the-fibres-and-the-pencil-factorization](#dwp-3-zeta-of-the-fibres-and-the-pencil-factorization), [DWP.3/powers-of-a-family-determine-the-family](#dwp-3-powers-of-a-family-determine-the-family), [DWP.3/open-image-in-the-symplectic-similitude-group](#dwp-3-open-image-in-the-symplectic-similitude-group), [DWP.3/haar-null-exceptional-eigenvalue-locus](#dwp-3-haar-null-exceptional-eigenvalue-locus), [DWP.3/exceptional-frobenius-set-has-density-zero](#dwp-3-exceptional-frobenius-set-has-density-zero), [DWP.3/denominators-away-from-the-exceptional-set](#dwp-3-denominators-away-from-the-exceptional-set), [DWP.3/divisibility-criterion](#dwp-3-divisibility-criterion), [DWP.3/rationality-of-pencil-local-factors](#dwp-3-rationality-of-pencil-local-factors), [DWP.3/coarse-bound-for-the-pencil](#dwp-3-coarse-bound-for-the-pencil), [DWP.4/middle-cohomology-half-unit-bound](#dwp-4-middle-cohomology-half-unit-bound), [DWP.4/middle-cohomology-purity](#dwp-4-middle-cohomology-purity), [DWP.4/smooth-projective-purity](#dwp-4-smooth-projective-purity), [DWP.5/weil-group](#dwp-5-weil-group), [DWP.5/weil-sheaf](#dwp-5-weil-sheaf), [DWP.5/punctual-purity-and-mixedness](#dwp-5-punctual-purity-and-mixedness), [DWP.5/real-sheaves](#dwp-5-real-sheaves), [DWP.5/rank-one-normalization](#dwp-5-rank-one-normalization), [DWP.5/determinantal-weights](#dwp-5-determinantal-weights), [DWP.5/geometric-monodromy-and-central-degree](#dwp-5-geometric-monodromy-and-central-degree), [DWP.5/generalized-majoration](#dwp-5-generalized-majoration), [DWP.5/initial-curve-and-boundary-bounds](#dwp-5-initial-curve-and-boundary-bounds), [DWP.5/local-monodromy-purity](#dwp-5-local-monodromy-purity), [DWP.5/local-weight-corollaries](#dwp-5-local-weight-corollaries), [DWP.5/stalk-newton-polygon](#dwp-5-stalk-newton-polygon), [DWP.5/nonarchimedean-boundary-bounds](#dwp-5-nonarchimedean-boundary-bounds), [DWP.5/specialization-of-monodromy](#dwp-5-specialization-of-monodromy), [DWP.5/hadamard-de-la-vallee-poussin](#dwp-5-hadamard-de-la-vallee-poussin), [DWP.5/compact-weil-form](#dwp-5-compact-weil-form), [DWP.5/strict-initial-h1-bound](#dwp-5-strict-initial-h1-bound), [DWP.5/abstract-degree-equidistribution](#dwp-5-abstract-degree-equidistribution), [DWP.6/coefficient-specific-vanishing-cycles](#dwp-6-coefficient-specific-vanishing-cycles), [DWP.6/real-cohomological-factors](#dwp-6-real-cohomological-factors), [DWP.6/square-improvement](#dwp-6-square-improvement), [DWP.6/sharp-curve-purity](#dwp-6-sharp-curve-purity), [DWP.6/compact-support-curve-bound](#dwp-6-compact-support-curve-bound), [DWP.10/weight-transport-to-stable-subquotients](#dwp-10-weight-transport-to-stable-subquotients), [DWP.10/compatible-realization-export](#dwp-10-compatible-realization-export), [DWP.10/finite-residue-semistable-curve-weights](#dwp-10-finite-residue-semistable-curve-weights), [DWP.10/mixed-nearby-and-newton-exports](#dwp-10-mixed-nearby-and-newton-exports), [DWP.10/frobenius-equidistribution](#dwp-10-frobenius-equidistribution), [DWP.10/finite-field-sato-tate](#dwp-10-finite-field-sato-tate), [DWP.10/weight-acceptance-suite](#dwp-10-weight-acceptance-suite), [DWP.5/determinantal-weight-functoriality](#dwp-5-determinantal-weight-functoriality).
 
 The suggested Lean companion instantiates the numerical definitions against existing polynomial, valuation, subgroup and vector-space types. Its stalk-family and Weil-group cores accept genuine mathematical data supplied by the geometric owners. They do not define a sheaf category or a scheme. It records every unavailable geometric signature by its exact packet name and supplier; these records are not elaborated theorems. Compilation checks the signatures that can be expressed at the pin and supplies no implementation claim.
 
+The companion expresses 52 of the 81 API names and 30 of the 44 test names as Lean declarations or examples. Its ledger explicitly omits the other 29 API names and 14 test names, with their mathematical specifications and supplier obligations. All 65 uninstantiated target schemas also retain the packet's statements and direct inputs.
+
 ## Sources and reading boundary
 
-The source versions, checksums and locators below make the comparison reproducible. The plan follows the published Weil I and Weil II arguments; the application sources determine arithmetic uses and the scope of equidistribution. Their unrelated automorphic and moduli constructions stay with their owners.
+The bibliography, checksums and printed-page locators make the plan reproducible. The source arguments supply the estimates; the application sources identify arithmetic consumers. Their unrelated automorphic and moduli constructions stay with their owners. The packet retains the previous reading history; this revision rechecked the following passages.
 
-- [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), Pierre Deligne. Publ. Math. IHÉS 43 (1974), 273–307; Numdam scan with OCR, 36 PDF pages (printed page = PDF page + 271); locators give printed pages. Accessed 2026-10-06.
+- [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), Pierre Deligne. Publ. Math. IHÉS 43 (1974), 273–307; Numdam scan with OCR, 36 PDF pages (printed page = PDF page + 271); locators give printed pages. Accessed 2026-10-08.
 
-Reading boundary: §1–§3 and (5.12)–(7.3), including every dimension-induction case. The geometric pencil construction is imported from LPV.
+Codex codex-aflhpc, revision 2026-10-08: rechecked Scholie (2.10) p. 282, (3.5)–(3.9) pp. 285–287, (5.12)–(5.13), §6 and every §7 induction/tensor-power case, pp. 295–301, against the corrected proof and supplier contracts.
 
-- [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), Pierre Deligne. Publ. Math. IHÉS 52 (1980), 137–252; Numdam scan with OCR (printed page = PDF page + 135); locators give printed pages. Accessed 2026-10-06.
+- [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), Pierre Deligne. Publ. Math. IHÉS 52 (1980), 137–252; Numdam scan with OCR (printed page = PDF page + 135); locators give printed pages. Accessed 2026-10-08.
 
-Reading boundary: coefficient definitions and local arguments in §1, all §2, and (3.1)–(3.5). The source-boundary notes distinguish conjectures, unused normal-crossings generalizations, and companion-part imports.
+Codex codex-aflhpc, revision 2026-10-08: rechecked (1.1.6)–(1.2.9) pp. 150–155; §1.3 pp. 156–162; §1.5 pp. 164–165; §1.7–§1.8 pp. 170–179; §1.10–§1.11 pp. 182–186; §2.1–§2.2 pp. 187–196; (3.2.1)–(3.2.15) pp. 200–204; (3.3.7)–(3.3.8) pp. 206–207; §3.5 pp. 211–212; (6.1.13) p. 246 and (6.2.7) p. 248. These are checks of corrected targets and imported interfaces, not a new plan for the companion part.
 
-- [Abelian Varieties](https://www.jmilne.org/math/CourseNotes/AV.pdf), J. S. Milne. Course notes, version 2.00 (March 16, 2008); printed page = PDF page − 6. Accessed 2026-10-06.
+- [Abelian Varieties](https://www.jmilne.org/math/CourseNotes/AV.pdf), J. S. Milne. Course notes, version 2.00 (March 16, 2008); printed page = PDF page − 6. Accessed 2026-10-08.
 
-Reading boundary: Chapter II §1 and Chapter III §§9–11, with the proof warning in III.11.2 kept visible.
+Codex codex-aflhpc, revision 2026-10-08: Chapter II §1 pp. 75–78 and Chapter III §11 pp. 118–119 rechecked, including the differential of 1−π, exterior products, the Hasse specialization and the unfinished proof warning.
 
-- [Comptage des systèmes locaux ℓ-adiques sur une courbe](https://arxiv.org/pdf/1807.04659v5), Hongjie Yu. arXiv:1807.04659v5, 18 July 2022; supplied lead: Annals of Mathematics 197 (2023), no. 2; locators refer to the public author preprint. Accessed 2026-10-06.
+- [Comptage des systèmes locaux ℓ-adiques sur une courbe](https://arxiv.org/pdf/1807.04659v5), Hongjie Yu. arXiv:1807.04659v5, 18 July 2022; supplied lead: Annals of Mathematics 197 (2023), no. 2; locators refer to the public author preprint. Accessed 2026-10-08.
 
-Reading boundary: §§1, 2.1, 6.1.1 and 7.1 for the routed weight uses; no claim to read or reconstruct the entire automorphic argument.
+Codex codex-aflhpc, revision 2026-10-08: public v5 Proposition 6.1.1 and (6.1.1)–(6.1.2) pp. 42–43, and §7.1 p. 64 rechecked for tensor–Hom order and reciprocal spectra; no journal-version comparison or new automorphic plan.
 
-- [Indecomposable vector bundles and stable Higgs bundles over smooth projective curves](https://annals.math.princeton.edu/wp-content/uploads/annals-v183-n1-p06-p.pdf), Olivier Schiffmann. Annals of Mathematics 183 (2016), 297–362; published Proposition 4.7 and Appendix B; compared arXiv:1406.3839v2 Proposition 4.8. Accessed 2026-10-06.
+- [Indecomposable vector bundles and stable Higgs bundles over smooth projective curves](https://annals.math.princeton.edu/wp-content/uploads/annals-v183-n1-p06-p.pdf), Olivier Schiffmann. Annals of Mathematics 183 (2016), 297–362; published Proposition 4.7 and Appendix B; compared arXiv:1406.3839v2 Proposition 4.8. Accessed 2026-10-08.
 
-Reading boundary: published Proposition 4.7 and Appendix B, compared with preprint v2 Proposition 4.8, Appendix B and bibliography [D1].
+Codex codex-aflhpc, revision 2026-10-08: published Appendix B pp. 357–358 compared with arXiv v2 Appendix B pp. 35–36 and the cited bibliography entries, for the half-weight normalization and the analytic/geometric supplier boundary.
 
 Versions inspected:
 
@@ -2701,6 +2803,6 @@ Versions inspected:
 | published | [Deligne, La conjecture de Weil. I, Publ. Math. IHÉS 43 (1974), Numdam](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf) | `8392b345d4854e6dc55fb42cfc0b616d941935983723627237239a87348f42e5` |
 | published | [Deligne, La conjecture de Weil. II, Publ. Math. IHÉS 52 (1980), Numdam](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf) | `b06eea61bf9cb2b596c162f5befcf85d1be69828910a6107c8aa3a99c4afcc71` |
 | author copy | [J. S. Milne, Abelian Varieties, course notes v2.00 (2008)](https://www.jmilne.org/math/CourseNotes/AV.pdf) | `f5ca4e63e5092a4b102daad1470e4cbed5fe8f82115e3a28c8881e3f67f6aaef` |
-| author preprint | [Yu, arXiv:1807.04659v5 (2022), for the routed weight-facing inputs only](https://arxiv.org/pdf/1807.04659v5) | `9383bcdee14777ec647ba2658da3319d7d43864f9481b07c7d9550f1a454de1c` |
+| preprint | [Yu, arXiv:1807.04659v5 (2022), for the routed weight-facing inputs only](https://arxiv.org/pdf/1807.04659v5) | `9383bcdee14777ec647ba2658da3319d7d43864f9481b07c7d9550f1a454de1c` |
 | published | [Schiffmann, Annals 183 (2016), Prop. 4.7 and Appendix B](https://annals.math.princeton.edu/wp-content/uploads/annals-v183-n1-p06-p.pdf) | `8e486963410368afe461a6f2a848eb7ddb618aa48fda7db2c0bd51710286c7a5` |
 | preprint | [Schiffmann v2 (2014), Prop. 4.8, Appendix B and bibliography [D1]](https://arxiv.org/pdf/1406.3839v2) | `7e5cbf6e3bb9caf4c48959493987c4543c2244cccdf17fa0fa426593a8639bb2` |

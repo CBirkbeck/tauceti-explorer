@@ -770,7 +770,10 @@ end TauCeti.Weights
 
 This ledger distinguishes elaborated signatures from names awaiting real owner
 interfaces (PROTOCOL section 13). An omitted statement is not replaced by a
-proposition-valued field. The corrected packet specifies it mathematically; the reader requires the revision recorded by this review.
+proposition-valued field. The packet and synchronized reader specify it mathematically.
+Of the packet's 81 API names and 44 test names, 52 API names and 30 test names
+have elaborated signatures or examples; 29 API names and 14 test names are
+explicitly omitted below with their genuine owner-interface obligations.
 
 The API declarations for WeilGroup are its actual group-theoretic pullback
 core, not the arithmetic fundamental group or its topology. The punctual and
