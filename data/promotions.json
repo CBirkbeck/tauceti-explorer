@@ -504,6 +504,17 @@
     "data/blueprints/AutomorphicGaloisRepresentations.md"
    ]
   },
+  "research/blueprint/packets/AutomorphicGaloisRepresentationsPartII--AG2.0.json": {
+   "promotedAt": "2026-10-08T19:24:46Z",
+   "review": "e5b553578cb347e2",
+   "reviewDate": "2026-10-08",
+   "reviewer": "independent-review-REV-AutomorphicGaloisRepresentationsPartII--AG2.0~2",
+   "sha256": "071abfa532905ffb9aaf26dd7124d79b88bb36fb740fb97ca60317f3cb0322f6",
+   "to": [
+    "data/blueprints/AutomorphicGaloisRepresentationsPartII--AG2.0.json",
+    "data/blueprints/AutomorphicGaloisRepresentationsPartII--AG2.0.md"
+   ]
+  },
   "research/blueprint/packets/AutomorphicGaloisRepresentationsPartII--AG2.6.json": {
    "promotedAt": "2026-10-08T15:00:03Z",
    "review": "f8fe822bb35f8936",
@@ -1448,6 +1459,17 @@
     "data/blueprints/HabiroRings.md"
    ]
   },
+  "research/blueprint/packets/HeckeStacksAndLocalShtukas.json": {
+   "promotedAt": "2026-10-08T19:24:46Z",
+   "review": "2541b1618729acc5",
+   "reviewDate": "2026-10-08",
+   "reviewer": "independent-review-REV-HeckeStacksAndLocalShtukas~2",
+   "sha256": "1bb4a6e2a435b09260d8548210cf010ba573da874e2318ea9ba8b8989b771ef4",
+   "to": [
+    "data/blueprints/HeckeStacksAndLocalShtukas.json",
+    "data/blueprints/HeckeStacksAndLocalShtukas.md"
+   ]
+  },
   "research/blueprint/packets/HeegnerPointEulerSystems--HE.0.json": {
    "promotedAt": "2026-10-06T06:37:16Z",
    "review": "53a0681a377f03e1",
@@ -1810,6 +1832,17 @@
    "to": [
     "data/blueprints/LocalGaloisDeformationRings.json",
     "data/blueprints/LocalGaloisDeformationRings.md"
+   ]
+  },
+  "research/blueprint/packets/MetaplecticAutomorphicForms--MP.0.json": {
+   "promotedAt": "2026-10-08T19:24:46Z",
+   "review": "a17f7757e237a425",
+   "reviewDate": "2026-10-08",
+   "reviewer": "independent-review-REV-MetaplecticAutomorphicForms--MP.0~2",
+   "sha256": "552c619f372262ee4ad05d217a3a17af1b2087e8328a377e0f4f85e78ba52644",
+   "to": [
+    "data/blueprints/MetaplecticAutomorphicForms--MP.0.json",
+    "data/blueprints/MetaplecticAutomorphicForms--MP.0.md"
    ]
   },
   "research/blueprint/packets/MetaplecticAutomorphicForms--MP.8.json": {

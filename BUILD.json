@@ -1,8 +1,8 @@
 {
   "roadmaps": 242,
-  "stages": 5109,
+  "stages": 5190,
   "originalStages": 2191,
-  "sourceRefinements": 2918,
+  "sourceRefinements": 2999,
   "reviewedDecompositions": [
     {
       "roadmap": "AInfCohomology",
@@ -29,13 +29,6 @@
       "roadmap": "ArithmeticGaloisRepresentations",
       "status": "partial",
       "nodes": 9,
-      "review": "accepted",
-      "deferredLinks": 0
-    },
-    {
-      "roadmap": "AutomorphicGaloisRepresentationsPartII",
-      "status": "partial",
-      "nodes": 5,
       "review": "accepted",
       "deferredLinks": 0
     },
@@ -120,13 +113,6 @@
       "roadmap": "GrossZagierAndArithmeticHeights",
       "status": "partial",
       "nodes": 9,
-      "review": "accepted",
-      "deferredLinks": 0
-    },
-    {
-      "roadmap": "HeckeStacksAndLocalShtukas",
-      "status": "partial",
-      "nodes": 13,
       "review": "accepted",
       "deferredLinks": 0
     },
@@ -236,14 +222,14 @@
   "editedRoadmapSummaries": 181,
   "curatedStagePresentations": 339,
   "administrativeStages": 101,
-  "mathematicalStars": 5008,
+  "mathematicalStars": 5089,
   "plainTextPlanetLabels": 398,
   "hiddenPlanets": 600,
   "mappedStageStatuses": 350,
   "libraryAuditStatuses": 19,
   "bibliographicSources": 46,
-  "roadmapEdges": 2221,
-  "stageEdges": 13320,
+  "roadmapEdges": 2248,
+  "stageEdges": 13594,
   "reviewedLinkPackets": 25,
   "promotedBlueprints": [
     {
@@ -377,6 +363,12 @@
       "roadmap": "AutomorphicGaloisRepresentations",
       "nodes": 66,
       "reviewer": "independent-review-REV-AutomorphicGaloisRepresentations~2"
+    },
+    {
+      "file": "AutomorphicGaloisRepresentationsPartII--AG2.0",
+      "roadmap": "AutomorphicGaloisRepresentationsPartII",
+      "nodes": 77,
+      "reviewer": "independent-review-REV-AutomorphicGaloisRepresentationsPartII--AG2.0~2"
     },
     {
       "file": "AutomorphicGaloisRepresentationsPartII--AG2.6",
@@ -889,6 +881,12 @@
       "reviewer": "independent-review-REV-FIX-RT-AREA-etale~2"
     },
     {
+      "file": "HeckeStacksAndLocalShtukas",
+      "roadmap": "HeckeStacksAndLocalShtukas",
+      "nodes": 51,
+      "reviewer": "independent-review-REV-HeckeStacksAndLocalShtukas~2"
+    },
+    {
       "file": "HeegnerPointEulerSystems--HE.0",
       "roadmap": "HeegnerPointEulerSystems",
       "nodes": 78,
@@ -1079,6 +1077,12 @@
       "roadmap": "LocalGaloisDeformationRings",
       "nodes": 157,
       "reviewer": "independent-review-REV-LocalGaloisDeformationRings~2"
+    },
+    {
+      "file": "MetaplecticAutomorphicForms--MP.0",
+      "roadmap": "MetaplecticAutomorphicForms",
+      "nodes": 176,
+      "reviewer": "independent-review-REV-MetaplecticAutomorphicForms--MP.0~2"
     },
     {
       "file": "MetaplecticAutomorphicForms--MP.8",
@@ -1286,8 +1290,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 36542582,
-  "htmlSha256": "18058c5adee62c523a1f584b95b61ecaa2ba86a34fff173cd45135a084ec92f7",
+  "htmlBytes": 36658950,
+  "htmlSha256": "7681f98efbbc3bf3d0b1760460c780f29b69cdfe4a19fa312ae2920b258f1f4b",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -1319,7 +1323,7 @@
     "data/roadmap-summaries.json": "c8bdd0a9105f5d3c4a858c8b635990729f8e94497dee784a71fae659b8c05b9f",
     "data/roadmap-classification.json": "2641dbc97eb2566c715162d011b46890d1635629181ef8126ac7aed9e24a3b13",
     "data/classification-estimates.json": "625d35fe6121bf099dc5de9e6a9111793596f9b664e3fbd439841434bb4a57d6",
-    "data/roadmap-distances.json": "0833db6bf47e6bb9940925170a9236446efda9b934428d788409a70f9c346370",
+    "data/roadmap-distances.json": "85b83a484faa485fbdf296f7d7fe44c38c76232c93aa2c1889d41ae0d9593c1c",
     "data/galaxy-layout.json": "7489487a2143484a355b36026c2f7d3dd9384ac5c58ac90d8b061b8dfcab6088",
     "data/bibliography.json": "bef230a41fad22d6b790c7564061c4d05c2ae5b78cab53d005eb404afab2b122",
     "NOTICE": "a285b95d5adbf5c2bcc82db36e2a77b797f84a2c5cbb30292efd0bae17cc4f34",
@@ -1421,6 +1425,8 @@
     "data/blueprints/AutomorphicBundles--B5.md": "0bfed27f079e9112d55bba1fc7cd761527e424c7a4236b51c0c15d7a3d763eec",
     "data/blueprints/AutomorphicGaloisRepresentations.json": "2fc29e8c433b09943d2cf0c5af1a87e68aedf7f77369aa447a97ac9d24f69111",
     "data/blueprints/AutomorphicGaloisRepresentations.md": "f96f727cd9d6816f409a2fbfd8d5714a4d3ac4b5c00bec118b1559cd1c7c90f7",
+    "data/blueprints/AutomorphicGaloisRepresentationsPartII--AG2.0.json": "1e0daef5c258028e8b6c5195892f9b8b490dadb798fa4c2bb31a3958dbe88f81",
+    "data/blueprints/AutomorphicGaloisRepresentationsPartII--AG2.0.md": "10408f2d93aac0f117aa20cb8ba9496385955e011279c71c17b71a1831d5af3e",
     "data/blueprints/AutomorphicGaloisRepresentationsPartII--AG2.6.json": "285ace845df972f862257756af77137d3fe2d6bdc8358eb46a67c561e668c592",
     "data/blueprints/AutomorphicGaloisRepresentationsPartII--AG2.6.md": "90bf042687f2e683c79931526fe09f0062466d8eee1ac5dd5564e002f460b086",
     "data/blueprints/BorelRegulators.json": "0db5afd8caf537c2bb641834f9e6f34bd1bd5972101f6dfccbf6e0712ed1929b",
@@ -1591,6 +1597,8 @@
     "data/blueprints/HabiroRings--HR.6.md": "311dbcc5a449a295adfa072df81320fd0a5bc55b554f7b6f23d26705f30e1aea",
     "data/blueprints/HabiroRings.json": "5c43f2aebc1a1679f5d37d36a1d1174659d116d16766de3ef7b93c34bf73d7e2",
     "data/blueprints/HabiroRings.md": "160228b0864d6bc3f4ce34b83994e5cda0e423f1127f1b39d61e4fd735e0560c",
+    "data/blueprints/HeckeStacksAndLocalShtukas.json": "77943818d2963d809ad3e87125384f960a3deb4b17bc898634952f7647d9627b",
+    "data/blueprints/HeckeStacksAndLocalShtukas.md": "5dd99a741c7ce6a39f4accad56d9f6962b12320e37e4d585be0fdacf5a1c5997",
     "data/blueprints/HeegnerPointEulerSystems--HE.0.json": "9aad4965f675c85154b43a2271666985f8c083aece04cce55efecf30f0d859a4",
     "data/blueprints/HeegnerPointEulerSystems--HE.0.md": "7d5303017cfc58865957e91dba0f044491b693554de8f02fa3ec40bc69db8ce1",
     "data/blueprints/HeegnerPointEulerSystems--HE.7s.json": "08e02eced6cd2a61971e5a0e7f99386c9b7bf0fc76e78a3f0b55caf9ba96e2ea",
@@ -1655,6 +1663,8 @@
     "data/blueprints/LefschetzPencilsAndVanishingCycles--LPV.7.md": "13091d41320605895a5f4d857dd9ce0df5caa88b68f4ea3e54effba78aab68cd",
     "data/blueprints/LocalGaloisDeformationRings.json": "b2f9fa6210210c97bc6f612363d33dad2c4eefc07a62ed92168143b6e4a809bc",
     "data/blueprints/LocalGaloisDeformationRings.md": "d142df583e6fcbc1a3d03c98c85b6b9a9d44f6fa7219130d70546c3506ea2d7c",
+    "data/blueprints/MetaplecticAutomorphicForms--MP.0.json": "2f9279ff60a9a42a8a90728131979bc8c92f775e851f0068ba65d30abeced9da",
+    "data/blueprints/MetaplecticAutomorphicForms--MP.0.md": "462441559210202500f41c0d22e13837c2f187e78fdeb48d79ae1b028b1c935a",
     "data/blueprints/MetaplecticAutomorphicForms--MP.8.json": "9cb02ce48b176eb5375fff3694c06ab87ab3f1972be5a8beebb10470255488ab",
     "data/blueprints/MetaplecticAutomorphicForms--MP.8.md": "fb0d72292c3957526a4f37f2cfd5f2b03a7683858b92a3d9390114f5a8afb442",
     "data/blueprints/MordellLawrenceVenkatesh.json": "d96efada7b6f6bc81bbc54c93c73457ccb1f1ca6d15cfe46bb739e8a35a69c0d",
