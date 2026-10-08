@@ -11,6 +11,7 @@ import Mathlib.RingTheory.Trace.Defs
 import Mathlib.RingTheory.TensorProduct.Maps
 import Mathlib.LinearAlgebra.TensorProduct.Associator
 import Mathlib.Data.ZMod.Basic
+import Mathlib.Algebra.Field.ZMod
 import Mathlib.NumberTheory.Padics.PadicIntegers
 import Mathlib.Topology.ContinuousMap.Algebra
 import Mathlib.Analysis.Normed.Operator.ContinuousLinearMap
@@ -46,8 +47,9 @@ measures BEFORE any interpolation theorem is used. Geometry connecting those tra
 Serre–Tate expansions remains an explicit supplier interface.
 
 The Petersson and elliptic-height compatibility blocks import the pinned library objects directly.
-Their compiled modules are absent from the shared build: the Mathlib algebraic portion can be
-checked independently, but that does not certify the full file or its arithmetic gaps.
+The shared build lacks their compiled modules, so the review elaborated the whole file at Mathlib
+082e2d3 with the pinned Tau Ceti f790474 sources of their import closure inlined: `sorry` is the
+only warning. Elaboration checks the signatures, not the arithmetic gaps listed in the packet.
 -/
 
 noncomputable section
@@ -135,6 +137,14 @@ theorem chiIsotypic_quadratic_sign (σ : G) (hG : ∀ g : G, g = 1 ∨ g = σ) (
     (hχ : ((χ σ : Lˣ) : L) = -1) (x : V) (hx : σ • x = -x) : x ∈ chiIsotypic χ := by
   sorry
 
+/-- Unit test (`G = ℤ/3`, `χ(σ) = ζ` a primitive cube root of unity): a nonzero vector of `A(χ)`
+is a `ζ⁻¹`-eigenvector of `σ` and not a `ζ`-eigenvector. Order-two characters cannot detect the
+`χ` versus `χ⁻¹` convention; this test does. -/
+theorem chiIsotypic_cubic (σ : G) (χ : G →* Lˣ) (ζ : L) (hζ : ((χ σ : Lˣ) : L) = ζ)
+    (hζ3 : ζ ^ 3 = 1) (hζ1 : ζ ≠ 1) {x : V} (hx : x ∈ chiIsotypic χ) (hx0 : x ≠ 0) :
+    σ • x = ζ⁻¹ • x ∧ σ • x ≠ ζ • x := by
+  sorry
+
 /-- Unit test (non-example): a vector that `σ` neither fixes nor negates lies in neither
 eigenspace, so `A(χ)` is not the whole space. -/
 theorem chiIsotypic_ne_whole (σ : G) (χ : G →* Lˣ) (hχ : ((χ σ : Lˣ) : L) = -1) (x : V)
@@ -203,6 +213,20 @@ theorem heegnerAverage_pairing {W S : Type*} [AddCommGroup W] [Module L W]
 /-- Gross–Zagier's `c_χ = Σ_σ χ⁻¹(σ) c^σ` is `P⁰_{χ⁻¹}` in this notation. -/
 theorem heegnerFinite_inv_eq_gz (χ : G →* Lˣ) (x : V) :
     ∑ g : G, (((χ g)⁻¹ : Lˣ) : L) • (g • x) = heegnerFinite χ⁻¹ x := by
+  sorry
+
+/-- Unit test (`G = ℤ/3 = ⟨σ⟩` permuting a basis `e₀ ↦ e₁ ↦ e₂ ↦ e₀`, `χ(σ) = ζ`):
+`P⁰_χ(e₀) = e₀ + ζ e₁ + ζ² e₂`, a `χ(σ)⁻¹`-eigenvector of `σ`. The `χ⁻¹`-weighted
+(Gross–Zagier) sum would give `e₀ + ζ² e₁ + ζ e₂` instead. -/
+theorem heegnerFinite_cubic (σ : G) (hG : ∀ g : G, g = 1 ∨ g = σ ∨ g = σ ^ 2)
+    (hσ : σ ≠ 1) (hσ2 : σ ^ 2 ≠ 1) (χ : G →* Lˣ) (ζ : L) (hζ : ((χ σ : Lˣ) : L) = ζ) (e : V) :
+    heegnerFinite χ e = e + ζ • (σ • e) + ζ ^ 2 • ((σ ^ 2) • e) := by
+  sorry
+
+/-- Unit test: the probability average halves the two-element finite sum
+(`heegnerAverage χ x = 2⁻¹ • P⁰_χ(x)` for `#G = 2`). -/
+theorem heegnerAverage_sign (hG : Fintype.card G = 2) (χ : G →* Lˣ) (x : V) :
+    heegnerAverage χ x = (2 : L)⁻¹ • heegnerFinite χ x := by
   sorry
 
 /-- Unit test: for the trivial group `P⁰_χ(x) = x`. -/
@@ -274,13 +298,53 @@ example : heegnerFinite signCharacter ((1,1) : ℚ × ℚ) = 0 := by sorry
 -- heegnerFinite_one_eq_trace.
 example : heegnerFinite (1 : C2 →* ℚˣ) ((1,0) : ℚ × ℚ) = (1,1) := by sorry
 
--- Probability averaging and complex integration have different scalars and carriers.
+-- heegnerAverage_sign: probability averaging and complex integration have different scalars
+-- and carriers.
 example : heegnerAverage signCharacter ((1,0) : ℚ × ℚ) = ((1/2, -1/2) : ℚ × ℚ) := by sorry
 
 example : heegnerIntegral (3 : ℂ) signCharacter ((1,0) : ℚ × ℚ) =
     (3 : ℂ) • ((1 : ℂ) ⊗ₜ[ℚ] ((1/2, -1/2) : ℚ × ℚ)) := by sorry
 
 end SwapTests
+
+/-! Concrete examples for the order-three tests, over `𝔽₇`, where `2` is a primitive cube root
+of unity. `C3` acts on `𝔽₇³` by the cyclic shift `σ(a, b, c) = (c, a, b)`. -/
+namespace CubicTests
+
+private abbrev C3 := Multiplicative (ZMod 3)
+
+private instance : Fact (Nat.Prime 7) := ⟨Nat.prime_seven⟩
+
+private instance : DistribMulAction C3 (ZMod 7 × ZMod 7 × ZMod 7) where
+  smul g x := match (Multiplicative.toAdd g).val with
+    | 0 => x
+    | 1 => (x.2.2, x.1, x.2.1)
+    | _ => (x.2.1, x.2.2, x.1)
+  one_smul := by sorry
+  mul_smul := by sorry
+  smul_zero := by sorry
+  smul_add := by sorry
+
+private instance : SMulCommClass C3 (ZMod 7) (ZMod 7 × ZMod 7 × ZMod 7) where
+  smul_comm := by sorry
+
+/-- `χ(σ) = 2`, a primitive cube root of unity in `𝔽₇`. -/
+private def cubicCharacter : C3 →* (ZMod 7)ˣ where
+  toFun g := (ZMod.unitOfCoprime 2 (by norm_num)) ^ (Multiplicative.toAdd g).val
+  map_one' := by sorry
+  map_mul' := by sorry
+
+-- chiIsotypic_cubic: (1, 2, 4) is a 2⁻¹ = 4-eigenvector of σ, so it lies in A(χ);
+-- (1, 4, 2) is a 2-eigenvector, so it does not.
+example : ((1, 2, 4) : ZMod 7 × ZMod 7 × ZMod 7) ∈ chiIsotypic (L := ZMod 7) cubicCharacter ∧
+    ((1, 4, 2) : ZMod 7 × ZMod 7 × ZMod 7) ∉ chiIsotypic (L := ZMod 7) cubicCharacter := by sorry
+
+-- heegnerFinite_cubic: P⁰_χ(e₀) = (1, 2, 4), not the χ⁻¹-weighted (1, 4, 2).
+example : heegnerFinite (L := ZMod 7) cubicCharacter ((1, 0, 0) : ZMod 7 × ZMod 7 × ZMod 7) =
+    (1, 2, 4) := by
+  sorry
+
+end CubicTests
 
 /-! ## GZ.8 — the coefficient (L-linear) Néron–Tate pairing -/
 
@@ -333,9 +397,19 @@ theorem coeffPairing_chi_orthogonal (B : V →ₗ[M] W →ₗ[M] S)
     coeffPairing B x y = 0 := by
   sorry
 
-theorem coeffPairing_torsion_left (B : V →ₗ[M] W →ₗ[M] S) {x : V}
+/-- After rationalization torsion images vanish; characteristic zero is needed, since over
+`ZMod p` every vector has finite additive order. -/
+theorem coeffPairing_torsion_left [CharZero M] (B : V →ₗ[M] W →ₗ[M] S) {x : V}
     (hx : IsOfFinAddOrder x) (y : W) :
     coeffPairing (L := L) B ((1 : L) ⊗ₜ[M] x) ((1 : L) ⊗ₜ[M] y) = 0 := by
+  sorry
+
+/-- Unit test (non-example): the extension is bilinear, not Hermitian. With `ι² = −1`
+(for instance `M = ℚ`, `L = ℚ(i)`), `B_L(ι ⊗ x, ι ⊗ y) = −(1 ⊗ B(x, y))`, whereas a
+conjugate-linear extension would give `+(1 ⊗ B(x, y))`. -/
+theorem coeffPairing_bilinear_qi (B : V →ₗ[M] W →ₗ[M] S) (ι : L) (hι : ι * ι = -1)
+    (x : V) (y : W) :
+    coeffPairing B (ι ⊗ₜ[M] x) (ι ⊗ₜ[M] y) = -((1 : L) ⊗ₜ[M] B x y) := by
   sorry
 
 /-- Identity scalar extension returns the supplied height; it is not a trace construction. -/
@@ -369,6 +443,12 @@ example (B : V →ₗ[M] W →ₗ[M] S) (x : V) (y : W) :
 
 example (B : V →ₗ[M] W →ₗ[M] S) (x : V) (y : W) :
     coeffPairing (L := L) B ((0 : L) ⊗ₜ[M] x) ((1 : L) ⊗ₜ[M] y) = 0 := by sorry
+
+-- coeffPairing_bilinear_qi with M = ℚ, L = ℂ and ι = i.
+example (V' W' S' : Type*) [AddCommGroup V'] [Module ℚ V'] [AddCommGroup W'] [Module ℚ W']
+    [AddCommGroup S'] [Module ℚ S'] (B : V' →ₗ[ℚ] W' →ₗ[ℚ] S') (x : V') (y : W') :
+    coeffPairing (L := ℂ) B (Complex.I ⊗ₜ[ℚ] x) (Complex.I ⊗ₜ[ℚ] y) =
+      -((1 : ℂ) ⊗ₜ[ℚ] B x y) := by sorry
 
 -- coeffPairing_trace_qsqrt5: base values gain the quadratic extension degree.
 example [FiniteDimensional M L] (h : Module.finrank M L = 2)
@@ -490,9 +570,19 @@ theorem testVectorLine_finrank_one (U : Subgroup Bx) (ω : U →* Lˣ) (T₁ : S
   sorry
 
 /-- Unit test (non-example): a vector fixed by an element `t` of `T₁` with `χ(t) ≠ 1` is not a
-test vector, as for the newline at `p | (N, D)` with `χ([𝔭]) = a_p`. -/
+test vector, as for the spherical vector at `v ∤ N` when `χ_v` is ramified (`t ∈ O_{K,v}^×`
+with `χ_v(t) ≠ 1`). -/
 theorem newline_not_testVector (U : Subgroup Bx) (ω : U →* Lˣ) (T₁ : Subgroup Bx) (χ : T₁ →* Lˣ)
     (t : T₁) (hχ : χ t ≠ 1) {f : Vπ} (ht : (t : Bx) • f = f) (h0 : f ≠ 0) :
+    f ∉ testVectorLine U ω T₁ χ := by
+  sorry
+
+/-- Unit test (non-example): the torus condition is the `χ⁻¹`-eigencondition. If `χ(t) = ζ`
+with `ζ² ≠ 1`, a nonzero `ζ`-eigenvector of `t` is not in `V(π, χ)`, while a
+`ζ⁻¹`-eigenvector can be. This detects the `χ` versus `χ⁻¹` convention. -/
+theorem testVectorLine_inverse_convention (U : Subgroup Bx) (ω : U →* Lˣ) (T₁ : Subgroup Bx)
+    (χ : T₁ →* Lˣ) (t : T₁) (ζ : L) (hζ : ((χ t : Lˣ) : L) = ζ) (hζ2 : ζ * ζ ≠ 1) {f : Vπ}
+    (hf : f ≠ 0) (ht : (t : Bx) • f = ζ • f) :
     f ∉ testVectorLine U ω T₁ χ := by
   sorry
 
@@ -700,8 +790,10 @@ variable {R : Type*} [CommRing R] {C : Type*} [Fintype C]
 
 /-- CM expansions are integral Amice transforms, and `translate` is the group-like
 R-linear translation operator (multiplication by a group-like series) supplied by the chosen reciprocity chart. Burungale Lemma 5.5 and
-(5.8), pp.28–29, give the geometric inputs; the general Amice isomorphism belongs to
-PadicMeasuresIwasawaAlgebras L1. This constructor does not use interpolation. -/
+(5.8), pp.28–29, give the geometric inputs. Each `cm a` is the transform of the p-depleted
+local measure on `ℤ_p^×` after the twist by the local component of the fixed type-two character
+and the push-forward to `Γ`, which folds the Teichmüller classes; the general Amice isomorphism
+belongs to PadicMeasuresIwasawaAlgebras L2. This constructor does not use interpolation. -/
 def quaternionicRoot (weight : C → R) (cm : C → PowerSeries R)
     (translate : C → PowerSeries R →ₗ[R] PowerSeries R) : PowerSeries R :=
   ∑ a, PowerSeries.C (weight a) * translate a (cm a)
@@ -806,18 +898,16 @@ theorem euler_factor_ne_zero (p : ℕ) (hp : 2 ≤ p) (a : ℝ) (ha : |a| ≤ 2 
     1 + (p : ℝ) - a ≠ 0 := by
   sorry
 
-/-- GZ.9/isogeny-and-differential-compatibility, part (a): a logarithm pulled back along a
-homomorphism is the logarithm of the image. Here a logarithm is an additive map to the base and
-`hlog` is the defining identity `log_{φ^*ω'} = log_{ω'} ∘ φ`. -/
-theorem log_pullback {A A' F : Type*} [AddCommGroup A] [AddCommGroup A'] [AddCommGroup F]
-    (φ : A →+ A') (logω' : A' →+ F) (logφω' : A →+ F) (hlog : ∀ x, logφω' x = logω' (φ x)) (x : A) :
-    logφω' x = logω' (φ x) :=
-  hlog x
+/- Pending `log_pullback` (GZ.9/isogeny-and-differential-compatibility, part (a)): it needs the
+p-adic logarithm of an abelian variety over a finite extension of `ℚ_p`, imported from
+EffectiveDiophantineMethods ED.4. A lemma whose hypothesis is its own conclusion would say nothing,
+so no placeholder is declared. -/
 
 /- Pending `bdp_weight_two_formula`: the measure, Euler factor, character values and
 logarithms of the Heegner divisors must be attached to the same arithmetic data. Quantifying over
-arbitrary E and logs while fixing the measure value would imply 0 = 1. GZ.9 imports GH.1's
-Theorem 5.13 and specializes it; it does not reassert that theorem without its hypotheses. -/
+arbitrary E and logs while fixing the measure value would imply 0 = 1. GZ.9 imports
+BDP Theorem 5.13 from GeneralizedHeegnerCycles GH.4 and specializes it; it does not reassert that
+theorem without its hypotheses. -/
 
 /-- The endpoint omitted by the original p ≥ 5 valuation argument: a₅ = −4 gives E₅ = 2. -/
 example : (1 + (5 : ℚ) - (-4)) / 5 = 2 := by sorry
@@ -884,8 +974,8 @@ Shimura/trace-point non-torsion, coefficient identity and derivative corollaries
 GZ.9's CM Waldspurger/interpolation, Abel–Jacobi/logarithm, modular/quaternionic and
 p-optimal formulas, global logarithm detection, Bloch–Kato/Kummer, Fricke/isogeny,
 p-new multiplicative formula, imprimitive dictionary and eigenlogarithm nonvanishing.
-Their required carriers and hypotheses are stated in the packet's six gaps and 22 requests.
-The invariant-form, finite-matrix, power-series and additive-map declarations above are
+Their required carriers and hypotheses are stated in the packet's gaps and requests.
+The invariant-form, finite-matrix and power-series declarations above are
 only their identified algebraic fragments. They do not certify these arithmetic theorems.
 The named admissible-order and unramified tests likewise test fragments; the actual CM curve,
 local admissible representation and geometric-measure examples require those suppliers.
