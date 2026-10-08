@@ -29323,8 +29323,9 @@
    ],
    "avoidAccountOf": "BP-RefinedTraceMethods--RT.5",
    "prompt": "research/blueprint/prompts/REV-RefinedTraceMethods--RT.5.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #481"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #481",
+   "finishedAt": "2026-10-08T07:10:44Z"
   },
   {
    "id": "BP-RelativeFarguesFontaine--RF0",
@@ -38297,7 +38298,8 @@
    ],
    "revisionOf": "BP-DeligneWeightsAndPurity--DWP.0",
    "prompt": "research/blueprint/prompts/BP-DeligneWeightsAndPurity--DWP.0~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6953"
   },
   {
    "priority": 2,
@@ -38924,8 +38926,9 @@
     "BP-GeometricSatakeAndFusion--GS0~2"
    ],
    "prompt": "research/blueprint/prompts/REV-GeometricSatakeAndFusion--GS0~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7297"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7297",
+   "finishedAt": "2026-10-08T07:10:48Z"
   },
   {
    "kind": "blueprint",
