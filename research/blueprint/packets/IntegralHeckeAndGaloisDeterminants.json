@@ -13776,7 +13776,7 @@
       "source": "DKSW23",
       "kind": "error",
       "locator": "Definition 4.6, p.23, used by Theorem 4.10, p.24; same arXiv v2",
-      "printed": "The proof claims that V has a finite filtration of the form 0=V₀⊂⋯⊂V_n=V.",
+      "printed": "Definition 4.6, as applied in Theorem 4.10, requires V to have a finite filtration 0=V₀⊂⋯⊂V_n=V.",
       "correction": "Use an exhaustive good filtration, or state the result on each finite polynomial-degree part and take their filtered union.",
       "reason": "Simultaneous conjugation gives the entire polynomial matrix ring central weight zero, hence a single homogeneous central-weight piece of infinite rank. A finite succession of finite-rank induced modules cannot exhaust it. The degreewise good-filtration statement is the one used here.",
       "affects": "a stated result",
@@ -13923,7 +13923,7 @@
       "source": "BP26",
       "kind": "gap",
       "locator": "Lemma 2.4.6 proof, p.19 of the 5 November 2025 author PDF; publisher proof inaccessible",
-      "printed": "The source uses Lemma2.4.3 to obtain Hⁱ(C^ord) as a direct summand inside Hⁱ(C).",
+      "printed": "The source uses Lemma 2.4.3 to obtain Hⁱ(C^ord) as a direct summand inside Hⁱ(C).",
       "correction": "Apply the splitting argument to bounded truncations and establish compatibility of localization with cohomology; the bounded-factor repair in this packet is proved separately.",
       "reason": "Definition 2.4.5 only makes each cohomology module finite and does not bound the complex, while Lemma 2.4.3 requires boundedness. The cited lemma does not directly apply.",
       "affects": "the proof",
@@ -13985,7 +13985,7 @@
       "source": "CHENEVIER-DET",
       "kind": "error",
       "locator": "Definition 2.19, p.33, arXiv:0809.0415v2; equivalence used before Theorem 2.22",
-      "printed": "The source assumes a representation ρ:R→M_d(k) realizing D=det∘ρ in the case under discussion.",
+      "printed": "Definition 2.19 calls D split when D is the determinant of a representation R→M_d(k), and states that this holds exactly when R/ker(D) is a finite product of matrix algebras over k.",
       "correction": "Use the stated faithful-quotient condition R/ker D≅∏M_nᵢ(k). Existence of a k-representation is not equivalent without an appropriate split semisimple-image requirement.",
       "reason": "Over k=ℝ, R=ℂ, the norm is realized by real regular multiplication z↦[[Re z,−Im z],[Im z,Re z]]. Its faithful quotient is ℂ, not a product of full real matrix algebras. Over ℂ its constituents z and conjugate z are distinct, so it is geometrically multiplicity-free. Theorem 2.22(ii) would incorrectly make ℂ a real GMA with scalar diagonal corners if mere realizability were used; its proof uses the stronger quotient condition.",
       "affects": "a stated result",
@@ -14165,9 +14165,9 @@
   ],
   "review": {
     "status": "accepted",
-    "reviewer": "independent-review-REV-FIX-RT-AREA-automorphic-1~3",
-    "date": "2026-10-07",
-    "notes": "Independent scoped review of RT-AREA-automorphic-1/18, following REV-FIX-RT-AREA-automorphic-1~2 and the archived accepted REV-IntegralHeckeAndGaloisDeterminants~2. Rechecked the finite Hecke image, complete-noetherian-local module-finite algebra decomposition, ghost/idempotent and localized-complex producer contracts against ACC23 and Gee-Newton's finite/profinite/patching distinctions. The completed consumer construction is a CC.8/R31 handoff outside this issue, not an implemented inverse-limit theorem. Read the reviewed AUDIT-33 result directly because its IHG entries are still pending in the aggregate index. Freshly inspected the six nearby pinned references listed in the report; the earlier full253-node/67-declaration ledger is preserved as historical evidence, not represented as a new full audit. No mathematical or suggested-file edit was needed. Packet checker passes; this session did not compile Lean, and all implementation statuses remain unchecked."
+    "reviewer": "independent-review-REV-FIX-RT-AREA-automorphic-1~4",
+    "date": "2026-10-08",
+    "notes": "Independent review of FIX-RT-AREA-automorphic-1~4 (issue #7280, PR #7314, Codex codex-Z0ErNN) by Claude session claude-95TvAO, following REV-FIX-RT-AREA-automorphic-1~3 and, for this packet, REV-IntegralHeckeAndGaloisDeterminants~2 (accepted). The fix rounds did not change this packet. Since the accepted REV~3 review only the maintainer's paraphrases of 14 sourceIssues printed fields changed; each was compared with the old text: 13 keep claim, locator and verdict. Corrected: E17 had lost the equivalence of Chenevier's Definition 2.19 that its correction refutes (checked at arXiv:0809.0415v2 p.33); E7 now attributes the finite filtration to Definition 4.6 as used in Theorem 4.10; E14 spacing. Finding /18: IHG.2/finite-hecke-local-factors and its IHG.2 inputs are unchanged and remain a finite-level theorem over a complete noetherian local ring; the completed Hecke algebra and its localization stay with BP-CompletedCohomologyPartII--CC.8 (#702) and BP-CompletedCohomologyAndLocalGlobalCompatibility (#700), which list the finding. Checker 0 errors, 0 warnings; no node, suggested-file or reader change. Note for the maintainer: the reader still renders the older verbatim printed fragments of the source issues."
   },
   "reviewHistory": [
     {
@@ -15442,6 +15442,12 @@
           "note": "The two-variable universal polynomial has only total degree one; evaluation gives additivity and scalar linearity, and naturality treats finite sums of pure tensors after every coefficient extension. This works for torsion modules without flatness."
         }
       ]
+    },
+    {
+      "status": "accepted",
+      "reviewer": "independent-review-REV-FIX-RT-AREA-automorphic-1~3",
+      "date": "2026-10-07",
+      "notes": "Independent scoped review of RT-AREA-automorphic-1/18, following REV-FIX-RT-AREA-automorphic-1~2 and the archived accepted REV-IntegralHeckeAndGaloisDeterminants~2. Rechecked the finite Hecke image, complete-noetherian-local module-finite algebra decomposition, ghost/idempotent and localized-complex producer contracts against ACC23 and Gee-Newton's finite/profinite/patching distinctions. The completed consumer construction is a CC.8/R31 handoff outside this issue, not an implemented inverse-limit theorem. Read the reviewed AUDIT-33 result directly because its IHG entries are still pending in the aggregate index. Freshly inspected the six nearby pinned references listed in the report; the earlier full253-node/67-declaration ledger is preserved as historical evidence, not represented as a new full audit. No mathematical or suggested-file edit was needed. Packet checker passes; this session did not compile Lean, and all implementation statuses remain unchecked."
     }
   ]
 }

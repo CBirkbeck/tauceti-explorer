@@ -5569,9 +5569,9 @@
   },
   "review": {
     "status": "needs_changes",
-    "reviewer": "independent-review-REV-FIX-RT-AREA-automorphic-1~3",
-    "date": "2026-10-07",
-    "notes": "Independent scoped review of RT-AREA-automorphic-1/20, following REV-FIX-RT-AREA-automorphic-1~2 and the archived REV-MetaplecticAutomorphicForms--MP.8. Verified the common MP.6 Jacobi owner and the source-specific BFH genus-two specialization. Corrected the embedded restructuring proposal's unsupported L2 attribution to the actual AutomorphicCongruences:L2s consumer; no new whole-scope unitary theorem is asserted. The broader review's concrete gamma/chart/modulus/original-function and supplier contradictions remain in the uneditable reader, alongside the stated global-rotation/even-Laplace proof obligations. The current reader's L2 claim also needs synchronization. No suggested-file change or fresh all-baseline audit was needed for this narrow correction; Lean was not compiled."
+    "reviewer": "independent-review-REV-FIX-RT-AREA-automorphic-1~4",
+    "date": "2026-10-08",
+    "notes": "Independent review of FIX-RT-AREA-automorphic-1~4 (issue #7280, PR #7314, Codex codex-Z0ErNN) by Claude session claude-95TvAO, following REV-FIX-RT-AREA-automorphic-1~3 and, for this packet, REV-MetaplecticAutomorphicForms--MP.8 (needs_changes). Finding /20 is correctly fixed and survives the revision BP-MetaplecticAutomorphicForms--MP.8~2 (#7324): MP.8 specializes the MP.6 Jacobi theory to its genus-two cover, names only AutomorphicCongruences:L2s as unitary consumer and adds no L2 edge; reader line 19 is resolved. No correction was needed. Status stays needs_changes because that revision's own review, REV-MetaplecticAutomorphicForms--MP.8~2, is pending; this fix review does not review the revision and must not promote it."
   },
   "reviewHistory": [
     {
@@ -6006,6 +6006,12 @@
           "note": "BSD.2 receives ν=s−2, continued L-functions and the polar identity; no consumer-to-MP dependency is introduced."
         }
       ]
+    },
+    {
+      "status": "needs_changes",
+      "reviewer": "independent-review-REV-FIX-RT-AREA-automorphic-1~3",
+      "date": "2026-10-07",
+      "notes": "Independent scoped review of RT-AREA-automorphic-1/20, following REV-FIX-RT-AREA-automorphic-1~2 and the archived REV-MetaplecticAutomorphicForms--MP.8. Verified the common MP.6 Jacobi owner and the source-specific BFH genus-two specialization. Corrected the embedded restructuring proposal's unsupported L2 attribution to the actual AutomorphicCongruences:L2s consumer; no new whole-scope unitary theorem is asserted. The broader review's concrete gamma/chart/modulus/original-function and supplier contradictions remain in the uneditable reader, alongside the stated global-rotation/even-Laplace proof obligations. The current reader's L2 claim also needs synchronization. No suggested-file change or fresh all-baseline audit was needed for this narrow correction; Lean was not compiled."
     }
   ]
 }

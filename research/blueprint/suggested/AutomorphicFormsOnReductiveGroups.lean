@@ -282,19 +282,21 @@ def AlgebraicModularForm (J : Subgroup Gf) : Submodule A (Gf → M) where
   zero_mem' := sorry
   smul_mem' := sorry
 
-/-- The finite set must actually represent the right cosets in JgJ. -/
+/-- The finite set must be exactly a set of representatives of the right cosets in JgJ:
+every element lies in JgJ (`hsub`) and each element of JgJ lies in exactly one
+coset `cJ` (`hreps`). Without `hsub`, extra elements outside JgJ break J-invariance. -/
 def AlgebraicModularForm.hecke (J : Subgroup Gf) (g : Gf) (reps : Finset Gf)
-    (hreps : ∀ x : Gf,
-      (∃ a ∈ J, ∃ b ∈ J, x = a * g * b) ↔
+    (hsub : ∀ c ∈ reps, ∃ a ∈ J, ∃ b ∈ J, c = a * g * b)
+    (hreps : ∀ x : Gf, (∃ a ∈ J, ∃ b ∈ J, x = a * g * b) →
       ∃! c : Gf, c ∈ reps ∧ ∃ u ∈ J, x = c * u) :
     AlgebraicModularForm ι σ J →ₗ[A] AlgebraicModularForm ι σ J := sorry
 
 theorem AlgebraicModularForm.hecke_apply (J : Subgroup Gf) (g : Gf) (reps : Finset Gf)
-    (hreps : ∀ x : Gf,
-      (∃ a ∈ J, ∃ b ∈ J, x = a * g * b) ↔
+    (hsub : ∀ c ∈ reps, ∃ a ∈ J, ∃ b ∈ J, c = a * g * b)
+    (hreps : ∀ x : Gf, (∃ a ∈ J, ∃ b ∈ J, x = a * g * b) →
       ∃! c : Gf, c ∈ reps ∧ ∃ u ∈ J, x = c * u)
     (f : AlgebraicModularForm ι σ J) (x : Gf) :
-    (AlgebraicModularForm.hecke ι σ J g reps hreps f).val x =
+    (AlgebraicModularForm.hecke ι σ J g reps hsub hreps f).val x =
       ∑ c ∈ reps, f.val (x * c) := sorry
 
 def AlgebraicModularForm.res {J J' : Subgroup Gf} (h : J' ≤ J) :

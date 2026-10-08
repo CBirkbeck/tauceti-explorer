@@ -2472,14 +2472,17 @@ example (H : Type) [CommRing H] [HopfAlgebra ℚ H]
     ¬ Subsingleton (LevelQuotient U (⊥ : Subgroup (AdelicPoints.InfinitePoints ℚ H))) := by
   sorry
 
-/-- `AA.4/level-covering-map`. -/
-theorem levelMap_isCoveringMap [TopologicalSpace (LevelQuotient U Kinf)]
-    (U' : Subgroup (AdelicPoints.FiniteAdelicPoints F H)) (hU' : U' ≤ U)
-    [TopologicalSpace (LevelQuotient U' Kinf)] (n : ℕ) (ρ : WithConv (H →ₐ[F] F) →* GL (Fin n) ℂ)
-    (hneat : Neat.IsNeatLevel n ρ U) (hKinf : IsCompact (Kinf : Set (AdelicPoints.InfinitePoints F H))) :
-    IsCoveringMap (levelMap _ (inf_le_inf_right _ (Subgroup.comap_mono hU')) :
-      LevelQuotient U' Kinf → LevelQuotient U Kinf) := by
-  sorry
+/-
+OMITTED SIGNATURE: LevelMaps.levelMap_isCoveringMap (`AA.4/level-covering-map`).
+For G connected reductive (Algebra.FiniteType F H), U ⊂ G(𝔸_f) compact open and neat for a
+faithful algebraic representation (Neat.IsFaithfulAlgebraicPointHom), U' ≤ U open, and K∞
+closed, containing A_G(ℝ)^0 and compact modulo it, the level map X_{U'} → X_U is a covering
+map of degree [U:U'] for the quotient topologies coinduced from G(𝔸); it is a principal U/U'
+covering when U' is normal in U. The signature needs the split-central carrier A_G(ℝ)^0 and
+the quotient topology, which this file lacks. Arbitrary TopologicalSpace instances on the two
+quotients, neatness for an arbitrary point homomorphism (trivial ρ makes it vacuous) and
+non-open U' each make the statement false, so they are not used as a stand-in.
+-/
 
 /-- `AA.4/level-quotient-groupoid`: the action groupoid of `G(F)` on `G(𝔸)/K_∞U`. -/
 abbrev levelGroupoid :=
@@ -2560,10 +2563,16 @@ example (x : AdelicPoints F H) (hg' : AdelicPoints.mapPoints (NumberField.adeleF
     (hecke U Kinf g⁻¹ gf⁻¹ hg' hgInf').2 (DoubleCoset.mk _ _ x) = LevelQuotient.mk U Kinf (x * g⁻¹) := by
   sorry
 
-/-- `AA.4/hecke-cartesian`. -/
+/-- `AA.4/hecke-cartesian`. Neatness is for a faithful algebraic representation, and U and
+K∞ are compact, so that every rational stabilizer is finite and neat, hence trivial; with an
+arbitrary point homomorphism the injectivity fails. -/
 theorem hecke_cartesian (U' L : Subgroup (AdelicPoints.FiniteAdelicPoints F H)) (hU' : U' ≤ U) (hL : L ≤ U)
     (hUL : (U' : Set (AdelicPoints.FiniteAdelicPoints F H)) * (L : Set (AdelicPoints.FiniteAdelicPoints F H)) = U)
-    (n : ℕ) (ρ : WithConv (H →ₐ[F] F) →* GL (Fin n) ℂ) (hneat : Neat.IsNeatLevel n ρ U) :
+    [Algebra.FiniteType F H]
+    (hUc : IsCompact (U : Set (AdelicPoints.FiniteAdelicPoints F H)))
+    (hKinf : IsCompact (Kinf : Set (AdelicPoints.InfinitePoints F H)))
+    (n : ℕ) (ρ : WithConv (H →ₐ[F] F) →* GL (Fin n) ℂ) (τ : F →+* ℂ)
+    (hρ : Neat.IsFaithfulAlgebraicPointHom τ n ρ) (hneat : Neat.IsNeatLevel n ρ U) :
     Function.Injective (fun y : LevelQuotient (U' ⊓ L) Kinf =>
       ((levelMap _ (inf_le_inf_right _ (Subgroup.comap_mono inf_le_left)) y,
        levelMap _ (inf_le_inf_right _ (Subgroup.comap_mono inf_le_right)) y) :

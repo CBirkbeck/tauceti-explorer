@@ -8,9 +8,11 @@ lack the SR/AF/AL/AS/ET supplier interfaces for smooth irreducible classes,
 automorphic classes, Weil parameters, analytic test functions and trace terms.
 Capitalized carrier parameters and the operations on them denote those suppliers'
 actual objects; they are not new representation definitions. Unavailable
-conditions are listed beside signatures and omitted, never represented by dummy
-Prop-valued fields. A signature with omitted conditions is NOT a theorem for
-arbitrary carrier parameters or functions. The packet states the full mathematics.
+conditions are never represented by dummy Prop-valued fields. A source statement
+whose supplier objects or hypotheses cannot be stated at the pins is recorded in an
+explicit §13 omission comment block with its full packet statement, hypotheses, API
+and tests; every remaining declaration is intended to be true as written for all
+values of its parameters. The packet states the full mathematics.
 
 The suggested file checks signatures and discriminating examples only. It imports
 individual modules at the pinned Mathlib. The pinned Tau Ceti Newform and symmetric
@@ -39,6 +41,7 @@ import Mathlib.GroupTheory.OrderOfElement
 import Mathlib.Algebra.Ring.Int.Parity
 import Mathlib.Topology.Algebra.InfiniteSum.Basic
 import Mathlib.Analysis.SpecialFunctions.Pow.Complex
+import Mathlib.Analysis.SpecialFunctions.Gamma.Deligne
 
 noncomputable section
 set_option linter.unusedVariables false
@@ -111,22 +114,43 @@ Hypotheses: Kf compact open; finite type and finite-codimension annihilator data
 -/
 section LocalRepresentation
 variable {G V : Type*} [Group G] [AddCommGroup V] [Module ℂ V]
--- Missing: P is the SR.2 irreducible admissible GL₂(F) class carrier, with the
--- stated normalized induction and exceptional ν^{±1} ratios, and S supercuspidal.
-theorem localClassification {P C S : Type*} (principal : C → C → P)
-    (special detCharacter : C → P) (supercuspidal : S → P) (π : P) :
-    (∃ a b, π = principal a b) ∨ (∃ a, π = special a) ∨
-      (∃ a, π = detCharacter a) ∨ (∃ σ, π = supercuspidal σ) := by sorry
+/-
+Explicit signature omissions (PROTOCOL §13; REV-FIX-RT-AREA-automorphic-1~4).
+The SR.2/SR.3/SR.5 irreducible admissible GL₂(F) class carrier and its K₁(pⁿ) fixed spaces are absent, so an arbitrary representation, module or class map cannot satisfy these classification and newvector statements; conductorExponent with its API and the unramified test remain below as true fragments.
+These source targets require the actual supplier objects and hypotheses below.
+They are not universal theorems about arbitrary types, functions, or multiplicity maps.
+Omitted declaration names: TauCeti.GL2Blueprint.localClassification, TauCeti.GL2Blueprint.newvectorLevelExists, TauCeti.GL2Blueprint.casselmanNewvector.
+Full source-level tests awaiting the same carriers: TauCeti.GL2Blueprint.conductor_steinberg, TauCeti.GL2Blueprint.conductor_ramified_steinberg.
 
--- Missing: ρ is irreducible admissible infinite-dimensional GL₂(F), F a
--- nonarchimedean local field of characteristic zero, and K n = K₁(pⁿ).
--- This existence assertion precedes the least-level definition; it does not
--- assume a conductor or the subsequent Casselman dimension formula.
-theorem newvectorLevelExists (ρ : Representation ℂ G V) (K : ℕ → Subgroup G) :
-    ∃ n, ∃ v ∈ (Representation.invariants (ρ.comp (K n).subtype)), v ≠ 0 := by sorry
+GL2AutomorphicRepresentationsAndTransfer:R16.2/local-classification
+TauCeti.GL2Blueprint.localClassification
+Over any nonarchimedean characteristic-zero local field F, with ν=|·|F and complex coefficients, normalized induction I(χ₁,χ₂)=Ind_B^G(χ₁⊗χ₂) is irreducible iff χ₁χ₂⁻¹≠ν,ν⁻¹. Its central character is χ₁χ₂. If χ₁=χν¹ᐟ², χ₂=χν⁻¹ᐟ², it has the essentially Steinberg subrepresentation St⊗χdet and one-dimensional quotient χdet; reversing the order reverses the sub/quotient. Every irreducible admissible representation is a character of determinant, irreducible principal series, essentially Steinberg, or supercuspidal. Infinite-dimensional irreducibles are generic; one-dimensional characters are not. These are explicit calculations in the SR.2 induction/Jacquet carriers and ET.6 classification, including residue characteristic two.
+Hypotheses: Smooth, irreducible, admissible complex representations; χᵢ smooth quasicharacters.
+
+GL2AutomorphicRepresentationsAndTransfer:R16.2/newvector-level-exists
+TauCeti.GL2Blueprint.newvectorLevelExists
+For an irreducible admissible infinite-dimensional complex smooth representation π of GL₂(F), with F a nonarchimedean local field of characteristic zero, there is n≥0 and a nonzero vector fixed by the last-row K₁(pⁿ). This assertion neither uses a conductor exponent nor asserts the dimension formula; it supplies the nonempty level set before its minimum is defined.
+Hypotheses: Irreducible admissible infinite-dimensional complex smooth π; K₁ is the last-row subgroup over the valuation ring.
+
+GL2AutomorphicRepresentationsAndTransfer:R16.2/newvector-conductor
+TauCeti.GL2Blueprint.conductorExponent
+For irreducible admissible infinite-dimensional π of GL₂(F), c(π) is the least n≥0 for which π^{K₁(pⁿ)} is nonzero. Define the ideal conductor p^{c(π)}. The same least-level construction is available for an existing representation with an explicit nonempty level set. Existence for the stated π is the preceding newvectorLevelExists theorem, not a field stored in a replacement representation. This is a specialization of fixed vectors, not a new admissibility predicate.
+Hypotheses: π generic, equivalently infinite-dimensional irreducible in characteristic zero; O,p and K₁ fixed.
+TauCeti.GL2Blueprint.conductor_min: π^{K₁(p^{c(π)})}≠0 and π^{K₁(pⁿ)}=0 for n<c(π).
+TauCeti.GL2Blueprint.conductor_iso: Isomorphic local representations have equal conductor exponent.
+TauCeti.GL2Blueprint.conductor_unramified_twist: An unramified χ has c(π⊗χdet)=c(π), since χdet is trivial on GL₂(O).
+TauCeti.GL2Blueprint.conductor_unramified: An irreducible unramified generic principal series has conductor zero.
+TauCeti.GL2Blueprint.conductor_steinberg: An unramified Steinberg twist has conductor one.
+TauCeti.GL2Blueprint.conductor_ramified_steinberg: For χ of conductor a≥2, c(St⊗χdet)=2a≠1+a. At a=1 both formulas give2, so that case alone would not detect the incorrect rule.
+
+GL2AutomorphicRepresentationsAndTransfer:R16.2/casselman-newvector
+TauCeti.GL2Blueprint.casselmanNewvector
+For π as above and every n≥0, dimℂ π^{K₁(pⁿ)}=max(0,n−c(π)+1). The minimal fixed space is a line. In the lower-last-row convention it is the ωπ(d)-isotypic line for K₀(p^{c(π)}), with ωπ the central character, when c>0; at c=0 it is the spherical line. With ψ trivial on O but nontrivial on ϖ⁻¹O, Whittaker evaluation W↦W(1) is nonzero on this line. Casselman’s printed top-left central-character convention is transported through the dual/twist convention; it is not silently identified with the lower-last-row subgroup. The theorem has no odd-residue-characteristic restriction.
+Hypotheses: Irreducible admissible infinite-dimensional complex π; ψ of conductor O; n natural.
+-/
 
 /-- Algebraic least-level signature. In GL₂ the subgroups are K₁(pⁿ).
-The preceding newvectorLevelExists supplies hex under its stated conditions. -/
+Under the R16.2/newvector-level-exists hypotheses (omitted above) such an hex exists. -/
 def conductorExponent (ρ : Representation ℂ G V) (K : ℕ → Subgroup G)
     (hex : ∃ n, ∃ v ∈ (Representation.invariants (ρ.comp (K n).subtype)), v ≠ 0) : ℕ := by sorry
 lemma conductor_min (ρ : Representation ℂ G V) (K : ℕ → Subgroup G)
@@ -151,22 +175,6 @@ example (ρ : Representation ℂ G V) (K : ℕ → Subgroup G)
     (hex : ∃ n, ∃ v ∈ (Representation.invariants (ρ.comp (K n).subtype)), v ≠ 0)
     (hzero : ∃ v ∈ (Representation.invariants (ρ.comp (K 0).subtype)), v ≠ 0) :
     conductorExponent ρ K hex = 0 := by sorry
--- TauCeti.GL2Blueprint.conductor_steinberg
--- Missing: ρ is an unramified Steinberg twist and K=K₁(pⁿ).
-example (ρ : Representation ℂ G V) (K : ℕ → Subgroup G)
-    (hex : ∃ n, ∃ v ∈ (Representation.invariants (ρ.comp (K n).subtype)), v ≠ 0) :
-    conductorExponent ρ K hex = 1 := by sorry
--- TauCeti.GL2Blueprint.conductor_ramified_steinberg
--- Missing: ρ=St⊗χdet, K=K₁(pⁿ), a=a(χ)≥2.
--- At a=1 the two expressions coincide, so it cannot detect the wrong rule.
-example (ρ : Representation ℂ G V) (K : ℕ → Subgroup G) (a : ℕ) (ha : 2 ≤ a)
-    (hex : ∃ n, ∃ v ∈ (Representation.invariants (ρ.comp (K n).subtype)), v ≠ 0) :
-    conductorExponent ρ K hex = 2 * a ∧ conductorExponent ρ K hex ≠ 1 + a := by sorry
--- Missing: ρ is irreducible admissible infinite-dimensional GL₂(F), K=K₁(pⁿ).
-theorem casselmanNewvector (ρ : Representation ℂ G V) (K : ℕ → Subgroup G)
-    (hex : ∃ n, ∃ v ∈ (Representation.invariants (ρ.comp (K n).subtype)), v ≠ 0) (n : ℕ) :
-    Module.finrank ℂ (Representation.invariants (ρ.comp (K n).subtype)) =
-      n + 1 - conductorExponent ρ K hex := by sorry
 
 /-- A normalized element of an actual one-dimensional fixed submodule.
 ell must be SR.5's chosen Whittaker functional restricted to that line. -/
@@ -218,22 +226,33 @@ example (α β : ℂ) : sphericalValues α β 1 = α + β := by sorry
 example (α β : ℂ) : sphericalValues α β 2 = α ^ 2 + α * β + β ^ 2 := by sorry
 -- TauCeti.GL2Blueprint.sphericalValues_collision
 example : sphericalValues 1 1 2 = 3 := by sorry
--- Missing: V_I,V_K are the supplied fixed spaces of an unramified generic π;
--- U is the indicated double-coset operator and v its spherical generator.
-theorem iwahoriOldforms {V_I V_K : Type*} [AddCommGroup V_I] [Module ℂ V_I]
-    [AddCommGroup V_K] [Module ℂ V_K] :
-    Module.finrank ℂ V_I = 2 ∧ Module.finrank ℂ V_K = 1 := by sorry
--- Missing: the actual SR.4 Iwahori algebra, invertible q and q+1, U₀,U₁ and eK.
-theorem iwahoriCenter {H : Type*} [Ring H] (q : H) (U₀ U₁ : Hˣ) :
-    ∀ h : H, ((U₁ : H) + q * U₀ * ((U₁⁻¹ : Hˣ) : H)) * h =
-      h * ((U₁ : H) + q * U₀ * ((U₁⁻¹ : Hˣ) : H)) := by sorry
--- Missing: C is SR.5's existing C_c^∞(F×) Kirillov model, π supercuspidal.
-theorem supercuspidalKirillov {V C : Type*} [AddCommGroup V] [Module ℂ V]
-    [AddCommGroup C] [Module ℂ C] : Nonempty (V ≃ₗ[ℂ] C) := by sorry
--- Missing: P is the supercuspidal class, KType the typical K-type class,
--- occurrences mean the supplier Hom multiplicity, and χ ranges over unramified twists.
-theorem henniartUnicity {P KType : Type*} (typical : P → KType) (π : P)
-    (multiplicity : KType → P → ℕ) : multiplicity (typical π) π = 1 := by sorry
+/-
+Explicit signature omissions (PROTOCOL §13; REV-FIX-RT-AREA-automorphic-1~4).
+The SR.2/SR.3/SR.4/SR.5 irreducible smooth GL₂(F) class, its K₀(p) and GL₂(O) fixed spaces, the Iwahori–Hecke algebra with its relations, the Kirillov model and the type Hom-multiplicity are absent, so arbitrary modules, rings or multiplicity functions cannot satisfy these local identities.
+These source targets require the actual supplier objects and hypotheses below.
+They are not universal theorems about arbitrary types, functions, or multiplicity maps.
+Omitted declaration names: TauCeti.GL2Blueprint.iwahoriOldforms, TauCeti.GL2Blueprint.iwahoriCenter, TauCeti.GL2Blueprint.supercuspidalKirillov, TauCeti.GL2Blueprint.henniartUnicity.
+
+GL2AutomorphicRepresentationsAndTransfer:R16.2/iwahori-oldforms
+TauCeti.GL2Blueprint.iwahoriOldforms
+Let π be an irreducible admissible infinite-dimensional unramified representation of GL₂(F). Then dim π^{K₀(p)}=2 and dim π^{GL₂(O)}=1. With vol(K₀(p))=1, U=[K₀(p)diag(ϖ,1)K₀(p)], the spherical vector v generates the Iwahori fixed space under ℂ[U], even if the Satake parameters coincide. The U polynomial is X²−q^{1/2}(α+β)X+qαβ in this unnormalized double-coset convention. A nontrivial unramified χdet has dimensions 1 and 1, so the printed CG20 condition “not trivial” must be replaced by infinite-dimensional.
+Hypotheses: Complex characteristic zero; π unramified and infinite-dimensional, not just nontrivial.
+
+GL2AutomorphicRepresentationsAndTransfer:R16.2/iwahori-center
+TauCeti.GL2Blueprint.iwahoriCenter
+For the upper Iwahori I and a characteristic-zero coefficient ring in which q and q+1 are invertible, normalize vol(I)=1 and eK=1_K/vol(K). Put U₀=1_{I diag(ϖ,ϖ) I} and U₁=1_{I diag(ϖ,1) I}. The center of H(G,I) is the Laurent polynomial algebra in U₀^{±1} and z₁=U₁+qU₀U₁⁻¹. Multiplication by eK identifies it with the spherical algebra H(G,K), sending U₀ to T₀ and z₁ to T₁, with normalized spherical identity eK. Coefficient extensions used in BCGP invert p and the required idempotent denominators. The rank-independent Bernstein center belongs to SmoothRepresentationsPartIIParahoricCenters; until that proposed roadmap exists, SR.4 supplies the requested contract.
+Hypotheses: q is a unit; eK requires the I-index q+1 to be a unit; U₁ has its usual invertibility in the affine Hecke algebra.
+
+GL2AutomorphicRepresentationsAndTransfer:R16.2/supercuspidal-kirillov
+TauCeti.GL2Blueprint.supercuspidalKirillov
+For irreducible supercuspidal π with central character ω and nontrivial ψ, restricting the imported Whittaker function W to diag(x,1), x∈F×, identifies its Kirillov realization with C_c^∞(F×,ℂ). For b=(a u;0 d), the action is (π(b)f)(x)=ω(d)ψ(xu/d)f(xa/d). The Weyl action is the supplier local functional equation; it is not a freely chosen transform. For π over a finite extension L/ℚp, DLB’s scalar extension with L∞ and Γ descent is requested from SR.5; locally analytic Kirillov–Colmez theory belongs to R30.
+Hypotheses: Smooth characteristic-zero supercuspidal; additive-character and central-character choices visible.
+
+GL2AutomorphicRepresentationsAndTransfer:R16.2/henniart-unicity
+TauCeti.GL2Blueprint.henniartUnicity
+For the inertial class s of an irreducible supercuspidal π of GL₂(F), there is a unique isomorphism class of irreducible GL₂(O)-representation σ typical for s. It occurs with multiplicity one in every π⊗χdet with χ unramified. If σ occurs in an irreducible admissible π′, then π′≅π⊗χdet for an unramified χ. The type carrier and Bernstein inertial equivalence belong to SR.3/ET.6. No uniqueness is asserted for an arbitrary nonminimal K-constituent.
+Hypotheses: Characteristic-zero algebraically closed coefficients; nonarchimedean F, including dyadic fields.
+-/
 -- Missing: f is a surjection in the fixed-central-character smooth category,
 -- π is supercuspidal; unrestricted/mod-p projectivity is not the assertion.
 theorem supercuspidalProjective {P A B : Type*} (f : A → B)
@@ -260,27 +279,58 @@ example {W : Type*} [AddCommGroup W] [Module ℂ W]
     (Θ : Representation ℂ G V) (ρ : Representation ℂ G W) (ι : H →* G)
     (e : W ≃ₗ[ℂ] V) (he : ∀ g v, e (ρ g v) = Θ g (e v)) :
     ∀ h v, e (cdtVexingType ρ ι h v) = cdtVexingType Θ ι h (e v) := by sorry
--- TauCeti.GL2Blueprint.cdtVexingType_distinct_inertia
--- Missing: fullType is Θ(θ), π has a different inertial pair; occurrence
--- is Hom_K multiplicity in the full principal-congruence fixed space.
-example {P KType : Type*} (π : P) (fullType : KType)
-    (occurrence : KType → P → ℕ) : occurrence fullType π = 0 := by sorry
 -- TauCeti.GL2Blueprint.cdtVexingType_unramified_twist
 example (Θ Θ' : Representation ℂ G V) (ι : H →* G)
     (he : ∀ g, Θ g = Θ' g) : cdtVexingType Θ ι = cdtVexingType Θ' ι := by sorry
--- Missing: Pi has the specified CDT regular inertial parameter; Fixed is
--- Pi^{U(xⁿ)} and ΘSpace is its full type, not only its U₀ restriction.
-theorem cdtInertiaMultiplicity {Fixed ΘSpace : Type*} [AddCommGroup Fixed]
-    [Module ℂ Fixed] [AddCommGroup ΘSpace] [Module ℂ ΘSpace] :
-    Nonempty (Fixed ≃ₗ[ℂ] ΘSpace) := by sorry
+/-
+Explicit signature omissions (PROTOCOL §13; REV-FIX-RT-AREA-automorphic-1~4).
+The CDT full type Θ(θ), the principal-congruence fixed space and the supplier Hom_K occurrence are absent, so arbitrary modules or occurrence counts cannot satisfy these statements; cdtVexingType with its API and the scalar-extension and unramified-twist tests remain above as true fragments.
+These source targets require the actual supplier objects and hypotheses below.
+They are not universal theorems about arbitrary types, functions, or multiplicity maps.
+Omitted declaration names: TauCeti.GL2Blueprint.cdtInertiaMultiplicity.
+Full source-level tests awaiting the same carriers: TauCeti.GL2Blueprint.cdtVexingType_distinct_inertia.
+
+GL2AutomorphicRepresentationsAndTransfer:R16.2/cdt-vexing-type
+TauCeti.GL2Blueprint.cdtVexingType
+Let x≠ℓ be a vexing prime: x≡−1 mod ℓ, residual local rank-two representation irreducible but its inertia restriction reducible; its conductor c_x=2n. From CDT’s regular character θ of the unramified quadratic extension with conductor xⁿ construct Θ(θ), an existing finite-group representation of GL₂(ℤ/xⁿℤ), and choose a stable O-lattice for a characteristic-zero coefficient field containing its values. The local selector σ_x is Θ(θ) restricted to the exact U_x/V_x used by CDT §5 (U₀(x)/U(xⁿ) in the vexing case), not an arbitrary type on that quotient. The larger GL₂ quotient representation Wσx in CG18 restricts to this selector.
+Hypotheses: x and ℓ distinct primes; regular θ, θ≠θ^Frob; coefficient field contains values; choose an invariant lattice.
+TauCeti.GL2Blueprint.cdtVexingType_restrict: The selector is the restriction of Θ(θ) to U₀(x)/U(xⁿ).
+TauCeti.GL2Blueprint.cdtVexingType_lattice: The chosen O-lattice is stable and scalar extension recovers Θ(θ).
+TauCeti.GL2Blueprint.cdtVexingType_unramified: An unramified twist leaves the compact type and its selector unchanged.
+TauCeti.GL2Blueprint.cdtVexingType_scalar_extension: The lattice tensored with the coefficient field is isomorphic to Θ(θ).
+TauCeti.GL2Blueprint.cdtVexingType_distinct_inertia: A local representation with inertial characters not θ,θ^Frob has no occurrence of the full Θ(θ) type.
+TauCeti.GL2Blueprint.cdtVexingType_unramified_twist: π and π⊗ξdet for unramified ξ have equal Θ(θ) occurrence multiplicity.
+
+GL2AutomorphicRepresentationsAndTransfer:R16.3/cdt-inertia-multiplicity
+TauCeti.GL2Blueprint.cdtInertiaMultiplicity
+For CDT’s regular θ of conductor xⁿ, write Θ(θ) for its full GL₂(ℤ/xⁿℤ) type. For infinite-dimensional irreducible admissible Π of GL₂(ℚx), Hom_K(Θ(θ),Π^{U(xⁿ)})≠0 iff rec Π|I≅θ∘η_{x²} ⊕ θ∘Frob∘η_{x²} in CDT’s reciprocity convention. In that case Π^{U(xⁿ)}≅Θ(θ) and the type multiplicity is one. Translate the Artin convention to R16.3. This comparison concerns the full K-type; its U₀(x) restriction used as a vexing selector can identify more than one finite-character twist. The special case in CDT’s surrounding discussion is translated with N retained, not as an N=0 parameter.
+Hypotheses: x≠ℓ; regular θ and coefficient field containing its values; principal congruence U(xⁿ), full compact type. Use CFT Layer9 Weil reciprocity for ℚx and its unramified quadratic extension; Layer7 supplies the compatible absolute/finite-quotient map, not an inverse on all of G_Fᵃᵇ.
+-/
 end CDT
 
 section Parameters
--- P and C are the ET.6 local class and character carriers; W its existing WD
--- isomorphism class. Missing: reciprocity, N, induction and LLC compatibility.
-theorem principalParameter {P C W : Type*} (induction : C → C → P)
-    (rec : P → W) (directSum : C → C → W) (χ₁ χ₂ : C) :
-    rec (induction χ₁ χ₂) = directSum χ₁ χ₂ := by sorry
+/-
+Explicit signature omissions (PROTOCOL §13; REV-FIX-RT-AREA-automorphic-1~4).
+The ET.6 local class and Weil–Deligne parameter carriers and the AL.2 local factors are absent, so arbitrary maps and functions cannot satisfy these parameter and factor identities; steinbergParameter and normalizationBridge remain below as true matrix computations.
+These source targets require the actual supplier objects and hypotheses below.
+They are not universal theorems about arbitrary types, functions, or multiplicity maps.
+Omitted declaration names: TauCeti.GL2Blueprint.principalParameter, TauCeti.GL2Blueprint.supercuspidalParameter, TauCeti.GL2Blueprint.conductorEpsilon.
+
+GL2AutomorphicRepresentationsAndTransfer:R16.3/principal-series-parameter
+TauCeti.GL2Blueprint.principalParameter
+For F/ℚp finite, with Art_F:F×≃W_Fᵃᵇ the topological Weil-group reciprocity isomorphism normalized by Art_F(ϖ)=Φ geometric and ν(ϖ)=q⁻¹, rec(I(χ₁,χ₂))=(χ₁∘Art_F⁻¹)⊕(χ₂∘Art_F⁻¹), N=0, for an irreducible normalized principal series. Thus det rec=ωπ∘Art_F⁻¹ and L(s,π)=L(s,χ₁)L(s,χ₂). A ramified character contributes 1. At the reducible ratio ν^{±1}, this is the parameter of the one-dimensional Langlands quotient; the generic Steinberg constituent instead has nonzero N as below. The statement uses Frobenius-semisimple Weil–Deligne parameters, not semisimplification that discards N.
+Hypotheses: Characteristic-zero nonarchimedean F; χ₁χ₂⁻¹≠ν^{±1} in the principal-series assertion. Art_F⁻¹ is evaluated on the topological Weil abelianization supplied by CFT Layer9, not on the absolute Galois abelianization of Layer7.
+
+GL2AutomorphicRepresentationsAndTransfer:R16.3/supercuspidal-parameter
+TauCeti.GL2Blueprint.supercuspidalParameter
+rec identifies supercuspidal GL₂(F) representations with irreducible two-dimensional Weil representations, with N=0; determinants, character twists, conductors and L/epsilon factors agree with the existing parameter conventions. Such a parameter has no inertia-fixed vector, hence its standard L-factor is 1. A quadratic induction gives a dihedral example when θ≠θ^σ, but this is not an exhaustive description at dyadic places: primitive wild parameters remain in the ET.6 carrier and use the full Swan conductor. R30’s p-adic Banach correspondence is a separate consumer.
+Hypotheses: All finite extensions of ℚp, including p=2; smooth characteristic-zero correspondence.
+
+GL2AutomorphicRepresentationsAndTransfer:R16.3/conductor-epsilon-comparison
+TauCeti.GL2Blueprint.conductorEpsilon
+For every generic irreducible π, c(π)=a(rec π), with the same value for recᵀ. With ψ of conductor O and self-dual additive measure, ε(s,π,ψ)=ε(1/2,π,ψ)q^{-c(π)(s−1/2)}. For ψ_a(x)=ψ(ax), ε(s,π,ψ_a)=ωπ(a)|a|^{2s−1}ε(s,π,ψ); the measure is changed to the corresponding self-dual one. An unramified twist by ν^t replaces s by s+t and leaves c unchanged. For a ramified χ, one uses the full tensor-parameter conductor; c(π⊗χdet) is not generally c(π)+2a(χ).
+Hypotheses: Use normalized AL.2 epsilon factors, not an unnormalized Fourier measure; π generic and characteristic zero.
+-/
 /-- The concrete nonzero monodromy calculation in geometric Frobenius coordinates.
 Missing from this signature: embedding this matrix pair in R01.2's WD carrier. -/
 theorem steinbergParameter (q α : ℂ) (hq : q ≠ 0) (hα : α ≠ 0) :
@@ -288,26 +338,42 @@ theorem steinbergParameter (q α : ℂ) (hq : q ≠ 0) (hα : α ≠ 0) :
     let R : Matrix (Fin 2) (Fin 2) ℂ := !![α / q, 0; 0, α * q]
     N ^ 2 = 0 ∧ N ≠ 0 ∧ R * N = (q ^ 2)⁻¹ • (N * R) := by sorry
 -- Here q is the square root of the residue cardinality. N is NOT discarded.
--- Missing: π supercuspidal, r its ET.6 irreducible Weil parameter, L its AL.2 factor.
-theorem supercuspidalParameter {P : Type*} (π : P) (L : P → ℂ → ℂ) :
-    ∀ s, L π s = 1 := by sorry
 -- Missing: A is Frobenius of recπ; the actual Tate rec has this scalar half-twist.
 theorem normalizationBridge (A : Matrix (Fin 2) (Fin 2) ℂ) (u : ℂ) :
     (u • A).det = u ^ 2 * A.det := by sorry
--- Missing: π generic, c its newvector conductor, epsilon the self-dual AL.2 factor.
-theorem conductorEpsilon {P : Type*} (π : P) (c : P → ℕ) (q : ℂ)
-    (ε : P → ℂ → ℂ) (s : ℂ) :
-    ε π s = ε π (1 / 2) * q ^ (-(c π : ℂ) * (s - 1 / 2)) := by sorry
--- Missing: D and realInd are AF.1b's full O(2) D_k and induced Weil parameter;
--- m≥1, while m=0 is a split/limit boundary, and complex cases have no discrete series.
-theorem archimedeanClassification {P W : Type*} (D : ℕ → ℂ → P)
-    (realInd : ℕ → ℂ → W) (rec : P → W) (m : ℕ) (hm : 1 ≤ m) (t : ℂ) :
-    rec (D (m + 1) t) = realInd m t := by sorry
--- Missing: gammaC is Γ_C, D_k is the supplied archimedean representation,
--- standardL the AL.2 factor; k≥2 is essential.
-theorem archimedeanFactors {P : Type*} (D : ℕ → P)
-    (standardL : P → ℂ → ℂ) (gammaC : ℂ → ℂ) (k : ℕ) (hk : 2 ≤ k) (s : ℂ) :
-    standardL (D k) s = gammaC (s + ((k : ℂ) - 1) / 2) := by sorry
+/-
+Explicit signature omissions (PROTOCOL §13; REV-FIX-RT-AREA-automorphic-1~4).
+The AF.1 archimedean class and parameter carriers (gl2-real-discrete-series, archimedean-llc-gln) and the AL.2 standard factor are absent, so arbitrary maps and functions cannot satisfy these identifications; Mathlib’s Complex.Gammaℝ and Complex.Gammaℂ fix the gamma normalizations used in the true examples below.
+These source targets require the actual supplier objects and hypotheses below.
+They are not universal theorems about arbitrary types, functions, or multiplicity maps.
+Omitted declaration names: TauCeti.GL2Blueprint.archimedeanClassification, TauCeti.GL2Blueprint.archimedeanFactors.
+
+GL2AutomorphicRepresentationsAndTransfer:R16.2/archimedean-classification
+TauCeti.GL2Blueprint.archimedeanClassification
+Import the existing AF.1/weil-group-real, AF.1/archimedean-llc-gln and AF.1/casselman-wallach-globalization nodes of the single AF real-representation owner. The proposed AF.1b split preserves these contracts; it is not an installed stage. For GL₂(ℝ), real reducible parameters χ₁⊕χ₂ correspond to the appropriate Langlands quotient of normalized induction, including its finite-dimensional exceptional quotients. An irreducible parameter Ind_{ℂ×}^{Wℝ}((z/|z|)^m|z|^{2t}), integer m≥1, corresponds to D_{m+1}⊗|det|^t, the full O(2) representation whose positive-determinant restriction has holomorphic and antiholomorphic pieces. For m=0 the parameter splits and one obtains the limit boundary; it is not an irreducible Weil parameter. For GL₂(ℂ), every parameter is a pair of continuous quasicharacters and the representation is the corresponding Langlands quotient; GL₂(ℂ) has no discrete series modulo center.
+Hypotheses: Admissible irreducible Harish–Chandra modules with their Casselman–Wallach globalizations; explicit chamber/order in a Langlands quotient.
+
+GL2AutomorphicRepresentationsAndTransfer:R16.3/archimedean-factor-comparison
+TauCeti.GL2Blueprint.archimedeanFactors
+Use Γℝ(s)=π^{−s/2}Γ(s/2), Γℂ(s)=2(2π)^{−s}Γ(s). For a real character sign^ε|·|^u the factor is Γℝ(s+u+ε). For Ind_{ℂ×}^{Wℝ}((z/|z|)^m|z|^{2t}), m≥1, the factor is Γℂ(s+t+m/2); thus L(s,D_k)=Γℂ(s+(k−1)/2) for k≥2. At m=0 its split parameter has Γℝ(s+t)Γℝ(s+t+1)=Γℂ(s+t), without making it an irreducible Weil representation. Over ℂ, a character (z/|z|)^m|z|^{2t} has Γℂ(s+t+|m|/2), and the rank-two factor is the product. With ψℝ(x)=exp(2πix), the real-character epsilon is i^ε and the induced epsilon is i^{m+1}; complex places use ψℂ=ψℝ∘Trℂ/ℝ and AL.1’s convention.
+Hypotheses: Archimedean local reciprocity, absolute value |z|ℂ=|z|², gamma and additive-character conventions fixed.
+-/
+-- True fragments for R16.2/R16.3 with Mathlib’s Deligne gamma factors (no packet
+-- test name; the AL.2 factor of D_k itself is omitted above).
+-- Normalization Γℝ(s)=π^{−s/2}Γ(s/2) of the R16.3 statement (Complex.Gammaℝ_def).
+example (s : ℂ) :
+    Complex.Gammaℝ s = (Real.pi : ℂ) ^ (-s / 2) * Complex.Gamma (s / 2) := by sorry
+-- Normalization Γℂ(s)=2(2π)^{−s}Γ(s) of the R16.3 statement (Complex.Gammaℂ_def).
+example (s : ℂ) :
+    Complex.Gammaℂ s = 2 * (2 * (Real.pi : ℂ)) ^ (-s) * Complex.Gamma s := by sorry
+-- The m=0 boundary: the split parameter has Γℝ(s+t)Γℝ(s+t+1)=Γℂ(s+t).
+example (s t : ℂ) :
+    Complex.Gammaℝ (s + t) * Complex.Gammaℝ (s + t + 1) = Complex.Gammaℂ (s + t) :=
+  Complex.Gammaℝ_mul_Gammaℝ_add_one (s + t)
+-- Index convention k=m+1: the induced factor Γℂ(s+t+m/2) is Γℂ(s+t+(k−1)/2).
+example (s t : ℂ) (m : ℕ) :
+    Complex.Gammaℂ (s + t + (m : ℂ) / 2) =
+      Complex.Gammaℂ (s + t + (((m + 1 : ℕ) : ℂ) - 1) / 2) := by sorry
 
 /-- Membership uses the supplier parameter and quadratic Weil-induction maps.
 Missing: q is the actual residue cardinality, inertiaOrder the actual exact
@@ -326,9 +392,6 @@ lemma tamelyDihedral_unramified_twist {P C W : Type*} (ℓ q : ℕ)
     (hrec : ∀ π θ, rec π = ind θ → rec (twistP π) = ind (twistC θ))
     (π : P) (hπ : π ∈ tamelyDihedral P C W ℓ q rec ind inertiaOrder) :
     twistP π ∈ tamelyDihedral P C W ℓ q rec ind inertiaOrder := by sorry
-lemma tamelyDihedral_conjugate {C W : Type*} (ind : C → W) (σ : C → C) :
-    ∀ θ, ind (σ θ) = ind θ := by sorry
--- Missing in conjugate: σ is the nontrivial unramified-quadratic Galois action.
 -- TauCeti.GL2Blueprint.tamelyDihedral_order_three
 -- An actual order-three value is distinct from its inverse; q=2 acts as inversion.
 example {G : Type*} [Group G] (x : G) (hx : orderOf x = 3) :
@@ -341,12 +404,29 @@ example {P C W : Type*} (ℓ q : ℕ) (hℓ : 2 < ℓ)
     (rec : P → W) (ind : C → W) (inertiaOrder : C → ℕ)
     (hunram : ∀ θ, inertiaOrder θ = 1) :
     tamelyDihedral P C W ℓ q rec ind inertiaOrder = ∅ := by sorry
--- Missing: supercuspidal is the actual subset of ET.6's P, with its irreducible
--- parameter criterion. The exact-order argument includes residue characteristic two.
-theorem tamelyDihedralSupercuspidal {P C W : Type*} (ℓ q : ℕ)
-    (rec : P → W) (ind : C → W) (inertiaOrder : C → ℕ)
-    (supercuspidal : Set P) :
-    tamelyDihedral P C W ℓ q rec ind inertiaOrder ⊆ supercuspidal := by sorry
+/-
+Explicit signature omissions (PROTOCOL §13; REV-FIX-RT-AREA-automorphic-1~4).
+The actual unramified-quadratic Galois action on tame characters and ET.6’s supercuspidal subset are absent, so an arbitrary involution or subset cannot satisfy these statements; tamelyDihedral with its parameter and twist API and its three tests remain above as true fragments.
+These source targets require the actual supplier objects and hypotheses below.
+They are not universal theorems about arbitrary types, functions, or multiplicity maps.
+Omitted declaration names: TauCeti.GL2Blueprint.tamelyDihedral_conjugate, TauCeti.GL2Blueprint.tamelyDihedralSupercuspidal.
+
+GL2AutomorphicRepresentationsAndTransfer:R16.3/tamely-dihedral
+TauCeti.GL2Blueprint.tamelyDihedral
+For odd prime ℓ with q≡−1 mod ℓ, an irreducible admissible π is tamely dihedral of order ℓ precisely when rec π=(Ind_{W_{F′}}^{W_F}θ,0), where F′/F is unramified quadratic and θ|I has exact order ℓ. Use the supplier’s induced Weil representation and class of π; no second automorphic or WD carrier is defined. The induction direction corrects the reversed indices in NT Definition 2.4. Since ℓ is prime to the residue characteristic, the inertia character is tame.
+Hypotheses: ℓ odd prime, q residue cardinality and q≡−1 mod ℓ; θ continuous with open kernel on inertia.
+TauCeti.GL2Blueprint.tamelyDihedral_parameter: Membership is equivalent to the stated induced parameter with exact inertia order ℓ and N=0.
+TauCeti.GL2Blueprint.tamelyDihedral_unramified_twist: An unramified determinant twist preserves tamely-dihedral order ℓ.
+TauCeti.GL2Blueprint.tamelyDihedral_conjugate: Replacing θ by θ^σ gives the same induced parameter.
+TauCeti.GL2Blueprint.tamelyDihedral_order_three: At q=2, ℓ=3, an inertia character of order three satisfies θ^q=θ^{-1}≠θ.
+TauCeti.GL2Blueprint.tamelyDihedral_order_two_excluded: ℓ=2 fails oddness and θ^{-1}=θ for order-two inertia, so this irreducibility argument fails.
+TauCeti.GL2Blueprint.tamelyDihedral_unramified_character: An unramified θ has inertia order one and is not tamely dihedral of order ℓ>2.
+
+GL2AutomorphicRepresentationsAndTransfer:R16.3/tamely-dihedral-supercuspidal
+TauCeti.GL2Blueprint.tamelyDihedralSupercuspidal
+Every tamely dihedral π of odd prime order ℓ is supercuspidal. Its parameter is irreducible, has N=0 and Swan conductor zero; since inertia has no fixed vector, a(rec π)=2 and L(s,π)=1. The exact-order argument works also at residue characteristic two, because ℓ is odd and prime to q.
+Hypotheses: The complete hypotheses of tamelyDihedral, including q≡−1 mod ℓ.
+-/
 end Parameters
 
 section Global
@@ -477,9 +557,25 @@ lemma hilbertWeightRepresentation_scalar (ρ : Representation ℂ G V)
     (hδ : ∀ u, δ (scalar u) = u ^ 2) (u : ℂˣ) :
     hilbertWeightRepresentation ρ δ m (scalar u) =
       ((u : ℂ) ^ (d + 2 * m)) • (1 : Module.End ℂ V) := by sorry
--- Missing: V is the actual tensor of Sym^{kτ−2} with kτ≥2.
-lemma hilbertWeightRepresentation_dimension {Embeddings : Type*} [Fintype Embeddings] (k : Embeddings → ℕ) :
-    Module.finrank ℂ V = ∏ τ, (k τ - 1) := by sorry
+/-
+Explicit signature omissions (PROTOCOL §13; REV-FIX-RT-AREA-automorphic-1~4).
+The full tensor of Sym^{kτ−2} over the real embeddings is absent, so an arbitrary module V does not have the stated dimension; hilbertWeightRepresentation with its scalar, dual and base-change API and its tests remain as true fragments.
+These source targets require the actual supplier objects and hypotheses below.
+They are not universal theorems about arbitrary types, functions, or multiplicity maps.
+Omitted declaration names: TauCeti.GL2Blueprint.hilbertWeightRepresentation_dimension.
+
+GL2AutomorphicRepresentationsAndTransfer:R16.6/hilbert-algebraic-weights
+TauCeti.GL2Blueprint.hilbertWeightRepresentation
+For totally real F, embeddings Σ=Hom(F,ℝ), integers k_τ≥2 and m_τ with k_τ+2m_τ=w independent of τ, define the local algebraic representation V_τ=Sym^{k_τ−2}(standard₂)⊗det^{m_τ}, using TauCeti.symPowerRep and the existing determinant character, and V=⊗_{τ∈Σ}V_τ on (Res_{F/ℚ}GL₂)_ℂ. Its scalar action at τ is z^{k_τ−2+2m_τ}=z^{w−2}; its dimension is ∏τ(k_τ−1). The dual V∨ is used when the cohomological/local-system convention requires it; the choice is stated in the AF.4 comparison rather than silently interchanged. Parallel parity of k_τ follows from the existence of the integer m_τ.
+Hypotheses: Finite embedding set of a totally real number field; k_τ≥2, m_τ∈ℤ, k_τ+2m_τ=w; characteristic-zero coefficients.
+TauCeti.GL2Blueprint.hilbertWeightRepresentation_scalar: A scalar at τ acts by z^{k_τ−2+2m_τ}; for cohomological weight this is z^{w−2}.
+TauCeti.GL2Blueprint.hilbertWeightRepresentation_dimension: dim V=∏τ(k_τ−1).
+TauCeti.GL2Blueprint.hilbertWeightRepresentation_dual: Dualizing inverts the scalar central character and agrees with the AF.4 local-system convention.
+TauCeti.GL2Blueprint.hilbertWeightRepresentation_base_change: Extension of characteristic-zero coefficients commutes with the tensor construction.
+TauCeti.GL2Blueprint.hilbertWeightRepresentation_weight_two: For one embedding, k=2,m=0 gives the trivial one-dimensional representation.
+TauCeti.GL2Blueprint.hilbertWeightRepresentation_weight_three: For one embedding, k=3,m=1 gives standard₂⊗det, dimension two and scalar exponent three.
+TauCeti.GL2Blueprint.hilbertWeightRepresentation_mixed_parity: Weights (2,3) cannot satisfy k_τ+2m_τ=w for integer m_τ and one common w.
+-/
 -- The full supplier dual representation is unavailable; this is its central scalar rule.
 lemma hilbertWeightRepresentation_dual (u : ℂˣ) (w : ℤ) :
     ((u : ℂ) ^ (w - 2))⁻¹ = (u : ℂ) ^ (-(w - 2)) := by sorry
@@ -528,28 +624,33 @@ Hypotheses: Consumer coefficient field, local level and infinite type fixed; geo
 end Classical
 
 section Quaternion
--- Missing: DClass consists of irreducible smooth division D× classes; FClass of
--- essentially square-integrable GL₂(F) classes; the sign is −1 only at division places.
-theorem localQuaternionic {DClass FClass Delt : Type*}
-    (jl : DClass → FClass) (charD : DClass → Delt → ℂ)
-    (charF : FClass → Delt → ℂ) (ρ : DClass) (δ : Delt) :
-    charF (jl ρ) δ = -charD ρ δ := by sorry
--- Missing: normCharacter is χ∘Nrd on division D×; special is St⊗χdet.
-theorem normCharacterSteinberg {C DClass FClass : Type*}
-    (jl : DClass → FClass) (normCharacter : C → DClass)
-    (special : C → FClass) (χ : C) : jl (normCharacter χ) = special χ := by sorry
--- Missing: realLocalJL, coeff and D are the actual archimedean supplier maps;
--- coeff(k,m)=Sym^{k−2}⊗det^m and D has the central-character norm twist.
--- Use AF.1's archimedean character interfaces, requested through proposed AF.1b;
--- ET.6's current finite-extension-of-Qp construction supplies no real-place theorem.
-theorem realQuaternionic {DClass FClass : Type*} (realLocalJL : DClass → FClass)
-    (coeff : ℕ → ℤ → DClass) (D : ℕ → ℤ → FClass)
-    (k : ℕ) (hk : 2 ≤ k) (m : ℤ) : realLocalJL (coeff k m) = D k m := by sorry
--- Missing: F can be dyadic, π essentially square-integrable, both rec maps are
--- the same ET.6 parameter convention. Primitive wild cases are included.
-theorem wildDyadicTransfer {DClass FClass W : Type*} (jl : DClass → FClass)
-    (recD : DClass → W) (recF : FClass → W) (ρ : DClass) :
-    recF (jl ρ) = recD ρ := by sorry
+/-
+Explicit signature omissions (PROTOCOL §13; REV-FIX-RT-AREA-automorphic-1~4).
+The smooth division-algebra and essentially square-integrable GL₂(F) class carriers, local JL, the ET.6 parameters and AF.1’s archimedean character interfaces are absent, so arbitrary maps cannot satisfy these local transfer identities; quaternionSwap remains below as a true parity computation.
+These source targets require the actual supplier objects and hypotheses below.
+They are not universal theorems about arbitrary types, functions, or multiplicity maps.
+Omitted declaration names: TauCeti.GL2Blueprint.localQuaternionic, TauCeti.GL2Blueprint.normCharacterSteinberg, TauCeti.GL2Blueprint.realQuaternionic, TauCeti.GL2Blueprint.wildDyadicTransfer.
+
+GL2AutomorphicRepresentationsAndTransfer:R17.1/local-quaternionic-comparison
+TauCeti.GL2Blueprint.localQuaternionic
+For a nonarchimedean F and quaternion division algebra D/F from the upstream quaternion carrier, ET.6 local Jacquet–Langlands identifies irreducible smooth D× representations with essentially square-integrable GL₂(F) representations. On corresponding regular elliptic d,g having the same reduced characteristic polynomial, Θ_JL(ρ)(g)=−Θ_ρ(d). Determinants/central characters and χ∘Nrd versus χ∘det twists agree. At a split place D=M₂(F) the comparison is the chosen algebra isomorphism and has sign +1. A principal series has no division-algebra preimage. This is a specialization of the general correspondence, not a second existence/bijectivity proof.
+Hypotheses: Characteristic-zero smooth representations; compare matching elliptic conjugacy classes; square-integrability is essential.
+
+GL2AutomorphicRepresentationsAndTransfer:R17.1/norm-character-steinberg
+TauCeti.GL2Blueprint.normCharacterSteinberg
+Under localQuaternionic, χ∘Nrd on D× transfers to St⊗χdet. Its central character is χ², its WD parameter is steinbergParameter with N≠0, and its standard conductor is 1 for unramified χ or 2a(χ) for ramified χ. The corresponding local L/epsilon factors are exactly those of that parameter; the one-dimensional D× dimension does not make the GL₂ WD parameter monodromy-free. The trivial D× representation is the unramified St case, used by the definite-quaternion applications.
+Hypotheses: Nonarchimedean quaternion division algebra; smooth characteristic-zero χ.
+
+GL2AutomorphicRepresentationsAndTransfer:R17.1/real-quaternionic-comparison
+TauCeti.GL2Blueprint.realQuaternionic
+For D=Hamilton quaternions at a real place, an irreducible algebraic D× representation restricts to SU(2) as Sym^{k−2} for k≥2, with its specified positive-real central character. Its local JL image is D_k with the norm twist that gives the same central character. Under the complex splitting, the algebraic representation Sym^{k−2}⊗det^m has scalar action z^{k−2+2m}; comparison with the unitary D_k therefore includes the explicit |det|^{(k−2+2m)/2} twist and the same sign^k on ℝ×. For k=2,m=0 the trivial quaternionic representation transfers to D₂. One does not assert that an arbitrary unitary D_k is itself a finite-dimensional algebraic representation.
+Hypotheses: Real place, k≥2 and m integer; AF.1b supplies full O(2) representation and archimedean LLC.
+
+GL2AutomorphicRepresentationsAndTransfer:R17.1/wild-dyadic-transfer
+TauCeti.GL2Blueprint.wildDyadicTransfer
+For every essentially square-integrable GL₂(F) parameter, including primitive wild rank-two Weil representations at dyadic places, the ET.6 quaternionic preimage has the same central character and LLC parameter as GL₂, with the same standard factors and Artin conductor in R16.3’s convention. For a supercuspidal it has N=0; for a special representation it has rank-one N. Dihedral/tamely-dihedral examples are checks within this statement, not a replacement for primitive wild cases. No naive level exponent of a chosen order in D is equated to the GL₂ conductor without a separate comparison.
+Hypotheses: ET.6 canonical inner-form correspondence at every finite extension of ℚp; characteristic zero.
+-/
 -- The actual parity calculation for swapping one ramified and one split place.
 -- This assumes chosen global algebras and their ramification data. QFI Layer 6D
 -- supplies only local classification; global realization is a recorded R17.3 gap.
@@ -571,24 +672,31 @@ lemma steinbergProjectorDifference_central (eH eK : G → ℂ) (z : G) (ωz : �
     (hK : ∀ g, eK (z * g) = ωz⁻¹ * eK g) (g : G) :
     steinbergProjectorDifference eH eK (z * g) =
       ωz⁻¹ * steinbergProjectorDifference eH eK g := by sorry
--- Missing: trace is the actual integrated trace of St⊗χdet, and eH/eK the stated idempotents.
-lemma steinbergProjectorDifference_steinberg (eH eK : G → ℂ)
-    (trace : (G → ℂ) → ℂ) : trace (steinbergProjectorDifference eH eK) = 1 := by sorry
--- Missing: trace is the actual determinant-character trace for the corresponding χ.
-lemma steinbergProjectorDifference_character (eH eK : G → ℂ)
-    (trace : (G → ℂ) → ℂ) : trace (steinbergProjectorDifference eH eK) = -1 := by sorry
+/-
+Explicit signature omissions (PROTOCOL §13; REV-FIX-RT-AREA-automorphic-1~4).
+The integrated trace distributions of St⊗χdet, the determinant character and the unramified principal series are absent, so arbitrary trace functionals cannot take these values (the two former API statements contradicted each other); steinbergProjectorDifference with its evaluation, central and twist API and the two pointwise tests remain as true fragments.
+These source targets require the actual supplier objects and hypotheses below.
+They are not universal theorems about arbitrary types, functions, or multiplicity maps.
+Omitted declaration names: TauCeti.GL2Blueprint.steinbergProjectorDifference_steinberg, TauCeti.GL2Blueprint.steinbergProjectorDifference_character.
+Full source-level tests awaiting the same carriers: TauCeti.GL2Blueprint.steinbergProjectorDifference_trivial_norm, TauCeti.GL2Blueprint.steinbergProjectorDifference_unramified_principal.
+
+GL2AutomorphicRepresentationsAndTransfer:R17.2/steinberg-projector-difference
+TauCeti.GL2Blueprint.steinbergProjectorDifference
+At a nonarchimedean place, for unitary χ and ω=χ², work in SR.1’s compact-mod-center, ω⁻¹-equivariant Hecke space with AA.2 quotient measure. Put K=GL₂(O), I=K₀(p), and H=⟨Z,I,w⟩ where w=(0 1;ϖ 0). Let ξ(a)=(−1)^{v_F(a)}χ(a). Set e_K^χ(g)=χ(det g)⁻¹/vol(Z\ZK) on ZK and zero elsewhere, e_H^ξ(g)=ξ(det g)⁻¹/vol(Z\H) on H and zero elsewhere, and ζχ=e_H^ξ−e_K^χ. Then trace(St⊗χdet)(ζχ)=1, every other unitary infinite-dimensional irreducible with central character ω has trace zero, and trace(χdet)(ζχ)=−1; the other determinant characters with central character ω have trace zero. The construction is compact modulo Z, not necessarily compact in G. It is a trace projector, not an assertion that its operator is zero on every induced representation.
+Hypotheses: χ unitary; nonarchimedean F; fixed central quotient measure, matching ω⁻¹ equivariance; exact extended-Iwahori H and ξ above.
+TauCeti.GL2Blueprint.steinbergProjectorDifference_eval: ζχ(g)=e_H^ξ(g)−e_K^χ(g) with the stated support and quotient volumes.
+TauCeti.GL2Blueprint.steinbergProjectorDifference_central: ζχ(zg)=ω(z)⁻¹ζχ(g).
+TauCeti.GL2Blueprint.steinbergProjectorDifference_steinberg: The corresponding Steinberg trace is one and all other unitary infinite-dimensional traces are zero.
+TauCeti.GL2Blueprint.steinbergProjectorDifference_character: The corresponding determinant-character trace is minus one.
+TauCeti.GL2Blueprint.steinbergProjectorDifference_twist: Replacing χ by χη multiplies ζχ(g) by η(det g)⁻¹ with the compatible central character.
+TauCeti.GL2Blueprint.steinbergProjectorDifference_trivial_norm: For χ=1, the St trace is 1 and the trivial GL₂-character trace is −1.
+TauCeti.GL2Blueprint.steinbergProjectorDifference_unramified_principal: An irreducible unitary unramified principal series has trace zero, even though its Iwahori fixed space has dimension two.
+TauCeti.GL2Blueprint.steinbergProjectorDifference_outside_support: At g outside H∪ZK, ζχ(g)=0.
+TauCeti.GL2Blueprint.steinbergProjectorDifference_scalar_twist: A determinant-character twist multiplies both local idempotents by the same inverse character.
+-/
 lemma steinbergProjectorDifference_twist (eH eK η : G → ℂ) :
     steinbergProjectorDifference (fun g => η g * eH g) (fun g => η g * eK g) =
       fun g => η g * steinbergProjectorDifference eH eK g := by sorry
--- TauCeti.GL2Blueprint.steinbergProjectorDifference_trivial_norm
--- Missing: these are the St and trivial-character integrated traces of ζ₁.
-example (eH eK : G → ℂ) (trSt trTrivial : (G → ℂ) → ℂ) :
-    trSt (steinbergProjectorDifference eH eK) = 1 ∧
-      trTrivial (steinbergProjectorDifference eH eK) = -1 := by sorry
--- TauCeti.GL2Blueprint.steinbergProjectorDifference_unramified_principal
--- Missing: trPrincipal is the actual irreducible unitary unramified principal-series trace.
-example (eH eK : G → ℂ) (trPrincipal : (G → ℂ) → ℂ) :
-    trPrincipal (steinbergProjectorDifference eH eK) = 0 := by sorry
 -- TauCeti.GL2Blueprint.steinbergProjectorDifference_outside_support
 example (eH eK : G → ℂ) (g : G) (hH : eH g = 0) (hK : eK g = 0) :
     steinbergProjectorDifference eH eK g = 0 := by sorry
@@ -596,60 +704,59 @@ example (eH eK : G → ℂ) (g : G) (hH : eH g = 0) (hK : eK g = 0) :
 example (eH eK η : G → ℂ) (g : G) :
     steinbergProjectorDifference (fun x => η x * eH x) (fun x => η x * eK x) g =
       η g * steinbergProjectorDifference eH eK g := by sorry
--- Missing: fG,fD are the actual inner-form matching functions; O_G/O_D use
--- the same elliptic torus measure and the stipulated ambient quotient measures.
-theorem quaternionicOrbitalMatching {G D T : Type*} (fG : G → ℂ) (fD : D → ℂ)
-    (O_G : (G → ℂ) → T → ℂ) (O_D : (D → ℂ) → T → ℂ) (t : T) :
-    O_G fG t = -O_D fD t := by sorry
+/-
+Explicit signature omissions (PROTOCOL §13; REV-FIX-RT-AREA-automorphic-1~4).
+The inner-form and cyclic matching functions, the C_c^∞ carriers, norm classes, centralizer measures and Satake transforms are absent, so arbitrary orbital-integral maps cannot satisfy these identities and a transfer map between arbitrary types need not exist; cyclicMatching_central and the quadratic Satake arithmetic test remain below as true fragments.
+These source targets require the actual supplier objects and hypotheses below.
+They are not universal theorems about arbitrary types, functions, or multiplicity maps.
+Omitted declaration names: TauCeti.GL2Blueprint.quaternionicOrbitalMatching, TauCeti.GL2Blueprint.cyclicMatching, TauCeti.GL2Blueprint.cyclicMatching_norm, TauCeti.GL2Blueprint.cyclicMatching_non_norm, TauCeti.GL2Blueprint.cyclicMatching_unit, TauCeti.GL2Blueprint.cyclicMatching_satake.
+Full source-level tests awaiting the same carriers: TauCeti.GL2Blueprint.cyclicMatching_degree_one, TauCeti.GL2Blueprint.cyclicMatching_non_norm_test.
 
-/-- Choice of the ET.3 transfer of a local function from E to F. Missing:
-E/F cyclic, σ, the actual C_c^∞ carriers, norm classes and centralizer measures.
-The ordinary-function choice is determined only modulo regular orbital integrals. -/
-def cyclicMatching (EFunctions FFunctions : Type*) : EFunctions → FFunctions := by sorry
-lemma cyclicMatching_norm {EFunctions FFunctions T : Type*} (φ : EFunctions)
-    (O_F : FFunctions → T → ℂ) (TO_E : EFunctions → T → ℂ) (t : T) :
-    O_F (cyclicMatching EFunctions FFunctions φ) t = TO_E φ t := by sorry
--- Missing: t represents a regular norm class, with the same centralizer measure.
-lemma cyclicMatching_non_norm {EFunctions FFunctions T : Type*} (φ : EFunctions)
-    (O_F : FFunctions → T → ℂ) (t : T) :
-    O_F (cyclicMatching EFunctions FFunctions φ) t = 0 := by sorry
--- Missing: t is a regular NONnorm class; no dummy norm predicate is defined.
-lemma cyclicMatching_unit {EFunctions FFunctions : Type*} (unitE : EFunctions)
-    (unitF : FFunctions) : cyclicMatching EFunctions FFunctions unitE = unitF := by sorry
--- Missing: unramified extension, normalized hyperspecial units, vol(K)=1.
-lemma cyclicMatching_satake {EFunctions FFunctions : Type*} (φ : EFunctions)
-    (satE : EFunctions → ℂ → ℂ → ℂ) (satF : FFunctions → ℂ → ℂ → ℂ)
-    (d : ℕ) (α β : ℂ) :
-    satF (cyclicMatching EFunctions FFunctions φ) α β = satE φ (α ^ d) (β ^ d) := by sorry
--- Missing: these are the actual Satake transforms, and d the residue degree.
+GL2AutomorphicRepresentationsAndTransfer:R17.2/quaternionic-orbital-matching
+TauCeti.GL2Blueprint.quaternionicOrbitalMatching
+For matching regular elliptic d∈D× and g∈GL₂(F) with the same reduced polynomial, identify their centralizer torus and choose the same torus measure; specify each ambient quotient Haar measure. ET.3/ET.6 transfer supplies test functions f_D,f_G with O_g(f_G)=−O_d(f_D) and O_g(f_G)=0 at split regular semisimple g. With the matching rank-two character identity Θ_GL₂=−Θ_D this gives trace JL(ρ)(f_G)=trace ρ(f_D). For a chosen D× matrix coefficient the transferred f_G is the JL §16 elliptic character function; in the norm-character case use steinbergProjectorDifference. Compare formal degrees and the identity orbital term using the actual quotient-volume ratio; do not infer equality of formal degrees under unrelated ambient measures.
+Hypotheses: Fixed unitary central character; compact modulo center functions; regular elliptic correspondence and common centralizer measure.
+
+GL2AutomorphicRepresentationsAndTransfer:R17.2/cyclic-local-matching
+TauCeti.GL2Blueprint.cyclicMatching
+Let E/F be a cyclic extension of nonarchimedean local fields with generator σ, and use the ET.3/ET.4 twisted orbital integrals. For φ∈C_c^∞(GL₂(E)), choose f∈C_c^∞(GL₂(F)) with O_γ(f)=TO_{δ,σ}(φ) whenever γ is a regular norm of δ, and O_γ(f)=0 for regular nonnorm classes, with centralizer measures identified as in AC89 Chapter 1 §3. A matching central character on E is pulled back from F by N_{E/F}; central equivariance must use this norm, not the raw same character. At an unramified place with unit volumes, choose the spherical transfer: 1_{GL₂(O_E)} maps to 1_{GL₂(O_F)}, and Satake transforms are related by (α,β)↦(α^d,β^d), d=[E:F]. At a completely split global place use the product norm δ₁…δ_d and the corresponding convolution of local functions. The function choice is unique only modulo the kernel of regular orbital integrals.
+Hypotheses: Cyclic local extension and generator; compatible centralizer Haar measures; unramified spherical assertion requires unramified E/F.
+TauCeti.GL2Blueprint.cyclicMatching_norm: Matching regular norm classes have equal ordinary and twisted orbital integrals with identified centralizer measures.
+TauCeti.GL2Blueprint.cyclicMatching_non_norm: The ordinary orbital integral vanishes on regular classes that are not norms.
+TauCeti.GL2Blueprint.cyclicMatching_unit: Unramified hyperspecial units match with hyperspecial volumes one.
+TauCeti.GL2Blueprint.cyclicMatching_satake: On an unramified Satake pair the norm rule sends (α,β) to (α^d,β^d).
+TauCeti.GL2Blueprint.cyclicMatching_central: The E central character is ω_F∘N_{E/F}; test functions use its inverse.
+TauCeti.GL2Blueprint.cyclicMatching_degree_one: For E=F and σ=1 choose f=φ; ordinary and twisted orbital integrals agree.
+TauCeti.GL2Blueprint.cyclicMatching_quadratic_satake: At an unramified quadratic place the pair (2,3) maps to (4,9), trace 13 and determinant 36.
+TauCeti.GL2Blueprint.cyclicMatching_non_norm_test: For E/F unramified quadratic, a regular γ with odd valuation of det γ cannot be a norm and its matching ordinary orbital integral is zero.
+-/
 lemma cyclicMatching_central {ZE ZF : Type*} [Group ZE] [Group ZF]
     (norm : ZE →* ZF) (ω : ZF →* ℂˣ) (z : ZE) :
     (ω.comp norm) z = ω (norm z) := by sorry
--- TauCeti.GL2Blueprint.cyclicMatching_degree_one
--- Missing: E=F, σ=1 and the transfer choice is the identity on this carrier.
-example {Functions : Type*} (φ : Functions) :
-    cyclicMatching Functions Functions φ = φ := by sorry
 -- TauCeti.GL2Blueprint.cyclicMatching_quadratic_satake
 example : ((2 : ℂ) ^ 2 + 3 ^ 2 = 13) ∧ ((2 : ℂ) ^ 2 * 3 ^ 2 = 36) := by sorry
--- TauCeti.GL2Blueprint.cyclicMatching_non_norm_test
--- Missing: E/F unramified quadratic, det γ odd valuation, so γ is a nonnorm.
-example {EFunctions FFunctions T : Type*} (φ : EFunctions)
-    (O_F : FFunctions → T → ℂ) (γ : T) :
-    O_F (cyclicMatching EFunctions FFunctions φ) γ = 0 := by sorry
--- Missing: these are the actual AS.6 terms of a common test function after the
--- local trace substitution. The residual term is explicitly retained.
--- Normalized intertwiners come from AS.2; AS.5 owns weighted cohomology.
-theorem spectralLedger (cusp residual continuous quaternionNorm quaternionOther : ℂ) :
-    cusp + residual + continuous = quaternionNorm + quaternionOther := by sorry
--- Missing: A is the integrated operator of f on Borel induction, with
--- ∫_N f(xny)=0 for ALL x,y; this is stronger than the K-averaged trace-zero identity.
-theorem strongCuspidalVanishing {V : Type*} [AddCommGroup V] [Module ℂ V]
-    (A : Module.End ℂ V) : A = 0 := by sorry
--- Missing: each summand is the actual supplier distribution with matched functions,
--- including identity/unipotent/residual/continuous terms, the norm-character
--- correction and quadratic exceptional terms. Generic matching alone is insufficient.
-theorem specializedTraceComparison (geometric spectral : ℂ) :
-    geometric = spectral := by sorry
+/-
+Explicit signature omissions (PROTOCOL §13; REV-FIX-RT-AREA-automorphic-1~4).
+The AS.2/AS.4/AS.6 and ET.4 trace distributions of a matched factorizable test function and its operators on Borel inductions are absent, so arbitrary complex scalars or endomorphisms cannot satisfy these identities.
+These source targets require the actual supplier objects and hypotheses below.
+They are not universal theorems about arbitrary types, functions, or multiplicity maps.
+Omitted declaration names: TauCeti.GL2Blueprint.spectralLedger, TauCeti.GL2Blueprint.strongCuspidalVanishing, TauCeti.GL2Blueprint.specializedTraceComparison.
+
+GL2AutomorphicRepresentationsAndTransfer:R17.2/continuous-residual-ledger
+TauCeti.GL2Blueprint.spectralLedger
+In the fixed-unitary-central-character GL₂ L² spectrum, identify AS.2, AS.4 and AS.6’s cuspidal terms, residual determinant characters χdet with χ²=ω, and continuous families of normalized inductions I(μ,ωμ⁻¹). The invariant trace formula includes the continuous integrals of normalized intertwining operators and their logarithmic derivatives, together with the residual/exceptional contributions prescribed by AS.6. On the anisotropic quaternion side identify norm characters χNrd and the non-norm cuspidal/discrete spectrum. For steinbergProjectorDifference, a matching χdet has trace −1; hence compare its residual term against the quaternion norm-character term rather than declaring both absent. In a cyclic quadratic comparison retain the σ-invariant induced families and their exceptional automorphic-induction terms, including the one-half Weyl weights, until the ET.4/AS.6 identities identify them. Local regular-elliptic matching alone does not remove the identity or continuous distributions.
+Hypotheses: Use the same global Haar, central quotient and normalized intertwining conventions throughout; generic spectral carriers belong to AS.2, AS.4 and AS.6.
+
+GL2AutomorphicRepresentationsAndTransfer:R17.2/strong-cuspidal-vanishing
+TauCeti.GL2Blueprint.strongCuspidalVanishing
+If a finite local factor f_v satisfies ∫_{N(Fv)}f_v(xny)dn=0 for every x,y∈GL₂(Fv), then its operator on every representation parabolically induced from the proper Borel is zero. Consequently the induced continuous terms and their intertwining-derivative contributions vanish for the factorizable global test function; the same operator identity kills any residual determinant character arising as a subquotient of such an induction. A supercuspidal matrix coefficient compact modulo center supplies this condition. The K-averaged constant-term identity printed for the Steinberg projector is weaker and is not substituted for this all-x,y condition.
+Hypotheses: Compact-mod-center smooth test function, suitable integrability and fixed unitary central character; strong cuspidal constant-term condition for all x,y.
+
+GL2AutomorphicRepresentationsAndTransfer:R17.2/specialized-trace-comparison
+TauCeti.GL2Blueprint.specializedTraceComparison
+For factorizable test functions with the local matching, central-character and Haar conventions above, specialize AS.6’s invariant trace identities to GL₂/quaternion and GL₂ cyclic base change. Every regular geometric term matches with the stated sign/norm, and the identity, singular/unipotent, residual and continuous terms are compared using the full spectralLedger. Under the all-x,y local cuspidality hypothesis use strongCuspidalVanishing for precisely the indicated terms; in the Steinberg/norm-character case retain the residual correction and match its norm-character contribution. The resulting equality of distributions is the prerequisite exported to R17.3 and R17.4. Its proof requires the complete AS.6/ET.4 singular and intertwining-term comparison; the sketch in JL §16 is not accepted as that verification.
+Hypotheses: Supplier invariant trace formula and local transfer valid for the stated test-function space; compatible measures, central characters, cyclic generator and full spectral-term comparisons.
+-/
 end Trace
 /-
 Explicit signature omissions (PROTOCOL §13; REV-FIX-RT-AREA-automorphic-1~3).

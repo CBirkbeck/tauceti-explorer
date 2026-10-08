@@ -470,7 +470,7 @@
         {
           "sourceId": "milne",
           "locator": "§1, Cartan involutions, definition (9), p. 15",
-          "match": "Supplies the symmetric-space definition applied here to (Res_{F/ℚ}G)_ℝ."
+          "match": "Supplies the Cartan-involution definition (an involution whose twisted real form is compact), applied here to (Res_{F/ℚ}G)_ℝ."
         },
         {
           "sourceId": "milne",
@@ -2461,7 +2461,7 @@
         },
         {
           "sourceId": "hr",
-          "locator": "§4.1, before (4.2)",
+          "locator": "§4.2.1, p.25, before (4.2) (arXiv:1405.6513v2)",
           "match": "The fibration over the Levi locally symmetric space and its Leray–Serre spectral sequence (characteristic zero)."
         }
       ],
@@ -3700,12 +3700,12 @@
       ],
       "title": "Nomizu–van Est: cohomology of unipotent arithmetic groups is Lie algebra cohomology",
       "kind": "theorem",
-      "statement": "Let N be a unipotent group over ℚ, 𝔫_E=Lie(N)⊗ℚE, Γ_N⊂N(ℚ) an arithmetic lattice, E a number field, and V a finite-dimensional algebraic representation of N_E. Rational Nomizu comparison, extended to E, gives H*(𝔫_E,V)≅H*(Γ_N,V), equivalently the local-system cohomology of Γ_N\\N(ℝ). After an embedding E→ℂ this is the comparison by the invariant V-valued differential-form complex with its coefficient action. If N is the radical of P=M⋉N and V extends to an algebraic P_E-representation, its Lie cohomology carries the algebraic M_E-action. The fixed nilmanifold comparison is equivariant for the normalizer of Γ_N in M(ℚ); other commensurator elements require transported lattices and their pullback/trace maps. No integral or mod-p Nomizu–Kostant comparison is asserted.",
+      "statement": "Let N be a unipotent group over ℚ, 𝔫_E=Lie(N)⊗ℚE, Γ_N⊂N(ℚ) an arithmetic lattice, E a number field, and V a finite-dimensional algebraic representation of N_E. Rational Nomizu comparison, extended to E, gives H*(𝔫_E,V)≅H*(Γ_N,V), equivalently the local-system cohomology of Γ_N\\N(ℝ). After an embedding E→ℂ this is the comparison by the invariant V-valued differential-form complex with its coefficient action. If N is the unipotent radical of a rational parabolic P=M⋉N and V extends to an algebraic P_E-representation, its Lie cohomology carries the algebraic M_E-action. The fixed nilmanifold comparison is equivariant for the normalizer of Γ_N in M(ℚ); other commensurator elements require transported lattices and their pullback/trace maps. No integral or mod-p Nomizu–Kostant comparison is asserted.",
       "hypotheses": [
         "E a number field of characteristic zero; the E-linear rational comparison is meant before any optional complex embedding",
         "V a finite-dimensional algebraic N_E-representation",
         "Γ_N arithmetic in N(ℚ), hence a lattice in N(ℝ)",
-        "For the Levi-equivariance statement, N is the radical of P=M⋉N and V extends to an algebraic P_E-representation."
+        "For the Levi-equivariance statement, N is the unipotent radical of the rational parabolic P=M⋉N and V extends to an algebraic P_E-representation."
       ],
       "proofSteps": [
         "Apply rational Nomizu comparison for the algebraic unipotent group and its arithmetic lattice, with the induced E-structure; after E→ℂ this is the invariant-form de Rham comparison. The coefficient representation is unipotent and has a finite N-stable filtration with trivial graded pieces, so the central-series argument extends to V. An E-linear isomorphism is not obtained merely by forgetting the choice of a complex embedding: retain the rational comparison/descent input.",
@@ -3808,7 +3808,7 @@
       ],
       "acceptance": [
         "For GL_{2,ℚ}, P = B: Γ_N ≅ ℤ, E_2^{a,b} = H^a(pt, H^b(ℤ, V)), giving H^0 and H^1 of the cusp circle as invariants and coinvariants of the unipotent monodromy on V.",
-        "In characteristic 0 the E_2 page is the Kostant–van Est formula."
+        "In characteristic 0, over a number field E splitting the group and for V=V_λ irreducible of dominant integral highest weight, the E_2 page is the Kostant–van Est formula."
       ],
       "prerequisites": [
         "ArithmeticLocallySymmetricSpaces:ALS.2/stratum-nilmanifold-fibration",
@@ -5777,9 +5777,9 @@
   ],
   "review": {
     "status": "needs_changes",
-    "reviewer": "independent-review-REV-FIX-RT-AREA-automorphic-1~3",
-    "date": "2026-10-07",
-    "notes": "Independent scoped review of RT-AREA-automorphic-1/6,/27, following REV-FIX-RT-AREA-automorphic-1~2 and the concurrent accepted REV-ArithmeticLocallySymmetricSpaces~2. Preserved that newer revision, its complete source/baseline ledger and unrelated corrections; the earlier first-review failures are not carried forward as if still present. Refined finite-dimensional algebraic coefficients, extension to P for Levi action, rational comparison and E-to-C realization/descent, dominant-weight/splitting-field scope, normalizer versus transported-lattice equivariance and exact Harder-Raghuram v2 locators. The corrected narrow packet/Lean contract is acceptable, but the newer reader still asserts an algebraic Levi action for an arbitrary N-representation and an unqualified E-valued differential-form realization; those concrete contradictions require authorized synchronization before whole-deliverable promotion. Explicit future-carrier/API omissions and the conditional general E2 statement are not blockers. This does not claim a fresh all-66-node/36-pin audit. Lean was not compiled."
+    "reviewer": "independent-review-REV-FIX-RT-AREA-automorphic-1~4",
+    "date": "2026-10-08",
+    "notes": "Independent review of FIX-RT-AREA-automorphic-1~4 (issue #7280, PR #7314, Codex codex-Z0ErNN) by Claude session claude-95TvAO, following REV-FIX-RT-AREA-automorphic-1~3 and, for this packet, REV-ArithmeticLocallySymmetricSpaces~2 (accepted, promoted). Reviewed every change since the promoted version (76f959c6e): ALS.4/nomizu-van-est, boundary-stratum-cohomology-formula, levi-hochschild-serre, ALS.0/cartan-involution sources, the AF.1a request, sources and sourceIssues. Findings /6, /27, /28 and /30 are correctly fixed: algebraic coefficients, an E-linear rational comparison with the differential-form realization only after E→C, a Levi action only when the coefficient extends to P, Kostant over a splitting number field with dominant integral weight, Harder–Raghuram v2 locators §4.2.1–4.2.3 (checked in arXiv:1405.6513v2); SR.2, SR.4 and RG2.4 requests; exact AA.4 neat-level imports with no backward V0 edge; only AF.4 local-prefix imports. Corrected: \"radical\" to \"unipotent radical\" in nomizu-van-est (statement, hypothesis, suggested docstring); the ALS.2/stratum-nilmanifold-fibration locator; the Kostant conditions in a levi-hochschild-serre acceptance test; the cartan-involution source note. Remaining, for the next fix round (reader only, unchanged since promotion): reader ~1503 and ~1511 still give a Levi action on the Lie cohomology of an arbitrary N-module and an invariant-form isomorphism over any characteristic-zero field; ~2302 states Kostant for any reductive Lie algebra over any characteristic-zero field; the Harder–Raghuram locators at ~1521, ~1545 and ~1569 still say §4.1. The suggested file was not recompiled (Tau Ceti imports; docstring-only change)."
   },
   "reviewHistory": [
     {
@@ -6457,6 +6457,12 @@
           "note": "The retained tower-named identifier tests only finite covers, compact boundary-free quotients and invertible-order degeneration under RS-09."
         }
       ]
+    },
+    {
+      "status": "needs_changes",
+      "reviewer": "independent-review-REV-FIX-RT-AREA-automorphic-1~3",
+      "date": "2026-10-07",
+      "notes": "Independent scoped review of RT-AREA-automorphic-1/6,/27, following REV-FIX-RT-AREA-automorphic-1~2 and the concurrent accepted REV-ArithmeticLocallySymmetricSpaces~2. Preserved that newer revision, its complete source/baseline ledger and unrelated corrections; the earlier first-review failures are not carried forward as if still present. Refined finite-dimensional algebraic coefficients, extension to P for Levi action, rational comparison and E-to-C realization/descent, dominant-weight/splitting-field scope, normalizer versus transported-lattice equivariance and exact Harder-Raghuram v2 locators. The corrected narrow packet/Lean contract is acceptable, but the newer reader still asserts an algebraic Levi action for an arbitrary N-representation and an unqualified E-valued differential-form realization; those concrete contradictions require authorized synchronization before whole-deliverable promotion. Explicit future-carrier/API omissions and the conditional general E2 statement are not blockers. This does not claim a fresh all-66-node/36-pin audit. Lean was not compiled."
     }
   ]
 }
