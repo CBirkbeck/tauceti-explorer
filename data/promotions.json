@@ -1308,11 +1308,11 @@
    ]
   },
   "research/blueprint/packets/IntegralHeckeAndGaloisDeterminants.json": {
-   "promotedAt": "2026-10-07T20:37:02Z",
-   "review": "b9e7c6fefbfed4bd",
-   "reviewDate": "2026-10-07",
-   "reviewer": "independent-review-REV-FIX-RT-AREA-automorphic-1~3",
-   "sha256": "f3b3c7f149d037909c82caa182ad7fceec5e1e4e5acccc0ca7fdd712d697c91f",
+   "promotedAt": "2026-10-08T05:25:27Z",
+   "review": "a9d011248f593e99",
+   "reviewDate": "2026-10-08",
+   "reviewer": "independent-review-REV-FIX-RT-AREA-automorphic-1~4",
+   "sha256": "b48049b42b713218b6f01e83819175c721605188ffd575c0b260ca65f778cdd5",
    "to": [
     "data/blueprints/IntegralHeckeAndGaloisDeterminants.json",
     "data/blueprints/IntegralHeckeAndGaloisDeterminants.md"
@@ -1429,6 +1429,17 @@
     "data/blueprints/KTheoryFiniteLocalFields.md"
    ]
   },
+  "research/blueprint/packets/KTheoryLowDegrees--U.1.json": {
+   "promotedAt": "2026-10-08T05:25:27Z",
+   "review": "59cb6469dbb68bf9",
+   "reviewDate": "2026-10-08",
+   "reviewer": "independent-review-REV-KTheoryLowDegrees--U.1~3",
+   "sha256": "31270ad0b3181a9a163730f31f0c1c3ba9df013ea19489aef9527b31c39cb43d",
+   "to": [
+    "data/blueprints/KTheoryLowDegrees--U.1.json",
+    "data/blueprints/KTheoryLowDegrees--U.1.md"
+   ]
+  },
   "research/blueprint/packets/KTheoryLowDegrees--Z.3.json": {
    "promotedAt": "2026-10-07T20:37:02Z",
    "review": "8b99c67e66672678",
@@ -1449,6 +1460,17 @@
    "to": [
     "data/blueprints/LefschetzPencilsAndVanishingCycles--LPV.7.json",
     "data/blueprints/LefschetzPencilsAndVanishingCycles--LPV.7.md"
+   ]
+  },
+  "research/blueprint/packets/LocalGaloisDeformationRings.json": {
+   "promotedAt": "2026-10-08T05:25:27Z",
+   "review": "b22a50f8e13ea9ad",
+   "reviewDate": "2026-10-08",
+   "reviewer": "independent-review-REV-LocalGaloisDeformationRings~2",
+   "sha256": "b2f9fa6210210c97bc6f612363d33dad2c4eefc07a62ed92168143b6e4a809bc",
+   "to": [
+    "data/blueprints/LocalGaloisDeformationRings.json",
+    "data/blueprints/LocalGaloisDeformationRings.md"
    ]
   },
   "research/blueprint/packets/MordellLawrenceVenkatesh.json": {

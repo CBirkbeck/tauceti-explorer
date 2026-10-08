@@ -1,8 +1,8 @@
 {
   "roadmaps": 236,
-  "stages": 4534,
+  "stages": 4621,
   "originalStages": 2160,
-  "sourceRefinements": 2374,
+  "sourceRefinements": 2461,
   "reviewedDecompositions": [
     {
       "roadmap": "AInfCohomology",
@@ -299,14 +299,14 @@
   "editedRoadmapSummaries": 181,
   "curatedStagePresentations": 339,
   "administrativeStages": 101,
-  "mathematicalStars": 4433,
+  "mathematicalStars": 4520,
   "plainTextPlanetLabels": 398,
   "hiddenPlanets": 600,
   "mappedStageStatuses": 350,
   "libraryAuditStatuses": 19,
   "bibliographicSources": 46,
-  "roadmapEdges": 2076,
-  "stageEdges": 11767,
+  "roadmapEdges": 2082,
+  "stageEdges": 11906,
   "reviewedLinkPackets": 25,
   "promotedBlueprints": [
     {
@@ -877,7 +877,7 @@
       "file": "IntegralHeckeAndGaloisDeterminants",
       "roadmap": "IntegralHeckeAndGaloisDeterminants",
       "nodes": 253,
-      "reviewer": "independent-review-REV-FIX-RT-AREA-automorphic-1~3"
+      "reviewer": "independent-review-REV-FIX-RT-AREA-automorphic-1~4"
     },
     {
       "file": "JacobianChallengePartII",
@@ -940,6 +940,12 @@
       "reviewer": "independent-review-REV-KTheoryFiniteLocalFields~2"
     },
     {
+      "file": "KTheoryLowDegrees--U.1",
+      "roadmap": "KTheoryLowDegrees",
+      "nodes": 334,
+      "reviewer": "independent-review-REV-KTheoryLowDegrees--U.1~3"
+    },
+    {
       "file": "KTheoryLowDegrees--Z.3",
       "roadmap": "KTheoryLowDegrees",
       "nodes": 260,
@@ -950,6 +956,12 @@
       "roadmap": "LefschetzPencilsAndVanishingCycles",
       "nodes": 36,
       "reviewer": "independent-review-REV-LefschetzPencilsAndVanishingCycles--LPV.7"
+    },
+    {
+      "file": "LocalGaloisDeformationRings",
+      "roadmap": "LocalGaloisDeformationRings",
+      "nodes": 157,
+      "reviewer": "independent-review-REV-LocalGaloisDeformationRings~2"
     },
     {
       "file": "MordellLawrenceVenkatesh",
@@ -1085,8 +1097,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 35433049,
-  "htmlSha256": "25c65b0bebac482b8566f8f86631bf3e16d611a5258adee0c5878474bf23bdc2",
+  "htmlBytes": 35720033,
+  "htmlSha256": "7ec0315e2de5d5b4cd6ee57ce4e63e9a4397fcf81f67563165dc739445eb13f5",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -1118,7 +1130,7 @@
     "data/roadmap-summaries.json": "c8bdd0a9105f5d3c4a858c8b635990729f8e94497dee784a71fae659b8c05b9f",
     "data/roadmap-classification.json": "2641dbc97eb2566c715162d011b46890d1635629181ef8126ac7aed9e24a3b13",
     "data/classification-estimates.json": "625d35fe6121bf099dc5de9e6a9111793596f9b664e3fbd439841434bb4a57d6",
-    "data/roadmap-distances.json": "a60092b315a6cb73e633dcbaa5baa9e19356cb43c8de41381e1f9f4106831c33",
+    "data/roadmap-distances.json": "a346f72f5fbfdb94c8ee9f51c02ea0ccae7e6614e32afb2e81afa8c42cc32172",
     "data/galaxy-layout.json": "2c01bbf6e2083476a6b73f3d295c4d4c898d0be461c21fb0195da29a30469a03",
     "data/bibliography.json": "bef230a41fad22d6b790c7564061c4d05c2ae5b78cab53d005eb404afab2b122",
     "NOTICE": "a285b95d5adbf5c2bcc82db36e2a77b797f84a2c5cbb30292efd0bae17cc4f34",
@@ -1364,7 +1376,7 @@
     "data/blueprints/IgusaVarietiesAndTorsionConcentration.md": "cd118c16ddb3651709e26fffbf0e3febee0a160db83976f477aea882652faff1",
     "data/blueprints/InductionRestrictionPartII.json": "85af7815c4223c6b160f957e001598afb66ae1aaa84ddbea6995008ed72519c5",
     "data/blueprints/InductionRestrictionPartII.md": "62bab3a7d7a78e2b81f254fdb13b351108bd5ad2d51a12a409e8c8ff9eddb7e3",
-    "data/blueprints/IntegralHeckeAndGaloisDeterminants.json": "e39d9aac6fb2870deaa93095e44c36f8c47f02b9d9a735ab7627ead68a682c58",
+    "data/blueprints/IntegralHeckeAndGaloisDeterminants.json": "0a4a4e78c8120a14290734b914ee33506263a33192a42da1580aed68410c01f2",
     "data/blueprints/IntegralHeckeAndGaloisDeterminants.md": "de36ce9822a774ad3d99186cc8ec0f510a5a989f6d30b9d90b830dba644c3863",
     "data/blueprints/JacobianChallengePartII.json": "2da73e3c0831882d8ce8aafb9ac0d468cfefdf784ef8e25b5651a5347d37f275",
     "data/blueprints/JacobianChallengePartII.md": "630fa6d551abfef4d0e916d091f7c82fd89e93f3db947ff3747dc84de0bf821c",
@@ -1386,10 +1398,14 @@
     "data/blueprints/K3BlochGroups.md": "165b68c2bffead7bf468a831b3900aa954e06bbea3e85878621915d056c4c05f",
     "data/blueprints/KTheoryFiniteLocalFields.json": "4490258a1f92501a1c16ea6fd2495c0ef556cf9ebd2edc2ddd45439a649bfbc8",
     "data/blueprints/KTheoryFiniteLocalFields.md": "0f9ca18b185293e311bbf56d28441ff8894b19d370db12fafe23980d89329d8d",
+    "data/blueprints/KTheoryLowDegrees--U.1.json": "2b95aab2818479b25e6826f2f25d22d31cc37fa91a1726debba883f2e5f4767b",
+    "data/blueprints/KTheoryLowDegrees--U.1.md": "cadc9d079802557c2ec7ca52bed41fa8759247e16421b2bfa3dc0fd720d34d13",
     "data/blueprints/KTheoryLowDegrees--Z.3.json": "0a0df0d0da40ad33d96e6de2b05df68007adedb0dba640ecedb7a3a876e1e6c0",
     "data/blueprints/KTheoryLowDegrees--Z.3.md": "1de007c18a4159cf6bfc16149c6422ebf8f5f05c6d4fa9d4bef3f4fa400bcc86",
     "data/blueprints/LefschetzPencilsAndVanishingCycles--LPV.7.json": "2094b25ba6edf1a354a117c28ec9e365def97ae9c533ca75da347cf4db5859a3",
     "data/blueprints/LefschetzPencilsAndVanishingCycles--LPV.7.md": "13091d41320605895a5f4d857dd9ce0df5caa88b68f4ea3e54effba78aab68cd",
+    "data/blueprints/LocalGaloisDeformationRings.json": "b2f9fa6210210c97bc6f612363d33dad2c4eefc07a62ed92168143b6e4a809bc",
+    "data/blueprints/LocalGaloisDeformationRings.md": "d142df583e6fcbc1a3d03c98c85b6b9a9d44f6fa7219130d70546c3506ea2d7c",
     "data/blueprints/MordellLawrenceVenkatesh.json": "d96efada7b6f6bc81bbc54c93c73457ccb1f1ca6d15cfe46bb739e8a35a69c0d",
     "data/blueprints/MordellLawrenceVenkatesh.md": "7cb852d88f7868a343e38a95cc7799f16eb269e51d11c30f3ba875f9dc65f3c4",
     "data/blueprints/MotivicEtaleKTheory--M.1.json": "3ab8dff7e0f6b45da632763a17975ffc294f619b7bb21452b31380a036dc5b23",
