@@ -1,0 +1,8 @@
+{
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-PKG-PotentialAutomorphyInfrastructure",
+    "date": "2026-10-08",
+    "notes": "Independent review of all 123 README targets, 122 API statements, 90 test descriptions, source locators, supplier boundaries, touching links, ten pinned baseline declarations, upstream presentation and single-line math.NT metadata. Clarified the introductory derived-duality convention: the ordinary cohomological Hom formula applies after extending scalars to E; integral derived Hom retains Ext contributions. README is 198610 bytes. lean-check exits 0 with 92 sorry warnings, no errors and no other warnings, using the exact pinned Mathlib and no TauCeti imports. Items 1-4 and 6 pass after clarification; item 5 fails on signature coverage: only 14 of 29 definition names (including partial local cores), 1 of 94 theorem target names, 48 of 122 API names and 45 of 90 tests occur in elaborated code. The remaining arithmetic contracts are comments, not signatures. The accepted plan records this partial prototype honestly, but it does not meet the final-package requirement of PROTOCOL sections 13 and 20. Revision must supply owner-typed arithmetic signatures and adapters without fabricated Prop conditions or weakened targets. The report gives the missing definition names, stage counts, examples and exact validation limits. Blueprint validator: zero errors and zero warnings; accepted input files unchanged."
+  }
+}
