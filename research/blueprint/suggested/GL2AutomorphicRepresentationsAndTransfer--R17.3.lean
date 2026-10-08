@@ -5,14 +5,13 @@ can converge on names and signatures. They claim no implementation.
 
 The pinned libraries do not contain the supplier-owned automorphic isomorphism
 classes, localRep Weil–Deligne interfaces, arithmetic projective obstruction or
-Hilbert weight-one dictionary. DClass, FClass, EClass and GL3Class below are type
-parameters for those suppliers' carriers, not new definitions of representations.
-Local projections, twists, norms and conjugations must likewise be the suppliers'
-actual operations. The unavailable conditions are omitted, as identified beside
-each section, rather than replaced by Prop-valued fields or dummy predicates.
-A signature with omitted conditions is NOT a theorem for arbitrary type parameters
-and functions. The packet gives the complete mathematics. Compilation checks only
-these provisional signatures, including concrete matrix formulas and examples.
+Hilbert weight-one dictionary. Statements needing those carriers, or the suppliers'
+local projections, twists, norms and conjugations, are recorded as §13 omission
+blocks below (node statement and hypotheses copied from the packet), never as
+declarations over arbitrary type parameters and functions, Prop-valued fields or
+dummy predicates. Every remaining declaration is intended to be true as written.
+The packet gives the complete mathematics. Compilation checks only these
+provisional signatures, including concrete matrix formulas and examples.
 
 Only Mathlib modules are imported: they are at the exact pinned Mathlib commit.
 The pinned Tau Ceti zero-class lifting theorem is read and cited in the packet;
@@ -29,6 +28,7 @@ import Mathlib.RepresentationTheory.Irreducible
 import Mathlib.RingTheory.PowerSeries.Basic
 import Mathlib.Topology.Instances.AddCircle.Defs
 import Mathlib.FieldTheory.AbsoluteGaloisGroup
+import Mathlib.FieldTheory.IsAlgClosed.Basic
 import Mathlib.NumberTheory.NumberField.Basic
 import Mathlib.Topology.LocallyConstant.Basic
 import Mathlib.RepresentationTheory.Induced
@@ -108,114 +108,64 @@ example (A : GeneralLinearGroup (Fin 2) ℚ) (hA : A.val = !![2, 0; 0, 3]) :
     unramifiedBaseChange (unramifiedBaseChange A 2) 3 = unramifiedBaseChange A 6 := by sorry
 end Satake
 
+/-
+Explicit signature omissions (PROTOCOL §13; REV-FIX-RT-AREA-automorphic-1~4).
+Cyclic base change is a map only between the supplier's isobaric GL₂ classes over F and over the given prime-cyclic E/F, with the arithmetic LLC normalization and the R17.2 trace comparison, and its Galois invariance refers to the actual Gal(E/F) action on automorphic classes over E; a function between two arbitrary types, or invariance under an arbitrary self-map, is not this statement.
+These source targets require the actual supplier objects and hypotheses below.
+They are not universal theorems about arbitrary types, functions, or multiplicity maps.
+Omitted declaration names: TauCeti.GL2Transfer.cyclicBaseChange, TauCeti.GL2Transfer.cyclicBaseChange_local, TauCeti.GL2Transfer.cyclicBaseChange_unramified, TauCeti.GL2Transfer.cyclicBaseChange_central, TauCeti.GL2Transfer.cyclicBaseChange_twist, TauCeti.GL2Transfer.cyclicBaseChange_galois, TauCeti.GL2Transfer.cyclicBaseChange_coefficients.
+Full source-level tests awaiting the same carriers: TauCeti.GL2Transfer.cyclic_split_test, TauCeti.GL2Transfer.cyclic_inert_test, TauCeti.GL2Transfer.cyclic_induced_test, TauCeti.GL2Transfer.cyclic_odd_degree_test.
+
+GL2AutomorphicRepresentationsAndTransfer:R17.4/cyclic-base-change
+TauCeti.GL2Transfer.cyclicBaseChange
+For a cyclic extension E/F of prime degree ℓ of number fields, there is a uniquely determined strong base-change map BC_{E/F} from isobaric automorphic GL₂ classes over F to isobaric automorphic GL₂ classes over E. BC(π) is the unique isobaric Π such that, at every place w|v, Π_w is the local base-change lift of π_v (Langlands §2, criteria (i)/(ii)). At an unramified w|v its Satake class is unramifiedBaseChange(A_v, f(w/v)); when v splits, Π_w ≅ π_v. A cuspidal input has a cuspidal output or, only for ℓ = 2, an output θ⊞θ^σ for a Hecke character θ of E. The central character is ω_π∘N_{E/F}. The output is invariant under Gal(E/F), and the map does not depend on the chosen generator σ. Neither cuspidality nor injectivity is automatic. The theorem local-compatibility identifies BC(π)_w with the restriction to W_{E_w} of the arithmetic-normalised LLC parameter of π_v.
+Hypotheses: F is a number field and E/F is cyclic of prime degree ℓ; σ is a generator of Gal(E/F). The resulting map does not depend on σ. π is an isobaric automorphic representation of GL₂(A_F): cuspidal, or χ₁⊞χ₂ with idele class characters χ₁, χ₂. Local lifting is the Langlands–Shintani local base change (Langlands §2 criteria (i)/(ii); Arthur–Clozel Ch. 1 Definition 6.1). Unramified Satake classes use the R16.3 arithmetic normalisation. Arthur–Clozel's theorems assume representations induced from unitary cuspidal ones; Langlands's GL₂ theorems have no unitarity assumption.
+TauCeti.GL2Transfer.cyclicBaseChange_local: At w|v, BC(π)_w is the local base-change lift of π_v in the sense of Langlands §2 (criteria (i)/(ii)); at split v it is π_v. Its description as the restriction of the normalised local parameter to W_{E_w} is the theorem local-compatibility.
+TauCeti.GL2Transfer.cyclicBaseChange_unramified: At unramified w|v, Satake equals unramifiedBaseChange(A_v,f(w/v)).
+TauCeti.GL2Transfer.cyclicBaseChange_central: The central character is pullback along the idele norm.
+TauCeti.GL2Transfer.cyclicBaseChange_twist: BC(π⊗χ)=BC(π)⊗(χ∘N_{E/F}).
+TauCeti.GL2Transfer.cyclicBaseChange_galois: Every output is Gal(E/F)-invariant; every invariant cuspidal class occurs, with the fibers described in cyclic-descent-fibers.
+TauCeti.GL2Transfer.cyclicBaseChange_coefficients: In the supplied rational/cohomological regime, coefficient conjugation commutes with BC after the recorded normalization.
+TauCeti.GL2Transfer.cyclic_split_test: At a completely split v each local output equals the original component and its Satake representative A_v.
+TauCeti.GL2Transfer.cyclic_inert_test: At an inert unramified place of a quadratic extension, diag(2,3) becomes diag(4,9).
+TauCeti.GL2Transfer.cyclic_induced_test: For π=AI_{E/F}(θ) with θ≠θ^σ in a quadratic extension, BC(π)=θ⊞θ^σ and is not cuspidal.
+TauCeti.GL2Transfer.cyclic_odd_degree_test: For prime ℓ>2, every cuspidal GL₂ input remains cuspidal.
+-/
 section Cyclic
 variable {FClass EClass V W LF LE H HF HE C K : Type*} [CommRing K]
 
-/-- Missing: prime-cyclic extension E/F, the supplier's isobaric GL₂ classes,
-arithmetic LLC normalization, and the trace comparison of R17.2. -/
-noncomputable def cyclicBaseChange (FClass EClass : Type*) : FClass → EClass := by sorry
-
-lemma cyclicBaseChange_local (π : FClass) (v : V) (w : W)
-    (localF : FClass → V → LF) (localE : EClass → W → LE) (res : LF → LE) :
-    localE (cyclicBaseChange FClass EClass π) w = res (localF π v) := by sorry
-
-lemma cyclicBaseChange_unramified (π : FClass) (v : V) (w : W) (f : ℕ)
-    (satF : FClass → V → GeneralLinearGroup (Fin 2) K)
-    (satE : EClass → W → GeneralLinearGroup (Fin 2) K) :
-    satE (cyclicBaseChange FClass EClass π) w = unramifiedBaseChange (satF π v) f := by sorry
-
-lemma cyclicBaseChange_central (π : FClass) (ωF : FClass → HF) (ωE : EClass → HE)
-    (normPullback : HF → HE) :
-    ωE (cyclicBaseChange FClass EClass π) = normPullback (ωF π) := by sorry
-
-lemma cyclicBaseChange_twist (π : FClass) (χ : HF) (normPullback : HF → HE)
-    (twistF : HF → FClass → FClass) (twistE : HE → EClass → EClass) :
-    cyclicBaseChange FClass EClass (twistF χ π) =
-      twistE (normPullback χ) (cyclicBaseChange FClass EClass π) := by sorry
-
--- The converse (every invariant cuspidal class occurs) is cyclic_descent below.
-lemma cyclicBaseChange_galois (π : FClass) (σ : EClass → EClass) :
-    σ (cyclicBaseChange FClass EClass π) = cyclicBaseChange FClass EClass π := by sorry
-
--- Missing: cohomological rational structures and the precise normalization twist.
-lemma cyclicBaseChange_coefficients (π : FClass)
-    (conjugateF : FClass → FClass) (conjugateE : EClass → EClass) :
-    cyclicBaseChange FClass EClass (conjugateF π) =
-      conjugateE (cyclicBaseChange FClass EClass π) := by sorry
-
--- TauCeti.GL2Transfer.cyclic_split_test
--- Missing: v completely split, w|v, using the identity localRep identification.
-example (π : FClass) (v : V) (w : W)
-    (localF : FClass → V → C) (localE : EClass → W → C) :
-    localE (cyclicBaseChange FClass EClass π) w = localF π v := by sorry
-
--- TauCeti.GL2Transfer.cyclic_inert_test
--- Missing: v inert and unramified in the quadratic E/F, w the place above it, and
--- satF/satE the suppliers' Satake projections. No global form with arbitrarily
--- prescribed diagonal Satake eigenvalues is asserted.
-example (π : FClass) (v : V) (w : W)
-    (satF : FClass → V → GeneralLinearGroup (Fin 2) ℚ)
-    (satE : EClass → W → GeneralLinearGroup (Fin 2) ℚ)
-    (hA : (satF π v).val = !![2, 0; 0, 3]) :
-    (satE (cyclicBaseChange FClass EClass π) w).val = !![4, 0; 0, 9] := by sorry
-
--- TauCeti.GL2Transfer.cyclic_induced_test
--- Missing: θ≠θ^σ, quadratic E/F and the actual isobaric direct-sum operation.
-example (θ : H) (σ : H → H) (hθ : θ ≠ σ θ)
-    (ai : H → FClass) (isobaricSum : H → H → EClass) :
-    cyclicBaseChange FClass EClass (ai θ) = isobaricSum θ (σ θ) := by sorry
-
--- TauCeti.GL2Transfer.cyclic_odd_degree_test
--- Missing: E/F cyclic of the odd prime degree ℓ; CF/CE are the suppliers'
--- cuspidal subtypes with their forget maps. A cuspidal input stays cuspidal.
-example {CF CE : Type*} (ℓ : ℕ) (hprime : ℓ.Prime) (hodd : ℓ ≠ 2)
-    (forgetF : CF → FClass) (forgetE : CE → EClass) (π : CF) :
-    ∃ Pi : CE, cyclicBaseChange FClass EClass (forgetF π) = forgetE Pi := by sorry
+-- TauCeti.GL2Transfer.cyclic_inert_test (matrix component)
+example (A : GeneralLinearGroup (Fin 2) ℚ) (hA : A.val = !![2, 0; 0, 3]) :
+    (unramifiedBaseChange A 2).val = !![4, 0; 0, 9] := by sorry
 end Cyclic
 
+/-
+Explicit signature omissions (PROTOCOL §13; REV-FIX-RT-AREA-automorphic-1~4).
+Solvable base change is the isobaric class map for a finite solvable Galois E/F with chosen compatible embeddings, characterized independently of a prime-cyclic tower; maps between arbitrary types cannot satisfy the identity, tower and twist laws simultaneously.
+These source targets require the actual supplier objects and hypotheses below.
+They are not universal theorems about arbitrary types, functions, or multiplicity maps.
+Omitted declaration names: TauCeti.GL2Transfer.solvableBaseChange, TauCeti.GL2Transfer.solvableBaseChange_refl, TauCeti.GL2Transfer.solvableBaseChange_tower, TauCeti.GL2Transfer.solvableBaseChange_local, TauCeti.GL2Transfer.solvableBaseChange_twist.
+Full source-level tests awaiting the same carriers: TauCeti.GL2Transfer.solvable_empty_test, TauCeti.GL2Transfer.solvable_two_towers_test, TauCeti.GL2Transfer.solvable_degree_six_test, TauCeti.GL2Transfer.solvable_cuspidality_test.
+
+GL2AutomorphicRepresentationsAndTransfer:R17.4/solvable-base-change
+TauCeti.GL2Transfer.solvableBaseChange
+Let E/F be a finite Galois extension with solvable Galois group. Choose a subnormal tower F=F₀⊂F₁⊂⋯⊂F_r=E with each step cyclic of prime degree and define BC_{E/F} by composing the prime-cyclic maps on isobaric GL₂ classes. At every local place the normalized parameter is restricted from F to E; the map is independent of the chosen prime-cyclic tower by almost-everywhere Satake comparison and isobaric strong multiplicity one. It preserves twists through the total norm and preserves cuspidality exactly when no intermediate step meets its quadratic self-twist exception. A non-Galois cubic extension has no such prime-cyclic tower from F; it is not constructed here.
+Hypotheses: E/F is a finite Galois extension of number fields with solvable Galois group. A chosen subnormal tower F=F₀⊂F₁⊂⋯⊂F_r=E in which each F_i/F_{i−1} is cyclic of prime degree ℓ_i (F_i need not be normal over F), with compatible embeddings and places. π is an isobaric automorphic representation of GL₂(A_F). Non-Galois extensions, such as non-normal cubic fields, are excluded.
+TauCeti.GL2Transfer.solvableBaseChange_refl: For E=F and the empty tower the map is identity.
+TauCeti.GL2Transfer.solvableBaseChange_tower: For a nested pair of solvable normal extensions the map agrees with composition, with the chosen compatible embeddings.
+TauCeti.GL2Transfer.solvableBaseChange_local: Every local parameter is restriction along the total local extension, and at completely split places it is unchanged.
+TauCeti.GL2Transfer.solvableBaseChange_twist: Twisting by χ before BC equals twisting after BC by χ∘N_{E/F}.
+TauCeti.GL2Transfer.solvable_empty_test: The empty tower fixes every isobaric class.
+TauCeti.GL2Transfer.solvable_two_towers_test: For a biquadratic E/F, the towers through two different quadratic subfields give equal isobaric output.
+TauCeti.GL2Transfer.solvable_degree_six_test: At a place with local residue degrees two then three, diag(2,3) becomes diag(64,729).
+TauCeti.GL2Transfer.solvable_cuspidality_test: A cuspidal input induced from the first quadratic step is already noncuspidal there, so no blanket solvable cuspidality theorem is asserted.
+-/
 section Solvable
 variable {FClass EClass LClass V W LF LE HF HE : Type*}
 
-/-- Missing: finite solvable Galois E/F and its chosen compatible embeddings;
-the isobaric class map is characterized independently of a prime-cyclic tower. -/
-noncomputable def solvableBaseChange (FClass EClass : Type*) : FClass → EClass := by sorry
-
--- Missing E=F and the empty tower.
-lemma solvableBaseChange_refl (π : FClass) : solvableBaseChange FClass FClass π = π := by sorry
-
-lemma solvableBaseChange_tower (π : FClass) :
-    solvableBaseChange EClass LClass (solvableBaseChange FClass EClass π) =
-      solvableBaseChange FClass LClass π := by sorry
-
-lemma solvableBaseChange_local (π : FClass) (v : V) (w : W)
-    (localF : FClass → V → LF) (localE : EClass → W → LE) (res : LF → LE) :
-    localE (solvableBaseChange FClass EClass π) w = res (localF π v) := by sorry
-
-lemma solvableBaseChange_twist (π : FClass) (χ : HF) (normPullback : HF → HE)
-    (twistF : HF → FClass → FClass) (twistE : HE → EClass → EClass) :
-    solvableBaseChange FClass EClass (twistF χ π) =
-      twistE (normPullback χ) (solvableBaseChange FClass EClass π) := by sorry
-
--- TauCeti.GL2Transfer.solvable_empty_test
-example (π : FClass) : solvableBaseChange FClass FClass π = π := by sorry
-
--- TauCeti.GL2Transfer.solvable_two_towers_test
--- Missing: MClass and LClass are the classes for two quadratic subfields of
--- the same biquadratic E/F, with each cyclic map using that field extension.
-example {MClass : Type*} (π : FClass) :
-    cyclicBaseChange LClass EClass (cyclicBaseChange FClass LClass π) =
-      cyclicBaseChange MClass EClass (cyclicBaseChange FClass MClass π) := by sorry
-
--- TauCeti.GL2Transfer.solvable_degree_six_test
+-- TauCeti.GL2Transfer.solvable_degree_six_test (matrix component)
 example (A : GeneralLinearGroup (Fin 2) ℚ) (hA : A.val = !![2, 0; 0, 3]) :
     (unramifiedBaseChange (unramifiedBaseChange A 2) 3).val = !![64, 0; 0, 729] := by sorry
-
--- TauCeti.GL2Transfer.solvable_cuspidality_test
--- Missing: first quadratic step, a non-invariant inducing character, and
--- isobaricSum. The displayed sum witnesses loss of cuspidality there.
-example {H : Type*} (θ : H) (σ : H → H) (hθ : θ ≠ σ θ)
-    (ai : H → FClass) (isobaricSum : H → H → EClass) :
-    solvableBaseChange FClass EClass (ai θ) = isobaricSum θ (σ θ) := by sorry
 end Solvable
 
 /-
@@ -279,64 +229,36 @@ TauCeti.GL2Transfer.cubic_one_two_test: For splitting type (1,2) and A=diag(2,3)
 TauCeti.GL2Transfer.cubic_inert_test: For residue degree three and A=diag(2,3), the output is diag(8,27).
 TauCeti.GL2Transfer.cubic_not_three_test: At splitting type (1,2), replacing every output by A³ gives the wrong local components.
 -/
+/-
+Explicit signature omissions (PROTOCOL §13; REV-FIX-RT-AREA-automorphic-1~4).
+Quadratic automorphic induction needs the quadratic K/F, the continuous Hecke-character carrier of K, its Galois conjugation, actual Weil induction and the isobaric and cuspidal GL₂ carriers; a map between arbitrary types, an arbitrary σ or an arbitrary cuspidal subtype does not express the cuspidality criterion.
+These source targets require the actual supplier objects and hypotheses below.
+They are not universal theorems about arbitrary types, functions, or multiplicity maps.
+Omitted declaration names: TauCeti.GL2Transfer.quadraticInduction, TauCeti.GL2Transfer.quadraticInduction_local, TauCeti.GL2Transfer.quadraticInduction_central, TauCeti.GL2Transfer.quadraticInduction_baseChange, TauCeti.GL2Transfer.quadraticInduction_twist, TauCeti.GL2Transfer.quadraticInduction_cuspidal.
+Full source-level tests awaiting the same carriers: TauCeti.GL2Transfer.induction_invariant_test, TauCeti.GL2Transfer.induction_split_test, TauCeti.GL2Transfer.induction_determinant_test, TauCeti.GL2Transfer.induction_noninvariant_test.
+
+GL2AutomorphicRepresentationsAndTransfer:R17.5/quadratic-induction
+TauCeti.GL2Transfer.quadraticInduction
+Let K/F be a quadratic extension of number fields, σ its nontrivial automorphism and θ a Hecke character of K. Quadratic automorphic induction AI_{K/F}(θ) is an isobaric GL₂ automorphic representation with local parameter Ind_{W_{K_w}}^{W_{F_v}}(θ_w), interpreted as the direct sum over w|v at a split place. It is cuspidal exactly when θ≠θ^σ. Its central character is η_{K/F}·θ|_{A_F×}, and L_F(s,AI θ)=L_K(s,θ). Its quadratic base change is θ⊞θ^σ. It commutes with twisting by χ of F using θ·(χ∘N_{K/F}); if θ=χ∘N, it is χ⊞χη, not cuspidal. The finite-group induction carrier and Mackey formulas are imported, not defined here.
+Hypotheses: K/F is a separable quadratic extension of number fields (JL70 allows global fields), σ its nontrivial automorphism and η=η_{K/F}. θ is a Hecke character (quasi-character of A_K^×/K^×). Cuspidal branch: θ≠θ^σ, equivalently θ does not factor through N_{K/F} (class field theory). Unitary normalisation: at inert or ramified v the local component is π(Ind θ_w); at split v it is π(θ_w,θ_{w′}).
+TauCeti.GL2Transfer.quadraticInduction_local: Local LLC of AI θ is local induction of θ, with a direct sum at a split place.
+TauCeti.GL2Transfer.quadraticInduction_central: ω(AI θ)=η_{K/F}·θ|_{A_F×}.
+TauCeti.GL2Transfer.quadraticInduction_baseChange: BC_{K/F}(AI θ)=θ⊞θ^σ.
+TauCeti.GL2Transfer.quadraticInduction_twist: AI(θ·χ∘N)=AI(θ)⊗χ.
+TauCeti.GL2Transfer.quadraticInduction_cuspidal: AI θ is cuspidal if and only if θ≠θ^σ.
+TauCeti.GL2Transfer.induction_invariant_test: θ=χ∘N has output χ⊞χη and is not cuspidal.
+TauCeti.GL2Transfer.induction_split_test: At v split as w,w′ the local parameter is θ_w⊕θ_w′.
+TauCeti.GL2Transfer.induction_determinant_test: For a coset element with induced matrix [[0,a],[b,0]], its determinant is −ab, accounting for the quadratic character.
+TauCeti.GL2Transfer.induction_noninvariant_test: When θ≠θ^σ, replacing AI θ by two F-characters contradicts cuspidality.
+-/
 section QuadraticInduction
 variable {FClass EClass H V L2 L1 HF C : Type*}
 
-/-- Missing: K/F quadratic, the supplied continuous Hecke-character carrier H,
-and the canonical localRep/global isobaric classes with normalization fixed. -/
-noncomputable def quadraticInduction (H FClass : Type*) : H → FClass := by sorry
-
-lemma quadraticInduction_local (θ : H) (v : V)
-    (localChar : H → V → L1) (induce : L1 → L2) (localRep : FClass → V → L2) :
-    localRep (quadraticInduction H FClass θ) v = induce (localChar θ v) := by sorry
-
-lemma quadraticInduction_central [Monoid HF] (θ : H) (η : HF)
-    (restrictChar : H → HF) (ω : FClass → HF) :
-    ω (quadraticInduction H FClass θ) = η * restrictChar θ := by sorry
-
-lemma quadraticInduction_baseChange (θ : H) (σ : H → H)
-    (isobaricSum : H → H → EClass) :
-    cyclicBaseChange FClass EClass (quadraticInduction H FClass θ) =
-      isobaricSum θ (σ θ) := by sorry
-
-lemma quadraticInduction_twist [Monoid H] (θ : H) (χ : HF)
-    (normPullback : HF → H) (twist : HF → FClass → FClass) :
-    quadraticInduction H FClass (θ * normPullback χ) =
-      twist χ (quadraticInduction H FClass θ) := by sorry
-
--- Missing: the actual cuspidal-subtype map of the automorphic supplier. The
--- membership formulation avoids defining a new cuspidality predicate here.
-lemma quadraticInduction_cuspidal {CuspidalClass : Type*} (θ : H) (σ : H → H)
-    (forget : CuspidalClass → FClass) :
-    (∃ π : CuspidalClass, forget π = quadraticInduction H FClass θ) ↔ θ ≠ σ θ := by sorry
-
--- TauCeti.GL2Transfer.induction_invariant_test
--- Missing: normPullback, η and sum are the supplied quadratic reciprocity data.
-example (χ : HF) (η : HF) (normPullback : HF → H)
-    (isobaricSum : HF → HF → FClass) [Monoid HF] :
-    quadraticInduction H FClass (normPullback χ) = isobaricSum χ (χ * η) := by sorry
-
--- TauCeti.GL2Transfer.induction_split_test
--- Missing: split v with the two localRep character values a,b and the localRep parameter map.
-example {K : Type*} [Field K] (θ : H) (v : V) (a b : K)
-    (localRep : FClass → V → Matrix (Fin 2) (Fin 2) K) :
-    localRep (quadraticInduction H FClass θ) v = diagonal ![a, b] := by sorry
-
--- TauCeti.GL2Transfer.induction_determinant_test
--- Missing: v inert in K/F, Wv its local Weil group and g ∈ Wv outside the
--- index-two subgroup; localRep is the supplied local parameter of AI θ. In the
--- basis {e, g e} the parameter of g is antidiagonal, and its determinant is
--- -(a * b): the sign is η_{K/F}(g) = -1 of the central-character formula.
-example {K Wv : Type*} [CommRing K] [Group Wv] (θ : H) (v : V) (g : Wv) (a b : K)
-    (localRep : FClass → V → Wv →* GeneralLinearGroup (Fin 2) K)
-    (hg : (localRep (quadraticInduction H FClass θ) v g).val = !![0, a; b, 0]) :
-    ((localRep (quadraticInduction H FClass θ) v g).val).det = -(a * b) := by sorry
-
--- TauCeti.GL2Transfer.induction_noninvariant_test
--- Missing: rank-one isobaric classes do not lie in the supplied cuspidal subtype.
-example {CuspidalClass : Type*} (θ : H) (σ : H → H) (hθ : θ ≠ σ θ)
-    (forget : CuspidalClass → FClass) :
-    ∃ π : CuspidalClass, forget π = quadraticInduction H FClass θ := by sorry
+-- In the basis {e, g e} the parameter of a coset element g is antidiagonal; its
+-- determinant -(a * b) carries the sign η_{K/F}(g) = -1.
+-- TauCeti.GL2Transfer.induction_determinant_test (matrix component)
+example {K : Type*} [CommRing K] (a b : K) :
+    (!![0, a; b, 0] : Matrix (Fin 2) (Fin 2) K).det = -(a * b) := by sorry
 end QuadraticInduction
 
 /-
@@ -344,7 +266,8 @@ Explicit signature omissions (PROTOCOL §13; REV-FIX-RT-AREA-automorphic-1~3).
 The non-norm JL domain, eligible cuspidal range, actual Hecke/local-factor maps, compatible rational models and prescribed infinity/globalization hypotheses are required. Equality of rationality fields does not itself provide those models.
 These source targets require the actual supplier objects and hypotheses below.
 They are not universal theorems about arbitrary types, functions, or multiplicity maps.
-Omitted declaration names: TauCeti.GL2Transfer.norm_exception, TauCeti.GL2Transfer.split_hecke, TauCeti.GL2Transfer.local_factors, TauCeti.GL2Transfer.strong_multiplicity_one, TauCeti.GL2Transfer.multiplicity_one, TauCeti.GL2Transfer.coefficient_conjugation, TauCeti.GL2Transfer.rational_models, TauCeti.GL2Transfer.definite_infinity, TauCeti.GL2Transfer.indefinite_parity, TauCeti.GL2Transfer.invariant_exchange, TauCeti.GL2Transfer.supercuspidal_globalization.
+Omitted declaration names: TauCeti.GL2Transfer.norm_exception, TauCeti.GL2Transfer.split_hecke, TauCeti.GL2Transfer.local_factors, TauCeti.GL2Transfer.strong_multiplicity_one, TauCeti.GL2Transfer.multiplicity_one, TauCeti.GL2Transfer.coefficient_conjugation, TauCeti.GL2Transfer.rational_models, TauCeti.GL2Transfer.definite_infinity, TauCeti.GL2Transfer.invariant_exchange, TauCeti.GL2Transfer.supercuspidal_globalization.
+Retained numeric fragment: TauCeti.GL2Transfer.indefinite_parity (parity arithmetic only).
 
 GL2AutomorphicRepresentationsAndTransfer:R17.3/norm-exception
 TauCeti.GL2Transfer.norm_exception
@@ -406,59 +329,55 @@ Hypotheses: F₀ is a finite extension of Q_p and τ = LL(M) is an irreducible s
 theorem indefinite_parity (d t : ℕ) (hd : 1 ≤ d) (h : Even ((d - 1) + t)) :
     t % 2 = (d - 1) % 2 := by sorry
 
-/-! R17.4 theorem interfaces. The cyclic extension, the real automorphic class
-carriers, the action and the localRep restriction maps are supplied, not recreated. -/
+/-
+Explicit signature omissions (PROTOCOL §13; REV-FIX-RT-AREA-automorphic-1~4).
+These R17.4 interfaces need the actual prime-cyclic or solvable extension, its Galois action on automorphic classes over E, the cuspidal subtypes, the norm-kernel characters and the localRep restriction maps; with arbitrary types, functions and ℓ they are false.
+These source targets require the actual supplier objects and hypotheses below.
+They are not universal theorems about arbitrary types, functions, or multiplicity maps.
+Omitted declaration names: TauCeti.GL2Transfer.local_compatibility, TauCeti.GL2Transfer.cyclic_descent, TauCeti.GL2Transfer.cuspidality, TauCeti.GL2Transfer.cyclic_descent_fibers, TauCeti.GL2Transfer.isobaric_fibers, TauCeti.GL2Transfer.tower_independence, TauCeti.GL2Transfer.solvable_descent, TauCeti.GL2Transfer.prescribed_local_base_change.
+
+GL2AutomorphicRepresentationsAndTransfer:R17.4/local-compatibility
+TauCeti.GL2Transfer.local_compatibility
+For the strong cyclic BC pair and every place w|v, rec^{arith}_{E_w}(BC(π)_w) equals rec^{arith}_{F_v}(π_v) restricted to W_{E_w}, including the monodromy operator and the normalization twist specified by R16.3. For a principal series restrict both characters; for a Steinberg twist retain nonzero monodromy; for a supercuspidal the restricted parameter may become reducible. At real-to-complex places restrict the real Weil parameter. A merely almost-everywhere Satake match is not this all-place statement. The global input gives only that BC(π)_w is the local Shintani lift of π_v (character identities). The passage to restricted parameters is local: Langlands covers reducible, special, dihedral and tetrahedral parameters; R16.3 supplies the octahedral (extraordinary) dyadic case for every ℓ. Carayol proves the case [E_w:F_v] ≤ 3 in the Proposition of his §12.2.2, but that Proposition belongs to AutomorphicGaloisRepresentations R19.2, downstream of this stage, so it is not used here.
+Hypotheses: E/F is a cyclic extension of number fields of prime degree ℓ. π is an isobaric automorphic representation of GL₂(A_F) and BC(π) is its strong cyclic base change (cyclic-base-change). w|v is any place, archimedean or not, split, inert or ramified. E_w/F_v is trivial or cyclic of degree ℓ. rec^{arith} is the R16.3 arithmetic-normalised rank-two local Langlands correspondence with values in Frobenius-semisimple Weil–Deligne representations (monodromy included). Comparing the local Shintani lift with restriction of parameters for octahedral (extraordinary) π_v at p = 2, for every ℓ, is an R16.3 input; Carayol's proof of the degree ≤ 3 cases lives downstream in AutomorphicGaloisRepresentations R19.2.
+
+GL2AutomorphicRepresentationsAndTransfer:R17.4/cyclic-descent
+TauCeti.GL2Transfer.cyclic_descent
+For cyclic E/F of prime degree ℓ, a cuspidal automorphic GL₂ representation Π over E has a cuspidal descent over F if and only if Π^σ≅Π for a generator σ of Gal(E/F). The resulting descents are determined up to twisting by the ℓ characters of F×N_{E/F}(A_E×)\A_F×. This is descent of an automorphic representation, proved by the twisted trace formula comparison, not descent of a Galois representation. Invariant noncuspidal isobaric classes also have isobaric descents, with the two-character ambiguity described separately.
+Hypotheses: E/F is a cyclic extension of number fields of prime degree ℓ, with σ a generator of Gal(E/F). Π is a cuspidal automorphic representation of GL₂(A_E); in the last clause, Π is isobaric. A descent of Π is an automorphic π over F with BC_{E/F}(π) ≅ Π (strong base change). η runs over the ℓ Hecke characters of F trivial on F^×N_{E/F}(A_E^×) (global class field theory).
+
+GL2AutomorphicRepresentationsAndTransfer:R17.4/cuspidality
+TauCeti.GL2Transfer.cuspidality
+Let π be cuspidal GL₂ over F and E/F cyclic of prime degree ℓ; let η be a generator of the order-ℓ group of Hecke characters of F trivial on F^×N_{E/F}(A_E^×). Then BC_{E/F}(π) is noncuspidal if and only if π≅π⊗η. This can occur only for ℓ=2. In that case BC(π)=θ⊞θ^σ for a Hecke character θ with θ≠θ^σ. The identification of π with quadratic automorphic induction is provided by R17.5/quadratic-induction, after this base-change criterion. For prime ℓ>2 the output is always cuspidal. For composite cyclic extensions test each prime step; an odd prime criterion is not a criterion for every composite degree.
+Hypotheses: E/F is a cyclic extension of number fields of prime degree ℓ, and π is a cuspidal automorphic representation of GL₂(A_F). η is a generator of the order-ℓ group of Hecke characters of F trivial on F^×N_{E/F}(A_E^×). The condition π ≅ π⊗η does not depend on which generator is chosen. BC_{E/F} is the strong cyclic base change of cyclic-base-change. AC89 Theorem 4.2 is stated for unitary π; the general case follows by twisting with |det|^s. Langlands has no unitarity restriction.
+
+GL2AutomorphicRepresentationsAndTransfer:R17.4/cyclic-descent-fibers
+TauCeti.GL2Transfer.cyclic_descent_fibers
+If Π is a Gal(E/F)-invariant cuspidal GL₂ representation and π is one of its cyclic descents, then its cyclic descents are precisely π⊗η^i, 0≤i<ℓ; these ℓ classes are distinct and all cuspidal. If E/F is quadratic and the common output is noncuspidal θ⊞θ^σ with θ≠θ^σ, its descent is unique (and cuspidal): π⊗η≅π. The assertion of ℓ distinct descents therefore applies only when the output is cuspidal.
+Hypotheses: E/F is a cyclic extension of number fields of prime degree ℓ, and η is a generator of the Hecke characters of F trivial on F^×N_{E/F}(A_E^×). First clause: Π is a cuspidal automorphic representation of GL₂(A_E) with Π^σ ≅ Π, and π is one of its descents. Second clause: ℓ = 2 and Π = θ⊞θ^σ for a Hecke character θ of E with θ ≠ θ^σ.
+
+GL2AutomorphicRepresentationsAndTransfer:R17.4/isobaric-fibers
+TauCeti.GL2Transfer.isobaric_fibers
+For π=χ₁⊞χ₂ over F, its cyclic base change is (χ₁∘N_{E/F})⊞(χ₂∘N_{E/F}). Equality of two such outputs is equality of the unordered pairs of pulled-back characters. The two characters can be twisted independently by characters trivial on the norm subgroup; the ambiguity is not in general a simultaneous twist of the whole rank-two representation. When an invariant pair over E is exchanged by σ (possible only for ℓ=2), it has the quadratic cuspidal descent of the exchanged character pair described above.
+Hypotheses: E/F is a cyclic extension of number fields of prime degree ℓ; N = N_{E/F} on ideles. π = χ₁⊞χ₂ with χ₁, χ₂ idele class characters of F, not necessarily unitary. The twisting characters run over the Hecke characters of F trivial on F^×N_{E/F}(A_E^×). The exchanged case θ⊞θ^σ with θ ≠ θ^σ occurs only for ℓ = 2.
+
+GL2AutomorphicRepresentationsAndTransfer:R17.4/tower-independence
+TauCeti.GL2Transfer.tower_independence
+For two prime-cyclic subnormal towers from F to the same solvable Galois extension E, the composed GL₂ isobaric base changes coincide. At all places unramified in the towers and in π, both Satake classes are A_v^{f(w/v)}, because residue degrees multiply along each tower. Isobaric strong multiplicity one therefore gives an isomorphism of the two global outputs, hence equality of every local component. Strong local compatibility is not needed for independence; it describes each common component as the restriction of the parameter of π_v. No chosen ordered diagonalization or chosen generator of a cyclic Galois group survives in the output.
+Hypotheses: E/F is a finite Galois extension of number fields with solvable Galois group, and two subnormal towers from F to E have prime-cyclic steps. π is an isobaric automorphic representation of GL₂(A_F). Isobaric strong multiplicity one over E holds (R16.4; Langlands Lemma 3.1).
+
+GL2AutomorphicRepresentationsAndTransfer:R17.4/solvable-descent
+TauCeti.GL2Transfer.solvable_descent
+Fix a prime-cyclic subnormal tower F=F₀⊂F₁⊂⋯⊂F_r=E and an isobaric automorphic GL₂ representation Π over E. Then Π is the composed base change of an isobaric π over F along this tower if and only if there is a chain Π_r=Π, Π_{r−1}, …, Π₀=π in which each Π_{i−1} is a cyclic descent of Π_i along F_i/F_{i−1} and, for i≥2, Π_{i−1} is invariant under Gal(F_{i−1}/F_{i−2}). At each step the possible Π_{i−1} are given by the cyclic fibre theorems. If Π_i is cuspidal there are ℓ_i distinct twists. If ℓ_i=2 and Π_i=θ⊞θ^σ with θ≠θ^σ, there is a unique cuspidal descent. If Π_i=(χ₁∘N)⊞(χ₂∘N), the two characters can be twisted independently by norm-kernel characters. The theorem supplies descent once these stepwise choices exist and records their ambiguities. It does not assert that Gal(E/F)-invariance of Π alone yields a descent to F: an invariant choice at each step, and compatibility with prescribed central characters, is a hypothesis, not a conclusion.
+Hypotheses: A fixed subnormal tower F=F₀⊂F₁⊂⋯⊂F_r=E with each F_i/F_{i−1} cyclic of prime degree ℓ_i, and a generator σ_i of each Gal(F_i/F_{i−1}). Π is an isobaric automorphic representation of GL₂(A_E). Descent along the tower means preimage under the composed base change of solvable-base-change along this tower. Gal(E/F)-invariance of Π alone is not assumed to give a descent; the stepwise invariant choices are hypotheses.
+
+GL2AutomorphicRepresentationsAndTransfer:R17.4/prescribed-local-base-change
+TauCeti.GL2Transfer.prescribed_local_base_change
+Suppose a solvable normal extension E/F has already been produced by the arithmetic/potential-modularity owner with chosen completions and splitting at a finite set T. Then BC_{E/F}(π)_w≅π_v at every w|v with v∈T completely split; elsewhere its parameter is the restriction to the prescribed completion. If cuspidality is required, check the quadratic self-twist criterion at every tower step. For potentially unramified or ordinary conditions stated by the consuming local owner, export only the consequences of this precise local restriction and normalization. The construction of the extension with prescribed points/splitting is not replanned here.
+Hypotheses: E/F is a solvable Galois extension of number fields with a chosen prime-cyclic tower, supplied by the consumer together with chosen places and completions. T is a finite set of places of F that split completely in E. π is an isobaric (in applications, cuspidal) automorphic representation of GL₂(A_F); local parameters use the R16.3 arithmetic normalisation. The existence of E with the prescribed splitting is supplied by the consumer and not proved here.
+-/
 section BCTheorems
 variable {FClass EClass CF CE H V W LF LE C : Type*}
-
-theorem local_compatibility (π : FClass) (v : V) (w : W)
-    (recF : FClass → V → LF) (recE : EClass → W → LE) (res : LF → LE) :
-    recE (cyclicBaseChange FClass EClass π) w = res (recF π v) := by sorry
-
--- CF/CE are the supplied cuspidal subtypes. Include their actual forget maps,
--- not a newly defined predicate on arbitrary isobaric objects.
-theorem cyclic_descent (Pi : CE) (σ : CE → CE) (forgetF : CF → FClass)
-    (forgetE : CE → EClass) :
-    (∃ π : CF, cyclicBaseChange FClass EClass (forgetF π) = forgetE Pi) ↔ σ Pi = Pi := by sorry
-
-theorem cuspidality (π : CF) (forgetF : CF → FClass) (forgetE : CE → EClass)
-    (η : H) (twist : H → FClass → FClass) :
-    (¬ ∃ Pi : CE, cyclicBaseChange FClass EClass (forgetF π) = forgetE Pi) ↔
-      twist η (forgetF π) = forgetF π := by sorry
-
--- Missing: Pi cuspidal invariant output, η generating the prime-degree character
--- group, π one descent; the quadratic noncuspidal fiber is separately in the packet.
-theorem cyclic_descent_fibers [Monoid H] (π : FClass) (Pi : EClass) (η : H) (ℓ : ℕ)
-    (twist : H → FClass → FClass) :
-    {τ | cyclicBaseChange FClass EClass τ = Pi} =
-      Set.range (fun i : Fin ℓ => twist (η ^ i.val) π) := by sorry
-
--- Missing: H is the rank-one Hecke-character carrier and the sums/pullback are
--- the canonical operations. Independent norm-kernel twists must be retained.
-theorem isobaric_fibers (χ₁ χ₂ : H) (pullback : H → H)
-    (sumF : H → H → FClass) (sumE : H → H → EClass) :
-    cyclicBaseChange FClass EClass (sumF χ₁ χ₂) = sumE (pullback χ₁) (pullback χ₂) := by sorry
-
--- Missing: F ⊂ L ⊂ E and F ⊂ M ⊂ E are two prime-cyclic towers inside the same
--- solvable Galois E/F, and LClass/MClass are the isobaric classes over L and M.
--- Both composites equal the tower-free solvableBaseChange.
-theorem tower_independence {LClass MClass : Type*} (π : FClass) :
-    cyclicBaseChange LClass EClass (cyclicBaseChange FClass LClass π) =
-        solvableBaseChange FClass EClass π ∧
-      cyclicBaseChange MClass EClass (cyclicBaseChange FClass MClass π) =
-        solvableBaseChange FClass EClass π := by sorry
-
--- Missing: at every prime-cyclic step a Galois-invariant automorphic descent
--- has been chosen, with compatible character/localRep data. Global Galois descent
--- or unqualified invariance is deliberately not used as the hypothesis.
-theorem solvable_descent (Pi : EClass) :
-    ∃ π : FClass, solvableBaseChange FClass EClass π = Pi := by sorry
-
--- Missing: the arithmetic owner has already constructed E/F completely split
--- at v, and these are the canonically identified localRep carriers.
-theorem prescribed_local_base_change (π : FClass) (v : V) (w : W)
-    (localF : FClass → V → C) (localE : EClass → W → C) :
-    localE (solvableBaseChange FClass EClass π) w = localF π v := by sorry
 
 /-
 Explicit signature omissions (PROTOCOL §13; REV-FIX-RT-AREA-automorphic-1~3).
@@ -478,8 +397,9 @@ The analytic input is AL.3/gln-converse-reduced-rank at n=3: all GL1 twists
 (or twists unramified at the specified finite S), dual entireness, strip bounds
 and the functional equation. Nonempty S gives agreement outside S only.
 The highly ramified T variant remains an acquisition gap. The second input is
-AL.3/rs-global-poles with rs-boundary-nonvanishing and the omitted-local-factor
-regularity from AL.2/jacquet-shalika-satake-bound, including infinity, for two unitary cuspidal GL3
+AL.3/rs-global-poles with rs-boundary-nonvanishing and finiteness at s=1 of the
+omitted local factors (AL.2/jacquet-shalika-satake-bound at unramified places; the
+requested AL.3 unitary local convergence bound at ramified and archimedean places), for two unitary cuspidal GL3
 representations and equality of their Rankin–Selberg factors against the first
 dual, not equality of arbitrary objects or an isobaric uniqueness theorem.
 The actual representation, twist, completed L/epsilon and pole carriers are
@@ -492,14 +412,25 @@ AL G16. This application also uses adjoint-lift and cubic-character-induction.
 -- which imports the cubic transfer and Artin automorphy from here; it is not restated.
 end BCTheorems
 
+/-
+Explicit signature omissions (PROTOCOL §13; REV-FIX-RT-AREA-automorphic-1~4).
+Character extension needs the idele class group of a number field, its n-torsion quotient and the complex-place condition, and residual lifting needs a totally real field, a continuous absolutely irreducible solvable r̄ and an adequate integral coefficient ring; over arbitrary groups and rings both existence claims are false.
+These source targets require the actual supplier objects and hypotheses below.
+They are not universal theorems about arbitrary types, functions, or multiplicity maps.
+Omitted declaration names: TauCeti.GL2Transfer.finite_hecke_extension, TauCeti.GL2Transfer.odd_residual_lift.
+
+GL2AutomorphicRepresentationsAndTransfer:R17.5/finite-hecke-extension
+TauCeti.GL2Transfer.finite_hecke_extension
+Let F be a number field, n≥1, and ω:μ_n(F)\μ_n(A_F)→S¹ a continuous character, where μ_n(F)\μ_n(A_F) is viewed inside the idele class group C_F. Then ω extends to a finite-order continuous character of C_F if and only if its component ω_v on μ_n(F_v) is trivial at every complex place v; real places impose no condition. In particular the obstruction vanishes when F has no complex place, e.g. for totally real F. Extensions are not unique. In the Grunwald–Wang special case the cokernel of μ_n(F)\μ_n(A_F)→C_F[n] has order two, so one first chooses one of two extensions of ω to C_F[n]; either choice admits a finite-order extension when the condition holds, and the case affects only uniqueness. This is an arithmetic extension theorem on the canonical GlobalNumberFields Hecke-character carrier, not a new character group.
+Hypotheses: F is a number field and n ≥ 1; C_F = F^×\A_F^× is the idele class group, into which μ_n(F)\μ_n(A_F) embeds as a closed subgroup. ω: μ_n(F)\μ_n(A_F) → S¹ is a continuous character (automatically of order dividing n). An extension means a continuous character ω̃: C_F → S¹ restricting to ω; finite order means ω̃ has finite image. The criterion concerns only the complex places: ω_v = ω|μ_n(F_v) must be trivial for every complex v; no condition is imposed at real places.
+
+GL2AutomorphicRepresentationsAndTransfer:R17.5/odd-residual-lift
+TauCeti.GL2Transfer.odd_residual_lift
+Let F be totally real, p>2, and r̄:G_F→GL₂(F̄_p) be continuous, absolutely irreducible and totally odd with solvable image. There is a totally odd continuous finite-image characteristic-zero lift ρ over a number field, a place λ above p and a stable lattice whose semisimplified reduction is r̄ after a specified residue-field embedding. The proof uses the finite-subgroup classification (projective image dihedral, A₄ or S₄), a reduction-compatible lift of that finite projective image to characteristic zero, Tate's theorem (finite-projective-lift) and a Teichmüller twist; Tate alone only lifts a projective homomorphism and does not ensure the prescribed residual reduction. Coefficient enlargement is allowed. BCGP state this lift citing only the classification [SD73] and Tate's theorem [Ser77, Theorem 4]; the reduction-compatible lift of the projective image and the final twist are not written out there and remain an explicit source-proof gap in this packet.
+Hypotheses: F is a totally real number field and p>2 is prime. r̄: G_F→GL₂(F̄_p) is continuous and absolutely irreducible. r̄ is totally odd: det r̄(c_v)=−1 for every real place v. r̄ has solvable image (equivalently, solvable projective image). The output records a number field E of coefficients, a place λ of E above p, an embedding of the residue field of λ into F̄_p and a stable lattice; coefficient enlargement is allowed.
+-/
 section ArithmeticLifting
 variable {G I T : Type*} [Group G] [Group I] [Group T]
-
--- Missing: I is the idele class group of a number field; T its n-torsion quotient
--- with the global μ_n factored out; ω continuous and trivial at complex places.
--- Continuous/finite-order data and the GW exceptional choice must be restored.
-theorem finite_hecke_extension (i : T →* I) (ω : T →* ℂˣ) :
-    ∃ χ : I →* ℂˣ, Set.Finite (Set.range χ) ∧ χ.comp i = ω := by sorry
 
 -- AddCircle 1 over Q is the existing additive Q/Z quotient, with trivial action.
 -- Q/Z is discrete, so continuous cochains on the Krull-topologized G_F are the
@@ -523,18 +454,6 @@ theorem finite_projective_lift (F : Type*) [Field F] [NumberField F]
       IsOpen (ρ.ker : Set (Field.absoluteGaloisGroup F)) ∧ Set.Finite (Set.range ρ) ∧
         ProjGenLinGroup.mk.comp ρ = r := by sorry
 
--- Missing: F totally real, p>2, continuous absolutely irreducible solvable r̄;
--- O is an adequate cyclotomic integral coefficient ring after finite extension,
--- red its chosen place map and ι its complex embedding; c indexes all real places.
--- The scalar/projective theorem alone does not supply this reduction identity.
-theorem odd_residual_lift {O k J : Type*} [CommRing O] [Field k]
-    (p : ℕ) [CharP k p] (hp : 2 < p)
-    (r : G →* GeneralLinearGroup (Fin 2) k) (red : O →+* k) (ι : O →+* ℂ)
-    (c : J → G) (hc : ∀ j, c j * c j = 1)
-    (hodd : ∀ j, GeneralLinearGroup.det (r (c j)) = -1) :
-    ∃ ρ : G →* GeneralLinearGroup (Fin 2) O,
-      Set.Finite (Set.range ρ) ∧ (GeneralLinearGroup.map red).comp ρ = r ∧
-      ∀ j, GeneralLinearGroup.det (GeneralLinearGroup.map ι (ρ (c j))) = -1 := by sorry
 end ArithmeticLifting
 
 /-! Artin automorphy uses the suppliers' actual localRep Weil homomorphisms. These
@@ -593,27 +512,31 @@ Hypotheses: F, p, r̄ as in odd-residual-lift: F totally real, p>2, r̄:G_F→GL
 -/
 /-! Nodes added by the review (REV-GL2AutomorphicRepresentationsAndTransfer--R17.3):
 Tunnell's globalisation, Carayol's prescribed-local induction and the octahedral mod-3
-application. The local Weil groups, Hecke characters and weight-one forms are the
-suppliers' carriers, passed as parameters as elsewhere in this file. -/
+application are recorded in the omission block below; the explicit GL₂(F₃) section used
+by the mod-3 application is kept as a concrete statement. -/
+/-
+Explicit signature omissions (PROTOCOL §13; REV-FIX-RT-AREA-automorphic-1~4).
+Tunnell's globalisation, Carayol's prescribed-local induction and the octahedral mod-3 application need the p-adic Weil group, the number-field globalisation data, the CM Hecke-character carrier and the normalized weight-one newform carrier; existence over arbitrary index types and maps is false.
+These source targets require the actual supplier objects and hypotheses below.
+They are not universal theorems about arbitrary types, functions, or multiplicity maps.
+Omitted declaration names: TauCeti.GL2Transfer.tunnell_primitive_globalization, TauCeti.GL2Transfer.prescribed_local_induction, TauCeti.GL2Transfer.octahedral_mod_three_application.
+
+GL2AutomorphicRepresentationsAndTransfer:R17.5/tunnell-primitive-globalization
+TauCeti.GL2Transfer.tunnell_primitive_globalization
+Tunnell, Invent. Math. 46 (1978), Theorem 1.3, for a p-adic field. Let K be a finite extension of Q_p and σ: W_K → GL₂(C) a continuous two-dimensional representation. There exist a number field F, a finite place v of F with an isomorphism F_v ≅ K, and a continuous representation ρ: W_F → GL₂(C) whose restriction ρ_v to W_{F_v} is isomorphic to σ. If σ is reducible, induced from a proper subgroup, of A₄-type or of S₄-type (the type is the image in PGL₂(C)), then ρ can be chosen of the same type. If K = Q₂ and σ is of S₄-type, one can take F = Q and ρ with det ρ(c) = −1 for complex conjugation c. In the primitive case (A₄- or S₄-type, which forces p = 2) the proof gives ρ = ρ₀ ⊗ χ̃, where ρ₀: G_F → GL₂(C) has finite image and the same projective image as σ, χ̃ is a Hecke quasi-character of F, and in the S₄ case det ρ₀(c) = −1 at every real place. Finite-image form, as Carayol 12.2.3 uses it: if σ is primitive with finite image, ρ can be taken to be a continuous representation of G_F with finite image, tetrahedral or octahedral as σ is. This form needs χ̃ of finite order, i.e. the local–global extension of finite-order characters recorded as a gap. For automorphy the quasi-character form suffices, because ρ is then a twist of the finite-image ρ₀. Tunnell states the theorem for every nonarchimedean local field and a global field F; positive characteristic is not planned here.
+Hypotheses: K is a finite extension of Q_p and W_K its Weil group with the Weil topology. Tunnell's K is any nonarchimedean local field (§1); the node treats characteristic zero only, so F is a number field. σ: W_K → GL₂(C) is continuous. No irreducibility is assumed for the existence clause. The type of a two-dimensional representation is its image in PGL₂(C) (Tunnell, p. 182). The A₄- and S₄-type representations of W_K are the primitive irreducible ones (Tunnell cites Weil, Exercices dyadiques §13); they occur only for p = 2. ρ_v is the restriction along the embedding W_{F_v} → W_F given by a place of F̄ above v; its isomorphism class does not depend on that choice. Finite-image form: σ is primitive with finite image, and the local–global extension of finite-order characters (packet gap) is available.
+
+GL2AutomorphicRepresentationsAndTransfer:R17.5/prescribed-local-induction
+TauCeti.GL2Transfer.prescribed_local_induction
+Carayol 1986, 11.2, with the global Weil construction of Jacquet–Langlands §12. Let F be a totally real field of degree d with real places τ₁,…,τ_d, let k₁,…,k_d ≥ 2 and w be integers of the same parity, and let D_{k,w} be the essentially square-integrable representation of GL₂(R) of Carayol 0.2 (central character t ↦ t^{−w}), so that D_{k,w} ≅ 𝒲(C, ζ_{k,w}) with ζ_{k,w}(z) = (z z̄)^{(−w−k+1)/2} z^{k−1}. Let 𝔭 ≠ v be finite places of F, L_𝔭/F_𝔭 a quadratic field extension and ξ_𝔭 a quasi-character of L_𝔭^× that does not factor through the norm, with ξ_𝔭·|·|^{w/2} of finite order; so 𝒲(L_𝔭, ξ_𝔭) is ordinary cuspidal. Then there exist a totally imaginary quadratic extension L/F and a quasi-character ξ of 𝔸_L^×/L^× such that (a) L ⊗_F F_𝔭 ≅ L_𝔭 and the 𝔭-component of ξ is ξ_𝔭; (b) at the complex place of L above τ_i, ξ is ζ_{k_i,w}; (c) L/F is not split at v and ξ_v does not factor through the norm L_v^× → F_v^×. The automorphic induction π′ = 𝒲(L, ξ) = quadraticInduction(ξ) is cuspidal, with π′_u ≅ 𝒲(L_u, ξ_u) at every place u; in particular π′_{τ_i} ≅ D_{k_i,w}, π′_𝔭 ≅ 𝒲(L_𝔭, ξ_𝔭) and π′_v is supercuspidal. Hence, when 𝒲(L_𝔭, ξ_𝔭) is the component π_𝔭 of a π as in Carayol (0.3) and v is the place fixed in Theorem (B), π′ satisfies the hypotheses of Theorem (B) and has the same 𝔭-component as π. Carayol calls the existence of (L, ξ) standard and gives no proof. The finite-order condition, automatic for such π_𝔭, cannot be dropped, and the proof uses the local–global extension of finite-order characters recorded as a gap.
+Hypotheses: F is totally real of degree d with real places τ₁,…,τ_d; k₁,…,k_d ≥ 2 and w are integers of the same parity (Carayol 0.3); D_{k,w} is as in Carayol 0.2, with central character t ↦ t^{−w}. 𝔭 is a finite place, L_𝔭/F_𝔭 a quadratic field extension and ξ_𝔭 a quasi-character of L_𝔭^× not factoring through N_{L_𝔭/F_𝔭}, so 𝒲(L_𝔭, ξ_𝔭) is supercuspidal and ordinary (Carayol 0.9; JL70 Theorem 4.6(iii)). ξ_𝔭·|·|_{L_𝔭}^{w/2} has finite order. Equivalently, the central character of 𝒲(L_𝔭, ξ_𝔭) is |·|^{−w} times a finite-order character; this holds when 𝒲(L_𝔭, ξ_𝔭) ≅ π_𝔭 for π as in Carayol (0.3), whose central character is |·|_𝔸^{−w} times a finite-order character because F is totally real. v is a finite place different from 𝔭: Carayol's fixed place of Theorem (B) when d is even, an arbitrary auxiliary place when d is odd. 𝒲(E, θ) is the Weil representation π(θ) of JL70 §1 (Theorem 4.6) for a quadratic extension E of a local field and a quasi-character θ of E^×, the principal series π(θ₁, θ₂) when E is split, and 𝒲(C, ·) at a real place; in the packet's normalisation its parameter is Ind θ (quadratic-induction).
+
+GL2AutomorphicRepresentationsAndTransfer:R17.5/octahedral-mod-three-application
+TauCeti.GL2Transfer.octahedral_mod_three_application
+Let ρ̄: G_Q → GL₂(F₃) be continuous, absolutely irreducible and odd (det ρ̄(c) = −1). Let λ = (1+√−2), so that Z[√−2]/λ ≅ F₃ with √−2 ↦ −1, and let s: GL₂(F₃) → GL₂(Z[√−2]) be an injective homomorphism with s(x) ≡ x mod λ. For example, s is determined by s([[1,1],[0,1]]) = [[−2, −1+√−2],[1+√−2, 1]] and s([[0,1],[1,0]]) = [[−1−√−2, −2],[−1+√−2, 1+√−2]]: these generate a group of order 48 that reduction maps bijectively onto GL₂(F₃). Fix Q(√−2) ⊂ C and put ρ = s∘ρ̄: G_Q → GL₂(C). Then ρ is continuous, irreducible and odd, with finite image isomorphic to that of ρ̄; det ρ is the ±1-valued lift of det ρ̄; and the projective image of ρ is isomorphic to the image of ρ̄ in PGL₂(F₃) ≅ S₄, so it is solvable (S₄, octahedral, exactly when ρ̄ is surjective). By solvable-artin and q-weight-one there is a normalized weight-one newform g of level N(ρ), the Artin conductor of s∘ρ̄, and odd quadratic nebentypus ε = det ρ, with ρ_g ≅ ρ. For every prime ℓ ∤ N(ρ), a_ℓ(g) = tr s(ρ̄(Frob_ℓ)) ∈ Z[√−2], a_ℓ(g) ≡ tr ρ̄(Frob_ℓ) and ε(ℓ) ≡ det ρ̄(Frob_ℓ) mod λ. Reducing ρ_g along the stable lattice Z[√−2]_λ² gives exactly ρ̄, so ρ̄_{g,λ} ≅ ρ̄. No general reduction-preserving lifting (the odd-residual-lift gap) is used. The level N(ρ) can exceed Serre's conductor of ρ̄. Darmon–Diamond–Taylor, Theorem 3.14(a), state the conclusion as modularity in weight two (their Definition 3.12) and pass from g to a weight-two form by Remark 3.6; that step is not part of this node.
+Hypotheses: ρ̄: G_Q → GL₂(F₃) is continuous, absolutely irreducible and odd: det ρ̄(c) = −1 for complex conjugation c. λ = (1+√−2) is the prime of Z[√−2] above 3 (norm 3); reduction modulo λ identifies Z[√−2]/λ with F₃, √−2 ↦ −1. s: GL₂(F₃) → GL₂(Z[√−2]) is an injective group homomorphism with red_λ∘s = id (DDT's 'section'). The explicit s of the statement is one choice, checked by enumerating the 48 elements. A fixed embedding Q(√−2) → C; Frobenius is arithmetic and det ρ is read as a Dirichlet character by reciprocity, as in q-weight-one.
+-/
 section AddedByReview
-
--- Missing: K a p-adic field, W_K its Weil group, σ continuous; Glob indexes pairs
--- (F, v) with F a number field and F_v ≅ K, W g the Weil group of F and emb g the
--- decomposition embedding at v. Type preservation and the Q₂/S₄ oddness clause of
--- Tunnell's Theorem 1.3 are in the packet.
-theorem tunnell_primitive_globalization {WK Glob : Type*} [Group WK]
-    (W : Glob → Type*) [∀ g, Group (W g)] (emb : ∀ g, WK →* W g)
-    (σ : WK →* GeneralLinearGroup (Fin 2) ℂ) :
-    ∃ g : Glob, ∃ ρ : W g →* GeneralLinearGroup (Fin 2) ℂ,
-      ∃ P : GeneralLinearGroup (Fin 2) ℂ, ∀ x, ρ (emb g x) = P * σ x * P⁻¹ := by sorry
-
--- Missing: F totally real, L/F the CM quadratic extension with conditions (a)–(c) of
--- Carayol 11.2, H the Hecke quasi-characters of L, component θ 𝔭 the 𝔭-component,
--- weil the local Weil representation and localRep the supplier's local component.
-theorem prescribed_local_induction {H FClass V C Loc : Type*} (𝔭 : V) (ξ𝔭 : C)
-    (component : H → V → C) (localRep : FClass → V → Loc) (weil : C → Loc) :
-    ∃ θ : H, component θ 𝔭 = ξ𝔭 ∧
-      localRep (quadraticInduction H FClass θ) 𝔭 = weil ξ𝔭 := by sorry
 
 /-- Reduction modulo λ = (1 + √−2): ℤ[√−2] → F₃, sending √−2 to −1. -/
 def redSqrtNegTwo : ℤ√(-2) →+* ZMod 3 := Zsqrtd.lift ⟨-1, by decide⟩
@@ -627,17 +550,55 @@ theorem gl2F3_section :
       Function.Injective s ∧
         (GeneralLinearGroup.map redSqrtNegTwo).comp s = MonoidHom.id _ := by sorry
 
--- Missing: G = G_Q, ρbar continuous and absolutely irreducible, c complex conjugation;
--- Form is the normalized weight-one newform carrier and residual f its reduction at λ.
--- The proof applies solvable_artin and q_weight_one to s ∘ ρbar, with s from gl2F3_section.
-theorem octahedral_mod_three_application {G Form : Type*} [Group G]
-    (ρbar : G →* GeneralLinearGroup (Fin 2) (ZMod 3)) (c : G)
-    (hodd : GeneralLinearGroup.det (ρbar c) = -1) (weight : Form → ℕ)
-    (residual : Form → G →* GeneralLinearGroup (Fin 2) (ZMod 3)) :
-    ∃ f : Form, weight f = 1 ∧ residual f = ρbar := by sorry
-
 end AddedByReview
 
+/-
+Explicit signature omissions (PROTOCOL §13; REV-FIX-RT-AREA-automorphic-1~4).
+The characteristic-two applications need G_Q, continuity, absolute irreducibility with the stated projective image, and the actual Katz, classical and witness carriers with their q-expansion, level, character, conductor and residual maps; existence claims over arbitrary carriers and maps are false.
+These source targets require the actual supplier objects and hypotheses below.
+They are not universal theorems about arbitrary types, functions, or multiplicity maps.
+Omitted declaration names: TauCeti.GL2Transfer.solvable_dihedral, TauCeti.GL2Transfer.rt_technical_lemma, TauCeti.GL2Transfer.serre_odd_trick, TauCeti.GL2Transfer.rohrlich_tunnell, TauCeti.GL2Transfer.wiese_odd_lift, TauCeti.GL2Transfer.unramified_katz, TauCeti.GL2Transfer.qualitative_residual_modularity, TauCeti.GL2Transfer.weight_two_witness.
+
+GL2AutomorphicRepresentationsAndTransfer:R17.6/solvable-dihedral
+TauCeti.GL2Transfer.solvable_dihedral
+Let r̄:G_Q→GL₂(F̄₂) be continuous and absolutely irreducible, with solvable projective image. Then its projective image is a dihedral group D_n of order 2n with n odd ≥3. Reason, from the R01.4 classification in characteristic two: PGL₂(F̄₂)=PSL₂(F̄₂)≅SL₂(F̄₂); every 2-subgroup of SL₂(F̄₂) is elementary abelian and unipotent, so it fixes a unique line; hence a finite subgroup with a nontrivial normal 2-subgroup (every Borel-type group, the Klein four group, and A₄, which here is the Borel subgroup of SL₂(F₄)) fixes a point of P¹, as does a cyclic group of odd order, and makes r̄ reducible; S₄ does not embed because its Sylow 2-subgroup is nonabelian; an even-order element of a dihedral subgroup is an involution, so n is odd. After removing a scalar character (determinant-untwist), the linear image is dihedral of order 2n. This is a Galois application of the existing finite-group classification, not a second classification proof. In characteristic two the determinant condition at complex conjugation is vacuous, so it cannot be used to deduce that a naive complex lift is odd.
+Hypotheses: r̄:G_Q→GL₂(F̄₂) is continuous for the discrete topology on F̄₂, hence has finite image. r̄ is absolutely irreducible (over F̄₂ the same as irreducible). The image of r̄ in PGL₂(F̄₂) is solvable. The finite-subgroup classification of PGL₂(F̄₂)=PSL₂(F̄₂)≅SL₂(F̄₂) is imported from R01.4, specialised to characteristic two.
+
+GL2AutomorphicRepresentationsAndTransfer:R17.6/rt-technical-lemma
+TauCeti.GL2Transfer.rt_technical_lemma
+Fix Q̄⊂C and a prime ideal l of the algebraic integers above 2 (the coefficient place λ). Let g=Σb(n)q^n∈Prim₁(2^νNr,χ), a normalized newform of weight one, exact level 2^νNr and character χ with χ²=1, where ν∈{0,2,3}, N is odd and r is either 1 or an odd prime not dividing N. Assume N=N(ρ_g); if r≠1 assume b(r)≢1 mod l; if ν=2 assume b(n)=0 whenever n is even; if ν=3 assume b(2)≢0 mod l. Put k=2 if ν∈{0,2} and k=4 if ν=3. Then there is f∈Prim_k(N), a normalized newform of weight k, exact level N and trivial character, with ρ_f≅ρ_g. The Fourier conditions are used in the proof (RT Remark 2: without b(n)=0 for even n, formula (3) in Case 2 is false); the source does not show they are necessary. The theorem is a specialized arithmetic application of the imported Deligne–Serre lifting and old/newform theory, not a replacement for them.
+Hypotheses: A fixed embedding Q̄⊂C and a prime ideal l of the algebraic integers above 2 (the place λ); ρ_h denotes the semisimple mod-l representation attached to an eigenform h by traces and determinants at good primes. g=Σb(n)q^n is a normalized newform of weight one, exact level 2^νNr and character χ with χ²=1 (necessarily odd in weight one). ν∈{0,2,3}; N is odd; r is 1 or an odd prime not dividing N. N=N(ρ_g), the prime-to-2 Artin conductor of ρ_g. If r≠1 then b(r)≢1 mod l. If ν=2 then b(n)=0 for every even n. If ν=3 then b(2)≢0 mod l. Conclusion weight k=2 for ν∈{0,2} and k=4 for ν=3.
+
+GL2AutomorphicRepresentationsAndTransfer:R17.6/serre-odd-trick
+TauCeti.GL2Transfer.serre_odd_trick
+Let r̄₀=Ind_{G_K}^{G_Q}φ, φ̃, N and ν be as in teichmuller-conductor with K real quadratic (D>0) and D odd or divisible by 8; let ∞₁,∞₂ be the real places of K. There exist a prime ideal 𝔯 of K of degree one, prime to 2N, and a quadratic Hecke character ξ of K ramified precisely at ∞₁ and 𝔯, with φ̃(𝔯)≠1. Put r=N𝔯, an odd prime not dividing N and split in K, and g=Σb(n)q^n where L(s,φ̃ξ)=Σb(n)n^{−s}. Then Ind(φ̃ξ) is odd because ξ has mixed signature, its Artin conductor is 2^νN·r, and g∈Prim₁(2^νNr,χ) with χ the product of the Kronecker symbol at D and the (odd) Legendre symbol at r. Since ξ≡1 mod l, ρ_g≅r̄₀ and N(ρ_g)=N. Moreover b(r)≡φ̃(𝔯′)=φ̃(𝔯)^{−1}≢1 mod l, in case (ii) b(n)=0 for even n, and in case (iv) b(2)≢0 mod l. Thus g satisfies every hypothesis of rt-technical-lemma. This controlled auxiliary ramification is the Serre trick used by Rohrlich–Tunnell, distinct from Wiese's trace-zero choice of auxiliary primes.
+Hypotheses: r̄₀=Ind_{G_K}^{G_Q}φ is irreducible with linear-dihedral image; φ̃, N, ν are as in teichmuller-conductor, at the fixed prime l above 2. K is real quadratic (D>0), with real places ∞₁, ∞₂. D is odd or divisible by 8, so the dyadic case is (i), (ii) or (iv). Degree-one primes are taken in a prescribed narrow ray class modulo 4f(φ̃) (Chebotarev).
+
+GL2AutomorphicRepresentationsAndTransfer:R17.6/rohrlich-tunnell
+TauCeti.GL2Transfer.rohrlich_tunnell
+Fix Q̄⊂C and a prime ideal l above 2 (the coefficient place λ). Let r̄₀:G_Q→GL₂(F̄₂) be continuous and irreducible with linear-dihedral image (so det r̄₀=1), K the uniquely determined quadratic field with r̄₀=Ind_{G_K}^{G_Q}φ, D its discriminant, N=N(r̄₀) the (odd) prime-to-two conductor, ν defined by |D|·N_{K/Q}f(φ̃)=2^νN, and k=2 if ν∈{0,2}, k=4 if ν=3 (Serre's weight, which RT cite from Serre 1987, p. 188). If D is odd or divisible by 8, that is in cases (i), (ii) and (iv) of teichmuller-conductor, there is f∈Prim_k(N), a normalized newform of exact level N, trivial character and weight k, with ρ_f≅r̄₀ at l. Thus odd D gives weight 2 (ν=0 or 2) and 8|D gives weight 4 (ν=3). For D<0 use the odd induction of φ̃; for D>0 use serre-odd-trick and remove its auxiliary prime with the technical lemma. The theorem makes no assertion when D≡4 mod 8 (case (iii)); the authors know neither examples nor counterexamples there. A projective-dihedral r̄ with nontrivial determinant is outside the theorem and is reached only through determinant-untwist, with recomputed level and character.
+Hypotheses: A fixed embedding Q̄⊂C and a prime ideal l of the algebraic integers above 2 (the coefficient place λ). r̄₀:G_Q→GL₂(F̄₂) is continuous and irreducible, and its linear image is a dihedral group (this forces det r̄₀=1). K is the uniquely determined quadratic field with r̄₀=Ind_{G_K}^{G_Q}φ and D is its discriminant; D is odd or divisible by 8. N=N(r̄₀) is the prime-to-2 Artin conductor; ν is defined by |D|·N_{K/Q}f(φ̃)=2^νN; k=2 if ν∈{0,2} and k=4 if ν=3.
+
+GL2AutomorphicRepresentationsAndTransfer:R17.6/wiese-odd-lift
+TauCeti.GL2Transfer.wiese_odd_lift
+Let r̄:G_Q→GL₂(F̄₂) be continuous and dihedral in Wiese's sense: r̄≅Ind_{G_K}^{G_Q}χ for a quadratic field K and a character χ:G_K→F̄₂^× with χ≠χ^σ (equivalently r̄ is irreducible with projective image D_n, n≥3; n is odd in characteristic two). Wiese's oddness hypothesis is vacuous in characteristic two. Let m be the order of r̄(G_Q), ζ_m a primitive m-th root of unity and P any prime of Q(ζ_m) above 2. (Wiese Lemma 3) There is an odd dihedral r̂:G_Q→GL₂(Z[ζ_m]) whose reduction modulo P is isomorphic to r̄: r̂=Ind χ̃ for the same-order lift χ̃ of χ when this is odd, and otherwise (which forces K real quadratic) r̂=Ind(χ̃ξ) with ξ the quadratic character of K(√λ)/K for some λ∈O_K of negative norm. No conductor is controlled in this general case. (Wiese Lemma 2) If moreover r̄ is unramified at 2 with conductor N, then either (a) some such r̂ has Artin conductor N, or (b) K is real quadratic and there is an infinite set S of primes ℓ, which may be taken odd, split in K and prime to N, with tr r̄(Frob_ℓ)=0, such that for each ℓ∈S some odd dihedral r̂_ℓ:G_Q→GL₂(Z[ζ_m]) of Artin conductor Nℓ reduces to r̄ modulo P. The result covers projective-dihedral images (scalar twists of linear-dihedral ones), not only the linear-dihedral images of Rohrlich–Tunnell.
+Hypotheses: r̄:G_Q→GL₂(F̄₂) is continuous and dihedral in Wiese's sense: irreducible and induced from a character χ:G_K→F̄₂^× of a quadratic field K with χ≠χ^σ (equivalently, projective image D_n with n≥3; n is odd in characteristic two). Wiese's oddness hypothesis is vacuous in characteristic two (det r̄(c)=1=−1); the source lemmas hold for every prime p and are specialised here to p=2. Coefficients: m is the order of r̄(G_Q), the lift takes values in GL₂(Z[ζ_m]), P is any prime of Q(ζ_m) above 2, and Z[ζ_m]/P is embedded in F̄₂ compatibly with the values of χ. For the Lemma 2 refinement r̄ is unramified at 2 and N is its conductor (prime-to-2 Artin conductor). Lemma 3 assumes nothing at 2 and gives no control of the Artin conductor of the lift.
+
+GL2AutomorphicRepresentationsAndTransfer:R17.6/unramified-katz
+TauCeti.GL2Transfer.unramified_katz
+Let r̄:G_Q→GL₂(F̄₂) be continuous and dihedral in Wiese's sense, unramified at 2, with conductor N=N(r̄) (the prime-to-2 Artin conductor, an odd integer) and ε=det r̄ viewed as a character of (Z/NZ)^×. Then there is a cuspidal Katz eigenform f∈S₁(Γ₁(N),ε,F̄₂)_Katz for all Hecke operators, which may be normalised (a₁=1), whose associated Galois representation is isomorphic to r̄: a_ℓ(f)=tr r̄(Frob_ℓ) and ε(ℓ)=det r̄(Frob_ℓ) for primes ℓ∤2N. This is Wiese Theorem 9 for p=2: the level is the conductor of r̄ and the character is det r̄. No condition at 2 beyond unramifiedness is imposed, so representations exceptional at 2 (restriction to a decomposition group at 2 a sum of two copies of one unramified character, for example K=Q(√229) with 2 inert) are included. The theorem does not assert a characteristic-zero weight-one form of level N reducing to r̄. Wiese's Introduction states, without proof, that none exists when K is real quadratic of discriminant N with fundamental units of norm −1 (example Q(√229)). The oldform and descent inputs (Wiese Proposition 4, Corollary 5, Proposition 7, Corollary 8) are imported through the R15.2 request; the new arithmetic combination is this theorem.
+Hypotheses: r̄:G_Q→GL₂(F̄₂) is continuous and dihedral in Wiese's sense (irreducible, induced from a character of a quadratic field); oddness is vacuous in characteristic two. r̄ is unramified at 2 (equivalently, its minimal weight k(r̄) is one). N=N(r̄) is the prime-to-2 Artin conductor (odd); ε=det r̄ is viewed as a character of (Z/NZ)^×, which here equals the prime-to-2 part of det r̄. Katz cusp forms are taken in Wiese's non-compactified Γ₁(N) sense over F̄₂, with N invertible. The source theorem holds for every prime p; only p=2 is used here, where alternative (b) of Lemma 2 can occur.
+
+GL2AutomorphicRepresentationsAndTransfer:R17.6/qualitative-residual-modularity
+TauCeti.GL2Transfer.qualitative_residual_modularity
+Every continuous absolutely irreducible r̄:G_Q→GL₂(F̄₂) with solvable projective image is realized by a holomorphic cuspidal weight-one newform, after choosing a coefficient number field, λ|2, a residue-field embedding and a stable lattice. The newform's level is the Artin conductor of the chosen odd lift and is not controlled in general. The qualitative proof applies the finite classification (such an r̄ has projective image D_n with n odd ≥3, so it is dihedral in Wiese's sense), Wiese’s odd lift (Lemma 3), and then dihedral Artin weight-one automorphy (Weil–Langlands, as in Wiese's proof of Theorem 1). If one wants a weight≥2 witness, apply the existing R15.5 reduction/true-eigenform result: Eisenstein multiplication for the reduction of a characteristic-zero form, and Hasse powers only when a Katz form is the input and the integral lifting criterion has been met. This broad existence theorem does not claim the exact minimal weight, level or trivial character of the restricted Rohrlich–Tunnell theorem.
+Hypotheses: r̄:G_Q→GL₂(F̄₂) is continuous and absolutely irreducible with solvable projective image; in characteristic two this forces projective image D_n with n odd ≥3. No oddness or determinant hypothesis is needed: oddness is vacuous in characteristic two. The witness data are chosen: coefficient number field, place λ|2, residue-field embedding into F̄₂ and a stable lattice; the comparison is with the semisimplified reduction. The level of the weight-one witness is the Artin conductor of the chosen odd lift and is not controlled; weight and character are not minimised.
+
+GL2AutomorphicRepresentationsAndTransfer:R17.6/weight-two-witness
+TauCeti.GL2Transfer.weight_two_witness
+Given either an odd complex weight-one dihedral form reducing to r̄ or the preceding unramified Katz form, obtain the R15.6 residual-modularity witness with some weight k≥2 and its actual primitive level. For the reduction of a characteristic-zero weight-one form, use R15.5's Eisenstein multiplication (E₄≡1 mod 2). For a Katz input in characteristic two, the Hasse invariant has weight one and q-expansion one, so multiplying by a power of it preserves the q-expansion and the residual away-two eigencharacter. Wiese's Introduction uses a single factor (weight 2, which is Serre's weight for r̄ unramified at 2), together with the classicality of Katz forms of weight ≥2 on Γ₁(N). That classicality holds for N≥5, which covers N(r̄) here: an irreducible dihedral r̄ unramified at 2 has N(r̄)≥5. In this blueprint the lifting comes from R15.5’s finite-free integral realization and cohomological lifting criterion, with R15.2's base change (stated at full level n≥3, weight ≥2), so choose the weight and an auxiliary level satisfying that criterion. Multiplication alone does not produce a characteristic-zero eigenform. Apply the DS lemma to the commuting Hecke action over a dominating DVR, then the true-eigenform/old-newform reduction. Record K_f, λ|2, common residue-field embeddings and a stable lattice realizing r̄ semisimply. The character of the witness lifts det r̄ but need not be its Teichmüller lift. This application imports Hasse, DS and the witness definition unchanged.
+Hypotheses: Input: either the reduction modulo λ|2 of an odd characteristic-zero weight-one dihedral newform realising r̄, or the Katz eigenform of unramified-katz in S₁(Γ₁(N),det r̄,F̄₂)_Katz. Characteristic two: the Hasse invariant A has weight p−1=1 and q-expansion 1, and Hecke eigenvalues at odd ℓ are unchanged by multiplication by A (ℓ^{k−1}≡1 mod 2). Characteristic-zero lifting of the shifted form uses R15.5's finite-free integral realization and cusp-sheaf H¹ criterion, with R15.2's base change, currently stated at full level n≥3 and weight ≥2. The weight and an auxiliary level must be chosen to satisfy it. Output: an R15.6 witness of some weight k≥2 with its actual level and a character lifting det r̄ (not necessarily its Teichmüller lift); minimal weight and level are not claimed.
+-/
 section CharacteristicTwo
 variable {G : Type*} [Group G] {k : Type*} [Field k] [CharP k 2]
 
@@ -650,13 +611,6 @@ theorem determinant_untwist (r : G →* GeneralLinearGroup (Fin 2) k)
       ∀ g, ξ g ^ 2 = GeneralLinearGroup.det (r g) ∧
         GeneralLinearGroup.det (GeneralLinearGroup.scalar (Fin 2) (ξ g)⁻¹ * r g) = 1 := by sorry
 
--- Missing: R01.4's finite classification and the actual dihedral group carrier.
--- This prototype records the quadratic inducing field's index-two subgroup
--- and non-invariant character data; the induction is supplied, not defined here.
-theorem solvable_dihedral (r : G →* GeneralLinearGroup (Fin 2) k)
-    (hfinite : Set.Finite (Set.range r)) :
-    ∃ H : Subgroup G, H.index = 2 ∧ ∃ θ : H →* kˣ, Set.Finite (Set.range θ) := by sorry
-
 -- Missing: r̄₀ = Ind φ, its Teichmüller lift φ̃, D = disc K, normF = N_{K/Q} f(φ̃) and
 -- N = N(r̄₀); hcond is the conductor formula |D|·N f(φ̃) = 2^ν N proved in the packet.
 -- hfund is the 2-adic shape of a fundamental discriminant. Given these, the four
@@ -668,70 +622,25 @@ theorem teichmuller_conductor (D : ℤ) (normF N ν : ℕ) (hN : Odd N)
     (Odd D → Odd normF → ν = 0) ∧ (D % 8 = 5 → normF % 8 = 4 → ν = 2) ∧
       (D % 8 = 4 → Odd normF → ν = 2) ∧ (D % 8 = 0 → Odd normF → ν = 3) := by sorry
 
--- All arithmetic conditions in the source technical lemma are visible here.
--- Missing: Form's actual primitive/classical carrier, q-expansion, character,
--- residual representation and conductor projections, plus λ-integrality.
-theorem rt_technical_lemma {O Form C : Type*} [CommRing O] [Monoid C]
-    (red : O →+* k) (qexp : Form → PowerSeries O) (level weight : Form → ℕ)
-    (character : Form → C) (residual : Form → G →* GeneralLinearGroup (Fin 2) k)
-    (conductor : (G →* GeneralLinearGroup (Fin 2) k) → ℕ)
-    (g : Form) (ν N r : ℕ) (hν : ν = 0 ∨ ν = 2 ∨ ν = 3)
-    (hN : N % 2 = 1) (hr : r = 1 ∨ (r.Prime ∧ r ≠ 2 ∧ ¬r ∣ N))
-    (hlevel : level g = 2 ^ ν * N * r) (hweight : weight g = 1)
-    (hchar : character g ^ 2 = 1) (hcond : conductor (residual g) = N)
-    (haux : r ≠ 1 → red (PowerSeries.coeff r (qexp g)) ≠ 1)
-    (heven : ν = 2 → ∀ n, Even n → PowerSeries.coeff n (qexp g) = 0)
-    (htwo : ν = 3 → red (PowerSeries.coeff 2 (qexp g)) ≠ 0) :
-    ∃ f : Form, level f = N ∧ character f = 1 ∧
-      weight f = (if ν = 3 then 4 else 2) ∧ residual f = residual g := by sorry
-
--- Missing: K real quadratic, θ its same-order lift and the controlled ray-class
--- construction ramified at exactly one real place and one auxiliary degree-one prime.
-theorem serre_odd_trick {H : Type*} [Group H] (θ : H →* ℂˣ) (c : H)
-    (induce : (H →* ℂˣ) → G →* GeneralLinearGroup (Fin 2) ℂ) :
-    ∃ ξ : H →* ℂˣ, (∀ h, ξ h ^ 2 = 1) ∧
-      ∃ cQ : G, GeneralLinearGroup.det (induce (θ * ξ) cQ) = -1 := by sorry
-
--- Missing: G=G_Q, r has irreducible LINEAR-dihedral image, D is the quadratic
--- discriminant, N the prime-to-two Artin conductor and ν its actual dyadic case.
--- The discriminant restriction cannot be dropped or extended to D≡4 mod8.
-theorem rohrlich_tunnell {Form C : Type*} [Monoid C]
-    (r : G →* GeneralLinearGroup (Fin 2) k) (D : ℤ) (N ν : ℕ)
-    (hD : Odd D ∨ 8 ∣ D) (hN : Odd N)
-    (weight level : Form → ℕ) (character : Form → C)
-    (residual : Form → G →* GeneralLinearGroup (Fin 2) k) :
-    ∃ f : Form, level f = N ∧ character f = 1 ∧
-      weight f = (if ν = 3 then 4 else 2) ∧ residual f = r := by sorry
-
--- Missing: G=G_Q, r dihedral; O/red/ι selected after adequate cyclotomic
--- coefficient extension. No conductor equality is asserted by general Lemma 3.
-theorem wiese_odd_lift {O : Type*} [CommRing O]
-    (r : G →* GeneralLinearGroup (Fin 2) k) (red : O →+* k) (ι : O →+* ℂ) (c : G) :
-    ∃ ρ : G →* GeneralLinearGroup (Fin 2) O,
-      Set.Finite (Set.range ρ) ∧ (GeneralLinearGroup.map red).comp ρ = r ∧
-      GeneralLinearGroup.det (GeneralLinearGroup.map ι (ρ c)) = -1 := by sorry
-
--- Missing: r dihedral and unramified at two; Form is the normalized cuspidal
--- Katz carrier, N the exact odd conductor, and character its actual determinant.
-theorem unramified_katz {Form C : Type*} (r : G →* GeneralLinearGroup (Fin 2) k)
-    (N : ℕ) (weight level : Form → ℕ) (character : Form → C) (detChar : C)
-    (residual : Form → G →* GeneralLinearGroup (Fin 2) k) :
-    ∃ f : Form, weight f = 1 ∧ level f = N ∧ character f = detChar ∧ residual f = r := by sorry
-
--- Missing: the qualitative soluble/irreducible hypotheses, the actual R15.6
--- witness carrier and its coefficient-place/lattice realization operation.
-theorem qualitative_residual_modularity {Witness : Type*}
-    (r : G →* GeneralLinearGroup (Fin 2) k)
-    (realize : Witness → G →* GeneralLinearGroup (Fin 2) k) :
-    ∃ w : Witness, realize w = r := by sorry
-
--- Missing: R15 Hasse and integral-lifting hypotheses, full Hecke action and
--- the DS dominating-DVR coefficient choices. No new weight-change construction.
-theorem weight_two_witness {Witness : Type*} (r : G →* GeneralLinearGroup (Fin 2) k)
-    (weight : Witness → ℕ) (realize : Witness → G →* GeneralLinearGroup (Fin 2) k) :
-    ∃ w : Witness, 2 ≤ weight w ∧ realize w = r := by sorry
 end CharacteristicTwo
 
+/-
+Explicit signature omissions (PROTOCOL §13; REV-FIX-RT-AREA-automorphic-1~4).
+Compatible descent and the potential-modularity interface need the actual cyclic or solvable automorphic descent, Galois invariance, a λ-independent twist and the R23 extension data; existence over an arbitrary class type is false.
+These source targets require the actual supplier objects and hypotheses below.
+They are not universal theorems about arbitrary types, functions, or multiplicity maps.
+Omitted declaration names: TauCeti.GL2Transfer.compatible_descent, TauCeti.GL2Transfer.potential_modularity_interface.
+
+GL2AutomorphicRepresentationsAndTransfer:R17.6/compatible-descent
+TauCeti.GL2Transfer.compatible_descent
+Let E/F be cyclic of prime degree ℓ, η a character of F^×N(A_E^×)\A_F^× of order ℓ, and Π cuspidal over E with Π^σ≅Π. By AC89 Theorem 4.2(d) (Langlands Lemma 11.6(b) for GL₂), the cuspidal descents of Π are exactly π⊗η^i, 0≤i<ℓ, pairwise non-isomorphic, for one chosen descent π. Let {r_λ} be supplied semisimple representations of G_F over a common coefficient field whose restrictions to G_E match the family attached to Π. A matching descent is a single index i, independent of λ, such that the good-place characteristic polynomials of π⊗η^i agree with those of every r_λ. Under that equality, R01.5 identifies each r_λ with the corresponding member attached to π⊗η^i, and i is unique. Suppose each r_λ|_{G_E} is absolutely irreducible and a family {ρ_{π,λ}} attached to π is supplied. Then for each λ, r_λ≅ρ_{π,λ}⊗η^{i(λ)} for some i(λ) (Schur's lemma on the cyclic step). If {r_λ} is compatible, a match at one λ forces the same i at every λ, because both families have λ-independent polynomials. Galois descents chosen independently at different λ, without this common index, do not give one automorphic descent matching the family. In a solvable tower impose this condition at each prime-cyclic step, with its actual descent fiber and local data.
+Hypotheses: E/F is cyclic of prime degree ℓ with generator σ, and η is a character of A_F^×/F^×N(A_E^×) of order ℓ, identified with a character of Gal(E/F) by class field theory. Π is a cuspidal automorphic GL₂ representation over E with Π^σ≅Π. {r_λ} are continuous semisimple representations G_F→GL₂(M̄_λ) over a common coefficient field M, and r_λ|_{G_E} matches the family attached to Π at good places. For the Galois-side twist statement, r_λ|_{G_E} is absolutely irreducible and a family {ρ_{π,λ}} attached to a descent π is supplied as data (its existence belongs to R19/R24). Good places exclude ramification of π, of η, of r_λ and the residue characteristic of λ.
+
+GL2AutomorphicRepresentationsAndTransfer:R17.6/potential-modularity-interface
+TauCeti.GL2Transfer.potential_modularity_interface
+Let E/F be a finite solvable Galois extension with the prescribed local completions and disjointness hypotheses supplied by potential modularity, ρ a rank-two Galois representation of G_F, and Π a cuspidal automorphic representation over E matching ρ|_{G_E} at almost all places. Export the following conditional interface. Irreducibility survives under the disjointness criterion. Local transfer uses the exact completion-wise restriction (strong lifting at each prime-cyclic step). Descent to F goes through a prime-cyclic tower. At each step, once the cuspidal representation over the upper field matches the restriction of ρ there, its invariance under the cyclic step is automatic: for Π, Π^τ matches (ρ|_{G_E})^τ≅ρ|_{G_E}, so Π^τ≅Π by strong multiplicity one. AC89 Theorem 4.2(d) then gives a cuspidal descent with its ℓ twists. What is not automatic is the stepwise consistent character matching of compatible-descent. It needs absolute irreducibility of the restriction and representations attached to the intermediate descents; without them, Galois descent of ρ does not identify which automorphic twist matches. Extension construction, potential automorphy and compatible-family existence stay with R23/R24.
+Hypotheses: E/F is a finite solvable Galois extension with a chosen prime-cyclic subnormal tower, and the prescribed local completions/splitting and disjointness are supplied by the potential-modularity owner (R23). ρ is a continuous rank-two representation of G_F, Π is a cuspidal automorphic GL₂ representation over E matching ρ|_{G_E} at almost all places, and ρ|_{G_E} is absolutely irreducible (for example by disjoint-irreducibility). Representations attached to the intermediate descents are supplied as data when the twist is matched (R19/R24); compatible-descent's common-index condition is checked at each step. Non-Galois (e.g. non-normal cubic) extensions are outside this interface.
+-/
 section TransferExports
 variable {G H V W FClass EClass Λ K : Type*} [Group G] [Group H] [Field K]
 
@@ -745,13 +654,15 @@ theorem disjoint_irreducibility (i : H →* G)
     Set.range (ProjGenLinGroup.mk.comp (r.comp i)) = Set.range (ProjGenLinGroup.mk.comp r) := by sorry
 
 -- The index-two Mackey criterion on Mathlib's induced representation, over any
--- field (characteristic two included). Missing only the Galois specialization:
+-- algebraically closed field (characteristic two included); over ℚ it fails, e.g.
+-- for Z/4 ⊃ Z/2 and the sign character. Missing only the Galois specialization:
 -- Γ = G_F, Kgp = G_K for the quadratic K/F and E = G_E for a finite E/F. σθ is the
 -- one-dimensional representation of θ. In characteristic zero and for finite Γ,
 -- TauCeti.simple_indFDRep_ofLinearCharacter_iff is the pinned unrestricted case.
 -- Restricted to E, Ind θ is irreducible exactly when E ⊄ Kgp and θ differs from
 -- its conjugate on E ∩ Kgp; when E ≤ Kgp it is the sum of two characters.
-theorem quadratic_restriction {Γ k : Type*} [Group Γ] [Field k] (Kgp E : Subgroup Γ)
+theorem quadratic_restriction {Γ k : Type*} [Group Γ] [Field k] [IsAlgClosed k]
+    (Kgp E : Subgroup Γ)
     [Kgp.Normal] (hK : Kgp.index = 2) (θ : Kgp →* kˣ) (σθ : Representation k Kgp k)
     (hσθ : ∀ x, σθ x = (θ x : k) • LinearMap.id) :
     Representation.IsIrreducible ((Representation.ind Kgp.subtype σθ).comp E.subtype) ↔
@@ -765,20 +676,6 @@ theorem compatible_base_change (ρ : Λ → G →* GeneralLinearGroup (Fin 2) K)
     (hfrob : ∀ w, i (FrobE w) = FrobF (below w) ^ f w) :
     ∀ ell w, ρ ell (i (FrobE w)) = unramifiedBaseChange (ρ ell (FrobF (below w))) (f w) := by sorry
 
--- Missing actual cyclic automorphic descent, Galois invariance, one fixed η^i
--- chosen independently of λ, and matching ALL good characteristic polynomials.
--- These parameter functions are the suppliers' matrices, not arbitrary traces.
-theorem compatible_descent (Pi : EClass) (r : Λ → V → GeneralLinearGroup (Fin 2) K)
-    (sat : FClass → V → GeneralLinearGroup (Fin 2) K) (S : Finset V) :
-    ∃ π : FClass, cyclicBaseChange FClass EClass π = Pi ∧
-      ∀ ell v, v ∉ S → (sat π v).val.trace = (r ell v).val.trace ∧
-        (sat π v).val.det = (r ell v).val.det := by sorry
-
--- Missing the extension/localRep/disjointness data supplied by R23, automorphic
--- invariance and consistent character matching at every cyclic tower step.
--- Galois descent alone is explicitly insufficient.
-theorem potential_modularity_interface (Pi : EClass) :
-    ∃ π : FClass, solvableBaseChange FClass EClass π = Pi := by sorry
 end TransferExports
 
 end TauCeti.GL2Transfer

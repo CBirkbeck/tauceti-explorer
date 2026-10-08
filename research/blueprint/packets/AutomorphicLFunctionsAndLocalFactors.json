@@ -9270,9 +9270,9 @@
   ],
   "review": {
     "status": "needs_changes",
-    "reviewer": "independent-review-REV-FIX-RT-AREA-automorphic-1~3",
-    "date": "2026-10-07",
-    "notes": "Independent scoped review of RT-AREA-automorphic-1/1,/8,/9,/10,/13,/14, following REV-FIX-RT-AREA-automorphic-1~2 and the archived REV-AutomorphicLFunctionsAndLocalFactors. Corrected the Fourier reconstruction to genericity/factorization to ordinary multiplicity-one order; added AL.3/global-multiplicity-one with source, prerequisites, API and discriminating tests; removed the nonexistent AF global-genericity/multiplicity supplier. Added full/reduced converse tests, distinguished S-unramified from T-highly-ramified twisting, and corrected GL2/Q critical-value scope and the general rational-period ownership/suppliers with a late-suffix proposal. The reader still falsely allows every entire multiple and claims measure cancellation for z/L, and retains obsolete Fourier/period edges. The previous algebraic-spanning reader error has already been cured and is not an outstanding blocker. Original converse/period proof leaves and source-specific signature omissions remain honest gaps. No new baseline declaration reference; no all-baseline recheck or compilation claim."
+    "reviewer": "independent-review-REV-FIX-RT-AREA-automorphic-1~4",
+    "date": "2026-10-08",
+    "notes": "Independent review of FIX-RT-AREA-automorphic-1~4 (issue #7280, PR #7314, Codex codex-Z0ErNN) by Claude session claude-95TvAO, following REV-FIX-RT-AREA-automorphic-1~3 and, for this packet, REV-AutomorphicLFunctionsAndLocalFactors (needs_changes). Findings /1, /2, /8, /9, /10, /13 and /14 are correctly fixed in the packet: full- and reduced-rank converse contracts match Cogdell's PSCT Theorems 3.1 and 3.3; the Fourier expansion precedes factorization and proves genericity; mirabolic poles depend on the character (Cogdell Fields Proposition 5.4); AL.3/global-multiplicity-one is ordinary multiplicity one; every AF, AA and ALS supplier id exists and no AF node is credited with genericity; the GL2/Q period interface is scoped to ModularSymbols L1; AL.0 owns Schwartz–Bruhat functions. No packet correction was needed. Status stays needs_changes because this packet's own blueprint review (REV-AutomorphicLFunctionsAndLocalFactors) did not accept it and its revision BP-AutomorphicLFunctionsAndLocalFactors~2 is pending: accepting a narrow fix would promote the whole packet. The reader, unchanged since round 3, still contradicts the corrected packet at ~15 (Haar change said to cancel from normalized distributions), ~1657/1659 (every entire multiple), ~1691/1709/1713 (genericity assumed; Fourier after factorization), ~1829–1837 (an AF global multiplicity-one theorem), ~2175 (Gauss-period twisting law imported) and ~2354/2356 (GL2/F from ModularSymbols L1). Details in the review report."
   },
   "reviewHistory": [
     {
@@ -9882,6 +9882,12 @@
           "note": "Used the actual Chenevier–Taïbi additivity passage, retaining the positive-character sign conversion and Weil-constituent formulas."
         }
       ]
+    },
+    {
+      "status": "needs_changes",
+      "reviewer": "independent-review-REV-FIX-RT-AREA-automorphic-1~3",
+      "date": "2026-10-07",
+      "notes": "Independent scoped review of RT-AREA-automorphic-1/1,/8,/9,/10,/13,/14, following REV-FIX-RT-AREA-automorphic-1~2 and the archived REV-AutomorphicLFunctionsAndLocalFactors. Corrected the Fourier reconstruction to genericity/factorization to ordinary multiplicity-one order; added AL.3/global-multiplicity-one with source, prerequisites, API and discriminating tests; removed the nonexistent AF global-genericity/multiplicity supplier. Added full/reduced converse tests, distinguished S-unramified from T-highly-ramified twisting, and corrected GL2/Q critical-value scope and the general rational-period ownership/suppliers with a late-suffix proposal. The reader still falsely allows every entire multiple and claims measure cancellation for z/L, and retains obsolete Fourier/period edges. The previous algebraic-spanning reader error has already been cured and is not an outstanding blocker. Original converse/period proof leaves and source-specific signature omissions remain honest gaps. No new baseline declaration reference; no all-baseline recheck or compilation claim."
     }
   ]
 }

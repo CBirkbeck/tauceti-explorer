@@ -3622,7 +3622,7 @@
       "kind": "theorem",
       "statement": "The index is multiplicative under orthogonal sums, invariant under isometry and trivial on hyperbolic planes, with γψ(−q)=γψ(q)⁻¹. For η=ψ/2 define γ(a,η)=γ(η a x²)/γ(η x²). Then γ(ab,η)=(a,b)F γ(a,η)γ(b,η), γ(a,ηb)=(a,b)F γ(a,η), γ(a,η)²=(−1,a)F and γ(a,η)⁴=1. If q=Σa_ix_i², γψ(q)=γ(det q,ψ)γψ(x²)^d∏_{i<j}(a_i,a_j)F; det q means ∏a_i, not det Bq=2^d∏a_i.",
       "hypotheses": [
-        "F is a local field of characteristic different from two, including Q₂ and R; all a_i and a,b are nonzero. The Hilbert symbol and local Hasse invariant are imported from QuadraticFormInvariants 6C."
+        "F is a local field of characteristic different from two, including Q₂ and R; all a_i and a,b are nonzero. At nonarchimedean F, dyadic fields included, the Hilbert symbol and local Hasse invariant are those of QuadraticFormInvariants 6C. At F=ℝ the same norm-equation symbol is used with the archimedean computation of GlobalQuadraticForms Layer 4.4 ((a,b)_ℝ=−1 exactly when a<0 and b<0), from which the real symmetry, bimultiplicativity and Hasse product are read off; 6C's theorems, which assume a nonarchimedean local field, are not applied at ℝ."
       ],
       "proofSteps": [
         "Weil II.§25 gives the Witt-group character and II.§§27–28 reduce nonarchimedean evaluation to Gauss sums and the quaternion norm.",
@@ -3633,7 +3633,8 @@
       ],
       "prerequisites": [
         "MetaplecticAutomorphicForms:MP.2/weil-index",
-        "tauceti:TauCetiRoadmap/QuadraticFormInvariants#6c-the-hilbert-symbol-and-the-local-hasse-invariant"
+        "tauceti:TauCetiRoadmap/QuadraticFormInvariants#6c-the-hilbert-symbol-and-the-local-hasse-invariant",
+        "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-4-global-square-norm-and-approximation-lemmas"
       ],
       "library": {
         "module": "TauCeti/RepresentationTheory/Metaplectic/Stage2",
@@ -7100,7 +7101,7 @@
       "proofSteps": [
         "Use the unique local theta spaces from MP.3.",
         "Compute the real local invariants in the specified signature.",
-        "Apply the global Hermitian invariant product criterion imported from QFI."
+        "Apply a separately sourced global Hermitian existence criterion (Landherr: a family of local Hermitian spaces of one dimension, almost all with trivial local sign, comes from a global Hermitian space exactly when the product of the local signs is 1). It is the source-qualified Hermitian extension recorded at MP.6/coherent-incoherent-sections; QFI6C supplies local quadratic symbols only."
       ],
       "acceptance": [
         "Flipping one finite η(det) changes coherence."
@@ -7772,7 +7773,7 @@
       ],
       "title": "Jacobi theta decomposition interface",
       "kind": "comparison",
-      "statement": "For a positive integral index and normally convergent Jacobi section, elliptic invariance decomposes its Fourier indices into finitely many discriminant residues; its unique theta components transform through the finite Weil module. Prove the general statement using compact torus orthogonality and Poisson summation, then specialize to the exact genus-two BFH formulas supplied by MP.8/theta-decomposition, theta-pairing and theta-fourier-transform, including the positive-on-iY determinant-root branch.",
+      "statement": "For a positive integral index and normally convergent Jacobi section, elliptic invariance decomposes its Fourier indices into finitely many discriminant residues; its unique theta components transform through the finite Weil module. Prove the general statement using compact torus orthogonality and Poisson summation. MP.8/theta-decomposition, theta-pairing and theta-fourier-transform specialize this interface to the exact genus-two BFH formulas, including the positive-on-iY determinant-root branch; this node does not use them.",
       "hypotheses": [
         "Positive index; compatible integral lattice; normal Fourier convergence and all weight/multiplier data fixed. The generic lattice/discriminant carrier is imported from IntegralLattices."
       ],
@@ -7800,7 +7801,7 @@
         {
           "sourceId": "BFH90Invent",
           "locator": "§2 Proposition2.2, equations(2.4)–(2.10), printed552–553, PDF11–12",
-          "match": "Visual transcription. Finite component transformation, positive-on-pure-imaginary determinant branch; genus-two theorem is imported from MP.8."
+          "match": "Visual transcription. Finite component transformation, positive-on-pure-imaginary determinant branch; the genus-two theorem is MP.8’s specialization of this interface."
         }
       ],
       "implementationStatus": "unchecked",
@@ -11151,7 +11152,7 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#6c-the-hilbert-symbol-and-the-local-hasse-invariant",
-      "need": "Use QFI6C’s native Hilbert symbol and local Hasse invariants, including R and dyadic fields, its local identity laws and the norm-equation/cohomological comparison. Keep the plain quadratic determinant, signed discriminant and full polar determinant distinct. PartII requests here concern local Hermitian and quaternionic trace-norm invariant adapters only. Global quadratic coherent-collection existence/classification is requested separately from GlobalQuadraticForms; a global Hermitian analogue is not supplied by QFI6C. The analytic Weil index and its adelic Poisson product remain with MP.",
+      "need": "Use QFI6C’s native Hilbert symbol and local Hasse invariants over nonarchimedean local fields, dyadic fields included (the real-place symbol laws come from GlobalQuadraticForms 4.4, not 6C), its local identity laws and the norm-equation/cohomological comparison. Keep the plain quadratic determinant, signed discriminant and full polar determinant distinct. PartII requests here concern local Hermitian and quaternionic trace-norm invariant adapters only. Global quadratic coherent-collection existence/classification is requested separately from GlobalQuadraticForms; a global Hermitian analogue is not supplied by QFI6C. The analytic Weil index and its adelic Poisson product remain with MP.",
       "neededBy": [
         "MetaplecticAutomorphicForms:MP.3/first-occurrence",
         "MetaplecticAutomorphicForms:MP.3/nonarchimedean-conservation",
@@ -11381,6 +11382,13 @@
       "neededBy": [
         "MetaplecticAutomorphicForms:MP.6/coherent-incoherent-sections"
       ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-4-global-square-norm-and-approximation-lemmas",
+      "need": "Use GlobalQuadraticForms 4.4’s archimedean computation of the norm-equation Hilbert symbol: at a real place (a,b)=−1 exactly when a<0 and b<0, and at a complex place it is 1, with symmetry and bimultiplicativity read off that formula. MP.2 uses it for the real Weil-index identities and Hasse products; QFI6C’s symbol theorems assume a nonarchimedean local field and are not cited at ℝ.",
+      "neededBy": [
+        "MetaplecticAutomorphicForms:MP.2/weil-index-identities"
+      ]
     }
   ],
   "coverage": [
@@ -11490,9 +11498,9 @@
         "Anisotropic Siegel–Weil formula proof/signature boundary: The original anisotropic identity and exact constant proof are cited by GQT but not fully read; the scalar must be rechecked against the adopted normalized I convention.",
         "Regularized first-term identity proof/signature boundary: The first-term identity proof inputs and the exceptional boundary calculation require their referenced original proofs; all ranges and coefficient conventions are retained for review.",
         "Regularized second-term identity proof/signature boundary: The induction and constant-term proof continuation after the read statements is not fully checked. The exact κ_{r,r′} evaluation and quotient carrier remain implementation/review work.",
-        "Coherent and incoherent sections proof/signature boundary: Exact global Hermitian classification and the incoherent functional-equation comparison are QFI/AS Part-II supplier inputs. No arithmetic derivative identity is asserted here.",
+        "Coherent and incoherent sections proof/signature boundary: Exact global Hermitian classification needs a separate source-qualified Hermitian supplier (not QFI6C or GlobalQuadraticForms), and the incoherent functional-equation comparison is an AS Part-II input; the local Hermitian invariant carrier is a QFI Part-II adapter request. No arithmetic derivative identity is asserted here.",
         "Unitary Siegel–Weil measure proof/signature boundary: The referenced LL21 local identity proof is unread; its rational Haar scalar and native orbital-integral carrier remain precise supplier/proof inputs.",
-        "Unitary theta coherence parity proof/signature boundary: The exact global Hermitian existence theorem and native local invariant carrier are QFI supplier requests; no arithmetic height assertion is part of this node.",
+        "Unitary theta coherence parity proof/signature boundary: The exact global Hermitian existence theorem needs a separate source-qualified Hermitian supplier (not QFI6C or GlobalQuadraticForms); the native local invariant carrier is a QFI Part-II adapter request; no arithmetic height assertion is part of this node.",
         "Doubling Schwartz map proof/signature boundary: The exact partial Fourier kernel and native completed/joint tensor comparison remain a finite-dimensional AL Part-II input.",
         "Local doubling zeta integral proof/signature boundary: The original PSR/Yamana local doubling theorem and ramified test-vector calculation are unread proof inputs; AL owns local L-factors, not this integral’s automatic normalization.",
         "Factorization of theta pairings proof/signature boundary: The complete unfolding proof and each ramified integral comparison require their original sources and native restricted quotient integration.",
@@ -11980,7 +11988,7 @@
       "neededBy": [
         "MetaplecticAutomorphicForms:MP.6/pi-coherence-parity"
       ],
-      "detail": "The exact global Hermitian existence theorem and native local invariant carrier are QFI supplier requests; no arithmetic height assertion is part of this node."
+      "detail": "The exact global Hermitian existence theorem needs a separate source-qualified Hermitian supplier (not QFI6C or GlobalQuadraticForms); the native local invariant carrier is a QFI Part-II adapter request; no arithmetic height assertion is part of this node."
     },
     {
       "title": "Doubling Schwartz map proof/signature boundary",
@@ -12841,9 +12849,9 @@
   },
   "review": {
     "status": "needs_changes",
-    "reviewer": "independent-review-REV-FIX-RT-AREA-automorphic-1~3",
-    "date": "2026-10-07",
-    "notes": "Independent scoped review of RT-AREA-automorphic-1/19–23, following REV-FIX-RT-AREA-automorphic-1~2 and the archived REV-MetaplecticAutomorphicForms--MP.0. Corrected GQT boundary/second-term locators, explicit binary/ternary rank hypotheses, YZZ nonsplit/split proof boundary and the scalar range prototype. Routed local Hilbert/Hasse invariants to QFI6C and actual global quadratic realization/classification to GlobalQuadraticForms Layers3/7/8, retaining rank/discriminant/real/dyadic constraints. Verified early SR/AF/AA inputs and independent fine I/J/MW carrier closures, without asserting global atlas acyclicity. Added version-qualified YZZ draft evidence and repaired the exact-hash Kudla host. Existing arbitrary-representation theta/finite-length/growth signatures and reader contradictions still block whole-packet acceptance; the reader even retains a removed GZ consumer prerequisite. Remaining original proofs and requested analytic extensions are explicit. Only the listed five relevant Mathlib files were freshly blob-verified, not all baseline entries. Lean was not compiled."
+    "reviewer": "independent-review-REV-FIX-RT-AREA-automorphic-1~4",
+    "date": "2026-10-08",
+    "notes": "Independent review of FIX-RT-AREA-automorphic-1~4 (issue #7280, PR #7314, Codex codex-Z0ErNN) by Claude session claude-95TvAO, following REV-FIX-RT-AREA-automorphic-1~3 and, for this packet, REV-MetaplecticAutomorphicForms--MP.0 (needs_changes). Findings /19, /20, /21 and /23 are correctly fixed (Gan–Qiu–Takeda and Skoruppa locators checked; MP.3 imports SR.0, SR.2, SR.3 and AF.1; MP.5 imports the AA.3 and AF.2/AF.3 nodes). Corrected for /22: MP.2/weil-index-identities and the QFI6C request credited the real-place Hilbert symbol laws to Quadratic Form Invariants 6C, which assumes a nonarchimedean local field; the real place now uses Global Quadratic Forms 4.4 (prerequisite and request added). Global Hermitian existence was still routed to QFI in MP.6/pi-coherence-parity, two coverage entries and a gap; it is now a separately sourced Hermitian input. MP.6/jacobi-theta-decomposition-interface no longer describes MP.8 as its supplier (/20 direction). Status stays needs_changes because this packet's own blueprint review (REV-MetaplecticAutomorphicForms--MP.0) did not accept it and its revision BP-MetaplecticAutomorphicForms--MP.0~2 is pending: accepting a narrow fix would promote the whole packet. The suggested file keeps the broad review's false signatures in these regions (see the report). The reader still contradicts the packet at ~4151, ~4203/4208, ~6795, ~4577 and ~4811–4823 (including a GZ.5 prerequisite the packet removed)."
   },
   "reviewHistory": [
     {
@@ -13733,6 +13741,12 @@
           "note": "Checked source PAPER-GROSS-ZAGIER-86, I.§5(5.2), printed229, PDF6; IV.§2 printed273–275, PDF50–52. Removed the consuming GZ.5 period theorem as an input and recorded the independent norm-torus orbit dictionary/integrability gap. The normalized local-factor interface is still a target, not closure. Lean compares arbitrary thetaPeriod,toricPairing,normalization;1 versus0 refutes it. Corrected verdict records the in-place repair only; the stated remaining contradiction prevents acceptance."
         }
       ]
+    },
+    {
+      "status": "needs_changes",
+      "reviewer": "independent-review-REV-FIX-RT-AREA-automorphic-1~3",
+      "date": "2026-10-07",
+      "notes": "Independent scoped review of RT-AREA-automorphic-1/19–23, following REV-FIX-RT-AREA-automorphic-1~2 and the archived REV-MetaplecticAutomorphicForms--MP.0. Corrected GQT boundary/second-term locators, explicit binary/ternary rank hypotheses, YZZ nonsplit/split proof boundary and the scalar range prototype. Routed local Hilbert/Hasse invariants to QFI6C and actual global quadratic realization/classification to GlobalQuadraticForms Layers3/7/8, retaining rank/discriminant/real/dyadic constraints. Verified early SR/AF/AA inputs and independent fine I/J/MW carrier closures, without asserting global atlas acyclicity. Added version-qualified YZZ draft evidence and repaired the exact-hash Kudla host. Existing arbitrary-representation theta/finite-length/growth signatures and reader contradictions still block whole-packet acceptance; the reader even retains a removed GZ consumer prerequisite. Remaining original proofs and requested analytic extensions are explicit. Only the listed five relevant Mathlib files were freshly blob-verified, not all baseline entries. Lean was not compiled."
     }
   ]
 }

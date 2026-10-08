@@ -2363,7 +2363,7 @@ Let N be a unipotent group over ℚ, 𝔫_E=Lie(N)⊗ℚE, Γ_N⊂N(ℚ) an arit
 and V a finite-dimensional algebraic representation of N_E. Rational Nomizu comparison, extended to
 E, gives H*(𝔫_E,V)≅H*(Γ_N,V), equivalently the local-system cohomology of Γ_N\N(ℝ). After an
 embedding E→ℂ this is the comparison by the invariant V-valued differential-form complex with its
-coefficient action. If N is the radical of P=M⋉N and V extends to an algebraic P_E-representation,
+coefficient action. If N is the unipotent radical of a rational parabolic P=M⋉N and V extends to an algebraic P_E-representation,
 its Lie cohomology carries the algebraic M_E-action. The fixed nilmanifold comparison is equivariant
 for the normalizer of Γ_N in M(ℚ); other commensurator elements require transported lattices and
 their pullback/trace maps. No integral or mod-p Nomizu–Kostant comparison is asserted.

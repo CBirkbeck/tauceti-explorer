@@ -3817,7 +3817,7 @@
         "GL2AutomorphicRepresentationsAndTransfer:R16.6/hilbert-algebraic-weights",
         "GL2AutomorphicRepresentationsAndTransfer:R16.6/weight-one-classical-comparison"
       ],
-      "detail": "AF.1b is proposed by the verified RT finding but not installed in the current atlas. Current AF.1 nodes provide Wℝ and D_k fragments, not the full classification/factor contract. Obtain the complete real/complex chamber, limit and epsilon signature from that supplier before closing these nodes; the suggested file marks unavailable conditions beside provisional carrier parameters. In particular, prove the real quaternionic comparison through the SU(2)/GL₂(ℝ) character interfaces; current finite-place ET.6 does not provide it."
+      "detail": "AF.1b is proposed by the verified RT finding but not installed in the current atlas. The current AF.1 nodes weil-group-real, gl2-real-discrete-series, langlands-classification, archimedean-llc-gln and casselman-wallach-globalization state the classification and globalization, but carry no Lean declarations and their original proofs remain AF gaps; the comparison of L- and ε-factors of Weil parameters is AL.2’s. Obtain the complete real/complex chamber, limit and epsilon signatures from those suppliers before closing these nodes; the suggested file records these targets in explicit §13 omission blocks, with true Gammaℝ/Gammaℂ normalization fragments. In particular, prove the real quaternionic comparison through the SU(2)/GL₂(ℝ) character interfaces; current finite-place ET.6 does not provide it."
     },
     {
       "title": "Supplier test-function and automorphic carriers in Lean",
@@ -3843,9 +3843,31 @@
         "GL2AutomorphicRepresentationsAndTransfer:R16.1/local-adelic-compact-comparison",
         "GL2AutomorphicRepresentationsAndTransfer:R16.1/iwasawa-cartan",
         "GL2AutomorphicRepresentationsAndTransfer:R16.1/haar-quotient-comparison",
-        "GL2AutomorphicRepresentationsAndTransfer:R16.5/classical-l-function-comparison"
+        "GL2AutomorphicRepresentationsAndTransfer:R16.5/classical-l-function-comparison",
+        "GL2AutomorphicRepresentationsAndTransfer:R16.2/archimedean-classification",
+        "GL2AutomorphicRepresentationsAndTransfer:R16.2/casselman-newvector",
+        "GL2AutomorphicRepresentationsAndTransfer:R16.2/cdt-vexing-type",
+        "GL2AutomorphicRepresentationsAndTransfer:R16.2/henniart-unicity",
+        "GL2AutomorphicRepresentationsAndTransfer:R16.2/iwahori-center",
+        "GL2AutomorphicRepresentationsAndTransfer:R16.2/iwahori-oldforms",
+        "GL2AutomorphicRepresentationsAndTransfer:R16.2/local-classification",
+        "GL2AutomorphicRepresentationsAndTransfer:R16.2/newvector-conductor",
+        "GL2AutomorphicRepresentationsAndTransfer:R16.2/newvector-level-exists",
+        "GL2AutomorphicRepresentationsAndTransfer:R16.2/supercuspidal-kirillov",
+        "GL2AutomorphicRepresentationsAndTransfer:R16.3/archimedean-factor-comparison",
+        "GL2AutomorphicRepresentationsAndTransfer:R16.3/cdt-inertia-multiplicity",
+        "GL2AutomorphicRepresentationsAndTransfer:R16.3/conductor-epsilon-comparison",
+        "GL2AutomorphicRepresentationsAndTransfer:R16.3/principal-series-parameter",
+        "GL2AutomorphicRepresentationsAndTransfer:R16.3/supercuspidal-parameter",
+        "GL2AutomorphicRepresentationsAndTransfer:R16.3/tamely-dihedral",
+        "GL2AutomorphicRepresentationsAndTransfer:R16.3/tamely-dihedral-supercuspidal",
+        "GL2AutomorphicRepresentationsAndTransfer:R16.6/hilbert-algebraic-weights",
+        "GL2AutomorphicRepresentationsAndTransfer:R17.1/norm-character-steinberg",
+        "GL2AutomorphicRepresentationsAndTransfer:R17.1/real-quaternionic-comparison",
+        "GL2AutomorphicRepresentationsAndTransfer:R17.1/wild-dyadic-transfer",
+        "GL2AutomorphicRepresentationsAndTransfer:R17.2/strong-cuspidal-vanishing"
       ],
-      "detail": "The pins lack actual smooth/automorphic isomorphism-class, analytic test-function, quotient-measure, LLC and trace-distribution carriers. The assigned R16.1 topology, R16.4 Fourier/multiplicity/rationality, R16.5 integral/converse/classical-L and R16.6 primitive/weight-one/geometric comparison signatures are explicitly omitted by name with their full source hypotheses, API and tests in the suggested file (§13). They are not declarations over arbitrary replacement types. Obtain the actual supplier objects before giving those signatures. Other inherited local-model and trace prototypes still have expressible missing hypotheses; the scoped review records concrete counterexamples, and this carrier gap does not validate those universally quantified statements."
+      "detail": "The pins lack actual smooth/automorphic isomorphism-class, analytic test-function, quotient-measure, LLC and trace-distribution carriers. The assigned R16.1 topology, R16.4 Fourier/multiplicity/rationality, R16.5 integral/converse/classical-L and R16.6 primitive/weight-one/geometric comparison signatures are explicitly omitted by name with their full source hypotheses, API and tests in the suggested file (§13). They are not declarations over arbitrary replacement types. Obtain the actual supplier objects before giving those signatures. The inherited local-model, archimedean, quaternionic-comparison and trace prototypes that were false as written (arbitrary modules, multiplicity maps or scalars) are likewise recorded as §13 omission blocks since REV-FIX-RT-AREA-automorphic-1~4; the remaining declarations of the suggested file are intended to be true as written."
     },
     {
       "title": "Full newvector and ramified factor interface",
@@ -4045,9 +4067,9 @@
   ],
   "review": {
     "status": "needs_changes",
-    "reviewer": "independent-review-REV-FIX-RT-AREA-automorphic-1~3",
-    "date": "2026-10-07",
-    "notes": "Independent scoped review of RT-AREA-automorphic-1/8,/9,/11,/14 and the GL2 comparison boundary, following REV-FIX-RT-AREA-automorphic-1~2 and the archived REV-GL2AutomorphicRepresentationsAndTransfer--R16.1. Imported AL.3/global-multiplicity-one and the corrected Fourier/factorization order. Replaced assigned arbitrary-carrier compact/measure, global cusp, converse and classical/weight-one equivalences by exact source-interface omissions. The prior accepted status is narrowed on concrete surviving evidence: supercuspidalKirillov would equate a one-dimensional module with zero, spectralLedger equates unrelated scalars, and strongCuspidalVanishing can be instantiated with the identity on a nonzero module. Other local/multiplicity prototypes and the reader's blanket soundness claim remain to be repaired. Genuine missing-carrier omissions alone are not rejection grounds. No fresh all-55-node or all-17-baseline review is claimed. Lean was not compiled."
+    "reviewer": "independent-review-REV-FIX-RT-AREA-automorphic-1~4",
+    "date": "2026-10-08",
+    "notes": "Independent review of FIX-RT-AREA-automorphic-1~4 (issue #7280, PR #7314, Codex codex-Z0ErNN) by Claude session claude-95TvAO, following REV-FIX-RT-AREA-automorphic-1~3 and, for this packet, REV-GL2AutomorphicRepresentationsAndTransfer--R16.1 (accepted, promoted). Reviewed every change since the promoted version (3827d0154): R16.2/archimedean-classification, R16.3/archimedean-factor-comparison, the four R16.4 Whittaker and multiplicity nodes, R16.5/full-gl2-converse, gaps, requests and sourceIssues. Findings /2, /9, /11 and /14 are correctly fixed: the imported AF.1 and AL.3 nodes exist and match in normalization (D_k indexing and L(s,D_k), continuous Whittaker functionals on the globalization, ordinary versus strong multiplicity one, the full-rank n=2 converse); AL.0 owns Schwartz–Bruhat functions. Corrected: a gap still said AF.1 gives only W_R and D_k fragments. Suggested file: 31 declarations and API lemmas and 7 tests that were false as written, namely the six listed by REV~3, the archimedean classification and factor prototypes, the contradictory pair of Steinberg-projector trace values, cyclicMatching and the other declarations false as written over arbitrary modules, maps or scalars are replaced by §13 omission blocks generated from the packet, with true Gammaℝ/Gammaℂ fragments added; the file elaborates at the Mathlib pin with placeholder-proof warnings only. Remaining, for the next fix round (reader only): the R16.4 global multiplicity-one section (~882–890) still argues from SR.5 alone and omits AL.3/global-multiplicity-one (the /9 fix); Gap 2 (~1759) and ~1843 describe the suggested file wrongly; the R17.1 real quaternionic comparison (~1325–1329) cites ET.6, which covers finite places only. Details in the review report."
   },
   "reviewHistory": [
     {
@@ -4332,6 +4354,12 @@
           "note": "Read Getz32–34 and AF corrected Casimir/full O(2) model; D₁ is the limit, Γℝ(s)Γℝ(s+1)=Γℂ(s), and E15 correction is used."
         }
       ]
+    },
+    {
+      "status": "needs_changes",
+      "reviewer": "independent-review-REV-FIX-RT-AREA-automorphic-1~3",
+      "date": "2026-10-07",
+      "notes": "Independent scoped review of RT-AREA-automorphic-1/8,/9,/11,/14 and the GL2 comparison boundary, following REV-FIX-RT-AREA-automorphic-1~2 and the archived REV-GL2AutomorphicRepresentationsAndTransfer--R16.1. Imported AL.3/global-multiplicity-one and the corrected Fourier/factorization order. Replaced assigned arbitrary-carrier compact/measure, global cusp, converse and classical/weight-one equivalences by exact source-interface omissions. The prior accepted status is narrowed on concrete surviving evidence: supercuspidalKirillov would equate a one-dimensional module with zero, spectralLedger equates unrelated scalars, and strongCuspidalVanishing can be instantiated with the identity on a nonzero module. Other local/multiplicity prototypes and the reader's blanket soundness claim remain to be repaired. Genuine missing-carrier omissions alone are not rejection grounds. No fresh all-55-node or all-17-baseline review is claimed. Lean was not compiled."
     }
   ]
 }
