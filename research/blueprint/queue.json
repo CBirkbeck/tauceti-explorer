@@ -46239,8 +46239,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-CrystallineLocalGlobalCompatibilityCM.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7462"
+   "state": "pending",
+   "note": "released on GitHub issue #7462"
   },
   {
    "id": "REV-PKG-CrystallineLocalGlobalCompatibilityCM",
@@ -46498,7 +46498,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-EllipticCurveModularityImaginaryQuadratic.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7470"
   },
   {
    "id": "REV-PKG-EllipticCurveModularityImaginaryQuadratic",
