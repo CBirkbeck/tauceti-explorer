@@ -289,7 +289,8 @@
         "19.1 (Definition 19.1.1, Proposition 19.1.2 and its proof, Remark 19.1.3, Lemmas 19.1.4-19.1.5), printed pp. 169-171",
         "Appendix to Lecture 19, 19.5 (Theorem 19.5.1 with footnote 1, Theorem 19.5.2, Proposition 19.5.3 and proofs), printed pp. 178-181",
         "Rechecked for revision BP-RelativeFarguesFontaine--RF4~2 on 2026-10-08; public PDF hash reproduced where recorded.",
-        "Theorem 12.3.4, Proposition 12.3.5 and Corollary 12.4.1 with proofs, printed pp. 104-105; construction in Proposition 12.4.6, pp. 106-107."
+        "Theorem 12.3.4, Proposition 12.3.5 and Corollary 12.4.1 with proofs, printed pp. 104-105; construction in Proposition 12.4.6, pp. 106-107.",
+        "Independent review REV-RelativeFarguesFontaine--RF4~2: Lemma 17.1.8 with proof, printed pp. 150-151; cross-reference in the proof of Proposition 19.5.3, p. 180."
       ],
       "accessed": "2026-10-08"
     },
@@ -320,7 +321,8 @@
         "Remark 2.7.9 (glueing proof of Proposition 1.3.6), p. 58",
         "8.7 (Hypothesis 8.7.1 to Corollary 8.7.9), pp. 176-178",
         "8.9 (Hypothesis 8.9.1 to Theorem 8.9.6), pp. 187-188",
-        "Rechecked for revision BP-RelativeFarguesFontaine--RF4~2 on 2026-10-08; public PDF hash reproduced where recorded."
+        "Rechecked for revision BP-RelativeFarguesFontaine--RF4~2 on 2026-10-08; public PDF hash reproduced where recorded.",
+        "Independent review REV-RelativeFarguesFontaine--RF4~2: Convention 4.1.13 (p. 105), Definition 6.2.1 (p. 135), Definitions 7.2.1 and 7.3.1 (pp. 147-148), Definition 8.8.18 and Lemma 8.8.19 (p. 186); slope normalization rederived. Published SMF download was attempted but not obtained; finding concerns arXiv v5 only."
       ],
       "accessed": "2026-10-08"
     },
@@ -328,7 +330,7 @@
       "id": "Stacks-BL",
       "title": "The Stacks project, More on Algebra, Section 15.92 The Beauville-Laszlo theorem (tag 0BNI), with Sections 15.9 and 15.11",
       "authors": "The Stacks project authors",
-      "edition": "Online version, tags 0BNI, 0BNR, 0BNS, 0BNW, 0BP2, 07M7 and 0ALJ, accessed 2026-10-06",
+      "edition": "Online version, tags 0BNI, 0BNR, 0BNS, 0BNW, 0BP2, 07M7 and 0ALJ, accessed 2026-10-08",
       "url": "https://stacks.math.columbia.edu/tag/0BNI",
       "readSections": [
         "Section 15.92 complete: Lemmas 15.92.1-15.92.4, Remark 15.92.5, glueing pairs, Lemma 15.92.6, Remarks 15.92.7-15.92.8, Example 15.92.9, glueable modules, Lemma 15.92.10, Remark 15.92.11, Example 15.92.12, Lemmas 15.92.13-15.92.15, Theorem 15.92.16, Remark 15.92.17, Lemmas 15.92.18-15.92.19, Remark 15.92.20",
@@ -679,7 +681,11 @@
           "GlueingDatum.baseChange",
           "TwistedZariski.datum",
           "TwistedZariski.sections_computation",
-          "TwistedZariski.sectionsEquiv_one"
+          "TwistedZariski.sectionsEquiv_one",
+          "GlueingDatum.canMap_tmul",
+          "GlueingDatum.can_fullyFaithful_of_flat",
+          "GlueingDatum.sectionsTensor_bijective",
+          "GlueingDatum.dual_sections"
         ],
         "omittedAPIs": [
           {
@@ -742,9 +748,12 @@
       "implementationStatus": "unchecked",
       "prototypeInventory": {
         "nativeCore": [
-          "finiteProjective_glueing_effective"
+          "finite_glueing_surjectivity",
+          "finiteProjective_glueing_finitePresentation",
+          "finiteProjective_glueing_effective",
+          "GlueingDatum.can_fullyFaithful_of_flat"
         ],
-        "omittedSignature": "No full geometric signature: the relative curve/divisor/bundle or Frobenius-shtuka categories occurring in this statement are not available at the pinned baseline; algebraic cores above do not supply those carriers."
+        "note": "All three algebraic clauses have native signatures: finite comparison surjectivity and simultaneous generators, finite presentation with both comparisons, and projective effectivity. The Hom adjunction and flat-target unit give full faithfulness. Packaging this as a category equivalence is a routine implementation step; no geometric carrier is needed."
       }
     },
     {
@@ -790,9 +799,10 @@
       "implementationStatus": "unchecked",
       "prototypeInventory": {
         "nativeCore": [
-          "finiteEtale_glueing"
+          "finiteEtale_glueing",
+          "finiteEtale_can_fullyFaithful"
         ],
-        "omittedSignature": "No full geometric signature: the relative curve/divisor/bundle or Frobenius-shtuka categories occurring in this statement are not available at the pinned baseline; algebraic cores above do not supply those carriers."
+        "note": "Native signatures give object effectivity with the prescribed transition and unique descent of compatible algebra maps. Together they specify the equivalence; no geometric carrier is needed."
       }
     },
     {
@@ -1046,9 +1056,12 @@
           "beauvilleLaszlo_effective",
           "beauvilleLaszlo_finiteProjective_iff",
           "beauvilleLaszlo_flat_iff",
-          "beauvilleLaszlo_flat_exact"
+          "beauvilleLaszlo_flat_exact",
+          "beauvilleLaszlo_glueable_unit",
+          "beauvilleLaszlo_sections",
+          "beauvilleLaszlo_can_fullyFaithful"
         ],
-        "omittedSignature": "No full geometric signature: the relative curve/divisor/bundle or Frobenius-shtuka categories occurring in this statement are not available at the pinned baseline; algebraic cores above do not supply those carriers."
+        "note": "Native signatures now cover the unit, arbitrary-datum sections and counit, and fully faithful Can on all glueable modules, as well as the finite-projective and flat clauses. The common localization and scalar towers are explicit. No geometric carrier is needed for this theorem."
       }
     },
     {
@@ -1574,7 +1587,7 @@
       ],
       "proofSteps": [
         "Lemma 8.9.3 makes all three schemes affine; the fibre product of affine schemes over a separated scheme is affine.",
-        "The identification of R_2 with the ker(theta)-adic completion of R-tilde^{int,1}_R uses that Z = Spec(A) and the completion along Z only sees the rings A/ker(theta)^n (KL Definition 8.9.4).",
+        "The identification of R_2 with the ker(theta)-adic completion of R-tilde^{int,1}_R uses that Z = Spec(A) and the completion along Z only sees the quotients R-tilde^{int,1}_R/(ker(theta))^n of the ambient period ring (KL Definition 8.9.4).",
         "Compatibility with RF2:untilts: both rings are the completion of the structure sheaf along the same Cartier divisor, transported by GAGA (VectorBundlesAndIsocrystals:VB2:ampleness/gaga-equivalence).",
         "In the p-typical case, compare R_2 with Mathlib's BDeRhamPlus A^+ p through PadicHodgeTheory:R06.1/bdr-plus-of-perfectoid-affinoid-algebras, which identifies the theta-kernel-adic completions."
       ],
@@ -1832,7 +1845,7 @@
       "statement": "Kedlaya-Liu Hypotheses 8.7.1 and 8.9.1: a >= 1 an integer and q = p^a; (A, A^+) a perfectoid adic Banach algebra over Q_p, X = Spa(A, A^+), and (R, R^+) the perfect uniform adic Banach algebra over F_p corresponding to it; P_R = sum_{n >= 0} P_{R,n} the graded ring of phi^a-invariants (H^0 of O(n)), Proj(P_R) the schematic relative curve, FF_R -> Proj(P_R) the comparison morphism (an equivalence on vector bundles, KL 8.7.7), and Z the image of the canonical section Spec(A) -> Proj(P_R) given by the untilt A of R. For S = Spa(R, R^+) over F_q and E = W(F_q)[1/p] this is the schematic curve X_S^alg = Proj(P) of RF3 and the degree-one divisor of the untilt; L_X denotes the line bundle O(Z) (KL Definition 8.8.18, Convention 8.9.2). (b) The morphism Spec(R_1 (+) R_2) -> Proj(P_R) is an effective descent morphism for quasicoherent finite locally free sheaves. (c) The category of vector bundles on Proj(P_R) is equivalent to the category of triples (V_1, V_2, iota) with V_1 a finite projective R_1 = B_e(A)-module, V_2 a finite projective R_2 = B^+_dR(A)-module and iota : V_1 (x)_{R_1} R_3 = V_2 (x)_{R_2} R_3 an isomorphism of R_3 = B_dR(A)-modules; the equivalence is compatible with tensor products and short exact sequences. By GAGA the same holds for vector bundles on the adic relative curve FF_R = X_S (Caraiani-Scholze Theorem 3.5.1). At a geometric point S = Spa(C^flat), where B_e is a principal ideal domain, vector bundles on X_FF are triples of finite free modules (Fargues-Fontaine Corollaire 5.3.2) and isomorphism classes of rank-n bundles are GL_n(B_e) \\ GL_n(B_dR) / GL_n(B^+_dR).",
       "hypotheses": [
         "Hypotheses of Kedlaya-Liu 8.9.1: affinoid perfectoid base over Q_p and unramified coefficients; the general-E relative version is RF4:vector-bundles/meromorphic-modification-at-a-divisor, formulated through modifications",
-        "The triples are of finite projective modules; finite free in the field case only because Pic(Spec B_e) = 0",
+        "The triples are of finite projective modules; finite free in the field case because B_e is a principal ideal domain (Dedekind with trivial Picard group), rather than from trivial Picard group alone",
         "The compatibility with short exact sequences is stated by Caraiani-Scholze for this equivalence"
       ],
       "proofSteps": [
@@ -2475,7 +2488,7 @@
         "The current BG0/g-torsors-three-descriptions node supplies the reductive E/sousperfectoid case and no longer imports RF4. The flat-linear scheme and smooth integral adic versions, and broader field representation contracts, are explicit BG0 requests rather than duplicate RF4 nodes."
       ],
       "proofSteps": [
-        "(a) Scholze-Weinstein, proof of 19.5.3: by the Tannakian description reduce to GL_n; base change to the perfectoid U' = U x_{Spa Z_p} Spa Z_p[p^(1/p^oo)]^; vector bundles on perfectoid spaces satisfy v-descent (SW Proposition 17.1.8, requested from DiamondsAndVStacks D2); descend back along A -> A' split as topological A-modules (finite projectivity descends, Stacks 08XD).",
+        "(a) Scholze-Weinstein, proof of 19.5.3: by the Tannakian description reduce to GL_n; base change to the perfectoid U' = U x_{Spa Z_p} Spa Z_p[p^(1/p^oo)]^; vector bundles on perfectoid spaces satisfy v-descent (SW Lemma 17.1.8, requested from DiamondsAndVStacks D2); descend back along A -> A' split as topological A-modules (finite projectivity descends, Stacks 08XD).",
         "(b) Fargues-Scholze, proof of VI.1.7: vector bundles over B^+_{Div^d} satisfy v-descent, checked modulo powers of I_S where it is Proposition VI.1.4 (RF2:integral-divisors/v-descent-of-bundles-on-the-divisor); by the Tannakian formalism so do G-bundles; an isomorphism over B_{Div^d}(S) is a section of an affine scheme, which again satisfies v-descent.",
         "For (c), first reduce the given torsor Q modulo I_D to a smooth affine finite-presentation torsor Q0 over A_T=B_D-plus(T)/I_D. Over a geometric point, B_D-plus is a finite product of complete discrete valuation rings with algebraically closed residue field; the reductive torsor has a section. Reduction modulo I_D, including the nonreduced Artinian thickening at colliding legs, retains a section by smooth lifting. The assertion here is the reductive case of FS VI.1.7, p. 193; no smooth nonreductive extension is inferred.",
         "Fix a geometric point s and take the filtered system of pointed affinoid etale neighbourhoods T of s. Choose compatible closed rings of definition R_T in the Tate rings A_T=B_D-plus(T)/I_D, with a common topologically nilpotent unit t coming from [varpi] (use a fixed power if necessary). Set R=colim_T R_T and I=R, so R[1/t]=colim_T A_T and R-hat=lim_n R/t^n R. Multiplication by t is injective on R because t is a unit on each A_T. Each R_T is t-adically complete, hence (R_T,tR_T) henselian; filtered colimits preserve the henselian pair condition, giving (R,tI)=(R,tR) henselian. The compatibility of this construction and the identification R-hat[1/t] with the reduced-divisor ring over the completed geometric stalk are the exact RF2:integral-divisors request below, not consequences of henselianity alone.",
@@ -2543,6 +2556,11 @@
           "sourceId": "SW20-berkeley",
           "locator": "Proof of Proposition 19.1.2, printed p. 170",
           "match": "The degree-one argument."
+        },
+        {
+          "sourceId": "SW20-berkeley",
+          "locator": "Lemma 17.1.8 and proof, printed pp. 150-151",
+          "match": "Effective descent of locally finite free modules on the perfectoid v-site, requested from D2; functions and cohomology alone do not supply it. The reference in the proof of 19.5.3 calls this a proposition, but its declaration is a lemma."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2924,123 +2942,206 @@
       "proposal": "Extend AdicSpacesPartII R3 in its existing Part II direction by the precise compatible-data chart comparison requested here. Keep global Beauville-Laszlo patching and modifications in RF4. Resolve any bounded/algebraizable hypotheses with a source or counterexample before claiming the unrestricted general-E target closed."
     }
   ],
-  "sourceIssues": [],
+  "sourceIssues": [
+    {
+      "id": "RelativeFarguesFontaine/E15",
+      "source": "KL15-foundations",
+      "kind": "error",
+      "locator": "Definition 8.8.18 and Lemma 8.8.19, p. 186, arXiv:1301.0792v5; used in the proof of Lemma 8.9.3, p. 187",
+      "printed": "The distinguished line bundle L_X and its associated Frobenius module are assigned slope 1, for the general integer a with q = p^a.",
+      "correction": "With the slope convention of this version, L_X has slope 1/a. Its associated module is globally (1,a)-pure. This is still positive, so the ampleness argument and affine-complement conclusion used here are unchanged.",
+      "reason": "Convention 4.1.13 divides the determinant valuation for phi^a by a. Definition 6.2.1 twists an etale rank-one model by multiplying phi^a by p^(-1). Hence p times phi^a preserves the twisted integral model, and Definition 7.3.1 gives slope 1/a. Taking a=2 distinguishes this from the printed value; a=1 agrees. This is the portion of PAPER-KEDLAYA-LIU-15/E78 needed here, independently checked, and is related to the separate degree-normalization finding RF0/E4.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "https://arxiv.org/abs/1301.0792v5: latest listed preprint and normalization definitions checked 2026-10-08",
+        "https://kskedlaya.org/papers/: authors direct Foundations errata to Part II; no separate correction of this locator was listed",
+        "https://arxiv.org/pdf/1602.06899v3: Appendix A, pp. 189-191, read 2026-10-08; no slope correction for 8.8.18-8.8.19 listed",
+        "https://smf.emath.fr/node/28040: publisher record and restricted download route attempted 2026-10-08; full text not obtained",
+        "Atlas PAPER-KEDLAYA-LIU-15/E78 and its independent review already record this preprint finding; this entry does not claim first discovery"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently compared the rank-one twist with the degree and purity definitions in the exact preprint. The positive value is 1/a; the complement proof needs only positivity. Scope is explicitly the preprint because the publisher text was not obtained.",
+        "by": "REV-RelativeFarguesFontaine--RF4~2"
+      }
+    },
+    {
+      "id": "RelativeFarguesFontaine/E16",
+      "source": "SW20-berkeley",
+      "kind": "misprint",
+      "locator": "Proof of Proposition 19.5.3, printed p. 180, author copy dated 27 March 2020; compare Lemma 17.1.8, printed pp. 150-151",
+      "printed": "The proof names the perfectoid vector-bundle descent result numbered 17.1.8 as a proposition.",
+      "correction": "The result is Lemma 17.1.8 in this author copy. Retain its number and effective vector-bundle descent statement.",
+      "reason": "The declaration at 17.1.8 is labelled a lemma and proves the exact descent input used by 19.5.3. The mathematical argument is unchanged.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "https://www.math.uni-bonn.de/people/scholze/Berkeley.pdf: the current linked author copy retains both labels",
+        "https://www.math.uni-bonn.de/people/scholze/Publikationen.html?language=en and the MPIM author publications route: no Berkeley erratum for this cross-reference listed",
+        "Web search for Berkeley lectures errata and 17.1.8, 2026-10-08: no correction located"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Compared the two labelled occurrences in the same hashed author PDF; corrected the packet and reader reference to Lemma 17.1.8.",
+        "by": "REV-RelativeFarguesFontaine--RF4~2"
+      }
+    }
+  ],
   "review": {
-    "status": "needs_changes",
-    "reviewer": "independent-review-REV-RelativeFarguesFontaine--RF4",
-    "date": "2026-10-06",
-    "notes": "Independent completed review of all 22 nodes, public source locators/excerpts, all 32 declarations at the two exact pins, supplier statements, audit, API/tests/planets and RT-AREA-padic-1/19. Corrected clear packet and native-signature defects; all three stages are partial. Needs changes for unresolved target/supplier/prototype contracts and contradictions in the reader, which this issue does not authorize editing. See the review report and seven precise gaps. This is a completed review, not a checkpoint.",
+    "status": "accepted",
+    "reviewer": "independent-review-REV-RelativeFarguesFontaine--RF4~2",
+    "date": "2026-10-08",
+    "notes": "Completed independent target-level review of all 23 nodes, all 37 actual baseline statements at their exact pins, 40 supplier contracts, 12 public-source records, the audit/RS-20/RT19 ownership boundary, 67 APIs, 25 mathematical tests, native signatures, planets and the reader. Corrected eight nodes and added ten native signatures; no new mathematical nodes or removed baseline citations. Two scoped source findings have confirmed verdicts. All three stages remain planned and none closed: six precise gaps and five supplier requests remain honest. The suggested file elaborates with only proof-placeholder warnings; no implementation is claimed. See the independent report.",
     "checked": [
       {
         "nodeId": "RelativeFarguesFontaine:RF4:vector-bundles/glueing-datum-over-exact-square",
         "verdict": "corrected",
-        "note": "Corrected the Zariski-Z test to generator (1,1/3). Native sections are an R-submodule, comparison maps are tensor base-change maps, and the unit is linear. The remaining native morphism/adjunction/test API is explicitly open."
+        "note": "KL1.3.7 and the module adjunction checked. Completed native pure-tensor morphism computation, flat-target full faithfulness, and tensor/dual compatibility for arbitrary effective finite-projective data. The twisted-Z sections remain (k,k/3)."
       },
       {
         "nodeId": "RelativeFarguesFontaine:RF4:vector-bundles/finite-projective-glueing-over-exact-square",
         "verdict": "corrected",
-        "note": "KL 1.3.8-1.3.9 hypotheses and conclusion checked. Replaced the native hypothesis on a single datum by universal comparison-surjectivity; the conclusion now concerns the actual sections and both canonical comparisons."
+        "note": "KL1.3.8-1.3.9 hypotheses checked separately for all three clauses. Added native finite-datum surjectivity/generators and finite-presentation signatures, and removed the inapplicable geometric-carrier excuse. Full faithfulness now has a native signature."
       },
       {
         "nodeId": "RelativeFarguesFontaine:RF4:vector-bundles/finite-etale-glueing-over-exact-square",
         "verdict": "corrected",
-        "note": "KL 1.3.10 checked. Native finite-etale effectivity now includes universal surjectivity, the maximal-ideal condition, and compatibility with the supplied overlap isomorphism."
+        "note": "KL1.3.10 object and morphism descent checked. Added unique compatible algebra-map descent; effectivity and full faithfulness give the categorical claim. Removed the geometric-carrier excuse."
       },
       {
         "nodeId": "RelativeFarguesFontaine:RF4:vector-bundles/glueing-pair",
-        "verdict": "corrected",
-        "note": "Stacks glueing-pair and torsion criteria checked. Separated native iff_exact from the actual iff_torsion_bijective. Concrete unit/noetherian/non-example prototypes remain open. Made the quotient API match general R' and stated the torsion-iff quotient hypothesis explicitly."
+        "verdict": "verified",
+        "note": "Stacks15.92.6-15.92.12 quotient and torsion hypotheses checked. Native zero-completion, noetherian and infinite-polynomial tests discriminate the pair and module conditions; smooth germs remain a precise missing native carrier."
       },
       {
         "nodeId": "RelativeFarguesFontaine:RF4:vector-bundles/beauville-laszlo-module-gluing",
         "verdict": "corrected",
-        "note": "Stacks 15.92.16, .18, .19 and KL 1.3.6 checked, including arbitrary-module scope of the finite-projectivity criterion. The native overlap is linear; recovered isomorphisms respect it; flat_exact now states the full exact sequence."
+        "note": "Stacks15.92.16-15.92.19 and SW5.2.9 checked, including the arbitrary-module flatness/projectivity criteria. Added native glueable-unit, arbitrary-datum counit and fully faithful Can signatures; removed the geometric-carrier excuse."
       },
       {
         "nodeId": "RelativeFarguesFontaine:RF4:vector-bundles/modification-of-vector-bundles",
-        "verdict": "corrected",
-        "note": "Modification arrows are isomorphisms, extensionality gives isomorphism rather than equality, and bounds are local. The ideal test requires nonempty D. Native bounded local modifications now require finite projectivity."
+        "verdict": "verified",
+        "note": "FS III.3 and FF5.3 support locally bounded poles in both directions, twists by the Cartier ideal and the groupoid convention. Native local specialization is not presented as the geometric carrier."
       },
       {
         "nodeId": "RelativeFarguesFontaine:RF4:vector-bundles/meromorphic-modification-at-a-divisor",
-        "verdict": "unverifiable",
-        "note": "The fixed-global-reference lattice case is justified after replacing a single chart containing D by a chart cover. It does not realize arbitrary complement data in the general-E adic stage target; that effectivity contract is still missing."
+        "verdict": "verified",
+        "note": "SW14.1.1 and 19.1.2, FS VI.1 and HK4.3 checked. Fixed reference bundle, both pole bounds, local chart cover and canonical lattice localization are retained; affineness of D is not used to invent one global chart."
+      },
+      {
+        "nodeId": "RelativeFarguesFontaine:RF4:vector-bundles/arbitrary-complement-formal-patching",
+        "verdict": "verified",
+        "note": "Full stage target is explicitly conditional on the R3 compatible-data model, including morphisms and refinements. Source algebraic/schematic cases are distinguished from the unresolved unrestricted analytic/general-E comparison; the precise request and gap justify planned, not closed, coverage."
       },
       {
         "nodeId": "RelativeFarguesFontaine:RF4:vector-bundles/gluing-exactness-tensor-and-base-change",
-        "verdict": "corrected",
-        "note": "Exactness reflection is proved in the finite-projective scope by cokernel detection and splittings. Coefficient change uses recovery over the new glueing pair, not unjustified exactness of tensoring the old ring square."
+        "verdict": "verified",
+        "note": "Exact tensor transfer uses effective finite-projective patching and faithful detection, not unproved flatness of completion. Intrinsic completed pullback is separate from ordinary tensor base change; arbitrary inputs retain the R3 condition."
       },
       {
         "nodeId": "RelativeFarguesFontaine:RF4:vector-bundles/disjoint-and-colliding-legs",
-        "verdict": "corrected",
-        "note": "For D=mD1, l-bounded at D iff ml-bounded at D1; ceil(k/m) gives only one implication for an arbitrary k-bound. Locally finite families use local bounds, without a uniform global bound."
+        "verdict": "verified",
+        "note": "FS VI.1.6, SW12.4.6 and FF5.3.1 checked. Disjoint CRT decomposition, cofinal completion for repeated support, rescaling bounds, and absence of a uniform bound for arbitrary infinite families are consistent."
       },
       {
         "nodeId": "RelativeFarguesFontaine:RF4:vector-bundles/untilt-divisor-complement-affine",
-        "verdict": "verified",
-        "note": "KL 8.9.1-8.9.3 hypotheses, affine complement and single-open-neighbourhood condition checked. Restricted unramified coefficient setting is retained."
+        "verdict": "corrected",
+        "note": "KL8.9.3 and its positive-slope proof checked in the unramified setting. The existing corrected slope 1/a is now accompanied by independently confirmed sourceIssue E15 and exact sourceVersions; ampleness and affineness are unaffected."
       },
       {
         "nodeId": "RelativeFarguesFontaine:RF4:vector-bundles/relative-period-rings-Be-BdR",
-        "verdict": "verified",
-        "note": "KL 8.9.4 and relative/absolute period-ring conventions checked. Nine API contracts and four tests are sound mathematical specifications; the geometric native prototypes are expressly incomplete."
+        "verdict": "corrected",
+        "note": "KL8.9.4 and CS3.5.1 checked. Corrected the completion proof to quotients of the ambient period ring, not A/ker(theta)^n. RF2 owns intrinsic completion; the Mathlib comparison remains limited to its p-typical specialization."
       },
       {
         "nodeId": "RelativeFarguesFontaine:RF4:vector-bundles/B-pair-cohomology",
-        "verdict": "corrected",
-        "note": "KL 8.9.6(a) flat-quasicoherent statement checked. Formal pullback is V(B) tensor_B B-hat, not the adic completion of V(B); infinite flat modules distinguish them."
+        "verdict": "verified",
+        "note": "KL8.9.5-8.9.6(a) and FF5.3.3 checked. The complex uses tensoring the flat quasicoherent module with the formal ring, without claiming completion commutes with arbitrary infinite modules."
       },
       {
         "nodeId": "RelativeFarguesFontaine:RF4:vector-bundles/vector-bundles-as-relative-B-pairs",
-        "verdict": "verified",
-        "note": "KL 8.9.6(b), CS 3.5.1 and FF 5.3.1-5.3.3 checked. The unramified schematic B-pair equivalence and tensor/exact compatibility are justified."
+        "verdict": "corrected",
+        "note": "KL8.9.6(b)-(c), CS3.5.1 and FF5.3.2 checked. Clarified that field-case freeness uses the PID property, not trivial Picard group alone; general relative triples remain finite projective."
       },
       {
         "nodeId": "RelativeFarguesFontaine:RF4:vector-bundles/lattices-and-modifications-of-trivial-bundles",
-        "verdict": "unverifiable",
-        "note": "Fixed-T relative lattice/modification equivalence is corrected to retain integral T when T varies. SW 12.4.6 additionally requires SW 12.3.4, 12.3.5 and 12.4.1; the foundation owner and direct contracts are absent. RT /19 export remains essential-surjectivity only."
+        "verdict": "verified",
+        "note": "SW12.3.4-12.4.6, SW14.1.1 and BMS4.29 checked. VB4 no-leg and normalized tail recovery are requested explicitly; the integral finite-free T is retained when varying the pair. No HS2 cycle."
       },
       {
         "nodeId": "RelativeFarguesFontaine:RF4:vector-bundles/kedlaya-algebraicity-of-punctured-bundles",
-        "verdict": "corrected",
-        "note": "Kedlaya 2.7, 3.8, 3.9 and 3.14 checked. Replaced the impossible p-adic square of A_inf[1/p] by the A_inf[1/p], W(K), W(K)[1/p] gluing stack. The existing crystalline-end ownership gap remains explicit."
+        "verdict": "verified",
+        "note": "Kedlaya3.8-3.9 and SW14.2.1/14.2.3 checked against the whole analytic puncture, including its crystalline end. RF0 chart/sheafiness ownership is separate. AI.2 imports essential surjectivity only; algebraic full faithfulness remains local to AI.2 per RT19."
       },
       {
         "nodeId": "RelativeFarguesFontaine:RF4:G-torsors/meromorphic-G-modification",
-        "verdict": "unverifiable",
-        "note": "The meromorphic G-modification definition and four mathematical tests match FS/SW/HK. BG0 does not yet supply the required scheme and integral torsor dictionaries; native G-bundle carriers/API remain absent."
+        "verdict": "verified",
+        "note": "FS III.3 and SW19.1.3 checked. Meromorphy is representationwise with duals; BG0 owns each needed dictionary, including the requested integral/scheme/broader field scopes."
       },
       {
         "nodeId": "RelativeFarguesFontaine:RF4:G-torsors/tannakian-transfer-of-gluing",
-        "verdict": "unverifiable",
-        "note": "Representationwise transfer is justified conditional on linear effectivity and the exact BG0 dictionaries. Current BG0 hypotheses and its reverse RF4 prerequisites do not close this import; no duplicate dictionary was added here."
+        "verdict": "verified",
+        "note": "SW19.1.2 and CS3.5.2 checked. Linear gluing transfers to exact tensor functors; arbitrary-complement generality is explicitly conditional. No second torsor dictionary or loop quotient is constructed."
       },
       {
         "nodeId": "RelativeFarguesFontaine:RF4:G-torsors/faithful-representation-criterion",
-        "verdict": "corrected",
-        "note": "DM 2.20(b), footnote 11, and the pinned faithful-comodule closed-immersion criterion checked. Specified max tensor degree for sums of tensor words of differing degrees; no integral tensor-generator theorem is inferred."
+        "verdict": "verified",
+        "note": "DM2.20(b) with its footnote and FS III.3 checked: a faithful representation plus its dual tensor-generates over a field; subquotients split locally after an exact bundle functor. No unproved integral analogue is asserted."
       },
       {
         "nodeId": "RelativeFarguesFontaine:RF4:G-torsors/change-of-structure-group",
-        "verdict": "corrected",
-        "note": "Extension of structure group is precomposition. The subquotient/closed-immersion criterion of DM 2.21(b) is now explicitly over E; it is not asserted over O_E."
+        "verdict": "verified",
+        "note": "DM2.21(b) and SW19.1.5 checked. Precomposition handles an arbitrary morphism; the faithful embedding recognition clause stays over the field with its exact representation hypotheses."
       },
       {
         "nodeId": "RelativeFarguesFontaine:RF4:G-torsors/base-change-and-divisor-compatibility",
-        "verdict": "corrected",
-        "note": "Replaced the unsupported inference for arbitrary overlapping sums by composition of a chain, bounded at the sum by max(k,l). Independent product decomposition is only on the disjoint locus; collisions retain intermediate data."
+        "verdict": "verified",
+        "note": "FS VI.1.5-1.6 checked. Intrinsic completed scalar change, disjoint products and repeated-support cofinality are compatible; chains with overlapping divisors retain intermediate modification data."
       },
       {
         "nodeId": "RelativeFarguesFontaine:RF4:G-torsors/v-descent-and-local-triviality",
-        "verdict": "unverifiable",
-        "note": "SW 19.5.3 and FS VI.1.7 scopes checked; integral etale-local triviality narrowed to reductive G. The GR 5.4.21 application still needs explicit R,t,I, the torsor scheme and etale-neighbourhood argument; D2 bundle descent is requested separately."
+        "verdict": "corrected",
+        "note": "SW19.5.3 and Lemma17.1.8, FS VI.1.7 and GR5.4.21-5.4.22 checked. Corrected the internal lemma reference and recorded E16. Completed pointed etale stalk comparison and effective D2 bundle descent remain explicit gaps; regular t, I=R and reductivity are retained."
       },
       {
         "nodeId": "RelativeFarguesFontaine:RF4:G-torsors/modification-of-G-bundle-by-lattice",
-        "verdict": "unverifiable",
-        "note": "HK 4.3 lattice modification and GL_n/G_m/tautological/SL_2 tests checked. Construction is conditional on the missing BG0 scheme/integral dictionary and native geometric carriers; loop quotient presentations remain GS0-owned."
+        "verdict": "verified",
+        "note": "HK4.3, CS3.5.2 and FS III.3 checked. The input is a G(B_D^+) lattice torsor, not an arbitrary faithful-representation lattice. The Gm sign and SL2 determinant non-example are correct."
       }
     ]
-  }
+  },
+  "sourceVersions": [
+    {
+      "source": "KL15-foundations",
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1301.0792v5",
+      "read": "2026-10-08",
+      "sha256": "a6a117423db62aec072442bb15b70e3175bcc3b631bdcd6d74f740e3c6cfd942",
+      "note": "E15 concerns this text only, not an assertion about the version of record."
+    },
+    {
+      "source": "KL15-foundations",
+      "kind": "published",
+      "url": "https://smf.emath.fr/node/28040",
+      "citation": "Astérisque 371 (2015), Société Mathématique de France",
+      "read": "2026-10-08",
+      "note": "Not obtained. The publisher labels the full download restricted; its legacy SMF4 download link was inaccessible during this review. The publisher record and download route were checked, not the published text."
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1602.06899v3",
+      "read": "2026-10-08",
+      "sha256": "97383900492daf1c6778959c37e993f67dd5ad379ac03c31049b870382e5d42c",
+      "note": "Appendix A, pp. 189-191, checked for an existing correction of E15; none found there."
+    },
+    {
+      "source": "SW20-berkeley",
+      "kind": "author copy",
+      "url": "https://www.math.uni-bonn.de/people/scholze/Berkeley.pdf",
+      "read": "2026-10-08",
+      "sha256": "225505171ef809aa0070c023c881ff1da844923775f2d631474c0b42eea4bffc",
+      "note": "Author PDF dated 27 March 2020. E16 concerns the name of an internal reference in this copy; no separate publisher text was read."
+    }
+  ]
 }

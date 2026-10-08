@@ -174,6 +174,38 @@ def ExactSquare.FiniteProjectiveSurjective : Prop :=
     (D : GlueingDatum R₁ R₂ R₁₂ N₁ N₂ N₁₂),
     Function.Surjective (D.sectionsCompare (R := R)).1
 
+/-- Kedlaya–Liu 1.3.8: surjectivity of one comparison for a finite datum gives
+surjectivity of the difference and of the other comparison. A finite set of sections
+generates both pieces over their respective rings; its R-span is the module M₀. -/
+theorem finite_glueing_surjectivity (h : ExactSquare R R₁ R₂ R₁₂)
+    (N₁ N₂ N₁₂ : Type u) [AddCommGroup N₁] [Module R₁ N₁] [Module R N₁]
+    [IsScalarTower R R₁ N₁] [AddCommGroup N₂] [Module R₂ N₂] [Module R N₂]
+    [IsScalarTower R R₂ N₂] [AddCommGroup N₁₂] [Module R₁₂ N₁₂]
+    [Module.Finite R₁ N₁] [Module.Finite R₂ N₂]
+    (D : GlueingDatum R₁ R₂ R₁₂ N₁ N₂ N₁₂)
+    (hsurj : Function.Surjective (D.sectionsCompare (R := R)).1) :
+    (∀ z : N₁₂, ∃ a b, D.ψ₁ (1 ⊗ₜ[R₁] a) - D.ψ₂ (1 ⊗ₜ[R₂] b) = z) ∧
+      Function.Surjective (D.sectionsCompare (R := R)).2 ∧
+      ∃ S : Finset (D.sections (R := R)),
+        Submodule.span R₁ {a | ∃ s ∈ S, a = s.val.1} = ⊤ ∧
+        Submodule.span R₂ {b | ∃ s ∈ S, b = s.val.2} = ⊤ := by
+  sorry
+
+/-- Kedlaya–Liu 1.3.9(a) requires universal comparison surjectivity, but no
+maximal-ideal lifting hypothesis. That extra hypothesis enters only projectivity. -/
+theorem finiteProjective_glueing_finitePresentation (h : ExactSquare R R₁ R₂ R₁₂)
+    (hsurj : ExactSquare.FiniteProjectiveSurjective (R := R) (R₁ := R₁) (R₂ := R₂) (R₁₂ := R₁₂))
+    (N₁ N₂ N₁₂ : Type u) [AddCommGroup N₁] [Module R₁ N₁] [Module R N₁]
+    [IsScalarTower R R₁ N₁] [AddCommGroup N₂] [Module R₂ N₂] [Module R N₂]
+    [IsScalarTower R R₂ N₂] [AddCommGroup N₁₂] [Module R₁₂ N₁₂]
+    [Module.Finite R₁ N₁] [Module.Projective R₁ N₁]
+    [Module.Finite R₂ N₂] [Module.Projective R₂ N₂]
+    (D : GlueingDatum R₁ R₂ R₁₂ N₁ N₂ N₁₂) :
+    Module.FinitePresentation R (D.sections (R := R)) ∧
+      Function.Bijective (D.sectionsCompare (R := R)).1 ∧
+      Function.Bijective (D.sectionsCompare (R := R)).2 := by
+  sorry
+
 /-- **Finite projective glueing** (Kedlaya–Liu 1.3.9): the actual sections module
 is finite projective and its canonical comparison maps are bijective. Compatibility with the
 transition maps is built into sections and the canonical comparisons. -/
@@ -207,6 +239,22 @@ theorem finiteEtale_glueing (h : ExactSquare R R₁ R₂ R₁₂)
     ∃ (A : Type u) (_ : CommRing A) (_ : Algebra R A), Module.Finite R A ∧ Algebra.Etale R A ∧
       ∃ (e₁ : R₁ ⊗[R] A ≃ₐ[R₁] A₁) (e₂ : R₂ ⊗[R] A ≃ₐ[R₂] A₂),
         ∀ m : A, e (1 ⊗ₜ[R₁] e₁ (1 ⊗ₜ[R] m)) = 1 ⊗ₜ[R₂] e₂ (1 ⊗ₜ[R] m) := by
+  sorry
+
+/-- The Hom part of finite étale glueing: a compatible pair of algebra maps
+between scalar extensions descends uniquely. Compatibility is checked on 1 ⊗ a;
+linearity then checks it on every element of the common scalar extension. -/
+theorem finiteEtale_can_fullyFaithful (h : ExactSquare R R₁ R₂ R₁₂)
+    (A B : Type u) [CommRing A] [Algebra R A] [Module.Finite R A] [Algebra.Etale R A]
+    [CommRing B] [Algebra R B] [Module.Finite R B] [Algebra.Etale R B]
+    (f₁ : R₁ ⊗[R] A →ₐ[R₁] R₁ ⊗[R] B) (f₂ : R₂ ⊗[R] A →ₐ[R₂] R₂ ⊗[R] B)
+    (hcompat : ∀ a : A,
+      (GlueingDatum.can (R := R) (R₁ := R₁) (R₂ := R₂) (R₁₂ := R₁₂) B).ψ₁
+          (1 ⊗ₜ[R₁] f₁ (1 ⊗ₜ[R] a)) =
+        (GlueingDatum.can (R := R) (R₁ := R₁) (R₂ := R₂) (R₁₂ := R₁₂) B).ψ₂
+          (1 ⊗ₜ[R₂] f₂ (1 ⊗ₜ[R] a))) :
+    ∃! f : A →ₐ[R] B, ∀ a : A,
+      f₁ (1 ⊗ₜ[R] a) = 1 ⊗ₜ[R] f a ∧ f₂ (1 ⊗ₜ[R] a) = 1 ⊗ₜ[R] f a := by
   sorry
 
 end ExactSquare
@@ -281,6 +329,12 @@ noncomputable def canMap {N P : Type u} [AddCommGroup N] [Module R N]
     [AddCommGroup P] [Module R P] (f : N →ₗ[R] P) :
     Hom (can (R := R) (R₁ := R₁) (R₂ := R₂) (R₁₂ := R₁₂) N)
       (can (R := R) (R₁ := R₁) (R₂ := R₂) (R₁₂ := R₁₂) P) := by sorry
+/-- Pure tensor computation determines the scalar extension on morphisms. -/
+theorem canMap_tmul {N P : Type u} [AddCommGroup N] [Module R N]
+    [AddCommGroup P] [Module R P] (f : N →ₗ[R] P) (a : R₁) (b : R₂) (c : R₁₂) (n : N) :
+    (canMap (R := R) (R₁ := R₁) (R₂ := R₂) (R₁₂ := R₁₂) f).map₁ (a ⊗ₜ[R] n) = a ⊗ₜ[R] f n ∧
+    (canMap (R := R) (R₁ := R₁) (R₂ := R₂) (R₁₂ := R₁₂) f).map₂ (b ⊗ₜ[R] n) = b ⊗ₜ[R] f n ∧
+    (canMap (R := R) (R₁ := R₁) (R₂ := R₂) (R₁₂ := R₁₂) f).map₁₂ (c ⊗ₜ[R] n) = c ⊗ₜ[R] f n := by sorry
 theorem canMap_id (N : Type u) [AddCommGroup N] [Module R N] :
     canMap (R := R) (R₁ := R₁) (R₂ := R₂) (R₁₂ := R₁₂) (LinearMap.id : N →ₗ[R] N) = Hom.id (can (R := R) N) := by sorry
 theorem canMap_comp {N P Q : Type u} [AddCommGroup N] [Module R N]
@@ -300,6 +354,13 @@ theorem can_sections_adjunction_symm_apply (N : Type u) [AddCommGroup N] [Module
     (D : GlueingDatum R₁ R₂ R₁₂ M₁ M₂ M₁₂) (f : Hom (can (R := R) N) D) (n : N) :
     ((can_sections_adjunction (R := R) N D).symm f n).val =
       (f.map₁ (1 ⊗ₜ[R] n), f.map₂ (1 ⊗ₜ[R] n)) := by sorry
+/-- The adjunction and the unit for flat targets give full faithfulness on
+finite projective modules, without any effectivity assumption on other data. -/
+theorem can_fullyFaithful_of_flat (h : ExactSquare R R₁ R₂ R₁₂)
+    (M N : Type u) [AddCommGroup M] [Module R M] [AddCommGroup N] [Module R N] [Module.Flat R N] :
+    Function.Bijective (canMap (R := R) (R₁ := R₁) (R₂ := R₂) (R₁₂ := R₁₂) :
+      (M →ₗ[R] N) → Hom (can (R := R) (R₁ := R₁) (R₂ := R₂) (R₁₂ := R₁₂) M)
+        (can (R := R) (R₁ := R₁) (R₂ := R₂) (R₁₂ := R₁₂) N)) := by sorry
 /-- Componentwise tensor product, with the scalar-extension shuffle isomorphisms. -/
 noncomputable def tensor (D : GlueingDatum R₁ R₂ R₁₂ M₁ M₂ M₁₂)
     (E : GlueingDatum R₁ R₂ R₁₂ N₁ N₂ N₁₂) :
@@ -315,6 +376,30 @@ noncomputable def dual (D : GlueingDatum R₁ R₂ R₁₂ M₁ M₂ M₁₂)
     [Module.Finite R₁ M₁] [Module.Projective R₁ M₁]
     [Module.Finite R₂ M₂] [Module.Projective R₂ M₂] :
     GlueingDatum R₁ R₂ R₁₂ (Module.Dual R₁ M₁) (Module.Dual R₂ M₂) (Module.Dual R₁₂ M₁₂) := by sorry
+/-- Tensor compatibility for every effective finite projective datum, including
+noncanonical transition maps. The two hypotheses are exactly KL 1.3.9(b). -/
+theorem sectionsTensor_bijective (h : ExactSquare R R₁ R₂ R₁₂)
+    (hsurj : ExactSquare.FiniteProjectiveSurjective (R := R) (R₁ := R₁) (R₂ := R₂) (R₁₂ := R₁₂))
+    (hmax : ∀ m : Ideal R, m.IsMaximal →
+      (∃ p : Ideal R₁, p.IsPrime ∧ p.comap (algebraMap R R₁) = m) ∨
+      (∃ p : Ideal R₂, p.IsPrime ∧ p.comap (algebraMap R R₂) = m))
+    [Module.Finite R₁ M₁] [Module.Projective R₁ M₁]
+    [Module.Finite R₂ M₂] [Module.Projective R₂ M₂]
+    [Module.Finite R₁ N₁] [Module.Projective R₁ N₁]
+    [Module.Finite R₂ N₂] [Module.Projective R₂ N₂]
+    (D : GlueingDatum R₁ R₂ R₁₂ M₁ M₂ M₁₂) (E : GlueingDatum R₁ R₂ R₁₂ N₁ N₂ N₁₂) :
+    Function.Bijective (sectionsTensor (R := R) D E) := by sorry
+/-- Dual compatibility for the same effective data; the dual carrier is
+Mathlib's actual module of linear functionals. -/
+noncomputable def dual_sections (h : ExactSquare R R₁ R₂ R₁₂)
+    (hsurj : ExactSquare.FiniteProjectiveSurjective (R := R) (R₁ := R₁) (R₂ := R₂) (R₁₂ := R₁₂))
+    (hmax : ∀ m : Ideal R, m.IsMaximal →
+      (∃ p : Ideal R₁, p.IsPrime ∧ p.comap (algebraMap R R₁) = m) ∨
+      (∃ p : Ideal R₂, p.IsPrime ∧ p.comap (algebraMap R R₂) = m))
+    [Module.Finite R₁ M₁] [Module.Projective R₁ M₁]
+    [Module.Finite R₂ M₂] [Module.Projective R₂ M₂]
+    (D : GlueingDatum R₁ R₂ R₁₂ M₁ M₂ M₁₂) :
+    Module.Dual R (D.sections (R := R)) ≃ₗ[R] D.dual.sections (R := R) := by sorry
 /-- Tensor compatibility for canonical finite projective data over an exact square. -/
 theorem tensor_can_compat (h : ExactSquare R R₁ R₂ R₁₂)
     (N P : Type u) [AddCommGroup N] [Module R N] [Module.Finite R N] [Module.Projective R N]
@@ -609,6 +694,48 @@ theorem beauvilleLaszlo_flat_exact {R' : Type u} [CommRing R'] [Algebra R R'] {f
       (R₁₂ := L) M) ∧ ∀ z, ∃ a b, D.ψ₁ (1 ⊗ₜ a) - D.ψ₂ (1 ⊗ₜ b) = z := by
   sorry
 
+/-- Stacks 15.92.10 and 15.92.16: the unit is bijective precisely on the
+glueable modules. L is the common localization, with both scalar towers. -/
+theorem beauvilleLaszlo_glueable_unit {R' : Type u} [CommRing R'] [Algebra R R'] {f : R}
+    (h : GlueingPair R' f) (L : Type u) [CommRing L] [Algebra R L] [Algebra R' L]
+    [Algebra (Localization.Away f) L] [IsScalarTower R R' L]
+    [IsScalarTower R (Localization.Away f) L] [IsLocalization.Away (algebraMap R R' f) L]
+    (M : Type u) [AddCommGroup M] [Module R M] :
+    Glueable R' f M ↔ Function.Bijective (GlueingDatum.canUnit (R := R) (R₁ := R')
+      (R₂ := Localization.Away f) (R₁₂ := L) M) := by
+  sorry
+
+/-- Stacks 15.92.16: every module datum has glueable sections and bijective
+canonical comparisons. No flatness, finiteness or projectivity is required. -/
+theorem beauvilleLaszlo_sections {R' : Type u} [CommRing R'] [Algebra R R'] {f : R}
+    (h : GlueingPair R' f) (L : Type u) [CommRing L] [Algebra R L] [Algebra R' L]
+    [Algebra (Localization.Away f) L] [IsScalarTower R R' L]
+    [IsScalarTower R (Localization.Away f) L] [IsLocalization.Away (algebraMap R R' f) L]
+    (M' M₁ M₁₂ : Type u) [AddCommGroup M'] [Module R' M'] [Module R M']
+    [IsScalarTower R R' M'] [AddCommGroup M₁] [Module (Localization.Away f) M₁]
+    [Module R M₁] [IsScalarTower R (Localization.Away f) M₁]
+    [AddCommGroup M₁₂] [Module L M₁₂]
+    (D : GlueingDatum R' (Localization.Away f) L M' M₁ M₁₂) :
+    Glueable R' f (D.sections (R := R)) ∧
+      Function.Bijective (D.sectionsCompare (R := R)).1 ∧
+      Function.Bijective (D.sectionsCompare (R := R)).2 := by
+  sorry
+
+/-- The fully faithful part of Stacks 15.92.16, using the actual compatible
+triples of linear maps. Together with the preceding unit and counit statements
+this specifies the equivalence on all glueable modules. -/
+theorem beauvilleLaszlo_can_fullyFaithful {R' : Type u} [CommRing R'] [Algebra R R'] {f : R}
+    (h : GlueingPair R' f) (L : Type u) [CommRing L] [Algebra R L] [Algebra R' L]
+    [Algebra (Localization.Away f) L] [IsScalarTower R R' L]
+    [IsScalarTower R (Localization.Away f) L] [IsLocalization.Away (algebraMap R R' f) L]
+    (M N : Type u) [AddCommGroup M] [Module R M] [AddCommGroup N] [Module R N]
+    (hM : Glueable R' f M) (hN : Glueable R' f N) :
+    Function.Bijective (GlueingDatum.canMap (R := R) (R₁ := R')
+      (R₂ := Localization.Away f) (R₁₂ := L) : (M →ₗ[R] N) →
+        GlueingDatum.Hom (GlueingDatum.can (R := R) (R₁ := R') (R₂ := Localization.Away f) (R₁₂ := L) M)
+          (GlueingDatum.can (R := R) (R₁ := R') (R₂ := Localization.Away f) (R₁₂ := L) N)) := by
+  sorry
+
 end GlueingPair
 
 /-! ## RF4:vector-bundles — the local form of modifications and lattices
@@ -712,7 +839,7 @@ comparison is a requested geometric contract. Nothing is replaced by an arbitrar
   ker(psi_1 - psi_2 : M_1 (+) M_2 -> M_12), with natural R-linear maps M -> M_i adjoint to M (x)_R
   R_i -> M_i. Every R-module N gives the glueing datum Can(N) = (N (x) R_1, N (x) R_2, N (x) R_12,
   can, can). No topology is involved.
-  Native core: ExactSquare, GlueingDatum, GlueingDatum.Hom, GlueingDatum.sections, GlueingDatum.sectionsCompare, GlueingDatum.can, GlueingDatum.canUnit, GlueingDatum.sectionsMap, GlueingDatum.canMap, GlueingDatum.can_sections_adjunction, GlueingDatum.tensor, GlueingDatum.sectionsTensor, GlueingDatum.dual, GlueingDatum.baseChange, TwistedZariski.datum, TwistedZariski.sections_computation, TwistedZariski.sectionsEquiv_one.
+  Native core: ExactSquare, GlueingDatum, GlueingDatum.Hom, GlueingDatum.sections, GlueingDatum.sectionsCompare, GlueingDatum.can, GlueingDatum.canUnit, GlueingDatum.sectionsMap, GlueingDatum.canMap, GlueingDatum.can_sections_adjunction, GlueingDatum.tensor, GlueingDatum.sectionsTensor, GlueingDatum.dual, GlueingDatum.baseChange, TwistedZariski.datum, TwistedZariski.sections_computation, TwistedZariski.sectionsEquiv_one, GlueingDatum.canMap_tmul, GlueingDatum.can_fullyFaithful_of_flat, GlueingDatum.sectionsTensor_bijective, GlueingDatum.dual_sections.
   Morphisms, extensionality, naturality, identity/composition, tensor/dual and corner-base-change
   signatures are native. The baseChange_can signature uses restriction to the old base; the new-base
   form follows by tensor cancellation. The twisted-Z test computes the actual sections (k,k/3).
@@ -777,20 +904,20 @@ comparison is a requested geometric contract. Nothing is replaced by an arbitrar
   M_i is bijective for i = 1, 2. (iii) If moreover the image of Spec(R_1 (+) R_2) -> Spec(R)
   contains every maximal ideal, M is finite projective; hence Can is an equivalence from finite
   projective R-modules to finite projective glueing data, with quasi-inverse the module of sections.
-  Native core: finiteProjective_glueing_effective.
-  No full geometric signature: the relative curve/divisor/bundle or Frobenius-shtuka categories
-  occurring in this statement are not available at the pinned baseline; algebraic cores above do not
-  supply those carriers.
+  Native core: finite_glueing_surjectivity, finiteProjective_glueing_finitePresentation, finiteProjective_glueing_effective, GlueingDatum.can_fullyFaithful_of_flat.
+  All three algebraic clauses have native signatures: finite comparison surjectivity and
+  simultaneous generators, finite presentation with both comparisons, and projective effectivity.
+  The Hom adjunction and flat-target unit give full faithfulness. Packaging this as a category
+  equivalence is a routine implementation step; no geometric carrier is needed.
 -/
 
 /- CONTRACT `RelativeFarguesFontaine:RF4:vector-bundles/finite-etale-glueing-over-exact-square` (theorem).
   Under the hypotheses of RF4:vector-bundles/finite-projective-glueing-over-exact-square (iii), the
   base change functor FEt(R) -> FEt(R_1) x_{FEt(R_12)} FEt(R_2) from finite etale R-algebras to
   compatible pairs of finite etale algebras is an equivalence of categories.
-  Native core: finiteEtale_glueing.
-  No full geometric signature: the relative curve/divisor/bundle or Frobenius-shtuka categories
-  occurring in this statement are not available at the pinned baseline; algebraic cores above do not
-  supply those carriers.
+  Native core: finiteEtale_glueing, finiteEtale_can_fullyFaithful.
+  Native signatures give object effectivity with the prescribed transition and unique descent of
+  compatible algebra maps. Together they specify the equivalence; no geometric carrier is needed.
 -/
 
 /- CONTRACT `RelativeFarguesFontaine:RF4:vector-bundles/glueing-pair` (definition).
@@ -850,10 +977,10 @@ comparison is a requested geometric contract. Nothing is replaced by an arbitrar
   the sequence 0 -> M -> (M (x)_R R_f) (+) (M (x)_R R-hat) -> M (x)_R R-hat_f -> 0 is exact. The
   statement is not a case of fpqc descent: R -> R-hat need not be flat when R is not noetherian, and
   no descent datum over R-hat (x)_R R-hat is part of the data.
-  Native core: beauvilleLaszlo_effective, beauvilleLaszlo_finiteProjective_iff, beauvilleLaszlo_flat_iff, beauvilleLaszlo_flat_exact.
-  No full geometric signature: the relative curve/divisor/bundle or Frobenius-shtuka categories
-  occurring in this statement are not available at the pinned baseline; algebraic cores above do not
-  supply those carriers.
+  Native core: beauvilleLaszlo_effective, beauvilleLaszlo_finiteProjective_iff, beauvilleLaszlo_flat_iff, beauvilleLaszlo_flat_exact, beauvilleLaszlo_glueable_unit, beauvilleLaszlo_sections, beauvilleLaszlo_can_fullyFaithful.
+  Native signatures now cover the unit, arbitrary-datum sections and counit, and fully faithful
+  Can on all glueable modules, as well as the finite-projective and flat clauses. The common
+  localization and scalar towers are explicit. No geometric carrier is needed for this theorem.
 -/
 
 /- CONTRACT `RelativeFarguesFontaine:RF4:vector-bundles/modification-of-vector-bundles` (definition).
