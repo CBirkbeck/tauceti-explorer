@@ -37868,7 +37868,8 @@
     "BP-AutomorphicGaloisRepresentationsPartII--AG2.0~2"
    ],
    "prompt": "research/blueprint/prompts/REV-AutomorphicGaloisRepresentationsPartII--AG2.0~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7296"
   },
   {
    "kind": "blueprint",
@@ -39235,8 +39236,9 @@
    ],
    "revisionOf": "BP-HeckeStacksAndLocalShtukas",
    "prompt": "research/blueprint/prompts/BP-HeckeStacksAndLocalShtukas~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6970"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6970",
+   "finishedAt": "2026-10-08T16:56:43Z"
   },
   {
    "priority": 2,
@@ -40519,7 +40521,8 @@
     "BP-PotentialModularityAndCompatibleSystems--R23.1~2"
    ],
    "prompt": "research/blueprint/prompts/REV-PotentialModularityAndCompatibleSystems--R23.1~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7080"
   },
   {
    "kind": "blueprint",
@@ -40938,8 +40941,8 @@
    ],
    "revisionOf": "BP-SchemeKTheoryOperations",
    "prompt": "research/blueprint/prompts/BP-SchemeKTheoryOperations~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7007"
+   "state": "external",
+   "note": "claimed on GitHub issue #7007"
   },
   {
    "priority": 2,
