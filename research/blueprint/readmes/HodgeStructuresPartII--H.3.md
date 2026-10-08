@@ -1,6 +1,6 @@
 # Hodge structures, Part II — H.3: General period manifolds and period-map derivatives
 
-This is the definitive reader document for BP-HodgeStructuresPartII--H.3, issue #6941. It covers exactly **HodgeStructuresPartII:H.3**. The planning pass is complete; its coverage is **planned**, not closed or formalized. The packet has 43 nodes: 13 definitions/constructions, 13 promoted API lemmas and 17 theorem, comparison or application nodes. The constructions have 54 API items and 39 tests. Six planets name the principal objects. The five recorded gaps and twenty-three supplier requests are part of the plan, not completed library results.
+This is the definitive reader document for BP-HodgeStructuresPartII--H.3, issue #6941, independently accepted with corrections by REV-HodgeStructuresPartII--H.3, issue #7027, on 2026-10-08. It covers exactly **HodgeStructuresPartII:H.3**. The planning pass is complete; its coverage is **planned**, not closed or formalized. The packet has 43 nodes: 13 definitions/constructions, 13 promoted API lemmas and 17 theorem, comparison or application nodes. The constructions have 54 API items and 39 tests. Six planets name the principal objects. The five recorded gaps and twenty-three supplier requests are part of the plan, not completed library results.
 
 ## Starting point and ownership
 
@@ -219,7 +219,7 @@ Acceptance: The statement holds with all the specified ranks, coefficient fields
 
 Prerequisites: `HodgeStructuresPartII:H.3/period-isometry-transport`, `ShimuraData:D1/mumford-tate-group`, `ShimuraData:D1/mumford-tate-connected`, `ShimuraData:D1/mumford-tate-reductive`, `tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-2-the-closed-subgroup-cartan-theorem`, `HodgeStructuresPartII:H.3/transport-compact-dual`.
 
-Source: [PINK](https://www.math.ethz.ch/~pink/ftp/phd/Chapter_1.pdf), §§1.6–1.8, printed pp.12–14, pure specialization. The real filtration image has a canonical orbit manifold; retain the representation and selected component.
+Source: [PINK](https://people.math.ethz.ch/~pink/ftp/phd/Chapter_1.pdf), §§1.6–1.8, printed pp.12–14, pure specialization. The real filtration image has a canonical orbit manifold; retain the representation and selected component.
 
 ### The represented compact-dual orbit
 
@@ -255,7 +255,7 @@ Acceptance: The statement holds with all the specified ranks, coefficient fields
 
 Prerequisites: `HodgeStructuresPartII:H.3/polarized-compact-dual`, `HodgeStructuresPartII:H.3/represented-real-orbit`, `tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory`, `AlgebraicModuliForArithmeticGeometry:R09.1`, `tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-8-borel-weil-flag-manifolds-and-bruhat`.
 
-Source: [PINK](https://www.math.ethz.ch/~pink/ftp/phd/Chapter_1.pdf), Proposition 1.7 proof, printed p.13, pure case. The faithful flag image factors through the complex homogeneous quotient; this is the period-specific image construction.
+Source: [PINK](https://people.math.ethz.ch/~pink/ftp/phd/Chapter_1.pdf), Proposition 1.7 proof, printed p.13, pure case. The faithful flag image factors through the complex homogeneous quotient; this is the period-specific image construction.
 
 ### Filtration on the represented period Lie algebra
 
@@ -405,7 +405,7 @@ Acceptance: The statement holds with all the specified ranks, coefficient fields
 
 Prerequisites: `HodgeStructuresPartII:H.3/represented-complex-orbit`, `HodgeStructuresPartII:H.3/lie-hodge-filtration`, `tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-0-the-exponential-map-and-one-parameter-subgroups`, `mathlib:NormedSpace.exp`.
 
-Source: [PINK](https://www.math.ethz.ch/~pink/ftp/phd/Chapter_1.pdf), Proposition 1.7 proof, p.13, tangent quotient; Schmid §3 (3.5). Exponential coordinates are the local inverse-function consequence of the homogeneous tangent quotient; the global map is not a chart on all q.
+Source: [PINK](https://people.math.ethz.ch/~pink/ftp/phd/Chapter_1.pdf), Proposition 1.7 proof, printed p.13, homogeneous tangent quotient. The exponential action and its filtration formula are authored consequences of the supplied complex exponential and representation action. Pink supplies the homogeneous tangent quotient used for the separate local inverse-function theorem; this locator does not state an exponential chart.
 
 ### Exponential action on filtration steps
 
@@ -426,7 +426,7 @@ Acceptance: The API equality holds on the exact carrier of its construction, wit
 
 Prerequisites: `HodgeStructuresPartII:H.3/negative-exponential-map`.
 
-Source: [PINK](https://www.math.ethz.ch/~pink/ftp/phd/Chapter_1.pdf), Proposition 1.7 proof, p.13, tangent quotient; Schmid §3 (3.5). Exponential coordinates are the local inverse-function consequence of the homogeneous tangent quotient; the global map is not a chart on all q.
+Source: [PINK](https://people.math.ethz.ch/~pink/ftp/phd/Chapter_1.pdf), Proposition 1.7 proof, printed p.13, homogeneous tangent quotient. The exponential action and its filtration formula are authored consequences of the supplied complex exponential and representation action. Pink supplies the homogeneous tangent quotient used for the separate local inverse-function theorem; this locator does not state an exponential chart.
 
 ### Period tangents and horizontal subspaces
 
@@ -462,7 +462,7 @@ Acceptance: For N²=0 on C² the chart sends t to the line C(e1+t e2), with deri
 
 Prerequisites: `HodgeStructuresPartII:H.3/negative-exponential-map`, `HodgeStructuresPartII:H.3/tangent-horizontal`, `tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-0-the-exponential-map-and-one-parameter-subgroups`, `tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-8-borel-weil-flag-manifolds-and-bruhat`, `SeveralComplexVariablesKahlerGeometry:CV.1`, `HodgeStructuresPartII:H.3/exponential-filtration`.
 
-Source: [PINK](https://www.math.ethz.ch/~pink/ftp/phd/Chapter_1.pdf), Proposition 1.7 proof, p.13, tangent map and open image. A local-chart consequence of the displayed tangent map; the inverse-function input is supplied, not hidden in the map definition.
+Source: [PINK](https://people.math.ethz.ch/~pink/ftp/phd/Chapter_1.pdf), Proposition 1.7 proof, p.13, tangent map and open image. A local-chart consequence of the displayed tangent map; the inverse-function input is supplied, not hidden in the map definition.
 
 ## H.3.3 — General period manifolds and period maps
 
@@ -502,13 +502,13 @@ Acceptance: The CM elliptic domain and compact dual are both points; their inclu
 
 Prerequisites: `HodgeStructuresPartII:H.3/represented-real-orbit`, `HodgeStructuresPartII:H.3/represented-complex-orbit`, `HodgeStructuresPartII:H.3/tangent-horizontal`, `HodgeStructuresPartII:H.3/negative-chart-local`, `tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-2-the-closed-subgroup-cartan-theorem`, `tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-8-borel-weil-flag-manifolds-and-bruhat`.
 
-Source: [PINK](https://www.math.ethz.ch/~pink/ftp/phd/Chapter_1.pdf), Proposition 1.7(a)–(c), proof p.13; Lemma 1.8 pure-case proof p.14. The tangent-surjectivity proof and faithful-representation comparison are read in full.
+Source: [PINK](https://people.math.ethz.ch/~pink/ftp/phd/Chapter_1.pdf), Proposition 1.7(a)–(c), proof p.13; Lemma 1.8 pure-case proof p.14. The tangent-surjectivity proof and faithful-representation comparison are read in full.
 
 ### Tensor constraints on a specified orbit
 
 Node `HodgeStructuresPartII:H.3/orbit-hodge-tensors` (theorem).
 
-Import the Hodge tensor operations and a represented rational group G acting on them. If a rational tensor t in a finite tensor construction from V,V∨ and explicit Tate twists is fixed by G and is of type (0,0) at F0, then it is of type (0,0) at every flag in the chosen real G-orbit. Its period-symbol evaluation vanishes in normal directions that would violate t. Conversely a tensor-defined locus is identified with the orbit only after supplying its group-stabilizer theorem and selecting the required homogeneous component; no equality with the entire ambient domain is claimed. An untwisted type (p,p) tensor for p≠0 is not a type-(0,0) Hodge tensor.
+Import the Hodge tensor operations and a represented rational group G acting on them. If a rational tensor t in a finite tensor construction from V,V∨ and explicit Tate twists is fixed by G and is of type (0,0) at F0, then it is of type (0,0) at every flag in the chosen real G-orbit. The derivative along the orbit satisfies the linearized Hodge-tensor equations, so its component normal to the tensor-defined locus is zero. Conversely a tensor-defined locus is identified with the orbit only after supplying its group-stabilizer theorem and selecting the required homogeneous component; no equality with the entire ambient domain is claimed. An untwisted type (p,p) tensor for p≠0 is not a type-(0,0) Hodge tensor.
 
 Proof or construction route:
 
@@ -520,7 +520,7 @@ Acceptance: A CM endomorphism remains a Hodge endomorphism along its singleton p
 
 Prerequisites: `HodgeStructuresPartII:H.3/represented-real-orbit`, `HodgeStructuresPartII:H.3/period-symbol`, `ShimuraData:D1/mumford-tate-group`, `HodgeStructuresPartII:H.2`, `tauceti:TauCeti.Hodge.HodgeStructureOn.tensorProduct`, `tauceti:TauCeti.Hodge.HodgeStructureOn.dual`, `tauceti:TauCeti.Hodge.HodgeStructureOn.internalHom`, `tauceti:TauCeti.Hodge.HodgeStructureOn.internalHom_piece`.
 
-Source: [K17](https://arxiv.org/pdf/1711.09387v1), §2.3, pp.7–8, rational Hodge tensors and Mumford–Tate groups. Carries fixed rational (0,0) tensors along the specified orbit; tensor-stabilizer theory belongs to the imported MT supplier.
+Source: [K17](https://arxiv.org/pdf/1711.09387v1), §2.4, Lemma 2.5, printed p.8, rational Hodge tensors and their stabilizer. Carries fixed rational (0,0) tensors along the specified orbit; tensor-stabilizer theory belongs to the imported MT supplier.
 
 ### Ambient components and proper subdomains
 
@@ -556,7 +556,7 @@ Acceptance: Weight-one Siegel domains pass the criterion. A nonzero grade −2 t
 
 Prerequisites: `HodgeStructuresPartII:H.3/tangent-horizontal`, `ShimuraData:D3/variation`, `ShimuraData:D3/transversality-tangent`.
 
-Source: [PINK](https://www.math.ethz.ch/~pink/ftp/phd/Chapter_1.pdf), Proposition 1.10 and full proof, p.15, pure specialization. The proof tests F^(−1)g=g and yields the pure three-type criterion.
+Source: [PINK](https://people.math.ethz.ch/~pink/ftp/phd/Chapter_1.pdf), Proposition 1.10 and full proof, p.15, pure specialization. The proof tests F^(−1)g=g and yields the pure three-type criterion.
 
 ### Marked fibrewise period maps
 
@@ -759,13 +759,13 @@ For π:Cbar→B smooth proper connected curves over a smooth contractible comple
 
 Proof or construction route:
 
-1. Import, without replanning, the canonical extension, logarithmic comparison, degeneration and cohomology/base-change identifications from H.2.
+1. Import the existing H.2 canonical-extension and log-comparison nodes for the chosen analytic SNC extension and absolute logarithmic comparison. The H.2 stage request supplies the stronger relative analytic family comparison, unitary degeneration and direct-image fibre/base-change identifications; these remain recorded gaps rather than new H.3 constructions.
 2. Use the contractible-base flat marking and the supplied Grassmannian classifying map for a holomorphic rank-s subbundle.
 3. Convert the paper subspace-rank convention to the pinned quotient-rank convention; use the universal S and Q tangent Hom(S,Q).
 
 Acceptance: For V=C and D empty the filtration is H⁰(ω_C)⊂H¹(C,C) with quotient H¹(O_C). Unitarity is not replaced by an arbitrary regular-singular connection. No lattice is inferred for a general unitary complex local system.
 
-Prerequisites: `HodgeStructuresPartII:H.2`, `ShimuraData:D3/flat-bundle-local`, `AlgebraicModuliForArithmeticGeometry:R09.1`, `HodgeStructuresPartII:H.3/period-symbol`, `mathlib:Module.Grassmannian`.
+Prerequisites: `HodgeStructuresPartII:H.2`, `HodgeStructuresPartII:H.2/canonical-extension`, `HodgeStructuresPartII:H.2/log-comparison`, `ShimuraData:D3/flat-bundle-local`, `AlgebraicModuliForArithmeticGeometry:R09.1`, `HodgeStructuresPartII:H.3/period-symbol`, `mathlib:Module.Grassmannian`.
 
 Source: [LL](https://arxiv.org/pdf/2205.15352v4), Notation 5.1.1 and §§5.1.2–5.1.5, pp.27–29, (5.1)–(5.3). All geometric, boundary and unitary hypotheses are retained; the common variation and canonical-extension constructions stay with H.2.
 
@@ -786,7 +786,7 @@ Planning API (the shared namespace is `TauCeti.Hodge.PeriodGeometry`):
 - `logCurveKS` — Compose the supplied cohomology connecting map with T_bB≅H⁰(O_Cb⊗T_bB).
 - `logCurveKS_boundary` — Its value is the connecting class of the constant tangent section.
 - `logCurveKS_lift` — A smooth tangent-to-D lift v gives logCurveKS(u)=[barpartial v].
-- `logCurveKS_baseChange` — Pullback of a smooth pointed family gives κ_new=κ_old∘d(base map), under the fibre cohomology identification.
+- `logCurveKS_baseChange` — For a holomorphic map between smooth analytic bases, pullback of a smooth pointed family gives κ_new=κ_old∘d(base map), under the canonical fibre cohomology identification.
 
 Discriminatory tests:
 
@@ -831,13 +831,13 @@ Source: [LL](https://arxiv.org/pdf/2205.15352v4), Definition A.1.5 and Remark A.
 
 Node `HodgeStructuresPartII:H.3/log-kodaira-spencer-base-change` (lemma).
 
-Pullback of a smooth pointed family gives κ_new=κ_old∘d(base map), under the fibre cohomology identification.
+For a holomorphic map between smooth analytic bases, pullback of a smooth pointed family gives κ_new=κ_old∘d(base map), under the canonical fibre cohomology identification.
 
-Hypotheses: Retain all hypotheses and coefficient/component conventions of HodgeStructuresPartII:H.3/log-curve-kodaira-spencer.
+Hypotheses: Retain all hypotheses and coefficient/component conventions of HodgeStructuresPartII:H.3/log-curve-kodaira-spencer. The base map is holomorphic between smooth complex analytic bases; it need not be a smooth morphism.
 
 Proof or construction route:
 
-1. Pull back the logarithmic tangent exact sequence along a smooth analytic base map, with the divisor sections and relative tangent bundle identified.
+1. Construct the natural diagram from the logarithmic tangent sequence of the pulled-back family to the original sequence restricted to the same fibre. The relative tangent term is canonically identified, and the base tangent term maps by the differential of the holomorphic base map; do not assert an isomorphism of the two absolute tangent sequences.
 2. Naturality of its connecting homomorphism gives κ_pullback(u)=κ_original(df(u)). Identity and composite pullbacks follow.
 
 This is the promoted API statement `TauCeti.Hodge.PeriodGeometry.logCurveKS_baseChange`; its construction-level API and this lemma must be one declaration.
@@ -846,7 +846,7 @@ Acceptance: The API equality holds on the exact carrier of its construction, wit
 
 Prerequisites: `HodgeStructuresPartII:H.3/log-curve-kodaira-spencer`.
 
-Source: [LL](https://arxiv.org/pdf/2205.15352v4), Definition A.1.5 and Remark A.1.6, p.56. Defines the exact logarithmic connecting map used in the derivative proof.
+Source: [LL](https://arxiv.org/pdf/2205.15352v4), Definition A.1.5 and Remark A.1.6, p.56. Authored naturality consequence of the logarithmic connecting map in Definition A.1.5, using the base differential in the exact-sequence diagram; it does not require the base map to be smooth.
 
 ### Gauss–Manin through logarithmic contraction
 
@@ -1106,7 +1106,7 @@ These are directed supplier→H.3 contracts. Reusing a supplied definition does 
 - **`StableReductionPartII:MC.2`**: Import the existing pointed curve moduli carrier and the full stable-range Deligne–Mumford theorem from StableReductionPartII, then supply the analytic realization and natural deformation/cotangent dictionary for its smooth locus: T≅H¹(T_C(−D)), Ω¹≅H⁰(ω²(D)), universal logarithmic Kodaira–Spencer equal to identity, and κ_b∨ equal to cotangent pullback for a classifying map. MC.0/key and MC.2 already own M_g,n; do not reconstruct it at R09.4 or in H.3. The analytic and trace-normalized deformation realization is the remaining MC.2/C0/C2 interface gap.
 - **`ComplexComparisonPartII:C0`**: Supply the complex-manifold/analytic-space and holomorphic vector-bundle dictionary for analytified smooth flag spaces, subbundles, duals, universal bundles, pullbacks, tangent/cotangent and open submanifolds. Also free properly discontinuous discrete quotient charts and the orbifold distinction. C0 currently supplies only conditional analytification repairs; this stronger analytic dictionary is an open interface, not a completed C0 theorem. For the smooth pointed family provide the actual exact sequence of locally free logarithmic one-form bundles from absolute to relative forms, its evaluation/restriction maps and the paracompact smooth realization.
 - **`ComplexComparisonPartII:C2`**: Supply coherent analytic global sections and C-linear cohomology of vector bundles on smooth proper complex curves, GAGA compatibility with sheaf tensor/evaluation, cup products, connecting maps, Serre trace and duality. The additive Sheaf.H carrier alone does not supply this interface. For proper analytic curves either supply their algebraic realization before invoking projective GAGA, or provide analytic vector-bundle Serre duality directly; GAGA alone does not construct that realization.
-- **`HodgeStructuresPartII:H.2`**: Supply geometric variations and their common D3 carrier, local flat marking/connection, flat tensor/Hom and Tate operations extending the existing native fibre operations; for a smooth proper pointed curve family and unitary complex local system supply the chosen Deligne extension, logarithmic de Rham/Dolbeault comparison, degeneration/base change F¹=π*(Eω(D)), quotient R¹π*E, and an Ehresmann trivialization respecting sections and coefficients. Require the actual fibre cohomology/base-change isomorphism for the locally free F¹ direct image and its evaluation map, so a fibre holomorphic section extends relatively near b. Combined with smooth splitting of the absolute-to-relative logarithmic one-form sequence this supplies the LL A.1.7 lift; no logarithmic adaptation of an unread harmonic theorem is assumed. Use exactly the Del70 Remarques 5.5(i)/LL Notation 5.1.1 extension and its parabolic zero-step normalization, not a freely shifted logarithmic lattice.
+- **`HodgeStructuresPartII:H.2`**: Supply geometric variations and their common D3 carrier, local flat marking/connection, flat tensor/Hom and Tate operations extending the existing native fibre operations; for a smooth proper pointed curve family and unitary complex local system supply the chosen Deligne extension, logarithmic de Rham/Dolbeault comparison, degeneration/base change F¹=π*(Eω(D)), quotient R¹π*E, and an Ehresmann trivialization respecting sections and coefficients. Require the actual fibre cohomology/base-change isomorphism for the locally free F¹ direct image and its evaluation map, so a fibre holomorphic section extends relatively near b. Combined with smooth splitting of the absolute-to-relative logarithmic one-form sequence this supplies the LL A.1.7 lift; no logarithmic adaptation of an unread harmonic theorem is assumed. Use exactly the Del70 Remarques 5.5(i)/LL Notation 5.1.1 extension and its parabolic zero-step normalization, not a freely shifted logarithmic lattice. Reuse the now-existing H.2/canonical-extension and H.2/log-comparison nodes for their precise absolute SNC statements; the relative analytic family, unitary complex coefficients and direct-image base-change requirements here are additional interfaces, not a second canonical extension or comparison definition.
 - **`SchemeAndStackFoundations:SF.2/serre-proper`**: Supply the existing planned proper derived Serre duality specialized to vector bundles on smooth proper complex curves, with the trace/cup/evaluation normalization; compose its analytic realization with C2. Line-bundle dimension formulas alone do not supply the required natural vector-bundle adjunction.
 - **`SeveralComplexVariablesKahlerGeometry:CV.1`**: Supply the finite-dimensional complex holomorphic inverse/submersion theorem for the represented exponential/orbit derivative and holomorphic inverse/transition restrictions; require an actual derivative isomorphism, not a chosen local-inverse datum.
 - **`SeveralComplexVariablesKahlerGeometry:CV.4`**: Supply smooth/Dolbeault E-valued forms, Lie/contraction operations and the identity barpartial(ι_v σ)=−ι_v barpartial σ+ι_barpartial(v)σ, compatible with sheaf cohomology. H.2 supplies the logarithmic relative extension, direct-image fibre/base-change identification and evaluation map. Supply smooth splitting of a surjection of complex vector bundles on a paracompact complex manifold, using a smooth Hermitian metric, including the locally free absolute-to-relative logarithmic one-form sequence supplied by H.2/C0.
@@ -1130,36 +1130,36 @@ The stage remains planned for these concrete reasons:
 - **Analytic flag and complex Lie quotient interfaces remain open**. The mathematical construction and complete local proof routes are planned, but the pinned Grassmannian is only a functorial carrier and the upstream LieGroups roadmap explicitly develops real Lie groups/G/B. The complex exponential, parabolic quotient charts, analytic universal filtration and free quotient descent must be supplied at the requests above. Omitted global manifold theorem signatures in the suggested file reflect this interface gap, not proof completion.
 - **Common variation and represented Mumford–Tate supplier is not accepted/implemented**. The exact D1/D3 mathematical nodes are imported from the needs_changes ShimuraData packet. Native point/orbit/marking assembly is typed below, but its identification with represented algebraic groups and holomorphic local-system bundles is conditional on supplier review and concrete interfaces. CM-action test fixtures and global change-marking provenance are omitted signatures, not synthetic carriers.
 - **Logarithmic direct-image base change and cohomology dictionary**. LL A.1.7 invokes Voisin 9.22, whose book proof was not read. The H.3 proof instead derives its required fibre-holomorphic absolute C∞ lift from the specified F¹ direct-image fibre/base-change isomorphism, evaluation and a smooth splitting of the logarithmic one-form bundle sequence. These exact H.2/C0/CV.4 interfaces are not present at the pins; merely having a smooth bundle does not supply fibre base change. Unitarity remains required for H.2 degeneration/comparison. The entire logCurveKS signature/API/tests remain explicit omissions until coherent analytic C-linear cohomology and the log tangent sequence types exist.
-- **Vector-bundle trace/Serre and stable curve classifying map**. Proper derived Serre duality is already planned at SF.2/serre-proper, but compatible analytic trace/cup/evaluation and vector-bundle section types are not available. The M_g,n identification additionally needs the R09.4 deformation extension. PeriodTrace.multiply, its API/tests and the global derivative theorem signatures are omitted, with full mathematical statements retained; no local dot product is relabelled as the global sheaf construction. The actual moduli carrier and stable-range theorem are imported from StableReductionPartII:key/moduli-curves and MC.2/pointed-dm-theorem. Their analytic cotangent realization is the open contract, not a new moduli construction.
-- **Suggested file elaboration unavailable at the supplied build**. The user-prescribed lean-check was attempted on 2026-10-07 after free -g showed 96 GB available. It stopped at the first import because TauCeti.Geometry.Hodge.PeriodDomain.olean is absent. Mathlib in that build is at the exact pin, but its TauCeti checkout is cf386627e9176a3827c1a5fe804989fd94a4d216, beyond the pinned f790474. No library build, cache fetch or language server was started. Suggested signatures are unchecked and no successful whole-file elaboration is claimed.
+- **Vector-bundle trace/Serre and stable curve classifying map**. Proper derived Serre duality is already planned at SF.2/serre-proper, but compatible analytic trace/cup/evaluation and vector-bundle section types are not available. The M_g,n identification additionally needs the StableReductionPartII:MC.2 analytic deformation/cotangent dictionary. PeriodTrace.multiply, its API/tests and the global derivative theorem signatures are omitted, with full mathematical statements retained; no local dot product is relabelled as the global sheaf construction. The actual moduli carrier and stable-range theorem are imported from StableReductionPartII:key/moduli-curves and MC.2/pointed-dm-theorem. Their analytic cotangent realization is the open contract, not a new moduli construction.
+- **Suggested file elaboration unavailable at the supplied build**. The user-prescribed lean-check was attempted on 2026-10-07 after free -g showed 96 GB available. It stopped at the first import because TauCeti.Geometry.Hodge.PeriodDomain.olean is absent. Mathlib in that build is at the exact pin, but its TauCeti checkout is cf386627e9176a3827c1a5fe804989fd94a4d216, beyond the pinned f790474. No library build, cache fetch or language server was started. Suggested signatures are unchecked and no successful whole-file elaboration is claimed. Independent review attempted lean-check on 2026-10-08 with 113 GB available and reproduced the missing native import. No compatible ready alternative was found; the complete corrected file is still unelaborated. The final corrected-file attempt on the same date, with 112 GB available, stopped at the same missing import before any suggested signatures could elaborate.
 
 The suggested file imports individual modules and gives native point-to-flag, point transport, orbit, Lie-filtration, exponential-map, marked-point, quotient-symbol and matrix-normalization forms. Its marked-point and orbit signatures take actual supplied filtrations/actions; they do not replace the common variation or represented algebraic group. For the trace and logarithmic connecting constructions the global sheaf/cohomology signatures are explicitly omitted with exact names and mathematical statements. Their tests remain in that omission ledger. No local dot product or arbitrary linear map is named as the global trace/Kodaira–Spencer object. The global manifold and derivative theorem declarations are also explicit omissions until the exact supplier types are available. All implementation statuses remain unchecked.
 
-Whole-file elaboration was attempted with the prescribed `lean-check` after the available-memory check. The supplied build lacks the compiled native PeriodDomain import and its Tau Ceti checkout is beyond the recorded pin. No library was built or cache fetched. Thus this file is **not compiled**. This limitation is separate from the mathematical supplier gaps. The extracted Mathlib-only quotient-symbol and normalized-matrix signatures elaborate separately with proof placeholders as their only warnings. This partial check does not establish the full file or any global supplier interface. The packet checker at the pinned declaration index reports zero errors and warnings.
+Whole-file elaboration was attempted with the prescribed `lean-check` after the available-memory check. The supplied build lacks the compiled native PeriodDomain import and its Tau Ceti checkout is beyond the recorded pin. No library was built or cache fetched. Thus this file is **not compiled**. This limitation is separate from the mathematical supplier gaps. The original planner recorded successful extracted Mathlib-only quotient-symbol and normalized-matrix signature checks with proof placeholders as their only warnings. That historical partial receipt was not independently reproduced. It does not establish the full file or any global supplier interface. Independent review repaired the unequal-filtration marking example, added typed square-zero shear and grade −2 nonhorizontal examples, and supplied the Tate Lie-filtration calculation supporting the zero-complement test. The remaining omission ledger has 33 names: 2 constructions, 6 additional API items, 8 tests and 17 global results. The packet checker at the pinned declaration index reports zero errors and warnings.
 
 ## Source reading and routing
 
-Each source was accessed on 2026-10-07. Exact versions, hashes, read sections and limits appear in the packet. The main H.3 proofs read in full are Pink 1.7/1.8/1.10, Schmid's §3 period/horizontal discussion, Landesman–Litt Appendix A through A.2, and the Gao–Habegger local holomorphic integration argument through (4.2). Invoked general Lie/flag, Ehresmann and Deligne extension/degeneration results are supplier inputs. The Voisin harmonic theorem invoked in LL A.1.7 was not independently read. This plan realizes the needed lift by extending a relative section through the stated direct-image fibre/base-change isomorphism and then smoothly splitting the absolute-to-relative logarithmic one-form sequence. Those are explicit supplier inputs; no unread logarithmic harmonic theorem is presumed. BKT's nilpotent and definability proofs are not claimed read for this part.
+Each source was accessed by the planner on 2026-10-07 and independently retrieved and read within the stated scope on 2026-10-08; every recorded hash matched. Pink’s former www.math.ethz.ch link returned 404, so the byte-identical chapter is linked at people.math.ethz.ch. Exact versions, hashes, read sections and limits appear in the packet. The main H.3 proofs read in full are Pink 1.7/1.8/1.10, Schmid's §3 period/horizontal discussion, Landesman–Litt Appendix A through A.2, and the Gao–Habegger local holomorphic integration argument through (4.2). Invoked general Lie/flag, Ehresmann and Deligne extension/degeneration results are supplier inputs. The Voisin harmonic theorem invoked in LL A.1.7 was not independently read. This plan realizes the needed lift by extending a relative section through the stated direct-image fibre/base-change isomorphism and then smoothly splitting the absolute-to-relative logarithmic one-form sequence. Those are explicit supplier inputs; no unread logarithmic harmonic theorem is presumed. BKT's nilpotent and definability proofs are not claimed read for this part.
 
 - [SCHMID: Variation of Hodge Structure: The Singularities of the Period Mapping](https://webhomes.maths.ed.ac.uk/~v1ranick/papers/schmid.pdf) — Wilfried Schmid. Inventiones mathematicae 22 (1973), 211–319, published scan. Read: §3, printed pp.221–228: period domain and compact dual, Lie-Hodge filtration, tangent/horizontal construction, complete proofs of (3.18), (3.21), (3.22), local/global marked period maps; Printed p.223 statement after (3.9) additionally checked visually against the scan. Limits: Generic Lie/flag facts cited within §3 are supplier interfaces, not newly proved here.
-- [PINK: Arithmetical compactification of mixed Shimura varieties, Chapter 1](https://www.math.ethz.ch/~pink/ftp/phd/Chapter_1.pdf) — Richard Pink. Bonner Mathematische Schriften 209 (1989); original scanned thesis chapter. Read: §1.5 and §1.6 setup, printed pp.11–12; Proposition 1.7, printed p.13, statement and complete faithful-representation/tangent proof; Lemma 1.8, printed p.14, statement and complete proof; Proposition 1.10, printed p.15, statement and complete transversality proof. Limits: Only the pure specialization is owned here; mixed Shimura structures and limiting mixed flags are external.
+- [PINK: Arithmetical compactification of mixed Shimura varieties, Chapter 1](https://people.math.ethz.ch/~pink/ftp/phd/Chapter_1.pdf) — Richard Pink. Bonner Mathematische Schriften 209 (1989); original scanned thesis chapter. Read: §1.5 and §1.6 setup, printed pp.11–12; Proposition 1.7, printed p.13, statement and complete faithful-representation/tangent proof; Lemma 1.8, printed p.14, statement and complete proof; Definition 1.9(a), printed p.15, including the visible handwritten fibre correction; Proposition 1.10, printed p.15, statement and complete transversality proof. Limits: Only the pure specialization is owned here; mixed Shimura structures and limiting mixed flags are external.
 - [LL: Canonical representations of surface groups](https://arxiv.org/pdf/2205.15352v4) — Aaron Landesman and Daniel Litt. arXiv:2205.15352v4, 2025-02-23; preprint of Annals of Mathematics 199 (2024), 823–897. Read: §5.1, pp.27–29, including Notation 5.1.1 and Theorem 5.1.6; §5.2 opening and (5.5), p.29; Appendix A, pp.54–57, complete proofs of A.1.1, A.1.4, A.1.7, A.1.8 and A.2; §6.1 p.32, the setup and paragraph applying Theorem 5.1.6; not the rest of the rank/representation proof. Limits: Tim87 degeneration, Del70 canonical extension/comparison, EH16 Grassmannian tangent and Voisin 9.22 harmonic lifting are invoked in the source. Their underlying cited proofs were not read here; exact H.2/R09.1 requests record the imported comparison/tangent inputs. For A.1.7 the lift is obtained from explicit direct-image fibre base change and smooth logarithmic bundle splitting; the unread harmonic proof is not needed by this route.
 - [GH: Heights in families of abelian varieties and the geometric Bogomolov conjecture](https://arxiv.org/pdf/1801.05762v3) — Ziyang Gao and Philipp Habegger. arXiv:1801.05762v3, 2019-01-28. Read: §4, printed pp.15–17, the local trivialization and holomorphic Hodge-plane/period-matrix proof through (4.2). Limits: Ehresmann, geometric variation and fibre Riemann bilinear relations remain supplier inputs. Betti-map applications are outside H.3.
 - [K17: Hodge loci and atypical intersections: conjectures](https://arxiv.org/pdf/1711.09387v1) — Bruno Klingler. arXiv:1711.09387v1, 2017-11-26. Read: §§2.3–2.6, printed pp.7–9, Hodge tensors, generic MT datum, period interpretation; §3.1, Proposition 3.1 and Definitions 3.3–3.5, p.10; §3.2 Proposition 3.6, p.11; Definitions 3.14–3.18, pp.13–14. Limits: Tensor stabilizer theory is imported from ShimuraData:D1; dependent atypical-intersection results are consumers rather than targets.
 - [BKT: Tame topology of arithmetic quotients and algebraicity of Hodge loci](https://par.nsf.gov/servlets/purl/10200187) — Benjamin Bakker, Bruno Klingler and Jacob Tsimerman. Journal of the American Mathematical Society 33 (2020), 917–939, published copy. Read: §1.3, p.920, complete period/Mumford–Tate domain setup; §4.2, pp.928–929, period-map setup and lift expression only; §4.4, p.931, splitting/norm setup only; Theorem 1.1(1), p.919, compared with the published erratum. Limits: Nilpotent-orbit arguments belong to H.6 and definability to H.7; their complete proofs were not read for H.3.
-- [BKT-ERR: Erratum: Tame topology of arithmetic quotients and algebraicity of Hodge loci](https://benjamin-bakker.github.io/DefArithErr.pdf) — Benjamin Bakker, Bruno Klingler and Jacob Tsimerman. Author copy of the 2023 published JAMS erratum. Read: Entire four-page erratum, §§1.1–1.5. Limits: Fix the maximal compact K for the semialgebraic structure/functoriality; the period-map definability theorem remains valid with the canonical Hodge choice.
+- [BKT-ERR: Erratum: Tame topology of arithmetic quotients and algebraicity of Hodge loci](https://benjamin-bakker.github.io/DefArithErr.pdf) — Benjamin Bakker, Bruno Klingler and Jacob Tsimerman. Author copy of the 2023 published JAMS erratum. Read: Entire four-page erratum, §§1.1–1.6. Limits: Fix the maximal compact K for the semialgebraic structure/functoriality; the period-map definability theorem remains valid with the canonical Hodge choice.
 
 BKT's general period setup supplies the domain/component and marked-lift interfaces here. Its nilpotent asymptotics go to H.6 and its tame period/Hodge-locus assertions to H.7. LL §5.1 and Appendix A supply the derivative and trace identities; its §5.2 rank inequalities and dependent representation applications go to H.4. Gao–Habegger §4 supplies the holomorphic local matrix comparison; its Betti-map, height and Bogomolov applications remain with the routed consumers. Pink's mixed data are not built here: only its pure orbit/tangent/transversality specialization is used.
 
 ## Published-source issues found while reading
 
-These findings await the independent reviewer. They are recorded against the exact published text read, without silently correcting it. H.3 uses the corrected statements.
+All three findings were independently confirmed by REV-HodgeStructuresPartII--H.3 on 2026-10-08. They are recorded in paraphrase against the exact published locators. H.3 uses the corrected statements.
 
 ### HodgeStructuresPartII/EH3-1
 
 Published scan, §3, printed p.223, sentence immediately following (3.9).
 
-Printed: “It is a simple complex Lie algebra”.
+Source claim (paraphrase): The source describes the complex Lie algebra as simple.
 
 Correction: The complex isometry Lie algebra is reductive; simplicity requires restrictions on the form and dimension. No H.3 statement uses simplicity.
 
@@ -1167,11 +1167,13 @@ Check: Choose weight zero, h(0)=4 and a positive definite symmetric form on R⁴
 
 Status: new. Searches: Published article metadata/erratum links at https://doi.org/10.1007/BF01389674; Public search on 2026-10-07 for Schmid Variation Hodge Structure 1973 errata simple Lie algebra p.223; no published correction located; The published scan at the recorded SHA, with this sentence checked visually.
 
+Independent verdict: **confirmed**. Confirmed in the published scan at printed p.223 after (3.9). The permitted weight-zero four-dimensional positive symmetric example has complex Lie algebra so₄(C), with two simple summands; simplicity is false without restrictions. The H.3 proofs need reductivity, which the corrected plan retains.
+
 ### HodgeStructuresPartII/EH3-2
 
 Published JAMS 33 (2020), Theorem 1.1(1), p.919; compared with 2023 erratum §1.1.
 
-Printed: “admits a natural structure”.
+Source claim (paraphrase): The source claims the existence of a natural structure.
 
 Correction: For the Ralg-definable structure specify a maximal compact subgroup K containing M; the corrected functoriality requires compatible K data. The canonical Hodge K is available in the period application, whose definability conclusion is unchanged.
 
@@ -1179,20 +1181,24 @@ Check: The published erratum §1.1 explicitly withdraws the claimed K-independen
 
 Status: Bakker–Klingler–Tsimerman, 2023 published erratum; author copy https://benjamin-bakker.github.io/DefArithErr.pdf, §§1.1–1.5. Searches: Original published version at https://par.nsf.gov/servlets/purl/10200187; Author erratum page https://benjamin-bakker.github.io/DefArithErr.pdf.
 
+Independent verdict: **confirmed**. Confirmed by comparison of published Theorem 1.1(1), p.919, with the complete 2023 erratum, especially §§1.1–1.2. The semialgebraic structure depends on the maximal compact K; corrected functoriality requires compatible choices. The canonical Hodge choice preserves the cited period application.
+
 ### HodgeStructuresPartII/EH3-3
 
 Original published thesis scan, §1.9(a), printed p.15; the handwritten correction is visible in this scanned copy.
 
-Printed: “in each stalk”.
+Source claim (paraphrase): The source places the construction at every stalk.
 
 Correction: Use the vector-bundle fibre, equivalently the sheaf stalk tensored with its residue field, to obtain the finite-dimensional fibre Hodge filtration.
 
 Check: The stated locally free coherent sheaf has stalk an O_X,x-module; the Hodge structure of its local system is on the complex vector-space fibre. The scan itself strikes out stalk and writes fibre. The fibre convention is already used by the imported common variation and H.3 point assembly.
 
-Status: Handwritten replacement by fibre in the publicly linked original Chapter 1 scan; attribution of the annotation is not known.. Searches: Richard Pink author dissertation page https://people.math.ethz.ch/~pink/dissertation.html and its linked original chapter; §1.9(a) of https://www.math.ethz.ch/~pink/ftp/phd/Chapter_1.pdf at the recorded SHA, including its visible handwritten correction.
+Status: Handwritten replacement by fibre in the publicly linked original Chapter 1 scan; attribution of the annotation is not known. Searches: Richard Pink author dissertation page https://people.math.ethz.ch/~pink/dissertation.html and its linked original chapter; §1.9(a) of https://people.math.ethz.ch/~pink/ftp/phd/Chapter_1.pdf at the recorded SHA, including its visible handwritten correction.
+
+Independent verdict: **confirmed**. Confirmed visually at Definition 1.9(a), printed p.15, in the recorded scan. A coherent sheaf stalk is an O-module, whereas the Hodge datum belongs to its finite-dimensional residue-field fibre. The handwritten change is visible; its author is not established.
 
 ## Acceptance and next implementation boundary
 
-The reviewer should first test the CM singleton against the ambient upper-half-plane component, the non-opposed real compact-dual line, the Tate jump at every integer, the effective versus full MT isotropy, and the horizontal grade −1 versus full negative tangent. Then check the logarithmic single-divisor twist and positive Kodaira–Spencer cup sign. A constant family must have zero derivative even when global trace multiplication is nonzero. The weight-one matrix calculation must preserve row-form normalization under left frame changes and use the right-acting cycle marking formula stated above.
+The independent review checked the CM singleton against the ambient upper-half-plane component, the non-opposed real compact-dual line, the Tate jump at every integer, the effective versus full MT isotropy, and the horizontal grade −1 versus full negative tangent. It also checked the logarithmic single-divisor twist and positive Kodaira–Spencer cup sign. A constant family must have zero derivative even when global trace multiplication is nonzero. The weight-one matrix calculation must preserve row-form normalization under left frame changes and use the right-acting cycle marking formula stated above.
 
-The next implementation boundary is the supplier dictionary, rather than another period-point carrier: representable analytic flags and complex parabolic quotients first, common holomorphic variations and log coherent comparison and fibre base change next, then the trace-compatible vector-bundle Serre inputs. Only after these contracts exist can the omitted global signatures be filled and closure strengthened. The Lie groups Part II ownership proposal is recorded in the packet’s restructure field; the discovered pointed-curve moduli supplier is imported from StableReductionPartII. The source decomposition, six planet choices and complete conditional proof routes are ready for independent review.
+The next implementation boundary is the supplier dictionary, rather than another period-point carrier: representable analytic flags and complex parabolic quotients first, common holomorphic variations and log coherent comparison and fibre base change next, then the trace-compatible vector-bundle Serre inputs. Only after these contracts exist can the omitted global signatures be filled and closure strengthened. The Lie groups Part II ownership proposal is recorded in the packet’s restructure field; the discovered pointed-curve moduli supplier is imported from StableReductionPartII. The source decomposition, six planet choices and complete conditional proof routes were independently accepted as a complete conditional planning pass. The stage remains planned with the exact supplier and signature gaps above.

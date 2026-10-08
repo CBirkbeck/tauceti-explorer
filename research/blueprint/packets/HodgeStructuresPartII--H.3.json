@@ -17,7 +17,7 @@
         "module": "Mathlib/CategoryTheory/Sites/SheafCohomology/Basic.lean",
         "line": 59,
         "provides": "Additive sheaf cohomology via Ext; a complex-linear analytic coherent cohomology interface is additional work.",
-        "checked": "Statement and ambient hypotheses read in the pinned source on 2026-10-07; checked against this period-geometry use."
+        "checked": "Statement and ambient hypotheses read in the pinned source on 2026-10-07; checked against this period-geometry use. Independently re-read at the same pin on 2026-10-08, including ambient hypotheses; citation confirmed without replacement."
       },
       {
         "ref": "mathlib:HasFDerivAt",
@@ -25,7 +25,7 @@
         "module": "Mathlib/Analysis/Calculus/FDeriv/Defs.lean",
         "line": 123,
         "provides": "Actual Fréchet derivative with a continuous linear map, not a chosen tangent-symbol axiom.",
-        "checked": "Statement and ambient hypotheses read in the pinned source on 2026-10-07; checked against this period-geometry use."
+        "checked": "Statement and ambient hypotheses read in the pinned source on 2026-10-07; checked against this period-geometry use. Independently re-read at the same pin on 2026-10-08, including ambient hypotheses; citation confirmed without replacement."
       },
       {
         "ref": "mathlib:Matrix.inv",
@@ -33,7 +33,7 @@
         "module": "Mathlib/LinearAlgebra/Matrix/NonsingularInverse.lean",
         "line": 169,
         "provides": "Square-matrix inverse, zero when determinant is not a unit; the prototype always supplies IsUnit det.",
-        "checked": "Statement and ambient hypotheses read in the pinned source on 2026-10-07; checked against this period-geometry use."
+        "checked": "Statement and ambient hypotheses read in the pinned source on 2026-10-07; checked against this period-geometry use. Independently re-read at the same pin on 2026-10-08, including ambient hypotheses; citation confirmed without replacement."
       },
       {
         "ref": "mathlib:Matrix.mul_nonsing_inv",
@@ -41,7 +41,7 @@
         "module": "Mathlib/LinearAlgebra/Matrix/NonsingularInverse.lean",
         "line": 211,
         "provides": "Multiplication by inverse gives identity when determinant is a unit.",
-        "checked": "Statement and ambient hypotheses read in the pinned source on 2026-10-07; checked against this period-geometry use."
+        "checked": "Statement and ambient hypotheses read in the pinned source on 2026-10-07; checked against this period-geometry use. Independently re-read at the same pin on 2026-10-08, including ambient hypotheses; citation confirmed without replacement."
       },
       {
         "ref": "mathlib:Module.Grassmannian",
@@ -49,7 +49,7 @@
         "module": "Mathlib/RingTheory/Grassmannian.lean",
         "line": 68,
         "provides": "Functorial Grassmannian carrier with quotient rank k; it does not yet have flag charts or representability.",
-        "checked": "Statement and ambient hypotheses read in the pinned source on 2026-10-07; checked against this period-geometry use."
+        "checked": "Statement and ambient hypotheses read in the pinned source on 2026-10-07; checked against this period-geometry use. Independently re-read at the same pin on 2026-10-08, including ambient hypotheses; citation confirmed without replacement."
       },
       {
         "ref": "mathlib:MulAction.mem_orbit_iff",
@@ -57,7 +57,7 @@
         "module": "Mathlib/GroupTheory/GroupAction/Defs.lean",
         "line": 55,
         "provides": "Orbit membership is existence of an acting representative.",
-        "checked": "Statement and ambient hypotheses read in the pinned source on 2026-10-07; checked against this period-geometry use."
+        "checked": "Statement and ambient hypotheses read in the pinned source on 2026-10-07; checked against this period-geometry use. Independently re-read at the same pin on 2026-10-08, including ambient hypotheses; citation confirmed without replacement."
       },
       {
         "ref": "mathlib:MulAction.orbit",
@@ -65,7 +65,7 @@
         "module": "Mathlib/GroupTheory/GroupAction/Defs.lean",
         "line": 49,
         "provides": "Existing group-action orbit set, used for the two period-specific subtype adapters.",
-        "checked": "Statement and ambient hypotheses read in the pinned source on 2026-10-07; checked against this period-geometry use."
+        "checked": "Statement and ambient hypotheses read in the pinned source on 2026-10-07; checked against this period-geometry use. Independently re-read at the same pin on 2026-10-08, including ambient hypotheses; citation confirmed without replacement."
       },
       {
         "ref": "mathlib:NormedSpace.exp",
@@ -73,7 +73,7 @@
         "module": "Mathlib/Analysis/Normed/Algebra/Exponential.lean",
         "line": 127,
         "provides": "Power-series exponential on a topological normed algebra; generic complex Lie-group compatibility is a separate input.",
-        "checked": "Statement and ambient hypotheses read in the pinned source on 2026-10-07; checked against this period-geometry use."
+        "checked": "Statement and ambient hypotheses read in the pinned source on 2026-10-07; checked against this period-geometry use. Independently re-read at the same pin on 2026-10-08, including ambient hypotheses; citation confirmed without replacement."
       },
       {
         "ref": "mathlib:Submodule.mkQ",
@@ -81,7 +81,7 @@
         "module": "Mathlib/LinearAlgebra/Quotient/Defs.lean",
         "line": 227,
         "provides": "Canonical linear quotient map W→W/S.",
-        "checked": "Statement and ambient hypotheses read in the pinned source on 2026-10-07; checked against this period-geometry use."
+        "checked": "Statement and ambient hypotheses read in the pinned source on 2026-10-07; checked against this period-geometry use. Independently re-read at the same pin on 2026-10-08, including ambient hypotheses; citation confirmed without replacement."
       },
       {
         "ref": "tauceti:TauCeti.BilinForm.isometryGroup",
@@ -89,7 +89,7 @@
         "module": "TauCeti/LinearAlgebra/BilinearForm/Isometry.lean",
         "line": 156,
         "provides": "The subgroup of linear equivalences preserving a bilinear form.",
-        "checked": "Statement and ambient hypotheses read in the pinned source on 2026-10-07; checked against this period-geometry use."
+        "checked": "Statement and ambient hypotheses read in the pinned source on 2026-10-07; checked against this period-geometry use. Independently re-read at the same pin on 2026-10-08, including ambient hypotheses; citation confirmed without replacement."
       },
       {
         "ref": "tauceti:TauCeti.BilinForm.isometryGroupBaseChange",
@@ -97,7 +97,7 @@
         "module": "TauCeti/LinearAlgebra/BilinearForm/Isometry.lean",
         "line": 274,
         "provides": "Extend integral isometries to the tensor-product complexification.",
-        "checked": "Statement and ambient hypotheses read in the pinned source on 2026-10-07; checked against this period-geometry use."
+        "checked": "Statement and ambient hypotheses read in the pinned source on 2026-10-07; checked against this period-geometry use. Independently re-read at the same pin on 2026-10-08, including ambient hypotheses; citation confirmed without replacement."
       },
       {
         "ref": "tauceti:TauCeti.Hodge.HodgeStructureOn",
@@ -105,7 +105,7 @@
         "module": "TauCeti/Geometry/Hodge/Structure.lean",
         "line": 62,
         "provides": "Conjugation-parametric bounded opposed filtration, reused without a replacement carrier.",
-        "checked": "Statement and ambient hypotheses read in the pinned source on 2026-10-07; checked against this period-geometry use."
+        "checked": "Statement and ambient hypotheses read in the pinned source on 2026-10-07; checked against this period-geometry use. Independently re-read at the same pin on 2026-10-08, including ambient hypotheses; citation confirmed without replacement."
       },
       {
         "ref": "tauceti:TauCeti.Hodge.HodgeStructureOn.F_eq_iSup_piece",
@@ -113,7 +113,7 @@
         "module": "TauCeti/Geometry/Hodge/Decomposition.lean",
         "line": 130,
         "provides": "F^p is the supremum of Hodge pieces at indices q≥p.",
-        "checked": "Statement and ambient hypotheses read in the pinned source on 2026-10-07; checked against this period-geometry use."
+        "checked": "Statement and ambient hypotheses read in the pinned source on 2026-10-07; checked against this period-geometry use. Independently re-read at the same pin on 2026-10-08, including ambient hypotheses; citation confirmed without replacement."
       },
       {
         "ref": "tauceti:TauCeti.Hodge.HodgeStructureOn.comap",
@@ -121,7 +121,7 @@
         "module": "TauCeti/Geometry/Hodge/Structure.lean",
         "line": 252,
         "provides": "Pull a Hodge structure back along a conjugation-compatible complex linear equivalence; inverse pullback implements image transport.",
-        "checked": "Statement and ambient hypotheses read in the pinned source on 2026-10-07; checked against this period-geometry use."
+        "checked": "Statement and ambient hypotheses read in the pinned source on 2026-10-07; checked against this period-geometry use. Independently re-read at the same pin on 2026-10-08, including ambient hypotheses; citation confirmed without replacement."
       },
       {
         "ref": "tauceti:TauCeti.Hodge.HodgeStructureOn.piece",
@@ -129,7 +129,7 @@
         "module": "TauCeti/Geometry/Hodge/Structure.lean",
         "line": 156,
         "provides": "F^p intersect the conjugate of F^(n−p).",
-        "checked": "Statement and ambient hypotheses read in the pinned source on 2026-10-07; checked against this period-geometry use."
+        "checked": "Statement and ambient hypotheses read in the pinned source on 2026-10-07; checked against this period-geometry use. Independently re-read at the same pin on 2026-10-08, including ambient hypotheses; citation confirmed without replacement."
       },
       {
         "ref": "tauceti:TauCeti.Hodge.HodgeType",
@@ -137,7 +137,7 @@
         "module": "TauCeti/Geometry/Hodge/Dimension.lean",
         "line": 105,
         "provides": "Finite-support, symmetric all-integer pure Hodge numbers and their weight.",
-        "checked": "Statement and ambient hypotheses read in the pinned source on 2026-10-07; checked against this period-geometry use."
+        "checked": "Statement and ambient hypotheses read in the pinned source on 2026-10-07; checked against this period-geometry use. Independently re-read at the same pin on 2026-10-08, including ambient hypotheses; citation confirmed without replacement."
       },
       {
         "ref": "tauceti:TauCeti.Hodge.IsPolarization",
@@ -145,7 +145,7 @@
         "module": "TauCeti/Geometry/Hodge/Polarization.lean",
         "line": 70,
         "provides": "The exact fixed-form Hodge–Riemann predicate, with positive factor i^(2p−n) and no additional weight sign.",
-        "checked": "Statement and ambient hypotheses read in the pinned source on 2026-10-07; checked against this period-geometry use."
+        "checked": "Statement and ambient hypotheses read in the pinned source on 2026-10-07; checked against this period-geometry use. Independently re-read at the same pin on 2026-10-08, including ambient hypotheses; citation confirmed without replacement."
       },
       {
         "ref": "tauceti:TauCeti.Hodge.PeriodDomain.Point",
@@ -153,7 +153,7 @@
         "module": "TauCeti/Geometry/Hodge/PeriodDomain.lean",
         "line": 71,
         "provides": "Existing polarized integral Hodge point with fixed pairing and prescribed Hodge type; no topology or charts.",
-        "checked": "Statement and ambient hypotheses read in the pinned source on 2026-10-07; checked against this period-geometry use."
+        "checked": "Statement and ambient hypotheses read in the pinned source on 2026-10-07; checked against this period-geometry use. Independently re-read at the same pin on 2026-10-08, including ambient hypotheses; citation confirmed without replacement."
       },
       {
         "ref": "tauceti:TauCeti.Hodge.PeriodDomain.Point.ext",
@@ -161,7 +161,7 @@
         "module": "TauCeti/Geometry/Hodge/PeriodDomain.lean",
         "line": 91,
         "provides": "Equality of underlying Hodge structures implies equality of native points.",
-        "checked": "Statement and ambient hypotheses read in the pinned source on 2026-10-07; checked against this period-geometry use."
+        "checked": "Statement and ambient hypotheses read in the pinned source on 2026-10-07; checked against this period-geometry use. Independently re-read at the same pin on 2026-10-08, including ambient hypotheses; citation confirmed without replacement."
       },
       {
         "ref": "tauceti:TauCeti.Hodge.integralFormBaseChange",
@@ -169,7 +169,7 @@
         "module": "TauCeti/Geometry/Hodge/BilinearForm.lean",
         "line": 65,
         "provides": "The bilinear pairing on an abstract complexification, transported through the supplied IsBaseChange equivalence.",
-        "checked": "Statement and ambient hypotheses read in the pinned source on 2026-10-07; checked against this period-geometry use."
+        "checked": "Statement and ambient hypotheses read in the pinned source on 2026-10-07; checked against this period-geometry use. Independently re-read at the same pin on 2026-10-08, including ambient hypotheses; citation confirmed without replacement."
       },
       {
         "ref": "tauceti:TauCeti.Hodge.tateHodgeType",
@@ -177,7 +177,7 @@
         "module": "TauCeti/Geometry/Hodge/Tate/Basic.lean",
         "line": 141,
         "provides": "The existing all-integer rank-one type supported at p=−m.",
-        "checked": "Statement and ambient hypotheses read in the pinned source on 2026-10-07; checked against this period-geometry use."
+        "checked": "Statement and ambient hypotheses read in the pinned source on 2026-10-07; checked against this period-geometry use. Independently re-read at the same pin on 2026-10-08, including ambient hypotheses; citation confirmed without replacement."
       },
       {
         "ref": "tauceti:TauCeti.Hodge.tatePoint",
@@ -185,7 +185,7 @@
         "module": "TauCeti/Geometry/Hodge/PeriodDomain.lean",
         "line": 131,
         "provides": "The existing Z(m) point with weight −2m and the integral multiplication polarization.",
-        "checked": "Statement and ambient hypotheses read in the pinned source on 2026-10-07; checked against this period-geometry use."
+        "checked": "Statement and ambient hypotheses read in the pinned source on 2026-10-07; checked against this period-geometry use. Independently re-read at the same pin on 2026-10-08, including ambient hypotheses; citation confirmed without replacement."
       },
       {
         "ref": "tauceti:TauCeti.Hodge.HodgeStructureOn.tensorProduct",
@@ -193,7 +193,7 @@
         "module": "TauCeti/Geometry/Hodge/TensorProduct.lean",
         "line": 109,
         "provides": "Native pure tensor-product Hodge structure of weight n₁+n₂, reused for fixed Hodge tensors.",
-        "checked": "Statement and ambient hypotheses read in the pinned source on 2026-10-07; verified the shift, dual or quotient convention."
+        "checked": "Statement and ambient hypotheses read in the pinned source on 2026-10-07; verified the shift, dual or quotient convention. Independently re-read at the same pin on 2026-10-08, including ambient hypotheses; citation confirmed without replacement."
       },
       {
         "ref": "tauceti:TauCeti.Hodge.HodgeStructureOn.dual",
@@ -201,7 +201,7 @@
         "module": "TauCeti/Geometry/Hodge/Dual.lean",
         "line": 76,
         "provides": "Native dual pure Hodge structure, weight −n, with F^p annihilating F^(1−p).",
-        "checked": "Statement and ambient hypotheses read in the pinned source on 2026-10-07; verified the shift, dual or quotient convention."
+        "checked": "Statement and ambient hypotheses read in the pinned source on 2026-10-07; verified the shift, dual or quotient convention. Independently re-read at the same pin on 2026-10-08, including ambient hypotheses; citation confirmed without replacement."
       },
       {
         "ref": "tauceti:TauCeti.Hodge.HodgeStructureOn.internalHom",
@@ -209,7 +209,7 @@
         "module": "TauCeti/Geometry/Hodge/InternalHom.lean",
         "line": 230,
         "provides": "Native internal Hom Hodge structure of weight n₂−n₁ on complex linear maps.",
-        "checked": "Statement and ambient hypotheses read in the pinned source on 2026-10-07; verified the shift, dual or quotient convention."
+        "checked": "Statement and ambient hypotheses read in the pinned source on 2026-10-07; verified the shift, dual or quotient convention. Independently re-read at the same pin on 2026-10-08, including ambient hypotheses; citation confirmed without replacement."
       },
       {
         "ref": "tauceti:TauCeti.Hodge.HodgeStructureOn.internalHom_piece",
@@ -217,7 +217,7 @@
         "module": "TauCeti/Geometry/Hodge/InternalHom.lean",
         "line": 238,
         "provides": "Its degree-r piece is the homogeneous maps shifting Hodge degree by r.",
-        "checked": "Statement and ambient hypotheses read in the pinned source on 2026-10-07; verified the shift, dual or quotient convention."
+        "checked": "Statement and ambient hypotheses read in the pinned source on 2026-10-07; verified the shift, dual or quotient convention. Independently re-read at the same pin on 2026-10-08, including ambient hypotheses; citation confirmed without replacement."
       },
       {
         "ref": "mathlib:Submodule.Quotient.equiv",
@@ -225,7 +225,7 @@
         "module": "Mathlib/LinearAlgebra/Quotient/Basic.lean",
         "line": 327,
         "provides": "Induced semilinear/linear quotient equivalence from an ambient equivalence carrying one submodule onto another.",
-        "checked": "Statement and ambient hypotheses read in the pinned source on 2026-10-07; verified the shift, dual or quotient convention."
+        "checked": "Statement and ambient hypotheses read in the pinned source on 2026-10-07; verified the shift, dual or quotient convention. Independently re-read at the same pin on 2026-10-08, including ambient hypotheses; citation confirmed without replacement."
       },
       {
         "ref": "mathlib:LinearEquiv.submoduleMap",
@@ -233,7 +233,7 @@
         "module": "Mathlib/Algebra/Module/Submodule/Map.lean",
         "line": 739,
         "provides": "Restrict an ambient linear equivalence to the submodule and its image.",
-        "checked": "Statement and ambient hypotheses read in the pinned source on 2026-10-07; verified the shift, dual or quotient convention."
+        "checked": "Statement and ambient hypotheses read in the pinned source on 2026-10-07; verified the shift, dual or quotient convention. Independently re-read at the same pin on 2026-10-08, including ambient hypotheses; citation confirmed without replacement."
       }
     ],
     "audit": {
@@ -252,7 +252,12 @@
         "PeriodDomain, period map, compact dual, Hodge filtration, Mumford, KodairaSpencer, Grassmannian, flag",
         "holomorphic bundle, local system, variation, logarithmic tangent, Serre trace",
         "Matrix inverse, bilinear isometry, base change, Hodge decomposition, group orbit"
-      ]
+      ],
+      "independentReview": {
+        "by": "REV-HodgeStructuresPartII--H.3",
+        "date": "2026-10-08",
+        "finding": "The same six audit rows and all 28 pinned declaration statements were independently read. Native Hodge points, filtration algebra, quotient carriers, isometry groups and the Grassmannian functor are reused; the five recorded geometry/cohomology/elaboration gaps remain genuine."
+      }
     }
   },
   "sources": [
@@ -263,32 +268,43 @@
       "edition": "Inventiones mathematicae 22 (1973), 211–319, published scan",
       "url": "https://webhomes.maths.ed.ac.uk/~v1ranick/papers/schmid.pdf",
       "sha256": "26f446e0bb5fbd7635ef5d7962fca30740cc17ee8c3e821a7e3d3fef7c284836",
-      "accessed": "2026-10-07",
+      "accessed": "2026-10-08",
       "readSections": [
         "§3, printed pp.221–228: period domain and compact dual, Lie-Hodge filtration, tangent/horizontal construction, complete proofs of (3.18), (3.21), (3.22), local/global marked period maps",
         "Printed p.223 statement after (3.9) additionally checked visually against the scan"
       ],
       "readLimits": [
         "Generic Lie/flag facts cited within §3 are supplier interfaces, not newly proved here."
-      ]
+      ],
+      "independentReview": {
+        "by": "REV-HodgeStructuresPartII--H.3",
+        "date": "2026-10-08",
+        "finding": "Public PDF retrieved, recorded SHA-256 confirmed, and the listed H.3 source scope independently read; invoked external proofs remain subject to readLimits."
+      }
     },
     {
       "id": "PINK",
       "title": "Arithmetical compactification of mixed Shimura varieties, Chapter 1",
       "authors": "Richard Pink",
       "edition": "Bonner Mathematische Schriften 209 (1989); original scanned thesis chapter",
-      "url": "https://www.math.ethz.ch/~pink/ftp/phd/Chapter_1.pdf",
+      "url": "https://people.math.ethz.ch/~pink/ftp/phd/Chapter_1.pdf",
       "sha256": "44837c9c01b07bc0aec450f62da2f0f798075c405ccde3a203a2121de9661204",
-      "accessed": "2026-10-07",
+      "accessed": "2026-10-08",
       "readSections": [
         "§1.5 and §1.6 setup, printed pp.11–12",
         "Proposition 1.7, printed p.13, statement and complete faithful-representation/tangent proof",
         "Lemma 1.8, printed p.14, statement and complete proof",
+        "Definition 1.9(a), printed p.15, including the visible handwritten fibre correction",
         "Proposition 1.10, printed p.15, statement and complete transversality proof"
       ],
       "readLimits": [
         "Only the pure specialization is owned here; mixed Shimura structures and limiting mixed flags are external."
-      ]
+      ],
+      "independentReview": {
+        "by": "REV-HodgeStructuresPartII--H.3",
+        "date": "2026-10-08",
+        "finding": "Public PDF retrieved, recorded SHA-256 confirmed, and the listed H.3 source scope independently read; invoked external proofs remain subject to readLimits. The former www.math.ethz.ch URL returns 404; the people.math.ethz.ch URL serves the byte-identical chapter."
+      }
     },
     {
       "id": "LL",
@@ -297,7 +313,7 @@
       "edition": "arXiv:2205.15352v4, 2025-02-23; preprint of Annals of Mathematics 199 (2024), 823–897",
       "url": "https://arxiv.org/pdf/2205.15352v4",
       "sha256": "4cb511ba40675aa6899b351f2ee27eb9487b4a21f65ec8000c1f2cc1a5107ceb",
-      "accessed": "2026-10-07",
+      "accessed": "2026-10-08",
       "readSections": [
         "§5.1, pp.27–29, including Notation 5.1.1 and Theorem 5.1.6",
         "§5.2 opening and (5.5), p.29",
@@ -306,7 +322,12 @@
       ],
       "readLimits": [
         "Tim87 degeneration, Del70 canonical extension/comparison, EH16 Grassmannian tangent and Voisin 9.22 harmonic lifting are invoked in the source. Their underlying cited proofs were not read here; exact H.2/R09.1 requests record the imported comparison/tangent inputs. For A.1.7 the lift is obtained from explicit direct-image fibre base change and smooth logarithmic bundle splitting; the unread harmonic proof is not needed by this route."
-      ]
+      ],
+      "independentReview": {
+        "by": "REV-HodgeStructuresPartII--H.3",
+        "date": "2026-10-08",
+        "finding": "Public PDF retrieved, recorded SHA-256 confirmed, and the listed H.3 source scope independently read; invoked external proofs remain subject to readLimits."
+      }
     },
     {
       "id": "GH",
@@ -315,13 +336,18 @@
       "edition": "arXiv:1801.05762v3, 2019-01-28",
       "url": "https://arxiv.org/pdf/1801.05762v3",
       "sha256": "ffe408dc6ba034b2a635488600decace1e89d61ad04860c391bef9409f2fd34e",
-      "accessed": "2026-10-07",
+      "accessed": "2026-10-08",
       "readSections": [
         "§4, printed pp.15–17, the local trivialization and holomorphic Hodge-plane/period-matrix proof through (4.2)"
       ],
       "readLimits": [
         "Ehresmann, geometric variation and fibre Riemann bilinear relations remain supplier inputs. Betti-map applications are outside H.3."
-      ]
+      ],
+      "independentReview": {
+        "by": "REV-HodgeStructuresPartII--H.3",
+        "date": "2026-10-08",
+        "finding": "Public PDF retrieved, recorded SHA-256 confirmed, and the listed H.3 source scope independently read; invoked external proofs remain subject to readLimits."
+      }
     },
     {
       "id": "K17",
@@ -330,7 +356,7 @@
       "edition": "arXiv:1711.09387v1, 2017-11-26",
       "url": "https://arxiv.org/pdf/1711.09387v1",
       "sha256": "fb0ea85a98db871ec140378feef334e2f67cc8215fc2a5e3c0e75d8d42015939",
-      "accessed": "2026-10-07",
+      "accessed": "2026-10-08",
       "readSections": [
         "§§2.3–2.6, printed pp.7–9, Hodge tensors, generic MT datum, period interpretation",
         "§3.1, Proposition 3.1 and Definitions 3.3–3.5, p.10; §3.2 Proposition 3.6, p.11",
@@ -338,7 +364,12 @@
       ],
       "readLimits": [
         "Tensor stabilizer theory is imported from ShimuraData:D1; dependent atypical-intersection results are consumers rather than targets."
-      ]
+      ],
+      "independentReview": {
+        "by": "REV-HodgeStructuresPartII--H.3",
+        "date": "2026-10-08",
+        "finding": "Public PDF retrieved, recorded SHA-256 confirmed, and the listed H.3 source scope independently read; invoked external proofs remain subject to readLimits."
+      }
     },
     {
       "id": "BKT",
@@ -347,7 +378,7 @@
       "edition": "Journal of the American Mathematical Society 33 (2020), 917–939, published copy",
       "url": "https://par.nsf.gov/servlets/purl/10200187",
       "sha256": "b7cf457907c30c9dc1c349637e74027ce4ef038a2e0f646b7685f571d367e058",
-      "accessed": "2026-10-07",
+      "accessed": "2026-10-08",
       "readSections": [
         "§1.3, p.920, complete period/Mumford–Tate domain setup",
         "§4.2, pp.928–929, period-map setup and lift expression only",
@@ -356,7 +387,12 @@
       ],
       "readLimits": [
         "Nilpotent-orbit arguments belong to H.6 and definability to H.7; their complete proofs were not read for H.3."
-      ]
+      ],
+      "independentReview": {
+        "by": "REV-HodgeStructuresPartII--H.3",
+        "date": "2026-10-08",
+        "finding": "Public PDF retrieved, recorded SHA-256 confirmed, and the listed H.3 source scope independently read; invoked external proofs remain subject to readLimits."
+      }
     },
     {
       "id": "BKT-ERR",
@@ -365,13 +401,18 @@
       "edition": "Author copy of the 2023 published JAMS erratum",
       "url": "https://benjamin-bakker.github.io/DefArithErr.pdf",
       "sha256": "86d76a5d2443840ddcaf2c08966cd236759bade659e338e3fcdb3edcd2b61ac7",
-      "accessed": "2026-10-07",
+      "accessed": "2026-10-08",
       "readSections": [
-        "Entire four-page erratum, §§1.1–1.5"
+        "Entire four-page erratum, §§1.1–1.6"
       ],
       "readLimits": [
         "Fix the maximal compact K for the semialgebraic structure/functoriality; the period-map definability theorem remains valid with the canonical Hodge choice."
-      ]
+      ],
+      "independentReview": {
+        "by": "REV-HodgeStructuresPartII--H.3",
+        "date": "2026-10-08",
+        "finding": "Public PDF retrieved, recorded SHA-256 confirmed, and the listed H.3 source scope independently read; invoked external proofs remain subject to readLimits."
+      }
     }
   ],
   "nodes": [
@@ -937,8 +978,8 @@
       "sources": [
         {
           "sourceId": "PINK",
-          "locator": "Proposition 1.7 proof, p.13, tangent quotient; Schmid §3 (3.5)",
-          "match": "Exponential coordinates are the local inverse-function consequence of the homogeneous tangent quotient; the global map is not a chart on all q."
+          "locator": "Proposition 1.7 proof, printed p.13, homogeneous tangent quotient",
+          "match": "The exponential action and its filtration formula are authored consequences of the supplied complex exponential and representation action. Pink supplies the homogeneous tangent quotient used for the separate local inverse-function theorem; this locator does not state an exponential chart."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1236,7 +1277,7 @@
         {
           "name": "TauCeti.Hodge.PeriodGeometry.logCurveKS_baseChange",
           "role": "functoriality",
-          "statement": "Pullback of a smooth pointed family gives κ_new=κ_old∘d(base map), under the fibre cohomology identification."
+          "statement": "For a holomorphic map between smooth analytic bases, pullback of a smooth pointed family gives κ_new=κ_old∘d(base map), under the canonical fibre cohomology identification."
         }
       ],
       "tests": [
@@ -1540,7 +1581,7 @@
       ],
       "title": "Tensor constraints on a specified orbit",
       "kind": "theorem",
-      "statement": "Import the Hodge tensor operations and a represented rational group G acting on them. If a rational tensor t in a finite tensor construction from V,V∨ and explicit Tate twists is fixed by G and is of type (0,0) at F0, then it is of type (0,0) at every flag in the chosen real G-orbit. Its period-symbol evaluation vanishes in normal directions that would violate t. Conversely a tensor-defined locus is identified with the orbit only after supplying its group-stabilizer theorem and selecting the required homogeneous component; no equality with the entire ambient domain is claimed. An untwisted type (p,p) tensor for p≠0 is not a type-(0,0) Hodge tensor.",
+      "statement": "Import the Hodge tensor operations and a represented rational group G acting on them. If a rational tensor t in a finite tensor construction from V,V∨ and explicit Tate twists is fixed by G and is of type (0,0) at F0, then it is of type (0,0) at every flag in the chosen real G-orbit. The derivative along the orbit satisfies the linearized Hodge-tensor equations, so its component normal to the tensor-defined locus is zero. Conversely a tensor-defined locus is identified with the orbit only after supplying its group-stabilizer theorem and selecting the required homogeneous component; no equality with the entire ambient domain is claimed. An untwisted type (p,p) tensor for p≠0 is not a type-(0,0) Hodge tensor.",
       "hypotheses": [],
       "prerequisites": [
         "HodgeStructuresPartII:H.3/represented-real-orbit",
@@ -1564,7 +1605,7 @@
       "sources": [
         {
           "sourceId": "K17",
-          "locator": "§2.3, pp.7–8, rational Hodge tensors and Mumford–Tate groups",
+          "locator": "§2.4, Lemma 2.5, printed p.8, rational Hodge tensors and their stabilizer",
           "match": "Carries fixed rational (0,0) tensors along the specified orbit; tensor-stabilizer theory belongs to the imported MT supplier."
         }
       ],
@@ -1873,13 +1914,15 @@
       "hypotheses": [],
       "prerequisites": [
         "HodgeStructuresPartII:H.2",
+        "HodgeStructuresPartII:H.2/canonical-extension",
+        "HodgeStructuresPartII:H.2/log-comparison",
         "ShimuraData:D3/flat-bundle-local",
         "AlgebraicModuliForArithmeticGeometry:R09.1",
         "HodgeStructuresPartII:H.3/period-symbol",
         "mathlib:Module.Grassmannian"
       ],
       "proofSteps": [
-        "Import, without replanning, the canonical extension, logarithmic comparison, degeneration and cohomology/base-change identifications from H.2.",
+        "Import the existing H.2 canonical-extension and log-comparison nodes for the chosen analytic SNC extension and absolute logarithmic comparison. The H.2 stage request supplies the stronger relative analytic family comparison, unitary degeneration and direct-image fibre/base-change identifications; these remain recorded gaps rather than new H.3 constructions.",
         "Use the contractible-base flat marking and the supplied Grassmannian classifying map for a holomorphic rank-s subbundle.",
         "Convert the paper subspace-rank convention to the pinned quotient-rank convention; use the universal S and Q tangent Hom(S,Q)."
       ],
@@ -2281,8 +2324,8 @@
       "sources": [
         {
           "sourceId": "PINK",
-          "locator": "Proposition 1.7 proof, p.13, tangent quotient; Schmid §3 (3.5)",
-          "match": "Exponential coordinates are the local inverse-function consequence of the homogeneous tangent quotient; the global map is not a chart on all q."
+          "locator": "Proposition 1.7 proof, printed p.13, homogeneous tangent quotient",
+          "match": "The exponential action and its filtration formula are authored consequences of the supplied complex exponential and representation action. Pink supplies the homogeneous tangent quotient used for the separate local inverse-function theorem; this locator does not state an exponential chart."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2413,15 +2456,16 @@
       ],
       "title": "Logarithmic Kodaira–Spencer pullback",
       "kind": "lemma",
-      "statement": "Pullback of a smooth pointed family gives κ_new=κ_old∘d(base map), under the fibre cohomology identification.",
+      "statement": "For a holomorphic map between smooth analytic bases, pullback of a smooth pointed family gives κ_new=κ_old∘d(base map), under the canonical fibre cohomology identification.",
       "hypotheses": [
-        "Retain all hypotheses and coefficient/component conventions of HodgeStructuresPartII:H.3/log-curve-kodaira-spencer."
+        "Retain all hypotheses and coefficient/component conventions of HodgeStructuresPartII:H.3/log-curve-kodaira-spencer.",
+        "The base map is holomorphic between smooth complex analytic bases; it need not be a smooth morphism."
       ],
       "prerequisites": [
         "HodgeStructuresPartII:H.3/log-curve-kodaira-spencer"
       ],
       "proofSteps": [
-        "Pull back the logarithmic tangent exact sequence along a smooth analytic base map, with the divisor sections and relative tangent bundle identified.",
+        "Construct the natural diagram from the logarithmic tangent sequence of the pulled-back family to the original sequence restricted to the same fibre. The relative tangent term is canonically identified, and the base tangent term maps by the differential of the holomorphic base map; do not assert an isomorphism of the two absolute tangent sequences.",
         "Naturality of its connecting homomorphism gives κ_pullback(u)=κ_original(df(u)). Identity and composite pullbacks follow."
       ],
       "acceptance": [
@@ -2431,7 +2475,7 @@
         {
           "sourceId": "LL",
           "locator": "Definition A.1.5 and Remark A.1.6, p.56",
-          "match": "Defines the exact logarithmic connecting map used in the derivative proof."
+          "match": "Authored naturality consequence of the logarithmic connecting map in Definition A.1.5, using the base differential in the exact-sequence diagram; it does not require the base map to be smooth."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2762,7 +2806,7 @@
     },
     {
       "supplier": "HodgeStructuresPartII:H.2",
-      "need": "Supply geometric variations and their common D3 carrier, local flat marking/connection, flat tensor/Hom and Tate operations extending the existing native fibre operations; for a smooth proper pointed curve family and unitary complex local system supply the chosen Deligne extension, logarithmic de Rham/Dolbeault comparison, degeneration/base change F¹=π*(Eω(D)), quotient R¹π*E, and an Ehresmann trivialization respecting sections and coefficients. Require the actual fibre cohomology/base-change isomorphism for the locally free F¹ direct image and its evaluation map, so a fibre holomorphic section extends relatively near b. Combined with smooth splitting of the absolute-to-relative logarithmic one-form sequence this supplies the LL A.1.7 lift; no logarithmic adaptation of an unread harmonic theorem is assumed. Use exactly the Del70 Remarques 5.5(i)/LL Notation 5.1.1 extension and its parabolic zero-step normalization, not a freely shifted logarithmic lattice.",
+      "need": "Supply geometric variations and their common D3 carrier, local flat marking/connection, flat tensor/Hom and Tate operations extending the existing native fibre operations; for a smooth proper pointed curve family and unitary complex local system supply the chosen Deligne extension, logarithmic de Rham/Dolbeault comparison, degeneration/base change F¹=π*(Eω(D)), quotient R¹π*E, and an Ehresmann trivialization respecting sections and coefficients. Require the actual fibre cohomology/base-change isomorphism for the locally free F¹ direct image and its evaluation map, so a fibre holomorphic section extends relatively near b. Combined with smooth splitting of the absolute-to-relative logarithmic one-form sequence this supplies the LL A.1.7 lift; no logarithmic adaptation of an unread harmonic theorem is assumed. Use exactly the Del70 Remarques 5.5(i)/LL Notation 5.1.1 extension and its parabolic zero-step normalization, not a freely shifted logarithmic lattice. Reuse the now-existing H.2/canonical-extension and H.2/log-comparison nodes for their precise absolute SNC statements; the relative analytic family, unitary complex coefficients and direct-image base-change requirements here are additional interfaces, not a second canonical extension or comparison definition.",
       "neededBy": [
         "HodgeStructuresPartII:H.3/log-curve-kodaira-spencer",
         "HodgeStructuresPartII:H.3/trace-multiplication",
@@ -2963,7 +3007,7 @@
         "HodgeStructuresPartII:H.3/serre-trace-adjoint",
         "HodgeStructuresPartII:H.3/trace-period-derivative"
       ],
-      "detail": "Proper derived Serre duality is already planned at SF.2/serre-proper, but compatible analytic trace/cup/evaluation and vector-bundle section types are not available. The M_g,n identification additionally needs the R09.4 deformation extension. PeriodTrace.multiply, its API/tests and the global derivative theorem signatures are omitted, with full mathematical statements retained; no local dot product is relabelled as the global sheaf construction. The actual moduli carrier and stable-range theorem are imported from StableReductionPartII:key/moduli-curves and MC.2/pointed-dm-theorem. Their analytic cotangent realization is the open contract, not a new moduli construction."
+      "detail": "Proper derived Serre duality is already planned at SF.2/serre-proper, but compatible analytic trace/cup/evaluation and vector-bundle section types are not available. The M_g,n identification additionally needs the StableReductionPartII:MC.2 analytic deformation/cotangent dictionary. PeriodTrace.multiply, its API/tests and the global derivative theorem signatures are omitted, with full mathematical statements retained; no local dot product is relabelled as the global sheaf construction. The actual moduli carrier and stable-range theorem are imported from StableReductionPartII:key/moduli-curves and MC.2/pointed-dm-theorem. Their analytic cotangent realization is the open contract, not a new moduli construction."
     },
     {
       "title": "Suggested file elaboration unavailable at the supplied build",
@@ -2998,7 +3042,7 @@
         "HodgeStructuresPartII:H.3/trace-derivative-rank",
         "HodgeStructuresPartII:H.3/abelian-period-holomorphic"
       ],
-      "detail": "The user-prescribed lean-check was attempted on 2026-10-07 after free -g showed 96 GB available. It stopped at the first import because TauCeti.Geometry.Hodge.PeriodDomain.olean is absent. Mathlib in that build is at the exact pin, but its TauCeti checkout is cf386627e9176a3827c1a5fe804989fd94a4d216, beyond the pinned f790474. No library build, cache fetch or language server was started. Suggested signatures are unchecked and no successful whole-file elaboration is claimed."
+      "detail": "The user-prescribed lean-check was attempted on 2026-10-07 after free -g showed 96 GB available. It stopped at the first import because TauCeti.Geometry.Hodge.PeriodDomain.olean is absent. Mathlib in that build is at the exact pin, but its TauCeti checkout is cf386627e9176a3827c1a5fe804989fd94a4d216, beyond the pinned f790474. No library build, cache fetch or language server was started. Suggested signatures are unchecked and no successful whole-file elaboration is claimed. Independent review attempted lean-check on 2026-10-08 with 113 GB available and reproduced the missing native import. No compatible ready alternative was found; the complete corrected file is still unelaborated. The final corrected-file attempt on the same date, with 112 GB available, stopped at the same missing import before any suggested signatures could elaborate."
     }
   ],
   "upstreamNotes": [
@@ -3080,49 +3124,49 @@
       "kind": "published",
       "url": "https://webhomes.maths.ed.ac.uk/~v1ranick/papers/schmid.pdf",
       "citation": "Inventiones mathematicae 22 (1973), 211–319, published scan",
-      "read": "2026-10-07",
+      "read": "2026-10-08",
       "sha256": "26f446e0bb5fbd7635ef5d7962fca30740cc17ee8c3e821a7e3d3fef7c284836"
     },
     {
       "kind": "published",
-      "url": "https://www.math.ethz.ch/~pink/ftp/phd/Chapter_1.pdf",
+      "url": "https://people.math.ethz.ch/~pink/ftp/phd/Chapter_1.pdf",
       "citation": "Bonner Mathematische Schriften 209 (1989); original scanned thesis chapter",
-      "read": "2026-10-07",
+      "read": "2026-10-08",
       "sha256": "44837c9c01b07bc0aec450f62da2f0f798075c405ccde3a203a2121de9661204"
     },
     {
       "kind": "preprint",
       "url": "https://arxiv.org/pdf/2205.15352v4",
       "citation": "arXiv:2205.15352v4, 2025-02-23; preprint of Annals of Mathematics 199 (2024), 823–897",
-      "read": "2026-10-07",
+      "read": "2026-10-08",
       "sha256": "4cb511ba40675aa6899b351f2ee27eb9487b4a21f65ec8000c1f2cc1a5107ceb"
     },
     {
       "kind": "preprint",
       "url": "https://arxiv.org/pdf/1801.05762v3",
       "citation": "arXiv:1801.05762v3, 2019-01-28",
-      "read": "2026-10-07",
+      "read": "2026-10-08",
       "sha256": "ffe408dc6ba034b2a635488600decace1e89d61ad04860c391bef9409f2fd34e"
     },
     {
       "kind": "preprint",
       "url": "https://arxiv.org/pdf/1711.09387v1",
       "citation": "arXiv:1711.09387v1, 2017-11-26",
-      "read": "2026-10-07",
+      "read": "2026-10-08",
       "sha256": "fb0ea85a98db871ec140378feef334e2f67cc8215fc2a5e3c0e75d8d42015939"
     },
     {
       "kind": "published",
       "url": "https://par.nsf.gov/servlets/purl/10200187",
       "citation": "Journal of the American Mathematical Society 33 (2020), 917–939, published copy",
-      "read": "2026-10-07",
+      "read": "2026-10-08",
       "sha256": "b7cf457907c30c9dc1c349637e74027ce4ef038a2e0f646b7685f571d367e058"
     },
     {
       "kind": "author copy",
       "url": "https://benjamin-bakker.github.io/DefArithErr.pdf",
       "citation": "Author copy of the 2023 published JAMS erratum",
-      "read": "2026-10-07",
+      "read": "2026-10-08",
       "sha256": "86d76a5d2443840ddcaf2c08966cd236759bade659e338e3fcdb3edcd2b61ac7"
     }
   ],
@@ -3141,7 +3185,12 @@
         "Published article metadata/erratum links at https://doi.org/10.1007/BF01389674",
         "Public search on 2026-10-07 for Schmid Variation Hodge Structure 1973 errata simple Lie algebra p.223; no published correction located",
         "The published scan at the recorded SHA, with this sentence checked visually"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in the published scan at printed p.223 after (3.9). The permitted weight-zero four-dimensional positive symmetric example has complex Lie algebra so₄(C), with two simple summands; simplicity is false without restrictions. The H.3 proofs need reductivity, which the corrected plan retains.",
+        "by": "REV-HodgeStructuresPartII--H.3"
+      }
     },
     {
       "id": "HodgeStructuresPartII/EH3-2",
@@ -3156,7 +3205,12 @@
       "searched": [
         "Original published version at https://par.nsf.gov/servlets/purl/10200187",
         "Author erratum page https://benjamin-bakker.github.io/DefArithErr.pdf"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed by comparison of published Theorem 1.1(1), p.919, with the complete 2023 erratum, especially §§1.1–1.2. The semialgebraic structure depends on the maximal compact K; corrected functoriality requires compatible choices. The canonical Hodge choice preserves the cited period application.",
+        "by": "REV-HodgeStructuresPartII--H.3"
+      }
     },
     {
       "id": "HodgeStructuresPartII/EH3-3",
@@ -3170,8 +3224,13 @@
       "known": "Handwritten replacement by fibre in the publicly linked original Chapter 1 scan; attribution of the annotation is not known.",
       "searched": [
         "Richard Pink author dissertation page https://people.math.ethz.ch/~pink/dissertation.html and its linked original chapter",
-        "§1.9(a) of https://www.math.ethz.ch/~pink/ftp/phd/Chapter_1.pdf at the recorded SHA, including its visible handwritten correction"
-      ]
+        "§1.9(a) of https://people.math.ethz.ch/~pink/ftp/phd/Chapter_1.pdf at the recorded SHA, including its visible handwritten correction"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed visually at Definition 1.9(a), printed p.15, in the recorded scan. A coherent sheaf stalk is an O-module, whereas the Hodge datum belongs to its finite-dimensional residue-field fibre. The handwritten change is visible; its author is not established.",
+        "by": "REV-HodgeStructuresPartII--H.3"
+      }
     }
   ],
   "completion": "The H.3 planning pass is complete: every in-scope target, period-specific definition and key theorem has a node, source/proof route and required API/tests. The stage is planned, not closed or formalized; the precise missing suppliers, unread invoked source proofs and their explicitly imported/replaced inputs and unelaborated global signatures are recorded as gaps.",
@@ -3407,8 +3466,231 @@
   "checks": {
     "packet": "check_blueprint.py at the pinned declaration index: zero errors and warnings",
     "sourceIssues": "source_issues.check_issues and check_errata.versions_checked on the embedded fields",
-    "scope": "Only HodgeStructuresPartII:H.3; three blueprint artifacts plus job handoff",
-    "nameAgreement": "Each of the 54 API and 39 test names occurs as a declaration/named example or explicit omitted signature; named theorem and promoted API declarations are also reconciled.",
-    "partialLean": "Extracted quotient-symbol/frame and matrix-normalization signatures plus Banach endomorphism exponential typing: lean-check exit 0, only proof-placeholder warnings. Whole file: missing native import; no successful compile claimed."
+    "scope": "Only HodgeStructuresPartII:H.3; its three blueprint artifacts, independent review report and job handoff.",
+    "nameAgreement": "All 54 API and 39 test names are reconciled with typed declarations/named examples or the explicit omission ledger. Independent review repairs the unequal-filtration marking test and types the shear and grade −2 tests. The ledger has 33 distinct omitted names: 2 constructions, 6 additional API items, 8 tests and 17 global results; these remain precise supplier/interface gaps.",
+    "partialLean": "The planner recorded a successful Mathlib-only quotient-symbol/frame, matrix-normalization and Banach-exponential signature check on 2026-10-07. This historical partial check was not independently reproduced and does not verify the complete suggested file. Independent full-file lean-check on 2026-10-08 stops at the missing native import; no successful whole-file elaboration is claimed."
+  },
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-HodgeStructuresPartII--H.3",
+    "date": "2026-10-08",
+    "notes": "Independent completed review of all 43 nodes, all seven public source versions/scopes, all 28 baseline statements at the exact pins, the supplier statements and six audit rows, 54 API items, 39 tests, six planets and the reader/suggested agreement. Corrected eight nodes (citation, tensor derivative, marking test, H.2 direct references, Kodaira–Spencer base naturality and two typed test fixtures); no mathematical nodes or baseline citations added or removed. All three source issues confirmed. The complete pass is accepted as planned with five honest gaps and 23 requests, not closed or formalized. There are 33 named omitted signatures and no successful whole-file Lean elaboration; these precise interface/readiness gaps are retained, with all implementation statuses unchecked.",
+    "checked": [
+      {
+        "nodeId": "HodgeStructuresPartII:H.3/polarized-compact-dual",
+        "verdict": "verified",
+        "note": "Verified finite-support all-integer ranks and Q(Fᵖ,Fⁿ⁺¹⁻ᵖ)=0 against Schmid §3, pp.221–222 and the native HodgeType. Opposedness and positivity are correctly excluded; represented flags/charts remain an R09.1 request."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.3/point-compact-dual-map",
+        "verdict": "verified",
+        "note": "Verified native PeriodDomain.Point and its rank, polarization and extensionality interfaces at the pin. The map retains the exact integralFormBaseChange pairing and introduces no replacement point carrier."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.3/period-isometry-transport",
+        "verdict": "verified",
+        "note": "Verified inverse-comap transport with conjugation compatibility and Q preservation at the pin; filtration image and identity/composition API agree. The Tate minus-identity test detects incorrect transport."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.3/represented-real-orbit",
+        "verdict": "verified",
+        "note": "Verified Pink 1.7–1.8 and the exact D1 supplier statements. The faithful represented action, scalar normalization, effective compact isotropy and chosen connected real orbit remain explicit."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.3/represented-complex-orbit",
+        "verdict": "verified",
+        "note": "Verified Pink 1.7, printed p.13. The inverse-cocharacter parabolic is the full filtration stabilizer and the quotient uses right cosets; its analytic realization is requested rather than inferred from the orbit-set carrier."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.3/lie-hodge-filtration",
+        "verdict": "verified",
+        "note": "Verified Schmid §3, pp.222–226, the all-integer filtration shift and native internalHom_piece. Lie-stability is supplied, and bracket degree adds; the API tests include a genuine lowering operator."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.3/negative-exponential-map",
+        "verdict": "corrected",
+        "note": "Corrected the mixed source locator: Pink supplies a tangent quotient, while the exponential construction is an authored consequence of the requested complex exponential. Added a typed square-zero shear test with literal representation/action compatibility; the map still makes no global chart claim. The scalar test also records the actual Tate Lie-filtration calculation, so its zero negative complement is tested rather than merely supplied."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.3/marked-period-map",
+        "verdict": "corrected",
+        "note": "Verified native assembly of the actual supplied Hodge filtration. Corrected markedPeriod_steps to compare two marked families with unequal filtration steps and conclude unequal points, so it tests injectivity rather than repeating the projection formula."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.3/period-symbol",
+        "verdict": "verified",
+        "note": "Verified the actual quotient jet, Leibniz cancellation and lift/frame independence using the pinned quotient interfaces and Schmid (3.22)/LL A.1.1. The shear and top/bottom tests discriminate the symbol."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.3/log-curve-kodaira-spencer",
+        "verdict": "corrected",
+        "note": "Verified LL Definition A.1.5 and Remark A.1.6, p.56. Clarified the base-change API for any holomorphic map of smooth analytic bases; the coherent connecting-map types/API/tests remain explicit supplier omissions."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.3/trace-multiplication",
+        "verdict": "verified",
+        "note": "Verified LL (5.4), p.29, and Theorem 5.1.6. Evaluation has target ω²(D) with a single divisor twist, and no unsupported global-section nondegeneracy or surjectivity is asserted; actual global signatures remain omitted."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.3/abelian-normalized-periods",
+        "verdict": "verified",
+        "note": "Verified Gao–Habegger §4, pp.15–17, with the supplied principal-polarization/Riemann input. Row normalization is A⁻¹B and is invariant under left frame change; nonprincipal polarization types retain their elementary divisors."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.3/ambient-domain-open",
+        "verdict": "verified",
+        "note": "Verified Schmid §3 openness/transitivity with the pinned polarization convention. Full ambient components and the full real isometry group are retained; compact stabilizers are not asserted maximal."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.3/mt-orbit-open",
+        "verdict": "verified",
+        "note": "Verified Pink 1.7–1.8 and Klingler §3.1, p.10. Openness is in the represented complex orbit and compact isotropy in the effective normalized action; no full-MT centralizer compactness or ambient openness is asserted."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.3/orbit-hodge-tensors",
+        "verdict": "corrected",
+        "note": "Corrected the tensor derivative claim to vanishing of the normal component of derivatives along the orbit, and corrected the locator to Klingler §2.4, Lemma 2.5, p.8. Fixed rational (0,0) tensors and explicit Tate twists are retained; the converse still requires a stabilizer/component input."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.3/full-isometry-specialization",
+        "verdict": "verified",
+        "note": "Verified the full-isometry specialization follows from ambient transitivity with components retained. The CM singleton example correctly prevents identifying an arbitrary MT subdomain with the ambient domain."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.3/tangent-horizontal",
+        "verdict": "verified",
+        "note": "Verified Schmid (3.18)/(3.21) and Pink 1.7: tangent is the full negative quotient and horizontal is exactly grade −1. Bracket grade −2 is retained, so no generic integrability claim remains."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.3/negative-chart-local",
+        "verdict": "verified",
+        "note": "Verified the conditional inverse-function proof: the derivative q→g/F⁰ is an isomorphism, and the complex exponential and holomorphic inverse theorem are exact supplier requests. Only local neighborhoods are claimed."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.3/tautological-transversality",
+        "verdict": "verified",
+        "note": "Verified Pink Proposition 1.10, printed p.15, including its proof. Reality makes absence of grades below −1 equivalent to the stated three adjoint types; the full tautological filtration is not automatically a variation."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.3/period-map-holomorphic",
+        "verdict": "verified",
+        "note": "Verified Schmid (3.22), Klingler Proposition 3.6, p.11, and the D3 variation/transversality suppliers. Holomorphic/horizontal marked maps retain separate integral and conditional MT-factorization hypotheses."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.3/monodromy-descent",
+        "verdict": "verified",
+        "note": "Verified Schmid §3, pp.227–228 and BKT §1.3, p.920. Equivariance, effective compact isotropy, discrete proper action and free-manifold versus orbifold descent are correctly separated; finite-index arithmetic monodromy is not assumed."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.3/derivative-connection",
+        "verdict": "verified",
+        "note": "Verified Schmid (3.22), LL A.1.1, pp.54–55, and H.0 Griffiths/Higgs suppliers. Modulo-Fᵖ Leibniz cancellation and the additional transverse passage to Fᵖ/Fᵖ⁺¹ give the correct connection/Higgs symbol."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.3/curve-hodge-filtration",
+        "verdict": "corrected",
+        "note": "Added direct references to existing H.2/canonical-extension and H.2/log-comparison. Their absolute analytic SNC statements were read; the stronger relative analytic unitary family degeneration and fibre/base-change dictionary remain the precise H.2 request. LL §5.1 ranks use quotient rank r−s, without an inferred integral lattice."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.3/gauss-manin-contraction",
+        "verdict": "verified",
+        "note": "Verified the complete LL Lemma A.1.4 proof, pp.55–56. Fibrewise closed representatives, tangent-to-boundary lifts and contraction before fibre restriction are retained; independence uses the requested compatible resolutions."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.3/curve-kodaira-spencer-derivative",
+        "verdict": "verified",
+        "note": "Verified the complete LL Proposition A.1.7 proof, pp.56–57. With κ=[barpartial v], contraction gives the positive cup/evaluation sign. The alternative fibre-holomorphic lift uses explicit F¹ fibre base change, evaluation and smooth splitting; the unread Voisin argument is not presumed."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.3/serre-trace-adjoint",
+        "verdict": "verified",
+        "note": "Verified LL Appendix A.2, p.57, and read the exact SF.2 proper Serre supplier. The required vector-bundle trace/cup/evaluation extension is requested, and properness and the single divisor twist give the stated duals."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.3/trace-period-derivative",
+        "verdict": "verified",
+        "note": "Verified LL Theorem 5.1.6, p.29, and Appendix A.2. The intrinsic formula is κ∨∘μ; the classifying-map form retains the stable range and the unimplemented MC.2 analytic cotangent dictionary read against the existing moduli suppliers."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.3/trace-derivative-rank",
+        "verdict": "verified",
+        "note": "Verified finite-dimensional rank duality and composition from the trace factorization. Equality requires injectivity of κ∨ on im μ (étaleness suffices); a constant family cannot inherit trace rank automatically."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.3/abelian-period-holomorphic",
+        "verdict": "verified",
+        "note": "Verified the local holomorphic integration argument of Gao–Habegger §4 through (4.2), pp.15–17. The supplied Riemann relations and principal marking give the Siegel graph, with the right-acting row block formula kept distinct from column conventions."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.3/point-compact-dual-injective",
+        "verdict": "verified",
+        "note": "Verified injectivity reduces to the native point/Hodge filtration extensionality already cited at the pin. Different filtration steps discriminate image points."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.3/transport-compact-dual",
+        "verdict": "verified",
+        "note": "Verified this compatibility is the exact native inverse-comap filtration image transported to the same fixed complex pairing; identity/composition require no new carrier."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.3/lie-filtration-bracket",
+        "verdict": "verified",
+        "note": "Verified X(Fᵖ)⊆Fᵖ⁺ᵃ and Y(Fᵖ)⊆Fᵖ⁺ᵇ imply the bracket lands in Fᵖ⁺ᵃ⁺ᵇ by the two composites. The represented Lie subalgebra hypothesis ensures closure."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.3/exponential-filtration",
+        "verdict": "corrected",
+        "note": "Corrected the mixed locator as for negative-exponential-map. The equality is the represented action on each filtration step, with actual matrix-exponential compatibility; no independent source exponential theorem is claimed."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.3/change-marking",
+        "verdict": "verified",
+        "note": "Verified actual changed filtrations imply native transport of marked points. The action is by the supplied conjugation-compatible Q-isometry, so the frame convention is fixed."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.3/period-symbol-frame",
+        "verdict": "verified",
+        "note": "Verified quotient-frame naturality using pinned LinearEquiv.submoduleMap and Submodule.Quotient.equiv, including their submodule-image equality convention. This is compatible with the jet transformation hypothesis."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.3/log-kodaira-spencer-lift",
+        "verdict": "verified",
+        "note": "Verified LL Remark A.1.6, p.56: changing a smooth boundary-tangent lift by a vertical field changes its Dolbeault representative by an exact class. The coherent/Dolbeault dictionary is an explicit gap."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.3/log-kodaira-spencer-base-change",
+        "verdict": "corrected",
+        "note": "Corrected the proof to naturality of a diagram using the differential of an arbitrary holomorphic map between smooth bases. It does not identify the two absolute tangent sequences or require the base map itself to be smooth."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.3/trace-evaluation",
+        "verdict": "verified",
+        "note": "Verified local dual-frame evaluation Σsᵢtᵢ with line factors multiplied into ω²(D), as in LL (5.4); it describes the sheaf/global-section pairing with the proper global types still omitted."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.3/trace-frame",
+        "verdict": "verified",
+        "note": "Verified inverse-dual frame transformation cancels the bundle frame change while preserving line factors; no local scalar product is substituted for the global construction."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.3/abelian-period-graph",
+        "verdict": "verified",
+        "note": "Verified multiplying row periods [A B] by A⁻¹ gives [I A⁻¹B], the same row plane and the correct subspace/quotient ranks. The IsUnit determinant hypothesis matches the pinned matrix inverse."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.3/period-symbol-lift-independence",
+        "verdict": "verified",
+        "note": "Verified an Fᵖ-valued correction dies under the quotient map. The typed theorem quantifies the actual correction and its membership, so lift independence is not an arbitrary axiom."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.3/horizontal-subspace",
+        "verdict": "corrected",
+        "note": "Verified the image of F⁻¹g in g/F⁰g and its quotient carrier. Added a typed five-dimensional orthogonal example with nonzero grade −2 class outside the horizontal image; this distinguishes horizontal tangent from all negative tangent."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.3/horizontal-representative",
+        "verdict": "verified",
+        "note": "Verified the quotient membership criterion uses F⁰⊆F⁻¹, so a representative is horizontal exactly when it lowers every filtration step by at most one. The criterion is invariant under changing representatives."
+      }
+    ]
   }
 }
