@@ -15,115 +15,115 @@
         "ref": "mathlib:Set.integer",
         "module": "Mathlib/RingTheory/DedekindDomain/SInteger.lean",
         "provides": "S-integer subalgebra of the fraction field; this carrier is reused, not reconstructed.",
-        "checked": "Actual statement read at the pinned commit, Mathlib/RingTheory/DedekindDomain/SInteger.lean:65"
+        "checked": "Actual statement read at the pinned commit, Mathlib/RingTheory/DedekindDomain/SInteger.lean:65. Independent revision reviewer re-read this statement at the same pin on 2026-10-08."
       },
       {
         "ref": "mathlib:IsDedekindDomain.HeightOneSpectrum",
         "module": "Mathlib/RingTheory/DedekindDomain/Ideal/Lemmas.lean",
         "provides": "Finite primes indexing S and the residue terms.",
-        "checked": "Actual statement read at the pinned commit, Mathlib/RingTheory/DedekindDomain/Ideal/Lemmas.lean:493"
+        "checked": "Actual statement read at the pinned commit, Mathlib/RingTheory/DedekindDomain/Ideal/Lemmas.lean:493. Independent revision reviewer re-read this statement at the same pin on 2026-10-08."
       },
       {
         "ref": "mathlib:NumberField.InfinitePlace.nrRealPlaces",
         "module": "Mathlib/NumberTheory/NumberField/InfinitePlace/Basic.lean",
         "provides": "r₁, used by the imported rank endpoint.",
-        "checked": "Actual statement read at the pinned commit, Mathlib/NumberTheory/NumberField/InfinitePlace/Basic.lean:437"
+        "checked": "Actual statement read at the pinned commit, Mathlib/NumberTheory/NumberField/InfinitePlace/Basic.lean:437. Independent revision reviewer re-read this statement at the same pin on 2026-10-08."
       },
       {
         "ref": "mathlib:NumberField.InfinitePlace.nrComplexPlaces",
         "module": "Mathlib/NumberTheory/NumberField/InfinitePlace/Basic.lean",
         "provides": "r₂, used by the imported rank endpoint.",
-        "checked": "Actual statement read at the pinned commit, Mathlib/NumberTheory/NumberField/InfinitePlace/Basic.lean:441"
+        "checked": "Actual statement read at the pinned commit, Mathlib/NumberTheory/NumberField/InfinitePlace/Basic.lean:441. Independent revision reviewer re-read this statement at the same pin on 2026-10-08."
       },
       {
         "ref": "mathlib:NumberField.RingOfIntegers.instFintypeClassGroup",
         "module": "Mathlib/NumberTheory/NumberField/ClassNumber.lean",
         "provides": "Finiteness of Cl(𝓞_F); combined with the imported projective classification.",
-        "checked": "Actual statement read at the pinned commit, Mathlib/NumberTheory/NumberField/ClassNumber.lean:58"
+        "checked": "Actual statement read at the pinned commit, Mathlib/NumberTheory/NumberField/ClassNumber.lean:58. Independent revision reviewer re-read this statement at the same pin on 2026-10-08."
       },
       {
         "ref": "mathlib:NumberField.Units.finrank_eq",
         "module": "Mathlib/NumberTheory/NumberField/Units/DirichletTheorem.lean",
         "provides": "Actual Dirichlet theorem finrank ℤ (Additive (𝓞_F)ˣ) = Units.rank F for S = ∅; the rank definition alone is insufficient.",
-        "checked": "Actual statement read at the pinned commit, Mathlib/NumberTheory/NumberField/Units/DirichletTheorem.lean:462"
+        "checked": "Actual statement read at the pinned commit, Mathlib/NumberTheory/NumberField/Units/DirichletTheorem.lean:462. Independent revision reviewer re-read this statement at the same pin on 2026-10-08."
       },
       {
         "ref": "mathlib:Submodule.fg_of_fg_map_of_fg_inf_ker",
         "module": "Mathlib/RingTheory/Finiteness/Finsupp.lean",
         "provides": "Finite generation of an extension from its finitely generated image and kernel; over ℤ subgroups remain finitely generated.",
-        "checked": "Actual statement read at the pinned commit, Mathlib/RingTheory/Finiteness/Finsupp.lean:70"
+        "checked": "Actual statement read at the pinned commit, Mathlib/RingTheory/Finiteness/Finsupp.lean:70. Independent revision reviewer re-read this statement at the same pin on 2026-10-08."
       },
       {
         "ref": "mathlib:Module.Flat.lTensor_exact",
         "module": "Mathlib/RingTheory/Flat/Basic.lean",
         "provides": "Tensoring exact linear maps with a flat module preserves Function.Exact. This is existing algebra, not a new K-theory lemma.",
-        "checked": "Actual statement read at the pinned commit, Mathlib/RingTheory/Flat/Basic.lean:323"
+        "checked": "Actual statement read at the pinned commit, Mathlib/RingTheory/Flat/Basic.lean:323. Independent revision reviewer re-read this statement at the same pin on 2026-10-08."
       },
       {
         "ref": "mathlib:IsLocalization.flat",
         "module": "Mathlib/RingTheory/Flat/Localization.lean",
         "provides": "A localization algebra is flat; specialize to ℚ as the fraction field of ℤ.",
-        "checked": "Actual statement read at the pinned commit, Mathlib/RingTheory/Flat/Localization.lean:37"
+        "checked": "Actual statement read at the pinned commit, Mathlib/RingTheory/Flat/Localization.lean:37. Independent revision reviewer re-read this statement at the same pin on 2026-10-08."
       },
       {
         "ref": "mathlib:ClassGroup.equivPic",
         "module": "Mathlib/RingTheory/PicardGroup.lean",
         "provides": "Native class-group/Picard-group equivalence; transport the finiteness instance before using the projective classification.",
-        "checked": "Actual statement read at the pinned commit, Mathlib/RingTheory/PicardGroup.lean:876"
+        "checked": "Actual statement read at the pinned commit, Mathlib/RingTheory/PicardGroup.lean:876. Independent revision reviewer re-read this statement at the same pin on 2026-10-08."
       },
       {
         "ref": "mathlib:TensorProduct.AlgebraTensorModule.lTensor",
         "module": "Mathlib/LinearAlgebra/TensorProduct/Tower.lean",
         "provides": "The existing ℚ-linear first-factor tensor map induced by an ℤ-linear map; its restrictScalars agrees with LinearMap.lTensor.",
-        "checked": "Actual statement read at the pinned commit, Mathlib/LinearAlgebra/TensorProduct/Tower.lean:234"
+        "checked": "Actual statement read at the pinned commit, Mathlib/LinearAlgebra/TensorProduct/Tower.lean:234. Independent revision reviewer re-read this statement at the same pin on 2026-10-08."
       },
       {
         "ref": "mathlib:LinearEquiv.ofBijective",
         "module": "Mathlib/Algebra/Module/Submodule/Equiv.lean",
         "provides": "Native linear equivalence retaining a specified bijective linear map; ofBijective_apply and inverse rules are read alongside it.",
-        "checked": "Actual statement read at the pinned commit, Mathlib/Algebra/Module/Submodule/Equiv.lean:183"
+        "checked": "Actual statement read at the pinned commit, Mathlib/Algebra/Module/Submodule/Equiv.lean:183. Independent revision reviewer re-read this statement at the same pin on 2026-10-08."
       },
       {
         "ref": "tauceti:Set.unit_fg_of_units",
         "module": "TauCeti/RingTheory/DedekindDomain/SInteger/Unit.lean",
         "provides": "With finite S and finitely generated Rˣ, the classical S-unit group is finitely generated. It does not define higher K or prove K₁=units.",
-        "checked": "Actual statement read at the pinned commit, TauCeti/RingTheory/DedekindDomain/SInteger/Unit.lean:207"
+        "checked": "Actual statement read at the pinned commit, TauCeti/RingTheory/DedekindDomain/SInteger/Unit.lean:207. Independent revision reviewer re-read this statement at the same pin on 2026-10-08."
       },
       {
         "ref": "tauceti:IsDedekindDomain.finite_integer_classGroup",
         "module": "TauCeti/RingTheory/DedekindDomain/SInteger/ClassGroup.lean",
         "provides": "Finite (ClassGroup R) implies finite S-integer class group, as a classical prerequisite to the imported degree-zero endpoint.",
-        "checked": "Actual statement read at the pinned commit, TauCeti/RingTheory/DedekindDomain/SInteger/ClassGroup.lean:94"
+        "checked": "Actual statement read at the pinned commit, TauCeti/RingTheory/DedekindDomain/SInteger/ClassGroup.lean:94. Independent revision reviewer re-read this statement at the same pin on 2026-10-08."
       },
       {
         "ref": "mathlib:CategoryTheory.nerve",
         "module": "Mathlib/AlgebraicTopology/SimplicialSet/Nerve.lean",
         "provides": "Native nerve of a small category; the local supplier prototype uses the actual Q-span category, not a parameter standing for it.",
-        "checked": "Actual statement read at the pinned commit, Mathlib/AlgebraicTopology/SimplicialSet/Nerve.lean:37; revision 2, 2026-10-08."
+        "checked": "Actual statement read at the pinned commit, Mathlib/AlgebraicTopology/SimplicialSet/Nerve.lean:37; revision 2, 2026-10-08. Independent revision reviewer re-read this statement at the same pin on 2026-10-08."
       },
       {
         "ref": "mathlib:SSet.toTop",
         "module": "Mathlib/AlgebraicTopology/SingularSet.lean",
         "provides": "Native geometric realization, applied to the Q nerve; the zero vertex is mapped through the realization/singular adjunction.",
-        "checked": "Actual statement read at the pinned commit, Mathlib/AlgebraicTopology/SingularSet.lean:67; revision 2, 2026-10-08."
+        "checked": "Actual statement read at the pinned commit, Mathlib/AlgebraicTopology/SingularSet.lean:67; revision 2, 2026-10-08. Independent revision reviewer re-read this statement at the same pin on 2026-10-08."
       },
       {
         "ref": "mathlib:HomotopyGroup",
         "module": "Mathlib/Topology/Homotopy/HomotopyGroup.lean",
         "provides": "Actual cube-loop homotopy quotient. Its commutative group instance at dimension at least two supports positive K-groups without assuming a degree-zero comparison.",
-        "checked": "Actual statement read at the pinned commit, Mathlib/Topology/Homotopy/HomotopyGroup.lean:440; revision 2, 2026-10-08."
+        "checked": "Actual statement read at the pinned commit, Mathlib/Topology/Homotopy/HomotopyGroup.lean:440; revision 2, 2026-10-08. Independent revision reviewer re-read this statement at the same pin on 2026-10-08."
       },
       {
         "ref": "mathlib:SSet.homologyFunctor",
         "module": "Mathlib/AlgebraicTopology/SimplicialSet/Homology/Basic.lean",
         "provides": "Native simplicial homology and induced maps with the integral ModuleCat coefficient object; singular-realization comparison belongs to H.1.",
-        "checked": "Actual statement read at the pinned commit, Mathlib/AlgebraicTopology/SimplicialSet/Homology/Basic.lean:155; revision 2, 2026-10-08."
+        "checked": "Actual statement read at the pinned commit, Mathlib/AlgebraicTopology/SimplicialSet/Homology/Basic.lean:155; revision 2, 2026-10-08. Independent revision reviewer re-read this statement at the same pin on 2026-10-08."
       },
       {
         "ref": "tauceti:HomotopyGroup.mapHom",
         "module": "TauCeti/Topology/Homotopy/HomotopyGroup/Map.lean",
         "provides": "Actual positive-dimensional based induced homomorphism with identity/composition laws. The Mathlib-only prototype fixes its same loop-postcomposition quotient action; the source pin was read, but its compiled module is absent from the shared build.",
-        "checked": "Actual statement read at the pinned commit, TauCeti/Topology/Homotopy/HomotopyGroup/Map.lean:222; revision 2, 2026-10-08."
+        "checked": "Actual statement read at the pinned commit, TauCeti/Topology/Homotopy/HomotopyGroup/Map.lean:222; revision 2, 2026-10-08. Independent revision reviewer re-read this statement at the same pin on 2026-10-08."
       }
     ]
   },
@@ -141,7 +141,8 @@
         "§2 pp.185–190: building, suspended proper-layer poset and proof of Solomon–Tits.",
         "§3 pp.190–198: categorical homology argument, comma categories, low-rank and maximal-order passage.",
         "One-based PDF page = source page + 8; the collected scan’s extra upper header is not the source pagination.",
-        "Revision 2 rechecked §1, Theorem 1, Remark (2), Theorem 3, Corollary (Stability) and proof, source pp.179–185. Earlier full-paper reading records above belong to the original authoring pass."
+        "Revision 2 rechecked §1, Theorem 1, Remark (2), Theorem 3, Corollary (Stability) and proof, source pp.179–185. Earlier full-paper reading records above belong to the original authoring pass.",
+        "Independent revision review on 8 October 2026: §1 pp.179–185, with the Stability corollary p.182 checked as a rendered page."
       ]
     },
     {
@@ -160,7 +161,8 @@
         "V.6.1–6.1.3, book p.406, finite localization exact sequence.",
         "V.6.6–6.6.4, book pp.409–410, Dedekind localization and finite-module transfer naturality.",
         "One-based PDF page = book page + 8. VI.8.1 is not used as evidence for field even-group finiteness; the parent has recorded its typo as ArithmeticKTheory/E15.",
-        "Revision 2 rechecked IV.6.1–6.4, pp.318–321 (small Q-span model, zero vertex, functoriality and projective transfer), IV.6.8–6.9 p.325, V.6.1 p.406, and V.6.6–6.6.4 pp.409–410. Earlier reading records above are retained provenance."
+        "Revision 2 rechecked IV.6.1–6.4, pp.318–321 (small Q-span model, zero vertex, functoriality and projective transfer), IV.6.8–6.9 p.325, V.6.1 p.406, and V.6.6–6.6.4 pp.409–410. Earlier reading records above are retained provenance.",
+        "Independent revision review on 8 October 2026: IV.1.12–1.18 pp.269–271; IV.6.1–6.4 pp.318–321; IV.6.8–6.9 p.325; IV.7.1–7.2 pp.328–329; V.6.1 p.406; V.6.6–6.6.4 pp.409–410."
       ]
     },
     {
@@ -174,7 +176,8 @@
       "readSections": [
         "§1.3.5 and §2.4.1, the coefficient and cellular spectral-sequence interfaces.",
         "§§4.1–4.3.4, pp.15–18, rank filtration, proper layers, rank-one case, Steinberg E¹ terms and Vogel’s relative-exact-sequence comparison.",
-        "Revision 2 rechecked §§4.1–4.3.4, pp.15–18, including the exact loci of E25/E26; earlier coefficient/cellular reading records above are retained provenance."
+        "Revision 2 rechecked §§4.1–4.3.4, pp.15–18, including the exact loci of E25/E26; earlier coefficient/cellular reading records above are retained provenance.",
+        "Independent revision review on 8 October 2026: §§4.1–4.3.4 pp.15–18; both E25/E26 loci checked as rendered pages."
       ]
     }
   ],
@@ -409,7 +412,7 @@
       "proofSteps": [
         "Apply finite-S-localisation-defect with initial set ∅. Tensor the exact sequence with ℚ over ℤ; ℚ is flat by localization, and a torsion group tensors to zero (a pure tensor can be killed by moving a nonzero annihilating integer to the invertible ℚ factor). Hence the rationalized inclusion is bijective.",
         "Apply the pinned LinearEquiv.ofBijective to this particular linear map. Its inverse is uniquely determined and its forward map is unchanged. Do not define a new K carrier, equivalence structure, or rank invariant.",
-        "Use exact-functor identity/composition and the pinned linear-equivalence API for evaluation, inverse, uniqueness and finite-S enlargement. Compatibility with the map to F uses the parent’s all-prime localization sequence: the infinite residue direct sum is torsion in these degrees, although it need not be finite."
+        "Use exact-functor identity/composition and the pinned linear-equivalence API for evaluation, inverse, uniqueness and finite-S enlargement. Compatibility with the map to F is the composition law for the specified ring inclusions and their induced rational K-maps. Separately, the parent’s all-prime localization sequence proves rational bijectivity to F because its infinite residue direct sums are torsion in these degrees, although they need not be finite."
       ],
       "acceptance": [
         "The forward-map equality and both inverse identities hold, independently of any choice of a localization generator.",
@@ -442,7 +445,7 @@
         {
           "sourceId": "Weibel.2013",
           "locator": "IV.1.17, book p. 271 (PDF p. 279); V.6.6, book p. 409 (PDF p. 417)",
-          "match": "The order comparison supplies the surrounding rank use; the all-prime localization sequence supplies compatibility with passage to the field. S-integers with nonempty S are not orders."
+          "match": "The order comparison supplies the surrounding rank use. The all-prime localization sequence supplies rational bijectivity to the field; the toField map identity itself follows from functoriality. S-integers with nonempty S are not orders."
         }
       ],
       "library": {
@@ -538,7 +541,7 @@
         "name": "Rational S-integer comparison"
       },
       "testDependencies": {
-        "note": "The constructor uses localization/flatness, not an order-rank theorem. The degree-one and nonzero degree-five tests use the precise K₁/S-unit and order-rank imports. The degree-two example also types the imported K₂(ℤ) ≃ ℤ/2 computation; its supplier retains its unread upper-bound proof boundary and is not discharged by rational vanishing."
+        "note": "The constructor uses localization/flatness, not an order-rank theorem. The degree-one and nonzero degree-five tests use the precise K₁/S-unit and order-rank imports. The degree-two example also types the imported K₂(ℤ) ≃ ℤ/2 computation; its current T.3 supplier retains the explicit G-monomial-kernel ownership gap, on which its integer upper bound depends. That upper bound is not discharged by rational vanishing."
       },
       "prototype": {
         "status": "typed",
@@ -675,7 +678,7 @@
   "dependencyBoundaries": [
     {
       "supplier": "BorelRegulators:R.1/steinberg-duality-finiteness",
-      "note": "Use this early integral Steinberg-homology output, not R.1/quillen-finiteness-interface or R.1/finite-type-plus-consequences, which consume N.3. The latest independent Borel review corrected the packet; reader reconciliation still prevents acceptance."
+      "note": "Use this early integral Steinberg-homology output, not R.1/quillen-finiteness-interface or R.1/finite-type-plus-consequences, which consume N.3. The current Borel packet is accepted by REV-BorelRegulators~2 (8 October 2026); acceptance is planning validation, not implementation."
     },
     {
       "supplier": "BorelRegulators:R.3/division-order-rank-period",
@@ -687,15 +690,15 @@
     },
     {
       "supplier": "KTheoryLowDegrees:U.4/s-unit-theorem",
-      "note": "Supplies rank K₁(𝓞_{F,S}) = r₁+r₂+|S|−1 through the separate determinant/SK₁ theorem. Native S-unit finite generation alone does not supply that K₁ identification. U.1’s recent review is needs_changes."
+      "note": "Supplies rank K₁(𝓞_{F,S}) = r₁+r₂+|S|−1 through the separate determinant/SK₁ theorem. Native S-unit finite generation alone does not supply that K₁ identification. U.1 is accepted by REV-KTheoryLowDegrees--U.1~3 (8 October 2026); the K₁ interpretation remains an owning supplier theorem."
     },
     {
       "supplier": "KTheoryFiniteLocalFields:L.1/quillen-k-groups",
-      "note": "Use the exact finite-field computation node, not a duplicated computation here. Its packet has no recorded independent acceptance; this is a planned supplier, not a baseline theorem."
+      "note": "Use the exact finite-field computation node, not a duplicated computation here. Its packet is accepted by REV-KTheoryFiniteLocalFields~2 (7 October 2026); it remains a planned supplier rather than a pinned-library theorem."
     },
     {
       "supplier": "K2SymbolsBrauer:T.5/k2-of-the-integers",
-      "note": "Only the integral side of the degree-two test imports K₂(ℤ) ≃ ℤ/2. Its supplier retains an unread Milnor §10 upper-bound input. The test signature now elaborates, but its computation is neither proved nor obtained from rational vanishing in this packet."
+      "note": "Only the integral side of the degree-two test imports K₂(ℤ) ≃ ℤ/2. Its current T.3 packet is needs_changes and records G-monomial-kernel: the finite-rank monomial-kernel/unit-symbol theorem lacks an exact owning node in T.2:symbols. The upper bound now uses Silvester word reduction plus that conditional import, rather than an unread Milnor §10 assertion. The test elaborates, but its computation is neither proved nor obtained from rational vanishing here."
     }
   ],
   "requests": [],
@@ -749,12 +752,13 @@
         "arXiv https://arxiv.org/abs/1108.2441 submission history: v3 dated 2 July 2014 is the latest listed version, checked 6 October 2026.",
         "Author-hosted https://webusers.imj-prg.fr/~bruno.kahn/preprints/Quillen-Dedekind3.pdf, dated 9 August 2011: earlier numbering; §3.2.4 still has the generic-fibre index slip; its Vogel paragraph has no Serre-fibration replacement sentence.",
         "Author publication page and web searches for Around Quillen’s theorem A errata and the generic-fibre correction; no correction located.",
-        "Existing blueprint packets and source-issue register searched for these two passages; neither already recorded."
+        "Existing blueprint packets and source-issue register searched for these two passages; neither already recorded.",
+        "Independent review, 8 October 2026: reopened arXiv submission history (v3 remains latest), repeated title/errata and title/correction searches; no correction located. Earlier author-copy search retained as provenance."
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "The rendered v3 page contains E; the zero pure subsheaf disproves the printed equality and the preceding calculation supplies the intended F equality. The proposition and downstream rank comparison remain valid.",
-        "by": "REV-ArithmeticKTheory--N.3"
+        "reason": "Independent rendered-v3 check: the left side uses the ambient E rather than the pure subsheaf F. E=O_X and F=0 disproves that equality; the preceding generic-fibre calculation gives the intended correction. The result remains valid.",
+        "by": "REV-ArithmeticKTheory--N.3~2"
       }
     },
     {
@@ -762,7 +766,7 @@
       "source": "Kahn.2014",
       "kind": "misprint",
       "locator": "arXiv:1108.2441v3, §4.3.4 Vogel argument, p. 18, first paragraph; rendered page checked.",
-      "printed": "The source names the construction a Serre “fibtration”.",
+      "printed": "The fibration term in the opening sentence has an extra letter t.",
       "correction": "Serre fibration",
       "reason": "The argument replaces the map by a Serre fibration and immediately uses its fibration of pairs and the Leray–Serre spectral sequence. The printed word is a spelling slip, not a different construction.",
       "affects": "nothing",
@@ -771,55 +775,56 @@
         "arXiv https://arxiv.org/abs/1108.2441 submission history: v3 dated 2 July 2014 is the latest listed version, checked 6 October 2026.",
         "Author-hosted https://webusers.imj-prg.fr/~bruno.kahn/preprints/Quillen-Dedekind3.pdf, dated 9 August 2011: earlier numbering; §3.2.4 still has the generic-fibre index slip; its Vogel paragraph has no Serre-fibration replacement sentence.",
         "Author publication page and web searches for Around Quillen’s theorem A errata and the generic-fibre correction; no correction located.",
-        "Existing blueprint packets and source-issue register searched for these two passages; neither already recorded."
+        "Existing blueprint packets and source-issue register searched for these two passages; neither already recorded.",
+        "Independent review, 8 October 2026: reopened arXiv submission history (v3 remains latest), repeated title/errata and title/correction searches; no correction located. Earlier author-copy search retained as provenance."
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "The rendered v3 page and extracted text both contain fibtration; the subsequent fibration-of-pairs argument identifies the intended word.",
-        "by": "REV-ArithmeticKTheory--N.3"
+        "reason": "Independent rendered-v3 check: the opening sentence has an extra t in its fibration term. The following fibration-of-pairs and spectral-sequence argument fixes the intended meaning; no result is affected.",
+        "by": "REV-ArithmeticKTheory--N.3~2"
       }
     }
   ],
   "review": {
-    "status": "needs_changes",
-    "reviewer": "independent-review-REV-ArithmeticKTheory--N.3",
-    "date": "2026-10-06",
-    "notes": "Completed independent review of all seven nodes, six reused endpoints, fourteen exact-pin baseline statements, sources, supplier contracts, closure boundaries, eight API entries, five tests, two planets and the reviewed library audit. Corrected the Kahn excerpt and projective-transfer locator; converted the out-of-scope H.3 request to an explicit ownership gap; recorded and confirmed two harmless preprint misprints. Mathematical statements are verified or corrected. Return for §13: all seven planned declarations and arithmetic API/tests are comments, so compilation of nine native examples does not validate their signatures. Packet complete/planned is a finished pass, not closure. See research/blueprint/reviews/REV-ArithmeticKTheory--N.3.md.",
+    "status": "accepted",
+    "reviewer": "independent-review-REV-ArithmeticKTheory--N.3~2",
+    "date": "2026-10-08",
+    "notes": "Independent revision review completed for all seven retained nodes, six reused endpoints, nineteen exact-pin baseline statements, three public source files, direct supplier contracts, ownership and closure, eight API entries, five tests and two planets. The previous §13 blocker is resolved: concrete supplier prototypes and every arithmetic target/API/test elaborate at the pinned Mathlib with only placeholder-proof warnings. Corrected four stale supplier-status notes, the K₂ integer upper-bound boundary and the toField proof attribution; reconfirmed both scoped Kahn misprints. Accepted as a complete target-level plan, with one explicit ownership gap, no direct requests, all implementation statuses unchecked and the stage planned rather than closed. See research/blueprint/reviews/REV-ArithmeticKTheory--N.3~2.md.",
     "checked": [
       {
         "nodeId": "ArithmeticKTheory:N.3/finite-rank-Q-homology",
         "verdict": "verified",
-        "note": "Quillen pp.184–185, finite Pic plus rank/determinant classification, and the integral Steinberg-homology supplier give finite-rank homology. Nonfree projectives and rank one are retained."
+        "note": "Verified Quillen §1, pp.184–185, the accepted sibling finite-type homology contract, finite Picard group and integral Steinberg finiteness for all projective classes. The idempotent/rank-Q/integral-nerve homology signature elaborates."
       },
       {
         "nodeId": "ArithmeticKTheory:N.3/rank-filtration-homology-stability",
-        "verdict": "corrected",
-        "note": "Verified the primary rendered p.182 bounds m≥i for surjectivity and m≥i+1 for isomorphism. Corrected the nonliteral Kahn excerpt and locator. Passage to BQ remains the precise H.1 request."
+        "verdict": "verified",
+        "note": "Verified the rendered Quillen Stability corollary, p.182: onto for m≥i and isomorphic for m≥i+1. The accepted sibling and precise H.1 comparison/colimit nodes supply the planning contract. Both actual maps are typed; no natural-subtraction or extra GL stability claim."
       },
       {
         "nodeId": "ArithmeticKTheory:N.3/stable-Q-homology-finite-type",
         "verdict": "verified",
-        "note": "Stabilization at rank i+1 gives finite stable integral homology, not an unjustified finitely generated filtered colimit. The subsequent H-space-to-homotopy theorem is a separate recorded ownership gap."
+        "note": "Verified stabilization at rank i+1 and finite integral homology of the specified nerve. The typed theorem fixes the stable map. The later connected H-space homology-to-homotopy theorem remains a separate ownership gap, not a simply-connected assumption."
       },
       {
         "nodeId": "ArithmeticKTheory:N.3/finite-S-localisation-defect",
-        "verdict": "corrected",
-        "note": "Finite-S localization and finite-field groups give finite defects for n≥2 and even injectivity. Degree one is excluded. Made the actual integer-linear localization map explicit in the suggested register; no typed arithmetic declaration is yet supplied."
+        "verdict": "verified",
+        "note": "Verified finite S⊆T localization, finite residue groups in positive degrees and even-degree injectivity from Weibel V.6.1 and V.6.6, pp.406,409. The actual inclusion and its kernel/quotient signatures elaborate in exactly degrees n≥2."
       },
       {
         "nodeId": "ArithmeticKTheory:N.3/canonical-rational-S-integer-equivalence",
-        "verdict": "verified",
-        "note": "Flat rationalization kills finite defects of the specified map; native LinearEquiv.ofBijective retains that map. Eight API entries and five discriminating mathematical tests are sound, but remain comments in the suggested file."
+        "verdict": "corrected",
+        "note": "Verified the native ofBijective construction from the specified rationalized K-map, all eight typed API entries and five typed tests. Corrected stale supplier review-status/test-proof notes and the claim that toField map equality requires all-prime localization: composition proves equality; localization proves separate rational bijectivity."
       },
       {
         "nodeId": "ArithmeticKTheory:N.3/canonical-rational-equivalence-map",
         "verdict": "verified",
-        "note": "Native ofBijective evaluation plus extensionality proves the forward-map identification. Promotion to a lemma node is justified by the naturality consumer."
+        "note": "Verified that ofBijective retains its forward map and the promoted equality identifies that precise linear map. The typed statement is consumed by extension/transfer coherence, justifying separate lemma granularity."
       },
       {
         "nodeId": "ArithmeticKTheory:N.3/rational-localisation-extension-transfer",
-        "verdict": "corrected",
-        "note": "Finite-projective base change and naturally isomorphic exact functors prove both actual map squares, including ramification. Corrected the transfer citation from coherent G-transfer IV.6.3.3 to projective K-transfer IV.6.3.2 and natural-isomorphism invariance IV.6.3."
+        "verdict": "verified",
+        "note": "Verified both specified rational map squares using finite-projective restriction and tensor base change, including ramification. The signature uses exact ideal contraction for the upstairs primes and actual restriction/extension-induced homotopy maps; Weibel IV.6.3.2 and V.6.6.3–6.6.4, pp.320,410, are the right suppliers."
       }
     ]
   },
@@ -830,6 +835,51 @@
       "read": "2026-10-08",
       "sha256": "71b5da651ba9feca4c1abcc58f566afbf11019dda465cbc3a95aace7cb1e2406",
       "citation": "Bruno Kahn, Around Quillen’s theorem A, arXiv:1108.2441v3 (2 July 2014). Both findings are scoped to this preprint, not an uninspected published version."
+    }
+  ],
+  "reviewHistory": [
+    {
+      "status": "needs_changes",
+      "reviewer": "independent-review-REV-ArithmeticKTheory--N.3",
+      "date": "2026-10-06",
+      "notes": "Completed independent review of all seven nodes, six reused endpoints, fourteen exact-pin baseline statements, sources, supplier contracts, closure boundaries, eight API entries, five tests, two planets and the reviewed library audit. Corrected the Kahn excerpt and projective-transfer locator; converted the out-of-scope H.3 request to an explicit ownership gap; recorded and confirmed two harmless preprint misprints. Mathematical statements are verified or corrected. Return for §13: all seven planned declarations and arithmetic API/tests are comments, so compilation of nine native examples does not validate their signatures. Packet complete/planned is a finished pass, not closure. See research/blueprint/reviews/REV-ArithmeticKTheory--N.3.md.",
+      "checked": [
+        {
+          "nodeId": "ArithmeticKTheory:N.3/finite-rank-Q-homology",
+          "verdict": "verified",
+          "note": "Quillen pp.184–185, finite Pic plus rank/determinant classification, and the integral Steinberg-homology supplier give finite-rank homology. Nonfree projectives and rank one are retained."
+        },
+        {
+          "nodeId": "ArithmeticKTheory:N.3/rank-filtration-homology-stability",
+          "verdict": "corrected",
+          "note": "Verified the primary rendered p.182 bounds m≥i for surjectivity and m≥i+1 for isomorphism. Corrected the nonliteral Kahn excerpt and locator. Passage to BQ remains the precise H.1 request."
+        },
+        {
+          "nodeId": "ArithmeticKTheory:N.3/stable-Q-homology-finite-type",
+          "verdict": "verified",
+          "note": "Stabilization at rank i+1 gives finite stable integral homology, not an unjustified finitely generated filtered colimit. The subsequent H-space-to-homotopy theorem is a separate recorded ownership gap."
+        },
+        {
+          "nodeId": "ArithmeticKTheory:N.3/finite-S-localisation-defect",
+          "verdict": "corrected",
+          "note": "Finite-S localization and finite-field groups give finite defects for n≥2 and even injectivity. Degree one is excluded. Made the actual integer-linear localization map explicit in the suggested register; no typed arithmetic declaration is yet supplied."
+        },
+        {
+          "nodeId": "ArithmeticKTheory:N.3/canonical-rational-S-integer-equivalence",
+          "verdict": "verified",
+          "note": "Flat rationalization kills finite defects of the specified map; native LinearEquiv.ofBijective retains that map. Eight API entries and five discriminating mathematical tests are sound, but remain comments in the suggested file."
+        },
+        {
+          "nodeId": "ArithmeticKTheory:N.3/canonical-rational-equivalence-map",
+          "verdict": "verified",
+          "note": "Native ofBijective evaluation plus extensionality proves the forward-map identification. Promotion to a lemma node is justified by the naturality consumer."
+        },
+        {
+          "nodeId": "ArithmeticKTheory:N.3/rational-localisation-extension-transfer",
+          "verdict": "corrected",
+          "note": "Finite-projective base change and naturally isomorphic exact functors prove both actual map squares, including ramification. Corrected the transfer citation from coherent G-transfer IV.6.3.3 to projective K-transfer IV.6.3.2 and natural-isomorphism invariance IV.6.3."
+        }
+      ]
     }
   ]
 }
