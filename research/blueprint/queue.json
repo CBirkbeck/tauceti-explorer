@@ -34905,7 +34905,8 @@
    ],
    "followUpOf": "BP-ClassicalAdicEtaleCohomology--H0",
    "prompt": "research/blueprint/prompts/BP-ClassicalAdicEtaleCohomology--H1-valuation-nearby-cycles.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6930"
   },
   {
    "id": "REV-ClassicalAdicEtaleCohomology--H1-valuation-nearby-cycles",
@@ -41633,8 +41634,9 @@
     "BP-OverconvergentAutomorphicForms--O0~2"
    ],
    "prompt": "research/blueprint/prompts/REV-OverconvergentAutomorphicForms--O0~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7100"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7100",
+   "finishedAt": "2026-10-08T14:59:43Z"
   },
   {
    "kind": "blueprint",
