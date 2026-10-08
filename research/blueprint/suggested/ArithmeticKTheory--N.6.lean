@@ -2,7 +2,7 @@
 Copyright (c) 2026 The Tau Ceti contributors. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Codex — codex-jToARl; independent review Codex — codex-HBL6zX;
-revision Codex — codex-20n7RW
+revision Codex — codex-20n7RW; independent review Codex — codex-2Ohski
 -/
 import Mathlib.Algebra.Group.Subgroup.Ker
 import Mathlib.Algebra.Module.Submodule.LinearMap
@@ -42,7 +42,7 @@ comparison: R02's H¹ finiteness and limit interfaces remain necessary.
 The final omission register names each arithmetic statement/test that cannot
 be typed without a missing supplier carrier or map. Entries there are comments,
 not declarations. No opaque K-group stand-in or proposition field is introduced.
-The packet's earlier independent review is preserved for the next reviewer.
+The packet retains its earlier review in reviewHistory; round 2 accepts this planned pass.
 -/
 
 open IsDedekindDomain Filter
@@ -454,16 +454,16 @@ TauCeti.ArithmeticKTheory.N6.positiveEvenK [generic signature above; arithmetic 
 A supplied additive carrier and real-symbol map define the prescribed subgroup. Outside i≡1 mod 4 the arithmetic map-vanishing fact is an explicit input to the membership API; actual K/real comparison maps are supplied by M.7.
 
 TauCeti.ArithmeticKTheory.N6.positiveK_rational_symbol [omitted example]
-T.7 must supply the genuine K₂(Q) carrier and the Matsumoto class {-1,-1}, and L.7 its real Hilbert symbol.
+T.2/matsumoto supplies the field K₂ carrier and its Steinberg class {-1,-1}; T.5/real-sign-symbol supplies its actual real symbol. L.7 supplies finite-completion symbols, not the real map.
 
 TauCeti.ArithmeticKTheory.N6.positiveK_imaginary [omitted example]
 The actual K₂(Q(i)) carrier and its real-place indexing/completion map are missing; the generic empty-index API is already typed.
 
 TauCeti.ArithmeticKTheory.N6.localSymbolFamily [generic signature above; arithmetic instantiation]
-The product homomorphism is concrete. L.6/L.7 supply its arithmetic components and Matsumoto identification; restriction/transfer require the explicitly displayed component squares/sums. Finite support and the quotient orders are arithmetic inputs.
+The product homomorphism is concrete. L.6/L.7 supply finite-completion components; T.2/matsumoto supplies the degree-two field carrier, T.5/real-sign-symbol the degree-two real map, and M.7 the higher real comparisons. Restriction/transfer require the displayed component squares/sums. Finite support and quotient orders are arithmetic inputs.
 
 TauCeti.ArithmeticKTheory.N6.localSymbols_rational_minus_one [omitted example]
-The actual K₂(Q) class and its real and Q₂ full Hilbert-symbol maps from T.7/L.7 are needed.
+T.2/matsumoto supplies the actual K₂(Q) class; T.5/real-sign-symbol supplies the real map, and T.7/L.7 supply the Q₂ full Hilbert-symbol map.
 
 TauCeti.ArithmeticKTheory.N6.localSymbols_no_real_term [omitted example]
 M.7 must supply the genuine real K₄ finite quotient and comparison map; real coefficient H² alone is not that K-theoretic target.
@@ -478,10 +478,10 @@ TauCeti.ArithmeticKTheory.N6.symbolWildKernel [generic signature above; arithmet
 The kernel and universal lift use actual additive homomorphisms. Arithmetic restriction/transfer and degree-two raw equality require the displayed supplier squares and torsion-detection fact; G1 is not assumed.
 
 TauCeti.ArithmeticKTheory.N6.symbolWild_rational [omitted example]
-The genuine K₂(Q) Hilbert-symbol kernel from T.7/L.7 is required; a zero module cannot replace it.
+The actual K₂(Q) carrier and computation from T.5/k2-of-the-rationals, the real map from T.5/real-sign-symbol and finite maps from T.7/L.7 are required; a zero module cannot replace this kernel.
 
 TauCeti.ArithmeticKTheory.N6.symbolWild_tame_nonexample [omitted example]
-T.5/T.7 must supply K₂(Z), its {-1,-1} class and map into K₂(Q), with the actual symbols.
+T.5/k2-of-the-integers and /k2-of-the-rationals supply the actual K₂(Z) class and map into K₂(Q); T.5/real-sign-symbol and T.7/L.7 supply its real and finite symbols.
 
 TauCeti.ArithmeticKTheory.N6.symbolWild_special_minus_fourteen [omitted example]
 The actual K₂(Q(√−14)) class, symbol and divisible subgroups are needed; the special-field predicate is already concrete.
@@ -502,7 +502,7 @@ TauCeti.ArithmeticKTheory.N6.symbolCohomologicalComparison [omitted named arithm
 M.2/M.7 and L.7 must supply the actual K-to-H² comparison and localisation squares, with S containing all dyadic primes and the real comparison kernel.
 
 TauCeti.ArithmeticKTheory.N6.twistedResidueNormTest [omitted named arithmetic statement]
-I.1 and ClassFieldTheory Layer 0 must supply the cyclotomic tensor-twist module, its faithful Frobenius action and norm on that module. The existing full-unit norm does not identify this map.
+M.2 supplies the finite-field root-twist module and Frobenius action; ClassFieldTheory Layer 0 supplies the faithful cyclic-module norm interface. I.1 supplies number-field towers elsewhere, not this finite-field test. The existing full-unit norm does not identify the twisted norm.
 
 TauCeti.ArithmeticKTheory.N6.hilbertLocalNormCertification [omitted named arithmetic statement]
 T.7/L.7 and existing ClassFieldTheory Layer 6 must supply the actual full Hilbert-symbol pairing and the local reciprocity map for the Kummer extension; an arbitrary pairing would omit the required norm-kernel property.
