@@ -37544,8 +37544,9 @@
    ],
    "revisionOf": "BP-AdelicAlgebraicGroups",
    "prompt": "research/blueprint/prompts/BP-AdelicAlgebraicGroups~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6917"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6917",
+   "finishedAt": "2026-10-08T15:12:05Z"
   },
   {
    "priority": 2,
