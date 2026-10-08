@@ -1,6 +1,98 @@
 # PKG-CrystallineLocalGlobalCompatibilityCM — blocked checkpoint
 
-## Current continuation: codex-sLApBx
+## Current continuation: codex-Y25wzh
+
+Issue: [#7462](https://github.com/CBirkbeck/tauceti-explorer/issues/7462).
+Agent: Codex. Session: `codex-Y25wzh`. Date: 2026-10-08.
+Input commit: `71963728f49b5ea380869dc45290fd44f9534111`.
+Branch: `codex-Y25wzh-crystalline-package`.
+
+**Blocked checkpoint.** This continuation independently rechecked the supplier
+conditions recorded below. They have not changed. Only this handoff is edited;
+the assembled README and suggested file are preserved. Completion is blocked
+by missing mathematical interfaces outside the authorized package paths,
+rather than time or compilation resources.
+
+### Current evidence and resume conditions
+
+1. `REQ-SMOOTH` still needs the abelian smooth categories for the specified open
+   monoids, enough injectives, compact derived invariants and smooth
+   coinduction. No SR.0 packet, reader or suggested file is present. Its
+   planning issue [#996](https://github.com/CBirkbeck/tauceti-explorer/issues/996)
+   remains available. At the exact Tau Ceti pin, `IsSmoothDiscrete` and
+   `SmoothDiscreteTopRep` give smoothness and a full subcategory, not this
+   abelian/derived interface. Read `SmoothDiscrete.lean`, lines 245–272 and
+   530–552; the pinned continuous-cohomology tree has no `Abelian` or
+   `EnoughInjectives` declaration. AUDIT-41's SR.0 and derived-extension
+   entries distinguish these missing structures from the existing predicate.
+   At the exact Mathlib pin, `DerivedCategory` requires an abelian input
+   category (Basic.lean, lines 65–87), so it cannot fill this gap alone.
+2. `REQ-INTEGRAL-WEYL` still needs integral dual Weyl lattices, coefficient
+   reduction, Levi evaluation and the integral splitting. The parent packet
+   retains the explicit highest-weight gap owned by
+   `ReductiveGroupsIntegralRepresentationsPartII`, with no assigned stages.
+   No packet or suggested file for that owner is present. At the Tau Ceti
+   pin, `YoungTableau.weylModule` requires a Q-algebra (WeylModule.lean,
+   lines 114–124); it cannot replace the O or O/ϖ^m lattice.
+3. `REQ-TOWER` still names ALS.6 for completed constructions. The accepted
+   [RS-09](../restructure/RS-09.result.json) narrows ALS.6 to finite-level
+   descent and assigns tower assembly and completion to
+   `CompletedCohomologyPartII`. The current arithmetic packet has four
+   ALS.6 nodes and explicitly follows that split. Its suggested
+   `LocallySymmetric.finite_level_descent` signature is itself omitted.
+   No completed-cohomology packet or suggested file is present; CC.0's
+   planning issue [#701](https://github.com/CBirkbeck/tauceti-explorer/issues/701)
+   remains available. Split and repair the request in an authorized plan
+   revision before importing the actual CC.0/CC.1/CC.2/CC.4/CC.6/CC.7
+   exports. Retain ALS's finite-level inputs and the unipotent integral
+   congruence-limit obligation. The detailed ownership table in the previous
+   continuation remains the worklist.
+
+These are sufficient blockers, not an exhaustive new audit of all 27 requests.
+The accepted consumer plan itself records ten prototype gaps for missing
+carrier types. PROTOCOL sections 13 and 15 require faithful forms and sole
+ownership; a new supplier development inside this package or a proposition
+assuming the conclusion would not meet those rules. The issue allows only the
+three package files and this handoff, so those plan and supplier changes
+cannot be made here.
+
+Resume after the required supplier exports and the tower request correction
+exist. Then replace the indexed omissions with the full arithmetic signatures,
+API lemmas and examples, using the existing catalogue and retaining its source
+hypotheses. Add metadata only with the complete package. Its absence currently
+keeps `issues.deliverables_complete` false, so the checkpoint is not mistaken
+for finished work. The package should stay behind this dependency gate; another
+package-only continuation against these same inputs cannot discharge it.
+
+### Checks in this continuation
+
+- `python3 scripts/check_blueprint.py research/blueprint/packets/CrystallineLocalGlobalCompatibilityCM.json`:
+  **0 errors, 0 warnings**; 97 nodes, 103 API items, 104 tests, 37 planets,
+  nine baseline declarations, 27 requests and 40 gaps. All ten layers are
+  planned and none is closed. The packet is unchanged.
+- `lean-check research/blueprint/packages/CrystallineLocalGlobalCompatibilityCM/Suggested.lean`:
+  **exit 0, no errors, 48 warnings, all `declaration uses sorry`**.
+  Available memory was 111 GB before compilation. The check finished and
+  leaves no background process. The shared Mathlib commit is exactly
+  `082e2d37e8b0463410cdb532e111cd43d5a66174`. The package imports only
+  Mathlib; the Tau Ceti declarations above were independently inspected at
+  `f790474821cf4256814db967cb154e7af3d0c369`, rather than inferred from the
+  shared build's newer Tau Ceti checkout.
+- The inherited README is 167,983 bytes and Suggested.lean is 134,008 bytes.
+  Their missing signatures remain missing; compilation does not certify
+  completion. The prior reconciliation and all continuation worklists below
+  are retained.
+- Read WORKERS, both protocols, UPSTREAM_GUIDE, the whole issue, and the full
+  upstream ReductiveGroups and Multiquadratic READMEs. No restricted source
+  was needed and no source passage is added.
+- `python3 research/blueprint/intake.py check-files` on this handoff:
+  **0 problems**. `git diff --check` passes. Only the authorized handoff
+  changes; `issues.deliverables_complete` is **false**.
+
+No second job is claimed. The remaining work and evidence are recorded here;
+scratch is disposable.
+
+## Previous continuation: codex-sLApBx
 
 Issue: [#7462](https://github.com/CBirkbeck/tauceti-explorer/issues/7462).
 Agent: Codex. Session: `codex-sLApBx`. Date: 2026-10-08.
