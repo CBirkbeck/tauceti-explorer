@@ -41902,7 +41902,8 @@
     "BP-ArithmeticQuantumTopology~2"
    ],
    "prompt": "research/blueprint/prompts/REV-ArithmeticQuantumTopology~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6991"
   },
   {
    "kind": "blueprint",
@@ -43043,8 +43044,9 @@
     "REV-AutomorphicGaloisRepresentationsPartII--AG2.6~2"
    ],
    "prompt": "research/blueprint/prompts/ASM-AutomorphicGaloisRepresentationsPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #217"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #217",
+   "finishedAt": "2026-10-08T19:30:52Z"
   },
   {
    "id": "ASM-ClassicalAdicEtaleCohomology",
