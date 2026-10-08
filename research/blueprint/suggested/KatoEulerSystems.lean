@@ -30,9 +30,9 @@ Unexpressible geometry, continuity and analytic hypotheses are OMITTED, with
 section-specific explanations, never replaced by opaque proposition fields.
 These conditional algebraic signatures do not establish geometric existence.
 
-Revision BP-KatoEulerSystems~2 retains the independent review unchanged in the
-packet. Each named signature now displays its source conclusion. These are
-planning targets with sorry proofs, not verified arithmetic theorems. Comments
+Revision BP-KatoEulerSystems~2 repairs the named conclusions. Independent review
+REV-KatoEulerSystems~2 checks them and records the remaining supplier gaps.
+These are planning targets with sorry proofs, not verified arithmetic theorems. Comments
 identify omitted geometry and supplier hypotheses; arbitrary carriers/maps must
 be instantiated by those suppliers before the arithmetic targets can be used.
 The integral full-level source is a literal module dual. Symmetric self-duality
@@ -233,11 +233,11 @@ theorem beilinsonElement_pullback (symbol : Rˣ → Rˣ → K)
     (first second : Rˣ) :
     onK (beilinsonElement symbol first second) =
       beilinsonElement symbol' (Units.map pull first) (Units.map pull second) := by sorry
--- beilinson_order
+-- beilinson_order: ch_(2,2)=−c_(2,2) gives the positive ordered Kummer cup.
 example {H : Type*} [AddCommGroup H] (symbol : Rˣ → Rˣ → K)
-    (chern : K →+ H) (cup : Rˣ → Rˣ → H)
-    (h : ∀ u v, chern (symbol u v) = cup u v) (first second : Rˣ) :
-    chern (beilinsonElement symbol first second) = cup first second := by sorry
+    (chernCharacter : K →+ H) (cup : Rˣ → Rˣ → H)
+    (h : ∀ u v, chernCharacter (symbol u v) = cup u v) (first second : Rˣ) :
+    chernCharacter (beilinsonElement symbol first second) = cup first second := by sorry
 -- beilinson_identity_entry
 example (symbol : Rˣ → Rˣ → K)
     (hfirst : ∀ v, symbol 1 v = 0) (hsecond : ∀ u, symbol u 1 = 0) (u v : Rˣ) :
@@ -681,7 +681,9 @@ example (z : V →ₗ[F] H) (x : V) :
 -- twisted_identity_maps
 example : twistedKatoZeta (LinearMap.id : ℚ →ₗ[ℚ] ℚ)
     LinearMap.id LinearMap.id 1 = 1 := by sorry
--- Omitted: parabolic carrier, rational splitting and the injectivity theorem.
+-- Omitted: parabolic carrier, rational splitting and Nakamura Lemma 3.4,
+-- p.221. Its global inverse-limit injectivity is a separate R07 L3 request
+-- and gap; a local exp* map alone does not supply it.
 theorem parabolicFullLevelCharacterisation (expStar : H →ₗ[F] Htw)
     (injective : Function.Injective expStar) (x y : H)
     (h : expStar x = expStar y) : x = y := by sorry
@@ -744,6 +746,9 @@ variable {Λ H : Type*} [CommRing Λ] [AddCommGroup H] [Module Λ H]
 -- Omitted: non-CM modular representation, stable lattice, Serre/Ribet/Momose
 -- open-image theorem, topology and cyclotomic determinant. rho is its
 -- cyclotomic restriction on the rational rank-two realization. No CM claim.
+-- The omitted open-SL₂ premise is verified by Ribet only on the split local
+-- quaternion branch here. At division places the every-place deduction is
+-- source issue E12 and an exact supplier gap, not a verified unipotent claim.
 theorem nonCmLargeImage {G E : Type*} [Group G] [Field E] [CharZero E]
     (rho : G →* Module.End E (Fin 2 → E)) :
     (∃ tau : G, ∃ x : E, x ≠ 0 ∧
@@ -769,6 +774,7 @@ theorem modularEulerSystemBound (global strict localIndex zetaIndex : ℕ)
 -- Kato 12.4, p.221; Burungale–Tian v2 2.3, p.4. Omitted:
 -- arithmetic H¹/H², integral/rational base change and the early all-prime
 -- CM elliptic-unit supplier (NOT obtained by assuming the Kato map).
+-- The nonsplit non-CM image argument is also a recorded supplier gap (E12).
 -- Residual irreducibility is the explicit invariant-subspace condition.
 theorem rationalIwasawaStructure {ΛQ H1 H2 H1Q H2Q G Res Fp : Type*}
     [CommRing ΛQ] [AddCommGroup H1] [AddCommGroup H2]
@@ -836,7 +842,7 @@ theorem ellipticOrdinaryMultiplicativeDivisibility {ΛQ Local Selmer : Type*}
     [CommRing ΛQ] [AddCommGroup Local] [AddCommGroup Selmer]
     [Module Λ Selmer] (scalar : ℚ →+* ΛQ) (coefficientMap : Λ →+* ΛQ)
     (coleman : Local →+ ΛQ) (katoClass : Local)
-    (p rE badFactor : ℕ) (hp : Nat.Prime p)
+    (p rE badFactor : ℕ) (hp : Nat.Prime p) (hrE : 0 < rE)
     (split : Bool) (augmentation characteristic LFull : Λ) (LRemoved : ΛQ)
     (factor : Λ) (hfactor : factor = if split then augmentation else 1) :
     coleman katoClass = (rE : ΛQ)*LRemoved ∧
