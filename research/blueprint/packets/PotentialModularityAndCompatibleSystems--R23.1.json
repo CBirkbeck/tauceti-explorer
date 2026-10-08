@@ -23,63 +23,63 @@
         "kind": "abbrev",
         "module": "Mathlib/FieldTheory/LinearDisjoint.lean",
         "provides": "Linearly disjoint field extensions, via the injective tensor multiplication map; no mere-intersection shortcut.",
-        "checked": "Independent review REV-PotentialModularityAndCompatibleSystems--R23.1: declaration and surrounding parameters read at the exact recorded commit on 2026-10-06; all nine references confirmed, including finiteness/Galois hypotheses for iff_inf_eq_bot and the absence of prime existence in frobeniusPrimeSet."
+        "checked": "Independent review REV-PotentialModularityAndCompatibleSystems--R23.1: declaration and surrounding parameters read at the exact recorded commit on 2026-10-06; all nine references confirmed, including finiteness/Galois hypotheses for iff_inf_eq_bot and the absence of prime existence in frobeniusPrimeSet. Revision codex-BiJOuf re-read the declaration and its hypotheses at the same exact pin on 2026-10-08."
       },
       {
         "ref": "mathlib:IntermediateField.LinearDisjoint.inf_eq_bot",
         "kind": "theorem",
         "module": "Mathlib/FieldTheory/LinearDisjoint.lean",
         "provides": "Linearly disjoint intermediate fields have intersection equal to the base field.",
-        "checked": "Independent review REV-PotentialModularityAndCompatibleSystems--R23.1: declaration and surrounding parameters read at the exact recorded commit on 2026-10-06; all nine references confirmed, including finiteness/Galois hypotheses for iff_inf_eq_bot and the absence of prime existence in frobeniusPrimeSet."
+        "checked": "Independent review REV-PotentialModularityAndCompatibleSystems--R23.1: declaration and surrounding parameters read at the exact recorded commit on 2026-10-06; all nine references confirmed, including finiteness/Galois hypotheses for iff_inf_eq_bot and the absence of prime existence in frobeniusPrimeSet. Revision codex-BiJOuf re-read the declaration and its hypotheses at the same exact pin on 2026-10-08."
       },
       {
         "ref": "mathlib:IntermediateField.LinearDisjoint.iff_inf_eq_bot",
         "kind": "theorem",
         "module": "Mathlib/FieldTheory/LinearDisjoint.lean",
         "provides": "Equivalence with trivial intersection for finite extensions when the left one is Galois.",
-        "checked": "Independent review REV-PotentialModularityAndCompatibleSystems--R23.1: declaration and surrounding parameters read at the exact recorded commit on 2026-10-06; all nine references confirmed, including finiteness/Galois hypotheses for iff_inf_eq_bot and the absence of prime existence in frobeniusPrimeSet."
+        "checked": "Independent review REV-PotentialModularityAndCompatibleSystems--R23.1: declaration and surrounding parameters read at the exact recorded commit on 2026-10-06; all nine references confirmed, including finiteness/Galois hypotheses for iff_inf_eq_bot and the absence of prime existence in frobeniusPrimeSet. Revision codex-BiJOuf re-read the declaration and its hypotheses at the same exact pin on 2026-10-08."
       },
       {
         "ref": "tauceti:NumberField.Chebotarev.frobeniusPrimeSet",
         "kind": "def",
         "module": "TauCeti/NumberTheory/Chebotarev/FrobeniusPrimeSet.lean",
         "provides": "The set of unramified height-one primes with a given Artin conjugacy class. This is not a density or prime-existence theorem.",
-        "checked": "Independent review REV-PotentialModularityAndCompatibleSystems--R23.1: declaration and surrounding parameters read at the exact recorded commit on 2026-10-06; all nine references confirmed, including finiteness/Galois hypotheses for iff_inf_eq_bot and the absence of prime existence in frobeniusPrimeSet."
+        "checked": "Independent review REV-PotentialModularityAndCompatibleSystems--R23.1: declaration and surrounding parameters read at the exact recorded commit on 2026-10-06; all nine references confirmed, including finiteness/Galois hypotheses for iff_inf_eq_bot and the absence of prime existence in frobeniusPrimeSet. Revision codex-BiJOuf re-read the declaration and its hypotheses at the same exact pin on 2026-10-08."
       },
       {
         "ref": "mathlib:AlgebraicGeometry.Spec",
         "kind": "def",
         "module": "Mathlib/AlgebraicGeometry/Scheme.lean",
         "provides": "Spectrum as a scheme; rational points can be scheme morphisms from a field spectrum.",
-        "checked": "Independent review REV-PotentialModularityAndCompatibleSystems--R23.1: declaration and surrounding parameters read at the exact recorded commit on 2026-10-06; all nine references confirmed, including finiteness/Galois hypotheses for iff_inf_eq_bot and the absence of prime existence in frobeniusPrimeSet."
+        "checked": "Independent review REV-PotentialModularityAndCompatibleSystems--R23.1: declaration and surrounding parameters read at the exact recorded commit on 2026-10-06; all nine references confirmed, including finiteness/Galois hypotheses for iff_inf_eq_bot and the absence of prime existence in frobeniusPrimeSet. Revision codex-BiJOuf re-read the declaration and its hypotheses at the same exact pin on 2026-10-08."
       },
       {
         "ref": "mathlib:AlgebraicGeometry.Scheme.Modules.pullback",
         "kind": "def",
         "module": "Mathlib/AlgebraicGeometry/Modules/Sheaf.lean",
         "provides": "Pullback functor on module sheaves, allowing a rigidification along a boundary morphism.",
-        "checked": "Independent review REV-PotentialModularityAndCompatibleSystems--R23.1: declaration and surrounding parameters read at the exact recorded commit on 2026-10-06; all nine references confirmed, including finiteness/Galois hypotheses for iff_inf_eq_bot and the absence of prime existence in frobeniusPrimeSet."
+        "checked": "Independent review REV-PotentialModularityAndCompatibleSystems--R23.1: declaration and surrounding parameters read at the exact recorded commit on 2026-10-06; all nine references confirmed, including finiteness/Galois hypotheses for iff_inf_eq_bot and the absence of prime existence in frobeniusPrimeSet. Revision codex-BiJOuf re-read the declaration and its hypotheses at the same exact pin on 2026-10-08."
       },
       {
         "ref": "tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf",
         "kind": "abbrev",
         "module": "TauCeti/AlgebraicGeometry/LineBundle/Basic.lean",
         "provides": "Full category of invertible structure-module sheaves; do not replan line bundles.",
-        "checked": "Independent review REV-PotentialModularityAndCompatibleSystems--R23.1: declaration and surrounding parameters read at the exact recorded commit on 2026-10-06; all nine references confirmed, including finiteness/Galois hypotheses for iff_inf_eq_bot and the absence of prime existence in frobeniusPrimeSet."
+        "checked": "Independent review REV-PotentialModularityAndCompatibleSystems--R23.1: declaration and surrounding parameters read at the exact recorded commit on 2026-10-06; all nine references confirmed, including finiteness/Galois hypotheses for iff_inf_eq_bot and the absence of prime existence in frobeniusPrimeSet. Revision codex-BiJOuf re-read the declaration and its hypotheses at the same exact pin on 2026-10-08."
       },
       {
         "ref": "tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf.trivial",
         "kind": "def",
         "module": "TauCeti/AlgebraicGeometry/LineBundle/Basic.lean",
         "provides": "The trivial rank-one sheaf, as the target of a boundary rigidification.",
-        "checked": "Independent review REV-PotentialModularityAndCompatibleSystems--R23.1: declaration and surrounding parameters read at the exact recorded commit on 2026-10-06; all nine references confirmed, including finiteness/Galois hypotheses for iff_inf_eq_bot and the absence of prime existence in frobeniusPrimeSet."
+        "checked": "Independent review REV-PotentialModularityAndCompatibleSystems--R23.1: declaration and surrounding parameters read at the exact recorded commit on 2026-10-06; all nine references confirmed, including finiteness/Galois hypotheses for iff_inf_eq_bot and the absence of prime existence in frobeniusPrimeSet. Revision codex-BiJOuf re-read the declaration and its hypotheses at the same exact pin on 2026-10-08."
       },
       {
         "ref": "tauceti:TauCeti.AlgebraicGeometry.LineBundleClass.mk_eq_mk_iff",
         "kind": "theorem",
         "module": "TauCeti/AlgebraicGeometry/LineBundle/Class.lean",
         "provides": "Equality of unrigidified line-bundle classes iff there is an isomorphism; the rigidified relation additionally respects the boundary trivialization.",
-        "checked": "Independent review REV-PotentialModularityAndCompatibleSystems--R23.1: declaration and surrounding parameters read at the exact recorded commit on 2026-10-06; all nine references confirmed, including finiteness/Galois hypotheses for iff_inf_eq_bot and the absence of prime existence in frobeniusPrimeSet."
+        "checked": "Independent review REV-PotentialModularityAndCompatibleSystems--R23.1: declaration and surrounding parameters read at the exact recorded commit on 2026-10-06; all nine references confirmed, including finiteness/Galois hypotheses for iff_inf_eq_bot and the absence of prime existence in frobeniusPrimeSet. Revision codex-BiJOuf re-read the declaration and its hypotheses at the same exact pin on 2026-10-08."
       }
     ]
   },
@@ -94,9 +94,10 @@
       "readSections": [
         "2026-09-29 (cc-39fac3, part R23.1): §1 (1.1–1.10) re-read against the Numdam text layer; the draft EXT-12's decomposition of §§2–3 re-verified at its excerpts; p. 192 (Lemme 3.30.2).",
         "2026-10-06 (Codex codex-o6iGoa): §1 statement/remarks and §§2–3 reductions and curve proof, OCR text compared with inherited transcriptions; Rem. 1.5 and Lemme 3.6 displays rechecked separately. Corrected the inherited tensor-factor and inverted-prime errors.",
-        "2026-10-06 (independent review Codex codex-GctJKn): passages cited by the checked-node ledger and sourceIssues independently read from this exact public PDF; SHA-256 matched. The review report distinguishes proof inputs left as gaps."
+        "2026-10-06 (independent review Codex codex-GctJKn): passages cited by the checked-node ledger and sourceIssues independently read from this exact public PDF; SHA-256 matched. The review report distinguishes proof inputs left as gaps.",
+        "2026-10-08 (revision Codex codex-BiJOuf): §1, pp. 181–184 (definitions, 1.3, 1.5, 1.6.1–1.6.2 and completeness example); §§2–3, pp. 185–189 (curve reduction, Picard and divisor construction through 3.6). Tensor factor in 1.5 checked on the printed p. 182 image. Printed p. 192 also checked for 3.9.2, the quotient sequence 3.10.1 and the actual printed 3.30.2 misnumbering (E3)."
       ],
-      "accessDate": "2026-10-06"
+      "accessDate": "2026-10-08"
     },
     {
       "id": "moret-bailly-1989-I",
@@ -107,9 +108,10 @@
       "sha256": "b1bec60bc061ae9c64fd08596aa9ad5b8e3d8d022766039cf88986aaae0a0d7a",
       "readSections": [
         "2026-09-29 (cc-39fac3, part R23.1): the passages quoted by the carried nodes, re-verified.",
-        "2026-10-06 (independent review Codex codex-GctJKn): passages cited by the checked-node ledger and sourceIssues independently read from this exact public PDF; SHA-256 matched. The review report distinguishes proof inputs left as gaps."
+        "2026-10-06 (independent review Codex codex-GctJKn): passages cited by the checked-node ledger and sourceIssues independently read from this exact public PDF; SHA-256 matched. The review report distinguishes proof inputs left as gaps.",
+        "2026-10-08 (revision Codex codex-BiJOuf): §5.8 and §6.1–6.2, printed pp. 177–178, integral-model local opens and the nonarchimedean/Rumely comparison."
       ],
-      "accessDate": "2026-10-06"
+      "accessDate": "2026-10-08"
     },
     {
       "id": "taylor-2002-fontaine-mazur",
@@ -121,9 +123,10 @@
       "readSections": [
         "2026-09-29 (cc-39fac3, part R23.1): Introduction, Theorem G (pp. 4–5), whose text layer is damaged; the quotations are transcribed and match the words of the text layer.",
         "2026-09-29 (cc-39fac3, part R23.1 checkpoint 2): §1, printed pp. 6–16 (standing hypotheses, the auxiliary choices, Lemmas 1.1–1.5, the moduli space X, the Moret-Bailly application, Theorem 1.6 and Corollary 1.7), on the page images.",
-        "2026-10-06 (independent review Codex codex-GctJKn): passages cited by the checked-node ledger and sourceIssues independently read from this exact public PDF; SHA-256 matched. The review report distinguishes proof inputs left as gaps."
+        "2026-10-06 (independent review Codex codex-GctJKn): passages cited by the checked-node ledger and sourceIssues independently read from this exact public PDF; SHA-256 matched. The review report distinguishes proof inputs left as gaps.",
+        "2026-10-08 (revision Codex codex-BiJOuf): Printed pp. 7–9 (auxiliary choices and Lemma 1.1), p. 11 (ordinary local construction) and p. 15 (end of Lemma 1.5 and Theorem 1.6). Printed p. 7 image checked for both character branches and the unit root. Theorem G and conventions, printed pp. 4–5, also re-read."
       ],
-      "accessDate": "2026-10-06"
+      "accessDate": "2026-10-08"
     },
     {
       "id": "kw-serre-modularity-II",
@@ -135,9 +138,10 @@
       "readSections": [
         "2026-09-29 (cc-39fac3, part R23.1): §2 (Proposition 2.2, Definition 2.4), §4 (Propositions 4.1, 4.5, Corollary 4.7), §6 (Theorem 6.1 and proof), §8 (Theorem 8.2), §§10.1 and 10.3.",
         "2026-10-06 (Codex codex-o6iGoa): Theorem 6.1 and complete proof pp. 53–57; §10.1 and §10.3.1–2 pp. 90–94. Earlier Taylor-specific page-image readings retain their previous attribution.",
-        "2026-10-06 (independent review Codex codex-GctJKn): passages cited by the checked-node ledger and sourceIssues independently read from this exact public PDF; SHA-256 matched. The review report distinguishes proof inputs left as gaps."
+        "2026-10-06 (independent review Codex codex-GctJKn): passages cited by the checked-node ledger and sourceIssues independently read from this exact public PDF; SHA-256 matched. The review report distinguishes proof inputs left as gaps.",
+        "2026-10-08 (revision Codex codex-BiJOuf): Author PDF pp. 53–54, 56–57 (Theorem 6.1 and local moduli application), pp. 90–94 (finiteness, its corrected 6.1(iii)(b) invocation, and extraction of lifts)."
       ],
-      "accessDate": "2026-10-06"
+      "accessDate": "2026-10-08"
     },
     {
       "id": "kw-annals-2009",
@@ -148,9 +152,10 @@
       "sha256": "154c0c2a2245e50cb2be3c82705f9176fe0e9b597424236ddca11299d38cdb22",
       "readSections": [
         "2026-09-29 (cc-39fac3, part R23.1): §2 (Theorem 2.1 and proof, pp. 234–237) and the bibliography.",
-        "2026-10-06 (independent review Codex codex-GctJKn): passages cited by the checked-node ledger and sourceIssues independently read from this exact public PDF; SHA-256 matched. The review report distinguishes proof inputs left as gaps."
+        "2026-10-06 (independent review Codex codex-GctJKn): passages cited by the checked-node ledger and sourceIssues independently read from this exact public PDF; SHA-256 matched. The review report distinguishes proof inputs left as gaps.",
+        "2026-10-08 (revision Codex codex-BiJOuf): Printed pp. 234–237, Theorem 2.1 and its auxiliary-moduli/ordinary-Hida proof."
       ],
-      "accessDate": "2026-10-06"
+      "accessDate": "2026-10-08"
     },
     {
       "id": "taylor-2006-meromorphic-continuation",
@@ -162,9 +167,10 @@
       "readSections": [
         "2026-09-29 (cc-39fac3, part R23.1 checkpoint 2): Theorems 3.2–3.3 and §4 in full, pp. 755–763 (Proposition 4.1, Lemmas 4.2–4.5 with proofs, the moduli space X, the twists X_{R,ψ}, X_ρ̄ and X_Dih, Corollary 4.6); Lemma 5.6 and Theorem 5.7 with its proof, pp. 770–771; Corrections to [Tay4], pp. 776–777; all on the page images. Lemmas 5.1–5.5 not read.",
         "2026-09-29 (cc-39fac3, part R23.1 checkpoint 3): §1, Lemmas 1.3–1.4 and Corollary 1.5 with the Hecke algebras and ρ_𝔪 (pp. 740–743); §5 in full (pp. 763–771: the set-up with η̄^i, 𝐔 and 𝐕, the pairing, I^i, Lemma 5.1, Corollary 5.2, Lemmas 5.3–5.6, Corollary 5.5, Theorem 5.7); the bibliography entries [SW1], [SW2], [W1], [Bu], [CDT]; all on the page images.",
-        "2026-10-06 (independent review Codex codex-GctJKn): passages cited by the checked-node ledger and sourceIssues independently read from this exact public PDF; SHA-256 matched. The review report distinguishes proof inputs left as gaps."
+        "2026-10-06 (independent review Codex codex-GctJKn): passages cited by the checked-node ledger and sourceIssues independently read from this exact public PDF; SHA-256 matched. The review report distinguishes proof inputs left as gaps.",
+        "2026-10-08 (revision Codex codex-BiJOuf): Printed pp. 739, 742–743 (local Galois/crystallinity/Fontaine–Laffaille inputs), pp. 765–768 (weight reduction and shift), pp. 776–777 (corrections). Printed p. 766 image checked: weight i+2 requires Symm^i in the two coefficient factors; E9 norm independently recalculated."
       ],
-      "accessDate": "2026-10-06"
+      "accessDate": "2026-10-08"
     },
     {
       "id": "qian",
@@ -173,10 +179,11 @@
       "url": "https://par.nsf.gov/servlets/purl/10388233",
       "sha256": "77969caa063c52027dc7274ccef679ce11a2382b8e0b5a8565847922a8d7c0d8",
       "edition": "Invent. Math. 231 (2023), author/publisher online-first PDF (37 pages). Printed section/proposition locators.",
-      "accessDate": "2026-10-06",
+      "accessDate": "2026-10-08",
       "readSections": [
         "2026-10-06 (Codex codex-o6iGoa): §2 opening disjointness facts and §4 Proposition 4.2 with its application (S1={∞}, S3={l,l′}); Lemma 2.1 is only a consumer, owned by Dwork Part II.",
-        "2026-10-06 (independent review Codex codex-GctJKn): passages cited by the checked-node ledger and sourceIssues independently read from this exact public PDF; SHA-256 matched. The review report distinguishes proof inputs left as gaps."
+        "2026-10-06 (independent review Codex codex-GctJKn): passages cited by the checked-node ledger and sourceIssues independently read from this exact public PDF; SHA-256 matched. The review report distinguishes proof inputs left as gaps.",
+        "2026-10-08 (revision Codex codex-BiJOuf): Proposition 4.2 statement and its application with S1={infinity} and S3={l,l-prime}; three different local ambient fields retained."
       ]
     },
     {
@@ -186,10 +193,11 @@
       "url": "https://pmihes.centre-mersenne.org/item/10.1007/s10240-008-0016-1.pdf",
       "sha256": "9d3b7079440d8cd3167812bb11c25ae4b51ada973b2e98f0928624254a60156c",
       "edition": "Published, Publ. Math. IHES 108 (2008), 1–181.",
-      "accessDate": "2026-10-06",
+      "accessDate": "2026-10-08",
       "readSections": [
         "2026-10-06 (Codex codex-o6iGoa): §4.1, Lemmas 4.1.1–4.1.2, statements and complete proofs, printed pp. 116–117.",
-        "2026-10-06 (independent review Codex codex-GctJKn): passages cited by the checked-node ledger and sourceIssues independently read from this exact public PDF; SHA-256 matched. The review report distinguishes proof inputs left as gaps."
+        "2026-10-06 (independent review Codex codex-GctJKn): passages cited by the checked-node ledger and sourceIssues independently read from this exact public PDF; SHA-256 matched. The review report distinguishes proof inputs left as gaps.",
+        "2026-10-08 (revision Codex codex-BiJOuf): Lemmas 4.1.1–4.1.2, printed pp. 116–117; character extension with auxiliary ramification and induction on soluble local groups."
       ]
     },
     {
@@ -199,10 +207,11 @@
       "url": "https://virtualmath1.stanford.edu/~rltaylor/cy2fin.pdf",
       "sha256": "225cab84210837ca6130c1c76a5eababeffeaa8d1594b6267e853ce0ae8eabb3",
       "edition": "Final author copy, 2010, of Publ. RIMS 47 (2011), 29–98; author pagination.",
-      "accessDate": "2026-10-06",
+      "accessDate": "2026-10-08",
       "readSections": [
         "2026-10-06 (Codex codex-o6iGoa): Proposition 6.2 and its full proof, pp. 40–41 (the three classes of local conditions and descent from M).",
-        "2026-10-06 (independent review Codex codex-GctJKn): passages cited by the checked-node ledger and sourceIssues independently read from this exact public PDF; SHA-256 matched. The review report distinguishes proof inputs left as gaps."
+        "2026-10-06 (independent review Codex codex-GctJKn): passages cited by the checked-node ledger and sourceIssues independently read from this exact public PDF; SHA-256 matched. The review report distinguishes proof inputs left as gaps.",
+        "2026-10-08 (revision Codex codex-BiJOuf): Proposition 6.2, author pp. 40–41, preliminary-field and restriction-of-scalars application."
       ]
     },
     {
@@ -225,10 +234,11 @@
       "url": "https://arxiv.org/pdf/2309.15880v3",
       "sha256": "0ad015dfe35d40489a2b8b462ac93d5dd715dbbae7d3fbf18377beaed654579d",
       "edition": "Final author version v3 of Forum Math. Pi (2025); author pagination.",
-      "accessDate": "2026-10-06",
+      "accessDate": "2026-10-08",
       "readSections": [
         "2026-10-06 (Codex codex-o6iGoa): §4.5 Proposition 4.5.1 and full proof, pp. 48–49, including the finite fundamental-group quotient refinement.",
-        "2026-10-06 (independent review Codex codex-GctJKn): passages cited by the checked-node ledger and sourceIssues independently read from this exact public PDF; SHA-256 matched. The review report distinguishes proof inputs left as gaps."
+        "2026-10-06 (independent review Codex codex-GctJKn): passages cited by the checked-node ledger and sourceIssues independently read from this exact public PDF; SHA-256 matched. The review report distinguishes proof inputs left as gaps.",
+        "2026-10-08 (revision Codex codex-BiJOuf): Proposition 4.5.1, author pp. 48–49, exact-completion/equivariant CM field selection and finite-quotient specialization proof."
       ]
     },
     {
@@ -238,10 +248,11 @@
       "url": "https://pmihes.centre-mersenne.org/item/10.1007/s10240-021-00128-2.pdf",
       "sha256": "b4cc8b016615bcaf4b92bdf826ec1e285f6aca842ebd9f13712e1c498f8454af",
       "edition": "Published, Publ. Math. IHES 134 (2021), 153–501.",
-      "accessDate": "2026-10-06",
+      "accessDate": "2026-10-08",
       "readSections": [
         "2026-10-06 (Codex codex-o6iGoa): Propositions 9.1.11–9.1.12 and proofs, pp. 458–459; comparison with arXiv version, and Lemma 9.2.7 use of K and L′/K′ (pp. 462–463).",
-        "2026-10-06 (independent review Codex codex-GctJKn): passages cited by the checked-node ledger and sourceIssues independently read from this exact public PDF; SHA-256 matched. The review report distinguishes proof inputs left as gaps."
+        "2026-10-06 (independent review Codex codex-GctJKn): passages cited by the checked-node ledger and sourceIssues independently read from this exact public PDF; SHA-256 matched. The review report distinguishes proof inputs left as gaps.",
+        "2026-10-08 (revision Codex codex-BiJOuf): Propositions 9.1.11–9.1.12, printed pp. 458–459, representation base F1, field-selection base F, and the containment/descent defect."
       ]
     },
     {
@@ -251,10 +262,11 @@
       "url": "https://arxiv.org/pdf/0905.4266",
       "sha256": "b0c0008a55489b000d6a7b2004f6412c8829243b7254ba0efe152ac6e5fc06a2",
       "edition": "Author preprint v1 (arXiv:0905.4266v1, 26 May 2009); author pagination. Proposition 8.2.1, called Theorem in some routing notes.",
-      "accessDate": "2026-10-06",
+      "accessDate": "2026-10-08",
       "readSections": [
         "2026-10-06 (Codex codex-o6iGoa): §3 hypotheses (A1),(A2); §§5.1–5.5 potential residual modularity statements, Skolem datum, auxiliary moduli application, induced modular representation and transfer proof; §§8.1–8.2 statements and proofs. §§4.4 and 7.6 are identified imported statements, not claimed decomposed here.",
-        "2026-10-06 (independent review Codex codex-GctJKn): passages cited by the checked-node ledger and sourceIssues independently read from this exact public PDF; SHA-256 matched. The review report distinguishes proof inputs left as gaps."
+        "2026-10-06 (independent review Codex codex-GctJKn): passages cited by the checked-node ledger and sourceIssues independently read from this exact public PDF; SHA-256 matched. The review report distinguishes proof inputs left as gaps.",
+        "2026-10-08 (revision Codex codex-BiJOuf): Theorem 5.1.1/Proposition 5.1.2, author p. 15, and Propositions 8.2.1–8.2.2, author p. 26; original residual hypotheses distinguished from auxiliary/lifting/descent hypotheses."
       ]
     },
     {
@@ -264,10 +276,11 @@
       "url": "https://arxiv.org/pdf/1012.4819",
       "sha256": "8c95a021afd8fb5b7479f248bac5366389b6dd93b33f272f95f3ae3cbbda126b",
       "edition": "Author preprint of JAMS 25 (2012), 533–554; author pp. 5–6.",
-      "accessDate": "2026-10-06",
+      "accessDate": "2026-10-08",
       "readSections": [
         "2026-10-06 (Codex codex-o6iGoa): Theorem 3.1 and Proposition 3.2, complete statements and proofs; inverse-Galois construction and Jordan argument.",
-        "2026-10-06 (independent review Codex codex-GctJKn): passages cited by the checked-node ledger and sourceIssues independently read from this exact public PDF; SHA-256 matched. The review report distinguishes proof inputs left as gaps."
+        "2026-10-06 (independent review Codex codex-GctJKn): passages cited by the checked-node ledger and sourceIssues independently read from this exact public PDF; SHA-256 matched. The review report distinguishes proof inputs left as gaps.",
+        "2026-10-08 (revision Codex codex-BiJOuf): Theorem 3.1 and Proposition 3.2 statement/proof, author pp. 5–6, quotient free-action/local-permutation construction, splitting and finite-group realization."
       ]
     },
     {
@@ -277,10 +290,11 @@
       "url": "https://www.dpmms.cam.ac.uk/~jat58/bigness.pdf",
       "sha256": "5e9d15afa98ca38eb079c378b2ce59db7a57327f179073a59aaadea509a6b15b",
       "edition": "Author copy of JIMJ 11 (2012), 855–920, author pp. 56–58; current author server fetched with certificate verification disabled after certificate failure.",
-      "accessDate": "2026-10-06",
+      "accessDate": "2026-10-08",
       "readSections": [
         "2026-10-06 (Codex codex-o6iGoa): §10 ordinary finiteness setup, Theorem 10.2 and full proof. No claim to have read/decomposed §§6–9 patching or the adequate-image appendix.",
-        "2026-10-06 (independent review Codex codex-GctJKn): passages cited by the checked-node ledger and sourceIssues independently read from this exact public PDF; SHA-256 matched. The review report distinguishes proof inputs left as gaps."
+        "2026-10-06 (independent review Codex codex-GctJKn): passages cited by the checked-node ledger and sourceIssues independently read from this exact public PDF; SHA-256 matched. The review report distinguishes proof inputs left as gaps.",
+        "2026-10-08 (revision Codex codex-BiJOuf): Theorem 10.2 and its preceding ordinary polarized setup and proof, author pp. 56–58."
       ]
     },
     {
@@ -290,10 +304,11 @@
       "url": "https://math.uchicago.edu/~fcale/papers/CG.pdf",
       "sha256": "c0ba8de04d5ee92fe1a967f9487df6cb49295590dfd03762a9150a92838225c5",
       "edition": "Published Invent. Math. 211 (2018), 297–433, DOI 10.1007/s00222-017-0749-x; the PDF numbers the multiplicity theorem 4.8.",
-      "accessDate": "2026-10-06",
+      "accessDate": "2026-10-08",
       "readSections": [
         "2026-10-06 (Codex codex-o6iGoa): Theorem 4.8 and its proof, PDF pp. 65–68; ring R_φ and the paragraph citing Thorne Theorem 10.2 on PDF p. 68. Published PDF headers omit pagination in this section; use PDF pages. Only its finiteness input is in scope.",
-        "2026-10-06 (independent review Codex codex-GctJKn): passages cited by the checked-node ledger and sourceIssues independently read from this exact public PDF; SHA-256 matched. The review report distinguishes proof inputs left as gaps."
+        "2026-10-06 (independent review Codex codex-GctJKn): passages cited by the checked-node ledger and sourceIssues independently read from this exact public PDF; SHA-256 matched. The review report distinguishes proof inputs left as gaps.",
+        "2026-10-08 (revision Codex codex-BiJOuf): Author PDF pp. 66–68, construction of R_phi, ordinary R-dagger and the Frobenius-eigenvalue variant, and use of Thorne 10.2 for finiteness."
       ]
     },
     {
@@ -303,10 +318,11 @@
       "url": "https://arxiv.org/pdf/2212.03595v2",
       "sha256": "6a156f7a5567226e0bd2209d5b237cbbc150dc10cfbd9ffd060a3245328cb82c",
       "edition": "Author version v2 of Ann. Math. 203 (2026), no. 1; author pagination.",
-      "accessDate": "2026-10-06",
+      "accessDate": "2026-10-08",
       "readSections": [
         "2026-10-06 (Codex codex-o6iGoa): §3 characteristic-zero extraction paragraph, p. 14, with the preceding component choices and dimension input BG19 Prop. 4.2.6. Symmetric-power lifting itself is outside this part.",
-        "2026-10-06 (independent review Codex codex-GctJKn): passages cited by the checked-node ledger and sourceIssues independently read from this exact public PDF; SHA-256 matched. The review report distinguishes proof inputs left as gaps."
+        "2026-10-06 (independent review Codex codex-GctJKn): passages cited by the checked-node ledger and sourceIssues independently read from this exact public PDF; SHA-256 matched. The review report distinguishes proof inputs left as gaps.",
+        "2026-10-08 (revision Codex codex-BiJOuf): §3 setup and proof of Lemma 3.1, author pp. 12–14, including p≥5, residual image, determinant ε^−2ω, Hodge–Tate weights {0,2} and nonempty selected components."
       ]
     },
     {
@@ -316,10 +332,11 @@
       "edition": "Published Acta Math. 223 (2019), 1–111; printed pagination. §9 collated against author version v2.",
       "url": "https://intlpress.com/site/pub/files/_fulltext/journals/acta/2019/0223/0001/ACTA-2019-0223-0001-a001.pdf",
       "sha256": "15c4b9668e335f75225215bb367c1051769990595232f8015f441d2e2c86ba2c",
-      "accessDate": "2026-10-06",
+      "accessDate": "2026-10-08",
       "readSections": [
         "2026-10-06 (Codex codex-o6iGoa): §9 setup, Lemma 9.1 and Proposition 9.2 with complete proofs, Theorem 9.3 and Remark 9.4, printed pp. 76–79. The finite-etale base misprint of Lemma 9.1(i) persists in print.",
-        "2026-10-06 (independent review Codex codex-GctJKn): passages cited by the checked-node ledger and sourceIssues independently read from this exact public PDF; SHA-256 matched. The review report distinguishes proof inputs left as gaps."
+        "2026-10-06 (independent review Codex codex-GctJKn): passages cited by the checked-node ledger and sourceIssues independently read from this exact public PDF; SHA-256 matched. The review report distinguishes proof inputs left as gaps.",
+        "2026-10-08 (revision Codex codex-BiJOuf): Lemma 9.1, Proposition 9.2, Theorem 9.3 and Remark 9.4, printed pp. 77–79; Isom scheme base Y_K and constant-field argument."
       ]
     },
     {
@@ -329,10 +346,11 @@
       "edition": "arXiv:2502.20611v1 (2025), author p. 28; only the explicit correction to BHKT Lemma 9.1 is used.",
       "url": "https://arxiv.org/pdf/2502.20611v1",
       "sha256": "0735ecd6e5b41679c71f92a68db1c76f751a14cd17cb4de08ac77aa8ee10a6ad",
-      "accessDate": "2026-10-06",
+      "accessDate": "2026-10-08",
       "readSections": [
         "2026-10-06: p. 28, paragraph beginning with the Isom scheme and explicitly correcting the base of the finite-etale map in BHKT Lemma 9.1. No other results are marked read.",
-        "2026-10-06 (independent review Codex codex-GctJKn): passages cited by the checked-node ledger and sourceIssues independently read from this exact public PDF; SHA-256 matched. The review report distinguishes proof inputs left as gaps."
+        "2026-10-06 (independent review Codex codex-GctJKn): passages cited by the checked-node ledger and sourceIssues independently read from this exact public PDF; SHA-256 matched. The review report distinguishes proof inputs left as gaps.",
+        "2026-10-08 (revision Codex codex-BiJOuf): p. 28, correction to the Isom scheme and the nonconstant-point choice."
       ]
     }
   ],
@@ -649,7 +667,7 @@
         "Lemme 3.3(i): Omega_v^[d] = Omega' ∩ U_d(K_v) where Omega' is the image of Omega_v^d minus diagonals under an étale projection, hence open. (ii): with delta = [L_v : K_v] and d = r delta, the union of the proper intermediate analytic submanifolds Omega_v ∩ X(M) has empty interior, so there are r points of degree delta over K_v, pairwise non-conjugate, whose conjugates form a K_v-rational divisor in Omega_v^[d].",
         "3.4: rigidity of the categories of pairs (from 3.1.2(ii) and surjectivity of Z -> B) makes PG sheaves; (3.4.2) exhibits PG(X-bar, Z) as an extension of Pic by the smooth affine group (pi_Z)_* G_m,Z / G_m,B.",
         "3.5: a section s of L with s|Z = alpha is regular, and div(s) is in X^(d)(S); this gives the bijection (3.5.4) between X^(d)(S) and triples (L, alpha, s).",
-        "Lemme 3.6: for d >= 2g + z - 1, R^1 pr_2* of the universal bundle and of its twist by -Z vanish by duality; so the direct images E_d, N_d commute with base change and the restriction r_d: E_d -> F_d is a surjection of locally free sheaves with kernel N_d; the subscheme r_d^(-1)(Im sigma_d) of V(E_d-dual) is U^(d)... identified with X^(d) over P_d, a torsor under the vector bundle V(N_d-dual) of rank d + 1 - g - z."
+        "Lemme 3.6: when d ≥ 2g + z − 1, duality kills the first higher direct images of the universal line bundle and its twist by −Z. Their direct images commute with base change. Restriction to Z is a surjection of vector bundles; fixing the prescribed boundary section makes its inverse image a torsor under the kernel vector bundle. Via the divisor/section correspondence this gives the asserted affine-space fibration, of rank d + 1 − g − z."
       ],
       "acceptance": [
         "For X = P^1 minus two sections over Z[1/N] (g = 0, z = 2) compute phi_d for d >= 1 and check fibres are affine spaces of dimension d - 1",
@@ -3773,12 +3791,43 @@
     },
     {
       "title": "Suggested APIs and tests: missing full object interfaces",
-      "detail": "The suggested file has a normalized field-point model rather than the closed-subscheme comparison; PG has an objectwise group signature and quotient descent, without the relative group-sheaf/Cartesian-pullback construction or its tensor/dual and functor laws; auxiliary fields omit automorphic witnesses and local realization data. Supply those full interfaces from SF.3/R09.3/H6 and the place/automorphic owners, together with the geometric integralPoint_iff/enlargeSigma comparison and the identity/composition laws of mapPoint. At least three tests per full object must exercise those interfaces. Arithmetic-only examples are reduced checks, not the packet’s complete geometric/automorphic tests. The existing reduced signatures are explicitly marked as such under Protocol §13.",
+      "detail": "The suggested file has a normalized field-point model rather than the closed-subscheme comparison; PG has an objectwise group signature and quotient descent, without the relative group-sheaf/Cartesian-pullback construction or its tensor/dual and functor laws; auxiliary fields omit automorphic witnesses and local realization data. Supply those full interfaces from SF.3/R09.3/H6 and the place/automorphic owners, together with the geometric integralPoint_iff/enlargeSigma comparison and the identity/composition laws of mapPoint. At least three tests per full object must exercise those interfaces. Arithmetic-only examples are reduced checks, not the packet’s complete geometric/automorphic tests. The safe objectwise and arithmetic fragments are marked as such under Protocol §13. Signatures whose missing hypotheses would make their conclusions false have been omitted entirely, with their reserved names and exact missing supplier contracts recorded beside the omission. In particular, no finiteness theorem is asserted for an arbitrary O-algebra, no rational-point theorem is asserted for an arbitrary scheme, and no unrestricted character-extension or Hecke-surjection theorem is asserted. The two characteristic-zero-point sketches instead retain the DVR, characteristic-zero fraction field, finite local algebra and local structure-map hypotheses; they sketch only the imported algebraic extraction, not its deformation/continuous adapter.",
       "neededBy": [
         "PotentialModularityAndCompatibleSystems:R23.1/skolem-datum-and-integral-point",
         "PotentialModularityAndCompatibleSystems:R23.1/generalized-picard-functor-and-effective-divisor-fibration",
         "PotentialModularityAndCompatibleSystems:R24.1/auxiliary-totally-real-field-for-the-finiteness-argument",
-        "PotentialModularityAndCompatibleSystems:R23.2/taylor-auxiliary-data-p-L-psi-N-M"
+        "PotentialModularityAndCompatibleSystems:R23.2/taylor-auxiliary-data-p-L-psi-N-M",
+        "PotentialModularityAndCompatibleSystems:R23.1/moret-bailly-theorem-incomplete-skolem-data-have-integral-points",
+        "PotentialModularityAndCompatibleSystems:R23.1/taylor-theorem-g-split-completely-points-are-dense",
+        "PotentialModularityAndCompatibleSystems:R23.1/forcing-linear-disjointness-by-extra-split-places",
+        "PotentialModularityAndCompatibleSystems:R23.3/kw-ii-theorem-6-1-potential-modularity-of-rho-bar-over-a-controlled-F",
+        "PotentialModularityAndCompatibleSystems:R23.3/kw-annals-theorem-2-1-taylor-potential-modularity-with-ordinarity",
+        "PotentialModularityAndCompatibleSystems:R24.1/kw-ii-theorem-10-1-finiteness-of-the-unframed-global-ring",
+        "PotentialModularityAndCompatibleSystems:R24.2/characteristic-zero-points-of-R-bar-S-psi-give-lifts-of-required-type",
+        "PotentialModularityAndCompatibleSystems:R23.4/potential-modularity-of-a-given-lift",
+        "PotentialModularityAndCompatibleSystems:R23.5/control-of-the-extension",
+        "PotentialModularityAndCompatibleSystems:R23.2/local-points-at-l-p-infinity-and-the-point-over-E",
+        "PotentialModularityAndCompatibleSystems:R23.3/modularity-of-the-auxiliary-abelian-variety-transfers-to-rho-bar",
+        "PotentialModularityAndCompatibleSystems:R23.3/taylor-theorem-1-6-potential-residual-modularity-ordinary-at-l",
+        "PotentialModularityAndCompatibleSystems:R23.3/taylor-2006-potential-modularity-when-residually-irreducible-at-l",
+        "PotentialModularityAndCompatibleSystems:R23.3/taylor-2006-lemma-1-3-quaternionic-forms-and-galois-representations",
+        "PotentialModularityAndCompatibleSystems:R23.3/taylor-2006-lemma-1-4-corollary-1-5-local-shape-at-l",
+        "PotentialModularityAndCompatibleSystems:R23.3/taylor-2006-lemma-5-1-corollary-5-2-weight-reduction",
+        "PotentialModularityAndCompatibleSystems:R23.3/taylor-2006-lemmas-5-4-5-6-weight-and-level",
+        "PotentialModularityAndCompatibleSystems:R23.3/taylor-2006-theorem-5-7-serre-weight-at-level-one",
+        "PotentialModularityAndCompatibleSystems:R23.1/cht-soluble-prescribed-completions",
+        "PotentialModularityAndCompatibleSystems:R23.1/moret-bailly-three-local-conditions",
+        "PotentialModularityAndCompatibleSystems:R23.1/moret-bailly-over-a-preliminary-extension",
+        "PotentialModularityAndCompatibleSystems:R23.1/surjective-specialisation-finite-quotient",
+        "PotentialModularityAndCompatibleSystems:R23.1/function-field-point-with-fixed-constants",
+        "PotentialModularityAndCompatibleSystems:R23.1/potential-global-galois-local-data",
+        "PotentialModularityAndCompatibleSystems:R23.2/restriction-of-scalars-moduli-application",
+        "PotentialModularityAndCompatibleSystems:R23.3/snowden-totally-real-potential-residual-modularity",
+        "PotentialModularityAndCompatibleSystems:R23.3/bcgp-controlled-residual-modularity",
+        "PotentialModularityAndCompatibleSystems:R23.5/bcgp-local-galois-data-without-descent",
+        "PotentialModularityAndCompatibleSystems:R24.1/ordinary-global-ring-finiteness",
+        "PotentialModularityAndCompatibleSystems:R24.1/cg-ordinary-ring-finiteness",
+        "PotentialModularityAndCompatibleSystems:R24.2/newton-thorne-khare-wintenberger-extraction"
       ]
     },
     {
@@ -3797,7 +3846,7 @@
       "affects": "nothing",
       "locator": "Proof of Theorem 10.1, p. 91 of the author's preprint proofs.pdf",
       "printed": "The proof chooses F using Theorem 6.1(c), requiring its completion at ℓi to contain Fℓi.",
-      "correction": "\"… choosing F as in part (iii) b) of Theorem 6.1 …\"",
+      "correction": "The proof should invoke Theorem 6.1(iii)(b), which supplies the prescribed local extensions.",
       "reason": "In Theorem 6.1 (p. 54) the clause about completions containing prescribed local extensions F_{ℓ_i} is (iii) b); (iii) c) makes F split at p when p > 2 and k(ρ̄) = p + 1. The proof needs the local extensions.",
       "known": "new: present in the author's preprint; the Inventiones version was not obtained",
       "searched": [
@@ -3837,7 +3886,7 @@
       "locator": "proof of Lemma 1.5, printed p. 15 (PDF page 16), read on the page image",
       "printed": "The proof says an ε^{−1}-action would give an ω^{−1}-action on a subquotient of A[℘], citing [CDT], appendix B. It deduces χ₁|_{I_x} = ω, which it says the assumptions rule out when A[λ] is semisimple as a G_x-module.",
       "correction": "Hence χ₁|_{I_x} = ω^{−1} (that is, n = 1).",
-      "reason": "The proof has arranged χ₁|_{I_x} ∼ ε^{−n} and ψ₁|_{I_x} = ω^{−n} with ψ₂ unramified, so an action by ω^{−1} on a subquotient of A[℘] means n ≡ 1 mod (l − 1), i.e. n = 1 as 0 ≤ n < l − 1, and then χ₁|_{I_x} = ω^{−1}. The printed χ₁|_{I_x} = ω would mean n = l − 2, which the lemma does not exclude; the excluded case is n = 1 (checked in the suggested Lean file).",
+      "reason": "The proof has arranged χ₁|_{I_x} ∼ ε^{−n} and ψ₁|_{I_x} = ω^{−n} with ψ₂ unramified, so an action by ω^{−1} on a subquotient of A[℘] means n ≡ 1 mod (l − 1), i.e. n = 1 as 0 ≤ n < l − 1, and then χ₁|_{I_x} = ω^{−1}. The printed χ₁|_{I_x} = ω would mean n = l − 2, which the lemma does not exclude; the excluded case is n = 1.",
       "known": "new: not among the corrections Taylor lists in Documenta Extra Volume Coates (2006), pp. 776–777; the published version (J. Inst. Math. Jussieu 1 (2002)) was not obtained",
       "searched": [
         "Taylor, On the meromorphic continuation of degree two L-functions (2006), 'Corrections to [Tay4]', pp. 776–777",
@@ -3847,7 +3896,8 @@
         "verdict": "confirmed",
         "reason": "Independently read the cited source passage. The proof has arranged χ₁|_{I_x} ∼ ε^{−n} and ψ₁|_{I_x} = ω^{−n} with ψ₂ unramified, so an action by ω^{−1} on a subquotient of A[℘] means n ≡ 1 mod (l − 1), i.e. n = 1 as 0 ≤ n < l − 1, and then χ₁|_{I_x} = ω^{−1}. The printed χ₁|_{I_x} = ω would mean n = l − 2, which the lemma does not exclude; the excluded case is n = 1 (checked in the suggested Lean file).",
         "by": "REV-PotentialModularityAndCompatibleSystems--R23.1"
-      }
+      },
+      "verificationNote": "Revision codex-BiJOuf: the cited proof and exponent convention were rechecked in the source. The inherited erratum review is historical; its claim of a Lean check of this exponent argument is not reproduced or certified."
     },
     {
       "id": "PotentialModularityAndCompatibleSystems/E5",
@@ -4023,13 +4073,15 @@
       "PotentialModularityAndCompatibleSystems:R23.2/taylor-lemmas-1-3-1-4-local-points-at-p-and-at-infinity",
       "PotentialModularityAndCompatibleSystems:R23.6/application-table-and-noncircularity"
     ],
-    "nodeBudget": 300
+    "nodeBudget": 300,
+    "suggestedFile": "The suggested file is partial and unchecked. Safe reduced objectwise APIs and arithmetic tests are retained. Missing global-field/place/geometry/automorphic/deformation supplier interfaces are recorded as named omissions, not replaced by false unconditional theorem schemas. The full specifications remain the nodes and reader document. The complete file needs the pinned Tau Ceti line-bundle compiled import before it can elaborate."
   },
   "baselineAudit": {
     "date": "2026-10-06",
     "reviewedAudit": "No layer audit rows keyed by PotentialModularityAndCompatibleSystems are present at this checkout; references to its layers do occur in other owners’ audit rows. Read H6 (AUDIT-15: twisted moduli/local points absent) and SF.3 (AUDIT-01: existing invertible sheaves/line-bundle classes and function-field divisor/Riemann–Roch theory, but relative Picard representability and scheme cohomological duality missing). The packet imports H6, extends the pinned line-bundle API, and requests the relative-curve foundations from their owners.",
     "search": "Pinned TauCeti git grep plus pinned Mathlib source searches: MoretBailly/Skolem/Grunwald/generalizedPicard/line bundles/Galois disjointness/deformation finiteness. Found primitive schemes, field disjointness, invertible sheaves and Frobenius-prime sets, not the needed approximation, density, twisted-moduli or deformation finiteness conclusions.",
-    "build": "Mathlib in the shared lean-check build is exactly 082e2d3. Shared TauCeti HEAD differs from f790474. The relevant line-bundle source blobs were compared and are unchanged, but their compiled objects are absent; full suggested-file elaboration is unavailable and no library build is attempted."
+    "build": "Mathlib in the shared lean-check build is exactly 082e2d3. Shared TauCeti HEAD differs from f790474. The relevant line-bundle source blobs were compared and are unchanged, but their compiled objects are absent; full suggested-file elaboration is unavailable and no library build is attempted.",
+    "revisionChecks": "2026-10-08, Codex codex-BiJOuf: re-read the nine cited declarations at the exact pins, reviewed the H6/SF.3 audits, checked matching incoming link maps and fine supplier-node statements, and matched all 19 public source artifact hashes. Mathlib shared HEAD matches the pin. Full lean-check fails at the absent line-bundle Class compiled import; a Mathlib-only 243-line fragment containing the character/auxiliary objects, arithmetic tests and both algebraic extraction signatures elaborates with only placeholder-proof warnings. No full-file certification."
   },
   "restructure": [
     {

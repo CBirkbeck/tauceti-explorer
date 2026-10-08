@@ -8,6 +8,7 @@ import Mathlib.RingTheory.IntegralClosure.IntegralRestrict
 import Mathlib.NumberTheory.NumberField.InfinitePlace.TotallyRealComplex
 import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
 import Mathlib.RingTheory.KrullDimension.Basic
+import Mathlib.RingTheory.DiscreteValuationRing.Basic
 import Mathlib.Tactic
 
 /-!
@@ -30,18 +31,15 @@ Cartier divisors and scheme representability are omitted. The divisor arguments 
 supplier's line bundle and boundary trivialization; they do not define Cartier divisors.
 
 Hilbert eigenforms, automorphic representations, local deformation problems and their
-universal rings are not available in the required form. The field-selection and Galois
-signatures omit automorphic witnesses and local-type conditions; the finiteness signatures
-omit the deformation-problem hypotheses. None is a complete statement of those theorems.
-The packet and reader give their complete mathematical statements. In particular a `sorry`
-on such a reduced signature must not be interpreted as an unconditional theorem about
-an arbitrary ring or representation.
-
-Independent review REV-PotentialModularityAndCompatibleSystems--R23.1 attempted the
-complete file with lean-check on 2026-10-06. Elaboration stopped at the first import:
-the shared build lacks TauCeti.AlgebraicGeometry.LineBundle.Class.olean. The earlier
-author reported checking a Mathlib-only arithmetic fragment; this review did not
-reproduce that check and does not certify this file or any fragment as elaborated.
+universal rings are not available in the required form. Their full theorem names are
+reserved in omission comments with node IDs and supplier requirements. No missing hypothesis
+is replaced by an arbitrary proposition or an unconditional theorem with a false conclusion.
+The algebraic characteristic-zero-point sketches retain the actual DVR, fraction-field,
+finite local algebra and local-map hypotheses and reuse the R03.4 supplier.
+All 36 API names and 22 test names are accounted for below, including named omissions.
+The examples cover only the stated reduced objectwise or arithmetic fragment; the reader
+specifies the full geometric and automorphic tests. Compilation results for this revision
+are recorded in the handoff; no whole-file compilation is claimed here.
 -/
 
 open CategoryTheory AlgebraicGeometry
@@ -263,25 +261,15 @@ def divisorClassMap (X Z : Scheme.{u}) (i : Z ⟶ X) (D : Type u)
       (InvertibleSheaf.trivial Z).obj) : D → generalizedPicard X Z i :=
   fun d ↦ Quotient.mk _ ⟨lineOfDivisor d, boundarySection d⟩
 
-/-- Pointwise fibre shape of the affine fibration. Divisor representation, degree components
-and the scheme-local triviality assertion are omitted, as stated in the standard note. -/
-lemma divisorClassMap_affineFibration (k : Type u) [Field k]
-    (X Z : Scheme.{u}) (i : Z ⟶ X) (D : Type u)
-    (lineOfDivisor : D → InvertibleSheaf X)
-    (boundarySection : ∀ d, (Scheme.Modules.pullback i).obj (lineOfDivisor d).obj ≅
-      (InvertibleSheaf.trivial Z).obj)
-    (degree g z : ℕ) (hz : 0 < z) (hd : 2 * g + z - 1 ≤ degree)
-    (P : generalizedPicard X Z i) :
-    Nonempty ({d // divisorClassMap X Z i D lineOfDivisor boundarySection d = P} ≃
-      (Fin (degree + 1 - g - z) → k)) := by
-  sorry
+/- Omitted declaration: TauCeti.PotentialModularity.divisorClassMap_affineFibration.
+Packet node: PotentialModularityAndCompatibleSystems:R23.1/generalized-picard-functor-and-effective-divisor-fibration.
+MB II Lemma 3.6, p. 189. Requires the actual effective-divisor scheme, degree component, relative curve and boundary, and Riemann–Roch/base-change hypotheses from SF.3/R09.3; arbitrary sets of divisors have no affine-fibration conclusion.
+The complete mathematical contract is in the packet and reader. -/
 
-/-- D is the supplier's etale symmetric power; Omega is the split-divisor locus.
-Its actual construction from local points is omitted. -/
-lemma omegaDivisors_open (D : Type u) [TopologicalSpace D] (Omega : Set D)
-    (degree localDegree : ℕ) (hdiv : localDegree ∣ degree) :
-    IsOpen Omega ∧ Omega.Nonempty := by
-  sorry
+/- Omitted declaration: TauCeti.PotentialModularity.omegaDivisors_open.
+Packet node: PotentialModularityAndCompatibleSystems:R23.1/generalized-picard-functor-and-effective-divisor-fibration.
+MB II Lemma 3.3, p. 187. Requires the etale symmetric power and locally split divisor locus constructed from nonempty analytic opens; an arbitrary Omega may be empty.
+The complete mathematical contract is in the packet and reader. -/
 
 /-- pg_affine_line: monic degree-d polynomials have d free coefficients. -/
 example (d : ℕ) : Module.finrank ℚ (Fin d → ℚ) = d ∧ d + 1 - 0 - 1 = d := by
@@ -361,9 +349,10 @@ structure TaylorAuxiliaryData (F Ω G D k : Type u)
 namespace TaylorAuxiliaryData
 variable {F Ω G D k : Type u} [Field F] [Field Ω] [Algebra F Ω]
     [Group G] [Group D] [Field k] {cyclotomic : G →* kˣ}
-/-- Existence omits Taylor's standing hypotheses and local-character construction. -/
-theorem «exists» : Nonempty (TaylorAuxiliaryData F Ω G D k cyclotomic) := by
-  sorry
+/- Omitted declaration: TauCeti.PotentialModularity.TaylorAuxiliaryData.exists.
+Packet node: PotentialModularityAndCompatibleSystems:R23.2/taylor-auxiliary-data-p-L-psi-N-M.
+Taylor printed pp. 7–9 and 2006 pp. 776–777. Requires actual global/local fields, CM splitting, coefficient primes, character construction and the simultaneous prime/quadratic/coefficient-field choice. Arbitrary G or D may be trivial.
+The complete mathematical contract is in the packet and reader. -/
 lemma det_ind (A : TaylorAuxiliaryData F Ω G D k cyclotomic) :
     Matrix.GeneralLinearGroup.det.comp A.induced = cyclotomic := by
   sorry
@@ -378,10 +367,10 @@ lemma conj_conj (A : TaylorAuxiliaryData F Ω G D k cyclotomic) :
 lemma det_ind_apply (A : TaylorAuxiliaryData F Ω G D k cyclotomic) (g : G) :
     Matrix.GeneralLinearGroup.det (A.induced g) = cyclotomic g := by
   sorry
-/-- Generic algebra form of splitting; completion and CM hypotheses are omitted. -/
-lemma split (A : TaylorAuxiliaryData F Ω G D k cyclotomic)
-    (Fv : Type u) [Field Fv] [Algebra F Fv] : SplitOver F A.L Fv := by
-  sorry
+/- Omitted API: TauCeti.PotentialModularity.TaylorAuxiliaryData.split.
+Packet node: PotentialModularityAndCompatibleSystems:R23.2/taylor-auxiliary-data-p-L-psi-N-M.
+Requires selected l- and p-adic places, L/F genuinely CM quadratic, and the actual
+local splitting choices. The reduced structure cannot assert splitting over every Fv. -/
 end TaylorAuxiliaryData
 
 /-- taylorAux_N0_l5: discriminant/local unramifiedness arithmetic. -/
@@ -419,68 +408,48 @@ example (a : ℂ) (ha : a ^ 2 - a + 5 = 0)
     a * star a = 5 ∧ a * star a ≠ p := by
   sorry
 
-/-! Reduced signatures for the named R23 theorems. All missing conditions/witnesses are
-listed in the standard note and beside each signature. These schemas do not assert automorphy. -/
+/-! Named R23 omissions. The missing supplier contracts are explicit; the complete
+mathematical statements remain in the packet and reader. -/
 
-/-- MB II 1.3; arithmetic/global/geometric hypotheses of the datum are omitted. -/
-theorem moretBailly (S : SkolemDatum R K V L) (h : ¬ S.IsComplete) :
-    Nonempty S.IntegralPoint := by
-  sorry
+/- Omitted declaration: TauCeti.PotentialModularity.moretBailly.
+Packet node: PotentialModularityAndCompatibleSystems:R23.1/moret-bailly-theorem-incomplete-skolem-data-have-integral-points.
+MB II Theorem 1.3, p. 181. Requires a full arithmetic/geometric Skolem datum; the reduced structure permits an empty scheme and cannot support existence.
+The complete mathematical contract is in the packet and reader. -/
 
-/-- Taylor Theorem G: this is the point-existence portion; the smooth geometric hypotheses,
-local nonemptiness and containment in the maximal S-split field are omitted. -/
-theorem taylorTheoremG (X : Scheme.{u}) : ∃ E : FiniteExtension K, Nonempty (Point E.carrier X) := by
-  sorry
+/- Omitted declaration: TauCeti.PotentialModularity.taylorTheoremG.
+Packet node: PotentialModularityAndCompatibleSystems:R23.1/taylor-theorem-g-split-completely-points-are-dense.
+Taylor Theorem G, printed pp. 4–5. Requires a number field, nonempty smooth geometrically irreducible quasi-projective X and nonempty local opens; an arbitrary scheme has no point-existence conclusion.
+The complete mathematical contract is in the packet and reader. -/
 
-/-- CHT 4.1.1: continuous finite-order global extension. Here the specified local subgroups
-are displayed; global/local reciprocity, continuity and auxiliary ramification are omitted. -/
-theorem chtCharacterExtension (G k : Type u) [Group G] [Field k]
-    (S : Type u) (H : S → Subgroup G) (chi : ∀ v, H v →* kˣ) :
-    ∃ psi : G →* kˣ, ∀ v, psi.comp (H v).subtype = chi v := by
-  sorry
+/- Omitted declaration: TauCeti.PotentialModularity.chtCharacterExtension.
+Packet node: PotentialModularityAndCompatibleSystems:R23.1/cht-character-extension.
+CHT Lemma 4.1.1, pp. 116–117. Requires actual local/global Galois groups, finite-order continuous characters, a divisible characteristic-zero character target and reciprocity; arbitrary subgroup characters need not extend.
+The complete mathematical contract is in the packet and reader. -/
 
-/-- CHT 4.1.2: the finite soluble Galois extension and avoidance portion.
-The exact isomorphisms of local completions are omitted. -/
-theorem chtSolublePrescribedCompletions (Ω : Type u) [Field Ω] [Algebra K Ω]
-    (D : IntermediateField K Ω) : ∃ E : IntermediateField K Ω,
-    FiniteDimensional K E ∧ IsGalois K E ∧
-      Group.IsSolvable (E ≃ₐ[K] E) ∧ E.LinearDisjoint D := by
-  sorry
+/- Omitted declaration: TauCeti.PotentialModularity.chtSolublePrescribedCompletions.
+Packet node: PotentialModularityAndCompatibleSystems:R23.1/cht-soluble-prescribed-completions.
+CHT Lemma 4.1.2, p. 117. Requires selected places, prescribed finite local Galois extensions and their completion isomorphisms. A trivial-field witness would omit the central conclusion.
+The complete mathematical contract is in the packet and reader. -/
 
-/-- Qian Prop. 4.2: local conditions are split over K_v (S1), unramified (S2),
-and Galois-invariant over Kbar_v (S3); these three ambient fields must remain distinct.
-Below only avoidance and point existence are expressible without the place supplier. -/
-theorem moretBaillyThreeLocalConditions (Ω : Type u) [Field Ω] [Algebra K Ω]
-    (D : IntermediateField K Ω) (X : Scheme.{u}) :
-    ∃ E : IntermediateField K Ω, FiniteDimensional K E ∧ IsGalois K E ∧
-      E.LinearDisjoint D ∧ Nonempty (Point E X) := by
-  sorry
+/- Omitted declaration: TauCeti.PotentialModularity.moretBaillyThreeLocalConditions.
+Packet node: PotentialModularityAndCompatibleSystems:R23.1/moret-bailly-three-local-conditions.
+Qian Proposition 4.2. Requires number-field geometry and the S1/K_v, S2/K_v^nr and S3/Kbar_v local-open interfaces, plus their split/unramified conclusions.
+The complete mathematical contract is in the packet and reader. -/
 
-/-- BLGHT Prop. 6.2: preliminary-field inclusion and disjointness.
-Its three local conditions and restriction-of-scalars identification are omitted. -/
-theorem moretBaillyAbovePreliminaryField (Ω : Type u) [Field Ω] [Algebra K Ω]
-    (M D : IntermediateField K Ω) (h : M.LinearDisjoint D) (X : Scheme.{u}) :
-    ∃ E : IntermediateField K Ω, M ≤ E ∧ FiniteDimensional K E ∧ IsGalois K E ∧
-      E.LinearDisjoint D ∧ Nonempty (Point E X) := by
-  sorry
+/- Omitted declaration: TauCeti.PotentialModularity.moretBaillyAbovePreliminaryField.
+Packet node: PotentialModularityAndCompatibleSystems:R23.1/moret-bailly-over-a-preliminary-extension.
+BLGHT Proposition 6.2, pp. 40–41. Requires finite preliminary/avoidance fields and a smooth geometrically irreducible nonempty variety, all local opens, and the quasi-projective/property adapters for Weil restriction.
+The complete mathematical contract is in the packet and reader. -/
 
-/-- Bianchi Prop. 4.5.1: surjectivity of the specialized finite quotient.
-The etale fundamental group, point-induced map, CM/Q-Galois field and local data are omitted. -/
-theorem surjectiveSpecialisation (A H : Type u) [Group A] [Group H] [Finite H]
-    (X : Scheme.{u}) (f : A →* H) (hf : Function.Surjective f)
-    (specialise : ∀ E : FiniteExtension K, Point E.carrier X → GaloisGroup E.carrier →* A) :
-    ∃ E : FiniteExtension K, ∃ P : Point E.carrier X,
-      Function.Surjective (f.comp (specialise E P)) := by
-  sorry
+/- Omitted declaration: TauCeti.PotentialModularity.surjectiveSpecialisation.
+Packet node: PotentialModularityAndCompatibleSystems:R23.1/surjective-specialisation-finite-quotient.
+Bianchi Proposition 4.5.1, pp. 48–49. Requires the etale fundamental group, a point-induced specialization map, a geometrically connected finite cover and equivariant local CM data. An arbitrary specialization function cannot force surjectivity.
+The complete mathematical contract is in the packet and reader. -/
 
-/-- BHKT Prop. 9.2: numerical constant-field obstruction.
-The chosen point, arithmetic Galois extension and Isom-torsor conclusion are omitted. -/
-theorem fixedConstantField (Fq : Type u) [Field Fq] [Finite Fq] [Algebra Fq K]
-    (X : Scheme.{u}) : ∃ E : FiniteExtension K, ∃ inst : Algebra Fq E.carrier,
-      letI := inst
-      Nonempty (Point E.carrier X) ∧
-        (∀ e : E.carrier, IsAlgebraic Fq e → ∃ c : Fq, algebraMap Fq E.carrier c = e) := by
-  sorry
+/- Omitted declaration: TauCeti.PotentialModularity.fixedConstantField.
+Packet node: PotentialModularityAndCompatibleSystems:R23.1/function-field-point-with-fixed-constants.
+BHKT Proposition 9.2, pp. 77–78. Requires K=F_q(X) with precisely F_q as constants, the corrected Isom curve, nonconstant points and the coprime-degree split places.
+The complete mathematical contract is in the packet and reader. -/
 
 /-- Two coprime split-place degrees kill the constant-field extension. -/
 example (constantDegree m n : ℕ) (hpos : 0 < constantDegree)
@@ -488,123 +457,85 @@ example (constantDegree m n : ℕ) (hpos : 0 < constantDegree)
     constantDegree = 1 := by
   sorry
 
-/-- BHKT Thm. 9.3 / Calegari Prop. 3.2: finite-group realization after extension.
-Local completions, their embedded decomposition groups and number-field avoidance are omitted. -/
-theorem potentialGlobalGaloisLocalData (H : Type u) [Group H] [Finite H] :
-    ∃ E : FiniteExtension K, ∃ M : FiniteExtension E.carrier,
-      Nonempty ((M.carrier ≃ₐ[E.carrier] M.carrier) ≃* H) := by
-  sorry
+/- Omitted declaration: TauCeti.PotentialModularity.potentialGlobalGaloisLocalData.
+Packet node: PotentialModularityAndCompatibleSystems:R23.1/potential-global-galois-local-data.
+BHKT Theorem 9.3/MB90 and Calegari Proposition 3.2. Requires the appropriate global field and actual local Galois data; an arbitrary field need not realize a finite group after finite extension.
+The complete mathematical contract is in the packet and reader. -/
 
-/-- KW II 6.1: controlled totally real Galois extension preserving residual image.
-Both cuspidal witnesses, weights, local types, parity and dyadic hypotheses are omitted. -/
-theorem kwPotentialResidual (k : Type u) [Field k] (rho : GaloisGroup ℚ →* GL2 k) :
-    ∃ E : FiniteExtension ℚ, NumberField.IsTotallyReal E.carrier ∧
-      IsGalois ℚ E.carrier ∧ ∃ restriction : GaloisGroup E.carrier →* GaloisGroup ℚ,
-        Set.range (rho.comp restriction) = Set.range rho := by
-  sorry
+/- Omitted declaration: TauCeti.PotentialModularity.kwPotentialResidual.
+Packet node: PotentialModularityAndCompatibleSystems:R23.3/kw-ii-theorem-6-1-potential-modularity-of-rho-bar-over-a-controlled-F.
+KW II Theorem 6.1, pp. 53–54. Requires the exact odd residual, determinant, local and dyadic hypotheses and both cuspidal modular witnesses, weights and image-preserving local field control.
+The complete mathematical contract is in the packet and reader. -/
 
-/-- KW Annals 2.1 has extra ordinarity and k≠p; witness/weight conditions are omitted. -/
-theorem kwOrdinaryPotentialResidual (k : Type u) [Field k] (rho : GaloisGroup ℚ →* GL2 k) :
-    ∃ E : FiniteExtension ℚ, NumberField.IsTotallyReal E.carrier ∧ IsGalois ℚ E.carrier := by
-  sorry
+/- Omitted declaration: TauCeti.PotentialModularity.kwOrdinaryPotentialResidual.
+Packet node: PotentialModularityAndCompatibleSystems:R23.3/kw-annals-theorem-2-1-taylor-potential-modularity-with-ordinarity.
+KW Annals Theorem 2.1, pp. 234–237. Requires ordinarity and the weight exclusion, the H6 local-moduli input, Hida specialization and cuspidal witnesses.
+The complete mathematical contract is in the packet and reader. -/
 
-/-- Snowden 5.1.1/8.2.1: any continuous odd residual representation over totally real F.
-The stable avoidance field, split places, type compatibility and automorphic witnesses are omitted. -/
-theorem snowdenPotentialResidual (F k : Type u) [Field F] [NumberField F]
-    [NumberField.IsTotallyReal F] [Field k] (rho : GaloisGroup F →* GL2 k) :
-    ∃ E : FiniteExtension F, NumberField.IsTotallyReal E.carrier ∧ IsGalois F E.carrier := by
-  sorry
+/- Omitted declaration: TauCeti.PotentialModularity.snowdenPotentialResidual.
+Packet node: PotentialModularityAndCompatibleSystems:R23.3/snowden-totally-real-potential-residual-modularity.
+Snowden 5.1.1/8.2.1, pp. 15/26. Requires p odd, a continuous odd residual representation, determinant lift, compatible definite types, stable avoidance and modular witnesses; uses the R22.5 odd-prime interface.
+The complete mathematical contract is in the packet and reader. -/
 
-/-- BCGP 9.1.11: field part over F with the representation defined over F1.
-The q-ordinary weight-zero automorphic witness and split p,q conditions are omitted. -/
-theorem bcgpPotentialResidual (F Ω k : Type u) [Field F] [NumberField F]
-    [NumberField.IsTotallyReal F] [Field Ω] [Algebra F Ω] [Field k]
-    (F1 D : IntermediateField F Ω) (rho : GaloisGroup F1 →* GL2 k) :
-    ∃ E : IntermediateField F Ω, FiniteDimensional F E ∧ IsGalois F E ∧
-      NumberField.IsTotallyReal E ∧ E.LinearDisjoint (F1 ⊔ D : IntermediateField F Ω) := by
-  sorry
+/- Omitted declaration: TauCeti.PotentialModularity.bcgpPotentialResidual.
+Packet node: PotentialModularityAndCompatibleSystems:R23.3/bcgp-controlled-residual-modularity.
+BCGP Proposition 9.1.11, p. 458. Requires the representation over F1 and a q-ordinary weight-zero witness over F1F-prime, splitting above p,q and avoidance selected over F.
+The complete mathematical contract is in the packet and reader. -/
 
-/-- Taylor 2002 Theorem 1.6: field portion only; ordinary local shape, soluble-image
-branch, determinant convention and cuspidal witness are omitted. -/
-theorem taylorOrdinaryPotentialResidual (F k : Type u) [Field F] [NumberField F]
-    [NumberField.IsTotallyReal F] [Field k] (rho : GaloisGroup F →* GL2 k) :
-    ∃ E : FiniteExtension F, NumberField.IsTotallyReal E.carrier := by
-  sorry
+/- Omitted declaration: TauCeti.PotentialModularity.taylorOrdinaryPotentialResidual.
+Packet node: PotentialModularityAndCompatibleSystems:R23.3/taylor-theorem-1-6-potential-residual-modularity-ordinary-at-l.
+Taylor Theorem 1.6, printed p. 15. Requires the stated ordinary local shape, image/determinant hypotheses and the actual cuspidal modular witness.
+The complete mathematical contract is in the packet and reader. -/
 
-/-- Taylor 2006 Prop. 4.1: field portion only. The irreducible niveau-two local shape,
-weight two and specified WD inertial characters are omitted. -/
-theorem taylorNiveauTwoPotentialResidual (k : Type u) [Field k]
-    (rho : GaloisGroup ℚ →* GL2 k) :
-    ∃ E : FiniteExtension ℚ, NumberField.IsTotallyReal E.carrier ∧ IsGalois ℚ E.carrier := by
-  sorry
+/- Omitted declaration: TauCeti.PotentialModularity.taylorNiveauTwoPotentialResidual.
+Packet node: PotentialModularityAndCompatibleSystems:R23.3/taylor-2006-potential-modularity-when-residually-irreducible-at-l.
+Taylor Proposition 4.1. Requires the exact irreducible niveau-two local shape, weight and specified Weil–Deligne inertial characters, and even-degree split-field modular output.
+The complete mathematical contract is in the packet and reader. -/
 
-/-- Taylor 2006 Theorem 5.7: field portion only; Serre weight, even degree, split l
-and the everywhere-unramified cuspidal representation are omitted. -/
-theorem taylorSerreWeightPotentialResidual (k : Type u) [Field k]
-    (rho : GaloisGroup ℚ →* GL2 k) :
-    ∃ E : FiniteExtension ℚ, NumberField.IsTotallyReal E.carrier ∧ IsGalois ℚ E.carrier := by
-  sorry
+/- Omitted declaration: TauCeti.PotentialModularity.taylorSerreWeightPotentialResidual.
+Packet node: PotentialModularityAndCompatibleSystems:R23.3/taylor-2006-theorem-5-7-serre-weight-at-level-one.
+Taylor Theorem 5.7, pp. 767–768. Requires l>3, odd irreducible residual and irreducibility at l, and an everywhere-unramified cuspidal witness of Serre weight.
+The complete mathematical contract is in the packet and reader. -/
 
-/-- R23.3 auxiliary-prime transfer: extension portion only. The Tate representations,
-auxiliary induction, lifting theorem and compatible Hilbert eigenform are omitted.
-This signature has no global-lift-existence conclusion or hypothesis. -/
-theorem auxiliaryModularityTransfer (F k : Type u) [Field F] [NumberField F]
-    [NumberField.IsTotallyReal F] [Field k] (rho : GaloisGroup F →* GL2 k) :
-    ∃ E : FiniteExtension F, NumberField.IsTotallyReal E.carrier := by
-  sorry
+/- Omitted declaration: TauCeti.PotentialModularity.auxiliaryModularityTransfer.
+Packet node: PotentialModularityAndCompatibleSystems:R23.3/modularity-of-the-auxiliary-abelian-variety-transfers-to-rho-bar.
+Requires the two torsion realizations, the auxiliary induced modularity theorem, the independent lifting theorem including the CM case, and the compatible Hilbert eigenform. A field-only witness is not this conclusion.
+The complete mathematical contract is in the packet and reader. -/
 
-/-- Taylor 2006 Lemma 1.3 Galois realization portion. The Hecke algebra is T,
-Frobenius elements are given by frob; quaternionic/automorphic hypotheses omitted. -/
-theorem quaternionicHeckeGaloisRealisation (G T W : Type u) [Group G] [CommRing T]
-    (frob : W → G) (heckeTrace : W → T) (determinant : G →* Tˣ) :
-    ∃ rho : G →* GL2 T,
-      (∀ w, Matrix.trace (rho (frob w)).val = heckeTrace w) ∧
-      Matrix.GeneralLinearGroup.det.comp rho = determinant := by
-  sorry
+/- Omitted declaration: TauCeti.PotentialModularity.quaternionicHeckeGaloisRealisation.
+Packet node: PotentialModularityAndCompatibleSystems:R23.3/taylor-2006-lemma-1-3-quaternionic-forms-and-galois-representations.
+Taylor Lemma 1.3. Requires the quaternionic Hecke eigensystem and non-Eisenstein hypotheses, not arbitrary trace/determinant functions.
+The complete mathematical contract is in the packet and reader. -/
 
-/-- Taylor 2006 Lemma 1.4/Cor. 1.5: residual inertial character portion only;
-Fontaine–Laffaille objects, exact exponents and local hypotheses omitted. -/
-theorem localResidualInertialShape (I k : Type u) [Group I] [Field k]
-    (rho : I →* GL2 k) : ∃ chi1 chi2 : I →* kˣ,
-      ∀ i, (Matrix.GeneralLinearGroup.det (rho i)) = chi1 i * chi2 i := by
-  sorry
+/- Omitted declaration: TauCeti.PotentialModularity.localResidualInertialShape.
+Packet node: PotentialModularityAndCompatibleSystems:R23.3/taylor-2006-lemma-1-4-corollary-1-5-local-shape-at-l.
+Taylor Lemma 1.4/Corollary 1.5. Requires the finite-flat/torsion Fontaine–Laffaille and full Hilbert crystallinity interfaces, and the precise inertia exponents; splitting only the determinant is insufficient.
+The complete mathematical contract is in the packet and reader. -/
 
-/-- Taylor 2006 Lemma 5.1/Cor. 5.2: quotient Hecke-algebra map; the spaces,
-localization, U/V operators and level/weight hypotheses omitted. -/
-theorem weightReductionHeckeSurjection (Tsource Ttarget : Type u)
-    [CommRing Tsource] [CommRing Ttarget] :
-    ∃ f : Tsource →+* Ttarget, Function.Surjective f := by
-  sorry
+/- Omitted declaration: TauCeti.PotentialModularity.weightReductionHeckeSurjection.
+Packet node: PotentialModularityAndCompatibleSystems:R23.3/taylor-2006-lemma-5-1-corollary-5-2-weight-reduction.
+Taylor 5.1/5.2, pp. 765–766. Requires the actual localized quaternionic Hecke modules, U/V operators and coefficient Symm^i for weight i+2 (E10). Arbitrary rings admit no such surjection.
+The complete mathematical contract is in the packet and reader. -/
 
-/-- Taylor 2006 Lemmas 5.4–5.6: field portion only; the conductor and weight changes,
-level-one condition and the l>3/niveau-two hypotheses omitted. -/
-theorem weightAndLevelPotentialResidual (k : Type u) [Field k]
-    (rho : GaloisGroup ℚ →* GL2 k) :
-    ∃ E : FiniteExtension ℚ, NumberField.IsTotallyReal E.carrier ∧ IsGalois ℚ E.carrier := by
-  sorry
+/- Omitted declaration: TauCeti.PotentialModularity.weightAndLevelPotentialResidual.
+Packet node: PotentialModularityAndCompatibleSystems:R23.3/taylor-2006-lemmas-5-4-5-6-weight-and-level.
+Taylor 5.4–5.6. Requires the exact conductor/weight changes, niveau-two conditions, split field and cuspidal witness, with l>3 and the separate p=3 import.
+The complete mathematical contract is in the packet and reader. -/
 
-/-- R23.4: a lift is an input; the characteristic-zero automorphic witness and all lifting
-hypotheses are omitted. It is not used to produce a lift in R24.2. -/
-theorem potentialModularityGivenLift (k O : Type u) [Field k] [CommRing O]
-    (red : O →+* k) (rho : GaloisGroup ℚ →* GL2 O) (rbar : GaloisGroup ℚ →* GL2 k)
-    (hred : (Matrix.GeneralLinearGroup.map red).comp rho = rbar) :
-    ∃ E : FiniteExtension ℚ, NumberField.IsTotallyReal E.carrier ∧ IsGalois ℚ E.carrier := by
-  sorry
+/- Omitted declaration: TauCeti.PotentialModularity.potentialModularityGivenLift.
+Packet node: PotentialModularityAndCompatibleSystems:R23.4/potential-modularity-of-a-given-lift.
+Requires the given continuous p-adic lift and its local types, residual modularity and the independent odd/dyadic lifting theorem, with an automorphic identification of that lift. It does not produce a lift.
+The complete mathematical contract is in the packet and reader. -/
 
-/-- R23.5: the field-control portion; local conditions and soluble-descent hypotheses omitted. -/
-theorem controlledExtension (Ω : Type u) [Field Ω] [Algebra ℚ Ω]
-    (D : IntermediateField ℚ Ω) : ∃ E : IntermediateField ℚ Ω,
-    FiniteDimensional ℚ E ∧ IsGalois ℚ E ∧ NumberField.IsTotallyReal E ∧ E.LinearDisjoint D := by
-  sorry
+/- Omitted declaration: TauCeti.PotentialModularity.controlledExtension.
+Packet node: PotentialModularityAndCompatibleSystems:R23.5/control-of-the-extension.
+Requires selected places, prescribed local extensions, residual-image and cyclotomic irreducibility control, avoidance, and the admissible R17 soluble descent data.
+The complete mathematical contract is in the packet and reader. -/
 
-/-- Corrected BCGP 9.1.12: L' is over K'=KE', with no L/K descent conclusion.
-Local completions and real conjugation classes are omitted. -/
-theorem bcgpLocalData (F Ω H : Type u) [Field F] [Field Ω] [Algebra F Ω]
-    [Group H] [Finite H] (E' D : IntermediateField F Ω) (h : E'.LinearDisjoint D) :
-    ∃ E : IntermediateField F Ω, FiniteDimensional F E ∧ IsGalois F E ∧
-      E.LinearDisjoint (E' ⊔ D : IntermediateField F Ω) ∧ ∃ M : FiniteExtension (E ⊔ E' : IntermediateField F Ω),
-        Nonempty ((M.carrier ≃ₐ[(E ⊔ E' : IntermediateField F Ω)] M.carrier) ≃* H) := by
-  sorry
+/- Omitted declaration: TauCeti.PotentialModularity.bcgpLocalData.
+Packet node: PotentialModularityAndCompatibleSystems:R23.5/bcgp-local-galois-data-without-descent.
+Corrected BCGP Proposition 9.1.12, p. 459. Requires number-field local data and finite-group specialization. Its cover is L-prime/K-prime with K-prime=KE-prime; there is no L/K descent.
+The complete mathematical contract is in the packet and reader. -/
 
 end TauCeti.PotentialModularity
 
@@ -643,9 +574,10 @@ lemma piBC_eq (A : AuxiliaryField k O p weight) : A.piBC = A.characteristicBC :=
   sorry
 lemma tau_unramified (A : AuxiliaryField k O p weight) : A.tau.comp A.inertia = 1 := by
   sorry
-/-- KW hypotheses and construction of the automorphic witnesses are omitted. -/
-theorem «exists» : Nonempty (AuxiliaryField k O p weight) := by
-  sorry
+/- Omitted declaration: TauCeti.CompatibleSystems.AuxiliaryField.exists.
+Packet node: PotentialModularityAndCompatibleSystems:R24.1/auxiliary-totally-real-field-for-the-finiteness-argument.
+KW II 10.1, pp. 90–91. Requires residual-image control, local completion data, and genuine automorphic type-(A)/(B)/(C) witnesses with the dyadic weight guard.
+The complete mathematical contract is in the packet and reader. -/
 end AuxiliaryField
 
 /-- aux_dyadic_weight_four: the k=4 dyadic case uses beta/type C, not alpha. -/
@@ -668,42 +600,47 @@ example (k O : Type u) [Field k] [CommRing O] (p weight : ℕ)
     A.tau (A.inertia z) = 1 ∧ (3 : ℕ) ∣ 7 - 1 := by
   sorry
 
-/-- KW II 10.1: R must be the unframed fixed-determinant ring with the exact KW local
-conditions and residual hypotheses. Its construction and these hypotheses are omitted. -/
-theorem kwGlobalFiniteness (O R : Type u) [CommRing O] [CommRing R] [Algebra O R] :
-    Module.Finite O R := by
+/- Omitted declaration: TauCeti.CompatibleSystems.kwGlobalFiniteness.
+Packet node: PotentialModularityAndCompatibleSystems:R24.1/kw-ii-theorem-10-1-finiteness-of-the-unframed-global-ring.
+KW II Theorem 10.1, pp. 90–92. Requires the exact unframed fixed-determinant KW global ring, its local conditions and residual modularity hypotheses; arbitrary O-algebras are not finite.
+The complete mathematical contract is in the packet and reader. -/
+
+/- Omitted declaration: TauCeti.CompatibleSystems.ordinaryGlobalFiniteness.
+Packet node: PotentialModularityAndCompatibleSystems:R24.1/ordinary-global-ring-finiteness.
+Thorne Theorem 10.2, pp. 56–58. Requires the polarized CM problem, adequate cyclotomic residual image, ordinary automorphic lift, fixed Hodge type and local ordinary rings, and the totally-real GL2 adapter.
+The complete mathematical contract is in the packet and reader. -/
+
+/- Omitted declaration: TauCeti.CompatibleSystems.cgRingFiniteness.
+Packet node: PotentialModularityAndCompatibleSystems:R24.1/cg-ordinary-ring-finiteness.
+CG Theorem 4.8 proof, author PDF pp. 66–68. Requires R_phi with its ordinary R-dagger and Frobenius-eigenvalue problem, and the exact Thorne/local-ring comparison; arbitrary algebras are not finite.
+The complete mathematical contract is in the packet and reader. -/
+
+/-- Algebraic extraction imported from R03.4, not a new supplier construction.
+Finite local algebras need positive dimension, a DVR and its characteristic-zero fraction field.
+The deformation data, continuity/residue adapter and p-adic integer identification are omitted. -/
+theorem characteristicZeroPoint (O K R : Type u)
+    [CommRing O] [IsDomain O] [IsDiscreteValuationRing O]
+    [Field K] [CharZero K] [Algebra O K] [IsFractionRing O K]
+    [CommRing R] [IsLocalRing R] [Algebra O R] [Module.Finite O R]
+    [IsLocalHom (algebraMap O R)] (hdim : 1 ≤ ringKrullDim R) :
+    ∃ E : IntermediateField K (AlgebraicClosure K), Module.Finite K E ∧
+      (letI : Algebra O E := ((algebraMap K E).comp (algebraMap O K)).toAlgebra;
+       Module.Finite O (integralClosure O E) ∧
+         ∃ f : R →ₐ[O] integralClosure O E, IsLocalHom f.toRingHom) := by
   sorry
 
-/-- Thorne 10.2 GL2 totally-real specialization: polarized CM adapter, ordinary lift,
-adequacy, fixed Hodge type and ordinary local-ring hypotheses are omitted. -/
-theorem ordinaryGlobalFiniteness (O R : Type u) [CommRing O] [CommRing R] [Algebra O R] :
-    Module.Finite O R := by
-  sorry
-
-/-- CG 4.8's R_phi (including the modified Frobenius eigenvalue problem).
-Its modular/ordinary deformation hypotheses and comparison are omitted. -/
-theorem cgRingFiniteness (O Rphi : Type u) [CommRing O] [CommRing Rphi] [Algebra O Rphi] :
-    Module.Finite O Rphi := by
-  sorry
-
-/-- R24.2 algebraic extraction, using an actual integral closure as target.
-O must be a complete DVR of mixed characteristic with finite residue field; R must be a
-complete local O-algebra, and the map must be local/continuous. Those conditions and the
-identification with a finite p-adic field's integers are omitted. Dimension is retained. -/
-theorem characteristicZeroPoint (O K R : Type u) [CommRing O] [Field K] [Algebra O K]
-    [CommRing R] [Algebra O R] (hfin : Module.Finite O R) (hdim : 1 ≤ ringKrullDim R) :
-    ∃ E : FiniteExtension K, ∃ inst : Algebra O E.carrier,
-      letI := inst
-      Nonempty (R →ₐ[O] integralClosure O E.carrier) := by
-  sorry
-
-/-- NT §3: same extraction on the ring cut out by the chosen local components.
-BG19's dimension bound and the deformation/component hypotheses are omitted. -/
-theorem newtonThornePoint (O K R : Type u) [CommRing O] [Field K] [Algebra O K]
-    [CommRing R] [Algebra O R] (hfin : Module.Finite O R) (hdim : 1 ≤ ringKrullDim R) :
-    ∃ E : FiniteExtension K, ∃ inst : Algebra O E.carrier,
-      letI := inst
-      Nonempty (R →ₐ[O] integralClosure O E.carrier) := by
+/-- Algebraic extraction imported from R03.4, not a new supplier construction.
+NT applies this to its selected-component ring only after the dimension/finiteness inputs.
+The deformation data, continuity/residue adapter and p-adic integer identification are omitted. -/
+theorem newtonThornePoint (O K R : Type u)
+    [CommRing O] [IsDomain O] [IsDiscreteValuationRing O]
+    [Field K] [CharZero K] [Algebra O K] [IsFractionRing O K]
+    [CommRing R] [IsLocalRing R] [Algebra O R] [Module.Finite O R]
+    [IsLocalHom (algebraMap O R)] (hdim : 1 ≤ ringKrullDim R) :
+    ∃ E : IntermediateField K (AlgebraicClosure K), Module.Finite K E ∧
+      (letI : Algebra O E := ((algebraMap K E).comp (algebraMap O K)).toAlgebra;
+       Module.Finite O (integralClosure O E) ∧
+         ∃ f : R →ₐ[O] integralClosure O E, IsLocalHom f.toRingHom) := by
   sorry
 
 /-- R24.2 non-example: a finite nonzero ring can have no characteristic-zero point. -/
