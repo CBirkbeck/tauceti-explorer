@@ -37307,7 +37307,8 @@
    ],
    "revisionOf": "BP-BorelRegulators",
    "prompt": "research/blueprint/prompts/BP-BorelRegulators~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6903"
   },
   {
    "priority": 2,
@@ -37778,8 +37779,9 @@
     "BP-AutomorphicGaloisRepresentations~2"
    ],
    "prompt": "research/blueprint/prompts/REV-AutomorphicGaloisRepresentations~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7029"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7029",
+   "finishedAt": "2026-10-08T07:20:37Z"
   },
   {
    "kind": "blueprint",
