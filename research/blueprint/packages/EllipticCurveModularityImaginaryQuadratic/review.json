@@ -1,0 +1,8 @@
+{
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-PKG-EllipticCurveModularityImaginaryQuadratic",
+    "date": "2026-10-08",
+    "notes": "Independent check of upstream form, all 68 README targets, 69 API entries and 69 test entries, source locators and hypotheses, supplier boundaries, process-free prose and math.NT metadata. Clarified the three genus-one Jacobian classes and corrected the level-fifteen torsion reference. Added shortEquationFamily, two API signatures and three examples, and the coordinate equation for genusOneSpecialPoints_on_curve. Final lean-check exited 0 with no errors and 115 warnings, all declaration uses sorry, using the exact pinned Mathlib. Exact polynomial checks passed. Needs changes under PROTOCOL sections 13 and 20: four objects, fourteen APIs, twelve examples and all forty-five named theorem/comparison milestones are still comments rather than Lean declarations; several coordinate signatures omit the geometric parts of their README contracts. Compilation does not certify these missing interfaces. See the independent report for the required revision and baseline limitations."
+  }
+}
