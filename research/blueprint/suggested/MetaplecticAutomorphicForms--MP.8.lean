@@ -600,6 +600,8 @@ example (N : ℕ) (I : M4 ℝ → ℂ) (s : ℂ) :
 
 
 -- MetaplecticAutomorphicForms:MP.8/whittaker-functions
+-- κ(X) is the unique compact factor in BFH (3.2) of
+-- [[0,w],[−w,0]] n(X), w=[[0,−1],[1,0]]; Q' has positive diagonal.
 def kappaX (x : Fin 3 → ℝ) : KTwo := by sorry
 def transformedX (x : Fin 3 → ℝ) : ℝ := -x 1*(x 0+x 2)/(1+(x 0)^2+(x 1)^2)
 def transformedY (x : Fin 3 → ℝ) : ℝ :=
@@ -649,6 +651,7 @@ theorem whittaker_initial_convergence (k : ℕ) (hk : 2≤k) (he : Even k)
 -- MetaplecticAutomorphicForms:MP.8/jacquet-two-parameter
 
 
+-- The homogeneous section defining this Jacquet integral is BFH (3.11).
 def jacquetTwoParameter (k : ℕ) (phi : KTwo → ℂ) (eps : ℤ) (y1 y2 : ℝ) (s r : ℂ) : ℂ := by sorry
 def auxiliaryWhittaker (k : ℕ) (phi : KTwo → ℂ) (eps : ℤ) (y1 y2 : ℝ) (s r : ℂ) : ℂ :=
   (Real.pi : ℂ)^(-r)*Complex.Gamma (r+(k : ℂ)/2)*jacquetTwoParameter k phi eps y1 y2 s r
@@ -1438,6 +1441,8 @@ def coverFourier : similitudeCover := by sorry
 -- covariance are omitted until MP.4 and AS.2 supply the exact native interfaces.
 def genuineIntertwiner (_s : ℂ) (F : similitudeCover → ℂ) (g : similitudeCover) : ℂ :=
   ∫ x : Fin 3 → ℝ, F (coverFourier⁻¹*coverUnipotent x*g)
+-- R=c(s)⁻¹M uses the separately specified scalar factors; it is not the
+-- raw standard M in the constant term or the unnormalized Eisenstein Weyl equation.
 def normalizedGenuineIntertwiner (s : ℂ) (F : similitudeCover → ℂ) : similitudeCover → ℂ := by sorry
 lemma genuineIntertwiner_equivariant (s : ℂ) (F : similitudeCover → ℂ) (g h : similitudeCover) :
     genuineIntertwiner s (fun q => F (q*h)) g=genuineIntertwiner s F (g*h) := by sorry
@@ -1479,7 +1484,7 @@ theorem genuine_eisenstein_continuation
     ∃ Ec : ℂ → (similitudeCover → ℂ) → similitudeCover → ℂ,
       (∀ F g, MeromorphicOn (fun s => Ec s F g) Set.univ) ∧
       (∃ S : ℝ, ∀ s F g, S<s.re → Ec s F g=E s F g) ∧
-      ∀ s F g, Ec s F g=Ec (4-s) (normalizedGenuineIntertwiner s F) g := by sorry
+      ∀ s F g, Ec s F g=Ec (4-s) (genuineIntertwiner s F) g := by sorry
 
 
 -- MetaplecticAutomorphicForms:MP.8/opposite-cusp-zero-regularity
@@ -1537,8 +1542,10 @@ def bfhPolarTerm (N k : ℕ) (_r : ℤ) (L0 P0 : ℂ → ℂ)
   (N : ℂ)^(7-s-(k : ℂ)/2)*P0 s*(y2 : ℂ)^(2*s-5)*Mt s ((N : ℝ)⁻¹*y2)/(u+s-5/2) +
   (N : ℂ)^(-s)*(y2 : ℂ)^(3-s+(k : ℂ)/2)*tau s ((N : ℝ)⁻¹*y2)/(u-s+3/2)
 -- OMITTED CONDITIONS: L,L0,P0 are the actual continued newform BFH coefficients;
--- F±,M,Mt,tau use a single fixed BFH finite K-type and the proven tail estimates.
+-- F±,M,Mt,tau must arise from the coefficient phi below and its single fixed
+-- BFH finite K-type with proven tail estimates; these comparison maps are untyped.
 theorem two_variable_polar_combination (N m k : ℕ) (hN : 0<N) (hm : 0<m) (hNm : N∣m)
+    (phi : KTwo → ℂ) (hp : IsBFHMatrixCoefficient k phi) (hd : HasBFHDivisor k phi)
     (r : ℤ) (L : ℂ → ℤ → ℂ) (L0 P0 : ℂ → ℂ)
     (Fp Fm : ℂ → ℂ → ℝ → ℂ) (M Mt tau : ℂ → ℝ → ℂ) (y2 : ℝ) (h2 : 0<y2) :
     ∃ A : (ℂ × ℂ) → ℂ,
