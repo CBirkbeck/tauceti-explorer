@@ -72,7 +72,9 @@ Exact external node IDs appear in every declaration’s direct dependencies. Enh
 
 Shared A_cris, its completion and finite PD quotients remain in CR.0 in the current integrated scope. AI.0:integral supplies the tilt, sharp, Teichmüller, A_inf and θ interfaces. This packet constructs only the induced log structure and its canonical lifts. AI.6 consumes this generic log input for its specialized semistable AΩ-envelope comparisons. The generic crystal or period ring is not constructed a second time.
 
-This is revision 2 by Codex session codex-bTg5jr, dated 8 October 2026. The previous independent needs_changes review is retained verbatim as review provenance; it is not replaced by an author acceptance. The 88 accepted node identifiers and the corrected mathematical inventory are retained. The signature experiment now constrains schemes, étale log sheaves, compatible PD data and canonical comparison maps. Affine evaluation, finite semistable chart and proper cohomology specializations are identified on the corresponding declaration cards. Supplier client names specify required exports, rather than claiming their implementations exist.
+This is revision 2 by Codex session codex-bTg5jr, dated 8 October 2026. The previous independent needs_changes review is retained in reviewHistory as review provenance. The 88 stable node identifiers and the corrected mathematical inventory are retained. The signature experiment now constrains schemes, étale log sheaves, compatible PD data and canonical comparison maps. Affine evaluation, finite semistable chart and proper cohomology specializations are identified on the corresponding declaration cards. Supplier client names specify required exports, rather than claiming their implementations exist.
+
+Independent revision-2 review by Codex session codex-I5hOH7, 8 October 2026: **needs_changes**. All 88 nodes, the pinned baseline, APIs, tests, supplier contracts and planets were checked. Fine/fs base-change scope and the bounded-below tube-support negative test were corrected. The geometric coefficient category belongs to CR.5/CR.7; R06.2 supplies its filtered (φ,N) normalization conventions. Remaining interface repairs are R2 (module-sheaf crystals, sheaf tensors and local quasi-nilpotence), R4 (the actual admissible residue embedding geometry) and R5 (geometric rational coefficient adapters and locally split sheaf filtrations). These are recorded as gaps and in the [review report](../reviews/REV-CrystallineCohomology--CR.5~2.md). Successful signature elaboration with sorry certifies typechecking only.
 
 ## CrystallineCohomology:CR.5:log-algebra — Log algebra and logarithmic geometry
 
@@ -97,7 +99,7 @@ Construction or proof outline:
 
 Direct dependencies: commutative ring and monoid primitives in the pinned libraries.
 
-Source passages: [Kazuya Kato, Logarithmic structures of Fontaine–Illusie](https://math.uchicago.edu/~drinfeld/p-adic_periods/Kato_log-structures.pdf), §1.1, pp.192–193; multiplicative convention at the start of §1.
+Source locators: [Kazuya Kato, Logarithmic structures of Fontaine–Illusie](https://math.uchicago.edu/~drinfeld/p-adic_periods/Kato_log-structures.pdf), §1.1, pp.192–193; multiplicative convention at the start of §1.
 
 Suggested signature scope: The affine carrier and commuting ring/monoid maps are retained. Additive chart notation is represented through Multiplicative; the zero-image chart remains permitted.
 
@@ -132,7 +134,7 @@ Construction or proof outline:
 
 Direct dependencies: `CrystallineCohomology:CR.5:log-algebra/prelog-ring`; `mathlib:AlgebraicGeometry.Scheme.smallEtaleTopology`; `EnhancedDerivedSheaves:E1/sheaves-of-modules-and-the-grothendieck-property`.
 
-Source passages: [Kazuya Kato, Logarithmic structures of Fontaine–Illusie](https://math.uchicago.edu/~drinfeld/p-adic_periods/Kato_log-structures.pdf), §1.2, p.193; trivial example §1.5(2), p.194.
+Source locators: [Kazuya Kato, Logarithmic structures of Fontaine–Illusie](https://math.uchicago.edu/~drinfeld/p-adic_periods/Kato_log-structures.pdf), §1.2, p.193; trivial example §1.5(2), p.194.
 
 Suggested signature scope: Retain LogStructure for affine algebra and introduce LogScheme with an actual Scheme, a monoid sheaf on its small étale site, a multiplicative structure map and the unit-fibre condition. Log morphisms include the underlying scheme map and the compatible pulled-back log map.
 
@@ -167,7 +169,7 @@ Construction or proof outline:
 
 Direct dependencies: `CrystallineCohomology:CR.5:log-algebra/log-structure`.
 
-Source passages: [Kazuya Kato, Logarithmic structures of Fontaine–Illusie](https://math.uchicago.edu/~drinfeld/p-adic_periods/Kato_log-structures.pdf), §1.3 and pushout remark, p.193.
+Source locators: [Kazuya Kato, Logarithmic structures of Fontaine–Illusie](https://math.uchicago.edu/~drinfeld/p-adic_periods/Kato_log-structures.pdf), §1.3 and pushout remark, p.193.
 
 Suggested signature scope: The affine pushout, unit identification and universal property remain the algebraic slice. The scheme construction sheafifies the same pushout on the actual étale site; no finite generation of the unit sheaf is asserted.
 
@@ -202,7 +204,7 @@ Construction or proof outline:
 
 Direct dependencies: `CrystallineCohomology:CR.5:log-algebra/associated-log`.
 
-Source passages: [Kazuya Kato, Logarithmic structures of Fontaine–Illusie](https://math.uchicago.edu/~drinfeld/p-adic_periods/Kato_log-structures.pdf), §1.4, pp.193–194; formulas (1.4.1)–(1.4.2).
+Source locators: [Kazuya Kato, Logarithmic structures of Fontaine–Illusie](https://math.uchicago.edu/~drinfeld/p-adic_periods/Kato_log-structures.pdf), §1.4, pp.193–194; formulas (1.4.1)–(1.4.2).
 
 Suggested signature scope: Affine logPullback logifies along the given ring map. Scheme strictness uses etaleLogPullback of the actual target log structure along the underlying scheme map, rather than bijectivity of a selected chart.
 
@@ -237,7 +239,7 @@ Construction or proof outline:
 
 Direct dependencies: `CrystallineCohomology:CR.5:log-algebra/log-structure`; `mathlib:Algebra.GrothendieckGroup`; `mathlib:Algebra.GrothendieckGroup.lift`.
 
-Source passages: [Kazuya Kato, Logarithmic structures of Fontaine–Illusie](https://math.uchicago.edu/~drinfeld/p-adic_periods/Kato_log-structures.pdf), Formula (1.4.1), p.194; §2.4(3), p.197; Example 2.5(2), p.198.
+Source locators: [Kazuya Kato, Logarithmic structures of Fontaine–Illusie](https://math.uchicago.edu/~drinfeld/p-adic_periods/Kato_log-structures.pdf), Formula (1.4.1), p.194; §2.4(3), p.197; Example 2.5(2), p.198.
 
 Suggested signature scope: The groupification comparison is the quotient by the image of the unit group. Keep this image formulation when the unit map to groupification is not injective. Scheme properties are tested on geometric stalks.
 
@@ -272,7 +274,7 @@ Construction or proof outline:
 
 Direct dependencies: `mathlib:Algebra.GrothendieckGroup.of_injective`; `CrystallineCohomology:CR.5:log-algebra/characteristic-monoid`.
 
-Source passages: [Kazuya Kato, Logarithmic structures of Fontaine–Illusie](https://math.uchicago.edu/~drinfeld/p-adic_periods/Kato_log-structures.pdf), §2.2 and §2.4(2)–(3), p.197.
+Source locators: [Kazuya Kato, Logarithmic structures of Fontaine–Illusie](https://math.uchicago.edu/~drinfeld/p-adic_periods/Kato_log-structures.pdf), §2.2 and §2.4(2)–(3), p.197.
 
 Suggested signature scope: The cancellation/groupification predicate is retained. Its characteristic API is the forward implication only; integrality of a characteristic monoid does not recover cancellation in a log monoid with a nonfree unit action.
 
@@ -307,7 +309,7 @@ Construction or proof outline:
 
 Direct dependencies: `CrystallineCohomology:CR.5:log-algebra/integral-monoid`; `CrystallineCohomology:CR.5:log-algebra/associated-log`.
 
-Source passages: [Kazuya Kato, Logarithmic structures of Fontaine–Illusie](https://math.uchicago.edu/~drinfeld/p-adic_periods/Kato_log-structures.pdf), §2.1–2.3 and §2.4(2), p.197.
+Source locators: [Kazuya Kato, Logarithmic structures of Fontaine–Illusie](https://math.uchicago.edu/~drinfeld/p-adic_periods/Kato_log-structures.pdf), §2.1–2.3 and §2.4(2), p.197.
 
 Suggested signature scope: The fine predicate belongs to a chart monoid. Its logification API now exports a fine associated log scheme, using its chart and integrality. It does not require the entire unit-containing log monoid to be finitely generated.
 
@@ -342,7 +344,7 @@ Construction or proof outline:
 
 Direct dependencies: `CrystallineCohomology:CR.5:log-algebra/integral-monoid`; `CrystallineCohomology:CR.5:log-algebra/fine-monoid`.
 
-Source passages: [Howard M. Thompson, Toric singularities revisited](https://arxiv.org/pdf/math/0305441), §1.2, Definition 1.6, p.7.
+Source locators: [Howard M. Thompson, Toric singularities revisited](https://arxiv.org/pdf/math/0305441), §1.2, Definition 1.6, p.7.
 
 Suggested signature scope: Root closure is stated inside the existing groupification. The cusp and rational characteristic tests keep fine and saturated distinct; the scheme predicate requires fine charts as well as saturated stalks.
 
@@ -377,7 +379,7 @@ Construction or proof outline:
 
 Direct dependencies: `CrystallineCohomology:CR.5:log-algebra/associated-log`; `CrystallineCohomology:CR.5:log-algebra/log-pullback`; `CrystallineCohomology:CR.5:log-algebra/fine-monoid`.
 
-Source passages: [Kazuya Kato, Logarithmic structures of Fontaine–Illusie](https://math.uchicago.edu/~drinfeld/p-adic_periods/Kato_log-structures.pdf), Definition 2.9 and Lemma 2.10, pp.199–200.
+Source locators: [Kazuya Kato, Logarithmic structures of Fontaine–Illusie](https://math.uchicago.edu/~drinfeld/p-adic_periods/Kato_log-structures.pdf), Definition 2.9 and Lemma 2.10, pp.199–200.
 
 Suggested signature scope: Retain the affine chart isomorphism and its restriction tests. HasEtaleCharts and the fine scheme wrapper supply actual étale neighborhoods; geometric characteristic groups are taken at their stalks.
 
@@ -412,7 +414,7 @@ Construction or proof outline:
 
 Direct dependencies: `CrystallineCohomology:CR.5:log-algebra/log-pullback`; `CrystallineCohomology:CR.5:log-algebra/log-chart`.
 
-Source passages: [Kazuya Kato, Logarithmic structures of Fontaine–Illusie](https://math.uchicago.edu/~drinfeld/p-adic_periods/Kato_log-structures.pdf), Proposition 3.8, p.203; inverse image §1.4; exact closed immersion §3.1.
+Source locators: [Kazuya Kato, Logarithmic structures of Fontaine–Illusie](https://math.uchicago.edu/~drinfeld/p-adic_periods/Kato_log-structures.pdf), Proposition 3.8, p.203; inverse image §1.4; exact closed immersion §3.1.
 
 Suggested signature scope: IsStrict is IsIso of the actual pulled-back log structural map. Identity, torus restriction and the nonstrict standard log point test involve log scheme morphisms. The smooth criterion compares log and ordinary smoothness of that same morphism.
 
@@ -447,7 +449,7 @@ Construction or proof outline:
 
 Direct dependencies: `CrystallineCohomology:CR.5:log-algebra/integral-monoid`; `CrystallineCohomology:CR.5:log-algebra/log-chart`.
 
-Source passages: [Kazuya Kato, Logarithmic structures of Fontaine–Illusie](https://math.uchicago.edu/~drinfeld/p-adic_periods/Kato_log-structures.pdf), §4.6, p.209.
+Source locators: [Kazuya Kato, Logarithmic structures of Fontaine–Illusie](https://math.uchicago.edu/~drinfeld/p-adic_periods/Kato_log-structures.pdf), §4.6, p.209.
 
 Suggested signature scope: Keep the cartesian groupification-square algebraic predicate. IsExactLog applies it to the actual stalk maps. The closed-strict conclusion also requires a closed log immersion, including surjectivity on pulled-back log stalks.
 
@@ -482,7 +484,7 @@ Construction or proof outline:
 
 Direct dependencies: `CrystallineCohomology:CR.5:log-algebra/integral-monoid`; `CrystallineCohomology:CR.5:log-algebra/exact-morphism`.
 
-Source passages: [Kazuya Kato, Logarithmic structures of Fontaine–Illusie](https://math.uchicago.edu/~drinfeld/p-adic_periods/Kato_log-structures.pdf), Proposition 4.1; Definition 4.3; Corollaries 4.4–4.5, pp.206–209.
+Source locators: [Kazuya Kato, Logarithmic structures of Fontaine–Illusie](https://math.uchicago.edu/~drinfeld/p-adic_periods/Kato_log-structures.pdf), Proposition 4.1; Definition 4.3; Corollaries 4.4–4.5, pp.206–209.
 
 Suggested signature scope: The factorization criterion has its concrete integral monoid-pushout consequence. The geometric base-change export uses the integral log fibre product. Locality is retained for the exactness consequence.
 
@@ -517,7 +519,7 @@ Construction or proof outline:
 
 Direct dependencies: `CrystallineCohomology:CR.5:log-algebra/saturated-monoid`; `CrystallineCohomology:CR.5:log-algebra/exact-morphism`.
 
-Source passages: [Michael Temkin, Tame distillation and desingularization by p-alterations](https://annals.math.princeton.edu/wp-content/uploads/annals-v186-n1-p03-p.pdf), §1.2.7 and proof, Step 10, pp.100,123–124.
+Source locators: [Michael Temkin, Tame distillation and desingularization by p-alterations](https://annals.math.princeton.edu/wp-content/uploads/annals-v186-n1-p03-p.pdf), §1.2.7 and proof, Step 10, pp.100,123–124.
 
 Suggested signature scope: The algebraic positive-power lifting condition is retained. The geometric root map is indexed by the actual chart scheme; prime-to-characteristic and p-th-root tests distinguish Kummerness from log étaleness.
 
@@ -552,7 +554,7 @@ Construction or proof outline:
 
 Direct dependencies: `CrystallineCohomology:CR.5:log-algebra/associated-log`; `CrystallineCohomology:CR.5:log-algebra/log-pullback`; `CrystallineCohomology:CR.5:log-algebra/integral-monoid`; `CrystallineCohomology:CR.5:log-algebra/saturated-monoid`.
 
-Source passages: [Kazuya Kato, Logarithmic structures of Fontaine–Illusie](https://math.uchicago.edu/~drinfeld/p-adic_periods/Kato_log-structures.pdf), §1.6, p.195; Proposition 2.7 and §2.8, p.199; [Alexander Beilinson, On the crystalline period map](https://arxiv.org/pdf/1111.3316v4), §1.1, integral log fibre products, pp.2–3.
+Source locators: [Kazuya Kato, Logarithmic structures of Fontaine–Illusie](https://math.uchicago.edu/~drinfeld/p-adic_periods/Kato_log-structures.pdf), §1.6, p.195; Proposition 2.7 and §2.8, p.199; [Alexander Beilinson, On the crystalline period map](https://arxiv.org/pdf/1111.3316v4), §1.1, integral log fibre products, pp.2–3.
 
 Suggested signature scope: There are separate named ordinary, integralized and fs log scheme products, projections and unique factorization properties. The fs constructor includes the induced scheme modification. The root-pushout test detects failure of saturation.
 
@@ -587,7 +589,7 @@ Construction or proof outline:
 
 Direct dependencies: `CrystallineCohomology:CR.5:log-algebra/strict-morphism`; `CrystallineCohomology:CR.5:log-algebra/exact-morphism`; `CrystallineCohomology:CR.5:log-algebra/integral-log-fiber-product`; `mathlib:CategoryTheory.HasLiftingProperty`.
 
-Source passages: [Kazuya Kato, Logarithmic structures of Fontaine–Illusie](https://math.uchicago.edu/~drinfeld/p-adic_periods/Kato_log-structures.pdf), §3.1–3.3, pp.200–201; square-zero exact test diagrams.
+Source locators: [Kazuya Kato, Logarithmic structures of Fontaine–Illusie](https://math.uchicago.edu/~drinfeld/p-adic_periods/Kato_log-structures.pdf), §3.1–3.3, pp.200–201; square-zero exact test diagrams.
 
 Suggested signature scope: The predicate requires locally finite presentation and étale-local lifts in actual exact square-zero log scheme squares. Log étaleness uses uniqueness. Semistable and obstructed root tests exercise the geometric predicate. The exact square-zero test also requires a closed log immersion, including surjectivity of pulled-back log stalks; an underlying closed scheme map alone is insufficient.
 
@@ -622,7 +624,7 @@ Construction or proof outline:
 
 Direct dependencies: `CrystallineCohomology:CR.5:log-algebra/log-smooth`; `CrystallineCohomology:CR.5:log-algebra/log-chart`.
 
-Source passages: [Kazuya Kato, Logarithmic structures of Fontaine–Illusie](https://math.uchicago.edu/~drinfeld/p-adic_periods/Kato_log-structures.pdf), Theorem 3.5 and Remark 3.6, p.202; proof §3.13, pp.204–205.
+Source locators: [Kazuya Kato, Logarithmic structures of Fontaine–Illusie](https://math.uchicago.edu/~drinfeld/p-adic_periods/Kato_log-structures.pdf), Theorem 3.5 and Remark 3.6, p.202; proof §3.13, pp.204–205.
 
 Suggested signature scope: The local chart data includes the actual source and target charts, a common invertible annihilator for the finite group kernel and torsion cokernel, and smoothness or étaleness of the canonical toric comparison. The conclusion concerns that charted morphism. The primary theorem is the full étale-local equivalence, with neighborhoods on both source and target. The log étale form retains finiteness of the entire cokernel.
 
@@ -643,9 +645,9 @@ Construction or proof outline:
 
 Direct dependencies: `CrystallineCohomology:CR.5:log-algebra/integral-log-fiber-product`; `CrystallineCohomology:CR.5:log-algebra/strict-morphism`; `CrystallineCohomology:CR.5:log-algebra/exact-morphism`; `CrystallineCohomology:CR.5:log-algebra/integral-morphism`; `CrystallineCohomology:CR.5:log-algebra/kummer-morphism`; `CrystallineCohomology:CR.5:log-algebra/log-smooth-chart-criterion`.
 
-Source passages: [Kazuya Kato, Logarithmic structures of Fontaine–Illusie](https://math.uchicago.edu/~drinfeld/p-adic_periods/Kato_log-structures.pdf), §2.8, p.199; §3.9–3.12, pp.203–204; §4.3–4.8, pp.208–210; [Michael Temkin, Tame distillation and desingularization by p-alterations](https://annals.math.princeton.edu/wp-content/uploads/annals-v186-n1-p03-p.pdf), §1.2.7, Kummer étale maps, pp.99–100.
+Source locators: [Kazuya Kato, Logarithmic structures of Fontaine–Illusie](https://math.uchicago.edu/~drinfeld/p-adic_periods/Kato_log-structures.pdf), §2.8, p.199; §3.9–3.12, pp.203–204; §4.3–4.8, pp.208–210; [Michael Temkin, Tame distillation and desingularization by p-alterations](https://annals.math.princeton.edu/wp-content/uploads/annals-v186-n1-p03-p.pdf), §1.2.7, Kummer étale maps, pp.99–100.
 
-Suggested signature scope: The suggested theorem now covers strictness, log smoothness, log étaleness, exactness, integralness and fs Kummer étaleness with their respective ordinary/integral/fs products. It retains the source finiteness assumptions.
+Suggested signature scope: The fine signature now uses the fine integralized product for strict/exact/integral/smooth/étale base change. A separate fsification and projection state Kummer étale fs base change, requiring fs objects and both Kummerness and log étaleness. No pure Kummer preservation is asserted on the integralized product.
 
 Acceptance:
 
@@ -664,7 +666,7 @@ Construction or proof outline:
 
 Direct dependencies: `CrystallineCohomology:CR.5:log-algebra/log-structure`; `CrystallineCohomology:CR.5:log-algebra/log-chart`; `CrystallineCohomology:CR.5:log-algebra/saturated-monoid`; `AlgebraicModuliForArithmeticGeometry:R09.7a`.
 
-Source passages: [Michael Temkin, Tame distillation and desingularization by p-alterations](https://annals.math.princeton.edu/wp-content/uploads/annals-v186-n1-p03-p.pdf), §1.2.7, pp.99–100, SNC log structure and cusp non-example; [Wiesława Nizioł, Toric singularities: log-blow-ups and global resolutions](https://webusers.imj-prg.fr/~wieslawa.niziol/resol7.pdf), Proposition 2.6 and proof, pp.4–5.
+Source locators: [Michael Temkin, Tame distillation and desingularization by p-alterations](https://annals.math.princeton.edu/wp-content/uploads/annals-v186-n1-p03-p.pdf), §1.2.7, pp.99–100, SNC log structure and cusp non-example; [Wiesława Nizioł, Toric singularities: log-blow-ups and global resolutions](https://webusers.imj-prg.fr/~wieslawa.niziol/resol7.pdf), Proposition 2.6 and proof, pp.4–5.
 
 Suggested signature scope: SNCBoundaryView is a client view of R09.7a: regular ambient scheme, open complement and étale regular-parameter charts, with regular strata and their codimensions. divisorialLog uses the actual complement. Boundary-chart and crossing tests use this supplied pair. The unit-change isomorphism preserves the structure map to the same ring.
 
@@ -699,7 +701,7 @@ Construction or proof outline:
 
 Direct dependencies: `CrystallineCohomology:CR.5:log-algebra/characteristic-monoid`; `CrystallineCohomology:CR.5:log-algebra/saturated-monoid`; `AlgebraicModuliForArithmeticGeometry:R09.7a`.
 
-Source passages: [Wiesława Nizioł, Toric singularities: log-blow-ups and global resolutions](https://webusers.imj-prg.fr/~wieslawa.niziol/resol7.pdf), Definition 2.2, pp.2–3; Proposition 2.6, p.5.
+Source locators: [Wiesława Nizioł, Toric singularities: log-blow-ups and global resolutions](https://webusers.imj-prg.fr/~wieslawa.niziol/resol7.pdf), Definition 2.2, pp.2–3; Proposition 2.6, p.5.
 
 Suggested signature scope: LogRegularLocal now contains a noetherian local ring, an integral fs log stalk, its nonunit ideal, regularity of the quotient and the Krull-dimension/rank formula. IsLogRegular applies this at actual geometric stalks; the nodal trivial-log test fails quotient regularity.
 
@@ -738,7 +740,7 @@ Construction or proof outline:
 
 Direct dependencies: `CrystallineCohomology:CR.5:log-algebra/log-regularity`; `CrystallineCohomology:CR.5:log-algebra/log-smooth-chart-criterion`.
 
-Source passages: [Howard M. Thompson, Toric singularities revisited](https://arxiv.org/pdf/math/0305441), §3.5, Theorem 3.14, p.32; citing Kato Toric singularities, Theorem 8.2.
+Source locators: [Howard M. Thompson, Toric singularities revisited](https://arxiv.org/pdf/math/0305441), §3.5, Theorem 3.14, p.32; citing Kato Toric singularities, Theorem 8.2.
 
 Suggested signature scope: The statement is bound to an actual log smooth fs morphism and locally noetherian schemes. Its local completed-ring proof remains the first source gap; the earlier numerical dimension identity is removed.
 
@@ -760,7 +762,7 @@ Construction or proof outline:
 
 Direct dependencies: `CrystallineCohomology:CR.5:log-algebra/divisorial-log`; `CrystallineCohomology:CR.5:log-algebra/log-regularity`; `CrystallineCohomology:CR.5:log-algebra/kummer-morphism`; `CrystallineCohomology:CR.5:log-algebra/log-smooth-chart-criterion`; `LefschetzPencilsAndVanishingCycles:LPV.5`.
 
-Source passages: [Michael Temkin, Tame distillation and desingularization by p-alterations](https://annals.math.princeton.edu/wp-content/uploads/annals-v186-n1-p03-p.pdf), Theorem 4.2.1 proof, Steps 9–10 inherited from IT14b, p.123; §1.2.7.
+Source locators: [Michael Temkin, Tame distillation and desingularization by p-alterations](https://annals.math.princeton.edu/wp-content/uploads/annals-v186-n1-p03-p.pdf), Theorem 4.2.1 proof, Steps 9–10 inherited from IT14b, p.123; §1.2.7.
 
 Suggested signature scope: The client input is a finite normal extension, étale on the supplied SNC complement. Tameness uses the canonical LPV.5 boundary inertia groups and invertibility of their orders in the residue fields. The result concerns the extension with its divisorial log structures; root-chart arithmetic alone is insufficient.
 
@@ -781,7 +783,7 @@ Construction or proof outline:
 
 Direct dependencies: `CrystallineCohomology:CR.5:log-algebra/integral-monoid`; `CrystallineCohomology:CR.5:log-algebra/log-chart`; `CrystallineCohomology:CR.5:log-algebra/integral-log-fiber-product`; `AdicSpacesPartII:F0/locally-noetherian-formal-scheme`.
 
-Source passages: [Alexander Beilinson, On the crystalline period map](https://arxiv.org/pdf/1111.3316v4), §1.1, pp.2–3; [Federico Binda, Hiroki Kato and Alberto Vezzani, On the p-adic weight-monodromy conjecture for complete intersections in toric varieties](https://arxiv.org/pdf/2207.00369v2), §2.1, conventions before Definition 2.1, pp.5–6.
+Source locators: [Alexander Beilinson, On the crystalline period map](https://arxiv.org/pdf/1111.3316v4), §1.1, pp.2–3; [Federico Binda, Hiroki Kato and Alberto Vezzani, On the p-adic weight-monodromy conjecture for complete intersections in toric varieties](https://arxiv.org/pdf/2207.00369v2), §2.1, conventions before Definition 2.1, pp.5–6.
 
 Suggested signature scope: QCLogScheme is the actual log scheme with arbitrary integral étale charts. Finite limits use ordinary log limits followed by integralization and the corresponding universal property. The rational log point remains a non-fine example.
 
@@ -816,7 +818,7 @@ Construction or proof outline:
 
 Direct dependencies: `CrystallineCohomology:CR.5:log-algebra/qc-log-scheme`; `CrystallineCohomology:CR.5:log-algebra/log-smooth`; `CrystallineCohomology:CR.5:log-algebra/integral-log-fiber-product`.
 
-Source passages: [Federico Binda, Hiroki Kato and Alberto Vezzani, On the p-adic weight-monodromy conjecture for complete intersections in toric varieties](https://arxiv.org/pdf/2207.00369v2), Definition 2.1, pp.5–6.
+Source locators: [Federico Binda, Hiroki Kato and Alberto Vezzani, On the p-adic weight-monodromy conjecture for complete intersections in toric varieties](https://arxiv.org/pdf/2207.00369v2), Definition 2.1, pp.5–6.
 
 Suggested signature scope: FineLogSmoothModel and LocalFineLogSmoothModel include both a fine source morphism and its log smoothness, a fine base on the same underlying base scheme, integral base change, and actual source/base étale neighborhoods. The fine compatibility statement is an equivalence with genuine fine log smoothness.
 
@@ -851,7 +853,7 @@ Construction or proof outline:
 
 Direct dependencies: `CrystallineCohomology:CR.5:log-algebra/qc-log-smooth`; `CrystallineCohomology:CR.5:log-algebra/fine-monoid`; `CrystallineCohomology:CR.5:log-algebra/integral-log-fiber-product`.
 
-Source passages: [Federico Binda, Hiroki Kato and Alberto Vezzani, On the p-adic weight-monodromy conjecture for complete intersections in toric varieties](https://arxiv.org/pdf/2207.00369v2), Proposition 2.2 and its proof, pp.6–7.
+Source locators: [Federico Binda, Hiroki Kato and Alberto Vezzani, On the p-adic weight-monodromy conjecture for complete intersections in toric varieties](https://arxiv.org/pdf/2207.00369v2), Proposition 2.2 and its proof, pp.6–7.
 
 Suggested signature scope: CommonFineNeighborhood contains the source, target and base neighborhoods and their commuting morphism of fine log smooth models. Descent is local on these neighborhoods; the finite monoid image argument is one step of this geometric construction.
 
@@ -872,7 +874,7 @@ Construction or proof outline:
 
 Direct dependencies: `CrystallineCohomology:CR.5:log-algebra/qc-log-scheme`; `CrystallineCohomology:CR.5:log-algebra/log-pullback`.
 
-Source passages: [Federico Binda, Hiroki Kato and Alberto Vezzani, On the p-adic weight-monodromy conjecture for complete intersections in toric varieties](https://arxiv.org/pdf/2207.00369v2), Definition 2.3 and Remark 2.4, pp.6–7.
+Source locators: [Federico Binda, Hiroki Kato and Alberto Vezzani, On the p-adic weight-monodromy conjecture for complete intersections in toric varieties](https://arxiv.org/pdf/2207.00369v2), Definition 2.3 and Remark 2.4, pp.6–7.
 
 Suggested signature scope: Use the positive sum/product criterion giving inverses modulo the base image. The quotient-group API and diagonal/horizontal-boundary tests retain this formulation, including the correction to BKV Remark 2.4(1).
 
@@ -907,7 +909,7 @@ Construction or proof outline:
 
 Direct dependencies: `CrystallineCohomology:CR.5:log-algebra/qc-log-scheme`; `CrystallineCohomology:CR.5:log-algebra/log-pullback`; `AInfCohomology:AI.0:integral`.
 
-Source passages: [Federico Binda, Hiroki Kato and Alberto Vezzani, On the p-adic weight-monodromy conjecture for complete intersections in toric varieties](https://arxiv.org/pdf/2207.00369v2), Notation 2.5 and Lemma 2.6, p.7.
+Source locators: [Federico Binda, Hiroki Kato and Alberto Vezzani, On the p-adic weight-monodromy conjecture for complete intersections in toric varieties](https://arxiv.org/pdf/2207.00369v2), Notation 2.5 and Lemma 2.6, p.7.
 
 Suggested signature scope: The general nonzero-monoid chart is retained. The completed algebraic closure and sharp/residue data are R06.1 and AI.0:integral clients; their valuation characteristic is non-fine. The rational log point is the explicit affine model of that characteristic.
 
@@ -943,7 +945,7 @@ Construction or proof outline:
 
 Direct dependencies: `CrystallineCohomology:CR.5:log-algebra/valuation-log`; `CrystallineCohomology:CR.5:log-algebra/qc-log-smooth`; `CrystallineCohomology:CR.5:log-algebra/vertical-log`; `CrystallineCohomology:CR.5:log-algebra/divisorial-log`; `AdicSpacesPartII:F0/locally-noetherian-formal-scheme`; `AdicSpacesPartII:R2/admissible-formal-scheme`.
 
-Source passages: [Federico Binda, Hiroki Kato and Alberto Vezzani, On the p-adic weight-monodromy conjecture for complete intersections in toric varieties](https://arxiv.org/pdf/2207.00369v2), Definition 2.7 and Remark 2.8, pp.7–8; [Teruhisa Koshikawa, Logarithmic prismatic cohomology I](https://arxiv.org/pdf/2007.14037v3), Appendix A, §A.1 Examples (1)–(2), p.50.
+Source locators: [Federico Binda, Hiroki Kato and Alberto Vezzani, On the p-adic weight-monodromy conjecture for complete intersections in toric varieties](https://arxiv.org/pdf/2207.00369v2), Definition 2.7 and Remark 2.8, pp.7–8; [Teruhisa Koshikawa, Logarithmic prismatic cohomology I](https://arxiv.org/pdf/2007.14037v3), Appendix A, §A.1 Examples (1)–(2), p.50.
 
 Suggested signature scope: ArithmeticFrame records the complete mixed-characteristic DVR, residue and Witt fraction fields and their compatible embeddings. The formal ring, its reductions and the diagonal chart are indexed by this frame. O_C base change is integral and uses a finite semistable model; the nonnoetherian boundary identification remains a source gap.
 
@@ -988,7 +990,7 @@ Construction or proof outline:
 
 Direct dependencies: `CrystallineCohomology:CR.5:log-algebra/prelog-ring`; `CrystallineCohomology:CR.5:log-algebra/log-chart`; `mathlib:Algebra.GrothendieckGroup.lift`; `mathlib:KaehlerDifferential`; `mathlib:KaehlerDifferential.D`.
 
-Source passages: [Kazuya Kato, Logarithmic structures of Fontaine–Illusie](https://math.uchicago.edu/~drinfeld/p-adic_periods/Kato_log-structures.pdf), §1.7–1.8, pp.195–196; logification invariance and base-change formula.
+Source locators: [Kazuya Kato, Logarithmic structures of Fontaine–Illusie](https://math.uchicago.edu/~drinfeld/p-adic_periods/Kato_log-structures.pdf), §1.7–1.8, pp.195–196; logification invariance and base-change formula.
 
 Suggested signature scope: The existing Kähler module is extended by chart groupification generators and the two log relations. The universal log derivation, toric line and log point tests retain the algebraic quotient, with sheafification specified in the roadmap.
 
@@ -1023,7 +1025,7 @@ Construction or proof outline:
 
 Direct dependencies: `CrystallineCohomology:CR.5/log-differentials`; `mathlib:ExteriorAlgebra`; `mathlib:ExteriorAlgebra.ι_sq_zero`; `EnhancedDerivedSheaves:E1/enhanced-derived-category`.
 
-Source passages: [Kazuya Kato, Logarithmic structures of Fontaine–Illusie](https://math.uchicago.edu/~drinfeld/p-adic_periods/Kato_log-structures.pdf), §1.9, p.196; coefficient complex Theorem 6.4, p.219.
+Source locators: [Kazuya Kato, Logarithmic structures of Fontaine–Illusie](https://math.uchicago.edu/~drinfeld/p-adic_periods/Kato_log-structures.pdf), §1.9, p.196; coefficient complex Theorem 6.4, p.219.
 
 Suggested signature scope: The full cohomological exterior complex and its canonical differential are retained. The coefficient extension uses the actual exterior differential and graded Leibniz rule, so integrability is a constraint on the connection.
 
@@ -1059,7 +1061,7 @@ Construction or proof outline:
 
 Direct dependencies: `CrystallineCohomology:CR.5/log-differentials`; `CrystallineCohomology:CR.5/log-de-rham`; `CrystallineCohomology:CR.5:log-algebra/formal-semistable-log`.
 
-Source passages: [Kazuya Kato, Logarithmic structures of Fontaine–Illusie](https://math.uchicago.edu/~drinfeld/p-adic_periods/Kato_log-structures.pdf), Example 3.7(2), pp.202–203; §1.7–1.8, pp.195–196; [Kęstutis Česnavičius and Teruhisa Koshikawa, The A_inf-cohomology in the semistable case](https://arxiv.org/pdf/1710.06145v3), §5.10, the continuous log de Rham complex, pp.36–37.
+Source locators: [Kazuya Kato, Logarithmic structures of Fontaine–Illusie](https://math.uchicago.edu/~drinfeld/p-adic_periods/Kato_log-structures.pdf), Example 3.7(2), pp.202–203; §1.7–1.8, pp.195–196; [Kęstutis Česnavičius and Teruhisa Koshikawa, The A_inf-cohomology in the semistable case](https://arxiv.org/pdf/1710.06145v3), §5.10, the continuous log de Rham complex, pp.36–37.
 
 Suggested signature scope: The relative quotient kills the sum of the r log generators. The suggested finite semistable presentation is an affine slice; completion uses its actual finite reductions and no arbitrary derived completion claim.
 
@@ -1081,7 +1083,7 @@ Construction or proof outline:
 
 Direct dependencies: `CrystallineCohomology:CR.5/semistable-log-forms`; `CrystallineCohomology:CR.5/log-de-rham`.
 
-Source passages: [Kazuya Kato, Logarithmic structures of Fontaine–Illusie](https://math.uchicago.edu/~drinfeld/p-adic_periods/Kato_log-structures.pdf), §1.7–1.9, pp.195–196 and Example 3.7(2), pp.202–203; coefficient projection on the absolute presentation; [Daniel Disegni and Yifeng Liu, A p-adic arithmetic inner product formula](https://disegni-daniel.perso.math.cnrs.fr/AIPF.pdf), Appendix B.2, residue quotient and diagram (B.7), PDF p.118.
+Source locators: [Kazuya Kato, Logarithmic structures of Fontaine–Illusie](https://math.uchicago.edu/~drinfeld/p-adic_periods/Kato_log-structures.pdf), §1.7–1.9, pp.195–196 and Example 3.7(2), pp.202–203; coefficient projection on the absolute presentation; [Daniel Disegni and Yifeng Liu, A p-adic arithmetic inner product formula](https://disegni-daniel.perso.math.cnrs.fr/AIPF.pdf), Appendix B.2, residue quotient and diagram (B.7), PDF p.118.
 
 Suggested signature scope: The component residue is on absolute log forms over the trivial base log. The node test computes the two coordinate residues, and the relative quotient nonexample detects the forbidden individual residue after killing their sum.
 
@@ -1116,7 +1118,7 @@ Construction or proof outline:
 
 Direct dependencies: `CrystallineCohomology:CR.5:log-algebra/log-pullback`; `CrystallineCohomology:CR.5:log-algebra/formal-semistable-log`; `CrystallineCohomology:CR.5/semistable-log-forms`; `DerivedDeRhamCohomology:DD.1/derived-completion`.
 
-Source passages: [Kęstutis Česnavičius and Teruhisa Koshikawa, The A_inf-cohomology in the semistable case](https://arxiv.org/pdf/1710.06145v3), §5.9–5.13, pp.36–38; [Teruhisa Koshikawa, Logarithmic prismatic cohomology I](https://arxiv.org/pdf/2007.14037v3), Appendix A, §A.1 Examples (1)–(2) and base-change convention, p.50.
+Source locators: [Kęstutis Česnavičius and Teruhisa Koshikawa, The A_inf-cohomology in the semistable case](https://arxiv.org/pdf/1710.06145v3), §5.9–5.13, pp.36–38; [Teruhisa Koshikawa, Logarithmic prismatic cohomology I](https://arxiv.org/pdf/2007.14037v3), Appendix A, §A.1 Examples (1)–(2) and base-change convention, p.50.
 
 Suggested signature scope: The comparison is between the completed continuous semistable form module and the limit of its reduction-form tower. The tower is a functor into modules over the completed ring, with a cone and an ordinary module-category universal limit; derived completion of general coefficients is separate.
 
@@ -1137,7 +1139,7 @@ Construction or proof outline:
 
 Direct dependencies: `CrystallineCohomology:CR.5:log-algebra/integral-morphism`; `CrystallineCohomology:CR.5:log-algebra/exact-morphism`; `CrystallineCohomology:CR.5:log-algebra/integral-log-fiber-product`.
 
-Source passages: [Kazuya Kato, Logarithmic structures of Fontaine–Illusie](https://math.uchicago.edu/~drinfeld/p-adic_periods/Kato_log-structures.pdf), §4.7–4.8, pp.209–210; [Osamu Hyodo and Kazuya Kato, Semi-stable reduction and crystalline cohomology with logarithmic poles](https://www.numdam.org/item/AST_1994__223__221_0.pdf), §2.12, Cartier type, pp.231–232.
+Source locators: [Kazuya Kato, Logarithmic structures of Fontaine–Illusie](https://math.uchicago.edu/~drinfeld/p-adic_periods/Kato_log-structures.pdf), §4.7–4.8, pp.209–210; [Osamu Hyodo and Kazuya Kato, Semi-stable reduction and crystalline cohomology with logarithmic poles](https://www.numdam.org/item/AST_1994__223__221_0.pdf), §2.12, Cartier type, pp.231–232.
 
 Suggested signature scope: The twist is the actual log fibre product along absolute Frobenius and the relative Frobenius is its canonical map. IsCartierType requires integrality of the morphism and exactness of that map. The root counterexample tests this geometry.
 
@@ -1172,7 +1174,7 @@ Construction or proof outline:
 
 Direct dependencies: `CrystallineCohomology:CR.5/cartier-type`; `CrystallineCohomology:CR.5/log-de-rham`; `CrystallineCohomology:CR.5:log-algebra/log-smooth-chart-criterion`.
 
-Source passages: [Kazuya Kato, Logarithmic structures of Fontaine–Illusie](https://math.uchicago.edu/~drinfeld/p-adic_periods/Kato_log-structures.pdf), Theorem 4.12 and proof §4.13–4.14, pp.212–214.
+Source locators: [Kazuya Kato, Logarithmic structures of Fontaine–Illusie](https://math.uchicago.edu/~drinfeld/p-adic_periods/Kato_log-structures.pdf), Theorem 4.12 and proof §4.13–4.14, pp.212–214.
 
 Suggested signature scope: The source is the sheaf of log forms on the actual Frobenius twist; the target is cohomology of the actual Frobenius-pushed differential complex. The isomorphism requires fine log smoothness and Cartier type, rather than arbitrary modules.
 
@@ -1193,7 +1195,7 @@ Construction or proof outline:
 
 Direct dependencies: `CrystallineCohomology:CR.5:log-algebra/exact-morphism`; `CrystallineCohomology:CR.5:log-algebra/log-smooth-chart-criterion`; `CrystallineCohomology:CR.5:log-algebra/integral-log-fiber-product`.
 
-Source passages: [Kazuya Kato, Logarithmic structures of Fontaine–Illusie](https://math.uchicago.edu/~drinfeld/p-adic_periods/Kato_log-structures.pdf), Proposition 4.10(1), pp.210–211; §5.6–5.7, p.216.
+Source locators: [Kazuya Kato, Logarithmic structures of Fontaine–Illusie](https://math.uchicago.edu/~drinfeld/p-adic_periods/Kato_log-structures.pdf), Proposition 4.10(1), pp.210–211; §5.6–5.7, p.216.
 
 Suggested signature scope: ExactificationAt includes an actual source étale neighborhood, an exact closed log immersion, and a log étale ambient map with a commuting factorization. ExactificationRefinement contains common geometric maps. The ambient map is not required to be ordinary étale.
 
@@ -1232,7 +1234,7 @@ Construction or proof outline:
 
 Direct dependencies: `CrystallineCohomology:CR.5/log-exactification`; `CrystallineCohomology:CR.0`; `CrystallineCohomology:CR.5:log-algebra/log-pullback`; `mathlib:DividedPowers`.
 
-Source passages: [Kazuya Kato, Logarithmic structures of Fontaine–Illusie](https://math.uchicago.edu/~drinfeld/p-adic_periods/Kato_log-structures.pdf), Proposition 5.3, p.215; §§5.4–5.6, p.216, especially §5.5.2 for the fixed source.
+Source locators: [Kazuya Kato, Logarithmic structures of Fontaine–Illusie](https://math.uchicago.edu/~drinfeld/p-adic_periods/Kato_log-structures.pdf), Proposition 5.3, p.215; §§5.4–5.6, p.216, especially §5.5.2 for the fixed source.
 
 Suggested signature scope: EnvelopeInput contains the closed log immersion and both compatible base-PD extensions. EnvelopeCandidate fixes its source and ambient factorization. The universal arrow goes from each test PD thickening to the envelope. The log diagonal test uses the actual unit ratio and its PD kernel.
 
@@ -1272,7 +1274,7 @@ Construction or proof outline:
 
 Direct dependencies: `CrystallineCohomology:CR.5:log-algebra/qc-log-scheme`; `CrystallineCohomology:CR.5:log-algebra/fine-model-descent`; `CrystallineCohomology:CR.5/log-pd-envelope`; `CrystallineCohomology:CR.0`.
 
-Source passages: [Alexander Beilinson, On the crystalline period map](https://arxiv.org/pdf/1111.3316v4), §1.3, pp.4–6; [Kęstutis Česnavičius and Teruhisa Koshikawa, The A_inf-cohomology in the semistable case](https://arxiv.org/pdf/1710.06145v3), Footnote 11, p.45 of the version read.
+Source locators: [Alexander Beilinson, On the crystalline period map](https://arxiv.org/pdf/1111.3316v4), §1.3, pp.4–6; [Kęstutis Česnavičius and Teruhisa Koshikawa, The A_inf-cohomology in the semistable case](https://arxiv.org/pdf/1710.06145v3), Footnote 11, p.45 of the version read.
 
 Suggested signature scope: The same compatible-base envelope input has an integral quasi-coherent source and a p-nilpotent base. Its unique PD factorization is not restricted to fine sources. The rational log point identity test is within this scope; it does not assert an uncompleted mixed-characteristic envelope.
 
@@ -1307,7 +1309,7 @@ Construction or proof outline:
 
 Direct dependencies: `CrystallineCohomology:CR.5:log-algebra/qc-log-scheme`; `CrystallineCohomology:CR.5:log-algebra/exact-morphism`; `mathlib:DividedPowers`; `CrystallineCohomology:CR.0`.
 
-Source passages: [Alexander Beilinson, On the crystalline period map](https://arxiv.org/pdf/1111.3316v4), §1.2, pp.3–4; §1.5, pp.6–7.
+Source locators: [Alexander Beilinson, On the crystalline period map](https://arxiv.org/pdf/1111.3316v4), §1.2, pp.3–4; §1.5, pp.6–7.
 
 Suggested signature scope: The carrier now includes the actual exact closed log immersion, defining ideal sheaf, its divided powers and the common extension to J+IO_T, natural under restrictions and base maps. The square-zero test computes all higher divided powers of the actual dual-number generator.
 
@@ -1343,7 +1345,7 @@ Construction or proof outline:
 
 Direct dependencies: `CrystallineCohomology:CR.5/log-pd-thickening`; `CrystallineCohomology:CR.5/qc-log-pd-envelope`; `CrystallineCohomology:CR.5:log-algebra/log-smooth`; `mathlib:CategoryTheory.HasLiftingProperty`.
 
-Source passages: [Alexander Beilinson, On the crystalline period map](https://arxiv.org/pdf/1111.3316v4), §1.4, definition, examples and Remark, p.6.
+Source locators: [Alexander Beilinson, On the crystalline period map](https://arxiv.org/pdf/1111.3316v4), §1.4, definition, examples and Remark, p.6.
 
 Suggested signature scope: PDSmoothTest and its lifts are actual affine PD diagrams. The coordinate object is constructed from the specified ordinary/log generators; the retract theorem uses actual PD morphisms. No étale-locality theorem is introduced.
 
@@ -1379,7 +1381,7 @@ Construction or proof outline:
 
 Direct dependencies: `CrystallineCohomology:CR.5/log-pd-thickening`; `CrystallineCohomology:CR.5/qc-log-pd-envelope`; `mathlib:AlgebraicGeometry.Scheme.smallEtaleTopology`; `EnhancedDerivedSheaves:E1/sheaves-of-modules-and-the-grothendieck-property`; `mathlib:CategoryTheory.GrothendieckTopology`.
 
-Source passages: [Alexander Beilinson, On the crystalline period map](https://arxiv.org/pdf/1111.3316v4), §1.5, pp.6–7; [Kazuya Kato, Logarithmic structures of Fontaine–Illusie](https://math.uchicago.edu/~drinfeld/p-adic_periods/Kato_log-structures.pdf), §5.2 and §5.9, fine log crystalline site, pp.215–217.
+Source locators: [Alexander Beilinson, On the crystalline period map](https://arxiv.org/pdf/1111.3316v4), §1.5, pp.6–7; [Kazuya Kato, Logarithmic structures of Fontaine–Illusie](https://math.uchicago.edu/~drinfeld/p-adic_periods/Kato_log-structures.pdf), §5.2 and §5.9, fine log crystalline site, pp.215–217.
 
 Suggested signature scope: LogCrysObject has a source étale over Z with its pulled-back log structure and a compatible PD thickening. Covers are jointly surjective strict étale ambient maps with the canonical cartesian source square. The structure sheaf and ordinary forgetful functor are fixed constructions for this same site.
 
@@ -1414,9 +1416,9 @@ Construction or proof outline:
 
 Direct dependencies: `CrystallineCohomology:CR.5/log-crystalline-site`; `EnhancedDerivedSheaves:E1/sheaves-of-modules-and-the-grothendieck-property`; `EnhancedDerivedSheaves:E1/presentability-and-derived-tensor`; `mathlib:ModuleCat`; `mathlib:PresheafOfModulesOfCommRing`; `mathlib:ModuleCat.extendScalars`.
 
-Source passages: [Kazuya Kato, Logarithmic structures of Fontaine–Illusie](https://math.uchicago.edu/~drinfeld/p-adic_periods/Kato_log-structures.pdf), Definition 6.1, p.218; [Alexander Beilinson, On the crystalline period map](https://arxiv.org/pdf/1111.3316v4), §1.7, crystals and log connections, pp.8–11.
+Source locators: [Kazuya Kato, Logarithmic structures of Fontaine–Illusie](https://math.uchicago.edu/~drinfeld/p-adic_periods/Kato_log-structures.pdf), Definition 6.1, p.218; [Alexander Beilinson, On the crystalline period map](https://arxiv.org/pdf/1111.3316v4), §1.7, crystals and log connections, pp.8–11.
 
-Suggested signature scope: LogCrystal is a module sheaf for the specified topology as well as a cartesian module presheaf. Its category has actual module-presheaf maps; tensor and finite-projective dual evaluations are specified. The ordinary/log comparison uses the geometric forgetful functor.
+Suggested signature scope: Independent review R2a: this module-presheaf signature is a quasi-coherent affine-basis slice, since cartesianness uses scalar extension of global sections. The target definition permits all module-sheaf crystals. Supply the unrestricted sheaf-pullback category, or explicitly restrict both sides of the comparison to quasi-coherent evaluations; the present type is not that full target.
 
 Use driving the interface: `CrystallineCohomology:CR.5/log-pd-stratification` — Cartesian transition isomorphisms evaluated on double/triple diagonals yield the identity and cocycle of the PD stratification; finite locally free duals remain cartesian.
 
@@ -1449,9 +1451,9 @@ Construction or proof outline:
 
 Direct dependencies: `CrystallineCohomology:CR.5/log-pd-envelope`; `CrystallineCohomology:CR.5/log-crystal`; `CrystallineCohomology:CR.5/log-differentials`.
 
-Source passages: [Kazuya Kato, Logarithmic structures of Fontaine–Illusie](https://math.uchicago.edu/~drinfeld/p-adic_periods/Kato_log-structures.pdf), Proposition 6.5 and proof §6.6–6.7, pp.219–220; [Osamu Hyodo and Kazuya Kato, Semi-stable reduction and crystalline cohomology with logarithmic poles](https://www.numdam.org/item/AST_1994__223__221_0.pdf), §2.16–2.17, logarithmic PD differential operators, pp.234–235.
+Source locators: [Kazuya Kato, Logarithmic structures of Fontaine–Illusie](https://math.uchicago.edu/~drinfeld/p-adic_periods/Kato_log-structures.pdf), Proposition 6.5 and proof §6.6–6.7, pp.219–220; [Osamu Hyodo and Kazuya Kato, Semi-stable reduction and crystalline cohomology with logarithmic poles](https://www.numdam.org/item/AST_1994__223__221_0.pdf), §2.16–2.17, logarithmic PD differential operators, pp.234–235.
 
-Suggested signature scope: The double/triple log PD diagonals and their projections are indexed by the actual thickening and evaluated module. Identity and cocycle constrain those maps. The first-order connection lives on that module and its geometric log differential module.
+Suggested signature scope: Independent review R2a: the double/triple PD-diagonal identity and cocycle equations are retained, but the suggested module prototype uses global rings for unrestricted thickenings. State its affine/QC slice and descent, or use sheaf pullbacks for the full target. This is part of the unresolved crystal/connection repair.
 
 Use driving the interface: `CrystallineCohomology:CR.5/crystal-connection-equivalence` — Differentiating the first PD order gives the connection; diagonal identity and triple cocycle supply its Leibniz rule and zero curvature. Taylor coefficients recover the stratification.
 
@@ -1484,7 +1486,7 @@ Construction or proof outline:
 
 Direct dependencies: `CrystallineCohomology:CR.5/log-differentials`; `CrystallineCohomology:CR.5/log-de-rham`.
 
-Source passages: [Kazuya Kato, Logarithmic structures of Fontaine–Illusie](https://math.uchicago.edu/~drinfeld/p-adic_periods/Kato_log-structures.pdf), Theorem 6.2(b), pp.218–219; [Aise Johan de Jong, Crystalline Dieudonné module theory via formal and rigid geometry](https://www.numdam.org/article/PMIHES_1995__82__5_0.pdf), §2.2.2–2.2.4, ordinary crystalline connection, pp.19–21.
+Source locators: [Kazuya Kato, Logarithmic structures of Fontaine–Illusie](https://math.uchicago.edu/~drinfeld/p-adic_periods/Kato_log-structures.pdf), Theorem 6.2(b), pp.218–219; [Aise Johan de Jong, Crystalline Dieudonné module theory via formal and rigid geometry](https://www.numdam.org/article/PMIHES_1995__82__5_0.pdf), §2.2.2–2.2.4, ordinary crystalline connection, pp.19–21.
 
 Suggested signature scope: DifferentialGeometry has a closed set of actual prelog or PD inputs. The full coefficient differential and curvature use its canonical exterior differential. The two-variable example constructs d+x dy and computes curvature on 1 as dx∧dy≠0.
 
@@ -1520,7 +1522,7 @@ Construction or proof outline:
 
 Direct dependencies: `CrystallineCohomology:CR.5/log-connection`; `CrystallineCohomology:CR.5/log-pd-stratification`.
 
-Source passages: [Kazuya Kato, Logarithmic structures of Fontaine–Illusie](https://math.uchicago.edu/~drinfeld/p-adic_periods/Kato_log-structures.pdf), Theorem 6.2(b)(iii), Remark 6.3, pp.218–219; [Osamu Hyodo and Kazuya Kato, Semi-stable reduction and crystalline cohomology with logarithmic poles](https://www.numdam.org/item/AST_1994__223__221_0.pdf), §2.17, log PD Taylor coefficients, p.235.
+Source locators: [Kazuya Kato, Logarithmic structures of Fontaine–Illusie](https://math.uchicago.edu/~drinfeld/p-adic_periods/Kato_log-structures.pdf), Theorem 6.2(b)(iii), Remark 6.3, pp.218–219; [Osamu Hyodo and Kazuya Kato, Semi-stable reduction and crystalline cohomology with logarithmic poles](https://www.numdam.org/item/AST_1994__223__221_0.pdf), §2.17, log PD Taylor coefficients, p.235.
 
 Suggested signature scope: PDCoordinateFrame includes ordinary and logarithmic coordinates and a basis of the actual forms. Quasi-nilpotence uses all Taylor multiindices; chart independence assumes integrability. The formal iff is on the actual p-power reductions of a complete evaluated module.
 
@@ -1556,9 +1558,9 @@ Construction or proof outline:
 
 Direct dependencies: `CrystallineCohomology:CR.5/log-crystal`; `CrystallineCohomology:CR.5/log-pd-stratification`; `CrystallineCohomology:CR.5/log-connection`; `CrystallineCohomology:CR.5/log-quasi-nilpotence`; `CrystallineCohomology:CR.5/log-pd-smooth`.
 
-Source passages: [Kazuya Kato, Logarithmic structures of Fontaine–Illusie](https://math.uchicago.edu/~drinfeld/p-adic_periods/Kato_log-structures.pdf), Theorem 6.2 and proof §6.7–6.8, pp.218–221; [Alexander Beilinson, On the crystalline period map](https://arxiv.org/pdf/1111.3316v4), §1.7, Theorem after the crystal definition, pp.8–10.
+Source locators: [Kazuya Kato, Logarithmic structures of Fontaine–Illusie](https://math.uchicago.edu/~drinfeld/p-adic_periods/Kato_log-structures.pdf), Theorem 6.2 and proof §6.7–6.8, pp.218–221; [Alexander Beilinson, On the crystalline period map](https://arxiv.org/pdf/1111.3316v4), §1.7, Theorem after the crystal definition, p.11.
 
-Suggested signature scope: The equivalence is between Crystals B Z and sheaves of integrable quasi-nilpotent PD connections on the actual PD-smooth T. Morphisms are horizontal module-sheaf maps. This is the coordinate PD-smooth client slice of the stated fine and integral quasi-coherent comparisons.
+Suggested signature scope: Independent review R2b: the suggested sheaf adapter tensors global sections on every étale object and imposes a uniform Taylor bound over each arbitrary object. Kato and Beilinson require sheaf tensors and stalkwise/local quasi-nilpotence. Repair the sheaf or affine-basis interface before using the displayed equivalence; elaboration with sorry does not establish it.
 
 Acceptance:
 
@@ -1577,9 +1579,9 @@ Construction or proof outline:
 
 Direct dependencies: `CrystallineCohomology:CR.5/log-pd-envelope`; `CrystallineCohomology:CR.5/log-connection`; `CrystallineCohomology:CR.0/pd-filtration`; `mathlib:DividedPowerAlgebra`; `mathlib:DividedPowerAlgebra.dp`.
 
-Source passages: [Alexander Beilinson, On the crystalline period map](https://arxiv.org/pdf/1111.3316v4), §1.7, pp.8–11; §1.8, pp.11–12.
+Source locators: [Alexander Beilinson, On the crystalline period map](https://arxiv.org/pdf/1111.3316v4), §1.7, pp.8–11; §1.8, pp.11–12.
 
-Suggested signature scope: The construction is an étale presheaf of full coefficient complexes, built from the evaluated connection and PD forms. Derived sections are applied after sheaf descent. The PD filtration and derivative use the actual defining ideal and its existing divided powers.
+Suggested signature scope: Independent review R2b: PD derivative and filtration signatures are retained, but coefficient_tensor is false for arbitrary nonaffine étale objects when its target is sections of the coefficient-form sheaf. Use the sheaf tensor, or a justified affine/QC basis with descent, shared with the connection repair.
 
 Use driving the interface: `CrystallineCohomology:CR.5/log-poincare` — The PD derivative identity makes the degree-shifted ideal filtration a subcomplex; the resulting coefficient complex computes crystalline evaluation by the Poincaré comparison.
 
@@ -1613,9 +1615,9 @@ Construction or proof outline:
 
 Direct dependencies: `CrystallineCohomology:CR.5/crystal-connection-equivalence`; `CrystallineCohomology:CR.5/log-pd-de-rham`; `CrystallineCohomology:CR.5/log-pd-smooth`; `EnhancedDerivedSheaves:E2/bounded-below-hypercover-descent`; `EnhancedDerivedSheaves:E1/enhanced-derived-category`.
 
-Source passages: [Kazuya Kato, Logarithmic structures of Fontaine–Illusie](https://math.uchicago.edu/~drinfeld/p-adic_periods/Kato_log-structures.pdf), Theorem 6.4, p.219; Proposition 6.5 and proof §6.9, pp.219–221; [Alexander Beilinson, On the crystalline period map](https://arxiv.org/pdf/1111.3316v4), §1.6 acyclicity, pp.7–8; §1.8 comparison theorem, pp.11–12.
+Source locators: [Kazuya Kato, Logarithmic structures of Fontaine–Illusie](https://math.uchicago.edu/~drinfeld/p-adic_periods/Kato_log-structures.pdf), Theorem 6.4, p.219; Proposition 6.5 and proof §6.9, pp.219–221; [Alexander Beilinson, On the crystalline period map](https://arxiv.org/pdf/1111.3316v4), §1.6 acyclicity, pp.7–8; §1.8 comparison theorem, pp.11–12.
 
-Suggested signature scope: The comparison relates logCrystallineCohomology B Z F to derived sections of the evaluated coefficient PD complex on the specified PD-smooth thickening. Neither side is an arbitrary derived object and no nonaffine global-section replacement is made.
+Suggested signature scope: The source Poincaré comparison is retained. Independent review R2b: its prototype uses the unresolved crystalEvaluation/PDConnectionSheaf interfaces, so their sheaf and local quasi-nilpotence repair is a prerequisite to matching this comparison.
 
 Acceptance:
 
@@ -1635,7 +1637,7 @@ Construction or proof outline:
 
 Direct dependencies: `CrystallineCohomology:CR.5/log-poincare`; `CrystallineCohomology:CR.5/qc-log-pd-envelope`; `EnhancedDerivedSheaves:E2/bounded-below-hypercover-descent`; `EnhancedDerivedSheaves:E1/enhanced-derived-category`.
 
-Source passages: [Osamu Hyodo and Kazuya Kato, Semi-stable reduction and crystalline cohomology with logarithmic poles](https://www.numdam.org/item/AST_1994__223__221_0.pdf), §2.18–2.21, pp.236–239; [Alexander Beilinson, On the crystalline period map](https://arxiv.org/pdf/1111.3316v4), §1.8, embedding-system comparison, pp.11–12.
+Source locators: [Osamu Hyodo and Kazuya Kato, Semi-stable reduction and crystalline cohomology with logarithmic poles](https://www.numdam.org/item/AST_1994__223__221_0.pdf), §2.18–2.21, pp.236–239; [Alexander Beilinson, On the crystalline period map](https://arxiv.org/pdf/1111.3316v4), §1.8, embedding-system comparison, pp.11–12.
 
 Suggested signature scope: LogEmbeddingSystem carries an augmented simplicial log hypercover, matching étale covers, levelwise PD embeddings and compatible PD face maps. embeddingTotal is the total derived coefficient complex for that system and the fixed F. Refinement gives the same crystalline object.
 
@@ -1656,7 +1658,7 @@ Construction or proof outline:
 
 Direct dependencies: `CrystallineCohomology:CR.5/embedding-descent`; `CrystallineCohomology:CR.5/log-reduction-completion`; `EnhancedDerivedSheaves:E1/enhanced-derived-category`; `DerivedDeRhamCohomology:DD.1/derived-completion`; `mathlib:DerivedCategory`; `DerivedDeRhamCohomology:DD.1`.
 
-Source passages: [Alexander Beilinson, On the crystalline period map](https://arxiv.org/pdf/1111.3316v4), §1.12, pp.16–17; [Kęstutis Česnavičius and Teruhisa Koshikawa, The A_inf-cohomology in the semistable case](https://arxiv.org/pdf/1710.06145v3), §5.13, finite-level inverse-limit comparison, pp.37–38.
+Source locators: [Alexander Beilinson, On the crystalline period map](https://arxiv.org/pdf/1111.3316v4), §1.12, pp.16–17; [Kęstutis Česnavičius and Teruhisa Koshikawa, The A_inf-cohomology in the semistable case](https://arxiv.org/pdf/1710.06145v3), §5.13, finite-level inverse-limit comparison, pp.37–38.
 
 Suggested signature scope: LogDerivedTower is a coherent chain-level functor ℕᵒᵖ→CochainComplex; passing to the derived category preserves its transitions. The fixed DD.1 Rlim client has coherent projections. Its continuous-model adapter assumes degreewise surjectivity of a compatible PD de Rham resolution. No ordinary triangulated-category IsLimit is asserted.
 
@@ -1692,7 +1694,7 @@ Construction or proof outline:
 
 Direct dependencies: `CrystallineCohomology:CR.5:log-algebra/qc-log-scheme`; `CrystallineCohomology:CR.5:log-algebra/characteristic-monoid`; `CrystallineCohomology:CR.5/log-pd-thickening`; `CrystallineCohomology:CR.5/log-crystalline-site`.
 
-Source passages: [Alexander Beilinson, On the crystalline period map](https://arxiv.org/pdf/1111.3316v4), §1.17, unique log lifting lemma and proof, pp.25–26.
+Source locators: [Alexander Beilinson, On the crystalline period map](https://arxiv.org/pdf/1111.3316v4), §1.17, unique log lifting lemma and proof, pp.25–26.
 
 Suggested signature scope: The affine input has p nilpotent, p in the PD ideal, an integral charted characteristic-p quotient and bijective p-power map on its characteristic. LogLift records an integral log structure with compatible reduction. The uniqueness statement is uniqueness of compatible isomorphisms, not literal equality of arbitrary carriers.
 
@@ -1714,7 +1716,7 @@ Construction or proof outline:
 
 Direct dependencies: `CrystallineCohomology:CR.5/unique-p-divisible-lift`; `CrystallineCohomology:CR.5:log-algebra/valuation-log`; `CrystallineCohomology:CR.5/p-adic-log-crystalline`; `AInfCohomology:AI.0:integral`; `PadicHodgeTheory:R06.1`; `mathlib:WittVector.teichmuller`; `CrystallineCohomology:CR.0`.
 
-Source passages: [Kęstutis Česnavičius and Teruhisa Koshikawa, The A_inf-cohomology in the semistable case](https://arxiv.org/pdf/1710.06145v3), §5.2, p.32; §§5.9–5.13, pp.36–38; [Alexander Beilinson, On the crystalline period map](https://arxiv.org/pdf/1111.3316v4), §1.17, unique log lifting lemma and absolute crystalline cohomology, pp.25–26.
+Source locators: [Kęstutis Česnavičius and Teruhisa Koshikawa, The A_inf-cohomology in the semistable case](https://arxiv.org/pdf/1710.06145v3), §5.2, p.32; §§5.9–5.13, pp.36–38; [Alexander Beilinson, On the crystalline period map](https://arxiv.org/pdf/1111.3316v4), §1.17, unique log lifting lemma and absolute crystalline cohomology, pp.25–26.
 
 Suggested signature scope: Use the common CR.0 A_cris, its θ, φ and actual finite quotients for a completed algebraic closure. The log structure is identified with the unique finite-level lift through the actual θ kernel; reductions and fine-chart maps are compatible. Rational-characteristic and non-fine tests concern this A_cris log structure.
 
@@ -1759,7 +1761,7 @@ Construction or proof outline:
 
 Direct dependencies: `CrystallineCohomology:CR.5:log-algebra/associated-log`; `mathlib:WittVector`; `mathlib:WittVector.frobenius`; `mathlib:WittVector.frobeniusEquiv`; `CrystallineCohomology:CR.0`.
 
-Source passages: [Osamu Hyodo and Kazuya Kato, Semi-stable reduction and crystalline cohomology with logarithmic poles](https://www.numdam.org/item/AST_1994__223__221_0.pdf), §3.1, p.242.
+Source locators: [Osamu Hyodo and Kazuya Kato, Semi-stable reduction and crystalline cohomology with logarithmic poles](https://www.numdam.org/item/AST_1994__223__221_0.pdf), §3.1, p.242.
 
 Suggested signature scope: The finite base is the actual Witt quotient with the CR.4 canonical PD structure and chart 1↦0. Its reduction and Frobenius are fixed coefficient/chart maps. The p-chart distinction at length greater than one is retained.
 
@@ -1794,7 +1796,7 @@ Construction or proof outline:
 
 Direct dependencies: `CrystallineCohomology:CR.6/log-witt-base`; `CrystallineCohomology:CR.5/p-adic-log-crystalline`; `CrystallineCohomology:CR.5:log-algebra/formal-semistable-log`; `CrystallineCohomology:CR.3`; `mathlib:DerivedCategory`.
 
-Source passages: [Osamu Hyodo and Kazuya Kato, Semi-stable reduction and crystalline cohomology with logarithmic poles](https://www.numdam.org/item/AST_1994__223__221_0.pdf), §3.1–3.3, pp.242–244.
+Source locators: [Osamu Hyodo and Kazuya Kato, Semi-stable reduction and crystalline cohomology with logarithmic poles](https://www.numdam.org/item/AST_1994__223__221_0.pdf), §3.1–3.3, pp.242–244.
 
 Suggested signature scope: HKSpace contains the actual fine integral log smooth Cartier-type special fibre. The HK tower has coherent chain-level models of its finite-level crystalline complexes. integralHK is the fixed DD.1 Rlim of that tower; its embedding comparison uses a compatible geometric HK system.
 
@@ -1829,7 +1831,7 @@ Construction or proof outline:
 
 Direct dependencies: `CrystallineCohomology:CR.6/integral-hk`; `EnhancedDerivedSheaves:E1/presentability-and-derived-tensor`.
 
-Source passages: [Osamu Hyodo and Kazuya Kato, Semi-stable reduction and crystalline cohomology with logarithmic poles](https://www.numdam.org/item/AST_1994__223__221_0.pdf), §3.2, p.243; Theorem 5.1, pp.262–263.
+Source locators: [Osamu Hyodo and Kazuya Kato, Semi-stable reduction and crystalline cohomology with logarithmic poles](https://www.numdam.org/item/AST_1994__223__221_0.pdf), §3.2, p.243; Theorem 5.1, pp.262–263.
 
 Suggested signature scope: rationalHKScalar is derived scalar extension along the fixed Witt fraction embedding into K₀. Exact localization identifies cohomology with the corresponding tensor and kills p-power torsion. The point and torsion tests use these constructions.
 
@@ -1864,7 +1866,7 @@ Construction or proof outline:
 
 Direct dependencies: `CrystallineCohomology:CR.6/integral-hk`; `CrystallineCohomology:CR.6/rational-hk`; `CrystallineCohomology:CR.5/embedding-descent`; `CrystallineCohomology:CR.5/cartier-type`; `mathlib:WittVector.frobenius`; `mathlib:ModuleCat.extendScalars`.
 
-Source passages: [Osamu Hyodo and Kazuya Kato, Semi-stable reduction and crystalline cohomology with logarithmic poles](https://www.numdam.org/item/AST_1994__223__221_0.pdf), §3.2–3.4, pp.243–245; [Kęstutis Česnavičius and Teruhisa Koshikawa, The A_inf-cohomology in the semistable case](https://arxiv.org/pdf/1710.06145v3), §5.11, log Frobenius lift, pp.37–38.
+Source locators: [Osamu Hyodo and Kazuya Kato, Semi-stable reduction and crystalline cohomology with logarithmic poles](https://www.numdam.org/item/AST_1994__223__221_0.pdf), §3.2–3.4, pp.243–245; [Kęstutis Česnavičius and Teruhisa Koshikawa, The A_inf-cohomology in the semistable case](https://arxiv.org/pdf/1710.06145v3), §5.11, log Frobenius lift, pp.37–38.
 
 Suggested signature scope: Raw Frobenius is supplied by pullback of the actual HK log crystalline tower before its relation with monodromy is proved. Its cohomology map is σ-semilinear; one-form and Witt Teichmüller tests retain the factor p and nonlinearity.
 
@@ -1900,7 +1902,7 @@ Construction or proof outline:
 
 Direct dependencies: `CrystallineCohomology:CR.6/integral-hk`; `CrystallineCohomology:CR.5/log-pd-envelope`; `CrystallineCohomology:CR.5/log-pd-de-rham`; `CrystallineCohomology:CR.5/embedding-descent`; `EnhancedDerivedSheaves:E1/enhanced-derived-category`.
 
-Source passages: [Osamu Hyodo and Kazuya Kato, Semi-stable reduction and crystalline cohomology with logarithmic poles](https://www.numdam.org/item/AST_1994__223__221_0.pdf), §3.5–3.6, pp.244–246; §4.20.
+Source locators: [Osamu Hyodo and Kazuya Kato, Semi-stable reduction and crystalline cohomology with logarithmic poles](https://www.numdam.org/item/AST_1994__223__221_0.pdf), §3.5–3.6, pp.244–246; §4.20.
 
 Suggested signature scope: The raw boundary is constructed from the actual embedding model and its right-wedge dlog parameter sequence. Embedding independence uses the canonical comparison, not an arbitrary equivalence. The Tate test is indexed by the geometric Tate model; its source gap is preserved.
 
@@ -1935,7 +1937,7 @@ Construction or proof outline:
 
 Direct dependencies: `CrystallineCohomology:CR.6/hk-frobenius`; `CrystallineCohomology:CR.6/hk-monodromy`.
 
-Source passages: [Osamu Hyodo and Kazuya Kato, Semi-stable reduction and crystalline cohomology with logarithmic poles](https://www.numdam.org/item/AST_1994__223__221_0.pdf), §3.4 and §3.6, pp.243–246.
+Source locators: [Osamu Hyodo and Kazuya Kato, Semi-stable reduction and crystalline cohomology with logarithmic poles](https://www.numdam.org/item/AST_1994__223__221_0.pdf), §3.4 and §3.6, pp.243–246.
 
 Suggested signature scope: The geometric operators are defined before the theorem. Frobenius scales the actual wedge parameter by p, and naturality of the boundary proves the relation; it is not a field of an abstract HKModule assumed by the theorem.
 
@@ -1957,7 +1959,7 @@ Construction or proof outline:
 
 Direct dependencies: `CrystallineCohomology:CR.6/integral-hk`; `CrystallineCohomology:CR.6/hk-frobenius`; `CrystallineCohomology:CR.5/log-cartier-isomorphism`; `CrystallineCohomology:CR.5/embedding-descent`; `CrystallineCohomology:CR.3`.
 
-Source passages: [Osamu Hyodo and Kazuya Kato, Semi-stable reduction and crystalline cohomology with logarithmic poles](https://www.numdam.org/item/AST_1994__223__221_0.pdf), §2.22–2.24 and §3.2–3.4, pp.240–244.
+Source locators: [Osamu Hyodo and Kazuya Kato, Semi-stable reduction and crystalline cohomology with logarithmic poles](https://www.numdam.org/item/AST_1994__223__221_0.pdf), §2.22–2.24 and §3.2–3.4, pp.240–244.
 
 Suggested signature scope: Finiteness and Frobenius bijectivity are asserted only for the actual proper fine integral log smooth Cartier-type HKSpace. Properness is a theorem hypothesis, not silently inferred for all HK spaces.
 
@@ -1979,7 +1981,7 @@ Construction or proof outline:
 
 Direct dependencies: `CrystallineCohomology:CR.6/hk-finiteness`; `CrystallineCohomology:CR.6/n-phi-relation`.
 
-Source passages: [Osamu Hyodo and Kazuya Kato, Semi-stable reduction and crystalline cohomology with logarithmic poles](https://www.numdam.org/item/AST_1994__223__221_0.pdf), §3.2, p.243; algebraic deduction from §3.4, p.244.
+Source locators: [Osamu Hyodo and Kazuya Kato, Semi-stable reduction and crystalline cohomology with logarithmic poles](https://www.numdam.org/item/AST_1994__223__221_0.pdf), §3.2, p.243; algebraic deduction from §3.4, p.244.
 
 Suggested signature scope: The geometric nilpotence theorem uses proper HK finiteness and the proved Nφ relation. The abstract valuation-preserving semilinear deduction remains a valid algebraic helper, with its finite-dimensional and invertibility hypotheses.
 
@@ -2001,7 +2003,7 @@ Construction or proof outline:
 
 Direct dependencies: `CrystallineCohomology:CR.6/integral-hk`; `CrystallineCohomology:CR.6/hk-monodromy`; `CrystallineCohomology:CR.5/log-cartier-isomorphism`; `CrystallineCohomology:CR.4`.
 
-Source passages: [Osamu Hyodo and Kazuya Kato, Semi-stable reduction and crystalline cohomology with logarithmic poles](https://www.numdam.org/item/AST_1994__223__221_0.pdf), §4.19–4.20, pp.260–262.
+Source locators: [Osamu Hyodo and Kazuya Kato, Semi-stable reduction and crystalline cohomology with logarithmic poles](https://www.numdam.org/item/AST_1994__223__221_0.pdf), §4.19–4.20, pp.260–262.
 
 Suggested signature scope: The CR.4 logarithmic Witt complex is indexed by the same HKSpace. Its rational comparison and monodromy identification use the same absolute-relative sequence. Finite-level restriction/Frobenius compatibility is part of the CR.4 import.
 
@@ -2022,7 +2024,7 @@ Construction or proof outline:
 
 Direct dependencies: `PadicHodgeTheory:R06.1`; `mathlib:WittVector.teichmuller`.
 
-Source passages: [Osamu Hyodo and Kazuya Kato, Semi-stable reduction and crystalline cohomology with logarithmic poles](https://www.numdam.org/item/AST_1994__223__221_0.pdf), Proof §5.5, pp.265–266.
+Source locators: [Osamu Hyodo and Kazuya Kato, Semi-stable reduction and crystalline cohomology with logarithmic poles](https://www.numdam.org/item/AST_1994__223__221_0.pdf), Proof §5.5, pp.265–266.
 
 Suggested signature scope: The unit logarithm is indexed by the complete arithmetic frame, normalized on its actual Witt Teichmüller section and represented on principal units by a convergent HasSum. Torsion vanishes. The branch test shows that adding c times valuation changes the uniformizer value.
 
@@ -2058,7 +2060,7 @@ Construction or proof outline:
 
 Direct dependencies: `CrystallineCohomology:CR.6/rational-hk`; `CrystallineCohomology:CR.6/hk-finiteness`; `CrystallineCohomology:CR.6/hk-monodromy`; `CrystallineCohomology:CR.5/log-pd-de-rham`; `CrystallineCohomology:CR.5/log-reduction-completion`.
 
-Source passages: [Osamu Hyodo and Kazuya Kato, Semi-stable reduction and crystalline cohomology with logarithmic poles](https://www.numdam.org/item/AST_1994__223__221_0.pdf), Theorem 5.1, pp.262–263; construction §5.2–5.4, pp.263–265.
+Source locators: [Osamu Hyodo and Kazuya Kato, Semi-stable reduction and crystalline cohomology with logarithmic poles](https://www.numdam.org/item/AST_1994__223__221_0.pdf), Theorem 5.1, pp.262–263; construction §5.2–5.4, pp.263–265.
 
 Suggested signature scope: SemistableModel fixes the actual special and generic fibres and vertical log boundary. hkComparisonMap depends on that same model and chosen uniformizer, with fixed K₀→K scalar extension. The point test is connected to H⁰ of the actual identity model by its canonical domain/target identifications.
 
@@ -2094,7 +2096,7 @@ Construction or proof outline:
 
 Direct dependencies: `CrystallineCohomology:CR.6/hk-comparison-map`; `CrystallineCohomology:CR.6/hk-finiteness`; `CrystallineCohomology:CR.5/embedding-descent`; `CrystallineCohomology:CR.3`.
 
-Source passages: [Osamu Hyodo and Kazuya Kato, Semi-stable reduction and crystalline cohomology with logarithmic poles](https://www.numdam.org/item/AST_1994__223__221_0.pdf), Theorem 5.1, pp.262–263; proof §5.2–5.4, pp.263–265.
+Source locators: [Osamu Hyodo and Kazuya Kato, Semi-stable reduction and crystalline cohomology with logarithmic poles](https://www.numdam.org/item/AST_1994__223__221_0.pdf), Theorem 5.1, pp.262–263; proof §5.2–5.4, pp.263–265.
 
 Suggested signature scope: IsIso is asserted for the actual model comparison with properness required. The generic target agrees with ordinary de Rham in the vertical-boundary specialization; the more general log target remains in the roadmap statement.
 
@@ -2116,7 +2118,7 @@ Construction or proof outline:
 
 Direct dependencies: `CrystallineCohomology:CR.6/hk-comparison-map`; `CrystallineCohomology:CR.6/unit-logarithm`; `CrystallineCohomology:CR.6/hk-nilpotence`; `tauceti:TauCeti.nilpotentExpUnit`; `mathlib:IsNilpotent.exp`.
 
-Source passages: [Osamu Hyodo and Kazuya Kato, Semi-stable reduction and crystalline cohomology with logarithmic poles](https://www.numdam.org/item/AST_1994__223__221_0.pdf), Theorem 5.1, pp.262–263; proof §5.5, pp.265–266.
+Source locators: [Osamu Hyodo and Kazuya Kato, Semi-stable reduction and crystalline cohomology with logarithmic poles](https://www.numdam.org/item/AST_1994__223__221_0.pdf), Theorem 5.1, pp.262–263; proof §5.5, pp.265–266.
 
 Suggested signature scope: The two comparison maps use the same model and π,πu. The operator on each degree is the finite nilpotent exponential of unitLog(u) times its actual N. The sign is fixed by the right-wedge parameter convention.
 
@@ -2138,7 +2140,7 @@ Construction or proof outline:
 
 Direct dependencies: `CrystallineCohomology:CR.6/hk-comparison`; `CrystallineCohomology:CR.6/hk-monodromy`; `CrystallineCohomology:CR.6/n-phi-relation`; `CrystallineCohomology:CR.5:log-algebra/integral-log-fiber-product`; `CrystallineCohomology:CR.3`; `EnhancedDerivedSheaves:E1/enhanced-derived-category`.
 
-Source passages: [Osamu Hyodo and Kazuya Kato, Semi-stable reduction and crystalline cohomology with logarithmic poles](https://www.numdam.org/item/AST_1994__223__221_0.pdf), Theorem 5.1, pp.262–263, functorial comparison input; [Federico Binda, Hiroki Kato and Alberto Vezzani, On the p-adic weight-monodromy conjecture for complete intersections in toric varieties](https://arxiv.org/pdf/2207.00369v2), Remark 3.12, monoidality argument, p.18; [Kazuya Kato, Logarithmic structures of Fontaine–Illusie](https://math.uchicago.edu/~drinfeld/p-adic_periods/Kato_log-structures.pdf), Final Künneth theorem, printed Theorem 6.12 and announced as 6.11, p.222.
+Source locators: [Osamu Hyodo and Kazuya Kato, Semi-stable reduction and crystalline cohomology with logarithmic poles](https://www.numdam.org/item/AST_1994__223__221_0.pdf), Theorem 5.1, pp.262–263, functorial comparison input; [Federico Binda, Hiroki Kato and Alberto Vezzani, On the p-adic weight-monodromy conjecture for complete intersections in toric varieties](https://arxiv.org/pdf/2207.00369v2), Remark 3.12, monoidality argument, p.18; [Kazuya Kato, Logarithmic structures of Fontaine–Illusie](https://math.uchicago.edu/~drinfeld/p-adic_periods/Kato_log-structures.pdf), Final Künneth theorem, printed Theorem 6.12 and announced as 6.11, p.222.
 
 Suggested signature scope: HKProduct and its cup map are tied to the actual log product and its source hypotheses. The derived Künneth map, Frobenius product rule, monodromy Leibniz rule and semistable comparison compatibility use these canonical maps. Ordinary Künneth remains CR.3-owned.
 
@@ -2160,7 +2162,7 @@ Construction or proof outline:
 
 Direct dependencies: `CrystallineCohomology:CR.6/hk-monodromy`; `CrystallineCohomology:CR.6/hk-comparison`; `CrystallineCohomology:CR.6/uniformizer-change`; `CrystallineCohomology:CR.2`; `CrystallineCohomology:CR.5:log-algebra/strict-morphism`.
 
-Source passages: [Osamu Hyodo and Kazuya Kato, Semi-stable reduction and crystalline cohomology with logarithmic poles](https://www.numdam.org/item/AST_1994__223__221_0.pdf), §3.5–3.6, pp.245–246; Theorem 5.1, pp.262–263.
+Source locators: [Osamu Hyodo and Kazuya Kato, Semi-stable reduction and crystalline cohomology with logarithmic poles](https://www.numdam.org/item/AST_1994__223__221_0.pdf), §3.5–3.6, pp.245–246; Theorem 5.1, pp.262–263.
 
 Suggested signature scope: GoodReduction is strictness and ordinary smoothness of the actual model over O. The result identifies its HK object with ordinary crystalline cohomology, proves actual N=0 and identifies its canonical comparison. The uniformizer-independence test uses that same good-reduction model.
 
@@ -2182,7 +2184,7 @@ Construction or proof outline:
 
 Direct dependencies: `CrystallineCohomology:CR.6/hk-monodromy`; `CrystallineCohomology:CR.6/n-phi-relation`; `CrystallineCohomology:CR.6/hk-comparison`.
 
-Source passages: [Osamu Hyodo and Kazuya Kato, Semi-stable reduction and crystalline cohomology with logarithmic poles](https://www.numdam.org/item/AST_1994__223__221_0.pdf), §1.1–1.5, pp.223–225; log Witt description §4.20, pp.261–262; [Elmar Grosse-Klönne, Frobenius and monodromy operators in rigid analysis, and Drinfel’d’s symmetric space](https://arxiv.org/pdf/1408.3346v1), Introduction, curve/monodromy discussion, pp.1–3; the geometric valuation proof is a recorded gap.
+Source locators: [Osamu Hyodo and Kazuya Kato, Semi-stable reduction and crystalline cohomology with logarithmic poles](https://www.numdam.org/item/AST_1994__223__221_0.pdf), §1.1–1.5, pp.223–225; log Witt description §4.20, pp.261–262; [Elmar Grosse-Klönne, Frobenius and monodromy operators in rigid analysis, and Drinfel’d’s symmetric space](https://arxiv.org/pdf/1408.3346v1), Introduction, curve/monodromy discussion, pp.1–3; the geometric valuation proof is a recorded gap.
 
 Suggested signature scope: TateSemistableModel contains a proper semistable model and an identification of its generic fibre with E_q. tateH1Basis identifies its actual HK cohomology with the slope basis and valuation-scaled boundary. The geometric derivation of that basis remains the Tate source gap.
 
@@ -2204,7 +2206,7 @@ Construction or proof outline:
 
 Direct dependencies: `CrystallineCohomology:CR.5/log-poincare`; `CrystallineCohomology:CR.6/hk-monodromy`; `CrystallineCohomology:CR.6/integral-hk`; `CrystallineCohomology:CR.3`.
 
-Source passages: [Lie Qian, Ordinarity of local Galois representation arising from Dwork motives](https://arxiv.org/pdf/2103.00106v1), Theorem 1.6, PDF p.4; Theorem 3.2 and proof, PDF pp.14–18.
+Source locators: [Lie Qian, Ordinarity of local Galois representation arising from Dwork motives](https://arxiv.org/pdf/2103.00106v1), Theorem 1.6, PDF p.4; Theorem 3.2 and proof, PDF pp.14–18.
 
 Suggested signature scope: QianFamily has the actual neighborhood of zero in W(k)[T], fine log smooth family and properness. Its special fibre and completed de Rham object are fixed by this family. The proper finite-module limit step is retained explicitly.
 
@@ -2226,7 +2228,7 @@ Construction or proof outline:
 
 Direct dependencies: `CrystallineCohomology:CR.5/embedding-descent`; `CrystallineCohomology:CR.5/log-de-rham`; `PadicDifferentialEquationsAndRigidCohomology:RD.4`.
 
-Source passages: [Daniel Disegni and Yifeng Liu, A p-adic arithmetic inner product formula](https://disegni-daniel.perso.math.cnrs.fr/AIPF.pdf), Appendix B.1–B.2; footnote 31, PDF pp.113–116.
+Source locators: [Daniel Disegni and Yifeng Liu, A p-adic arithmetic inner product formula](https://disegni-daniel.perso.math.cnrs.fr/AIPF.pdf), Appendix B.1–B.2; footnote 31, PDF pp.113–116.
 
 Suggested signature scope: TubeEmbedding imports the actual weak formal model, tube site and specialization from RD.4. Relative and absolute form complexes are separate source constructions. Common-refinement comparisons use actual maps to each embedding, with identity behavior specified.
 
@@ -2262,9 +2264,9 @@ Construction or proof outline:
 
 Direct dependencies: `CrystallineCohomology:CR.6/convergent-log-complex`; `PadicDifferentialEquationsAndRigidCohomology:RD.4`.
 
-Source passages: [Daniel Disegni and Yifeng Liu, A p-adic arithmetic inner product formula](https://disegni-daniel.perso.math.cnrs.fr/AIPF.pdf), Definition B.1 and Remark B.2, PDF p.113; Lemma B.3, PDF p.114; triangle (B.3), PDF p.116.
+Source locators: [Daniel Disegni and Yifeng Liu, A p-adic arithmetic inner product formula](https://disegni-daniel.perso.math.cnrs.fr/AIPF.pdf), Definition B.1 and Remark B.2, PDF p.113; Lemma B.3, PDF p.114; triangle (B.3), PDF p.116.
 
-Suggested signature scope: The exact support functor is the kernel of restriction to the complement tube on its source site. Supported derived forms are pushed forward only after applying it. The negative test rules out a general factorization of this operation through derived specialization.
+Suggested signature scope: The exact support functor is the kernel of restriction to the complement tube on its source site. Supported derived forms are pushed forward only after applying it. DL Remark B.2 concerns bounded-below derived categories: the negative test now requires a proposed special-fibre factorization functor to preserve bounded-below objects, rather than ruling out arbitrary unbounded functors.
 
 Use driving the interface: `CrystallineCohomology:CR.6/convergent-monodromy-triangle` — The exact analytic kernel is applied before tube pushforward to preserve the absolute-relative sequence. The special-fiber natural transformation has a fixed direction and is not assumed invertible.
 
@@ -2278,7 +2280,7 @@ Discriminating unit tests:
 
 - `TauCeti.LogCrystalline.tubeProperSupport.whole_space` (degenerate): Taking U=X recovers the unsupported complex.
 - `TauCeti.LogCrystalline.tubeProperSupport.empty_open` (degenerate): Taking U empty gives the zero support kernel.
-- `TauCeti.LogCrystalline.tubeProperSupport.wrong_order` (non-example): There is a source-qualified tube embedding and open for which the supported derived specialization cannot be expressed as an endofunctor of the special-fibre derived category applied after specialization. The support kernel must be taken on the tube before this pushforward.
+- `TauCeti.LogCrystalline.tubeProperSupport.wrong_order` (non-example): In the source bounded-below derived categories there is a tube embedding and open for which supported specialization cannot factor through specialization via a bounded-below-preserving special-fibre endofunctor. The support kernel must be taken on the tube before pushforward; no assertion about arbitrary unbounded endofunctors is made.
 
 Acceptance:
 
@@ -2298,7 +2300,7 @@ Construction or proof outline:
 
 Direct dependencies: `CrystallineCohomology:CR.6/convergent-log-complex`; `CrystallineCohomology:CR.6/tube-proper-support`; `CrystallineCohomology:CR.6/hk-monodromy`; `CrystallineCohomology:CR.6/n-phi-relation`.
 
-Source passages: [Daniel Disegni and Yifeng Liu, A p-adic arithmetic inner product formula](https://disegni-daniel.perso.math.cnrs.fr/AIPF.pdf), Appendix B.2, triangles (B.1)–(B.2), PDF pp.115–116; Witt triangle (B.4), PDF p.117.
+Source locators: [Daniel Disegni and Yifeng Liu, A p-adic arithmetic inner product formula](https://disegni-daniel.perso.math.cnrs.fr/AIPF.pdf), Appendix B.2, triangles (B.1)–(B.2), PDF pp.115–116; Witt triangle (B.4), PDF p.117.
 
 Suggested signature scope: The distinguished triangle has canonical identifications with relative[-1], absolute and relative supported complexes. Its third arrow defines the actual N. Frobenius is a map from the σ-pulled complex, and its compatibility with that boundary has the factor p.
 
@@ -2319,7 +2321,7 @@ Construction or proof outline:
 
 Direct dependencies: `CrystallineCohomology:CR.6/convergent-monodromy-triangle`; `CrystallineCohomology:CR.6/log-de-rham-witt-model`; `CrystallineCohomology:CR.4`.
 
-Source passages: [Daniel Disegni and Yifeng Liu, A p-adic arithmetic inner product formula](https://disegni-daniel.perso.math.cnrs.fr/AIPF.pdf), Equation (B.5) and the preceding strict-semistable comparison argument, PDF p.117.
+Source locators: [Daniel Disegni and Yifeng Liu, A p-adic arithmetic inner product formula](https://disegni-daniel.perso.math.cnrs.fr/AIPF.pdf), Equation (B.5) and the preceding strict-semistable comparison argument, PDF p.117.
 
 Suggested signature scope: The rational comparison concerns the actual strictly semistable special fibre and the actual CR.4 relative/absolute log Witt complexes. The DL locator is equation (B.5), not Lemma B.5.
 
@@ -2341,9 +2343,9 @@ Construction or proof outline:
 
 Direct dependencies: `CrystallineCohomology:CR.6/convergent-log-complex`; `CrystallineCohomology:CR.5/semistable-residues`; `CrystallineCohomology:CR.4`.
 
-Source passages: [Daniel Disegni and Yifeng Liu, A p-adic arithmetic inner product formula](https://disegni-daniel.perso.math.cnrs.fr/AIPF.pdf), Appendix B.2, residue quotient, diagrams (B.7)–(B.9), PDF p.118; [Kanetomo Sato, Cycle classes for p-adic étale Tate twists and the image of p-adic regulators](https://ems.press/content/serial-article-files/26173), Definition 8.3 and Proposition 8.4, pp.211–212; §8.6, p.213.
+Source locators: [Daniel Disegni and Yifeng Liu, A p-adic arithmetic inner product formula](https://disegni-daniel.perso.math.cnrs.fr/AIPF.pdf), Appendix B.2, residue quotient, diagrams (B.7)–(B.9), PDF p.118; [Kanetomo Sato, Cycle classes for p-adic étale Tate twists and the image of p-adic regulators](https://ems.press/content/serial-article-files/26173), Definition 8.3 and Proposition 8.4, pp.211–212; §8.6, p.213.
 
-Suggested signature scope: AdmissibleTubeEmbedding records an algebraic log model, flat finite-presentation map, the supplied SNC boundary and the special/generic identifications. The shifted actual residue quotient compares with the CR.4 Sato object for that special fibre.
+Suggested signature scope: Independent review R4: the q+1 residue quotient and Witt module convention are retained. AdmissibleTubeEmbedding does not yet state the DL B.2 geometry: degree-zero lift smooth over W, flat and generically smooth over W[t], t=0 fibre a relative SNC divisor over W, and its divisor log. Its K-generic map and unrelated mod-p family identification are insufficient. Specify those objects/maps and compatible higher embedding levels before claiming the comparison.
 
 Acceptance:
 
@@ -2363,7 +2365,7 @@ Construction or proof outline:
 
 Direct dependencies: `CrystallineCohomology:CR.6/hk-comparison`; `CrystallineCohomology:CR.6/log-de-rham-witt-model`; `PadicDifferentialEquationsAndRigidCohomology:RD.4`.
 
-Source passages: [Elmar Grosse-Klönne, Frobenius and monodromy operators in rigid analysis, and Drinfel’d’s symmetric space](https://arxiv.org/pdf/1408.3346v1), §3.11, pp.18–19; Theorem 3.4 and proof, pp.16–17; [Federico Binda, Hiroki Kato and Alberto Vezzani, On the p-adic weight-monodromy conjecture for complete intersections in toric varieties](https://arxiv.org/pdf/2207.00369v2), Remark 3.4(2), p.16.
+Source locators: [Elmar Grosse-Klönne, Frobenius and monodromy operators in rigid analysis, and Drinfel’d’s symmetric space](https://arxiv.org/pdf/1408.3346v1), §3.11, pp.18–19; Theorem 3.4 and proof, pp.16–17; [Federico Binda, Hiroki Kato and Alberto Vezzani, On the p-adic weight-monodromy conjecture for complete intersections in toric varieties](https://arxiv.org/pdf/2207.00369v2), Remark 3.4(2), p.16.
 
 Suggested signature scope: The comparison takes the same proper strictly semistable HKSpace on both log rigid and crystalline sides. The RD.4 client supplies its boundary model; the local prototype retains strict semistability as a hypothesis.
 
@@ -2385,7 +2387,7 @@ Construction or proof outline:
 
 Direct dependencies: `CrystallineCohomology:CR.6/hk-monodromy`; `CrystallineCohomology:CR.6/hk-finiteness`; `CrystallineCohomology:CR.5:log-algebra/integral-log-fiber-product`; `PadicDifferentialEquationsAndRigidCohomology:RD.4`.
 
-Source passages: [Federico Binda, Hiroki Kato and Alberto Vezzani, On the p-adic weight-monodromy conjecture for complete intersections in toric varieties](https://arxiv.org/pdf/2207.00369v2), Remarks 3.4–3.5 and Definition 3.6, pp.16–17.
+Source locators: [Federico Binda, Hiroki Kato and Alberto Vezzani, On the p-adic weight-monodromy conjecture for complete intersections in toric varieties](https://arxiv.org/pdf/2207.00369v2), Remarks 3.4–3.5 and Definition 3.6, pp.16–17.
 
 Suggested signature scope: ArithmeticExtension records compatible integer, residue and coefficient maps, their Frobenius compatibility, and the uniformizer image uπ′^e. The actual base-changed model comparison transports semilinear Frobenius and compares normalized N_raw/e with original N. This is the DVR-extension slice of the log-base statement. The suggested DVR-extension/cohomology prototype retains properness; the broader source log-base comparison remains the mathematical target.
 
@@ -2407,7 +2409,7 @@ Construction or proof outline:
 
 Direct dependencies: `CrystallineCohomology:CR.6/proper-log-rigid-hk`; `PadicDifferentialEquationsAndRigidCohomology:RD.4`; `PadicDifferentialEquationsAndRigidCohomology:RD.5`; `AdicSpacesPartII:F1/dagger-space`; `AdicSpacesPartII:F1/weak-completion`; `AdicSpacesPartII:F1/dagger-semistable-tube-finiteness`; `mathlib:ModuleCat`.
 
-Source passages: [Pierre Colmez, Gabriel Dospinescu and Wiesława Nizioł, Cohomology of p-adic Stein spaces](https://arxiv.org/pdf/1801.06686v2), §3.1.1–3.1.3 and Proposition 3.2, pp.13–18; [Pierre Colmez, Gabriel Dospinescu and Wiesława Nizioł, Cohomologie p-adique de la tour de Drinfeld: le cas de la dimension 1](https://webusers.imj-prg.fr/~wieslawa.niziol/GPW5.pdf), §0.6, nonproper curve Hyodo–Kato cohomology, pp.10–12.
+Source locators: [Pierre Colmez, Gabriel Dospinescu and Wiesława Nizioł, Cohomology of p-adic Stein spaces](https://arxiv.org/pdf/1801.06686v2), §3.1.1–3.1.3 and Proposition 3.2, pp.13–18; [Pierre Colmez, Gabriel Dospinescu and Wiesława Nizioł, Cohomologie p-adique de la tour de Drinfeld: le cas de la dimension 1](https://webusers.imj-prg.fr/~wieslawa.niziol/GPW5.pdf), §0.6, nonproper curve Hyodo–Kato cohomology, pp.10–12.
 
 Suggested signature scope: SteinCurve includes the actual semistable weak formal model and a special-fibre finite-component cover. AdmissibleSteinExhaustion carries nested affinoid pieces, covering, Runge density and a radius-greater-than-one containment witness. SteinHKData is complete Hausdorff metrizable locally convex with countable ultrametric seminorms; the cohomology and limit maps use that geometry. The actual exhaustion diagram has a cone with these continuous projections and a categorical limit theorem; each supplied piece is finite-dimensional.
 
@@ -2443,7 +2445,7 @@ Construction or proof outline:
 
 Direct dependencies: `CrystallineCohomology:CR.6/stein-hk`; `CrystallineCohomology:CR.6/hk-comparison-map`; `PadicDifferentialEquationsAndRigidCohomology:RD.5`; `PadicHodgeTheory:R06.1`.
 
-Source passages: [Pierre Colmez, Gabriel Dospinescu and Wiesława Nizioł, Cohomology of p-adic Stein spaces](https://arxiv.org/pdf/1801.06686v2), §3.1.3 and Proposition 3.12, pp.16–18; Appendix A.1–A.5, pp.60–61; [Pierre Colmez, Gabriel Dospinescu and Wiesława Nizioł, Cohomologie p-adique de la tour de Drinfeld: le cas de la dimension 1](https://webusers.imj-prg.fr/~wieslawa.niziol/GPW5.pdf), §0.3, pp.6–7; §0.6, pp.10–12, geometric completed comparison.
+Source locators: [Pierre Colmez, Gabriel Dospinescu and Wiesława Nizioł, Cohomology of p-adic Stein spaces](https://arxiv.org/pdf/1801.06686v2), §3.1.3 and Proposition 3.12, pp.16–18; Appendix A.1–A.5, pp.60–61; [Pierre Colmez, Gabriel Dospinescu and Wiesława Nizioł, Cohomologie p-adique de la tour de Drinfeld: le cas de la dimension 1](https://webusers.imj-prg.fr/~wieslawa.niziol/GPW5.pdf), §0.3, pp.6–7; §0.6, pp.10–12, geometric completed comparison.
 
 Suggested signature scope: The source is the RD.5 completed C scalar extension of the actual geometric Stein HK Fréchet space. The target is the same curve’s de Rham cohomology. K̆₀ is a complete normed field with a dense isometric maximal-unramified subfield, and its map to C is specified.
 
@@ -2465,7 +2467,7 @@ Construction or proof outline:
 
 Direct dependencies: `CrystallineCohomology:CR.6/stein-hk`; `CrystallineCohomology:CR.6/stein-hk-comparison`; `PadicDifferentialEquationsAndRigidCohomology:RD.5`; `mathlib:CategoryTheory.Ind`; `mathlib:CategoryTheory.Ind.lim`.
 
-Source passages: [Pierre Colmez, Gabriel Dospinescu and Wiesława Nizioł, Cohomologie p-adique de la tour de Drinfeld: le cas de la dimension 1](https://webusers.imj-prg.fr/~wieslawa.niziol/GPW5.pdf), §0.3, pp.6–7; §0.6, pp.10–12.
+Source locators: [Pierre Colmez, Gabriel Dospinescu and Wiesława Nizioł, Cohomologie p-adique de la tour de Drinfeld: le cas de la dimension 1](https://webusers.imj-prg.fr/~wieslawa.niziol/GPW5.pdf), §0.3, pp.6–7; §0.6, pp.10–12.
 
 Suggested signature scope: TowerHKData contains actual semistable curve levels, admissible exhaustions and finite étale transition maps. towerHKDiagram identifies each level and transition with its geometric HK pullback; Ind.lim assembles this coherent diagram in the continuous Fréchet category. The completed tensor and group-action clients are RD.5 exports. Geometric symmetry actions are linear and their level maps are canonical pullbacks by inverse symmetries. Arithmetic Galois transport is separately sigma-semilinear, represented by an isomorphism from the coefficient-twisted ind-object. Full continuous Galois descent remains an RD.5/R06.1 supplier export.
 
@@ -2511,7 +2513,7 @@ Construction or proof outline:
 
 Direct dependencies: `CrystallineCohomology:CR.1`; `CrystallineCohomology:CR.5/log-crystal`; `CrystallineCohomology:CR.5/crystal-connection-equivalence`; `CrystallineCohomology:CR.5/p-adic-log-crystalline`; `EnhancedDerivedSheaves:E1/presentability-and-derived-tensor`; `mathlib:ModuleCat`.
 
-Source passages: [Aise Johan de Jong, Crystalline Dieudonné module theory via formal and rigid geometry](https://www.numdam.org/article/PMIHES_1995__82__5_0.pdf), §2.2.2–2.2.4(b,e,h), pp.18–20.
+Source locators: [Aise Johan de Jong, Crystalline Dieudonné module theory via formal and rigid geometry](https://www.numdam.org/article/PMIHES_1995__82__5_0.pdf), §2.2.2–2.2.4(b,e,h), pp.18–20.
 
 Suggested signature scope: FiniteProjectiveCrystal consists of an actual module-sheaf crystal with finite projective evaluations. Evaluation, pullback, tensor and dual use that crystal and its ring maps; the dual evaluation is the actual linear dual. PD-smooth evaluation supplies its connection.
 
@@ -2541,15 +2543,15 @@ For a supplied finite locally free crystal with Frobenius linearization φ:F_S^*
 
 Construction or proof outline:
 
-1. Import the coefficient crystal with its specified Frobenius and filtration maps.
+1. Construct the geometric adapter from CR.5/CR.7 compatible completed finite locally free crystals and their p-inversion; import only the filtered (φ,N) and period normalization conventions from R06.2.
 2. Transport them through evaluation, keeping σ-linearization and transversality.
 3. Use the stated Tate twist convention to scale Frobenius and shift the filtration.
 
 Direct dependencies: `CrystallineCohomology:CR.7/finite-projective-coefficients`; `CrystallineCohomology:CR.6/n-phi-relation`; `PadicHodgeTheory:R06.2`.
 
-Source passages: [Aise Johan de Jong, Crystalline Dieudonné module theory via formal and rigid geometry](https://www.numdam.org/article/PMIHES_1995__82__5_0.pdf), §2.3.1–2.3.2, pp.21–22; [Osamu Hyodo and Kazuya Kato, Semi-stable reduction and crystalline cohomology with logarithmic poles](https://www.numdam.org/item/AST_1994__223__221_0.pdf), §3.4, pp.244–245; Theorem 5.1, pp.262–263.
+Source locators: [Aise Johan de Jong, Crystalline Dieudonné module theory via formal and rigid geometry](https://www.numdam.org/article/PMIHES_1995__82__5_0.pdf), §2.3.1–2.3.2, pp.21–22; [Osamu Hyodo and Kazuya Kato, Semi-stable reduction and crystalline cohomology with logarithmic poles](https://www.numdam.org/item/AST_1994__223__221_0.pdf), §3.4, pp.244–245; Theorem 5.1, pp.262–263.
 
-Suggested signature scope: ArithmeticCoefficientData uses the R06.2 rational crystal category, its Frobenius pullback and horizontal morphisms. It carries the actual φ isomorphism, horizontal N and relation, split exhaustive separated filtration, and Griffiths transversality for the actual de Rham connection. Twist and model pullback concern this package. With categorical composition read left to right, the relation is φ followed by N equals p times Frobenius-pulled N followed by φ. Affine de Rham evaluations are finite projective; their canonical connection is integrable.
+Suggested signature scope: The geometric rational-crystal category, compatible completed levels, Frobenius pullback and de Rham evaluation belong to CR.5 and CR.7/finite-projective-coefficients. R06.2 supplies filtered (φ,N) conventions and period normalizations. Independent review R5: connect the proposed category to those actual crystals and replace global module complements by locally split sheaf filtrations or an explicit affine slice with descent. The relation and twist formulas are retained; the present nonaffine interface remains unresolved.
 
 Use driving the interface: `CrystallineCohomology:CR.7/dieudonne-variance-twist` — The specified Frobenius scaling and filtration shift identify the multiplicative Dieudonné module as the −1 twist; horizontal filtered maps feed the semistable comparison owner.
 
@@ -2583,7 +2585,7 @@ Construction or proof outline:
 
 Direct dependencies: `CrystallineCohomology:CR.7/finite-projective-coefficients`; `CrystallineCohomology:CR.7/filtered-frobenius-coefficients`; `FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/dieudonne-p-divisible`; `FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2`.
 
-Source passages: [Aise Johan de Jong, Crystalline Dieudonné module theory via formal and rigid geometry](https://www.numdam.org/article/PMIHES_1995__82__5_0.pdf), Definition 2.3.2 and construction 2.3.3, pp.21–22.
+Source locators: [Aise Johan de Jong, Crystalline Dieudonné module theory via formal and rigid geometry](https://www.numdam.org/article/PMIHES_1995__82__5_0.pdf), Definition 2.3.2 and construction 2.3.3, pp.21–22.
 
 Suggested signature scope: PDivisibleGroup and the contravariant dieudonneFunctor are fixed R07.2 clients on the same characteristic-p source. Evaluation is the actual D(G) crystal value; constant and multiplicative tests use those named groups, their Witt evaluations, F and V, not arbitrary rank-one modules.
 
@@ -2619,7 +2621,7 @@ Construction or proof outline:
 
 Direct dependencies: `CrystallineCohomology:CR.7/dieudonne-evaluation`; `CrystallineCohomology:CR.7/filtered-frobenius-coefficients`; `FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/dieudonne-p-divisible`; `FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/standard-dieudonne-modules`.
 
-Source passages: [Aise Johan de Jong, Crystalline Dieudonné module theory via formal and rigid geometry](https://www.numdam.org/article/PMIHES_1995__82__5_0.pdf), §2.3.2–2.3.3, pp.21–22, contravariant crystal convention; the standard-module specifications are imported from the exact R07.2 nodes.
+Source locators: [Aise Johan de Jong, Crystalline Dieudonné module theory via formal and rigid geometry](https://www.numdam.org/article/PMIHES_1995__82__5_0.pdf), §2.3.2–2.3.3, pp.21–22, contravariant crystal convention; the standard-module specifications are imported from the exact R07.2 nodes.
 
 Suggested signature scope: The actual Cartier-dual evaluation identifies with the rational linear dual twisted by −1. Frobenius on the dual has the factor p relative to the ordinary linear-dual map. The Witt constant/multiplicative computations and contravariant direction are retained.
 
@@ -2641,7 +2643,7 @@ Construction or proof outline:
 
 Direct dependencies: `CrystallineCohomology:CR.7/dieudonne-evaluation`; `FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2`.
 
-Source passages: [Aise Johan de Jong, Crystalline Dieudonné module theory via formal and rigid geometry](https://www.numdam.org/article/PMIHES_1995__82__5_0.pdf), §3.1, pp.28–32; Theorem 3.2.1 and proof, pp.32–34, using the Messing deformation theorem.
+Source locators: [Aise Johan de Jong, Crystalline Dieudonné module theory via formal and rigid geometry](https://www.numdam.org/article/PMIHES_1995__82__5_0.pdf), §3.1, pp.28–32; Theorem 3.2.1 and proof, pp.32–34, using the Messing deformation theorem.
 
 Suggested signature scope: The Hodge sequence uses the actual cotangent, evaluated Dieudonné module and dual Lie maps. On a nilpotent PD thickening, the lifted direct summand is indexed by a chosen lifted p-divisible group with its reduction identification. It is not a canonical filtration on D(G₀)_S independent of a lift.
 
@@ -2663,7 +2665,7 @@ Construction or proof outline:
 
 Direct dependencies: `CrystallineCohomology:CR.7/finite-projective-coefficients`; `CrystallineCohomology:CR.3`; `CrystallineCohomology:CR.1`; `EnhancedDerivedSheaves:E1/enhanced-derived-category`; `EnhancedDerivedSheaves:E1/presentability-and-derived-tensor`; `mathlib:DerivedCategory`.
 
-Source passages: [Pierre Berthelot and Arthur Ogus, Notes on crystalline cohomology](https://math.bu.edu/people/yangzhe/BO_Crystalline.pdf), Chapter 7, §7.8 and Corollaries 7.11–7.13, pp.7.12–7.18.
+Source locators: [Pierre Berthelot and Arthur Ogus, Notes on crystalline cohomology](https://math.bu.edu/people/yangzhe/BO_Crystalline.pdf), Chapter 7, §7.8 and Corollaries 7.11–7.13, pp.7.12–7.18.
 
 Suggested signature scope: ProperSmoothFamily includes the actual proper smooth map, quasi-compact base and finite-projective crystal. Its derived image and PD-object fibre are fixed constructions, with the canonical scalar-extension arrow. The identity and mod-p point tests involve this family.
 
@@ -2699,7 +2701,7 @@ Construction or proof outline:
 
 Direct dependencies: `CrystallineCohomology:CR.7/relative-crystalline-direct-image`; `CrystallineCohomology:CR.5/log-poincare`; `EnhancedDerivedSheaves:E2/bounded-below-hypercover-descent`; `DerivedDeRhamCohomology:DD.1/derived-completion`; `CrystallineCohomology:CR.3`.
 
-Source passages: [Pierre Berthelot and Arthur Ogus, Notes on crystalline cohomology](https://math.bu.edu/people/yangzhe/BO_Crystalline.pdf), Theorem 7.8 and proof, pp.7.12–7.15; [Pierre Berthelot and Arthur Ogus, Erratum to Notes on Crystalline Cohomology](https://math.berkeley.edu/~ogus/preprints/BO_B2_Erratumre.pdf), Entire official correction, pp.1–2, 21 August 2013.
+Source locators: [Pierre Berthelot and Arthur Ogus, Notes on crystalline cohomology](https://math.bu.edu/people/yangzhe/BO_Crystalline.pdf), Theorem 7.8 and proof, pp.7.12–7.15; [Pierre Berthelot and Arthur Ogus, Erratum to Notes on Crystalline Cohomology](https://math.berkeley.edu/~ogus/preprints/BO_B2_Erratumre.pdf), Entire official correction, pp.1–2, 21 August 2013.
 
 Suggested signature scope: BOBaseChange fixes the actual PD base maps, sub-PD special fibres, smooth qcqs source and cartesian pulled-back source. The theorem concerns its canonical derived base-change arrow for the given flat crystal. No arbitrary map is asserted invertible.
 
@@ -2721,7 +2723,7 @@ Construction or proof outline:
 
 Direct dependencies: `CrystallineCohomology:CR.7/relative-base-change`; `CrystallineCohomology:CR.5/log-connection`; `CrystallineCohomology:CR.1`; `CrystallineCohomology:CR.3`; `EnhancedDerivedSheaves:E1/enhanced-derived-category`.
 
-Source passages: [Pierre Berthelot and Arthur Ogus, Notes on crystalline cohomology](https://math.bu.edu/people/yangzhe/BO_Crystalline.pdf), Corollary 7.11 and following paragraph, pp.7.16–7.17.
+Source locators: [Pierre Berthelot and Arthur Ogus, Notes on crystalline cohomology](https://math.bu.edu/people/yangzhe/BO_Crystalline.pdf), Corollary 7.11 and following paragraph, pp.7.16–7.17.
 
 Suggested signature scope: GaussManinInput adds PD-smooth base evaluation, actual finite projective H^q and isomorphisms of its canonical cohomology base-change arrows. The connection is the actual first base-form boundary, with canonical coefficient differential, integrability and full PD-coordinate quasi-nilpotence. Constant-family tests require projective base cohomology for the ordinary tensor description; identity tests compute d.
 
@@ -2757,7 +2759,7 @@ Construction or proof outline:
 
 Direct dependencies: `CrystallineCohomology:CR.7/gauss-manin`; `CrystallineCohomology:CR.7/relative-base-change`; `CrystallineCohomology:CR.7/filtered-frobenius-coefficients`.
 
-Source passages: [Pierre Berthelot and Arthur Ogus, Notes on crystalline cohomology](https://math.bu.edu/people/yangzhe/BO_Crystalline.pdf), Corollaries 7.11–7.12, pp.7.16–7.17.
+Source locators: [Pierre Berthelot and Arthur Ogus, Notes on crystalline cohomology](https://math.bu.edu/people/yangzhe/BO_Crystalline.pdf), Corollaries 7.11–7.12, pp.7.16–7.17.
 
 Suggested signature scope: The horizontal comparison is the actual cohomology base-change map induced by a compatible PD-object morphism of this same family. The source connection is the pullback connection, and both degrees carry the explicit Gauss–Manin hypotheses.
 
@@ -2779,7 +2781,7 @@ Construction or proof outline:
 
 Direct dependencies: `CrystallineCohomology:CR.7/finite-projective-coefficients`; `CrystallineCohomology:CR.5/log-pd-de-rham`; `mathlib:DividedPowers`; `CrystallineCohomology:CR.0`.
 
-Source passages: [Alexander Beilinson, On the crystalline period map](https://arxiv.org/pdf/1111.3316v4), §1.7(a), PD compatibility criterion, p.10; §1.7(b); [Kazuya Kato, Logarithmic structures of Fontaine–Illusie](https://math.uchicago.edu/~drinfeld/p-adic_periods/Kato_log-structures.pdf), §6.4, coefficient PD log de Rham complex, p.219.
+Source locators: [Alexander Beilinson, On the crystalline period map](https://arxiv.org/pdf/1111.3316v4), §1.7(a), PD compatibility criterion, p.10; §1.7(b); [Kazuya Kato, Logarithmic structures of Fontaine–Illusie](https://math.uchicago.edu/~drinfeld/p-adic_periods/Kato_log-structures.pdf), §6.4, coefficient PD log de Rham complex, p.219.
 
 Suggested signature scope: The PD derivative uses the actual geometric form derivation and existing divided powers. A compatible PD map preserves all operations. Differentiating the actual coefficient PD stratification gives its evaluated connection, so the interface no longer assumes the identities it purports to prove.
 
@@ -2908,7 +2910,7 @@ The four existing source issues retain their independent confirmed verdicts:
 
 ## Proof gaps and supplier requests
 
-Four proof/interface gaps remain. They are prerequisite endpoints of the target-level plan, so all four stages are planned and none is closed.
+Seven proof/interface gaps remain: the four previously recorded below and the three independent-review repairs at the end. They are prerequisite endpoints of the target-level plan, so all four stages are planned and none is closed.
 
 ### Logarithmic Abhyankar and log-regularity proof inputs
 
@@ -2985,9 +2987,9 @@ Consumers: `CrystallineCohomology:CR.5/p-adic-log-crystalline`.
 Stage acceptance work still required:
 
 - `CrystallineCohomology:CR.5:log-algebra` (planned): Obtain the full logarithmic Abhyankar proof and supplier boundary/tame-cover interfaces. Obtain the local Kato log smooth/log regular proof cited by Thompson Theorem 3.14. Verify the nonnoetherian formal-boundary approximation proof chain under the exact finite-model hypotheses.
-- `CrystallineCohomology:CR.5` (planned): Supply the generic ordinary PD envelope/canonical-base imports from CR.0 and completion interface. Apply the proposed Beilinson substage and AI.6 dependency; verify the complete O_C/A_cris chart-lift proof chain. Supply the requested DD.1 enhanced countable Rlim functor, Milnor comparison and compatible surjective PD de Rham resolutions; the prototype is a client interface.
-- `CrystallineCohomology:CR.6` (planned): Provide CR.4 log Witt and Sato residue objects and the RD Part II analytic/topological interfaces. Supply the Tate-curve geometric monodromy calculation and compare its basis orientation.
-- `CrystallineCohomology:CR.7` (planned): Provide the R07.2 crystalline Dieudonné/Grothendieck–Messing construction and actual evaluation maps. Verify the CR.3 torsion/rank and completed base-change inputs for the stated Gauss–Manin degrees.
+- `CrystallineCohomology:CR.5` (planned): Supply the generic ordinary PD envelope/canonical-base imports from CR.0 and completion interface. Apply the proposed Beilinson substage and AI.6 dependency; verify the complete O_C/A_cris chart-lift proof chain. Repair sheaf-level crystal/connection tensors and local quasi-nilpotence (R2). Supply the requested DD.1 enhanced countable Rlim functor, Milnor comparison and compatible surjective PD de Rham resolutions; the prototype is a client interface.
+- `CrystallineCohomology:CR.6` (planned): Provide CR.4 log Witt and Sato residue objects and the RD Part II analytic/topological interfaces. Supply the Tate-curve geometric monodromy calculation and compare its basis orientation. State the full admissible residue embedding geometry (R4).
+- `CrystallineCohomology:CR.7` (planned): Provide the R07.2 crystalline Dieudonné/Grothendieck–Messing construction and actual evaluation maps. Verify the CR.3 torsion/rank and completed base-change inputs for the stated Gauss–Manin degrees. Build the geometric rational coefficient adapter and locally split sheaf filtration (R5).
 
 ## Proposed atlas structure
 
@@ -3003,4 +3005,12 @@ The source-qualified extension needed here uses weak formal/dagger semistable ch
 
 The suggested file includes all 88 primary declarations, 165 named APIs and 165 named tests, with supplementary geometric checks. Its geometric predicates use schemes, small étale log sheaves, compatible PD objects and their canonical maps. DD.1, RD.4/RD.5, R06.1/R06.2 and R07.2 names stand for the requested supplier exports. Affine PD bases/evaluations, finite semistable chart calculations and proper cohomology comparisons are explicit prototype slices; the mathematical statements above govern the full target.
 
-The file was checked with lean-check at the existing pinned Mathlib build, with only expected placeholder-proof warnings. Elaboration checks types and no proof or implementation is certified. The Tau Ceti exponential wrapper is unbuilt in that shared environment, so the prototype uses its underlying existing Mathlib operation. The packet remains complete at target level with implementation status unchecked. The old needs_changes review and all its checked verdicts remain untouched; a fresh independent review must judge this revision.
+The file was checked with lean-check at the existing pinned Mathlib build, with only expected placeholder-proof warnings. Elaboration checks types and no proof or implementation is certified. The Tau Ceti exponential wrapper is unbuilt in that shared environment, so the prototype uses its underlying existing Mathlib operation. The packet remains complete at target level with implementation status unchecked. The previous needs_changes review and all its checked verdicts are preserved in reviewHistory. The current independent revision-2 review also returns needs_changes for the three interface repairs below.
+
+## Independent review repairs remaining
+
+**R2: unrestricted module-sheaf crystals, coefficient tensors and local quasi-nilpotence**. The all-module crystal target requires ambient sheaf pullback; the current affine-basis global tensor transitions only describe QC evaluations. PDConnectionSheaf and logPDDeRham.coefficient_tensor tensor sections on arbitrary nonaffine small-étale objects, where the section tensor need not equal sections of the sheaf tensor. On P1/F_p with M=Frob*O(1)=O(p), Gamma(Omega1)=0 but Gamma(M tensor Omega1)=Gamma(O(p-2)) is nonzero. Implement sheaf tensors and stalkwise/local Taylor quasi-nilpotence, or a justified affine/QC basis with descent and an explicitly restricted equivalence. State the affine scope of the PD-stratification prototype. See independent review R2.
+
+**R4: source-qualified admissible residue embeddings**. DL Appendix B.2 requires the degree-zero embedding lift smooth over W, flat and generically smooth over W[t], the t=0 fibre a relative SNC divisor over W, and precisely its divisor log. Relate the special fibre to this actual map and construct compatible higher embedding levels. The current AdmissibleTubeEmbedding records only a flat finite-presentation map, arbitrary SNC boundary, unrelated mod-p family identification and K-generic smoothness. These do not state the source geometry; see independent review R4.
+
+**R5: geometric rational coefficient adapter and filtered sheaf evaluation**. R06.2 owns filtered (φ,N) modules/period normalization, not geometric coefficient crystals on semistable models. Build the rational category from CR.5/CR.7 compatible completed finite locally free crystals with p-inversion, specify its Frobenius/model pullback and de Rham sheaf evaluation, and define a locally split transverse sheaf filtration. Global module complements on arbitrary nonaffine generic fibres are not the intended condition. An explicitly affine/QC client needs descent to reach the full target; see independent review R5.

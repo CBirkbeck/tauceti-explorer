@@ -14,6 +14,12 @@ Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; Tau Ceti
 f790474821cf4256814db967cb154e7af3d0c369. The unbuilt Tau Ceti
 nilpotentExpUnit wrapper is read at the pin; its underlying Mathlib operation
 IsNilpotent.exp is used here. Elaboration verifies types, not the proposed proofs.
+
+Independent revision-2 review returns needs_changes: sheaf crystal/connection
+interfaces (R2), admissible residue embedding hypotheses (R4), and geometric
+filtered coefficient adapters (R5) require the repairs recorded in the packet
+and review report. Fine/fs base change and the bounded-below support test were
+corrected in this review; comments below locate the remaining interface gaps.
 -/
 import Mathlib.AlgebraicGeometry.Sites.Etale
 import Mathlib.GroupTheory.MonoidLocalization.GrothendieckGroup
@@ -569,14 +575,31 @@ structure KatoEtaleNeighborhood {X Y : LogScheme} (f : X ⟶ Y) (x : X.scheme) e
 theorem logEtale_chart_criterion {X Y : LogScheme} (f : X ⟶ Y)
     (hX : IsFineLog X) (hY : IsFineLog Y) :
     IsLogEtale f ↔ ∀ x : X.scheme, Nonempty (KatoEtaleNeighborhood f x) := by sorry
+theorem logFiberProduct_fine {X Y S : LogScheme} (f : X ⟶ S) (g : Y ⟶ S)
+    (hX : IsFineLog X) (hY : IsFineLog Y) (hS : IsFineLog S) :
+    IsFineLog (logFiberProduct f g) := by sorry
+def fsLogFiberProduct {X Y S : LogScheme} (f : X ⟶ S) (g : Y ⟶ S)
+    (hX : IsFineLog X) (hY : IsFineLog Y) (hS : IsFineLog S) : LogScheme :=
+  fsification (logFiberProduct f g) (logFiberProduct_fine f g hX hY hS)
+def fsLogFiberProductSnd {X Y S : LogScheme} (f : X ⟶ S) (g : Y ⟶ S)
+    (hX : IsFineLog X) (hY : IsFineLog Y) (hS : IsFineLog S) :
+    fsLogFiberProduct f g hX hY hS ⟶ Y :=
+  fsificationMap (logFiberProduct f g) (logFiberProduct_fine f g hX hY hS) ≫
+    logFiberProductSnd f g
+-- Kato's fine base-change statements and fs Kummer etale base change
+-- use different products. The integral product alone is not an fs product.
 theorem logMorphisms_baseChange {X Y S : LogScheme} (f : X ⟶ S) (g : Y ⟶ S)
-    (hX : IsIntegralLog X) (hY : IsIntegralLog Y) (hS : IsIntegralLog S) :
+    (hX : IsFineLog X) (hY : IsFineLog Y) (hS : IsFineLog S) :
     (IsStrict f → IsStrict (logFiberProductSnd f g)) ∧
     (IsExactLog f → IsExactLog (logFiberProductSnd f g)) ∧
     (IsIntegralLogMorphism f → IsIntegralLogMorphism (logFiberProductSnd f g)) ∧
     (IsLogSmooth f → IsLogSmooth (logFiberProductSnd f g)) ∧
-    (IsLogEtale f → IsLogEtale (logFiberProductSnd f g)) ∧
-    (IsKummerLog f → IsKummerLog (logFiberProductSnd f g)) := by sorry
+    (IsLogEtale f → IsLogEtale (logFiberProductSnd f g)) := by sorry
+theorem kummerEtale_fsBaseChange {X Y S : LogScheme} (f : X ⟶ S) (g : Y ⟶ S)
+    (hX : IsFSLog X) (hY : IsFSLog Y) (hS : IsFSLog S)
+    (hk : IsKummerLog f) (he : IsLogEtale f) :
+    IsKummerLog (fsLogFiberProductSnd f g hX.1 hY.1 hS.1) ∧
+      IsLogEtale (fsLogFiberProductSnd f g hX.1 hY.1 hS.1) := by sorry
 
 def standardLogPoint (k : Type) [Field k] : LogScheme := affineLogScheme (natChart (0 : k))
 def forgettingLogPoint (k : Type) [Field k] :
@@ -1425,6 +1448,9 @@ example {B : LogPDBase} (Z : LogOverPDBase B) {Y : LogOverPDBase B}
 def crystalTransition {C : Type u} [Category C] {O : Cᵒᵖ ⥤ CommRingCat.{0}}
     (F : PresheafOfModulesOfCommRing.{0} O) {X Y : Cᵒᵖ} (f : X ⟶ Y) :
     (ModuleCat.extendScalars (O.map f).hom).obj (F.obj X) ⟶ F.obj Y := by sorry
+-- REVIEW: on the affine crystalline basis, this global-section tensor
+-- condition describes quasi-coherent evaluations. Kato's unrestricted
+-- module-sheaf crystals require pullback of sheaves on each ambient site.
 structure LogCrystal {C : Type u} [Category C] (J : GrothendieckTopology C)
     (O : Sheaf J CommRingCat.{0}) where
   modules : PresheafOfModulesOfCommRing.{0} O.obj
@@ -1715,6 +1741,8 @@ structure PDStratificationDiagram (C D E : Type 1) [Category C] [Category D] [Ca
   b : p₂ ⋙ p₁₂ ≅ p₁ ⋙ p₂₃
   c : p₂ ⋙ p₂₃ ≅ p₂ ⋙ p₁₃
 -- The scalar rings are global sections of the exactified PD diagonals of this T.
+-- REVIEW: this module prototype is an affine evaluation slice. Specify the
+-- affine hypothesis and descent before using it for general module sheaves.
 def pdDiagonalRing {B : LogPDBase} {Z : LogOverPDBase B}
     (T : LogPDThickening B Z) (n : ℕ) : CommRingCat.{0} := by sorry
 def pdDiagonalDiagram {B : LogPDBase} {Z : LogOverPDBase B}
@@ -1868,6 +1896,9 @@ def connectionRestriction {B : LogPDBase} {Z : LogOverPDBase B} {T : LogPDThicke
       formModule (pdEtaleGeometry T U) 1 →+
     M.obj V ⊗[(etaleStructureSheaf T.ambient.object.scheme).obj.obj V]
       formModule (pdEtaleGeometry T V) 1 := by sorry
+-- REVIEW: tensoring sections for every etale U is not the sheaf tensor
+-- product on nonaffine U. Replace this by a sheaf connection, or restrict
+-- to a justified affine basis and descend. The equivalence below is unresolved.
 structure PDConnectionSheaf {B : LogPDBase} {Z : LogOverPDBase B} (T : LogPDThickening B Z) where
   modules : PresheafOfModulesOfCommRing.{0} (etaleStructureSheaf T.ambient.object.scheme).obj
   sheaf : Presheaf.IsSheaf (Scheme.smallEtaleTopology T.ambient.object.scheme) modules.presheaf
@@ -1887,6 +1918,8 @@ def pdTaylorOrder {B : LogPDBase} {Z : LogOverPDBase B} {T : LogPDThickening B Z
     C.modules.obj U →ₗ[B.ring] pdTaylorOrderModule C U q := by sorry
 def PDConnectionQuasiNilpotent {B : LogPDBase} {Z : LogOverPDBase B} {T : LogPDThickening B Z}
     (C : PDConnectionSheaf T) : Prop :=
+  -- REVIEW: the source condition is stalkwise/local. A uniform bound over
+  -- every possibly non-quasicompact U needs additional justification.
   ∀ U m, ∃ b : ℕ, ∀ q ≥ b, pdTaylorOrder C U q m = 0
 structure QNPDConnection {B : LogPDBase} {Z : LogOverPDBase B} (T : LogPDThickening B Z) where
   val : PDConnectionSheaf T
@@ -1939,6 +1972,9 @@ namespace logPDDeRham
  def filtration_degree {B : LogPDBase} {Z : LogOverPDBase B}
     (T : LogPDThickening B Z) (m a : ℤ) : Ideal Γ(T.ambient.object.scheme, ⊤) :=
     pdFiltrationPower T (m-a)
+ -- REVIEW: this is not an isomorphism on arbitrary nonaffine U when the
+ -- target denotes sections of coefficient forms. The affine/sheaf repair
+ -- must be shared with PDConnectionSheaf, not replaced by a nominal target.
  def coefficient_tensor {B : LogPDBase} {Z : LogOverPDBase B}
     (T : LogPDThickening B Z) (C : PDConnectionSheaf T)
     (U : T.ambient.object.scheme.Etaleᵒᵖ) (q : ℕ) :
@@ -2753,8 +2789,15 @@ example {F : ArithmeticFrame} {X : HKSpace F} (E : TubeEmbedding X) (M : TubeShe
 example {F : ArithmeticFrame} {X : HKSpace F} (E : TubeEmbedding X) (M : TubeSheaves E) :
     Limits.IsZero ((tubeProperSupport E ⊥).obj M) := by sorry
 -- Test: TauCeti.LogCrystalline.tubeProperSupport.wrong_order
+-- DL Remark B.2 concerns D+, so a proposed factorization must preserve
+-- bounded-below objects. Its assertion does not forbid arbitrary D functors.
+def SpecialBoundedBelow {F : ArithmeticFrame} {X : HKSpace F}
+    (C : SpecialDerived X) : Prop :=
+  ∃ b : ℤ, ∀ q : ℤ, q < b →
+    Limits.IsZero ((DerivedCategory.homologyFunctor (SpecialSheaves X) q).obj C)
 example : ∃ (F : ArithmeticFrame) (X : HKSpace F) (E : TubeEmbedding X)
     (U : X.object.scheme.Opens), ¬ ∃ f : SpecialDerived X ⥤ SpecialDerived X,
+      (∀ C, SpecialBoundedBelow C → SpecialBoundedBelow (f.obj C)) ∧
       Nonempty (derivedSpecialization E ⋙ f ≅ derivedTubeSupport E U ⋙ derivedSpecialization E) := by sorry
 
 def supportedConvergent {F : ArithmeticFrame} {X : HKSpace F}
@@ -2826,6 +2869,10 @@ def tubeGenericFibre {F : ArithmeticFrame} {X : HKSpace F}
     (E : TubeEmbedding X) : Scheme.{0} := by sorry
 def tubeGenericStructureMap {F : ArithmeticFrame} {X : HKSpace F}
     (E : TubeEmbedding X) : Scheme.Hom (tubeGenericFibre E) (Spec (CommRingCat.of F.K)) := by sorry
+-- REVIEW: DL B.2 additionally requires the degree-zero lift smooth over W,
+-- generically smooth over W[t], its t=0 fibre a relative SNC divisor over W,
+-- and precisely that divisor log structure. The present fields do not yet
+-- express these conditions; the residue comparison remains unresolved.
 structure AdmissibleTubeEmbedding {F : ArithmeticFrame} {X : HKSpace F}
     (E : TubeEmbedding X) where
   flat : Flat (tubeAlgebraicBaseMap E)
@@ -3236,9 +3283,12 @@ example (B : LogPDBase) (Z : LogOverPDBase B) (T : (LogCrysObject B Z)ᵒᵖ) :
 example (p : ℕ) [Fact p.Prime] :
     ¬ Module.Flat (PadicInt p) (PadicInt p ⧸ Ideal.span {(p : PadicInt p)}) := by sorry
 
--- R06.2 supplies the rational category of compatible p-adic coefficient
--- crystals on this semistable model, its Frobenius pullback, and de Rham
--- evaluation. These are supplier interfaces, not arbitrary comparison inputs.
+-- CR.5 and CR.7/finite-projective-coefficients own the geometric category:
+-- compatible completed finite locally free crystals, followed by inversion
+-- of p, with geometric Frobenius pullback and de Rham evaluation.
+-- R06.2 supplies filtered (phi,N) conventions and period normalizations.
+-- REVIEW: the category/evaluation adapter and nonaffine sheaf filtration
+-- still need to be specified; the global module below is only an affine slice.
 def RationalCoefficientCrystal {F : ArithmeticFrame} (M : SemistableModel F) : Type 1 := by sorry
 instance {F : ArithmeticFrame} (M : SemistableModel F) :
     Category.{0} (RationalCoefficientCrystal M) := by sorry
@@ -3265,7 +3315,8 @@ theorem coefficientDeRham_finite_projective {F : ArithmeticFrame} {M : Semistabl
     (C : RationalCoefficientCrystal M) (ha : IsAffine (semistableGeneric M)) :
     Module.Finite (genericCoefficientRing M) (coefficientDeRhamModule C) ∧
     Module.Projective (genericCoefficientRing M) (coefficientDeRhamModule C) := by sorry
--- For a nonaffine model this is stated on each affine open, then descended.
+-- REVIEW: these fields are global modules and global complements. They do
+-- not yet implement descent of locally split filtrations on a nonaffine model.
 structure ArithmeticCoefficientData {F : ArithmeticFrame} (M : SemistableModel F) where
   crystal : RationalCoefficientCrystal M
   phi : (coefficientFrobeniusPullback M).obj crystal ⟶ crystal
@@ -3283,7 +3334,7 @@ structure ArithmeticCoefficientData {F : ArithmeticFrame} (M : SemistableModel F
     LinearMap.range (TensorProduct.map (filtration (i-1)).subtype LinearMap.id)
 def arithmeticCoefficientInterface {F : ArithmeticFrame} {M : SemistableModel F}
     (C : ArithmeticCoefficientData M) : ArithmeticCoefficientData M := C
--- Compatible model pullback is the R06.2 supplier functor on the same objects.
+-- Compatible geometric pullback belongs to the CR.5/CR.7 crystal adapter.
 def coefficientModelPullback {F : ArithmeticFrame} {M M' : SemistableModel F}
     (f : SemistableMorphism M' M) : RationalCoefficientCrystal M ⥤ RationalCoefficientCrystal M' := by sorry
 namespace arithmeticCoefficientInterface
@@ -3315,7 +3366,8 @@ example {F : ArithmeticFrame} {M : SemistableModel F} (C : ArithmeticCoefficient
 example {F : ArithmeticFrame} {M : SemistableModel F} (C : ArithmeticCoefficientData M) :
     (arithmeticCoefficientInterface.twist C (-1)).phi = (F.p : F.K0) • C.phi ∧
     ∀ i, (arithmeticCoefficientInterface.twist C (-1)).filtration i = C.filtration (i-1) := by sorry
--- R06.2's unit crystal has the two specified constant transverse filtrations.
+-- The geometric unit crystal has the two specified transverse filtrations;
+-- their twist normalization agrees with R06.2.
 def constantArithmeticCoefficient {F : ArithmeticFrame} (M : SemistableModel F)
     (weight : ℤ) : ArithmeticCoefficientData M := by sorry
 -- Test: TauCeti.LogCrystalline.arithmeticCoefficientInterface.crystal_not_filtered
