@@ -12,6 +12,11 @@ its fixed principal-branch formula. Unavailable supplier constructions retain
 explicit type signatures and source contracts, never arbitrary-module aliases
 or proposition fields containing the results to be proved. These prototypes do
 not settle the recorded mathematical gaps. Every proof remains unchecked.
+
+Normalisation, checked in the review REV-Polylogarithms--P.3~2: the three
+configuration maps below are 18 times Goncharov's f₀, f₁ and M₃ (Advances in
+Mathematics 114, 1995). In particular `configTrilog` is 18·M₃ on generic tuples,
+that is Alt₆ of the triple-ratio symbol is −90·M₃.
 -/
 import Mathlib.LinearAlgebra.Finsupp.LinearCombination
 import Mathlib.LinearAlgebra.Finsupp.Defs
@@ -230,9 +235,21 @@ theorem config_ext {q m : ℕ} (f g : Config F q m →ₗ[ℚ] M)
 /-- Target tuple size decreases by one; deletion itself works in every row. -/
 def configDelete {q m : ℕ} (i : Fin (m+1)) : Config F q (m+1) →ₗ[ℚ] Config F q m := by sorry
 
+theorem configDelete_mk {q m : ℕ} (i : Fin (m+1)) (l : GenericTuple F q (m+1)) :
+    configDelete F i (configMk F l) =
+      configMk F ⟨fun j => l.val (i.succAbove j), by sorry⟩ := by sorry
+
 /-- Quotienting by the chosen nonzero vector lowers ambient dimension as well. -/
 def configProject {q m : ℕ} (i : Fin (m+1)) :
     Config F (q+1) (m+1) →ₗ[ℚ] Config F q m := by sorry
+
+/-- Any surjection killing the chosen vector computes the projection; the class
+does not depend on it, since two such surjections differ by an element of GL. -/
+theorem configProject_mk {q m : ℕ} (i : Fin (m+1)) (l : GenericTuple F (q+1) (m+1))
+    (π : (Fin (q+1) → F) →ₗ[F] (Fin q → F)) (hπ : Function.Surjective π)
+    (hi : π (l.val i) = 0) :
+    configProject F i (configMk F l) =
+      configMk F ⟨fun j => π (l.val (i.succAbove j)), by sorry⟩ := by sorry
 
 theorem config_coinvariants (q m : ℕ) :
     Config F q m = Representation.Coinvariants (configRepresentation F q m) := by sorry
@@ -327,9 +344,6 @@ private def scaled {m : ℕ} (s : Fin m → Fˣ) (l : GenericTuple F 3 m) :
 
 theorem projectedRatio_scale (s : Fin 5 → Fˣ) (l : GenericTuple F 3 5) :
     projectedRatio (scaled s l) = projectedRatio l := by sorry
--- TauCeti.Polylog.WeightThree.projectedRatio_blochCrossRatio: not stated;
--- needs V.4's ordered projective quotient-point cross-ratio carrier/map.
-
 /-- Project the four remaining vectors into F³/F·l₀, using the basis
 (l₀,l₁,l₂). The two minors are quotient-plane homogeneous coordinates. -/
 private def projectedFour (l : GenericTuple F 3 5) :
@@ -465,10 +479,11 @@ example (l : GenericTuple F 3 6) :
     (5 : ℚ) • configTrilog (configMk F l) =
       -alternate (fun v => Supplier.symbol3 (tripleRatio v)) l := by sorry
 
-theorem seven_term_configuration_relation :
-    configTrilog.comp (deleteD F 3 6) = 0 := by sorry
-/-- Every component equality is stated on its actual source and target. -/
-theorem configuration_chain_comparison :
+theorem seven_term_configuration_relation [Infinite F] :
+    (configTrilog (F := F)).comp (deleteD F 3 6) = 0 := by sorry
+/-- Every component equality is stated on its actual source and target.
+Faces are zero-based; with these signs the top coefficient is −1/5. -/
+theorem configuration_chain_comparison [Infinite F] :
     Supplier.d2.comp (configMiddle (1 : Fˣ)) =
       (configExterior (1 : Fˣ)).comp (deleteD F 3 4) ∧
     Supplier.delta3.comp configTrilog =
@@ -612,12 +627,19 @@ def geometricComparison : GeometricTrilog F ≃ₗ[ℚ] Supplier.B3 F := by sorr
 private def geometricAlt (l : GenericTuple F 3 6) : Supplier.B3 F :=
   ∑ σ : Equiv.Perm (Fin 6), signQ σ •
     geometricComparison F (geometricMk F (projectivize F (permute l σ)))
+/-- On generic tuples M₃ is −1/90 of the unnormalised alternation of the
+triple-ratio symbol, so its own 720-term alternation is −8 times it, and the
+top configuration map is 18·M₃. -/
 theorem geometric_trilogarithm_comparison :
     (∀ z : F, geometricComparison F (geometricTriangle F z) = Supplier.symbol3 z) ∧
     (∀ l : GenericTuple F 3 6,
-      geometricAlt F l = (3/2 : ℚ) • alternate (fun v => Supplier.symbol3 (tripleRatio v)) l) ∧
+      alternate (fun v => Supplier.symbol3 (tripleRatio v)) l =
+        (-90 : ℚ) • geometricComparison F (geometricMk F (projectivize F l))) ∧
     (∀ l : GenericTuple F 3 6,
-      configTrilog (configMk F l) = (-2/15 : ℚ) • geometricAlt F l) := by sorry
+      geometricAlt F l = (-8 : ℚ) • alternate (fun v => Supplier.symbol3 (tripleRatio v)) l) ∧
+    (∀ l : GenericTuple F 3 6,
+      configTrilog (configMk F l) =
+        (18 : ℚ) • geometricComparison F (geometricMk F (projectivize F l))) := by sorry
 
 /-- Test `TauCeti.Polylog.WeightThree.geometric_repeat`. -/
 example (l : SixPoints F) (h : l 0 = l 1) : geometricMk F l = 0 := by sorry
@@ -679,6 +701,13 @@ example : configurationDual ℚ 2 4 (by omega) (by omega) (configMk ℚ dualFour
 private def noFourCollinear (l : SixPoints F) : Prop := ¬ fourCollinear F l
 /-- Annihilator duality on projective configurations, including the no-four-collinear locus. -/
 def projectiveDual (l : SixPoints F) (h : noFourCollinear F l) : SixPoints F := by sorry
+/-- On generic tuples the projective dual is the projectivisation of the
+vector-configuration dual; this fixes `projectiveDual` up to the relations. -/
+theorem projectiveDual_generic (l l' : GenericTuple F 3 6)
+    (hl : noFourCollinear F (projectivize F l))
+    (h : configurationDual F 3 6 (by omega) (by omega) (configMk F l) = configMk F l') :
+    geometricMk F (projectiveDual F (projectivize F l) hl) =
+      geometricMk F (projectivize F l') := by sorry
 theorem trilogarithm_duality (l : SixPoints F) (h : noFourCollinear F l) :
     geometricMk F (projectiveDual F l h) = -geometricMk F l := by sorry
 end GeometricPresentation
@@ -996,9 +1025,10 @@ def conjugateContinuous : ContinuousH5 →ₗ[ℝ] ContinuousH5 := by sorry
 private def orbitPoint (g : ComplexGL) : Projectivization ℂ (Fin 3 → ℂ) :=
   Projectivization.mk ℂ (fun i => (g : Matrix (Fin 3) (Fin 3) ℂ) i 0) (by sorry)
 /-- The configuration cochain uses geometric classes on all six-tuples.
-The −2/15 factor translates Alt M₃ to the corrected r₆; it retains [1]₃. -/
+The factor 1/40 turns the 720-term alternation of M₃ into 18·M₃, which is
+`configTrilog` on generic tuples; it retains [1]₃. -/
 private def configurationCochain (x : Fin 6 → ComplexGL) : ℝ :=
-  trilogDescent ((-2/15 : ℚ) • geometricComparison ℂ
+  trilogDescent ((1/40 : ℚ) • geometricComparison ℂ
     (∑ σ : Equiv.Perm (Fin 6), signQ σ •
       geometricMk ℂ (fun i => orbitPoint (x (σ i)))))
 private def configurationMeasCochain : measCochains 5 :=
