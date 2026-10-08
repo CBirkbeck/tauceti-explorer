@@ -39293,8 +39293,9 @@
    ],
    "revisionOf": "BP-HeegnerPointEulerSystems--HE.7s",
    "prompt": "research/blueprint/prompts/BP-HeegnerPointEulerSystems--HE.7s~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6971"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6971",
+   "finishedAt": "2026-10-08T09:03:10Z"
   },
   {
    "priority": 2,
@@ -42430,7 +42431,8 @@
     "BP-EllipticRegulators--ER.7~2"
    ],
    "prompt": "research/blueprint/prompts/REV-EllipticRegulators--ER.7~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7043"
   },
   {
    "kind": "blueprint",
