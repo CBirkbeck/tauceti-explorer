@@ -32950,8 +32950,9 @@
    ],
    "avoidAccountOf": "BP-HodgeStructuresPartII--H.8",
    "prompt": "research/blueprint/prompts/REV-HodgeStructuresPartII--H.8.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7065"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7065",
+   "finishedAt": "2026-10-08T08:48:46Z"
   },
   {
    "id": "BP-K3BlochGroups--V.1",
