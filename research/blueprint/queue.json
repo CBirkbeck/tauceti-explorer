@@ -32804,8 +32804,9 @@
    ],
    "avoidAccountOf": "BP-HodgeStructuresPartII--H.5",
    "prompt": "research/blueprint/prompts/REV-HodgeStructuresPartII--H.5.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7062"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7062",
+   "finishedAt": "2026-10-08T06:01:08Z"
   },
   {
    "id": "BP-HodgeStructuresPartII--H.6",
@@ -32895,8 +32896,9 @@
    ],
    "avoidAccountOf": "BP-HodgeStructuresPartII--H.7",
    "prompt": "research/blueprint/prompts/REV-HodgeStructuresPartII--H.7.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7064"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7064",
+   "finishedAt": "2026-10-08T06:01:11Z"
   },
   {
    "id": "BP-HodgeStructuresPartII--H.8",
@@ -40142,7 +40144,8 @@
     "BP-MetaplecticAutomorphicForms--MP.8~2"
    ],
    "prompt": "research/blueprint/prompts/REV-MetaplecticAutomorphicForms--MP.8~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7075"
   },
   {
    "kind": "blueprint",
