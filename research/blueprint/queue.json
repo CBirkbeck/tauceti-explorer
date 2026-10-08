@@ -38266,8 +38266,9 @@
    ],
    "revisionOf": "BP-CrystallineCohomology--CR.5",
    "prompt": "research/blueprint/prompts/BP-CrystallineCohomology--CR.5~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6952"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6952",
+   "finishedAt": "2026-10-08T12:36:55Z"
   },
   {
    "priority": 2,
