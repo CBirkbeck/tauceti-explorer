@@ -16,7 +16,7 @@ For Iwasawa coordinates choose Q upper triangular with positive diagonal and Y=Q
 
 ## Shared owners and native baseline
 
-General Jacobi theory belongs to `MetaplecticAutomorphicForms:MP.6` before MP.7: the Heisenberg group, its symplectic semidirect product and unitary analogue, the Schrödinger–Weil action, Jacobi weight/index/multiplier spaces, Fourier–Jacobi extraction and theta decomposition. MP.8 constructs the BFH rank-two arithmetic realization and its similitude compatibility. `QSeriesPartitionsAndMockModularForms:QM.1` consumes MP.6 for its rank-one q-series and theta applications. The confirmed unitary consumer is `AutomorphicCongruences:L2s`, which requests a separately source-qualified unitary Jacobi instance. The existing MP.6 adelic contracts do not establish a general unitary Jacobi theorem. An L2 dependency does not follow from its embedded L2s paragraph; a separate Fouquet–Wan use requires its own evidence. MP.6 has no prerequisite in these consumers. This follows the independently verified RT-AREA-automorphic-1/20 ownership finding and its round-3 fix review.
+General Jacobi theory belongs to `MetaplecticAutomorphicForms:MP.6` before MP.7: the Heisenberg group, its symplectic semidirect product and unitary analogue, the Schrödinger–Weil action, Jacobi weight/index/multiplier spaces, Fourier–Jacobi extraction and theta decomposition. MP.8 constructs the BFH rank-two arithmetic realization and its similitude compatibility. `QSeriesPartitionsAndMockModularForms:QM.1` consumes MP.6 for its rank-one q-series and theta applications. The confirmed unitary consumer is `AutomorphicCongruences:L2s`, which requests a separately source-qualified unitary Jacobi instance. The existing MP.6 adelic contracts do not establish a general unitary Jacobi theorem. An L2 dependency does not follow from its embedded L2s paragraph; a separate Fouquet–Wan use requires its own evidence. MP.6 has no prerequisite in these consumers. This follows the independently verified RT-AREA-automorphic-1/20 ownership finding and its round-4 fix review.
 
 MP.1 supplies the intrinsic rank-two metaplectic extension; MP.2 supplies Weil generator operators and phases; MP.4 supplies the local-to-adelic restricted product and rational splitting. The positive genus-two square-root cover and its comparison to those inputs are MP.8 targets. Neither a rank-one cover nor the quaternion kernel of SO(3) supplies this comparison.
 
@@ -40,11 +40,11 @@ The test algebra consists of actual compact-group matrix coefficients. Its globa
 
 Matrix Möbius inversion removes primitive-pair restrictions from the exponential sums. Its congruence-restricted version uses N-adapted upper Hermite divisor representatives that are diagonal modulo N. First-cusp unfolding uses C₁₂≡0 mod N; opposite-cusp unfolding uses C≡0 mod N and retains rank-two, rank-one and rank-zero contributions. Cuspidality kills the rank-one term after Whittaker extraction. The first-cusp Dirichlet series uses a(n) of the original newform f; the opposite-cusp P-series uses its separately transformed cusp data. Fourier coefficients C_j(s) vary with s. The mixed root congruence uses p^min(a,d). At p=3,m=16,N=8,r=1,n₁=0,a=b=2,d=1 there are six solutions, agreeing with the unchanged Lemma 7.3 table; the printed modulus gives two. The primitive sum S_p(a,b,d) retains three exponents. Its beta-difference is S_p(a,a,d)−S_p(a,a−1,d), keeping the first exponent fixed. These counts determine the unramified factors and squarefactor polynomial bounds. Opposite-cusp ramified zero-discriminant regularity must be established independently when used to prove full Eisenstein regularity.
 
-The spectral comparison supplies genuine constant terms, intertwining continuation, functional equations and pole control before Fourier coefficients commute with residues or derivatives. In the polar formula every local transform is evaluated at N⁻¹y₂, including F^± in both (8.1) and (8.3); their printed unscaled arguments conflict with the evaluated boundary terms on p.603. Near (u,s)=(1/2,2), subtracting the three specified boundary fractions leaves a jointly holomorphic function. BSD.2 consumes that formula and the local tests and owns the final arithmetic argument.
+The spectral comparison supplies genuine constant terms, intertwining continuation, functional equations and pole control before Fourier coefficients commute with residues or derivatives. The raw standard intertwiner M occurs in the unnormalized constant term and Weyl equation; the scalar-normalized R has its separately specified composition law. The Mellin/polar assertions fix y₂>0 and a coefficient globally divisible by φ₁ in R_k, as assumed on printed p.601. In the polar formula every local transform is evaluated at N⁻¹y₂, including F^± in both (8.1) and (8.3); their printed unscaled arguments conflict with the evaluated boundary terms on p.603. Near (u,s)=(1/2,2), subtracting the three specified boundary fractions leaves a jointly holomorphic function. BSD.2 consumes that formula and the local tests and owns the final arithmetic argument.
 
 ## Planning status and order
 
-This is a complete planning pass, with MP.8 still **planned** and every node **unchecked**. It contains 85 nodes: 16 definitions, 18 constructions, 6 lemmas, 41 theorems and 4 comparisons; 107 API items and 104 proposed tests support the objects. There are six planets, 28 baseline declarations, 15 supplier requests and nine gaps. No mathematical implementation or closure is asserted.
+This is a complete planning pass, with MP.8 still **planned** and every node **unchecked**. It contains 85 nodes: 16 definitions, 18 constructions, 6 lemmas, 41 theorems and 4 comparisons; 107 API items and 104 proposed tests support the objects. There are six planets, 28 baseline declarations, 15 supplier requests and nine gaps. No mathematical implementation or closure is asserted. The independent revision-2 review (`REV-MetaplecticAutomorphicForms--MP.8~2`, 2026-10-08) accepts this planning pass after verifying 58 nodes and correcting 27. All 28 baseline citations and eight source-issue verdicts are confirmed; the nine gaps remain implementation work.
 
 Build the geometry, cover and Jacobi arithmetic first. The theta objects then give the genuine components used by the seed and both cusp extractions. The Whittaker continuation and local tests require the compact-rotation and even-pushforward repairs below. Primitive arithmetic supplies the Euler factors; establish ramified P-regularity by its independent arithmetic route before using it for full Eisenstein regularity. Finally compare normalized genuine induction and its intertwiners, prove uniform denominator-cleared Fourier/tail estimates, and assemble the jointly meromorphic polar formula. Source and supplier gaps remain prerequisites of the corresponding declarations.
 
@@ -82,7 +82,7 @@ API:
 Unit tests:
 
 - `TauCeti.Jacobi.GenusTwo.fourierShift_zero_data` (computation): For a=1,c=8, p=(0,0) and ℓ=e₀, the output is (8x₀²,−2e₀), with x₀² the native coordinate quadratic form.
-- `TauCeti.Jacobi.GenusTwo.fourierShift_other_cusp` (compatibility): For a=1,c=1 and the same zero data and shift, the output is (x₀²,−2e₀). This detects using c=N at both cusps.
+- `TauCeti.Jacobi.GenusTwo.fourierShift_other_cusp` (computation): For a=1,c=1 and the same zero data and shift, the output is (x₀²,−2e₀). This detects using c=N at both cusps.
 - `TauCeti.Jacobi.GenusTwo.fourierShift_mixed_term` (computation): For a=c=1, Q=x₀x₁, R=e₀ and ℓ=e₁, the output is (x₁²,e₀−2e₁). Here Q has symmetric matrix off-diagonal entries 1/2, not 1.
 
 Acceptance:
@@ -369,7 +369,7 @@ Unit tests:
 
 - `TauCeti.Jacobi.GenusTwo.positiveSimilitudes_scalar` (computation): 2I₄ satisfies the relation with μ=4.
 - `TauCeti.Jacobi.GenusTwo.positiveSimilitudes_reflection` (non-example): diag(I₂,−I₂) has μ=−1 and is excluded.
-- `TauCeti.Jacobi.GenusTwo.positiveSimilitudes_base_action` (compatibility): fractional(2I₄,iI₂)=iI₂.
+- `TauCeti.Jacobi.GenusTwo.positiveSimilitudes_base_action` (computation): fractional(2I₄,iI₂)=iI₂.
 
 Acceptance:
 
@@ -406,7 +406,7 @@ API:
 
 Unit tests:
 
-- `TauCeti.Jacobi.GenusTwo.siegelAction_scalar` (compatibility): 2I₄ fixes iI₂.
+- `TauCeti.Jacobi.GenusTwo.siegelAction_scalar` (computation): 2I₄ fixes iI₂.
 - `TauCeti.Jacobi.GenusTwo.siegelAction_translation` (computation): n(I₂) sends iI₂ to (1+i)I₂.
 - `TauCeti.Jacobi.GenusTwo.siegelAction_fourier` (computation): J sends iI₂ to iI₂ (JZ=−Z⁻¹).
 
@@ -436,7 +436,7 @@ Uses:
 
 - BFH §3, pp.557–559, (3.1)–(3.8): Use the BFH section and its chosen cover branch in the archimedean Whittaker integral, with the prescribed finite K-type.
 - BFH §1, pp.546–549, (1.4)–(1.9): Track the Heisenberg center under t↦μ(g)t and the resulting central-character transport; pull the action back along the rank-two cover projection.
-- BFH §1, pp.545–546, definition of GSp⁺(4,R): Uses genus-two square-root double cover in full real similitude extension: Let r=diag(I₂,−I₂) with μ(r)=−1. Every negative similitude is uniquely g₊r. On H₂ put c(Z)=−conjugate Z. Conjugation by r acts on the positive cover by (g,ρ(Z))↦(rgr,conjugate(ρ(c(Z)))); this is an involution because d(rgr,Z)=conjugate d(g,c(Z)). Define the split extension G̃Sp₄(R)=G̃Sp₄⁺(R)⋊C₂ using this involution. I
+- BFH §1, pp.545–546, definition of GSp⁺(4,R): Use the positive-cover cocycle to construct the conjugation involution and its chosen split extension across the negative real component; comparison with adelic lifts remains separate.
 - RankZeroOneBSD:BSD.2: Consumes the exact BFH coefficient/polar-formula data after the comparisons stated in this packet.
 
 API:
@@ -497,9 +497,9 @@ Direct dependencies: `mathlib:Matrix.symplecticGroup`, `MetaplecticAutomorphicFo
 
 Uses:
 
-- BFH §1, p.547, (1.6)–(1.9): Uses bfh arithmetic subgroup in bfh jacobi coordinate space: Specialize the MP.6 Jacobi space to the BFH lattice and cusp j. Its coordinate functions Φ_j:GSp₄⁺(R)×C²→C are smooth in the real group variables, holomorphic in W, invariant under Γ_N at cusp zero or J⁻¹Γ_NJ at cusp one, and invariant under ||[N^(−j)ℓ;N^(j−1)r] for ℓ,r∈Z². For vector values take each continuous linear
-- BFH §1, p.549, definition of E_s: Uses bfh arithmetic subgroup in genus-two jacobi eisenstein series: For the genuine elliptic-newform seed, define E_s(g,W)=Σ_{γ∈(P∩Γ_N)\Γ_N} Σ_{λ∈Z²} (I_s||[λ;0])|γ(g,W), where P consists of n(X)diag(Q,Q⁻ᵀ) with detQ>0. The sum is initially defined in a right half-plane of s. For finite-dimensional vector values use the original seed, not a scalar replacement; continuous linear functio
-- BFH §1, pp.545–549; §2, p.553, (2.6): Uses bfh arithmetic subgroup in arithmetic and adelic cover compatibility: Use the MP.4 restricted product of normalized local rank-two metaplectic covers, the rational splitting on Sp₄(Q), and the Schrödinger–Weil lattice model. Construct the map from the BFH real arithmetic lift of Γ_N into the quotient by the rational splitting with the finite vector fixed by its specified compact-open sub
+- BFH §1, p.547, (1.6)–(1.9): Specialize the MP.6 Jacobi carrier to Γ_N and J⁻¹Γ_NJ and the two BFH elliptic lattices, retaining smoothness and W-holomorphy for scalar and finite-dimensional vector coefficients.
+- BFH §1, p.549, definition of E_s: Use the actual intersection P∩Γ_N to index the Eisenstein sum and prove representative independence from the seed covariance before asserting convergence.
+- BFH §1, pp.545–549; §2, p.553, (2.6): Identify the real lift of Γ_N with the MP.4 rational splitting and the prescribed finite theta vector, including its dyadic compact-open stabilizer.
 
 API:
 
@@ -573,9 +573,9 @@ Direct dependencies: `MetaplecticAutomorphicForms:MP.8/bfh-slash`, `MetaplecticA
 
 Uses:
 
-- BFH §2, pp.551–553, (2.2)–(2.3): Uses bfh elliptic translation operator in bfh fourier coefficient extraction: For j=0 or 1, define B_j(g;T,R)=N^(−3j)∫_{[0,N^j)^3}∫_{[0,1)^2} Φ_j(n(X)g,W)e(−N^(−j)tr(T(Z_g+X))−N^(1−j)RᵀW)dW dX. X=[[x₄,x₃],[x₃,x₁]], T is the half-integral matrix of Q, R∈Z², and both measures are coordinate Lebesgue measures. The coefficient excludes the exponential in Z_g; it is not the unnormalized torus Fourier
+- BFH §2, pp.551–553, (2.2)–(2.3): Fix the two elliptic periods and the N-dependent vector frequency in normalized Fourier extraction; retain the exponential in Z_g removed from the coefficient.
 - BFH §2, pp.552–553, (2.9): Uses bfh elliptic translation operator in holomorphic contour shift for fourier coefficients: If Φ_j is continuous, smooth in g, holomorphic in W, and invariant under the BFH elliptic lattice at cusp j, its Fourier extraction obeys B_j(g;T,R)=B_j(g;T−(N/2)(Rλᵀ+λRᵀ)+mN^jλλᵀ,R−2mN^(j−1)λ), λ∈N^(−j)Z². Hence the retained coefficient-invariants theorem applies with a=m/N and c=N^(1−j).
-- BFH §1, p.547, (1.6)–(1.9): Uses bfh elliptic translation operator in bfh jacobi coordinate space: Specialize the MP.6 Jacobi space to the BFH lattice and cusp j. Its coordinate functions Φ_j:GSp₄⁺(R)×C²→C are smooth in the real group variables, holomorphic in W, invariant under Γ_N at cusp zero or J⁻¹Γ_NJ at cusp one, and invariant under ||[N^(−j)ℓ;N^(j−1)r] for ℓ,r∈Z². For vector values take each continuous linear
+- BFH §1, p.547, (1.6)–(1.9): Impose translation invariance at cusp j for N^(−j)Z²×N^(j−1)Z² and prove that its central phase is integral when N divides m.
 
 API:
 
@@ -618,7 +618,7 @@ Uses:
 
 - BFH Proposition 2.1, p.551: Uses bfh genus-two theta series in gaussian orthogonality of genus-two theta series: For a>0, Z=X+iY∈H₂ and μ,ν∈Z², the Lebesgue integral over C²/(Z Z²+Z²) of θᵃ_μ(Z,W) conjugate(θᵃ_ν(Z,W)) exp(−4πa Y⁻¹[Im W]) is √det(Y)/(2a) if μ≡ν mod 2a, and zero otherwise. In W=Zλ+ρ coordinates the measure is det(Y)dλdρ on [0,1)^4.
 - BFH §2, p.554, (2.12)–(2.13): Uses bfh genus-two theta series in genus-two theta fourier transform: For a>0 and Z∈H₂, θᵃ_ν(−Z⁻¹,Z⁻¹W)=e(aZ⁻¹[W]) √(−det Z)/(2a) Σ_{μ mod2a} e(−νᵀμ/(2a))θᵃ_μ(Z,W). The holomorphic branch √(−det Z) is positive when Z=iY. The finite Fourier matrix has square equal to residue negation after normalization by 1/(2a).
-- BFH Proposition 2.2, pp.552–554, (2.4)–(2.6): Uses bfh genus-two theta series in bfh theta component projection: For a=m/N>0, define E_j(g;ν) by the orthogonal projection of the coordinate function onto θᵃ_ν at Z′=N^(1−2j)Z_g, W′=N^(1−j)W, divided by its norm √det(Im Z′)/(2a). Integrate in W′ on its period torus. For a BFH Jacobi function this equals the component in Proposition 2.2. Define the projection before its decomposition
+- BFH Proposition 2.2, pp.552–554, (2.4)–(2.6): Project onto the finite residue-indexed theta basis using the Gaussian pairing, and prove reconstruction only after the elliptic transformation and normal-convergence arguments.
 
 API:
 
@@ -628,7 +628,7 @@ API:
 
 Unit tests:
 
-- `TauCeti.Jacobi.GenusTwo.genusTwoTheta_negation` (compatibility): θᵃ_{−ν}(Z,−W)=θᵃ_ν(Z,W).
+- `TauCeti.Jacobi.GenusTwo.genusTwoTheta_negation` (characterisation): θᵃ_{−ν}(Z,−W)=θᵃ_ν(Z,W).
 - `TauCeti.Jacobi.GenusTwo.genusTwoTheta_period` (computation): θ¹_(2,0)=θ¹_(0,0).
 - `TauCeti.Jacobi.GenusTwo.genusTwoTheta_product` (compatibility): θ¹_0(iI₂,0)=jacobiTheta₂(0,2i)².
 
@@ -654,9 +654,9 @@ Direct dependencies: `mathlib:QuadraticForm`, `mathlib:QuadraticMap.sum_repr_sq_
 
 Uses:
 
-- BFH §2, pp.551–553, (2.2)–(2.3): Uses half-integral matrix dictionary in bfh fourier coefficient extraction: For j=0 or 1, define B_j(g;T,R)=N^(−3j)∫_{[0,N^j)^3}∫_{[0,1)^2} Φ_j(n(X)g,W)e(−N^(−j)tr(T(Z_g+X))−N^(1−j)RᵀW)dW dX. X=[[x₄,x₃],[x₃,x₁]], T is the half-integral matrix of Q, R∈Z², and both measures are coordinate Lebesgue measures. The coefficient excludes the exponential in Z_g; it is not the unnormalized torus Fourier
-- BFH §2, pp.552–553, before Proposition 2.2: Uses half-integral matrix dictionary in theta-component fourier coefficients: C_j(g;U,ν) is the Fourier coefficient B_j(g;T,ν) with T=(U+N^(2−j)ννᵀ)/(4m); set it to zero if this is not an integral quadratic form, equivalently a half-integral symmetric matrix. This computational construction is defined before imposing Jacobi invariance. For the actual BFH family, the shift theorem makes the resid
-- BFH §5, p.580, definition of H before Proposition 5.1: Uses half-integral matrix dictionary in genus-two fourier unfolding kernel: For Y=QQᵀ positive definite, Z=X+iY, detC≠0, define H(Q,s;C,T,R)=(2mN³)^−1∫_{R³}√(−detZ)(detY/|detZ|²)^(s/2) I([[0,−C⁻ᵀ],[C,0]][[Q,XQ⁻ᵀ],[0,Q⁻ᵀ]]) e(Z[R]/(4m)−N⁻¹tr(TZ))dX. The positive-base power is exp((s/2)log(detY/|detZ|²)). Its quadratic shift identity is H(Q,s;C,N^(1−j)T,N^(1−j)R)=H(Q,s;C,N^(1−j)U/(4m),0) when T=
+- BFH §2, pp.551–553, (2.2)–(2.3): Convert a native integral quadratic form into the half-integral matrix T in the Fourier phase, keeping each mixed coefficient as twice the corresponding matrix entry.
+- BFH §2, pp.552–553, before Proposition 2.2: Recover the Fourier index from U=4mT−N^(2−j)R Rᵀ only when the resulting T is half integral; use the shift theorem to justify residue independence for BFH coefficients.
+- BFH §5, p.580, definition of H before Proposition 5.1: Insert the half-integral matrix into tr(TZ) and verify the discriminant substitution that cancels the quadratic R term in the unfolded kernel.
 
 API:
 
@@ -831,7 +831,7 @@ Direct dependencies: `MetaplecticAutomorphicForms:MP.8/arithmetic-subgroup`, `Me
 Uses:
 
 - BFH §2, pp.552–553, (2.9): Uses bfh jacobi coordinate space in holomorphic contour shift for fourier coefficients: If Φ_j is continuous, smooth in g, holomorphic in W, and invariant under the BFH elliptic lattice at cusp j, its Fourier extraction obeys B_j(g;T,R)=B_j(g;T−(N/2)(Rλᵀ+λRᵀ)+mN^jλλᵀ,R−2mN^(j−1)λ), λ∈N^(−j)Z². Hence the retained coefficient-invariants theorem applies with a=m/N and c=N^(1−j).
-- BFH Proposition 2.2, pp.552–554, (2.4)–(2.6): Uses bfh jacobi coordinate space in bfh theta component projection: For a=m/N>0, define E_j(g;ν) by the orthogonal projection of the coordinate function onto θᵃ_ν at Z′=N^(1−2j)Z_g, W′=N^(1−j)W, divided by its norm √det(Im Z′)/(2a). Integrate in W′ on its period torus. For a BFH Jacobi function this equals the component in Proposition 2.2. Define the projection before its decomposition
+- BFH Proposition 2.2, pp.552–554, (2.4)–(2.6): Supply the actual elliptic invariance, smoothness and W-holomorphy needed to reconstruct a BFH Jacobi function from its theta projections.
 - BFH Proposition 2.2, p.552, (2.7)–(2.8): Uses bfh jacobi coordinate space in fourier law for bfh theta components: For Φ₁=Φ₀|J and a=m/N, E₁(g;ν)=√(−det Z_g)/(2m) Σμ e(−Nνᵀμ/(2m))E₀(Jg;μ), and E₀(g;ν)=√(−det Z_g)/(2m) Σμ e(+Nνᵀμ/(2m))E₁(Jg;μ). Both sums are over (Z/(2a)Z)². The missing N in the prefactor relative to theta S is due to rescaling Z by N⁻¹.
 
 API:
@@ -868,7 +868,7 @@ Direct dependencies: `MetaplecticAutomorphicForms:MP.8/theta-pairing`, `Metaplec
 
 Uses:
 
-- BFH Proposition 2.2, pp.552–554, (2.4)–(2.6): Uses bfh theta component projection in bfh theta component projection: For a=m/N>0, define E_j(g;ν) by the orthogonal projection of the coordinate function onto θᵃ_ν at Z′=N^(1−2j)Z_g, W′=N^(1−j)W, divided by its norm √det(Im Z′)/(2a). Integrate in W′ on its period torus. For a BFH Jacobi function this equals the component in Proposition 2.2. Define the projection before its decomposition
+- BFH Proposition 2.2, pp.552–554, (2.4)–(2.6): Use the defined projections, Gaussian orthogonality and elliptic invariance to reconstruct the original Jacobi function as its finite theta expansion.
 - BFH Proposition 2.2, p.552, (2.7)–(2.8): Uses bfh theta component projection in fourier law for bfh theta components: For Φ₁=Φ₀|J and a=m/N, E₁(g;ν)=√(−det Z_g)/(2m) Σμ e(−Nνᵀμ/(2m))E₀(Jg;μ), and E₀(g;ν)=√(−det Z_g)/(2m) Σμ e(+Nνᵀμ/(2m))E₁(Jg;μ). Both sums are over (Z/(2a)Z)². The missing N in the prefactor relative to theta S is due to rescaling Z by N⁻¹.
 - BFH §6, pp.583,585–586, definitions before Propositions 6.1–6.2: Extract the finite theta/Fourier coefficients at the two cusps before the normalized x₂ Whittaker integral, preserving the opposite-cusp finite Fourier sum.
 
@@ -906,7 +906,7 @@ Direct dependencies: `MetaplecticAutomorphicForms:MP.8/quadratic-matrix`, `Metap
 
 Uses:
 
-- BFH Proposition 2.2, pp.552–554, (2.4)–(2.6): Uses theta-component fourier coefficients in bfh theta component projection: For a=m/N>0, define E_j(g;ν) by the orthogonal projection of the coordinate function onto θᵃ_ν at Z′=N^(1−2j)Z_g, W′=N^(1−j)W, divided by its norm √det(Im Z′)/(2a). Integrate in W′ on its period torus. For a BFH Jacobi function this equals the component in Proposition 2.2. Define the projection before its decomposition
+- BFH Proposition 2.2, pp.552–554, (2.4)–(2.6): Express each theta projection through its Fourier coefficients indexed by representable U and residue ν; the coefficient shift establishes independence of the chosen lift.
 - BFH §2, pp.556–557, Proposition 2.7, Corollary 2.8: Uses theta-component fourier coefficients in fourier coefficient levi covariance: For y∈Γ⁰(N) at cusp j=1 and y∈Γ₀(N) at j=0, B_j(m(y)g;T,R)=B_j(g;yᵀTy,yᵀR) and C_j(m(y)g;U,R)=C_j(g;yᵀUy,yᵀR), with the corresponding residue reduction. Corollary 2.8 specializes ν=(0,r) and the diagonal U₁(−ND),U₀(−D) to the invariances required for §6–8 Fourier extraction.
 - BFH §6, pp.583,585–586, definitions before Propositions 6.1–6.2: Extract the finite theta/Fourier coefficients at the two cusps before the normalized x₂ Whittaker integral, preserving the opposite-cusp finite Fourier sum.
 
@@ -960,7 +960,7 @@ Unit tests:
 
 - `TauCeti.Jacobi.GenusTwo.bfhSeed_base` (computation): F(I₂)=1 implies I(I₄)=v.
 - `TauCeti.Jacobi.GenusTwo.bfhSeed_zero_vector` (degenerate): v=0 gives I=0.
-- `TauCeti.Jacobi.GenusTwo.bfhSeed_central` (compatibility): I(2I₄)=I(I₄).
+- `TauCeti.Jacobi.GenusTwo.bfhSeed_central` (computation): I(2I₄)=I(I₄).
 
 Acceptance:
 
@@ -984,7 +984,7 @@ Direct dependencies: `MetaplecticAutomorphicForms:MP.8/bfh-seed`, `MetaplecticAu
 
 Uses:
 
-- BFH §1, p.549, definition of E_s: Uses bfh normalized section family in genus-two jacobi eisenstein series: For the genuine elliptic-newform seed, define E_s(g,W)=Σ_{γ∈(P∩Γ_N)\Γ_N} Σ_{λ∈Z²} (I_s||[λ;0])|γ(g,W), where P consists of n(X)diag(Q,Q⁻ᵀ) with detQ>0. The sum is initially defined in a right half-plane of s. For finite-dimensional vector values use the original seed, not a scalar replacement; continuous linear functio
+- BFH §1, p.549, definition of E_s: Insert det(Y)^(s/2) times the original finite-dimensional BFH seed into the parabolic and lattice sum; test convergence and representative independence separately.
 
 API:
 
@@ -1011,7 +1011,7 @@ Declaration: `TauCeti.Jacobi.GenusTwo.jacobiEisenstein` (construction). Node: `M
 
 Planet: **Genus-two Jacobi Eisenstein series**.
 
-Hypotheses: The arithmetic BFH datum has a normalized elliptic newform f of even weight k≥2, trivial character and conductor M; 8M|N, N|m, 4m|N², with N,m>0. The auxiliary Fricke transform uses N; the original newform completion uses M. The seed is built from the specified finite-dimensional continuous K=U(2) representation σ, its SO(2) weight-k vector v, and the stated cusp covariance. Scalar formulas apply a continuous linear functional T to that vector family.
+Hypotheses: The arithmetic BFH datum has a normalized elliptic newform f of even weight k≥2, trivial character and conductor M; 8M|N, N|m, 4m|N², with N,m>0. The auxiliary Fricke transform uses N; the original newform completion uses M. The seed is built from the specified finite-dimensional continuous K=U(2) representation σ, its SO(2) weight-k vector v, and the stated cusp covariance. Scalar formulas apply a continuous linear functional T to that vector family. Fix y₂>0. The scalar coefficient φ(κ)=T(vσ(κ)) is globally divisible by φ₁ in R_k: there exists ψ∈R_k with φ(κ)=φ₁(κ)ψ(κ) for every κ∈K. This is the standing hypothesis on printed p.601 before Proposition 8.1, not merely divisibility in the positive κ(X) chart.
 
 For the genuine elliptic-newform seed, define E_s(g,W)=Σ_{γ∈(P∩Γ_N)\Γ_N} Σ_{λ∈Z²} (I_s||[λ;0])|γ(g,W), where P consists of n(X)diag(Q,Q⁻ᵀ) with detQ>0. The sum is initially defined in a right half-plane of s. For finite-dimensional vector values use the original seed, not a scalar replacement; continuous linear functionals commute with convergent sums. Its theta components are genuine half-integral-weight automorphic forms on the double cover.
 
@@ -1057,7 +1057,7 @@ For k≥2 even and φ(κ)=T(vσ(κ)) with the BFH SO(2) weight k, define W^ε(y�
 
 Construction or proof:
 
-1. Use the unique Iwasawa factors of diag(w,−w)n(X), w=[[0,−1],[1,0]], to define κ(X).
+1. Use the unique Iwasawa factors of [[0,w],[−w,0]]n(X), w=[[0,−1],[1,0]], from BFH (3.2) to define κ(X). This off-diagonal block matrix is symplectic.
 2. Insert the explicit real coordinates and positive square-root branch. Define the Bochner integral without placing its convergence or continuation in the data.
 
 Direct dependencies: `MetaplecticAutomorphicForms:MP.8/compact-stabilizer`, `MetaplecticAutomorphicForms:MP.8/bfh-seed`, `MetaplecticAutomorphicForms:MP.8/similitude-cover`.
@@ -1065,7 +1065,7 @@ Direct dependencies: `MetaplecticAutomorphicForms:MP.8/compact-stabilizer`, `Met
 Uses:
 
 - BFH §3, p.559, Proposition 3.1: Uses genus-two archimedean whittaker functions in three-variable whittaker majorant: Put D(X)=1+x₁²+2x₃²+x₄²+(x₁x₄−x₃²)². The positive function D(X)^−α(1+x₁²+x₃²)^−β(1+x₁²)^−γ is integrable on R³ if α>1/2, 2α+β>3/2 and α+β+γ>1. These are sufficient conditions; no necessity assertion is made.
-- BFH §3, pp.559–561, (3.10)–(3.15): Relate the initial Whittaker integral to the two-parameter Jacquet integral in its absolute-convergence chamber, then continue it using the reflected identities.
+- BFH §3, pp.559–561, (3.11)–(3.15): Relate the initial Whittaker integral to the two-parameter Jacquet integral in its absolute-convergence chamber, then continue it using the reflected identities.
 - BFH §3, pp.567–569, Propositions 3.7–3.8: Choose actual finite U(2) matrix coefficients of the prescribed SO(2) weight and use the global signed divisor to control the local analytic tests.
 
 API:
@@ -1078,7 +1078,7 @@ Unit tests:
 
 - `TauCeti.Jacobi.GenusTwo.whittakerFunction_zero_test` (degenerate): W^+ of the zero matrix coefficient is zero.
 - `TauCeti.Jacobi.GenusTwo.whittakerKernel_base` (computation): At X=0 and φ=1 the kernel is exp(−2πy₂) for every sign.
-- `TauCeti.Jacobi.GenusTwo.whittakerFunction_degenerate_test` (compatibility): W⁰(2,y₂;s)=2^(4−s)W⁰(1,y₂;s).
+- `TauCeti.Jacobi.GenusTwo.whittakerFunction_degenerate_test` (computation): W⁰(2,y₂;s)=2^(4−s)W⁰(1,y₂;s).
 
 Acceptance:
 
@@ -1131,7 +1131,7 @@ Source: BFH90, §3, p.559, Proposition 3.2. Evidence relationship: The inspected
 
 Declaration: `TauCeti.Jacobi.GenusTwo.jacquetTwoParameter` (definition). Node: `MetaplecticAutomorphicForms:MP.8/jacquet-two-parameter`. Suggested module: `TauCeti/NumberTheory/Jacobi/GenusTwo/Whittaker/Basic`.
 
-For the BFH K-type, let F_v(n(E(x₂))m(Y)κ)=|det Y|^s y₂^r vσ(κ), Y=√y₁ diag(y₂,1). Define V^ε(y₁,y₂;s,r)= (−1)^(k/2)y₁^(4−s)y₂^(5−r−s)∫_{R×R³} F_v(Jm(E(x₂))n(X))√(−det(X+iI))e(εy₁x₁)e(y₂x₂)dX dx₂. Set W^ε(s,r)=π^−r Γ(r+k/2)V^ε(s,r). The section is homogeneous exactly as (3.10); both integrals are initially interpreted in their absolute-convergence chamber.
+For the BFH K-type, let F_v(n(E(x₂))m(Y)κ)=|det Y|^s y₂^r vσ(κ), Y=√y₁ diag(y₂,1). Define V^ε(y₁,y₂;s,r)= (−1)^(k/2)y₁^(4−s)y₂^(5−r−s)∫_{R×R³} F_v(Jm(E(x₂))n(X))√(−det(X+iI))e(εy₁x₁)e(y₂x₂)dX dx₂. Set W^ε(s,r)=π^−r Γ(r+k/2)V^ε(s,r). The section is homogeneous exactly as (3.11); both integrals are initially interpreted in their absolute-convergence chamber.
 
 Construction or proof:
 
@@ -1155,14 +1155,14 @@ Unit tests:
 
 - `TauCeti.Jacobi.GenusTwo.jacquetTwoParameter_zero` (degenerate): v=0 gives V=W=0.
 - `TauCeti.Jacobi.GenusTwo.jacquetTwoParameter_weight_two` (computation): At k=2,r=1 the normalizing factor is π^−1 Γ(2)=π^−1.
-- `TauCeti.Jacobi.GenusTwo.jacquetTwoParameter_specialization_test` (compatibility): The special-function factor becomes y^(k/2)e^−y/2 at r=k/2, retaining the k/2 exponent.
+- `TauCeti.Jacobi.GenusTwo.jacquetTwoParameter_specialization_test` (computation): The special-function factor becomes y^(k/2)e^−y/2 at r=k/2, retaining the k/2 exponent.
 
 Acceptance:
 
 - At r=k/2 the W-family specializes to (3.1) in Re s>(3+k)/2.
 - The normalization includes Γ(r+k/2), not Γ(r).
 
-Source: BFH90, §3, pp.559–561, (3.10)–(3.15). Evidence relationship: The inspected passage supplies this genus-two specialization; hypotheses and normalization are retained. Minor algebra stays in the proof outline.
+Source: BFH90, §3, pp.559–561, (3.11)–(3.15). Evidence relationship: The inspected passage supplies this genus-two specialization; hypotheses and normalization are retained. Minor algebra stays in the proof outline.
 
 ### Jacquet reflection in the auxiliary parameter
 
@@ -1386,7 +1386,7 @@ Direct dependencies: `MetaplecticAutomorphicForms:MP.8/rotated-whittaker-bound`.
 
 Uses:
 
-- BFH §3, pp.571–574, Propositions 3.11–3.12: Uses novodvorsky mellin transform in novodvorsky analytic continuation: For φ divisible by φ₁, the Novodvorsky transforms continue holomorphically for Re s>3/2 and Re(u−s+5/2)>0, initially agreeing with the iterated integral for Re u large. The large-y₁ tail uses nondegenerate rapid decay and the small-y₁ tail uses Proposition 3.10. This assertion is not joint absolute convergence of the e
+- BFH §3, pp.571–574, Propositions 3.11–3.12: Split the iterated Mellin transform into large and small y₁ tails; use nondegenerate rapid decay and the repaired rotated bound with global φ₁ divisibility to continue it.
 - BFH §3, p.571, (3.39)–(3.41): Uses novodvorsky mellin transform in rank-zero laplace coefficient: Define τ(s,y₂;v,σ)=∫_R Δ_z^(−s+k/2)e^(−2πy₂Δ_z)√(1+iz)vσ(ηw^−1κ_z wJ)dz, where η,w,J are exactly the compact matrices in §1 and (3.40). It is the rank-zero boundary contribution, distinct from the degenerate W⁰ term. Apply T only after forming the vector-valued integral.
 - BFH §3, p.576, (3.48)–(3.49): Uses novodvorsky mellin transform in degenerate boundary mellin coefficients: Define M(s,y₂)=∫_R Δ_z^(2s−8)W⁰(1,Δ_z y₂;s)σ(κ_z)√(1+iz)dz and M̃(s,y₂)=∫_R Δ_z^(2s−8)W⁰(1,Δ_z y₂;s)σ(wκ_zJ)√(1+iz)dz. Both use exponent 2s−8 in (3.48)–(3.49), and converge for Re s>3/2 by Proposition 3.14. They are the two zero-discriminant boundary terms in Proposition 8.1.
 
@@ -1517,7 +1517,7 @@ Source: BFH90, §3, p.576, (3.48)–(3.49). Evidence relationship: The inspected
 
 Declaration: `TauCeti.Jacobi.GenusTwo.local_test_nonzero_f` (theorem). Node: `MetaplecticAutomorphicForms:MP.8/local-test-nonzero-f`. Suggested module: `TauCeti/NumberTheory/Jacobi/GenusTwo/Whittaker/Boundary`.
 
-For every even k≥2 and (u,s) with Re s>3/2, Re(u−s+5/2)>0, there exist an actual finite-dimensional σ, weight-k v, T and y₂>0 such that both continued TF⁺ and TF⁻ are analytic in the asserted domain, each is nonzero at the given point (with suitable y₂), and Tτ is identically zero. One may take the coefficient divisible by φ₁φ₂. The two nonzero assertions do not require the same y₂ unless separately proved.
+For every even k≥2 and (u,s) with Re s>3/2, Re(u−s+5/2)>0, there exist an actual finite-dimensional σ, weight-k v and T for which both continued TF⁺ and TF⁻ are analytic in the asserted domain and Tτ is identically zero. For each sign ε separately there is a positive y₂^ε with TF^ε(u,s,y₂^ε)≠0. One may take the coefficient divisible by φ₁φ₂; a common y₂ for the two signs is not asserted.
 
 Construction or proof:
 
@@ -1641,7 +1641,7 @@ Unit tests:
 
 - `TauCeti.Jacobi.GenusTwo.fullRealCover_reflection_test` (computation): μ(r)=−1 and r²=I₄.
 - `TauCeti.Jacobi.GenusTwo.fullRealCover_base` (computation): c(iI₂)=iI₂.
-- `TauCeti.Jacobi.GenusTwo.fullRealCover_central` (compatibility): The involution fixes both kernel elements.
+- `TauCeti.Jacobi.GenusTwo.fullRealCover_central` (characterisation): The involution fixes both kernel elements.
 
 Acceptance:
 
@@ -1861,9 +1861,9 @@ Direct dependencies: `MetaplecticAutomorphicForms:MP.8/primitive-symplectic-pair
 
 Uses:
 
-- BFH §5, p.580, definition of H before Proposition 5.1: Uses genus-two finite exponential sums in genus-two fourier unfolding kernel: For Y=QQᵀ positive definite, Z=X+iY, detC≠0, define H(Q,s;C,T,R)=(2mN³)^−1∫_{R³}√(−detZ)(detY/|detZ|²)^(s/2) I([[0,−C⁻ᵀ],[C,0]][[Q,XQ⁻ᵀ],[0,Q⁻ᵀ]]) e(Z[R]/(4m)−N⁻¹tr(TZ))dX. The positive-base power is exp((s/2)log(detY/|detZ|²)). Its quadratic shift identity is H(Q,s;C,N^(1−j)T,N^(1−j)R)=H(Q,s;C,N^(1−j)U/(4m),0) when T=
+- BFH §5, p.580, definition of H before Proposition 5.1: Separate the finite arithmetic phase sum from the archimedean unfolded kernel, retaining the level normalization (2mN³)⁻¹ and the quadratic discriminant substitution.
 - BFH §5, pp.580–582, Proposition 5.1: Uses genus-two finite exponential sums in cusp-one full-rank fourier unfolding: For Re s sufficiently large and g=[[Q,XQ⁻ᵀ],[0,Q⁻ᵀ]], B₁(g;T,R)=Σ_{C nonsingular,C₁₂≡0N / left Γ⁰(N)} S₁(C;T,R)|det C|^−s H(Q,s;C,T,R). It is C₁₂≡0N, not C≡0N. Since D≡0N and the bottom pair is primitive, all C in this cusp have full rank.
-- BFH §6, pp.583–584; §7, p.589, (7.1): Uses genus-two finite exponential sums in bfh first-cusp dirichlet series: For the preceding parameters and the original normalized newform f with Fourier coefficients a(n), set L(s,D,n₂)=Σ_{α,δ>0; β mod Nδ;N|β;α|Nn₂δ} S₁([[α,β],[0,δ]];U₁(n₁),ν)(αδ)^−s(α/δ)^(k/2)a(Nn₂δ/α)e(n₂β/α). Put L(s,D)=L(s,D,N⁻¹). Positive real powers use the real logarithm. The congruence and divisibility constraints a
+- BFH §6, pp.583–584; §7, p.589, (7.1): Form the first-cusp Dirichlet coefficient from the primitive exponential sum and a(n) of the original newform, with the actual β modulus and α-divisibility constraint.
 
 API:
 
@@ -1923,7 +1923,7 @@ Source: BFH90, §5, p.580, definition of H before Proposition 5.1. Evidence rela
 
 Declaration: `TauCeti.Jacobi.GenusTwo.cusp_one_unfolding` (theorem). Node: `MetaplecticAutomorphicForms:MP.8/cusp-one-unfolding`. Suggested module: `TauCeti/NumberTheory/Jacobi/GenusTwo/Arithmetic/Unfolding`.
 
-Hypotheses: The arithmetic BFH datum has a normalized elliptic newform f of even weight k≥2, trivial character and conductor M; 8M|N, N|m, 4m|N², with N,m>0. The auxiliary Fricke transform uses N; the original newform completion uses M. The seed is built from the specified finite-dimensional continuous K=U(2) representation σ, its SO(2) weight-k vector v, and the stated cusp covariance. Scalar formulas apply a continuous linear functional T to that vector family.
+Hypotheses: The arithmetic BFH datum has a normalized elliptic newform f of even weight k≥2, trivial character and conductor M; 8M|N, N|m, 4m|N², with N,m>0. The auxiliary Fricke transform uses N; the original newform completion uses M. The seed is built from the specified finite-dimensional continuous K=U(2) representation σ, its SO(2) weight-k vector v, and the stated cusp covariance. Scalar formulas apply a continuous linear functional T to that vector family. Fix y₂>0. The scalar coefficient φ(κ)=T(vσ(κ)) is globally divisible by φ₁ in R_k: there exists ψ∈R_k with φ(κ)=φ₁(κ)ψ(κ) for every κ∈K. This is the standing hypothesis on printed p.601 before Proposition 8.1, not merely divisibility in the positive κ(X) chart.
 
 For Re s sufficiently large and g=[[Q,XQ⁻ᵀ],[0,Q⁻ᵀ]], B₁(g;T,R)=Σ_{C nonsingular,C₁₂≡0N / left Γ⁰(N)} S₁(C;T,R)|det C|^−s H(Q,s;C,T,R). It is C₁₂≡0N, not C≡0N. Since D≡0N and the bottom pair is primitive, all C in this cusp have full rank.
 
@@ -1951,7 +1951,7 @@ Source: BFH90, §5, pp.580–582, Proposition 5.1. Evidence relationship: The in
 
 Declaration: `TauCeti.Jacobi.GenusTwo.cusp_zero_rank_expansion` (theorem). Node: `MetaplecticAutomorphicForms:MP.8/cusp-zero-rank-expansion`. Suggested module: `TauCeti/NumberTheory/Jacobi/GenusTwo/Arithmetic/Unfolding`.
 
-Hypotheses: The arithmetic BFH datum has a normalized elliptic newform f of even weight k≥2, trivial character and conductor M; 8M|N, N|m, 4m|N², with N,m>0. The auxiliary Fricke transform uses N; the original newform completion uses M. The seed is built from the specified finite-dimensional continuous K=U(2) representation σ, its SO(2) weight-k vector v, and the stated cusp covariance. Scalar formulas apply a continuous linear functional T to that vector family.
+Hypotheses: The arithmetic BFH datum has a normalized elliptic newform f of even weight k≥2, trivial character and conductor M; 8M|N, N|m, 4m|N², with N,m>0. The auxiliary Fricke transform uses N; the original newform completion uses M. The seed is built from the specified finite-dimensional continuous K=U(2) representation σ, its SO(2) weight-k vector v, and the stated cusp covariance. Scalar formulas apply a continuous linear functional T to that vector family. Fix y₂>0. The scalar coefficient φ(κ)=T(vσ(κ)) is globally divisible by φ₁ in R_k: there exists ψ∈R_k with φ(κ)=φ₁(κ)ψ(κ) for every κ∈K. This is the standing hypothesis on printed p.601 before Proposition 8.1, not merely divisibility in the positive κ(X) chart.
 
 For Re s sufficiently large, B₀ is the full-rank sum Σ_{C nonsingular,C≡0N / left Γ₀(N)}S₀(C;T,R)|detC|^−s N³H(Q,s;C,NT,NR), plus the rank-one coset contribution, plus δ_{NR/(2m)∈Z²}detY^(s/2)∫_{X mod integral symmetric} [I(g)+I(m(η)g)]e(N²Z[R]/(4m)−tr(TZ))dX. The rank-one term is the original coset sum with rank C=1, before its cuspidal Whittaker cancellation.
 
@@ -2015,7 +2015,7 @@ Source: BFH90, §6, pp.583,585–586, definitions before Propositions 6.1–6.2.
 
 Declaration: `TauCeti.Jacobi.GenusTwo.bfhLDirichletSeries` (definition). Node: `MetaplecticAutomorphicForms:MP.8/bfh-l-dirichlet-series`. Suggested module: `TauCeti/NumberTheory/Jacobi/GenusTwo/Arithmetic/WhittakerCoefficient`.
 
-Hypotheses: The arithmetic BFH datum has a normalized elliptic newform f of even weight k≥2, trivial character and conductor M; 8M|N, N|m, 4m|N², with N,m>0. The auxiliary Fricke transform uses N; the original newform completion uses M. The seed is built from the specified finite-dimensional continuous K=U(2) representation σ, its SO(2) weight-k vector v, and the stated cusp covariance. Scalar formulas apply a continuous linear functional T to that vector family.
+Hypotheses: The arithmetic BFH datum has a normalized elliptic newform f of even weight k≥2, trivial character and conductor M; 8M|N, N|m, 4m|N², with N,m>0. The auxiliary Fricke transform uses N; the original newform completion uses M. The seed is built from the specified finite-dimensional continuous K=U(2) representation σ, its SO(2) weight-k vector v, and the stated cusp covariance. Scalar formulas apply a continuous linear functional T to that vector family. Fix y₂>0. The scalar coefficient φ(κ)=T(vσ(κ)) is globally divisible by φ₁ in R_k: there exists ψ∈R_k with φ(κ)=φ₁(κ)ψ(κ) for every κ∈K. This is the standing hypothesis on printed p.601 before Proposition 8.1, not merely divisibility in the positive κ(X) chart.
 
 For the preceding parameters and the original normalized newform f with Fourier coefficients a(n), set L(s,D,n₂)=Σ_{α,δ>0; β mod Nδ;N|β;α|Nn₂δ} S₁([[α,β],[0,δ]];U₁(n₁),ν)(αδ)^−s(α/δ)^(k/2)a(Nn₂δ/α)e(n₂β/α). Put L(s,D)=L(s,D,N⁻¹). Positive real powers use the real logarithm. The congruence and divisibility constraints are part of the actual summation set.
 
@@ -2029,9 +2029,9 @@ Direct dependencies: `MetaplecticAutomorphicForms:MP.8/finite-exponential-sums`,
 
 Uses:
 
-- BFH §6, pp.585–586, definition of P: Uses bfh first-cusp dirichlet series in bfh opposite-cusp dirichlet series: For 4m|D, set P(s,D,n₂,r)=Σ_{μ mod 2m/N}e(−Nν·μ/(2m))Σ_{γ∈Γ₀(N)\SL₂(Z)}Σ_{αδ>0;β mod δ;α|Nn₂δ} S₀(Nγ⁻ᵀCw;T,μ)(N²αδ)^−s(α/δ)^(k/2)a_γ(Nn₂δ/α)e(n₂β/α), C=[[α,β],[0,δ]], T=(U₀(−D)+N²μμᵀ)/(4m), and omit a term when T is not half integral. The a_γ are the Fourier coefficients of the actual transformed elliptic seed at the i
+- BFH §6, pp.585–586, definition of P: Compare the two cusp Dirichlet coefficients without identifying their elliptic data: L uses the original f, while P uses transformed cusp coefficients and its finite theta phase.
 - BFH §6, pp.584–585, Proposition 6.1: Uses bfh first-cusp dirichlet series in first-cusp whittaker expansion: In the common initial convergence chamber, for D≠0 the extracted coefficient is (n₂|D|/(4m))^(s−4)n₂^−k/2 e(iy₁D/(4m)) L(s,D,n₂) W^{sgn D}(|D|y₁/(4m),n₂y₂;s). For D=0 it is n₂^(s−4−k/2)L(s,0,n₂)W⁰(y₁,n₂y₂;s). These are vector identities, and applying T preserves them under convergence.
-- BFH §7, pp.590–594, Lemma 7.2, (7.9),(7.12)–(7.16): Uses bfh first-cusp dirichlet series in local primitive exponential factors: For upper triangular C=[[p^a,p^b],[0,p^d]], d≥1, define S_p by μ₂-inversion of the unrestricted local S. If a=0 or b=0, S_p=S(a,b,d)−pS(a,b,d−1). If a,b≥1, S_p=S(a,b,d)−p²S(a−1,b−1,d)−pS(a,b,d−1)+p³S(a−1,b−1,d−1). The S terms are p^(2a+d)N₁, p^(a+2d)N₂ or p^(a+b+d)N₃ according to Σ₁,Σ₂,Σ₃; absent divisors contribute ze
+- BFH §7, pp.590–594, Lemma 7.2, (7.9),(7.12)–(7.16): Apply matrix Möbius inversion to the local unrestricted sums; retain all three exponents a,b,d and the four possible prime-power divisor contributions.
 
 API:
 
@@ -2056,7 +2056,7 @@ Source: BFH90, §6, pp.583–584; §7, p.589, (7.1). Evidence relationship: The 
 
 Declaration: `TauCeti.Jacobi.GenusTwo.bfhPDirichletSeries` (definition). Node: `MetaplecticAutomorphicForms:MP.8/bfh-p-dirichlet-series`. Suggested module: `TauCeti/NumberTheory/Jacobi/GenusTwo/Arithmetic/WhittakerCoefficient`.
 
-Hypotheses: The arithmetic BFH datum has a normalized elliptic newform f of even weight k≥2, trivial character and conductor M; 8M|N, N|m, 4m|N², with N,m>0. The auxiliary Fricke transform uses N; the original newform completion uses M. The seed is built from the specified finite-dimensional continuous K=U(2) representation σ, its SO(2) weight-k vector v, and the stated cusp covariance. Scalar formulas apply a continuous linear functional T to that vector family.
+Hypotheses: The arithmetic BFH datum has a normalized elliptic newform f of even weight k≥2, trivial character and conductor M; 8M|N, N|m, 4m|N², with N,m>0. The auxiliary Fricke transform uses N; the original newform completion uses M. The seed is built from the specified finite-dimensional continuous K=U(2) representation σ, its SO(2) weight-k vector v, and the stated cusp covariance. Scalar formulas apply a continuous linear functional T to that vector family. Fix y₂>0. The scalar coefficient φ(κ)=T(vσ(κ)) is globally divisible by φ₁ in R_k: there exists ψ∈R_k with φ(κ)=φ₁(κ)ψ(κ) for every κ∈K. This is the standing hypothesis on printed p.601 before Proposition 8.1, not merely divisibility in the positive κ(X) chart.
 
 For 4m|D, set P(s,D,n₂,r)=Σ_{μ mod 2m/N}e(−Nν·μ/(2m))Σ_{γ∈Γ₀(N)\SL₂(Z)}Σ_{αδ>0;β mod δ;α|Nn₂δ} S₀(Nγ⁻ᵀCw;T,μ)(N²αδ)^−s(α/δ)^(k/2)a_γ(Nn₂δ/α)e(n₂β/α), C=[[α,β],[0,δ]], T=(U₀(−D)+N²μμᵀ)/(4m), and omit a term when T is not half integral. The a_γ are the Fourier coefficients of the actual transformed elliptic seed at the indicated cusp; w=[[0,−1],[1,0]]. Put P(s,D,r)=P(s,D,N⁻¹,r). Extend P by zero outside its allowed condition 4m|D; this convention makes the non-integral-index tests unambiguous.
 
@@ -2081,7 +2081,7 @@ API:
 Unit tests:
 
 - `TauCeti.Jacobi.GenusTwo.bfhPDirichletSeries_zero` (degenerate): Zero coefficients at every cusp give P=0.
-- `TauCeti.Jacobi.GenusTwo.bfhPDirichletSeries_residue_test` (compatibility): Replacing r by r+2m/N leaves P unchanged.
+- `TauCeti.Jacobi.GenusTwo.bfhPDirichletSeries_residue_test` (characterisation): Replacing r by r+2m/N leaves P unchanged.
 - `TauCeti.Jacobi.GenusTwo.bfhPDirichletSeries_nonintegral` (non-example): N=8,m=16,D=0,μ=(1,0) gives T=diag(1,0), hence is admitted; μ=(1,1) gives off-diagonal 1, also admitted. At D=1,μ=0 the index is not half integral and is omitted.
 
 Acceptance:
@@ -2095,7 +2095,7 @@ Source: BFH90, §6, pp.585–586, definition of P. Evidence relationship: The in
 
 Declaration: `TauCeti.Jacobi.GenusTwo.first_cusp_whittaker_expansion` (theorem). Node: `MetaplecticAutomorphicForms:MP.8/first-cusp-whittaker-expansion`. Suggested module: `TauCeti/NumberTheory/Jacobi/GenusTwo/Arithmetic/WhittakerCoefficient`.
 
-Hypotheses: The arithmetic BFH datum has a normalized elliptic newform f of even weight k≥2, trivial character and conductor M; 8M|N, N|m, 4m|N², with N,m>0. The auxiliary Fricke transform uses N; the original newform completion uses M. The seed is built from the specified finite-dimensional continuous K=U(2) representation σ, its SO(2) weight-k vector v, and the stated cusp covariance. Scalar formulas apply a continuous linear functional T to that vector family.
+Hypotheses: The arithmetic BFH datum has a normalized elliptic newform f of even weight k≥2, trivial character and conductor M; 8M|N, N|m, 4m|N², with N,m>0. The auxiliary Fricke transform uses N; the original newform completion uses M. The seed is built from the specified finite-dimensional continuous K=U(2) representation σ, its SO(2) weight-k vector v, and the stated cusp covariance. Scalar formulas apply a continuous linear functional T to that vector family. Fix y₂>0. The scalar coefficient φ(κ)=T(vσ(κ)) is globally divisible by φ₁ in R_k: there exists ψ∈R_k with φ(κ)=φ₁(κ)ψ(κ) for every κ∈K. This is the standing hypothesis on printed p.601 before Proposition 8.1, not merely divisibility in the positive κ(X) chart.
 
 In the common initial convergence chamber, for D≠0 the extracted coefficient is (n₂|D|/(4m))^(s−4)n₂^−k/2 e(iy₁D/(4m)) L(s,D,n₂) W^{sgn D}(|D|y₁/(4m),n₂y₂;s). For D=0 it is n₂^(s−4−k/2)L(s,0,n₂)W⁰(y₁,n₂y₂;s). These are vector identities, and applying T preserves them under convergence.
 
@@ -2119,7 +2119,7 @@ Source: BFH90, §6, pp.584–585, Proposition 6.1. Evidence relationship: The in
 
 Declaration: `TauCeti.Jacobi.GenusTwo.opposite_cusp_whittaker_expansion` (theorem). Node: `MetaplecticAutomorphicForms:MP.8/opposite-cusp-whittaker-expansion`. Suggested module: `TauCeti/NumberTheory/Jacobi/GenusTwo/Arithmetic/WhittakerCoefficient`.
 
-Hypotheses: The arithmetic BFH datum has a normalized elliptic newform f of even weight k≥2, trivial character and conductor M; 8M|N, N|m, 4m|N², with N,m>0. The auxiliary Fricke transform uses N; the original newform completion uses M. The seed is built from the specified finite-dimensional continuous K=U(2) representation σ, its SO(2) weight-k vector v, and the stated cusp covariance. Scalar formulas apply a continuous linear functional T to that vector family.
+Hypotheses: The arithmetic BFH datum has a normalized elliptic newform f of even weight k≥2, trivial character and conductor M; 8M|N, N|m, 4m|N², with N,m>0. The auxiliary Fricke transform uses N; the original newform completion uses M. The seed is built from the specified finite-dimensional continuous K=U(2) representation σ, its SO(2) weight-k vector v, and the stated cusp covariance. Scalar formulas apply a continuous linear functional T to that vector family. Fix y₂>0. The scalar coefficient φ(κ)=T(vσ(κ)) is globally divisible by φ₁ in R_k: there exists ψ∈R_k with φ(κ)=φ₁(κ)ψ(κ) for every κ∈K. This is the standing hypothesis on printed p.601 before Proposition 8.1, not merely divisibility in the positive κ(X) chart.
 
 For D≠0, C₀=N³(n₂|D|/(4m))^(s−4)n₂^−k/2 e(iy₁D/(4m))P(s,D,n₂,r)W^{sgn D}(|D|y₁/(4m),n₂y₂;s)σ(w). For D=0, C₀=N³n₂^(s−k/2−4)P(s,0,n₂,r)W⁰(y₁,n₂y₂;s)σ(w)+(y₁y₂)^s y₂^(k/2)a(Nn₂)e(in₂y₂)vσ(η). The rank-one contribution to this extracted Whittaker coefficient is zero by cuspidality.
 
@@ -2156,7 +2156,7 @@ Direct dependencies: `MetaplecticAutomorphicForms:MP.8/finite-exponential-sums`.
 
 Uses:
 
-- BFH §7, pp.595–597, Lemma 7.3: Uses prime-power congruence counts in prime-power root-count evaluation: Write D=D'p^(2h), p²∤D', χ=χ_{D'}(p), ε(t)=t mod2, p∤2mN. For i=1,2 and a≤d+1, the count N_i is: p^((a−ε(a)+d−ε(d))/2) if d≤2h; for d≥2h+1 and χ=1, N₁=2p^(h+min((a−ε(a))/2,h)), N₂=2p^(2h+1); for d=2h+1 and χ=0, N₁=p^(h+(a−ε(a))/2), N₂=p^(2h+1); otherwise 0. Here i=1 uses a≤d and i=2 uses a>d, so the two identical defin
+- BFH §7, pp.595–597, Lemma 7.3: Evaluate N₁,N₂,N₃ by completing squares and counting prime-power roots, with the corrected mixed modulus min(a,d), parity factors and separate discriminant-valuation ranges.
 
 API:
 
@@ -2226,7 +2226,7 @@ Source: BFH90, §7, pp.590–594, Lemma 7.2, (7.9),(7.12)–(7.16). Evidence rel
 
 Declaration: `TauCeti.Jacobi.GenusTwo.unramified_euler_factors` (theorem). Node: `MetaplecticAutomorphicForms:MP.8/unramified-euler-factors`. Suggested module: `TauCeti/NumberTheory/Jacobi/GenusTwo/Arithmetic/EulerFactors`.
 
-Hypotheses: The arithmetic BFH datum has a normalized elliptic newform f of even weight k≥2, trivial character and conductor M; 8M|N, N|m, 4m|N², with N,m>0. The auxiliary Fricke transform uses N; the original newform completion uses M. The seed is built from the specified finite-dimensional continuous K=U(2) representation σ, its SO(2) weight-k vector v, and the stated cusp covariance. Scalar formulas apply a continuous linear functional T to that vector family.
+Hypotheses: The arithmetic BFH datum has a normalized elliptic newform f of even weight k≥2, trivial character and conductor M; 8M|N, N|m, 4m|N², with N,m>0. The auxiliary Fricke transform uses N; the original newform completion uses M. The seed is built from the specified finite-dimensional continuous K=U(2) representation σ, its SO(2) weight-k vector v, and the stated cusp covariance. Scalar formulas apply a continuous linear functional T to that vector family. Fix y₂>0. The scalar coefficient φ(κ)=T(vσ(κ)) is globally divisible by φ₁ in R_k: there exists ψ∈R_k with φ(κ)=φ₁(κ)ψ(κ) for every κ∈K. This is the standing hypothesis on printed p.601 before Proposition 8.1, not merely divisibility in the positive κ(X) chart.
 
 For n₂=N⁻¹ and p∤N, the factor is L_p(s,D)=1+Σ_{d≥1,0≤a≤d}p^(d−a)[S_p([[p^a,p^a],[0,p^d]],D)−S_p([[p^a,p^(a−1)],[0,p^d]],D)]p^(−(a+d)s−(d−a)k/2)a(p^(d−a)), with the second S_p term absent when a=0. At fundamental D₀, let a(p)=σ_p+σ_p' and σ_pσ_p'=p^(k−1). Then L_p=(1−σ_p²p^(4−k−2s))(1−σ_p'²p^(4−k−2s))(1−p^(3−2s))/[(1−χ_{D₀}(p)σ_pp^(2−k/2−s))(1−χ_{D₀}(p)σ_p'p^(2−k/2−s))]. At D=0 it is [(1−σ_p²p^(4−k−2s))(1−σ_p'²p^(4−k−2s))(1−p^(3−2s))]/[(1−σ_p²p^(5−k−2s))(1−σ_p'²p^(5−k−2s))(1−p^(4−2s))]. These are meromorphic identities, first proved in absolute convergence.
 
@@ -2251,7 +2251,7 @@ Source: BFH90, §7, pp.594–599, (7.20),(7.33)–(7.34), and the unnumbered D=0
 
 Declaration: `TauCeti.Jacobi.GenusTwo.squarefactor_polynomial_bound` (theorem). Node: `MetaplecticAutomorphicForms:MP.8/squarefactor-polynomial-bound`. Suggested module: `TauCeti/NumberTheory/Jacobi/GenusTwo/Arithmetic/EulerFactors`.
 
-Hypotheses: The arithmetic BFH datum has a normalized elliptic newform f of even weight k≥2, trivial character and conductor M; 8M|N, N|m, 4m|N², with N,m>0. The auxiliary Fricke transform uses N; the original newform completion uses M. The seed is built from the specified finite-dimensional continuous K=U(2) representation σ, its SO(2) weight-k vector v, and the stated cusp covariance. Scalar formulas apply a continuous linear functional T to that vector family.
+Hypotheses: The arithmetic BFH datum has a normalized elliptic newform f of even weight k≥2, trivial character and conductor M; 8M|N, N|m, 4m|N², with N,m>0. The auxiliary Fricke transform uses N; the original newform completion uses M. The seed is built from the specified finite-dimensional continuous K=U(2) representation σ, its SO(2) weight-k vector v, and the stated cusp covariance. Scalar formulas apply a continuous linear functional T to that vector family. Fix y₂>0. The scalar coefficient φ(κ)=T(vσ(κ)) is globally divisible by φ₁ in R_k: there exists ψ∈R_k with φ(κ)=φ₁(κ)ψ(κ) for every κ∈K. This is the standing hypothesis on printed p.601 before Proposition 8.1, not merely divisibility in the positive κ(X) chart.
 
 For D=D₀D₁², D₀ fundamental, L(s,D)=L(s,D₀)b(s,D₁), with b a finite Dirichlet polynomial supported on p|D₁, obtained by summing the same explicit (7.20) local counts. Equivalently factor out the unramified L_p for p∤ND₁, leaving the polynomial d(s,D₁) of (7.35). For real s≥2 its coefficients have |b(s,D₁)|≪_{f,N,ε}D₁^(1/2+ε), using the weak normalized bound p^(−j(k−1)/2)|a(p^j)|≤p^(j/4+ε). Thus Σ_{D₁≥1}L(s,D₀D₁²)D₁^−2u converges for Re u>3/4; if L(2,D₀)=0 the analogous series of s-derivatives at 2 has the same convergence.
 
@@ -2299,7 +2299,7 @@ Source: BFH90, §2, pp.551–553, definition of θ and Proposition 2.1. Evidence
 
 Declaration: `TauCeti.Jacobi.GenusTwo.genuine_induced_comparison` (comparison). Node: `MetaplecticAutomorphicForms:MP.8/genuine-induced-comparison`. Suggested module: `TauCeti/NumberTheory/Jacobi/GenusTwo/Eisenstein/InductionComparison`.
 
-Hypotheses: The arithmetic BFH datum has a normalized elliptic newform f of even weight k≥2, trivial character and conductor M; 8M|N, N|m, 4m|N², with N,m>0. The auxiliary Fricke transform uses N; the original newform completion uses M. The seed is built from the specified finite-dimensional continuous K=U(2) representation σ, its SO(2) weight-k vector v, and the stated cusp covariance. Scalar formulas apply a continuous linear functional T to that vector family.
+Hypotheses: The arithmetic BFH datum has a normalized elliptic newform f of even weight k≥2, trivial character and conductor M; 8M|N, N|m, 4m|N², with N,m>0. The auxiliary Fricke transform uses N; the original newform completion uses M. The seed is built from the specified finite-dimensional continuous K=U(2) representation σ, its SO(2) weight-k vector v, and the stated cusp covariance. Scalar formulas apply a continuous linear functional T to that vector family. Fix y₂>0. The scalar coefficient φ(κ)=T(vσ(κ)) is globally divisible by φ₁ in R_k: there exists ψ∈R_k with φ(κ)=φ₁(κ)ψ(κ) for every κ∈K. This is the standing hypothesis on printed p.601 before Proposition 8.1, not merely divisibility in the positive κ(X) chart.
 
 For the actual BFH theta-component vector E_j, lift to the double cover by ℰ_j(g,h)=h(iI₂)E_j(g). The kernel −1 acts by −1. On the positive Siegel Levi Q, the determinant-root magnitude is |detQ|^−1/2. Thus the section derived from I_s has unnormalized real exponent |detQ|^(s−1/2), while δ_P^(1/2)=|detQ|^(3/2); its normalized parameter is ν=s−2. The genuine unitary Levi datum is the elliptic cuspidal π_f tensor the phase of the Weil determinant character. Prove an equivariant identification with normalized induction Ind_{P̃}^{G̃}(π̃_f⊗|det|^(s−2)), including finite arithmetic vectors and Haar measures.
 
@@ -2329,7 +2329,7 @@ Source: BFH90, §1, p.549, I_s; §2, pp.553–554; §8, pp.601–602. Evidence r
 
 Declaration: `TauCeti.Jacobi.GenusTwo.genuine_eisenstein_initial_convergence` (theorem). Node: `MetaplecticAutomorphicForms:MP.8/genuine-eisenstein-initial-convergence`. Suggested module: `TauCeti/NumberTheory/Jacobi/GenusTwo/Eisenstein/Convergence`.
 
-Hypotheses: The arithmetic BFH datum has a normalized elliptic newform f of even weight k≥2, trivial character and conductor M; 8M|N, N|m, 4m|N², with N,m>0. The auxiliary Fricke transform uses N; the original newform completion uses M. The seed is built from the specified finite-dimensional continuous K=U(2) representation σ, its SO(2) weight-k vector v, and the stated cusp covariance. Scalar formulas apply a continuous linear functional T to that vector family.
+Hypotheses: The arithmetic BFH datum has a normalized elliptic newform f of even weight k≥2, trivial character and conductor M; 8M|N, N|m, 4m|N², with N,m>0. The auxiliary Fricke transform uses N; the original newform completion uses M. The seed is built from the specified finite-dimensional continuous K=U(2) representation σ, its SO(2) weight-k vector v, and the stated cusp covariance. Scalar formulas apply a continuous linear functional T to that vector family. Fix y₂>0. The scalar coefficient φ(κ)=T(vσ(κ)) is globally divisible by φ₁ in R_k: there exists ψ∈R_k with φ(κ)=φ₁(κ)ψ(κ) for every κ∈K. This is the standing hypothesis on printed p.601 before Proposition 8.1, not merely divisibility in the positive κ(X) chart.
 
 For the specified finite-dimensional BFH K-type, normalized newform, arithmetic finite vector and compatible cover measures, there exists S₀∈R such that E_s and its theta-component Eisenstein sums converge absolutely and locally uniformly with all required g,W,s derivatives for Re s>S₀. In that chamber, absolute-value and Sobolev majorants are bounded by the corresponding AS.1 linear Siegel induced-section estimates after ν=s−2 and the Gaussian λ summation. The actual finite-cover comparison, not the existence of a double cover alone, must establish this bound.
 
@@ -2358,15 +2358,15 @@ Source: BFH90, §1, p.549, definition of E_s; §5, p.580, Proposition 5.1. Evide
 
 Declaration: `TauCeti.Jacobi.GenusTwo.genuineIntertwiner` (construction). Node: `MetaplecticAutomorphicForms:MP.8/genuine-intertwining-operators`. Suggested module: `TauCeti/NumberTheory/Jacobi/GenusTwo/Eisenstein/Intertwining`.
 
-Hypotheses: The arithmetic BFH datum has a normalized elliptic newform f of even weight k≥2, trivial character and conductor M; 8M|N, N|m, 4m|N², with N,m>0. The auxiliary Fricke transform uses N; the original newform completion uses M. The seed is built from the specified finite-dimensional continuous K=U(2) representation σ, its SO(2) weight-k vector v, and the stated cusp covariance. Scalar formulas apply a continuous linear functional T to that vector family.
+Hypotheses: The arithmetic BFH datum has a normalized elliptic newform f of even weight k≥2, trivial character and conductor M; 8M|N, N|m, 4m|N², with N,m>0. The auxiliary Fricke transform uses N; the original newform completion uses M. The seed is built from the specified finite-dimensional continuous K=U(2) representation σ, its SO(2) weight-k vector v, and the stated cusp covariance. Scalar formulas apply a continuous linear functional T to that vector family. Fix y₂>0. The scalar coefficient φ(κ)=T(vσ(κ)) is globally divisible by φ₁ in R_k: there exists ψ∈R_k with φ(κ)=φ₁(κ)ψ(κ) for every κ∈K. This is the standing hypothesis on printed p.601 before Proposition 8.1, not merely divisibility in the positive κ(X) chart.
 
-For the long Siegel Weyl element w and the induced spaces above, define M(w,s)F(g)=∫_{N_w(A)}F(w⁻¹ng)dn in its actual convergence chamber, with chosen lift of w and self-dual root-group measures. Its target is Ind(π̃_f∨⊗|det|^(2−s)); the target BFH parameter is 4−s. Continue M meromorphically as an operator between these fixed smooth genuine spaces. Record scalar normalizing factors and pole divisors at every ramified place; the cocycle makes this a genuine-cover integral, not the AS.2 linear operator.
+For the long Siegel Weyl element w and the induced spaces above, define M(w,s)F(g)=∫_{N_w(A)}F(w⁻¹ng)dn in its actual convergence chamber, with chosen lift of w and self-dual root-group measures. Its target is Ind(π̃_f∨⊗|det|^(2−s)); the target BFH parameter is 4−s. Continue M meromorphically as an operator between these fixed smooth genuine spaces. Record scalar normalizing factors and pole divisors at every ramified place; the cocycle makes this a genuine-cover integral, not the AS.2 linear operator. Keep the raw standard operator M used in the constant term and the unnormalized Eisenstein Weyl equation distinct from R=c(s)⁻¹M, the operator with explicitly specified scalar normalization. An equation using R instead requires the corresponding renormalization of the Eisenstein family.
 
 Construction or proof:
 
 1. Define the integral on the actual lifted unipotent subgroup and compute its parabolic covariance.
 2. Compare each rank-one lifted integral with the AS.2 operator plus the explicit Weil phase. Track root ordering, Haar factors and genuine local K-types.
-3. Use those comparisons for meromorphic continuation, and verify composition M(w,4−s)M(w,s)=id in compatible normalizations. Ramified scalar factors are a named open input.
+3. Continue the raw standard operator M using the cover comparison. Specify the scalar factors c(s) before defining R=c(s)⁻¹M; verify the composition equation in the actual local/global setting and the chosen dual cusp identification. The native composition sketch uses R, while the standard constant term and unnormalized Eisenstein Weyl equation use M. Ramified scalar factors remain an open input.
 
 Direct dependencies: `MetaplecticAutomorphicForms:MP.8/genuine-induced-comparison`, `MetaplecticAutomorphicForms:MP.8/genuine-eisenstein-initial-convergence`, `AutomorphicSpectralTheory:AS.2`.
 
@@ -2378,12 +2378,12 @@ API:
 
 - `TauCeti.Jacobi.GenusTwo.genuineIntertwiner_equivariant` (structure): M is G̃-equivariant between the stated induced spaces.
 - `TauCeti.Jacobi.GenusTwo.genuineIntertwiner_integral` (characterisation): In the convergence chamber M is exactly the root-group integral with the chosen Weyl lift.
-- `TauCeti.Jacobi.GenusTwo.genuineIntertwiner_composition` (relation): The compatibly normalized operators compose to identity meromorphically away from their pole divisors.
+- `TauCeti.Jacobi.GenusTwo.genuineIntertwiner_composition` (relation): For R=c(s)⁻¹M with the specified scalar factors and contragredient identification, R(w,4−s)R(w,s)=id meromorphically away from operator poles. This API is for R; M remains the raw integral operator in the standard constant term and Weyl equation.
 
 Unit tests:
 
 - `TauCeti.Jacobi.GenusTwo.genuineIntertwiner_zero` (degenerate): Zero section maps to zero.
-- `TauCeti.Jacobi.GenusTwo.genuineIntertwiner_central_sign` (compatibility): The output remains genuine under the cover kernel.
+- `TauCeti.Jacobi.GenusTwo.genuineIntertwiner_central_sign` (characterisation): The output remains genuine under the cover kernel.
 - `TauCeti.Jacobi.GenusTwo.genuineIntertwiner_reflection` (computation): The parameter map 4−s is an involution and fixes s=2.
 
 Acceptance:
@@ -2403,7 +2403,7 @@ Source: BFH90, §8, pp.601–602, continuation and constant-term discussion. Evi
 
 Declaration: `TauCeti.Jacobi.GenusTwo.genuine_constant_term` (theorem). Node: `MetaplecticAutomorphicForms:MP.8/genuine-constant-term`. Suggested module: `TauCeti/NumberTheory/Jacobi/GenusTwo/Eisenstein/ConstantTerm`.
 
-Hypotheses: The arithmetic BFH datum has a normalized elliptic newform f of even weight k≥2, trivial character and conductor M; 8M|N, N|m, 4m|N², with N,m>0. The auxiliary Fricke transform uses N; the original newform completion uses M. The seed is built from the specified finite-dimensional continuous K=U(2) representation σ, its SO(2) weight-k vector v, and the stated cusp covariance. Scalar formulas apply a continuous linear functional T to that vector family.
+Hypotheses: The arithmetic BFH datum has a normalized elliptic newform f of even weight k≥2, trivial character and conductor M; 8M|N, N|m, 4m|N², with N,m>0. The auxiliary Fricke transform uses N; the original newform completion uses M. The seed is built from the specified finite-dimensional continuous K=U(2) representation σ, its SO(2) weight-k vector v, and the stated cusp covariance. Scalar formulas apply a continuous linear functional T to that vector family. Fix y₂>0. The scalar coefficient φ(κ)=T(vσ(κ)) is globally divisible by φ₁ in R_k: there exists ψ∈R_k with φ(κ)=φ₁(κ)ψ(κ) for every κ∈K. This is the standing hypothesis on printed p.601 before Proposition 8.1, not merely divisibility in the positive κ(X) chart.
 
 Along the Siegel unipotent radical, the genuine Eisenstein constant term is the identity section plus M(w,s) applied to the inducing section, initially in the common convergence chamber and then meromorphically. The intermediate rank-one Bruhat contribution vanishes by elliptic cuspidality. The theta/Fourier specialization recovers exactly the three boundary contributions L(s,0)M, P(s,0,r)M̃ and τ in Proposition 8.1, with their specified N and y₂ factors.
 
@@ -2431,9 +2431,9 @@ Source: BFH90, §8, pp.601–602; pp.611–614, (8.10)–(8.16). Evidence relati
 
 Declaration: `TauCeti.Jacobi.GenusTwo.genuine_eisenstein_continuation` (theorem). Node: `MetaplecticAutomorphicForms:MP.8/genuine-eisenstein-continuation`. Suggested module: `TauCeti/NumberTheory/Jacobi/GenusTwo/Eisenstein/Continuation`.
 
-Hypotheses: The arithmetic BFH datum has a normalized elliptic newform f of even weight k≥2, trivial character and conductor M; 8M|N, N|m, 4m|N², with N,m>0. The auxiliary Fricke transform uses N; the original newform completion uses M. The seed is built from the specified finite-dimensional continuous K=U(2) representation σ, its SO(2) weight-k vector v, and the stated cusp covariance. Scalar formulas apply a continuous linear functional T to that vector family.
+Hypotheses: The arithmetic BFH datum has a normalized elliptic newform f of even weight k≥2, trivial character and conductor M; 8M|N, N|m, 4m|N², with N,m>0. The auxiliary Fricke transform uses N; the original newform completion uses M. The seed is built from the specified finite-dimensional continuous K=U(2) representation σ, its SO(2) weight-k vector v, and the stated cusp covariance. Scalar formulas apply a continuous linear functional T to that vector family. Fix y₂>0. The scalar coefficient φ(κ)=T(vσ(κ)) is globally divisible by φ₁ in R_k: there exists ψ∈R_k with φ(κ)=φ₁(κ)ψ(κ) for every κ∈K. This is the standing hypothesis on printed p.601 before Proposition 8.1, not merely divisibility in the positive κ(X) chart.
 
-The actual BFH genuine Eisenstein family continues meromorphically in s, satisfies E(s,F)=E(4−s,M(w,s)F) after the contragredient cusp identification, and has poles only from the proven genuine constant terms. Near s=2 the chosen BFH family is regular exactly when those constant-term coefficients are regular; its residues are automorphic genuine forms obtained from residues of the intertwining operators. This target requires the cover-specific AS.2 adaptation and the correct Fricke level M, rather than an unqualified appeal to linear Selberg–Langlands theory.
+The actual BFH genuine Eisenstein family continues meromorphically in s, satisfies E(s,F)=E(4−s,M(w,s)F) for the raw standard intertwiner M after the contragredient cusp identification, and has poles only from the proven genuine constant terms. Near s=2 the chosen BFH family is regular exactly when those constant-term coefficients are regular; its residues are automorphic genuine forms obtained from residues of the intertwining operators. This target requires the cover-specific AS.2 adaptation and the correct Fricke level M, rather than an unqualified appeal to linear Selberg–Langlands theory.
 
 Construction or proof:
 
@@ -2460,7 +2460,7 @@ Source: BFH90, §8, pp.601–602, continuation and pole discussion; §1, pp.550�
 
 Declaration: `TauCeti.Jacobi.GenusTwo.opposite_cusp_zero_regularity` (theorem). Node: `MetaplecticAutomorphicForms:MP.8/opposite-cusp-zero-regularity`. Suggested module: `TauCeti/NumberTheory/Jacobi/GenusTwo/Eisenstein/RamifiedRegularity`.
 
-Hypotheses: The arithmetic BFH datum has a normalized elliptic newform f of even weight k≥2, trivial character and conductor M; 8M|N, N|m, 4m|N², with N,m>0. The auxiliary Fricke transform uses N; the original newform completion uses M. The seed is built from the specified finite-dimensional continuous K=U(2) representation σ, its SO(2) weight-k vector v, and the stated cusp covariance. Scalar formulas apply a continuous linear functional T to that vector family.
+Hypotheses: The arithmetic BFH datum has a normalized elliptic newform f of even weight k≥2, trivial character and conductor M; 8M|N, N|m, 4m|N², with N,m>0. The auxiliary Fricke transform uses N; the original newform completion uses M. The seed is built from the specified finite-dimensional continuous K=U(2) representation σ, its SO(2) weight-k vector v, and the stated cusp covariance. Scalar formulas apply a continuous linear functional T to that vector family. Fix y₂>0. The scalar coefficient φ(κ)=T(vσ(κ)) is globally divisible by φ₁ in R_k: there exists ψ∈R_k with φ(κ)=φ₁(κ)ψ(κ) for every κ∈K. This is the standing hypothesis on printed p.601 before Proposition 8.1, not merely divisibility in the positive κ(X) chart.
 
 For the fixed BFH arithmetic data and r, P(s,0,r) is holomorphic in a neighborhood of s=2, and P(s,D,r) grows at most polynomially in D uniformly on compact parameter sets avoiding its poles. One route evaluates the ramified cusp factors to express P(s,0,r) as L(s,0) times a rational function in p^−s for p|N with denominators nonzero at 2. The alternative in BFH p.589 derives regularity of this coefficient from the already established full Eisenstein regularity; those two routes must not be used circularly.
 
@@ -2487,6 +2487,8 @@ Source: BFH90, §7, p.589, Remark following Proposition 7.1. Evidence relationsh
 ### Fourier and residue interchange for genuine families
 
 Declaration: `TauCeti.Jacobi.GenusTwo.fourier_residue_interchanges` (theorem). Node: `MetaplecticAutomorphicForms:MP.8/fourier-residue-interchanges`. Suggested module: `TauCeti/NumberTheory/Jacobi/GenusTwo/Eisenstein/Residues`.
+
+Hypotheses: Fix y₂>0. The scalar coefficient φ(κ)=T(vσ(κ)) is globally divisible by φ₁ in R_k: there exists ψ∈R_k with φ(κ)=φ₁(κ)ψ(κ) for every κ∈K. This is the standing hypothesis on printed p.601 before Proposition 8.1, not merely divisibility in the positive κ(X) chart.
 
 Let the continued genuine family have locally finite pole divisor in its parameter domain. After multiplying by a local holomorphic denominator, its Fourier integrals on the specified compact quotient tori, the finite theta transform and the absolutely convergent nonzero-discriminant Whittaker/Mellin tails are locally uniformly holomorphic; coefficient extraction commutes with s-residues and derivatives. Infinite theta or D sums may commute with these operations only under the proven Gaussian or rapid-decay majorants. The expanded Novodvorsky kernel is excluded from an unproved joint Fubini interchange.
 
@@ -2527,7 +2529,7 @@ Direct dependencies: `MetaplecticAutomorphicForms:MP.8/bfh-l-dirichlet-series`, 
 
 Uses:
 
-- BFH §8, pp.601–614, Proposition 8.1: Uses bfh two-variable twist series in bfh two-variable polar combination: Put A=(4m)^(−s+u+5/2)N^(−s+4+k/2)[Z⁺ TF⁺(u,s;N⁻¹y₂)+Z⁻ TF⁻(u,s;N⁻¹y₂)]. It continues meromorphically to Re s>3/2, Re u>0 and Re u>Re s−5/2. Near (u,s)=(1/2,2), A minus the following sum is jointly holomorphic: −N^(−s+4+k/2)L(s,0)TM(s,N⁻¹y₂)/(u−s+5/2) + N^(7−s−k/2)P(s,0,r)y₂^(2s−5)TM̃(s,N⁻¹y₂)/(u+s−5/2) + N^−s y₂^(3−s+k
+- BFH §8, pp.601–614, Proposition 8.1: Combine the two signed twist series with the continued Novodvorsky transforms of a fixed globally divisible coefficient at N⁻¹y₂; isolate the three zero-mode polar fractions.
 - RankZeroOneBSD:BSD.2: Consumes the exact BFH coefficient/polar-formula data after the comparisons stated in this packet.
 
 API:
@@ -2554,7 +2556,7 @@ Declaration: `TauCeti.Jacobi.GenusTwo.two_variable_polar_combination` (theorem).
 
 Planet: **BFH two-variable polar formula**.
 
-Hypotheses: The arithmetic BFH datum has a normalized elliptic newform f of even weight k≥2, trivial character and conductor M; 8M|N, N|m, 4m|N², with N,m>0. The auxiliary Fricke transform uses N; the original newform completion uses M. The seed is built from the specified finite-dimensional continuous K=U(2) representation σ, its SO(2) weight-k vector v, and the stated cusp covariance. Scalar formulas apply a continuous linear functional T to that vector family.
+Hypotheses: The arithmetic BFH datum has a normalized elliptic newform f of even weight k≥2, trivial character and conductor M; 8M|N, N|m, 4m|N², with N,m>0. The auxiliary Fricke transform uses N; the original newform completion uses M. The seed is built from the specified finite-dimensional continuous K=U(2) representation σ, its SO(2) weight-k vector v, and the stated cusp covariance. Scalar formulas apply a continuous linear functional T to that vector family. Fix y₂>0. The scalar coefficient φ(κ)=T(vσ(κ)) is globally divisible by φ₁ in R_k: there exists ψ∈R_k with φ(κ)=φ₁(κ)ψ(κ) for every κ∈K. This is the standing hypothesis on printed p.601 before Proposition 8.1, not merely divisibility in the positive κ(X) chart.
 
 Put A=(4m)^(−s+u+5/2)N^(−s+4+k/2)[Z⁺ TF⁺(u,s;N⁻¹y₂)+Z⁻ TF⁻(u,s;N⁻¹y₂)]. It continues meromorphically to Re s>3/2, Re u>0 and Re u>Re s−5/2. Near (u,s)=(1/2,2), A minus the following sum is jointly holomorphic: −N^(−s+4+k/2)L(s,0)TM(s,N⁻¹y₂)/(u−s+5/2) + N^(7−s−k/2)P(s,0,r)y₂^(2s−5)TM̃(s,N⁻¹y₂)/(u+s−5/2) + N^−s y₂^(3−s+k/2)Tτ(s,N⁻¹y₂)/(u−s+3/2). Every term uses the continued scalar transforms and fixed BFH test vector. This is joint holomorphy in two complex variables, not a collection of separate one-variable statements.
 
@@ -2565,14 +2567,14 @@ Construction or proof:
 3. Use the lower-unipotent/Fourier transformation for the small tail. Its three zero modes integrate to the three displayed linear polar denominators; the remaining terms are normally convergent.
 4. Clear the local s pole denominator before every continuation interchange, then use the proven E regularity and coefficient regularity near 2.
 
-Direct dependencies: `MetaplecticAutomorphicForms:MP.8/two-variable-twist-series`, `MetaplecticAutomorphicForms:MP.8/first-cusp-whittaker-expansion`, `MetaplecticAutomorphicForms:MP.8/opposite-cusp-whittaker-expansion`, `MetaplecticAutomorphicForms:MP.8/degenerate-mellin-coefficients`, `MetaplecticAutomorphicForms:MP.8/tau-transform`, `MetaplecticAutomorphicForms:MP.8/fourier-residue-interchanges`, `MetaplecticAutomorphicForms:MP.8/opposite-cusp-zero-regularity`.
+Direct dependencies: `MetaplecticAutomorphicForms:MP.8/two-variable-twist-series`, `MetaplecticAutomorphicForms:MP.8/first-cusp-whittaker-expansion`, `MetaplecticAutomorphicForms:MP.8/opposite-cusp-whittaker-expansion`, `MetaplecticAutomorphicForms:MP.8/degenerate-mellin-coefficients`, `MetaplecticAutomorphicForms:MP.8/tau-transform`, `MetaplecticAutomorphicForms:MP.8/fourier-residue-interchanges`, `MetaplecticAutomorphicForms:MP.8/opposite-cusp-zero-regularity`, `MetaplecticAutomorphicForms:MP.8/test-coefficient-algebra`, `MetaplecticAutomorphicForms:MP.8/novodvorsky-continuation`.
 
 Acceptance:
 
 - The three denominators are distinct functions of (u,s).
 - The second and third polar divisors meet at (1/2,2); cancellation must be tested by the consuming BSD.2 argument, not asserted here.
 
-Suggested signature boundary: The native signature uses local holomorphic numerator/denominator charts on C². All raw coefficient and transform arguments must be the actual continued BFH family with a single finite K-type and proven tail bounds; these absent supplier conditions are omitted.
+Suggested signature boundary: The native signature uses local holomorphic numerator/denominator charts on C² and explicitly carries IsBFHMatrixCoefficient and HasBFHDivisor for the fixed scalar coefficient. All raw coefficient and transform arguments must arise from that one continued BFH family and have proven tail bounds; these supplier-owned comparison conditions are omitted.
 
 Open proof inputs:
 
@@ -2584,7 +2586,7 @@ Source: BFH90, §8, pp.601–614, Proposition 8.1. Evidence relationship: The in
 
 Declaration: `TauCeti.Jacobi.GenusTwo.bsd2_export` (comparison). Node: `MetaplecticAutomorphicForms:MP.8/bsd2-export`. Suggested module: `TauCeti/NumberTheory/Jacobi/GenusTwo/Eisenstein/Export`.
 
-Hypotheses: The arithmetic BFH datum has a normalized elliptic newform f of even weight k≥2, trivial character and conductor M; 8M|N, N|m, 4m|N², with N,m>0. The auxiliary Fricke transform uses N; the original newform completion uses M. The seed is built from the specified finite-dimensional continuous K=U(2) representation σ, its SO(2) weight-k vector v, and the stated cusp covariance. Scalar formulas apply a continuous linear functional T to that vector family.
+Hypotheses: The arithmetic BFH datum has a normalized elliptic newform f of even weight k≥2, trivial character and conductor M; 8M|N, N|m, 4m|N², with N,m>0. The auxiliary Fricke transform uses N; the original newform completion uses M. The seed is built from the specified finite-dimensional continuous K=U(2) representation σ, its SO(2) weight-k vector v, and the stated cusp covariance. Scalar formulas apply a continuous linear functional T to that vector family. Fix y₂>0. The scalar coefficient φ(κ)=T(vσ(κ)) is globally divisible by φ₁ in R_k: there exists ψ∈R_k with φ(κ)=φ₁(κ)ψ(κ) for every κ∈K. This is the standing hypothesis on printed p.601 before Proposition 8.1, not merely divisibility in the positive κ(X) chart.
 
 Export the exact first-cusp coefficients, unramified local factor ratio, squarefactor bound, jointly meromorphic polar combination, allowed derivative/residue interchanges and the three existential finite K-type tests. With AL.3 identify L(s,D₀)=L_N(s+k/2−2,f⊗χ_{D₀})/L_N(2s+k−4,Sym²f) for fundamental D₀, and L(s,0)=L_N(2s+k−5,Sym²f)/L_N(2s+k−4,Sym²f). At the permitted datum m=N rad(N),r=1, this is the analytic genus-two input to RankZeroOneBSD:BSD.2. The final twist residues, positivity, noncancellation, simultaneous local conditions and infinitude of fundamental twists belong to BSD.2.
 
@@ -2771,7 +2773,7 @@ Correction: K=GSp⁺(4,R)∩O(4) is the stabilizer in Sp(4,R). In GSp⁺(4,R), t
 
 Reason: Take g=2I₄. Then gᵀJg=4J, so g∈GSp⁺, and (2iE)(2E)⁻¹=iE; but gᵀg=4I₄, so g is not in O(4) or K. For the full corrected description, normalize a positive-similitude stabilizer by μ(g)^(−1/2) and use its symplectic stabilizer equations. Equation (1.14) already treats central scalars separately.
 
-Affects: a stated result. Review: **confirmed**, `REV-MetaplecticAutomorphicForms--MP.8`.
+Affects: a stated result. Review: **confirmed**, `REV-MetaplecticAutomorphicForms--MP.8~2`.
 
 ### `MetaplecticAutomorphicForms/E-MP8-3` — misprint
 
@@ -2783,7 +2785,7 @@ Correction: For the original normalized newform f of level M, replace N by M in 
 
 Reason: The introduction p.543 uses M, and the twisted completion (1.24) on p.551 uses D²M. If one sets Λ_N=(N/M)^(s/2)Λ_M, the functional equation gains the factor (N/M)^(s−k/2). As a direct Fricke check, the weight12 level1 discriminant form at N=8 satisfies Δ(−1/(8τ))=(8τ)^12Δ(8τ); the printed formula would instead require 8^6τ^12Δ(τ), contradicted by the leading powers of q as Im(τ)→∞. This is a normalization slip, not a counterexample to the paper’s main nonvanishing theorem.
 
-Affects: the proof. Review: **confirmed**, `REV-MetaplecticAutomorphicForms--MP.8`.
+Affects: the proof. Review: **confirmed**, `REV-MetaplecticAutomorphicForms--MP.8~2`.
 
 ### `MetaplecticAutomorphicForms/E-MP8-4` — error
 
@@ -2795,7 +2797,7 @@ Correction: Use the bounded strip |Im x₁|≤ε with 0<ε<1, or the upward clos
 
 Reason: With x₃=x₄=0, the explicit coefficient φ₁ from (3.29) is (1+x₁²)^(−1/2), singular at x₁=−i. That point lies in the printed one-sided region for every ε>0. Both factors stay away from zero on the corrected bounded strip; the complexified matrix-coefficient proof must retain that branch domain.
 
-Affects: a stated result. Review: **confirmed**, `REV-MetaplecticAutomorphicForms--MP.8`.
+Affects: a stated result. Review: **confirmed**, `REV-MetaplecticAutomorphicForms--MP.8~2`.
 
 ### `MetaplecticAutomorphicForms/E-MP8-5` — misprint
 
@@ -2807,7 +2809,7 @@ Correction: The transform argument in A is N⁻¹y₂: TF^±(u,s,N⁻¹y₂), ma
 
 Reason: At n₂=N⁻¹, Proposition 6.1 has Whittaker second argument N⁻¹y₂. Its substitution into the Novodvorsky integral and the (8.4) variable change give TF(u,s,N⁻¹y₂), with N^(−s+4+k/2) outside. Both the displayed A in (8.1) and the printed left side of (8.3) omit N⁻¹, whereas the evaluated boundary terms on p.603 carry it. This is an argument-normalization discrepancy, not a refutation of the nonvanishing theorem.
 
-Affects: a stated result. Review: **confirmed**, `REV-MetaplecticAutomorphicForms--MP.8`.
+Affects: a stated result. Review: **confirmed**, `REV-MetaplecticAutomorphicForms--MP.8~2`.
 
 ### `MetaplecticAutomorphicForms/E-MP8-6` — error
 
@@ -2819,7 +2821,7 @@ Correction: For + use Γ((s−r+n)/2)Γ((s+r+n+1)/2); for − use Γ((s−r−n�
 
 Reason: The evaluated positive-sign integral in (3.26) has inverse Γ((s−r+n)/2); the negative-sign integral in (3.27) has inverse Γ((s−r−n−1)/2). Multiplication by the corrected pair cancels that inverse factor, leaving Γ((s+r+n+1)/2) or Γ((s+r−n)/2), exactly the remaining factors in the two V̂ displays on p.565. The p.562 printed normalizer does not yield those displays. This verifies the corrected pair; the confluent-function continuation and reflection proof remains subject to the recorded source gap.
 
-Affects: a stated result. Review: **confirmed**, `REV-MetaplecticAutomorphicForms--MP.8`.
+Affects: a stated result. Review: **confirmed**, `REV-MetaplecticAutomorphicForms--MP.8~2`.
 
 ### `MetaplecticAutomorphicForms/E-MP8-7` — error
 
@@ -2831,7 +2833,7 @@ Correction: Evaluate the actual global compact product; introduce its residual c
 
 Reason: A constant compact coefficient equals 1 at the chart boundary, contradicting the claimed zero for arbitrary coefficients. More decisively, the allowed global weight-zero coefficient φ₁=det(Im q) at X=diag(0,−2),z=1 equals −1/√10 after right rotation, while its positive chart formula at X(z)=diag(0,3) equals +1/√10. Thus the chart substitution also fails away from the boundary. Global divisibility gives boundary vanishing but does not remove the missing transition on the negative branch.
 
-Affects: the proof. Review: **confirmed**, `REV-MetaplecticAutomorphicForms--MP.8`.
+Affects: the proof. Review: **confirmed**, `REV-MetaplecticAutomorphicForms--MP.8~2`.
 
 ### `MetaplecticAutomorphicForms/E-MP8-8` — misprint
 
@@ -2843,7 +2845,7 @@ Correction: Use p^min(a,d), leaving Lemma 7.3’s table unchanged.
 
 Reason: The preceding p.591 matrix parametrization takes x₀ modulo α₁β₃δ₂; its finite character sum yields the mixed modulus min(a,d). At p=3,m=16,N=8,r=1,n₁=0,a=b=2,d=1 there are six solutions (λ₁∈{0,3,6},λ₂∈{0,1}); the printed modulus gives two, contradicting the table’s N₂=2p. Direct enumeration with the corrected modulus matches all 2,016 small cases tested against the unchanged table. This finite check supplements the matrix derivation.
 
-Affects: a stated result. Review: **confirmed**, `REV-MetaplecticAutomorphicForms--MP.8`.
+Affects: a stated result. Review: **confirmed**, `REV-MetaplecticAutomorphicForms--MP.8~2`.
 
 ### `MetaplecticAutomorphicForms/E-MP8-9` — misprint
 
@@ -2855,7 +2857,7 @@ Correction: Use D mod C, with the same primitive and congruence restrictions.
 
 Reason: The three period-one symmetric X-coordinate integrations identify C⁻¹D modulo integral symmetric translations, hence D modulo CS. The phases are invariant under those shifts. Since C≡0 mod N, D₁₂ mod N and the determinant condition are also preserved. Quotienting only by NCS repeats every class N³ times and disagrees with the unfolding normalization; the packet already uses the corrected modulus.
 
-Affects: a stated result. Review: **confirmed**, `REV-MetaplecticAutomorphicForms--MP.8`.
+Affects: a stated result. Review: **confirmed**, `REV-MetaplecticAutomorphicForms--MP.8~2`.
 
 ## Native baseline and source record
 
@@ -2917,7 +2919,7 @@ Pinned statements, read at Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` an
 
 - `mathlib:integrable_exp_neg_mul_sq` (theorem, `Mathlib/Analysis/SpecialFunctions/Gaussian/GaussianIntegral.lean`): Root-namespace integrability of exp(−b x²) for b>0, needed before Gaussian Fubini and change of variables.
 
-BFH90: Daniel Bump, Solomon Friedberg and Jeffrey Hoffstein, *Nonvanishing theorems for L-functions of modular forms and their derivatives*, Inventiones mathematicae 102 (1990), 543–618; published scan, DOI 10.1007/BF01233440. [Public published scan](https://wstein.org/papers/bib/bump-friedberg-hoffstein-nonvanishing.pdf). SHA-256: `d50ad2f11c992591de90f2cea59489ac436cce455e140e6eebf5053f49819f2c`. The mathematical catalogue gives theorem/equation and printed-page locators. The source record distinguishes the preceding full-paper reads from the selective 2026-10-07 formula rechecks. The Annals paper cited for the omitted degenerate Bessel calculation is a distinct source whose text has not been inspected here.
+BFH90: Daniel Bump, Solomon Friedberg and Jeffrey Hoffstein, *Nonvanishing theorems for L-functions of modular forms and their derivatives*, Inventiones mathematicae 102 (1990), 543–618; published scan, DOI 10.1007/BF01233440. [Public published scan](https://wstein.org/papers/bib/bump-friedberg-hoffstein-nonvanishing.pdf). SHA-256: `d50ad2f11c992591de90f2cea59489ac436cce455e140e6eebf5053f49819f2c`. The mathematical catalogue gives theorem/equation and printed-page locators. The source record distinguishes the preceding full-paper reads, the selective 2026-10-07 formula rechecks and this independent 2026-10-08 read with rendered formula checks. The Annals paper cited for the omitted degenerate Bessel calculation is a distinct source whose text has not been inspected here.
 
 ## Coverage and next mathematical work
 

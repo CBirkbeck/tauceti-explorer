@@ -16,196 +16,196 @@
         "kind": "structure",
         "module": "Mathlib/LinearAlgebra/QuadraticForm/Basic.lean",
         "provides": "Native quadratic maps with degree-two scaling and a bilinear companion.",
-        "checked": "Actual statement read at the pinned commit; source bytes verified against the pinned tree."
+        "checked": "Independent revision-2 review read the exact declaration and its ambient hypotheses at the recorded pinned commit on 2026-10-08; the provides boundary is confirmed."
       },
       {
         "ref": "mathlib:QuadraticForm",
         "kind": "abbrev",
         "module": "Mathlib/LinearAlgebra/QuadraticForm/Basic.lean",
         "provides": "Native scalar-valued quadratic maps; over Z on Z² these encode integral binary quadratic polynomials, hence half-integral symmetric matrices.",
-        "checked": "Actual statement read at the pinned commit; source bytes verified against the pinned tree."
+        "checked": "Independent revision-2 review read the exact declaration and its ambient hypotheses at the recorded pinned commit on 2026-10-08; the provides boundary is confirmed."
       },
       {
         "ref": "mathlib:QuadraticMap.ext",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/QuadraticForm/Basic.lean",
         "provides": "Quadratic forms are equal if their values are equal on every vector.",
-        "checked": "Actual statement read at the pinned commit; source bytes verified against the pinned tree."
+        "checked": "Independent revision-2 review read the exact declaration and its ambient hypotheses at the recorded pinned commit on 2026-10-08; the provides boundary is confirmed."
       },
       {
         "ref": "mathlib:QuadraticMap.congr_fun",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/QuadraticForm/Basic.lean",
         "provides": "Equality of quadratic maps implies equality at every input.",
-        "checked": "Actual statement read at the pinned commit; source bytes verified against the pinned tree."
+        "checked": "Independent revision-2 review read the exact declaration and its ambient hypotheses at the recorded pinned commit on 2026-10-08; the provides boundary is confirmed."
       },
       {
         "ref": "mathlib:QuadraticMap.map_smul",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/QuadraticForm/Basic.lean",
         "provides": "A quadratic map sends a·x to a² times its value at x.",
-        "checked": "Actual statement read at the pinned commit; source bytes verified against the pinned tree."
+        "checked": "Independent revision-2 review read the exact declaration and its ambient hypotheses at the recorded pinned commit on 2026-10-08; the provides boundary is confirmed."
       },
       {
         "ref": "mathlib:QuadraticMap.linMulLin",
         "kind": "def",
         "module": "Mathlib/LinearAlgebra/QuadraticForm/Basic.lean",
         "provides": "The product of two linear forms is a native quadratic map.",
-        "checked": "Actual statement read at the pinned commit; source bytes verified against the pinned tree."
+        "checked": "Independent revision-2 review read the exact declaration and its ambient hypotheses at the recorded pinned commit on 2026-10-08; the provides boundary is confirmed."
       },
       {
         "ref": "mathlib:QuadraticMap.linMulLin_apply",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/QuadraticForm/Basic.lean",
         "provides": "The product quadratic map evaluates to the product of the two linear-form values.",
-        "checked": "Actual statement read at the pinned commit; source bytes verified against the pinned tree."
+        "checked": "Independent revision-2 review read the exact declaration and its ambient hypotheses at the recorded pinned commit on 2026-10-08; the provides boundary is confirmed."
       },
       {
         "ref": "mathlib:QuadraticMap.proj",
         "kind": "def",
         "module": "Mathlib/LinearAlgebra/QuadraticForm/Basic.lean",
         "provides": "The native coordinate quadratic form x↦x_i x_j, used in mixed-term tests.",
-        "checked": "Actual statement read at the pinned commit; source bytes verified against the pinned tree."
+        "checked": "Independent revision-2 review read the exact declaration and its ambient hypotheses at the recorded pinned commit on 2026-10-08; the provides boundary is confirmed."
       },
       {
         "ref": "mathlib:QuadraticMap.proj_apply",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/QuadraticForm/Basic.lean",
         "provides": "Coordinate quadratic-form evaluation is x_i x_j.",
-        "checked": "Actual statement read at the pinned commit; source bytes verified against the pinned tree."
+        "checked": "Independent revision-2 review read the exact declaration and its ambient hypotheses at the recorded pinned commit on 2026-10-08; the provides boundary is confirmed."
       },
       {
         "ref": "mathlib:QuadraticMap.sum_repr_sq_add_sum_repr_mul_polar",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/QuadraticForm/Basis.lean",
         "provides": "A quadratic map expands in diagonal basis values and unordered off-diagonal polar terms, without assuming that 2 is invertible.",
-        "checked": "Actual statement read at the pinned commit; source bytes verified against the pinned tree."
+        "checked": "Independent revision-2 review read the exact declaration and its ambient hypotheses at the recorded pinned commit on 2026-10-08; the provides boundary is confirmed."
       },
       {
         "ref": "mathlib:QuadraticMap.toBilin",
         "kind": "def",
         "module": "Mathlib/LinearAlgebra/QuadraticForm/Basis.lean",
         "provides": "An ordered basis gives an upper-triangular bilinear representative over Z; symmetry and division by 2 are not required.",
-        "checked": "Actual statement read at the pinned commit; source bytes verified against the pinned tree."
+        "checked": "Independent revision-2 review read the exact declaration and its ambient hypotheses at the recorded pinned commit on 2026-10-08; the provides boundary is confirmed."
       },
       {
         "ref": "mathlib:QuadraticMap.toQuadraticMap_toBilin",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/QuadraticForm/Basis.lean",
         "provides": "The quadratic map of the ordered-basis bilinear representative is the original map.",
-        "checked": "Actual statement read at the pinned commit; source bytes verified against the pinned tree."
+        "checked": "Independent revision-2 review read the exact declaration and its ambient hypotheses at the recorded pinned commit on 2026-10-08; the provides boundary is confirmed."
       },
       {
         "ref": "mathlib:dotProductBilin",
         "kind": "def",
         "module": "Mathlib/LinearAlgebra/Matrix/ToLin.lean",
         "provides": "The coordinate dot product packaged as a bilinear map; fixing R∈Z² gives the linear functional x↦R·x. This declaration is in the root namespace.",
-        "checked": "Actual statement read at the pinned commit; source bytes verified against the pinned tree."
+        "checked": "Independent revision-2 review read the exact declaration and its ambient hypotheses at the recorded pinned commit on 2026-10-08; the provides boundary is confirmed."
       },
       {
         "ref": "mathlib:Int.ModEq",
         "kind": "def",
         "module": "Mathlib/Data/Int/ModEq.lean",
         "provides": "Congruence of integers modulo an integer, including negative and zero moduli.",
-        "checked": "Actual statement read at the pinned commit; source bytes verified against the pinned tree."
+        "checked": "Independent revision-2 review read the exact declaration and its ambient hypotheses at the recorded pinned commit on 2026-10-08; the provides boundary is confirmed."
       },
       {
         "ref": "mathlib:Int.modEq_iff_dvd",
         "kind": "theorem",
         "module": "Mathlib/Data/Int/ModEq.lean",
         "provides": "R_i≡R′_i modulo 2a iff 2a divides R′_i−R_i, giving the integral shift parameter.",
-        "checked": "Actual statement read at the pinned commit; source bytes verified against the pinned tree."
+        "checked": "Independent revision-2 review read the exact declaration and its ambient hypotheses at the recorded pinned commit on 2026-10-08; the provides boundary is confirmed."
       },
       {
         "ref": "mathlib:mul_left_cancel₀",
         "kind": "theorem",
         "module": "Mathlib/Algebra/GroupWithZero/Defs.lean",
         "provides": "Cancel a nonzero left factor; applied in Z to 4a and 2a.",
-        "checked": "Actual statement read at the pinned commit; source bytes verified against the pinned tree."
+        "checked": "Independent revision-2 review read the exact declaration and its ambient hypotheses at the recorded pinned commit on 2026-10-08; the provides boundary is confirmed."
       },
       {
         "ref": "mathlib:Matrix.symplecticGroup",
         "kind": "def",
         "module": "Mathlib/LinearAlgebra/SymplecticGroup.lean",
         "provides": "Boundary only: matrices satisfying AJAᵀ=J, as a submonoid. This is neither a similitude group nor its double cover.",
-        "checked": "Actual statement read at the pinned commit; source bytes verified against the pinned tree."
+        "checked": "Independent revision-2 review read the exact declaration and its ambient hypotheses at the recorded pinned commit on 2026-10-08; the provides boundary is confirmed."
       },
       {
         "ref": "mathlib:SemidirectProduct",
         "kind": "structure",
         "module": "Mathlib/GroupTheory/SemidirectProduct.lean",
         "provides": "Boundary only: the native group semidirect product from a specified homomorphism into automorphisms; it does not construct the Heisenberg group or its similitude action.",
-        "checked": "Actual statement read at the pinned commit; source bytes verified against the pinned tree."
+        "checked": "Independent revision-2 review read the exact declaration and its ambient hypotheses at the recorded pinned commit on 2026-10-08; the provides boundary is confirmed."
       },
       {
         "ref": "mathlib:Matrix.PosDef",
         "kind": "def",
         "module": "Mathlib/LinearAlgebra/Matrix/PosDef.lean",
         "provides": "Hermitian matrix with strictly positive finitely supported quadratic evaluation; over finite real indices this gives positive dot-product evaluation on every nonzero vector.",
-        "checked": "Actual statement read at the recorded pinned commit on 2026-10-06; Mathlib source tree hash and Tau Ceti git object were checked."
+        "checked": "Independent revision-2 review read the exact declaration and its ambient hypotheses at the recorded pinned commit on 2026-10-08; the provides boundary is confirmed."
       },
       {
         "ref": "mathlib:Matrix.unitaryGroup",
         "kind": "abbrev",
         "module": "Mathlib/LinearAlgebra/UnitaryGroup.lean",
         "provides": "Native unitary matrices as a submonoid with a group structure; specializes to U(2) without re-planning compact-group structure.",
-        "checked": "Actual statement read at the recorded pinned commit on 2026-10-06; Mathlib source tree hash and Tau Ceti git object were checked."
+        "checked": "Independent revision-2 review read the exact declaration and its ambient hypotheses at the recorded pinned commit on 2026-10-08; the provides boundary is confirmed."
       },
       {
         "ref": "mathlib:jacobiTheta₂",
         "kind": "def",
         "module": "Mathlib/NumberTheory/ModularForms/JacobiTheta/TwoVariable.lean",
         "provides": "The native two-variable classical theta sum Σ_n exp(2πinz+πin²τ); the genus-two diagonal test reduces to two such sums.",
-        "checked": "Actual statement read at the recorded pinned commit on 2026-10-06; Mathlib source tree hash and Tau Ceti git object were checked."
+        "checked": "Independent revision-2 review read the exact declaration and its ambient hypotheses at the recorded pinned commit on 2026-10-08; the provides boundary is confirmed."
       },
       {
         "ref": "mathlib:ArithmeticFunction.moebius",
         "kind": "def",
         "module": "Mathlib/NumberTheory/ArithmeticFunction/Moebius.lean",
         "provides": "Integer-valued scalar Möbius function: (−1)^cardFactors for squarefree n, otherwise zero; μ₂ uses it on positive Smith coefficients.",
-        "checked": "Actual statement read at the recorded pinned commit on 2026-10-06; Mathlib source tree hash and Tau Ceti git object were checked."
+        "checked": "Independent revision-2 review read the exact declaration and its ambient hypotheses at the recorded pinned commit on 2026-10-08; the provides boundary is confirmed."
       },
       {
         "ref": "mathlib:Submodule.exists_smith_normal_form_of_le",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/FreeModule/PID.lean",
         "provides": "For submodules N≤O of a finite free module over a PID, obtains bases with each N-basis vector a_i times an O-basis vector. The statement does not itself impose a_i|a_j; the binary content/product argument fixes the needed ordered invariants.",
-        "checked": "Actual statement read at the recorded pinned commit on 2026-10-06; Mathlib source tree hash and Tau Ceti git object were checked."
+        "checked": "Independent revision-2 review read the exact declaration and its ambient hypotheses at the recorded pinned commit on 2026-10-08; the provides boundary is confirmed."
       },
       {
         "ref": "tauceti:TauCeti.choleskyEquiv",
         "kind": "def",
         "module": "TauCeti/LinearAlgebra/Matrix/Cholesky/Equiv.lean",
         "provides": "Equivalence of real positive-definite matrices with lower triangular matrices of positive diagonal, with LLᵀ as Gram map and uniqueness. Reverse the two coordinate indices to obtain the BFH upper-triangular Q with Y=QQᵀ.",
-        "checked": "Actual statement read at the recorded pinned commit on 2026-10-06; Mathlib source tree hash and Tau Ceti git object were checked."
+        "checked": "Independent revision-2 review read the exact declaration and its ambient hypotheses at the recorded pinned commit on 2026-10-08; the provides boundary is confirmed."
       },
       {
         "ref": "mathlib:Matrix.toLin'",
         "kind": "def",
         "module": "Mathlib/LinearAlgebra/Matrix/ToLin.lean",
         "provides": "Native linear equivalence from a finite matrix to its coordinate linear map, evaluating as multiplication of the matrix by a column vector.",
-        "checked": "Actual statement and toLin'_apply read at Mathlib 082e2d3 on 2026-10-06."
+        "checked": "Independent revision-2 review read the exact declaration and its ambient hypotheses at the recorded pinned commit on 2026-10-08; the provides boundary is confirmed."
       },
       {
         "ref": "mathlib:MeromorphicOn",
         "kind": "def",
         "module": "Mathlib/Analysis/Meromorphic/Basic.lean",
         "provides": "Pointwise meromorphic-at predicate on a set in a nontrivially normed field. It supplies scalar one-complex-variable slices, not a two-complex-variable meromorphic API.",
-        "checked": "Actual statement read at Mathlib 082e2d3 on 2026-10-06."
+        "checked": "Independent revision-2 review read the exact declaration and its ambient hypotheses at the recorded pinned commit on 2026-10-08; the provides boundary is confirmed."
       },
       {
         "ref": "mathlib:integral_gaussian",
         "kind": "theorem",
         "module": "Mathlib/Analysis/SpecialFunctions/Gaussian/GaussianIntegral.lean",
         "provides": "Root-namespace real Gaussian integral ∫ exp(−b x²)=√(π/b); positive b gives the analytic formula used after Cholesky/Fubini.",
-        "checked": "Exact statement and namespace read with git show at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; working tree HEAD matches that pin."
+        "checked": "Independent revision-2 review read the exact declaration and its ambient hypotheses at the recorded pinned commit on 2026-10-08; the provides boundary is confirmed."
       },
       {
         "ref": "mathlib:integrable_exp_neg_mul_sq",
         "kind": "theorem",
         "module": "Mathlib/Analysis/SpecialFunctions/Gaussian/GaussianIntegral.lean",
         "provides": "Root-namespace integrability of exp(−b x²) for b>0, needed before Gaussian Fubini and change of variables.",
-        "checked": "Exact statement and namespace read with git show at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-06; working tree HEAD matches that pin."
+        "checked": "Independent revision-2 review read the exact declaration and its ambient hypotheses at the recorded pinned commit on 2026-10-08; the provides boundary is confirmed."
       }
     ]
   },
@@ -217,12 +217,13 @@
       "edition": "Inventiones mathematicae 102 (1990), 543–618; published scan, DOI 10.1007/BF01233440",
       "url": "https://wstein.org/papers/bib/bump-friedberg-hoffstein-nonvanishing.pdf",
       "sha256": "d50ad2f11c992591de90f2cea59489ac436cce455e140e6eebf5053f49819f2c",
-      "read": "2026-10-07",
+      "read": "2026-10-08",
       "readSections": [
         "Published Inventiones pp.543–618: introduction and §§1–9 plus references read in extracted text; all formula/proof passages cited in the nodes were inspected in rendered pages, including the previously unread pp.558–612.",
         "Physical page index = printed page minus 542 in the 77-page scan; physical page 1 is the repository cover sheet. Branches, transpose placement and N powers were checked in rendered formulas rather than inferred from OCR.",
         "BFH §9 is read to determine the BSD.2 boundary; its final nonvanishing/positivity argument is not planned here. External references used for omitted proofs remain the precise gaps listed in this packet.",
-        "2026-10-07 revision: re-fetched the public published scan and verified the SHA-256. Selectively rechecked rendered pp.547–548, 550–551, 562, 565, 569, 574–577, 582–583, 585–589, 591–599, 600–603 for the review corrections. The preceding full-source read is the original/review record above; external unread references remain gaps."
+        "2026-10-07 revision: re-fetched the public published scan and verified the SHA-256. Selectively rechecked rendered pp.547–548, 550–551, 562, 565, 569, 574–577, 582–583, 585–589, 591–599, 600–603 for the review corrections. The preceding full-source read is the original/review record above; external unread references remain gaps.",
+        "2026-10-08 independent revision-2 review: read printed pp.543–618 in OCR, compared the node locators and proof routes, and inspected rendered formula pages including 547, 557, 559, 565, 582, 592 and 602. The source hash matches the preceding record. External omitted-proof references remain unread inputs; no proof gap was discharged."
       ]
     }
   ],
@@ -231,7 +232,7 @@
       "kind": "published",
       "url": "https://wstein.org/papers/bib/bump-friedberg-hoffstein-nonvanishing.pdf",
       "citation": "Published Invent. Math. 102 (1990), 543–618 scan with publisher header and journal pagination, read throughout. DOI 10.1007/BF01233440; publisher metadata checked independently. This is distinct from the BFH Annals 131 (1990), 53–127 paper.",
-      "read": "2026-10-07",
+      "read": "2026-10-08",
       "sha256": "d50ad2f11c992591de90f2cea59489ac436cce455e140e6eebf5053f49819f2c"
     }
   ],
@@ -325,7 +326,7 @@
         },
         {
           "name": "TauCeti.Jacobi.GenusTwo.fourierShift_other_cusp",
-          "kind": "compatibility",
+          "kind": "computation",
           "statement": "For a=1,c=1 and the same zero data and shift, the output is (x₀²,−2e₀). This detects using c=N at both cusps."
         },
         {
@@ -875,7 +876,7 @@
         },
         {
           "name": "TauCeti.Jacobi.GenusTwo.positiveSimilitudes_base_action",
-          "kind": "compatibility",
+          "kind": "computation",
           "statement": "fractional(2I₄,iI₂)=iI₂."
         }
       ],
@@ -952,7 +953,7 @@
       "tests": [
         {
           "name": "TauCeti.Jacobi.GenusTwo.siegelAction_scalar",
-          "kind": "compatibility",
+          "kind": "computation",
           "statement": "2I₄ fixes iI₂."
         },
         {
@@ -1061,7 +1062,7 @@
         },
         {
           "where": "BFH §1, pp.545–546, definition of GSp⁺(4,R)",
-          "how": "Uses genus-two square-root double cover in full real similitude extension: Let r=diag(I₂,−I₂) with μ(r)=−1. Every negative similitude is uniquely g₊r. On H₂ put c(Z)=−conjugate Z. Conjugation by r acts on the positive cover by (g,ρ(Z))↦(rgr,conjugate(ρ(c(Z)))); this is an involution because d(rgr,Z)=conjugate d(g,c(Z)). Define the split extension G̃Sp₄(R)=G̃Sp₄⁺(R)⋊C₂ using this involution. I"
+          "how": "Use the positive-cover cocycle to construct the conjugation involution and its chosen split extension across the negative real component; comparison with adelic lifts remains separate."
         },
         {
           "where": "RankZeroOneBSD:BSD.2",
@@ -1182,15 +1183,15 @@
       "uses": [
         {
           "where": "BFH §1, p.547, (1.6)–(1.9)",
-          "how": "Uses bfh arithmetic subgroup in bfh jacobi coordinate space: Specialize the MP.6 Jacobi space to the BFH lattice and cusp j. Its coordinate functions Φ_j:GSp₄⁺(R)×C²→C are smooth in the real group variables, holomorphic in W, invariant under Γ_N at cusp zero or J⁻¹Γ_NJ at cusp one, and invariant under ||[N^(−j)ℓ;N^(j−1)r] for ℓ,r∈Z². For vector values take each continuous linear"
+          "how": "Specialize the MP.6 Jacobi carrier to Γ_N and J⁻¹Γ_NJ and the two BFH elliptic lattices, retaining smoothness and W-holomorphy for scalar and finite-dimensional vector coefficients."
         },
         {
           "where": "BFH §1, p.549, definition of E_s",
-          "how": "Uses bfh arithmetic subgroup in genus-two jacobi eisenstein series: For the genuine elliptic-newform seed, define E_s(g,W)=Σ_{γ∈(P∩Γ_N)\\Γ_N} Σ_{λ∈Z²} (I_s||[λ;0])|γ(g,W), where P consists of n(X)diag(Q,Q⁻ᵀ) with detQ>0. The sum is initially defined in a right half-plane of s. For finite-dimensional vector values use the original seed, not a scalar replacement; continuous linear functio"
+          "how": "Use the actual intersection P∩Γ_N to index the Eisenstein sum and prove representative independence from the seed covariance before asserting convergence."
         },
         {
           "where": "BFH §1, pp.545–549; §2, p.553, (2.6)",
-          "how": "Uses bfh arithmetic subgroup in arithmetic and adelic cover compatibility: Use the MP.4 restricted product of normalized local rank-two metaplectic covers, the rational splitting on Sp₄(Q), and the Schrödinger–Weil lattice model. Construct the map from the BFH real arithmetic lift of Γ_N into the quotient by the rational splitting with the finite vector fixed by its specified compact-open sub"
+          "how": "Identify the real lift of Γ_N with the MP.4 rational splitting and the prescribed finite theta vector, including its dyadic compact-open stabilizer."
         }
       ]
     },
@@ -1351,7 +1352,7 @@
       "uses": [
         {
           "where": "BFH §2, pp.551–553, (2.2)–(2.3)",
-          "how": "Uses bfh elliptic translation operator in bfh fourier coefficient extraction: For j=0 or 1, define B_j(g;T,R)=N^(−3j)∫_{[0,N^j)^3}∫_{[0,1)^2} Φ_j(n(X)g,W)e(−N^(−j)tr(T(Z_g+X))−N^(1−j)RᵀW)dW dX. X=[[x₄,x₃],[x₃,x₁]], T is the half-integral matrix of Q, R∈Z², and both measures are coordinate Lebesgue measures. The coefficient excludes the exponential in Z_g; it is not the unnormalized torus Fourier"
+          "how": "Fix the two elliptic periods and the N-dependent vector frequency in normalized Fourier extraction; retain the exponential in Z_g removed from the coefficient."
         },
         {
           "where": "BFH §2, pp.552–553, (2.9)",
@@ -1359,7 +1360,7 @@
         },
         {
           "where": "BFH §1, p.547, (1.6)–(1.9)",
-          "how": "Uses bfh elliptic translation operator in bfh jacobi coordinate space: Specialize the MP.6 Jacobi space to the BFH lattice and cusp j. Its coordinate functions Φ_j:GSp₄⁺(R)×C²→C are smooth in the real group variables, holomorphic in W, invariant under Γ_N at cusp zero or J⁻¹Γ_NJ at cusp one, and invariant under ||[N^(−j)ℓ;N^(j−1)r] for ℓ,r∈Z². For vector values take each continuous linear"
+          "how": "Impose translation invariance at cusp j for N^(−j)Z²×N^(j−1)Z² and prove that its central phase is integral when N divides m."
         }
       ]
     },
@@ -1419,7 +1420,7 @@
       "tests": [
         {
           "name": "TauCeti.Jacobi.GenusTwo.genusTwoTheta_negation",
-          "kind": "compatibility",
+          "kind": "characterisation",
           "statement": "θᵃ_{−ν}(Z,−W)=θᵃ_ν(Z,W)."
         },
         {
@@ -1444,7 +1445,7 @@
         },
         {
           "where": "BFH Proposition 2.2, pp.552–554, (2.4)–(2.6)",
-          "how": "Uses bfh genus-two theta series in bfh theta component projection: For a=m/N>0, define E_j(g;ν) by the orthogonal projection of the coordinate function onto θᵃ_ν at Z′=N^(1−2j)Z_g, W′=N^(1−j)W, divided by its norm √det(Im Z′)/(2a). Integrate in W′ on its period torus. For a BFH Jacobi function this equals the component in Proposition 2.2. Define the projection before its decomposition"
+          "how": "Project onto the finite residue-indexed theta basis using the Gaussian pairing, and prove reconstruction only after the elliptic transformation and normal-convergence arguments."
         }
       ],
       "planet": {
@@ -1524,15 +1525,15 @@
       "uses": [
         {
           "where": "BFH §2, pp.551–553, (2.2)–(2.3)",
-          "how": "Uses half-integral matrix dictionary in bfh fourier coefficient extraction: For j=0 or 1, define B_j(g;T,R)=N^(−3j)∫_{[0,N^j)^3}∫_{[0,1)^2} Φ_j(n(X)g,W)e(−N^(−j)tr(T(Z_g+X))−N^(1−j)RᵀW)dW dX. X=[[x₄,x₃],[x₃,x₁]], T is the half-integral matrix of Q, R∈Z², and both measures are coordinate Lebesgue measures. The coefficient excludes the exponential in Z_g; it is not the unnormalized torus Fourier"
+          "how": "Convert a native integral quadratic form into the half-integral matrix T in the Fourier phase, keeping each mixed coefficient as twice the corresponding matrix entry."
         },
         {
           "where": "BFH §2, pp.552–553, before Proposition 2.2",
-          "how": "Uses half-integral matrix dictionary in theta-component fourier coefficients: C_j(g;U,ν) is the Fourier coefficient B_j(g;T,ν) with T=(U+N^(2−j)ννᵀ)/(4m); set it to zero if this is not an integral quadratic form, equivalently a half-integral symmetric matrix. This computational construction is defined before imposing Jacobi invariance. For the actual BFH family, the shift theorem makes the resid"
+          "how": "Recover the Fourier index from U=4mT−N^(2−j)R Rᵀ only when the resulting T is half integral; use the shift theorem to justify residue independence for BFH coefficients."
         },
         {
           "where": "BFH §5, p.580, definition of H before Proposition 5.1",
-          "how": "Uses half-integral matrix dictionary in genus-two fourier unfolding kernel: For Y=QQᵀ positive definite, Z=X+iY, detC≠0, define H(Q,s;C,T,R)=(2mN³)^−1∫_{R³}√(−detZ)(detY/|detZ|²)^(s/2) I([[0,−C⁻ᵀ],[C,0]][[Q,XQ⁻ᵀ],[0,Q⁻ᵀ]]) e(Z[R]/(4m)−N⁻¹tr(TZ))dX. The positive-base power is exp((s/2)log(detY/|detZ|²)). Its quadratic shift identity is H(Q,s;C,N^(1−j)T,N^(1−j)R)=H(Q,s;C,N^(1−j)U/(4m),0) when T="
+          "how": "Insert the half-integral matrix into tr(TZ) and verify the discriminant substitution that cancels the quadratic R term in the unfolded kernel."
         }
       ]
     },
@@ -1896,7 +1897,7 @@
         },
         {
           "where": "BFH Proposition 2.2, pp.552–554, (2.4)–(2.6)",
-          "how": "Uses bfh jacobi coordinate space in bfh theta component projection: For a=m/N>0, define E_j(g;ν) by the orthogonal projection of the coordinate function onto θᵃ_ν at Z′=N^(1−2j)Z_g, W′=N^(1−j)W, divided by its norm √det(Im Z′)/(2a). Integrate in W′ on its period torus. For a BFH Jacobi function this equals the component in Proposition 2.2. Define the projection before its decomposition"
+          "how": "Supply the actual elliptic invariance, smoothness and W-holomorphy needed to reconstruct a BFH Jacobi function from its theta projections."
         },
         {
           "where": "BFH Proposition 2.2, p.552, (2.7)–(2.8)",
@@ -1976,7 +1977,7 @@
       "uses": [
         {
           "where": "BFH Proposition 2.2, pp.552–554, (2.4)–(2.6)",
-          "how": "Uses bfh theta component projection in bfh theta component projection: For a=m/N>0, define E_j(g;ν) by the orthogonal projection of the coordinate function onto θᵃ_ν at Z′=N^(1−2j)Z_g, W′=N^(1−j)W, divided by its norm √det(Im Z′)/(2a). Integrate in W′ on its period torus. For a BFH Jacobi function this equals the component in Proposition 2.2. Define the projection before its decomposition"
+          "how": "Use the defined projections, Gaussian orthogonality and elliptic invariance to reconstruct the original Jacobi function as its finite theta expansion."
         },
         {
           "where": "BFH Proposition 2.2, p.552, (2.7)–(2.8)",
@@ -2061,7 +2062,7 @@
       "uses": [
         {
           "where": "BFH Proposition 2.2, pp.552–554, (2.4)–(2.6)",
-          "how": "Uses theta-component fourier coefficients in bfh theta component projection: For a=m/N>0, define E_j(g;ν) by the orthogonal projection of the coordinate function onto θᵃ_ν at Z′=N^(1−2j)Z_g, W′=N^(1−j)W, divided by its norm √det(Im Z′)/(2a). Integrate in W′ on its period torus. For a BFH Jacobi function this equals the component in Proposition 2.2. Define the projection before its decomposition"
+          "how": "Express each theta projection through its Fourier coefficients indexed by representable U and residue ν; the coefficient shift establishes independence of the chosen lift."
         },
         {
           "where": "BFH §2, pp.556–557, Proposition 2.7, Corollary 2.8",
@@ -2141,7 +2142,7 @@
         },
         {
           "name": "TauCeti.Jacobi.GenusTwo.bfhSeed_central",
-          "kind": "compatibility",
+          "kind": "computation",
           "statement": "I(2I₄)=I(I₄)."
         }
       ],
@@ -2232,7 +2233,7 @@
       "uses": [
         {
           "where": "BFH §1, p.549, definition of E_s",
-          "how": "Uses bfh normalized section family in genus-two jacobi eisenstein series: For the genuine elliptic-newform seed, define E_s(g,W)=Σ_{γ∈(P∩Γ_N)\\Γ_N} Σ_{λ∈Z²} (I_s||[λ;0])|γ(g,W), where P consists of n(X)diag(Q,Q⁻ᵀ) with detQ>0. The sum is initially defined in a right half-plane of s. For finite-dimensional vector values use the original seed, not a scalar replacement; continuous linear functio"
+          "how": "Insert det(Y)^(s/2) times the original finite-dimensional BFH seed into the parabolic and lattice sum; test convergence and representative independence separately."
         }
       ]
     },
@@ -2345,7 +2346,7 @@
         "MetaplecticAutomorphicForms:MP.8/similitude-cover"
       ],
       "proofSteps": [
-        "Use the unique Iwasawa factors of diag(w,−w)n(X), w=[[0,−1],[1,0]], to define κ(X).",
+        "Use the unique Iwasawa factors of [[0,w],[−w,0]]n(X), w=[[0,−1],[1,0]], from BFH (3.2) to define κ(X). This off-diagonal block matrix is symplectic.",
         "Insert the explicit real coordinates and positive square-root branch. Define the Bochner integral without placing its convergence or continuation in the data."
       ],
       "acceptance": [
@@ -2395,7 +2396,7 @@
         },
         {
           "name": "TauCeti.Jacobi.GenusTwo.whittakerFunction_degenerate_test",
-          "kind": "compatibility",
+          "kind": "computation",
           "statement": "W⁰(2,y₂;s)=2^(4−s)W⁰(1,y₂;s)."
         }
       ],
@@ -2405,7 +2406,7 @@
           "how": "Uses genus-two archimedean whittaker functions in three-variable whittaker majorant: Put D(X)=1+x₁²+2x₃²+x₄²+(x₁x₄−x₃²)². The positive function D(X)^−α(1+x₁²+x₃²)^−β(1+x₁²)^−γ is integrable on R³ if α>1/2, 2α+β>3/2 and α+β+γ>1. These are sufficient conditions; no necessity assertion is made."
         },
         {
-          "where": "BFH §3, pp.559–561, (3.10)–(3.15)",
+          "where": "BFH §3, pp.559–561, (3.11)–(3.15)",
           "how": "Relate the initial Whittaker integral to the two-parameter Jacquet integral in its absolute-convergence chamber, then continue it using the reflected identities."
         },
         {
@@ -2493,7 +2494,7 @@
       ],
       "title": "Two-parameter Jacquet integral",
       "kind": "definition",
-      "statement": "For the BFH K-type, let F_v(n(E(x₂))m(Y)κ)=|det Y|^s y₂^r vσ(κ), Y=√y₁ diag(y₂,1). Define V^ε(y₁,y₂;s,r)= (−1)^(k/2)y₁^(4−s)y₂^(5−r−s)∫_{R×R³} F_v(Jm(E(x₂))n(X))√(−det(X+iI))e(εy₁x₁)e(y₂x₂)dX dx₂. Set W^ε(s,r)=π^−r Γ(r+k/2)V^ε(s,r). The section is homogeneous exactly as (3.10); both integrals are initially interpreted in their absolute-convergence chamber.",
+      "statement": "For the BFH K-type, let F_v(n(E(x₂))m(Y)κ)=|det Y|^s y₂^r vσ(κ), Y=√y₁ diag(y₂,1). Define V^ε(y₁,y₂;s,r)= (−1)^(k/2)y₁^(4−s)y₂^(5−r−s)∫_{R×R³} F_v(Jm(E(x₂))n(X))√(−det(X+iI))e(εy₁x₁)e(y₂x₂)dX dx₂. Set W^ε(s,r)=π^−r Γ(r+k/2)V^ε(s,r). The section is homogeneous exactly as (3.11); both integrals are initially interpreted in their absolute-convergence chamber.",
       "hypotheses": [],
       "prerequisites": [
         "MetaplecticAutomorphicForms:MP.8/whittaker-functions",
@@ -2515,7 +2516,7 @@
       "sources": [
         {
           "sourceId": "BFH90",
-          "locator": "§3, pp.559–561, (3.10)–(3.15)",
+          "locator": "§3, pp.559–561, (3.11)–(3.15)",
           "match": "The inspected passage supplies this genus-two specialization; hypotheses and normalization are retained. Minor algebra stays in the proof outline."
         }
       ],
@@ -2550,7 +2551,7 @@
         },
         {
           "name": "TauCeti.Jacobi.GenusTwo.jacquetTwoParameter_specialization_test",
-          "kind": "compatibility",
+          "kind": "computation",
           "statement": "The special-function factor becomes y^(k/2)e^−y/2 at r=k/2, retaining the k/2 exponent."
         }
       ],
@@ -2986,7 +2987,7 @@
       "uses": [
         {
           "where": "BFH §3, pp.571–574, Propositions 3.11–3.12",
-          "how": "Uses novodvorsky mellin transform in novodvorsky analytic continuation: For φ divisible by φ₁, the Novodvorsky transforms continue holomorphically for Re s>3/2 and Re(u−s+5/2)>0, initially agreeing with the iterated integral for Re u large. The large-y₁ tail uses nondegenerate rapid decay and the small-y₁ tail uses Proposition 3.10. This assertion is not joint absolute convergence of the e"
+          "how": "Split the iterated Mellin transform into large and small y₁ tails; use nondegenerate rapid decay and the repaired rotated bound with global φ₁ divisibility to continue it."
         },
         {
           "where": "BFH §3, p.571, (3.39)–(3.41)",
@@ -3218,7 +3219,7 @@
       ],
       "title": "Nonzero Novodvorsky tests with vanishing rank zero",
       "kind": "theorem",
-      "statement": "For every even k≥2 and (u,s) with Re s>3/2, Re(u−s+5/2)>0, there exist an actual finite-dimensional σ, weight-k v, T and y₂>0 such that both continued TF⁺ and TF⁻ are analytic in the asserted domain, each is nonzero at the given point (with suitable y₂), and Tτ is identically zero. One may take the coefficient divisible by φ₁φ₂. The two nonzero assertions do not require the same y₂ unless separately proved.",
+      "statement": "For every even k≥2 and (u,s) with Re s>3/2, Re(u−s+5/2)>0, there exist an actual finite-dimensional σ, weight-k v and T for which both continued TF⁺ and TF⁻ are analytic in the asserted domain and Tτ is identically zero. For each sign ε separately there is a positive y₂^ε with TF^ε(u,s,y₂^ε)≠0. One may take the coefficient divisible by φ₁φ₂; a common y₂ for the two signs is not asserted.",
       "hypotheses": [],
       "prerequisites": [
         "MetaplecticAutomorphicForms:MP.8/novodvorsky-continuation",
@@ -3429,7 +3430,7 @@
         },
         {
           "name": "TauCeti.Jacobi.GenusTwo.fullRealCover_central",
-          "kind": "compatibility",
+          "kind": "characterisation",
           "statement": "The involution fixes both kernel elements."
         }
       ],
@@ -3854,7 +3855,7 @@
       "uses": [
         {
           "where": "BFH §5, p.580, definition of H before Proposition 5.1",
-          "how": "Uses genus-two finite exponential sums in genus-two fourier unfolding kernel: For Y=QQᵀ positive definite, Z=X+iY, detC≠0, define H(Q,s;C,T,R)=(2mN³)^−1∫_{R³}√(−detZ)(detY/|detZ|²)^(s/2) I([[0,−C⁻ᵀ],[C,0]][[Q,XQ⁻ᵀ],[0,Q⁻ᵀ]]) e(Z[R]/(4m)−N⁻¹tr(TZ))dX. The positive-base power is exp((s/2)log(detY/|detZ|²)). Its quadratic shift identity is H(Q,s;C,N^(1−j)T,N^(1−j)R)=H(Q,s;C,N^(1−j)U/(4m),0) when T="
+          "how": "Separate the finite arithmetic phase sum from the archimedean unfolded kernel, retaining the level normalization (2mN³)⁻¹ and the quadratic discriminant substitution."
         },
         {
           "where": "BFH §5, pp.580–582, Proposition 5.1",
@@ -3862,7 +3863,7 @@
         },
         {
           "where": "BFH §6, pp.583–584; §7, p.589, (7.1)",
-          "how": "Uses genus-two finite exponential sums in bfh first-cusp dirichlet series: For the preceding parameters and the original normalized newform f with Fourier coefficients a(n), set L(s,D,n₂)=Σ_{α,δ>0; β mod Nδ;N|β;α|Nn₂δ} S₁([[α,β],[0,δ]];U₁(n₁),ν)(αδ)^−s(α/δ)^(k/2)a(Nn₂δ/α)e(n₂β/α). Put L(s,D)=L(s,D,N⁻¹). Positive real powers use the real logarithm. The congruence and divisibility constraints a"
+          "how": "Form the first-cusp Dirichlet coefficient from the primitive exponential sum and a(n) of the original newform, with the actual β modulus and α-divisibility constraint."
         }
       ]
     },
@@ -4180,7 +4181,7 @@
       "uses": [
         {
           "where": "BFH §6, pp.585–586, definition of P",
-          "how": "Uses bfh first-cusp dirichlet series in bfh opposite-cusp dirichlet series: For 4m|D, set P(s,D,n₂,r)=Σ_{μ mod 2m/N}e(−Nν·μ/(2m))Σ_{γ∈Γ₀(N)\\SL₂(Z)}Σ_{αδ>0;β mod δ;α|Nn₂δ} S₀(Nγ⁻ᵀCw;T,μ)(N²αδ)^−s(α/δ)^(k/2)a_γ(Nn₂δ/α)e(n₂β/α), C=[[α,β],[0,δ]], T=(U₀(−D)+N²μμᵀ)/(4m), and omit a term when T is not half integral. The a_γ are the Fourier coefficients of the actual transformed elliptic seed at the i"
+          "how": "Compare the two cusp Dirichlet coefficients without identifying their elliptic data: L uses the original f, while P uses transformed cusp coefficients and its finite theta phase."
         },
         {
           "where": "BFH §6, pp.584–585, Proposition 6.1",
@@ -4188,7 +4189,7 @@
         },
         {
           "where": "BFH §7, pp.590–594, Lemma 7.2, (7.9),(7.12)–(7.16)",
-          "how": "Uses bfh first-cusp dirichlet series in local primitive exponential factors: For upper triangular C=[[p^a,p^b],[0,p^d]], d≥1, define S_p by μ₂-inversion of the unrestricted local S. If a=0 or b=0, S_p=S(a,b,d)−pS(a,b,d−1). If a,b≥1, S_p=S(a,b,d)−p²S(a−1,b−1,d)−pS(a,b,d−1)+p³S(a−1,b−1,d−1). The S terms are p^(2a+d)N₁, p^(a+2d)N₂ or p^(a+b+d)N₃ according to Σ₁,Σ₂,Σ₃; absent divisors contribute ze"
+          "how": "Apply matrix Möbius inversion to the local unrestricted sums; retain all three exponents a,b,d and the four possible prime-power divisor contributions."
         }
       ]
     },
@@ -4256,7 +4257,7 @@
         },
         {
           "name": "TauCeti.Jacobi.GenusTwo.bfhPDirichletSeries_residue_test",
-          "kind": "compatibility",
+          "kind": "characterisation",
           "statement": "Replacing r by r+2m/N leaves P unchanged."
         },
         {
@@ -4434,7 +4435,7 @@
       "uses": [
         {
           "where": "BFH §7, pp.595–597, Lemma 7.3",
-          "how": "Uses prime-power congruence counts in prime-power root-count evaluation: Write D=D'p^(2h), p²∤D', χ=χ_{D'}(p), ε(t)=t mod2, p∤2mN. For i=1,2 and a≤d+1, the count N_i is: p^((a−ε(a)+d−ε(d))/2) if d≤2h; for d≥2h+1 and χ=1, N₁=2p^(h+min((a−ε(a))/2,h)), N₂=2p^(2h+1); for d=2h+1 and χ=0, N₁=p^(h+(a−ε(a))/2), N₂=p^(2h+1); otherwise 0. Here i=1 uses a≤d and i=2 uses a>d, so the two identical defin"
+          "how": "Evaluate N₁,N₂,N₃ by completing squares and counting prime-power roots, with the corrected mixed modulus min(a,d), parity factors and separate discriminant-valuation ranges."
         }
       ]
     },
@@ -4732,7 +4733,7 @@
       ],
       "title": "Genuine Siegel intertwining operators",
       "kind": "construction",
-      "statement": "For the long Siegel Weyl element w and the induced spaces above, define M(w,s)F(g)=∫_{N_w(A)}F(w⁻¹ng)dn in its actual convergence chamber, with chosen lift of w and self-dual root-group measures. Its target is Ind(π̃_f∨⊗|det|^(2−s)); the target BFH parameter is 4−s. Continue M meromorphically as an operator between these fixed smooth genuine spaces. Record scalar normalizing factors and pole divisors at every ramified place; the cocycle makes this a genuine-cover integral, not the AS.2 linear operator.",
+      "statement": "For the long Siegel Weyl element w and the induced spaces above, define M(w,s)F(g)=∫_{N_w(A)}F(w⁻¹ng)dn in its actual convergence chamber, with chosen lift of w and self-dual root-group measures. Its target is Ind(π̃_f∨⊗|det|^(2−s)); the target BFH parameter is 4−s. Continue M meromorphically as an operator between these fixed smooth genuine spaces. Record scalar normalizing factors and pole divisors at every ramified place; the cocycle makes this a genuine-cover integral, not the AS.2 linear operator. Keep the raw standard operator M used in the constant term and the unnormalized Eisenstein Weyl equation distinct from R=c(s)⁻¹M, the operator with explicitly specified scalar normalization. An equation using R instead requires the corresponding renormalization of the Eisenstein family.",
       "hypotheses": [
         "The arithmetic BFH datum has a normalized elliptic newform f of even weight k≥2, trivial character and conductor M; 8M|N, N|m, 4m|N², with N,m>0. The auxiliary Fricke transform uses N; the original newform completion uses M.",
         "The seed is built from the specified finite-dimensional continuous K=U(2) representation σ, its SO(2) weight-k vector v, and the stated cusp covariance. Scalar formulas apply a continuous linear functional T to that vector family."
@@ -4745,7 +4746,7 @@
       "proofSteps": [
         "Define the integral on the actual lifted unipotent subgroup and compute its parabolic covariance.",
         "Compare each rank-one lifted integral with the AS.2 operator plus the explicit Weil phase. Track root ordering, Haar factors and genuine local K-types.",
-        "Use those comparisons for meromorphic continuation, and verify composition M(w,4−s)M(w,s)=id in compatible normalizations. Ramified scalar factors are a named open input."
+        "Continue the raw standard operator M using the cover comparison. Specify the scalar factors c(s) before defining R=c(s)⁻¹M; verify the composition equation in the actual local/global setting and the chosen dual cusp identification. The native composition sketch uses R, while the standard constant term and unnormalized Eisenstein Weyl equation use M. Ramified scalar factors remain an open input."
       ],
       "acceptance": [
         "The parameter reflection is s↦4−s after the half-root shift.",
@@ -4778,7 +4779,7 @@
         {
           "name": "TauCeti.Jacobi.GenusTwo.genuineIntertwiner_composition",
           "role": "relation",
-          "statement": "The compatibly normalized operators compose to identity meromorphically away from their pole divisors."
+          "statement": "For R=c(s)⁻¹M with the specified scalar factors and contragredient identification, R(w,4−s)R(w,s)=id meromorphically away from operator poles. This API is for R; M remains the raw integral operator in the standard constant term and Weyl equation."
         }
       ],
       "tests": [
@@ -4789,7 +4790,7 @@
         },
         {
           "name": "TauCeti.Jacobi.GenusTwo.genuineIntertwiner_central_sign",
-          "kind": "compatibility",
+          "kind": "characterisation",
           "statement": "The output remains genuine under the cover kernel."
         },
         {
@@ -4855,7 +4856,7 @@
       ],
       "title": "Genuine Eisenstein continuation and Weyl equation",
       "kind": "theorem",
-      "statement": "The actual BFH genuine Eisenstein family continues meromorphically in s, satisfies E(s,F)=E(4−s,M(w,s)F) after the contragredient cusp identification, and has poles only from the proven genuine constant terms. Near s=2 the chosen BFH family is regular exactly when those constant-term coefficients are regular; its residues are automorphic genuine forms obtained from residues of the intertwining operators. This target requires the cover-specific AS.2 adaptation and the correct Fricke level M, rather than an unqualified appeal to linear Selberg–Langlands theory.",
+      "statement": "The actual BFH genuine Eisenstein family continues meromorphically in s, satisfies E(s,F)=E(4−s,M(w,s)F) for the raw standard intertwiner M after the contragredient cusp identification, and has poles only from the proven genuine constant terms. Near s=2 the chosen BFH family is regular exactly when those constant-term coefficients are regular; its residues are automorphic genuine forms obtained from residues of the intertwining operators. This target requires the cover-specific AS.2 adaptation and the correct Fricke level M, rather than an unqualified appeal to linear Selberg–Langlands theory.",
       "hypotheses": [
         "The arithmetic BFH datum has a normalized elliptic newform f of even weight k≥2, trivial character and conductor M; 8M|N, N|m, 4m|N², with N,m>0. The auxiliary Fricke transform uses N; the original newform completion uses M.",
         "The seed is built from the specified finite-dimensional continuous K=U(2) representation σ, its SO(2) weight-k vector v, and the stated cusp covariance. Scalar formulas apply a continuous linear functional T to that vector family."
@@ -4941,7 +4942,9 @@
       "title": "Fourier and residue interchange for genuine families",
       "kind": "theorem",
       "statement": "Let the continued genuine family have locally finite pole divisor in its parameter domain. After multiplying by a local holomorphic denominator, its Fourier integrals on the specified compact quotient tori, the finite theta transform and the absolutely convergent nonzero-discriminant Whittaker/Mellin tails are locally uniformly holomorphic; coefficient extraction commutes with s-residues and derivatives. Infinite theta or D sums may commute with these operations only under the proven Gaussian or rapid-decay majorants. The expanded Novodvorsky kernel is excluded from an unproved joint Fubini interchange.",
-      "hypotheses": [],
+      "hypotheses": [
+        "Fix y₂>0. The scalar coefficient φ(κ)=T(vσ(κ)) is globally divisible by φ₁ in R_k: there exists ψ∈R_k with φ(κ)=φ₁(κ)ψ(κ) for every κ∈K. This is the standing hypothesis on printed p.601 before Proposition 8.1, not merely divisibility in the positive κ(X) chart."
+      ],
       "prerequisites": [
         "MetaplecticAutomorphicForms:MP.8/genuine-eisenstein-continuation",
         "MetaplecticAutomorphicForms:MP.8/theta-normal-convergence",
@@ -5043,7 +5046,7 @@
       "uses": [
         {
           "where": "BFH §8, pp.601–614, Proposition 8.1",
-          "how": "Uses bfh two-variable twist series in bfh two-variable polar combination: Put A=(4m)^(−s+u+5/2)N^(−s+4+k/2)[Z⁺ TF⁺(u,s;N⁻¹y₂)+Z⁻ TF⁻(u,s;N⁻¹y₂)]. It continues meromorphically to Re s>3/2, Re u>0 and Re u>Re s−5/2. Near (u,s)=(1/2,2), A minus the following sum is jointly holomorphic: −N^(−s+4+k/2)L(s,0)TM(s,N⁻¹y₂)/(u−s+5/2) + N^(7−s−k/2)P(s,0,r)y₂^(2s−5)TM̃(s,N⁻¹y₂)/(u+s−5/2) + N^−s y₂^(3−s+k"
+          "how": "Combine the two signed twist series with the continued Novodvorsky transforms of a fixed globally divisible coefficient at N⁻¹y₂; isolate the three zero-mode polar fractions."
         },
         {
           "where": "RankZeroOneBSD:BSD.2",
@@ -5062,7 +5065,8 @@
       "statement": "Put A=(4m)^(−s+u+5/2)N^(−s+4+k/2)[Z⁺ TF⁺(u,s;N⁻¹y₂)+Z⁻ TF⁻(u,s;N⁻¹y₂)]. It continues meromorphically to Re s>3/2, Re u>0 and Re u>Re s−5/2. Near (u,s)=(1/2,2), A minus the following sum is jointly holomorphic: −N^(−s+4+k/2)L(s,0)TM(s,N⁻¹y₂)/(u−s+5/2) + N^(7−s−k/2)P(s,0,r)y₂^(2s−5)TM̃(s,N⁻¹y₂)/(u+s−5/2) + N^−s y₂^(3−s+k/2)Tτ(s,N⁻¹y₂)/(u−s+3/2). Every term uses the continued scalar transforms and fixed BFH test vector. This is joint holomorphy in two complex variables, not a collection of separate one-variable statements.",
       "hypotheses": [
         "The arithmetic BFH datum has a normalized elliptic newform f of even weight k≥2, trivial character and conductor M; 8M|N, N|m, 4m|N², with N,m>0. The auxiliary Fricke transform uses N; the original newform completion uses M.",
-        "The seed is built from the specified finite-dimensional continuous K=U(2) representation σ, its SO(2) weight-k vector v, and the stated cusp covariance. Scalar formulas apply a continuous linear functional T to that vector family."
+        "The seed is built from the specified finite-dimensional continuous K=U(2) representation σ, its SO(2) weight-k vector v, and the stated cusp covariance. Scalar formulas apply a continuous linear functional T to that vector family.",
+        "Fix y₂>0. The scalar coefficient φ(κ)=T(vσ(κ)) is globally divisible by φ₁ in R_k: there exists ψ∈R_k with φ(κ)=φ₁(κ)ψ(κ) for every κ∈K. This is the standing hypothesis on printed p.601 before Proposition 8.1, not merely divisibility in the positive κ(X) chart."
       ],
       "prerequisites": [
         "MetaplecticAutomorphicForms:MP.8/two-variable-twist-series",
@@ -5071,7 +5075,9 @@
         "MetaplecticAutomorphicForms:MP.8/degenerate-mellin-coefficients",
         "MetaplecticAutomorphicForms:MP.8/tau-transform",
         "MetaplecticAutomorphicForms:MP.8/fourier-residue-interchanges",
-        "MetaplecticAutomorphicForms:MP.8/opposite-cusp-zero-regularity"
+        "MetaplecticAutomorphicForms:MP.8/opposite-cusp-zero-regularity",
+        "MetaplecticAutomorphicForms:MP.8/test-coefficient-algebra",
+        "MetaplecticAutomorphicForms:MP.8/novodvorsky-continuation"
       ],
       "proofSteps": [
         "Rewrite the Novodvorsky transform of the genuine Fourier–Jacobi components with exact x₁,x₃,x₄ periods, using Propositions 2.5–2.7. Prove the Fourier inversion identities (8.5),(8.7),(8.9) with their finite theta phases.",
@@ -5099,7 +5105,7 @@
       "planet": {
         "name": "BFH two-variable polar formula"
       },
-      "signatureOmissions": "The native signature uses local holomorphic numerator/denominator charts on C². All raw coefficient and transform arguments must be the actual continued BFH family with a single finite K-type and proven tail bounds; these absent supplier conditions are omitted."
+      "signatureOmissions": "The native signature uses local holomorphic numerator/denominator charts on C² and explicitly carries IsBFHMatrixCoefficient and HasBFHDivisor for the fixed scalar coefficient. All raw coefficient and transform arguments must arise from that one continued BFH family and have proven tail bounds; these supplier-owned comparison conditions are omitted."
     },
     {
       "id": "MetaplecticAutomorphicForms:MP.8/bsd2-export",
@@ -5397,12 +5403,13 @@
       "searched": [
         "2026-10-06: inspected publisher metadata for DOI 10.1007/BF01233440, Friedberg’s publication list and web results for the exact title with erratum/correction; no existing correction addressing these statements located. This is a search record, not proof none exists.",
         "2026-10-06: additional searches for BFH Proposition 3.9/strip and Proposition 8.1/Novodvorsky normalization found no corresponding published correction.",
-        "2026-10-06 independent review: read Springer DOI 10.1007/BF01233440 metadata/reference page, https://math.stanford.edu/~bump/ (papers and correction links), https://profiles.stanford.edu/daniel-bump (1990 publication entries), and https://sites.google.com/bc.edu/solomon-friedberg/ (research navigation). The obsolete www2.bc.edu research URL failed to load. Exact-title searches with erratum/correction and searches for BFH 3.19 gamma and 7.10 correction located no relevant correction. No priority or exhaustive absence claim."
+        "2026-10-06 independent review: read Springer DOI 10.1007/BF01233440 metadata/reference page, https://math.stanford.edu/~bump/ (papers and correction links), https://profiles.stanford.edu/daniel-bump (1990 publication entries), and https://sites.google.com/bc.edu/solomon-friedberg/ (research navigation). The obsolete www2.bc.edu research URL failed to load. Exact-title searches with erratum/correction and searches for BFH 3.19 gamma and 7.10 correction located no relevant correction. No priority or exhaustive absence claim.",
+        "2026-10-08 revision-2 review: exact-title and DOI searches with erratum/correction and https://math.stanford.edu/~bump/ correction links located no correction addressing these eight entries. This limited search makes no priority or exhaustive-absence claim."
       ],
       "review": {
         "verdict": "confirmed",
-        "by": "REV-MetaplecticAutomorphicForms--MP.8",
-        "reason": "Independently inspected p.548 and checked g=2I₄; normalizing by √μ gives the stated positive-scalar enlargement."
+        "reason": "Rechecked p.548: 2I₄ fixes iI₂ and has multiplier 4, so the full positive-similitude stabilizer includes positive scalars.",
+        "by": "REV-MetaplecticAutomorphicForms--MP.8~2"
       }
     },
     {
@@ -5418,12 +5425,13 @@
       "searched": [
         "2026-10-06: inspected publisher metadata for DOI 10.1007/BF01233440, Friedberg’s publication list and web results for the exact title with erratum/correction; no existing correction addressing these statements located. This is a search record, not proof none exists.",
         "2026-10-06: additional searches for BFH Proposition 3.9/strip and Proposition 8.1/Novodvorsky normalization found no corresponding published correction.",
-        "2026-10-06 independent review: read Springer DOI 10.1007/BF01233440 metadata/reference page, https://math.stanford.edu/~bump/ (papers and correction links), https://profiles.stanford.edu/daniel-bump (1990 publication entries), and https://sites.google.com/bc.edu/solomon-friedberg/ (research navigation). The obsolete www2.bc.edu research URL failed to load. Exact-title searches with erratum/correction and searches for BFH 3.19 gamma and 7.10 correction located no relevant correction. No priority or exhaustive absence claim."
+        "2026-10-06 independent review: read Springer DOI 10.1007/BF01233440 metadata/reference page, https://math.stanford.edu/~bump/ (papers and correction links), https://profiles.stanford.edu/daniel-bump (1990 publication entries), and https://sites.google.com/bc.edu/solomon-friedberg/ (research navigation). The obsolete www2.bc.edu research URL failed to load. Exact-title searches with erratum/correction and searches for BFH 3.19 gamma and 7.10 correction located no relevant correction. No priority or exhaustive absence claim.",
+        "2026-10-08 revision-2 review: exact-title and DOI searches with erratum/correction and https://math.stanford.edu/~bump/ correction links located no correction addressing these eight entries. This limited search makes no priority or exhaustive-absence claim."
       ],
       "review": {
         "verdict": "confirmed",
-        "by": "REV-MetaplecticAutomorphicForms--MP.8",
-        "reason": "Independently compared p.543 conductor-M completion with pp.550–551 (1.21)–(1.24); the level-one weight-12 Fricke check distinguishes M from auxiliary N."
+        "reason": "Compared pp.543,550–551 and the weight-12 level-one Fricke example: the original conductor is M, whereas N belongs to the separately transformed auxiliary seed.",
+        "by": "REV-MetaplecticAutomorphicForms--MP.8~2"
       }
     },
     {
@@ -5439,12 +5447,13 @@
       "searched": [
         "2026-10-06: inspected publisher metadata for DOI 10.1007/BF01233440, Friedberg’s publication list and web results for the exact title with erratum/correction; no existing correction addressing these statements located. This is a search record, not proof none exists.",
         "2026-10-06: additional searches for BFH Proposition 3.9/strip and Proposition 8.1/Novodvorsky normalization found no corresponding published correction.",
-        "2026-10-06 independent review: read Springer DOI 10.1007/BF01233440 metadata/reference page, https://math.stanford.edu/~bump/ (papers and correction links), https://profiles.stanford.edu/daniel-bump (1990 publication entries), and https://sites.google.com/bc.edu/solomon-friedberg/ (research navigation). The obsolete www2.bc.edu research URL failed to load. Exact-title searches with erratum/correction and searches for BFH 3.19 gamma and 7.10 correction located no relevant correction. No priority or exhaustive absence claim."
+        "2026-10-06 independent review: read Springer DOI 10.1007/BF01233440 metadata/reference page, https://math.stanford.edu/~bump/ (papers and correction links), https://profiles.stanford.edu/daniel-bump (1990 publication entries), and https://sites.google.com/bc.edu/solomon-friedberg/ (research navigation). The obsolete www2.bc.edu research URL failed to load. Exact-title searches with erratum/correction and searches for BFH 3.19 gamma and 7.10 correction located no relevant correction. No priority or exhaustive absence claim.",
+        "2026-10-08 revision-2 review: exact-title and DOI searches with erratum/correction and https://math.stanford.edu/~bump/ correction links located no correction addressing these eight entries. This limited search makes no priority or exhaustive-absence claim."
       ],
       "review": {
         "verdict": "confirmed",
-        "by": "REV-MetaplecticAutomorphicForms--MP.8",
-        "reason": "Independently inspected Proposition 3.9 p.568 and (3.29): x₃=x₄=0 gives a branch singularity at x₁=−i inside the printed half-plane, excluded by the bounded strip."
+        "reason": "Rechecked p.568 and the explicit divisor coefficient: x₁=−i is singular and satisfies the printed one-sided condition; the bounded strip avoids both branch zeros.",
+        "by": "REV-MetaplecticAutomorphicForms--MP.8~2"
       }
     },
     {
@@ -5460,12 +5469,13 @@
       "searched": [
         "2026-10-06: inspected publisher metadata for DOI 10.1007/BF01233440, Friedberg’s publication list and web results for the exact title with erratum/correction; no existing correction addressing these statements located. This is a search record, not proof none exists.",
         "2026-10-06: additional searches for BFH Proposition 3.9/strip and Proposition 8.1/Novodvorsky normalization found no corresponding published correction.",
-        "2026-10-06 independent review: read Springer DOI 10.1007/BF01233440 metadata/reference page, https://math.stanford.edu/~bump/ (papers and correction links), https://profiles.stanford.edu/daniel-bump (1990 publication entries), and https://sites.google.com/bc.edu/solomon-friedberg/ (research navigation). The obsolete www2.bc.edu research URL failed to load. Exact-title searches with erratum/correction and searches for BFH 3.19 gamma and 7.10 correction located no relevant correction. No priority or exhaustive absence claim."
+        "2026-10-06 independent review: read Springer DOI 10.1007/BF01233440 metadata/reference page, https://math.stanford.edu/~bump/ (papers and correction links), https://profiles.stanford.edu/daniel-bump (1990 publication entries), and https://sites.google.com/bc.edu/solomon-friedberg/ (research navigation). The obsolete www2.bc.edu research URL failed to load. Exact-title searches with erratum/correction and searches for BFH 3.19 gamma and 7.10 correction located no relevant correction. No priority or exhaustive absence claim.",
+        "2026-10-08 revision-2 review: exact-title and DOI searches with erratum/correction and https://math.stanford.edu/~bump/ correction links located no correction addressing these eight entries. This limited search makes no priority or exhaustive-absence claim."
       ],
       "review": {
         "verdict": "confirmed",
-        "by": "REV-MetaplecticAutomorphicForms--MP.8",
-        "reason": "Independently inspected pp.602–606. Both (8.1) and the printed left side of (8.3) omit the scale; substituting n₂=N⁻¹ in Proposition 6.1 and the change of variables leading to (8.4) requires TF(u,s,N⁻¹y₂). The evaluated boundary terms on p.603 have that scale."
+        "reason": "Inspected p.602 (8.1),(8.3) and their evaluated boundary terms: the first-cusp frequency N⁻¹ forces every transform argument to be N⁻¹y₂.",
+        "by": "REV-MetaplecticAutomorphicForms--MP.8~2"
       }
     },
     {
@@ -5479,12 +5489,13 @@
       "affects": "a stated result",
       "known": "new (no relevant correction located in the recorded searches; no priority claim)",
       "searched": [
-        "2026-10-06 independent review: read Springer DOI 10.1007/BF01233440 metadata/reference page, https://math.stanford.edu/~bump/ (papers and correction links), https://profiles.stanford.edu/daniel-bump (1990 publication entries), and https://sites.google.com/bc.edu/solomon-friedberg/ (research navigation). The obsolete www2.bc.edu research URL failed to load. Exact-title searches with erratum/correction and searches for BFH 3.19 gamma and 7.10 correction located no relevant correction. No priority or exhaustive absence claim."
+        "2026-10-06 independent review: read Springer DOI 10.1007/BF01233440 metadata/reference page, https://math.stanford.edu/~bump/ (papers and correction links), https://profiles.stanford.edu/daniel-bump (1990 publication entries), and https://sites.google.com/bc.edu/solomon-friedberg/ (research navigation). The obsolete www2.bc.edu research URL failed to load. Exact-title searches with erratum/correction and searches for BFH 3.19 gamma and 7.10 correction located no relevant correction. No priority or exhaustive absence claim.",
+        "2026-10-08 revision-2 review: exact-title and DOI searches with erratum/correction and https://math.stanford.edu/~bump/ correction links located no correction addressing these eight entries. This limited search makes no priority or exhaustive-absence claim."
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Independent source inspection and the calculation above; scoped to this published scan and this local statement/proof step.",
-        "by": "REV-MetaplecticAutomorphicForms--MP.8"
+        "reason": "Inspected p.565 (3.26)–(3.27): their inverse gamma factors cancel the first arguments of the corrected pairs, leaving the gamma factors in the evaluated V-hat displays. The special-function proof input remains open.",
+        "by": "REV-MetaplecticAutomorphicForms--MP.8~2"
       }
     },
     {
@@ -5498,12 +5509,13 @@
       "affects": "the proof",
       "known": "new (no relevant correction located in the recorded searches; no priority claim)",
       "searched": [
-        "2026-10-06 independent review: read Springer DOI 10.1007/BF01233440 metadata/reference page, https://math.stanford.edu/~bump/ (papers and correction links), https://profiles.stanford.edu/daniel-bump (1990 publication entries), and https://sites.google.com/bc.edu/solomon-friedberg/ (research navigation). The obsolete www2.bc.edu research URL failed to load. Exact-title searches with erratum/correction and searches for BFH 3.19 gamma and 7.10 correction located no relevant correction. No priority or exhaustive absence claim."
+        "2026-10-06 independent review: read Springer DOI 10.1007/BF01233440 metadata/reference page, https://math.stanford.edu/~bump/ (papers and correction links), https://profiles.stanford.edu/daniel-bump (1990 publication entries), and https://sites.google.com/bc.edu/solomon-friedberg/ (research navigation). The obsolete www2.bc.edu research URL failed to load. Exact-title searches with erratum/correction and searches for BFH 3.19 gamma and 7.10 correction located no relevant correction. No priority or exhaustive absence claim.",
+        "2026-10-08 revision-2 review: exact-title and DOI searches with erratum/correction and https://math.stanford.edu/~bump/ correction links located no correction addressing these eight entries. This limited search makes no priority or exhaustive-absence claim."
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Independent source inspection and the calculation above; scoped to this published scan and this local statement/proof step.",
-        "by": "REV-MetaplecticAutomorphicForms--MP.8"
+        "reason": "Rechecked pp.569–570: the signed global divisor at X=diag(0,−2), z=1 is −1/√10, while its positive-chart substitution is +1/√10; a constant coefficient also disproves unconditional boundary vanishing. The transition/majorant repair remains open.",
+        "by": "REV-MetaplecticAutomorphicForms--MP.8~2"
       }
     },
     {
@@ -5517,12 +5529,13 @@
       "affects": "a stated result",
       "known": "new (no relevant correction located in the recorded searches; no priority claim)",
       "searched": [
-        "2026-10-06 independent review: read Springer DOI 10.1007/BF01233440 metadata/reference page, https://math.stanford.edu/~bump/ (papers and correction links), https://profiles.stanford.edu/daniel-bump (1990 publication entries), and https://sites.google.com/bc.edu/solomon-friedberg/ (research navigation). The obsolete www2.bc.edu research URL failed to load. Exact-title searches with erratum/correction and searches for BFH 3.19 gamma and 7.10 correction located no relevant correction. No priority or exhaustive absence claim."
+        "2026-10-06 independent review: read Springer DOI 10.1007/BF01233440 metadata/reference page, https://math.stanford.edu/~bump/ (papers and correction links), https://profiles.stanford.edu/daniel-bump (1990 publication entries), and https://sites.google.com/bc.edu/solomon-friedberg/ (research navigation). The obsolete www2.bc.edu research URL failed to load. Exact-title searches with erratum/correction and searches for BFH 3.19 gamma and 7.10 correction located no relevant correction. No priority or exhaustive absence claim.",
+        "2026-10-08 revision-2 review: exact-title and DOI searches with erratum/correction and https://math.stanford.edu/~bump/ correction links located no correction addressing these eight entries. This limited search makes no priority or exhaustive-absence claim."
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Independent source inspection and the calculation above; scoped to this published scan and this local statement/proof step.",
-        "by": "REV-MetaplecticAutomorphicForms--MP.8"
+        "reason": "Inspected p.592 (7.10) against the preceding α₁β₃δ₂ modulus and independently enumerated the concrete p=3,a=b=2,d=1,m=16,r=1,n₁=0 case: six solutions with min(a,d), two with the printed min(a,b).",
+        "by": "REV-MetaplecticAutomorphicForms--MP.8~2"
       }
     },
     {
@@ -5536,12 +5549,13 @@
       "affects": "a stated result",
       "known": "new (no relevant correction located in the recorded searches; no priority claim)",
       "searched": [
-        "2026-10-06 independent review: read Springer DOI 10.1007/BF01233440 metadata/reference page, https://math.stanford.edu/~bump/ (papers and correction links), https://profiles.stanford.edu/daniel-bump (1990 publication entries), and https://sites.google.com/bc.edu/solomon-friedberg/ (research navigation). The obsolete www2.bc.edu research URL failed to load. Exact-title searches with erratum/correction and searches for BFH 3.19 gamma and 7.10 correction located no relevant correction. No priority or exhaustive absence claim."
+        "2026-10-06 independent review: read Springer DOI 10.1007/BF01233440 metadata/reference page, https://math.stanford.edu/~bump/ (papers and correction links), https://profiles.stanford.edu/daniel-bump (1990 publication entries), and https://sites.google.com/bc.edu/solomon-friedberg/ (research navigation). The obsolete www2.bc.edu research URL failed to load. Exact-title searches with erratum/correction and searches for BFH 3.19 gamma and 7.10 correction located no relevant correction. No priority or exhaustive absence claim.",
+        "2026-10-08 revision-2 review: exact-title and DOI searches with erratum/correction and https://math.stanford.edu/~bump/ correction links located no correction addressing these eight entries. This limited search makes no priority or exhaustive-absence claim."
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Independent source inspection and the calculation above; scoped to this published scan and this local statement/proof step.",
-        "by": "REV-MetaplecticAutomorphicForms--MP.8"
+        "reason": "Inspected p.582: period-one symmetric X shifts identify D modulo CS. Replacing that quotient by NCS repeats each class N³ times while preserving the restrictions, so S₀ uses D mod C.",
+        "by": "REV-MetaplecticAutomorphicForms--MP.8~2"
       }
     }
   ],
@@ -5565,13 +5579,441 @@
     "closure": "Every target in MP.8 has declaration-level nodes. Every prerequisite chain terminates in checked baseline statements, same-packet nodes, explicitly requested supplier stages or the nine precise gaps. None of the analytic conclusions is a field of the Eisenstein seed. Complete denotes a finished planning pass; MP.8 remains planned, not closed.",
     "checkpointCorrections": "The earlier E-MP8-1 is withdrawn: rendered p.545 already says N|m. The previously unread middle of the source has been inspected. The earlier QM.1 ownership proposal is superseded by the confirmed MP.6 owner. Prefix transpose is interpreted as QQᵀ, CDᵀ and XQ⁻ᵀ throughout.",
     "independentReview": "Independent session codex-4ye5ct read every node, API/test and suggested signature; inspected the full published BFH source and all 28 pinned baseline statements; corrected locators, original-f coefficients, gamma factors, rotation, mixed root modulus, three-exponent local sums and supplier routing. Read upstream CompactGroups and InductionRestriction, ModularForms contracts, MP/AF/AS/AL/GN/GL₂ supplier descriptions, AUDIT-15 and independently confirmed RT-AREA-automorphic-1/20. The nine source/proof gaps remain explicit; no closure or implementation claim.",
-    "revision": "Session codex-IBx3ju synchronized every node, API, test, supplier, signature omission and gap in the reader; preserved the independent review object and all source-issue verdicts. Rechecked source formulas, all 28 pinned baseline statements, the audited MP.8 row, CompactGroups and InductionRestriction examples, requested supplier scopes and the verified MP.6 ownership route. Corrected the inverse-gamma explanatory sentence and the Maass/continuation locators, while retaining the accepted gamma pair. Source matches and source-issue problem descriptions are authored paraphrases under the standing no-excerpts instruction; legacy excerpt fields are removed under the updated protocol. No gap was discharged by document synchronization. During submission, retained the concurrently landed REV-FIX-RT-AREA-automorphic-1~3 review and its full archived original review; synchronized its source-qualified L2s ownership wording without promoting any verdict."
+    "revision": "Session codex-IBx3ju synchronized every node, API, test, supplier, signature omission and gap in the reader; preserved the independent review object and all source-issue verdicts. Rechecked source formulas, all 28 pinned baseline statements, the audited MP.8 row, CompactGroups and InductionRestriction examples, requested supplier scopes and the verified MP.6 ownership route. Corrected the inverse-gamma explanatory sentence and the Maass/continuation locators, while retaining the accepted gamma pair. Source matches and source-issue problem descriptions are authored paraphrases under the standing no-excerpts instruction; legacy excerpt fields are removed under the updated protocol. No gap was discharged by document synchronization. During submission, retained the concurrently landed REV-FIX-RT-AREA-automorphic-1~3 review and its full archived original review; synchronized its source-qualified L2s ownership wording without promoting any verdict.",
+    "revision2Review": "Independent Codex session codex-ua9lQs read all 85 nodes and suggested signatures, the BFH printed pp.543–618 and all 28 pinned baseline declarations. Read CompactGroups and InductionRestriction, the exact ModularForms and AF/AS/AL supplier contracts, MP/GN/QM/BSD/GL₂ ownership scopes, the audited MP.8 row and confirmed RT finding /20 with its round-4 review. Corrected the Whittaker block matrix, Jacquet locator, sign-specific y₂ quantifiers, global divisor hypothesis, raw/normalized intertwiner parity, truncated dependency descriptions and ten test classifications. The nine gaps remain precise; MP.8 is planned and unchecked, not implemented or closed."
   },
   "review": {
-    "status": "needs_changes",
-    "reviewer": "independent-review-REV-FIX-RT-AREA-automorphic-1~4",
+    "status": "accepted",
+    "reviewer": "independent-review-REV-MetaplecticAutomorphicForms--MP.8~2",
     "date": "2026-10-08",
-    "notes": "Independent review of FIX-RT-AREA-automorphic-1~4 (issue #7280, PR #7314, Codex codex-Z0ErNN) by Claude session claude-95TvAO, following REV-FIX-RT-AREA-automorphic-1~3 and, for this packet, REV-MetaplecticAutomorphicForms--MP.8 (needs_changes). Finding /20 is correctly fixed and survives the revision BP-MetaplecticAutomorphicForms--MP.8~2 (#7324): MP.8 specializes the MP.6 Jacobi theory to its genus-two cover, names only AutomorphicCongruences:L2s as unitary consumer and adds no L2 edge; reader line 19 is resolved. No correction was needed. Status stays needs_changes because that revision's own review, REV-MetaplecticAutomorphicForms--MP.8~2, is pending; this fix review does not review the revision and must not promote it."
+    "notes": "Independent review of #7075 by Codex session codex-ua9lQs. Checked all 85 node statements, source locators, proof routes, prerequisites, API/tests, suggested signatures and reader entries; confirmed all 28 pinned baseline citations, eight source issues, 15 supplier contracts and RT-AREA-automorphic-1/20. Corrected 27 nodes: Whittaker chart matrix, Jacquet section locator, sign-specific y₂ quantifiers, global divisor hypotheses, raw/normalized intertwiner parity, 21 truncated uses and ten test classifications. Reader parity, packet and errata checks, and 2,016 finite root-count checks pass. Revised lean-check elaborates with zero errors and 316 warnings for proof placeholders. Accepted as a complete target-level planning pass; MP.8 is planned, all implementations unchecked, and nine precise proof/source gaps plus supplier/signature refinements remain. Archived the scoped round-4 review without changing its verdict.",
+    "checked": [
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.8/fourier-shift",
+        "verdict": "corrected",
+        "note": "Native integral quadratic-form shift has the required two cusp factors; its second-cusp test is a computation, not a library comparison."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.8/fourier-discriminant",
+        "verdict": "verified",
+        "note": "The invariant retains the full quadratic form 4aQ−c(R·−)²; no positivity is added."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.8/discriminant-shift",
+        "verdict": "verified",
+        "note": "Expanding the translated quadratic form cancels both mixed and square shift terms."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.8/residue-shift",
+        "verdict": "verified",
+        "note": "The vector shift changes each residue by a multiple of 2a, for arbitrary integral c."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.8/recover-quadratic",
+        "verdict": "verified",
+        "note": "Equal vector and discriminant data recover Q by cancelling 4a, using a≠0 over ℤ."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.8/shift-parameter-injective",
+        "verdict": "verified",
+        "note": "Injectivity of the shift parameter follows by cancelling 2a in the vector coordinate."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.8/orbit-classification",
+        "verdict": "verified",
+        "note": "The orbit criterion uses both discriminant equality and vector congruence; a≠0 is essential."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.8/unique-residue-lift",
+        "verdict": "verified",
+        "note": "Congruence supplies an integral shift to the prescribed vector lift; the recovered quadratic form is unique."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.8/coefficient-invariants",
+        "verdict": "verified",
+        "note": "An orbit-invariant coefficient factors through the two invariants; its analytic application requires the separate contour-shift theorem."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.8/siegel-space",
+        "verdict": "verified",
+        "note": "Strict symmetric positive-definite imaginary part agrees with native PosDef; the asymmetric and real-matrix tests detect incorrect domains."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.8/positive-similitudes",
+        "verdict": "corrected",
+        "note": "The positive multiplier and native symplectic restriction are correct; the scalar-action test is reclassified as a computation."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.8/siegel-action",
+        "verdict": "corrected",
+        "note": "The fractional action and multiplier-divided determinant cocycle fix positive scalars; the scalar test is reclassified."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.8/similitude-cover",
+        "verdict": "corrected",
+        "note": "Continuous nonzero roots give the double cover; the Fourier lift phase and the positive-scalar splitting remain distinct. Repaired its cut-off use."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.8/compact-stabilizer",
+        "verdict": "verified",
+        "note": "The Sp stabilizer is U(2); the GSp⁺ stabilizer includes positive scalars. Upper Q with QQᵀ matches the pinned Cholesky boundary."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.8/arithmetic-subgroup",
+        "verdict": "corrected",
+        "note": "The full lower-left block and two extra entries have the source congruences; native level-one comparison is valid. Repaired three cut-off uses."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.8/bfh-slash",
+        "verdict": "verified",
+        "note": "The symplectic slash has the inverse-transpose W action and quadratic phase; extension to similitudes requires index transport."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.8/bfh-translation",
+        "verdict": "corrected",
+        "note": "The translation composition phase is retained and integral on the BFH lattice when N divides m. Repaired its Fourier/carrier uses."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.8/genus-two-theta",
+        "verdict": "corrected",
+        "note": "The residue theta sum and diagonal jacobiTheta₂ comparison agree with the source. Repaired the projection use and classified negation as characterisation."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.8/quadratic-matrix",
+        "verdict": "corrected",
+        "note": "Mixed integral polynomial coefficients become half-integral matrix entries; the dictionary is injective. Repaired its three arithmetic/analytic uses."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.8/fourier-coefficient",
+        "verdict": "verified",
+        "note": "The Fourier extraction retains N^(−3j), both periods and the exponential in Z_g; additive integration has sufficient continuity hypotheses."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.8/theta-pairing",
+        "verdict": "verified",
+        "note": "The Gaussian pairing has √detY/(2a) and Jacobian detY; the root Gaussian integral is reused with positive parameter."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.8/coefficient-shift-analytic",
+        "verdict": "verified",
+        "note": "Holomorphy and the elliptic lattice justify the contour shift; the resulting index relation uses the retained integral invariant theorem."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.8/theta-decomposition",
+        "verdict": "verified",
+        "note": "Finite theta reconstruction uses the pairing and analytic shift, with the cusp-dependent Z and W scales."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.8/theta-fourier-transform",
+        "verdict": "verified",
+        "note": "Poisson summation gives the 1/(2a) theta Fourier factor and branch positive at iY; residue negation follows on squaring."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.8/theta-component-fourier-law",
+        "verdict": "verified",
+        "note": "The component Fourier factor is √(−detZ)/(2m), including the N rescaling; both residue phases are retained."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.8/bfh-jacobi-specialization",
+        "verdict": "corrected",
+        "note": "This is the BFH coordinate instance of MP.6, not a second general Jacobi definition. Repaired the cut-off projection use."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.8/theta-components",
+        "verdict": "corrected",
+        "note": "Projection is defined before reconstruction, with finite residue indexing and scalar linearity. Repaired the self-referential cut-off description of its reconstruction use."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.8/theta-coefficient",
+        "verdict": "corrected",
+        "note": "Theta Fourier coefficients vanish for unrepresentable indices and recover B_j for representable U; repaired the truncated dependency account."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.8/bfh-seed",
+        "verdict": "corrected",
+        "note": "The finite continuous K-type and weight vector are genuine defining inputs, not analytic conclusions; the positive-scalar seed test is a computation."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.8/induced-seed-family",
+        "verdict": "corrected",
+        "note": "det(Y)^(s/2) uses the positive-base logarithm and gives holomorphic scalar coordinates; repaired its cut-off use in the Eisenstein sum."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.8/jacobi-eisenstein",
+        "verdict": "verified",
+        "note": "The actual parabolic/arithmetic quotient and lattice sum are specified; inversion identifies native G/H with the required H\\G."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.8/whittaker-functions",
+        "verdict": "corrected",
+        "note": "BFH (3.2), p.557 uses [[0,w],[−w,0]]n(X), not diag(w,−w). Corrected the proof and Lean comment; reclassified the degenerate scaling test."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.8/whittaker-majorant",
+        "verdict": "verified",
+        "note": "The three sufficient majorant inequalities match Proposition 3.1; no necessity assertion is introduced."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.8/whittaker-initial-convergence",
+        "verdict": "verified",
+        "note": "Initial integrability requires Re s>2, positive y₁,y₂ and the actual weight-k compact coefficient."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.8/jacquet-two-parameter",
+        "verdict": "corrected",
+        "note": "Corrected the section locator to (3.11), p.559; π^(−r)Γ(r+k/2) and the initial convergence chamber are retained. The scalar specialisation test is a computation."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.8/jacquet-r-reflection",
+        "verdict": "verified",
+        "note": "Proposition 3.3 continues V in the stated cone and reflects gamma-normalized W; raw equality is restricted to its convergence chamber."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.8/jacquet-weyl-reflection",
+        "verdict": "verified",
+        "note": "The corrected gamma pairs cancel the inverse factors on p.565; torus projection loses the original SO(2) weight condition. The GR proof gap remains."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.8/whittaker-continuation",
+        "verdict": "verified",
+        "note": "Continuation to Re s>3/2 refers to a continued family agreeing with the original integral for Re s>2; the confluent/convolution inputs remain explicit."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.8/whittaker-rapid-decay",
+        "verdict": "verified",
+        "note": "Nondegenerate rapid decay is polynomial-times-Schwartz uniformly on compact parameter sets; the JPSS input is recorded as an open proof requirement."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.8/degenerate-whittaker-continuation",
+        "verdict": "verified",
+        "note": "The zero-character function scales as y₁^(4−s) and has only the asserted y₂ decay. The omitted Annals Bessel calculation remains a gap."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.8/test-coefficient-algebra",
+        "verdict": "verified",
+        "note": "Actual U(2) matrix coefficients, SO(2) weight and the signed global divisor replace an arbitrary chart-polynomial class; density comes from the named supplier."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.8/test-coefficient-strip",
+        "verdict": "verified",
+        "note": "The bounded imaginary strip avoids ±i and preserves uniform branch control; the printed one-sided region is independently rejected."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.8/rotated-whittaker-bound",
+        "verdict": "verified",
+        "note": "The actual compact product and signed divisor are retained on both branches; residual compact transition and full-prefactor domination are explicitly unfinished."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.8/novodvorsky-transform",
+        "verdict": "corrected",
+        "note": "The transform is iterated and uses dy₁/y₁ with its stated power. Repaired the cut-off continuation use without asserting joint Fubini."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.8/novodvorsky-continuation",
+        "verdict": "verified",
+        "note": "The continued transform domain retains global φ₁ divisibility and separate small/large-tail arguments; the rotated-bound gap is not silently discharged."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.8/tau-transform",
+        "verdict": "verified",
+        "note": "The τ kernel uses the actual compact product and branch amplitude, distinct from the degenerate W⁰ Mellin term."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.8/degenerate-mellin-coefficients",
+        "verdict": "verified",
+        "note": "Both boundary Mellin coefficients use exponent 2s−8 and the continued W⁰ family; linearity and holomorphy need explicit domination."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.8/local-test-nonzero-f",
+        "verdict": "corrected",
+        "note": "Corrected the quantifiers to choose positive y₂ separately for each sign, matching the Lean sketch; τ vanishes identically and φ₁φ₂ divisibility is retained."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.8/local-test-nonzero-tau",
+        "verdict": "verified",
+        "note": "Nonzero τ requires a nonzero weighted even pushforward; chart nonzeroness alone is insufficient. That finite K-type construction stays an explicit gap."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.8/local-test-nonzero-m",
+        "verdict": "verified",
+        "note": "Proposition 3.15 is an existential finite K-type residue test, not a seed assumption; its omitted Bessel/test construction is honestly recorded."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.8/similitude-heisenberg-comparison",
+        "verdict": "verified",
+        "note": "The center scales by the similitude multiplier; MP.6 owns the general Heisenberg/Jacobi object and fixed-character versus index transport is separated."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.8/full-real-cover",
+        "verdict": "corrected",
+        "note": "The conjugate-root involution gives a chosen split real extension; it does not establish adelic compatibility. Kernel-fixing is a characterisation test."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.8/arithmetic-adelic-comparison",
+        "verdict": "verified",
+        "note": "MP.4 must supply the rational splitting, finite vector and dyadic lift before the arithmetic/adelic comparison can be typed; the signature omission is explicit."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.8/theta-levi-transform",
+        "verdict": "verified",
+        "note": "Levi transport preserves the source Γ⁰(N) conditions and transposed residue action; the suggested native statement is an upper-unipotent specialisation."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.8/theta-unipotent-transforms",
+        "verdict": "verified",
+        "note": "Upper and lower unipotent theta laws keep their divisibility and cover-root conditions; the Lean upper specialisation is explicitly partial."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.8/coefficient-levi-transform",
+        "verdict": "verified",
+        "note": "Integral quadratic congruence gives yᵀTy, while full B_j/C_j covariance additionally needs the cusp subgroup and residue transport."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.8/matrix-mobius",
+        "verdict": "verified",
+        "note": "Matrix Möbius uses scalar native Möbius on positive Smith coefficients; pinned PID bases alone do not supply ordered divisibility."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.8/primitive-symplectic-pairs",
+        "verdict": "verified",
+        "note": "Primitive completion requires full row rank and CDᵀ=DCᵀ. Maass completion and rank-one normal form remain named unread inputs."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.8/matrix-mobius-divisor-identity",
+        "verdict": "verified",
+        "note": "The finite lattice-divisor sum is zero for a nonunit determinant and one for a unit; it follows from the matrix Möbius product calculation."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.8/matrix-mobius-inversion",
+        "verdict": "verified",
+        "note": "Möbius inversion retains the symmetric-pair quotient and translation invariance; the N-restricted version needs the stated adapted Hermite representatives."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.8/finite-exponential-sums",
+        "verdict": "corrected",
+        "note": "Finite cusp sums have the corrected S₀ modulus D mod C. Repaired two cut-off uses while preserving the first-cusp NC quotient."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.8/fourier-unfolding-kernel",
+        "verdict": "verified",
+        "note": "The kernel keeps (2mN³)⁻¹, QQᵀ, the positive-base logarithm and the R-discriminant cancellation; its full formula matches p.580."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.8/cusp-one-unfolding",
+        "verdict": "verified",
+        "note": "First-cusp unfolding uses C₁₂≡0 mod N and all C nonsingular, with the original BFH seed rather than arbitrary scalar data."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.8/cusp-zero-rank-expansion",
+        "verdict": "verified",
+        "note": "Opposite-cusp unfolding retains rank-two, rank-one and rank-zero terms and the N³ rescaling; no premature rank-one cancellation is made."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.8/whittaker-coefficient-extraction",
+        "verdict": "verified",
+        "note": "Whittaker extraction uses the two actual theta-coefficient families, correct periods/frequencies and the opposite-cusp zero extension."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.8/bfh-l-dirichlet-series",
+        "verdict": "corrected",
+        "note": "L uses a(n) of the original f. Repaired the cut-off P-comparison and three-exponent local Möbius use; P has distinct transformed cusp data."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.8/bfh-p-dirichlet-series",
+        "verdict": "corrected",
+        "note": "P uses actual cusp-transformed coefficients, representable indices and residue periodicity; its periodicity test is characterisation, not native compatibility."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.8/first-cusp-whittaker-expansion",
+        "verdict": "verified",
+        "note": "The first-cusp expansion has the s-dependent coefficient family and original-f series, with the exact n₂, D and exponential factors."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.8/opposite-cusp-whittaker-expansion",
+        "verdict": "verified",
+        "note": "The opposite cusp keeps N³, σ(w), P and the rank-zero term; elliptic cuspidality kills only the extracted rank-one contribution."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.8/local-prime-root-counts",
+        "verdict": "corrected",
+        "note": "The mixed modulus is min(a,d); direct enumeration reproduces six versus two in the concrete case. Repaired the cut-off table use."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.8/local-root-count-table",
+        "verdict": "verified",
+        "note": "The published root table is unchanged with the corrected congruence; 2,016 finite cases reproduce its applicable N₁/N₂ and N₃ rows."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.8/local-mobius-factors",
+        "verdict": "verified",
+        "note": "The local inverted sums retain all a,b,d exponents and four divisor coefficients; missing divisors contribute zero."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.8/unramified-euler-factors",
+        "verdict": "verified",
+        "note": "The beta difference fixes the first exponent in S_p(a,a,d)−S_p(a,a−1,d); the unramified Satake factors and omitted bad-prime boundary match §7."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.8/squarefactor-polynomial-bound",
+        "verdict": "verified",
+        "note": "The squarefactor polynomial bound uses actual finite Dirichlet polynomials and the original newform coefficient bound; raw functions alone are insufficient."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.8/theta-normal-convergence",
+        "verdict": "verified",
+        "note": "Compact subsets have a uniform positive eigenvalue lower bound giving a summable Gaussian majorant and the needed derivative refinements."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.8/genuine-induced-comparison",
+        "verdict": "verified",
+        "note": "Root magnitude contributes −1/2 and half-modulus contributes −3/2, yielding ν=s−2 and reflection 4−s; the adelic comparison remains unfinished."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.8/genuine-eisenstein-initial-convergence",
+        "verdict": "verified",
+        "note": "The actual BFH induction and finite-cover comparison are required before importing AS.1 convergence; the native raw-function sketch flags those missing interfaces."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.8/genuine-intertwining-operators",
+        "verdict": "corrected",
+        "note": "Separated raw M from scalar-normalized R in the statement, composition API and Lean comment. The unnormalized constant term and Weyl equation use M."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.8/genuine-constant-term",
+        "verdict": "verified",
+        "note": "The genuine constant term contains the inducing section and long-Weyl raw M; rank-one cancellation needs elliptic cuspidality and the cover-specific comparison."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.8/genuine-eisenstein-continuation",
+        "verdict": "corrected",
+        "note": "The Lean Weyl equation now uses raw M, matching the packet. Cover continuation, denominator pole control and the independent P input remain open obligations."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.8/opposite-cusp-zero-regularity",
+        "verdict": "verified",
+        "note": "Ramified P-regularity uses its independent arithmetic route; deriving it from E-regularity and then proving E-regularity from P is explicitly excluded."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.8/fourier-residue-interchanges",
+        "verdict": "corrected",
+        "note": "Added the p.601 global-divisor hypothesis for the Mellin tails; common denominators and uniform majorants are required before residue/derivative interchange."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.8/two-variable-twist-series",
+        "verdict": "corrected",
+        "note": "The two signed D series have the exact integer congruence modulus and initial chamber. Repaired their cut-off polar-formula use."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.8/two-variable-polar-combination",
+        "verdict": "corrected",
+        "note": "Added the p.601 global φ₁ divisor hypothesis, direct test-algebra/continuation prerequisites and native HasBFHDivisor argument. All transform arguments are N⁻¹y₂; joint charts remain required."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.8/bsd2-export",
+        "verdict": "verified",
+        "note": "The exact incomplete ratios and quotient derivative belong to the analytic export; BSD.2 owns positivity, noncancellation, local selection and infinitude."
+      }
+    ]
   },
   "reviewHistory": [
     {
@@ -6012,6 +6454,12 @@
       "reviewer": "independent-review-REV-FIX-RT-AREA-automorphic-1~3",
       "date": "2026-10-07",
       "notes": "Independent scoped review of RT-AREA-automorphic-1/20, following REV-FIX-RT-AREA-automorphic-1~2 and the archived REV-MetaplecticAutomorphicForms--MP.8. Verified the common MP.6 Jacobi owner and the source-specific BFH genus-two specialization. Corrected the embedded restructuring proposal's unsupported L2 attribution to the actual AutomorphicCongruences:L2s consumer; no new whole-scope unitary theorem is asserted. The broader review's concrete gamma/chart/modulus/original-function and supplier contradictions remain in the uneditable reader, alongside the stated global-rotation/even-Laplace proof obligations. The current reader's L2 claim also needs synchronization. No suggested-file change or fresh all-baseline audit was needed for this narrow correction; Lean was not compiled."
+    },
+    {
+      "status": "needs_changes",
+      "reviewer": "independent-review-REV-FIX-RT-AREA-automorphic-1~4",
+      "date": "2026-10-08",
+      "notes": "Independent review of FIX-RT-AREA-automorphic-1~4 (issue #7280, PR #7314, Codex codex-Z0ErNN) by Claude session claude-95TvAO, following REV-FIX-RT-AREA-automorphic-1~3 and, for this packet, REV-MetaplecticAutomorphicForms--MP.8 (needs_changes). Finding /20 is correctly fixed and survives the revision BP-MetaplecticAutomorphicForms--MP.8~2 (#7324): MP.8 specializes the MP.6 Jacobi theory to its genus-two cover, names only AutomorphicCongruences:L2s as unitary consumer and adds no L2 edge; reader line 19 is resolved. No correction was needed. Status stays needs_changes because that revision's own review, REV-MetaplecticAutomorphicForms--MP.8~2, is pending; this fix review does not review the revision and must not promote it."
     }
   ]
 }
