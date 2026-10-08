@@ -41592,7 +41592,8 @@
    ],
    "revisionOf": "BP-OverconvergentAutomorphicForms--O0",
    "prompt": "research/blueprint/prompts/BP-OverconvergentAutomorphicForms--O0~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7018"
   },
   {
    "priority": 2,
@@ -42334,8 +42335,9 @@
     "BP-ArithmeticKTheory--N.3~2"
    ],
    "prompt": "research/blueprint/prompts/REV-ArithmeticKTheory--N.3~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6987"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6987",
+   "finishedAt": "2026-10-08T13:45:37Z"
   },
   {
    "kind": "blueprint",
