@@ -1,8 +1,8 @@
 # Automorphic L-functions and local factors
 
-The analytic L-function is characterized by its local integrals, their common denominators and their functional equations. This roadmap builds those characterizations from Fourier analysis through Tate's thesis, standard GLₙ factors and Rankin–Selberg factors. It then compares them with unramified L-group factors and supplies the finite Euler corrections used in critical-value and p-adic interpolation formulas. A factor comparison includes its measures, Fourier character, representation normalization and range of analytic validity.
+The analytic L-function is characterized by its local integrals, their common denominators and their functional equations. This roadmap builds those characterizations from Fourier analysis through Tate's thesis, standard GLₙ factors and Rankin–Selberg factors. It then compares them with unramified L-group factors and supplies the finite Euler corrections used in critical-value and p-adic interpolation formulas. A factor comparison includes its measures, Fourier character, representation normalization and range of analytic validity. The global cusp-integral, mirabolic continuation and nonperiodic pole theorems use number fields. Function fields have their separate formal rational-factor and periodic-pole branch.
 
-The arithmetic carriers come from GlobalNumberFields and ClassFieldTheory; the restricted adelic products and quotient measures come from AdelesAndIdeles. SmoothRepresentationsOfPadicGroups supplies smooth local representations, nonarchimedean Schwartz functions, normalized Satake theory, derivatives and generic newforms. AutomorphicFormsOnReductiveGroups supplies the archimedean Weil parameters and Casselman–Wallach models, global cuspidal representations, classification and rapid decay. General L-groups belong to ReductiveGroups, Part II; the spherical Satake comparison belongs to IntegralHeckeAndGeometricSatake. ArithmeticDirichletSeries supplies Dirichlet series and convergence criteria. FunctionFieldArithmetic and GlobalShtukasAndLanglands supply cohomological rationality, degrees, duality and purity. General Hadamard product theory belongs to AnalyticNumberTheory.
+The arithmetic carriers come from GlobalNumberFields and ClassFieldTheory; the restricted adelic products and quotient measures come from AdelicAlgebraicGroups. SmoothRepresentationsOfLocalGroups supplies smooth local representations, nonarchimedean Schwartz functions, normalized Satake theory, derivatives and generic newforms. AutomorphicFormsOnReductiveGroups supplies the archimedean Weil parameters and Casselman–Wallach models, global cuspidal representations, classification and rapid decay. General L-groups belong to ReductiveGroups, Part II; the spherical Satake comparison belongs to IntegralHeckeAndGaloisDeterminants. ArithmeticDirichletSeries supplies Dirichlet series and convergence criteria. FunctionFieldArithmetic and GlobalShtukasAndFunctionFieldLanglands supply cohomological rationality, degrees, duality and purity. General Hadamard product theory belongs to AnalyticNumberTheory.
 
 The local matrix and Whittaker integral comparisons, GLₙ Fourier expansion, and mirabolic Eisenstein series occur here. Isobaric and residual classification and solvable base change are inputs from AutomorphicForms, including its classification extension. Whittaker/cohomological rational structures are hypotheses of the rational-period comparison; that comparison supplies AutomorphicForms' algebraicity layer, so it cannot depend on that layer's final algebraicity theorem. The GL₂/Q period and primitive-character dictionary comes from ModularSymbolsPadicLFunctions. This roadmap compares their analytic factors; period algebraicity and construction of p-adic measures retain their own owners.
 
@@ -10,7 +10,7 @@ The local matrix and Whittaker integral comparisons, GLₙ Fourier expansion, an
 
 A finite local field F has ring of integers O, maximal ideal P, uniformizer ϖ and residue cardinality q. The absolute value satisfies |ϖ|=q⁻¹. At real places it is the usual absolute value; at complex places |z|_ℂ=z z̄. Powers of a positive real norm use exp(s log|x|). The standard rational additive character is exp(2πix) at infinity and exp(−2πi fracₚ(x)) at p. For a completion Kᵥ it is pulled back by the local trace. Its largest trivial fractional ideal is the inverse different P⁻ᵈᵥ.
 
-The source Fourier transform has the positive kernel ψ(xy). Mathlib's vector Fourier transform has the negative kernel ψ(−xy); positive transform at y is negative transform at −y. With self-dual additive measure the square of either transform is reflection. The trace character gives additive volumes μ(O)=q⁻ᵈᵥ⁄², μ_ℝ=dx and μ_ℂ=2 dxdy. Replacing ψ by ψₐ multiplies the self-dual measure by |a|¹⁄².
+The packet Fourier transform has the positive kernel ψ(xy). Tate and Kudla use this convention. Humphries’ matrix functional equation instead uses the inverse character and a transpose pairing; the Godement–Jacquet comparison below explicitly transports that convention. Mathlib's vector Fourier transform has the negative kernel ψ(−xy); positive transform at y is negative transform at −y. With self-dual additive measure the square of either transform is reflection. The trace character gives additive volumes μ(O)=q⁻ᵈᵥ⁄², μ_ℝ=dx and μ_ℂ=2 dxdy. Replacing ψ by ψₐ multiplies the self-dual measure by |a|¹⁄².
 
 Tate's finite multiplicative measure is (1−q⁻¹)⁻¹ dx/|x| and gives O× volume q⁻ᵈᵥ⁄². Kudla's finite multiplicative measure gives O× volume 1. Changing multiplicative Haar by c>0 multiplies both the zeta integral z and its normalized distribution z₀=z/L by c. With the additive Fourier measure fixed, the common scalar cancels from epsilon and gamma ratios. To retain z₀(f°)=1, replace the standard vector by c⁻¹f°. Passing from Tate's finite measures to unit-volume measures rescales the global norm-one idele-class volume by √|D_K|. A statement about that global volume must choose one convention.
 
@@ -322,13 +322,13 @@ This layer connects Mathlib's additive characters, subgroup carriers, Schwartz m
 
 **Uses.** GrossZagierAndArithmeticHeights:GZ.6: Rewrite the u-integral in IV§3 without changing its normalization. Zhang2021 §12.4: Evaluate split real orbital integrals and their order derivatives.
 
-**Direct inputs.** mathlib:hasDerivAt_integral_of_dominated_loc_of_deriv_le; mathlib:mellin_differentiableAt_of_isBigO_rpow.
+**Direct inputs.** mathlib:hasDerivAt_integral_of_dominated_loc_of_deriv_le; mathlib:mellin_differentiableAt_of_isBigO_rpow; mathlib:Complex.integral_cpow_mul_exp_neg_mul_Ioi.
 
 **Acceptance checks.** K_{1/2}(1)=sqrt(π/2)/e. K_{−1/2}(2)=K_{1/2}(2)=sqrt(π/4)e⁻². K_0(c)>0 for c>0, including c=1. The integral diverges at c=0, ν=0: the positivity restriction cannot be dropped.
 
-**Proof route.** At infinity use exp(−cu/2) times a power of u; after u↦1/u the same bound controls zero, uniformly when ν ranges over a compact set. Every ν-derivative inserts (log u)^j, still dominated by an integrable function on compact parameter sets. Use the checked parametric-integral theorem; substitution u↦1/u proves evenness in ν.
+**Proof route.** At infinity use exp(−cu/2) times a power of u; after u↦1/u the same bound controls zero, uniformly when ν ranges over a compact set. Every ν-derivative inserts (log u)^j, still dominated by an integrable function on compact parameter sets. Use the checked parametric-integral theorem; substitution u↦1/u proves evenness in ν. For the API value K_(1/2)(c), symmetrize u and u^(−1) in the integral and use t=√(c/2)(√u−1/√u). The paired Jacobians reduce it to the Gaussian integral, giving √(π/(2c)) exp(−c), as recorded before Zhang Lemma12.3 on printed p.942. This value is a proof leaf of the existing definition, not a separate theorem target.
 
-**Source.** [Wei Zhang, Weil representation and Arithmetic Fundamental Lemma](https://archive.ymsc.tsinghua.edu.cn/pacm_download/21/12000-annals.2021.193.3.5.pdf), §12.4, p.942, definition preceding Lemma12.3.
+**Source.** [Wei Zhang, Weil representation and Arithmetic Fundamental Lemma](https://archive.ymsc.tsinghua.edu.cn/pacm_download/21/12000-annals.2021.193.3.5.pdf), §12.4, p.942, definition preceding Lemma12.3. The integral defining K, with its c>0 domain.
 
 ### The half-order derivative of K
 
@@ -416,13 +416,13 @@ This layer connects Mathlib's additive characters, subgroup carriers, Schwartz m
 
 **Uses.** AL.1/local-gauss-sum: The q^((ν+c)/2) factor uses this additive measure. AL.0/local-fourier-inversion: Supply the dual-volume hypothesis of the inherited Fourier component.
 
-**Direct inputs.** AutomorphicLFunctionsAndLocalFactors:AL.0/fractional-ideal-annihilator; AutomorphicLFunctionsAndLocalFactors:AL.0/indicator-inversion; AdelicAlgebraicGroups:AA.0/local-normalized-haar.
+**Direct inputs.** AutomorphicLFunctionsAndLocalFactors:AL.0/fractional-ideal-annihilator; AutomorphicLFunctionsAndLocalFactors:AL.0/indicator-inversion; AdelicAlgebraicGroups:AA.0/local-normalized-haar; mathlib:fourierIntegral_gaussian.
 
 **Acceptance checks.** d=0 gives μ(O)=1. d=2 gives μ(O)=q^(−1), and μ(P^(−2))=q. For |a|=q^(−1), the new Haar is q^(−1/2)μ, not q^(−1)μ. The complex trace pairing needs2 dxdy, not dxdy.
 
 **Proof route.** Scale any additive Haar using the positive compact-open volume. Combine the annihilator formula with μ(P^m)=q^(−m)μ(O). Finite lattice Fourier inversion fixes the square-root normalization; at infinity compare standard Gaussian Fourier transforms.
 
-**Source.** [Stephen S. Kudla, Tate’s Thesis](https://platoeinsyu.github.io/assets/pdf/Articles/Tate/TatesThesis.pdf), §3 Fourier inversion, (3.29)–(3.30); Tate §2.2.
+**Source.** [Stephen S. Kudla, Tate’s Thesis](https://platoeinsyu.github.io/assets/pdf/Articles/Tate/TatesThesis.pdf), §3 Fourier inversion, (3.29)–(3.30); Tate §2.2. The defining integral or factor in this passage.
 
 ### Finite-place Schwartz levels
 
@@ -480,13 +480,13 @@ This layer connects Mathlib's additive characters, subgroup carriers, Schwartz m
 
 **Hypotheses and conventions.** Complex power uses the real logarithm of positive y and4πm; t may be complex in the continued neighbourhood of0.
 
-**Direct inputs.** AutomorphicLFunctionsAndLocalFactors:AL.0/bessel-k; AutomorphicLFunctionsAndLocalFactors:AL.0/schwartz-parameter-domination.
+**Direct inputs.** AutomorphicLFunctionsAndLocalFactors:AL.0/bessel-k; AutomorphicLFunctionsAndLocalFactors:AL.0/schwartz-parameter-domination; mathlib:Complex.integral_cpow_mul_exp_neg_mul_Ioi.
 
 **Acceptance checks.** At t=0 and Re(s)>0 the half-order K formula recovers the stated gamma quotient. The boundary Re(s)=t is excluded from the initial integral theorem, and m must be positive.
 
-**Proof route.** Insert the absolutely convergent K integral; exponential bounds justify Fubini. Integrate y first using the native gamma integral; the substitution u↦u/(1+u) yields the beta integral. Use compact-parameter domination to extend to t=0 and differentiate near0.
+**Proof route.** Insert the absolutely convergent K integral; exponential bounds justify Fubini. Integrate y using Complex.integral_cpow_mul_exp_neg_mul_Ioi in its positive-rate, positive-real-part range. Derive the beta evaluation by multiplying two such gamma integrals and substituting total radius and fraction on the positive quadrant; Fubini is justified by absolute convergence. Then apply u↦u/(1+u) to the remaining integral. Use compact-parameter domination to extend to t=0 and differentiate near0.
 
-**Source.** [Benedict H. Gross and Don B. Zagier, Heegner points and derivatives of L-series](https://wstein.org/papers/bib/Gross-Zagier_Heegner_points_and_derivatives_of_Lseries.pdf), IV §6, proof of Proposition(6.2), unnumbered displayed integral, printed p.299 (physical p.76).
+**Source.** [Benedict H. Gross and Don B. Zagier, Heegner points and derivatives of L-series](https://wstein.org/papers/bib/Gross-Zagier_Heegner_points_and_derivatives_of_Lseries.pdf), IV §6, proof of Proposition(6.2), unnumbered displayed integral, printed p.299 (physical p.76). The displayed Bessel–Laplace evaluation has integer m≥1 in the source; extension to real m>0 follows by positive rescaling and absolute convergence.
 
 ### The additive local-field duality map
 
@@ -594,13 +594,15 @@ This layer connects Mathlib's additive characters, subgroup carriers, Schwartz m
 
 **Uses.** AutomorphicLFunctionsAndLocalFactors:AL.1/global-zeta-integral: the domain of the global zeta integral z(s, ω; f) AutomorphicLFunctionsAndLocalFactors:AL.0/adelic-poisson-summation: the functions to which Poisson summation applies
 
-**Direct inputs.** AutomorphicLFunctionsAndLocalFactors:AL.0/local-schwartz-bruhat-space; AutomorphicLFunctionsAndLocalFactors:AL.0/local-fourier-inversion; AdelicAlgebraicGroups:AA.0; mathlib:SchwartzMap.
+**Direct inputs.** AutomorphicLFunctionsAndLocalFactors:AL.0/local-schwartz-bruhat-space; AutomorphicLFunctionsAndLocalFactors:AL.0/local-fourier-inversion; AdelicAlgebraicGroups:AA.0; mathlib:SchwartzMap; tauceti:TauCetiRoadmap/GlobalNumberFields#layer-5-full-adeles-and-the-additive-quotient; AdelicAlgebraicGroups:AA.0/restricted-haar-product; AdelicAlgebraicGroups:AA.0/restricted-haar-split.
 
 **Acceptance checks.** Check that the standard function f^o = ⊗ f_v^o with Gaussians at the infinite places lies in S(𝔸) and is self-dual up to the constants N𝔡_v^{−1/2} at the finitely many v with 𝔡_v ≠ O_v (Tate p. 56). Check that for k = ℚ, f = 1_{Ẑ} ⊗ e^{−πx²} gives Σ_{ξ∈ℚ} f(tξ) = Σ_{n∈ℤ} e^{−πt²n²}, Jacobi's theta function.
 
 **Proof route.** Use SR.1 finite-place support and period levels, each finite-dimensional, and native SchwartzMap on the whole real vector space K_∞. Identify SchwartzMap on a product with the completed projective tensor product of the archimedean Schwartz spaces; the required nuclear-space theorem is recorded as a gap. Use AA.0 restricted product topology and measures; extend the component Fourier maps continuously and verify Tate’s summability/integrability conditions by Schwartz estimates.
 
-**Source.** [Stephen S. Kudla, Tate’s Thesis](https://platoeinsyu.github.io/assets/pdf/Articles/Tate/TatesThesis.pdf), §4, printed p. 125 (physical p. 17). [John Tate, Fourier Analysis in Number Fields and Hecke’s Zeta-Functions](https://sites.math.rutgers.edu/~alexk/2023S572/Tate1950.pdf), §4.4, physical p. 49, conditions 𝔷1–𝔷3; §4.5, physical pp. 56 and 58.
+**Source.** [Stephen S. Kudla, Tate’s Thesis](https://platoeinsyu.github.io/assets/pdf/Articles/Tate/TatesThesis.pdf), §4, printed p. 125 (physical p. 17). S(𝔸), factorizable functions f = ⊗f_v with f_v = f_v^o almost everywhere.
+
+**Source.** [John Tate, Fourier Analysis in Number Fields and Hecke’s Zeta-Functions](https://sites.math.rutgers.edu/~alexk/2023S572/Tate1950.pdf), §4.4, physical p. 49, conditions 𝔷1–𝔷3; §4.5, physical pp. 56 and 58. Tate's class 𝔷 of functions; the standard functions of §4.5 are checked to lie in it on pp. 56 and 58.
 
 ### Adelic Poisson summation and Tate's Riemann–Roch theorem
 
@@ -610,13 +612,15 @@ This layer connects Mathlib's additive characters, subgroup carriers, Schwartz m
 
 **Hypotheses and conventions.** Tate's conditions: continuity and integrability of f and f̂ on 𝔸, uniform convergence of the periodised sums, absolute convergence of Σ f̂.
 
-**Direct inputs.** AutomorphicLFunctionsAndLocalFactors:AL.0/adelic-schwartz-bruhat-space; AutomorphicLFunctionsAndLocalFactors:AL.0/local-fourier-inversion; AdelicAlgebraicGroups:AA.0; mathlib:Real.tsum_exp_neg_mul_int_sq.
+**Direct inputs.** AutomorphicLFunctionsAndLocalFactors:AL.0/adelic-schwartz-bruhat-space; AutomorphicLFunctionsAndLocalFactors:AL.0/local-fourier-inversion; AdelicAlgebraicGroups:AA.0; mathlib:Real.tsum_exp_neg_mul_int_sq; tauceti:TauCetiRoadmap/GlobalNumberFields#layer-5-full-adeles-and-the-additive-quotient; tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups#layer-6-characters-of-compact-groups; AutomorphicLFunctionsAndLocalFactors:AL.0/local-additive-self-duality; AdelicAlgebraicGroups:AA.0/restricted-haar-product.
 
 **Acceptance checks.** Check the case k = ℚ with f = 1_Ẑ ⊗ e^{−πx²} and 𝔞 = t ∈ ℝ_{>0}: (iii) becomes θ(1/t²) = t θ(t²) for θ(y) = Σ e^{−πyn²}, Mathlib's Real.tsum_exp_neg_mul_int_sq.
 
-**Proof route.** Discreteness of k and compactness of 𝔸/k (GlobalNumberFields Layer 5); k^* ⊇ k and k^*/k is a finite k-vector space, hence k^* = k. Lemma 4.2.1: for continuous periodic φ, ∫_D φ = the Haar integral on 𝔸/k normalised to volume 1; the Fourier coefficients of φ are indexed by k. Lemma 4.2.2: Fourier inversion on the compact group 𝔸/k when the coefficients are summable. Lemma 4.2.3: the coefficients of Σ_ξ f(x + ξ) are f̂(ξ). Combine at x = 0 for (ii). For (iii) apply (ii) to g(x) = f(𝔞x), whose transform is |𝔞|^{−1}f̂(x/𝔞) by the change of variables y ↦ y/𝔞. The volume of D is 1: running the argument with an unknown volume μ(D) and iterating gives μ(D)² = 1 (Tate p. 43).
+**Proof route.** Use local additive self-duality and restricted-product continuity to identify adelic characters. The annihilator k* contains k; it is discrete, and k*/k is a closed discrete subgroup of the compact additive quotient. Thus k*/k has finite cardinality. It is a k-vector space with k infinite, so it is zero. Finite dimension alone would not give this conclusion (Tate §4.1, Theorem4.1.4, physical p.40). Periodize f on the compact group 𝔸/k. Its character Fourier coefficients are the local-to-global transforms f̂(ξ), by integrability, a fundamental-domain integration formula and Tate Lemma4.2.3. Import CompactGroups Layer6 completeness of characters for a compact abelian group. Absolute summability gives a uniformly convergent continuous Fourier series with these coefficients; Hilbert-basis uniqueness makes it equal almost everywhere to the periodization, and continuity plus full support of Haar makes the equality pointwise. This proves the summable-coefficient form needed here without constructing a second Peter–Weyl theory. The self-dual quotient volume is1: retain an unknown positive covolume in the identity and apply Fourier inversion twice, giving its square equal to1 (Tate physical p.43). Evaluate the periodization at zero. For the idele-scaled identity apply this to f(𝔞x); normalized local absolute values and restricted Haar give the factor |𝔞|^(−1).
 
-**Source.** [John Tate, Fourier Analysis in Number Fields and Hecke’s Zeta-Functions](https://sites.math.rutgers.edu/~alexk/2023S572/Tate1950.pdf), §4.2, physical pp. 40–43, Lemmas 4.2.1–4.2.4 and Theorem 4.2.1. [Stephen S. Kudla, Tate’s Thesis](https://platoeinsyu.github.io/assets/pdf/Articles/Tate/TatesThesis.pdf), §4, printed p. 128 (physical p. 20).
+**Source.** [John Tate, Fourier Analysis in Number Fields and Hecke’s Zeta-Functions](https://sites.math.rutgers.edu/~alexk/2023S572/Tate1950.pdf), §4.1 Theorem4.1.4, physical p.40; §4.2 Lemmas4.2.1–4.2.4 and Theorem4.2.1, physical pp.41–43. The annihilator calculation, compact-quotient Fourier argument and self-dual covolume yield the number-field Poisson and idele-scaled identities under the stated summability assumptions.
+
+**Source.** [Stephen S. Kudla, Tate’s Thesis](https://platoeinsyu.github.io/assets/pdf/Articles/Tate/TatesThesis.pdf), §4, printed p.128 (physical p.20). The global continuation uses the same adelic Poisson identity.
 
 ### Partial Fourier transformation
 
@@ -682,13 +686,15 @@ The local zeta distribution is first defined where its integral converges. Restr
 
 **Uses.** AutomorphicLFunctionsAndLocalFactors:AL.1/local-zeta-integral: the characters integrated against AutomorphicLFunctionsAndLocalFactors:AL.1/explicit-epsilon-factors: conductor exponents in the ε-factor formula GL2AutomorphicRepresentationsAndTransfer:R16.2: local characters of GL₁ and their conductors in principal series EndoscopicTransferAndUnitaryTraceComparison:ET.6: GL₁ local constants of Weil–Deligne characters
 
-**Direct inputs.** mathlib:ContinuousMonoidHom; AutomorphicLFunctionsAndLocalFactors:AL.0/local-schwartz-bruhat-space; tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors.
+**Direct inputs.** mathlib:ContinuousMonoidHom; AutomorphicLFunctionsAndLocalFactors:AL.0/local-schwartz-bruhat-space; tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors; tauceti:TauCetiRoadmap/GlobalNumberFields#layer-0-places-completions-and-the-product-formula; tauceti:TauCetiRoadmap/GlobalNumberFields#layer-10-archimedean-characters-infinity-types-and-cyclotomic-arithmetic.
 
 **Acceptance checks.** Check that c(ωω_s) = c(ω) for every s: twisting by an unramified character does not change the conductor. Check that the finite-order character of ℤ_p^× induced by a primitive Dirichlet character modulo p^n, extended by ω(p) = 1, has conductor n.
 
 **Proof route.** Exponent: |ω| is a continuous homomorphism to ℝ_{>0}, trivial on the compact group O^× (resp. {±1}, the unit circle), hence |x|^σ. Unramified quasi-characters factor through ord : F^× → ℤ, so they are t^{ord x}; write t = q^{−s}. Conductor: the subgroups 1 + P^c form a basis of neighbourhoods of 1 in O^×, and ω|_{O^×} is continuous into ℂ^×, which has no small subgroups, so ω is trivial on some 1 + P^c. Archimedean normal forms: import the classification of continuous characters of ℝ^× and ℂ^× (GlobalNumberFields Layer 10) and rewrite sgn^ε|x|^s and (z/|z|)^n|z|^s in Kudla's monomials.
 
-**Source.** [Stephen S. Kudla, Tate’s Thesis](https://platoeinsyu.github.io/assets/pdf/Articles/Tate/TatesThesis.pdf), §3, "The ramified local theory", printed p. 120 (physical p. 12). [Stephen S. Kudla, Tate’s Thesis](https://platoeinsyu.github.io/assets/pdf/Articles/Tate/TatesThesis.pdf), §3, "The archimedean case", printed p. 121 (physical p. 13).
+**Source.** [Stephen S. Kudla, Tate’s Thesis](https://platoeinsyu.github.io/assets/pdf/Articles/Tate/TatesThesis.pdf), §3, "The ramified local theory", printed p. 120 (physical p. 12). The conductor c(ω) of a ramified ω.
+
+**Source.** [Stephen S. Kudla, Tate’s Thesis](https://platoeinsyu.github.io/assets/pdf/Articles/Tate/TatesThesis.pdf), §3, "The archimedean case", printed p. 121 (physical p. 13). The archimedean normal forms (3.18) and (3.20).
 
 ### The local Tate zeta integral z(s, ω; f)
 
@@ -969,9 +975,11 @@ The local zeta distribution is first defined where its integral converges. Restr
 
 **Acceptance checks.** Check against Mathlib's finite Gauss sum at F = ℚ_p, c = 1, ν = 0 (vol ℤ_p = 1): 𝔤(ω, ψ) = p^{−1/2}Σ_{a∈𝔽_p^×}ω^{−1}(a)ψ(a/p), and |𝔤|² = 1 is gaussSum_mul_gaussSum_eq_card divided by p.
 
-**Proof route.** f̂^o(x) = ∫_{O^×}ω^{−1}(y)ψ(xy)dy vanishes unless ord x = −ν − c: for ord x ≥ −ν it is ∫_{O^×}ω^{−1} = 0, and for −ν > ord x > −ν − c break O^× into cosets of 1 + P^{−ν−ord x}, on which ψ(x·) is constant and ω^{−1} integrates to 0 (Tate p. 25, cases 1 and 2). For ord x = −ν − c substitute y ↦ yu to get (3.31). Apply (3.31) twice with f̂̂(x) = f(−x) to get 𝔤·conj 𝔤 = 1 (Kudla p. 125). Replacing ϖ by ϖu multiplies ω(ϖ^{ν+c}) by ω(u)^{ν+c} and, after the substitution y ↦ u^{ν+c}y, the integral by ω(u)^{−(ν+c)}; so ω(ϖ^{ν+c})𝔤 is unchanged.
+**Proof route.** At ord(x)=−ν−c, change the unit variable by the unit part of x and apply the Gauss-sum definition with the chosen self-dual measure. If ord(x)>−ν−c, minimality of c gives u∈1+P^(c−1) with ω(u)≠1 (for c=1 use O×). Substitution t↦ut preserves the additive integrand because ord(x)+(c−1)≥−ν, while multiplying the character factor nontrivially; the integral vanishes. If ord(x)<−ν−c, split O× into additive cosets modulo P^c. The multiplicative character is constant on each coset, while h↦ψ(xh) on P^c is nontrivial since ord(x)+c<−ν. Translation invariance forces each coset integral to vanish. Use conjugation, unitarity and the Gauss-sum product identity to obtain the asserted modulus and normalization.
 
-**Source.** [Stephen S. Kudla, Tate’s Thesis](https://platoeinsyu.github.io/assets/pdf/Articles/Tate/TatesThesis.pdf), §3, Proposition 3.8(ii) and (3.31)–(3.32), printed pp. 124–125 (physical pp. 16–17). [John Tate, Fourier Analysis in Number Fields and Hecke’s Zeta-Functions](https://sites.math.rutgers.edu/~alexk/2023S572/Tate1950.pdf), §2.5, "k 𝔭-adic", physical pp. 24–26.
+**Source.** [Stephen S. Kudla, Tate’s Thesis](https://platoeinsyu.github.io/assets/pdf/Articles/Tate/TatesThesis.pdf), §3, Proposition 3.8(ii) and (3.31)–(3.32), printed pp. 124–125 (physical pp. 16–17). The Gauss sum, the transform of f^o and 𝔤·conj 𝔤 = 1.
+
+**Source.** [John Tate, Fourier Analysis in Number Fields and Hecke’s Zeta-Functions](https://sites.math.rutgers.edu/~alexk/2023S572/Tate1950.pdf), §2.5, "k 𝔭-adic", physical pp. 24–26. Tate's root number ρ₀(c) = N𝔣^{−1/2}Σ_ε c(ε)e^{2πiΛ(ε/π^{ord 𝔡𝔣})}, the same sum in Tate's normalisation.
 
 ### Explicit local ε-factors (Proposition 3.8)
 
@@ -985,9 +993,11 @@ The local zeta distribution is first defined where its integral converges. Restr
 
 **Acceptance checks.** Check (i) against Tate's unramified ρ: 1/γ(s) = q^{(s−1/2)d}(1 − q^{s−1})/(1 − q^{−s}) with ν = d = ord 𝔡. Check (iii) against Tate's real table: 1/γ(s + 1, x^{−1}, e) = ρ(±|·|^s) = −i 2^{1−s}π^{−s}sin(πs/2)Γ(s) (Tate p. 21). Check the product over places for k = ℚ, ω = 1: all local ε-factors are 1.
 
-**Proof route.** (i): for ν = 0, f̂^o = f^o, so ε = 1 by (3.27); general ν by (3.29) with ψ = ψ₀(ϖ^ν·). (ii): (3.27) and the Gauss-sum node's (3.31); conj f^o is the standard function for ω^{−1}. (iii): f̂_a = i^a f_a by (2πi)^{−a}D_x^a applied to the Gaussian transform (3.33), and f_a is standard for ω^{−1} = ωω₂. (iv): f̂_{a,b} = i^{a+b}f_{b,a} (3.34), f_{b,a} standard for ω^{−1}, and a + b = max(a, b). Tate p. 22 proves f̂_n = i^{|n|}f_n by induction with 𝒟 = (1/4πi)(∂_x + i∂_y).
+**Proof route.** (i): for ν = 0, f̂^o = f^o, so ε = 1 by (3.27); general ν by (3.29) with ψ = ψ₀(ϖ^ν·). (ii): (3.27) and the Gauss-sum node's (3.31); conj f^o is the standard function for ω^{−1}. (iii): f̂_a = i^a f_a by (2πi)^{−a}D_x^a applied to the Gaussian transform (3.33), and f_a is standard for ω^{−1} = ωω_(2a). (iv): f̂_{a,b} = i^{a+b}f_{b,a} (3.34), f_{b,a} standard for ω^{−1}, and a + b = max(a, b). Tate p. 22 proves f̂_n = i^{|n|}f_n by induction with 𝒟 = (1/4πi)(∂_x + i∂_y).
 
-**Source.** [Stephen S. Kudla, Tate’s Thesis](https://platoeinsyu.github.io/assets/pdf/Articles/Tate/TatesThesis.pdf), §3, Proposition 3.8 and its proof, printed pp. 124–125 (physical pp. 16–17). [John Tate, Fourier Analysis in Number Fields and Hecke’s Zeta-Functions](https://sites.math.rutgers.edu/~alexk/2023S572/Tate1950.pdf), §2.5, physical pp. 20–27.
+**Source.** [Stephen S. Kudla, Tate’s Thesis](https://platoeinsyu.github.io/assets/pdf/Articles/Tate/TatesThesis.pdf), §3, Proposition 3.8 and its proof, printed pp. 124–125 (physical pp. 16–17). Proposition 3.8 (i)–(iv), (3.30)–(3.34).
+
+**Source.** [John Tate, Fourier Analysis in Number Fields and Hecke’s Zeta-Functions](https://sites.math.rutgers.edu/~alexk/2023S572/Tate1950.pdf), §2.5, physical pp. 20–27. Tate's tables of ρ(c) at real, complex and 𝔭-adic places.
 
 ### Factorizable distributions and global uniqueness (Lemma 4.1, Theorem 4.2)
 
@@ -997,13 +1007,15 @@ The local zeta distribution is first defined where its integral converges. Restr
 
 **Hypotheses and conventions.** k a number field, 𝔸 = 𝔸_k, 𝔸^× the ideles with |x| = ∏|x_v|_v, J = {|x| = 1}; ω = ⊗ω_v a character of 𝔸^×/k^× (a Hecke character in the sense of GlobalNumberFields Layer 9); ω_s(x) = |x|^s.
 
-**Direct inputs.** AutomorphicLFunctionsAndLocalFactors:AL.0/adelic-schwartz-bruhat-space; AutomorphicLFunctionsAndLocalFactors:AL.1/local-uniqueness-theorem; AutomorphicLFunctionsAndLocalFactors:AL.1/unramified-local-theory; AutomorphicLFunctionsAndLocalFactors:AL.1/ramified-local-theory; AutomorphicLFunctionsAndLocalFactors:AL.1/archimedean-local-theory.
+**Direct inputs.** AutomorphicLFunctionsAndLocalFactors:AL.0/adelic-schwartz-bruhat-space; AutomorphicLFunctionsAndLocalFactors:AL.1/local-uniqueness-theorem; AutomorphicLFunctionsAndLocalFactors:AL.1/unramified-local-theory; AutomorphicLFunctionsAndLocalFactors:AL.1/ramified-local-theory; AutomorphicLFunctionsAndLocalFactors:AL.1/archimedean-local-theory; tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters.
 
 **Acceptance checks.** Check that the product ∏⟨z₀(s, ω_v), f_v^o⟩ = 1 for the standard f^o = ⊗f_v^o, so ⟨z₀(s, ω), f^o⟩ = 1. A sum of two independent pure-tensor functionals has tensor rank2 and fails the unqualified converse; the corrected eigenline statement excludes this example.
 
 **Proof route.** Extend the product distribution on each finite-place level using the completed archimedean tensor product and continuous multilinear universal property. For an ω-eigendistribution, local eigenline uniqueness forces decomposability, then use density and continuity to recover the global distribution. Check normalization on a product of standard local test functions; the arbitrary-distribution converse in Kudla Lemma4.1 requires the eigencondition.
 
-**Source.** [Stephen S. Kudla, Tate’s Thesis](https://platoeinsyu.github.io/assets/pdf/Articles/Tate/TatesThesis.pdf), §4, Lemma 4.1 and Theorem 4.2, printed p. 126 (physical p. 18). [Stephen S. Kudla, Tate’s Thesis](https://platoeinsyu.github.io/assets/pdf/Articles/Tate/TatesThesis.pdf), §4, printed p. 126 (physical p. 18).
+**Source.** [Stephen S. Kudla, Tate’s Thesis](https://platoeinsyu.github.io/assets/pdf/Articles/Tate/TatesThesis.pdf), §4, Lemma 4.1 and Theorem 4.2, printed p. 126 (physical p. 18). Lemma 4.1 and Theorem 4.2.
+
+**Source.** [Stephen S. Kudla, Tate’s Thesis](https://platoeinsyu.github.io/assets/pdf/Articles/Tate/TatesThesis.pdf), §4, printed p. 126 (physical p. 18). Theorem 4.2 as the global consequence of Theorem 3.4.
 
 ### The global Tate zeta integral z(s, ω; f)
 
@@ -1030,13 +1042,15 @@ The local zeta distribution is first defined where its integral converges. Restr
 
 **Uses.** AutomorphicLFunctionsAndLocalFactors:AL.1/tate-global-functional-equation: the function continued and satisfying ζ(f, c) = ζ(f̂, ĉ) BorelRegulators:R.5: Dedekind zeta functions and their leading terms DirichletPadicLFunctions:KU-zeta: the completed Dedekind zeta function
 
-**Direct inputs.** AutomorphicLFunctionsAndLocalFactors:AL.0/adelic-schwartz-bruhat-space; AutomorphicLFunctionsAndLocalFactors:AL.1/local-zeta-integral; AutomorphicLFunctionsAndLocalFactors:AL.1/unramified-local-theory; AutomorphicLFunctionsAndLocalFactors:AL.1/global-eigendistributions; AdelicAlgebraicGroups:AA.0; AutomorphicLFunctionsAndLocalFactors:AL.0/schwartz-parameter-domination.
+**Direct inputs.** AutomorphicLFunctionsAndLocalFactors:AL.0/adelic-schwartz-bruhat-space; AutomorphicLFunctionsAndLocalFactors:AL.1/local-zeta-integral; AutomorphicLFunctionsAndLocalFactors:AL.1/unramified-local-theory; AutomorphicLFunctionsAndLocalFactors:AL.1/global-eigendistributions; AdelicAlgebraicGroups:AA.0; AutomorphicLFunctionsAndLocalFactors:AL.0/schwartz-parameter-domination; tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters; tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-3-local-factors-and-euler-products; AdelicAlgebraicGroups:AA.0/restricted-haar-split.
 
 **Acceptance checks.** Check for k = ℚ, ω = 1, f = f^o: z(s, 1; f^o) = Γ_ℝ(s)∏_p(1 − p^{−s})^{−1} = Γ_ℝ(s)ζ(s) = completedRiemannZeta s for Re s > 1.
 
 **Proof route.** Integrability: for factorizable f the integral is a product (AA.0 Fubini for restricted products; Tate Theorem 3.3.1); for v outside a finite set S the factor is L_v(s, ω_v) (unramified node) and ∏_{v∉S}(1 − q_v^{−σ})^{−1} converges for σ > 1. Finite linear combinations of pure tensors are dense in S(𝔸), not its algebraic span when several archimedean places occur. On each finite-place support/period-level component, Schwartz seminorms give an integrable majorant for Re(s)>1. Extend continuously from the dense tensor subspace using this bound and dominated convergence; do not infer the general statement solely from Fubini on pure tensors. (4.3): compare (4.2) with ⊗z₀(s, ω_v) place by place.
 
-**Source.** [Stephen S. Kudla, Tate’s Thesis](https://platoeinsyu.github.io/assets/pdf/Articles/Tate/TatesThesis.pdf), §4, (4.1)–(4.5), printed pp. 126–127 (physical pp. 18–19). [John Tate, Fourier Analysis in Number Fields and Hecke’s Zeta-Functions](https://sites.math.rutgers.edu/~alexk/2023S572/Tate1950.pdf), §4.4, Definition 4.4.1, physical p. 49.
+**Source.** [Stephen S. Kudla, Tate’s Thesis](https://platoeinsyu.github.io/assets/pdf/Articles/Tate/TatesThesis.pdf), §4, (4.1)–(4.5), printed pp. 126–127 (physical pp. 18–19). The global zeta integral, its factorisation and z = Λz₀.
+
+**Source.** [John Tate, Fourier Analysis in Number Fields and Hecke’s Zeta-Functions](https://sites.math.rutgers.edu/~alexk/2023S572/Tate1950.pdf), §4.4, Definition 4.4.1, physical p. 49. Tate's global ζ-function ζ(f, c).
 
 ### The completed Hecke L-function Λ(s, ω)
 
@@ -1063,29 +1077,33 @@ The local zeta distribution is first defined where its integral converges. Restr
 
 **Uses.** AutomorphicLFunctionsAndLocalFactors:AL.1/hecke-l-functional-equation: the function satisfying Λ(s, ω) = ε(s, ω)Λ(1 − s, ω^{−1}) AnalyticNumberTheory:AN.4: completed Hecke and Dedekind L-functions for the class-number formula and Chebotarev PeriodsAndSpecialValues:PS.7: GL₁ functional equations and pole conventions (RS-13)
 
-**Direct inputs.** AutomorphicLFunctionsAndLocalFactors:AL.1/unramified-local-theory; AutomorphicLFunctionsAndLocalFactors:AL.1/ramified-local-theory; AutomorphicLFunctionsAndLocalFactors:AL.1/archimedean-local-theory; AutomorphicLFunctionsAndLocalFactors:AL.1/global-zeta-integral.
+**Direct inputs.** AutomorphicLFunctionsAndLocalFactors:AL.1/unramified-local-theory; AutomorphicLFunctionsAndLocalFactors:AL.1/ramified-local-theory; AutomorphicLFunctionsAndLocalFactors:AL.1/archimedean-local-theory; AutomorphicLFunctionsAndLocalFactors:AL.1/global-zeta-integral; tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-3-local-factors-and-euler-products.
 
 **Acceptance checks.** Check k = ℚ, ω = 1: Λ(s, 1) = Γ_ℝ(s)ζ(s) = completedRiemannZeta s.
 
 **Proof route.** Absolute convergence from ∏_v(1 − q_v^{−σ})^{−1}, σ > 1 (Tate p. 56). Expand each Euler factor as a geometric series and multiply out (unique factorisation of ideals; ArithmeticDirichletSeries Layer 3).
 
-**Source.** [Stephen S. Kudla, Tate’s Thesis](https://platoeinsyu.github.io/assets/pdf/Articles/Tate/TatesThesis.pdf), §4, (4.4), printed p. 127 (physical p. 19). [Stephen S. Kudla, Tate’s Thesis](https://platoeinsyu.github.io/assets/pdf/Articles/Tate/TatesThesis.pdf), §5, printed p. 129 (physical p. 21).
+**Source.** [Stephen S. Kudla, Tate’s Thesis](https://platoeinsyu.github.io/assets/pdf/Articles/Tate/TatesThesis.pdf), §4, (4.4), printed p. 127 (physical p. 19). The complete L-function (4.4) and L^S.
+
+**Source.** [Stephen S. Kudla, Tate’s Thesis](https://platoeinsyu.github.io/assets/pdf/Articles/Tate/TatesThesis.pdf), §5, printed p. 129 (physical p. 21). The ideal character χ of I_𝔪 attached to ω.
 
 ### The volume κ of the norm-one idele class group (Tate Lemma 4.3.1, Theorem 4.3.2)
 
 **Declaration.** TauCeti.TateZeta.volume_fundamentalDomain_eq (AutomorphicLFunctionsAndLocalFactors:AL.1/idele-class-volume).
 
-**Lemma.** With Tate's measures (d^×α = (N𝔭/(N𝔭 − 1))|α|^{−1}dα at finite v, so vol(O_v^×) = N𝔡_v^{−1/2}; dα/|α| at real v; 2r dr dθ/r² at complex v), the product decomposition 𝔸^× = T × J (T ≅ ℝ_{>0} at a chosen archimedean place, dt/t) and d^×𝔞 = dt·d^×𝔟, the fundamental domain E for J/k^× built from the units and h ideal-class representatives satisfies (1) J = ⊔_{α∈k^×}αE and (2) vol(E) = κ = 2^{r₁}(2π)^{r₂}hR/(w√|d|), where R is the regulator, h the class number, w the number of roots of unity and d the discriminant. κ agrees with the arithmetic expression defining native NumberField.dedekindZeta_residue K; Mathlib already proves its real one-sided residue identification via NumberField.tendsto_sub_one_mul_dedekindZeta_nhdsGT. The extra analytic task is its comparison with this adelic measure and the full complex Tate continuation. Discreteness and compactness are imported from GlobalNumberFields, not reproved here. A change to finite multiplicative unit-volume1 rescales κ by sqrt(|d|).
+**Lemma.** With Tate's measures (d^×α = (N𝔭/(N𝔭 − 1))|α|^{−1}dα at finite v, so vol(O_v^×) = N𝔡_v^{−1/2}; dα/|α| at real v; 2r dr dθ/r² at complex v), the product decomposition 𝔸^× = T × J (T ≅ ℝ_{>0} at a chosen archimedean place, dt/t) and d^×𝔞 = (dt/t)·d^×𝔟, the fundamental domain E for J/k^× built from the units and h ideal-class representatives satisfies (1) J = ⊔_{α∈k^×}αE and (2) vol(E) = κ = 2^{r₁}(2π)^{r₂}hR/(w√|d|), where R is the regulator, h the class number, w the number of roots of unity and d the discriminant. κ agrees with the arithmetic expression defining native NumberField.dedekindZeta_residue K; Mathlib already proves its real one-sided residue identification via NumberField.tendsto_sub_one_mul_dedekindZeta_nhdsGT. The extra analytic task is its comparison with this adelic measure and the full complex Tate continuation. Discreteness and compactness are imported from GlobalNumberFields, not reproved here. A change to finite multiplicative unit-volume1 rescales κ by sqrt(|d|).
 
 **Hypotheses and conventions.** k a number field, 𝔸 = 𝔸_k, 𝔸^× the ideles with |x| = ∏|x_v|_v, J = {|x| = 1}; ω = ⊗ω_v a character of 𝔸^×/k^× (a Hecke character in the sense of GlobalNumberFields Layer 9); ω_s(x) = |x|^s. Tate's measures, not Kudla's: the value of κ depends on vol(O_v^×) = N𝔡_v^{−1/2}.
 
-**Direct inputs.** mathlib:NumberField.dedekindZeta_residue; mathlib:NumberField.Units.regulator; mathlib:NumberField.classNumber; mathlib:NumberField.Units.torsionOrder; mathlib:NumberField.discr; AdelicAlgebraicGroups:AA.0; mathlib:NumberField.tendsto_sub_one_mul_dedekindZeta_nhdsGT.
+**Direct inputs.** mathlib:NumberField.dedekindZeta_residue; mathlib:NumberField.Units.regulator; mathlib:NumberField.classNumber; mathlib:NumberField.Units.torsionOrder; mathlib:NumberField.discr; AdelicAlgebraicGroups:AA.0; mathlib:NumberField.tendsto_sub_one_mul_dedekindZeta_nhdsGT; tauceti:TauCetiRoadmap/GlobalNumberFields#layer-0-places-completions-and-the-product-formula; tauceti:TauCetiRoadmap/GlobalNumberFields#layer-6-additive-strong-approximation-and-ideles.
 
 **Acceptance checks.** Check k = ℚ: r₁ = 1, r₂ = 0, h = R = 1, w = 2, d = 1, so κ = 1.
 
 **Proof route.** Lemma 4.3.1: ℓ : J_{S_∞} → ℝ^r, 𝔟 ↦ (log|𝔟_v|)_{v ≠ v₀}; the preimage of the unit parallelotope P has volume R·vol(ℓ^{−1}(Q)) and vol(ℓ^{−1}(Q)) = 2^{r₁}(2π)^{r₂}/√|d| from the local volumes 2 (real), 2π (complex) and ∏N𝔡_v^{−1/2} = |d|^{−1/2}. Theorem 4.3.2: E = ⊔_i E₀𝔟^{(i)} with E₀ the part of ℓ^{−1}(P) with 0 ≤ arg 𝔟_{v₀} < 2π/w; divide by the ideal class, then by units and roots of unity. Compare the resulting expression with Mathlib's dedekindZeta_residue_def. Import the native real one-sided Dedekind residue theorem; identify its arithmetic residue with κ in the self-dual measure convention. Complex continuation is supplied by the global Tate theorem, not re-proved by the native real limit.
 
-**Source.** [John Tate, Fourier Analysis in Number Fields and Hecke’s Zeta-Functions](https://sites.math.rutgers.edu/~alexk/2023S572/Tate1950.pdf), §4.3, Lemma 4.3.1, Definition 4.3.2, Theorem 4.3.2 and Corollary 4.3.1, physical pp. 44–48. [John Tate, Fourier Analysis in Number Fields and Hecke’s Zeta-Functions](https://sites.math.rutgers.edu/~alexk/2023S572/Tate1950.pdf), §4.4, Main Theorem 4.4.1, physical p. 50.
+**Source.** [John Tate, Fourier Analysis in Number Fields and Hecke’s Zeta-Functions](https://sites.math.rutgers.edu/~alexk/2023S572/Tate1950.pdf), §4.3, Lemma 4.3.1, Definition 4.3.2, Theorem 4.3.2 and Corollary 4.3.1, physical pp. 44–48. The fundamental domain for J mod k^× and its volume κ.
+
+**Source.** [John Tate, Fourier Analysis in Number Fields and Hecke’s Zeta-Functions](https://sites.math.rutgers.edu/~alexk/2023S572/Tate1950.pdf), §4.4, Main Theorem 4.4.1, physical p. 50. κ as it enters the residues.
 
 ### Tate's Lemma A: the functional equation of ζ_t
 
@@ -1359,9 +1377,9 @@ The matrix integral has exponent s+(n−1)/2, so rank one is exactly Tate's inte
 
 **Acceptance checks.** At rank one the formula is the positive-kernel Tate functional equation. The quotient is interpreted by its entire continuation at a pole of L, not by totalized division.
 
-**Proof route.** Use the local matrix distribution functional equation. At finite places exploit the principal fractional ideal; at infinity use the Langlands gamma comparison. Normalize γ=ε L(1−s,π∨)/L(s,π); verify the rank-one Tate reduction.
+**Proof route.** Use the local matrix distribution functional equation. At finite places exploit the principal fractional ideal; at infinity use the Langlands gamma comparison. Normalize γ=ε L(1−s,π∨)/L(s,π); verify the rank-one Tate reduction. Humphries (2.15) uses the inverse additive character and tr(X·tY), with β̃(g)=β(tg^(−1)). Apply that formula with the inverse of the packet character, then substitute Y↦tY and g↦tg. Transpose preserves the additive and group Haar measures; this gives the packet positive tr(XY) pairing and β̌(g)=β(g^(−1)). The rank-one epsilon becomes i^a with this character convention.
 
-**Source.** [Peter Humphries, Archimedean newform theory for GL(n)](https://arxiv.org/pdf/2008.12406v2), §2.4.4 (2.15).
+**Source.** [Peter Humphries, Archimedean newform theory for GL(n)](https://arxiv.org/pdf/2008.12406v2), §2.4.4, formula(2.15), p.7; additive character convention §2.1.1 p.3. The source uses inverse-character transpose Fourier transform and transpose-inverse matrix coefficient. Inverting the character and changing variables by transpose gives the positive plain-trace convention in this node.
 
 ### A ramified Godement–Jacquet test vector
 
@@ -1371,13 +1389,13 @@ The matrix integral has exponent s+(n−1)/2, so rank one is exactly Tate's inte
 
 **Hypotheses and conventions.** Use the newform theorem in SR.5 including c(ω_π)≤c; dg(K)=1.
 
-**Direct inputs.** AutomorphicLFunctionsAndLocalFactors:AL.2/godement-jacquet-integral; AutomorphicLFunctionsAndLocalFactors:AL.2/standard-local-l-factor; SmoothRepresentationsOfLocalGroups:SR.5; AutomorphicLFunctionsAndLocalFactors:AL.3/rs-unramified-test.
+**Direct inputs.** AutomorphicLFunctionsAndLocalFactors:AL.2/godement-jacquet-integral; AutomorphicLFunctionsAndLocalFactors:AL.2/standard-local-l-factor; SmoothRepresentationsOfLocalGroups:SR.5; AutomorphicLFunctionsAndLocalFactors:AL.3/rs-unramified-test; AutomorphicLFunctionsAndLocalFactors:AL.3/rs-induced-factor-product.
 
 **Acceptance checks.** For n=1 and a ramified character the integral reduces to its standard unit-supported test and gives L=1. The factor vol K₀(Pᶜ)⁻¹ and inverse central character on X_nn are retained; replacing Φ by 1_Mat(O) does not give the ramified theorem.
 
 **Proof route.** Express Φ using the normalized newform projector. Insert the spherical Whittaker propagation formula (Humphries Lemma4.1) into the equal-rank RS test integral. Fold the last-row integration and identify the remaining GL_{n−1} test integral; cancel the nonzero meromorphic common factor.
 
-**Source.** [Peter Humphries, Test vectors for nonarchimedean Godement–Jacquet zeta integrals](https://arxiv.org/pdf/1903.02031v2), Theorem1.2, §§4–5.
+**Source.** [Peter Humphries, Test vectors for nonarchimedean Godement–Jacquet zeta integrals](https://arxiv.org/pdf/1903.02031v2), Theorem1.2, §§4–5. The named construction/result in this passage; all normalizations in the statement are explicit.
 
 ### The Jacquet–Shalika Satake bound
 
@@ -1643,7 +1661,7 @@ Fourier reconstruction uses the last-column unipotent expansion and is proved be
 
 **Declaration.** TauCeti.AutomorphicLFunctions.AL3.RsLocalConvergence (AutomorphicLFunctionsAndLocalFactors:AL.3/rs-local-convergence).
 
-**Theorem.** For fixed generic π_n,π_m, all Ψ_j converge absolutely in a right half-plane, locally uniformly in s; at infinity they are jointly continuous bilinear forms on the smooth Fréchet models, extending to the completed projective tensor product.
+**Theorem.** For fixed generic π_n,π_m, all Ψ_j converge absolutely in a right half-plane, locally uniformly in s; at infinity they are jointly continuous bilinear forms on the smooth Fréchet models, extending to the completed projective tensor product. If both irreducible generic inputs are unitary, the local integrals converge absolutely for Re(s)≥1; this closed boundary estimate is needed in the strong multiplicity-one argument.
 
 **Hypotheses and conventions.** Parameters in compact sets require the uniform seminorm estimates; a K-finite algebraic tensor statement alone is insufficient.
 
@@ -1653,7 +1671,9 @@ Fourier reconstruction uses the last-column unipotent expansion and is proved be
 
 **Proof route.** Apply Iwasawa decomposition and the Whittaker torus asymptotics from SR.3 and AL.3. Control compact parameter sets with common exponents and continuous seminorms. Use dominated differentiation, then the universal property of completed projective tensor products.
 
-**Source.** [Hervé Jacquet, Archimedean Rankin–Selberg integrals](https://www.math.columbia.edu/~hj/PerfectRankinSelberg.pdf), Theorems2.1–2.3; §§3–5.
+**Source.** [James W. Cogdell, Lectures on L-functions, converse theorems, and functoriality for GL(n)](https://people.math.osu.edu/cogdell.1/fields-www.pdf), Lecture6 Proposition6.2(i), printed p.47 (physical p.51); Lecture8 Proposition8.2, printed p.63 (physical p.67). The finite and archimedean integral estimates give convergence in a right half-plane, and throughout Re(s)≥1 for unitary generic representations.
+
+**Source.** [Hervé Jacquet, Archimedean Rankin–Selberg integrals](https://www.math.columbia.edu/~hj/PerfectRankinSelberg.pdf), §2 Theorem2.1 p.7 and Proposition3.2, pp.19–20. Compact-picture estimates supply joint continuity and extension to the completed projective tensor product in the convergence region.
 
 ### The Rankin–Selberg local L-factor
 
@@ -1678,13 +1698,33 @@ Fourier reconstruction uses the last-column unipotent expansion and is proved be
 
 **Uses.** AL.3/global-rs-continuation: Normalized local nonvanishing detects every global pole. Liu2022 §1.1: The completed tensor-product factor at the unitary central point.
 
-**Direct inputs.** AutomorphicLFunctionsAndLocalFactors:AL.3/rs-local-integrals; SmoothRepresentationsOfLocalGroups:SR.3; AutomorphicFormsOnReductiveGroups:AF.1/archimedean-llc-gln; AutomorphicLFunctionsAndLocalFactors:AL.1/local-uniqueness-theorem; AutomorphicLFunctionsAndLocalFactors:AL.3/rs-local-convergence.
+**Direct inputs.** AutomorphicLFunctionsAndLocalFactors:AL.3/rs-local-integrals; SmoothRepresentationsOfLocalGroups:SR.3; AutomorphicFormsOnReductiveGroups:AF.1/archimedean-llc-gln; AutomorphicLFunctionsAndLocalFactors:AL.1/local-uniqueness-theorem; AutomorphicLFunctionsAndLocalFactors:AL.3/rs-local-convergence; SmoothRepresentationsOfLocalGroups:SR.5.
 
 **Acceptance checks.** Two unramified characters give (1−αβq^(−s))^(−1). Satake roots (2,3), β=5 give denominator (1−10T)(1−15T). Two ramified characters can have unramified product; multiplying their separate standard L-factors does not compute the tensor L-factor.
 
-**Proof route.** Finite places: prove rationality, common denominator and independence of j using mirabolic derivatives from SR.3. Infinite places: compare gamma products under AF.1 classification and analyze polar parts of Schwartz Mellin transforms. Minimality uses nonvanishing test tensors, including completed tensors where needed.
+**Proof route.** Finite places: prove rationality, common denominator and independence of j using mirabolic derivatives from SR.5’s complex specialization. Infinite places: compare gamma products under AF.1 classification and analyze polar parts of Schwartz Mellin transforms. Minimality uses nonvanishing test tensors, including completed tensors where needed.
 
-**Source.** [Hervé Jacquet, Archimedean Rankin–Selberg integrals](https://www.math.columbia.edu/~hj/PerfectRankinSelberg.pdf), §2 Theorems2.3–2.7; §12.1.
+**Source.** [Hervé Jacquet, Archimedean Rankin–Selberg integrals](https://www.math.columbia.edu/~hj/PerfectRankinSelberg.pdf), §2 Theorems2.3–2.7; §12.1. The defining integral or factor in this passage.
+
+**Source.** [James W. Cogdell, Lectures on L-functions, converse theorems, and functoriality for GL(n)](https://people.math.osu.edu/cogdell.1/fields-www.pdf), Lecture6 §2, Proposition6.3 and Corollary6.3.1, printed p.48 (physical p.52). Finite-place normalized fractional ideals have a finite test sum realizing L and normalized quotients with no common zero; the original denominator proof remains G6.
+
+### Nonarchimedean factors under normalized induction
+
+**Declaration.** TauCeti.AutomorphicLFunctions.AL3.RsInducedFactorProduct (AutomorphicLFunctionsAndLocalFactors:AL.3/rs-induced-factor-product).
+
+**Theorem.** Let F be nonarchimedean and π=Ind_P^GL_n(⊠_i π_i) and π′=Ind_Q^GL_m(⊠_j π′_j) be irreducible generic normalized inductions, with every block irreducible essentially square-integrable. Then L(s,π)=∏_i L(s,π_i) and L(s,π×π′)=∏_(i,j)L(s,π_i×π′_j). For a rank-one norm character, L(s,π×|·|^t)=L(s+t,π). These are exact identities of normalized local factors, at this finite place.
+
+**Hypotheses and conventions.** Use the induced representations themselves, with δ_P^(1/2), not arbitrary irreducible quotients of reducible induction. The irreducible generic range suffices for the newform application; no general nongeneric quotient product theorem is asserted. This target is the finite-place product needed by the ramified Godement–Jacquet newform proof. No archimedean induction-compatibility supplier is inferred from the finite SR.2 contract.
+
+**Direct inputs.** AutomorphicLFunctionsAndLocalFactors:AL.3/rs-local-factor; AutomorphicLFunctionsAndLocalFactors:AL.2/standard-local-l-factor; SmoothRepresentationsOfLocalGroups:SR.2; SmoothRepresentationsOfLocalGroups:SR.3.
+
+**Acceptance checks.** For π′ an unramified principal series with character blocks |·|^(t_j), the identity is L(s,π×π′)=∏_j L(s+t_j,π), the common factor canceled in Humphries §5. A reducible induction followed by an unspecified quotient does not satisfy the stated hypotheses; multiplicativity of gamma factors alone cannot certify the normalized L-factor equality.
+
+**Proof route.** At finite places use the exact standard-factor induction theorem and JPSS tensor-factor product theorem, stated in Humphries §2.4.1. Cogdell Proposition6.6 only gives gamma multiplicativity and L-divisibility and is insufficient to prove this equality; G5/G6 retain the original common-denominator proof refinements. For the rank-one norm twist substitute the scalar |·|^t in the defining convergent integrals and use uniqueness of the normalized factor to continue the identity.
+
+**Source.** [Peter Humphries, Archimedean newform theory for GL(n)](https://arxiv.org/pdf/2008.12406v2), §2.2.1–2.2.3 p.4; §2.4.1 formulas(2.4)–(2.6), p.6. The source defines induced Whittaker type and states the exact standard/tensor product and rank-one shift formulas. The node retains the irreducible generic subrange already supported by the packet factor carriers.
+
+**Source.** [Peter Humphries, Test vectors for nonarchimedean Godement–Jacquet zeta integrals](https://arxiv.org/pdf/1903.02031v2), §5 proof of Theorem1.2, p.6, invoking JPSS1983 §9.5. The newform proof cancels the exact product of shifted standard factors furnished by an unramified principal-series auxiliary representation.
 
 ### The local Rankin–Selberg functional equation
 
@@ -1726,13 +1766,13 @@ Fourier reconstruction uses the last-column unipotent expansion and is proved be
 
 **Hypotheses and conventions.** Satake roots in unitary normalization; spherical/essential Whittaker functions imported from SR.5.
 
-**Direct inputs.** AutomorphicLFunctionsAndLocalFactors:AL.3/rs-local-factor; SmoothRepresentationsOfLocalGroups:SR.5; IntegralHeckeAndGaloisDeterminants:IHG.3/gln-satake-coefficients.
+**Direct inputs.** AutomorphicLFunctionsAndLocalFactors:AL.3/rs-local-factor; SmoothRepresentationsOfLocalGroups:SR.5; IntegralHeckeAndGaloisDeterminants:IHG.3/gln-satake-coefficients; SmoothRepresentationsOfLocalGroups:SR.4.
 
 **Acceptance checks.** For n=m=1 the reciprocal polynomial is1−αβT. For n=2,m=1 and roots2,3 with β=5 it is(1−10T)(1−15T), with the local Haar and W(1)=1 normalization.
 
 **Proof route.** Use Casselman–Shalika and Iwasawa to write the spherical integral as a sum of Schur polynomials. Apply the Cauchy identity for the product ∏(1−α_iβ_jT)^(−1). For the newform version use the SR.5 essential vector theorem and explicit K₀-volume normalization.
 
-**Source.** [Peter Humphries, Test vectors for nonarchimedean Godement–Jacquet zeta integrals](https://arxiv.org/pdf/1903.02031v2), §3 Theorems3.7,3.9 and formula(3.10).
+**Source.** [Peter Humphries, Test vectors for nonarchimedean Godement–Jacquet zeta integrals](https://arxiv.org/pdf/1903.02031v2), §3 Theorems3.7,3.9 and formula(3.10). Spherical and essential-vector Rankin–Selberg evaluations quoted here; their original JPSS proof is a separate source refinement.
 
 ### The GL(n) cuspidal Fourier expansion
 
@@ -1782,7 +1822,7 @@ Fourier reconstruction uses the last-column unipotent expansion and is proved be
 
 **Definition.** For Φ∈S(𝔸^n), unitary idele-class character η and Re(s)>1, E(g,s,Φ,η)=|det g|^s∫_{K×\𝔸×}Σ_{ξ∈K^n\{0}}Φ(aξg)|a|^(ns)η(a)d×a. Equivalently E is the sum over P_{n−1,1}(K)\GL_n(K) of the section f(g,s)=|det g|^s∫_{𝔸×}Φ(ae_ng)|a|^(ns)η(a)d×a.
 
-**Hypotheses and conventions.** n≥1; self-dual additive Haar and a specified multiplicative Haar; Schwartz topology uses the completed archimedean factors.
+**Hypotheses and conventions.** K is a number field; the function-field correspondence, rational factors and periodic poles use their separate GS.6/FA suppliers. n≥1; self-dual additive Haar and a specified multiplicative Haar; Schwartz topology uses the completed archimedean factors.
 
 **Public interface.**
 
@@ -1810,17 +1850,17 @@ Fourier reconstruction uses the last-column unipotent expansion and is proved be
 
 **Declaration.** TauCeti.AutomorphicLFunctions.AL3.MirabolicEisensteinFunctionalEquation (AutomorphicLFunctionsAndLocalFactors:AL.3/mirabolic-eisenstein-functional-equation).
 
-**Theorem.** E(g,s,Φ,η)=E(t(g^(−1)),1−s,Φ̂,η^(−1)) meromorphically. If η=|·|^(−inσ), the only possible simple poles are s=iσ and1+iσ. For η=1 and κ=vol(K×\𝔸¹) with Tate measures, the zero-mode terms are −κ|det g|^sΦ(0)/(ns)+κ|det g|^(s−1)Φ̂(0)/(n(s−1)); otherwise the norm-one character integral vanishes.
+**Theorem.** E(g,s,Φ,η)=E(t(g^(−1)),1−s,Φ̂,η^(−1)) meromorphically over a number field. If η=|·|^(−inσ), its only possible simple poles are s=iσ and1+iσ. With κ=vol(K×\𝔸¹) in the chosen measures, the zero-mode terms in that case are −κ|det g|^sΦ(0)/(n(s−iσ))+κ|det g|^(s−1)Φ̂(0)/(n(s−1−iσ)). If the restriction of η to the norm-one idele class group is nontrivial, both zero-mode integrals vanish. The case η=1 is σ=0.
 
 **Hypotheses and conventions.** Positive Fourier kernel, additive self-duality; n-fold quotient covolume normalized1.
 
 **Direct inputs.** AutomorphicLFunctionsAndLocalFactors:AL.3/mirabolic-eisenstein-series; AutomorphicLFunctionsAndLocalFactors:AL.0/adelic-poisson-summation; AutomorphicLFunctionsAndLocalFactors:AL.1/idele-class-volume.
 
-**Acceptance checks.** For η=1, g=1, the polar zero modes are−κΦ(0)/(ns)+κΦ̂(0)/(n(s−1)). For η=|·|⁻ⁱⁿσ with σ≠0 the poles move to iσ and1+iσ although η is nontrivial; norm-one nontriviality is the criterion that removes them.
+**Acceptance checks.** For η=1, g=1, the polar zero modes are−κΦ(0)/(ns)+κΦ̂(0)/(n(s−1)). For η=|·|⁻ⁱⁿσ with σ≠0 the poles move to iσ and1+iσ although η is nontrivial; norm-one nontriviality is the criterion that removes them. For σ=1 the norm-twist zero terms have poles at i and1+i rather than vanishing merely because η≠1.
 
-**Proof route.** Split the a norm at1 and apply Poisson to the small-norm theta sum. Integrate the two zero terms separately: the exponent ns gives the factor1/n. The two truncated theta integrals are entire by rapid decay; twist s by iσ for the norm-character case.
+**Proof route.** Split the norm integral at1 and apply Poisson to the small-norm theta sum. For η=|·|^(−inσ), use E(g,s,Φ,η)=|det g|^(iσ)E(g,s−iσ,Φ,1); integrate the zero modes with denominators n(s−iσ) and n(s−1−iσ). A character nontrivial on the norm-one quotient has zero average there. Schwartz decay makes the two truncated theta integrals entire; the zero modes give the displayed residues and the dual functional equation.
 
-**Source.** [James W. Cogdell, L-functions and converse theorems for GL(n)](https://people.math.osu.edu/cogdell.1/columbia-www.pdf), §1.1.3, pp.4–5, Poisson summation and functional equation.
+**Source.** [James W. Cogdell, L-functions and converse theorems for GL(n)](https://people.math.osu.edu/cogdell.1/columbia-www.pdf), §1.1.3, pp.4–5, Poisson summation and functional equation. The named construction/result in this passage; all normalizations in the statement are explicit.
 
 ### Global Rankin–Selberg unfolding
 
@@ -1828,7 +1868,7 @@ Fourier reconstruction uses the last-column unipotent expansion and is proved be
 
 **Theorem.** For unitary cuspidal π_n,π_m and pure tensors, the unequal-rank projected cusp integral and the equal-rank integral ∫_{Z_n(𝔸)GL_n(K)\GL_n(𝔸)}φ(g)φ′(g)E(g,s,Φ,ω_πω_π′)dg unfold to ∏_v Ψ_v(s). For n>m project φ along the unipotent radical of (m+1,1,…,1), with factor |det|^(−(n−m−1)/2), then integrate against φ′|det|^(s−1/2).
 
-**Hypotheses and conventions.** Initially Re(s)≫0; global character product trivial on K×. Adjacent rank needs no preliminary projection.
+**Hypotheses and conventions.** K is a number field. The function-field rational/periodic-pole branch is treated by the separate function-field nodes. Initially Re(s)≫0; global character product trivial on K×. Adjacent rank needs no preliminary projection.
 
 **Direct inputs.** AutomorphicLFunctionsAndLocalFactors:AL.3/gln-fourier-expansion; AutomorphicLFunctionsAndLocalFactors:AL.3/mirabolic-eisenstein-series; AutomorphicLFunctionsAndLocalFactors:AL.3/rs-local-integrals; AutomorphicFormsOnReductiveGroups:AF.3/cusp-form-rapid-decay; AdelicAlgebraicGroups:AA.2/automorphic-quotient-measure; AutomorphicLFunctionsAndLocalFactors:AL.3/global-whittaker-factorization.
 
@@ -1836,7 +1876,7 @@ Fourier reconstruction uses the last-column unipotent expansion and is proved be
 
 **Proof route.** Apply the GL_n Fourier expansion and identify the mirabolic orbit. Unfold the parabolic Eisenstein sum in the equal-rank case; cusp terms remove all non-open orbits. Use rapid decay for absolute convergence and AA Fubini for pure-factor product decomposition.
 
-**Source.** [James W. Cogdell, L-functions and converse theorems for GL(n)](https://people.math.osu.edu/cogdell.1/columbia-www.pdf), §1.1.2–§1.1.3 pp.3–5.
+**Source.** [James W. Cogdell, L-functions and converse theorems for GL(n)](https://people.math.osu.edu/cogdell.1/columbia-www.pdf), §1.1.2–§1.1.3 pp.3–5. The named construction/result in this passage; all normalizations in the statement are explicit.
 
 ### Continuation and the Rankin–Selberg pole criterion
 
@@ -1844,7 +1884,7 @@ Fourier reconstruction uses the last-column unipotent expansion and is proved be
 
 **Theorem.** For unitary cuspidal π_n,π_m the completed Λ(s,π_n×π_m) continues meromorphically. It is entire if n≠m. If n=m, its only poles are simple at s=iσ and1+iσ for real σ with π_n∨≅π_m⊗|det|^(iσ). In particular Λ(s,π×π∨) has simple poles at0 and1, and Λ(s,π×π′∨) has a pole at1 iff π≅π′.
 
-**Hypotheses and conventions.** Holomorphic normalized local quotients have no common zero; all archimedean factors included.
+**Hypotheses and conventions.** K is a number field. The function-field rational/periodic-pole branch is treated by the separate function-field nodes. Holomorphic normalized local quotients have no common zero; all archimedean factors included.
 
 **Direct inputs.** AutomorphicLFunctionsAndLocalFactors:AL.3/global-rs-unfolding; AutomorphicLFunctionsAndLocalFactors:AL.3/rs-local-factor; AutomorphicLFunctionsAndLocalFactors:AL.3/mirabolic-eisenstein-functional-equation; AutomorphicFormsOnReductiveGroups:AF.3/cusp-form-rapid-decay.
 
@@ -1852,7 +1892,7 @@ Fourier reconstruction uses the last-column unipotent expansion and is proved be
 
 **Proof route.** The unequal-rank global integral is entire by cuspidal decay. Equal-rank residues are the Petersson pairing times the mirabolic theta zero terms. Local minimality permits test inputs nonvanishing at any prescribed point, so global poles are exactly those of the completed factor.
 
-**Source.** [James W. Cogdell, Lectures on L-functions, converse theorems, and functoriality for GL(n)](https://people.math.osu.edu/cogdell.1/fields-www.pdf), Lecture9 §3, pp.71–72.
+**Source.** [James W. Cogdell, Lectures on L-functions, converse theorems, and functoriality for GL(n)](https://people.math.osu.edu/cogdell.1/fields-www.pdf), Lecture9 opening, printed p.69 (physical p.73); §3 Theorems9.1–9.2, printed pp.74–75 (physical pp.78–79). In the number-field unitary cuspidal setting, unequal-rank completion is entire and equal-rank poles have the stated norm-twist criterion.
 
 ### The global Rankin–Selberg functional equation
 
@@ -1860,7 +1900,7 @@ Fourier reconstruction uses the last-column unipotent expansion and is proved be
 
 **Theorem.** Λ(s,π×π′)=ε(s,π×π′)Λ(1−s,π∨×π′∨), with ε the finite product of the local factors at ramified/archimedean places. Central-character signs disappear because ∏_vω_{π′_v}(−1)=ω_{π′}(−1)=1. The global product is independent of the chosen global additive character.
 
-**Hypotheses and conventions.** Use unitary cuspidal representations and consistent quotient measures.
+**Hypotheses and conventions.** K is a number field. The function-field rational/periodic-pole branch is treated by the separate function-field nodes. Use unitary cuspidal representations and consistent quotient measures.
 
 **Direct inputs.** AutomorphicLFunctionsAndLocalFactors:AL.3/rs-local-functional-equation; AutomorphicLFunctionsAndLocalFactors:AL.3/global-rs-unfolding; AutomorphicLFunctionsAndLocalFactors:AL.3/rs-global-poles.
 
@@ -1868,7 +1908,7 @@ Fourier reconstruction uses the last-column unipotent expansion and is proved be
 
 **Proof route.** Apply the global integral change of variables g↦t(g^(−1)). Apply every local RS functional equation to the factorizable integrals. Cancel a nonzero normalized test product meromorphically; use the product formula for the signs and additive-character changes.
 
-**Source.** [James W. Cogdell, Lectures on L-functions, converse theorems, and functoriality for GL(n)](https://people.math.osu.edu/cogdell.1/fields-www.pdf), Lecture9 §4, p.72.
+**Source.** [James W. Cogdell, Lectures on L-functions, converse theorems, and functoriality for GL(n)](https://people.math.osu.edu/cogdell.1/fields-www.pdf), Lecture9 §3 Theorems9.1–9.2, printed pp.74–75 (physical pp.78–79); integral-to-factor argument printed pp.71–72. The completed number-field factors satisfy the dual functional equation; local signs and character changes cancel in the global product.
 
 ### Rankin–Selberg vertical-strip bounds
 
@@ -1876,7 +1916,7 @@ Fourier reconstruction uses the last-column unipotent expansion and is proved be
 
 **Theorem.** The completed Λ(s,π×π′) for unitary cuspidal inputs is bounded on finite vertical strips away from its polar points. For m=n or n−1, finite K-finite test realization reduces this to the global-integral bounds. For arbitrary rank gaps use the general Gelbart–Shahidi theorem with its normalized-intertwining-operator hypothesis verified for GL(n).
 
-**Hypotheses and conventions.** This is a completed-function bound, not a uniform boundedness assertion for the finite Dirichlet series with gamma factors removed.
+**Hypotheses and conventions.** K is a number field; the function-field correspondence, rational factors and periodic poles use their separate GS.6/FA suppliers. This is a completed-function bound, not a uniform boundedness assertion for the finite Dirichlet series with gamma factors removed.
 
 **Direct inputs.** AutomorphicLFunctionsAndLocalFactors:AL.3/rs-archimedean-realization; AutomorphicLFunctionsAndLocalFactors:AL.3/global-rs-unfolding; AutomorphicFormsOnReductiveGroups:AF.3/cusp-form-rapid-decay; AutomorphicFormsOnReductiveGroups:AF.1.
 
@@ -2128,13 +2168,13 @@ Fourier reconstruction uses the last-column unipotent expansion and is proved be
 
 **Hypotheses and conventions.** Import the differential/residue character and canonical divisor from FunctionFieldArithmetic; no new differential theory is planned.
 
-**Direct inputs.** AutomorphicLFunctionsAndLocalFactors:AL.3/whittaker-model; AutomorphicLFunctionsAndLocalFactors:AL.3/rs-unramified-test.
+**Direct inputs.** AutomorphicLFunctionsAndLocalFactors:AL.3/whittaker-model; AutomorphicLFunctionsAndLocalFactors:AL.3/rs-unramified-test; FunctionFieldArithmetic:FA.2.
 
 **Acceptance checks.** At n_v=0 the diagonal t_v is the identity. At rank2, t_v=diag(ϖ⁻ⁿᵥ,1), and ψ_v(ϖ⁻ⁿᵥ·) has conductor0.
 
 **Proof route.** Conjugation by t_v multiplies every simple-root coordinate by ϖ_v^(−n_v). Apply the conductor-zero spherical Whittaker formula with its nonzero value at identity. Use the supplier canonical-divisor degree; keep its sign aligned with the largest-trivial-ideal convention.
 
-**Source.** [Hongjie Yu, Comptage des systèmes locaux ℓ-adiques sur une courbe](https://arxiv.org/pdf/1807.04659v5), Lemma5.3.3 proof pp.37–38.
+**Source.** [Hongjie Yu, Comptage des systèmes locaux ℓ-adiques sur une courbe](https://arxiv.org/pdf/1807.04659v5), Lemma5.3.3 proof pp.37–38. The named construction/result in this passage; all normalizations in the statement are explicit.
 
 ### The Maass Fourier and Petersson normalization
 
@@ -2280,15 +2320,15 @@ Fourier reconstruction uses the last-column unipotent expansion and is proved be
 
 **Theorem.** If cuspidal π₁,π₂ of GL_n(𝔸_K) have isomorphic local components at all finite places outside a finite set, then π₁≅π₂ globally, including every omitted finite and infinite place; with AL.3/global-multiplicity-one their cusp realizations coincide.
 
-**Hypotheses and conventions.** Unitarize the central characters consistently; every excluded finite and archimedean local factor is nonzero and finite at s=1, by the local unitary bounds and gamma calculation. Agreement at infinity is a conclusion.
+**Hypotheses and conventions.** K is a number field; the function-field correspondence, rational factors and periodic poles use their separate GS.6/FA suppliers. Unitarize the central characters consistently; every excluded finite and archimedean local factor is nonzero and finite at s=1, by the local unitary bounds and gamma calculation. Agreement at infinity is a conclusion.
 
-**Direct inputs.** AutomorphicLFunctionsAndLocalFactors:AL.3/rs-global-poles; AutomorphicLFunctionsAndLocalFactors:AL.2/jacquet-shalika-satake-bound; AutomorphicLFunctionsAndLocalFactors:AL.3/global-multiplicity-one.
+**Direct inputs.** AutomorphicLFunctionsAndLocalFactors:AL.3/rs-global-poles; AutomorphicLFunctionsAndLocalFactors:AL.2/jacquet-shalika-satake-bound; AutomorphicLFunctionsAndLocalFactors:AL.3/global-multiplicity-one; AutomorphicLFunctionsAndLocalFactors:AL.3/rs-local-convergence; AutomorphicLFunctionsAndLocalFactors:AL.3/rs-local-factor.
 
 **Acceptance checks.** The self-pair partial product has a simple pole at1 while the unrelated pair has none; deleting finitely many places preserves that distinction. Equality of unramified Hecke data is used through Satake, not as equality of unrelated chosen spherical vectors.
 
 **Proof route.** Use the local unitary convergence bounds and gamma-factor nonvanishing to compare poles of full and partial self-pair products at1. Almost-everywhere equality identifies the partial cross-pair with the partial self-pair. Apply the RS pole criterion; AL.3/global-multiplicity-one identifies the cusp realizations after global isomorphism.
 
-**Source.** [James W. Cogdell, Lectures on L-functions, converse theorems, and functoriality for GL(n)](https://people.math.osu.edu/cogdell.1/fields-www.pdf), Theorem9.3 and proof, pp.74–75.
+**Source.** [James W. Cogdell, Lectures on L-functions, converse theorems, and functoriality for GL(n)](https://people.math.osu.edu/cogdell.1/fields-www.pdf), Theorem9.3 and proof, pp.74–75. The named construction/result in this passage; all normalizations in the statement are explicit.
 
 ### Strong multiplicity one for isobaric sums
 
@@ -2296,7 +2336,7 @@ Fourier reconstruction uses the last-column unipotent expansion and is proved be
 
 **Theorem.** Given AF’s existence/classification of isobaric sums π=⊞_iτ_i, equality of unramified components almost everywhere determines the multiset of cuspidal constituents τ_i, including multiplicities and norm twists. Thus two isobaric representations with those components are isomorphic. For arbitrary automorphic constituents the conclusion is equality of cuspidal support, not an unproved assertion that every constituent is itself the same representation.
 
-**Hypotheses and conventions.** Cuspidal support and normalized induction are supplied by AF.1/AF.3, with no duplicate classification here.
+**Hypotheses and conventions.** K is a number field; the function-field correspondence, rational factors and periodic poles use their separate GS.6/FA suppliers. Cuspidal support and normalized induction are supplied by AF.1/AF.3, with no duplicate classification here.
 
 **Direct inputs.** AutomorphicLFunctionsAndLocalFactors:AL.3/strong-multiplicity-one; AutomorphicLFunctionsAndLocalFactors:AL.3/rs-global-poles; AutomorphicFormsOnReductiveGroups:AF.1; AutomorphicFormsOnReductiveGroups:AF.3.
 
@@ -2380,15 +2420,15 @@ A supplied L-group representation r and normalized Satake class t give the nativ
 
 **Comparison.** For GL_n standard factors and GL_n×GL_m tensor factors, whenever the supplier supplies the local Langlands correspondence with L/ε compatibility, the analytic factors from AL.2/AL.3 equal the Weil–Deligne factors. At an unramified place this reduces to P=det(1−T Fr). For a general L-group r, ramified factors require an actual parameter and are not defined from a spherical class.
 
-**Hypotheses and conventions.** At infinity import the proved AF.1 archimedean LLC; at finite places the complete parameter-compatibility theorem is a supplier request.
+**Hypotheses and conventions.** At infinity import the proved AF.1 archimedean LLC; at finite places the complete parameter-compatibility theorem is a supplier request. The cited R01.2 epsilon node is for finite extensions of Q_p, with geometric reciprocity/Frobenius and monodromy invariants. R19.4 classical and Hilbert nodes apply only to their GL₂ arithmetic realizations away from the coefficient prime. They supply conditional instances, not general finite GL_n compatibility or an equal-characteristic epsilon theorem. Preserve the arithmetic normalization dictionary: the classical weight-k Euler factor uses M=ρ_f^∨ with geometric Frobenius and converts to unitary normalization by the (k−1)/2 shift. In the cited Hilbert instance WD(ρ_π) corresponds to Rec(π⊗|·|^(−1/2)), hence L(WD(ρ_π),s)=L(s−1/2,π). Neither supplier asserts an unshifted equality for ρ itself.
 
-**Direct inputs.** AutomorphicLFunctionsAndLocalFactors:AL.4/l-group-local-factor; AutomorphicLFunctionsAndLocalFactors:AL.2/standard-local-l-factor; AutomorphicLFunctionsAndLocalFactors:AL.3/rs-local-factor; AutomorphicFormsOnReductiveGroups:AF.1/archimedean-llc-gln.
+**Direct inputs.** AutomorphicLFunctionsAndLocalFactors:AL.4/l-group-local-factor; AutomorphicLFunctionsAndLocalFactors:AL.2/standard-local-l-factor; AutomorphicLFunctionsAndLocalFactors:AL.3/rs-local-factor; AutomorphicFormsOnReductiveGroups:AF.1/archimedean-llc-gln; ArithmeticGaloisRepresentations:R01.2/weil-deligne-representation; ArithmeticGaloisRepresentations:R01.2/local-euler-factor; ArithmeticGaloisRepresentations:R01.2/local-epsilon-factor; AutomorphicGaloisRepresentations:R19.4/conductor-and-local-factors-classical; AutomorphicGaloisRepresentations:R19.4/all-hilbert-local-global-compatibility.
 
 **Acceptance checks.** An unramified standard GL₂ parameter with roots α,β gives1−(α+β)T+αβT². The ramified compatibility theorem requires its supplier and does not follow by substituting the unramified polynomial.
 
-**Proof route.** Use unramified Satake parameter comparison. At infinity compare Γ_R/Γ_C products on irreducible real/complex Weil constituents. Use the finite-place correspondence compatibility theorem only when supplied; do not infer it from an unramified equality.
+**Proof route.** Use unramified Satake parameter comparison. At infinity compare Γ_R/Γ_C products on irreducible real/complex Weil constituents. Use the finite-place correspondence compatibility theorem only when supplied; do not infer it from an unramified equality. For the R19.4 instances first translate the dual representation and norm twist by the stated arithmetic dictionary; only then compare to the AL unitary factors.
 
-**Source.** [Armand Borel, Automorphic L-functions](https://www.math.utah.edu/~ptrapa/math-library/borel/borel-automorphic-L-functions.pdf), §12.1–12.2, p.48 (conditional general parametrization; established GL_n cases distinguished).
+**Source.** [Armand Borel, Automorphic L-functions](https://www.math.utah.edu/~ptrapa/math-library/borel/borel-automorphic-L-functions.pdf), §12.1–12.2, p.48 (conditional general parametrization; established GL_n cases distinguished). The named construction/result in this passage; all normalizations in the statement are explicit.
 
 ### Functorial operations on unramified factors
 
@@ -2529,13 +2569,13 @@ Deleting finitely many places multiplies the continued function by a finite prod
 
 **Uses.** ModularSymbolsPadicLFunctions:L4: Compare primitive and p-stabilized interpolation. AutomorphicPadicLFunctions:L2: Specialize the GL₂/F normalization to F=Q.
 
-**Direct inputs.** AutomorphicLFunctionsAndLocalFactors:AL.5/finite-euler-correction; ModularSymbolsPadicLFunctions:L1; ModularSymbolsPadicLFunctions:L2.
+**Direct inputs.** AutomorphicLFunctionsAndLocalFactors:AL.5/finite-euler-correction; ModularSymbolsPadicLFunctions:L1; ModularSymbolsPadicLFunctions:L1/p-stabilised-euler-factors; ModularSymbolsPadicLFunctions:L2/p-stabilisation.
 
 **Acceptance checks.** k=j=0,χ=1,ε(p)=1 gives(1−1/α)². A conductor-p character gives E_p=1, with the separate prefactorα^(−1). α=1,k=j=0 gives E_p=0; it cannot be canceled. For p=3,k=j=0, ε(p)=1 and Hecke polynomial X²+3, the refinements α=±i√3 are both valid roots and give distinct corrections (1−1/α)².
 
 **Proof route.** Form the two finite factors in the coefficient field and evaluate under the chosen complex embedding. Import the supplier stabilization comparison L(f_α,χ^(−1),s)=(1−βχ^(−1)(p)p^(−s))L(f,χ^(−1),s), after matching the analytic inverse-character convention. Match the supplier inverse-character convention before substituting s=j+1; do not silently identify χ andχ^(−1).
 
-**Source.** [Joaquín Rodrigues Jacinto and Chris Williams, An introduction to p-adic L-functions](https://msp.org/ent/2025/4-1/ent-v4-n1-p03-s.pdf), Appendix B TheoremB.1 p.208, with supplier newform comparison.
+**Source.** [Joaquín Rodrigues Jacinto and Chris Williams, An introduction to p-adic L-functions](https://msp.org/ent/2025/4-1/ent-v4-n1-p03-s.pdf), Appendix B TheoremB.1 p.208, with supplier newform comparison. The defining integral or factor in this passage.
 
 ### Conductor and test-vector compatibility
 
@@ -2565,16 +2605,16 @@ Finite-place complex GLₙ local Langlands compatibility for all ramified L and 
 
 ## Coverage and planets
 
-| Layer | Status | Planets | Named refinements |
-|---|---|---|---|
-| AL.0 | planned | Schwartz–Bruhat space; Adelic Schwartz–Bruhat space; Adelic Poisson summation (Riemann–Roch); K-Bessel function; Self-dual Haar measure; Local additive self-duality | G1, G2, G3, G4 |
-| AL.1 | planned | Tate zeta integral; Local uniqueness of eigendistributions; Tate's local functional equation; Explicit local ε-factors (Tate's local constants); Tate's global functional equation; Functional equation of Hecke L-functions | G3 |
-| AL.2 | planned | Godement–Jacquet integral; Standard local L-factor; Godement–Jacquet functional equation; Godement–Jacquet theorem; Jacquet–Shalika bound; Super-positivity | G1, G5, G8, G9, G11, G14, G15 |
-| AL.3 | planned | Rankin–Selberg integral; Rankin–Selberg functional equation; Rankin–Selberg unfolding; Rankin–Selberg pole criterion; Strong multiplicity one; Central Rankin–Selberg period | G1, G6, G7, G8, G9, G10, G11, G12, G13, G15, G16 |
-| AL.4 | planned | L-group Euler factor; Automorphic Euler product convergence | G13, G15 |
-| AL.5 | planned | Euler corrections at critical points; Central sign vanishing; Ordinary Euler factor | G12, G13 |
+| Layer | Status | Nodes | Planets | Named refinements |
+| --- | --- | ---: | --- | --- |
+| AL.0 | planned | 31 | Schwartz–Bruhat space; Adelic Schwartz–Bruhat space; Adelic Poisson summation (Riemann–Roch); K-Bessel function; Self-dual Haar measure; Local additive self-duality | G1, G2, G3, G4 |
+| AL.1 | planned | 28 | Tate zeta integral; Local uniqueness of eigendistributions; Tate's local functional equation; Explicit local ε-factors (Tate's local constants); Tate's global functional equation; Functional equation of Hecke L-functions | G1, G3 |
+| AL.2 | planned | 15 | Godement–Jacquet integral; Standard local L-factor; Godement–Jacquet functional equation; Godement–Jacquet theorem; Jacquet–Shalika bound; Super-positivity | G1, G5, G8, G9, G11, G14, G15 |
+| AL.3 | planned | 39 | Rankin–Selberg integral; Rankin–Selberg functional equation; Rankin–Selberg unfolding; Rankin–Selberg pole criterion; Strong multiplicity one; Central Rankin–Selberg period | G1, G6, G7, G8, G9, G10, G11, G12, G13, G15, G16 |
+| AL.4 | planned | 5 | L-group Euler factor; Automorphic Euler product convergence | G13, G15 |
+| AL.5 | planned | 6 | Euler corrections at critical points; Central sign vanishing; Ordinary Euler factor | G12, G13 |
 
-All implementation statuses remain unchecked. The 68 pinned baseline declarations are imports; they are not additional planets or reconstruction targets.
+All 124 implementation statuses remain unchecked. The 68 pinned baseline declarations are imports; they are not additional planets or reconstruction targets. Independent round-two review accepts this complete planning pass after correcting 28 existing targets and adding the exact induced-factor product. All six stages remain planned with 16 named refinements and 36 supplier requests; none is closed. The exhaustive checked-node ledger is in the packet, and the [review report](../reviews/REV-AutomorphicLFunctionsAndLocalFactors~2.md) records the corrections and verification limits.
 
 ## Mathematical refinements at the boundaries
 
@@ -2586,9 +2626,9 @@ The named SR, AA, AF and GlobalNumberFields interfaces are planned suppliers, no
 
 ### G2: local-field inverse duality proof
 
-Tate states local self-duality using general LCA theory. The plan specifies a finite-lattice quotient inverse construction; its continuity/surjectivity proof has not been decomposed from a complete read primary proof. The native PontryaginDual carrier supplies no self-duality theorem. Fractional-ideal inverse-different identities require the GNF/LocalFields arithmetic comparison. The trace-dual conductor input belongs to LocalFieldsRamification Layer3; completed trace compatibility is explicitly requested. The AL.0 local self-duality statement is restricted to number-field completions.
+Tate states local self-duality using general LCA theory. The plan specifies a finite-lattice quotient inverse construction; its continuity/surjectivity proof has not been decomposed from a complete read primary proof. The native PontryaginDual carrier supplies no self-duality theorem. Fractional-ideal inverse-different identities require the GNF/LocalFields arithmetic comparison. The trace-dual conductor input belongs to LocalFieldsRamification Layer3; completed trace compatibility is explicitly requested. The AL.0 local self-duality statement is restricted to number-field completions. The adelic topological self-duality transport from the local inverse maps, including restricted-product character continuity and discreteness of the annihilator of the compact quotient, remains a precise refinement of the Poisson proof. Its finite-cardinality conclusion is not inferred from finite vector-space dimension.
 
-**Needed by.** AutomorphicLFunctionsAndLocalFactors:AL.0/local-additive-self-duality; AutomorphicLFunctionsAndLocalFactors:AL.0/self-dual-haar; AutomorphicLFunctionsAndLocalFactors:AL.0/fractional-ideal-annihilator.
+**Needed by.** AutomorphicLFunctionsAndLocalFactors:AL.0/local-additive-self-duality; AutomorphicLFunctionsAndLocalFactors:AL.0/self-dual-haar; AutomorphicLFunctionsAndLocalFactors:AL.0/fractional-ideal-annihilator; AutomorphicLFunctionsAndLocalFactors:AL.0/adelic-poisson-summation.
 
 ### G3: point-supported distributions
 
@@ -2606,13 +2646,13 @@ Zhang Lemma12.3 and its proof were freshly read; the derivative formula is quote
 
 The 1972 Springer LNM260 monograph is restricted; its complete local/global proofs were not read. Fresh Humphries §§2.4 and Borel §§13–14 establish the precise interfaces and Humphries1903.02031v2 supplies the full newform proof. Rationality, bounded common denominators, minimality and the matrix-space global continuation need finer proof-source decomposition; neither a definition of the factor nor an unramified test proves them. The Godement Bourbaki exposition is not misidentified as the matrix-space monograph. The standard Re(s)>1 Euler-product proof also needs the self-pair Schur-positivity coefficient comparison and ADS Layer8 finite-abscissa argument, not merely the local q^(1/2) bound.
 
-**Needed by.** AutomorphicLFunctionsAndLocalFactors:AL.2/godement-jacquet-convergence; AutomorphicLFunctionsAndLocalFactors:AL.2/standard-local-l-factor; AutomorphicLFunctionsAndLocalFactors:AL.2/godement-jacquet-functional-equation; AutomorphicLFunctionsAndLocalFactors:AL.2/godement-jacquet-spherical-test; AutomorphicLFunctionsAndLocalFactors:AL.2/global-godement-jacquet.
+**Needed by.** AutomorphicLFunctionsAndLocalFactors:AL.2/godement-jacquet-convergence; AutomorphicLFunctionsAndLocalFactors:AL.2/standard-local-l-factor; AutomorphicLFunctionsAndLocalFactors:AL.2/godement-jacquet-functional-equation; AutomorphicLFunctionsAndLocalFactors:AL.2/godement-jacquet-spherical-test; AutomorphicLFunctionsAndLocalFactors:AL.2/global-godement-jacquet; AutomorphicLFunctionsAndLocalFactors:AL.3/rs-induced-factor-product.
 
 ### G6: finite-place Rankin–Selberg proof refinement
 
-Fresh JPSS1983 images cover the introduction and mirabolic continuation Proposition1.4 (pp.380–381), while Cogdell Lectures6/8 state local theorems with proofs/sketches. JPSS main finite-place proof interiors are not freshly read in full. The SR.5 derivative filtration must be connected to rationality/common denominator, j-independence, uniqueness and exact test normalization, rather than treating those conclusions as definitions.
+Fresh JPSS1983 images cover the introduction and mirabolic continuation Proposition1.4 (pp.380–381), while Cogdell Lectures6/8 state local theorems with proofs/sketches. JPSS main finite-place proof interiors are not freshly read in full. The SR.5 derivative filtration must be connected to rationality/common denominator, j-independence, uniqueness and exact test normalization, rather than treating those conclusions as definitions. The exact local induction product, read in Humphries §2.4.1 and used in the newform cancellation, is now its own target. JPSS §9.5 original product proof is not claimed read; Cogdell gamma multiplicativity/L-divisibility does not replace it.
 
-**Needed by.** AutomorphicLFunctionsAndLocalFactors:AL.3/rs-local-factor; AutomorphicLFunctionsAndLocalFactors:AL.3/rs-local-functional-equation; AutomorphicLFunctionsAndLocalFactors:AL.3/rs-unramified-test.
+**Needed by.** AutomorphicLFunctionsAndLocalFactors:AL.3/rs-local-factor; AutomorphicLFunctionsAndLocalFactors:AL.3/rs-local-functional-equation; AutomorphicLFunctionsAndLocalFactors:AL.3/rs-unramified-test; AutomorphicLFunctionsAndLocalFactors:AL.3/rs-induced-factor-product; AutomorphicLFunctionsAndLocalFactors:AL.2/godement-jacquet-newform-test.
 
 ### G7: archimedean Rankin–Selberg proof refinement
 
@@ -2652,7 +2692,7 @@ Raghuram §2.5.2 and its corrected signature/twist formula were reread. The orig
 
 ### G13: finite-place parameter compatibility
 
-AF.1 supplies the proved archimedean comparison. R19.4 supplies arithmetic local-global compatibility only in its scope. A general finite-place complex GL_n LLC theorem with L/epsilon/monodromy compatibility is not provided by the currently cited generic SR stages. Keep that comparison conditional; the unramified polynomial equality does not imply the ramified theorem.
+AF.1 supplies the proved archimedean comparison. R19.4 supplies arithmetic local-global compatibility only in its scope. A general finite-place complex GL_n LLC theorem with L/epsilon/monodromy compatibility is not provided by the currently cited generic SR stages. Keep that comparison conditional; the unramified polynomial equality does not imply the ramified theorem. R01.2 supplies the characteristic-zero WD carrier, geometric Frobenius local polynomial and epsilon convention; the cited R19.4 classical/Hilbert GL₂ instances retain their coefficient-prime restrictions. Equal-characteristic epsilon compatibility requires a separate supplier.
 
 **Needed by.** AutomorphicLFunctionsAndLocalFactors:AL.4/local-parameter-comparison; AutomorphicLFunctionsAndLocalFactors:AL.3/motivic-unitary-shift; AutomorphicLFunctionsAndLocalFactors:AL.5/local-conductor-test-vector-comparison.
 
@@ -2675,8 +2715,6 @@ The owner contracts are now explicit. Decompose the reduction from an arbitrary 
 **Needed by.** AutomorphicLFunctionsAndLocalFactors:AL.3/gln-converse-full-rank; AutomorphicLFunctionsAndLocalFactors:AL.3/gln-converse-reduced-rank.
 
 ## Supplier contracts
-
-These requests specify the exact input needed from its existing owner. A stage request does not certify that its current plan exports every needed theorem. Supplier extensions and source acquisition remain visible in the named gaps above.
 
 ### 1. SmoothRepresentationsOfLocalGroups:SR.1
 
@@ -2710,7 +2748,7 @@ Supply finite-length archimedean modules, Casselman–Wallach globalizations and
 
 ### 6. SmoothRepresentationsOfLocalGroups:SR.5
 
-Supply the actual complex generic Whittaker/derivative specialization, uniqueness, essential vectors and the conductor/newform theorem. The AKY generic theorem is an owner extension of SR.5; no Speh newform construction is owned by AL.
+Supply the actual complex generic Whittaker/derivative specialization, uniqueness, essential vectors and the conductor/newform theorem. The AKY generic theorem is an owner extension of SR.5; no Speh newform construction is owned by AL. Its complex derivative filtration is the finite-place rationality input for the RS factor.
 
 **Needed by.** AutomorphicLFunctionsAndLocalFactors:AL.3/whittaker-model; AutomorphicLFunctionsAndLocalFactors:AL.3/rs-local-factor; AutomorphicLFunctionsAndLocalFactors:AL.2/godement-jacquet-newform-test; AutomorphicLFunctionsAndLocalFactors:AL.5/local-conductor-test-vector-comparison.
 
@@ -2740,9 +2778,9 @@ The idele group and IdeleClassGroup K with the idele norm, the closed norm-one s
 
 ### 11. SmoothRepresentationsOfLocalGroups:SR.3
 
-Supply complex admissible matrix coefficients and torus exponent/Whittaker asymptotic bounds with compact-parameter seminorm control. The Whittaker derivative filtration is the SR.5 complex specialization; AL proves integration estimates, not a second representation category.
+Supply complex admissible matrix coefficients and torus exponent/Whittaker asymptotic bounds with compact-parameter seminorm control. The Whittaker derivative filtration is the SR.5 complex specialization; AL proves integration estimates, not a second representation category. Supply the finite-place essentially square-integrable block classification in the admitted irreducible generic normalized-induction range. Archimedean estimates belong to AF.1.
 
-**Needed by.** AutomorphicLFunctionsAndLocalFactors:AL.2/godement-jacquet-convergence; AutomorphicLFunctionsAndLocalFactors:AL.3/whittaker-compact-parameter-estimates; AutomorphicLFunctionsAndLocalFactors:AL.3/rs-local-convergence.
+**Needed by.** AutomorphicLFunctionsAndLocalFactors:AL.2/godement-jacquet-convergence; AutomorphicLFunctionsAndLocalFactors:AL.3/rs-local-convergence; AutomorphicLFunctionsAndLocalFactors:AL.3/rs-induced-factor-product.
 
 ### 12. SmoothRepresentationsOfLocalGroups:SR.4
 
@@ -2778,7 +2816,7 @@ Supply the global GL_n correspondence, tensor local factors, purity/RH and multi
 
 Supply the residue/differential additive character, its local conductor and sum_v n_v deg(v)=2g−2, global self-dual volume and function-field Fourier/idele arithmetic. AL supplies only the analytic Whittaker conductor-shift adapter.
 
-**Needed by.** AutomorphicLFunctionsAndLocalFactors:AL.3/whittaker-conductor-shift; AutomorphicLFunctionsAndLocalFactors:AL.3/function-field-rs-euler-product.
+**Needed by.** AutomorphicLFunctionsAndLocalFactors:AL.3/whittaker-conductor-shift.
 
 ### 18. FunctionFieldArithmetic:FA.5
 
@@ -2790,7 +2828,7 @@ Request an extension beyond the current finite-Galois Artin scope: Supply the ze
 
 Request an AnalyticNumberTheory extension (provisionally AN.2; its current stage is PNT, not an existing Hadamard theorem) to the corrected order≤1 RH product theorem from Yun–Zhang PropositionB.1. Preserve PAPER-YUN-ZHANG-17/E1,E2,E16; AL applies it to automorphic completions rather than replanning general entire-function theory.
 
-**Needed by.** AutomorphicLFunctionsAndLocalFactors:AL.2/standard-order-one; AutomorphicLFunctionsAndLocalFactors:AL.2/standard-superpositivity.
+**Needed by.** AutomorphicLFunctionsAndLocalFactors:AL.2/standard-superpositivity.
 
 ### 20. ReductiveGroupsPartII:RG2.5
 
@@ -2882,6 +2920,18 @@ Use the existing de-rham-comparison, automorphic-comparison and cuspidal-cohomol
 
 **Needed by.** AutomorphicLFunctionsAndLocalFactors:AL.3/rational-period-comparison.
 
+### 35. tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups#layer-6-characters-of-compact-groups
+
+For a compact Hausdorff second-countable abelian group with probability Haar, supply continuous characters as a complete orthonormal Hilbert basis of L² (Layer6 centralLp is the whole L² here), and uniqueness from equality of all character coefficients. AL derives pointwise reconstruction for a continuous function with absolutely summable coefficients by uniform convergence and Haar full support. Layer5 Peter–Weyl remains the upstream prerequisite, not a new AL construction.
+
+**Needed by.** AutomorphicLFunctionsAndLocalFactors:AL.0/adelic-poisson-summation.
+
+### 36. SmoothRepresentationsOfLocalGroups:SR.2
+
+Supply normalized parabolic induction with the specified modulus square root, block tensor realization and contragredient compatibility. SR.3 supplies the essentially square-integrable block classification for an irreducible generic induction; AL proves the exact local-factor product on those carriers.
+
+**Needed by.** AutomorphicLFunctionsAndLocalFactors:AL.3/rs-induced-factor-product.
+
 ## Structural proposals
 
 ### AL.0’s finite-place Schwartz–Bruhat-space wording overlaps the generic locally constant compact-support carrier explicitly owned by SR.1. GL2 R16.1 already imports its generic test-function carriers.
@@ -2898,7 +2948,7 @@ Keep AL.2/AL.3 Whittaker and zeta-integral theory before AutomorphicPadicLFuncti
 
 ## Source corrections governing the statements
 
-The conductor divisibility condition is N₀ dividing M: characters at a modulus divisible by their conductor pull back to the same profinite-unit character (E1). The lecture preprint's bibliographic placeholder is Valenza and Ramakrishnan in the published chapter (E2). Kudla's epsilon discussion points to equation (3.23) and Proposition 3.8 (E3). In his real convention ω(x)=x⁻ᵃ, the poles are at even s=−r and the residue is a scalar multiple of Dᵃ⁺ʳδ₀; the alternative parity statement belongs to the sgnᵃ convention (E4). Tate's displayed inverse-different Fourier calculation has N𝔡⁺¹⁄²N𝔭ⁿ, in agreement with the self-dual lattice volume (E5). These identifiers have the prefix AutomorphicLFunctionsAndLocalFactors/.
+The conductor divisibility condition is N₀ dividing M: characters at a modulus divisible by their conductor pull back to the same profinite-unit character (E1). The lecture preprint's bibliographic placeholder is Valenza and Ramakrishnan in the published chapter (E2). Kudla's epsilon discussion points to equation (3.23) and Proposition 3.8 (E3). In his real convention ω(x)=x⁻ᵃ, the poles are at even s=−r and the residue is a scalar multiple of Dᵃ⁺ʳδ₀; the alternative parity statement belongs to the sgnᵃ convention (E4). Tate's displayed inverse-different Fourier calculation has N𝔡⁺¹⁄²N𝔭ⁿ, in agreement with the self-dual lattice volume (E5). These identifiers have the prefix AutomorphicLFunctionsAndLocalFactors/. All six entries were freshly confirmed in the independent round-two review; the original thesis, lecture preprint and published chapter remain distinguished.
 
 A restricted tensor distribution factors on product test functions when it is constructed from local distributions. An arbitrary continuous distribution need not be such a tensor: on two independent two-dimensional test subspaces, the coefficient matrix of e₀⊗e₀+e₁⊗e₁ has rank two. The factorization converse in Kudla's published Lemma 4.1 therefore requires a decomposability hypothesis or restriction to an eigendistribution. The global eigenline statement uses the latter restriction. The correction is recorded as AutomorphicLFunctionsAndLocalFactors/E6; the rank-two test distinguishes it from the unqualified converse.
 

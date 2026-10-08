@@ -1424,7 +1424,7 @@ TauCeti.TateZeta.partialHeckeL_trivial_char
 AutomorphicLFunctionsAndLocalFactors:AL.1/idele-class-volume
 Unavailable full input: CFT Layer7 local-character filtration and AA.0/AA.2 idele/Schwartz carriers; local distribution families need those types and continuous-dual restrictions.
 TauCeti.TateZeta.volume_fundamentalDomain_eq
-  With Tate's measures (d^×α = (N𝔭/(N𝔭 − 1))|α|^{−1}dα at finite v, so vol(O_v^×) = N𝔡_v^{−1/2}; dα/|α| at real v; 2r dr dθ/r² at complex v), the product decomposition 𝔸^× = T × J (T ≅ ℝ_{>0} at a chosen archimedean place, dt/t) and d^×𝔞 = dt·d^×𝔟, the fundamental domain E for J/k^× built from the units and h ideal-class representatives satisfies (1) J = ⊔_{α∈k^×}αE and (2) vol(E) = κ = 2^{r₁}(2π)^{r₂}hR/(w√|d|), where R is the regulator, h the class number, w the number of roots of unity and d the discriminant. κ agrees with the arithmetic expression defining native NumberField.dedekindZeta_residue K; Mathlib already proves its real one-sided residue identification via NumberField.tendsto_sub_one_mul_dedekindZeta_nhdsGT. The extra analytic task is its comparison with this adelic measure and the full complex Tate continuation. Discreteness and compactness are imported from GlobalNumberFields, not reproved here. A change to finite multiplicative unit-volume1 rescales κ by sqrt(|d|).
+  With Tate's measures (d^×α = (N𝔭/(N𝔭 − 1))|α|^{−1}dα at finite v, so vol(O_v^×) = N𝔡_v^{−1/2}; dα/|α| at real v; 2r dr dθ/r² at complex v), the product decomposition 𝔸^× = T × J (T ≅ ℝ_{>0} at a chosen archimedean place, dt/t) and d^×𝔞 = (dt/t)·d^×𝔟, the fundamental domain E for J/k^× built from the units and h ideal-class representatives satisfies (1) J = ⊔_{α∈k^×}αE and (2) vol(E) = κ = 2^{r₁}(2π)^{r₂}hR/(w√|d|), where R is the regulator, h the class number, w the number of roots of unity and d the discriminant. κ agrees with the arithmetic expression defining native NumberField.dedekindZeta_residue K; Mathlib already proves its real one-sided residue identification via NumberField.tendsto_sub_one_mul_dedekindZeta_nhdsGT. The extra analytic task is its comparison with this adelic measure and the full complex Tate continuation. Discreteness and compactness are imported from GlobalNumberFields, not reproved here. A change to finite multiplicative unit-volume1 rescales κ by sqrt(|d|).
 
 AutomorphicLFunctionsAndLocalFactors:AL.1/tate-lemma-a
 Unavailable full input: CFT Layer7 local-character filtration and AA.0/AA.2 idele/Schwartz carriers; local distribution families need those types and continuous-dual restrictions.
@@ -1499,7 +1499,7 @@ TauCeti.AutomorphicLFunctions.AL3.RsLocalIntegrals.bilinear
 AutomorphicLFunctionsAndLocalFactors:AL.3/rs-local-convergence
 Unavailable full input: SR.1/SR.5 generic Whittaker/derivative and AF.1/AF.3 global quotient carriers; FA.5/GS.6 cohomological comparison or rational-structure input for the specified theorem.
 TauCeti.AutomorphicLFunctions.AL3.RsLocalConvergence
-  For fixed generic π_n,π_m, all Ψ_j converge absolutely in a right half-plane, locally uniformly in s; at infinity they are jointly continuous bilinear forms on the smooth Fréchet models, extending to the completed projective tensor product.
+  For fixed generic π_n,π_m, all Ψ_j converge absolutely in a right half-plane, locally uniformly in s; at infinity they are jointly continuous bilinear forms on the smooth Fréchet models, extending to the completed projective tensor product. If both irreducible generic inputs are unitary, the local integrals converge absolutely for Re(s)≥1; this closed boundary estimate is needed in the strong multiplicity-one argument.
 
 AutomorphicLFunctionsAndLocalFactors:AL.3/rs-local-factor
 Unavailable full input: SR.1/SR.5 generic Whittaker/derivative and AF.1/AF.3 global quotient carriers; FA.5/GS.6 cohomological comparison or rational-structure input for the specified theorem.
@@ -1534,6 +1534,7 @@ TauCeti.AutomorphicLFunctions.AL4.PartialLProductConvergence
 
 AutomorphicLFunctionsAndLocalFactors:AL.4/local-parameter-comparison
 Unavailable full input: RG2.5 L-group and IHG.3 Satake parameter carriers, AF.1 parameter comparison, and ADS convergence output.
+Hypotheses: Preserve the arithmetic normalization dictionary: the classical weight-k Euler factor uses M=ρ_f^∨ with geometric Frobenius and converts to unitary normalization by the (k−1)/2 shift. In the cited Hilbert instance WD(ρ_π) corresponds to Rec(π⊗|·|^(−1/2)), hence L(WD(ρ_π),s)=L(s−1/2,π). Neither supplier asserts an unshifted equality for ρ itself.
 TauCeti.AutomorphicLFunctions.AL4.LocalParameterComparison
   For GL_n standard factors and GL_n×GL_m tensor factors, whenever the supplier supplies the local Langlands correspondence with L/ε compatibility, the analytic factors from AL.2/AL.3 equal the Weil–Deligne factors. At an unramified place this reduces to P=det(1−T Fr). For a general L-group r, ramified factors require an actual parameter and are not defined from a spherical class.
 
@@ -1566,6 +1567,7 @@ Unavailable full input: the actual cusp embedding/Hom space and its smooth/Hilbe
 
 AutomorphicLFunctionsAndLocalFactors:AL.3/mirabolic-eisenstein-series
 Unavailable full input: SR.1/SR.5 generic Whittaker/derivative and AF.1/AF.3 global quotient carriers; FA.5/GS.6 cohomological comparison or rational-structure input for the specified theorem.
+Hypotheses: K is a number field; the function-field rational/periodic branch is separate.
 TauCeti.AutomorphicLFunctions.AL3.MirabolicEisensteinSeries.parabolic_sum
   E equals the sum of the displayed section over the maximal-parabolic quotient.
 TauCeti.AutomorphicLFunctions.AL3.MirabolicEisensteinSeries.central
@@ -1578,26 +1580,30 @@ TauCeti.AutomorphicLFunctions.AL3.MirabolicEisensteinSeries.nontrivial_normone
 AutomorphicLFunctionsAndLocalFactors:AL.3/mirabolic-eisenstein-functional-equation
 Unavailable full input: SR.1/SR.5 generic Whittaker/derivative and AF.1/AF.3 global quotient carriers; FA.5/GS.6 cohomological comparison or rational-structure input for the specified theorem.
 TauCeti.AutomorphicLFunctions.AL3.MirabolicEisensteinFunctionalEquation
-  E(g,s,Φ,η)=E(t(g^(−1)),1−s,Φ̂,η^(−1)) meromorphically. If η=|·|^(−inσ), the only possible simple poles are s=iσ and1+iσ. For η=1 and κ=vol(K×\𝔸¹) with Tate measures, the zero-mode terms are −κ|det g|^sΦ(0)/(ns)+κ|det g|^(s−1)Φ̂(0)/(n(s−1)); otherwise the norm-one character integral vanishes.
+  E(g,s,Φ,η)=E(t(g^(−1)),1−s,Φ̂,η^(−1)) meromorphically over a number field. If η=|·|^(−inσ), its only possible simple poles are s=iσ and1+iσ. With κ=vol(K×\𝔸¹) in the chosen measures, the zero-mode terms in that case are −κ|det g|^sΦ(0)/(n(s−iσ))+κ|det g|^(s−1)Φ̂(0)/(n(s−1−iσ)). If the restriction of η to the norm-one idele class group is nontrivial, both zero-mode integrals vanish. The case η=1 is σ=0.
 
 AutomorphicLFunctionsAndLocalFactors:AL.3/global-rs-unfolding
 Unavailable full input: actual AF.3 smooth cusp space, AA.2 compact unipotent/automorphic quotient integrals, AF.2 restricted tensor realization and continuous local Whittaker uniqueness. Fourier reconstruction precedes global genericity, factorization and ordinary multiplicity one; no AF.3 genericity theorem is assumed.
+Hypotheses: K is a number field; the function-field rational/periodic branch is separate.
 TauCeti.AutomorphicLFunctions.AL3.GlobalRsUnfolding
 For unitary cuspidal π_n,π_m and pure tensors, the unequal-rank projected cusp integral and the equal-rank integral ∫_{Z_n(𝔸)GL_n(K)\GL_n(𝔸)}φ(g)φ′(g)E(g,s,Φ,ω_πω_π′)dg unfold to ∏_v Ψ_v(s). For n>m project φ along the unipotent radical of (m+1,1,…,1), with factor |det|^(−(n−m−1)/2), then integrate against φ′|det|^(s−1/2).
 Hypotheses: Initially Re(s)≫0; global character product trivial on K×. Adjacent rank needs no preliminary projection.
 
 AutomorphicLFunctionsAndLocalFactors:AL.3/rs-global-poles
 Unavailable full input: SR.1/SR.5 generic Whittaker/derivative and AF.1/AF.3 global quotient carriers; FA.5/GS.6 cohomological comparison or rational-structure input for the specified theorem.
+Hypotheses: K is a number field; the function-field rational/periodic branch is separate.
 TauCeti.AutomorphicLFunctions.AL3.RsGlobalPoles
   For unitary cuspidal π_n,π_m the completed Λ(s,π_n×π_m) continues meromorphically. It is entire if n≠m. If n=m, its only poles are simple at s=iσ and1+iσ for real σ with π_n∨≅π_m⊗|det|^(iσ). In particular Λ(s,π×π∨) has simple poles at0 and1, and Λ(s,π×π′∨) has a pole at1 iff π≅π′.
 
 AutomorphicLFunctionsAndLocalFactors:AL.3/rs-global-functional-equation
 Unavailable full input: SR.1/SR.5 generic Whittaker/derivative and AF.1/AF.3 global quotient carriers; FA.5/GS.6 cohomological comparison or rational-structure input for the specified theorem.
+Hypotheses: K is a number field; the function-field rational/periodic branch is separate.
 TauCeti.AutomorphicLFunctions.AL3.RsGlobalFunctionalEquation
   Λ(s,π×π′)=ε(s,π×π′)Λ(1−s,π∨×π′∨), with ε the finite product of the local factors at ramified/archimedean places. Central-character signs disappear because ∏_vω_{π′_v}(−1)=ω_{π′}(−1)=1. The global product is independent of the chosen global additive character.
 
 AutomorphicLFunctionsAndLocalFactors:AL.3/rs-vertical-strip-bounds
 Unavailable full input: SR.1/SR.5 generic Whittaker/derivative and AF.1/AF.3 global quotient carriers; FA.5/GS.6 cohomological comparison or rational-structure input for the specified theorem.
+Hypotheses: K is a number field; the function-field rational/periodic branch is separate.
 TauCeti.AutomorphicLFunctions.AL3.RsVerticalStripBounds
   The completed Λ(s,π×π′) for unitary cuspidal inputs is bounded on finite vertical strips away from its polar points. For m=n or n−1, finite K-finite test realization reduces this to the global-integral bounds. For arbitrary rank gaps use the general Gelbart–Shahidi theorem with its normalized-intertwining-operator hypothesis verified for GL(n).
 
@@ -1608,12 +1614,14 @@ TauCeti.AutomorphicLFunctions.AL2.JacquetShalikaSatakeBound
 
 AutomorphicLFunctionsAndLocalFactors:AL.3/strong-multiplicity-one
 Unavailable full input: actual AF.3 smooth cusp space, AA.2 compact unipotent/automorphic quotient integrals, AF.2 restricted tensor realization and continuous local Whittaker uniqueness. Fourier reconstruction precedes global genericity, factorization and ordinary multiplicity one; no AF.3 genericity theorem is assumed.
+Hypotheses: K is a number field; the function-field rational/periodic branch is separate.
 TauCeti.AutomorphicLFunctions.AL3.StrongMultiplicityOne
 If cuspidal π₁,π₂ of GL_n(𝔸_K) have isomorphic local components at all finite places outside a finite set, then π₁≅π₂ globally, including every omitted finite and infinite place; with AL.3/global-multiplicity-one their cusp realizations coincide.
 Hypotheses: Unitarize the central characters consistently; every excluded finite and archimedean local factor is nonzero and finite at s=1, by the local unitary bounds and gamma calculation. Agreement at infinity is a conclusion.
 
 AutomorphicLFunctionsAndLocalFactors:AL.3/isobaric-strong-multiplicity-one
 Unavailable full input: SR.1/SR.5 generic Whittaker/derivative and AF.1/AF.3 global quotient carriers; FA.5/GS.6 cohomological comparison or rational-structure input for the specified theorem.
+Hypotheses: K is a number field; the function-field rational/periodic branch is separate.
 TauCeti.AutomorphicLFunctions.AL3.IsobaricStrongMultiplicityOne
   Given AF’s existence/classification of isobaric sums π=⊞_iτ_i, equality of unramified components almost everywhere determines the multiset of cuspidal constituents τ_i, including multiplicities and norm twists. Thus two isobaric representations with those components are isomorphic. For arbitrary automorphic constituents the conclusion is equality of cuspidal support, not an unproved assertion that every constituent is itself the same representation.
 
@@ -1857,4 +1865,31 @@ TauCeti.AutomorphicLFunctions.AL3.gln_converse_reduced_rank.rank_three_empty_set
 TauCeti.AutomorphicLFunctions.AL3.gln_converse_reduced_rank.nonempty_exceptional_set: Twists unramified at nonempty finite S give an automorphic representation matching outside S; neither cuspidality nor equality at S follows from this contract.
 TauCeti.AutomorphicLFunctions.AL3.gln_converse_reduced_rank.rank_two_excluded: n=2 is outside the hypotheses, so an empty range 1≤m≤0 yields no GL₂ theorem.
 TauCeti.AutomorphicLFunctions.AL3.gln_converse_reduced_rank.highly_ramified_family: Characters unramified at S are not the highly ramified T-family of Gelbart–Jacquet §9.2; that variant remains a separate proof obligation.
+-/
+
+/-
+Independent round-two review: AutomorphicLFunctionsAndLocalFactors:AL.3/rs-induced-factor-product
+TauCeti.AutomorphicLFunctions.AL3.RsInducedFactorProduct
+Unavailable full input: finite-place normalized-induction and essentially-square-integrable
+block carriers from SR.2/SR.3.
+Let F be nonarchimedean and π=Ind_P^GL_n(⊠_i π_i) and π′=Ind_Q^GL_m(⊠_j π′_j) be irreducible generic normalized inductions, with every block irreducible essentially square-integrable. Then L(s,π)=∏_i L(s,π_i) and L(s,π×π′)=∏_(i,j)L(s,π_i×π′_j). For a rank-one norm character, L(s,π×|·|^t)=L(s+t,π). These are exact identities of normalized local factors, at this finite place.
+Hypotheses: Use the induced representations themselves, with δ_P^(1/2), not arbitrary irreducible quotients of reducible induction. The irreducible generic range suffices for the newform application; no general nongeneric quotient product theorem is asserted. This target is the finite-place product needed by the ramified Godement–Jacquet newform proof. No archimedean induction-compatibility supplier is inferred from the finite SR.2 contract.
+The finite-place original product proof remains G5/G6.
+
+Mirabolic regression obligation: for η=|·|^(−in) (σ=1), the zero modes have
+denominators n(s−i) and n(s−1−i); η≠1 does not make these terms vanish.
+The full representation/idele-level signature remains named above.
+-/
+
+/-
+Godement–Jacquet convention check: Humphries (2.15), p.7, uses inverse-character
+transpose Fourier pairing and β(transpose-inverse g). Apply the source with the
+inverse packet character and substitute transpose in matrix and group variables
+to obtain the packet positive plain-trace pairing and β(inverse g).
+
+Finite parameter comparison: the cited R01.2 epsilon node has characteristic-zero
+local field scope, geometric Frobenius and monodromy invariants. The R19.4
+classical/Hilbert instances concern their GL₂ realizations away from the
+coefficient prime; general finite GL_n and equal-characteristic epsilon
+compatibility remain conditional supplier obligations in G13.
 -/
