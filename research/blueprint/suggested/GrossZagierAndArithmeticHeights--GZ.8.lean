@@ -9,6 +9,11 @@ import Mathlib.LinearAlgebra.FiniteDimensional.Basic
 import Mathlib.LinearAlgebra.QuadraticForm.Basic
 import Mathlib.RingTheory.Trace.Defs
 import Mathlib.RingTheory.TensorProduct.Maps
+import Mathlib.LinearAlgebra.TensorProduct.Associator
+import Mathlib.Data.ZMod.Basic
+import Mathlib.NumberTheory.Padics.PadicIntegers
+import Mathlib.Topology.ContinuousMap.Algebra
+import Mathlib.Analysis.Normed.Operator.ContinuousLinearMap
 import Mathlib.RingTheory.PowerSeries.Evaluation
 import Mathlib.RingTheory.DiscreteValuationRing.Basic
 import Mathlib.NumberTheory.ModularForms.Basic
@@ -17,6 +22,8 @@ import Mathlib.Analysis.Complex.UpperHalfPlane.Measure
 import Mathlib.MeasureTheory.Integral.Bochner.Set
 import Mathlib.Analysis.SpecialFunctions.Pow.Real
 import Mathlib.LinearAlgebra.Matrix.Notation
+import TauCeti.NumberTheory.ModularForms.Petersson.Basic
+import TauCeti.AlgebraicGeometry.EllipticCurve.CanonicalHeight
 
 /-!
 # Gross–Zagier formulas and arithmetic heights — suggested declarations (GZ.8 and GZ.9)
@@ -27,23 +34,20 @@ The statements suggest Lean forms so that contributors and reviewers converge on
 and signatures. Every proof is `sorry`; nothing here is implemented, and the packet's
 `implementationStatus` stays `unchecked`. Pinned baseline: Mathlib 082e2d3, Tau Ceti f790474.
 
-Independent review REV-GrossZagierAndArithmeticHeights--GZ.8: `needs_changes`.
-This file is a partial collection of algebraic prototypes. Successful elaboration does not
-verify the arithmetic assertions in the packet. Unsupported theorem signatures were removed;
-their missing hypotheses cannot safely be left out of universally quantified claims.
+This revision keeps the algebraic prototypes separate from arithmetic signatures still needing
+supplier types. In particular, a parameter carrying an arbitrary proposition is never used as a
+substitute for a modularity, admissibility or geometric-measure hypothesis. The remaining missing
+signatures are inventoried in the packet and handoff.
 
-The file imports only Mathlib: the Tau Ceti modules this plan cites (`CanonicalHeight`,
-`Petersson.Basic`) are named in docstrings, and the Mathlib objects they are built from are used
-directly (`QuadraticMap.polar` for the BSD pairing of a canonical height, the set integral of
-`UpperHalfPlane.petersson` for Tau Ceti's `peterssonInner`).
+`coeffPairing` extends an already supplied M-bilinear height to L. `heegnerAverage` is the
+L-valued probability average; the volume-scaled `heegnerIntegral` lives in a complex scalar
+extension. The quaternionic constructor takes integral Amice transforms and sums their translated
+measures BEFORE any interpolation theorem is used. Geometry connecting those transforms to
+Serre–Tate expansions remains an explicit supplier interface.
 
-Shimura curves, automorphic representations, toric functionals, L-functions of modular forms over
-K, CM periods and p-adic avatars are not in the libraries. Where a declaration needs them, the
-file prototypes the part that can be stated with existing carriers — the finite-group, linear and
-power-series algebra. Arithmetic statements whose hypotheses cannot be expressed are recorded
-as pending signatures in comments, rather than asserting their conclusions for arbitrary data.
-The coefficient pairing below still models GZ.1's M-valued input; the L-base-change constructor
-and the Tau Ceti compatibility imports are pending. No `Prop` is replaced by `sorry`.
+The Petersson and elliptic-height compatibility blocks import the pinned library objects directly.
+Their compiled modules are absent from the shared build: the Mathlib algebraic portion can be
+checked independently, but that does not certify the full file or its arithmetic gaps.
 -/
 
 noncomputable section
@@ -170,15 +174,31 @@ theorem heegnerFinite_map {W : Type*} [AddCommGroup W] [Module L W] [DistribMulA
     (χ : G →* Lˣ) (x : V) : φ (heegnerFinite χ x) = heegnerFinite χ (φ x) := by
   sorry
 
-/-- The toric integral of an integrand that factors through the finite quotient `G`, for the
-measure of total volume `vol` (= `2 L(1, η)`, erratum-corrected). -/
-def heegnerIntegral (vol : L) (χ : G →* Lˣ) (x : V) : V :=
-  (vol / Fintype.card G) • heegnerFinite χ x
+/-- The YZZ point: the probability average, defined over L. CST §2.3 p.18 and
+Skinner §2.5 distinguish this from the toric measure of total volume 2 L(1,η). -/
+def heegnerAverage (χ : G →* Lˣ) (x : V) : V :=
+  (Fintype.card G : L)⁻¹ • heegnerFinite χ x
 
-omit [SMulCommClass G L V] in
-theorem heegnerIntegral_eq (vol : L) (χ : G →* Lˣ) (x : V) :
-    heegnerIntegral vol χ x = (vol / Fintype.card G) • heegnerFinite χ x :=
-  rfl
+theorem heegnerAverage_eq_projector (χ : G →* Lˣ) (x : V) :
+    heegnerAverage χ x = chiProjector χ x := by
+  sorry
+
+/-- The analytic, volume-scaled toric integral. No assumption places its real volume in L. -/
+def heegnerIntegral [Algebra L ℂ] (vol : ℂ) (χ : G →* Lˣ) (x : V) : ℂ ⊗[L] V :=
+  vol • ((1 : ℂ) ⊗ₜ[L] heegnerAverage χ x)
+
+theorem heegnerIntegral_eq [Algebra L ℂ] (vol : ℂ) (χ : G →* Lˣ) (x : V) :
+    heegnerIntegral vol χ x =
+      (vol / algebraMap L ℂ (Fintype.card G : L)) • ((1 : ℂ) ⊗ₜ[L] heegnerFinite χ x) := by
+  sorry
+
+/-- Rational trace versus probability-average height: the cardinality is squared. -/
+theorem heegnerAverage_pairing {W S : Type*} [AddCommGroup W] [Module L W]
+    [DistribMulAction G W] [SMulCommClass G L W] [AddCommGroup S] [Module L S]
+    (B : V →ₗ[L] W →ₗ[L] S) (χ : G →* Lˣ) (x : V) (y : W) :
+    B (heegnerAverage χ x) (heegnerAverage χ⁻¹ y) =
+      ((Fintype.card G : L)⁻¹)^2 • B (heegnerFinite χ x) (heegnerFinite χ⁻¹ y) := by
+  sorry
 
 /-- Gross–Zagier's `c_χ = Σ_σ χ⁻¹(σ) c^σ` is `P⁰_{χ⁻¹}` in this notation. -/
 theorem heegnerFinite_inv_eq_gz (χ : G →* Lˣ) (x : V) :
@@ -208,97 +228,159 @@ theorem heegnerFinite_one_eq_trace (x : V) :
 
 end Isotypic
 
+/-! Concrete examples for the four isotypic and four finite-point tests.
+The action and character below are actual two-element data, not assumed eigenspace results. -/
+namespace SwapTests
+
+private abbrev C2 := Multiplicative (ZMod 2)
+
+private instance : DistribMulAction C2 (ℚ × ℚ) where
+  smul g x := if g = 1 then x else (x.2, x.1)
+  one_smul := by sorry
+  mul_smul := by sorry
+  smul_zero := by sorry
+  smul_add := by sorry
+
+private instance : SMulCommClass C2 ℚ (ℚ × ℚ) where
+  smul_comm := by sorry
+
+private def signCharacter : C2 →* ℚˣ where
+  toFun g := if g = 1 then 1 else -1
+  map_one' := by sorry
+  map_mul' := by sorry
+
+-- chiIsotypic_trivial_eq_fixed: the diagonal, not the whole module.
+example (a b : ℚ) : (a,b) ∈ chiIsotypic (1 : C2 →* ℚˣ) ↔ a = b := by sorry
+
+-- chiProjector_idem: computed projector, including its 1/2 normalization.
+example (a b : ℚ) : chiProjector signCharacter (a,b) = ((a-b)/2,(b-a)/2) := by sorry
+
+-- chiIsotypic_quadratic_sign.
+example (a b : ℚ) : (a,b) ∈ chiIsotypic signCharacter ↔ b = -a := by sorry
+
+-- chiIsotypic_ne_whole.
+example : ((1,0) : ℚ × ℚ) ∉ chiIsotypic signCharacter ∧
+    ((1,0) : ℚ × ℚ) ∉ chiIsotypic (1 : C2 →* ℚˣ) := by sorry
+
+-- heegnerFinite_trivial_group.
+example (x : ℚ) : heegnerFinite (1 : Unit →* ℚˣ) x = x := by sorry
+
+-- heegnerFinite_sign_char.
+example : heegnerFinite signCharacter ((1,0) : ℚ × ℚ) = (1,-1) := by sorry
+
+-- heegnerFinite_fixed_nontrivial.
+example : heegnerFinite signCharacter ((1,1) : ℚ × ℚ) = 0 := by sorry
+
+-- heegnerFinite_one_eq_trace.
+example : heegnerFinite (1 : C2 →* ℚˣ) ((1,0) : ℚ × ℚ) = (1,1) := by sorry
+
+-- Probability averaging and complex integration have different scalars and carriers.
+example : heegnerAverage signCharacter ((1,0) : ℚ × ℚ) = ((1/2, -1/2) : ℚ × ℚ) := by sorry
+
+example : heegnerIntegral (3 : ℂ) signCharacter ((1,0) : ℚ × ℚ) =
+    (3 : ℂ) • ((1 : ℂ) ⊗ₜ[ℚ] ((1/2, -1/2) : ℚ × ℚ)) := by sorry
+
+end SwapTests
+
 /-! ## GZ.8 — the coefficient (L-linear) Néron–Tate pairing -/
 
 section CoeffPairing
 
-variable {M : Type*} [Field M] [Algebra ℚ M]
-  {V W : Type*} [AddCommGroup V] [Module M V] [AddCommGroup W] [Module M W]
+variable {M L : Type*} [Field M] [Field L] [Algebra M L]
+  {V W S : Type*} [AddCommGroup V] [Module M V] [AddCommGroup W] [Module M W]
+  [AddCommGroup S] [Module M S]
 
-/-- GZ.8/l-linear-neron-tate-pairing: the unique pairing with values in `ℝ ⊗[ℚ] M`, `M`-linear in
-each variable (on `W` through the dual endomorphisms), whose trace is the rational Néron–Tate
-pairing `B`. Constructing it needs the nondegeneracy of the trace form, so the body is `sorry`. -/
-def coeffPairing (B : V →+ W →+ ℝ) : V →+ W →+ ℝ ⊗[ℚ] M :=
+/-- GZ.8 extends GZ.1's supplied M-valued height. For S = M ⊗[ℚ] ℝ, the target
+L ⊗[M] S identifies with L ⊗[ℚ] ℝ by the scalar-tower associator. No M-height is rebuilt. -/
+def coeffPairing (B : V →ₗ[M] W →ₗ[M] S) :
+    (L ⊗[M] V) →ₗ[L] (L ⊗[M] W) →ₗ[L] (L ⊗[M] S) := by
   sorry
 
-theorem trace_coeffPairing [FiniteDimensional ℚ M] (B : V →+ W →+ ℝ)
-    (hB : ∀ (m : M) (x : V) (y : W), B (m • x) y = B x (m • y)) (x : V) (y : W) :
-    Algebra.trace ℝ (ℝ ⊗[ℚ] M) (coeffPairing B x y) = B x y := by
+theorem coeffPairing_tmul (B : V →ₗ[M] W →ₗ[M] S) (a b : L) (x : V) (y : W) :
+    coeffPairing B (a ⊗ₜ[M] x) (b ⊗ₜ[M] y) = (a*b) ⊗ₜ[M] B x y := by
   sorry
 
-theorem coeffPairing_smul_left [FiniteDimensional ℚ M] (B : V →+ W →+ ℝ)
-    (hB : ∀ (m : M) (x : V) (y : W), B (m • x) y = B x (m • y)) (m : M) (x : V) (y : W) :
-    coeffPairing B (m • x) y = ((1 : ℝ) ⊗ₜ[ℚ] m) * coeffPairing B x y := by
+theorem coeffPairing_smul_left (B : V →ₗ[M] W →ₗ[M] S) (a : L)
+    (x : L ⊗[M] V) (y : L ⊗[M] W) :
+    coeffPairing B (a • x) y = a • coeffPairing B x y := by
   sorry
 
-/-- `W` carries the action of `M` by dual endomorphisms `m ↦ m^†`. -/
-theorem coeffPairing_smul_right [FiniteDimensional ℚ M] (B : V →+ W →+ ℝ)
-    (hB : ∀ (m : M) (x : V) (y : W), B (m • x) y = B x (m • y)) (m : M) (x : V) (y : W) :
-    coeffPairing B x (m • y) = ((1 : ℝ) ⊗ₜ[ℚ] m) * coeffPairing B x y := by
+theorem coeffPairing_smul_right (B : V →ₗ[M] W →ₗ[M] S) (a : L)
+    (x : L ⊗[M] V) (y : L ⊗[M] W) :
+    coeffPairing B x (a • y) = a • coeffPairing B x y := by
   sorry
 
-theorem coeffPairing_galois {Γ : Type*} [Group Γ] [DistribMulAction Γ V] [DistribMulAction Γ W]
-    [FiniteDimensional ℚ M] (B : V →+ W →+ ℝ)
-    (hB : ∀ (m : M) (x : V) (y : W), B (m • x) y = B x (m • y))
-    (hBΓ : ∀ (g : Γ) (x : V) (y : W), B (g • x) (g • y) = B x y)
-    (hV : ∀ (g : Γ) (m : M) (x : V), g • m • x = m • g • x)
-    (hW : ∀ (g : Γ) (m : M) (y : W), g • m • y = m • g • y) (g : Γ) (x : V) (y : W) :
-    coeffPairing (M := M) B (g • x) (g • y) = coeffPairing (M := M) B x y := by
+/-- The trace on scalar extension includes the degree [L:M], even on base points. -/
+theorem trace_coeffPairing [FiniteDimensional M L] (B : V →ₗ[M] W →ₗ[M] M) (x : V) (y : W) :
+    Algebra.trace M L ((TensorProduct.rid M L)
+      (coeffPairing (L := L) B ((1 : L) ⊗ₜ[M] x) ((1 : L) ⊗ₜ[M] y))) =
+      (Module.finrank M L : M) * B x y := by
   sorry
 
-theorem coeffPairing_chi_orthogonal {Γ : Type*} [Group Γ] [DistribMulAction Γ V]
-    [DistribMulAction Γ W] [FiniteDimensional ℚ M] (B : V →+ W →+ ℝ)
-    (hB : ∀ (m : M) (x : V) (y : W), B (m • x) y = B x (m • y))
-    (hBΓ : ∀ (g : Γ) (x : V) (y : W), B (g • x) (g • y) = B x y)
-    (hV : ∀ (g : Γ) (m : M) (x : V), g • m • x = m • g • x)
-    (hW : ∀ (g : Γ) (m : M) (y : W), g • m • y = m • g • y)
-    (g : Γ) (a b : M) (x : V) (y : W) (hx : g • x = a • x) (hy : g • y = b • y) (hab : a * b ≠ 1) :
-    coeffPairing (M := M) B x y = 0 := by
+/-- Equivariant changes of variables preserve the scalar-extended pairing. -/
+theorem coeffPairing_galois (B : V →ₗ[M] W →ₗ[M] S)
+    (f : V →ₗ[M] V) (g : W →ₗ[M] W) (h : ∀ x y, B (f x) (g y) = B x y)
+    (x : V) (y : W) (a b : L) :
+    coeffPairing B (a ⊗ₜ[M] f x) (b ⊗ₜ[M] g y) =
+      coeffPairing B (a ⊗ₜ[M] x) (b ⊗ₜ[M] y) := by
   sorry
 
-theorem coeffPairing_torsion_left (B : V →+ W →+ ℝ) {x : V} (hx : IsOfFinAddOrder x) (y : W) :
-    coeffPairing (M := M) B x y = 0 := by
+/-- Orthogonality of distinct reciprocal characters, for the actual extended height.
+The required invariance is supplied by GZ.1, not inferred from an arbitrary bilinear form. -/
+theorem coeffPairing_chi_orthogonal (B : V →ₗ[M] W →ₗ[M] S)
+    (x : L ⊗[M] V) (y : L ⊗[M] W) (a b : L) (hab : a*b ≠ 1)
+    (hinv : coeffPairing B (a • x) (b • y) = coeffPairing B x y) :
+    coeffPairing B x y = 0 := by
   sorry
 
-/-- For an elliptic curve (`M = ℚ`) with its principal polarisation the coefficient pairing is
-the BSD pairing, the polar form of the canonical height (Tau Ceti's `canonicalHeightQuadratic`;
-GZ.0's `bsdHeightPairing`). -/
-theorem coeffPairing_elliptic {E : Type*} [AddCommGroup E] [Module ℚ E]
-    (Q : QuadraticMap ℤ E ℝ) (B : E →+ E →+ ℝ) (hB : ∀ x y, B x y = QuadraticMap.polar Q x y)
-    (x y : E) :
-    Algebra.TensorProduct.rid ℚ ℚ ℝ (coeffPairing (M := ℚ) B x y) = QuadraticMap.polar Q x y := by
+theorem coeffPairing_torsion_left (B : V →ₗ[M] W →ₗ[M] S) {x : V}
+    (hx : IsOfFinAddOrder x) (y : W) :
+    coeffPairing (L := L) B ((1 : L) ⊗ₜ[M] x) ((1 : L) ⊗ₜ[M] y) = 0 := by
   sorry
 
-/-- Unit test: for `M = ℚ` the coefficient pairing is the rational pairing. -/
-theorem coeffPairing_rat {E F : Type*} [AddCommGroup E] [Module ℚ E] [AddCommGroup F] [Module ℚ F]
-    (B : E →+ F →+ ℝ) (x : E) (y : F) :
-    coeffPairing (M := ℚ) B x y = B x y ⊗ₜ[ℚ] (1 : ℚ) := by
+/-- Identity scalar extension returns the supplied height; it is not a trace construction. -/
+theorem coeffPairing_rat (B : V →ₗ[M] W →ₗ[M] S) (x : V) (y : W) :
+    (TensorProduct.lid M S)
+      (coeffPairing (L := M) B ((1 : M) ⊗ₜ[M] x) ((1 : M) ⊗ₜ[M] y)) = B x y := by
   sorry
 
-/-- Unit test: in a quadratic field `ℚ(s)`, `s² = 5`, a coefficient pairing `a ⊗ 1 + b ⊗ s` has
-trace `2a`, and `⟨s x, y⟩ = 10 b`. -/
-theorem coeffPairing_trace_qsqrt5 [FiniteDimensional ℚ M] (hM : Module.finrank ℚ M = 2) (s : M)
-    (hs : s ^ 2 = 5) (B : V →+ W →+ ℝ)
-    (hB : ∀ (m : M) (x : V) (y : W), B (m • x) y = B x (m • y)) (x : V) (y : W) (a b : ℝ)
-    (hxy : coeffPairing B x y = a ⊗ₜ[ℚ] (1 : M) + b ⊗ₜ[ℚ] s) :
-    B x y = 2 * a ∧ B (s • x) y = 10 * b := by
+/-- Degree-two extension: tracing a base value doubles it. This catches the missing-degree error. -/
+theorem coeffPairing_trace_qsqrt5 [FiniteDimensional M L]
+    (hL : Module.finrank M L = 2) (B : V →ₗ[M] W →ₗ[M] M) (x : V) (y : W) :
+    Algebra.trace M L ((TensorProduct.rid M L)
+      (coeffPairing (L := L) B ((1 : L) ⊗ₜ[M] x) ((1 : L) ⊗ₜ[M] y))) = 2 * B x y := by
   sorry
 
-/-- Unit test: on an elliptic curve the BSD pairing of a point with itself is twice the canonical
-height, `⟨P, P⟩ = 2 ĥ(P)` (Tau Ceti's `canonicalHeight`, the `(O)`-normalised height). -/
-theorem coeffPairing_eq_bsd {E : Type*} [AddCommGroup E] [Module ℚ E] (Q : QuadraticMap ℤ E ℝ)
-    (B : E →+ E →+ ℝ) (hB : ∀ x y, B x y = QuadraticMap.polar Q x y) (x : E) :
-    Algebra.TensorProduct.rid ℚ ℚ ℝ (coeffPairing (M := ℚ) B x x) = 2 * Q x := by
+/-- A base value 1 does not retain trace 1 in a degree-two extension. -/
+theorem coeffPairing_not_trace [CharZero M] [FiniteDimensional M L]
+    (hL : Module.finrank M L = 2) (B : V →ₗ[M] W →ₗ[M] M) (x : V) (y : W) (hxy : B x y = 1) :
+    Algebra.trace M L ((TensorProduct.rid M L)
+      (coeffPairing (L := L) B ((1 : L) ⊗ₜ[M] x) ((1 : L) ⊗ₜ[M] y))) ≠ 1 := by
   sorry
 
-/-- Unit test (non-example): the rational pairing is not `M`-bilinear: if the coefficient pairing
-is `1`, then `⟨x, y⟩ = 2` but `⟨s x, y⟩ = 0`. -/
-theorem coeffPairing_not_trace [FiniteDimensional ℚ M] (hM : Module.finrank ℚ M = 2) (s : M)
-    (hs : s ^ 2 = 5) (B : V →+ W →+ ℝ)
-    (hB : ∀ (m : M) (x : V) (y : W), B (m • x) y = B x (m • y)) (x : V) (y : W)
-    (hxy : coeffPairing B x y = (1 : ℝ ⊗[ℚ] M)) :
-    B x y = 2 ∧ B (s • x) y = 0 := by
-  sorry
+-- Named unit tests above have executable example declarations as well.
+example (B : V →ₗ[M] W →ₗ[M] S) (x : V) (y : W) :
+    (TensorProduct.lid M S)
+      (coeffPairing (L := M) B ((1 : M) ⊗ₜ[M] x) ((1 : M) ⊗ₜ[M] y)) = B x y := by sorry
+
+example (B : V →ₗ[M] W →ₗ[M] S) (x : V) (y : W) :
+    coeffPairing (L := L) B ((2 : L) ⊗ₜ[M] x) ((3 : L) ⊗ₜ[M] y) =
+      (6 : L) ⊗ₜ[M] B x y := by sorry
+
+example (B : V →ₗ[M] W →ₗ[M] S) (x : V) (y : W) :
+    coeffPairing (L := L) B ((0 : L) ⊗ₜ[M] x) ((1 : L) ⊗ₜ[M] y) = 0 := by sorry
+
+-- coeffPairing_trace_qsqrt5: base values gain the quadratic extension degree.
+example [FiniteDimensional M L] (h : Module.finrank M L = 2)
+    (B : V →ₗ[M] W →ₗ[M] M) (x : V) (y : W) :
+    Algebra.trace M L ((TensorProduct.rid M L)
+      (coeffPairing (L := L) B ((1 : L) ⊗ₜ[M] x) ((1 : L) ⊗ₜ[M] y))) = 2 * B x y := by sorry
+
+-- coeffPairing_not_trace: the old trace law is false after extension.
+example [CharZero M] [FiniteDimensional M L] (h : Module.finrank M L = 2)
+    (B : V →ₗ[M] W →ₗ[M] M) (x : V) (y : W) (hxy : B x y = 1) :
+    Algebra.trace M L ((TensorProduct.rid M L)
+      (coeffPairing (L := L) B ((1 : L) ⊗ₜ[M] x) ((1 : L) ⊗ₜ[M] y))) ≠ 1 := by sorry
 
 end CoeffPairing
 
@@ -337,6 +419,10 @@ theorem prod_root_number {ι : Type*} [DecidableEq ι] (T : Finset ι) (Sg : Fin
 theorem ne_zero_of_form_ne_zero (β : P →ₗ[L] P →ₗ[L] L) {x y : P} (h : β x y ≠ 0) : x ≠ 0 := by
   sorry
 
+-- A coefficient tensor product need not be a domain: disjoint nonzero components multiply to zero.
+example : ((1,0) : ℂ × ℂ) ≠ 0 ∧ ((0,1) : ℂ × ℂ) ≠ 0 ∧
+    ((1,0) : ℂ × ℂ) * ((0,1) : ℂ × ℂ) = 0 := by sorry
+
 end Identity
 
 /-! ## GZ.8 — admissible orders and test vectors (Cai–Shu–Tian) -/
@@ -346,10 +432,9 @@ section TestVector
 variable {Bx : Type*} [Group Bx] {L : Type*} [Field L]
   {Vπ : Type*} [AddCommGroup Vπ] [Module L Vπ] [DistribMulAction Bx Vπ] [SMulCommClass Bx L Vπ]
 
-/-- GZ.8/admissible-order-test-vector: admissibility of an order `R` with unit group `U` for
-`(π, χ)`, prototyped by the condition `R̂^× ∩ K̂^× = Ô_{c₁}^×` on unit groups (`U ⊓ T = Uc`).
-Omitted, because orders of `B_f` and their discriminants are not in the libraries: the
-discriminant `N` and the local conditions at `v | (c₁, N)` of Cai–Shu–Tian Definition 1.3. -/
+/-- A necessary unit-intersection fragment, not the admissibility predicate.
+CST Definition 1.3 also needs the discriminant, two maximal orders, their optimal
+intersections, and a conductor-selected split orientation. Those carrier types are missing. -/
 structure TorusUnitIntersection (U T Uc : Subgroup Bx) : Prop where
   inf_torus : U ⊓ T = Uc
 
@@ -411,6 +496,27 @@ theorem newline_not_testVector (U : Subgroup Bx) (ω : U →* Lˣ) (T₁ : Subgr
     f ∉ testVectorLine U ω T₁ χ := by
   sorry
 
+-- Actual example for isAdmissibleOrder_eichler_X0: the integral matrix intersection.
+-- This checks the optimal-embedding fragment, not the missing discriminant/orientation predicate.
+example (a b : ℤ) :
+    11 ∣ ((a • (1 : Matrix (Fin 2) (Fin 2) ℤ) + b • !![1,-1;22,-8]) : Matrix (Fin 2) (Fin 2) ℤ) 1 0 := by sorry
+
+-- testVectorLine_unramified: for trivial torus the condition is exactly U-invariance.
+example (U : Subgroup Bx) (f : Vπ) :
+    f ∈ testVectorLine U (1 : U →* Lˣ) (⊥ : Subgroup Bx) 1 ↔
+      ∀ u : U, (u : Bx) • f = f := by sorry
+
+-- testVectorLine_finrank_one: one-dimensionality is a supplied representation theorem.
+example (U : Subgroup Bx) (ω : U →* Lˣ) (T₁ : Subgroup Bx) (χ : T₁ →* Lˣ)
+    (h : Module.finrank L (testVectorLine (Vπ := Vπ) U ω T₁ χ) = 1)
+    (f g : testVectorLine (Vπ := Vπ) U ω T₁ χ) (hf : f ≠ 0) :
+    ∃ c : L, g = c • f := by sorry
+
+-- newline_not_testVector: a fixed vector cannot be an incompatible torus eigenvector.
+example (U : Subgroup Bx) (ω : U →* Lˣ) (T₁ : Subgroup Bx) (χ : T₁ →* Lˣ)
+    (t : T₁) (hχ : χ t ≠ 1) (f : Vπ) (hf : f ≠ 0) (ht : (t : Bx) • f = f) :
+    f ∉ testVectorLine U ω T₁ χ := by sorry
+
 end TestVector
 
 /-! ## GZ.9 — the ratio of Petersson norms -/
@@ -422,7 +528,7 @@ open UpperHalfPlane MeasureTheory
 /-- The weight-two Petersson norm `∫_D |g|² (Im τ)² dμ = ∫_D |g|² dx dy`; it is Tau Ceti's
 `UpperHalfPlane.peterssonInner 2 D g g`. -/
 def peterssonNorm (D : Set ℍ) (g : ℍ → ℂ) : ℂ :=
-  ∫ τ in D, UpperHalfPlane.petersson 2 g g τ
+  UpperHalfPlane.peterssonInner 2 D g g
 
 /-- GZ.9/petersson-norm-ratio: `α(f, f_B) = ⟨f, f⟩_{Γ₀(N)} / ⟨f_B, f_B⟩_{Γ₀^B(N⁺)}`, with `D`, `D'`
 fundamental domains of `Γ₀(N)` and of the norm-one units of the Eichler order. -/
@@ -454,7 +560,7 @@ theorem peterssonRatio_scale_two (D D' : Set ℍ) (f fB : ℍ → ℂ) :
 /-- Unit test: the numerator is the Petersson norm (Tau Ceti's `peterssonInner 2 D f f`). -/
 theorem peterssonRatio_eq_peterssonInner (D D' : Set ℍ) (f fB : ℍ → ℂ)
     (h : peterssonNorm D' fB ≠ 0) :
-    peterssonRatio D D' f fB * peterssonNorm D' fB = ∫ τ in D, UpperHalfPlane.petersson 2 f f τ := by
+    peterssonRatio D D' f fB * peterssonNorm D' fB = UpperHalfPlane.peterssonInner 2 D f f := by
   sorry
 
 /-- Unit test (non-example): for weight two, `|g|²` alone is not invariant — it picks up
@@ -463,52 +569,126 @@ theorem peterssonRatio_not_dxdy_over_ysq (g : ℍ → ℂ) (τ τ' : ℍ) (c : �
     (hg : g τ' = c ^ 2 * g τ) (h0 : g τ ≠ 0) : ‖g τ'‖ ^ 2 ≠ ‖g τ‖ ^ 2 := by
   sorry
 
+-- peterssonRatio_self.
+example (D : Set ℍ) (f : ℍ → ℂ) (h : peterssonNorm D f ≠ 0) :
+    peterssonRatio D D f f = 1 := by sorry
+
+-- peterssonRatio_scale_two.
+example (D D' : Set ℍ) (f fB : ℍ → ℂ) :
+    peterssonRatio D D' f ((2 : ℂ) • fB) = peterssonRatio D D' f fB / 4 := by sorry
+
+-- peterssonRatio_eq_peterssonInner: agreement with the actual imported pairing.
+example (D : Set ℍ) (f : ℍ → ℂ) :
+    peterssonNorm D f = UpperHalfPlane.peterssonInner 2 D f f := by sorry
+
+-- peterssonRatio_not_dxdy_over_ysq: weight-two transformation changes raw |g|².
+example (g : ℍ → ℂ) (τ τ' : ℍ) (hg : g τ' = 4 * g τ) (h0 : g τ ≠ 0) :
+    ‖g τ'‖ ^ 2 ≠ ‖g τ‖ ^ 2 := by sorry
+
 end Petersson
 
 /-! ## GZ.9 — evaluation fragments; arithmetic BDP signatures pending -/
 
 section BDP
 
-open PowerSeries
+variable {R : Type*} [CommRing R]
 
-variable (R : Type*) [CommRing R] [UniformSpace R]
+/-- GZ.9's normalization adapter. `root` is the ALREADY CONSTRUCTED measure from L3h
+in the split case or `quaternionicRoot` in the quaternionic case. The unit includes a
+group-like character factor; it need not be the image of a scalar of R. -/
+def bdpLFunction (root : PowerSeries R) (normalization : (PowerSeries R)ˣ) : PowerSeries R :=
+  (normalization : PowerSeries R) * root^2
 
-/- Pending packet APIs: bdpLFunction, bdpLFunction_eval, bdpLFunction_interpolation,
-bdpLFunction_eq_of_interpolation, bdpLFunction_eval_one, bdpLFunction_incomplete,
-bdpLFunction_period_change and bdpLFunction_eq_sq. These need the specific coefficient DVR
-with its complete separated adic topology, the constructed measure, the character branch,
-periods and Hecke/newform data. `bdpInterpolatedValue` with body sorry was not a specification
-of those values and has been removed. Likewise `hsiehSquareRoot` must be an imported L3h
-object, not a private replacement. Density/Weierstrass uniqueness is not valid for an
-arbitrary UniformSpace on an abstract DVR. The pending test `bdpLFunction_unique` must use
-that actual adic topology and convergence hypotheses. -/
+theorem bdpLFunction_eval {A : Type*} [CommRing A] (ev : PowerSeries R →+* A)
+    (root : PowerSeries R) (normalization : (PowerSeries R)ˣ) :
+    ev (bdpLFunction root normalization) = ev normalization * ev root ^ 2 := by sorry
 
-/-- Evaluation at the trivial character reduces to the constant coefficient. This is an
-algebraic evaluation test, not a construction of the BDP measure. -/
-theorem bdpLFunction_eval_zero [T2Space R] (F : PowerSeries R) :
-    PowerSeries.eval₂ (RingHom.id R) 0 F = PowerSeries.constantCoeff F := by
-  sorry
+theorem bdpLFunction_eval_one (root : PowerSeries R) (normalization : (PowerSeries R)ˣ) :
+    PowerSeries.constantCoeff (bdpLFunction root normalization) =
+      PowerSeries.constantCoeff (normalization : PowerSeries R) *
+        PowerSeries.constantCoeff root ^ 2 := by sorry
 
-/-- Proposed arithmetic test values for 11a1: the independent point counts are still needed
-when this is used as a test of a modular-form/elliptic-curve object. -/
+/-- For fixed periods, adding an imprimitive Euler factor is multiplication in the same
+completed group algebra. The arithmetic polynomial/Frobenius values come from AL.3. -/
+def bdpIncomplete {S : Type*} (places : Finset S) (Euler : S → PowerSeries R)
+    (F : PowerSeries R) : PowerSeries R := F * ∏ w ∈ places, Euler w
+
+theorem bdpLFunction_incomplete {S A : Type*} [CommRing A]
+    (ev : PowerSeries R →+* A) (places : Finset S) (Euler : S → PowerSeries R)
+    (F : PowerSeries R) :
+    ev (bdpIncomplete places Euler F) = ev F * ∏ w ∈ places, ev (Euler w) := by sorry
+
+/-- The measure comparison is stated after construction; it cannot prove the existence
+of the root measure to which the same comparison refers. -/
+theorem bdpLFunction_eq_sq (root : PowerSeries R) (normalization : (PowerSeries R)ˣ) :
+    bdpLFunction root normalization = (normalization : PowerSeries R) * root^2 := by sorry
+
+/-- Moment scaling is the formal step in period transport; the geometric statement that
+changing the CM differential gives these moments is requested from L3. -/
+theorem bdpLFunction_period_change {A : Type*} [CommRing A] (ev : PowerSeries R →+* A)
+    (root root' : PowerSeries R) (normalization : (PowerSeries R)ˣ) (u : A) (n : ℕ)
+    (h : ev root' = u^(2*n) * ev root) :
+    ev (bdpLFunction root' normalization) = u^(4*n) * ev (bdpLFunction root normalization) := by sorry
+
+/- Pending arithmetic `bdpLFunction_interpolation`: JSW (5.1.a) must use the same
+newform, integral Jacquet–Langlands transfer, ordinary CM expansions, periods, central-critical
+avatar and tame branch as the constructor. This is not supplied by an arbitrary function of
+characters. The exact supplier types and normalization-unit computation remain in the gap list. -/
+
+/-- Uniqueness is tied to the genuine p-adic topology and to integral coefficients.
+A nonzero bounded integral series has finitely many zeros in the open unit disk; L4 owns
+Weierstrass preparation. No claim is made for an arbitrary topology on a DVR. -/
+theorem bdpLFunction_eq_of_interpolation (p : ℕ) [Fact p.Prime]
+    (F G : PowerSeries (PadicInt p)) (S : Set (Padic p)) (hS : S.Infinite)
+    (hsmall : ∀ x ∈ S, ‖x‖ < 1)
+    (h : ∀ x ∈ S, PowerSeries.eval₂ (PadicInt.Coe.ringHom) x F =
+      PowerSeries.eval₂ (PadicInt.Coe.ringHom) x G) : F = G := by sorry
+
+theorem bdpLFunction_unique (p : ℕ) [Fact p.Prime]
+    (F : PowerSeries (PadicInt p)) (S : Set (Padic p)) (hS : S.Infinite)
+    (hsmall : ∀ x ∈ S, ‖x‖ < 1)
+    (h : ∀ x ∈ S, PowerSeries.eval₂ (PadicInt.Coe.ringHom) x F = 0) : F = 0 := by sorry
+
+/-- Evaluation at the trivial character is algebraically the constant coefficient. -/
+theorem bdpLFunction_eval_zero [UniformSpace R] [T2Space R] (F : PowerSeries R) :
+    PowerSeries.eval₂ (RingHom.id R) 0 F = PowerSeries.constantCoeff F := by sorry
+
+/-- 11a1 coefficients a_5=1 and a_23=-1 are independently certified by the point-count
+examples below, using its minimal equation y²+y=x³−x²−10x−20. -/
 theorem bdpLFunction_euler_11a1 :
-    (1 + (5 : ℚ) - 1) / 5 = 1 ∧ (1 + (23 : ℚ) - (-1)) / 23 = 25 / 23 := by
-  sorry
+    (1 + (5 : ℚ) - 1) / 5 = 1 ∧ (1 + (23 : ℚ) - (-1)) / 23 = 25 / 23 := by sorry
 
-/-- Only the positive weight/congruence condition. The full interpolation set also needs the
-anticyclotomic character, its avatar and the crystalline/conductor conditions. -/
-def interpolationWeightCondition (p n : ℕ) : Prop :=
-  0 < n ∧ (p - 1) ∣ n
+/-- A necessary positive-weight condition, not the full character domain. -/
+def interpolationWeightCondition (p n : ℕ) : Prop := 0 < n ∧ (p-1) ∣ n
 
-/-- The trivial character has weight zero, so fails this necessary interpolation condition. -/
 theorem bdpLFunction_trivial_not_interpolated (p : ℕ) :
-    ¬ interpolationWeightCondition p 0 := by
-  sorry
+    ¬ interpolationWeightCondition p 0 := by sorry
 
--- Example: the trivial-character evaluation of a constant series recovers its value.
-example [T2Space R] (a : R) :
-    PowerSeries.eval₂ (RingHom.id R) 0 (PowerSeries.C a) = a := by
-  sorry
+example : bdpLFunction (1 + PowerSeries.X : PowerSeries ℚ) 1 =
+    1 + PowerSeries.C (2 : ℚ) * PowerSeries.X + PowerSeries.X^2 := by sorry
+
+example : bdpLFunction (0 : PowerSeries ℚ) 1 = 0 := by sorry
+
+example [UniformSpace R] [T2Space R] (root : PowerSeries R)
+    (normalization : (PowerSeries R)ˣ) :
+    PowerSeries.eval₂ (RingHom.id R) 0 (bdpLFunction root normalization) =
+      PowerSeries.constantCoeff (normalization : PowerSeries R) *
+        PowerSeries.constantCoeff root ^ 2 := by sorry
+
+example (p : ℕ) : ¬ interpolationWeightCondition p 0 := by sorry
+
+-- bdpLFunction_unique: actual convergent ℤ_p evaluation, not a formal interpolated placeholder.
+example (p : ℕ) [Fact p.Prime] (F : PowerSeries (PadicInt p)) (S : Set (Padic p))
+    (hS : S.Infinite) (hx : ∀ x ∈ S, ‖x‖ < 1)
+    (hF : ∀ x ∈ S, PowerSeries.eval₂ (PadicInt.Coe.ringHom) x F = 0) :
+    F = 0 := by sorry
+
+-- The point counts include the point at infinity; omission changes the Hecke coefficient.
+example : 1 + Fintype.card {xy : ZMod 5 × ZMod 5 //
+    xy.2^2 + xy.2 = xy.1^3 - xy.1^2 - 10*xy.1 - 20} = 5 := by sorry
+
+example : 1 + Fintype.card {xy : ZMod 23 × ZMod 23 //
+    xy.2^2 + xy.2 = xy.1^3 - xy.1^2 - 10*xy.1 - 20} = 25 := by sorry
 
 end BDP
 
@@ -518,58 +698,102 @@ section Quaternionic
 
 variable {R : Type*} [CommRing R] {C : Type*} [Fintype C]
 
-/-- GZ.9/quaternionic-bdp-construction (Brooks Proposition 8.9): the value at `χ` is the square of
-the `χ⁻¹`-weighted sum over `Cl(O_K)` of the CM values `θ^j f_B^♭(a ⋆ (A, t, ω̂))`. The CM values
-come from Serre–Tate expansions on `X_{N⁺,N⁻}`, which the libraries lack; they enter as data. -/
-def quaternionicBDP (χinv cmValue : C → R) : R :=
-  (∑ a, χinv a * cmValue a) ^ 2
+/-- CM expansions are integral Amice transforms, and `translate` is the group-like
+R-linear translation operator (multiplication by a group-like series) supplied by the chosen reciprocity chart. Burungale Lemma 5.5 and
+(5.8), pp.28–29, give the geometric inputs; the general Amice isomorphism belongs to
+PadicMeasuresIwasawaAlgebras L1. This constructor does not use interpolation. -/
+def quaternionicRoot (weight : C → R) (cm : C → PowerSeries R)
+    (translate : C → PowerSeries R →ₗ[R] PowerSeries R) : PowerSeries R :=
+  ∑ a, PowerSeries.C (weight a) * translate a (cm a)
 
-theorem quaternionicBDP_eq_sq_sum (χinv cmValue : C → R) :
-    quaternionicBDP χinv cmValue = (∑ a, χinv a * cmValue a) ^ 2 :=
-  rfl
+/-- The bounded quaternionic BDP measure is the convolution square of this root measure.
+The corresponding power-series product is used after a generator of Γ is fixed. -/
+def quaternionicBDP (weight : C → R) (cm : C → PowerSeries R)
+    (translate : C → PowerSeries R →ₗ[R] PowerSeries R) : PowerSeries R :=
+  quaternionicRoot weight cm translate ^ 2
 
-/-- Extensionality for the finite-sum fragment, not for a geometric measure. -/
-theorem quaternionicBDP_congr (χ₁ χ₂ c₁ c₂ : C → R)
-    (hχ : ∀ a, χ₁ a = χ₂ a) (hc : ∀ a, c₁ a = c₂ a) :
-    quaternionicBDP χ₁ c₁ = quaternionicBDP χ₂ c₂ := by
+/-- Character evaluation is a ring map supplied by the complete-adic measure interface.
+Evaluated translated CM transforms are the specific Katz moments, not arbitrary CM values. -/
+theorem quaternionicBDP_eq_sq_sum {A : Type*} [CommRing A]
+    (ev : PowerSeries R →+* A) (weight : C → R) (cm : C → PowerSeries R)
+    (translate : C → PowerSeries R →ₗ[R] PowerSeries R) :
+    ev (quaternionicBDP weight cm translate) =
+      (∑ a, ev (PowerSeries.C (weight a)) * ev (translate a (cm a)))^2 := by
   sorry
 
-/-- Brooks Proposition 8.10: congruent CM data give congruent values (continuity). -/
-theorem quaternionicBDP_continuous (I : Ideal R) (M : ℕ) (χ₁ χ₂ c₁ c₂ : C → R)
-    (hχ : ∀ a, χ₁ a - χ₂ a ∈ I ^ M) (hc : ∀ a, c₁ a - c₂ a ∈ I ^ M) :
-    quaternionicBDP χ₁ c₁ - quaternionicBDP χ₂ c₂ ∈ I ^ M := by
+theorem quaternionicBDP_congr (weight : C → R) (cm cm' : C → PowerSeries R)
+    (translate : C → PowerSeries R →ₗ[R] PowerSeries R) (h : ∀ a, cm a = cm' a) :
+    quaternionicBDP weight cm translate = quaternionicBDP weight cm' translate := by
   sorry
 
-/-- Changing the Serre–Tate period by `a` multiplies the CM values of weight `w` by `a^w` and the
-function by `a^{2w}`. -/
-theorem quaternionicBDP_period (a : R) (w : ℕ) (χinv cmValue : C → R) :
-    quaternionicBDP χinv (fun c ↦ a ^ w * cmValue c) = a ^ (2 * w) * quaternionicBDP χinv cmValue := by
+/-- Continuity of evaluation is a consequence of a bounded measure, not its construction. -/
+theorem quaternionicBDP_continuous {X A : Type*} [TopologicalSpace X] [CommRing A]
+    [TopologicalSpace A] (ev : X → PowerSeries R →+* A)
+    (hev : ∀ F, Continuous fun x ↦ ev x F) (weight : C → R) (cm : C → PowerSeries R)
+    (translate : C → PowerSeries R →ₗ[R] PowerSeries R) :
+    Continuous fun x ↦ ev x (quaternionicBDP weight cm translate) := by
   sorry
 
-/- Pending `quaternionicBDP_measure`: the CM values must be the Serre–Tate values of
-this specific form at the points attached to the evaluating character. With arbitrary CM data,
-the omitted original equality would assert that a fixed measure value is both zero and one.
-The squared finite sum below tests algebra only; it does not supply the geometric construction,
-its continuity across different character weights or its boundedness as a measure. -/
-
-/-- Unit test: class number one leaves one term. -/
-theorem quaternionicBDP_sq_sum_one_class [Unique C] (χinv cmValue : C → R) :
-    quaternionicBDP χinv cmValue = (χinv default * cmValue default) ^ 2 := by
+/-- A period change scales the evaluated CM moment at weight w by a^w, hence its square
+by a^(2w). The series itself changes through the associated character automorphism. -/
+theorem quaternionicBDP_period {A : Type*} [CommRing A] (ev : PowerSeries R →+* A)
+    (a : A) (w : ℕ) (weight : C → R) (cm cm' : C → PowerSeries R)
+    (translate : C → PowerSeries R →ₗ[R] PowerSeries R)
+    (h : ∀ c, ev (translate c (cm' c)) = a^w * ev (translate c (cm c))) :
+    ev (quaternionicBDP weight cm' translate) =
+      a^(2*w) * ev (quaternionicBDP weight cm translate) := by
   sorry
 
-/-- Unit test: the zero form gives zero. -/
-theorem quaternionicBDP_zero_form (χinv : C → R) : quaternionicBDP χinv (0 : C → R) = 0 := by
+/- Pending arithmetic `quaternionicBDP_measure`: specialize the imported Amice
+isomorphism for the complete DVR R, identify each `cm a` with the integral Serre–Tate
+expansion of f_B^(p), restrict its Z_p-measure to the reciprocity open subgroup, then
+translate and push forward. The algebraic series constructor alone does not establish
+these geometric identifications; the packet requests them from R18.2 and L1. -/
+
+/-- One CM class still retains its entire moment series, not just one special value. -/
+theorem quaternionicBDP_sq_sum_one_class [Unique C] (cm : C → PowerSeries R) :
+    quaternionicBDP (fun _ ↦ (1 : R)) cm (fun _ ↦ LinearMap.id) =
+      cm default ^ 2 := by
   sorry
 
-/-- Unit test: scaling `f_B` by `c` scales the function by `c²`. -/
-theorem quaternionicBDP_scale (c : R) (χinv cmValue : C → R) :
-    quaternionicBDP χinv (c • cmValue) = c ^ 2 * quaternionicBDP χinv cmValue := by
+theorem quaternionicBDP_zero_form (weight : C → R)
+    (translate : C → PowerSeries R →ₗ[R] PowerSeries R) :
+    quaternionicBDP weight (fun _ ↦ 0) translate = 0 := by
   sorry
 
-/-- Unit test (non-example): the value is a square; the unsquared sum is the square-root object. -/
-theorem quaternionicBDP_is_square (χinv cmValue : C → R) :
-    ∃ s : R, quaternionicBDP χinv cmValue = s ^ 2 :=
-  ⟨_, rfl⟩
+theorem quaternionicBDP_scale (c : R) (weight : C → R) (cm : C → PowerSeries R)
+    (translate : C → PowerSeries R →ₗ[R] PowerSeries R) :
+    quaternionicBDP weight (fun a ↦ PowerSeries.C c * cm a) translate =
+      PowerSeries.C (c^2) * quaternionicBDP weight cm translate := by
+  sorry
+
+theorem quaternionicBDP_is_square (weight : C → R) (cm : C → PowerSeries R)
+    (translate : C → PowerSeries R →ₗ[R] PowerSeries R) :
+    ∃ F : PowerSeries R, quaternionicBDP weight cm translate = F^2 := by
+  sorry
+
+-- quaternionicBDP_scale: scaling the full moment data gives quadratic scaling.
+example (c : R) (weight : C → R) (cm : C → PowerSeries R)
+    (translate : C → PowerSeries R →ₗ[R] PowerSeries R) :
+    quaternionicBDP weight (fun a ↦ PowerSeries.C c * cm a) translate =
+      PowerSeries.C (c^2) * quaternionicBDP weight cm translate := by sorry
+
+-- The coefficient of T tests moments that constant-character examples cannot see.
+example : PowerSeries.coeff 1
+    (quaternionicBDP (fun _ : Unit ↦ (1 : ℚ)) (fun _ ↦ 1 + PowerSeries.X)
+      (fun _ ↦ LinearMap.id)) = 2 := by sorry
+
+example : quaternionicBDP (fun _ : Unit ↦ (1 : ℚ))
+    (fun _ ↦ PowerSeries.C (3 : ℚ)) (fun _ ↦ LinearMap.id) =
+      PowerSeries.C (9 : ℚ) := by sorry
+
+example (weight : C → R) (translate : C → PowerSeries R →ₗ[R] PowerSeries R) :
+    quaternionicBDP weight (fun _ ↦ 0) translate = 0 := by sorry
+
+example : quaternionicBDP (fun _ : Unit ↦ (1 : ℚ))
+    (fun _ ↦ 1 + PowerSeries.X) (fun _ ↦ LinearMap.id) ≠
+      quaternionicRoot (fun _ : Unit ↦ (1 : ℚ))
+        (fun _ ↦ 1 + PowerSeries.X) (fun _ ↦ LinearMap.id) := by sorry
 
 end Quaternionic
 
@@ -596,18 +820,75 @@ arbitrary E and logs while fixing the measure value would imply 0 = 1. GZ.9 impo
 Theorem 5.13 and specializes it; it does not reassert that theorem without its hypotheses. -/
 
 /-- The endpoint omitted by the original p ≥ 5 valuation argument: a₅ = −4 gives E₅ = 2. -/
-example : (1 + (5 : ℚ) - (-4)) / 5 = 2 := by
-  sorry
+example : (1 + (5 : ℚ) - (-4)) / 5 = 2 := by sorry
 
--- A single CM class with character value 1 and CM value 3 gives the square 9, not 3.
-example : quaternionicBDP (fun _ : Unit ↦ (1 : ℚ)) (fun _ ↦ (3 : ℚ)) = 9 := by
-  sorry
-
--- Zero CM data give zero independently of the class-character coefficients.
-example {C : Type*} [Fintype C] (χinv : C → ℚ) :
-    quaternionicBDP χinv (fun _ ↦ (0 : ℚ)) = 0 := by
-  sorry
+-- The p=5 unit-factor counterexample is an actual curve count, not only arithmetic.
+example : 1 + Fintype.card {xy : ZMod 5 × ZMod 5 //
+    xy.2 ^ 2 = xy.1 ^ 3 + 3 * xy.1} = 10 := by sorry
 
 end WeightTwo
+
+/-! ## Compatibility with the pinned elliptic height
+GZ.0/GZ.1 supply the rational extension B of the full polar height.
+Its comparison hypothesis below names the actual Tau Ceti pairing; it is never
+asserted that an arbitrary rational bilinear map is the height. -/
+section EllipticCompatibility
+
+variable {F : Type*} [Field F] [Height.AdmissibleAbsValues F] [DecidableEq F]
+  {W : WeierstrassCurve.Affine F} [W.toAffine.IsElliptic]
+
+variable (B : (ℚ ⊗[ℤ] W.Point) →ₗ[ℚ] (ℚ ⊗[ℤ] W.Point) →ₗ[ℚ] ℝ)
+
+theorem coeffPairing_elliptic
+    (hB : ∀ P Q : W.Point, B ((1 : ℚ) ⊗ₜ[ℤ] P) ((1 : ℚ) ⊗ₜ[ℤ] Q) =
+      2 * WeierstrassCurve.Affine.neronTatePairing W P Q) (P Q : W.Point) :
+    TensorProduct.lid ℚ ℝ
+      (coeffPairing (L := ℚ) B
+        ((1 : ℚ) ⊗ₜ[ℚ] ((1 : ℚ) ⊗ₜ[ℤ] P))
+        ((1 : ℚ) ⊗ₜ[ℚ] ((1 : ℚ) ⊗ₜ[ℤ] Q))) =
+      2 * WeierstrassCurve.Affine.neronTatePairing W P Q := by sorry
+
+theorem coeffPairing_eq_bsd
+    (hB : ∀ P Q : W.Point, B ((1 : ℚ) ⊗ₜ[ℤ] P) ((1 : ℚ) ⊗ₜ[ℤ] Q) =
+      2 * WeierstrassCurve.Affine.neronTatePairing W P Q) (P : W.Point) :
+    TensorProduct.lid ℚ ℝ
+      (coeffPairing (L := ℚ) B
+        ((1 : ℚ) ⊗ₜ[ℚ] ((1 : ℚ) ⊗ₜ[ℤ] P))
+        ((1 : ℚ) ⊗ₜ[ℚ] ((1 : ℚ) ⊗ₜ[ℤ] P))) = 2 * P.canonicalHeight := by sorry
+
+-- coeffPairing_eq_bsd: compare the supplied full polar form to canonicalHeight.
+example
+    (hB : ∀ P Q : W.Point, B ((1 : ℚ) ⊗ₜ[ℤ] P) ((1 : ℚ) ⊗ₜ[ℤ] Q) =
+      2 * WeierstrassCurve.Affine.neronTatePairing W P Q) (P : W.Point) :
+    B ((1 : ℚ) ⊗ₜ[ℤ] P) ((1 : ℚ) ⊗ₜ[ℤ] P) = 2 * P.canonicalHeight := by sorry
+
+-- Zero-point test uses the pinned point-group and height definitions.
+example : WeierstrassCurve.Affine.neronTatePairing W (0 : W.Point) 0 = 0 := by sorry
+
+end EllipticCompatibility
+
+/-! ## Arithmetic signatures awaiting their supplier carriers
+
+The following six packet API names have no declaration here:
+* `IsAdmissibleOrder`, `finrank_testVectorLine`,
+  `localToric_ne_zero_of_mem_testVectorLine`, `isAdmissibleOrder_eichler`:
+  GZ.4/R17.3 must export actual orders, conductors and irreducible local representations.
+* `bdpLFunction_interpolation`: L0/L3/L3h must attach avatars, periods and central L-values
+  to the constructed measure on the same character branch.
+* `quaternionicBDP_measure`: R18.2/L1 must attach the integral CM expansions and their
+  actual Amice measures; having an integral power series alone does not identify its geometry.
+
+Headline conclusions not represented by arithmetic theorem declarations:
+GZ.8's general, classical, elliptic and explicit Gross–Zagier identities, variation,
+Shimura/trace-point non-torsion, coefficient identity and derivative corollaries;
+GZ.9's CM Waldspurger/interpolation, Abel–Jacobi/logarithm, modular/quaternionic and
+p-optimal formulas, global logarithm detection, Bloch–Kato/Kummer, Fricke/isogeny,
+p-new multiplicative formula, imprimitive dictionary and eigenlogarithm nonvanishing.
+Their required carriers and hypotheses are stated in the packet's six gaps and 22 requests.
+The invariant-form, finite-matrix, power-series and additive-map declarations above are
+only their identified algebraic fragments. They do not certify these arithmetic theorems.
+The named admissible-order and unramified tests likewise test fragments; the actual CM curve,
+local admissible representation and geometric-measure examples require those suppliers.
+-/
 
 end TauCeti.GrossZagier
