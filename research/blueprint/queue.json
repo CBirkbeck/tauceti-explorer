@@ -38405,8 +38405,9 @@
     "BP-DerivedDeRhamCohomology~2"
    ],
    "prompt": "research/blueprint/prompts/REV-DerivedDeRhamCohomology~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7041"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7041",
+   "finishedAt": "2026-10-08T11:46:01Z"
   },
   {
    "kind": "blueprint",
@@ -41133,7 +41134,8 @@
     "BP-ShimuraVarieties--V8~2"
    ],
    "prompt": "research/blueprint/prompts/REV-ShimuraVarieties--V8~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7093"
   },
   {
    "kind": "blueprint",
