@@ -37955,8 +37955,9 @@
    ],
    "revisionOf": "BP-AutomorphicLFunctionsAndLocalFactors",
    "prompt": "research/blueprint/prompts/BP-AutomorphicLFunctionsAndLocalFactors~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6926"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6926",
+   "finishedAt": "2026-10-08T19:05:30Z"
   },
   {
    "priority": 2,
@@ -43040,7 +43041,8 @@
     "REV-AutomorphicGaloisRepresentationsPartII--AG2.6~2"
    ],
    "prompt": "research/blueprint/prompts/ASM-AutomorphicGaloisRepresentationsPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #217"
   },
   {
    "id": "ASM-ClassicalAdicEtaleCohomology",
