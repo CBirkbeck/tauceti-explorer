@@ -7,6 +7,8 @@ import TauCeti.Algebra.AlgebraicGroup.MultiplicativeGroup.Basic
 import TauCeti.Algebra.AlgebraicGroup.CommHopfAlgCat.BaseChange
 import TauCeti.Algebra.AlgebraicGroup.CommHopfAlgCat.CharacterLattice.Torsion
 import TauCeti.Algebra.AlgebraicGroup.Tangent.Representation
+import TauCeti.NumberTheory.LocalField.NormalizedValuation
+import TauCeti.RingTheory.DedekindDomain.AdicValuation.ValuativeRel
 
 import Mathlib.RingTheory.HopfAlgebra.Convolution
 import Mathlib.RingTheory.HopfAlgebra.GroupLike
@@ -133,12 +135,13 @@ example [Finite ι] [∀ i, MeasurableSpace (G i)] [∀ i, BorelSpace (G i)]
       (inferInstance : MeasurableSpace (∀ i, G i)) := by
   sorry
 
--- Test RestrictedProduct.measurableSet_not_box_infinite
-/-- For `ι = ℕ`, `G i = ZMod 4`, `B i = 2(ZMod 4)` and `C i = {0}`, the product is not a box of
-the generating family: it differs from `B i` at every index. -/
-example : ¬ ∀ᶠ i in (cofinite : Filter ℕ),
-    ({1} : Set (Multiplicative (ZMod 4))) =
-      ((Subgroup.zpowers (Multiplicative.ofAdd (2 : ZMod 4)) : Subgroup _) : Set _) := by
+-- Test RestrictedProduct.measurableSet_singleton_not_box
+/-- For `ι = ℕ`, `G i = ZMod 4`, `B i = 2(ZMod 4)`: the singleton `{1}` is not a box with
+cofinitely trivial factors, yet it is measurable (a decreasing intersection of boxes). -/
+example [Infinite ι] [∀ i, MeasurableSpace (G i)] [∀ i, BorelSpace (G i)]
+    (hne : ∀ i, (B i : Set (G i)) ≠ {1}) :
+    MeasurableSet ({1} : Set (Πʳ i, [G i, B i])) ∧
+      ¬ ∃ C : ∀ i, Set (G i), (∀ᶠ i in cofinite, C i = B i) ∧ box (B := B) C = {1} := by
   sorry
 
 /-- The open subgroup `U_S = ∏_{i ∈ S} G i × ∏_{i ∉ S} B i` of the restricted product. -/
@@ -197,10 +200,12 @@ example {G₂ : Fin 2 → Type*} [∀ i, Group (G₂ i)] [∀ i, TopologicalSpac
       Measure.pi μ := by
   sorry
 
--- Test RestrictedProduct.levelMeasure_needs_normalization
-/-- With `μ i (B i) = 2` off `S` the restrictions are not probability measures. -/
-example (μ : ∀ i, Measure (G i)) (i : ι) (h : μ i (B i) = 2) :
-    ¬ IsProbabilityMeasure ((μ i).restrict (B i)) := by
+-- Test RestrictedProduct.levelMeasure_unnormalized_factor
+/-- The factors indexed by `S` are not normalized: with `S = {i₀}` the mass of `{x | x i₀ ∈ C}` is
+`μ i₀ C` whatever `μ i₀ (B i₀)` is (counting measure on `ZMod 4`, `C = {0}`: value `1`, not `1/2`). -/
+example (μ : ∀ i, Measure (G i)) [∀ i, SigmaFinite (μ i)] (i₀ : ι)
+    (hμ : ∀ i ∉ ({i₀} : Finset ι), μ i (B i) = 1) (C : Set (G i₀)) (hC : MeasurableSet C) :
+    levelMeasure μ {i₀} hμ {x | (x : Πʳ i, [G i, B i]) i₀ ∈ C} = μ i₀ C := by
   sorry
 
 /-- `AA.0/restricted-haar-product`: the restricted product of Haar measures. -/
@@ -284,6 +289,19 @@ theorem changeSubgroups_apply (B B' : ∀ i, Subgroup (G i))
     (x : Πʳ i, [G i, B i]) (i : ι) : changeSubgroups B B' h x i = x i := by
   sorry
 
+/-- `AA.0/restricted-haar-change-subgroups`, measure clause: the identification carries the
+restricted Haar product for `B` to the one for `B'`. -/
+theorem map_changeSubgroups_haarProduct [∀ i, MeasurableSpace (G i)] [∀ i, BorelSpace (G i)]
+    (B B' : ∀ i, Subgroup (G i))
+    [Fact (∀ i, IsOpen (B i : Set (G i)))] [Fact (∀ i, IsOpen (B' i : Set (G i)))]
+    [Fact (∀ᶠ i in cofinite, IsCompact (B i : Set (G i)))]
+    [Fact (∀ᶠ i in cofinite, IsCompact (B' i : Set (G i)))]
+    (h : ∀ᶠ i in cofinite, B i = B' i) (μ : ∀ i, Measure (G i))
+    (hμ : ∀ᶠ i in cofinite, μ i (B i) = 1) (hμ' : ∀ᶠ i in cofinite, μ i (B' i) = 1) :
+    Measure.map (changeSubgroups B B' h) (haarProduct (B := B) μ hμ) =
+      haarProduct (B := B') μ hμ' := by
+  sorry
+
 variable {B : ∀ i, Subgroup (G i)} [hBopen : Fact (∀ i, IsOpen (B i : Set (G i)))]
 
 /-- `AA.0/split-finite-factors`: splitting off finitely many factors. -/
@@ -303,8 +321,10 @@ theorem splitFinite_symm_apply [DecidableEq ι] (S : Finset ι)
     (splitFinite S).symm y i = if h : i ∈ S then (y.1 ⟨i, h⟩ : G i) else (y.2 ⟨i, h⟩ : G i) := by
   sorry
 
-theorem splitFinite_mono (S S' : Finset ι) (h : S ⊆ S') (x : Πʳ i, [G i, B i]) (i : S') :
-    (splitFinite S' x).1 i = x i := by
+theorem splitFinite_mono (S S' : Finset ι) (h : S ⊆ S') (x : Πʳ i, [G i, B i]) :
+    (∀ i : S, (splitFinite S' x).1 ⟨i, h i.2⟩ = (splitFinite S x).1 i) ∧
+      ∀ i : {i // i ∉ S'}, (splitFinite S' x).2 i =
+        (splitFinite S x).2 ⟨i, fun hi => i.2 (h hi)⟩ := by
   sorry
 
 -- Test RestrictedProduct.splitFinite_empty
@@ -469,11 +489,13 @@ example (K : Type*) [Field K] [NumberField K] (h : InfinitePlace.nrRealPlaces K 
       {x | ∀ w, (x.2 w).re ∈ Icc (0 : ℝ) 1 ∧ (x.2 w).im ∈ Icc (0 : ℝ) 1}) ×ˢ finiteIntegers K) = 2 := by
   sorry
 
--- Test NumberField.adeleHaar_not_selfdual
-/-- The self-dual measure for the standard character is `|d_K|^{-1/2} • adeleHaar`; for
-`|d_K| > 1` it differs from `adeleHaar` (the self-dual normalization is owned by AL.0). -/
-example (h : 1 < |discr K|) :
-    ENNReal.ofReal (Real.sqrt |(discr K : ℝ)|)⁻¹ • adeleHaar K ≠ adeleHaar K := by
+-- Test NumberField.adeleHaar_covolume
+open scoped Classical in
+/-- The `𝓞_K` parallelotope in `K_∞` times `∏_v 𝒪_v` is a fundamental domain for `K` in `𝔸_K`;
+its mass is `2^{r₂} · 2^{-r₂} |d_K|^{1/2}`. The self-dual measure (AL.0) gives it volume one. -/
+example : adeleHaar K (((InfiniteAdeleRing.ringEquiv_mixedSpace K) ⁻¹'
+    ZSpan.fundamentalDomain (mixedEmbedding.latticeBasis K)) ×ˢ finiteIntegers K) =
+      ENNReal.ofReal (Real.sqrt |(discr K : ℝ)|) := by
   sorry
 
 /-- The archimedean idele measure: `dx/|x|` at real places and `2 dx dy/(x² + y²)` at complex
@@ -517,6 +539,17 @@ example (v : IsDedekindDomain.HeightOneSpectrum (𝓞 K)) [MeasurableSpace (v.ad
     (hμv : μv (v.adicCompletionIntegers K) = 1) :
     μv {x | x ∈ v.adicCompletionIntegers K ∧ Valued.v x = 1} =
       1 - (Ideal.absNorm v.asIdeal : ℝ≥0∞)⁻¹ := by
+  sorry
+
+-- Test NumberField.ideleHaar_form_factor (global clause)
+/-- For `K = ℚ` the factor at `2` is `(1 - 2⁻¹)⁻¹ |dx/x|_2`: the set `x_2 ∈ 1 + 4ℤ_2`,
+`x_p ∈ ℤ_p^×` (`p` odd), `x_∞ ∈ [1, e]` has mass `2 · 4⁻¹ = 1/2` (it would be `1/4` without it). -/
+example (v₂ : IsDedekindDomain.HeightOneSpectrum (𝓞 ℚ)) (hv₂ : Ideal.absNorm v₂.asIdeal = 2) :
+    ideleHaar ℚ {x | (∀ v, (x : AdeleRing (𝓞 ℚ) ℚ).2 v ∈ v.adicCompletionIntegers ℚ ∧
+        ((x⁻¹ : IdeleGroup (𝓞 ℚ) ℚ) : AdeleRing (𝓞 ℚ) ℚ).2 v ∈ v.adicCompletionIntegers ℚ) ∧
+      Valued.v ((x : AdeleRing (𝓞 ℚ) ℚ).2 v₂ - 1) ≤ Valued.v (4 : v₂.adicCompletion ℚ) ∧
+      ∀ w, ((InfiniteAdeleRing.ringEquiv_mixedSpace ℚ) (x : AdeleRing (𝓞 ℚ) ℚ).1).1 w ∈
+        Icc (1 : ℝ) (Real.exp 1)} = 1 / 2 := by
   sorry
 
 end NumberField
@@ -734,6 +767,22 @@ theorem convergentHaarProduct_isHaarMeasure
     (convergentHaarProduct (B := B) μ S hc hp hs).IsHaarMeasure := by
   sorry
 
+/-- `AA.0/convergent-product-independence`: changing the compact open subgroups at finitely many
+indices, all inside `S`, transports the convergent product along `changeSubgroups`. -/
+theorem map_changeSubgroups_convergentHaarProduct
+    (B' : ∀ i, Subgroup (G i)) [Fact (∀ i, IsOpen (B' i : Set (G i)))]
+    [Fact (∀ᶠ i in cofinite, IsCompact (B' i : Set (G i)))]
+    (μ : ∀ i, Measure (G i)) [∀ i, (μ i).IsHaarMeasure] (S : Finset ι)
+    (hBS : ∀ i ∉ S, B i = B' i) (hc : ∀ i ∉ S, IsCompact (B i : Set (G i)))
+    (hp : ∀ i ∉ S, 0 < μ i (B i) ∧ μ i (B i) < ∞)
+    (hs : Summable (fun i : {i // i ∉ S} => |(μ i (B i)).toReal - 1|))
+    (hc' : ∀ i ∉ S, IsCompact (B' i : Set (G i)))
+    (hp' : ∀ i ∉ S, 0 < μ i (B' i) ∧ μ i (B' i) < ∞)
+    (hs' : Summable (fun i : {i // i ∉ S} => |(μ i (B' i)).toReal - 1|)) :
+    Measure.map (changeSubgroups B B' (by sorry)) (convergentHaarProduct (B := B) μ S hc hp hs) =
+      convergentHaarProduct (B := B') μ S hc' hp' hs' := by
+  sorry
+
 theorem convergentHaarProduct_box
     (μ : ∀ i, Measure (G i)) [∀ i, (μ i).IsHaarMeasure]
     (S : Finset ι) (hc : ∀ i ∉ S, IsCompact (B i : Set (G i)))
@@ -761,11 +810,23 @@ example (μ : ∀ i, Measure (G i)) [∀ i, (μ i).IsHaarMeasure]
     let ν : ∀ i, Measure (G i) := fun i => if i = j then c • μ i else μ i
     ∃ hν : ∀ i, (ν i).IsHaarMeasure,
     letI : ∀ i, (ν i).IsHaarMeasure := hν
-    ∃ (hcν : ∀ i ∉ ({j} : Finset ι), IsCompact (B i : Set (G i)))
-      (hpν : ∀ i ∉ ({j} : Finset ι), 0 < ν i (B i) ∧ ν i (B i) < ∞)
-      (hsν : Summable (fun i : {i // i ∉ ({j} : Finset ι)} => |(ν i (B i)).toReal - 1|)),
-      convergentHaarProduct (B := B) ν {j} hcν hpν hsν =
+    ∃ (hcν : ∀ i ∉ (∅ : Finset ι), IsCompact (B i : Set (G i)))
+      (hpν : ∀ i ∉ (∅ : Finset ι), 0 < ν i (B i) ∧ ν i (B i) < ∞)
+      (hsν : Summable (fun i : {i // i ∉ (∅ : Finset ι)} => |(ν i (B i)).toReal - 1|)),
+      convergentHaarProduct (B := B) ν ∅ hcν hpν hsν =
         c • haarProduct (B := B) μ (Filter.Eventually.of_forall hμ) := by
+  sorry
+
+-- Test RestrictedProduct.convergentHaarProduct_sl2_tail
+/-- Good masses `a_i < 1` with summable defect (for SL₂, `a_v = 1 - q_v⁻²`): the integral box has
+mass `∏' a_i`, positive and `< 1`; no eventual equality of the masses to one is used. -/
+example [Nonempty ι] (μ : ∀ i, Measure (G i)) [∀ i, (μ i).IsHaarMeasure]
+    (hc : ∀ i, IsCompact (B i : Set (G i))) (a : ι → ℝ) (ha0 : ∀ i, 0 < a i)
+    (ha1 : ∀ i, a i < 1) (hμ : ∀ i, μ i (B i) = ENNReal.ofReal (a i))
+    (hs : Summable (fun i => |a i - 1|)) :
+    convergentHaarProduct (B := B) μ ∅ (fun i _ => hc i) (by sorry) (by sorry)
+        {x | ∀ i, x i ∈ B i} = ENNReal.ofReal (∏' i, a i) ∧
+      0 < ∏' i, a i ∧ ∏' i, a i < 1 := by
   sorry
 
 end RestrictedProduct
@@ -794,6 +855,13 @@ def measure (μ : Measure G) (ν : Measure H)
     (hmod : ∀ h : H, Measure.modularCharacter (h : G) = Measure.modularCharacter h) :
     Measure (Cosets H) := sorry
 
+
+/-- AA.2/left-right-quotient-inversion: Hg ↦ g⁻¹H, from left orbits to Mathlib's left cosets. -/
+def inversionHomeomorph : Cosets H ≃ₜ (G ⧸ H) := sorry
+
+theorem inversionHomeomorph_mk (g : G) :
+    inversionHomeomorph H (Quotient.mk _ g) = ((g⁻¹ : G) : G ⧸ H) := by
+  sorry
 
 /-- AA.2/closed-homogeneous-space, with the canonical orbit quotient topology. -/
 theorem homogeneous_topology :
@@ -842,6 +910,16 @@ theorem quotient_lintegral (μ : Measure G) (ν : Measure H)
     ∃ P : Cosets H → ℝ≥0∞, Measurable P ∧
       (∀ g, P (Quotient.mk _ g) = ∫⁻ h : H, f (h * g) ∂ν) ∧
       (∫⁻ g, f g ∂μ) = ∫⁻ q, P q ∂(measure H μ ν hμ hν hmod) := by
+  sorry
+
+/-- AA.2/quotient-integral-integrable. -/
+theorem integral_eq_of_integrable (μ : Measure G) (ν : Measure H)
+    (hμ : IsRightHaar μ) (hν : IsRightHaar ν)
+    (hmod : ∀ h : H, Measure.modularCharacter (h : G) = Measure.modularCharacter h)
+    (f : G → ℝ) (hf : Integrable f μ) :
+    (∀ᵐ g ∂μ, Integrable (fun h : H => f (h * g)) ν) ∧
+    Integrable (average H ν hν f) (measure H μ ν hμ hν hmod) ∧
+    ∫ g, f g ∂μ = ∫ q, average H ν hν f q ∂(measure H μ ν hμ hν hmod) := by
   sorry
 
 def rightAct (g : G) : Cosets H → Cosets H := sorry
@@ -957,8 +1035,22 @@ example :
     letI : MeasurableSpace G := borel G
     letI : BorelSpace G := ⟨rfl⟩
     let H := sl2Borel
+    letI : T2Space G := by sorry
+    letI : LocallyCompactSpace G := by sorry
+    letI : SecondCountableTopology G := by sorry
+    letI : Fact (IsClosed (H : Set G)) := ⟨by sorry⟩
+    letI : LocallyCompactSpace H := by sorry
     ¬ ∃ μ : Measure (Cosets H), IsFiniteMeasureOnCompacts μ ∧ Measure.Regular μ ∧
       μ ≠ 0 ∧ ∀ g : G, Measure.map (rightAct H g) μ = μ := by
+  sorry
+
+/-- AA.2/fundamental-domain-exists: a Borel set meeting every left orbit Γg exactly once;
+it is a fundamental domain for every measure. -/
+theorem exists_measurableSet_unique_orbit_rep {G : Type*} [Group G] [TopologicalSpace G]
+    [IsTopologicalGroup G] [LocallyCompactSpace G] [T2Space G] [SecondCountableTopology G]
+    [MeasurableSpace G] [BorelSpace G] (Γ : Subgroup G) [Countable Γ] [DiscreteTopology Γ]
+    (μ : Measure G) :
+    ∃ D : Set G, MeasurableSet D ∧ (∀ g : G, ∃! γ : Γ, γ • g ∈ D) ∧ IsFundamentalDomain Γ D μ := by
   sorry
 end QuotientMeasure
 
@@ -985,6 +1077,21 @@ theorem exists_normalized_haar (i : ι) (hcompact : IsCompact (B i : Set (G i)))
   sorry
 end RestrictedProduct
 
+/-- `AA.0/local-normalized-haar`, number-field form: uniqueness of the normalized additive Haar
+measure on `K_v` and the scaling law `map (a * ·) μ_v = |a|_v⁻¹ • μ_v`, with `|a|_v = q_v^{-v(a)}`
+the pinned normalized absolute value (needs `TauCeti.NumberTheory.LocalField.NormalizedValuation`
+and `TauCeti.RingTheory.DedekindDomain.AdicValuation.ValuativeRel`). -/
+theorem NumberField.normalizedLocalHaar_unique_and_scaling (K : Type*) [Field K] [NumberField K]
+    (v : IsDedekindDomain.HeightOneSpectrum (NumberField.RingOfIntegers K))
+    [MeasurableSpace (v.adicCompletion K)] [BorelSpace (v.adicCompletion K)] :
+    (∃! μ : Measure (v.adicCompletion K),
+        μ.IsAddHaarMeasure ∧ μ (v.adicCompletionIntegers K) = 1) ∧
+      ∀ μ : Measure (v.adicCompletion K), μ.IsAddHaarMeasure →
+        μ (v.adicCompletionIntegers K) = 1 → ∀ a : v.adicCompletion K, a ≠ 0 →
+          Measure.map (fun x => a * x) μ =
+            (((TauCeti.normalizedAbsoluteValue (v.adicCompletion K) a : ℚ≥0) : ℝ≥0) : ℝ≥0∞)⁻¹ • μ := by
+  sorry
+
 /-! AA.1 uses the actual Tau Ceti convolution group. RG2.0 supplies the affine-points topology;
 there is no local replacement topology instance in this prototype. -/
 
@@ -1007,7 +1114,7 @@ abbrev LocalPoints (v : IsDedekindDomain.HeightOneSpectrum (NumberField.RingOfIn
   TauCeti.HopfAlgebra.points (H := H) (CommAlgCat.of F (v.adicCompletion F))
 
 def diagonal : WithConv (H →ₐ[F] F) →* AdelicPoints F H :=
-  AlgHom.mapValue (H := H) (Algebra.ofId F _)
+  TauCeti.AlgHom.mapValue (H := H) (Algebra.ofId F _)
 
 /-- Canonical value-algebra projection; continuity is supplied by the places/points owners. -/
 def valueProjection (v : IsDedekindDomain.HeightOneSpectrum (NumberField.RingOfIntegers F)) :
@@ -1020,18 +1127,18 @@ def valueProjection (v : IsDedekindDomain.HeightOneSpectrum (NumberField.RingOfI
   commutes' := by sorry
 
 def proj (v : IsDedekindDomain.HeightOneSpectrum (NumberField.RingOfIntegers F)) :
-    AdelicPoints F H →* LocalPoints F H v := AlgHom.mapValue (H := H) (valueProjection F v)
+    AdelicPoints F H →* LocalPoints F H v := TauCeti.AlgHom.mapValue (H := H) (valueProjection F v)
 
 theorem proj_diagonal (v : IsDedekindDomain.HeightOneSpectrum (NumberField.RingOfIntegers F))
     (g : WithConv (H →ₐ[F] F)) :
-    proj F H v (diagonal F H g) = AlgHom.mapValue (H := H) (Algebra.ofId F _) g := by
+    proj F H v (diagonal F H g) = TauCeti.AlgHom.mapValue (H := H) (Algebra.ofId F _) g := by
   sorry
 
 def finiteProjection : AdelicPoints F H →* FiniteAdelicPoints F H :=
-  AlgHom.mapValue (H := H) (AlgHom.snd F _ _)
+  TauCeti.AlgHom.mapValue (H := H) (AlgHom.snd F _ _)
 
 def infiniteProjection : AdelicPoints F H →* InfinitePoints F H :=
-  AlgHom.mapValue (H := H) (AlgHom.fst F _ _)
+  TauCeti.AlgHom.mapValue (H := H) (AlgHom.fst F _ _)
 
 /-- The archimedean coordinate is the identity point of the group. -/
 def finiteEmbed : FiniteAdelicPoints F H →* AdelicPoints F H where
@@ -1086,8 +1193,13 @@ example (φ : F →ₐc[F] H) (x : AdelicPoints F H) : map F H φ x = 1 := by
   sorry
 
 -- Test AdelicPoints.ga_eq_adeles, algebraic part; its topology contract is in the omission catalogue.
-example : Nonempty (AdelicPoints F (SymmetricAlgebra F F) ≃*
-    Multiplicative (NumberField.AdeleRing (NumberField.RingOfIntegers F) F)) := by
+-- The canonical identification is evaluation at the generator (pinned `gaPointsMulEquiv`), and it
+-- carries the diagonal to `algebraMap F 𝔸_F`; an abstract `Nonempty (≃*)` would not test this.
+example (g : WithConv (SymmetricAlgebra F F →ₐ[F] F)) :
+    Multiplicative.toAdd (TauCeti.AdditiveGroup.gaPointsMulEquiv
+        (diagonal F (SymmetricAlgebra F F) g)) =
+      algebraMap F (NumberField.AdeleRing (NumberField.RingOfIntegers F) F)
+        (Multiplicative.toAdd (TauCeti.AdditiveGroup.gaPointsMulEquiv g)) := by
   sorry
 
 -- Test AdelicPoints.trivial_group uses the actual trivial coordinate Hopf algebra.
@@ -1276,16 +1388,24 @@ def standardGLn (n : ℕ) : IntegralModel F (TauCeti.GeneralLinear.coordinateHop
 -- Test IntegralModel.gln_localPoints: the determinant must be a unit in O_v.
 example (n : ℕ)
     (v : {v : IsDedekindDomain.HeightOneSpectrum (NumberField.RingOfIntegers F) // v ∉ S}) :
-    ((TauCeti.GeneralLinear.pointsMulEquiv (R := F) (A := v.val.adicCompletion F) n).toMonoidHom).map
-      ((standardGLn (F := F) (S := S) n).localPoints v) =
+    ((standardGLn (F := F) (S := S) n).localPoints v).map
+      (TauCeti.GeneralLinear.pointsMulEquiv (R := F) (A := v.val.adicCompletion F) n).toMonoidHom =
       (Matrix.GeneralLinearGroup.map
         (algebraMap (v.val.adicCompletionIntegers F) (v.val.adicCompletion F))).range := by
   sorry
 
--- Test IntegralModel.trivial: the canonical constant Hopf algebra is the trivial model.
-example (M : IntegralModel F F S)
+-- Test IntegralModel.ga_rescaled_identification: with generator `X ↦ c • T` the integral points
+-- at `v ∉ S` are `c⁻¹ 𝒪_v`; they depend on the specified identification.
+example (M : IntegralModel F (SymmetricAlgebra F F) S) (c : AdelicSIntegers F S)
+    (X : M.coordinate) (hgen : Algebra.adjoin (AdelicSIntegers F S) {X} = ⊤)
+    (hX : M.baseChangeIso.hom.hom (1 ⊗ₜ[AdelicSIntegers F S] X) =
+      (c : F) • SymmetricAlgebra.ι F F 1)
     (v : {v : IsDedekindDomain.HeightOneSpectrum (NumberField.RingOfIntegers F) // v ∉ S}) :
-    M.localPoints v = ⊥ := by
+    (((M.localPoints v).map
+        (TauCeti.AdditiveGroup.gaPointsMulEquiv (R := F) (A := v.val.adicCompletion F)).toMonoidHom) :
+          Set (Multiplicative (v.val.adicCompletion F))) =
+      {a | algebraMap F (v.val.adicCompletion F) (c : F) * Multiplicative.toAdd a ∈
+        v.val.adicCompletionIntegers F} := by
   sorry
 
 end IntegralModel
@@ -1294,7 +1414,7 @@ namespace IntegralModel
 variable {F : Type} [Field F] [NumberField F] {H : Type} [CommRing H] [HopfAlgebra F H]
 
 /-- AA.1/integral-model-exists and AA.1/hopf-spreading. -/
-theorem exists [Algebra.FiniteType F H] :
+theorem «exists» [Algebra.FiniteType F H] :
     ∃ S : Finset (IsDedekindDomain.HeightOneSpectrum (NumberField.RingOfIntegers F)),
       Nonempty (IntegralModel F H S) := by
   sorry
@@ -1309,6 +1429,18 @@ theorem unique
           (M.enlarge T hST).baseChangeIso.hom.hom (1 ⊗ₜ[AdelicSIntegers F T] h) =
             (M'.enlarge T hS'T).baseChangeIso.hom.hom
               (1 ⊗ₜ[AdelicSIntegers F T] e.hom.hom h) := by
+  sorry
+
+/-- AA.1/hopf-spreading, morphism clause: a Hopf map `H' → H` spreads to a Hopf map of the
+enlarged models compatible with the generic-fibre identifications. -/
+theorem exists_spread_hom {H' : Type} [CommRing H'] [HopfAlgebra F H']
+    {S S' : Finset (IsDedekindDomain.HeightOneSpectrum (NumberField.RingOfIntegers F))}
+    (M : IntegralModel F H S) (M' : IntegralModel F H' S') (φ : H' →ₐc[F] H) :
+    ∃ T, ∃ hST : S ⊆ T, ∃ hS'T : S' ⊆ T,
+      ∃ ψ : (M'.enlarge T hS'T).coordinate ⟶ (M.enlarge T hST).coordinate,
+        ∀ h : (M'.enlarge T hS'T).coordinate,
+          (M.enlarge T hST).baseChangeIso.hom.hom (1 ⊗ₜ[AdelicSIntegers F T] ψ.hom h) =
+            φ ((M'.enlarge T hS'T).baseChangeIso.hom.hom (1 ⊗ₜ[AdelicSIntegers F T] h)) := by
   sorry
 end IntegralModel
 
@@ -1473,7 +1605,7 @@ variable {F : Type} [Field F] [NumberField F] {H : Type} [CommRing H] [HopfAlgeb
 /-- Relative-to-ρ form of neat level. The algebraic-group API fixes ρ to be a faithful
 algebraic representation; independence is `isNeat_of_faithful` in both directions. -/
 def finiteDiagonal : WithConv (H →ₐ[F] F) →* AdelicPoints.FiniteAdelicPoints F H :=
-  AlgHom.mapValue (H := H) (Algebra.ofId F _)
+  TauCeti.AlgHom.mapValue (H := H) (Algebra.ofId F _)
 
 def rationalLevelAt (U : Subgroup (AdelicPoints.FiniteAdelicPoints F H))
     (g : AdelicPoints.FiniteAdelicPoints F H) : Subgroup (WithConv (H →ₐ[F] F)) :=
@@ -1537,7 +1669,7 @@ Test RestrictedProduct.measurableSet_structureMap_range: The set {x | ∀ i, x i
 Native example above.
 Test RestrictedProduct.borel_finite_index: For finite ι the Borel structure agrees with the product σ-algebra on Π i, G i under the homeomorphism of homeoBot.
 Native example above.
-Test RestrictedProduct.measurableSet_not_box_infinite: For ι = ℕ, G i = ℤ/4, B i = 2ℤ/4 and C i = {0}, the family C differs from B at every index, so Π i, C i is not a box of the generating family (it is a null set for the product measure, not a basic open).
+Test RestrictedProduct.measurableSet_singleton_not_box: For ι = ℕ, G i = ℤ/4 and B i = 2ℤ/4, the singleton {0} is neither open nor a box with cofinitely trivial factors, but it is measurable: it is the decreasing intersection over n of the boxes with factor {0} at the indices below n and B i elsewhere. A σ-algebra generated by the open subgroups U_S and their cosets alone would not contain it.
 Native example above.
 
 ### AdelicAlgebraicGroups:AA.0/level-measure — Product measure on a level subgroup
@@ -1556,7 +1688,7 @@ Test RestrictedProduct.levelMeasure_empty_prob: For S = ∅ and μ i (B i) = 1 f
 Native example above.
 Test RestrictedProduct.levelMeasure_two_factor: For ι = Fin 2, S = univ, μ_S is Measure.pi of the two Haar measures.
 Native example above.
-Test RestrictedProduct.levelMeasure_needs_normalization: If μ i (B i) = 2 for infinitely many i ∉ S, the restrictions μ i|B i are not probability measures and the construction does not apply; rescaling by 1/2 changes the measure.
+Test RestrictedProduct.levelMeasure_unnormalized_factor: For S = {i₀} and a measurable C ⊆ G i₀, μ_S{x | x i₀ ∈ C} = μ i₀ (C) even when μ i₀ (B i₀) ≠ 1: for G i₀ = ℤ/4 with counting measure, B i₀ = 2ℤ/4 and C = {0} the value is 1, whereas a construction that also normalized the factors in S would give 1/2.
 Native example above.
 
 ### AdelicAlgebraicGroups:AA.0/level-measure-compat — Compatibility of level measures
@@ -1688,7 +1820,7 @@ Test NumberField.adeleHaar_box_rat: For K = ℚ the set [0,1) × ∏_p ℤ_p has
 Native example above.
 Test NumberField.adeleHaar_complex_factor: For K = ℚ(i), the set ([0,1]²) × ∏_v 𝒪_v has measure 2.
 Native example above.
-Test NumberField.adeleHaar_not_selfdual: For K with |d_K| > 1 the measure is not self-dual for the standard character: the self-dual measure is |d_K|^{-1/2} • adeleHaar (AL.0 owns the self-dual normalization).
+Test NumberField.adeleHaar_covolume: The product of the mixed-space fundamental parallelotope of 𝓞_K (transported to K_∞) with ∏_v 𝒪_v is a fundamental domain for K in 𝔸_K and has measure |d_K|^{1/2}: the archimedean factor is 2^{r₂} times the mixed volume 2^{−r₂}|d_K|^{1/2}. So vol(𝔸_K/K) = |d_K|^{1/2}, which differs from the self-dual value 1 (owned by AL.0) whenever |d_K| > 1; omitting the factor 2 at complex places would give 2^{−r₂}|d_K|^{1/2}.
 Native example above.
 
 ### AdelicAlgebraicGroups:AA.0/idele-haar — Normalized Haar measure on the ideles
@@ -1707,7 +1839,7 @@ Test NumberField.ideleHaar_rat_box: For K = ℚ, ideleHaar (∏_p ℤ_p^× × [1
 Native example above.
 Test NumberField.ideleHaar_neq_restrict_adele: ideleHaar is not the restriction of adeleHaar to the units: the units are adeleHaar-null in 𝔸_K.
 Native example above.
-Test NumberField.ideleHaar_form_factor: At a finite place, the measure |dx/x|_v built from the additive normalization gives 𝒪_v^× volume 1 - q_v⁻¹, so ideleHaar is the product of (1 - q_v⁻¹)⁻¹|dx/x|_v.
+Test NumberField.ideleHaar_form_factor: At a finite place, the measure |dx/x|_v built from the additive normalization gives 𝒪_v^× volume 1 - q_v⁻¹, so ideleHaar is the product of (1 - q_v⁻¹)⁻¹|dx/x|_v. Check for K = ℚ: the set with x_2 ∈ 1 + 4ℤ_2, x_p ∈ ℤ_p^× for odd p and x_∞ ∈ [1, e] has ideleHaar mass (1 − 2⁻¹)⁻¹ · 4⁻¹ = 1/2; without the factor at 2 it would be 1/4.
 Native example above.
 
 ### AdelicAlgebraicGroups:AA.0/tamagawa-convergence-failure — Products of form measures need convergence factors
@@ -1760,7 +1892,7 @@ API IntegralModel.localPoints_injective: The map 𝓗(𝒪_v) → G(F_v) induced
 Native signature above.
 Test IntegralModel.gln_localPoints: For the standard model of GL_n, localPoints v = GL_n(𝒪_v) (invertible determinant), not all integral matrices with nonzero determinant.
 Native example above.
-Test IntegralModel.trivial: For the trivial group the localPoints are the trivial subgroup.
+Test IntegralModel.ga_rescaled_identification: For G_a (H = F[T]) and the model 𝒪_{F,S}[X] identified with H by X ↦ cT, where c ∈ 𝒪_{F,S} is nonzero, localPoints v is {a ∈ F_v : c·a ∈ 𝒪_v} = c⁻¹𝒪_v. For c = p and v | p (v ∉ S) this is p⁻¹𝒪_v ⊋ 𝒪_v, so the integral points depend on the specified Hopf identification and not only on the abstract Hopf algebra.
 Native example above.
 Test IntegralModel.monoid_not_model: The 𝒪_{F,S}-bialgebra 𝒪_{F,S}[T] with T ↦ T ⊗ T is not an integral model of G_m: its generic fibre F[T] has no antipode, although its F-points contain F^×.
 Native example above.
@@ -2095,15 +2227,15 @@ Native example above.
 ### AdelicAlgebraicGroups:AA.2/quotient-integral-integrable — Weil's formula for integrable functions
 Hypotheses: as in quotient-measure
 Contract: In the setting of quotient-measure, for f ∈ L¹(G), the function h ↦ f(hg) is integrable on H for almost every Hg, the function Hg ↦ ∫_H f(hg) dh is integrable on H\G, and ∫_G f dg = ∫_{H\G} ∫_H f(hg) dh dġ.
-Signature omitted — The native closed-subgroup right-Haar quotient interfaces are above. This adelic specialization or iterated-quotient contract additionally requires the canonical RG2.0 point topology, split/central quotient embeddings and their quotient-measure comparison; those maps are retained as exact mathematical contracts.
+Native equivalent signature(s): QuotientMeasure.integral_eq_of_integrable (fibre integrability stated almost everywhere on G, equivalent to almost every coset by quotient-tonelli).
 
 ### AdelicAlgebraicGroups:AA.2/quotient-measure-transitivity — Quotient measures in stages
-Hypotheses: G, H₂, H₁ as stated
+Hypotheses: G a second countable locally compact Hausdorff group; H₁ ≤ H₂ ≤ G closed subgroups; right Haar measures on G, H₂, H₁ with Δ_G = Δ_{H₂} on H₂ and Δ_{H₂} = Δ_{H₁} on H₁
 Contract: For closed subgroups H₁ ≤ H₂ ≤ G satisfying the modular conditions, the quotient measure on H₁\G is the product of those on H₂\G and H₁\H₂: ∫_{H₁\G} f = ∫_{H₂\G} ∫_{H₁\H₂} f(hg) dh dg.
 Signature omitted — The native closed-subgroup right-Haar quotient interfaces are above. This adelic specialization or iterated-quotient contract additionally requires the canonical RG2.0 point topology, split/central quotient embeddings and their quotient-measure comparison; those maps are retained as exact mathematical contracts.
 
 ### AdelicAlgebraicGroups:AA.2/discrete-quotient-fundamental-domain — Fundamental domains for rational points
-Hypotheses: F a number field; G = Spec H an affine algebraic group over F, H finitely generated
+Hypotheses: F a number field; G = Spec H an affine algebraic group over F, H finitely generated; G(𝔸_F) (resp. G(𝔸_F)^1) unimodular, for instance G connected reductive (AA.1/unimodular-reductive and split-centre-decomposition); then Haar measure is invariant under left translation by G(F)
 Contract: G(F) acting on G(𝔸_F) (or G(𝔸_F)^1) by left translation admits a Borel fundamental domain; the quotient measure on G(F)\G(𝔸_F) equals the pushforward of the restriction of Haar measure to any measurable fundamental domain, and does not depend on the choice.
 Signature omitted — The native closed-subgroup right-Haar quotient interfaces are above. This adelic specialization or iterated-quotient contract additionally requires the canonical RG2.0 point topology, split/central quotient embeddings and their quotient-measure comparison; those maps are retained as exact mathematical contracts.
 
@@ -2354,7 +2486,7 @@ API Reduction.continuous_HP: HP is continuous.
 Signature omitted — RG2.1/RG2.3 must supply the actual rational parabolic, Levi, relative roots and good local integral models; LieGroups layer 9 and RG2.4 supply the specified Cartan/Iwasawa coordinates. Fixed-K compatibility is part of the contract. The reduction, root-intersection, pivot and Levi gaps remain explicit; arbitrary data fields for parabolics, compactness or factorization are not used.
 API Reduction.HP_rational: HP (diagonal γ * x) = HP x for γ ∈ P(F).
 Signature omitted — RG2.1/RG2.3 must supply the actual rational parabolic, Levi, relative roots and good local integral models; LieGroups layer 9 and RG2.4 supply the specified Cartan/Iwasawa coordinates. Fixed-K compatibility is part of the contract. The reduction, root-intersection, pivot and Levi gaps remain explicit; arbitrary data fields for parabolics, compactness or factorization are not used.
-Test Reduction.HP_gl2_borel: For x in P(𝔸), the pairing of HP x with each rational character χ of P is log ‖χ(y)‖ for a point y of P; for GL_2 and the Borel, HP (diag(a, d)) = (log ‖a‖, log ‖d‖).
+Test Reduction.HP_gl2_borel: For x in P(𝔸), the pairing of HP x with each rational character χ of P is log ‖χ(x)‖; for GL_2 and the Borel, HP (diag(a, d)) = (log ‖a‖, log ‖d‖).
 Example omitted — RG2.1/RG2.3 must supply the actual rational parabolic, Levi, relative roots and good local integral models; LieGroups layer 9 and RG2.4 supply the specified Cartan/Iwasawa coordinates. Fixed-K compatibility is part of the contract. The reduction, root-intersection, pivot and Levi gaps remain explicit; arbitrary data fields for parabolics, compactness or factorization are not used.
 Test Reduction.HP_top: For P = G, HP = logHeight.
 Example omitted — RG2.1/RG2.3 must supply the actual rational parabolic, Levi, relative roots and good local integral models; LieGroups layer 9 and RG2.4 supply the specified Cartan/Iwasawa coordinates. Fixed-K compatibility is part of the contract. The reduction, root-intersection, pivot and Levi gaps remain explicit; arbitrary data fields for parabolics, compactness or factorization are not used.
@@ -2377,7 +2509,7 @@ API Reduction.siegelSet_center: siegelSet is stable under A_G(ℝ)^0.
 Signature omitted — RG2.1/RG2.3 must supply the actual rational parabolic, Levi, relative roots and good local integral models; LieGroups layer 9 and RG2.4 supply the specified Cartan/Iwasawa coordinates. Fixed-K compatibility is part of the contract. The reduction, root-intersection, pivot and Levi gaps remain explicit; arbitrary data fields for parabolics, compactness or factorization are not used.
 Test Reduction.siegelSet_sl2: For SL_2/ℚ, some Siegel set with compact ω meets every SL_2(ℚ)-orbit in SL_2(𝔸) (at ∞ it contains the standard fundamental domain of SL_2(ℤ)).
 Example omitted — RG2.1/RG2.3 must supply the actual rational parabolic, Levi, relative roots and good local integral models; LieGroups layer 9 and RG2.4 supply the specified Cartan/Iwasawa coordinates. Fixed-K compatibility is part of the contract. The reduction, root-intersection, pivot and Levi gaps remain explicit; arbitrary data fields for parabolics, compactness or factorization are not used.
-Test Reduction.siegelSet_anisotropic: For F-anisotropic G, siegelSet T₁ ω = ω * K.
+Test Reduction.siegelSet_anisotropic: If G^der is F-anisotropic, siegelSet T₁ ω = ω * A_G(ℝ)^0 * K; for G_m over ℚ this is ω·ℝ_{>0}·K, which is not compact, while its intersection with 𝔸^1 is ω·K.
 Example omitted — RG2.1/RG2.3 must supply the actual rational parabolic, Levi, relative roots and good local integral models; LieGroups layer 9 and RG2.4 supply the specified Cartan/Iwasawa coordinates. Fixed-K compatibility is part of the contract. The reduction, root-intersection, pivot and Levi gaps remain explicit; arbitrary data fields for parabolics, compactness or factorization are not used.
 Test Reduction.siegelSet_not_fundamental_domain: For SL₂/ℚ choose the finite factor SL₂(ℤ̂), real N-window [−1,1], and A-parameter y≥1/2. Both the identity and n(1) lie in this Siegel set; their ratio is a nontrivial rational element. Thus this specified Siegel set cannot be a fundamental domain with disjoint rational translates.
 Example omitted — RG2.1/RG2.3 must supply the actual rational parabolic, Levi, relative roots and good local integral models; LieGroups layer 9 and RG2.4 supply the specified Cartan/Iwasawa coordinates. Fixed-K compatibility is part of the contract. The reduction, root-intersection, pivot and Levi gaps remain explicit; arbitrary data fields for parabolics, compactness or factorization are not used.
@@ -2421,7 +2553,7 @@ API Reduction.levelArithmetic_commensurable: For U′ ≤ U, levelArithmetic x U
 Signature omitted — RG2.0 must supply the canonical real/finite point topologies and actual restricted-product embeddings; the arithmetic subgroup and quotient maps use those specific structures. No abstract subgroup of an arbitrary topological group replaces them.
 Test Reduction.levelArithmetic_gl2: For GL_2/ℚ, levelArithmetic 1 GL_2(ℤ̂) = GL_2(ℤ).
 Example omitted — RG2.0 must supply the canonical real/finite point topologies and actual restricted-product embeddings; the arithmetic subgroup and quotient maps use those specific structures. No abstract subgroup of an arbitrary topological group replaces them.
-Test Reduction.levelArithmetic_trivial_group: For the trivial group it is trivial.
+Test Reduction.levelArithmetic_trivial_group: For G = G_m over ℚ and x = 1: levelArithmetic 1 ℤ̂^× = ℚ^× ∩ ℤ̂^× = {±1}, and for U = {u ∈ ℤ̂^× : u ≡ 1 mod N} with N ≥ 3 it is {1}.
 Example omitted — RG2.0 must supply the canonical real/finite point topologies and actual restricted-product embeddings; the arithmetic subgroup and quotient maps use those specific structures. No abstract subgroup of an arbitrary topological group replaces them.
 Test Reduction.levelArithmetic_not_conj_invariant: levelArithmetic x U depends on x and not only on U: for GL_2/ℚ and x = diag(p,1) at the place p, levelArithmetic x GL_2(ℤ̂) = diag(p,1) GL_2(ℤ) diag(p,1)⁻¹ ≠ GL_2(ℤ).
 Example omitted — RG2.0 must supply the canonical real/finite point topologies and actual restricted-product embeddings; the arithmetic subgroup and quotient maps use those specific structures. No abstract subgroup of an arbitrary topological group replaces them.
@@ -2443,7 +2575,7 @@ Signature omitted — RG2.1/RG2.3 must supply the actual rational parabolic, Lev
 
 ### AdelicAlgebraicGroups:AA.3/finite-volume-criterion — When G(F)\G(𝔸) has finite volume
 Hypotheses: F a number field; G linear algebraic over F
-Contract: For a linear algebraic group G over F, G(F)\G(𝔸_F) carries a G(𝔸)-invariant measure of finite volume iff X*_F(G°) = 0.
+Contract: For a linear algebraic group G over F, G(F)\G(𝔸_F) carries a nonzero G(𝔸)-invariant Radon measure of finite volume iff X*_F(G°) = 0.
 Signature omitted — RG2.1/RG2.3 must supply the actual rational parabolic, Levi, relative roots and good local integral models; LieGroups layer 9 and RG2.4 supply the specified Cartan/Iwasawa coordinates. Fixed-K compatibility is part of the contract. The reduction, root-intersection, pivot and Levi gaps remain explicit; arbitrary data fields for parabolics, compactness or factorization are not used.
 
 ### AdelicAlgebraicGroups:AA.3/compactness-anisotropic — Anisotropic groups have compact quotients
@@ -2499,7 +2631,7 @@ Signature omitted — The actual algebraic coordinate representation with its du
 
 ### AdelicAlgebraicGroups:AA.3/horospherical-decomposition — Horospherical decomposition for a fixed maximal compact
 Hypotheses: G connected semisimple over ℚ; K a maximal compact subgroup of G(ℝ)^+; 𝐏 a ℚ-parabolic
-Contract: Let G be connected semisimple over ℚ, G = G(ℝ)^+, K ⊂ G maximal compact with Cartan involution θ, and 𝐏 a ℚ-parabolic with unipotent radical 𝐍_P and Levi quotient 𝐋_P. With S_P the split centre of 𝐋_P, A_P = S_P(ℝ)^0 and M_P the real points of ⋂_{χ∈X*(𝐋_P)} ker χ², there is a unique θ-stable real Levi lift of (𝐋_P)_ℝ, giving P = N_P A_P M_P and the diffeomorphism N_P × A_P × (M_P K) → G. Left multiplication by p_0 = n_0 a_0 m_0 acts by (n, a, m) ↦ (n_0 · (a_0m_0) n (a_0m_0)⁻¹, a_0 a, m_0 m).
+Contract: Let G be connected semisimple over ℚ, G = G(ℝ)^+, K ⊂ G maximal compact with Cartan involution θ, and 𝐏 a ℚ-parabolic with unipotent radical 𝐍_P and Levi quotient 𝐋_P. With S_P the split centre of 𝐋_P, A_P = S_P(ℝ)^0 and M_P the real points of ⋂_{χ∈X*(𝐋_P)} ker χ², there is a unique θ-stable real Levi lift of (𝐋_P)_ℝ, giving P = N_P A_P M_P and the diffeomorphism N_P × A_P × ((M_P ∩ G) K) → G (M_P itself can leave G(ℝ)^+: for PGL_2 it contains diag(−1, 1)). Left multiplication by p_0 = n_0 a_0 m_0 acts by (n, a, m) ↦ (n_0 · (a_0m_0) n (a_0m_0)⁻¹, a_0 a, m_0 m).
 Signature omitted — RG2.1/RG2.3 must supply the actual rational parabolic, Levi, relative roots and good local integral models; LieGroups layer 9 and RG2.4 supply the specified Cartan/Iwasawa coordinates. Fixed-K compatibility is part of the contract. The reduction, root-intersection, pivot and Levi gaps remain explicit; arbitrary data fields for parabolics, compactness or factorization are not used.
 API RealSiegel.HoroData: Structure: N_P, A_P, M_P K, the homeomorphism horoDecomp : G ≃ₜ N_P × A_P × (M_P K) for fixed K and 𝐏, and the simple roots.
 Signature omitted — RG2.1/RG2.3 must supply the actual rational parabolic, Levi, relative roots and good local integral models; LieGroups layer 9 and RG2.4 supply the specified Cartan/Iwasawa coordinates. Fixed-K compatibility is part of the contract. The reduction, root-intersection, pivot and Levi gaps remain explicit; arbitrary data fields for parabolics, compactness or factorization are not used.
@@ -2676,7 +2808,7 @@ Signature omitted — The native matrix reducedness and uniform forward/converse
 
 ### AdelicAlgebraicGroups:AA.3/gram-offdiagonal-transfer — Transferring off-diagonal bounds to another basis
 Hypotheses: as stated
-Contract: Let B be the Gram matrix in an ordered basis e′ of a positive definite form b with |B_ab| ≤ C′ d_a, d_a ≤ C′ d_b for a < b and ∏ d_a ≤ C′ det B (C′ ≥ 1). For a fixed basis e_i = ∑_a A_ai e′_a put k_i = max{a : A_ai ≠ 0}, m_i = |A_{k_i,i}|, L_i = ∑_a |A_ai|. Then |b(e_i, e_j)| ≤ C′³ L_i L_j m_i⁻² b(e_i, e_i) for all i, j.
+Contract: Let B be the Gram matrix in an ordered basis e′ of a positive definite form b with |B_ab| ≤ C′ d_a for all a, b, with d_a ≤ C′ d_b for a < b, and ∏ d_a ≤ C′ det B (C′ ≥ 1). For a fixed basis e_i = ∑_a A_ai e′_a put k_i = max{a : A_ai ≠ 0}, m_i = |A_{k_i,i}|, L_i = ∑_a |A_ai|. Then |b(e_i, e_j)| ≤ C′³ L_i L_j m_i⁻² b(e_i, e_i) for all i, j.
 Signature omitted — The native matrix reducedness and uniform forward/converse Cholesky signatures are above. Its comparison with actual Siegel data needs RG2.1 relative parabolics/roots and the fixed-K real Lie Iwasawa coordinates; these cannot be replaced by an arbitrary triangular decomposition.
 
 ### AdelicAlgebraicGroups:AA.3/basis-change-reducedness — Basis change with determinant control
@@ -2756,7 +2888,7 @@ API Approximation.HasStrongApproximation.classNumber_one: If it holds for S = ar
 Signature omitted — RG2.0 supplies the canonical point topology at each actual place, and the places owner the cofinite restricted product outside S. Density must use those canonical embeddings/topologies. A chosen product of unspecified local groups or a density hypothesis cannot replace the approximation predicate.
 Test Approximation.hasStrongApproximation_ga: G_a over F has strong approximation for S = archimedean places (GlobalNumberFields layer 6).
 Example omitted — RG2.0 supplies the canonical point topology at each actual place, and the places owner the cofinite restricted product outside S. Density must use those canonical embeddings/topologies. A chosen product of unspecified local groups or a density hypothesis cannot replace the approximation predicate.
-Test Approximation.hasStrongApproximation_sl2_rat: SL_2 over ℚ with S = {∞}: SL_2(ℤ) → SL_2(ℤ/d) surjective for all d (Tau Ceti), equivalent to density of SL_2(ℚ) in SL_2(𝔸_f).
+Test Approximation.hasStrongApproximation_sl2_rat: SL_2 over ℚ with S = {∞}: SL_2(ℤ) → SL_2(ℤ/d) surjective for all d (Tau Ceti Matrix.SpecialLinearGroup.map_intCast_zmod_surjective) together with class number one SL_2(𝔸_f) = SL_2(ℚ)SL_2(ℤ̂) is equivalent to density of SL_2(ℚ) in SL_2(𝔸_f); surjectivity alone only gives density of SL_2(ℤ) in SL_2(ℤ̂).
 Example omitted — RG2.0 supplies the canonical point topology at each actual place, and the places owner the cofinite restricted product outside S. Density must use those canonical embeddings/topologies. A chosen product of unspecified local groups or a density hypothesis cannot replace the approximation predicate.
 Test Approximation.not_hasStrongApproximation_gm: G_m over ℚ fails for S = {∞}: ℚ^× ∩ ℤ̂^× = {±1}, so ℚ^× is discrete in 𝔸_f^× (AA.1/finite-adelic-discreteness-criterion).
 Example omitted — RG2.0 supplies the canonical point topology at each actual place, and the places owner the cofinite restricted product outside S. Density must use those canonical embeddings/topologies. A chosen product of unspecified local groups or a density hypothesis cannot replace the approximation predicate.
@@ -2791,6 +2923,16 @@ Hypotheses: G absolutely almost simple simply connected over F; S ⊇ archimedea
 Contract: Let G be connected, absolutely almost simple and simply connected over a number field F, and S a finite set of places containing the archimedean ones with G_S = ∏_{v∈S} G(F_v) noncompact. Then G has strong approximation with respect to S.
 Signature omitted — RG2.0/RG2.1/RG2.4 supply canonical arithmetic local group/Lie/torus objects. The recorded analytic, density, cohomological, native-field or anisotropic gaps specify the remaining proof input. No generic Zariski-density assertion on an arbitrary subgroup replaces the full arithmetic subgroup.
 
+### AdelicAlgebraicGroups:AA.4/isotropic-place-closure — Arithmetic closure at one isotropic place
+Hypotheses: F a number field; G connected, absolutely almost simple and simply connected over F; S finite, containing the archimedean places, with G_S noncompact; v ∉ S a finite place with G isotropic over F_v; W ⊂ G(𝔸_F^{S∪{v}}) a compact open subgroup
+Contract: Let G be connected, absolutely almost simple and simply connected over a number field F, S a finite set of places containing the archimedean ones with G_S noncompact, v ∉ S a finite place at which G is F_v-isotropic, and W ⊂ G(𝔸_F^{S∪{v}}) a compact open subgroup. Then the image of Γ_W = G(F) ∩ (G_S × G(F_v) × W) is dense in G(F_v). Consequently the closure of G(F)G_S in G(𝔸_F) contains G(F_v), placed at v.
+Signature omitted — RG2.0/RG2.1/RG2.3/RG2.4 supply the canonical local point topology, the S-arithmetic lattice data and the Kneser–Tits input; an arbitrary subgroup or topology would lose the contract. Added by REV-AdelicAlgebraicGroups~2.
+
+### AdelicAlgebraicGroups:AA.4/isotropic-almost-everywhere — Almost all local factors are isotropic
+Hypotheses: F a number field; G connected semisimple over F with dim G > 0
+Contract: Let G be a connected semisimple group of positive dimension over a number field F. Then G is quasi-split, hence isotropic, over F_v for all but finitely many places v. In particular, for finite S the set of places v ∉ S at which G is F_v-anisotropic is finite.
+Signature omitted — RG2.0/RG2.1/RG2.3/RG2.4 supply the canonical local point topology, the S-arithmetic lattice data and the Kneser–Tits input; an arbitrary subgroup or topology would lose the contract. Added by REV-AdelicAlgebraicGroups~2.
+
 ### AdelicAlgebraicGroups:AA.4/strong-approximation-necessity — Strong approximation: necessity
 Hypotheses: G connected absolutely almost simple over F; S finite
 Contract: In the setting of strong-approximation-sufficiency without the hypotheses: if G has strong approximation with respect to S then G_S is noncompact and G is simply connected.
@@ -2807,7 +2949,7 @@ Contract: Let G be connected reductive over F with G^der simply connected and G^
 Signature omitted — RG2.0/RG2.1/RG2.4 supply canonical arithmetic local group/Lie/torus objects. The recorded analytic, density, cohomological, native-field or anisotropic gaps specify the remaining proof input. No generic Zariski-density assertion on an arbitrary subgroup replaces the full arithmetic subgroup.
 
 ### AdelicAlgebraicGroups:AA.4/neat-element — Neat elements
-Hypotheses: F a number field (G over ℚ via restriction of scalars); G linear algebraic; The group representation is algebraic and faithful, rather than merely injective as a map on F-rational points. In Hopf coordinates it is induced by a surjective GL_n-coordinate morphism O(GL_n)→O(G).
+Hypotheses: F a number field with a fixed embedding τ : F → ℂ; the notion does not depend on τ, since an automorphism of ℂ carries one eigenvalue group isomorphically onto the other. It is weaker than neatness of g as an element of (Res_{F/ℚ}G)(ℚ), whose eigenvalues include all Galois conjugates: √2 ∈ G_m(ℚ(√2)) is neat, but ±√2 generate a group containing −1; G linear algebraic; The group representation is algebraic and faithful, rather than merely injective as a map on F-rational points. In Hopf coordinates it is induced by a surjective GL_n-coordinate morphism O(GL_n)→O(G).
 Contract: An automorphism α of a finite-dimensional vector space over a subfield of ℂ is neat if its eigenvalues in ℂ generate a torsion-free subgroup of ℂ^×. An element g ∈ G(F) of a linear algebraic group over a number field F is neat if ρ(g) is neat for one faithful F-representation ρ; a subgroup of G(F) is neat if all its elements are.
 Native carrier/API part: the named signatures below. Full structural specializations remain subject to their recorded conditions.
 API Neat.IsNeatAut: IsNeatAut α : Prop for α ∈ GL(V), V over a subfield of ℂ.
@@ -2860,7 +3002,7 @@ API Neat.IsNeatLevel.conj: Conjugates of neat levels are neat.
 Native signature above.
 API Neat.IsNeatLevel.torsionFree: All levelArithmetic x U are torsion free.
 Native signature above.
-Test Neat.isNeatLevel_U3: The arithmetic group Γ(3) = SL_2(ℤ) ∩ U(3) of the level U(3) ⊂ GL_2(ℤ̂) is neat.
+Test Neat.isNeatLevel_U3: The level U(3) ⊂ GL_2(ℤ̂) is neat: every GL_2(ℚ) ∩ xU(3)x⁻¹ (x ∈ GL_2(𝔸_f)) is neat by neat-criterion-one-prime at p = 3. For x = 1 this group is Γ(3) = SL_2(ℤ) ∩ U(3), since a determinant in {±1} congruent to 1 mod 3 equals 1.
 Example omitted — The actual coordinate-algebra neatness and relative-level signatures are above; the algebraic-group meaning fixes a closed faithful representation. Concrete compact/congruence levels require RG2.0/RG2.3 canonical point/model topology and the actual completed valuation/eigenvalue field interface. The existence theorem also uses the coordinate-comodule supplier. No arbitrary abstract point representation is admitted.
 Test Neat.isNeatLevel_trivial_group: For the trivial group every level is neat.
 Native example above.
@@ -2929,7 +3071,7 @@ Test LevelMaps.LevelQuotient.gl1_rat: For GL_1/ℚ, U = ℤ̂^× (the maximal co
 Example omitted — This needs the canonical adelic product/quotient topology, actual split-centre-containing K∞ and compact open U, and its rational action groupoid. RG2.0/RG2.1 supply those point/split-centre maps. The generic double-coset functions above cover the algebraic set part only; arbitrary covers, spaces or stabilizer counts would lose the geometric contract.
 Test LevelMaps.LevelQuotient.trivial_group: For the trivial group it is a point.
 Example omitted — This needs the canonical adelic product/quotient topology, actual split-centre-containing K∞ and compact open U, and its rational action groupoid. RG2.0/RG2.1 supply those point/split-centre maps. The generic double-coset functions above cover the algebraic set part only; arbitrary covers, spaces or stabilizer counts would lose the geometric contract.
-Test LevelMaps.LevelQuotient.not_finite_adelic_only: For SL_2/ℚ with K∞ = 1, LevelQuotient is SL_2(ℤ)\SL_2(ℝ) (strong approximation), not the one-point set SL_2(ℚ)\SL_2(𝔸_f)/U.
+Test LevelMaps.LevelQuotient.not_finite_adelic_only: For SL_2/ℚ with K∞ = 1 and U = SL_2(ℤ̂), LevelQuotient is SL_2(ℤ)\SL_2(ℝ) (strong approximation), not the one-point set SL_2(ℚ)\SL_2(𝔸_f)/U.
 Example omitted — This needs the canonical adelic product/quotient topology, actual split-centre-containing K∞ and compact open U, and its rational action groupoid. RG2.0/RG2.1 supply those point/split-centre maps. The generic double-coset functions above cover the algebraic set part only; arbitrary covers, spaces or stabilizer counts would lose the geometric contract.
 
 ### AdelicAlgebraicGroups:AA.4/level-covering-map — Covering maps between neat levels
@@ -2938,7 +3080,7 @@ Contract: Let U′⊂U be compact open with U neat, and K∞ containing A_G(ℝ)
 Signature omitted — This needs the canonical adelic product/quotient topology, actual split-centre-containing K∞ and compact open U, and its rational action groupoid. RG2.0/RG2.1 supply those point/split-centre maps. The generic double-coset functions above cover the algebraic set part only; arbitrary covers, spaces or stabilizer counts would lose the geometric contract.
 
 ### AdelicAlgebraicGroups:AA.4/level-map-fibre-mass — Fibre mass of a level map with stabilizers
-Hypotheses: F a number field; G a connected reductive group over F; U′ ⊂ U compact open
+Hypotheses: F a number field; G a connected reductive group over F; U′ ⊂ U compact open; K∞ ⊂ G(F_∞) closed, containing A_G(ℝ)^0 and compact modulo it (so that A_x, Z(F) ∩ K∞U and Z(F) ∩ K∞U′ are finite by rational-stabilizer-finite)
 Contract: Without neatness, for U′ ⊂ U and x ∈ X_U with finite stabilizer group Γ_x = (G(F) ∩ g K_∞U g⁻¹)/(Z(F) ∩ K_∞U), the fibre of X_{U′} → X_U over x satisfies ∑_{y ↦ x} 1/|Γ_y| = [U : U′]/(|Γ_x|·[Z(F) ∩ K_∞U : Z(F) ∩ K_∞U′]).
 Signature omitted — This needs the canonical adelic product/quotient topology, actual split-centre-containing K∞ and compact open U, and its rational action groupoid. RG2.0/RG2.1 supply those point/split-centre maps. The generic double-coset functions above cover the algebraic set part only; arbitrary covers, spaces or stabilizer counts would lose the geometric contract.
 
@@ -2954,7 +3096,7 @@ API LevelMaps.levelGroupoid_isoClasses: Isomorphism classes ≃ LevelQuotient U 
 Signature omitted — This needs the canonical adelic product/quotient topology, actual split-centre-containing K∞ and compact open U, and its rational action groupoid. RG2.0/RG2.1 supply those point/split-centre maps. The generic double-coset functions above cover the algebraic set part only; arbitrary covers, spaces or stabilizer counts would lose the geometric contract.
 API LevelMaps.levelGroupoid_finite_aut: Every automorphism group is finite if U is compact open and K∞ contains A_G(ℝ)^0 and is compact modulo it; no finiteness assertion is made for general closed K∞.
 Signature omitted — This needs the canonical adelic product/quotient topology, actual split-centre-containing K∞ and compact open U, and its rational action groupoid. RG2.0/RG2.1 supply those point/split-centre maps. The generic double-coset functions above cover the algebraic set part only; arbitrary covers, spaces or stabilizer counts would lose the geometric contract.
-Test LevelMaps.levelGroupoid_sl2_i: For SL_2/ℚ, U = SL_2(ℤ̂), the automorphism group of the object over i has order 4.
+Test LevelMaps.levelGroupoid_sl2_i: For SL_2/ℚ, K∞ = SO(2), U = SL_2(ℤ̂), the automorphism group of the object over i is ⟨(0 −1; 1 0)⟩ of order 4 (for K∞ = 1 it would be trivial).
 Example omitted — This needs the canonical adelic product/quotient topology, actual split-centre-containing K∞ and compact open U, and its rational action groupoid. RG2.0/RG2.1 supply those point/split-centre maps. The generic double-coset functions above cover the algebraic set part only; arbitrary covers, spaces or stabilizer counts would lose the geometric contract.
 Test LevelMaps.levelGroupoid_neat: Under the compact-modulo-A_G hypotheses, neat level has trivial actual automorphism groups, by finiteness and torsion-freeness.
 Example omitted — This needs the canonical adelic product/quotient topology, actual split-centre-containing K∞ and compact open U, and its rational action groupoid. RG2.0/RG2.1 supply those point/split-centre maps. The generic double-coset functions above cover the algebraic set part only; arbitrary covers, spaces or stabilizer counts would lose the geometric contract.
@@ -2977,7 +3119,7 @@ Test LevelMaps.hecke_one: For g = 1 both maps are the identity.
 Example omitted — This needs the canonical adelic product/quotient topology, actual split-centre-containing K∞ and compact open U, and its rational action groupoid. RG2.0/RG2.1 supply those point/split-centre maps. The generic double-coset functions above cover the algebraic set part only; arbitrary covers, spaces or stabilizer counts would lose the geometric contract.
 Test LevelMaps.hecke_Tp_degree: For GL_2/ℚ, U = GL_2(ℤ̂), g = diag(p,1): [U : U_g] = p + 1.
 Example omitted — This needs the canonical adelic product/quotient topology, actual split-centre-containing K∞ and compact open U, and its rational action groupoid. RG2.0/RG2.1 supply those point/split-centre maps. The generic double-coset functions above cover the algebraic set part only; arbitrary covers, spaces or stabilizer counts would lose the geometric contract.
-Test LevelMaps.hecke_not_symmetric: T_g and T_{g⁻¹} are transposes, not equal in general: for GL_2 with g = diag(p,1), T_{g⁻¹} is T_g composed with translation by the central idele p⁻¹ at p.
+Test LevelMaps.hecke_not_symmetric: T_g and T_{g⁻¹} are transposes, not equal in general: for GL_2/ℚ with g = diag(p,1), T_{g⁻¹} is T_g composed with translation by the central idele p⁻¹ at p. With U = GL_2(ℤ̂) and K∞ = SO(2) this translation rescales the archimedean component (|det| changes by p⁻²), so T_{g⁻¹} ≠ T_g; if K∞ ⊇ ℝ_{>0} the translation is trivial on X_U and the two coincide.
 Example omitted — This needs the canonical adelic product/quotient topology, actual split-centre-containing K∞ and compact open U, and its rational action groupoid. RG2.0/RG2.1 supply those point/split-centre maps. The generic double-coset functions above cover the algebraic set part only; arbitrary covers, spaces or stabilizer counts would lose the geometric contract.
 
 ### AdelicAlgebraicGroups:AA.4/hecke-cartesian — Cartesian squares of level maps
@@ -3030,7 +3172,7 @@ Test Approximation.residualQuotient_sl2: For SL_2 the residual quotient is trivi
 Example omitted — RG2.1/RG2.3 must supply the actual simply connected algebraic cover and its integral models. Reduced norms, their open local images and good integral images determine the restricted-product quotient topology, as recorded in the quaternion norm gap. A chosen point homomorphism or bijection of square classes is insufficient.
 Test Approximation.residualQuotient_pgl2: For PGL_2/ℚ, residualQuotient ≃ ℚ^×\𝔸^×/𝔸^{×2}.
 Example omitted — RG2.1/RG2.3 must supply the actual simply connected algebraic cover and its integral models. Reduced norms, their open local images and good integral images determine the restricted-product quotient topology, as recorded in the quaternion norm gap. A chosen point homomorphism or bijection of square classes is insufficient.
-Test Approximation.residualQuotient_not_G_mod_plus: G(𝔸)/G(𝔸)^+ itself is not compact for PGL_2: it is 𝔸^×/𝔸^{×2}, only locally compact (Khayutin E40).
+Test Approximation.residualQuotient_not_G_mod_plus: G(𝔸)/G(𝔸)^+ itself is not compact for PGL_2: it is 𝔸^×/𝔸^{×2}, only locally compact (source issue AdelicAlgebraicGroups/E6, recorded earlier as PAPER-KHAYUTIN-19/E40).
 Example omitted — RG2.1/RG2.3 must supply the actual simply connected algebraic cover and its integral models. Reduced norms, their open local images and good integral images determine the restricted-product quotient topology, as recorded in the quaternion norm gap. A chosen point homomorphism or bijection of square classes is insufficient.
 
 ### AdelicAlgebraicGroups:AA.4/quaternion-reduced-norm-image — Reduced norms of a quaternion algebra over ℚ
@@ -3049,7 +3191,7 @@ Contract: For a quadratic field E ⊂ B and the torus T = E^×/ℚ^× ⊂ G = PB
 Signature omitted — RG2.1/RG2.3 must supply the actual simply connected algebraic cover and its integral models. Reduced norms, their open local images and good integral images determine the restricted-product quotient topology, as recorded in the quaternion norm gap. A chosen point homomorphism or bijection of square classes is insufficient.
 
 ### AdelicAlgebraicGroups:AA.4/residual-joint-limit — Limit behaviour of the residual spectrum
-Hypotheses: as stated
+Hypotheses: B a quaternion algebra over ℚ and G = PB^×; for each i a quadratic field E_i ⊂ B with torus T_i = E_i^×/ℚ^× ⊂ G, and g_i, s_i ∈ G(𝔸); either the E_i are pairwise distinct or all equal one field E_0
 Contract: Let B be a quaternion algebra over ℚ, G = PB^×, and for each i let T_i = E_i^×/ℚ^× ⊂ G be the torus of a quadratic field E_i ⊂ B, g_i, s_i ∈ G(𝔸), and μ_i the pushforward to [G(𝔸)] × [G(𝔸)] of the Haar probability measure of [T_i(𝔸)] under t ↦ ([t g_i], [t s_i g_i]). Suppose either the E_i are pairwise distinct (put H = G_res) or all equal one field E_0 (put H = ker(χ_{E_0} ∘ Nrd) < G_res). Then every weak-* limit point of (π^+ × π^+)_* μ_i is an H^Δ-invariant probability measure supported on a single coset of H^Δ; in general (π^+ × π^+)_* μ_i need not converge.
 Signature omitted — This needs the actual compact Hausdorff residual/idele quotient from the preceding canonical norm maps and CompactGroups layer 5 character/Fourier interfaces. The general weak-measure limit language cannot replace that identified quotient and its diagonal embeddings.
 
@@ -3130,7 +3272,7 @@ Signature omitted — RG2.0 must supply the affine-points evaluation topology an
 
 ### AdelicAlgebraicGroups:AA.1/modular-character-trivial-compact-centre — The modular character on compact and central elements
 Hypotheses: G locally compact
-Contract: For a locally compact group G, the modular character Δ : G → ℝ_{>0} is a continuous homomorphism trivial on every compact subgroup and on the centre of G, and it is invariant under conjugation.
+Contract: For a locally compact group G, the modular character Δ : G → ℝ_{>0} is a homomorphism trivial on every compact subgroup and on the centre of G, and it is invariant under conjugation.
 Signature omitted — RG2.0 supplies canonical local point topology and RG2.1 supplies the field-generic torus/root and adjoint structure. The group-theoretic modular statement cannot be specialized to unspecified point topologies or generic reductive data fields.
 
 ### AdelicAlgebraicGroups:AA.1/weyl-orbit-product-central — Weyl orbit products lie in the split centre up to finite index
@@ -3165,16 +3307,16 @@ Signature omitted — RG2.1/RG2.3 must supply the actual rational parabolic, Lev
 
 ### AdelicAlgebraicGroups:AA.3/gln-adelic-covering — Adelic reduction for GL_n over ℚ
 Hypotheses: n ≥ 1
-Contract: For a standard Siegel domain 𝔖 of GL_n(ℝ), GL_n(𝔸_ℚ) = GL_n(ℚ) · (𝔖 × GL_n(ℤ̂)).
+Contract: For a standard Siegel domain 𝔖 of GL_n(ℝ) with GL_n(ℝ) = GL_n(ℤ)·𝔖 (gln-real-reduction), GL_n(𝔸_ℚ) = GL_n(ℚ) · (𝔖 × GL_n(ℤ̂)).
 Signature omitted — RG2.1/RG2.3 must supply the actual rational parabolic, Levi, relative roots and good local integral models; LieGroups layer 9 and RG2.4 supply the specified Cartan/Iwasawa coordinates. Fixed-K compatibility is part of the contract. The reduction, root-intersection, pivot and Levi gaps remain explicit; arbitrary data fields for parabolics, compactness or factorization are not used.
 
 ### AdelicAlgebraicGroups:AA.3/self-adjoint-reduction — Reduction for reductive subgroups of GL_n
 Hypotheses: G reductive over ℚ; self-adjoint embedding
-Contract: Let G ⊂ GL_n be reductive over ℚ with a(G(ℝ))a⁻¹ self-adjoint for some a ∈ SL_n(ℝ). There are finitely many b_i ∈ GL_n(ℚ) such that ⋃_i (a⁻¹𝔖 GL_n(ℤ̂) b_i ∩ G(𝔸)) is a fundamental set for G(ℚ) in G(𝔸).
+Contract: Let G ⊂ GL_n be reductive over ℚ with a(G(ℝ))a⁻¹ self-adjoint for some a ∈ SL_n(ℝ). Let 𝔖 be the left-quotient standard Siegel domain of gln-real-reduction. There are finitely many c_i ∈ GL_n(ℚ) such that Ω = ⋃_i (c_i·(𝔖a × GL_n(ℤ̂)) ∩ G(𝔸)) satisfies G(𝔸) = G(ℚ)·Ω and {γ ∈ G(ℚ) : γΩ ∩ Ω ≠ ∅} is finite; the finite projection of Ω is compact. (Borel §4.5 states the inverse set ⋃_i (a⁻¹𝔖⁻¹·GL_n(ℤ̂)·c_i⁻¹ ∩ G(𝔸)) for right quotients.)
 Signature omitted — RG2.1/RG2.3 must supply the actual rational parabolic, Levi, relative roots and good local integral models; LieGroups layer 9 and RG2.4 supply the specified Cartan/Iwasawa coordinates. Fixed-K compatibility is part of the contract. The reduction, root-intersection, pivot and Levi gaps remain explicit; arbitrary data fields for parabolics, compactness or factorization are not used.
 
 ### AdelicAlgebraicGroups:AA.3/closed-orbit-finiteness — Rational points on closed orbits
-Hypotheses: G, H reductive
+Hypotheses: F a number field; G a reductive F-group (not necessarily connected); H ⊂ G a reductive F-subgroup
 Contract: Let G be reductive over F, H ⊂ G a reductive F-subgroup and σ : G → H\G. Then σ_𝔸(G(𝔸)) ∩ (H\G)(F) is a finite union of G(F)-orbits.
 Signature omitted — RG2.1/RG2.3 must supply the actual rational parabolic, Levi, relative roots and good local integral models; LieGroups layer 9 and RG2.4 supply the specified Cartan/Iwasawa coordinates. Fixed-K compatibility is part of the contract. The reduction, root-intersection, pivot and Levi gaps remain explicit; arbitrary data fields for parabolics, compactness or factorization are not used.
 
@@ -3184,7 +3326,7 @@ Contract: For an adelic Siegel set 𝔖 = 𝔖(T₁, ω), the measure of 𝔖 �
 Signature omitted — RG2.1/RG2.3 must supply the actual rational parabolic, Levi, relative roots and good local integral models; LieGroups layer 9 and RG2.4 supply the specified Cartan/Iwasawa coordinates. Fixed-K compatibility is part of the contract. The reduction, root-intersection, pivot and Levi gaps remain explicit; arbitrary data fields for parabolics, compactness or factorization are not used.
 
 ### AdelicAlgebraicGroups:AA.3/parabolic-double-cosets-finite — Finitely many G(𝒪)-orbits on rational flags
-Hypotheses: G connected; P parabolic over F
+Hypotheses: F a number field; G connected reductive over F (Borel 7.3 allows any connected G; the consumers need only reductive G); P parabolic over F
 Contract: For connected G and an F-parabolic P, (G/P)(F) is a finite union of orbits of an arithmetic subgroup; equivalently G(F) = ⋃_{i∈I} Γ x_i P(F) with I finite.
 Signature omitted — RG2.1/RG2.3 must supply the actual rational parabolic, Levi, relative roots and good local integral models; LieGroups layer 9 and RG2.4 supply the specified Cartan/Iwasawa coordinates. Fixed-K compatibility is part of the contract. The reduction, root-intersection, pivot and Levi gaps remain explicit; arbitrary data fields for parabolics, compactness or factorization are not used.
 
@@ -3214,7 +3356,7 @@ Contract: GL_2(ℝ)/ℝ^× SO(2) is homeomorphic to ℍ^± = ℂ ∖ ℝ through
 Signature omitted — The raw/folded matrix formulas are native above. The full adelic statement needs RG2.0 canonical GL₂ point topology, actual principal finite congruence level, and the arithmetic quotient comparison from ModularCurvesPartII:R12.2. A generic upper-half-plane action alone does not specify the SO(2)/O(2) component maps.
 
 ### AdelicAlgebraicGroups:AA.4/homogeneous-measure-pushforward — Pushforward of a homogeneous measure to a compact abelian quotient
-Hypotheses: C compact abelian; π continuous surjective homomorphism; Λ\T compact
+Hypotheses: C compact abelian; π continuous surjective homomorphism; Λ\T compact; C second countable (true for G_res of PB^×, a countable product of finite groups), so the pinned Haar uniqueness isMulLeftInvariant_eq_smul applies; Λ ≤ T discrete with π(Λ) = 1
 Contract: Let C be a compact abelian group, π : G → C a continuous surjective homomorphism, T ≤ G a closed subgroup with Λ ≤ T discrete and Λ\T compact (as for [T(𝔸)] with T anisotropic modulo the centre), and μ the T-invariant probability measure on Λ\T g. If π(Λ) = 1, then π_*μ is the Haar probability measure of the coset π(T)·π(g) of the closed subgroup π(T).
 Signature omitted — This needs the actual compact Hausdorff residual/idele quotient from the preceding canonical norm maps and CompactGroups layer 5 character/Fourier interfaces. The general weak-measure limit language cannot replace that identified quotient and its diagonal embeddings.
 
@@ -3226,12 +3368,12 @@ Signature omitted — This needs the actual compact Hausdorff residual/idele quo
 ### AdelicAlgebraicGroups:AA.2/fundamental-domain-exists — Borel fundamental domains for countable discrete subgroups
 Hypotheses: G second countable locally compact Hausdorff; Γ countable and discrete
 Contract: Let G be a second countable locally compact Hausdorff group and Γ ≤ G a countable discrete subgroup acting by left translation. There is a Borel set D ⊂ G meeting every orbit Γg in exactly one point.
-Signature omitted — The native closed-subgroup right-Haar quotient interfaces are above. This adelic specialization or iterated-quotient contract additionally requires the canonical RG2.0 point topology, split/central quotient embeddings and their quotient-measure comparison; those maps are retained as exact mathematical contracts.
+Native equivalent signature(s): QuotientMeasure.exists_measurableSet_unique_orbit_rep.
 
 ### AdelicAlgebraicGroups:AA.2/tamagawa-convergence-gln — Corrected volumes for GL_n and SL_n
 Hypotheses: n ≥ 1
 Contract: For the standard models of GL_n and SL_n over 𝒪_F and their standard gauge forms, at every finite place v: λ_v · #GL_n(k_v) q_v^{-n²} = ∏_{i=2}^{n} (1 − q_v^{-i}) with λ_v = (1 − q_v^{-1})^{-1}, and #SL_n(k_v) q_v^{-(n²−1)} = ∏_{i=2}^{n} (1 − q_v^{-i}); both products over v converge absolutely.
-Signature omitted — The native closed-subgroup right-Haar quotient interfaces are above. This adelic specialization or iterated-quotient contract additionally requires the canonical RG2.0 point topology, split/central quotient embeddings and their quotient-measure comparison; those maps are retained as exact mathematical contracts.
+Native equivalent signature(s): Tamagawa.gl_local_volume, Tamagawa.sl_local_volume, Tamagawa.summable_absNorm_rpow_neg_two (absolute convergence then follows from RestrictedProduct.positive_tprod_of_summable_sub_one).
 
 ### AdelicAlgebraicGroups:AA.3/arithmetic-quotient-finite-volume — Arithmetic quotients have finite volume
 Hypotheses: G connected reductive; U compact open
@@ -3255,7 +3397,7 @@ Signature omitted — This needs the canonical adelic product/quotient topology,
 
 ### AdelicAlgebraicGroups:AA.4/hecke-degree-double-coset — Degree of a Hecke correspondence
 Hypotheses: U compact open
-Contract: For compact open U and g∈G(𝔸_f), UgU is the disjoint union of [U:U∩gUg⁻¹] right U-cosets, represented by u g. In the compact-modulo-A_G neat scope, p₁:X_{U∩gUg⁻¹}→X_U is a covering of exactly that degree; the rational central kernel is trivial.
+Contract: For compact open U and g∈G(𝔸_f), UgU is the disjoint union of [U:U∩gUg⁻¹] cosets of the form x·U (left cosets in the convention of tauceti HeckeCoset.degree), represented by u g. In the compact-modulo-A_G neat scope, p₁:X_{U∩gUg⁻¹}→X_U is a covering of exactly that degree; the rational central kernel is trivial.
 Signature omitted — This needs the canonical adelic product/quotient topology, actual split-centre-containing K∞ and compact open U, and its rational action groupoid. RG2.0/RG2.1 supply those point/split-centre maps. The generic double-coset functions above cover the algebraic set part only; arbitrary covers, spaces or stabilizer counts would lose the geometric contract.
 
 ### AdelicAlgebraicGroups:AA.5/gl1-units-lattice — Units at level U_Q form a lattice of rank r₁ + r₂ − 1
@@ -3271,7 +3413,7 @@ Native equivalent signature(s): NumberField.InfiniteAdeleRing.continuous_ringEqu
 ### AdelicAlgebraicGroups:AA.2/left-right-quotient-inversion — Inversion between left and right quotient conventions
 Hypotheses: G second countable locally compact Hausdorff and unimodular; Γ a countable discrete subgroup; normalized Haar μ is left and right invariant; Use the fundamental-domain quotient measures and the integrability/measurability hypotheses of the pinned theorem
 Contract: For a locally compact unimodular G and discrete countable Γ, inversion sends Γg to g⁻¹Γ, giving a homeomorphism Γ\G≃G/Γ that preserves the correspondingly normalized quotient measures. It carries left-orbit unfolding to the pinned right Γ.op-orbit unfolding.
-Signature omitted — The native closed-subgroup right-Haar quotient interfaces are above. This adelic specialization or iterated-quotient contract additionally requires the canonical RG2.0 point topology, split/central quotient embeddings and their quotient-measure comparison; those maps are retained as exact mathematical contracts.
+Native equivalent signature(s): QuotientMeasure.inversionHomeomorph, QuotientMeasure.inversionHomeomorph_mk. The transport of the normalized fundamental-domain measures remains this contract.
 
 ### AdelicAlgebraicGroups:AA.5/upper-half-plane-action-conventions — Raw Möbius action and the Mathlib folded action
 Hypotheses: g∈GL₂(ℝ), z∈ℂ with Im z≠0
@@ -3279,12 +3421,12 @@ Contract: The raw Möbius maps of GL₂(ℝ) induce an action on ℍ±=ℂ∖ℝ
 Native equivalent signature(s): AdelicExamples.rawMoebius, AdelicExamples.rawMoebius_im, AdelicExamples.rawMoebius_mul, AdelicExamples.folded_eq_glAction.
 
 ### AdelicAlgebraicGroups:AA.0/summable-log-product — Positive convergent products
-Hypotheses: All objects, actions and measures have the hypotheses in the statement.
+Hypotheses: ι is countable; a : ι → ℝ with a_i > 0 for every i; ∑_i |a_i − 1| < ∞; for the deletion identity, S ⊂ ι finite
 Contract: For a countable family a_i>0 of real numbers with ∑_i |a_i−1|<∞, the net of finite products has a positive finite limit C. Deleting a finite set S divides C by ∏_{i∈S}a_i; equivalently ∑ log a_i converges absolutely and C=exp(∑ log a_i).
 Native equivalent signature(s): RestrictedProduct.positive_tprod_of_summable_sub_one.
 
 ### AdelicAlgebraicGroups:AA.0/convergent-haar-product — Convergent restricted products of local Haar measures
-Hypotheses: All objects, actions and measures have the hypotheses in the statement.
+Hypotheses: ι countable; each G_i a second countable locally compact Hausdorff group with a left Haar measure μ_i; B_i ≤ G_i open subgroups; S ⊂ ι finite with B_i compact for every i ∉ S; ∑_{i∉S} |μ_i(B_i) − 1| < ∞
 Contract: Let G_i be countably many second countable locally compact Hausdorff groups, B_i open and compact cofinitely, and μ_i left Haar measures. Choose finite S containing the noncompact B_i. Put a_i=μ_i(B_i)∈(0,∞) for i∉S, suppose ∑_{i∉S}|a_i−1|<∞, and let C_S=∏_{i∉S}a_i>0. Define the convergent product as C_S times the normalized restricted Haar product of μ_i for i∈S and a_i⁻¹μ_i for i∉S. It is independent of S.
 Native carrier/API part: the named signatures below. Full structural specializations remain subject to their recorded conditions.
 API RestrictedProduct.convergentHaarProduct: Let G_i be countably many second countable locally compact Hausdorff groups, B_i open and compact cofinitely, and μ_i left Haar measures. Choose finite S containing the noncompact B_i. Put a_i=μ_i(B_i)∈(0,∞) for i∉S, suppose ∑_{i∉S}|a_i−1|<∞, and let C_S=∏_{i∉S}a_i>0. Define the convergent product as C_S times the normalized restricted Haar product of μ_i for i∈S and a_i⁻¹μ_i for i∉S. It is independent of S.
@@ -3303,282 +3445,282 @@ Test RestrictedProduct.convergentHaarProduct_sl2_tail: For SL₂ good factors a_
 Example omitted — The carrier, Borel measure and compact/open subgroup language is native. The equivalent interface is given above by the restricted-product signatures; the separately named directed gluing proof is the measure constructor/uniqueness contract, not a new carrier.
 
 ### AdelicAlgebraicGroups:AA.0/convergent-product-independence — Independence under finite changes of integral subgroups
-Hypotheses: All objects, actions and measures have the hypotheses in the statement.
+Hypotheses: ι countable; each G_i a second countable locally compact Hausdorff group with a left Haar measure μ_i; B_i, B′_i ≤ G_i open subgroups; S ⊂ ι finite with B_i = B′_i compact for every i ∉ S; ∑_{i∉S} |μ_i(B_i) − 1| < ∞
 Contract: Changing compact open B_i at finitely many indices transports the convergent Haar product to the same measure on the canonically identified restricted product.
 Native equivalent signature(s): RestrictedProduct.convergentHaarProduct_independent_exceptionalSet.
 
 ### AdelicAlgebraicGroups:AA.1/hopf-spreading — Spreading Hopf structure and its identities
-Hypotheses: All objects, actions and measures have the hypotheses in the statement.; F is a number field and O(G) is a finite-type commutative Hopf F-algebra; integral generic-fibre identifications respect the Hopf structure.
+Hypotheses: F is a number field and O(G) is a finite-type commutative Hopf F-algebra; integral generic-fibre identifications respect the Hopf structure.
 Contract: A finitely presented affine F-algebra with Hopf structure descends to a finitely presented Hopf algebra over O_{F,S} after enlarging finite S. A prescribed finite collection of Hopf morphisms and their identities descends simultaneously.
 Native equivalent signature(s): IntegralModel.exists.
 
 ### AdelicAlgebraicGroups:AA.1/restricted-product-topology — Topology of the restricted-product comparison
-Hypotheses: All objects, actions and measures have the hypotheses in the statement.; F is a number field and O(G) is a finite-type commutative Hopf F-algebra; integral generic-fibre identifications respect the Hopf structure.
+Hypotheses: F is a number field and O(G) is a finite-type commutative Hopf F-algebra; integral generic-fibre identifications respect the Hopf structure.
 Contract: The bijection G(A_{F,f})→∏ʳ_v[G(F_v),B_v] induced by coordinate projections is a homeomorphism. On each S-integral principal piece it is the product homeomorphism of affine points, and the principal pieces are open on both sides.
 Signature omitted — RG2.0 must supply the affine-points evaluation topology and its group/embedding instances on these actual Hopf carriers; GlobalNumberFields layers 4–6 supply canonical local compactness and units topology. The algebraic carrier is native, but those general canonical instances are not pinned. No arbitrary topology is supplied.
 
 ### AdelicAlgebraicGroups:AA.1/weil-restriction-naturality — Naturality of adelic restriction of scalars
-Hypotheses: All objects, actions and measures have the hypotheses in the statement.; F is a number field and O(G) is a finite-type commutative Hopf F-algebra; integral generic-fibre identifications respect the Hopf structure.
+Hypotheses: k ⊆ F ⊆ E number fields with E/F and F/k finite; G_E an affine algebraic group over E (finite-type commutative Hopf E-algebra) and morphisms G_E → G′_E over E; Res_{E/F} with its natural point adjunction from RG2.0a; the canonical continuous isomorphism E ⊗_F 𝔸_F ≅ 𝔸_E and its local factors from GlobalNumberFields layer 8
 Contract: For the Weil-restriction adjunction Res_{E/F}G(R)≃G(E⊗_F R), the adelic comparison commutes with every algebraic group morphism, the diagonal F→A_F, projections to F_v, and the canonical tensor associator for towers E/F/k.
 Signature omitted — RG2.0a must supply the actual Weil-restriction group object and its natural point adjunction; GlobalNumberFields layer 8 must supply the canonical continuous adelic tensor comparison. Their objects and naturality squares have no pinned general interface. No chosen equivalence is substituted.
 
 ### AdelicAlgebraicGroups:AA.2/closed-homogeneous-space — Topology of a closed homogeneous quotient
-Hypotheses: All objects, actions and measures have the hypotheses in the statement.
+Hypotheses: G a second countable locally compact Hausdorff topological group; H ≤ G a closed subgroup acting by left multiplication; H\G the orbit space with the quotient topology and q : G → H\G the projection
 Contract: For a second countable locally compact Hausdorff group G and closed H, the left-orbit quotient H\G with its quotient topology is locally compact, Hausdorff and second countable; q:G→H\G is open. Over each compact subset of H\G there is a compact subset of G whose image contains it.
 Native equivalent signature(s): QuotientMeasure.homogeneous_topology, QuotientMeasure.compact_lift.
 
 ### AdelicAlgebraicGroups:AA.2/fibre-average-continuous — Continuity and support of fibre averaging
-Hypotheses: All objects, actions and measures have the hypotheses in the statement.
+Hypotheses: G a second countable locally compact Hausdorff group; H ≤ G a closed subgroup; dh a right Haar measure on H; f ∈ C_c(G, ℝ)
 Contract: For f∈C_c(G,ℝ) and a right Haar dh on closed H, P f(Hg)=∫_H f(hg)dh is a continuous compactly supported function on H\G, with support contained in q(support f). It preserves positivity.
 Native equivalent signature(s): QuotientMeasure.average_continuous_compact.
 
 ### AdelicAlgebraicGroups:AA.2/compact-quotient-cutoff — A cutoff over a compact part of the quotient
-Hypotheses: All objects, actions and measures have the hypotheses in the statement.
+Hypotheses: G a second countable locally compact Hausdorff group; H ≤ G a closed subgroup with a right Haar measure dh; P the fibre average of fibre-average-continuous; C ⊂ H\G compact
 Contract: For compact C⊂H\G there is β∈C_c(G,ℝ), β≥0, with Pβ=1 on C.
 Native equivalent signature(s): QuotientMeasure.compact_cutoff.
 
 ### AdelicAlgebraicGroups:AA.2/right-haar-exchange — The right-Haar exchange identity
-Hypotheses: All objects, actions and measures have the hypotheses in the statement.
+Hypotheses: G a second countable locally compact Hausdorff group; H ≤ G a closed subgroup; dg and dh right Haar measures on G and H; Δ_G(h) = Δ_H(h) for h ∈ H in the Mathlib modularCharacter convention; f, β ∈ C_c(G, ℝ)
 Contract: Assume Δ_G(h)=Δ_H(h) for h∈H, and dg,dh are right Haar measures. For f,β∈C_c(G), ∫_G β(g)Pf(Hg)dg = ∫_G f(g)Pβ(Hg)dg.
 Native equivalent signature(s): QuotientMeasure.right_haar_exchange.
 
 ### AdelicAlgebraicGroups:AA.2/quotient-tonelli — Tonelli extension of quotient integration
-Hypotheses: All objects, actions and measures have the hypotheses in the statement.
+Hypotheses: G a second countable locally compact Hausdorff group; H ≤ G closed; dg, dh right Haar measures with Δ_G|_H = Δ_H; dġ the quotient measure of quotient-measure; f : G → [0, ∞] Borel
 Contract: For a nonnegative Borel function f on G in the modular-compatible right-Haar setting, fibre integration is measurable on H\G and ∫_G f = ∫_{H\G}∫_H f(hg)dh. The identity is valid in [0,∞].
 Native equivalent signature(s): QuotientMeasure.quotient_lintegral.
 
 ### AdelicAlgebraicGroups:AA.2/central-associated-line — The central-character measurable Hermitian line
-Hypotheses: All objects, actions and measures have the hypotheses in the statement.
+Hypotheses: F a number field; G connected reductive over F; Γ = G(F); X ≤ Z(𝔸_F) closed with XΓ closed in G(𝔸_F); ω a continuous unitary character of X trivial on X ∩ Γ
 Contract: With Γ=G(F), closed central X, XΓ closed, and continuous unitary ω trivial on X∩Γ, ξ(γz)=ω(z) defines a continuous unitary character of XΓ. The associated measurable Hermitian line field on XΓ\G has fibres (G×ℂ)/(hg,t)∼(g,ξ(h)⁻¹t). A Borel section of G→XΓ\G trivializes this field measurably; equivariant functions φ(hg)=ξ(h)φ(g) are its sections. Topological local triviality is not asserted for an arbitrary closed subgroup.
 Signature omitted — This contract needs canonical adelic centre/adjoint quotient data from RG2.1 and the associated measurable line, Borel section and completion-identification language recorded in the central analytic gap. It is not represented by an arbitrary Hilbert space, a topological line bundle or an assumed unitary representation.
 
 ### AdelicAlgebraicGroups:AA.2/central-measurable-section — A measurable section and unitary cocycle
-Hypotheses: All objects, actions and measures have the hypotheses in the statement.
+Hypotheses: F a number field; G connected reductive over F; Γ = G(F); X ≤ Z(𝔸_F) closed with XΓ closed in the second countable locally compact (Polish) group G(𝔸_F); ξ the character of XΓ from central-associated-line
 Contract: For closed XΓ in the second countable adelic group there is a Borel section s:XΓ\G→G. With c(y,g)=s(y)g s(yg)⁻¹∈XΓ, right translation on sections is represented on quotient functions by ξ(c(y,g)) times translation y↦yg. Different sections give unitarily equivalent models.
 Signature omitted — This contract needs canonical adelic centre/adjoint quotient data from RG2.1 and the associated measurable line, Borel section and completion-identification language recorded in the central analytic gap. It is not represented by an arbitrary Hilbert space, a topological line bundle or an assumed unitary representation.
 
 ### AdelicAlgebraicGroups:AA.2/central-l2-completeness — Completeness of central-character L² sections
-Hypotheses: All objects, actions and measures have the hypotheses in the statement.
+Hypotheses: F a number field; G connected reductive over F; Γ = G(F); X ≤ Z(𝔸_F) closed with XΓ closed; ω continuous unitary on X, trivial on X ∩ Γ; the associated line and Borel section of central-associated-line and central-measurable-section; the right-invariant quotient measure on XΓ\G(𝔸_F)
 Contract: Square-integrable measurable sections of the associated Hermitian line, modulo equality almost everywhere, form a complex Hilbert space with inner product ∫conj(φ)ψ. Right translation is unitary and strongly continuous.
 Signature omitted — This contract needs canonical adelic centre/adjoint quotient data from RG2.1 and the associated measurable line, Borel section and completion-identification language recorded in the central analytic gap. It is not represented by an arbitrary Hilbert space, a topological line bundle or an assumed unitary representation.
 
 ### AdelicAlgebraicGroups:AA.2/central-character-extension-twist — Extension and twisting of a central character
-Hypotheses: All objects, actions and measures have the hypotheses in the statement.
+Hypotheses: F a number field; G connected reductive over F; Γ = G(F); X′ ⊂ X ⊂ Z(𝔸_F) closed with X′Γ and XΓ closed and X′Γ\XΓ compact; ω′ a continuous unitary character of X′ trivial on X′ ∩ Γ; z ranges over X
 Contract: For X′⊂X with X′Γ\XΓ compact and continuous ω′ trivial on X′∩Γ, extend the resulting character of X′Γ/Γ to a continuous character ω₀ of XΓ/Γ. The operators ω₀(z)⁻¹R(z) define a strongly continuous unitary action of the compact abelian quotient XΓ/X′Γ on CentralCharL2(X′,ω′).
 Signature omitted — This contract needs canonical adelic centre/adjoint quotient data from RG2.1 and the associated measurable line, Borel section and completion-identification language recorded in the central analytic gap. It is not represented by an arbitrary Hilbert space, a topological line bundle or an assumed unitary representation.
 
 ### AdelicAlgebraicGroups:AA.2/restriction-finite-jacobian — Finite-place scalar Jacobian for a chosen basis
-Hypotheses: All objects, actions and measures have the hypotheses in the statement.
+Hypotheses: E/F a finite extension of number fields of degree n; v a finite place of F; β an F-basis of E, read as F_v^n ≃ E⊗F_v ≅ ∏_{w|v}E_w; Haar measures on F_v and every E_w giving the valuation rings volume 1
 Contract: For β:F_v^n≃∏_{w|v}E_w, let L_{β,v}=∑_j O_vβ_j. With every valuation ring of volume 1, j_{β,v}=vol_{∏E_w}(L_{β,v})⁻¹. In particular j_{β,v}=1 when β is an O_v-basis of ∏_{w|v}O_w.
 Signature omitted — The actual Galois character representation, inertia/Frobenius Artin determinants and positive leading coefficient, canonical gauge local measures and Weil-restriction differential/Jacobian comparisons are required. They are supplied by RG2.0a/RG2.3, the arithmetic Jacobian owner and the recorded Artin/local analytic gaps. Arbitrary Euler factors or Haar measures would remove the normalization assertion.
 
 ### AdelicAlgebraicGroups:AA.2/restriction-infinite-jacobian — Archimedean scalar Jacobian for a chosen basis
-Hypotheses: All objects, actions and measures have the hypotheses in the statement.
+Hypotheses: E/F a finite extension of number fields of degree n; v an infinite place of F; β an F-basis of E, read as the real-linear map F_v^n → E⊗F_v ≅ ℝ^a × ℂ^b (F_v = ℝ) or ℂ^n (F_v = ℂ); measures dx on ℝ and 2dxdy on ℂ on both sides
 Contract: If F_v=ℝ and E⊗F_v=ℝ^a×ℂ^b, let D_{β,v} be the real determinant of the basis map in real and imaginary coordinates. Then j_{β,v}=2⁻ᵇ|D_{β,v}|⁻¹. If F_v=ℂ, then j_{β,v}=|det_ℂ β|⁻². The factors use dx at real places and 2dxdy at complex places.
 Signature omitted — The actual Galois character representation, inertia/Frobenius Artin determinants and positive leading coefficient, canonical gauge local measures and Weil-restriction differential/Jacobian comparisons are required. They are supplied by RG2.0a/RG2.3, the arithmetic Jacobian owner and the recorded Artin/local analytic gaps. Arbitrary Euler factors or Haar measures would remove the normalization assertion.
 
 ### AdelicAlgebraicGroups:AA.2/restriction-global-jacobian — Global scalar Jacobian and absolute discriminants
-Hypotheses: All objects, actions and measures have the hypotheses in the statement.
+Hypotheses: E/F a finite extension of number fields of degree n; β an F-basis of E; j_{β,v} as defined in restriction-finite-jacobian and restriction-infinite-jacobian; d ≥ 0
 Contract: For an F-basis β of E, the positive factors j_{β,v} equal 1 at almost all finite v and ∏_v j_{β,v}=|d_F|^{[E:F]/2}|d_E|⁻¹/². Thus |d_F|⁻ⁿᵈ/²∏_v j_{β,v}^d=|d_E|⁻ᵈ/².
 Signature omitted — The actual Galois character representation, inertia/Frobenius Artin determinants and positive leading coefficient, canonical gauge local measures and Weil-restriction differential/Jacobian comparisons are required. They are supplied by RG2.0a/RG2.3, the arithmetic Jacobian owner and the recorded Artin/local analytic gaps. Arbitrary Euler factors or Haar measures would remove the normalization assertion.
 
 ### AdelicAlgebraicGroups:AA.3/adelic-iwasawa-factorization — Adelic Iwasawa factorization
-Hypotheses: All objects, actions and measures have the hypotheses in the statement.
+Hypotheses: F a number field; G a connected reductive group over F; P_0 ⊆ P standard F-parabolics from fixed minimal-parabolic data with Levi M_P ⊇ M_0; K = ∏_v K_v admissible relative to M_0
 Contract: For connected reductive G/F, minimal-parabolic data and an admissible K, multiplication N_P(𝔸)×M_P(𝔸)^1×A_P(ℝ)^0×K→G(𝔸) is surjective and open for each standard P. At almost all finite places it restricts to the integral Iwasawa factorization; this integrality permits assembling local choices into restricted-product elements.
 Signature omitted — RG2.1/RG2.3 must supply the actual rational parabolic, Levi, relative roots and good local integral models; LieGroups layer 9 and RG2.4 supply the specified Cartan/Iwasawa coordinates. Fixed-K compatibility is part of the contract. The reduction, root-intersection, pivot and Levi gaps remain explicit; arbitrary data fields for parabolics, compactness or factorization are not used.
 
 ### AdelicAlgebraicGroups:AA.3/parabolic-haar-jacobian — Parabolic Haar Jacobian
-Hypotheses: All objects, actions and measures have the hypotheses in the statement.
-Contract: Write P=N⋊M and δ_P(m)=|det(Ad(m)|Lie N)|_𝔸. With left Haar measures dn,dm, the measure δ_P(m)^−1 dn dm in coordinates (n,m) is a left Haar measure of P(𝔸); with the convention d(p x)=Δ_P(p)^−1 dx for right Haar, Δ_P(m)=δ_P(m).
+Hypotheses: F a number field; G a connected reductive group over F; P = N_P ⋊ M_P an F-parabolic with its Levi decomposition on 𝔸-points; dn and dm Haar measures on N_P(𝔸) and the unimodular M_P(𝔸)
+Contract: Write P=N⋊M and δ_P(m)=|det(Ad(m)|Lie N)|_𝔸. With left Haar measures dn,dm, the measure δ_P(m)^−1 dn dm in coordinates (n,m) is a left Haar measure of P(𝔸); Mathlib's modular character of P(𝔸) (map (·p) μ_l = Δ_P(p) μ_l, equivalently map (p·) μ_r = Δ_P(p)^−1 μ_r for μ_r the inversion image of μ_l) is Δ_P(nm)=δ_P(m), and dn dm is a right Haar measure in the same coordinates.
 Signature omitted — RG2.1/RG2.3 must supply the actual rational parabolic, Levi, relative roots and good local integral models; LieGroups layer 9 and RG2.4 supply the specified Cartan/Iwasawa coordinates. Fixed-K compatibility is part of the contract. The reduction, root-intersection, pivot and Levi gaps remain explicit; arbitrary data fields for parabolics, compactness or factorization are not used.
 
 ### AdelicAlgebraicGroups:AA.3/iwasawa-integration-compact — Iwasawa integration through the compact factor
-Hypotheses: All objects, actions and measures have the hypotheses in the statement.
-Contract: For admissible K and P=N⋊M, normalize dk to mass one and choose compatible dn,dm. The functional f↦∫_K∫_M∫_N f(nmk)δ_P(m)^−1 dn dm dk on compactly supported continuous f is a positive left-G-invariant functional, hence gives Haar measure on G(𝔸). Equivalently use the compact homogeneous space (P∩K)\K, whose measure is quasi-invariant under G with the parabolic Radon–Nikodym cocycle. No invariant measure on P\G is asserted.
+Hypotheses: F a number field; G a connected reductive group over F; P = N ⋊ M a standard F-parabolic; K admissible with dk its Haar probability measure; dn, dm Haar measures on N(𝔸), M(𝔸) with vol(N(𝒪_v)) = vol(M(𝒪_v)) = 1 at almost all v
+Contract: For admissible K and P=N⋊M, normalize dk to mass one and choose compatible dn,dm. The functional f↦∫_K∫_M∫_N f(nmk)δ_P(m)^−1 dn dm dk on compactly supported continuous f is a positive functional invariant under right translation by G(𝔸) (left P-invariance and right K-invariance are immediate); since G(𝔸) is unimodular it is the Haar measure of G(𝔸). Equivalently use the compact homogeneous space (P∩K)\K, whose measure is quasi-invariant under G with the parabolic Radon–Nikodym cocycle. No invariant measure on P\G is asserted.
 Signature omitted — RG2.1/RG2.3 must supply the actual rational parabolic, Levi, relative roots and good local integral models; LieGroups layer 9 and RG2.4 supply the specified Cartan/Iwasawa coordinates. Fixed-K compatibility is part of the contract. The reduction, root-intersection, pivot and Levi gaps remain explicit; arbitrary data fields for parabolics, compactness or factorization are not used.
 
 ### AdelicAlgebraicGroups:AA.3/gln-finite-class-number-one — GLₙ finite class number one over ℚ
-Hypotheses: All objects, actions and measures have the hypotheses in the statement.
+Hypotheses: n ≥ 1; the ground field is ℚ (ℤ a PID; over a number field the double coset set is the class group)
 Contract: For n≥1, GL_n(𝔸_{ℚ,f})=GL_n(ℚ)GL_n(ℤ̂). The rational intersection with GL_n(ℤ̂) is GL_n(ℤ).
 Signature omitted — RG2.1/RG2.3 must supply the actual rational parabolic, Levi, relative roots and good local integral models; LieGroups layer 9 and RG2.4 supply the specified Cartan/Iwasawa coordinates. Fixed-K compatibility is part of the contract. The reduction, root-intersection, pivot and Levi gaps remain explicit; arbitrary data fields for parabolics, compactness or factorization are not used.
 
 ### AdelicAlgebraicGroups:AA.3/simultaneous-self-adjointness — Simultaneous self-adjointness
-Hypotheses: All objects, actions and measures have the hypotheses in the statement.
+Hypotheses: n ≥ 1; G_1 ⊃ G_2 ⊃ ⋯ ⊃ G_m (m ≥ 1) reductive real algebraic subgroups of GL_n(ℝ)
 Contract: For a finite nested chain of reductive real algebraic subgroups of GL_n, one a∈SL_n(ℝ) makes every aG_i(ℝ)a⁻¹ stable under transpose.
 Signature omitted — RG2.1/RG2.3 must supply the actual rational parabolic, Levi, relative roots and good local integral models; LieGroups layer 9 and RG2.4 supply the specified Cartan/Iwasawa coordinates. Fixed-K compatibility is part of the contract. The reduction, root-intersection, pivot and Levi gaps remain explicit; arbitrary data fields for parabolics, compactness or factorization are not used.
 
 ### AdelicAlgebraicGroups:AA.3/closed-orbit-realization — Reductive homogeneous spaces as closed orbits
-Hypotheses: All objects, actions and measures have the hypotheses in the statement.
+Hypotheses: F a field of characteristic 0; G a reductive (not necessarily connected) linear algebraic group over F; H ⊂ G a reductive closed F-subgroup
 Contract: If H⊂G are reductive algebraic groups over a characteristic-zero field F, then H\G is affine and has a G-equivariant closed immersion into a finite-dimensional rational G-representation, taking the identity coset to w∈V(F) with stabilizer H. The orbit of w is closed.
 Signature omitted — RG2.1/RG2.3 must supply the actual rational parabolic, Levi, relative roots and good local integral models; LieGroups layer 9 and RG2.4 supply the specified Cartan/Iwasawa coordinates. Fixed-K compatibility is part of the contract. The reduction, root-intersection, pivot and Levi gaps remain explicit; arbitrary data fields for parabolics, compactness or factorization are not used.
 
 ### AdelicAlgebraicGroups:AA.3/closed-orbit-weight-bound — Closed-orbit weight bounds in a real Siegel domain
-Hypotheses: All objects, actions and measures have the hypotheses in the statement.
-Contract: Let GL_n act rationally on V, w have closed orbit and transpose-stable stabilizer, and Γ⊂V(ℚ) be a lattice. For a standard real Siegel domain Σ there is a compact Q⊂GL_n(ℝ) such that wΣ∩Γ⊂wQ. In particular the norms of these lattice points are uniformly bounded.
+Hypotheses: V a finite-dimensional rational representation of GL_n over ℚ; w ∈ V(ℝ) with closed GL_n(ℂ)-orbit and transpose-stable stabilizer in GL_n(ℝ); Γ ⊂ V(ℚ) a lattice; Σ a standard Siegel domain for the upper triangular Borel and O(n)
+Contract: Let GL_n act rationally on V, w have closed orbit and transpose-stable stabilizer, and Γ⊂V(ℚ) be a lattice. Let GL_n(ℝ) act on the left and let Σ = ω·A_t·O(n) be a standard real Siegel domain in the left-quotient convention of gln-real-reduction (BHC §5.3 uses the equivalent right action v·g = g⁻¹·v and the inverse domain O(n)·A_t⁻¹·ω⁻¹). There is a compact Q⊂GL_n(ℝ) such that Σ·w∩Γ⊂Q·w. In particular the norms of these lattice points are uniformly bounded.
 Signature omitted — RG2.1/RG2.3 must supply the actual rational parabolic, Levi, relative roots and good local integral models; LieGroups layer 9 and RG2.4 supply the specified Cartan/Iwasawa coordinates. Fixed-K compatibility is part of the contract. The reduction, root-intersection, pivot and Levi gaps remain explicit; arbitrary data fields for parabolics, compactness or factorization are not used.
 
 ### AdelicAlgebraicGroups:AA.3/closed-orbit-lattice-finite — Closed-orbit lattice finiteness
-Hypotheses: All objects, actions and measures have the hypotheses in the statement.
-Contract: Under closed-orbit-weight-bound, wΣ∩Γ is finite. The same holds after any fixed rational translation of Σ and any rational change of lattice.
+Hypotheses: the hypotheses of closed-orbit-weight-bound (rational GL_n-representation V over ℚ, w ∈ V(ℝ) with closed orbit and transpose-stable stabilizer, Γ ⊂ V(ℚ) a lattice, Σ a left-convention standard Siegel domain)
+Contract: Under closed-orbit-weight-bound, Σ·w∩Γ is finite. The same holds for any other lattice of V(ℚ), in particular after replacing Σ by c·Σ for fixed c ∈ GL_n(ℚ), since c·Σ·w∩Γ = c·(Σ·w∩c⁻¹Γ).
 Signature omitted — RG2.1/RG2.3 must supply the actual rational parabolic, Levi, relative roots and good local integral models; LieGroups layer 9 and RG2.4 supply the specified Cartan/Iwasawa coordinates. Fixed-K compatibility is part of the contract. The reduction, root-intersection, pivot and Levi gaps remain explicit; arbitrary data fields for parabolics, compactness or factorization are not used.
 
 ### AdelicAlgebraicGroups:AA.3/finite-part-denominator-bound — Compact finite parts give bounded denominators
-Hypotheses: All objects, actions and measures have the hypotheses in the statement.
+Hypotheses: F a number field; G a linear algebraic group over F with a rational representation ρ: G → GL(V) over F; w ∈ V(F); C ⊂ G(𝔸_{F,f}) compact (for the second claim G = GL_n and ρ the identity)
 Contract: For a rational representation ρ:G→GL(V), w∈V(F) and compact C⊂G(𝔸_f), there is a fractional O_F-lattice L⊂V(F) such that wρ(C)∩V(F)⊂L. Likewise a compact C bounds denominators of all entries of g and g⁻¹ for g∈C∩GL_n(F).
 Signature omitted — RG2.1/RG2.3 must supply the actual rational parabolic, Levi, relative roots and good local integral models; LieGroups layer 9 and RG2.4 supply the specified Cartan/Iwasawa coordinates. Fixed-K compatibility is part of the contract. The reduction, root-intersection, pivot and Levi gaps remain explicit; arbitrary data fields for parabolics, compactness or factorization are not used.
 
 ### AdelicAlgebraicGroups:AA.3/gln-real-overlap — Real GLₙ Siegel overlap
-Hypotheses: All objects, actions and measures have the hypotheses in the statement.
+Hypotheses: n ≥ 1; d ≥ 1 an integer; Σ a standard Siegel domain of GL_n(ℝ) in the left-quotient convention of gln-real-reduction; for the second claim c_1, c_2 ∈ GL_n(ℚ) fixed and the overlap condition γc_1Σ ∩ c_2Σ ≠ ∅
 Contract: For a standard GL_n(ℝ) Siegel domain Σ and a fixed integer d≥1, the set of γ∈GL_n(ℚ) with γ,γ⁻¹∈d^−1M_n(ℤ) and γΣ∩Σ≠∅ is finite. The same statement holds for two fixed rational translates of such domains.
 Signature omitted — RG2.1/RG2.3 must supply the actual rational parabolic, Levi, relative roots and good local integral models; LieGroups layer 9 and RG2.4 supply the specified Cartan/Iwasawa coordinates. Fixed-K compatibility is part of the contract. The reduction, root-intersection, pivot and Levi gaps remain explicit; arbitrary data fields for parabolics, compactness or factorization are not used.
 
 ### AdelicAlgebraicGroups:AA.3/local-height-polynomial — Local polynomial comparison for algebraic heights
-Hypotheses: All objects, actions and measures have the hypotheses in the statement.
+Hypotheses: F a number field; G an affine algebraic group over F; σ: G → GL_m and τ: G → GL_{m′} closed immersions over F; local norms as in adelic-height applied to σ ⊕ σ^∨ and τ ⊕ τ^∨
 Contract: For closed algebraic embeddings σ,τ of an affine group G into general linear groups and dual-augmented norms, there are integers N≥1 and positive c_v, with c_v=1 at almost all finite places, such that ‖τ(g)‖_v≤c_v‖σ(g)‖_v^N. The statement includes inverse coordinates.
 Signature omitted — The actual algebraic coordinate representation with its dual, canonical normalized local absolute values and RG2.0 evaluation topology are required to state this adelic height. The height-counting gap supplies ideal/unit/lattice estimates. An arbitrary proper function or norm without inverse coordinates would not state the contract.
 
 ### AdelicAlgebraicGroups:AA.3/adelic-height-proper — Properness of dual-augmented adelic height
-Hypotheses: All objects, actions and measures have the hypotheses in the statement.
+Hypotheses: F a number field; G an affine algebraic group over F; σ: G → GL_n a closed immersion over F; r contains σ ⊕ σ^∨; local norms normalized as in adelic-height
 Contract: If r contains a closed embedding σ and σ∨, the product height in adelic-height has compact sublevel sets. At infinity it bounds both σ(g) and σ(g)⁻¹; at finite v its value is ≥1 and, when not integral in both directions, is ≥q_v. A height bound therefore allows only finitely many exceptional finite places.
 Signature omitted — The actual algebraic coordinate representation with its dual, canonical normalized local absolute values and RG2.0 evaluation topology are required to state this adelic height. The height-counting gap supplies ideal/unit/lattice estimates. An arbitrary proper function or norm without inverse coordinates would not state the contract.
 
 ### AdelicAlgebraicGroups:AA.3/rational-coordinate-height-count — Polynomial count of rational coordinates
-Hypotheses: All objects, actions and measures have the hypotheses in the statement.
+Hypotheses: F a number field; d ≥ 1; absolute values normalized for the product formula (|·|_v = |·|^{[F_v:ℝ]} at archimedean v); R ≥ 1
 Contract: For a fixed number field F and integer d≥1, the number of a∈F^d with ∏_v max(1,|a₁|_v,…,|a_d|_v)≤R is at most C R^N for R≥1, for constants C,N depending only on F,d. The absolute values are normalized for the product formula.
 Signature omitted — The actual algebraic coordinate representation with its dual, canonical normalized local absolute values and RG2.0 evaluation topology are required to state this adelic height. The height-counting gap supplies ideal/unit/lattice estimates. An arbitrary proper function or norm without inverse coordinates would not state the contract.
 
 ### AdelicAlgebraicGroups:AA.3/positive-root-cone-integral — Exponential integrability on the relative chamber
-Hypotheses: All objects, actions and measures have the hypotheses in the statement.
+Hypotheses: r ≥ 0; a₀^G a real vector space of dimension r with a Haar (Lebesgue) measure; β_1, …, β_r a basis of its dual; c_1, …, c_r > 0 with 2ρ = Σ c_iβ_i; T ∈ a₀^G
 Contract: Let β₁,…,β_r be a basis of (a₀^G)* and let 2ρ=∑c_iβ_i with every c_i>0. For any T the integral of exp(−2ρ(H)) over β_i(H)>β_i(T) is finite. For r=0 the domain is the zero-dimensional point and has the chosen finite Haar mass.
 Signature omitted — RG2.1/RG2.3 must supply the actual rational parabolic, Levi, relative roots and good local integral models; LieGroups layer 9 and RG2.4 supply the specified Cartan/Iwasawa coordinates. Fixed-K compatibility is part of the contract. The reduction, root-intersection, pivot and Levi gaps remain explicit; arbitrary data fields for parabolics, compactness or factorization are not used.
 
 ### AdelicAlgebraicGroups:AA.3/reduced-form-scalar-invariance — Scalar invariance of reduced forms
-Hypotheses: All objects, actions and measures have the hypotheses in the statement.
+Hypotheses: B a positive definite real symmetric n × n matrix (the Gram matrix of b in the basis e); C > 0; a > 0 real
 Contract: For a positive definite Gram matrix B, C>0 and a>0, B is (e,C)-reduced iff aB is (e,C)-reduced. Consequently determinant normalization preserves reducedness.
 Native equivalent signature(s): RealSiegel.IsReduced.smul.
 
 ### AdelicAlgebraicGroups:AA.3/containment-parabolic-torus — Compatible parabolic and torus for a subgroup
-Hypotheses: All objects, actions and measures have the hypotheses in the statement.
-Contract: For H⊂G reductive over ℚ, a Siegel triple (P_H,S_H,K_H), and K_G containing K_H with Cartan involution stabilizing S_H, choose Q⊂G with Levi Z_G(S_H) and N_H⊂R_u(Q), then a minimal P_G⊂Q. Its Cartan-stable Siegel torus S_G contains S_H, satisfies S_G∩H=S_H, and N_H⊂N_G.
+Hypotheses: H ⊂ G reductive ℚ-groups; (P_H, S_H, K_H) a Siegel triple for H with S_H ℚ-split (the general case reduces to this by conjugating with an element of R_u(P_H)(ℝ), Orr §4.1); K_G ⊂ G(ℝ) maximal compact with K_H ⊂ K_G whose Cartan involution stabilises S_H
+Contract: For H⊂G reductive over ℚ, a Siegel triple (P_H,S_H,K_H), and K_G containing K_H with Cartan involution stabilizing S_H, choose a parabolic ℚ-subgroup Q⊂G with Levi Z_G(S_H) and N_H⊂R_u(Q), then a minimal P_G⊂Q. Its Cartan-stable Siegel torus S_G contains S_H, satisfies S_G∩H=S_H, and N_H⊂N_G.
 Signature omitted — RG2.1/RG2.3 must supply the actual rational parabolic, Levi, relative roots and good local integral models; LieGroups layer 9 and RG2.4 supply the specified Cartan/Iwasawa coordinates. Fixed-K compatibility is part of the contract. The reduction, root-intersection, pivot and Levi gaps remain explicit; arbitrary data fields for parabolics, compactness or factorization are not used.
 
 ### AdelicAlgebraicGroups:AA.3/containment-finite-root-cones — Finite root-cone comparison
-Hypotheses: All objects, actions and measures have the hypotheses in the statement.
-Contract: In containment-parabolic-torus, for any t>0 there is t′>0 such that every a∈A_{H,t} belongs to wA_{G,t′}w⁻¹ for some w in the finite Weyl group of S_G satisfying N_H,N_Z⊂wN_Gw⁻¹. Restricted roots equal to zero on S_H impose no inequality.
+Hypotheses: the notation and hypotheses of containment-parabolic-torus (S_H ℚ-split, K_H ⊂ K_G, Cartan involution of K_G stabilising S_H); Z = Z_G(S_H), N_Z = R_u(P_G ∩ Z); t > 0
+Contract: In containment-parabolic-torus, for any t>0 there is t′∈(0,1] such that every a∈A_{H,t} belongs to wA_{G,t′}w⁻¹ for some w in the finite Weyl group of S_G satisfying N_H,N_Z⊂wN_Gw⁻¹. Roots of S_G vanishing on S_H take the value 1 ≥ t′ on a, so they impose no further condition.
 Signature omitted — RG2.1/RG2.3 must supply the actual rational parabolic, Levi, relative roots and good local integral models; LieGroups layer 9 and RG2.4 supply the specified Cartan/Iwasawa coordinates. Fixed-K compatibility is part of the contract. The reduction, root-intersection, pivot and Levi gaps remain explicit; arbitrary data fields for parabolics, compactness or factorization are not used.
 
 ### AdelicAlgebraicGroups:AA.3/containment-weyl-representatives — Rational and compact Weyl representatives
-Hypotheses: All objects, actions and measures have the hypotheses in the statement.
+Hypotheses: the notation and hypotheses of containment-finite-root-cones; w ranges over the finite set of Weyl elements of S_G with N_H, N_Z ⊂ wN_Gw⁻¹; u ∈ N_Z(ℝ) with uS_Gu⁻¹ a maximal ℚ-split torus of P_G ∩ Z; the maximal real split torus containing S_G is chosen stable under the Cartan involution of K_G
 Contract: For each admissible Weyl element w in containment-finite-root-cones, choose a compact representative w_K∈K_G and a representative w_Q=u⁻¹w′_Qu with w′_Q∈G(ℚ), u∈N_Z(ℝ), and w′_Q⁻¹w_Q∈N_G(ℝ). Their quotient can be chosen in the identity component of Z_G(S_G)(ℝ).
 Signature omitted — RG2.1/RG2.3 must supply the actual rational parabolic, Levi, relative roots and good local integral models; LieGroups layer 9 and RG2.4 supply the specified Cartan/Iwasawa coordinates. Fixed-K compatibility is part of the contract. The reduction, root-intersection, pivot and Levi gaps remain explicit; arbitrary data fields for parabolics, compactness or factorization are not used.
 
 ### AdelicAlgebraicGroups:AA.3/containment-compact-factors — Uniform compact factors for subgroup Siegel sets
-Hypotheses: All objects, actions and measures have the hypotheses in the statement.
+Hypotheses: the notation and hypotheses of containment-weyl-representatives; Ω_H ⊂ N_H(ℝ)M_H(ℝ)^+ compact; K_Z = K_G ∩ Z_G(S_H)(ℝ), maximal compact in Z_G(S_H)(ℝ) by the Cartan hypothesis
 Contract: With Ω_H⊂N_HM_H compact, choose a compact Ω_G⊂N_GM_G and, for every admissible w, a compact B_w⊂S_G(ℝ)^0 such that w′_Q⁻¹Ω_H⊂Ω_G w_K⁻¹ B_w K_Z. All these choices range over a finite Weyl set.
 Signature omitted — RG2.1/RG2.3 must supply the actual rational parabolic, Levi, relative roots and good local integral models; LieGroups layer 9 and RG2.4 supply the specified Cartan/Iwasawa coordinates. Fixed-K compatibility is part of the contract. The reduction, root-intersection, pivot and Levi gaps remain explicit; arbitrary data fields for parabolics, compactness or factorization are not used.
 
 ### AdelicAlgebraicGroups:AA.4/projection-finite-covolume — Finite covolume of a projection closure
-Hypotheses: All objects, actions and measures have the hypotheses in the statement.
+Hypotheses: A and B second countable locally compact Hausdorff groups; Γ ⊂ A×B a lattice: a discrete subgroup with a nonzero finite (A×B)-invariant Radon measure on Γ\(A×B); B acts on Γ\(A×B) and on Δ\B by right translation in the second factor
 Contract: Let Γ be a lattice in locally compact second-countable groups A×B, and Δ the closure of its B-projection. Then Δ\B carries a nonzero finite B-invariant Radon measure.
 Signature omitted — RG2.0/RG2.1/RG2.4 supply canonical arithmetic local group/Lie/torus objects. The recorded analytic, density, cohomological, native-field or anisotropic gaps specify the remaining proof input. No generic Zariski-density assertion on an arbitrary subgroup replaces the full arithmetic subgroup.
 
 ### AdelicAlgebraicGroups:AA.4/arithmetic-native-lie-closure — Native-field Lie algebra of an arithmetic closure
-Hypotheses: All objects, actions and measures have the hypotheses in the statement.
-Contract: For absolutely almost simple G/F, S containing all infinite places with G(F_S) noncompact, and finite nonempty S₁ disjoint from S, the closure of G(O_{F,S∪S₁}) in ∏_{v∈S₁}G(F_v) has full native F_v Lie algebra in every factor and no proper graph Lie subalgebra linking distinct places. This is an arithmetic statement requiring the full S-integral subgroup, rather than mere F_v-Zariski density.
+Hypotheses: F a number field; G connected absolutely almost simple over F; S a finite set of places containing all archimedean places with G_S noncompact; S₁ a finite nonempty set of finite places disjoint from S
+Contract: For absolutely almost simple G/F, S containing all infinite places with G(F_S) noncompact, and finite nonempty S₁ disjoint from S, the closure of G(O_{F,S∪S₁}) in ∏_{v∈S₁}G(F_v) has full native F_v Lie algebra in every factor and, for the places of S₁ above one rational prime p, no proper graph Lie subalgebra of the ℚ_p-Lie algebra of ∏_{v|p}G(F_v) linking distinct places (places above distinct primes are separated by the pro-p splitting of compact open subgroups). This is an arithmetic statement requiring the full S-integral subgroup, rather than mere F_v-Zariski density.
 Signature omitted — RG2.0/RG2.1/RG2.4 supply canonical arithmetic local group/Lie/torus objects. The recorded analytic, density, cohomological, native-field or anisotropic gaps specify the remaining proof input. No generic Zariski-density assertion on an arbitrary subgroup replaces the full arithmetic subgroup.
 
 ### AdelicAlgebraicGroups:AA.4/arithmetic-finite-product-openness — Openness in a finite product of completions
-Hypotheses: All objects, actions and measures have the hypotheses in the statement.
-Contract: Given arithmetic-native-lie-closure and the closed analytic subgroup theorem for ∏_{v∈S₁}G(F_v), the closure Δ of G(O_{F,S∪S₁}) is open in that finite product. Its index is finite by projection-finite-covolume.
+Hypotheses: F a number field; G connected absolutely almost simple over F; S a finite set of places containing the archimedean places with G_S noncompact; S₁ a finite nonempty set of finite places disjoint from S
+Contract: Given arithmetic-native-lie-closure and Cartan's closed-subgroup theorem (recorded gap) applied, for each rational prime p, to the ℚ_p-analytic group ∏_{v∈S₁, v|p}G(F_v), the closure Δ of G(O_{F,S∪S₁}) is open in that finite product. Its index is finite by projection-finite-covolume.
 Signature omitted — RG2.0/RG2.1/RG2.4 supply canonical arithmetic local group/Lie/torus objects. The recorded analytic, density, cohomological, native-field or anisotropic gaps specify the remaining proof input. No generic Zariski-density assertion on an arbitrary subgroup replaces the full arithmetic subgroup.
 
 ### AdelicAlgebraicGroups:AA.4/arithmetic-finite-index-elimination — Elimination of arithmetic finite-index closures
-Hypotheses: All objects, actions and measures have the hypotheses in the statement.
+Hypotheses: F a number field; G connected, absolutely almost simple and simply connected over F; S a finite set of places containing the archimedean places with G_S noncompact; S₁ a finite set of finite places disjoint from S; the closure of G(𝒪_{F,S∪S₁}) in G_{S₁} is open of finite index
 Contract: For G/F absolutely almost simple simply connected, S containing infinity with G(F_S) noncompact, and S₁ finite disjoint from S, an open finite-index closure of G(O_{F,S∪S₁}) in ∏_{v∈S₁}G(F_v) is the whole product. At isotropic factors this follows from the local Kneser–Tits/Tits finite-index theorem; anisotropic factors need the separate global arithmetic congruence argument.
 Signature omitted — RG2.0/RG2.1/RG2.4 supply canonical arithmetic local group/Lie/torus objects. The recorded analytic, density, cohomological, native-field or anisotropic gaps specify the remaining proof input. No generic Zariski-density assertion on an arbitrary subgroup replaces the full arithmetic subgroup.
 
 ### AdelicAlgebraicGroups:AA.4/algebraic-tensor-eigenvalues — Eigenvalues of algebraic tensor subquotients
-Hypotheses: All objects, actions and measures have the hypotheses in the statement.
+Hypotheses: k a field of characteristic 0 with algebraic closure k̄; G an affine group scheme of finite type over k; ρ : G → GL(V) a closed immersion; σ : G → GL(W) an algebraic representation; g ∈ G(k)
 Contract: For a closed faithful algebraic representation ρ of a finite-type affine group G over a characteristic-zero field and any algebraic representation σ, every eigenvalue of σ(g) over an algebraic closure lies in the multiplicative subgroup generated by the eigenvalues of ρ(g).
 Signature omitted — The actual coordinate-algebra neatness and relative-level signatures are above; the algebraic-group meaning fixes a closed faithful representation. Concrete compact/congruence levels require RG2.0/RG2.3 canonical point/model topology and the actual completed valuation/eigenvalue field interface. The existence theorem also uses the coordinate-comodule supplier. No arbitrary abstract point representation is admitted.
 
 ### AdelicAlgebraicGroups:AA.4/compact-stable-padic-lattice — Stable lattices for compact p-adic matrix groups
-Hypotheses: All objects, actions and measures have the hypotheses in the statement.
+Hypotheses: p a prime; n ≥ 1; C ⊂ GL_n(ℚ_p) a compact subgroup
 Contract: Every compact subgroup C⊂GL_n(ℚ_p) preserves a full ℤ_p-lattice Λ⊂ℚ_p^n. It is conjugate into GL_n(ℤ_p).
 Signature omitted — The actual coordinate-algebra neatness and relative-level signatures are above; the algebraic-group meaning fixes a closed faithful representation. Concrete compact/congruence levels require RG2.0/RG2.3 canonical point/model topology and the actual completed valuation/eigenvalue field interface. The existence theorem also uses the coordinate-comodule supplier. No arbitrary abstract point representation is admitted.
 
 ### AdelicAlgebraicGroups:AA.4/padic-root-unity-distance — Distance of p-adic roots of unity from one
-Hypotheses: All objects, actions and measures have the hypotheses in the statement.
+Hypotheses: p a prime; ℚ̄_p an algebraic closure of ℚ_p with the unique extension of |·|_p; ζ ∈ ℚ̄_p a root of unity
 Contract: If ζ≠1 is a root of unity in an algebraic closure of ℚ_p, then |ζ−1|_p≥p^{−1/(p−1)}. More precisely a primitive p^k-th root has distance p^{−1/(p^{k−1}(p−1))}, while a root of order prime to p has distance one.
 Signature omitted — The actual coordinate-algebra neatness and relative-level signatures are above; the algebraic-group meaning fixes a closed faithful representation. Concrete compact/congruence levels require RG2.0/RG2.3 canonical point/model topology and the actual completed valuation/eigenvalue field interface. The existence theorem also uses the coordinate-comodule supplier. No arbitrary abstract point representation is admitted.
 
 ### AdelicAlgebraicGroups:AA.4/congruence-matrix-eigenvalue-bound — Eigenvalue bound for congruence matrices
-Hypotheses: All objects, actions and measures have the hypotheses in the statement.
+Hypotheses: p a prime; a ≥ 1; M ∈ 1 + p^a M_n(ℤ_p); eigenvalues taken in ℚ̄_p with the extended absolute value
 Contract: If M∈1+p^a M_n(ℤ_p), every eigenvalue λ of M in ℚ̄_p satisfies |λ−1|_p≤p^−a. The eigenvalues and their inverses then lie in the multiplicative open ball used by padic-ball-torsion-free when p≥3,a≥1 or p=2,a≥2.
 Signature omitted — The actual coordinate-algebra neatness and relative-level signatures are above; the algebraic-group meaning fixes a closed faithful representation. Concrete compact/congruence levels require RG2.0/RG2.3 canonical point/model topology and the actual completed valuation/eigenvalue field interface. The existence theorem also uses the coordinate-comodule supplier. No arbitrary abstract point representation is admitted.
 
 ### AdelicAlgebraicGroups:AA.4/compact-kernel-split-centre — Compact kernel of height on an archimedean level
-Hypotheses: All objects, actions and measures have the hypotheses in the statement.
+Hypotheses: F a number field; G connected reductive over F with A_G the maximal ℚ-split central torus of Res_{F/ℚ}G; K∞ ⊂ G(F_∞) a closed subgroup containing A_G(ℝ)^0 with K∞/A_G(ℝ)^0 compact; H_{G,∞} : G(F_∞) → 𝔞_G the archimedean log-height of AA.2
 Contract: For connected reductive G/F let K∞⊂G(F∞) be closed, contain A_G(ℝ)^0, and be compact modulo it. Then K∞∩ker H_{G,∞} is compact, and multiplication gives K∞≃A_G(ℝ)^0×(K∞∩ker H_{G,∞}).
 Signature omitted — This needs the canonical adelic product/quotient topology, actual split-centre-containing K∞ and compact open U, and its rational action groupoid. RG2.0/RG2.1 supply those point/split-centre maps. The generic double-coset functions above cover the algebraic set part only; arbitrary covers, spaces or stabilizer counts would lose the geometric contract.
 
 ### AdelicAlgebraicGroups:AA.4/rational-stabilizer-finite — Finite full rational stabilizers
-Hypotheses: All objects, actions and measures have the hypotheses in the statement.
+Hypotheses: F a number field; G connected reductive over F; K∞ ⊂ G(F_∞) closed, containing A_G(ℝ)^0 and compact modulo it; U ⊂ G(𝔸_{F,f}) compact open; g ∈ G(𝔸_F)
 Contract: Under compact-kernel-split-centre and for compact open U⊂G(𝔸_f), A_x=G(F)∩gK∞Ug⁻¹ is finite. Here A_x is the full stabilizer, before division by any rational central subgroup.
 Signature omitted — This needs the canonical adelic product/quotient topology, actual split-centre-containing K∞ and compact open U, and its rational action groupoid. RG2.0/RG2.1 supply those point/split-centre maps. The generic double-coset functions above cover the algebraic set part only; arbitrary covers, spaces or stabilizer counts would lose the geometric contract.
 
 ### AdelicAlgebraicGroups:AA.4/rational-action-proper — Proper arithmetic action on the level space
-Hypotheses: All objects, actions and measures have the hypotheses in the statement.
+Hypotheses: F a number field; G connected reductive over F; K∞ ⊂ G(F_∞) closed, containing A_G(ℝ)^0 and compact modulo it; U ⊂ G(𝔸_{F,f}) compact open; G(F) acts on G(𝔸)/K∞U by left multiplication
 Contract: Under rational-stabilizer-finite, the discrete group G(F) acts properly discontinuously on G(𝔸)/K∞U with its canonical quotient topology: for compact C,D only finitely many γ satisfy γC∩D≠∅.
 Signature omitted — This needs the canonical adelic product/quotient topology, actual split-centre-containing K∞ and compact open U, and its rational action groupoid. RG2.0/RG2.1 supply those point/split-centre maps. The generic double-coset functions above cover the algebraic set part only; arbitrary covers, spaces or stabilizer counts would lose the geometric contract.
 
 ### AdelicAlgebraicGroups:AA.4/level-full-stabilizer-mass — Fibre mass for full stabilizers
-Hypotheses: All objects, actions and measures have the hypotheses in the statement.
+Hypotheses: F a number field; G connected reductive over F; K∞ ⊂ G(F_∞) closed; U′ ⊂ U ⊂ G(𝔸_{F,f}) compact open; x = [g] ∈ X_U with A_x = G(F) ∩ gK∞Ug⁻¹ finite (for example by rational-stabilizer-finite)
 Contract: Let U′⊂U be compact open and let A_x=G(F)∩gK∞Ug⁻¹ be finite. For the full stabilizers A_y at the points above x, ∑_{y↦x}1/|A_y|=[U:U′]/|A_x|.
 Signature omitted — This needs the canonical adelic product/quotient topology, actual split-centre-containing K∞ and compact open U, and its rational action groupoid. RG2.0/RG2.1 supply those point/split-centre maps. The generic double-coset functions above cover the algebraic set part only; arbitrary covers, spaces or stabilizer counts would lose the geometric contract.
 
 ### AdelicAlgebraicGroups:AA.4/abelianization-integral-lifts — Integral lifting for reductive abelianization
-Hypotheses: All objects, actions and measures have the hypotheses in the statement.
+Hypotheses: F a number field; G connected reductive over F with G^der simply connected; D = G/G^der and ν : G → D the quotient morphism
 Contract: For connected reductive G/F with simply connected derived group and ν:G→D=G/G^der, there is a finite set B such that smooth reductive models over O_{F,B} extend ν and ν:G(O_v)→D(O_v) is surjective for every finite v∉B.
 Signature omitted — RG2.0/RG2.1/RG2.4 supply canonical arithmetic local group/Lie/torus objects. The recorded analytic, density, cohomological, native-field or anisotropic gaps specify the remaining proof input. No generic Zariski-density assertion on an arbitrary subgroup replaces the full arithmetic subgroup.
 
 ### AdelicAlgebraicGroups:AA.4/abelianization-adelic-surjective — Surjectivity of finite adelic abelianization
-Hypotheses: All objects, actions and measures have the hypotheses in the statement.
+Hypotheses: F a number field; G connected reductive over F with G^der simply connected; D = G/G^der and ν : G → D the quotient morphism with its restricted-product map on finite adelic points
 Contract: Under abelianization-integral-lifts and local simply connected H¹ vanishing, ν:G(𝔸_f)→D(𝔸_f) is surjective with kernel G^der(𝔸_f). It is the actual restricted-product homomorphism induced by ν.
 Signature omitted — RG2.0/RG2.1/RG2.4 supply canonical arithmetic local group/Lie/torus objects. The recorded analytic, density, cohomological, native-field or anisotropic gaps specify the remaining proof input. No generic Zariski-density assertion on an arbitrary subgroup replaces the full arithmetic subgroup.
 
 ### AdelicAlgebraicGroups:AA.4/cover-integral-image — Integral compatibility of a central derived cover
-Hypotheses: All objects, actions and measures have the hypotheses in the statement.
+Hypotheses: F a number field; G connected reductive over F; ρ : G̃ → G^der the simply connected central cover of the derived group (a central isogeny), extended with G̃, G^der to smooth affine models over 𝒪_{F,B} for a finite set B (RG2.3 request)
 Contract: For the actual simply connected central cover ρ:G̃→G^der, at almost every finite place v one has ρ(G̃(F_v))∩G^der(O_v)=ρ(G̃(O_v)). Consequently the adelic image is exactly the restricted product of the local images with these integral image subgroups.
 Signature omitted — RG2.1/RG2.3 must supply the actual simply connected algebraic cover and its integral models. Reduced norms, their open local images and good integral images determine the restricted-product quotient topology, as recorded in the quaternion norm gap. A chosen point homomorphism or bijection of square classes is insufficient.
 
 ### AdelicAlgebraicGroups:AA.4/idele-class-square-compact — Compact idele classes modulo squares
-Hypotheses: All objects, actions and measures have the hypotheses in the statement.
+Hypotheses: F a number field; C_F = F^×\𝔸_F^× with the quotient topology and C_F² its subgroup of squares; the idele norm and the compactness of C_F^1 from GlobalNumberFields layer 6
 Contract: Let C_F=F×\𝔸_F× be the idele class group of a number field. Then C_F/C_F² is compact Hausdorff: the norm decomposition C_F≃ℝ_{>0}×C_F¹ identifies it with the quotient of compact C_F¹ by its square image.
 Signature omitted — This needs the actual compact Hausdorff residual/idele quotient from the preceding canonical norm maps and CompactGroups layer 5 character/Fourier interfaces. The general weak-measure limit language cannot replace that identified quotient and its diagonal embeddings.
 
 ### AdelicAlgebraicGroups:AA.4/quadratic-kernel-fourier — Fourier convergence of quadratic-character kernels
-Hypotheses: All objects, actions and measures have the hypotheses in the statement.
+Hypotheses: C a compact Hausdorff abelian group; χ_i : C → {±1} pairwise distinct nontrivial continuous characters; m_i the Haar probability of the closed subgroup ker χ_i, viewed on C
 Contract: Let C be a compact Hausdorff abelian group and χ_i:C→{±1} pairwise distinct nontrivial continuous characters. For each fixed character ψ of C, the Haar integral of ψ over ker χ_i is zero unless ψ=1 or ψ=χ_i, and hence these kernel Haar probabilities converge weakly to Haar probability on C.
 Signature omitted — This needs the actual compact Hausdorff residual/idele quotient from the preceding canonical norm maps and CompactGroups layer 5 character/Fourier interfaces. The general weak-measure limit language cannot replace that identified quotient and its diagonal embeddings.
 
 ### AdelicAlgebraicGroups:AA.4/diagonal-coset-limit — Limits of Haar measures on diagonal cosets
-Hypotheses: All objects, actions and measures have the hypotheses in the statement.
+Hypotheses: C a compact Hausdorff abelian group; either H_i = ker χ_i for pairwise distinct quadratic characters χ_i : C → {±1} (then H = C) or H_i = H a fixed closed subgroup; z_i ∈ C × C; Haar probabilities on the cosets z_iH_i^Δ
 Contract: For compact abelian C, closed H_i≤C with H_i→H through the quadratic-kernel setting, and points z_i∈C×C, every weak limit of Haar probabilities on z_iH_i^Δ is H^Δ-invariant and supported on one coset of H^Δ. The analogous statement holds when H_i=H is fixed.
 Signature omitted — This needs the actual compact Hausdorff residual/idele quotient from the preceding canonical norm maps and CompactGroups layer 5 character/Fourier interfaces. The general weak-measure limit language cannot replace that identified quotient and its diagonal embeddings.
 
 ### AdelicAlgebraicGroups:AA.5/gl1-logarithmic-torus — Canonical logarithmic torus at GL₁ level
-Hypotheses: All objects, actions and measures have the hypotheses in the statement.
+Hypotheses: F a number field with r₁ real and r₂ complex places; Q a finite set of finite places, p a prime and n ≥ 1 with N(v) ≡ 1 mod p^n for v ∈ Q; U_Q = K_∞ × ∏_v U_{Q,v}, K_∞ and A_∞^0 as in gl1-XQ-components
 Contract: For the level U_Q of gl1-XQ-components, the identity component is the logarithmic quotient W/Λ_Q, where W=ℝ^{r₁+r₂}/ℝ·(1,…,1) and Λ_Q is the image of totally positive congruence units F×∩U_{Q,f}. It is a compact real torus of dimension r₁+r₂−1. The complex circle factors have already been divided out by K∞.
 Signature omitted — GlobalNumberFields layers 4–6 supply the actual idele norm/unit topology and finite-idele class maps; the canonical logarithmic unit lattice and specified level then define these spaces. AlgebraicTopology stage 6 supplies actual torus cohomology and its translation maps. An arbitrary torus or chosen equivalence would omit the component/level assertion.
 
 ### AdelicAlgebraicGroups:AA.5/gl2-orthogonal-level-components — GL₂ components for O(2) and SO(2)
-Hypotheses: All objects, actions and measures have the hypotheses in the statement.
+Hypotheses: G = GL₂ over ℚ; N ≥ 1 and K(N) = ker(GL₂(ℤ̂) → GL₂(ℤ/N)); K∞ = ℝ^×SO(2) with the raw Möbius action on ℍ±, or K∞ = ℝ^×O(2) with the folded action on ℍ
 Contract: For GL₂/ℚ and principal finite level K(N), the quotient with K∞=ℝ×SO(2) has components (ℤ/N)× and raw real symmetric space ℍ± before rational orientation reduction. With K∞=ℝ×O(2), the real space is the folded ℍ and the component set is (ℤ/N)×/{±1}. At N=3 these cardinalities are respectively two and one.
 Signature omitted — The raw/folded matrix formulas are native above. The full adelic statement needs RG2.0 canonical GL₂ point topology, actual principal finite congruence level, and the arithmetic quotient comparison from ModularCurvesPartII:R12.2. A generic upper-half-plane action alone does not specify the SO(2)/O(2) component maps.
 
 ### AdelicAlgebraicGroups:AA.2/central-product-closed — Closedness of the central rational product
-Hypotheses: All objects, actions and measures have the hypotheses in the statement.
+Hypotheses: F a number field; G connected reductive over F with centre Z and adjoint quotient G → G^ad of kernel Z (RG2.1); X ≤ Z(𝔸_F) a closed subgroup with XZ(F) closed in Z(𝔸_F)
 Contract: Let G be connected reductive over F and X a closed subgroup of Z(𝔸_F). If XZ(F) is closed in Z(𝔸_F), then XG(F) is closed in G(𝔸_F).
 Signature omitted — This contract needs canonical adelic centre/adjoint quotient data from RG2.1 and the associated measurable line, Borel section and completion-identification language recorded in the central analytic gap. It is not represented by an arbitrary Hilbert space, a topological line bundle or an assumed unitary representation.
 
