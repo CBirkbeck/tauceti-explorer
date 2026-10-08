@@ -12,14 +12,14 @@
   "PadicHodgeRegulators:L1",
   "PadicHodgeRegulators:L2"
  ],
- "status": "partial",
- "summary": "Part D.1 of P-adic regulators and the local K₃ calculation plans eight layers at target granularity. L0 imports the period-ring, Tate-twist and Fontaine–Laffaille conventions. L1 plans Bloch–Kato local conditions, exponentials, logarithms, duality and field-change maps, including the exact unramified integral lattice. L2 plans the regulator-specific generator, root, twist, lattice, coefficient and Kummer–Coleman comparisons around Fontaine’s Iwasawa map; the generic complexes remain with their existing owners. D.1 plans the finite-étale and number-field dilogarithm interfaces and normalization dictionary, importing upstream local-unit structure. D.2 plans Soulé’s étale regulator, Besser’s smooth rigid-syntomic regulator and the special-unit polylogarithm comparisons. It imports four required classical integral/log-syntomic contracts from an early CohomologyComparisons Part II producer that still needs to be named and planned; it does not own that generic package. D.3 plans the p>3 unramified completed K₃ regulator isomorphism and root-of-unity generation, with the residue-spanning argument repaired. D.4 plans semilocal naturality, denominator control and the Habiro export, and distinguishes rational regulator injectivity from the stronger Qₚ-linear assertion. D.5 is partial: the good-reduction curve model comparison is unresolved, and family specialization and the full semistable symbol formula lack target nodes. This independent review is complete with needs_changes; seven node contracts remain unverifiable. Honest partial stages and open conjectures are not themselves grounds for rejection. Nothing is claimed formalized.",
+ "status": "complete",
+ "summary": "Revision of eight target-level layers: local Bloch–Kato/Iwasawa regulator comparisons, the smooth unramified syntomic/étale regulator, completed local K₃ and its global/Habiro exports, and weight-two curve regulators. All existing 68 IDs and the independent review object are retained. Direct de Rham local duality, divided versus undivided integral period maps, and the rigid-to-modified norm comparison are specified from public primary sources. D.5 now includes relative curve-symbol construction and smooth-fibre specialization, plus the semistable continuous/discrete construction and full second-kind symbol formula on ker N. Eight stages are planned at target granularity; external producer gaps and the global injectivity conjecture remain explicit. This is a completed planning revision, not an independent acceptance or a claim of formalization.",
  "conventions": {
   "hodgeTate": "Hodge–Tate weights in the convention HT(Q_p(1)) = +1: h is a weight when Fil^{−h}D_dR ≠ Fil^{−h+1}D_dR (as in PadicHodgeTheory R06.2, R06.4, the L3–L4 packet and Lei–Loeffler–Zerbes). Sources with the opposite sign are translated.",
   "periods": "t = log[ε] for a fixed compatible system ε of p-power roots of unity; e_r = t^{−r} ⊗ ε^{⊗r} is the canonical basis of D_dR(Q_p(r)), independent of ε, with φ(e_r) = p^{−r}e_r; D_dR(Q_p(r)) is identified with K through e_r. In L2 only, the notation e_j inside D(T(j)), N(T(j)) and cocycles denotes the chosen representation basis ε^{⊗j}, not the canonical de Rham vector above; it scales by a^j when ε is replaced by ε^a.",
   "frobenius": "Arithmetic Frobenius throughout (φ(ζ) = ζ^p on roots of unity of order prime to p); sources using the geometric Frobenius (Huber–Kings 2003) are converted.",
   "logarithm": "The Iwasawa branch log_p(p) = 0 of ColemanIntegration:L0/iwasawa-logarithm; D_p(z) = Li_2(z) + ½ log_p(z) log_p(1 − z) is Coleman's D for this branch, equal to Besser–de Jeu's L_mod,2.",
-  "regulators": "Soulé's étale regulator uses Chern classes; Besser's syntomic regulator reg_syn = η ∘ c^syn satisfies r^et = exp_BK ∘ reg_syn with no constant; D_p on completed K_3 is ε·log_BK ∘ c_{2,1} with the sign ε fixed by D_p([ζ]) = Li_2(ζ); Gros's normalisation is (1 − σ/p²)·D_p. For curves, the following is the intended normalization, conditional on the modified-versus-rigid comparison recorded in gaps and the two unverifiable D.5 nodes: regP = Θ ∘ reg_syn = log_BK ∘ r^et, and regSynCan = (1 − φ/q²)·regP.",
+  "regulators": "Soulé's étale regulator uses Chern classes; Besser's syntomic regulator reg_syn = η ∘ c^syn satisfies r^et = exp_BK ∘ reg_syn with no constant; D_p on completed K_3 is ε·log_BK ∘ c_{2,1} with the sign ε fixed by D_p([ζ]) = Li_2(ζ); Gros's normalisation is (1 − σ/p²)·D_p. For good-reduction curves, regP=Θ∘reg_syn=log_BK∘r_et and regSynCan=(1−Φ/q²)regP, with the explicit norm comparison β and transported K-action of D.5. Semistable curves have separate continuous reg^c,π and discrete reg^d coordinates; the symbol pairing is on ker N with a fixed uniformizer/branch. Relative AM Frobenius coordinates use a negative syntomic-coordinate comparison at n=1.",
   "kTheory": "K_3(L; Z_p) is π_3 of the p-completed K-theory spectrum (KTheoryFiniteLocalFields:L.1/completed-k-theory); for p > 3 and L unramified it is free of rank [L : Q_p] and equals the completion of Suslin's Bloch group."
  },
  "baseline": {
@@ -31,133 +31,133 @@
     "kind": "decl",
     "module": "Mathlib/RingTheory/Norm/Defs.lean",
     "provides": "The norm S →* R of an R-algebra as the determinant of multiplication.",
-    "checked": "Statement read at the pinned commit on 2026-10-06 (line 61). Independently reread at the full pinned commit by REV-PadicHodgeRegulators--D.1."
+    "checked": "Statement read at the pinned commit on 2026-10-06 (line 61). Independently reread at the full pinned commit by REV-PadicHodgeRegulators--D.1. Statement reread at the full pin in this revision on 2026-10-08; support limits retained."
    },
    {
     "ref": "mathlib:Algebra.trace",
     "kind": "decl",
     "module": "Mathlib/RingTheory/Trace/Defs.lean",
     "provides": "The trace S →ₗ[R] R of an R-algebra as the trace of multiplication.",
-    "checked": "Statement read at the pinned commit on 2026-10-06 (line 71). Independently reread at the full pinned commit by REV-PadicHodgeRegulators--D.1."
+    "checked": "Statement read at the pinned commit on 2026-10-06 (line 71). Independently reread at the full pinned commit by REV-PadicHodgeRegulators--D.1. Statement reread at the full pin in this revision on 2026-10-08; support limits retained."
    },
    {
     "ref": "mathlib:FreeAbelianGroup",
     "kind": "decl",
     "module": "Mathlib/GroupTheory/FreeAbelianGroup.lean",
     "provides": "The free abelian group on a type, the group of formal symbols [z].",
-    "checked": "Statement read at the pinned commit on 2026-10-06 (line 96). Independently reread at the full pinned commit by REV-PadicHodgeRegulators--D.1."
+    "checked": "Statement read at the pinned commit on 2026-10-06 (line 96). Independently reread at the full pinned commit by REV-PadicHodgeRegulators--D.1. Statement reread at the full pin in this revision on 2026-10-08; support limits retained."
    },
    {
     "ref": "mathlib:IsArithFrobAt",
     "kind": "decl",
     "module": "Mathlib/RingTheory/Frobenius.lean",
     "provides": "Predicate stating the arithmetic residue congruence at an ideal; it does not construct the unramified Frobenius automorphism (imported upstream).",
-    "checked": "Statement read at the pinned commit on 2026-10-06 (line 183). Independently reread at the full pinned commit by REV-PadicHodgeRegulators--D.1."
+    "checked": "Statement read at the pinned commit on 2026-10-06 (line 183). Independently reread at the full pinned commit by REV-PadicHodgeRegulators--D.1. Statement reread at the full pin in this revision on 2026-10-08; support limits retained."
    },
    {
     "ref": "mathlib:Module.Free",
     "kind": "decl",
     "module": "Mathlib/LinearAlgebra/FreeModule/Basic.lean",
     "provides": "The predicate that a module is free.",
-    "checked": "Statement read at the pinned commit on 2026-10-06 (line 43). Independently reread at the full pinned commit by REV-PadicHodgeRegulators--D.1."
+    "checked": "Statement read at the pinned commit on 2026-10-06 (line 43). Independently reread at the full pinned commit by REV-PadicHodgeRegulators--D.1. Statement reread at the full pin in this revision on 2026-10-08; support limits retained."
    },
    {
     "ref": "mathlib:OrzechProperty",
     "kind": "decl",
     "module": "Mathlib/RingTheory/OrzechProperty.lean",
     "provides": "Commutative rings have the Orzech property: a surjection onto a finitely generated module from a submodule (or through an injection) is injective; used for 'surjective between free modules of equal rank implies injective'.",
-    "checked": "Statement read at the pinned commit on 2026-10-06 (line 63). Independently reread at the full pinned commit by REV-PadicHodgeRegulators--D.1."
+    "checked": "Statement read at the pinned commit on 2026-10-06 (line 63). Independently reread at the full pinned commit by REV-PadicHodgeRegulators--D.1. Statement reread at the full pin in this revision on 2026-10-08; support limits retained."
    },
    {
     "ref": "mathlib:PadicComplex",
     "kind": "decl",
     "module": "Mathlib/NumberTheory/Padics/Complex.lean",
     "provides": "ℂ_[p], the completion of the algebraic closure of ℚ_[p].",
-    "checked": "Statement read at the pinned commit on 2026-10-06 (line 137). Independently reread at the full pinned commit by REV-PadicHodgeRegulators--D.1."
+    "checked": "Statement read at the pinned commit on 2026-10-06 (line 137). Independently reread at the full pinned commit by REV-PadicHodgeRegulators--D.1. Statement reread at the full pin in this revision on 2026-10-08; support limits retained."
    },
    {
     "ref": "mathlib:Polynomial",
     "kind": "decl",
     "module": "Mathlib/Algebra/Polynomial/Basic.lean",
     "provides": "Polynomial rings, the carrier of the finite polylogarithm.",
-    "checked": "Statement read at the pinned commit on 2026-10-06 (line 73). Independently reread at the full pinned commit by REV-PadicHodgeRegulators--D.1."
+    "checked": "Statement read at the pinned commit on 2026-10-06 (line 73). Independently reread at the full pinned commit by REV-PadicHodgeRegulators--D.1. Statement reread at the full pin in this revision on 2026-10-08; support limits retained."
    },
    {
     "ref": "mathlib:Submodule.span",
     "kind": "decl",
     "module": "Mathlib/LinearAlgebra/Span/Defs.lean",
     "provides": "The span of a set in a module.",
-    "checked": "Statement read at the pinned commit on 2026-10-06 (line 46). Independently reread at the full pinned commit by REV-PadicHodgeRegulators--D.1."
+    "checked": "Statement read at the pinned commit on 2026-10-06 (line 46). Independently reread at the full pinned commit by REV-PadicHodgeRegulators--D.1. Statement reread at the full pin in this revision on 2026-10-08; support limits retained."
    },
    {
     "ref": "mathlib:Submodule.le_of_le_smul_of_le_jacobson_bot",
     "kind": "decl",
     "module": "Mathlib/RingTheory/Nakayama.lean",
     "provides": "Nakayama's lemma: for N' finitely generated and I ≤ jacobson ⊥, N' ≤ N ⊔ I•N' implies N' ≤ N; used to lift spanning modulo p.",
-    "checked": "Statement read at the pinned commit on 2026-10-06 (line 146). Independently reread at the full pinned commit by REV-PadicHodgeRegulators--D.1."
+    "checked": "Statement read at the pinned commit on 2026-10-06 (line 146). Independently reread at the full pinned commit by REV-PadicHodgeRegulators--D.1. Statement reread at the full pin in this revision on 2026-10-08; support limits retained."
    },
    {
     "ref": "mathlib:WittVector",
     "kind": "decl",
     "module": "Mathlib/RingTheory/WittVector/Defs.lean",
     "provides": "p-typical Witt vectors W(R).",
-    "checked": "Statement read at the pinned commit on 2026-10-06 (line 52). Independently reread at the full pinned commit by REV-PadicHodgeRegulators--D.1."
+    "checked": "Statement read at the pinned commit on 2026-10-06 (line 52). Independently reread at the full pinned commit by REV-PadicHodgeRegulators--D.1. Statement reread at the full pin in this revision on 2026-10-08; support limits retained."
    },
    {
     "ref": "mathlib:WittVector.frobenius",
     "kind": "decl",
     "module": "Mathlib/RingTheory/WittVector/Frobenius.lean",
     "provides": "Witt-vector Frobenius ring homomorphism; the unramified integer-ring classification and equality with arithmetic Frobenius are imported upstream, not supplied by this declaration alone.",
-    "checked": "Statement read at the pinned commit on 2026-10-06 (line 221). Independently reread at the full pinned commit by REV-PadicHodgeRegulators--D.1."
+    "checked": "Statement read at the pinned commit on 2026-10-06 (line 221). Independently reread at the full pinned commit by REV-PadicHodgeRegulators--D.1. Statement reread at the full pin in this revision on 2026-10-08; support limits retained."
    },
    {
     "ref": "mathlib:ZMod",
     "kind": "decl",
     "module": "Mathlib/Data/ZMod/Defs.lean",
     "provides": "ℤ/nℤ, in particular 𝔽_p.",
-    "checked": "Statement read at the pinned commit on 2026-10-06 (line 142). Independently reread at the full pinned commit by REV-PadicHodgeRegulators--D.1."
+    "checked": "Statement read at the pinned commit on 2026-10-06 (line 142). Independently reread at the full pinned commit by REV-PadicHodgeRegulators--D.1. Statement reread at the full pin in this revision on 2026-10-08; support limits retained."
    },
    {
     "ref": "mathlib:bernoulli",
     "kind": "decl",
     "module": "Mathlib/NumberTheory/Bernoulli.lean",
     "provides": "Bernoulli numbers with B_1 = −1/2 (bernoulli n = (−1)^n bernoulli' n).",
-    "checked": "Statement read at the pinned commit on 2026-10-06 (line 195). Independently reread at the full pinned commit by REV-PadicHodgeRegulators--D.1."
+    "checked": "Statement read at the pinned commit on 2026-10-06 (line 195). Independently reread at the full pinned commit by REV-PadicHodgeRegulators--D.1. Statement reread at the full pin in this revision on 2026-10-08; support limits retained."
    },
    {
     "ref": "tauceti:TauCeti.teichmuller",
     "kind": "decl",
     "module": "TauCeti/NumberTheory/LocalField/Teichmuller.lean",
     "provides": "The Teichmüller lift 𝓀[K]ˣ →* 𝒪[K]ˣ of a nonarchimedean local field.",
-    "checked": "Statement read at the pinned commit on 2026-10-06 (line 100). Independently reread at the full pinned commit by REV-PadicHodgeRegulators--D.1."
+    "checked": "Statement read at the pinned commit on 2026-10-06 (line 100). Independently reread at the full pinned commit by REV-PadicHodgeRegulators--D.1. Statement reread at the full pin in this revision on 2026-10-08; support limits retained."
    },
    {
     "ref": "tauceti:TauCeti.residue_teichmuller",
     "kind": "decl",
     "module": "TauCeti/NumberTheory/LocalField/Teichmuller.lean",
     "provides": "The Teichmüller lift is a section of reduction.",
-    "checked": "Statement read at the pinned commit on 2026-10-06 (line 132). Independently reread at the full pinned commit by REV-PadicHodgeRegulators--D.1."
+    "checked": "Statement read at the pinned commit on 2026-10-06 (line 132). Independently reread at the full pinned commit by REV-PadicHodgeRegulators--D.1. Statement reread at the full pin in this revision on 2026-10-08; support limits retained."
    },
    {
     "ref": "tauceti:TauCeti.eq_teichmuller",
     "kind": "decl",
     "module": "TauCeti/NumberTheory/LocalField/Teichmuller.lean",
     "provides": "A (q−1)-torsion unit reducing to α is the Teichmüller lift of α.",
-    "checked": "Statement read at the pinned commit on 2026-10-06 (line 158). Independently reread at the full pinned commit by REV-PadicHodgeRegulators--D.1."
+    "checked": "Statement read at the pinned commit on 2026-10-06 (line 158). Independently reread at the full pinned commit by REV-PadicHodgeRegulators--D.1. Statement reread at the full pin in this revision on 2026-10-08; support limits retained."
    },
    {
     "ref": "tauceti:TauCeti.range_teichmuller",
     "kind": "decl",
     "module": "TauCeti/NumberTheory/LocalField/Teichmuller.lean",
     "provides": "The image of the Teichmüller lift is μ_{q−1}(𝒪[K]).",
-    "checked": "Statement read at the pinned commit on 2026-10-06 (line 175). Independently reread at the full pinned commit by REV-PadicHodgeRegulators--D.1."
+    "checked": "Statement read at the pinned commit on 2026-10-06 (line 175). Independently reread at the full pinned commit by REV-PadicHodgeRegulators--D.1. Statement reread at the full pin in this revision on 2026-10-08; support limits retained."
    },
    {
     "ref": "tauceti:TauCeti.kummerClassMap",
     "kind": "decl",
     "module": "TauCeti/FieldTheory/GaloisCohomology/Kummer.lean",
     "provides": "Finite-coefficient injective Kummer class map Kˣ/(Kˣ)^n→H¹(G_K,μ_n); the continuous p-adic identification and inverse-limit compatibility are supplied by SelmerIwasawaCohomology L0.",
-    "checked": "Statement read at the pinned commit on 2026-10-06 (line 279). Independently reread at the full pinned commit by REV-PadicHodgeRegulators--D.1."
+    "checked": "Statement read at the pinned commit on 2026-10-06 (line 279). Independently reread at the full pinned commit by REV-PadicHodgeRegulators--D.1. Statement reread at the full pin in this revision on 2026-10-08; support limits retained."
    }
   ]
  },
@@ -515,6 +515,79 @@
     "§9: Propositions 9.9,9.11 and Corollary 9.10",
     "§10: Proposition 10.1(3) and Proposition 10.3"
    ]
+  },
+  {
+   "id": "BK1990",
+   "title": "L-functions and Tamagawa numbers of motives",
+   "authors": "Spencer Bloch and Kazuya Kato",
+   "edition": "Public seminar scan; Grothendieck Festschrift I (1990), 333–400",
+   "url": "https://virtualmath1.stanford.edu/~conrad/BSDseminar/refs/BKTamagawa.pdf",
+   "readDate": "2026-10-08",
+   "sha256": "ec89c6436c7e16580791eddd562c8c04a12442d8a8484f8ac75c5ea8dc04f5e5",
+   "readSections": [
+    "Proposition 3.8, Lemma 3.8.1, Corollary 3.8.4 and proof, pp. 354–359"
+   ]
+  },
+  {
+   "id": "EN2016",
+   "title": "Syntomic cohomology and p-adic motivic cohomology",
+   "authors": "Veronika Ertl and Wiesława Nizioł",
+   "edition": "arXiv:1603.01705v2; locators use this version",
+   "url": "https://arxiv.org/pdf/1603.01705v2",
+   "readDate": "2026-10-08",
+   "sha256": "131f6cf4ef32b15ceed8951eb48068c4f01fd13e6d3f42972b20e23b643c0d14",
+   "readSections": [
+    "§§2.1–2.2.1, pp. 4–8; Proposition 2.1 and Theorems 2.2–2.3"
+   ]
+  },
+  {
+   "id": "AM2022",
+   "title": "Milnor K-theory, F-isocrystals and syntomic regulators",
+   "authors": "Masanori Asakura and Kazuaki Miyatani",
+   "edition": "arXiv:2007.14255v2; published JIMJ 23 (2024), 1357–1415",
+   "url": "https://arxiv.org/pdf/2007.14255v2",
+   "readDate": "2026-10-08",
+   "sha256": "d4e618564f25fc5b1a69bbd07296593b08dd696972ab468d29b3d6948ab531be",
+   "readSections": [
+    "Lemma 2.8, Assumption 2.20, Theorem 2.23, §2.7, Theorem 3.7 and proof, pp. 8–9,16–20,26–31",
+    "§4.1, Lemma 4.2, Proposition 4.3, Lemma 4.4 and Theorem 4.5, pp. 32–36"
+   ]
+  },
+  {
+   "id": "Asakura2023",
+   "title": "New p-adic hypergeometric functions and syntomic regulators",
+   "authors": "Masanori Asakura",
+   "edition": "Journal de Théorie des Nombres de Bordeaux 35 (2023), 393–479; published PDF",
+   "url": "https://numdam.org/item/10.5802/jtnb.1250.pdf",
+   "readDate": "2026-10-08",
+   "sha256": "b6a007bc6521cb6d24a72baf5ba8e474d92dee0809da384a0e23340028554c51",
+   "readSections": [
+    "Theorem 4.9 and Corollary 4.10, pp. 435–436"
+   ]
+  },
+  {
+   "id": "Besser2025",
+   "title": "Regulators and derivatives of Vologodsky functions with respect to log(p)",
+   "authors": "Amnon Besser",
+   "edition": "arXiv:2502.16738v1; all locators use this version",
+   "url": "https://arxiv.org/pdf/2502.16738v1",
+   "readDate": "2026-10-08",
+   "sha256": "5515a69a5dae87bfb6eea88a0eb3b168590bbcf782dae004d9459e247c258595",
+   "readSections": [
+    "§3, pp. 6–10: complexes (3.8)–(3.9), Proposition 3.3, Proposition 3.5, Definition 3.7 and Theorem 3.10; §7, pp. 28–29: full symbol pairing and Theorem 7.6"
+   ]
+  },
+  {
+   "id": "BR2019",
+   "title": "Toric regulators",
+   "authors": "Amnon Besser and Wayne Raskind",
+   "edition": "arXiv:1910.06877v1; locators use this version",
+   "url": "https://arxiv.org/pdf/1910.06877v1",
+   "readDate": "2026-10-08",
+   "sha256": "54a549f7dcc1eda2cc2fb01fbd01b508678b6d4fdc501ab3d4946d2e2861e896",
+   "readSections": [
+    "§3, pp. 10–11; Theorem 4.6 and Theorem 4.7 proof, pp. 18–20"
+   ]
   }
  ],
  "sourceVersions": [
@@ -693,7 +766,8 @@
      "match": "The canonical basis e_r of (iii)."
     }
    ],
-   "implementationStatus": "unchecked"
+   "implementationStatus": "unchecked",
+   "declaration": "hodge_tate_and_twist_conventions"
   },
   {
    "id": "PadicHodgeRegulators:L0/fundamental-exact-sequences",
@@ -741,7 +815,8 @@
      "match": "(d), with t^{r} = t^{b(r)}(t^{p−1}/p)^{a(r)} spanning Z_p(r)'."
     }
    ],
-   "implementationStatus": "unchecked"
+   "implementationStatus": "unchecked",
+   "declaration": "fundamental_exact_sequences"
   },
   {
    "id": "PadicHodgeRegulators:L0/integral-period-interface",
@@ -777,7 +852,8 @@
      "match": "The integral lattice O_K·e_m in D_dR(Q_p(m)) against which the integral statements are measured."
     }
    ],
-   "implementationStatus": "unchecked"
+   "implementationStatus": "unchecked",
+   "declaration": "integral_period_interface"
   },
   {
    "id": "PadicHodgeRegulators:L1/bloch-kato-subgroups",
@@ -1311,6 +1387,11 @@
    ],
    "sources": [
     {
+     "sourceId": "BK1990",
+     "locator": "Corollary 3.8.4 and equation (3.8.5), pp. 355–356",
+     "match": "The finite-part dimension count is established before the duality conclusion."
+    },
+    {
      "sourceId": "Benois2014",
      "locator": "Proposition 2.8.2(i), p. 44",
      "match": "The H^1_f formula (for (φ,Γ)-modules, which covers V via D†_rig(V))."
@@ -1321,7 +1402,8 @@
      "match": "The quotient H^1_f/H^1_e."
     }
    ],
-   "implementationStatus": "unchecked"
+   "implementationStatus": "unchecked",
+   "declaration": "blochKato_dimension_formulas"
   },
   {
    "id": "PadicHodgeRegulators:L1/local-duality-of-conditions",
@@ -1344,19 +1426,25 @@
     "ArithmeticGaloisDuality:D7/duality-after-localization",
     "ArithmeticGaloisDuality:D7/local-invariant-trivialization",
     "ArithmeticGaloisDuality:D7/local-duality-maps",
-    "ArithmeticGaloisDuality:D7/derived-local-duality",
-    "PadicHodgeTheory:R06.3/p-adic-monodromy-theorem"
+    "ArithmeticGaloisDuality:D7/derived-local-duality"
    ],
    "proofSteps": [
-    "Orthogonality: the cup product of H^1_f(V) and H^1_f(V^*(1)) factors through H^2(K, B_cris ⊗ Q_p(1)) computations which vanish (Bloch–Kato Proposition 3.8, quoted in Fontaine–Ouyang Theorem 9.27).",
-    "Do not invoke L1/dimension-formulas here: that node already uses this duality theorem. FO Theorem 9.27 gives exact annihilators for semistable V. For de Rham V import potential semistability, choose finite Galois L/K with V|_{G_L} semistable, and descend using restriction/corestriction, exact finite-group invariants over Q_p and the descent of D_cris/D_dR local conditions. The required descent of H_f is a separate supplier obligation if not proved; it is recorded as a gap. The e/g pairing is equivalently the exponential/dual-exponential adjunction, without the circular dimension argument.",
-    "Integral version: Rubin Proposition I.4.3, using the lattice compatibility of the pairings (SelmerIwasawaCohomology:L1/lattice-pairing-compatibility)."
+    "Use the direct de Rham argument of BK Proposition 3.8. The fundamental exact sequence with B_cris and B_dR supplies the finite-part connecting map. Cup-product naturality shows that a class killed after extension to B_cris annihilates the finite-part image for the dual twist. This is a connecting-map diagram, not an assertion that all H² with period coefficients vanish.",
+    "Prove the finite-part dimension count independently of this theorem using BK Lemma 3.8.1 and Corollary 3.8.4: de Rham admissibility implies injectivity of H¹(B_dR⁺⊗V)→H¹(B_dR⊗V); the exact sequence gives dim H_f=dim t_V+dim H⁰(V). Combine the counts for V and V*(1) with the imported rational local Euler characteristic, H²/H⁰ Tate duality and the complementary filtration dimensions. Their sum is dim H¹(V), so finite-part orthogonality is exact. Do not call the downstream L1/dimension-formulas node.",
+    "For e/g, use the other fundamental exact sequence and its cup-product diagram. BK pp. 357–359 reduce nondegeneracy to the pairing of C_p-cohomology through its boundary into H²(Q_p(1)), with the Hodge–Tate decomposition and the nonzero Kummer boundary. Import the required continuous period-cohomology and filtration-limit facts from PadicHodgeTheory; no ramified descent of H_f is used.",
+    "Propagate the rational conditions to a lattice and its torsion quotient using the compatible rational/integral local pairings and the image/preimage definitions (Rubin I.4.3, pp. 9–10). Keep the separate finite unramified ℓ≠p assertion at its supplied scope."
    ],
    "acceptance": [
     "V = Q_p: H^1_f(Q_p) = H^1_ur is the annihilator of H^1_f(Q_p(1)) = Kummer image of units, which is local class field theory's statement that units are the norms killing unramified characters.",
-    "V = Q_p(2), V^*(1) = Q_p(−1): H^1_f(Q_p(2)) = H^1 and H^1_f(Q_p(−1)) = 0 are annihilators."
+    "V = Q_p(2), V^*(1) = Q_p(−1): H^1_f(Q_p(2)) = H^1 and H^1_f(Q_p(−1)) = 0 are annihilators.",
+    "Restriction to a ramified field where V becomes semistable is not an equality test for H_f(K,V); the direct proof must work before that restriction."
    ],
    "sources": [
+    {
+     "sourceId": "BK1990",
+     "locator": "Proposition 3.8 and its proof, pp. 354–359; Corollary 3.8.4, p. 355",
+     "match": "Direct proof for de Rham representations, with an independent finite-part dimension count."
+    },
     {
      "sourceId": "FO",
      "locator": "Theorem 9.27, p. 235",
@@ -1368,7 +1456,8 @@
      "match": "The same, in Rubin's notation V^* = V^*(1)."
     }
    ],
-   "implementationStatus": "unchecked"
+   "implementationStatus": "unchecked",
+   "declaration": "blochKato_local_duality"
   },
   {
    "id": "PadicHodgeRegulators:L1/twist-and-change-of-field",
@@ -1412,7 +1501,8 @@
      "match": "Shapiro's lemma in the form used for semilocal conditions."
     }
    ],
-   "implementationStatus": "unchecked"
+   "implementationStatus": "unchecked",
+   "declaration": "blochKato_change_of_field"
   },
   {
    "id": "PadicHodgeRegulators:L1/tate-twist-examples",
@@ -1455,7 +1545,8 @@
      "match": "Case (iii): exp_BK : K → H^1(K, Q_p(n))."
     }
    ],
-   "implementationStatus": "unchecked"
+   "implementationStatus": "unchecked",
+   "declaration": "blochKato_tate_twists"
   },
   {
    "id": "PadicHodgeRegulators:L1/abelian-variety-logarithm",
@@ -1498,7 +1589,8 @@
      "match": "H^1_f of V_pA is the Kummer image."
     }
    ],
-   "implementationStatus": "unchecked"
+   "implementationStatus": "unchecked",
+   "declaration": "blochKato_abelian_log"
   },
   {
    "id": "PadicHodgeRegulators:L1/integral-logarithm-unramified",
@@ -1552,7 +1644,8 @@
      "match": "Fontaine's map ∂^r."
     }
    ],
-   "implementationStatus": "unchecked"
+   "implementationStatus": "unchecked",
+   "declaration": "blochKato_integral_log"
   },
   {
    "id": "PadicHodgeRegulators:L1/semilocal-bloch-kato",
@@ -1834,7 +1927,8 @@
      "match": "The independence asserted by Berger."
     }
    ],
-   "implementationStatus": "unchecked"
+   "implementationStatus": "unchecked",
+   "declaration": "fontaine_generator_independence"
   },
   {
    "id": "PadicHodgeRegulators:L2/root-change",
@@ -1872,7 +1966,8 @@
      "match": "The effect of a root change on the regulator; the coordinate dictionary is derived in proofSteps (no source states it as one lemma)."
     }
    ],
-   "implementationStatus": "unchecked"
+   "implementationStatus": "unchecked",
+   "declaration": "fontaine_root_change"
   },
   {
    "id": "PadicHodgeRegulators:L2/local-iwasawa-twist",
@@ -2029,7 +2124,8 @@
      "match": "(iv)."
     }
    ],
-   "implementationStatus": "unchecked"
+   "implementationStatus": "unchecked",
+   "declaration": "fontaine_twist_compatibility"
   },
   {
    "id": "PadicHodgeRegulators:L2/wach-psi-fixed-vectors",
@@ -2079,7 +2175,8 @@
      "match": "Form (iii), used by the L3 regulator."
     }
    ],
-   "implementationStatus": "unchecked"
+   "implementationStatus": "unchecked",
+   "declaration": "wach_psi_fixed_vectors"
   },
   {
    "id": "PadicHodgeRegulators:L2/character-specialisation",
@@ -2229,7 +2326,8 @@
      "match": "The lattice bijection."
     }
    ],
-   "implementationStatus": "unchecked"
+   "implementationStatus": "unchecked",
+   "declaration": "fontaine_lattice_coefficient_squares"
   },
   {
    "id": "PadicHodgeRegulators:L2/kummer-coleman-comparison",
@@ -2272,10 +2370,11 @@
     {
      "sourceId": "CC99",
      "locator": "§V.3, p. 27",
-     "match": "Cherbonnier–Colmez's normalisation of δ_n, whose sign against the Kummer cocycle is computed in proofSteps (sourceIssues)."
+     "match": "Cherbonnier–Colmez's normalisation of δ_n, whose sign against the Kummer cocycle remains an explicit comparison gap; the calculation in proofSteps is only a lead."
     }
    ],
-   "implementationStatus": "unchecked"
+   "implementationStatus": "unchecked",
+   "declaration": "kummer_coleman_comparison"
   },
   {
    "id": "PadicHodgeRegulators:D.1/teichmuller-unit-decomposition",
@@ -2323,7 +2422,8 @@
      "match": "The regulator calculation works with the Teichmüller (order prime to p) roots of unity and principal units separately."
     }
    ],
-   "implementationStatus": "unchecked"
+   "implementationStatus": "unchecked",
+   "declaration": "teichmuller_unit_decomposition"
   },
   {
    "id": "PadicHodgeRegulators:D.1/unramified-frobenius-on-roots",
@@ -2364,7 +2464,8 @@
      "match": "The uniqueness used to identify φ(ω(α)) with ω(α^p)."
     }
    ],
-   "implementationStatus": "unchecked"
+   "implementationStatus": "unchecked",
+   "declaration": "unramified_frobenius_on_roots"
   },
   {
    "id": "PadicHodgeRegulators:D.1/etale-algebra-dilogarithm",
@@ -2576,7 +2677,8 @@
      "match": "Frobenius equivariance at roots of unity of order prime to p."
     }
    ],
-   "implementationStatus": "unchecked"
+   "implementationStatus": "unchecked",
+   "declaration": "dilogarithm_scalar_extension"
   },
   {
    "id": "PadicHodgeRegulators:D.1/combined-dilogarithm",
@@ -2768,7 +2870,8 @@
      "match": "The normalisation GSWZ adopt; see sourceIssues E101 for the scope of the cited theorem."
     }
    ],
-   "implementationStatus": "unchecked"
+   "implementationStatus": "unchecked",
+   "declaration": "regulator_normalisation_dictionary"
   },
   {
    "id": "PadicHodgeRegulators:D.1/unit-logarithm-kernel",
@@ -2807,7 +2910,8 @@
      "match": "The branch fixed throughout the layer."
     }
    ],
-   "implementationStatus": "unchecked"
+   "implementationStatus": "unchecked",
+   "declaration": "unit_logarithm_kernel"
   },
   {
    "id": "PadicHodgeRegulators:D.1/logarithm-norm-trace",
@@ -2842,7 +2946,8 @@
      "match": "Galois equivariance, the input that turns norms into traces."
     }
    ],
-   "implementationStatus": "unchecked"
+   "implementationStatus": "unchecked",
+   "declaration": "logarithm_norm_trace"
   },
   {
    "id": "PadicHodgeRegulators:D.2/etale-regulator",
@@ -3282,7 +3387,8 @@
      "match": "Primary source independently read; the normalized versus raw modified-model map must be tracked as specified in the statement/proofSteps."
     }
    ],
-   "implementationStatus": "unchecked"
+   "implementationStatus": "unchecked",
+   "declaration": "syntomic_etale_regulator_comparison"
   },
   {
    "id": "PadicHodgeRegulators:D.2/weight-two-dilogarithm-comparison",
@@ -3337,7 +3443,8 @@
      "match": "The general case, which remains conjectural and is not asserted here."
     }
    ],
-   "implementationStatus": "unchecked"
+   "implementationStatus": "unchecked",
+   "declaration": "weight_two_dilogarithm_comparison"
   },
   {
    "id": "PadicHodgeRegulators:D.2/higher-weight-polylogarithm-comparison",
@@ -3380,7 +3487,8 @@
      "match": "Cyclotomic elements."
     }
    ],
-   "implementationStatus": "unchecked"
+   "implementationStatus": "unchecked",
+   "declaration": "higher_weight_polylogarithm_comparison"
   },
   {
    "id": "PadicHodgeRegulators:D.2/gros-normalisation",
@@ -3421,7 +3529,8 @@
      "match": "The normalisation change."
     }
    ],
-   "implementationStatus": "unchecked"
+   "implementationStatus": "unchecked",
+   "declaration": "gros_normalisation"
   },
   {
    "id": "PadicHodgeRegulators:D.2/log-syntomic-complex",
@@ -3431,11 +3540,11 @@
    ],
    "title": "Log-syntomic complexes S_n(r)",
    "kind": "comparison",
-   "statement": "Let O_K be a complete discrete valuation ring of mixed characteristic (0, p) with perfect residue field k, O_F = W(k), and let X be an fs log-scheme, log-smooth over O_K^× (O_K with the log structure of its closed point); X_n := X ⊗ Z/p^n. For r ≥ 0 the mod-p^n log-syntomic complex is RΓ_syn(X, r)_n := [RΓ_cr(X, J^{[r]})_n --(p^r − φ)--> RΓ_cr(X)_n] (homotopy fibre), where RΓ_cr(X, J^{[r]})_n is absolute log-crystalline cohomology of X_n over W_n(k) with coefficients in the r-th divided-power ideal J^{[r]} (J^{[r]} = O for r ≤ 0) and φ is the crystalline Frobenius; its étale sheafification on X_0 is S_n(r)_X ≃ [J^{[r]}_{cr,n} --(p^r − φ)--> A_{cr,n}], with RΓ_syn(X, r)_n = RΓ(X_{0,ét}, S_n(r)_X). The completed version is RΓ_syn(X, r) := holim_n RΓ_syn(X, r)_n, with RΓ_syn(X, r)_n ≃ RΓ_syn(X, r) ⊗^L Z/p^n, and rationally RΓ_syn(X, r)_Q ≃ Cone(RΓ_cr(X, J^{[r]})_Q --(1 − φ_r)--> RΓ_cr(X)_Q)[−1] with φ_r = φ/p^r. This is CN §5.1.1’s undivided convention p^r−φ. A classical divided-Frobenius convention uses 1−φ_r on the appropriate Frobenius-divisible ideal. These are identified after inverting p; the integral comparison must be provided explicitly, not assumed termwise.",
+   "statement": "For an fs log-smooth X/O_K^× (mixed characteristic, perfect residue field), r≥0 and m≥1, distinguish U_m(r)=Fib(p^r−φ:J_m^[r]→O_cr,m) from D_m(r)=Fib(1−φ_r:J_m^<r>→O_cr,m). Here J_m^<r> is obtained by lifting to level m+s, s≥r, imposing φ(x)∈p^r O_cr,m+s, then reducing modulo p^m; φ_r is the resulting divided Frobenius. For 0≤r≤p−1 the two domain ideals agree, but the two differentials and complexes still differ. There are directed maps ω_r:U_m(r)→D_m(r), with legs (p^r,id), and τ_r:D_m(r)→U_m(r), with legs (id,p^r). Both composites are p^r; their cohomological kernels/cokernels are p^r-torsion. ω preserves products; τ generally does not. Étale sheafification, derived global sections and derived m-limits are imported. CN S_m(r) denotes U_m(r), whereas EN S_m(r) denotes D_m(r) and EN S′_m(r) denotes U_m(r). After rationalization ω and τ/p^r are inverse comparisons; integral equality is not asserted.",
    "hypotheses": [
     "X fs, log-smooth over O_K^×, of Cartier type where comparisons with Hyodo–Kato cohomology are used; O_K need not be unramified.",
-    "r ≥ 0, n ≥ 1.",
-    "Required supplier contract in the early classical log-syntomic prefix of CohomologyComparisons Part II, per the accepted verification of RT-AREA-iwasawa-2/3. CP.4 is only the routing anchor; its current rational proper B_st comparison does not supply this integral/open construction."
+    "r≥0 and m≥1.",
+    "Imported contract CohomologyComparisonsPartII:CS.0/classical-divided-and-undivided-syntomic is proposed, not an existing declaration. The source-supported specification below fixes the request; implementation remains external."
    ],
    "prerequisites": [
     "CrystallineCohomology:CR.5",
@@ -3445,13 +3554,13 @@
     "CohomologyComparisons:CP.4"
    ],
    "proofSteps": [
-    "Absolute log-crystalline cohomology with the divided-power filtration and its Frobenius are imported from CrystallineCohomology CR.3/CR.5 (request: the filtered absolute log-crystalline complexes RΓ_cr(X, J^{[r]})_n of fs log-smooth O_K^×-schemes with Frobenius).",
-    "The homotopy fibre of p^r − φ is formed in the derived category of Z/p^n-modules; étale localisation gives the sheaf version, and the derived limit gives the completed one.",
-    "Rationally, p^r − φ = p^r(1 − φ_r) on J^{[r]}, giving the cone form."
+    "Import the absolute log-crystalline PD ideal and Frobenius once from CR.5/CR.6 and the proposed CS.0 producer. The Frobenius-divisible ideal is defined using a higher modulus so division by p^r is well defined after reduction. EN §2.1, pp. 4–5 verifies independence of the lift level.",
+    "The chain-map equations follow from (1−φ_r)p^r=p^r−φ. Compose the displayed legs to obtain multiplication by p^r. This gives a bounded comparison, not an integral quasi-isomorphism. EN §2.1.2, pp. 5–6 distinguishes product compatibility for ω from its failure for τ.",
+    "For completion/base change use the derived crystalline reduction contract, not an underived inverse limit. The four D.2 nodes only name the imported interfaces; their CS producer is part of the restructuring request."
    ],
    "acceptance": [
-    "X = Spec O_K with its log structure and r ≥ 2: H^1_syn(X, r) is p^N-isomorphic to O_K and H^0 to 0 (Colmez–Nizioł Proposition 3.19, up to p^{N(r,e)}).",
-    "r = 1: H^1_syn(O_K^×, 1) is p^N-isomorphic to O_K ⊕ Z_p, the extra Z_p accounting for the valuation, matching dim H^1(K, Q_p(1)) = [K:Q_p] + 1."
+    "For X=Spf O_K with its log structure and r≥2, the rationalized undivided H¹ is K and H⁰ is zero by CN Corollary 3.16, p. 37. No identification of a bounded integral lattice with O_K is inferred from Proposition 3.19’s asserted O_K^(r) lattice.",
+    "At r=1 the rational period comparison and continuous Kummer realization give H¹_syn ≅ (O_K^×)^∧_p⊗Q_p ⊕ Q_p ≅ K⊕Q_p, with the extra line recording valuation."
    ],
    "uses": [
     {
@@ -3460,7 +3569,7 @@
     },
     {
      "where": "RT-AREA-iwasawa-2/3",
-     "how": "the log-syntomic package (S_n(r), the period morphism, the small-twist isomorphism, the syntomic exponential) owned by this roadmap and imported by D.2 and D.5"
+     "how": "Shared complexes and maps owned by the proposed early CohomologyComparisons Part II prefix; D.2 and semistable D.5 consume them."
     },
     {
      "where": "PadicHodgeRegulators:D.5/semistable-input-boundary",
@@ -3475,12 +3584,12 @@
     {
      "name": "logSyntomicComplex",
      "role": "data",
-     "statement": "logSyntomicComplex X r n : the complex RΓ_syn(X, r)_n of Z/p^n-modules."
+     "statement": "logSyntomicComplex X r m is the imported undivided complex U_m(r), not the divided D_m(r)."
     },
     {
      "name": "logSyntomicSheaf",
      "role": "data",
-     "statement": "S_n(r)_X on X_{0,ét}, with RΓ(X_{0,ét}, S_n(r)_X) ≃ logSyntomicComplex X r n."
+     "statement": "logSyntomicSheaf X r m is the étale undivided sheaf complex U_m(r); its derived global sections give logSyntomicComplex."
     },
     {
      "name": "logSyntomicComplex_reduction",
@@ -3501,6 +3610,16 @@
      "name": "logSyntomicComplex_product",
      "role": "structure",
      "statement": "Cup products S_n(r) ⊗ S_n(s) → S_n(r + s)."
+    },
+    {
+     "name": "logSyntomicDividedComplex",
+     "role": "data",
+     "statement": "The imported D_m(r) with the Frobenius-divisible ideal, distinct from U_m(r)."
+    },
+    {
+     "name": "logSyntomicToDivided",
+     "role": "relation",
+     "statement": "ω_r:U_m(r)→D_m(r) has legs (p^r,id); τ_r has legs (id,p^r), and both composites equal p^r. Only ω is asserted multiplicative."
     }
    ],
    "tests": [
@@ -3523,6 +3642,11 @@
      "name": "logSyntomic_not_naive_twist",
      "kind": "non-example",
      "statement": "At r=p−1 the chosen Euclidean decomposition gives a(r)=1 and Z_p(r)′=p^{-1}Z_p(r), whereas at r=p−2 it gives a(r)=0 and the ordinary twist. Replacing all modified lattices by the ordinary lattice loses this normalization."
+    },
+    {
+     "name": "logSyntomic_division_is_not_iso",
+     "kind": "non-example",
+     "statement": "At m=1 and r≥1, p^r is zero. The identity ωτ=p^r supplies no inverse; for zero Frobenius and identical Z/p domains, Fib(0) and Fib(id) already have different cohomology. This algebraic test detects invalid rescaling."
     }
    ],
    "sources": [
@@ -3535,9 +3659,22 @@
      "sourceId": "NN2016",
      "locator": "Introduction, (1), p. 2",
      "match": "The rational form."
+    },
+    {
+     "sourceId": "EN2016",
+     "locator": "§2.1 and §2.1.2, pp. 4–6",
+     "match": "Both integral complexes, the directed ω/τ maps, and their distinct product behavior."
     }
    ],
-   "implementationStatus": "unchecked"
+   "implementationStatus": "unchecked",
+   "externalContract": {
+    "proposedProducer": "CohomologyComparisonsPartII:CS.0/classical-divided-and-undivided-syntomic",
+    "status": "requested",
+    "owner": "CohomologyComparisons, Part II",
+    "routingAnchor": "CohomologyComparisons:CP.4",
+    "boundary": "The anchor supplies the proper rational comparison only; this early integral/open contract is not present in its packet. No new generic syntomic carrier is owned here."
+   },
+   "declaration": "logSyntomicComplex"
   },
   {
    "id": "PadicHodgeRegulators:D.2/fontaine-messing-kato-period-map",
@@ -3547,10 +3684,10 @@
    ],
    "title": "The Fontaine–Messing–Kato period morphism",
    "kind": "comparison",
-   "statement": "For X as in D.2/log-syntomic-complex, i:X_0→X and j:X_tr→X, the required supplier defines the Fontaine–Messing–Kato morphism α^FM_{r,n}:S_n(r)_X→i^*Rj_*Z/p^n(r)′, r≥0, compatible with reduction and the source’s product convention. Here Z_p(r)′=p^{-a(r)}Z_p(r) with r=(p−1)a(r)+b(r), 0≤b(r)<p−1. CN §4.7 constructs its local map using period rings, the crystalline Poincaré lemma and the integral fundamental-sequence maps. The p^r-exact fundamental sequence gives only a p-power comparison; its backwards arrow cannot be inverted as an actual quasi-isomorphism in D(Z/p^n). The precise integral map, its direction and the comparison between undivided and divided complexes are required from the supplier (recorded gap); after inverting p these arrows become quasi-isomorphisms.",
+   "statement": "Use the imported divided complex D_m(r). Its integral Fontaine–Messing period map α_div:D_m(r)→i*Rj*(Z/p^m(r)′) is a directed morphism. For 0≤r≤p−2 it lands in the ordinary twist. In all weights EN uses Z_p(r)′=(p^a a!)^−1 Z_p(r), r=(p−1)a+b, 0≤b<p−1. On the syntomic–étale site the map goes from D_m(r) to i_se* j_se* j′*G(Z/p^m(r)′), with G the Godement resolution. Exactness of the special-fibre pushforward and the topos comparison induce the stated étale map after derived pushforward. Define α_und=α_div∘ω_r on U_m(r); this is multiplicative and reduction-compatible. This construction inverts no p^r-exact arrow. CN uses p^−a Z_p(r); the lattices coincide when a! is a p-unit, in particular for all weights used by D.2/D.3 here. Any all-weight identification with CN requires its explicit factorial normalization.",
    "hypotheses": [
     "X fs log-smooth over O_K^×; r ≥ 0; the normalisation of Z_p(r)' follows Colmez–Nizioł (Nekovář–Nizioł use (p^a a!)^{−1}Z_p(r), which agrees for r < p(p − 1)).",
-    "Required supplier contract in the early classical log-syntomic prefix of CohomologyComparisons Part II, per the accepted verification of RT-AREA-iwasawa-2/3. CP.4 is only the routing anchor; its current rational proper B_st comparison does not supply this integral/open construction."
+    "Imported contract CohomologyComparisonsPartII:CS.1/integral-fontaine-messing-period is proposed, not an existing declaration. The source-supported specification below fixes the request; implementation remains external."
    ],
    "prerequisites": [
     "PadicHodgeRegulators:D.2/log-syntomic-complex",
@@ -3562,13 +3699,12 @@
     "CohomologyComparisons:CP.4"
    ],
    "proofSteps": [
-    "A_cr and its filtration are imported (PadicHodgeTheory:R06.1/crystalline-period-ring; the relative rings A_cr(R) of small algebras are requested from AInfCohomology AI.4); the p^r-exact sequence 0 → Z_p(r)' → F^r A_cr → A_cr → 0 is the integral form of L0/fundamental-exact-sequences. Its cokernel is killed by p^r, not necessarily zero. This does not justify an inverse in the integral derived category.",
-    "The crystalline Poincaré lemma (CrystallineCohomology CR.2, log version CR.5) identifies Galois cochains with values in the PD de Rham complex of the envelope with the A_cr complex.",
-    "Gluing the local maps on an étale cover and passing to the étale sheaf i^*Rj_* gives α^FM.",
-    "The displayed backwards-arrow construction in the original packet is not a proof of an integral map. Obtain the integral Fontaine–Messing construction and its normalization from the early shared supplier before closing this contract."
+    "Import the syntomic–étale site and the canonical directed Fontaine–Messing map described in EN §2.2, p. 7. Apply the derived direct image and its special-fibre/base-change identifications to obtain α_div. The underlying integral construction remains the CS.1 supplier obligation, not a new construction by D.2.",
+    "Compose with ω_r to define α_und. EN §2.2.1, pp. 7–8 supplies product compatibility. The p^r-bounded fundamental sequence does not justify inverting its integral arrow.",
+    "Track EN’s factorial-modified twist and CN’s twist separately. For r=2, p≥5, both have a=0; no correction factor is hidden in the local regulator."
    ],
    "acceptance": [
-    "For X = Spec O_K and r = 1, α^FM sends the syntomic class of a unit u to its Kummer class in H^1(K, Z/p^n(1)).",
+    "Degree one: α_div(c_div(u))=κ_m(u), while α_und(c_und(u))=p·κ_m(u) (EN §2.1.2, §2.2.1, pp. 6–8).",
     "For general r the integral fundamental sequence is p^r-exact; neither an actual quasi-isomorphism nor the impossibility of any map with an ordinary twist follows from that statement."
    ],
    "uses": [
@@ -3578,7 +3714,7 @@
     },
     {
      "where": "PadicHodgeRegulators:D.2/small-twist-comparison",
-     "how": "the Kato–Kurihara–Tsuji isomorphism in degrees i ≤ r ≤ p − 1"
+     "how": "Exact divided comparison for 0≤i≤r≤p−2; bounded undivided comparison separately."
     },
     {
      "where": "PadicHodgeRegulators:D.2/syntomic-exponential",
@@ -3589,12 +3725,12 @@
     {
      "name": "fmkPeriodMap",
      "role": "data",
-     "statement": "fmkPeriodMap X r n : S_n(r)_X ⟶ i^* Rj_* (ℤ/p^n)(r)'_{X_tr} in the derived category of étale sheaves on X_0."
+     "statement": "fmkPeriodMap X r m := α_div∘ω_r : U_m(r)→i*Rj*(Z/p^m(r)′); the divided map is a separate imported interface."
     },
     {
      "name": "fmkPeriodMap_local",
      "role": "characterisation",
-     "statement": "On a small chart Spf R it agrees with CN §4.7’s explicitly directed integral map; p-power quasi-isomorphisms are not inverted integrally. The supplier must state and compare the divided and undivided conventions."
+     "statement": "The divided map comes from the canonical syntomic–étale-site map to a Godement resolution and derived pushforward. The undivided map is its composition with ω_r; no bounded quasi-isomorphism is inverted."
     },
     {
      "name": "fmkPeriodMap_mul",
@@ -3609,14 +3745,19 @@
     {
      "name": "fmkPeriodMap_degree_one",
      "role": "example",
-     "statement": "For r = 1 on X = Spec O_K, it sends the syntomic class of u ∈ O_K^× to the Kummer class of u."
+     "statement": "On the divided weight-one unit class α_div equals the Kummer map; on the undivided unit class α_und equals p times Kummer, because ω sends that class to p times the divided one."
+    },
+    {
+     "name": "fmkDividedPeriodMap",
+     "role": "data",
+     "statement": "α_div:D_m(r)→i*Rj*(Z/p^m(r)′), with EN’s (p^a a!)^−1 twist."
     }
    ],
    "tests": [
     {
      "name": "fmk_kummer",
      "kind": "computation",
-     "statement": "For X = Spec Z_p, r = 1, n = 1 and u = 1 + p, the image of the syntomic class of u is the Kummer class of 1 + p in H^1(Q_p, μ_p)."
+     "statement": "For a unit u, the divided class maps to κ_m(u); the undivided class maps to p·κ_m(u). At m=1 the latter can vanish despite κ_m(u)≠0. Exactness belongs to the divided map."
     },
     {
      "name": "fmk_weight_zero",
@@ -3644,9 +3785,27 @@
      "sourceId": "CN2017",
      "locator": "§1, p. 2",
      "match": "The twist; see sourceIssues for the range of b(r)."
+    },
+    {
+     "sourceId": "EN2016",
+     "locator": "§2.2–§2.2.1, pp. 7–8",
+     "match": "Directed divided-period map, derived pushforward and composition with ω."
+    },
+    {
+     "sourceId": "EN2016",
+     "locator": "§2.1.2 and §2.2.1, pp. 6–8",
+     "match": "The displayed unit cocycles have ω(c_und(u))=p c_div(u); this scaling prevents an exact undivided Kummer test."
     }
    ],
-   "implementationStatus": "unchecked"
+   "implementationStatus": "unchecked",
+   "externalContract": {
+    "proposedProducer": "CohomologyComparisonsPartII:CS.1/integral-fontaine-messing-period",
+    "status": "requested",
+    "owner": "CohomologyComparisons, Part II",
+    "routingAnchor": "CohomologyComparisons:CP.4",
+    "boundary": "The anchor supplies the proper rational comparison only; this early integral/open contract is not present in its packet. No new generic syntomic carrier is owned here."
+   },
+   "declaration": "fmkPeriodMap"
   },
   {
    "id": "PadicHodgeRegulators:D.2/small-twist-comparison",
@@ -3654,14 +3813,13 @@
    "realises": [
     "PadicHodgeRegulators:D.2"
    ],
-   "title": "Kato–Kurihara–Tsuji: the period map is an isomorphism for small twists",
+   "title": "The divided small-weight comparison and the undivided bounded comparison",
    "kind": "comparison",
-   "statement": "Let X be an fs log-scheme log-smooth over a henselian discrete valuation ring O_K of mixed characteristic (0, p). For integers i ≤ r ≤ p − 1 and n ≥ 1 the period map α^FM_{r,n} : H^i(S_n(r)_X) → i^* R^i j_* Z/p^n(r)_{X_tr} is an isomorphism (for r ≤ p − 2, Z_p(r)' = Z_p(r)). For general r, Colmez–Nizioł prove that the kernel and cokernel of α^FM_{r,n} on H^i, 0 ≤ i ≤ r, are killed by p^{Nr + c_p} if K contains enough roots of unity and by p^{N(K,p,r)} in general, for X semistable over O_K (or a base change of one). Consequently, for X proper and log-smooth over O_K^×, H^j_syn(X_{O_K̄}, r)_Q ≅ H^j_et(X_{tr,K̄}, Q_p(r)) for j ≤ r.",
+   "statement": "For fs log-smooth X/O_K^× and 0≤i≤r≤p−2, α_div induces H^i(D_m(r))≅i*R^ij*(Z/p^m(r)); equivalently D_m(r)≃τ_≤r i*Rj*(Z/p^m(r)). This is EN Theorem 2.2 (attributed to Tsuji). It is not an exact theorem about CN’s undivided U_m(r). For a semistable X or a semistable base change, α_und on U_m(r) has p^(Nr+c_p)-killed kernel/cokernel when K has enough roots of unity, and a p^N(K,p,r) bound in general, uniformly in m and X (CN Theorem 5.4). Rationalizing yields the geometric comparison in degrees ≤r. No exact r=p−1 endpoint is used or claimed.",
    "hypotheses": [
-    "X fs log-smooth over a henselian DVR of mixed characteristic; i ≤ r ≤ p − 1 for the exact statement (Nekovář–Nizioł use r ≤ p − 2, where both formulations agree).",
-    "For the p^N statements, X semistable (or a base change of a semistable scheme) and 0 ≤ i ≤ r.",
-    "Required supplier contract in the early classical log-syntomic prefix of CohomologyComparisons Part II, per the accepted verification of RT-AREA-iwasawa-2/3. CP.4 is only the routing anchor; its current rational proper B_st comparison does not supply this integral/open construction.",
-    "The quoted exact small-range comparison requires identifying S_n(r) with the classical complex to which that exact theorem applies, including its divided-Frobenius convention; this integral identification remains a gap. The rational and p-power conclusions do not by themselves establish it. Applications here use r≤p−2."
+    "Exact statement: fs log-smooth over O_K^×, 0≤i≤r≤p−2, divided D_m(r).",
+    "Bounded statement: semistable or semistable base change, 0≤i≤r, undivided U_m(r).",
+    "Imported contract CohomologyComparisonsPartII:CS.2/divided-small-weight-comparison is proposed, not an existing declaration. The source-supported specification below fixes the request; implementation remains external."
    ],
    "prerequisites": [
     "PadicHodgeRegulators:D.2/log-syntomic-complex",
@@ -3670,13 +3828,13 @@
     "CohomologyComparisons:CP.4"
    ],
    "proofSteps": [
-    "Classical range (Kato, Kurihara, Tsuji, as quoted by Colmez–Nizioł): the symbol map and the computation of nearby cycles by Bloch–Kato's filtration identify both sides in degrees i ≤ r ≤ p − 1.",
-    "General range (Colmez–Nizioł): locally, syntomic cohomology is p^{Nr}-quasi-isomorphic to τ_{≤ r} Galois cohomology through (φ, Γ)-modules (Herr complex, PhiGammaModulesAndIwasawaCohomology:PG.3/herr-complex) and a Lazard-type map, which agrees with α^FM up to p^{Nr + c_p}; then descent from K(ζ_{p^i}) and the K(π,1)-lemma.",
-    "The geometric rational corollary follows by passing to O_K̄ and inverting p."
+    "Import CS.2’s exact divided statement as specified in EN Theorem 2.2, p. 7; do not move it to U_m(r) by treating ω as an isomorphism.",
+    "The general undivided bound follows from CN Theorem 5.4, p. 54: the chart-level comparison and Fontaine–Messing identification descend to sheaves. Its proof gives N(K,p,r); do not strengthen that to N(e,p,r).",
+    "Passing to geometric limits and rationalizing kills the bounded torsion. The exact endpoint outside r≤p−2 is not needed by weight two at p≥5."
    ],
    "acceptance": [
-    "X = Spec O_K (trivial log structure on X_tr = Spec K), i = r = 1 ≤ p − 1: H^1(S_n(1)) ≅ H^1(K, Z/p^n(1)) = K^×/p^n.",
-    "Outside the small range the isomorphism can fail integrally; the statement is then only up to p^N."
+    "At r=1 and p≥3 the divided map computes H¹(K,Z/p^m(1)); the undivided map remains bounded and must not inherit this exact conclusion.",
+    "At r=2 and p≥5 the divided exact comparison uses the ordinary twist, but U_m(2) and D_m(2) are still different integral complexes."
    ],
    "sources": [
     {
@@ -3688,9 +3846,22 @@
      "sourceId": "CN2017",
      "locator": "Theorem 1.1, p. 2",
      "match": "The general bounded comparison (stated with N(K, p, r) in Theorem 5.4; see sourceIssues)."
+    },
+    {
+     "sourceId": "EN2016",
+     "locator": "Theorem 2.2, p. 7; §2.1, pp. 4–5",
+     "match": "Exact divided comparison through p−2 and the reason it does not transfer integrally to U."
     }
    ],
-   "implementationStatus": "unchecked"
+   "implementationStatus": "unchecked",
+   "externalContract": {
+    "proposedProducer": "CohomologyComparisonsPartII:CS.2/divided-small-weight-comparison",
+    "status": "requested",
+    "owner": "CohomologyComparisons, Part II",
+    "routingAnchor": "CohomologyComparisons:CP.4",
+    "boundary": "The anchor supplies the proper rational comparison only; this early integral/open contract is not present in its packet. No new generic syntomic carrier is owned here."
+   },
+   "declaration": "divided_small_twist_comparison"
   },
   {
    "id": "PadicHodgeRegulators:D.2/syntomic-exponential",
@@ -3703,7 +3874,7 @@
    "statement": "Let X be a quasi-compact formal semistable scheme over O_K and r ≥ 1. There is a natural map α_{r,i} : H^{i−1}_dR(X_{K,tr}) → H^i_syn(X, r)_Q (the boundary of the syntomic fibre sequence, through the identification of crystalline cohomology modulo J^{[r]} with log de Rham cohomology modulo F^r), an isomorphism for i ≤ r − 1 and injective for i = r. For X proper semistable and 1 ≤ i ≤ r − 1, the composite α^FM ∘ α_{r,i} : D_dR(V_{i−1}) = H^{i−1}_dR(X_K) → H^1(G_K, V_{i−1}) ⊂ H^i_et(X_K, Q_p(r)), V_{i−1} := H^{i−1}_et(X_K̄, Q_p(r)), is the Bloch–Kato exponential of V_{i−1}. For X = Spec O_K, r≥2 and i=1 this is the statement H^0_dR(K) = K → H^1_syn → H^1(K, Q_p(r)) equals exp_BK, used in D.2/syntomic-etale-regulator-comparison.",
    "hypotheses": [
     "X quasi-compact formal semistable over O_K; for the Bloch–Kato identification, X proper semistable and 1 ≤ i ≤ r − 1.",
-    "Required supplier contract in the early classical log-syntomic prefix of CohomologyComparisons Part II, per the accepted verification of RT-AREA-iwasawa-2/3. CP.4 is only the routing anchor; its current rational proper B_st comparison does not supply this integral/open construction."
+    "Imported contract CohomologyComparisonsPartII:CS.3/semistable-syntomic-exponential is proposed, not an existing declaration. The source-supported specification below fixes the request; implementation remains external."
    ],
    "prerequisites": [
     "PadicHodgeRegulators:D.2/log-syntomic-complex",
@@ -3715,7 +3886,8 @@
    ],
    "proofSteps": [
     "Colmez–Nizioł Lemmas 3.14 and 3.17 identify crystalline cohomology modulo J^{[r]} with log de Rham cohomology modulo F^r; Proposition 3.12(ii) shows the Hyodo–Kato part is p^N-acyclic in degrees ≤ r − 1 (Corollary 3.16).",
-    "Composition with α^FM and comparison with the Bloch–Kato exponential: Colmez–Nizioł Corollary 1.4 / 5.11, citing Nekovář–Nizioł Proposition 4.13 (with the sign convention of their Remark 2.14)."
+    "Composition with α^FM and comparison with the Bloch–Kato exponential: Colmez–Nizioł Corollary 1.4 / 5.11, citing Nekovář–Nizioł Proposition 4.13 (with the sign convention of their Remark 2.14).",
+    "Use ω_Q to compare undivided and divided models. This is a rational comparison only and needs no integral exactness theorem for U. The normalized boundary, not a raw cocycle coordinate, is used in the exponential square."
    ],
    "acceptance": [
     "X = Spec O_K, r = 2, i = 1: α_{2,1} : K → H^1_syn(O_K, 2)_Q is an isomorphism and α^FM ∘ α_{2,1} = exp_BK : K → H^1(K, Q_p(2)).",
@@ -3733,7 +3905,15 @@
      "match": "The identification with the Bloch–Kato exponential."
     }
    ],
-   "implementationStatus": "unchecked"
+   "implementationStatus": "unchecked",
+   "externalContract": {
+    "proposedProducer": "CohomologyComparisonsPartII:CS.3/semistable-syntomic-exponential",
+    "status": "requested",
+    "owner": "CohomologyComparisons, Part II",
+    "routingAnchor": "CohomologyComparisons:CP.4",
+    "boundary": "The anchor supplies the proper rational comparison only; this early integral/open contract is not present in its packet. No new generic syntomic carrier is owned here."
+   },
+   "declaration": "syntomic_exponential"
   },
   {
    "id": "PadicHodgeRegulators:D.3/unramified-etale-algebra",
@@ -3839,7 +4019,8 @@
      "match": "The class of algebras; the K-theory product comparison is D.3/completed-k3-unramified."
     }
    ],
-   "implementationStatus": "unchecked"
+   "implementationStatus": "unchecked",
+   "declaration": "IsUnramifiedEtaleAlgebra"
   },
   {
    "id": "PadicHodgeRegulators:D.3/completed-k3-unramified",
@@ -3999,7 +4180,8 @@
      "match": "The comparison of completed K_3 with the Bloch group used in the proof; the containment it claims is D.3/unramified-regulator-theorem (sourceIssues: GSWZ E39)."
     }
    ],
-   "implementationStatus": "unchecked"
+   "implementationStatus": "unchecked",
+   "declaration": "completedK3_bloch_description"
   },
   {
    "id": "PadicHodgeRegulators:D.3/finite-polylogarithm",
@@ -4155,7 +4337,8 @@
      "match": "The statement, for odd p; the extraction records the p = 2 caveat as GSWZ E80."
     }
    ],
-   "implementationStatus": "unchecked"
+   "implementationStatus": "unchecked",
+   "declaration": "finite_polylogarithm_reduction"
   },
   {
    "id": "PadicHodgeRegulators:D.3/dilogarithm-integrality",
@@ -4193,7 +4376,8 @@
      "match": "The statement and the root-of-unity input; the Taylor step is expanded in proofSteps."
     }
    ],
-   "implementationStatus": "unchecked"
+   "implementationStatus": "unchecked",
+   "declaration": "dilogarithm_integrality"
   },
   {
    "id": "PadicHodgeRegulators:D.3/residue-spanning",
@@ -4240,7 +4424,8 @@
      "match": "The source count includes x=0; for nonzero admissible roots use the repaired q−2 count for s>1 and the separate s=1 argument in proofSteps."
     }
    ],
-   "implementationStatus": "unchecked"
+   "implementationStatus": "unchecked",
+   "declaration": "residueSpanning_mod_p"
   },
   {
    "id": "PadicHodgeRegulators:D.3/root-of-unity-classes",
@@ -4529,7 +4714,8 @@
      "match": "The index form of the integral Bloch–Kato logarithm used for the image."
     }
    ],
-   "implementationStatus": "unchecked"
+   "implementationStatus": "unchecked",
+   "declaration": "unramified_regulator_theorem"
   },
   {
    "id": "PadicHodgeRegulators:D.3/roots-of-unity-generate",
@@ -4568,7 +4754,8 @@
      "match": "Part (b), with components equal to 1 excluded (GSWZ E38)."
     }
    ],
-   "implementationStatus": "unchecked"
+   "implementationStatus": "unchecked",
+   "declaration": "root_classes_generate"
   },
   {
    "id": "PadicHodgeRegulators:D.4/global-p-adic-regulator",
@@ -4727,7 +4914,8 @@
      "match": "GSWZ work with special units of R = O_K[1/Δ], which is the range of this theorem."
     }
    ],
-   "implementationStatus": "unchecked"
+   "implementationStatus": "unchecked",
+   "declaration": "global_special_unit_formula"
   },
   {
    "id": "PadicHodgeRegulators:D.4/norm-trace-compatibility",
@@ -4765,7 +4953,8 @@
      "match": "Componentwise definition, which makes the trace compatibility a sum over embeddings."
     }
    ],
-   "implementationStatus": "unchecked"
+   "implementationStatus": "unchecked",
+   "declaration": "global_norm_trace_compatibility"
   },
   {
    "id": "PadicHodgeRegulators:D.4/frobenius-compatibility",
@@ -4800,7 +4989,8 @@
      "match": "The Frobenius on roots of unity used with D_p(φ_p ξ) = φ_p D_p(ξ)."
     }
    ],
-   "implementationStatus": "unchecked"
+   "implementationStatus": "unchecked",
+   "declaration": "global_frobenius_compatibility"
   },
   {
    "id": "PadicHodgeRegulators:D.4/torsion-and-denominators",
@@ -4840,7 +5030,8 @@
      "match": "Torsion-freeness of the target, which makes torsion classes vanish."
     }
    ],
-   "implementationStatus": "unchecked"
+   "implementationStatus": "unchecked",
+   "declaration": "global_torsion_and_denominators"
   },
   {
    "id": "PadicHodgeRegulators:D.4/habiro-regulator-export",
@@ -4883,7 +5074,8 @@
      "match": "The range of primes for which the export is made."
     }
    ],
-   "implementationStatus": "unchecked"
+   "implementationStatus": "unchecked",
+   "declaration": "habiro_regulator_export"
   },
   {
    "id": "PadicHodgeRegulators:D.4/padic-k3-regulator-injectivity",
@@ -5032,7 +5224,8 @@
      "match": "The decomposition of D_5(ξ) by the root-of-unity values."
     }
    ],
-   "implementationStatus": "unchecked"
+   "implementationStatus": "unchecked",
+   "declaration": "example_cubic_field_five_two"
   },
   {
    "id": "PadicHodgeRegulators:D.5/curve-weight-two-target",
@@ -5043,7 +5236,7 @@
    "declaration": "curveSyntomicTarget",
    "title": "The weight-two syntomic target of a curve and its two identifications",
    "kind": "definition",
-   "statement": "Assume K/Q_p finite unramified with residue field F_q, q = p^f; 𝒳/O_K a smooth proper curve with geometrically connected fibres and generic fibre X; φ the K-linear q-power Frobenius on H^1_dR(X/K) ≅ H^1_rig(𝒳_k/K). Let H^2_syn(𝒳, 2) be rigid syntomic cohomology (D.2/rigid-syntomic-cohomology). Since F^2H^1_dR = 0 and F^2H^2_dR = 0, the canonical boundary in the fixed q-Frobenius modified model, transported to rigid syntomic cohomology using Besser Proposition 8.6(2),(3), is ι : H^1_dR(X/K) → H^2_syn(𝒳, 2) is an isomorphism, and Besser's normalised identification is Θ := (1 − φ/q²)^{−1} ∘ ι^{−1} : H^2_syn(𝒳, 2) ≅ H^1_dR(X/K) (1 − φ/q² is invertible because φ has weight 1 on H^1). The cup-product pairing B(a, b) := Tr(a ∪ b) on H^1_dR(X/K) is alternating with B(φa, φb) = q·B(a, b), and for forms of the second kind B([dF], [dG]) = Σ_x Res_x(F dG).",
+   "statement": "Let K/Q_p be finite unramified of degree f, q=p^f, and 𝒳/O_K a smooth proper geometrically connected curve, X=𝒳_K. Set H=H¹_dR(X/K)=H¹_rig(𝒳_k/K), Φ=φ_p^f (K-linear), P=φ_p/p² (Q_p-linear), A=1−P, Q=Φ/q²=P^f, B=1−Q, and N_f=Σ_{j=0}^{f−1}P^j, so B=N_f A. The rigid syntomic complex is Besser’s full filtered homotopy fibre product, not a single cone on H. Map its Frobenius-cone component to the fixed-q modified model by (id,N_f), with identity on the other fibre-product legs. This induces β:H²_syn,rig(𝒳,2)→H²_ms,q(𝒳,2). Let j_q:H→H²_ms,q be the raw boundary [(0,ε)], and j_p:H→H²_syn,rig the raw boundary in the collapsed unramified model. Curve weights and Fil²H¹=Fil²H²=0 give isomorphisms β,j_p,j_q,A,B, with βj_p=j_qN_f. The normalized identification is Θ=B⁻¹j_q⁻¹β=A⁻¹j_p⁻¹. Transport the K-module structure on the initially Q_p-linear rigid target through Θ. The fixed-q canonical boundary is ι=β⁻¹j_q, a K-linear equivalence with this transported structure, and Θ=B⁻¹ι⁻¹. For f>1, ι need not equal j_p. The alternating trace pairing on H satisfies B_cup(Φa,Φb)=q B_cup(a,b) and its second-kind residue formula.",
    "hypotheses": [
     "K/Q_p finite unramified with residue field F_q, q = p^f; 𝒳/O_K a smooth proper curve with geometrically connected fibres and generic fibre X; φ the K-linear q-power Frobenius on H^1_dR(X/K) ≅ H^1_rig(𝒳_k/K)."
    ],
@@ -5055,9 +5248,10 @@
     "ColemanIntegration:L0/annulus-residue"
    ],
    "proofSteps": [
-    "Use the full two-component syntomic fibre product (Besser Proposition 8.6(3)); for a proper curve and n=i=2 its auxiliary Frobenius-cone cohomology vanishes in the required degrees by weights, and F² in degrees 1,2 is zero. This gives H²_syn ≅ H¹_rig, not the cokernel of an invertible 1−φ/q² (that cokernel is zero). To name the raw canonical ι used here, first compare with the fixed q-Frobenius modified model; in that model the boundary is represented by (0,ε). The comparison is part of the definition of ι and is required explicitly.",
-    "Besser–de Jeu's Definition 4.6 (for n ≥ i > relative dimension, here n = i = 2 > 1) defines the normalised identification with the factor (1 − φ*/q^n)^{−1}. Besser Proposition 8.6(3) and Remark 8.7(3), plus Proposition 10.1(3), explain the factor in this modified model. The σ-semilinear rigid model is initially Q_p-linear; transport a K-structure through this identification instead of asserting K-linearity of 1−σ/p².",
-    "The trace and the Frobenius similitude come from Poincaré duality for rigid cohomology; the residue formula is Besser's p-adic Arakelov theory, Lemma 3.3."
+    "In Besser Proposition 8.6(2), pp. 26–27, replace the p-Frobenius cone by the q-Frobenius cone using its norm operator N_f. The equality 1−P^f=N_f(1−P) gives the chain map; its source leg is id and its shifted target leg is N_f. Keep identity on the rigid comparison target of the full homotopy fibre product. This explicitly defines β before identifying cohomology.",
+    "Proposition 8.6(3), pp. 27–28, supplies the normalized boundary δ_rig; for a proper curve n=i=2 the exceptional degrees i,i−1,i−2 are all different from 2n. Remark 8.7(3), p. 28, identifies δ_rig=j_p A. The modified normalized boundary is δ_ms=j_q B. The cone map makes βδ_rig=δ_ms, hence βj_p=j_qN_f. Weight-one Frobenius eigenvalues on H exclude eigenvalue 1 for P or Q; A,B,N_f are invertible as Q_p-linear maps. Consequently β is an isomorphism in degree two.",
+    "At a further q-power model the transition norm cancels against its normalized boundary (Besser Proposition 10.1(3), p. 34); thus Θ agrees with the colimit modified-syntomic identification, not just an arbitrary fixed-model inverse. Besser–de Jeu Definition 4.6, p. 24, writes the same B⁻¹ correction on [(0,ε)]. Transport K-scalars through Θ; then ι is K-linear because B is K-linear. Do not describe A as K-linear when f>1.",
+    "Use the imported rigid trace/Poincaré-duality pairing for the q-similitude, and Ara2003 Lemma 3.3 for its residue realization."
    ],
    "acceptance": [
     "𝒳 = P^1: H^1_dR = 0 and the target is 0.",
@@ -5086,12 +5280,12 @@
     {
      "name": "curveSyntomicCanIso",
      "role": "equivalence",
-     "statement": "canIso 𝒳 : H1dR X ≃ₗ[K] curveSyntomicTarget 𝒳."
+     "statement": "ι=β⁻¹j_q:H≃ₗ[K]H²_syn,rig, with K-scalars transported by Θ; it is the fixed-q raw boundary, not necessarily j_p."
     },
     {
      "name": "curveSyntomicNormIso",
      "role": "equivalence",
-     "statement": "normIso 𝒳 : curveSyntomicTarget 𝒳 ≃ₗ[K] H1dR X, equal to (1 − φ/q²)⁻¹ ∘ canIso⁻¹."
+     "statement": "Θ=B⁻¹ι⁻¹=B⁻¹j_q⁻¹β=A⁻¹j_p⁻¹; it is the inverse normalized boundary."
     },
     {
      "name": "cupTrace",
@@ -5117,6 +5311,21 @@
      "name": "curveSyntomicTarget_extensionality",
      "role": "extensionality",
      "statement": "The canonical/normalized equivalences are determined by their values on cohomology classes, and cupTrace by its values on pairs. Require the explicit comparison maps before transporting the K-module structure."
+    },
+    {
+     "name": "curveRigidToModified",
+     "role": "relation",
+     "statement": "β is induced by (id,N_f) on the Frobenius cone and identity on the other homotopy-fibre-product legs."
+    },
+    {
+     "name": "curveRigidToModified_raw",
+     "role": "relation",
+     "statement": "βj_p=j_qN_f; βδ_rig=δ_ms for δ_rig=j_pA and δ_ms=j_qB."
+    },
+    {
+     "name": "curveSyntomicNormIso_p",
+     "role": "characterisation",
+     "statement": "Θ=A⁻¹j_p⁻¹ as a Q_p-linear map; this determines the transported K-module structure."
     }
    ],
    "tests": [
@@ -5139,6 +5348,16 @@
      "name": "curveTarget_h2_non_example",
      "kind": "non-example",
      "statement": "For H^3_syn(𝒳, 1) the operator 1 − φ/q on H^2_rig(𝒳_k) is zero (φ = q there), so no normalised identification exists; Besser–de Jeu Definition 4.6 requires n ≥ i > dim."
+    },
+    {
+     "name": "curveTarget_nontrivial_residue_degree",
+     "kind": "compatibility",
+     "statement": "For f=2, N_f=1+P, B=1−P²=(1+P)A, βj_p=j_q(1+P); substituting j_p for ι omits a norm operator."
+    },
+    {
+     "name": "curveTarget_semilinear_non_example",
+     "kind": "non-example",
+     "statement": "For f>1 and a∈K with σ(a)≠a, P(av)=σ(a)P(v), so A(av) need not equal aA(v); K-linearity is obtained by Θ-transport, not by calling A K-linear."
     }
    ],
    "planet": {
@@ -5440,7 +5659,8 @@
      "match": "The Coleman–de Shalit form, known to be the syntomic regulator by Besser."
     }
    ],
-   "implementationStatus": "unchecked"
+   "implementationStatus": "unchecked",
+   "declaration": "coleman_symbol_formula"
   },
   {
    "id": "PadicHodgeRegulators:D.5/curve-etale-comparison",
@@ -5450,10 +5670,10 @@
    ],
    "title": "The curve regulator and the Bloch–Kato logarithm",
    "kind": "comparison",
-   "statement": "Assume K/Q_p finite unramified with residue field F_q, q = p^f; 𝒳/O_K a smooth proper curve with geometrically connected fibres and generic fibre X; φ the K-linear q-power Frobenius on H^1_dR(X/K) ≅ H^1_rig(𝒳_k/K). and put V = H^1_et(X_K̄, Q_p(2)), a crystalline representation with D_cris(V) = H^1_dR(X/K) ⊗ e_2 and V^{G_K} = 0. For u ∈ K_2(𝒳)^{(2)} ⊗ Q the étale regulator r^et(u) ∈ H^1(K, V) lies in H^1_f = H^1_e, and regP(u) = log_BK(r^et(u)) under D_dR(V)/Fil^0 = H^1_dR(X/K); equivalently regSynCan(u) = (1 − p^{−2}φ_p)·log_BK(r^et(u)) for K = Q_p (φ_p the p-power Frobenius). If φ_p v = γv then B(regSynCan u, v) = (1 − 1/(pγ))·B(regP u, v).",
+   "statement": "Assume K/Q_p finite unramified with residue field F_q, q = p^f; 𝒳/O_K a smooth proper curve with geometrically connected fibres and generic fibre X; φ the K-linear q-power Frobenius on H^1_dR(X/K) ≅ H^1_rig(𝒳_k/K). Put V = H^1_et(X_K̄, Q_p(2)), a crystalline representation with D_cris(V) = H^1_dR(X/K) ⊗ e_2 and V^{G_K} = 0. For u ∈ K_2(𝒳)^{(2)} ⊗ Q the étale regulator r^et(u) ∈ H^1(K, V) lies in H^1_f = H^1_e, and regP(u) = log_BK(r^et(u)) under D_dR(V)/Fil^0 = H^1_dR(X/K); equivalently regSynCan(u) = (1 − Φ/q²)·log_BK(r^et(u)) for every such K, where Φ=φ_p^f and regSynCan uses the fixed-q boundary ι=β⁻¹j_q. For K=Q_p this is 1−φ_p/p². For K=Q_p, if φ_p v = γv then B(regSynCan u, v) = (1 − 1/(pγ))·B(regP u, v).",
    "hypotheses": [
     "K/Q_p finite unramified with residue field F_q, q = p^f; 𝒳/O_K a smooth proper curve with geometrically connected fibres and generic fibre X; φ the K-linear q-power Frobenius on H^1_dR(X/K) ≅ H^1_rig(𝒳_k/K).",
-    "For the (1 − p^{−2}φ_p) form, K = Q_p (or φ_p the p-semilinear Frobenius on an unramified K)."
+    "The p-power eigenvector-pairing clause is restricted to K=Q_p. For general unramified K use K-linear Φ and the factor 1−1/(qγ)."
    ],
    "prerequisites": [
     "PadicHodgeRegulators:D.5/curve-syntomic-regulator",
@@ -5463,9 +5683,9 @@
     "PadicHodgeTheory:R06.5/crystalline-comparison-good-reduction"
    ],
    "proofSteps": [
-    "Besser 2000 Proposition 9.11 (via Nekovář–Nizioł Proposition 1.1 and Asakura–Chida §3.2): the composite H^1_dR/F² → H^2_syn → H^1(G_K, H^1_et(Q_p(2))) is the Bloch–Kato exponential of V. This is Besser’s normalized map of Proposition 8.6(3), not the raw boundary in a collapsed fixed-Frobenius cone; use the explicit comparison requested at curve-weight-two-target.",
-    "With the canonical identification this gives ι^{−1}reg_syn = (1 − p^{−2}φ)·log_BK∘r^et (Asakura–Chida footnote 4); applying Θ removes the factor.",
-    "H^1_e = H^1_f: D_cris(V)^{φ=1} = 0 by weights (Frobenius on H^1 has weight 1, twisted by p^{−2})."
+    "Besser Proposition 9.11, author p. 32, identifies the arithmetic étale edge applied to δ_rig(x) with exp_BK(x). The good-reduction comparison D.2 is normalized by this same boundary; it does not identify a raw cone coordinate with the exponential.",
+    "By the explicit norm-map square of curve-weight-two-target, δ_rig=j_pA=β⁻¹j_qB=ιB. Therefore δ_rig⁻¹=Θ over every finite unramified K. For u this gives r_et(u)=exp_BK(Θreg_syn(u)). Curve weights give D_cris(V)^{φ=1}=0 and V^{G_K}=0, so exp_BK is injective and H_e=H_f; invert it to obtain regP=log_BK r_et.",
+    "The fixed-q canonical coordinate is B regP. Pairing with a Φ-eigenvector uses the q-similitude, hence factor 1−1/(qγ). The p-specialization in AC20 footnote 4 is a check, not the proof for f>1."
    ],
    "acceptance": [
     "For E/Q_p with good reduction and v a φ-eigenvector with eigenvalue γ: Tr(regSynCan(z) ∪ v) = (1 − p^{−1}γ^{−1})Tr(log reg_f(z) ∪ v) (Asakura–Chida footnote 4).",
@@ -5486,9 +5706,15 @@
      "sourceId": "Besser2000",
      "locator": "Proposition 9.11, author PDF p. 32",
      "match": "Primary source independently read; the normalized versus raw modified-model map must be tracked as specified in the statement/proofSteps."
+    },
+    {
+     "sourceId": "Besser2000",
+     "locator": "Proposition 8.6(2),(3), Remark 8.7(3), Proposition 9.11 and Proposition 10.1(3), author pp. 26–28,32,34",
+     "match": "The explicit norm-chain-map square transports the normalized exponential identity to any unramified residue degree."
     }
    ],
-   "implementationStatus": "unchecked"
+   "implementationStatus": "unchecked",
+   "declaration": "curve_etale_comparison"
   },
   {
    "id": "PadicHodgeRegulators:D.5/curve-regulator-functoriality",
@@ -5531,7 +5757,8 @@
      "match": "Pullback similitude; Lemma 3.7 gives the trace adjunction."
     }
    ],
-   "implementationStatus": "unchecked"
+   "implementationStatus": "unchecked",
+   "declaration": "curve_regulator_functoriality"
   },
   {
    "id": "PadicHodgeRegulators:D.5/semistable-input-boundary",
@@ -5541,7 +5768,7 @@
    ],
    "title": "What bad or semistable reduction requires beyond good reduction",
    "kind": "comparison",
-   "statement": "For a smooth proper semistable curve X/K, NN Theorems A,B provide rational syntomic cohomology and compatible Chern classes; the arithmetic regulator factors through H¹_st(G_K,H¹_et(X_K̄,Q_p(2))). The semistable comparison imports the Hyodo–Kato (φ,N) structure from CohomologyComparisons CP.4. Besser–Zerbes Theorem 1.1 identifies Vologodsky integration with appropriately corrected/glued Coleman primitives on semistable curves. These results do not themselves give a weight-two symbol formula in H¹_dR or prove that its domain is exactly ker N. Such a formula, its monodromy restriction and any convenient quotient are remaining targets to be sourced and planned through the shared log-syntomic prefix and ColemanIntegration Part II; none is asserted by this node.",
+   "statement": "For a smooth proper semistable curve X/K, NN Theorems A,B provide rational syntomic cohomology and compatible Chern classes; the arithmetic regulator factors through H¹_st(G_K,H¹_et(X_K̄,Q_p(2))). The semistable comparison imports the Hyodo–Kato (φ,N) structure from CohomologyComparisons CP.4. Besser–Zerbes Theorem 1.1 identifies Vologodsky integration with appropriately corrected/glued Coleman primitives on semistable curves. These two results alone do not give the weight-two symbol formula. The regulator-specific continuous/discrete coordinates and full second-kind pairing are specified by D.5/semistable-continuous-regulator and D.5/semistable-symbol-formula, using Besser2025 and BR2019. Those targets pair the continuous component with ker N and determine its class modulo im N; ker N is a restriction on test forms, not the regulator domain. The generic integration and syntomic producers remain external requests.",
    "hypotheses": [
     "X/K smooth proper with semistable reduction."
    ],
@@ -5553,7 +5780,7 @@
    ],
    "proofSteps": [
     "Import NN Theorems A,B, with the corrected degree H^i in Theorem 5.9; the factorization is into semistable cohomology, not an immediate H¹_dR identification.",
-    "Read Besser–Zerbes Theorem 1.1 as an integration comparison. It supplies glued primitives/harmonic corrections, not the regulator formula formerly attributed to an uncited Besser–Raskind result. Record the formula as a precise remaining target."
+    "Read Besser–Zerbes Theorem 1.1 as an integration comparison supplying glued primitives and harmonic corrections. Keep this input boundary separate from the source-supported regulator coordinates and formula in the two regulator-specific nodes; their integration producers belong to ColemanIntegration Part II."
    ],
    "acceptance": [
     "Tate curve: the Coleman integrals become branch dependent, and the Vologodsky integral selects log_q (Besser–Zerbes §3).",
@@ -5571,7 +5798,341 @@
      "match": "Vologodsky integrals versus glued Coleman integrals."
     }
    ],
+   "implementationStatus": "unchecked",
+   "declaration": "semistable_input_boundary"
+  },
+  {
+   "id": "PadicHodgeRegulators:D.5/relative-curve-syntomic-regulator",
+   "parentStageId": "PadicHodgeRegulators:D.5",
+   "realises": [
+    "PadicHodgeRegulators:D.5"
+   ],
+   "declaration": "relativeCurveSyntomicRegulator",
+   "title": "The relative symbol regulator of a smooth curve family",
+   "kind": "construction",
+   "statement": "Under the stated compactification, coherence and filtration assumptions, construct [−]_{U/S}:K²_M(A)→Ext¹_{Fil-F-MIC(S,σ)}(O_S,H¹(U/S)(2)). It factors the cup-symbol extension through Milnor bilinearity and Steinberg relations. Its Frobenius coordinate R_σ takes values in B†_K⊗_{B_K}H¹_dR(U/S); its Gauss–Manin coordinate is σ-independent, while R_σ depends on σ. For a smooth proper curve family X/S, classes in K²_M(A)_{∂=0} uniquely lift to extensions by H¹(X/S)(2). With the extra truncated-complex hypotheses, R_σ[ξ] is the NEGATIVE of the relative syntomic-symbol de Rham coordinate (AM Theorems 3.7 at n=1 and 4.5). The generic category of filtered F-isocrystals, connection, Ext, relative de Rham/rigid and relative syntomic carriers are imports, not definitions owned here.",
+   "hypotheses": [
+    "W=W(k) with k perfect of characteristic p≥3, K=Frac W; S=Spec B smooth affine over W, U=Spec A smooth affine over S.",
+    "Use AM Theorem 3.7’s projective compactification Y→Q, boundary D∪f⁻¹(T) relative simple normal crossings, log-smooth (Y,M)→(Q,L), and a compatible system σ of p-Frobenius lifts on Q.",
+    "AM Assumption 2.20: relative overconvergent rigid cohomology is coherent and compares to algebraic relative de Rham cohomology. Fil²H²_dR(U/S)=0; for the comparison, H¹ and H² of the truncated relative log de Rham complex ≥2 vanish modulo every p^m.",
+    "For the proper-curve refinement X/S, the deleted divisor D_X is smooth over S, and the domain is K²_M(A)_{∂=0}, the kernel of all its tame symbols, as in AM §4.1. No claim that this presents every proper K₂ class in higher genus."
+   ],
+   "prerequisites": [
+    "PadicHodgeRegulators:D.2/syntomic-regulator",
+    "PadicHodgeRegulators:D.2/fontaine-messing-kato-period-map",
+    "PadicHodgeRegulators:D.5/curve-syntomic-regulator",
+    "K2SymbolsBrauer:T.3/tame-symbol",
+    "PadicDifferentialEquationsAndRigidCohomology:RD.4/rigid-cohomology"
+   ],
+   "proofSteps": [
+    "Construct successive logarithm extensions from the units representing ξ, apply relative cohomology and the filtration vanishing to form an extension. AM Theorem 2.23 proves additivity and Steinberg descent without assuming a nonexistent general Ext edge projector.",
+    "For ∂ξ=0, AM Lemma 4.2 and Proposition 4.3 use the residue/Gysin sequence: the open extension has trivial residue extension, and the weight of the boundary excludes Hom(O_S,N(2)), giving a unique proper lift.",
+    "Take the Frobenius and connection coordinates of the extension (AM §2.7). Compare to the directed relative syntomic cup-symbol; Theorems 3.7 and 4.5 have sign (−1)^1. Relate the absolute fibre to Besser’s regulator by Lemma 4.4/3.10, carrying this sign through the coordinate identification, not redefining Θ.",
+    "Route missing relative filtered F-MIC/Ext and relative syntomic machinery as external supplier requests. This node owns only the symbol-extension and regulator comparison."
+   ],
+   "acceptance": [
+    "ξ={f,1−f} with both units has zero extension and zero coordinate.",
+    "At S=Spec W, a tame-trivial ξ gives the absolute rigid syntomic regulator through AM Lemma 4.4; the signed relative coordinate must be normalized before comparing with regP."
+   ],
+   "uses": [
+    {
+     "where": "PadicHodgeRegulators:D.5/smooth-family-specialisation",
+     "how": "Specialize the relative extension and its syntomic coordinate to a smooth fibre."
+    }
+   ],
+   "api": [
+    {
+     "name": "relativeCurveSyntomicRegulator",
+     "role": "data",
+     "statement": "The symbol-extension homomorphism into imported Ext¹, with proper refinement on ker ∂."
+    },
+    {
+     "name": "relativeRegulator_frobeniusCoordinate",
+     "role": "projection",
+     "statement": "R_σ on the extension in B†_K⊗H¹_dR; the Gauss–Manin coordinate is separately σ-independent."
+    },
+    {
+     "name": "relativeRegulator_steinberg",
+     "role": "simp",
+     "statement": "[f,1−f]_{U/S}=0 where both functions are units."
+    },
+    {
+     "name": "relativeRegulator_tameKernel",
+     "role": "relation",
+     "statement": "The proper extension maps to the open extension and is unique on ker ∂."
+    },
+    {
+     "name": "relativeRegulator_signedComparison",
+     "role": "characterisation",
+     "statement": "R_σ[ξ]=−coord_syn,σ(ξ) under Theorem 4.5’s hypotheses."
+    },
+    {
+     "name": "relativeRegulator_ext",
+     "role": "extensionality",
+     "statement": "Two homomorphisms agree if they agree on every admissible Milnor symbol in their specified domain."
+    }
+   ],
+   "tests": [
+    {
+     "name": "relativeRegulator_steinberg_test",
+     "kind": "computation",
+     "statement": "{t,1−t} on Spec W[t,(t−t²)⁻¹] has zero extension."
+    },
+    {
+     "name": "relativeRegulator_zero_symbol",
+     "kind": "degenerate",
+     "statement": "The zero Milnor class gives the split extension and zero Frobenius/connection coordinates."
+    },
+    {
+     "name": "relativeRegulator_absolute_fibre",
+     "kind": "compatibility",
+     "statement": "At S=Spec W the tame-kernel symbol agrees with the absolute syntomic regulator; R_σ carries the negative relative-coordinate convention."
+    },
+    {
+     "name": "relativeRegulator_nonzero_tame",
+     "kind": "non-example",
+     "statement": "A symbol with a nontrivial tame symbol at D_X gives no proper extension via this construction; retaining its open regulator does not justify a proper one."
+    },
+    {
+     "name": "relativeRegulator_sign_test",
+     "kind": "non-example",
+     "statement": "At n=1, replacing (−1)^n with +1 in the syntomic-coordinate square reverses a nonzero Frobenius coordinate."
+    }
+   ],
+   "sources": [
+    {
+     "sourceId": "AM2022",
+     "locator": "Theorem 2.23 and §2.7, pp. 18–20; Theorem 3.7, pp. 27–31; Proposition 4.3, Lemma 4.4, Theorem 4.5, pp. 34–36",
+     "match": "Relative symbol extensions, Frobenius coordinate and the signed syntomic comparison, including the proper-curve tame-kernel refinement."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Relative syntomic regulator of curve symbols"
+   }
+  },
+  {
+   "id": "PadicHodgeRegulators:D.5/smooth-family-specialisation",
+   "parentStageId": "PadicHodgeRegulators:D.5",
+   "realises": [
+    "PadicHodgeRegulators:D.5"
+   ],
+   "declaration": "relativeRegulator_specialise",
+   "title": "Specialization of the regulator to a smooth fibre",
+   "kind": "theorem",
+   "statement": "For the preceding relative symbol extension and a W-valued smooth point α:S(W), require ev_α∘σ=F_W∘ev_α at every finite level. Pullback to α sends the Milnor symbol extension to the absolute extension of its specialized symbol ξ_α, and evaluates its R_σ coordinate to the absolute Frobenius coordinate. After the signed syntomic comparison and normalized boundary identification, this yields regP_{X_α}(ξ_α)=the normalized evaluated relative syntomic class in H¹_dR(X_α/K). For the proper refinement require ∂ξ=0 and the boundary remains étale at α. A fixed σ has only its Frobenius-compatible lifts; arbitrary α is handled by a σ adapted to that point where one exists, not by treating every evaluation as a Frobenius morphism.",
+   "hypotheses": [
+    "W=W(k) with k perfect of characteristic p≥3, K=Frac W; S=Spec B smooth affine over W, U=Spec A smooth affine over S.",
+    "Use AM Theorem 3.7’s projective compactification Y→Q, boundary D∪f⁻¹(T) relative simple normal crossings, log-smooth (Y,M)→(Q,L), and a compatible system σ of p-Frobenius lifts on Q.",
+    "AM Assumption 2.20: relative overconvergent rigid cohomology is coherent and compares to algebraic relative de Rham cohomology. Fil²H²_dR(U/S)=0; for the comparison, H¹ and H² of the truncated relative log de Rham complex ≥2 vanish modulo every p^m.",
+    "For the proper-curve refinement X/S, the deleted divisor D_X is smooth over S, and the domain is K²_M(A)_{∂=0}, the kernel of all its tame symbols, as in AM §4.1. No claim that this presents every proper K₂ class in higher genus.",
+    "α is Frobenius-compatible with the chosen σ and stays in the smooth locus; the symbol functions and tame-kernel condition specialize."
+   ],
+   "prerequisites": [
+    "PadicHodgeRegulators:D.5/relative-curve-syntomic-regulator",
+    "PadicHodgeRegulators:D.5/curve-weight-two-target"
+   ],
+   "proofSteps": [
+    "AM Lemma 2.8 gives pullback compatibility of cup symbols; the logarithm-extension construction and relative cohomology base change carry this to [−]_{U/S}. The proof of Theorem 3.7, pp. 28–31, evaluates at σ-compatible W-lifts (Lemma 3.8); this is the actual compatibility needed by R_σ.",
+    "Use the commutative fibre pullback square for the relative syntomic-symbol map. Keep its n=1 sign, use AM Lemma 4.4 for the absolute proper regulator, and then apply Θ to obtain the normalized de Rham statement.",
+    "For the hypergeometric-family acceptance example, Asakura Theorem 4.9 uses σ_α(t)=F_W(α)α^{−p}t^p, so ev_α is compatible. This illustrates the point-adapted choice; it does not assert a fixed σ works at all α."
+   ],
+   "acceptance": [
+    "Constant families and pullback symbols specialize to the same absolute regulator.",
+    "Asakura Theorem 4.9, pp. 435–436, at α reducing outside {0,1} supplies an explicit regulator coordinate for its ξ and σ_α; use the published hypergeometric value as source acceptance data, not an independently recomputed numeric test."
+   ],
+   "uses": [
+    {
+     "where": "PadicHodgeRegulators:D.5",
+     "how": "Fulfils the smooth-family specialization target and exports it only with the relative extension, sign and Frobenius-compatible evaluation."
+    }
+   ],
+   "api": [],
+   "tests": [],
+   "sources": [
+    {
+     "sourceId": "AM2022",
+     "locator": "Theorem 2.23 and §2.7, pp. 18–20; Theorem 3.7, pp. 27–31; Proposition 4.3, Lemma 4.4, Theorem 4.5, pp. 34–36",
+     "match": "Relative symbol extensions, Frobenius coordinate and the signed syntomic comparison, including the proper-curve tame-kernel refinement."
+    },
+    {
+     "sourceId": "Asakura2023",
+     "locator": "Theorem 4.9 and Corollary 4.10, pp. 435–436",
+     "match": "Explicit smooth-fibre formula with a Frobenius lift adapted to the chosen α."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Specialization of syntomic regulators"
+   }
+  },
+  {
+   "id": "PadicHodgeRegulators:D.5/semistable-continuous-regulator",
+   "parentStageId": "PadicHodgeRegulators:D.5",
+   "realises": [
+    "PadicHodgeRegulators:D.5"
+   ],
+   "declaration": "semistableContinuousRegulator",
+   "title": "Continuous and discrete regulators of semistable curves",
+   "kind": "construction",
+   "statement": "The imported semistable cohomology is H¹ of D→D⊕D⊕H→D with d(w)=((φ−1)w,Nw,−I_πw) and d(x,y,z)=Nx+(1−pφ)y. For a cocycle choose w=(φ−1)⁻¹x and set ρ[(x,y,z)]=y−Nw∈ker(1−pφ), β_π[(x,y,z)]=z+I_πw∈H. Both descend to classes and give a Q_p-linear isomorphism H¹_st(K,V)≃H⊕ker(1−pφ). Define reg^c,π=β_π∘reg_syn and reg^d=ρ∘reg_syn. The discrete carrier is the fixed-eigenvalue kernel ker(1−pφ), contained in twisted weight −2, not automatically the whole weight −2 space. Under a uniformizer change, the branch derivative of the continuous component is −I_π reg^d (Besser Theorem 3.8); for curve N²=0 and λ=log(π′/π), the source period-change law yields reg^c,π′−reg^c,π=−λI_π reg^d−(λ²/2)I_πN reg^d. It reduces to the linear law when N reg^d=0; N²=0 alone does not give this additional vanishing. reg^c alone does not determine the full semistable class.",
+   "hypotheses": [
+    "K/Q_p finite; X/K smooth proper with a regular split semistable model, geometric smooth components and ordinary double points. Fix a uniformizer π and its logarithm branch. As in the read split-model treatment, require distinct components to meet at at most one point; multiedge/self-node generalization is not asserted here.",
+    "V=H¹_et(X_Kbar,Q_p(2)), D=D_st(V), H=D_dR(V)=H¹_dR(X/K), Fil⁰D_dR(V)=Fil²H=0; import φ,N and I_π. Twisted Frobenius weights are −4,−3,−2, so φ−1 is invertible; N²=0.",
+    "Domain is the weight-two geometrically trivial motivic/K₂ regulator domain supplied by the syntomic Chern classes; symbol evaluations use a finite presentation on the function field with trivial total tame symbols."
+   ],
+   "prerequisites": [
+    "PadicHodgeRegulators:D.5/semistable-input-boundary",
+    "PadicHodgeRegulators:D.2/etale-regulator",
+    "PadicHodgeRegulators:D.2/syntomic-regulator",
+    "PadicHodgeRegulators:L1/bloch-kato-subgroups",
+    "CohomologyComparisons:CP.4"
+   ],
+   "proofSteps": [
+    "Read the semistable extension complex of Besser §3. The identity Nφ=pφN makes d²=0. In the curve twist φ−1 is invertible by weights; subtract d(w) to normalize x to zero.",
+    "The remaining cocycle equation is (1−pφ)(y−Nw)=0; there is no remaining boundary with x=0 since φ−1 is injective. This establishes well-definedness, the two components and their inverse represented by (0,ρ,β). The linearity is Q_p-linear because φ is semilinear over K_0.",
+    "The Frobenius-invariant lift A of 1 in the extension has N′A=ρ; β=B−I_πA. Theorem 3.8 gives dβ/dlogπ=−I_πρ. Apply equation (3.6) to the extension: for λ=log(π′/π), exp(λN′)A=A+λρ+(λ²/2)Nρ since N²=0 on V. Thus β changes by −I_π(λρ+(λ²/2)Nρ). Equivalently integrate the derivative while I_πρ varies through I_π exp(λN)ρ. Keep the quadratic term unless Nρ=0. The generic H_st and period comparison remain owned externally."
+   ],
+   "acceptance": [
+    "For good reduction N=0, the twisted weight-one Frobenius has no eigenvalue p⁻¹, so ρ=0 and the continuous map reduces to the normalized crystalline regulator.",
+    "A cocycle (0,y,0) with nonzero y∈ker(1−pφ) has β=0 but ρ=y; a claimed isomorphism from H_st to H alone would lose it."
+   ],
+   "uses": [
+    {
+     "where": "PadicHodgeRegulators:D.5/semistable-symbol-formula",
+     "how": "The Vologodsky formula computes a pairing of reg^c,π, with discrete component and branch held explicit."
+    }
+   ],
+   "api": [
+    {
+     "name": "semistableContinuousRegulator",
+     "role": "data",
+     "statement": "β_π∘reg_syn into H, linear over Q_p on the rationalized motivic domain."
+    },
+    {
+     "name": "semistableDiscreteRegulator",
+     "role": "projection",
+     "statement": "ρ∘reg_syn into ker(1−pφ), a Q_p-vector space."
+    },
+    {
+     "name": "semistableCoordinates",
+     "role": "equivalence",
+     "statement": "H¹_st≃H⊕ker(1−pφ), using w=(φ−1)⁻¹x."
+    },
+    {
+     "name": "semistableCoordinates_boundary",
+     "role": "simp",
+     "statement": "Adding ((φ−1)a,Na,−I_πa) changes neither coordinate."
+    },
+    {
+     "name": "semistableRegulator_branchChange",
+     "role": "relation",
+     "statement": "dβ/dlogπ=−I_πρ; for λ=log(π′/π) and curve N²=0, β_π′−β_π=−λI_πρ−(λ²/2)I_πNρ. The linear formula needs Nρ=0."
+    },
+    {
+     "name": "semistableRegulator_ext",
+     "role": "extensionality",
+     "statement": "Equal continuous AND discrete components imply equality of the H_st regulator class."
+    }
+   ],
+   "tests": [
+    {
+     "name": "semistableCoordinates_good_reduction",
+     "kind": "computation",
+     "statement": "N=0 and the smooth-curve twist give ρ=0; β equals the normalized crystalline coordinate."
+    },
+    {
+     "name": "semistableCoordinates_zero",
+     "kind": "degenerate",
+     "statement": "The zero cocycle gives β=ρ=0."
+    },
+    {
+     "name": "semistableCoordinates_boundary_test",
+     "kind": "compatibility",
+     "statement": "Adding d(a) replaces w by w+a, cancelling the changes in y and z."
+    },
+    {
+     "name": "semistableCoordinates_discrete_non_example",
+     "kind": "non-example",
+     "statement": "(0,y,0) for nonzero fixed y has zero continuous coordinate and a nonzero discrete coordinate."
+    },
+    {
+     "name": "semistableCoordinates_weight_non_example",
+     "kind": "non-example",
+     "statement": "For a semilinear weight−2 block without eigenvalue p⁻¹, ker(1−pφ)=0 although the block is nonzero; the weight space cannot replace the fixed kernel."
+    },
+    {
+     "name": "semistableCoordinates_branch_quadratic",
+     "kind": "non-example",
+     "statement": "For N(a,b)=(b,0), ρ=(0,1) and I=id, the coordinate change is (−λ²/2,−λ), not (0,−λ). The condition N²=0 on the curve realization does not kill Nρ."
+    }
+   ],
+   "sources": [
+    {
+     "sourceId": "Besser2025",
+     "locator": "§3, equations (3.5)–(3.11), Proposition 3.3, proof of Proposition 3.5, Remark 3.6, Definition 3.7 and Theorem 3.8, pp. 6–9",
+     "match": "Semistable extension complex and continuous/discrete coordinates; the proof explicitly yields ker(1−pφ)."
+    }
+   ],
    "implementationStatus": "unchecked"
+  },
+  {
+   "id": "PadicHodgeRegulators:D.5/semistable-symbol-formula",
+   "parentStageId": "PadicHodgeRegulators:D.5",
+   "realises": [
+    "PadicHodgeRegulators:D.5"
+   ],
+   "declaration": "semistableRegulator_symbolFormula",
+   "title": "The full semistable symbol formula on the monodromy kernel",
+   "kind": "theorem",
+   "statement": "Let u have a tame-trivial function-field presentation Σ_i n_i{f_i,g_i}, and let ω be a meromorphic form of the second kind whose de Rham class lies in ker N (N transported by I_π). Choose Z containing the singular supports, a semistable wide-open cover U_v, and the local Coleman primitives F_{ω,v} corrected so their annular differences c_ω(e)=F_{ω,head}−F_{ω,tail} are harmonic, giving the Vologodsky primitive. Then ⟨reg^c,π(u),[ω]⟩=Σ_i n_i(Σ_v ⟨log f_i,F_ω;log g_i⟩_{(U_v−Z)†}−Σ_{e∈E⁺}c_ω(e)⟨log f_i,log g_i⟩_e). Here the first bracket is the GLOBAL triple index on each wide open and the second is the oriented annular double index; E⁺ contains one orientation of each geometric edge. Equivalently the last sum is one half of the sum over both orientations. This formula computes the continuous regulator paired with ker N; by nondegenerate cup pairing and skew-adjointness of N it determines its image in H/(ker N)^⊥=H/im N. It does not compute reg^d or an unrestricted pairing on H. For holomorphic ω∈ker N it simplifies to Σ_i n_i∫^Vol_{(f_i)}log(g_i)ω, with local constant terms and traces. The logarithm branch and uniformizer are fixed throughout; changing them is governed by the preceding node. The totally degenerate toric quotient H/(Fil⁰+T⁰⊗Q_p) in Besser Theorem 7.6 is a separate comparison, not a replacement for this monodromy quotient.",
+   "hypotheses": [
+    "K/Q_p finite; X/K smooth proper with a regular split semistable model, geometric smooth components and ordinary double points. Fix a uniformizer π and its logarithm branch. As in the read split-model treatment, require distinct components to meet at at most one point; multiedge/self-node generalization is not asserted here.",
+    "V=H¹_et(X_Kbar,Q_p(2)), D=D_st(V), H=D_dR(V)=H¹_dR(X/K), Fil⁰D_dR(V)=Fil²H=0; import φ,N and I_π. Twisted Frobenius weights are −4,−3,−2, so φ−1 is invertible; N²=0.",
+    "Domain is the weight-two geometrically trivial motivic/K₂ regulator domain supplied by the syntomic Chern classes; symbol evaluations use a finite presentation on the function field with trivial total tame symbols.",
+    "[ω]∈ker N; ω has zero residues. Use double/triple indices and harmonic gluing with the same edge, primitive and logarithm conventions as the cited papers."
+   ],
+   "prerequisites": [
+    "PadicHodgeRegulators:D.5/semistable-continuous-regulator",
+    "PadicHodgeRegulators:D.5/coleman-symbol-formula",
+    "ColemanIntegration:L0/annulus-residue",
+    "K2SymbolsBrauer:T.3/tame-symbol",
+    "CohomologyComparisons:CP.4"
+   ],
+   "proofSteps": [
+    "Use the formula restated in Besser2025 §7, p. 28, from the arbitrary-reduction regulator paper’s Theorem 1.2/Proposition 3.7. Besser–Raskind §4, pp. 19–20, independently states the same formula and ker N restriction; its §3, pp. 10–11 fixes graph pairings as sums over unoriented edges. The local contribution is a global triple index, not just the holomorphic integral.",
+    "The ColemanIntegration Part II supplier must provide harmonic differences/gluing, annular double indices and global triple indices, with reciprocity eliminating changes of primitive and symbol presentation. Besser2025 Theorem 3.10, p. 9, supplies the holomorphic specialization using Vologodsky integration. State this as a source theorem conditional on those imported interfaces, not a consequence of BZ alone.",
+    "For the quotient, Poincaré duality makes the alternating pairing nondegenerate and N skew-adjoint, so (ker N)^⊥=im N by linear algebra. Thus all these pairings determine precisely the class modulo im N. Keep the discrete component from the extension-complex construction and the fixed branch separately."
+   ],
+   "acceptance": [
+    "On a smooth good-reduction model the graph has no edges; the holomorphic specialization becomes the established Coleman formula for regP.",
+    "Reversing e changes both c_ω(e) and the double index sign, so the edge product is unchanged; summing both orientations without a factor 1/2 would double the correction.",
+    "For a totally degenerate curve the vertex triple indices vanish (BR Theorem 4.7 proof, citing BdJ2012 Proposition 8.4). The edge expression is the logarithm of the Pál regulator, not a formula for all components of a general semistable class."
+   ],
+   "uses": [
+    {
+     "where": "PadicHodgeRegulators:D.5",
+     "how": "Fulfils the full semistable-symbol target with its continuous component, ker N test forms and explicit quotient."
+    }
+   ],
+   "api": [],
+   "tests": [],
+   "sources": [
+    {
+     "sourceId": "Besser2025",
+     "locator": "Theorem 3.10, p. 9; §4, pp. 11–14; §7, p. 28",
+     "match": "Continuous regulator pairing, harmonic edge correction, full second-kind triple-index formula and monodromy restriction."
+    },
+    {
+     "sourceId": "BR2019",
+     "locator": "§3, equations (3.1)–(3.5), pp. 10–11; Theorem 4.7 proof, pp. 19–20",
+     "match": "One edge orientation per graph pairing, full symbol formula with ker N, and the totally degenerate specialization."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Semistable symbol formula for the continuous regulator"
+   }
   }
  ],
  "requests": [
@@ -5667,7 +6228,7 @@
   },
   {
    "supplier": "CohomologyComparisons:CP.4",
-   "need": "The Hyodo–Kato (φ, N)-structure on H^1_dR of a curve with semistable reduction over O_K and its comparison with H^1_et(X_K̄, Q_p) (semistable comparison), used to state the bad-reduction regulator input. Separately, route the integral/open classical log-syntomic construction to an EARLY prefix of CohomologyComparisons Part II after CR.5/CR.6, as required by the accepted RT-AREA-iwasawa-2/3 verification. Name that producer rather than importing the late proper rational B_st comparison as its construction. Required contracts: CN’s undivided complex and its divided counterpart, a directed integral period morphism into the modified twist, the exact small-range comparison and the formal semistable exponential with its distinct i≤r−1/i=r ranges.",
+   "need": "CP.4 supplies the proper rational Hyodo–Kato comparison. Separately route the early integral/open prefix to the proposed contracts CohomologyComparisonsPartII:CS.0/classical-divided-and-undivided-syntomic; CohomologyComparisonsPartII:CS.1/integral-fontaine-messing-period; CohomologyComparisonsPartII:CS.2/divided-small-weight-comparison; CohomologyComparisonsPartII:CS.3/semistable-syntomic-exponential. Their precise statements are the four retained D.2 consumer interfaces, including ω/τ, divided exactness, directed Godement/topos map and rational exponential. These are proposed stable IDs, not existing CP.4 nodes.",
    "neededBy": [
     "PadicHodgeRegulators:D.5/semistable-input-boundary",
     "PadicHodgeRegulators:D.2/log-syntomic-complex",
@@ -5714,6 +6275,29 @@
     "PadicHodgeRegulators:L1/tate-twist-examples",
     "PadicHodgeRegulators:L1/dual-exponential"
    ]
+  },
+  {
+   "supplier": "PadicHodgeTheory:R06.1",
+   "need": "Continuous cohomology of B_dR⁺→B_dR for de Rham V, Hodge–Tate graded C_p cohomology and its filtration-limit compatibility, with the Kummer boundary used by BK Proposition 3.8, pp. 355–359. Required by the direct e/g proof, not finite ramified descent.",
+   "neededBy": [
+    "PadicHodgeRegulators:L1/local-duality-of-conditions"
+   ]
+  },
+  {
+   "supplier": "CohomologyComparisons:CP.4",
+   "need": "Relative syntomic-symbol and σ-compatible evaluation/base change for the proposed CS prefix, exactly AM2022 Theorem 3.7 and §4.1. CP.4 remains a routing anchor; its existing proper rational theorem does not supply this relative integral contract.",
+   "neededBy": [
+    "PadicHodgeRegulators:D.5/relative-curve-syntomic-regulator",
+    "PadicHodgeRegulators:D.5/smooth-family-specialisation"
+   ]
+  },
+  {
+   "supplier": "PadicDifferentialEquationsAndRigidCohomology:RD.4",
+   "need": "Route filtered F-MIC(S,σ), Ext¹, logarithm extensions and their σ-compatible pullback to the owner of relative filtered F-isocrystals/connections, alongside relative rigid/de Rham comparison. These are generic carriers imported by the regulator-specific extension of AM2022 §2, not a claim that current RD.4 already implements them.",
+   "neededBy": [
+    "PadicHodgeRegulators:D.5/relative-curve-syntomic-regulator",
+    "PadicHodgeRegulators:D.5/smooth-family-specialisation"
+   ]
   }
  ],
  "coverage": [
@@ -5721,7 +6305,6 @@
    "stageId": "PadicHodgeRegulators:D.1",
    "status": "planned",
    "remaining": [
-    "At lemma level, split D.1/etale-algebra-dilogarithm's API (functoriality, five-term, roots of unity) into lemma nodes.",
     "The field-general projective five-term and Bloch descent inherit ColemanIntegration's recorded supplier gap."
    ]
   },
@@ -5730,15 +6313,13 @@
    "status": "planned",
    "remaining": [
     "Besser–de Jeu Conjecture 1.14 for non-special presentations (gap).",
-    "Check the upper end of the Kato–Kurihara–Tsuji range at the original sources (gap).",
-    "Name/plan the early shared classical log-syntomic supplier; specify the actual integral period map and divided/undivided normalization before asserting the exact integral comparison."
+    "The proposed external CS.0–CS.3 prefix has source-supported stable contract specifications; it still needs its own planning job. No exact undivided comparison is claimed."
    ]
   },
   {
    "stageId": "PadicHodgeRegulators:D.3",
    "status": "planned",
    "remaining": [
-    "Lemma-level decomposition of the Taylor-expansion step of D.3/dilogarithm-integrality.",
     "Exact 5-adic recomputation of GSWZ Example 4.3 as an executable acceptance test."
    ]
   },
@@ -5751,16 +6332,11 @@
   },
   {
    "stageId": "PadicHodgeRegulators:D.5",
-   "status": "partial",
+   "status": "planned",
    "remaining": [
-    "Pushforward compatibility of the curve regulator (gap).",
-    "Coleman integration with colliding supports and genus ≥ 1 inherited gaps.",
-    "K_2 integrality for genus ≥ 2 (gap).",
-    "Specialisation in families (gap).",
-    "Owner for Vologodsky integration (restructure).",
-    "Add a sourced target node for specialization in smooth families, including its relative syntomic construction; a gap mention is not a target node.",
-    "State and source the full semistable symbol formula, its monodromy restrictions and target quotient; this packet establishes only NN factorization and BZ integration comparison.",
-    "Supply the modified-versus-rigid model comparison and transported K-structure used by the two curve identifications."
+    "Inherited colliding-support/genus≥1 integration and higher-genus model-integrality gaps remain explicit.",
+    "External relative filtered F-MIC/Ext and syntomic producers, and ColemanIntegration Part II integration/index producers, remain requests.",
+    "Finite-transfer compatibility follows through the étale/corestriction route; no direct rigid-syntomic pushforward theorem is claimed."
    ]
   },
   {
@@ -5775,7 +6351,7 @@
    "status": "planned",
    "remaining": [
     "Cross-check the sign of the dual-exponential adjunction against L3/explicit-reciprocity.",
-    "Close the noncircular de Rham local-duality descent and rational Euler-characteristic request."
+    "Direct de Rham duality uses independently proved dimensions; rational local Euler characteristic and continuous period cohomology are exact external requests."
    ]
   },
   {
@@ -5795,13 +6371,6 @@
     "PadicHodgeRegulators:D.4/special-unit-formula"
    ],
    "detail": "That the p-adic regulator of the class of Σ n_i[z_i] ∈ B(F) ⊗ Q equals ±Σ n_i D(σ z_i) is proved only when every z_i is a special unit of the valuation ring at p (BdJ Theorems 1.6(2), 1.10) or a root of unity (Theorem 1.12). For general presentations it is BdJ's Conjecture 1.14, open even for n = 2 in every source read. GSWZ (19) asserts the general identity (sourceIssues E101). The packet defines D_p on completed K_3 as the regulator, so Theorem 9 and the Habiro export do not depend on the conjecture; only the explicit evaluation of D_p by dilogarithms of non-special symbols does."
-  },
-  {
-   "title": "Upper end of the Kato–Kurihara–Tsuji range",
-   "neededBy": [
-    "PadicHodgeRegulators:D.2/small-twist-comparison"
-   ],
-   "detail": "Colmez–Nizioł quote the exact comparison for i ≤ r ≤ p − 1; Nekovář–Nizioł use r ≤ p − 2. The original statements of Kato, Kurihara and Tsuji were not read. The packet relies only on r ≤ p − 2 (weight two for p ≥ 5)."
   },
   {
    "title": "Sign of Cherbonnier–Colmez's δ_n against the Kummer cocycle",
@@ -5835,16 +6404,10 @@
   {
    "title": "Vologodsky integration has no owner",
    "neededBy": [
-    "PadicHodgeRegulators:D.5/semistable-input-boundary"
+    "PadicHodgeRegulators:D.5/semistable-input-boundary",
+    "PadicHodgeRegulators:D.5/semistable-symbol-formula"
    ],
-   "detail": "ColemanIntegration Part II is the proposed owner of the missing semistable Vologodsky integration interface. BZ Theorem 1.1 was read, but it does not give the weight-two regulator formula or a ker N restriction. Source and state the full formula and monodromy/convenient-quotient hypotheses before claiming that target."
-  },
-  {
-   "title": "Specialisation of curve regulators in families",
-   "neededBy": [
-    "PadicHodgeRegulators:D.5/curve-regulator-functoriality"
-   ],
-   "detail": "Specialisation of the syntomic regulator to fibres of a smooth family (Asakura, Theorem 4.9, via Asakura–Miyatani arXiv:2007.14255) was not read; only base change along finite unramified extensions is planned."
+   "detail": "The regulator target is now sourced and planned, including the full second-kind formula, continuous/discrete components, ker N restriction and H/im N pairing quotient. ColemanIntegration Part II remains the proposed owner of harmonic gluing, Vologodsky integration and global triple/annular double indices; its producer nodes still need an external design job."
   },
   {
    "title": "Early shared classical log-syntomic producer",
@@ -5855,34 +6418,10 @@
     "PadicHodgeRegulators:D.2/syntomic-exponential",
     "PadicHodgeRegulators:D.5/semistable-input-boundary"
    ],
-   "detail": "Name and plan the early CohomologyComparisons Part II producer required by the accepted RT-AREA-iwasawa-2/3 review. Its current CP.4 rational proper B_st theorem is not the integral/open producer. The four D.2 comparison nodes preserve the required interfaces without claiming ownership or completion."
+   "detail": "The external CS.0–CS.3 contracts are now named with exact source-supported specifications and directed maps. CohomologyComparisons Part II must be created/planned by its own job; CP.4 is only the routing anchor and has no such producer nodes. Generic objects remain external; no ownership closure is claimed."
   },
   {
-   "title": "Integral period morphism and divided-Frobenius normalization",
-   "neededBy": [
-    "PadicHodgeRegulators:D.2/log-syntomic-complex",
-    "PadicHodgeRegulators:D.2/fontaine-messing-kato-period-map",
-    "PadicHodgeRegulators:D.2/small-twist-comparison"
-   ],
-   "detail": "CN §5.1.1 defines the undivided p^r−φ complex; classical divided-Frobenius complexes and period-map normalizations must be compared by directed integral maps. A p^r-exact fundamental sequence is not an invertible quasi-isomorphism in D(Z/p^n). Supply the genuine integral morphism and the exact classical small-range convention before using an integral isomorphism; the rational comparison alone does not close this gap."
-  },
-  {
-   "title": "Noncircular de Rham local-duality descent",
-   "neededBy": [
-    "PadicHodgeRegulators:L1/local-duality-of-conditions"
-   ],
-   "detail": "FO Theorem 9.27 is semistable. Import potential semistability and prove descent of H_f under finite Galois extension with exact rational invariants/res-cor; alternatively give a freely readable direct de Rham source for all three exact annihilator statements. The ℓ≠p clause has been narrowed to the finite unramified p-primary modules of the read supplier; an extension to other torsion modules would require a stronger statement."
-  },
-  {
-   "title": "Curve modified-versus-rigid comparison maps",
-   "neededBy": [
-    "PadicHodgeRegulators:D.5/curve-weight-two-target",
-    "PadicHodgeRegulators:D.5/curve-etale-comparison"
-   ],
-   "detail": "Specify the rigid-to-fixed-q-Frobenius modified-model map of Besser 8.6(2),(3), identify the raw boundary ι, and prove Θ=(1−φ/q²)^{-1}ι^{-1} is the map whose composition with the étale edge equals exp_BK. Track the K-module structure transported from the modified model and the σ-semilinear versus q-linear Frobenius. AC footnote 4 checks only the Q_p case, not a substitution of one Frobenius for the other."
-  },
-  {
-   "title": "Missing Lean signatures for supplier-dependent carriers",
+   "title": "Geometric hypotheses omitted from parameterized Lean prototypes",
    "neededBy": [
     "PadicHodgeRegulators:L0/hodge-tate-and-twist-conventions",
     "PadicHodgeRegulators:L0/fundamental-exact-sequences",
@@ -5951,9 +6490,21 @@
     "PadicHodgeRegulators:D.5/coleman-symbol-formula",
     "PadicHodgeRegulators:D.5/curve-etale-comparison",
     "PadicHodgeRegulators:D.5/curve-regulator-functoriality",
-    "PadicHodgeRegulators:D.5/semistable-input-boundary"
+    "PadicHodgeRegulators:D.5/semistable-input-boundary",
+    "PadicHodgeRegulators:D.5/relative-curve-syntomic-regulator",
+    "PadicHodgeRegulators:D.5/smooth-family-specialisation",
+    "PadicHodgeRegulators:D.5/semistable-continuous-regulator",
+    "PadicHodgeRegulators:D.5/semistable-symbol-formula"
    ],
-   "detail": "Most period-ring, p-adic representation, cohomology and K-theory carriers are absent at the pinned baseline. The suggested file gives explicitly UNELABORATED mathematical contracts, not Lean theorem/API signatures or executable examples for these objects. Its successful elaboration checks only the native polynomial, finite-field, product-field and linear-algebra signatures. Do not treat comment-name coverage as compliance with PROTOCOL §13 or formalization; turn each contract into typed signatures as its suppliers become available."
+   "detail": "All packet declaration and API names now have elaborated Lean declarations, and every named test has a typed example. Native polynomial, finite-field, quotient, submodule, cochain-complex and linear-map carriers are used. Continuous cohomology, period realizations, K-theory, filtered F-MIC/Ext and integration are named imported type/map parameters; their source-specific geometry, topology, completion and comparison hypotheses are explicitly omitted under PROTOCOL §13. Several named theorem prototypes expose only representative clauses of their full statements. Successful elaboration validates these types, not their omitted hypotheses, geometric applications, numerical source assertions or proofs. Replace the parameters and restore those conditions when the external suppliers exist; implementation remains unchecked."
+  },
+  {
+   "title": "Relative filtered F-isocrystal and syntomic producers",
+   "neededBy": [
+    "PadicHodgeRegulators:D.5/relative-curve-syntomic-regulator",
+    "PadicHodgeRegulators:D.5/smooth-family-specialisation"
+   ],
+   "detail": "The source-supported relative symbol-extension and specialization targets are planned here, but the generic Fil-F-MIC/Ext, relative rigid/de Rham comparison and relative syntomic evaluation producers must be routed externally by their owner. Stage-only supplier IDs are requests, not existing complete contracts. The domain remains the tame-kernel Milnor symbols and Frobenius-compatible smooth points of the read source."
   }
  ],
  "sourceIssues": [
@@ -5962,9 +6513,9 @@
    "source": "GSWZ2024",
    "kind": "gap",
    "locator": "§1.5, after (19), p. 9 (arXiv 2412.04241v2)",
-   "printed": "The source presents Coleman [11]’s map Dp : K3 (Kp ) → Kp , Kp = Rp∧ [ 1/p ] = K ⊗Q Qp (19), and cites Besser–de Jeu [7, Thm.1.6(2)] as establishing its agreement with the p-adic regulator.",
+   "printed": "Equation (19) identifies a Bloch-presentation dilogarithm with a regulator on K₃ without restricting the symbols to special units.",
    "correction": "Besser–de Jeu Theorem 1.6(2) (and 1.10, 1.12) shows the coincidence only on classes presented by special units of the valuation ring (and on roots of unity); the identity for arbitrary elements is their Conjecture 1.14. D_p should be defined on K_3(K_p; Z_p) as the regulator, and the dilogarithm formula used only for special-unit presentations at p, which covers GSWZ's uses (Lemma 3.1 concerns special units; the Nahm and knot examples use global units).",
-   "reason": "BdJ Theorem 1.6 restricts to the subcomplex 'generated by symbols of the form [x]k ⊗ y1 ∧ … ∧ yn−k, where all yi are elements in O∗, and x is in O♭' (special units), and Conjecture 1.14 states the general case as a conjecture; BdJ remark that 'perhaps R does not have enough special units'.",
+   "reason": "The cited special-unit complex requires all wedge factors to be units and its symbol argument to be a special unit. The general formula is stated as Conjecture 1.14, with the possibility of too few special units explicitly acknowledged.",
    "affects": "the proof",
    "known": "new",
    "searched": [
@@ -5986,7 +6537,7 @@
    "source": "GSWZ2024",
    "kind": "gap",
    "locator": "Theorem 9 and proof, p. 39 (arXiv 2412.04241v2)",
-   "printed": "The source claims that the image is generated by ord(ζ)Dp (ζ) ∈ Kp.",
+   "printed": "The proof passes from root-symbol generation of a single local factor to generation of a product without a separate component-isolation argument.",
    "correction": "For K_p = ∏_i Q_{p^{s_i}} with more than one factor and ζ restricted to roots of unity with every component ≠ 1 (GSWZ E38), generation needs Proposition 3.3 in a product form: the Z_p-span of {p^{−2}D(ζ) − p^{−2}D(ζ')} is also Z_{p^s} (D.3/residue-spanning (b), (c)), which follows from the same counting bound. For the nonzero admissible domain use (p^s−2)/(p−2) when s>1; s=1 requires the separate zero/nonzero-value argument, not the original q−1 count.",
    "reason": "Proposition 3.3 is proved for one factor Q_{p^s}; a tuple ζ = (ζ_i) with all ζ_i ≠ 1 cannot isolate a single factor, so the product statement needs the difference argument.",
    "affects": "the proof",
@@ -6008,7 +6559,7 @@
    "source": "BdJ2003",
    "kind": "gap",
    "locator": "Remark 1.13, p. 6 (arXiv math/0110334v2)",
-   "printed": "The source regards the connection between these two results as evident.",
+   "printed": "The remark treats the link between higher-weight Gros values and the modified polylogarithm regulator as immediate.",
    "correction": "The relation reg^Gros = (1 − Frob/p^n) reg converts Li_n into Li_n^{(p)}, but Theorem 1.12 carries the factor ±(n − 1)! that Gros's formula lacks; the remark should account for it (a normalisation of the Chern classes). For n = 2 the factor is 1.",
    "reason": "Comparing Theorem 1.12 ([ζ]_n ↦ ±(n − 1)! L_mod,n(ζ)) with the quoted result of Gros ([ζ]_n ↦ Li_n^{(p)}(ζ)).",
    "affects": "nothing",
@@ -6029,8 +6580,8 @@
    "source": "BdJ2003",
    "kind": "misprint",
    "locator": "Proof of Theorem 1.12, p. 41 (arXiv math/0110334v2)",
-   "printed": "The proof considers m = p^s l under the condition s > 1.",
-   "correction": "s ≥ 1; and 'As reg([x]n) = Lmod,n(x) if x is a special unit' should carry the factor ±(n − 1)!.",
+   "printed": "The root-order argument excludes p-primary exponent one, and its preprint special-unit evaluation omits the theorem’s factorial and sign.",
+   "correction": "Include s=1 in the distribution argument and carry the factor ±(n−1)! in the special-unit regulator value; the latter is already restored in the published version.",
    "reason": "The case s = 1 (order divisible by p exactly once) is not special and must be covered by the same argument; Theorem 1.6(2) has the factor ±(n − 1)!.",
    "affects": "nothing",
    "known": "known",
@@ -6050,7 +6601,7 @@
    "source": "BdJ2003",
    "kind": "misprint",
    "locator": "Proof of Lemma 4.10 and (4.4), p. 25 (arXiv math/0110334v2)",
-   "printed": "(dω, (1 − φ∗/q^n)ω) − dε",
+   "printed": "The preprint puts the homotopy-coordinate differential outside its ordered pair and uses a different letter for that coordinate in the lemma proof.",
    "correction": "(dω, (1 − φ∗/q^n)ω − dε), as the cone differential (4.1) d(a, b) = (da, f(a) − db) requires; and '(ω, η)' should read (ω, ε).",
    "reason": "Apply (4.1) with f = 1 − φ*/q^n.",
    "affects": "nothing",
@@ -6071,7 +6622,7 @@
    "source": "CN2017",
    "kind": "misprint",
    "locator": "§1, p. 2 and §2.4.3, p. 23 (arXiv 1505.06471v4)",
-   "printed": "The source defines Zp(r)′ := (1/p^a(r)) Zp(r), using the decomposition r = (p − 1)a(r) + b(r) with 0 ≤ b(r) ≤ p − 1.",
+   "printed": "CN’s remainder interval includes its upper endpoint p−1, making the decomposition ambiguous there.",
    "correction": "0 ≤ b(r) ≤ p − 2 (equivalently a(r) = ⌊r/(p − 1)⌋, as in Nekovář–Nizioł §4.1).",
    "reason": "With b(r) ≤ p − 1, r = p − 1 has two decompositions (a, b) = (0, p − 1) and (1, 0), so a(r) is not determined.",
    "affects": "nothing",
@@ -6092,7 +6643,7 @@
    "source": "CN2017",
    "kind": "gap",
    "locator": "Theorem 1.1(ii), p. 2, against Theorem 5.4(ii), p. 54 (arXiv 1505.06471v4)",
-   "printed": "Theorem 1.1(ii) claims that pN kills both the kernel and the cokernel of the map in general. Here the integer N = N (e, p, r) depends on e, r and is independent of X and n.",
+   "printed": "The introduction advertises a bound depending on the ramification index, whereas the descent theorem uses a field-dependent bound.",
    "correction": "The proof supports the conservative N(K,p,r) of Theorem 5.4(ii). Dependence only on e is not established by the descent argument read here; the stronger introduction claim is not disproved.",
    "reason": "The descent constant of Lemma 5.9 involves the conductor c(K); Remark 1.7 only hopes for dependence on the different.",
    "affects": "the proof",
@@ -6113,7 +6664,7 @@
    "source": "NN2016",
    "kind": "error",
    "locator": "Remark 4.14, p. 54 (arXiv 1309.7620v5)",
-   "printed": "Remark 4.14 claims that every arrow in the preceding diagram becomes an isomorphism when r > q.",
+   "printed": "The remark asserts that all diagram arrows are isomorphisms as soon as twist exceeds cohomological degree.",
    "correction": "Assume r ≥ q + 2.",
    "reason": "For X = Spec K, q = 0 and r = 1, exp_BK : K → H^1(G_K, Q_p(1)) is not surjective (dimensions [K : Q_p] and [K : Q_p] + 1).",
    "affects": "nothing",
@@ -6134,7 +6685,7 @@
    "source": "NN2016",
    "kind": "misprint",
    "locator": "Theorem 5.9, p. 59 (arXiv 1309.7620v5)",
-   "printed": "H^1_st(GK, H^{i+1}_ét(XK̄,Qp(r))) ⊂ H^1(GK, H^{i+1}_ét(...))",
+   "printed": "The semistable edge term is written with geometric cohomology degree i+1.",
    "correction": "H^i in place of H^{i+1}, as in Theorem B (p. 7).",
    "reason": "r^et_{r,i} lands in H^1(G_K, H^i_et(X_K̄, Q_p(r))).",
    "affects": "nothing",
@@ -6155,7 +6706,7 @@
    "source": "NN2016",
    "kind": "error",
    "locator": "Proposition 2.16, p. 15 (arXiv 1309.7620v5)",
-   "printed": "Proposition 2.16 asserts that the map Hi_st(GK,Vpst(D)) → Hi(GK,Vpst(D)) is an isomorphism whenever D ∈ MF^ad_K(ϕ,N,GK) satisfies F1DK = 0.",
+   "printed": "The comparison proposition asserts a derived semistable/Galois isomorphism under vanishing of the first filtration step.",
    "correction": "Exclude the trivial representation: the stated F¹=0 hypothesis is insufficient. The proof’s H²=0 step additionally excludes Q_p(1), for example by requiring F^{-1}D_K=0. No optimal corrected general theorem for F⁰=0 is claimed; use the verified stronger ranges in applications.",
    "reason": "V = Q_p has F^1 = 0, but H^1_st(G_K, Q_p) = K_0/(1 − σ) has dimension 1 while H^1(G_K, Q_p) has dimension [K : Q_p] + 1.",
    "affects": "a stated result",
@@ -6176,7 +6727,7 @@
    "source": "HK2011",
    "kind": "misprint",
    "locator": "Definition 0.4.5, p. 6 (arXiv math/0612611v1)",
-   "printed": "((n−1)!)²/(2n−1)! Σ_{σ∈S2n−1} sgn(σ) Tr(x1 ◦ · · · ◦ x2n−1)",
+   "printed": "The alternating trace formula sums signs of permutations while leaving the indices in the trace unpermuted.",
    "correction": "Tr(x_{σ(1)} ∘ ⋯ ∘ x_{σ(2n−1)}).",
    "reason": "As printed σ does not act on the summand, so the alternating sum vanishes for n ≥ 2.",
    "affects": "nothing",
@@ -6197,8 +6748,8 @@
    "source": "Berger2003",
    "kind": "misprint",
    "locator": "Lemma II.1, p. 10 (arXiv math/0209283v1)",
-   "printed": "For the case n ≥ 0, the lemma gives (1 − p−1 ϕ−1 )∂V (y).",
-   "correction": "'if n = 0', and the hypothesis ψ(y) = y, used in the proof and in all applications, should be in the statement.",
+   "printed": "The preprint includes n=0 in an overlapping case and does not state the ψ-fixed hypothesis used in the proof.",
+   "correction": "The second case is n=0, and the statement requires ψ(y)=y as used by its proof and applications; both defects are corrected in the published lemma.",
    "reason": "The first case of the lemma covers n ≥ 1; the proof writes 'ψ(y) = y means that …'.",
    "affects": "nothing",
    "known": "known",
@@ -6218,7 +6769,7 @@
    "source": "FO",
    "kind": "gap",
    "locator": "Proof of Proposition 6.36(1), p. 150",
-   "printed": "The proof claims Hcont1(Qp , Qp (−1)) ≠ 0, invoking Tate’s duality to identify this group with Hcont0(Qp , Qp ) = Qp.",
+   "printed": "The book draft justifies nonvanishing of degree-one cohomology of the negative Tate twist by pairing it with degree-zero trivial coefficients.",
    "correction": "Non-vanishing (dimension 1) follows from the Euler characteristic formula, since H^0(Q_p(−1)) = H^2(Q_p(−1)) = 0; Tate duality pairs H^1(Q_p(−1)) with H^1(Q_p(2)), not with H^0.",
    "reason": "Local Tate duality pairs H^i(V) with H^{2−i}(V^*(1)).",
    "affects": "nothing",
@@ -6238,7 +6789,7 @@
    "source": "HK2",
    "kind": "misprint",
    "locator": "Appendix A, Proposition A.3, p. 47 (arXiv math/0101071v2)",
-   "printed": "0 → (OK∗)∧ → H 1 (OF [1/p], Zp (1))",
+   "printed": "The global unit injection uses a ring-of-integers label different from the field in its cohomology target.",
    "correction": "(O_F^*)^∧.",
    "reason": "F is the number field; the proof and Proposition 2.3.2 use O_F.",
    "affects": "nothing",
@@ -6258,7 +6809,7 @@
    "source": "Berger2003DM",
    "kind": "misprint",
    "locator": "Proof of Theorem A.3, p. 126 (Documenta version)",
-   "printed": "The argument assumes that V is positive and admits no quotient isomorphic to Q_p.",
+   "printed": "The proof calls a representation positive where the paper’s convention assigns that word the opposite weight inequality.",
    "correction": "With the paper's convention (positive = Hodge–Tate weights ≤ 0, p. 105) the case treated has weights ≥ 0; 'positive' should read 'with nonnegative Hodge–Tate weights'.",
    "reason": "Compare the definition on p. 105.",
    "affects": "nothing",
@@ -6279,7 +6830,7 @@
    "source": "LZ2014",
    "kind": "misprint",
    "locator": "§2, p. 7 (arXiv 1108.5954v3)",
-   "printed": "[Ber03, Theorem A.2]",
+   "printed": "The Wach/ψ discussion cites Theorem A.2 for the ψ-fixed-vector result.",
    "correction": "[Ber03, Theorem A.3] (Theorem A.2 is the characterisation of Wach modules).",
    "reason": "In both versions of Berger's paper the ψ-invariants statement is Theorem A.3.",
    "affects": "nothing",
@@ -6299,7 +6850,7 @@
    "source": "AC20",
    "kind": "misprint",
    "locator": "Remark 3.2(1), p. 15 (arXiv 2003.08888v2)",
-   "printed": "The source attributes the factor (1 − Φ/p^n) relating the two expressions to [Be1, Remark 8.6.3].",
+   "printed": "The regulator comparison is attributed to a remark instead of the indicated proposition item.",
    "correction": "[Be1, Proposition 8.6.3], as Besser–de Jeu cite the same item.",
    "reason": "Besser–de Jeu 2003 p. 21 cite 'Proposition 8.6.3' of the same paper for the comparison of syntomic and modified syntomic cohomology.",
    "affects": "nothing",
@@ -6324,7 +6875,7 @@
     "CrystallineCohomology"
    ],
    "detail": "RT-AREA-iwasawa-2/3 is confirmed, but its verifier explicitly rejects generic D.2 ownership: PAPER-COLMEZ-NIZIOL-17 route 5 and the analogous CDN20 route 7 remain rejected; RS-26 retains smooth/unramified regulator D.2. The previous packet contradicted this boundary.",
-   "proposal": "Name and plan an early classical integral/open log-syntomic prefix in CohomologyComparisons Part II after CR.5/CR.6. It owns the undivided/divided complexes, integral Fontaine–Messing–Kato map with modified twists, exact small-range comparison and the formal semistable exponential. The four retained D.2 IDs are required imported contracts, not new carriers. Generic semistable D.5 imports this prefix when available. Keep the rigid good-reduction regulator path independent of the full log package; do not use the late CP.4 B_st theorem as a substitute or accept rejected paper routes."
+   "proposal": "Propose CohomologyComparisons, Part II, with early stages CS.0→CS.1→CS.2 and CS.0→CS.3 after CR.5/CR.6. Stable proposed contracts: CohomologyComparisonsPartII:CS.0/classical-divided-and-undivided-syntomic; CohomologyComparisonsPartII:CS.1/integral-fontaine-messing-period; CohomologyComparisonsPartII:CS.2/divided-small-weight-comparison; CohomologyComparisonsPartII:CS.3/semistable-syntomic-exponential. CS.0 owns both filtered integral complexes, the Frobenius-divisible ideal, ω/τ and products; CS.1 owns the directed syntomic–étale-site period map and modified twists; CS.2 owns the exact DIVIDED r≤p−2 and bounded UNDIVIDED comparisons; CS.3 owns the rational formal-semistable boundary/exponential. These proposed IDs do not yet exist in the atlas and are recorded as requests, never executable prerequisites. D.2’s retained IDs are consumer comparisons only. Neither this prefix nor late CP.4 is a prerequisite of the rigid good-reduction regulator construction. CN route 5 and CDN route 7 remain rejected."
   },
   {
    "action": "rescope",
@@ -6367,7 +6918,13 @@
   "job": "BP-PadicHodgeRegulators--D.1",
   "session": "claude-HfULO4",
   "agent": "Claude",
-  "date": "2026-10-06"
+  "date": "2026-10-06",
+  "revision": {
+   "job": "BP-PadicHodgeRegulators--D.1~2",
+   "session": "codex-DhzvgG",
+   "agent": "Codex",
+   "date": "2026-10-08"
+  }
  },
  "review": {
   "status": "needs_changes",
