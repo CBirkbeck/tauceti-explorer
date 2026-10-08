@@ -1,8 +1,8 @@
 {
-  "roadmaps": 242,
-  "stages": 5267,
-  "originalStages": 2191,
-  "sourceRefinements": 3076,
+  "roadmaps": 243,
+  "stages": 5287,
+  "originalStages": 2197,
+  "sourceRefinements": 3090,
   "reviewedDecompositions": [
     {
       "roadmap": "AInfCohomology",
@@ -194,7 +194,7 @@
       "deferredLinks": 0
     }
   ],
-  "terminalTargets": 2119,
+  "terminalTargets": 2125,
   "groups": 27,
   "retiredRoadmaps": [
     "FoundationsAndLibraryIntegration"
@@ -203,7 +203,7 @@
   "estimatedRoadmaps": 0,
   "distanceBases": {
     "judged": 203,
-    "measured": 16,
+    "measured": 17,
     "built": 7,
     "children": 1
   },
@@ -211,18 +211,18 @@
   "unmappedAreas": 0,
   "areasWithRoadmaps": 27,
   "additionalRegions": 0,
-  "mathematicalSummaries": 242,
+  "mathematicalSummaries": 243,
   "editedRoadmapSummaries": 181,
   "curatedStagePresentations": 339,
   "administrativeStages": 101,
-  "mathematicalStars": 5166,
+  "mathematicalStars": 5186,
   "plainTextPlanetLabels": 398,
   "hiddenPlanets": 600,
   "mappedStageStatuses": 350,
   "libraryAuditStatuses": 19,
   "bibliographicSources": 46,
-  "roadmapEdges": 2272,
-  "stageEdges": 13760,
+  "roadmapEdges": 2292,
+  "stageEdges": 13860,
   "reviewedLinkPackets": 25,
   "promotedBlueprints": [
     {
@@ -560,6 +560,12 @@
       "roadmap": "EllipticCurveModularityPartII",
       "nodes": 0,
       "reviewer": "independent-review-REV-DESIGN-EllipticCurveModularityPartII~2"
+    },
+    {
+      "file": "EllipticCurveModularityPartIIGL2TypeAbelianVarieties",
+      "roadmap": "EllipticCurveModularityPartIIGL2TypeAbelianVarieties",
+      "nodes": 44,
+      "reviewer": "independent-review-REV-DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties~2"
     },
     {
       "file": "EllipticKTheory--E.5",
@@ -1301,8 +1307,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 36612107,
-  "htmlSha256": "d3f67e7b298c51057559f6bd1edb60550920a8647ea4e79d929146ab1fc76f80",
+  "htmlBytes": 36709416,
+  "htmlSha256": "9622997c7c3529759dd5162f42847cf51e1492a6c27ad01982343cf45a3f1df7",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -1334,8 +1340,8 @@
     "data/roadmap-summaries.json": "c8bdd0a9105f5d3c4a858c8b635990729f8e94497dee784a71fae659b8c05b9f",
     "data/roadmap-classification.json": "2641dbc97eb2566c715162d011b46890d1635629181ef8126ac7aed9e24a3b13",
     "data/classification-estimates.json": "625d35fe6121bf099dc5de9e6a9111793596f9b664e3fbd439841434bb4a57d6",
-    "data/roadmap-distances.json": "5dc951a40db1cb7049922a26a7ec026dd62901523d3a433643eb07a1ce61c790",
-    "data/galaxy-layout.json": "7489487a2143484a355b36026c2f7d3dd9384ac5c58ac90d8b061b8dfcab6088",
+    "data/roadmap-distances.json": "5b4af782b90f212f01852259aa0aeaf5ac04e058685812aec3dc093f41ea9834",
+    "data/galaxy-layout.json": "c4f41c53e501ae0cb94c10f730031eafef5ce9f4ac8c9802cf8d78dcb31c1ab7",
     "data/bibliography.json": "bef230a41fad22d6b790c7564061c4d05c2ae5b78cab53d005eb404afab2b122",
     "NOTICE": "a285b95d5adbf5c2bcc82db36e2a77b797f84a2c5cbb30292efd0bae17cc4f34",
     "LICENSE": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1",
@@ -1504,6 +1510,8 @@
     "data/blueprints/EllipticCurveModularityImaginaryQuadratic.md": "b73c551fa524462cb17ecbc4db3f72da558c4476704c9a3df009347b1b3a5fe1",
     "data/blueprints/EllipticCurveModularityPartII.json": "0dca437503da1dc520fe35ecc3c84f1527a38804db2fcb834ef523998d79ee2e",
     "data/blueprints/EllipticCurveModularityPartII.md": "aa433caffbd9501b577ac7ed73f10834b9aee1d7b7fa8c95b0cc67757592a97a",
+    "data/blueprints/EllipticCurveModularityPartIIGL2TypeAbelianVarieties.json": "0d4faac92e15760e8fca201c41f6df2e4b2856b9026db5f7f42a66d9bb14d13e",
+    "data/blueprints/EllipticCurveModularityPartIIGL2TypeAbelianVarieties.md": "c41af3a80afda5ba347d6ee23fdef6e179118509ccabe715e617f9fb65f64453",
     "data/blueprints/EllipticKTheory--E.5.json": "0bf263ad44741d264b5ddf0423d7ee414cb8d1a362dfa72f6d51f2a0bceff08d",
     "data/blueprints/EllipticKTheory--E.5.md": "25ac3cc0649b3b9237db6f2ac85b0fb0d8498f472aee212b0398abf3ad988365",
     "data/blueprints/EllipticKTheory--E.6.json": "36bb618e246be986ac89de10653ce403d3d8f5466f887a36fe0c31d72d454ee6",
@@ -1757,6 +1765,7 @@
     "data/blueprints/roadmaps/CrystallineLocalGlobalCompatibilityCM.json": "69e20eee2aadc47c32b45dfae4d6525d4cdf14980face2e87244052d3c1d3f05",
     "data/blueprints/roadmaps/EllipticCurveModularityImaginaryQuadratic.json": "6e64390574345ea126710e816d3db0f143ed0bd79eb8e383060f8cdcdeb1a933",
     "data/blueprints/roadmaps/EllipticCurveModularityPartII.json": "f6e510eb9d773795f91550213d8d5d826d1c5abb0b59832ab447bf30bdacbac8",
+    "data/blueprints/roadmaps/EllipticCurveModularityPartIIGL2TypeAbelianVarieties.json": "74d9ccf6e329d1b052fe1c980aa5596b21702cf574e80e2cbcefc7bd8aff32a1",
     "data/blueprints/roadmaps/EllipticLegendreCharacterInterfaces.json": "0085327d334155bb72d94f2990aba07409dad99584fe44b9af77aa8cb0ca0568",
     "data/blueprints/roadmaps/EllipticModularityEffectiveComparisons.json": "eb4db731fe7f417cc957ac93c0780bc678b4cbdbd6b3008645c09d06c5a24f25",
     "data/blueprints/roadmaps/ErdosProgressionPowers.json": "98585384723f4c1baf2746a8b245f602916b416f80aed06b20836a2d8c250c24",

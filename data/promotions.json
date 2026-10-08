@@ -895,6 +895,18 @@
     "data/blueprints/roadmaps/EllipticCurveModularityPartII.json"
    ]
   },
+  "research/blueprint/packets/EllipticCurveModularityPartIIGL2TypeAbelianVarieties.json": {
+   "promotedAt": "2026-10-08T22:01:54Z",
+   "review": "1275a34f617735c2",
+   "reviewDate": "2026-10-08",
+   "reviewer": "independent-review-REV-DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties~2",
+   "sha256": "efe1a79ec5ff0cdf41697aceca96c986fd35c99d275e706ba8f84f504400497a",
+   "to": [
+    "data/blueprints/EllipticCurveModularityPartIIGL2TypeAbelianVarieties.json",
+    "data/blueprints/EllipticCurveModularityPartIIGL2TypeAbelianVarieties.md",
+    "data/blueprints/roadmaps/EllipticCurveModularityPartIIGL2TypeAbelianVarieties.json"
+   ]
+  },
   "research/blueprint/packets/EllipticKTheory--E.5.json": {
    "promotedAt": "2026-10-06T03:50:36Z",
    "review": "699bceb00a988101",
