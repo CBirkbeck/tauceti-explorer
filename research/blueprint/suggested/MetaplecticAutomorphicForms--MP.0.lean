@@ -189,73 +189,73 @@ lemma centralCharacter_unique {A : Type*} [Group A] (B : LinearMap.BilinMap R W 
     (hs : ∀ x : W, rho ((bilinearFactorSet B).canonicalSection (ofAdd x)) = 1) :
     rho = centralCharacter B chi hchi := by sorry
 
--- Test: bilinearFactorSet_zero. Native zero form gives the untwisted addition law.
+-- Test: TauCeti.Metaplectic.Heisenberg.bilinearFactorSet_zero. Native zero form gives the untwisted addition law.
 example (p q : (bilinearFactorSet (0 : BilinForm ℤ ℤ)).Extension) :
     (p*q).left.toAdd = p.left.toAdd + q.left.toAdd := by sorry
 
--- Test: bilinearFactorSet_cross. This triangular matrix gives B(e₀,e₁)=1.
+-- Test: TauCeti.Metaplectic.Heisenberg.bilinearFactorSet_cross. This triangular matrix gives B(e₀,e₁)=1.
 example : (bilinearFactorSet (Matrix.toBilin' (!![0,1;0,0] : Matrix (Fin 2) (Fin 2) ℤ))
     (ofAdd ![1,0],ofAdd ![0,1])).toAdd = 1 := by sorry
 
--- Test: bilinearFactorSet_reversed. The reverse product has a different cocycle.
+-- Test: TauCeti.Metaplectic.Heisenberg.bilinearFactorSet_reversed. The reverse product has a different cocycle.
 example : (bilinearFactorSet (Matrix.toBilin' (!![0,1;0,0] : Matrix (Fin 2) (Fin 2) ℤ))
     (ofAdd ![0,1],ofAdd ![1,0])).toAdd = 0 := by sorry
 
--- Test: extensionIsometry_identity. Test at an actual integer vector.
+-- Test: TauCeti.Metaplectic.Heisenberg.extensionIsometry_identity. Test at an actual integer vector.
 example : extensionIsometry (LinearMap.BilinForm.IsometryEquiv.refl (0 : BilinForm ℤ ℤ))
     ⟨ofAdd 3,ofAdd 4⟩ = ⟨ofAdd 3,ofAdd 4⟩ := by sorry
 
--- Test: extensionIsometry_negation. Negation preserves any bilinear form.
+-- Test: TauCeti.Metaplectic.Heisenberg.extensionIsometry_negation. Negation preserves any bilinear form.
 example (B : BilinForm ℤ ℤ) :
     let e : B.IsometryEquiv B :=
       { LinearEquiv.neg ℤ with map_app' := by intros; simp }
     extensionIsometry e ⟨ofAdd 3,ofAdd 4⟩ = ⟨ofAdd 3,ofAdd (-4)⟩ := by sorry
 
--- Test: extensionIsometry_inverse. Different spaces use the existing inverse isometry.
+-- Test: TauCeti.Metaplectic.Heisenberg.extensionIsometry_inverse. Different spaces use the existing inverse isometry.
 example {B : BilinForm R W} {D : BilinForm R W'}
     (e : B.IsometryEquiv D) (p : (bilinearFactorSet B).Extension) :
     extensionIsometry e.symm (extensionIsometry e p) = p := by sorry
 
--- Test: extensionIsometryAction_identity. The native group identity fixes concrete data.
+-- Test: TauCeti.Metaplectic.Heisenberg.extensionIsometryAction_identity. The native group identity fixes concrete data.
 example : extensionIsometryAction (0 : BilinForm ℤ ℤ) 1
     ⟨ofAdd 3,ofAdd 4⟩ = ⟨ofAdd 3,ofAdd 4⟩ := by sorry
 
--- Test: extensionIsometryAction_negation. A nontrivial linear action fixes the center.
+-- Test: TauCeti.Metaplectic.Heisenberg.extensionIsometryAction_negation. A nontrivial linear action fixes the center.
 example :
     let e : TauCeti.BilinForm.isometryGroup (0 : BilinForm ℤ ℤ) :=
       ⟨LinearEquiv.neg ℤ, by intro x y; simp⟩
     extensionIsometryAction (0 : BilinForm ℤ ℤ) e
       ⟨ofAdd 3,ofAdd 4⟩ = ⟨ofAdd 3,ofAdd (-4)⟩ := by sorry
 
--- Test: extensionIsometryAction_center. Every isometry fixes the embedded scalar group.
+-- Test: TauCeti.Metaplectic.Heisenberg.extensionIsometryAction_center. Every isometry fixes the embedded scalar group.
 example (B : BilinForm R W) (e : TauCeti.BilinForm.isometryGroup B) (t : R) :
     extensionIsometryAction B e ((bilinearFactorSet B).inl (ofAdd t)) =
       (bilinearFactorSet B).inl (ofAdd t) := by sorry
 
--- Test: polarizationEquiv_zero. The zero cocycle has no quadratic correction.
+-- Test: TauCeti.Metaplectic.Heisenberg.polarizationEquiv_zero. The zero cocycle has no quadratic correction.
 example [Invertible (2 : ℚ)] :
     polarizationEquiv (0 : BilinForm ℚ ℚ) ⟨ofAdd 3,ofAdd 4⟩ =
       ⟨ofAdd 3,ofAdd 4⟩ := by sorry
 
--- Test: polarizationEquiv_cross. q(2,3)=3 for B((x,y),(x′,y′))=xy′.
+-- Test: TauCeti.Metaplectic.Heisenberg.polarizationEquiv_cross. q(2,3)=3 for B((x,y),(x′,y′))=xy′.
 example [Invertible (2 : ℚ)] :
     polarizationEquiv (Matrix.toBilin' (!![0,1;0,0] : Matrix (Fin 2) (Fin 2) ℚ))
       ⟨ofAdd 0,ofAdd ![2,3]⟩ = ⟨ofAdd 3,ofAdd ![2,3]⟩ := by sorry
 
--- Test: polarizationEquiv_sign. The inverse correction has the opposite sign.
+-- Test: TauCeti.Metaplectic.Heisenberg.polarizationEquiv_sign. The inverse correction has the opposite sign.
 example [Invertible (2 : ℚ)] :
     (polarizationEquiv (Matrix.toBilin' (!![0,1;0,0] : Matrix (Fin 2) (Fin 2) ℚ))).symm
       ⟨ofAdd 0,ofAdd ![2,3]⟩ = ⟨ofAdd (-3),ofAdd ![2,3]⟩ := by sorry
 
--- Test: centralCharacter_value. The zero form permits the identity scalar character.
+-- Test: TauCeti.Metaplectic.Heisenberg.centralCharacter_value. The zero form permits the identity scalar character.
 example : centralCharacter (0 : BilinForm ℤ ℤ) (MonoidHom.id _) (by intros; rfl)
     ⟨ofAdd 3,ofAdd 4⟩ = ofAdd 3 := by sorry
 
--- Test: centralCharacter_trivial. A trivial character works for every bilinear cocycle.
+-- Test: TauCeti.Metaplectic.Heisenberg.centralCharacter_trivial. A trivial character works for every bilinear cocycle.
 example (B : LinearMap.BilinMap R W C) :
     centralCharacter B (1 : Multiplicative C →* Multiplicative ℤ) (by intros; rfl) = 1 := by sorry
 
--- Test: centralCharacter_zero. The identity character on the zero form is 1 at identity.
+-- Test: TauCeti.Metaplectic.Heisenberg.centralCharacter_zero. The identity character on the zero form is 1 at identity.
 example : centralCharacter (0 : BilinForm ℤ ℤ) (MonoidHom.id _) (by intros; rfl)
     (1 : (bilinearFactorSet (0 : BilinForm ℤ ℤ)).Extension) = 1 := by sorry
 
@@ -553,7 +553,7 @@ example (Θ : ℕ → Type*) [∀ r, Zero (Θ r)] (h : ∀ r x, x = (0 : Θ r)) 
 -- Test: TauCeti.Metaplectic.firstOccurrence_anisotropic
 example (m₀ m₁ r : ℕ) (h : m₀ ≠ m₁) : m₀+2*r ≠ m₁+2*r := by sorry
 /- MetaplecticAutomorphicForms:MP.2/character-and-dual
-Emitted: unit identities showing that weight-two corrections return tensor and dual scalar weights to weight one. Missing: the actual λ-character, representation tensor/dual objects and their smooth category comparisons; the unit identities alone are not those equivalences.
+Emitted: unit identities showing tensor weight 2−2=0 after λ₂⁻¹ and dual weight −1+2=1 after λ₂. Missing: the actual λ-character, representation tensor/dual objects and their smooth category comparisons; the unit identities alone are not those equivalences.
 -/
 theorem weil_characterChange (z : ℂˣ) : z*z*(z^2)⁻¹ = 1 ∧ z⁻¹*z^2 = z := by sorry
 
@@ -1166,7 +1166,7 @@ example (measure : Measure ℍ) (φ : ℍ → ℂ) (p q : ℍ) (a : ℂ)
 -- Test: TauCeti.Metaplectic.geometricTrace_norm
 example (measure : Measure ℍ) (φ : ℍ → ℂ) (rawTrace : ℂ) (h : (∫ z, ‖φ z‖^2 ∂measure : ℝ) = 1) : geometricTrace measure φ rawTrace = rawTrace := by sorry
 /- MetaplecticAutomorphicForms:MP.7/biro-shintani-lift
-Emitted: the positive-index Fourier series with |Q|^(1/2)/P divisor coefficient, complex spectral parameter, kernel/zero and coefficient2=1/2 tests. Missing: actual general-level Maass carrier, Fourier extraction, Whittaker W, eigen-equation, trace identity(14), convergence and corrected analytic proof. The spectral API is omitted instead of replacing a Laplace theorem by an arithmetic equality.
+Emitted: the Fourier series over all nonzero positive and negative indices with |Q|^(1/2)/P divisor coefficient and positive-D inputs, complex spectral parameter, kernel/zero and coefficient2=1/2 tests. Missing: actual general-level Maass carrier, Fourier extraction, Whittaker W, eigen-equation, trace identity(14), convergence and corrected analytic proof. The spectral API is omitted instead of replacing a Laplace theorem by an arithmetic equality.
 -/
 def biroCoefficientSequence (b : ℤ → ℂ) (χ : ℕ → ℂ) (N : ℕ) (D : ℤ) (k : ℕ) : ℂ :=
  ∑ P ∈ k.divisors, if Nat.Coprime N P then
@@ -1203,49 +1203,19 @@ Each name below is a planning target, not a Lean assertion. Its actual carrier
 and comparison maps must be constructed before its signature can be emitted.
 The packet and reader retain the full statements, hypotheses and proof routes.
 
-MetaplecticAutomorphicForms:MP.0/bilinear-factor-set — Bilinear Heisenberg factor set
-The signature uses the existing native factor-set extension and form/isometry carriers with the stated algebraic hypotheses. No local-field smooth, analytic or cover assertions are inferred. Full-file elaboration is unverified because its Tau Ceti import is unavailable in the shared build.
-  TauCeti.Metaplectic.Heisenberg.bilinearFactorSet_zero [tests]: For B=0 on W=C=Z, the coefficient coordinate of pq is t+s.
-  TauCeti.Metaplectic.Heisenberg.bilinearFactorSet_cross [tests]: For W=Z² and B(x,y)=x₀y₁, α_B(e₀,e₁)=1 in additive coefficient coordinates.
-  TauCeti.Metaplectic.Heisenberg.bilinearFactorSet_reversed [tests]: For the same native matrix form, α_B(e₁,e₀)=0. Replacing B by its transpose fails the two ordered tests.
-
-MetaplecticAutomorphicForms:MP.0/isometry-extension — Extension isomorphism induced by an isometry
-The signature uses the existing native factor-set extension and form/isometry carriers with the stated algebraic hypotheses. No local-field smooth, analytic or cover assertions are inferred. Full-file elaboration is unverified because its Tau Ceti import is unavailable in the shared build.
-  TauCeti.Metaplectic.Heisenberg.extensionIsometry_identity [tests]: The identity isometry of the zero form on Z fixes (3,4).
-  TauCeti.Metaplectic.Heisenberg.extensionIsometry_negation [tests]: Negation preserves any scalar bilinear form on Z and sends (3,4) to (3,−4), preserving the coefficient 3.
-  TauCeti.Metaplectic.Heisenberg.extensionIsometry_inverse [tests]: Extension of the native inverse isometry undoes extension of e, including when the underlying modules differ.
-
-MetaplecticAutomorphicForms:MP.0/isometry-action — Isometry action on the Heisenberg group
-The signature uses the existing native factor-set extension and form/isometry carriers with the stated algebraic hypotheses. No local-field smooth, analytic or cover assertions are inferred. Full-file elaboration is unverified because its Tau Ceti import is unavailable in the shared build.
-  TauCeti.Metaplectic.Heisenberg.extensionIsometryAction_identity [tests]: The native group identity for the zero form on Z fixes (3,4).
-  TauCeti.Metaplectic.Heisenberg.extensionIsometryAction_negation [tests]: The negation element of the native isometry group of the zero form on Z sends (3,4) to (3,−4); a constant identity action fails.
-  TauCeti.Metaplectic.Heisenberg.extensionIsometryAction_center [tests]: Every native isometry-group element fixes the native coefficient injection, for all t.
-
-MetaplecticAutomorphicForms:MP.0/polarization-equivalence — Polarized Heisenberg coordinates
-The signature uses the existing native factor-set extension and form/isometry carriers with the stated algebraic hypotheses. No local-field smooth, analytic or cover assertions are inferred. Full-file elaboration is unverified because its Tau Ceti import is unavailable in the shared build.
-  TauCeti.Metaplectic.Heisenberg.polarizationEquiv_zero [tests]: For B=0 on Q, the equivalence fixes (3,4).
-  TauCeti.Metaplectic.Heisenberg.polarizationEquiv_cross [tests]: For B(x,y)=x₀y₁ on Q², the image of (0,(2,3)) is (3,(2,3)).
-  TauCeti.Metaplectic.Heisenberg.polarizationEquiv_sign [tests]: For the same B, the inverse image of (0,(2,3)) is (−3,(2,3)); using a plus sign for both directions fails.
-
-MetaplecticAutomorphicForms:MP.0/central-character — Section-trivial extension of a central character
-The signature uses the existing native factor-set extension and form/isometry carriers with the stated algebraic hypotheses. No local-field smooth, analytic or cover assertions are inferred. Full-file elaboration is unverified because its Tau Ceti import is unavailable in the shared build.
-  TauCeti.Metaplectic.Heisenberg.centralCharacter_value [tests]: For B=0 on Z and χ the identity of Multiplicative Z, the value at (3,4) is additive 3.
-  TauCeti.Metaplectic.Heisenberg.centralCharacter_trivial [tests]: For every bilinear B, the trivial character into Multiplicative Z gives the trivial homomorphism on E_B.
-  TauCeti.Metaplectic.Heisenberg.centralCharacter_zero [tests]: For B=0 on Z and χ the native identity homomorphism, the value at the native extension identity is one.
-
 MetaplecticAutomorphicForms:MP.3/orthogonal-cover-restriction — Cover over orthogonal–symplectic pairs
 No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: The scalar cover pulls back to O(V)×Sp(W). O(V) has the Schrödinger splitting h↦[φ(x)↦φ(h⁻¹x)]. The restriction over Sp(W) of the μ₂ cover is trivial when m=dim V is even and is the metaplectic cover of W when m is odd. The tensor Weil representation consequently descends to O(V)×Sp(W) for even m and is genuine on O(V)×Mp(W) for odd m.
   TauCeti.Metaplectic.orthogonalCover_parity [target]: The scalar cover pulls back to O(V)×Sp(W). O(V) has the Schrödinger splitting h↦[φ(x)↦φ(h⁻¹x)]. The restriction over Sp(W) of the μ₂ cover is trivial when m=dim V is even and is the metaplectic cover of W when m is odd. The tensor Weil representation consequently descends to O(V)×Sp(W) for even m and is genuine on O(V)×Mp(W) for odd m.
 
 MetaplecticAutomorphicForms:MP.3/unitary-splitting — Unitary dual-pair splittings
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: The cited papers invoke Kudla’s unitary splitting formula; its original proof and exact δ convention must be collated. The generic Hermitian-space carrier belongs to upstream ClassicalGroups, not to this packet.
-  TauCeti.Metaplectic.unitaryWeilRepresentation [target]: For E/F quadratic, an ε-Hermitian V and a −ε-Hermitian W, construct their commuting actions on the F-symplectic tensor space with trace pairing. A pair of characters χV,χW of E× with χV|F×=ωE/F^dim V and χW|F×=ωE/F^dim W gives the two compatible scalar-cover splittings and the Weil representation ωψ,χV,χW. Record dependence on those characters and on the trace-zero δ used to write the pairing.
+No target theorem is emitted against arbitrary independent data. Required source construction or proof input: The cited papers invoke Kudla’s unitary splitting formula; its original proof must be collated. Gan–Ichino §4 fixes the trace pairing and asserts δ-independence. General E/F Hermitian-space and quaternionic group carriers are requested ClassicalGroups Part-II inputs; the existing complex classical-group carriers do not provide them.
+  TauCeti.Metaplectic.unitaryWeilRepresentation [target]: For E/F quadratic, an ε-Hermitian V and a −ε-Hermitian W, construct their commuting actions on the F-symplectic tensor space with trace pairing. A pair of characters χV,χW of E× with χV|F×=ωE/F^dim V and χW|F×=ωE/F^dim W gives the two compatible scalar-cover splittings and the Weil representation ωψ,χV,χW. Record dependence on ψ and the auxiliary characters. With the trace symplectic pairing fixed, the splitting is independent of the trace-zero δ used to express the construction.
   TauCeti.Metaplectic.unitarySplitting_cocycle [api]: Each splitting cochain cancels the pulled-back scalar cocycle.
-  TauCeti.Metaplectic.unitarySplitting_character_change [api]: Replacing an auxiliary character by a character trivial on F× twists by the corresponding determinant character.
-  TauCeti.Metaplectic.unitarySplitting_delta [api]: Changing δ gives the transported trace symplectic space and its intertwining equivalence.
+  TauCeti.Metaplectic.unitarySplitting_character_change [api]: If χ is replaced by χη with η|F×=1, transport η to η̃:E¹→C× by η̃(x/xᶜ)=η(x). Changing χV twists the W-factor by η̃∘det; changing χW twists the V-factor by η̃∘det.
+  TauCeti.Metaplectic.unitarySplitting_delta [api]: For the fixed trace symplectic space and ψ,χV,χW, changing the auxiliary trace-zero δ leaves the splitting unchanged.
   TauCeti.Metaplectic.unitarySplitting_zero [tests]: For V=0 the oscillator carrier is the line ℂ. On the unitary W factor its action is χV∘ι⁻¹∘det, where ι:E×/F×→E¹ sends x to x/xᶜ. For χV=1 this line is trivial; a valid nontrivial character trivial on F× need not act trivially.
   TauCeti.Metaplectic.unitarySplitting_restriction [tests]: A character whose restriction to F× is not ωE/F^dim V is rejected as splitting data.
-  TauCeti.Metaplectic.unitarySplitting_twist [tests]: Two valid characters differing by ξ produce the determinant twist ξ∘det on the relevant unitary factor.
+  TauCeti.Metaplectic.unitarySplitting_twist [tests]: Two valid characters differing by η trivial on F× produce η̃∘det, where η̃(x/xᶜ)=η(x). Testing ξ directly on det∈E¹ would miss the Hilbert-90 transport.
 
 MetaplecticAutomorphicForms:MP.3/big-theta-module — Big theta module
 Emitted: native algebraic tensor coinvariants and invariant-map universal property. H-equivariance now requires commuting G,H actions. Missing: SR.3 smooth dual and admissibility, the actual maximal π-isotypic quotient and smooth tensor–Hom adjunction. The algebraic universal map is recorded separately from the full source Hom identity.
@@ -1333,8 +1303,8 @@ Emitted: the covariance subgroup of G×unitary(H→L[ℂ]H), its two homomorphis
   TauCeti.Metaplectic.scalarNormalizer_nonsplitting [tests]: For W≠0 over R the normalized μ₂ subextension does not admit a continuous homomorphic section; arbitrary lift choice does not prove a splitting.
 
 MetaplecticAutomorphicForms:MP.1/intertwiner-lines — Scalar ambiguity and composition of intertwiners
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: For each g∈Sp(W), the smooth intertwiner space between ρ and its g-twist is a one-dimensional C vector space; its nonzero operators are invertible. Choosing A_g with A_1=1 yields A_gA_h=c(g,h)A_{gh}, where c is a normalized scalar factor set. Rescaling A_g by b(g) changes c by b(g)b(h)/b(gh). In the unitary model these scalars have norm one.
-  TauCeti.Metaplectic.intertwinerLine_dim [target]: For each g∈Sp(W), the smooth intertwiner space between ρ and its g-twist is a one-dimensional C vector space; its nonzero operators are invertible. Choosing A_g with A_1=1 yields A_gA_h=c(g,h)A_{gh}, where c is a normalized scalar factor set. Rescaling A_g by b(g) changes c by b(g)b(h)/b(gh). In the unitary model these scalars have norm one.
+No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: For each g∈Sp(W), the smooth intertwiner space between ρ and its g-twist is a one-dimensional C vector space; its nonzero operators are invertible. Choosing A_g with A_1=1 yields A_gA_h=c(g,h)A_{gh}, where c is a normalized scalar factor set. Rescaling A_g by b(g) changes c by b(g)b(h)/b(gh). If the chosen A_g are unitary operators, the resulting cocycle scalars have norm one; arbitrary nonzero intertwiners need not have that normalization.
+  TauCeti.Metaplectic.intertwinerLine_dim [target]: For each g∈Sp(W), the smooth intertwiner space between ρ and its g-twist is a one-dimensional C vector space; its nonzero operators are invertible. Choosing A_g with A_1=1 yields A_gA_h=c(g,h)A_{gh}, where c is a normalized scalar factor set. Rescaling A_g by b(g) changes c by b(g)b(h)/b(gh). If the chosen A_g are unitary operators, the resulting cocycle scalars have norm one; arbitrary nonzero intertwiners need not have that normalization.
 
 MetaplecticAutomorphicForms:MP.2/weil-index — Weil index
 No target theorem is emitted against arbitrary independent data. Required source construction or proof input: AL.0 Part II must supply Fourier transforms of oscillatory distributions and finite-dimensional self-dual measure; the native Fourier integral on integrable functions cannot itself define γ. Supplier categories: AutomorphicLFunctionsAndLocalFactors:AL.0/local-fourier-inversion, AutomorphicLFunctionsAndLocalFactors:AL.0.
@@ -1414,8 +1384,8 @@ No target theorem is emitted against arbitrary independent data. Required source
   TauCeti.Metaplectic.quaternionSplitting_secondDoubled [target]: For the doubled unitary W-model, ŝ₂(h)=χ(x(h))^mγ^{−j(h)}, γ=(u,det V)_F γ_F(−u,ψ/2)^mγ_F(−1,ψ/2)^{−m}. It is invariant under E× conjugation. The diagonal norm-one scalar gives χ(α)^{−2m}; the mixed embedding of A.7 gives χ(α)^{−m} times1 for split B and (−1)^m for division B.
 
 MetaplecticAutomorphicForms:MP.3/quaternionic-sharp-descent — Sharp splitting and norm-one descent
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: On G^sharp={(g,h,α,α):ν(g)=ν(h)=Nα}, set ŝ^sharp=χ(α)^{−m}ŝ₁(ι(gα⁻¹,1))ŝ₂(ι(hα⁻¹,1))z_{V△}(ι(gα⁻¹,1),ι(hα⁻¹,1)). With μ(σ)=z_Y(σ₀,σ)⁻¹z_Y(σ₀σσ₀⁻¹,σ₀), z_Y=z_{V△}δμ. Descend s(g,h)=s^sharp(g,h,α,α)/s₂(ι(1,[α,α])). A.9 proves norm-one invariance and A.12 cancels auxiliary χ.
-  TauCeti.Metaplectic.quaternionSplitting_sharpDescent [target]: On G^sharp={(g,h,α,α):ν(g)=ν(h)=Nα}, set ŝ^sharp=χ(α)^{−m}ŝ₁(ι(gα⁻¹,1))ŝ₂(ι(hα⁻¹,1))z_{V△}(ι(gα⁻¹,1),ι(hα⁻¹,1)). With μ(σ)=z_Y(σ₀,σ)⁻¹z_Y(σ₀σσ₀⁻¹,σ₀), z_Y=z_{V△}δμ. Descend s(g,h)=s^sharp(g,h,α,α)/s₂(ι(1,[α,α])). A.9 proves norm-one invariance and A.12 cancels auxiliary χ.
+No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: On G^sharp={(g,h,α,α):ν(g)=ν(h)=Nα}, set ŝ^sharp=χ(α)^{−m}ŝ₁(ι(gα⁻¹,1))ŝ₂(ι(hα⁻¹,1))z_{V△}(ι(gα⁻¹,1),ι(hα⁻¹,1)). Define μ(σ)=z_{Y□}(σ₀,σ)⁻¹z_{Y□}(σ₀σσ₀⁻¹,σ₀), so z_{Y□}=z_{V△}δμ. Put s^sharp=ŝ^sharp·μ and s₂=ŝ₂·μ on their respective embedded groups. Descend s(g,h)=s^sharp(g,h,α,α)/s₂(ι(1,[α,α])). LemmaA.10 proves independence of the norm lift using LemmaA.9; LemmaA.12 cancels auxiliary χ.
+  TauCeti.Metaplectic.quaternionSplitting_sharpDescent [target]: On G^sharp={(g,h,α,α):ν(g)=ν(h)=Nα}, set ŝ^sharp=χ(α)^{−m}ŝ₁(ι(gα⁻¹,1))ŝ₂(ι(hα⁻¹,1))z_{V△}(ι(gα⁻¹,1),ι(hα⁻¹,1)). Define μ(σ)=z_{Y□}(σ₀,σ)⁻¹z_{Y□}(σ₀σσ₀⁻¹,σ₀), so z_{Y□}=z_{V△}δμ. Put s^sharp=ŝ^sharp·μ and s₂=ŝ₂·μ on their respective embedded groups. Descend s(g,h)=s^sharp(g,h,α,α)/s₂(ι(1,[α,α])). LemmaA.10 proves independence of the norm lift using LemmaA.9; LemmaA.12 cancels auxiliary χ.
 
 MetaplecticAutomorphicForms:MP.3/quaternionic-see-saw-compatibility — Quaternionic see-saw and Periods-II comparison
 No target theorem is emitted against arbitrary independent data. Required source construction or proof input: The original Periods-II splitting remains unread; AppendixA supplies the comparison.
@@ -1426,8 +1396,8 @@ No target theorem is emitted against arbitrary independent data. Required source
   TauCeti.Metaplectic.quaternionSplitting_periodsI [target]: For m=2, V=B₁⊗E B₂, J₁J₂=J, κ₁=1, κ₂=−J₁, the ratio ζ=tilde s/s is an automorphic character. If F is totally real, E totally imaginary and B₁,B₂ split at one common real place, ζ=1 at every local place.
 
 MetaplecticAutomorphicForms:MP.3/periods-i-first-scalar-calculation — First scalar splitting calculation
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: For α=a+bi with a,b≠0, tilde s(1,α,α)=γ_F(J₁,ψ/2)(−2abJ₂,J₁)_F; ŝ₂(ι([α,α],1))=χ(α)⁻⁴(u,J₁)_F; μ on that matrix is γ_F(J₁,ψ/2)(−2abuJ₂,J₁)_F. Together these give s=tilde s on the first E× embedding.
-  TauCeti.Metaplectic.quaternionSplitting_scalarA9 [target]: For α=a+bi with a,b≠0, tilde s(1,α,α)=γ_F(J₁,ψ/2)(−2abJ₂,J₁)_F; ŝ₂(ι([α,α],1))=χ(α)⁻⁴(u,J₁)_F; μ on that matrix is γ_F(J₁,ψ/2)(−2abuJ₂,J₁)_F. Together these give s=tilde s on the first E× embedding.
+No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: For α=a+bi with a,b≠0, tilde s(1,α,α)=γ_F(J₁,ψ/2)(−2abJ₂,J₁)_F; ŝ₂(ι([α,α],1))=χ(α)⁻²(u,J₁)_F; μ on that matrix is γ_F(J₁,ψ/2)(−2abuJ₂,J₁)_F. Together these give s=tilde s on the first E× embedding.
+  TauCeti.Metaplectic.quaternionSplitting_scalarA9 [target]: For α=a+bi with a,b≠0, tilde s(1,α,α)=γ_F(J₁,ψ/2)(−2abJ₂,J₁)_F; ŝ₂(ι([α,α],1))=χ(α)⁻²(u,J₁)_F; μ on that matrix is γ_F(J₁,ψ/2)(−2abuJ₂,J₁)_F. Together these give s=tilde s on the first E× embedding.
 
 MetaplecticAutomorphicForms:MP.3/periods-i-second-scalar-calculation — Second scalar splitting calculation
 No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: For α=a+bi with a,b≠0, tilde s(α,α⁻¹,1)=γ_F(J,ψ/2)(−2abJ₁,J)_F; ŝ₁(ι([α,α⁻¹],1))=(u,J)_F; μ is γ_F(J,ψ/2)(−2abuJ₁,J)_F. Together these give s=tilde s on the second E× embedding.
@@ -1623,7 +1593,7 @@ No target theorem is emitted against arbitrary independent data. Required source
 
 MetaplecticAutomorphicForms:MP.6/rallis-inner-product — Rallis inner product formula
 No target theorem is emitted against arbitrary independent data. Required source construction or proof input: The referenced Yamana/PSR proof, holomorphy criterion and exact Val interpretation are not fully read; statement and ranges are checked but the proof chain remains open. Supplier categories: AutomorphicLFunctionsAndLocalFactors:AL.0.
-  TauCeti.Metaplectic.rallis_innerProduct [target]: In the GQT second-term range d(n)<m≤2d(n), r≤n, for cuspidal π whose lower theta lifts vanish, the theta inner product is [E:F]·Val_{s=s_{m,n}} L(s+1/2,π⊗χV)·Z*(s,Φ,f₁,f₂), with the exact normalized doubled section and global measures. If every relevant local theta lift is nonzero, the stated L-factor is holomorphic at that point and the formula uses its value. The lower-lift vanishing is essential to the cuspidal and residual-term elimination.
+  TauCeti.Metaplectic.rallis_innerProduct [target]: In the GQT positive range d(n)<m≤2d(n), r≤n, allowing both its second-term and convergent cases, for cuspidal π whose lower theta lifts vanish, the theta inner product is [E:F]·Val_{s=s_{m,n}} L(s+1/2,π⊗χV)·Z*(s,Φ,f₁,f₂), with the exact normalized doubled section and global measures. If every relevant local theta lift is nonzero, the stated L-factor is holomorphic at that point and the formula uses its value. The lower-lift vanishing is essential to the cuspidal and residual-term elimination.
 
 MetaplecticAutomorphicForms:MP.6/global-theta-nonvanishing — Global theta nonvanishing criterion
 No target theorem is emitted against arbitrary independent data. Required source construction or proof input: The cited real induced-module diagrams and original local comparison proofs are unread; Conjecture11.5 is not used as a theorem. The target preserves Proposition11.6/Theorem11.7’s restricted hypotheses.
@@ -1822,7 +1792,7 @@ No target theorem is emitted against arbitrary independent data. Required source
   TauCeti.Metaplectic.shimura_dirichletSeries [target]: Let ψ∈B_r have coefficients b(n) as in (10.1), and let d be a fundamental discriminant. Then L_d(s+1/2)Σ_{n≥1}b(dn²)n^{1−s}=b(d)Π_p(1−a_ψ(p)p^{−s}+p^{−2s})⁻¹, where L_d(s)=L(s,χ_d)=Σ_{n≥1}(d/n)n^{−s} and a_ψ(p) is the T_{p²}-eigenvalue for odd p and the specified plus-space Hecke eigenvalue at p=2. Comparing coefficients gives mΣ_{n|m}n^{−3/2}(d/n)b(m²d/n²)=a_ψ(m)b(d) (item 122).
 
 MetaplecticAutomorphicForms:MP.7/biro-shintani-lift — Biró lift
-Emitted: the positive-index Fourier series with |Q|^(1/2)/P divisor coefficient, complex spectral parameter, kernel/zero and coefficient2=1/2 tests. Missing: actual general-level Maass carrier, Fourier extraction, Whittaker W, eigen-equation, trace identity(14), convergence and corrected analytic proof. The spectral API is omitted instead of replacing a Laplace theorem by an arithmetic equality.
+Emitted: the Fourier series over all nonzero positive and negative indices with |Q|^(1/2)/P divisor coefficient and positive-D inputs, complex spectral parameter, kernel/zero and coefficient2=1/2 tests. Missing: actual general-level Maass carrier, Fourier extraction, Whittaker W, eigen-equation, trace identity(14), convergence and corrected analytic proof. The spectral API is omitted instead of replacing a Laplace theorem by an arithmetic equality.
   TauCeti.Metaplectic.biroLift_spectral [api]: Half-weight parameter t gives weight-zero parameter2t in the negative Laplacian convention.
 
 MetaplecticAutomorphicForms:MP.7/adelic-classical-half-weight — Adelic and classical half-weight comparison
