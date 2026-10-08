@@ -1,0 +1,1134 @@
+# Weight-three polylogarithmic complexes
+
+This document develops layer **Polylogarithms:P.3** beyond the reviewed parent blueprint. Its purpose is to turn explicit trilogarithmic symbols into configuration maps, compare the resulting homology classes with algebraic K-theory, and isolate the input that makes determinants of trilogarithms give the value ζ_F(3). The layer has a complete target-level plan, with 27 declarations, 73 API items and 37 tests. Its coverage is **planned**, not closed: six precise gaps and five supplier requests remain. Every declaration has implementation status unchecked. The suggested file gives every API item, test and named theorem a signature on the actual quotients and complexes; it elaborates at the pinned Mathlib commit with only planning-placeholder warnings, and it proves none of this mathematics.
+
+The parent packet defines B₃, the weight-three complex, its residues, the comparison targets and the existence form of the special-value theorem. This part imports those declarations and supplies the additional definitions and key theorems used in their proofs. It does not create another trilogarithm group or another Milnor K-theory. The auxiliary geometric presentation G₃ is retained because the source's seven-term and duality proofs actually use it. Its comparison with B₃ is a named theorem, with rationalization and normalization made explicit.
+
+## Conventions and boundaries
+
+For an infinite field F, put U_F=F×⊗_Z Q. The parent complex Γ(F,3) is in cohomological degrees 1,2,3:
+
+B₃(F) → B₂(F)⊗_Q U_F → Λ³_Q U_F.
+
+Its first map is δ₃[z]₃=[z]₂⊗u(z); the second sends [x]₂⊗u(y) to u(1−x)∧u(x)∧u(y). Here B₂ is the rational pre-Bloch group supplied by K3BlochGroups V.3. That supplier writes x∧(1−x) for its boundary, so its boundary must be negated before this comparison. A symbol at zero evaluates to zero, but the symbol [1]₃ is retained. It has complex trilogarithm value ζ(3). An identity that silently discards [1]₃ gives the wrong constants in both the coordinate relation and the geometric reductions.
+
+The source weight-three Bigrassmannian is indexed by tuple size m, with corner C₄(3) at m=4. Native `ChainComplex.of` shifts the index by one, placing BC_(p+1) in degree p; the reversed Γ has Λ³U in native degree 3, B₂⊗U in degree 4 and B₃ in degree 5. Its degree 6−i homology is identified with Γ cohomology degree i by the explicit reindexing adapter. The three nonzero comparison components occupy degrees 6,5,4, which correspond respectively to Γ degrees 1,2,3. Faces have zero-based signs (−1)^i. Alternation is always the **sum** over permutations with their signs, without division by m!. Symmetrization in the generic resolution, in contrast, is the average over its first k vectors and includes 1/k!. These two operations serve different purposes and cannot share a normalization by accident.
+
+All tensor products and exterior powers after rationalization use native Mathlib modules. A vector configuration is a tuple of nonzero vectors modulo simultaneous GL, with its genericity condition. It is not a projective point configuration: independent changes of the vector lengths are not killed. Projected cross-ratios do forget those lengths, but the middle and exterior configuration maps can retain them. The scaled moment-curve test below detects this distinction.
+
+K-theory enters through rational primitive Hurewicz and a rank filtration. The construction on GL₃ vanishes on the image of GL₂. Therefore its K-theoretic domain is the rank-at-most-three piece modulo its rank-at-most-two piece. Neither the equality of this quotient with an Adams eigenspace nor an isomorphism H¹Γ≃K₅^(3) is used. General rational primitive Hurewicz and its compatibility with that filtration belong to GeneralAlgebraicKTheory, Part II; the integral Suslin stability theorem is already owned by K3BlochGroups V.4.
+
+The H³ transfer and the transfer on the entire complex have different inputs. H³ transfer is conjugation of the existing Milnor norm by the parent H³–Milnor equivalence. A derived transfer on Γ needs the weight-four homotopy/residue quasi-isomorphism of Goncharov's Conjecture 1.39. The conditional construction below names that hypothesis. No termwise transfer on B₃ follows just from the ordinary norm on field units.
+
+At a number field, the selected embeddings comprise every real embedding and one embedding from each complex pair. Native infinite places provide a convenient selection, since L₃ is invariant under conjugation. Write d=r₁+r₂. The every-family formula has the orientation det=q·period, where q may be zero. The existence theorem supplies a family with q nonzero. Reversing the formula for every family would assert that a positive zeta value equals zero on the zero family.
+
+## Baseline and ownership
+
+The checked baseline is Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. The reviewed library audit leaves P.3 open. Statements of the 44 declarations cited in the packet were read at the Mathlib pin. Native finite formal sums, quotient modules, independent families, matrices and determinants, tensor products, exterior powers, projectivization, direct sums, coinvariants, group homology and total complexes are available. These are foundations used here, not proposed replacements. Native number-field discriminants, infinite places and Dedekind zeta also supply the special-value target's carriers.
+
+The imports from the atlas have precise boundaries:
+
+| Owner | Imported mathematics | Additional interface requested |
+|---|---|---|
+| Polylogarithms parent P.3 | Explicit B₃, Γ in weights at most three, residues, H³–Milnor equivalence, target comparison and existence theorem | This part supplies the explicit configuration and regulator proof chains |
+| K3BlochGroups V.3–V.4 | Pre-Bloch symbols, five-term relations, ordered cross-ratio, integral stability/Milnor quotient, configuration hyperhomology | Rational bounded-below complex coefficients and the symmetrized generic resolution |
+| K2SymbolsBrauer T.2–T.4 | Milnor presentation, rational alternating symbols, transfers, projection, restriction-degree and norm-residue formulas | Degree-three Milnor–Quillen transfer adapter; the existing adapter is degree two |
+| GeneralAlgebraicKTheory K.2 and KTheoryLowDegrees U.1 | Plus/Q construction and stable GL | Rational primitive Hurewicz, primitive splitting and rank compatibility |
+| BorelRegulators R.3–R.7 | Borel ranks/classes, coordinate regulators, determinant and zeta period | Measurable/continuous primitive comparison and exact class-normalization adapter |
+| Polylogarithms P.4 | Higher-weight polylogarithmic complexes | Weight-four homotopy/residue resolution used by the conditional derived transfer |
+
+The general hyperhomology construction, primitive splitting and regulator-class adapter are Part II extensions of their owners. Defining them again as weight-three conveniences would duplicate the atlas. The packet records the proposed rescope and the exact supplier requests.
+
+## Sources and the checks they support
+
+The primary sources were read at every place cited below, by the plan’s author, by its reviser and by two independent reviewers; the packet records each reading separately. The published [Goncharov 1995 scan](https://sasha-goncharov.github.io/Advances1995.pdf) was read at pp. 198, 202–221, 239–241, 255–259 and 264–312. This includes the complete §§4–5 geometric comparison proof, §§6–8 comparison and duality, the §§9–10 regulator and lifting argument, and checks of the printed signs and homology indices. What remains open on the geometric side is one normalisation identity, stated in the first gap, and not an unread proof.
+
+[Goncharov–Rudenko arXiv:1803.08585v5](https://arxiv.org/pdf/1803.08585v5), revised **15 July 2026**, was read at §1.2, complete §5.1 pp. 53–56 and complete §§7.1–7.4 pp. 61–71, including (135), (141)–(149), footnote 16 and the normalisation (167). No accessible version of record or correction was located in the public version check, so the three findings about this paper (E-P3-02, E-P3-05 and E-P3-06) are findings against the v5 preprint. [Zhao’s 2003 supplement](https://arxiv.org/pdf/math/0311111), p. 2 formula (3), was read with its nondegeneracy condition to cross-check the coordinate sign. It does not supply an unrestricted degenerate specialization or a new higher-Chow construction here.
+
+All three downloaded PDFs agree with the packet’s SHA-256 hashes. Exact rational prime-coordinate computations reproduce the two coefficients −3 and −1/5, including all 31 right-square coordinates of a nonconic five-tuple and all 722 projected left-square coordinates of a nonconic six-tuple, and the identities r₄=18f₀ and r₅=18f₁ with Goncharov’s maps. A numerical evaluation of M₃ from the relations of the geometric presentation gives r₆=18·M₃. These computations are checks, not proofs of equality in B₂⊗U or in B₃. Suslin’s primary proof was not obtained; its theorem and source-access gap belong to V.4. Eight source findings are recorded below with their independent verdicts. The upstream Hodge-structures and algebraic-topology documents supply the density and API style.
+
+## Explicit symbols and the relation
+
+The relation is first a finite formal sum. This separates a wrong coordinate formula from a correct quotient: a quotient can hide a sign error by killing both sides, while the raw rational tests cannot. Its cobracket calculation is algebraic in B₂⊗U. Descent of the real function needs the separate analytic functional relation, whose derivative and continuation argument is recorded as a gap. The proof of a zero cobracket alone does not establish a constant-free analytic identity.
+
+### Coordinate 22-term relation
+
+Declaration `Polylogarithms:P.3/coordinate-relation` (construction). In Q[F], write [z] for the basis vector. Set A=ca−a+1 and B=bc−c+1. Define R(a,b,c)=Cyc₃([A]+[A/(ca)]+[c]+[B/(Ab)]−[A/c]+[−Ba/A]−[B/(Abc)]−[1])+[−abc], with Cyc₃ over (a,b,c),(c,a,b),(b,c,a). Its admissible locus requires a,b,c and all three cyclic A,B to be nonzero. The [1] terms are retained; values 1 or −1 are allowed. This construction is a formal relation, not a second definition of B₃. The admissible locus is larger than the locus of the seven-point configurations of the source's geometric relation (1.10): with x₁,x₂,x₃ the coordinate vertices, z=(1,1,1) and side points (1,a,0), (0,1,b), (c,0,1), the value a=1 (or b=1, c=1) puts z on a line through a vertex and a side point, and abc=−1 makes the three side points collinear. For those parameters the relation is the source's specialisation of the generic one, and its vanishing in B₃ is a statement to prove, not part of the generic generator set.
+
+Hypotheses: F is an infinite field; all coefficient modules are rational unless specified otherwise.
+
+The direct inputs are `mathlib:Finsupp.linearCombination`, `mathlib:Finsupp.lmapDomain`, `Polylogarithms:P.3/trilogarithm-group`.
+
+The construction or proof proceeds as follows:
+
+1. Use Finsupp.single for symbols and finite sums for the cyclic operator.
+2. Expand (1.16), correcting the omitted minus sign inside the sixth argument: −a(bc−c+1)/(ca−a+1). The geometric relation (1.10) and the c=1 specialization fix this sign.
+3. Relate its image to the parent quotient relation submodule: for generic parameters R(a,b,c) is the parent's generator in coordinates; for a, b or c equal to 1, or abc=−1, use the source's specialisation (its (1.17) is shown on p. 209 to be a sum of three generic relations) and state the result rationally.
+
+The API serves these uses:
+
+- Parent Polylogarithms:P.3/trilogarithm-group: R(a,b,c) is the coordinate form of the 22-term generator of the relation subspace defining B₃(F).
+- Polylogarithms:P.3/relation-cobracket and /trilogarithm-functional-relations: the cobracket and the function L₃ are evaluated on this explicit formal sum.
+- G95 pp. 208–210: its specialisations R(1,b,c), R(1,1,c) and R(1,1,1) give the Spence–Kummer, duplication and L₃(−1) identities used as tests.
+
+Names below are in `TauCeti.Polylog.WeightThree`.
+
+| Declaration | Role | Required statement |
+|---|---|---|
+| `relation22` | constructor | The finite formal sum R(a,b,c) in Q[F]. |
+| `relation22_cyclic` | relation | R(a,b,c)=R(c,a,b). |
+| `relation22_map` | functoriality | An injective field map carries R(a,b,c) to R(fa,fb,fc). |
+| `relation22_eval` | compatibility | Evaluation by Finsupp.linearCombination is the corresponding signed sum in any Q-module. |
+| `relation22_quotient` | simp | The image of R(a,b,c) in the parent B₃ is zero on the admissible locus. |
+
+The discriminating tests are:
+
+- `relation222` (computation): R(2,2,2)=3[3]+3[3/4]+3[2]+3[1/2]+3[−2]−3[3/2]−3[1/4]−3[1]+[−8] over Q.
+- `relation111` (degenerate): R(1,1,1)=3[1]+4[−1], not the zero formal sum.
+- `relation11c` (characterisation): For c≠0, the image of R(1,1,c) modulo inversion [z]=[1/z] is −[c²]+4[c]+4[−c]; it is not this expression as a raw Finsupp sum.
+
+Acceptance:
+
+- After δ₃ and then δ₂⊗1, the image of R(a,b,c) in Λ²U⊗U is zero in every prime-valuation coordinate at (2,2,2), (1,2,3), (−1,2,5), (3,1/2,5/7) and (1,1/2,4/3).
+- The same computation with the positive sixth argument printed in the source is nonzero at (2,2,2) and at (1,2,3); this is the test that fixes the sign of the sixth argument without any analysis.
+- The single-valued L₃ of the trilogarithm-descent node vanishes on R(a,b,c) at randomly chosen complex parameters, and is nonzero on the printed variant.
+
+Sources:
+
+- G95, (1.16)–(1.17), p. 208; unnumbered specialisations R₃(1,1,c) and R₃(1,1,1), p. 210; coordinates of the seven points, p. 208. The coordinate form of the generic relation (1.10), with its constant terms; the sixth argument is printed without its minus sign (E-P3-04), while (1.17) and the p. 210 specialisations carry it.
+- Z03, p. 2 formula (3), sixth cyclic argument. Its negative denominator confirms the minus sign in the corresponding trilogarithmic argument. No higher-Chow constructions are planned in P.3.
+
+### Cobracket of the 22-term relation
+
+Declaration `Polylogarithms:P.3/relation-cobracket` (theorem). For every admissible R(a,b,c), δ₃(eval R)=0 in B₂(F)⊗U_F, where U_F=F×⊗Q and δ₃[z]₃=[z]₂⊗u(z), with u(1)=0. This proves that the explicit coordinate relation is killed, rather than replacing explicit B₃ by the conjecturally larger inductive B₃.
+
+Hypotheses: F is an infinite field; all coefficient modules are rational unless specified otherwise.
+
+Suggested name: `TauCeti.Polylog.WeightThree.relation_cobracket`.
+
+The direct inputs are `Polylogarithms:P.3/coordinate-relation`, `Polylogarithms:P.3/polylogarithmic-complex`, `K3BlochGroups:V.3/five-term-relation`, `K3BlochGroups:V.3/pre-bloch-group`.
+
+The construction or proof proceeds as follows:
+
+1. Use GR Lemma 5.1 to replace each mixed symbol {x,y}₂,₁ by its six ordinary B₃ symbols, including −{1}₃.
+2. Lemma 5.2 identifies Q₃ with the coordinate 22-term relation.
+3. In Proposition 5.4 collect the determinant-unit coefficients; each remaining coefficient is two five-term relations or the displayed sum of three five-term relations.
+4. Apply the supplier’s rational B₂ inversion and five-term identities; specialize only along the admissible locus.
+
+Acceptance:
+
+- R(1,1,1)=3[1]+4[−1] has zero cobracket and zero regulator, while [1] itself has nonzero regulator.
+- The B₂ boundary convention is (1−x)∧x, the negative of V.3’s x∧(1−x).
+- In prime-valuation coordinates, (δ₂⊗1)δ₃R(a,b,c)=0 at (2,2,2), (1,2,3), (−1,2,5) and (3,1/2,5/7), an exact rational computation; it is a necessary condition, since δ₂⊗1 is not injective.
+
+Sources:
+
+- GR5, §5.1 Lemmas 5.1–5.2, (109), Proposition 5.4 and (110)–(114). The printed proof supplies the required vanishing in B₂⊗U.
+
+### Functional relations of the trilogarithm
+
+Declaration `Polylogarithms:P.3/trilogarithm-functional-relations` (theorem). Over C, the parent single-valued L₃ kills the corrected coordinate R(a,b,c), as well as [x]−[x⁻¹] and [x]+[1−x]+[1−x⁻¹]−[1] for x≠0. Identities extend to the admissible degenerate configurations by continuity. In particular L₃(R(1,1,1))=3ζ(3)+4(−3ζ(3)/4)=0.
+
+Hypotheses: All groups are rational. The displayed domain and hypotheses are part of the statement.
+
+Suggested name: `TauCeti.Polylog.WeightThree.trilogarithm_functional_relations`.
+
+The direct inputs are `Polylogarithms:P.3/coordinate-relation`, `Polylogarithms:P.3/relation-cobracket`, `Polylogarithms:P.1/classical-polylogarithm`, `Polylogarithms:P.1/distribution-and-inversion`, `Polylogarithms:P.1/single-valued-continuity`, `Polylogarithms:P.2/bloch-wigner-descent`, `mathlib:riemannZeta`, `mathlib:intervalIntegral`.
+
+The construction or proof proceeds as follows:
+
+1. Use the parent classical derivative identities and the B₂ Bloch–Wigner descent to turn the cobracket cancellation into vanishing of the differential of the corrected relation’s L₃ evaluation.
+2. Compute the constant on the component through (1,1,1) using the distribution/inversion identities and continuity.
+3. Verify continuation across the complement of the admissible divisor; this analytic constant argument needs a complete written treatment and is recorded as a gap.
+4. Apply the same elementary differentiation and evaluation for the three-term identity; inversion is already P.1-owned.
+
+Acceptance:
+
+- The constant [1] has value ζ(3), not zero.
+- The ordinary trilogarithm Li₃ alone does not satisfy this equation.
+- At 300 random complex parameters the L₃-value of the corrected R(a,b,c) is below 10⁻¹³, the printed variant is not, and inversion, the three-term relation and the duplication L₃(c²)=4(L₃(c)+L₃(−c)) hold to machine precision.
+
+Sources:
+
+- G95, §1, Theorem 1.3 (a)–(c), p. 205; (1.16), p. 208; specialisations, p. 210; §10, Lemma 10.1, p. 312. The three functional equations of L₃; the derivative formula of Lemma 10.1(b) is the input of the analytic proof, which the source does not write out for the coordinate form.
+
+## Vector configurations and their complex
+
+The free generic-tuple module carries the actual permutation representation of GL. Taking native coinvariants gives its orbit module and a reusable invariant-evaluation universal property. Projection faces use a quotient by one nonzero vector; any basis chosen to identify this quotient changes the output by GL and hence does not change its class. Deletion and projection lower tuple size, so their mixed face identity is checked before taking the quotient by the bottom rows. The resulting degree convention determines all three later comparison signatures.
+
+### Generic vector configurations
+
+Declaration `Polylogarithms:P.3/generic-vector-configurations` (definition). A generic m-tuple in F^q has every subfamily of size at most q linearly independent. Let C_m(q) be Q[generic m-tuples] modulo the span of [g·l]−[l] for g∈GL_q(F). This is the free Q-module on GL-orbits. Individual vector rescalings are not quotiented out. Deletion removes a vector; projection removes l_i and projects the others to F^q/F l_i, whose identification with F^(q−1) is immaterial in the orbit quotient.
+
+Hypotheses: F is an infinite field; all coefficient modules are rational unless specified otherwise.
+
+Planet: **Grassmannian configurations**.
+
+The direct inputs are `mathlib:LinearIndependent`, `mathlib:Submodule.liftQ`, `mathlib:Representation.Coinvariants`, `mathlib:Matrix.GeneralLinearGroup`.
+
+The construction or proof proceeds as follows:
+
+1. Define the generic subtype using native LinearIndependent on injectively indexed subfamilies.
+2. Use native Representation.Coinvariants of the rational permutation representation on the generic subtype. Its kernel is the span of [g·l]−[l], so the source presentation agrees with that existing quotient.
+3. Use a linear equivalence from the one-dimensional quotient complement to define each projection face; different choices differ by GL.
+
+The API serves these uses:
+
+- G95 §2.5, (2.10) and Lemma 2.11, p. 255: generic tuples form an acyclic complex, so the coinvariants C_m(q) receive H_*(GL_q(F)).
+- GR5 §7.1, pp. 61–62, and G95 §6 (6.3): the groups C_m(q), with deletion and projection, are the entries of the Grassmannian bicomplex.
+- Polylogarithms:P.3/exterior-, middle- and triple-ratio-configuration-map: each map is defined on generic tuples and descended through configLift.
+- Polylogarithms:P.3/configuration-duality: duality is a linear equivalence C_m(q)≃C_m(m−q) exchanging configDelete and configProject.
+
+Names below are in `TauCeti.Polylog.WeightThree`.
+
+| Declaration | Role | Required statement |
+|---|---|---|
+| `GenericTuple` | constructor | Subtype of generic m-tuples in F^q. |
+| `Config` | structure | The rational GL-coinvariant quotient C_m(q). |
+| `configMk` | constructor | A generic tuple gives its class. |
+| `configMk_gl` | relation | Simultaneous GL change leaves the class unchanged. |
+| `configLift` | universal-property | Every GL-invariant function to a Q-module extends uniquely linearly. |
+| `configLift_mk` | simp | The lift of a GL-invariant function f takes the class of a generic tuple l to f(l). |
+| `config_ext` | extensionality | Linear maps agreeing on all tuple classes are equal. |
+| `configDelete` | projection | Delete the indexed vector: a Q-linear map C_{m+1}(q)→C_m(q), defined in every row. |
+| `configDelete_mk` | simp | Deleting the i-th vector of the class of l gives the class of the tuple l with l_i omitted. |
+| `configProject` | projection | Project the remaining vectors along the indexed vector: a Q-linear map C_{m+1}(q+1)→C_m(q). |
+| `configProject_mk` | simp | For every surjective linear map π from F^(q+1) to F^q with π(l_i)=0, the i-th projection of the class of l is the class of the images under π of the other vectors; in particular the class does not depend on π. |
+| `config_coinvariants` | compatibility | Config is the native Representation.Coinvariants of the permutation representation on GenericTuple. |
+| `configFieldMap` | functoriality | A field homomorphism F→E induces a Q-linear map C_m(q)(F)→C_m(q)(E), applying it to every coordinate of every vector. |
+| `configFieldMap_mk` | simp | The field map sends the class of a generic tuple to the class of its entrywise image, which is again generic. |
+
+The discriminating tests are:
+
+- `generic_basis` (compatibility): The standard basis of Q³ is generic, using native LinearIndependent.
+- `generic_zero` (non-example): A tuple containing zero is not generic when q≥1.
+- `config_ratios` (non-example): The classes of (1,2) and (1,3) in C₂(1) over Q differ: their ratios 2 and 3 distinguish GL₁ orbits.
+
+Acceptance:
+
+- Over an infinite field the complex of generic tuples with the deletion differential is acyclic in positive degrees (G95 Lemma 2.11), so C_•(q) receives the group homology of GL_q(F); the definition must make this statement provable.
+- The classes of (1,2) and (1,3) in C₂(1) over Q are different, and the class of a tuple is unchanged by a simultaneous change of basis but not by rescaling one vector.
+- A tuple of fewer than q vectors is generic exactly when it is linearly independent; a tuple of at least q vectors is generic exactly when every q of them form a basis.
+
+Sources:
+
+- G95, §2.5, (2.10) and Lemma 2.11 with the following paragraph, p. 255; projection p and (2.17), p. 258. Free group on generic tuples of vectors, its deletion differential, acyclicity, the quotient by simultaneous GL and the resulting map from group homology; the projection along a vector.
+- GR5, §7.1, pp. 61–62, before and including (129). Generic configurations of vectors under GL_q, the groups C_m(q), the two kinds of face maps with signs (−1)^(s−1), and the Grassmannian bicomplex.
+
+### Weight-three Bigrassmannian complex
+
+Declaration `Polylogarithms:P.3/weight-three-bigrassmannian` (construction). BC_m^(3)=⊕_{3≤q<m} C_m(q), in homological degree m, starting at degree 4. Set ∂=Σ_i(−1)^i deletion_i and p=Σ_i(−1)^i projection_i, with zero-based indices. Each lowers tuple size by one; projection also lowers q. With these face signs ∂p+p∂=0, so D=∂+p. Components leaving 3≤q<m are zero; this is the quotient by the lower rows, not a subcomplex obtained by simply dropping outgoing maps.
+
+Hypotheses: F is an infinite field; all coefficient modules are rational unless specified otherwise.
+
+The direct inputs are `Polylogarithms:P.3/generic-vector-configurations`, `mathlib:HomologicalComplex₂.total`, `mathlib:DirectSum.lof`, `mathlib:DirectSum.toModule`, `mathlib:DirectSum.component`.
+
+The construction or proof proceeds as follows:
+
+1. Prove the two same-kind face identities and the mixed identity before taking signed sums.
+2. Use the native finite direct sum of the orbit modules and assemble the two differential components.
+3. Check D²=0, including the q=3 boundary and the m=q+1 corner.
+
+The API serves these uses:
+
+- GR5 §7.1, p. 62, and G95 §6 (6.3)–(6.4), pp. 295–296: the weight-three Bigrassmannian complex is the source of the comparison map to Γ(F,3).
+- Polylogarithms:P.3/configuration-chain-comparison: the three components r₆, r₅, r₄ on the row q=3 and zero elsewhere form a chain map out of this complex.
+- Polylogarithms:P.3/stabilized-configuration-comparison: the symmetrized resolution of GL_n maps to this complex by projecting along the first n−3 vectors.
+
+Names below are in `TauCeti.Polylog.WeightThree`.
+
+| Declaration | Role | Required statement |
+|---|---|---|
+| `bigrassmannian` | constructor | Degree m is the indicated finite direct sum. |
+| `bigrassmannianD` | data | The degree −1 linear differential ∂+p. |
+| `bigrassmannianD_component` | simp | On row q, D has deletion in row q and projection in row q−1 with the stated signs. |
+| `bigrassmannianD_sq` | structure | Consecutive differentials compose to zero. |
+| `bigrassmannian_corner` | compatibility | Degree 4 is canonically C₄(3). |
+| `bigrassmannian_map` | functoriality | Injective field maps induce degreewise maps commuting with D; identity and composition laws hold. |
+
+The discriminating tests are:
+
+- `bigrassmannian_degree3` (degenerate): Degree 3 is zero.
+- `bigrassmannian_degree4` (computation): Degree 4 has only row C₄(3); its outgoing differential is zero.
+- `bigrassmannian_mixed` (characterisation): On C₇(4), the C₅(3) component of D² is ∂p+p∂=0, not ∂p−p∂.
+
+Acceptance:
+
+- On C₇(4) the component of D² in C₅(3) is ∂p+p∂, which is zero for the zero-based face signs; with the opposite relative sign it is 2∂p≠0.
+- Degree 4 is C₄(3) alone and degree 3 is zero, so the complex starts where the source's weight-three complex starts.
+
+Sources:
+
+- GR5, §7.1, Grassmannian bicomplex (129) and the weight-m quotient with its degree convention, p. 62; weight-four example (130), p. 63. The quotient and degree convention specialized to weight three.
+- G95, §6, bicomplex (6.3), p. 295, and diagram (6.4), p. 296. The weight-three bicomplex C_m(q), q≥3, and the map of its total complex to the weight-three complex with all components off the bottom row zero.
+
+### Projected cross-ratio
+
+Declaration `Polylogarithms:P.3/projected-cross-ratio` (construction). For a generic five-tuple in F³ define r(i|j,k,l,m)=|ijl||ikm|/(|ijm||ikl|), using the native determinant and the chosen volume form. It lies outside {0,1}. This is GR §7’s convention and the inverse of the ordered cross-ratio supplied by K3BlochGroups V.4; it is not GR §1’s convention. The volume form and each of the five vector scales cancel. Goncharov's 1995 cross-ratio (1.6), |14||23|/(|13||24|), is the inverse of this one, so his symbols [r]₂ are the negatives of the symbols used here.
+
+Hypotheses: F is an infinite field; all coefficient modules are rational unless specified otherwise.
+
+The direct inputs are `Polylogarithms:P.3/generic-vector-configurations`, `mathlib:Matrix.det`, `mathlib:Matrix.det_mul`, `K3BlochGroups:V.4/cross-ratio`.
+
+The construction or proof proceeds as follows:
+
+1. Compute determinants of the quotient-plane vectors as the three-dimensional minors with the projection vector first.
+2. Use Plücker to show 1−r is nonzero.
+3. Compare the four-bracket order with the supplier cross-ratio before applying B₂ identities.
+
+The API serves these uses:
+
+- GR5 §7.2 (135) and (142), pp. 64–65: the argument of the B₂ symbol in the middle configuration map r₅.
+- GR5 §7.3 (148), p. 66: the same ratio, written r′, of four points projected from a fifth enters the intersection relation R3 of the geometric presentation.
+- K3BlochGroups:V.4/cross-ratio: compared with the supplier's ordered cross-ratio, of which it is the inverse, before any five-term identity of V.3 is applied.
+
+Names below are in `TauCeti.Polylog.WeightThree`.
+
+| Declaration | Role | Required statement |
+|---|---|---|
+| `projectedRatio` | constructor | The displayed determinant ratio for a generic five-tuple. |
+| `projectedRatio_ne` | characterisation | r≠0 and r≠1. |
+| `projectedRatio_gl` | functoriality | Simultaneous GL changes leave r unchanged. |
+| `projectedRatio_scale` | relation | Independent nonzero vector rescalings leave r unchanged. |
+| `projectedRatio_blochCrossRatio` | compatibility | r is the inverse of the V.4 ordered cross-ratio on the four projected points. |
+
+The discriminating tests are:
+
+- `projectedRatio_moment` (computation): On v(t)=(1,t,t²) at t=(1,2,3,5,7), r(1|2,3,4,5)=6/5.
+- `projectedRatio_swap` (characterisation): Swapping projected indices 4 and 5 inverts the ratio, giving 5/6 on this fixture.
+- `projectedRatio_bad` (non-example): A zero projection vector fails genericity; no ratio theorem is asserted for that input.
+
+Acceptance:
+
+- On the moment curve at t=1,2,3,5,7 the value is 6/5, and exchanging the last two vectors gives 5/6.
+- The supplier's cross-ratio of the four projected points is the inverse, 5/6 on that fixture; a definition agreeing with the supplier's would give the negative B₂ symbol.
+
+Sources:
+
+- GR5, §7.2, (135), p. 64, and its use in (142), p. 65. The cross-ratio |13||24|/(|14||23|) of four vectors in a plane, stated there to differ from the convention of the introduction, and its projected form r(1|2,3,4,5).
+
+## The three explicit maps and geometric reduction
+
+The maps are normalized together: the projected ratio has the order fixed above, the middle map has the printed GR coefficient one, the top map has coefficient −1/5, and the exterior component has coefficient −3. With these choices the three maps are exactly 18 times Goncharov’s f₀, f₁ and M₃. The right square can be tested entirely in the exterior cube of rational units; the two geometric relations need the actual explicit B₃ quotient. The auxiliary G₃ presentation supplies the intersection reduction used in the primary proof. Duality is defined on vector configurations by a kernel/annihilator construction before it is applied to projective tuples. This keeps its basis independence and its deletion/projection compatibility visible.
+
+### Exterior configuration map
+
+Declaration `Polylogarithms:P.3/exterior-configuration-map` (construction). Define r₄:C₄(3)→Λ³_Q U_F by −3 Alt₄(u|123|∧u|124|∧u|134|), with Alt the unnormalized signed sum. This is 18 times Gon95’s f₀^(3) of (3.3). The coefficient is chosen for r₅ of GR (142) and δ₂[x]=(1−x)∧x; the printed 2 Alt₄ in GR is incompatible with that square. Exterior powers are native Mathlib exteriorPower.
+
+Hypotheses: F is an infinite field; all coefficient modules are rational unless specified otherwise.
+
+The direct inputs are `Polylogarithms:P.3/generic-vector-configurations`, `mathlib:exteriorPower.ιMulti`, `mathlib:exteriorPower.alternatingMapLinearEquiv`, `mathlib:Submodule.liftQ`, `mathlib:Matrix.det_mul`, `mathlib:exteriorPower.linearMap_ext`.
+
+The construction or proof proceeds as follows:
+
+1. Rewrite Gon95’s four-term f₀ formula as a signed alternation: Alt₄=-6 f₀.
+2. Use (3.3)–(3.4) for volume independence, and determinant multiplicativity for GL descent.
+3. Descend the signed sum by Submodule.liftQ; use native exterior insertion for the wedge.
+
+The API serves these uses:
+
+- G95 §3, f₀^(3), p. 264, and Proposition 3.8, p. 266: the bottom component of the map from the Grassmannian complex; r₄ is 18 times it.
+- Polylogarithms:P.3/configuration-chain-comparison: the right square d₂r₅=r₄∂ fixes the coefficient −3 once r₅ is fixed.
+- Polylogarithms:P.3/suslin-top-comparison: c₃ is induced by r₄ and is compared with the diagonal Milnor symbol map.
+
+Names below are in `TauCeti.Polylog.WeightThree`.
+
+| Declaration | Role | Required statement |
+|---|---|---|
+| `configExterior` | constructor | The Q-linear map r₄ on vector-configuration classes. |
+| `configExterior_mk` | simp | Evaluation is −3 times the unnormalized alternation. |
+| `configExterior_volume` | compatibility | Changing volume by λ∈F× does not change r₄. |
+| `configExterior_alt` | relation | A permutation multiplies the value by its sign. |
+| `configExterior_fieldMap` | functoriality | The native exterior cube of the rational unit map commutes with r₄. |
+
+The discriminating tests are:
+
+- `configExterior_small` (computation): For vectors (1,8,2),(7,3,11),(1,3,2),(9,4,3) over Q, r₄=18 u(5)∧u(67)∧u(197).
+- `configExterior_moment4` (degenerate): For v(t) at t=1,2,3,5 the value is zero.
+- `configExterior_native` (compatibility): The wedge in the small fixture is exteriorPower.ιMulti Q 3, not a tensor modulo only antisymmetry.
+
+Acceptance:
+
+- On (1,8,2),(7,3,11),(1,3,2),(9,4,3) the value is 18·u(5)∧u(67)∧u(197); the four minors are −15, 591, 75, −201.
+- On five generic rational vectors d₂r₅ and r₄∂ agree in every prime-valuation coordinate; with the coefficient 2 printed in GR (142) the second is −2/3 of the first.
+- The value on four points of the moment curve is zero.
+
+Sources:
+
+- G95, §3, f₀^(m) and the four-term f₀^(3), p. 264; Lemma 3.3 with (3.3)–(3.4), pp. 264–265; Lemma 3.6, p. 265. Alt₄ is −6 times the original f₀; hence corrected r₄ is 18 f₀.
+- GR5, §7.2 (142) p. 65. The printed coefficient is refuted by E-P3-02; the corrected common coefficient is −3.
+
+### Middle configuration map
+
+Declaration `Polylogarithms:P.3/middle-configuration-map` (construction). Define r₅:C₅(3)→B₂(F)⊗_Q U_F by Alt₅([r(1|2,3,4,5)]₂⊗u|345|), with the projected ratio just fixed. It is independent of the volume form and descends under simultaneous GL. The B₂ module and field maps come from V.3; its boundary is negated to match the parent complex. It is 18 times Goncharov's f₁^(3) of (3.5): his sum has the coefficient −1/3 and his cross-ratio is the inverse of r, and the alternation over the four projected vectors contributes the factor 6.
+
+Hypotheses: F is an infinite field; all coefficient modules are rational unless specified otherwise.
+
+The direct inputs are `Polylogarithms:P.3/projected-cross-ratio`, `Polylogarithms:P.3/generic-vector-configurations`, `K3BlochGroups:V.3/five-term-relation`, `K3BlochGroups:V.3/pre-bloch-group`, `mathlib:TensorProduct.map`, `mathlib:Submodule.liftQ`, `mathlib:TensorProduct.lift`.
+
+The construction or proof proceeds as follows:
+
+1. Evaluate the projected cross-ratio on each ordered permutation and tensor its B₂ symbol with the determinant unit.
+2. The extra u(λ) under a volume change has coefficient Alt₅[r(1|2,3,4,5)]₂, zero by the five-term relation.
+3. Use the quotient universal property for GL descent and TensorProduct.map for field functoriality.
+
+The API serves these uses:
+
+- GR5 §7.2 (142), p. 65, and G95 (3.5), p. 266: the middle component of the comparison map; the two sources' maps differ by the factor 18.
+- Polylogarithms:P.3/configuration-chain-comparison: both squares of the chain map contain r₅; its normalisation fixes those of r₄ and r₆.
+- G95 Lemma 6.2, p. 296: r₅p=0 on C₆(4) by the five-term relation for five points of the plane.
+
+Names below are in `TauCeti.Polylog.WeightThree`.
+
+| Declaration | Role | Required statement |
+|---|---|---|
+| `configMiddle` | constructor | The Q-linear map r₅. |
+| `configMiddle_mk` | simp | Evaluation is the stated signed five-point sum. |
+| `configMiddle_volume` | compatibility | The map is independent of the volume form. |
+| `configMiddle_alt` | relation | Permuting the five vectors multiplies the value by the sign. |
+| `configMiddle_fieldMap` | functoriality | The tensor product of the supplier B₂ and unit maps commutes with r₅. |
+
+The discriminating tests are:
+
+- `configMiddle_moment` (computation): For v(t) at 1,2,3,5,7, d₂r₅=36 u(2)∧u(3)∧u(5).
+- `configMiddle_scaleVolume` (characterisation): Multiplying the volume form by 2 contributes zero to r₅, despite changing every determinant unit.
+- `configMiddle_notProjective` (non-example): On the moment-five fixture, multiply only v(1) by 2. Its d₂r₅ becomes 18 u(2)∧u(3)∧u(5), rather than the original 36 times that wedge. Thus independent vector scaling can change r₅; quotienting to projective tuples would lose data.
+
+Acceptance:
+
+- On the moment curve at 1,2,3,5,7, d₂r₅=36·u(2)∧u(3)∧u(5); doubling the first vector alone gives 18 times that wedge, so r₅ does not factor through projective configurations.
+- After δ₂⊗1, r₅ equals 18·f₁^(3) in every prime-valuation coordinate on three rational five-tuples.
+
+Sources:
+
+- GR5, §7.2 (142) p. 65. The middle component with unnormalized alternation.
+- G95, §3, (3.5) and Proposition 3.7, p. 266; Lemma 2.18, p. 259. The original middle map with coefficient −1/3 and the inverse cross-ratio; volume independence by the five-term relation for five points of the plane.
+
+### Triple-ratio configuration map
+
+Declaration `Polylogarithms:P.3/triple-ratio-map` (construction). Define T(l)=|124||235||136|/(|125||236||134|) for a generic six-tuple, and r₆:C₆(3)→B₃(F) as −(1/5) Alt₆[T(l)]₃. The symbol [1]₃ is permitted and generally nonzero. The ratio is invariant under independent vector rescalings; the resulting alternating map descends through GL. Use the explicit 22-term B₃ of the parent, not the conjectural equality with inductive B₃. The coefficient −1/5 is the one for which δ₃r₆=r₅∂ with the zero-based face signs fixed here. The source prints +1/5 in (144); that formula satisfies the source's normalisation (167), δ(1,…,6)₃=Alt₆({1|2,3,4,5}₂⊗|345|), whose right side is −r₅∂, so the two differ by the sign convention of the differential and not in substance (E-P3-05). On generic six-tuples r₆=18·M₃, where M₃ is the geometric comparison normalised by T(z)↦[z]₃; equivalently Alt₆[T]₃=−90·M₃.
+
+Hypotheses: F is an infinite field; all coefficient modules are rational unless specified otherwise.
+
+Planet: **Triple ratio**.
+
+The direct inputs are `Polylogarithms:P.3/generic-vector-configurations`, `Polylogarithms:P.3/trilogarithm-group`, `mathlib:Finsupp.linearCombination`, `mathlib:Submodule.liftQ`, `mathlib:padicValRat`.
+
+The construction or proof proceeds as follows:
+
+1. All six minors are nonzero by genericity.
+2. Count the occurrences of each column scale and volume scale in numerator and denominator.
+3. Use the parent B₃ generator and extend the alternating formula by Finsupp.linearCombination and quotient descent.
+
+The API serves these uses:
+
+- GR5 §1.2 (20) and Theorem 1.8, p. 9: the triple ratio and its seven-term relation, the corollary of the 22-term relation that the source uses in explicit constructions.
+- GR5 §7.2 (143)–(145), p. 65, and (167), p. 71: the top component of the comparison map and the normalisation of its cobracket.
+- Polylogarithms:P.3/configuration-borel-class: L₃∘r₆ is the measurable 5-cocycle on GL₃(C) representing the Borel class.
+
+Names below are in `TauCeti.Polylog.WeightThree`.
+
+| Declaration | Role | Required statement |
+|---|---|---|
+| `tripleRatio` | constructor | The determinant ratio T. |
+| `configTrilog` | constructor | The rational map r₆=−(1/5) Alt₆[T]₃. |
+| `configTrilog_mk` | simp | The formula holds on every generic tuple. |
+| `tripleRatio_scale` | relation | Independent nonzero vector scales cancel in T. |
+| `configTrilog_alt` | relation | A permutation multiplies r₆ by its sign. |
+| `configTrilog_fieldMap` | functoriality | The parent B₃ field map commutes with r₆. |
+
+The discriminating tests are:
+
+- `tripleRatio_moment` (computation): For v(t) at 1,2,3,5,7,11 the raw triple ratio is 10/9.
+- `tripleRatio_one` (degenerate): For e₁,e₂,e₃,(1,1,1),(1,2,3),(1,3,2), which is a generic six-tuple, the raw ratio is 1; this symbol is not discarded.
+- `configTrilog_normalization` (non-example): 5r₆=−Alt₆[T]₃. The coefficient +1/5 of GR (144) gives the map satisfying δ₃r₆=−r₅∂ instead, and the magnitude 1/15 belongs to the middle map divided by 3 (GR footnote 16).
+- `configTrilog_cobracketCoordinate` (computation): For the generic tuple e₁,e₂,e₃,(1,1,1),(1,2,3),(1,3,2), evaluate −(1/5) Alt₆ of the raw triple ratio after δ₃ and δ₂⊗1. Its (v₂∧v₃)⊗v₂ coordinate is −60, equal to the corresponding coordinate of r₅∂; the coefficient +1/5 gives +60. This raw rational computation requires no B₃ interface.
+
+Acceptance:
+
+- After δ₃ and δ₂⊗1, r₆ and r₅∂ agree in all six nonzero prime-valuation coordinates on e₁,e₂,e₃,(1,1,1),(1,2,3),(1,3,2), and in all 722 on (1,8,2),(7,3,11),(1,3,2),(9,4,3),(3,1,11),(2,5,9).
+- For generic six-tuples of C³ the L₃-value of r₆ is 18 times the L₃-value of M₃ computed from the relations of the geometric presentation, and it tends to 18·L₃(z) as the tuple tends to the triangle configuration T(z).
+- Six points on a conic give zero after δ₃ and δ₂⊗1 on both sides, so a moment-curve fixture cannot test the coefficient.
+
+Sources:
+
+- GR5, §7.2, (143)–(145) and footnote 16, p. 65; normalisation (167), p. 71; §1.2 (20), p. 9. The triple-ratio formula with printed coefficient 1/5, the square it is said to make commutative, and the cobracket identity (167) by which the source normalises it; see E-P3-05 for the sign convention.
+
+### Geometric trilogarithm presentation
+
+Declaration `Polylogarithms:P.3/geometric-trilogarithm-presentation` (definition). Let G₃(F) be the rational module on PGL₃-orbits of arbitrary ordered six-tuples of native points of P²(F). Impose: a tuple is zero if two points coincide or four are collinear; the alternating seven-term deletion relation; and the intersection relation R3 of GR (148). For triangle vertices a₁,a₂,a₃ and b_i on a_i a_{i+1}, write T(z) for its tuple with invariant z=r′(b₁|a₂,a₃,b₂,b₃), where r′(u,v,w,x)=(u−w)(v−x)/((u−x)(v−w)). Put T₁(z)=−T(z)−2T(1−z)+T(1). For a type-B tuple y=(x₁,x₂,m,x₃,x₄,x₅) with m=x₁x₂∩x₃x₄, impose 3[y]=Σ_{i=1}⁵(−1)^(i−1) T₁(r′(y₆|y₁,…,ŷ_i,…,y₅)), wherever these projected configurations are defined. This auxiliary geometric group is compared with the parent B₃; it is not substituted for its definition. These are the conventions of GR §7.3, and they are mutually consistent: the seven-term relation applied to T(z) together with a generic point, and R3, give the class whose image is [z]₃. Goncharov's 1995 Definition 1.5 uses the inverse cross-ratio (1.6), for which the bracket −[x]−2[1−x]+[1] changes sign (his (8.1)); with his relation as printed the triangle in the order (a₁,a₂,a₃,b₁,b₂,b₃) has image −[z]₃, and it is the order of his Fig. 1.12 that has image +[z]₃ (E-P3-08).
+
+Hypotheses: F is an infinite field; coefficient groups are rational.
+
+The direct inputs are `mathlib:Projectivization`, `mathlib:Submodule.liftQ`, `mathlib:Finsupp.linearCombination`.
+
+The construction or proof proceeds as follows:
+
+1. Use native Projectivization F (F³) for points and the native Finsupp module for ordered tuples.
+2. Generate a rational relation submodule from simultaneous projective GL changes and the three displayed families; take the native quotient.
+3. Degenerate T(1) is retained via the triangle specialization of the source; do not exclude it by requiring every six-tuple to be generic.
+4. Derive permutation antisymmetry from the seven-term relation with a repeated point (Gon95 Lemma 1.7).
+5. Use triangle representatives e₁,e₂,e₃,(1,1,0),(0,1,1),(−z,0,1), whose projected invariant is z; this also gives a concrete nonzero representative at z=1.
+6. The type-B locus is injective, its third point lies in both spans of the first/second and fourth/fifth points, and projection from its sixth point has pairwise nonzero minors. The intersection generator is explicitly 3[y] minus the alternating sum of T₁ of these projected ratios.
+
+The API serves these uses:
+
+- G95 Definition 1.5 and Theorem 1.8, pp. 211–214; Theorem A, p. 293: the group of configurations of six points of the plane that is canonically isomorphic to B₃(F) rationally.
+- GR5 §7.3, pp. 65–68: the proof of the seven-term relation for the triple ratio skew-symmetrises M₃ on this group.
+- G95 Theorem 8.1, p. 304: the antisymmetry under projective duality is an identity in this group, and gives r₆p=0.
+
+Names below are in `TauCeti.Polylog.WeightThree`.
+
+| Declaration | Role | Required statement |
+|---|---|---|
+| `GeometricTrilog` | structure | The native rational quotient G₃(F) of formal projective six-tuples. |
+| `geometricMk` | constructor | The class of an arbitrary ordered projective six-tuple. |
+| `geometricMk_alt` | relation | Permuting its six points multiplies the class by the permutation sign. |
+| `geometricLift` | universal-property | A rational linear evaluation killing all three relation families and projective GL changes factors uniquely through G₃. |
+| `geometricTriangle` | constructor | The triangle-family class T(z), including its source specialization at z=1. |
+
+The discriminating tests are:
+
+- `geometric_repeat` (degenerate): A tuple with its first two points equal represents zero.
+- `geometric_fourCollinear` (degenerate): A tuple with four points on one projective line represents zero.
+- `geometric_triangle_nonzero` (non-example): Under the comparison below T(1) maps to [1]₃, with complex regulator ζ(3); the geometric group is not killed by its degeneration relations.
+
+Acceptance:
+
+- Evaluating L₃∘M₃ from the seven-term relation and R3 alone, on T(z) together with a generic seventh point, gives L₃(z) for z=0.37+0.52i, −1.3+0.2i and 2.5−1.1i.
+- The type-B and type-C values so obtained change sign under each transposition of points on a common line or of generic points, and the seven-term relation holds for seven points of which four are collinear.
+- A tuple with two equal points, or with four collinear points, represents zero; T(1), with collinear side points, does not.
+
+Sources:
+
+- G95, §1, Definition 1.5 with Figs. 1.6–1.8, pp. 211–212; Lemma 1.7, p. 212; Theorem 1.8 and the formula for M₃, p. 214; (1.6), p. 203. The geometric six-point quotient, its skew symmetry and the inverse map; the cross-ratio there is the inverse of the one adopted here, and the order of the triangle generator is the one corrected in E-P3-08.
+- GR5, §7.3, relations 1–3 with (146)–(148), pp. 65–66. The rational intersection-relation formula adopted here.
+
+### Geometric–symbol trilogarithm comparison
+
+Declaration `Polylogarithms:P.3/geometric-trilogarithm-comparison` (comparison). There is a canonical rational isomorphism M₃:G₃(F)≃B₃(F). It sends T(z) to [z]₃. On type-B configurations use one third of the alternating five-term sum of T₁-values from (148), evaluated by T₁(z)=−[z]₃−2[1−z]₃+[1]₃. On generic six-tuples choose the intersection m of the first two and next two point lines, and use the seven-term relation to reduce to types B and C. The result is independent of the auxiliary intersection choice. On generic six-tuples M₃=−(1/90)·Alt₆[T_raw]₃, with T_raw the determinant triple ratio of the triple-ratio node and Alt₆ the unnormalised alternation; equivalently Alt₆M₃=720·M₃=−8·Alt₆[T_raw]₃ and r₆=18·M₃. The source's Proposition 7.2 prints the constant 3/2 in place of −8 (E-P3-06). Integrally Gon95 states the comparison only modulo 6-torsion; rationalization removes that qualification.
+
+Hypotheses: F is an infinite field; coefficient groups are rational.
+
+Suggested name: `TauCeti.Polylog.WeightThree.geometric_trilogarithm_comparison`.
+
+The direct inputs are `Polylogarithms:P.3/geometric-trilogarithm-presentation`, `Polylogarithms:P.3/coordinate-relation`, `Polylogarithms:P.3/triple-ratio-map`, `Polylogarithms:P.3/trilogarithm-group`, `K3BlochGroups:V.3/five-term-relation`, `mathlib:riemannZeta`.
+
+The construction or proof proceeds as follows:
+
+1. Use the triangle specialization to define the symbol-to-geometric map.
+2. The corrected coordinate relation gives the relations among triangle classes; the geometric R3 gives the reverse evaluation.
+3. Apply the seven-term reduction to the generic case and the projected five-point reduction to type C.
+4. GR Lemmas 7.3–7.4 cancel the type-B alternating terms and identify the remaining type-C contribution with the triple ratio.
+5. Fix the constant: by the seven-term relation each generic M₃ is an alternating sum of two type-B and four type-C values, each one third of a sum of T′-brackets. After skew-symmetrisation the type-B values vanish (GR Lemma 7.3) and the surviving type-C terms are of the kind treated in GR Lemma 7.4, each a multiple of (3/2)·Alt₆[T]₃. Their total is −8·Alt₆[T]₃, that is a total coefficient −16/3 on the expression of Lemma 7.4; the count of the surviving terms with their signs is the bookkeeping the source omits, and it is the content of the first gap. Establish Alt₆[T]₃=−90·M₃ in explicit B₃ before transferring seven-term and duality identities.
+
+Acceptance:
+
+- For generic six-tuples of C³, the L₃-value of M₃ computed from the seven-term relation and R3 does not depend on which of three auxiliary intersection points is used, and equals −1/90 of the L₃-value of Alt₆[T_raw]₃ to ten digits.
+- The same value tends to L₃(z) along generic tuples tending to T(z).
+- The constant 3/2 would give 1/480 in place of −1/90 and is excluded by both checks.
+
+Sources:
+
+- G95, §5, (5.16)–(5.17) and the construction (a)–(e) of M₃, pp. 285–287; Proposition 5.3 and Lemmas 5.4–5.5, pp. 287–288; Theorem A with (5.20), p. 293. The construction of M₃ on degenerate and generic configurations, its independence of the auxiliary intersection, and the isomorphism of complexes; step (e) on p. 287 has a sign misprint (E-P3-07).
+- GR5, §7.3, Proposition 7.2 with (149), Lemma 7.3 and Lemma 7.4, pp. 67–68. The skew-symmetrisation of M₃ is proportional to the raw triple-ratio alternation. Lemma 7.4's constant 3/2 for one term is right; the constant printed in Proposition 7.2 is not (E-P3-06).
+
+### Configuration duality
+
+Declaration `Polylogarithms:P.3/configuration-duality` (construction). For 0<q<m, the kernel of the surjective column map F^m→F^q associated to a generic m-tuple has dimension m−q. Choosing a basis of that kernel and taking its coordinate columns gives a generic m-tuple in F^(m−q); another basis changes it by GL. This defines a linear equivalence *:C_m(q)≃C_m(m−q). Equivalently, annihilator duality on the generic Grassmannian gives the same map. Under the natural dimension identifications it is involutive. It exchanges deletion with projection and descends further through independent vector scaling to the projective configuration duality.
+
+Hypotheses: F is an infinite field; coefficient groups are rational.
+
+The direct inputs are `Polylogarithms:P.3/generic-vector-configurations`, `mathlib:LinearIndependent`, `mathlib:Matrix.det`.
+
+The construction or proof proceeds as follows:
+
+1. Identify the tuple with the row subspace of its full-rank q×m matrix; the dual row subspace is its annihilator.
+2. Nonzero complementary minors show the dual tuple is generic.
+3. For a matrix (I_q,B), the dual is (−Bᵀ,I_{m−q}); in the square case, normalize the first block to get −(B⁻¹)ᵀ.
+4. Double annihilation proves involutivity, and taking a coordinate hyperplane exchanges deletion with quotient projection.
+5. Use Gon95 Proposition 7.1 and Lemmas 7.2–7.5 for the geometric intersection description and Corollary 7.6 for the face identity.
+
+The API serves these uses:
+
+- G95 §7, pp. 298–303, Corollary 7.6: duality of configurations exchanges deleting a vector with projecting along it.
+- GR5 §7.4, p. 68–69: the dual Bigrassmannian complex is obtained by applying this duality.
+- Polylogarithms:P.3/trilogarithm-duality: the top projection identity r₆p=0 is the seven-term relation transported by duality.
+
+Names below are in `TauCeti.Polylog.WeightThree`.
+
+| Declaration | Role | Required statement |
+|---|---|---|
+| `configurationDual` | equivalence | The native rational linear equivalence C_m(q)≃C_m(m−q), for 0<q<m. |
+| `configurationDual_sq` | structure | Duality twice is identity after identifying m−(m−q)=q. |
+| `configurationDual_matrix` | simp | The dual of the columns of (I_q,B) is represented by the columns of (−Bᵀ,I_{m−q}). |
+| `configurationDual_faces` | compatibility | Duality exchanges deletion and projection on the rows where both sides are defined. |
+
+The discriminating tests are:
+
+- `configurationDual_four` (computation): For q=2,m=4 and vectors (1,0),(0,1),(1,2),(1,3), the dual class is represented by (−1,−1),(−2,−3),(1,0),(0,1).
+- `configurationDual_six` (characterisation): On C₆(3), applying the same-rank dual map twice returns the original class.
+- `configurationDual_notInverse` (non-example): On a normalized square matrix (I_q,B), duality uses negative inverse transpose after normalizing the first block, not B⁻¹ alone; the four-vector fixture distinguishes these matrices.
+
+Acceptance:
+
+- For q=2, m=4 and the vectors (1,0),(0,1),(1,2),(1,3) the dual class is that of (−1,−1),(−2,−3),(1,0),(0,1), computed from a basis of the kernel; it is not the class of (1,0),(0,1),(3,−2),(−1,1).
+- Prototype general q,m duality, not only the square case: use explicit Fin dimension transports for double duality and the deletion/projection identity.
+
+Sources:
+
+- G95, §7, (7.1)–(7.2) and the dual matrix, pp. 298–300; Proposition 7.1 and Lemma 7.2, pp. 300–301; Proposition 7.4, Lemma 7.5 and Corollary 7.6, p. 302. The duality needed for the top projection identity, on actual vector configurations before projectivization.
+
+### Seven-term configuration relation
+
+Declaration `Polylogarithms:P.3/seven-term-configuration-relation` (theorem). For every generic seven-tuple in F³, Σ_{i=0}^6(−1)^i r₆(l without l_i)=0 in explicit B₃(F).
+
+Hypotheses: F is an infinite field; all coefficient modules are rational unless specified otherwise.
+
+Suggested name: `TauCeti.Polylog.WeightThree.seven_term_configuration_relation`.
+
+The direct inputs are `Polylogarithms:P.3/triple-ratio-map`, `Polylogarithms:P.3/trilogarithm-group`, `K3BlochGroups:V.3/five-term-relation`, `Polylogarithms:P.3/geometric-trilogarithm-comparison`.
+
+The construction or proof proceeds as follows:
+
+1. Use Gon95’s configuration presentation G₃ only as the finite geometric proof device of GR §7.3: repeat/collinearity relations, deletion relation and the intersection-line relation.
+2. The intersection construction M₃ reduces each generic six-tuple to three degenerate types; the B₂ five-term relation gives their permutation identities.
+3. Proposition 7.2 shows that the skew-symmetrisation of M₃ is a nonzero rational multiple of the raw triple-ratio alternation. The multiple is −8 for the unnormalised alternation, that is M₃=−(1/90)·Alt₆[T]₃; the source prints 3/2, which is the constant of its Lemma 7.4 for a single contributing expression (E-P3-06). Only the fact that the multiple is nonzero is used here.
+4. Alternate the seven-point relation and divide by the nonzero rational factors.
+
+Acceptance:
+
+- For seven random points of C³ the L₃-values of the seven terms are individually nonzero and their alternating sum is zero to machine precision.
+- The moment-curve fixture 1,2,3,5,7,11,13 satisfies the relation but does not test it: six points on a conic give zero after the cobracket.
+- No discarded {1}₃ constant is used.
+
+Sources:
+
+- GR5, GR Theorem 1.8 and §7.3 Proposition 7.2, Lemmas 7.3–7.4. A proof in the explicit B₃ presentation, not an appeal to the conjectural inductive comparison.
+
+### Trilogarithm antisymmetry under duality
+
+Declaration `Polylogarithms:P.3/trilogarithm-duality` (theorem). For a projective six-tuple with no four collinear points, its dual represents the negative of its class in G₃(F). Consequently M₃(*x)=−M₃(x), and the alternating triple-ratio map satisfies r₆ p=0 on C₇(4). This is an equality in the geometric quotient and then in the parent explicit B₃, not merely a functional identity of real regulators.
+
+Hypotheses: F is an infinite field; coefficient groups are rational.
+
+Suggested name: `TauCeti.Polylog.WeightThree.trilogarithm_duality`.
+
+The direct inputs are `Polylogarithms:P.3/configuration-duality`, `Polylogarithms:P.3/geometric-trilogarithm-comparison`, `Polylogarithms:P.3/seven-term-configuration-relation`.
+
+The construction or proof proceeds as follows:
+
+1. Expand the six-tuple by the seven-term relation and R3 into the 46 projected-cross-ratio terms of Gon95 (8.2).
+2. Describe the dual as the six hyperplanes attached to the two triangles by Corollary 7.6.
+3. Pair the 46 original terms with the dual terms; identical projected configurations have opposite signs.
+4. For the remaining pairs use L′₃(x)=−[x]₃−2[1−x]₃+[1]₃ and the identities in (8.1); Lemma 8.2 supplies the three exceptional projection comparisons.
+5. Use deletion/projection duality and the seven-term relation in the dual C₇(3) configuration to obtain top projection vanishing.
+
+Acceptance:
+
+- For a generic six-tuple written as the columns of (I₃,B), the L₃-value of Alt₆[T_raw]₃ on the dual tuple, the columns of (−Bᵀ,I₃), is the negative of its value on the tuple, checked numerically on random complex B.
+- The hypothesis is that no four points are collinear, as in the source; it is weaker than genericity.
+
+Sources:
+
+- G95, §8, Theorem 8.1 with (8.1)–(8.2), p. 304, and Lemma 8.2, pp. 305–308; Theorem 6.3, p. 296. The full source argument for top projection vanishing; its adapter to the common rational normalization is checked separately.
+
+### Configuration chain comparison
+
+Declaration `Polylogarithms:P.3/configuration-chain-comparison` (theorem). With the common normalization above, d₂r₅=r₄∂ on C₅(3), δ₃r₆=r₅∂ on C₆(3), and r₄p=r₅p=r₆p=0 on C₅(4), C₆(4), C₇(4) respectively. Together with the seven-term relation these components give a degree-reversed chain map BC_•^(3)→Γ(F,3), supported in degrees 6,5,4.
+
+Hypotheses: F is an infinite field; all coefficient modules are rational unless specified otherwise.
+
+Suggested name: `TauCeti.Polylog.WeightThree.configuration_chain_comparison`.
+
+The direct inputs are `Polylogarithms:P.3/exterior-configuration-map`, `Polylogarithms:P.3/middle-configuration-map`, `Polylogarithms:P.3/triple-ratio-map`, `Polylogarithms:P.3/seven-term-configuration-relation`, `Polylogarithms:P.3/weight-three-complex`, `Polylogarithms:P.3/trilogarithm-duality`, `mathlib:ChainComplex.of`, `mathlib:CochainComplex.of`, `mathlib:HomologicalComplex.homologyMap`.
+
+The construction or proof proceeds as follows:
+
+1. For the right square use Plücker and expand determinant-unit wedges; Gon95 Proposition 3.8 supplies the primitive normalization, and the corrected r₄ matches GR’s r₅.
+2. For the left square use Theorem A of G95: M₃ is an isomorphism of complexes, and the cobracket on the geometric group is by definition f₁∘d on generic configurations (G95 p. 269), so δ₃M₃=f₁∘d there. With r₅=18f₁ and r₆=18M₃ this is δ₃r₆=r₅∂. The remaining obligation is the normalisation r₆=18M₃, that is Alt₆[T]₃=−90·M₃ in B₃(F); it is checked here after δ₂⊗1 in exact prime coordinates and through L₃, and is recorded in the first gap.
+3. The two lower projection identities use the five-term relation (Gon95 Lemma 6.2 and Lemma 3.6).
+4. Apply the trilogarithm-duality node: Corollary 7.6 exchanges deletion and projection, and Theorem 8.1 identifies dual six-tuples with their negatives. With the seven-term relation this is Theorem 6.3 (G95 p. 296), r₆p=0 on C₇(4).
+5. Use the previous seven-term node for the incoming degree-7 differential.
+
+Acceptance:
+
+- The right square on the rational moment fixture gives 36 u(2)∧u(3)∧u(5) on both sides; with the coefficient 2 of GR (142) the right side is −24 times that wedge.
+- D lowers tuple size while Γ degrees are 6−m.
+- On e₁,e₂,e₃,(1,1,1),(1,2,3),(1,3,2), applying δ₂⊗1 to both sides of the left square gives the coordinate −60 on both; the coefficient +1/5 gives +60 on the left.
+- For seven random vectors of C⁴ the alternating sum of the L₃-values of r₆ on the seven projections is zero to machine precision.
+
+Sources:
+
+- G95, §6, (6.3)–(6.4), Theorem 6.1, Lemma 6.2 and Theorem 6.3, pp. 295–296; Proposition 3.8, pp. 266–267; Theorem A, p. 293. The original complex map, its two projection identities, the right square modulo 6-torsion, and the isomorphism of complexes that gives the left square for M₃.
+- GR5, §7.2, (141)–(145), pp. 64–65; (167), p. 71. The three components with the source's coefficients. The exterior coefficient is wrong (E-P3-02); the top coefficient is right for the source's normalisation (167) and has the opposite sign for the square with the displayed face signs (E-P3-05).
+
+## Stable homology and the K-theory comparison
+
+An ordinary generic GL₃ resolution gives the first comparison. Stabilization requires Goncharov's symmetrized resolution: the first k vectors are distinguished, permutation averaging has coefficient 1/k!, and the insertion operator anticommutes with the differential. The augmented total complex is acyclic by Lemma 2.16. Its projection along the distinguished vectors gives the map to the Bigrassmannian complex. The general edge-map machinery is imported and extended at its owner. Only after compatibility with block stabilization is proved does one restrict to the primitive K-theory classes.
+
+### Stabilized configuration comparison
+
+Declaration `Polylogarithms:P.3/stabilized-configuration-comparison` (construction). For infinite F and n≥3 construct c_i^(n):H_{6−i}(GL_n(F),Q)→H^iΓ(F,3), i=1,2,3, using the symmetrized generic-vector resolution C_•^{n−2}(n) of Gon95 §2.6 and its projection map φ to BC^(3). On GL₃ this restricts to the maps induced by r₆,r₅,r₄. The compatible stable map restricts along rational primitive Hurewicz from Quillen K_{6−i}.
+
+Hypotheses: F is an infinite field; all coefficient modules are rational unless specified otherwise.
+
+Planet: **Configuration comparison**.
+
+The direct inputs are `Polylogarithms:P.3/weight-three-bigrassmannian`, `Polylogarithms:P.3/configuration-chain-comparison`, `GeneralAlgebraicKTheory:K.2:plus`, `mathlib:CategoryTheory.ShortComplex.homologyMap`, `mathlib:groupHomology`, `mathlib:Rep.trivial`, `K3BlochGroups:V.4/hyperhomology-map`, `K3BlochGroups:V.4`, `KTheoryLowDegrees:U.1/stable-general-linear-group`, `mathlib:ChainComplex.of`, `mathlib:CochainComplex.of`, `mathlib:DirectSum.component`, `mathlib:DirectLimit`, `mathlib:Matrix.GeneralLinearGroup.map`, `mathlib:groupHomology.map`, `mathlib:groupHomology.cycles`, `mathlib:groupHomology.π`, `mathlib:HomologicalComplex.homologyMap`, `mathlib:CategoryTheory.ShortComplex.homology`.
+
+The construction or proof proceeds as follows:
+
+1. Use tilde C_p(n), with the first k vectors fixed under d^k; average their permutations by 1/k!.
+2. The operator λ^k inserts one of the remaining vectors among the first k+1 and then symmetrizes. Lemmas 2.12–2.16 give the acyclic augmented total resolution.
+3. The component φ(l₁,…,l_m)=(l₁,…,l_k | l_{k+1},…,l_m) projects along the first k vectors and then applies the configuration comparison.
+4. Use V.4/hyperhomology-map for the edge map, extending its coefficient/complex interface by the request below; groupHomology itself exists in Mathlib. Establish stabilization before taking the supplied stable GL colimit.
+
+The API serves these uses:
+
+- G95 §6, (6.1)–(6.2) and (6.8)–(6.11), pp. 295–297: the canonical maps H_{6−i}(GL_n(F))→H^i of the weight-three complex and their agreement on GL₃ with the explicit maps.
+- G95 Theorem 1.14, p. 220: restricted to the rank filtration of rational K-theory they give c₁ and c₂.
+- Polylogarithms:P.3/cycle-lifting and /configuration-borel-class: c₁ is the map whose image and regulator are computed.
+
+Names below are in `TauCeti.Polylog.WeightThree`.
+
+| Declaration | Role | Required statement |
+|---|---|---|
+| `configurationComparison` | constructor | The rational group-homology map c_i^(n), for n≥3 and i∈{1,2,3}. |
+| `configurationComparison_stabilize` | functoriality | c_i^(n+1)∘H(stabilize)=c_i^(n). |
+| `configurationComparison_rank3` | compatibility | For n=3 it is the homology map induced by the three explicit configuration components. |
+| `configurationComparison_fieldMap` | functoriality | The parent Γ field map intertwines c_i with injective field maps; identity and composition laws follow. |
+| `configurationComparison_K` | data | Restriction along rational primitive Hurewicz gives the comparison on the rank≤3 piece of K_{6−i}. |
+
+The discriminating tests are:
+
+- `configurationComparison_zero` (degenerate): Every c_i^(n) sends the zero homology class to zero.
+- `configurationComparison_degree2` (characterisation): At i=2 the actual configurationComparison has codomain H²Γ and group-homology degree 4, agreeing with the published final display on p. 298.
+- `configurationComparison_stableFixture` (compatibility): There exists a native degree-5 GL₃(C) bar cycle c whose homology projection maps to z∈ker δ₃ with z=[1]₃. Its image after block stabilization to GL₄ is the same H¹Γ class and its actual trilogarithm regulator is Re ζ(3)>0. This fixture rejects a zero comparison map; existence is an unproved test signature.
+
+Acceptance:
+
+- For i=2 the map goes from H₄(GL_n(F),Q) to H²Γ(F,3), as in (6.9b) and the final display of p. 298; for n=3 it is the map induced on homology by the chain map with components r₆, r₅, r₄.
+- The prototype factors through an actual configuration-chain homology map into the reversed native Γ complex, indexed so degree 6−i goes to Γ degree i; supplier edge maps are fixed contracts, not fields assuming the comparison conclusions.
+- The stabilized fixture must rule out the zero comparison: a native degree-5 GL₃(C) bar cycle maps to the actual cycle [1]₃, retains that image in GL₄, and has regulator Re ζ(3)>0. Its existence remains a planning proof obligation using cycle lifting.
+
+Sources:
+
+- G95, §2.6, Lemmas 2.12–2.16 and (2.14)–(2.15), pp. 257–258; §6, (6.1)–(6.2), (6.7)–(6.11) and Lemma 6.4, pp. 295–297. The construction on group homology precedes the restriction to rational K-theory.
+
+### Rank-two vanishing
+
+Declaration `Polylogarithms:P.3/rank-two-vanishing` (theorem). For n≥3 and i=1,2,3, c_i^(n) vanishes on the image of H_{6−i}(GL₂(F),Q). Thus restriction to K_{6−i}∩im H_{6−i}(GL₃) factors through its quotient by K_{6−i}∩im H_{6−i}(GL₂). No assertion identifies this rank-three graded quotient with an Adams eigenspace, and no factorization of all K_{6−i} through that quotient follows without a rank≤3 theorem.
+
+Hypotheses: F is an infinite field; all coefficient modules are rational unless specified otherwise.
+
+Suggested name: `TauCeti.Polylog.WeightThree.rank_two_vanishing`.
+
+The direct inputs are `Polylogarithms:P.3/stabilized-configuration-comparison`, `GeneralAlgebraicKTheory:K.2:plus`, `mathlib:Submodule.liftQ`, `KTheoryLowDegrees:U.1/stable-general-linear-group`, `mathlib:groupHomology.map`, `mathlib:DirectLimit`.
+
+The construction or proof proceeds as follows:
+
+1. Fix a vector outside the GL₂ plane; it gives a GL₂-fixed section in the generic-vector resolution used in Gon95 §6.
+2. The edge map into the weight-three quotient is consequently zero on this subgroup.
+3. Intersect the stable homology images with the rational primitive K-space and apply the quotient universal property.
+
+Acceptance:
+
+- The quotient is rank≤3/rank≤2, in degrees 5,4,3 respectively.
+- Adams-weight equivalence stays a conjectural P.4 input.
+- State both vanishing of H(GL₂)→H(GL₃)→H^iΓ and the induced quotient map on the actual rank≤3 K-submodule modulo rank≤2, rather than an arbitrary K-space.
+
+Sources:
+
+- G95, §1, rank filtration (1.22)–(1.24) and Theorem 1.14, pp. 219–220; §6, the GL₂-invariant section and the maps c₁, c₂, p. 298. The rank-two vanishing and the precise domain of the rank-graded comparison.
+
+### Top-degree configuration–Milnor comparison
+
+Declaration `Polylogarithms:P.3/suslin-top-comparison` (comparison). Under the imported Suslin integral homology/Milnor quotient isomorphism, compare η∘c₃ on the rank-three graded rational K₃ quotient with the diagonal Milnor symbol map restricted along primitive Hurewicz. Compute the nonzero rational normalization coefficient κ for r₄=18 f₀ and specify the rescaling that gives equality. The cited Suslin quotient theorem does not itself identify κ or the restriction to primitive K₃. This comparison is a normalization adapter, not a second proof of homological stability. Degree-three Quillen-transfer compatibility needs the separate T.3 request.
+
+Hypotheses: F is an infinite field; all coefficient modules are rational unless specified otherwise.
+
+Suggested name: `TauCeti.Polylog.WeightThree.suslin_top_comparison`.
+
+The direct inputs are `Polylogarithms:P.3/steinberg-boundary-image`, `Polylogarithms:P.3/rank-two-vanishing`, `GeneralAlgebraicKTheory:K.2:plus`, `K2SymbolsBrauer:T.2/milnor-k-theory`, `Polylogarithms:P.3/milnor-degree-comparison`, `K3BlochGroups:V.4/homological-stability`, `K2SymbolsBrauer:T.3`.
+
+The construction or proof proceeds as follows:
+
+1. Import V.4/homological-stability; its Suslin source-proof gap remains with that owner. Compute the diagonal-symbol configuration image in degree 3 and compare the η normalization.
+2. Use the requested primitive Hurewicz/rank interface to restrict the homology quotient to K₃.
+3. Evaluate the corrected configuration map on explicit diagonal bar-shuffle cycles and compare both symbol and primitive conventions; determine κ before asserting agreement.
+4. The required primitive projection and symbol compatibility are requested below; Suslin’s own source was not obtained, and its existing V.4 source gap is inherited rather than duplicated.
+
+Acceptance:
+
+- The n=3 torsion allowance is 2-torsion, killed by Q.
+- No integral isomorphism is asserted without that allowance.
+- The coefficient κ is computed by the actual diagonal-symbol cycle, not inferred from Suslin’s abstract isomorphism or assumed to be one.
+
+Sources:
+
+- G95, §1, remark after Theorem 1.14, p. 220, citing Suslin 1984. This is the primary Goncharov statement of the Suslin input; access to Suslin’s own proof remains explicit.
+
+## Top cohomology and transfers
+
+The degree-three quotient is a presentation calculation, not another construction of Milnor K-theory. Its Steinberg subspace is exactly the image of the middle differential. Transporting Milnor norms through the parent equivalence then gives a concrete unconditional norm on H³. The usual restriction-degree law has coefficient [E:F], whereas applying the exterior cube to the ordinary unit norm would give its cube. The residue formula is imported with its finite-integral-closure hypotheses; ramification factors must not be inserted into that norm-residue sum. The final construction in this group states its weight-four hypothesis rather than treating it as an established theorem.
+
+### Steinberg boundary image
+
+Declaration `Polylogarithms:P.3/steinberg-boundary-image` (theorem). The image of d₂:B₂(F)⊗U_F→Λ³U_F is the span of u(1−x)∧u(x)∧u(y), x∉{0,1}, y∈F×. The canonical rational exterior-to-Milnor symbol map has exactly this kernel; hence H³Γ≃K₃^M(F)⊗Q. This is the presentation lemma supporting the imported parent comparison, not a second definition of Milnor K-theory.
+
+Hypotheses: F is an infinite field; all coefficient modules are rational unless specified otherwise.
+
+Suggested name: `TauCeti.Polylog.WeightThree.steinberg_boundary_image`.
+
+The direct inputs are `K2SymbolsBrauer:T.2/milnor-k-theory`, `K3BlochGroups:V.3/pre-bloch-group`, `Polylogarithms:P.3/polylogarithmic-complex`, `mathlib:exteriorPower.alternatingMapLinearEquiv`, `K2SymbolsBrauer:T.2/milnor-alternating`.
+
+The construction or proof proceeds as follows:
+
+1. The supplier Milnor presentation is the tensor algebra modulo the two-sided Steinberg ideal.
+2. Rational anticommutativity, including {a,a}={a,−1}, makes the degree-3 map factor through the native exterior cube; the −1 torsion disappears rationally.
+3. In degree 3 the ideal is precisely the span of adjacent Steinberg pairs with one extra unit.
+4. V.3 symbols generate B₂, so the differential has the same image.
+
+Acceptance:
+
+- {x,1−x,y} maps to zero.
+- Repeating a rational unit gives zero in the rational exterior cube.
+
+Sources:
+
+- G95, §1, Milnor ring and (1.20), p. 218; complex (1.21), p. 219; remark after Theorem 1.14, p. 220. The top-degree computation uses the algebraic presentation independently of Suslin’s Quillen comparison.
+
+### Transfer on top cohomology
+
+Declaration `Polylogarithms:P.3/cohomology-transfer` (construction). For a finite extension E/F define N_H³=η_F⁻¹∘(N^M_{E/F}⊗Q)∘η_E, where η is the parent H³–Milnor equivalence. It is transitive, satisfies projection and N_H³∘res=[E:F], and obeys residue–norm compatibility under the supplier’s finite-integral-closure hypotheses. This construction gives neither a B₃ transfer nor a chain map on Γ; applying Λ³ to the ordinary field norm is not the Milnor transfer.
+
+Hypotheses: F is an infinite field; all coefficient modules are rational unless specified otherwise.
+
+The direct inputs are `Polylogarithms:P.3/steinberg-boundary-image`, `Polylogarithms:P.3/milnor-degree-comparison`, `K2SymbolsBrauer:T.4/milnor-transfer-transitivity`, `K2SymbolsBrauer:T.4/milnor-projection-formula`, `K2SymbolsBrauer:T.4/restriction-transfer-degree`, `K2SymbolsBrauer:T.3/transfer-and-norm-residue`, `Polylogarithms:P.3/residues-and-transfers`, `mathlib:HomologicalComplex.homologyMap`.
+
+The construction or proof proceeds as follows:
+
+1. Use the Steinberg boundary-image lemma to identify η and its symbol normalization.
+2. Import the Milnor transfer, its transitivity, projection and degree laws from T.4.
+3. Conjugate these maps and laws by η; use the parent residues and T.3 transfer–residue theorem.
+4. In degree 3 the supplier’s right-uniformizer convention and the parent’s left-uniformizer convention have the same sign.
+
+The API serves these uses:
+
+- Parent Polylogarithms:P.3/residues-and-transfers: that node records that the only transfer available is the one on H³; this node constructs it and its laws.
+- Polylogarithms:P.3/conditional-complex-transfer: the derived transfer, when its hypotheses hold, must induce this map on H³.
+- G95 pp. 240–241: the source defines transfers on the complexes only conditionally, by analogy with the Bass–Tate norm on Milnor K-theory.
+
+Names below are in `TauCeti.Polylog.WeightThree`.
+
+| Declaration | Role | Required statement |
+|---|---|---|
+| `h3Transfer` | constructor | The Q-linear conjugate of the Milnor degree-3 norm. |
+| `h3Transfer_eta` | compatibility | η_F∘N_H³=N^M∘η_E. |
+| `h3Transfer_id` | simp | The transfer for F/F is identity. |
+| `h3Transfer_comp` | functoriality | For a finite tower, the transfers compose. |
+| `h3Transfer_res` | relation | N_H³∘res=[E:F] times identity. |
+| `h3Transfer_projection` | compatibility | For total degree 3 state both (degree-1,degree-2) and (degree-2,degree-1) Milnor product projection formulas through η; no exterior-power field norm replaces them. |
+| `h3Transfer_residue` | compatibility | For a normalized discrete valuation v of F, assume finite integral closure of its valuation ring in E, the complete finite family of extending normalized valuations w with e_w and residue extensions, Σ_w e_w f_w=[E:F], and finite residue-field extensions. Then ∂_v N_H³ is Σ_w N^M_{κ(w)/κ(v)} ∂_w η_E, with no extra e_w multiplier and the stated degree-three sign convention. |
+
+The discriminating tests are:
+
+- `h3Transfer_identity` (degenerate): The base-extension identity gives the identity map.
+- `h3Transfer_quadratic` (computation): For a quadratic extension, N_H³(res z)=2z for every z.
+- `h3Transfer_notExteriorNorm` (non-example): As maps on the exterior cube of rational units, Λ³(N₁)∘Λ³(res₁)=d³ id for degree d. On H³, the Milnor norm satisfies N_H³∘res=d id. This contrasts the coefficient laws before quotienting; for number fields H³_Q=0, so no nonzero quadratic counterexample is asserted there.
+
+Acceptance:
+
+- For a quadratic extension N_H³∘res is multiplication by 2, while the exterior cube of the unit norm composed with restriction is multiplication by 8.
+- The residue statement quantifies over actual valuation rings, integral closure, residue fields and normalized extension valuations; its hypotheses are not replaced by just an arbitrary finite list.
+- The quadratic test applies the actual h3Transfer and native Γ field-map homology restriction. The exterior-norm non-example compares coefficient laws and does not assert a nonzero number-field H³_Q.
+
+Sources:
+
+- G95, §1, (1.48) and the transfer remark, pp. 239–240; Conjecture 1.39 and the derived transfer, pp. 240–241; top-degree Milnor comparison, p. 220. The unrestricted complex transfer is conditional there; top cohomology already has the supplier norm.
+
+### Conditional transfer on the complex
+
+Declaration `Polylogarithms:P.3/conditional-complex-transfer` (theorem). Assume the weight-four homotopy/residue resolution of Gon95 Conjecture 1.39: Γ(F(t),4)/Γ(F,4)→⊕_P Γ(F[t]/P,3)[−1] is a quasi-isomorphism, for monic irreducible P, with all maps interpreted in the derived category. For E=F[t]/P, insert its summand, invert this quasi-isomorphism and take minus the residue at infinity. After cancelling the shift this constructs a derived transfer Γ(E,3)→Γ(F,3). Its H³ map must agree with the previously constructed Milnor transfer. No unconditional B₃ or termwise transfer is inferred.
+
+Hypotheses: F is an infinite field; E=F[t]/P for monic irreducible P is a simple finite extension. All coefficient groups are rational. P.4 supplies Γ(-,4), its constant inclusion into Γ(F(t),4), finite and infinity residue chain maps killing constants, and the same inductive B₃ model. Assume invertibility of the canonical explicit-to-inductive Γ(F,3) map and that of every polynomial residue field. This map sends [x]₃ to [x]₃ and is identity on B₂⊗U and Λ³U; an arbitrary rescalable complex isomorphism is insufficient. Assume the finite-residue map from the actual cokernel of the constant inclusion to ⊕_P Γ(F[t]/P,3)[−1], transported by these canonical inverses, becomes an isomorphism under the native derived localization functor.
+
+Suggested name: `TauCeti.Polylog.WeightThree.conditional_complex_transfer`.
+
+The direct inputs are `Polylogarithms:P.3/cohomology-transfer`, `Polylogarithms:P.4/general-polylog-complex`, `Polylogarithms:P.4`, `K2SymbolsBrauer:T.4/simple-transfer`, `mathlib:CochainComplex.of`, `mathlib:DerivedCategory`, `mathlib:DerivedCategory.Q`, `mathlib:AdjoinRoot`, `mathlib:RatFunc`, `mathlib:DirectSum.toModule`.
+
+The construction or proof proceeds as follows:
+
+1. Fix the symbol-preserving explicit-to-inductive chain map and require its invertibility; use its canonical inverse for finite and infinity residues. The hypothesis does not silently assert the explicit/inductive presentation conjecture.
+2. The residue-at-infinity map kills constants, hence factors through the quotient by Γ(F,4).
+3. In the derived category compose the summand inclusion with the inverse of the assumed quasi-isomorphism and the negative infinity residue.
+4. Compare H³ with the supplier’s Bass–Tate formula. For general finite extensions use simple-extension towers only after proving tower independence; this is recorded as a gap.
+
+Acceptance:
+
+- Weight THREE transfer requires the weight FOUR resolution.
+- The result is derived, not automatically a chain map on the displayed terms.
+- The suggested signature quantifies over an actual native DerivedCategory morphism, with a composition equation using the localization/shift isomorphisms, the actual residue summand and inverse of the actual resolution; its induced H³ map equals h3Transfer. No user-selected complex or residue function supplies the conclusion.
+
+Sources:
+
+- G95, §1, pp. 239–241: (1.48), Conjecture 1.39 (p. 240) and the derived morphism (p. 241). The homotopy-invariance conjecture for Γ_F(n) with F=k(t), and the transfer defined from it in the derived category by the residue at infinity; the source expects independence of choices but does not prove it.
+
+## The regulator and the every-family determinant
+
+The real-valued functional descends on the explicit B₃ presentation and pulls back along each embedding. Comparing a configuration cocycle with a real one-dimensional Borel line only gives a real multiple; rationality needs calibration on a rational cycle with trilogarithm value ζ(3). The every-family statement additionally needs every δ₃-cycle to lift to stable degree-five homology, which is where the source's omitted higher-differential computation occurs. Primitive projection preserves the Borel pairing and suffices for regulator-image containment, without proving the conjectural full K₅ comparison. Finally a rational coordinate matrix multiplies the determinant by a rational scalar, including zero for dependent columns.
+
+### Trilogarithm descent
+
+Declaration `Polylogarithms:P.3/trilogarithm-descent` (construction). The parent single-valued function L₃(z)=Re(Li₃(z)−log|z|Li₂(z)+(1/3)log²|z|Li₁(z)), continuously extended at 0 and 1, induces a Q-linear L₃:B₃(C)→R. It kills the explicit 22-term, inversion and three-term relations with their constants. For an embedding σ:F→C, its composite with B₃(σ), restricted to ker δ₃=H¹Γ, gives the σ-coordinate regulator. Conjugate embeddings have equal coordinates.
+
+Hypotheses: F is an infinite field; all coefficient modules are rational unless specified otherwise.
+
+The direct inputs are `Polylogarithms:P.1/single-valued-polylogarithm`, `Polylogarithms:P.3/trilogarithm-group`, `Polylogarithms:P.3/polylogarithmic-complex`, `mathlib:Finsupp.linearCombination`, `mathlib:Submodule.liftQ`, `Polylogarithms:P.3/trilogarithm-functional-relations`, `Polylogarithms:P.1/distribution-and-inversion`, `Polylogarithms:P.1/single-valued-continuity`, `mathlib:riemannZeta`, `mathlib:intervalIntegral`.
+
+The construction or proof proceeds as follows:
+
+1. Import P.1’s single-valued function, continuity, inversion and distribution. Use the new functional-relation theorem for the 22-term identity; P.2 does not own this weight-three equation.
+2. Extend to Q[C] by Finsupp.linearCombination and check each parent relation generator, retaining {1}₃.
+3. Descend with Submodule.liftQ and use parent field functoriality for embeddings.
+
+The API serves these uses:
+
+- G95 p. 264 and (1.3)–(1.4), p. 202: L₃ vanishes on the relations, so it defines a homomorphism B₃(C)→R.
+- G95 Theorem 1.1, p. 203: the entries of the determinant are the values L₃(σ_j(y_i)) of this functional on cycles.
+- Polylogarithms:P.3/configuration-borel-class: composing with r₆ gives the measurable cocycle.
+
+Names below are in `TauCeti.Polylog.WeightThree`.
+
+| Declaration | Role | Required statement |
+|---|---|---|
+| `trilogDescent` | constructor | The induced Q-linear map B₃(C)→R. |
+| `trilogDescent_mk` | simp | L₃([z]₃) equals the parent single-valued L₃(z). |
+| `trilogDescent_sum` | compatibility | Evaluation of a formal finite sum is its rational linear combination of L₃ values. |
+| `trilogDescent_conj` | relation | Complex conjugation leaves the descended functional invariant. |
+| `trilogRegulatorAt` | data | The Q-linear functional on ker δ₃ obtained by pullback along σ. |
+| `trilogRegulatorAt_conj` | compatibility | The σ and conjugate-σ coordinates agree. |
+
+The discriminating tests are:
+
+- `trilogDescent_zero` (degenerate): L₃([0]₃)=0.
+- `trilogDescent_one` (computation): L₃([1]₃)=ζ(3)>0; [1]₃ cannot be killed.
+- `trilogDescent_minusOne` (computation): L₃([−1]₃)=−3ζ(3)/4, so the image of R(1,1,1)=3[1]+4[−1] is zero.
+
+Acceptance:
+
+- L₃([0]₃)=0, L₃([1]₃)=ζ(3) and L₃([−1]₃)=−3ζ(3)/4, so the image of R(1,1,1)=3[1]+4[−1] is zero while [1]₃ is not killed.
+- Supplier formula mirrors bind L₃ to Re(Li₃−log|z|Li₂+(1/3)log²|z|Li₁), with L₃(0)=0 and L₃(1)=Re ζ(3); Li₁=−log(1−z) and higher Li use the classical radial interval-integral recursion. Analytic laws are unproved owner contracts, not arbitrary function assumptions.
+
+Sources:
+
+- G95, §1, (1.3)–(1.4), p. 202; Theorem 1.3, p. 205; §3, p. 264. The quotient functional and its archimedean pullback supplement the parent regulator-comparison target.
+
+### Configuration Borel class
+
+Declaration `Polylogarithms:P.3/configuration-borel-class` (theorem). Over C, evaluate r₆ by the actual L₃. On generic six-tuples r₆=18·M₃, so the function is 18·L₃(M₃) there; extended to all six-tuples by 18·L₃(M₃), it is an everywhere-defined measurable alternating configuration 5-cocycle, discontinuous on degenerate strata, whose class lifts from a nonzero continuous class on the conjugation-even primitive Borel line. With the unnormalised 720-term alternation Alt₆M₃=720·M₃, the same cocycle is (1/40)·L₃(Alt₆M₃); it is 18 times Gon95's cocycle L₃(M₃). Gon95's two-dimensional measurable CONFIGURATION calculation is distinct from a claim about all measurable group cohomology. R.7 supplies the precise configuration/group and continuous/measurable comparison.
+
+Hypotheses: F is an infinite field; all coefficient modules are rational unless specified otherwise.
+
+Suggested name: `TauCeti.Polylog.WeightThree.configuration_borel_class`.
+
+The direct inputs are `Polylogarithms:P.3/configuration-chain-comparison`, `Polylogarithms:P.3/trilogarithm-descent`, `BorelRegulators:R.3/compact-dual-cohomology`, `BorelRegulators:R.4/universal-borel-class`, `BorelRegulators:R.7`, `mathlib:CochainComplex.of`, `mathlib:HomologicalComplex.cyclesMk`, `mathlib:HomologicalComplex.homologyπ`, `mathlib:HomologicalComplex.homologyMap`.
+
+The construction or proof proceeds as follows:
+
+1. Use Gon95 Theorem 9.1’s PGL₃-equivariant configuration spectral sequence; stabilizer cohomology is computed by measurable Shapiro.
+2. The two classes are M₃ and the differential of the Bloch–Wigner face functional, with complex-conjugation eigenvalues +1 and −1 (G95 p. 310). Keep the factor 18 between this node's cocycle and the source's when passing to the source model.
+3. Use Theorem 1.9 for the continuous-comparison lift and Proposition 1.11’s degenerate configuration test for non-coboundarity.
+4. Import Borel’s primitive-line computation rather than constructing continuous group cohomology here.
+
+Acceptance:
+
+- The coefficient relating this class to Borel is initially a nonzero real number, not automatically rational.
+- The triangle T(1) has M₃=[1]₃ and L₃-value ζ(3); the cocycle of this node takes the value 18ζ(3) there. Near T(z) the generic values tend to 18·L₃(z), so the cocycle is continuous at the triangle configurations.
+- The prototype uses actual homogeneous continuous and Borel-measurable invariant bar cochains, their alternating deletion differential, native homology and the continuous inclusion. R.7 must compare this model with the source measurable configuration/Moore almost-everywhere model. No dimension theorem for all pointwise Borel bar cohomology is inferred.
+
+Sources:
+
+- G95, §1, (1.13)–(1.15), p. 207; Theorem 1.9, p. 215; Proposition 1.11, p. 216; §9, Theorem 9.1 and Lemma 9.2, pp. 308–310. The nonzero continuous class and the two-dimensional measurable calculation are kept distinct.
+
+### Lifting trilogarithmic cycles
+
+Declaration `Polylogarithms:P.3/cycle-lifting` (theorem). For every infinite F of characteristic zero, each z∈ker(δ₃:B₃(F)→B₂(F)⊗U_F) has a rational degree-5 stable GL homology class h whose configuration comparison equals z. For a number field the primitive projection of h has the same Borel pairing as h. This is the precise lifting input needed for all-family special values; it does not assert that H¹Γ is isomorphic to K₅^(3).
+
+Hypotheses: F is an infinite field; all coefficient modules are rational unless specified otherwise.
+
+Suggested name: `TauCeti.Polylog.WeightThree.cycle_lifting`.
+
+The direct inputs are `Polylogarithms:P.3/stabilized-configuration-comparison`, `Polylogarithms:P.3/trilogarithm-descent`, `GeneralAlgebraicKTheory:K.2:plus`, `BorelRegulators:R.4/universal-borel-class`, `K3BlochGroups:V.4`, `mathlib:groupHomology.cycles`, `mathlib:groupHomology.π`.
+
+The construction or proof proceeds as follows:
+
+1. Use the alternating rational resolution by all projective configurations in Gon95 §9.2, not merely the generic orbit complex.
+2. Filter its PGL₃-equivariant homology spectral sequence; identify the degenerate-generator group on the E₂ diagonal with the trilogarithmic symbols and δ₃.
+3. Compute the higher differentials to show every kernel element survives to total degree 5; the paper asserts this computation but does not display it.
+4. Pass from PGL₃ to stable GL and primitive projection via the requested K-theoretic interface; the decomposable part has zero primitive Borel pairing.
+
+Acceptance:
+
+- The cycle [1]₃ has a homology lift pairing to ζ(3).
+- The needed conclusion concerns regulator images, not injectivity of the K-comparison.
+
+Sources:
+
+- G95, §9.2, pp. 310–311. The source asserts, for an arbitrary field and without displaying the computation of higher differentials, that the kernel of Q[P¹_F]→B₂(F)_Q⊗F×_Q maps to H₅(PGL₃(F),Q); the statement planned here is narrower in its field hypothesis and adds the passage to stable GL and the primitive pairing (E-P3-03).
+
+### Rational regulator calibration
+
+Declaration `Polylogarithms:P.3/rational-regulator-calibration` (theorem). Let b₃^G be Borel’s original real configuration normalization used by Gon95. Then the L₃ configuration class is a nonzero rational multiple of b₃^G. With the R.4 target-coordinates normalization, dividing R(2) by its Tate generator, the adapter is instead a nonzero rational multiple of π² times that coordinate regulator. The exact rational coefficient depends on the two universal-class conventions; it must be computed, not inferred from real one-dimensionality.
+
+Hypotheses: F is an infinite field; all coefficient modules are rational unless specified otherwise.
+
+Suggested name: `TauCeti.Polylog.WeightThree.rational_regulator_calibration`.
+
+The direct inputs are `Polylogarithms:P.3/configuration-borel-class`, `Polylogarithms:P.3/cycle-lifting`, `BorelRegulators:R.4/target-coordinates`, `BorelRegulators:R.4/borel-regulator`, `BorelRegulators:R.5/borel-zeta-proportionality`, `BorelRegulators:R.5/leading-term-functional-equation`, `BorelRegulators:R.7`, `mathlib:riemannZeta`.
+
+The construction or proof proceeds as follows:
+
+1. First obtain a nonzero real proportionality on the primitive parity-even line from the previous class node.
+2. Lift [1]₃ over Q by §9.2 and evaluate L₃ to ζ(3).
+3. Use Borel’s Q period statement in the same original real convention to prove the proportionality rational and nonzero.
+4. Translate to R.4 using its universal-class normalization and Tate-coordinate adapter. Independently check the π² factor by R.5: its determinant period is sqrt|D| π^(−2r₁−5r₂)ζ_F(3), whereas the L₃ determinant period is sqrt|D| π^(−3r₂)ζ_F(3).
+5. Record the exact class-level adapter as an open R.7 request; parent rational proportionality is not reused in a different normalization.
+
+Acceptance:
+
+- Over Q, L₃([1]₃)=ζ(3) and the normalized R.4 coordinate regulator has period π^(−2)ζ(3).
+- The exponent discrepancy for general F is 2(r₁+r₂), the determinant of a π² coordinate adapter.
+
+Sources:
+
+- G95, §9.2 p. 311 rational calibration. The rationality proof uses a nonzero rational cycle and a period comparison, not dimension alone.
+
+### Regulator image containment
+
+Declaration `Polylogarithms:P.3/regulator-image-containment` (theorem). For a number field F, write d=r₁+r₂, select all real embeddings and one embedding from each complex pair, and let R_L:H¹Γ(F,3)→R^d have coordinates L₃∘σ. Then im_Q R_L is contained in the Q-span of π² times the R.4 Borel regulator image on K₅(F)⊗Q. This containment suffices for every-family determinant rationality. It neither needs nor proves that the K₅ comparison is surjective or an isomorphism on all H¹Γ.
+
+Hypotheses: F is an infinite field; all coefficient modules are rational unless specified otherwise.
+
+Suggested name: `TauCeti.Polylog.WeightThree.regulator_image_containment`.
+
+The direct inputs are `Polylogarithms:P.3/cycle-lifting`, `Polylogarithms:P.3/rational-regulator-calibration`, `BorelRegulators:R.3/borel-rank-theorem`, `BorelRegulators:R.4/regulator-real-isomorphism`, `GeneralAlgebraicKTheory:K.2:plus`.
+
+The construction or proof proceeds as follows:
+
+1. Lift each cycle by the previous cycle-lifting theorem.
+2. Apply the calibrated regulator-class equality at every selected embedding.
+3. Replace stable homology by its primitive K-component, using the requested primitive Hurewicz interface and vanishing of primitive classes on decomposables.
+4. Use the same coefficient at every embedding, since it is a universal class comparison over C.
+
+Acceptance:
+
+- Each regulator column has rational coordinates relative to a fixed Borel rational basis after the common π² adapter.
+
+Sources:
+
+- G95, Gon95 §9.2 p. 311, applied at all embeddings. The sufficient regulator-image statement separates the determinant argument from a stronger motivic comparison conjecture.
+
+### Every-family special-value determinant
+
+Declaration `Polylogarithms:P.3/every-family-special-value` (theorem). Let F be a number field, D_F its discriminant, d=r₁+r₂ and σ₁,…,σ_d the chosen embeddings. For ANY cycles z₁,…,z_d in ker δ₃, there exists q∈Q, possibly zero, with det(L₃(σ_i z_j))=q sqrt|D_F| π^(−3r₂) ζ_F(3). For some family q≠0, by the imported parent existence theorem. The orientation of this formula is essential: the reverse ζ_F(3)=q·det cannot hold for zero or dependent families.
+
+Hypotheses: F is a number field. The cycle-lifting and normalization adapter gaps must be resolved to prove this planned theorem.
+
+Suggested name: `TauCeti.Polylog.WeightThree.every_family_special_value`.
+
+The direct inputs are `Polylogarithms:P.3/regulator-image-containment`, `BorelRegulators:R.4/regulator-determinant`, `BorelRegulators:R.5/borel-positive-zeta-period`, `mathlib:Matrix.det_mul`, `Polylogarithms:P.3/weight-three-special-value`, `mathlib:NumberField.dedekindZeta`, `mathlib:NumberField.discr`, `mathlib:NumberField.InfinitePlace.nrRealPlaces`, `mathlib:NumberField.InfinitePlace.nrComplexPlaces`, `mathlib:NumberField.InfinitePlace.embedding`, `mathlib:riemannZeta`.
+
+The construction or proof proceeds as follows:
+
+1. Choose a rational Borel basis using the rank theorem and real regulator isomorphism.
+2. Regulator-image containment writes every column as a rational matrix times π² times the Borel basis columns.
+3. Use native Matrix.det_mul. R.5 gives the Borel determinant period sqrt|D| π^(−2r₁−5r₂)ζ_F(3) up to a nonzero rational scalar.
+4. Multiply by π^(2d); the exponent becomes −3r₂. Singular rational coordinate matrices give q=0.
+5. Import the parent existence theorem to obtain a family with nonzero determinant; do not duplicate its proof.
+
+Acceptance:
+
+- Taking all z_j=0 gives det=0 and q=0.
+- For F=Q and z₁=[1]₃ the formula holds with q=1.
+- Replacing a nonzero family by a rational matrix multiplies q by its determinant.
+
+Sources:
+
+- G95, Theorem 1.1, p. 203 (announced in the Introduction, p. 198, item (c)); §9.2, pp. 310–311. The published existence theorem, stated with the exact equality after rescaling one cycle, and the stronger every-family consequence, which has a separate dependency chain.
+
+## Normalization checks and source findings
+
+R(1,1,1)=3[1]+4[−1] evaluates to zero because L₃(1)=ζ(3) and L₃(−1)=−3ζ(3)/4. The positive sixth argument printed in Gon95 (1.16) instead gives 6[1]+[−1], of value 21ζ(3)/4. Zhao’s restricted coordinate formula and the source’s own specialization support the corrected negative argument; continuation is still needed at the degenerate specialization.
+
+For rational units, kill the torsion class of −1 and expand u(x) in prime-valuation coordinates. Apply alternating determinant wedges and finite signed sums using exact rational arithmetic. With vectors as rows, determinant transposition does not change these calculations.
+
+| Five-vector fixture | d₂r₅ | Printed 2 Alt₄ after deletion | Corrected −3 Alt₄ after deletion |
+|---|---|---|---|
+| (1,t,t²), t=1,2,3,5,7 | 36·u(2)∧u(3)∧u(5) | −24 times the basic wedge | 36 times the basic wedge |
+| First vector scaled by 2 | 18·u(2)∧u(3)∧u(5) | −12 times the basic wedge | 18 times the basic wedge |
+| (1,8,2),(7,3,11),(1,3,2),(9,4,3),(3,1,11) | 31 nonzero coordinates | −2/3 of d₂r₅ in every coordinate | Every coordinate agrees |
+
+The four-vector prefix of the nonconic fixture has r₄=18·u(5)∧u(67)∧u(197), whereas the printed coefficient gives −12 times that wedge. The scaled moment-five fixture detects loss of information from replacing vector configurations by projective-point configurations. Native exterior powers, rather than an antisymmetric tensor quotient, supply the target.
+
+For the six-tuple e₁,e₂,e₃,(1,1,1),(1,2,3),(1,3,2), every three-minor is nonzero. Applying δ₂⊗1 to r₆ and to r₅∂ gives:
+
+| Coordinate (v_p∧v_q)⊗v_r | Printed +(1/5) Alt₆ | r₅∂ | Corrected −(1/5) Alt₆ |
+|---|---:|---:|---:|
+| (2,3,2) | 60 | −60 | −60 |
+| (2,3,5) | −24 | 24 | 24 |
+| (2,5,2) | −12 | 12 | 12 |
+| (2,5,3) | −12 | 12 | 12 |
+| (3,5,2) | 12 | −12 | −12 |
+| (3,5,3) | 36 | −36 | −36 |
+
+The nonconic six-tuple (1,8,2),(7,3,11),(1,3,2),(9,4,3),(3,1,11),(2,5,9) has 722 nonzero coordinates, all agreeing with the coefficient −1/5 and opposite for +1/5. A moment six-tuple lies on a conic and gives zero, hence cannot detect the sign. The coefficient +1/5 is not a mistake of the source: the alternation Alt₆({1|2,3,4,5}₂⊗|345|) by which GR normalise the triple ratio in (167) equals −r₅∂ for the face signs (−1)^(s−1), so their formula and this plan’s differ by the sign convention of the differential (E-P3-05). The full B₂-valued left square follows from Theorem A of Gon95 once r₆=18·M₃ is proved; the boundary map on B₂ is not asserted injective.
+
+The normalisation against the geometric group is M₃=−(1/90)·Alt₆[T]₃ on generic six-tuples, with M₃ fixed by T(z)↦[z]₃. Because the geometric class is already antisymmetric and alternation is an unnormalised 720-term sum, Alt₆M₃=720·M₃=−8·Alt₆[T]₃, and r₆=−(1/5)·Alt₆[T]₃=18·M₃=(1/40)·Alt₆M₃. GR Proposition 7.2 prints the constant 3/2 where −8 stands (E-P3-06); with 3/2 one would get r₆=−96·M₃, which is wrong. The constant was determined in two independent ways: by evaluating L₃∘M₃ on random generic six-tuples of C³ from the seven-term relation and R3 alone (the ratio to the L₃-value of Alt₆[T]₃ is −1/90 to ten digits, it does not depend on the auxiliary intersection point, and it tends to L₃(z) at the triangle T(z)); and from the cobracket, since δ₃M₃=f₁∘d on generic configurations and r₅=18f₁. Consequently the configuration cocycle of this plan is 18·L₃(M₃), with value 18ζ(3) on the triangle T(1). This rational factor and the separate π² Tate-coordinate adapter must be tracked in R.7.
+
+The eight findings below carry the verdicts of the independent review. Three concern the Goncharov–Rudenko preprint and five Goncharov’s 1995 paper; one allegation was rejected.
+
+- **Polylogarithms/E-P3-01 (misprint, rejected)**, Gon95 published p. 298, final c₂ display after (6.11). Printed: H²(B_F(3)) Correction: None. The published c₂ display already has the correct degree-two target. Reason: The original allegation transcribed the source as H¹. Independent high-resolution reading shows H², agreeing with p. 220 and (6.11b) p. 297. The superscript was misread; this is not a published misprint. Reach: nothing. Status: Rejected by independent review. The original allegation is preserved separately; the printed field now records the actual published expression.
+- **Polylogarithms/E-P3-02 (error, confirmed)**, GR arXiv:1803.08585v5, §7.2, (142), p. 65, and the assertion after it that the right square of (141) commutes. Printed: 2 · Alt₄ Correction: With δ₂[x]=(1−x)∧x and the printed r₅, replace r₄ by −3 Alt₄. Reason: On v(t)=(1,t,t²) at t=1,2,3,5,7, d₂r₅=36 u(2)∧u(3)∧u(5), while the printed r₄∂=−24 times that basic wedge. The rational unit classes of distinct primes are independent. Alt₄=−6 f₀^(3) from Gon95 p. 264; the corrected r₄ is 18 f₀. Three additional generic rational fixtures give the same ratio −3/2. The failure persists with unnormalized alternation and zero-based deletion signs. Reach: a stated result. Status: new; no correction located. The finding is against the preprint v5 of 15 July 2026; no version of record was available.
+- **Polylogarithms/E-P3-03 (gap, confirmed)**, Gon95 published §9.2 p. 310. Printed: The source refers to differentials of higher order. Correction: Display the spectral-sequence differentials and prove the asserted ker δ₃ cycle-lifting statement. Reason: The paper calls the computation unpleasant and states its result; it supplies no differential formulas there. The every-family determinant needs this precise step. Reach: the proof. Status: Explicitly omitted computation in the source; no detailed primary replacement located.
+- **Polylogarithms/E-P3-04 (misprint, confirmed)**, Gon95 published p. 208 (1.16), sixth cyclic argument. Printed: {(bc−c+1)a/(ca−a+1)} Correction: Use {−a(bc−c+1)/(ca−a+1)}. Keep the coefficient +1. Reason: As printed, substitution a=b=c=1 gives 6[1]+[−1], whose L₃ value is 21ζ(3)/4, contradicting Theorem 1.3 and the explicitly printed p. 210 specialization 3[1]+4[−1]. The negative argument gives the latter. The geometric expression (1.10) and the independently displayed coordinate formula in Zhao’s supplement support the negative sign. Reach: a stated result. Status: new; no publisher erratum located. Zhao's supplement prints the corresponding argument with the minus sign.
+- **Polylogarithms/E-P3-05 (misprint, confirmed)**, GR arXiv:1803.08585v5, §7.2, left square (143) with the face signs of p. 62, formula (144), p. 65; compared with the normalisation (167), p. 71. Printed: The left square (143), δ∘r₆=r₅∘∂, is asserted to commute for r₆=(1/5)·Alt₆ of the triple-ratio symbol, with ∂=Σ(−1)^(s−1)∂_s as defined on p. 62. On p. 71 the triple ratio is said to be normalised by (143) and (145) so that δ(1,…,6)₃=Alt₆({1|2,3,4,5}₂⊗|345|). Correction: The two statements differ by a sign: Alt₆({1|2,3,4,5}₂⊗|345|) equals −r₅∘∂ for the displayed ∂. Formula (144) with +1/5 satisfies (167); the square (143) with the displayed face signs holds for −1/5, or for +1/5 once the sign of ∂ on that row is changed, as the remark on changing the signs of the differentials allows. Either convention is consistent; this plan uses zero-based face signs and −1/5. Reason: The function {r(1|2,3,4,5)}₂⊗|345| does not involve the sixth vector, so its alternation over S₆ is Σ_j(−1)^j r₅(1,…,ĵ,…,6)=−r₅∘∂. For e₁,e₂,e₃,(1,1,1),(1,2,3),(1,3,2), after δ₂⊗1, the coordinate (v₂∧v₃)⊗v₂ of δ applied to (1/5)·Alt₆ is +60 and that of r₅∘∂ is −60; all six nonzero coordinates are opposite, and so are all 722 on a second generic six-tuple. The source says it does not use the explicit formula; its later arguments use (167). Reach: nothing. Status: new; no correction located. The finding is against the preprint v5 of 15 July 2026; no version of record was available.
+- **Polylogarithms/E-P3-06 (error, confirmed)**, GR arXiv:1803.08585v5, §7.3, Proposition 7.2 with (149), p. 67; Lemma 7.4, p. 68. Printed: The skew-symmetrisation of M₃ over the six points is stated to be 3/2 times r₃, the alternation of the triple-ratio symbol of (20). Correction: The constant is −8 when both alternations are the unnormalised sums over S₆: Alt₆M₃=720·M₃=−8·r₃, that is M₃=−(1/90)·r₃ on generic configurations, with M₃ normalised by T(z)↦{z}₃ and the relations of p. 66. The constant 3/2 is the correct constant of Lemma 7.4 for a single expression; the proposition omits the coefficients and multiplicities with which such expressions enter M₃, whose total is −16/3. Reason: Computed L₃∘M₃ on random generic six-tuples of C³ from the relations of p. 66 alone (seven-term relation with the point m, R3 for type B, and the type-C formula of Gon95 (1.11) with the same cross-ratio): the result does not depend on the auxiliary intersection, is skew-symmetric, and equals −1/90 of the L₃-value of r₃ to ten digits; it tends to L₃(z) at the triangle T(z). The same constant follows from the source's own normalisations: applying δ to the proposition and using (167) and δ₃M₃=f₁∘d (Gon95 Theorem A and p. 269) with r₅=18f₁ forces |constant|=8. Lemma 7.4 itself was checked numerically: its two terms skew-symmetrise to −1/2 and 1 times r₃. Reach: a stated result. Status: new; no correction located. The finding is against the preprint v5 of 15 July 2026. The paper uses only that the constant is nonzero, so Theorem 1.8 is unaffected.
+- **Polylogarithms/E-P3-07 (misprint, confirmed)**, Gon95 published §5, construction of M₃, step (e), p. 287; compared with (R2), p. 211, and the formulas on pp. 207 and 214. Printed: For a generic configuration and the auxiliary point a, M₃(l₀,…,l₅) is defined as Σ_{i=0}^{5}(−1)^i M₃(l₀,…,l̂_i,…,l₅,a). Correction: The sign is (−1)^(i−1), as printed on pp. 207 and 214: the seven-term relation (R2) for (l₀,…,l₅,a) gives (l₀,…,l₅)=−Σ_{i=0}^{5}(−1)^i(l₀,…,l̂_i,…,l₅,a). Reason: Direct from (R2). Numerically, with the sign of p. 287 the generic value is the negative of the limit of the type-C values as a collinear triple is moved into general position; with the sign of pp. 207 and 214 the two agree. Reach: nothing. Status: new; no erratum located. The paper's own formulas on pp. 207 and 214 carry the right sign.
+- **Polylogarithms/E-P3-08 (misprint, confirmed)**, Gon95 published §1, definition of L̃₃ before Definition 1.5, p. 211 (Fig. 1.6); compared with (R2)–(R3), pp. 211–212, the cross-ratio (1.6), p. 203, and the statement after Theorem 1.9, p. 215 (Fig. 1.12). Printed: The symbol {x} is sent to the triangle configuration in the order (x₁,x₂,x₃,y₁,y₂,y₃), vertices first and then the points on the sides, with r(y₃|x₁,x₂,y₁,y₂)=x. Correction: With (R2), (R3) and the cross-ratio (1.6) as printed, the class of that ordered configuration corresponds to −{x}; the order of Fig. 1.12, (l₀,…,l₅) with l₀,l₂,l₄ the vertices, which differs from it by an odd permutation, corresponds to +{x}, as p. 215 states. Goncharov–Rudenko keep the order of p. 211 and invert the cross-ratio instead, which changes the sign of (R3) by (8.1) and is also consistent. Reason: Applied (R2) to the triangle together with a generic seventh point and evaluated the six resulting type-B and type-C configurations by (R3) and (1.11) with L₃: the result is −L₃(x) in the order of p. 211 and +L₃(z) in the order of Fig. 1.12, for several complex parameters. The type-B and type-C formulas used were validated by their skew-symmetry and by Lemma 5.5. Reach: nothing. Status: new; no erratum located. The later presentation in arXiv:1803.08585v5, §7.3, is consistent.
+
+## Coverage and remaining mathematical work
+
+The complete planning pass has 27 nodes: 2 definitions, 10 constructions, 13 theorems and 2 comparisons. There are 73 API items, 37 test signatures and 44 pinned baseline declarations. All 73 API items, all 37 tests and all 15 explicit target names occur as actual Lean declarations or examples, with concrete native supplier carriers. Signature elaboration is not a proof of the mathematical assertions. Every implementation remains unchecked; P.3 coverage remains **planned**.
+
+| Parent target | Additional chain in this part |
+|---|---|
+| Explicit B₃ and Γ | Corrected coordinate relation → algebraic cobracket check; separate analytic functional identity |
+| K-theory comparison | Generic coinvariants → Bigrassmannian → three maps → seven-term/duality → chain map → actual configuration homology map → stabilization → primitive/rank adapter |
+| H³ and transfer | Steinberg image → imported H³–Milnor equivalence → conjugated Milnor norms; derived recipe conditional on canonical bridge and weight-four resolution |
+| Trilogarithm/Borel compatibility | Actual L₃ descent → measurable configuration class → model/primitive parity comparison → rational calibration and π² normalization |
+| Special values | Parent existence theorem plus cycle lifting → primitive pairing → regulator-image containment → every-family determinant, with zero allowed |
+
+Three planets, **Grassmannian configurations**, **Triple ratio** and **Configuration comparison**, join the parent’s **Trilogarithmic motivic complex** and **Zagier’s conjecture for ζ_F(3)**: five P.3 planets, with no duplication.
+
+The plan records six mathematical gaps:
+
+- **Normalisation of the top configuration map against M₃.** Complete Gon95 §§4–5 (choice independence, reduction, Theorem A) and §§7–8 (duality), and GR §§7.1–7.3, have been read by the plan's author, its reviser and both reviewers. The common coefficients −3 Alt₄ and −(1/5) Alt₆ are (r₄,r₅,r₆)=18·(f₀,f₁,M₃) in terms of Goncharov's maps: r₄=18f₀ and r₅=18f₁ are exact identities, checked in prime coordinates. What is not yet a written proof is the normalisation r₆=18·M₃, that is Alt₆[T]₃=−90·M₃ in B₃(F) for generic six-tuples (GR Proposition 7.2 with its constant corrected from 3/2 to −8, E-P3-06). It is verified after δ₂⊗1 in exact prime coordinates on two generic six-tuples, and through L₃ to ten digits on random complex six-tuples with M₃ computed from the relations of the geometric presentation. Given it, the left square follows from Theorem A (δ₃M₃=f₁∘d on generic configurations) and the top projection identity from Theorem 8.1. Write the bookkeeping of the terms that survive the skew-symmetrisation of M₃ (their total coefficient on the expression of GR Lemma 7.4 is −16/3), in explicit B₃. Consuming declarations: `Polylogarithms:P.3/configuration-chain-comparison`, `Polylogarithms:P.3/geometric-trilogarithm-comparison`, `Polylogarithms:P.3/trilogarithm-duality`.
+- **Analytic proof of corrected 22-term identity.** Gon95 Theorem 1.3 states the needed functional identity. Supply the full derivative/constant/continuation argument for the corrected coordinate expression, or a primary detailed analytic proof; the source theorem and GR cobracket proof alone do not display this analytic step. Consuming declarations: `Polylogarithms:P.3/trilogarithm-functional-relations`, `Polylogarithms:P.3/trilogarithm-descent`.
+- **Cycle-lifting higher differentials.** Gon95 §9.2 asserts without displaying the unpleasant computation of higher differentials that ker δ₃ lifts to H₅(PGL₃(F),Q). Write those differentials and surviving-edge identification, then check PGL-to-stable-GL passage and primitive pairing. This is the decisive unresolved proof for the all-family conclusion; do not assume the stronger H¹Γ≃K₅^(3) conjecture. Consuming declarations: `Polylogarithms:P.3/cycle-lifting`, `Polylogarithms:P.3/regulator-image-containment`, `Polylogarithms:P.3/every-family-special-value`.
+- **Suslin primary proof and primitive symbol adapter.** The integral homology/Milnor statement is imported from K3BlochGroups:V.4/homological-stability, which already owns its missing Suslin 1984 source proof. The primary text was not obtained (MathNet access failed). The new work is the diagonal-symbol, primitive-Hurewicz and configuration normalization adapter. Do not claim a second proof or integral transfer compatibility. The original unscaled agreement of c₃ with the diagonal symbol was not justified: r₄ is 18 f₀, and the cited abstract quotient isomorphism does not compute the primitive/diagonal coefficient κ. Consuming declarations: `Polylogarithms:P.3/suslin-top-comparison`.
+- **Exact regulator-class normalization.** R.4 uses Tate-divided R(2) coordinates and a Burgos-normalized class. Gon95’s original real Borel class has a different convention. The determinant exponents force a π² factor per coordinate; computing the exact universal class adapter is requested from R.7. Until then the parent plain rational-multiple wording cannot be applied to R.4 coordinates. Also compare the concrete invariant pointwise-Borel bar model with the source configuration/Moore model before using the primitive parity result. The cocycle L₃∘r₆ of this plan is 18 times Gon95’s L₃(M₃). Consuming declarations: `Polylogarithms:P.3/rational-regulator-calibration`, `Polylogarithms:P.3/regulator-image-containment`, `Polylogarithms:P.3/every-family-special-value`.
+- **Unconditional complex transfer.** Only the H³ transfer is unconditional from Milnor norms. Gon95’s derived construction assumes the weight-four homotopy/residue quasi-isomorphism and does not establish tower independence of termwise B₃ transfers. P.4 owns the higher-weight hypothesis; a proof of it or a separate transfer construction is required. The required infinity residue is a weight-four field-complex map killing constants, not the normal-complex-variety exterior residue in P.5. It must be supplied for the same complex model as the quasi-isomorphism. The revised signature explicitly assumes invertibility of the canonical symbol-preserving explicit-to-inductive chain map at F and every polynomial residue field; it does not allow arbitrary rescaling bridges. Consuming declarations: `Polylogarithms:P.3/conditional-complex-transfer`.
+
+The five supplier requests retain the existing owners and require Part II extensions where the original interfaces are insufficient:
+
+- **`GeneralAlgebraicKTheory:K.2:plus`:** Part II: natural rational primitive Hurewicz K_n(F)_Q≃Prim H_n(GL(F),Q), stable block-sum Hopf structure, primitive/decomposable splitting and compatibility with the rank≤r filtration. In degree 3 compare the primitive rank quotient and Suslin’s diagonal Milnor map; in degree 5 primitive Borel pairing kills the decomposable complement. This is not the arithmetic-only Cartan–Serre node in BorelRegulators R.3. In degree 3 compute the nonzero rational diagonal-symbol coefficient for the corrected r₄=18 f₀, with specified bar-shuffle and primitive conventions; do not presume that coefficient is one.
+- **`K3BlochGroups:V.4`:** Part II extension of the existing hyperhomology-map: arbitrary bounded-below complexes of Q-linear representations and an acyclic augmented symmetrized generic-vector resolution, with the natural edge map to homology of coinvariants. Retain the existing projective-point configuration model as the integral specialization.
+- **`BorelRegulators:R.7`:** Continuous/measurable configuration comparison with primitive and conjugation-even degree-5 Borel lines; exact conversion from Goncharov’s original real normalization to R.4 universal class and Tate-divided coordinates. Prove its universal π²·Q× factor and compute the rational coefficient in the chosen convention. Compare the concrete invariant pointwise continuous/Borel-measurable homogeneous bar complexes with the source measurable configuration and Moore almost-everywhere models; track the factor 18 between this plan’s cocycle L₃∘r₆ and Gon95’s L₃(M₃).
+- **`K2SymbolsBrauer:T.3`:** Part II degree-3 Milnor–Quillen transfer compatibility after the top rank comparison, with its exact sign and torsion allowance. The existing milnor-quillen-transfer-comparison supplies degree 2 only. Needed to assert Quillen-transfer naturality, not to define the H³ Milnor transfer.
+- **`Polylogarithms:P.4`:** Weight-four homotopy/residue quasi-isomorphism Γ(F(t),4)/Γ(F,4)→⊕_P Γ(k(P),3)[−1] (Gon95 Conjecture 1.39), or a proof-independent derived transfer with tower independence and agreement with Milnor top cohomology. Treat the conjectural hypothesis explicitly; explicit-to-inductive B₃ is not a proved isomorphism. Supply the weight-four field-complex residues, including infinity, their chain-map and constant-annihilation laws, the quotient/shift identifications and the bridge from inductively defined to explicit B₃. P.5/residue-map is only a normal-complex-variety exterior residue and does not provide these maps. Fix the canonical bridge [x]₃↦[x]₃ and identity in the other terms; require its invertibility rather than permitting arbitrary scalar-twisted isomorphisms.
+
+The suggested file mirrors owner contracts for B₂/B₃ and Γ using native quotients, symbols, tensor/exterior maps and complexes. Fixed supplier edge, Hurewicz, residue, Borel and K-theory maps still have unproved construction bodies; they are prototypes for the named owners, rather than assumptions of the desired comparison conclusions. The continuous/measurable bar prototype is a concrete model whose equivalence with the source model belongs to R.7. The conditional derived transfer fixes the symbol-preserving bridge and assumes its invertibility, as well as the weight-four residue resolution. None of these signatures asserts completed formalization.
+
+Assembly must reconcile the parent’s rank-restricted comparison domain, π² coordinate normalization and determinant orientation for arbitrary families; the parent packet is unchanged by this part. The six recorded gaps require follow-up work to close P.3.

@@ -1,8 +1,8 @@
 {
   "roadmaps": 236,
-  "stages": 4621,
+  "stages": 4653,
   "originalStages": 2160,
-  "sourceRefinements": 2461,
+  "sourceRefinements": 2493,
   "reviewedDecompositions": [
     {
       "roadmap": "AInfCohomology",
@@ -269,13 +269,6 @@
       "nodes": 23,
       "review": "accepted",
       "deferredLinks": 0
-    },
-    {
-      "roadmap": "WeightsInEtaleCohomology",
-      "status": "partial",
-      "nodes": 5,
-      "review": "accepted",
-      "deferredLinks": 1
     }
   ],
   "terminalTargets": 2088,
@@ -299,14 +292,14 @@
   "editedRoadmapSummaries": 181,
   "curatedStagePresentations": 339,
   "administrativeStages": 101,
-  "mathematicalStars": 4520,
+  "mathematicalStars": 4552,
   "plainTextPlanetLabels": 398,
   "hiddenPlanets": 600,
   "mappedStageStatuses": 350,
   "libraryAuditStatuses": 19,
   "bibliographicSources": 46,
-  "roadmapEdges": 2082,
-  "stageEdges": 11906,
+  "roadmapEdges": 2099,
+  "stageEdges": 11968,
   "reviewedLinkPackets": 25,
   "promotedBlueprints": [
     {
@@ -862,6 +855,18 @@
       "reviewer": "independent-review-REV-HodgeStructuresPartII--H.1"
     },
     {
+      "file": "HodgeStructuresPartII--H.5",
+      "roadmap": "HodgeStructuresPartII",
+      "nodes": 73,
+      "reviewer": "independent-review-REV-HodgeStructuresPartII--H.5"
+    },
+    {
+      "file": "HodgeStructuresPartII--H.7",
+      "roadmap": "HodgeStructuresPartII",
+      "nodes": 31,
+      "reviewer": "independent-review-REV-HodgeStructuresPartII--H.7"
+    },
+    {
       "file": "HodgeStructuresPartII",
       "roadmap": "HodgeStructuresPartII",
       "nodes": 569,
@@ -1018,6 +1023,12 @@
       "reviewer": "independent-review-REV-Polylogarithms--P.2"
     },
     {
+      "file": "Polylogarithms--P.3",
+      "roadmap": "Polylogarithms",
+      "nodes": 27,
+      "reviewer": "independent-review-REV-Polylogarithms--P.3~2"
+    },
+    {
       "file": "Polylogarithms--P.4",
       "roadmap": "Polylogarithms",
       "nodes": 18,
@@ -1090,6 +1101,12 @@
       "reviewer": "independent-review-REV-SpecialValuesBirchTate~2"
     },
     {
+      "file": "WeightsInEtaleCohomology",
+      "roadmap": "WeightsInEtaleCohomology",
+      "nodes": 27,
+      "reviewer": "independent-review-REV-WeightsInEtaleCohomology~2"
+    },
+    {
       "file": "WeilConjectures--WC.0",
       "roadmap": "WeilConjectures",
       "nodes": 54,
@@ -1103,8 +1120,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 35721483,
-  "htmlSha256": "9ff6dc9853d120e7ecb6cc8bc70033d98907ff6dd4bcaa5b8f73f503fe9fb4c6",
+  "htmlBytes": 35782277,
+  "htmlSha256": "867c1fb18b1e723a0174389c128feb4da58313554ba8b88b2a6aa78e6a641588",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -1136,7 +1153,7 @@
     "data/roadmap-summaries.json": "c8bdd0a9105f5d3c4a858c8b635990729f8e94497dee784a71fae659b8c05b9f",
     "data/roadmap-classification.json": "2641dbc97eb2566c715162d011b46890d1635629181ef8126ac7aed9e24a3b13",
     "data/classification-estimates.json": "625d35fe6121bf099dc5de9e6a9111793596f9b664e3fbd439841434bb4a57d6",
-    "data/roadmap-distances.json": "db3b5e5ead1fd01625d666b74b226127a6d4aade6944f7fb7dae56013d67c724",
+    "data/roadmap-distances.json": "ee29bda3e975ffefb4be31ae946297091d829f8b822cbcfe0bcea48d873d6d4c",
     "data/galaxy-layout.json": "2c01bbf6e2083476a6b73f3d295c4d4c898d0be461c21fb0195da29a30469a03",
     "data/bibliography.json": "bef230a41fad22d6b790c7564061c4d05c2ae5b78cab53d005eb404afab2b122",
     "NOTICE": "a285b95d5adbf5c2bcc82db36e2a77b797f84a2c5cbb30292efd0bae17cc4f34",
@@ -1378,6 +1395,10 @@
     "data/blueprints/HodgeStructuresPartII--H.0.md": "88d0b3f1e95aad39df5d30c2d9a2e92d7bb0c0d69cf65f2d4d5fe7165239f8cf",
     "data/blueprints/HodgeStructuresPartII--H.1.json": "75f8e501cbc1d0acafaadd28037c91b3837cf634910b8addf1ce98d4c526d7b5",
     "data/blueprints/HodgeStructuresPartII--H.1.md": "b39fef59fabb8294a8d185e9328fe40728fd500e6f4d72fbbc36bc4e4aca1b63",
+    "data/blueprints/HodgeStructuresPartII--H.5.json": "91ebe23648b4593e5c92ce53aa691d243031360383521e12871f893ccd5d9130",
+    "data/blueprints/HodgeStructuresPartII--H.5.md": "9659dd521f70dd60d61841d632aec8d76f2d88af8e7c9bcf9d5d97206224e749",
+    "data/blueprints/HodgeStructuresPartII--H.7.json": "3c300ca60de0a722132e69f5a9b69d4c2153afc38be300962907a424b0237940",
+    "data/blueprints/HodgeStructuresPartII--H.7.md": "d579d31341172b06071ec009df45ae4580300081bcee05114ac5360a7913172c",
     "data/blueprints/HodgeStructuresPartII.json": "2b0cd77691cded87b89d241a3d0b714857e4953c302230943ed06a2ff7a2be60",
     "data/blueprints/HodgeStructuresPartII.md": "a0767cc10c8b1a31a8ee89ee6626c5dd35ca747db752905beb81d1d4f70e207c",
     "data/blueprints/IgusaVarietiesAndTorsionConcentration.json": "760f4bbb163d3b80f07f3cf0039ac0d71a09e14f362ed2423174979fbce91c76",
@@ -1430,6 +1451,8 @@
     "data/blueprints/PerfectoidSpaces--P8.md": "0c0001c59783b0a5e593cedc530eecda7d1ee55db43cb70af851d21d95d53cc2",
     "data/blueprints/Polylogarithms--P.2.json": "c7ec1779b6e7a5f682d5f55128681f8e9b45ec45b4578452625c4b60fc3d62d2",
     "data/blueprints/Polylogarithms--P.2.md": "1fdb9ee0959d937faf4831258d01184512b14bdfab11519644a8f8837c626c59",
+    "data/blueprints/Polylogarithms--P.3.json": "8b890aeb332f43bed2b6b9f22e4b9c06c984204aed5c909ee93fe7b659eb876b",
+    "data/blueprints/Polylogarithms--P.3.md": "c72da3e49384442d2a8381092e52b52a1a12e1fb9a28f606528a99f8c979d3cc",
     "data/blueprints/Polylogarithms--P.4.json": "2f455df31c38f42e6e677c37efbc0b824fdc64e4a8dcf68669682acc446dcf15",
     "data/blueprints/Polylogarithms--P.4.md": "68b0ccfba2576683a6389ce5931af102764be895d42c88f6c1f2bf10c91c4270",
     "data/blueprints/Polylogarithms--P.5.json": "ffba36db87b4659d24391d21a4ba84ffb4691313ca3ae5ba9e9f8acd617ff595",
@@ -1454,6 +1477,8 @@
     "data/blueprints/SmallRamificationAndAbelianVarietyBaseCases.md": "bf5bb37e33b91d56f46879172730f6ced43c4f448c1ff01efeec27bc66d0141e",
     "data/blueprints/SpecialValuesBirchTate.json": "4f757c294cfa0a140e437995ab1486bf8d53560fa7f8461d4f8ab742684139aa",
     "data/blueprints/SpecialValuesBirchTate.md": "93437444f62052d2c2a0681d4f321c6b9ca026b233c3fc85c72224a10cdf323d",
+    "data/blueprints/WeightsInEtaleCohomology.json": "75c84694eb6b771712d8370c0a0efee07e34d3d90ae74fd1a5506eaae74c8a38",
+    "data/blueprints/WeightsInEtaleCohomology.md": "07d92a72bd8c5c7ce17d94421c4bc82987d773295f130db135689702d21c11ba",
     "data/blueprints/WeilConjectures--WC.0.json": "9b6da7ceb78e676bda19a09126c201e769dc11e99a371a4fb42b54d0f95cd21d",
     "data/blueprints/WeilConjectures--WC.0.md": "0405e055fd190af5a66b8bf36070605f5d9f16298dc202231deaddcd541c0751",
     "data/blueprints/WeilConjectures--WC.6.json": "85eb97f224a061f0b9b06c5d7b5234714498a9af18ed43ccc118148764551f04",

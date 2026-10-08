@@ -1284,6 +1284,30 @@
     "data/blueprints/roadmaps/HodgeStructuresPartII.json"
    ]
   },
+  "research/blueprint/packets/HodgeStructuresPartII--H.5.json": {
+   "promotedAt": "2026-10-08T06:11:19Z",
+   "review": "8b2420c896ea5597",
+   "reviewDate": "2026-10-08",
+   "reviewer": "independent-review-REV-HodgeStructuresPartII--H.5",
+   "sha256": "3903653366be4616a43e28488b9c13f2626a499f274b1e63cfd72ee01bf77af0",
+   "to": [
+    "data/blueprints/HodgeStructuresPartII--H.5.json",
+    "data/blueprints/HodgeStructuresPartII--H.5.md",
+    "data/blueprints/roadmaps/HodgeStructuresPartII.json"
+   ]
+  },
+  "research/blueprint/packets/HodgeStructuresPartII--H.7.json": {
+   "promotedAt": "2026-10-08T06:11:19Z",
+   "review": "0d4b301638016045",
+   "reviewDate": "2026-10-08",
+   "reviewer": "independent-review-REV-HodgeStructuresPartII--H.7",
+   "sha256": "4ae23179ba11e74125fc5d9bf50c148b152164563b401a146685cb72e85fb0a7",
+   "to": [
+    "data/blueprints/HodgeStructuresPartII--H.7.json",
+    "data/blueprints/HodgeStructuresPartII--H.7.md",
+    "data/blueprints/roadmaps/HodgeStructuresPartII.json"
+   ]
+  },
   "research/blueprint/packets/HodgeStructuresPartII.json": {
    "promotedAt": "2026-10-07T02:51:19Z",
    "review": "dbcb90fe7b0fc7c0",
@@ -1574,6 +1598,17 @@
     "data/blueprints/Polylogarithms--P.2.md"
    ]
   },
+  "research/blueprint/packets/Polylogarithms--P.3.json": {
+   "promotedAt": "2026-10-08T06:11:19Z",
+   "review": "d2b312a081f979c9",
+   "reviewDate": "2026-10-08",
+   "reviewer": "independent-review-REV-Polylogarithms--P.3~2",
+   "sha256": "0944b65977bff9756181c66f57b843e78964dc70dccf78ab19ba6a4c6ac47bb9",
+   "to": [
+    "data/blueprints/Polylogarithms--P.3.json",
+    "data/blueprints/Polylogarithms--P.3.md"
+   ]
+  },
   "research/blueprint/packets/Polylogarithms--P.4.json": {
    "promotedAt": "2026-10-06T04:38:51Z",
    "review": "9f9c848b5d2191d6",
@@ -1705,6 +1740,17 @@
    "to": [
     "data/blueprints/SpecialValuesBirchTate.json",
     "data/blueprints/SpecialValuesBirchTate.md"
+   ]
+  },
+  "research/blueprint/packets/WeightsInEtaleCohomology.json": {
+   "promotedAt": "2026-10-08T06:11:19Z",
+   "review": "1c2104d2ebb3b2b4",
+   "reviewDate": "2026-10-08",
+   "reviewer": "independent-review-REV-WeightsInEtaleCohomology~2",
+   "sha256": "3e91996f9431dd50fcb204226f702aea7be46e18dec7c5bb39e405b71769ae0f",
+   "to": [
+    "data/blueprints/WeightsInEtaleCohomology.json",
+    "data/blueprints/WeightsInEtaleCohomology.md"
    ]
   },
   "research/blueprint/packets/WeilConjectures--WC.0.json": {
