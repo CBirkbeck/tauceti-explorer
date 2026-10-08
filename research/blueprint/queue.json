@@ -32761,8 +32761,9 @@
    ],
    "avoidAccountOf": "BP-HodgeStructuresPartII--H.4",
    "prompt": "research/blueprint/prompts/REV-HodgeStructuresPartII--H.4.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7061"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7061",
+   "finishedAt": "2026-10-08T09:18:09Z"
   },
   {
    "id": "BP-HodgeStructuresPartII--H.5",
@@ -41228,7 +41229,8 @@
     "BP-StableHomotopyKTheory~2"
    ],
    "prompt": "research/blueprint/prompts/REV-StableHomotopyKTheory~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7095"
   },
   {
    "kind": "blueprint",
