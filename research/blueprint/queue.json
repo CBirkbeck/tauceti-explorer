@@ -29323,7 +29323,8 @@
    ],
    "avoidAccountOf": "BP-RefinedTraceMethods--RT.5",
    "prompt": "research/blueprint/prompts/REV-RefinedTraceMethods--RT.5.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #481"
   },
   {
    "id": "BP-RelativeFarguesFontaine--RF0",
@@ -32663,8 +32664,9 @@
    ],
    "avoidAccountOf": "BP-HodgeStructuresPartII--H.2",
    "prompt": "research/blueprint/prompts/REV-HodgeStructuresPartII--H.2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7026"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7026",
+   "finishedAt": "2026-10-08T06:33:48Z"
   },
   {
    "id": "BP-HodgeStructuresPartII--H.3",
