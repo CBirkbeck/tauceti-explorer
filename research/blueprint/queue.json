@@ -37982,7 +37982,8 @@
     "BP-AutomorphicLFunctionsAndLocalFactors~2"
    ],
    "prompt": "research/blueprint/prompts/REV-AutomorphicLFunctionsAndLocalFactors~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7030"
   },
   {
    "kind": "blueprint",
@@ -41874,8 +41875,9 @@
    ],
    "revisionOf": "BP-ArithmeticQuantumTopology",
    "prompt": "research/blueprint/prompts/BP-ArithmeticQuantumTopology~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6935"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6935",
+   "finishedAt": "2026-10-08T19:24:27Z"
   },
   {
    "priority": 2,
