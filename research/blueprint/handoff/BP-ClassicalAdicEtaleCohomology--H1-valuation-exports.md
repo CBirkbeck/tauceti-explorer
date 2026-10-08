@@ -1,9 +1,49 @@
 # Handoff: valuation exports, issue #6929
 
-Worker: Codex, session `codex-640i94`, 2026-10-08. Branch:
-`codex-640i94-valuation-exports`. This is a **source-blocked checkpoint**. Both
-packet status and the sole stage's coverage are `partial`; no stage is closed.
-The claim was confirmed by the swarm bot for comment 6059527459 on #6929.
+Current worker: Codex, session `codex-rT4MWq`, 2026-10-08, branch
+`codex-rT4MWq-valuation-exports`. The bot confirmed the claim for comment
+6067595200 on #6929. This continues the checkpoint from PR #7396 (Codex,
+session `codex-640i94`) and remains a **source-blocked checkpoint**. Packet
+status and sole-stage coverage are `partial`; no stage is closed.
+
+## This continuation
+
+The four existing node ids and eleven accepted H0 imports are retained; no new
+mathematical node is added. This run independently rechecked the public
+Hansen–Scholze proof and sharpened its supplier boundary: Theorem 4.1 and
+Corollary 4.2 use pro-étale generic extension, so their bounded-below classical
+étale application needs a functorial realization comparison. The SF.2 request
+now names Bhatt–Scholze Corollary 5.1.6, Proposition 5.2.6 and Lemmas 5.4.1 and
+5.4.3, with the adjunction unit, qcqs direct image, pullback and global sections
+retained. This is the same owner already requested by
+`AdicCoefficientsAndComparisons:L1`, not a duplicate coefficient carrier.
+The generic inclusion is affine as a base change of a localization; it meets
+the qcqs direct-image hypothesis at arbitrary valuation rank.
+
+The packet and reader record `ClassicalAdicEtaleCohomology/E-H1-valuation-exports-1`:
+Lemma 5.4.3 reverses the two realization subscripts and misplaces its affine
+test object and final derived input. This was checked against the author copy
+(p. 39) and the published Astérisque text (pp. 153–154). The corrected formula
+has realization at the target after direct image and realization at the source
+before direct image. It is a notation finding awaiting independent review;
+the intended theorem is unchanged. The packet records both version hashes and
+the correction search.
+
+The reader's inherited control characters and damaged inline mathematics are
+repaired, including the valuation map, spectrum, coefficient condition,
+cohomology map and formal comparison notation. Displayed formulas are retained.
+Hansen–Scholze's coefficient conventions are correctly located at pp. 7–8,
+with Proposition 2.1 on p. 8. The suggested file's supplier comment explains
+the pro-étale transfer; its four theorem/comparison signatures are unchanged.
+
+The missing finite-boundary statement still prevents a completed target-level
+pass. The user was asked for a permitted public restatement during this run;
+none was supplied before submission. The library index still marks Huber
+(1996) not cleared, and no copy was used. Further public searches for 4.2.8,
+4.2.9, finite boundary and finite dimension yielded unrelated numbering and
+other hypotheses, rather than an independently verified restatement. Those
+searches do not prove that no public restatement exists. Resume at the source
+input below, rather than performing another identical public-search pass.
 
 ## What is preserved and added
 
@@ -11,7 +51,7 @@ The accepted H0 packet is unchanged. Its eleven nodes in
 `ClassicalAdicEtaleCohomology:H1:valuation-exports` are listed by id in the new
 packet's `importedNodes` and in the reader. Their definitions, APIs, tests,
 formal comparisons, finite-presentation/finiteness statements and source gaps
-remain owned by H0. The new packet owns exactly four nodes, all with prefix
+remain owned by H0. The follow-up packet owns exactly four nodes, all with prefix
 `ClassicalAdicEtaleCohomology:H1:valuation-exports/`:
 
 1. `total-cohomology-valuation-invariance`: canonical total scheme cohomology
@@ -108,14 +148,18 @@ target; numbering/full scope; proof suppliers).
   coefficient dévissage and qcqs affine-descent inputs of the public total
   invariance proof. The request also specifies scheme ULA by the universal
   Milnor-fibre criterion of Hansen–Scholze Theorem 4.4(iii), p. 22, rather than
-  using diamond ULA. Inspect the full request before supplying it. Existing SF.2
+  using diamond ULA. It now explicitly includes the bounded-below étale/pro-étale
+  realization and qcqs direct-image comparison with canonical units. Inspect the
+  full request before supplying it. Existing SF.2
   Brauer/coherent-duality/equivariant-support nodes do not have these exact
   scheme-étale statements. EDC.0 already owns the derived and support carriers.
 - **ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles:** Hansen–Scholze
   Theorem 4.1, pp. 19–22, on the generic-extension/ULA equivalence for separated
   finitely presented schemes over AIC valuations, with flat AIC base compatibility
-  from Corollary 4.2(ii), p. 19. Existing constructibility of (i^*Rj_*) does not
-  supply this theorem about (Rj_*) on the total scheme. General ULA remains the
+  from Corollary 4.2(ii), p. 19. Existing constructibility of the closed-fibre nearby complex does not
+  supply this theorem about the total-scheme derived generic extension. The source
+  formulation is pro-étale; its bounded-below torsion étale transfer uses the SF.2
+  comparisons. General ULA remains the
   scheme supplier's predicate. The target-level packet records this key theorem
   as a request, rather than re-planning a supplier's objects or decomposing its
   long proof into local lemma nodes.
@@ -133,14 +177,17 @@ repository; all statements and explanations are authored paraphrases.
 
 | Source | Locators read | SHA-256 |
 | --- | --- | --- |
-| [Hansen–Scholze, Relative perversity](https://people.mpim-bonn.mpg.de/scholze/RelativePerverse.pdf), author 38-page version, PDF creation date 2023-05-08 | Coefficients pp. 2–3 and 7; Lemma 3.5 and proof pp. 16–17; Theorem 4.1, Corollary 4.2, Lemma 4.3 and their proofs pp. 19–22; Corollary 4.5 and entire proof pp. 22–23 | `7fcca4cf382b20503f4f428b1268d2cd181488c96b362f34150c4f3daba9544e` |
+| [Hansen–Scholze, Relative perversity](https://people.mpim-bonn.mpg.de/scholze/RelativePerverse.pdf), author 38-page version, PDF creation date 2023-05-08 | Coefficients pp. 2–3 and 7–8; Proposition 2.1 p. 8; Lemma 3.5 and proof pp. 16–17; Theorem 4.1, Corollary 4.2, Lemma 4.3 and their proofs pp. 19–22; Corollary 4.5 and entire proof pp. 22–23 | `7fcca4cf382b20503f4f428b1268d2cd181488c96b362f34150c4f3daba9544e` |
 | [Orgogozo, arXiv math/0507475v1](https://arxiv.org/pdf/math/0507475v1) | Remarks 4.4–4.5, p. 13 | `10f18b77e877d376ba81a798a41465759923e10fb32b903a433961086f90903d` |
 | [Lu–Zheng, arXiv 1712.10216v7](https://arxiv.org/pdf/1712.10216v7) | Example 4.26(1)–(3) and Theorem 4.27, p. 37 | `065c028994922d853c020bc7cf1b9d286325e0d61c5ea350b50fa4fee5df2bda` |
+| [Bhatt–Scholze, author copy](https://people.mpim-bonn.mpg.de/scholze/proetale.pdf) | Corollary 5.1.6 p. 35; Proposition 5.2.6 p. 37; Proposition 5.3.2 p. 38; Lemmas 5.4.1–5.4.3 and Remark 5.4.4 p. 39, with proofs of the comparison results | `99b418b32846c12721e0603590be864b0982d5fa7cf594f8771fc78e53e014c7` |
+| [Bhatt–Scholze, Astérisque 369 (2015), academic mirror](https://www.math.ru.nl/~bmoonen/Seminars/ProEtale.pdf) | Lemma 5.4.3 and proof pp. 153–154, for the subscript finding | `b40ac03aaeb1e11ed58b581ba1344194407a340e50bfb835bbf2e6cfa523a99f` |
 | [Stacks Project §59.79](https://stacks.math.columbia.edu/tag/09XP) and individual tags | 0DCQ, 0DCS, 04DY (§59.45, including Proposition 59.45.4), 09XP/0A45 and 0F0B; HTML is unpaginated | Dynamic HTML, no PDF hash |
 
 The shorter Bonn-hosted *Relative perversity* file has different pagination;
-do not substitute its page numbers for this packet's author version. No source
-mistake was established in these readings; `sourceIssues` is empty. H0's
+do not substitute its page numbers for this packet's author version. The
+Bhatt–Scholze notation finding above is recorded in `sourceIssues`; no other new
+source mistake was established. H0's
 source-issue inventory remains unchanged.
 
 ## Verification
@@ -150,14 +197,17 @@ Pinned Tau Ceti: `f790474821cf4256814db967cb154e7af3d0c369`.
 The reviewed library audit was read before planning. The new packet cites 14
 baseline declarations, whose statements were read at the pinned Mathlib.
 Searches at the pinned Tau Ceti found no matching nearby-cycle, ULA or valuation
-étale invariance export; no Tau Ceti declaration is claimed as one.
+étale invariance export; no Tau Ceti declaration is claimed as one. The shared
+build also contains the pinned Tau Ceti git object; this continuation searched
+its source directly at that commit. Its scheme-module cohomology is Zariski
+cohomology and supplies no derived étale valuation export.
 
-The blueprint checker with the supplied declaration index reports **zero
+This run repeated the blueprint checker with the supplied declaration index; it reports **zero
 errors and zero warnings**. Its statistics are 4 nodes, 0 new API items,
 0 definition unit tests, 2 planet nominations, 14 baseline declarations,
-3 gaps, 2 requests, 1 stage with partial coverage.
+3 gaps, 2 requests, 1 stage with partial coverage, and 1 source notation finding.
 
-The suggested file **elaborates using `lean-check` at the pinned Mathlib, with
+This run repeated `lean-check`: the suggested file **elaborates at the pinned Mathlib, with
 only admitted-proof warnings**. Memory was checked before compilation. The
 four new theorem/comparison signatures use actual schemes and pullback
 projections, actual small-étale sheaves of modules, and actual bounded-below
