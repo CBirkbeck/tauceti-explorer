@@ -1,8 +1,8 @@
 {
   "roadmaps": 237,
-  "stages": 4929,
+  "stages": 4970,
   "originalStages": 2166,
-  "sourceRefinements": 2763,
+  "sourceRefinements": 2804,
   "reviewedDecompositions": [
     {
       "roadmap": "AInfCohomology",
@@ -243,16 +243,22 @@
   "editedRoadmapSummaries": 181,
   "curatedStagePresentations": 339,
   "administrativeStages": 101,
-  "mathematicalStars": 4828,
+  "mathematicalStars": 4869,
   "plainTextPlanetLabels": 398,
   "hiddenPlanets": 600,
   "mappedStageStatuses": 350,
   "libraryAuditStatuses": 19,
   "bibliographicSources": 46,
-  "roadmapEdges": 2180,
-  "stageEdges": 12803,
+  "roadmapEdges": 2186,
+  "stageEdges": 12911,
   "reviewedLinkPackets": 25,
   "promotedBlueprints": [
+    {
+      "file": "AInfCohomology--AI.6",
+      "roadmap": "AInfCohomology",
+      "nodes": 60,
+      "reviewer": "independent-review-REV-AInfCohomology--AI.6~2"
+    },
     {
       "file": "AbelianSchemesAndArithmeticModuliPartII",
       "roadmap": "AbelianSchemesAndArithmeticModuliPartII",
@@ -414,6 +420,12 @@
       "roadmap": "ColemanPowerSeries",
       "nodes": 300,
       "reviewer": "independent-review-REV-ColemanPowerSeries"
+    },
+    {
+      "file": "ComplexMultiplicationAndExplicitReciprocity",
+      "roadmap": "ComplexMultiplicationAndExplicitReciprocity",
+      "nodes": 69,
+      "reviewer": "independent-review-REV-ComplexMultiplicationAndExplicitReciprocity~2"
     },
     {
       "file": "ComputationalNumberTheory",
@@ -1221,8 +1233,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 35710633,
-  "htmlSha256": "22af22f5d920343353ce5aa7a36c51238cdaf80d406372d416428a21b72df2ce",
+  "htmlBytes": 35857060,
+  "htmlSha256": "fb16ad4edfbd8e302631ba2673cedda9a7e6ed6fe30f07bf54a1b04fdae50fdf",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -1254,7 +1266,7 @@
     "data/roadmap-summaries.json": "c8bdd0a9105f5d3c4a858c8b635990729f8e94497dee784a71fae659b8c05b9f",
     "data/roadmap-classification.json": "2641dbc97eb2566c715162d011b46890d1635629181ef8126ac7aed9e24a3b13",
     "data/classification-estimates.json": "625d35fe6121bf099dc5de9e6a9111793596f9b664e3fbd439841434bb4a57d6",
-    "data/roadmap-distances.json": "3fdc3aaca9ce2f2d9aad1a3b448ffaeb17b1caca05de06463a1b0bdd18f8bebf",
+    "data/roadmap-distances.json": "41dcd65f15e71ddd7d2c672b4bcfd3196f09c4529bfc5d16450df91fa6706f2a",
     "data/galaxy-layout.json": "7489487a2143484a355b36026c2f7d3dd9384ac5c58ac90d8b061b8dfcab6088",
     "data/bibliography.json": "bef230a41fad22d6b790c7564061c4d05c2ae5b78cab53d005eb404afab2b122",
     "NOTICE": "a285b95d5adbf5c2bcc82db36e2a77b797f84a2c5cbb30292efd0bae17cc4f34",
@@ -1312,6 +1324,8 @@
     "data/decompositions/VectorBundlesAndIsocrystals.json": "c79287b4bd7987ca666e6c263dc4ea299cb92c1181ebfeb846fb70510c2044d8",
     "data/decompositions/WeightsInEtaleCohomology.json": "75ade1429a80c9601d28957de90a0f1e8581e663cf16a8cdbb6dd50932fe322e",
     "data/decompositions/WeilConjectures.json": "354ed5ae83fac3b7bb0a8e91b060a6fd9be207191aee7ee7732f253143176a2f",
+    "data/blueprints/AInfCohomology--AI.6.json": "2e9c3fd21914aab92c161a458be31f72e38b4473a59bc9c555e89c4ab531148b",
+    "data/blueprints/AInfCohomology--AI.6.md": "c751676a46463822c3ca047fee81a05128a729baae3ebcbf4ce04eeb7ae0fd4b",
     "data/blueprints/AbelianSchemesAndArithmeticModuliPartII.json": "241969d5e52d86a1df0521593907e80b92aff85791e793d1158357ddf48e9620",
     "data/blueprints/AbelianSchemesAndArithmeticModuliPartII.md": "5653c26d4d6dec80f1fedb795d7f7a11b2e4f4c2257c0b671d9b8a6fe7e3d365",
     "data/blueprints/AbelianVarietiesIsogenousToNoJacobian.json": "ce67342f34746a08014bdb2aa0b384e373f03c1eb07fc326f2872cde976d1635",
@@ -1366,6 +1380,8 @@
     "data/blueprints/ColemanIntegration.md": "9c291cb68cac3f1b3894e7d5c3837a6997e8816c01a8071ef7762c24c9fd6996",
     "data/blueprints/ColemanPowerSeries.json": "7fad9a74527497ea632e71444c17a361954f523806944bf27b2ebc5de9eeb220",
     "data/blueprints/ColemanPowerSeries.md": "ba93bf962523bef62b927ccc72058264f7f384dcdd608bf4536d530688893a24",
+    "data/blueprints/ComplexMultiplicationAndExplicitReciprocity.json": "1fbf039c3d110dfb7afd2442c8228db61b3c536a2fee9de222efc19198bc9f00",
+    "data/blueprints/ComplexMultiplicationAndExplicitReciprocity.md": "90be290242dc0756429ea680aa257713a9ff79f1939ba75e02e893e60288f3bf",
     "data/blueprints/ComputationalNumberTheory.json": "8d7ffeee7284805d6e912233bb60d9e3dedc975c76f178b3ee6f74f1db4661d4",
     "data/blueprints/ComputationalNumberTheory.md": "e5035ba10d69d7378b539b90b7b384401ba32998c9a3f50693e7865f20f1f129",
     "data/blueprints/ConformalMappingPartII.json": "f36735a991de26e255bfa9bbcca96da81e6b141699a7947c364ced88342e44ef",

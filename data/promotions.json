@@ -260,6 +260,17 @@
     "data/links/tauceti_TauCetiRoadmap_ZigzagPreprojective.json"
    ]
   },
+  "research/blueprint/packets/AInfCohomology--AI.6.json": {
+   "promotedAt": "2026-10-08T12:52:49Z",
+   "review": "087a4fb6c17aa571",
+   "reviewDate": "2026-10-08",
+   "reviewer": "independent-review-REV-AInfCohomology--AI.6~2",
+   "sha256": "13c6f1133e68b406f9a86cbecb2354e1459c3157902fda55b6a404a61b592948",
+   "to": [
+    "data/blueprints/AInfCohomology--AI.6.json",
+    "data/blueprints/AInfCohomology--AI.6.md"
+   ]
+  },
   "research/blueprint/packets/AbelianSchemesAndArithmeticModuliPartII.json": {
    "promotedAt": "2026-10-05T02:04:11Z",
    "review": "ffcf41800a662895",
@@ -558,6 +569,17 @@
    "to": [
     "data/blueprints/ColemanPowerSeries.json",
     "data/blueprints/ColemanPowerSeries.md"
+   ]
+  },
+  "research/blueprint/packets/ComplexMultiplicationAndExplicitReciprocity.json": {
+   "promotedAt": "2026-10-08T12:52:49Z",
+   "review": "1a4bf333a275240b",
+   "reviewDate": "2026-10-08",
+   "reviewer": "independent-review-REV-ComplexMultiplicationAndExplicitReciprocity~2",
+   "sha256": "d3a1d575bc68b0b5b16f99ea252c1182286fa0da8ae3a226faee0e6db1f01665",
+   "to": [
+    "data/blueprints/ComplexMultiplicationAndExplicitReciprocity.json",
+    "data/blueprints/ComplexMultiplicationAndExplicitReciprocity.md"
    ]
   },
   "research/blueprint/packets/ComputationalNumberTheory.json": {
