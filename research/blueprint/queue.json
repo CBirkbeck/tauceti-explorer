@@ -40184,7 +40184,8 @@
     "BP-MetaplecticAutomorphicForms--MP.0~2"
    ],
    "prompt": "research/blueprint/prompts/REV-MetaplecticAutomorphicForms--MP.0~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7074"
   },
   {
    "kind": "blueprint",
@@ -40524,8 +40525,9 @@
     "BP-PotentialModularityAndCompatibleSystems--R23.1~2"
    ],
    "prompt": "research/blueprint/prompts/REV-PotentialModularityAndCompatibleSystems--R23.1~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7080"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7080",
+   "finishedAt": "2026-10-08T17:36:38Z"
   },
   {
    "kind": "blueprint",
@@ -40944,8 +40946,9 @@
    ],
    "revisionOf": "BP-SchemeKTheoryOperations",
    "prompt": "research/blueprint/prompts/BP-SchemeKTheoryOperations~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7007"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7007",
+   "finishedAt": "2026-10-08T17:36:42Z"
   },
   {
    "priority": 2,
