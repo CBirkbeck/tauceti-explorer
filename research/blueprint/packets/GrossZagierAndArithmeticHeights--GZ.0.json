@@ -21377,9 +21377,9 @@
   ],
   "review": {
     "status": "needs_changes",
-    "reviewer": "independent-review-REV-FIX-RT-AREA-automorphic-1~4",
+    "reviewer": "independent-review-REV-FIX-RT-AREA-automorphic-1~5",
     "date": "2026-10-08",
-    "notes": "Independent review of FIX-RT-AREA-automorphic-1~4 (issue #7280, PR #7314, Codex codex-Z0ErNN) by Claude session claude-95TvAO, following REV-FIX-RT-AREA-automorphic-1~3 and, for this packet, REV-GrossZagierAndArithmeticHeights--GZ.0 (needs_changes). Finding /19 is correctly fixed: GZ.5 imports the MP.6 binary quadratic-field and ternary trace-zero norm instances and the toric pairing, with Weil's convergent range and the split cases at Gan–Qiu–Takeda v3 Theorem 7.3(ii) p.34 and Theorem 8.1 p.35 (checked); no MP node imports GZ. No packet or suggested-file correction was needed. Status stays needs_changes because this packet's own blueprint review (REV-GrossZagierAndArithmeticHeights--GZ.0) did not accept it and its revision BP-GrossZagierAndArithmeticHeights--GZ.0~2 is pending: accepting a narrow fix would promote the whole packet. The reader still contradicts the packet at ~1654–1662 (generic first- and second-term identities said to give the split pairing); ~1678/1682 lag."
+    "notes": "Independent completed review of FIX-RT-AREA-automorphic-1~5 (issue #7448, PR #7713, Codex codex-vvlCYM) by Codex session codex-zcs4LH, following REV-FIX-RT-AREA-automorphic-1~4 and the earlier blueprint review retained in reviewHistory. Finding /19 is correct in packet and reader: quadratic-field binary norms stay anisotropic, division ternary data use the convergent identity, and the generic split second-term formula does not provide the separately normalized exact Shimizu pairing. No further fix-region correction is required. BP-GrossZagierAndArithmeticHeights--GZ.0~2 and its review must still resolve the broad review source-version, supplier and suggested-carrier/API/test correspondence obligations. The exact 2013 YZZ pagination is not newly certified; obsolete excerpt requirements are superseded by the standing no-quotation rule. All thirteen packet checks pass; exact prerequisite closure is acyclic. No mathematical field or suggested declaration changed in this review. Source receipts, reader checks and Lean limitations are in research/blueprint/reviews/REV-FIX-RT-AREA-automorphic-1~5.md."
   },
   "reviewHistory": [
     {
@@ -22600,6 +22600,12 @@
       "reviewer": "independent-review-REV-FIX-RT-AREA-automorphic-1~3",
       "date": "2026-10-07",
       "notes": "Independent scoped review of RT-AREA-automorphic-1/19, following REV-FIX-RT-AREA-automorphic-1~2 and the archived REV-GrossZagierAndArithmeticHeights--GZ.0. Distinguished anisotropic quadratic-field binary norm from the additional split binary supplier, and the nonsplit ternary Siegel-Weil proof from the separately required split Shimizu comparison. Retained the exact pairing/Haar constants. Added a separately identified 6November2011 YZZ author draft with exact hash and restricted passage record; it does not verify the inherited 2013 published-book metadata. Corrected the packet proof route, gap and suggested omission comment. The reader still infers the split pairing from generic regularized identities, and the broader publication/excerpt and signature contradictions remain binding. Source-proof/future-carrier omissions alone are not the rejection reason. No full241-node or all-baseline recheck; Lean was not compiled."
+    },
+    {
+      "status": "needs_changes",
+      "reviewer": "independent-review-REV-FIX-RT-AREA-automorphic-1~4",
+      "date": "2026-10-08",
+      "notes": "Independent review of FIX-RT-AREA-automorphic-1~4 (issue #7280, PR #7314, Codex codex-Z0ErNN) by Claude session claude-95TvAO, following REV-FIX-RT-AREA-automorphic-1~3 and, for this packet, REV-GrossZagierAndArithmeticHeights--GZ.0 (needs_changes). Finding /19 is correctly fixed: GZ.5 imports the MP.6 binary quadratic-field and ternary trace-zero norm instances and the toric pairing, with Weil's convergent range and the split cases at Gan–Qiu–Takeda v3 Theorem 7.3(ii) p.34 and Theorem 8.1 p.35 (checked); no MP node imports GZ. No packet or suggested-file correction was needed. Status stays needs_changes because this packet's own blueprint review (REV-GrossZagierAndArithmeticHeights--GZ.0) did not accept it and its revision BP-GrossZagierAndArithmeticHeights--GZ.0~2 is pending: accepting a narrow fix would promote the whole packet. The reader still contradicts the packet at ~1654–1662 (generic first- and second-term identities said to give the split pairing); ~1678/1682 lag."
     }
   ]
 }
