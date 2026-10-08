@@ -1,8 +1,8 @@
 {
   "roadmaps": 236,
-  "stages": 4673,
+  "stages": 4709,
   "originalStages": 2160,
-  "sourceRefinements": 2513,
+  "sourceRefinements": 2549,
   "reviewedDecompositions": [
     {
       "roadmap": "AInfCohomology",
@@ -292,14 +292,14 @@
   "editedRoadmapSummaries": 181,
   "curatedStagePresentations": 339,
   "administrativeStages": 101,
-  "mathematicalStars": 4572,
+  "mathematicalStars": 4608,
   "plainTextPlanetLabels": 398,
   "hiddenPlanets": 600,
   "mappedStageStatuses": 350,
   "libraryAuditStatuses": 19,
   "bibliographicSources": 46,
-  "roadmapEdges": 2107,
-  "stageEdges": 12040,
+  "roadmapEdges": 2119,
+  "stageEdges": 12117,
   "reviewedLinkPackets": 25,
   "promotedBlueprints": [
     {
@@ -999,6 +999,12 @@
       "reviewer": "independent-review-REV-LocalGaloisDeformationRings~2"
     },
     {
+      "file": "MetaplecticAutomorphicForms--MP.8",
+      "roadmap": "MetaplecticAutomorphicForms",
+      "nodes": 85,
+      "reviewer": "independent-review-REV-MetaplecticAutomorphicForms--MP.8~2"
+    },
+    {
       "file": "MordellLawrenceVenkatesh",
       "roadmap": "MordellLawrenceVenkatesh",
       "nodes": 146,
@@ -1009,6 +1015,12 @@
       "roadmap": "MotivicEtaleKTheory",
       "nodes": 82,
       "reviewer": "independent-review-REV-MotivicEtaleKTheory--M.1"
+    },
+    {
+      "file": "MotivicEtaleKTheory--M.5d",
+      "roadmap": "MotivicEtaleKTheory",
+      "nodes": 67,
+      "reviewer": "independent-review-REV-MotivicEtaleKTheory--M.5d~2"
     },
     {
       "file": "NeronModelsAndSemistableAbelianVarieties",
@@ -1150,8 +1162,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 35729052,
-  "htmlSha256": "0e99b1828460a6188f765c2a915bee249c5e27d9f94ee8274003bf23aec20332",
+  "htmlBytes": 35829457,
+  "htmlSha256": "8e60fdf386fbb0783f6562eb559d7a57219333c3fef943aae81c0e967853850c",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -1183,7 +1195,7 @@
     "data/roadmap-summaries.json": "c8bdd0a9105f5d3c4a858c8b635990729f8e94497dee784a71fae659b8c05b9f",
     "data/roadmap-classification.json": "2641dbc97eb2566c715162d011b46890d1635629181ef8126ac7aed9e24a3b13",
     "data/classification-estimates.json": "625d35fe6121bf099dc5de9e6a9111793596f9b664e3fbd439841434bb4a57d6",
-    "data/roadmap-distances.json": "c7ede4aadcde4f21fe99fde847b333121df38fdbeb9bafa3de00996234f33d1e",
+    "data/roadmap-distances.json": "ef6f48e49974f998c79c3d6b907cf93cd67a0018f22baece27dc6c79c89f5950",
     "data/galaxy-layout.json": "2c01bbf6e2083476a6b73f3d295c4d4c898d0be461c21fb0195da29a30469a03",
     "data/bibliography.json": "bef230a41fad22d6b790c7564061c4d05c2ae5b78cab53d005eb404afab2b122",
     "NOTICE": "a285b95d5adbf5c2bcc82db36e2a77b797f84a2c5cbb30292efd0bae17cc4f34",
@@ -1473,10 +1485,14 @@
     "data/blueprints/LefschetzPencilsAndVanishingCycles--LPV.7.md": "13091d41320605895a5f4d857dd9ce0df5caa88b68f4ea3e54effba78aab68cd",
     "data/blueprints/LocalGaloisDeformationRings.json": "b2f9fa6210210c97bc6f612363d33dad2c4eefc07a62ed92168143b6e4a809bc",
     "data/blueprints/LocalGaloisDeformationRings.md": "d142df583e6fcbc1a3d03c98c85b6b9a9d44f6fa7219130d70546c3506ea2d7c",
+    "data/blueprints/MetaplecticAutomorphicForms--MP.8.json": "9cb02ce48b176eb5375fff3694c06ab87ab3f1972be5a8beebb10470255488ab",
+    "data/blueprints/MetaplecticAutomorphicForms--MP.8.md": "fb0d72292c3957526a4f37f2cfd5f2b03a7683858b92a3d9390114f5a8afb442",
     "data/blueprints/MordellLawrenceVenkatesh.json": "d96efada7b6f6bc81bbc54c93c73457ccb1f1ca6d15cfe46bb739e8a35a69c0d",
     "data/blueprints/MordellLawrenceVenkatesh.md": "7cb852d88f7868a343e38a95cc7799f16eb269e51d11c30f3ba875f9dc65f3c4",
     "data/blueprints/MotivicEtaleKTheory--M.1.json": "3ab8dff7e0f6b45da632763a17975ffc294f619b7bb21452b31380a036dc5b23",
     "data/blueprints/MotivicEtaleKTheory--M.1.md": "3c2342293af4616c8357c8d87d4672d02942ca39d474c8c38538c1cd1c1762de",
+    "data/blueprints/MotivicEtaleKTheory--M.5d.json": "f6cc0542c5f364f2f0366e710f5364d234853f3785e4a6329b09243774d6f5db",
+    "data/blueprints/MotivicEtaleKTheory--M.5d.md": "b470b261500db55271d049712f80838cd3919d2d0d7bd688287b2c971a7b7c00",
     "data/blueprints/NeronModelsAndSemistableAbelianVarieties.json": "623cb2ddcbffbfa61f68acf077879fefa739bdd1c590664d1c2712f39e717df0",
     "data/blueprints/NeronModelsAndSemistableAbelianVarieties.md": "7e174f3a26bad9ab37af9b71d1e741eb3fabd739d6d22a7d6903ea9f22e378d9",
     "data/blueprints/OverconvergentAutomorphicForms--O8.json": "daae7d6be3bcd443182b51861a171ae1cb4fb6ad3f9600c1eb6c3252830b7937",

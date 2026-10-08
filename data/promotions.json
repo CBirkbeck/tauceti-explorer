@@ -1555,6 +1555,17 @@
     "data/blueprints/LocalGaloisDeformationRings.md"
    ]
   },
+  "research/blueprint/packets/MetaplecticAutomorphicForms--MP.8.json": {
+   "promotedAt": "2026-10-08T06:55:36Z",
+   "review": "4ac3437771a3cacc",
+   "reviewDate": "2026-10-08",
+   "reviewer": "independent-review-REV-MetaplecticAutomorphicForms--MP.8~2",
+   "sha256": "14ac04237c5f2e8b17de84de9a1ea010c68577dfcaa1d8a3532953f76131a850",
+   "to": [
+    "data/blueprints/MetaplecticAutomorphicForms--MP.8.json",
+    "data/blueprints/MetaplecticAutomorphicForms--MP.8.md"
+   ]
+  },
   "research/blueprint/packets/MordellLawrenceVenkatesh.json": {
    "promotedAt": "2026-10-06T13:40:04Z",
    "review": "d6f0d2ebe3b2c311",
@@ -1576,6 +1587,17 @@
    "to": [
     "data/blueprints/MotivicEtaleKTheory--M.1.json",
     "data/blueprints/MotivicEtaleKTheory--M.1.md"
+   ]
+  },
+  "research/blueprint/packets/MotivicEtaleKTheory--M.5d.json": {
+   "promotedAt": "2026-10-08T06:55:36Z",
+   "review": "948252370635655d",
+   "reviewDate": "2026-10-08",
+   "reviewer": "independent-review-REV-MotivicEtaleKTheory--M.5d~2",
+   "sha256": "ef88850b12794338a48112e2a25a49bd3a538579a334ff803ccadfd01851943d",
+   "to": [
+    "data/blueprints/MotivicEtaleKTheory--M.5d.json",
+    "data/blueprints/MotivicEtaleKTheory--M.5d.md"
    ]
   },
   "research/blueprint/packets/NeronModelsAndSemistableAbelianVarieties.json": {
