@@ -850,6 +850,12 @@
       "reviewer": "independent-review-REV-HilbertModularVarietiesAndShimuraCurves--R18.2"
     },
     {
+      "file": "HodgeStructuresPartII--H.0",
+      "roadmap": "HodgeStructuresPartII",
+      "nodes": 7,
+      "reviewer": "independent-review-REV-HodgeStructuresPartII--H.0"
+    },
+    {
       "file": "HodgeStructuresPartII--H.1",
       "roadmap": "HodgeStructuresPartII",
       "nodes": 36,
@@ -1097,8 +1103,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 35720033,
-  "htmlSha256": "7ec0315e2de5d5b4cd6ee57ce4e63e9a4397fcf81f67563165dc739445eb13f5",
+  "htmlBytes": 35721483,
+  "htmlSha256": "9ff6dc9853d120e7ecb6cc8bc70033d98907ff6dd4bcaa5b8f73f503fe9fb4c6",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -1130,7 +1136,7 @@
     "data/roadmap-summaries.json": "c8bdd0a9105f5d3c4a858c8b635990729f8e94497dee784a71fae659b8c05b9f",
     "data/roadmap-classification.json": "2641dbc97eb2566c715162d011b46890d1635629181ef8126ac7aed9e24a3b13",
     "data/classification-estimates.json": "625d35fe6121bf099dc5de9e6a9111793596f9b664e3fbd439841434bb4a57d6",
-    "data/roadmap-distances.json": "a346f72f5fbfdb94c8ee9f51c02ea0ccae7e6614e32afb2e81afa8c42cc32172",
+    "data/roadmap-distances.json": "db3b5e5ead1fd01625d666b74b226127a6d4aade6944f7fb7dae56013d67c724",
     "data/galaxy-layout.json": "2c01bbf6e2083476a6b73f3d295c4d4c898d0be461c21fb0195da29a30469a03",
     "data/bibliography.json": "bef230a41fad22d6b790c7564061c4d05c2ae5b78cab53d005eb404afab2b122",
     "NOTICE": "a285b95d5adbf5c2bcc82db36e2a77b797f84a2c5cbb30292efd0bae17cc4f34",
@@ -1368,6 +1374,8 @@
     "data/blueprints/HilbertModularVarietiesAndShimuraCurves--H0.md": "f7a0a5cd964d960a45ccda52b2f99208f4769d5baef71c27fc3d716ee8c0197d",
     "data/blueprints/HilbertModularVarietiesAndShimuraCurves--R18.2.json": "afc3e17e51852dcfaf066fda96e9f054a40a49a30be9290c86353985b19ec06d",
     "data/blueprints/HilbertModularVarietiesAndShimuraCurves--R18.2.md": "81d48de4514ac6dba529650c1d8c4162ac17c95cfd1c8838bb0a2e022885d358",
+    "data/blueprints/HodgeStructuresPartII--H.0.json": "d804353abe15dd6d7f8b0f25bdeb93edbad2cef31505ab80144fbcd45a67e00c",
+    "data/blueprints/HodgeStructuresPartII--H.0.md": "88d0b3f1e95aad39df5d30c2d9a2e92d7bb0c0d69cf65f2d4d5fe7165239f8cf",
     "data/blueprints/HodgeStructuresPartII--H.1.json": "75f8e501cbc1d0acafaadd28037c91b3837cf634910b8addf1ce98d4c526d7b5",
     "data/blueprints/HodgeStructuresPartII--H.1.md": "b39fef59fabb8294a8d185e9328fe40728fd500e6f4d72fbbc36bc4e4aca1b63",
     "data/blueprints/HodgeStructuresPartII.json": "2b0cd77691cded87b89d241a3d0b714857e4953c302230943ed06a2ff7a2be60",

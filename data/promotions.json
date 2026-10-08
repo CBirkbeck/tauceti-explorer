@@ -1260,6 +1260,18 @@
     "data/blueprints/HilbertModularVarietiesAndShimuraCurves--R18.2.md"
    ]
   },
+  "research/blueprint/packets/HodgeStructuresPartII--H.0.json": {
+   "promotedAt": "2026-10-08T05:45:45Z",
+   "review": "f63d33bfa3bfab60",
+   "reviewDate": "2026-10-08",
+   "reviewer": "independent-review-REV-HodgeStructuresPartII--H.0",
+   "sha256": "4ae94aa821ea9fb8fde4a53659cfe1cef4aba1b8ce077b66d3482ee59694ac7e",
+   "to": [
+    "data/blueprints/HodgeStructuresPartII--H.0.json",
+    "data/blueprints/HodgeStructuresPartII--H.0.md",
+    "data/blueprints/roadmaps/HodgeStructuresPartII.json"
+   ]
+  },
   "research/blueprint/packets/HodgeStructuresPartII--H.1.json": {
    "promotedAt": "2026-10-07T20:37:02Z",
    "review": "e6e07d2010dc313c",
