@@ -40675,7 +40675,8 @@
    ],
    "revisionOf": "BP-RefinedTraceMethods--RT.1",
    "prompt": "research/blueprint/prompts/BP-RefinedTraceMethods--RT.1~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7004"
   },
   {
    "priority": 2,
@@ -42297,8 +42298,9 @@
     "BP-ArithmeticKTheory--N.3-finite-generation~2"
    ],
    "prompt": "research/blueprint/prompts/REV-ArithmeticKTheory--N.3-finite-generation~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6986"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6986",
+   "finishedAt": "2026-10-08T06:39:29Z"
   },
   {
    "kind": "blueprint",
