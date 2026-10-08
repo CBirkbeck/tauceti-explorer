@@ -40869,7 +40869,8 @@
     "BP-RelativeFarguesFontaine--RF4~2"
    ],
    "prompt": "research/blueprint/prompts/REV-RelativeFarguesFontaine--RF4~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7088"
   },
   {
    "kind": "blueprint",
@@ -72184,8 +72185,8 @@
     "FIX-RT-AREA-langlands-2~3"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-langlands-2~3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5871"
+   "state": "pending",
+   "note": "released on GitHub issue #5871"
   },
   {
    "id": "FIX-RT-AREA-langlands-2~4",
