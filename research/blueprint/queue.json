@@ -37805,8 +37805,9 @@
     "BP-AutomorphicFormsOnReductiveGroups~2"
    ],
    "prompt": "research/blueprint/prompts/REV-AutomorphicFormsOnReductiveGroups~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6989"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6989",
+   "finishedAt": "2026-10-08T23:06:18Z"
   },
   {
    "kind": "blueprint",
@@ -47027,7 +47028,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-HodgeStructuresPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7491"
   },
   {
    "id": "REV-PKG-HodgeStructuresPartII",
@@ -77403,8 +77405,8 @@
     "FIX-RT-AREA-langlands-2~3"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-langlands-2~3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5871"
+   "state": "pending",
+   "note": "released on GitHub issue #5871"
   },
   {
    "id": "FIX-RT-AREA-langlands-2~4",
