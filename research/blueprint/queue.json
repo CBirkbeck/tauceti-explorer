@@ -42391,8 +42391,9 @@
     "BP-ArithmeticQuantumTopology~2"
    ],
    "prompt": "research/blueprint/prompts/REV-ArithmeticQuantumTopology~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6991"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6991",
+   "finishedAt": "2026-10-08T20:18:56Z"
   },
   {
    "kind": "blueprint",
