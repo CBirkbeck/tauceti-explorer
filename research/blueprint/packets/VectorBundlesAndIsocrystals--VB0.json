@@ -19,97 +19,97 @@
         "ref": "mathlib:WittVector.FractionRing.frobenius",
         "module": "Mathlib/RingTheory/WittVector/Isocrystal.lean",
         "provides": "Ring automorphism of Frac(W(k)) for perfect characteristic-p domain k; q-Frobenius is its appropriate iterate.",
-        "checked": "Declaration and complete statement independently read at the recorded pinned commit for REV-VectorBundlesAndIsocrystals--VB0 on 2026-10-06; the stated provides contract is confirmed."
+        "checked": "Declaration and complete statement independently read at the recorded pinned commit for REV-VectorBundlesAndIsocrystals--VB0~2 on 2026-10-08; the stated provides contract is confirmed."
       },
       {
         "ref": "mathlib:WittVector.Isocrystal",
         "module": "Mathlib/RingTheory/WittVector/Isocrystal.lean",
         "provides": "Module over Frac(W(k)) with a bijective p-Frobenius-semilinear equivalence; no finite-dimensionality field.",
-        "checked": "Declaration and complete statement independently read at the recorded pinned commit for REV-VectorBundlesAndIsocrystals--VB0 on 2026-10-06; the stated provides contract is confirmed."
+        "checked": "Declaration and complete statement independently read at the recorded pinned commit for REV-VectorBundlesAndIsocrystals--VB0~2 on 2026-10-08; the stated provides contract is confirmed."
       },
       {
         "ref": "mathlib:WittVector.IsocrystalHom",
         "module": "Mathlib/RingTheory/WittVector/Isocrystal.lean",
         "provides": "Linear maps commuting with Frobenius.",
-        "checked": "Declaration and complete statement independently read at the recorded pinned commit for REV-VectorBundlesAndIsocrystals--VB0 on 2026-10-06; the stated provides contract is confirmed."
+        "checked": "Declaration and complete statement independently read at the recorded pinned commit for REV-VectorBundlesAndIsocrystals--VB0~2 on 2026-10-08; the stated provides contract is confirmed."
       },
       {
         "ref": "mathlib:WittVector.IsocrystalEquiv",
         "module": "Mathlib/RingTheory/WittVector/Isocrystal.lean",
         "provides": "Intertwining linear equivalences.",
-        "checked": "Declaration and complete statement independently read at the recorded pinned commit for REV-VectorBundlesAndIsocrystals--VB0 on 2026-10-06; the stated provides contract is confirmed."
+        "checked": "Declaration and complete statement independently read at the recorded pinned commit for REV-VectorBundlesAndIsocrystals--VB0~2 on 2026-10-08; the stated provides contract is confirmed."
       },
       {
         "ref": "mathlib:WittVector.StandardOneDimIsocrystal",
         "module": "Mathlib/RingTheory/WittVector/Isocrystal.lean",
         "provides": "Rank-one block with Frobenius p^m times coefficient Frobenius.",
-        "checked": "Declaration and complete statement independently read at the recorded pinned commit for REV-VectorBundlesAndIsocrystals--VB0 on 2026-10-06; the stated provides contract is confirmed."
+        "checked": "Declaration and complete statement independently read at the recorded pinned commit for REV-VectorBundlesAndIsocrystals--VB0~2 on 2026-10-08; the stated provides contract is confirmed."
       },
       {
         "ref": "mathlib:WittVector.isocrystal_classification",
         "module": "Mathlib/RingTheory/WittVector/Isocrystal.lean",
         "provides": "Only the finrank=1 classification over algebraically closed k. Does not supply higher-rank Dieudonné–Manin.",
-        "checked": "Declaration and complete statement independently read at the recorded pinned commit for REV-VectorBundlesAndIsocrystals--VB0 on 2026-10-06; the stated provides contract is confirmed."
+        "checked": "Declaration and complete statement independently read at the recorded pinned commit for REV-VectorBundlesAndIsocrystals--VB0~2 on 2026-10-08; the stated provides contract is confirmed."
       },
       {
         "ref": "mathlib:AlgebraicGeometry.Scheme.Modules",
         "module": "Mathlib/AlgebraicGeometry/Modules/Sheaf.lean",
         "provides": "Sheaves of modules over a scheme structure sheaf; underlying carrier of schematic bundles.",
-        "checked": "Declaration and complete statement independently read at the recorded pinned commit for REV-VectorBundlesAndIsocrystals--VB0 on 2026-10-06; the stated provides contract is confirmed."
+        "checked": "Declaration and complete statement independently read at the recorded pinned commit for REV-VectorBundlesAndIsocrystals--VB0~2 on 2026-10-08; the stated provides contract is confirmed."
       },
       {
         "ref": "mathlib:SheafOfModules.LocalGeneratorsData.IsLocallyFreeData",
         "module": "Mathlib/Algebra/Category/ModuleCat/Sheaf/LocallyFree.lean",
         "provides": "A local generator family whose free-to-module maps are isomorphisms; does not impose finite ranks.",
-        "checked": "Declaration and complete statement independently read at the recorded pinned commit for REV-VectorBundlesAndIsocrystals--VB0 on 2026-10-06; the stated provides contract is confirmed."
+        "checked": "Declaration and complete statement independently read at the recorded pinned commit for REV-VectorBundlesAndIsocrystals--VB0~2 on 2026-10-08; the stated provides contract is confirmed."
       },
       {
         "ref": "mathlib:SheafOfModules.LocalGeneratorsData.IsFiniteType",
         "module": "Mathlib/Algebra/Category/ModuleCat/Sheaf/Generators.lean",
         "provides": "Each local generator family is finite. Combine with locally free data on the SAME family for bundles.",
-        "checked": "Declaration and complete statement independently read at the recorded pinned commit for REV-VectorBundlesAndIsocrystals--VB0 on 2026-10-06; the stated provides contract is confirmed."
+        "checked": "Declaration and complete statement independently read at the recorded pinned commit for REV-VectorBundlesAndIsocrystals--VB0~2 on 2026-10-08; the stated provides contract is confirmed."
       },
       {
         "ref": "tauceti:SheafOfModules.LocalGeneratorsData.IsLocallyFreeData.isFinitePresentation",
         "module": "TauCeti/Algebra/Category/ModuleCat/Sheaf/FinitePresentation.lean",
         "provides": "Finite locally free local generator data implies finite presentation.",
-        "checked": "Declaration and complete statement independently read at the recorded pinned commit for REV-VectorBundlesAndIsocrystals--VB0 on 2026-10-06; the stated provides contract is confirmed."
+        "checked": "Declaration and complete statement independently read at the recorded pinned commit for REV-VectorBundlesAndIsocrystals--VB0~2 on 2026-10-08; the stated provides contract is confirmed."
       },
       {
         "ref": "tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf",
         "module": "TauCeti/AlgebraicGeometry/LineBundle/Basic.lean",
         "provides": "Full subcategory of invertible structure-sheaf modules on a scheme.",
-        "checked": "Declaration and complete statement independently read at the recorded pinned commit for REV-VectorBundlesAndIsocrystals--VB0 on 2026-10-06; the stated provides contract is confirmed."
+        "checked": "Declaration and complete statement independently read at the recorded pinned commit for REV-VectorBundlesAndIsocrystals--VB0~2 on 2026-10-08; the stated provides contract is confirmed."
       },
       {
         "ref": "tauceti:TauCeti.AlgebraicGeometry.LineBundleClass",
         "module": "TauCeti/AlgebraicGeometry/LineBundle/Class.lean",
         "provides": "Isomorphism classes of invertible sheaves; tensor-product commutative monoid at this pin, with equality iff underlying sheaves are isomorphic.",
-        "checked": "Declaration and complete statement independently read at the recorded pinned commit for REV-VectorBundlesAndIsocrystals--VB0 on 2026-10-06; the stated provides contract is confirmed."
+        "checked": "Declaration and complete statement independently read at the recorded pinned commit for REV-VectorBundlesAndIsocrystals--VB0~2 on 2026-10-08; the stated provides contract is confirmed."
       },
       {
         "ref": "mathlib:CommRing.Pic",
         "module": "Mathlib/RingTheory/PicardGroup.lean",
         "provides": "Picard group of a commutative ring, defined from invertible modules; does not compute Pic of the curve.",
-        "checked": "Declaration and complete statement independently read at the recorded pinned commit for REV-VectorBundlesAndIsocrystals--VB0 on 2026-10-06; the stated provides contract is confirmed."
+        "checked": "Declaration and complete statement independently read at the recorded pinned commit for REV-VectorBundlesAndIsocrystals--VB0~2 on 2026-10-08; the stated provides contract is confirmed."
       },
       {
         "ref": "tauceti:TauCeti.CSA.of",
         "module": "TauCeti/Algebra/BrauerGroup/Basic.lean",
         "provides": "Bundles an already central simple finite-dimensional algebra; does not construct cyclic algebras or arithmetic invariants.",
-        "checked": "Declaration and complete statement independently read at the recorded pinned commit for REV-VectorBundlesAndIsocrystals--VB0 on 2026-10-06; the stated provides contract is confirmed."
+        "checked": "Declaration and complete statement independently read at the recorded pinned commit for REV-VectorBundlesAndIsocrystals--VB0~2 on 2026-10-08; the stated provides contract is confirmed."
       },
       {
         "ref": "tauceti:TauCeti.BrauerGroup.mk_end",
         "module": "TauCeti/Algebra/BrauerGroup/Group.lean",
         "provides": "The Brauer class of End_K(V) is split for nonzero finite-dimensional V.",
-        "checked": "Declaration and complete statement independently read at the recorded pinned commit for REV-VectorBundlesAndIsocrystals--VB0 on 2026-10-06; the stated provides contract is confirmed."
+        "checked": "Declaration and complete statement independently read at the recorded pinned commit for REV-VectorBundlesAndIsocrystals--VB0~2 on 2026-10-08; the stated provides contract is confirmed."
       },
       {
         "ref": "tauceti:TauCeti.BrauerGroup.baseChange_mk",
         "module": "TauCeti/Algebra/BrauerGroup/BaseChange.lean",
         "provides": "Algebraic Brauer class commutes with scalar extension.",
-        "checked": "Declaration and complete statement independently read at the recorded pinned commit for REV-VectorBundlesAndIsocrystals--VB0 on 2026-10-06; the stated provides contract is confirmed."
+        "checked": "Declaration and complete statement independently read at the recorded pinned commit for REV-VectorBundlesAndIsocrystals--VB0~2 on 2026-10-08; the stated provides contract is confirmed."
       }
     ]
   },
@@ -126,7 +126,7 @@
         "II.2, pp. 57–72: complete descent, basic cohomology, ampleness, GAGA and geometric classification proofs",
         "II.3.4, p. 79: relative slope-vanishing uses assigned to the VB3/VB4 part"
       ],
-      "accessed": "2026-10-06"
+      "accessed": "2026-10-08"
     },
     {
       "id": "FF18-courbes",
@@ -137,11 +137,11 @@
       "sha256": "8c020573d3dce341088ea7e83fe1063b410686c08e3a144fa3c0de634667cc79",
       "readSections": [
         "5.5.1–5.5.6, pp. 162–164: exact-category HN axioms, filtration, polygons, fixed slope",
-        "5.6.22–5.6.23, pp. 181–182: pullback, tensor, dual and Hom/Ext of slope bundles",
-        "8.2.3–8.2.4, pp. 236–238: isocrystals, cyclic endomorphism algebra, coefficient adjunction, classification",
+        "5.6.22–5.6.23, pp. 181–183: pullback, tensor, dual and Hom/Ext of slope bundles",
+        "8.2.3–8.2.4, pp. 236–239: isocrystals, cyclic endomorphism algebra, coefficient adjunction, classification",
         "8.5.1 and 8.6.1, pp. 248–249: geometric simple connectivity and finite étale algebras"
       ],
-      "accessed": "2026-10-06"
+      "accessed": "2026-10-08"
     },
     {
       "id": "KL15",
@@ -157,7 +157,7 @@
         "8.7.6–8.7.7, p. 178: two affine charts and cohomological dimension",
         "8.8.1–8.8.9, pp. 180–182: global ampleness, power and cohomology criteria, affineness"
       ],
-      "accessed": "2026-10-06"
+      "accessed": "2026-10-08"
     },
     {
       "id": "CS17",
@@ -170,7 +170,7 @@
         "3.2.10–3.2.13, printed p. 681: relative tilted Robba ring and Frobenius modules",
         "3.3.4, printed p. 683: exact tensor equivalence with curve bundles"
       ],
-      "accessed": "2026-10-06"
+      "accessed": "2026-10-08"
     },
     {
       "id": "CN25",
@@ -182,7 +182,7 @@
       "readSections": [
         "3.2.1–3.2.4, pp. 14–15: Q_p curve, closed points, completed local rings, slopes and cohomology; abstract Banach–Colmez theory remains VB3-owned"
       ],
-      "accessed": "2026-10-06"
+      "accessed": "2026-10-08"
     },
     {
       "id": "SW20",
@@ -192,9 +192,9 @@
       "edition": "Author-hosted 260-page PDF; PDF page = printed page + 10 (Theorem 13.5.7 printed p. 114 is PDF p. 124).",
       "sha256": "225505171ef809aa0070c023c881ff1da844923775f2d631474c0b42eea4bffc",
       "readSections": [
-        "13.5.7 and proof, pp. 114–115: finite étale algebras and classification argument for simple connectivity"
+        "13.5.7 and proof, printed p. 114 (PDF p. 124): finite étale algebras and classification argument for simple connectivity"
       ],
-      "accessed": "2026-10-06"
+      "accessed": "2026-10-08"
     },
     {
       "id": "Ked05",
@@ -208,7 +208,7 @@
         "3.1.1–3.1.6, pp. 477–478: standard modules and pushforward",
         "4.1.1–4.1.2, printed p. 487; 4.5.1–4.5.12, pp. 497–499: Dieudonné–Manin and descent; Lemma 4.3.3 remains a specifically identified proof input"
       ],
-      "accessed": "2026-10-06"
+      "accessed": "2026-10-08"
     },
     {
       "id": "Lurie26",
@@ -218,9 +218,9 @@
       "edition": "Three-page lecture note; statement source, not a full proof of Dieudonné–Manin.",
       "sha256": "73fcb0f228e194ba1e4db21957702d861d6abaeae4c11bc3a66511a0b91251ea",
       "readSections": [
-        "Definition 1, standard blocks and Theorem 6; Warning 17 on lack of full faithfulness"
+        "Definition 1 and standard blocks, p. 1; Theorem 6, p. 2; Warning 17, p. 3 on lack of full faithfulness"
       ],
-      "accessed": "2026-10-06"
+      "accessed": "2026-10-08"
     },
     {
       "id": "GLX26",
@@ -232,7 +232,7 @@
       "readSections": [
         "5.1, pp. 31–32: tensor isocrystal input to filtered/G-isocrystal consumers; filtered objects are outside this part"
       ],
-      "accessed": "2026-10-06"
+      "accessed": "2026-10-08"
     }
   ],
   "nodes": [
@@ -481,7 +481,7 @@
         },
         {
           "sourceId": "Lurie26",
-          "locator": "Theorem 6",
+          "locator": "Theorem 6, p. 2",
           "match": "Accessible precise algebraically closed residue-field statement; not a proof source."
         }
       ],
@@ -718,16 +718,17 @@
       ],
       "title": "Coefficient extension and induction adjunction",
       "kind": "comparison",
-      "statement": "For finite separable E′/E of residue degree f, ramification degree e and total degree n=ef, identify the coefficient fields compatibly. Pull D to D⊗_{L_E}L_E′ with Frobenius Φ^f⊗σ_E′; induction is the f cyclic conjugate copies of restriction of scalars, with wraparound given by Φ′. Pull is left adjoint to induction; the Hom isomorphism is given by coefficient extension and the cyclic Frobenius components. Pull preserves rank and scales slopes by n; induction multiplies rank by n and divides isoclinic slopes by n. At the bundle stage they compare to the finite curve map pullback/pushforward.",
+      "statement": "For finite separable E′/E of residue degree f, ramification degree e and total degree n=ef, identify the coefficient fields compatibly. Pull D to D⊗_{L_E}L_E′ with Frobenius Φ^f⊗σ_E′; induction is the f cyclic conjugate copies of restriction of scalars, with wraparound given by Φ′. Pull and induction are adjoint in both directions: Hom(Pull D,D′)≅Hom(D,Ind D′) and Hom(Ind D′,D)≅Hom(D′,Pull D). The reverse adjunction uses the perfect separable trace pairing and the identification of finite cyclic induction with coinduction; no division by n is required. Pull preserves rank and scales slopes by n; induction multiplies rank by n and divides isoclinic slopes by n. At the bundle stage they compare to pullback/pushforward along the finite étale coefficient curve map, with its two trace adjunctions.",
       "hypotheses": [],
       "proofSteps": [
         "Use σ_E′=σ_E^f and v_E′(π_E)=e to obtain the total-degree slope factor ef, not merely f.",
-        "Give the cyclic induction arrows explicitly and prove Hom(Pull D,D′)≅Hom(D,Ind D′), using ordinary coefficient restriction and Frobenius iteration. No unproved reverse trace adjunction is assumed.",
-        "Check units/counits and Frobenius; apply the block classification to compute slopes."
+        "Give the cyclic induction arrows explicitly and prove Hom(Pull D,D′)≅Hom(D,Ind D′). For the reverse direction identify the dual of the finite separable coefficient field with itself by (a,b)↦Tr(ab); this identification is compatible with coefficient Frobenius. Finite cyclic induction equals coinduction, giving Hom(Ind D′,D)≅Hom(D′,Pull D). SF.1 supplies these module and finite étale sheaf adjunctions, including units/counits; trace self-duality is used without dividing by the extension degree.",
+        "Check both units/counits, their Frobenius compatibility and the triangle identities; apply the block classification to compute slopes. Fun later transports these identities to the coefficient curve map. The reverse bundle adjunction is the map-transfer step used by Cl."
       ],
       "acceptance": [
         "Unramified degree two sends slope 1/2 to 1; totally ramified degree two sends slope 1 to 2.",
-        "The two coefficient categories differ even if their L fields identify."
+        "The two coefficient categories differ even if their L fields identify.",
+        "For a degree-h unramified coefficient map f and λ=s/h, a nonzero O(s)→f*V gives a nonzero f_*O(s)=O(λ)→V under Hom(f_*W,V)≅Hom(W,f*V). This works even in equal characteristic when p divides h."
       ],
       "prerequisites": [
         "VectorBundlesAndIsocrystals:VB0/isocrystal-category-and-standard-block",
@@ -740,6 +741,11 @@
           "sourceId": "FF18-courbes",
           "locator": "8.2.3 after Proposition 8.2.8, p. 238",
           "match": "Coefficient extension/induction and corresponding curve maps."
+        },
+        {
+          "sourceId": "SW20",
+          "locator": "Theorem 13.5.7, proof, printed p. 114 (PDF p. 124)",
+          "match": "The finite étale perfect trace pairing gives the self-duality needed for the reverse adjunction; the generic adjunction construction is requested from SF.1."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1451,7 +1457,7 @@
       "proofSteps": [
         "Reduce rational λ to an integer twist after the finite unramified denominator cover, using Adj and trace.",
         "Solve φ−π^n by convergent annular series for positive integer twists; the zero case uses the fundamental exact sequence from the BC owner.",
-        "For negative twists use untilt exact sequences and induction. Import the BC owner’s basic positive/negative geometric representability package and record its retargeting request to early VB1; there is no dependence on full VB1/HN. The open-ball dimension is the positive numerator d, not the rank h."
+        "For negative twists use untilt exact sequences and induction. Import the BC owner’s basic positive/negative geometric representability package with its early analytic inputs; G-INTEGRATION isolates the needed fundamental sequence from its later VS1 comparison. There is no dependence on full VB1/HN. The open-ball dimension is the positive numerator d, not the rank h."
       ],
       "acceptance": [
         "At λ=0 H¹ vanishes only after the stated v-sheafification or on affinoid pro-étale input; distinguish this from a global assertion on arbitrary S.",
@@ -1462,7 +1468,8 @@
         "VectorBundlesAndIsocrystals:VB1/frobenius-two-term-cohomology",
         "VectorBundlesAndIsocrystals:VB1/v-descent-for-bundles-and-cohomology",
         "VectorBundlesAndIsocrystals:VB3:positive-basic-examples/lubin-tate-universal-cover",
-        "VectorBundlesAndIsocrystals:VB3:positive-basic-examples/fundamental-exact-sequence"
+        "VectorBundlesAndIsocrystals:VB3:positive-basic-examples/fundamental-exact-sequence",
+        "VectorBundlesAndIsocrystals:VB0/scalar-extension-adjunction"
       ],
       "sources": [
         {
@@ -3192,7 +3199,7 @@
       "hypotheses": [],
       "proofSteps": [
         "If V is not semistable, induct on rank and split its HN extensions using positive-slope H¹ vanishing.",
-        "Reduce fixed slope to zero by finite unramified coefficient pullback and Adj, and use the fixed-slope abelian finite-length category.",
+        "Reduce fixed slope λ=s/h to zero by finite unramified coefficient pullback and the fixed-slope abelian finite-length category. After the slope-zero argument gives O(s)→f*V, use the reverse trace adjunction Hom(f_*O(s),V)≅Hom(O(s),f*V), with f_*O(s)=O(λ), to obtain a nonzero standard-bundle map. Stability and finite length finish the fixed-slope induction. Zero-twist H¹ vanishing, applied after the standard tensor/denominator comparison, splits the remaining equal-slope extensions; the ordinary pullback-left-adjoint direction alone cannot transfer this map.",
         "To justify replacing C by an extension, argue conditionally: if V becomes trivial there, then Isom(O^rank(V),V) is a v-locally trivial GL_rank(V)(E)-torsor by H⁰(O)=E and VD; D3 makes this a pro-étale torsor over the algebraically closed point, hence trivial. This does not assume V is already v-locally trivial. Now use GG to choose minimal d with O(−d) injecting into a slope-zero V; apply the rank induction and the key extension lemma after allowed extensions to rule out d≥2 and handle d=1, thereby proving triviality.",
         "Uniqueness follows from stable slopes and rank multiplicities. For lack of full faithfulness, Hom_Φ(D(0,1),D(−1,1))=0 while Hom(O,O(1))=H⁰(O(1))≠0."
       ],
@@ -3221,7 +3228,7 @@
         },
         {
           "sourceId": "FF18-courbes",
-          "locator": "Theorem 8.2.10, p. 238",
+          "locator": "Theorem 8.2.10, pp. 238–239",
           "match": "Isocrystal/bundle classification statement."
         }
       ],
@@ -3247,7 +3254,7 @@
       "hypotheses": [],
       "proofSteps": [
         "SF.0 supplies Hom/Ext versus cohomology for a finite locally free source in the abelian module-sheaf category. Use GAGA for geometric analytic/schematic cohomology comparison and the two-affine-cover theorem for schematic higher cohomology vanishing. Then apply exact tensor Frobenius calculus.",
-        "Apply positive, zero and negative twist cases with μ−λ; preserve the ordering of source and target."
+        "Apply positive, zero and negative twist cases with μ−λ; preserve the ordering of source and target. For the tensor multiplicity use the correctly indexed formula O(d₁,h₁)⊗O(d₂,h₂)=O(d₁h₂+d₂h₁,h₁h₂). In the noncoprime cover calculation put δ=gcd(h₁,h₂), decompose the pulled-back second factor into δ copies with denominator h₂/δ, and apply the coprime calculation to h₁/δ and h₂/δ. This repairs the source proof slips recorded in E16–E18."
       ],
       "acceptance": [
         "Hom(O(1),O)=0 but Hom(O,O(1))≠0. Ext¹(O(−1),O(1))=0, while the reverse direction can have nontrivial extensions."
@@ -3264,7 +3271,7 @@
       "sources": [
         {
           "sourceId": "FF18-courbes",
-          "locator": "Proposition 5.6.23(4)–(5), printed p. 181 (proof continues p. 182)",
+          "locator": "Proposition 5.6.23(4)–(5), statement p. 181; proof p. 183",
           "match": "Exact orientation of Hom/Ext vanishing and tensor normalization."
         }
       ],
@@ -3393,7 +3400,7 @@
         },
         {
           "sourceId": "SW20",
-          "locator": "Theorem 13.5.7 and proof, pp. 114–115",
+          "locator": "Theorem 13.5.7 and proof, printed p. 114 (PDF p. 124)",
           "match": "Trace-pairing/classification argument identifies the coefficient algebra."
         }
       ],
@@ -3421,7 +3428,7 @@
       "stageId": "VectorBundlesAndIsocrystals:VB1",
       "status": "planned",
       "remaining": [
-        "G-GEOM: independent chart coverage/local comparison; G-HN: boundedness and generic-fiber axioms; G-INTEGRATION: retarget basic BC/RF3 suppliers; G-LEAN: actual curve carriers."
+        "G-GEOM: independent chart coverage/local comparison; G-HN: boundedness and generic-fiber axioms; G-INTEGRATION: isolate the early fundamental sequence from the VS1 Weil comparison; G-LEAN: actual curve carriers."
       ],
       "note": "Every target in scope has a node; chains terminate in verified baseline references, precise supplier contracts or the named gaps. This is target-level planning, not proof closure."
     },
@@ -3455,7 +3462,7 @@
     {
       "id": "G-INTEGRATION",
       "title": "Atomic early-layer integration",
-      "detail": "The RF0 packet still assigns the full isocrystal functor to RF3 and states a global curve map without chart coverage. Under accepted RS-20 consume only rank-one O(n) descent/sign/divisor compatibility and partial homogeneous charts there; this packet owns the full functor and global coverage. The other VB3 packet still depends on the whole VB1 aggregate for its basic BC nodes. Retarget those inputs to Bundle/Ann/Coh/VD, excluding Tw and geometric degree/HN. Until these changes are integrated atomically, the old aggregate stage graph retains cycles; the proposed direct declaration graph is acyclic.",
+      "detail": "On 2026-10-08 the current RF0 packet already restricts RF3 to rank-one twists and partial homogeneous charts; the current VB3 definition and Lubin–Tate nodes already use the early analytic VB1 nodes. The remaining direct cycle is the VB3 fundamental-exact-sequence node, which combines the early untilt exact sequence with the later VS1 divisor-to-Weil comparison and imports VS1. Tw and Key need only the early exact sequence, whereas VS1 consumes geometric classification. Split the early exact-sequence/divisor identification from the later Weil/reciprocity comparison and keep the early node free of VS1. The existing supplier is under a needs_changes review. Preserve the accepted narrow RF3 contracts and align the aggregate stage graph after this remaining split; only the graph of the requested narrowed contracts is claimed acyclic.",
       "neededBy": [
         "VectorBundlesAndIsocrystals:VB1/isocrystal-to-bundle-functor",
         "VectorBundlesAndIsocrystals:VB1/cohomology-of-twists",
@@ -3466,7 +3473,7 @@
     {
       "id": "G-DM",
       "title": "Dieudonné–Manin proof inputs beyond the pinned rank-one theorem",
-      "detail": "Ked05 4.5.5–4.5.8 provides the mixed-characteristic ramified-coefficient route, but its eigenvector calculation Lemma 4.3.3 imports [19, Lemma 4.12] without a proof read here. A proof of that specific calculation and a full equal-characteristic bar F_q((π)) proof are required. Lurie26 Theorem 6 is only a statement source. This gap replaces the inherited claim that no higher-rank proof route had been read.",
+      "detail": "Ked05 4.5.5–4.5.8 provides the mixed-characteristic ramified-coefficient route, but its eigenvector calculation Lemma 4.3.3 imports [19, Lemma 4.12] without a proof read here. A proof of that specific calculation and a full equal-characteristic bar F_q((π)) proof are required. Lurie26 Theorem 6, p. 2 is only a statement source. This gap replaces the inherited claim that no higher-rank proof route had been read.",
       "neededBy": [
         "VectorBundlesAndIsocrystals:VB0/dieudonne-manin-isocrystals",
         "VectorBundlesAndIsocrystals:VB0/tensor-and-dual-slopes",
@@ -3593,7 +3600,7 @@
     },
     {
       "supplier": "RelativeFarguesFontaine:RF3/isocrystal-line-bundles-and-sign",
-      "need": "Apply accepted RS-20: expose only rank-one O(n), π^{-n} sign, tensor/dual and untilt-divisor compatibility at RF3. Remove the general finite-isocrystal functor from this supplier; it is owned by VectorBundlesAndIsocrystals:VB1/isocrystal-to-bundle-functor. No full VB1 or ampleness prerequisite is needed for rank-one descent.",
+      "need": "Preserve the accepted RS-20 rank-one contract: RF3 exposes O(n), the π^{-n} sign, tensor/dual and untilt-divisor compatibility. The general finite-isocrystal functor belongs to VectorBundlesAndIsocrystals:VB1/isocrystal-to-bundle-functor. No full VB1 or ampleness prerequisite is needed for rank-one descent; the current RF0 packet already has this scope.",
       "neededBy": [
         "VectorBundlesAndIsocrystals:VB1/isocrystal-to-bundle-functor",
         "VectorBundlesAndIsocrystals:VB1/geometric-point-chart-cover"
@@ -3601,7 +3608,7 @@
     },
     {
       "supplier": "RelativeFarguesFontaine:RF3/graded-algebra-and-algebraic-curve-map",
-      "need": "Apply accepted RS-20: the homogeneous graded ring and maps D(g)→D_+(g) glue only on U=⋃D(g). Expose the local ring maps and overlap localization laws without claiming U=X. Early geometric coverage is VectorBundlesAndIsocrystals:VB1/geometric-point-chart-cover; general-S coverage and compatible schematic twists are VectorBundlesAndIsocrystals:VB2:ampleness/global-proj-map-and-twists.",
+      "need": "Preserve the accepted RS-20 chart contract: the homogeneous graded ring and maps D(g)→D_+(g) glue only on U=⋃D(g). The current RF0 packet supplies these local maps and overlap laws without claiming U=X. Early geometric coverage is VectorBundlesAndIsocrystals:VB1/geometric-point-chart-cover; general-S coverage and compatible schematic twists are VectorBundlesAndIsocrystals:VB2:ampleness/global-proj-map-and-twists.",
       "neededBy": [
         "VectorBundlesAndIsocrystals:VB1/geometric-point-chart-cover",
         "VectorBundlesAndIsocrystals:VB2:ampleness/global-proj-map-and-twists",
@@ -3631,7 +3638,7 @@
     },
     {
       "supplier": "SchemeAndStackFoundations:SF.1",
-      "need": "Supply effective finite faithfully flat/Galois descent of finite projective modules, with compatible semilinear endomorphisms, ordinary coefficient extension/restriction adjunction for finite separable field extension, and gluing of such data. V-descent on perfectoid annuli uses the D2 v-theorems in addition; ordinary fpqc descent alone does not establish the analytic v-stack. When a lifted σ′ conjugates the Galois group, require Φ′ρ_g=ρ_{σ′gσ′^{-1}}Φ′; ordinary commutation is the centralizing special case.",
+      "need": "Supply effective finite faithfully flat/Galois descent of finite projective modules, with compatible semilinear endomorphisms, both coefficient extension/restriction adjunctions for finite separable field extension, using the perfect trace pairing to identify restriction with coinduction and checking compatibility with Frobenius, plus both adjunctions between finite étale sheaf pullback and pushforward with their units/counits and triangle identities (without dividing by the extension degree), and gluing of such data. V-descent on perfectoid annuli uses the D2 v-theorems in addition; ordinary fpqc descent alone does not establish the analytic v-stack. When a lifted σ′ conjugates the Galois group, require Φ′ρ_g=ρ_{σ′gσ′^{-1}}Φ′; ordinary commutation is the centralizing special case.",
       "neededBy": [
         "VectorBundlesAndIsocrystals:VB0/scalar-extension-adjunction",
         "VectorBundlesAndIsocrystals:VB0/finite-galois-descent",
@@ -3661,7 +3668,7 @@
     },
     {
       "supplier": "VectorBundlesAndIsocrystals:VB3:positive-basic-examples/banach-colmez-space-definition",
-      "need": "Retarget the two-term hypercohomology definition from the entire VB1 stage to VectorBundlesAndIsocrystals:VB1/frobenius-two-term-cohomology and VectorBundlesAndIsocrystals:VB1/v-descent-for-bundles-and-cohomology. It must remain H⁰ of derived RΓ for two-term complexes; a cokernel does not define it.",
+      "need": "Preserve the current early prerequisites VectorBundlesAndIsocrystals:VB1/finite-locally-free-bundles, VectorBundlesAndIsocrystals:VB1/frobenius-two-term-cohomology and VectorBundlesAndIsocrystals:VB1/v-descent-for-bundles-and-cohomology. The two-term Banach–Colmez definition is H⁰ of derived RΓ for two-term complexes; a cokernel does not define it.",
       "neededBy": [
         "VectorBundlesAndIsocrystals:VB1/cohomology-of-twists",
         "VectorBundlesAndIsocrystals:VB1/frobenius-two-term-cohomology"
@@ -3669,7 +3676,7 @@
     },
     {
       "supplier": "VectorBundlesAndIsocrystals:VB3:positive-basic-examples/lubin-tate-universal-cover",
-      "need": "Provide FS II.2.2–II.2.4, including degree-one untilt divisor/evaluation sequence, connected basic positive spaces and the negative A¹/E presentation. Replace its whole-VB1 prerequisite by VectorBundlesAndIsocrystals:VB1/finite-locally-free-bundles, VectorBundlesAndIsocrystals:VB1/annular-frobenius-descent, VectorBundlesAndIsocrystals:VB1/frobenius-two-term-cohomology and VectorBundlesAndIsocrystals:VB1/v-descent-for-bundles-and-cohomology; it must not import Tw or HN, since Tw consumes this node.",
+      "need": "Provide FS II.2.2–II.2.4, including the degree-one untilt evaluation, connected basic positive spaces and the negative A¹/E presentation. Preserve the current early definition/Lubin–Tate prerequisites through Bundle/Ann/Coh/VD and the stated formal-group/RF2 inputs. It must not import Tw or HN, since Tw consumes this package. The early fundamental exact sequence is separately requested below without its later VS1 comparison.",
       "neededBy": [
         "VectorBundlesAndIsocrystals:VB1/cohomology-of-twists",
         "VectorBundlesAndIsocrystals:VB1/geometric-point-chart-cover",
@@ -3691,6 +3698,14 @@
       "neededBy": [
         "VectorBundlesAndIsocrystals:VB2:classification/finite-etale-constant-algebras"
       ]
+    },
+    {
+      "supplier": "VectorBundlesAndIsocrystals:VB3:positive-basic-examples/fundamental-exact-sequence",
+      "need": "Export the early untilt sequence 0→O→O(1)→O_{S^sharp}→0 and its degree-one divisor identification using Lubin–Tate evaluation, the early analytic VB1 nodes and RF2 Cartier-divisor inputs. Separate the later VS1 divisor-to-Weil/local-reciprocity comparison into its own declaration. Tw and Key consume only the early sequence, so its supplier must not import VS1, geometric classification or family HN. Preserve the current early definition/Lubin–Tate retargeting; the unresolved later comparison remains with VS1.",
+      "neededBy": [
+        "VectorBundlesAndIsocrystals:VB1/cohomology-of-twists",
+        "VectorBundlesAndIsocrystals:VB2:classification/key-extension-lemma"
+      ]
     }
   ],
   "restructure": [
@@ -3700,8 +3715,8 @@
         "VectorBundlesAndIsocrystals",
         "RelativeFarguesFontaine"
       ],
-      "detail": "Accepted RS-15 and RS-20 and confirmed RT-AREA-padic-1/21 require an acyclic order. Current RF3 and VB3 packets retain the older aggregate contracts.",
-      "proposal": "Apply the following split and retargeting atomically: RF3 rank-one twists/graded ring/partial charts → VB1 early bundle/annular/Frobenius-complex/v-descent → basic VB3 Lubin–Tate/fundamental sequence → VB1 twist cohomology → VB1 geometric-point cover/regularity/Picard/degree/HN → VB2 ampleness/global map/GAGA → VB2 classification. Keep all legacy IDs. Reparent the classical-point and geometric-scheme nodes to VB1; RF3 must not consume the global map or full functor. Retarget the basic VB3 dependencies to the four early analytic nodes, excluding Tw. The global stage graph is not claimed repaired until supplier changes integrate."
+      "detail": "Accepted RS-15 and RS-20 and confirmed RT-AREA-padic-1/21 require an acyclic order. RF3 and the basic VB3 definition/Lubin–Tate nodes now have their narrow contracts. The fundamental exact sequence still needs separation from its later VS1 Weil comparison, and aggregate stage ordering must follow the narrowed declarations.",
+      "proposal": "Apply the following split and retargeting atomically: RF3 rank-one twists/graded ring/partial charts → VB1 early bundle/annular/Frobenius-complex/v-descent → basic VB3 Lubin–Tate/fundamental sequence → VB1 twist cohomology → VB1 geometric-point cover/regularity/Picard/degree/HN → VB2 ampleness/global map/GAGA → VB2 classification. Keep all legacy IDs. Reparent the classical-point and geometric-scheme nodes to VB1; RF3 must not consume the global map or full functor. Keep the existing basic VB3 early dependencies, excluding Tw; split the early fundamental exact sequence from the later VS1 Weil comparison. The global stage graph is not claimed repaired until supplier changes integrate."
     },
     {
       "action": "split",
@@ -3745,9 +3760,16 @@
       },
       "review": {
         "verdict": "confirmed",
-        "reason": "At KL p. 181 the proof extends generators only from U1. U2 is required to cover V_+(f1). Definition 8.8.1 chooses degree-one f_i, so the undefined d must be 1.",
-        "by": "REV-VectorBundlesAndIsocrystals--VB0"
-      }
+        "reason": "The KL8.8.4 proof on pp. 180–181 treats one nonvanishing chart; sections extended from that chart cannot generate along its complement. Repeat on the other degree-one chart and choose a common extension exponent.",
+        "by": "REV-VectorBundlesAndIsocrystals--VB0~2"
+      },
+      "reviewHistory": [
+        {
+          "verdict": "confirmed",
+          "reason": "At KL p. 181 the proof extends generators only from U1. U2 is required to cover V_+(f1). Definition 8.8.1 chooses degree-one f_i, so the undefined d must be 1.",
+          "by": "REV-VectorBundlesAndIsocrystals--VB0"
+        }
+      ]
     },
     {
       "id": "VectorBundlesAndIsocrystals/E2",
@@ -3772,9 +3794,16 @@
       },
       "review": {
         "verdict": "confirmed",
-        "reason": "KL p. 181 cites generation Lemma 8.8.4 for H¹ vanishing while proving the implication from generation to vanishing. The explicitly cited Proposition 6.2.2 proves the required positive-twist vanishing independently.",
-        "by": "REV-VectorBundlesAndIsocrystals--VB0"
-      }
+        "reason": "KL8.8.6 on p. 181 invokes the generation lemma while deriving vanishing from generation. The independently established difference-equation vanishing in 6.2.2 breaks the circular implication.",
+        "by": "REV-VectorBundlesAndIsocrystals--VB0~2"
+      },
+      "reviewHistory": [
+        {
+          "verdict": "confirmed",
+          "reason": "KL p. 181 cites generation Lemma 8.8.4 for H¹ vanishing while proving the implication from generation to vanishing. The explicitly cited Proposition 6.2.2 proves the required positive-twist vanishing independently.",
+          "by": "REV-VectorBundlesAndIsocrystals--VB0"
+        }
+      ]
     },
     {
       "id": "VectorBundlesAndIsocrystals/E3",
@@ -3799,9 +3828,16 @@
       },
       "review": {
         "verdict": "confirmed",
-        "reason": "In KL pp. 181–182 the chosen n depends on e. Fix n0 from e=0, choose each later n divisible by n0, and express every sufficiently large multiple of n0 as jn+kn0 with j,k large. This gives the required single tensor-power criterion.",
-        "by": "REV-VectorBundlesAndIsocrystals--VB0"
-      }
+        "reason": "The exponent and chosen divisor in KL8.8.6 depend on the test twist e. Fix n₀ at e=0 first, then choose each later exponent as a multiple of n₀; this gives one power satisfying the global ampleness quantifier.",
+        "by": "REV-VectorBundlesAndIsocrystals--VB0~2"
+      },
+      "reviewHistory": [
+        {
+          "verdict": "confirmed",
+          "reason": "In KL pp. 181–182 the chosen n depends on e. Fix n0 from e=0, choose each later n divisible by n0, and express every sufficiently large multiple of n0 as jn+kn0 with j,k large. This gives the required single tensor-power criterion.",
+          "by": "REV-VectorBundlesAndIsocrystals--VB0"
+        }
+      ]
     },
     {
       "id": "VectorBundlesAndIsocrystals/E4",
@@ -3827,9 +3863,16 @@
       },
       "review": {
         "verdict": "confirmed",
-        "reason": "CN p. 14 prints the one-sided hypotheses. The split extension O(5)⊕O satisfies them for [0,1] and has slope 5. Both terms must have slopes in the interval.",
-        "by": "REV-VectorBundlesAndIsocrystals--VB0"
-      }
+        "reason": "In CN §3.2.2 p. 14, O(5)→O(5)⊕O→O satisfies the stated lower/upper hypotheses for [0,1] but has an HN slope 5. Bounds on both terms repair the extension claim.",
+        "by": "REV-VectorBundlesAndIsocrystals--VB0~2"
+      },
+      "reviewHistory": [
+        {
+          "verdict": "confirmed",
+          "reason": "CN p. 14 prints the one-sided hypotheses. The split extension O(5)⊕O satisfies them for [0,1] and has slope 5. Both terms must have slopes in the interval.",
+          "by": "REV-VectorBundlesAndIsocrystals--VB0"
+        }
+      ]
     },
     {
       "id": "VectorBundlesAndIsocrystals/E5",
@@ -3859,9 +3902,16 @@
       },
       "review": {
         "verdict": "confirmed",
-        "reason": "FS p. 63: comparing π^i coefficients of φ(f)=π^n f gives φ(r_i)=r_{i−n}. The n=1 recurrence in II.2.2 agrees; the number of free coefficients is unchanged.",
-        "by": "REV-VectorBundlesAndIsocrystals--VB0"
-      }
+        "reason": "For f=Σ[r_i]π^i, comparing the coefficient of π^i in φ(f)=π^n f gives φ(r_i)=r_{i−n}. FS p. 63 has the index in the opposite direction.",
+        "by": "REV-VectorBundlesAndIsocrystals--VB0~2"
+      },
+      "reviewHistory": [
+        {
+          "verdict": "confirmed",
+          "reason": "FS p. 63: comparing π^i coefficients of φ(f)=π^n f gives φ(r_i)=r_{i−n}. The n=1 recurrence in II.2.2 agrees; the number of free coefficients is unchanged.",
+          "by": "REV-VectorBundlesAndIsocrystals--VB0"
+        }
+      ]
     },
     {
       "id": "VectorBundlesAndIsocrystals/E6",
@@ -3891,9 +3941,16 @@
       },
       "review": {
         "verdict": "confirmed",
-        "reason": "FS p. 63 uses λ=r/s but prints φ^r=p^s. The denominator s is the unramified extension degree, so the equation is φ^s=p^r. λ=1/2 distinguishes the equations.",
-        "by": "REV-VectorBundlesAndIsocrystals--VB0"
-      }
+        "reason": "At λ=1/2 the denominator cover has degree two and the invariant equation is φ²=p, so the FS p. 63 display with numerator and denominator exchanged gives the wrong slope.",
+        "by": "REV-VectorBundlesAndIsocrystals--VB0~2"
+      },
+      "reviewHistory": [
+        {
+          "verdict": "confirmed",
+          "reason": "FS p. 63 uses λ=r/s but prints φ^r=p^s. The denominator s is the unramified extension degree, so the equation is φ^s=p^r. λ=1/2 distinguishes the equations.",
+          "by": "REV-VectorBundlesAndIsocrystals--VB0"
+        }
+      ]
     },
     {
       "id": "VectorBundlesAndIsocrystals/E7",
@@ -3923,9 +3980,16 @@
       },
       "review": {
         "verdict": "confirmed",
-        "reason": "FS p. 64 inducts at n<−1, where H¹(O(n)) and H¹(O(n+1)) are the negative-twist terms. Printed O(−n) has positive slope and zero H¹, so it cannot perform that induction.",
-        "by": "REV-VectorBundlesAndIsocrystals--VB0"
-      }
+        "reason": "For n<−1 the displayed O(−n) on FS p. 64 is positive and has no H¹ on affinoids. The consecutive negative-twist sequence O(n)→O(n+1) gives the required induction.",
+        "by": "REV-VectorBundlesAndIsocrystals--VB0~2"
+      },
+      "reviewHistory": [
+        {
+          "verdict": "confirmed",
+          "reason": "FS p. 64 inducts at n<−1, where H¹(O(n)) and H¹(O(n+1)) are the negative-twist terms. Printed O(−n) has positive slope and zero H¹, so it cannot perform that induction.",
+          "by": "REV-VectorBundlesAndIsocrystals--VB0"
+        }
+      ]
     },
     {
       "id": "VectorBundlesAndIsocrystals/E8",
@@ -3950,9 +4014,16 @@
       },
       "review": {
         "verdict": "confirmed",
-        "reason": "FS pp. 65–66 normalize |[ϖ]|=q^−1 and rad=log|[ϖ]|/log|π|; hence |π|=q^−1/ρ. For A=π^N and w=π^M the constant particular solution has size q^−M/q at radius q. A homogeneous eigenvector cannot cancel its unit coefficient without violating convergence along its negative-index recurrence. This contradicts (II.2.1); the KL replacement and G-GG are necessary.",
-        "by": "REV-VectorBundlesAndIsocrystals--VB0"
-      }
+        "reason": "With the FS radius ρ=log|ϖ|/log|π| and |ϖ|=q^−1, one has |π|=q^−1/ρ. In equal characteristic a constant π^M term in the difference equation gives the size q^−M/q at radius q, exceeding q^−M−1; the homogeneous correction cannot cancel that coefficient while converging on the annulus. The printed p. 65–66 estimate fails.",
+        "by": "REV-VectorBundlesAndIsocrystals--VB0~2"
+      },
+      "reviewHistory": [
+        {
+          "verdict": "confirmed",
+          "reason": "FS pp. 65–66 normalize |[ϖ]|=q^−1 and rad=log|[ϖ]|/log|π|; hence |π|=q^−1/ρ. For A=π^N and w=π^M the constant particular solution has size q^−M/q at radius q. A homogeneous eigenvector cannot cancel its unit coefficient without violating convergence along its negative-index recurrence. This contradicts (II.2.1); the KL replacement and G-GG are necessary.",
+          "by": "REV-VectorBundlesAndIsocrystals--VB0"
+        }
+      ]
     },
     {
       "id": "VectorBundlesAndIsocrystals/E9",
@@ -3977,9 +4048,16 @@
       },
       "review": {
         "verdict": "confirmed",
-        "reason": "FS p. 66 writes w2 with π^{M−N}, then drops π^−N after applying φ(A^−1). On |[ϖ]|=|π| the actual exponent is M+(q−1)N−N′. The proposed cutoff K has lower bound (N′+1)/(q−1) and upper bound 1+(N−1)q/(q−1), so the corrected two inequalities work also at q=2 after twisting.",
-        "by": "REV-VectorBundlesAndIsocrystals--VB0"
-      }
+        "reason": "The calculation on FS p. 66 must retain π^−N. After inverse Frobenius iteration the valuation bound has the extra −N term, M+(q−1)N−N′; the printed implication therefore fails already at q=2. A separately chosen cutoff or the KL contraction route is required.",
+        "by": "REV-VectorBundlesAndIsocrystals--VB0~2"
+      },
+      "reviewHistory": [
+        {
+          "verdict": "confirmed",
+          "reason": "FS p. 66 writes w2 with π^{M−N}, then drops π^−N after applying φ(A^−1). On |[ϖ]|=|π| the actual exponent is M+(q−1)N−N′. The proposed cutoff K has lower bound (N′+1)/(q−1) and upper bound 1+(N−1)q/(q−1), so the corrected two inequalities work also at q=2 after twisting.",
+          "by": "REV-VectorBundlesAndIsocrystals--VB0"
+        }
+      ]
     },
     {
       "id": "VectorBundlesAndIsocrystals/E10",
@@ -4005,9 +4083,16 @@
       },
       "review": {
         "verdict": "confirmed",
-        "reason": "FS p. 67 claims the chart construction has no hypotheses. With a negative line bundle on P¹, every positive-degree section vanishes and the chart union is empty. Generation is required to cover X, precisely the RF3/global-Proj separation in RS-20.",
-        "by": "REV-VectorBundlesAndIsocrystals--VB0"
-      }
+        "reason": "The p. 67 construction is on the union of homogeneous nonvanishing opens. For P¹ with the chosen line O(−1), all positive-degree section spaces are zero, so that union is empty. Chart coverage needs the generation hypothesis.",
+        "by": "REV-VectorBundlesAndIsocrystals--VB0~2"
+      },
+      "reviewHistory": [
+        {
+          "verdict": "confirmed",
+          "reason": "FS p. 67 claims the chart construction has no hypotheses. With a negative line bundle on P¹, every positive-degree section vanishes and the chart union is empty. Generation is required to cover X, precisely the RF3/global-Proj separation in RS-20.",
+          "by": "REV-VectorBundlesAndIsocrystals--VB0"
+        }
+      ]
     },
     {
       "id": "VectorBundlesAndIsocrystals/E11",
@@ -4033,9 +4118,16 @@
       "originalLocator": "Théorème 5.5.3 and the following sentence, p. 213, author copy courbe.pdf (16 avril 2017)",
       "review": {
         "verdict": "confirmed",
-        "reason": "Current FF printed p. 163 defines segment slopes as degree/rank and horizontal lengths as ranks, then reverses the coordinates in Theorem 5.5.3. The point must be (rank,degree), as used by this polygon node.",
-        "by": "REV-VectorBundlesAndIsocrystals--VB0"
-      }
+        "reason": "FF Theorem 5.5.3 p. 163 places degree before rank. Polygon segments have horizontal length rank and slope degree/rank; the O(1/2) endpoint is (2,1), forcing (rank,degree).",
+        "by": "REV-VectorBundlesAndIsocrystals--VB0~2"
+      },
+      "reviewHistory": [
+        {
+          "verdict": "confirmed",
+          "reason": "Current FF printed p. 163 defines segment slopes as degree/rank and horizontal lengths as ranks, then reverses the coordinates in Theorem 5.5.3. The point must be (rank,degree), as used by this polygon node.",
+          "by": "REV-VectorBundlesAndIsocrystals--VB0"
+        }
+      ]
     },
     {
       "id": "VectorBundlesAndIsocrystals/E12",
@@ -4061,9 +4153,16 @@
       "originalLocator": "Définition 5.5.5, p. 214, author copy courbe.pdf (16 avril 2017)",
       "review": {
         "verdict": "confirmed",
-        "reason": "Current FF printed p. 164 excludes only the zero strict subobject in Definition 5.5.5; identity is also strict. Testing X′=X forces μ(X)<μ(X). Add X′≠X to agree with the following simple-object characterization.",
-        "by": "REV-VectorBundlesAndIsocrystals--VB0"
-      }
+        "reason": "FF Definition 5.5.5 p. 164 includes the identity strict subobject in its stability test. That would demand μ(V)<μ(V); restricting to nonzero proper subobjects agrees with the fixed-slope simple-object characterization.",
+        "by": "REV-VectorBundlesAndIsocrystals--VB0~2"
+      },
+      "reviewHistory": [
+        {
+          "verdict": "confirmed",
+          "reason": "Current FF printed p. 164 excludes only the zero strict subobject in Definition 5.5.5; identity is also strict. Testing X′=X forces μ(X)<μ(X). Add X′≠X to agree with the following simple-object characterization.",
+          "by": "REV-VectorBundlesAndIsocrystals--VB0"
+        }
+      ]
     },
     {
       "id": "VectorBundlesAndIsocrystals/E13",
@@ -4089,9 +4188,16 @@
       "originalLocator": "§8.2.3, p. 286 (also §8.1.2, p. 279, §8.2.1.2, p. 284, and §8.2.2, p. 285), author copy courbe.pdf (16 avril 2017)",
       "review": {
         "verdict": "confirmed",
-        "reason": "Current FF pp. 229,234–236 write Witt rings where fields and a division algebra are required. Invert π: in particular L must be a field for Definition 8.2.5, and E_n[Π] is the algebra whereas O_{E_n}[Π] is its order.",
-        "by": "REV-VectorBundlesAndIsocrystals--VB0"
-      }
+        "reason": "The rings in FF pp. 229,234–236 are integral Witt rings where scalar fields are required. Invert π for finite-dimensional isocrystals, and distinguish the cyclic division algebra from its integral order.",
+        "by": "REV-VectorBundlesAndIsocrystals--VB0~2"
+      },
+      "reviewHistory": [
+        {
+          "verdict": "confirmed",
+          "reason": "Current FF pp. 229,234–236 write Witt rings where fields and a division algebra are required. Invert π: in particular L must be a field for Definition 8.2.5, and E_n[Π] is the algebra whereas O_{E_n}[Π] is its order.",
+          "by": "REV-VectorBundlesAndIsocrystals--VB0"
+        }
+      ]
     },
     {
       "id": "VectorBundlesAndIsocrystals/E14",
@@ -4117,9 +4223,16 @@
       "originalLocator": "§8.2.3, p. 288, author copy courbe.pdf (16 avril 2017)",
       "review": {
         "verdict": "confirmed",
-        "reason": "Current FF printed p. 238 uses Fix in the coefficient-adjunction diagram; Fib is the defined bundle category used in Proposition 8.2.6. This is a category-name misprint.",
-        "by": "REV-VectorBundlesAndIsocrystals--VB0"
-      }
+        "reason": "FF p. 238 places the coefficient pullback/pushforward diagram in a category labelled Fix although its objects are vector bundles; use Fib and correct the primed coefficient subscript.",
+        "by": "REV-VectorBundlesAndIsocrystals--VB0~2"
+      },
+      "reviewHistory": [
+        {
+          "verdict": "confirmed",
+          "reason": "Current FF printed p. 238 uses Fix in the coefficient-adjunction diagram; Fib is the defined bundle category used in Proposition 8.2.6. This is a category-name misprint.",
+          "by": "REV-VectorBundlesAndIsocrystals--VB0"
+        }
+      ]
     },
     {
       "id": "VectorBundlesAndIsocrystals/E15",
@@ -4139,8 +4252,99 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "KL Definition 6.2.1 on p. 135 defines φ_{M(n)}=p^−n φ_M. Fixed vectors therefore satisfy φ_M(v)=p^n v, whereas Lemma 6.3.17 p. 142 prints p^−n. Reindex by −n; fixed-n norm equivalence survives. The packet’s rank-one π-eigenvalue test separates the two kernels.",
-        "by": "REV-VectorBundlesAndIsocrystals--VB0"
+        "reason": "KL Definition 6.2.1 p. 135 scales twisted Frobenius by p^−n. Fixed vectors in M(n) satisfy φ(v)=p^n v, not the p^−n equation in 6.3.17 p. 142. A rank-one φ(v)=pv example distinguishes the spaces; reindexing preserves the norm-equivalence theorem.",
+        "by": "REV-VectorBundlesAndIsocrystals--VB0~2"
+      },
+      "reviewHistory": [
+        {
+          "verdict": "confirmed",
+          "reason": "KL Definition 6.2.1 on p. 135 defines φ_{M(n)}=p^−n φ_M. Fixed vectors therefore satisfy φ_M(v)=p^n v, whereas Lemma 6.3.17 p. 142 prints p^−n. Reindex by −n; fixed-n norm equivalence survives. The packet’s rank-one π-eigenvalue test separates the two kernels.",
+          "by": "REV-VectorBundlesAndIsocrystals--VB0"
+        }
+      ]
+    },
+    {
+      "id": "VectorBundlesAndIsocrystals/E16",
+      "source": "FF18-courbes",
+      "kind": "misprint",
+      "locator": "Proposition 5.6.23(1), proof, printed p. 182 (PDF p. 242); current 404-page author copy, not a publisher-page collation",
+      "printed": "The final projection-formula result uses the twist h/δ rather than d/δ, where δ=gcd(d,h).",
+      "correction": "Keep the pulled-back twist: O_{X_{h/δ}}(d/δ)^{⊕δ}.",
+      "reason": "The preceding projection formula tensors the trivial rank-δ pushforward with O(d/δ). At d=0,h=2 the printed conclusion would turn the trivial rank-two bundle into O(1)^{⊕2}.",
+      "affects": "nothing",
+      "known": "Already recorded in atlas PAPER-FARGUES-FONTAINE-18/E116; current-copy slip independently confirmed.",
+      "searched": [
+        "Fargues publications page https://webusers.imj-prg.fr/~laurent.fargues/Publications.html and SMF Astérisque 406 page https://smf.emath.fr/publications/courbes-et-fibres-vectoriels-en-theorie-de-hodge-p-adique checked 2026-10-08: no linked corrigendum located; publisher sample does not supply these pages.",
+        "Atlas PAPER-FARGUES-FONTAINE-18.result.json E116–E120 checked 2026-10-08: related findings are already confirmed against an earlier pagination.",
+        "Current hashed author copy, printed pp. 182–183 (PDF pp. 242–243), checked in extracted text and page images 2026-10-08; all findings below concern this copy, with no claim of publisher collation."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The preceding projection formula tensors the trivial rank-δ pushforward with O(d/δ). At d=0,h=2 the printed conclusion would turn the trivial rank-two bundle into O(1)^{⊕2}.",
+        "by": "REV-VectorBundlesAndIsocrystals--VB0~2"
+      }
+    },
+    {
+      "id": "VectorBundlesAndIsocrystals/E17",
+      "source": "FF18-courbes",
+      "kind": "gap",
+      "locator": "Proposition 5.6.23(2), proof, printed p. 182 (PDF p. 242); current 404-page author copy, not a publisher-page collation",
+      "printed": "The Cartesian calculation pulls an X_h line along π_{nh,n} instead of π_{nh,h}. The general case then treats gcd(n/δ,h) as one and concludes with degree d instead of nd.",
+      "correction": "Use π_{nh,h}^* on the X_h line. Establish the general case by strong induction on n or the disjoint-component fiber product, and conclude π_n^*O_X(d,h)≅O_{X_n}(nd,h).",
+      "reason": "The displayed pullback has the wrong target. For n=4,h=2,δ=2 the claimed coprime reduction still has gcd(2,2)=2. The final decomposition has slope nd/h; replacing it by d/h loses the coefficient degree factor.",
+      "affects": "the proof",
+      "known": "General-case gap and missing n already recorded in PAPER-FARGUES-FONTAINE-18/E117; wrong pullback index not listed there and no external correction located.",
+      "searched": [
+        "Fargues publications page https://webusers.imj-prg.fr/~laurent.fargues/Publications.html and SMF Astérisque 406 page https://smf.emath.fr/publications/courbes-et-fibres-vectoriels-en-theorie-de-hodge-p-adique checked 2026-10-08: no linked corrigendum located; publisher sample does not supply these pages.",
+        "Atlas PAPER-FARGUES-FONTAINE-18.result.json E116–E120 checked 2026-10-08: related findings are already confirmed against an earlier pagination.",
+        "Current hashed author copy, printed pp. 182–183 (PDF pp. 242–243), checked in extracted text and page images 2026-10-08; all findings below concern this copy, with no claim of publisher collation."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The displayed pullback has the wrong target. For n=4,h=2,δ=2 the claimed coprime reduction still has gcd(2,2)=2. The final decomposition has slope nd/h; replacing it by d/h loses the coefficient degree factor.",
+        "by": "REV-VectorBundlesAndIsocrystals--VB0~2"
+      }
+    },
+    {
+      "id": "VectorBundlesAndIsocrystals/E18",
+      "source": "FF18-courbes",
+      "kind": "gap",
+      "locator": "Proposition 5.6.23(4), proof, printed p. 183 (PDF p. 243); current 404-page author copy, not a publisher-page collation",
+      "printed": "The tensor displays repeatedly use h₂ for the first rank and d₁ for the second degree. The general calculation also invokes the coprime case on denominators h₁/δ and h₂.",
+      "correction": "Use O(d₁,h₁)⊗O(d₂,h₂)=O(d₁h₂+d₂h₁,h₁h₂). Put δ=gcd(h₁,h₂); decompose the pulled-back second factor into δ copies with denominator h₂/δ, so the remaining denominators h₁/δ,h₂/δ are coprime.",
+      "reason": "The first printed tensor has rank h₂² but its pushforward expression has rank h₁h₂. Its numerator drops d₂. For h₁=4,h₂=2 the supposed coprime pair (2,2) is not coprime; decomposing both denominators before using that case restores rank and degree.",
+      "affects": "the proof",
+      "known": "Already recorded in PAPER-FARGUES-FONTAINE-18/E118 and E119; current-copy slips and repaired argument independently confirmed.",
+      "searched": [
+        "Fargues publications page https://webusers.imj-prg.fr/~laurent.fargues/Publications.html and SMF Astérisque 406 page https://smf.emath.fr/publications/courbes-et-fibres-vectoriels-en-theorie-de-hodge-p-adique checked 2026-10-08: no linked corrigendum located; publisher sample does not supply these pages.",
+        "Atlas PAPER-FARGUES-FONTAINE-18.result.json E116–E120 checked 2026-10-08: related findings are already confirmed against an earlier pagination.",
+        "Current hashed author copy, printed pp. 182–183 (PDF pp. 242–243), checked in extracted text and page images 2026-10-08; all findings below concern this copy, with no claim of publisher collation."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The first printed tensor has rank h₂² but its pushforward expression has rank h₁h₂. Its numerator drops d₂. For h₁=4,h₂=2 the supposed coprime pair (2,2) is not coprime; decomposing both denominators before using that case restores rank and degree.",
+        "by": "REV-VectorBundlesAndIsocrystals--VB0~2"
+      }
+    },
+    {
+      "id": "VectorBundlesAndIsocrystals/E19",
+      "source": "FF18-courbes",
+      "kind": "misprint",
+      "locator": "Proposition 5.6.23(5), proof, printed p. 183 (PDF p. 243); current 404-page author copy, not a publisher-page collation",
+      "printed": "The cohomology on X_h is written with the twist sheaf O_X(d), whose subscript names the other curve.",
+      "correction": "Use H¹(X_h,O_{X_h}(d)); condition (3) of Definition 5.6.21 is already correctly numbered in this current copy.",
+      "reason": "The finite-map cohomology identity computes the pushforward of the line on X_h, so its sheaf must live on X_h. The current copy repairs the older condition-number slip but retains this subscript slip.",
+      "affects": "nothing",
+      "known": "Sheaf-subscript slip already recorded in PAPER-FARGUES-FONTAINE-18/E120; its older condition-(4) slip is corrected to (3) in the current copy.",
+      "searched": [
+        "Fargues publications page https://webusers.imj-prg.fr/~laurent.fargues/Publications.html and SMF Astérisque 406 page https://smf.emath.fr/publications/courbes-et-fibres-vectoriels-en-theorie-de-hodge-p-adique checked 2026-10-08: no linked corrigendum located; publisher sample does not supply these pages.",
+        "Atlas PAPER-FARGUES-FONTAINE-18.result.json E116–E120 checked 2026-10-08: related findings are already confirmed against an earlier pagination.",
+        "Current hashed author copy, printed pp. 182–183 (PDF pp. 242–243), checked in extracted text and page images 2026-10-08; all findings below concern this copy, with no claim of publisher collation."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The finite-map cohomology identity computes the pushforward of the line on X_h, so its sheaf must live on X_h. The current copy repairs the older condition-number slip but retains this subscript slip.",
+        "by": "REV-VectorBundlesAndIsocrystals--VB0~2"
       }
     }
   ],
@@ -4155,335 +4359,336 @@
     "upstreamDocumentsRead": [
       "content/tau-ceti/AdicSpaces/README.md",
       "content/tau-ceti/LocalFieldsRamification/README.md",
-      "content/tau-ceti/ClassFieldTheory/README.md, Layers 5–9"
+      "content/tau-ceti/ClassFieldTheory/README.md, Layers 5–9",
+      "content/tau-ceti/RepresentationTheory/SemisimpleAlgebras/README.md"
     ],
-    "independentReview": "REV-VectorBundlesAndIsocrystals--VB0: all 16 baseline declarations confirmed; reviewed audit read, with no VectorBundlesAndIsocrystals entry and no duplicated library layer found."
+    "independentReview": "REV-VectorBundlesAndIsocrystals--VB0~2: all 16 pinned statements independently confirmed on 2026-10-08. Reviewed library audit has no roadmap entry; finite/free sheaves, Picard and Brauer infrastructure are reused, not planned again. Exact current RF3/VB3, D0/D2/D3 and R3 statements and SF0/SF1/A1/Q4/Z1/VS1 milestones were checked."
   },
   "sourceVersions": [
     {
       "kind": "author copy",
       "url": "https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf",
       "citation": "Author-hosted 356-page PDF; printed page equals PDF page; bytes reproduce the inherited hash.",
-      "read": "2026-10-06",
+      "read": "2026-10-08",
       "sha256": "9ab9efbd0df251bfa3b610d1d1d88a8dfb1bdf7c397bd04f4c277280d98ae905"
     },
     {
       "kind": "author copy",
       "url": "https://webusers.imj-prg.fr/~laurent.fargues/Courbe_fichier_principal.pdf",
       "citation": "Current author-hosted 404-page version of Astérisque 406 (2018). Main-text pagination restarts after the preface; use printed main-text pages, not the inherited continuously paginated edition.",
-      "read": "2026-10-06",
+      "read": "2026-10-08",
       "sha256": "8c020573d3dce341088ea7e83fe1063b410686c08e3a144fa3c0de634667cc79"
     },
     {
       "kind": "preprint",
       "url": "https://arxiv.org/pdf/1301.0792",
       "citation": "arXiv:1301.0792v5; 210 PDF pages; printed pages cited.",
-      "read": "2026-10-06",
+      "read": "2026-10-08",
       "sha256": "a6a117423db62aec072442bb15b70e3175bcc3b631bdcd6d74f740e3c6cfd942"
     },
     {
       "kind": "published",
       "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v186-n3-p01-p.pdf",
       "citation": "Publisher PDF, Annals of Mathematics 186 (2017), pp. 649–766; citations use printed pages.",
-      "read": "2026-10-06",
+      "read": "2026-10-08",
       "sha256": "4f9449e5ecfd8fb8b43a04acef73060f531be995babaa9f744f3db36aaa5e61a"
     },
     {
       "kind": "preprint",
       "url": "https://arxiv.org/pdf/2108.12785",
       "citation": "arXiv:2108.12785v4, 25 November 2024; paper-route identifier CN25 retained; citations use printed pages and §3.2 numbering.",
-      "read": "2026-10-06",
+      "read": "2026-10-08",
       "sha256": "83c6afdc8a377e38dced9dd8b400cb3461a2d47de2664a094e81a04332051361"
     },
     {
       "kind": "author copy",
       "url": "https://people.mpim-bonn.mpg.de/scholze/Berkeley.pdf",
       "citation": "Author-hosted 260-page PDF; PDF page = printed page + 10 (Theorem 13.5.7 printed p. 114 is PDF p. 124).",
-      "read": "2026-10-06",
+      "read": "2026-10-08",
       "sha256": "225505171ef809aa0070c023c881ff1da844923775f2d631474c0b42eea4bffc"
     },
     {
       "kind": "published",
       "url": "https://ems.press/content/serial-article-files/25974",
       "citation": "Documenta Mathematica 10 (2005), 447–525; filename in scratch has no bibliographic significance.",
-      "read": "2026-10-06",
+      "read": "2026-10-08",
       "sha256": "9a9e305e74a57c459311bb5d90ec0d38bd7b6551da6152f2f94e586d6ce4bd68"
     },
     {
       "kind": "author copy",
       "url": "https://www.math.ias.edu/~lurie/205notes/Lecture26-Isocrystals.pdf",
       "citation": "Three-page lecture note; statement source, not a full proof of Dieudonné–Manin.",
-      "read": "2026-10-06",
+      "read": "2026-10-08",
       "sha256": "73fcb0f228e194ba1e4db21957702d861d6abaeae4c11bc3a66511a0b91251ea"
     },
     {
       "kind": "preprint",
       "url": "https://arxiv.org/pdf/2208.07195",
       "citation": "arXiv:2208.07195v3, 10 November 2025, 57 pages; atlas paper-route identifier GLX26 retained.",
-      "read": "2026-10-06",
+      "read": "2026-10-08",
       "sha256": "d2249ddbe1ae2f4728000d27846d396adffc97b2f8b7b1c82c5d2701153fcb12"
     }
   ],
   "review": {
-    "status": "needs_changes",
-    "reviewer": "independent-review-REV-VectorBundlesAndIsocrystals--VB0",
-    "date": "2026-10-06",
-    "notes": "Independent completed target-level review: 51 nodes (31 verified, 20 corrected), 98 API entries, 72 tests, 17 planets, all 16 pinned baseline declarations, all 67 node/source records at nine hash-verified public sources, and all 15 sourceIssues independently confirmed. Corrected contracts and the suggested-file index in the permitted deliverables; lean-check exits 0 with only admitted-proof warnings. The reader is outside this issue’s editable paths and retains contradictory functor scope, proof order and K₀ ownership; the report gives its required revisions, so promotion must wait. Seven honest proof/supplier gaps and five planned stages do not themselves justify rejection.",
+    "status": "accepted",
+    "reviewer": "independent-review-REV-VectorBundlesAndIsocrystals--VB0~2",
+    "date": "2026-10-08",
+    "notes": "Independent completed revision-2 target-level review: all 51 nodes (45 verified, 6 corrected), 98 API entries, 72 tests, 17 planets, 16 exact-pin baseline statements, 68 node/source citations at nine independently hash-matched public PDFs, and 19 confirmed source issues (15 inherited, 4 added). All previous required reader repairs are present. Added both coefficient trace adjunctions, the classification map-transfer step and direct twist-cohomology adjunction input; repaired FF tensor-proof arithmetic and locators. Current RF3/basic VB3 narrowing is recognized; G-INTEGRATION now names the residual fundamental-sequence/VS1 split, with a fifteenth precise supplier request. Reader and suggested index agree. lean-check exits 0 with 77 admitted-proof warnings only. Five stages remain planned, none closed; seven honest proof/supplier gaps and unavailable-carrier omissions do not claim formalization.",
     "checked": [
       {
         "nodeId": "VectorBundlesAndIsocrystals:VB0/isocrystal-category-and-standard-block",
-        "verdict": "corrected",
-        "note": "Removed the irrelevant annulus prerequisite. The raw finite semilinear category uses RF0 coefficients and local-field Frobenius; the pinned class lacks finiteness."
+        "verdict": "verified",
+        "note": "Finite dimension is added to the existing Witt carrier; coefficient automorphism, fixed field, fraction field and morphism intertwining are retained. The raw category does not require annular geometry."
       },
       {
         "nodeId": "VectorBundlesAndIsocrystals:VB0/rational-standard-block",
         "verdict": "verified",
-        "note": "Positive denominator, nonzero uniformizer and cyclic wrap coefficient are explicit. Simplicity requires coprimality only in later results; the rank-one Witt comparison is scoped correctly."
+        "note": "The cyclic matrix has positive rank and invertible wrap coefficient. The zero exponent and rank-one Witt tests distinguish the operator from its inverse; nonreduced blocks are permitted."
       },
       {
         "nodeId": "VectorBundlesAndIsocrystals:VB0/dieudonne-manin-isocrystals",
-        "verdict": "verified",
-        "note": "The general finite classification exceeds the pinned finrank-one theorem. Ked05 supplies the mixed-characteristic route; G-DM explicitly retains the eigenvector calculation and equal-characteristic proof."
+        "verdict": "corrected",
+        "note": "Ked05 4.5.5–8 supplies the mixed-characteristic route; the rank-one library theorem is not overstated. Added p. 2 to the Lurie statement locator. G-DM explicitly reserves its missing eigenvector input and equal-characteristic proof."
       },
       {
         "nodeId": "VectorBundlesAndIsocrystals:VB0/tensor-and-dual-slopes",
-        "verdict": "corrected",
-        "note": "Corrected the Ked05 excerpt to include its displayed tensor multiplicity dd′/d″, lost in text extraction. Ranks, dual sign and bundle-consumer convention agree with both sources."
+        "verdict": "verified",
+        "note": "The inverse-dual operator intertwines evaluation. The block multiplicity h_a h_b/h_{a+b} preserves rank; the half-slope tensor has four rank-one summands, as Ked05 Lemma 4.1.2 requires."
       },
       {
         "nodeId": "VectorBundlesAndIsocrystals:VB0/endomorphism-division-algebra",
-        "verdict": "corrected",
-        "note": "Removed the premature Brauer invariant assertion and its implicit reverse dependency. The early result now proves only division, center, dimension and cyclic presentation; the existing invariant node supplies the later arithmetic comparison."
+        "verdict": "verified",
+        "note": "Solving the cyclic intertwining equations gives center E and dimension h²; simplicity makes nonzero endomorphisms invertible. The early calculation does not invoke the later invariant comparison."
       },
       {
         "nodeId": "VectorBundlesAndIsocrystals:VB0/slope-division-algebra",
         "verdict": "verified",
-        "note": "The slope-labelled cyclic algebra specializes the CFT owner contract and existing CSA carrier. Arithmetic σ, π^d and dimension h² are explicit; no local generic cyclic-algebra development is duplicated."
+        "note": "The chosen arithmetic cyclic presentation has Π^h=π^d and dimension h². The generic central-simple/cyclic machinery stays with the CFT supplier and existing CSA carrier; only slope specialization is planned here."
       },
       {
         "nodeId": "VectorBundlesAndIsocrystals:VB0/brauer-invariant-sign",
         "verdict": "verified",
-        "note": "The opposite/sign convention is correct: isocrystal slope a gives invariant −a; bundle slope d/h gives +d/h. The algebraic/cohomological Brauer comparison remains a precise supplier request."
+        "note": "For the chosen arithmetic generator the invariant is d/h. Opposite algebras negate it and scalar extension multiplies by total degree; the requested algebraic/cohomological comparison is explicit."
       },
       {
         "nodeId": "VectorBundlesAndIsocrystals:VB0/scalar-extension-adjunction",
-        "verdict": "verified",
-        "note": "Coefficient pullback/restriction adjunction retains Frobenius and total-degree slope normalization. Ordinary field/module descent is imported from SF.1, not replanned."
+        "verdict": "corrected",
+        "note": "Added the reverse trace adjunction required to transfer O(s)→f*V into O(s/h)→V. Finite cyclic induction/coinduction and separable trace self-duality give both Hom identities without dividing by the degree. Strengthened SF.1 and added the trace locator."
       },
       {
         "nodeId": "VectorBundlesAndIsocrystals:VB0/finite-galois-descent",
-        "verdict": "corrected",
-        "note": "Made Frobenius/Galois compatibility explicit as Φ′ρ_g=ρ_{σ′gσ′^{-1}}Φ′. Explained why both Φ′ and its inverse restrict to invariants, and why ordinary commutation requires centralization."
+        "verdict": "verified",
+        "note": "The conjugation identity Φ′ρ_g=ρ_{σ′gσ′^{-1}}Φ′ preserves the invariant space for both Φ′ and its inverse. Ordinary commutation is correctly limited to a centralizing lift."
       },
       {
         "nodeId": "VectorBundlesAndIsocrystals:VB1/finite-locally-free-bundles",
-        "verdict": "corrected",
-        "note": "The same generator witness must be finite and free. Added nonemptiness and a residue-field stalk to the infinite-free non-example, excluding the empty-scheme exception."
+        "verdict": "verified",
+        "note": "One generator witness is both finite and free, matching the pinned finite-presentation theorem. The infinite-free non-example uses a nonempty curve and a residue-field stalk, avoiding the empty-scheme exception."
       },
       {
         "nodeId": "VectorBundlesAndIsocrystals:VB1/annular-frobenius-descent",
         "verdict": "verified",
-        "note": "Annular equivariant descent uses the quotient and Stein/Kiehl gluing inputs. It does not require classification, degree, HN or general-S ampleness."
+        "note": "The quotient presentation, finite-projective Kiehl gluing and Stein inputs precede degree and classification. Tensor, dual and rational pullback APIs respect equivariant transition data."
       },
       {
         "nodeId": "VectorBundlesAndIsocrystals:VB1/tilted-robba-ring",
         "verdict": "verified",
-        "note": "The relative Robba construction retains the affinoid pair, directed annular system, completion and Frobenius. CS17 §§3.2–3.3 and RF0 coefficient comparisons support its stated scope."
+        "note": "The directed annular completion and designated Frobenius match CS17 §§3.2–3.3. Base-change and coefficients retain the affinoid pair; RF0 supplies the general-E ring comparison rather than a new period construction."
       },
       {
         "nodeId": "VectorBundlesAndIsocrystals:VB1/robba-frobenius-modules",
         "verdict": "verified",
-        "note": "Finite projective Frobenius modules and global integral étale models are distinct from pointwise purity. KL7.3.4–7.3.5 explicitly distinguish these hypotheses."
+        "note": "Finite projective modules have invertible linearized Frobenius. Global integral étale models impose stronger data than pointwise zero slopes, as KL7.3.4–5 explicitly distinguish."
       },
       {
         "nodeId": "VectorBundlesAndIsocrystals:VB1/robba-bundle-equivalence",
         "verdict": "verified",
-        "note": "CS17 Theorem 3.3.4 is the finite-projective exact tensor comparison; full faithfulness and essential surjectivity use finite annular descent, not an arbitrary module-sheaf identification."
+        "note": "CS17 Theorem 3.3.4 gives an exact tensor equivalence for finite projective objects. The proof uses annular spreading and effective gluing rather than replacing arbitrary sheaves by modules."
       },
       {
         "nodeId": "VectorBundlesAndIsocrystals:VB1/frobenius-two-term-cohomology",
         "verdict": "verified",
-        "note": "FS p. 57 gives the derived two-term φ−1 complex. E-linearity is used; the semilinear map is not declared linear over the larger period ring."
+        "note": "The two-term complex and derived comparison use an E-linear φ−1 map. They retain kernels, cokernels, derived functoriality and the unit case; no larger-ring linearity is asserted."
       },
       {
         "nodeId": "VectorBundlesAndIsocrystals:VB1/v-descent-for-bundles-and-cohomology",
         "verdict": "verified",
-        "note": "FS II.2.1 gives v-descent of the derived cohomology complex. D2 higher v-acyclicity and function descent, with SF.1 module descent, are the stated inputs."
+        "note": "FS II.2.1 matches the D2 function-descent and higher-acyclicity contracts. The fpqc module descent request supplements these v-inputs rather than claiming fpqc descent alone suffices."
       },
       {
         "nodeId": "VectorBundlesAndIsocrystals:VB1/isocrystal-to-bundle-functor",
-        "verdict": "corrected",
-        "note": "Restricted the general functor to S over the chosen k=bar F_q. Standard cyclic matrix objects remain defined over F_q; geometric degree and the tensor test are explicitly later/geometric comparisons."
+        "verdict": "verified",
+        "note": "General coefficients require the specified k=bar F_q structure on S. Cyclic standard bundles remain defined over F_q; the negative slope sign, base-change and later geometric degree comparison agree with the packet and reader."
       },
       {
         "nodeId": "VectorBundlesAndIsocrystals:VB1/cohomology-of-twists",
         "verdict": "corrected",
-        "note": "Kept the cohomology/representability assertions over Perf_Fq and scoped the stated open-ball identification after base change to the fixed algebraically closed k, as in FS II.2.2. Affinoid and slope restrictions remain explicit."
+        "note": "All three sign cases and the bounded positive open-ball claim have their source scopes. Added Adj as a direct denominator-cover input and isolated the early fundamental sequence from its later VS1 consumer in the supplier request."
       },
       {
         "nodeId": "VectorBundlesAndIsocrystals:VB2:classification/classical-points-and-principal-ideal-domains",
         "verdict": "verified",
-        "note": "FS II.1.11–II.1.22 distinguishes classical maximal ideals from arbitrary adic points. The annular PID argument is separate from the later curve-chart PID argument; the Q4 geometric extension is requested explicitly."
+        "note": "FS II.1 distinguishes classical maximal ideals from all adic points. Annular Dedekind/PID facts are separate from curve-complement PID facts; the Q4 geometric quotient extension is requested precisely."
       },
       {
         "nodeId": "VectorBundlesAndIsocrystals:VB1/geometric-point-chart-cover",
         "verdict": "verified",
-        "note": "The early geometric chart-cover/equivalence argument is independent of general-S GAGA in the proposed order. G-GEOM honestly records the source-proof transplantation and overlap verification still required."
+        "note": "The elementary coverage/localization prefix is explicitly independent of general-S GAGA. G-GEOM retains the existence/separation and overlap comparison steps that the printed proof order does not supply."
       },
       {
         "nodeId": "VectorBundlesAndIsocrystals:VB2:ampleness/schematic-curve-at-a-geometric-point",
-        "verdict": "corrected",
-        "note": "Corrected a duplicated phrase. FS II.2.9 proves regular noetherian dimension one and PID complements without asserting a finite-type E-curve; the early chart-cover gap is retained."
+        "verdict": "verified",
+        "note": "Regularity, noetherianity, dimension one and PID complements have geometric-point hypotheses. They do not assert finite type over E; the early chart comparison remains G-GEOM."
       },
       {
         "nodeId": "VectorBundlesAndIsocrystals:VB1/completed-local-ring-comparison",
         "verdict": "verified",
-        "note": "CN §3.2.1 and RF2 give the completed local period DVR for each untilt. A chosen uniformizer and a point-dependent residue field are retained; Q_p is only the BdR specialization."
+        "note": "CN §3.2.1 and the RF2 degree-one completed Cartier ideal contract match. Residue fields and chosen local uniformizers vary with the untilt; Q_p is a specialization, not an all-E assumption."
       },
       {
         "nodeId": "VectorBundlesAndIsocrystals:VB1/picard-degree",
         "verdict": "verified",
-        "note": "Picard degree is a new curve computation, distinct from the pinned line-class monoid and affine ring Picard group. The PID complement/DVR transition proof precedes classification."
+        "note": "The Picard computation uses one completed DVR and a PID complement. Existing invertible-sheaf classes and ring Picard groups are carriers, not the new curve computation; classification is not used to establish its own degree."
       },
       {
         "nodeId": "VectorBundlesAndIsocrystals:VB1/degree-rank-slope-and-HN-formalism",
-        "verdict": "corrected",
-        "note": "Corrected the FF locator: rank/degree axioms begin p. 162, Definition 5.5.1 is p. 163. Determinant degree and nonzero rank normalize slope; arbitrary relative global degree is excluded."
+        "verdict": "verified",
+        "note": "Determinant degree is integer-valued at the connected geometric curve, and slope requires nonzero rank. Tensor/dual and exact-sequence identities match the rank-weighted formulas; no global relative degree function is invented."
       },
       {
         "nodeId": "VectorBundlesAndIsocrystals:VB1/saturation-and-torsion-degree",
-        "verdict": "corrected",
-        "note": "Corrected the FF vector-bundle saturation example to p. 164. Local DVR lengths, finite support and generic-isomorphism degree defect are the precise SF.0 extension inputs."
+        "verdict": "verified",
+        "note": "Saturation removes finite-support torsion from the quotient. DVR lengths measure the determinant degree defect; the O(−1)→O test detects the false equal-rank-implies-isomorphism shortcut."
       },
       {
         "nodeId": "VectorBundlesAndIsocrystals:VB1/geometric-semistability",
         "verdict": "verified",
-        "note": "Proper nonzero saturated subbundles distinguish stability from semistability and avoid the source’s identity-subobject misprint. The zero object has no slope and is not stable."
+        "note": "Only proper nonzero saturated subbundles enter the stability test. Equal-slope direct sums are semistable but not stable; zero is separately admitted in slope categories and receives no slope."
       },
       {
         "nodeId": "VectorBundlesAndIsocrystals:VB1/harder-narasimhan-filtration",
         "verdict": "verified",
-        "note": "Existence/uniqueness and threshold functoriality agree with FS II.2.12 and FF5.5.2. G-HN explicitly retains bounded subbundle degrees and meromorphic trivialization without using classification/ampleness."
+        "note": "The ranked decreasing filtration and threshold functoriality match FF5.5.1–4 and FS II.2.12. G-HN retains bounded subbundle degrees and meromorphic trivialization without using ampleness or classification."
       },
       {
         "nodeId": "VectorBundlesAndIsocrystals:VB1/harder-narasimhan-polygon",
         "verdict": "verified",
-        "note": "The horizontal coordinate is rank and the vertical coordinate degree. Ranked segment lengths, concavity, the zero polygon and the O(1/2) test detect the confirmed FF coordinate error."
+        "note": "Cumulative ranks are horizontal and degrees vertical; ranked segment lengths give endpoint (2,1) for O(1/2). Concavity and equal-slope merging agree with the filtration APIs."
       },
       {
         "nodeId": "VectorBundlesAndIsocrystals:VB2:ampleness/quantitative-global-generation",
-        "verdict": "corrected",
-        "note": "Replaced KTheory Z.2 by Z.1, whose statement actually supplies stable finite-projective presentations. The main KL two-half-annulus contraction route and the general-E comparison gap G-GG remain explicit."
+        "verdict": "verified",
+        "note": "The two-half-annulus KL6.2.2–4 contraction route supplies all sufficiently large twists. The optional K₀ stabilization comes from Z.1; G-GG retains the general-E normalization and excludes the defective FS estimates."
       },
       {
         "nodeId": "VectorBundlesAndIsocrystals:VB2:ampleness/global-proj-map-and-twists",
         "verdict": "verified",
-        "note": "Coverage is proved after generation, before a global Proj map is named. Compatible sufficiently large shifts define the invertible degree-one twist; naive arbitrary graded shifts are not assumed invertible."
+        "note": "The homogeneous chart union is proved to cover only after generation. Consecutive sufficiently large invertible shifts define the degree-one line and all tensor powers, avoiding an unjustified naive Proj shift."
       },
       {
         "nodeId": "VectorBundlesAndIsocrystals:VB2:ampleness/gaga-equivalence",
         "verdict": "verified",
-        "note": "FS II.2.7 supports the exact tensor bundle equivalence and all cohomology comparisons in its generation/vanishing hypotheses. No general relative coherent-sheaf equivalence is inferred."
+        "note": "The exact tensor bundle and cohomology comparisons use the actual generation/vanishing hypotheses of FS II.2.7. Coherent correspondence over arbitrary relative bases is not inferred."
       },
       {
         "nodeId": "VectorBundlesAndIsocrystals:VB2:ampleness/independence-of-positive-twist",
         "verdict": "verified",
-        "note": "Independence is restricted to ample choices satisfying the hypotheses. Affine nonvanishing charts give the intrinsic reconstruction and cocycle law; the direct affineness prerequisite is present."
+        "note": "Only line bundles meeting the generation/vanishing hypotheses are compared. Intrinsic affine nonvanishing charts yield the cocycle identification; the affineness input is a direct prerequisite."
       },
       {
         "nodeId": "VectorBundlesAndIsocrystals:VB2:ampleness/prufer-and-coherent-correspondence",
         "verdict": "verified",
-        "note": "KL6.3.5–6.3.14 is scoped to the absolute analytic field for Prüfer/Bézout charts and coherent correspondence. It is not imposed on arbitrary relative perfectoid bases."
+        "note": "KL6.3.5–14 is used in its absolute analytic-field scope. The finite-presentation coherent comparison allows torsion objects, whereas bundle objects are finite projective; relative Bézout claims are excluded."
       },
       {
         "nodeId": "VectorBundlesAndIsocrystals:VB2:ampleness/norms-on-twisted-invariants",
         "verdict": "verified",
-        "note": "Fixed-n topology, equivalence rather than equality of norms, and the KL6.3.17 twist-sign correction are explicit. The rank-one sign example separates the two eigenspaces."
+        "note": "The Banach topology is independent up to equivalent norms for each fixed twist. The π^n eigenvalue convention repairs KL6.3.17; no uniform constant over n is claimed."
       },
       {
         "nodeId": "VectorBundlesAndIsocrystals:VB2:ampleness/continuous-frobenius-group-actions",
-        "verdict": "corrected",
-        "note": "Added the global-generation prerequisite used by KL6.3.18 and corrected its locator to p. 143. Required E-algebra coefficient actions fixing π; synchronized the typed Lean action with that contract."
+        "verdict": "verified",
+        "note": "The group acts by continuous E-algebra automorphisms fixing π. KL6.3.18 uses global generation, present as a direct input; the typed prototype has the matching algebra-automorphism and intertwining data."
       },
       {
         "nodeId": "VectorBundlesAndIsocrystals:VB2:ampleness/two-affine-cover-cohomological-dimension",
-        "verdict": "corrected",
-        "note": "Corrected Proposition to Theorem 8.7.7. KL Remark 8.7.6 supplies two degree-one sections; affine intersection and QCoh acyclicity justify dimension one."
+        "verdict": "verified",
+        "note": "KL8.7.6 supplies two sections with no common zero. Separatedness makes their intersection affine; the two-open Čech complex and affine QCoh acyclicity give H^i=0 for i≥2."
       },
       {
         "nodeId": "VectorBundlesAndIsocrystals:VB2:ampleness/tensor-global-ampleness",
-        "verdict": "corrected",
-        "note": "Corrected Definition 8.8.2 to p. 180. The finite-type QCoh quantifier, dependence of thresholds on the test sheaf, strong rational locality and vacuously ample zero bundle match KL’s tensor-power convention."
+        "verdict": "verified",
+        "note": "The all-finite-type-QCoh tensor-power quantifier, test-sheaf-dependent threshold and strong rational locality match KL8.8.2. The zero bundle satisfies this convention vacuously, while the unit fails against a negative line."
       },
       {
         "nodeId": "VectorBundlesAndIsocrystals:VB2:ampleness/ampleness-power-criterion",
-        "verdict": "corrected",
-        "note": "Corrected Lemma 8.8.3 to p. 180. Positive m is required; testing finitely many residue classes of exponents proves the reverse implication."
+        "verdict": "verified",
+        "note": "A positive tensor-power exponent is required. Decomposing all large exponents into finitely many residue classes gives the reverse implication of KL8.8.3."
       },
       {
         "nodeId": "VectorBundlesAndIsocrystals:VB2:ampleness/positive-lines-and-finite-type-presentations",
-        "verdict": "corrected",
-        "note": "Corrected the statement/proof page range and removed a PDF footer from the excerpt. The proof uses both affine charts and a common denominator-clearing exponent, repairing E1."
+        "verdict": "verified",
+        "note": "The corrected KL8.8.4 proof extends generators on both affine charts with a common exponent. The finite-type QCoh quantifier and denominator-clearing input have the needed nonnoetherian scope."
       },
       {
         "nodeId": "VectorBundlesAndIsocrystals:VB2:ampleness/cohomological-ampleness-criterion",
         "verdict": "verified",
-        "note": "The corrected proof uses positive-line vanishing independently of ampleness and fixes one n0 before all twists e. The all-sufficiently-large quantifier and divisor generation argument repair E2–E3."
+        "note": "The vanishing-to-generation and generation-to-vanishing implications avoid the printed circular step. Fixing n₀ before every test twist repairs the quantifier issue in KL8.8.6."
       },
       {
         "nodeId": "VectorBundlesAndIsocrystals:VB2:ampleness/globally-etale-positive-ampleness",
         "verdict": "verified",
-        "note": "KL8.8.7 requires a global étale model and positive twist. The pointwise-purity and untwisted-unit non-examples preserve its real hypotheses; general-E normalization remains G-GG."
+        "note": "A global integral étale model and a positive twist are required. The untwisted unit and merely pointwise-pure non-examples detect missing hypotheses; G-GG retains the all-E coefficient comparison."
       },
       {
         "nodeId": "VectorBundlesAndIsocrystals:VB2:ampleness/ample-section-affineness",
         "verdict": "verified",
-        "note": "KL8.8.8–8.8.9 gives affine nonvanishing opens, including the empty case, using the cohomological criterion and generic QCoh affineness input. Homogeneous localization identifies the coordinate ring."
+        "note": "The nonvanishing locus of a positive section is affine, including the empty locus. Cohomological ampleness and the generic QCoh affineness criterion supply the proof, and graded localization gives the ring."
       },
       {
         "nodeId": "VectorBundlesAndIsocrystals:VB2:classification/standard-bundle-stability",
         "verdict": "verified",
-        "note": "Coprimality and wedge/negative-H⁰ inequalities prove stability before bundle classification. Equality would force the reduced denominator to divide a smaller positive rank."
+        "note": "After denominator pullback, wedge injections and negative H⁰ bound every subbundle slope. Coprimality rules out equality at smaller rank, giving stability before classification."
       },
       {
         "nodeId": "VectorBundlesAndIsocrystals:VB2:classification/fixed-slope-abelian-category",
         "verdict": "verified",
-        "note": "FF5.5.4–5.5.6 gives the fixed-slope abelian finite-length category with the zero object. Saturation removes torsion from kernels/cokernels; this does not identify all simple objects yet."
+        "note": "Kernels and cokernels are corrected by saturation and slope inequalities. The zero object is present; finite length does not prematurely identify the simple objects with standard bundles."
       },
       {
         "nodeId": "VectorBundlesAndIsocrystals:VB2:classification/HN-filtration-base-change",
         "verdict": "verified",
-        "note": "FS II.2.13 distinguishes extension of C from coefficient extension E′/E. HN thresholds scale by total coefficient degree only; uniqueness and descent preserve the filtration."
+        "note": "Extension of C preserves slopes, while coefficient extension scales them by total degree. The local adjunction and HN uniqueness supply the comparison; the two changes of field are not conflated."
       },
       {
         "nodeId": "VectorBundlesAndIsocrystals:VB2:classification/key-extension-lemma",
-        "verdict": "corrected",
-        "note": "Replaced the page-70 footnote excerpt by the actual page-71 lemma passage. Distinguished ordinary analytic A¹ in mixed characteristic from perfected analytic A¹ with possible fractional exponents in equal characteristic; G-KEY and the A1 request now state that exact comparison."
+        "verdict": "verified",
+        "note": "FS II.2.15 uses the extension and affine-line contradiction after allowing field extension. Mixed-characteristic analytic and equal-characteristic perfected affine lines are distinguished; G-KEY/A1 retain the missing comparison and open-image proof."
       },
       {
         "nodeId": "VectorBundlesAndIsocrystals:VB2:classification/dieudonne-manin-classification-of-bundles",
         "verdict": "corrected",
-        "note": "Corrected the circular torsor step: triviality after an extension implies a pro-étale Isom torsor that descends; the rank/key-extension induction first proves such triviality. The functor/classification comparison retains the chosen k-embedding."
+        "note": "Made the reverse trace adjunction explicit in fixed-slope reduction and extended the FF statement locator through p. 239. The conditional Isom torsor argument and rank induction avoid assuming local triviality before proving it."
       },
       {
         "nodeId": "VectorBundlesAndIsocrystals:VB2:classification/hom-and-ext-calculus",
         "verdict": "corrected",
-        "note": "Specified Ext in the abelian structure-sheaf/QCoh category, added GAGA and the two-affine cohomology dependencies, and corrected the FF locator to parts (4)–(5). The whole bundle category is not silently treated as abelian."
+        "note": "Ext is in the abelian module-sheaf/QCoh category, using direct GAGA and two-affine cohomology inputs. Expanded the tensor proof to repair both denominators before the coprime step and corrected its proof locator to p. 183."
       },
       {
         "nodeId": "VectorBundlesAndIsocrystals:VB2:classification/bundle-endomorphism-comparison",
         "verdict": "verified",
-        "note": "The simple-block endomorphism comparison agrees with FF8.2.8 and the cyclic dimension calculation. It is separate from the failure of full faithfulness between different slopes."
+        "note": "Equal-block endomorphisms compare to the cyclic division algebra with dimension h². This full comparison on one simple block is compatible with failure of full faithfulness between different slopes."
       },
       {
         "nodeId": "VectorBundlesAndIsocrystals:VB2:classification/coherent-sheaf-classification",
-        "verdict": "corrected",
-        "note": "Removed the absolute Q_p/KL Prüfer dependency from the general-E geometric coherent theorem. Regular DVR charts and finite-support cohomology suffice; replaced extraction item 311 by CN Theorem 3.9(iii)."
+        "verdict": "verified",
+        "note": "Regular DVR charts give the finite-support torsion part and locally free quotient. Finite-support H¹ vanishing splits the extension noncanonically; CN3.9(iii) is the Q_p specialization, with no absolute Prüfer input imposed on general E."
       },
       {
         "nodeId": "VectorBundlesAndIsocrystals:VB2:classification/finite-etale-constant-algebras",
-        "verdict": "verified",
-        "note": "FF8.6.1 and SW13.5.7 give coefficient-field covers, not absence of all covers over E. Trace self-duality and nilpotence rule out nonzero slopes. Corrected SW edition pagination in the bibliography; the VS1 export is appropriately separate."
+        "verdict": "corrected",
+        "note": "Trace self-duality and nilpotence exclude nonzero slopes; H⁰(O)=E makes the algebra structure constant. Coefficient-field covers remain over E. Corrected SW proof pagination to printed p. 114 and retained the VS1 export."
       }
     ]
   },
@@ -4493,6 +4698,271 @@
         "tauceti:TauCetiRoadmap/ClassFieldTheory"
       ],
       "note": "The Layer 9 carrier/topology applies to every local field, but its localWeilArtinEquiv reciprocity comparison is explicitly restricted to finite extensions of Q_p because Layer 8 excludes equal-characteristic p-primary existence. The downstream VS1 divisor/Weil construction must respect that scope or identify a separate equal-characteristic reciprocity supplier. This review changes no Tau Ceti roadmap or link."
+    }
+  ],
+  "reviewHistory": [
+    {
+      "status": "needs_changes",
+      "reviewer": "independent-review-REV-VectorBundlesAndIsocrystals--VB0",
+      "date": "2026-10-06",
+      "notes": "Independent completed target-level review: 51 nodes (31 verified, 20 corrected), 98 API entries, 72 tests, 17 planets, all 16 pinned baseline declarations, all 67 node/source records at nine hash-verified public sources, and all 15 sourceIssues independently confirmed. Corrected contracts and the suggested-file index in the permitted deliverables; lean-check exits 0 with only admitted-proof warnings. The reader is outside this issue’s editable paths and retains contradictory functor scope, proof order and K₀ ownership; the report gives its required revisions, so promotion must wait. Seven honest proof/supplier gaps and five planned stages do not themselves justify rejection.",
+      "checked": [
+        {
+          "nodeId": "VectorBundlesAndIsocrystals:VB0/isocrystal-category-and-standard-block",
+          "verdict": "corrected",
+          "note": "Removed the irrelevant annulus prerequisite. The raw finite semilinear category uses RF0 coefficients and local-field Frobenius; the pinned class lacks finiteness."
+        },
+        {
+          "nodeId": "VectorBundlesAndIsocrystals:VB0/rational-standard-block",
+          "verdict": "verified",
+          "note": "Positive denominator, nonzero uniformizer and cyclic wrap coefficient are explicit. Simplicity requires coprimality only in later results; the rank-one Witt comparison is scoped correctly."
+        },
+        {
+          "nodeId": "VectorBundlesAndIsocrystals:VB0/dieudonne-manin-isocrystals",
+          "verdict": "verified",
+          "note": "The general finite classification exceeds the pinned finrank-one theorem. Ked05 supplies the mixed-characteristic route; G-DM explicitly retains the eigenvector calculation and equal-characteristic proof."
+        },
+        {
+          "nodeId": "VectorBundlesAndIsocrystals:VB0/tensor-and-dual-slopes",
+          "verdict": "corrected",
+          "note": "Corrected the Ked05 excerpt to include its displayed tensor multiplicity dd′/d″, lost in text extraction. Ranks, dual sign and bundle-consumer convention agree with both sources."
+        },
+        {
+          "nodeId": "VectorBundlesAndIsocrystals:VB0/endomorphism-division-algebra",
+          "verdict": "corrected",
+          "note": "Removed the premature Brauer invariant assertion and its implicit reverse dependency. The early result now proves only division, center, dimension and cyclic presentation; the existing invariant node supplies the later arithmetic comparison."
+        },
+        {
+          "nodeId": "VectorBundlesAndIsocrystals:VB0/slope-division-algebra",
+          "verdict": "verified",
+          "note": "The slope-labelled cyclic algebra specializes the CFT owner contract and existing CSA carrier. Arithmetic σ, π^d and dimension h² are explicit; no local generic cyclic-algebra development is duplicated."
+        },
+        {
+          "nodeId": "VectorBundlesAndIsocrystals:VB0/brauer-invariant-sign",
+          "verdict": "verified",
+          "note": "The opposite/sign convention is correct: isocrystal slope a gives invariant −a; bundle slope d/h gives +d/h. The algebraic/cohomological Brauer comparison remains a precise supplier request."
+        },
+        {
+          "nodeId": "VectorBundlesAndIsocrystals:VB0/scalar-extension-adjunction",
+          "verdict": "verified",
+          "note": "Coefficient pullback/restriction adjunction retains Frobenius and total-degree slope normalization. Ordinary field/module descent is imported from SF.1, not replanned."
+        },
+        {
+          "nodeId": "VectorBundlesAndIsocrystals:VB0/finite-galois-descent",
+          "verdict": "corrected",
+          "note": "Made Frobenius/Galois compatibility explicit as Φ′ρ_g=ρ_{σ′gσ′^{-1}}Φ′. Explained why both Φ′ and its inverse restrict to invariants, and why ordinary commutation requires centralization."
+        },
+        {
+          "nodeId": "VectorBundlesAndIsocrystals:VB1/finite-locally-free-bundles",
+          "verdict": "corrected",
+          "note": "The same generator witness must be finite and free. Added nonemptiness and a residue-field stalk to the infinite-free non-example, excluding the empty-scheme exception."
+        },
+        {
+          "nodeId": "VectorBundlesAndIsocrystals:VB1/annular-frobenius-descent",
+          "verdict": "verified",
+          "note": "Annular equivariant descent uses the quotient and Stein/Kiehl gluing inputs. It does not require classification, degree, HN or general-S ampleness."
+        },
+        {
+          "nodeId": "VectorBundlesAndIsocrystals:VB1/tilted-robba-ring",
+          "verdict": "verified",
+          "note": "The relative Robba construction retains the affinoid pair, directed annular system, completion and Frobenius. CS17 §§3.2–3.3 and RF0 coefficient comparisons support its stated scope."
+        },
+        {
+          "nodeId": "VectorBundlesAndIsocrystals:VB1/robba-frobenius-modules",
+          "verdict": "verified",
+          "note": "Finite projective Frobenius modules and global integral étale models are distinct from pointwise purity. KL7.3.4–7.3.5 explicitly distinguish these hypotheses."
+        },
+        {
+          "nodeId": "VectorBundlesAndIsocrystals:VB1/robba-bundle-equivalence",
+          "verdict": "verified",
+          "note": "CS17 Theorem 3.3.4 is the finite-projective exact tensor comparison; full faithfulness and essential surjectivity use finite annular descent, not an arbitrary module-sheaf identification."
+        },
+        {
+          "nodeId": "VectorBundlesAndIsocrystals:VB1/frobenius-two-term-cohomology",
+          "verdict": "verified",
+          "note": "FS p. 57 gives the derived two-term φ−1 complex. E-linearity is used; the semilinear map is not declared linear over the larger period ring."
+        },
+        {
+          "nodeId": "VectorBundlesAndIsocrystals:VB1/v-descent-for-bundles-and-cohomology",
+          "verdict": "verified",
+          "note": "FS II.2.1 gives v-descent of the derived cohomology complex. D2 higher v-acyclicity and function descent, with SF.1 module descent, are the stated inputs."
+        },
+        {
+          "nodeId": "VectorBundlesAndIsocrystals:VB1/isocrystal-to-bundle-functor",
+          "verdict": "corrected",
+          "note": "Restricted the general functor to S over the chosen k=bar F_q. Standard cyclic matrix objects remain defined over F_q; geometric degree and the tensor test are explicitly later/geometric comparisons."
+        },
+        {
+          "nodeId": "VectorBundlesAndIsocrystals:VB1/cohomology-of-twists",
+          "verdict": "corrected",
+          "note": "Kept the cohomology/representability assertions over Perf_Fq and scoped the stated open-ball identification after base change to the fixed algebraically closed k, as in FS II.2.2. Affinoid and slope restrictions remain explicit."
+        },
+        {
+          "nodeId": "VectorBundlesAndIsocrystals:VB2:classification/classical-points-and-principal-ideal-domains",
+          "verdict": "verified",
+          "note": "FS II.1.11–II.1.22 distinguishes classical maximal ideals from arbitrary adic points. The annular PID argument is separate from the later curve-chart PID argument; the Q4 geometric extension is requested explicitly."
+        },
+        {
+          "nodeId": "VectorBundlesAndIsocrystals:VB1/geometric-point-chart-cover",
+          "verdict": "verified",
+          "note": "The early geometric chart-cover/equivalence argument is independent of general-S GAGA in the proposed order. G-GEOM honestly records the source-proof transplantation and overlap verification still required."
+        },
+        {
+          "nodeId": "VectorBundlesAndIsocrystals:VB2:ampleness/schematic-curve-at-a-geometric-point",
+          "verdict": "corrected",
+          "note": "Corrected a duplicated phrase. FS II.2.9 proves regular noetherian dimension one and PID complements without asserting a finite-type E-curve; the early chart-cover gap is retained."
+        },
+        {
+          "nodeId": "VectorBundlesAndIsocrystals:VB1/completed-local-ring-comparison",
+          "verdict": "verified",
+          "note": "CN §3.2.1 and RF2 give the completed local period DVR for each untilt. A chosen uniformizer and a point-dependent residue field are retained; Q_p is only the BdR specialization."
+        },
+        {
+          "nodeId": "VectorBundlesAndIsocrystals:VB1/picard-degree",
+          "verdict": "verified",
+          "note": "Picard degree is a new curve computation, distinct from the pinned line-class monoid and affine ring Picard group. The PID complement/DVR transition proof precedes classification."
+        },
+        {
+          "nodeId": "VectorBundlesAndIsocrystals:VB1/degree-rank-slope-and-HN-formalism",
+          "verdict": "corrected",
+          "note": "Corrected the FF locator: rank/degree axioms begin p. 162, Definition 5.5.1 is p. 163. Determinant degree and nonzero rank normalize slope; arbitrary relative global degree is excluded."
+        },
+        {
+          "nodeId": "VectorBundlesAndIsocrystals:VB1/saturation-and-torsion-degree",
+          "verdict": "corrected",
+          "note": "Corrected the FF vector-bundle saturation example to p. 164. Local DVR lengths, finite support and generic-isomorphism degree defect are the precise SF.0 extension inputs."
+        },
+        {
+          "nodeId": "VectorBundlesAndIsocrystals:VB1/geometric-semistability",
+          "verdict": "verified",
+          "note": "Proper nonzero saturated subbundles distinguish stability from semistability and avoid the source’s identity-subobject misprint. The zero object has no slope and is not stable."
+        },
+        {
+          "nodeId": "VectorBundlesAndIsocrystals:VB1/harder-narasimhan-filtration",
+          "verdict": "verified",
+          "note": "Existence/uniqueness and threshold functoriality agree with FS II.2.12 and FF5.5.2. G-HN explicitly retains bounded subbundle degrees and meromorphic trivialization without using classification/ampleness."
+        },
+        {
+          "nodeId": "VectorBundlesAndIsocrystals:VB1/harder-narasimhan-polygon",
+          "verdict": "verified",
+          "note": "The horizontal coordinate is rank and the vertical coordinate degree. Ranked segment lengths, concavity, the zero polygon and the O(1/2) test detect the confirmed FF coordinate error."
+        },
+        {
+          "nodeId": "VectorBundlesAndIsocrystals:VB2:ampleness/quantitative-global-generation",
+          "verdict": "corrected",
+          "note": "Replaced KTheory Z.2 by Z.1, whose statement actually supplies stable finite-projective presentations. The main KL two-half-annulus contraction route and the general-E comparison gap G-GG remain explicit."
+        },
+        {
+          "nodeId": "VectorBundlesAndIsocrystals:VB2:ampleness/global-proj-map-and-twists",
+          "verdict": "verified",
+          "note": "Coverage is proved after generation, before a global Proj map is named. Compatible sufficiently large shifts define the invertible degree-one twist; naive arbitrary graded shifts are not assumed invertible."
+        },
+        {
+          "nodeId": "VectorBundlesAndIsocrystals:VB2:ampleness/gaga-equivalence",
+          "verdict": "verified",
+          "note": "FS II.2.7 supports the exact tensor bundle equivalence and all cohomology comparisons in its generation/vanishing hypotheses. No general relative coherent-sheaf equivalence is inferred."
+        },
+        {
+          "nodeId": "VectorBundlesAndIsocrystals:VB2:ampleness/independence-of-positive-twist",
+          "verdict": "verified",
+          "note": "Independence is restricted to ample choices satisfying the hypotheses. Affine nonvanishing charts give the intrinsic reconstruction and cocycle law; the direct affineness prerequisite is present."
+        },
+        {
+          "nodeId": "VectorBundlesAndIsocrystals:VB2:ampleness/prufer-and-coherent-correspondence",
+          "verdict": "verified",
+          "note": "KL6.3.5–6.3.14 is scoped to the absolute analytic field for Prüfer/Bézout charts and coherent correspondence. It is not imposed on arbitrary relative perfectoid bases."
+        },
+        {
+          "nodeId": "VectorBundlesAndIsocrystals:VB2:ampleness/norms-on-twisted-invariants",
+          "verdict": "verified",
+          "note": "Fixed-n topology, equivalence rather than equality of norms, and the KL6.3.17 twist-sign correction are explicit. The rank-one sign example separates the two eigenspaces."
+        },
+        {
+          "nodeId": "VectorBundlesAndIsocrystals:VB2:ampleness/continuous-frobenius-group-actions",
+          "verdict": "corrected",
+          "note": "Added the global-generation prerequisite used by KL6.3.18 and corrected its locator to p. 143. Required E-algebra coefficient actions fixing π; synchronized the typed Lean action with that contract."
+        },
+        {
+          "nodeId": "VectorBundlesAndIsocrystals:VB2:ampleness/two-affine-cover-cohomological-dimension",
+          "verdict": "corrected",
+          "note": "Corrected Proposition to Theorem 8.7.7. KL Remark 8.7.6 supplies two degree-one sections; affine intersection and QCoh acyclicity justify dimension one."
+        },
+        {
+          "nodeId": "VectorBundlesAndIsocrystals:VB2:ampleness/tensor-global-ampleness",
+          "verdict": "corrected",
+          "note": "Corrected Definition 8.8.2 to p. 180. The finite-type QCoh quantifier, dependence of thresholds on the test sheaf, strong rational locality and vacuously ample zero bundle match KL’s tensor-power convention."
+        },
+        {
+          "nodeId": "VectorBundlesAndIsocrystals:VB2:ampleness/ampleness-power-criterion",
+          "verdict": "corrected",
+          "note": "Corrected Lemma 8.8.3 to p. 180. Positive m is required; testing finitely many residue classes of exponents proves the reverse implication."
+        },
+        {
+          "nodeId": "VectorBundlesAndIsocrystals:VB2:ampleness/positive-lines-and-finite-type-presentations",
+          "verdict": "corrected",
+          "note": "Corrected the statement/proof page range and removed a PDF footer from the excerpt. The proof uses both affine charts and a common denominator-clearing exponent, repairing E1."
+        },
+        {
+          "nodeId": "VectorBundlesAndIsocrystals:VB2:ampleness/cohomological-ampleness-criterion",
+          "verdict": "verified",
+          "note": "The corrected proof uses positive-line vanishing independently of ampleness and fixes one n0 before all twists e. The all-sufficiently-large quantifier and divisor generation argument repair E2–E3."
+        },
+        {
+          "nodeId": "VectorBundlesAndIsocrystals:VB2:ampleness/globally-etale-positive-ampleness",
+          "verdict": "verified",
+          "note": "KL8.8.7 requires a global étale model and positive twist. The pointwise-purity and untwisted-unit non-examples preserve its real hypotheses; general-E normalization remains G-GG."
+        },
+        {
+          "nodeId": "VectorBundlesAndIsocrystals:VB2:ampleness/ample-section-affineness",
+          "verdict": "verified",
+          "note": "KL8.8.8–8.8.9 gives affine nonvanishing opens, including the empty case, using the cohomological criterion and generic QCoh affineness input. Homogeneous localization identifies the coordinate ring."
+        },
+        {
+          "nodeId": "VectorBundlesAndIsocrystals:VB2:classification/standard-bundle-stability",
+          "verdict": "verified",
+          "note": "Coprimality and wedge/negative-H⁰ inequalities prove stability before bundle classification. Equality would force the reduced denominator to divide a smaller positive rank."
+        },
+        {
+          "nodeId": "VectorBundlesAndIsocrystals:VB2:classification/fixed-slope-abelian-category",
+          "verdict": "verified",
+          "note": "FF5.5.4–5.5.6 gives the fixed-slope abelian finite-length category with the zero object. Saturation removes torsion from kernels/cokernels; this does not identify all simple objects yet."
+        },
+        {
+          "nodeId": "VectorBundlesAndIsocrystals:VB2:classification/HN-filtration-base-change",
+          "verdict": "verified",
+          "note": "FS II.2.13 distinguishes extension of C from coefficient extension E′/E. HN thresholds scale by total coefficient degree only; uniqueness and descent preserve the filtration."
+        },
+        {
+          "nodeId": "VectorBundlesAndIsocrystals:VB2:classification/key-extension-lemma",
+          "verdict": "corrected",
+          "note": "Replaced the page-70 footnote excerpt by the actual page-71 lemma passage. Distinguished ordinary analytic A¹ in mixed characteristic from perfected analytic A¹ with possible fractional exponents in equal characteristic; G-KEY and the A1 request now state that exact comparison."
+        },
+        {
+          "nodeId": "VectorBundlesAndIsocrystals:VB2:classification/dieudonne-manin-classification-of-bundles",
+          "verdict": "corrected",
+          "note": "Corrected the circular torsor step: triviality after an extension implies a pro-étale Isom torsor that descends; the rank/key-extension induction first proves such triviality. The functor/classification comparison retains the chosen k-embedding."
+        },
+        {
+          "nodeId": "VectorBundlesAndIsocrystals:VB2:classification/hom-and-ext-calculus",
+          "verdict": "corrected",
+          "note": "Specified Ext in the abelian structure-sheaf/QCoh category, added GAGA and the two-affine cohomology dependencies, and corrected the FF locator to parts (4)–(5). The whole bundle category is not silently treated as abelian."
+        },
+        {
+          "nodeId": "VectorBundlesAndIsocrystals:VB2:classification/bundle-endomorphism-comparison",
+          "verdict": "verified",
+          "note": "The simple-block endomorphism comparison agrees with FF8.2.8 and the cyclic dimension calculation. It is separate from the failure of full faithfulness between different slopes."
+        },
+        {
+          "nodeId": "VectorBundlesAndIsocrystals:VB2:classification/coherent-sheaf-classification",
+          "verdict": "corrected",
+          "note": "Removed the absolute Q_p/KL Prüfer dependency from the general-E geometric coherent theorem. Regular DVR charts and finite-support cohomology suffice; replaced extraction item 311 by CN Theorem 3.9(iii)."
+        },
+        {
+          "nodeId": "VectorBundlesAndIsocrystals:VB2:classification/finite-etale-constant-algebras",
+          "verdict": "verified",
+          "note": "FF8.6.1 and SW13.5.7 give coefficient-field covers, not absence of all covers over E. Trace self-duality and nilpotence rule out nonzero slopes. Corrected SW edition pagination in the bibliography; the VS1 export is appropriately separate."
+        }
+      ]
     }
   ]
 }
