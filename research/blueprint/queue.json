@@ -37772,7 +37772,8 @@
     "BP-AutomorphicGaloisRepresentations~2"
    ],
    "prompt": "research/blueprint/prompts/REV-AutomorphicGaloisRepresentations~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7029"
   },
   {
    "kind": "blueprint",
@@ -40201,7 +40202,8 @@
     "BP-MotivicEtaleKTheory--M.5d~2"
    ],
    "prompt": "research/blueprint/prompts/REV-MotivicEtaleKTheory--M.5d~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7076"
   },
   {
    "kind": "blueprint",
@@ -42291,7 +42293,8 @@
     "BP-ArithmeticKTheory--N.3-finite-generation~2"
    ],
    "prompt": "research/blueprint/prompts/REV-ArithmeticKTheory--N.3-finite-generation~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6986"
   },
   {
    "kind": "blueprint",
@@ -72082,8 +72085,8 @@
     "FIX-RT-AREA-langlands-2~3"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-langlands-2~3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5871"
+   "state": "pending",
+   "note": "released on GitHub issue #5871"
   },
   {
    "id": "FIX-RT-AREA-langlands-2~4",
