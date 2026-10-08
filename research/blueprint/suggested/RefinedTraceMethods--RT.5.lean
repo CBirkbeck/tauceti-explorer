@@ -120,6 +120,11 @@ theorem ext {B : Type v} [CommRing B] {ξ : A}
     (hu : f (u ξ) = g (u ξ)) (hv : f (v ξ) = g (v ξ)) : f = g := by
   sorry
 
+/-- Scalar functoriality of the coefficient presentation. -/
+def map {B : Type v} [CommRing B] {ξ : A} {η : B}
+    (f : A →+* B) (h : f ξ = η) : TracePresentation A ξ →+* TracePresentation B η := by
+  sorry
+
 def can (ξ : A) : TracePresentation A ξ →+* LaurentPolynomial A := by
   sorry
 
@@ -181,28 +186,28 @@ end TauCeti.RefinedTrace
 
 /-! Higher contracts omitted from executable signatures under protocol section 13.
 Each block records the packet declaration name, exact mathematical statement, API
-names and named test contracts. The roadmap document remains definitive.
+names and named test contracts. Synchronize the reader as required by the review.
 -/
 
 /-
 MotivesRigidity — RefinedTraceMethods:RT.5/motives-rigidity
 Kind: theorem; implementation unchecked.
 If E is a rigid presentable E₁-monoidal stable category, Motloc_E is dualizable in PrL_st with dual Motloc_(E^mop) and pairing (D,C) ↦ Kcont(D ⊗_E C). If E is E₂-monoidal, Motloc_E is rigid E₁-monoidal. In the symmetric monoidal case the rigidity is symmetric monoidal. These are finitary accessible motives with the specified universe, not the assertion that every motive is a dualizable object.
-Required types/inputs: RefinedTraceMethods:RT.5/localizing-motives; RefinedTraceMethods:RT.5/nuclear-module-resolution; RefinedTraceMethods:RT.5/enriched-duality; RefinedTraceMethods:RT.5/continuous-extension
+Required types/inputs: RefinedTraceMethods:RT.5/localizing-motives; RefinedTraceMethods:RT.5/nuclear-module-resolution; RefinedTraceMethods:RT.5/enriched-duality; RefinedTraceMethods:RT.5/continuous-extension; RefinedTraceMethods:RT.5/rigidity-criterion
 -/
 
 /-
 RefinedInvariantUniversality — RefinedTraceMethods:RT.5/refined-invariant-universality
 Kind: theorem; implementation unchecked.
 Let E be rigid symmetric monoidal, and T: Motloc_E → D a colimit-preserving symmetric monoidal functor to a presentable symmetric monoidal stable D. The canonical rigidification D^rig ⊂ Ind_κ(D), defined by trace-class systems, admits a unique colimit-preserving symmetric monoidal factor Tref: Motloc_E → D^rig, up to contractible choice; realization gives T. If D is locally rigid with ω₁-compact unit, D^rig is the category of nuclear ind-objects with sequential presentations.
-Required types/inputs: RefinedTraceMethods:RT.5/motives-rigidity; RefinedTraceMethods:RT.5/rigidification
+Required types/inputs: RefinedTraceMethods:RT.5/motives-rigidity; RefinedTraceMethods:RT.5/rigidification; RefinedTraceMethods:RT.5/trace-class-functoriality; RefinedTraceMethods:RT.5/rigidity-criterion
 -/
 
 /-
 RefinedKuComputation — RefinedTraceMethods:RT.5/refined-ku-computation
 Kind: theorem; implementation unchecked.
 TC−,ref((ku ⊗ Q)/ku) is even. Its even graded homotopy is the idempotent nuclear ind-graded B = Z[β][[t]]-algebra A*ku obtained by killing the idempotent pro-algebra F_m = Fil*qHdg(derived qdR(Z/m)/Z), indexed by high-powered m under divisibility; |β|=2, |t|=−2 and q−1=βt. There is a natural exact sequence 0 → B → A*ku → ind-colim_(m∈N^op) Ext¹_B(F_m,B) → 0. Ext and duals are in the graded derived t-complete category; no canonical splitting is asserted. The exact sequence comes from the cofiber of the duals of the unit maps in TC⁻.
-Required types/inputs: RefinedTraceMethods:RT.5/refined-traces; RefinedTraceMethods:RT.5/high-powered; RefinedTraceMethods:RT.5/torsion-qhodge; RefinedTraceMethods:RT.5/even-derived-hom; RefinedTraceMethods:RT.5/torsion-duality; RefinedTraceMethods:RT.5/pro-qhodge-idempotence; RefinedTraceMethods:RT.5/graded-trace-class; RefinedTraceMethods:RT.5/algebra-killing
+Required types/inputs: RefinedTraceMethods:RT.5/refined-traces; RefinedTraceMethods:RT.5/high-powered; RefinedTraceMethods:RT.5/torsion-qhodge; RefinedTraceMethods:RT.5/even-derived-hom; RefinedTraceMethods:RT.5/torsion-duality; RefinedTraceMethods:RT.5/pro-qhodge-idempotence; RefinedTraceMethods:RT.5/graded-trace-class; RefinedTraceMethods:RT.5/algebra-killing; RefinedTraceMethods:RT.5/nuclear-closure
 -/
 
 /-
@@ -236,7 +241,7 @@ Required types/inputs: RefinedTraceMethods:RT.6/graded-motivic-comparison; Refin
 /-
 HabiroTraceInterface — RefinedTraceMethods:RT.6/habiro-trace-interface
 Kind: comparison; implementation unchecked.
-For precisely the supplied inputs of RT.4:q-Hodge and RT.4:Habiro-comparison, export the coherent S¹ and genuine finite-C_m cyclonic maps, complete even filtration and graded q-Hodge equivalences as multiplicative comparison diagrams. For the number-field instance R=O_F[1/Δ], require 6·disc(F) | Δ and the specified spherical étale lift. The comparison with HQ’s imported qHdg and HR’s imported coefficient ring retains shifts Σ^(−2i) and Bott inversion. This supplies the trace instance of their descent; it does not assert unproved Habiro descent for the refined rational TC⁻ coefficient ind-algebras.
+For the supplied RT.4 q-Hodge and Habiro inputs satisfying Wagner 4.18(A),(R), 4.18a(R2), and, in Theorem 5.63, 2∈R× and 5.43(A2), export the coherent S¹ and genuine finite-C_m cyclonic maps, complete even filtration and graded q-Hodge module comparison diagrams. Retain Σ^(−2i) shearing, Bott inversion, and completion. Theorem 4.27 has an E_(n−1) multiplicative enhancement only under Remark 4.28’s chosen E_n lift hypotheses (2≤n≤∞); an enhancement of the Habiro comparison must be supplied separately by RT.4 and is not inferred from the module equivalence of Theorem 5.63. For R=O_F[1/Δ], require 6|Δ, disc(F)|Δ and the specified spherical étale lift. This is the trace input for HQ/HR descent, with the periodic reconstruction proof; it does not assert Habiro descent for the refined rational TC⁻ ind-algebras.
 Required types/inputs: RefinedTraceMethods:RT.5/refined-traces; RefinedTraceMethods:RT.4:q-Hodge; RefinedTraceMethods:RT.4:Habiro-comparison; HabiroCohomologyFoundations:HQ.3/q-hodge-filtrations; HabiroCohomologyFoundations:HQ.3/the-q-hodge-complex; HabiroCohomologyFoundations:HQ.4/the-arithmetic-fracture-squares-and-cyclotomic-descent; HabiroCohomologyFoundations:HQ.4/no-automatic-multiplicative-upgrade; HabiroRings:HR.2/habiro-complete-modules; HabiroRings:HR.2/the-monoidal-structure; HabiroRings:HR.2/habiro-complete-solid-spectra; HabiroRings:HR.5/the-relative-habiro-ring; HabiroRings:HR.5/completed-base-change
 -/
 
@@ -245,7 +250,7 @@ DualizableCategories — RefinedTraceMethods:RT.5/dualizable-categories
 Kind: definition; implementation unchecked.
 Catdual_E has presentable stable left E-modules C that are dualizable as objects of PrL_E. Morphisms are E-linear colimit-preserving functors whose right adjoints preserve colimits (strongly continuous functors). For E=Sp this is Catdual_st. Object dualizability means specified evaluation and coevaluation with coherent triangle identities; it does not mean every object of C is dualizable or C is compactly generated.
 Required types/inputs: EnhancedDerivedSheaves:E5:abstract/stable-infinity-category; EnhancedDerivedSheaves:E5:abstract/symmetric-monoidal-infinity-category; EnhancedDerivedSheaves:E5:presentability/presentable-categories; EnhancedDerivedSheaves:E5:presentability
-API DualizableCategories.ofInd [constructor]: For small idempotent-complete stable A, Ind(A) is a dualizable presentable stable category.
+API DualizableCategories.ofInd [constructor]: For small idempotent-complete stable A, Ind(A) is an object of Catdual_st (E=Sp). An E-linear version additionally requires the compatible E-action supplied by the rigid-base module interface.
 API DualizableCategories.dual [data]: Return the object dual C∨ with evaluation C∨⊗_E C → E and coevaluation E → C⊗_E C∨ satisfying coherent triangles.
 API DualizableCategories.hom [characterisation]: Morphisms C → D are E-linear left adjoints with colimit-preserving right adjoint.
 API DualizableCategories.tensor [structure]: For symmetric monoidal rigid E, tensor over E and its unit give Catdual_E a symmetric monoidal structure.
@@ -261,8 +266,11 @@ In a presentable symmetric monoidal stable C, with tensor preserving colimits se
 Required types/inputs: EnhancedDerivedSheaves:E5:abstract/symmetric-monoidal-infinity-category; EnhancedDerivedSheaves:E5:presentability/presentable-categories; EnhancedDerivedSheaves:E5:presentability
 API TraceClass.ofClassifier [constructor]: An η:1 → X∨⊗Y gives a trace-class map by the evaluation formula.
 API TraceClass.iff_factorization [characterisation]: Trace-class means that the adjoint of f:1 → Hom(X,Y) factors through X∨⊗Y.
-API TraceClass.map [functoriality]: A symmetric monoidal functor takes a trace-class f to a trace-class map through F(X∨) → F(X)∨.
-API TraceClass.predual [compatibility]: If f:X → Y is trace-class then Y∨ → X∨ is trace-class; for such transitions the comparison F(Y)∨ → F(X∨) supplies the diagonal needed for ind-predual colimits.
+API TraceClass.map [functoriality]: A symmetric monoidal functor takes a trace-class f to a trace-class map through F(X∨) → F(X)∨. Supplied by RefinedTraceMethods:RT.5/trace-class-functoriality.
+API TraceClass.predual [compatibility]: If f:X → Y is trace-class then Y∨ → X∨ is trace-class; for such transitions the comparison F(Y)∨ → F(X∨) supplies the diagonal needed for ind-predual colimits. Supplied by RefinedTraceMethods:RT.5/trace-class-functoriality.
+API TraceClass.comp [relation]: Precomposition and postcomposition preserve trace-class maps: transport the classifier by the predual map on the source and the ordinary map on the target.
+API TraceClass.tensor [relation]: The tensor of two trace-class maps is trace-class, classified by the tensor of their classifiers and the canonical predual comparison.
+API TraceClass.identity_iff_dualizable [characterisation]: The identity on X is trace-class exactly when X is dualizable; the classifier of the identity supplies coevaluation.
 example contract TraceClass.unitIdentity [computation]: The identity on the tensor unit is trace-class, classified by its unit constraints.
 example contract TraceClass.zeroMap [degenerate]: The zero X → Y is trace-class, classified by the zero map 1 → X∨⊗Y.
 example contract TraceClass.infiniteVectorSpace [non-example]: The identity on the countably infinite direct-sum k-vector space in D(k) is not trace-class, whereas every finite-rank degree-zero map is.
@@ -271,11 +279,11 @@ example contract TraceClass.infiniteVectorSpace [non-example]: The identity on t
 /-
 RigidCategory — RefinedTraceMethods:RT.5/rigid-category
 Kind: definition; implementation unchecked.
-A presentable stable E₁-monoidal E is rigid when the unit is compact and multiplication μ:E⊗E → E is strongly continuous with E–E-bilinear right adjoint. Equivalently it is generated under colimits by sequential colimits of maps that are both left and right trace-class. In the symmetric monoidal case the two trace-class conditions coincide. The equivalence is a theorem of Efimov Proposition 1.1; compact generation is not an extra defining hypothesis.
+A presentable stable E₁-monoidal E is rigid when the unit is compact and multiplication μ:E⊗E → E is strongly continuous with E–E-bilinear right adjoint. Equivalently its unit is compact and it is generated under colimits by sequential colimits of maps that are both left and right trace-class. In the symmetric monoidal case the two trace-class conditions coincide. The equivalence is a theorem of Efimov Proposition 1.1; compact generation is not an extra defining hypothesis.
 Required types/inputs: RefinedTraceMethods:RT.5/dualizable-categories; RefinedTraceMethods:RT.5/trace-class; EnhancedDerivedSheaves:E5:presentability/compact-objects
 API RigidCategory.multiplicationRightAdjoint [projection]: Return μ^R preserving colimits and compatible with the left and right E actions.
 API RigidCategory.unitCompact [projection]: The tensor unit is compact.
-API RigidCategory.iff_traceClassGenerators [characterisation]: Rigidity is equivalent to compact unit and generation by sequential systems whose maps are both left and right trace-class.
+API RigidCategory.iff_traceClassGenerators [characterisation]: Rigidity is equivalent to compact unit and generation by sequential systems whose maps are both left and right trace-class. Supplied by RefinedTraceMethods:RT.5/rigidity-criterion.
 API RigidCategory.compact_iff_dualizable [compatibility]: For a rigid E, an object is compact exactly when it is left and right dualizable; this does not make all objects compact.
 example contract RigidCategory.spectra [computation]: Sp is rigid and its compact objects are finite spectra.
 example contract RigidCategory.indRigid [compatibility]: Ind(A) is rigid when small stable idempotent-complete monoidal A has every object dualizable.
@@ -289,8 +297,8 @@ For compactly generated presentable symmetric monoidal stable C with compact uni
 Required types/inputs: RefinedTraceMethods:RT.5/trace-class; EnhancedDerivedSheaves:E5:presentability/compact-objects; EnhancedDerivedSheaves:E5:presentability/ind-completion
 API NuclearObject.ofBasic [constructor]: A sequential trace-class presentation gives a nuclear object.
 API NuclearObject.mapFromCompact [characterisation]: Every map P → X from compact P has a trace-class classifier.
-API NuclearObject.colimit [structure]: Nuclear objects are stable and closed under arbitrary colimits and tensor products.
-API NuclearObject.map [functoriality]: Symmetric monoidal colimit-preserving F preserves basic nuclear objects and hence nuclear objects under the source’s generation hypotheses.
+API NuclearObject.colimit [structure]: Nuclear objects are stable and closed under arbitrary colimits and tensor products. Supplied by RefinedTraceMethods:RT.5/nuclear-closure.
+API NuclearObject.map [functoriality]: Symmetric monoidal colimit-preserving F preserves basic nuclear objects and hence nuclear objects under the source’s generation hypotheses. Supplied by RefinedTraceMethods:RT.5/nuclear-closure.
 example contract NuclearObject.zero [degenerate]: The zero object is basic nuclear via the constant zero system.
 example contract NuclearObject.finiteDimensional [computation]: In D(k), a finite-dimensional degree-zero vector space is basic nuclear via its constant identity system.
 example contract NuclearObject.countableVsUncountable [non-example]: In D(k), a countably generated degree-zero vector space is basic nuclear, while an uncountable-dimensional degree-zero space is nuclear but not ω₁-compact and hence not basic nuclear.
@@ -398,7 +406,7 @@ Required types/inputs: RefinedTraceMethods:RT.5/trace-class; RefinedTraceMethods
 Rigidification — RefinedTraceMethods:RT.5/rigidification
 Kind: construction; implementation unchecked.
 For presentable symmetric monoidal stable D with colimit-preserving tensor, form D^rig as the full subcategory of a size-controlled Ind_κ(D) generated under colimits by Q-indexed ind-objects whose transitions x_i → x_j, i<j, are trace-class. Choose a regular κ that bounds trace-class factorizations and generators. Realization is induced by colimit. If D is locally rigid and the unit is ω₁-compact, D^rig≃Nuc Ind(D), constructed from the essentially small sequential basic nuclear objects. The use of Q rather than N is essential without those extra hypotheses.
-Required types/inputs: RefinedTraceMethods:RT.5/trace-class; RefinedTraceMethods:RT.5/nuclear-objects; RefinedTraceMethods:RT.5/rigid-category; EnhancedDerivedSheaves:E5:presentability/ind-completion; EnhancedDerivedSheaves:E5:presentability
+Required types/inputs: RefinedTraceMethods:RT.5/trace-class; RefinedTraceMethods:RT.5/nuclear-objects; RefinedTraceMethods:RT.5/rigid-category; EnhancedDerivedSheaves:E5:presentability/ind-completion; EnhancedDerivedSheaves:E5:presentability; RefinedTraceMethods:RT.5/trace-class-functoriality; RefinedTraceMethods:RT.5/nuclear-closure
 API Rigidification.ofSystem [constructor]: A Q-indexed system with trace-class transitions gives an object in D^rig.
 API Rigidification.realize [projection]: Realization D^rig → D sends a system to its colimit and is symmetric monoidal.
 API Rigidification.map [functoriality]: Symmetric monoidal colimit-preserving functors induce the rigidification comparison by preservation of trace-class maps.
@@ -412,7 +420,7 @@ example contract Rigidification.rationalCoefficients [non-example]: The source�
 KillProAlgebra — RefinedTraceMethods:RT.5/algebra-killing
 Kind: construction; implementation unchecked.
 In a presentable symmetric monoidal stable C, a κ-small pro-object A=pro-lim_i A_i with left-unital multiplication and unit defines the full subcategory Ind(C)^A of M with extended internal Hom(A,M)=ind-colim_(i,k) Hom_C(A_i,M_k)=0. It has a reflector j*. If A is idempotent and eventually trace-class, the dual ind-object ind-colim_i A_i∨ is nuclear and idempotent and there is a cofiber ind-colim_i A_i∨ → 1 → j*(1). The reflector is then symmetric monoidal, j*(1) an idempotent E∞ algebra, and j*(M)≃M⊗j*(1). The ordinary-object version uses Hom_C(A,−)=0 and requires stabilization or sequential-Hom commutation for its iterative formula.
-Required types/inputs: RefinedTraceMethods:RT.5/trace-class; RefinedTraceMethods:RT.5/nuclear-objects; EnhancedDerivedSheaves:E5:presentability/ind-completion; EnhancedDerivedSheaves:E5:presentability
+Required types/inputs: RefinedTraceMethods:RT.5/trace-class; RefinedTraceMethods:RT.5/nuclear-objects; EnhancedDerivedSheaves:E5:presentability/ind-completion; EnhancedDerivedSheaves:E5:presentability; RefinedTraceMethods:RT.5/trace-class-functoriality; RefinedTraceMethods:RT.5/nuclear-closure
 API KillProAlgebra.unit [projection]: The localization unit 1 → kill(A)=j*(1) fits into the stated cofiber.
 API KillProAlgebra.orthogonal [characterisation]: Local objects are exactly those with extended internal Hom(A,M)=0.
 API KillProAlgebra.lift [universal-property]: Maps from j*(M) to a local U identify with maps from M to U.
@@ -426,12 +434,12 @@ example contract KillProAlgebra.ordinaryLocalization [compatibility]: For C=D(Z)
 /-
 SmoothProperCategory — RefinedTraceMethods:RT.5/smooth-proper-category
 Kind: definition; implementation unchecked.
-Let E be rigid symmetric monoidal and X a dualizable E-module with relative dual X∨. Smoothness means the absolute coevaluation Sp → X∨⊗_E X takes the sphere to a compact object; properness means the absolute evaluation X⊗X∨ → E preserves compact objects (equivalently is strongly continuous in this source setting). Both together are equivalent to X being a dualizable object of the strongly continuous monoidal category Catdual_E: its relative evaluation and coevaluation then are morphisms there. For an algebra model, smoothness is compactness of the diagonal bimodule and properness is compactness of its underlying E-object. For smooth proper X, Tref(X)≃constant T(X).
+Let E be rigid symmetric monoidal and X a dualizable E-module with relative dual X∨. Smoothness means the relative coevaluation E → X∨⊗_E X is strongly continuous; equivalently the absolute coevaluation takes the sphere to a compact object. Properness means the relative evaluation X⊗_E X∨ → E is strongly continuous. Both together say that X is dualizable in the monoidal category Catdual_E with strongly continuous morphisms. For an algebra model Mod_A over a compactly generated rigid base, smoothness is compactness of the diagonal A-bimodule and properness is compactness of A as an E-object. Preservation of compact objects alone is not used as a criterion for an arbitrary dualizable category.
 Required types/inputs: RefinedTraceMethods:RT.5/dualizable-categories; RefinedTraceMethods:RT.5/rigid-category; EnhancedDerivedSheaves:E5:presentability/compact-objects; EnhancedDerivedSheaves:E5:presentability
 API SmoothProperCategory.evaluation [data]: The relative evaluation is strongly continuous exactly under properness.
 API SmoothProperCategory.coevaluation [data]: The relative coevaluation is strongly continuous exactly under smoothness.
 API SmoothProperCategory.algebraCriterion [characterisation]: For an algebra model, smoothness is compactness of the diagonal as an A-bimodule and properness is compactness of A over E.
-API SmoothProperCategory.refinedValue [compatibility]: For smooth proper X, Tref(X)≃constant T(X).
+API SmoothProperCategory.refinedValue [compatibility]: For smooth proper X, Tref(X)≃constant T(X). Supplied by RefinedTraceMethods:RT.5/smooth-proper-normalization.
 example contract SmoothProperCategory.unit [degenerate]: The E-linear unit category E is smooth and proper over E.
 example contract SmoothProperCategory.field [computation]: Perf(k) after Ind is smooth and proper over Mod_k with its diagonal k.
 example contract SmoothProperCategory.polynomialNotProper [non-example]: Mod_(k[x]) is smooth over Mod_k but is not proper, since k[x] is not compact as a k-module.
@@ -441,26 +449,26 @@ example contract SmoothProperCategory.polynomialNotProper [non-example]: Mod_(k[
 RefinedBaseChange — RefinedTraceMethods:RT.5/refined-base-change
 Kind: theorem; implementation unchecked.
 Let E → X be strongly continuous symmetric monoidal with E and X rigid and X smooth and proper over E. Forgetting X-linearity in Catdual preserves trace-class morphisms, so the refined functors computed over X and over E have their comparison induced by this map. For an additional symmetric monoidal colimit-preserving X → X′ and a dualizable algebra V₀ in X, the kernel V of X → X^{V₀} satisfies V⊗_X X′≃V′. The pro-algebra killing comparison is preserved after applying a symmetric monoidal functor when its transitions are eventually trace-class.
-Required types/inputs: RefinedTraceMethods:RT.5/smooth-proper-category; RefinedTraceMethods:RT.5/algebra-killing; RefinedTraceMethods:RT.5/trace-class
+Required types/inputs: RefinedTraceMethods:RT.5/smooth-proper-category; RefinedTraceMethods:RT.5/algebra-killing; RefinedTraceMethods:RT.5/trace-class; RefinedTraceMethods:RT.5/trace-class-functoriality; RefinedTraceMethods:RT.5/smooth-proper-normalization
 -/
 
 /-
 LocalizationTowerFormula — RefinedTraceMethods:RT.5/localization-tower-formula
 Kind: theorem; implementation unchecked.
 Let E → X be as in the smooth proper base-change theorem, and T:Motloc_E → D symmetric monoidal colimit-preserving with D locally rigid and ω₁-compact unit. Let V₀ ← V₁ ← … be E₁-algebras in X, each dualizable and in thick⊗(V₀), such that V_(r+1)⊗V_r → V_r⊗V_r factors through multiplication V_(r+1)⊗V_r → V_r as a V_(r+1)–V_r bimodule map. For U={M | Hom_X(V₀,M)=0}, pro T(RMod_(V_r)(X)) is idempotent and eventually trace-class and Tref(U)≃kill(pro T(RMod_(V_r)(X))) as a T(X)-algebra. Thus ind-colim_r T(RMod_(V_r)(X))∨ → T(X) → Tref(U) is a cofiber in Nuc Ind(D).
-Required types/inputs: RefinedTraceMethods:RT.5/refined-invariant-universality; RefinedTraceMethods:RT.5/refined-base-change; RefinedTraceMethods:RT.5/algebra-killing; RefinedTraceMethods:RT.5/smooth-proper-category; EnhancedDerivedSheaves:E5:presentability
+Required types/inputs: RefinedTraceMethods:RT.5/refined-invariant-universality; RefinedTraceMethods:RT.5/refined-base-change; RefinedTraceMethods:RT.5/algebra-killing; RefinedTraceMethods:RT.5/smooth-proper-category; EnhancedDerivedSheaves:E5:presentability; RefinedTraceMethods:RT.5/trace-class-functoriality
 -/
 
 /-
 RefinedTraces — RefinedTraceMethods:RT.5/refined-traces
 Kind: construction; implementation unchecked.
 For an E∞ ring k, refine the symmetric monoidal localizing relative THH functor Motloc_k → Mod_k(Sp)^BS¹, keeping its coherent circle action. The ordinary comparison is realization in that target. For complex orientable k and a chosen orientation t∈π_(−2)k^hS¹, refine TC⁻ into nuclear ind-objects of derived t-complete k^hS¹-modules with t-completed tensor. MW Lemma 3.2 identifies coherent circle k-modules with this completed module category. Finite-coefficient and rational-input computations use the induced maps between motives, units and localization cofibers.
-Required types/inputs: RefinedTraceMethods:RT.5/refined-invariant-universality; RefinedTraceMethods:RT.5/localization-tower-formula; RefinedTraceMethods:RT.2; EnhancedDerivedSheaves:E5:presentability
+Required types/inputs: RefinedTraceMethods:RT.5/refined-invariant-universality; RefinedTraceMethods:RT.5/localization-tower-formula; RefinedTraceMethods:RT.2; EnhancedDerivedSheaves:E5:presentability; RefinedTraceMethods:RT.5/smooth-proper-normalization; RefinedTraceMethods:RT.5/circle-completion-equivalence
 API RefinedTraces.thh [constructor]: THHref takes k-linear motives to the rigidification of coherent S¹ k-modules.
 API RefinedTraces.tcMinus [constructor]: For oriented k, TC−,ref is the corresponding nuclear derived t-complete module object.
 API RefinedTraces.ordinary [projection]: Realization gives natural multiplicative maps from refined values to ordinary THH/TC⁻.
 API RefinedTraces.map [functoriality]: Maps of k-linear motives induce coherent circle maps and the completed TC⁻ maps, with identity and composition.
-API RefinedTraces.fixedPointComparison [equivalence]: Homotopy S¹ fixed points are symmetric monoidal between coherent k-modules and t-complete k^hS¹-modules under the complex-orientation hypothesis.
+API RefinedTraces.fixedPointComparison [equivalence]: Homotopy S¹ fixed points are symmetric monoidal between coherent k-modules and t-complete k^hS¹-modules under the complex-orientation hypothesis. Supplied by RefinedTraceMethods:RT.5/circle-completion-equivalence.
 example contract RefinedTraces.zeroMotive [degenerate]: Both refined invariants of the zero motive are zero.
 example contract RefinedTraces.unitMotive [computation]: For the smooth proper unit Mod_k, THHref is constant k with trivial circle action and TC−,ref is constant k^hS¹ in its complete module target.
 example contract RefinedTraces.rationalKu [non-example]: TC−,ref((ku⊗Q)/ku) has the nonzero source coefficient ind-algebra A*ku; ordinary p-completed rational THH does not determine it.
@@ -618,7 +626,7 @@ example contract TraceNygaardComplex.thetaNotThetaTilde [non-example]: The de Rh
 SmoothTraceFrobenius — RefinedTraceMethods:RT.6/smooth-trace-frobenius
 Kind: theorem; implementation unchecked.
 For A the p-adic completion of a smooth perfectoid R-algebra of relative dimension d, N^i C_A lies in D^[0,max(i,d)] and N^{≥i} C_A in D^[0,d] for i≥0. H⁰(C_A) has no φ^r(ξ)-torsion for r∈Z. Frobenius linearization factors naturally C_A → Lη_ξ φ_* C_A, and iteration gives C_A → Lη_(ξ_r) φ_*^r C_A, where ξ_r=ξ·φ⁻¹(ξ)···φ^(−r+1)(ξ). This factorization is not asserted to be an equivalence until the smooth O_C comparison.
-Required types/inputs: RefinedTraceMethods:RT.6/trace-nygaard-complex; AInfCohomology:AI.1/derived-decalage; AInfCohomology:AI.1/decalage-products; AInfCohomology:AI.1/bockstein-reduction; AInfCohomology:AI.0
+Required types/inputs: RefinedTraceMethods:RT.6/trace-nygaard-complex; AInfCohomology:AI.1/derived-decalage; AInfCohomology:AI.1/decalage-products; AInfCohomology:AI.1/bockstein-reduction; AInfCohomology:AI.0; AInfCohomology:AI.1/filtered-beilinson-description
 -/
 
 /-
@@ -766,7 +774,7 @@ example contract AnimatedAomegaExtension.qrsp [characterisation]: The value on a
 /-
 AomegaAlmostComparison — RefinedTraceMethods:RT.6/aomega-almost-map
 Kind: construction; implementation unchecked.
-For p-adically completed smooth O_C-algebra A, the primitive Frobenius-compatible trace map C_A → RΓ(Spf(A)_C,Ainf) obtained from perfectoid pro-étale values factors naturally through AΩ_A in the almost category of W(m_C^flat). The factorization uses the Frobenius equivalence C_A≃Lη_ξφ_*C_A and its iterates; compatibility under varying r gives the map to Rlim Lη_(ξ_r) of the pro-étale complex.
+For p-adically completed smooth O_C-algebra A, the primitive Frobenius-compatible trace map C_A → RΓ(Spf(A)_C,Ainf) obtained from perfectoid pro-étale values factors naturally through AΩ_A in the almost category of W(m_C^flat). The factorization uses the Frobenius factorization map C_A → Lη_ξφ_*C_A and its iterates; compatibility under varying r gives the map to Rlim Lη_(ξ_r) of the pro-étale complex.
 Required types/inputs: RefinedTraceMethods:RT.6/trace-nygaard-complex; RefinedTraceMethods:RT.6/smooth-trace-frobenius; RefinedTraceMethods:RT.6/almost-decalage-limit; AInfCohomology:AI.4; AInfCohomology:AI.0
 API AomegaAlmostComparison.primitive [constructor]: The map C_A → RΓ of the pro-étale Ainf complex is Frobenius-compatible.
 API AomegaAlmostComparison.rootFactor [data]: For each r it has a compatible factorization through Lη_(ξ_r).
@@ -795,14 +803,14 @@ Required types/inputs: DerivedDeRhamCohomology:DD.3/smooth-cartier; DerivedDeRha
 AomegaComparison — RefinedTraceMethods:RT.6/aomega-comparison
 Kind: theorem; implementation unchecked.
 If C is complete algebraically closed over Q_p and A is the p-adic completion of a smooth O_C-algebra, there is a natural Frobenius-compatible equivalence C_A≃AΩ_A of E∞ Ainf-algebras. Its map is obtained by the almost comparison, left Kan extension to projective QRSP covers and completed-free extraction. It agrees modulo ξ with the identity on the p-completed de Rham complex. For arbitrary quasisyntomic A over O_C, comparison with AΩ^nc is made after the indicated Nygaard completion; AΩ^nc_A=C_A is not asserted before completion.
-Required types/inputs: RefinedTraceMethods:RT.6/aomega-almost-map; RefinedTraceMethods:RT.6/projective-qrsp-aomega; RefinedTraceMethods:RT.6/cartier-comparison-test; RefinedTraceMethods:RT.6/trace-noncompleted-extension; RefinedTraceMethods:RT.6/animated-aomega-extension; DerivedDeRhamCohomology:DD.5/proj-quasisyntomic-site; PrismaticCohomology:PR.6/ainf-omega-comparison-map
+Required types/inputs: RefinedTraceMethods:RT.6/aomega-almost-map; RefinedTraceMethods:RT.6/projective-qrsp-aomega; RefinedTraceMethods:RT.6/cartier-comparison-test; RefinedTraceMethods:RT.6/trace-noncompleted-extension; RefinedTraceMethods:RT.6/animated-aomega-extension; DerivedDeRhamCohomology:DD.5/proj-quasisyntomic-site
 -/
 
 /-
 AomegaNygaardDecalage — RefinedTraceMethods:RT.6/aomega-nygaard-decalage
 Kind: comparison; implementation unchecked.
 For p-completed smooth O_C-algebra A, the Frobenius factorization C_A≃Lη_ξφ_*C_A identifies the Nygaard filtration with the Lη_ξ filtration on φ_*AΩ_A through the honest comparison. The graded description is the source’s truncation of the Hodge–Tate complex, using the AI.4 BMS1 Theorems 8.3 and 9.4(i) inputs; this is not a new definition of the generic Lη functor.
-Required types/inputs: RefinedTraceMethods:RT.6/aomega-comparison; RefinedTraceMethods:RT.6/smooth-trace-frobenius; AInfCohomology:AI.4; AInfCohomology:AI.1/derived-decalage
+Required types/inputs: RefinedTraceMethods:RT.6/aomega-comparison; RefinedTraceMethods:RT.6/smooth-trace-frobenius; AInfCohomology:AI.4; AInfCohomology:AI.1/derived-decalage; AInfCohomology:AI.1/filtered-beilinson-description
 -/
 
 /-
@@ -889,4 +897,39 @@ AmmnFilteredInterface — RefinedTraceMethods:RT.6/ammn-filtered-interface
 Kind: comparison; implementation unchecked.
 For R∈qSyn_(Z_p), in particular p-completely flat over Z_p with the quasisyntomic bounds, the RT.6 motivic filtrations, the cyclic Hodge filtration and the trace maps provide the graded natural comparison used by RT.3b in AMMN Theorem 6.17. On relative QRSP covers, τ_[2i−1,2i] of the rational-after-p-completion TC/HC⁻/HP square is its weight-i square. Unfolding and left Kan extension from p-completed polynomial algebras factor the Hodge-completed comparison through uncompleted LΩ_R and LΩ_R^{≥i}. The pullback theorem and its integral range i≤p−2 are imported from RT.3b; RT.6 supplies its filtration and map-level compatibility, not a second Beilinson theorem.
 Required types/inputs: RefinedTraceMethods:RT.6/cyclic-derham-comparison; RefinedTraceMethods:RT.6/syntomic-graded-tc; RefinedTraceMethods:RT.6/motivic-filtrations; RefinedTraceMethods:RT.6/characteristic-p-tc-sheaf; RefinedTraceMethods:RT.3b; DerivedDeRhamCohomology:DD.2/p-completed-derham; DerivedDeRhamCohomology:DD.2/hodge-completed-derham; DerivedDeRhamCohomology:DD.2/hodge-graded-pieces
+-/
+
+/-
+TraceClassFunctoriality — RefinedTraceMethods:RT.5/trace-class-functoriality
+Kind: theorem; implementation unchecked.
+Let F:C → D be symmetric monoidal between presentable symmetric monoidal categories. There is a natural comparison F(X∨) → F(X)∨. A trace-class f:X → Y has trace-class predual Y∨ → X∨ and trace-class image F(f). For its chosen classifier, the naturality square on preduals has a diagonal F(Y)∨ → F(X∨) whose two triangles commute. This diagonal gives the predual comparison needed on trace-class ind-systems; it does not assert that F preserves arbitrary internal Homs.
+Required types/inputs: RefinedTraceMethods:RT.5/trace-class; EnhancedDerivedSheaves:E5:presentability
+-/
+
+/-
+RigidityCriterion — RefinedTraceMethods:RT.5/rigidity-criterion
+Kind: theorem; implementation unchecked.
+For a presentable stable E₁-monoidal category E, rigidity is equivalent to compactness of its unit together with generation under colimits by sequential colimits whose transitions are both left and right trace-class. In the symmetric monoidal case the two trace-class conditions coincide. Compactness of the unit is a separate hypothesis in both directions.
+Required types/inputs: RefinedTraceMethods:RT.5/rigid-category; RefinedTraceMethods:RT.5/trace-class; EnhancedDerivedSheaves:E5:presentability
+-/
+
+/-
+NuclearClosure — RefinedTraceMethods:RT.5/nuclear-closure
+Kind: theorem; implementation unchecked.
+Let C be compactly generated presentable stable symmetric monoidal with compact unit. Nuc(C) is stable and closed under all colimits and tensor products; it is ω₁-compactly generated and its ω₁-compact objects are exactly the basic nuclear objects. A symmetric monoidal colimit-preserving functor preserves basic nuclear objects and nuclear objects as in MW Theorem 2.4(c). For the size-controlled nuclear ind-envelope, a sufficiently large regular κ bounds trace-class factorizations and makes basic nuclear systems essentially small.
+Required types/inputs: RefinedTraceMethods:RT.5/nuclear-objects; RefinedTraceMethods:RT.5/trace-class-functoriality; EnhancedDerivedSheaves:E5:presentability/compact-objects; EnhancedDerivedSheaves:E5:presentability/ind-completion
+-/
+
+/-
+SmoothProperNormalization — RefinedTraceMethods:RT.5/smooth-proper-normalization
+Kind: theorem; implementation unchecked.
+For rigid symmetric monoidal E and a dualizable E-module X with strongly continuous relative evaluation and coevaluation, X is dualizable in Catdual_E. For the refined symmetric monoidal invariant Tref attached to T:Motloc_E → D, its value on X is the constant ind-object T(X). If a rigid symmetric monoidal X is smooth and proper over E, forgetting X-linearity preserves trace-class morphisms.
+Required types/inputs: RefinedTraceMethods:RT.5/smooth-proper-category; RefinedTraceMethods:RT.5/refined-invariant-universality; RefinedTraceMethods:RT.5/trace-class-functoriality
+-/
+
+/-
+CircleCompletionEquivalence — RefinedTraceMethods:RT.5/circle-completion-equivalence
+Kind: theorem; implementation unchecked.
+Let k be a complex orientable E∞ ring spectrum with trivial S¹ action, and choose t∈π_(−2)(k^hS¹) representing an orientation. Homotopy S¹ fixed points give a symmetric monoidal equivalence from coherent circle k-modules to derived t-complete k^hS¹-modules, whose tensor is t-completed. The left adjoint has underlying module reduction modulo t; no bounded-below hypothesis is imposed.
+Required types/inputs: RefinedTraceMethods:RT.2; DerivedDeRhamCohomology:DD.1/derived-completion; EnhancedDerivedSheaves:E5:presentability
 -/
