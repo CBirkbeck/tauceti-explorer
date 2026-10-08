@@ -41301,8 +41301,9 @@
     "BP-VectorBundlesAndIsocrystals--VB0~2"
    ],
    "prompt": "research/blueprint/prompts/REV-VectorBundlesAndIsocrystals--VB0~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7097"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7097",
+   "finishedAt": "2026-10-08T06:17:13Z"
   },
   {
    "kind": "blueprint",
@@ -42492,8 +42493,9 @@
     "BP-HabiroNumberFields--HB.2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-HabiroNumberFields--HB.2~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7056"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7056",
+   "finishedAt": "2026-10-08T06:17:16Z"
   },
   {
    "kind": "blueprint",
@@ -72080,8 +72082,8 @@
     "FIX-RT-AREA-langlands-2~3"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-langlands-2~3.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5871"
+   "state": "external",
+   "note": "claimed on GitHub issue #5871"
   },
   {
    "id": "FIX-RT-AREA-langlands-2~4",
