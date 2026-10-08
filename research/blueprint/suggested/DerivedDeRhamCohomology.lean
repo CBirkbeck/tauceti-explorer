@@ -3,7 +3,12 @@ This file is not the roadmap and is not exhaustive. The roadmap document is
 definitive. These statements suggest Lean forms so contributors and reviewers
 can converge on names and signatures. All proposed results remain unchecked.
 
-Revision BP-DerivedDeRhamCohomology~2 (2026-10-08), awaiting independent review.
+Revision BP-DerivedDeRhamCohomology~2 (2026-10-08), independently accepted after
+corrections by REV-DerivedDeRhamCohomology~2 (Codex codex-4LrBfo).
+Acceptance concerns the consistent target-level plan and recorded omissions;
+all declarations remain unimplemented. Direct lean-check is blocked by a missing
+compiled Tau Ceti import. An exact-pin declaration-inlined diagnostic passed
+with sorry warnings only; see the independent review report for its scope.
 The previous unrestricted derived contracts have been removed. Each packet name
 has either a typed ordinary view or an explicit omission entry below. The reader
 and packet retain the full mathematical contract. Omitted conditions are never
@@ -428,7 +433,7 @@ example (p : ℕ) [Fact p.Prime] :
 
 /- DerivedDeRhamCohomology:DD.1/derived-completion
 For finite-generated I⊂A construct Λ_I:D(A)→D_I-comp(A) left adjoint to the inclusion, with natural unit η_M:M→Λ_I M. For I=(f_i), put C_I=⊗_i[A→A[1/f_i]] in cochain degrees 0,1 and Λ_I M=RHom_A(C_I,M). This is exact, independent of generators, idempotent and preserves colimits formed in the complete category. Derived Nakayama: if M is complete and M⊗^L_A A/I=0 then M=0.
-Typed boundary: Finite-ideal ordinary reflector and its actual unit precomposition bijection, idempotence, Nakayama and tests. completedColimit states only completeness of the reflected object, not the enhanced colimit universal property.
+Typed boundary: Finite-ideal ordinary reflector, unit precomposition bijection, idempotence, Nakayama, completeness of the reflected object and tests. The complete-category colimit contract remains explicitly omitted.
 -/
 def derivedCompletion (A : Type) [CommRing A] (I : Ideal A) (M : D A) : D A := by sorry
 -- A chosen natural unit, rather than the vacuous existence of a zero map.
@@ -442,7 +447,7 @@ lemma completionIdempotent (A : Type) [CommRing A] (I : Ideal A) (hI : I.FG)
 lemma completeNakayama (A : Type) [CommRing A] (I : Ideal A) (hI : I.FG)
     (M : D A) (hM : derivedCompleteness A I M) (hred : IsZero (reduction A I M)) :
     IsZero M := by sorry
-lemma completedColimit (A : Type) [CommRing A] (I : Ideal A) (hI : I.FG)
+lemma completionComplete (A : Type) [CommRing A] (I : Ideal A) (hI : I.FG)
     (M : D A) : derivedCompleteness A I (derivedCompletion A I M) := by sorry
 -- test_completion_z
 example (p : ℕ) [Fact p.Prime] : Nonempty
@@ -457,7 +462,7 @@ example (A : Type) [CommRing A] (p : A) (m : ℕ) (hm : 0 < m) :
 
 /- DerivedDeRhamCohomology:DD.1/complete-flatness
 For finite I⊂A, an object M∈D(A) is I-completely flat when M⊗^L_A A/I is a flat A/I-module in degree zero, equivalently M⊗^L_A N is discrete for every I-power-torsion A-module N. It is I-completely faithfully flat if that reduction is faithfully flat. The predicate itself does not require M to be complete. Define finite I-complete Tor-amplitude [a,b] using the derived reduction and all discrete A/I-modules.
-Typed boundary: Actual derived quotient and fixed tensor, flatness/Tor-amplitude criterion, completion and three tests. Canonical complete base change is omitted.
+Typed boundary: Actual derived quotient and fixed tensor, flatness/Tor-amplitude criterion, completion and three named tests. The Z test includes failure of completeness, the Z_p test includes faithful flatness of reduction, and the F_p obstruction is typed over Z. Canonical complete base change is omitted.
 -/
 def completeFlatness (A : Type) [CommRing A] (I : Ideal A) (M : D A) : Prop :=
   (∀ n : ℤ, n ≠ 0 → IsZero (H (A ⧸ I) n (reduction A I M))) ∧
@@ -470,12 +475,17 @@ lemma completeFlatCompletion (A : Type) [CommRing A] (I : Ideal A) (hI : I.FG)
 lemma completeTorAmplitude (A : Type) [CommRing A] (I : Ideal A) (M : D A) (a b : ℤ)
     (h : amplitude (A ⧸ I) (reduction A I M) a b) :
     ∀ n : ℤ, n < a ∨ b < n → IsZero (H (A ⧸ I) n (reduction A I M)) := by sorry
--- test_cflat_integers
-example (p : ℕ) : completeFlatness ℤ (pIdeal ℤ p) (unit ℤ) := by sorry
--- test_cflat_padic
+-- test_complete_flat_z
 example (p : ℕ) [Fact p.Prime] :
-    completeFlatness ℤ (pIdeal ℤ p) (mod0 ℤ (ModuleCat.of ℤ (PadicInt p))) := by sorry
--- test_cflat_fp_negative
+    completeFlatness ℤ (pIdeal ℤ p) (unit ℤ) ∧
+    ¬ derivedCompleteness ℤ (pIdeal ℤ p) (unit ℤ) := by sorry
+-- test_complete_flat_zp
+example (p : ℕ) [Fact p.Prime] :
+    completeFlatness ℤ (pIdeal ℤ p) (mod0 ℤ (ModuleCat.of ℤ (PadicInt p))) ∧
+    Module.FaithfullyFlat (ℤ ⧸ pIdeal ℤ p)
+      (H (ℤ ⧸ pIdeal ℤ p) 0
+        (reduction ℤ (pIdeal ℤ p) (mod0 ℤ (ModuleCat.of ℤ (PadicInt p))))) := by sorry
+-- test_complete_flat_fp_boundary
 example (p : ℕ) [Fact p.Prime] :
     ¬ completeFlatness ℤ (pIdeal ℤ p) (mod0 ℤ (ModuleCat.of ℤ (ZMod p))) := by sorry
 
@@ -949,6 +959,12 @@ Planned contract: Derived I-complete objects are closed under all limits and fin
 Reason: The enhanced complete filtered category, its chosen cofibers, limits and Day tensor require EDS E1/E4; an arbitrary diagram or limit object cannot substitute for them.
 -/
 
+/- DerivedDeRhamCohomology:DD.1/derived-completion — partial
+OMITTED api: TauCeti.DerivedDeRham.completedColimit
+Planned contract: The colimit of a diagram of complete objects is Λ_I of its colimit in D(A).
+Reason: The colimit statement requires a diagram, its ambient colimit and the complete-subcategory universal property. This ordinary view types only completeness of Λ_I M as completionComplete.
+-/
+
 /- DerivedDeRhamCohomology:DD.1/koszul-completion-tower — omitted
 Boundary: The actual derived Koszul/ordinary-quotient diagram, comparison maps and homotopy limit must be supplied. Ordinary quotients require the stated regular, Noetherian or bounded-torsion hypotheses. Animated ring completion also needs the algebra structure; an arbitrary module or limit parameter is omitted.
 OMITTED declaration: TauCeti.DerivedDeRham.koszulCompletionTower
@@ -992,18 +1008,9 @@ Reason: The actual derived Koszul/ordinary-quotient diagram, comparison maps and
 -/
 
 /- DerivedDeRhamCohomology:DD.1/complete-flatness — partial
-Boundary: Actual derived quotient and fixed tensor, flatness/Tor-amplitude criterion, completion and three tests. Canonical complete base change is omitted.
+Boundary: Actual derived quotient and fixed tensor, flatness/Tor-amplitude criterion, completion and three named tests. The Z test includes failure of completeness, the Z_p test includes faithful flatness of reduction, and the F_p obstruction is typed over Z. Canonical complete base change is omitted.
 OMITTED api: TauCeti.DerivedDeRham.completeFlatBaseChange
 Planned contract: Derived base change followed by completion preserves complete flatness and complete faithful flatness.
-Reason: The enhanced complete filtered category, its chosen cofibers, limits and Day tensor require EDS E1/E4; an arbitrary diagram or limit object cannot substitute for them.
-OMITTED test: TauCeti.DerivedDeRham.test_complete_flat_z
-Planned contract: Z as a Z-module is p-completely flat even though it is not p-complete.
-Reason: The enhanced complete filtered category, its chosen cofibers, limits and Day tensor require EDS E1/E4; an arbitrary diagram or limit object cannot substitute for them.
-OMITTED test: TauCeti.DerivedDeRham.test_complete_flat_zp
-Planned contract: Z_p is p-completely faithfully flat over Z.
-Reason: The enhanced complete filtered category, its chosen cofibers, limits and Day tensor require EDS E1/E4; an arbitrary diagram or limit object cannot substitute for them.
-OMITTED test: TauCeti.DerivedDeRham.test_complete_flat_fp_boundary
-Planned contract: F_p is not p-completely flat over Z_p: F_p⊗^L_Zp F_p has a nonzero degree −1 term.
 Reason: The enhanced complete filtered category, its chosen cofibers, limits and Day tensor require EDS E1/E4; an arbitrary diagram or limit object cannot substitute for them.
 -/
 
@@ -1233,7 +1240,7 @@ Reason: The coherent realization/filtered algebra or the formal scheme over its 
 /- DerivedDeRhamCohomology:DD.2/de-rham-transitivity — omitted
 Boundary: The coherent realization/filtered algebra or the formal scheme over its specified base requires the EDS/SF suppliers. No arbitrary resolution, target complex or base-change function is quantified.
 OMITTED declaration: TauCeti.DerivedDeRham.deRhamTransitivity
-Planned contract: For A→B→C animated construct the base-forms filtration on dR_(C/A), whose weight-i graded term is dR_(C/B)⊗^L_B L∧^i_B L_(B/A)[−i]. Its boundary maps encode the Gauss–Manin connection; it does not canonically split. Separately, for composable F_p-algebras, Proposition 3.22 gives an increasing relative conjugate filtration with gr_n=dR_(B/A)⊗^L_(B^(1)) Frob_A^*(L∧^n_B L_(C/B)[−n]), where Frob_A^* is extension along the base-change map B→B^(1), b↦b⊗1. This uses the Frobenius-descent connection. Finite Hodge quotients and specified completions retain the extension data; no unrestricted de Rham-with-coefficients theory is inferred from Remark 3.23.
+Planned contract: For A→B→C animated construct the base-forms filtration on dR_(C/A), whose weight-i graded term is dR_(C/B)⊗^L_B L∧^i_B L_(B/A)[−i]. Its boundary maps encode the Gauss–Manin connection; it does not canonically split. Separately, for composable F_p-algebras, Proposition 3.22 gives an increasing relative conjugate filtration with gr_n=dR_(B/A)⊗^L_(B^(1)) Frob_A^*(Res^C_B(L∧^n_C L_(C/B)[−n])), where Frob_A^* is extension along the base-change map B→B^(1), b↦b⊗1. This uses the Frobenius-descent connection. Finite Hodge quotients and specified completions retain the extension data; no unrestricted de Rham-with-coefficients theory is inferred from Remark 3.23. The relative cotangent exterior power is formed over C; only afterward is it regarded as a B-module for this Frobenius base change.
 Reason: The coherent realization/filtered algebra or the formal scheme over its specified base requires the EDS/SF suppliers. No arbitrary resolution, target complex or base-change function is quantified.
 -/
 
@@ -1786,31 +1793,31 @@ Reason: The compatible prelog structure map and commuting ring/monoid square mus
 -/
 
 /- DerivedDeRhamCohomology:DD.6/homological-log-flatness — omitted
-Boundary: KY Definition 2.44 requires the specific derived ring/monoid pushouts for all compatible base changes, not an arbitrary function into D(B). Composition/base change use actual hlf maps. Remark 2.48 gives a specified nonintegral monoid inclusion which is Kato-log-flat but not hlf; universal positive/negative assertions are removed.
+Boundary: KY Definition 2.44 requires the specific derived ring/monoid pushouts for all compatible base changes, not an arbitrary function into D(B). Composition/base change use actual hlf maps. Remark 2.46 gives a specified nonintegral monoid inclusion which is Kato-log-flat but not hlf; universal positive/negative assertions are removed.
 OMITTED declaration: TauCeti.DerivedDeRham.homologicalLogFlatness
 Planned contract: A prelog map R→S is homologically log flat (hlf) if every prelog base map R→S′ makes the derived pushout S′⊔^L_R S equivalent to its ordinary pushout. It is hlf faithfully flat if additionally the underlying ring map is faithfully flat. Equivalently require ordinary ring flatness and the monoid homotopy-pushout flatness of Bhatt Definition 4.8. This is different from Kato log flatness in both directions. Coverings define the hlf topology on prelog algebras.
-Reason: KY Definition 2.44 requires the specific derived ring/monoid pushouts for all compatible base changes, not an arbitrary function into D(B). Composition/base change use actual hlf maps. Remark 2.48 gives a specified nonintegral monoid inclusion which is Kato-log-flat but not hlf; universal positive/negative assertions are removed.
+Reason: KY Definition 2.44 requires the specific derived ring/monoid pushouts for all compatible base changes, not an arbitrary function into D(B). Composition/base change use actual hlf maps. Remark 2.46 gives a specified nonintegral monoid inclusion which is Kato-log-flat but not hlf; universal positive/negative assertions are removed.
 OMITTED api: TauCeti.DerivedDeRham.hlfUnderlyingCriteria
 Planned contract: Hlf iff ring-flat and monoid homotopy-pushout-flat.
-Reason: KY Definition 2.44 requires the specific derived ring/monoid pushouts for all compatible base changes, not an arbitrary function into D(B). Composition/base change use actual hlf maps. Remark 2.48 gives a specified nonintegral monoid inclusion which is Kato-log-flat but not hlf; universal positive/negative assertions are removed.
+Reason: KY Definition 2.44 requires the specific derived ring/monoid pushouts for all compatible base changes, not an arbitrary function into D(B). Composition/base change use actual hlf maps. Remark 2.46 gives a specified nonintegral monoid inclusion which is Kato-log-flat but not hlf; universal positive/negative assertions are removed.
 OMITTED api: TauCeti.DerivedDeRham.hlfPushoutOrdinary
 Planned contract: Every base change has the displayed derived-to-ordinary pushout equivalence.
-Reason: KY Definition 2.44 requires the specific derived ring/monoid pushouts for all compatible base changes, not an arbitrary function into D(B). Composition/base change use actual hlf maps. Remark 2.48 gives a specified nonintegral monoid inclusion which is Kato-log-flat but not hlf; universal positive/negative assertions are removed.
+Reason: KY Definition 2.44 requires the specific derived ring/monoid pushouts for all compatible base changes, not an arbitrary function into D(B). Composition/base change use actual hlf maps. Remark 2.46 gives a specified nonintegral monoid inclusion which is Kato-log-flat but not hlf; universal positive/negative assertions are removed.
 OMITTED api: TauCeti.DerivedDeRham.hlfCompositionBaseChange
 Planned contract: Hlf and hlf faithful-flat maps are stable under composition and base change.
-Reason: KY Definition 2.44 requires the specific derived ring/monoid pushouts for all compatible base changes, not an arbitrary function into D(B). Composition/base change use actual hlf maps. Remark 2.48 gives a specified nonintegral monoid inclusion which is Kato-log-flat but not hlf; universal positive/negative assertions are removed.
+Reason: KY Definition 2.44 requires the specific derived ring/monoid pushouts for all compatible base changes, not an arbitrary function into D(B). Composition/base change use actual hlf maps. Remark 2.46 gives a specified nonintegral monoid inclusion which is Kato-log-flat but not hlf; universal positive/negative assertions are removed.
 OMITTED api: TauCeti.DerivedDeRham.hlfIntegralSufficient
 Planned contract: An underlying flat ring map with injective integral map of integral monoids is hlf.
-Reason: KY Definition 2.44 requires the specific derived ring/monoid pushouts for all compatible base changes, not an arbitrary function into D(B). Composition/base change use actual hlf maps. Remark 2.48 gives a specified nonintegral monoid inclusion which is Kato-log-flat but not hlf; universal positive/negative assertions are removed.
+Reason: KY Definition 2.44 requires the specific derived ring/monoid pushouts for all compatible base changes, not an arbitrary function into D(B). Composition/base change use actual hlf maps. Remark 2.46 gives a specified nonintegral monoid inclusion which is Kato-log-flat but not hlf; universal positive/negative assertions are removed.
 OMITTED test: TauCeti.DerivedDeRham.test_hlf_strict_flat
 Planned contract: A strict map with flat underlying ring is hlf.
-Reason: KY Definition 2.44 requires the specific derived ring/monoid pushouts for all compatible base changes, not an arbitrary function into D(B). Composition/base change use actual hlf maps. Remark 2.48 gives a specified nonintegral monoid inclusion which is Kato-log-flat but not hlf; universal positive/negative assertions are removed.
+Reason: KY Definition 2.44 requires the specific derived ring/monoid pushouts for all compatible base changes, not an arbitrary function into D(B). Composition/base change use actual hlf maps. Remark 2.46 gives a specified nonintegral monoid inclusion which is Kato-log-flat but not hlf; universal positive/negative assertions are removed.
 OMITTED test: TauCeti.DerivedDeRham.test_hlf_diagonal
 Planned contract: The diagonal (k,N→0)→(k,N²→0) is hlf but not Kato log flat.
-Reason: KY Definition 2.44 requires the specific derived ring/monoid pushouts for all compatible base changes, not an arbitrary function into D(B). Composition/base change use actual hlf maps. Remark 2.48 gives a specified nonintegral monoid inclusion which is Kato-log-flat but not hlf; universal positive/negative assertions are removed.
+Reason: KY Definition 2.44 requires the specific derived ring/monoid pushouts for all compatible base changes, not an arbitrary function into D(B). Composition/base change use actual hlf maps. Remark 2.46 gives a specified nonintegral monoid inclusion which is Kato-log-flat but not hlf; universal positive/negative assertions are removed.
 OMITTED test: TauCeti.DerivedDeRham.test_hlf_nonintegral_kato
 Planned contract: For P generated by (2,0),(0,2),(1,1) in Q=N², (k[P],P)→(k[Q],Q) is Kato log flat but not hlf.
-Reason: KY Definition 2.44 requires the specific derived ring/monoid pushouts for all compatible base changes, not an arbitrary function into D(B). Composition/base change use actual hlf maps. Remark 2.48 gives a specified nonintegral monoid inclusion which is Kato-log-flat but not hlf; universal positive/negative assertions are removed.
+Reason: KY Definition 2.44 requires the specific derived ring/monoid pushouts for all compatible base changes, not an arbitrary function into D(B). Composition/base change use actual hlf maps. Remark 2.46 gives a specified nonintegral monoid inclusion which is Kato-log-flat but not hlf; universal positive/negative assertions are removed.
 -/
 
 /- DerivedDeRhamCohomology:DD.6/log-derived-de-rham — omitted
