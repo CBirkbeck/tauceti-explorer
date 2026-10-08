@@ -40188,8 +40188,9 @@
     "BP-MetaplecticAutomorphicForms--MP.0~2"
    ],
    "prompt": "research/blueprint/prompts/REV-MetaplecticAutomorphicForms--MP.0~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7074"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7074",
+   "finishedAt": "2026-10-08T18:30:45Z"
   },
   {
    "kind": "blueprint",
