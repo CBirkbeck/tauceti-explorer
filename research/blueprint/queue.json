@@ -46244,8 +46244,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-CrystallineLocalGlobalCompatibilityCM.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7462"
+   "state": "pending",
+   "note": "released on GitHub issue #7462"
   },
   {
    "id": "REV-PKG-CrystallineLocalGlobalCompatibilityCM",
@@ -47272,8 +47272,9 @@
     "PKG-LocalGaloisDeformationRings"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-LocalGaloisDeformationRings.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7485"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7485",
+   "finishedAt": "2026-10-08T22:01:41Z"
   },
   {
    "id": "PKG-MetaplecticAutomorphicForms",
@@ -47490,7 +47491,8 @@
     "PKG-PotentialAutomorphyInfrastructure"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-PotentialAutomorphyInfrastructure.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7486"
   },
   {
    "id": "PKG-PotentialModularityAndCompatibleSystems",
