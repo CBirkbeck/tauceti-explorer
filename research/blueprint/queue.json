@@ -37287,8 +37287,9 @@
     "DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties~2"
    ],
    "prompt": "research/blueprint/prompts/REV-DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7452"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7452",
+   "finishedAt": "2026-10-08T21:51:23Z"
   },
   {
    "kind": "blueprint",
@@ -46243,8 +46244,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-CrystallineLocalGlobalCompatibilityCM.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7462"
+   "state": "pending",
+   "note": "released on GitHub issue #7462"
   },
   {
    "id": "REV-PKG-CrystallineLocalGlobalCompatibilityCM",
@@ -47092,7 +47093,8 @@
     "PKG-IgusaVarietiesAndTorsionConcentration"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-IgusaVarietiesAndTorsionConcentration.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7483"
   },
   {
    "id": "PKG-InductionRestrictionPartII",
@@ -76163,7 +76165,8 @@
     "REV-FIX-RT-AREA-automorphic-1~4"
    ],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-automorphic-1~5.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7448"
   },
   {
    "id": "REV-FIX-RT-AREA-automorphic-1~5",
