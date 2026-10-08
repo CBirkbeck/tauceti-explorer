@@ -18,8 +18,9 @@ condensed algebras. Smoothness/admissibility of representations is omitted.
 ZEmbedding records the rational-point exact sequence and central lifting only.
 The reductive-scheme, induced-torus, connected-centre and H1 conditions in the
 document are left out, not replaced by unnamed predicates. Its tests exercise
-this rational-point fragment. The reader contains the omission ledger; the
-independent review records corrections that its revision must incorporate.
+this rational-point fragment. The reader contains the synchronized omission ledger. The universal-coefficient
+torus fragment uses actual regular group algebras, but its geometric Hecke
+identification and the unconditional all-field centre comparison remain omitted.
 -/
 import Mathlib.Condensed.Basic
 import Mathlib.Algebra.Category.AlgCat.Basic
@@ -29,6 +30,7 @@ import Mathlib.Algebra.Algebra.Subalgebra.Basic
 import Mathlib.CategoryTheory.Center.Basic
 import Mathlib.CategoryTheory.Adjunction.Basic
 import Mathlib.GroupTheory.Subgroup.Center
+import Mathlib.Algebra.MonoidAlgebra.Basic
 
 open CategoryTheory
 namespace TauCeti.Blueprint.ES5
@@ -253,29 +255,65 @@ theorem weilRestriction {W' : Type u} [Group W'] (embedding : W' →* W)
 end ProductsAndRestriction
 
 section Tori
-variable {L : Type u} [Field L]
-variable {R S : Type u} [CommRing R] [Algebra L R] [CommRing S] [Algebra L S]
-variable {B : Type u}
-theorem toriSpectralCenter (reciprocityComparison : S →ₐ[L] R)
+variable {Λ : Type u} [CommRing Λ]
+variable {R S : Type u} [CommRing R] [Algebra Λ R] [CommRing S] [Algebra Λ S]
+theorem toriSpectralCenter (reciprocityComparison : S →ₐ[Λ] R)
     (h : Function.Bijective reciprocityComparison) :
-    ∃ e : S ≃ₐ[L] R, e.toAlgHom = reciprocityComparison := by sorry
+    ∃ e : S ≃ₐ[Λ] R, e.toAlgHom = reciprocityComparison := by sorry
 
-/-- Equality on algebra generators propagates to the full algebra, including
-nilpotents. The actual completed group-algebra/operator comparison is omitted. -/
-theorem toriDiagonalEmbedding {D : Type u} (gen : D → R)
-    (hgen : Algebra.adjoin L (Set.range gen) = ⊤) (diagonal : R →ₐ[L] (B → R))
-    (hdiag : ∀ d b, diagonal (gen d) b = gen d) (r : R) :
-    diagonal r = fun _ => r := by sorry
+variable {W A : Type u} [Group W] [CommGroup A]
 
--- Scalar-valued characters alone cannot supply the generator identity above.
-example (diagonal : R →ₐ[L] (B → R)) (x : R) (hx : x ≠ 0)
-    (hnil : x * x = 0) (hdiag : ∀ r b, diagonal r b = r) (b : B) :
-    diagonal x b ≠ 0 ∧ diagonal x b * diagonal x b = 0 := by sorry
+/-- The geometric Std/Std-dual identification is omitted. This is its actual
+regular-module consequence over arbitrary coefficients, rather than a character
+identity. In the full statement A = Eˣ/K and recGeomInverse includes that quotient. -/
+theorem torusTwoLegCalculation (recGeomInverse : W →* A) (γ₁ γ₂ : W)
+    (x : A) (r : Λ) :
+    Representation.leftRegular Λ A (recGeomInverse γ₁)
+      (Representation.leftRegular Λ A (recGeomInverse γ₂)⁻¹
+        (MonoidAlgebra.single x r)) =
+    MonoidAlgebra.single (recGeomInverse (γ₁ * γ₂⁻¹) * x) r := by sorry
 
-theorem torusTwoLegCalculation {W A : Type u} [Group W] [CommGroup A]
-    (recGeomInverse : W →* A) (χ : A →* Lˣ) (γ₁ γ₂ : W) :
-    χ (recGeomInverse (γ₁ * γ₂⁻¹)) =
-      χ (recGeomInverse γ₁) * (χ (recGeomInverse γ₂))⁻¹ := by sorry
+/-- Generation is used only on a finite-wild quotient coordinate. No assertion
+that the completed inverse limit is generated as an ordinary algebra is made. -/
+theorem toriDiagonalEmbedding {B : Type u}
+    (action : B → MonoidAlgebra Λ A →ₐ[Λ] Module.End Λ (MonoidAlgebra Λ A))
+    (hgen : ∀ b a x, action b (MonoidAlgebra.single a 1)
+      (MonoidAlgebra.single x 1) = MonoidAlgebra.single (a * x) 1)
+    (b : B) (r m : MonoidAlgebra Λ A) : action b r m = r * m := by sorry
+
+/-- Regular multiplication detects every coefficient, including nilpotents. -/
+theorem regular_action_faithful (r s : MonoidAlgebra Λ A)
+    (h : ∀ m, r * m = s * m) : r = s := by sorry
+
+-- torus_inverse_pair_regular
+example (recGeomInverse : W →* A) (γ : W) (m : MonoidAlgebra Λ A) :
+    Representation.leftRegular Λ A (recGeomInverse γ)
+      (Representation.leftRegular Λ A (recGeomInverse γ)⁻¹ m) = m := by sorry
+
+-- torus_quotient_transport: the quotient may be infinite.
+example {A' : Type u} [CommGroup A'] (q : A →* A') (a : A)
+    (m : MonoidAlgebra Λ A) :
+    MonoidAlgebra.mapDomainRingHom Λ q (Representation.leftRegular Λ A a m) =
+      Representation.leftRegular Λ A' (q a)
+        (MonoidAlgebra.mapDomainRingHom Λ q m) := by sorry
+
+-- torus_coefficient_transport
+example {Λ' : Type u} [CommRing Λ'] (f : Λ →+* Λ') (a : A)
+    (m : MonoidAlgebra Λ A) :
+    MonoidAlgebra.mapRingHom A f (Representation.leftRegular Λ A a m) =
+      Representation.leftRegular Λ' A a (MonoidAlgebra.mapRingHom A f m) := by sorry
+
+-- torus_nilpotent_regular: no field-valued character appears in this test.
+example (ε : Λ) (hε : ε ≠ 0) (hεsq : ε * ε = 0) (a : A) :
+    (MonoidAlgebra.single (1 : A) ε : MonoidAlgebra Λ A) ≠ 0 ∧
+    (MonoidAlgebra.single (1 : A) ε : MonoidAlgebra Λ A) ^ 2 = 0 ∧
+    Representation.leftRegular Λ A a (MonoidAlgebra.single 1 ε) =
+      MonoidAlgebra.single a ε := by sorry
+
+-- torus_frobenius_sign: opposite translations differ on the unit basis vector.
+example [Nontrivial Λ] (a : A) (ha : a ≠ a⁻¹) :
+    Representation.leftRegular Λ A a (MonoidAlgebra.single 1 1) ≠
+      Representation.leftRegular Λ A a⁻¹ (MonoidAlgebra.single 1 1) := by sorry
 end Tori
 
 section Characters
