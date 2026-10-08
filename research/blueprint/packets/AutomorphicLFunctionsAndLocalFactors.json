@@ -9749,631 +9749,9 @@
   ],
   "review": {
     "status": "accepted",
-    "reviewer": "independent-review-REV-AutomorphicLFunctionsAndLocalFactors~2",
+    "reviewer": "independent-review-REV-FIX-RT-AREA-automorphic-1~5",
     "date": "2026-10-08",
-    "notes": "Codex codex-8NVOhA: independent target-level review of revision round2, all124 nodes, all68 actual pinned declaration statements, six coverage/audit rows, supplier contracts, APIs/tests/planets, original review and confirmed RT findings2/8/10/13. Corrected28 existing nodes and added one exact finite-place induction-product target; all six source issues freshly confirmed. Packet/reader/suggested file reconciled. Accepted as a complete planning pass with six planned stages,16 explicit proof/supplier gaps and36 requests; no closed stage or implemented theorem is claimed.",
-    "checked": [
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/pairing-annihilator",
-        "verdict": "verified",
-        "note": "The additive subgroup carrier permits a trivial character and a degenerate pairing; the real integer lattice disproves an R-submodule carrier."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/mem-pairing-annihilator",
-        "verdict": "verified",
-        "note": "Membership is exactly triviality on every element of U, with no topological hypothesis."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/closed-annihilator",
-        "verdict": "verified",
-        "note": "Closedness follows from continuous equality loci and arbitrary intersections, not finite generation of U."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/open-annihilator",
-        "verdict": "verified",
-        "note": "Joint local constancy and compactness allow the tube lemma; an infinite intersection of open fibers would be invalid."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/vanishing-from-period",
-        "verdict": "verified",
-        "note": "The native negative-kernel translation identity forces vanishing when the period phase is nontrivial."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/fourier-support",
-        "verdict": "verified",
-        "note": "Ordinary Fourier support lies in the annihilator; topological support is its closure and needs closedness."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/indicator-transform",
-        "verdict": "verified",
-        "note": "The Haar orthogonality formula remains valid for the native totalized integral; the coefficient is μ.real(U)."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/coset-transform",
-        "verdict": "verified",
-        "note": "For f(v−a), the native transform has phase ψ(−L(a,w)); the sign agrees with the pinned definition."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/modulation",
-        "verdict": "verified",
-        "note": "Multiplication by ψ(L(v,b)) shifts the native transform from w to w−b."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/frequency-periods",
-        "verdict": "verified",
-        "note": "Support in a subgroup gives periods in its annihilator without presupposing biduality."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/locally-constant-transform",
-        "verdict": "verified",
-        "note": "Compact support is bounded in a lattice and hence has an open annihilator; this gives local constancy."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/compact-support-transform",
-        "verdict": "verified",
-        "note": "A common open period lattice gives compact annihilator support; a compact-open carrier is required."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/indicator-inversion",
-        "verdict": "verified",
-        "note": "The lattice volume product gives reflection after two transforms; it does not follow from support alone."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/local-schwartz-bruhat-space",
-        "verdict": "verified",
-        "note": "Finite-place functions reuse the SR.1 carrier; real/complex functions reuse SchwartzMap with the chosen pairing."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/local-fourier-inversion",
-        "verdict": "verified",
-        "note": "Finite period-level inversion precedes the local theorem; archimedean native inversion is transported with reflection and complex factor2."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/adelic-schwartz-bruhat-space",
-        "verdict": "corrected",
-        "note": "Completed archimedean tensor factors require density rather than algebraic spanning; explicit GNF topology and restricted Haar inputs were added."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/adelic-poisson-summation",
-        "verdict": "corrected",
-        "note": "The annihilator quotient needs finite cardinality, not finite dimension; compact character completeness and local/global duality now have explicit routes."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/point-supported-distributions",
-        "verdict": "verified",
-        "note": "The finite-order jet target retains continuous distribution support; the unread original structure proof is G3."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/local-quasicharacter-conductor",
-        "verdict": "corrected",
-        "note": "Continuous real/complex exponents come from GNF Layer10, while attained finite conductor comes from CFT Layer7; both routes are explicit."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/local-zeta-integral",
-        "verdict": "verified",
-        "note": "The character exponent controls the convergence half-plane; scaling multiplicative Haar scales z and z/L equally."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/eigendistribution-space",
-        "verdict": "verified",
-        "note": "The character-eigencondition is imposed on continuous linear functionals, not on arbitrary algebraic duals."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/restriction-to-punctured-line",
-        "verdict": "verified",
-        "note": "Haar-measure uniqueness alone does not give continuous-distribution uniqueness on the punctured line; G3 retains that analytic step."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/eigendistributions-supported-at-zero",
-        "verdict": "verified",
-        "note": "Derivative order and eigencharacter match the x^(−a) convention, including the complex mixed derivatives."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/unramified-local-theory",
-        "verdict": "verified",
-        "note": "The valuation-shell geometric series produces the local denominator and its normalized standard-vector value in the chosen measure."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/invariant-distributions-exceptional-case",
-        "verdict": "verified",
-        "note": "The trivial-eigencharacter exceptional distribution remains separate from the punctured-line eigenline."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/ramified-local-theory",
-        "verdict": "verified",
-        "note": "The least principal-unit conductor controls the support of the ramified standard test; its local L-factor is1."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/archimedean-local-theory",
-        "verdict": "verified",
-        "note": "Taylor subtraction precedes uniqueness and FE; general-test convergence differs from the special Gaussian and real residue order is a+r."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/local-uniqueness-theorem",
-        "verdict": "verified",
-        "note": "Continuation and point-supported eigencharacter analysis yield the one-dimensional local eigenline without using the later FE."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/fourier-transform-eigendistribution",
-        "verdict": "verified",
-        "note": "Fourier covariance changes the multiplicative eigencharacter by the inverse and norm factor in the declared action convention."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/local-epsilon-gamma-factors",
-        "verdict": "verified",
-        "note": "The normalized ratio fixes epsilon; a fixed additive Fourier measure makes the multiplicative Haar scalar cancel from the ratio."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/local-functional-equation",
-        "verdict": "verified",
-        "note": "Meromorphic distribution continuation and the unique normalized eigenline give the local equation, interpreted by continuation at poles."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/local-gauss-sum",
-        "verdict": "corrected",
-        "note": "Both off-shell ranges now vanish: minimality handles lower frequencies, and additive P^c coset orthogonality handles higher frequencies."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/explicit-epsilon-factors",
-        "verdict": "corrected",
-        "note": "The ramified exponent is ν+c, and the real inverse-character identity uses the norm power2a, including a=0."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/global-eigendistributions",
-        "verdict": "corrected",
-        "note": "Local eigenline uniqueness supplies the restricted-product converse only for eigenvectors; arbitrary distributions need not be pure tensors."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/global-zeta-integral",
-        "verdict": "corrected",
-        "note": "Pure-tensor factorization is extended by Schwartz-seminorm domination; the Hecke carrier and ideal Euler product are now direct inputs."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/completed-hecke-l-function",
-        "verdict": "corrected",
-        "note": "Finite and archimedean factors use the same character convention; ADS supplies the ideal Euler-product passage rather than continuation."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/idele-class-volume",
-        "verdict": "corrected",
-        "note": "The norm coordinate uses dt/t; the κ arithmetic expression is compared with, rather than substituted for, native one-sided Dedekind residue."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/tate-lemma-a",
-        "verdict": "verified",
-        "note": "The theta norm splitting retains quotient covolume and a nontrivial norm-one character has zero average."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/tate-lemma-b",
-        "verdict": "verified",
-        "note": "The large-norm theta integral is entire by uniform Schwartz decay; its measure agrees with LemmaA."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/tate-global-functional-equation",
-        "verdict": "verified",
-        "note": "Poisson and the norm split produce continuation with the norm-character exceptional poles, without assuming global entirety."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/global-epsilon-factor",
-        "verdict": "verified",
-        "note": "Almost every local epsilon is1, so the global product is finite; the product formula removes dependence on the global additive character."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/hecke-l-functional-equation",
-        "verdict": "verified",
-        "note": "The completed and ideal-side conventions preserve the inverse-character dictionary and shifted norm-character poles."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/bessel-k",
-        "verdict": "corrected",
-        "note": "The integral defines the actual K-function with order symmetry and differential API; a Gaussian change of variables now explains K_(1/2)."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/bessel-half-order-derivative",
-        "verdict": "verified",
-        "note": "Zhang Lemma12.3 has the stated Ei(−2c) normalization; the original tabulated derivative proof remains G4."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.2/godement-jacquet-integral",
-        "verdict": "verified",
-        "note": "The exponent is s+(n−1)/2, and matrix additive Haar is distinguished from group multiplicative Haar."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.2/godement-jacquet-convergence",
-        "verdict": "verified",
-        "note": "Convergence is a representation-dependent right half-plane; derivatives need logarithmic domination, not just formal differentiation."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.2/standard-local-l-factor",
-        "verdict": "verified",
-        "note": "Finite rational fractional-ideal minimality and archimedean parameter gamma products are distinct constructions; G5 preserves the former proof leaves."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.2/godement-jacquet-functional-equation",
-        "verdict": "corrected",
-        "note": "The source inverse-character transpose transform was explicitly converted to the packet positive plain-trace transform and inverse coefficient."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.2/godement-jacquet-newform-test",
-        "verdict": "corrected",
-        "note": "The projector includes inverse central character and K₀ volume; its cancellation now imports the exact induced RS product."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.2/global-godement-jacquet",
-        "verdict": "verified",
-        "note": "Re(s)>1 convergence needs the self-pair positivity and finite-abscissa Landau route; local q^(1/2) bounds alone do not prove it."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/whittaker-model",
-        "verdict": "verified",
-        "note": "The model is built from the actual unique continuous functional on the generic representation, with SR.5 and CW inputs."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/whittaker-compact-parameter-estimates",
-        "verdict": "verified",
-        "note": "The uniform seminorm bound is archimedean compact-picture work; it is not supplied by the finite-place SR.3 stage."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-local-integrals",
-        "verdict": "verified",
-        "note": "Unequal rank includes the rectangular X integral and the (n−m)/2 shift; equal rank includes Schwartz Φ on the last row."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-local-convergence",
-        "verdict": "corrected",
-        "note": "Cogdell Propositions6.2 and8.2 give the additional Re(s)≥1 unitary bound needed for omitted factors in SMO."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-local-factor",
-        "verdict": "corrected",
-        "note": "Finite minimality is now sourced to Cogdell; the derivative filtration is assigned to SR.5, while Jacquet supplies the archimedean growth module."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-induced-factor-product",
-        "verdict": "added",
-        "note": "Added exact finite-place standard and tensor product formulas for irreducible generic normalized inductions; divisibility or gamma multiplicativity cannot replace the newform cancellation input."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-local-functional-equation",
-        "verdict": "verified",
-        "note": "The long-Weyl/transpose-inverse and central-character sign match the local integral; meromorphic equality is not a totalized value at a pole."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-archimedean-realization",
-        "verdict": "verified",
-        "note": "Jacquet’s strip-bounded L(τ) space, ordered parameters, finite equal-rank sum and irreducible adjacent/equal K-finite range are all retained."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-unramified-test",
-        "verdict": "corrected",
-        "note": "Conductor-zero spherical data gives the exact Cauchy product; the ramified essential-vector test keeps its conductor-dependent Φ."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.4/l-group-local-factor",
-        "verdict": "verified",
-        "note": "The factor is evaluated on the relative Frobenius Satake class; a ramified parameter is additional data, not a spherical substitute."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.4/partial-l-product-convergence",
-        "verdict": "verified",
-        "note": "Borel13.2 supplies a uniform arbitrary-r bound only through the exact SR.4 extension request; it does not follow from the carrier alone."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.4/local-parameter-comparison",
-        "verdict": "corrected",
-        "note": "The comparison remains conditional; WD geometric Frobenius/monodromy and classical/Hilbert GL₂ arithmetic scopes are now explicit direct suppliers. Preserved the classical dual and Hilbert half-power normalization dictionaries."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.5/finite-euler-correction",
-        "verdict": "verified",
-        "note": "Removing a local reciprocal polynomial means multiplying by its polynomial, with finite-set and twist compatibility."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.5/critical-value-period-interface",
-        "verdict": "verified",
-        "note": "The modular-symbol algebraicity input is GL₂/Q; general GL₂/F or higher-rank algebraicity is not credited to it."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.5/central-sign-vanishing",
-        "verdict": "verified",
-        "note": "Odd self-dual FE forces the central value to vanish; it does not force every derivative to vanish."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/global-whittaker-factorization",
-        "verdict": "verified",
-        "note": "Global genericity comes from the preceding Fourier expansion; completed Flath and local uniqueness yield continuous factorization."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/gln-fourier-expansion",
-        "verdict": "verified",
-        "note": "Cuspidality removes degenerate Fourier terms and proves injectivity/global genericity before factorization or multiplicity one."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/mirabolic-eisenstein-series",
-        "verdict": "corrected",
-        "note": "The theta Mellin integral fixes the determinant exponent and central transformation; arithmetic and quotient measures are actual supplier inputs."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/mirabolic-eisenstein-functional-equation",
-        "verdict": "corrected",
-        "note": "Norm twists retain shifted zero modes with denominators s−iσ and s−1−iσ; only nontrivial norm-one restriction makes them vanish."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/global-rs-unfolding",
-        "verdict": "corrected",
-        "note": "The corrected theorem is over number fields, with the unequal-rank projection before integration and the equal-rank Eisenstein factor."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-global-poles",
-        "verdict": "corrected",
-        "note": "Number-field equal-rank poles follow the norm-twist contragredient criterion; function-field periodic poles remain in the separate rational branch."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-global-functional-equation",
-        "verdict": "corrected",
-        "note": "The number-field completed equation follows the factorized integrals; global central-character signs and additive-character changes cancel."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-vertical-strip-bounds",
-        "verdict": "corrected",
-        "note": "Special adjacent/equal K-finite cases and general arbitrary-rank bounds are distinguished; the latter original proof remains G8."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.2/jacquet-shalika-satake-bound",
-        "verdict": "verified",
-        "note": "The unitary standard GL_n exponent bound is requested from classification; it is not an arbitrary-r Satake convergence theorem."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/strong-multiplicity-one",
-        "verdict": "corrected",
-        "note": "Local unitary boundary convergence/minimality are direct inputs; agreement at infinity is a conclusion, followed by ordinary multiplicity one."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/isobaric-strong-multiplicity-one",
-        "verdict": "corrected",
-        "note": "Uniqueness is stated for the admitted isobaric classification range, with the AF.1b extension rather than GL₂ transfer as supplier."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/ramakrishnan-degree-one",
-        "verdict": "verified",
-        "note": "The theorem keeps the nested prime-degree normal chain and the specified degree-one agreement, rather than arbitrary base change."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/normalized-rs-period",
-        "verdict": "verified",
-        "note": "Diagonal GL_m period multiplicity is a separate finite/archimedean supplier, not a consequence of Whittaker uniqueness."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/global-central-period",
-        "verdict": "verified",
-        "note": "The source pairing is the actual normalized quotient period with its local factors and central L-value, not an arbitrary pairing carrier."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/standard-additive-character",
-        "verdict": "verified",
-        "note": "The negative finite rational component and positive real component yield global trace triviality; trace-dual different arithmetic is imported."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/fractional-ideal-annihilator",
-        "verdict": "verified",
-        "note": "The inverse different shifts the annihilator exponent to −m−d, retaining the largest-trivial-ideal convention."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/self-dual-haar",
-        "verdict": "corrected",
-        "note": "The local additive volumes q^(−d/2), dx and2dxdy are separate from multiplicative unit volume; the Gaussian baseline route is now direct."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/finite-schwartz-period-level",
-        "verdict": "verified",
-        "note": "A finite support/period lattice quotient requires N≥−M; Kudla p.115 is the source and the reader now uses its title."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/finite-fourier-inversion",
-        "verdict": "verified",
-        "note": "Finite coset decomposition and volume-normalized indicator inversion are a noncircular route to reflection."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/schwartz-parameter-domination",
-        "verdict": "verified",
-        "note": "Compact parameters need a strict convergence margin; logarithmic derivatives are dominated rather than formally interchanged."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/canonical-archimedean-factor",
-        "verdict": "verified",
-        "note": "Canonical Γ_C differs by π from Kudla’s Gaussian normalization; real parity and complex angular shift are explicit."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/cm-quadratic-completion",
-        "verdict": "verified",
-        "note": "The quadratic root number1 is derived from a quotient of completed Dedekind zeta functions, not asserted for all Hecke characters."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/cm-logarithmic-gamma-correction",
-        "verdict": "verified",
-        "note": "Logarithmic differentiation of the chosen Γ factors retains the conductor, π and2π normalization constants."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/function-field-rs-euler-product",
-        "verdict": "verified",
-        "note": "The formal rational-function variable precedes complex specialization, with normalized degree and finite local factors."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/function-field-cuspidal-polynomial",
-        "verdict": "verified",
-        "note": "The finite-order determinant scope is reached by the degree twist; tensor-cohomological degree is the explicit FA.5 extension G11."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/function-field-self-pair-reflection",
-        "verdict": "verified",
-        "note": "Self-pair zeta poles are kept separate from pure numerator roots, with the alternating duality degree/reflection correction."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/residual-rs-product",
-        "verdict": "verified",
-        "note": "The residual block classification is imported from AF.1b, then the shifted tensor factors are multiplied."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/residual-rs-telescoping",
-        "verdict": "verified",
-        "note": "Adjacent numerator/denominator shifts cancel algebraically with endpoint factors retained."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/open-disc-zero-pole-index",
-        "verdict": "verified",
-        "note": "The index is zeros minus poles in the open disc with multiplicity; roots on the boundary contribute zero."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/residual-rs-index",
-        "verdict": "verified",
-        "note": "Yu’s degree/radius count keeps the corrected endpoint factor and the cohomological degree input."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-normalizing-scalar",
-        "verdict": "verified",
-        "note": "The scalar is a ratio of actual pair L-functions with the conductor factor, not an arbitrary rational function."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/self-pair-normalizer-reflection",
-        "verdict": "verified",
-        "note": "Reflecting the normalized self-pair scalar preserves its degree and conductor conventions and meromorphic divisor orders."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/whittaker-conductor-shift",
-        "verdict": "corrected",
-        "note": "The diagonal exponents change every simple-root character to conductor zero; the canonical degree2g−2 now imports FA.2 directly."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/bessel-laplace-mellin",
-        "verdict": "corrected",
-        "note": "The Gross–Zagier display is extended from integer m to positive real m by rescaling; gamma/beta Fubini and their ranges are explicit."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/partial-fourier-transform",
-        "verdict": "verified",
-        "note": "The source mixed-coordinate transform retains the other variables and positive/negative kernel comparison; no full transform is substituted."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.2/godement-jacquet-spherical-test",
-        "verdict": "verified",
-        "note": "The finite K-volume1 test is distinct from additive self-dual Haar; the spherical Schur evaluation retains unitary Satake normalization."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.2/unitary-self-dual-real-factors",
-        "verdict": "verified",
-        "note": "Conjugate parameters and self-duality make the conductor-balanced completion real on the real axis, with root number±1."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.2/standard-order-one",
-        "verdict": "verified",
-        "note": "Order≤1 follows from Euler/gamma bounds, FE and a recorded strip-growth refinement; AN.2’s Hadamard theorem is not its input."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.2/standard-superpositivity",
-        "verdict": "verified",
-        "note": "RH and order≤1 give the Hadamard application; strict derivative propagation additionally requires non-polynomiality."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.2/trivial-function-field-pole-clearer",
-        "verdict": "verified",
-        "note": "The trivial character pole clearer uses the curve numerator and corrected centered degree; genus-zero constant cases remain explicit."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.2/maass-standard-l-function",
-        "verdict": "verified",
-        "note": "The actual AF.3 Maass carrier supplies parity and normalization; the factor uses Γ_R(s±it+δ)."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.2/maass-standard-functional-equation",
-        "verdict": "verified",
-        "note": "The parity sign in the reflected Mellin integral matches the source Maass FE and conductor convention."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/maass-norm-comparison",
-        "verdict": "verified",
-        "note": "The norm comparison uses Hecke normalization and hyperbolic measure, not an implicit L²-unit vector."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-boundary-nonvanishing",
-        "verdict": "verified",
-        "note": "Nonvanishing on Re(s)=1 uses the JS/Shahidi theorem and pole exceptions; it does not follow merely from right-half-plane absolute convergence."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/motivic-unitary-shift",
-        "verdict": "verified",
-        "note": "Tensor weight w₀+w₁ shifts the motivic variable by half that weight; actual local-global identification is conditional."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.4/satake-factor-operations",
-        "verdict": "verified",
-        "note": "Direct sums multiply and tensor/exterior powers act on the Satake eigenvalues; finite bad-set factors remain separate."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.4/exterior-power-transfer-comparison",
-        "verdict": "verified",
-        "note": "The equality of unramified factors is conditional on an established transfer and does not assert general functoriality."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.5/euler-correction-leading-term",
-        "verdict": "verified",
-        "note": "Local zeros add their meromorphic orders and multiply leading coefficients; an exceptional Euler zero cannot be canceled."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/additive-duality-map",
-        "verdict": "verified",
-        "note": "The map lands in native PontryaginDual with the compact-open topology; continuity does not establish its surjectivity."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/local-additive-self-duality",
-        "verdict": "verified",
-        "note": "The target is limited to number-field completions; the suggested real signature does not claim arbitrary positive-characteristic local fields."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/archimedean-fourier-comparison",
-        "verdict": "verified",
-        "note": "Real positive transform is native negative transform at −y; complex trace and2dxdy require the declared scale2."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/quadratic-orbital-tate-comparison",
-        "verdict": "verified",
-        "note": "Zhang’s rank-two quadratic-orbit normalization is retained with its stabilizer and quotient Haar factors."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/rational-period-comparison",
-        "verdict": "verified",
-        "note": "Finite-part rationality and geometric comparison are inputs; semilinear Whittaker structure, signature and Gauss twisting remain AL obligations in G12."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.5/ordinary-gl2-euler-factor",
-        "verdict": "corrected",
-        "note": "The good-prime two-factor correction and p-level one-factor formula use the actual fine stabilization nodes and inverse-character dictionary."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.5/local-conductor-test-vector-comparison",
-        "verdict": "verified",
-        "note": "For unramified GL₂ twisted by ramified χ, inertia invariants vanish and conductor is2ν; this does not cover arbitrary ramified π."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.2/archimedean-standard-epsilon",
-        "verdict": "verified",
-        "note": "The positive packet character has the parity i-powers; the source inverse-character convention is transported consistently."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/gln-converse-full-rank",
-        "verdict": "verified",
-        "note": "Cogdell full-rank niceness quantifies over completed dual twists of ranks1…n−1; rank2 and the exceptional-set conclusion are retained."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/gln-converse-reduced-rank",
-        "verdict": "verified",
-        "note": "Reduced-rank twists1…n−2 require n≥3 and the stated finite exceptional set; it is distinct from the full-rank theorem."
-      },
-      {
-        "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/global-multiplicity-one",
-        "verdict": "verified",
-        "note": "Ordinary cuspidal multiplicity one follows from injective Fourier reconstruction and local Whittaker uniqueness; it is not imported from AF.3."
-      }
-    ]
+    "notes": "Independent completed review of FIX-RT-AREA-automorphic-1~5 (issue #7448, PR #7713, Codex codex-vvlCYM) by Codex session codex-zcs4LH, following REV-FIX-RT-AREA-automorphic-1~4 and independent-review-REV-AutomorphicLFunctionsAndLocalFactors~2. Findings /1, /2, /8–/10, /13 and /14: the newer accepted revision preserves the last-column Fourier/genericity prefix, ordinary multiplicity one, finite-sum local-factor realization, archimedean continuous Whittaker inputs, and the GL2/Q versus general-field period interface. The unitary closed-boundary convergence and no-common-zero factor contracts are suitable suppliers for R17.4. Reader corrections survive the broad accepted revision. All thirteen packet checks pass; exact prerequisite closure is acyclic. No mathematical field or suggested declaration changed in this review. Source receipts, reader checks and Lean limitations are in research/blueprint/reviews/REV-FIX-RT-AREA-automorphic-1~5.md."
   },
   "reviewHistory": [
     {
@@ -10995,6 +10373,634 @@
       "reviewer": "independent-review-REV-FIX-RT-AREA-automorphic-1~4",
       "date": "2026-10-08",
       "notes": "Independent review of FIX-RT-AREA-automorphic-1~4 (issue #7280, PR #7314, Codex codex-Z0ErNN) by Claude session claude-95TvAO, following REV-FIX-RT-AREA-automorphic-1~3 and, for this packet, REV-AutomorphicLFunctionsAndLocalFactors (needs_changes). Findings /1, /2, /8, /9, /10, /13 and /14 are correctly fixed in the packet: full- and reduced-rank converse contracts match Cogdell's PSCT Theorems 3.1 and 3.3; the Fourier expansion precedes factorization and proves genericity; mirabolic poles depend on the character (Cogdell Fields Proposition 5.4); AL.3/global-multiplicity-one is ordinary multiplicity one; every AF, AA and ALS supplier id exists and no AF node is credited with genericity; the GL2/Q period interface is scoped to ModularSymbols L1; AL.0 owns Schwartz–Bruhat functions. No packet correction was needed. Status stays needs_changes because this packet's own blueprint review (REV-AutomorphicLFunctionsAndLocalFactors) did not accept it and its revision BP-AutomorphicLFunctionsAndLocalFactors~2 is pending: accepting a narrow fix would promote the whole packet. The reader, unchanged since round 3, still contradicts the corrected packet at ~15 (Haar change said to cancel from normalized distributions), ~1657/1659 (every entire multiple), ~1691/1709/1713 (genericity assumed; Fourier after factorization), ~1829–1837 (an AF global multiplicity-one theorem), ~2175 (Gauss-period twisting law imported) and ~2354/2356 (GL2/F from ModularSymbols L1). Details in the review report."
+    },
+    {
+      "status": "accepted",
+      "reviewer": "independent-review-REV-AutomorphicLFunctionsAndLocalFactors~2",
+      "date": "2026-10-08",
+      "notes": "Codex codex-8NVOhA: independent target-level review of revision round2, all124 nodes, all68 actual pinned declaration statements, six coverage/audit rows, supplier contracts, APIs/tests/planets, original review and confirmed RT findings2/8/10/13. Corrected28 existing nodes and added one exact finite-place induction-product target; all six source issues freshly confirmed. Packet/reader/suggested file reconciled. Accepted as a complete planning pass with six planned stages,16 explicit proof/supplier gaps and36 requests; no closed stage or implemented theorem is claimed.",
+      "checked": [
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/pairing-annihilator",
+          "verdict": "verified",
+          "note": "The additive subgroup carrier permits a trivial character and a degenerate pairing; the real integer lattice disproves an R-submodule carrier."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/mem-pairing-annihilator",
+          "verdict": "verified",
+          "note": "Membership is exactly triviality on every element of U, with no topological hypothesis."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/closed-annihilator",
+          "verdict": "verified",
+          "note": "Closedness follows from continuous equality loci and arbitrary intersections, not finite generation of U."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/open-annihilator",
+          "verdict": "verified",
+          "note": "Joint local constancy and compactness allow the tube lemma; an infinite intersection of open fibers would be invalid."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/vanishing-from-period",
+          "verdict": "verified",
+          "note": "The native negative-kernel translation identity forces vanishing when the period phase is nontrivial."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/fourier-support",
+          "verdict": "verified",
+          "note": "Ordinary Fourier support lies in the annihilator; topological support is its closure and needs closedness."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/indicator-transform",
+          "verdict": "verified",
+          "note": "The Haar orthogonality formula remains valid for the native totalized integral; the coefficient is μ.real(U)."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/coset-transform",
+          "verdict": "verified",
+          "note": "For f(v−a), the native transform has phase ψ(−L(a,w)); the sign agrees with the pinned definition."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/modulation",
+          "verdict": "verified",
+          "note": "Multiplication by ψ(L(v,b)) shifts the native transform from w to w−b."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/frequency-periods",
+          "verdict": "verified",
+          "note": "Support in a subgroup gives periods in its annihilator without presupposing biduality."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/locally-constant-transform",
+          "verdict": "verified",
+          "note": "Compact support is bounded in a lattice and hence has an open annihilator; this gives local constancy."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/compact-support-transform",
+          "verdict": "verified",
+          "note": "A common open period lattice gives compact annihilator support; a compact-open carrier is required."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/indicator-inversion",
+          "verdict": "verified",
+          "note": "The lattice volume product gives reflection after two transforms; it does not follow from support alone."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/local-schwartz-bruhat-space",
+          "verdict": "verified",
+          "note": "Finite-place functions reuse the SR.1 carrier; real/complex functions reuse SchwartzMap with the chosen pairing."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/local-fourier-inversion",
+          "verdict": "verified",
+          "note": "Finite period-level inversion precedes the local theorem; archimedean native inversion is transported with reflection and complex factor2."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/adelic-schwartz-bruhat-space",
+          "verdict": "corrected",
+          "note": "Completed archimedean tensor factors require density rather than algebraic spanning; explicit GNF topology and restricted Haar inputs were added."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/adelic-poisson-summation",
+          "verdict": "corrected",
+          "note": "The annihilator quotient needs finite cardinality, not finite dimension; compact character completeness and local/global duality now have explicit routes."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/point-supported-distributions",
+          "verdict": "verified",
+          "note": "The finite-order jet target retains continuous distribution support; the unread original structure proof is G3."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/local-quasicharacter-conductor",
+          "verdict": "corrected",
+          "note": "Continuous real/complex exponents come from GNF Layer10, while attained finite conductor comes from CFT Layer7; both routes are explicit."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/local-zeta-integral",
+          "verdict": "verified",
+          "note": "The character exponent controls the convergence half-plane; scaling multiplicative Haar scales z and z/L equally."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/eigendistribution-space",
+          "verdict": "verified",
+          "note": "The character-eigencondition is imposed on continuous linear functionals, not on arbitrary algebraic duals."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/restriction-to-punctured-line",
+          "verdict": "verified",
+          "note": "Haar-measure uniqueness alone does not give continuous-distribution uniqueness on the punctured line; G3 retains that analytic step."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/eigendistributions-supported-at-zero",
+          "verdict": "verified",
+          "note": "Derivative order and eigencharacter match the x^(−a) convention, including the complex mixed derivatives."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/unramified-local-theory",
+          "verdict": "verified",
+          "note": "The valuation-shell geometric series produces the local denominator and its normalized standard-vector value in the chosen measure."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/invariant-distributions-exceptional-case",
+          "verdict": "verified",
+          "note": "The trivial-eigencharacter exceptional distribution remains separate from the punctured-line eigenline."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/ramified-local-theory",
+          "verdict": "verified",
+          "note": "The least principal-unit conductor controls the support of the ramified standard test; its local L-factor is1."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/archimedean-local-theory",
+          "verdict": "verified",
+          "note": "Taylor subtraction precedes uniqueness and FE; general-test convergence differs from the special Gaussian and real residue order is a+r."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/local-uniqueness-theorem",
+          "verdict": "verified",
+          "note": "Continuation and point-supported eigencharacter analysis yield the one-dimensional local eigenline without using the later FE."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/fourier-transform-eigendistribution",
+          "verdict": "verified",
+          "note": "Fourier covariance changes the multiplicative eigencharacter by the inverse and norm factor in the declared action convention."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/local-epsilon-gamma-factors",
+          "verdict": "verified",
+          "note": "The normalized ratio fixes epsilon; a fixed additive Fourier measure makes the multiplicative Haar scalar cancel from the ratio."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/local-functional-equation",
+          "verdict": "verified",
+          "note": "Meromorphic distribution continuation and the unique normalized eigenline give the local equation, interpreted by continuation at poles."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/local-gauss-sum",
+          "verdict": "corrected",
+          "note": "Both off-shell ranges now vanish: minimality handles lower frequencies, and additive P^c coset orthogonality handles higher frequencies."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/explicit-epsilon-factors",
+          "verdict": "corrected",
+          "note": "The ramified exponent is ν+c, and the real inverse-character identity uses the norm power2a, including a=0."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/global-eigendistributions",
+          "verdict": "corrected",
+          "note": "Local eigenline uniqueness supplies the restricted-product converse only for eigenvectors; arbitrary distributions need not be pure tensors."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/global-zeta-integral",
+          "verdict": "corrected",
+          "note": "Pure-tensor factorization is extended by Schwartz-seminorm domination; the Hecke carrier and ideal Euler product are now direct inputs."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/completed-hecke-l-function",
+          "verdict": "corrected",
+          "note": "Finite and archimedean factors use the same character convention; ADS supplies the ideal Euler-product passage rather than continuation."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/idele-class-volume",
+          "verdict": "corrected",
+          "note": "The norm coordinate uses dt/t; the κ arithmetic expression is compared with, rather than substituted for, native one-sided Dedekind residue."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/tate-lemma-a",
+          "verdict": "verified",
+          "note": "The theta norm splitting retains quotient covolume and a nontrivial norm-one character has zero average."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/tate-lemma-b",
+          "verdict": "verified",
+          "note": "The large-norm theta integral is entire by uniform Schwartz decay; its measure agrees with LemmaA."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/tate-global-functional-equation",
+          "verdict": "verified",
+          "note": "Poisson and the norm split produce continuation with the norm-character exceptional poles, without assuming global entirety."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/global-epsilon-factor",
+          "verdict": "verified",
+          "note": "Almost every local epsilon is1, so the global product is finite; the product formula removes dependence on the global additive character."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/hecke-l-functional-equation",
+          "verdict": "verified",
+          "note": "The completed and ideal-side conventions preserve the inverse-character dictionary and shifted norm-character poles."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/bessel-k",
+          "verdict": "corrected",
+          "note": "The integral defines the actual K-function with order symmetry and differential API; a Gaussian change of variables now explains K_(1/2)."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/bessel-half-order-derivative",
+          "verdict": "verified",
+          "note": "Zhang Lemma12.3 has the stated Ei(−2c) normalization; the original tabulated derivative proof remains G4."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.2/godement-jacquet-integral",
+          "verdict": "verified",
+          "note": "The exponent is s+(n−1)/2, and matrix additive Haar is distinguished from group multiplicative Haar."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.2/godement-jacquet-convergence",
+          "verdict": "verified",
+          "note": "Convergence is a representation-dependent right half-plane; derivatives need logarithmic domination, not just formal differentiation."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.2/standard-local-l-factor",
+          "verdict": "verified",
+          "note": "Finite rational fractional-ideal minimality and archimedean parameter gamma products are distinct constructions; G5 preserves the former proof leaves."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.2/godement-jacquet-functional-equation",
+          "verdict": "corrected",
+          "note": "The source inverse-character transpose transform was explicitly converted to the packet positive plain-trace transform and inverse coefficient."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.2/godement-jacquet-newform-test",
+          "verdict": "corrected",
+          "note": "The projector includes inverse central character and K₀ volume; its cancellation now imports the exact induced RS product."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.2/global-godement-jacquet",
+          "verdict": "verified",
+          "note": "Re(s)>1 convergence needs the self-pair positivity and finite-abscissa Landau route; local q^(1/2) bounds alone do not prove it."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/whittaker-model",
+          "verdict": "verified",
+          "note": "The model is built from the actual unique continuous functional on the generic representation, with SR.5 and CW inputs."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/whittaker-compact-parameter-estimates",
+          "verdict": "verified",
+          "note": "The uniform seminorm bound is archimedean compact-picture work; it is not supplied by the finite-place SR.3 stage."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-local-integrals",
+          "verdict": "verified",
+          "note": "Unequal rank includes the rectangular X integral and the (n−m)/2 shift; equal rank includes Schwartz Φ on the last row."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-local-convergence",
+          "verdict": "corrected",
+          "note": "Cogdell Propositions6.2 and8.2 give the additional Re(s)≥1 unitary bound needed for omitted factors in SMO."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-local-factor",
+          "verdict": "corrected",
+          "note": "Finite minimality is now sourced to Cogdell; the derivative filtration is assigned to SR.5, while Jacquet supplies the archimedean growth module."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-induced-factor-product",
+          "verdict": "added",
+          "note": "Added exact finite-place standard and tensor product formulas for irreducible generic normalized inductions; divisibility or gamma multiplicativity cannot replace the newform cancellation input."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-local-functional-equation",
+          "verdict": "verified",
+          "note": "The long-Weyl/transpose-inverse and central-character sign match the local integral; meromorphic equality is not a totalized value at a pole."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-archimedean-realization",
+          "verdict": "verified",
+          "note": "Jacquet’s strip-bounded L(τ) space, ordered parameters, finite equal-rank sum and irreducible adjacent/equal K-finite range are all retained."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-unramified-test",
+          "verdict": "corrected",
+          "note": "Conductor-zero spherical data gives the exact Cauchy product; the ramified essential-vector test keeps its conductor-dependent Φ."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.4/l-group-local-factor",
+          "verdict": "verified",
+          "note": "The factor is evaluated on the relative Frobenius Satake class; a ramified parameter is additional data, not a spherical substitute."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.4/partial-l-product-convergence",
+          "verdict": "verified",
+          "note": "Borel13.2 supplies a uniform arbitrary-r bound only through the exact SR.4 extension request; it does not follow from the carrier alone."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.4/local-parameter-comparison",
+          "verdict": "corrected",
+          "note": "The comparison remains conditional; WD geometric Frobenius/monodromy and classical/Hilbert GL₂ arithmetic scopes are now explicit direct suppliers. Preserved the classical dual and Hilbert half-power normalization dictionaries."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.5/finite-euler-correction",
+          "verdict": "verified",
+          "note": "Removing a local reciprocal polynomial means multiplying by its polynomial, with finite-set and twist compatibility."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.5/critical-value-period-interface",
+          "verdict": "verified",
+          "note": "The modular-symbol algebraicity input is GL₂/Q; general GL₂/F or higher-rank algebraicity is not credited to it."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.5/central-sign-vanishing",
+          "verdict": "verified",
+          "note": "Odd self-dual FE forces the central value to vanish; it does not force every derivative to vanish."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/global-whittaker-factorization",
+          "verdict": "verified",
+          "note": "Global genericity comes from the preceding Fourier expansion; completed Flath and local uniqueness yield continuous factorization."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/gln-fourier-expansion",
+          "verdict": "verified",
+          "note": "Cuspidality removes degenerate Fourier terms and proves injectivity/global genericity before factorization or multiplicity one."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/mirabolic-eisenstein-series",
+          "verdict": "corrected",
+          "note": "The theta Mellin integral fixes the determinant exponent and central transformation; arithmetic and quotient measures are actual supplier inputs."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/mirabolic-eisenstein-functional-equation",
+          "verdict": "corrected",
+          "note": "Norm twists retain shifted zero modes with denominators s−iσ and s−1−iσ; only nontrivial norm-one restriction makes them vanish."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/global-rs-unfolding",
+          "verdict": "corrected",
+          "note": "The corrected theorem is over number fields, with the unequal-rank projection before integration and the equal-rank Eisenstein factor."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-global-poles",
+          "verdict": "corrected",
+          "note": "Number-field equal-rank poles follow the norm-twist contragredient criterion; function-field periodic poles remain in the separate rational branch."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-global-functional-equation",
+          "verdict": "corrected",
+          "note": "The number-field completed equation follows the factorized integrals; global central-character signs and additive-character changes cancel."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-vertical-strip-bounds",
+          "verdict": "corrected",
+          "note": "Special adjacent/equal K-finite cases and general arbitrary-rank bounds are distinguished; the latter original proof remains G8."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.2/jacquet-shalika-satake-bound",
+          "verdict": "verified",
+          "note": "The unitary standard GL_n exponent bound is requested from classification; it is not an arbitrary-r Satake convergence theorem."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/strong-multiplicity-one",
+          "verdict": "corrected",
+          "note": "Local unitary boundary convergence/minimality are direct inputs; agreement at infinity is a conclusion, followed by ordinary multiplicity one."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/isobaric-strong-multiplicity-one",
+          "verdict": "corrected",
+          "note": "Uniqueness is stated for the admitted isobaric classification range, with the AF.1b extension rather than GL₂ transfer as supplier."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/ramakrishnan-degree-one",
+          "verdict": "verified",
+          "note": "The theorem keeps the nested prime-degree normal chain and the specified degree-one agreement, rather than arbitrary base change."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/normalized-rs-period",
+          "verdict": "verified",
+          "note": "Diagonal GL_m period multiplicity is a separate finite/archimedean supplier, not a consequence of Whittaker uniqueness."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/global-central-period",
+          "verdict": "verified",
+          "note": "The source pairing is the actual normalized quotient period with its local factors and central L-value, not an arbitrary pairing carrier."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/standard-additive-character",
+          "verdict": "verified",
+          "note": "The negative finite rational component and positive real component yield global trace triviality; trace-dual different arithmetic is imported."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/fractional-ideal-annihilator",
+          "verdict": "verified",
+          "note": "The inverse different shifts the annihilator exponent to −m−d, retaining the largest-trivial-ideal convention."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/self-dual-haar",
+          "verdict": "corrected",
+          "note": "The local additive volumes q^(−d/2), dx and2dxdy are separate from multiplicative unit volume; the Gaussian baseline route is now direct."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/finite-schwartz-period-level",
+          "verdict": "verified",
+          "note": "A finite support/period lattice quotient requires N≥−M; Kudla p.115 is the source and the reader now uses its title."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/finite-fourier-inversion",
+          "verdict": "verified",
+          "note": "Finite coset decomposition and volume-normalized indicator inversion are a noncircular route to reflection."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/schwartz-parameter-domination",
+          "verdict": "verified",
+          "note": "Compact parameters need a strict convergence margin; logarithmic derivatives are dominated rather than formally interchanged."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/canonical-archimedean-factor",
+          "verdict": "verified",
+          "note": "Canonical Γ_C differs by π from Kudla’s Gaussian normalization; real parity and complex angular shift are explicit."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/cm-quadratic-completion",
+          "verdict": "verified",
+          "note": "The quadratic root number1 is derived from a quotient of completed Dedekind zeta functions, not asserted for all Hecke characters."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/cm-logarithmic-gamma-correction",
+          "verdict": "verified",
+          "note": "Logarithmic differentiation of the chosen Γ factors retains the conductor, π and2π normalization constants."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/function-field-rs-euler-product",
+          "verdict": "verified",
+          "note": "The formal rational-function variable precedes complex specialization, with normalized degree and finite local factors."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/function-field-cuspidal-polynomial",
+          "verdict": "verified",
+          "note": "The finite-order determinant scope is reached by the degree twist; tensor-cohomological degree is the explicit FA.5 extension G11."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/function-field-self-pair-reflection",
+          "verdict": "verified",
+          "note": "Self-pair zeta poles are kept separate from pure numerator roots, with the alternating duality degree/reflection correction."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/residual-rs-product",
+          "verdict": "verified",
+          "note": "The residual block classification is imported from AF.1b, then the shifted tensor factors are multiplied."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/residual-rs-telescoping",
+          "verdict": "verified",
+          "note": "Adjacent numerator/denominator shifts cancel algebraically with endpoint factors retained."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/open-disc-zero-pole-index",
+          "verdict": "verified",
+          "note": "The index is zeros minus poles in the open disc with multiplicity; roots on the boundary contribute zero."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/residual-rs-index",
+          "verdict": "verified",
+          "note": "Yu’s degree/radius count keeps the corrected endpoint factor and the cohomological degree input."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-normalizing-scalar",
+          "verdict": "verified",
+          "note": "The scalar is a ratio of actual pair L-functions with the conductor factor, not an arbitrary rational function."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/self-pair-normalizer-reflection",
+          "verdict": "verified",
+          "note": "Reflecting the normalized self-pair scalar preserves its degree and conductor conventions and meromorphic divisor orders."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/whittaker-conductor-shift",
+          "verdict": "corrected",
+          "note": "The diagonal exponents change every simple-root character to conductor zero; the canonical degree2g−2 now imports FA.2 directly."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/bessel-laplace-mellin",
+          "verdict": "corrected",
+          "note": "The Gross–Zagier display is extended from integer m to positive real m by rescaling; gamma/beta Fubini and their ranges are explicit."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/partial-fourier-transform",
+          "verdict": "verified",
+          "note": "The source mixed-coordinate transform retains the other variables and positive/negative kernel comparison; no full transform is substituted."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.2/godement-jacquet-spherical-test",
+          "verdict": "verified",
+          "note": "The finite K-volume1 test is distinct from additive self-dual Haar; the spherical Schur evaluation retains unitary Satake normalization."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.2/unitary-self-dual-real-factors",
+          "verdict": "verified",
+          "note": "Conjugate parameters and self-duality make the conductor-balanced completion real on the real axis, with root number±1."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.2/standard-order-one",
+          "verdict": "verified",
+          "note": "Order≤1 follows from Euler/gamma bounds, FE and a recorded strip-growth refinement; AN.2’s Hadamard theorem is not its input."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.2/standard-superpositivity",
+          "verdict": "verified",
+          "note": "RH and order≤1 give the Hadamard application; strict derivative propagation additionally requires non-polynomiality."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.2/trivial-function-field-pole-clearer",
+          "verdict": "verified",
+          "note": "The trivial character pole clearer uses the curve numerator and corrected centered degree; genus-zero constant cases remain explicit."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.2/maass-standard-l-function",
+          "verdict": "verified",
+          "note": "The actual AF.3 Maass carrier supplies parity and normalization; the factor uses Γ_R(s±it+δ)."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.2/maass-standard-functional-equation",
+          "verdict": "verified",
+          "note": "The parity sign in the reflected Mellin integral matches the source Maass FE and conductor convention."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/maass-norm-comparison",
+          "verdict": "verified",
+          "note": "The norm comparison uses Hecke normalization and hyperbolic measure, not an implicit L²-unit vector."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-boundary-nonvanishing",
+          "verdict": "verified",
+          "note": "Nonvanishing on Re(s)=1 uses the JS/Shahidi theorem and pole exceptions; it does not follow merely from right-half-plane absolute convergence."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/motivic-unitary-shift",
+          "verdict": "verified",
+          "note": "Tensor weight w₀+w₁ shifts the motivic variable by half that weight; actual local-global identification is conditional."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.4/satake-factor-operations",
+          "verdict": "verified",
+          "note": "Direct sums multiply and tensor/exterior powers act on the Satake eigenvalues; finite bad-set factors remain separate."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.4/exterior-power-transfer-comparison",
+          "verdict": "verified",
+          "note": "The equality of unramified factors is conditional on an established transfer and does not assert general functoriality."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.5/euler-correction-leading-term",
+          "verdict": "verified",
+          "note": "Local zeros add their meromorphic orders and multiply leading coefficients; an exceptional Euler zero cannot be canceled."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/additive-duality-map",
+          "verdict": "verified",
+          "note": "The map lands in native PontryaginDual with the compact-open topology; continuity does not establish its surjectivity."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/local-additive-self-duality",
+          "verdict": "verified",
+          "note": "The target is limited to number-field completions; the suggested real signature does not claim arbitrary positive-characteristic local fields."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.0/archimedean-fourier-comparison",
+          "verdict": "verified",
+          "note": "Real positive transform is native negative transform at −y; complex trace and2dxdy require the declared scale2."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.1/quadratic-orbital-tate-comparison",
+          "verdict": "verified",
+          "note": "Zhang’s rank-two quadratic-orbit normalization is retained with its stabilizer and quotient Haar factors."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/rational-period-comparison",
+          "verdict": "verified",
+          "note": "Finite-part rationality and geometric comparison are inputs; semilinear Whittaker structure, signature and Gauss twisting remain AL obligations in G12."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.5/ordinary-gl2-euler-factor",
+          "verdict": "corrected",
+          "note": "The good-prime two-factor correction and p-level one-factor formula use the actual fine stabilization nodes and inverse-character dictionary."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.5/local-conductor-test-vector-comparison",
+          "verdict": "verified",
+          "note": "For unramified GL₂ twisted by ramified χ, inertia invariants vanish and conductor is2ν; this does not cover arbitrary ramified π."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.2/archimedean-standard-epsilon",
+          "verdict": "verified",
+          "note": "The positive packet character has the parity i-powers; the source inverse-character convention is transported consistently."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/gln-converse-full-rank",
+          "verdict": "verified",
+          "note": "Cogdell full-rank niceness quantifies over completed dual twists of ranks1…n−1; rank2 and the exceptional-set conclusion are retained."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/gln-converse-reduced-rank",
+          "verdict": "verified",
+          "note": "Reduced-rank twists1…n−2 require n≥3 and the stated finite exceptional set; it is distinct from the full-rank theorem."
+        },
+        {
+          "nodeId": "AutomorphicLFunctionsAndLocalFactors:AL.3/global-multiplicity-one",
+          "verdict": "verified",
+          "note": "Ordinary cuspidal multiplicity one follows from injective Fourier reconstruction and local Whittaker uniqueness; it is not imported from AF.3."
+        }
+      ]
     }
   ]
 }
