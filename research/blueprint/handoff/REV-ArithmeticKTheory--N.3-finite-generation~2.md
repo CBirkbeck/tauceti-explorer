@@ -1,0 +1,11 @@
+# Handoff: REV-ArithmeticKTheory--N.3-finite-generation~2
+
+Codex, session `codex-R33ncr`, completed independent review of revision 2 for issue #6986 on 2026-10-08. Verdict: **accepted** as a complete target-level pass with planned coverage. No checkpoint or unfinished review work remains.
+
+All five nodes, nine retained interfaces, five public source records, the author-hosted Kahn copy, 26 pinned baseline statements, exact supplier contracts, library audit and confirmed `RT-AREA-ktheory-1/1` were checked. Every first-review correction is resolved. The five typed prototypes elaborate at Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` with exactly five `sorry` warnings; the suggested file is unchanged. Tau Ceti statements were read at `f790474821cf4256814db967cb154e7af3d0c369`, with no claim of Tau Ceti-dependent compilation against the newer shared checkout.
+
+The packet now imports seven precise existing H.1 supplier nodes instead of using the stage for their ordinary realization, homology, groupoid and filtered-colimit outputs. Its remaining H.1 request is only the bounded-below chain-coefficient hyperhomology/concentration comparison, recorded in the existing supplier gap and coverage remainder. Confirmed source issue E27 independently in both Kahn copies and added its review. The reader and source access dates are synchronized. No node, baseline or planet was added or removed.
+
+The packet still has five supplier requests and two gaps. Follow-up planning should supply the H.1 chain-coefficient comparison, H.2 cellular cone comparison and early Serre/H-space theorem, and resolve the early ALS finite-CW/orientation contracts through Borel R.1. Preserve the nine endpoint IDs. Before treating the Lean prototypes as arithmetic statements, restore every per-node omitted Q/rank/Steinberg, naturality, basepoint, scalar-extension and residue-term identification. Keep implementation status unchecked until actual implementation is independently verified.
+
+Validation: packet checker has zero errors/warnings; Lean exits 0 with only the expected prototype warnings; JSON, whitespace, scope and signature-name checks pass. The detailed evidence and exact source/pin locators are in the review report and packet. No downloaded source or scratch artifact is required by the next worker.
