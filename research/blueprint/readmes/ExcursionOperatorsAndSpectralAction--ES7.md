@@ -2,7 +2,7 @@
 
 This roadmap part plans the Bernstein maps from Newton strata, their compatibility with Levi subgroups and parabolic induction, and agreement of the GL_n excursion parameter with the semisimple Weil part of the independent classical correspondence. It combines a characteristic-zero tower realization with a separate equal-characteristic D-elliptic construction. Every statement here is a planning target. All implementation statuses remain unchecked.
 
-The packet contains 50 nodes: 5 definitions, 6 constructions, 30 theorems, 6 lemmas and 3 comparisons. Its definitions and constructions carry 53 API items and 34 unit tests. There are 21 planets and 30 pinned baseline declarations. All five stages are planned and none is closed: 15 recorded gaps and 33 supplier requests identify the proof work still needed. The historical independent review in the packet records the preceding round; this revision requires its own independent review.
+The packet contains 50 nodes: 5 definitions, 6 constructions, 30 theorems, 6 lemmas and 3 comparisons. Its definitions and constructions carry 53 API items and 34 unit tests. There are 21 planets and 30 pinned baseline declarations. All five stages are planned and none is closed: 15 recorded gaps and 33 supplier requests identify the proof work still needed. Independent review `REV-ExcursionOperatorsAndSpectralAction--ES7~2` accepts this target-level pass after the corrections recorded in its report. This acceptance does not close the listed gaps or materialize the proposed carriers.
 
 ## Conventions and dependency order
 
@@ -84,7 +84,7 @@ For a Z_ℓ[√q]-algebra Λ and reductive G/E, restrict the geometric centre al
 
 1. Use VS4 to identify the stratum category and its fully faithful embedding.
 
-2. Restrict natural endomorphisms of the identity; compose with ES1’s map. Full faithfulness and the adjunction identify the action on objects, so no choice of extension changes it.
+2. Restrict natural endomorphisms of the identity and compose with ES1’s map. Full faithfulness identifies the restricted action for a fixed embedding. Independence among eligible stratum embeddings uses the enhanced comparison and retractions supplied by ES5/stratum-centre-embedding-independence.
 
 
 
@@ -398,6 +398,8 @@ The b-basic triangle follows from the Hecke-equivariant pure-inner-twisting equi
 
 - `HeckeStacksAndLocalShtukas:HS0/structure-group-and-inner-form`
 
+- `ExcursionOperatorsAndSpectralAction:ES6:functoriality`
+
 
 
 **Sources**
@@ -684,19 +686,19 @@ For E/Q_p, π supercuspidal over Q̄_ℓ, σ=JL(π) on D^× with inv(D)=1/n, and
 
 `ExcursionOperatorsAndSpectralAction:ES7:GLn-comparison/two-leg-excursion-is-a-trace` — theorem. Planet: **Two-leg excursion trace**.
 
-Let k be a field of characteristic zero (k = Q̄_ℓ), ρ an irreducible n-dimensional representation of W_E with n > 0, and B a sheaf on Bun_G^b with T_V(B)|Bun_G^b ≅ σ ⊗ ρ ⊗ ρ^∨ as D^× × W_E × W_E-representation, V = std ⊠ std^∨ (a two-operation realization: two-tower-realisation supplies it for E of characteristic zero, equal-characteristic/hecke-fibre-transport for E of characteristic p). The creation α : σ → σ ⊗ ρ ⊗ ρ^∨ and the annihilation β are scalar multiples a·coev and b·ev. The excursion operator at (γ₁, γ₂) acts on B by ab·tr(ρ(γ₁γ₂^{-1})). At (1, 1) it is the image of the constant excursion function dim std = n, so ab·n = n and ab = 1. This identifies the combined scalar, not each scalar separately.
+Let k be a field of characteristic zero and ρ a finite-dimensional representation of W_E of dimension n > 0. Suppose the two-operation realization of B is σ ⊗ ρ ⊗ ρ^∨, with creation α = a·(id_σ ⊗ coev) and annihilation β = b·(id_σ ⊗ ev). Then the excursion operator at (γ₁,γ₂) is ab·tr(ρ(γ₁γ₂⁻¹)). Its value at (1,1) is the constant excursion function n, so ab·n = n and ab = 1. This identifies the composite scalar. In the geometric applications k = Q̄_ℓ and σ and ρ have scalar endomorphism rings; creation and annihilation are equivariant for D^× and the diagonal W_E action, which gives the scalar forms by Schur. The two independent Weil factors act between these maps. The realization is supplied by two-tower-realisation in characteristic zero and equal-characteristic/hecke-fibre-transport in characteristic p.
 
 **Hypotheses**
 
-- k = Q̄_ℓ (any field of characteristic zero); ρ an irreducible n-dimensional representation of W_E with n > 0.
+- k a field of characteristic zero; ρ finite dimensional of positive dimension n; the creation and annihilation maps have the stated scalar forms. Irreducibility is unnecessary for this algebraic calculation.
 
-- B a sheaf on Bun_G^b with T_{std⊠std^∨}(B)|Bun_G^b ≅ σ ⊗ ρ ⊗ ρ^∨ as D^× × W_E × W_E-representation (the package supplied by two-tower-realisation in characteristic zero and by equal-characteristic/hecke-fibre-transport in equal characteristic).
+- For deriving the scalar forms in the geometric realization, k = Q̄_ℓ, End_{D^×}(σ) = k and End_{W_E}(ρ) = k; the fusion maps are D^× × diagonal-W_E equivariant. Irreducibility over an arbitrary characteristic-zero field alone does not give these scalar endomorphism rings.
 
 
 
 **Construction or proof route**
 
-1. Apply irreducibility of ρ (Schur) to the W_E × W_E-equivariant maps α and β: they are multiples of coevaluation and evaluation.
+1. In either geometric realization, use the scalar endomorphism rings of σ and ρ and diagonal Weil equivariance of the fusion maps to identify α and β as scalar multiples of coevaluation and evaluation. This does not assert equivariance under two independently varying Weil elements.
 
 2. Evaluate coevaluation, then (ρ(γ₁), ρ^∨(γ₂)), then evaluation: the dual action contributes ρ(γ₂^{-1}), giving tr(ρ(γ₁γ₂^{-1})).
 
@@ -711,6 +713,8 @@ Let k be a field of characteristic zero (k = Q̄_ℓ), ρ an irreducible n-dimen
 - For n=1 and character χ the result is χ(γ₁)/χ(γ₂).
 
 - No mod-ℓ scalar cancellation is asserted when ℓ divides n.
+
+- Coevaluation is invariant under the diagonal Weil action. For a nontrivial rank-one character χ it transforms under (γ₁,γ₂) by χ(γ₁)/χ(γ₂), so it need not be invariant under W_E × W_E.
 
 
 
@@ -729,6 +733,8 @@ Let k be a field of characteristic zero (k = Q̄_ℓ), ρ an irreducible n-dimen
 - `HeckeStacksAndLocalShtukas:HS4/creation-annihilation-and-triangles`
 
 - `mathlib:coevaluation`
+
+- `SmoothRepresentationsOfLocalGroups:SR.3`
 
 
 
@@ -1072,7 +1078,7 @@ For a supercuspidal irreducible characteristic-zero GL_d(K) representation π wi
 
 - `CuspidalSelector.value_one` (characterisation): f_π(1)=c^{-1}dimπ^{K₀}≠0 in the source normalization.
 
-- `CuspidalSelector.trace` (compatibility): trπ(f_π) is nonzero, and incompatible supercuspidal traces vanish.
+- `CuspidalSelector.trace` (compatibility): trπ(f_π) is nonzero, and every other irreducible admissible representation with the same central character has zero trace.
 
 - `CuspidalSelector.support` (data): Its support is compact modulo the centre.
 
@@ -1270,7 +1276,7 @@ For a unitary central character trivial on the chosen degree lattice, the compac
 
 - D a central division algebra over F = F_q(X); ∞ rational; a unitary central character trivial on ϖ_∞^ℤ.
 
-- Coefficients ℂ (or Q̄_ℓ via a fixed isomorphism, transported by AS.0's algebraic descent).
+- The Hilbert decomposition uses ℂ and AS.0. Passage to algebraic smooth vectors over finite coefficient fields and Q̄_ℓ requires the separately requested FA.6/SR.3 coefficient comparison.
 
 
 
@@ -1280,7 +1286,7 @@ For a unitary central character trivial on the chosen degree lattice, the compac
 
 2. Use finite-level compactness to get finite-dimensional invariants and finite multiplicities.
 
-3. Apply the restricted-tensor-product factorization with distinguished unramified vectors. Transfer characteristic-zero coefficient fields only with the supplied algebraic descent.
+3. Use the FA.6 automorphic restricted-tensor-product factorization with distinguished unramified vectors. Transfer characteristic-zero coefficient fields only after the separately requested FA.6/SR.3 algebraic descent, not from AS.0 functional analysis.
 
 
 
@@ -2746,7 +2752,7 @@ For a supercuspidal π of GL_d(K) with finite-order central character, restrict 
 
 1. Match determinants and twists by the unramified Frobenius data and Chebotarev.
 
-2. Compare global functional equations for selected pairs; control local zeros/poles using purity.
+2. Compare global functional equations for selected pairs and control local zeros/poles using purity. This requires the compact-support lisse-sheaf extension of WC.2 and Laumon’s local ε-factor product formula, both requested and recorded in gap/classical-local; the current proper constant-coefficient zeta-function theorem is insufficient.
 
 3. Apply the local-constant uniqueness theorem quoted by LRS (Henniart 4.1/4.4/4.5), retaining it as a specific proof/source gap.
 
@@ -2802,7 +2808,7 @@ For a selected global transfer with local π_o supercuspidal, its multiplicity i
 
 2. Use compact matrix coefficients and the SR.3 characteristic-zero finite-representation injectivity theorem. Prove the isotypic lift by semisimple splitting, rather than Hausberger 10.15’s false zero-kernel claim (E10).
 
-3. Track subquotient multiplicities across the spectral sequence and use the selected cohomology calculation.
+3. Track subquotient multiplicities across the spectral sequence. Selected-isotypic-cohomology gives zero outside middle degree and a single simple constituent JL(π_o) ⊗ σ_d(π_o) in middle degree with multiplicity one. Those facts, with cuspidal E₂ degeneration, yield the stated semisimplified isomorphism; equality of multiplicities alone is not a general isomorphism criterion.
 
 
 
@@ -2933,6 +2939,8 @@ Let ξ:K^×→Q̄_ℓ^× have finite order, and π be supercuspidal of GL_d(K) w
 - `ExcursionOperatorsAndSpectralAction:ES7:function-field-automorphic/local-character-identity`
 
 - `ExcursionOperatorsAndSpectralAction:ES7:equal-characteristic/selected-isotypic-cohomology`
+
+- `SmoothRepresentationsOfLocalGroups:SR.3`
 
 
 
@@ -3234,7 +3242,9 @@ Mathlib: `082e2d37e8b0463410cdb532e111cd43d5a66174`. Tau Ceti: `f790474821cf4256
 
 - `mathlib:CategoryTheory.Functor.FullyFaithful` (structure, `Mathlib/CategoryTheory/Functor/FullyFaithful.lean`): Fully faithful functor data with preimage; restriction of central endomorphisms along the stratum embedding uses the preimage.
 
-- `mathlib:coevaluation` (def, `Mathlib/LinearAlgebra/Coevaluation.lean`): coevaluation K → V ⊗ Dual V for finite-dimensional V; with LinearMap.trace this gives ev ∘ (ρ(γ₁) ⊗ ρ^∨(γ₂)) ∘ coev = tr ρ(γ₁γ₂^{-1}).
+- `mathlib:coevaluation`
+
+- `SmoothRepresentationsOfLocalGroups:SR.3` (def, `Mathlib/LinearAlgebra/Coevaluation.lean`): coevaluation K → V ⊗ Dual V for finite-dimensional V; with LinearMap.trace this gives ev ∘ (ρ(γ₁) ⊗ ρ^∨(γ₂)) ∘ coev = tr ρ(γ₁γ₂^{-1}).
 
 - `mathlib:Representation.ind` (def, `Mathlib/RepresentationTheory/Induced.lean`): Algebraic induction through coinvariants (k[H]⊗A)_G. For the open subgroup P_d, compare it explicitly with smooth compact induction using the finite-support coset model; topology and continuity of the local representation are extra conditions.
 
@@ -3318,7 +3328,7 @@ Formal deformation, completion and algebraization carrier/universal properties. 
 
 ### 6. AutomorphicSpectralTheory:AS.0
 
-Only abstract functional analysis for a unitary action on the compact D central quotient, with discrete Hilbert sum/finite multiplicities and smooth restricted-tensor-product factorization; no number-field automorphic realization is imported.
+Abstract functional analysis for the unitary action on the compact D central quotient: discrete Hilbert decomposition with finite multiplicities and its smooth vectors. Restricted-tensor-product factorization and algebraic coefficient descent are separately requested from FA.6/SR.3; no number-field automorphic realization is imported.
 
 **Consumers**
 
@@ -3438,7 +3448,7 @@ Local/global function-field reciprocity and the geometric-Frobenius inversion co
 
 ### 17. FunctionFieldArithmetic:FA.6
 
-Function-field adelic central-character quotient, compatible automorphic levels, cuspidal finite-dimensionality and the generic reduction theory used to specialize compactness to PGL₁(D). No AF.2–3 or AS.6 number-field automorphic theorem is used.
+Function-field adelic central-character quotient, compatible automorphic levels, cuspidal finite-dimensionality and the generic reduction theory used to specialize compactness to PGL₁(D). No AF.2–3 or AS.6 number-field automorphic theorem is used. Also provide restricted-tensor-product factorization with almost-everywhere spherical vectors and descent of algebraic smooth automorphic constituents through finite coefficient fields to Q̄_ℓ, compatible with the SR.3 local coefficient comparison; these do not follow from AS.0 functional analysis.
 
 **Consumers**
 
@@ -3578,7 +3588,7 @@ The abelian smooth-representation category, invariants under compact open subgro
 
 ### 27. SmoothRepresentationsOfLocalGroups:SR.1
 
-For Z_ℓ[√q]-algebras Λ with invertible pro-orders, the Λ-linear centre π₀End(id_Dsmooth), its cofinal pro-p corner description lim_K Z(e_KH_Λe_K), and ℓ-adic separatedness for Λ=Z_ℓ[√q]. Also characteristic-zero Bernstein-centre separation by irreducible evaluations. SR.0 supplies the category; SR.3’s complex centre is not the integral construction. RT-AREA-geomlanglands/9.
+For Z_ℓ[√q]-algebras Λ with invertible pro-orders, the Λ-linear centre of the abelian smooth category supplied by SR.0:abelian-category, its cofinal pro-p corner description lim_K Z(e_KH_Λe_K), and ℓ-adic separatedness for Λ=Z_ℓ[√q]. Also characteristic-zero Bernstein-centre separation by irreducible evaluations. ES0 owns the enhanced degree-zero centre and its comparison with this abelian centre; SR.0 supplies the category; SR.3’s complex centre is not the integral construction. RT-AREA-geomlanglands/9.
 
 **Consumers**
 
@@ -3620,7 +3630,7 @@ Smooth/compact induction, correct adjunctions and normalized parabolic induction
 
 ### 29. SmoothRepresentationsOfLocalGroups:SR.3
 
-Extend the stated complex results through finite coefficient fields to Q̄_ℓ: supercuspidal support and GL_n segment classification, compact matrix coefficients, finite-representation projectivity/injectivity on GL_d(K)^0, local character distributions and the strict unitary-generic Satake bound. Each requires a source-qualified coefficient comparison; complex-only results are not silently applied over Q̄_ℓ. For the fixed-central-character Hom pairing, provide semisimple-block lifting and finite-index averaging for Z(K)·GL_d(K)^0 (index d); the printed zero-kernel and generation assertions are invalid (source issues E10–E11).
+Extend the stated complex results through finite coefficient fields to Q̄_ℓ: supercuspidal support and GL_n segment classification, compact matrix coefficients, finite-representation projectivity/injectivity on GL_d(K)^0, local character distributions and the strict unitary-generic Satake bound. Each requires a source-qualified coefficient comparison; complex-only results are not silently applied over Q̄_ℓ. For the fixed-central-character Hom pairing, provide semisimple-block lifting and finite-index averaging for Z(K)·GL_d(K)^0 (index d); the printed zero-kernel and generation assertions are invalid (source issues E10–E11). For two-leg-excursion-is-a-trace, supply scalar endomorphism rings for the irreducible smooth σ over Q̄_ℓ; combine the corresponding finite-dimensional Schur statement for ρ with diagonal Weil equivariance of the HS4 fusion maps.
 
 **Consumers**
 
@@ -3654,6 +3664,8 @@ Extend the stated complex results through finite coefficient fields to Q̄_ℓ: 
 
 - `ExcursionOperatorsAndSpectralAction:ES7:equal-characteristic/drinfeld-carayol`
 
+- `ExcursionOperatorsAndSpectralAction:ES7:GLn-comparison/two-leg-excursion-is-a-trace`
+
 
 
 ### 30. VStackSheavesAndLisseCategories:VS1
@@ -3686,7 +3698,7 @@ Fully faithful embeddings of D(G_b(E),Λ) into D_lis(Bun_G,Λ): the left adjoint
 
 ### 32. WeilConjectures:WC.2
 
-Grothendieck’s functional equation of L-functions of lisse sheaves on a curve over F_q with its ε-factor, used for the pair L-functions of the selected globalizations. The local ε-factor product formula (Laumon) is an additional input recorded in ES7/gap/classical-local.
+Extend WC.2 from its current proper smooth constant-coefficient zeta-function duality to the compact-support functional equation for lisse sheaves on an open curve over F_q, with coefficient duals and the global ε-factor. Supply Laumon’s local ε-factor product formula for the pair L-functions of selected globalizations. Neither extension is present in the cited WC.2 statement; both remain in ES7/gap/classical-local.
 
 **Consumers**
 
@@ -3762,7 +3774,7 @@ SW20 Theorem 24.2.5 is printed for p-divisible groups over ℤ_p (E = ℚ_p). Fo
 
 `ExcursionOperatorsAndSpectralAction:ES7/gap/orders`
 
-Hausberger fixes the global maximal-order sheaf rather than proving its existence. Read the global-order gluing and function-field anisotropic reduction proofs and specialize them to PGL₁(D). Then expand finite-level kernel local finiteness/integrability and the restricted-tensor-product coefficient descent. AA.1’s current exact node is number-field only.
+Hausberger fixes the global maximal-order sheaf rather than proving its existence. Read the global-order gluing and function-field anisotropic reduction proofs and specialize them to PGL₁(D). Then expand finite-level kernel local finiteness/integrability and the restricted-tensor-product coefficient descent. AA.1’s current exact node is number-field only. FA.6/SR.3 must supply the automorphic tensor-product factorization and algebraic coefficient descent; AS.0 supplies the complex Hilbert-space analysis only.
 
 **Consumers**
 
@@ -3872,7 +3884,7 @@ Kaiser’s two pages have been read in full. Connect the amended lemma to the im
 
 `ExcursionOperatorsAndSpectralAction:ES7/gap/classical-local`
 
-Theorem-level LRS 15.10–15.17 and Hausberger 9.1–9.2 are read. Henniart’s local-constant uniqueness and numerical theorem, LRS 15.18–15.20’s numerical proof and Badulescu’s local character proof remain to be acquired/expanded. The construction stays independent of the excursion parameter. LRS Corollary 15.14 proves independence only over the globalizations of one fixed global setup (curve, x₀, x₁, ∞, D); the pair ε-factor comparison also needs Laumon’s product formula, which WC.2 does not state. Badulescu’s equal-characteristic local Jacquet–Langlands character identity is cited by function-field-automorphic/local-character-identity.
+Theorem-level LRS 15.10–15.17 and Hausberger 9.1–9.2 are read. Henniart’s local-constant uniqueness and numerical theorem, LRS 15.18–15.20’s numerical proof and Badulescu’s local character proof remain to be acquired/expanded. The construction stays independent of the excursion parameter. LRS Corollary 15.14 proves independence only over the globalizations of one fixed global setup (curve, x₀, x₁, ∞, D); the pair ε-factor comparison also needs Laumon’s product formula, which WC.2 does not state. Badulescu’s equal-characteristic local Jacquet–Langlands character identity is cited by function-field-automorphic/local-character-identity. WC.2 currently states proper smooth constant-coefficient zeta-function duality, so the compact-support functional equation for nonconstant lisse sheaves on open curves is also missing, independently of the local ε-factor product formula.
 
 **Consumers**
 
@@ -3920,7 +3932,7 @@ Hausberger proves the Drinfeld supercuspidal realization, but the exact action-p
 
 `ExcursionOperatorsAndSpectralAction:ES7/gap/prototypes`
 
-The suggested Lean file states every node over opaque supplier carriers named for their owning layers (reductive groups and Kottwitz sets, smooth derived categories, D_lis(Bun_G), spectral centres, adelic units of D, vector bundles with right 𝒟-action on X × S, formal O-modules, rigid compact-support cohomology). Conditions that need a missing carrier (cokernel supports and Euler characteristics of D-elliptic chains, gluing of the maximal-order sheaf, analytic properness) are omitted and named in the docstrings. Replace each carrier by its owner’s declaration when it exists. All 50 node signatures, all 53 API entries and the named tests are present; these omissions concern full carrier/condition fidelity, not missing node signatures. The ordinary CatCenter model must be related to the enhanced π₀End(id) supplied by SR.1/ES0. The algebraic Representation.ind model also requires its smooth compact-induction comparison for the open subgroup P_d.
+The suggested Lean file states every node over opaque supplier carriers named for their owning layers (reductive groups and Kottwitz sets, smooth derived categories, D_lis(Bun_G), spectral centres, adelic units of D, vector bundles with right 𝒟-action on X × S, formal O-modules, rigid compact-support cohomology). Conditions that need a missing carrier (cokernel supports and Euler characteristics of D-elliptic chains, gluing of the maximal-order sheaf, analytic properness) are omitted and named in the docstrings. Replace each carrier by its owner’s declaration when it exists. All 50 node signatures, all 53 API entries and the named tests are present; these omissions concern full carrier/condition fidelity, not missing node signatures. The ordinary CatCenter model must be related to the enhanced π₀End(id) supplied by SR.1/ES0. The algebraic Representation.ind model also requires its smooth compact-induction comparison for the open subgroup P_d. The globalization carrier is indexed by one chosen fixed global setup; its equality theorem permits varying Π and auxiliary x₂, not the curve, o′, ∞ or D. Rank d is positive in the local division-algebra dimension theorem.
 
 **Consumers**
 
@@ -3984,7 +3996,7 @@ The characteristic-zero realization (ES7:GLn-comparison/two-tower-realisation) a
 
 Proposal kind: `owner-refinement`.
 
-RT-AREA-geomlanglands/9: SR.1 owns the Λ-linear derived centre, corner limit and Z_ℓ[√q] separatedness. ES0 and ES1 must cite this owner; changes to those other-job packets are left to their owners.
+RT-AREA-geomlanglands/9: SR.1 owns the Λ-linear centre of the abelian smooth category, its pro-p corner limit and Z_ℓ[√q] separatedness. ES0 owns the enhanced degree-zero centre and its comparison with this abelian centre. ES0 and ES1 must cite the SR.1 integral input; changes to those other-job packets are left to their owners.
 
 ### Z-embedding and basic inner-class supplier refinements
 
@@ -3996,7 +4008,7 @@ RT-AREA-geomlanglands/11: ES6 owns full z-embedding data; BG1 adds the connected
 
 Proposal kind: `stage-edges`.
 
-Promotion draws stage edges only for prerequisites in other roadmaps. These packet dependencies inside ExcursionOperatorsAndSpectralAction are not implied by data/atlas.json requires and need declared edges: ES1:spectral-center → ES7:parabolic (RT-AREA-geomlanglands/7: stratum-maps composes with the IX.5.2 map); ES0:classical-center → ES7:parabolic (stratum-maps restricts along j_! as ES0:classical-center/map-to-the-classical-bernstein-center does); ES7:GLn-comparison → ES7:equal-characteristic (equal-characteristic-agreement repeats the shared two-leg trace theorem, as the layer description says). All three were checked acyclic against the atlas requires, stageEdges and the edges induced by every packet. Separately, the ES0 and ES5 packets induce a cycle ES6:functoriality → ES7:parabolic → ES6:duality → ES6 → ES6:functoriality (ES5 nodes parented at ES6 are used by ES6:functoriality nodes); it does not come from this packet.
+Promotion draws stage edges only for prerequisites in other roadmaps. These packet dependencies inside ExcursionOperatorsAndSpectralAction are not implied by data/atlas.json requires and need declared edges: ES1:spectral-center → ES7:parabolic (RT-AREA-geomlanglands/7: stratum-maps composes with the IX.5.2 map); ES0:classical-center → ES7:parabolic (stratum-maps restricts along j_! as ES0:classical-center/map-to-the-classical-bernstein-center does); ES7:GLn-comparison → ES7:equal-characteristic (equal-characteristic-agreement repeats the shared two-leg trace theorem, as the layer description says). The 50-node graph in this packet is acyclic. These edges are semantically required, but the combined atlas/packet graph already has cycles; no global acyclicity is claimed. The first two also have reverse paths through SR.6, HS3, AG2.1b, AG2.1, R19.2, R34.3, R06.5, WC.5, WC.4, WC.2, WC.3, DWP.7, EDC.7, GS1 and HS1 (and ES0 for the classical-centre endpoint). Supplier-stage reconciliation is required before treating promotion as an acyclic global graph. Separately, the ES0 and ES5 packets induce a cycle ES6:functoriality → ES7:parabolic → ES6:duality → ES6 → ES6:functoriality (ES5 nodes parented at ES6 are used by ES6:functoriality nodes); it does not come from this packet.
 
 The existing ES6 functoriality/duality plans and ES7 parabolic plan have a cross-packet dependency cycle through their parent-stage assignments. Resolving it requires the maintainer to reconcile the supplier packets and stage edges; changing another packet is outside this revision’s scope. The local ES7 node graph and the layer ownership retained here contain no internal cycle.
 
@@ -4026,11 +4038,14 @@ Affects: the proof. Known correction: Christian Kaiser, Errata for [LRS], both p
 
 Prior independent verification: confirmed by `REV-ExcursionOperatorsAndSpectralAction--ES7`. The independent review checked Corollary 14.11(iii), p. 299, the duality step of its proof, pp. 299–300, and §14.16, p. 306, against their page images. The original second factor is L_x(V•,q_x^{−d}T^{−1}); the proof treats a single isotype as self-dual. Kaiser replaces it by L_x(V•∨,q_x^{−1}T^{−1}) and removes integrality and self-duality assumptions in Lemma 14.14′.
 
+Independent revision-2 verification: **confirmed** by `REV-ExcursionOperatorsAndSpectralAction--ES7~2`. The LRS p. 299 and p. 306 displays were compared with Kaiser p. 1: the dual isotype and q_x⁻¹ substitution are both required. The amended proof removes the unsupported self-duality step.
+
+
 ### E2: gap
 
 `FS-geometrization`, Proof of Theorem IX.7.2, p. 335, author-hosted manuscript (SHA-256 9ab9efbd…); reduction to quasi-split G.
 
-**Printed assertion, paraphrased:** The source chooses a z-embedding G ,→ G′ following [Kal18, Section 5], with torus quotient D and connected center Z(G′ ).
+**Printed assertion, paraphrased:** The quasi-split reduction uses a Kaletha z-embedding with torus quotient and connected centre.
 
 **Correction:** The step is justified for E of characteristic 0 (Kaletha’s §5 assumes F p-adic). It cannot be applied uniformly in characteristic p: for G = SL_p, no embedding G ↪ G′ with torus quotient D and Z(G′) a torus has Z(G′)(E) → D(E) surjective. Thus the deduction of B(G) ↪ B(G′) and of centre detection via Kaletha Fact 5.5 requires another argument for this case and for the general non-smooth-centre range.
 
@@ -4049,6 +4064,9 @@ Affects: the proof. Known correction: new.
 
 
 Prior independent verification: confirmed by `REV-ExcursionOperatorsAndSpectralAction--ES7`. Added and checked by this review: the printed step, Kaletha’s p-adic hypothesis (§2, p. 64) and the fppf computation above. The theorem is not claimed false; only this step is unjustified in equal characteristic with non-smooth centre.
+
+Independent revision-2 verification: **confirmed** by `REV-ExcursionOperatorsAndSpectralAction--ES7~2`. FS p. 335 and Kaletha pp. 64,78–80 were read independently. The μ_p fppf H¹ obstruction invalidates the torus-centre surjectivity route in equal characteristic; Kottwitz 10.4 requires the central-torus bridge. This confirms a proof gap, not a counterexample to IX.7.2.
+
 
 ### E3: misprint
 
@@ -4072,6 +4090,9 @@ Affects: nothing. Known correction: new.
 
 Prior independent verification: confirmed by `REV-ExcursionOperatorsAndSpectralAction--ES7`. Added by this review; checked on the page image of p. 291.
 
+Independent revision-2 verification: **confirmed** by `REV-ExcursionOperatorsAndSpectralAction--ES7~2`. LRS p. 291 says finite. Degree-zero idele classes contain the infinite local-unit contribution; compactness, after quotienting the degree lattice, is the correct input.
+
+
 ### E4: misprint
 
 `LRS-1993`, (14.13) and Lemma (14.14), p. 302, published scan.
@@ -4094,6 +4115,9 @@ Affects: nothing. Known correction: Kaiser’s Errata for [LRS], Lemma 14.14′,
 
 Prior independent verification: confirmed by `REV-ExcursionOperatorsAndSpectralAction--ES7`. Added by this review; pages 302 and 306 compared on the page images.
 
+Independent revision-2 verification: **confirmed** by `REV-ExcursionOperatorsAndSpectralAction--ES7~2`. The p. 302 numerator and p. 306 display differ by T versus T⁻¹. Substitution of the length-d chain gives the reciprocal exponent in Kaiser 14.14′.
+
+
 ### E5: misprint
 
 `LRS-1993`, (14.16), p. 306, published scan.
@@ -4114,11 +4138,14 @@ Affects: nothing. Known correction: new.
 
 Prior independent verification: confirmed by `REV-ExcursionOperatorsAndSpectralAction--ES7`. Added by this review; pp. 299 and 306 read on the page images.
 
+Independent revision-2 verification: **confirmed** by `REV-ExcursionOperatorsAndSpectralAction--ES7~2`. LRS pp. 299,306 identify the specialized ratio as 14.11(iii), whereas 14.10 concerns cohomology vanishing.
+
+
 ### E6: misprint
 
 `Hausberger-2005`, Theorem 9.2(ii), p. 1335.
 
-**Printed assertion, paraphrased:** The source asserts σd (π ⊗ χ) = σd (π) ⊗ σ1 (χ) for every quasi-character χ ∈ A 0d (K).
+**Printed assertion, paraphrased:** The twist-compatibility statement places the quasi-character χ in the rank-d representation class while applying the rank-one correspondence to it.
 
 **Correction:** χ ∈ A⁰_1(K) (a character of K^× of finite order), as σ_1(χ) requires.
 
@@ -4134,11 +4161,14 @@ Affects: nothing. Known correction: new.
 
 Prior independent verification: confirmed by `REV-ExcursionOperatorsAndSpectralAction--ES7`. Added by this review; checked in the text layer of p. 1335.
 
+Independent revision-2 verification: **confirmed** by `REV-ExcursionOperatorsAndSpectralAction--ES7~2`. Hausberger p. 1335 puts χ in the rank-d class despite applying σ₁. The character belongs to the rank-one class.
+
+
 ### E7: misprint
 
 `Hausberger-2005`, Lemma 10.2 and the preceding sentence, pp. 1339–1340.
 
-**Printed assertion, paraphrased:** The source chooses π ∈ A 0n (K).
+**Printed assertion, paraphrased:** The supercuspidal chosen for the GL_d globalization is assigned the rank-n class.
 
 **Correction:** π ∈ A⁰_d(K): supercuspidal of GL_d(K) with finite-order central character.
 
@@ -4153,6 +4183,9 @@ Affects: nothing. Known correction: new.
 
 
 Prior independent verification: confirmed by `REV-ExcursionOperatorsAndSpectralAction--ES7`. Added by this review; checked in the text layer of pp. 1339–1340.
+
+Independent revision-2 verification: **confirmed** by `REV-ExcursionOperatorsAndSpectralAction--ES7~2`. Hausberger pp. 1339–1340 globalizes π on GL_d, so its rank is d; the n there indexes a local level.
+
 
 ### E8: misprint
 
@@ -4174,11 +4207,14 @@ Affects: nothing. Known correction: new.
 
 Prior independent verification: confirmed by `REV-ExcursionOperatorsAndSpectralAction--ES7`. Added by this review; checked in the text layer of p. 1340 against Theorem 10.1.
 
+Independent revision-2 verification: **confirmed** by `REV-ExcursionOperatorsAndSpectralAction--ES7~2`. Hausberger p. 1340 was checked against 10.1 and LRS 15.12: the selected representation is in degree d−1, with dimension d.
+
+
 ### E9: misprint
 
 `Hausberger-2005`, §7.2, p. 1317.
 
-**Printed assertion, paraphrased:** The source invokes proposition 3.4 to say that all special formal OD -modules over κ of height d2 are isogenous.
+**Printed assertion, paraphrased:** The isogeny classification in §7.2 is attributed to a proposition numbered 3.4.
 
 **Correction:** Théorème 3.4.
 
@@ -4193,6 +4229,9 @@ Affects: nothing. Known correction: new.
 
 
 Prior independent verification: confirmed by `REV-ExcursionOperatorsAndSpectralAction--ES7`. Added by this review; checked in the text layer.
+
+Independent revision-2 verification: **confirmed** by `REV-ExcursionOperatorsAndSpectralAction--ES7~2`. The p. 1317 isogeny citation was checked against the theorem heading on p. 1303: the correct kind is Theorem 3.4.
+
 
 ### E10: error
 
@@ -4212,6 +4251,7 @@ Affects: the proof. Known correction: new.
 
 - Public searches for Hausberger, Lemma 10.15, erratum/correction (2026-10-08; no correction found)
 
+Independent revision-2 verification: **confirmed** by `REV-ExcursionOperatorsAndSpectralAction--ES7~2`. The proof on Hausberger p. 1354 claims a zero kernel on an arbitrary isotypic lift. For u:k²→k, (x,y)↦x, and the trivial representation, both projectors are identities and the kernel is nonzero. Natural projectors plus semisimplicity instead split the restricted surjection.
 
 
 ### E11: error
@@ -4237,6 +4277,9 @@ Affects: the proof. Known correction: new.
 ## Sources and reading boundaries
 
 The revision re-downloaded the seven public source files and verified their SHA-256 identifiers. The records distinguish passages checked in this revision from prior-worker and independent-review reading. Missing proof sources are recorded in the gaps; reading a quoted theorem does not close its underlying proof.
+
+Independent revision-2 verification: **confirmed** by `REV-ExcursionOperatorsAndSpectralAction--ES7~2`. Hausberger p. 1357 claims generation by the centre and determinant-unit subgroup. Determinant valuation identifies their product with valuations in dℤ, of index d; diag(ϖ,1) disproves generation for d=2. A characteristic-zero finite-index comparison is still a proof obligation.
+
 
 ### FS-geometrization
 
