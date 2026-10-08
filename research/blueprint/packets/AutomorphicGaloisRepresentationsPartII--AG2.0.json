@@ -4261,7 +4261,8 @@
         "AutomorphicGaloisRepresentationsPartII:AG2.1a/polarized-construction-inputs-shin-and-chenevier-harris",
         "AutomorphicGaloisRepresentationsPartII:AG2.0/field-of-rationality",
         "ArithmeticGaloisRepresentations:R01.5/rational-eigenvalue-descent",
-        "PadicHodgeTheory:R06.2"
+        "PadicHodgeTheory:R06.2",
+        "AutomorphicGaloisRepresentationsPartII:AG2.6/polarized-branch-de-rham-and-crystalline"
       ],
       "sources": [
         {
