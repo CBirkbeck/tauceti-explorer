@@ -38571,8 +38571,9 @@
    ],
    "revisionOf": "BP-EtaleDualityAndPerverseSheaves--EDC.4",
    "prompt": "research/blueprint/prompts/BP-EtaleDualityAndPerverseSheaves--EDC.4~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6958"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6958",
+   "finishedAt": "2026-10-08T17:32:37Z"
   },
   {
    "priority": 2,
@@ -40943,8 +40944,8 @@
    ],
    "revisionOf": "BP-SchemeKTheoryOperations",
    "prompt": "research/blueprint/prompts/BP-SchemeKTheoryOperations~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7007"
+   "state": "external",
+   "note": "claimed on GitHub issue #7007"
   },
   {
    "priority": 2,
