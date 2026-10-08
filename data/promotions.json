@@ -1946,6 +1946,17 @@
     "data/blueprints/SpecialValuesBirchTate.md"
    ]
   },
+  "research/blueprint/packets/VStackSheavesAndLisseCategories.json": {
+   "promotedAt": "2026-10-08T11:20:18Z",
+   "review": "6c946d600f408b7e",
+   "reviewDate": "2026-10-08",
+   "reviewer": "independent-review-REV-VStackSheavesAndLisseCategories~2",
+   "sha256": "457a0c213240ed7e6a9f5c96ae8bb4895f642872ff87fc4043cbf4f45cfc1c58",
+   "to": [
+    "data/blueprints/VStackSheavesAndLisseCategories.json",
+    "data/blueprints/VStackSheavesAndLisseCategories.md"
+   ]
+  },
   "research/blueprint/packets/VectorBundlesAndIsocrystals--VB0.json": {
    "promotedAt": "2026-10-08T06:39:46Z",
    "review": "59a892a6608c6d91",

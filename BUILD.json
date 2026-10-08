@@ -1,8 +1,8 @@
 {
   "roadmaps": 237,
-  "stages": 4853,
+  "stages": 4862,
   "originalStages": 2166,
-  "sourceRefinements": 2687,
+  "sourceRefinements": 2696,
   "reviewedDecompositions": [
     {
       "roadmap": "AInfCohomology",
@@ -227,13 +227,6 @@
       "nodes": 4,
       "review": "accepted",
       "deferredLinks": 0
-    },
-    {
-      "roadmap": "VStackSheavesAndLisseCategories",
-      "status": "partial",
-      "nodes": 21,
-      "review": "accepted",
-      "deferredLinks": 0
     }
   ],
   "terminalTargets": 2094,
@@ -257,14 +250,14 @@
   "editedRoadmapSummaries": 181,
   "curatedStagePresentations": 339,
   "administrativeStages": 101,
-  "mathematicalStars": 4752,
+  "mathematicalStars": 4761,
   "plainTextPlanetLabels": 398,
   "hiddenPlanets": 600,
   "mappedStageStatuses": 350,
   "libraryAuditStatuses": 19,
   "bibliographicSources": 46,
-  "roadmapEdges": 2165,
-  "stageEdges": 12623,
+  "roadmapEdges": 2169,
+  "stageEdges": 12643,
   "reviewedLinkPackets": 25,
   "promotedBlueprints": [
     {
@@ -1174,6 +1167,12 @@
       "reviewer": "independent-review-REV-SpecialValuesBirchTate~2"
     },
     {
+      "file": "VStackSheavesAndLisseCategories",
+      "roadmap": "VStackSheavesAndLisseCategories",
+      "nodes": 80,
+      "reviewer": "independent-review-REV-VStackSheavesAndLisseCategories~2"
+    },
+    {
       "file": "VectorBundlesAndIsocrystals--VB0",
       "roadmap": "VectorBundlesAndIsocrystals",
       "nodes": 51,
@@ -1205,8 +1204,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 35730849,
-  "htmlSha256": "43fc2a49465c306b2fc0c6b227af4056e973236092bf177288517b4231a0beae",
+  "htmlBytes": 35534444,
+  "htmlSha256": "b338cc9b415c73621e05343d6c1743cdb29492d62935f2d19e60b809b808764b",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -1238,7 +1237,7 @@
     "data/roadmap-summaries.json": "c8bdd0a9105f5d3c4a858c8b635990729f8e94497dee784a71fae659b8c05b9f",
     "data/roadmap-classification.json": "2641dbc97eb2566c715162d011b46890d1635629181ef8126ac7aed9e24a3b13",
     "data/classification-estimates.json": "625d35fe6121bf099dc5de9e6a9111793596f9b664e3fbd439841434bb4a57d6",
-    "data/roadmap-distances.json": "41b512d0fd8656ae6cd5ed98352803369c49d3a86c68ca2ec8a8dd4109cf1964",
+    "data/roadmap-distances.json": "41100229302c248ed1f812b8b073b21bbca384440da7dd8b85d9879feb3bb416",
     "data/galaxy-layout.json": "7489487a2143484a355b36026c2f7d3dd9384ac5c58ac90d8b061b8dfcab6088",
     "data/bibliography.json": "bef230a41fad22d6b790c7564061c4d05c2ae5b78cab53d005eb404afab2b122",
     "NOTICE": "a285b95d5adbf5c2bcc82db36e2a77b797f84a2c5cbb30292efd0bae17cc4f34",
@@ -1598,6 +1597,8 @@
     "data/blueprints/SmallRamificationAndAbelianVarietyBaseCases.md": "bf5bb37e33b91d56f46879172730f6ced43c4f448c1ff01efeec27bc66d0141e",
     "data/blueprints/SpecialValuesBirchTate.json": "4f757c294cfa0a140e437995ab1486bf8d53560fa7f8461d4f8ab742684139aa",
     "data/blueprints/SpecialValuesBirchTate.md": "93437444f62052d2c2a0681d4f321c6b9ca026b233c3fc85c72224a10cdf323d",
+    "data/blueprints/VStackSheavesAndLisseCategories.json": "cfd7a4f623917ce5e9978d46fab8dca26920d67164f54aaeae1ae4763ba7b498",
+    "data/blueprints/VStackSheavesAndLisseCategories.md": "1ae6af76aa58883b7d60348103d94d13e6090df5835181bf5951ac5ff96d6e4b",
     "data/blueprints/VectorBundlesAndIsocrystals--VB0.json": "f2a4bae90b4976971bdbda0b8cc380630e95fa6511dcc9037a39bb97e42163e3",
     "data/blueprints/VectorBundlesAndIsocrystals--VB0.md": "d4e71ea9c22507e3b27654cf2536d180dce123cb60247ca36745c3f92e96f734",
     "data/blueprints/VectorBundlesAndIsocrystals--VB3.json": "a378e06efd848d81ac88bcf936950ee38c094cc061ac12b4acfe88dc80db3de2",
