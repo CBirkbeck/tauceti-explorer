@@ -10,8 +10,8 @@ below suggest Lean forms for the definitions, their API and their unit tests, so
 contributors and reviewers converge on names and signatures. Every proof is `sorry`; nothing
 here is an implementation.
 
-Revision BP-RefinedTraceMethods--RT.1~2 retains the independent review for the next
-reviewer. Coherent interfaces use quasicategories and mapping-space paths; ordinary
+Independent review REV-RefinedTraceMethods--RT.1~2 corrects the signatures below.
+The packet remains needs_changes because the RT.5 foundation ordering is unresolved. Coherent interfaces use quasicategories and mapping-space paths; ordinary
 models are shadows. Exact supplier requests remain for the coherent categorical,
 spectral and condensed infrastructure, and source proof gaps remain in the packet.
 Successful elaboration checks signatures; every mathematical proof remains a placeholder.
@@ -1499,42 +1499,48 @@ example (k : Type) [CommRing k] :
 /-! ### RT.1/sbi-sequence -/
 
 /-- `I : HH_n(M) → HC_n(M)`, induced by the inclusion of the `u⁰`-column. -/
-def RT1.sbiI {k : Type} [CommRing k] (M : MixedComplex k) (n : ℕ) :
+def RT1.sbiI {k : Type} [CommRing k] (M : MixedComplex k) (n : ℤ) :
     RT1.mixedHH M n ⟶ RT1.mixedHC M n := sorry
 
 /-- `S : HC_{n+2}(M) → HC_n(M)`, multiplication by `u` (removing the `u⁰`-column). -/
-def RT1.sbiS {k : Type} [CommRing k] (M : MixedComplex k) (n : ℕ) :
+def RT1.sbiS {k : Type} [CommRing k] (M : MixedComplex k) (n : ℤ) :
     RT1.mixedHC M (n + 2) ⟶ RT1.mixedHC M n := sorry
 
 /-- `B : HC_n(M) → HH_{n+1}(M)`, induced by Connes' operator. -/
-def RT1.sbiB {k : Type} [CommRing k] (M : MixedComplex k) (n : ℕ) :
+def RT1.sbiB {k : Type} [CommRing k] (M : MixedComplex k) (n : ℤ) :
     RT1.mixedHC M n ⟶ RT1.mixedHH M (n + 1) := sorry
 
 /-- `u : HC⁻_{n+2}(M) → HC⁻_n(M)`. -/
-def RT1.negU {k : Type} [CommRing k] (M : MixedComplex k) (n : ℕ) :
-    RT1.mixedHCminus M ((n + 2 : ℕ) : ℤ) ⟶ RT1.mixedHCminus M (n : ℤ) := sorry
+def RT1.negU {k : Type} [CommRing k] (M : MixedComplex k) (n : ℤ) :
+    RT1.mixedHCminus M (n + 1 + 1) ⟶ RT1.mixedHCminus M n := sorry
 
 /-- `HC⁻_n(M) → HH_n(M)`, reduction modulo `u`. -/
-def RT1.negP {k : Type} [CommRing k] (M : MixedComplex k) (n : ℕ) :
+def RT1.negP {k : Type} [CommRing k] (M : MixedComplex k) (n : ℤ) :
     RT1.mixedHCminus M (n : ℤ) ⟶ RT1.mixedHH M n := sorry
 
 /-- `HH_n(M) → HC⁻_{n+1}(M)`, the connecting map (induced by `B`). -/
-def RT1.negJ {k : Type} [CommRing k] (M : MixedComplex k) (n : ℕ) :
-    RT1.mixedHH M n ⟶ RT1.mixedHCminus M ((n + 1 : ℕ) : ℤ) := sorry
+def RT1.negJ {k : Type} [CommRing k] (M : MixedComplex k) (n : ℤ) :
+    RT1.mixedHH M n ⟶ RT1.mixedHCminus M (n + 1) := sorry
 
-/-- RT.1/sbi-sequence: Connes' SBI long exact sequence
-`… → HH_n(M) →I HC_n(M) →S HC_{n−2}(M) →B HH_{n−1}(M) → …` for every mixed complex `M`
-(with `HC_n = 0` for `n < 0`, so `I` is bijective in degree `0` and surjective in degree `1`),
-and its analogue `… → HC⁻_{n+2} →u HC⁻_n → HH_n → HC⁻_{n+1} → …` in degrees `n ≥ 0`. For an
-algebra apply it to `RT1.derivedMixed k A`. Naturality in `M` is not recorded here. -/
+/-- SBI and negative-cyclic long exact sequences for all integer degrees of an arbitrary
+mixed complex. Bottom-degree conclusions are stated separately under connectivity. -/
 theorem sbiSequence {k : Type} [CommRing k] (M : MixedComplex k) :
     (∀ n, Function.Exact (RT1.sbiI M (n + 2)).hom (RT1.sbiS M n).hom) ∧
     (∀ n, Function.Exact (RT1.sbiS M n).hom (RT1.sbiB M n).hom) ∧
     (∀ n, Function.Exact (RT1.sbiB M n).hom (RT1.sbiI M (n + 1)).hom) ∧
-    Function.Bijective (RT1.sbiI M 0).hom ∧ Function.Surjective (RT1.sbiI M 1).hom ∧
     (∀ n, Function.Exact (RT1.negU M n).hom (RT1.negP M n).hom) ∧
     (∀ n, Function.Exact (RT1.negP M n).hom (RT1.negJ M n).hom) ∧
     (∀ n, Function.Exact (RT1.negJ M (n + 1)).hom (RT1.negU M n).hom) := sorry
+
+/-- Bottom-degree SBI consequence for a mixed complex concentrated in nonnegative degrees. -/
+theorem sbiSequence.connective {k : Type} [CommRing k] (M : MixedComplex k)
+    (hM : ∀ n : ℤ, n < 0 → Limits.IsZero (M.X n)) :
+    (∀ n : ℤ, n < 0 → Limits.IsZero (RT1.mixedHC M n)) ∧
+    Function.Bijective (RT1.sbiI M 0).hom ∧ Function.Surjective (RT1.sbiI M 1).hom := sorry
+
+/-- A negative-degree mixed object need not have vanishing ordinary cyclic homology in negative degrees. -/
+example (k : Type) [CommRing k] : ∃ M : MixedComplex k,
+    Nonempty (RT1.mixedHC M (-1) ≅ ModuleCat.of k k) := sorry
 
 /-! ### RT.1/hochschild-homology -/
 
@@ -2481,14 +2487,10 @@ example :
       ∀ n : ℤ, (∀ k : ℕ, n ≠ -(2 * k : ℤ)) →
         Subsingleton ((homotopyFixedPoints (RT2.HZ T)).homotopyGroup n) := sorry
 
-/-- Test `homotopyFixedPoints.not_genuine` (non-example): π_0 S^{hC_2} is the completion
-`ℤ ⊕ ℤ_2` of the Burnside ring at the augmentation ideal (Segal conjecture), not the Burnside ring
-`A(C_2) ≅ ℤ²` that is π_0 of the genuine fixed points. -/
-example :
-    Nonempty ((homotopyFixedPoints (SpectraWithAction.trivial (C 2) Spectrum.sphere)).homotopyGroup
-        0 ≃+ ℤ × ℤ_[2]) ∧
-      IsEmpty ((homotopyFixedPoints (SpectraWithAction.trivial (C 2) Spectrum.sphere)).homotopyGroup
-        0 ≃+ ℤ × ℤ) := sorry
+/-- Test `homotopyFixedPoints.group_cohomology`: derived C₂ fixed points detect higher
+integral group cohomology even for a trivial action. -/
+example : Nonempty ((homotopyFixedPoints (RT2.HZ (C 2))).homotopyGroup (-2) ≃+ ZMod 2) ∧
+    Subsingleton ((homotopyFixedPoints (RT2.HZ (C 2))).homotopyGroup (-1)) := sorry
 
 /-! ### RT.2/norm-map-tate -/
 
@@ -3115,6 +3117,9 @@ theorem THH.map_comp {A B D : E1Ring} (f : A ⟶ B) (g : B ⟶ D) :
 /-- The unit map `A → THH(A)` (inclusion of `0`-simplices), a map of underlying spectra
 (RT.2/thh-e1-ring). -/
 def THH.unit (A : E1Ring) : A.toSpectrum ⟶ (THH A).underlying := sorry
+
+/-- The equivariant sphere unit, separate from the generally nonequivariant degree-zero map. -/
+def THH.sphereUnit (A : E1Ring) : SpectraWithAction.trivial T Spectrum.sphere ⟶ THH A := sorry
 
 /-- `π_0 THH(A) ≅ R/[R,R]` for a connective `E_1`-ring `A` with `π_0 A = R` (RT.2/thh-e1-ring). -/
 theorem THH.pi0 (A : E1Ring) (hA : A.IsConnective) :
@@ -3797,7 +3802,7 @@ theorem trivialCyclotomicAdjunction :
     (∀ (p : ℕ) [Fact p.Prime],
       Nonempty (THH.toCyclotomic (E1Ring.ofRing (ZMod p)) ≅
         RT2.shiftP p (RT2.trivCycFunctor.obj (Spectrum.em ℤ_[p])))) ∧
-    ∀ (p : ℕ) (A : RT2.E2Ring), ((p : A.toE1.pi0) = 0) →
+    ∀ (p : ℕ) (_ : p.Prime) (A : RT2.E2Ring), ((p : A.toE1.pi0) = 0) →
       RT2.IsCofibreSequence (TC.toTCminus (THH.toCyclotomic A.toE1))
         (TCminus.can (THH.toCyclotomic A.toE1).underlying ≫
             RT2.pCompletionMap p (TP (THH.toCyclotomic A.toE1).underlying) -
@@ -4242,13 +4247,7 @@ def RT2G.OrthogonalSpectrum.point : OrthogonalSpectrum := sorry
 /-- Test `OrthogonalSpectrum.zero` (degenerate): the constant point spectrum is a zero object. -/
 example : Limits.IsZero RT2G.OrthogonalSpectrum.point := sorry
 
-/-- Test `OrthogonalSpectrum.not_sequential` (non-example): a sequential spectrum without
-`O(n)`-actions has no symmetric monoidal smash product on the point-set level. Sequential spectra
-are modules over the sphere sequence `(S^n)_n` in `ℕ`-graded pointed spaces, and a point-set
-smash product of modules needs this monoid to be commutative; it is not, because the twist of
-`S¹ ∧ S¹` (a reflection of `S²`, of degree `−1`) does not commute with the multiplication
-`S¹ ∧ S¹ ≅ S²`. In orthogonal spectra the twist is the action of a permutation matrix in `O(2)`,
-which is why the `O(n)`-actions are needed. -/
+/-- Test `OrthogonalSpectrum.not_sequential`: the suspension braiding on S¹∧S¹ has degree −1. -/
 example : (β_ (RT2G.PointedSpace.sphere 1) (RT2G.PointedSpace.sphere 1)).hom ≫
       RT2G.PointedSpace.sphereMul 1 1 ≠ RT2G.PointedSpace.sphereMul 1 1 := sorry
 
@@ -5197,18 +5196,22 @@ def RT2G.OrthogonalSpectrum.IsConvergent (X : OrthogonalSpectrum) : Prop :=
   ∃ c : ℕ → ℕ, Monotone c ∧ (∀ N : ℕ, ∃ n, N ≤ c n) ∧
     ∀ n : ℕ, RT2G.PointedSpace.IsConnectedMap (RT2G.OrthogonalSpectrum.structureMap X n) (n + c n)
 
-/-- The Bökstedt construction preserves stable equivalences between convergent orthogonal ring
-spectra (Shipley; the levelwise well-pointedness assumed in NS18 §III.4 is not recorded). -/
+/-- NS18 Theorem III.4.4: Bökstedt's construction preserves stable equivalences without a
+convergence restriction. Point-set realization hypotheses are separate below. -/
 theorem Bokstedt.preserves_equiv (k : ℕ) {A A' : RT2G.OrthogonalRingSpectrum} (f : A ⟶ A')
-    (hA : RT2G.OrthogonalSpectrum.IsConvergent (RT2G.OrthogonalRingSpectrum.toOrthogonal.obj A))
-    (hA' : RT2G.OrthogonalSpectrum.IsConvergent (RT2G.OrthogonalRingSpectrum.toOrthogonal.obj A'))
     (hf : RT2G.OrthogonalSpectrum.IsStableEquiv (RT2G.OrthogonalRingSpectrum.toOrthogonal.map f)) :
     RT2G.OrthogonalSpectrum.IsStableEquiv
       (RT2G.Bokstedt.constructionMap k (RT2G.Bokstedt.ringDiagramMap k f)) := sorry
 
+/-- Supplier witness that every level is well-pointed and the level-zero unit is an
+h-cofibration, as required in NS18 Corollary III.6.8. This is model data, not a free Prop. -/
+def RT2G.WellPointedRingModel (A : RT2G.OrthogonalRingSpectrum) : Type := sorry
+
 /-- Classical THH (NS18 Definition III.5.1, Proposition III.5.4): the geometric realisation of
 the cyclic orthogonal spectrum `[k] ↦ Bokstedt.construction k (RT2G.Bokstedt.ringDiagram A k)`,
-an orthogonal cyclotomic spectrum. -/
+an orthogonal cyclotomic spectrum. On a general input this carrier denotes the realization
+after a functorial well-pointed replacement. The direct point-set comparison below records
+the original model hypotheses. -/
 def Bokstedt.classicalTHH (A : RT2G.OrthogonalRingSpectrum) : RT2G.OrthogonalCyclotomicSpectrum :=
   sorry
 
@@ -5251,15 +5254,10 @@ permuting the blocks. -/
 def RT2G.Bokstedt.naiveSubdivided (p k : ℕ) (A : RT2G.OrthogonalRingSpectrum) :
     RT2G.OrthogonalGSpectrum (C p) := sorry
 
-/-- Test `Bokstedt.naive_nonexample` (non-example): the naive cyclic bar construction does not
-have the correct geometric fixed points: for some orthogonal ring spectrum `A`, `Φ^{C_p}` of its
-`p`-fold subdivision is not the Bökstedt term. -/
-example : ∃ (A : RT2G.OrthogonalRingSpectrum) (p : ℕ) (_ : p.Prime) (k : ℕ),
-    IsEmpty (RT2G.OrthogonalSpectrum.toSpectrum.obj
-        ((RT2G.OrthogonalGSpectrum.geometricFixedPoints (⊤ : Subgroup (C p))).obj
-          (RT2G.Bokstedt.naiveSubdivided p k A)) ≅
-      RT2G.OrthogonalSpectrum.toSpectrum.obj
-        (Bokstedt.construction k (RT2G.Bokstedt.ringDiagram A k))) := sorry
+/-- Test `Bokstedt.index_automorphisms`: I has two endomorphisms of [2], so it is not ℕ
+with its order category. -/
+example : Nat.card ((show BokstedtCategory from (2 : ℕ)) ⟶
+    (show BokstedtCategory from (2 : ℕ))) = 2 := sorry
 
 /-! ### RT.2/thh-models-agree -/
 
@@ -5268,7 +5266,8 @@ the underlying `T`-spectrum of classical (Bökstedt) `THH(A)` is `THH(A)` of RT.
 (NS18 Theorem III.6.1), classical `THH(A)` is bounded below, and under the equivalence of
 RT.2/bounded-below-cyclotomic-equivalence it maps to the cyclotomic spectrum `THH(A)`, so the
 Frobenius maps agree (NS18 Theorem III.6.7, Corollary III.6.8). -/
-theorem thhModelsAgree (A : RT2G.OrthogonalRingSpectrum) (hA : A.toE1.IsConnective) :
+theorem thhModelsAgree (A : RT2G.OrthogonalRingSpectrum)
+    (hwell : RT2G.WellPointedRingModel A) (hA : A.toE1.IsConnective) :
     Nonempty (GenuineCircleSpectrum.toBorel.obj
         (RT2G.OrthogonalCyclotomicSpectrum.toGenuine.obj (Bokstedt.classicalTHH A)).underlying ≅
       THH A.toE1) ∧
@@ -5488,7 +5487,7 @@ theorem genuineTcAgrees :
           RT2G.PCyclotomicSpectrum.TC p ((RT2G.GenuineCyclotomicSpectrum.forgetP p).obj X))) ∧
     (∀ X : GenuineCyclotomicSpectrum, RT2G.GenuineCyclotomicSpectrum.boundedBelow X →
       Nonempty (RT2G.TCgenInt X ≅ TC (GenuineCyclotomicSpectrum.forget.obj X))) ∧
-    ∀ A : RT2G.OrthogonalRingSpectrum, A.toE1.IsConnective →
+    ∀ A : RT2G.OrthogonalRingSpectrum, RT2G.WellPointedRingModel A → A.toE1.IsConnective →
       Nonempty (RT2G.TCgenInt
           (RT2G.OrthogonalCyclotomicSpectrum.toGenuine.obj (Bokstedt.classicalTHH A)) ≅
         TC (THHcyc A.toE1)) := sorry
@@ -5994,6 +5993,13 @@ def TCCAlg : InvCAlg := ⟨TCinv.toFunctor, sorry⟩
 /-- The E₁-map underlying a map of E_∞-rings. -/
 def toE1Map {A B : EInftyRing} (f : A ⟶ B) : A.toE1 ⟶ B.toE1 := sorry
 
+/-- The coherent mapping Kan complex of multiplicative invariants, supplied by EDS E0
+and the requested early RT.5 motives foundation. Ordinary InvCAlg.Hom is its model shadow. -/
+def InvCAlg.mappingSpace (X Y : InvCAlg) : SSet.{0} := sorry
+instance (X Y : InvCAlg) : SSet.KanComplex (InvCAlg.mappingSpace X Y) := sorry
+/-- Coherent contraction data for a Kan complex (equivalence to a point, with homotopy
+inverse and higher coherence). The supplier owns the implementation of this witness. -/
+def ContractibilityWitness (K : SSet.{0}) [SSet.KanComplex K] : Type := sorry
 end RT3
 
 /-- Node `RefinedTraceMethods:RT.3/trace-uniqueness-multiplicative`. The E_∞-maps `K → THH`
@@ -6003,9 +6009,9 @@ E_∞-ring `A` the trace `K(A) → TC(A)` is a map of E_∞-rings. (The refineme
 `TC^n` of Bökstedt–Hsiang–Madsen is not stated.) -/
 theorem traceUniquenessMultiplicative :
     (∃ φ : RT3.InvCAlg.Hom RT3.KCAlg RT3.THHCAlg,
-      (∀ ψ : RT3.InvCAlg.Hom RT3.KCAlg RT3.THHCAlg, ψ = φ) ∧ φ.toNatTrans = dennisTrace) ∧
+      Nonempty (RT3.ContractibilityWitness (RT3.InvCAlg.mappingSpace RT3.KCAlg RT3.THHCAlg)) ∧ φ.toNatTrans = dennisTrace) ∧
     (∃ φ : RT3.InvCAlg.Hom RT3.IKCAlg RT3.TCCAlg,
-      (∀ ψ : RT3.InvCAlg.Hom RT3.IKCAlg RT3.TCCAlg, ψ = φ) ∧
+      Nonempty (RT3.ContractibilityWitness (RT3.InvCAlg.mappingSpace RT3.IKCAlg RT3.TCCAlg)) ∧
         φ.toNatTrans = cyclotomicTrace) ∧
     ∀ A : EInftyRing, ∃ (KA TCA : EInftyRing)
       (eK : KA.toE1.toSpectrum ≅ connectiveK (Perf A.toE1))
@@ -7086,8 +7092,8 @@ def rank : TopK X →+* RT4T.H0 X := sorry
 
 /-- Every element of `K(X)` is `[E] − [εᴺ]`; `[E] = [F]` iff `E ⊕ εⁿ ≅ F ⊕ εⁿ` for some `n`. -/
 theorem exists_complement :
-    (∀ x : TopK X, ∃ (E : RT4T.ComplexVectorBundle X) (N : ℕ),
-      x = ofBundle (RT4T.Vect.mk E) - ofBundle (RT4T.Vect.mk (.trivial X N))) ∧
+    (∀ x : TopK X, ∃ (v : RT4T.Vect X) (N : ℕ),
+      x = ofBundle v - ofBundle (RT4T.Vect.mk (.trivial X N))) ∧
     ∀ E F : RT4T.ComplexVectorBundle X,
       ofBundle (RT4T.Vect.mk E) = ofBundle (RT4T.Vect.mk F) ↔
         ∃ n : ℕ, Nonempty ((E.directSum (.trivial X n)).Iso (F.directSum (.trivial X n))) := sorry
@@ -7720,8 +7726,8 @@ example : ¬ ∃ f : KU ⟶ KU, RT4T.piMap f 2 KU.bott = 2 • KU.bott := sorry
 
 namespace RT4T
 
-/-- Even cohomology `H^{ev}(X; A) = ∏ᵢ H^{2i}(X; A)`, a commutative ring under cup product
-(additive group the product group). -/
+/-- Completed even cohomology with Cauchy cup convolution, not componentwise multiplication:
+(xy)_n is the finite sum of x_i∪y_j for i+j=n. The unit has only its H⁰ component. -/
 def evenCohomology (X : Type) [TopologicalSpace X] (A : Type) [CommRing A] : Type :=
   ∀ i : ℕ, cohomology X A (2 * (i : ℤ))
 
@@ -7742,6 +7748,19 @@ instance (X : Type) [TopologicalSpace X] (A : Type) [CommRing A] :
 /-- The component in `H^{2i}`. -/
 def evenCohomology.component {X : Type} [TopologicalSpace X] {A : Type} [CommRing A] (i : ℕ) :
     evenCohomology X A →+ cohomology X A (2 * (i : ℤ)) := sorry
+
+/-- Cup product with the degree equality supplied explicitly. -/
+def evenCup {X : Type} [TopologicalSpace X] {A : Type} [CommRing A]
+    (i j n : ℕ) (h : i+j=n) :
+    cohomology X A (2 * (i : ℤ)) →+ cohomology X A (2 * (j : ℤ)) →+
+      cohomology X A (2 * (n : ℤ)) := sorry
+
+/-- The finite convolution identity used by the Whitney and Chern-character formulas. -/
+theorem evenCohomology.mul_component {X : Type} [TopologicalSpace X] {A : Type} [CommRing A]
+    (x y : evenCohomology X A) (n : ℕ) :
+    evenCohomology.component n (x*y) = ∑ ij : {ij : Fin (n+1) × Fin (n+1) //
+      ij.1.val+ij.2.val=n}, evenCup ij.val.1.val ij.val.2.val n ij.property
+        (evenCohomology.component ij.val.1.val x) (evenCohomology.component ij.val.2.val y) := sorry
 
 /-- The inclusion of `H^{2i}`. -/
 def evenCohomology.single {X : Type} [TopologicalSpace X] {A : Type} [CommRing A] (i : ℕ) :
@@ -8503,6 +8522,13 @@ class CompatibleGlobalInput (SA : EInftyRing) (A R : Type)
   choices : CompatibleSphericalLifts SA A R
   identifies : GlobalEnCompatibility choices L
 
+/-- The chosen gluing supplies its own compatibility data to the strict model. -/
+@[instance_reducible]
+def CompatibleSphericalLifts.globalInput {SA : EInftyRing} {A R : Type}
+    [CommRing A] [CommRing R] [Algebra A R]
+    (G : CompatibleSphericalLifts SA A R) : CompatibleGlobalInput SA A R G.glue :=
+  ⟨G, sorry⟩
+
 /-- A₂ is a morphism in the coherent cyclonic E∞ algebra category. The mapping
 space itself retains all prime/divisor coherences, beyond its displayed paths. -/
 def CyclonicAlgebras : InftyCategory := sorry
@@ -8830,10 +8856,10 @@ nuclear (the identity of a dualizable object is trace-class). -/
 example {R : RT4Q.SolidRing} (P : RT4Q.SolidMod R) (hP : RT4Q.IsDualizable P) : Nuclear P :=
   sorry
 
-/-- Test `TraceClass.dualizable_id` (computation): the identity of a dualizable object is
-trace-class. -/
-example {R : RT4Q.SolidRing} (M : RT4Q.SolidMod R) (hM : RT4Q.IsDualizable M) :
-    RT4Q.IsTraceClass (𝟙 M) := sorry
+/-- Test `TraceClass.zero`: a zero classifier gives the zero map for arbitrary modules. -/
+instance (R : RT4Q.SolidRing) : Limits.HasZeroMorphisms (RT4Q.SolidMod R) := sorry
+example {R : RT4Q.SolidRing} (M N : RT4Q.SolidMod R) :
+    RT4Q.IsTraceClass (0 : M ⟶ N) := sorry
 
 /-- Test `Nuclear.not_all` (non-example): compactness does not make an identity trace-class:
 for discrete `R = ℤ` the compact generator `Null_ℤ ≃ ∏_ℕ ℤ` is not dualizable (its dual is
@@ -8992,14 +9018,15 @@ sheaf truncations of `Hom_R(−, M)` on perfect even `R`-modules with the even t
 at `R`. -/
 def perfectEvenFiltration (R : E1Ring) (M : RT4Q.LMod R) : RT4Q.FilSpectrum := sorry
 
-/-- Canonical Čech filtered-module diagram, with all cofaces and degeneracies. -/
+/-- Fixed-base Čech diagram: in degree n, apply perfectEvenFiltration over R to the
+R-module S^{⊗_R(n+1)}⊗_R M, retaining all cofaces and degeneracies (Theorem 6.26). -/
 def RT4Q.perfectCechDiagram {R S : E1Ring} (f : R ⟶ S) (M : RT4Q.LMod R) :
     Coherent.Functor RT4Q.CosimplicialShape RT4Q.FilSpectrum.coherentCategory := sorry
 
-/-- If `R` and `M` are even, `fil^⋆_{P-ev/R} M = τ_{≥2⋆}M`. In fact,
-Pstrągowski §§2.4–2.5 allows either one to be even; no flatness hypothesis is needed here. -/
+/-- If either `R` or `M` is even, `fil^⋆_{P-ev/R} M = τ_{≥2⋆}M`.
+Pstrągowski §§2.4–2.5 gives this comparison; no flatness hypothesis is needed here. -/
 theorem perfectEvenFiltration.even (R : E1Ring) (M : RT4Q.LMod R)
-    (hR : RT4Q.IsEvenSpectrum R.toSpectrum) (hM : RT4Q.IsEvenSpectrum M.underlying) :
+    (h : RT4Q.IsEvenSpectrum R.toSpectrum ∨ RT4Q.IsEvenSpectrum M.underlying) :
     Nonempty (perfectEvenFiltration R M ≅ RT4Q.doubleSpeed M.underlying) := sorry
 
 /-- Faithfully even flat descent after completion: completed `fil(M)` is the completed
@@ -9009,6 +9036,18 @@ theorem perfectEvenFiltration.descent {R S : E1Ring} (f : R ⟶ S)
     (hf : RT4Q.IsEvenFaithfullyFlat f) (M : RT4Q.LMod R) :
     Nonempty ((perfectEvenFiltration R M).completion ≅
       (RT4Q.FilSpectrum.totLimit (RT4Q.perfectCechDiagram f M)).completion) := sorry
+
+/-- E₂ refinement of the ring map and its coherent algebra Čech nerve, supplied by H.5. -/
+def RT4Q.E2CechRefinement {R S : E1Ring} (f : R ⟶ S) : Type := sorry
+/-- Varying-ring Čech filtration, constructed only from the E₂ refinement. -/
+def RT4Q.algebraCechDiagram {R S : E1Ring} (f : R ⟶ S)
+    (h2 : RT4Q.E2CechRefinement f) (M : RT4Q.LMod R) :
+    Coherent.Functor RT4Q.CosimplicialShape RT4Q.FilSpectrum.coherentCategory := sorry
+/-- Pstrągowski Theorem 6.27: the varying-ring algebra form requires E₂ input. -/
+theorem perfectEvenFiltration.algebraDescent {R S : E1Ring} (f : R ⟶ S)
+    (h2 : RT4Q.E2CechRefinement f) (hf : RT4Q.IsEvenFaithfullyFlat f) (M : RT4Q.LMod R) :
+    Nonempty ((perfectEvenFiltration R M).completion ≅
+      (RT4Q.FilSpectrum.totLimit (RT4Q.algebraCechDiagram f h2 M)).completion) := sorry
 
 /-- For E_∞-rings admitting a faithfully even flat map to an even E_∞-ring, the
 perfect even filtration agrees with HRW's after completion. The map, actual faithful condition, and even target
@@ -9235,12 +9274,13 @@ theorem solidEvenFiltration.compare_pstragowski (R : E1Ring) (M : RT4Q.LMod R)
     Nonempty ((solidEvenFiltration (RT4Q.SolidRing.ofE1 R) (RT4Q.SolidMod.ofLMod M)).underlying ≅
       perfectEvenFiltration R M) := sorry
 
-/-- Canonical solid Čech diagram, retaining its coherent transition data. -/
+/-- Fixed-base solid Čech diagram: filter each derived tensor term as an R-module,
+retaining the coherent cofaces and degeneracies (Wagner Theorem 2.19). -/
 def RT4Q.solidCechDiagram {R S : RT4Q.SolidRing} (f : R ⟶ S) (M : RT4Q.SolidMod R) :
     Coherent.Functor RT4Q.CosimplicialShape RT4Q.FilSolid.coherentCategory := sorry
 
 /-- Solid faithfully even flat descent for nuclear `S` over `R`, up to completion (Wagner
-Theorems 2.19–2.20). Assumption R, nuclearity of S and M, solid homological evenness of M,
+Theorem 2.19). Assumption R, nuclearity of S and M, solid homological evenness of M,
 and both-sided solid faithful even flatness are explicit hypotheses. -/
 theorem solidEvenFiltration.descent {R S : RT4Q.SolidRing} (f : R ⟶ S)
     (hR : RT4Q.AssumptionR R)
@@ -9372,6 +9412,10 @@ def hhRing (A R : Type) [CommRing A] [CommRing R] [Algebra A R] : EInftyRing := 
 
 end RT4Q
 
+/-- Discrete condensed models with their identified p-completions, as in Wagner Lemma 3.7.
+The witness includes k=(k°)^∧_p and T=(T°)^∧_p in solid spectra. -/
+def RT4Q.DiscretePCompleteModels (p : ℕ) (k : EInftyRing) (T : E1Ring) : Type := sorry
+
 /-- Even filtrations on solid relative THH (Wagner §3). Let `k` be a connective even E_∞-ring
 with `π_{2∗}k` `p`-torsion free, `(A, S_A)` a `p`-cyclotomic base and `S_R` an E₂-lift of `R`.
 Then (i) `THH_■(k_R/k_A)` is the `p`-completed relative THH (Lemma 3.7); (ii) its even filtration
@@ -9383,6 +9427,7 @@ with HKR graded pieces (Corollary 3.15), the comparisons on `HC⁻` and `HP`, an
 where the filtration is `lim_Δ τ_{≥2⋆}` over the even resolution. -/
 theorem solidThhEvenFiltration (p : ℕ) [Fact p.Prime] (A R : Type) [CommRing A] [CommRing R]
     [Algebra A R] (B : CyclotomicBase p A) (L : SphericalLift B.lift R 2) (k : EInftyRing)
+    (hmodels : RT4Q.DiscretePCompleteModels p k L.ring.toE1)
     (hk : RT4Q.IsConnectiveInfty k) (hke : RT4Q.IsEvenSpectrum (RT4Q.sp k))
     (hkp : ∀ (n : ℤ) (x : (RT4Q.sp k).homotopyGroup (2 * n)), (p : ℤ) • x = 0 → x = 0) :
     Nonempty (RT4Q.solidTHH k B.lift L.ring.toE1 L.structureMap ≅
@@ -9418,7 +9463,8 @@ def unitToJ (p : ℕ) (j : EInftyRing) : sphereP p ⟶ j := sorry
 end RT4Q
 
 /-- The connective image-of-J spectrum `j := τ_{≥0} S_{K(1)}` at `p`, an E_∞-ring (at odd `p`, the
-fibre of `ψ^g − 1` on the Adams summand of `ku_p`, `g` a topological generator of `ℤ_p^×`). -/
+connective cover of `KU_p^{h(𝔽_p^××ℤ)}`, with the principal-unit Adams action;
+the connective Adams-summand fiber description has shift `2p−2`). -/
 def imageOfJ (p : ℕ) [Fact p.Prime] : EInftyRing := sorry
 
 /-- The E_∞-map `j → ku_p` (unit of the Adams summand). -/
@@ -9647,13 +9693,24 @@ theorem pCompleteComparisonTwo (A R : Type) [CommRing A] [CommRing R] [Algebra A
     Nonempty ((qHodgeFiltration 2 A R B L).rationalise.completion ≅
       (RT4Q.hodgeQFiltrationP 2 A R).completion) := sorry
 
+/-- Identity-cover quasi-regular input: the relatively semiperfect reduction, p-quasi-lci
+cotangent bound and p-completeness of both R and its spherical lift. -/
+structure RT4Q.IdentityCoverQuasiRegularInput (p : ℕ) (A R : Type)
+    [CommRing A] [CommRing R] [Algebra A R] (B : CyclotomicBase p A)
+    (L : SphericalLift B.lift R 1) where
+  quasiLCI : RT4Q.QuasiLCIWitness A R
+  relativelySemiperfect : RT4Q.SemiperfectCoverWitness p A R R
+  pComplete : RT4Q.IsPComplete p (Spectrum.em R)
+  pCompleteLift : RT4Q.IsPComplete p L.ring.toE1.toSpectrum
+
 /-- Wagner Theorem 4.17: for `R` `p`-torsion free with an E₁-lift `S_R` and `R/p` relatively
-semiperfect over `A` (not recorded), `q-dR_{R/A}` and `dR_{R/A}` are static and
+semiperfect over `A`, with the complete identity-cover input recorded below, `q-dR_{R/A}` and `dR_{R/A}` are static and
 `fil^⋆_{q-Hdg} q-dR_{R/A} = q-dR_{R/A} ×_{dR_{R/A}[1/p][[q−1]]} fil^⋆_{(Hdg,q−1)}`; hence it is
 independent of the lift (and canonically a filtered E_∞-algebra, not recorded). -/
 theorem quasiRegularQuotients (p : ℕ) [Fact p.Prime] (A R : Type) [CommRing A] [CommRing R]
     [Algebra A R] (B : CyclotomicBase p A) (L : SphericalLift B.lift R 1)
-    (hR : ∀ r : R, (p : R) * r = 0 → r = 0) :
+    (hR : ∀ r : R, (p : R) * r = 0 → r = 0)
+    (hqr : RT4Q.IdentityCoverQuasiRegularInput p A R B L) :
     (∀ k : ℤ, k ≠ 0 → Subsingleton ((Spectrum.pCompletion p (RT4Q.qDeRham A R)).homotopyGroup k)) ∧
     (∀ k : ℤ, k ≠ 0 → Subsingleton ((Spectrum.pCompletion p (RT4Q.deRham A R)).homotopyGroup k)) ∧
     Nonempty (qHodgeFiltration p A R B L ≅
@@ -9678,48 +9735,44 @@ end RT4Q
 /-- The global even filtration `fil^⋆_ev THH(ku_R/ku_A)`, glued as the pullback of the profinite
 filtration and the rational filtration `fil^⋆_ev HH(R/A) ⊗ ℚ[β]_ev` over the rationalised
 profinite one (Wagner 4.21–4.23), as an even-filtered `T_ev`-module; then
-`fil_{ev,hS¹}TC⁻ := (fil_ev THH)^{hT_ev}`. The per-prime (E₁)/(E₂) choices are not recorded. -/
+`fil_{ev,hS¹}TC⁻ := (fil_ev THH)^{hT_ev}`. The compatible per-prime (E₁)/(E₂) choices are required by CompatibleGlobalInput. -/
 def globalEvenFiltrationShadow (A R : Type) [CommRing A] [CommRing R] [Algebra A R] (SA : EInftyRing)
-    {n : ℕ} (L : SphericalLift SA R n) : RT4Q.EvFilTMod := sorry
+    {n : ℕ} (L : SphericalLift SA R n) [RT4Q.CompatibleGlobalInput SA A R L] : RT4Q.EvFilTMod := sorry
 
 /-- Restriction to the profinite filtration. -/
 def globalEvenFiltrationShadow.profinite (A R : Type) [CommRing A] [CommRing R] [Algebra A R]
-    (SA : EInftyRing) {n : ℕ} (L : SphericalLift SA R n) :
+    (SA : EInftyRing) {n : ℕ} (L : SphericalLift SA R n) [RT4Q.CompatibleGlobalInput SA A R L] :
     (globalEvenFiltrationShadow A R SA L).underlying ⟶
       RT4Q.profiniteThhEven SA L.ring.toE1 L.structureMap := sorry
 
 /-- Restriction to the rational filtration `fil_ev HH(R/A) ⊗ ℚ[β]_ev`. -/
 def globalEvenFiltrationShadow.rational (A R : Type) [CommRing A] [CommRing R] [Algebra A R]
-    (SA : EInftyRing) {n : ℕ} (L : SphericalLift SA R n) :
+    (SA : EInftyRing) {n : ℕ} (L : SphericalLift SA R n) [RT4Q.CompatibleGlobalInput SA A R L] :
     (globalEvenFiltrationShadow A R SA L).underlying ⟶ RT4Q.rationalHHBeta A R := sorry
 
 /-- The glued comparison `ψ^0_R : q-dR_{R/A} → gr^0_{ev,hS¹}TC⁻(ku_R/ku_A)` (Wagner 4.25, using
 Lemma 4.29). -/
 def globalComparisonShadow (A R : Type) [CommRing A] [CommRing R] [Algebra A R] (SA : EInftyRing)
-    {n : ℕ} (L : SphericalLift SA R n) :
+    {n : ℕ} (L : SphericalLift SA R n) [RT4Q.CompatibleGlobalInput SA A R L] :
     RT4Q.qDeRham A R ⟶ (evenCircleFixedPoints (globalEvenFiltrationShadow A R SA L)).gr 0 := sorry
 
 /-- Test `globalEvenFiltration.integers` (computation): for `A = R = ℤ`,
 `fil_{ev,hS¹}TC⁻(ku/ku) = τ_{≥2⋆} ku^{hS¹}`. -/
 example {n : ℕ} (L : SphericalLift RT4Q.sphereInfty ℤ n)
-    (hL : Nonempty (L.ring ≅ RT4Q.EnRing.ofEInfty n RT4Q.sphereInfty)) :
+    (hL : Nonempty (L.ring ≅ RT4Q.EnRing.ofEInfty n RT4Q.sphereInfty))
+    [RT4Q.CompatibleGlobalInput RT4Q.sphereInfty ℤ ℤ L] :
     Nonempty (evenCircleFixedPoints (globalEvenFiltrationShadow ℤ ℤ RT4Q.sphereInfty L) ≅
       RT4Q.doubleSpeed (homotopyFixedPoints (SpectraWithAction.trivial T (RT4Q.sp ku)))) := sorry
 
 /-- Test `globalEvenFiltration.rational_part` (degenerate): after `− ⊗ ℚ` the filtration is
 `fil_{HKR} HH(R/A) ⊗ ℚ[β]_ev`. -/
 example (A R : Type) [CommRing A] [CommRing R] [Algebra A R] (SA : EInftyRing) {n : ℕ}
-    (L : SphericalLift SA R n) :
+    (L : SphericalLift SA R n) [RT4Q.CompatibleGlobalInput SA A R L] :
     Nonempty ((globalEvenFiltrationShadow A R SA L).underlying.rationalise ≅ RT4Q.rationalHHBeta A R) :=
   sorry
 
-/-- Test `globalEvenFiltration.not_intrinsic` (non-example): in case (E₁) the glued filtration is in
-general not the even filtration of an E₁-ring (`THH` is then only E₀); it is defined by the
-resolution. -/
-example : ∃ (R : Type) (_ : CommRing R) (SA : EInftyRing) (L : SphericalLift SA R 1),
-    ∀ E : E1Ring, ¬ Nonempty ((globalEvenFiltrationShadow ℤ R SA L).underlying ≅
-      perfectEvenFiltration E (RT4Q.LMod.self E)) := sorry
-
+/- Test `globalEvenFiltration.identity_base` is stated with the primary coherent input
+at the end of this file. The former unrestricted existence nonexample was unsupported. -/
 
 /-! ### RT.4:q-Hodge/q-hodge-global, q-hodge-multiplicativity, raksit-polynomial-example -/
 
@@ -9728,14 +9781,14 @@ namespace RT4Q
 /-- The global q-Hodge filtration `fil^⋆_{q-Hdg} q-dR_{R/A}`: the pullback of
 `Σ^{−2∗}gr^∗_{ev,hS¹}TC⁻(ku_R/ku_A)` along the glued comparison `ψ^0_R`. -/
 def globalQHodgeFiltrationShadow (A R : Type) [CommRing A] [CommRing R] [Algebra A R] (SA : EInftyRing)
-    {n : ℕ} (L : SphericalLift SA R n) : FilSpectrum :=
+    {n : ℕ} (L : SphericalLift SA R n) [RT4Q.CompatibleGlobalInput SA A R L] : FilSpectrum :=
   FilSpectrum.pullback (constFilMap (globalComparisonShadow A R SA L))
     (evenRegradedToGr0 (evenCircleFixedPoints (globalEvenFiltrationShadow A R SA L)))
 
 /-- The β-localised (`KU`) even filtration `fil^⋆_ev THH(KU_R/KU_A)`, an even-filtered
 `T_ev`-module (localisation at `β` in homotopical degree 2 and filtration degree 1). -/
 def globalEvenFiltrationKU (A R : Type) [CommRing A] [CommRing R] [Algebra A R]
-    (SA : EInftyRing) {n : ℕ} (L : SphericalLift SA R n) : EvFilTMod := sorry
+    (SA : EInftyRing) {n : ℕ} (L : SphericalLift SA R n) [RT4Q.CompatibleGlobalInput SA A R L] : EvFilTMod := sorry
 
 /-- E_m-algebras in `AniAlg^{q-Hdg}_A` (HabiroCohomologyFoundations HQ.3). -/
 def QHodgeEnAlg (m : ℕ) (A : Type) [CommRing A] : Type := sorry
@@ -9796,7 +9849,8 @@ theorem qHodgeMultiplicativity (A R : Type) [CommRing A] [CommRing R] [Algebra A
 whole complex `ℤ[x][[q−1]] →^{∇_q} ℤ[x][[q−1]] dx`). The framed smooth generalisation (Theorem 6.10)
 is not recorded. -/
 theorem raksitPolynomialExample {n : ℕ} (L : SphericalLift RT4Q.sphereInfty ℤ[X] n)
-    (hL : Nonempty (L.ring ≅ RT4Q.EnRing.ofEInfty n RT4Q.sphericalPolynomial)) :
+    (hL : Nonempty (L.ring ≅ RT4Q.EnRing.ofEInfty n RT4Q.sphericalPolynomial))
+    [RT4Q.CompatibleGlobalInput RT4Q.sphereInfty ℤ ℤ[X] L] :
     ∀ i : ℤ, 0 ≤ i →
       Nonempty ((evenCircleFixedPoints (globalEvenFiltrationShadow ℤ ℤ[X] RT4Q.sphereInfty L)).grShift i ≅
         Spectrum.fib (RT4Q.emMap (RT4Q.qDerivative ℤ i))) := sorry
@@ -10087,7 +10141,8 @@ def cyclonicEvenFiltrationShadow.KU (SA : EInftyRing) (SR : E1Ring) (f : SA.toE1
 
 /-- For `m = 1` the cyclonic even filtration gives `fil_{ev,hS¹}TC⁻`. -/
 theorem cyclonicEvenFiltrationShadow.m_one (A R : Type) [CommRing A] [CommRing R] [Algebra A R]
-    (SA : EInftyRing) {n : ℕ} (L : SphericalLift SA R n) :
+    (SA : EInftyRing) {n : ℕ} (L : SphericalLift SA R n)
+    [RT4Q.CompatibleGlobalInput SA A R L] :
     Nonempty (evenCircleFixedPoints (cyclonicEvenFiltrationShadow RT4Q.cyclonicKuRing
         (RT4Q.thhKuCyclonic SA L.ring.toE1 L.structureMap) 1) ≅
       evenCircleFixedPoints (globalEvenFiltrationShadow A R SA L)) := sorry
@@ -10451,6 +10506,35 @@ example : piMap (snaithAdams 2 (by decide)) 2 (KU.bottInv 2) = 2 • KU.bottInv 
 /-- Test RT4T.snaithAdams.integral_obstruction. -/
 example : ¬ ∃ f : KU ⟶ KU, piMap f 2 KU.bott = 2 • KU.bott := sorry
 
+/-- Polynomial graded HKR model: β^j is in degree 2j and β^jσβ in degree 2j+3.
+All other chain groups vanish. Bβ^j=jβ^{j−1}σβ, including B1=0. -/
+def gradedPolynomialMixed : MixedComplex ℚ where
+  X n := if (Even n ∧ 0≤n) ∨ (Odd n ∧ 3≤n) then ModuleCat.of ℚ ℚ
+    else ModuleCat.of ℚ (Fin 0 → ℚ)
+  b _ := 0
+  B n := if h : Even n ∧ 2≤n then by
+    have hs : Odd (n+1) ∧ 3≤n+1 := sorry
+    have ha : (Even n ∧ 0≤n) ∨ (Odd n ∧ 3≤n) := Or.inl ⟨h.1, by omega⟩
+    have hb : (Even (n+1) ∧ 0≤n+1) ∨ (Odd (n+1) ∧ 3≤n+1) := Or.inr hs
+    simpa only [ite_eq_left ha, ite_eq_left hb] using
+      (((n / 2 : ℤ) : ℚ) • (𝟙 (ModuleCat.of ℚ ℚ)))
+    else 0
+  b_comp_b := sorry
+  B_comp_B := sorry
+  bB_add_Bb := sorry
+/-- Rational ku cyclic bar, under the characteristic-zero graded-dg comparison. -/
+def rationalKuBarMixed : MixedComplex ℚ := sorry
+theorem gradedPolynomialHKR :
+    ∃ e : Coherent.Hom (DerivedMixedComplex.ofMixed rationalKuBarMixed)
+      (DerivedMixedComplex.ofMixed gradedPolynomialMixed), Coherent.IsEquiv e := sorry
+/-- Negative polynomial degrees vanish, in contrast to the Laurent model. -/
+example : Limits.IsZero (gradedPolynomialMixed.X (-2)) ∧
+    Limits.IsZero (gradedPolynomialMixed.X 1) := sorry
+/-- β contributes in degree 2 and its nonzero Connes image σβ in degree 3. -/
+example : Nonempty (gradedPolynomialMixed.X 2 ≅ ModuleCat.of ℚ ℚ) ∧
+    Nonempty (gradedPolynomialMixed.X 3 ≅ ModuleCat.of ℚ ℚ) ∧
+    gradedPolynomialMixed.B 2 ≠ 0 := sorry
+
 /-- In each integer degree the basis is β^j (degree 2j) or β^jδ (degree 2j+1).
 The operators are b=0 and B(β^j)=jβ^jδ, B(β^jδ)=0. -/
 def gradedLaurentMixed : MixedComplex ℚ where
@@ -10541,8 +10625,9 @@ The shadow constructors are used only inside signatures comparing models.
 These entry points consume the actual arithmetic-gluing choices. -/
 
 def globalEvenFiltration (A R : Type) [CommRing A] [CommRing R] [Algebra A R]
-    (SA : EInftyRing) (G : RT4Q.CompatibleSphericalLifts SA A R) : RT4Q.EvFilTMod :=
-  globalEvenFiltrationShadow A R SA G.glue
+    (SA : EInftyRing) (G : RT4Q.CompatibleSphericalLifts SA A R) : RT4Q.EvFilTMod := by
+  letI := G.globalInput
+  exact globalEvenFiltrationShadow A R SA G.glue
 
 def globalEvenFiltration.profinite (A R : Type) [CommRing A] [CommRing R] [Algebra A R]
     (SA : EInftyRing) (G : RT4Q.CompatibleSphericalLifts SA A R) :
@@ -10555,14 +10640,24 @@ def globalEvenFiltration.rational (A R : Type) [CommRing A] [CommRing R] [Algebr
 
 def globalComparison (A R : Type) [CommRing A] [CommRing R] [Algebra A R]
     (SA : EInftyRing) (G : RT4Q.CompatibleSphericalLifts SA A R) :
-    RT4Q.qDeRham A R ⟶ (evenCircleFixedPoints (globalEvenFiltration A R SA G)).gr 0 :=
-  globalComparisonShadow A R SA G.glue
+    RT4Q.qDeRham A R ⟶ (evenCircleFixedPoints (globalEvenFiltration A R SA G)).gr 0 := by
+  letI := G.globalInput
+  exact globalComparisonShadow A R SA G.glue
+
+/-- Test `globalEvenFiltration.identity_base`: an identified identity lift gives the
+relative coefficient object with its trivial circle action. -/
+example (A : Type) [CommRing A] (SA : EInftyRing)
+    (G : RT4Q.CompatibleSphericalLifts SA A A)
+    (hidentity : IsIso G.glue.structureMap) :
+    Nonempty ((RT4Q.thhKu SA G.glue.ring.toE1 G.glue.structureMap).underlying ≅
+      (RT4Q.sp (RT4Q.kuBase SA))) := sorry
 
 namespace RT4Q
 
 def globalQHodgeFiltration (A R : Type) [CommRing A] [CommRing R] [Algebra A R]
-    (SA : EInftyRing) (G : CompatibleSphericalLifts SA A R) : FilSpectrum :=
-  globalQHodgeFiltrationShadow A R SA G.glue
+    (SA : EInftyRing) (G : CompatibleSphericalLifts SA A R) : FilSpectrum := by
+  letI := G.globalInput
+  exact globalQHodgeFiltrationShadow A R SA G.glue
 
 /-- Complex orientation data for an E₁ ring, owned by H.5/H.6. -/
 def ComplexOrientation (R : E1Ring) : Type := sorry
