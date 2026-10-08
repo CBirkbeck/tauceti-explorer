@@ -1,8 +1,8 @@
 {
   "roadmaps": 236,
-  "stages": 4519,
+  "stages": 4534,
   "originalStages": 2160,
-  "sourceRefinements": 2359,
+  "sourceRefinements": 2374,
   "reviewedDecompositions": [
     {
       "roadmap": "AInfCohomology",
@@ -299,14 +299,14 @@
   "editedRoadmapSummaries": 181,
   "curatedStagePresentations": 339,
   "administrativeStages": 101,
-  "mathematicalStars": 4418,
+  "mathematicalStars": 4433,
   "plainTextPlanetLabels": 398,
   "hiddenPlanets": 600,
   "mappedStageStatuses": 350,
   "libraryAuditStatuses": 19,
   "bibliographicSources": 46,
-  "roadmapEdges": 2071,
-  "stageEdges": 11710,
+  "roadmapEdges": 2076,
+  "stageEdges": 11767,
   "reviewedLinkPackets": 25,
   "promotedBlueprints": [
     {
@@ -1066,6 +1066,12 @@
       "reviewer": "independent-review-REV-SmallRamificationAndAbelianVarietyBaseCases"
     },
     {
+      "file": "SpecialValuesBirchTate",
+      "roadmap": "SpecialValuesBirchTate",
+      "nodes": 54,
+      "reviewer": "independent-review-REV-SpecialValuesBirchTate~2"
+    },
+    {
       "file": "WeilConjectures--WC.0",
       "roadmap": "WeilConjectures",
       "nodes": 54,
@@ -1079,8 +1085,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 35378848,
-  "htmlSha256": "c012d6e47e5fafbde3974c340d9f9d4a0f2686ebdf405b8821ca7fae817b74fa",
+  "htmlBytes": 35433049,
+  "htmlSha256": "25c65b0bebac482b8566f8f86631bf3e16d611a5258adee0c5878474bf23bdc2",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -1112,7 +1118,7 @@
     "data/roadmap-summaries.json": "c8bdd0a9105f5d3c4a858c8b635990729f8e94497dee784a71fae659b8c05b9f",
     "data/roadmap-classification.json": "2641dbc97eb2566c715162d011b46890d1635629181ef8126ac7aed9e24a3b13",
     "data/classification-estimates.json": "625d35fe6121bf099dc5de9e6a9111793596f9b664e3fbd439841434bb4a57d6",
-    "data/roadmap-distances.json": "ac3bf9444f894246d9f53e0d936be71289407f71c11484c2c116cb1c93155160",
+    "data/roadmap-distances.json": "a60092b315a6cb73e633dcbaa5baa9e19356cb43c8de41381e1f9f4106831c33",
     "data/galaxy-layout.json": "2c01bbf6e2083476a6b73f3d295c4d4c898d0be461c21fb0195da29a30469a03",
     "data/bibliography.json": "bef230a41fad22d6b790c7564061c4d05c2ae5b78cab53d005eb404afab2b122",
     "NOTICE": "a285b95d5adbf5c2bcc82db36e2a77b797f84a2c5cbb30292efd0bae17cc4f34",
@@ -1368,8 +1374,8 @@
     "data/blueprints/K3BlochGroups--V.1.md": "550010f3c72338376f3e465e6f2dd3d7774afd25a3d3aa75e22834be5f25bdf5",
     "data/blueprints/K3BlochGroups--V.2.json": "daf78f58616feb9ad1f712ffaee3fabd8e278b3650a996566954eea86962c3d5",
     "data/blueprints/K3BlochGroups--V.2.md": "69e5d9a1117d150c734117fd58fe3453e6d8a8ac5833cee819c3e58fb7073b47",
-    "data/blueprints/K3BlochGroups--V.3.json": "45336d66b435a72de1036a21ef682d50ee513fd1ee0f7ff9663e0dbe36be999d",
-    "data/blueprints/K3BlochGroups--V.3.md": "f5ce014d5d42f84b288f627fb6a0bf9bd00d9ef16f5d2d6ba76938367b0b39ef",
+    "data/blueprints/K3BlochGroups--V.3.json": "219b063881344741ebd2b08fea863757b47bd4681f412391854450b015978c7a",
+    "data/blueprints/K3BlochGroups--V.3.md": "6d60f32f2d9b514d5caab654c61b0649d93b9e9e4b0b3b6cf4d7460a81626116",
     "data/blueprints/K3BlochGroups--V.4.json": "94949f27c461698769c603e10909ba36b1d6581288518990e3df3f1225dd31ae",
     "data/blueprints/K3BlochGroups--V.4.md": "1674e59789d5ec26c6a155d03acfcafc0a7d5db980ec930c823aa0243f8144cc",
     "data/blueprints/K3BlochGroups--V.5.json": "e455e8489b40207ab66a3a6f5e1a28ba35ad34ed7be987f4d63ce23ea3d7f007",
@@ -1422,6 +1428,8 @@
     "data/blueprints/ShimuraCompactifications--C6.md": "0879965a7bd7d0ec541be3b0aa8b90b609b9910a7c566fe5908dbefa87c16a5d",
     "data/blueprints/SmallRamificationAndAbelianVarietyBaseCases.json": "23f958611ab637021db69e31c3df861049f38d88d4e32d7f0be79f45dc3496ea",
     "data/blueprints/SmallRamificationAndAbelianVarietyBaseCases.md": "bf5bb37e33b91d56f46879172730f6ced43c4f448c1ff01efeec27bc66d0141e",
+    "data/blueprints/SpecialValuesBirchTate.json": "4f757c294cfa0a140e437995ab1486bf8d53560fa7f8461d4f8ab742684139aa",
+    "data/blueprints/SpecialValuesBirchTate.md": "93437444f62052d2c2a0681d4f321c6b9ca026b233c3fc85c72224a10cdf323d",
     "data/blueprints/WeilConjectures--WC.0.json": "9b6da7ceb78e676bda19a09126c201e769dc11e99a371a4fb42b54d0f95cd21d",
     "data/blueprints/WeilConjectures--WC.0.md": "0405e055fd190af5a66b8bf36070605f5d9f16298dc202231deaddcd541c0751",
     "data/blueprints/WeilConjectures--WC.6.json": "85eb97f224a061f0b9b06c5d7b5234714498a9af18ed43ccc118148764551f04",

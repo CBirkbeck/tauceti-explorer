@@ -1662,6 +1662,17 @@
     "data/blueprints/SmallRamificationAndAbelianVarietyBaseCases.md"
    ]
   },
+  "research/blueprint/packets/SpecialValuesBirchTate.json": {
+   "promotedAt": "2026-10-08T05:04:20Z",
+   "review": "f4e37432feb75b9e",
+   "reviewDate": "2026-10-08",
+   "reviewer": "independent-review-REV-SpecialValuesBirchTate~2",
+   "sha256": "3a79f34725c2d3d2be05e94f9c2dad09095a17cf86dbfaafd26429f85c8cea4f",
+   "to": [
+    "data/blueprints/SpecialValuesBirchTate.json",
+    "data/blueprints/SpecialValuesBirchTate.md"
+   ]
+  },
   "research/blueprint/packets/WeilConjectures--WC.0.json": {
    "promotedAt": "2026-10-06T13:40:04Z",
    "review": "efbd6bb721653d64",
