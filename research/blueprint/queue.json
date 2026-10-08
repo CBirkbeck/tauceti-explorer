@@ -39263,7 +39263,8 @@
     "BP-HeckeStacksAndLocalShtukas~2"
    ],
    "prompt": "research/blueprint/prompts/REV-HeckeStacksAndLocalShtukas~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7057"
   },
   {
    "kind": "blueprint",
@@ -40155,8 +40156,9 @@
    ],
    "revisionOf": "BP-MetaplecticAutomorphicForms--MP.0",
    "prompt": "research/blueprint/prompts/BP-MetaplecticAutomorphicForms--MP.0~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6993"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6993",
+   "finishedAt": "2026-10-08T17:26:45Z"
   },
   {
    "priority": 2,
@@ -40941,8 +40943,8 @@
    ],
    "revisionOf": "BP-SchemeKTheoryOperations",
    "prompt": "research/blueprint/prompts/BP-SchemeKTheoryOperations~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7007"
+   "state": "pending",
+   "note": "released on GitHub issue #7007"
   },
   {
    "priority": 2,
