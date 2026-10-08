@@ -72,7 +72,7 @@
     ]
   },
   "status": "complete",
-  "summary": "Target-level plan of all five layers of the roadmap, for a nonarchimedean local field E of either characteristic unless a node says E = Q_p. HS0: the global Hecke stack over (Div¹)^I with its projections and leg maps, relative positions and bounded substacks, descent and the proper bounded Grassmannian fibres, chains of modifications and convolution, the twisted Beilinson–Drinfeld Grassmannian of Scholze–Weinstein, and functoriality in the group (with the sign of the Kottwitz invariant fixed). HS1: the solid Satake kernel S′_V = D(S_V)^∨ on the global Hecke stack, the Hecke operator T_V(A) = p_{2♮}(p_1^*A ⊗ S′_V), monoidality, preservation of lisse, compact and universally locally acyclic objects, the duality formulas, the condensed structure on D_lis(Bun_G,Λ), W_E^I-equivariance, and change of coefficients. HS2: moduli of local shtukas over Q_p after Scholze–Weinstein with period maps, levels and the infinite-level tower, the space of modifications between two bundles, the tower for a general E, rigid local Shimura varieties, the universal torsor on the admissible locus, the Weil descent datum, non-emptiness, connectedness and transitivity on connected components. HS3: the complexes C_K = f_{K♮}S′_W with their smooth-group and Weil actions, comparison with Hecke operators on strata and with Huber's compactly supported cohomology, compactness for pro-p level, admissibility, duality, level change, Hecke operators between two arbitrary strata, and the comparison with Rapoport–Zink spaces. HS4: the Hecke action functorial in finite sets, creation and annihilation maps for dual legs, and the geometric compatibilities for maps inducing an isomorphism of adjoint groups, products, Weil restriction and Levi subgroups. 51 nodes; every stage is planned and none is closed: 22 requests to supplier stages and 8 gaps are open. Statements that go beyond the cited sources are marked in their nodes and proved in the proof steps. Besides the five sources of the roadmap, three nodes cite Dat–Helm–Kurinczuk–Moss (noetherian Hecke algebras), Hamann–Hansen–Scholze (compact stalks of pushforwards from strata) and Hamann–Imai (dualizing complexes of strata). No implementation is claimed.",
+  "summary": "Target-level plan of all five layers of the roadmap, for a nonarchimedean local field E of either characteristic unless a node says E = Q_p. HS0: the global Hecke stack over (Div¹)^I with its projections and leg maps, relative positions and bounded substacks, descent and the proper bounded Grassmannian fibres, chains of modifications and convolution, the twisted Beilinson–Drinfeld Grassmannian of Scholze–Weinstein, and functoriality in the group (with the sign of the Kottwitz invariant fixed). HS1: the solid Satake kernel S′_V = D(S_V)^∨ on the global Hecke stack, the Hecke operator T_V(A) = p_{2♮}(p_1^*A ⊗ S′_V), monoidality, preservation of lisse, compact and universally locally acyclic objects, the duality formulas, the condensed structure on D_lis(Bun_G,Λ), W_E^I-equivariance, and change of coefficients. HS2: moduli of local shtukas over Q_p after Scholze–Weinstein with period maps, levels and the infinite-level tower, the space of modifications between two bundles, the tower for a general E, rigid local Shimura varieties, the universal torsor on the admissible locus, the Weil descent datum, non-emptiness, connectedness and transitivity on connected components. HS3: the complexes C_K = f_{K♮}S′_W with their smooth-group and Weil actions, comparison with Hecke operators on strata and with Huber's compactly supported cohomology, compactness for pro-p level, admissibility, duality, level change, Hecke operators between two arbitrary strata, and the comparison with Rapoport–Zink spaces. HS4: the Hecke action functorial in finite sets, creation and annihilation maps for dual legs, and the geometric compatibilities for maps inducing an isomorphism of adjoint groups, products, Weil restriction and Levi subgroups. 51 nodes; every stage is planned and none is closed: 22 requests to supplier stages and 9 gaps are open. Statements that go beyond the cited sources are marked in their nodes and proved in the proof steps. Besides the five sources of the roadmap, three nodes cite Dat–Helm–Kurinczuk–Moss (noetherian Hecke algebras), Hamann–Hansen–Scholze (compact stalks of pushforwards from strata) and Hamann–Imai (dualizing complexes of strata). No implementation is claimed.",
   "sources": [
     {
       "id": "FS-geometrization",
@@ -92,7 +92,8 @@
         "VIII.4 pp.290–292",
         "IX introduction and IX.1–IX.7 pp.317–338, statements and proofs"
       ],
-      "accessed": "2026-10-07"
+      "accessed": "2026-10-07",
+      "independentCheck": "REV-HeckeStacksAndLocalShtukas~2, 2026-10-08: re-fetched public PDF; recorded SHA-256 reproduced; node and source-issue locators checked in this version."
     },
     {
       "id": "SW20-berkeley",
@@ -108,7 +109,8 @@
         "Lecture 23 pp.216–224 in full, statements and proofs",
         "Lecture 24 pp.225–231 in full, statements and proofs"
       ],
-      "accessed": "2026-10-07"
+      "accessed": "2026-10-07",
+      "independentCheck": "REV-HeckeStacksAndLocalShtukas~2, 2026-10-08: re-fetched public PDF; recorded SHA-256 reproduced; node and source-issue locators checked in this version."
     },
     {
       "id": "HK23v2",
@@ -120,7 +122,8 @@
       "readSections": [
         "§7.2–§7.3 pp.41–44 (7.3.1–7.3.4), statements and proofs; only the reductive case is used"
       ],
-      "accessed": "2026-10-07"
+      "accessed": "2026-10-07",
+      "independentCheck": "REV-HeckeStacksAndLocalShtukas~2, 2026-10-08: re-fetched public PDF; recorded SHA-256 reproduced; node and source-issue locators checked in this version."
     },
     {
       "id": "GL22v2",
@@ -132,7 +135,8 @@
       "readSections": [
         "The whole paper (13 pages): Theorem 1.1, §2, Theorems 3.1–3.2, Lemma 3.3 and proofs"
       ],
-      "accessed": "2026-10-07"
+      "accessed": "2026-10-07",
+      "independentCheck": "REV-HeckeStacksAndLocalShtukas~2, 2026-10-08: re-fetched public PDF; recorded SHA-256 reproduced; node and source-issue locators checked in this version."
     },
     {
       "id": "GLX26-published",
@@ -143,9 +147,10 @@
       "sha256": "c40fe1fc5e0941812cf3aca5ba77c471ee49122c63ed7b0d864d322136031485",
       "readSections": [
         "§1.4 p.812; §3.1–§3.6 pp.819–829 (Lemma 3.2, §3.4, Lemma 3.10, Theorem 3.11, Proposition 3.12, §3.6)",
-        "§6.1–§6.2 pp.845–851 (Theorem 6.1, Lemma 6.4, Proposition 6.6 with Steps 1–3)"
+        "§6.1–§6.2 pp.845–851 (Theorem 6.1, Proposition 6.4, Proposition 6.6 with Steps 1–3)"
       ],
-      "accessed": "2026-10-07"
+      "accessed": "2026-10-07",
+      "independentCheck": "REV-HeckeStacksAndLocalShtukas~2, 2026-10-08: re-fetched public PDF; recorded SHA-256 reproduced; node and source-issue locators checked in this version."
     },
     {
       "id": "DHKM22",
@@ -158,7 +163,8 @@
         "§1 pp.1–3: Theorems 1.1 and 1.2, Corollaries 1.3–1.6 and the outline of the proof",
         "§3 pp.9–11: Lemma 3.1 with proof, Corollary 3.5 and Remark 3.6 with proof; the proofs of the main theorems (§2, §3.1) and §4 were not read"
       ],
-      "accessed": "2026-10-08"
+      "accessed": "2026-10-08",
+      "independentCheck": "REV-HeckeStacksAndLocalShtukas~2, 2026-10-08: re-fetched public PDF; recorded SHA-256 reproduced; node and source-issue locators checked in this version."
     },
     {
       "id": "HHS24",
@@ -172,7 +178,8 @@
         "§1.3 p.6 (Theorem 1.3.1); notation p.8 (coefficients and sheaf theory)",
         "§7.1 pp.60–61: Remark 7.1.2, Theorems 7.1.3 and 7.1.4 with their proofs; the finiteness theorems for Eisenstein series and constant terms on which these proofs rest (Theorem 1.2.1, §§3–6) were not read"
       ],
-      "accessed": "2026-10-08"
+      "accessed": "2026-10-08",
+      "independentCheck": "REV-HeckeStacksAndLocalShtukas~2, 2026-10-08: re-fetched public PDF; recorded SHA-256 reproduced; node and source-issue locators checked in this version."
     },
     {
       "id": "HI24v4",
@@ -186,7 +193,8 @@
         "Definition 3.14 and Proposition 3.15 p.20, Proposition 3.18 p.22 (statements)",
         "§4.1 pp.23–26: Proposition 4.1 with proof, Proposition 4.4 and Lemma 4.7 (statements); used as an independent check, the proofs of §§2–3 were not read"
       ],
-      "accessed": "2026-10-08"
+      "accessed": "2026-10-08",
+      "independentCheck": "REV-HeckeStacksAndLocalShtukas~2, 2026-10-08: re-fetched public PDF; recorded SHA-256 reproduced; node and source-issue locators checked in this version."
     }
   ],
   "nodes": [
@@ -861,7 +869,8 @@
         "(b) Apply (a) to m and to the two projections of Z × G: a (Z × G)-bundle is a pair of bundles and a modification of it is a pair of modifications at the same legs. The cocharacter m∘(λ,μ) = λ + μ is dominant because λ is central. The source is the paragraph after FS Proposition IX.6.5.",
         "(c) BunGAndNewtonStrata:BG0/pure-inner-twisting: G_b × X_S is the pure inner twist of G × X_S by E_b (FS Proposition III.4.2), and E ↦ Isom(E,E_b) is an equivalence from G-torsors to G_b-torsors on every open of X_S (FS Proposition III.4.1(ii)); applied on X_S and on X_S∖D it gives τ_b on objects and on isomorphisms off D. Applied to the completion along D, with the L⁺G-torsor Ê_b, it gives an equivalence of the local Hecke stacks compatible with loc, so meromorphy is preserved (RF4:G-torsors/tannakian-transfer-of-gluing). After trivialising Ê_b at a geometric point, G_b ≅ G over B⁺_dR and u ↦ u⁻¹(1) identifies Isom(P,G) with P as torsors, so relative positions are preserved; the trivialisation is unique up to G(B⁺_dR), acting on G by inner automorphisms. Scholze–Weinstein, proof of Corollary 23.3.2, is this statement after exchanging the roles of the two bundles, which replaces μ by μ⁻¹.",
         "(d) Both sides are compatible with f_* for the homomorphisms used to define κ in BunGAndNewtonStrata:BG1/newton-and-kottwitz-maps, by (a). Step 1: for a z-extension G̃ → G with simply connected derived group the geometric point lifts to Hck_{G̃}, because B(G̃) → B(G) and Gr_{G̃}(C) → Gr_G(C) are surjective (FS III.2.2 and Lemma III.3.5) and E_1 is the modification of E_2 by the lattice. Step 2: for G with simply connected derived group, G → G/G_der induces an isomorphism on π_1, which reduces to a torus. Step 3: a further z-extension reduces to an induced torus, and restriction of scalars to 𝔾_m over a finite extension, where the legs above D are distinct and their contributions add. Step 4: for 𝔾_m and position n, E_1 = E_2 ⊗ I_Dⁿ with I_D the ideal sheaf of D; I_D ≅ 𝒪(−1) by FS Proposition II.2.3 and its proof, 𝒪(−1) is the bundle of the isocrystal (Ĕ, πσ), and κ is additive on line bundles, so κ(E_1) = κ(E_2) + n. This is the argument of FS Proposition III.3.6(ii) with E_2 in place of the trivial bundle.",
-        "Comparison with the sources. In Scholze–Weinstein Definition 24.1.1 with Proposition 23.3.3 the trivial bundle has position ≤ μ relative to E_b and κ(b) = −μ♮, which is (d) with E_1 trivial and E_2 = E_b. In FS IX.7 (p. 337) the bundle E_b with b = μ(π⁻¹) is the modification of the trivial bundle of type μ, obtained by pushing out the modification from 𝒪 to 𝒪(1); in the present normalisation (𝒪, 𝒪(1)) has position 1, so (trivial, E_b) has position μ and κ(b) = −μ♯, again (d)."
+        "Comparison with the sources. In Scholze–Weinstein Definition 24.1.1 with Proposition 23.3.3 the trivial bundle has position ≤ μ relative to E_b and κ(b) = −μ♮, which is (d) with E_1 trivial and E_2 = E_b. In FS IX.7 (p. 337) the bundle E_b with b = μ(π⁻¹) is the modification of the trivial bundle of type μ, obtained by pushing out the modification from 𝒪 to 𝒪(1); in the present normalisation (𝒪, 𝒪(1)) has position 1, so (trivial, E_b) has position μ and κ(b) = −μ♯, again (d).",
+        "Supplier normalization gate. The present BG2 exports grassmannian-kottwitz-sign, modification-newton-bound and minuscule-modification-image carry the opposite sign for the GS0 point μ(ξ). They are not imported unchanged here. The request to BG2:uniformization must supply κ(BL(Gr_μ)) = +μ♯, image B(G,μ) and its minuscule equality for a fixed trivial second bundle. A modification from the trivial first bundle to E_b of type μ uses the inverse Grassmannian orientation, so its nonemptiness condition is [b] ∈ B(G,μ⁻¹). The line lattice ξB⁺_dR glues to O(−1), of κ = +1 (FS II.2.3, pp.60–61; III.2, pp.90–91; VI.2.4, p.199). This supplier correction remains open in the recorded normalization gap."
       ],
       "acceptance": [
         "G = 𝔾_m, one leg: (E_1,E_2) = (L ⊗ I_Dⁿ, L) has position n, deg E_1 = deg E_2 − n and κ(E_1) = κ(E_2) + n. In particular (𝒪, 𝒪(D)) has position 1 with κ(𝒪) − κ(𝒪(D)) = 0 − (−1) = 1, and its swap (𝒪(D), 𝒪) has position −1.",
@@ -883,8 +892,8 @@
         "BunGAndNewtonStrata:BG2:uniformization/points-are-B-of-G",
         "BunGAndNewtonStrata:BG0/basic-inner-form-bundle-equivalence",
         "BunGAndNewtonStrata:BG2:uniformization/central-torus-grassmannian-surjectivity",
-        "BunGAndNewtonStrata:BG2:uniformization/grassmannian-kottwitz-sign",
-        "BunGAndNewtonStrata:BG2:uniformization/hn-sign-and-semicontinuity"
+        "BunGAndNewtonStrata:BG2:uniformization/hn-sign-and-semicontinuity",
+        "BunGAndNewtonStrata:BG2:uniformization"
       ],
       "sources": [
         {
@@ -1340,7 +1349,7 @@
         "Q is a finite quotient of W_E through which the action of W_E on the pinned dual group Ĝ factors. For a flat affine group scheme H over Z_ℓ, Rep_Λ(H) is the exact category of algebraic representations of H on finite projective Λ-modules."
       ],
       "proofSteps": [
-        "Reduction to one leg (FS p.322). By highest weight theory V may be replaced by exterior tensor products ⊠_{i∈I}V_i with V_i∈Rep_Λ(Ĝ) (LanglandsParameterStacks LP3; D_lis is closed under cones, shifts and direct sums, and V↦T_V is exact). By the monoidality node T_{⊠V_i} is the composite of the operators T_{V_i}, so one may take I a singleton and write Bun_{G,C} ←h_1− Hck_{G,C} −h_2→ Bun_{G,C}.",
+        "Reduction to one leg (FS p.322). By highest weight theory V may be replaced by exterior tensor products ⊠_{i∈I}V_i with V_i∈Rep_Λ(Ĝ) (the requested extension ReductiveGroupsIntegralRepresentationsPartII; D_lis is closed under cones, shifts and direct sums, and V↦T_V is exact). By the monoidality node T_{⊠V_i} is the composite of the operators T_{V_i}, so one may take I a singleton and write Bun_{G,C} ←h_1− Hck_{G,C} −h_2→ Bun_{G,C}.",
         "Enlarging the class of kernels. Let q: Hck_{G,C}→𝓗ck_{G,Spd C/Div¹_X} be the map to the local Hecke stack. It suffices that h_{2♮}(h_1^*A⊗^■q^*B^∨)∈D_lis(Bun_{G,C},Λ) for all A∈D_lis and all B∈D^ULA(𝓗ck_{G,Spd C/Div¹_X},Z_ℓ): the kernels D(S_W)^∨ are of this form because Verdier duality preserves D^ULA (FS VI.6.6).",
         "Demazure generation (an input from stage GS1 of GeometricSatakeAndFusion). The kernels B^∨ lie in the smallest full stable subcategory of D_■ closed under colimits (so under shifts in both directions, cones, retracts and direct sums) that contains (Rf_{ẇ*}Z_ℓ)^∨ for the Demazure resolutions f_ẇ: L⁺𝓘\\Dem_ẇ→𝓗ck_{G,Spd C/Div¹_X} of Schubert varieties in the affine flag variety, taken modulo the Iwahori group. The functor K↦h_{2♮}(h_1^*A⊗^■q^*K) commutes with colimits and D_lis is closed under colimits, so it suffices to treat these generators.",
         "Demazure kernels. f_ẇ is proper, representable in spatial diamonds and of finite dim.trg, so (Rf_{ẇ*}Z_ℓ)^∨≅f_{ẇ♮}Z_ℓ by FS VII.4.3 in its ℓ-adic form of FS VII.5. By base change and the projection formula for ♮ (FS VII.3.1), h_{2♮}(h_1^*A⊗^■q^*f_{ẇ♮}Λ)≅g_{2♮}g_1^*A for the correspondence Bun_{G,C} ←g_1− Z_ẇ −g_2→ Bun_{G,C} with Z_ẇ=Hck_{G,C}×_{𝓗ck}[L⁺𝓘\\Dem_ẇ].",
@@ -1355,7 +1364,7 @@
         "HeckeStacksAndLocalShtukas:HS1/hecke-operator-via-relative-homology",
         "GeometricSatakeAndFusion:GS1",
         "VStackSheavesAndLisseCategories:VS3/lisse-category-definition",
-        "LanglandsParameterStacks:LP3",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ",
         "HeckeStacksAndLocalShtukas:HS1/monoidality-of-hecke-operators",
         "VStackSheavesAndLisseCategories:VS2/solid-sheaves-on-v-stacks",
         "GeometricSatakeAndFusion:GS1/ULA-sheaves-on-the-hecke-stack",
@@ -1768,7 +1777,7 @@
       ],
       "proofSteps": [
         "By FS IX.2.1 and IX.1.1 it remains to show that T_V(A) lies in the essential image of D_■(Bun_G×[*/W_E^I],Λ) (FS p.323).",
-        "Reduction to exterior tensor products. V admits a resolution, possibly infinite, by exterior tensor products ⊠_{i∈I}V_i with V_i∈Rep_Λ(Ĝ⋊Q) involving only finitely many weights of Ĝ^I (highest weight theory, LanglandsParameterStacks LP3), which induces a resolution of S′_V in D_■(𝓗ck^I_G,Λ). The essential image of a fully faithful colimit-preserving functor is closed under colimits, and T_V is exact and colimit-preserving in the kernel, so one may take V=⊠_{i∈I}V_i.",
+        "Reduction to exterior tensor products. V admits a resolution, possibly infinite, by exterior tensor products ⊠_{i∈I}V_i with V_i∈Rep_Λ(Ĝ⋊Q) involving only finitely many weights of Ĝ^I (highest weight theory, the requested extension ReductiveGroupsIntegralRepresentationsPartII), which induces a resolution of S′_V in D_■(𝓗ck^I_G,Λ). The essential image of a fully faithful colimit-preserving functor is closed under colimits, and T_V is exact and colimit-preserving in the kernel, so one may take V=⊠_{i∈I}V_i.",
         "Criterion. Let C be the completed algebraic closure of E; (Spd C)^I→(Div¹)^I is a W_E^I-torsor. For a small v-stack X, descent along X×(Spd C)^I→X×(Div¹)^I and along X→X×[*/W_E^I] presents D_■(X×(Div¹)^I,Λ) and D_■(X×[*/W_E^I],Λ) as the limits over n of D_■(X×(Spd C)^I×(W_E^I)^n,Λ) and of D_■(X×(W_E^I)^n,Λ), and the pullback functors D_■(X×(W_E^I)^n,Λ)→D_■(X×(Spd C)^I×(W_E^I)^n,Λ) are fully faithful (FS VII.2.6(ii), VStackSheavesAndLisseCategories:VS2/solid-geometric-base-change, applied once for each factor Spd C). The n-th term of the descent datum of an object M is the pullback of its 0-th term along a map over X. Hence M∈D_■(X×(Div¹)^I,Λ) lies in the essential image of D_■(X×[*/W_E^I],Λ) as soon as its pullback to X×(Spd C)^I is the pullback of an object of D_■(X,Λ). For |I|=1 this is the argument of the proofs of FS IV.7.1 and VII.2.7, which FS p.323 quotes as Corollary VII.2.7.",
         "Exterior tensor products. By part (c) of the monoidality node, whose proof gives the kernel ι_{ζ♮}pr_ζ^*S′_{V_i} of the operator along the i-th leg for the inclusion ζ: {i}→I, and by base change for ♮ (FS VII.3.1(iii)), the base change of T̃_{⊠V_i} to Bun_G×(Spd C)^I is the composite over i∈I of the base changes, along the i-th projection (Spd C)^I→Spd C, of the one-leg endofunctors T_{V_i|Ĝ} of D_■(Bun_G×Spd C,Λ). Each of these sends the pullback of B∈D_lis(Bun_G,Λ) to the pullback of T_{V_i|Ĝ}(B)∈D_lis(Bun_G,Λ) (FS IX.2.1, with D_lis(Bun_G,Λ)≃D_lis(Bun_G×Spd C,Λ) by FS VII.7.3). Hence the pullback of T_{⊠V_i}(A) to Bun_G×(Spd C)^I is the pullback of an object of D_lis(Bun_G,Λ), and the criterion applies with X=Bun_G."
       ],
@@ -1782,7 +1791,7 @@
         "HeckeStacksAndLocalShtukas:HS1/condensed-enrichment",
         "HeckeStacksAndLocalShtukas:HS0/demazure-generators-of-ULA-kernels",
         "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-9-the-local-weil-group",
-        "LanglandsParameterStacks:LP3",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ",
         "HeckeStacksAndLocalShtukas:HS1/properties-and-weil-equivariance",
         "HeckeStacksAndLocalShtukas:HS1/monoidality-of-hecke-operators",
         "GeometricSatakeAndFusion:GS4:integral-dual-group",
@@ -2529,7 +2538,7 @@
       ],
       "title": "The étale period morphism π_GM and the admissible locus (one leg)",
       "kind": "theorem",
-      "statement": "Let E = Q_p, (𝒢, b, μ) a local shtuka datum with one leg, F the field of definition of μ and F̆ = F·L. (a) Period morphism. For an S-point (S♯, E, α, ℙ) of Sht_{𝒢,b,μ} (HS2/hecke-fibre-description), with S♯ = Spa(R♯,R♯⁺), the pullback of E_b to S ×̇ Spa Q_p is the trivial G-torsor, so the pullback of E to B⁺_dR(R♯) is a G-torsor over B⁺_dR(R♯) with a trivialisation over B_dR(R♯) induced by α. This is an S-point of Gr_{G,Spd F̆,≤μ}, and defines π_GM : Sht_{𝒢,b,μ} → Gr_{G,Spd F̆,≤μ} over Spd F̆. (b) Admissible locus. An S-point of Gr_{G,Spd F̆,≤μ} is a modification E ⇢ E_b of E_b on X_FF,S; the locus S^a ⊂ S where E is trivial at geometric points is open. These loci define an open subfunctor Gr^a_{G,Spd F̆,≤μ} ⊂ Gr_{G,Spd F̆,≤μ}, the admissible locus, which depends on b; over it E corresponds to a pro-étale G(Q_p)-torsor ℙ_η. (c) (Proposition 23.3.3.) π_GM is étale with image Gr^a_{G,Spd F̆,≤μ}. Its fibre over an S-point is the sheaf of 𝒢(Z_p)-lattices in ℙ_η, so Sht_{𝒢,b,μ} ≅ ℙ_η/𝒢(Z_p) over Gr^a; pro-étale locally on S the fibre is S^a × G(Q_p)/𝒢(Z_p) → S. More generally, for every compact open K ⊂ G(Q_p) the sheaf ℙ_η/K of K-lattices in ℙ_η is étale over Gr_{G,Spd F̆,≤μ}, with image Gr^a. (d) (Remark 23.3.4.) Gr_{G,Spd F̆,≤μ} is a spatial diamond, hence Sht_{𝒢,b,μ} and all ℙ_η/K are locally spatial diamonds. (e) ℙ_η → Gr^a_{G,Spd F̆,≤μ} is a pro-étale G(Q_p)-torsor; in particular it is quasi-pro-étale. It is not étale when dim G > 0, its fibres being torsors under the non-discrete group G(Q_p). The source states that it is a pro-étale G(Q_p)-torsor; quasi-pro-étaleness is the formal consequence.",
+      "statement": "Let E = Q_p, (𝒢, b, μ) a local shtuka datum with one leg, F the field of definition of μ and F̆ = F·L. (a) Period morphism. For an S-point (S♯, E, α, ℙ) of Sht_{𝒢,b,μ} (HS2/hecke-fibre-description), with S♯ = Spa(R♯,R♯⁺), the pullback of E_b to S ×̇ Spa Q_p is the trivial G-torsor, so the pullback of E to B⁺_dR(R♯) is a G-torsor over B⁺_dR(R♯) with a trivialisation over B_dR(R♯) induced by α. This is an S-point of Gr_{G,Spd F̆,≤μ}, and defines π_GM : Sht_{𝒢,b,μ} → Gr_{G,Spd F̆,≤μ} over Spd F̆. (b) Admissible locus. An S-point of Gr_{G,Spd F̆,≤μ} is a modification E ⇢ E_b of E_b on X_FF,S; the locus S^a ⊂ S where E is trivial at geometric points is open. These loci define an open subfunctor Gr^a_{G,Spd F̆,≤μ} ⊂ Gr_{G,Spd F̆,≤μ}, the admissible locus, which depends on b; over it E corresponds to a pro-étale G(Q_p)-torsor ℙ_η. (c) (Proposition 23.3.3.) π_GM is étale with image Gr^a_{G,Spd F̆,≤μ}. Its fibre over an S-point is the sheaf of 𝒢(Z_p)-lattices in ℙ_η, so Sht_{𝒢,b,μ} ≅ ℙ_η/𝒢(Z_p) over Gr^a; pro-étale locally on S the fibre is S^a × G(Q_p)/𝒢(Z_p) → S. More generally, for every compact open K ⊂ G(Q_p) the sheaf ℙ_η/K of K-lattices in ℙ_η is étale over Gr_{G,Spd F̆,≤μ}, with image Gr^a. (d) (Remark 23.3.4.) Gr_{G,Spd F̆,≤μ} is a spatial diamond, hence Sht_{𝒢,b,μ} and all ℙ_η/K are locally spatial diamonds. (e) ℙ_η → Gr^a_{G,Spd F̆,≤μ} is a pro-étale G(Q_p)-torsor; in particular it is quasi-pro-étale. If the admissible locus is nonempty and dim G > 0, it is not étale, its fibres being torsors under the non-discrete group G(Q_p). The source states that it is a pro-étale G(Q_p)-torsor; quasi-pro-étaleness is the formal consequence.",
       "hypotheses": [
         "E = Q_p. G is a reductive group over Q_p; k is an algebraic closure of F_p, L = W(k)[1/p] with Frobenius σ, and S ranges over Perf_k; wherever Y_[0,r](S), Y_(0,r](S) or Y_[r,∞)(S) is written, S = Spa(R,R⁺) is affinoid with a fixed pseudo-uniformizer ϖ.",
         "𝒢 is a smooth affine group scheme over Z_p with generic fibre G and connected special fibre (Scholze–Weinstein §23.1; their torsor formalism in the appendix to Lecture 19 is for flat affine group schemes over Z_p). 𝒢 is not assumed reductive or parahoric.",
@@ -2546,7 +2555,8 @@
         "For G = G_m and μ(z) = z^d: Gr_{G_m,Spd Q̆_p,≤μ} = Spd Q̆_p; the admissible locus is all of it if v_p(b) = −d and empty otherwise.",
         "For G = GL_2, μ = (1,0) and b basic with κ(b) = −1: Gr^a is all of (P¹_{Q̆_p})^◇ and π_GM is the Gross–Hopkins period map of the Lubin–Tate space, with geometric fibres GL_2(Q_p)/GL_2(Z_p).",
         "For G = GL_2, μ = (1,0) and b = diag(p⁻¹, 1): E_b = O(1) ⊕ O, and Gr^a is the complement in (P¹_{Q̆_p})^◇ of the single Q̆_p-rational point at which the modified bundle is O(1) ⊕ O(−1); so Gr^a is open and not closed.",
-        "Over a point of Gr^a at which ℙ_η is trivialised, the fibre of ℙ_η/K is G(Q_p)/K and the fibre of ℙ_η is G(Q_p)."
+        "Over a point of Gr^a at which ℙ_η is trivialised, the fibre of ℙ_η/K is G(Q_p)/K and the fibre of ℙ_η is G(Q_p).",
+        "For G = G_m, μ = 1 and b = p, the admissible locus is empty, so the universal torsor maps from the empty diamond to the empty diamond and is étale. This checks the nonemptiness hypothesis in (e)."
       ],
       "prerequisites": [
         "HeckeStacksAndLocalShtukas:HS2/hecke-fibre-description",
@@ -3266,7 +3276,8 @@
         "Non-emptiness of the cell (Howe–Klevdal 7.3.3, reductive case, whose Gr_{[μ]} is the cell Gr_μ here). If Gr^a_μ ≠ ∅ then [b] ∈ B(G,μ⁻¹), by Caraiani–Scholze, Proposition 3.5.3. Conversely, if [b] ∈ B(G,μ⁻¹), the weakly admissible locus of the flag variety of filtrations of type μ⁻¹ (the variety Fl_{G,μ} of Scholze–Weinstein Definition 19.4.1) has a point over a finite extension L of F̆ (Rapoport–Viehmann, Proposition 3.1), and it is the image of a unique admissible point of Gr_μ(Spd L) (HS2/classical-period-points (c), applied with its cocharacter equal to μ⁻¹, so that its cell is Gr_μ and its hypothesis is κ(b) = −μ^♮); this gives (b). For minuscule μ the equivalence is Scholze–Weinstein 24.1.2.",
         "Closed locus. Gr^a_{≤μ} is the union of the Gr^a_{μ′} over the dominant μ′ ≤ μ, and B(G,μ′⁻¹) ⊂ B(G,μ⁻¹): μ′^♮ = μ^♮ because μ − μ′ is a sum of coroots, and (μ′⁻¹)^♦ ≤ (μ⁻¹)^♦ because the Galois average of a non-negative combination of positive coroots is one. Hence Gr^a_{≤μ} ≠ ∅ if and only if [b] ∈ B(G,μ⁻¹).",
         "Connectedness and density (Gleason–Lourenço, Theorems 3.1 and 3.2, whose μ is μ⁻¹ here and whose Gr_{G,μ} is the closed Schubert variety). Reduce to G adjoint, since the Schubert variety and its admissible locus only depend on the adjoint datum (HS2/adjoint-period-and-tower-comparison), and then to the quasi-split inner form by pure inner twisting (HS0/structure-group-and-inner-form), which replaces the trivial class by a basic class b_μ, the one with κ(b_μ) = κ(b) − μ^♮ in their orientation (the paper prints μ^♮ − κ(b)): this is their Theorem 3.2, for b acceptable modulo the centre. With d = ⟨2ρ,μ⟩ the dimension of the Schubert variety, it is enough that every Newton stratum of the cell other than the one over b_μ has ℓ-dimension < d, and that the boundary of the cell has ℓ-dimension < d: by the dimension criterion (Hansen, Moduli of local shtukas and Harris's conjecture, Corollary 4.11, for connectedness; density holds because a non-empty open subset of the cohomologically smooth cell has ℓ-dimension exactly d and so is not contained in a closed subset of smaller ℓ-dimension) applied to the connected, cohomologically smooth and partially proper cell over C, the admissible part of the cell is connected and dense in the cell, which is the statement for Gr^a_μ (Howe–Klevdal 7.3.4); then Gr^a_{≤μ}, which contains it as a dense subset, is connected and dense in the Schubert variety.",
-        "The dimension bound. For b basic the Beauville–Laszlo map from the quotient of the cell by J_b(Q_p) to Bun_G is cohomologically smooth of dimension d, and non-basic strata of Bun_G have negative dimension. For b not basic let ν⁻ be the G-antidominant conjugate of ν_b, M its centraliser, P the standard parabolic with Levi M and b_M the reduction of b to M with Newton point ν⁻; on L⁺P·ξ^μ the Beauville–Laszlo map factors through Bun_P. Use that Bun_P → Bun_M is cohomologically smooth, of relative ℓ-dimension ⟨2ρ_G − 2ρ_M, ν⟩ over the stratum of a class of B(M) with Newton point ν (Gleason–Lourenço, Theorem 2.13, due to Hamann), the bound dim_ℓ(Bun_P^{b″} ∖ T_{b″}) < ⟨2ρ_G − 2ρ_M, ν_{b″}⟩ for basic non-negative classes b″ of B(M) (their Proposition 2.15), and their Lemma 3.3: the geometric fibres of the map (3.7) are empty or torsors under the unipotent filtered automorphism group of E_b, of dimension ⟨2ρ_G, ν_b⟩ = −⟨2ρ_G − 2ρ_M, ν⁻⟩ (Fargues–Scholze III.5.1; the paper writes ⟨2ρ_G − 2ρ_M, ν_b⟩ without saying which conjugate is meant)."
+        "The dimension bound. For b basic the Beauville–Laszlo map from the quotient of the cell by J_b(Q_p) to Bun_G is cohomologically smooth of dimension d, and non-basic strata of Bun_G have negative dimension. For b not basic let ν⁻ be the G-antidominant conjugate of ν_b, M its centraliser, P the standard parabolic with Levi M and b_M the reduction of b to M with Newton point ν⁻; on L⁺P·ξ^μ the Beauville–Laszlo map factors through Bun_P. Use that Bun_P → Bun_M is cohomologically smooth, of relative ℓ-dimension ⟨2ρ_G − 2ρ_M, ν⟩ over the stratum of a class of B(M) with Newton point ν (Gleason–Lourenço, Theorem 2.13, due to Hamann), the bound dim_ℓ(Bun_P^{b″} ∖ T_{b″}) < ⟨2ρ_G − 2ρ_M, ν_{b″}⟩ for basic non-negative classes b″ of B(M) (their Proposition 2.15), and their Lemma 3.3: the geometric fibres of the map (3.7) are empty or torsors under the unipotent filtered automorphism group of E_b, of dimension ⟨2ρ_G, ν_b⟩ = −⟨2ρ_G − 2ρ_M, ν⁻⟩ (Fargues–Scholze III.5.1; the paper writes ⟨2ρ_G − 2ρ_M, ν_b⟩ without saying which conjugate is meant).",
+        "Supplier normalization gate. The present BG2 exports grassmannian-kottwitz-sign, modification-newton-bound and minuscule-modification-image carry the opposite sign for the GS0 point μ(ξ). They are not imported unchanged here. The request to BG2:uniformization must supply κ(BL(Gr_μ)) = +μ♯, image B(G,μ) and its minuscule equality for a fixed trivial second bundle. A modification from the trivial first bundle to E_b of type μ uses the inverse Grassmannian orientation, so its nonemptiness condition is [b] ∈ B(G,μ⁻¹). The line lattice ξB⁺_dR glues to O(−1), of κ = +1 (FS II.2.3, pp.60–61; III.2, pp.90–91; VI.2.4, p.199). This supplier correction remains open in the recorded normalization gap."
       ],
       "acceptance": [
         "For a torus T, B(T,μ⁻¹) is the single class with κ(b) = −μ^♮, and for this class Gr^a_μ = Gr_μ = Spd F̆.",
@@ -3291,11 +3302,9 @@
         "BunGAndNewtonStrata:BG1/admissible-finiteness-and-basic",
         "BunGAndNewtonStrata:BG1/basic-class",
         "BunGAndNewtonStrata:BG1/z-extension-bounded-lifting",
-        "BunGAndNewtonStrata:BG2:uniformization/modification-newton-bound",
-        "BunGAndNewtonStrata:BG2:uniformization/grassmannian-kottwitz-sign",
-        "BunGAndNewtonStrata:BG2:uniformization/minuscule-modification-image",
         "BunGAndNewtonStrata:BG3/positive-automorphism-kernel",
-        "GeometricSatakeAndFusion:GS0:loop-geometry/generic-galois-descent"
+        "GeometricSatakeAndFusion:GS0:loop-geometry/generic-galois-descent",
+        "BunGAndNewtonStrata:BG2:uniformization"
       ],
       "sources": [
         {
@@ -3489,7 +3498,8 @@
       "proofSteps": [
         "(1): the map Gr_{G,≤μ} → Gr_{H,≤μ_H} ×_{Spd F̆_H} Spd F̆ is a proper map of spatial diamonds over Spd F̆, hence an isomorphism as soon as it is bijective on (C,C⁺)-points. On C-points: G(B_dR⁺(C)) → G_ad(B_dR⁺(C)) is surjective, the fibres of Gr_G(C) → Gr_{G_ad}(C) are orbits of the discrete group Z_G(B_dR(C))/Z_G(B_dR⁺(C)), which acts freely on π₀(Gr_G) = π_1(G), and a Schubert variety lies in one component; the same holds for H, and G_ad = H_ad. This is Step 1 of the proof of Gleason–Lim–Xu, Proposition 6.6(1), given there by reference to Anschütz–Gleason–Lourenço–Richarz, Proposition 4.16.",
         "(2): both loci are open, so it is enough to compare geometric points. For x ∈ Gr_{G,≤μ}(C) let e ∈ B(G) be the class of the modification E of E_b at x. Then κ_G(e) = κ_G(b) − μ^♮ = 0: in this orientation E has position ≤ μ⁻¹ relative to E_b, so HS0/structure-group-and-inner-form (d) gives κ_G(e) = κ_G(b) + (μ⁻¹)^♮, and κ_G(b) = μ^♮. The bundle f_*E has class f(e) with κ_H(f(e)) = 0. A class with trivial Kottwitz invariant is trivial if and only if it is basic, and e is basic if and only if f(e) is, because centrality of the Newton point can be tested in the adjoint group (BG1).",
-        "(3): over the common admissible locus both sides are pro-étale H(Q_p)-torsors (HS2/admissible-period-torsor), the image of G(Q_p) in H(Q_p) being closed; the map induced by extension of structure group is H(Q_p)-equivariant, and a morphism of torsors is an isomorphism. (4) is the quotient of (3) by K_H."
+        "(3): over the common admissible locus both sides are pro-étale H(Q_p)-torsors (HS2/admissible-period-torsor), the image of G(Q_p) in H(Q_p) being closed; the map induced by extension of structure group is H(Q_p)-equivariant, and a morphism of torsors is an isomorphism. (4) is the quotient of (3) by K_H.",
+        "Supplier normalization gate. The present BG2 exports grassmannian-kottwitz-sign, modification-newton-bound and minuscule-modification-image carry the opposite sign for the GS0 point μ(ξ). They are not imported unchanged here. The request to BG2:uniformization must supply κ(BL(Gr_μ)) = +μ♯, image B(G,μ) and its minuscule equality for a fixed trivial second bundle. A modification from the trivial first bundle to E_b of type μ uses the inverse Grassmannian orientation, so its nonemptiness condition is [b] ∈ B(G,μ⁻¹). The line lattice ξB⁺_dR glues to O(−1), of κ = +1 (FS II.2.3, pp.60–61; III.2, pp.90–91; VI.2.4, p.199). This supplier correction remains open in the recorded normalization gap."
       ],
       "acceptance": [
         "For a torus T with [b] ∈ B(T,μ) and f: T → 1: Sht_{T,b,μ,∞}/T(Q_p) = Spd F̆ = Sht_{1,1,0,∞} ×_{Spd Q̆_p} Spd F̆.",
@@ -3509,8 +3519,8 @@
         "BunGAndNewtonStrata:BG1/basic-class",
         "BunGAndNewtonStrata:BG1/admissible-pair",
         "BunGAndNewtonStrata:BG1/z-extension-bounded-lifting",
-        "BunGAndNewtonStrata:BG2:uniformization/grassmannian-kottwitz-sign",
-        "GeometricSatakeAndFusion:GS0:loop-geometry/generic-galois-descent"
+        "GeometricSatakeAndFusion:GS0:loop-geometry/generic-galois-descent",
+        "BunGAndNewtonStrata:BG2:uniformization"
       ],
       "sources": [
         {
@@ -5912,9 +5922,12 @@
     },
     {
       "supplier": "BunGAndNewtonStrata:BG2:uniformization",
-      "need": "Weil restriction of bundles on the curve. For E′/E finite separable and G = Res_{E′/E} G′: the relative curve for E′ is the base change of the relative curve for E along Spa E′ → Spa E, compatibly with Frobenius, and pushforward along it gives an equivalence of small v-stacks Bun_{G′} ≅ Bun_G on Perf_k carrying E_{b′} to E_b under B(G′) = B(G); the equivalence is compatible with modifications at a leg of Div¹ for E′ and its image in Div¹ for E, which is what the closed immersion of Hecke stacks in Fargues–Scholze IX.6.3 uses. The existing node on products and unramified restriction of scalars gives the bijection B(G′) ≅ B(G) by the norm when E′/E is unramified, for the Kottwitz sets only; the statement for the stacks of bundles and for ramified E′/E is not among the statements of the layer.",
+      "need": "Weil restriction of bundles on the curve. For E′/E finite separable and G = Res_{E′/E} G′: the relative curve for E′ is the base change of the relative curve for E along Spa E′ → Spa E, compatibly with Frobenius, and pushforward along it gives an equivalence of small v-stacks Bun_{G′} ≅ Bun_G on Perf_k carrying E_{b′} to E_b under B(G′) = B(G); the equivalence is compatible with modifications at a leg of Div¹ for E′ and its image in Div¹ for E, which is what the closed immersion of Hecke stacks in Fargues–Scholze IX.6.3 uses. The existing node on products and unramified restriction of scalars gives the bijection B(G′) ≅ B(G) by the norm when E′/E is unramified, for the Kottwitz sets only; the statement for the stacks of bundles and for ramified E′/E is not among the statements of the layer. Normalization correction also requested: with the GS0 orbit of μ(ξ), Beauville–Laszlo gluing into the trivial second bundle has κ = +μ♯ and image B(G,μ), with equality of the image for minuscule μ. Reconcile the three current exports grassmannian-kottwitz-sign, modification-newton-bound and minuscule-modification-image with this convention, and supply the inverse-orientation dictionary for modifications from the trivial first bundle to E_b, whose criterion is [b] ∈ B(G,μ⁻¹). The G_m calculation ξB⁺_dR ↦ O(−1), κ = +1 fixes the sign (FS II.2.3, pp.60–61; III.2, pp.90–91; VI.2.4, p.199; SW 19.4.2, pp.176–177).",
       "neededBy": [
-        "HeckeStacksAndLocalShtukas:HS4/weil-restriction-hecke-diagram"
+        "HeckeStacksAndLocalShtukas:HS4/weil-restriction-hecke-diagram",
+        "HeckeStacksAndLocalShtukas:HS0/structure-group-and-inner-form",
+        "HeckeStacksAndLocalShtukas:HS2/nonemptiness-and-period-connectedness",
+        "HeckeStacksAndLocalShtukas:HS2/adjoint-period-and-tower-comparison"
       ]
     },
     {
@@ -5955,8 +5968,8 @@
       ]
     },
     {
-      "supplier": "LanglandsParameterStacks:LP3",
-      "need": "Integral highest-weight theory for the split reductive group Ĝ over Z_ℓ[√q] with a finite group Q acting through pinned automorphisms, for every prime ℓ ≠ p, with no condition on the torsion of π_1(Ĝ) and no solvability or order condition on Q, and for every Z_ℓ[√q]-algebra Λ: (1) every representation of Ĝ^I on a finite projective Λ-module lies in the thick subcategory of Perf(BĜ^I_Λ) generated by exterior tensor products of representations of Ĝ on finite projective Λ-modules, the reduction used in Fargues–Scholze IX.2.1; (2) every representation of (Ĝ⋊Q)^I on a finite projective Λ-module has a resolution, possibly infinite to the left, by exterior tensor products of |I| such representations of Ĝ⋊Q in which only finitely many weights of Ĝ^I occur, the reduction used in IX.2.3. The good-prime theory of VIII.5 on parameter stacks does not give these statements.",
+      "supplier": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ",
+      "need": "Extension through ReductiveGroupsIntegralRepresentationsPartII, routed by PAPER-KISIN-PAPPAS-18 and PAPER-KISIN-PAPPAS-ZHOU-26. Until that continuation has designed layers, this request is registered against its existing ReductiveGroups parent layer; the parent itself does not supply the results below. Integral highest-weight theory for the split reductive group Ĝ over Z_ℓ[√q] with a finite group Q acting through pinned automorphisms, for every prime ℓ ≠ p, with no condition on the torsion of π_1(Ĝ) and no solvability or order condition on Q, and for every Z_ℓ[√q]-algebra Λ: (1) every representation of Ĝ^I on a finite projective Λ-module lies in the thick subcategory of Perf(BĜ^I_Λ) generated by exterior tensor products of representations of Ĝ on finite projective Λ-modules, the reduction used in Fargues–Scholze IX.2.1; (2) every representation of (Ĝ⋊Q)^I on a finite projective Λ-module has a resolution, possibly infinite to the left, by exterior tensor products of |I| such representations of Ĝ⋊Q in which only finitely many weights of Ĝ^I occur, the reduction used in IX.2.3. The good-prime theory of VIII.5 on parameter stacks does not give these statements.",
       "neededBy": [
         "HeckeStacksAndLocalShtukas:HS0/demazure-generators-of-ULA-kernels",
         "HeckeStacksAndLocalShtukas:HS1/continuous-weil-descent"
@@ -6134,6 +6147,15 @@
         "HeckeStacksAndLocalShtukas:HS2/nonemptiness-and-period-connectedness"
       ],
       "detail": "Needed, for μ not minuscule: for G reductive over ℚ_p, b in G(ℚ̆_p) and a conjugacy class μ of cocharacters with reflex field F such that [b] lies in B(G,μ⁻¹) in the orientation of Scholze–Weinstein (in B(G,μ) in the orientation of the node on classical period points), there are a finite extension L of F̆ and a point x of the flag variety Fl_μ(L) such that for every V in Rep_{ℚ_p}(G) the filtered isocrystal (V ⊗ ℚ̆_p, bσ, Fil_x) is weakly admissible; equivalently, the weakly admissible locus of the flag variety over F̆, an admissible open subset, is not empty. The consuming proof takes this from Rapoport–Viehmann, Towards a theory of local Shimura varieties, Proposition 3.1, which Howe–Klevdal quote in the proof of their Proposition 7.3.3 for the existence of a classical point of the admissible locus. The paper of Rapoport–Viehmann was not read; its hypotheses and the orientation of the filtration must be taken from it. Combined with the bijection between weakly admissible points of the flag variety and admissible points of the Schubert cell over finite extensions of F̆, which holds when κ(b) = −μ^♮ in the orientation of Scholze–Weinstein, it gives the implication [b] ∈ B(G,μ⁻¹) ⇒ Gr^a_μ ≠ ∅ and statement (b) of the node on non-emptiness. For minuscule μ nothing is missing any more: the layer on the stack of bundles and its cover now states that every class of B(G,μ⁻¹) is the class of a modification of the trivial bundle at a geometric point of the flag variety (Caraiani–Scholze Remark 3.5.8, after Rapoport), which gives Gr^a_μ ≠ ∅ after inverting the modification, and a non-empty open subset of the rigid flag variety over F̆ has points over finite extensions of F̆. For μ not minuscule no layer states the implication: the layer on period functors and admissibility covers the equivalence of weak admissibility and admissibility for a given filtered module, not the existence of a weakly admissible filtration of prescribed type; the layer on Kottwitz and Newton invariants covers the set B(G,{μ}) only; and the layer on the stack of bundles and its cover states, for general μ, only the opposite implication, that non-emptiness forces [b] ∈ B(G,μ⁻¹) (Caraiani–Scholze 3.5.3)."
+    },
+    {
+      "title": "Supplier normalization of the Beauville–Laszlo map",
+      "neededBy": [
+        "HeckeStacksAndLocalShtukas:HS0/structure-group-and-inner-form",
+        "HeckeStacksAndLocalShtukas:HS2/nonemptiness-and-period-connectedness",
+        "HeckeStacksAndLocalShtukas:HS2/adjoint-period-and-tower-comparison"
+      ],
+      "detail": "The three BG2 exports named in the request use κ = −μ♯ and B(G,μ⁻¹) for the GS0 orbit μ(ξ), while GS0 fixes the first lattice relative to the trivial second lattice. In this convention the G_m point ξ yields O(−1), κ = +1, so the required exports have κ = +μ♯ and image B(G,μ). The existing exports have been removed from the prerequisites of the three consumers and replaced by the BG2 stage request. The mathematical sign in this packet is fixed; implementation remains conditional on the corrected supplier exports and their inverse-orientation dictionary. See source issue E1 (FS III.3.6(ii), p.100), the request, and its rank-one computation."
     }
   ],
   "coverage": [
@@ -6141,16 +6163,17 @@
       "stageId": "HeckeStacksAndLocalShtukas:HS0",
       "status": "planned",
       "remaining": [
-        "Statements requested from supplier stages that have no node for them yet: GeometricSatakeAndFusion:GS0:loop-geometry.",
+        "Gap: Supplier normalization of the Beauville–Laszlo map.",
+        "Statements requested from supplier stages that have no node for them yet: BunGAndNewtonStrata:BG2:uniformization, GeometricSatakeAndFusion:GS0:loop-geometry.",
         "Lemma-level refinement of the target-level nodes of this stage."
       ],
-      "note": "Target-level plan with 6 nodes; every target of the stage text is a node. The stage is not closed: it has open requests."
+      "note": "Target-level plan with 6 nodes; every target of the stage text is a node. The stage is not closed: it has open requests and a recorded gap."
     },
     {
       "stageId": "HeckeStacksAndLocalShtukas:HS1",
       "status": "planned",
       "remaining": [
-        "Statements requested from supplier stages that have no node for them yet: GeometricSatakeAndFusion:GS1, GeometricSatakeAndFusion:GS4:integral-dual-group, LanglandsParameterStacks:LP3, VStackSheavesAndLisseCategories:VS2, VStackSheavesAndLisseCategories:VS4, tauceti:TauCetiRoadmap/ClassFieldTheory#layer-9-the-local-weil-group.",
+        "Statements requested from supplier stages that have no node for them yet: GeometricSatakeAndFusion:GS1, GeometricSatakeAndFusion:GS4:integral-dual-group, tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ (requested extension: ReductiveGroupsIntegralRepresentationsPartII), VStackSheavesAndLisseCategories:VS2, VStackSheavesAndLisseCategories:VS4, tauceti:TauCetiRoadmap/ClassFieldTheory#layer-9-the-local-weil-group.",
         "Lemma-level refinement of the target-level nodes of this stage."
       ],
       "note": "Target-level plan with 10 nodes; every target of the stage text is a node. The stage is not closed: it has open requests."
@@ -6159,11 +6182,12 @@
       "stageId": "HeckeStacksAndLocalShtukas:HS2",
       "status": "planned",
       "remaining": [
+        "Gap: Supplier normalization of the Beauville–Laszlo map.",
         "Gap: Connectedness and density after removing a locus of smaller dimension.",
         "Gap: Dimension theory for stacky maps used in the connectedness proof.",
         "Gap: Open connected components of finite-level local shtuka spaces for non-minuscule μ.",
         "Gap: Non-emptiness of the weakly admissible locus (Rapoport–Viehmann, Proposition 3.1).",
-        "Statements requested from supplier stages that have no node for them yet: AdicEtaleGeometry:A2, BunGAndNewtonStrata:BG3, GeometricSatakeAndFusion:GS0:Schubert-smoothness, PadicHodgeTheory:R06.2, ReductiveGroupsPartII:RG2.0, tauceti:TauCetiRoadmap/ClassFieldTheory#layer-9-the-local-weil-group.",
+        "Statements requested from supplier stages that have no node for them yet: AdicEtaleGeometry:A2, BunGAndNewtonStrata:BG2:uniformization, BunGAndNewtonStrata:BG3, GeometricSatakeAndFusion:GS0:Schubert-smoothness, PadicHodgeTheory:R06.2, ReductiveGroupsPartII:RG2.0, tauceti:TauCetiRoadmap/ClassFieldTheory#layer-9-the-local-weil-group.",
         "Lemma-level refinement of the target-level nodes of this stage."
       ],
       "note": "Target-level plan with 18 nodes; every target of the stage text is a node. The stage is not closed: it has open requests and recorded gaps."
@@ -6245,7 +6269,7 @@
       "HeckeStacksAndLocalShtukas:HS3",
       "HeckeStacksAndLocalShtukas:HS4"
     ],
-    "assessment": "All five reviewed entries say that nothing of the layers is built; that holds at the pinned commits. Tau Ceti has TauCeti.IsSmoothDiscrete and TauCeti.SmoothDiscreteTopRep (smooth representations on discrete modules as topological representations); they give the abelian-level carrier of smooth representations only for a coefficient ring with the discrete topology, and no derived category, compact induction or admissibility. No node plans anything that the audit shows in the libraries."
+    "assessment": "All five reviewed entries classify the layers as not built at the pinned commits. Tau Ceti supplies TauCeti.IsSmoothDiscrete and TauCeti.SmoothDiscreteTopRep: topological representations on discrete modules with open point stabilizers and continuous scalar action. The coefficient ring may be topological; a discrete coefficient ring makes the scalar continuity automatic. These declarations supply an abelian-level carrier, not the derived smooth category, compact induction or admissibility required here. No node duplicates a built construction reported by the audit."
   },
   "paperRoutes": [
     {
@@ -6304,8 +6328,8 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Read pp. 58, 60–61, 84, 90–91, 97–100, 198–199, 335–338 of the 356-page copy and SW pp. 169–177, 218–220, 225. The point μ(ξ) of the Grassmannian is the lattice ⊕ξ^{μ_i}B⁺_dR in both texts (FS p. 199 says so in words; SW 19.2.3, 19.3.6, 19.4.2); the Beauville–Laszlo map glues that lattice into the trivial bundle; for 𝔾_m and μ = 1 this is the ideal sheaf I_D ≅ 𝒪(−1) = E_π (II.2.3, p. 84, p. 58), and κ(π) = +1 (pp. 90–91). So κ∘BL = +μ♯ on Gr_{G,μ}; the printed 'opposite' is false, in the split and the non-split form. The answer does not depend on a convention left unstated. SW Definition 24.1.1 with 23.3.1 and FS pp. 336–338 agree with the corrected sign. Kind error, a stated result: correct. The reviewer recomputed the G_m case independently: the point ξ of Gr_{G_m} is the lattice ξB⁺_dR, the Beauville–Laszlo bundle is the ideal sheaf I ≅ O(−1) (FS II.2.3: O ≅ I(1)), and κ(O(−1)) = +1 = µ♯ since the first Chern class of E_b is −κ(b) (FS p. 91).",
-        "by": "REV-HeckeStacksAndLocalShtukas"
+        "reason": "Confirmed the sign error by recomputing ξB⁺_dR ↦ I_D=O(−1)=E_π, κ=+1. FS II.2.3 pp.60–61, III.2 pp.90–91, VI.2.4 p.199 and SW 19.4.2 pp.176–177 fix the same lattice convention. The corrected sign, not the three current conflicting BG2 exports, is used here.",
+        "by": "REV-HeckeStacksAndLocalShtukas~2"
       }
     },
     {
@@ -6325,8 +6349,8 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Read SW pp. 221–224 and redid the comparison. The chart off the Frobenius translates records (Λ_1,Λ_2); the chart near (φ × 1)^m(Δ) records the lattice of the continued torsor at φ⁻ᵐ(S♯_1), which is b·σ(b)⋯σ^{m−1}(b)·(Frob_S^m)^*Λ_1; Definition 23.4.1 glues by (Frob_S^m)^* alone. They agree for b = 1 or one leg and differ by that left translation otherwise. The reason given in Remark 23.4.3 defines no operation: composing φ with an element of G(L) in the trivialisation ι produces poles along all translates φ⁻ⁿ(S♯_i). Translations by constants remove the discrepancy only when b is σ-conjugate to 1. Quotation literal on p. 222. Kind gap, affecting the proof of Proposition 23.4.2: correct; Definition 23.5.1 and what follows use the functor with b and are not affected.",
-        "by": "REV-HeckeStacksAndLocalShtukas"
+        "reason": "Confirmed a gap, not a disproof of a possible abstract isomorphism. SW 23.4 pp.221–222 constructs charts; transport at a Frobenius collision multiplies the first lattice by bσ(b)⋯σ^{m−1}(b), so the proposed b-independent gluing needs an additional argument. Local representability remains valid.",
+        "by": "REV-HeckeStacksAndLocalShtukas~2"
       }
     },
     {
@@ -6346,8 +6370,8 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "On pp. 222 and 223 the functor is stated for 'a perfectoid space S of characteristic p' with untilts over E_i, while b ∈ G(L) acts on G × Y_{[r,∞)}(S) only when S lies over k; Definition 23.1.1 (p. 216) is on Perf_k with untilts over Ĕ_i, and Corollaries 23.4.4 (p. 222) and 23.5.3 (p. 224) write the target over Spd Ĕ_1 ×_k ⋯. Intended meaning clear; misprint, affects nothing.",
-        "by": "REV-HeckeStacksAndLocalShtukas"
+        "reason": "Confirmed the base correction in SW 23.4.2 p.222 and 23.5.1 p.223. Perf_k and completed reflex-field untilts are required for the L-valued framing and b×Frob_S. Removing that base leaves the displayed action undefined.",
+        "by": "REV-HeckeStacksAndLocalShtukas~2"
       }
     },
     {
@@ -6367,8 +6391,8 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Searched the whole text for 'global Hecke stack', 'Hck' with 'parametriz' and 'meromorphic along': the global stack is described only for one leg (p. 16; over C on p. 322), and Hck^I_G with p_1, p_2 is used on pp. 30, 317, 321–322, 330–332, 336 without a definition. Quotation literal on p. 317. It is an omission whose intended content is clear (the local stack for I is defined on p. 226); recorded as a gap affecting nothing.",
-        "by": "REV-HeckeStacksAndLocalShtukas"
+        "reason": "Confirmed the notation omission at FS IX.0 p.317 against IX.2 pp.321–322: the finite-leg global correspondence must first be defined, with target Bun_G×(Div¹)^I, before the local Satake sheaf is pulled back.",
+        "by": "REV-HeckeStacksAndLocalShtukas~2"
       }
     },
     {
@@ -6386,8 +6410,8 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Page 200 prints 'there is some bijection between ψ : I ≅ J' and sums over 'j ∈ J, C♯_{ψ(j)} ≅ C♯_i', which applies ψ to an element of J. Already in the register as PAPER-FARGUES-SCHOLZE-21/E38, the value of 'known'. The mistake is already in the register of source issues as PAPER-FARGUES-SCHOLZE-21/E38; it is listed here because nodes of this packet cite the passage and use the corrected statement.",
-        "by": "REV-HeckeStacksAndLocalShtukas"
+        "reason": "Confirmed the indexing defect in FS VI.2.6 p.200: ψ(j) is used for j∈J, so ψ must map J to I. Relabelling the same geometric legs gives the corrected bound.",
+        "by": "REV-HeckeStacksAndLocalShtukas~2"
       }
     },
     {
@@ -6405,8 +6429,8 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Page 187: Definition 20.4.2 has 'for i = 2,…,n' and Definition 20.4.4 has 'for all i = 1,…,n' (twice), with m untilts and m cocharacters and no n. Already in the register as PAPER-SCHOLZE-WEINSTEIN-20/E6, the value of 'known'. The mistake is already in the register of source issues as PAPER-SCHOLZE-WEINSTEIN-20/E6; it is listed here because nodes of this packet cite the passage and use the corrected statement.",
-        "by": "REV-HeckeStacksAndLocalShtukas"
+        "reason": "Confirmed both index misprints in SW 20.4.2 and 20.4.4 p.187. There are m legs and modifications; n denotes a rank in surrounding examples and cannot index the general leg set.",
+        "by": "REV-HeckeStacksAndLocalShtukas~2"
       }
     },
     {
@@ -6414,7 +6438,7 @@
       "source": "FS-geometrization",
       "kind": "misprint",
       "locator": "Chapter III, §III.3, p. 100, non-split case, item (i)",
-      "printed": "Gr_G = lim→_{μ̄∈Γ∖X^*(T)^+} Gr_{G,≤μ̄}",
+      "printed": "The Schubert colimit is indexed in the display by dominant characters rather than dominant cocharacters.",
       "correction": "lim→_{μ̄∈Γ∖X_*(T)^+} Gr_{G,≤μ̄}",
       "reason": "Schubert varieties are indexed by dominant cocharacters.",
       "affects": "nothing",
@@ -6424,8 +6448,8 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Page 100, non-split case (i): the colimit is indexed by 'μ̄ ∈ Γ∖X^*(T)^+' with an upper star, while Lemma III.3.4 (p. 99) uses X_*(T)^+. Already in the register as PAPER-FARGUES-SCHOLZE-21/E18, the value of 'known'. The mistake is already in the register of source issues as PAPER-FARGUES-SCHOLZE-21/E18; it is listed here because nodes of this packet cite the passage and use the corrected statement.",
-        "by": "REV-HeckeStacksAndLocalShtukas"
+        "reason": "Confirmed the character/cocharacter misprint at FS III.3 p.100. Schubert bounds are dominant cocharacters X_*(T)^+, as fixed by VI.2.4 pp.198–199, not dominant characters.",
+        "by": "REV-HeckeStacksAndLocalShtukas~2"
       }
     },
     {
@@ -6443,8 +6467,8 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "PDF p. 275 read: Proposition VII.7.9 names the complex M_b and then prints \"for which M^K is a perfect complex\"; Theorem V.7.1 (p. 183) prints M_b^K. Literal quotation, misprint, affects nothing; it is the register entry PAPER-FARGUES-SCHOLZE-21/E110, as recorded. The mistake is already in the register of source issues as PAPER-FARGUES-SCHOLZE-21/E110; it is listed here because nodes of this packet cite the passage and use the corrected statement.",
-        "by": "REV-HeckeStacksAndLocalShtukas"
+        "reason": "Confirmed the missing subscript in FS VII.7.9 p.275: the derived K-invariants are of M_b, the representation on that stratum. No unrelated M is introduced.",
+        "by": "REV-HeckeStacksAndLocalShtukas~2"
       }
     },
     {
@@ -6462,8 +6486,8 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "PDF p. 276 read: Proposition VII.7.10 defines ⊠ with values in D_lis(Bun_G,Λ) and then prints \"A_1 ⊠ A_2 ∈ D_ét(Bun_G,Λ) is compact\"; the subscript is carried over from Proposition V.7.2 (p. 183). Literal quotation, misprint, affects nothing; it is the register entry PAPER-FARGUES-SCHOLZE-21/E56, as recorded. The mistake is already in the register of source issues as PAPER-FARGUES-SCHOLZE-21/E56; it is listed here because nodes of this packet cite the passage and use the corrected statement.",
-        "by": "REV-HeckeStacksAndLocalShtukas"
+        "reason": "Confirmed the category misprint in FS VII.7.10 p.276. The objects and conclusion are lisse/solid for arbitrary permitted Λ; D_ét would incorrectly restrict the theorem to a different coefficient formalism.",
+        "by": "REV-HeckeStacksAndLocalShtukas~2"
       }
     },
     {
@@ -6482,8 +6506,8 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "PDF p. 323 read; the quotation is literal. Recomputed: RHom(D_BZ(T_VA),B)≅π_♮(T_VA⊗B)≅π_♮(A⊗T_{sw^*V}B)≅RHom(D_BZ(A),T_{sw^*V}B), and this is RHom(T_{sw^*V^∨}D_BZ(A),B) because T_{sw^*V^∨} is the left adjoint of T_{sw^*V}; RHom(B,RHom_lis(T_VA,Λ))≅RHom(π_♮(A⊗T_{sw^*V}B),Λ)≅RHom(T_{sw^*V}B,RHom_lis(A,Λ)), and this is RHom(B,T_{sw^*V^∨}RHom_lis(A,Λ)) because T_{sw^*V^∨} is the right adjoint of T_{sw^*V}. The printed sentence has the two words the other way round. Both adjunctions hold, so nothing is affected: misprint, affects nothing. Checked in G=1: D_BZ(A⊗M)=A^∨⊗M^∨ and RHom(A⊗M,Λ)=A^∨⊗M^∨. Not in the register.",
-        "by": "REV-HeckeStacksAndLocalShtukas"
+        "reason": "Confirmed the exchanged adjunction labels in FS IX.2.2 p.323. Contravariant Bernstein–Zelevinsky duality uses the left-adjoint presentation, while ordinary linear duality uses the right-adjoint presentation. The corrected dual/swap formulas and both actual adjunctions agree.",
+        "by": "REV-HeckeStacksAndLocalShtukas~2"
       }
     },
     {
@@ -6502,8 +6526,8 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Read on the page images of pp. 210 and 217. With the isocrystal (V ⊗ L, b ⊗ ϕ) of the same paragraph, a change of trivialisation by y gives y(b ⊗ ϕ)y⁻¹ = (y b ϕ(y)⁻¹) ⊗ ϕ; for the framing, (y × id) ∘ ι identifies ϕ_P with y b ϕ(y)⁻¹ × Frob_S when 'b × Frob_S' is read as on p. 218 (the pullback of E^b). The printed relation b ∼ ϕ(y) b y⁻¹ is the relation 'b⁻¹ and b′⁻¹ are σ-conjugate' (σ⁻¹-conjugacy); it would be the right formula only if the isocrystal were (V ⊗ L, b⁻¹ ⊗ ϕ), which the text excludes. It is not Kottwitz's relation: the GL_2 counterexample was recomputed (ϕ(y)y⁻¹ = ϕ(k_1) t s t⁻¹ k_1⁻¹, and ϕ(k_1)⁻¹ · ϕ(y)y⁻¹ · ϕ²(k_1) = t s t⁻¹ s = diag(p, p⁻¹), of slopes 1 and −1); for tori the two relations coincide. The intended meaning is clear and nothing depends on the formula, so misprint with affects 'nothing' is right. The register has no entry at Lectures 22–24. The reviewer recomputed the counterexample: with y = k_1 t k_2, t = diag(p,1), φ(k_2)k_2⁻¹ = s and k_1⁻¹φ²(k_1) = s for the permutation matrix s, the element φ(y)y⁻¹ = φ(k_1)(t s t⁻¹)k_1⁻¹ is σ-conjugate (by φ(k_1)⁻¹) to t s t⁻¹ s = diag(p, p⁻¹), of slopes (1, −1), so it is not σ-conjugate to 1.",
-        "by": "REV-HeckeStacksAndLocalShtukas"
+        "reason": "Confirmed the σ-conjugation error in SW 22.4 p.210 and 23.1.3 p.217. Conjugating bσ by the new frame y gives ybσ(y)⁻¹, consistently with FS III.2; σ(y)by⁻¹ is the opposite frame change.",
+        "by": "REV-HeckeStacksAndLocalShtukas~2"
       }
     },
     {
@@ -6522,8 +6546,8 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Read on the page image of p. 218. The proposition asserts a bijection; the proof builds (S♯, E, α, ℙ) from a shtuka and stops. The inverse was written out and checked: P is the trivial torsor away from the ϕ^{−n}(S♯), n ≥ 0, and the pullback of E near them; Frob_S^*P is then modified only at n ≥ 1, so ϕ_P is an isomorphism away from S♯ and ϕ_P⁻¹ at S♯ is α up to regular isomorphisms; ℙ extends P over p = 0 by Proposition 22.6.1. The two constructions are inverse to each other, so the statement is true and only its proof is incomplete.",
-        "by": "REV-HeckeStacksAndLocalShtukas"
+        "reason": "Confirmed a missing proof direction in SW 23.3.1 pp.218–219. A quadruple supplies a curve bundle, meromorphic modification and lattice; inverse construction needs pullback to Y, Frobenius-periodic gluing and extension of the integral lattice. Those steps are now explicit in the packet.",
+        "by": "REV-HeckeStacksAndLocalShtukas~2"
       }
     },
     {
@@ -6542,8 +6566,8 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Read on the page images of pp. 218 and 219: 'S♯ is an untilt of S to E' in both places, against 'untilt of S to Ĕ_i' in Definition 23.1.1 and 'We need the field Ĕ = E · L because S lives over k' on p. 220. For S over k an untilt over E is an untilt over one of the [κ_E : F_p] factors Ĕ of E ⊗_{Q_p} L, so the printed wording loses that choice when the residue field of E is larger than F_p. The intended meaning is clear.",
-        "by": "REV-HeckeStacksAndLocalShtukas"
+        "reason": "Confirmed the missing completed-reflex base in SW 23.3.1 p.218 and p.219: the framing against E_b produces an untilt over F̆ in the packet’s notation, not only over F.",
+        "by": "REV-HeckeStacksAndLocalShtukas~2"
       }
     },
     {
@@ -6551,7 +6575,7 @@
       "source": "SW20-berkeley",
       "kind": "misprint",
       "locator": "Lecture 23, §23.1, the two displays of the second paragraph, p. 216, and Definition 23.1.1, third bullet, p. 217 (the first display is printed in both places); print-ready file of 27 March 2020",
-      "printed": "ϕP : (Frob∗S P)|(S×̇X)∖⋃ᵐᵢ₌₁ Γxi ∼→ P|(S×̇X)∖⋃ᵐᵢ₌₁ Γxi … Y[r,∞)(S) = {|ϖ| ≤ |p|^r ≠ 0} ⊂ S×̇ Spa Zp",
+      "printed": "The mixed-characteristic Frobenius map is displayed on the complement of equal-characteristic graph legs, and the radius inequality uses ϖ instead of its Teichmüller lift.",
       "correction": "(S ×̇ Spa Z_p) ∖ ⋃_{i} S♯_i in place of (S ×̇ X) ∖ ⋃ Γ_{x_i}, and |[ϖ]| ≤ |p|^r ≠ 0.",
       "reason": "X and the graphs Γ_{x_i} belong to the equal-characteristic review at the start of the lecture (X a curve over F_q, x_i ∈ X(S)); in the mixed-characteristic definition the legs are the divisors S♯_i ⊂ S ×̇ Spa Z_p, as the following sentence of the definition says. Lecture 22 (p. 207) defines Y_[r,∞)(S) with the Teichmüller lift [ϖ].",
       "affects": "nothing",
@@ -6562,8 +6586,8 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Read on the page images of pp. 216 and 217: the display for ϕ_P is restricted to (S ×̇ X) ∖ ⋃ Γ_{x_i} in the paragraph before the definition and again in its third bullet, notation of the equal-characteristic review in which X is a curve and x_i ∈ X(S); and Y_[r,∞)(S) is written with |ϖ| where p. 207 has |[ϖ]|. The sentence after the bullets states the intended divisor ⋃ S_i♯ ⊂ S ×̇ Spa Z_p.",
-        "by": "REV-HeckeStacksAndLocalShtukas"
+        "reason": "Confirmed the mixed-characteristic domain and Teichmüller-lift defects in SW 23.1 pp.216–217. Legs are untilt divisors in S×̇Spa Z_p; the period-radius inequality uses [ϖ], as in Lecture 22.",
+        "by": "REV-HeckeStacksAndLocalShtukas~2"
       }
     },
     {
@@ -6582,8 +6606,8 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Read on the page image of p. 221: 'The limit Sht_{G,b,{µ_i}} = lim_K Sht_{G,b,{µ_i},K}' and 'an S-point of Sht_{G,b,{µ_i}}', without the subscript ∞. The sentence before (p. 220) defines only Sht_{G,b,{µ_i},K} and Sht_{𝒢,b,{µ_i}} = Sht_{G,b,{µ_i},𝒢(Z_p)}; the same paragraph and p. 224 write Sht_{G,b,{µ_i},∞} for the limit.",
-        "by": "REV-HeckeStacksAndLocalShtukas"
+        "reason": "Confirmed the absent infinite-level labels in SW 23.4 p.221. Both the inverse-limit display and the point description concern Sht_∞; p.224 uses the explicit label for this limit.",
+        "by": "REV-HeckeStacksAndLocalShtukas~2"
       }
     },
     {
@@ -6602,8 +6626,8 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Read on the page image of p. 218. Theorem 22.6.2 gives that Latt(P_η) → S is étale with image S^a; an extension over S itself is a section, which exists exactly when the pro-étale G(Q_p)-torsor has a reduction to 𝒢(Z_p). The counterexample was rechecked: for G = G_m such a reduction exists if and only if the induced torsor under Q_p^×/Z_p^× = Z is trivial; on an affinoid perfectoid S with a connected Z-cover T (the perfection of a Tate curve minus an open disc, covered by G_m minus the translates of the disc) the torsor T ×^Z Q_p^× has none, because every Z_p-lattice in the constant sheaf Q_p on the connected T is p^m Z_p and is not stable under p. So 'if' holds only étale locally. The proof of 23.2.1 uses 'only if' and, for the trivial torsor, the description of all extensions; the result is not affected.",
-        "by": "REV-HeckeStacksAndLocalShtukas"
+        "reason": "Confirmed the global-versus-local extension defect in SW 23.2.1 p.218 using 22.6.2 pp.213–214. Geometric triviality gives an étale-locally existing lattice, while a global extension requires an integral reduction of the rational local system. The proof needs only the necessary direction.",
+        "by": "REV-HeckeStacksAndLocalShtukas~2"
       }
     },
     {
@@ -6613,7 +6637,7 @@
       "locator": "Proposition 6.6(1), (6.4), p. 849, and Step 1 of its proof, p. 850 (published version)",
       "printed": "Equation (6.4) asserts Sht_{(H,b_H,μ_H,∞)} ≅ Sht_{(G,b,μ,∞)} ×^{G(Q_p)} H(Q_p); the proof’s Step 1 asserts Gr_μ = Gr_{μ_H}.",
       "correction": "Sht_{(H,b_H,μ_H,∞)} ×_{Spd Ĕ_H} Spd Ĕ ≅ Sht_{(G,b,μ,∞)} ×^{G(Q_p)} H(Q_p), and Gr_μ = Gr_{μ_H} ×_{Spd Ĕ_H} Spd Ĕ, where E_H ⊂ E is the reflex field of μ_H = f∘μ.",
-      "reason": "Sht_{(G,b,μ,K)} is a diamond over Spd Ĕ with E the reflex field of μ (§3.4), and the reflex field of f∘μ can be smaller. For T = Res_{L/Q_p} G_m with L/Q_p ramified quadratic, μ the cocharacter of one embedding (reflex field L), [b] ∈ B(T,μ) and the ad-isomorphism f: T → 1, the right side of (6.4) is Sht_{(T,b,μ,∞)}/T(Q_p) = Spd L̆ and the left side is Spd Q̆_p. The proof of Proposition 6.7 (p. 851) writes the base change: \"Gr^b_μ ×_E Spd Ẽ = Gr^b̃_μ̃\". Part (2), which is over C_p, is not affected.",
+      "reason": "Sht_{(G,b,μ,K)} is a diamond over Spd Ĕ with E the reflex field of μ (§3.4), and the reflex field of f∘μ can be smaller. For T = Res_{L/Q_p} G_m with L/Q_p ramified quadratic, μ the cocharacter of one embedding (reflex field L), [b] ∈ B(T,μ) and the ad-isomorphism f: T → 1, the right side of (6.4) is Sht_{(T,b,μ,∞)}/T(Q_p) = Spd L̆ and the left side is Spd Q̆_p. The proof of Proposition 6.7 (p.851) explicitly identifies the admissible Grassmannians after extending the reflex base to the completed larger field. Part (2), which is over C_p, is not affected.",
       "affects": "nothing",
       "known": "new",
       "searched": [
@@ -6623,8 +6647,8 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Read on the page images of pp. 849–850 of the published version: (6.4) and \"Step 1. Gr_μ = Gr_{μ_H}\" are printed without base change, as quoted. Sht_{(G,b,μ,K)} lives over Spd Ĕ with E the reflex field of μ (§3.4, p. 824), and the reflex field of f∘μ can be smaller. Counterexample recomputed: T = Res_{L/Q_p}G_m with L/Q_p ramified quadratic and μ the cocharacter of one embedding has reflex field L; T → 1 is an ad-isomorphism; the right side of (6.4) is Sht_{(T,b,μ,∞)}/T(Q_p) = Spd L̆, the left side is Spd Q̆_p, and no identification of the two is compatible with the maps to Spd Q̆_p. The intended statement is clear from the proof of Proposition 6.7 (p. 851: \"Gr^b_μ ×_E Spd Ẽ = Gr^b̃_μ̃\"); part (2) is over C_p and unaffected. Misprint, affects nothing; not in the register entries E01–E17 of this paper (E08 concerns part (2)).",
-        "by": "REV-HeckeStacksAndLocalShtukas"
+        "reason": "Confirmed the omitted reflex-field base change in GLX 6.6 pp.849–850; 6.7 p.851 writes it explicitly. A ramified restriction-of-scalars torus mapped to the trivial group has distinct reflex fields, so its torsor quotient cannot equal the smaller-base diamond without base change.",
+        "by": "REV-HeckeStacksAndLocalShtukas~2"
       }
     },
     {
@@ -6644,8 +6668,8 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Read at pp. 820 and 828 of the published version: Lemma 3.2 is stated for \"a locally pro-finite group\" K and the proof of Proposition 3.12 applies its component formula to G(Q_p); both quotations are literal. Counterexample recomputed: Z acting by translation on Z_p × Spa C has quotient with indiscrete underlying space of more than one point, hence connected, while π₀ of the total space is Z_p, on which Z is not transitive. The proof of the lemma only shows that π₀ commutes with colimits in totally disconnected spaces, where the coequalizer is π₀ of the topological quotient, not the set of orbits. The correction was checked: for profinite K the formula holds (a profinite group acting continuously with connected quotient is transitive on components, proved for arbitrary spaces), and Proposition 3.12 follows once the components at one finite level are open, which holds for minuscule μ (rigid spaces) and at parahoric level by Theorem 3.9 (continuous specialisation map, bijective on π₀, to a scheme whose components are open), whose proof does not use Lemma 3.2. This is the register entry PAPER-GLEASON-LIM-XU-26/E01, as the known field says; the addition to that entry is that the compact case together with openness at one level suffices. The mistake is already in the register of source issues as PAPER-GLEASON-LIM-XU-26/E01; it is listed here because nodes of this packet cite the passage and use the corrected statement.",
-        "by": "REV-HeckeStacksAndLocalShtukas"
+        "reason": "Confirmed the overgeneral component quotient in GLX 3.2 p.820. Translation by Z on Z_p has connected orbit quotient and multiple component orbits. Compact-group descent plus openness at a finite rigid/parahoric level repairs 3.12 p.828 in the stated cases; the general non-minuscule openness input remains a gap.",
+        "by": "REV-HeckeStacksAndLocalShtukas~2"
       }
     },
     {
@@ -6654,7 +6678,7 @@
       "kind": "misprint",
       "locator": "Proposition 7.3.3, p. 43 (arXiv v2)",
       "printed": "The source asserts that Gr_{[μ],Q̆_p([μ])}/Spd Q̆_p([μ]) has a rigid analytic point whenever this space is nonempty.",
-      "correction": "Moreover, when it is non-empty, Gr^{b−adm}_{[μ]}/Spd Q̆_p([μ]) admits a rigid analytic point",
+      "correction": "The conclusion should require a rigid analytic point of the nonempty b-admissible locus Gr^{b−adm}_{[μ]} over the completed reflex field.",
       "reason": "The cell Gr_{[μ]} always has rigid analytic points, so the printed claim is empty; the proof gives a point of the admissible locus, from Rapoport–Viehmann, Proposition 3.1.",
       "affects": "nothing",
       "known": "PAPER-HOWE-KLEVDAL-26/E7",
@@ -6665,8 +6689,8 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Read on the page image of p. 43 of arXiv v2: the second sentence of Proposition 7.3.3 is printed for Gr_{[μ],Q̆_p([μ])}, as quoted. The cell always has points over finite extensions, so the printed sentence says nothing; the proof gives a point of the admissible locus (\"the existence of a rigid analytic point follows from [38, Proposition 3.1]\"). It is the register entry PAPER-HOWE-KLEVDAL-26/E7, with the same locator and correction, as the known field says. The mistake is already in the register of source issues as PAPER-HOWE-KLEVDAL-26/E7; it is listed here because nodes of this packet cite the passage and use the corrected statement.",
-        "by": "REV-HeckeStacksAndLocalShtukas"
+        "reason": "Confirmed the missing admissible-locus superscript in HK 7.3.3 pp.43–44. Its proof produces a classical admissible point using weak admissibility; a point of the unrestricted cell would not establish the intended claim.",
+        "by": "REV-HeckeStacksAndLocalShtukas~2"
       }
     },
     {
@@ -6686,8 +6710,8 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Read on the page image of p. 10 of arXiv v2: the quotient is printed as [G(Q_p)\\Gr°_{G,μ}], as quoted. Gr_{G,μ} is the space of modifications E ⇢ E_b and BL_b forgets the modification; it is invariant under Aut(E_b), which for basic b is G_b(Q_p) acting through G_b(Q_p) ⊂ G(Q̆_p), and [G_b(Q_p)\\Gr°_{G,μ}] is the fibre of the Hecke stack over the open stratum Bun_G^b = [∗/G_b(Q_p)], smooth of dimension d over Bun_G. The group that acts compatibly with BL_b is therefore G_b(Q_p), in general a non-trivial inner form of G: for GL_2 and b basic of slope 1/2 it is D^×, not GL_2(Q_p). The dimension count that follows only uses that the group is locally pro-p. Misprint, affects nothing. The arXiv listing was opened: v1 of 16 October 2022 and v2 of 28 December 2022, no journal reference; the register has no entry for this paper.",
-        "by": "REV-HeckeStacksAndLocalShtukas"
+        "reason": "Confirmed the acting-group mismatch in GL Theorem 3.2 p.10. BL_b is equivariant under J_b(Q_p), which differs from G(Q_p) for a nontrivial basic inner form, for example a division-algebra basic class of GL_n.",
+        "by": "REV-HeckeStacksAndLocalShtukas~2"
       }
     },
     {
@@ -6707,8 +6731,8 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Read Proposition IX.3.2 (p. 326) and Corollary I.7.3 (pp. 31–32) on the page: the tower is indexed by all compact open K ('as K ranges over compact open subgroups of G(E)') and neither statement restricts K, while Theorem IX.3.1 says 'if K is pro-p'. The datum of the counterexample is allowed (any collection of classes of cocharacters, any b; F_ℓ is a Z_ℓ[√q]-algebra when ℓ divides q−1). Recomputed: Sht_{G_m,1,0,K}=E^×/K×Spd Ĕ, S′_W=Λ, f_{K♮}S′_W=c-Ind_K^{E^×}Λ; with K=O_E^×=F_q^××(1+𝔪), RHom_{E^×}(c-Ind_KF_ℓ,N)=RΓ(F_q^×,N^{1+𝔪}); for N=F_ℓ this is F_ℓ in every degree ≥0 (cyclic group of order divisible by ℓ), so it is not perfect, and for N=⊕_{i≥0}F_ℓ[i] its H^0 is ∏_iF_ℓ and not ⊕_iF_ℓ, so the object is not compact. The sentence after the proof of Theorem IX.3.1 on p. 325 has the same omission (G_m, μ(z)=z, K=Z_p^×, ℓ dividing p−1). The reviewer found the same defect independently: for G = G_m over Q_p, the trivial cocharacter, b = 1, K = Z_p^× and ℓ dividing p − 1, the complex is c-Ind_{Z_p^×}^{Q_p^×}Λ and Ext^n into the trivial representation F_ℓ is H^n(F_p^×, F_ℓ) ≠ 0 for all n ≥ 0.",
-        "by": "REV-HeckeStacksAndLocalShtukas"
+        "reason": "Confirmed the missing pro-p hypothesis in FS IX.3.2 p.326 and I.7.3 pp.31–32. With μ=0 and an ℓ-subgroup in a compact-open level, derived invariants of the trivial module over F_ℓ have unbounded cohomology and are not perfect. Pro-p compact induction restores the compactness conclusion.",
+        "by": "REV-HeckeStacksAndLocalShtukas~2"
       }
     },
     {
@@ -6729,8 +6753,8 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Read p. 325 and pp. 326–327: 'The rest of the proof is now as before' refers to the proof of Theorem IX.3.1 and the discussion after it, which treats compact objects only through i^{b*}, T_V and the left adjoint of i^{b*}, and reaches the level colimit i^{1*}T_{μ^∨}(Ri^b_*[ρ]) for admissible ρ through Verdier duality, with Q̄_ℓ-coefficients and finite length. For compact ρ one needs that Ri^b_* of a compact object is compact on quasicompact opens; this is not in the source (Ri^b_* does not preserve compact objects on all of Bun_G, since its support need not be finite). The missing statement is Theorem 7.1.4 of Hamann–Hansen–Scholze, arXiv:2409.07363 (2024): i_{b*} of a compact object has compact stalks. The claim is immediate when G is a torus or W is trivial.",
-        "by": "REV-HeckeStacksAndLocalShtukas"
+        "reason": "Confirmed the proof gap at FS IX.3.2 pp.326–327. Admissibility gives perfect pro-p invariants but does not by itself prove compactness of the smooth level colimit. HHS 1.3.1 p.6 and 7.1.4 pp.60–61 establish scoped torsion/Q̄_ℓ finite-length cases, not every compact ρ and every Λ.",
+        "by": "REV-HeckeStacksAndLocalShtukas~2"
       }
     },
     {
@@ -6751,8 +6775,8 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Read the two sentences after Theorem IX.3.1 on p. 324. Finite generation of each H^i_c does not follow from compactness alone: a compact object is a retract of a bounded complex of finite sums of c-Ind_{K_b}Z_ℓ, and its lower cohomology groups are kernels modulo images, finitely generated only if the Hecke algebras are coherent. The source has no statement on noetherianity of Z_ℓ-Hecke algebras (searched the text: none), and gives the argument only for Q̄_ℓ on p. 325. 'By descent' is Galois descent along the K/K′-torsor M_{K′}→M_K for an open normal pro-p K′, RΓ_c(M_K)=RΓ(K/K′,RΓ_c(M_{K′})), whose spectral sequence again needs subquotients of finitely generated representations to be finitely generated. The input is Dat–Helm–Kurinczuk–Moss, arXiv:2203.04929v2, Theorem 1.1 and Corollary 1.4 (read), which postdates the source.",
-        "by": "REV-HeckeStacksAndLocalShtukas"
+        "reason": "Confirmed the missing finite-generation input after FS IX.3.1 p.324. Compactness of a complex alone does not give finitely generated cohomology over an unspecified Hecke algebra. DHKM Theorem 1.1 and Corollary 1.4 pp.1–2 provide the requisite noetherian/pro-p Hecke statement.",
+        "by": "REV-HeckeStacksAndLocalShtukas~2"
       }
     },
     {
@@ -6772,8 +6796,8 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Checked on G=G_m, μ(z)=z, with c_1(E_b)=−κ(b) (p. 91) and O(n) attached to π^{−n} (p. 58). Page 324: b∈B(G,μ) means κ(b)=1, E_b=O(−1), and i^{b*}T_μ(j_!A)≠0 says that T_μ sends a sheaf in degree 0 to degree −1. Pages 337–338: T_{μ^{-1}}(A)|_{Bun^1} for A on the stratum of b=μ(π^{-1}), E_b=O(1), uses the modification 'from O to O(1)', and T_std takes 'minuscule modifications O(−1/n)⊂E' to E≅O^n; both say that T_μ raises the degree by 1. So p. 324 and pp. 337–338 disagree, independently of the conventions of [SW20]; with the convention of §IX.7 and Definition 24.1.1 of [SW20] the datum on p. 324 is b∈B(G,μ^{-1}) with modifications from E_1 to E_b. This is an inconsistency inside the source, not a choice of convention.",
-        "by": "REV-HeckeStacksAndLocalShtukas"
+        "reason": "Confirmed the reversed μ-bound in FS IX.3.1 p.324 using SW 24.1.1 p.225 and FS IX.7 pp.337–338. The trivial first bundle modified into E_b in position μ has κ(b)=−μ♯ and [b]∈B(G,μ⁻¹).",
+        "by": "REV-HeckeStacksAndLocalShtukas~2"
       }
     },
     {
@@ -6781,7 +6805,7 @@
       "source": "FS-geometrization",
       "kind": "error",
       "locator": "Chapter IX, §IX.3, displayed chain of isomorphisms on p. 325, second line",
-      "printed": "i^{1*}T_{μ^∨}(Ri^b_*D([ρ^∨])) ≅ i^{1*}T_{μ^∨}(D(i^b_![ρ^∨]))",
+      "printed": "The displayed duality chain substitutes the ordinary smooth dual on the b-stratum without its nonbasic dualizing character and cohomological shift.",
       "correction": "Exact for basic b. For general b: D(i^b_!B)=Ri^b_*RHom(B,i^{b!}Λ), and i^{b!}Λ is the dualizing complex of Bun_G^b, an invertible object in cohomological degree 2⟨2ρ,ν_b⟩. So in the last three lines [ρ^∨] has to be replaced by [ρ^∨]⊗i^{b!}Λ, a shift by 2⟨2ρ,ν_b⟩ and a twist by a character of G_b(Q_p).",
       "reason": "Bun_G^b is cohomologically smooth of ℓ-dimension −⟨2ρ,ν_b⟩ (Proposition IV.1.22), while Bun_G has ℓ-dimension 0 (Theorem IV.1.19) and dualizing complex isomorphic to Λ (footnote on p. 180); so i^{b!}Λ is not Λ unless ν_b is central, and a local Shimura datum allows non-basic b ∈ B(G,μ). Here D is RHom_lis(−,Λ), as in Theorem IX.2.2 which the next line uses, so the first line [ρ]=D([ρ^∨]) is smooth biduality and does not absorb the shift.",
       "affects": "nothing",
@@ -6793,8 +6817,8 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Recomputed: for the locally closed immersion i^b, RHom(i^b_!B,Λ)=Ri^b_*RHom(B,i^{b!}Λ); the dualizing complex of Bun_G is isomorphic to Λ (footnote 3, p. 180) and Bun_G^b is cohomologically smooth of ℓ-dimension −⟨2ρ,ν_b⟩ (Proposition IV.1.22, p. 113), so i^{b!}Λ is invertible in cohomological degree 2⟨2ρ,ν_b⟩ and is Λ only for basic b, where i^b is an open immersion. With D=RHom(−,Λ) (the duality of Theorem IX.2.2 used in the third line) the second line fails for non-basic b; with D on Bun_G^b the Verdier duality for its own dualizing complex the second line holds but the first, [ρ]≅D([ρ^∨]), fails by the same shift and twist. A local Shimura datum allows non-basic b. The finite-length conclusion drawn from the chain is unaffected.",
-        "by": "REV-HeckeStacksAndLocalShtukas"
+        "reason": "Confirmed the missing nonbasic dualizing term in FS p.325. HI Proposition 4.1 p.24 gives i_b^!Λ with modulus inverse and shift −2d_b; Verdier dual of a representation on the stratum carries that correction. Only basic d_b=0 has the untwisted formula.",
+        "by": "REV-HeckeStacksAndLocalShtukas~2"
       }
     },
     {
@@ -6814,8 +6838,8 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Read the proof on pp. 326–327: the sentences after the quoted one start from a point of Sht ('Sht parametrizes G-torsors over Y_S … This induces two vector bundles on X_S') and add 'As long as their images in X_S are disjoint, one can reverse this procedure', so the map constructed goes from Sht to M. Over a Frobenius-twisted diagonal a shtuka records a chain of two modifications at the common image point and M only their composite, bounded by the sum; the composite does not determine the chain (for GL_2, μ_1=(1,0), μ_2=(0,−1) the fibre of the convolution map over the trivial modification is P¹), so there is no natural map in the printed direction.",
-        "by": "REV-HeckeStacksAndLocalShtukas"
+        "reason": "Confirmed the morphism direction defect in FS IX.3.2 p.326. The lattice/gluing construction maps the shtuka to the modifications space, becoming an isomorphism off Frobenius-translated partial diagonals, not a map in the displayed reverse direction.",
+        "by": "REV-HeckeStacksAndLocalShtukas~2"
       }
     },
     {
@@ -6835,8 +6859,8 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Read p. 326, first line, and p. 31 on the page: the target is printed ∏_{i∈I}Spd Ĕ without the index, while the tower f_K and the period map π_K two lines earlier are over ∏_{i∈I}Spd Ĕ_i and the E_i are the fields of definition. The display of the proposition has the unbalanced bracket '[∗/G_b(E))]'. The intended reading is clear.",
-        "by": "REV-HeckeStacksAndLocalShtukas"
+        "reason": "Confirmed the base-index misprint on FS p.326 and I.7 p.31. Each leg lies over its own completed reflex field F̆_i, so the product base must carry the i index in every factor.",
+        "by": "REV-HeckeStacksAndLocalShtukas~2"
       }
     },
     {
@@ -6844,7 +6868,7 @@
       "source": "SW20-berkeley",
       "kind": "misprint",
       "locator": "Lecture 24, proof of Theorem 24.2.5, pp. 227 and 228 (two displays)",
-      "printed": "M^♦_{X,Q̆_p} → Sht_{(GL_r,b,μ)}",
+      "printed": "The two comparison displays name GL_r although the height and Tate-module rank in this theorem are n.",
       "correction": "M^♦_{X,Q̆_p} → Sht_{(GL_n,b,μ)}",
       "reason": "The theorem and the rest of its proof are for GL_n, n the height of the p-divisible group. No rank r is introduced; in the same proof (p. 227) r denotes a radius, in Y_{[r,∞)}(S) and Y_{(0,r]}(S).",
       "affects": "nothing",
@@ -6856,8 +6880,8 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Read pp. 227 and 228 on the page: both displays have Sht_{(GL_r,b,μ)}, while Theorem 24.2.5 and the rest of the proof have GL_n, n the height. In the same proof r denotes a radius ('over Y_{[r,∞)}(S) for r large. For r small'), so GL_r is a slip for GL_n.",
-        "by": "REV-HeckeStacksAndLocalShtukas"
+        "reason": "Confirmed the rank-symbol error in SW 24.2.5 pp.227–228. The p-divisible group and its Tate module have height/rank n in this theorem; the group is GL_n rather than GL_r.",
+        "by": "REV-HeckeStacksAndLocalShtukas~2"
       }
     },
     {
@@ -6877,8 +6901,8 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Read footnote 1 on p. 230 and p. 200 (appendix to Lecture 21): χ is the central cocharacter acting by scalars on V and μ_RZ=χμ^{-1}. Recomputed: κ(χ(p)b)=χ^♮+κ(b)=χ^♮−μ^♮=μ_RZ^♮ and ν_{χ(p)b}=χ+ν_b≤χ+(μ^{-1})^♦=μ_RZ^♦, so b∈B(G,μ^{-1}) is equivalent to b_RZ∈B(G,μ_RZ). For GL_n and μ=(1^d,0^{n−d}): κ(b_RZ)=n−d, the degree of μ_RZ=(0^d,1^{n−d}); μ_RZ^{-1} has degree d−n.",
-        "by": "REV-HeckeStacksAndLocalShtukas"
+        "reason": "Confirmed the inversion error in SW 24.3 footnote p.230. Substituting b_RZ=χ(p)b and μ_RZ=χμ⁻¹ into κ(b)=−μ♯ yields κ(b_RZ)=μ_RZ♯, hence B(G,μ_RZ), not its inverse.",
+        "by": "REV-HeckeStacksAndLocalShtukas~2"
       }
     },
     {
@@ -6898,8 +6922,8 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Read p. 231 on the page: the corollary is an isomorphism 'of smooth rigid spaces over Ĕ', both sides are embedded in products of spaces over Ĕ, and the proof begins 'It is enough to give an isomorphism of their diamonds, over Spd E'. Full faithfulness of X↦X^♦ is applied to spaces over Ĕ, so the diamonds are compared over Spd Ĕ.",
-        "by": "REV-HeckeStacksAndLocalShtukas"
+        "reason": "Confirmed the base omission in SW 24.3.5 p.231 against 24.3.4 p.230. The framed Rapoport–Zink comparison is over the completed unramified reflex-field base, consistently with the period construction.",
+        "by": "REV-HeckeStacksAndLocalShtukas~2"
       }
     },
     {
@@ -6918,8 +6942,8 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Read on the page image of p. 331: 'by the compatibility of the geometric Satake equivalence with the map G → G′ inducing isomorphisms of adjoint groups'. Theorem IX.6.1 (p. 330) is for G′ → G and the same sentence has Gr^I_{G′} → Gr^I_G. Quotation literal; misprint, affects nothing; the register has it as PAPER-FARGUES-SCHOLZE-21/E70. The mistake is already in the register of source issues as PAPER-FARGUES-SCHOLZE-21/E70; it is listed here because nodes of this packet cite the passage and use the corrected statement.",
-        "by": "REV-HeckeStacksAndLocalShtukas"
+        "reason": "Confirmed the reversed group-map label in FS IX.6.1 p.331. The theorem starts with η:G′→G on p.330 and uses the resulting pullback of bundles and restriction along Ĝ→Ĝ′.",
+        "by": "REV-HeckeStacksAndLocalShtukas~2"
       }
     },
     {
@@ -6927,7 +6951,7 @@
       "source": "FS-geometrization",
       "kind": "misprint",
       "locator": "Chapter IX, §IX.6.1, Theorem IX.6.1, p. 330, the diagram",
-      "printed": "Z^spec(Ĝ′, Λ) → End(π*A) over Z^spec(Ĝ, Λ) → End(A)",
+      "printed": "The spectral-centre diagram is labelled by Ĝ and Ĝ′ where the theorem indexes the centres by G and G′.",
       "correction": "Z^spec(G′, Λ) → End(π*A) over Z^spec(G, Λ) → End(A)",
       "reason": "Definition IX.0.2(iii) indexes the spectral Bernstein centre by the group, as do IX.5.2, IX.6.2 and IX.6.3.",
       "affects": "nothing",
@@ -6938,8 +6962,8 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Read on the page image of p. 330: the left column of the diagram is 𝒵^spec(Ĝ′,Λ) over 𝒵^spec(Ĝ,Λ), with hats; Definition IX.0.2(iii) (p. 318) and IX.5.2, IX.6.2, IX.6.3 write 𝒵^spec(G,Λ). Misprint of notation, affects nothing; register entry PAPER-FARGUES-SCHOLZE-21/E122. The mistake is already in the register of source issues as PAPER-FARGUES-SCHOLZE-21/E122; it is listed here because nodes of this packet cite the passage and use the corrected statement.",
-        "by": "REV-HeckeStacksAndLocalShtukas"
+        "reason": "Confirmed the group-versus-dual-group symbols in the centre diagram of FS IX.6.1 p.330. Z^spec here is indexed by G and G′, whose parameters already use their dual groups.",
+        "by": "REV-HeckeStacksAndLocalShtukas~2"
       }
     },
     {
@@ -6958,8 +6982,8 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Read on the page image of p. 330: 'and elements γ_i ∈ Γ as usual'. In Chapters VIII–IX the letter Γ occurs otherwise only in π_1(T)_Γ (p. 333); excursion data have γ_i ∈ W (Definition VIII.4.2) or γ_i ∈ W_E (IX.0.4, IX.4.1). Misprint, affects nothing. Not in the register (its entries for IX.6.1 are E70 and E122 only).",
-        "by": "REV-HeckeStacksAndLocalShtukas"
+        "reason": "Confirmed the undefined Γ index in the proof of FS IX.6.1 p.330. Excursion elements are indexed by Weil elements γ_i∈W_E in the construction, not an otherwise unidentified Γ.",
+        "by": "REV-HeckeStacksAndLocalShtukas~2"
       }
     },
     {
@@ -6968,7 +6992,7 @@
       "kind": "misprint",
       "locator": "Chapter IX, §IX.6.1, proof of Theorem IX.6.1, p. 331, sentence after the displayed computation",
       "printed": "To identify π_{H♮}S_{V′}, the source expresses π_H as a composite.",
-      "correction": "Here, to identify π_{H♮}S′_{V′}, we write π_H as the composite",
+      "correction": "The object under π_{H♮} is S′_{V′}, the solid Satake kernel; restore its prime in this sentence.",
       "reason": "The object identified is the kernel S′_{V′} = D(S_{V′})^∨ of the two displays (π_{H♮}S′_{V′} ≅ h_1*π♮Λ ⊗ S′_V); the prime is dropped in this one place.",
       "affects": "nothing",
       "known": "new",
@@ -6978,8 +7002,8 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Read on an enlarged image of p. 331: 'Here, to identify π_{H♮}𝒮_{V′}, we write π_H as the composite', with no prime on 𝒮, while the four-line display above and the last display of the proof have 𝒮′_{V′}. The next sentence, about pushforward of 𝒮_{V′}, is correctly unprimed. Misprint, affects nothing; not in the register.",
-        "by": "REV-HeckeStacksAndLocalShtukas"
+        "reason": "Confirmed the dropped kernel prime in FS IX.6.1 p.331. The surrounding equations concern π_H♮S′_{V′}, where S′ is the dualized solid kernel, rather than the original Satake sheaf S.",
+        "by": "REV-HeckeStacksAndLocalShtukas~2"
       }
     },
     {
@@ -6987,7 +7011,7 @@
       "source": "FS-geometrization",
       "kind": "misprint",
       "locator": "Chapter IX, §IX.6.2, Proposition IX.6.2, p. 331, top row of the diagram",
-      "printed": "Z^spec(G_1, Λ) ⊗_Λ Z^spec(G_2, Λ) → Z^geom(G_1, Λ) ⊗_Λ Z^geom(G_1, Λ)",
+      "printed": "The product-centre diagram repeats G₁ in both geometric-centre factors, although its spectral factors are indexed by G₁ and G₂.",
       "correction": "Z^spec(G_1, Λ) ⊗_Λ Z^spec(G_2, Λ) → Z^geom(G_1, Λ) ⊗_Λ Z^geom(G_2, Λ)",
       "reason": "The map is the tensor product of the maps for G_1 and G_2.",
       "affects": "nothing",
@@ -6998,8 +7022,8 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Read on the page image of p. 331: the top row ends in 𝒵^geom(G_1,Λ) ⊗_Λ 𝒵^geom(G_1,Λ). Misprint for G_2 in the second factor; register entry PAPER-FARGUES-SCHOLZE-21/E66. The mistake is already in the register of source issues as PAPER-FARGUES-SCHOLZE-21/E66; it is listed here because nodes of this packet cite the passage and use the corrected statement.",
-        "by": "REV-HeckeStacksAndLocalShtukas"
+        "reason": "Confirmed the repeated G₁ factor in FS IX.6.2 p.331. The product map has one geometric-centre factor for G₁ and the other for G₂.",
+        "by": "REV-HeckeStacksAndLocalShtukas~2"
       }
     },
     {
@@ -7018,8 +7042,8 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Read on the page image of p. 331: 'A_1, A_2 ∈ D_lis(Bun_G, L) are Schur-irreducible'; A_1 ⊠ A_2 lives on Bun_{G_1}×Bun_{G_2}, so A_i ∈ D_lis(Bun_{G_i},L). Misprint; register entry PAPER-FARGUES-SCHOLZE-21/E67. The mistake is already in the register of source issues as PAPER-FARGUES-SCHOLZE-21/E67; it is listed here because nodes of this packet cite the passage and use the corrected statement.",
-        "by": "REV-HeckeStacksAndLocalShtukas"
+        "reason": "Confirmed the category labels in FS IX.6.2 p.331. A₁ and A₂ lie on Bun_{G₁} and Bun_{G₂}, respectively; only their exterior product lies on Bun_{G₁×G₂}.",
+        "by": "REV-HeckeStacksAndLocalShtukas~2"
       }
     },
     {
@@ -7038,8 +7062,8 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Read on the page image of p. 332 and recomputed: for G′ = G_m and E′/E quadratic, W′ acts trivially on Ĝ = G_m², so for F_n → W′ one has Z¹(F_n,Ĝ)⫽Ĝ = G_m^{2n} and Z¹(F_n,Ĝ′) = G_m^n; the middle colimit is the group algebra of W′^ab × W′^ab and the right one that of W′^ab, so neither printed isomorphism holds, while Exc(W,Ĝ) ≅ Exc(W′,Ĝ′) itself holds by Shapiro. The example does not need E′/E unramified. Error in the proof only; register entry PAPER-FARGUES-SCHOLZE-21/E121. The mistake is already in the register of source issues as PAPER-FARGUES-SCHOLZE-21/E121; it is listed here because nodes of this packet cite the passage and use the corrected statement.",
-        "by": "REV-HeckeStacksAndLocalShtukas"
+        "reason": "Confirmed the cofinality defect in FS IX.6.3 p.332. Restricting free-group maps to W′ omits maps whose image meets W\\W′. Shapiro instead pulls a free group back along the finite-index subgroup and requires the cofinality argument for that induced diagram.",
+        "by": "REV-HeckeStacksAndLocalShtukas~2"
       }
     },
     {
@@ -7058,8 +7082,8 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Read on the page image of p. 332: after the construction of V the proof says 'Geometrically, this procedure amounts to the commutative diagram … and taking ψ_* on sheaves' and ends 'Now the claim follows from a diagram chase.' The identity ψ_*S_{V′} ≅ S_V is asserted. A search of the whole text finds 'Weil restriction' and Res_{E′|E} only on pp. 36, 319 and 331–333, so Chapter VI contains no such compatibility. The comparison of normalisations is a real ingredient: it holds for √q′ = (√q)^f and fails for the other square root when ⟨2ρ,μ⟩ is odd. Gap, affects the proof; not in the register.",
-        "by": "REV-HeckeStacksAndLocalShtukas"
+        "reason": "Confirmed the Satake-compatibility proof gap in FS IX.6.3 p.332. Identification of ψ_*S_{V′} with the induced representation’s sheaf needs the Weil-restriction Grassmannian decomposition, fibre functor, fusion and √q/√q′ normalization. A commutative diagram alone proves none of these inputs; they are requested from GS3/GS4.",
+        "by": "REV-HeckeStacksAndLocalShtukas~2"
       }
     },
     {
@@ -7067,7 +7091,7 @@
       "source": "FS-geometrization",
       "kind": "misprint",
       "locator": "Chapter IX, §IX.7.1, p. 334, the formula for Z¹(W_E, Ĝ_b) → Z¹(W_E, Ĝ)",
-      "printed": "W_E → Ĝ(A) : w ↦ (2ρ_Ĝ − 2ρ_{Ĝ_b})(√q)^{|w|} φ(w)",
+      "printed": "The displayed parameter twist evaluates the positive-root sum of Ĝ at √q, treating that character as a dual-torus cocharacter.",
       "correction": "w ↦ (2ρ̂_G − 2ρ̂_{G_b})(√q)^{|w|} φ(w), with 2ρ̂_G ∈ X^*(T) = X_*(T̂) the sum of the positive roots of G for a Borel pair (B,T) such that ν_b factors through T and is anti-dominant with respect to B (so B lies in the parabolic of the Harder–Narasimhan filtration of E_b); this is the form in which the formula is stated in Hamann–Imai, Dualizing complexes on the moduli of parabolic bundles, arXiv:2401.06342v4, Lemma 4.7. With ν_b dominant, as in §III.5.1.1, the same formula has the inverse twist.",
       "reason": "Half the sum of the positive roots of Ĝ is a character of T̂ and cannot be evaluated at √q; the formula needs the cocharacter of T̂ given by the positive roots of G, which is central in Ĝ_b.",
       "affects": "nothing",
@@ -7078,8 +7102,8 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Read on the page image of p. 334: 'w ↦ (2ρ_Ĝ − 2ρ_{Ĝ_b})(√q)^{|w|}φ(w)'. As printed, 2ρ_Ĝ is a sum of roots of Ĝ, a character of the dual torus, and cannot be evaluated at √q; the cocharacter meant is the sum of the positive roots of G. Misprint of notation; register entry PAPER-FARGUES-SCHOLZE-21/E124. Neither the source nor the correction said which positive system is meant, and the printed proof of IX.7.2 does not decide it (the orientation of P is inconsistent, E44, and neither the orientation of the constant term nor the character relating A_N and B_N is tracked, see the two entries added for pp. 336–337). Hamann–Imai, Dualizing complexes on the moduli of parabolic bundles, arXiv:2401.06342v4, Lemma 4.7, states the formula for a Borel pair with ν_b anti-dominant, that is, for a Borel contained in the Harder–Narasimhan parabolic of E_b; the correction is completed accordingly. The mistake is already in the register of source issues as PAPER-FARGUES-SCHOLZE-21/E124; it is listed here because nodes of this packet cite the passage and use the corrected statement.",
-        "by": "REV-HeckeStacksAndLocalShtukas"
+        "reason": "Confirmed the character/cocharacter error in FS IX.7.1 p.334. The evaluated dual-torus cocharacter is the sum of positive roots of G, not the sum of positive roots of Ĝ. HI Lemma 4.7 p.26 uses the former with antidominant ν_b; choosing dominant ν_b inverts the twist.",
+        "by": "REV-HeckeStacksAndLocalShtukas~2"
       }
     },
     {
@@ -7099,8 +7123,8 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Recomputed for GL_2 with the conventions of the source (𝒪(n) is the image of (Ĕ, π^{−n}σ), p. 58; the dynamical parabolic has the non-negative weights: Example VI.3.4, p. 204, 'Suppose λ ∈ X_*(T) is regular dominant. Then P_λ = B'). If P is the stabiliser of the Harder–Narasimhan filtration of E_b = 𝒪(d_1)⊕𝒪(d_2), d_1 > d_2, and μ = (m_1,m_2) with m_1 > m_2 has dynamical parabolic P, then bμ(π^N) gives 𝒪(d_1−Nm_1)⊕𝒪(d_2−Nm_2), which becomes less unstable and then changes parabolic, while bμ(π^{−N}) gives the increasingly unstable sequence with the same P, and is the pushout of 𝒪 → 𝒪(1) along μ^N as on p. 336 and as b = μ(π^{−1}) in IX.7.3. With P_b as in III.5.1.1 and Example V.3.4 (weights of ν_b positive, B ⊂ P_b) the printed b_N is increasingly unstable, but then the Harder–Narasimhan reduction is to the opposite parabolic and Bun_P^{b_N} is the chart of V.3.4, not the stratum. So the passage is inconsistent under both readings of P, and both corrections of the entry are valid. The second (P ⊃ B with ν_b dominant, the stratum and Hck^I_P formed with the opposite parabolic) leaves p. 335 as printed: in the normalisation of p. 338 (std corresponds to E_1 ⊂ E_2) the bundle E_{bμ(π^N)} has position μ^N relative to E_b, as the choice of V requires. The first (P the Harder–Narasimhan parabolic, b_N = bμ(π^{−N})) matches the positive system with ν_b anti-dominant for which Hamann–Imai, Dualizing complexes on the moduli of parabolic bundles, arXiv:2401.06342v4, Lemma 4.7, states the twist of §IX.7.1. Misprint, affects nothing; not in the register.",
-        "by": "REV-HeckeStacksAndLocalShtukas"
+        "reason": "Confirmed the incompatible parabolic/sign conventions in FS IX.7.2 pp.335–336 against III.5 p.105. For O⊕O(1), the Harder–Narasimhan subline uses the opposite Borel. With that parabolic, bμ(π^{−N}) is the increasingly unstable family; bμ(π^N) reverses it.",
+        "by": "REV-HeckeStacksAndLocalShtukas~2"
       }
     },
     {
@@ -7109,7 +7133,7 @@
       "kind": "misprint",
       "locator": "Chapter VIII, §VIII.4, first line of p. 291",
       "printed": "The source defines End(C)^{BW_E^I} as the category whose objects are F ∈ End(C) with a group homomorphism W^I → Aut(F).",
-      "correction": "End(C)^{BW^I} is the category of F ∈ End(C) equipped with a map of groups W^I → Aut(F)",
+      "correction": "Use the discrete-action notation End(C)^{BW^I}: its objects carry W^I-actions. The subscript E is extraneous here.",
       "reason": "The section works with a discrete group W and the displayed functor has target End(C)^{BW^I}.",
       "affects": "nothing",
       "known": "PAPER-FARGUES-SCHOLZE-21/E117",
@@ -7119,8 +7143,8 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Read on the page image of p. 291: 'End(𝒞)^{BW_E^I} is the category of F ∈ End(𝒞) equipped with a map of groups W^I → Aut(F)', while the displayed functor at the foot of p. 290 has target End(𝒞)^{BW^I} and the section works with a discrete group W. Misprint; register entry PAPER-FARGUES-SCHOLZE-21/E117. The mistake is already in the register of source issues as PAPER-FARGUES-SCHOLZE-21/E117; it is listed here because nodes of this packet cite the passage and use the corrected statement.",
-        "by": "REV-HeckeStacksAndLocalShtukas"
+        "reason": "Confirmed the condensed/discrete group notation defect in FS VIII.4 pp.290–291. This construction deliberately works with a discrete group W; its action category is End(C)^{BW^I}, consistent with the actual homomorphism W^I→Aut(F).",
+        "by": "REV-HeckeStacksAndLocalShtukas~2"
       }
     },
     {
@@ -7139,8 +7163,8 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Checked on p. 220 of the print-ready file: the functor described (\"meromorphic and bounded by µ\") is the Schubert variety Gr_{G,Spd E,≤µ}, and the display of the period morphism that follows has ≤µ; the subscript µ alone denotes the open cell (Proposition 20.2.3). A slip of notation.",
-        "by": "REV-HeckeStacksAndLocalShtukas"
+        "reason": "Confirmed the missing ≤ in SW 23.3 p.220. Meromorphy bounded by μ lands in the closed Schubert variety; for GL₂, μ=(2,0), b=p⁻¹1₂, the admissible position (1,1) lies on its boundary rather than its open μ-cell.",
+        "by": "REV-HeckeStacksAndLocalShtukas~2"
       }
     },
     {
@@ -7160,8 +7184,8 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Checked on p. 10 of arXiv v2. BL_b(x) is a modification of E_b, so its Kottwitz invariant is κ_G(b) plus a term depending only on the type: the coefficient of κ_G(b) is +1 under every convention for µ, and with the convention of the paper (the trivial bundle occurs when κ_G(b) = µ^♮) the invariant is κ_G(b) − µ^♮. The printed µ^♮ − κ_G(b) has the opposite sign; the two agree exactly when 2(κ_G(b) − µ^♮) = 0, in particular under the hypothesis b ∈ B(G,µ) of Theorem 3.1.",
-        "by": "REV-HeckeStacksAndLocalShtukas"
+        "reason": "Confirmed the reversed κ formula in GL p.10. Under that paper’s inverse Grassmannian orientation the modified bundle has κ(b)−μ♮, not μ♮−κ(b). The G_m test fixes the sign, and PGL₃ detects it even modulo the centre; the case κ(b)=μ♮ remains unaffected.",
+        "by": "REV-HeckeStacksAndLocalShtukas~2"
       }
     },
     {
@@ -7170,7 +7194,7 @@
       "kind": "misprint",
       "locator": "Lecture 24, §24.3, paragraph before Definition 24.3.2, p. 230 (print-ready copy of 27 March 2020)",
       "printed": "The source requires definition over the reflex field E and satisfaction of the conditions in Section 21.4.",
-      "correction": "satisfying the conditions of the appendix to Lecture 21 (p. 200, after Remark 21.6.7): the weights of μ on V⊗Q̄_p are only 0 and 1, and in the PEL case the composite of μ and c: G → G_m is the identity.",
+      "correction": "Refer to the appendix to Lecture 21, p.200: μ has only weights 0 and 1 on V⊗Q̄_p, and in the PEL case c∘μ is the identity cocharacter.",
       "reason": "Section 21.4 (Local models, pp. 194–196) imposes no conditions on μ beyond minuscule. The two conditions on μ that translate [RZ96, Definition 3.18] are stated on p. 200, in the appendix to Lecture 21, whose items are numbered 21.6.x; the paragraph at the start of §24.3 itself refers to the appendix to Lecture 21 for the data.",
       "affects": "nothing",
       "known": "new",
@@ -7181,8 +7205,8 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Checked on p. 230 and against Lecture 21: §21.4 (local models) imposes no condition on µ beyond minuscule; the two conditions meant are those of the appendix to Lecture 21. A wrong cross-reference.",
-        "by": "REV-HeckeStacksAndLocalShtukas"
+        "reason": "Confirmed the wrong internal locator in SW 24.3 p.230. The required weights 0,1 and PEL similitude condition are in the appendix to Lecture 21 p.200; §21.4 discusses local models and does not state those conditions.",
+        "by": "REV-HeckeStacksAndLocalShtukas~2"
       }
     },
     {
@@ -7202,8 +7226,8 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Checked on p. 328. The proof shows that the class of V with P acting trivially on T_V(A) is closed under tensor products; exactness adds finite sums, summands and cones. For an exact sequence 0 → V′ → V → V″ → 0 with V in the class, averaging over the finite p-group through which P acts only gives that the non-invariant parts of T_{V′}(A) and T_{V″}(A)[−1] are isomorphic. With Z_ℓ-coefficients a representation whose tensor powers have every representation as a subquotient need not generate in this sense: for GL_2 and ℓ = 2 the determinant is not in the thick subcategory generated by the V^{⊗a}⊗(V^∨)^{⊗b} with a − b = 2, since these restrict to free modules over the distribution algebra F_2[x]/x² of the Frobenius kernel of the unipotent radical and the trivial module is not perfect there. The step is asserted without the argument it needs.",
-        "by": "REV-HeckeStacksAndLocalShtukas"
+        "reason": "Confirmed a gap in the integral tensor-generation step of FS IX.5.1 p.328. For GL₂ over F₂, the standard and its dual restrict freely to Dist(α₂)=F₂[t]/t². In central weight 2 their positive mixed tensors remain perfect, while det restricts to the nonperfect trivial module. Thick closure therefore cannot replace subquotient generation; characteristic-zero semisimplicity does not justify the integral step.",
+        "by": "REV-HeckeStacksAndLocalShtukas~2"
       }
     },
     {
@@ -7224,8 +7248,8 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Recomputed independently by two readers of the review. Under the identification of the strata with D(G_b(E),Λ) by pullback (FS V.2.2, Definition IX.7.1), A′_N = π^*σ gives B_N = Rπ_!π^*σ = σ ⊗ κ[2d_b], where κ is the character by which G_b(E) acts on the compactly supported cohomology of the classifying stack of the unipotent part of Aut(E_{b_N}): for GL_2 and E_b = O ⊕ O(1) that part is BC(O(1)), a perfectoid open unit disc on which a uniformiser of one factor of E^× × E^× acts by the Frobenius t ↦ t^q, hence by q on H²_c = Λ(−1), and a uniformiser of the other factor by q⁻¹. κ is the inverse modulus character of the Harder–Narasimhan parabolic, in agreement with Hamann–Imai, Dualizing complexes on the moduli of parabolic bundles, arXiv:2401.06342v4, Proposition 4.1. The proof never mentions it, and neither the remark that excursion operators only see the component deg_P = 0 (which disposes of the shift only) nor the choice of identifications removes it. The statement of the theorem is not affected: with the constant term taken in the orientation of the Hecke operators of pp. 337–338, the kernel gives the inverse twist (√q)^{−|w|} and κ contributes q^{|w|}, and the product is the twist (2ρ̂_G − 2ρ̂_M)(√q)^{|w|} of §IX.7.1 for the Harder–Narasimhan parabolic (the positive system for which ν_b is anti-dominant, as in Hamann–Imai, Lemma 4.7); the same follows directly from the pullback form of the diagram. Whether the sentence on p. 337 about CT_P(S_V) is itself wrong depends on which parabolic and which orientation of the local Hecke stack are meant, which the text does not fix; it is not recorded as a separate finding.",
-        "by": "REV-HeckeStacksAndLocalShtukas"
+        "reason": "Confirmed the missing modulus-character calculation in FS IX.7.2 pp.336–337, not a counterexample to the theorem. HI 4.1 p.24, 4.4 p.25 and 4.7 p.26 supply Rπ_!Λ’s character and shift. They combine with the constant-term half twist to the claimed twisted embedding; an untwisted identification of stratum representations would miss that factor.",
+        "by": "REV-HeckeStacksAndLocalShtukas~2"
       }
     }
   ],
@@ -7235,318 +7259,326 @@
       "url": "https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf",
       "read": "2026-10-07",
       "sha256": "9ab9efbd0df251bfa3b610d1d1d88a8dfb1bdf7c397bd04f4c277280d98ae905",
-      "citation": "Fargues–Scholze, Geometrization of the local Langlands correspondence: author-hosted 356-page file, the text of arXiv:2102.13459v4 (27 November 2024). The published version, Astérisque 466 (2026), was not read; every finding about this source is scoped to the author copy."
+      "citation": "Fargues–Scholze, Geometrization of the local Langlands correspondence: author-hosted 356-page file, the text of arXiv:2102.13459v4 (27 November 2024). The published version, Astérisque 466 (2026), was not read; every finding about this source is scoped to the author copy.",
+      "independentCheck": "REV-HeckeStacksAndLocalShtukas~2, 2026-10-08; SHA-256 reproduced."
     },
     {
       "kind": "author copy",
       "url": "https://people.mpim-bonn.mpg.de/scholze/Berkeley.pdf",
       "read": "2026-10-07",
       "sha256": "225505171ef809aa0070c023c881ff1da844923775f2d631474c0b42eea4bffc",
-      "citation": "Scholze–Weinstein, Berkeley Lectures on p-adic Geometry: print-ready file dated 27 March 2020 (printed page = PDF page − 10). The published volume (Annals of Mathematics Studies 207, 2020) was not collated; every finding about this source is scoped to the print-ready file."
+      "citation": "Scholze–Weinstein, Berkeley Lectures on p-adic Geometry: print-ready file dated 27 March 2020 (printed page = PDF page − 10). The published volume (Annals of Mathematics Studies 207, 2020) was not collated; every finding about this source is scoped to the print-ready file.",
+      "independentCheck": "REV-HeckeStacksAndLocalShtukas~2, 2026-10-08; SHA-256 reproduced."
     },
     {
       "kind": "preprint",
       "url": "https://arxiv.org/pdf/2308.11064v2",
       "read": "2026-10-07",
       "sha256": "c133b06bec1209a04f84d1c2984b78ce2242ba85fc1b72cf5a662002685cab8a",
-      "citation": "Howe–Klevdal, Admissible pairs and p-adic Hodge structures II, arXiv:2308.11064v2 (28 February 2025). The published article (Inventiones mathematicae 244 (2026)) was not read."
+      "citation": "Howe–Klevdal, Admissible pairs and p-adic Hodge structures II, arXiv:2308.11064v2 (28 February 2025). The published article (Inventiones mathematicae 244 (2026)) was not read.",
+      "independentCheck": "REV-HeckeStacksAndLocalShtukas~2, 2026-10-08; SHA-256 reproduced."
     },
     {
       "kind": "preprint",
       "url": "https://arxiv.org/pdf/2210.08625v2",
       "read": "2026-10-07",
       "sha256": "24342df8b2c221481c50147299cb63a4b5b60c45d808e4c50e8c89daf4f66946",
-      "citation": "Gleason–Lourenço, On the connectedness of p-adic period domains, arXiv:2210.08625v2 (28 December 2022)."
+      "citation": "Gleason–Lourenço, On the connectedness of p-adic period domains, arXiv:2210.08625v2 (28 December 2022).",
+      "independentCheck": "REV-HeckeStacksAndLocalShtukas~2, 2026-10-08; SHA-256 reproduced."
     },
     {
       "kind": "published",
       "url": "https://link.springer.com/content/pdf/10.1007/s00222-025-01386-1.pdf",
       "read": "2026-10-07",
       "sha256": "c40fe1fc5e0941812cf3aca5ba77c471ee49122c63ed7b0d864d322136031485",
-      "citation": "Gleason–Lim–Xu, The connected components of affine Deligne–Lusztig varieties, Inventiones mathematicae 243 (2026), 805–861."
+      "citation": "Gleason–Lim–Xu, The connected components of affine Deligne–Lusztig varieties, Inventiones mathematicae 243 (2026), 805–861.",
+      "independentCheck": "REV-HeckeStacksAndLocalShtukas~2, 2026-10-08; SHA-256 reproduced."
     },
     {
       "kind": "preprint",
       "url": "https://arxiv.org/pdf/2203.04929v2",
       "read": "2026-10-08",
       "sha256": "921286bd623e9c1d9d954ea7e9a461ebb837b6c4446ab4c69a3fcb619cdf803b",
-      "citation": "Dat–Helm–Kurinczuk–Moss, Finiteness for Hecke algebras of p-adic groups, arXiv:2203.04929v2 (22 April 2022). The published article (J. Amer. Math. Soc. 37 (2024)) was not read."
+      "citation": "Dat–Helm–Kurinczuk–Moss, Finiteness for Hecke algebras of p-adic groups, arXiv:2203.04929v2 (22 April 2022). The published article (J. Amer. Math. Soc. 37 (2024)) was not read.",
+      "independentCheck": "REV-HeckeStacksAndLocalShtukas~2, 2026-10-08; SHA-256 reproduced."
     },
     {
       "kind": "preprint",
       "url": "https://arxiv.org/pdf/2409.07363v1",
       "read": "2026-10-08",
       "sha256": "490a28590d6870119cfa0e57966e59a4e80d52ee744d3c0cf1c88181a2132e51",
-      "citation": "Hamann–Hansen–Scholze, Geometric Eisenstein series I: finiteness theorems, arXiv:2409.07363v1 (11 September 2024)."
+      "citation": "Hamann–Hansen–Scholze, Geometric Eisenstein series I: finiteness theorems, arXiv:2409.07363v1 (11 September 2024).",
+      "independentCheck": "REV-HeckeStacksAndLocalShtukas~2, 2026-10-08; SHA-256 reproduced."
     },
     {
       "kind": "preprint",
       "url": "https://arxiv.org/pdf/2401.06342v4",
       "read": "2026-10-08",
       "sha256": "216227b4f53c46d7365d990ee2ba4039532b0f159c9b202f3667a1cc286449b3",
-      "citation": "Hamann–Imai, Dualizing complexes on the moduli of parabolic bundles, arXiv:2401.06342v4 (7 May 2025)."
+      "citation": "Hamann–Imai, Dualizing complexes on the moduli of parabolic bundles, arXiv:2401.06342v4 (7 May 2025).",
+      "independentCheck": "REV-HeckeStacksAndLocalShtukas~2, 2026-10-08; SHA-256 reproduced."
     }
   ],
   "review": {
-    "status": "needs_changes",
-    "reviewer": "independent-review-REV-HeckeStacksAndLocalShtukas",
-    "date": "2026-10-07",
-    "notes": "Independent review of the complete target-level pass. Every node was read against the five sources (all re-fetched; hashes equal to the recorded ones) by one reader, then, after correction, by a second reader who was not told the first findings; suppliers were audited twice and again after several supplier packets changed on the main branch; a last check read the result as a whole. All 46 submitted nodes were corrected (statements made exact with the sources' hypotheses, placeholder excerpts replaced by literal ones, proof steps rewritten, prerequisites repointed) and 5 nodes were added for stage targets that had none. All 46 submitted unit tests, which were functor laws of a prototype, were replaced by 94 mathematical tests, and the API outlines grew from 47 to 215 items. Of 24 baseline declarations 16 were cited by no node and were removed; LeftRigidCategory was replaced by ExactPairing; every remaining declaration was read at the pinned commits. 135 cross-roadmap prerequisites (71 at stage level) became 379, of which 41 are at stage level with 22 requests rewritten as statements; 8 gaps are recorded. 46 mistakes in the sources are recorded with verdicts (32 new), among them a missing pro-p hypothesis in Fargues–Scholze IX.3.2, the sign in III.3.6(ii), and the σ-conjugation formula of Scholze–Weinstein. The suggested Lean file was rewritten and elaborates at the pinned Mathlib. The verdict is needs_changes for one reason: the roadmap document, which a review may not edit, still states what the review corrected, so a revision round has to regenerate it from this packet. The report lists the questions for the orchestrator.",
+    "status": "accepted",
+    "reviewer": "independent-review-REV-HeckeStacksAndLocalShtukas~2",
+    "date": "2026-10-08",
+    "notes": "Independent review of revision round 2, including all 51 nodes, 215 API items, 94 mathematical tests, 22 planets, eight pinned baseline declarations, all direct supplier statements, 22 requests, the library audit, all 46 sourceIssues and seven assigned red-team findings. Public PDF hashes reproduce all eight recorded versions. Corrected the missing nonempty-locus hypothesis for failure of étaleness; routed the integral highest-weight extension to ReductiveGroupsIntegralRepresentationsPartII through its registered parent; replaced five contradictory BG2 signed imports by three references to a precise correction request and recorded a ninth gap; corrected the audit description of topological coefficient rings. Reader and Lean comments synchronized. The prior review’s reader mismatch is resolved. No node or baseline declaration was added or removed. Accepted as a complete target-level pass with five planned stages and zero closed stages, not as a gap-free plan or a formalization. All implementations remain unchecked. The suggested file elaborated at the pinned Mathlib with only placeholder-proof warnings.",
     "checked": [
       {
         "nodeId": "HeckeStacksAndLocalShtukas:HS0/global-hecke-correspondence",
-        "verdict": "corrected",
-        "note": "Checked against FS I.2 (p. 16), III.3 (p. 97), IX.0 (p. 317), IX.2 (pp. 321–322) and VI.9 (p. 226). The maps and the base field agree with the source; statement, API, tests and excerpts rewritten, and the repetition maps made exact. All parts, tests and excerpts checked against FS pp. 16, 97, 190–194, 226–229, 317–322; only the meromorphy condition was made local on S."
+        "verdict": "verified",
+        "note": "FS I.2 p.16, VI.1 pp.190–194, VI.9 pp.226–229 and IX.2 pp.321–322: verified the finite-leg prestack, local meromorphy, the target including legs, and repetition along arbitrary maps. The empty-leg, torus and determinant tests distinguish the conventions."
       },
       {
         "nodeId": "HeckeStacksAndLocalShtukas:HS0/descent-and-bounded-fibres",
-        "verdict": "corrected",
-        "note": "Checked against FS VI.1.7, VI.2.3–VI.2.7, VI.8.4, II.1.21 and Scholze–Weinstein 19.5.3. The node stated no properness of the bounded global maps; it now states and proves descent, the Grassmannian fibres of p_2 and properness of p_1, p_2 on bounded substacks. Several supplier prerequisites need re-pointing. Derivations of (b)–(d) checked; proper is meant and holds in the representable sense, by the étale-local product structure. Part (e) restated as a mathematical statement with a proof step; step 3 adjusted to the corrected non-split bounds."
+        "verdict": "verified",
+        "note": "FS VI.1.7, VI.2.3–VI.2.7 pp.193–201 and VI.8.4 pp.224–225, with SW 19.5.3 pp.180–181: verified descent and étale-local bounded Grassmannian fibres. Properness is restricted to bounded representable maps; minuscule and non-minuscule examples have the stated dimensions."
       },
       {
         "nodeId": "HeckeStacksAndLocalShtukas:HS0/chains-and-composition",
-        "verdict": "corrected",
-        "note": "Checked against FS VI.8, VI.9 (p. 229) and Scholze–Weinstein 20.1.4, 20.4.2, 20.4.5. The cited Definition 23.4.1 is not about chains; statement, proof, API and tests rewritten, and the proof no longer leans on a non-prerequisite. Statement, steps and all four tests recomputed against FS VI.8–VI.9 and SW Lecture 20; one API item completed (order of the legs in the comparison with SW 20.4.2)."
+        "verdict": "verified",
+        "note": "SW 20.3–20.4 pp.183–189 and FS VI.9–VI.12 pp.226–237: verified ordered chains, disjoint-leg composition, collision convolution and associativity. The middle bundle remains necessary at a collision."
       },
       {
         "nodeId": "HeckeStacksAndLocalShtukas:HS0/twisted-period-grassmannian",
-        "verdict": "corrected",
-        "note": "Checked against Scholze–Weinstein 23.1, 23.4, 23.5 and FS IX.3 (p. 326). Hypotheses corrected to the ℚ_p setting, the embedding in the proof of 23.5.2 corrected, and 'canonically independent of b' replaced by the proved statements (the source's remark is recorded as a gap). Comparison of charts redone from SW pp. 221–224: the discrepancy b·σ(b)⋯σ^{m−1}(b) is right, as are (1)–(6) and the four tests. Nothing changed."
+        "verdict": "verified",
+        "note": "SW 23.4.1–23.4.4 pp.221–222 and FS IX.3 pp.325–326: verified the b-dependent local charts and their transition by b·σ(b)⋯σ^{m−1}(b), rather than an unsupported globally b-independent identification. Collision and torus tests retain this dependence."
       },
       {
         "nodeId": "HeckeStacksAndLocalShtukas:HS0/structure-group-and-inner-form",
         "verdict": "corrected",
-        "note": "Checked against FS III.3.6, III.4.1–III.4.3, IX.6, IX.7 and Scholze–Weinstein 23.3.2, 24.1.1. The Kottwitz statement had no orientation and the acceptance items confused degree with κ; the node now fixes the normalisation, proves κ(E_1) = κ(E_2) + μ♯ and records that FS III.3.6(ii) prints the opposite sign. The convention, the formula κ(E_1) = κ(E_2) + μ♯ and the sign against FS III.3.6(ii) re-derived from the PDF pages and found consistent with SW 24.1.1 and FS pp. 336–338; (a)–(c) and the acceptance items recomputed. Nothing changed; a contradicting supplier statement is reported."
+        "note": "FS III.2–III.3 pp.90–100, VI.2.4 p.199, IX.6–IX.7 pp.330–338 and SW 23.3.2 p.219: recomputed κ(E₁)−κ(E₂)=μ♯ from ξB⁺_dR ↦ O(−1). Replaced the conflicting BG2 sign export by its correction request and recorded a gap; inner-form and central-twist APIs otherwise verified."
       },
       {
         "nodeId": "HeckeStacksAndLocalShtukas:HS1/satake-kernel-and-solid-monoidal-functor",
-        "verdict": "corrected",
-        "note": "Checked against FS IX.2 p.321, VII.5 pp.264–268 and IX.3 p.326: the kernel is D(S_V)^∨ with the relative Verdier dual first and the solid dual second. Statement, proof steps, acceptance, API, tests, uses and sources rewritten; one prerequisite inside the roadmap added. Statement, unit, tests and API recomputed against FS IX.2, VII.4–VII.5, VI.9, VI.12; all correct. No change; the torus tests leave the orientation open (reported for the lead)."
+        "verdict": "verified",
+        "note": "FS VI.9–VI.12 pp.226–239 and IX.2 pp.321–322: verified local/global Satake kernels, dualization order and the minuscule shift −d with half twist −d/2. Finite projective coefficients and local relative duality are retained."
       },
       {
         "nodeId": "HeckeStacksAndLocalShtukas:HS1/hecke-operator-via-relative-homology",
-        "verdict": "corrected",
-        "note": "Checked against FS IX.2 pp.321–322, VII.3.1, VII.5.2 and p.317: T_V goes from D_lis(Bun_G,Λ) to D_■(Bun_G×(Div¹)^I,Λ), the legs are carried by p_2, and ♮ is the left adjoint of pullback. Statement completed with categories and the exact torsion comparison; API and tests replaced; sources made literal. All shifts, twists and tests recomputed (VII.3.5, VII.4.3, VII.5.2) and correct. One sentence added to proof step 3 on Z/ℓⁿ[√q]-coefficients."
+        "verdict": "verified",
+        "note": "FS IX.2 pp.321–323, VII.7 pp.274–276: verified p₂♮(p₁* A ⊗ S′_V), its adjunction, linearity and minuscule cohomology normalization. Relative homology is not silently identified with lower shriek outside the eligible comparison."
       },
       {
         "nodeId": "HeckeStacksAndLocalShtukas:HS0/demazure-generators-of-ULA-kernels",
         "verdict": "corrected",
-        "note": "Checked against FS IX.2.1 and its proof (p.322), VII.4.3, VII.6.1–VII.6.2 and VII.7.3. The node is the theorem 'T_V preserves D_lis'; kind, title, statement and proof steps corrected, the monoidality prerequisite added, sources made literal. Statement and steps agree with FS IX.2.1 and its proof; acceptance recomputed. No change; VS4 (FS VII.7.3) is used but is not a prerequisite (reported for the lead)."
+        "note": "FS IX.2.1 pp.322–323, VI.8.4 pp.224–225 and GS0/GS1 supplier statements: verified Demazure reduction and its geometric dimension bound. Moved the all-prime integral highest-weight request from LP3 to the registered ReductiveGroups parent pending IntegralRepresentationsPartII design. The stable HS0 slug already has the correct HS1 parent."
       },
       {
         "nodeId": "HeckeStacksAndLocalShtukas:HS1/properties-and-weil-equivariance",
-        "verdict": "corrected",
-        "note": "Checked against FS IX.2.2 and its proof (pp.322–323) and IX.0.1(i): adjoints are T_{V^∨}, hypotheses V∈Rep_Λ(Ĝ^I) and Λ any Z_ℓ[√q]-algebra. Statement and proof steps cleaned of remarks, acceptance made exact, monoidality prerequisite added, sources made literal. Both adjunctions and their consequences re-derived from monoidality; acceptance recomputed. No change."
+        "verdict": "verified",
+        "note": "FS IX.2.2–IX.2.4 pp.323–324 and VII.7.6–VII.7.10 pp.272–276: verified exactness, lisse compactness, both adjunctions and continuous Weil action. Coefficient rings remain arbitrary allowed Λ, with no good-prime hypothesis; supplier extensions are explicit."
       },
       {
         "nodeId": "HeckeStacksAndLocalShtukas:HS1/ula-preservation",
-        "verdict": "corrected",
-        "note": "Checked against FS IX.2.2 proof (p.323), VII.7.8–VII.7.10 and the proof of V.7.1 (p.184): the argument is as the node says. Statement completed, the two registered misprints of VII.7.9 and VII.7.10 recorded and the corrected forms used, placeholder excerpts replaced, acceptance made exact. Route from FS VII.7.9 to the criterion against compact objects re-derived through the proof of V.7.1, VII.7.6 and VII.7.2; correct. No change."
+        "verdict": "verified",
+        "note": "FS IX.2.2 p.323 and VII.7.10 p.276: verified ULA preservation by the properly supported kernel and relatively discrete trace; the nonbasic torus-stratum example is not wrongly promoted to ULA."
       },
       {
         "nodeId": "HeckeStacksAndLocalShtukas:HS1/duality-exchange",
-        "verdict": "corrected",
-        "note": "Checked against FS IX.2.2 with its proof, VII.7.6 and VI.12.1: the statement (T_{sw^*V^∨}, compact A for D_BZ, all A for the naive dual) is the source's. Statement made exact, proof written out, a misprint in the last sentence of the source's proof recorded, acceptance made exact, sources made literal. Adjunction computations for (a)–(c) redone and checked for G=1, tori and PGL_2; the node has left and right adjoint the right way round. No change."
+        "verdict": "verified",
+        "note": "FS IX.2.2 p.323 and VII.7.6–VII.7.9 pp.272–275: recomputed Bernstein–Zelevinsky and naive duality using their respective adjunctions and swap/dual kernel. The statement is lisse/solid rather than limited to torsion étale coefficients."
       },
       {
         "nodeId": "HeckeStacksAndLocalShtukas:HS1/condensed-enrichment",
-        "verdict": "corrected",
-        "note": "Checked against FS IX.1 pp.320–321 with the proof of IX.1.2. The construction and both propositions are now stated with their hypotheses; API and tests, which described a Lean prototype, are replaced; sources made literal. Statement literal against FS IX.1; all four tests and the API examples recomputed and correct. No change."
+        "verdict": "verified",
+        "note": "FS IX.1.1–IX.1.2 pp.317–321: verified scalar completion of enriched mapping complexes, relatively discrete endomorphisms of compact objects, and the condensed functor category. Pinned Condensed and CondensedMod provide carriers only."
       },
       {
         "nodeId": "HeckeStacksAndLocalShtukas:HS1/continuous-weil-descent",
         "verdict": "corrected",
-        "note": "Checked against FS IX.2.3 and its proof, IX.1.1, VII.2.7–VII.2.8 and IV.7.1–IV.7.3. The statement misread IX.1.1 and did not cite the solid full faithfulness VII.2.8; statement, proof steps, acceptance, title and sources rewritten, and the monoidality prerequisite added. The sentence about IV.7.3 is the source's. Statement agrees with FS IX.2.3. Proof steps 2–4 rewritten (the reduction to one leg did not follow; now the |I|-leg criterion on (Spd C)^I), and acceptance item 3 reworded (character up to inversion)."
+        "note": "FS IX.2.3 p.323 and VII.2.6(ii) pp.255–256: verified Drinfeld pullback and fully faithful essential image after bounded-weight exterior-product resolution. Corrected the owner of that unresolved all-prime representation-theory extension; the required geometric-base-change supplier is already cited."
       },
       {
         "nodeId": "HeckeStacksAndLocalShtukas:HS1/coefficient-base-change",
-        "verdict": "corrected",
-        "note": "The source states no change-of-coefficients comparison for T_V; it follows from the unique linear extension of the kernel (FS p.321) and FS VII.3.1, and is used implicitly at FS IX.7.2 (p.335). The node is rewritten as an exact statement marked as going beyond the source, with a proof from the prerequisites; the cited excerpt did not support it and is replaced. Proof checked step by step (adjoints, commutation with f^*, f_♮, tensor products, uniqueness of the linear extension); (a)–(c) and the acceptance items correct. No change."
+        "verdict": "verified",
+        "note": "FS IX.2.4 p.324 and VII.2 pp.256–257: verified the extension and restriction comparison maps and the condensed action. The supplier request distinguishes construction of a restriction comparison from proving that it is invertible."
       },
       {
         "nodeId": "HeckeStacksAndLocalShtukas:HS2/local-shtuka-moduli",
-        "verdict": "corrected",
-        "note": "Definition 23.1.1, Remarks 23.1.2–23.1.3, Theorem 23.1.4 and Proposition 19.5.3 read at pp. 180, 216–217 (page images for the formulas). Statement completed (structure map, presheaf on Perf_k, v-sheaf, class of b), σ-conjugation formula corrected, proof, API, tests and excerpts rewritten. Definition read against Scholze–Weinstein 23.1.1–23.1.4 and 19.5.3; change of framing, rigidity and all six tests recomputed. Corrected: the bound is now stated on φ_P⁻¹ : P ⇢ Frob_S^*P (statement, steps 1 and 3, two API items, one new test); one API item no longer names a later node."
+        "verdict": "verified",
+        "note": "SW 22.4 pp.209–211 and 23.1.1–23.1.3 pp.216–217: verified Q_p restriction, smooth connected integral model, Frobenius direction, framings and σ-conjugation ybσ(y)⁻¹. General local fields are deferred to their own node."
       },
       {
         "nodeId": "HeckeStacksAndLocalShtukas:HS2/framed-bundle-fibres",
-        "verdict": "corrected",
-        "note": "FS III.3 p. 97, IX.3 pp. 324–326, IX.7 p. 336 and SW p. 219 read. Statement rewritten as an exact definition with actions, quotient, representability and inversion; what exceeds the sources is marked and proved; API, tests, excerpts replaced. Two supplier prerequisites are needed (reported to the lead). Re-derived (a)–(f): 2-fibre product, both actions (g by α∘g⁻¹, g′ by g′∘α), quotient, representability, inversion and composition, and the G_m values (non-empty iff v(b) − v(b′) = d). Corrected the Frobenius in Div¹_{F_i} and added two prerequisites named in the text."
+        "verdict": "verified",
+        "note": "FS III.2–III.5 pp.87–106 and IX.3 p.325: verified framed fibres over two bundles, automorphism actions and the empty/unit fibre. The nonbasic automorphism group retains its unipotent part."
       },
       {
         "nodeId": "HeckeStacksAndLocalShtukas:HS2/lattice-extension-functor",
-        "verdict": "corrected",
-        "note": "Corollary 22.3.3, Theorems 22.5.2, 22.6.2 and Proposition 22.6.1 read with their proofs (pp. 209–214, page images for 22.6). Wording about φ⁻¹-equivariance, Y_(0,r] versus Y_[0,r] and the locus ν = κ = 0 is as in the source; hypotheses, 22.6.1, proof, API, tests and excerpts supplied. One supplier prerequisite is missing (reported). Statement, hypotheses and steps agree with Scholze–Weinstein 22.3.2–22.3.3, 22.5.2, 22.6.1–22.6.2; the five tests (trivial torsor, O(d), norm-one torus, GL_n, Iwahori degree p + 1) recomputed."
+        "verdict": "verified",
+        "note": "SW 22.3–22.6 pp.209–214: verified lattice extension, geometric triviality, the open admissible locus and the pro-étale rational torsor. Existence of an integral lattice is local on the base; vanishing Newton point alone does not replace vanishing κ for a torus."
       },
       {
         "nodeId": "HeckeStacksAndLocalShtukas:HS2/hecke-fibre-description",
-        "verdict": "corrected",
-        "note": "Proposition 23.3.1 and its proof, p. 219, Definition 24.1.1, Proposition 24.1.2 and FS IX.3 p. 324 read. Statement made exact, the converse construction supplied, the orientation dictionary μ_FS = μ⁻¹ confirmed and sourced, excerpt relocated. Bijection, infinite level and the dictionary μ_FS = μ⁻¹ checked against Scholze–Weinstein 23.3.1, 24.1.1, §24.2 and Fargues–Scholze p. 324; the inverse construction re-derived. Corrected step 1 (the bound of α is that of φ_P⁻¹) and completed step 2."
+        "verdict": "verified",
+        "note": "SW 23.3.1–23.3.2 pp.218–219: verified quadruples and the inverse construction by periodic meromorphic gluing, with the required lattice and framing. The untilt is over the completed reflex-field base, and the inner-form duality reverses μ."
       },
       {
         "nodeId": "HeckeStacksAndLocalShtukas:HS2/one-leg-period-map",
         "verdict": "corrected",
-        "note": "Proposition 23.3.3, Remark 23.3.4 and the construction of π_GM read on p. 220 (page image). E = Q_p made explicit, π_GM and the admissible locus defined, the quasi-pro-étale claim marked as a consequence, excerpts replaced. Checked against Scholze–Weinstein pp. 220–221; the three examples recomputed (G_m; Lubin–Tate; b = diag(p⁻¹,1), where the non-admissible locus is the one point with E = O(1) ⊕ O(−1))."
+        "note": "SW 23.3.3–23.3.4 p.220 and 23.4 p.221: verified the finite-level étale period map and infinite-level pro-étale torsor. Added nonemptiness of the admissible locus to the failure-of-étaleness assertion; G_m, μ=1, b=p gives the empty étale counterexample. Added that acceptance check and synchronized the Lean omission comment."
       },
       {
         "nodeId": "HeckeStacksAndLocalShtukas:HS2/levels-and-tower-limit",
-        "verdict": "corrected",
-        "note": "Scholze–Weinstein pp. 219–220 and 224, Gleason–Lim–Xu §3.4 (p. 824) and FS p. 325 read. Statement restricted to Q_p with the general-E remark as a hypothesis, source and additions separated and the additions proved, API, tests and excerpts replaced. One cross-roadmap prerequisite is not needed (reported). Levels, degrees, torsor statements, limit, both actions and the K ↦ gKg⁻¹ rule recomputed; all five tests correct. Corrected an undefined K_1 and two forward references."
+        "verdict": "verified",
+        "note": "SW 23.4–23.5 pp.221–224: verified compact-open quotients, finite étale transitions, infinite-level limit and commuting J_b/Q_p actions. The coset-fibre and non-normal-level tests distinguish quotients from a group-valued substitute."
       },
       {
         "nodeId": "HeckeStacksAndLocalShtukas:HS2/multi-leg-period-and-representability",
-        "verdict": "corrected",
-        "note": "Sections 23.4–23.5 read in full (pp. 220–224, page images), with FS IX.3 pp. 325–327. Statement agrees with Corollary 23.5.3; E = Q_p made explicit, the Hecke-fibre comparison sourced and its locus made exact, prerequisites completed, a planet proposed, and the compact-support conditions moved to a new node. Checked against Scholze–Weinstein 23.4–23.5 and Fargues–Scholze p. 326; the comparison (e) and the three examples re-derived. Step 3 no longer cites an unreachable node."
+        "verdict": "verified",
+        "note": "SW 23.4.2–23.5.3 pp.222–224: verified the multi-leg period map and local representability through Frobenius-translated diagonal charts. The proof uses the b-dependent twisted charts, and does not rely on the disputed independence remark."
       },
       {
         "nodeId": "HeckeStacksAndLocalShtukas:HS2/no-legs-and-basic-duality",
-        "verdict": "corrected",
-        "note": "Proposition 23.2.1 and Corollary 23.3.2 read with their proofs (pp. 217–219, page images). Statements completed (one leg, base Spd F̆, the matching of the actions), the proof of (a) corrected and its prerequisites added, the twist normalised as in the source, excerpts replaced; the bundling of two results is reported. Proposition 23.2.1 and Corollary 23.3.2 read on the page; the dual datum, J_b̌ = G, the two actions and the G_m and Lubin–Tate/Drinfeld instances recomputed. Removed one prerequisite that is never used."
+        "verdict": "verified",
+        "note": "SW 23.2.1–23.2.2 pp.217–218 and 23.3.2 p.219: verified the no-leg extension and the basic inner-form tower duality, including inverted bound, group actions and the necessary completed reflex field."
       },
       {
         "nodeId": "HeckeStacksAndLocalShtukas:HS2/general-local-field",
-        "verdict": "corrected",
-        "note": "Checked against Fargues–Scholze IX.3 pp.325–326 and Scholze–Weinstein 11.1, 23.5. Statement rewritten as a construction by K-lattices with API and tests; the unsourced descent sentences moved to a new node; sources made literal. Re-derived the construction for general E in both characteristics and recomputed all tests; added the orientation of the bound relative to Fargues–Scholze IX.3 and made the Hecke action in the API agree with HS2/levels-and-tower-limit."
+        "verdict": "verified",
+        "note": "FS IX.3 pp.325–327, RF0/RF2/RF4 and GS0 supplier statements: verified the explicit construction over a general local field from curve modifications and lattice torsors. It is a derived construction in this packet, not a claim that the Q_p-only SW theorem supplies it."
       },
       {
         "nodeId": "HeckeStacksAndLocalShtukas:HS2/minuscule-rigidification",
-        "verdict": "corrected",
-        "note": "Checked against Scholze–Weinstein 24.1.1–24.1.3, 10.4.2, 19.4.2 and Fargues–Scholze p.324. Uniqueness and hypotheses made exact, partial properness proved in a step instead of attributed, API and tests rewritten. Statement, steps and all five tests checked against Scholze–Weinstein 19.4, 24.1, 10.4.2; stated the normalisation of the covariant Dieudonné module that the Lubin–Tate test and an acceptance item need, added m ≥ 1, aligned the Hecke index."
+        "verdict": "verified",
+        "note": "SW 24.1.2–24.1.3 pp.225–226, 19.4.2 pp.176–177 and 20.2.3 p.185: verified minuscule flag geometry, finite-level rigidification, dimension and partial properness. The needed adic geometry and Schubert-smoothness results remain precise requests."
       },
       {
         "nodeId": "HeckeStacksAndLocalShtukas:HS2/nonemptiness-and-period-connectedness",
         "verdict": "corrected",
-        "note": "Statements of Howe–Klevdal 7.3.3–7.3.4 and Gleason–Lourenço 1.1, 3.1–3.3 read with proofs: the combination in the node is what they prove. Statement made exact, a step added for the closed locus, the proof steps name the results used, one unused prerequisite removed, three added. Statements (a)–(c) agree with Howe–Klevdal 7.3.3–7.3.4 and Gleason–Lourenço 1.1, 3.1, 3.2 in the stated orientations; corrected two wrong references to requests in the steps, added the gap for Rapoport–Viehmann 3.1, stated the invariant of b_μ."
+        "note": "GL Theorem 3.1 pp.9–10 and GLX Theorem 3.11 pp.827–828: verified nonemptiness in B(G,μ⁻¹), connectedness and density with the inverse-orientation dictionary. Replaced the three conflicting BG2 imports by the signed correction request; the topological/dimension inputs remain recorded gaps."
       },
       {
         "nodeId": "HeckeStacksAndLocalShtukas:HS2/component-transitivity-source-gate",
-        "verdict": "corrected",
-        "note": "Proposition 3.12 and its proof read; the printed proof uses the false half of Lemma 3.2. A proof by two elementary topological lemmas is given: complete for minuscule μ, and for general μ reduced to openness of components at one finite level, recorded as a narrower gap. Lemmas (T) and (N) checked for arbitrary topological spaces and (P1)–(P3) for the spaces of diamonds; the proof of (T) was repaired at the surjectivity of W → c_N (non-Hausdorff spaces) and the continuity of the action was justified; statement unchanged."
+        "verdict": "verified",
+        "note": "GLX Lemma 3.2 p.820, Theorem 3.9 pp.825–826 and Proposition 3.12 p.828: verified the compact-group component quotient and the finite-level open-component argument. Z acting on Z_p refutes the locally profinite-group version; non-minuscule transitivity remains conditional on the explicit gap."
       },
       {
         "nodeId": "HeckeStacksAndLocalShtukas:HS2/classical-period-points",
-        "verdict": "corrected",
-        "note": "Checked against Gleason–Lim–Xu §3.6 and Scholze–Weinstein 19.4.2. The bijections are stated exactly; the missing hypothesis κ(b) = μ^♮ is added with a counterexample; proof steps give the argument. Statements (a)–(e), the counterexample and the acceptance items recomputed and right; a wrong sign in the formula for the Kottwitz invariant of the modified bundle in step 3 corrected."
+        "verdict": "verified",
+        "note": "HK 7.3.3 pp.43–44 and GLX 3.9 pp.825–826: verified classical admissible points, weak admissibility and the rigid local system, with Q_p and minuscule hypotheses. The weakly admissible nonemptiness input remains a gap, and μ is translated from HK orientation."
       },
       {
         "nodeId": "HeckeStacksAndLocalShtukas:HS2/adjoint-period-and-tower-comparison",
         "verdict": "corrected",
-        "note": "Checked against Gleason–Lim–Xu Definition 3.14 and Proposition 6.6(1), Steps 1–3. Hypothesis b ∈ B(G,μ) and the base change to the common reflex field added, with counterexamples; a misplaced acceptance item removed. Statements (1)–(4), the two counterexamples and the acceptance items recomputed and right; one source entry now quotes the standing hypothesis from p. 807."
+        "note": "GLX Propositions 6.6–6.7 pp.849–851: verified the adjoint comparison after completed reflex-field base change and with the central Kottwitz condition. Replaced the conflicting sign export by the BG2 correction request; the torus-to-trivial-group example detects the missing base change."
       },
       {
         "nodeId": "HeckeStacksAndLocalShtukas:HS2/torus-products-and-determinant",
-        "verdict": "corrected",
-        "note": "Checked against Gleason–Lim–Xu Lemma 3.6, §3.4 and Proposition 6.4. Torus statement corrected (base change to C_p, condition on κ(b)), product and functoriality stated over explicit bases, proofs supplied. Statements (1)–(4) and acceptance items checked; the sign of the Kottwitz invariant in step 1 corrected."
+        "verdict": "verified",
+        "note": "GLX Proposition 6.4 pp.848–849 and Propositions 6.6–6.7 pp.849–851: verified torus torsors, product decomposition and determinant on components. The GLX orientation is explicitly translated to Berkeley μ⁻¹, including its Weil descent."
       },
       {
         "nodeId": "HeckeStacksAndLocalShtukas:HS3/compact-support-at-levels",
-        "verdict": "corrected",
-        "note": "Checked against FS IX.3 pp. 324–326 and VII.5.2: the limit-then-colimit order and the three shift formulas are right. Statement made exact (category, coefficient extension, level maps, tower), API and tests rewritten, excerpts replaced. Checked against FS pp. 324–326 and VII.5.2; recomputed all six tests and the shifts (f_{K♮}Λ=RΓ_c[2d](d), C_K=RΓ_c[d](d/2)). Attributed the smoothness of the J_b(E)-action to the Hecke comparison, added the two prerequisites that supply the hypotheses on f_K, and fixed the torus example."
+        "verdict": "verified",
+        "note": "FS IX.3.2 pp.325–327: verified the finite-level relative-homology object and the colimit along pullbacks, with coefficient completion specified before taking limits. No compactness is asserted for arbitrary compact-open level."
       },
       {
         "nodeId": "HeckeStacksAndLocalShtukas:HS3/satake-coefficients-and-partial-frobenius",
-        "verdict": "corrected",
-        "note": "Checked against FS p. 326 and SW 23.4–23.5. The partial Frobenii of C_K come from the Hecke comparison, a later node, so the node keeps the coefficient and the definition of partial Frobenii; prerequisites reordered, API and tests rewritten. Checked against FS p. 326, VI.9.3 and SW 23.4.1; recomputed the tests (GL_2 twisted diagonal: stalk RΓ(P¹)[2](1) of rank 2). Restricted the full-faithfulness claim to flat perverse universally locally acyclic sheaves and stated the meaning of V_{μ_i} when F_i≠E."
+        "verdict": "verified",
+        "note": "FS IX.3 pp.325–327 and VI.9–VI.12 pp.226–239: verified pulled-back Satake coefficients, partial Frobenius and the condensed Weil action. The ULA coefficient identification includes the flat/perverse condition rather than asserting it for every ULA complex."
       },
       {
         "nodeId": "HeckeStacksAndLocalShtukas:HS3/hecke-cohomology-comparison",
-        "verdict": "corrected",
-        "note": "Checked against the proof of FS IX.3.2 and IX.7.2–IX.7.3: the key observation holds for every compact open K; shift, twist and orientation made explicit, the Weil structure of C_K stated here, missing prerequisites added. Checked the proof of IX.3.2 (pp. 326–327), the direction Sht→ℳ, and the orientation on G_m (T_{V_μ} raises the degree, b∈B(G,μ⁻¹)); acceptance items recomputed. Added the prerequisite defining ℳ_K, covered coinciding legs in step 2, and stated T_W for F_i≠E."
+        "verdict": "verified",
+        "note": "FS IX.3.2 pp.325–327: verified fibre/base-change comparison with i_b* T_W(j♮ c-Ind_K Λ), and its J_b, level and Weil actions. Nonbasic source strata are handled by the separate left-adjoint construction."
       },
       {
         "nodeId": "HeckeStacksAndLocalShtukas:HS3/huber-cohomology-comparison",
-        "verdict": "corrected",
-        "note": "Checked against the first paragraph of the proof of FS IX.3.1 and SW 10.4.2: statement made exact (three identifications, shift [2d](d), order of limits), placeholder excerpt replaced. Derivation of (3) from (1), (2) and VII.5.2 rechecked, with the order of limit and colimit; (1) and (2) rest on the recorded gap. Added the prerequisite for the Weil descent datum."
+        "verdict": "verified",
+        "note": "FS VII.5.2 p.265 and IX.3.1 pp.324–325, with SW 24.1 pp.225–226: verified the minuscule shift [-d](-d/2) against Huber compact support. The classical/diamond comparison and duality input remain an explicit gap, not an assumed comparison for all coefficients."
       },
       {
         "nodeId": "HeckeStacksAndLocalShtukas:HS3/compactness-of-shtuka-cohomology",
-        "verdict": "corrected",
-        "note": "Checked against FS IX.3.1 line by line: G over Q_p, pro-p K for compactness, W of the reflex field. Orientation fixed to the Berkeley normalisation, counterexample at non-pro-p level added, finite generation stated with its noetherian input (recorded as a gap). Checked against Theorem IX.3.1 and its proof; recomputed the counterexample for K=Z_p^× and the GL_2 examples; the finite-generation part needs noetherian Hecke algebras, verified in Dat–Helm–Kurinczuk–Moss (Theorem 1.1, Corollary 1.4). Only the citation and the standing hypotheses were edited."
+        "verdict": "verified",
+        "note": "FS IX.3.1–IX.3.2 pp.324–327 and DHKM Theorem 1.1/Corollary 1.4 pp.1–2: verified pro-p compactness and the finite-generation bridge. The bound is B(G,μ⁻¹); finite ℓ-group derived invariants give the stated counterexample at non-pro-p level."
       },
       {
         "nodeId": "HeckeStacksAndLocalShtukas:HS3/general-bound-compactness",
-        "verdict": "corrected",
-        "note": "Checked against FS IX.3.2 and I.7.3: the printed statement has no level hypothesis and is false without one (source issue recorded); the node keeps compactness for pro-p K and no longer repeats the consequences for admissible ρ. Checked against IX.3.2 and VII.7.4; the counterexample for K=O_E^× recomputed (H^0 of RHom into ⊕F_ℓ[i] is a product, not a sum). Only the standing hypotheses were edited; one prerequisite of another roadmap is reported."
+        "verdict": "verified",
+        "note": "FS IX.3.2 pp.325–327: verified general-bound compactness from compact induction, compact Hecke operators and stratum restriction. The Frobenius-diagonal charts are used locally and do not invoke an unsupported global trivialization."
       },
       {
         "nodeId": "HeckeStacksAndLocalShtukas:HS3/admissibility-duality-and-adjunction",
-        "verdict": "corrected",
-        "note": "Checked against FS p. 325 and IX.3.2: colimit formula and shift made exact, Q̄_ℓ restored, duality formula corrected for non-basic b, the claim for compact ρ limited to what is proved (gap recorded), prerequisites added. Adjunction, perfectness, the duality formula with i^{b!}Λ in degree 2⟨2ρ,ν_b⟩ and the finite-length argument rechecked against p. 325, IX.2.2 and VII.7. Rewrote (6) as a proved conditional statement with the later theorem that supplies its hypothesis, and corrected two acceptance items on the Weil action for tori."
+        "verdict": "verified",
+        "note": "FS IX.3.2 pp.325–327, HHS 1.3.1 p.6 and 7.1.4 pp.60–61, HI 4.1 p.24: verified perfect pro-p invariants and both duality adjunctions. Nonbasic Verdier duality includes modulus and shift. Level-colimit compactness for general compact ρ remains a gap; the HHS torsion/Q̄_ℓ finite-length cases are scoped exactly."
       },
       {
         "nodeId": "HeckeStacksAndLocalShtukas:HS3/level-trace-and-pullback",
-        "verdict": "corrected",
-        "note": "The trace identities are right as stated but are in none of the cited sources; the locator pointed to the wrong passage. Statement made exact, the p-power index claim scoped to pro-p K, sources and prerequisites corrected. All identities rederived from the finite étale adjunctions and on the Hecke side (1_{gK′}↦1_{gK}, 1_{gK}↦Σ1_{gkK′}; inclusion and Σk·v on invariants); index statements checked. Restated (5), added the prerequisite for general E."
+        "verdict": "verified",
+        "note": "FS IX.3 pp.325–327 and SW 23.4 p.222: verified trace and pullback at finite étale levels, tr∘pull=[K:K′], normal-level averaging and conjugation. Division by the index is justified by pro-p level and ℓ≠p."
       },
       {
         "nodeId": "HeckeStacksAndLocalShtukas:HS3/classical-comparison",
-        "verdict": "corrected",
-        "note": "Checked against SW 24.2.5 and 24.3.5 with their proofs: the Dieudonné normalisation (slopes in [−1,0]) made explicit, hypotheses and conclusion of the EL/PEL corollary stated, the Lubin–Tate and Drinfeld sentences marked as not in the sources, process remarks removed. Checked against SW 24.2.5, 24.3.3–24.3.5, p. 99 and p. 200; b has slopes in [−1,0] and κ(b)=−d, the usual covariant Frobenius is pbφ. Corrected the shift in (4) to ⟨2ρ,μ⟩=d(n−d), the conditions on μ in (2), and the missing hypothesis that b is basic for the Lubin–Tate tower."
+        "verdict": "verified",
+        "note": "SW Theorem 24.2.5 pp.227–228 and Corollary 24.3.5 pp.230–231: verified the minuscule EL/PEL comparison, its completed reflex base, two actions and Weil descent. The construction of general Rapoport–Zink spaces and its p-adic Hodge inputs are explicit gaps routed to IntegralPartII; general E is not silently deduced from Q_p."
       },
       {
         "nodeId": "HeckeStacksAndLocalShtukas:HS4/monoidal-and-finite-set-functoriality",
-        "verdict": "corrected",
-        "note": "IX.0.1(ii)–(iii) and IX.2.4 read on pp. 318, 323 with VI.9 pp. 226–229: the functor and its target (trivial W_E^I-action) are the source's; permutation, fusion, unit insertion and iterated modifications are stated exactly, the proof steps follow IX.2, four HS1 prerequisites and six literal excerpts added. Statement checked line by line against FS IX.0.1(ii),(iii), IX.2.4, VI.9 (pp. 226–229) and the use on p. 328: target category, direction of a_* on both sides, the four special cases and both orders of composition are right; all five acceptance items recomputed. Only change: the prerequisite HS1/monoidality-of-hecke-operators is added and cited in steps 2 and 4."
+        "verdict": "verified",
+        "note": "FS IX.2 p.322 and IX.4 pp.327–328, with GS3 fusion: verified monoidality, arbitrary finite-set restriction, composition, fusion and insertion of trivial legs. Tensor functor coherence is an enhanced supplier input, not merely a functor-law test."
       },
       {
         "nodeId": "HeckeStacksAndLocalShtukas:HS4/creation-annihilation-and-triangles",
-        "verdict": "corrected",
-        "note": "Checked against FS IX.2.2 proof (p. 323), VIII.4.2 (p. 291), IX.4.1 (p. 327), IX.6.5 (p. 333): the triangle identities are formal from monoidality; the statement is made exact (category of the maps, diagonal equivariance, general α/β form), uses corrected, API extended to 15 items and the three definitional tests replaced by six. All six tests and fifteen API items recomputed and found correct; the general (I,V,α,β) form is that of FS VIII.4.2 (p. 291, read on the page image) and IX.4.1. The rank value is rank V (n for std of GL_n), with no sign: annihilate′ is T applied to the map v⊗f ↦ f(v) of representations, and FS p. 228 changes the commutativity constraint of the Satake category so that it matches the unsigned symmetry. No edits."
+        "verdict": "verified",
+        "note": "FS IX.4 pp.327–328 and VIII.4 pp.290–291: verified coevaluation/evaluation order, both triangle identities, diagonal Weil invariance and trace. The suggested file transports ExactPairing forward and proves the ordinary categorical triangles; the torus excursion test uses the pinned class-field normalization."
       },
       {
         "nodeId": "HeckeStacksAndLocalShtukas:HS4/isogeny-product-and-weil-restriction-diagrams",
-        "verdict": "corrected",
-        "note": "Compared with FS p. 330–331 on the page image: both displayed identities match (♮ throughout, π: Bun_{G′} → Bun_G, V = V′ restricted to Ĝ). Statement made exact, coefficient hypothesis added, the misleading caution replaced by the intertwining T_{V′}π* ≅ π*T_V with its proof, sources and two prerequisites added. (a)–(c) agree symbol by symbol with the displays of FS pp. 330–331 (page images read). (d) re-derived and found correct, tested on GL_n → PGL_n, SL_n → PGL_n, G_m → 1, 1 → G_m and SL_2 → GL_2. Corrected: proof step 2 (false statement about connected components for several legs), step 5 (justification on the h_2 side), one acceptance item (Z connected), one source match; one two-leg acceptance instance added."
+        "verdict": "verified",
+        "note": "FS IX.6.1 pp.330–331: verified the G′→G direction, dual restriction, Cartesian comparisons and relative-homology kernel formula for adjoint isomorphisms. Generic morphisms retain only the stated diagram identities, with central-character tests."
       },
       {
         "nodeId": "HeckeStacksAndLocalShtukas:HS4/product-hecke-diagram",
-        "verdict": "corrected",
-        "note": "FS IX.6.2 (p. 331) read with the registered misprints in its display; its proof is one sentence and does not cite VII.7.10. The node's identities are kept as an explicit unpacking, restricted to exterior products, with the Weil action stated, VII.7.10 quoted in corrected form, and three prerequisites added. The derivations of (a) and (b), which the source does not display, were redone (exterior products of universally locally acyclic kernels, FS VII.4.2 for the solid dual, Künneth for ♮ from VII.3.1) and are correct; (c) is FS VII.7.10 with D_lis for the printed D_ét. Only the first acceptance item was made precise."
+        "verdict": "verified",
+        "note": "FS IX.6.2 p.331 and VII.7.10 p.276: verified product kernels and operators, the two Bun factors and compact exterior products. The corrected source diagram uses G₂ in its second centre factor."
       },
       {
         "nodeId": "HeckeStacksAndLocalShtukas:HS4/weil-restriction-hecke-diagram",
-        "verdict": "corrected",
-        "note": "FS IX.6.3 read on pp. 331–332 (page image): the closed immersion and 'taking ψ_* on sheaves' are the source's; the registered error in the proof concerns only the colimit presentation of the excursion algebras, which this node does not use. Direction of inflation corrected, √q′ fixed, consequence for T_V and three prerequisites added. Checked against FS pp. 331–332 (page images): the diagram, the direction (inflate from Ĝ′⋊W_{E′} to Ĝ⋊W_{E′}, then induce to Ĝ⋊W_E), ψ_* and the closed immersion are as in the source; (d) re-derived from the projection formula. The normalisation √q′ = (√q)^f is forced except for weights of even ⟨2ρ,μ⟩; an acceptance item records this. One source match reworded."
+        "verdict": "verified",
+        "note": "FS IX.6.3 pp.331–332: verified finite separable Weil restriction, the closed immersion, finite étale projection and induced representation. The Satake induction/half-twist compatibility and ramified bundle comparison remain precise supplier requests; the excursion-algebra cofinality defect is not concealed."
       },
       {
         "nodeId": "HeckeStacksAndLocalShtukas:HS4/levi-compatibility",
-        "verdict": "corrected",
-        "note": "FS IX.7.2 and its proof read on pp. 335–337 (page images). The source proves a torsion identity on one sufficiently unstable stratum; the node states the diagram, Rg_!S_V = pullback of CT_P(S_V) with shift [deg_P] and the twist by (2ρ̂_G−2ρ̂_M)(√q)^{|w|}, and that identity, and asserts nothing for D_lis with general coefficients. Compared with the page images of FS pp. 336–337. The diagram, Hck^I_{M,P}, g, the torsion hypothesis, the single stratum, B_N = Rπ_!A′_N and the two-line computation of (c) agree with the source. (b) was copied from the source with the wrong orientation for the normalisation of this packet: the shift is [−deg_P] and the twist (√q)^{−|w|} (lattice computation for GL_2 and std; derivation through the switch). Corrected: (a), (b), proof steps 2–3, the GL_2 acceptance item, two source matches, two prerequisites; added the remark and an instance on the character Rπ_!Λ relating A_N and B_N; removed a clash of notation."
+        "verdict": "verified",
+        "note": "FS IX.7.2 pp.335–337, VI.7.13 p.223 and HI 4.4–4.7 pp.25–26: verified the parabolic correspondence, switched orientation, constant-term shift and cyclotomic twist. The source calculation is restricted to eligible torsion coefficients and unstable strata; stacky shriek and the modulus character are stated explicitly."
       },
       {
         "nodeId": "HeckeStacksAndLocalShtukas:HS4/continuous-tensor-generator-export",
-        "verdict": "corrected",
-        "note": "IX.2.4 (p. 323) and the proof of IX.5.1 (p. 328) read: IX.2.4 does not mention tensor generators. The node is rewritten as the list of properties of (I,V) ↦ T_V(A) that the proof of IX.5.1 uses, with proofs from HS4 and HS1 nodes; ownership remarks removed. Each of (E1)–(E5) was compared with the proof of FS IX.5.1 (pp. 327–328): (E1)–(E3) are the sentence on T_{V⊗W}(A) = T_V(T_W(A)) = T_W(T_V(A)), (E4) the reduction to exterior tensor products, the relatively discrete structure the last step; (E5) is not used there beyond compactness. Corrected: the paragraph on the ⊗-generator (the inference needs more than closure under tensor products), the role of (E5), and the G_m acceptance item (K pro-p)."
+        "verdict": "verified",
+        "note": "FS IX.2.2–IX.2.4 pp.323–324 and IX.5.1 p.328: verified continuity and exterior/tensor compatibility as exports to the excursion owner. The integral tensor-generator argument is explicitly not established; the GL₂ mod-2 determinant counterexample supports source issue E45."
       },
       {
         "nodeId": "HeckeStacksAndLocalShtukas:HS2/admissible-period-torsor",
-        "verdict": "corrected",
-        "note": "Checked against Gleason–Lim–Xu §3.5 (pp. 827–828), Scholze–Weinstein 23.3.3 and Howe–Klevdal §7.2. Locator and excerpt corrected, the torsor given as a functor with both actions, types of the filtrations fixed, API and tests rewritten. Statements, API and the five tests recomputed (cyclotomic character, Tate module, boundary point of type (1,1)); J_b(Q_p) = Aut(E_b) corrected to an inclusion and the normalisation of the Dieudonné module stated."
+        "verdict": "verified",
+        "note": "SW 23.3.3 p.220, 23.4 p.221 and FS Theorem III.2.4 pp.91–92: verified the universal admissible rational torsor, frame interpretation, quotient by K, pullback square and group action. The torus/nontrivial-monodromy tests distinguish a torsor from a chosen trivialization."
       },
       {
         "nodeId": "HeckeStacksAndLocalShtukas:HS0/bounded-hecke-substacks",
-        "verdict": "added",
-        "note": "New definition node for the stated target 'bounded substacks for tuples of dominant cocharacters', with the relative position, its orientation, Γ-stable bounds for non-split groups, API and four tests. Split case, one-leg non-split case, tests and excerpts correct. The definition for non-split G with several legs was wrong on Galois-twisted coincidences of legs; (1), (3), step 3 and two API items rewritten, a test and an FS excerpt added."
+        "verdict": "verified",
+        "note": "FS VI.2.6–VI.2.7 pp.200–201 and VI.8.4 pp.224–225: verified bounded Hecke substacks, collision sum of bounds, v-descent and proper projections. Nonsplit bounds use Γ-orbits and dominance; arbitrary repetition need not preserve a split tuple verbatim."
       },
       {
         "nodeId": "HeckeStacksAndLocalShtukas:HS1/monoidality-of-hecke-operators",
-        "verdict": "added",
-        "note": "New node for the monoidal functor V↦T̃_V of FS IX.2 p.321 with T_1≅id, T_{V⊗W}≅T_V∘T_W and restriction along maps of finite sets; it is the stated HS1 target on unit, composition and fusion and a prerequisite of the nodes for FS IX.2.1–IX.2.3. (a)–(c) re-derived; correct. Order of composition made explicit: Φ_{K⋆K′}≅Φ_{K′}∘Φ_K, T̃_{V⊗W}≅T̃_W∘T̃_V, the other order through the symmetry of Rep."
+        "verdict": "verified",
+        "note": "FS IX.2 pp.321–323 and VI.9–VI.12 pp.226–239: verified convolution of the relative-dual solid kernels and the monoidal unit/operator isomorphisms. Perfect-support and enhanced colimit-preserving tensor inputs are cited precisely; ExactPairing supplies ordinary triangular algebra only."
       },
       {
         "nodeId": "HeckeStacksAndLocalShtukas:HS2/structure-map-compactifiable",
-        "verdict": "added",
-        "note": "New theorem node for the stage target on compact support: f_K is separated, compactifiable, representable in locally spatial diamonds and of locally finite dim.trg; the parts beyond the sources are marked and proved. Supplier prerequisites from DiamondSixOperations:S0 are needed and are reported to the lead. Each step checked, with Definition 22.2 and Proposition 22.3 of Étale cohomology of diamonds and Fargues–Scholze VII.5 read; the three conclusions follow. Added the case of a general local field, which HS3 uses, and its prerequisite."
+        "verdict": "verified",
+        "note": "FS IX.3.2 p.326, SW 23.5.2 p.223 and III.5 pp.102–106: verified compactifiability, representability and finite dim.trg at compact-open level. The nonbasic Mod/K partial-properness/Banach–Colmez argument is recorded as a geometric gap, not reduced to discreteness of J_b(E)."
       },
       {
         "nodeId": "HeckeStacksAndLocalShtukas:HS2/weil-descent-datum",
-        "verdict": "added",
-        "note": "New node for the stage target on descent to the reflex field: the one-leg tower as pullback of the space of modifications over Spd F̆/φ^Z, the W_F-action, and the several-leg statement of Fargues–Scholze IX.3.2. Re-derived (1)–(3) and all tests (non-effectivity, Lubin–Tate, reciprocity); corrected the orientation of M in (4), the dependence on the divisor when F ≠ E, the equality J_b(E) = Aut(E_b), two API items, and added the missing prerequisite."
+        "verdict": "verified",
+        "note": "SW 23.1/23.4 pp.216–222 and GLX 3.5 pp.822–823: independently derived ψ_Gr=b_f·ψ_can and its iterates bσ(b)⋯σ^{n−1}(b) from b·φ* h=h. The b=1, central and torus tests fix the direction and inverse-action convention."
       },
       {
         "nodeId": "HeckeStacksAndLocalShtukas:HS3/hecke-operators-between-strata",
-        "verdict": "added",
-        "note": "Added by the review: Hecke operators between two arbitrary strata, with compactness, commuting actions and the adjunction formula proved from FS VII.7.2, VII.7.4, IX.2.2; the geometric description for a non-basic source stratum stays a gap."
+        "verdict": "verified",
+        "note": "FS IX.3 p.325, III.5 pp.102–106 and IX.7 pp.335–337: verified i_b* T_V L_{b′}, with L_{b′} left adjoint to restriction. The nonbasic source is not replaced by ordinary i_!; geometric compact support there remains a gap. Basic inner-form, unit, torus and Huber tests match the source/target signs."
       }
     ]
   }

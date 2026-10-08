@@ -831,7 +831,7 @@ def GeomSatRep.sw : GeomSatRep G Λ I ≌ GeomSatRep G Λ I := sorry
 
 instance : (GeomSatRep.sw G Λ I).functor.Monoidal := sorry
 
-/-- GS4 with LanglandsParameterStacks LP3 (stand-in): the representation `V_μ` of `Ĝ` over `Λ`
+/-- GS4 with the requested ReductiveGroupsIntegralRepresentationsPartII extension (stand-in): the representation `V_μ` of `Ĝ` over `Λ`
 that the Satake equivalence attaches to the Schubert variety of `μ`, the closure of the
 `L⁺G`-orbit of `μ(ξ)`; its highest weight is `μ` in the owner's identification of `X_*(T)` with
 the characters of the dual torus. -/
@@ -1974,7 +1974,9 @@ theorem BunG.trivTorsor.push_equivariant {G H : RedGrp F} (f : G ⟶ H) {T : VSh
 /-- BunGAndNewtonStrata BG2, uniformization (stand-in): the Beauville–Laszlo map
 `Gr_{G,Spd Ĕ_μ,≤μ} → Bun_G` of the element `b`, in the orientation of Scholze–Weinstein, Lecture
 23: a point `x` goes to the bundle `E_x` on `X_S` with the modification `E_x ⇢ E_b` at the leg,
-bounded by `μ`, that the lattice `x` defines. For `𝔾_m` and `μ(z) = z^d`, `E_x(dS♯) ≅ E_b`. -/
+bounded by `μ`, that the lattice `x` defines. The normalization required from BG2 is
+`κ(E_x) = κ(E_b) + μ♯`: its three conflicting signed exports are replaced in the packet
+by a stage request and an open normalization gap. For `𝔾_m` and `μ(z) = z^d`, `E_x(dS♯) ≅ E_b`. -/
 def BunG.beauvilleLaszlo (G : RedGrp F) (b : G.ptsBreve) (μ : G.Cochar) :
     (GrG.oneLeg G μ).stack ⟶ BunG G := sorry
 
@@ -6284,7 +6286,7 @@ theorem oneLegPeriodMap :
       VSheaf.isLocSpatialDiamond p (ShtukaDatum 𝒢 b (RedGrp.oneLeg μ)) ∧
       (∀ K : G.Level, VSheaf.isLocSpatialDiamond p (LevelTower.level G b μ K)) ∧
       VStack.quasiProEtale p (VSheaf.stackMap (admissiblePeriodTorsor.proj G b μ)) := sorry
--- Omitted: in (e), that `ℙ_η → Gr^a` is not étale when `dim G > 0`; the dimension of a group is
+-- Omitted: in (e), that `ℙ_η → Gr^a` is not étale when the admissible locus is nonempty and `dim G > 0`; the dimension of a group is
 -- not in the interfaces.
 
 end OneLegPeriod
