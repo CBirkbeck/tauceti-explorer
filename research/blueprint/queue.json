@@ -37049,8 +37049,9 @@
    ],
    "revisionOf": "DESIGN-PotentialAutomorphyInfrastructurePartII",
    "prompt": "research/blueprint/prompts/DESIGN-PotentialAutomorphyInfrastructurePartII~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6895"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6895",
+   "finishedAt": "2026-10-08T15:40:35Z"
   },
   {
    "priority": 2,
@@ -39226,7 +39227,8 @@
    ],
    "revisionOf": "BP-HeckeStacksAndLocalShtukas",
    "prompt": "research/blueprint/prompts/BP-HeckeStacksAndLocalShtukas~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6970"
   },
   {
    "priority": 2,
