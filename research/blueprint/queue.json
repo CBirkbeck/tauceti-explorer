@@ -37308,8 +37308,9 @@
    ],
    "revisionOf": "BP-BorelRegulators",
    "prompt": "research/blueprint/prompts/BP-BorelRegulators~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6903"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6903",
+   "finishedAt": "2026-10-08T08:14:21Z"
   },
   {
    "priority": 2,
@@ -41378,7 +41379,8 @@
     "BP-VectorBundlesAndIsocrystals--VB3~2"
    ],
    "prompt": "research/blueprint/prompts/REV-VectorBundlesAndIsocrystals--VB3~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7098"
   },
   {
    "kind": "blueprint",
