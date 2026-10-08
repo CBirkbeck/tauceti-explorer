@@ -46243,8 +46243,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-CrystallineLocalGlobalCompatibilityCM.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7462"
+   "state": "external",
+   "note": "claimed on GitHub issue #7462"
   },
   {
    "id": "REV-PKG-CrystallineLocalGlobalCompatibilityCM",
@@ -47065,8 +47065,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-IgusaVarietiesAndTorsionConcentration.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7477"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7477",
+   "finishedAt": "2026-10-08T21:44:07Z"
   },
   {
    "id": "REV-PKG-IgusaVarietiesAndTorsionConcentration",
