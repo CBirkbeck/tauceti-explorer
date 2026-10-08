@@ -1,8 +1,8 @@
 {
   "roadmaps": 242,
-  "stages": 5054,
+  "stages": 5088,
   "originalStages": 2191,
-  "sourceRefinements": 2863,
+  "sourceRefinements": 2897,
   "reviewedDecompositions": [
     {
       "roadmap": "AInfCohomology",
@@ -113,13 +113,6 @@
       "roadmap": "GeneralizedHeegnerCycles",
       "status": "partial",
       "nodes": 6,
-      "review": "accepted",
-      "deferredLinks": 0
-    },
-    {
-      "roadmap": "GeometricSatakeAndFusion",
-      "status": "partial",
-      "nodes": 7,
       "review": "accepted",
       "deferredLinks": 0
     },
@@ -243,14 +236,14 @@
   "editedRoadmapSummaries": 181,
   "curatedStagePresentations": 339,
   "administrativeStages": 101,
-  "mathematicalStars": 4953,
+  "mathematicalStars": 4987,
   "plainTextPlanetLabels": 398,
   "hiddenPlanets": 600,
   "mappedStageStatuses": 350,
   "libraryAuditStatuses": 19,
   "bibliographicSources": 46,
-  "roadmapEdges": 2205,
-  "stageEdges": 13160,
+  "roadmapEdges": 2216,
+  "stageEdges": 13260,
   "reviewedLinkPackets": 25,
   "promotedBlueprints": [
     {
@@ -270,6 +263,12 @@
       "roadmap": "AbelianVarietiesIsogenousToNoJacobian",
       "nodes": 95,
       "reviewer": "independent-review-REV-DESIGN-AbelianVarietiesIsogenousToNoJacobian"
+    },
+    {
+      "file": "AdelicAlgebraicGroups",
+      "roadmap": "AdelicAlgebraicGroups",
+      "nodes": 264,
+      "reviewer": "independent-review-REV-AdelicAlgebraicGroups~2"
     },
     {
       "file": "AdicCoefficientsAndComparisons",
@@ -720,6 +719,12 @@
       "roadmap": "GeometricSatakeAndFusion",
       "nodes": 62,
       "reviewer": "independent-review-REV-GeometricSatakeAndFusion--GS0~2"
+    },
+    {
+      "file": "GeometricSatakeAndFusion--GS3",
+      "roadmap": "GeometricSatakeAndFusion",
+      "nodes": 32,
+      "reviewer": "independent-review-REV-GeometricSatakeAndFusion--GS3~2"
     },
     {
       "file": "GlobalGaloisDeformations",
@@ -1269,8 +1274,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 36407039,
-  "htmlSha256": "1e0fd20b51f4be476a159599db33bacccc72aaa3c613d609475a95ee9936179b",
+  "htmlBytes": 36447929,
+  "htmlSha256": "34cd1cededa780e9bd89388eae28a3e91187f7510e384e0005a8da4ae92d27a7",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -1302,7 +1307,7 @@
     "data/roadmap-summaries.json": "c8bdd0a9105f5d3c4a858c8b635990729f8e94497dee784a71fae659b8c05b9f",
     "data/roadmap-classification.json": "2641dbc97eb2566c715162d011b46890d1635629181ef8126ac7aed9e24a3b13",
     "data/classification-estimates.json": "625d35fe6121bf099dc5de9e6a9111793596f9b664e3fbd439841434bb4a57d6",
-    "data/roadmap-distances.json": "0eae9c478e4d1093a1ac62b6284c258e460e6c4b0382c10a1dae064894cd939c",
+    "data/roadmap-distances.json": "fcc4563d0f013493d0cc2c6f5c59c532dda34d2df8344be156cf92ca16309cee",
     "data/galaxy-layout.json": "7489487a2143484a355b36026c2f7d3dd9384ac5c58ac90d8b061b8dfcab6088",
     "data/bibliography.json": "bef230a41fad22d6b790c7564061c4d05c2ae5b78cab53d005eb404afab2b122",
     "NOTICE": "a285b95d5adbf5c2bcc82db36e2a77b797f84a2c5cbb30292efd0bae17cc4f34",
@@ -1366,6 +1371,8 @@
     "data/blueprints/AbelianSchemesAndArithmeticModuliPartII.md": "5653c26d4d6dec80f1fedb795d7f7a11b2e4f4c2257c0b671d9b8a6fe7e3d365",
     "data/blueprints/AbelianVarietiesIsogenousToNoJacobian.json": "ce67342f34746a08014bdb2aa0b384e373f03c1eb07fc326f2872cde976d1635",
     "data/blueprints/AbelianVarietiesIsogenousToNoJacobian.md": "9258a7772a96c3e40de4c254235abe86727cede0ae9d75feb41a06cd94580143",
+    "data/blueprints/AdelicAlgebraicGroups.json": "54f640b8d8ccaf0ec138572e501f791c64aa469c95ca0915e66e58bb73e61729",
+    "data/blueprints/AdelicAlgebraicGroups.md": "1f4a6eec9c0ae0aa03e8d7dd01ba3b27d66fc2919fbacb8115b37eea7401b4d5",
     "data/blueprints/AdicCoefficientsAndComparisons.json": "18d3815a769195af192b6e822232d8ea99eab78961ee9a59ed3ba5147a4f0f42",
     "data/blueprints/AdicCoefficientsAndComparisons.md": "a0f8b9b0be2315107b504a25ddfd08481f018f1f2c2183979ec5d192cd10abc8",
     "data/blueprints/AdicEtaleGeometry.json": "31db3975fc1b2902cd3e3b70b9b71316e8ccb445a7c72e4094db6decf42379ff",
@@ -1516,6 +1523,8 @@
     "data/blueprints/GenericDoublePointInterpolation.md": "6f2fe26ae4640d325cf3d0fb4606ac6a34fd9181552699655c4c22dc0009d454",
     "data/blueprints/GeometricSatakeAndFusion--GS0.json": "b004f91785a7efef5f31da922be8b3de855bdaa8359cb1d2f25be6e17930f1fe",
     "data/blueprints/GeometricSatakeAndFusion--GS0.md": "5ad4fdd2ecdea156005fe08f7bd77ca37f89a9402ffc7adb0d004ef07c10e37b",
+    "data/blueprints/GeometricSatakeAndFusion--GS3.json": "09fed3e0cae0b956d81287b6aba7212c05234b82af27d9d273e6cd61d4e5c187",
+    "data/blueprints/GeometricSatakeAndFusion--GS3.md": "0a777ac0de748cc9367f1271f1518e0b5a75f0cec3a91148f9cd1df5b7d73c61",
     "data/blueprints/GlobalGaloisDeformations.json": "bc830f2181a6806d8161847e18508e4bccec98200e88abc49c9080f9962acdb5",
     "data/blueprints/GlobalGaloisDeformations.md": "4f917fe4c79aa4e3221ea7b4a2ffbaa562c8d034e3f66d80268642ae3e83fa02",
     "data/blueprints/HabiroCohomologyFoundations--HQ.1-2.json": "550d0db0a6700baa6a0235280bfcaf516dd59bb902c710b7ea2866bc57929e0b",

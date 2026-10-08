@@ -295,6 +295,17 @@
     "data/blueprints/roadmaps/AbelianVarietiesIsogenousToNoJacobian.json"
    ]
   },
+  "research/blueprint/packets/AdelicAlgebraicGroups.json": {
+   "promotedAt": "2026-10-08T16:26:48Z",
+   "review": "465c69c9a3a56ac5",
+   "reviewDate": "2026-10-08",
+   "reviewer": "independent-review-REV-AdelicAlgebraicGroups~2",
+   "sha256": "1e3c93563be7cfdf63a38c644646e6eb251fd0aae6b0cde00777a3008633ca1b",
+   "to": [
+    "data/blueprints/AdelicAlgebraicGroups.json",
+    "data/blueprints/AdelicAlgebraicGroups.md"
+   ]
+  },
   "research/blueprint/packets/AdicCoefficientsAndComparisons.json": {
    "promotedAt": "2026-10-06T23:20:34Z",
    "review": "fdb4d5b140920e29",
@@ -1127,6 +1138,17 @@
    "to": [
     "data/blueprints/GeometricSatakeAndFusion--GS0.json",
     "data/blueprints/GeometricSatakeAndFusion--GS0.md"
+   ]
+  },
+  "research/blueprint/packets/GeometricSatakeAndFusion--GS3.json": {
+   "promotedAt": "2026-10-08T16:26:48Z",
+   "review": "c464cb184567e74b",
+   "reviewDate": "2026-10-08",
+   "reviewer": "independent-review-REV-GeometricSatakeAndFusion--GS3~2",
+   "sha256": "10318fa5c148f6ac3cb5b36b16d17837fb19e60f346661a59b9f3669258f77c7",
+   "to": [
+    "data/blueprints/GeometricSatakeAndFusion--GS3.json",
+    "data/blueprints/GeometricSatakeAndFusion--GS3.md"
    ]
   },
   "research/blueprint/packets/GlobalGaloisDeformations.json": {
