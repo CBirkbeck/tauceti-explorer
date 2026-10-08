@@ -6,7 +6,7 @@
     "ArithmeticKTheory:N.3"
   ],
   "status": "complete",
-  "summary": "Finished target-level number-field pass following the accepted N.1 packet. Reuses all six finiteness/rank endpoints and the rank filtration/building machinery. Adds seven missing declarations for finite-rank homology, precise stabilization, stable finite type, finite localization defects and the specified rational comparison with extension/transfer coherence. N.3 is planned, not closed: one precise topology supplier request and explicit finite-type ownership and suggested-signature gaps remain; inherited supplier implementations and review boundaries are explicit. No function-field targets are added.",
+  "summary": "Completed revision 2 of the target-level number-field pass. Preserves seven declaration IDs and six parent endpoints, supplies typed arithmetic prototypes with genuine small Q-span, homology and higher-K carriers, and keeps the specified localization/transfer maps. Reuses the now-accepted finite-generation sibling for the generic rank argument and replaces the redundant H.1 request by existing filtered-colimit and category-homology nodes. N.3 remains planned: the generic connected H-space finite-type extension still lacks assigned ownership, and imported supplier proof/implementation boundaries remain. Independent re-review is required; implementation stays unchecked.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -94,6 +94,36 @@
         "module": "TauCeti/RingTheory/DedekindDomain/SInteger/ClassGroup.lean",
         "provides": "Finite (ClassGroup R) implies finite S-integer class group, as a classical prerequisite to the imported degree-zero endpoint.",
         "checked": "Actual statement read at the pinned commit, TauCeti/RingTheory/DedekindDomain/SInteger/ClassGroup.lean:94"
+      },
+      {
+        "ref": "mathlib:CategoryTheory.nerve",
+        "module": "Mathlib/AlgebraicTopology/SimplicialSet/Nerve.lean",
+        "provides": "Native nerve of a small category; the local supplier prototype uses the actual Q-span category, not a parameter standing for it.",
+        "checked": "Actual statement read at the pinned commit, Mathlib/AlgebraicTopology/SimplicialSet/Nerve.lean:37; revision 2, 2026-10-08."
+      },
+      {
+        "ref": "mathlib:SSet.toTop",
+        "module": "Mathlib/AlgebraicTopology/SingularSet.lean",
+        "provides": "Native geometric realization, applied to the Q nerve; the zero vertex is mapped through the realization/singular adjunction.",
+        "checked": "Actual statement read at the pinned commit, Mathlib/AlgebraicTopology/SingularSet.lean:67; revision 2, 2026-10-08."
+      },
+      {
+        "ref": "mathlib:HomotopyGroup",
+        "module": "Mathlib/Topology/Homotopy/HomotopyGroup.lean",
+        "provides": "Actual cube-loop homotopy quotient. Its commutative group instance at dimension at least two supports positive K-groups without assuming a degree-zero comparison.",
+        "checked": "Actual statement read at the pinned commit, Mathlib/Topology/Homotopy/HomotopyGroup.lean:440; revision 2, 2026-10-08."
+      },
+      {
+        "ref": "mathlib:SSet.homologyFunctor",
+        "module": "Mathlib/AlgebraicTopology/SimplicialSet/Homology/Basic.lean",
+        "provides": "Native simplicial homology and induced maps with the integral ModuleCat coefficient object; singular-realization comparison belongs to H.1.",
+        "checked": "Actual statement read at the pinned commit, Mathlib/AlgebraicTopology/SimplicialSet/Homology/Basic.lean:155; revision 2, 2026-10-08."
+      },
+      {
+        "ref": "tauceti:HomotopyGroup.mapHom",
+        "module": "TauCeti/Topology/Homotopy/HomotopyGroup/Map.lean",
+        "provides": "Actual positive-dimensional based induced homomorphism with identity/composition laws. The Mathlib-only prototype fixes its same loop-postcomposition quotient action; the source pin was read, but its compiled module is absent from the shared build.",
+        "checked": "Actual statement read at the pinned commit, TauCeti/Topology/Homotopy/HomotopyGroup/Map.lean:222; revision 2, 2026-10-08."
       }
     ]
   },
@@ -105,12 +135,13 @@
       "edition": "Lecture Notes in Mathematics 341 (1973), pp. 179–198; collected Bass Seattle scan, source-page and scan-page headers retained",
       "url": "https://www.sas.rochester.edu/mth/sites/doug-ravenel/otherpapers/bass-seattle.pdf",
       "sha256": "9e10948869fcaf64251261294efddf3f4c13ec31838d9a89a7b5b96a4f0c933b",
-      "accessed": "2026-10-06",
+      "accessed": "2026-10-08",
       "readSections": [
         "§1 pp.179–185: all statements, rank-relative exact sequence, stability, and the entire finite-generation proof; p.182 stability also checked in rendered image.",
         "§2 pp.185–190: building, suspended proper-layer poset and proof of Solomon–Tits.",
         "§3 pp.190–198: categorical homology argument, comma categories, low-rank and maximal-order passage.",
-        "One-based PDF page = source page + 8; the collected scan’s extra upper header is not the source pagination."
+        "One-based PDF page = source page + 8; the collected scan’s extra upper header is not the source pagination.",
+        "Revision 2 rechecked §1, Theorem 1, Remark (2), Theorem 3, Corollary (Stability) and proof, source pp.179–185. Earlier full-paper reading records above belong to the original authoring pass."
       ]
     },
     {
@@ -120,7 +151,7 @@
       "edition": "Author-hosted combined draft dated 29 August 2013; Graduate Studies in Mathematics 145",
       "url": "https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf",
       "sha256": "a04f53c9393b20672fab2a6818279b2f9996dbc7cf74735789ed13804b058845",
-      "accessed": "2026-10-06",
+      "accessed": "2026-10-08",
       "readSections": [
         "IV.1.12–1.18, book pp.269–271, finite-field table and order/number-field Borel ranks.",
         "IV.6.3–6.3.3, book pp.320–321, natural-isomorphism invariance and the distinction between projective K-transfer and coherent G-transfer.",
@@ -128,7 +159,8 @@
         "IV.7.1–7.2, book pp.328–329, Q/plus comparison statement and comparison proof setup (generic comparison remains imported).",
         "V.6.1–6.1.3, book p.406, finite localization exact sequence.",
         "V.6.6–6.6.4, book pp.409–410, Dedekind localization and finite-module transfer naturality.",
-        "One-based PDF page = book page + 8. VI.8.1 is not used as evidence for field even-group finiteness; the parent has recorded its typo as ArithmeticKTheory/E15."
+        "One-based PDF page = book page + 8. VI.8.1 is not used as evidence for field even-group finiteness; the parent has recorded its typo as ArithmeticKTheory/E15.",
+        "Revision 2 rechecked IV.6.1–6.4, pp.318–321 (small Q-span model, zero vertex, functoriality and projective transfer), IV.6.8–6.9 p.325, V.6.1 p.406, and V.6.6–6.6.4 pp.409–410. Earlier reading records above are retained provenance."
       ]
     },
     {
@@ -138,10 +170,11 @@
       "edition": "arXiv:1108.2441v3, 2 July 2014",
       "url": "https://arxiv.org/pdf/1108.2441v3",
       "sha256": "71b5da651ba9feca4c1abcc58f566afbf11019dda465cbc3a95aace7cb1e2406",
-      "accessed": "2026-10-06",
+      "accessed": "2026-10-08",
       "readSections": [
         "§1.3.5 and §2.4.1, the coefficient and cellular spectral-sequence interfaces.",
-        "§§4.1–4.3.4, pp.15–18, rank filtration, proper layers, rank-one case, Steinberg E¹ terms and Vogel’s relative-exact-sequence comparison."
+        "§§4.1–4.3.4, pp.15–18, rank filtration, proper layers, rank-one case, Steinberg E¹ terms and Vogel’s relative-exact-sequence comparison.",
+        "Revision 2 rechecked §§4.1–4.3.4, pp.15–18, including the exact loci of E25/E26; earlier coefficient/cellular reading records above are retained provenance."
       ]
     }
   ],
@@ -160,9 +193,9 @@
         "All coefficients are integral; projectives of each positive rank are indexed by their Steinitz classes, including nonfree classes."
       ],
       "proofSteps": [
-        "Import the parent rank filtration, its contractible Q_0, and the relative-homology calculation in its rank spectral sequence. For m ≥ 1, H_i(BQ_m,BQ_{m−1};ℤ) = ⊕_[P of rank m] H_{i−m}(Aut_A(P);St(P⊗_A F)), with the summands zero when i < m.",
-        "The pinned class-group finiteness instance and Z.4’s Steinitz classification make the set of summands finite. Import the parent’s arithmetic-lattice identification and the precise BorelRegulators:R.1/steinberg-duality-finiteness node, which gives integral finite generation for every summand. The orientation character and finite quotient descent are handled by that supplier; no untwisted duality formula is assumed.",
-        "Induct on m using the relative long exact sequence. H_i(BQ_m) is an extension of a quotient of H_i(BQ_{m−1}) by a subgroup of the relative group. Subgroups of finitely generated ℤ-modules are finitely generated (ℤ is noetherian); apply the pinned finite-generation extension lemma. The base has H_0 = ℤ and H_i = 0 for i > 0."
+        "Import ArithmeticKTheory:N.3:finite-generation/rank-filtration-homology-finite-type from the now-accepted sibling packet. Its single generic proof uses the integral relative rank calculation, noetherian subgroup/extension finiteness and rank stabilization; do not implement that induction again under this consumer ID.",
+        "Specialize to A = 𝓞_F. The pinned finite class-group instance, the class-group/Pic comparison and Z.4 Steinitz classification supply finite Pic and all positive-rank projective classes. The early Borel R.1 integral Steinberg finiteness node supplies the homology hypothesis for every projective lattice, including nonfree ones and the orientation/finite-quotient descent. This yields the displayed arithmetic finite-rank statement.",
+        "Retain this declaration as the arithmetic specialization interface. At rank zero use the zero-stage equivalence: H_0 is ℤ and positive homology vanishes. An implementation shares the sibling proof rather than creates a parallel generic theorem."
       ],
       "acceptance": [
         "m = 0 gives ℤ in degree zero and zero in positive degrees.",
@@ -170,6 +203,7 @@
         "No bound on the number of cells, or vanishing in all high degrees for fixed m, is asserted."
       ],
       "prerequisites": [
+        "ArithmeticKTheory:N.3:finite-generation/rank-filtration-homology-finite-type",
         "ArithmeticKTheory:N.3:finite-generation/rank-filtration",
         "ArithmeticKTheory:N.3:finite-generation/rank-spectral-sequence",
         "ArithmeticKTheory:N.3:finite-generation/steinberg-homology-of-automorphism-groups",
@@ -191,7 +225,12 @@
         "namespace": "ArithmeticKTheory",
         "declaration": "ArithmeticKTheory.finite_rankQHomology"
       },
-      "implementationStatus": "unchecked"
+      "implementationStatus": "unchecked",
+      "prototype": {
+        "status": "typed",
+        "file": "research/blueprint/suggested/ArithmeticKTheory--N.3.lean",
+        "note": "Elaborated with the exact pinned Mathlib. Local Supplier helpers instantiate the owning small idempotent-matrix/split-exact Q interfaces, native nerve/realization, integral simplicial homology and actual cube homotopy quotient. QH-to-singular comparison remains an H.1 supplier theorem. Positive-degree K is indexed by a successor: Supplier.K R d denotes K_(d+1)(R), and comparison/defect parameters d denote degree d+2. Existence/comparison and proof obligations remain unimplemented; the arithmetic carriers, primes and specified induced maps are fixed, not arbitrary module parameters."
+      }
     },
     {
       "id": "ArithmeticKTheory:N.3/rank-filtration-homology-stability",
@@ -207,9 +246,9 @@
         "The relative term at rank p is zero in homological degree j < p. This is integer grading: negative group homology is zero, not H_0 obtained by truncated natural-number subtraction."
       ],
       "proofSteps": [
-        "In the pair (BQ_{m+1},BQ_m), H_i(relative) vanishes if i < m+1; the pair exact sequence therefore makes the transition map surjective for m ≥ i.",
-        "The preceding relative group H_{i+1}(relative) also vanishes if i+1 < m+1; hence the transition is injective as well for m ≥ i+1.",
-        "Use the rank filtration’s exhaustion and the requested H.1 integral homology comparison for this filtered union of nerves. Iterating the transitions gives the same bounds for the map into BQ. This argument is degreewise and uses no infinite extension or spectral-sequence convergence assumption."
+        "Reuse the accepted sibling declaration ArithmeticKTheory:N.3:finite-generation/rank-homology-stability. Preserve the present consumer ID/signature as its reexport, not a second implementation of generic rank stability.",
+        "The supplier proves the bounds using vanishing of signed negative-degree relative terms: in the rank m+1 step, vanishing in degree i gives surjectivity for m≥i; vanishing also in degree i+1 gives injectivity for m≥i+1. This rationale checks the reexport bounds, rather than introducing another proof plan.",
+        "Import StableHomotopyKTheory:H.1/filtered-colimit-homology, whose explicit acceptance case is this increasing Q-rank filtration, together with H.1/homology-of-small-categories. Their natural comparison carries the same bounds to BQ; the old broad H.1 request is redundant. These remain supplier planning nodes, not implemented library results."
       ],
       "acceptance": [
         "In degree zero, Q_0 and Q are connected; the sufficient bounds hold, although this particular case is already an isomorphism at m = 0.",
@@ -219,7 +258,9 @@
       "prerequisites": [
         "ArithmeticKTheory:N.3:finite-generation/rank-filtration",
         "ArithmeticKTheory:N.3:finite-generation/rank-spectral-sequence",
-        "StableHomotopyKTheory:H.1"
+        "ArithmeticKTheory:N.3:finite-generation/rank-homology-stability",
+        "StableHomotopyKTheory:H.1/filtered-colimit-homology",
+        "StableHomotopyKTheory:H.1/homology-of-small-categories"
       ],
       "sources": [
         {
@@ -238,7 +279,12 @@
         "namespace": "ArithmeticKTheory",
         "declaration": "ArithmeticKTheory.rankQHomology_stable"
       },
-      "implementationStatus": "unchecked"
+      "implementationStatus": "unchecked",
+      "prototype": {
+        "status": "typed",
+        "file": "research/blueprint/suggested/ArithmeticKTheory--N.3.lean",
+        "note": "Elaborated with the exact pinned Mathlib. Local Supplier helpers instantiate the owning small idempotent-matrix/split-exact Q interfaces, native nerve/realization, integral simplicial homology and actual cube homotopy quotient. QH-to-singular comparison remains an H.1 supplier theorem. Positive-degree K is indexed by a successor: Supplier.K R d denotes K_(d+1)(R), and comparison/defect parameters d denote degree d+2. Existence/comparison and proof obligations remain unimplemented; the arithmetic carriers, primes and specified induced maps are fixed, not arbitrary module parameters."
+      }
     },
     {
       "id": "ArithmeticKTheory:N.3/stable-Q-homology-finite-type",
@@ -266,7 +312,9 @@
       "prerequisites": [
         "ArithmeticKTheory:N.3/finite-rank-Q-homology",
         "ArithmeticKTheory:N.3/rank-filtration-homology-stability",
-        "GeneralAlgebraicKTheory:K.1/K-groups-of-exact-categories"
+        "GeneralAlgebraicKTheory:K.1/K-groups-of-exact-categories",
+        "StableHomotopyKTheory:H.1/filtered-colimit-homology",
+        "StableHomotopyKTheory:H.1/homology-of-small-categories"
       ],
       "sources": [
         {
@@ -283,6 +331,11 @@
       "implementationStatus": "unchecked",
       "planet": {
         "name": "Finite-type arithmetic Q-space"
+      },
+      "prototype": {
+        "status": "typed",
+        "file": "research/blueprint/suggested/ArithmeticKTheory--N.3.lean",
+        "note": "Elaborated with the exact pinned Mathlib. Local Supplier helpers instantiate the owning small idempotent-matrix/split-exact Q interfaces, native nerve/realization, integral simplicial homology and actual cube homotopy quotient. QH-to-singular comparison remains an H.1 supplier theorem. Positive-degree K is indexed by a successor: Supplier.K R d denotes K_(d+1)(R), and comparison/defect parameters d denote degree d+2. Existence/comparison and proof obligations remain unimplemented; the arithmetic carriers, primes and specified induced maps are fixed, not arbitrary module parameters."
       }
     },
     {
@@ -332,7 +385,12 @@
         "namespace": "ArithmeticKTheory",
         "declaration": "ArithmeticKTheory.finite_localisation_defect"
       },
-      "implementationStatus": "unchecked"
+      "implementationStatus": "unchecked",
+      "prototype": {
+        "status": "typed",
+        "file": "research/blueprint/suggested/ArithmeticKTheory--N.3.lean",
+        "note": "Elaborated with the exact pinned Mathlib. Local Supplier helpers instantiate the owning small idempotent-matrix/split-exact Q interfaces, native nerve/realization, integral simplicial homology and actual cube homotopy quotient. QH-to-singular comparison remains an H.1 supplier theorem. Positive-degree K is indexed by a successor: Supplier.K R d denotes K_(d+1)(R), and comparison/defect parameters d denote degree d+2. Existence/comparison and proof obligations remain unimplemented; the arithmetic carriers, primes and specified induced maps are fixed, not arbitrary module parameters."
+      }
     },
     {
       "id": "ArithmeticKTheory:N.3/canonical-rational-S-integer-equivalence",
@@ -480,7 +538,12 @@
         "name": "Rational S-integer comparison"
       },
       "testDependencies": {
-        "note": "The constructor uses only localization/flatness. The degree-one and nonzero degree-five tests additionally use the precise K₁/S-unit and order-rank imports listed above."
+        "note": "The constructor uses localization/flatness, not an order-rank theorem. The degree-one and nonzero degree-five tests use the precise K₁/S-unit and order-rank imports. The degree-two example also types the imported K₂(ℤ) ≃ ℤ/2 computation; its supplier retains its unread upper-bound proof boundary and is not discharged by rational vanishing."
+      },
+      "prototype": {
+        "status": "typed",
+        "file": "research/blueprint/suggested/ArithmeticKTheory--N.3.lean",
+        "note": "Elaborated with the exact pinned Mathlib. Local Supplier helpers instantiate the owning small idempotent-matrix/split-exact Q interfaces, native nerve/realization, integral simplicial homology and actual cube homotopy quotient. QH-to-singular comparison remains an H.1 supplier theorem. Positive-degree K is indexed by a successor: Supplier.K R d denotes K_(d+1)(R), and comparison/defect parameters d denote degree d+2. Existence/comparison and proof obligations remain unimplemented; the arithmetic carriers, primes and specified induced maps are fixed, not arbitrary module parameters."
       }
     },
     {
@@ -519,7 +582,12 @@
         "namespace": "ArithmeticKTheory",
         "declaration": "ArithmeticKTheory.rationalSIntegerEquiv_toLinearMap"
       },
-      "implementationStatus": "unchecked"
+      "implementationStatus": "unchecked",
+      "prototype": {
+        "status": "typed",
+        "file": "research/blueprint/suggested/ArithmeticKTheory--N.3.lean",
+        "note": "Elaborated with the exact pinned Mathlib. Local Supplier helpers instantiate the owning small idempotent-matrix/split-exact Q interfaces, native nerve/realization, integral simplicial homology and actual cube homotopy quotient. QH-to-singular comparison remains an H.1 supplier theorem. Positive-degree K is indexed by a successor: Supplier.K R d denotes K_(d+1)(R), and comparison/defect parameters d denote degree d+2. Existence/comparison and proof obligations remain unimplemented; the arithmetic carriers, primes and specified induced maps are fixed, not arbitrary module parameters."
+      }
     },
     {
       "id": "ArithmeticKTheory:N.3/rational-localisation-extension-transfer",
@@ -564,7 +632,12 @@
         "namespace": "ArithmeticKTheory",
         "declaration": "ArithmeticKTheory.rationalSIntegerEquiv_extension_transfer"
       },
-      "implementationStatus": "unchecked"
+      "implementationStatus": "unchecked",
+      "prototype": {
+        "status": "typed",
+        "file": "research/blueprint/suggested/ArithmeticKTheory--N.3.lean",
+        "note": "Elaborated with the exact pinned Mathlib. Local Supplier helpers instantiate the owning small idempotent-matrix/split-exact Q interfaces, native nerve/realization, integral simplicial homology and actual cube homotopy quotient. QH-to-singular comparison remains an H.1 supplier theorem. Positive-degree K is indexed by a successor: Supplier.K R d denotes K_(d+1)(R), and comparison/defect parameters d denote degree d+2. Existence/comparison and proof obligations remain unimplemented; the arithmetic carriers, primes and specified induced maps are fixed, not arbitrary module parameters."
+      }
     }
   ],
   "reusedTargets": [
@@ -622,29 +695,20 @@
     },
     {
       "supplier": "K2SymbolsBrauer:T.5/k2-of-the-integers",
-      "note": "Only the integral side of the degree-two test imports K₂(ℤ) ≃ ℤ/2. That supplier records an unread Milnor §10 upper-bound input; this test is planned, not compiled or established by the present packet. Rational vanishing does not compute the integral torsion."
+      "note": "Only the integral side of the degree-two test imports K₂(ℤ) ≃ ℤ/2. Its supplier retains an unread Milnor §10 upper-bound input. The test signature now elaborates, but its computation is neither proved nor obtained from rational vanishing in this packet."
     }
   ],
-  "requests": [
-    {
-      "supplier": "StableHomotopyKTheory:H.1",
-      "need": "For the increasing full rank subcategories Q_m(P(A)) with union Q, prove the natural integral homology comparison colim_m H_i(BQ_m;ℤ) ≅ H_i(BQ;ℤ), commuting with the inclusion-induced maps. Use finite-support normalized nerve chains (each simplex lies in some Q_m), exactness of filtered colimits of abelian groups, and the existing bar/singular comparison. The integrated H.1/filtered-colimits-of-categories node states homotopy-colimit comparisons but does not state this homology result. This request lies within H.1’s narrowed filtered-diagram scope.",
-      "neededBy": [
-        "ArithmeticKTheory:N.3/rank-filtration-homology-stability",
-        "ArithmeticKTheory:N.3/stable-Q-homology-finite-type"
-      ]
-    }
-  ],
+  "requests": [],
   "coverage": [
     {
       "stageId": "ArithmeticKTheory:N.3",
       "status": "planned",
-      "note": "The six inherited number-field endpoints and seven refinements give a finished target-level planning pass. The H.1 request, unassigned generic H-space extension and missing typed suggested declarations prevent closure. The parent’s stale H.6 edge remains an explicitly recorded external boundary. All declarations remain implementationStatus unchecked; review needs_changes concerns §13, not an assertion that the seven mathematical statements are false.",
+      "note": "Complete target-level revision with seven retained typed declarations and six parent endpoints. The §13 signature defect is repaired. Existing H.1 declaration nodes supply the former request. N.3 remains planned because the generic connected H-space finite-type theorem lacks assigned ownership and inherited suppliers retain explicit proof/implementation boundaries. The earlier review object is preserved for independent re-review, not replaced by the author.",
       "remaining": [
-        "Obtain H.1’s natural integral homology comparison for the filtered union, then replace the stage prerequisite by its declaration node.",
-        "Obtain the proposed StableHomotopyKTheory Part II finite-type theorem with possibly nonzero π₁; reconcile the parent’s stale H.6 edge through the authorized integration/review process.",
-        "Close inherited parent supplier requests using reviewed nodes: Borel R.1 Steinberg finite type, R.3 order ranks, K.1/K.2:plus genuine carriers, K.3 localization/transfer, low-degree projective classification and K₁/S-unit identification. The present follow-up does not edit those packets.",
-        "Replace the comment-only signature register by the actual typed declarations, API signatures and examples required by §13, without surrogate carriers; reconcile the reader in an authorized revision."
+        "Assign the proposed generic finite-type connected H-space extension, allowing nonzero π₁, to an early owner node and reconcile the parent’s stale H.6 edge through the authorized integration/review process.",
+        "Integrate the accepted N.3-finite-generation sibling by sharing its generic rank stability and conditional integral finite-type proof. Preserve the seven present consumer IDs, arithmetic specializations, canonical rational-map API and finite S⊆T refinement; implement no duplicate generic proof.",
+        "Discharge inherited parent/sibling supplier boundaries through their owners: early integral Steinberg finite type, order ranks, genuine Q/K comparisons, cellular and chain-coefficient homology interfaces, localization/transfer, projective classification and K₁/S-unit comparison. H.1’s already-existing ordinary category/filtered-colimit homology nodes are imported rather than requested again.",
+        "Replace the typed local supplier prototypes by implemented owner imports while preserving the displayed carriers and maps, then independently review this revision. No implementation or stage closure is claimed."
       ]
     }
   ],
@@ -656,20 +720,6 @@
         "ArithmeticKTheory:N.3:finite-generation/quillen-finite-generation-theorem"
       ],
       "detail": "Needed statement: StableHomotopyKTheory, Part II: for a connected pointed CW-type homotopy associative H-space with homotopy unit, prove simplicity (abelian π₁, trivial action on higher π), and that all-degree integral homology finite generation implies all π_j, j≥1, finitely generated. Nonzero π₁ must be allowed. Supply the Postnikov/Serre-class proof using the upstream CW, covering, Hurewicz and Serre inputs. This extends H.3’s plus/simple-space direction rather than claiming its current stage already states the theorem. It corrects the parent’s old H.6 request, which is outside the narrowed H.6 scope. RS-33 H.3 currently owns plus constructions, not this general finite-type theorem. Consequently H.3 is not a valid supplier request under §3, and no supplying declaration or assigned extension stage is available. This review records the need as a gap and retains the Part II proposal; it does not assign a new stage. The parent criterion still lists H.6, which also fails to cover this need after RS-33. That parent edge and its request require a separate authorized revision. Until then the six reused endpoints retain this explicit unresolved proof boundary.",
-      "addedBy": "REV-ArithmeticKTheory--N.3"
-    },
-    {
-      "title": "Typed suggested declarations, API and examples are missing",
-      "neededBy": [
-        "ArithmeticKTheory:N.3/finite-rank-Q-homology",
-        "ArithmeticKTheory:N.3/rank-filtration-homology-stability",
-        "ArithmeticKTheory:N.3/stable-Q-homology-finite-type",
-        "ArithmeticKTheory:N.3/finite-S-localisation-defect",
-        "ArithmeticKTheory:N.3/canonical-rational-S-integer-equivalence",
-        "ArithmeticKTheory:N.3/canonical-rational-equivalence-map",
-        "ArithmeticKTheory:N.3/rational-localisation-extension-transfer"
-      ],
-      "detail": "All seven planned declarations, the construction’s eight API entries and five arithmetic examples appear only in a block comment. The nine compiled native examples do not state them. PROTOCOL §13 requires actual typed declarations and examples with honest proof placeholders. Genuine Q-filtration homology and higher-K carriers/maps are not supplied by the pinned libraries. A revision must prototype using the owning interfaces, omit only genuinely unstatable conditions with an explanation, and preserve the actual maps and arithmetic meaning; arbitrary replacement modules, opaque K-types or proposition-valued stand-ins are not a remedy. If the owning carrier cannot be used within the revision, obtain a specific protocol decision rather than claiming comments satisfy §13.",
       "addedBy": "REV-ArithmeticKTheory--N.3"
     }
   ],
@@ -777,7 +827,7 @@
     {
       "kind": "preprint",
       "url": "https://arxiv.org/pdf/1108.2441v3",
-      "read": "2026-10-06",
+      "read": "2026-10-08",
       "sha256": "71b5da651ba9feca4c1abcc58f566afbf11019dda465cbc3a95aace7cb1e2406",
       "citation": "Bruno Kahn, Around Quillen’s theorem A, arXiv:1108.2441v3 (2 July 2014). Both findings are scoped to this preprint, not an uninspected published version."
     }
