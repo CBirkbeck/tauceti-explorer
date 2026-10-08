@@ -25,7 +25,7 @@ import TauCeti.AlgebraicGeometry.EllipticCurve.QuadraticTwist
 import TauCeti.RepresentationTheory.Homological.ContCohomology.SmoothDiscrete
 import TauCeti.RepresentationTheory.Homological.ContCohomology.Inflation
 import TauCeti.NumberTheory.ModularForms.Newforms.Newform
-import Mathlib.Algebra.Algebra.TensorProduct.Basic
+import Mathlib.RingTheory.TensorProduct.Basic
 import Mathlib.AlgebraicGeometry.EllipticCurve.IsomOfJ
 import Mathlib.FieldTheory.Galois.Basic
 import Mathlib.FieldTheory.AbsoluteGaloisGroup
@@ -575,8 +575,8 @@ GL2Type.trivialCharacter [omitted]: For a ℚ-simple abelian variety A over ℚ 
 -/
 
 /- GT.3/modular-parametrisation — omitted
-The full pointed curve-morphism signature is omitted until ModularCurvesPartII:R14.2/R14.5/R14.6 native X₁(N), X₀(N), Jacobians, A_f, coefficient fields, Hecke actions, rational cusps and pointed Abel–Jacobi maps and JacobianChallenge Layer F supply native AJ_c and image generation. Required clauses are X₁(N)→A, rational cusp c, φ(c)=0, nonconstancy and generating image, with degeneracy from N to newform level M|N; the Γ₀ branch uses ∞. A nonzero Jacobian Hom is not this signature.
-GL2Type.modularParametrisation [omitted]: Let A be a ℚ-simple abelian variety over ℚ of GL₂-type, modular of level N. There is a nonconstant morphism φ : X₁(N) → A over ℚ with φ(c) = 0 for the rational cusp c of ModularCurvesPartII:R14.6/rational-cusp-abel-jacobi, whose image generates A as an algebraic group; φ is the composite of the Abel–Jacobi map, a quotient J₁(N) → J₁(M) → A_f with the newform level M dividing N and an isogeny A_f → A. If ε = 1, φ can be taken on X₀(N) with φ(∞) = 0. This generalises EllipticCurveModularity:R29.5/modular-parametrisation.
+The full pointed curve-morphism signature is omitted until ModularCurvesPartII:R14.2/R14.5/R14.6 native X₁(N), X₀(N), Jacobians, A_f, coefficient fields, Hecke actions, rational cusps and pointed Abel–Jacobi maps and JacobianChallenge Layer F supply native AJ_c and image generation. Required clauses are X₁(N)→A, rational cusp c, φ(c)=0, nonconstancy and generating image, for every positive-dimensional modular A; the ℚ-simple refinement uses degeneracy from N to newform level M|N and the Γ₀ branch uses ∞. A nonzero Jacobian Hom is not this signature.
+GL2Type.modularParametrisation [omitted]: Let A be a positive-dimensional abelian variety over ℚ, modular of level N. For every surjective homomorphism q : J₁(N) → A, the composite φ = q ∘ AJ_c : X₁(N) → A is a nonconstant morphism over ℚ with φ(c) = 0 for the rational cusp c of ModularCurvesPartII:R14.6/rational-cusp-abel-jacobi, and its image generates A as an algebraic group. If A is also ℚ-simple of GL₂-type, one can choose q as J₁(N) → J₁(M) → A_f → A, where M | N is the newform level and the last map is an isogeny. In this simple case, if ε = 1 one can instead use X₀(N), sending ∞ to 0. This generalises EllipticCurveModularity:R29.5/modular-parametrisation and also applies to modular powers.
 -/
 
 /- GT.4/conductor-of-gl2-type — omitted
@@ -646,7 +646,7 @@ Vanishing is stated on canonical continuousCohomology 2 of ofDiscreteModule with
 
 /- GT.5/restriction-of-scalars-endomorphisms — omitted
 The concrete restriction-of-scalars object, twisted group algebra and its End0 identification require AbelianSchemesAndArithmeticModuli:A6 restriction of scalars, its product descent, twisted-group-algebra action and the R-equivariant inverse-index isogeny and the typed geometric cocycle. They are not represented by unconstrained functors or actions.
-GL2Type.restrictionOfScalarsEndomorphisms [omitted]: Let C₀ be a non-CM ℚ-curve over a finite Galois K/ℚ with K-isogenies μ_g and cocycle c (GT.5/ribet-cocycle), and B = Res_{K/ℚ} C₀, an abelian variety over ℚ of dimension [K : ℚ], where K is enlarged (Ribet: 'after again enlarging K') so that the splitting α of GT.5/tate-vanishing-qbar factors through Gal(K/ℚ). Then End⁰_ℚ(B) = ⊕_{σ ∈ Gal(K/ℚ)} Hom⁰_K(σC₀, C₀) has a ℚ-basis λ_σ corresponding to μ_σ with λ_σλ_τ = c(σ, τ)λ_{στ}: it is the twisted group algebra R = ℚ^c[Gal(K/ℚ)]. For a splitting α of c (GT.5/tate-vanishing-qbar), ω : R → E_α, λ_σ ↦ α(σ), is a surjective homomorphism of ℚ-algebras, and R is semisimple.
+GL2Type.restrictionOfScalarsEndomorphisms [omitted]: Let C₀ be a non-CM ℚ-curve over a finite Galois K/ℚ with K-isogenies μ_g and cocycle c (GT.5/ribet-cocycle), and B = Res_{K/ℚ} C₀, an abelian variety over ℚ of dimension [K : ℚ], where K has been enlarged so that the splitting α of GT.5/tate-vanishing-qbar factors through Gal(K/ℚ). Then End⁰_ℚ(B) = ⊕_{σ ∈ Gal(K/ℚ)} Hom⁰_K(σC₀, C₀) has a ℚ-basis λ_σ corresponding to μ_σ with λ_σλ_τ = c(σ, τ)λ_{στ}: it is the twisted group algebra R = ℚ^c[Gal(K/ℚ)]. For a splitting α of c (GT.5/tate-vanishing-qbar), ω : R → E_α, λ_σ ↦ α(σ), is a surjective homomorphism of ℚ-algebras, and R is semisimple.
 -/
 
 /- GT.5/lie-free-rank-one — omitted
