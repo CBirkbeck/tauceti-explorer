@@ -32926,8 +32926,9 @@
    ],
    "followUpOf": "DESIGN-HodgeStructuresPartII",
    "prompt": "research/blueprint/prompts/BP-HodgeStructuresPartII--H.8.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6947"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6947",
+   "finishedAt": "2026-10-08T07:57:46Z"
   },
   {
    "id": "REV-HodgeStructuresPartII--H.8",
