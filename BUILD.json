@@ -1,8 +1,8 @@
 {
   "roadmaps": 236,
-  "stages": 4828,
+  "stages": 4850,
   "originalStages": 2160,
-  "sourceRefinements": 2668,
+  "sourceRefinements": 2690,
   "reviewedDecompositions": [
     {
       "roadmap": "AInfCohomology",
@@ -264,14 +264,14 @@
   "editedRoadmapSummaries": 181,
   "curatedStagePresentations": 339,
   "administrativeStages": 101,
-  "mathematicalStars": 4727,
+  "mathematicalStars": 4749,
   "plainTextPlanetLabels": 398,
   "hiddenPlanets": 600,
   "mappedStageStatuses": 350,
   "libraryAuditStatuses": 19,
   "bibliographicSources": 46,
-  "roadmapEdges": 2153,
-  "stageEdges": 12528,
+  "roadmapEdges": 2161,
+  "stageEdges": 12596,
   "reviewedLinkPackets": 25,
   "promotedBlueprints": [
     {
@@ -1061,6 +1061,12 @@
       "reviewer": "independent-review-REV-OverconvergentAutomorphicForms--O8"
     },
     {
+      "file": "PadicHodgeRegulators--D.1",
+      "roadmap": "PadicHodgeRegulators",
+      "nodes": 72,
+      "reviewer": "independent-review-REV-PadicHodgeRegulators--D.1~2"
+    },
+    {
       "file": "PadicHodgeRegulators--L3",
       "roadmap": "PadicHodgeRegulators",
       "nodes": 59,
@@ -1194,8 +1200,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 35759468,
-  "htmlSha256": "cce47c3f57f8a88043db338ea118ad3d51a17c80b412329028a772e81bee7dd7",
+  "htmlBytes": 35841029,
+  "htmlSha256": "ef24c7c66810084a2759657d7343424404e5a1f06e773fac745debba0fd0cde7",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -1227,7 +1233,7 @@
     "data/roadmap-summaries.json": "c8bdd0a9105f5d3c4a858c8b635990729f8e94497dee784a71fae659b8c05b9f",
     "data/roadmap-classification.json": "2641dbc97eb2566c715162d011b46890d1635629181ef8126ac7aed9e24a3b13",
     "data/classification-estimates.json": "625d35fe6121bf099dc5de9e6a9111793596f9b664e3fbd439841434bb4a57d6",
-    "data/roadmap-distances.json": "837cbd79921e48b0e037098b979c2a300904c5a30f329132a19929d796dfd247",
+    "data/roadmap-distances.json": "4d8578aea73cf90351e133c8328876777ee5959f3db7fae8ba649ef50d8a62ec",
     "data/galaxy-layout.json": "2c01bbf6e2083476a6b73f3d295c4d4c898d0be461c21fb0195da29a30469a03",
     "data/bibliography.json": "bef230a41fad22d6b790c7564061c4d05c2ae5b78cab53d005eb404afab2b122",
     "NOTICE": "a285b95d5adbf5c2bcc82db36e2a77b797f84a2c5cbb30292efd0bae17cc4f34",
@@ -1547,6 +1553,8 @@
     "data/blueprints/NeronModelsAndSemistableAbelianVarieties.md": "7e174f3a26bad9ab37af9b71d1e741eb3fabd739d6d22a7d6903ea9f22e378d9",
     "data/blueprints/OverconvergentAutomorphicForms--O8.json": "daae7d6be3bcd443182b51861a171ae1cb4fb6ad3f9600c1eb6c3252830b7937",
     "data/blueprints/OverconvergentAutomorphicForms--O8.md": "7a5fc90512b7767e1f2ec288ff063618496f9613a88f47c441ebcaf9de6e0fd8",
+    "data/blueprints/PadicHodgeRegulators--D.1.json": "2f70c0c000179cbd10c77a243d003214ca1ad0b171ff2e7f977972e62405f22c",
+    "data/blueprints/PadicHodgeRegulators--D.1.md": "b403ed60afaf3a055d603f7d8100f41517bed1b0849d05b8a0397fdc3f1f977f",
     "data/blueprints/PadicHodgeRegulators--L3.json": "e69dbbdb8d55ddfaedeed5294aa91e3331d39f854de44ed9e47a3043962d8cbc",
     "data/blueprints/PadicHodgeRegulators--L3.md": "8dd3fc2f5600687e571a3d03889bc9118e77d2f48a033d17456898cacce5ea61",
     "data/blueprints/PerfectoidQuotients.json": "570bbfa78c085e4bcc23095096cce1dc1301f5e526cf1ba74320345bdc232903",
