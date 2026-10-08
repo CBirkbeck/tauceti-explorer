@@ -40938,8 +40938,8 @@
    ],
    "revisionOf": "BP-SchemeKTheoryOperations",
    "prompt": "research/blueprint/prompts/BP-SchemeKTheoryOperations~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7007"
+   "state": "pending",
+   "note": "released on GitHub issue #7007"
   },
   {
    "priority": 2,
@@ -72233,8 +72233,8 @@
     "FIX-RT-AREA-langlands-2~3"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-langlands-2~3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5871"
+   "state": "pending",
+   "note": "released on GitHub issue #5871"
   },
   {
    "id": "FIX-RT-AREA-langlands-2~4",
