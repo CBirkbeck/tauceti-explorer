@@ -37909,8 +37909,9 @@
     "BP-AutomorphicGaloisRepresentationsPartII--AG2.6~2"
    ],
    "prompt": "research/blueprint/prompts/REV-AutomorphicGaloisRepresentationsPartII--AG2.6~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6990"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6990",
+   "finishedAt": "2026-10-08T14:51:13Z"
   },
   {
    "kind": "blueprint",
@@ -40554,7 +40555,8 @@
     "BP-PotentialModularityAndCompatibleSystems--R24.3~2"
    ],
    "prompt": "research/blueprint/prompts/REV-PotentialModularityAndCompatibleSystems--R24.3~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7081"
   },
   {
    "kind": "blueprint",
