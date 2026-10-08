@@ -37152,8 +37152,9 @@
    ],
    "revisionOf": "DESIGN-EllipticCurveModularityPartII",
    "prompt": "research/blueprint/prompts/DESIGN-EllipticCurveModularityPartII~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6896"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6896",
+   "finishedAt": "2026-10-08T10:28:31Z"
   },
   {
    "priority": 2,
