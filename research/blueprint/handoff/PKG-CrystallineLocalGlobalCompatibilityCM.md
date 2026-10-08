@@ -1,4 +1,114 @@
-# PKG-CrystallineLocalGlobalCompatibilityCM — checkpoint
+# PKG-CrystallineLocalGlobalCompatibilityCM — blocked checkpoint
+
+## Current continuation: codex-albCMF
+
+Issue: [#7462](https://github.com/CBirkbeck/tauceti-explorer/issues/7462).
+Agent: Codex. Session: `codex-albCMF`. Date: 2026-10-08.
+Continues the checkpoint merged in [#7691](https://github.com/CBirkbeck/tauceti-explorer/pull/7691),
+using main at `087957b54`.
+
+**Blocked by missing supplier interfaces.** The package cannot meet the issue's
+requirement to give every definition, theorem, API item and test a faithful Lean
+form within its authorized files. This continuation independently rechecked the
+blocker and the inherited files. It changes this handoff only. The README and
+Suggested.lean, the accepted plan and the original suggested file remain intact.
+The interruption is due to the supplier boundary, rather than elapsed time.
+
+### Rechecked dependencies and sufficient blockers
+
+| Accepted request | Supplier and consuming targets | Current evidence and required change |
+|---|---|---|
+| `REQ-SMOOTH` | `SmoothRepresentationsOfLocalGroups:SR.0:abelian-category`; CL.1 ordinary functors and CL.3 induction | The SR.0 packet, reader and suggested file listed in the queue are absent. Its blueprint [#996](https://github.com/CBirkbeck/tauceti-explorer/issues/996) is available; the corresponding assembly [#260](https://github.com/CBirkbeck/tauceti-explorer/issues/260) is blocked. Supply the genuine abelian smooth categories for the specified open monoids, compact invariants, injectives and derived functors. |
+| `REQ-TOWER` | `ArithmeticLocallySymmetricSpaces:ALS.6`; CL.1 completed ordinary cohomology and CL.5 boundary coefficients | The accepted arithmetic supplier's suggested file explicitly labels its expressible quotient and ring-image forms as adapters. Its arithmetic tower and coefficient interfaces are still in the omission catalogue. Supply equivariant derived sections on the adelic/Borel–Serre towers, coefficient descent and completed cohomology with the homotopy-limit comparison specified in the request. |
+| `REQ-INTEGRAL-WEYL` | `PotentialAutomorphyInfrastructure:PA.0`; CL.0 coefficient evaluation and CL.2 weight comparison | The parent packet retains its explicit integral highest-weight prerequisite gap. It assigns the general theory to `ReductiveGroupsIntegralRepresentationsPartII`, whose stages have not been assigned. Supply that owner's integral induced/dual-Weyl interfaces, then the parent's Levi evaluation and splitting exports. Preserve the assigned owner; do not invent a stage identifier. |
+
+The issue states the package requirement explicitly, and
+[PROTOCOL.md](../PROTOCOL.md), §§13 and 15, requires honest omitted conditions
+and reuse of the owning roadmap. Planning acceptance has not supplied these
+missing types. A generic category or representation with the desired conclusions
+as assumptions would not discharge these contracts.
+
+Three tempting library replacements were checked at the exact pins:
+
+- Tau Ceti's `IsSmoothDiscrete` and `SmoothDiscreteTopRep` genuinely exist.
+  The former records discrete topology and open point stabilizers; the latter
+  is a full subcategory of `TopRep`. Read the declarations in
+  `TauCeti/RepresentationTheory/Homological/ContCohomology/SmoothDiscrete.lean`,
+  lines 254–270 and 537–544 at `f790474821cf4256814db967cb154e7af3d0c369`.
+  The missing input is the abelian/derived smooth interface, not smoothness
+  itself. The reviewed AUDIT-41 SR.0 and derived-extension entries agree;
+  the pinned continuous-cohomology tree contains no abelian-category or
+  enough-injectives declaration supplying this input.
+- Mathlib's `DerivedCategory` requires an abelian input category and a chosen
+  localization. Read `Mathlib/Algebra/Homology/DerivedCategory/Basic.lean`,
+  lines 65–87 at `082e2d37e8b0463410cdb532e111cd43d5a66174`.
+  Its existence does not produce the absent smooth category or arithmetic
+  tower. The reviewed `data/library-coverage.json` ALS.6 entry also distinguishes
+  category-theoretic limits from the required arithmetic construction.
+- Tau Ceti's `YoungTableau.weylModule` is a concrete near miss that must not
+  be used as the integral lattice. Read
+  `TauCeti/RepresentationTheory/ClassicalGroups/WeylModule.lean`,
+  lines 114–124 at the Tau Ceti pin: its ring is required to be a Q-algebra,
+  and its construction uses a rational Young symmetrizer. The coefficient
+  rings O and O/ϖ^m of `REQ-INTEGRAL-WEYL` do not satisfy that hypothesis.
+  Extending a characteristic-zero representation does not establish the
+  integral evaluation, reduction and Levi splitting contract.
+
+These observations are sufficient to block completion. They do not claim an
+exhaustive new audit of every supplier or a new mathematical source finding.
+The other 24 requests and the ten prototype gaps remain as recorded in the
+accepted plan and in the previous continuation below.
+
+### Independent checks in this run
+
+- `python3 scripts/check_blueprint.py research/blueprint/packets/CrystallineLocalGlobalCompatibilityCM.json`:
+  0 errors, 0 warnings; 97 nodes (19 definitions, 15 constructions, 63 theorems),
+  103 API entries, 104 tests, 37 planets, nine baseline declarations,
+  27 requests and 40 gaps. CL.0–CL.9 are all planned; none is closed.
+- `lean-check research/blueprint/packages/CrystallineLocalGlobalCompatibilityCM/Suggested.lean`:
+  exit 0, no errors, 48 warnings, all `declaration uses sorry`.
+  The shared Mathlib checkout is the exact pin. The package imports only
+  Mathlib, so this check does not certify Tau Ceti imports at the older pin.
+  Memory exceeded 20 GB. The check finished and leaves no background process.
+- An independent scratch verifier removed Lean comments before counting
+  declarations and reconciled namespace-qualified names. All 97 target names,
+  103 API names and 104 test names occur in the reader and the corresponding
+  typed forms or omission catalogue. There are ten typed target names, of
+  which seven are algebraic cores and three are full theorem forms. There
+  remain 87 omitted target signatures, 82 omitted API signatures and 83
+  omitted examples, plus the arithmetic specializations of the seven cores.
+- README: 167,983 UTF-8 bytes; Suggested.lean: 134,008 bytes. The README is
+  below the 200 KB ceiling and contains no packet/checkpoint/coverage material.
+  No empty proposition definition is used to disguise a missing interface.
+- `python3 research/blueprint/intake.py check-files` on the handoff:
+  0 problems. `git diff --check` passes; the only changed path is this handoff.
+  `issues.deliverables_complete` remains false, confirming checkpoint treatment.
+- Read WORKERS, both protocols, UPSTREAM_GUIDE, the complete issue, the full
+  upstream ReductiveGroups and Multiquadratic documents, the current supplier
+  omissions and parent prerequisite gaps, AUDIT-41 and its accepted review,
+  the reviewed ALS.6 audit, and the pinned statements listed above.
+  No restricted source was needed.
+
+### Resume gate
+
+Before another package continuation, check whether the three requests above now
+have faithful typed exports. An accepted planning document, a comment catalogue
+or a successful check of the existing ten typed target names is not that export.
+The maintainer can use this dependency record to schedule the owning jobs; no
+worker label change or second claim was made in this run.
+
+Once supplier interfaces are available, use the existing omission catalogue as
+the exact worklist: add each named arithmetic signature, its API and its examples,
+retaining the corrected hypotheses and normalizations. Import the owning
+interfaces. Re-run Lean and the name/statement comparison, then supply
+`metadata.toml` with `topic = "math.NT"` when the whole package requirement is met.
+Metadata remains absent for this checkpoint so intake does not mistake it for
+completed work. This follows the existing checkpoint's documented completion
+marker, rather than modifying intake or the queue.
+
+Continuation-relevant results are all in this note; scratch is disposable.
+
+## Previous continuation: codex-975TMe (retained)
 
 Issue: #7462. Agent: Codex. Session: `codex-975TMe`. Date: 2026-10-08.
 Continues the checkpoint of session `codex-yCIhEa`, merged in #7566.
