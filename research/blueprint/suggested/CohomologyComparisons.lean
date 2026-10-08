@@ -6,7 +6,8 @@ signatures. They claim no implementation.
 
 BP-CohomologyComparisons, Codex codex-mCCbxV, 7 October 2026; completed by the review
 REV-CohomologyComparisons (claude-0gMhNi), 7 October 2026; revised by
-Codex codex-zVgcBa, BP-CohomologyComparisons~2, 8 October 2026.
+Codex codex-zVgcBa, BP-CohomologyComparisons~2, 8 October 2026; independently reviewed
+and corrected by Codex codex-KJUtkR, REV-CohomologyComparisons~2, 8 October 2026.
 Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174;
 Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 (no `TauCeti.*` module is imported:
 none of the objects below exists there).
@@ -83,6 +84,7 @@ import Mathlib.NumberTheory.Padics.PadicIntegers
 import Mathlib.RepresentationTheory.Basic
 import Mathlib.FieldTheory.IsAlgClosed.AlgebraicClosure
 import Mathlib.Data.Rat.Defs
+import Mathlib.Basic.Real.Basic
 import Mathlib.NumberTheory.Cyclotomic.CyclotomicCharacter
 
 set_option autoImplicit false
@@ -168,7 +170,9 @@ def semilinearExtend (f : R →+* S) (σR : R →+* R) (σS : S →+* S) (hf : f
 
 /-- The extension `s ⊗ m ↦ N_S s ⊗ m + s ⊗ N_M m` of a monodromy operator (owner
 `PadicHodgeTheory:R06.1`). -/
-def derivationExtend (f : R →+* S) (NS : S →+ S) (M : ModuleCat.{u} R) (NM : M →+ M) :
+def derivationExtend (f : R →+* S) (NS : S →+ S)
+    (hLeibniz : ∀ s t, NS (s * t) = s * NS t + t * NS s)
+    (hConstants : ∀ r, NS (f r) = 0) (M : ModuleCat.{u} R) (NM : M →ₗ[R] M) :
     bc f M →+ bc f M := sorry
 
 /-- For a group acting on `S` by ring automorphisms fixing `f(R)` and `R`-linearly on `M`, the
@@ -245,8 +249,9 @@ abbrev residueWitt (R : Type u) [CommRing R] [IsLocalRing R] (p : ℕ) [Fact p.P
 /-- `C = O[1/p]`. -/
 abbrev Cfield (O : Type u) [CommRing O] (p : ℕ) : Type u := Localization.Away (p : O)
 
-/-- `F̂^{nr} = W(k̄)[1/p]` for the residue field `k̄` of `O = O_C` (Hyodo–Kato coefficients; a
-tensor product over `F^{nr}` with `B_st` equals the one over its completion). -/
+/-- `F̂^{nr} = W(k̄)[1/p]` for the residue field `k̄` of `O = O_C`. The HK modules below
+are first extended from `F^{nr}` to this completion; tensor associativity then gives their
+`B_st` comparison. Smooth-vector descent over the original `F^{nr}` is not encoded here. -/
 abbrev Fnr (O : Type u) [CommRing O] [IsLocalRing O] (p : ℕ) [Fact p.Prime] : Type u :=
   Localization.Away (p : residueWitt O p)
 
@@ -318,7 +323,7 @@ def bcrisToBdR : Bcris O p →+* BDeRham O p := sorry
 def bcrisToBst : Bcris O p →+* Bst O p := sorry
 /-- The Frobenius of `B_st` (owner R06.1). -/
 def bstFrobenius : Bst O p →+* Bst O p := sorry
-/-- The monodromy `N` of `B_st`, with the convention `N = -d/du` of `CrystallineCohomology:CR.6`
+/-- The monodromy `N` of `B_st`, with the convention `N = -d/du` of `PadicHodgeTheory:R06.1`
 (owner R06.1). -/
 def bstMonodromy : Bst O p →+ Bst O p := sorry
 /-- `F̂^{nr} → B_st` (owner R06.1). -/
@@ -361,6 +366,23 @@ def zpToBdR : ℤ_[p] →+* BDeRham O p := (bdrPlusToBdR O p).comp (zpToBdRPlus 
 def zpToC : ℤ_[p] →+* Cfield O p := (bdrTheta O p).comp (zpToBdRPlus O p)
 /-- `ℚ_p → B_st` (owner R06.1). -/
 def qpToBst : ℚ_[p] →+* Bst O p := sorry
+
+/-- Leibniz rule for the period-ring monodromy (owner R06.1). -/
+lemma bstMonodromy_leibniz (s t : Bst O p) :
+    bstMonodromy O p (s * t) = s * bstMonodromy O p t + t * bstMonodromy O p s := by
+  sorry
+
+/-- Monodromy kills the unramified coefficient field (owner R06.1). -/
+lemma bstMonodromy_fnr (r : Fnr O p) : bstMonodromy O p (fnrToBst O p r) = 0 := by
+  sorry
+
+/-- Monodromy kills the rational étale coefficients (owner R06.1). -/
+lemma bstMonodromy_qp (r : ℚ_[p]) : bstMonodromy O p (qpToBst O p r) = 0 := by
+  sorry
+
+/-- Monodromy kills the integral étale coefficients (owner R06.1). -/
+lemma bstMonodromy_zp (r : ℤ_[p]) : bstMonodromy O p (zpToBst O p r) = 0 := by
+  sorry
 /-- `ℚ_p → B_dR` (owner R06.1). -/
 def qpToBdR : ℚ_[p] →+* BDeRham O p := sorry
 /-- `A_inf → B_dR`. -/
@@ -755,7 +777,8 @@ instance {A : Type u} [CommRing A] (X : SmoothAffinoid A) : CommRing X.ring := s
 instance {A : Type u} [CommRing A] (X : SmoothAffinoid A) : Algebra A X.ring := sorry
 
 /-- Proper flat `p`-adic formal schemes over `Spf R` with divisorial log structure and étale
-local charts `t₀ ⋯ t_r = π'` (`π'` a nonzero nonunit, allowed to vary) (owner
+local charts `t₀ ⋯ t_r = π'` (`π'` a nonzero nonunit, allowed to vary), with special fibre
+of pure dimension as in ČK §7.1 (owner
 `AInfCohomology:AI.6`). -/
 def SemistableFormalScheme (R : Type u) [CommRing R] : Type (u + 1) := sorry
 /-- Base change along `R → S` (owner AI.6). -/
@@ -1610,8 +1633,8 @@ open Classical in
 -- CanonicalBdrCohomology.test_redundant_embedding
 example (v : (torus O p).ring) (hv : IsUnit v) :
     IsIso (envelopeRefine O p (torus O p) (Finset.subset_insert v {torusCoordinate O p})) ∧
-      Module.finrank (BDeRhamPlus O p)
-        (H (envelopeDeRham O p (torus O p) (insert v {torusCoordinate O p})) 1) = 1 := by
+      ∀ i : ℤ, IsIso (Hmap
+        (envelopeRefine O p (torus O p) (Finset.subset_insert v {torusCoordinate O p})) i) := by
   sorry
 
 end CanonicalBdrCohomology
@@ -2125,7 +2148,7 @@ def hk (D : PeriodData O p OK) : ModuleCat.{u} (Fnr O p) := sorry
 /-- Its Frobenius (owner CR.6). -/
 def hkFrob (D : PeriodData O p OK) : D.hk →ₛₗ[fnrFrobenius O p] D.hk := sorry
 /-- Its monodromy `N` with `Nφ = pφN` (owner CR.6). -/
-def hkMonodromy (D : PeriodData O p OK) : D.hk →+ D.hk := sorry
+def hkMonodromy (D : PeriodData O p OK) : D.hk →ₗ[Fnr O p] D.hk := sorry
 /-- Its semilinear `G_K`-action, trivial on inertia in the semistable case (owner CR.6). -/
 def hkGalois (D : PeriodData O p OK) : GK O OK →* AddMonoid.End D.hk := sorry
 /-- `H^r_dR(X_K)` (owners CR.6, `AdicSpacesPartII:R3`). -/
@@ -2152,8 +2175,10 @@ def IsStComparison (D : PeriodData O p OK)
       (qpToBst_frobenius O p) D.etale LinearMap.id x) =
     semilinearExtend (fnrToBst O p) (fnrFrobenius O p) (bstFrobenius O p)
       (fnrToBst_frobenius O p) D.hk D.hkFrob (e.hom.hom x)) ∧
-  (∀ x, e.hom.hom (derivationExtend (qpToBst O p) (bstMonodromy O p) D.etale 0 x) =
-    derivationExtend (fnrToBst O p) (bstMonodromy O p) D.hk D.hkMonodromy (e.hom.hom x)) ∧
+  (∀ x, e.hom.hom (derivationExtend (qpToBst O p) (bstMonodromy O p)
+      (bstMonodromy_leibniz O p) (bstMonodromy_qp O p) D.etale 0 x) =
+    derivationExtend (fnrToBst O p) (bstMonodromy O p)
+      (bstMonodromy_leibniz O p) (bstMonodromy_fnr O p) D.hk D.hkMonodromy (e.hom.hom x)) ∧
   ∀ (g : GK O OK) x, e.hom.hom (galoisExtend (qpToBst O p) (galoisBst O p OK)
       (fun g => autBst_qp O p _) D.etale D.galois g x) = D.hkGaloisBst g (e.hom.hom x)
 
@@ -2178,7 +2203,8 @@ def hkToDeRham (D : PeriodData O p OK) :
 def recoverySubgroup (D : PeriodData O p OK) : AddSubgroup (bc (fnrToBst O p) D.hk) where
   carrier := {y | semilinearExtend (fnrToBst O p) (fnrFrobenius O p) (bstFrobenius O p)
       (fnrToBst_frobenius O p) D.hk D.hkFrob y = y ∧
-    derivationExtend (fnrToBst O p) (bstMonodromy O p) D.hk D.hkMonodromy y = 0 ∧
+    derivationExtend (fnrToBst O p) (bstMonodromy O p)
+      (bstMonodromy_leibniz O p) (bstMonodromy_fnr O p) D.hk D.hkMonodromy y = 0 ∧
     D.hkToDeRham y ∈ tensorFiltration O p OK D.deRham D.hodgeFil 0}
   add_mem' := sorry
   zero_mem' := sorry
@@ -2194,7 +2220,7 @@ def PeriodData.ofSemistable (X : SemistableFormalScheme OK) (r : ℤ) : PeriodDa
 realizations of Beilinson (owners CR.6 extension, `AlgebraicModuliForArithmeticGeometry:R09.7`). -/
 def PeriodData.ofVariety {X : AlgebraicGeometry.Scheme.{u}}
     (f : X ⟶ AlgebraicGeometry.Spec (CommRingCat.of (Kfield OK p)))
-    [AlgebraicGeometry.LocallyOfFiniteType f] (r : ℤ) : PeriodData O p OK := sorry
+    [AlgebraicGeometry.LocallyOfFiniteType f] [AlgebraicGeometry.QuasiCompact f] [AlgebraicGeometry.IsSeparated f] (r : ℤ) : PeriodData O p OK := sorry
 
 /-- The period data of `H^r` of a proper smooth rigid space over `K`, with the overconvergent
 Hyodo–Kato realization of Colmez–Nizioł (owner CR.6 extension). -/
@@ -2216,14 +2242,14 @@ def semistableDRComparison (X : SemistableFormalScheme OK) (r : ℤ) :
 /-- Beilinson's `C_st` comparison of a variety over `K` (CN Theorem 6.2). -/
 def varietyStComparison {X : AlgebraicGeometry.Scheme.{u}}
     (f : X ⟶ AlgebraicGeometry.Spec (CommRingCat.of (Kfield OK p)))
-    [AlgebraicGeometry.LocallyOfFiniteType f] (r : ℤ) :
+    [AlgebraicGeometry.LocallyOfFiniteType f] [AlgebraicGeometry.QuasiCompact f] [AlgebraicGeometry.IsSeparated f] (r : ℤ) :
     bc (qpToBst O p) (PeriodData.ofVariety O p OK f r).etale ≅
       bc (fnrToBst O p) (PeriodData.ofVariety O p OK f r).hk := sorry
 
 /-- Its induced `B_dR` comparison (CN Theorem 6.2). -/
 def varietyDRComparison {X : AlgebraicGeometry.Scheme.{u}}
     (f : X ⟶ AlgebraicGeometry.Spec (CommRingCat.of (Kfield OK p)))
-    [AlgebraicGeometry.LocallyOfFiniteType f] (r : ℤ) :
+    [AlgebraicGeometry.LocallyOfFiniteType f] [AlgebraicGeometry.QuasiCompact f] [AlgebraicGeometry.IsSeparated f] (r : ℤ) :
     bc (qpToBdR O p) (PeriodData.ofVariety O p OK f r).etale ≅
       bc (kToBdR O p OK) (PeriodData.ofVariety O p OK f r).deRham := sorry
 
@@ -2287,7 +2313,13 @@ base (owner `CrystallineCohomology:CR.6`). -/
 def hkK (X : SemistableFormalScheme OK) (r : ℤ) : ModuleCat.{u} (Kfield OK p) := sorry
 
 /-- Its monodromy `N` (owner CR.6). -/
-def hkMonodromyK (X : SemistableFormalScheme OK) (r : ℤ) : hkK p OK X r →+ hkK p OK X r := sorry
+def hkMonodromyK (X : SemistableFormalScheme OK) (r : ℤ) :
+    hkK p OK X r →ₗ[Kfield OK p] hkK p OK X r := sorry
+
+/-- Nilpotency of HK monodromy (owner CR.6). -/
+lemma hkMonodromyK_nilpotent (X : SemistableFormalScheme OK) (r : ℤ) :
+    IsNilpotent (hkMonodromyK p OK X r) := by
+  sorry
 
 /-- The Hyodo–Kato isomorphism `ρ_π : K ⊗ H^r_HK ≅ H^r_dR(X_K)` attached to a uniformizer `π` of
 `O_K` (owner CR.6). -/
@@ -2299,7 +2331,7 @@ def logK (u : OKˣ) : Kfield OK p := sorry
 
 /-- `exp(c N)` for a nilpotent `N` (owner R06.1). -/
 def expNilpotent {M : Type u} [AddCommGroup M] [Module (Kfield OK p) M] (c : Kfield OK p)
-    (N : M →+ M) : M →+ M := sorry
+    (N : M →ₗ[Kfield OK p] M) (hN : IsNilpotent N) : M →+ M := sorry
 
 end CP4Defs
 
@@ -2312,8 +2344,8 @@ variable (O : Type u) [CommRing O] [IsDomain O] [IsLocalRing O] (p : ℕ) [Fact 
 proper semistable formal `O_C`-scheme with étale charts `t₀ ⋯ t_r = π′`, the θ-log de Rham, the
 Witt-log crystalline (over the `ℚ_{≥0}` log base of `W(k)`), the `A_cris`-log crystalline and,
 for every compatible system `ε`, the μ-inverted étale comparison maps of AI.6 are isomorphisms.
-ČK §7.1's pure dimensionality of the special fibre is a hypothesis left out (no carrier records
-it); multiplicativity of the `A_cris` map is not asserted. -/
+The carrier includes ČK §7.1's pure dimensionality hypothesis;
+multiplicativity of the `A_cris` map is not asserted. -/
 theorem CP4.logarithmic_integral_diagram (X : SemistableFormalScheme O) :
     IsIso (LogAinfData.of O p X).thetaComparison ∧ IsIso (LogAinfData.of O p X).wittComparison ∧
       IsIso (LogAinfData.of O p X).acrisComparison ∧
@@ -2368,7 +2400,8 @@ theorem CP4.uniformizer_change_and_monodromy (X : SemistableFormalScheme OK) (r 
     ∃ c : Kfield OK p, (c = 1 ∨ c = -1) ∧ ∀ (π : OK) (u : OKˣ), Irreducible π →
       hkDeRhamIdentification O p OK X r (π * u) =
         (hkDeRhamIdentification O p OK X r π).comp
-          (expNilpotent p OK (c * logK p OK u) (hkMonodromyK p OK X r)) := by
+          (expNilpotent p OK (c * logK p OK u) (hkMonodromyK p OK X r)
+            (hkMonodromyK_nilpotent p OK X r)) := by
   sorry
 
 /-- A Tate curve `E_q` over `O_K` (`q` a nonzero nonunit) with its semistable model (owner
@@ -2392,7 +2425,7 @@ variety `X` over `K` (no smoothness or properness) and every `r`, the comparison
 induces a filtered `B_dR` isomorphism with `H^r_dR(X_K)`; the Hyodo–Kato and de Rham realizations
 are the h-descent ones. -/
 theorem CP4.algebraic_beilinson_period_comparison {X : Scheme.{u}}
-    (f : X ⟶ Spec (CommRingCat.of (Kfield OK p))) [LocallyOfFiniteType f] (r : ℤ) :
+    (f : X ⟶ Spec (CommRingCat.of (Kfield OK p))) [LocallyOfFiniteType f] [QuasiCompact f] [IsSeparated f] (r : ℤ) :
     (PeriodData.ofVariety O p OK f r).IsStComparison (varietyStComparison O p OK f r) ∧
       (PeriodData.ofVariety O p OK f r).IsFilteredDRComparison (varietyDRComparison O p OK f r) := by
   sorry
@@ -2403,7 +2436,7 @@ open AlgebraicGeometry in
 descriptions (`Hom^sm_{G_K}(H^r_ét, B_st) ≅ (H^r_HK)^*` and `Hom_{G_K}(H^r_ét, B_dR) ≅ (H^r_dR)^*`)
 are not stated. -/
 theorem CP4.algebraic_period_recovery_and_duals {X : Scheme.{u}}
-    (f : X ⟶ Spec (CommRingCat.of (Kfield OK p))) [LocallyOfFiniteType f] (r : ℤ) :
+    (f : X ⟶ Spec (CommRingCat.of (Kfield OK p))) [LocallyOfFiniteType f] [QuasiCompact f] [IsSeparated f] (r : ℤ) :
     Nonempty ((PeriodData.ofVariety O p OK f r).etale ≃+
       (PeriodData.ofVariety O p OK f r).recoverySubgroup) := by
   sorry
@@ -2425,7 +2458,7 @@ section CP4C
 variable (O : Type u) [CommRing O] [IsDomain O] [IsLocalRing O] (p : ℕ) [Fact p.Prime]
   [Fact ¬IsUnit (p : O)] [IsAdicComplete (Ideal.span {(p : O)}) O] [IsIntegersOfC O]
 
-/-- `H^r_HK(X)` over `F^{nr}` of a proper smooth rigid space over `C` (Colmez–Nizioł; owner
+/-- Scalar extension to `F̂^{nr}` of `H^r_HK(X)` over `F^{nr}` for a proper smooth rigid space over `C` (Colmez–Nizioł; owner
 `CrystallineCohomology:CR.6` extension). -/
 def rigidHKC (X : ProperSmoothRigid (Cfield O p)) (r : ℤ) : ModuleCat.{u} (Fnr O p) := sorry
 /-- Its Frobenius (owner CR.6). -/
@@ -2433,7 +2466,7 @@ def rigidHKCFrob (X : ProperSmoothRigid (Cfield O p)) (r : ℤ) :
     rigidHKC O p X r →ₛₗ[fnrFrobenius O p] rigidHKC O p X r := sorry
 /-- Its monodromy (owner CR.6). -/
 def rigidHKCMonodromy (X : ProperSmoothRigid (Cfield O p)) (r : ℤ) :
-    rigidHKC O p X r →+ rigidHKC O p X r := sorry
+    rigidHKC O p X r →ₗ[Fnr O p] rigidHKC O p X r := sorry
 /-- The filtration `Im[H^r(Fil^i K_dR⁺(X)) → H^r(K_dR⁺(X))]`, extended to `B_dR` (this roadmap,
 CN §6.2.3). -/
 def canonicalBdrFiltration (X : ProperSmoothRigid (Cfield O p)) (r i : ℤ) :
@@ -2458,8 +2491,10 @@ theorem CP4.proper_rigid_c_period_comparison (X : ProperSmoothRigid (Cfield O p)
         semilinearExtend (fnrToBst O p) (fnrFrobenius O p) (bstFrobenius O p)
           (fnrToBst_frobenius O p) _ (rigidHKCFrob O p X r) ((rigidStComparisonC O p X r).hom x)) ∧
       (∀ x, (rigidStComparisonC O p X r).hom
-          (derivationExtend (zpToBst O p) (bstMonodromy O p) _ 0 x) =
-        derivationExtend (fnrToBst O p) (bstMonodromy O p) _ (rigidHKCMonodromy O p X r)
+          (derivationExtend (zpToBst O p) (bstMonodromy O p)
+            (bstMonodromy_leibniz O p) (bstMonodromy_zp O p) _ 0 x) =
+        derivationExtend (fnrToBst O p) (bstMonodromy O p)
+          (bstMonodromy_leibniz O p) (bstMonodromy_fnr O p) _ (rigidHKCMonodromy O p X r)
           ((rigidStComparisonC O p X r).hom x)) ∧
       ∀ i : ℤ, (bdrEtaleComparisonH O p X r).hom '' (canonicalBdrFiltration O p X r i : Set _) =
         periodFiltration O p (H (etaleCohomology p X) r) i := by
@@ -2483,15 +2518,17 @@ def ProperSmoothCurve.analytify (X : ProperSmoothCurve OK p) : ProperSmoothRigid
 /-- `H⁰(X_K, Ω¹)` (owner `AdicSpacesPartII:R3`). -/
 def ProperSmoothCurve.differentials (X : ProperSmoothCurve OK p) : ModuleCat.{u} (Kfield OK p) :=
   sorry
-/-- `D_pst(V) = (B_st ⊗ V)^{G_L-smooth}` of the étale realization (owner
+/-- Scalar extension to `F̂^{nr}` of `D_pst(V) = (B_st ⊗ V)^{G_L-smooth}` (owner
 `PadicHodgeTheory:R06.3`). -/
 def PeriodData.dpst (D : PeriodData O p OK) : ModuleCat.{u} (Fnr O p) := sorry
 
 /-- Node `CP.4/proper-curve-potential-period-interface` (CDN Proposition 3.12, first proof
-paragraph): for a proper smooth curve over `K`, `V = H^1_ét(X_{K̄}, ℚ_p)` has Hodge–Tate weights
+paragraph): for a proper smooth curve over a finite extension `K/ℚ_p`, `V = H^1_ét(X_{K̄}, ℚ_p)` has Hodge–Tate weights
 `0, −1` (`Fil⁰ H^1_dR = H^1_dR`, `Fil² = 0`), `D_pst(V) ≅ H^1_HK`, and `Fil¹ H^1_dR ≅ H⁰(Ω¹)`.
 No semistability over `K` itself is asserted. -/
-theorem CP4.proper_curve_potential_period_interface (X : ProperSmoothCurve OK p) :
+theorem CP4.proper_curve_potential_period_interface (X : ProperSmoothCurve OK p)
+    (fQp : ℚ_[p] →+* Kfield OK p)
+    (hfinite : letI := fQp.toAlgebra; Module.Finite ℚ_[p] (Kfield OK p)) :
     (PeriodData.ofRigid O p OK X.analytify 1).hodgeFil 0 = ⊤ ∧
       (PeriodData.ofRigid O p OK X.analytify 1).hodgeFil 2 = ⊥ ∧
       Nonempty ((PeriodData.ofRigid O p OK X.analytify 1).dpst ≅
@@ -2575,14 +2612,14 @@ theorem CP5.semistable_crystalline_torsion_export (X : SemistableFormalScheme O)
 
 /-- The normalized length `v_{O_C}` of a finitely presented torsion `O_C`-module (valuation of
 its Fitting ideal `Fitt₀`, with `v(p) = 1`) (owners `AInfCohomology:AI.5`, AI.6). -/
-def normalizedLength (M : ModuleCat.{u} O) : ℚ := sorry
+def normalizedLength (M : ModuleCat.{u} O) : ℝ := sorry
 
 /-- Node `CP.5/semistable-normalized-de-rham-torsion-export` (ČK §7.10, Lemma 7.11, Theorem 7.12):
 `length_{ℤ_p}(H^i_ét(X_C, ℤ_p)_tor / p^n) ≤ v_{O_C}(H^i_logdR(𝔛 / O_C)_tor / p^n)` with the
 normalized length `v(p) = 1`, not the unscaled module length. -/
 theorem CP5.semistable_normalized_de_rham_torsion_export (X : SemistableFormalScheme O) (i : ℤ)
     (n : ℕ) :
-    ((torsionLength ℤ_[p] (H (etaleCohomology p (X.generic p)) i) (p : ℤ_[p]) n).toNat : ℚ) ≤
+    ((torsionLength ℤ_[p] (H (etaleCohomology p (X.generic p)) i) (p : ℤ_[p]) n).toNat : ℝ) ≤
       normalizedLength O (ModuleCat.of O (↥(Submodule.torsion O (H (LogAinfData.of O p X).logDeRham i))
         ⧸ ((Ideal.span {(p : O)}) ^ n • ⊤ :
           Submodule O ↥(Submodule.torsion O (H (LogAinfData.of O p X).logDeRham i))))) := by
@@ -2969,10 +3006,14 @@ theorem CP6.pan_truncated_period_isomorphism (Kp : TameLevel) (i : ℤ) (k : ℕ
     IsIso (panTruncatedMap O p Kp i k) := by
   sorry
 
-/-- `H^i(X_{K^p}, A_inf/((ker θ)^k, p^m))` and its inverse limit over `m`, as a `ℤ_p`-module
+/-- Right-adjoint underlying-module representatives of the almostified
+`H^i(X_{K^p}, A_inf/(ker θ)^k)`, not an exact ordinary integral comparison.
+Pan Lemma 7.2.5 is in the almost category; the maps below represent that comparison after
+applying its right adjoint. Genuine almost/enhanced interfaces remain in G-lean-types
 (owners CC.2, `AInfCohomology:AI.3`). -/
 def panAinfTruncated (Kp : TameLevel) (i : ℤ) (k : ℕ) : ModuleCat.{u} (Ainf O p) := sorry
-/-- The inverse limit `lim_m H^i(X_{K^p}, A_inf/((ker θ)^k, p^m))` (owner CC.2). -/
+/-- The right-adjoint representative of the almost inverse limit
+`lim_m H^i(X_{K^p}, A_inf/((ker θ)^k, p^m))` (owner CC.2). -/
 def panAinfLimit (Kp : TameLevel) (i : ℤ) (k : ℕ) : ModuleCat.{u} (Ainf O p) := sorry
 /-- The natural map to the inverse limit. -/
 def panAinfToLimit (Kp : TameLevel) (i : ℤ) (k : ℕ) :
@@ -3115,8 +3156,7 @@ end TauCeti.CohomologyComparisons
 What remains omitted (REV-CohomologyComparisons).
 
 * Hypotheses or conclusions that a carrier cannot yet express are left out where the statement
-  stays true, and each docstring says what is left out: for example ČK §7.1's pure dimensionality
-  (`CP4.logarithmic_integral_diagram`), the φ/N compatibility of the `B_st⁺` base change
+  stays true, and each docstring says what is left out: for example the φ/N compatibility of the `B_st⁺` base change
   (`CP4.hyodo_kato_log_base_adapter`), the Hom descriptions of CN (6.3)
   (`CP4.algebraic_period_recovery_and_duals`), projectivity of the BMS1 §2 surfaces, Künneth and
   finite-extension compatibility of `c_dR`, the Poincaré-pairing identification of Betts–Stix
