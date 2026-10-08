@@ -42303,8 +42303,9 @@
    ],
    "revisionOf": "BP-ArithmeticKTheory--N.3",
    "prompt": "research/blueprint/prompts/BP-ArithmeticKTheory--N.3~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6920"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6920",
+   "finishedAt": "2026-10-08T13:07:16Z"
   },
   {
    "priority": 2,
