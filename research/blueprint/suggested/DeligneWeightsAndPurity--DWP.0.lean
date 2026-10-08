@@ -1143,7 +1143,7 @@ all hypotheses remain in the packet instead of fabricated Lean parameters.
 UNINSTANTIATED DeligneWeightsAndPurity:DWP.3/haar-null-exceptional-eigenvalue-locus
 Weil I Lemma 6.12: the eigenvalue-δ^a locus is closed and Haar-null
 For an ℓ-adic unit δ in the fixed finite coefficient field, the locus Z_δ={(a,g)∈H₁: δ^a is an eigenvalue of g} is closed and null in each arithmetic-degree fibre, hence Haar-null in H₁. For a bad geometric eigenvalue δ₀^e the arithmetic-degree locus uses δ=δ₀⁻¹, since a(F_x)=−e.
-Direct mathematical inputs: DeligneWeightsAndPurity:DWP.3/open-image-in-the-symplectic-similitude-group
+Direct mathematical inputs: DeligneWeightsAndPurity:DWP.3/open-image-in-the-symplectic-similitude-group, tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups#layer-6-characters-of-compact-groups
 The schema awaits the geometric/representation carriers from the owners above;
 all hypotheses remain in the packet instead of fabricated Lean parameters.
 -/
@@ -1179,7 +1179,7 @@ all hypotheses remain in the packet instead of fabricated Lean parameters.
 UNINSTANTIATED DeligneWeightsAndPurity:DWP.3/rationality-of-pencil-local-factors
 Weil I Theorem 6.2: the local factors of the radical quotient have rational coefficients
 In the setting of radical-quotient-of-the-vanishing-system, for every x ∈ |U₀|, det(1 − F_x t, ℱ₀) ∈ ℚ[t].
-Direct mathematical inputs: DeligneWeightsAndPurity:DWP.3/zeta-of-the-fibres-and-the-pencil-factorization, DeligneWeightsAndPurity:DWP.3/denominators-away-from-the-exceptional-set, DeligneWeightsAndPurity:DWP.3/divisibility-criterion, DeligneWeightsAndPurity:DWP.3/powers-of-a-family-determine-the-family
+Direct mathematical inputs: DeligneWeightsAndPurity:DWP.3/zeta-of-the-fibres-and-the-pencil-factorization, DeligneWeightsAndPurity:DWP.3/denominators-away-from-the-exceptional-set, DeligneWeightsAndPurity:DWP.3/divisibility-criterion, DeligneWeightsAndPurity:DWP.3/powers-of-a-family-determine-the-family, DeligneWeightsAndPurity:DWP.3/exceptional-frobenius-set-has-density-zero
 The schema awaits the geometric/representation carriers from the owners above;
 all hypotheses remain in the packet instead of fabricated Lean parameters.
 -/
@@ -1250,7 +1250,7 @@ all hypotheses remain in the packet instead of fabricated Lean parameters.
 /-
 UNINSTANTIATED DeligneWeightsAndPurity:DWP.5/real-sheaves
 Totally real and ι-real sheaves
-A sheaf is totally real when every closed-point local characteristic polynomial has algebraic totally real coefficients; it is ι-real when those coefficients map into ℝ under the fixed ι. These are coefficient conditions, not assertions that every eigenvalue is real. A pure sheaf of integer weight n is a direct summand of the totally real sheaf ℱ⊕ℱ∨(−n); for real ι-weight β use a rank-one Weil twist of weight 2β in place of the integer Tate normalization.
+A lisse sheaf is totally real when every closed-point local characteristic polynomial has algebraic totally real coefficients; it is ι-real when those coefficients map into ℝ under the fixed ι. These are coefficient conditions, not assertions that every eigenvalue is real. A punctually pure lisse sheaf of integer weight n is a direct summand of the totally real sheaf ℱ⊕ℱ∨(−n); for real ι-weight β use a rank-one Weil twist of weight 2β in place of the integer Tate normalization.
 Direct mathematical inputs: DeligneWeightsAndPurity:DWP.5/punctual-purity-and-mixedness, DeligneWeightsAndPurity:DWP.0/twisting-by-rank-one-characters, DeligneWeightsAndPurity:DWP.0/reciprocal-pairing-of-eigenvalues
 The schema awaits the geometric/representation carriers from the owners above;
 all hypotheses remain in the packet instead of fabricated Lean parameters.
@@ -1296,7 +1296,7 @@ the packet retains its hypotheses, proof and tests.
 UNINSTANTIATED DeligneWeightsAndPurity:DWP.5/generalized-majoration
 Deligne’s generalized majoration theorem
 For a normal connected X₀ of finite type over 𝔽_q, the irreducible constituents of a lisse ι-real sheaf are punctually ι-pure. More precisely, on a smooth curve let r be its maximal determinantal weight; every stalk eigenvalue has ι-weight ≤r, and each irreducible constituent of determinantal weight β is punctually pure of weight β. No open symplectic-image or rational-coefficient hypothesis is imposed.
-Direct mathematical inputs: DeligneWeightsAndPurity:DWP.5/real-sheaves, DeligneWeightsAndPurity:DWP.5/determinantal-weights, DeligneWeightsAndPurity:DWP.5/geometric-monodromy-and-central-degree, DeligneWeightsAndPurity:DWP.2/positive-local-factors, DeligneWeightsAndPurity:DWP.2/poles-of-positive-products, DeligneWeightsAndPurity:DWP.0/spectra-of-tensor-products-and-duals, LefschetzPencilsAndVanishingCycles:LPV.5, DeligneWeightsAndPurity:DWP.0/eigenvalues-of-exterior-powers, DeligneWeightsAndPurity:DWP.5/determinantal-weight-functoriality, EtaleDualityAndPerverseSheaves:EDC.2:pairings/extreme-degree-cohomology
+Direct mathematical inputs: DeligneWeightsAndPurity:DWP.5/real-sheaves, DeligneWeightsAndPurity:DWP.5/determinantal-weights, DeligneWeightsAndPurity:DWP.5/geometric-monodromy-and-central-degree, DeligneWeightsAndPurity:DWP.2/positive-local-factors, DeligneWeightsAndPurity:DWP.2/poles-of-positive-products, DeligneWeightsAndPurity:DWP.0/spectra-of-tensor-products-and-duals, LefschetzPencilsAndVanishingCycles:LPV.5, DeligneWeightsAndPurity:DWP.0/eigenvalues-of-exterior-powers, DeligneWeightsAndPurity:DWP.5/determinantal-weight-functoriality, EtaleDualityAndPerverseSheaves:EDC.2:pairings/extreme-degree-cohomology, SchemeAndStackFoundations:SF.2
 The schema awaits the geometric/representation carriers from the owners above;
 all hypotheses remain in the packet instead of fabricated Lean parameters.
 -/
@@ -1350,7 +1350,7 @@ all hypotheses remain in the packet instead of fabricated Lean parameters.
 UNINSTANTIATED DeligneWeightsAndPurity:DWP.5/specialization-of-monodromy
 Specialization of geometric monodromy
 Let f:X→S be smooth with geometrically connected curve fibres, S reduced irreducible with generic point η, and g:S→X a section. For a lisse ℤ_ℓ-sheaf ℱ, after shrinking S to a nonempty open there is, simultaneously for every n, a lisse subgroup of Aut(g*ℱ/ℓⁿ) whose stalk is the image of the geometric fibre fundamental group. If f has a smooth proper curve compactification with boundary finite étale over S, the image is locally constant without further shrinking under the stated tame conditions; the inertia images at sections of the boundary specialize compatibly. The extension (1.11.5) covers finite-type families after stratification and dévissage, with the model and the locally constant image conditions kept explicit.
-Direct mathematical inputs: ArithmeticGaloisRepresentations:R01.6, InverseGaloisAndArithmeticFundamentalGroups:IG.1, SchemeAndStackFoundations:SF.2, LefschetzPencilsAndVanishingCycles:LPV.5/bertini-surjectivity-on-fundamental-groups
+Direct mathematical inputs: ArithmeticGaloisRepresentations:R01.6, InverseGaloisAndArithmeticFundamentalGroups:IG.1, SchemeAndStackFoundations:SF.2, LefschetzPencilsAndVanishingCycles:LPV.5
 The schema awaits the geometric/representation carriers from the owners above;
 all hypotheses remain in the packet instead of fabricated Lean parameters.
 -/
