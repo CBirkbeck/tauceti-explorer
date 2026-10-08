@@ -32567,8 +32567,9 @@
    ],
    "avoidAccountOf": "BP-HodgeStructuresPartII--H.0",
    "prompt": "research/blueprint/prompts/REV-HodgeStructuresPartII--H.0.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7023"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7023",
+   "finishedAt": "2026-10-08T05:45:21Z"
   },
   {
    "id": "BP-HodgeStructuresPartII--H.1",
@@ -32708,7 +32709,8 @@
    ],
    "avoidAccountOf": "BP-HodgeStructuresPartII--H.3",
    "prompt": "research/blueprint/prompts/REV-HodgeStructuresPartII--H.3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7027"
   },
   {
    "id": "BP-HodgeStructuresPartII--H.4",
@@ -37594,8 +37596,9 @@
     "BP-ArithmeticGaloisRepresentations~2"
    ],
    "prompt": "research/blueprint/prompts/REV-ArithmeticGaloisRepresentations~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6907"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6907",
+   "finishedAt": "2026-10-08T05:45:25Z"
   },
   {
    "kind": "blueprint",
@@ -41294,7 +41297,8 @@
     "BP-VectorBundlesAndIsocrystals--VB0~2"
    ],
    "prompt": "research/blueprint/prompts/REV-VectorBundlesAndIsocrystals--VB0~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7097"
   },
   {
    "kind": "blueprint",
