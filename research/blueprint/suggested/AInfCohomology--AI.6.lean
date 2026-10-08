@@ -1743,7 +1743,7 @@ Prerequisites: AInfCohomology:AI.7/cohomology, AInfCohomology:AI.7/trace-descent
 AInfCohomology:AI.7/ainf-base-change
 CohomologicalBK.ainfBaseChange — theorem, not typed
 Statement: For qcqs smooth 𝔛/O_K, RΓ_𝔖(𝔛)⊗̂^L_{𝔖,f}A_inf≃RΓ_Ainf(𝔛⊗̂O_C), where f uses Witt Frobenius and [π^♭]^p and the tensor product is (p,u)-completed. Prismatic base change targets (A_inf,(ξ̃)), and PR.6 identifies its result with φ_A^*Δ_{𝔛_{O_C}/(A_inf,(ξ))}≃AΩ_{𝔛_{O_C}}. The equivalence is Frobenius compatible. That it is an equivalence of E∞-algebras and that the affine equivalences are natural in R, which the gluing over 𝔛 uses, rest on the same two properties of the comparison AΩ_R≃φ_A^*Δ_{R/A_inf} of PR.6/ainf-omega-comparison; BS22 assert both (Theorem 17.2, Remark 17.3), and they are not established here. The passage to the ordinary derived tensor product for proper 𝔛 is in perfect-cohomological-modules.
-Prerequisites: AInfCohomology:AI.7/cohomology, AInfCohomology:AI.7/coefficient-normalization, PrismaticCohomology:PR.1/prismatic-base-change, PrismaticCohomology:PR.6/ainf-omega-comparison, PrismaticCohomology:PR.6/theta-theta-tilde-square, AInfCohomology:AI.3, EnhancedDerivedSheaves:E4/completed-sheaf-tensor, EnhancedDerivedSheaves:E4
+Prerequisites: AInfCohomology:AI.7/cohomology, AInfCohomology:AI.7/coefficient-normalization, PrismaticCohomology:PR.1/prismatic-base-change, PrismaticCohomology:PR.6/ainf-omega-comparison, PrismaticCohomology:PR.6/theta-theta-tilde-square, AInfCohomology:AI.3, EnhancedDerivedSheaves:E4
 
 AInfCohomology:AI.7/de-rham-base-change
 CohomologicalBK.deRhamBaseChange — theorem, not typed
