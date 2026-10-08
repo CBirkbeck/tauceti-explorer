@@ -73,6 +73,7 @@ lemma orderedSector.subset_boundedSector (n : ℕ) (R Y : ℝ) :
     orderedSector n R Y ⊆ boundedSector n R Y := by
   sorry
 
+-- Standalone prerequisite: H.7/ordered-sector-permutation-cover.
 lemma orderedSector.permutation_cover {n : ℕ} {R Y : ℝ} {z : Fin n → ℂ}
     (hz : z ∈ boundedSector n R Y) :
     ∃ σ : Equiv.Perm (Fin n), z ∘ σ ∈ orderedSector n R Y := by
@@ -106,6 +107,7 @@ lemma sectorUniformization.integer_shift {n : ℕ} (z : Fin n → ℂ) (a : Fin 
     sectorUniformization (fun i => z i + (a i : ℂ)) = sectorUniformization z := by
   sorry
 
+-- Standalone prerequisite: H.7/sector-uniformization-half-open-surjective.
 lemma sectorUniformization.halfOpen_surjective {n : ℕ} {η : ℝ} (hη : 0 < η)
     (q : Fin n → ℂ)
     (hq : ∀ i, 0 < ‖q i‖ ∧ ‖q i‖ < Real.exp (-2 * Real.pi * η)) :
@@ -158,6 +160,24 @@ lemma hodgeFormFunction.smul_left (P : (s : S) → Polarization hC (hs s))
     hodgeFormFunction P s (a • u) v = a * hodgeFormFunction P s u v := by
   sorry
 
+lemma hodgeFormFunction.add_left (P : (s : S) → Polarization hC (hs s))
+    (s : S) (u u' v : W) :
+    hodgeFormFunction P s (u + u') v =
+      hodgeFormFunction P s u v + hodgeFormFunction P s u' v := by
+  sorry
+
+lemma hodgeFormFunction.add_right (P : (s : S) → Polarization hC (hs s))
+    (s : S) (u v v' : W) :
+    hodgeFormFunction P s u (v + v') =
+      hodgeFormFunction P s u v + hodgeFormFunction P s u v' := by
+  sorry
+
+lemma hodgeFormFunction.smul_right (P : (s : S) → Polarization hC (hs s))
+    (s : S) (a : ℂ) (u v : W) :
+    hodgeFormFunction P s u (a • v) =
+      starRingEnd ℂ a * hodgeFormFunction P s u v := by
+  sorry
+
 -- hodgeFormFunction_test_tate
 example : hodgeFormFunction (fun _ : Unit => tatePolarization 0) () Complex.I 1 =
     Complex.I := by
@@ -195,6 +215,7 @@ lemma hodgeAdaptedFlag.finrank {m : ℕ} (b : Basis (Fin m) ℂ W) (j : Fin (m +
 
 -- Native refinement condition is expressible. Missing H.6 simultaneous I-splitting
 -- supplies this condition and the sorted labels p; it is not reconstructed here.
+-- Standalone prerequisite: H.7/hodge-adapted-flag-refines-filtration.
 lemma hodgeAdaptedFlag.filtration {m : ℕ} (b : Basis (Fin m) ℂ W)
     (F : ℤ → Submodule ℂ W) (p : Fin m → ℤ)
     (hF : ∀ a, F a = Submodule.span ℂ {v | ∃ i, a ≤ p i ∧ b i = v})
