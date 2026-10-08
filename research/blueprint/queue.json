@@ -37571,7 +37571,8 @@
     "BP-AdelicAlgebraicGroups~2"
    ],
    "prompt": "research/blueprint/prompts/REV-AdelicAlgebraicGroups~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6985"
   },
   {
    "kind": "blueprint",
@@ -38726,7 +38727,8 @@
    ],
    "revisionOf": "BP-ExcursionOperatorsAndSpectralAction--ES5",
    "prompt": "research/blueprint/prompts/BP-ExcursionOperatorsAndSpectralAction--ES5~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6961"
   },
   {
    "priority": 2,
@@ -39009,8 +39011,9 @@
    ],
    "revisionOf": "BP-GeometricSatakeAndFusion--GS3",
    "prompt": "research/blueprint/prompts/BP-GeometricSatakeAndFusion--GS3~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6965"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6965",
+   "finishedAt": "2026-10-08T15:29:44Z"
   },
   {
    "priority": 2,
