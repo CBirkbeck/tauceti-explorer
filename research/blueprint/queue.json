@@ -46244,8 +46244,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-CrystallineLocalGlobalCompatibilityCM.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7462"
+   "state": "external",
+   "note": "claimed on GitHub issue #7462"
   },
   {
    "id": "REV-PKG-CrystallineLocalGlobalCompatibilityCM",
@@ -47463,8 +47463,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-PotentialAutomorphyInfrastructure.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7480"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7480",
+   "finishedAt": "2026-10-08T21:56:25Z"
   },
   {
    "id": "REV-PKG-PotentialAutomorphyInfrastructure",
