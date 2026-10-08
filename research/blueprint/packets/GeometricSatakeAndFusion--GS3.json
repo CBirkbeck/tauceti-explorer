@@ -11,7 +11,7 @@
     "GeometricSatakeAndFusion:GS4:rational-reductivity"
   ],
   "status": "complete",
-  "summary": "Target-level plan of all six GS3/GS4 stages: integral fusion and finite-set coherence; relative Tannaka applied to the existing Satake fibre functor; geometric rational reductivity and the rational Witt Satake category of Zhu as a neutral Tannakian category; torus/rank-one and Prasad–Yu integral recovery, with the ℓ = 2 rank-one step corrected; canonical Weil normalization, naturality, Chevalley duality and perfect-complex export; Zhu's rational Witt vector geometric Satake equivalence through the FS degeneration; and the downstream classical trace comparison. Existing geometric Satake nodes and the foundational MC.6 relative reconstruction chain are imported exactly. All stages are planned, with explicit supplier and signature gaps; none is claimed closed or implemented.",
+  "summary": "Target-level plan of all six GS3/GS4 stages: integral fusion and finite-set coherence; relative Tannaka applied to the existing Satake fibre functor; geometric rational reductivity and the rational Witt Satake category of Zhu as a neutral Tannakian category; torus/rank-one and Prasad–Yu integral recovery, with a proposed ℓ = 2 rank-one repair and its explicit supplier gap; canonical Weil normalization, naturality, Chevalley duality and perfect-complex export; Zhu's rational Witt vector geometric Satake equivalence through the FS degeneration; and the downstream classical trace comparison. Existing geometric Satake nodes and the foundational MC.6 relative reconstruction chain are imported exactly. All stages are planned, with explicit supplier and signature gaps; none is claimed closed or implemented.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -21,161 +21,161 @@
         "kind": "declaration",
         "module": "TauCeti/Algebra/AlgebraicGroup/Representation/Tannaka/GroupFunctor.lean",
         "provides": "For a given bialgebra H (a semiring) over a commutative ring R, tensor automorphisms of scalar extension on finitely generated H-comodules. Commutativity of H is not required here. Does not construct H from an arbitrary tensor category.",
-        "checked": "Actual statement read in the pinned source tree on 2026-10-07."
+        "checked": "Actual declaration and surrounding hypotheses independently read at the exact pinned commit on 2026-10-08 by REV-GeometricSatakeAndFusion--GS3~2."
       },
       {
         "ref": "tauceti:TauCeti.Tannaka.pointsFunctorIsoTensorAutFunctor",
         "kind": "declaration",
         "module": "TauCeti/Algebra/AlgebraicGroup/Representation/Tannaka/GroupFunctor.lean",
         "provides": "Over a field k and a given commutative Hopf algebra H, identifies its points functor with the tensor automorphisms of scalar extension. This is a comparison after reconstruction, not the relative integral existence theorem.",
-        "checked": "Actual statement read in the pinned source tree on 2026-10-07."
+        "checked": "Actual declaration and surrounding hypotheses independently read at the exact pinned commit on 2026-10-08 by REV-GeometricSatakeAndFusion--GS3~2."
       },
       {
         "ref": "tauceti:TauCeti.Tannaka.reconstructedPoint",
         "kind": "declaration",
         "module": "TauCeti/Algebra/AlgebraicGroup/Representation/Tannaka/Reconstruction.lean",
         "provides": "Over a field k, for a given commutative Hopf algebra H and commutative k-algebra A, maps a tensor automorphism of scalar extension on finitely generated H-comodules to WithConv (H →ₐ[k] A). This assumes H rather than reconstructing it.",
-        "checked": "Actual statement read in the pinned source tree on 2026-10-07."
+        "checked": "Actual declaration and surrounding hypotheses independently read at the exact pinned commit on 2026-10-08 by REV-GeometricSatakeAndFusion--GS3~2."
       },
       {
         "ref": "mathlib:HopfAlgebra",
         "kind": "class",
         "module": "Mathlib/RingTheory/HopfAlgebra/Basic.lean",
         "provides": "An antipode on a bialgebra satisfying the two convolution inverse identities; commutativity is an additional algebra hypothesis.",
-        "checked": "Actual statement read in the pinned source tree on 2026-10-07."
+        "checked": "Actual declaration and surrounding hypotheses independently read at the exact pinned commit on 2026-10-08 by REV-GeometricSatakeAndFusion--GS3~2."
       },
       {
         "ref": "mathlib:Bialgebra",
         "kind": "class",
         "module": "Mathlib/RingTheory/Bialgebra/Basic.lean",
         "provides": "Compatible algebra and coalgebra structures on a semiring/module; the underlying coordinate algebra, not the representing object F(L1) before dualization.",
-        "checked": "Actual statement read in the pinned source tree on 2026-10-07."
+        "checked": "Actual declaration and surrounding hypotheses independently read at the exact pinned commit on 2026-10-08 by REV-GeometricSatakeAndFusion--GS3~2."
       },
       {
         "ref": "tauceti:TauCeti.AffineGroupSchemeCat",
         "kind": "declaration",
         "module": "TauCeti/AlgebraicGeometry/AffineGroupScheme/Basic.lean",
         "provides": "Affine group objects over Spec of a commutative ring; usable for the integral reconstructed group.",
-        "checked": "Actual statement read in the pinned source tree on 2026-10-07."
+        "checked": "Actual declaration and surrounding hypotheses independently read at the exact pinned commit on 2026-10-08 by REV-GeometricSatakeAndFusion--GS3~2."
       },
       {
         "ref": "tauceti:TauCeti.ReductiveAffineGroupSchemeCat",
         "kind": "declaration",
         "module": "TauCeti/AlgebraicGeometry/AffineGroupScheme/Reductive.lean",
         "provides": "Finite-type reductive affine group schemes over a field; usable for the generic fibre, not a definition over Z_ℓ.",
-        "checked": "Actual statement read in the pinned source tree on 2026-10-07."
+        "checked": "Actual declaration and surrounding hypotheses independently read at the exact pinned commit on 2026-10-08 by REV-GeometricSatakeAndFusion--GS3~2."
       },
       {
         "ref": "mathlib:RootPairing",
         "kind": "declaration",
         "module": "Mathlib/LinearAlgebra/RootSystem/Defs.lean",
         "provides": "A perfect root/coroot pairing on dual modules with reflections. Integral pinned group schemes are a separate imported construction.",
-        "checked": "Actual statement read in the pinned source tree on 2026-10-07."
+        "checked": "Actual declaration and surrounding hypotheses independently read at the exact pinned commit on 2026-10-08 by REV-GeometricSatakeAndFusion--GS3~2."
       },
       {
         "ref": "mathlib:CategoryTheory.BraidedCategory",
         "kind": "class",
         "module": "Mathlib/CategoryTheory/Monoidal/Braided/Basic.lean",
         "provides": "Natural braiding isomorphisms satisfying both hexagon identities.",
-        "checked": "Actual statement read in the pinned source tree on 2026-10-07."
+        "checked": "Actual declaration and surrounding hypotheses independently read at the exact pinned commit on 2026-10-08 by REV-GeometricSatakeAndFusion--GS3~2."
       },
       {
         "ref": "mathlib:CategoryTheory.SymmetricCategory",
         "kind": "class",
         "module": "Mathlib/CategoryTheory/Monoidal/Braided/Basic.lean",
         "provides": "A braided category with double braiding equal to the identity.",
-        "checked": "Actual statement read in the pinned source tree on 2026-10-07."
+        "checked": "Actual declaration and surrounding hypotheses independently read at the exact pinned commit on 2026-10-08 by REV-GeometricSatakeAndFusion--GS3~2."
       },
       {
         "ref": "mathlib:CategoryTheory.Functor.Braided",
         "kind": "class",
         "module": "Mathlib/CategoryTheory/Monoidal/Braided/Basic.lean",
         "provides": "A monoidal functor compatible with the specified braidings; applies to the modified fusion symmetry.",
-        "checked": "Actual statement read in the pinned source tree on 2026-10-07."
+        "checked": "Actual declaration and surrounding hypotheses independently read at the exact pinned commit on 2026-10-08 by REV-GeometricSatakeAndFusion--GS3~2."
       },
       {
         "ref": "mathlib:CategoryTheory.MonoidalCategory",
         "kind": "class",
         "module": "Mathlib/CategoryTheory/Monoidal/Category.lean",
         "provides": "Tensor, unit, associators and unitors with naturality, pentagon and triangle laws.",
-        "checked": "Actual statement read in the pinned source tree on 2026-10-07."
+        "checked": "Actual declaration and surrounding hypotheses independently read at the exact pinned commit on 2026-10-08 by REV-GeometricSatakeAndFusion--GS3~2."
       },
       {
         "ref": "mathlib:CategoryTheory.Functor.Monoidal",
         "kind": "class",
         "module": "Mathlib/CategoryTheory/Monoidal/Functor.lean",
         "provides": "Compatible lax and oplax monoidal structures with inverse tensor and unit constraints.",
-        "checked": "Actual statement read in the pinned source tree on 2026-10-07."
+        "checked": "Actual declaration and surrounding hypotheses independently read at the exact pinned commit on 2026-10-08 by REV-GeometricSatakeAndFusion--GS3~2."
       },
       {
         "ref": "mathlib:CategoryTheory.LeftRigidCategory",
         "kind": "class",
         "module": "Mathlib/CategoryTheory/Monoidal/Rigid/Basic.lean",
         "provides": "Chosen left duals for every object; Verdier duality combined with inversion supplies these in Satake.",
-        "checked": "Actual statement read in the pinned source tree on 2026-10-07."
+        "checked": "Actual declaration and surrounding hypotheses independently read at the exact pinned commit on 2026-10-08 by REV-GeometricSatakeAndFusion--GS3~2."
       },
       {
         "ref": "mathlib:CategoryTheory.Adjunction",
         "kind": "declaration",
         "module": "Mathlib/CategoryTheory/Adjunction/Basic.lean",
         "provides": "Unit and counit with triangle identities; used for bounded left adjoints of the fibre functor.",
-        "checked": "Actual statement read in the pinned source tree on 2026-10-07."
+        "checked": "Actual declaration and surrounding hypotheses independently read at the exact pinned commit on 2026-10-08 by REV-GeometricSatakeAndFusion--GS3~2."
       },
       {
         "ref": "mathlib:Representation",
         "kind": "declaration",
         "module": "Mathlib/RepresentationTheory/Basic.lean",
         "provides": "A monoid homomorphism to linear endomorphisms. Continuity of the Weil action and finite projectivity are extra conditions, not supplied by this abbreviation.",
-        "checked": "Actual statement read in the pinned source tree on 2026-10-07."
+        "checked": "Actual declaration and surrounding hypotheses independently read at the exact pinned commit on 2026-10-08 by REV-GeometricSatakeAndFusion--GS3~2."
       },
       {
         "ref": "mathlib:Module.Projective",
         "kind": "class",
         "module": "Mathlib/Algebra/Module/Projective.lean",
         "provides": "The free-module surjection splits; equivalent to lifting linear maps along surjections.",
-        "checked": "Actual statement read in the pinned source tree on 2026-10-07."
+        "checked": "Actual declaration and surrounding hypotheses independently read at the exact pinned commit on 2026-10-08 by REV-GeometricSatakeAndFusion--GS3~2."
       },
       {
         "ref": "mathlib:Module.Flat",
         "kind": "class",
         "module": "Mathlib/RingTheory/Flat/Basic.lean",
         "provides": "Injectivity of tensor maps for finitely generated submodules, with the standard injective-map characterization.",
-        "checked": "Actual statement read in the pinned source tree on 2026-10-07."
+        "checked": "Actual declaration and surrounding hypotheses independently read at the exact pinned commit on 2026-10-08 by REV-GeometricSatakeAndFusion--GS3~2."
       },
       {
         "ref": "mathlib:CategoryTheory.Monad.HasCoequalizerOfIsSplitPair",
         "kind": "class",
         "module": "Mathlib/CategoryTheory/Monad/Monadicity.lean",
         "provides": "For every F-split parallel pair, its coequalizer exists in the source category.",
-        "checked": "Actual statement read in the pinned source tree on 2026-10-07."
+        "checked": "Actual declaration and surrounding hypotheses independently read at the exact pinned commit on 2026-10-08 by REV-GeometricSatakeAndFusion--GS3~2."
       },
       {
         "ref": "mathlib:CategoryTheory.Monad.PreservesColimitOfIsSplitPair",
         "kind": "class",
         "module": "Mathlib/CategoryTheory/Monad/Monadicity.lean",
         "provides": "F preserves coequalizers of every F-split parallel pair.",
-        "checked": "Actual statement read in the pinned source tree on 2026-10-07."
+        "checked": "Actual declaration and surrounding hypotheses independently read at the exact pinned commit on 2026-10-08 by REV-GeometricSatakeAndFusion--GS3~2."
       },
       {
         "ref": "mathlib:CategoryTheory.Monad.ReflectsColimitOfIsSplitPair",
         "kind": "class",
         "module": "Mathlib/CategoryTheory/Monad/Monadicity.lean",
         "provides": "F reflects coequalizers of every F-split parallel pair.",
-        "checked": "Actual statement read in the pinned source tree on 2026-10-07."
+        "checked": "Actual declaration and surrounding hypotheses independently read at the exact pinned commit on 2026-10-08 by REV-GeometricSatakeAndFusion--GS3~2."
       },
       {
         "ref": "mathlib:CategoryTheory.Limits.HasColimit",
         "kind": "class",
         "module": "Mathlib/CategoryTheory/Limits/HasLimits.lean",
         "provides": "Mere existence of a colimit cocone for the diagram (lines 94–98); colimit chooses its object by the dual definition at lines 180–182. Gives the underlying module only, not a Hopf structure.",
-        "checked": "Actual statement read in the pinned source tree on 2026-10-07."
+        "checked": "Actual declaration and surrounding hypotheses independently read at the exact pinned commit on 2026-10-08 by REV-GeometricSatakeAndFusion--GS3~2."
       },
       {
         "ref": "tauceti:TauCeti.reductiveAffineGroupSchemeProperty",
         "kind": "declaration",
         "module": "TauCeti/AlgebraicGeometry/AffineGroupScheme/Reductive.lean",
         "provides": "Object property on finite-type affine group schemes over a field, transported from the reductive coordinate Hopf-algebra property.",
-        "checked": "Actual statement read in the pinned source tree on 2026-10-07."
+        "checked": "Actual declaration and surrounding hypotheses independently read at the exact pinned commit on 2026-10-08 by REV-GeometricSatakeAndFusion--GS3~2."
       }
     ]
   },
@@ -197,7 +197,7 @@
         "IX.6.1–IX.6.3 pp330–332: adjoint-isomorphism maps, products and Weil restriction; IX.7.1 pp334–335: normalization of Levi inclusion",
         "VI.7 p219, after the proof of Proposition VI.7.4: perverse sheaves on the local Hecke stack over Spd k are the L⁺G-equivariant perverse sheaves on the Witt vector affine Grassmannian considered by Zhu"
       ],
-      "accessed": "2026-10-07"
+      "accessed": "2026-10-08"
     },
     {
       "id": "Zhu",
@@ -214,7 +214,7 @@
         "§§2.3–2.4 pp440–444, statements of Lemma 2.18, Proposition 2.20, Proposition 2.21 and Corollary 2.22 only: the source of the monoidal structure on H* and of the commutativity constraint, routed to the Part II design",
         "§2.5 pp454–455: Tannakian structure, torus case, Proposition 2.36 (tensor constant term) and identification with the dual group"
       ],
-      "accessed": "2026-10-07"
+      "accessed": "2026-10-08"
     },
     {
       "id": "Gross",
@@ -229,7 +229,7 @@
         "§4 pp8–9 through (4.4): Kazhdan–Lusztig polynomials and the IC basis",
         "§8 pp15–16: half-root normalization and GL2 parameters"
       ],
-      "accessed": "2026-10-07"
+      "accessed": "2026-10-08"
     },
     {
       "id": "PY",
@@ -242,7 +242,7 @@
         "Introduction pp1–3, Theorem 1.2 and Corollary 1.3 with residue-characteristic-two exception",
         "§5.3–§5.4 pp11–12, closed-immersion proof and its schematic-closure/maximal-bounded-subgroup route"
       ],
-      "accessed": "2026-10-07"
+      "accessed": "2026-10-08"
     },
     {
       "id": "DM",
@@ -254,7 +254,20 @@
       "readSections": [
         "§2 pp24–27, Proposition 2.20, Corollary 2.22 (characteristic zero hypothesis) and Proposition 2.23 and proofs: finite type, connectedness, proreductivity"
       ],
-      "accessed": "2026-10-07"
+      "accessed": "2026-10-08"
+    },
+    {
+      "id": "DH",
+      "title": "Decomposition of tensor products of modular irreducibles for SL2",
+      "authors": "Stephen Doty and Anne Henke",
+      "edition": "arXiv:math/0205186v1, 24-page PDF; header dated 16 May 2002, title page dated 28 May 2022; physical and printed pages agree.",
+      "url": "https://arxiv.org/pdf/math/0205186",
+      "sha256": "8fb52434afec7149a85783fbc791f17cb2f7c539312bc3aec94a14ada10f4d6f",
+      "readSections": [
+        "§1 pp2–4: tilting-module conventions, Lemma 1.1 on small tilting modules, Lemmas 1.3–1.4 on tensor products and Frobenius-twisted factorization",
+        "§5 p18: the expression of T(2^k−2) as the square of the (k−1)-st Steinberg module; used to derive, rather than quote, the Frobenius-kernel invariant calculation"
+      ],
+      "accessed": "2026-10-08"
     }
   ],
   "nodes": [
@@ -739,7 +752,7 @@
       "sources": [
         {
           "sourceId": "FS",
-          "locator": "Proposition VI.9.2 p226; Theorem IV.7.3 pp165–166 (full faithfulness begins p164)",
+          "locator": "Proposition VI.9.2 p226; Proposition IV.7.3 pp165–166 (full faithfulness begins p164)",
           "match": "Combines the exact DLc Drinfeld equivalence with the finite-projective degree-zero specialization."
         }
       ],
@@ -833,7 +846,7 @@
       "sources": [
         {
           "sourceId": "FS",
-          "locator": "Corollary VI.9.5 p230; VI.8.2 pp225–226",
+          "locator": "Corollary VI.9.5 pp229–230; VI.8.2 pp225–226",
           "match": "States the fibre-dual comparison and derives the symmetric involutions from existing rigidity."
         }
       ],
@@ -1246,7 +1259,7 @@
         },
         {
           "sourceId": "DM",
-          "locator": "Propositions 2.20, 2.22, 2.23 pp24–27",
+          "locator": "Proposition 2.20, Corollary 2.22 and Proposition 2.23 pp24–27",
           "match": "General criteria are imported from their single owners, and used with characteristic zero."
         },
         {
@@ -1381,7 +1394,7 @@
       ],
       "title": "Integral rank-one identification",
       "kind": "theorem",
-      "statement": "For G = PGL₂ and every ℓ ≠ p, the representation on the fibre Z_ℓ⊕Z_ℓ(-1) of the minuscule object is an isomorphism G^∨_{Z_ℓ} ≅ SL(Z_ℓ⊕Z_ℓ(-1)). Its special fibre G^∨_{F_ℓ} → SL₂ is surjective. The image H contains the diagonal torus T and its irreducibles are separated by highest weights in Z≥0; for ℓ odd this forces H = SL₂ (VI.11.2). For ℓ = 2 these properties leave the case that the reduced subgroup of H is the normalizer N(T), with H inside a Frobenius preimage of N(T). That case is excluded because Hom(1, B₁^{⋆n}) over F₂ has the characteristic-zero dimension for every n, while a Frobenius preimage of N(T) has more invariants in a suitable V^{⊗n}. For a split G of semisimple rank one the integral identification follows through G → G_ad ≅ PGL₂ and the component grading.",
+      "statement": "For G = PGL₂ and every ℓ ≠ p, the representation on the fibre Z_ℓ⊕Z_ℓ(-1) of the minuscule object is an isomorphism G^∨_{Z_ℓ} ≅ SL(Z_ℓ⊕Z_ℓ(-1)). Its special fibre G^∨_{F_ℓ} → SL₂ is surjective. The image H contains the diagonal torus T and its irreducibles are separated by highest weights in Z≥0; for ℓ odd this forces H = SL₂ (VI.11.2). For ℓ = 2 these properties leave the case that the reduced subgroup of H is the normalizer N(T), with H inside a Frobenius preimage of N(T). That case is excluded because Hom(1, B₁^{⋆n}) over F₂ has the characteristic-zero dimension for every n, while a Frobenius preimage of N(T) has more invariants in a suitable V^{⊗n}. For a split G of semisimple rank one the integral identification follows through G → G_ad ≅ PGL₂ and the component grading. The characteristic-two invariant-count route is a planned replacement: it uses the strengthened LP3 and GS2:correspondences requests, and its geometric identification remains the named rank-one special-fibre gap.",
       "hypotheses": [
         "E is a nonarchimedean local field with residue field F_q of characteristic p; G/E is connected reductive.",
         "For torsion coefficients Λ is killed by an integer prime to p. The ℓ-adic extension uses a fixed prime ℓ ≠ p and its compatible reductions.",
@@ -1393,17 +1406,17 @@
         "GeometricSatakeAndFusion:GS4:integral-dual-group/geometric-coordinate-hopf-algebra",
         "GeometricSatakeAndFusion:GS3:fusion/fusion-product-and-sign-rule",
         "GeometricSatakeAndFusion:GS2:correspondences/convolution-diagram",
-        "GeometricSatakeAndFusion:GS2:correspondences/rational-special-fibre-convolution",
         "tauceti:TauCetiRoadmap/ReductiveGroups#layer-3-subgroups-quotients-components",
         "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
         "LanglandsParameterStacks:LP3",
-        "mathlib:Module.Flat"
+        "mathlib:Module.Flat",
+        "GeometricSatakeAndFusion:GS2:correspondences"
       ],
       "proofSteps": [
-        "Reduce G^∨ modulo ℓ and let H be the image of G^∨_{F_ℓ} in SL₂. Every irreducible representation of G^∨_{F_ℓ} is a simple Satake object B_μ of highest weight μ, so the irreducibles of H are separated by highest weights in Z≥0. Replace H by its image H′ under a high power r of the Frobenius isogeny: H′ is reduced, contains T and is a quotient of H, so its irreducibles pull back to irreducibles of H with highest weights multiplied by ℓ^r; and H′ = SL₂ forces H = SL₂ by dimension.",
+        "Reduce G^∨ modulo ℓ and work after faithfully flat extension to an algebraic closure k of F_ℓ; surjectivity of the special-fibre map descends. Let H be the image of G^∨_k in SL₂. Every irreducible representation of G^∨_k is a simple Satake object B_μ of highest weight μ, so the irreducibles of H are separated by highest weights in Z≥0. Replace H by its image H′ under a high power r of the Frobenius isogeny: H′ is reduced, contains T and is a quotient of H, so its irreducibles pull back to irreducibles of H with highest weights multiplied by ℓ^r; and H′ = SL₂ forces H = SL₂ by dimension.",
         "The identity component of the smooth group H′ is T, a Borel or SL₂ by the structure theory of SL₂. T and the Borels have irreducibles of negative highest weight; if H′° = T then H′ ⊂ N(T). For ℓ odd the sign character of N(T) is a second irreducible of highest weight 0, so H′ = SL₂.",
-        "For ℓ = 2, if H′ = N(T) then H lies in H_a, the preimage of N(T) under the a-th Frobenius power, for some a. Put n = 6·2^a − 2. By Donkin's tensor product formula T(n) ≅ T(2^{a+1} − 2) ⊗ T(4)^{[a]}, and T(2^{a+1} − 2) restricted to the a-th Frobenius kernel is the injective hull of the trivial module, so T(n)^{H_a} ≅ T(4)^{N(T)}. This is nonzero, because w is an involution of the two-dimensional weight-zero space of T(4). But T(n)^{SL₂} = 0, because T(4) has no ∇(0) in a good filtration. T(n) is a summand of the tilting module V^{⊗n}, so dim (V^{⊗n})^H > dim (V^{⊗n})^{SL₂}, which is the characteristic-zero multiplicity of the trivial representation.",
-        "On the Satake side (V^{⊗n})^{G^∨} = Hom(1, B₁^{⋆n}). Here B₁ is the shifted constant sheaf on P¹ and B₁^{⋆n} is the pushforward of the shifted constant sheaf along the semismall n-step convolution map from a smooth source, so this Hom is the top Borel–Moore homology of the fibre over the base point. It is free on its components of top dimension, whatever the coefficients, so its dimension over F₂ is the characteristic-zero count. Since G^∨ acts through H, this contradicts the previous step, and H′ = SL₂ also for ℓ = 2 (this replaces the ℓ = 2 case of VI.11.2, source issue E8).",
+        "For ℓ = 2, if H′ = N(T), then H lies in H_a, the preimage of N(T) under the a-th Frobenius power, for some a ≥ 0. Put n = 6·2^a − 2. The SL₂ tilting factorization gives T(n) ≅ A ⊗ T(4)^{[a]}, where A = T(2^{a+1} − 2). For a ≥ 1 the Steinberg-square description A ≅ St_a ⊗ St_a and self-duality identify A^{G_a} with End_{G_a}(St_a) = k; the resulting line has trivial SL₂ action. For a = 0 use A = T(0) directly. Hence T(n)^{G_a} ≅ T(4)^{[a]} and T(n)^{H_a} ≅ T(4)^{N(T)}. The character of T(4) is the sum of the characters of ∇(4) and ∇(2): its weight-zero space has dimension two, so the involution w has a nonzero fixed vector in characteristic two, but T(4)^{SL₂} = 0 because its good filtration has no ∇(0). Thus T(n)^{SL₂} = 0 as well. The highest-weight summand T(n) of the tilting module V^{⊗n} supplies extra H-invariants. For V^{⊗n} the ∇(0)-multiplicity is the characteristic-zero trivial multiplicity. The Steinberg-kernel and good-filtration facts are explicit LP3 obligations, not consequences of a prime-to-ℓ generation theorem.",
+        "Request from GS2:correspondences the following coefficient-independent geometric calculation, beyond its current rational-special-fibre-convolution node. For even n, the n-step minuscule PGL₂ convolution space is a smooth iterated (perfected) P¹ bundle of dimension n, its proper convolution map is semismall, and the base-point fibre has dimension at most n/2. Proper duality identifies Hom(1, B₁^{⋆n}) with its degree-n Borel–Moore homology, up to the harmless Tate twist. Top-dimensional cycles give a free coefficient module with basis the n/2-dimensional irreducible components, so the F₂ dimension equals the Q_ℓ dimension. Transport this identification through the one-leg comparison and use the rational rank-one calculation for the latter dimension. Since the reconstructed group acts through H, this contradicts the extra invariants of the preceding step and gives H = SL₂. This source-to-supplier adapter remains the explicit rank-one gap; Zhu Proposition 2.3 provides the semismall dimension bound, not the asserted modular Hom identification.",
         "The map G^∨_{Z_ℓ} → SL₂ is an isomorphism on generic fibres and surjective on special fibres, so on coordinate rings it is injective modulo ℓ and an isomorphism after inverting ℓ; the flat-module lemma VI.11.3 makes it an isomorphism. For semisimple rank one use G → G_ad ≅ PGL₂ and refine the component grading."
       ],
       "acceptance": [
@@ -1415,7 +1428,17 @@
         {
           "sourceId": "FS",
           "locator": "VI.11.1 proof pp236–237; Lemmas VI.11.2–VI.11.3 p237",
-          "match": "Special-fibre image and its lift by the flat-module lemma; the ℓ = 2 case of Lemma VI.11.2 is replaced as in source issue E8."
+          "match": "Source special-fibre image argument and flat-module lift; the false ℓ = 2 case of Lemma VI.11.2 needs the proposed replacement in source issue E8 with its recorded supplier gap."
+        },
+        {
+          "sourceId": "DH",
+          "locator": "§1, Lemma 1.1 p3 and Lemma 1.4 p4; §5 p18, Steinberg-square discussion",
+          "match": "Supplies the small-tilting characters and twisted factorization used in the proposed characteristic-two repair. The kernel-invariant and Hom-count conclusions are derived steps with explicit supplier obligations, not stated theorems of this paper."
+        },
+        {
+          "sourceId": "Zhu",
+          "locator": "Proposition 2.3 and Remark 2.4 p432; §2.1 pp431–432",
+          "match": "Supplies semismallness of the bounded convolution map and the rational top-cycle multiplicity calculation. Its rational statements are not cited as a modular decomposition theorem."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1459,7 +1482,7 @@
       "sources": [
         {
           "sourceId": "FS",
-          "locator": "VI.11.1 proof p238",
+          "locator": "VI.11.1 proof pp237–238",
           "match": "The rank-one Levi and weight-bound argument identifies the complete generic root datum."
         },
         {
@@ -2501,7 +2524,14 @@
     },
     {
       "supplier": "LanglandsParameterStacks:LP3",
-      "need": "Tilting modules of SL₂ over a field of characteristic p, used at p = 2: indecomposable tilting modules T(n) and their characters; Donkin's tensor product formula T(2p^a − 2 + p^a λ) ≅ T(2p^a − 2) ⊗ T(λ)^{[a]}; the restriction of T(2p^a − 2) to the a-th Frobenius kernel is the injective hull of the trivial module; tensor powers of the natural representation are tilting; and for a module with a good filtration the dimension of the invariants is its ∇(0)-multiplicity, equal to the characteristic-zero multiplicity of the trivial representation.",
+      "need": "Tilting modules of SL₂ over an algebraically closed field of characteristic two, with Frobenius twists and kernels G_a: T(6·2^a−2) ≅ T(2^{a+1}−2) ⊗ T(4)^{[a]}; T(2^{a+1}−2) ≅ St_a ⊗ St_a for a≥1; St_a is self-dual and remains absolutely irreducible on G_a, giving End_{G_a}(St_a)=k and a trivial conjugation action on that invariant line. Handle a=0 with T(0)=k. Include the good filtration of T(4) with sections ∇(4), ∇(2), tensor closure and indecomposable highest-weight summands of tensor powers of the natural representation, and the theorem dim M^{SL₂} = [M:∇(0)] for good-filtration M. For V^{⊗n} this multiplicity equals its characteristic-zero trivial multiplicity. DH Lemmas 1.1/1.4 pp3–4 and the Steinberg-square discussion p18 support the factorization/characters; the kernel and good-filtration contracts must be exposed by the general LP3 owner.",
+      "neededBy": [
+        "GeometricSatakeAndFusion:GS4:integral-dual-group/rank-one-integral-identification"
+      ]
+    },
+    {
+      "supplier": "GeometricSatakeAndFusion:GS2:correspondences",
+      "need": "For the n-fold minuscule PGL₂ convolution, provide the proper map from a smooth n-dimensional iterated perfected P¹ bundle, the semismall base-point fibre bound dim≤n/2, and for every even n and prime ℓ≠p identify Hom(1, B₁^{⋆n}) over F_ℓ with degree-n Borel–Moore homology of that fibre, up to Tate twist. Top cycles must be free on its n/2-dimensional irreducible components, compatibly with rational coefficients and the one-leg Witt comparison. Derive this by proper duality and the top-cycle theorem; no modular decomposition theorem is assumed. The current rational-special-fibre-convolution node gives neither this modular Hom calculation nor coefficient-independent freeness. This requested refinement belongs with the existing GS2 correspondence geometry, not a second general six-operations theory.",
       "neededBy": [
         "GeometricSatakeAndFusion:GS4:integral-dual-group/rank-one-integral-identification"
       ]
@@ -2694,7 +2724,7 @@
         "GeometricSatakeAndFusion:GS4:integral-dual-group/integral-recovery-and-adjoint-reduction",
         "GeometricSatakeAndFusion:GS4:integral-dual-group/dual-group-identification"
       ],
-      "detail": "FS Lemma VI.11.2 does not exclude, at ℓ = 2, a special-fibre image whose reduced subgroup is the normalizer of the diagonal torus (source issue E8). The replacement argument counts invariants in tensor powers. Its group-theoretic inputs are requested from LP3 (tilting modules of SL₂ in characteristic two) and from the Tau Ceti ReductiveGroups layers 3 and 7. Its geometric input is isolated by no supplier node: with F₂ coefficients, Hom(1, B₁^{⋆n}) is the top Borel–Moore homology of the fibre over the base point of the semismall n-step convolution map, computed on the Witt special fibre and transported through the one-leg comparison. The rational Witt equivalence uses only the generic fibre and is not affected."
+      "detail": "FS Lemma VI.11.2 fails at ℓ = 2 because N(T) satisfies its hypotheses (source issue E8). The proposed invariant-count replacement uses the LP3 tilting, Steinberg-kernel and good-filtration contracts and the Tau Ceti ReductiveGroups layers 3 and 7. Its geometric input is now requested explicitly from GS2:correspondences: the proper semismall minuscule PGL₂ convolution from a smooth iterated P¹ bundle; the modular Hom-to-top-Borel–Moore identification; freeness on the top-dimensional components; and transport through the one-leg comparison. The existing rational-special-fibre-convolution node and Zhu Proposition 2.3 do not supply the modular Hom contract. This adapter must be established before the rank-one characteristic-two repair is complete. The rational Witt equivalence uses only the generic fibre and is not affected."
     },
     {
       "title": "Zhu's equivalence outside the FS comparison",
@@ -2761,8 +2791,8 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Checked the author-hosted p237. For G=PGL₂ the grading group is Z/2, whose diagonalizable group is μ₂, so the wording torus is false while the diagonalizable fibre-product argument works. This finding is scoped to the author copy, not the unread published body.",
-        "by": "REV-GeometricSatakeAndFusion--GS3"
+        "reason": "Confirmed at FS p237: for PGL₂ the character group π₁(G)=Z/2 gives μ₂, so the required group is diagonalizable and need not be a torus.",
+        "by": "REV-GeometricSatakeAndFusion--GS3~2"
       }
     },
     {
@@ -2780,8 +2810,8 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Independently checked the printed passage at the stated page and the correction against the surrounding proof/diagram. Reuses PAPER-FARGUES-SCHOLZE-21/E46.",
-        "by": "REV-GeometricSatakeAndFusion--GS3"
+        "reason": "Confirmed at FS p234: the construction concerns the antipode of the reconstructed algebra H, whereas A denotes the base category. Reuses PAPER-FARGUES-SCHOLZE-21/E46.",
+        "by": "REV-GeometricSatakeAndFusion--GS3~2"
       }
     },
     {
@@ -2799,8 +2829,8 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Independently checked the printed passage at the stated page and the correction against the surrounding proof/diagram. Reuses PAPER-FARGUES-SCHOLZE-21/E108.",
-        "by": "REV-GeometricSatakeAndFusion--GS3"
+        "reason": "Confirmed at FS p234: the stated hypotheses first yield a bialgebra; an antipode needs rigidity in the following step. Reuses PAPER-FARGUES-SCHOLZE-21/E108.",
+        "by": "REV-GeometricSatakeAndFusion--GS3~2"
       }
     },
     {
@@ -2818,8 +2848,8 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Independently checked the printed passage at the stated page and the correction against the surrounding proof/diagram. Reuses PAPER-FARGUES-SCHOLZE-21/E48.",
-        "by": "REV-GeometricSatakeAndFusion--GS3"
+        "reason": "Confirmed at FS p237: the division argument must use the already introduced x. Reuses PAPER-FARGUES-SCHOLZE-21/E48.",
+        "by": "REV-GeometricSatakeAndFusion--GS3~2"
       }
     },
     {
@@ -2837,15 +2867,15 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Independently checked the printed passage at the stated page and the correction against the surrounding proof/diagram. Reuses PAPER-FARGUES-SCHOLZE-21/E49.",
-        "by": "REV-GeometricSatakeAndFusion--GS3"
+        "reason": "Confirmed at FS p237 and checked against p239: the minimal-Levi parabolic contains the Borel. Reuses PAPER-FARGUES-SCHOLZE-21/E49.",
+        "by": "REV-GeometricSatakeAndFusion--GS3~2"
       }
     },
     {
       "kind": "misprint",
       "affects": "nothing",
-      "printed": "𝒵^spec(G₁, Λ) ⊗_Λ 𝒵^spec(G₂, Λ) ⟶ 𝒵^geom(G₁, Λ) ⊗_Λ 𝒵^geom(G₁, Λ)",
-      "correction": "𝒵^spec(G₁, Λ) ⊗_Λ 𝒵^spec(G₂, Λ) ⟶ 𝒵^geom(G₁, Λ) ⊗_Λ 𝒵^geom(G₂, Λ)",
+      "printed": "The top-right object in the product-compatibility diagram uses the geometric construction for G₁ in both tensor factors, although the top-left object has one factor for each of G₁ and G₂.",
+      "correction": "Use the geometric construction for G₂ in the second tensor factor of the top-right object.",
       "reason": "The horizontal map is the tensor product of the maps for G₁ and G₂, so the second factor must be 𝒵^geom(G₂, Λ).",
       "id": "GeometricSatakeAndFusion/E6",
       "source": "FS",
@@ -2856,8 +2886,8 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Independently checked the printed passage at the stated page and the correction against the surrounding proof/diagram. Reuses PAPER-FARGUES-SCHOLZE-21/E66.",
-        "by": "REV-GeometricSatakeAndFusion--GS3"
+        "reason": "Confirmed at FS p331: product compatibility requires the second geometric factor to belong to G₂. Reuses PAPER-FARGUES-SCHOLZE-21/E66; the diagram is paraphrased here.",
+        "by": "REV-GeometricSatakeAndFusion--GS3~2"
       }
     },
     {
@@ -2875,8 +2905,8 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Independently checked the printed passage at the stated page and the correction against the surrounding proof/diagram. Reuses PAPER-FARGUES-SCHOLZE-21/E67.",
-        "by": "REV-GeometricSatakeAndFusion--GS3"
+        "reason": "Confirmed at FS p331: the exterior product has one object over each factor Bun_{G₁}, Bun_{G₂}. Reuses PAPER-FARGUES-SCHOLZE-21/E67.",
+        "by": "REV-GeometricSatakeAndFusion--GS3~2"
       }
     },
     {
@@ -2885,15 +2915,20 @@
       "kind": "error",
       "locator": "Chapter VI, §VI.11, Lemma VI.11.2 and its proof, p. 237 (author-hosted 356-page copy, same text as arXiv v4)",
       "printed": "The lemma says that a closed subgroup H of SL₂ over F_ℓ which contains the diagonal torus, and whose irreducible representations are told apart by their highest weights (all in Z≥0), is all of SL₂. The proof reduces to reduced H and then deduces that H is connected from Deligne–Milne, Corollary 2.22, and highest weights.",
-      "correction": "The lemma holds for ℓ odd. For ℓ = 2 its hypotheses give only that H = SL₂ or that the reduced subgroup of H is N(T), the normalizer of the diagonal torus T: N(T) and its preimages under powers of the Frobenius isogeny satisfy them. In the proof of Theorem VI.11.1 for G = PGL₂ the second case can be excluded by counting invariants. If H lies in the a-th Frobenius preimage of N(T), put n = 6·2^a − 2: the tilting module T(n), a summand of V^{⊗n}, has nonzero H-invariants but no SL₂-invariants, so V^{⊗n} would have more invariants than in characteristic zero. But Hom(1, B₁^{⋆n}) with F₂ coefficients has exactly the characteristic-zero dimension, since it is the top Borel–Moore homology of the fibre over the base point of the n-step convolution map.",
-      "reason": "For ℓ = 2, N(T) = T ⋊ Z/2 is a closed subgroup of SL₂ over F₂ containing T. Its irreducible representations are the trivial one and, for each n ≥ 1, the two-dimensional induced representation with weights ±n: a weight-zero irreducible is a representation of Z/2, and in characteristic two only the trivial one is irreducible. The highest weights 0, 1, 2, … are distinct, so N(T) satisfies the hypothesis, but N(T) ≠ SL₂. The non-reduced preimage of N(T) under the Frobenius isogeny is a second counterexample: its irreducibles also have highest weights 0, 1, 2, … once each. The proof fails at the connectedness step: Deligne–Milne Corollary 2.22 assumes characteristic zero, and for ℓ = 2 the component group of N(T) contributes no second irreducible of highest weight zero. For ℓ odd its sign character does, and after replacing H by its reduced image under a high power of Frobenius the remaining cases (T, the two Borels) have irreducibles of negative highest weight, so the lemma is true for ℓ odd. With the invariant count above, which uses the tilting theory of SL₂ in characteristic two, Theorem VI.11.1 survives at ℓ = 2.",
+      "correction": "Retain the subgroup criterion for odd ℓ. At ℓ = 2 the stated hypotheses do not imply H=SL₂: N(T) is a counterexample. The Satake application requires an additional geometric constraint. The proposed replacement compares tensor-power invariants with a coefficient-independent top-cycle count; its precise LP3 representation-theoretic inputs and GS2:correspondences geometric calculation are requested in rank-one-integral-identification and remain an explicit gap. The false subgroup lemma alone does not establish or disprove the integral Satake theorem.",
+      "reason": "In characteristic two, N(T)=T⋊C₂ is proper in SL₂ and contains T. Its simples are the trivial module and, for n≥1, the two-dimensional induced modules with weights ±n: T is diagonalizable and each nonzero weight orbit is {n,−n}, while a simple supported at weight zero factors through C₂ and is trivial. Thus highest weights 0,1,2,… occur once each, satisfying the lemma. Deligne–Milne Corollary 2.22 on connectedness assumes characteristic zero and cannot justify the printed step. For odd ℓ the sign character of N(T) duplicates highest weight zero; after passing to a reduced Frobenius image the torus and Borels also violate the nonnegative-highest-weight requirement. This verifies the source error, while the proposed geometric repair still has its recorded supplier obligation.",
       "affects": "a stated result",
       "known": "new",
       "searched": [
         "arXiv 2102.13459 version history, checked 8 October 2026: v4 (27 November 2024) is the latest version; the author-hosted copy read here (SHA-256 9ab9efbd…) has the same lemma and proof.",
         "The atlas errata for this paper (PAPER-FARGUES-SCHOLZE-21, entries near §§VI.10–VI.11: E45–E49, E108, E109) and research/errata/REGISTER.md contain no entry for Lemma VI.11.2.",
         "A web search on 8 October 2026 for a correction of this lemma found none. The published version (Astérisque 466, 2026) was not read, and no claim is made about it."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed by the N(T) counterexample and the characteristic-zero hypothesis of DM Corollary 2.22 pp25–26. Confirmation concerns Lemma VI.11.2 in the author/arXiv copy; the proposed Satake repair is still the explicit GS2/LP3 supplier gap.",
+        "by": "REV-GeometricSatakeAndFusion--GS3~2"
+      }
     },
     {
       "id": "GeometricSatakeAndFusion/E9",
@@ -2907,7 +2942,12 @@
       "known": "PAPER-ZHU-17/E35 (already recorded in the extraction of this paper and confirmed by its independent review; reused here, not newly discovered)",
       "searched": [
         "The PAPER-ZHU-17 extraction and its review (searches of arXiv 1407.8519 versions, the Annals page and the Crossref record). Rechecked against the publisher PDF on 8 October 2026 (SHA-256 5d50b415…)."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at Zhu pp407–408 against the standing hypotheses on p429. Over a nonclosed field, even a torus has extra arithmetic local systems; the geometric equivalence needs the stated algebraically closed base. Reuses PAPER-ZHU-17/E35.",
+        "by": "REV-GeometricSatakeAndFusion--GS3~2"
+      }
     },
     {
       "id": "GeometricSatakeAndFusion/E10",
@@ -2921,7 +2961,12 @@
       "known": "PAPER-ZHU-17/E2 (already recorded in the extraction of this paper and confirmed by its independent review; reused here, not newly discovered)",
       "searched": [
         "The PAPER-ZHU-17 extraction and its review; rechecked in the publisher PDF on 8 October 2026."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at Zhu p412: the dominance relation on coweights uses coroots. Reuses PAPER-ZHU-17/E2.",
+        "by": "REV-GeometricSatakeAndFusion--GS3~2"
+      }
     },
     {
       "id": "GeometricSatakeAndFusion/E11",
@@ -2935,14 +2980,19 @@
       "known": "PAPER-ZHU-17/E51 (already recorded in the extraction of this paper and confirmed by its independent review; reused here, not newly discovered)",
       "searched": [
         "The PAPER-ZHU-17 extraction and its review; rechecked in the publisher PDF on 8 October 2026."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at Zhu p436: boundary supports do not give the complementary filtration; replacing them by supports in the closures gives the correct opposite filtration. The intended two-filtration argument is also used by FS VI.7.6 p220. Reuses PAPER-ZHU-17/E51.",
+        "by": "REV-GeometricSatakeAndFusion--GS3~2"
+      }
     }
   ],
   "sourceVersions": [
     {
       "kind": "author copy",
       "url": "https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf",
-      "read": "2026-10-07; reread 2026-10-08 for Lemma VI.11.2, Remark I.2.14 and p219",
+      "read": "2026-10-08; independently reread all scoped node and source-issue locators",
       "sha256": "9ab9efbd0df251bfa3b610d1d1d88a8dfb1bdf7c397bd04f4c277280d98ae905"
     },
     {
@@ -2950,158 +3000,179 @@
       "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v185-n2-p02-p.pdf",
       "read": "2026-10-08",
       "sha256": "5d50b415048f3a5ad14bccf1c8da83fc5a680fcf13b60911ca269daa474431a7"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/math/0205186",
+      "read": "2026-10-08; §1 pp2–4 and §5 p18",
+      "sha256": "8fb52434afec7149a85783fbc791f17cb2f7c539312bc3aec94a14ada10f4d6f"
     }
   ],
   "review": {
-    "status": "needs_changes",
-    "reviewer": "independent-review-REV-GeometricSatakeAndFusion--GS3",
-    "date": "2026-10-07",
-    "notes": "Complete independent review of all 29 nodes, 23 exact-pin baselines, APIs/tests, sources, suppliers, targets, planets, source issues and four handed red-team findings. Clear packet/signature errors corrected in place; no nodes added. Needs changes because the definitive reader, outside this review issue’s editable deliverables, still asserts unsupported equality of the perfect-export essential image with its stable idempotent closure (lines 327 and 580). Synchronize the other listed reader corrections as well. Planned supplier/carrier gaps are not grounds for rejection. Lean elaboration is unverified: lean-check stops at the missing TauCeti Tannaka GroupFunctor compiled import. See the review report.",
+    "status": "accepted",
+    "reviewer": "independent-review-REV-GeometricSatakeAndFusion--GS3~2",
+    "date": "2026-10-08",
+    "notes": "Independent target-level review of all 32 nodes, 23 exact-pin declarations, 47 API items, 27 tests, 16 planets, sources, suppliers, library audit and RT-AREA-geomlanglands/1,16,17,19. Corrected five node locators/proof dependencies, explicitly requested the missing characteristic-two modular convolution Hom contract, supplied a public tilting source and narrowed E8 confirmation to the false lemma. All eleven source issues independently confirmed. Reader matches the packet and no longer claims that failed inlining establishes Lean elaboration. No nodes or baseline declarations added/removed. Accepted as a complete planning pass: all six stages planned, none closed, twelve honest supplier/carrier gaps. Direct lean-check fails at the absent compiled Tau Ceti GroupFunctor import; Lean remains uncompiled.",
     "checked": [
       {
         "nodeId": "GeometricSatakeAndFusion:GS3:fusion/disjoint-leg-locus",
         "verdict": "verified",
-        "note": "Checked the blockwise condition, internal collisions, arbitrary base change and factorization; numerical prototype is faithful."
+        "note": "FS VI.9.3 pp226–228: the locus forbids collisions between distinct blocks and permits them inside a block; all three disjointness tests distinguish those conditions."
       },
       {
         "nodeId": "GeometricSatakeAndFusion:GS3:fusion/disjoint-leg-factorization-and-full-faithfulness",
         "verdict": "verified",
-        "note": "Checked both full-faithfulness assertions and partial-diagonal codimension argument; VS1 purity adapter remains explicitly requested."
+        "note": "FS VI.9.3: checked block factorization and both full-faithfulness assertions; the partial-diagonal purity refinement remains the explicit VS1 request."
       },
       {
         "nodeId": "GeometricSatakeAndFusion:GS3:fusion/support-parity",
         "verdict": "verified",
-        "note": "Checked dominance-evenness and the minus sign exactly for two odd components, including its use by trace normalization."
+        "note": "FS VI.9.3–VI.9.4 pp227–229: dominance changes dimension by an even integer and the correction is negative exactly for two odd support components."
       },
       {
         "nodeId": "GeometricSatakeAndFusion:GS3:fusion/fusion-product-and-sign-rule",
         "verdict": "verified",
-        "note": "Checked actual proper convolution extension, closure-before-fusion supplier and ordinary target symmetry after parity correction."
+        "note": "FS VI.9.4 pp228–229: proper convolution supplies the extension, GS2 closure/rigidity precedes fusion, and parity correction gives ordinary fibre symmetry."
       },
       {
         "nodeId": "GeometricSatakeAndFusion:GS3:fusion/finite-set-functoriality-and-constant-terms",
-        "verdict": "corrected",
-        "note": "Corrected the arbitrary-map construction to diagonal pullback and the closed Grassmannian immersion, its source pages and the actual block sum; added expressible composition coherence."
+        "verdict": "verified",
+        "note": "FS VI.9.4 pp228–229: retained diagonal pullback followed by the Grassmannian closed immersion; checked empty fibres, composition and permutations, including the repaired block-sum signature."
       },
       {
         "nodeId": "GeometricSatakeAndFusion:GS3:fusion/drinfeld-fibre-realization",
         "verdict": "corrected",
-        "note": "Corrected VI.9.2 to p226; checked IV.7.3 locally constant perfect scope, finite projectivity and the local Weil owner."
+        "note": "Corrected IV.7.3 from Theorem to Proposition. Read pp164–166 and VI.9.2 p226: scope is locally constant perfect complexes, then degree-zero finite-projective continuous Weil representations."
       },
       {
         "nodeId": "GeometricSatakeAndFusion:GS3:fusion/symmetric-constant-term",
         "verdict": "verified",
-        "note": "Checked deg_P shift and symmetric fusion compatibility; normalized Tate/parameter adapter stays an honest gap."
+        "note": "FS VI.9.4 and Zhu Proposition 2.36 p455: the degree shift, tensor compatibility and Levi transitivity agree; the Tate/parameter convention is still a named adapter."
       },
       {
         "nodeId": "GeometricSatakeAndFusion:GS3:fusion/fusion-verdier-duality",
-        "verdict": "verified",
-        "note": "Checked sw*D as internal dual, fibre-dual comparison and the two symmetric involutions using existing GS2 rigidity."
+        "verdict": "corrected",
+        "note": "Corrected the VI.9.5 locator to pp229–230. Checked reversal, Verdier duality and sw*D as the internal dual against the earlier VI.8 rigidity input."
       },
       {
         "nodeId": "GeometricSatakeAndFusion:GS4:integral-dual-group/tannakian-left-adjoint",
-        "verdict": "corrected",
-        "note": "Corrected the generator enlargement direction X_W′→X_W and forward dual-fibre transition; checked bounded rather than unbounded adjunction."
+        "verdict": "verified",
+        "note": "FS VI.10.1 pp230–231: bounded left adjunction and coherent generator enlargement have X_W′→X_W and forward maps on dual fibres; the representer itself is not the coordinate coalgebra."
       },
       {
         "nodeId": "GeometricSatakeAndFusion:GS4:integral-dual-group/relative-tannaka-hypotheses",
-        "verdict": "corrected",
-        "note": "Checked the MC.6 finite-piece conditions and the separate preservation obligation; replaced the broken hyphenated excerpt."
+        "verdict": "verified",
+        "note": "FS VI.10.2 pp231–234 and exact MC.6 finite-piece contract: conservative linear symmetric functor, relative rigid source and F-split coequalizers; coefficient and preservation verification remains a gap."
       },
       {
         "nodeId": "GeometricSatakeAndFusion:GS4:integral-dual-group/geometric-coordinate-hopf-algebra",
-        "verdict": "corrected",
-        "note": "Checked the dual-fibre coalgebra colimit and MC.6 ownership; corrected the literal excerpt and recorded the existing bialgebra/antipode source slips."
+        "verdict": "verified",
+        "note": "FS VI.10.2 pp233–234: checked dual-fibre coalgebra colimit, monoidal multiplication and rigidity-dependent antipode in the exact MC.6 imports; pinned known-Hopf APIs do not perform this construction."
       },
       {
         "nodeId": "GeometricSatakeAndFusion:GS4:integral-dual-group/multileg-and-coefficient-reconstruction",
         "verdict": "verified",
-        "note": "Checked disjoint tensor/coefficient reconstruction and reduction limits; the coefficient/coequalizer adapter remains explicit."
+        "note": "FS VI.10.3 pp234–235: disjoint-leg reconstruction is a tensor product and coefficient changes/adic limits require the recorded finite-piece adapter; no unbounded adjoint is substituted."
       },
       {
         "nodeId": "GeometricSatakeAndFusion:GS4:rational-reductivity/rational-semisimplicity",
-        "verdict": "corrected",
-        "note": "Corrected Zhu pages to include Proposition 2.2 p432; checked geometric rational IC semisimplicity, without arithmetic or integral semisimplicity."
+        "verdict": "verified",
+        "note": "FS VI.7.5 p219 and VI.11.1 p236; Zhu §2.1 pp429–432: semisimplicity is rational and geometric via the Witt special fibre, without integral or arithmetic Weil semisimplicity."
       },
       {
         "nodeId": "GeometricSatakeAndFusion:GS4:rational-reductivity/generic-fibre-reductivity",
         "verdict": "corrected",
-        "note": "Checked finite tensor generation then connectedness then reductivity; corrected the upstream request to its actual finite-type characteristic-zero scope."
+        "note": "Corrected DM 2.22 to Corollary. Read DM pp24–27 and FS p236: tensor generation gives finite type, nonzero nμ excludes finite tensor hulls, then characteristic-zero semisimplicity gives reductivity."
+      },
+      {
+        "nodeId": "GeometricSatakeAndFusion:GS4:rational-reductivity/witt-rational-tannakian-category",
+        "verdict": "verified",
+        "note": "FS Remark I.2.14 p17 and VI.7 p219; Zhu §2 opening p429 and §2.5 p454: the rational Witt category is neutral Tannakian over k=F̄_p with fusion-transported symmetry; its group is the geometric generic fibre."
       },
       {
         "nodeId": "GeometricSatakeAndFusion:GS4:integral-dual-group/torus-and-rank-one-identification",
+        "verdict": "verified",
+        "note": "FS VI.11.1 pp236–237: torus algebra, generic PGL₂ standard representation and diagonalizable component refinement agree. This generic comparison does not use the separate integral rank-one node."
+      },
+      {
+        "nodeId": "GeometricSatakeAndFusion:GS4:integral-dual-group/rank-one-integral-identification",
         "verdict": "corrected",
-        "note": "Checked torus, PGL₂/SL₂ and diagonalizable component-grading calculations, both rank-one lemmas and corrected source slips."
+        "note": "Added the precise GS2:correspondences modular Hom/top-cycle request; replaced an unsupported injective-hull shortcut by the Steinberg-square derivation supported by DH pp3–4,18 and an explicit LP3 kernel contract. The geometric repair remains a gap; E8 confirms only the false source lemma."
       },
       {
         "nodeId": "GeometricSatakeAndFusion:GS4:integral-dual-group/generic-root-datum",
-        "verdict": "verified",
-        "note": "Checked highest-weight bounds and rank-one Levi comparisons identify the full generic root datum rather than only the torus."
+        "verdict": "corrected",
+        "note": "Expanded the FS locator to pp237–238. Minimal-Levi root/coroot maps and highest-weight convex-hull bounds identify the complete generic dual root datum and root-line twist."
       },
       {
         "nodeId": "GeometricSatakeAndFusion:GS4:integral-dual-group/integral-recovery-and-adjoint-reduction",
-        "verdict": "corrected",
-        "note": "Corrected VI.11.4 to p238; checked full Prasad–Yu hypotheses and adjoint reduction at ℓ=2; exposed integral-point supplier refinement."
+        "verdict": "verified",
+        "note": "FS VI.11.1 and VI.11.4 p238; PY Corollary 1.3 p2, proof §5.4 p12: full DVR closed-immersion scope and characteristic-two exclusion are retained. Integral-point/lattice and rank-one repair gaps are explicit."
       },
       {
         "nodeId": "GeometricSatakeAndFusion:GS4:integral-dual-group/dual-group-identification",
-        "verdict": "corrected",
-        "note": "Corrected canonical pinning/descent proof pages to pp238–239; checked independence of initial split pinning and Weil equivariance."
+        "verdict": "verified",
+        "note": "FS VI.11.1 pp235,238–239: checked intrinsic grading/filtration, splitting-independent root-line pinning and Weil descent; integral recovery remains conditional on its upstream named gaps."
+      },
+      {
+        "nodeId": "GeometricSatakeAndFusion:GS4:integral-dual-group/witt-rational-satake-equivalence",
+        "verdict": "verified",
+        "note": "Zhu Theorem 0.3 pp407–408 and §2.5 pp454–455; FS p219 and pp236–238: IC_μ maps to V_μ with the fusion-transported H* structure over F̄_p. No integral rank-one or own-Gelfand-constraint dependency is inserted."
       },
       {
         "nodeId": "GeometricSatakeAndFusion:GS4:integral-dual-group/normalized-satake-equivalence",
         "verdict": "verified",
-        "note": "Checked normalized tensor equivalence on finite-projective continuous representations, choice of square root and Frobenius/Tate convention gap."
+        "note": "FS VI.0.2 p190 and VI.11.1 p235: finite-projective continuous (Ĝ⋊W_E)^I representations after choosing sqrt(q), with finite-set coherence and the declared Frobenius convention adapter."
       },
       {
         "nodeId": "GeometricSatakeAndFusion:GS4:integral-dual-group/levi-naturality",
         "verdict": "verified",
-        "note": "Checked shifted CT and the IX.7.1 positive-power parameter convention; retains the explicit action-convention refinement."
+        "note": "FS VI.9.4 p229 and IX.7.1 pp334–335: normalized shifted constant terms agree with dual-Levi restriction; the positive-power parameter convention is not silently equated with stalk action."
       },
       {
         "nodeId": "GeometricSatakeAndFusion:GS4:integral-dual-group/adjoint-isomorphism-naturality",
         "verdict": "verified",
-        "note": "Checked the exact adjoint-isomorphism condition and corresponding dual map; no unsupported arbitrary group-map naturality."
+        "note": "FS VI.12 discussion p241 and IX.6.1 pp330–331: adjoint-isomorphism functoriality has the exact hypothesis and dual-map direction, without arbitrary-group-map naturality."
       },
       {
         "nodeId": "GeometricSatakeAndFusion:GS4:integral-dual-group/product-naturality",
-        "verdict": "corrected",
-        "note": "Checked exterior product on pure tensors and general categorical product compatibility; recorded existing IX.6.2 diagram slips."
+        "verdict": "verified",
+        "note": "FS IX.6.2 pp331–332: pure exterior products and categorical product compatibility agree; checked both reused diagram/index errata E6–E7."
       },
       {
         "nodeId": "GeometricSatakeAndFusion:GS4:integral-dual-group/weil-restriction-naturality",
         "verdict": "verified",
-        "note": "Checked chosen-embedding inflation/induction and divisor diagram; no strong monoidality of finite-index induction is asserted."
+        "note": "FS IX.6.3 p332: chosen conjugate embeddings, pullback/inflation and induction are used with the divisor comparison; induction is not asserted strong monoidal and the local tensor adapter remains open."
       },
       {
         "nodeId": "GeometricSatakeAndFusion:GS4:integral-dual-group/chevalley-involution",
-        "verdict": "corrected",
-        "note": "Corrected source range and Lean adjoint-conjugation signature so no lift of rho(-1) to G is assumed; checked rank-one root-line sign."
+        "verdict": "verified",
+        "note": "FS VI.12.1 pp240–241: sw* gives the pinned Chevalley involution conjugated by the adjoint ρ̂(−1); the signature uses adjoint conjugation without assuming a lift."
       },
       {
         "nodeId": "GeometricSatakeAndFusion:GS4:integral-dual-group/enhanced-perfect-satake-extension",
-        "verdict": "corrected",
-        "note": "Corrected unsupported essential-image equality to containment and functor-level restriction for uniqueness. Reader lines 327 and 580 still contradict the corrected packet and must change before acceptance."
+        "verdict": "verified",
+        "note": "FS IX.2 p321: exact linear monoidal extension from finite-projective representations and relative Perf(BG) base change; the image is only contained in the stable idempotent closure. Uniqueness requires a coherent restriction-functor isomorphism; all-prime LP3/LP4 scope remains requested."
       },
       {
         "nodeId": "GeometricSatakeAndFusion:GS4:classical-Satake-comparison/normalized-frobenius-function",
-        "verdict": "corrected",
-        "note": "Corrected Gross excerpt/locator, integer half twists and canonical descent in explicit examples; a scaled descent changes the trace."
+        "verdict": "verified",
+        "note": "Gross §§2–4 pp3–9, §8 pp15–16; Zhu equations (2.2.7)–(2.2.10) p436: checked vol(K)=1, geometric Frobenius, integer half twists and canonical constant/IC descent in the examples."
       },
       {
         "nodeId": "GeometricSatakeAndFusion:GS4:classical-Satake-comparison/trace-convolution",
         "verdict": "verified",
-        "note": "Checked proper finite-model trace/Künneth with vol(K)=1; ordinary trace-model supplier remains requested, not supplied by coherent trace."
+        "note": "Finite-model proper pushforward and Künneth give convolution traces; SF.2 must expose the ordinary constructible Frobenius theorem and perfection adapter, distinct from coherent trace."
       },
       {
         "nodeId": "GeometricSatakeAndFusion:GS4:classical-Satake-comparison/trace-constant-term",
         "verdict": "verified",
-        "note": "Checked δ_B^(1/2)=q^(-rho,lambda), CT shift and geometric Frobenius; nonsplit source adapter remains explicitly unestablished."
+        "note": "Gross §3 pp6–8 and Zhu p436: δ_B^(1/2)=q^(−〈ρ,λ〉), degree-shift sign and geometric Frobenius agree; nonsplit descent is the stated comparison gap."
       },
       {
         "nodeId": "GeometricSatakeAndFusion:GS4:classical-Satake-comparison/classical-satake-comparison",
-        "verdict": "corrected",
-        "note": "Checked split canonical IC character and minuscule scaling; clarified canonical descent, and kept nonsplit comparison as a gap."
+        "verdict": "verified",
+        "note": "Zhu p436 and Gross §4 pp8–9: canonical split IC traces give Weyl characters and the minuscule sign/half-root scaling. This is downstream of SR.4, with nonsplit and finite-model obligations recorded."
       }
     ]
   }
