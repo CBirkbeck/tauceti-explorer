@@ -8931,706 +8931,714 @@
   ],
   "review": {
     "status": "needs_changes",
-    "reviewer": "independent-review-REV-ModularityAndLanglandsExtensions",
-    "date": "2026-10-07",
-    "notes": "Completed independent review of all 138 nodes, source locators/excerpts, 134 API entries, 96 tests, exact supplier statements, pins and the three red-team routes. Clear local corrections applied; all six stages now partial. Unverifiable means the packet/suggested signature is not certified, not that a published theorem is disputed. 38 original public source PDF hashes verified; 2 primary sources added. Corrected suggested file elaborates at the exact Mathlib pin with only admitted-proof warnings. The incomplete supplier semantics, opaque conditional hypotheses, nonmatching NT/Mok/FS/ACC signatures and stage cycles require revision. Full report and change ledger: research/blueprint/reviews/REV-ModularityAndLanglandsExtensions.md.",
-    "checked": [
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.0/blggt-normalization-register",
-        "verdict": "corrected",
-        "note": "Source checked: blggt-2014-v4, §2.1, p. 32 (arXiv v4). BLGGT §2.1/2.1.1 and AG2.0 were read. The operative CM sign is n+w; odd-weight control added. GaloisData still needs the actual realization and weight/sign laws."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.0/blggt-version-register",
-        "verdict": "verified",
-        "note": "Source checked: blggt-2014-v4, title page and table of contents, p. 1 (arXiv v4). The v1/v4 source register matches the independently downloaded versions, including the replacement of RAECSDC/RAESDC by polarized and the rewritten change-of-weight theorem. This is a convention comparison, not a new theorem."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.2/moret-bailly-galois-control",
-        "verdict": "unverifiable",
-        "note": "Source checked: blggt-2014-v4, §3.1, Proposition 3.1.1, p. 41 (arXiv v4). BLGGT3.1.1 and proof retain smooth geometrically connected input, prescribed local open sets and Galois/disjointness conditions. R23.1/PL.1 supply the point theorem, but the suggested family/local-point functions are unrelated and need actual base-change laws."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.2/potential-ordinary-automorphy",
-        "verdict": "unverifiable",
-        "note": "Source checked: blggt-2014-v4, §3.3, Proposition 3.3.1, pp. 47–48 (arXiv v4). BLGGT3.3.1 p.47–48 has distinct ranks/primes, residual irreducibility and ordinary regularity bounds. The PL owner imports are correctly separated from this endpoint; their realization and restriction API is not encoded coherently in the sketch."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.2/pd-lifts-with-local-conditions",
-        "verdict": "unverifiable",
-        "note": "Source checked: blggt-2014-v4, §4.3, Theorem 4.3.1, p. 55 (arXiv v4). BLGGT4.3.1 requires the polarized residual automorphy and potentially diagonalizable local lift data, not merely any de Rham lift. Exact PL exports were checked; arbitrary local predicate fields still prevent certifying the suggested signature."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.2/change-of-weight-and-level",
-        "verdict": "unverifiable",
-        "note": "Source checked: blggt-2014-v4, §4.4, Theorem 4.4.1, pp. 58–59 (arXiv v4). BLGGT4.4.1 source has the premature π typo E3 and the packet uses r̄ correctly. Potentially diagonalizable/ordinary local choices and level data are indispensable. The proof still needs an actual coherent local-deformation realization."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.2/potential-automorphy-theorem",
-        "verdict": "unverifiable",
-        "note": "Source checked: blggt-2014-v4, §4.5, Theorem 4.5.1 and proof, pp. 59–60 (arXiv v4). BLGGT4.5.1 simultaneous theorem preserves polarization, residual restriction to the cyclotomic field, distinct weights and finite avoidance. E2 index/reference corrections are right. Exact supplier assumptions are not tied to the sketch’s free data functions."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.2/potential-automorphy-totally-real",
-        "verdict": "unverifiable",
-        "note": "Source checked: blggt-2014-v4, §4.5, Corollary 4.5.2, p. 60 (arXiv v4). BLGGT4.5.2 is the totally real polarized corollary, with primes of F⁺ appropriate here. Reduction to the CM endpoint uses a character extension and descent; the proposed extension data need those laws rather than arbitrary fields."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.2/potential-automorphy-mod-l",
-        "verdict": "unverifiable",
-        "note": "Source checked: blggt-2014-v4, §4.5, Corollary 4.5.3, pp. 60–61 (arXiv v4). BLGGT4.5.3 local choices carry the i-index and n_i distinct HT weights (E2). Weight/level/avoidance conclusions are source-correct; free local-lift and realization operations do not yet provide its Lean form."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.2/compatible-systems-potentially-automorphic",
-        "verdict": "unverifiable",
-        "note": "Source checked: blggt-2014-v4, §5.4, Theorem 5.4.1, Corollary 5.4.2 and proof, p. 74 (arXiv v4). BLGGT5.4.1 regular pure compatible-system theorem uses a density-one irreducible member/seed and potential diagonalizability or ordinary hypotheses. Its source proof and exact supplier signatures were checked; arbitrary compatible-system fields are not sufficient."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.2/compatible-system-l-function-continuation",
-        "verdict": "corrected",
-        "note": "Source checked: blggt-2014-v4, §5.4, Corollary 5.4.3 and proof, pp. 74–75 (arXiv v4). BLGGT5.4.3 gives meromorphic continuation; rank-one trivial constituents can have poles. A proof saying all automorphic factors are entire is false. Correct partial/full factors and the paper’s parity input must be carried through the Brauer argument."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.2/multiple-product-l-functions",
-        "verdict": "unverifiable",
-        "note": "Source checked: blggt-2014-v4, §5.4, Corollary 5.4.4 and proof, pp. 75–76 (arXiv v4). BLGGT5.4.4 multi-system products retain the matching purity/regularity and potential-automorphy conditions. Empty product/rank-one exceptional factors must stay meromorphic; the formal tensor/L-product fields have no supplied comparison law."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.2/constituents-potentially-automorphic",
-        "verdict": "unverifiable",
-        "note": "Source checked: blggt-2014-v4, §5.4, Lemma 5.4.5 and Proposition 5.4.6, pp. 76–77 (arXiv v4). BLGGT5.4.6 constituents under extreme regularity are not a theorem for arbitrary regular systems. The irreducible decomposition owner is appropriate; full-system reconstruction needs the actual constituent realization rather than a decomposition predicate field."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.2/part-of-compatible-system",
-        "verdict": "unverifiable",
-        "note": "Source checked: blggt-2014-v4, §5.5, Theorem 5.5.1 and proof, pp. 79–81 (arXiv v4). BLGGT5.5.1 constructs an actual compatible system from a prescribed potentially diagonalizable/ordinary member via Brauer induction. A virtual representation is insufficient: Grothendieck-group twisting and positivity must be supplied by the cited owners."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.2/irreducibility-density-one",
-        "verdict": "unverifiable",
-        "note": "Source checked: blggt-2014-v4, §5.5, Theorem 5.5.2 and proof, pp. 81–82 (arXiv v4). BLGGT5.5.2 uses extremely regular infinity type and Rankin–Selberg poles to prove density-one irreducibility. The exact AL.3 analytic inputs and coefficient-field embeddings are needed; no purely formal IsExtremelyRegular field proves this."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.2/decomposition-into-irreducible-systems",
-        "verdict": "unverifiable",
-        "note": "Source checked: blggt-2014-v4, §5.5, Theorem 5.5.3 and proof, p. 82 (arXiv v4). BLGGT5.5.3 assumes extreme regularity. Its constituent decomposition does not justify the later Patrikis–Taylor result under only regularity; system-isomorphism and sum fields in the suggested interface remain unconnected."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.3/symmetric-power-lifting",
-        "verdict": "unverifiable",
-        "note": "Source checked: newton-thorne-I, Introduction, p. 1 (arXiv v3). The rank-n Sym^{n−1} functorial-lift definition needs local parameter compatibility at every place and uniqueness via AL.3. Rank-one/base and degenerate tests are useful, but the Context symmetric-power/reciprocity functions require coherent supplier laws."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.3/accessible-regular-refinement",
-        "verdict": "unverifiable",
-        "note": "Source checked: newton-thorne-I, §2, p. 34, and Definition 2.23, p. 40 (arXiv v3). NT I accessible refinements require a nonzero Jacquet module and n-regular Satake ratios. The n-variable bound should not be confused with the base GL₂ rank. The refinement carrier and induction/Jacquet compatibility are missing from the generic context."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.3/eigenvariety-propagation",
-        "verdict": "unverifiable",
-        "note": "Source checked: newton-thorne-I, §2, Theorem 2.33, pp. 50–51 (arXiv v3). NT I2.24/2.33 eigenvariety propagation uses adjoint Bloch–Kato/infinitesimal R=T, not only existence of an eigenvariety. The proposed Part II lacks an exact export; declaring propagation in an arbitrary geometric context hides the hard theorem."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.3/buzzard-kilford-eigencurve",
-        "verdict": "unverifiable",
-        "note": "Source checked: newton-thorne-I, §3, Theorem 3.2, pp. 53–54 (arXiv v3). NT I3.2 quotes Buzzard–Kilford’s actual two-adic eigencurve annulus theorem; the primary proof was not directly read. Generic PadicFamilies:L2 does not supply its explicit slopes or component geometry."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.3/level-one-ping-pong",
-        "verdict": "unverifiable",
-        "note": "Source checked: newton-thorne-I, §3, Theorem 3.1, p. 53; Introduction pp. 3–4 (arXiv v3). Level-one ping-pong depends on the preceding propagation and explicit eigencurve geometry. These are neither routine steps nor consequences of a weight-map field; maintain the Part II proof gap."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.3/steinberg-level-raising",
-        "verdict": "corrected",
-        "note": "Source checked: newton-thorne-I, §7, Theorem 7.1, p. 82; §4 Theorem 4.1, p. 59; §6 Theorem 6.1, p. 75 (arXiv v3). NT I7.1 unitary Steinberg level raising needs Mok and KMSW explicitly, now added. ET.7a base change is not the endoscopic multiplicity theorem. The stage edge needs reconciliation with ML.0/ML.4 imports and the actual level-raising owner."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.3/one-level-one-symmetric-power",
-        "verdict": "corrected",
-        "note": "Source checked: newton-thorne-I, §7, Theorem 7.6, p. 89; Introduction p. 4 (arXiv v3). NT I7.6 requires residually reducible R_p=T_p and theta-series/unitary seed construction. An irreducible-residual BLGGT ALT is not a substitute. Exact Allen–Newton–Thorne supplier signature remains a gap."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.3/level-one-symmetric-powers",
-        "verdict": "unverifiable",
-        "note": "Source checked: newton-thorne-I, Introduction, Theorem A, p. 2; §7, Theorem 7.7, p. 90 (arXiv v3). NT I7.7 combines one seed with ping-pong. Source endpoint is known, but its closure inherits the propagation/eigencurve and residually reducible lifting gaps; no arbitrary SymPowerLift function can encode this proof."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.3/n-regular-congruences",
-        "verdict": "unverifiable",
-        "note": "Source checked: newton-thorne-I, §8, Proposition 8.3, pp. 92–93 (arXiv v3). NT I8.3 n-regular congruences need Ribet residual-image control and the specific level-raising/seasoned forms construction. A general congruence relation and PL lifting theorem are insufficient."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.3/non-supercuspidal-symmetric-powers",
-        "verdict": "unverifiable",
-        "note": "Source checked: newton-thorne-I, §8, Theorem 8.1, p. 91; Introduction, Theorem B and Corollary C, p. 2 (arXiv v3). NT I8.1 non-supercuspidal theorem is retained. The semistable L-function signature is corrected to positive symmetric degree; degree zero is zeta and is not entire. It still inherits the missing NT-methods owner."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.3/symmetric-power-automorphy-lifting",
-        "verdict": "corrected",
-        "note": "Source checked: newton-thorne-II, §2, Theorem 2.1 and proof, pp. 5–6 (arXiv v2). NT II2.1 omitted a≥1 with PSL₂(F_{p^a})≤P r̄(G_F)≤PGL₂(F_{p^a}) and p^a>max(5,2n−1). Packet field/rank conditions are corrected, positive n added to Lean, but the crucial projective-image hypothesis remains an explicit Lean revision gap."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.3/non-cm-symmetric-powers",
-        "verdict": "unverifiable",
-        "note": "Source checked: newton-thorne-II, Introduction, Theorem A and Corollary B, pp. 1–2; §3, Theorem 3.1, p. 20 (arXiv v2). NT II TheoremA/CorollaryB gives non-CM GL₂/ℚ symmetric powers. Its proof requires pseudodeformation patching and seasoned good-dihedral forms; those proposed Part II signatures are missing, so the endpoint signature is not closure-certified."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.3/cm-and-weight-one-symmetric-powers",
-        "verdict": "unverifiable",
-        "note": "Source checked: newton-thorne-II, Appendix A, Theorem A.1, p. 27 (arXiv v2). NT II AppendixA.1 covers holomorphic limits of discrete series and monomial representations with its specific low-degree transfers. The icosahedral Kim2004 input is not read/owned precisely. Weight-one does not mean all arbitrary archimedean types."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.3/l-function-equidistribution-criterion",
-        "verdict": "corrected",
-        "note": "Source checked: kedlaya-ant-2025, §§24.1–24.3, Theorem 24.1, Theorem 24.2 and Conjecture 24.3, printed pp. 133–134. Kedlaya24.3/24.7 needs bounded multiplicity of each norm, analytic nonvanishing and compact-character density. Direct Peter–Weyl and characters imports added. Existing statement/API still need a specified prime norm sequence and Tauberian supplier law."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.3/sato-tate-elliptic-curves",
-        "verdict": "corrected",
-        "note": "Source checked: kedlaya-ant-2025, §§24.4–24.5, Conjecture 24.4 and Theorems 24.5–24.6, printed pp. 134–135. Non-CM elliptic Sato–Tate over ℚ uses modularity, all positive symmetric powers and the compact criterion. R29.6 modularity import added. Analytic nonvanishing and actual normalized Frobenius classes, rather than free functions, are still required."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.0/endpoint-status-register",
-        "verdict": "corrected",
-        "note": "Source checked: cg-2018, Theorem 1.1(1), §1, p. 3 (arXiv v2) = Invent. p. 300; proof §10, pp. 96–98 (arXiv v2) = Invent. pp. 428–429. The record is bookkeeping; its planet is removed. Empty hypotheses prove the assertion but do not equate conditional/known tags. Tests are status logic only, and this object does not establish dependency closure."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.0/arthur-dependency-gate",
-        "verdict": "unverifiable",
-        "note": "Source checked: bcgp-2021, §1.4.1 'The work of Arthur', p. 14 (arXiv v3). Arthur p.60–64 and the cited later classification qualifications were checked. ArthurInputs stores arbitrary propositions, rather than the exact twisted weighted lemma/local intertwining/stabilization statements. The conditional branch is not yet an acceptable §13 signature."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.0/archimedean-langlands-conventions",
-        "verdict": "unverifiable",
-        "note": "Source checked: acc-2023, §1.2 Notation, arXiv v2 p. 11 (Annals pp. 907–908). ACC+ §2.3 uses geometric local reciprocity and the specified real/complex normalization. The requested class-field/archimedean representation inputs are necessary; Context does not provide laws tying its arbitrary local parameter functions to them."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.0/compatible-system-archimedean-factors",
-        "verdict": "corrected",
-        "note": "Source checked: acc-2023, §7.1, definition of purity and the paragraph after it, arXiv v2 pp. 197–198 (Annals p. 1092 per routed locator). Euler Q is monic, so the reciprocal conversion is corrected. Full factors need strict/pure/regular and coherent real data. The definition is imported from R24.5. Sym²H¹ gamma control also exposes BLGGT E16; supplier correction is requested."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.0/compatible-system-automorphic-l-function-comparison",
-        "verdict": "corrected",
-        "note": "Source checked: acc-2023, §7.1, paragraph after the proof of Lemma 7.1.10 (before Theorem 7.1.11), arXiv v2 p. 200 (Annals p. 1095). Unramified comparison is valid with the shift; infinity in ACC7.1.1 needs purity and density-one generic irreducibility. Full completion needs ramified WD/epsilon comparison. The corrected packet hypotheses remain absent in completedL_automorphic."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.0/nt26-automorphy-predicate",
-        "verdict": "corrected",
-        "note": "Source checked: nt-2026, §2 ('Some comforting lemmas'), opening paragraph immediately before Lemma 2.1, p. 9 (arXiv v2). NT §1.2–§2 defines this restricted automorphy predicate, but the twist/iff/irreducibility API uses coherence and polarization facts absent from GaloisData. A finite-image negative test is valid only for regular rank two, not a general weight-one Artin obstruction. The elliptic test is corrected to cohomological H¹, dual to the usual Tate module in the stated Hodge–Tate convention."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.0/nt26-normalisation-bridge",
-        "verdict": "corrected",
-        "note": "Source checked: nt-2026, §1.2 Notation, p. 8 (arXiv v2) (geometric-Frobenius Art_K, rec^T, r_{π,ι}, HT convention); Frob_v convention p. 7. NT and BLGGT conventions agree. Changing Frobenius notation alone does not dualize the representation. The optional realization-duality dictionary is corrected in the prose/docstring but still requires an exact IHG.3/R19 export."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.0/gsp4-galois-l-packet",
-        "verdict": "corrected",
-        "note": "Source checked: bcgp-2021, Definition 2.3.1, §2.3 — independently checked downloaded PDF p.19; published-copy pagination where applicable. BCGP Definition 2.3.1 finite GSp4 packet source read; Gan–Takeda direct prerequisite added. The representation-to-WD functor and geometric reciprocity must be coherent, not arbitrary Context data. New direct edge crosses stage order."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.0/weight-22-abelian-variety-conjecture",
-        "verdict": "corrected",
-        "note": "Source checked: cg-2020, §5.4 'Torsion classes', publ. p. 831; quoted from arXiv v1 §5.4 p. 24 — independently checked downloaded PDF p.31; published-copy pagination where applicable. CG §5.4 is conjectural and the CAP/endoscopic exclusion is essential. The literal published-copy excerpt is corrected; predicates for the abelian variety/coefficient-field action still need real typed carriers, and status tests do not replace definition tests."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.0/expected-crystallinity-newton-above-hodge",
-        "verdict": "unverifiable",
-        "note": "Source checked: pilloni-2020, §5.3, Remark 5.3.2, p. 25 (author version). Pilloni Remark 5.3.2 is explicitly expected crystallinity outside the established cohomological range. Its cited source [45] was not read directly; no theorem may be silently upgraded from this conjectural predicate."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.0/regular-weight-serre-implies-abelian-surface-modularity",
-        "verdict": "unverifiable",
-        "note": "Source checked: bcgp-2025, Lemma 10.4.1, §10.4, p. 222 (arXiv v1). BCGP25 Theorem 1.0.1 implication requires the surface classification, residual split/irreducible alternatives, ordinary density and weight-changing/Hida steps. These do not follow from the regular-weight Serre predicate alone; exact ModularityAbelianSurfaces supplier requests are required."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.1/strong-artin-conjecture",
-        "verdict": "corrected",
-        "note": "Source checked: kw-2009-I, §10.2 — independently checked downloaded PDF p.20; published-copy pagination where applicable. KW §10.2 supports strong Artin/full L equality. Strong multiplicity one gives uniqueness, not missing bad factors. Full local matching is corrected in packet and Lean; analytic/local-factor laws are still missing from ArtinData."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.1/irregular-systems-weight-one",
-        "verdict": "unverifiable",
-        "note": "Source checked: kw-2009-I, Theorem 10.1(ii), §10.1, p. 20 (author copy results.pdf). KW10.1(ii) states the irregular rank-two system endpoint; R20.3 weight-one lowering, R19.1 Deligne–Serre and R27.6 finite-newform descent are the correct owners. KW calls its proof a sketch, so E13 is rejected as a paper error. Lean supplier compatibility still needs realization laws."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.1/odd-artin-modularity-over-q",
-        "verdict": "unverifiable",
-        "note": "Source checked: kw-2009-I, Corollary 10.2(ii), §10.2, p. 21 (author copy results.pdf). Weight one over ℚ correctly imports R17.5 solvable Artin and R27.6 nonsolvable Serre/descent, with R19.1 Deligne–Serre; no weight-two Jacobian argument. Their almost-everywhere realization exports still need explicit full local factors for the corrected strong Artin predicate."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.1/totally-real-odd-artin",
-        "verdict": "unverifiable",
-        "note": "Source checked: bcgp-2021, Proof of Proposition 10.1.3, §10.1, p. 266 (arXiv v3). BCGP10.1.3 quotes Pilloni–Stroh Theorem0.3. That primary theorem has not been read; R19.2 cohomological Hilbert realizations do not automatically provide all Hilbert weight-one forms. Record an exact extension request, not a supplied theorem."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.1/non-solvable-residual-modularity",
-        "verdict": "corrected",
-        "note": "Source checked: bcgp-2021, Proof of Proposition 10.1.3, p. 266 (arXiv v3). BCGP10.1.3 mod5 uses Snowden/Shepherd-Barron–Taylor and Kisin potentially Barsotti–Tate lifting. R22.1 merely constructs deformation-to-Hecke maps, so use/request the lifting endpoint; the primary mod5 argument and its local/image bounds are still missing."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.1/buzzard-taylor-hypotheses",
-        "verdict": "corrected",
-        "note": "Source checked: cg-2018, Lemma 4.14, §4.2, p. 52 (arXiv v2) = Invent. pp. 366–367; proof pp. 52–53 = Invent. pp. 367–368. CG2018 Lemma4.14 is a deformation/unramified tangent-space argument. R04.2 supplies representability, while the required finite-image H¹ vanishing uses class field theory. R04.1 alone supplies neither conclusion. The Buzzard–Taylor analytic theorem is a separate unread primary input."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.1/imaginary-quadratic-elliptic-modularity",
-        "verdict": "unverifiable",
-        "note": "Source checked: caraiani-newton-2023, §1, Theorem 1.1 (Corollary 7.1.2), p. 2 (arXiv:2301.10509v3). Caraiani–Newton1.1/1.2 field and moduli hypotheses are retained. Existing PA.4 ordinary/Fontaine–Laffaille ALT is not their Theorem1.3 potentially semistable branch, and modular-curve F-point analysis remains a separate owner gap."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.1/weight-one-separation-register",
-        "verdict": "corrected",
-        "note": "Source checked: kw-2009-I, §10.1, paragraph after Theorem 10.1, p. 20 (author copy results.pdf). Direct references for irregular systems and the mod5 branch are added. R19.1, R17.5 and R27.6 ownership is distinct; no general-number-field modularity is inferred. The Lean registry only records labels/hypotheses and does not prove the endpoints."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.2/qian-residual-potential-automorphy",
-        "verdict": "unverifiable",
-        "note": "Source checked: qian-2023, Theorem 1.1, §1, p. 1 (arXiv v1); Invent. pp. 1239–1240 per routed locator; proof §4, pp. 21–24 (arXiv v1). Qian1.1 allows general nonselfdual n≥2 residual representations with its determinant/local and disjointness conditions. Dwork Hodge/monodromy and Moret–Bailly applications are unresolved proposed-owner inputs, not supplied by PA.4 alone."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.2/qian-ordinary-potential-automorphy",
-        "verdict": "corrected",
-        "note": "Source checked: qian-2023, Theorem 1.4, §1, p. 2 (arXiv v1); Invent. p. 1241 per routed locator; proof: last paragraph of §4, p. 26 (arXiv v1). Qian1.4 uses the general-rank ordinary CM ALT; fine PA.4/ordinary-automorphy-lifting import added. Its l>n, residual enormous/decomposed-generic/scalar and local regular-ordinary hypotheses must actually be discharged; inherited l>n correction is retained."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.2/qian-auxiliary-prime",
-        "verdict": "unverifiable",
-        "note": "Source checked: qian-2023, Proposition 4.1 (first list), §4, p. 21, and first paragraph of its proof, p. 22 (arXiv v1); §4 opening (choice of E, N, F^avoid), p. 21; Invent. pp. 1268–1269 per routed locators. Qian auxiliary-prime construction needs the full list of congruence, splitting, coefficient-field containment and residual-image conditions. The phrase remaining conditions hides non-routine inputs and G5Context omits them; request the exact Dwork/prime theorem."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.2/elliptic-symmetric-power-seed",
-        "verdict": "corrected",
-        "note": "Source checked: qian-2023, Proposition 4.1 (second list and final assertion), §4, p. 21; proof p. 22 (arXiv v1); Invent. pp. 1269–1270 per routed locator. The elliptic seed is ACC+7.2.4, now named directly. Converting Tate/cohomological dual conventions is a separate compatibility step. The fine edge goes from ML.2 to an ML.3 endpoint and requires stage splitting/order reconciliation."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.2/dwork-fibre-automorphy-transport",
-        "verdict": "corrected",
-        "note": "Source checked: qian-2023, §4, proof of Theorem 1.1, p. 24 (arXiv v1); Invent. pp. 1272–1273 per routed locator. Fine general-rank ordinary CM lifting import added. One-prime residual transport must be combined with AG2’s compatible-system realization and the character twists before it produces all members; arbitrary field-restriction/symmetric-power maps do not encode this."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.2/steinberg-ordinarity-lemma",
-        "verdict": "unverifiable",
-        "note": "Source checked: qian-thesis-2023, Lemma 4.0.3 and its proof, Ch. 4, pp. 64–65 (thesis, PDF pp. 71–72); ≈ published Lemma 4.3, Invent. p. 1273. Qian’s Steinberg weight-zero ordinarity comparison needs the exact Hodge/local normalization and PL.0 export. The criterion is not the assertion that any Steinberg π produces any chosen ordinary Galois representation."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.2/galois-ordinarity-from-automorphic",
-        "verdict": "unverifiable",
-        "note": "Source checked: acc-2023, §5.5, Corollary 5.5.2, arXiv v2 pp. 131–132 (Annals pp. 1027–1028). ACC+ Corollary5.5.2 is an ordinarity conclusion with its residual conditions; Theorem5.5.1’s auxiliary CM/degree assumptions are removed only by its actual base-change argument. PA.2 stage prose or a generic ordinary predicate is not that proof."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.2/acc-symplectic-potential-automorphy",
-        "verdict": "unverifiable",
-        "note": "Source checked: acc-2023, §7.2.1, Proposition 7.2.3 and its parenthetical proof, arXiv v2 pp. 204–205 (Annals pp. 1099–1100). ACC+ Proposition7.2.3 retains even symplectic rank, multiplier, HT and avoidance/unramified hypotheses. Auxiliary prime and Dwork seed construction are non-routine supplier inputs, and its current context data are not coupled to those constructions."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.2/acc-auxiliary-primes",
-        "verdict": "unverifiable",
-        "note": "Source checked: acc-2023, §7.2.5, proof of Theorem 7.1.11, Assumption 7.2.6, arXiv v2 p. 208 (Annals p. 1103). ACC+ Assumption7.2.6 and its construction need actual large SL₂ residual image, not only irreducibility or density. AG2.7/open-image and auxiliary-field data must be requested at the precise bound; the generic prime-selection interface does not provide them."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.2/potential-automorphy-with-steinberg-place",
-        "verdict": "unverifiable",
-        "note": "Source checked: fkp-2022, §9, proof of Proposition 9.1, arXiv v5 p. 42. FKP §9 Steinberg potential automorphy retains its residual GSp image, fixed similitude and local compatibility assumptions. Exact lift/compatibility suppliers and the disjointness construction are unresolved in this plan."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.2/compatible-system-from-potential-automorphy",
-        "verdict": "unverifiable",
-        "note": "Source checked: fkp-2022, §9, proof of Proposition 9.1, arXiv v5 p. 43. FKP compatible-system consequence uses Brauer descent with matching local realizations; an unstructured sum of representations is not a genuine system. The endpoint is source-stated but no exact reconstruction law is encoded in G5Context."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.2/patrikis-taylor-potential-automorphy",
-        "verdict": "unverifiable",
-        "note": "Source checked: fsy-2022, §5.3.2, Theorem 5.38 (Patrikis–Taylor, [44, Th. A]), arXiv v5 pp. 56–57. FSY5.38 quotes Patrikis–Taylor for pure regular systems; BLGGT5.5.3 assumes extreme regularity, which is stronger. Its cited prerequisite therefore cannot prove this theorem. Read/request the actual PT constituent theorem and retain a precise gap."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.2/patrikis-taylor-l-function-consequences",
-        "verdict": "unverifiable",
-        "note": "Source checked: fsy-2022, §5.3.2, Corollary 5.39 ([44, Cor. 2.2 (ii)]), arXiv v5 p. 57. FSY5.39 inherits the preceding PT regularity gap and the Euler/full-factor normalization issue. Meromorphic continuation is not established by an arbitrary partialLCS field plus the wrong extremely-regular decomposition theorem."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.2/cg18-conditional-potential-modularity",
-        "verdict": "unverifiable",
-        "note": "Source checked: cg-2018, Theorem 1.1(1), §1, p. 3 (arXiv v2) = Invent. p. 300; proof §10, pp. 96–98 (arXiv v2) = Invent. pp. 428–429. CG2018 Theorem1.1(1) is conditional on Conjecture B and uses Theorem5.16 over general number fields. The CM/totally-real ACC lifting endpoint is not a replacement; Conjecture B must be a precise local–global statement, not an opaque Prop."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.2/cg18-odd-symmetric-powers",
-        "verdict": "corrected",
-        "note": "Source checked: cg-2018, §10, proof of Theorem 1.1, 'extra hypothesis' bullet, p. 97 (arXiv v2) = Invent. p. 428 [sub-item sec10-special-case]. The inherited special-case bound is N₂>2n+1; statement corrected to match hypotheses. Dwork/CG5.16 general-field proof inputs remain missing. Both auxiliary elliptic curve and residual congruence must preserve determinant/level conventions."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.2/twisted-modular-curve",
-        "verdict": "corrected",
-        "note": "Source checked: cg-2018, §10, general case, p. 97 (arXiv v2) = Invent. p. 429. Remove unnecessary E[q] irreducibility and correct the GL₂ cyclotomic-determinant cocycle. Tests q=3, trivial twist and X(q) versus X₀(q) discriminate the moduli problem. Actual finite-étale symplectic descent/compactification is still a missing ModularCurves export."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.2/p-r-switch",
-        "verdict": "corrected",
-        "note": "Source checked: bcgnt-2025, Proposition 6.2.3 and proof, §6.2, arXiv v3 pp. 61–63 (published pp. 54–57; arXiv pagination differs) — independently checked downloaded PDF p.62; published-copy pagination where applicable. BCGNT6.2.3 is not a p/r residual iff. All seventeen conditions and the untensored weak-automorphy conclusion are restored; specialized connects lifting and untwisting/cyclic descent are requested. The false G5PRSwitchData/Lean declaration is removed pending genuine typed data."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.2/potential-weak-automorphy-symmetric-powers",
-        "verdict": "unverifiable",
-        "note": "Source checked: bcgnt-2025, Theorem 6.2.4 and proof (incl. the elliptic curve A/ℚ and the automorphy of Sym^{nm−1}ρ_{A,q}|G_{F₆}), §6.2, arXiv v3 pp. 64–68 (published pp. 57–61; arXiv pagination differs). BCGNT6.2.4 proof constructs exactly the auxiliary systems required by6.2.3; it is not immediate from a residual-switch predicate. An elliptic seed and local component matching/prime construction must be supplied with the same level condition."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.3/bcgnt-potential-automorphy-det-cyclotomic",
-        "verdict": "corrected",
-        "note": "Source checked: bcgnt-2025, Theorem 6.2.1 and proof, Remark 6.2.2, §6.2, arXiv v3 pp. 59–60 (published p. 53); ACC+ inputs also in the proof of Theorem 7.1.1, arXiv p. 69 (published p. 61). BCGNT6.2.1 uses6.2.4, purity6.1.3 and Varma/6.1.4 to upgrade to full local comparison. Proof and direct purity/AG2.5 imports are corrected; this is not simply another ACC lifting invocation."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.3/symmetric-power-lift-over-number-fields",
-        "verdict": "unverifiable",
-        "note": "Source checked: ct-2017, §1 Introduction, manuscript p. 2. The general-field rank-n Sym^{n−1} lift repeats the earlier symmetric-power definition and should be its field-general interface. Its operation/local parameter laws are not available in the context, so the dual/twist API is not certified."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.3/sp-statement",
-        "verdict": "unverifiable",
-        "note": "Source checked: nt-2026, Conjecture B, §1 (Introduction), p. 3 (arXiv v2); restated after Theorem 3.2, p. 13. SP_n is the named NT2026 statement for non-CM regular GL₂ representations. It is a theorem proposition with field/rank conditions, not a bare arbitrary Prop input. The Part II construction supplying the endpoint is still unresolved."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.3/one-prime-criterion",
-        "verdict": "corrected",
-        "note": "Source checked: nt-2026, Lemma 2.1, §2, p. 9; proof pp. 9–10 (arXiv v2). NT Lemma2.1 changes ι together with the Galois-conjugate automorphic π (Clozel), not ι alone with a fixed π. Corrected proof records this; the compatible-system and conjugation law must enter the interface."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.3/clozel-thorne-reductions",
-        "verdict": "unverifiable",
-        "note": "Source checked: nt-2026, Proposition 6.1, §6, pp. 45–46; proof pp. 46–49 (arXiv v2); also proof of Theorem 6.5, p. 50. CT7.1/7.4/7.6 reductions treat mixed parity, RACSDC character twists and CM base-change separately. NT Proposition6.1’s local potential-diagonalizability conditions must be explicit, not absorbed by a blanket reduction."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.3/all-regular-symmetric-powers",
-        "verdict": "unverifiable",
-        "note": "Source checked: nt-2026, Theorem 6.4 and its proof, §6, p. 50 (arXiv v2). NT2026 Theorem6.4 is the endpoint after the analytic/unitary/tensor-lifting constructions; merely naming proposed Part IIs does not supply their exact signatures. The suggested forall-rank realization remains an unclosed sketch."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.3/hilbert-symmetric-powers",
-        "verdict": "unverifiable",
-        "note": "Source checked: nt-2026, Theorem A, §1, p. 1 = Theorem 6.5(1), §6, p. 50 (arXiv v2). NT2026 Theorem6.5(1) retains mixed-parity Hilbert forms and their twisting/soluble-base-change reductions. Source statement is checked; exact reduction/realization owner remains the preceding Part II gap."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.3/cm-field-symmetric-powers",
-        "verdict": "unverifiable",
-        "note": "Source checked: nt-2026, Theorem 6.5(2) and its proof, §6, p. 50 (arXiv v2). NT2026 Theorem6.5(2) excludes CM/monomial induction appropriately. Its CM-field reduction uses solvable descent, character twists and rank-two systems; these are not supplied by arbitrary general-number-field automorphy."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.3/sym6-sym8",
-        "verdict": "unverifiable",
-        "note": "Source checked: ct-2017, §6, Theorem 6.1 (= Theorem 1.1), manuscript p. 44 (Theorem 1.1 on p. 2). CT Theorem6.1 Sym6/Sym8 retains the disjointness from ζ5/ζ7 and potential-automorphy bounds. Tensor-functoriality lifting is non-routine and its proposed owner has no export yet."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.3/symmetric-powers-up-to-eight",
-        "verdict": "unverifiable",
-        "note": "Source checked: ct-2017, §7, Corollary 7.2, manuscript pp. 46–47 (Corollaries 1.2, 1.3 on p. 2). CT Corollary7.2 combines reductions with the earlier CT15 Theorem1.2 lifting input. The latter must be requested separately; a Sym6/Sym8 endpoint alone does not imply every rank≤8 transfer."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.3/large-residual-image-density-one",
-        "verdict": "unverifiable",
-        "note": "Source checked: ct-2017, §7, Lemma 7.5 and proof, manuscript p. 48. CT Lemma7.5 uses Dickson classification and Fontaine–Laffaille fundamental characters to get large projective image at density-one primes. Residual irreducibility alone is weaker and cannot supply the needed SL₂ sandwich."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.3/nt21-semistable-l-functions",
-        "verdict": "unverifiable",
-        "note": "Source checked: newton-thorne-I, Introduction, Corollary C, arXiv v3 p. 2 (Publ. IHÉS 134, p. 2). NT I CorollaryC is the semistable non-CM elliptic completed symmetric L endpoint at positive degree. Conductor/infinity convention and the ordinary/supercuspidal exclusion must be kept; analytic Context fields lack a full WD comparison."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.3/completed-symmetric-power-l-function",
-        "verdict": "corrected",
-        "note": "Source checked: newton-thorne-II, §1 Introduction, Corollary B, arXiv v2 p. 2 (Publ. IHÉS 134, p. 118). Public DMW2009 finite factors/conductors and Martin–Watkins2006 §4.2 are now read and cited. The Sym² gamma test is Γ_ℝ(s)Γ_ℂ(s). Actual conductor/local-monodromy and R24.5 corrected sign exports remain missing."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.3/acc-elliptic-symmetric-powers",
-        "verdict": "corrected",
-        "note": "Source checked: acc-2023, §7.2.1, Corollary 7.2.4, arXiv v2 pp. 205–206 (Annals pp. 1100–1101); proof pp. 206–208 (Annals pp. 1101–1103). ACC+7.2.4 does not assert ι-ordinarity for every l. Removed that clause in packet/Lean. The current fixed-l signature still does not express one common automorphic compatible-system realization for all l and embeddings."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.3/acc-purity-rank-two",
-        "verdict": "corrected",
-        "note": "Source checked: acc-2023, §7.1, Corollary 7.1.13, arXiv v2 p. 201 (Annals p. 1096). ACC+7.1.13 nonvanishing/holomorphy requires strong irreducibility and m>0. Restored in packet/Lean with a degree-zero zeta negative control. Meromorphic continuation and functional equation have different hypothesis scopes."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.3/parallel-weight-and-clozel-purity",
-        "verdict": "unverifiable",
-        "note": "Source checked: bcgnt-2025, Definition 1.6.1 (Parallel Weight) and the following paragraph, §1.6 Notation, arXiv v3 p. 13 (= Definition 1.5.1, §1.5, published p. 11: arXiv numbering and pagination differ). BCGNT §1.6 parallel-weight/purity uses Clozel’s lemma. AF.4 owns the weight/rationality direction, but its coarse stage prose is not the exact purity theorem; request that export and the normalization explicitly."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.3/purity-from-symmetric-powers",
-        "verdict": "unverifiable",
-        "note": "Source checked: bcgnt-2025, Lemma 6.1.3 and proof (Jacquet–Shalika bound [JS81, Cor. 2.5]), §6.1, arXiv v3 p. 58 (published p. 52; arXiv pagination differs). BCGNT6.1.3 bounds unramified eigenvalues using arbitrarily high cuspidal weakly automorphic symmetric powers. Arbitrary nonunitary isobaric realizations do not satisfy the Jacquet–Shalika bound; actual local matching and unitarization are necessary."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.3/bcgnt-symmetric-powers-purity",
-        "verdict": "unverifiable",
-        "note": "Source checked: bcgnt-2025, Theorem 7.2.1 and proof, §7.2, arXiv v3 p. 69 (published pp. 61–62); Theorem C, §1, arXiv p. 4 (published p. 4). BCGNT7.2.1 separates strongly irreducible and quadratic-induced rank-two systems. In the induced case character class-field L-functions supply continuation; neither branch follows solely from the weak-system fields."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.3/bianchi-ramanujan",
-        "verdict": "unverifiable",
-        "note": "Source checked: bcgnt-2025, Theorem 7.1.1 and proof, §7.1, arXiv v3 pp. 68–69 (published p. 61); Theorem A, §1, arXiv p. 3 (published p. 3). BCGNT7.1.1 upgrades unramified purity to temperedness using Varma’s monodromy bound and purity. AG2.5’s semisimplified comparison alone is not full WD equality; the upgrade must be sourced and proved."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.3/sato-tate-group",
-        "verdict": "corrected",
-        "note": "Source checked: bcgnt-2025, Definition of ST(π) and Lemma 7.2.2 with proof, §7.2, arXiv v3 pp. 69–70 (published p. 62; arXiv pagination differs). BCGNT7.2.2 defines the non-CM U₂ determinant group with finite/infinite-order cases. The CM test is corrected to allow a torus or its normalizer depending on endomorphism field; arbitrary U₂ data need determinant/compact-real-form laws."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.3/serre-equidistribution-criterion",
-        "verdict": "unverifiable",
-        "note": "Source checked: bcgnt-2025, Proof of Theorem 7.2.3, §7.2, arXiv v3 p. 70 (published p. 62; arXiv pagination differs). BCGNT7.2.3 invokes Serre’s criterion via Tauberian nonvanishing and compact characters. AN.2’s PNT prose alone is not a supplied general compact-character theorem; an exact export with boundary hypotheses remains requested."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.3/bianchi-sato-tate",
-        "verdict": "unverifiable",
-        "note": "Source checked: bcgnt-2025, Theorem 7.2.3, §7.2, arXiv v3 p. 70 (published p. 62); Theorem B, §1, arXiv p. 3 (published p. 3). BCGNT Sato–Tate excludes ramified places; inherited E13 correction is retained. The regular non-CM conditions and normalized Frobenius/Haar measure must enter typed data, and the proof inherits the preceding analytic criterion gap."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.3/bianchi-modular-forms",
-        "verdict": "unverifiable",
-        "note": "Source checked: bcgnt-2025, §1.3 Bianchi Modular Forms, arXiv v3 pp. 9–11 (published pp. 8–10; arXiv pagination differs). BCGNT §1.5 Bianchi forms use Harder’s Eichler–Shimura comparison and parabolic cohomology. ALS.3 supplies Hecke correspondences, not that comparison itself; the exact comparison theorem needs a separately scoped supplier."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.3/bianchi-fourier-ramanujan",
-        "verdict": "unverifiable",
-        "note": "Source checked: bcgnt-2025, Theorem E, §1.3, arXiv v3 p. 10 (published p. 8; arXiv pagination differs). BCGNT TheoremE Fourier Ramanujan follows from the actual Bianchi-to-cuspidal realization and temperedness. This is not a relation between an arbitrary coefficient function and an arbitrary automorphic representation field."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.3/bianchi-parabolic-cohomology-ramanujan",
-        "verdict": "unverifiable",
-        "note": "Source checked: bcgnt-2025, Theorem F, §1.3, arXiv v3 p. 11 (published p. 9; arXiv pagination differs). BCGNT TheoremF is the parabolic-cohomology Hecke bound at its stated principal-prime level conditions. Coefficient systems/Hecke normalization and Harder comparison are non-routine missing inputs."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.3/bianchi-mass-equidistribution",
-        "verdict": "unverifiable",
-        "note": "Source checked: bcgnt-2025, Theorem G and proof, §1.3, arXiv v3 p. 11 (published p. 10; arXiv pagination differs). BCGNT TheoremG mass equidistribution also uses Marshall arithmetic quantum unique ergodicity. No named supplier states that analytic/geometric theorem; Ramanujan bounds alone do not prove mass equidistribution."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.3/cg18-conditional-sato-tate",
-        "verdict": "unverifiable",
-        "note": "Source checked: cg-2018, Theorem 1.1(2), §1, p. 3 (arXiv v2) = Invent. p. 300; reduction in §10, p. 97 (arXiv v2) = Invent. p. 428. CG2018 conditional Sato–Tate requires exact Conjecture B/general-field potential automorphy and Harris tensor-product twisting for the even-degree analytic functions. The odd-degree endpoint is insufficient by itself."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.4/self-dual-cuspidal-type",
-        "verdict": "unverifiable",
-        "note": "Source checked: arthur-2013, §1.5, Theorem 1.5.3 and the paragraph before it, pp. 47–48 (2011 manuscript). Arthur1.5.3 uses the unitary self-dual cusp symplectic/orthogonal dichotomy and conditional transfer classification. Its analytic dichotomy needs Langlands–Shahidi beyond AL.4’s unramified scope, while the transfer requires the actual named classification gate."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.4/global-arthur-parameter",
-        "verdict": "corrected",
-        "note": "Source checked: arthur-2013, §1.4, (1.4.4), p. 30 (2011 manuscript). Arthur’s global parameter has the stated parity and central character, but orthogonal duals need determinant-one signs before dividing by the center. Correct prose/API and add rank-three negative control matching the already correct Lean sign kernel. Root-number and localization coherence remains external."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.4/local-arthur-packets",
-        "verdict": "corrected",
-        "note": "Source checked: arthur-2013, §1.5, Theorem 1.5.1 and the paragraph before it, pp. 41–42 (2011 manuscript). Arthur1.5.1 and Mok2.5.1 source statements retain even-SO outer ambiguity and the finite/archimedean distinctions. Literal excerpt corrected. An arbitrary IsPacket field does not encode endoscopic character identities/local intertwining hypotheses."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.4/arthur-multiplicity-formula",
-        "verdict": "unverifiable",
-        "note": "Source checked: arthur-2013, §1.5, Theorem 1.5.2 and (1.5.3)–(1.5.7), pp. 45–47 (2011 manuscript). Arthur1.5.2 m_ψ and character matching are source-checked (even SO m_ψ can be2). Global packets must retain local multiplicity/repetition and restricted products; a Set of representations with arbitrary discMult is not the theorem’s data."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.4/mok-unitary-classification",
-        "verdict": "corrected",
-        "note": "Source checked: mok-2015, §2.5, Theorem 2.5.2 and Remark 2.5.3, pp. 34–35 (arXiv v5). Mok2.5.2 uses global packet multisets; Remark2.5.3 multiplicity one is generic only. Correct the overclaim. Nat.card of a Set of character assignments loses repetitions in the suggested formula, so the signature still needs revision."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.4/kmsw-inner-forms",
-        "verdict": "unverifiable",
-        "note": "Source checked: kmsw-2014, §1.6.1, Theorem* 1.6.1 and the sentence before it, p. 80 (arXiv v3). KMSW *1.6.1 is a local generic/tempered statement; global inner-form classification has additional genericity/coherence assumptions. Separate their statements and replace kmswHypotheses:Prop with the actual source conditions; the current omnibus predicate is not verified."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.4/extended-langlands-parameter",
-        "verdict": "corrected",
-        "note": "Source checked: kss-2021, §1.20, p. 8 (arXiv v3); p. 604 in the version of record. KSS1.20: every positive-multiplicity good-parity O(m_i) contributes a component; odd m_i governs the center image. Correct the proof. Exact enhancements/outer conventions are necessary for quasi-split packet-character bijections."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.4/trace-formula-inputs-register",
-        "verdict": "unverifiable",
-        "note": "Source checked: bcgp-2021, §1.4.1, p. 14 (arXiv v3). ET.3 gives ordinary/nonstandard transfer and ET.4 a restricted simple comparison, not the entire weighted/twisted stabilization package. TraceFormulaInputs’ unnamed propositions must become precise named mathematical statements or explicit omitted signatures."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.4/symplectic-branch-status",
-        "verdict": "unverifiable",
-        "note": "Source checked: bcgp-2021, §1.4.1, p. 14 (arXiv v3). The symplectic-branch item is a verification workflow. Mok/KMSW unitary results do not by themselves remove the symplectic Arthur dependencies. Lean IsConfirmed fields record decisions and are not proofs of stabilization."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.4/vogan-packets-so-v",
-        "verdict": "unverifiable",
-        "note": "Source checked: gan-ichino-2018, §5.2, (5.3), p. 17 (arXiv v3); published p. 987. Gan–Ichino §5.1 supports the Vogan bijection across relevant inner forms, including archimedean fields; do not object falsely to that source bijection. The Arthur/Ishimoto classification hypotheses and quadratic-space discriminant relevance must be explicit."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.4/amf-nonsplit-so-v",
-        "verdict": "corrected",
-        "note": "Source checked: gan-ichino-2018, §6.2, (6.1), p. 22 (arXiv v3); published p. 993. Gan–Ichino §3.1 decomposition ranges over all parameters; (6.1) multiplicity formula is generic-only. Packet quantifier scope corrected. Exact inner-form classification remains an external conditional input, not a generic packet-set field."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.4/packet-member-irreducibility",
-        "verdict": "corrected",
-        "note": "Source checked: gan-ichino-2018, §5.2, Lemma 5.1 and proof, p. 18 (arXiv v3); published p. 987. Gan–Ichino5.1/5.5 require the canonical nonsymplectic-pairs plus good-parity decomposition. Added the missing condition; an arbitrary φ₀ does not work. Local induction and r>2n+1 support must be modeled, not left as unrelated predicates."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.4/generic-packets-standard-modules",
-        "verdict": "unverifiable",
-        "note": "Source checked: jiang-zhang-2020, Appendix B, Proposition B.1 and proof, p. 85 (arXiv v4); published p. 818. Jiang–Zhang AppendixB standard-module/generic-packet result has its local-field and genericity assumptions. The actual parabolic induction, Whittaker and normalized intertwiner laws are required; merely defining IsGeneric/IsIrreducible fields is not a proof."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.4/gan-takeda-llc-gsp4",
-        "verdict": "unverifiable",
-        "note": "Source checked: bcgp-2021, §2.3, p. 18 (arXiv v3). BCGP §2.3 quotes Gan–Takeda LLC for nonarchimedean characteristic-zero fields with twists, similitude and theta construction. The primary Gan–Takeda proof and full Howe duality are not read/supplied by MP.3’s elementary theta modules; keep a precise gap."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.4/gsp4-discrete-spectrum-types",
-        "verdict": "unverifiable",
-        "note": "Source checked: bcgp-2021, §2.9, p. 38 (arXiv v3). BCGP §2.9 lists the six GSp₄ discrete-spectrum families. Its conditional Gee–Taïbi classification and full-parameter semantics cannot be recovered from an arbitrary ArthurType enumeration and localParam functions."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.4/gsp4-arthur-classification",
-        "verdict": "corrected",
-        "note": "Source checked: cg-2020, Proof of Theorem 7.11, §7.2, publ. p. 854; arXiv v1 p. 40. BCGP §2.9 application is over totally real F; hypothesis/locator corrected. Gee–Taïbi’s general number-field form requires a directly read export. IsClassification plus an unnamed gate is not its exact proof premise."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.4/non-general-type-reducible",
-        "verdict": "corrected",
-        "note": "Source checked: bcgp-2021, Lemma 2.9.1, §2.9, p. 38 (arXiv v3). BCGP2.9.1 non-general types use Hilbert GL₂ realizations over F and one-dimensional algebraic characters, not classical R19.1 over ℚ alone. Correct supplier to R19.2. Exact type-to-Galois decompositions and infinite-weight checks remain needed."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.4/gl4-symplectic-descent",
-        "verdict": "corrected",
-        "note": "Source checked: bcgp-2021, Theorem 2.9.3, §2.9 — independently checked downloaded PDF p.39; published-copy pagination where applicable. BCGP2.9.3 totally real symplectic GL₄ descent and full local packets are source-checked; excerpt fixed. Algebraicity gives cusp via essential temperedness; all packet members have multiplicity one in this general-type case. Abstract π/local-param fields need classification coherence."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.4/shahidi-exterior-square",
-        "verdict": "corrected",
-        "note": "Source checked: bcgp-2021, Proof of Lemma 8.3.2, §8.3, p. 247 (arXiv v3). BCGP p.247/Shahidi claim at s=1 needs Π and ω unitary; whole-line absence of shifted poles is overclaimed. Narrow packet/Lean, including unitary quotient characters. Two-pole exclusion also requires cuspidal cyclic base change and actual factorization."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.4/gsp4-archimedean-limit-packets",
-        "verdict": "unverifiable",
-        "note": "Source checked: pilloni-2020, §15.2.4, proof of Proposition 15.2.4.1, p. 109 (author version). Pilloni15.2.4.1 uses λ₁+λ₂≤0, not the inherited λ₁≥0 typo, and paired limits with multiplicity one under the classification. Blasius–Harris–Ramakrishnan/Schmidt primary packet formulas remain unread and untyped."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.4/limit-discrete-series-packet-types",
-        "verdict": "unverifiable",
-        "note": "Source checked: pilloni-2020, §15.2.4, proof of Proposition 15.2.4.1, p. 109 (author version). Pilloni15.2.4 source uses residual irreducibility to exclude specified endoscopic types. The non-general reducibility argument and local limits must be supplied before the asserted packet-family restriction follows."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.4/gsp4-gl4-archimedean-transfer",
-        "verdict": "corrected",
-        "note": "Source checked: cg-2020, Theorem 5.6(2), §5.3, publ. p. 829; quoted from arXiv v1 p. 22 — independently checked downloaded PDF p.29; published-copy pagination where applicable. CG Theorem5.6(2) computes GL₄ infinitesimal character at infinity. Correct the literal published-copy locator; archimedean transfer is separate from nonarchimedean Gan–Takeda LLC. Context’s arbitrary recParam gives no such comparison."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.4/unitary-descent-of-gl4-transfer",
-        "verdict": "corrected",
-        "note": "Source checked: cg-2020, Proof of Lemma 6.9, §6.2, publ. p. 840 (copy p. 40); arXiv v1 p. 30. CG Lemma6.9 shorthand is not enough to prove a source error (reject E10). The blueprint still needs the algebraic normalization/twist, CM restriction preserving absolute irreducibility, Mok descent and Bellaïche–Chenevier symplectic-pairing theorem."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.4/xu-gsp2n-packets",
-        "verdict": "corrected",
-        "note": "Source checked: gan-savin-2023-g2, §7, (7.1), p. 22 (published). Gan–Savin §7 quotes Xu specialized to PGSp₆; restrict the packet to n=3 and correct the rank test. General n, the exact packet/lift torsor and canonical matching need direct Xu source and a precise classification owner."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.4/xu-multiplicity-formula",
-        "verdict": "unverifiable",
-        "note": "Source checked: gan-savin-2023-g2, §7 (f), p. 23 (published). Gan–Savin §7(f) quoted Xu multiplicity formula is specialized to PGSp₆ and conditional on classical classification. Xu’s full primary statement is unread; a generic unnamed multiplicity predicate is not a replacement."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.4/adams-johnson-packets",
-        "verdict": "unverifiable",
-        "note": "Source checked: chenevier-taibi-2020, §5.2.1, p. 303 (published). CT §5.2.1 and Ichino–Prasanna §11.2 quote Adams–Johnson/Arancibia–Mœglin–Renard packet identification in the regular infinity range. The primary construction and exact parity/support hypotheses remain external inputs."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.4/moeglin-renard-packets",
-        "verdict": "unverifiable",
-        "note": "Source checked: chenevier-taibi-2020, §5.2.2, pp. 303–305 (published). CT §5.2.2 lists several Mœglin–Renard cases, including exceptional (H). CaseI:Prop with unspecified hypotheses is forbidden by §13; no exact suggested theorem can be certified until the actual case data/source statement is read."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.3/functorial-lift",
-        "verdict": "unverifiable",
-        "note": "Source checked: newton-thorne-I, Introduction, 'Context', p. 1 (arXiv:1912.11261v3). NT I definition of full functorial lift uses every-place local compatibility; uniqueness uses strong multiplicity one. This is a sound proposed object, but the Context representation operations must be tied to the named local LLC supplier."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.3/gelbart-jacquet",
-        "verdict": "unverifiable",
-        "note": "Source checked: newton-thorne-I, Introduction, 'Context', p. 1 (arXiv:1912.11261v3). Gelbart–Jacquet9.3 is first the adjoint lift with trivial central character; Sym²π=Adπ⊗ω_π. The GL₃ converse theorem must be an exact owner export; the dihedral decomposition needs its separate local/induction comparison."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.3/kim-shahidi-sym3",
-        "verdict": "corrected",
-        "note": "Source checked: newton-thorne-I, Introduction, 'Context', p. 1 (arXiv:1912.11261v3). Kim–Shahidi TheoremA is GL₂×GL₃ and TheoremB is Sym³. Added the direct B citation. Full local matching and cuspidality conditions still need the converse/Langlands–Shahidi and primary low-image input, not generic AL.4 unramified factors."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.3/kim-sym4",
-        "verdict": "corrected",
-        "note": "Source checked: bcgp-2021, Proof of Theorem 9.3.1, §9.3, p. 258 (arXiv v3). Kim TheoremB supplies full Sym⁴. The 2/3 local exceptions concern exterior-square TheoremA; Henniart is a distinct completion input. Added the direct B citation; the exterior-square and cusp criteria remain secondary-owner gaps."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.3/ramakrishnan-tensor-product",
-        "verdict": "corrected",
-        "note": "Source checked: newton-thorne-II, Appendix A, proof of Theorem A.1, p. 28 (arXiv:2009.07180v2). Ramakrishnan TheoremM all finite L/epsilon and infinite L factors are checked. Replace the overcompressed cusp criterion with its non-dihedral and one-dihedral base-change/self-twist branches. The suggested context still needs those factors/induction compatibilities."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.3/low-rank-symmetric-powers",
-        "verdict": "unverifiable",
-        "note": "Source checked: nt-2026, Proof of Theorem 6.4, §6, p. 50 (arXiv:2212.03595v2). NT2026 p.50 low-rank assembly uses the preceding sourced transfers. Strong multiplicity one identifies the chosen lift, but does not manufacture bad-place parameters from almost-everywhere compatibility; exact full-factor suppliers remain necessary."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.5/cyclic-base-change-gln",
-        "verdict": "corrected",
-        "note": "Source checked: nt-2026, §1.2, p. 8 (arXiv:2212.03595v2). Cyclic base change is imported from ET.7a, rank-two R17.4 and PL.0 soluble descent. Comparison kind and planet corrected; general number-field base change is distinct from CM/totally-real polarized Galois descent. Restriction irreducibility is essential."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.5/ckpss-generic-transfer",
-        "verdict": "corrected",
-        "note": "Source checked: ckpss-2004, Theorem 1.1, §1, p. 169 (Publ. Math. IHÉS 99). CKPSS1.1/7.1/7.2 read: generic split transfer is weak at finite places; its image uses GRS. Correct total versus individual central-character condition in Sp/even-SO branches. Full parameter/GRS image API remains external, not arbitrary context data."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.5/grs-descent",
-        "verdict": "unverifiable",
-        "note": "Source checked: jiang-zhang-2020, §1.1, p. 6 (arXiv v4); published p. 744. Jiang–Zhang quotes GRS descent and Jiang–Soudry uniqueness. Their primary construction is unread and no exact owner theorem is supplied; the generic image characterization cannot serve simultaneously as its own descent proof."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.5/local-descent-mp2n",
-        "verdict": "unverifiable",
-        "note": "Source checked: gan-ichino-2018, Appendix A, proof of Proposition A.1, pp. 29–30 (arXiv v3); published pp. 1001–1002. Gan–Ichino AppendixA uses local descent in a globalization argument, not by itself an arbitrary complete local metaplectic bijection. The exact GRS local descent and Howe duality theorem needed here must be read/requested separately from MP.3."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.5/automorphic-induction-register",
-        "verdict": "corrected",
-        "note": "Source checked: arthur-2003, §4, Conjecture (Langlands [L1]) for G′ = {1}, p. 45 (Bull. AMS 40 (2003)). Cyclic induction cusp criterion requires full orbit under every nonidentity conjugate; corrected. R17.5 owns soluble weight-one Artin, and ET.7a owns higher rank. The registry is an import list, not an implication to general functoriality."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.5/functoriality-conjecture",
-        "verdict": "unverifiable",
-        "note": "Source checked: arthur-2003, §4, Conjecture (Langlands [L1]), pp. 44–45 (Bull. AMS 40 (2003)). Arthur2003 §4 conjecture concerns number fields and an actual L-morphism with parameter/relevance compatibility. Define that conjecture with precise objects; unrelated local transfer functions in GeneralContext do not provide its functoriality API."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.5/global-langlands-reciprocity-conjecture",
-        "verdict": "unverifiable",
-        "note": "Source checked: arthur-2003, §4, Conjecture (Langlands [L1]) for G′ = {1}, p. 45 (Bull. AMS 40 (2003)). Arthur2003 gives the reciprocity frontier, not full strong-Artin/local-factor comparison. Weak matching must be distinguished from the corrected strong predicate; motive/Galois realization and every-place factors need their actual owners."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.5/local-langlands-conjecture-general",
-        "verdict": "corrected",
-        "note": "Source checked: arthur-2003, §5, p. 47 (Bull. AMS 40 (2003)). Arthur2003 §5 general local LLC is conjectural, with known GL_n characteristic-zero ET.6 as a subcase. Add that direct prerequisite; arbitrary local fields and every reductive group are not proved by ET.6’s mixed-characteristic scope."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.5/categorical-local-langlands-conjecture",
-        "verdict": "corrected",
-        "note": "Source checked: fargues-scholze-2021, §I.10, Conjecture I.10.2, p. 38 (arXiv:2102.13459v4). FS I.10.2 is the canonical right-adjoint compact/coherent equivalence with nilpotent singular support and coefficient hypotheses. Correct packet/API. Ordinary CategoricalContext plus existence of a fully faithful functor omits canonicality, compacts, essential surjectivity and stable infinity-categorical carriers."
-      },
-      {
-        "nodeId": "ModularityAndLanglandsExtensions:ML.5/symmetric-power-functoriality-implies-ramanujan",
-        "verdict": "corrected",
-        "note": "Source checked: acc-2023, §1, paragraph after Theorem 1.0.2, p. 3 (arXiv:1812.09999v2). Ramanujan argument requires unitary cuspidal constituents for unbounded symmetric powers and actual local matching. Correct hypotheses and potential-base-change scaling α↦α^f,q↦q^f; the suggested Isobaric predicate alone remains insufficient."
-      }
-    ]
+    "reviewer": "independent-review-REV-FIX-RT-AREA-langlands-2~4",
+    "date": "2026-10-08",
+    "notes": "Completed independent review by Codex codex-pGPoCc, Refs #7451, of FIX-RT-AREA-langlands-2~4 (PR #7714; Codex codex-XscFZt). Follows independent-review-REV-ModularityAndLanglandsExtensions; its full object is preserved in reviewHistory. needs_changes. The round-four correction to ML.1/odd-artin-modularity-over-q is right: it imports AGR weight-one-artin-representation, the soluble R17.5 owner and CSM R27.6 converse, and removes the unnecessary irregular-systems-weight-one dependency. KW I Corollary 10.2(ii), p.21 supports the direction; weight-two Jacobians are not used for weight one. This dependency repair does not resolve the never-accepted base review: independently assignable supplier fields still lack coherence laws, Arthur/KMSW/CaseI assumptions are opaque, NT/Mok/FS/ACC signatures are not faithful, exact proof suppliers are missing, and coarse stage cycles remain. Retain the full 138-node prior ledger in reviewHistory and follow REV-ModularityAndLanglandsExtensions for the required revision. No additional mathematical correction was necessary. Checked the packet at the recorded library pins; checker reports zero errors/warnings. Source passages, graph/API checks, companion results and limitations are in research/blueprint/reviews/REV-FIX-RT-AREA-langlands-2~4.md."
   },
   "upstreamNotes": [
     {
       "roadmap": "PotentialModularityAndCompatibleSystems",
       "detail": "Read R24.5/system-l-functions: its odd-rank determinant sign needs the rank-parity correction in reviewed ML/E16. Preserve the positive control L∞(Sym²H¹(E),s)=Γℝ(s)Γℂ(s). No supplier file is edited by this review."
+    }
+  ],
+  "reviewHistory": [
+    {
+      "status": "needs_changes",
+      "reviewer": "independent-review-REV-ModularityAndLanglandsExtensions",
+      "date": "2026-10-07",
+      "notes": "Completed independent review of all 138 nodes, source locators/excerpts, 134 API entries, 96 tests, exact supplier statements, pins and the three red-team routes. Clear local corrections applied; all six stages now partial. Unverifiable means the packet/suggested signature is not certified, not that a published theorem is disputed. 38 original public source PDF hashes verified; 2 primary sources added. Corrected suggested file elaborates at the exact Mathlib pin with only admitted-proof warnings. The incomplete supplier semantics, opaque conditional hypotheses, nonmatching NT/Mok/FS/ACC signatures and stage cycles require revision. Full report and change ledger: research/blueprint/reviews/REV-ModularityAndLanglandsExtensions.md.",
+      "checked": [
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.0/blggt-normalization-register",
+          "verdict": "corrected",
+          "note": "Source checked: blggt-2014-v4, §2.1, p. 32 (arXiv v4). BLGGT §2.1/2.1.1 and AG2.0 were read. The operative CM sign is n+w; odd-weight control added. GaloisData still needs the actual realization and weight/sign laws."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.0/blggt-version-register",
+          "verdict": "verified",
+          "note": "Source checked: blggt-2014-v4, title page and table of contents, p. 1 (arXiv v4). The v1/v4 source register matches the independently downloaded versions, including the replacement of RAECSDC/RAESDC by polarized and the rewritten change-of-weight theorem. This is a convention comparison, not a new theorem."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.2/moret-bailly-galois-control",
+          "verdict": "unverifiable",
+          "note": "Source checked: blggt-2014-v4, §3.1, Proposition 3.1.1, p. 41 (arXiv v4). BLGGT3.1.1 and proof retain smooth geometrically connected input, prescribed local open sets and Galois/disjointness conditions. R23.1/PL.1 supply the point theorem, but the suggested family/local-point functions are unrelated and need actual base-change laws."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.2/potential-ordinary-automorphy",
+          "verdict": "unverifiable",
+          "note": "Source checked: blggt-2014-v4, §3.3, Proposition 3.3.1, pp. 47–48 (arXiv v4). BLGGT3.3.1 p.47–48 has distinct ranks/primes, residual irreducibility and ordinary regularity bounds. The PL owner imports are correctly separated from this endpoint; their realization and restriction API is not encoded coherently in the sketch."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.2/pd-lifts-with-local-conditions",
+          "verdict": "unverifiable",
+          "note": "Source checked: blggt-2014-v4, §4.3, Theorem 4.3.1, p. 55 (arXiv v4). BLGGT4.3.1 requires the polarized residual automorphy and potentially diagonalizable local lift data, not merely any de Rham lift. Exact PL exports were checked; arbitrary local predicate fields still prevent certifying the suggested signature."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.2/change-of-weight-and-level",
+          "verdict": "unverifiable",
+          "note": "Source checked: blggt-2014-v4, §4.4, Theorem 4.4.1, pp. 58–59 (arXiv v4). BLGGT4.4.1 source has the premature π typo E3 and the packet uses r̄ correctly. Potentially diagonalizable/ordinary local choices and level data are indispensable. The proof still needs an actual coherent local-deformation realization."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.2/potential-automorphy-theorem",
+          "verdict": "unverifiable",
+          "note": "Source checked: blggt-2014-v4, §4.5, Theorem 4.5.1 and proof, pp. 59–60 (arXiv v4). BLGGT4.5.1 simultaneous theorem preserves polarization, residual restriction to the cyclotomic field, distinct weights and finite avoidance. E2 index/reference corrections are right. Exact supplier assumptions are not tied to the sketch’s free data functions."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.2/potential-automorphy-totally-real",
+          "verdict": "unverifiable",
+          "note": "Source checked: blggt-2014-v4, §4.5, Corollary 4.5.2, p. 60 (arXiv v4). BLGGT4.5.2 is the totally real polarized corollary, with primes of F⁺ appropriate here. Reduction to the CM endpoint uses a character extension and descent; the proposed extension data need those laws rather than arbitrary fields."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.2/potential-automorphy-mod-l",
+          "verdict": "unverifiable",
+          "note": "Source checked: blggt-2014-v4, §4.5, Corollary 4.5.3, pp. 60–61 (arXiv v4). BLGGT4.5.3 local choices carry the i-index and n_i distinct HT weights (E2). Weight/level/avoidance conclusions are source-correct; free local-lift and realization operations do not yet provide its Lean form."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.2/compatible-systems-potentially-automorphic",
+          "verdict": "unverifiable",
+          "note": "Source checked: blggt-2014-v4, §5.4, Theorem 5.4.1, Corollary 5.4.2 and proof, p. 74 (arXiv v4). BLGGT5.4.1 regular pure compatible-system theorem uses a density-one irreducible member/seed and potential diagonalizability or ordinary hypotheses. Its source proof and exact supplier signatures were checked; arbitrary compatible-system fields are not sufficient."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.2/compatible-system-l-function-continuation",
+          "verdict": "corrected",
+          "note": "Source checked: blggt-2014-v4, §5.4, Corollary 5.4.3 and proof, pp. 74–75 (arXiv v4). BLGGT5.4.3 gives meromorphic continuation; rank-one trivial constituents can have poles. A proof saying all automorphic factors are entire is false. Correct partial/full factors and the paper’s parity input must be carried through the Brauer argument."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.2/multiple-product-l-functions",
+          "verdict": "unverifiable",
+          "note": "Source checked: blggt-2014-v4, §5.4, Corollary 5.4.4 and proof, pp. 75–76 (arXiv v4). BLGGT5.4.4 multi-system products retain the matching purity/regularity and potential-automorphy conditions. Empty product/rank-one exceptional factors must stay meromorphic; the formal tensor/L-product fields have no supplied comparison law."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.2/constituents-potentially-automorphic",
+          "verdict": "unverifiable",
+          "note": "Source checked: blggt-2014-v4, §5.4, Lemma 5.4.5 and Proposition 5.4.6, pp. 76–77 (arXiv v4). BLGGT5.4.6 constituents under extreme regularity are not a theorem for arbitrary regular systems. The irreducible decomposition owner is appropriate; full-system reconstruction needs the actual constituent realization rather than a decomposition predicate field."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.2/part-of-compatible-system",
+          "verdict": "unverifiable",
+          "note": "Source checked: blggt-2014-v4, §5.5, Theorem 5.5.1 and proof, pp. 79–81 (arXiv v4). BLGGT5.5.1 constructs an actual compatible system from a prescribed potentially diagonalizable/ordinary member via Brauer induction. A virtual representation is insufficient: Grothendieck-group twisting and positivity must be supplied by the cited owners."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.2/irreducibility-density-one",
+          "verdict": "unverifiable",
+          "note": "Source checked: blggt-2014-v4, §5.5, Theorem 5.5.2 and proof, pp. 81–82 (arXiv v4). BLGGT5.5.2 uses extremely regular infinity type and Rankin–Selberg poles to prove density-one irreducibility. The exact AL.3 analytic inputs and coefficient-field embeddings are needed; no purely formal IsExtremelyRegular field proves this."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.2/decomposition-into-irreducible-systems",
+          "verdict": "unverifiable",
+          "note": "Source checked: blggt-2014-v4, §5.5, Theorem 5.5.3 and proof, p. 82 (arXiv v4). BLGGT5.5.3 assumes extreme regularity. Its constituent decomposition does not justify the later Patrikis–Taylor result under only regularity; system-isomorphism and sum fields in the suggested interface remain unconnected."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.3/symmetric-power-lifting",
+          "verdict": "unverifiable",
+          "note": "Source checked: newton-thorne-I, Introduction, p. 1 (arXiv v3). The rank-n Sym^{n−1} functorial-lift definition needs local parameter compatibility at every place and uniqueness via AL.3. Rank-one/base and degenerate tests are useful, but the Context symmetric-power/reciprocity functions require coherent supplier laws."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.3/accessible-regular-refinement",
+          "verdict": "unverifiable",
+          "note": "Source checked: newton-thorne-I, §2, p. 34, and Definition 2.23, p. 40 (arXiv v3). NT I accessible refinements require a nonzero Jacquet module and n-regular Satake ratios. The n-variable bound should not be confused with the base GL₂ rank. The refinement carrier and induction/Jacquet compatibility are missing from the generic context."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.3/eigenvariety-propagation",
+          "verdict": "unverifiable",
+          "note": "Source checked: newton-thorne-I, §2, Theorem 2.33, pp. 50–51 (arXiv v3). NT I2.24/2.33 eigenvariety propagation uses adjoint Bloch–Kato/infinitesimal R=T, not only existence of an eigenvariety. The proposed Part II lacks an exact export; declaring propagation in an arbitrary geometric context hides the hard theorem."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.3/buzzard-kilford-eigencurve",
+          "verdict": "unverifiable",
+          "note": "Source checked: newton-thorne-I, §3, Theorem 3.2, pp. 53–54 (arXiv v3). NT I3.2 quotes Buzzard–Kilford’s actual two-adic eigencurve annulus theorem; the primary proof was not directly read. Generic PadicFamilies:L2 does not supply its explicit slopes or component geometry."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.3/level-one-ping-pong",
+          "verdict": "unverifiable",
+          "note": "Source checked: newton-thorne-I, §3, Theorem 3.1, p. 53; Introduction pp. 3–4 (arXiv v3). Level-one ping-pong depends on the preceding propagation and explicit eigencurve geometry. These are neither routine steps nor consequences of a weight-map field; maintain the Part II proof gap."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.3/steinberg-level-raising",
+          "verdict": "corrected",
+          "note": "Source checked: newton-thorne-I, §7, Theorem 7.1, p. 82; §4 Theorem 4.1, p. 59; §6 Theorem 6.1, p. 75 (arXiv v3). NT I7.1 unitary Steinberg level raising needs Mok and KMSW explicitly, now added. ET.7a base change is not the endoscopic multiplicity theorem. The stage edge needs reconciliation with ML.0/ML.4 imports and the actual level-raising owner."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.3/one-level-one-symmetric-power",
+          "verdict": "corrected",
+          "note": "Source checked: newton-thorne-I, §7, Theorem 7.6, p. 89; Introduction p. 4 (arXiv v3). NT I7.6 requires residually reducible R_p=T_p and theta-series/unitary seed construction. An irreducible-residual BLGGT ALT is not a substitute. Exact Allen–Newton–Thorne supplier signature remains a gap."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.3/level-one-symmetric-powers",
+          "verdict": "unverifiable",
+          "note": "Source checked: newton-thorne-I, Introduction, Theorem A, p. 2; §7, Theorem 7.7, p. 90 (arXiv v3). NT I7.7 combines one seed with ping-pong. Source endpoint is known, but its closure inherits the propagation/eigencurve and residually reducible lifting gaps; no arbitrary SymPowerLift function can encode this proof."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.3/n-regular-congruences",
+          "verdict": "unverifiable",
+          "note": "Source checked: newton-thorne-I, §8, Proposition 8.3, pp. 92–93 (arXiv v3). NT I8.3 n-regular congruences need Ribet residual-image control and the specific level-raising/seasoned forms construction. A general congruence relation and PL lifting theorem are insufficient."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.3/non-supercuspidal-symmetric-powers",
+          "verdict": "unverifiable",
+          "note": "Source checked: newton-thorne-I, §8, Theorem 8.1, p. 91; Introduction, Theorem B and Corollary C, p. 2 (arXiv v3). NT I8.1 non-supercuspidal theorem is retained. The semistable L-function signature is corrected to positive symmetric degree; degree zero is zeta and is not entire. It still inherits the missing NT-methods owner."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.3/symmetric-power-automorphy-lifting",
+          "verdict": "corrected",
+          "note": "Source checked: newton-thorne-II, §2, Theorem 2.1 and proof, pp. 5–6 (arXiv v2). NT II2.1 omitted a≥1 with PSL₂(F_{p^a})≤P r̄(G_F)≤PGL₂(F_{p^a}) and p^a>max(5,2n−1). Packet field/rank conditions are corrected, positive n added to Lean, but the crucial projective-image hypothesis remains an explicit Lean revision gap."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.3/non-cm-symmetric-powers",
+          "verdict": "unverifiable",
+          "note": "Source checked: newton-thorne-II, Introduction, Theorem A and Corollary B, pp. 1–2; §3, Theorem 3.1, p. 20 (arXiv v2). NT II TheoremA/CorollaryB gives non-CM GL₂/ℚ symmetric powers. Its proof requires pseudodeformation patching and seasoned good-dihedral forms; those proposed Part II signatures are missing, so the endpoint signature is not closure-certified."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.3/cm-and-weight-one-symmetric-powers",
+          "verdict": "unverifiable",
+          "note": "Source checked: newton-thorne-II, Appendix A, Theorem A.1, p. 27 (arXiv v2). NT II AppendixA.1 covers holomorphic limits of discrete series and monomial representations with its specific low-degree transfers. The icosahedral Kim2004 input is not read/owned precisely. Weight-one does not mean all arbitrary archimedean types."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.3/l-function-equidistribution-criterion",
+          "verdict": "corrected",
+          "note": "Source checked: kedlaya-ant-2025, §§24.1–24.3, Theorem 24.1, Theorem 24.2 and Conjecture 24.3, printed pp. 133–134. Kedlaya24.3/24.7 needs bounded multiplicity of each norm, analytic nonvanishing and compact-character density. Direct Peter–Weyl and characters imports added. Existing statement/API still need a specified prime norm sequence and Tauberian supplier law."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.3/sato-tate-elliptic-curves",
+          "verdict": "corrected",
+          "note": "Source checked: kedlaya-ant-2025, §§24.4–24.5, Conjecture 24.4 and Theorems 24.5–24.6, printed pp. 134–135. Non-CM elliptic Sato–Tate over ℚ uses modularity, all positive symmetric powers and the compact criterion. R29.6 modularity import added. Analytic nonvanishing and actual normalized Frobenius classes, rather than free functions, are still required."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.0/endpoint-status-register",
+          "verdict": "corrected",
+          "note": "Source checked: cg-2018, Theorem 1.1(1), §1, p. 3 (arXiv v2) = Invent. p. 300; proof §10, pp. 96–98 (arXiv v2) = Invent. pp. 428–429. The record is bookkeeping; its planet is removed. Empty hypotheses prove the assertion but do not equate conditional/known tags. Tests are status logic only, and this object does not establish dependency closure."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.0/arthur-dependency-gate",
+          "verdict": "unverifiable",
+          "note": "Source checked: bcgp-2021, §1.4.1 'The work of Arthur', p. 14 (arXiv v3). Arthur p.60–64 and the cited later classification qualifications were checked. ArthurInputs stores arbitrary propositions, rather than the exact twisted weighted lemma/local intertwining/stabilization statements. The conditional branch is not yet an acceptable §13 signature."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.0/archimedean-langlands-conventions",
+          "verdict": "unverifiable",
+          "note": "Source checked: acc-2023, §1.2 Notation, arXiv v2 p. 11 (Annals pp. 907–908). ACC+ §2.3 uses geometric local reciprocity and the specified real/complex normalization. The requested class-field/archimedean representation inputs are necessary; Context does not provide laws tying its arbitrary local parameter functions to them."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.0/compatible-system-archimedean-factors",
+          "verdict": "corrected",
+          "note": "Source checked: acc-2023, §7.1, definition of purity and the paragraph after it, arXiv v2 pp. 197–198 (Annals p. 1092 per routed locator). Euler Q is monic, so the reciprocal conversion is corrected. Full factors need strict/pure/regular and coherent real data. The definition is imported from R24.5. Sym²H¹ gamma control also exposes BLGGT E16; supplier correction is requested."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.0/compatible-system-automorphic-l-function-comparison",
+          "verdict": "corrected",
+          "note": "Source checked: acc-2023, §7.1, paragraph after the proof of Lemma 7.1.10 (before Theorem 7.1.11), arXiv v2 p. 200 (Annals p. 1095). Unramified comparison is valid with the shift; infinity in ACC7.1.1 needs purity and density-one generic irreducibility. Full completion needs ramified WD/epsilon comparison. The corrected packet hypotheses remain absent in completedL_automorphic."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.0/nt26-automorphy-predicate",
+          "verdict": "corrected",
+          "note": "Source checked: nt-2026, §2 ('Some comforting lemmas'), opening paragraph immediately before Lemma 2.1, p. 9 (arXiv v2). NT §1.2–§2 defines this restricted automorphy predicate, but the twist/iff/irreducibility API uses coherence and polarization facts absent from GaloisData. A finite-image negative test is valid only for regular rank two, not a general weight-one Artin obstruction. The elliptic test is corrected to cohomological H¹, dual to the usual Tate module in the stated Hodge–Tate convention."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.0/nt26-normalisation-bridge",
+          "verdict": "corrected",
+          "note": "Source checked: nt-2026, §1.2 Notation, p. 8 (arXiv v2) (geometric-Frobenius Art_K, rec^T, r_{π,ι}, HT convention); Frob_v convention p. 7. NT and BLGGT conventions agree. Changing Frobenius notation alone does not dualize the representation. The optional realization-duality dictionary is corrected in the prose/docstring but still requires an exact IHG.3/R19 export."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.0/gsp4-galois-l-packet",
+          "verdict": "corrected",
+          "note": "Source checked: bcgp-2021, Definition 2.3.1, §2.3 — independently checked downloaded PDF p.19; published-copy pagination where applicable. BCGP Definition 2.3.1 finite GSp4 packet source read; Gan–Takeda direct prerequisite added. The representation-to-WD functor and geometric reciprocity must be coherent, not arbitrary Context data. New direct edge crosses stage order."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.0/weight-22-abelian-variety-conjecture",
+          "verdict": "corrected",
+          "note": "Source checked: cg-2020, §5.4 'Torsion classes', publ. p. 831; quoted from arXiv v1 §5.4 p. 24 — independently checked downloaded PDF p.31; published-copy pagination where applicable. CG §5.4 is conjectural and the CAP/endoscopic exclusion is essential. The literal published-copy excerpt is corrected; predicates for the abelian variety/coefficient-field action still need real typed carriers, and status tests do not replace definition tests."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.0/expected-crystallinity-newton-above-hodge",
+          "verdict": "unverifiable",
+          "note": "Source checked: pilloni-2020, §5.3, Remark 5.3.2, p. 25 (author version). Pilloni Remark 5.3.2 is explicitly expected crystallinity outside the established cohomological range. Its cited source [45] was not read directly; no theorem may be silently upgraded from this conjectural predicate."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.0/regular-weight-serre-implies-abelian-surface-modularity",
+          "verdict": "unverifiable",
+          "note": "Source checked: bcgp-2025, Lemma 10.4.1, §10.4, p. 222 (arXiv v1). BCGP25 Theorem 1.0.1 implication requires the surface classification, residual split/irreducible alternatives, ordinary density and weight-changing/Hida steps. These do not follow from the regular-weight Serre predicate alone; exact ModularityAbelianSurfaces supplier requests are required."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.1/strong-artin-conjecture",
+          "verdict": "corrected",
+          "note": "Source checked: kw-2009-I, §10.2 — independently checked downloaded PDF p.20; published-copy pagination where applicable. KW §10.2 supports strong Artin/full L equality. Strong multiplicity one gives uniqueness, not missing bad factors. Full local matching is corrected in packet and Lean; analytic/local-factor laws are still missing from ArtinData."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.1/irregular-systems-weight-one",
+          "verdict": "unverifiable",
+          "note": "Source checked: kw-2009-I, Theorem 10.1(ii), §10.1, p. 20 (author copy results.pdf). KW10.1(ii) states the irregular rank-two system endpoint; R20.3 weight-one lowering, R19.1 Deligne–Serre and R27.6 finite-newform descent are the correct owners. KW calls its proof a sketch, so E13 is rejected as a paper error. Lean supplier compatibility still needs realization laws."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.1/odd-artin-modularity-over-q",
+          "verdict": "unverifiable",
+          "note": "Source checked: kw-2009-I, Corollary 10.2(ii), §10.2, p. 21 (author copy results.pdf). Weight one over ℚ correctly imports R17.5 solvable Artin and R27.6 nonsolvable Serre/descent, with R19.1 Deligne–Serre; no weight-two Jacobian argument. Their almost-everywhere realization exports still need explicit full local factors for the corrected strong Artin predicate."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.1/totally-real-odd-artin",
+          "verdict": "unverifiable",
+          "note": "Source checked: bcgp-2021, Proof of Proposition 10.1.3, §10.1, p. 266 (arXiv v3). BCGP10.1.3 quotes Pilloni–Stroh Theorem0.3. That primary theorem has not been read; R19.2 cohomological Hilbert realizations do not automatically provide all Hilbert weight-one forms. Record an exact extension request, not a supplied theorem."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.1/non-solvable-residual-modularity",
+          "verdict": "corrected",
+          "note": "Source checked: bcgp-2021, Proof of Proposition 10.1.3, p. 266 (arXiv v3). BCGP10.1.3 mod5 uses Snowden/Shepherd-Barron–Taylor and Kisin potentially Barsotti–Tate lifting. R22.1 merely constructs deformation-to-Hecke maps, so use/request the lifting endpoint; the primary mod5 argument and its local/image bounds are still missing."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.1/buzzard-taylor-hypotheses",
+          "verdict": "corrected",
+          "note": "Source checked: cg-2018, Lemma 4.14, §4.2, p. 52 (arXiv v2) = Invent. pp. 366–367; proof pp. 52–53 = Invent. pp. 367–368. CG2018 Lemma4.14 is a deformation/unramified tangent-space argument. R04.2 supplies representability, while the required finite-image H¹ vanishing uses class field theory. R04.1 alone supplies neither conclusion. The Buzzard–Taylor analytic theorem is a separate unread primary input."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.1/imaginary-quadratic-elliptic-modularity",
+          "verdict": "unverifiable",
+          "note": "Source checked: caraiani-newton-2023, §1, Theorem 1.1 (Corollary 7.1.2), p. 2 (arXiv:2301.10509v3). Caraiani–Newton1.1/1.2 field and moduli hypotheses are retained. Existing PA.4 ordinary/Fontaine–Laffaille ALT is not their Theorem1.3 potentially semistable branch, and modular-curve F-point analysis remains a separate owner gap."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.1/weight-one-separation-register",
+          "verdict": "corrected",
+          "note": "Source checked: kw-2009-I, §10.1, paragraph after Theorem 10.1, p. 20 (author copy results.pdf). Direct references for irregular systems and the mod5 branch are added. R19.1, R17.5 and R27.6 ownership is distinct; no general-number-field modularity is inferred. The Lean registry only records labels/hypotheses and does not prove the endpoints."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.2/qian-residual-potential-automorphy",
+          "verdict": "unverifiable",
+          "note": "Source checked: qian-2023, Theorem 1.1, §1, p. 1 (arXiv v1); Invent. pp. 1239–1240 per routed locator; proof §4, pp. 21–24 (arXiv v1). Qian1.1 allows general nonselfdual n≥2 residual representations with its determinant/local and disjointness conditions. Dwork Hodge/monodromy and Moret–Bailly applications are unresolved proposed-owner inputs, not supplied by PA.4 alone."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.2/qian-ordinary-potential-automorphy",
+          "verdict": "corrected",
+          "note": "Source checked: qian-2023, Theorem 1.4, §1, p. 2 (arXiv v1); Invent. p. 1241 per routed locator; proof: last paragraph of §4, p. 26 (arXiv v1). Qian1.4 uses the general-rank ordinary CM ALT; fine PA.4/ordinary-automorphy-lifting import added. Its l>n, residual enormous/decomposed-generic/scalar and local regular-ordinary hypotheses must actually be discharged; inherited l>n correction is retained."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.2/qian-auxiliary-prime",
+          "verdict": "unverifiable",
+          "note": "Source checked: qian-2023, Proposition 4.1 (first list), §4, p. 21, and first paragraph of its proof, p. 22 (arXiv v1); §4 opening (choice of E, N, F^avoid), p. 21; Invent. pp. 1268–1269 per routed locators. Qian auxiliary-prime construction needs the full list of congruence, splitting, coefficient-field containment and residual-image conditions. The phrase remaining conditions hides non-routine inputs and G5Context omits them; request the exact Dwork/prime theorem."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.2/elliptic-symmetric-power-seed",
+          "verdict": "corrected",
+          "note": "Source checked: qian-2023, Proposition 4.1 (second list and final assertion), §4, p. 21; proof p. 22 (arXiv v1); Invent. pp. 1269–1270 per routed locator. The elliptic seed is ACC+7.2.4, now named directly. Converting Tate/cohomological dual conventions is a separate compatibility step. The fine edge goes from ML.2 to an ML.3 endpoint and requires stage splitting/order reconciliation."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.2/dwork-fibre-automorphy-transport",
+          "verdict": "corrected",
+          "note": "Source checked: qian-2023, §4, proof of Theorem 1.1, p. 24 (arXiv v1); Invent. pp. 1272–1273 per routed locator. Fine general-rank ordinary CM lifting import added. One-prime residual transport must be combined with AG2’s compatible-system realization and the character twists before it produces all members; arbitrary field-restriction/symmetric-power maps do not encode this."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.2/steinberg-ordinarity-lemma",
+          "verdict": "unverifiable",
+          "note": "Source checked: qian-thesis-2023, Lemma 4.0.3 and its proof, Ch. 4, pp. 64–65 (thesis, PDF pp. 71–72); ≈ published Lemma 4.3, Invent. p. 1273. Qian’s Steinberg weight-zero ordinarity comparison needs the exact Hodge/local normalization and PL.0 export. The criterion is not the assertion that any Steinberg π produces any chosen ordinary Galois representation."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.2/galois-ordinarity-from-automorphic",
+          "verdict": "unverifiable",
+          "note": "Source checked: acc-2023, §5.5, Corollary 5.5.2, arXiv v2 pp. 131–132 (Annals pp. 1027–1028). ACC+ Corollary5.5.2 is an ordinarity conclusion with its residual conditions; Theorem5.5.1’s auxiliary CM/degree assumptions are removed only by its actual base-change argument. PA.2 stage prose or a generic ordinary predicate is not that proof."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.2/acc-symplectic-potential-automorphy",
+          "verdict": "unverifiable",
+          "note": "Source checked: acc-2023, §7.2.1, Proposition 7.2.3 and its parenthetical proof, arXiv v2 pp. 204–205 (Annals pp. 1099–1100). ACC+ Proposition7.2.3 retains even symplectic rank, multiplier, HT and avoidance/unramified hypotheses. Auxiliary prime and Dwork seed construction are non-routine supplier inputs, and its current context data are not coupled to those constructions."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.2/acc-auxiliary-primes",
+          "verdict": "unverifiable",
+          "note": "Source checked: acc-2023, §7.2.5, proof of Theorem 7.1.11, Assumption 7.2.6, arXiv v2 p. 208 (Annals p. 1103). ACC+ Assumption7.2.6 and its construction need actual large SL₂ residual image, not only irreducibility or density. AG2.7/open-image and auxiliary-field data must be requested at the precise bound; the generic prime-selection interface does not provide them."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.2/potential-automorphy-with-steinberg-place",
+          "verdict": "unverifiable",
+          "note": "Source checked: fkp-2022, §9, proof of Proposition 9.1, arXiv v5 p. 42. FKP §9 Steinberg potential automorphy retains its residual GSp image, fixed similitude and local compatibility assumptions. Exact lift/compatibility suppliers and the disjointness construction are unresolved in this plan."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.2/compatible-system-from-potential-automorphy",
+          "verdict": "unverifiable",
+          "note": "Source checked: fkp-2022, §9, proof of Proposition 9.1, arXiv v5 p. 43. FKP compatible-system consequence uses Brauer descent with matching local realizations; an unstructured sum of representations is not a genuine system. The endpoint is source-stated but no exact reconstruction law is encoded in G5Context."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.2/patrikis-taylor-potential-automorphy",
+          "verdict": "unverifiable",
+          "note": "Source checked: fsy-2022, §5.3.2, Theorem 5.38 (Patrikis–Taylor, [44, Th. A]), arXiv v5 pp. 56–57. FSY5.38 quotes Patrikis–Taylor for pure regular systems; BLGGT5.5.3 assumes extreme regularity, which is stronger. Its cited prerequisite therefore cannot prove this theorem. Read/request the actual PT constituent theorem and retain a precise gap."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.2/patrikis-taylor-l-function-consequences",
+          "verdict": "unverifiable",
+          "note": "Source checked: fsy-2022, §5.3.2, Corollary 5.39 ([44, Cor. 2.2 (ii)]), arXiv v5 p. 57. FSY5.39 inherits the preceding PT regularity gap and the Euler/full-factor normalization issue. Meromorphic continuation is not established by an arbitrary partialLCS field plus the wrong extremely-regular decomposition theorem."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.2/cg18-conditional-potential-modularity",
+          "verdict": "unverifiable",
+          "note": "Source checked: cg-2018, Theorem 1.1(1), §1, p. 3 (arXiv v2) = Invent. p. 300; proof §10, pp. 96–98 (arXiv v2) = Invent. pp. 428–429. CG2018 Theorem1.1(1) is conditional on Conjecture B and uses Theorem5.16 over general number fields. The CM/totally-real ACC lifting endpoint is not a replacement; Conjecture B must be a precise local–global statement, not an opaque Prop."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.2/cg18-odd-symmetric-powers",
+          "verdict": "corrected",
+          "note": "Source checked: cg-2018, §10, proof of Theorem 1.1, 'extra hypothesis' bullet, p. 97 (arXiv v2) = Invent. p. 428 [sub-item sec10-special-case]. The inherited special-case bound is N₂>2n+1; statement corrected to match hypotheses. Dwork/CG5.16 general-field proof inputs remain missing. Both auxiliary elliptic curve and residual congruence must preserve determinant/level conventions."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.2/twisted-modular-curve",
+          "verdict": "corrected",
+          "note": "Source checked: cg-2018, §10, general case, p. 97 (arXiv v2) = Invent. p. 429. Remove unnecessary E[q] irreducibility and correct the GL₂ cyclotomic-determinant cocycle. Tests q=3, trivial twist and X(q) versus X₀(q) discriminate the moduli problem. Actual finite-étale symplectic descent/compactification is still a missing ModularCurves export."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.2/p-r-switch",
+          "verdict": "corrected",
+          "note": "Source checked: bcgnt-2025, Proposition 6.2.3 and proof, §6.2, arXiv v3 pp. 61–63 (published pp. 54–57; arXiv pagination differs) — independently checked downloaded PDF p.62; published-copy pagination where applicable. BCGNT6.2.3 is not a p/r residual iff. All seventeen conditions and the untensored weak-automorphy conclusion are restored; specialized connects lifting and untwisting/cyclic descent are requested. The false G5PRSwitchData/Lean declaration is removed pending genuine typed data."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.2/potential-weak-automorphy-symmetric-powers",
+          "verdict": "unverifiable",
+          "note": "Source checked: bcgnt-2025, Theorem 6.2.4 and proof (incl. the elliptic curve A/ℚ and the automorphy of Sym^{nm−1}ρ_{A,q}|G_{F₆}), §6.2, arXiv v3 pp. 64–68 (published pp. 57–61; arXiv pagination differs). BCGNT6.2.4 proof constructs exactly the auxiliary systems required by6.2.3; it is not immediate from a residual-switch predicate. An elliptic seed and local component matching/prime construction must be supplied with the same level condition."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.3/bcgnt-potential-automorphy-det-cyclotomic",
+          "verdict": "corrected",
+          "note": "Source checked: bcgnt-2025, Theorem 6.2.1 and proof, Remark 6.2.2, §6.2, arXiv v3 pp. 59–60 (published p. 53); ACC+ inputs also in the proof of Theorem 7.1.1, arXiv p. 69 (published p. 61). BCGNT6.2.1 uses6.2.4, purity6.1.3 and Varma/6.1.4 to upgrade to full local comparison. Proof and direct purity/AG2.5 imports are corrected; this is not simply another ACC lifting invocation."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.3/symmetric-power-lift-over-number-fields",
+          "verdict": "unverifiable",
+          "note": "Source checked: ct-2017, §1 Introduction, manuscript p. 2. The general-field rank-n Sym^{n−1} lift repeats the earlier symmetric-power definition and should be its field-general interface. Its operation/local parameter laws are not available in the context, so the dual/twist API is not certified."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.3/sp-statement",
+          "verdict": "unverifiable",
+          "note": "Source checked: nt-2026, Conjecture B, §1 (Introduction), p. 3 (arXiv v2); restated after Theorem 3.2, p. 13. SP_n is the named NT2026 statement for non-CM regular GL₂ representations. It is a theorem proposition with field/rank conditions, not a bare arbitrary Prop input. The Part II construction supplying the endpoint is still unresolved."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.3/one-prime-criterion",
+          "verdict": "corrected",
+          "note": "Source checked: nt-2026, Lemma 2.1, §2, p. 9; proof pp. 9–10 (arXiv v2). NT Lemma2.1 changes ι together with the Galois-conjugate automorphic π (Clozel), not ι alone with a fixed π. Corrected proof records this; the compatible-system and conjugation law must enter the interface."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.3/clozel-thorne-reductions",
+          "verdict": "unverifiable",
+          "note": "Source checked: nt-2026, Proposition 6.1, §6, pp. 45–46; proof pp. 46–49 (arXiv v2); also proof of Theorem 6.5, p. 50. CT7.1/7.4/7.6 reductions treat mixed parity, RACSDC character twists and CM base-change separately. NT Proposition6.1’s local potential-diagonalizability conditions must be explicit, not absorbed by a blanket reduction."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.3/all-regular-symmetric-powers",
+          "verdict": "unverifiable",
+          "note": "Source checked: nt-2026, Theorem 6.4 and its proof, §6, p. 50 (arXiv v2). NT2026 Theorem6.4 is the endpoint after the analytic/unitary/tensor-lifting constructions; merely naming proposed Part IIs does not supply their exact signatures. The suggested forall-rank realization remains an unclosed sketch."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.3/hilbert-symmetric-powers",
+          "verdict": "unverifiable",
+          "note": "Source checked: nt-2026, Theorem A, §1, p. 1 = Theorem 6.5(1), §6, p. 50 (arXiv v2). NT2026 Theorem6.5(1) retains mixed-parity Hilbert forms and their twisting/soluble-base-change reductions. Source statement is checked; exact reduction/realization owner remains the preceding Part II gap."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.3/cm-field-symmetric-powers",
+          "verdict": "unverifiable",
+          "note": "Source checked: nt-2026, Theorem 6.5(2) and its proof, §6, p. 50 (arXiv v2). NT2026 Theorem6.5(2) excludes CM/monomial induction appropriately. Its CM-field reduction uses solvable descent, character twists and rank-two systems; these are not supplied by arbitrary general-number-field automorphy."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.3/sym6-sym8",
+          "verdict": "unverifiable",
+          "note": "Source checked: ct-2017, §6, Theorem 6.1 (= Theorem 1.1), manuscript p. 44 (Theorem 1.1 on p. 2). CT Theorem6.1 Sym6/Sym8 retains the disjointness from ζ5/ζ7 and potential-automorphy bounds. Tensor-functoriality lifting is non-routine and its proposed owner has no export yet."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.3/symmetric-powers-up-to-eight",
+          "verdict": "unverifiable",
+          "note": "Source checked: ct-2017, §7, Corollary 7.2, manuscript pp. 46–47 (Corollaries 1.2, 1.3 on p. 2). CT Corollary7.2 combines reductions with the earlier CT15 Theorem1.2 lifting input. The latter must be requested separately; a Sym6/Sym8 endpoint alone does not imply every rank≤8 transfer."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.3/large-residual-image-density-one",
+          "verdict": "unverifiable",
+          "note": "Source checked: ct-2017, §7, Lemma 7.5 and proof, manuscript p. 48. CT Lemma7.5 uses Dickson classification and Fontaine–Laffaille fundamental characters to get large projective image at density-one primes. Residual irreducibility alone is weaker and cannot supply the needed SL₂ sandwich."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.3/nt21-semistable-l-functions",
+          "verdict": "unverifiable",
+          "note": "Source checked: newton-thorne-I, Introduction, Corollary C, arXiv v3 p. 2 (Publ. IHÉS 134, p. 2). NT I CorollaryC is the semistable non-CM elliptic completed symmetric L endpoint at positive degree. Conductor/infinity convention and the ordinary/supercuspidal exclusion must be kept; analytic Context fields lack a full WD comparison."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.3/completed-symmetric-power-l-function",
+          "verdict": "corrected",
+          "note": "Source checked: newton-thorne-II, §1 Introduction, Corollary B, arXiv v2 p. 2 (Publ. IHÉS 134, p. 118). Public DMW2009 finite factors/conductors and Martin–Watkins2006 §4.2 are now read and cited. The Sym² gamma test is Γ_ℝ(s)Γ_ℂ(s). Actual conductor/local-monodromy and R24.5 corrected sign exports remain missing."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.3/acc-elliptic-symmetric-powers",
+          "verdict": "corrected",
+          "note": "Source checked: acc-2023, §7.2.1, Corollary 7.2.4, arXiv v2 pp. 205–206 (Annals pp. 1100–1101); proof pp. 206–208 (Annals pp. 1101–1103). ACC+7.2.4 does not assert ι-ordinarity for every l. Removed that clause in packet/Lean. The current fixed-l signature still does not express one common automorphic compatible-system realization for all l and embeddings."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.3/acc-purity-rank-two",
+          "verdict": "corrected",
+          "note": "Source checked: acc-2023, §7.1, Corollary 7.1.13, arXiv v2 p. 201 (Annals p. 1096). ACC+7.1.13 nonvanishing/holomorphy requires strong irreducibility and m>0. Restored in packet/Lean with a degree-zero zeta negative control. Meromorphic continuation and functional equation have different hypothesis scopes."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.3/parallel-weight-and-clozel-purity",
+          "verdict": "unverifiable",
+          "note": "Source checked: bcgnt-2025, Definition 1.6.1 (Parallel Weight) and the following paragraph, §1.6 Notation, arXiv v3 p. 13 (= Definition 1.5.1, §1.5, published p. 11: arXiv numbering and pagination differ). BCGNT §1.6 parallel-weight/purity uses Clozel’s lemma. AF.4 owns the weight/rationality direction, but its coarse stage prose is not the exact purity theorem; request that export and the normalization explicitly."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.3/purity-from-symmetric-powers",
+          "verdict": "unverifiable",
+          "note": "Source checked: bcgnt-2025, Lemma 6.1.3 and proof (Jacquet–Shalika bound [JS81, Cor. 2.5]), §6.1, arXiv v3 p. 58 (published p. 52; arXiv pagination differs). BCGNT6.1.3 bounds unramified eigenvalues using arbitrarily high cuspidal weakly automorphic symmetric powers. Arbitrary nonunitary isobaric realizations do not satisfy the Jacquet–Shalika bound; actual local matching and unitarization are necessary."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.3/bcgnt-symmetric-powers-purity",
+          "verdict": "unverifiable",
+          "note": "Source checked: bcgnt-2025, Theorem 7.2.1 and proof, §7.2, arXiv v3 p. 69 (published pp. 61–62); Theorem C, §1, arXiv p. 4 (published p. 4). BCGNT7.2.1 separates strongly irreducible and quadratic-induced rank-two systems. In the induced case character class-field L-functions supply continuation; neither branch follows solely from the weak-system fields."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.3/bianchi-ramanujan",
+          "verdict": "unverifiable",
+          "note": "Source checked: bcgnt-2025, Theorem 7.1.1 and proof, §7.1, arXiv v3 pp. 68–69 (published p. 61); Theorem A, §1, arXiv p. 3 (published p. 3). BCGNT7.1.1 upgrades unramified purity to temperedness using Varma’s monodromy bound and purity. AG2.5’s semisimplified comparison alone is not full WD equality; the upgrade must be sourced and proved."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.3/sato-tate-group",
+          "verdict": "corrected",
+          "note": "Source checked: bcgnt-2025, Definition of ST(π) and Lemma 7.2.2 with proof, §7.2, arXiv v3 pp. 69–70 (published p. 62; arXiv pagination differs). BCGNT7.2.2 defines the non-CM U₂ determinant group with finite/infinite-order cases. The CM test is corrected to allow a torus or its normalizer depending on endomorphism field; arbitrary U₂ data need determinant/compact-real-form laws."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.3/serre-equidistribution-criterion",
+          "verdict": "unverifiable",
+          "note": "Source checked: bcgnt-2025, Proof of Theorem 7.2.3, §7.2, arXiv v3 p. 70 (published p. 62; arXiv pagination differs). BCGNT7.2.3 invokes Serre’s criterion via Tauberian nonvanishing and compact characters. AN.2’s PNT prose alone is not a supplied general compact-character theorem; an exact export with boundary hypotheses remains requested."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.3/bianchi-sato-tate",
+          "verdict": "unverifiable",
+          "note": "Source checked: bcgnt-2025, Theorem 7.2.3, §7.2, arXiv v3 p. 70 (published p. 62); Theorem B, §1, arXiv p. 3 (published p. 3). BCGNT Sato–Tate excludes ramified places; inherited E13 correction is retained. The regular non-CM conditions and normalized Frobenius/Haar measure must enter typed data, and the proof inherits the preceding analytic criterion gap."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.3/bianchi-modular-forms",
+          "verdict": "unverifiable",
+          "note": "Source checked: bcgnt-2025, §1.3 Bianchi Modular Forms, arXiv v3 pp. 9–11 (published pp. 8–10; arXiv pagination differs). BCGNT §1.5 Bianchi forms use Harder’s Eichler–Shimura comparison and parabolic cohomology. ALS.3 supplies Hecke correspondences, not that comparison itself; the exact comparison theorem needs a separately scoped supplier."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.3/bianchi-fourier-ramanujan",
+          "verdict": "unverifiable",
+          "note": "Source checked: bcgnt-2025, Theorem E, §1.3, arXiv v3 p. 10 (published p. 8; arXiv pagination differs). BCGNT TheoremE Fourier Ramanujan follows from the actual Bianchi-to-cuspidal realization and temperedness. This is not a relation between an arbitrary coefficient function and an arbitrary automorphic representation field."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.3/bianchi-parabolic-cohomology-ramanujan",
+          "verdict": "unverifiable",
+          "note": "Source checked: bcgnt-2025, Theorem F, §1.3, arXiv v3 p. 11 (published p. 9; arXiv pagination differs). BCGNT TheoremF is the parabolic-cohomology Hecke bound at its stated principal-prime level conditions. Coefficient systems/Hecke normalization and Harder comparison are non-routine missing inputs."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.3/bianchi-mass-equidistribution",
+          "verdict": "unverifiable",
+          "note": "Source checked: bcgnt-2025, Theorem G and proof, §1.3, arXiv v3 p. 11 (published p. 10; arXiv pagination differs). BCGNT TheoremG mass equidistribution also uses Marshall arithmetic quantum unique ergodicity. No named supplier states that analytic/geometric theorem; Ramanujan bounds alone do not prove mass equidistribution."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.3/cg18-conditional-sato-tate",
+          "verdict": "unverifiable",
+          "note": "Source checked: cg-2018, Theorem 1.1(2), §1, p. 3 (arXiv v2) = Invent. p. 300; reduction in §10, p. 97 (arXiv v2) = Invent. p. 428. CG2018 conditional Sato–Tate requires exact Conjecture B/general-field potential automorphy and Harris tensor-product twisting for the even-degree analytic functions. The odd-degree endpoint is insufficient by itself."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.4/self-dual-cuspidal-type",
+          "verdict": "unverifiable",
+          "note": "Source checked: arthur-2013, §1.5, Theorem 1.5.3 and the paragraph before it, pp. 47–48 (2011 manuscript). Arthur1.5.3 uses the unitary self-dual cusp symplectic/orthogonal dichotomy and conditional transfer classification. Its analytic dichotomy needs Langlands–Shahidi beyond AL.4’s unramified scope, while the transfer requires the actual named classification gate."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.4/global-arthur-parameter",
+          "verdict": "corrected",
+          "note": "Source checked: arthur-2013, §1.4, (1.4.4), p. 30 (2011 manuscript). Arthur’s global parameter has the stated parity and central character, but orthogonal duals need determinant-one signs before dividing by the center. Correct prose/API and add rank-three negative control matching the already correct Lean sign kernel. Root-number and localization coherence remains external."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.4/local-arthur-packets",
+          "verdict": "corrected",
+          "note": "Source checked: arthur-2013, §1.5, Theorem 1.5.1 and the paragraph before it, pp. 41–42 (2011 manuscript). Arthur1.5.1 and Mok2.5.1 source statements retain even-SO outer ambiguity and the finite/archimedean distinctions. Literal excerpt corrected. An arbitrary IsPacket field does not encode endoscopic character identities/local intertwining hypotheses."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.4/arthur-multiplicity-formula",
+          "verdict": "unverifiable",
+          "note": "Source checked: arthur-2013, §1.5, Theorem 1.5.2 and (1.5.3)–(1.5.7), pp. 45–47 (2011 manuscript). Arthur1.5.2 m_ψ and character matching are source-checked (even SO m_ψ can be2). Global packets must retain local multiplicity/repetition and restricted products; a Set of representations with arbitrary discMult is not the theorem’s data."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.4/mok-unitary-classification",
+          "verdict": "corrected",
+          "note": "Source checked: mok-2015, §2.5, Theorem 2.5.2 and Remark 2.5.3, pp. 34–35 (arXiv v5). Mok2.5.2 uses global packet multisets; Remark2.5.3 multiplicity one is generic only. Correct the overclaim. Nat.card of a Set of character assignments loses repetitions in the suggested formula, so the signature still needs revision."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.4/kmsw-inner-forms",
+          "verdict": "unverifiable",
+          "note": "Source checked: kmsw-2014, §1.6.1, Theorem* 1.6.1 and the sentence before it, p. 80 (arXiv v3). KMSW *1.6.1 is a local generic/tempered statement; global inner-form classification has additional genericity/coherence assumptions. Separate their statements and replace kmswHypotheses:Prop with the actual source conditions; the current omnibus predicate is not verified."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.4/extended-langlands-parameter",
+          "verdict": "corrected",
+          "note": "Source checked: kss-2021, §1.20, p. 8 (arXiv v3); p. 604 in the version of record. KSS1.20: every positive-multiplicity good-parity O(m_i) contributes a component; odd m_i governs the center image. Correct the proof. Exact enhancements/outer conventions are necessary for quasi-split packet-character bijections."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.4/trace-formula-inputs-register",
+          "verdict": "unverifiable",
+          "note": "Source checked: bcgp-2021, §1.4.1, p. 14 (arXiv v3). ET.3 gives ordinary/nonstandard transfer and ET.4 a restricted simple comparison, not the entire weighted/twisted stabilization package. TraceFormulaInputs’ unnamed propositions must become precise named mathematical statements or explicit omitted signatures."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.4/symplectic-branch-status",
+          "verdict": "unverifiable",
+          "note": "Source checked: bcgp-2021, §1.4.1, p. 14 (arXiv v3). The symplectic-branch item is a verification workflow. Mok/KMSW unitary results do not by themselves remove the symplectic Arthur dependencies. Lean IsConfirmed fields record decisions and are not proofs of stabilization."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.4/vogan-packets-so-v",
+          "verdict": "unverifiable",
+          "note": "Source checked: gan-ichino-2018, §5.2, (5.3), p. 17 (arXiv v3); published p. 987. Gan–Ichino §5.1 supports the Vogan bijection across relevant inner forms, including archimedean fields; do not object falsely to that source bijection. The Arthur/Ishimoto classification hypotheses and quadratic-space discriminant relevance must be explicit."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.4/amf-nonsplit-so-v",
+          "verdict": "corrected",
+          "note": "Source checked: gan-ichino-2018, §6.2, (6.1), p. 22 (arXiv v3); published p. 993. Gan–Ichino §3.1 decomposition ranges over all parameters; (6.1) multiplicity formula is generic-only. Packet quantifier scope corrected. Exact inner-form classification remains an external conditional input, not a generic packet-set field."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.4/packet-member-irreducibility",
+          "verdict": "corrected",
+          "note": "Source checked: gan-ichino-2018, §5.2, Lemma 5.1 and proof, p. 18 (arXiv v3); published p. 987. Gan–Ichino5.1/5.5 require the canonical nonsymplectic-pairs plus good-parity decomposition. Added the missing condition; an arbitrary φ₀ does not work. Local induction and r>2n+1 support must be modeled, not left as unrelated predicates."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.4/generic-packets-standard-modules",
+          "verdict": "unverifiable",
+          "note": "Source checked: jiang-zhang-2020, Appendix B, Proposition B.1 and proof, p. 85 (arXiv v4); published p. 818. Jiang–Zhang AppendixB standard-module/generic-packet result has its local-field and genericity assumptions. The actual parabolic induction, Whittaker and normalized intertwiner laws are required; merely defining IsGeneric/IsIrreducible fields is not a proof."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.4/gan-takeda-llc-gsp4",
+          "verdict": "unverifiable",
+          "note": "Source checked: bcgp-2021, §2.3, p. 18 (arXiv v3). BCGP §2.3 quotes Gan–Takeda LLC for nonarchimedean characteristic-zero fields with twists, similitude and theta construction. The primary Gan–Takeda proof and full Howe duality are not read/supplied by MP.3’s elementary theta modules; keep a precise gap."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.4/gsp4-discrete-spectrum-types",
+          "verdict": "unverifiable",
+          "note": "Source checked: bcgp-2021, §2.9, p. 38 (arXiv v3). BCGP §2.9 lists the six GSp₄ discrete-spectrum families. Its conditional Gee–Taïbi classification and full-parameter semantics cannot be recovered from an arbitrary ArthurType enumeration and localParam functions."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.4/gsp4-arthur-classification",
+          "verdict": "corrected",
+          "note": "Source checked: cg-2020, Proof of Theorem 7.11, §7.2, publ. p. 854; arXiv v1 p. 40. BCGP §2.9 application is over totally real F; hypothesis/locator corrected. Gee–Taïbi’s general number-field form requires a directly read export. IsClassification plus an unnamed gate is not its exact proof premise."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.4/non-general-type-reducible",
+          "verdict": "corrected",
+          "note": "Source checked: bcgp-2021, Lemma 2.9.1, §2.9, p. 38 (arXiv v3). BCGP2.9.1 non-general types use Hilbert GL₂ realizations over F and one-dimensional algebraic characters, not classical R19.1 over ℚ alone. Correct supplier to R19.2. Exact type-to-Galois decompositions and infinite-weight checks remain needed."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.4/gl4-symplectic-descent",
+          "verdict": "corrected",
+          "note": "Source checked: bcgp-2021, Theorem 2.9.3, §2.9 — independently checked downloaded PDF p.39; published-copy pagination where applicable. BCGP2.9.3 totally real symplectic GL₄ descent and full local packets are source-checked; excerpt fixed. Algebraicity gives cusp via essential temperedness; all packet members have multiplicity one in this general-type case. Abstract π/local-param fields need classification coherence."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.4/shahidi-exterior-square",
+          "verdict": "corrected",
+          "note": "Source checked: bcgp-2021, Proof of Lemma 8.3.2, §8.3, p. 247 (arXiv v3). BCGP p.247/Shahidi claim at s=1 needs Π and ω unitary; whole-line absence of shifted poles is overclaimed. Narrow packet/Lean, including unitary quotient characters. Two-pole exclusion also requires cuspidal cyclic base change and actual factorization."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.4/gsp4-archimedean-limit-packets",
+          "verdict": "unverifiable",
+          "note": "Source checked: pilloni-2020, §15.2.4, proof of Proposition 15.2.4.1, p. 109 (author version). Pilloni15.2.4.1 uses λ₁+λ₂≤0, not the inherited λ₁≥0 typo, and paired limits with multiplicity one under the classification. Blasius–Harris–Ramakrishnan/Schmidt primary packet formulas remain unread and untyped."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.4/limit-discrete-series-packet-types",
+          "verdict": "unverifiable",
+          "note": "Source checked: pilloni-2020, §15.2.4, proof of Proposition 15.2.4.1, p. 109 (author version). Pilloni15.2.4 source uses residual irreducibility to exclude specified endoscopic types. The non-general reducibility argument and local limits must be supplied before the asserted packet-family restriction follows."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.4/gsp4-gl4-archimedean-transfer",
+          "verdict": "corrected",
+          "note": "Source checked: cg-2020, Theorem 5.6(2), §5.3, publ. p. 829; quoted from arXiv v1 p. 22 — independently checked downloaded PDF p.29; published-copy pagination where applicable. CG Theorem5.6(2) computes GL₄ infinitesimal character at infinity. Correct the literal published-copy locator; archimedean transfer is separate from nonarchimedean Gan–Takeda LLC. Context’s arbitrary recParam gives no such comparison."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.4/unitary-descent-of-gl4-transfer",
+          "verdict": "corrected",
+          "note": "Source checked: cg-2020, Proof of Lemma 6.9, §6.2, publ. p. 840 (copy p. 40); arXiv v1 p. 30. CG Lemma6.9 shorthand is not enough to prove a source error (reject E10). The blueprint still needs the algebraic normalization/twist, CM restriction preserving absolute irreducibility, Mok descent and Bellaïche–Chenevier symplectic-pairing theorem."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.4/xu-gsp2n-packets",
+          "verdict": "corrected",
+          "note": "Source checked: gan-savin-2023-g2, §7, (7.1), p. 22 (published). Gan–Savin §7 quotes Xu specialized to PGSp₆; restrict the packet to n=3 and correct the rank test. General n, the exact packet/lift torsor and canonical matching need direct Xu source and a precise classification owner."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.4/xu-multiplicity-formula",
+          "verdict": "unverifiable",
+          "note": "Source checked: gan-savin-2023-g2, §7 (f), p. 23 (published). Gan–Savin §7(f) quoted Xu multiplicity formula is specialized to PGSp₆ and conditional on classical classification. Xu’s full primary statement is unread; a generic unnamed multiplicity predicate is not a replacement."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.4/adams-johnson-packets",
+          "verdict": "unverifiable",
+          "note": "Source checked: chenevier-taibi-2020, §5.2.1, p. 303 (published). CT §5.2.1 and Ichino–Prasanna §11.2 quote Adams–Johnson/Arancibia–Mœglin–Renard packet identification in the regular infinity range. The primary construction and exact parity/support hypotheses remain external inputs."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.4/moeglin-renard-packets",
+          "verdict": "unverifiable",
+          "note": "Source checked: chenevier-taibi-2020, §5.2.2, pp. 303–305 (published). CT §5.2.2 lists several Mœglin–Renard cases, including exceptional (H). CaseI:Prop with unspecified hypotheses is forbidden by §13; no exact suggested theorem can be certified until the actual case data/source statement is read."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.3/functorial-lift",
+          "verdict": "unverifiable",
+          "note": "Source checked: newton-thorne-I, Introduction, 'Context', p. 1 (arXiv:1912.11261v3). NT I definition of full functorial lift uses every-place local compatibility; uniqueness uses strong multiplicity one. This is a sound proposed object, but the Context representation operations must be tied to the named local LLC supplier."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.3/gelbart-jacquet",
+          "verdict": "unverifiable",
+          "note": "Source checked: newton-thorne-I, Introduction, 'Context', p. 1 (arXiv:1912.11261v3). Gelbart–Jacquet9.3 is first the adjoint lift with trivial central character; Sym²π=Adπ⊗ω_π. The GL₃ converse theorem must be an exact owner export; the dihedral decomposition needs its separate local/induction comparison."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.3/kim-shahidi-sym3",
+          "verdict": "corrected",
+          "note": "Source checked: newton-thorne-I, Introduction, 'Context', p. 1 (arXiv:1912.11261v3). Kim–Shahidi TheoremA is GL₂×GL₃ and TheoremB is Sym³. Added the direct B citation. Full local matching and cuspidality conditions still need the converse/Langlands–Shahidi and primary low-image input, not generic AL.4 unramified factors."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.3/kim-sym4",
+          "verdict": "corrected",
+          "note": "Source checked: bcgp-2021, Proof of Theorem 9.3.1, §9.3, p. 258 (arXiv v3). Kim TheoremB supplies full Sym⁴. The 2/3 local exceptions concern exterior-square TheoremA; Henniart is a distinct completion input. Added the direct B citation; the exterior-square and cusp criteria remain secondary-owner gaps."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.3/ramakrishnan-tensor-product",
+          "verdict": "corrected",
+          "note": "Source checked: newton-thorne-II, Appendix A, proof of Theorem A.1, p. 28 (arXiv:2009.07180v2). Ramakrishnan TheoremM all finite L/epsilon and infinite L factors are checked. Replace the overcompressed cusp criterion with its non-dihedral and one-dihedral base-change/self-twist branches. The suggested context still needs those factors/induction compatibilities."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.3/low-rank-symmetric-powers",
+          "verdict": "unverifiable",
+          "note": "Source checked: nt-2026, Proof of Theorem 6.4, §6, p. 50 (arXiv:2212.03595v2). NT2026 p.50 low-rank assembly uses the preceding sourced transfers. Strong multiplicity one identifies the chosen lift, but does not manufacture bad-place parameters from almost-everywhere compatibility; exact full-factor suppliers remain necessary."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.5/cyclic-base-change-gln",
+          "verdict": "corrected",
+          "note": "Source checked: nt-2026, §1.2, p. 8 (arXiv:2212.03595v2). Cyclic base change is imported from ET.7a, rank-two R17.4 and PL.0 soluble descent. Comparison kind and planet corrected; general number-field base change is distinct from CM/totally-real polarized Galois descent. Restriction irreducibility is essential."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.5/ckpss-generic-transfer",
+          "verdict": "corrected",
+          "note": "Source checked: ckpss-2004, Theorem 1.1, §1, p. 169 (Publ. Math. IHÉS 99). CKPSS1.1/7.1/7.2 read: generic split transfer is weak at finite places; its image uses GRS. Correct total versus individual central-character condition in Sp/even-SO branches. Full parameter/GRS image API remains external, not arbitrary context data."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.5/grs-descent",
+          "verdict": "unverifiable",
+          "note": "Source checked: jiang-zhang-2020, §1.1, p. 6 (arXiv v4); published p. 744. Jiang–Zhang quotes GRS descent and Jiang–Soudry uniqueness. Their primary construction is unread and no exact owner theorem is supplied; the generic image characterization cannot serve simultaneously as its own descent proof."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.5/local-descent-mp2n",
+          "verdict": "unverifiable",
+          "note": "Source checked: gan-ichino-2018, Appendix A, proof of Proposition A.1, pp. 29–30 (arXiv v3); published pp. 1001–1002. Gan–Ichino AppendixA uses local descent in a globalization argument, not by itself an arbitrary complete local metaplectic bijection. The exact GRS local descent and Howe duality theorem needed here must be read/requested separately from MP.3."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.5/automorphic-induction-register",
+          "verdict": "corrected",
+          "note": "Source checked: arthur-2003, §4, Conjecture (Langlands [L1]) for G′ = {1}, p. 45 (Bull. AMS 40 (2003)). Cyclic induction cusp criterion requires full orbit under every nonidentity conjugate; corrected. R17.5 owns soluble weight-one Artin, and ET.7a owns higher rank. The registry is an import list, not an implication to general functoriality."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.5/functoriality-conjecture",
+          "verdict": "unverifiable",
+          "note": "Source checked: arthur-2003, §4, Conjecture (Langlands [L1]), pp. 44–45 (Bull. AMS 40 (2003)). Arthur2003 §4 conjecture concerns number fields and an actual L-morphism with parameter/relevance compatibility. Define that conjecture with precise objects; unrelated local transfer functions in GeneralContext do not provide its functoriality API."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.5/global-langlands-reciprocity-conjecture",
+          "verdict": "unverifiable",
+          "note": "Source checked: arthur-2003, §4, Conjecture (Langlands [L1]) for G′ = {1}, p. 45 (Bull. AMS 40 (2003)). Arthur2003 gives the reciprocity frontier, not full strong-Artin/local-factor comparison. Weak matching must be distinguished from the corrected strong predicate; motive/Galois realization and every-place factors need their actual owners."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.5/local-langlands-conjecture-general",
+          "verdict": "corrected",
+          "note": "Source checked: arthur-2003, §5, p. 47 (Bull. AMS 40 (2003)). Arthur2003 §5 general local LLC is conjectural, with known GL_n characteristic-zero ET.6 as a subcase. Add that direct prerequisite; arbitrary local fields and every reductive group are not proved by ET.6’s mixed-characteristic scope."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.5/categorical-local-langlands-conjecture",
+          "verdict": "corrected",
+          "note": "Source checked: fargues-scholze-2021, §I.10, Conjecture I.10.2, p. 38 (arXiv:2102.13459v4). FS I.10.2 is the canonical right-adjoint compact/coherent equivalence with nilpotent singular support and coefficient hypotheses. Correct packet/API. Ordinary CategoricalContext plus existence of a fully faithful functor omits canonicality, compacts, essential surjectivity and stable infinity-categorical carriers."
+        },
+        {
+          "nodeId": "ModularityAndLanglandsExtensions:ML.5/symmetric-power-functoriality-implies-ramanujan",
+          "verdict": "corrected",
+          "note": "Source checked: acc-2023, §1, paragraph after Theorem 1.0.2, p. 3 (arXiv:1812.09999v2). Ramanujan argument requires unitary cuspidal constituents for unbounded symmetric powers and actual local matching. Correct hypotheses and potential-base-change scaling α↦α^f,q↦q^f; the suggested Isobaric predicate alone remains insufficient."
+        }
+      ]
     }
   ]
 }

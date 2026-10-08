@@ -1,0 +1,20 @@
+# Handoff: completed Langlands fix review 4
+
+Issue #7451; Codex `codex-pGPoCc`; 8 October 2026. Completed independent review, not a checkpoint. The reviewed fix is PR #7714 / `14346e3621eaad902f62c628f7e3bebe03a3b5e0`, written by another session. The base was `31a55958f`.
+
+The [review report](../reviews/REV-FIX-RT-AREA-langlands-2~4.md) contains every finding's verdict and reason, thirteen file verdicts, source URLs/version hashes, exact retained blockers, baseline and graph checks, and companion receipts. Only packet review/history metadata and this job's report/handoff change. No new mathematical correction was necessary; no packet status, coverage, implementation claim, API, test or suggested declaration changes. Prior top-level review objects, including the full ML checked ledger, are preserved in `reviewHistory`.
+
+Eleven packet fix verdicts are accepted. The two needs_changes verdicts are deliberate completed-review outcomes:
+
+- `GL2ModularityLifting--R22.1`: its CHT imports are right, but fifteen finite-level definitions/constructions still lack active signatures for 53 APIs and 46 tests. The report lists all fifteen nodes. Promote actual API lemmas consumed by patching/delta-actions, including auxiliary U_v comparison and framed-module faithfulness, and resolve the three specifically recorded bundles. Follow the never-accepted base review and Langlands fix review 3.
+- `ModularityAndLanglandsExtensions`: the weight-one Artin connection is right, but supplier coherence laws, exact conditional assumptions, NT/Mok/FS/ACC signatures, proof suppliers and coarse stage-order objections from its own base review survive. The complete old per-node ledger is retained in history; resume from that review rather than treating the Artin edit as base acceptance.
+
+The two earlier automorphic reader rejections are discharged for these scoped verdicts by the intervening merged fix PR #7713. The current 57-node transfer and 58-node Hilbert readers were checked against all packet statement/hypothesis/proof/dependency/API/test/locator fields, and the disputed mathematical passages were read independently. This review does not certify all other legacy prose/sketches as literal packet renderings.
+
+Every packet passes `scripts/check_blueprint.py` with zero errors/warnings. A registry of 28,673 concrete node IDs visits 5,191 from the 836 reviewed nodes without a reachable declaration cycle. Fifteen R33.1–R33.4 nodes have no forbidden classical ancestor. The stage simulation still reproduces R26 contamination of R33.2–R33.5; deleting R26.6→R27.1 removes it while preserving R33.6's classical ancestors.
+
+Maintainer work remains: apply the early/late R27.1 split or equivalent edge correction; synchronize lifting-owner and published locator stage/RS wording; apply the Local lattice/ordinary ordering proposals; add L7/L8/G8→PA.3. Outside-file source/interface jobs remain explicit in findings 7, 9, 17, 22, 31–35, 38 and 40. No upstream Tau Ceti roadmap or accepted structural result is replanned, edited or promoted here.
+
+Fresh sequential `lean-check` runs: twelve companions elaborate with only admitted-proof warnings. PM R23.1 stops at missing prebuilt `TauCeti.AlgebraicGeometry.LineBundle.Class`; full elaboration is unverified. Mathlib is exactly `082e2d37e8b0463410cdb532e111cd43d5a66174`. The shared Tau Ceti build is `cf386627e9176a3827c1a5fe804989fd94a4d216`, not `f790474821cf4256814db967cb154e7af3d0c369`, so those receipts do not certify the Tau Ceti pin. The 116 distinct cited baseline declarations were inspected from exact pinned source objects separately. No library was built or updated and no language server was started.
+
+All durable evidence needed by another worker is in the report and preserved packet review histories. Scratch contains only disposable public-source readings/scripts/logs and is removed after opening the PR. No private library source was required. No process belonging to this job remains compiling, and no second job is claimed.
