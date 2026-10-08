@@ -1956,6 +1956,17 @@
     "data/blueprints/RankZeroOneBSD--BSD.7.md"
    ]
   },
+  "research/blueprint/packets/RelativeFarguesFontaine--RF4.json": {
+   "promotedAt": "2026-10-08T14:13:02Z",
+   "review": "a5aac38de52085f3",
+   "reviewDate": "2026-10-08",
+   "reviewer": "independent-review-REV-RelativeFarguesFontaine--RF4~2",
+   "sha256": "ccc1695b4f7a1394ebb5a2ebb2966318ded9dbc49f33c8ff2172ff4268bce619",
+   "to": [
+    "data/blueprints/RelativeFarguesFontaine--RF4.json",
+    "data/blueprints/RelativeFarguesFontaine--RF4.md"
+   ]
+  },
   "research/blueprint/packets/SchemeAndStackFoundations.json": {
    "promotedAt": "2026-10-05T03:18:44Z",
    "review": "86a1c84075b47966",

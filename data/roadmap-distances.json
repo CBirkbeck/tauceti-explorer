@@ -5237,14 +5237,14 @@
     "depth": 36,
     "suppliers": 23,
     "declarationLevel": {
-     "source": "decomposition",
+     "source": "blueprint",
      "reviewed": true,
-     "declarations": 24,
-     "missingDeclarations": 24,
-     "depth": 4,
-     "layersCovered": 8,
+     "declarations": 23,
+     "missingDeclarations": 23,
+     "depth": 8,
+     "layersCovered": 2,
      "layers": 8,
-     "sourcePages": 31
+     "sourcePages": 36
     }
    },
    "measurement": 5.33,
