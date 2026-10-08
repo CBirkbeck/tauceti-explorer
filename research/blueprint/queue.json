@@ -46241,8 +46241,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-CrystallineLocalGlobalCompatibilityCM.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7462"
+   "state": "external",
+   "note": "claimed on GitHub issue #7462"
   },
   {
    "id": "REV-PKG-CrystallineLocalGlobalCompatibilityCM",
@@ -47177,8 +47177,9 @@
     "PKG-IntegralHeckeAndGaloisDeterminants"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-IntegralHeckeAndGaloisDeterminants.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7484"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7484",
+   "finishedAt": "2026-10-08T21:33:53Z"
   },
   {
    "id": "PKG-JacobianChallengePartII",
@@ -47239,8 +47240,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-LocalGaloisDeformationRings.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7479"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7479",
+   "finishedAt": "2026-10-08T21:33:57Z"
   },
   {
    "id": "REV-PKG-LocalGaloisDeformationRings",
@@ -47455,7 +47457,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-PotentialAutomorphyInfrastructure.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7480"
   },
   {
    "id": "REV-PKG-PotentialAutomorphyInfrastructure",
