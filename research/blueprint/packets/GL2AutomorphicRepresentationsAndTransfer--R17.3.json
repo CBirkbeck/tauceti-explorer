@@ -2041,7 +2041,9 @@
         "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-boundary-nonvanishing",
         "GL2AutomorphicRepresentationsAndTransfer:R17.4/adjoint-lift",
         "GL2AutomorphicRepresentationsAndTransfer:R17.4/cubic-character-induction",
-        "AutomorphicLFunctionsAndLocalFactors:AL.2/jacquet-shalika-satake-bound"
+        "AutomorphicLFunctionsAndLocalFactors:AL.2/jacquet-shalika-satake-bound",
+        "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-local-convergence",
+        "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-local-factor"
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Automorphic/GL2/Transfer",
@@ -4325,7 +4327,7 @@
     },
     {
       "supplier": "AutomorphicLFunctionsAndLocalFactors:AL.3",
-      "need": "GL₃ and GL₂×GL₃ Rankin–Selberg local and global factors, all-place functional equations, vertical-strip bounds, the Jacquet–Shalika pole criterion and nonvanishing on Re s=1 for GL₃. For irreducible unitary generic representations of GL_n and GL_m at any place, ramified finite and archimedean places included, the local Rankin–Selberg L-factor is holomorphic on Re s≥1 (absolute convergence of the local integrals there); R17.4/gl3-recognition uses it for the omitted factors at s=1, beyond the unramified AL.2/jacquet-shalika-satake-bound. The GL_n converse theorem is the proposed AL.3b and is recorded as a gap.",
+      "need": "GL₃ and GL₂×GL₃ Rankin–Selberg local and global factors, all-place functional equations, vertical-strip bounds, the Jacquet–Shalika pole criterion and nonvanishing on Re s=1 for GL₃. For irreducible unitary generic representations of GL_n and GL_m at any place, ramified finite and archimedean places included, the local Rankin–Selberg L-factor is holomorphic on Re s≥1 (absolute convergence of the local integrals there); R17.4/gl3-recognition uses it for the omitted factors at s=1, beyond the unramified AL.2/jacquet-shalika-satake-bound. The GL_n converse theorem is the proposed AL.3b and is recorded as a gap. The local convergence and factor contracts are now planned by AL.3/rs-local-convergence and AL.3/rs-local-factor; this request retains their implementation and source-proof obligations and the highly ramified T-converse variant.",
       "neededBy": [
         "GL2AutomorphicRepresentationsAndTransfer:R17.4/adjoint-lift",
         "GL2AutomorphicRepresentationsAndTransfer:R17.4/cubic-character-induction",
@@ -4556,7 +4558,7 @@
         "GL2AutomorphicRepresentationsAndTransfer:R17.4/gl3-recognition",
         "GL2AutomorphicRepresentationsAndTransfer:R17.4/nonnormal-cubic-base-change"
       ],
-      "detail": "AL.3/gln-converse-full-rank and AL.3/gln-converse-reduced-rank now give the single generic owner contracts; G16 in that packet retains the original proof interiors and native signature carriers. R17.4a uses the reduced-rank node at n=3; R16.5 uses the full-rank node at n=2 with separately checked twist, growth, pole and archimedean hypotheses. Gelbart–Jacquet §9.2’s highly ramified T-twist variant still needs its original source and proof decomposition. The existing AL.3/rs-global-poles and rs-boundary-nonvanishing supply the generic analytic contracts for the unitary cuspidal GL₃ comparison. No GL₃ isobaric strong multiplicity-one theorem is inferred. The proposed AL.3b prefix must precede both GL₂ consumers without importing them. The highly ramified T-statement was reread in GJ78 §9.1–§9.2, printed pp.531–534, and is not supplied by twists unramified at S. The partial Rankin–Selberg pole comparison also needs every omitted local factor to be finite at s=1. At unramified omitted places this is AL.2/jacquet-shalika-satake-bound. At ramified finite and archimedean places it is the absolute convergence for Re s≥1 of the local Rankin–Selberg integrals of unitary generic components (Cogdell, Lectures 6 and 8, as used in Theorem 9.3), which no AL node states yet; it is requested from AL.3."
+      "detail": "AL.3/gln-converse-full-rank and AL.3/gln-converse-reduced-rank now give the single generic owner contracts; G16 in that packet retains the original proof interiors and native signature carriers. R17.4a uses the reduced-rank node at n=3; R16.5 uses the full-rank node at n=2 with separately checked twist, growth, pole and archimedean hypotheses. Gelbart–Jacquet §9.2’s highly ramified T-twist variant still needs its original source and proof decomposition. The existing AL.3/rs-global-poles and rs-boundary-nonvanishing supply the generic analytic contracts for the unitary cuspidal GL₃ comparison. No GL₃ isobaric strong multiplicity-one theorem is inferred. The proposed AL.3b prefix must precede both GL₂ consumers without importing them. The highly ramified T-statement was reread in GJ78 §9.1–§9.2, printed pp.531–534, and is not supplied by twists unramified at S. The partial Rankin–Selberg pole comparison also needs every omitted local factor to be finite at s=1. At unramified omitted places this is AL.2/jacquet-shalika-satake-bound. At ramified finite and archimedean places AL.3/rs-local-convergence now states absolute convergence on Re s≥1 for unitary generic local components; together with AL.3/rs-local-factor this supplies the omitted-factor holomorphy contract. Cogdell, Lectures 6 and 8, as used in Theorem 9.3, pp.74–75, gives the analytic input. Its native carriers and original proof interiors remain with AL; the highly ramified T-converse gap remains."
     },
     {
       "title": "Original JPSS nonnormal cubic transfer proof",

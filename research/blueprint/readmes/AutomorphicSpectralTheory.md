@@ -996,25 +996,34 @@ Let H_ε(t)=t^(−s)∫₀^π exp(εi(t cosθ+μθ))M_{μ,s−1/2}(2t sinθ)dθ/
 
 ### 32. Series expansion (A.2) of the Whittaker cycle integral
 
-**Theorem** · `AutomorphicSpectralTheory:AS.0/dit-appendix-a2-series-of-whittaker-cycle-integral`
+**Declaration:** `TauCeti.AutomorphicSpectral.dit_appendix_a2_series_of_whittaker_cycle_integral`; theorem; node `AutomorphicSpectralTheory:AS.0/dit-appendix-a2-series-of-whittaker-cycle-integral`.
 
 For μ ∈ ℂ, Re(s) > 0 and t > 0, ∫_0^π e^{i(t cos θ+μθ)} M_{μ,s−1/2}(2t sin θ) dθ/sin θ = 2π e(μ/4) Γ(2s) Σ_{ℓ≥0} Σ_{m+n=ℓ} (−1)^m (s−μ)_n Γ(s+n) / ( m! n! Γ(2s+n) Γ((n+s+m+μ+1)/2) Γ((n+s−m−μ+1)/2) ) · t^{s+ℓ}. The double series converges absolutely for every t, and the reciprocal gammas are entire. The paper writes (s−μ)_n as Γ(s−μ+n)/Γ(s−μ), so the printed prefactor is 2π e(μ/4)Γ(2s)/Γ(s−μ).
 
-**Hypotheses.** Γ=PSL₂(ℤ), positive Laplacian Δ=−y²(∂x²+∂y²), dμ=dxdy/y²; e(x)=exp(2πix). The parameter, sign, nonzero-index and boundary assumptions in the statement are retained; ⟪u,v⟫ is conjugate-linear in u.
+**Hypotheses.**
 
-**Proof work.**
+- Γ=PSL₂(ℤ), positive Laplacian Δ=−y²(∂x²+∂y²), dμ=dxdy/y²; e(x)=exp(2πix).
+- The parameter, sign, nonzero-index and boundary assumptions in the statement are retained; ⟪u,v⟫ is conjugate-linear in u.
+
+**Construction or proof.**
 
 1. Expand the regularized Whittaker ₁F₁ series and the angular exponential in their initial domain.
 2. Use the endpoint sin^(σ−1) majorant for termwise integration and evaluate the beta integrals for the even surviving powers.
 3. Collect the coefficients in the stated Pochhammer notation, preserving the gamma normalization and powers of2.
 
-**Dependencies.** `AutomorphicSpectralTheory:AS.0/dit-112`, `mathlib:hasDerivAt_integral_of_dominated_loc_of_deriv_le`, `mathlib:Complex.Gamma_mul_Gamma_add_half`.
+**Direct prerequisites.** `AutomorphicSpectralTheory:AS.0/dit-112`, `mathlib:hasDerivAt_integral_of_dominated_loc_of_deriv_le`, `mathlib:Complex.Gamma_mul_Gamma_add_half`.
 
-**Proposed declaration.** `TauCeti.AutomorphicSpectral.dit_appendix_a2_series_of_whittaker_cycle_integral`.
+**Proposed library location.** `TauCeti/Automorphic/Spectral/AS0`, namespace `TauCeti.AutomorphicSpectral`.
 
-**Acceptance checks.** Keep the named coefficient normalization and all domain restrictions; use limits at meromorphic exceptional parameters.
+**Acceptance checks.**
 
-**Source.** [William Duke, Özlem İmamoğlu and Árpád Tóth, Geometric Invariants for Real Quadratic Fields](https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n3-p08-p.pdf), Appendix A, (A.2), p. 985 (derivation p. 984). Passage: “and (a)n = (a) gives Z ⇡ d✓ (A.2) ei(t cos ✓+µ✓) Mµ,s 1/2 (2t sin ✓) 0 sin ✓ (2s) = (2⇡)e(µ/4) (s µ) 1 X X ( 1)m (s µ + n) (s + n) s+` ⇥ n+s+m+µ+1 n+s m µ+1 t”. The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation.
+- Keep the named coefficient normalization and all domain restrictions; use limits at meromorphic exceptional parameters.
+
+**Sources.**
+
+- [William Duke, Özlem İmamoğlu and Árpád Tóth, Geometric Invariants for Real Quadratic Fields](https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n3-p08-p.pdf), Appendix A, (A.2), p. 985 (derivation p. 984). The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation.
+
+**Implementation status:** `unchecked`.
 
 ### 33. Series expansion (A.3) of G(s,μ) t^{1/2} J_{s−1/2}(t)
 
@@ -1555,85 +1564,115 @@ For cuspidal inducing φ∈H_P,cusp⁰, the N_Q constant term of E_P equals the 
 
 ### 6. Paley–Wiener pseudo-Eisenstein series
 
-**Construction** · `AutomorphicSpectralTheory:AS.1/pseudo-eisenstein` · Planet: **Pseudo-Eisenstein series**
+**Declaration:** `TauCeti.AutomorphicSpectral.pseudo_eisenstein`; construction; node `AutomorphicSpectralTheory:AS.1/pseudo-eisenstein`.
 
-Fix cuspidal data (P,σ). Let Ψ:𝔞_P,ℂ*→H_P,cusp,σ⁰ be entire, valued in one finite-dimensional subspace, and the Fourier–Laplace transform of a smooth compactly supported function on 𝔞_P. Set ψ(g)=∫_{Λ+i𝔞_P*}exp((λ+ρ_P)H_P(g))Ψ(λ,g)dλ and Eψ(g)=Σ_{P(F)\G(F)}ψ(δg). Fourier inversion makes ψ compactly supported in H_P, so the result is independent of Λ. The dual measure satisfies ∫_{i𝔞*}∫_𝔞 h(H)e^(−λ(H))dH dλ=h(0); no extra (2π)^rank factor is inserted.
+Fix cuspidal data (P,σ). Let Ψ:(𝔞_P^G)_ℂ*→H_P,cusp,σ⁰ be entire, valued in one finite-dimensional subspace, and the Fourier–Laplace transform of a smooth compactly supported function on 𝔞_P^G. Set ψ(g)=∫_{Λ+i(𝔞_P^G)*}exp((λ+ρ_P)H_P(g))Ψ(λ,g)dλ and Eψ(g)=Σ_{P(F)\G(F)}ψ(δg). Fourier inversion makes ψ compactly supported in the projected height H_P^G, so the result is independent of Λ. The dual measure satisfies ∫_{i(𝔞_P^G)*}∫_{𝔞_P^G} h(H)e^(−λ(H))dH dλ=h(0); no extra (2π)^rank factor is inserted. This is the fixed trivial A_G(ℝ)⁰-character version on G(F)\G(𝔸)¹ (equivalently the quotient by A_G(ℝ)⁰): λ vanishes on 𝔞_G and the inducing central action is compatible. Arthur Lemmas12.2–12.4 first use all of 𝔞_P and L²(G(F)\G(𝔸)); that full-height version is a separate construction and does not automatically descend to the central quotient.
 
-**Hypotheses.** The compact-picture coefficient space is fixed and finite dimensional; Ψ is Paley–Wiener, not merely an arbitrary entire function.
+**Hypotheses.**
 
-**Proof work.**
+- The compact-picture coefficient space is fixed and finite dimensional; Ψ is Paley–Wiener, not merely an arbitrary entire function.
+- Fix the trivial split-central character, parameters in (𝔞_P^G)_ℂ* and the matching central restriction of the inducing datum. In the full-height variant use 𝔞_P and the full arithmetic quotient instead.
 
-1. Apply scalar Fourier inversion componentwise to construct ψ with compact height support.
+**Construction or proof.**
+
+1. Apply scalar Fourier inversion componentwise on 𝔞_P^G with the chosen dual measure; first restrict the central datum and parameter space, then construct ψ with compact projected-height support.
 2. Use reduction theory and cusp decay for its automorphic sum.
 3. Apply chamber convergence to express Eψ as a shifted contour integral of E_P.
 
-**Dependencies.** `AutomorphicSpectralTheory:AS.1/induced-family`, `AutomorphicSpectralTheory:AS.1/eisenstein-series`, `AutomorphicSpectralTheory:AS.1/convergent-intertwiner`, `AutomorphicLFunctionsAndLocalFactors:AL.0`.
-
-**Uses that determine the interface.**
+**Consumers determining the API.**
 
 - Langlands Lemma 12.3: Unfolding their pairings gives a positive form involving convergent intertwiners.
 - AS.2 continuation: These vectors provide the elementary Hilbert-space decomposition used in contour shifting.
-
-**Proposed declaration.** `TauCeti.AutomorphicSpectral.pseudo_eisenstein`.
 
 **API.**
 
 - `TauCeti.AutomorphicSpectral.pseudo_eisenstein.contour_independent` (characterisation): The inverse-transform ψ is independent of the real shift Λ.
 - `TauCeti.AutomorphicSpectral.pseudo_eisenstein.linear` (structure): Ψ↦Eψ is complex linear.
-- `TauCeti.AutomorphicSpectral.pseudo_eisenstein.eisenstein_integral` (compatibility): For Λ in the positive chamber, Eψ(g)=∫ E_P(g,Ψ(λ),λ)dλ.
+- `TauCeti.AutomorphicSpectral.pseudo_eisenstein.eisenstein_integral` (compatibility): For Λ with Λ−ρ_P in the open positive chamber (the absolute-convergence region of AS.1/eisenstein-convergence), Eψ(g)=∫_{Λ+i(𝔞_P^G)*} E_P(g,Ψ(λ),λ)dλ.
 
-**Tests.**
+**Unit tests.**
 
 - `TauCeti.AutomorphicSpectral.pseudo_eisenstein.zero` (degenerate): The zero Paley–Wiener section gives zero.
-- `TauCeti.AutomorphicSpectral.pseudo_eisenstein.split_torus` (compatibility): For a split torus, P=G and the construction is ordinary inverse Fourier–Laplace transformation on its real height space.
-- `TauCeti.AutomorphicSpectral.pseudo_eisenstein.wrong_entire_growth` (non-example): Ψ(z)=exp(z⁴)v is entire but not Paley–Wiener and does not qualify for this construction.
+- `TauCeti.AutomorphicSpectral.pseudo_eisenstein.split_torus` (compatibility): For a split torus in the full-height variant, P=G and Eψ is ordinary inverse Fourier–Laplace transformation on 𝔞_G; in the fixed-central-character version 𝔞_P^G=0, so this height transform is absent.
+- `TauCeti.AutomorphicSpectral.pseudo_eisenstein.wrong_entire_growth` (non-example): For V=ℂ, Ψ(z)=exp(z⁴) is entire but not Paley–Wiener and does not qualify for this construction. More generally exp(z⁴)v is excluded only when v≠0.
 
-**Acceptance checks.** Compact height support does not mean compact support in the full arithmetic quotient.
+**Direct prerequisites.** `AutomorphicSpectralTheory:AS.1/induced-family`, `AutomorphicSpectralTheory:AS.1/eisenstein-series`, `AutomorphicSpectralTheory:AS.1/convergent-intertwiner`, `AutomorphicLFunctionsAndLocalFactors:AL.0`.
 
-**Source.** [James Arthur, An Introduction to the Trace Formula](https://www.claymath.org/library/cw/arthur/pdf/62.pdf), §12 preceding Lemma 12.2. Passage: “of Paley-Wiener type, with 0 values in a finite dimensional subspace of functions x → Ψ(λ, x) in HP,cusp,σ”. The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation.
+**Proposed library location.** `TauCeti/Automorphic/Spectral/AS1`, namespace `TauCeti.AutomorphicSpectral`.
+
+**Acceptance checks.**
+
+- Compact height support does not mean compact support in the full arithmetic quotient.
+- For G=G_m, a nonconstant smooth compactly supported function of log|g| is a full-height pseudo-Eisenstein function and does not descend through A_G(ℝ)⁰. The two parameter conventions must remain distinct.
+
+**Sources.**
+
+- [James Arthur, An Introduction to the Trace Formula](https://www.claymath.org/library/cw/arthur/pdf/62.pdf), §12 preceding Lemma 12.2. The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation.
+
+**Atlas planet:** Pseudo-Eisenstein series.
+
+**Implementation status:** `unchecked`.
 
 ### 7. Square-integrability of pseudo-Eisenstein series
 
-**Theorem** · `AutomorphicSpectralTheory:AS.1/pseudo-eisenstein-l2`
+**Declaration:** `TauCeti.AutomorphicSpectral.pseudo_eisenstein_l2`; theorem; node `AutomorphicSpectralTheory:AS.1/pseudo-eisenstein-l2`.
 
-Every pseudo-Eisenstein series just defined belongs to L²(G(F)\G(𝔸)/A_G(ℝ)⁰); equivalently use the G(𝔸)¹ version with 𝔞_P^G and the corresponding central restriction. The assertion applies to finite-dimensional cuspidal Paley–Wiener sections. It does not assert square-integrability of an individual Eisenstein series on the unitary axis.
+For the fixed-central-character pseudo-Eisenstein series just defined, Eψ belongs to L²(G(F)\G(𝔸)¹), equivalently L²(G(F)\G(𝔸)/A_G(ℝ)⁰), using parameters and compact height support in 𝔞_P^G. If one instead uses the full 𝔞_P transform of Arthur Lemma12.2, the target is L²(G(F)\G(𝔸)); no descent through the split centre is asserted for an arbitrary full-height section. Both assertions concern finite-dimensional cuspidal Paley–Wiener sections, not an individual unitary-axis Eisenstein series.
 
-**Hypotheses.** Cuspidal inducing vectors; smooth compact height support before summation; compatible quotient measures.
+**Hypotheses.**
 
-**Proof work.**
+- Cuspidal inducing vectors; smooth compact height support before summation; compatible quotient measures.
+- The split-central convention and height space agree with the preceding construction; the full-height and fixed-central variants are not identified.
+
+**Construction or proof.**
 
 1. Unfold the squared pairing in a positive chamber.
 2. Apply cusp orthogonality and convergent intertwiner bounds to the finite Weyl sum; rapid vertical decay makes its integral finite.
 
-**Dependencies.** `AutomorphicSpectralTheory:AS.1/pseudo-eisenstein`, `AutomorphicSpectralTheory:AS.1/convergent-intertwiner`, `mathlib:MeasureTheory.integral_prod`.
+**Direct prerequisites.** `AutomorphicSpectralTheory:AS.1/pseudo-eisenstein`, `AutomorphicSpectralTheory:AS.1/convergent-intertwiner`, `mathlib:MeasureTheory.integral_prod`.
 
-**Proposed declaration.** `TauCeti.AutomorphicSpectral.pseudo_eisenstein_l2`.
+**Proposed library location.** `TauCeti/Automorphic/Spectral/AS1`, namespace `TauCeti.AutomorphicSpectral`.
 
-**Acceptance checks.** SL₂ E(z,1/2+it) is a generalized eigenfunction; smearing the spectral parameter gives L² wave packets.
+**Acceptance checks.**
 
-**Source.** [James Arthur, An Introduction to the Trace Formula](https://www.claymath.org/library/cw/arthur/pdf/62.pdf), §12 Lemma 12.2. Passage: “lies in L G(Q)\G(A)”. The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation.
+- SL₂ E(z,1/2+it) is a generalized eigenfunction; smearing the spectral parameter gives L² wave packets.
+
+**Sources.**
+
+- [James Arthur, An Introduction to the Trace Formula](https://www.claymath.org/library/cw/arthur/pdf/62.pdf), §12 Lemma 12.2. The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation.
+
+**Implementation status:** `unchecked`.
 
 ### 8. Langlands pseudo-Eisenstein inner product
 
-**Theorem** · `AutomorphicSpectralTheory:AS.1/pseudo-eisenstein-inner-product`
+**Declaration:** `TauCeti.AutomorphicSpectral.pseudo_eisenstein_inner_product`; theorem; node `AutomorphicSpectralTheory:AS.1/pseudo-eisenstein-inner-product`.
 
-With Mathlib’s conjugate-first inner product, ⟪Eψ′,Eψ⟫=∫_{Λ+i𝔞_P*}Σ_{w∈W(𝔞_P,𝔞_Q)}⟪Ψ′(−overline(wλ)),M(w,λ)Ψ(λ)⟫dλ, where Ψ is attached to (P,σ), Ψ′ to (Q,σ′), and Λ−ρ_P is positive. Only compatible inducing cuspidal isotypic spaces contribute. The conjugation in −overline(wλ) is essential: the second section is evaluated on the reflected real contour. On an imaginary contour after justified continuation this becomes wλ.
+With Mathlib’s conjugate-first inner product, ⟪Eψ′,Eψ⟫=∫_{Λ+i(𝔞_P^G)*}Σ_{w∈W(𝔞_P,𝔞_Q)}⟪Ψ′(−overline(wλ)),M(w,λ)Ψ(λ)⟫dλ, where Ψ is attached to (P,σ), Ψ′ to (Q,σ′), and Λ−ρ_P is positive. Only compatible inducing cuspidal isotypic spaces contribute. The conjugation in −overline(wλ) is essential: the second section is evaluated on the reflected real contour. On an imaginary contour after justified continuation this becomes wλ. Use the same fixed-central datum and quotient as pseudo-eisenstein. For the full-height version replace 𝔞_P^G by 𝔞_P and use the full arithmetic quotient on both sides.
 
-**Hypotheses.** Paley–Wiener sections of the preceding construction; the equality is first proved in the absolute-convergence chamber.
+**Hypotheses.**
 
-**Proof work.**
+- Paley–Wiener sections of the preceding construction; the equality is first proved in the absolute-convergence chamber.
+- Central restriction, contour dimension and both L² measures use the same variant; conjugation is retained in the reflected contour.
+
+**Construction or proof.**
 
 1. Unfold Eψ′ against Eψ and take the cuspidal constant term.
 2. Use the finite Weyl formula and Fourier inversion in the height coordinate.
 3. Conjugate Langlands’s linear-first convention to match the stated conjugate-first convention; use dominated Fubini.
 
-**Dependencies.** `AutomorphicSpectralTheory:AS.1/pseudo-eisenstein-l2`, `AutomorphicSpectralTheory:AS.1/cuspidal-constant-term`, `mathlib:MeasureTheory.integral_prod`.
+**Direct prerequisites.** `AutomorphicSpectralTheory:AS.1/pseudo-eisenstein-l2`, `AutomorphicSpectralTheory:AS.1/cuspidal-constant-term`, `mathlib:MeasureTheory.integral_prod`.
 
-**Proposed declaration.** `TauCeti.AutomorphicSpectral.pseudo_eisenstein_inner_product`.
+**Proposed library location.** `TauCeti/Automorphic/Spectral/AS1`, namespace `TauCeti.AutomorphicSpectral`.
 
-**Acceptance checks.** For P=G with no height coordinate, the formula is the ordinary cuspidal inner product.
+**Acceptance checks.**
 
-**Source.** [Robert P. Langlands, Eisenstein Series](https://publications.ias.edu/sites/default/files/Eisenstein-series-rpl_0.pdf), §4 Corollary formula (2). Passage: “a formula which is basic for everything to follow. Corollary. Suppose P and P 0 are associate standard cuspidal subgroups, V and V 0 are associate admissible subspaces, φ belongs to D(V, W ), and ψ belongs to D(V 0 , W )”. The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation.
+- For P=G with no height coordinate, the formula is the ordinary cuspidal inner product.
+
+**Sources.**
+
+- [Robert P. Langlands, Eisenstein Series](https://publications.ias.edu/sites/default/files/Eisenstein-series-rpl_0.pdf), §4 Corollary formula (2). The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation.
+
+**Implementation status:** `unchecked`.
 
 ### 9. Cuspidal-data generated subspaces
 
@@ -4451,86 +4490,116 @@ For an ordinary cohomology Hecke eigenclass of the arithmetic quotient of Res_{F
 
 ### 1. Real invariant Paley–Wiener theorem
 
-**Theorem** · `AutomorphicSpectralTheory:AS.6/real-invariant-paley-wiener` · Planet: **Invariant Paley–Wiener theorem**
+**Declaration:** `TauCeti.AutomorphicSpectral.real_invariant_paley_wiener`; theorem; node `AutomorphicSpectralTheory:AS.6/real-invariant-paley-wiener`.
 
 For a real reductive algebraic group G with maximal compact K and radius r>0, the trace transforms of smooth bi-K-finite functions supported in the radius-r ball are exactly the collections F_i(δ,ν) on basic representations induced from limits of discrete series of Levi subgroups satisfying: finite support in δ; entire scalar Paley–Wiener bounds of type r in ν; K-conjugacy/Weyl invariance; and every induction-in-stages additivity relation (iv) of Clozel–Delorme Theorem 1. The LF image carries the quotient topology. All four conditions are required; a Weyl-invariant entire function alone is insufficient.
 
-**Hypotheses.** The real reductive algebraic setting and basic representations of Clozel–Delorme §0; Haar, norm/radius, and normalized induction are fixed.
+**Hypotheses.**
 
-**Proof work.**
+- The real reductive algebraic setting and basic representations of Clozel–Delorme §0; Haar, norm/radius, and normalized induction are fixed.
+- The induced families in this local theorem come from the requested AF.1 real-parabolic compact picture, not AS.1 global adelic automorphic induction.
+
+**Construction or proof.**
 
 1. Use minimal K-types to reduce to a single discrete-series datum.
 2. Apply the operator Paley–Wiener construction and the affiliation/induction relations.
 3. Reassemble finitely many discrete parameters, keeping the prescribed support radius.
 
-**Dependencies.** `AutomorphicSpectralTheory:AS.0/nuclear-lf-space`, `AutomorphicSpectralTheory:AS.1/induced-family`, `AutomorphicFormsOnReductiveGroups:AF.1`.
+**Direct prerequisites.** `AutomorphicSpectralTheory:AS.0/nuclear-lf-space`, `AutomorphicFormsOnReductiveGroups:AF.1`, `AutomorphicFormsOnReductiveGroups:AF.1/sf-representation`.
 
-**Proposed declaration.** `TauCeti.AutomorphicSpectral.real_invariant_paley_wiener`.
+**Proposed library location.** `TauCeti/Automorphic/Spectral/AS6`, namespace `TauCeti.AutomorphicSpectral`.
 
-**Acceptance checks.** The invariant theorem is a trace image theorem, not injectivity of the trace map.
+**Acceptance checks.**
 
-**Source.** [Laurent Clozel and Patrick Delorme, Le théorème de Paley-Wiener invariant pour les groupes de Lie réductifs II](https://www.numdam.org/article/ASENS_1990_4_23_2_193_0.pdf), §0 Theorem 1(i)–(iv), pp.194–195; §5 Theorem 1′. Passage: “Les conditions (a) et (b) suivantes sont équivalentes. (a) II existe feC^ (G, K), telle que ¥i (8, v) = tr 7i^ ^ (/) /WMr î=l,”. The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation.
+- The invariant theorem is a trace image theorem, not injectivity of the trace map.
+
+**Sources.**
+
+- [Laurent Clozel and Patrick Delorme, Le théorème de Paley-Wiener invariant pour les groupes de Lie réductifs II](https://www.numdam.org/article/ASENS_1990_4_23_2_193_0.pdf), §0 Theorem 1(i)–(iv), pp.194–195; §5 Theorem 1′. The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation.
+
+**Atlas planet:** Invariant Paley–Wiener theorem.
+
+**Implementation status:** `unchecked`.
 
 ### 2. Real operator Paley–Wiener theorem
 
-**Theorem** · `AutomorphicSpectralTheory:AS.6/real-operator-paley-wiener`
+**Declaration:** `TauCeti.AutomorphicSpectral.real_operator_paley_wiener`; theorem; node `AutomorphicSpectralTheory:AS.6/real-operator-paley-wiener`.
 
 For Arthur’s real reductive group G and K, Fourier transformation f↦{I_B(σ,λ,f)} is a topological algebra isomorphism C_c^∞(G,K)→PW(G,K). At fixed radius N and finite K-type set Γ it identifies C_N^∞(G)_Γ with PW_N(G)_Γ: entire finite-dimensional operator families with all seminorms sup e^(−N||Re λ||)(1+||λ||)^n||F_B(σ,λ)|| finite and all differential matrix-coefficient relations (III.4.1) inherited from the induced representations. The relations include derivatives, not just ordinary intertwining covariance.
 
-**Hypotheses.** The representation, radius and finite-K-type conventions of Arthur Acta III §4; finite-dimensional matrix coefficient spaces.
+**Hypotheses.**
 
-**Proof work.**
+- The representation, radius and finite-K-type conventions of Arthur Acta III §4; finite-dimensional matrix coefficient spaces.
+- The induced families in this local theorem come from the requested AF.1 real-parabolic compact picture, not AS.1 global adelic automorphic induction.
+
+**Construction or proof.**
 
 1. Translate Eisenstein integrals to induced matrix coefficients using Part I §3.
 2. Use Theorem III.3.3 for Fourier surjectivity with derivative relations.
 3. Fourier inversion gives injectivity and the LF topology; convolution becomes operator multiplication.
 
-**Dependencies.** `AutomorphicSpectralTheory:AS.0/vector-schwartz`, `AutomorphicSpectralTheory:AS.0/nuclear-lf-space`, `AutomorphicSpectralTheory:AS.1/induced-family`.
+**Direct prerequisites.** `AutomorphicSpectralTheory:AS.0/vector-schwartz`, `AutomorphicSpectralTheory:AS.0/nuclear-lf-space`, `AutomorphicFormsOnReductiveGroups:AF.1/sf-representation`, `AutomorphicFormsOnReductiveGroups:AF.1`.
 
-**Proposed declaration.** `TauCeti.AutomorphicSpectral.real_operator_paley_wiener`.
+**Proposed library location.** `TauCeti/Automorphic/Spectral/AS6`, namespace `TauCeti.AutomorphicSpectral`.
 
-**Acceptance checks.** A trace Paley–Wiener theorem is not substituted for this operator theorem.
+**Acceptance checks.**
 
-**Source.** [James Arthur, A Paley-Wiener Theorem for Real Reductive Groups](https://www.claymath.org/library/cw/arthur/pdf/15.pdf), III §4 Theorem 4.1, pp.84–85. Passage: “The map f--t{B: B E AM)}, fE C(G, ), is a continuous, injective map from CQ(G, T), to PWN(G, z). Proof. If fE C(G, r) and ' E so, (fB(A), (F) is the integral over x of the inner product off(x) with e('-A+QB)(HB(k)) dk. f”. The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation.
+- A trace Paley–Wiener theorem is not substituted for this operator theorem.
+
+**Sources.**
+
+- [James Arthur, A Paley-Wiener Theorem for Real Reductive Groups](https://www.claymath.org/library/cw/arthur/pdf/15.pdf), III §4 Theorem 4.1, pp.84–85. Theorem III.4.1, printed p.85, states the topological isomorphism and fixed-radius/fixed-K-type image; III.4.1 differential relations are retained.
+
+**Implementation status:** `unchecked`.
 
 ### 3. Arthur spectral multipliers
 
-**Construction** · `AutomorphicSpectralTheory:AS.6/spectral-multiplier` · Planet: **Spectral multipliers**
+**Declaration:** `TauCeti.AutomorphicSpectral.spectral_multiplier`; construction; node `AutomorphicSpectralTheory:AS.6/spectral-multiplier`.
 
 For a compactly supported W-invariant distribution γ on the real Cartan space h, and f∈C_c^∞(G,K), construct the unique f_γ with π(f_γ)=γ̂(ν_π)π(f) for every irreducible admissible π. A radius-N input and radius-N_γ distribution give radius≤N+N_γ output with the same finite K-types. The multiplier is a continuous convolution-central endomorphism of the Hecke LF space.
 
-**Hypotheses.** Real reductive group; infinitesimal character ν_π as a W-orbit; Fourier–Laplace convention γ̂(ν)=γ(exp⟨ν,·⟩).
+**Hypotheses.**
 
-**Proof work.**
+- Real reductive group; infinitesimal character ν_π as a W-orbit; Fourier–Laplace convention γ̂(ν)=γ(exp⟨ν,·⟩).
+
+**Construction or proof.**
 
 1. Multiply the operator Paley–Wiener family by γ̂(ν_σ+λ).
 2. Use polynomial approximation of the W-invariant entire transform to preserve all derivative relations.
 3. Apply operator Fourier inversion and estimate the radius and seminorms.
 
-**Dependencies.** `AutomorphicSpectralTheory:AS.6/real-operator-paley-wiener`, `AutomorphicSpectralTheory:AS.0/locally-convex-integration`.
-
-**Uses that determine the interface.**
+**Consumers determining the API.**
 
 - Arthur05 §20 Theorem 20.5: Controls the interchange of truncation and spectral cutoffs.
 - Arthur88global §6: Supplies the weak convergence estimate for the height expansion.
 
-**Proposed declaration.** `TauCeti.AutomorphicSpectral.spectral_multiplier`.
-
 **API.**
 
-- `TauCeti.AutomorphicSpectral.spectral_multiplier.character` (characterisation): π(f_γ)=γ̂(ν_π)π(f) for every admissible π.
+- `TauCeti.AutomorphicSpectral.spectral_multiplier.character` (characterisation): π(f_γ)=γ̂(ν_π)π(f) for every irreducible admissible π, with ν_π its infinitesimal-character W-orbit.
 - `TauCeti.AutomorphicSpectral.spectral_multiplier.composition` (relation): (f_γ)_η=f_(γ*η).
 - `TauCeti.AutomorphicSpectral.spectral_multiplier.support` (compatibility): A radius N input and radius N_γ multiplier have output supported in radius N+N_γ, with the same K-types.
 
-**Tests.**
+**Unit tests.**
 
 - `TauCeti.AutomorphicSpectral.spectral_multiplier.dirac` (computation): The Dirac distribution at 0 acts as identity.
 - `TauCeti.AutomorphicSpectral.spectral_multiplier.central_polynomial` (compatibility): For the distribution whose transform is the Harish-Chandra polynomial p_z, f_γ=zf.
 - `TauCeti.AutomorphicSpectral.spectral_multiplier.zero` (degenerate): The zero distribution sends every f to zero.
 
-**Acceptance checks.** Scalar multiplication on the spectral side must lift to an actual compactly supported test function.
+**Direct prerequisites.** `AutomorphicSpectralTheory:AS.6/real-operator-paley-wiener`, `AutomorphicSpectralTheory:AS.0/locally-convex-integration`.
 
-**Source.** [James Arthur, A Paley-Wiener Theorem for Real Reductive Groups](https://www.claymath.org/library/cw/arthur/pdf/15.pdf), III §4 Theorem 4.2 and its proof, pp.86–87. Passage: “For every distribution y in ([1)w and every function fE Cc(G, K), there is a unique function fy in Cc(G, K) such that r(fy) = y(v)) 7r(f) for any n E Rep (G). Proof. It is clear that fy is uniquely determined by this con”. The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation.
+**Proposed library location.** `TauCeti/Automorphic/Spectral/AS6`, namespace `TauCeti.AutomorphicSpectral`.
+
+**Acceptance checks.**
+
+- Scalar multiplication on the spectral side must lift to an actual compactly supported test function.
+
+**Sources.**
+
+- [James Arthur, A Paley-Wiener Theorem for Real Reductive Groups](https://www.claymath.org/library/cw/arthur/pdf/15.pdf), III §4 Theorem 4.2 and its proof, pp.86–87. The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation.
+
+**Atlas planet:** Spectral multipliers.
+
+**Implementation status:** `unchecked`.
 
 ### 4. Automorphic convolution kernels
 
@@ -4695,26 +4764,24 @@ For (G,M)-families c,d the product has (cd)_M=Σ_{Q∈F(M)}c_M^Q d_Q′. If c_M^
 
 ### 9. Weighted orbital integrals
 
-**Construction** · `AutomorphicSpectralTheory:AS.6/weighted-orbital-integral` · Planet: **Weighted orbital integrals**
+**Declaration:** `TauCeti.AutomorphicSpectral.weighted_orbital_integral`; construction; node `AutomorphicSpectralTheory:AS.6/weighted-orbital-integral`.
 
 For γ∈M(F_S) with connected G_γ=M_γ, define J_M^G(γ,f)=|D^G(γ)|^(1/2)∫_{G_γ(F_S)\G(F_S)} f(x⁻¹γx)v_M(x)dx. Here v_M is the zero value of the family exp(−λH_P(x)), hence the volume of the convex hull of {−H_P(x)} in a_M^G. For arbitrary γ use the canonical induced-class measure/central-shift limit of Arthur Theorem18.2, not the same integral when the centralizer condition fails. Import the unweighted orbital-integral carrier and singular extension from ET.1; this construction owns only the weight, its estimates, splitting and descent.
 
-**Hypotheses.** Local/product-local connected centralizers, compatible Haar quotient and coroot covolumes; smooth compact support; absolute convergence before identifying a distribution.
+**Hypotheses.**
 
-**Proof work.**
+- Local/product-local connected centralizers, compatible Haar quotient and coroot covolumes; smooth compact support; absolute convergence before identifying a distribution.
+
+**Construction or proof.**
 
 1. Use the convex-hull description to obtain M-left invariance and logarithmic growth of the weight.
 2. Apply the unweighted orbital integration estimate with the extra polynomial-log factor.
 3. For singular elements use the finite Levi limiting formula and induced measures, then splitting and descent.
 
-**Dependencies.** `EndoscopicTransferAndUnitaryTraceComparison:ET.1`, `AutomorphicSpectralTheory:AS.6/gm-family`, `AutomorphicSpectralTheory:AS.6/gm-splitting`.
-
-**Uses that determine the interface.**
+**Consumers determining the API.**
 
 - Arthur05 §19: Forms the local constituents of the fine geometric expansion.
 - AS.6 invariant-recursion: Its conjugation defect is canceled by lower-Levi weighted characters.
-
-**Proposed declaration.** `TauCeti.AutomorphicSpectral.weighted_orbital_integral`.
 
 **API.**
 
@@ -4722,15 +4789,27 @@ For γ∈M(F_S) with connected G_γ=M_γ, define J_M^G(γ,f)=|D^G(γ)|^(1/2)∫_
 - `TauCeti.AutomorphicSpectral.weighted_orbital_integral.full_levi` (compatibility): J_G(γ,f)=|D^G(γ)|^(1/2)O_γ(f) with the imported quotient measure.
 - `TauCeti.AutomorphicSpectral.weighted_orbital_integral.splitting` (relation): For two place sets, J_M is Σ d_M^G(L₁,L₂)J_M^{L₁}(γ₁,f₁,Q₁)J_M^{L₂}(γ₂,f₂,Q₂).
 
-**Tests.**
+**Unit tests.**
 
 - `TauCeti.AutomorphicSpectral.weighted_orbital_integral.rank_zero` (degenerate): M=G gives weight 1.
-- `TauCeti.AutomorphicSpectral.weighted_orbital_integral.rank_one_volume` (computation): For two heights differing by rα∨, the weight is r times the chosen coroot-segment volume.
+- `TauCeti.AutomorphicSpectral.weighted_orbital_integral.rank_one_volume` (computation): In rank one, with the positive orthogonal height ordering and difference rα∨ where r≥0, the weight is r times the chosen positive coroot-segment volume. Without that ordering, the geometric interval length is |r| times the volume.
 - `TauCeti.AutomorphicSpectral.weighted_orbital_integral.measure_scaling` (compatibility): Scaling the centralizer Haar by c scales the quotient integral by c⁻¹; the global centralizer-volume coefficient scales by c and cancels it.
 
-**Acceptance checks.** For M=G the weight is 1 and the construction specializes to ET.1 with the discriminant convention stated here.
+**Direct prerequisites.** `EndoscopicTransferAndUnitaryTraceComparison:ET.1`, `AutomorphicSpectralTheory:AS.6/gm-family`, `AutomorphicSpectralTheory:AS.6/gm-splitting`.
 
-**Source.** [James Arthur, An Introduction to the Trace Formula](https://www.claymath.org/library/cw/arthur/pdf/62.pdf), §18 (18.3), Theorem 18.2, (18.10). Passage: “we define the weighted orbital integral G JM (γ, f ) = JM (γ, f )  of f ∈ Cc∞ G(FS ) at γ by Z 1 (18.3) JM (γ, f ) = |D(γ)| 2 f (x−1 γx)vM (x)dx. Gγ (FS )\G(FS ) The normalizing factor Y D(γ) = DG (γ) = DG (γv ) v∈S is ”. The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation.
+**Proposed library location.** `TauCeti/Automorphic/Spectral/AS6`, namespace `TauCeti.AutomorphicSpectral`.
+
+**Acceptance checks.**
+
+- For M=G the weight is 1 and the construction specializes to ET.1 with the discriminant convention stated here.
+
+**Sources.**
+
+- [James Arthur, An Introduction to the Trace Formula](https://www.claymath.org/library/cw/arthur/pdf/62.pdf), §18 (18.3), Theorem 18.2, (18.10). The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation.
+
+**Atlas planet:** Weighted orbital integrals.
+
+**Implementation status:** `unchecked`.
 
 ### 10. Normalized weighted characters
 
@@ -6343,8 +6422,7 @@ The following decisions account for the routed paper items. “Covered” identi
 
 ### RT-AREA-automorphic-1/4 and /24: real harmonic analysis supplies ET.1, whereas weighted orbital integrals use ET.1. A whole AS.6→ET.1 import would cycle.
 
-Extract AS.1a “Real Paley–Wiener theory and spectral multipliers” containing AS.6/real-invariant-paley-wiener, AS.6/real-operator-paley-wiener and AS.6/spectral-multiplier, preserving their statements, source ranges, APIs and tests. Its inputs are AS.0/vector-schwartz, AS.0/nuclear-lf-space, AS.0/locally-convex-integration, AS.1/induced-family and AF.1 real representation theory. The multiplier depends on the operator theorem inside this prefix. It imports neither ET.1 nor any AS.6 orbital/trace result. Export AS.1a to ET.1 and AS.6; keep ET.1→AS.6/weighted-orbital-integral and general-euler-poincare. Until integration use the current precise node ids and keep the stage boundary gap; do not claim a new atlas stage already exists. The nonarchimedean BDK supplier stays SmoothRepresentationsCharactersPartII, and AS.2 retains the measure-dependent μ-function/local-normalization nodes.
-
+Extract AS.1a “Real Paley–Wiener theory and spectral multipliers” containing AS.6/real-invariant-paley-wiener, AS.6/real-operator-paley-wiener and AS.6/spectral-multiplier, preserving their statements, source ranges, APIs and tests. Its inputs are AS.0/vector-schwartz, AS.0/nuclear-lf-space, AS.0/locally-convex-integration, the independent AF.1/sf-representation carrier and the precise AF.1 local real-parabolic induction request (including arbitrary supplied Levi data and holomorphic compact pictures), together with AF.1b real classification/discrete-series inputs. AS.1 global adelic induced-family is not a supplier for this local prefix. The multiplier depends on the operator theorem inside this prefix. It imports neither ET.1 nor any AS.6 orbital/trace result. Export AS.1a to ET.1 and AS.6; keep ET.1→AS.6/weighted-orbital-integral and general-euler-poincare. Until integration use the current precise node ids and keep the stage boundary gap; do not claim a new atlas stage already exists. The nonarchimedean BDK supplier stays SmoothRepresentationsCharactersPartII, and AS.2 retains the measure-dependent μ-function/local-normalization nodes.
 
 ### Real harmonic-analysis prefix before ET.1
 

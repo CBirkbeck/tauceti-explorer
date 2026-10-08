@@ -930,69 +930,55 @@ spaces of vector-valued forms.
 `ρ_{L(−1)}` of `Mp₂(ℤ)`, `L = (ℤ, mx²)` (the dual Weil representation), in MP.7's convention:
 `J_{k,m} ≅ M_{k−1/2}(ρ_{L(−1)})`. It is stated against MP.7's `Mp₂(ℤ)` and `ρ_L`.
 
-**Comparison** (node `QM.1/jacobi-rank-one-specialisation`): classical Jacobi forms as the
-scalar-index case of the Jacobi theory of MetaplecticAutomorphicForms. It is stated against the
-supplier's objects, in the lattice-index form of the request to `MetaplecticAutomorphicForms:MP.6`
-recalled under *Jacobi forms*, at `n = 1` and `F = m ∈ ℕ`, `m ≥ 1`.
-- **(a) Group.** `J₁(SL(2, ℤ)) = SL(2, ℤ) ⋉ ℤ²` with `(γ, X)(γ′, X′) = (γγ′, Xγ′ + X′)`, the law of
-  `QM.1/jacobi-group-law`.
-- **(b) Action.** For `k ∈ ℤ`, `φ|_{k,m}A` and `φ|_{k,m}[λ, μ]` are `jacobiModularSlash` and
-  `jacobiEllipticSlash`; for `k ∈ ½ + ℤ`, `φ|_{k,m}(A, w_A)` is `jacobiModularSlash`, `w_A` being the
-  principal branch of `(cτ + d)^{1/2}`.
-- **(c) Forms.** Let `k ∈ ½ℤ`. The rule `ψ(A, ±w_A) = (±1)^{2k}v(A)` is a bijection between the
-  multipliers `v` on `SL(2, ℤ)` of `QM.1/jacobi-form` (unit norm, weight-`k` cocycle law, no
-  condition at `−I`) and the characters `ψ` of `Mp₂(ℤ)` with `ψ(1, −1) = (−1)^{2k}`. Under it
-  `J_{k,m}(v, 1) = J_{k,m}(Mp₂(ℤ), ℂ(ψ))`, and `J⁰_{k,m}(v, 1)` is its space of cusp forms. For
-  `k ∈ ℤ` and `v = 1` this is the Eichler–Zagier space `J_{k,m}`.
-- **(c′) Half-integral scalar index.** Let `m ∈ ½ + ℤ`, `m > 0`, and let `χ` be a character of `ℤ²`
-  with `χ² = 1`. Then `φ(τ, z) ↦ ψ(τ, z) = φ(τ, 2z)` is a bijection from `J_{k,m}(v, χ)` onto the
-  space of `ψ ∈ J_{k,4m}(v, 1)` with `e(m(l²τ + 4lz))ψ(τ, z + (lτ + μ)/2) = χ(l, μ)ψ(τ, z)` for all
-  `(l, μ) ∈ ℤ²`. In particular `(τ, z) ↦ ϑ(2z; τ)` lies in `J_{1/2,2}(v_η³, 1)`, which is Skoruppa's
-  `ϑ(τ, 2z) ∈ J_{1/2,2}(Mp(2, ℤ), ℂ(ε³))`; his `ϑ(τ, z)` is `−iϑ(z; τ)` and his `ε` is the character
-  attached to `v_η` by (c).
-- **(d) Fourier expansion.** For `v(T) = 1` the coefficients `c_φ(n, r)` of
-  `QM.1/jacobi-fourier-coefficient` are the supplier's `c(l, r)` at `l = n`, and its condition
-  `4l − F⁻¹[r] ≥ 0` is `4nm ≥ r²`.
-- **(e) Theta decomposition.** `ϑ_{F,x} = ϑ_{m,x}`; the supplier's theta expansion is
-  `QM.1/theta-decomposition`; and for `Γ = Mp₂(ℤ)` and `V = ℂ` its isomorphism
-  `J_{k,F}(Γ, V) ≅ M_{k−n/2} ⊗ W(F)* ⊗ Ind V` identifies `J_{k,m}` with the vector-valued modular
-  forms `Σ h_x e_x` of weight `k − 1/2` for the dual of `W(m)`, which is
-  `J_{k,m} ≅ M_{k−1/2}(ρ_{L(−1)})` of `QM.1/theta-decomposition-weil-representation`. Here `W(m)` is
-  the Weil representation of the discriminant module `(ℤ/2m, x²/(4m))` of the lattice
-  `L = (ℤ, mx²)`.
+#### Scalar-index Jacobi comparison
 
-Hypotheses: The supplier's objects in the lattice-index form of the request to MetaplecticAutomorphicForms:MP.6, at n = 1 and F = m, m ∈ ℕ, m ≥ 1. k ∈ ½ℤ; v : SL(2, ℤ) → ℂ of unit norm with the weight-k cocycle law v(A₁A₂) = σ_k(A₁, A₂)v(A₁)v(A₂) (MP.7's sign cocycle). In (c′): m ∈ ½ + ℤ, m > 0, and χ a character of ℤ² with values ±1. In (d): v(T) = 1.
+**Declaration:** comparison; node `QSeriesPartitionsAndMockModularForms:QM.1/jacobi-rank-one-specialisation`.
 
-Proof outline.
-- (a), (b): put n = 1 and F = m in the supplier's composition law and action: F[z] = mz², F[λ] = mλ² and 2zᵗFλ = 2mλz. For k ∈ ½ + ℤ, w_A(τ)^{−2k} = (cτ + d)^{−k} with the principal branch. The relation (φ|[λ, μ])|A = (φ|A)|[(λ, μ)A] of the semidirect product is QM.1/jacobi-group-law.
-- (c), multipliers: for A₁, A₂ ∈ SL(2, ℤ), w_{A₁}(A₂τ)·w_{A₂}(τ) = s·w_{A₁A₂}(τ) with s = ±1, and σ_k(A₁, A₂) = s^{2k}. Hence ψ(A, ±w_A) = (±1)^{2k}v(A) is multiplicative exactly when v has the weight-k cocycle law, and φ|_{k,m}(A, w) = ψ(A, w)φ for all (A, w) ∈ Mp₂(ℤ) is φ|_{k,m}A = v(A)φ for all A. The relations S̃² = (S̃T̃)³ and S̃⁸ = 1 of Mp₂(ℤ) (MP.7) give ψ(T̃)²⁴ = 1, so the exponents l below are rational.
-- (c), growth implies support: let φ be holomorphic with φ|_{k,m}A = v(A)φ and φ|_m[λ, μ] = φ, and write φ = Σ_{ν mod 2m} h_νϑ_{m,ν} (QM.1/theta-decomposition). For α = −ν/(2m) one has e(mα²τ)φ(τ, ατ + β) = Σ_r h_r(τ)·q^{(r − ν)²/(4m)}·e(rβ), and the average over β ∈ (1/2m)ℤ/ℤ against e(−νβ) is h_ν(τ)·Σ_{n ∈ ℤ} q^{mn²}. The last sum tends to 1 as Im τ → ∞, so boundedness at the rational torsion points makes h_ν bounded. Since h_ν(τ + 1) = v(T)e(−ν²/(4m))h_ν(τ) = e(κ)h_ν(τ) with 0 ≤ κ < 1, the function e(−κτ)h_ν(τ) is a Laurent series in q which is O(|q|^{−κ}) at q = 0; its singularity there is removable, so h_ν = Σ_{n ≥ 0} b_n q^{κ+n}. Inserted in the theta decomposition this is the supplier's condition 4l − r²/m ≥ 0.
-- (c), support implies growth, and cusp forms: e(mα²τ)φ(τ, ατ + β) = Σ c(l, r)e(rβ)·q^{(4lm − r²)/(4m) + m(α + r/(2m))²}, as in QM.1/jacobi-fourier-support; all exponents are ≥ 0, and > 0 for cusp forms, where the same average shows the converse.
-- (c′): for ψ(τ, z) = φ(τ, 2z) one has ψ|_{k,4m}A = (φ|_{k,m}A)(τ, 2z), because m(2z)² = 4mz²; ψ|_{4m}[λ, μ] = (φ|_m[2λ, 2μ])(τ, 2z) = χ(λ, μ)²ψ = ψ; e(4mα²τ)ψ(τ, ατ + β) = e(m(2α)²τ)φ(τ, 2ατ + 2β); and φ|_m[l, μ] = χ(l, μ)φ is the displayed half-lattice law. Conversely such a ψ gives φ(τ, z) = ψ(τ, z/2). For ϑ use QM.1/jacobi-theta-is-jacobi-form with χ(l, μ) = (−1)^{l+μ}, and QM.1/jacobi-theta-triple-product for the factor −i.
-- (d): the expansion of (c) with l = n ∈ ℤ, and uniqueness of Fourier coefficients (QM.1/jacobi-fourier-expansion).
-- (e): at n = 1 and F = m, ℤ/2Fℤ = ℤ/2m and F⁻¹[r]/4 = r²/(4m), so ϑ_{F,x} = ϑ_{m,x}. The module W(m) has T̃e_x = e(x²/(4m))e_x, the law of ϑ_{m,x} under τ ↦ τ + 1; the coefficients h_x transform by its dual, which is ρ_{L(−1)}. Skoruppa states the isomorphism as a tensor product over ℂ[Mp₂(ℤ)]; for the trivial module it is the space of invariant vectors Σ h_x·e_x, because every element of M_{k−1/2} is fixed by a subgroup of finite index.
+MetaplecticAutomorphicForms owns the Jacobi group, its action of given weight and index, Jacobi forms with multiplier systems and the theta decomposition (request to MetaplecticAutomorphicForms:MP.6). In the lattice-index form of that request (Skoruppa §4) the objects are: the group J_n(Γ) = Γ ⋉ (ℤⁿ × ℤⁿ); its right action |_{k,F} on functions on ℍ × ℂⁿ, for a half-integral symmetric matrix F; the spaces J_{k,F}(Γ, V) of Jacobi forms and their cusp forms, for F positive definite; the theta functions ϑ_{F,x}; and the isomorphism J_{k,F}(Γ, V) ≅ (M_{k−n/2} ⊗ W(F)*) ⊗_{ℂ[Mp₂(ℤ)]} Ind_Γ^{Mp₂(ℤ)} V, where Γ has finite index in Mp₂(ℤ) and its action on the finite-dimensional V has finite image. The classical objects of QM.1 are the case n = 1, F = m ∈ ℕ, m ≥ 1. (a) Group. J₁(SL(2, ℤ)) = SL(2, ℤ) ⋉ ℤ² with (γ, X)(γ′, X′) = (γγ′, Xγ′ + X′), the law of QM.1/jacobi-group-law. (b) Action. For k ∈ ℤ, φ|_{k,m}A and φ|_{k,m}[λ, μ] are the operators of QM.1/jacobi-modular-slash and QM.1/jacobi-elliptic-slash; for k ∈ ½ + ℤ, φ|_{k,m}(A, w_A) is QM.1/jacobi-modular-slash, w_A being the principal branch of (cτ + d)^{1/2}. (c) Forms. Let k ∈ ½ℤ. The rule ψ(A, ±w_A) = (±1)^{2k}·v(A) is a bijection between the multipliers v on SL(2, ℤ) of QM.1/jacobi-form (unit norm, weight-k cocycle law, no condition at −I) and the characters ψ of Mp₂(ℤ) with ψ(1, −1) = (−1)^{2k}. Under it J_{k,m}(v, 1) = J_{k,m}(Mp₂(ℤ), ℂ(ψ)), and J⁰_{k,m}(v, 1) is its space of cusp forms. For k ∈ ℤ and v = 1 this is the Eichler–Zagier space J_{k,m}. (c′) Half-integral scalar index. Let m ∈ ½ + ℤ, m > 0, and let χ be a character of ℤ² with χ² = 1. Then φ(τ, z) ↦ ψ(τ, z) = φ(τ, 2z) is a bijection from J_{k,m}(v, χ) onto the space of ψ ∈ J_{k,4m}(v, 1) with e(m(l²τ + 4lz))·ψ(τ, z + (lτ + μ)/2) = χ(l, μ)·ψ(τ, z) for all (l, μ) ∈ ℤ². In particular (τ, z) ↦ ϑ(2z; τ) lies in J_{1/2,2}(v_η³, 1), which is Skoruppa's ϑ(τ, 2z) ∈ J_{1/2,2}(Mp(2, ℤ), ℂ(ε³)); his ϑ(τ, z) is −i·ϑ(z; τ) and his ε is the character attached to v_η by (c). (d) Fourier expansion. For v(T) = 1 the coefficients c_φ(n, r) of QM.1/jacobi-fourier-coefficient are the supplier's c(l, r) at l = n, and its condition 4l − F⁻¹[r] ≥ 0 is 4nm ≥ r². (e) Theta decomposition. ϑ_{F,x} = ϑ_{m,x} (QM.1/jacobi-theta-index); the supplier's theta expansion is QM.1/theta-decomposition; and for Γ = Mp₂(ℤ) and V = ℂ its isomorphism identifies J_{k,m} with the vector-valued modular forms Σ h_x·e_x of weight k − 1/2 for the dual of W(m), which is J_{k,m} ≅ M_{k−1/2}(ρ_{L(−1)}) of QM.1/theta-decomposition-weil-representation. Here W(m) is the Weil representation of the discriminant module (ℤ/2m, x²/(4m)) of the lattice L = (ℤ, mx²).
 
-Acceptance.
+**Hypotheses.**
+
+- The supplier's objects in the lattice-index form of the request to MetaplecticAutomorphicForms:MP.6, at n = 1 and F = m, m ∈ ℕ, m ≥ 1.
+- k ∈ ½ℤ; v : SL(2, ℤ) → ℂ of unit norm with the weight-k cocycle law v(A₁A₂) = σ_k(A₁, A₂)v(A₁)v(A₂) (MP.7's sign cocycle).
+- In (c′): m ∈ ½ + ℤ, m > 0, and χ a character of ℤ² with values ±1.
+- In (d): v(T) = 1.
+
+**Construction or proof.**
+
+1. (a), (b): put n = 1 and F = m in the supplier's composition law and action: F[z] = mz², F[λ] = mλ² and 2zᵗFλ = 2mλz. For k ∈ ½ + ℤ, w_A(τ)^{−2k} = (cτ + d)^{−k} with the principal branch. The relation (φ|[λ, μ])|A = (φ|A)|[(λ, μ)A] of the semidirect product is QM.1/jacobi-group-law.
+2. (c), multipliers: for A₁, A₂ ∈ SL(2, ℤ), w_{A₁}(A₂τ)·w_{A₂}(τ) = s·w_{A₁A₂}(τ) with s = ±1, and σ_k(A₁, A₂) = s^{2k}. Hence ψ(A, ±w_A) = (±1)^{2k}v(A) is multiplicative exactly when v has the weight-k cocycle law, and φ|_{k,m}(A, w) = ψ(A, w)φ for all (A, w) ∈ Mp₂(ℤ) is φ|_{k,m}A = v(A)φ for all A. The relations S̃² = (S̃T̃)³ and S̃⁸ = 1 of Mp₂(ℤ) (MP.7) give ψ(T̃)²⁴ = 1, so the exponents l below are rational.
+3. (c), growth implies support: let φ be holomorphic with φ|_{k,m}A = v(A)φ and φ|_m[λ, μ] = φ, and write φ = Σ_{ν mod 2m} h_νϑ_{m,ν} (QM.1/theta-decomposition). For α = −ν/(2m) one has e(mα²τ)φ(τ, ατ + β) = Σ_r h_r(τ)·q^{(r − ν)²/(4m)}·e(rβ), and the average over β ∈ (1/2m)ℤ/ℤ against e(−νβ) is h_ν(τ)·Σ_{n ∈ ℤ} q^{mn²}. The last sum tends to 1 as Im τ → ∞, so boundedness at the rational torsion points makes h_ν bounded. Since h_ν(τ + 1) = v(T)e(−ν²/(4m))h_ν(τ) = e(κ)h_ν(τ) with 0 ≤ κ < 1, the function e(−κτ)h_ν(τ) is a Laurent series in q which is O(|q|^{−κ}) at q = 0; its singularity there is removable, so h_ν = Σ_{n ≥ 0} b_n q^{κ+n}. Inserted in the theta decomposition this is the supplier's condition 4l − r²/m ≥ 0.
+4. (c), support implies growth, and cusp forms: e(mα²τ)φ(τ, ατ + β) = Σ c(l, r)e(rβ)·q^{(4lm − r²)/(4m) + m(α + r/(2m))²}, as in QM.1/jacobi-fourier-support; all exponents are ≥ 0, and > 0 for cusp forms, where the same average shows the converse.
+5. (c′): for ψ(τ, z) = φ(τ, 2z) one has ψ|_{k,4m}A = (φ|_{k,m}A)(τ, 2z), because m(2z)² = 4mz²; ψ|_{4m}[λ, μ] = (φ|_m[2λ, 2μ])(τ, 2z) = χ(λ, μ)²ψ = ψ; e(4mα²τ)ψ(τ, ατ + β) = e(m(2α)²τ)φ(τ, 2ατ + 2β); and φ|_m[l, μ] = χ(l, μ)φ is the displayed half-lattice law. Conversely such a ψ gives φ(τ, z) = ψ(τ, z/2). For ϑ use QM.1/jacobi-theta-is-jacobi-form with χ(l, μ) = (−1)^{l+μ}, and QM.1/jacobi-theta-triple-product for the factor −i.
+6. (d): the expansion of (c) with l = n ∈ ℤ, and uniqueness of Fourier coefficients (QM.1/jacobi-fourier-expansion).
+7. (e): at n = 1 and F = m, ℤ/2Fℤ = ℤ/2m and F⁻¹[r]/4 = r²/(4m), so ϑ_{F,x} = ϑ_{m,x}. The module W(m) has T̃e_x = e(x²/(4m))e_x, the law of ϑ_{m,x} under τ ↦ τ + 1; the coefficients h_x transform by its dual, which is ρ_{L(−1)}. Skoruppa states the isomorphism as a tensor product over ℂ[Mp₂(ℤ)]; for the trivial module it is the space of invariant vectors Σ h_x·e_x, because every element of M_{k−1/2} is fixed by a subgroup of finite index.
+
+**Direct prerequisites.** `QSeriesPartitionsAndMockModularForms:QM.1/jacobi-modular-slash`, `QSeriesPartitionsAndMockModularForms:QM.1/jacobi-elliptic-slash`, `QSeriesPartitionsAndMockModularForms:QM.1/jacobi-group-law`, `QSeriesPartitionsAndMockModularForms:QM.1/jacobi-form`, `QSeriesPartitionsAndMockModularForms:QM.1/jacobi-cusp-form`, `QSeriesPartitionsAndMockModularForms:QM.1/jacobi-fourier-expansion`, `QSeriesPartitionsAndMockModularForms:QM.1/jacobi-fourier-support`, `QSeriesPartitionsAndMockModularForms:QM.1/jacobi-theta-index`, `QSeriesPartitionsAndMockModularForms:QM.1/theta-decomposition`, `QSeriesPartitionsAndMockModularForms:QM.1/theta-decomposition-weil-representation`, `QSeriesPartitionsAndMockModularForms:QM.1/jacobi-theta-is-jacobi-form`, `QSeriesPartitionsAndMockModularForms:QM.1/jacobi-theta-triple-product`, `MetaplecticAutomorphicForms:MP.6`, `MetaplecticAutomorphicForms:MP.7`.
+
+**Proposed library location.** `TauCeti/NumberTheory/ModularForms/JacobiForm/Comparison`, namespace `TauCeti.QSeries`.
+
+**Acceptance checks.**
+
 - φ_{−2,1} lies in neither description of J_{−2,1}: its coefficient c(0, 1) = 1 has 4l − r²/m = −1 < 0, and e(τ/4)·φ_{−2,1}(τ, −τ/2) is unbounded (QM.1/phi-minus-two-one-weak).
 - ϑ(2z; τ) = Σ_{ν ∈ ½+ℤ} e^{πiν}·q^{ν²/2}ζ^{2ν} has l = ν²/2 and r = 2ν, so 4l − r²/2 = 0 for every term: a Jacobi form of index 2 and critical weight 1/2, not a cusp form.
 - Half-integral index needs (c′) or the centre: for A = T, (l, μ) = (1, 0), φ = 1 and m = 1/2 the unmodified operators violate the group law by the factor −1 (QM.1/jacobi-group-law). The operators U_m[λ, μ]φ(τ, z) = e(m(λ²τ + 2λz + λμ))φ(τ, z + λτ + μ) satisfy (U_m[X]φ)|_{k,m}A = U_m[XA](φ|_{k,m}A) and U_m[X′]∘U_m[X] = e(m(λμ′ − λ′μ))U_m[X + X′] for all real m and X, and U_{1/2}[l, μ]ϑ = (−1)^{l+μ+lμ}ϑ while ϑ|_{1/2}[l, μ] = (−1)^{l+μ}ϑ.
 - Checked numerically in double precision at τ = 0.21 + 1.13i, z = 0.17 − 0.06i: the two laws of U_m for several real m, among them 1/2 and 0.37, and real X; the half-lattice law and the index-2 lattice invariance of ϑ(2z; τ); equality of the multipliers of ϑ in index 1/2 and of ϑ(2z; τ) in index 2 on seven elements of SL(2, ℤ); and ϑ(z; τ) = i·q^{1/8}(ζ^{1/2} − ζ^{−1/2})∏(1 − qⁿ)(1 − qⁿζ)(1 − qⁿζ^{−1}).
 
-Prerequisites: the nodes `QM.1/jacobi-modular-slash`, `QM.1/jacobi-elliptic-slash`,
-`QM.1/jacobi-group-law`, `QM.1/jacobi-form`, `QM.1/jacobi-cusp-form`, `QM.1/jacobi-fourier-expansion`,
-`QM.1/jacobi-fourier-support`, `QM.1/jacobi-theta-index`, `QM.1/theta-decomposition`,
-`QM.1/theta-decomposition-weil-representation`, `QM.1/jacobi-theta-is-jacobi-form` and
-`QM.1/jacobi-theta-triple-product`, and the stages `MetaplecticAutomorphicForms:MP.6` and
-`MetaplecticAutomorphicForms:MP.7`. Sources: Skoruppa §4 (the Jacobi group, p. 10; the Definition and
-footnote 2, p. 11; Theorem 5 and its proof, p. 13) and Dabholkar–Murthy–Zagier (4.1)–(4.2). The node
-has no API and no unit tests, being a comparison; the suggested file does not state it, because the
-supplier's declarations do not exist at the pinned commits.
+**Sources.**
 
-**Mistakes found in the source** (Skoruppa, arXiv:0707.0718v1; recorded as source issues, none
-affects a result).
-- `E210` (misprint), §2 Notation, glossary entry w_A, p. 5 of arXiv:0707.0718v1. Printed: "For a matrix A ∈ SL(2, Z), the function w_A(τ) = √(aτ + b), where the square root is chosen in the right half plane or on the nonnegative imaginary axes." Correction: w_A(τ) = √(cτ + d) for A = [a, b; c, d]. The same glossary defines Mp(2, ℤ) as the pairs (A, w) with w(τ)² = cτ + d, and §3 uses (T, w_T) and (S, w_S) as elements of it. For T = [1, 1; 0, 1] the printed formula gives w_T(τ)² = τ + 1, whereas cτ + d = 1, so (T, w_T) would not be in Mp(2, ℤ). With cτ + d one gets w_T = 1 and w_S = √τ, the standard generators.
-- `E211` (misprint), §4, the sentence defining cusp forms after the Definition, p. 11 of arXiv:0707.0718v1. Printed: "If, for a Jacobi form φ, in condition (i) of the definition, for all α, the stronger inequality 4l − F^{−1}[r] > 0 holds true then we call φ a cusp form." Correction: Read 'in condition (ii) of the definition'. Condition (i) itself lacks its variable: 'For all J_n(Γ)' stands for 'For all g in J_n(Γ)'. Condition (i) is the transformation law (φ|_{k,F}g)(τ, z) = g(φ(τ, z)) and contains no inequality. The elements α and the inequality 4l − F^{−1}[r] ≥ 0 occur only in condition (ii), the Fourier expansions of the φ|_{k,F}α. The proof of Theorem 5 (p. 13) refers to it correctly: 'the regularity condition for Jacobi forms at the cusps (i.e. from condition (ii) of the definition)'.
-- `E212` (misprint), §2 Notation, glossary entry ℂ(χ), p. 4 of arXiv:0707.0718v1. Printed: "For a character χ of the metaplectic cover M = Mp(2, Z), the M-module with underlying vector space C and with M-action (g, z) ↦ χ(z)g." Correction: (g, z) ↦ χ(g)z. χ is a character of the group and z a complex number, so χ(z) is undefined and χ(z)g is not an element of ℂ. The module is used as ℂ(ε³) in footnote 2 of §4, where g must act on φ(τ, z) by the scalar ε(g)³.
+- [N.-P. Skoruppa, Jacobi forms of critical weight and Weil representations](https://arxiv.org/abs/0707.0718), §4, p. 10. The group and the law of (a); the action formulas of (b) follow on pp. 10–11.
+- [N.-P. Skoruppa, Jacobi forms of critical weight and Weil representations](https://arxiv.org/abs/0707.0718), §4, Definition, p. 11. The spaces of (c), with the cusp condition in Fourier form; in the sentence on cusp forms read condition (ii) for (i) (sourceIssue QSeriesPartitionsAndMockModularForms/E211).
+- [N.-P. Skoruppa, Jacobi forms of critical weight and Weil representations](https://arxiv.org/abs/0707.0718), §4, footnote 2, p. 11. The passage to index 4m in (c′) and its instance ϑ.
+- [N.-P. Skoruppa, Jacobi forms of critical weight and Weil representations](https://arxiv.org/abs/0707.0718), §4, Theorem 5 and its proof, p. 13. The isomorphism of (e); its proof contains the theta expansion ψ = Σ h_x ϑ_{F,x}.
+- [A. Dabholkar, S. Murthy, D. Zagier, Quantum Black Holes, Wall Crossing, and Mock Modular Forms](https://arxiv.org/abs/1208.4074), §4.1, (4.1)–(4.2), printed p. 23. The classical laws that (b) identifies with the supplier's action at n = 1, F = m.
+
+**Implementation status:** `unchecked`.
+
+**Source corrections (paraphrases).** The three glossary/definition corrections concern arXiv:0707.0718v1; the packet records their edition checks and confirmed review. None changes a result.
+
+- `QSeriesPartitionsAndMockModularForms/E210` (misprint), §2 Notation, glossary entry w_A, p. 5 of arXiv:0707.0718v1: The source defines w_A(τ)=√(aτ+b) for A∈SL₂(ℤ). Its chosen branch lies in the half-plane to the right, including the imaginary axis with nonnegative imaginary part. Corrected form: w_A(τ) = √(cτ + d) for A = [a, b; c, d]. The same glossary defines Mp(2, ℤ) as the pairs (A, w) with w(τ)² = cτ + d, and §3 uses (T, w_T) and (S, w_S) as elements of it. For T = [1, 1; 0, 1] the printed formula gives w_T(τ)² = τ + 1, whereas cτ + d = 1, so (T, w_T) would not be in Mp(2, ℤ). With cτ + d one gets w_T = 1 and w_S = √τ, the standard generators.
+- `QSeriesPartitionsAndMockModularForms/E211` (misprint), §4, the sentence defining cusp forms after the Definition, p. 11 of arXiv:0707.0718v1: The source defines the cusp condition for a Jacobi form φ by substituting 4l−F⁻¹[r]>0, for every α, for condition(i). Corrected form: Read 'in condition (ii) of the definition'. Condition (i) itself lacks its variable: 'For all J_n(Γ)' stands for 'For all g in J_n(Γ)'. The transformation requirement is condition (i), while the Fourier expansions and their support inequality occur in condition (ii). The proof of Theorem 5 on p. 13 uses condition (ii), so the definition must refer to that condition and must quantify its transformation variable g.
+- `QSeriesPartitionsAndMockModularForms/E212` (misprint), §2 Notation, glossary entry ℂ(χ), p. 4 of arXiv:0707.0718v1: The source defines the action on ℂ by (g,z)↦χ(z)g to obtain the module for M=Mp₂(ℤ) associated with χ. Corrected form: (g, z) ↦ χ(g)z. χ is a character of the group and z a complex number, so χ(z) is undefined and χ(z)g is not an element of ℂ. The module is used as ℂ(ε³) in footnote 2 of §4, where g must act on φ(τ, z) by the scalar ε(g)³.
 
 ### Examples
 
@@ -4160,6 +4146,8 @@ Verified finding RT-AREA-automorphic-1/20: the Jacobi group and Jacobi forms had
 The finite Weil representation ρ_L of Mp₂(ℤ) attached to an even lattice, and vector-valued modular forms for ρ_L, are used by QM.1 (theta decomposition, J_{k,m} ≅ M_{k−1/2}(ρ_{L(−1)})), by QM.3 (Bruinier–Funke's harmonic Maass forms H_{k,L} take values in ℂ[L′/L]) and by QM.4 (vector-valued completions), but no stage names them. MetaplecticAutomorphicForms owns 'the extension to the metaplectic cover and the Weil representation' and MP.7 compares classical half-integral-weight forms with the cover.
 
 **Proposal.** Add to MP.7's scope, explicitly: the classical group Mp₂(ℤ), the Weil representation ρ_L of an even lattice (with the relations that make it a representation, via Milgram's formula), and the spaces of holomorphic and weakly holomorphic vector-valued modular forms of weight κ ∈ ½ℤ for ρ_L; QM.1, QM.3 and QM.4 import them (request recorded by QM.1).
+
+The exact MP.7 contract requested by QM.1 is the square-root model of Mp₂(ℤ), its generators S̃ and T̃ and relations S̃²=(S̃T̃)³ and S̃⁸=1, the finite Weil representation on ℂ[L′/L] with its generator formulas, and the transformation and growth laws for vector-valued modular forms. Theta coefficients use the dual representation ρ_{L(−1)}. These are distinct from the scalar multiplier, theta transformation, and Kohnen/Fricke/plus-space contracts requested elsewhere from MP.7. The discrete finite-Weil interface remains a request; naming the stage does not certify that interface or duplicate it in QM.1. Skoruppa §4, Theorem 5, p. 13 supplies the finite-image hypothesis and tensor product balanced over ℂ[Mp₂(ℤ)].
 
 ### `rescope`: QSeriesPartitionsAndMockModularForms, ExponentialSumsAndCircleMethod
 
