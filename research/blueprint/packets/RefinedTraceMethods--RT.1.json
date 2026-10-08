@@ -12364,6 +12364,13 @@
     "RefinedTraceMethods:RT.2/thh-bimodule-coefficients"
    ],
    "detail": "The exact RT.5 supplier requests are retained, but importing the whole current stage creates RT.3→RT.5→RT.3 (and RT.2→RT.3→RT.5→RT.2 for the categorical bimodule trace). The proposed split extracts the motives/dualizable trace foundation before RT.2/RT.3 and leaves the refined computations after them. Until that proposal is accepted and its supplying declarations are planned, these imports are unresolved; no acyclic whole-stage supply is claimed."
+  },
+  {
+   "title": "Polynomial left Kan extension for the uncompleted graded Beilinson map",
+   "neededBy": [
+    "RefinedTraceMethods:RT.3b/graded-beilinson-square"
+   ],
+   "detail": "The exact early RT.6 motivic, cyclic, syntomic, characteristic-p and trace-flat-descent nodes supply the filtration/descent inputs. None supplies the remaining polynomial left Kan extension of syntomic/TC functors and its comparison with uncompleted p-derived de Rham used in AMMN Theorem 5.1(2), p. 25, its proof and Construction 5.33, pp. 34–35, and Construction 6.16 and proof of Theorem 6.17, pp. 44–45. Retain the RT.6 request for that precise residual interface until a supplying declaration is planned. RT.6/ammn-filtered-interface already imports RT.3b/graded-beilinson-square and cannot be its supplier."
   }
  ],
  "restructure": [
