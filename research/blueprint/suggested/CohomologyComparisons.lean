@@ -5,7 +5,8 @@ suggest Lean forms so that contributors and reviewers converge on names and
 signatures. They claim no implementation.
 
 BP-CohomologyComparisons, Codex codex-mCCbxV, 7 October 2026; completed by the review
-REV-CohomologyComparisons (claude-0gMhNi), 7 October 2026.
+REV-CohomologyComparisons (claude-0gMhNi), 7 October 2026; revised by
+Codex codex-zVgcBa, BP-CohomologyComparisons~2, 8 October 2026.
 Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174;
 Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 (no `TauCeti.*` module is imported:
 none of the objects below exists there).
@@ -2856,6 +2857,24 @@ theorem CP6.geometric_arithmetic_export :
       (PeriodData.ofRigid O p OK X₀ r).IsStComparison (rigidStComparison O p OK X₀ r) := by
   sorry
 
+/-- Node `CP.6/habiro-and-trace-specialization-export`: return the normalized coefficient
+maps and the geometric Chern comparison as concrete data. HQ.8 owns q-gluing and RT owns the
+cyclotomic-character square. This signature exports the de Rham Chern clause already stated here;
+integral/prismatic enhancement and the consumers' gluing homotopies remain owner interfaces. -/
+theorem CP6.habiro_and_trace_specialization_export
+    (ε : PreTilt O p) (hε : IsCompatibleRootsOfUnity O p ε)
+    (X₀ : ProperSmoothRigid (Kfield OK p)) {n : ℕ} (E : VectorBundleK p OK X₀ n) (r : ℕ) :
+    ∃ d : SpecializationDictionary (Ainf O p) O (residueWitt O p)
+        (Acris O p) (BDeRhamPlus O p) p,
+      d = SpecializationDictionary.standard O p ε hε ∧
+      d.theta = WittVector.fontaineTheta O p ∧
+      d.toBdRPlus = d.acrysToBdRPlus.comp d.toAcrys ∧
+      (deRhamComparison O p OK X₀ (2 * r)).hom
+          (bcUnit (zpToBdR O p) _ (chernEt O p OK X₀ E r)) =
+        ((tracePeriod O p)⁻¹ ^ r : (BDeRham O p)ˣ) •
+          bcUnit (kToBdR O p OK) _ (chernDR p OK X₀ E r) := by
+  sorry
+
 /-! ### The relative filtered adapter (GR §10.2; parent CP.6, realises CP.3) -/
 
 /-- `R^• f_*` of a crystalline `ℤ_p`-local system tensored with `B_dR`, over `R_{B_dR⁺}[1/I]`
@@ -2912,7 +2931,8 @@ def bdrTruncReduce (k : ℕ) : bdrTrunc O p (k + 1) →+* bdrTrunc O p k := sorr
 def completedCohomologyBdR (Kp : TameLevel) (i : ℤ) (k : ℕ) : ModuleCat.{u} (bdrTrunc O p k) :=
   sorry
 /-- `H^i(Fℓ, B_dR,k⁺)` on the flag variety, with Pan's truncated period sheaf (owners
-`PerfectoidShimuraVarieties:S3`, `HodgeTateAndCanonicalSubgroups:T6:comparison`). -/
+`PerfectoidShimuraVarieties:S3`, `PadicHodgeTheory:P8:local-rational`; ordinary period
+sheaves in Pan §7.2, not the log structural sheaves of §6.3). -/
 def flagCohomologyBdR (Kp : TameLevel) (i : ℤ) (k : ℕ) : ModuleCat.{u} (bdrTrunc O p k) := sorry
 /-- Reduction from level `k + 1` to level `k` on both sides. -/
 def completedReduce (Kp : TameLevel) (i : ℤ) (k : ℕ) :
@@ -2991,7 +3011,7 @@ theorem CP6.pan_completed_coefficient_and_flag_descent (Kp : TameLevel) (i : ℤ
 def PanBasisOpen : Type u := sorry
 
 /-- The graded piece `gr^i OB_dR,k⁺` on an open `U` of the basis, its locally analytic vectors,
-and the three natural maps of Pan Proposition 6.3.9 (owners T6:comparison, CC.8). -/
+and the three natural maps of Pan Proposition 6.3.9 (owners T6:comparison (log structural coefficients), CC.8). -/
 def panGradedSource (U : PanBasisOpen) (i k l : ℕ) (which : Fin 3) :
     ModuleCat.{u} (Cfield O p) := sorry
 /-- The target of the `which`-th map of Pan Proposition 6.3.9. -/
@@ -3010,16 +3030,90 @@ theorem CP6.pan_graded_analytic_decompletion (U : PanBasisOpen) (i k l : ℕ) (h
   sorry
 
 end CP6Pan
+/-! ## AMMN Theorem 7.13: the good-reduction nearby-cycle pullback (CP.2, realises CP.3) -/
+
+section Ammn
+
+variable (O : Type u) [CommRing O] [IsDomain O] [IsLocalRing O] (p : ℕ) [Fact p.Prime]
+  [Fact ¬IsUnit (p : O)] [IsAdicComplete (Ideal.span {(p : O)}) O] [IsIntegersOfC O]
+  (OK : Type u) [CommRing OK] [IsDomain OK] [IsDiscreteValuationRing OK] [Algebra OK O]
+  [IsLocalHom (algebraMap OK O)] [IsCompletedAlgClosureOf OK O p]
+
+/-- `RΓ(𝔛_proét, τ≤i Rψ_* ℚ_p(i))` for `𝔛 = 𝔛₀ ⊗̂ O_C`.
+Owner PR.4 extension: AMMN Definition 7.10 and Theorem 7.11, p.52. Truncation is on the
+nearby-cycle sheaf before taking global sections. The full generic-fibre complex is not used. -/
+def ammnNearbyCyclesTruncated (O : Type u) [CommRing O] [IsDomain O] [IsLocalRing O] (p : ℕ) [Fact p.Prime]
+    [Fact ¬IsUnit (p : O)] [IsAdicComplete (Ideal.span {(p : O)}) O] [IsIntegersOfC O]
+    (OK : Type u) [CommRing OK] [IsDomain OK] [IsDiscreteValuationRing OK] [Algebra OK O]
+    [IsLocalHom (algebraMap OK O)] [IsCompletedAlgClosureOf OK O p]
+    (X₀ : ProperSmoothFormalScheme OK) (i : ℕ) :
+    DerivedCategory (ModuleCat.{u} ℚ_[p]) := sorry
+
+/-- The derived fibre of `φ - p^i` on
+`A_crys ⊗^L_{W(k)} RΓ_crys(𝔛̄₀/W(k))`, followed by inverting p, where `𝔛̄₀` is reduction
+modulo a uniformizer. Owners CR.3 and PR.4 extension; this is not degreewise fixed vectors. -/
+def ammnCrystallineEigenspace (O : Type u) [CommRing O] [IsDomain O] [IsLocalRing O] (p : ℕ) [Fact p.Prime]
+    [Fact ¬IsUnit (p : O)] [IsAdicComplete (Ideal.span {(p : O)}) O] [IsIntegersOfC O]
+    (OK : Type u) [CommRing OK] [IsDomain OK] [IsDiscreteValuationRing OK] [Algebra OK O]
+    [IsLocalHom (algebraMap OK O)] [IsCompletedAlgClosureOf OK O p]
+    (X₀ : ProperSmoothFormalScheme OK) (i : ℕ) :
+    DerivedCategory (ModuleCat.{u} ℚ_[p]) := sorry
+
+/-- `RΓ_dR(X₀/K) ⊗^L_K B_dR⁺` restricted to `ℚ_p`, with `X₀` the generic fibre of `𝔛₀`.
+Owners DD.2/CR.3; AMMN Construction 7.12. Its finite Hodge filtration and the ξ-adic
+coefficient filtration determine the convolution filtration, not scalar multiplication by ξ^i. -/
+def ammnDeRhamTensor (O : Type u) [CommRing O] [IsDomain O] [IsLocalRing O] (p : ℕ) [Fact p.Prime]
+    [Fact ¬IsUnit (p : O)] [IsAdicComplete (Ideal.span {(p : O)}) O] [IsIntegersOfC O]
+    (OK : Type u) [CommRing OK] [IsDomain OK] [IsDiscreteValuationRing OK] [Algebra OK O]
+    [IsLocalHom (algebraMap OK O)] [IsCompletedAlgClosureOf OK O p]
+    (X₀ : ProperSmoothFormalScheme OK) :
+    DerivedCategory (ModuleCat.{u} ℚ_[p]) := sorry
+
+/-- `Fil≥i` of the preceding tensor filtration after the specified Hodge completion.
+Owner DD.2 extension, AMMN Theorem 7.13 proof, pp.53–54. -/
+def ammnFilteredDeRhamTensor (O : Type u) [CommRing O] [IsDomain O] [IsLocalRing O] (p : ℕ) [Fact p.Prime]
+    [Fact ¬IsUnit (p : O)] [IsAdicComplete (Ideal.span {(p : O)}) O] [IsIntegersOfC O]
+    (OK : Type u) [CommRing OK] [IsDomain OK] [IsDiscreteValuationRing OK] [Algebra OK O]
+    [IsLocalHom (algebraMap OK O)] [IsCompletedAlgClosureOf OK O p]
+    (X₀ : ProperSmoothFormalScheme OK) (i : ℕ) :
+    DerivedCategory (ModuleCat.{u} ℚ_[p]) := sorry
+
+/-- Specific maps obtained by transporting the graded Beilinson square of RT.3b through
+AMMN's three corner identifications. These are imported maps, not arbitrary morphisms. The
+connecting map is the one determined by that enhanced square and its commutativity homotopy. -/
+structure AmmnSquareMaps (X₀ : ProperSmoothFormalScheme OK) (i : ℕ) where
+  top : ammnNearbyCyclesTruncated O p OK X₀ i ⟶ ammnCrystallineEigenspace O p OK X₀ i
+  left : ammnNearbyCyclesTruncated O p OK X₀ i ⟶ ammnFilteredDeRhamTensor O p OK X₀ i
+  right : ammnCrystallineEigenspace O p OK X₀ i ⟶ ammnDeRhamTensor O p OK X₀
+  bottom : ammnFilteredDeRhamTensor O p OK X₀ i ⟶ ammnDeRhamTensor O p OK X₀
+  connecting : ammnDeRhamTensor O p OK X₀ ⟶
+    (ammnNearbyCyclesTruncated O p OK X₀ i)⟦(1 : ℤ)⟧
+
+/-- The canonical square maps of AMMN Theorem 7.13 for this model and weight.
+No theorem below quantifies over values of `AmmnSquareMaps`. -/
+def AmmnSquareMaps.of (X₀ : ProperSmoothFormalScheme OK) (i : ℕ) :
+    AmmnSquareMaps O p OK X₀ i := sorry
+
+/-- Node `CP.2/nearby-cycle-crystalline-de-rham-pullback`, AMMN Theorem 7.13, pp.53–54:
+commutativity and the distinguished-triangle shadow of its homotopy cartesian square. The
+middle arrow is `(right, -bottom)`, not an ordinary categorical pullback in the triangulated
+category. The enhanced homotopy, functoriality, and agreement with classical CP.2/CP.3 maps are
+not encoded by this 1-categorical signature (gap G-ammn-transport). -/
+theorem CP2.nearby_cycle_crystalline_de_rham_pullback
+    (X₀ : ProperSmoothFormalScheme OK) (i : ℕ) :
+    let d := AmmnSquareMaps.of O p OK X₀ i
+    d.top ≫ d.right = d.left ≫ d.bottom ∧
+      Pretriangulated.Triangle.mk (biprod.lift d.top d.left) (biprod.desc d.right (-d.bottom))
+        d.connecting ∈ distTriang (DerivedCategory (ModuleCat.{u} ℚ_[p])) := by
+  sorry
+
+end Ammn
+
 end TauCeti.CohomologyComparisons
 
 /-
 What remains omitted (REV-CohomologyComparisons).
 
-* `CP6.habiro_and_trace_specialization_export` (node CP.6/habiro-and-trace-specialization-export)
-  has no Lean statement: it is an export interface whose content is the standard specialization
-  dictionary of CP.0 (`SpecializationDictionary.standard`) and the Chern-class comparisons of CP.6,
-  both stated above. The consuming squares are stated by their owners
-  (`HabiroCohomologyFoundations:HQ.8`, `RefinedTraceMethods`).
 * Hypotheses or conclusions that a carrier cannot yet express are left out where the statement
   stays true, and each docstring says what is left out: for example ČK §7.1's pure dimensionality
   (`CP4.logarithmic_integral_diagram`), the φ/N compatibility of the `B_st⁺` base change
