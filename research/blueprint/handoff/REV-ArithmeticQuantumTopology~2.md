@@ -1,0 +1,13 @@
+# REV-ArithmeticQuantumTopology~2 — complete review
+
+Issue #6991; reviewer Codex, session `codex-qw7qpA`; 2026-10-08. **Accepted as a target-level planning pass.** This is a finished review, not a checkpoint.
+
+All 106 nodes were checked: 86 verified and 20 corrected. All 24 baseline declarations were read at the pinned commits, all 22 source findings independently confirmed, and all 17 handed red-team findings reconciled. The packet retains the historical review/audits and records this review as its live verdict. The reader and suggested-file specification inventory agree with every current node/API/test. The prior reader-only blocker is resolved.
+
+Corrections include the general core T_(f_i) surgery sign, pivotal g membership, Neumann cross-ratio ordering, the ℤ[1/2] NZ symplectic completion, canonical-root phase transport, countable group-algebra test domain and numbered source locators. The new scalar conjugation example catches denominator-only root substitution. HB.9's live coefficient-transfer, all-order identification, signed Kummer, integral-gluing and full quadratic finite étale/HB.7 descent contracts now precede QT module membership. Three precise supplier nodes and one supplier request were added; no roadmap node was added. Published DG2 E20/E21 are on pp. 17–18/p. 19, not the old scope.
+
+Validation: packet checker 0 errors/warnings; errata view passes; reader/Lean specification synchronization and all cross-node references pass; 826 reachable node declarations have no dependency cycle. Scalar cross-ratio, phase and cyclic-product sanity checks pass. The suggested file elaborates with `lean-check` at pinned Mathlib, exit 0, with 65 `sorry` warnings only. `git diff --check` passes. No private sources or forbidden build operations were used.
+
+What remains belongs to implementation and the explicit supplier/follow-up work, not this review: eight stages are planned and none closed, with eight gaps and nineteen open contracts. Preserve G1–G8, especially full finite étale module/descent conditions, exact Jones/MM/GZ conventions, analytic distribution/tail estimates and conjectural matrix/normalization status. Wheeler's relative two-variable/MMR comparison remains named QT Part II work, with HR.1/HR.5 as suppliers. All declarations remain implementation-unchecked.
+
+Resume from the live packet review and the full report `research/blueprint/reviews/REV-ArithmeticQuantumTopology~2.md`; no scratch file or local source copy is needed. Normal intake can integrate this accepted planning pass without changing a supplier or upstream roadmap. This process submitted one job and takes no second claim.

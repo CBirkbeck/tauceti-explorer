@@ -564,13 +564,22 @@ def cyclicDilogarithmStar (k : ℕ) (ζ x : ℂ) : ℂ :=
 example (ζ x : ℂ) : cyclicDilogarithmStar 1 ζ x = 1 := sorry
 
 def rootNZWeight {n k : ℕ} (Q : Matrix (Fin n) (Fin n) ℤ)
-    (r : Fin n → ℤ) (ζ : ℂ) (θ : Fin n → ℂ) (m : Fin n → Fin k) : ℂ :=
+    (r : Fin n → ℤ) (ζ : ℂ)
+    (_hζ : ζ = Complex.exp (2 * Real.pi * Complex.I / (k : ℂ)))
+    (θ : Fin n → ℂ) (m : Fin n → Fin k) : ℂ :=
   let quadratic : ℤ := ∑ i, (m i).val * ∑ j, Q i j * (m j).val
   let linear : ℤ := ∑ i, (m i).val * r i
   Complex.exp (-Real.pi * Complex.I * (quadratic : ℂ)) *
     Complex.exp (Real.pi * Complex.I * ((quadratic + linear : ℤ) : ℂ) / (k : ℂ)) *
     ∏ i, (θ i ^ (-(∑ j, Q i j * (m j).val))) /
       (∏ s ∈ range (m i).val, (1 - ζ ^ (s + 1) * (θ i)⁻¹))
+
+-- rootNZ_primitive_root_transport: conjugate the whole scalar weight.
+-- These scalar inputs do not certify a geometric NZ datum.
+example (ζ : ℂ) (hζ : ζ = Complex.exp (2 * Real.pi * Complex.I / (3 : ℂ))) :
+    star (rootNZWeight (fun (_i _j : Fin 1) => -1) (fun _ => 1) ζ hζ
+      (fun _ => 2) (fun _ => (⟨2, by decide⟩ : Fin 3))) =
+      4 * ζ / ((1 - ζ ^ 2 / 2) * (1 - ζ / 2)) := sorry
 
 /-- Only the finite weighted average, with an actual nonzero denominator.
 NZ gluing and root relations belong to the geometric RootNZDatum, omitted below. -/
@@ -883,7 +892,7 @@ Specification: For IHS M, σ₁(J_M)∈ℤ[[q−1]] is the Ohtsuki series, chara
 ArithmeticQuantumTopology:QT.5/ideal-tetrahedron-and-shape
 Name: ideal_tetrahedron_and_shape
 Carrier/condition boundary: mathlib:Complex.log; tauceti:TauCetiRoadmap/GeometricTopology#layer-7-riemannian-geometric-structures-and-volume
-Specification: The supplier’s ordered ideal hyperbolic tetrahedron with four distinct boundary vertices has cross-ratio z∈ℂ∖{0,1}, with ordering normalized by (∞,0,1,z)↦z. Its companions are z′=1/(1−z), z″=1−1/z and zz′z″=−1. Im z>0 is positive orientation; real nondegenerate shapes are flat and may occur in refinement arguments. QT records the shape coordinate interface and imports the geometric carrier/isometry classification; it does not construct hyperbolic space again.
+Specification: The supplier’s ordered ideal hyperbolic tetrahedron with four distinct boundary vertices has cross-ratio z∈ℂ∖{0,1}, with ordering normalized by (0,∞,1,z)↦z. Its companions are z′=1/(1−z), z″=1−1/z and zz′z″=−1. Im z>0 is positive orientation; real nondegenerate shapes are flat and may occur in refinement arguments. QT records the shape coordinate interface and imports the geometric carrier/isometry classification; it does not construct hyperbolic space again.
 API IdealTetrahedron [signature omitted pending the boundary above]: An ordered oriented ideal tetrahedron, recorded by its shape parameter in the complement of 0 and 1.
 API shape [signature omitted pending the boundary above]: shape T is the cross-ratio of the four ideal vertices in the chosen order.
 API shape_companions [signature omitted pending the boundary above]: The three edge parameters are z, 1/(1-z) and 1-1/z, and their product is minus 1.
@@ -900,7 +909,7 @@ Specification: For an actual ideal face-pairing triangulation of the interior of
 API IdealTriangulation [signature omitted pending the boundary above]: Import an actual oriented cusped-manifold ideal face-pairing triangulation, with peripheral curves and nondegenerate shapes satisfying all edge and completeness equations; an arbitrary matrix equation is not this carrier.
 API edgeEquation [signature omitted pending the boundary above]: At each edge, the product of the incident edge parameters is 1 and the sum of their logarithms is two pi i.
 API cuspEquation [signature omitted pending the boundary above]: At each cusp, each generator has similarity multiplier 1; its parabolic translation need not vanish.
-Test complete_cusp_nonidentity_translation [required example; omitted pending the geometric carrier]: w↦w+1 has multiplier 1 but is not the identity, and may be complete cusp holonomy.
+Test complete_cusp_nonidentity_translation [required example; omitted pending the geometric carrier]: The map w↦w+1 is a nonidentity parabolic with multiplier 1. Completeness may admit this holonomy; a test requiring the identity transformation rejects a complete cusp.
 API isGeometricSolution [signature omitted pending the boundary above]: The conjunction includes positive shapes, edge angle equations and both peripheral completeness equations.
 API volume_eq_sum [signature omitted pending the boundary above]: The volume of the structure is the sum of the volumes of its tetrahedra.
 Test figure_eight_solution [required example; omitted if its carrier/condition is absent]: The two-tetrahedron triangulation of the figure-eight knot complement has the solution with both shapes the primitive sixth root of unity; this is the running example.
@@ -954,12 +963,12 @@ API ZeroConvergent [signature omitted pending the boundary above]: Zero-converge
 Test trivialRibbonHopf [required example; omitted if its carrier/condition is absent]: The ground ring itself, with trivial R-matrix and ribbon element, is a topological ribbon Hopf algebra whose universal invariant is constant; this is the degenerate case.
 Test twist_unit [required example; omitted if its carrier/condition is absent]: The twist on the tensor unit is the identity, which is the statement that the ribbon element acts trivially on the trivial module.
 Test braiding_not_symmetric [required example; omitted if its carrier/condition is absent]: For the quantised enveloping algebra the braiding is not a symmetry: its square on a two-dimensional module is not the identity, which is exactly what makes the invariant see the knotting.
-Test groupAlgebra_symmetric [required example; omitted if its carrier/condition is absent]: The completed group algebra of an abelian group with trivial R-matrix gives a symmetric, not merely braided, category; its universal invariant cannot distinguish a knot from the unknot.
+Test groupAlgebra_symmetric [required example; omitted if its carrier/condition is absent]: The completed group algebra of a countable abelian group with trivial R-matrix gives a symmetric, not merely braided, category; its universal invariant cannot distinguish a knot from the unknot.
 
 ArithmeticQuantumTopology:QT.1/core-subalgebras-and-twist-forms
 Name: core_subalgebras_and_twist_forms
 Carrier/condition boundary: Local prerequisites in the definitive packet; see its exact hypotheses.
-Specification: A core subalgebra X of a topological ribbon Hopf algebra is topologically free with continuous Δ(X)⊂completed X⊗X, S±1(X)⊂X, adjoint stability, and R and the pivotal element in the appropriate closures. For the clasp c=Σ c′_i⊗c″_i, both families are zero-convergent topological bases of X. If x=Σ x″_ic″_i lies in its ambient closure and y=Σ y′_ic′_i lies in X, define ⟨x,y⟩=Σ x″_iy′_i; its convergence follows from these basis conditions. Twist forms are T±(y)=⟨r±1,y⟩. Their normalization is T±(1)=1. Construction of an integral invariant also needs the integral K_n stability conditions, separately planned. No arbitrary scalar Gauss denominator is inserted.
+Specification: A core subalgebra X of a topological ribbon Hopf algebra is topologically free with continuous Δ(X)⊂completed X⊗X, S±1(X)⊂X, adjoint stability, and R in the ambient h-adic closure of X⊗X and the pivotal element g in X itself. For the clasp c=Σ c′_i⊗c″_i, both families are zero-convergent topological bases of X. If x=Σ x″_ic″_i lies in its ambient closure and y=Σ y′_ic′_i lies in X, define ⟨x,y⟩=Σ x″_iy′_i; its convergence follows from these basis conditions. Twist forms are T±(y)=⟨r±1,y⟩. Their normalization is T±(1)=1. Construction of an integral invariant also needs the integral K_n stability conditions, separately planned. No arbitrary scalar Gauss denominator is inserted.
 API CoreSubalgebra [signature omitted pending the boundary above]: Topological core with both clasp basis conditions and stability.
 API claspForm [signature omitted pending the boundary above]: Continuous pairing between the closure and the core with the coordinate formula above.
 API CoreSubalgebra.twistForm [signature omitted pending the boundary above]: T±(y)=⟨r±1,y⟩.
@@ -1066,7 +1075,7 @@ Specification: All eight accepted QT stages are decomposed here. The suggested L
 ArithmeticQuantumTopology:QT.0/admissible-band-slide-calculus
 Name: admissible_band_slide_calculus
 Carrier/condition boundary: Local prerequisites in the definitive packet; see its exact hypotheses.
-Specification: A band slide is an algebraically cancelling pair of handle slides and preserves the linking matrix. Two admissible links with the same oriented surgery result become related by band slides and isotopy after split ±1 stabilizations. This is Habiro theorem t1; its Main Lemma applies to an oriented ordered move sequence with φ(S)=I.
+Specification: A band slide is an algebraically cancelling pair of handle slides and preserves the linking matrix. Two admissible links with the same oriented surgery result become related by band slides and isotopy after split ±1 stabilizations. This is Habiro theorem Theorem 1.1; its Main Lemma applies to an oriented ordered move sequence with φ(S)=I.
 
 ArithmeticQuantumTopology:QT.1/ribbon-category
 Name: ribbon_category
@@ -1268,7 +1277,7 @@ Specification: For a chosen algebraic nondegenerate complete gluing solution wit
 ArithmeticQuantumTopology:QT.6/neumann-zagier-datum
 Name: neumann_zagier_datum
 Carrier/condition boundary: mathlib:Matrix.det
-Specification: An NZ datum Ξ=(A,B,ν,z,f,f″) comes from an actual ideal triangulation with a selected edge equation removed and a peripheral equation added. (A|B) is an integral upper symplectic half, hence ABᵀ=BAᵀ and rank(A|B)=N. Shapes z_j∉{0,1} solve ∏_j z_j^A_ij(1−1/z_j)^B_ij=(−1)^ν_i. Integer flattening vectors satisfy Af+Bf″=ν (and f′=1−f−f″ with the full incidence equations). For the formal Gaussian route impose det B≠0 and det Λ≠0, Λ=−B⁻¹A+diag(1/(1−z_j)). Λ is symmetric over ℚ(z). This is more than arbitrary integer matrices.
+Specification: An NZ datum Ξ=(A,B,ν,z,f,f″) comes from an actual ideal triangulation with r redundant edge equations removed and one peripheral equation per cusp added (r=1 in the knot case). The integral block (A|B) has a symplectic completion over ℤ[1/2]; a completion over ℤ additionally requires the appropriate integral peripheral-row normalization. In particular ABᵀ=BAᵀ and rank(A|B)=N. Shapes z_j∉{0,1} solve ∏_j z_j^A_ij(1−1/z_j)^B_ij=(−1)^ν_i. Integer flattening vectors satisfy Af+Bf″=ν (and f′=1−f−f″ with the full incidence equations). For the formal Gaussian route impose det B≠0 and det Λ≠0, Λ=−B⁻¹A+diag(1/(1−z_j)). Λ is symmetric over ℚ(z). This is more than arbitrary integer matrices.
 API NZDatum [signature omitted pending the boundary above]: The triangulation-derived matrices, shapes and flattening satisfying the stated equations.
 API NZHessian [signature omitted pending the boundary above]: Λ=−B⁻¹A+diag(1/(1−z)).
 API NZHessian_symmetric [concrete component above; full object still uses stated boundary]: ABᵀ=BAᵀ and invertible B imply symmetry of Λ.
@@ -1303,7 +1312,7 @@ Specification: If B is unimodular over ℤ, N=I−B⁻¹A is symmetric integral.
 ArithmeticQuantumTopology:QT.6/topological-habiro-module-comparison
 Name: topological_habiro_module_comparison
 Carrier/condition boundary: ArithmeticQuantumTopology/G6; HabiroNahmSeries:HB.8/refinement-gaussian-identification; HabiroNahmSeries:HB.9/module-membership; HabiroNumberFields:HB.6; HabiroNumberFields:HB.7; K3BlochGroups:V.3/cgz-published-bloch-group
-Specification: For a nondegenerate isolated solution of the symmetric integral N Nahm equations obtained by the preceding qualified bridge, import the HB.8 refined Gaussian collection only after its G1 global-prefactor and G2 regularity conditions are discharged (and retaining its coprime auxiliary root-order condition) and HB.9 theorem giving Φ_(N,z)∈H_(R[δ^(−1/2)],ξ) at root orders prime to Δ, where ξ=Σ_j[z_j] in the checked CGZ convention. The coefficient ring R is the arithmetic ring of the chosen number field with the required units and bad-prime localization; HNF HB.6/HB.7 supply the Frobenius ring and K₃-indexed module. Identifying this collection with the normalized geometric NZ series requires the explicit phase/one-loop and classical-exponential comparison. It is a separate obligation, not an automatic assertion that every formal NZ series is in that module. At primitive order k the geometric input is the root-refined DG2 series, with the finite cyclic average and one-loop factor above. Its matching with HB.8’s refined Gaussian collection is a normalization obligation under the integral/parity hypotheses, not mere evaluation of the k=1 series.
+Specification: For a nondegenerate isolated solution of the symmetric integral N Nahm equations obtained by the preceding qualified bridge, import the HB.8 refined Gaussian collection only after its G1 global-prefactor and G2 regularity conditions are discharged (and retaining its coprime auxiliary root-order condition) and the HB.9 module-membership contract only after its coefficient-transfer, HB.8 all-order identification, Kummer-orientation and all-order gluing obligations are discharged. Its coefficient algebra is the full quadratic finite étale B=R[T]/(δT²−1), including split components, and the target is Φ_(N,z)∈H_(B,ξ|B) at root orders prime to Δ, where ξ=Σ_j[z_j] in the checked CGZ convention. The coefficient ring R is the arithmetic ring of the chosen number field with the required units and bad-prime localization; HNF HB.6/HB.7 supply the Frobenius ring and K₃-indexed module, subject to HB.7 effective global descent extended to this full finite étale algebra; a selected number-field component does not prove membership on all components. Identifying this collection with the normalized geometric NZ series requires the explicit phase/one-loop and classical-exponential comparison. It is a separate obligation, not an automatic assertion that every formal NZ series is in that module. At primitive order k the geometric input is the root-refined DG2 series, with the finite cyclic average and one-loop factor above. Its matching with HB.8’s refined Gaussian collection is a normalization obligation under the integral/parity hypotheses, not mere evaluation of the k=1 series.
 
 ArithmeticQuantumTopology:QT.6/faddeev-quantum-dilogarithm
 Name: faddeev_quantum_dilogarithm
@@ -1386,12 +1395,12 @@ Specification: Conjecture (GZ): Σ_(σ∈P_K∖{σ₀})Φ_ασ(h)Φ_(−α)^σ(�
 ArithmeticQuantumTopology:QT.7/coefficient-asymptotics
 Name: coefficient_asymptotics
 Carrier/condition boundary: ArithmeticQuantumTopology/G8
-Specification: GZ’s experimental large-n expansion couples A_ασ(n)=[h^n]Φ_ασ to all other representations through Γ(n−ℓ+κσ)/(Vσ−Vσ′)^(n−ℓ+κσ), an integer matrix M_K and a phase-dependent prefactor. The printed CoeffAsymp uses (2π)^(κσ−1) and M₄₁=((0,1,−1),(0,0,−3),(0,3,0)); its phase must be reconciled with the adjacent coupled formulas containing 1/(2πi), as recorded in sourceIssues. A verified figure-eight target is AnFirst: A(n)∼(3/(2π))Σ_ℓ(−1)^ℓ A(ℓ)(n−ℓ−1)!/(2Vgeo)^(n−ℓ). Distinct action differences, branches and truncation meanings are required. These are conjectural knot statements; general resurgence/Borel summation theory is outside QT.
+Specification: GZ’s experimental large-n expansion couples A_ασ(n)=[h^n]Φ_ασ to all other representations through Γ(n−ℓ+κσ)/(Vσ−Vσ′)^(n−ℓ+κσ), an integer matrix M_K and a phase-dependent prefactor. The printed equation (3.18) uses (2π)^(κσ−1) and M₄₁=((0,1,−1),(0,0,−3),(0,3,0)); its phase must be reconciled with the adjacent coupled formulas containing 1/(2πi), as recorded in sourceIssues. The selected figure-eight asymptotic conjecture is equation (3.16): A(n)∼(3/(2π))Σ_ℓ(−1)^ℓ A(ℓ)(n−ℓ−1)!/(2Vgeo)^(n−ℓ). Distinct action differences, branches and truncation meanings are required. These are conjectural knot statements; general resurgence/Borel summation theory is outside QT.
 
 ArithmeticQuantumTopology:QT.7/matrix-refined-quantum-modularity
 Name: matrix_refined_quantum_modularity
 Carrier/condition boundary: ArithmeticQuantumTopology/G8
-Specification: GZ supplies selected square matrices Φ_α^(σ,σ′)(h) and J(α)=Φ_α(0), indexed by P_K, with row-wise completions (den(α)h/(2πi))^κσ exp(Vσ/[den(α)²h]). Its matrix RQMC asserts Φ̂_(γX)(h*)≈jγ(x)Φ̂_X(h)Φ̂_(a/c)(2πi/[c(cx+d)]), x=X−h/(2πi), h*=h/[(cx+d)(cX+d)], for bounded-denominator X→+∞ and c>0. This is conjectural and also has a normalization obligation: the printed positive row-weight factor must be reconciled with the scalar completed negative factor in GQMChhh, before transporting a single convention. General matrix invertibility, topological well-definedness and analytic completion are not assumptions silently discharged by GSW’s geometric scalar theorem.
+Specification: GZ supplies selected square matrices Φ_α^(σ,σ′)(h) and J(α)=Φ_α(0), indexed by P_K, with row-wise completions (den(α)h/(2πi))^κσ exp(Vσ/[den(α)²h]). Its matrix RQMC asserts Φ̂_(γX)(h*)≈jγ(x)Φ̂_X(h)Φ̂_(a/c)(2πi/[c(cx+d)]), x=X−h/(2πi), h*=h/[(cx+d)(cX+d)], for bounded-denominator X→+∞ and c>0. This is conjectural and also has a normalization obligation: the printed positive row-weight factor must be reconciled with the scalar completed negative factor in equation (3.13), before transporting a single convention. General matrix invertibility, topological well-definedness and analytic completion are not assumptions silently discharged by GSW’s geometric scalar theorem.
 
 ArithmeticQuantumTopology:QT.7/knot-matrix-cocycle
 Name: knot_matrix_cocycle
@@ -1477,7 +1486,7 @@ Specification: For every positively shaped pseudo-3-manifold X satisfying H₂(X
 ArithmeticQuantumTopology:QT.7/ak-knot-comparison-conjecture
 Name: ak_knot_comparison_conjecture
 Carrier/condition boundary: ArithmeticQuantumTopology/G7
-Specification: Conjecture (AK, for a hyperbolic knot K in a closed oriented compact 3-manifold M): there is a smooth J_(M,K)(ℏ,x) on ℝ_>0×ℝ. (1) Every fully balanced positive ideal triangulation X of M∖K has a gauge-invariant real linear angle form λ and a real quadratic angle form φ with Z_ℏ(X)=exp(iφ/ℏ)∫ℝ J_(M,K)(ℏ,x)exp(−xλ/√ℏ)dx. (2) For any positive one-vertex H-triangulation Y approachable by weights tending to τ(K)=0 and τ(other edges)=2π, there is a real quadratic angle form ϕ such that lim_(ω→τ) Φ_b((π−ω(K))/(2πi√ℏ))Z_ℏ(Y)=exp(iϕ/ℏ−iπ/12)J_(M,K)(ℏ,0). (3) lim_(ℏ→0+)2πℏ log|J_(M,K)(ℏ,0)|=−Vol(M∖K). All relevant existence, convergence and limiting conditions are part of the conjecture. AK’s Theorem th:4-1--5-2 proves its three parts for (S³,4₁) and (S³,5₂), using χ₄₁ and χ₅₂. The general analytic/formal NZ identification additionally needs matched saddle, logarithmic branches, classical action, one-loop determinant and all-orders error estimates; no such universal comparison follows from formal Pachner invariance.
+Specification: Conjecture (AK, for a hyperbolic knot K in a closed oriented compact 3-manifold M): there is a smooth J_(M,K)(ℏ,x) on ℝ_>0×ℝ. (1) Every fully balanced positive ideal triangulation X of M∖K has a gauge-invariant real linear angle form λ and a real quadratic angle form φ with Z_ℏ(X)=exp(iφ/ℏ)∫ℝ J_(M,K)(ℏ,x)exp(−xλ/√ℏ)dx. (2) For any positive one-vertex H-triangulation Y approachable by weights tending to τ(K)=0 and τ(other edges)=2π, there is a real quadratic angle form ϕ such that lim_(ω→τ) Φ_b((π−ω(K))/(2πi√ℏ))Z_ℏ(Y)=exp(iϕ/ℏ−iπ/12)J_(M,K)(ℏ,0). (3) lim_(ℏ→0+)2πℏ log|J_(M,K)(ℏ,0)|=−Vol(M∖K). All relevant existence, convergence and limiting conditions are part of the conjecture. AK’s Theorem 5 proves its three parts for (S³,4₁) and (S³,5₂), using χ₄₁ and χ₅₂. The general analytic/formal NZ identification additionally needs matched saddle, logarithmic branches, classical action, one-loop determinant and all-orders error estimates; no such universal comparison follows from formal Pachner invariance.
 
 ArithmeticQuantumTopology:QT.7/kashaev-volume-conjecture
 Name: kashaev_volume_conjecture
@@ -1499,7 +1508,7 @@ Test unifiedKashaev_factorial_square [required example; omitted if its carrier/c
 ArithmeticQuantumTopology:QT.6/root-nz-data
 Name: root_nz_data
 Carrier/condition boundary: ArithmeticQuantumTopology/G6; HabiroNahmSeries:HB.4/formal-gaussian-integration; QSeriesPartitionsAndMockModularForms:QM.0
-Specification: Fix a geometric NZ datum Ξ with B∈GL_N(ℤ), symmetric Q=B⁻¹A, nonzero determinant of Λ=−Q+diag(z′), a primitive k-th root ζ, k>0, and choices θ_i^k=z_i. Put F=ℚ(z), F_k=F(ζ), E=F_k(θ); the actual Kummer Galois group embeds into (ℤ/kℤ)^N and need not be the whole product. For m represented by integers 0≤m_i<k, put a_m(θ)=exp(−πi mᵀQm) exp(πi(mᵀQm+mᵀB⁻¹ν)/k) ∏_i θ_i^(−(Qm)_i)/(ζθ_i⁻¹;ζ)_(m_i). These denominators are nonzero since z_i≠1. Assume S=Σ_m a_m≠0 and set Av(g)=Σ_m a_m g(m)/S. Put D*_k(x)=∏_(s=1)^(k−1)(1−ζ⁻ˢx)^s. With chosen roots, τ_(Ξ,k)=k^(−N/2)[det(A diag(z″)+B diag(z⁻¹)) z^(f″/k)(z″)^(−f/k)]^(−1/2)∏_i D*_k(θ_i⁻¹)^(1/k) S. The displayed fractional monomials use the chosen θ_i and roots of z″_i, not unspecified powers. The invariant scalar is qualified modulo its 2k-th-root ambiguity; it is not canonically an element of F_k.
+Specification: Fix a geometric NZ datum Ξ with B∈GL_N(ℤ), symmetric Q=B⁻¹A, nonzero determinant of Λ=−Q+diag(z′), the canonical primitive k-th root ζ=exp(2πi/k), k>0, and choices θ_i^k=z_i. Put F=ℚ(z), F_k=F(ζ), E=F_k(θ); the actual Kummer Galois group embeds into (ℤ/kℤ)^N and need not be the whole product. For m represented by integers 0≤m_i<k, put a_m(θ)=exp(−πi mᵀQm) exp(πi(mᵀQm+mᵀB⁻¹ν)/k) ∏_i θ_i^(−(Qm)_i)/(ζθ_i⁻¹;ζ)_(m_i). These denominators are nonzero since z_i≠1. Assume S=Σ_m a_m≠0 and set Av(g)=Σ_m a_m g(m)/S. Put D*_k(x)=∏_(s=1)^(k−1)(1−ζ⁻ˢx)^s. With chosen roots, τ_(Ξ,k)=k^(−N/2)[det(A diag(z″)+B diag(z⁻¹)) z^(f″/k)(z″)^(−f/k)]^(−1/2)∏_i D*_k(θ_i⁻¹)^(1/k) S. The displayed fractional monomials use the chosen θ_i and roots of z″_i, not unspecified powers. The invariant scalar is qualified modulo its 2k-th-root ambiguity; it is not canonically an element of F_k. For another primitive root ζ^u, transport the complete descended formula by the cyclotomic Galois action, including its phase and a compatible extension to the coefficient and shape-root data; this action need not fix the original shape field. Keeping the displayed canonical exponential while replacing ζ only in the finite products is incorrect.
 API RootNZDatum.weights [signature omitted pending the boundary above]: The explicit a_m on (ZMod k)^N with stated integral and root choices.
 API RootNZDatum.average [signature omitted pending the boundary above]: Σa_m g(m)/Σa_m, only with nonzero denominator.
 API cyclicDilogarithmStar [concrete component above; full object still uses stated boundary]: The finite product D*_k(x).
@@ -1507,6 +1516,7 @@ API RootNZDatum.oneLoop [signature omitted pending the boundary above]: The exac
 Test rootNZ_k_one [required example; omitted if its carrier/condition is absent]: For k=1, the finite average has one summand, D*₁=1 and θ=z.
 Test rootNZ_denominator [required example; omitted if its carrier/condition is absent]: If the weighted sum S is zero, the normalized average is outside the constructor’s domain.
 Test rootNZ_kummer_relations [required example; omitted if its carrier/condition is absent]: Repeated shapes θ₁=θ₂ cannot admit an independent automorphism rotating only θ₁ in their actual splitting field.
+Test rootNZ_primitive_root_transport [scalar Galois transport example above; geometric carrier omitted]: For k=3 and the scalar weight Q=−1, r=1, θ=2, m=2, the canonical numerator is 4ζ⁻¹. Complex conjugation transports the entire weight to numerator 4ζ with the conjugated Pochhammer denominator. Replacing ζ by ζ² only in that denominator retains the wrong numerator. This is a scalar phase test, not a claim that these inputs form a geometric NZ datum.
 
 ArithmeticQuantumTopology:QT.6/root-refined-nz-series
 Name: root_refined_nz_series
