@@ -1,8 +1,8 @@
 {
   "roadmaps": 242,
-  "stages": 5021,
+  "stages": 5033,
   "originalStages": 2191,
-  "sourceRefinements": 2830,
+  "sourceRefinements": 2842,
   "reviewedDecompositions": [
     {
       "roadmap": "AInfCohomology",
@@ -243,14 +243,14 @@
   "editedRoadmapSummaries": 181,
   "curatedStagePresentations": 339,
   "administrativeStages": 101,
-  "mathematicalStars": 4920,
+  "mathematicalStars": 4932,
   "plainTextPlanetLabels": 398,
   "hiddenPlanets": 600,
   "mappedStageStatuses": 350,
   "libraryAuditStatuses": 19,
   "bibliographicSources": 46,
-  "roadmapEdges": 2190,
-  "stageEdges": 13016,
+  "roadmapEdges": 2196,
+  "stageEdges": 13066,
   "reviewedLinkPackets": 25,
   "promotedBlueprints": [
     {
@@ -678,6 +678,12 @@
       "roadmap": "GL2AutomorphicRepresentationsAndTransfer",
       "nodes": 57,
       "reviewer": "independent-review-REV-GL2AutomorphicRepresentationsAndTransfer--R17.3"
+    },
+    {
+      "file": "GL2ModularityLifting--R32.3",
+      "roadmap": "GL2ModularityLifting",
+      "nodes": 28,
+      "reviewer": "independent-review-REV-GL2ModularityLifting--R32.3~2"
     },
     {
       "file": "GeneralAlgebraicKTheory--K.1",
@@ -1251,8 +1257,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 36279599,
-  "htmlSha256": "52de0524f52474ecc407e7aacc3074a5424ea5c0bdc37ce890a98173513a2136",
+  "htmlBytes": 36329551,
+  "htmlSha256": "7751f128b99106f219f7277ddc27ce09f25d4df87c3adf1e7b67b6c4d1175a91",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -1284,7 +1290,7 @@
     "data/roadmap-summaries.json": "c8bdd0a9105f5d3c4a858c8b635990729f8e94497dee784a71fae659b8c05b9f",
     "data/roadmap-classification.json": "2641dbc97eb2566c715162d011b46890d1635629181ef8126ac7aed9e24a3b13",
     "data/classification-estimates.json": "625d35fe6121bf099dc5de9e6a9111793596f9b664e3fbd439841434bb4a57d6",
-    "data/roadmap-distances.json": "cf98475e9560ac86fc7917ba96840b96f639fd0737a3a0833e35a4f179bd1c2c",
+    "data/roadmap-distances.json": "25ec27a19db07dffe5ac51764606e80319c8ae19bb2fafae0c3101d433bb7731",
     "data/galaxy-layout.json": "7489487a2143484a355b36026c2f7d3dd9384ac5c58ac90d8b061b8dfcab6088",
     "data/bibliography.json": "bef230a41fad22d6b790c7564061c4d05c2ae5b78cab53d005eb404afab2b122",
     "NOTICE": "a285b95d5adbf5c2bcc82db36e2a77b797f84a2c5cbb30292efd0bae17cc4f34",
@@ -1484,6 +1490,8 @@
     "data/blueprints/GL2AutomorphicRepresentationsAndTransfer--R16.1.md": "50526e38e7e53ddebace36b612fb6fd28c515c4aaec761380556e802b47b7528",
     "data/blueprints/GL2AutomorphicRepresentationsAndTransfer--R17.3.json": "ba50805de324c40a5c18581106589b578a26557f8d1ef167deafd068b581c1f4",
     "data/blueprints/GL2AutomorphicRepresentationsAndTransfer--R17.3.md": "9fd9a231c1e609034020ca69e533b1df2651e6e0a83a27d2bfebff357ed84e49",
+    "data/blueprints/GL2ModularityLifting--R32.3.json": "aa82fe51286213eff11bb84efa1f1208c709b0e8923fe705b806b0c9392bcb7d",
+    "data/blueprints/GL2ModularityLifting--R32.3.md": "8e74a7c0d6d717cd21c6a9f430eec0dd7f85d3d9c6085c3d718b03227d29cd8e",
     "data/blueprints/GeneralAlgebraicKTheory--K.1.json": "7ab04ad4de09aea84546bddbf425626c3ef5c03144590aedf236881174880b94",
     "data/blueprints/GeneralAlgebraicKTheory--K.1.md": "0897b3b7abb9bdfd592bc3324b70acc5cc9905d85d84c923d90a8d3c033d29f0",
     "data/blueprints/GeneralAlgebraicKTheory--K.6.json": "2da20e3f8f6d3e492835c2623df3a72c79de4e27814c7a1f55fd50674dee2b4c",

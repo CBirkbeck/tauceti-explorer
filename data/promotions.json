@@ -1051,6 +1051,17 @@
     "data/blueprints/GL2AutomorphicRepresentationsAndTransfer--R17.3.md"
    ]
   },
+  "research/blueprint/packets/GL2ModularityLifting--R32.3.json": {
+   "promotedAt": "2026-10-08T14:44:57Z",
+   "review": "7512d88f7c670a6d",
+   "reviewDate": "2026-10-08",
+   "reviewer": "independent-review-REV-GL2ModularityLifting--R32.3~2",
+   "sha256": "aa82fe51286213eff11bb84efa1f1208c709b0e8923fe705b806b0c9392bcb7d",
+   "to": [
+    "data/blueprints/GL2ModularityLifting--R32.3.json",
+    "data/blueprints/GL2ModularityLifting--R32.3.md"
+   ]
+  },
   "research/blueprint/packets/GeneralAlgebraicKTheory--K.1.json": {
    "promotedAt": "2026-09-28T15:17:43Z",
    "review": "da4dbd15147b37dc",
