@@ -2997,7 +2997,7 @@
       ],
       "title": "Registered: odd two-dimensional Artin representations of G_ℚ are modular (Langlands–Tunnell; Khare–Wintenberger Corollary 10.2(ii))",
       "kind": "comparison",
-      "statement": "Every continuous odd irreducible ρ : G_ℚ → GL₂(ℂ) arises from a newform of weight one, hence satisfies Langlands' conjecture (ML.1/strong-artin-conjecture) and Artin's conjecture. The soluble cases (projective image dihedral, A₄, S₄) are Langlands–Tunnell (owner GL2AutomorphicRepresentationsAndTransfer R17.5, RS-21); the new case, projective image A₅, is Khare–Wintenberger Corollary 10.2(ii), deduced from ML.1/irregular-systems-weight-one, and exported by ClassicalSerreModularity R27.6. This node registers the two owners and the consequence for the strong Artin conjecture; it does not reprove either, and it does not derive weight-one representations from weight-two Jacobians.",
+      "statement": "Every continuous odd irreducible ρ : G_ℚ → GL₂(ℂ) arises from a newform of weight one, hence satisfies Langlands' conjecture (ML.1/strong-artin-conjecture) and Artin's conjecture. The soluble cases (projective image dihedral, A₄, S₄) are Langlands–Tunnell (owner GL2AutomorphicRepresentationsAndTransfer R17.5, RS-21); the new case, projective image A₅, is Khare–Wintenberger Corollary 10.2(ii), proved and exported by ClassicalSerreModularity R27.6/odd-artin-weight-one-modularity. This node registers the two owners and the consequence for the strong Artin conjecture; it does not reprove either, and it does not derive weight-one representations from weight-two Jacobians.",
       "hypotheses": [
         "ρ odd (det ρ(c) = −1), irreducible, over ℚ only. Even two-dimensional ρ (Maass forms) are not covered."
       ],
@@ -3011,7 +3011,7 @@
       ],
       "prerequisites": [
         "ModularityAndLanglandsExtensions:ML.1/strong-artin-conjecture",
-        "ModularityAndLanglandsExtensions:ML.1/irregular-systems-weight-one",
+        "AutomorphicGaloisRepresentations:R19.1/weight-one-artin-representation",
         "GL2AutomorphicRepresentationsAndTransfer:R17.5/solvable-artin",
         "ClassicalSerreModularity:R27.6/odd-artin-weight-one-modularity",
         "ModularityAndLanglandsExtensions:ML.0/endpoint-status-register"

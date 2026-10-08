@@ -1113,7 +1113,8 @@ The 36 stable declaration ids below specify the mathematical work. All retain im
 - `ClassicalSerreModularity:R27.1/good-dihedral-prime-definition`
 - `ClassicalSerreModularity:R27.2/hypotheses-Lr-Wr-and-Dr`
 - `PotentialModularityAndCompatibleSystems:R24.5/kw-theorem-5-1-systems`
-- `PotentialModularityAndCompatibleSystems:R24.4/kw-theorem-4-1`
+- `GL2ModularityLifting:R22.5/kw-i-theorem-4-1-odd-prime`
+- `GL2ModularityLifting:R22.6/kw-i-theorem-4-1-dyadic`
 - `OrdinaryAutomorphicFormsAndModularityLifting:R21.5/theorem-a`
 - `AlgebraicModularFormsAndSerreWeights:R15.4`
 
@@ -1400,7 +1401,8 @@ The 36 stable declaration ids below specify the mathematical work. All retain im
 - `ClassicalSerreModularity:R27.2/prime-gap-estimates-driving-the-weight-recursion`
 - `ClassicalSerreModularity:R27.1/good-dihedral-implies-nonsolvable-image-and-is-preserved`
 - `PotentialModularityAndCompatibleSystems:R24.5/kw-theorem-5-1-systems`
-- `PotentialModularityAndCompatibleSystems:R24.4/kw-theorem-4-1`
+- `GL2ModularityLifting:R22.5/kw-i-theorem-4-1-odd-prime`
+- `GL2ModularityLifting:R22.6/kw-i-theorem-4-1-dyadic`
 - `PotentialModularityAndCompatibleSystems:R24.6/linked-systems-modularity-transfer`
 - `OrdinaryAutomorphicFormsAndModularityLifting:R21.6`
 - `FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5`

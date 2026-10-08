@@ -2513,7 +2513,7 @@
         "Check on a nonreduced Hecke algebra that the determinant law is defined on the whole algebra and not only on its reduced characteristic-zero specializations"
       ],
       "prerequisites": [
-        "IntegralHeckeAndGaloisDeterminants:IHG.1",
+        "IntegralHeckeAndGaloisDeterminants:IHG.1/henselian-irreducible",
         "AutomorphicGaloisRepresentations:R19.6/geometric-hecke-determinant",
         "AutomorphicGaloisRepresentations:R19.6/residual-representation-of-a-newform"
       ],
@@ -4241,7 +4241,7 @@
         "AutomorphicGaloisRepresentations:R19.2/hilbert-normalisation-dictionary",
         "AutomorphicGaloisRepresentations:R19.5/potential-semistability-and-compatibility-at-the-coefficient-prime",
         "LocalGaloisDeformationRings:R08.3/semistable-height-quotient",
-        "LocalGaloisDeformationRings:R08.3",
+        "LocalGaloisDeformationRings:R08.3/pst-quotient-in-families",
         "IntegralHeckeAndGaloisDeterminants:IHG.1"
       ],
       "sources": [

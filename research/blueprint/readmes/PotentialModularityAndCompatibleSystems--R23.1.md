@@ -623,17 +623,19 @@ Proposed module: `TauCeti/NumberTheory/PotentialModularity/MoretBailly`; namespa
 
 Node: `PotentialModularityAndCompatibleSystems:R23.1/cht-character-extension`. Kind: lemma.
 
-For a number field F, a finite set S of places and a continuous finite-order character χ_S: product_{v in S} F_v^× → Qbar^×, there exists a continuous character χ: A_F^×/F^× → Qbar^× restricting to χ_S. In the cyclic-extension application choose an extension with finite image; this requires the finite ray-class quotient and divisibility of roots of unity, rather than extending into a fixed cyclic group of the same order.
+Let F be a number field, S a finite set of places and χ_S: ∏_{v∈S} F_v^× → Qbar^× a continuous finite-order character. There is a continuous finite-order character χ: A_F^×/F^× → Qbar^× with the prescribed restriction. If the local character has p-power order, χ may also be chosen of p-power order. Its order may exceed the order of χ_S; no global character into a fixed group of that same order is asserted. The finite-order conclusion is a refinement of CHT Lemma 4.1.1’s printed continuous-extension statement, obtained from its proof.
 
 **Conditions and conventions.**
 
-- All hypotheses in the statement are required; the supplier interfaces below are not claims of implementation.
+- Give Qbar^× the discrete topology for these finite-image characters. Add every infinite place to S, with trivial character at newly added places.
+- The finite-order refinement needs the finite-index statement for the open subgroup of idele classes; it does not assert that this subgroup is finite.
 
 **Proof or construction.**
 
-1. Choose an open compact subgroup away from S whose intersection with F^× has χ_S=1, using the congruence-subgroup lemma for finitely generated S-units.
-2. Extend the resulting character from its subgroup in the finite ray-class quotient using divisibility of Qbar^×; finite image follows by using the finite quotient.
-3. Apply global reciprocity to obtain a cyclic extension realising the local characters; its degree may exceed the local character orders, which avoids the naive Grunwald–Wang obstruction.
+1. By the S-unit congruence-subgroup input, choose an open compact U in the ideles away from S on which the intersection with diagonal F^× has trivial χ_S. Arrange U_v=O_v^× at almost every finite place. Extend χ_S to the image H of U·∏_{v∈S} F_v^× in C=A_F^×/F^× by making it trivial on U.
+2. H is open and C/H is finite by finiteness of the corresponding ray-class quotient, since S contains every infinite place. The extended character χ_H has finite image, so ker χ_H has finite index in C and is open. Thus C/ker χ_H is a finite abelian group.
+3. Extend χ_H from H/ker χ_H to C/ker χ_H with values in the divisible group of all roots of unity. This gives finite image and an open kernel, hence a continuous finite-order character on C.
+4. If the prescribed character has p-power order, project this finite-order extension to its p-primary component in the roots of unity. The other primary components restrict trivially on the local product, so the restriction is unchanged. Apply reciprocity to realise cyclic local extensions; the enlarged global order accommodates the Grunwald–Wang obstruction.
 
 **Direct prerequisites.**
 
@@ -641,11 +643,12 @@ For a number field F, a finite set S of places and a continuous finite-order cha
 
 **Source locators and their role.**
 
-- [cht](https://pmihes.centre-mersenne.org/item/10.1007/s10240-008-0016-1.pdf) — Lemma 4.1.1 and proof, pp. 116–117. Extending finite local characters
+- [cht](https://www.numdam.org/item/10.1007/s10240-008-0016-1.pdf) — Lemma 4.1.1 and proof, p. 116; finite-order and p-primary refinements of the proof. Extending finite local characters.
 
-**Acceptance.**
+**Acceptance checks.**
 
-- For the trivial local characters choose the trivial global character. Verify that p=2 is included and an added auxiliary place is allowed to ramify, avoiding the unrestricted Grunwald–Wang assertion.
+- Trivial local data admit the trivial global extension. For p=2 the global character may need higher 2-power order and extra ramification; a same-order cyclic extension is not promised.
+- Check that the finite quotient used is C/ker χ_H, rather than H or the local product. For local p-power characters the p-primary projection preserves every prescribed value.
 
 Proposed module: `TauCeti/NumberTheory/PotentialModularity/MoretBailly`; namespace: `TauCeti.PotentialModularity`.
 
@@ -677,7 +680,7 @@ Let F be a number field, D/F finite Galois, S a finite set of places, and E_v/F_
 
 **Source locators and their role.**
 
-- [cht](https://pmihes.centre-mersenne.org/item/10.1007/s10240-008-0016-1.pdf) — Lemma 4.1.2 and proof, p. 117. Soluble extensions with prescribed completions
+- [cht](https://pmihes.centre-mersenne.org/item/10.1007/s10240-008-0016-1.pdf) — Lemma 4.1.2, statement p. 116 and proof p. 117. Soluble extensions with prescribed completions
 
 **Acceptance.**
 
@@ -1168,7 +1171,7 @@ Let rho-bar: G_Q -> GL_2(F) be of S-type (odd, absolutely irreducible) with 2 <=
 
 **Proof or construction.**
 
-1. Apply modularity lifting first to the auxiliary Tate representation of the H6 abelian variety, not to a lift of the original residual representation. Use R19.2 to state modularity, R22.5/R22.6 or the corrected totally real ordinary input, R20.3 for the solvable-image weights, R22.4 for KW II Theorem 8.2 and L5 for the ordinary weight adjustment; Khare Lemma 2.2 comes from R18.3.
+1. Apply modularity lifting first to the auxiliary Tate representation of the H6 abelian variety, not to a lift of the original residual representation. Use R19.2 to state modularity, R22.5/R22.6 or the corrected totally real ordinary input, R20.3 for the solvable-image weights, R22.1/theorem-8-2-minimal-modular-lifts for KW II Theorem 8.2 and L5 for the ordinary weight adjustment; Khare Lemma 2.2 comes from R18.3.
 2. Dihedral projective image: choose all auxiliary fields linearly disjoint from the field cut out by rho-bar and split at a prime split in the projective kernel field but inert in the quadratic subfield of Q(mu_p); this keeps rho-bar|G_F(mu_p) irreducible.
 3. Solvable image: Langlands-Tunnell give rho-bar from S_k(Gamma_1(N)) with k >= 2; Gross Theorem 13.10, Coleman-Voloch and Gross Propositions 8.13, 8.18 give weight k(rho-bar) with N prime to p and also S_2(Gamma_1(Np)); so (alpha), (beta) of 8.2 hold and Theorem 8.2 gives (i), (ii).
 4. Non-solvable image: Taylor's moduli problem X for HBAVs (field M, embedding i, polarisation datum j, level structure alpha at lambda | p and at auxiliary primes p_0 ([58]) or p_1, p_2 ([59])); a point of X over F from Moret-Bailly using local points at infinity, p and the auxiliary primes; modularity of V_wp(A) (or of B from Lemma 4.4 of [59]) gives modularity of rho-bar|G_F.
@@ -1190,7 +1193,7 @@ Let rho-bar: G_Q -> GL_2(F) be of S-type (odd, absolutely irreducible) with 2 <=
 - `AutomorphicGaloisRepresentations:R19.2`
 - `GL2ModularityLifting:R22.6/kw-dyadic-lifting`
 - `GL2ModularityLifting:R22.5/kw-odd-prime-lifting`
-- `GL2ModularityLifting:R22.4`
+- `GL2ModularityLifting:R22.1/theorem-8-2-minimal-modular-lifts`
 - `PadicFamilies:L5/hida-control-nearly-ordinary`
 - `PadicFamilies:L5`
 - `SerreWeightAndLevelOptimisation:R20.3`
@@ -1852,7 +1855,7 @@ There is a number field F such that: (1) F/Q is totally real, im(rho-bar|F) is n
 
 - `PotentialModularityAndCompatibleSystems:R23.3/kw-ii-theorem-6-1-potential-modularity-of-rho-bar-over-a-controlled-F`
 - `PotentialModularityAndCompatibleSystems:R23.5/control-of-the-extension`
-- `GL2ModularityLifting:R22.4`
+- `GL2ModularityLifting:R22.1/theorem-8-2-minimal-modular-lifts`
 - `LocalGaloisDeformationRings:R08.2`
 
 **Source locators and their role.**
@@ -2242,9 +2245,9 @@ Beyond the existing A6 functor, quasi-projective scheme-representability and sep
 - `PotentialModularityAndCompatibleSystems:R23.1/snowden-soluble-preliminary-field`
 - `PotentialModularityAndCompatibleSystems:R23.5/bcgp-local-galois-data-without-descent`
 
-### 15. `GL2ModularityLifting:R22.4` (open)
+### 15. `GL2ModularityLifting:R22.1` (open)
 
-KW II Theorem 8.2: level lowering/minimal modular lifts after allowable base change, with fixed central character and weight/local type, including dyadic and p=3 cases; Skinner–Wiles base-change theorem as used there. No exact supplier node yet states this full theorem.
+KW II Theorem 8.2: use the existing R22.1/theorem-8-2-minimal-modular-lifts node, including its central-character choices, cases (a)–(c), dyadic alternatives, prescribed Steinberg set and allowable base change. This is a planned supplier, whose local-type interfaces and imported proof inputs remain open; its statement must not be replaced by GL2/Q level lowering.
 
 **Consumers.**
 
@@ -2440,7 +2443,7 @@ Taylor 2006 Theorem 5.7's printed proof (p. 771) cites Lemmas 5.6, 1.3 and 5.3; 
 
 ### 3. KW II Theorem 8.2 and the Gross/Coleman-Voloch weight results are imported into Theorem 6.1
 
-Verified: the solvable-image branch of Theorem 6.1 (p. 54) uses Langlands-Tunnell, Gross Theorem 13.10 and Propositions 8.13, 8.18, Coleman-Voloch, and then applies Theorem 8.2 to complete the branch; Theorem 8.2 (pp. 71-73, read) is a level-lowering/minimal-at-p statement after allowable base change, proved with definite quaternion algebras (section 7), Lemmas 7.3, 7.4, 7.7, 7.10, 8.3 and Lemma 2.2 of [60] (Taylor, icosahedral II). Not decomposed here. The full Theorem 8.2 interface is requested from GL2ModularityLifting R22.4; the Gross/Coleman–Voloch inputs are requested from SerreWeightAndLevelOptimisation R20.3. These are requests, not claims that an existing node already supplies them.
+Verified: the solvable-image branch of Theorem 6.1 (p. 54) uses Langlands-Tunnell, Gross Theorem 13.10 and Propositions 8.13, 8.18, Coleman-Voloch, and then applies Theorem 8.2 to complete the branch; Theorem 8.2 (pp. 71-73, read) is a level-lowering/minimal-at-p statement after allowable base change, proved with definite quaternion algebras (section 7), Lemmas 7.3, 7.4, 7.7, 7.10, 8.3 and Lemma 2.2 of [60] (Taylor, icosahedral II). Not decomposed here. The full Theorem 8.2 interface is planned by GL2ModularityLifting R22.1/theorem-8-2-minimal-modular-lifts and imported here; its supplier still records local-type and proof-input gaps; the Gross/Coleman–Voloch inputs are requested from SerreWeightAndLevelOptimisation R20.3. These are planned interfaces, not implemented theorems or resolved supplier gaps.
 
 **Needed by.**
 
@@ -2456,7 +2459,7 @@ Verified: KW II (p. 91) uses 'Lemma 4.2 of [33]' with [33] = Khare, Serre's modu
 
 ### 5. Propositions 9.2–9.3 and Theorem 8.2 of KW II over F are imported
 
-Theorem 10.1 is a corollary of Theorems 6.1 and 8.2 and Propositions 9.2–9.3. The finiteness over F is GL2ModularityLifting R22.3/minimal-ring-finite and the lifting theorems R22.5/R22.6; KW II Theorem 8.2 (minimal modular lifts after allowable base change) has no node there yet.
+Theorem 10.1 is a corollary of Theorems 6.1 and 8.2 and Propositions 9.2–9.3. The finiteness over F is GL2ModularityLifting R22.3/minimal-ring-finite and the lifting theorems R22.5/R22.6; KW II Theorem 8.2 is imported from R22.1/theorem-8-2-minimal-modular-lifts; that node’s local-type and proof-input gaps remain open.
 
 **Needed by.**
 
@@ -2482,7 +2485,7 @@ Taylor 2002 Lemma 1.3 (printed p. 12) refers its local construction to the metho
 
 ### 8. Skinner–Wiles, Base change and a problem of Serre (Duke 2001), used by Taylor 2006 Corollary 5.5, remains an unread supplier input
 
-Verified: Taylor 2006, p. 769, obtains Corollary 5.5 by applying the base-change input [SW1] to Lemma 5.4, [SW1] = Skinner–Wiles, Duke Math. J. 107 (2001), 15–25 (p. 778). The same paper is a gap of OrdinaryAutomorphicFormsAndModularityLifting (used in Skinner–Wiles 2001 Theorem 5.1) and is used by Taylor's KW Annals Theorem 2.1; it is not freely readable. The exact allowable-base-change/level-adjustment use is included in the R22.4 request; R17.4 supplies automorphic base change and descent. Their generic statements do not certify this unread source input.
+Verified: Taylor 2006, p. 769, obtains Corollary 5.5 by applying the base-change input [SW1] to Lemma 5.4, [SW1] = Skinner–Wiles, Duke Math. J. 107 (2001), 15–25 (p. 778). The same paper is a gap of OrdinaryAutomorphicFormsAndModularityLifting (used in Skinner–Wiles 2001 Theorem 5.1) and is used by Taylor's KW Annals Theorem 2.1; it is not freely readable. Taylor’s specific allowable-base-change/level-adjustment use remains an unread, unclosed input here. R17.4 supplies generic automorphic base change and descent; R22.1 supplies KW II Theorem 8.2. Neither generic contract certifies the distinct Skinner–Wiles input to Taylor Corollary 5.5.
 
 **Needed by.**
 
@@ -3255,3 +3258,5 @@ R23.6 exports mathematical nodes from R23.3–R23.5 and records the application 
 - BCGP abelian-surface modularity and BHKT automorphy are consumers, not new targets here.
 
 The independent [round-2 review](../reviews/REV-PotentialModularityAndCompatibleSystems--R23.1~2.md) accepts this complete target-level planning pass after checking all 49 nodes, nine baseline declarations, assigned red-team findings and source issues. Its [handoff](../handoff/REV-PotentialModularityAndCompatibleSystems--R23.1~2.md) records the remaining supplier and build boundaries. All eight stages remain planned, all implementations remain unchecked, and the 22 gaps and 33 requests remain open. Acceptance does not certify a closed proof graph or compiled suggested file.
+
+Source reading for FIX-RT-AREA-langlands-2~4 (Codex codex-XscFZt, 8 October 2026): CHT Lemmas 4.1.1–4.1.2 and proofs, printed pp. 116–117. The finite-order and p-primary character refinements above are consequences of the proof’s finite-index construction.

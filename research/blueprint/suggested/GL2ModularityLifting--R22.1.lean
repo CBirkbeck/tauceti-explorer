@@ -977,3 +977,14 @@ end SuggestedTest
 end TauCeti.ModularityLifting
 
 end
+
+/-
+Repair supplier contracts (/26): allowable-base-change-existence and
+solvable-base-change-reduction import
+PotentialModularityAndCompatibleSystems:R23.1/cht-soluble-prescribed-completions;
+lemma-7-10-determinant-adjustment imports
+PotentialModularityAndCompatibleSystems:R23.1/cht-character-extension, including
+finite-order and p-primary refinements. CHT Lemmas 4.1.1–4.1.2, pp. 116–117.
+Quadratic field prescription remains the weak-approximation clause of this file's
+allowable-base-change-existence; unrestricted same-degree Grunwald–Wang is not used.
+-/

@@ -236,7 +236,7 @@ above p and of weight k(ρ̄). (β): ρ̄ ≅ ρ̄_π with π of conductor divid
 take these, not "ρ̄ is modular"; converting one into the other is the weight part of Serre's conjecture
 (`alpha-beta-from-modularity-over-q`, in this layer).
 
-**Lemma: solvable base change** (node `solvable-base-change-reduction`). The field with prescribed completions exists by
+**Lemma: solvable base change** (node `solvable-base-change-reduction`). Field existence imports `PotentialModularityAndCompatibleSystems:R23.1/cht-soluble-prescribed-completions`; automorphic descent imports R17.4. The field with prescribed completions exists by
 Clozel–Harris–Taylor's Lemma 4.1.2 (requested from PotentialModularityAndCompatibleSystems R23.1; Gee's Fact 4.27), and
 in the allowable case by R22.1/allowable-base-change-existence; no automorphic input is involved. Descent of modularity
 along solvable totally real extensions (Gee 4.25) is requested from GL2AutomorphicRepresentationsAndTransfer R17.4.
@@ -519,9 +519,9 @@ Let F and ρ̄ be as in KW II §7.6.2 (F totally real, unramified at p, split at
 - Over the field F_{i−1} of the proof of Theorem 8.4, clause (5) with the trivial extension at the places above v_i and the unramified quadratic extension at the places above the other v_j gives a quadratic F_i, with v_j inert for j ≠ i and split for j = i. Without clause (5) the degree of F_i could be a larger even number, and the count of places above v_1, …, v_i in the proof would be wrong.
 - Without the real places in S the extension could be totally complex, and the Hilbert modular setting would be lost.
 
-**Imports.** `GL2ModularityLifting:R22.1/allowable-base-change`, `PotentialModularityAndCompatibleSystems:R23.1`, `ArithmeticGaloisRepresentations:R01.4`, `tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev`.
+**Imports.** `GL2ModularityLifting:R22.1/allowable-base-change`, `PotentialModularityAndCompatibleSystems:R23.1/cht-soluble-prescribed-completions`, `ArithmeticGaloisRepresentations:R01.4`, `tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev`.
 
-**Sources.** CHT-2008, Lemma 4.1.2, p. 116; KW2-2009, §7.6.2, paragraph after Definition 7.9, p. 68; KW2-2009, §7.6.2, p. 68.
+**Sources.** CHT-2008, Lemma 4.1.2, statement p. 116 and proof p. 117; KW2-2009, §7.6.2, paragraph after Definition 7.9, p. 68; KW2-2009, §7.6.2, p. 68.
 
 ### The residual hypotheses (α) and (β) persist under allowable base change
 `GL2ModularityLifting:R22.1/alpha-beta-under-allowable-base-change` (lemma).
@@ -629,7 +629,7 @@ Let ψ, ψ′ be arithmetic characters with the same reduction and equal restric
 - F′ = F in the odd-p argument is allowed here; this lemma does not assert that F′/F has the even degree of Definition 7.9. In its uses it is followed by an allowable base change (R22.1/allowable-base-change-existence).
 - The global character produced by Lemma 4.1.1 may have order divisible by odd primes; only its 2-primary component is used.
 
-**Imports.** `GL2ModularityLifting:R22.1/determinant-character-kinds`, `PotentialModularityAndCompatibleSystems:R23.1`, `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-12-separate-arithmetic-global-existence-the-norm-index-and-the-global-correspondence`, `ArithmeticGaloisRepresentations:R01.3`.
+**Imports.** `GL2ModularityLifting:R22.1/determinant-character-kinds`, `PotentialModularityAndCompatibleSystems:R23.1/cht-character-extension`, `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-12-separate-arithmetic-global-existence-the-norm-index-and-the-global-correspondence`, `ArithmeticGaloisRepresentations:R01.3`.
 
 **Sources.** KW2-2009, Lemma 7.10 and proof, p. 69; CHT-2008, Lemma 4.1.1, p. 116.
 
@@ -734,15 +734,13 @@ version, pp. 116–117): extension of a finite-order character of ∏_{v∈S} F_
 soluble Galois extension with prescribed finite Galois completions at a finite set of places (real places allowed),
 linearly disjoint from a given finite Galois extension. Finding /26 assigns them to PotentialModularityAndCompatibleSystems
 R23.1. The packet requests them there with their exact statements and two refinements (the p-primary component of the
-character; total reality), and cites the stage R23.1 as a prerequisite of `allowable-base-change-existence`,
-`lemma-7-10-determinant-adjustment` and `solvable-base-change-reduction`. On the assembled stage graph R23.1 has
+character; total reality). R23.1 now plans `cht-character-extension` with its finite-order and p-primary refinements, and `cht-soluble-prescribed-completions`. The former is the fine prerequisite of `lemma-7-10-determinant-adjustment`; the latter supplies `allowable-base-change-existence` and `solvable-base-change-reduction`. The underlying class-field and S-unit contracts remain open supplier interfaces. On the assembled stage graph R23.1 has
 16 ancestors (scheme foundations, algebraic moduli and four Tau Ceti layers), none of which is a consumer of R22.1,
 so the link R23.1 → R22.1 is acyclic. The requirements special to KW II (even degree, the conditions at p, disjointness
 from the field cut out by ρ̄ and the p-th roots of unity, iteration in towers) are proved in this layer, in
 `allowable-base-change-existence`. Its clause (5) gives quadratic extensions when every prescribed completion has
 degree at most 2, by weak approximation and without class field theory; the proof of Theorem 8.4 needs extensions of
-degree exactly 2, which Lemma 4.1.2 alone does not provide. R17.4 supplies automorphic base change and descent only. When the R23.1 packet plans
-the two lemmas, the stage prerequisite becomes their node ids.
+degree exactly 2, which Lemma 4.1.2 alone does not provide. R17.4 supplies automorphic base change and descent only. The packet prerequisites name those two existing supplier nodes.
 
 R20.6's distinct Kisin type-change and Gee prescribed-weight contracts remain open; deleting the wrong KW Theorem 8.4
 request did not discharge them.
