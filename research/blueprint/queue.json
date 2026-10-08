@@ -42188,8 +42188,9 @@
     "BP-Polylogarithms--P.3~2"
    ],
    "prompt": "research/blueprint/prompts/REV-Polylogarithms--P.3~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7066"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7066",
+   "finishedAt": "2026-10-08T06:11:02Z"
   },
   {
    "kind": "blueprint",
